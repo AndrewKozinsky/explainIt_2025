@@ -9,7 +9,7 @@ http {
         server_name explainit.ru www.explainit.ru;
 
         location / {
-            proxy_pass http://site:3000;
+            proxy_pass http://face:3000;
         }
 
         #location /api {

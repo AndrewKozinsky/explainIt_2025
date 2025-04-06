@@ -4,19 +4,19 @@ services:
     image: nginx:1.19.7-alpine
     container_name: explain-nginx
     depends_on:
-      - site
+      - face
     ports:
       - 80:80
     volumes:
       - ./nginx/nginx.conf.dev:/etc/nginx/nginx.conf
-  site:
+  face:
     build:
-      context: site/
+      context: face/
       dockerfile: Dockerfile.dev
     restart: unless-stopped
     volumes:
-      - ./site:/app
-      - ./site:/public
+      - ./face:/app
+      - ./face:/public
     command: yarn run dev
-    container_name: explain-site
+    container_name: explain-face
     environment: {}

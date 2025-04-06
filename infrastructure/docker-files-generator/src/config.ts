@@ -31,15 +31,15 @@ export function createDockerConfig(env: EnvType): ConfigSchemaV37Json {
 				container_name: 'explain-api',
 				environment: getApiEnvs(env),
 			},*/
-			site: {
+			face: {
 				build: {
-					context: 'site/',
+					context: 'face/',
 					dockerfile: env === 'dev' ? 'Dockerfile.dev' : 'Dockerfile.server',
 				},
 				restart: 'unless-stopped',
-				volumes: env === 'dev' ? ['./site:/app', './site:/public'] : undefined,
+				volumes: env === 'dev' ? ['./face:/app', './face:/public'] : undefined,
 				command: env === 'dev' ? 'yarn run dev' : 'yarn run start',
-				container_name: 'explain-site',
+				container_name: 'explain-face',
 				environment: getSiteEnvs(env),
 			},
 		},
