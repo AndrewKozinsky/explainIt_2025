@@ -34,7 +34,6 @@ export type DefinitionsVolume = {
 } | null
 
 export interface ConfigSchemaV37Json {
-	version: string
 	services?: PropertiesServices
 	networks?: PropertiesNetworks
 	volumes?: PropertiesVolumes

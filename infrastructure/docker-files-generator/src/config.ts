@@ -9,8 +9,6 @@ type EnvType = 'dev' | 'serverCheck' | 'server'
  */
 export function createDockerConfig(env: EnvType): ConfigSchemaV37Json {
 	return {
-		version: '3.8',
-
 		services: {
 			nginx: {
 				image: 'nginx:1.19.7-alpine',
