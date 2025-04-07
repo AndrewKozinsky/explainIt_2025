@@ -1,0 +1,36 @@
+//@import "../../../../styles/variables";
+
+/*.wrapper {
+	position: relative;
+	display: none;
+	background-color: white;
+	padding: 1rem 1.6rem;
+	border-radius: $radius-2;
+	border: 1px solid $grayColor-3;
+
+	&::after {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		top: 4px;
+		left: 4px;
+		width: 100%;
+		height: 100%;
+		border-radius: $radius-2;
+		border: 1px solid $grayColor-3;
+	}
+
+	@include page-width($tablet-width) {
+		display: inline-block;
+	}
+}*/
+
+/*.examplesCount {
+	font-size: 5.6rem;
+	line-height: 5.6rem;
+}*/
+
+/*.examplesWord {
+	font-size: 2rem;
+	line-height: 2rem;
+}*/

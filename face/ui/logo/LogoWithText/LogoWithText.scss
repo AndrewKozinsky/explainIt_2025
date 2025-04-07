@@ -1,0 +1,28 @@
+.logo-with-text {
+	display: flex;
+	gap: 7px;
+	align-items: center;
+}
+
+.logo-with-text__right {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 3px;
+	margin-top: 2px;
+}
+
+.logo-with-text__name {
+	display: inline-block;
+	font-size: 2rem;
+	line-height: 2rem;
+	font-weight: 600;
+	font-style: italic;
+}
+
+.logo-with-text__description {
+	font-size: 1.2rem;
+	line-height: 1.2rem;
+	font-weight: 400;
+	font-style: italic;
+}

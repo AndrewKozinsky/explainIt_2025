@@ -1,0 +1,28 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+$CN: language-level-badge;
+
+.#{$CN} {
+	text-align: center;
+}
+
+.#{$CN}__header {
+	font-size: 3rem;
+	line-height: 3rem;
+	color: white;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.#{$CN}__pill {
+	display: inline-block;
+	font-size: 1.2rem;
+	line-height: 1.2rem;
+	color: $grayColor-1;
+	text-transform: capitalize;
+	padding: .6rem 1.1rem;
+	margin-top: 1rem;
+	border: 1px solid $grayColor-4;
+	border-radius: 2rem;
+}

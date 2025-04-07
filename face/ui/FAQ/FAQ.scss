@@ -1,0 +1,80 @@
+//@import 'styles/variables';
+//@import 'styles/mixins';
+
+//$CN: faq;
+
+/*.#{$CN} {
+}*/
+
+/*.#{$CN}__item {
+	display: flex;
+	align-items: flex-start;
+}*/
+
+/*.#{$CN}__divider {
+	height: 1px;
+	background-color: $grayColor-2;
+	margin: 2rem 0;
+
+	@include page-width($tablet-width) {
+		margin: 1.6rem 0;
+	}
+}*/
+
+/*.#{$CN}__item-content {
+	flex-grow: 1;
+	padding: 0 1rem 0 0;
+
+	@include page-width($tablet-width) {
+		padding: 0 1.6rem 0 0;
+	}
+}*/
+
+/*.#{$CN}__button {
+	svg {
+		transform: rotateZ(45deg);
+	}
+
+	&--pushed {
+		svg {
+			transform: rotateZ(0);
+		}
+	}
+}*/
+
+/*.#{$CN}__question {
+	font-size: 1.8rem;
+	line-height: 2.6rem;
+
+	@include page-width($tablet-width) {
+		font-size: 2.4rem;
+		line-height: 3.2rem;
+	}
+}*/
+
+/*.#{$CN}__answer-wrapper {
+	background-color: white;
+	padding: 0.8rem 1rem;
+	margin: .8rem 0 0 0;
+	border-radius: $radius-2;
+
+	@include page-width($tablet-width) {
+		padding: 1rem 2rem;
+		border-radius: $radius-2;
+	}
+}*/
+
+/*.#{$CN}__text-answer-wrapper {
+	display: grid;
+	gap: 0.4rem;
+}*/
+
+/*.#{$CN}__answer-paragraph {
+	font-size: 1.5rem;
+	line-height: 2.1rem;
+
+	@include page-width($tablet-width) {
+		font-size: 1.7rem;
+		line-height: 2.6rem;
+	}
+}*/

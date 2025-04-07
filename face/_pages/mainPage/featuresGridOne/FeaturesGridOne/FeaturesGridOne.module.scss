@@ -1,0 +1,40 @@
+//@import "../../../../styles/variables";
+
+/*.grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+	align-items: start;
+	gap: 4rem;
+
+	@include page-width(calc($monitor-width + 20rem	)) {
+		grid-template-columns: repeat(auto-fill, minmax(35rem, 1fr));
+	}
+}*/
+
+/*.cell {
+
+}*/
+/*.cellGhost {
+	opacity: .5;
+}*/
+/*.cellDouble {
+	@include page-width(calc($tablet-width + 30rem	)) {
+		grid-column: span 2;
+	}
+}*/
+
+/*.cellText {
+	font-size: 1.8rem;
+	line-height: 2.8rem;
+	margin-top: .5rem;
+}*/
+
+/*.cellElemInText {
+	display: inline-block;
+	float: right;
+	margin: 0 0 1rem 1rem;
+}*/
+
+/*.cellBottomElem {
+	margin-top: 1rem;
+}*/

@@ -1,0 +1,105 @@
+@import '@/styles/variables.scss';
+@import '@/styles/mixins.scss';
+@import '@/styles/inherit.scss';
+
+:root {
+	// Стандартный размер шрифта в браузере 16 пикселей.
+	// Поэтому 10 пикселей будет 62.5%.
+	// Размер в процентах указывается для слабовидящих у которых в браузере стоит увеличенный шрифт.
+	font-size: 62.5%;
+}
+
+
+@font-face {
+    font-family: "Suisse";
+    src: url("./fonts/SuisseIntl-Regular.woff2") format("woff2");
+    font-weight: 300;
+}
+@font-face {
+    font-family: "Suisse";
+    src: url("./fonts/SuisseIntl-RegularItalic.woff2") format("woff2");
+    font-weight: 300;
+	font-style: italic;
+}
+@font-face {
+	font-family: "Suisse";
+	src: url("./fonts/SuisseIntl-Medium.woff2") format("woff2");
+	font-weight: 400;
+}
+@font-face {
+    font-family: "Suisse";
+    src: url("./fonts/SuisseIntl-MediumItalic.woff2") format("woff2");
+    font-weight: 400;
+	font-style: italic;
+}
+@font-face {
+    font-family: "Suisse";
+    src: url("./fonts/SuisseIntl-SemiBold.woff2") format("woff2");
+    font-weight: 600;
+}
+@font-face {
+    font-family: "Suisse";
+    src: url("./fonts/SuisseIntl-SemiBoldItalic.woff2") format("woff2");
+    font-weight: 600;
+	font-style: italic;
+}
+@font-face {
+    font-family: "Suisse";
+    src: url("./fonts/SuisseIntl-Bold.woff2") format("woff2");
+    font-weight: 700;
+}
+@font-face {
+    font-family: "Suisse";
+    src: url("./fonts/SuisseIntl-BoldItalic.woff2") format("woff2");
+    font-weight: 700;
+	font-style: italic;
+}
+/*@font-face {
+    font-family: "Suisse";
+    src: url("./fonts/SuisseIntl-Black.woff2") format("woff2");
+    font-weight: 900;
+}*/
+
+*:not(svg, g, path) {
+	all: unset;
+	display: revert;
+    list-style: none;
+
+	&:focus {
+		outline: 2px solid $blueColor-2;
+	}
+}
+
+html, body {
+	//scrollbar-gutter: auto;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	font-family: 'Suisse', sans-serif;
+	font-display: swap;
+	font-size: 1.6rem;
+	line-height: 2.2rem;
+	font-weight: 300;
+	color: $textColor;
+	background: $grayColor-1;
+	min-height: 100dvh;
+	max-width: $max-page-width;
+	margin: 0 auto;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+
+a {
+	cursor: pointer;
+}
+
+.link {
+	@include link;
+}
+.link--current {
+	@include link--current;
+}

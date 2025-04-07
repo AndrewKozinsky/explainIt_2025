@@ -1,0 +1,26 @@
+//@import 'styles/variables';
+//@import 'styles/mixins';
+//@import 'styles/inherit';
+
+//$CN: art-paragraph;
+
+/*.#{$CN} {
+	@include paragraph();
+
+	&--size-small {
+		@include paragraph-small();
+	}
+	&--size-big {
+		@include paragraph-big();
+	}
+	&--size-giant {
+		@include paragraph-giant();
+	}
+
+	&--color-normal {
+
+	}
+	&--color-gray {
+		color: $grayColor-3;
+	}
+}*/

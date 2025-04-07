@@ -1,0 +1,51 @@
+//@import 'styles/variables';
+//@import 'styles/mixins';
+//@import 'styles/inherit';
+
+//$CN: art-list;
+
+/*.#{$CN} {
+	position: relative;
+	list-style: none;
+
+	padding: 0 0 0 5rem;
+	margin-top: 0.4rem;
+
+	li {
+		position: relative;
+		margin-top: 0.8rem;
+	}
+	li::before {
+		position: absolute;
+	}
+}*/
+
+// Ненумерованный список
+/*ul.#{$CN} {
+	li {
+		&::before {
+			content: '';
+			top: 0.6em;
+			left: -1.6rem;
+			width: 0.9rem;
+			height: 0.9rem;
+			background-color: $textColor;
+			border-radius: 50%;
+		}
+	}
+}*/
+
+// Нумерованный список
+/*ol.#{$CN} {
+	counter-reset: li;
+
+	li {
+		&::before {
+			content: counter(li);
+			counter-increment: li;
+			top: 0.2em;
+			left: -2.2rem;
+			font-weight: 700;
+		}
+	}
+}*/

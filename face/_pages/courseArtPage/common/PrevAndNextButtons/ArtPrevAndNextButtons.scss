@@ -1,0 +1,184 @@
+//@import 'styles/variables';
+
+/*.art-prev-and-next-buttons-outer {
+	container-type: inline-size;
+}*/
+/*.art-prev-and-next-buttons {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+
+	// Div используется чтобы создать ширину если нет ссылки на предыдущую статья
+	// Но это не требуется для телефона когда ссылки располагаются друг под другом.
+	& > div {
+		display: none;
+	}
+
+	@include container-width(600px) {
+		flex-direction: row;
+
+		// Дочерние элементы обёртки ссылок будут шириной 50%.
+		& > * {
+			width: 50%;
+		}
+		& > div {
+			display: block;
+		}
+	}
+
+	&--blue {
+		.prev-or-next-button {
+			background-color: white;
+			border-color: lighten($blueColor-2, 20%);
+
+			.prev-or-next-button__hr {
+				background: darken($blueColor-1, 12%);
+			}
+
+			.prev-or-next-button__arrow {
+				path {
+					fill: $blueColor-2;
+				}
+			}
+
+			&__top {
+				color: $grayColor-3;
+			}
+			&__name {
+				color: $blueColor-2;
+			}
+			&__description {
+				color: $grayColor-4;
+			}
+
+			&:hover {
+				border-color: $blueColor-2;
+
+				.prev-or-next-button__hr {
+					background: darken($blueColor-1, 22%);
+				}
+
+				.prev-or-next-button {
+					&__top {
+						color: darken($grayColor-3, 10%);
+					}
+					&__name {
+						filter: brightness(85%);
+					}
+					&__description {
+						color: darken($grayColor-4, 10%);
+					}
+				}
+			}
+		}
+
+
+	}
+
+	&--white {
+		.prev-or-next-button {
+			border-color: $grayColor-3;
+
+			.prev-or-next-button__hr {
+				background: $grayColor-4;
+			}
+
+			&__top {
+				color: $grayColor-3;
+			}
+			&__name {
+				color: $grayColor-1;
+			}
+			&__description {
+				color: $grayColor-3;
+			}
+
+			&:hover {
+				border-color: lighten($grayColor-3, 13%);
+
+				.prev-or-next-button__hr {
+					background: lighten($grayColor-4, 8%);
+				}
+
+				.prev-or-next-button {
+					&__top {
+						color: lighten($grayColor-3, 9%);
+					}
+					&__name {
+						color: white;
+					}
+					&__description {
+						color: lighten($grayColor-3, 9%);
+					}
+				}
+			}
+		}
+
+		.prev-or-next-button__arrow {
+			path {
+				fill: $grayColor-1;
+			}
+		}
+	}
+}*/
+
+/*.prev-or-next-button {
+	display: flex;
+	gap: 2rem;
+	align-items: stretch;
+	flex-shrink: 1;
+	padding: 1.6rem 2rem;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: $radius-2;
+	transition: border-color .25s;
+
+	&--prev {
+		flex-direction: row;
+	}
+
+	&--next {
+		flex-direction: row-reverse;
+	}
+
+	&__top {
+		font-size: 1.2rem;
+		line-height: 1.4rem;
+		transition: color .25s;
+		margin-bottom: 5px;
+	}
+	&__name {
+		font-size: 2rem;
+		line-height: 2.4rem;
+		font-weight: 500;
+		transition: color .25s;
+	}
+	&__description {
+		font-size: 1.2rem;
+		line-height: 1.8rem;
+		transition: color .25s;
+		margin-top: 5px;
+	}
+}*/
+
+/*.prev-or-next-button__arrow {
+	display: none;
+	flex-shrink: 0;
+	margin: auto 0;
+}*/
+
+/*.prev-or-next-button__hr {
+	display: none;
+	width: 1px;
+	transition: background-color .25s;
+}*/
+
+/*@include container-width(400px) {
+	.prev-or-next-button__arrow, .prev-or-next-button__hr {
+		display: block;
+	}
+}*/
+
+/*.prev-or-next-button__content {
+	flex-grow: 1;
+}*/

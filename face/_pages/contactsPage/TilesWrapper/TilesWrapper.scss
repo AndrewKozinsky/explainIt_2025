@@ -1,0 +1,18 @@
+//@import 'styles/variables';
+//@import 'styles/mixins';
+
+//$CN: tiles-wrapper;
+
+/*.#{$CN} {
+	display: grid;
+	gap: 1.2rem;
+
+	@include page-width(calc($tablet-width - 2rem)) {
+		grid-template-columns: repeat(auto-fill, minmax(23rem, 1fr));
+		gap: 1.6rem;
+	}
+
+	@include page-width($monitor-width) {
+		gap: 2rem;
+	}
+}*/

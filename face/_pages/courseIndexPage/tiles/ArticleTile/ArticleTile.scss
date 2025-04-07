@@ -1,0 +1,86 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+$CN: article-tile;
+
+.#{$CN} {
+	aspect-ratio: 1 / 1;
+	background-color: white;
+	overflow: hidden;
+	padding: 7%;
+	border-radius: $radius-2;
+
+	@include hover-shadow();
+
+	&--black {
+		color: white;
+		background-color: $textColor;
+	}
+
+	&--welcome {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 2rem;
+		line-height: 2.6rem;
+		text-align: center;
+		font-weight: 500;
+	}
+
+	&--level {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
+
+	&--article {
+		&-top {
+			font-size: 1.2rem;
+			line-height: 1.6rem;
+			color: $grayColor-4;
+			margin-bottom: 1rem;
+		}
+
+		&-header {
+			font-size: 2rem;
+			line-height: 2.6rem;
+			font-weight: 500;
+			text-wrap: balance;
+		}
+
+		&-description {
+			display: -webkit-box;
+			-webkit-line-clamp: 8;
+			-webkit-box-orient: vertical;
+			font-size: 1.3rem;
+			line-height: 1.9rem;
+			color: $grayColor-4;
+			text-wrap: balance;
+			margin-top: 0.8rem;
+			overflow: hidden;
+		}
+	}
+
+	&--media {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 2rem;
+
+		&-img {
+
+		}
+	}
+}
+
+.#{$CN}-pill {
+	font-size: 1.2rem;
+	line-height: 1.2rem;
+	color: $grayColor-1;
+	text-transform: capitalize;
+	padding: .6rem 1.1rem;
+	border: 1px solid $grayColor-4;
+	border-radius: 2rem;
+}

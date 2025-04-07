@@ -1,0 +1,14 @@
+//@import 'styles/variables';
+//@import 'styles/mixins';
+//@import 'styles/inherit';
+
+//$CN: art-grid;
+
+/*.#{$CN} {
+	column-gap: 2.5rem;
+	row-gap: 2rem;
+
+	@include container-width($tablet-width) {
+		column-gap: 3.5rem;
+	}
+}*/

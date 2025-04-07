@@ -1,0 +1,246 @@
+//@import 'styles/variables';
+//@import 'styles/mixins';
+
+// Доступные классы:
+// .exercises
+// .art-faq
+// .art-grid
+// .art-header
+// .art-image
+// .art-list
+// .art-note
+// .art-paragraph
+
+
+// ЗАГОЛОВКИ (ОТСТУПЫ НЕ УКАЗЫВАЮТСЯ) =====
+/*.art-header--h4 {
+    margin-bottom: 0.3rem;
+}*/
+
+/*.art-header--h3 {
+    margin-bottom: 0.3rem;
+}*/
+
+/*.art-header--h2 {
+    margin-bottom: 0.6rem;
+}*/
+
+// КАРТИНКА (ОТСТУПЫ НЕ УКАЗЫВАЮТСЯ) =====
+/*.art-image + .art-header--h4 {
+    margin-top: 2.2rem;
+}*/
+
+/*.art-image + .art-header--h3 {
+    margin-top: 2.6rem;
+}*/
+
+/*.art-image + .art-header--h2 {
+    margin-top: 2.8rem;
+}*/
+
+/*.art-image + .art-paragraph {
+	margin-top: 1.2rem;
+}*/
+
+/*.art-image + .art-note {
+	margin-top: 2.2rem;
+}*/
+/*@include container-width($tablet-width) {
+	!*.art-image + .art-header--h4 {
+		margin-top: 2.4rem;
+	}*!
+	!*.art-image + .art-header--h3 {
+		margin-top: 2.8rem;
+	}*!
+	!*.art-image + .art-header--h2 {
+		margin-top: 3rem;
+	}*!
+	.art-image + .art-paragraph {
+		margin-top: 1.4rem;
+	}
+	.art-image + .art-note {
+		margin-top: 2.4rem;
+	}
+}*/
+
+/*@include container-width($monitor-width) {
+	.art-image + .art-paragraph {
+		margin-top: 1.6rem;
+	}
+	.art-image + .art-note {
+		margin-top: 2.6rem;
+	}
+}*/
+
+// ЗАМЕТКА (ОТСТУП НЕ УКАЗЫВАЕТСЯ) =====
+/*.art-note + .art-note {
+    margin-top: 2rem;
+}*/
+
+/*.art-note + .art-header--h2 {
+	margin-top: 2.6rem;
+}*/
+
+/*.art-note + .art-header--h3 {
+	margin-top: 2.2rem;
+}*/
+
+/*.art-note + .art-paragraph {
+	margin-top: 1.6rem;
+}*/
+/*.art-note + .art-grid {
+	margin-top: 1.6rem;
+}*/
+/*@include container-width($monitor-width) {
+	.art-note + .art-paragraph {
+		margin-top: 1.8rem;
+	}
+	.art-note + .art-grid {
+		margin-top: 1.8rem;
+	}
+}*/
+
+// АБЗАЦЫ (С ОТСТУПОМ)
+/*.art-paragraph + .art-paragraph {
+    margin-top: 0.2rem;
+}*/
+
+/*.art-paragraph + .art-paragraph--offset {
+    margin-top: 1rem;
+}*/
+
+/*.art-paragraph + .art-header--h4 {
+	margin-top: 1rem;
+}*/
+
+/*.art-paragraph + .art-header--h3 {
+	margin-top: 1.4rem;
+}*/
+
+/*.art-paragraph + .art-header--h2 {
+	margin-top: 1.8rem;
+}*/
+/*.art-paragraph + .art-paragraph--size-giant:not(.art-paragraph--offset) {
+	margin-top: 0.2rem;
+}*/
+/*.art-paragraph--size-giant + .art-paragraph--size-giant:not(.art-paragraph--offset) {
+	margin-top: 0.4rem;
+}*/
+/*.art-paragraph--size-giant + .art-paragraph--offset {
+	margin-top: 1.2rem;
+}*/
+
+/*.art-paragraph + .art-note {
+	margin-top: 1.6rem;
+}*/
+
+/*.art-paragraph + .art-image {
+	margin-top: 1.2rem;
+}*/
+
+/*.art-paragraph + .art-grid {
+	margin-top: 0.8rem;
+}*/
+
+/*.art-paragraph + .art-faq {
+	margin-top: 1.2rem;
+}*/
+/*.art-paragraph + .art-list {
+	margin-top: 0.4rem;
+}*/
+
+/*@include container-width($tablet-width) {
+	!*.art-paragraph + .art-header--h4 {
+		margin-top: 1.2rem;
+	}*!
+	.art-paragraph + .art-header--h3 {
+		margin-top: 1.6rem;
+	}
+	.art-paragraph + .art-header--h2 {
+		margin-top: 1.8rem;
+	}
+}*/
+
+/*@include container-width($monitor-width) {
+	!*.art-paragraph + .art-header--h4 {
+		margin-top: 1.4rem;
+	}*!
+	.art-paragraph + .art-header--h3 {
+		margin-top: 1.6rem;
+	}
+	.art-paragraph + .art-header--h2 {
+		margin-top: 2.4rem;
+	}
+	!*.art-paragraph + .art-note {
+		margin-top: 1.8rem;
+	}*!
+	.art-paragraph + .art-grid {
+		margin-top: 1rem;
+	}
+}*/
+
+// СПИСОК (ОТСТУП НЕ УКАЗЫВАЕТСЯ) =====
+/*.art-list + .art-paragraph {
+	margin-top: 1.2rem;
+}*/
+
+// КНОПКА ОТКРЫТИЯ УПРАЖНЕНИЙ (С ОТСТУПОМ)
+/*.exercises + .exercises {
+
+}*/
+
+// ВОПРОСЫ И ОТВЕТЫ (ОТСТУП НЕ УКАЗЫВАЕТСЯ)
+/*.art-faq + .art-faq {
+
+}*/
+/*.art-faq + .art-note {
+	margin-top: 3rem;
+}*/
+
+// СЕТКА (С ОТСТУПОМ)
+/*.art-grid + .art-paragraph {
+	margin-top: 1.6rem;
+}*/
+
+/*.art-grid + .art-header--h4 {
+	margin-top: 1.6rem;
+}*/
+
+/*.art-grid + .art-header--h3 {
+	margin-top: 1.6rem;
+}*/
+
+/*.art-grid + .art-header--h2 {
+	margin-top: 2.0rem;
+}*/
+
+/*.art-grid + .art-note {
+	margin-top: 2.0rem;
+}*/
+
+/*@include container-width($tablet-width) {
+	!*.art-grid + .art-header--h4 {
+		margin-top: 1.8rem;
+	}*!
+	.art-grid + .art-header--h3 {
+		margin-top: 1.8rem;
+	}
+	!*.art-grid + .art-header--h2 {
+		margin-top: 2.2rem;
+	}*!
+	.art-grid + .art-note {
+		margin-top: 2.2rem;
+	}
+}*/
+
+/*@include container-width($monitor-width) {
+	!*.art-grid + .art-header--h4 {
+		margin-top: 2.0rem;
+	}*!
+	.art-grid + .art-header--h3 {
+		margin-top: 2rem;
+	}
+	!*.art-grid + .art-header--h2 {
+		margin-top: 2.4rem;
+	}*!
+}*/

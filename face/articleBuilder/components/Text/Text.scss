@@ -1,0 +1,48 @@
+//@import 'styles/variables';
+//@import 'styles/mixins';
+//@import 'styles/inherit';
+
+//$CN: art-text;
+
+/*.#{$CN} {
+	&--color-blue {
+		display: inline-block;
+		color: $blueColor-2;
+		background-color: $blueColor-1;
+		padding: 0 .1em;
+		border-radius: $radius-1;
+	}
+
+	&--color-gold {
+		display: inline-block;
+		color: $orangeColor-2;
+		background-color: $orangeColor-1;
+        padding: 0 .1em;
+        border-radius: $radius-1;
+	}
+
+	&--color-error {
+		position: relative;
+		display: inline-block;
+		color: $redColor-2;
+
+		&::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 50%;
+			width: 100%;
+			height: 3px;
+			background-color: $redColor-2;
+			opacity: .3;
+		}
+	}
+
+	&--color-gray {
+		color: $grayColor-3;
+	}
+
+	&--weight-bold {
+		font-weight: 600;
+	}
+}*/

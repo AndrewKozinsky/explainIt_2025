@@ -1,0 +1,37 @@
+@import '../../../styles/variables';
+
+.pagination {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+.pagination-item {
+	display: flex;
+	align-items: center;
+	border: 1px solid darken($grayColor-2, 13%);
+	border-radius: 1.5rem;
+	transition: border-color 0.25s;
+
+	&:hover {
+		border-color: $grayColor-3;
+	}
+}
+
+.pagination-item-text {
+	display: inline-block;
+	font-size: 1.2rem;
+	line-height: 1.2rem;
+	letter-spacing: 0.3px;
+	text-transform: uppercase;
+	padding: 0 1.1rem;
+	transform: translateY(1px);
+
+	&--with-icon {
+		padding-left: 5px;
+	}
+}
+
+.pagination-icon {
+	display: block;
+	width: 2.6rem;
+}

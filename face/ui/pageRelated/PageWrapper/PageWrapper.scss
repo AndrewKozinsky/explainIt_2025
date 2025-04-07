@@ -1,0 +1,36 @@
+@import "../../../styles/mixins";
+@import "../../../styles/variables";
+
+.page-wrapper {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+@mixin side-offset {
+	--offset: 1rem;
+	padding-left: var(--offset);
+	padding-right: var(--offset);
+
+	@include page-width(400px) {
+		--offset: 4%;
+	}
+}
+
+.page-wrapper__top {
+	@include side-offset;
+	padding-top: 1.7rem;
+	padding-bottom: 3rem;
+}
+
+.page-wrapper__middle {
+	@include side-offset;
+	flex-grow: 1;
+	display: flex;
+}
+
+.page-wrapper__bottom {
+	@include side-offset;
+	padding-top: 4rem;
+	padding-bottom: 3rem;
+}
