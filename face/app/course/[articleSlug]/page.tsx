@@ -9,8 +9,8 @@ type TextBookArticleProps = {
 }
 
 // Универсальная страница учебника
-export default async function Page(props: TextBookArticleProps) {
-	const { articleSlug } = await props.params
+export default function Page(props: TextBookArticleProps) {
+	const { articleSlug } = props.params
 
 	const prevArticle = articleService.getArticle(articleSlug, 'prev')
 	const article = articleService.getArticle(articleSlug, 'this')
