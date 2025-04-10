@@ -13,6 +13,6 @@ export const transcriptions = {
 	they_cook_dinner_together: {
 		sentence: 'They cook dinner together',
 		transcription: 'ðeɪ kʊk ˈdɪnər təˈɡɛðər',
-		audio: true,
+		audio: false,
 	},
 } satisfies Record<string, ITranscription>

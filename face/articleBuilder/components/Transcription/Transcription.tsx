@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import React from 'react'
+import React, { useMemo } from 'react'
 import transcriptionService from '../../transcriptionService/transcriptionService'
 import { getComponentTexts, useGetAudioPlaying } from './fn/transcriptionLogic'
 import playSign from './images/play.svg'
@@ -17,7 +17,7 @@ function Transcription(props: TranscriptionProps) {
 
 	const { isPlay, playPauseHandler, progress } = useGetAudioPlaying(transcriptionService.cleanString(engSentence))
 
-	const transcriptionData = transcriptionService.getTranscriptionBySentence(engSentence)
+	const transcriptionData = useMemo(() => transcriptionService.getTranscriptionBySentence(engSentence), [])
 	if (!transcriptionData) {
 		return null
 	}

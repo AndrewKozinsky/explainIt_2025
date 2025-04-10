@@ -9,7 +9,13 @@ export function getComponentTexts(transcriptionData: ITranscription) {
 }
 
 export function useGetAudioPlaying(recordName: string) {
-	const audioRef = useRef(new Audio('/audio/' + recordName + '.mp3'))
+	const audioRef = useRef(new Audio())
+
+	useEffect(() => {
+		const source = getAudioSource(recordName)
+		audioRef.current = new Audio(source)
+	}, [recordName])
+
 	const [isPlay, setIsPlay] = useState(false)
 	const [progress, setProgress] = useState(0)
 
@@ -30,7 +36,7 @@ export function useGetAudioPlaying(recordName: string) {
 		audioRef.current.addEventListener('timeupdate', () => {
 			const { currentTime, duration } = audioRef.current
 
-			const progress = (currentTime / duration) * 100
+			const progress = Math.round((currentTime / duration) * 100)
 			setProgress(progress)
 		})
 	}, [])
@@ -40,4 +46,17 @@ export function useGetAudioPlaying(recordName: string) {
 		playPauseHandler,
 		progress,
 	}
+}
+
+function getAudioSource(recordName: string): string {
+	const audioTest = document.createElement('audio')
+
+	const canPlayOgg = audioTest.canPlayType('audio/ogg; codecs="vorbis"')
+
+	if (canPlayOgg === 'probably' || canPlayOgg === 'maybe') {
+		return `/audio/${recordName}.ogg`
+	}
+
+	// fallback to mp3
+	return `/audio/${recordName}.mp3`
 }
