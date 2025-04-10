@@ -1,17 +1,16 @@
 import CourseArticlePage from '../../../_pages/courseArtPage/courseArticlePage/CourseArticlePage/CourseArticlePage'
 import articleService from '../../../articleBuilder/articleService/articleService'
 
-/*type TextBookArticleProps = {
-	params: {
+type TextBookArticleProps = {
+	params: Promise<{
 		// Название статьи в адресной строке
 		articleSlug: string
-	}
-}*/
+	}>
+}
 
 // Универсальная страница учебника
-/*
-export default function Page(props: TextBookArticleProps) {
-	const { articleSlug } = props.params
+export default async function Page(props: TextBookArticleProps) {
+	const { articleSlug } = await props.params
 
 	const prevArticle = articleService.getArticle(articleSlug, 'prev')
 	const article = articleService.getArticle(articleSlug, 'this')
@@ -23,18 +22,17 @@ export default function Page(props: TextBookArticleProps) {
 
 	return <CourseArticlePage prevArticle={prevArticle} article={article} nextArticle={nextArticle} />
 }
-*/
 
 // ----
 
-type TextBookArticleProps = {
+/*type TextBookArticleProps = {
 	params: Promise<{
 		// Название статьи в адресной строке
 		articleSlug: string
 	}>
-}
+}*/
 
-export default function Page(props: TextBookArticleProps) {
+/*export default function Page(props: TextBookArticleProps) {
 	console.log('-------')
 	console.log(props)
 	console.log('-------')
@@ -54,4 +52,4 @@ export default function Page(props: TextBookArticleProps) {
 	}
 
 	return <CourseArticlePage prevArticle={null} article={article} nextArticle={null} />
-}
+}*/
