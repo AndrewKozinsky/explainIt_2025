@@ -10,6 +10,7 @@
 // .art-list
 // .art-note
 // .art-paragraph
+// .art-rus-to-eng
 
 
 // ЗАГОЛОВКИ (ОТСТУПЫ НЕ УКАЗЫВАЮТСЯ) =====
@@ -177,6 +178,15 @@
 	/*.art-paragraph + .art-grid {
 		margin-top: 1rem;
 	}*/
+}
+
+// ПРЕДЛОЖЕНИЕ И ПЕРЕВОД
+.art-rus-to-eng + .art-rus-to-eng {
+	margin-top: 0.2rem;
+}
+
+.art-rus-to-eng + .art-rus-to-eng--offset {
+	margin-top: 1rem;
 }
 
 // СПИСОК (ОТСТУП НЕ УКАЗЫВАЕТСЯ) =====

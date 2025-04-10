@@ -22,7 +22,7 @@ function Transcription(props: TranscriptionProps) {
 			<p className='transcription__content'>
 				{engWords.map((engWord, i) => {
 					return (
-						<span className='transcription__content-words'>
+						<span className='transcription__content-words' key={i}>
 							<span className='transcription__content-eng-word'>{engWord}</span>
 							<span className='transcription__content-transcription-word'>{transcriptionWords[i]}</span>
 						</span>

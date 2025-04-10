@@ -3,6 +3,10 @@
 @import '@/styles/inherit';
 
 .art-rus-to-eng {
+
+}
+
+.art-rus-to-eng__text {
 	@include paragraph();
 
 	&--size-big {
@@ -26,5 +30,22 @@
 }
 
 .art-rus-to-eng__transcription {
+	position: relative;
+	display: none;
+	flex-direction: column;
+	justify-content: end;
+	transition: height .2s cubic-bezier(0,.51,.7,.99), opacity .2s, padding-top .2s;
 
+	height: 0;
+	opacity: 0;
+
+	& > * {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+	}
+}
+
+.art-rus-to-eng__transcription--open {
+	opacity: 1;
 }

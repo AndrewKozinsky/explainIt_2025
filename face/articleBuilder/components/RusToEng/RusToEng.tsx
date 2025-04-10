@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef } from 'react'
+import { RefObject, useRef } from 'react'
 import cn from 'classnames'
 import ArticleType from '../../articlesData/articleType'
 import ArrowCircle from '../ArrowCircle/ArrowCircle'
@@ -17,10 +17,11 @@ type RusToEngProps = {
 function RusToEng(props: RusToEngProps) {
 	const { config } = props
 
-	const { isTranscriptionOpen, toggleTranscription } = useGetToggleTranscription()
+	const transcriptionBlockRef = useRef<HTMLDivElement>(null)
+	const toggleTranscription = useGetToggleTranscription(transcriptionBlockRef)
 
 	return (
-		<div>
+		<div className='art-rus-to-eng'>
 			<p className={cn(getRootClasses(config))}>
 				{config.rus.map((config, i) => {
 					return <Text config={config} key={i} />
@@ -28,7 +29,7 @@ function RusToEng(props: RusToEngProps) {
 				<ArrowCircle />
 				<EngPart engSentenceParts={config.eng} toggleTranscription={toggleTranscription} />
 			</p>
-			<TranscriptionBlock engSentenceParts={config.eng} isOpen={isTranscriptionOpen} />
+			<TranscriptionBlock engSentenceParts={config.eng} ref={transcriptionBlockRef} />
 		</div>
 	)
 }
@@ -59,22 +60,20 @@ function EngPart(props: EngPartProps) {
 }
 
 type TranscriptionBlockProps = {
-	isOpen: boolean
+	ref: RefObject<HTMLDivElement | null>
 	engSentenceParts: ArticleType.Text[]
 }
 
 function TranscriptionBlock(props: TranscriptionBlockProps) {
-	const { isOpen, engSentenceParts } = props
-
-	const transcriptionBlockRef = useRef<HTMLDivElement>(null)
+	const { ref, engSentenceParts } = props
 
 	const engTranscription = getEngTranscription(engSentenceParts)
-	if (!engTranscription || !isOpen) {
+	if (!engTranscription) {
 		return null
 	}
 
 	return (
-		<div className='art-rus-to-eng__transcription' ref={transcriptionBlockRef}>
+		<div className='art-rus-to-eng__transcription' ref={ref}>
 			<Transcription engSentence={engTranscription.sentence} />
 		</div>
 	)
