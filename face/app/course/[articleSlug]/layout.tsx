@@ -2,14 +2,14 @@ import { ReactNode } from 'react'
 import { Metadata } from 'next'
 import articleService from '../../../articleBuilder/articleService/articleService'
 
-/*type GenerateMetadataParams = {
-	params: {
+type GenerateMetadataParams = {
+	params: Promise<{
 		articleSlug: string
-	}
-}*/
+	}>
+}
 
-/*export function generateMetadata(params: GenerateMetadataParams): Metadata {
-	const { articleSlug } = params.params
+export async function generateMetadata(params: GenerateMetadataParams): Promise<Metadata> {
+	const { articleSlug } = await params.params
 
 	const article = articleService.getArticle(articleSlug)
 
@@ -24,7 +24,9 @@ import articleService from '../../../articleBuilder/articleService/articleServic
 		description: article.meta.articleDescription,
 		title: article.meta.articleName,
 	}
-}*/
+}
+
+// ==============================
 
 type ArticleLayoutProps = {
 	children: ReactNode
