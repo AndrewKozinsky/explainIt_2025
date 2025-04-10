@@ -2,11 +2,11 @@ import { ReactNode } from 'react'
 import { Metadata } from 'next'
 import articleService from '../../../articleBuilder/articleService/articleService'
 
-type GenerateMetadataParams = {
+/*type GenerateMetadataParams = {
 	params: {
 		articleSlug: string
 	}
-}
+}*/
 
 /*export function generateMetadata(params: GenerateMetadataParams): Metadata {
 	const { articleSlug } = params.params
