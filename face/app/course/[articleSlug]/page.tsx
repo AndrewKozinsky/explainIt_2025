@@ -28,13 +28,16 @@ export default function Page(props: TextBookArticleProps) {
 // ----
 
 type TextBookArticleProps = {
-	params: {
+	params: Promise<{
 		// Название статьи в адресной строке
-		// articleSlug: string
-	}
+		articleSlug: string
+	}>
 }
 
 export default function Page(props: TextBookArticleProps) {
+	console.log('-------')
+	console.log(props)
+	console.log('-------')
 	// const { articleSlug } = props.params
 
 	const article = {
