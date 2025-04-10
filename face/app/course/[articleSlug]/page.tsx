@@ -34,7 +34,7 @@ export default function Page(props: TextBookArticleProps) {
 	}
 }*/
 
-export default function Page({ params }: { params: { articleSlug: string } }) {
+export default function Page() {
 	// const { articleSlug } = props.params
 
 	const article = {
