@@ -20,9 +20,13 @@ export function generateMetadata(params: GenerateMetadataParams): Metadata {
 		}
 	}
 
-	return {
+	/*return {
 		description: article.meta.articleDescription,
 		title: article.meta.articleName,
+	}*/
+	return {
+		description: 'article.meta.articleDescription',
+		title: 'article.meta.articleName',
 	}
 }
 

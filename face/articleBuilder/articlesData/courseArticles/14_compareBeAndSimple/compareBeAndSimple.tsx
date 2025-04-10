@@ -1,7 +1,6 @@
-import ArticleType from '../../articleType'
+// import ArticleType from '../../articleType'
 
-const compareBeAndSimple: ArticleType.ArtArticle = {
-	type: ArticleType.ArtType.article,
+/*const compareBeAndSimple: ArticleType.Art = {
 	meta: {
 		number: 16,
 		slug: 'compare-be-and-simple',
@@ -1301,14 +1300,14 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Это очень раздражает.',
-					engSentences: [{ engSentences: ["It's really annoying."], isCorrect: true }],
+					engSentences: [{ engSentences: ['It\'s really annoying.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
 					rusSentence: 'Я боюсь Джо. Он опасен. И он убийца.',
 					engSentences: [
 						{
-							engSentences: ["I'm afraid of Joe. He's dangerous. And he's a killer."],
+							engSentences: ['I\'m afraid of Joe. He\'s dangerous. And he\'s a killer.'],
 							isCorrect: true,
 						},
 					],
@@ -1333,6 +1332,6 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 			offset: true,
 		},
 	],
-}
+}*/
 
-export default compareBeAndSimple
+// export default compareBeAndSimple

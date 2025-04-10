@@ -1,9 +1,8 @@
-import ArticleType from '../../articleType'
-import PresentSimplePositiveTable from './PresentSimplePositiveTable'
-import PastSimplePositiveTable from './PastSimplePositiveTable'
+// import ArticleType from '../../articleType'
+// import PresentSimplePositiveTable from './PresentSimplePositiveTable'
+// import PastSimplePositiveTable from './PastSimplePositiveTable'
 
-const presentSimple: ArticleType.ArtArticle = {
-	type: ArticleType.ArtType.article,
+/*const presentSimple: ArticleType.Art = {
 	meta: {
 		number: 15,
 		slug: 'present-simple',
@@ -1134,11 +1133,11 @@ const presentSimple: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence:
-						"Kalamake looked strange. His skin was whiter than the other people's and he was blind.",
+						'Kalamake looked strange. His skin was whiter than the other people\'s and he was blind.',
 					engSentences: [
 						{
 							engSentences: [
-								"Kalamake looked strange. His skin was whiter than the other people's and he was blind.",
+								'Kalamake looked strange. His skin was whiter than the other people\'s and he was blind.',
 							],
 							isCorrect: true,
 						},
@@ -1451,7 +1450,7 @@ const presentSimple: ArticleType.ArtArticle = {
 					rusSentence: 'Я буду мыть кошачью миску каждое утро.',
 					engSentences: [
 						{
-							engSentences: ["I will wash the cat's bowl every morning."],
+							engSentences: ['I will wash the cat\'s bowl every morning.'],
 							isCorrect: true,
 						},
 					],
@@ -1461,6 +1460,6 @@ const presentSimple: ArticleType.ArtArticle = {
 			offset: true,
 		},
 	],
-}
+}*/
 
-export default presentSimple
+// export default presentSimple

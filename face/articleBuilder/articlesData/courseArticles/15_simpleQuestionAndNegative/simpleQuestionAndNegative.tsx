@@ -1,25 +1,24 @@
-import ArticleType from '../../articleType'
-import ToBePresentPositiveScheme from './ToBePresentPositiveScheme'
-import ToBePresentQuestionScheme from './ToBePresentQuestionScheme'
-import PresentSimplePositiveScheme from './PresentSimplePositiveScheme'
-import PresentSimpleQuestionScheme_1 from './PresentSimpleQuestionScheme_1'
-import PresentSimpleQuestionScheme_2 from './PresentSimpleQuestionScheme_2'
-import PresentSimplePositiveAndQuestionTable from './PresentSimplePositiveAndQuestionTable'
-import PastSimplePositiveScheme from './PastSimplePositiveScheme'
-import PastSimpleQuestionScheme_1 from './PastSimpleQuestionScheme_1'
-import PastSimpleQuestionScheme_2 from './PastSimpleQuestionScheme_2'
-import PastSimplePositiveAndQuestionTable from './PastSimplePositiveAndQuestionTable'
-import FutureSimplePositiveScheme from './FutureSimplePositiveScheme'
-import FutureSimpleQuestionScheme from './FutureSimpleQuestionScheme'
-import ToBePresentNegativeScheme from './ToBePresentNegativeScheme'
-import PresentSimpleNegativeScheme_1 from './PresentSimpleNegativeScheme_1'
-import PresentSimpleNegativeScheme_2 from './PresentSimpleNegativeScheme_2'
-import PastSimpleFullTable from './PastSimpleFullTable'
-import PresentSimpleFullTable from './PresentSimpleFullTable'
-import FutureSimpleFullTable from './FutureSimpleFullTable'
+// import ArticleType from '../../articleType'
+// import ToBePresentPositiveScheme from './ToBePresentPositiveScheme'
+// import ToBePresentQuestionScheme from './ToBePresentQuestionScheme'
+// import PresentSimplePositiveScheme from './PresentSimplePositiveScheme'
+// import PresentSimpleQuestionScheme_1 from './PresentSimpleQuestionScheme_1'
+// import PresentSimpleQuestionScheme_2 from './PresentSimpleQuestionScheme_2'
+// import PresentSimplePositiveAndQuestionTable from './PresentSimplePositiveAndQuestionTable'
+// import PastSimplePositiveScheme from './PastSimplePositiveScheme'
+// import PastSimpleQuestionScheme_1 from './PastSimpleQuestionScheme_1'
+// import PastSimpleQuestionScheme_2 from './PastSimpleQuestionScheme_2'
+// import PastSimplePositiveAndQuestionTable from './PastSimplePositiveAndQuestionTable'
+// import FutureSimplePositiveScheme from './FutureSimplePositiveScheme'
+// import FutureSimpleQuestionScheme from './FutureSimpleQuestionScheme'
+// import ToBePresentNegativeScheme from './ToBePresentNegativeScheme'
+// import PresentSimpleNegativeScheme_1 from './PresentSimpleNegativeScheme_1'
+// import PresentSimpleNegativeScheme_2 from './PresentSimpleNegativeScheme_2'
+// import PastSimpleFullTable from './PastSimpleFullTable'
+// import PresentSimpleFullTable from './PresentSimpleFullTable'
+// import FutureSimpleFullTable from './FutureSimpleFullTable'
 
-const simpleQuestionAndNegative: ArticleType.ArtArticle = {
-	type: ArticleType.ArtType.article,
+/*const simpleQuestionAndNegative: ArticleType.Art = {
 	meta: {
 		number: 17,
 		slug: 'simple-question-and-negative',
@@ -813,6 +812,6 @@ const simpleQuestionAndNegative: ArticleType.ArtArticle = {
 		},
 		{ type: 'customComponent', component: <FutureSimpleFullTable /> },
 	],
-}
+}*/
 
-export default simpleQuestionAndNegative
+// export default simpleQuestionAndNegative

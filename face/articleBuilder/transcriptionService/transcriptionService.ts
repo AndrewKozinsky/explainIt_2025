@@ -6,6 +6,9 @@ const transcriptionService = {
 
 		return transcriptions[clearedSentence] || null
 	},
+	getTranscriptionByKey: (key: keyof typeof transcriptions) => {
+		return transcriptions[key]
+	},
 
 	/**
 	 * It takes string then converts it into another string.

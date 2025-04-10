@@ -10,12 +10,6 @@ export function CourseArticlesTiles() {
 			{tilesArr.map((tile) => {
 				const url = tile.url
 
-				if (tile.type === 'level') {
-					return <ArticleTile tile={tile} key={url} />
-				} else if (tile.type === 'media') {
-					return <ArticleTile tile={tile} key={url} />
-				}
-
 				return <ArticleTile tile={tile} key={url} />
 			})}
 		</TilesWrapper>

@@ -71,7 +71,7 @@
  * Делает из стандартной статьи объект конфигурации плитки-ссылки для стандартной статьи
  * @param article — стандартная статья
  */
-/*function getArticleTileConf(article: ArticleType.ArtArticle): ArticleTileType.ArticleTile {
+/*function getArticleTileConf(article: ArticleType.Art): ArticleTileType.ArticleTile {
 	return {
 		type: 'article',
 		top: article.meta.caption,

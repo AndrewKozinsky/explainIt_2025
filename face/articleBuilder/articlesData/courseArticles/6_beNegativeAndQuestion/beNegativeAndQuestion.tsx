@@ -1,10 +1,9 @@
-import ArticleType from '../../articleType'
-import ToBePresentPositiveScheme from './ToBePresentPositiveScheme'
-import ToBePresentNegativeScheme from './ToBePresentNegativeScheme'
-import ToBePresentQuestionScheme from './ToBePresentQuestionScheme'
+// import ArticleType from '../../articleType'
+// import ToBePresentPositiveScheme from './ToBePresentPositiveScheme'
+// import ToBePresentNegativeScheme from './ToBePresentNegativeScheme'
+// import ToBePresentQuestionScheme from './ToBePresentQuestionScheme'
 
-const beNegativeAndQuestion: ArticleType.ArtArticle = {
-	type: ArticleType.ArtType.article,
+/*const beNegativeAndQuestion: ArticleType.Art = {
 	meta: {
 		number: 8,
 		slug: 'be-negative-and-question',
@@ -549,7 +548,7 @@ const beNegativeAndQuestion: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Она не блондинка, а брюнетка.',
-					engSentences: [{ engSentences: ["She's not blonde, she's brunette."], isCorrect: true }],
+					engSentences: [{ engSentences: ['She\'s not blonde, she\'s brunette.'], isCorrect: true }],
 					words: [
 						{ rusWord: 'блондин', engWord: 'blonde' },
 						{ rusWord: 'брюнет', engWord: 'brunette' },
@@ -1198,6 +1197,6 @@ const beNegativeAndQuestion: ArticleType.ArtArticle = {
 			],
 		},
 	],
-}
+}*/
 
-export default beNegativeAndQuestion
+// export default beNegativeAndQuestion

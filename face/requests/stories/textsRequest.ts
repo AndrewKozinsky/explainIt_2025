@@ -1,10 +1,10 @@
-import ApiRouteNames from '../../сonsts/apiRouteNames'
-import api from '../http'
-import { createAdminTokenString } from '../utils'
-import TextsApiTypes from './textsApiTypes'
+// import ApiRouteNames from '../../сonsts/apiRouteNames'
+// import api from '../http'
+// import { createAdminTokenString } from '../utils'
+// import TextsApiTypes from './textsApiTypes'
 
 // Запросы к методам работы с искусственным интеллектом
-const storiesRequests = {
+/*const storiesRequests = {
 	// Получение текста с переданным идентификатором
 	getStory(textId: number | string) {
 		return api.get<TextsApiTypes.GetText>(ApiRouteNames.STORIES.TEXT_ID(textId).full, {
@@ -13,6 +13,6 @@ const storiesRequests = {
 			},
 		})
 	},
-}
+}*/
 
-export default storiesRequests
+// export default storiesRequests

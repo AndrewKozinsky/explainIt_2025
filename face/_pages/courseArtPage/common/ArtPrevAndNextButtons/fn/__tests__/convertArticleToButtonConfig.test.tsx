@@ -8,8 +8,8 @@
 	})
 
 	it('should convert article data with type ArticleType.ArtArticle to PrevOrNextButton config data', () => {
-		const artArticle: ArticleType.ArtArticle = {
-			type: ArticleType.ArtType.article,
+		const artArticle: ArticleType.Art = {
+
 			meta: {
 				number: 4,
 				caption: 'Глава 2',

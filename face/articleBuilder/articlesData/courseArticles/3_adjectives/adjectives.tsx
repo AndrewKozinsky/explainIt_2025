@@ -1,7 +1,6 @@
 import ArticleType from '../../articleType'
 
-const adjectives: ArticleType.ArtArticle = {
-	type: ArticleType.ArtType.article,
+const adjectives: ArticleType.Art = {
 	meta: {
 		number: 5,
 		slug: 'adjectives',

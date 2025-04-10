@@ -12,8 +12,8 @@
 	})
 
 	it('should take 2 articles and return object with PrevOrNextButtons config data', () => {
-		const artArticle: ArticleType.ArtArticle = {
-			type: ArticleType.ArtType.article,
+		const artArticle: ArticleType.Art = {
+
 			meta: {
 				number: 4,
 				caption: 'Art caption',

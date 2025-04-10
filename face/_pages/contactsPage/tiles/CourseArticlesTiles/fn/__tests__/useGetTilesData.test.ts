@@ -29,7 +29,6 @@
 		},
 	},
 	{
-		type: ArticleType.ArtType.article,
 		meta: {
 			number: 5,
 			caption: 'Глава 1',

@@ -1,15 +1,15 @@
-import CourseArticlePage from '../../../_pages/courseArtPage/courseArticlePage/CourseArticlePage/CourseArticlePage'
-import articleService from '../../../articleBuilder/articleService/articleService'
+// import CourseArticlePage from '../../../_pages/courseArtPage/courseArticlePage/CourseArticlePage/CourseArticlePage'
+// import articleService from '../../../articleBuilder/articleService/articleService'
 
-type TextBookArticleProps = {
+/*type TextBookArticleProps = {
 	params: {
 		// Название статьи в адресной строке
 		articleSlug: string
 	}
-}
+}*/
 
 // Универсальная страница учебника
-export default async function Page(props: TextBookArticleProps) {
+/*export default async function Page(props: TextBookArticleProps) {
 	const { articleSlug } = await props.params
 
 	const prevArticle = articleService.getArticle(articleSlug, 'prev')
@@ -21,4 +21,4 @@ export default async function Page(props: TextBookArticleProps) {
 	}
 
 	return <CourseArticlePage prevArticle={prevArticle} article={article} nextArticle={nextArticle} />
-}
+}*/

@@ -1,7 +1,6 @@
 import ArticleType from '../../articleType'
 
-const prepositionAtPlace: ArticleType.ArtArticle = {
-	type: ArticleType.ArtType.article,
+const prepositionAtPlace: ArticleType.Art = {
 	meta: {
 		number: 30,
 		slug: 'preposition-at-place',
@@ -100,7 +99,7 @@ const prepositionAtPlace: ArticleType.ArtArticle = {
 									type: 'text',
 									color: 'black',
 									weight: 'normal',
-									text: "I'll meet you in the station.",
+									text: 'I\'ll meet you in the station.',
 								},
 
 								{
@@ -173,7 +172,7 @@ const prepositionAtPlace: ArticleType.ArtArticle = {
 									type: 'text',
 									color: 'black',
 									weight: 'normal',
-									text: "I'll meet you at the station.",
+									text: 'I\'ll meet you at the station.',
 								},
 
 								{
@@ -460,7 +459,7 @@ const prepositionAtPlace: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Увидимся на барбекю.',
-					engSentences: [{ engSentences: ["We'll see you at the barbeque."], isCorrect: true }],
+					engSentences: [{ engSentences: ['We\'ll see you at the barbeque.'], isCorrect: true }],
 					words: [{ rusWord: 'неизвестный', engWord: 'unknown' }],
 				},
 				{
@@ -494,7 +493,7 @@ const prepositionAtPlace: ArticleType.ArtArticle = {
 					rusSentence: 'Переведи...',
 					engSentences: [
 						{
-							engSentences: ["He saw his friend Joe Harper in the street, but he didn't look at him."],
+							engSentences: ['He saw his friend Joe Harper in the street, but he didn\'t look at him.'],
 							isCorrect: true,
 						},
 					],

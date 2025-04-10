@@ -1,7 +1,6 @@
 import ArticleType from '../../articleType'
 
-const demonstrativePronouns: ArticleType.ArtArticle = {
-	type: ArticleType.ArtType.article,
+const demonstrativePronouns: ArticleType.Art = {
 	meta: {
 		number: 9,
 		slug: 'demonstrative-pronouns',
@@ -607,7 +606,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 					rusSentence: 'Эта любовь сложная, но настоящая.',
 					engSentences: [
 						{
-							engSentences: ["This love is difficult, but it's real."],
+							engSentences: ['This love is difficult, but it\'s real.'],
 							isCorrect: true,
 						},
 					],
@@ -947,7 +946,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Это карандаш? Нет, это ручка.',
-					engSentences: [{ engSentences: ["Is this a pencil? No, it's a pen."], isCorrect: true }],
+					engSentences: [{ engSentences: ['Is this a pencil? No, it\'s a pen.'], isCorrect: true }],
 					words: [
 						{ rusWord: 'карандаш', engWord: 'pencil' },
 						{ rusWord: 'ручка', engWord: 'pen' },
@@ -955,7 +954,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Это океан? Нет, это озеро.',
-					engSentences: [{ engSentences: ["Is this an ocean? No, it's a lake."], isCorrect: true }],
+					engSentences: [{ engSentences: ['Is this an ocean? No, it\'s a lake.'], isCorrect: true }],
 					words: [
 						{ rusWord: 'океан', engWord: 'ocean' },
 						{ rusWord: 'озеро', engWord: 'lake' },

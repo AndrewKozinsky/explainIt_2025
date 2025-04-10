@@ -1,7 +1,6 @@
 import ArticleType from '../../articleType'
 
-const tagQuestion: ArticleType.ArtArticle = {
-	type: ArticleType.ArtType.article,
+const tagQuestion: ArticleType.Art = {
 	meta: {
 		number: 20,
 		slug: 'tag-question',
@@ -106,7 +105,7 @@ const tagQuestion: ArticleType.ArtArticle = {
 					type: 'text',
 					color: 'black',
 					weight: 'normal',
-					text: "She bought a lottery ticket, didn't she?",
+					text: 'She bought a lottery ticket, didn\'t she?',
 				},
 			],
 		},

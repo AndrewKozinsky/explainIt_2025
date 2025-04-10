@@ -1,8 +1,7 @@
 import ArticleType from '../../articleType'
-import PersonalPronounceSubjectTable from './PersonalPronounceSubjectTable'
+// import PersonalPronounceSubjectTable from './PersonalPronounceSubjectTable'
 
-const presentSimple: ArticleType.ArtArticle = {
-	type: ArticleType.ArtType.article,
+const presentSimple: ArticleType.Art = {
 	meta: {
 		number: 3,
 		slug: 'present-simple-1',

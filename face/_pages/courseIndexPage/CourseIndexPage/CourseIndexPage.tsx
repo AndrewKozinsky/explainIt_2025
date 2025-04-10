@@ -4,20 +4,19 @@ import { PageContentWrapper } from '../../../ui/pageRelated/PageContentWrapper/P
 import { PageHeader } from '../../../ui/pageRelated/PageHeader/PageHeader'
 import { CourseArticlesTiles } from '../tiles/CourseArticlesTiles/CourseArticlesTiles'
 
-import { PageWrapper } from "@/ui/pageRelated/PageWrapper/PageWrapper"
+import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'
 
 /** Страница со ссылками-плитками на главы курса */
 function CourseIndexPage() {
 	return (
 		<PageWrapper>
-		<PageContentWrapper>
-			<BreadCrumbs />
-			<PageHeader>Понимая английский</PageHeader>
-			<CourseArticlesTiles />
-		</PageContentWrapper>
-			</PageWrapper>
+			<PageContentWrapper>
+				<BreadCrumbs />
+				<PageHeader>Понимая английский</PageHeader>
+				<CourseArticlesTiles />
+			</PageContentWrapper>
+		</PageWrapper>
 	)
 }
-
 
 export default CourseIndexPage

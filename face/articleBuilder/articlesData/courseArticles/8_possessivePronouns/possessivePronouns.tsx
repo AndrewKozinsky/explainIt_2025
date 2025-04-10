@@ -1,8 +1,7 @@
-import ArticleType from '../../articleType'
-import PossessivePronounsTable from './PossessivePronounsTable'
+// import ArticleType from '../../articleType'
+// import PossessivePronounsTable from './PossessivePronounsTable'
 
-const possessivePronouns: ArticleType.ArtArticle = {
-	type: ArticleType.ArtType.article,
+/*const possessivePronouns: ArticleType.Art = {
 	meta: {
 		number: 10,
 		slug: 'possessive-pronouns',
@@ -1055,6 +1054,6 @@ const possessivePronouns: ArticleType.ArtArticle = {
 			offset: true,
 		},
 	],
-}
+}*/
 
-export default possessivePronouns
+// export default possessivePronouns

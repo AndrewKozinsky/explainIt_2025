@@ -1,8 +1,7 @@
-import ArticleType from '../../articleType'
-import PersonalPronounceSubjectAndObjectTable from './PersonalPronounceSubjectAndObjectTable'
+// import ArticleType from '../../articleType'
+// import PersonalPronounceSubjectAndObjectTable from './PersonalPronounceSubjectAndObjectTable'
 
-const personalPronounsAsObject: ArticleType.ArtArticle = {
-	type: ArticleType.ArtType.article,
+/*const personalPronounsAsObject: ArticleType.Art = {
 	meta: {
 		number: 22,
 		slug: 'personal-pronouns-as-object',
@@ -352,7 +351,7 @@ const personalPronounsAsObject: ArticleType.ArtArticle = {
 					rusSentence: 'Если я не нравлюсь одной девушке, я найду еще одну.',
 					engSentences: [
 						{
-							engSentences: ["If one girl doesn't like me, I'll find another girl."],
+							engSentences: ['If one girl doesn\'t like me, I\'ll find another girl.'],
 							isCorrect: true,
 						},
 					],
@@ -418,6 +417,6 @@ const personalPronounsAsObject: ArticleType.ArtArticle = {
 			],
 		},
 	],
-}
+}*/
 
-export default personalPronounsAsObject
+// export default personalPronounsAsObject

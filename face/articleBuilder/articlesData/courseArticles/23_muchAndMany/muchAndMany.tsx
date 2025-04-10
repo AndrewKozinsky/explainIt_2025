@@ -1,7 +1,6 @@
 import ArticleType from '../../articleType'
 
-const muchAndMany: ArticleType.ArtArticle = {
-	type: ArticleType.ArtType.article,
+const muchAndMany: ArticleType.Art = {
 	meta: {
 		number: 25,
 		slug: 'much-and-many',
@@ -447,7 +446,7 @@ const muchAndMany: ArticleType.ArtArticle = {
 					engSentences: [
 						{
 							engSentences: [
-								"Keola did not know much about his wife's father, but one thing troubled him.",
+								'Keola did not know much about his wife\'s father, but one thing troubled him.',
 							],
 							isCorrect: true,
 						},

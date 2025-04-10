@@ -1,7 +1,6 @@
 import ArticleType from '../../articleType'
 
-const prepositionOf: ArticleType.ArtArticle = {
-	type: ArticleType.ArtType.article,
+const prepositionOf: ArticleType.Art = {
 	meta: {
 		number: 24,
 		slug: 'preposition-of',
@@ -107,7 +106,7 @@ const prepositionOf: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(чего?)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' денег.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: "You don't pay me a lot " },
+				{ type: 'text', color: 'black', weight: 'normal', text: 'You don\'t pay me a lot ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(чего?)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' of money.' },
 			],
@@ -338,7 +337,7 @@ const prepositionOf: ArticleType.ArtArticle = {
 					engSentences: [
 						{
 							engSentences: [
-								"The next day was the Fourth of July, one of America's most important holidays.",
+								'The next day was the Fourth of July, one of America\'s most important holidays.',
 							],
 							isCorrect: true,
 						},
@@ -374,7 +373,7 @@ const prepositionOf: ArticleType.ArtArticle = {
 					rusSentence: 'Переведи....',
 					engSentences: [
 						{
-							engSentences: ["Keola was afraid of Kalamake but his wife's words made him angry."],
+							engSentences: ['Keola was afraid of Kalamake but his wife\'s words made him angry.'],
 							isCorrect: true,
 						},
 					],
@@ -394,7 +393,7 @@ const prepositionOf: ArticleType.ArtArticle = {
 					rusSentence: 'Переведи....',
 					engSentences: [
 						{
-							engSentences: ["Thousands of tourists visit Maui's beautiful beaches every year."],
+							engSentences: ['Thousands of tourists visit Maui\'s beautiful beaches every year.'],
 							isCorrect: true,
 						},
 					],
@@ -692,7 +691,7 @@ const prepositionOf: ArticleType.ArtArticle = {
 					rusSentence: 'Переведи....',
 					engSentences: [
 						{
-							engSentences: ["Nick Chan was one of Bill's best friends at Montego Bay."],
+							engSentences: ['Nick Chan was one of Bill\'s best friends at Montego Bay.'],
 							isCorrect: true,
 						},
 					],
@@ -724,7 +723,7 @@ const prepositionOf: ArticleType.ArtArticle = {
 					rusSentence: 'Переведи....',
 					engSentences: [
 						{
-							engSentences: ["Nick Chan was one of Bill's best friends at Montego Bay."],
+							engSentences: ['Nick Chan was one of Bill\'s best friends at Montego Bay.'],
 							isCorrect: true,
 						},
 					],
@@ -734,7 +733,7 @@ const prepositionOf: ArticleType.ArtArticle = {
 					rusSentence: 'Гавайский Большой остров самый большой из островов.',
 					engSentences: [
 						{
-							engSentences: ["Hawaii's Big Island is the largest of the islands."],
+							engSentences: ['Hawaii\'s Big Island is the largest of the islands.'],
 							isCorrect: true,
 						},
 					],

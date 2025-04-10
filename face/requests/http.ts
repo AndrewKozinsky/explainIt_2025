@@ -1,16 +1,16 @@
-import axios, { CreateAxiosDefaults } from 'axios'
-import { createAdminTokenString, isServerComponent } from './utils'
+// import axios, { CreateAxiosDefaults } from 'axios'
+// import { createAdminTokenString, isServerComponent } from './utils'
 
-type CreateApiSettings = {
+/*type CreateApiSettings = {
 	// Нужно ли включать заголовок авторизации от имени администратора authorization с 'Bearer ...'
 	adminAuth?: boolean
-}
+}*/
 
 /**
  * Функция создающая объект запроса
  * @param settings
  */
-export function createApi(settings: CreateApiSettings) {
+/*export function createApi(settings: CreateApiSettings) {
 	const host = isServerComponent() ? 'explain-api:3001' : 'localhost'
 	const baseURL = `http://${host}/api/`
 
@@ -24,7 +24,7 @@ export function createApi(settings: CreateApiSettings) {
 	}
 
 	return axios.create(axiosConfig)
-}
+}*/
 
-const api = createApi({})
-export default api
+// const api = createApi({})
+// export default api

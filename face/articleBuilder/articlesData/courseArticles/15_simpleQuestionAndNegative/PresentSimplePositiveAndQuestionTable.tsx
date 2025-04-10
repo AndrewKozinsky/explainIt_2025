@@ -1,14 +1,14 @@
-import React from 'react'
-import ArtImage from '../../../components/Image/ArtImage'
-import { imageMapper } from '../../../../utils/imageMapper'
+// import React from 'react'
+// import ArtImage from '../../../components/Image/ArtImage'
+// import { imageMapper } from '../../../../utils/imageMapper'
 
-function PresentSimplePositiveAndQuestionTable() {
+/*function PresentSimplePositiveAndQuestionTable() {
 	return (
 		<ArtImage
 			src={imageMapper.tables.PresentSimplePositiveAndQuestion.src}
 			alt={imageMapper.tables.PresentSimplePositiveAndQuestion.alt}
 		/>
 	)
-}
+}*/
 
-export default PresentSimplePositiveAndQuestionTable
+// export default PresentSimplePositiveAndQuestionTable

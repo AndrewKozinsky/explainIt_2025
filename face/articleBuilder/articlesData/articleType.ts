@@ -2,32 +2,8 @@ import { ReactNode } from 'react'
 import ExercisesType from './exercisesType'
 
 namespace ArticleType {
-	// Объединённый тип статьи
-	export type Art = ArtArticle
-
-	// Типы статей
-	export enum ArtType {
-		// Стандартная статья
-		article = 'article',
-	}
-
-	// Уровни владения языка
-	export enum LangLevel {
-		a1 = 'a1',
-		a2 = 'a2',
-		b1 = 'b1',
-		b2 = 'b2',
-	}
-	export enum LangLevelName {
-		a1 = 'beginner',
-		a2 = 'elementary',
-		b1 = 'intermediate',
-		b2 = 'upper intermediate',
-	}
-
 	// Стандартная статья
-	export type ArtArticle = {
-		type: ArtType.article
+	export type Art = {
 		meta: ArtMeta
 		// Содержимое статьи
 		content: Content

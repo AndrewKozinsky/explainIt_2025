@@ -4,7 +4,7 @@
 // import { exercisesLogic, useExercisesModalStore } from '../../../store/store'
 
 /** Хук настраивает Хранилище модального окна прохождения упражнений. */
-/*export function useSetUpStore(article: ArticleType.ArtArticle) {
+/*export function useSetUpStore(article: ArticleType.Art) {
 	const { exercisesId } = useExercisesModalStore()
 
 	useEffect(

@@ -1,7 +1,6 @@
 import ArticleType from '../../articleType'
 
-const prepositionOnPlace: ArticleType.ArtArticle = {
-	type: ArticleType.ArtType.article,
+const prepositionOnPlace: ArticleType.Art = {
 	meta: {
 		number: 31,
 		slug: 'preposition-on-place',

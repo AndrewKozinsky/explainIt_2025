@@ -1,7 +1,6 @@
-import ArticleType from '../../articleType'
+// import ArticleType from '../../articleType'
 
-const the: ArticleType.ArtArticle = {
-	type: ArticleType.ArtType.article,
+/*const the: ArticleType.Art = {
 	meta: {
 		number: 12,
 		slug: 'the',
@@ -730,6 +729,6 @@ const the: ArticleType.ArtArticle = {
 			],
 		},
 	],
-}
+}*/
 
-export default the
+// export default the

@@ -1,14 +1,14 @@
-import React from 'react'
-import ArtImage from '../../../components/Image/ArtImage'
-import { imageMapper } from '../../../../utils/imageMapper'
+// import React from 'react'
+// import ArtImage from '../../../components/Image/ArtImage'
+// import { imageMapper } from '../../../../utils/imageMapper'
 
-function PresentSimpleQuestionScheme_2() {
+/*function PresentSimpleQuestionScheme_2() {
 	return (
 		<ArtImage
 			src={imageMapper.schemas.PresentSimpleQuestion_2.src}
 			alt={imageMapper.schemas.PresentSimpleQuestion_2.alt}
 		/>
 	)
-}
+}*/
 
-export default PresentSimpleQuestionScheme_2
+// export default PresentSimpleQuestionScheme_2

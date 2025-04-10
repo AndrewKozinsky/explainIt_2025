@@ -1,7 +1,6 @@
 import ArticleType from '../../articleType'
 
-const prepositionTo: ArticleType.ArtArticle = {
-	type: ArticleType.ArtType.article,
+const prepositionTo: ArticleType.Art = {
 	meta: {
 		number: 28,
 		slug: 'preposition-to',
@@ -530,7 +529,7 @@ const prepositionTo: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Я слишком устал это доказывать тебе.',
-					engSentences: [{ engSentences: ["I'm too tired to prove it to you."], isCorrect: true }],
+					engSentences: [{ engSentences: ['I\'m too tired to prove it to you.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
@@ -569,7 +568,7 @@ const prepositionTo: ArticleType.ArtArticle = {
 					rusSentence: 'Они будут очень рады увидеть малыша.',
 					engSentences: [
 						{
-							engSentences: ["Well, they'll be so happy to see the baby."],
+							engSentences: ['Well, they\'ll be so happy to see the baby.'],
 							isCorrect: true,
 						},
 					],

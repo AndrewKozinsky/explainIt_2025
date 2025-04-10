@@ -1,7 +1,6 @@
 import ArticleType from '../../articleType'
 
-const beShort: ArticleType.ArtArticle = {
-	type: ArticleType.ArtType.article,
+const beShort: ArticleType.Art = {
 	meta: {
 		number: 14,
 		slug: 'be-short',
@@ -247,7 +246,7 @@ const beShort: ArticleType.ArtArticle = {
 						{ type: 'text', color: 'black', weight: 'normal', text: 'My ' },
 						{ type: 'text', color: 'gray', weight: 'normal', text: '(mum is)' },
 						{ type: 'text', color: 'black', weight: 'normal', text: ' mum' },
-						{ type: 'text', color: 'blue', weight: 'normal', text: "'s" },
+						{ type: 'text', color: 'blue', weight: 'normal', text: '\'s' },
 						{ type: 'text', color: 'black', weight: 'normal', text: ' a teacher.' },
 					],
 				},
@@ -266,7 +265,7 @@ const beShort: ArticleType.ArtArticle = {
 						{ type: 'text', color: 'black', weight: 'normal', text: 'All the ' },
 						{ type: 'text', color: 'gray', weight: 'normal', text: '(food is)' },
 						{ type: 'text', color: 'black', weight: 'normal', text: ' food' },
-						{ type: 'text', color: 'blue', weight: 'normal', text: "'s" },
+						{ type: 'text', color: 'blue', weight: 'normal', text: '\'s' },
 						{ type: 'text', color: 'black', weight: 'normal', text: ' in the kitchen' },
 					],
 				},
@@ -559,7 +558,7 @@ const beShort: ArticleType.ArtArticle = {
 					rusSentence: 'Они здесь! Бэки и Том здесь!',
 					engSentences: [
 						{
-							engSentences: ["They're here! Becky and Tom are here!"],
+							engSentences: ['They\'re here! Becky and Tom are here!'],
 							isCorrect: true,
 						},
 					],

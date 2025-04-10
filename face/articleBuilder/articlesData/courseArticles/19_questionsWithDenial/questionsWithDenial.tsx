@@ -1,7 +1,6 @@
 import ArticleType from '../../articleType'
 
-const questionsWithDenial: ArticleType.ArtArticle = {
-	type: ArticleType.ArtType.article,
+const questionsWithDenial: ArticleType.Art = {
 	meta: {
 		number: 21,
 		slug: 'questions-with-denial',
@@ -569,7 +568,7 @@ const questionsWithDenial: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Она же не беременна снова, не так ли?',
-					engSentences: [{ engSentences: ["She's not pregnant again, is she?"], isCorrect: true }],
+					engSentences: [{ engSentences: ['She\'s not pregnant again, is she?'], isCorrect: true }],
 					words: [{ rusWord: 'здоров', engWord: 'healthy' }],
 				},
 			],

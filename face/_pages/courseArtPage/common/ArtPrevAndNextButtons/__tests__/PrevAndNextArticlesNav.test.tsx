@@ -10,8 +10,8 @@
 	})
 
 	it('should render component with empty div as a next link if passed no next article and a link if previous article was passed', () => {
-		const prevArtArticle: ArticleType.ArtArticle = {
-			type: ArticleType.ArtType.article,
+		const prevArtArticle: ArticleType.Art = {
+
 			meta: {
 				number: 4,
 				caption: 'Глава 3',
@@ -35,8 +35,8 @@
 	})
 
 	it('should render component with empty div as a previous link if passed no previous article and a link if next article was passed', () => {
-		const nextArtArticle: ArticleType.ArtArticle = {
-			type: ArticleType.ArtType.article,
+		const nextArtArticle: ArticleType.Art = {
+
 			meta: {
 				number: 4,
 				caption: 'Глава 3',

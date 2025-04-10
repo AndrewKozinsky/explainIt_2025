@@ -1,10 +1,9 @@
-import ArticleType from '../../articleType'
-import ToBePresentTable from './ToBePresentTable'
-import ToBePastTable from './ToBePastTable'
-import ToBeFutureTable from './ToBeFutureTable'
+// import ArticleType from '../../articleType'
+// import ToBePresentTable from './ToBePresentTable'
+// import ToBePastTable from './ToBePastTable'
+// import ToBeFutureTable from './ToBeFutureTable'
 
-const toBePositive: ArticleType.ArtArticle = {
-	type: ArticleType.ArtType.article,
+/*const toBePositive: ArticleType.Art = {
 	meta: {
 		number: 4,
 		slug: 'to-be-positive',
@@ -1053,7 +1052,7 @@ const toBePositive: ArticleType.ArtArticle = {
 				},
 			],
 		},
-		{ type: 'customComponent', component: <ToBePastTable /> },
+		/!*{ type: 'customComponent', component: <ToBePastTable /> },*!/
 		{
 			type: 'paragraph',
 			offset: true,
@@ -1075,7 +1074,6 @@ const toBePositive: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'был' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' космонавтом.' },
-
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'was' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' a spaceman.' },
@@ -1576,7 +1574,7 @@ const toBePositive: ArticleType.ArtArticle = {
 				},
 			],
 		},
-		{ type: 'customComponent', component: <ToBeFutureTable /> },
+		/!*{ type: 'customComponent', component: <ToBeFutureTable /> },*!/
 		{
 			type: 'paragraph',
 			offset: true,
@@ -1985,6 +1983,6 @@ const toBePositive: ArticleType.ArtArticle = {
 			],
 		},
 	],
-}
+}*/
 
-export default toBePositive
+// export default toBePositive

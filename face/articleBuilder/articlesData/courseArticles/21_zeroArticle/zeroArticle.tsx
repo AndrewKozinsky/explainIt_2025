@@ -1,7 +1,6 @@
-import ArticleType from '../../articleType'
+// import ArticleType from '../../articleType'
 
-const zeroArticle: ArticleType.ArtArticle = {
-	type: ArticleType.ArtType.article,
+/*const zeroArticle: ArticleType.Art = {
 	meta: {
 		number: 23,
 		slug: 'zero-article',
@@ -1609,6 +1608,6 @@ const zeroArticle: ArticleType.ArtArticle = {
 			],
 		},
 	],
-}
+}*/
 
-export default zeroArticle
+// export default zeroArticle

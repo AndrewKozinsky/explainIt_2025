@@ -1,9 +1,9 @@
-import React from 'react'
-import ArtImage from '../../../components/Image/ArtImage'
-import { imageMapper } from '../../../../utils/imageMapper'
+// import React from 'react'
+// import ArtImage from '../../../components/Image/ArtImage'
+// import { imageMapper } from '../../../../utils/imageMapper'
 
-function ToBeFutureTable() {
+/*function ToBeFutureTable() {
 	return <ArtImage src={imageMapper.tables.ToBeFuture.src} alt={imageMapper.tables.ToBePast.alt} />
-}
+}*/
 
-export default ToBeFutureTable
+// export default ToBeFutureTable

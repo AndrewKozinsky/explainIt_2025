@@ -1,11 +1,10 @@
-import ArticleType from '../../articleType'
-import PossessiveDeterminate_1_Scheme from './PossessiveDeterminate_1_Scheme'
-import PossessiveDeterminate_2_Scheme from './PossessiveDeterminate_2_Scheme'
-import PossessiveDeterminate_3_Scheme from './PossessiveDeterminate_3_Scheme'
-import PossessiveDeterminate_4_Scheme from './PossessiveDeterminate_4_Scheme'
+// import ArticleType from '../../articleType'
+// import PossessiveDeterminate_1_Scheme from './PossessiveDeterminate_1_Scheme'
+// import PossessiveDeterminate_2_Scheme from './PossessiveDeterminate_2_Scheme'
+// import PossessiveDeterminate_3_Scheme from './PossessiveDeterminate_3_Scheme'
+// import PossessiveDeterminate_4_Scheme from './PossessiveDeterminate_4_Scheme'
 
-const possessiveNouns: ArticleType.ArtArticle = {
-	type: ArticleType.ArtType.article,
+/*const possessiveNouns: ArticleType.Art = {
 	meta: {
 		number: 11,
 		slug: 'possessive-nouns',
@@ -482,7 +481,7 @@ const possessiveNouns: ArticleType.ArtArticle = {
 					rusSentence: 'Отец Алисы доволен и счастлив.',
 					engSentences: [
 						{
-							engSentences: ["Alissa's father is pleased and happy."],
+							engSentences: ['Alissa\'s father is pleased and happy.'],
 							isCorrect: true,
 						},
 					],
@@ -492,7 +491,7 @@ const possessiveNouns: ArticleType.ArtArticle = {
 					rusSentence: 'Комната в отеле Айприл и Лауры на втором этаже.',
 					engSentences: [
 						{
-							engSentences: ["April and Laura's hotel room is on the second floor."],
+							engSentences: ['April and Laura\'s hotel room is on the second floor.'],
 							isCorrect: true,
 						},
 					],
@@ -585,6 +584,6 @@ const possessiveNouns: ArticleType.ArtArticle = {
 			],
 		},
 	],
-}
+}*/
 
-export default possessiveNouns
+// export default possessiveNouns

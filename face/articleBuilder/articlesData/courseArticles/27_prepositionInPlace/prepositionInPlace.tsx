@@ -1,7 +1,6 @@
 import ArticleType from '../../articleType'
 
-const prepositionInPlace: ArticleType.ArtArticle = {
-	type: ArticleType.ArtType.article,
+const prepositionInPlace: ArticleType.Art = {
 	meta: {
 		number: 29,
 		slug: 'preposition-in-place',
@@ -198,7 +197,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 					rusSentence: 'Перевести...',
 					engSentences: [
 						{
-							engSentences: ["Yes, all the food's in the kitchen, and the drinks are in the front room."],
+							engSentences: ['Yes, all the food\'s in the kitchen, and the drinks are in the front room.'],
 							isCorrect: true,
 						},
 					],
@@ -592,7 +591,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 					rusSentence: 'Люди не хотят терять время в очереди.',
 					engSentences: [
 						{
-							engSentences: ["People don't want to waste time in a queue."],
+							engSentences: ['People don\'t want to waste time in a queue.'],
 							isCorrect: true,
 						},
 					],

@@ -1,7 +1,6 @@
 import ArticleType from '../../articleType'
 
-const fewAndLittle: ArticleType.ArtArticle = {
-	type: ArticleType.ArtType.article,
+const fewAndLittle: ArticleType.Art = {
 	meta: {
 		number: 26,
 		slug: 'few-and-little',

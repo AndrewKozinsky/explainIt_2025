@@ -5,8 +5,7 @@ import ArticleThe from './ArticleThe'
 import ArticleMy from './ArticleMy'
 import ArticleThis from './ArticleThis'
 
-const indefiniteArticle: ArticleType.ArtArticle = {
-	type: ArticleType.ArtType.article,
+const indefiniteArticle: ArticleType.Art = {
 	meta: {
 		number: 6,
 		slug: 'indefinite-article',
@@ -933,7 +932,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 				{
 					rusSentence: 'Кстати, он очень хороший врач.',
 					engSentences: [
-						{ engSentences: ["He's a very good doctor, by the way."], isCorrect: true },
+						{ engSentences: ['He\'s a very good doctor, by the way.'], isCorrect: true },
 						{
 							engSentences: [],
 							isCorrect: false,

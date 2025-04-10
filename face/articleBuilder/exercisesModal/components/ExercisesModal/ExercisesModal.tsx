@@ -10,7 +10,7 @@
 // import './ExercisesModal.scss'
 
 /*type ExercisesModalProps = {
-	article: ArticleType.ArtArticle
+	article: ArticleType.Art
 }*/
 
 /** Модальное окно прохождения упражнений */

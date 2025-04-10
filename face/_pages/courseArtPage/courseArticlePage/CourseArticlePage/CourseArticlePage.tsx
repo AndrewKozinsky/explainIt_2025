@@ -1,25 +1,25 @@
-import React from 'react'
-import ArticleType from '../../../../articleBuilder/articlesData/articleType'
-import { BreadCrumbs } from '../../../../ui/pageRelated/BreadCrumbs/BreadCrumbs'
-import { PageContentWrapper } from '../../../../ui/pageRelated/PageContentWrapper/PageContentWrapper'
-import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'
-import { PageHeader } from '../../../../ui/pageRelated/PageHeader/PageHeader'
-import { extractNumFromStr } from '../../../../utils/number'
-import ArticleArticleContent from '../ArticleArticleContent/ArticleArticleContent'
-import { PageUrls } from '../../../../сonsts/pageUrls'
-import s from './CourseArticlePage.module.scss'
+// import React from 'react'
+// import ArticleType from '../../../../articleBuilder/articlesData/articleType'
+// import { BreadCrumbs } from '../../../../ui/pageRelated/BreadCrumbs/BreadCrumbs'
+// import { PageContentWrapper } from '../../../../ui/pageRelated/PageContentWrapper/PageContentWrapper'
+// import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'
+// import { PageHeader } from '../../../../ui/pageRelated/PageHeader/PageHeader'
+// import { extractNumFromStr } from '../../../../utils/number'
+// import ArticleArticleContent from '../ArticleArticleContent/ArticleArticleContent'
+// import { PageUrls } from '../../../../сonsts/pageUrls'
+// import s from './CourseArticlePage.module.scss'
 
-type CourseLevelPageProps = {
+/*type CourseLevelPageProps = {
 	// Предыдущая статья относительно текущей
 	prevArticle: ArticleType.Art | null
 	// Текущая статья
-	article: ArticleType.ArtArticle
+	article: ArticleType.Art
 	// Следующая статья относительно текущей
 	nextArticle: ArticleType.Art | null
-}
+}*/
 
 /** Страница главы в курса */
-function CourseArticlePage(props: CourseLevelPageProps) {
+/*function CourseArticlePage(props: CourseLevelPageProps) {
 	const { prevArticle, article, nextArticle } = props
 
 	return (
@@ -31,15 +31,15 @@ function CourseArticlePage(props: CourseLevelPageProps) {
 			</PageContentWrapper>
 		</PageWrapper>
 	)
-}
+}*/
 
-export default CourseArticlePage
+// export default CourseArticlePage
 
-type ChapterNumberProps = {
-	article: ArticleType.ArtArticle
-}
+/*type ChapterNumberProps = {
+	article: ArticleType.Art
+}*/
 
-function Header(props: ChapterNumberProps) {
+/*function Header(props: ChapterNumberProps) {
 	const { caption, articleName } = props.article.meta
 	const chapterNum = extractNumFromStr(caption)
 
@@ -51,4 +51,4 @@ function Header(props: ChapterNumberProps) {
 			</span>
 		</PageHeader>
 	)
-}
+}*/

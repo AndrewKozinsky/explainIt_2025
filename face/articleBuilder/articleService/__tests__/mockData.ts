@@ -25,7 +25,7 @@
 		},
 	},
 	{
-		type: ArticleType.ArtType.article,
+
 		meta: {
 			number: 4,
 			caption: 'Глава 1',
@@ -135,7 +135,7 @@
 		},
 	},
 	{
-		type: ArticleType.ArtType.article,
+
 		meta: {
 			number: 4,
 			caption: 'Глава 2',
@@ -159,7 +159,7 @@
 		},
 	},
 	{
-		type: ArticleType.ArtType.article,
+
 		meta: {
 			number: 4,
 			caption: 'Глава 3',

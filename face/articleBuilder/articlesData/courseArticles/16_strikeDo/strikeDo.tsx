@@ -1,7 +1,6 @@
 import ArticleType from '../../articleType'
 
-const strikeDo: ArticleType.ArtArticle = {
-	type: ArticleType.ArtType.article,
+const strikeDo: ArticleType.Art = {
 	meta: {
 		number: 18,
 		slug: 'strike-do',

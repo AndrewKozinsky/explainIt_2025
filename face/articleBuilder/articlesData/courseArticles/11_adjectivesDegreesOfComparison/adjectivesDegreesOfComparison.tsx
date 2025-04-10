@@ -1,7 +1,6 @@
 import ArticleType from '../../articleType'
 
-const adjectivesDegreesOfComparison: ArticleType.ArtArticle = {
-	type: ArticleType.ArtType.article,
+const adjectivesDegreesOfComparison: ArticleType.Art = {
 	meta: {
 		number: 13,
 		slug: 'adjectives-degrees-of-comparison',

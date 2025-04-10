@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { ITranscription } from '../../../transcriptionService/transcriptions'
+import transcriptionService from '../../../transcriptionService/transcriptionService'
 
 export function getComponentTexts(transcriptionData: ITranscription) {
 	return {
@@ -8,13 +9,18 @@ export function getComponentTexts(transcriptionData: ITranscription) {
 	}
 }
 
-export function useGetAudioPlaying(recordName: string) {
+export function useGetAudioPlaying(recordKey: string) {
 	const audioRef = useRef(new Audio())
 
 	useEffect(() => {
-		const source = getAudioSource(recordName)
+		// @ts-ignore
+		if (!transcriptionService.getTranscriptionByKey(recordKey).audio) {
+			return
+		}
+
+		const source = getAudioSource(recordKey)
 		audioRef.current = new Audio(source)
-	}, [recordName])
+	}, [recordKey])
 
 	const [isPlay, setIsPlay] = useState(false)
 	const [progress, setProgress] = useState(0)
@@ -38,6 +44,11 @@ export function useGetAudioPlaying(recordName: string) {
 
 			const progress = Math.round((currentTime / duration) * 100)
 			setProgress(progress)
+
+			if (currentTime / duration === 1) {
+				audioRef.current.currentTime = 0
+				setIsPlay(false)
+			}
 		})
 	}, [])
 

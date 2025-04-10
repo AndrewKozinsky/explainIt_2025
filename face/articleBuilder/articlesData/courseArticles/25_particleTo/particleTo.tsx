@@ -1,9 +1,8 @@
-import ArticleType from '../../articleType'
-import PresentSimplePositiveScheme from './PresentSimplePositiveScheme'
-import PresentSimpleQuestionScheme_2 from './PresentSimpleQuestionScheme_2'
+// import ArticleType from '../../articleType'
+// import PresentSimplePositiveScheme from './PresentSimplePositiveScheme'
+// import PresentSimpleQuestionScheme_2 from './PresentSimpleQuestionScheme_2'
 
-const particleTo: ArticleType.ArtArticle = {
-	type: ArticleType.ArtType.article,
+/*const particleTo: ArticleType.Art = {
 	meta: {
 		number: 27,
 		slug: 'particle-to',
@@ -419,6 +418,6 @@ const particleTo: ArticleType.ArtArticle = {
 			offset: true,
 		},
 	],
-}
+}*/
 
-export default particleTo
+// export default particleTo

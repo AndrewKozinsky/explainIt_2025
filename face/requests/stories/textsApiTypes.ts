@@ -1,8 +1,8 @@
-import { StoryConfigT } from '../../_pages/storiesArtPage/storyTypes'
+// import { StoryConfigT } from '../../_pages/storiesArtPage/storyTypes'
 
 // Типы для взаимодействия с API школы
-namespace TextsApiTypes {
+/*namespace TextsApiTypes {
 	export type GetText = StoryConfigT.Story
-}
+}*/
 
-export default TextsApiTypes
+// export default TextsApiTypes
