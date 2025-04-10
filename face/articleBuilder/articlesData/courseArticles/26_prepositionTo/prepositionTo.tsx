@@ -174,7 +174,7 @@ const prepositionTo: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Саша подошел к двери.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Sasha walked ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'to' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' the door.' },
@@ -188,7 +188,7 @@ const prepositionTo: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Вика пригласила ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(меня)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' в кино.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Vika invited me ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'to' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' the cinema.' },
@@ -210,14 +210,11 @@ const prepositionTo: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Он сходил  в магазин в прошлом месяце',
-					engSentences: [
-						{ engSentences: ['He went to the store last month.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['He went to the store last month.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
-					rusSentence:
-						'Мои родители идут в поликлинику только когда действительно сильно болеют.',
+					rusSentence: 'Мои родители идут в поликлинику только когда действительно сильно болеют.',
 					engSentences: [
 						{
 							engSentences: ['My parents go to health centre when are really sick.'],
@@ -232,9 +229,7 @@ const prepositionTo: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Как и все дети моего возраста, я хожу в школу.',
-					engSentences: [
-						{ engSentences: ['Like kids my age I go to the school.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['Like kids my age I go to the school.'], isCorrect: true }],
 					words: [
 						{ rusWord: 'ходить (куда-то)', engWord: 'go' },
 						{ rusWord: 'стоматолог', engWord: 'every' },
@@ -261,9 +256,7 @@ const prepositionTo: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Это дорога в парк.',
-					engSentences: [
-						{ engSentences: ['This the way to the park.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['This the way to the park.'], isCorrect: true }],
 					words: [
 						{ rusWord: 'ходить (куда-то)', engWord: 'go' },
 						{ rusWord: 'каждый год', engWord: 'year' },
@@ -286,32 +279,24 @@ const prepositionTo: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Я пойду с тобой на реку.',
-					engSentences: [
-						{ engSentences: ['I will go with you to the river.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['I will go with you to the river.'], isCorrect: true }],
 					words: [{ rusWord: 'каждый год', engWord: 'year' }],
 				},
 				{
 					rusSentence: 'Я отпёр двер в башню.',
-					engSentences: [
-						{ engSentences: ['I unlocked the door to the tower.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['I unlocked the door to the tower.'], isCorrect: true }],
 					words: [{ rusWord: 'каждый год', engWord: 'year' }],
 				},
 				{
 					rusSentence: 'Ты часто ходишь в театр?',
-					engSentences: [
-						{ engSentences: ['Do you often go to the theater?'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['Do you often go to the theater?'], isCorrect: true }],
 					words: [{ rusWord: 'каждый год', engWord: 'year' }],
 				},
 				{
 					rusSentence: 'Каждый день я сажусь на поезд в и из Манхеттена.',
 					engSentences: [
 						{
-							engSentences: [
-								'Every day I took the subway trains to and from Manhattan.',
-							],
+							engSentences: ['Every day I took the subway trains to and from Manhattan.'],
 							isCorrect: true,
 						},
 					],
@@ -329,9 +314,7 @@ const prepositionTo: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Я хожу на базар каждое воскресенье.',
-					engSentences: [
-						{ engSentences: ['I go to the market every Sunday.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['I go to the market every Sunday.'], isCorrect: true }],
 					words: [
 						{ rusWord: 'ходить (куда-то)', engWord: 'go' },
 						{ rusWord: 'стоматолог', engWord: 'every' },
@@ -380,7 +363,7 @@ const prepositionTo: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Пять дней до представления.',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Five days ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'to' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' the performance.' },
@@ -410,7 +393,7 @@ const prepositionTo: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Я предпочитаю автобус самолёту.',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I prefer the bus ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'to' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' the plane.' },
@@ -440,7 +423,7 @@ const prepositionTo: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'У меня есть вопрос к этой теме.',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I have a question ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'to' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' that topic.' },
@@ -467,7 +450,7 @@ const prepositionTo: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Мы добры к детям.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'We are kind ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'to' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' children.' },
@@ -484,7 +467,7 @@ const prepositionTo: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Эта коллекция принадлежит мне.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -506,7 +489,7 @@ const prepositionTo: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Этот доклад необходим для нас.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -547,18 +530,14 @@ const prepositionTo: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Я слишком устал это доказывать тебе.',
-					engSentences: [
-						{ engSentences: ['I\'m too tired to prove it to you.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ["I'm too tired to prove it to you."], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
 					rusSentence: 'Великий Дух говорит только с теми, у кого есть чистое сердце.',
 					engSentences: [
 						{
-							engSentences: [
-								'The Great Spirit speaks only to those with a pure heart.',
-							],
+							engSentences: ['The Great Spirit speaks only to those with a pure heart.'],
 							isCorrect: true,
 						},
 					],
@@ -566,9 +545,7 @@ const prepositionTo: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Их язык похож на наш.',
-					engSentences: [
-						{ engSentences: ['Their language is simular to ours.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['Their language is simular to ours.'], isCorrect: true }],
 					words: [
 						{ rusWord: 'ходить (куда-то)', engWord: 'go' },
 						{ rusWord: 'каждый год', engWord: 'year' },
@@ -576,9 +553,7 @@ const prepositionTo: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Правила дорожного движения похожи на наши.',
-					engSentences: [
-						{ engSentences: ['Traffic rules are similar to ours.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['Traffic rules are similar to ours.'], isCorrect: true }],
 					words: [
 						{ rusWord: 'ходить (куда-то)', engWord: 'go' },
 						{ rusWord: 'стоматолог', engWord: 'every' },
@@ -587,16 +562,14 @@ const prepositionTo: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Он таскается за мной всюду.',
-					engSentences: [
-						{ engSentences: ['He follows me everywhere.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['He follows me everywhere.'], isCorrect: true }],
 					words: [{ rusWord: 'каждый год', engWord: 'year' }],
 				},
 				{
 					rusSentence: 'Они будут очень рады увидеть малыша.',
 					engSentences: [
 						{
-							engSentences: ['Well, they\'ll be so happy to see the baby.'],
+							engSentences: ["Well, they'll be so happy to see the baby."],
 							isCorrect: true,
 						},
 					],
@@ -644,7 +617,7 @@ const prepositionTo: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я отправлю деньги тебе.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I will send ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'the money' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' to ' },
@@ -675,7 +648,7 @@ const prepositionTo: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я отправлю тебе деньги.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I will send ' },
 				{ type: 'text', color: 'gold', weight: 'normal', text: 'you' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' ' },
@@ -702,9 +675,7 @@ const prepositionTo: ArticleType.ArtArticle = {
 			type: 'paragraph',
 			offset: true,
 			textSize: 'normal',
-			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Список таких глаголов:' },
-			],
+			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'Список таких глаголов:' }],
 		},
 		{
 			type: 'grid',
@@ -785,9 +756,7 @@ const prepositionTo: ArticleType.ArtArticle = {
 			type: 'paragraph',
 			offset: true,
 			textSize: 'normal',
-			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Ещё несколько примеров:' },
-			],
+			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'Ещё несколько примеров:' }],
 		},
 		{
 			type: 'grid',
@@ -826,7 +795,7 @@ const prepositionTo: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: ' тот пакет.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -867,7 +836,7 @@ const prepositionTo: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: ' конверт.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -923,7 +892,7 @@ const prepositionTo: ArticleType.ArtArticle = {
 								},
 								{ type: 'text', color: 'blue', weight: 'normal', text: 'тебе' },
 								{ type: 'text', color: 'black', weight: 'normal', text: '.' },
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -951,7 +920,7 @@ const prepositionTo: ArticleType.ArtArticle = {
 								},
 								{ type: 'text', color: 'blue', weight: 'normal', text: 'Полине' },
 								{ type: 'text', color: 'black', weight: 'normal', text: '.' },
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -994,7 +963,7 @@ const prepositionTo: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Я всегда это объясняю своим пациентам.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -1014,7 +983,7 @@ const prepositionTo: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Никто не станет тебя слушать.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',

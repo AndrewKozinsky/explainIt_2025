@@ -7,8 +7,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 		slug: 'demonstrative-pronouns',
 		caption: 'Глава 7',
 		articleName: 'Указательные местоимения',
-		articleDescription:
-			'Указательные местоимения используются для ввода в контекст нового персонажа или предмета.',
+		articleDescription: 'Указательные местоимения используются для ввода в контекст нового персонажа или предмета.',
 		isPaid: false,
 	},
 	content: [
@@ -82,7 +81,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: ' новая машина, а ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'та' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' старая.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'This' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '’s a new car, but ' },
@@ -144,7 +143,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 							weight: 'normal',
 							text: 'Это новая машина, а та старая.',
 						},
-						{ type: 'arrow' },
+
 						{
 							type: 'text',
 							color: 'black',
@@ -251,7 +250,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 					textSize: 'big',
 					children: [
 						{ type: 'text', color: 'black', weight: 'normal', text: 'Кто это?' },
-						{ type: 'arrow' },
+
 						{ type: 'text', color: 'black', weight: 'normal', text: 'Who’s this?' },
 					],
 				},
@@ -297,9 +296,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Однако это не простой остров.',
-					engSentences: [
-						{ engSentences: ['This is not a simple island.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['This is not a simple island.'], isCorrect: true }],
 					words: [
 						{ rusWord: 'однако', engWord: 'however' },
 						{ rusWord: 'простой', engWord: 'simple' },
@@ -308,9 +305,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Это ручка, а то – карандаш.',
-					engSentences: [
-						{ engSentences: ['This is a pen, and that is a pencil.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['This is a pen, and that is a pencil.'], isCorrect: true }],
 					words: [
 						{ rusWord: 'суп', engWord: 'soup' },
 						{ rusWord: 'солёный', engWord: 'salty' },
@@ -382,23 +377,17 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Это Катя, моя сводная сестра.',
-					engSentences: [
-						{ engSentences: ['This is Katya, my stepsister.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['This is Katya, my stepsister.'], isCorrect: true }],
 					words: [{ rusWord: 'сводная сестра', engWord: 'a stepsister' }],
 				},
 				{
 					rusSentence: 'Это не ваши следы.',
-					engSentences: [
-						{ engSentences: ['This is not your footsteps. '], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['This is not your footsteps. '], isCorrect: true }],
 					words: [{ rusWord: 'след', engWord: 'a footstep' }],
 				},
 				{
 					rusSentence: 'Это не моя основная профессия.',
-					engSentences: [
-						{ engSentences: ['This is not my main occupation.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['This is not my main occupation.'], isCorrect: true }],
 					words: [
 						{ rusWord: 'основной', engWord: 'main' },
 						{ rusWord: 'профессия', engWord: 'occupation' },
@@ -438,7 +427,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Это великолепно!' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'This is awesome!' },
 			],
 		},
@@ -453,7 +442,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Эта сумочка очень дешёвая.',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'This bag is very cheap.' },
 			],
 		},
@@ -478,7 +467,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Это кошмар!' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'That is a disaster!' },
 			],
 		},
@@ -488,7 +477,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Тот человек очень злой.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'That man is very angry.' },
 			],
 		},
@@ -537,7 +526,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Это кошмар!' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'This is a disaster!' },
 			],
 		},
@@ -565,9 +554,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 					rusSentence: 'Та змея очень ядовитая, а это обычный уж.',
 					engSentences: [
 						{
-							engSentences: [
-								'That snake is very toxic, and this is an common grass snake.',
-							],
+							engSentences: ['That snake is very toxic, and this is an common grass snake.'],
 							isCorrect: true,
 						},
 					],
@@ -594,9 +581,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Это побережье очень опасно.',
-					engSentences: [
-						{ engSentences: ['This coast is very dangerous.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['This coast is very dangerous.'], isCorrect: true }],
 					words: [
 						{ rusWord: 'побережье', engWord: 'a coast' },
 						{ rusWord: 'опасный', engWord: 'a dangerous' },
@@ -606,9 +591,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 					rusSentence: 'Этот аромат нереальный, а те обычные дешёвые духи.',
 					engSentences: [
 						{
-							engSentences: [
-								'This fragrance is unreal, and those ordinary cheap perfume',
-							],
+							engSentences: ['This fragrance is unreal, and those ordinary cheap perfume'],
 							isCorrect: true,
 						},
 					],
@@ -624,7 +607,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 					rusSentence: 'Эта любовь сложная, но настоящая.',
 					engSentences: [
 						{
-							engSentences: ['This love is difficult, but it\'s real.'],
+							engSentences: ["This love is difficult, but it's real."],
 							isCorrect: true,
 						},
 					],
@@ -664,9 +647,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Тот фильм не был замечательным.',
-					engSentences: [
-						{ engSentences: ['That movie wasn’t wonderful.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['That movie wasn’t wonderful.'], isCorrect: true }],
 					words: [
 						{ rusWord: 'фильм', engWord: 'a movie' },
 						{ rusWord: 'замечательный', engWord: 'wonderful' },
@@ -716,7 +697,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Это великолепно!' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'This ' },
 				{ type: 'text', color: 'black', weight: 'normal', text: 'is great!' },
@@ -741,7 +722,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Это было великолепно!' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'That' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' was great!' },
@@ -842,7 +823,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Вы — юрист? Да, это так.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -879,7 +860,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Этот торт очень очень дорогой.',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'This' },
 				{
@@ -911,7 +892,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Но он очень вкусный.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'But ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'it ' },
 				{ type: 'text', color: 'black', weight: 'normal', text: 'is very tasty.' },
@@ -941,7 +922,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Это не религиозность, это не духовность, это не мистика.',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'This' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' is not religious, ' },
@@ -958,9 +939,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 				{
 					note: 'Примечание к предложению',
 					rusSentence: 'Это жук? Нет, это паук.',
-					engSentences: [
-						{ engSentences: ['Is this a bug? No, it is a spider.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['Is this a bug? No, it is a spider.'], isCorrect: true }],
 					words: [
 						{ rusWord: 'жук', engWord: 'bug' },
 						{ rusWord: 'паук', engWord: 'spider' },
@@ -968,9 +947,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Это карандаш? Нет, это ручка.',
-					engSentences: [
-						{ engSentences: ['Is this a pencil? No, it\'s a pen.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ["Is this a pencil? No, it's a pen."], isCorrect: true }],
 					words: [
 						{ rusWord: 'карандаш', engWord: 'pencil' },
 						{ rusWord: 'ручка', engWord: 'pen' },
@@ -978,9 +955,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Это океан? Нет, это озеро.',
-					engSentences: [
-						{ engSentences: ['Is this an ocean? No, it\'s a lake.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ["Is this an ocean? No, it's a lake."], isCorrect: true }],
 					words: [
 						{ rusWord: 'океан', engWord: 'ocean' },
 						{ rusWord: 'озеро', engWord: 'lake' },
@@ -1061,7 +1036,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'этот — this',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -1081,7 +1056,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Эта сумка огромная.',
 								},
-								{ type: 'arrow' },
+
 								{ type: 'text', color: 'black', weight: 'normal', text: '' },
 								{ type: 'text', color: 'gold', weight: 'normal', text: 'This' },
 								{
@@ -1103,7 +1078,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Эти сумки огромные.',
 								},
-								{ type: 'arrow' },
+
 								{ type: 'text', color: 'black', weight: 'normal', text: '' },
 								{ type: 'text', color: 'blue', weight: 'normal', text: 'These' },
 								{
@@ -1129,7 +1104,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'тот — that',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -1149,7 +1124,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Тот человек ненадёжен.',
 								},
-								{ type: 'arrow' },
+
 								{ type: 'text', color: 'black', weight: 'normal', text: '' },
 								{ type: 'text', color: 'gold', weight: 'normal', text: 'That' },
 								{
@@ -1171,7 +1146,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Те люди ненадежные.',
 								},
-								{ type: 'arrow' },
+
 								{ type: 'text', color: 'black', weight: 'normal', text: '' },
 								{ type: 'text', color: 'blue', weight: 'normal', text: 'Those' },
 								{
@@ -1222,9 +1197,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 			type: 'paragraph',
 			offset: false,
 			textSize: 'giant',
-			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'It is our children.' },
-			],
+			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'It is our children.' }],
 		},
 		{
 			type: 'paragraph',
@@ -1276,9 +1249,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 			type: 'paragraph',
 			offset: false,
 			textSize: 'giant',
-			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'They are our children.' },
-			],
+			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'They are our children.' }],
 		},
 		{
 			type: 'paragraph',
@@ -1310,9 +1281,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 			type: 'paragraph',
 			offset: false,
 			textSize: 'giant',
-			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'These are our children.' },
-			],
+			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'These are our children.' }],
 		},
 		{
 			type: 'exercises',
@@ -1365,9 +1334,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Эти шоколадки вкусные.',
-					engSentences: [
-						{ engSentences: ['These chocolates are delicious.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['These chocolates are delicious.'], isCorrect: true }],
 					words: [
 						{ rusWord: 'шоколадка', engWord: 'a chocolate' },
 						{ rusWord: 'вкусный', engWord: 'delicious' },
@@ -1402,9 +1369,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Эти очки ужасные.',
-					engSentences: [
-						{ engSentences: ['This glasses are terrible.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['This glasses are terrible.'], isCorrect: true }],
 					words: [
 						{ rusWord: 'очки', engWord: 'glasses' },
 						{ rusWord: 'ужасный', engWord: 'terrible' },
@@ -1446,7 +1411,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Это животное — жираф.' },
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -1489,7 +1454,7 @@ const demonstrativePronouns: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Это великолепная идея!' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'This is a great idea!' },
 			],
 		},

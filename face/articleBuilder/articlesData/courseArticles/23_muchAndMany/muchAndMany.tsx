@@ -70,7 +70,7 @@ const muchAndMany: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'much/many',
 								},
-								{ type: 'arrow' },
+
 								{ type: 'text', color: 'black', weight: 'normal', text: 'много' },
 							],
 						},
@@ -85,7 +85,7 @@ const muchAndMany: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Много людей стояло возле моего дома.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -132,7 +132,7 @@ const muchAndMany: ArticleType.ArtArticle = {
 							textSize: 'big',
 							children: [
 								{ type: 'text', color: 'black', weight: 'normal', text: 'much' },
-								{ type: 'arrow' },
+
 								{ type: 'text', color: 'black', weight: 'normal', text: 'многое ' },
 								{
 									type: 'text',
@@ -148,7 +148,7 @@ const muchAndMany: ArticleType.ArtArticle = {
 							textSize: 'big',
 							children: [
 								{ type: 'text', color: 'black', weight: 'normal', text: 'many' },
-								{ type: 'arrow' },
+
 								{ type: 'text', color: 'black', weight: 'normal', text: 'многие ' },
 								{
 									type: 'text',
@@ -169,7 +169,7 @@ const muchAndMany: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Многие стояли возле моего дома.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -216,7 +216,7 @@ const muchAndMany: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'У нас у всех есть много грехов.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -255,7 +255,7 @@ const muchAndMany: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'У нас много снаряжения.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -318,7 +318,7 @@ const muchAndMany: ArticleType.ArtArticle = {
 							weight: 'normal',
 							text: 'Вода содержит много кислорода.',
 						},
-						{ type: 'arrow' },
+
 						{
 							type: 'text',
 							color: 'black',
@@ -338,7 +338,7 @@ const muchAndMany: ArticleType.ArtArticle = {
 							weight: 'normal',
 							text: 'У нас будет очень много практики.',
 						},
-						{ type: 'arrow' },
+
 						{
 							type: 'text',
 							color: 'black',
@@ -406,9 +406,7 @@ const muchAndMany: ArticleType.ArtArticle = {
 					rusSentence: 'Люди говорили на другом языке, но многие слова были простыми.',
 					engSentences: [
 						{
-							engSentences: [
-								'The people spoke a different language, but many of the words were easy.',
-							],
+							engSentences: ['The people spoke a different language, but many of the words were easy.'],
 							isCorrect: true,
 						},
 					],
@@ -438,9 +436,7 @@ const muchAndMany: ArticleType.ArtArticle = {
 					rusSentence: 'Я ещё слышал родные слова, которое он повторял множество раз.',
 					engSentences: [
 						{
-							engSentences: [
-								'I also heard a native word that he repeated many times.',
-							],
+							engSentences: ['I also heard a native word that he repeated many times.'],
 							isCorrect: true,
 						},
 					],
@@ -451,7 +447,7 @@ const muchAndMany: ArticleType.ArtArticle = {
 					engSentences: [
 						{
 							engSentences: [
-								'Keola did not know much about his wife\'s father, but one thing troubled him.',
+								"Keola did not know much about his wife's father, but one thing troubled him.",
 							],
 							isCorrect: true,
 						},
@@ -519,7 +515,7 @@ const muchAndMany: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Более мощные радиостанции имеют больший диапазон.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -558,7 +554,7 @@ const muchAndMany: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Это даст больше пространства для необходимых вещей.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -616,7 +612,7 @@ const muchAndMany: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'У меня еще две сестры.' },
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -662,7 +658,7 @@ const muchAndMany: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'У меня будет немного больше времени.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -677,18 +673,14 @@ const muchAndMany: ArticleType.ArtArticle = {
 			exercises: [
 				{
 					rusSentence: 'И вот мы имеем еще два фильма.',
-					engSentences: [
-						{ engSentences: ['So we have two more movies.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['So we have two more movies.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
 					rusSentence: 'Медицинские тесты используют гораздо меньшие дозы радиации.',
 					engSentences: [
 						{
-							engSentences: [
-								'Medical tests use much, much smaller doses of radiation.',
-							],
+							engSentences: ['Medical tests use much, much smaller doses of radiation.'],
 							isCorrect: true,
 						},
 					],
@@ -696,23 +688,17 @@ const muchAndMany: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'А писать я начал намного раньше.',
-					engSentences: [
-						{ engSentences: ['But I started writing much earlier.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['But I started writing much earlier.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
 					rusSentence: 'Мы были намного сильнее чем они .',
-					engSentences: [
-						{ engSentences: ['We were much stronger than them.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['We were much stronger than them.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
 					rusSentence: 'В этот раз все было гораздо хуже.',
-					engSentences: [
-						{ engSentences: ['This time it was much worse.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['This time it was much worse.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 			],
@@ -752,7 +738,7 @@ const muchAndMany: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Это самый важный документ в твоей жизни.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -791,7 +777,7 @@ const muchAndMany: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Большинство детей пробовали эти фрукты.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -841,7 +827,7 @@ const muchAndMany: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Китайские туристы тратят больше всех.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -896,7 +882,7 @@ const muchAndMany: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Многое будет зависеть от их подхода.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -935,7 +921,7 @@ const muchAndMany: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Многие потеряли свои дома и работы.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -994,7 +980,7 @@ const muchAndMany: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Не многие знают это природное средство.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -1033,7 +1019,7 @@ const muchAndMany: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Многие не знают это природное средство.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -1083,7 +1069,7 @@ const muchAndMany: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'I never though much about my future.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -1103,7 +1089,7 @@ const muchAndMany: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Они мало работают и много едят.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -1144,7 +1130,7 @@ const muchAndMany: ArticleType.ArtArticle = {
 							weight: 'normal',
 							text: 'Множество интересных фактов в одной статье.',
 						},
-						{ type: 'arrow' },
+
 						{
 							type: 'text',
 							color: 'black',
@@ -1177,7 +1163,7 @@ const muchAndMany: ArticleType.ArtArticle = {
 							weight: 'normal',
 							text: 'Джеймс и Гарри много ругались о религии в прошлом.',
 						},
-						{ type: 'arrow' },
+
 						{
 							type: 'text',
 							color: 'black',

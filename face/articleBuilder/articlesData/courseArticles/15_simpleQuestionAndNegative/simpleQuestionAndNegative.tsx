@@ -53,14 +53,10 @@ const simpleQuestionAndNegative: ArticleType.ArtArticle = {
 			gridId: 'grid-6610',
 			cells: [
 				{
-					children: [
-						{ type: 'customComponent', component: <ToBePresentPositiveScheme /> },
-					],
+					children: [{ type: 'customComponent', component: <ToBePresentPositiveScheme /> }],
 				},
 				{
-					children: [
-						{ type: 'customComponent', component: <ToBePresentQuestionScheme /> },
-					],
+					children: [{ type: 'customComponent', component: <ToBePresentQuestionScheme /> }],
 				},
 			],
 		},
@@ -232,7 +228,7 @@ const simpleQuestionAndNegative: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'We ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'like' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' tea.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'Do' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' we like tea?' },
@@ -329,7 +325,7 @@ const simpleQuestionAndNegative: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Ты помогаешь своим родителям?',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -344,7 +340,7 @@ const simpleQuestionAndNegative: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Он работает здесь?' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Does he work here?' },
 			],
 		},
@@ -364,9 +360,7 @@ const simpleQuestionAndNegative: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'В твоём чае есть сахар?',
-					engSentences: [
-						{ engSentences: ['Do you have sugar in your tea?'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['Do you have sugar in your tea?'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
@@ -379,9 +373,7 @@ const simpleQuestionAndNegative: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Ты помогаешь своим родителям?',
-					engSentences: [
-						{ engSentences: ['Do you help your parents?'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['Do you help your parents?'], isCorrect: true }],
 					words: [{ rusWord: 'многие', engWord: 'many' }],
 				},
 				{
@@ -471,7 +463,7 @@ const simpleQuestionAndNegative: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Ты помогал своим родителям?',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -486,7 +478,7 @@ const simpleQuestionAndNegative: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Он работал здесь?' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Did he work here?' },
 			],
 		},
@@ -561,14 +553,10 @@ const simpleQuestionAndNegative: ArticleType.ArtArticle = {
 			gridId: 'grid-2989',
 			cells: [
 				{
-					children: [
-						{ type: 'customComponent', component: <ToBePresentPositiveScheme /> },
-					],
+					children: [{ type: 'customComponent', component: <ToBePresentPositiveScheme /> }],
 				},
 				{
-					children: [
-						{ type: 'customComponent', component: <ToBePresentNegativeScheme /> },
-					],
+					children: [{ type: 'customComponent', component: <ToBePresentNegativeScheme /> }],
 				},
 			],
 		},
@@ -636,7 +624,7 @@ const simpleQuestionAndNegative: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Ты не помогаешь своим родителям.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -651,7 +639,7 @@ const simpleQuestionAndNegative: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Он не работает здесь.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'He does not work here.' },
 			],
 		},
@@ -679,7 +667,7 @@ const simpleQuestionAndNegative: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Ты не помогал своим родителям.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -694,7 +682,7 @@ const simpleQuestionAndNegative: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Он не работал здесь.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'He did not work here.' },
 			],
 		},
@@ -722,7 +710,7 @@ const simpleQuestionAndNegative: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Ты не будешь помогать своим родителям.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -742,7 +730,7 @@ const simpleQuestionAndNegative: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Он не будет работать здесь.',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'He will not work here.' },
 			],
 		},
@@ -770,7 +758,7 @@ const simpleQuestionAndNegative: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Мы никогда не ходим пешком.',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'We never walk.' },
 			],
 		},
@@ -780,9 +768,7 @@ const simpleQuestionAndNegative: ArticleType.ArtArticle = {
 			exercises: [
 				{
 					rusSentence: 'Он никогда не ходит без своих друзей.',
-					engSentences: [
-						{ engSentences: ['He never goes without his friends.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['He never goes without his friends.'], isCorrect: true }],
 					words: [
 						{ rusWord: 'никогда не', engWord: 'never' },
 						{ rusWord: 'ходить', engWord: 'go' },

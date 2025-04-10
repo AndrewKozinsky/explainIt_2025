@@ -96,7 +96,7 @@ const beShort: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Ты не был болен.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'You ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(were not)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' were' },
@@ -110,7 +110,7 @@ const beShort: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Это было не просто.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'It ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(was not)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' was' },
@@ -179,7 +179,7 @@ const beShort: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я уверенный человек.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(I am)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' I' },
@@ -193,7 +193,7 @@ const beShort: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Они инжерены.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(They are)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' They' },
@@ -207,7 +207,7 @@ const beShort: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Это восхитительно.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(It is)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' It' },
@@ -243,11 +243,11 @@ const beShort: ArticleType.ArtArticle = {
 							weight: 'normal',
 							text: 'Моя мама учитель.',
 						},
-						{ type: 'arrow' },
+
 						{ type: 'text', color: 'black', weight: 'normal', text: 'My ' },
 						{ type: 'text', color: 'gray', weight: 'normal', text: '(mum is)' },
 						{ type: 'text', color: 'black', weight: 'normal', text: ' mum' },
-						{ type: 'text', color: 'blue', weight: 'normal', text: '\'s' },
+						{ type: 'text', color: 'blue', weight: 'normal', text: "'s" },
 						{ type: 'text', color: 'black', weight: 'normal', text: ' a teacher.' },
 					],
 				},
@@ -262,11 +262,11 @@ const beShort: ArticleType.ArtArticle = {
 							weight: 'normal',
 							text: 'Вся еда на кухне.',
 						},
-						{ type: 'arrow' },
+
 						{ type: 'text', color: 'black', weight: 'normal', text: 'All the ' },
 						{ type: 'text', color: 'gray', weight: 'normal', text: '(food is)' },
 						{ type: 'text', color: 'black', weight: 'normal', text: ' food' },
-						{ type: 'text', color: 'blue', weight: 'normal', text: '\'s' },
+						{ type: 'text', color: 'blue', weight: 'normal', text: "'s" },
 						{ type: 'text', color: 'black', weight: 'normal', text: ' in the kitchen' },
 					],
 				},
@@ -531,9 +531,7 @@ const beShort: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Алиса злая и напуганная.',
-					engSentences: [
-						{ engSentences: ['Alissa is angry and afraid.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['Alissa is angry and afraid.'], isCorrect: true }],
 					words: [
 						{
 							note: 'Примечание к слову',
@@ -546,9 +544,7 @@ const beShort: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Я уверен, он тот же самый человек.',
-					engSentences: [
-						{ engSentences: ['I am sure he is the same person.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['I am sure he is the same person.'], isCorrect: true }],
 					words: [
 						{
 							note: 'Примечание к слову',
@@ -563,7 +559,7 @@ const beShort: ArticleType.ArtArticle = {
 					rusSentence: 'Они здесь! Бэки и Том здесь!',
 					engSentences: [
 						{
-							engSentences: ['They\'re here! Becky and Tom are here!'],
+							engSentences: ["They're here! Becky and Tom are here!"],
 							isCorrect: true,
 						},
 					],
@@ -665,7 +661,7 @@ const beShort: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я не совершенен.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(I am)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' I' },
@@ -696,7 +692,7 @@ const beShort: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Вы не взволнованы.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'You ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(are not)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' are' },
@@ -710,7 +706,7 @@ const beShort: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Это не секрет.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'It ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(is not)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' is' },
@@ -739,9 +735,7 @@ const beShort: ArticleType.ArtArticle = {
 					rusSentence: 'Глобальные решения недороги, но и не бесплатны.',
 					engSentences: [
 						{
-							engSentences: [
-								'Global solutions are not expensive, but they are not free, either.',
-							],
+							engSentences: ['Global solutions are not expensive, but they are not free, either.'],
 							isCorrect: true,
 						},
 					],
@@ -754,16 +748,12 @@ const beShort: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Те яблоки не для тебя.',
-					engSentences: [
-						{ engSentences: ['Those apples are not for you.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['Those apples are not for you.'], isCorrect: true }],
 					words: [{ rusWord: 'дикарь', engWord: 'a savage', transcription: 'ə ˈsævɪdʒ' }],
 				},
 				{
 					rusSentence: 'Однако этого результата не достаточно.',
-					engSentences: [
-						{ engSentences: ['But this progress is not enough'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['But this progress is not enough'], isCorrect: true }],
 					words: [
 						{ rusWord: 'однако', engWord: 'but' },
 						{ rusWord: 'результат', engWord: 'progress' },
@@ -777,9 +767,7 @@ const beShort: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Английский не мой родной язык.',
-					engSentences: [
-						{ engSentences: ['English is not my native language.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['English is not my native language.'], isCorrect: true }],
 					words: [{ rusWord: 'умный', engWord: 'smart' }],
 				},
 			],
@@ -810,7 +798,7 @@ const beShort: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я буду королём.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(I will)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' I' },
@@ -824,7 +812,7 @@ const beShort: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Он будет наследником.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(He will)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' He' },
@@ -840,9 +828,7 @@ const beShort: ArticleType.ArtArticle = {
 					rusSentence: 'Другими словами, это будет действительно хорошим фильмом ужасов.',
 					engSentences: [
 						{
-							engSentences: [
-								'In other words, it will be a really good horror movie.',
-							],
+							engSentences: ['In other words, it will be a really good horror movie.'],
 							isCorrect: true,
 						},
 					],
@@ -879,7 +865,7 @@ const beShort: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я не опоздаю.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(will not)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' wo' },
@@ -898,7 +884,7 @@ const beShort: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Таня не скоро будет там.',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Tanya ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(will not)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' wo' },
@@ -944,9 +930,7 @@ const beShort: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Суббота не будте прекрасным днём.',
-					engSentences: [
-						{ engSentences: ['Saturday will not be a nice day.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['Saturday will not be a nice day.'], isCorrect: true }],
 					words: [
 						{ rusWord: 'друг', engWord: 'friend' },
 						{ rusWord: 'после', engWord: 'after' },
@@ -980,7 +964,7 @@ const beShort: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Hey, these guys are professionals.',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Hey, these ' },
 				{ type: 'text', color: 'error', weight: 'normal', text: 'guys’re' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' professionals.' },

@@ -7,8 +7,7 @@ const prepositionAtPlace: ArticleType.ArtArticle = {
 		slug: 'preposition-at-place',
 		caption: 'Глава 28',
 		articleName: 'Предлог места at',
-		articleDescription:
-			'Предлог at полезен когда нужно рассказать в какой точке пространства находится объект.',
+		articleDescription: 'Предлог at полезен когда нужно рассказать в какой точке пространства находится объект.',
 		isPaid: false,
 	},
 	content: [
@@ -68,7 +67,7 @@ const prepositionAtPlace: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'I waited in the bus stop.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -101,9 +100,9 @@ const prepositionAtPlace: ArticleType.ArtArticle = {
 									type: 'text',
 									color: 'black',
 									weight: 'normal',
-									text: 'I\'ll meet you in the station.',
+									text: "I'll meet you in the station.",
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -143,7 +142,7 @@ const prepositionAtPlace: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'I waited at the bus stop.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -174,9 +173,9 @@ const prepositionAtPlace: ArticleType.ArtArticle = {
 									type: 'text',
 									color: 'black',
 									weight: 'normal',
-									text: 'I\'ll meet you at the station.',
+									text: "I'll meet you at the station.",
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -245,7 +244,7 @@ const prepositionAtPlace: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Он встретился с Лениным в Москве в 1921 году.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -271,7 +270,7 @@ const prepositionAtPlace: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Саша и Николай пришли к девушкам.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -299,7 +298,7 @@ const prepositionAtPlace: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Урна стоит на углу.' },
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -328,7 +327,7 @@ const prepositionAtPlace: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Ручка в кармане.' },
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -361,7 +360,7 @@ const prepositionAtPlace: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Я встречу тебя на кухне.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -406,9 +405,7 @@ const prepositionAtPlace: ArticleType.ArtArticle = {
 					rusSentence: 'Переведи...',
 					engSentences: [
 						{
-							engSentences: [
-								'Jacob did not go to the celebration at the park because he was angry.',
-							],
+							engSentences: ['Jacob did not go to the celebration at the park because he was angry.'],
 							isCorrect: true,
 						},
 					],
@@ -463,16 +460,12 @@ const prepositionAtPlace: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Увидимся на барбекю.',
-					engSentences: [
-						{ engSentences: ['We\'ll see you at the barbeque.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ["We'll see you at the barbeque."], isCorrect: true }],
 					words: [{ rusWord: 'неизвестный', engWord: 'unknown' }],
 				},
 				{
 					rusSentence: 'Переведи...',
-					engSentences: [
-						{ engSentences: ['She looked at the letter.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['She looked at the letter.'], isCorrect: true }],
 					words: [{ rusWord: 'неизвестный', engWord: 'unknown' }],
 				},
 				{
@@ -501,9 +494,7 @@ const prepositionAtPlace: ArticleType.ArtArticle = {
 					rusSentence: 'Переведи...',
 					engSentences: [
 						{
-							engSentences: [
-								'He saw his friend Joe Harper in the street, but he didn\'t look at him.',
-							],
+							engSentences: ["He saw his friend Joe Harper in the street, but he didn't look at him."],
 							isCorrect: true,
 						},
 					],
@@ -549,7 +540,7 @@ const prepositionAtPlace: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'У нас есть дом на берегу моря.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -595,7 +586,7 @@ const prepositionAtPlace: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Я стояла у окна и слушала.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -610,16 +601,12 @@ const prepositionAtPlace: ArticleType.ArtArticle = {
 			exercises: [
 				{
 					rusSentence: 'Джим поставил стул у стола.',
-					engSentences: [
-						{ engSentences: ['Jim put a chair at the table.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['Jim put a chair at the table.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
 					rusSentence: 'Я стояла у окна и слушала.',
-					engSentences: [
-						{ engSentences: ['I stood at the window and listened.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['I stood at the window and listened.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 			],

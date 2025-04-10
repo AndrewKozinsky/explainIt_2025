@@ -7,8 +7,7 @@ const prepositionOf: ArticleType.ArtArticle = {
 		slug: 'preposition-of',
 		caption: 'Глава 22',
 		articleName: 'Предлог of',
-		articleDescription:
-			'Предлог of универсальный способ задать принадлежность существительному.',
+		articleDescription: 'Предлог of универсальный способ задать принадлежность существительному.',
 		isPaid: false,
 	},
 	content: [
@@ -107,8 +106,8 @@ const prepositionOf: ArticleType.ArtArticle = {
 				},
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(чего?)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' денег.' },
-				{ type: 'arrow' },
-				{ type: 'text', color: 'black', weight: 'normal', text: 'You don\'t pay me a lot ' },
+
+				{ type: 'text', color: 'black', weight: 'normal', text: "You don't pay me a lot " },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(чего?)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' of money.' },
 			],
@@ -126,7 +125,7 @@ const prepositionOf: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: ' людей внезапно затихла.',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'The noisy crowd ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(кого?)' },
 				{
@@ -157,7 +156,7 @@ const prepositionOf: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Мой дом' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'The house of mine' },
 			],
 		},
@@ -167,7 +166,7 @@ const prepositionOf: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Дом моего отца' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'The house of my dad' },
 			],
 		},
@@ -190,9 +189,9 @@ const prepositionOf: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Мой дом' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'The house of mine' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'My house' },
 			],
 		},
@@ -202,9 +201,9 @@ const prepositionOf: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Дом моего отца' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'The house of my dad' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'My dad’s house' },
 			],
 		},
@@ -294,7 +293,7 @@ const prepositionOf: ArticleType.ArtArticle = {
 							weight: 'normal',
 							text: 'A photo of Julia',
 						},
-						{ type: 'arrow' },
+
 						{
 							type: 'text',
 							color: 'black',
@@ -309,7 +308,7 @@ const prepositionOf: ArticleType.ArtArticle = {
 					textSize: 'big',
 					children: [
 						{ type: 'text', color: 'black', weight: 'normal', text: 'Julia’s picture' },
-						{ type: 'arrow' },
+
 						{ type: 'text', color: 'black', weight: 'normal', text: 'Фотография Юлии' },
 					],
 				},
@@ -321,9 +320,7 @@ const prepositionOf: ArticleType.ArtArticle = {
 			exercises: [
 				{
 					rusSentence: 'Ты боишься приведений?',
-					engSentences: [
-						{ engSentences: ['Are you afraid of ghosts?'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['Are you afraid of ghosts?'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
@@ -337,12 +334,11 @@ const prepositionOf: ArticleType.ArtArticle = {
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
-					rusSentence:
-						'Следующий день был Четвёртым июлем, один из самых важдый американских праздников.',
+					rusSentence: 'Следующий день был Четвёртым июлем, один из самых важдый американских праздников.',
 					engSentences: [
 						{
 							engSentences: [
-								'The next day was the Fourth of July, one of America\'s most important holidays.',
+								"The next day was the Fourth of July, one of America's most important holidays.",
 							],
 							isCorrect: true,
 						},
@@ -351,19 +347,14 @@ const prepositionOf: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Знаешь, Том был моим другом.',
-					engSentences: [
-						{ engSentences: ['You know, Tom was a friend of mine.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['You know, Tom was a friend of mine.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
-					rusSentence:
-						'Хаббл доказал существование других галактик, помимо нашей галактики.',
+					rusSentence: 'Хаббл доказал существование других галактик, помимо нашей галактики.',
 					engSentences: [
 						{
-							engSentences: [
-								'Hubble demonstrated the existence of the other galaxies besides ours.',
-							],
+							engSentences: ['Hubble demonstrated the existence of the other galaxies besides ours.'],
 							isCorrect: true,
 						},
 					],
@@ -373,9 +364,7 @@ const prepositionOf: ArticleType.ArtArticle = {
 					rusSentence: 'Его волосы были цвета сухой травы и он был слепой.',
 					engSentences: [
 						{
-							engSentences: [
-								'His hair was the colour of dry grass and he was blind.',
-							],
+							engSentences: ['His hair was the colour of dry grass and he was blind.'],
 							isCorrect: true,
 						},
 					],
@@ -385,9 +374,7 @@ const prepositionOf: ArticleType.ArtArticle = {
 					rusSentence: 'Переведи....',
 					engSentences: [
 						{
-							engSentences: [
-								'Keola was afraid of Kalamake but his wife\'s words made him angry.',
-							],
+							engSentences: ["Keola was afraid of Kalamake but his wife's words made him angry."],
 							isCorrect: true,
 						},
 					],
@@ -407,9 +394,7 @@ const prepositionOf: ArticleType.ArtArticle = {
 					rusSentence: 'Переведи....',
 					engSentences: [
 						{
-							engSentences: [
-								'Thousands of tourists visit Maui\'s beautiful beaches every year.',
-							],
+							engSentences: ["Thousands of tourists visit Maui's beautiful beaches every year."],
 							isCorrect: true,
 						},
 					],
@@ -419,22 +404,17 @@ const prepositionOf: ArticleType.ArtArticle = {
 					rusSentence: 'Переведи....',
 					engSentences: [
 						{
-							engSentences: [
-								'He was a short man of about fifty with gray hair and blue eyes.',
-							],
+							engSentences: ['He was a short man of about fifty with gray hair and blue eyes.'],
 							isCorrect: true,
 						},
 					],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
-					rusSentence:
-						'Однажды ночью с плавал около с островом и увидел множество огней.',
+					rusSentence: 'Однажды ночью с плавал около с островом и увидел множество огней.',
 					engSentences: [
 						{
-							engSentences: [
-								'One night I sailed near the island and saw a lot of lights.',
-							],
+							engSentences: ['One night I sailed near the island and saw a lot of lights.'],
 							isCorrect: true,
 						},
 					],
@@ -444,9 +424,7 @@ const prepositionOf: ArticleType.ArtArticle = {
 					rusSentence: 'Переведи....',
 					engSentences: [
 						{
-							engSentences: [
-								'Keola asked the people of the tribe and learned a lot of new things.',
-							],
+							engSentences: ['Keola asked the people of the tribe and learned a lot of new things.'],
 							isCorrect: true,
 						},
 					],
@@ -484,7 +462,7 @@ const prepositionOf: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: ' трёх счастливчиков в этом месяце.',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'This is ' },
 				{ type: 'text', color: 'gold', weight: 'normal', text: 'one' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' ' },
@@ -521,7 +499,7 @@ const prepositionOf: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Гавайцы живут на шести из восьми главных островов.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -562,7 +540,7 @@ const prepositionOf: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'some of' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'некоторые из' },
 			],
 		},
@@ -572,7 +550,7 @@ const prepositionOf: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'most of' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'большая часть из' },
 			],
 		},
@@ -582,7 +560,7 @@ const prepositionOf: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'all of' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'все из' },
 			],
 		},
@@ -601,7 +579,7 @@ const prepositionOf: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: ' них говорят одно и то же.',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I read 60 books, and ' },
 				{ type: 'text', color: 'gold', weight: 'normal', text: 'all' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' ' },
@@ -618,9 +596,7 @@ const prepositionOf: ArticleType.ArtArticle = {
 			type: 'paragraph',
 			offset: false,
 			textSize: 'small',
-			children: [
-				{ type: 'text', color: 'gray', weight: 'normal', text: 'Все из этих книг.' },
-			],
+			children: [{ type: 'text', color: 'gray', weight: 'normal', text: 'Все из этих книг.' }],
 		},
 		{
 			type: 'paragraph',
@@ -630,7 +606,7 @@ const prepositionOf: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Они жили на основе ' },
 				{ type: 'text', color: 'gold', weight: 'normal', text: 'большую часть' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' года.' },
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -679,7 +655,7 @@ const prepositionOf: ArticleType.ArtArticle = {
 					textSize: 'normal',
 					children: [
 						{ type: 'text', color: 'black', weight: 'normal', text: 'a lot of' },
-						{ type: 'arrow' },
+
 						{ type: 'text', color: 'black', weight: 'normal', text: 'множество из' },
 					],
 				},
@@ -689,7 +665,7 @@ const prepositionOf: ArticleType.ArtArticle = {
 					textSize: 'normal',
 					children: [
 						{ type: 'text', color: 'black', weight: 'normal', text: 'many of' },
-						{ type: 'arrow' },
+
 						{ type: 'text', color: 'black', weight: 'normal', text: 'множество из' },
 					],
 				},
@@ -716,22 +692,17 @@ const prepositionOf: ArticleType.ArtArticle = {
 					rusSentence: 'Переведи....',
 					engSentences: [
 						{
-							engSentences: [
-								'Nick Chan was one of Bill\'s best friends at Montego Bay.',
-							],
+							engSentences: ["Nick Chan was one of Bill's best friends at Montego Bay."],
 							isCorrect: true,
 						},
 					],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
-					rusSentence:
-						'В одном из его путешествий в 1876 он встретил Фанни Осборн и влюбился.',
+					rusSentence: 'В одном из его путешествий в 1876 он встретил Фанни Осборн и влюбился.',
 					engSentences: [
 						{
-							engSentences: [
-								'On one of his journeys in 1876, he met Fanny Osbourne and fell in love.',
-							],
+							engSentences: ['On one of his journeys in 1876, he met Fanny Osbourne and fell in love.'],
 							isCorrect: true,
 						},
 					],
@@ -753,9 +724,7 @@ const prepositionOf: ArticleType.ArtArticle = {
 					rusSentence: 'Переведи....',
 					engSentences: [
 						{
-							engSentences: [
-								'Nick Chan was one of Bill\'s best friends at Montego Bay.',
-							],
+							engSentences: ["Nick Chan was one of Bill's best friends at Montego Bay."],
 							isCorrect: true,
 						},
 					],
@@ -765,7 +734,7 @@ const prepositionOf: ArticleType.ArtArticle = {
 					rusSentence: 'Гавайский Большой остров самый большой из островов.',
 					engSentences: [
 						{
-							engSentences: ['Hawaii\'s Big Island is the largest of the islands.'],
+							engSentences: ["Hawaii's Big Island is the largest of the islands."],
 							isCorrect: true,
 						},
 					],

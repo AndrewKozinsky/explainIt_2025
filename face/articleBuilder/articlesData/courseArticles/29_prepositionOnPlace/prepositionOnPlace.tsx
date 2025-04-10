@@ -45,7 +45,7 @@ const prepositionOnPlace: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Книги на столе.' },
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -65,7 +65,7 @@ const prepositionOnPlace: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Я повешу эту картину на стену.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -98,7 +98,7 @@ const prepositionOnPlace: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Они сготовили рыбу на огне.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -118,7 +118,7 @@ const prepositionOnPlace: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Он прыгнул на доктора и двое начали бороться.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -149,14 +149,11 @@ const prepositionOnPlace: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Он поставил чашку на стол.',
-					engSentences: [
-						{ engSentences: ['He put the cup on the table.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['He put the cup on the table.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
-					rusSentence:
-						'Света и ее собаки неразлучны — они спят рядом друг с другом на матрасах.',
+					rusSentence: 'Света и ее собаки неразлучны — они спят рядом друг с другом на матрасах.',
 					engSentences: [
 						{
 							engSentences: [
@@ -169,9 +166,7 @@ const prepositionOnPlace: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Переведи',
-					engSentences: [
-						{ engSentences: ['Jake saw a camera on the table.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['Jake saw a camera on the table.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
@@ -210,9 +205,7 @@ const prepositionOnPlace: ArticleType.ArtArticle = {
 					rusSentence: 'На первой странице нашей истории будущее казалось таким ярким.',
 					engSentences: [
 						{
-							engSentences: [
-								'On the first page of our story the future seemed so bright.',
-							],
+							engSentences: ['On the first page of our story the future seemed so bright.'],
 							isCorrect: true,
 						},
 					],
@@ -274,7 +267,7 @@ const prepositionOnPlace: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'На велосипеде.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -294,7 +287,7 @@ const prepositionOnPlace: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'На лошаде.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -339,7 +332,7 @@ const prepositionOnPlace: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'В автобусе.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -359,7 +352,7 @@ const prepositionOnPlace: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'В метро.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -399,7 +392,7 @@ const prepositionOnPlace: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'В машине.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -419,7 +412,7 @@ const prepositionOnPlace: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'В такси.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -443,7 +436,7 @@ const prepositionOnPlace: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Она была в автобусе, когда он позвонил.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -463,7 +456,7 @@ const prepositionOnPlace: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Я потратил 10 часов в автобусе.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -483,7 +476,7 @@ const prepositionOnPlace: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Они поймали ее, когда садилась в автобус.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -520,7 +513,7 @@ const prepositionOnPlace: ArticleType.ArtArticle = {
 							weight: 'normal',
 							text: 'Я оставил сумку в фургоне.',
 						},
-						{ type: 'arrow' },
+
 						{
 							type: 'text',
 							color: 'black',
@@ -569,9 +562,7 @@ const prepositionOnPlace: ArticleType.ArtArticle = {
 					rusSentence: 'Переведи',
 					engSentences: [
 						{
-							engSentences: [
-								'On the plane, April sits next to Laura. Her eyes are wet.',
-							],
+							engSentences: ['On the plane, April sits next to Laura. Her eyes are wet.'],
 							isCorrect: true,
 						},
 					],
@@ -610,7 +601,7 @@ const prepositionOnPlace: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Город на реке.' },
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -630,7 +621,7 @@ const prepositionOnPlace: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Они жили на берегу реки.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -645,9 +636,7 @@ const prepositionOnPlace: ArticleType.ArtArticle = {
 			exercises: [
 				{
 					rusSentence: 'Санкт-Петербург расположен на Неве.',
-					engSentences: [
-						{ engSentences: ['St.Petersburg lies on the Neva.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['St.Petersburg lies on the Neva.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{

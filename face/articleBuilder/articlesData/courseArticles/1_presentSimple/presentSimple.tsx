@@ -101,8 +101,8 @@ const presentSimple: ArticleType.ArtArticle = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', color: 'black', weight: 'normal', text: 'Я изучаю английский.' }],
-			eng: [{ type: 'text', color: 'black', weight: 'normal', text: 'I learn English.' }],
+			rus: [{ type: 'text', color: 'black', weight: 'normal', text: 'Они готовят ужин вместе.' }],
+			eng: [{ type: 'text', color: 'black', weight: 'normal', text: 'They cook dinner together.' }],
 		},
 	],
 }

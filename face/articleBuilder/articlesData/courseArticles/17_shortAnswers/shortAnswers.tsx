@@ -65,9 +65,7 @@ const shortAnswers: ArticleType.ArtArticle = {
 							type: 'paragraph',
 							offset: false,
 							textSize: 'small',
-							children: [
-								{ type: 'text', color: 'gray', weight: 'normal', text: 'Вопрос' },
-							],
+							children: [{ type: 'text', color: 'gray', weight: 'normal', text: 'Вопрос' }],
 						},
 						{
 							type: 'paragraph',
@@ -80,7 +78,7 @@ const shortAnswers: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Ты голоден?',
 								},
-								{ type: 'arrow' },
+
 								{ type: 'text', color: 'black', weight: 'normal', text: '' },
 								{ type: 'text', color: 'blue', weight: 'normal', text: 'Are' },
 								{
@@ -202,9 +200,7 @@ const shortAnswers: ArticleType.ArtArticle = {
 							type: 'paragraph',
 							offset: false,
 							textSize: 'small',
-							children: [
-								{ type: 'text', color: 'gray', weight: 'normal', text: 'Вопрос' },
-							],
+							children: [{ type: 'text', color: 'gray', weight: 'normal', text: 'Вопрос' }],
 						},
 						{
 							type: 'paragraph',
@@ -217,7 +213,7 @@ const shortAnswers: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Ты говорила с отцом?',
 								},
-								{ type: 'arrow' },
+
 								{ type: 'text', color: 'black', weight: 'normal', text: '' },
 								{ type: 'text', color: 'blue', weight: 'normal', text: 'Did' },
 								{
@@ -343,9 +339,7 @@ const shortAnswers: ArticleType.ArtArticle = {
 							type: 'paragraph',
 							offset: false,
 							textSize: 'small',
-							children: [
-								{ type: 'text', color: 'gray', weight: 'normal', text: 'Вопрос' },
-							],
+							children: [{ type: 'text', color: 'gray', weight: 'normal', text: 'Вопрос' }],
 						},
 						{
 							type: 'paragraph',
@@ -358,7 +352,7 @@ const shortAnswers: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Ответишь на вопрос?',
 								},
-								{ type: 'arrow' },
+
 								{ type: 'text', color: 'black', weight: 'normal', text: '' },
 								{ type: 'text', color: 'blue', weight: 'normal', text: 'Will' },
 								{
@@ -460,9 +454,7 @@ const shortAnswers: ArticleType.ArtArticle = {
 							type: 'paragraph',
 							offset: false,
 							textSize: 'small',
-							children: [
-								{ type: 'text', color: 'gray', weight: 'normal', text: 'Вопрос' },
-							],
+							children: [{ type: 'text', color: 'gray', weight: 'normal', text: 'Вопрос' }],
 						},
 						{
 							type: 'paragraph',
@@ -475,7 +467,7 @@ const shortAnswers: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Он говорит по-английски?',
 								},
-								{ type: 'arrow' },
+
 								{ type: 'text', color: 'black', weight: 'normal', text: '' },
 								{ type: 'text', color: 'blue', weight: 'normal', text: 'Does' },
 								{
@@ -799,7 +791,7 @@ const shortAnswers: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Арбуз фрукт?' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Is watermelon a fruit?' },
 			],
 		},
@@ -809,7 +801,7 @@ const shortAnswers: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Нет.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'It isn’t.' },
 			],
 		},
@@ -832,7 +824,7 @@ const shortAnswers: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Нет, это не так.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'No, it isn’t.' },
 			],
 		},
@@ -842,7 +834,7 @@ const shortAnswers: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Нет, не фрукт.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'No, it isn’t a fruit.' },
 			],
 		},
@@ -865,7 +857,7 @@ const shortAnswers: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Ягода.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'It’s a berry.' },
 			],
 		},
@@ -880,7 +872,7 @@ const shortAnswers: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Нет, это не фрукт, а ягода.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -917,7 +909,7 @@ const shortAnswers: ArticleType.ArtArticle = {
 							weight: 'normal',
 							text: 'Врачи учатся много лет? — Да, участся.',
 						},
-						{ type: 'arrow' },
+
 						{
 							type: 'text',
 							color: 'black',
@@ -932,9 +924,7 @@ const shortAnswers: ArticleType.ArtArticle = {
 					type: 'paragraph',
 					offset: true,
 					textSize: 'normal',
-					children: [
-						{ type: 'text', color: 'black', weight: 'normal', text: 'Так правильно:' },
-					],
+					children: [{ type: 'text', color: 'black', weight: 'normal', text: 'Так правильно:' }],
 				},
 				{
 					type: 'paragraph',
@@ -942,7 +932,7 @@ const shortAnswers: ArticleType.ArtArticle = {
 					textSize: 'big',
 					children: [
 						{ type: 'text', color: 'black', weight: 'normal', text: 'Да, участся.' },
-						{ type: 'arrow' },
+
 						{ type: 'text', color: 'black', weight: 'normal', text: 'Yes, they ' },
 						{ type: 'text', color: 'blue', weight: 'normal', text: 'do' },
 						{ type: 'text', color: 'black', weight: 'normal', text: '.' },
@@ -972,7 +962,7 @@ const shortAnswers: ArticleType.ArtArticle = {
 							weight: 'normal',
 							text: '— Мне нравятся лошади!',
 						},
-						{ type: 'arrow' },
+
 						{
 							type: 'text',
 							color: 'black',
@@ -994,7 +984,7 @@ const shortAnswers: ArticleType.ArtArticle = {
 							text: '(что нравятся лошади)',
 						},
 						{ type: 'text', color: 'black', weight: 'normal', text: '.' },
-						{ type: 'arrow' },
+
 						{
 							type: 'text',
 							color: 'black',
@@ -1059,7 +1049,7 @@ const shortAnswers: ArticleType.ArtArticle = {
 							weight: 'normal',
 							text: 'Well, I don’t think so.',
 						},
-						{ type: 'arrow' },
+
 						{
 							type: 'text',
 							color: 'black',

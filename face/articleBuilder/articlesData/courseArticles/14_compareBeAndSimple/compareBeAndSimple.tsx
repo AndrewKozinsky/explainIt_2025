@@ -77,7 +77,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Он водитель.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'He is a driver.' },
 			],
 		},
@@ -100,7 +100,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Это было великолепно!' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'That was awesome!' },
 			],
 		},
@@ -123,7 +123,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Это местные бабочки.' },
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -177,7 +177,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я Джон Коннор.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'am' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' John Connor.' },
@@ -213,9 +213,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 			type: 'paragraph',
 			offset: false,
 			textSize: 'big',
-			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Меня зовут Андрей.' },
-			],
+			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'Меня зовут Андрей.' }],
 		},
 		{
 			type: 'paragraph',
@@ -255,7 +253,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Ей одиннадцать.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'She ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'is' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' eleven.' },
@@ -293,7 +291,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Мы — русские.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'We ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'are' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' Russian.' },
@@ -318,7 +316,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Яна в университете.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Jana ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'is' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' at university.' },
@@ -361,7 +359,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Он водит тягач.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'He drives a tractor.' },
 			],
 		},
@@ -382,7 +380,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Настя плавает каждый четверг.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -403,7 +401,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Мы любим сок.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'We like juice.' },
 			],
 		},
@@ -430,9 +428,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 			type: 'paragraph',
 			offset: false,
 			textSize: 'giant',
-			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'У меня есть машина.' },
-			],
+			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'У меня есть машина.' }],
 		},
 		{
 			type: 'paragraph',
@@ -634,9 +630,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 					rusSentence: 'Когда мы поодиночке — мы слабы, но вместе мы — настоящая сила.',
 					engSentences: [
 						{
-							engSentences: [
-								'When we are alone we are weak but together we are strong.',
-							],
+							engSentences: ['When we are alone we are weak but together we are strong.'],
 							isCorrect: true,
 						},
 					],
@@ -756,7 +750,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Она родила дочь.' },
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -797,7 +791,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Ты опоздал.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'You ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'are' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' late.' },
@@ -837,7 +831,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Она болела.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'She was sick.' },
 			],
 		},
@@ -860,7 +854,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я хочу пить.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'am' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' thirsty.' },
@@ -925,7 +919,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Увлекаться',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -945,7 +939,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Опаздывать',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -965,7 +959,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Сожалеть о чем-то',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -985,7 +979,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Скучать (испытывать скуку)',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -1005,7 +999,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Испытывать жажду',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -1020,7 +1014,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 							textSize: 'big',
 							children: [
 								{ type: 'text', color: 'black', weight: 'normal', text: 'Обожать' },
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -1035,7 +1029,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 							textSize: 'big',
 							children: [
 								{ type: 'text', color: 'black', weight: 'normal', text: 'Бояться' },
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -1061,7 +1055,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Запутаться',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -1081,7 +1075,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Интересоваться',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -1101,7 +1095,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Гордиться',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -1121,7 +1115,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Иметь способность к чему-то',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -1141,7 +1135,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Колебаться',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -1156,7 +1150,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 							textSize: 'big',
 							children: [
 								{ type: 'text', color: 'black', weight: 'normal', text: 'Бояться' },
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -1176,7 +1170,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Сочувствовать кому-то',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -1208,7 +1202,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Пицца — вкусная.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'This pizza tastes good.' },
 			],
 		},
@@ -1231,7 +1225,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Дожди идут редко.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'It rains seldom.' },
 			],
 		},
@@ -1267,16 +1261,12 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 			exercises: [
 				{
 					rusSentence: 'Ее глаза не реагировали.',
-					engSentences: [
-						{ engSentences: ['Her eyes were unresponsive.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['Her eyes were unresponsive.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
 					rusSentence: 'Он вернётся завтра.',
-					engSentences: [
-						{ engSentences: ['He will be back tomorrow.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['He will be back tomorrow.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
@@ -1290,11 +1280,8 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
-					rusSentence:
-						'Так что нет ничего удивительного в том, что мы совершенно запутались.',
-					engSentences: [
-						{ engSentences: ['No wonder we are all confused.'], isCorrect: true },
-					],
+					rusSentence: 'Так что нет ничего удивительного в том, что мы совершенно запутались.',
+					engSentences: [{ engSentences: ['No wonder we are all confused.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
@@ -1314,14 +1301,14 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Это очень раздражает.',
-					engSentences: [{ engSentences: ['It\'s really annoying.'], isCorrect: true }],
+					engSentences: [{ engSentences: ["It's really annoying."], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
 					rusSentence: 'Я боюсь Джо. Он опасен. И он убийца.',
 					engSentences: [
 						{
-							engSentences: ['I\'m afraid of Joe. He\'s dangerous. And he\'s a killer.'],
+							engSentences: ["I'm afraid of Joe. He's dangerous. And he's a killer."],
 							isCorrect: true,
 						},
 					],
@@ -1329,9 +1316,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Ни люди, ни собаки не проснулись.',
-					engSentences: [
-						{ engSentences: ['Neither humans nor dogs are awake.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['Neither humans nor dogs are awake.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
@@ -1341,9 +1326,7 @@ const compareBeAndSimple: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Ни люди, ни собаки не проснулись.',
-					engSentences: [
-						{ engSentences: ['Neither humans nor dogs are awake.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['Neither humans nor dogs are awake.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 			],

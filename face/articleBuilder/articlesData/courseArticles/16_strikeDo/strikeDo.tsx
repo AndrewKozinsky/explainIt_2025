@@ -39,7 +39,7 @@ const strikeDo: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я делаю это всегда.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'do' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' it always.' },
@@ -51,7 +51,7 @@ const strikeDo: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я делаю это всегда?' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Do I ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'do' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' it always?' },
@@ -91,7 +91,7 @@ const strikeDo: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Я делаю домашнюю работу.',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'do' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' my homework.' },
@@ -108,7 +108,7 @@ const strikeDo: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Я делаю домашнюю работу?',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Do I ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'do' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' my homework?' },
@@ -120,9 +120,7 @@ const strikeDo: ArticleType.ArtArticle = {
 			exercises: [
 				{
 					rusSentence: 'Я принёс вещи вчера.',
-					engSentences: [
-						{ engSentences: ['I brought things yesterday.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['I brought things yesterday.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 			],
@@ -150,7 +148,7 @@ const strikeDo: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'действительно' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' тебя люблю!' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'do' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' love you!' },
@@ -164,7 +162,7 @@ const strikeDo: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Они ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'на самом деле' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' знают это!' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'They ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'do' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' know it.' },
@@ -191,7 +189,7 @@ const strikeDo: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Ева ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'всё же' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' верит ему.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Eva ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'does' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' believe him.' },
@@ -221,7 +219,7 @@ const strikeDo: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Грузчик действительно уронил телевизор.',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'The loader ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'did' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' drop the TV.' },
@@ -264,7 +262,7 @@ const strikeDo: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Он действительно задал вопрос?',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Did he ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'really' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' ask a question?' },

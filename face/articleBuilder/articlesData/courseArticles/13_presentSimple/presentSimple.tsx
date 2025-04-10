@@ -66,7 +66,7 @@ const presentSimple: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Она уборщица' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'She is a janitor' },
 			],
 		},
@@ -129,7 +129,7 @@ const presentSimple: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'run' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'run' },
 			],
 		},
@@ -139,7 +139,7 @@ const presentSimple: ArticleType.ArtArticle = {
 			textSize: 'small',
 			children: [
 				{ type: 'text', color: 'gray', weight: 'normal', text: 'Инфинитив' },
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'gray',
@@ -169,7 +169,7 @@ const presentSimple: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'run' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'run' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 's' },
 			],
@@ -180,7 +180,7 @@ const presentSimple: ArticleType.ArtArticle = {
 			textSize: 'small',
 			children: [
 				{ type: 'text', color: 'gray', weight: 'normal', text: 'Инфинитив' },
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'gray',
@@ -234,7 +234,7 @@ const presentSimple: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Мы работаем полный рабочий день.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -284,7 +284,7 @@ const presentSimple: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Ваня спит после обеда.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Vanya sleep' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 's' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' after dinner.' },
@@ -350,7 +350,7 @@ const presentSimple: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Она целует меня каждый день.',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'She ki' },
 				{ type: 'text', color: 'gold', weight: 'normal', text: 'ss' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'es' },
@@ -589,7 +589,7 @@ const presentSimple: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'работать — работал',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -610,7 +610,7 @@ const presentSimple: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'начать — начал',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -631,7 +631,7 @@ const presentSimple: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'ждать — ждал',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -694,7 +694,7 @@ const presentSimple: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'спасать — спас',
 								},
-								{ type: 'arrow' },
+
 								{ type: 'text', color: 'black', weight: 'normal', text: 'sav' },
 								{ type: 'text', color: 'gold', weight: 'normal', text: 'e' },
 								{ type: 'text', color: 'black', weight: 'normal', text: ' — sav' },
@@ -742,7 +742,7 @@ const presentSimple: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'пытаться — пытался',
 								},
-								{ type: 'arrow' },
+
 								{ type: 'text', color: 'black', weight: 'normal', text: 'tr' },
 								{ type: 'text', color: 'gold', weight: 'normal', text: 'y' },
 								{ type: 'text', color: 'black', weight: 'normal', text: ' — tr' },
@@ -760,7 +760,7 @@ const presentSimple: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'учиться — учился',
 								},
-								{ type: 'arrow' },
+
 								{ type: 'text', color: 'black', weight: 'normal', text: 'stud' },
 								{ type: 'text', color: 'gold', weight: 'normal', text: 'y' },
 								{ type: 'text', color: 'black', weight: 'normal', text: ' — styd' },
@@ -805,7 +805,7 @@ const presentSimple: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'делать — делал',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -842,7 +842,7 @@ const presentSimple: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'пить — выпил',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -879,7 +879,7 @@ const presentSimple: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'есть — ел',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -981,7 +981,7 @@ const presentSimple: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Тут никто не жил.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Nobody lived there.' },
 			],
 		},
@@ -1007,7 +1007,7 @@ const presentSimple: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я понял этот вопрос.' },
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -1038,7 +1038,7 @@ const presentSimple: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Он дал мне ключ.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'He gave me a key.' },
 			],
 		},
@@ -1191,7 +1191,7 @@ const presentSimple: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'This words confused Keola.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -1219,7 +1219,7 @@ const presentSimple: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Keola is confused.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Кеола смущённый.' },
 			],
 		},
@@ -1349,7 +1349,7 @@ const presentSimple: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Маша принесёт ужин.' },
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -1369,7 +1369,7 @@ const presentSimple: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Магазин откроется завтра.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -1411,7 +1411,7 @@ const presentSimple: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я приду в субботу.' },
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',

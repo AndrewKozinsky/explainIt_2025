@@ -50,14 +50,10 @@ const beNegativeAndQuestion: ArticleType.ArtArticle = {
 			gridId: 'grid-2915',
 			cells: [
 				{
-					children: [
-						{ type: 'customComponent', component: <ToBePresentPositiveScheme /> },
-					],
+					children: [{ type: 'customComponent', component: <ToBePresentPositiveScheme /> }],
 				},
 				{
-					children: [
-						{ type: 'customComponent', component: <ToBePresentNegativeScheme /> },
-					],
+					children: [{ type: 'customComponent', component: <ToBePresentNegativeScheme /> }],
 				},
 			],
 		},
@@ -80,7 +76,7 @@ const beNegativeAndQuestion: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я не был напуган.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'was not' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' afraid.' },
@@ -92,7 +88,7 @@ const beNegativeAndQuestion: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Вы не были милым.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'You ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'were not' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' cute.' },
@@ -104,7 +100,7 @@ const beNegativeAndQuestion: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Она не была красивой.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'She ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'was not' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' beautiful.' },
@@ -129,7 +125,7 @@ const beNegativeAndQuestion: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я не смелый.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'am not' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' brave.' },
@@ -146,7 +142,7 @@ const beNegativeAndQuestion: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Вы не очень сильный мужчина.',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'You ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'are not' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' a very strong man.' },
@@ -163,7 +159,7 @@ const beNegativeAndQuestion: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Инжирное дерево не высокое.',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'A fig tree ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'is not' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' tall.' },
@@ -175,9 +171,7 @@ const beNegativeAndQuestion: ArticleType.ArtArticle = {
 			exercises: [
 				{
 					rusSentence: 'Я не ребенок, мне 44 года.',
-					engSentences: [
-						{ engSentences: ['I am not a child I am 44.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['I am not a child I am 44.'], isCorrect: true }],
 					words: [{ rusWord: '44 года', engWord: '44 years old' }],
 				},
 				{
@@ -555,9 +549,7 @@ const beNegativeAndQuestion: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Она не блондинка, а брюнетка.',
-					engSentences: [
-						{ engSentences: ['She\'s not blonde, she\'s brunette.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ["She's not blonde, she's brunette."], isCorrect: true }],
 					words: [
 						{ rusWord: 'блондин', engWord: 'blonde' },
 						{ rusWord: 'брюнет', engWord: 'brunette' },
@@ -600,14 +592,10 @@ const beNegativeAndQuestion: ArticleType.ArtArticle = {
 			gridId: 'grid-35530',
 			cells: [
 				{
-					children: [
-						{ type: 'customComponent', component: <ToBePresentPositiveScheme /> },
-					],
+					children: [{ type: 'customComponent', component: <ToBePresentPositiveScheme /> }],
 				},
 				{
-					children: [
-						{ type: 'customComponent', component: <ToBePresentQuestionScheme /> },
-					],
+					children: [{ type: 'customComponent', component: <ToBePresentQuestionScheme /> }],
 				},
 			],
 		},
@@ -623,7 +611,7 @@ const beNegativeAndQuestion: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я не был напуган?' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'Was' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' I afraid?' },
@@ -640,7 +628,7 @@ const beNegativeAndQuestion: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'С тобой вчера было всё в порядке?',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'Was' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' you alright yesterday?' },
@@ -652,7 +640,7 @@ const beNegativeAndQuestion: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я совсем один?' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'Am' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' I completely alone?' },
@@ -664,7 +652,7 @@ const beNegativeAndQuestion: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Сегодня пятница?' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'Is' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' it Friday today?' },
@@ -992,9 +980,7 @@ const beNegativeAndQuestion: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Йога опасный спорт?',
-					engSentences: [
-						{ engSentences: ['Is yoga a dangerous sport?'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['Is yoga a dangerous sport?'], isCorrect: true }],
 					words: [
 						{ rusWord: 'йога', engWord: 'yoga' },
 						{ rusWord: 'опасный', engWord: 'dangerous' },
@@ -1052,7 +1038,7 @@ const beNegativeAndQuestion: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я не буду счастливым.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I will ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'not' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' be happy.' },
@@ -1064,7 +1050,7 @@ const beNegativeAndQuestion: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я не буду счастливым.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I will ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'not' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' be happy.' },
@@ -1111,7 +1097,7 @@ const beNegativeAndQuestion: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я буду счастливый?' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'Will' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' I be happy?' },
@@ -1123,7 +1109,7 @@ const beNegativeAndQuestion: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я буду счастливый?' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'Will' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' I be happy?' },

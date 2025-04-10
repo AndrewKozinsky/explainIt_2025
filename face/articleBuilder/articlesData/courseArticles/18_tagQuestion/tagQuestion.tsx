@@ -7,8 +7,7 @@ const tagQuestion: ArticleType.ArtArticle = {
 		slug: 'tag-question',
 		caption: 'Глава 18',
 		articleName: 'Разделительный вопрос',
-		articleDescription:
-			'Научимся строить предложения с вопросительным хвостиком вида «Я остроумный, не так ли?»',
+		articleDescription: 'Научимся строить предложения с вопросительным хвостиком вида «Я остроумный, не так ли?»',
 		isPaid: false,
 	},
 	content: [
@@ -38,7 +37,7 @@ const tagQuestion: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Он умён, не так ли?' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'He is smart, is not he?' },
 			],
 		},
@@ -74,7 +73,7 @@ const tagQuestion: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Он не умён, да?' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'He is not smart, is he?' },
 			],
 		},
@@ -102,12 +101,12 @@ const tagQuestion: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Она купила лотерейный билет, не так ведь?',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
 					weight: 'normal',
-					text: 'She bought a lottery ticket, didn\'t she?',
+					text: "She bought a lottery ticket, didn't she?",
 				},
 			],
 		},
@@ -148,7 +147,7 @@ const tagQuestion: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Она не купила лотерейный билет, не так ли?',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -178,9 +177,7 @@ const tagQuestion: ArticleType.ArtArticle = {
 					type: 'paragraph',
 					offset: false,
 					textSize: 'big',
-					children: [
-						{ type: 'text', color: 'black', weight: 'normal', text: '..., не так ли' },
-					],
+					children: [{ type: 'text', color: 'black', weight: 'normal', text: '..., не так ли' }],
 				},
 				{
 					type: 'paragraph',
@@ -221,7 +218,7 @@ const tagQuestion: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Карл покормит собаку, так ведь?',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -236,9 +233,7 @@ const tagQuestion: ArticleType.ArtArticle = {
 			exercises: [
 				{
 					rusSentence: 'Он же не был водителем автобуса?',
-					engSentences: [
-						{ engSentences: ['He was not a bus driver, is he?'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['He was not a bus driver, is he?'], isCorrect: true }],
 					words: [{ rusWord: 'водитель', engWord: 'driver' }],
 				},
 				{

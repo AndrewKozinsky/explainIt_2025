@@ -78,7 +78,7 @@ const particleTo: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: ' ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'закрыть' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' окно.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Nic wants ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'to close' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' the window.' },
@@ -94,7 +94,7 @@ const particleTo: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: ' ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'поймать' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' её.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'We will try ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'to catch' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' her.' },
@@ -112,7 +112,7 @@ const particleTo: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: ' Решить проблему было легко.',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'It was easy ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'to solve' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' the problem.' },
@@ -142,7 +142,7 @@ const particleTo: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Щенок хотел прыгать и бегать.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -177,7 +177,7 @@ const particleTo: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Я был счастлив не видеть тебя.',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I was happy ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'not to see' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' you.' },
@@ -194,7 +194,7 @@ const particleTo: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Я призываю всех не учить грамматику',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -231,7 +231,7 @@ const particleTo: ArticleType.ArtArticle = {
 							weight: 'normal',
 							text: 'Цены будут расти быстрее, инфляция увеличится.',
 						},
-						{ type: 'arrow' },
+
 						{ type: 'text', color: 'black', weight: 'normal', text: 'Prices ' },
 						{ type: 'text', color: 'gold', weight: 'normal', text: 'will' },
 						{ type: 'text', color: 'black', weight: 'normal', text: ' ' },
@@ -285,7 +285,7 @@ const particleTo: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Наша цель улучшить результат.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -300,16 +300,12 @@ const particleTo: ArticleType.ArtArticle = {
 			exercises: [
 				{
 					rusSentence: 'Меллори желает видеть нас здесь?',
-					engSentences: [
-						{ engSentences: ['Does Mallory want to see us here?'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['Does Mallory want to see us here?'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
 					rusSentence: 'Майк каждому разрешает заходить сюда.',
-					engSentences: [
-						{ engSentences: ['Mike allows everybody to come here.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['Mike allows everybody to come here.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
@@ -374,14 +370,11 @@ const particleTo: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Егор обожает есть мороженое.',
-					engSentences: [
-						{ engSentences: ['Egor adores to eat ice-cream.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['Egor adores to eat ice-cream.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
-					rusSentence:
-						'Ему нужно стараться изо всех сил, чтобы сохранить свою репутацию.',
+					rusSentence: 'Ему нужно стараться изо всех сил, чтобы сохранить свою репутацию.',
 					engSentences: [
 						{
 							engSentences: ['They do their best to maintain their reputation.'],
@@ -402,9 +395,7 @@ const particleTo: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Переведи',
-					engSentences: [
-						{ engSentences: ['I wanted to start a new life.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['I wanted to start a new life.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
@@ -421,9 +412,7 @@ const particleTo: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Он тас',
-					engSentences: [
-						{ engSentences: ['I was tired but happy to be alive.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['I was tired but happy to be alive.'], isCorrect: true }],
 					words: [{ rusWord: 'каждый год', engWord: 'year' }],
 				},
 			],

@@ -46,9 +46,7 @@ const fewAndLittle: ArticleType.ArtArticle = {
 				{
 					minWidth: '300px',
 					width: '1fr',
-					children: [
-						{ type: 'header', tag: 'h4', style: 'h4', text: 'С исчисляемыми (few)' },
-					],
+					children: [{ type: 'header', tag: 'h4', style: 'h4', text: 'С исчисляемыми (few)' }],
 				},
 				{
 					minWidth: '300px',
@@ -97,7 +95,7 @@ const fewAndLittle: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Я получила мало откликов.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -123,7 +121,7 @@ const fewAndLittle: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Мы мало знаем о его семье.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -169,7 +167,7 @@ const fewAndLittle: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Прямых рейсов из Европы несколько.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -195,7 +193,7 @@ const fewAndLittle: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Я немного знаю об актерстве.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -264,7 +262,7 @@ const fewAndLittle: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Я звонил ему пару часов назад.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -310,7 +308,7 @@ const fewAndLittle: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Вот этот теперь блестит чуть ярче.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -382,7 +380,7 @@ const fewAndLittle: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Он мало выступал с публичными речами.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -432,7 +430,7 @@ const fewAndLittle: ArticleType.ArtArticle = {
 							weight: 'normal',
 							text: 'This little baby surprised me.',
 						},
-						{ type: 'arrow' },
+
 						{
 							type: 'text',
 							color: 'black',
@@ -484,7 +482,7 @@ const fewAndLittle: ArticleType.ArtArticle = {
 							weight: 'normal',
 							text: 'Я собираю только несколько любимых жанров.',
 						},
-						{ type: 'arrow' },
+
 						{
 							type: 'text',
 							color: 'black',
@@ -504,7 +502,7 @@ const fewAndLittle: ArticleType.ArtArticle = {
 							weight: 'normal',
 							text: 'Немного информации, которые мы получили было не достаточно чтобы принять решение.',
 						},
-						{ type: 'arrow' },
+
 						{
 							type: 'text',
 							color: 'black',
@@ -563,7 +561,7 @@ const fewAndLittle: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'И все же немногие осознают риски.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -583,7 +581,7 @@ const fewAndLittle: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'У некоторых из них были гитары.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -615,7 +613,7 @@ const fewAndLittle: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Про себя он написал очень мало.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -635,7 +633,7 @@ const fewAndLittle: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Каждый из них имеет немного всего.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -676,7 +674,7 @@ const fewAndLittle: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'У электрических машин меньше движущихся частей.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -708,7 +706,7 @@ const fewAndLittle: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Такие диагнозы в последние годы звучит всё реже.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -749,7 +747,7 @@ const fewAndLittle: ArticleType.ArtArticle = {
 							weight: 'normal',
 							text: 'Менее популярные фильмы стоят дешевле.',
 						},
-						{ type: 'arrow' },
+
 						{
 							type: 'text',
 							color: 'black',
@@ -800,7 +798,7 @@ const fewAndLittle: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'У японцев меньше всего друзей в социальных сетях.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -832,7 +830,7 @@ const fewAndLittle: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Меньше всего проблем будет у детей.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -870,7 +868,7 @@ const fewAndLittle: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Кандидатов на эту роль не так много.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -890,7 +888,7 @@ const fewAndLittle: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Изначальное не многие в это поверили.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -923,7 +921,7 @@ const fewAndLittle: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'А документации о ней почти не сохранилось.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -943,7 +941,7 @@ const fewAndLittle: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Далеко не каждый турист отваживается сюда зайти.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -976,7 +974,7 @@ const fewAndLittle: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'У таких людей не очень много друзей.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -996,7 +994,7 @@ const fewAndLittle: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'И мы так мало о них знаем.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -1029,7 +1027,7 @@ const fewAndLittle: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Ты взяла таблетки и немного воды.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -1049,7 +1047,7 @@ const fewAndLittle: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Некоторые фрукты содержат больше нитратов, чем другие.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',

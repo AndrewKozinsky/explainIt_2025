@@ -35,7 +35,7 @@ const possessiveNouns: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Эта моя тарелка' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'This is my plate' },
 			],
 		},
@@ -45,7 +45,7 @@ const possessiveNouns: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Эта тарелка моя' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'This plate is mine' },
 			],
 		},
@@ -107,7 +107,7 @@ const possessiveNouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'A ' },
 				{ type: 'text', color: 'gold', weight: 'normal', text: 'cat' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'A ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'cat’s' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' bowl' },
@@ -148,9 +148,9 @@ const possessiveNouns: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'A cat’s bowl' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Кота чашка' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Чашка кота' },
 			],
 		},
@@ -205,7 +205,7 @@ const possessiveNouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Lisa' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: '’s' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' friend' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'друг Лизы' },
 			],
 		},
@@ -217,7 +217,7 @@ const possessiveNouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'My father' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: '’s' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' lighter' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Зажигалка моего отца' },
 			],
 		},
@@ -229,7 +229,7 @@ const possessiveNouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Children' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: '’s' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' umbrella' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Зонт детей' },
 			],
 		},
@@ -261,7 +261,7 @@ const possessiveNouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Iris' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: '’' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' coat' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Пальто Айрис' },
 			],
 		},
@@ -273,7 +273,7 @@ const possessiveNouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'My friends' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: '’' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' book' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Книга моих друзей' },
 			],
 		},
@@ -319,7 +319,7 @@ const possessiveNouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'gold', weight: 'normal', text: 'My sister-in-law' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: '’s' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' advice' },
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -336,7 +336,7 @@ const possessiveNouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'gold', weight: 'normal', text: 'Romeo and Juliet' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: '’s' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' love story' },
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -353,7 +353,7 @@ const possessiveNouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'gold', weight: 'normal', text: 'The King of Monaco son' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: '’s' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' wedding' },
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -442,7 +442,7 @@ const possessiveNouns: ArticleType.ArtArticle = {
 					children: [
 						{ type: 'text', color: 'error', weight: 'normal', text: 'This my' },
 						{ type: 'text', color: 'black', weight: 'normal', text: ' pizza is raw' },
-						{ type: 'arrow' },
+
 						{
 							type: 'text',
 							color: 'black',
@@ -482,7 +482,7 @@ const possessiveNouns: ArticleType.ArtArticle = {
 					rusSentence: 'Отец Алисы доволен и счастлив.',
 					engSentences: [
 						{
-							engSentences: ['Alissa\'s father is pleased and happy.'],
+							engSentences: ["Alissa's father is pleased and happy."],
 							isCorrect: true,
 						},
 					],
@@ -492,7 +492,7 @@ const possessiveNouns: ArticleType.ArtArticle = {
 					rusSentence: 'Комната в отеле Айприл и Лауры на втором этаже.',
 					engSentences: [
 						{
-							engSentences: ['April and Laura\'s hotel room is on the second floor.'],
+							engSentences: ["April and Laura's hotel room is on the second floor."],
 							isCorrect: true,
 						},
 					],
@@ -524,9 +524,7 @@ const possessiveNouns: ArticleType.ArtArticle = {
 			type: 'paragraph',
 			offset: true,
 			textSize: 'normal',
-			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Посмотрим примеры.' },
-			],
+			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'Посмотрим примеры.' }],
 		},
 		{
 			type: 'paragraph',

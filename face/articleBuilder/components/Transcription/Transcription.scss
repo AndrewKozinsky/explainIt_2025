@@ -3,12 +3,37 @@
 @import '@/styles/inherit';
 
 .transcription {
-	display: inline-block;
+	display: flex;
+	overflow: hidden;
 	border-radius: $radius-2;
 	border: 1px solid $grayColor-2;
 }
 
+.transcription__audio-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	padding-left: 1.5rem;
+	padding-right: 1rem;
+	border-right: 1px solid $grayColor-2;
+
+	&:hover {
+		background-color: $grayColor-1;
+	}
+
+	&:focus {
+		outline: none;
+	}
+}
+
 .transcription__content {
+	position: relative;
+}
+
+.transcription__content-inner {
+	position: relative;
+	z-index: 1;
 	display: flex;
 	gap: 1.2rem;
 	padding: .6rem 1.2rem .8rem;
@@ -27,6 +52,14 @@
 
 .transcription__content-transcription-word {
 	display: block;
-	font-size: 2.8rem;
-	line-height: 3rem;
+	font-size: 2.6rem;
+	line-height: 2.8rem;
+}
+
+.transcription__audio-progress {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	background: $grayColor-1;
 }

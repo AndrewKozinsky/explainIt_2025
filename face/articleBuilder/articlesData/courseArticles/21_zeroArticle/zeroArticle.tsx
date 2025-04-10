@@ -29,9 +29,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 			type: 'paragraph',
 			offset: false,
 			textSize: 'big',
-			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: '— Ты звонил адвокату?' },
-			],
+			children: [{ type: 'text', color: 'black', weight: 'normal', text: '— Ты звонил адвокату?' }],
 		},
 		{
 			type: 'paragraph',
@@ -83,7 +81,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'a translator (переводчик)',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -98,7 +96,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'a wolf (волк)' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'a she-wolf (волчица)' },
 			],
 		},
@@ -121,7 +119,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I ordered coffee.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я заказал кофе ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(в зёрнах)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
@@ -148,7 +146,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I ordered ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'a' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' coffee.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я заказал ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(чашку)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' кофе.' },
@@ -175,7 +173,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I ordered ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'the' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' coffee.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я заказал ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(то самое)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' кофе.' },
@@ -340,9 +338,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 			type: 'paragraph',
 			offset: true,
 			textSize: 'normal',
-			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Следующее предложение.' },
-			],
+			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'Следующее предложение.' }],
 		},
 		{
 			type: 'paragraph',
@@ -413,9 +409,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 			type: 'paragraph',
 			offset: false,
 			textSize: 'giant',
-			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я люблю морковь.' },
-			],
+			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'Я люблю морковь.' }],
 		},
 		{
 			type: 'paragraph',
@@ -434,9 +428,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 			type: 'paragraph',
 			offset: false,
 			textSize: 'big',
-			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'I like a carrot.' },
-			],
+			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'I like a carrot.' }],
 		},
 		{
 			type: 'paragraph',
@@ -507,7 +499,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'У собаки есть хозяин, у кошки служащий.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -527,7 +519,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'У собак есть хозяева, у кошек — персонал.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -540,9 +532,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 			type: 'paragraph',
 			offset: true,
 			textSize: 'normal',
-			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Следующее предложение:' },
-			],
+			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'Следующее предложение:' }],
 		},
 		{
 			type: 'paragraph',
@@ -607,7 +597,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Два круассана и чашка кофе с молоком.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -681,16 +671,12 @@ const zeroArticle: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Они разрешают детям играть в видеоигры.',
-					engSentences: [
-						{ engSentences: ['They let children play video games.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['They let children play video games.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
 					rusSentence: 'Из храма я вышла другим человеком.',
-					engSentences: [
-						{ engSentences: ['I left the church a different man.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['I left the church a different man.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
@@ -698,9 +684,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 					rusSentence: 'Картошка, помидоры и лук — обычные ингредиенты супа.',
 					engSentences: [
 						{
-							engSentences: [
-								'Potatoes, tomatoes and onions are common soup ingredients.',
-							],
+							engSentences: ['Potatoes, tomatoes and onions are common soup ingredients.'],
 							isCorrect: true,
 						},
 					],
@@ -719,9 +703,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Я готовлю рыбу каждый четверг.',
-					engSentences: [
-						{ engSentences: ['I cook fish every Thursday.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['I cook fish every Thursday.'], isCorrect: true }],
 					words: [{ rusWord: 'ингрединты супа', engWord: 'soup ingredients' }],
 				},
 				{
@@ -767,7 +749,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Грабитель теперь в тюрьме.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -787,18 +769,18 @@ const zeroArticle: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Но и в русском и в английском нередко в качестве места подразумевается не физический объект, а его функцию: школа',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
 					weight: 'normal',
 					text: 'учёба, больница или врач',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'лечение, церковь' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'богослужение, каникулы' },
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -857,7 +839,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Восемь из них остаются в больницах.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -885,7 +867,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Она спит после обеда.' },
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -913,7 +895,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я напишу тебе про ланч.' },
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -978,7 +960,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Каждый городок имеет больницу.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -1011,7 +993,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Ты только что съела огромный обед.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -1110,7 +1092,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Я никогда не езжу на автобусе.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -1149,7 +1131,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Он никогда не ездит на 13-м автобусе.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -1209,7 +1191,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я люблю русский язык.' },
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -1224,7 +1206,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я ненавижу математику.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I hate Math.' },
 			],
 		},
@@ -1253,7 +1235,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Спасибо за прошлый вечер, матрос.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -1273,7 +1255,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Просто ответьте на вопрос, профессор.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -1430,7 +1412,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Уже ночь!' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'It is night already!' },
 			],
 		},
@@ -1458,7 +1440,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Я пошел на вечер поэзии.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -1499,7 +1481,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'for instance/example' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'например' },
 			],
 		},
@@ -1509,7 +1491,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'by credit card' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'кредитной картой' },
 			],
 		},
@@ -1519,7 +1501,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'by accident' },
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -1534,7 +1516,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'by car/train/bus...' },
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -1555,7 +1537,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'on foot' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'пешком' },
 			],
 		},
@@ -1565,7 +1547,7 @@ const zeroArticle: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'at/to/from work' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'на/из работы' },
 			],
 		},

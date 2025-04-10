@@ -31,7 +31,7 @@ const questionsWithDenial: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Ты постирал мои вещи?' },
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -62,7 +62,7 @@ const questionsWithDenial: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: ' you ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'not' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' wash my clothes?' },
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -91,7 +91,7 @@ const questionsWithDenial: ArticleType.ArtArticle = {
 			children: [
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'Didn’t' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' you wash my clothes?' },
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -137,7 +137,7 @@ const questionsWithDenial: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Didn’t you wash my clothes?',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'Разве' },
 				{
@@ -159,7 +159,7 @@ const questionsWithDenial: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Didn’t you wash my clothes?',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'Неужели' },
 				{
@@ -194,7 +194,7 @@ const questionsWithDenial: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Разве Ира не была в Италии?',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Wasn’t Ira in Italy?' },
 			],
 		},
@@ -240,14 +240,14 @@ const questionsWithDenial: ArticleType.ArtArticle = {
 							weight: 'normal',
 							text: 'Ira was in Italy.',
 						},
-						{ type: 'arrow' },
+
 						{
 							type: 'text',
 							color: 'black',
 							weight: 'normal',
 							text: 'Was Ira in Italy?',
 						},
-						{ type: 'arrow' },
+
 						{
 							type: 'text',
 							color: 'black',
@@ -262,9 +262,7 @@ const questionsWithDenial: ArticleType.ArtArticle = {
 			type: 'paragraph',
 			offset: true,
 			textSize: 'normal',
-			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Ещё один пример:' },
-			],
+			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'Ещё один пример:' }],
 		},
 		{
 			type: 'paragraph',
@@ -277,7 +275,7 @@ const questionsWithDenial: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Неужели он не решит эту проблему?',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -571,9 +569,7 @@ const questionsWithDenial: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Она же не беременна снова, не так ли?',
-					engSentences: [
-						{ engSentences: ['She\'s not pregnant again, is she?'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ["She's not pregnant again, is she?"], isCorrect: true }],
 					words: [{ rusWord: 'здоров', engWord: 'healthy' }],
 				},
 			],

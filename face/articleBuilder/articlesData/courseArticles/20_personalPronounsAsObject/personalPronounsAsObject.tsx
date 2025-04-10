@@ -8,8 +8,7 @@ const personalPronounsAsObject: ArticleType.ArtArticle = {
 		slug: 'personal-pronouns-as-object',
 		caption: 'Глава 20',
 		articleName: 'Личные местоимения в дополнении',
-		articleDescription:
-			'Узнаем как изменяются личные местоимения когда действие направлено на объект.',
+		articleDescription: 'Узнаем как изменяются личные местоимения когда действие направлено на объект.',
 		isPaid: false,
 	},
 	content: [
@@ -40,7 +39,7 @@ const personalPronounsAsObject: ArticleType.ArtArticle = {
 			children: [
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'Мы' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' помогаем.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'We' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' help.' },
@@ -74,7 +73,7 @@ const personalPronounsAsObject: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Мы помогаем ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'им' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'We help ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'them' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
@@ -115,7 +114,7 @@ const personalPronounsAsObject: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Паша отправил ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'ей' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' открытку.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Pasha sent ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'her' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' a postcard.' },
@@ -129,7 +128,7 @@ const personalPronounsAsObject: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Ты встретишь ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'их' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' на барбекю.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'You will meet ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'them' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' at the barbeque.' },
@@ -153,7 +152,7 @@ const personalPronounsAsObject: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: ' и моих людей, мы не убийцы!',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -267,9 +266,7 @@ const personalPronounsAsObject: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Я постоянно думаю о тебе.',
-					engSentences: [
-						{ engSentences: ['I think about you all the time.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['I think about you all the time.'], isCorrect: true }],
 					words: [{ rusWord: 'готов', engWord: 'ready' }],
 				},
 				{
@@ -282,9 +279,7 @@ const personalPronounsAsObject: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Я понимаю вас очень хорошо.',
-					engSentences: [
-						{ engSentences: ['I understand you very well.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['I understand you very well.'], isCorrect: true }],
 					words: [
 						{ rusWord: 'нуждаться', engWord: 'need' },
 						{ rusWord: 'бумага', engWord: 'paper' },
@@ -309,9 +304,7 @@ const personalPronounsAsObject: ArticleType.ArtArticle = {
 					rusSentence: 'Господин президент правильно сказал — это их выборы, не наши.',
 					engSentences: [
 						{
-							engSentences: [
-								'Mr President rightly said it was their elections and not ours.',
-							],
+							engSentences: ['Mr President rightly said it was their elections and not ours.'],
 							isCorrect: true,
 						},
 					],
@@ -349,9 +342,7 @@ const personalPronounsAsObject: ArticleType.ArtArticle = {
 					rusSentence: 'Я всегда уважаю её мнение, даже если оно отличается от моего.',
 					engSentences: [
 						{
-							engSentences: [
-								'I always respected her opinion even if it differed from mine.',
-							],
+							engSentences: ['I always respected her opinion even if it differed from mine.'],
 							isCorrect: true,
 						},
 					],
@@ -361,7 +352,7 @@ const personalPronounsAsObject: ArticleType.ArtArticle = {
 					rusSentence: 'Если я не нравлюсь одной девушке, я найду еще одну.',
 					engSentences: [
 						{
-							engSentences: ['If one girl doesn\'t like me, I\'ll find another girl.'],
+							engSentences: ["If one girl doesn't like me, I'll find another girl."],
 							isCorrect: true,
 						},
 					],

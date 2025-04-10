@@ -36,7 +36,6 @@ const adjectives: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(есть)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' весёлый.' },
-				{ type: 'arrow' },
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'am' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' jolly.' },
@@ -50,7 +49,6 @@ const adjectives: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Мы ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(есть)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' любопытные.' },
-				{ type: 'arrow' },
 				{ type: 'text', color: 'black', weight: 'normal', text: 'We ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'are' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' curious.' },
@@ -64,7 +62,7 @@ const adjectives: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Она ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(есть)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' добрая.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'She ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'is' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' kind.' },
@@ -102,7 +100,7 @@ const adjectives: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Это помидор.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'It is ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'a tomato' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
@@ -114,7 +112,7 @@ const adjectives: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Это спелый помидор.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'It is ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'a ripe tomato' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
@@ -126,7 +124,7 @@ const adjectives: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Это подвал.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'It is ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'a basement' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
@@ -138,7 +136,7 @@ const adjectives: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Это тёмный подвал.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'It is ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'a dark basement' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
@@ -170,7 +168,7 @@ const adjectives: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Я и Дженни — два лучших друга.',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I and Jenny ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'are' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' two best-friends.' },
@@ -421,10 +419,7 @@ const adjectives: ArticleType.ArtArticle = {
 					rusSentence: 'Я уверен, что буду готов.',
 					engSentences: [
 						{
-							engSentences: [
-								'I’m sure that I’ll be ready.',
-								'I am sure that I will be ready.',
-							],
+							engSentences: ['I’m sure that I’ll be ready.', 'I am sure that I will be ready.'],
 							isCorrect: true,
 						},
 					],
@@ -696,9 +691,7 @@ const adjectives: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Горы всегда величественны.',
-					engSentences: [
-						{ engSentences: ['Mountains are always majestic.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['Mountains are always majestic.'], isCorrect: true }],
 					words: [
 						{ rusWord: 'гора', engWord: 'mountain' },
 						{ rusWord: 'всегда', engWord: 'always' },
@@ -803,7 +796,7 @@ const adjectives: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'confusing',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -818,7 +811,7 @@ const adjectives: ArticleType.ArtArticle = {
 							textSize: 'big',
 							children: [
 								{ type: 'text', color: 'black', weight: 'normal', text: 'tiring' },
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -838,7 +831,7 @@ const adjectives: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'exciting',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -858,7 +851,7 @@ const adjectives: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'surprising',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -878,7 +871,7 @@ const adjectives: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'interesting',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -925,7 +918,7 @@ const adjectives: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'confused',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -940,7 +933,7 @@ const adjectives: ArticleType.ArtArticle = {
 							textSize: 'big',
 							children: [
 								{ type: 'text', color: 'black', weight: 'normal', text: 'tired' },
-								{ type: 'arrow' },
+
 								{ type: 'text', color: 'black', weight: 'normal', text: 'усталый' },
 							],
 						},
@@ -950,7 +943,7 @@ const adjectives: ArticleType.ArtArticle = {
 							textSize: 'big',
 							children: [
 								{ type: 'text', color: 'black', weight: 'normal', text: 'excited' },
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -970,7 +963,7 @@ const adjectives: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'surprised',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -990,7 +983,7 @@ const adjectives: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'interested',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -1014,7 +1007,7 @@ const adjectives: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Мои дети были так взволнованы.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -1034,7 +1027,7 @@ const adjectives: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Это действительно интересная книга.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -1501,9 +1494,7 @@ const adjectives: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Они уставшие после их долгого дня.',
-					engSentences: [
-						{ engSentences: ['They are tired after their long day.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['They are tired after their long day.'], isCorrect: true }],
 					words: [
 						{ rusWord: 'очень', engWord: 'very' },
 						{ rusWord: 'смущён', engWord: 'confused' },
@@ -1511,9 +1502,7 @@ const adjectives: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Переведи',
-					engSentences: [
-						{ engSentences: ['He was huge and frightening.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['He was huge and frightening.'], isCorrect: true }],
 					words: [
 						{ rusWord: 'очень', engWord: 'very' },
 						{ rusWord: 'смущён', engWord: 'confused' },
@@ -1548,7 +1537,7 @@ const adjectives: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Обычный, необычный' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Usual, ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'un' },
 				{ type: 'text', color: 'black', weight: 'normal', text: 'usual' },
@@ -1560,7 +1549,7 @@ const adjectives: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Знакомый, незнакомый' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Familiar, ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'un' },
 				{ type: 'text', color: 'black', weight: 'normal', text: 'familiar' },
@@ -1583,7 +1572,7 @@ const adjectives: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Правильный, неправильный',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Correct, ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'in' },
 				{ type: 'text', color: 'black', weight: 'normal', text: 'correct' },
@@ -1595,7 +1584,7 @@ const adjectives: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Полный, неполный' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Complete, ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'In' },
 				{ type: 'text', color: 'black', weight: 'normal', text: 'complete' },
@@ -1618,7 +1607,7 @@ const adjectives: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Законный, незаконный' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Legal, ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'il' },
 				{ type: 'text', color: 'black', weight: 'normal', text: 'legal' },
@@ -1630,7 +1619,7 @@ const adjectives: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Грамотный, неграмотный' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Illiterate, ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'il' },
 				{ type: 'text', color: 'black', weight: 'normal', text: 'literate' },
@@ -1653,7 +1642,7 @@ const adjectives: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Уместный, неуместный' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Relevant, ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'ir' },
 				{ type: 'text', color: 'black', weight: 'normal', text: 'relevant' },
@@ -1670,7 +1659,7 @@ const adjectives: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Ответственный, безответственный',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Responsible, ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'ir' },
 				{ type: 'text', color: 'black', weight: 'normal', text: 'responsible' },
@@ -1695,7 +1684,7 @@ const adjectives: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Вежливый, невежливый' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Polite, ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'im' },
 				{ type: 'text', color: 'black', weight: 'normal', text: 'polite' },
@@ -1707,7 +1696,7 @@ const adjectives: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Возможный, невозможный' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Possible, ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'im' },
 				{ type: 'text', color: 'black', weight: 'normal', text: 'possible' },
@@ -1960,7 +1949,7 @@ const adjectives: ArticleType.ArtArticle = {
 											weight: 'normal',
 											text: 'Не Джейс, а Джек. Jace',
 										},
-										{ type: 'arrow' },
+
 										{
 											type: 'text',
 											color: 'black',
@@ -2013,7 +2002,7 @@ const adjectives: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Здоровье, здоровый' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Health, health' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'y' },
 			],
@@ -2030,7 +2019,7 @@ const adjectives: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Друг, дружеский' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Friend, friend' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'ly' },
 			],
@@ -2047,7 +2036,7 @@ const adjectives: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Политика, политический' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Politic, politic' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'al' },
 			],
@@ -2064,7 +2053,7 @@ const adjectives: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Красота, красивый' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Beauty, beauti' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'ful' },
 			],
@@ -2081,7 +2070,7 @@ const adjectives: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Опасность, опасный' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Danger, danger' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'ous' },
 			],
@@ -2098,7 +2087,7 @@ const adjectives: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Швед, шведский' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Swede, Swed' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'ish' },
 			],
@@ -2120,7 +2109,7 @@ const adjectives: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Действие, действительный',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Effect, effect' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'ive' },
 			],
@@ -2146,7 +2135,7 @@ const adjectives: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Дом, бездомный' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Home, home' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'less' },
 			],

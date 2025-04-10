@@ -10,8 +10,7 @@ const toBePositive: ArticleType.ArtArticle = {
 		slug: 'to-be-positive',
 		caption: 'Глава 2',
 		articleName: 'Глагол be',
-		articleDescription:
-			'Глагол be используется для описания состояния, местоположения или принадлежности.',
+		articleDescription: 'Глагол be используется для описания состояния, местоположения или принадлежности.',
 		isPaid: false,
 	},
 	content: [
@@ -35,7 +34,7 @@ const toBePositive: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я космонавт.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I spaceman.' },
 			],
 		},
@@ -45,7 +44,7 @@ const toBePositive: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Они клоуны.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'They clowns.' },
 			],
 		},
@@ -55,7 +54,7 @@ const toBePositive: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Это щенок.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'It puppy.' },
 			],
 		},
@@ -116,7 +115,7 @@ const toBePositive: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(есть)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' космонавт.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'be' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' spaceman.' },
@@ -130,7 +129,7 @@ const toBePositive: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Они ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(есть)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' клоуны.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'They ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'be' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' clowns.' },
@@ -144,7 +143,7 @@ const toBePositive: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Это ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(есть)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' щенок.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'It ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'be' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' puppy.' },
@@ -337,7 +336,7 @@ const toBePositive: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(есть)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' космонавт.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'am' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' spaceman.' },
@@ -351,7 +350,7 @@ const toBePositive: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Они ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(есть)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' клоуны.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'They ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'are' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' clowns.' },
@@ -365,7 +364,7 @@ const toBePositive: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Это ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(есть)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' щенок.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'It ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'is' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' puppy.' },
@@ -397,7 +396,7 @@ const toBePositive: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я космонавт.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I am ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'a' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' spaceman.' },
@@ -409,7 +408,7 @@ const toBePositive: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Они клоуны.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'They are clowns.' },
 			],
 		},
@@ -419,7 +418,7 @@ const toBePositive: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Это щенок.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'It is ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'a' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' puppy.' },
@@ -1076,7 +1075,7 @@ const toBePositive: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'был' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' космонавтом.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'was' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' a spaceman.' },
@@ -1090,7 +1089,7 @@ const toBePositive: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Они ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'были' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' клоунами.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'They ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'were' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' clowns.' },
@@ -1104,7 +1103,7 @@ const toBePositive: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Он ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'был' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' щенком.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'It ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'was' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' a puppy.' },
@@ -1179,9 +1178,7 @@ const toBePositive: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'В то время я был ученым.',
-					engSentences: [
-						{ engSentences: ['At that time, I was a scientist.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['At that time, I was a scientist.'], isCorrect: true }],
 					words: [
 						{ rusWord: 'в то время', engWord: 'at that time' },
 						{ rusWord: 'ученый', engWord: 'scientist' },
@@ -1355,7 +1352,7 @@ const toBePositive: ArticleType.ArtArticle = {
 											weight: 'normal',
 											text: '.',
 										},
-										{ type: 'arrow' },
+
 										{
 											type: 'text',
 											color: 'black',
@@ -1493,9 +1490,7 @@ const toBePositive: ArticleType.ArtArticle = {
 			type: 'paragraph',
 			offset: true,
 			textSize: 'normal',
-			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Переведу предложение:' },
-			],
+			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'Переведу предложение:' }],
 		},
 		{
 			type: 'paragraph',
@@ -1503,7 +1498,7 @@ const toBePositive: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я буду космонавтом.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'will' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' ' },
@@ -1640,9 +1635,7 @@ const toBePositive: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Он будет лидером команды.',
-					engSentences: [
-						{ engSentences: ['He will be a team leader.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['He will be a team leader.'], isCorrect: true }],
 					words: [{ rusWord: 'лидер команды', engWord: 'team leader' }],
 				},
 				{
@@ -1868,7 +1861,7 @@ const toBePositive: ArticleType.ArtArticle = {
 										weight: 'normal',
 										text: 'Это будет кораблём.',
 									},
-									{ type: 'arrow' },
+
 									{
 										type: 'text',
 										color: 'black',
@@ -1959,7 +1952,7 @@ const toBePositive: ArticleType.ArtArticle = {
 										weight: 'normal',
 										text: 'Это будет дворец.',
 									},
-									{ type: 'arrow' },
+
 									{
 										type: 'text',
 										color: 'black',

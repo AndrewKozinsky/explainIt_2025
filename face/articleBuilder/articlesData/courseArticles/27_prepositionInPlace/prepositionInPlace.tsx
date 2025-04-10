@@ -7,8 +7,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 		slug: 'preposition-in-place',
 		caption: 'Глава 27',
 		articleName: 'Предлог места in',
-		articleDescription:
-			'Предлог in используется чтобы рассказать внутри какого пространства находится человек.',
+		articleDescription: 'Предлог in используется чтобы рассказать внутри какого пространства находится человек.',
 		isPaid: false,
 	},
 	content: [
@@ -73,7 +72,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Женя в своей комнате.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Jane is in her room.' },
 			],
 		},
@@ -96,7 +95,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я езжу на машине.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I drive in a car.' },
 			],
 		},
@@ -124,7 +123,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Он увидел каких-то людей в костюмах.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -152,9 +151,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 			exercises: [
 				{
 					rusSentence: 'Мы положили книги в коробку.',
-					engSentences: [
-						{ engSentences: ['We put the books in a box.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['We put the books in a box.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
@@ -164,9 +161,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Моя черепаха живёт в аквариуме.',
-					engSentences: [
-						{ engSentences: ['My turtle lives in the fish tank.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['My turtle lives in the fish tank.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
@@ -181,18 +176,14 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Перевести...',
-					engSentences: [
-						{ engSentences: ['Joe had an apple in his hand.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['Joe had an apple in his hand.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
 					rusSentence: 'Перевести...',
 					engSentences: [
 						{
-							engSentences: [
-								'Her costume is yellow and red and she has feathers in her hair.',
-							],
+							engSentences: ['Her costume is yellow and red and she has feathers in her hair.'],
 							isCorrect: true,
 						},
 					],
@@ -200,18 +191,14 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Том нашёл в своём супе волос.',
-					engSentences: [
-						{ engSentences: ['Tom found a hair in his soup. — '], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['Tom found a hair in his soup. — '], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
 					rusSentence: 'Перевести...',
 					engSentences: [
 						{
-							engSentences: [
-								'Yes, all the food\'s in the kitchen, and the drinks are in the front room.',
-							],
+							engSentences: ["Yes, all the food's in the kitchen, and the drinks are in the front room."],
 							isCorrect: true,
 						},
 					],
@@ -221,9 +208,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 					rusSentence: 'Перевести...',
 					engSentences: [
 						{
-							engSentences: [
-								'Her temperature was very low and she had liquid in her lungs.',
-							],
+							engSentences: ['Her temperature was very low and she had liquid in her lungs.'],
 							isCorrect: true,
 						},
 					],
@@ -233,9 +218,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 					rusSentence: 'Перевести...',
 					engSentences: [
 						{
-							engSentences: [
-								'In the vet clinic, we realized how bad she actually looks.',
-							],
+							engSentences: ['In the vet clinic, we realized how bad she actually looks.'],
 							isCorrect: true,
 						},
 					],
@@ -245,9 +228,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 					rusSentence: 'Перевести...',
 					engSentences: [
 						{
-							engSentences: [
-								'Injun Joe was not in jail, and he was a dangerous man.',
-							],
+							engSentences: ['Injun Joe was not in jail, and he was a dangerous man.'],
 							isCorrect: true,
 						},
 					],
@@ -281,7 +262,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Я вижу дом на фотографии.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -314,7 +295,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Она уставилась в зеркало.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -360,7 +341,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Он узнал знакомый силуэт в газете.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -401,7 +382,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Сейчас он в Лондоне.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Now he is in London.' },
 			],
 		},
@@ -429,7 +410,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Кактусы, в основном, растут в пустыне.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -463,9 +444,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 			exercises: [
 				{
 					rusSentence: 'Мне казалось, что я остался один в пустыне.',
-					engSentences: [
-						{ engSentences: ['I thought I was alone in the desert.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['I thought I was alone in the desert.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
@@ -480,9 +459,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Я встретила своего будущего мужа в Москве.',
-					engSentences: [
-						{ engSentences: ['I met my future husband in Moscow.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['I met my future husband in Moscow.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
@@ -497,9 +474,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Перевести...',
-					engSentences: [
-						{ engSentences: ['And he works in a bank in London.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['And he works in a bank in London.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
@@ -531,9 +506,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Они прибыли в Европу как туристы.',
-					engSentences: [
-						{ engSentences: ['They arrived in Europe as tourists.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['They arrived in Europe as tourists.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 			],
@@ -564,7 +537,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Он работает в финансовой группе.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -597,7 +570,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Я работаю в салоне красоты.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -612,16 +585,14 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 			exercises: [
 				{
 					rusSentence: 'Сестра работает в торговле.',
-					engSentences: [
-						{ engSentences: ['My sister works in commerce.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['My sister works in commerce.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
 					rusSentence: 'Люди не хотят терять время в очереди.',
 					engSentences: [
 						{
-							engSentences: ['People don\'t want to waste time in a queue.'],
+							engSentences: ["People don't want to waste time in a queue."],
 							isCorrect: true,
 						},
 					],
@@ -660,7 +631,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Вдали он увидел наездника на чёрной лошиди.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -688,7 +659,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Она в хорошей форме.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'She is in a good state.' },
 			],
 		},
@@ -703,7 +674,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Дом был очень старый и в плохом состоянии.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -736,7 +707,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Вход расположен на углу.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -749,9 +720,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 			type: 'paragraph',
 			offset: true,
 			textSize: 'normal',
-			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Абстрактные вещи.' },
-			],
+			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'Абстрактные вещи.' }],
 		},
 		{
 			type: 'paragraph',
@@ -764,7 +733,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Я видел твоё лицо в сумраке ночи.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -793,7 +762,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Документы внутри папки.' },
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -813,7 +782,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Оставайтесь внутри здания во время шторма.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -883,7 +852,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Дети бегут в комнату.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -923,7 +892,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Дети вбегают в комнату.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -963,7 +932,7 @@ const prepositionInPlace: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Дети в комнате.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',

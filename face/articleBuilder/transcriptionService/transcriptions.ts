@@ -1,13 +1,18 @@
 export type ITranscription = {
 	sentence: string
 	transcription: string
-	audio: null | string
+	audio: boolean
 }
 
 export const transcriptions = {
 	i_learn_english: {
 		sentence: 'I learn English',
 		transcription: 'aɪ lɜːn ˈɪŋɡlɪʃ',
-		audio: '12',
+		audio: true,
+	},
+	they_cook_dinner_together: {
+		sentence: 'They cook dinner together',
+		transcription: 'ðeɪ kʊk ˈdɪnər təˈɡɛðər',
+		audio: true,
 	},
 } satisfies Record<string, ITranscription>

@@ -44,9 +44,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 			type: 'paragraph',
 			offset: false,
 			textSize: 'giant',
-			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Купи, пожалуйста, мяч.' },
-			],
+			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'Купи, пожалуйста, мяч.' }],
 		},
 		{
 			type: 'paragraph',
@@ -271,7 +269,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 			children: [
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'a' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' car' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'машина' },
 			],
 		},
@@ -295,7 +293,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 			children: [
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'a' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' carrot' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'морковь' },
 			],
 		},
@@ -373,9 +371,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 			type: 'paragraph',
 			offset: true,
 			textSize: 'giant',
-			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Два стакана воды' },
-			],
+			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'Два стакана воды' }],
 		},
 		{
 			type: 'paragraph',
@@ -456,7 +452,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Это пакет.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -476,7 +472,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Это столовая ложка.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -515,7 +511,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Это рис.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -548,7 +544,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 									weight: 'normal',
 									text: 'Это деньги.',
 								},
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -937,7 +933,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 				{
 					rusSentence: 'Кстати, он очень хороший врач.',
 					engSentences: [
-						{ engSentences: ['He\'s a very good doctor, by the way.'], isCorrect: true },
+						{ engSentences: ["He's a very good doctor, by the way."], isCorrect: true },
 						{
 							engSentences: [],
 							isCorrect: false,
@@ -988,9 +984,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 					rusSentence: 'Маша просто истеричная дура, а Саша самовлюблённый болван.',
 					engSentences: [
 						{
-							engSentences: [
-								'Masha is just a hysterical fool and Sasha is a narcissistic idiot.',
-							],
+							engSentences: ['Masha is just a hysterical fool and Sasha is a narcissistic idiot.'],
 							isCorrect: true,
 						},
 					],
@@ -1030,7 +1024,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Это чай. Это стакан чая.',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'It is tea. It is ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'a' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' tea.' },
@@ -1068,7 +1062,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Это бумага. Это газета.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'It is paper. It is ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'a' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' paper.' },
@@ -1106,7 +1100,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 							textSize: 'big',
 							children: [
 								{ type: 'text', color: 'black', weight: 'normal', text: 'wood' },
-								{ type: 'arrow' },
+
 								{ type: 'text', color: 'black', weight: 'normal', text: 'лес' },
 							],
 						},
@@ -1116,7 +1110,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 							textSize: 'big',
 							children: [
 								{ type: 'text', color: 'black', weight: 'normal', text: 'iron' },
-								{ type: 'arrow' },
+
 								{ type: 'text', color: 'black', weight: 'normal', text: 'железо' },
 							],
 						},
@@ -1126,7 +1120,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 							textSize: 'big',
 							children: [
 								{ type: 'text', color: 'black', weight: 'normal', text: 'coal' },
-								{ type: 'arrow' },
+
 								{ type: 'text', color: 'black', weight: 'normal', text: 'уголь' },
 							],
 						},
@@ -1136,7 +1130,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 							textSize: 'big',
 							children: [
 								{ type: 'text', color: 'black', weight: 'normal', text: 'hair' },
-								{ type: 'arrow' },
+
 								{ type: 'text', color: 'black', weight: 'normal', text: 'волосы' },
 							],
 						},
@@ -1150,7 +1144,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 							textSize: 'big',
 							children: [
 								{ type: 'text', color: 'black', weight: 'normal', text: 'a wood' },
-								{ type: 'arrow' },
+
 								{ type: 'text', color: 'black', weight: 'normal', text: 'дерево' },
 							],
 						},
@@ -1160,7 +1154,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 							textSize: 'big',
 							children: [
 								{ type: 'text', color: 'black', weight: 'normal', text: 'an iron' },
-								{ type: 'arrow' },
+
 								{ type: 'text', color: 'black', weight: 'normal', text: 'утюг' },
 							],
 						},
@@ -1170,7 +1164,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 							textSize: 'big',
 							children: [
 								{ type: 'text', color: 'black', weight: 'normal', text: 'a coal' },
-								{ type: 'arrow' },
+
 								{ type: 'text', color: 'black', weight: 'normal', text: 'уголёк' },
 							],
 						},
@@ -1180,7 +1174,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 							textSize: 'big',
 							children: [
 								{ type: 'text', color: 'black', weight: 'normal', text: 'a hair' },
-								{ type: 'arrow' },
+
 								{ type: 'text', color: 'black', weight: 'normal', text: 'волосок' },
 							],
 						},
@@ -1212,7 +1206,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Это красота. Она красотка.',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'It is beauty. She is ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'a' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' beauty.' },
@@ -1250,7 +1244,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 							textSize: 'big',
 							children: [
 								{ type: 'text', color: 'black', weight: 'normal', text: 'life' },
-								{ type: 'arrow' },
+
 								{ type: 'text', color: 'black', weight: 'normal', text: 'жизнь' },
 							],
 						},
@@ -1260,7 +1254,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 							textSize: 'big',
 							children: [
 								{ type: 'text', color: 'black', weight: 'normal', text: 'time' },
-								{ type: 'arrow' },
+
 								{ type: 'text', color: 'black', weight: 'normal', text: 'время' },
 							],
 						},
@@ -1270,7 +1264,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 							textSize: 'big',
 							children: [
 								{ type: 'text', color: 'black', weight: 'normal', text: 'play' },
-								{ type: 'arrow' },
+
 								{ type: 'text', color: 'black', weight: 'normal', text: 'игра' },
 							],
 						},
@@ -1280,7 +1274,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 							textSize: 'big',
 							children: [
 								{ type: 'text', color: 'black', weight: 'normal', text: 'fire' },
-								{ type: 'arrow' },
+
 								{ type: 'text', color: 'black', weight: 'normal', text: 'огонь' },
 							],
 						},
@@ -1294,7 +1288,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 							textSize: 'big',
 							children: [
 								{ type: 'text', color: 'black', weight: 'normal', text: 'a life' },
-								{ type: 'arrow' },
+
 								{
 									type: 'text',
 									color: 'black',
@@ -1309,7 +1303,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 							textSize: 'big',
 							children: [
 								{ type: 'text', color: 'black', weight: 'normal', text: 'a time' },
-								{ type: 'arrow' },
+
 								{ type: 'text', color: 'black', weight: 'normal', text: 'раз' },
 							],
 						},
@@ -1319,7 +1313,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 							textSize: 'big',
 							children: [
 								{ type: 'text', color: 'black', weight: 'normal', text: 'a play' },
-								{ type: 'arrow' },
+
 								{ type: 'text', color: 'black', weight: 'normal', text: 'пьеса' },
 							],
 						},
@@ -1329,7 +1323,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 							textSize: 'big',
 							children: [
 								{ type: 'text', color: 'black', weight: 'normal', text: 'a fire' },
-								{ type: 'arrow' },
+
 								{ type: 'text', color: 'black', weight: 'normal', text: 'пожар' },
 							],
 						},
@@ -1348,9 +1342,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Это железо, а это утюг.',
-					engSentences: [
-						{ engSentences: ['It is iron, but it is an iron.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['It is iron, but it is an iron.'], isCorrect: true }],
 					words: [{ rusWord: 'железо/утюг', engWord: 'iron' }],
 				},
 			],
@@ -1376,7 +1368,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Огромный слон.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'It is a huge elephant.' },
 			],
 		},
@@ -1399,7 +1391,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Это дверь.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'It is a door.' },
 			],
 		},
@@ -1437,7 +1429,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Врач лечит людей.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'A doctor treats people.' },
 			],
 		},
@@ -1465,7 +1457,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Кролик — домашнее животное.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -2213,9 +2205,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Я единственный ребенок и очень балованная.',
-					engSentences: [
-						{ engSentences: ['I am an only child and very spoiled.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['I am an only child and very spoiled.'], isCorrect: true }],
 					words: [
 						{ rusWord: 'единственный', engWord: 'only' },
 						{ rusWord: 'ребенок', engWord: 'child' },
@@ -2592,7 +2582,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 										weight: 'normal',
 										text: 'Они умные.',
 									},
-									{ type: 'arrow' },
+
 									{
 										type: 'text',
 										color: 'black',
@@ -2670,7 +2660,7 @@ const indefiniteArticle: ArticleType.ArtArticle = {
 										weight: 'normal',
 										text: 'Они будут умными.',
 									},
-									{ type: 'arrow' },
+
 									{
 										type: 'text',
 										color: 'black',

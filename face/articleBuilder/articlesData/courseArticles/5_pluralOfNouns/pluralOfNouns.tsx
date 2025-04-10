@@ -66,9 +66,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 					type: 'paragraph',
 					offset: false,
 					textSize: 'normal',
-					children: [
-						{ type: 'text', color: 'black', weight: 'normal', text: 'Исчисляемым;' },
-					],
+					children: [{ type: 'text', color: 'black', weight: 'normal', text: 'Исчисляемым;' }],
 				},
 				{
 					type: 'paragraph',
@@ -116,7 +114,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Жёлтые помидоры — сладкие.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -149,7 +147,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Небоскрёбы всегда высокие.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -213,7 +211,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Мяч — мячи' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'A ball — ball' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 's' },
 			],
@@ -224,7 +222,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Дерево — Деревья' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'A tree — Tree' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 's' },
 			],
@@ -235,7 +233,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Я и Миша — друзья.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I and Misha are friend' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 's' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
@@ -271,7 +269,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Крокодилы очень опасны.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Crocodile' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 's' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' are very dangerous.' },
@@ -317,7 +315,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Скамейка' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'A ben' },
 				{ type: 'text', color: 'gold', weight: 'normal', text: 'ch' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' — ben' },
@@ -332,7 +330,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Автобус' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'A bu' },
 				{ type: 'text', color: 'gold', weight: 'normal', text: 's' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' — bu' },
@@ -347,7 +345,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Класс' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'A cla' },
 				{ type: 'text', color: 'gold', weight: 'normal', text: 'ss ' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '— cla' },
@@ -362,7 +360,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Желание' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'A wi' },
 				{ type: 'text', color: 'gold', weight: 'normal', text: 'sh' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' — wi' },
@@ -377,7 +375,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Лиса' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'A fo' },
 				{ type: 'text', color: 'gold', weight: 'normal', text: 'x' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' — fo' },
@@ -392,7 +390,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Картошка' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'a potat' },
 				{ type: 'text', color: 'gold', weight: 'normal', text: 'o' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' — potat' },
@@ -496,7 +494,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Дитя' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'A bab' },
 				{ type: 'text', color: 'gold', weight: 'normal', text: 'y' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' — bab' },
@@ -509,7 +507,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Город' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'A cit' },
 				{ type: 'text', color: 'gold', weight: 'normal', text: 'y' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' — cit' },
@@ -522,7 +520,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Мелодия' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'A melod' },
 				{ type: 'text', color: 'gold', weight: 'normal', text: 'y' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' — melod' },
@@ -567,7 +565,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Волк' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'A wol' },
 				{ type: 'text', color: 'gold', weight: 'normal', text: 'f' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' — wol' },
@@ -580,7 +578,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Лист' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'A lea' },
 				{ type: 'text', color: 'gold', weight: 'normal', text: 'f' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' — lea' },
@@ -593,7 +591,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Булка' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'a loa' },
 				{ type: 'text', color: 'gold', weight: 'normal', text: 'f' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' — loa' },
@@ -606,7 +604,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Половина' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'a hal' },
 				{ type: 'text', color: 'gold', weight: 'normal', text: 'f' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' — hal' },
@@ -621,7 +619,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Лист ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(дерева)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'a lea' },
 				{ type: 'text', color: 'gold', weight: 'normal', text: 'f' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' — lea' },
@@ -634,7 +632,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Жизнь' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'A li' },
 				{ type: 'text', color: 'gold', weight: 'normal', text: 'fe' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' — li' },
@@ -647,7 +645,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Мяч' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'A kni' },
 				{ type: 'text', color: 'gold', weight: 'normal', text: 'fe' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' — kni' },
@@ -660,7 +658,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Жизнь' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'a li' },
 				{ type: 'text', color: 'gold', weight: 'normal', text: 'fe' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' — li' },
@@ -673,7 +671,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Жена' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'a wi' },
 				{ type: 'text', color: 'gold', weight: 'normal', text: 'fe' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' — wi' },
@@ -712,7 +710,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Ребёнок' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'a child — children' },
 			],
 		},
@@ -722,7 +720,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Стопа' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'a foot — feet' },
 			],
 		},
@@ -732,7 +730,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Гусь' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'a goose — geese' },
 			],
 		},
@@ -742,7 +740,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Мужчина' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'a man — men' },
 			],
 		},
@@ -765,7 +763,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Женщина' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'a woman — women' },
 			],
 		},
@@ -775,7 +773,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Мышь' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'a mouse — mice' },
 			],
 		},
@@ -785,7 +783,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Человек' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'a person — people' },
 			],
 		},
@@ -795,7 +793,7 @@ const pluralOfNouns: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Зуб' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'a tooth — teeth' },
 			],
 		},

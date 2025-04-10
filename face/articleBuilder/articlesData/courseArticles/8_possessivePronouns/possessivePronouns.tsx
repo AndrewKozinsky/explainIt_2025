@@ -8,8 +8,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 		slug: 'possessive-pronouns',
 		caption: 'Глава 8',
 		articleName: 'Притяжательные местоимения',
-		articleDescription:
-			'Притяжательные местоимения поясняют кому принадлежит персонаж или предмет.',
+		articleDescription: 'Притяжательные местоимения поясняют кому принадлежит персонаж или предмет.',
 		isPaid: false,
 	},
 	content: [
@@ -178,7 +177,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Это ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'мои' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' деньги.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'This is ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'my' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' money.' },
@@ -192,7 +191,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Эти деньги ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'мои' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'This money is ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'mine' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
@@ -217,7 +216,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Это чьи деньги?' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Whose money is this?' },
 			],
 		},
@@ -228,7 +227,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 			children: [
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'Мои' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'Mine' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
@@ -301,7 +300,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Попробуй салат!' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Try the salad!' },
 			],
 		},
@@ -311,7 +310,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Попробуй мой салат!' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Try my salad!' },
 			],
 		},
@@ -329,7 +328,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(я)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Му ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(мой)' },
 			],
@@ -342,7 +341,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Это ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'мой' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' компьютер.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'It is ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'my' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' computer.' },
@@ -356,7 +355,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Это ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'моя' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' собственная ложка.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'It is ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'my' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' own spoon.' },
@@ -370,7 +369,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Ты ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'моё' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' сокровище.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'You are ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'my' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' jewel.' },
@@ -384,7 +383,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Сергей и Алёна ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'мои' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' дети.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Sergei and Alyona are ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'my' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' children.' },
@@ -424,7 +423,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'You ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(вы)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Your ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(ваш)' },
 			],
@@ -436,7 +435,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 			children: [
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'Ваша' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' мама не здесь.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'Your' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' mother is not here.' },
@@ -450,7 +449,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'He ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(он)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'His ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(его)' },
 			],
@@ -462,7 +461,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 			children: [
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'Его' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' нос чёрный и влажный.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'His' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' nose is black and wet.' },
@@ -495,7 +494,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'She ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(она)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Her ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(её)' },
 			],
@@ -508,7 +507,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Это ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'её' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' новый питомец.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'It is ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'her' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' new pet.' },
@@ -522,7 +521,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'It ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(это)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Its ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(этот)' },
 			],
@@ -534,7 +533,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 			children: [
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'Эти' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' джинсы синие.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'Its' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' jeans is blue.' },
@@ -574,7 +573,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'We ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(мы)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Our ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(наш)' },
 			],
@@ -591,7 +590,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: ' старшая сестра восхитительна.',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'Our' },
 				{
@@ -610,7 +609,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'They ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(они)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Their ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(их)' },
 			],
@@ -627,7 +626,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: ' домашнее задание трудное.',
 				},
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'Their' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' homework is difficult.' },
@@ -647,9 +646,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Мое психологическое состояние плохое.',
-					engSentences: [
-						{ engSentences: ['My psychology is not well.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['My psychology is not well.'], isCorrect: true }],
 					words: [
 						{ rusWord: 'психологическое состояние', engWord: 'psychology' },
 						{ rusWord: 'здоровый, в удовлетворительном состоянии', engWord: 'well' },
@@ -671,9 +668,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'В настоящее время он является его агентом.',
-					engSentences: [
-						{ engSentences: ['He is currently his agent.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['He is currently his agent.'], isCorrect: true }],
 					words: [
 						{ rusWord: 'в настоящее время', engWord: 'currently' },
 						{ rusWord: 'агент', engWord: 'agent' },
@@ -683,9 +678,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 					rusSentence: 'Английский их второй или иногда даже третий язык.',
 					engSentences: [
 						{
-							engSentences: [
-								'English is their second and sometimes their third language.',
-							],
+							engSentences: ['English is their second and sometimes their third language.'],
 							isCorrect: true,
 						},
 					],
@@ -699,9 +692,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Он ваш брат? Нет.',
-					engSentences: [
-						{ engSentences: ['Is he your brother? No, he is not.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['Is he your brother? No, he is not.'], isCorrect: true }],
 					words: [{ rusWord: 'брат', engWord: 'brother' }],
 				},
 				{
@@ -776,7 +767,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'I ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(я)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Mine ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(моя)' },
 			],
@@ -789,7 +780,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Эта тарелка ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'моя' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'This plate is ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'mine' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
@@ -822,7 +813,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'You ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(вы)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Yours ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(ваш)' },
 			],
@@ -835,7 +826,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Это красная книга ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'ваша' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'This red book is ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'yours' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
@@ -849,7 +840,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'He ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(он)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'His ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(его)' },
 			],
@@ -862,7 +853,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Этот кактус ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'его' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'This cactus is ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'his' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
@@ -876,7 +867,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'She ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(она)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Hers ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(её)' },
 			],
@@ -889,7 +880,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Этот дневник ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'её' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'This diary is ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'hers' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
@@ -903,7 +894,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'It ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(это)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Its ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(эта)' },
 			],
@@ -931,7 +922,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Эта тень ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'его/её' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'This shadow is ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'its' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
@@ -945,7 +936,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'We ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(мы)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Ours ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(наш)' },
 			],
@@ -958,7 +949,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Этот ноутбук ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'наш' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'This laptop is ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'ours' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
@@ -972,7 +963,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'They ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(они)' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Theirs ' },
 				{ type: 'text', color: 'gray', weight: 'normal', text: '(их)' },
 			],
@@ -985,7 +976,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Это вознаграждение ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'их' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'This reward is ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'theirs' },
 				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
@@ -1016,9 +1007,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 			exercises: [
 				{
 					rusSentence: 'Его автомобиль чёрный, а её красный.',
-					engSentences: [
-						{ engSentences: ['His car is black, but hers is red.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['His car is black, but hers is red.'], isCorrect: true }],
 					words: [
 						{ rusWord: 'автомобиль', engWord: 'a car' },
 						{ rusWord: 'чёрный', engWord: 'black' },
@@ -1040,9 +1029,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Его пальто длинное, а её короткое.',
-					engSentences: [
-						{ engSentences: ['His coat is long, but hers is short.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['His coat is long, but hers is short.'], isCorrect: true }],
 					words: [
 						{ rusWord: 'пальто', engWord: 'coat' },
 						{ rusWord: 'длинный', engWord: 'long' },
@@ -1051,9 +1038,7 @@ const possessivePronouns: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Те пакеты ваши?',
-					engSentences: [
-						{ engSentences: ['Are those packages yours?'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['Are those packages yours?'], isCorrect: true }],
 					words: [{ rusWord: 'пакет', engWord: 'package' }],
 				},
 				{

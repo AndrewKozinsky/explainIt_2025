@@ -193,7 +193,7 @@ const the: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Яблоки красные.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'The apples are red.' },
 			],
 		},
@@ -203,7 +203,7 @@ const the: ArticleType.ArtArticle = {
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Багаж тяжёлый.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: 'The baggage is heavy.' },
 			],
 		},
@@ -236,7 +236,7 @@ const the: ArticleType.ArtArticle = {
 			children: [
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'Этот магазин' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' очень дорогой.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'This shop' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' is very expensive.' },
@@ -249,7 +249,7 @@ const the: ArticleType.ArtArticle = {
 			children: [
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'Магазин' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' ещё и закрыт сегодня.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'The shop' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' is also closed today.' },
@@ -280,7 +280,7 @@ const the: ArticleType.ArtArticle = {
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', weight: 'normal', text: 'Зима была ветренной.' },
-				{ type: 'arrow' },
+
 				{ type: 'text', color: 'black', weight: 'normal', text: '' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'The winter' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' was windy.' },
@@ -329,7 +329,7 @@ const the: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Он был самым молодым федеральным судьёй в стране.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -401,7 +401,7 @@ const the: ArticleType.ArtArticle = {
 					weight: 'normal',
 					text: 'Двигатель не запускается.',
 				},
-				{ type: 'arrow' },
+
 				{
 					type: 'text',
 					color: 'black',
@@ -436,16 +436,12 @@ const the: ArticleType.ArtArticle = {
 			exercises: [
 				{
 					rusSentence: 'Парад был первым событием.',
-					engSentences: [
-						{ engSentences: ['The parade was the first event.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['The parade was the first event.'], isCorrect: true }],
 					words: [{ rusWord: 'положение', engWord: 'situation' }],
 				},
 				{
 					rusSentence: 'Камин — дорогая вещь.',
-					engSentences: [
-						{ engSentences: ['A fireplace is an expensive thing.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['A fireplace is an expensive thing.'], isCorrect: true }],
 					words: [
 						{ rusWord: 'однажды', engWord: 'one day' },
 						{ rusWord: 'врач', engWord: 'doctor' },
@@ -482,9 +478,7 @@ const the: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Еда в холодильнике.',
-					engSentences: [
-						{ engSentences: ['The food is in the refrigerator'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['The food is in the refrigerator'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
 				},
 				{
@@ -531,9 +525,7 @@ const the: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Я был где-то внутри корабля.',
-					engSentences: [
-						{ engSentences: ['I was somewhere inside the ship.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['I was somewhere inside the ship.'], isCorrect: true }],
 					words: [
 						{ rusWord: 'быть уверенным', engWord: 'to be sure' },
 						{ rusWord: 'быть готовым', engWord: 'to be ready' },
@@ -554,9 +546,7 @@ const the: ArticleType.ArtArticle = {
 				},
 				{
 					rusSentence: 'Орлы — очень сильные  птицы.',
-					engSentences: [
-						{ engSentences: ['Eagles are very strong birds.'], isCorrect: true },
-					],
+					engSentences: [{ engSentences: ['Eagles are very strong birds.'], isCorrect: true }],
 					words: [
 						{ rusWord: 'орёл', engWord: 'eagle' },
 						{ rusWord: 'сильный', engWord: 'strong' },

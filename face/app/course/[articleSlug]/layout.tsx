@@ -8,7 +8,7 @@ type GenerateMetadataParams = {
 	}
 }
 
-export async function generateMetadata(params: GenerateMetadataParams): Promise<Metadata> {
+export function generateMetadata(params: GenerateMetadataParams): Metadata {
 	const { articleSlug } = params.params
 
 	const article = articleService.getArticle(articleSlug)
