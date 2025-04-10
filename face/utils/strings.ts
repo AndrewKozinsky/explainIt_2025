@@ -4,13 +4,13 @@
  * Возможно в будущем добавится что-то ещё.
  * @param text — строка, которую нужно форматировать.
  */
-/*export function typographyText(text: string) {
+export function typographyText(text: string) {
 	let newText = text.replaceAll(' и ', ' и\u00A0')
 
 	newText = newText.replaceAll(/ a$/gi, '\u00A0a')
 
 	return newText
-}*/
+}
 
 /**
  * Получает строку и переводит апостроф к одному виду

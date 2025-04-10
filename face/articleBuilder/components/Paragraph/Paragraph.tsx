@@ -1,15 +1,15 @@
-// import cn from 'classnames'
-// import ArticleType from '../../../articlesData/articleType'
-// import ArrowCircle from '../ArrowCircle/ArrowCircle'
-// import Text from '../Text/Text'
-// import './Paragraph.scss'
+import cn from 'classnames'
+import ArticleType from '../../articlesData/articleType'
+import ArrowCircle from '../ArrowCircle/ArrowCircle'
+import Text from '../Text/Text'
+import './Paragraph.scss'
 
-/*type HeaderProps = {
+type ParagraphProps = {
 	config: ArticleType.Paragraph
-}*/
+}
 
 /** Компонент абзаца в статье */
-/*function Paragraph(props: HeaderProps) {
+function Paragraph(props: ParagraphProps) {
 	const { config } = props
 
 	const classes = [
@@ -25,16 +25,16 @@
 			<ParagraphChildren textConfigs={config.children} />
 		</p>
 	)
-}*/
+}
 
-// export default Paragraph
+export default Paragraph
 
-/*type ParagraphChildrenProps = {
-	textConfigs: ArticleType.TextElem[]
-}*/
+type ParagraphChildrenProps = {
+	textConfigs: ArticleType.Text[]
+}
 
 /** Дети компонента абзаца в статье */
-/*function ParagraphChildren(props: ParagraphChildrenProps) {
+function ParagraphChildren(props: ParagraphChildrenProps) {
 	const { textConfigs } = props
 
 	return (
@@ -50,4 +50,4 @@
 			})}
 		</>
 	)
-}*/
+}

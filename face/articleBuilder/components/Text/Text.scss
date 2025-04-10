@@ -1,10 +1,10 @@
-//@import 'styles/variables';
-//@import 'styles/mixins';
-//@import 'styles/inherit';
+@import '@/styles/variables';
+@import '@/styles/mixins';
+@import '@/styles/inherit';
 
-//$CN: art-text;
+$CN: art-text;
 
-/*.#{$CN} {
+.#{$CN} {
 	&--color-blue {
 		display: inline-block;
 		color: $blueColor-2;
@@ -45,4 +45,4 @@
 	&--weight-bold {
 		font-weight: 600;
 	}
-}*/
+}

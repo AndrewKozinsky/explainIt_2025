@@ -1,4 +1,4 @@
-import ArticleType from '../../../../../articlesData/articleType'
+import ArticleType from '../../../../../articleBuilder/articlesData/articleType'
 
 export namespace ArticleTileType {
 	export type Tile = LevelTile | ArticleTile | MediaTile

@@ -1,8 +1,8 @@
-// import React from 'react'
-// import LoadingMessage from '../../../ui/LoadingMessage/LoadingMessage'
+import React from 'react'
+import LoadingMessage from '../../../ui/LoadingMessage/LoadingMessage'
 
-/*function Loading() {
-	return <LoadingMessage text="Загрузка страницы" />
-}*/
+function Loading() {
+	return <LoadingMessage text='Загрузка страницы' />
+}
 
-// export default Loading
+export default Loading

@@ -1,10 +1,10 @@
-//@import 'styles/variables';
-//@import 'styles/mixins';
-//@import 'styles/inherit';
+@import '@/styles/variables';
+@import '@/styles/mixins';
+@import '@/styles/inherit';
 
-//$CN: art-header;
+$CN: art-header;
 
-/*.#{$CN} {
+.#{$CN} {
 	text-wrap: balance;
 
 	&--h2 {
@@ -18,4 +18,4 @@
 	&--h4 {
 		@include header-4();
 	}
-}*/
+}

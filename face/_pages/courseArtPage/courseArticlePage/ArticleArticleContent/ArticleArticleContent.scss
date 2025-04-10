@@ -1,6 +1,6 @@
-//@import 'styles/variables';
+@import '@/styles/variables';
 
-/*.article-article {
+.article-article {
 	flex-grow: 1;
 	display: flex;
 	flex-direction: column;
@@ -21,22 +21,15 @@
 	@include page-width(900px) {
 		padding: 3.5rem 4.8rem;
 	}
-}*/
+}
 
-/*.article-article__content {
+.article-article__content {
 	flex-grow: 1;
 	container-type: inline-size;
-}*/
+}
 
-/*.article-article__footer {
+.article-article__footer {
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
-}*/
-
-/*.article-article__feedback {
-	font-size: 1.5rem;
-	line-height: 2.5rem;
-	color: $grayColor-4;
-	margin: 3rem 0 0 0;
-}*/
+}

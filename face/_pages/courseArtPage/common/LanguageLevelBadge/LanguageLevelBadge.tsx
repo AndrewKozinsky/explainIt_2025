@@ -1,5 +1,5 @@
 import React from 'react'
-import ArticleType from '../../../../articlesData/articleType'
+import ArticleType from '../../../../articleBuilder/articlesData/articleType'
 import './LanguageLevelBadge.scss'
 
 type LanguageLevelBadgeProps = {
@@ -13,11 +13,11 @@ export function LanguageLevelBadge(props: LanguageLevelBadgeProps) {
 	const levelName = ArticleType.LangLevelName[level]
 
 	return (
-		<div className="language-level-badge" data-testid="lang-levelA1-badge">
-			<p className="language-level-badge__header" data-testid="lang-levelA1-badge__level">
+		<div className='language-level-badge' data-testid='lang-levelA1-badge'>
+			<p className='language-level-badge__header' data-testid='lang-levelA1-badge__level'>
 				{level}
 			</p>
-			<p className="language-level-badge__pill" data-testid="lang-levelA1-badge__name">
+			<p className='language-level-badge__pill' data-testid='lang-levelA1-badge__name'>
 				{levelName}
 			</p>
 		</div>

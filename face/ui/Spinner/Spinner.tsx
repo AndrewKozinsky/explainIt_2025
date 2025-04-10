@@ -1,9 +1,9 @@
-// import React from 'react'
-// import './Spinner.scss'
+import React from 'react'
+import './Spinner.scss'
 
-/*function Spinner() {
+function Spinner() {
 	return (
-		<span className="lds-spinner">
+		<span className='lds-spinner'>
 			<span />
 			<span />
 			<span />
@@ -18,6 +18,6 @@
 			<span />
 		</span>
 	)
-}*/
+}
 
-// export default Spinner
+export default Spinner

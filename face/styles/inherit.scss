@@ -25,7 +25,7 @@
 	}
 }
 
-/*@mixin header-2() {
+@mixin header-2() {
 	// clamp!!!
 	font-size: 2.4rem;
 	line-height: 3rem;
@@ -36,9 +36,9 @@
 		font-size: 3.6rem;
 		line-height: 4.4rem;
 	}
-}*/
+}
 
-/*@mixin header-3() {
+@mixin header-3() {
 	// clamp!!!
 	font-size: 2rem;
 	line-height: 2.4rem;
@@ -54,9 +54,9 @@
 		font-size: 2.8rem;
 		line-height: 3.6rem;
 	}
-}*/
+}
 
-/*@mixin header-4() {
+@mixin header-4() {
 	// clamp!!!
 	font-size: 1.6rem;
 	line-height: 2.4rem;
@@ -71,32 +71,32 @@
 		font-size: 2rem;
 		line-height: 2.8rem;
 	}
-}*/
+}
 
-/*@mixin paragraph-small() {
+@mixin paragraph-small() {
 	font-size: 1.4rem;
 	line-height: 2.2rem;
 
 	@include container-width($tablet-width) {
 		line-height: 2.4rem;
 	}
-}*/
+}
 
-/*@mixin paragraph() {
+@mixin paragraph() {
 	font-size: 1.6rem;
 	line-height: 2.4rem;
 
 	@include container-width($tablet-width) {
 		line-height: 2.6rem;
 	}
-}*/
+}
 
-/*@mixin paragraph-big() {
+@mixin paragraph-big() {
 	font-size: 2rem;
 	line-height: 2.8rem;
-}*/
+}
 
-/*@mixin paragraph-giant() {
+@mixin paragraph-giant() {
 	font-size: 2rem;
 	line-height: 3rem;
 
@@ -104,7 +104,7 @@
 		font-size: 2.4rem;
 		line-height: 3.2rem;
 	}
-}*/
+}
 
 // Стиль обёртки заметки или обёртки блока с текстами тренировки упражнений
 /*@mixin content-wrapper() {

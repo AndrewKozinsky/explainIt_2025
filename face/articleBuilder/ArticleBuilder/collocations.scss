@@ -1,5 +1,5 @@
-//@import 'styles/variables';
-//@import 'styles/mixins';
+@import '@/styles/variables';
+@import '@/styles/mixins';
 
 // Доступные классы:
 // .exercises
@@ -45,23 +45,23 @@
 /*.art-image + .art-note {
 	margin-top: 2.2rem;
 }*/
-/*@include container-width($tablet-width) {
-	!*.art-image + .art-header--h4 {
+@include container-width($tablet-width) {
+	/*.art-image + .art-header--h4 {
 		margin-top: 2.4rem;
-	}*!
-	!*.art-image + .art-header--h3 {
+	}*/
+	/*.art-image + .art-header--h3 {
 		margin-top: 2.8rem;
-	}*!
-	!*.art-image + .art-header--h2 {
+	}*/
+	/*.art-image + .art-header--h2 {
 		margin-top: 3rem;
-	}*!
-	.art-image + .art-paragraph {
+	}*/
+	/*.art-image + .art-paragraph {
 		margin-top: 1.4rem;
-	}
-	.art-image + .art-note {
+	}*/
+	/*.art-image + .art-note {
 		margin-top: 2.4rem;
-	}
-}*/
+	}*/
+}
 
 /*@include container-width($monitor-width) {
 	.art-image + .art-paragraph {
@@ -101,13 +101,13 @@
 }*/
 
 // АБЗАЦЫ (С ОТСТУПОМ)
-/*.art-paragraph + .art-paragraph {
+.art-paragraph + .art-paragraph {
     margin-top: 0.2rem;
-}*/
+}
 
-/*.art-paragraph + .art-paragraph--offset {
+.art-paragraph + .art-paragraph--offset {
     margin-top: 1rem;
-}*/
+}
 
 /*.art-paragraph + .art-header--h4 {
 	margin-top: 1rem;
@@ -149,35 +149,35 @@
 	margin-top: 0.4rem;
 }*/
 
-/*@include container-width($tablet-width) {
-	!*.art-paragraph + .art-header--h4 {
+@include container-width($tablet-width) {
+	/*.art-paragraph + .art-header--h4 {
 		margin-top: 1.2rem;
-	}*!
-	.art-paragraph + .art-header--h3 {
+	}*/
+	/*.art-paragraph + .art-header--h3 {
 		margin-top: 1.6rem;
-	}
-	.art-paragraph + .art-header--h2 {
+	}*/
+	/*.art-paragraph + .art-header--h2 {
 		margin-top: 1.8rem;
-	}
-}*/
+	}*/
+}
 
-/*@include container-width($monitor-width) {
-	!*.art-paragraph + .art-header--h4 {
+@include container-width($monitor-width) {
+	/*.art-paragraph + .art-header--h4 {
 		margin-top: 1.4rem;
-	}*!
-	.art-paragraph + .art-header--h3 {
+	}*/
+	/*.art-paragraph + .art-header--h3 {
 		margin-top: 1.6rem;
-	}
-	.art-paragraph + .art-header--h2 {
+	}*/
+	/*.art-paragraph + .art-header--h2 {
 		margin-top: 2.4rem;
-	}
-	!*.art-paragraph + .art-note {
+	}*/
+	/*.art-paragraph + .art-note {
 		margin-top: 1.8rem;
-	}*!
-	.art-paragraph + .art-grid {
+	}*/
+	/*.art-paragraph + .art-grid {
 		margin-top: 1rem;
-	}
-}*/
+	}*/
+}
 
 // СПИСОК (ОТСТУП НЕ УКАЗЫВАЕТСЯ) =====
 /*.art-list + .art-paragraph {
@@ -218,29 +218,29 @@
 	margin-top: 2.0rem;
 }*/
 
-/*@include container-width($tablet-width) {
-	!*.art-grid + .art-header--h4 {
+@include container-width($tablet-width) {
+	/*.art-grid + .art-header--h4 {
 		margin-top: 1.8rem;
-	}*!
-	.art-grid + .art-header--h3 {
+	}*/
+	/*.art-grid + .art-header--h3 {
 		margin-top: 1.8rem;
-	}
-	!*.art-grid + .art-header--h2 {
+	}*/
+	/*.art-grid + .art-header--h2 {
 		margin-top: 2.2rem;
-	}*!
-	.art-grid + .art-note {
+	}*/
+	/*.art-grid + .art-note {
 		margin-top: 2.2rem;
-	}
-}*/
+	}*/
+}
 
-/*@include container-width($monitor-width) {
-	!*.art-grid + .art-header--h4 {
+@include container-width($monitor-width) {
+	/*.art-grid + .art-header--h4 {
 		margin-top: 2.0rem;
-	}*!
-	.art-grid + .art-header--h3 {
+	}*/
+	/*.art-grid + .art-header--h3 {
 		margin-top: 2rem;
-	}
-	!*.art-grid + .art-header--h2 {
+	}*/
+	/*.art-grid + .art-header--h2 {
 		margin-top: 2.4rem;
-	}*!
-}*/
+	}*/
+}

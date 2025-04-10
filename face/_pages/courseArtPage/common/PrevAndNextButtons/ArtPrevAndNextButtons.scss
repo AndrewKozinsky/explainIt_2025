@@ -1,9 +1,9 @@
-//@import 'styles/variables';
+@import '@/styles/variables';
 
-/*.art-prev-and-next-buttons-outer {
+.art-prev-and-next-buttons-outer {
 	container-type: inline-size;
-}*/
-/*.art-prev-and-next-buttons {
+}
+.art-prev-and-next-buttons {
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
@@ -120,9 +120,9 @@
 			}
 		}
 	}
-}*/
+}
 
-/*.prev-or-next-button {
+.prev-or-next-button {
 	display: flex;
 	gap: 2rem;
 	align-items: stretch;
@@ -159,26 +159,26 @@
 		transition: color .25s;
 		margin-top: 5px;
 	}
-}*/
+}
 
-/*.prev-or-next-button__arrow {
+.prev-or-next-button__arrow {
 	display: none;
 	flex-shrink: 0;
 	margin: auto 0;
-}*/
+}
 
-/*.prev-or-next-button__hr {
+.prev-or-next-button__hr {
 	display: none;
 	width: 1px;
 	transition: background-color .25s;
-}*/
+}
 
-/*@include container-width(400px) {
+@include container-width(400px) {
 	.prev-or-next-button__arrow, .prev-or-next-button__hr {
 		display: block;
 	}
-}*/
+}
 
-/*.prev-or-next-button__content {
+.prev-or-next-button__content {
 	flex-grow: 1;
-}*/
+}

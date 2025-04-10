@@ -1,15 +1,15 @@
-//@import 'styles/variables';
-//@import 'styles/mixins';
-//@import 'styles/inherit';
+@import '@/styles/variables';
+@import '@/styles/mixins';
+@import '@/styles/inherit';
 
-/*.generalWrapper {
+.generalWrapper {
 	display: flex;
 	gap: 0.2em;
 	flex-wrap: wrap;
 	align-items: center;
-}*/
+}
 
-/*.circle {
+.circle {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -19,11 +19,11 @@
 	padding: 0.04em 0.2em;
 	border-radius: 0.4em;
 	transform: translateY(0.07em);
-}*/
+}
 
-/*.circleNum {
+.circleNum {
 	font-size: 0.7em;
 	line-height: 0.7em;
 	font-weight: 300;
 	color: white;
-}*/
+}

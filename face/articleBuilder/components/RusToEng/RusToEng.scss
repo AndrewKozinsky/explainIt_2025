@@ -1,0 +1,30 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+@import '@/styles/inherit';
+
+.art-rus-to-eng {
+	@include paragraph();
+
+	&--size-big {
+		@include paragraph-big();
+	}
+	&--size-giant {
+		@include paragraph-giant();
+	}
+}
+
+.art-rus-to-eng__pseudo-link {
+	display: inline-block;
+	cursor: pointer;
+	user-select: none;
+	border-bottom: 1px dashed rgba(0, 0, 0, 0.25);
+	transition: border-color 0.2s;
+
+	&:hover {
+		border-bottom-color: rgba(0, 0, 0, 0.4);
+	}
+}
+
+.art-rus-to-eng__transcription {
+
+}

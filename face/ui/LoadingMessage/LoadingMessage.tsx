@@ -1,20 +1,20 @@
-// import React from 'react'
-// import Spinner from '../Spinner/Spinner'
-// import './LoadingMessage.scss'
+import React from 'react'
+import Spinner from '../Spinner/Spinner'
+import './LoadingMessage.scss'
 
-/*type LoadingMessageProps = {
+type LoadingMessageProps = {
 	text: string
-}*/
+}
 
-/*function LoadingMessage(props: LoadingMessageProps) {
+function LoadingMessage(props: LoadingMessageProps) {
 	const { text } = props
 
 	return (
-		<div className="loading-message">
+		<div className='loading-message'>
 			{text}
 			<Spinner />
 		</div>
 	)
-}*/
+}
 
-// export default LoadingMessage
+export default LoadingMessage

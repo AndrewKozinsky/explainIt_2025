@@ -1,14 +1,14 @@
-// import { ReactNode } from 'react'
-// import { Metadata } from 'next'
-// import articleService from '../../../articleService/articleService'
+import { ReactNode } from 'react'
+import { Metadata } from 'next'
+import articleService from '../../../articleBuilder/articleService/articleService'
 
-/*type GenerateMetadataParams = {
+type GenerateMetadataParams = {
 	params: {
 		articleSlug: string
 	}
-}*/
+}
 
-/*export async function generateMetadata(params: GenerateMetadataParams): Promise<Metadata> {
+export async function generateMetadata(params: GenerateMetadataParams): Promise<Metadata> {
 	const { articleSlug } = params.params
 
 	const article = articleService.getArticle(articleSlug)
@@ -24,18 +24,18 @@
 		description: article.meta.articleDescription,
 		title: article.meta.articleName,
 	}
-}*/
+}
 
 // ==============================
 
-/*type ArticleLayoutProps = {
+type ArticleLayoutProps = {
 	children: ReactNode
-}*/
+}
 
-/*function Layout(props: ArticleLayoutProps) {
+function Layout(props: ArticleLayoutProps) {
 	const { children } = props
 
 	return children
-}*/
+}
 
-// export default Layout
+export default Layout
