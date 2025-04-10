@@ -30,7 +30,7 @@ type ArticleLayoutProps = {
 	children: ReactNode
 }
 
-function Layout(props: ArticleLayoutProps) {
+async function Layout(props: ArticleLayoutProps) {
 	const { children } = props
 
 	return children
