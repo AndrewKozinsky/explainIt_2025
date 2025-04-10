@@ -27,15 +27,15 @@ export default function Page(props: TextBookArticleProps) {
 
 // ----
 
-type TextBookArticleProps = {
+/*type TextBookArticleProps = {
 	params: {
 		// Название статьи в адресной строке
 		articleSlug: string
 	}
-}
+}*/
 
-export default function Page(props: TextBookArticleProps) {
-	const { articleSlug } = props.params
+export default function Page({ params }: { params: { articleSlug: string } }) {
+	// const { articleSlug } = props.params
 
 	const article = {
 		meta: {
