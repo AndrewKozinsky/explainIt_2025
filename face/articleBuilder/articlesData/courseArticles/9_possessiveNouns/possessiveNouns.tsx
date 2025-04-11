@@ -33,9 +33,9 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Эта моя тарелка' },
+				{ type: 'text', color: 'black', text: 'Эта моя тарелка' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'This is my plate' },
+				{ type: 'text', color: 'black', text: 'This is my plate' },
 			],
 		},
 		{
@@ -43,9 +43,9 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Эта тарелка моя' },
+				{ type: 'text', color: 'black', text: 'Эта тарелка моя' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'This plate is mine' },
+				{ type: 'text', color: 'black', text: 'This plate is mine' },
 			],
 		},
 		{
@@ -79,17 +79,17 @@
 			offset: true,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Существительное ' },
-				{ type: 'text', color: 'gold', weight: 'normal', text: 'в общем падеже' },
+				{ type: 'text', color: 'black', text: 'Существительное ' },
+				{ type: 'text', color: 'gold', text: 'в общем падеже' },
 				{
 					type: 'text',
 					color: 'black',
 					weight: 'normal',
 					text: ' — это форма слова в словаре. В русском это ',
 				},
-				{ type: 'text', color: 'gold', weight: 'normal', text: 'именительный падеж' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '. А существительное в ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'притяжательном падеже' },
+				{ type: 'text', color: 'gold', text: 'именительный падеж' },
+				{ type: 'text', color: 'black', text: '. А существительное в ' },
+				{ type: 'text', color: 'blue', text: 'притяжательном падеже' },
 				{
 					type: 'text',
 					color: 'black',
@@ -103,13 +103,13 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'A ' },
-				{ type: 'text', color: 'gold', weight: 'normal', text: 'cat' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '' },
+				{ type: 'text', color: 'black', text: 'A ' },
+				{ type: 'text', color: 'gold', text: 'cat' },
+				{ type: 'text', color: 'black', text: '' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'A ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'cat’s' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' bowl' },
+				{ type: 'text', color: 'black', text: 'A ' },
+				{ type: 'text', color: 'blue', text: 'cat’s' },
+				{ type: 'text', color: 'black', text: ' bowl' },
 			],
 		},
 		{
@@ -125,7 +125,7 @@
 					text: ' — это форма в общем падеже, а ',
 				},
 				{ type: 'text', color: 'gray', weight: 'bold', text: 'cat’s' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: ' в притяжательном.' },
+				{ type: 'text', color: 'gray', text: ' в притяжательном.' },
 			],
 		},
 		{
@@ -146,11 +146,11 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'A cat’s bowl' },
+				{ type: 'text', color: 'black', text: 'A cat’s bowl' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Кота чашка' },
+				{ type: 'text', color: 'black', text: 'Кота чашка' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Чашка кота' },
+				{ type: 'text', color: 'black', text: 'Чашка кота' },
 			],
 		},
 		{
@@ -192,8 +192,8 @@
 					weight: 'normal',
 					text: 'Существительному добавляется знака апострофа и буквы ',
 				},
-				{ type: 'text', color: 'blue', weight: 'normal', text: 's' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' к форме общего падежа.' },
+				{ type: 'text', color: 'blue', text: 's' },
+				{ type: 'text', color: 'black', text: ' к форме общего падежа.' },
 			],
 		},
 		{
@@ -201,11 +201,11 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Lisa' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: '’s' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' friend' },
+				{ type: 'text', color: 'black', text: 'Lisa' },
+				{ type: 'text', color: 'blue', text: '’s' },
+				{ type: 'text', color: 'black', text: ' friend' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'друг Лизы' },
+				{ type: 'text', color: 'black', text: 'друг Лизы' },
 			],
 		},
 		{
@@ -213,11 +213,11 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'My father' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: '’s' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' lighter' },
+				{ type: 'text', color: 'black', text: 'My father' },
+				{ type: 'text', color: 'blue', text: '’s' },
+				{ type: 'text', color: 'black', text: ' lighter' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Зажигалка моего отца' },
+				{ type: 'text', color: 'black', text: 'Зажигалка моего отца' },
 			],
 		},
 		{
@@ -225,11 +225,11 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Children' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: '’s' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' umbrella' },
+				{ type: 'text', color: 'black', text: 'Children' },
+				{ type: 'text', color: 'blue', text: '’s' },
+				{ type: 'text', color: 'black', text: ' umbrella' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Зонт детей' },
+				{ type: 'text', color: 'black', text: 'Зонт детей' },
 			],
 		},
 		{
@@ -243,7 +243,7 @@
 					weight: 'normal',
 					text: 'Если существительное заканчивается на ',
 				},
-				{ type: 'text', color: 'blue', weight: 'normal', text: 's' },
+				{ type: 'text', color: 'blue', text: 's' },
 				{
 					type: 'text',
 					color: 'black',
@@ -257,11 +257,11 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Iris' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: '’' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' coat' },
+				{ type: 'text', color: 'black', text: 'Iris' },
+				{ type: 'text', color: 'blue', text: '’' },
+				{ type: 'text', color: 'black', text: ' coat' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Пальто Айрис' },
+				{ type: 'text', color: 'black', text: 'Пальто Айрис' },
 			],
 		},
 		{
@@ -269,11 +269,11 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'My friends' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: '’' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' book' },
+				{ type: 'text', color: 'black', text: 'My friends' },
+				{ type: 'text', color: 'blue', text: '’' },
+				{ type: 'text', color: 'black', text: ' book' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Книга моих друзей' },
+				{ type: 'text', color: 'black', text: 'Книга моих друзей' },
 			],
 		},
 		{
@@ -301,7 +301,7 @@
 					weight: 'normal',
 					text: 'Если в притяжательном падеже стоит несколько слов, то ',
 				},
-				{ type: 'text', color: 'blue', weight: 'normal', text: '’s' },
+				{ type: 'text', color: 'blue', text: '’s' },
 				{
 					type: 'text',
 					color: 'black',
@@ -315,9 +315,9 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'gold', weight: 'normal', text: 'My sister-in-law' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: '’s' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' advice' },
+				{ type: 'text', color: 'gold', text: 'My sister-in-law' },
+				{ type: 'text', color: 'blue', text: '’s' },
+				{ type: 'text', color: 'black', text: ' advice' },
 
 				{
 					type: 'text',
@@ -332,9 +332,9 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'gold', weight: 'normal', text: 'Romeo and Juliet' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: '’s' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' love story' },
+				{ type: 'text', color: 'gold', text: 'Romeo and Juliet' },
+				{ type: 'text', color: 'blue', text: '’s' },
+				{ type: 'text', color: 'black', text: ' love story' },
 
 				{
 					type: 'text',
@@ -349,9 +349,9 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'gold', weight: 'normal', text: 'The King of Monaco son' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: '’s' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' wedding' },
+				{ type: 'text', color: 'gold', text: 'The King of Monaco son' },
+				{ type: 'text', color: 'blue', text: '’s' },
+				{ type: 'text', color: 'black', text: ' wedding' },
 
 				{
 					type: 'text',
@@ -392,7 +392,7 @@
 					weight: 'normal',
 					text: 'А существительное в притяжательном падеже само по себе является определителем. ',
 				},
-				{ type: 'text', color: 'gray', weight: 'normal', text: 'Посмотрите главу про ' },
+				{ type: 'text', color: 'gray', text: 'Посмотрите главу про ' },
 				{ type: 'text', color: 'gray', weight: 'bold', text: 'неопределённый артикль a' },
 				{
 					type: 'text',
@@ -439,8 +439,8 @@
 					offset: false,
 					textSize: 'big',
 					children: [
-						{ type: 'text', color: 'error', weight: 'normal', text: 'This my' },
-						{ type: 'text', color: 'black', weight: 'normal', text: ' pizza is raw' },
+						{ type: 'text', color: 'error', text: 'This my' },
+						{ type: 'text', color: 'black', text: ' pizza is raw' },
 
 						{
 							type: 'text',
@@ -448,7 +448,7 @@
 							weight: 'normal',
 							text: 'This pizza is raw ',
 						},
-						{ type: 'text', color: 'gray', weight: 'normal', text: 'или' },
+						{ type: 'text', color: 'gray', text: 'или' },
 						{
 							type: 'text',
 							color: 'black',
@@ -523,13 +523,13 @@
 			type: 'paragraph',
 			offset: true,
 			textSize: 'normal',
-			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'Посмотрим примеры.' }],
+			children: [{ type: 'text', color: 'black', text: 'Посмотрим примеры.' }],
 		},
 		{
 			type: 'paragraph',
 			offset: false,
 			textSize: 'giant',
-			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'Andy’s toy.' }],
+			children: [{ type: 'text', color: 'black', text: 'Andy’s toy.' }],
 		},
 		{
 			type: 'paragraph',

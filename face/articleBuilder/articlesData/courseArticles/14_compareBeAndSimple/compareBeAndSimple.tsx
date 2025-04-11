@@ -75,9 +75,9 @@
 			offset: true,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Он водитель.' },
+				{ type: 'text', color: 'black', text: 'Он водитель.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'He is a driver.' },
+				{ type: 'text', color: 'black', text: 'He is a driver.' },
 			],
 		},
 		{
@@ -98,9 +98,9 @@
 			offset: true,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Это было великолепно!' },
+				{ type: 'text', color: 'black', text: 'Это было великолепно!' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'That was awesome!' },
+				{ type: 'text', color: 'black', text: 'That was awesome!' },
 			],
 		},
 		{
@@ -121,7 +121,7 @@
 			offset: true,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Это местные бабочки.' },
+				{ type: 'text', color: 'black', text: 'Это местные бабочки.' },
 
 				{
 					type: 'text',
@@ -175,11 +175,11 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я Джон Коннор.' },
+				{ type: 'text', color: 'black', text: 'Я Джон Коннор.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'I ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'am' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' John Connor.' },
+				{ type: 'text', color: 'black', text: 'I ' },
+				{ type: 'text', color: 'blue', text: 'am' },
+				{ type: 'text', color: 'black', text: ' John Connor.' },
 			],
 		},
 		{
@@ -212,7 +212,7 @@
 			type: 'paragraph',
 			offset: false,
 			textSize: 'big',
-			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'Меня зовут Андрей.' }],
+			children: [{ type: 'text', color: 'black', text: 'Меня зовут Андрей.' }],
 		},
 		{
 			type: 'paragraph',
@@ -231,7 +231,7 @@
 			type: 'paragraph',
 			offset: false,
 			textSize: 'big',
-			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'I am Andrew.' }],
+			children: [{ type: 'text', color: 'black', text: 'I am Andrew.' }],
 		},
 		{
 			type: 'paragraph',
@@ -251,11 +251,11 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Ей одиннадцать.' },
+				{ type: 'text', color: 'black', text: 'Ей одиннадцать.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'She ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'is' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' eleven.' },
+				{ type: 'text', color: 'black', text: 'She ' },
+				{ type: 'text', color: 'blue', text: 'is' },
+				{ type: 'text', color: 'black', text: ' eleven.' },
 			],
 		},
 		{
@@ -289,11 +289,11 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Мы — русские.' },
+				{ type: 'text', color: 'black', text: 'Мы — русские.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'We ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'are' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' Russian.' },
+				{ type: 'text', color: 'black', text: 'We ' },
+				{ type: 'text', color: 'blue', text: 'are' },
+				{ type: 'text', color: 'black', text: ' Russian.' },
 			],
 		},
 		{
@@ -314,11 +314,11 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Яна в университете.' },
+				{ type: 'text', color: 'black', text: 'Яна в университете.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Jana ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'is' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' at university.' },
+				{ type: 'text', color: 'black', text: 'Jana ' },
+				{ type: 'text', color: 'blue', text: 'is' },
+				{ type: 'text', color: 'black', text: ' at university.' },
 			],
 		},
 		{
@@ -347,9 +347,9 @@
 					text: 'Если подлежащее выполняет другое действие, то используется любой другой глагол кроме ',
 				},
 				{ type: 'text', color: 'black', weight: 'bold', text: 'be' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '. Можно задать вопрос «' },
+				{ type: 'text', color: 'black', text: '. Можно задать вопрос «' },
 				{ type: 'text', color: 'black', weight: 'bold', text: 'Что делает?' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '».' },
+				{ type: 'text', color: 'black', text: '».' },
 			],
 		},
 		{
@@ -357,16 +357,16 @@
 			offset: false,
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Он водит тягач.' },
+				{ type: 'text', color: 'black', text: 'Он водит тягач.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'He drives a tractor.' },
+				{ type: 'text', color: 'black', text: 'He drives a tractor.' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: false,
 			textSize: 'small',
-			children: [{ type: 'text', color: 'gray', weight: 'normal', text: 'Водит тягач.' }],
+			children: [{ type: 'text', color: 'gray', text: 'Водит тягач.' }],
 		},
 		{
 			type: 'paragraph',

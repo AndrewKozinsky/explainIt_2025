@@ -36,11 +36,13 @@ export function useGetToggleTranscription(transcriptionBlockRef: RefObject<HTMLD
 
 					// @ts-ignore
 					const blockHeight = $transcriptionBlock.children[0].offsetHeight
-					$transcriptionBlock.style.height = blockHeight + 4 + 'px'
+					$transcriptionBlock.style.height = blockHeight + 6 + 'px'
+					$transcriptionBlock.style.marginBottom = '1rem'
 				}, 0)
 			} else {
 				$transcriptionBlock.classList.remove('art-rus-to-eng__transcription--open')
 				$transcriptionBlock.style.height = '0'
+				$transcriptionBlock.style.marginBottom = '0'
 
 				setTimeout(() => {
 					$transcriptionBlock.style.display = 'none'

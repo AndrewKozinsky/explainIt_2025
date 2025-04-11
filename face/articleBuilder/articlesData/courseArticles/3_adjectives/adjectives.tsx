@@ -17,8 +17,8 @@ const adjectives: ArticleType.Art = {
 			offset: false,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'После глагола ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'be' },
+				{ type: 'text', color: 'black', text: 'После глагола ' },
+				{ type: 'text', color: 'blue', text: 'be' },
 				{
 					type: 'text',
 					color: 'black',
@@ -32,12 +32,12 @@ const adjectives: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(есть)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' весёлый.' },
-				{ type: 'text', color: 'black', weight: 'normal', text: 'I ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'am' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' jolly.' },
+				{ type: 'text', color: 'black', text: 'Я ' },
+				{ type: 'text', color: 'gray', text: '(есть)' },
+				{ type: 'text', color: 'black', text: ' весёлый.' },
+				{ type: 'text', color: 'black', text: 'I ' },
+				{ type: 'text', color: 'blue', text: 'am' },
+				{ type: 'text', color: 'black', text: ' jolly.' },
 			],
 		},
 		{
@@ -45,12 +45,12 @@ const adjectives: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Мы ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(есть)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' любопытные.' },
-				{ type: 'text', color: 'black', weight: 'normal', text: 'We ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'are' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' curious.' },
+				{ type: 'text', color: 'black', text: 'Мы ' },
+				{ type: 'text', color: 'gray', text: '(есть)' },
+				{ type: 'text', color: 'black', text: ' любопытные.' },
+				{ type: 'text', color: 'black', text: 'We ' },
+				{ type: 'text', color: 'blue', text: 'are' },
+				{ type: 'text', color: 'black', text: ' curious.' },
 			],
 		},
 		{
@@ -58,13 +58,13 @@ const adjectives: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Она ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(есть)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' добрая.' },
+				{ type: 'text', color: 'black', text: 'Она ' },
+				{ type: 'text', color: 'gray', text: '(есть)' },
+				{ type: 'text', color: 'black', text: ' добрая.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'She ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'is' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' kind.' },
+				{ type: 'text', color: 'black', text: 'She ' },
+				{ type: 'text', color: 'blue', text: 'is' },
+				{ type: 'text', color: 'black', text: ' kind.' },
 			],
 		},
 		{
@@ -98,11 +98,11 @@ const adjectives: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Это помидор.' },
+				{ type: 'text', color: 'black', text: 'Это помидор.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'It is ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'a tomato' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black', text: 'It is ' },
+				{ type: 'text', color: 'blue', text: 'a tomato' },
+				{ type: 'text', color: 'black', text: '.' },
 			],
 		},
 		{
@@ -110,11 +110,11 @@ const adjectives: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Это спелый помидор.' },
+				{ type: 'text', color: 'black', text: 'Это спелый помидор.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'It is ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'a ripe tomato' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black', text: 'It is ' },
+				{ type: 'text', color: 'blue', text: 'a ripe tomato' },
+				{ type: 'text', color: 'black', text: '.' },
 			],
 		},
 		{
@@ -122,11 +122,11 @@ const adjectives: ArticleType.Art = {
 			offset: true,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Это подвал.' },
+				{ type: 'text', color: 'black', text: 'Это подвал.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'It is ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'a basement' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black', text: 'It is ' },
+				{ type: 'text', color: 'blue', text: 'a basement' },
+				{ type: 'text', color: 'black', text: '.' },
 			],
 		},
 		{
@@ -134,11 +134,11 @@ const adjectives: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Это тёмный подвал.' },
+				{ type: 'text', color: 'black', text: 'Это тёмный подвал.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'It is ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'a dark basement' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black', text: 'It is ' },
+				{ type: 'text', color: 'blue', text: 'a dark basement' },
+				{ type: 'text', color: 'black', text: '.' },
 			],
 		},
 		{
@@ -152,8 +152,8 @@ const adjectives: ArticleType.Art = {
 					weight: 'normal',
 					text: 'Как прилагательное + существительное является одной сущностью, так и несколько действующих лиц являются одним подлежащим во множественном числе. От этого зависит форма глагола ',
 				},
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'be' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'blue', text: 'be' },
+				{ type: 'text', color: 'black', text: '.' },
 			],
 		},
 		{
@@ -168,9 +168,9 @@ const adjectives: ArticleType.Art = {
 					text: 'Я и Дженни — два лучших друга.',
 				},
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'I and Jenny ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'are' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' two best-friends.' },
+				{ type: 'text', color: 'black', text: 'I and Jenny ' },
+				{ type: 'text', color: 'blue', text: 'are' },
+				{ type: 'text', color: 'black', text: ' two best-friends.' },
 			],
 		},
 		{
@@ -185,9 +185,9 @@ const adjectives: ArticleType.Art = {
 					text: 'Я и Дженни — это подлежащее во множественном числе. Поэтому be будет в форме ',
 				},
 				{ type: 'text', color: 'gray', weight: 'bold', text: 'are' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: ', а не ' },
+				{ type: 'text', color: 'gray', text: ', а не ' },
 				{ type: 'text', color: 'gray', weight: 'bold', text: 'is' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'gray', text: '.' },
 			],
 		},
 		{
@@ -775,7 +775,7 @@ const adjectives: ArticleType.Art = {
 									weight: 'normal',
 									text: 'Прилагательные с окончанием ',
 								},
-								{ type: 'text', color: 'blue', weight: 'normal', text: '–ing' },
+								{ type: 'text', color: 'blue', text: '–ing' },
 								{
 									type: 'text',
 									color: 'black',
@@ -809,7 +809,7 @@ const adjectives: ArticleType.Art = {
 							offset: false,
 							textSize: 'big',
 							children: [
-								{ type: 'text', color: 'black', weight: 'normal', text: 'tiring' },
+								{ type: 'text', color: 'black', text: 'tiring' },
 
 								{
 									type: 'text',
@@ -897,7 +897,7 @@ const adjectives: ArticleType.Art = {
 									weight: 'normal',
 									text: 'А заканчивающиеся на ',
 								},
-								{ type: 'text', color: 'blue', weight: 'normal', text: '-ed' },
+								{ type: 'text', color: 'blue', text: '-ed' },
 								{
 									type: 'text',
 									color: 'black',
@@ -931,9 +931,9 @@ const adjectives: ArticleType.Art = {
 							offset: false,
 							textSize: 'big',
 							children: [
-								{ type: 'text', color: 'black', weight: 'normal', text: 'tired' },
+								{ type: 'text', color: 'black', text: 'tired' },
 
-								{ type: 'text', color: 'black', weight: 'normal', text: 'усталый' },
+								{ type: 'text', color: 'black', text: 'усталый' },
 							],
 						},
 						{
@@ -941,7 +941,7 @@ const adjectives: ArticleType.Art = {
 							offset: false,
 							textSize: 'big',
 							children: [
-								{ type: 'text', color: 'black', weight: 'normal', text: 'excited' },
+								{ type: 'text', color: 'black', text: 'excited' },
 
 								{
 									type: 'text',
@@ -1528,18 +1528,18 @@ const adjectives: ArticleType.Art = {
 			type: 'paragraph',
 			offset: true,
 			textSize: 'normal',
-			children: [{ type: 'text', color: 'blue', weight: 'normal', text: 'un' }],
+			children: [{ type: 'text', color: 'blue', text: 'un' }],
 		},
 		{
 			type: 'paragraph',
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Обычный, необычный' },
+				{ type: 'text', color: 'black', text: 'Обычный, необычный' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Usual, ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'un' },
-				{ type: 'text', color: 'black', weight: 'normal', text: 'usual' },
+				{ type: 'text', color: 'black', text: 'Usual, ' },
+				{ type: 'text', color: 'blue', text: 'un' },
+				{ type: 'text', color: 'black', text: 'usual' },
 			],
 		},
 		{
@@ -1547,18 +1547,18 @@ const adjectives: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Знакомый, незнакомый' },
+				{ type: 'text', color: 'black', text: 'Знакомый, незнакомый' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Familiar, ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'un' },
-				{ type: 'text', color: 'black', weight: 'normal', text: 'familiar' },
+				{ type: 'text', color: 'black', text: 'Familiar, ' },
+				{ type: 'text', color: 'blue', text: 'un' },
+				{ type: 'text', color: 'black', text: 'familiar' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
 			textSize: 'normal',
-			children: [{ type: 'text', color: 'blue', weight: 'normal', text: 'in' }],
+			children: [{ type: 'text', color: 'blue', text: 'in' }],
 		},
 		{
 			type: 'paragraph',
@@ -1572,9 +1572,9 @@ const adjectives: ArticleType.Art = {
 					text: 'Правильный, неправильный',
 				},
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Correct, ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'in' },
-				{ type: 'text', color: 'black', weight: 'normal', text: 'correct' },
+				{ type: 'text', color: 'black', text: 'Correct, ' },
+				{ type: 'text', color: 'blue', text: 'in' },
+				{ type: 'text', color: 'black', text: 'correct' },
 			],
 		},
 		{
@@ -1582,11 +1582,11 @@ const adjectives: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Полный, неполный' },
+				{ type: 'text', color: 'black', text: 'Полный, неполный' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Complete, ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'In' },
-				{ type: 'text', color: 'black', weight: 'normal', text: 'complete' },
+				{ type: 'text', color: 'black', text: 'Complete, ' },
+				{ type: 'text', color: 'blue', text: 'In' },
+				{ type: 'text', color: 'black', text: 'complete' },
 			],
 		},
 		{
@@ -1594,10 +1594,10 @@ const adjectives: ArticleType.Art = {
 			offset: true,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'il' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' перед ' },
-				{ type: 'text', color: 'gold', weight: 'normal', text: 'I' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'blue', text: 'il' },
+				{ type: 'text', color: 'black', text: ' перед ' },
+				{ type: 'text', color: 'gold', text: 'I' },
+				{ type: 'text', color: 'black', text: '.' },
 			],
 		},
 		{
@@ -1605,11 +1605,11 @@ const adjectives: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Законный, незаконный' },
+				{ type: 'text', color: 'black', text: 'Законный, незаконный' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Legal, ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'il' },
-				{ type: 'text', color: 'black', weight: 'normal', text: 'legal' },
+				{ type: 'text', color: 'black', text: 'Legal, ' },
+				{ type: 'text', color: 'blue', text: 'il' },
+				{ type: 'text', color: 'black', text: 'legal' },
 			],
 		},
 		{
@@ -1617,11 +1617,11 @@ const adjectives: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Грамотный, неграмотный' },
+				{ type: 'text', color: 'black', text: 'Грамотный, неграмотный' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Illiterate, ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'il' },
-				{ type: 'text', color: 'black', weight: 'normal', text: 'literate' },
+				{ type: 'text', color: 'black', text: 'Illiterate, ' },
+				{ type: 'text', color: 'blue', text: 'il' },
+				{ type: 'text', color: 'black', text: 'literate' },
 			],
 		},
 		{
@@ -1629,10 +1629,10 @@ const adjectives: ArticleType.Art = {
 			offset: true,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'ir' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' перед ' },
-				{ type: 'text', color: 'gold', weight: 'normal', text: 'r' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'blue', text: 'ir' },
+				{ type: 'text', color: 'black', text: ' перед ' },
+				{ type: 'text', color: 'gold', text: 'r' },
+				{ type: 'text', color: 'black', text: '.' },
 			],
 		},
 		{
@@ -1640,11 +1640,11 @@ const adjectives: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Уместный, неуместный' },
+				{ type: 'text', color: 'black', text: 'Уместный, неуместный' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Relevant, ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'ir' },
-				{ type: 'text', color: 'black', weight: 'normal', text: 'relevant' },
+				{ type: 'text', color: 'black', text: 'Relevant, ' },
+				{ type: 'text', color: 'blue', text: 'ir' },
+				{ type: 'text', color: 'black', text: 'relevant' },
 			],
 		},
 		{
@@ -1659,9 +1659,9 @@ const adjectives: ArticleType.Art = {
 					text: 'Ответственный, безответственный',
 				},
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Responsible, ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'ir' },
-				{ type: 'text', color: 'black', weight: 'normal', text: 'responsible' },
+				{ type: 'text', color: 'black', text: 'Responsible, ' },
+				{ type: 'text', color: 'blue', text: 'ir' },
+				{ type: 'text', color: 'black', text: 'responsible' },
 			],
 		},
 		{
@@ -1669,8 +1669,8 @@ const adjectives: ArticleType.Art = {
 			offset: true,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'im' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' перед ' },
+				{ type: 'text', color: 'blue', text: 'im' },
+				{ type: 'text', color: 'black', text: ' перед ' },
 				{ type: 'text', color: 'gold', weight: 'normal', text: 'm' },
 				{ type: 'text', color: 'black', weight: 'normal', text: ' и ' },
 				{ type: 'text', color: 'gold', weight: 'normal', text: 'p' },

@@ -37,11 +37,11 @@ const strikeDo: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я делаю это всегда.' },
+				{ type: 'text', color: 'black', text: 'Я делаю это всегда.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'I ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'do' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' it always.' },
+				{ type: 'text', color: 'black', text: 'I ' },
+				{ type: 'text', color: 'blue', text: 'do' },
+				{ type: 'text', color: 'black', text: ' it always.' },
 			],
 		},
 		{
@@ -49,11 +49,11 @@ const strikeDo: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я делаю это всегда?' },
+				{ type: 'text', color: 'black', text: 'Я делаю это всегда?' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Do I ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'do' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' it always?' },
+				{ type: 'text', color: 'black', text: 'Do I ' },
+				{ type: 'text', color: 'blue', text: 'do' },
+				{ type: 'text', color: 'black', text: ' it always?' },
 			],
 		},
 		{
@@ -61,7 +61,7 @@ const strikeDo: ArticleType.Art = {
 			offset: false,
 			textSize: 'small',
 			children: [
-				{ type: 'text', color: 'gray', weight: 'normal', text: 'Глагол ' },
+				{ type: 'text', color: 'gray', text: 'Глагол ' },
 				{ type: 'text', color: 'gray', weight: 'bold', text: 'do' },
 				{
 					type: 'text',
@@ -70,14 +70,14 @@ const strikeDo: ArticleType.Art = {
 					text: ' в начале вспомогательный и никак не переводится, а после местоимения ',
 				},
 				{ type: 'text', color: 'gray', weight: 'bold', text: 'I' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: ' смысловой.' },
+				{ type: 'text', color: 'gray', text: ' смысловой.' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
 			textSize: 'normal',
-			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'Ещё пример:' }],
+			children: [{ type: 'text', color: 'black', text: 'Ещё пример:' }],
 		},
 		{
 			type: 'paragraph',
@@ -91,9 +91,9 @@ const strikeDo: ArticleType.Art = {
 					text: 'Я делаю домашнюю работу.',
 				},
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'I ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'do' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' my homework.' },
+				{ type: 'text', color: 'black', text: 'I ' },
+				{ type: 'text', color: 'blue', text: 'do' },
+				{ type: 'text', color: 'black', text: ' my homework.' },
 			],
 		},
 		{
@@ -108,9 +108,9 @@ const strikeDo: ArticleType.Art = {
 					text: 'Я делаю домашнюю работу?',
 				},
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Do I ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'do' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' my homework?' },
+				{ type: 'text', color: 'black', text: 'Do I ' },
+				{ type: 'text', color: 'blue', text: 'do' },
+				{ type: 'text', color: 'black', text: ' my homework?' },
 			],
 		},
 		{
@@ -144,13 +144,13 @@ const strikeDo: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'действительно' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' тебя люблю!' },
+				{ type: 'text', color: 'black', text: 'Я ' },
+				{ type: 'text', color: 'blue', text: 'действительно' },
+				{ type: 'text', color: 'black', text: ' тебя люблю!' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'I ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'do' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' love you!' },
+				{ type: 'text', color: 'black', text: 'I ' },
+				{ type: 'text', color: 'blue', text: 'do' },
+				{ type: 'text', color: 'black', text: ' love you!' },
 			],
 		},
 		{
@@ -158,13 +158,13 @@ const strikeDo: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Они ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'на самом деле' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' знают это!' },
+				{ type: 'text', color: 'black', text: 'Они ' },
+				{ type: 'text', color: 'blue', text: 'на самом деле' },
+				{ type: 'text', color: 'black', text: ' знают это!' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'They ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'do' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' know it.' },
+				{ type: 'text', color: 'black', text: 'They ' },
+				{ type: 'text', color: 'blue', text: 'do' },
+				{ type: 'text', color: 'black', text: ' know it.' },
 			],
 		},
 		{
@@ -185,13 +185,13 @@ const strikeDo: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Ева ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'всё же' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' верит ему.' },
+				{ type: 'text', color: 'black', text: 'Ева ' },
+				{ type: 'text', color: 'blue', text: 'всё же' },
+				{ type: 'text', color: 'black', text: ' верит ему.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Eva ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'does' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' believe him.' },
+				{ type: 'text', color: 'black', text: 'Eva ' },
+				{ type: 'text', color: 'blue', text: 'does' },
+				{ type: 'text', color: 'black', text: ' believe him.' },
 			],
 		},
 		{
@@ -219,9 +219,9 @@ const strikeDo: ArticleType.Art = {
 					text: 'Грузчик действительно уронил телевизор.',
 				},
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'The loader ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'did' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' drop the TV.' },
+				{ type: 'text', color: 'black', text: 'The loader ' },
+				{ type: 'text', color: 'blue', text: 'did' },
+				{ type: 'text', color: 'black', text: ' drop the TV.' },
 			],
 		},
 		{
@@ -262,9 +262,9 @@ const strikeDo: ArticleType.Art = {
 					text: 'Он действительно задал вопрос?',
 				},
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Did he ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'really' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' ask a question?' },
+				{ type: 'text', color: 'black', text: 'Did he ' },
+				{ type: 'text', color: 'blue', text: 'really' },
+				{ type: 'text', color: 'black', text: ' ask a question?' },
 			],
 		},
 		{ type: 'exercises', id: 1, exercises: [], offset: true },

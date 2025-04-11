@@ -23,13 +23,13 @@
 					text: 'Притяжательные местоимения уточняют кому принадлежит персонаж или предмет и отвечают на вопрос ',
 				},
 				{ type: 'text', color: 'black', weight: 'bold', text: 'Чей' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '/' },
+				{ type: 'text', color: 'black', text: '/' },
 				{ type: 'text', color: 'black', weight: 'bold', text: 'Чья' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '/' },
+				{ type: 'text', color: 'black', text: '/' },
 				{ type: 'text', color: 'black', weight: 'bold', text: 'Чьё' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '/' },
+				{ type: 'text', color: 'black', text: '/' },
 				{ type: 'text', color: 'black', weight: 'bold', text: 'Чьи?' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black', text: '.' },
 			],
 		},
 		{
@@ -37,10 +37,10 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(Чей?)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'Твой' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' телефон сломан.' },
+				{ type: 'text', color: 'gray', text: '(Чей?)' },
+				{ type: 'text', color: 'black', text: ' ' },
+				{ type: 'text', color: 'blue', text: 'Твой' },
+				{ type: 'text', color: 'black', text: ' телефон сломан.' },
 			],
 		},
 		{
@@ -48,10 +48,10 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(Чьи?)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'Его' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' предки знамениты.' },
+				{ type: 'text', color: 'gray', text: '(Чьи?)' },
+				{ type: 'text', color: 'black', text: ' ' },
+				{ type: 'text', color: 'blue', text: 'Его' },
+				{ type: 'text', color: 'black', text: ' предки знамениты.' },
 			],
 		},
 		{
@@ -117,8 +117,8 @@
 					weight: 'normal',
 					text: '1) После которых должно идти ',
 				},
-				{ type: 'text', color: 'gold', weight: 'normal', text: 'существительное' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ':' },
+				{ type: 'text', color: 'gold', text: 'существительное' },
+				{ type: 'text', color: 'black', text: ':' },
 			],
 		},
 		{
@@ -126,10 +126,10 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'Мой' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' ' },
-				{ type: 'text', color: 'gold', weight: 'normal', text: 'брат' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' — строитель.' },
+				{ type: 'text', color: 'blue', text: 'Мой' },
+				{ type: 'text', color: 'black', text: ' ' },
+				{ type: 'text', color: 'gold', text: 'брат' },
+				{ type: 'text', color: 'black', text: ' — строитель.' },
 			],
 		},
 		{
@@ -150,9 +150,9 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Забытые вещи были ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'мои' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black', text: 'Забытые вещи были ' },
+				{ type: 'text', color: 'blue', text: 'мои' },
+				{ type: 'text', color: 'black', text: '.' },
 			],
 		},
 		{
@@ -173,13 +173,13 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Это ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'мои' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' деньги.' },
+				{ type: 'text', color: 'black', text: 'Это ' },
+				{ type: 'text', color: 'blue', text: 'мои' },
+				{ type: 'text', color: 'black', text: ' деньги.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'This is ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'my' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' money.' },
+				{ type: 'text', color: 'black', text: 'This is ' },
+				{ type: 'text', color: 'blue', text: 'my' },
+				{ type: 'text', color: 'black', text: ' money.' },
 			],
 		},
 		{
@@ -187,13 +187,13 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Эти деньги ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'мои' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black', text: 'Эти деньги ' },
+				{ type: 'text', color: 'blue', text: 'мои' },
+				{ type: 'text', color: 'black', text: '.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'This money is ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'mine' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black', text: 'This money is ' },
+				{ type: 'text', color: 'blue', text: 'mine' },
+				{ type: 'text', color: 'black', text: '.' },
 			],
 		},
 		{
@@ -214,9 +214,9 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Это чьи деньги?' },
+				{ type: 'text', color: 'black', text: 'Это чьи деньги?' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Whose money is this?' },
+				{ type: 'text', color: 'black', text: 'Whose money is this?' },
 			],
 		},
 		{
@@ -224,12 +224,12 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'Мои' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'blue', text: 'Мои' },
+				{ type: 'text', color: 'black', text: '.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: '' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'Mine' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black', text: '' },
+				{ type: 'text', color: 'blue', text: 'Mine' },
+				{ type: 'text', color: 'black', text: '.' },
 			],
 		},
 		{
@@ -290,7 +290,7 @@
 					text: 'Притяжательное местоимение является определяющим словом для существительного. Поэтому перед ним не нужно указывать ещё одно определяющее слово вроде определённого артикля ',
 				},
 				{ type: 'text', color: 'black', weight: 'bold', text: 'the' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black', text: '.' },
 			],
 		},
 		{
@@ -298,9 +298,9 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Попробуй салат!' },
+				{ type: 'text', color: 'black', text: 'Попробуй салат!' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Try the salad!' },
+				{ type: 'text', color: 'black', text: 'Try the salad!' },
 			],
 		},
 		{
@@ -308,9 +308,9 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Попробуй мой салат!' },
+				{ type: 'text', color: 'black', text: 'Попробуй мой салат!' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Try my salad!' },
+				{ type: 'text', color: 'black', text: 'Try my salad!' },
 			],
 		},
 		{

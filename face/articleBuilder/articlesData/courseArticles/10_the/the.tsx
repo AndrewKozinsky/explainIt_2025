@@ -23,7 +23,7 @@
 					weight: 'normal',
 					text: 'Из предыдущих уроков вы знаете, что перед каждым существительным должен быть определитель. И определённый артикль ',
 				},
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'the' },
+				{ type: 'text', color: 'blue', text: 'the' },
 				{
 					type: 'text',
 					color: 'black',
@@ -59,15 +59,15 @@
 							offset: false,
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'gold', weight: 'normal', text: 'A' },
+								{ type: 'text', color: 'gold', text: 'A' },
 								{
 									type: 'text',
 									color: 'black',
 									weight: 'normal',
 									text: ' car in ',
 								},
-								{ type: 'text', color: 'gold', weight: 'normal', text: 'a' },
-								{ type: 'text', color: 'black', weight: 'normal', text: ' garage' },
+								{ type: 'text', color: 'gold', text: 'a' },
+								{ type: 'text', color: 'black', text: ' garage' },
 							],
 						},
 						{
@@ -94,15 +94,15 @@
 							offset: false,
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'blue', weight: 'normal', text: 'The' },
+								{ type: 'text', color: 'blue', text: 'The' },
 								{
 									type: 'text',
 									color: 'black',
 									weight: 'normal',
 									text: ' car in ',
 								},
-								{ type: 'text', color: 'gold', weight: 'normal', text: 'a' },
-								{ type: 'text', color: 'black', weight: 'normal', text: ' garage' },
+								{ type: 'text', color: 'gold', text: 'a' },
+								{ type: 'text', color: 'black', text: ' garage' },
 							],
 						},
 						{
@@ -136,15 +136,15 @@
 							offset: false,
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'blue', weight: 'normal', text: 'The' },
+								{ type: 'text', color: 'blue', text: 'The' },
 								{
 									type: 'text',
 									color: 'black',
 									weight: 'normal',
 									text: ' car in ',
 								},
-								{ type: 'text', color: 'blue', weight: 'normal', text: 'the' },
-								{ type: 'text', color: 'black', weight: 'normal', text: ' garage' },
+								{ type: 'text', color: 'blue', text: 'the' },
+								{ type: 'text', color: 'black', text: ' garage' },
 							],
 						},
 						{
@@ -169,15 +169,15 @@
 			offset: true,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Неопределённый артикль ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'a' },
+				{ type: 'text', color: 'black', text: 'Неопределённый артикль ' },
+				{ type: 'text', color: 'blue', text: 'a' },
 				{
 					type: 'text',
 					color: 'black',
 					weight: 'normal',
 					text: ' применяется только для исчисляемых существительных в единственном числе. У определённого артикля ',
 				},
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'the' },
+				{ type: 'text', color: 'blue', text: 'the' },
 				{
 					type: 'text',
 					color: 'black',
@@ -191,9 +191,9 @@
 			offset: false,
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Яблоки красные.' },
+				{ type: 'text', color: 'black', text: 'Яблоки красные.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'The apples are red.' },
+				{ type: 'text', color: 'black', text: 'The apples are red.' },
 			],
 		},
 		{
@@ -201,9 +201,9 @@
 			offset: false,
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Багаж тяжёлый.' },
+				{ type: 'text', color: 'black', text: 'Багаж тяжёлый.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'The baggage is heavy.' },
+				{ type: 'text', color: 'black', text: 'The baggage is heavy.' },
 			],
 		},
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Случаи употребления' },
@@ -224,8 +224,8 @@
 					weight: 'normal',
 					text: 'В примере ниже это магазин. Сначала на него указали введя в контекст, а затем достали использовав ',
 				},
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'the' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'blue', text: 'the' },
+				{ type: 'text', color: 'black', text: '.' },
 			],
 		},
 		{
@@ -233,12 +233,12 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'Этот магазин' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' очень дорогой.' },
+				{ type: 'text', color: 'blue', text: 'Этот магазин' },
+				{ type: 'text', color: 'black', text: ' очень дорогой.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: '' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'This shop' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' is very expensive.' },
+				{ type: 'text', color: 'black', text: '' },
+				{ type: 'text', color: 'blue', text: 'This shop' },
+				{ type: 'text', color: 'black', text: ' is very expensive.' },
 			],
 		},
 		{
@@ -246,12 +246,12 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'Магазин' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' ещё и закрыт сегодня.' },
+				{ type: 'text', color: 'blue', text: 'Магазин' },
+				{ type: 'text', color: 'black', text: ' ещё и закрыт сегодня.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: '' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'The shop' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' is also closed today.' },
+				{ type: 'text', color: 'black', text: '' },
+				{ type: 'text', color: 'blue', text: 'The shop' },
+				{ type: 'text', color: 'black', text: ' is also closed today.' },
 			],
 		},
 		{
@@ -278,11 +278,11 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Зима была ветренной.' },
+				{ type: 'text', color: 'black', text: 'Зима была ветренной.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: '' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'The winter' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' was windy.' },
+				{ type: 'text', color: 'black', text: '' },
+				{ type: 'text', color: 'blue', text: 'The winter' },
+				{ type: 'text', color: 'black', text: ' was windy.' },
 			],
 		},
 		{
@@ -367,7 +367,7 @@
 					weight: 'normal',
 					text: 'Или заходите в квартиру и спрашиваете «Где туалет?». Перед туалетом тоже будет артикль ',
 				},
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'the' },
+				{ type: 'text', color: 'blue', text: 'the' },
 				{
 					type: 'text',
 					color: 'black',
@@ -594,7 +594,7 @@
 					text: 'Начнём с неопределённого артикля ',
 				},
 				{ type: 'text', color: 'black', weight: 'bold', text: 'a/an' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black', text: '.' },
 			],
 		},
 		{
@@ -602,8 +602,8 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'An' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' iron is hot.' },
+				{ type: 'text', color: 'blue', text: 'An' },
+				{ type: 'text', color: 'black', text: ' iron is hot.' },
 			],
 		},
 		{
@@ -637,8 +637,8 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'My' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' iron is hot.' },
+				{ type: 'text', color: 'blue', text: 'My' },
+				{ type: 'text', color: 'black', text: ' iron is hot.' },
 			],
 		},
 		{
@@ -672,8 +672,8 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'This' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' iron is hot.' },
+				{ type: 'text', color: 'blue', text: 'This' },
+				{ type: 'text', color: 'black', text: ' iron is hot.' },
 			],
 		},
 		{
@@ -701,9 +701,9 @@
 			offset: true,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Определённый артикль ' },
+				{ type: 'text', color: 'black', text: 'Определённый артикль ' },
 				{ type: 'text', color: 'black', weight: 'bold', text: 'the' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black', text: '.' },
 			],
 		},
 		{
@@ -711,8 +711,8 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'The' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' iron is hot.' },
+				{ type: 'text', color: 'blue', text: 'The' },
+				{ type: 'text', color: 'black', text: ' iron is hot.' },
 			],
 		},
 		{

@@ -28,7 +28,7 @@
 			type: 'paragraph',
 			offset: false,
 			textSize: 'big',
-			children: [{ type: 'text', color: 'black', weight: 'normal', text: '— Ты звонил адвокату?' }],
+			children: [{ type: 'text', color: 'black', text: '— Ты звонил адвокату?' }],
 		},
 		{
 			type: 'paragraph',
@@ -94,9 +94,9 @@
 			offset: false,
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'a wolf (волк)' },
+				{ type: 'text', color: 'black', text: 'a wolf (волк)' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'a she-wolf (волчица)' },
+				{ type: 'text', color: 'black', text: 'a she-wolf (волчица)' },
 			],
 		},
 		{
@@ -117,11 +117,11 @@
 			offset: false,
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'I ordered coffee.' },
+				{ type: 'text', color: 'black', text: 'I ordered coffee.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я заказал кофе ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(в зёрнах)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black', text: 'Я заказал кофе ' },
+				{ type: 'text', color: 'gray', text: '(в зёрнах)' },
+				{ type: 'text', color: 'black', text: '.' },
 			],
 		},
 		{
@@ -142,13 +142,13 @@
 			offset: true,
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'I ordered ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'a' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' coffee.' },
+				{ type: 'text', color: 'black', text: 'I ordered ' },
+				{ type: 'text', color: 'blue', text: 'a' },
+				{ type: 'text', color: 'black', text: ' coffee.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я заказал ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(чашку)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' кофе.' },
+				{ type: 'text', color: 'black', text: 'Я заказал ' },
+				{ type: 'text', color: 'gray', text: '(чашку)' },
+				{ type: 'text', color: 'black', text: ' кофе.' },
 			],
 		},
 		{
@@ -169,13 +169,13 @@
 			offset: true,
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'I ordered ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'the' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' coffee.' },
+				{ type: 'text', color: 'black', text: 'I ordered ' },
+				{ type: 'text', color: 'blue', text: 'the' },
+				{ type: 'text', color: 'black', text: ' coffee.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я заказал ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(то самое)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' кофе.' },
+				{ type: 'text', color: 'black', text: 'Я заказал ' },
+				{ type: 'text', color: 'gray', text: '(то самое)' },
+				{ type: 'text', color: 'black', text: ' кофе.' },
 			],
 		},
 		{
@@ -337,7 +337,7 @@
 			type: 'paragraph',
 			offset: true,
 			textSize: 'normal',
-			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'Следующее предложение.' }],
+			children: [{ type: 'text', color: 'black', text: 'Следующее предложение.' }],
 		},
 		{
 			type: 'paragraph',
@@ -408,7 +408,7 @@
 			type: 'paragraph',
 			offset: false,
 			textSize: 'giant',
-			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'Я люблю морковь.' }],
+			children: [{ type: 'text', color: 'black', text: 'Я люблю морковь.' }],
 		},
 		{
 			type: 'paragraph',
@@ -427,7 +427,7 @@
 			type: 'paragraph',
 			offset: false,
 			textSize: 'big',
-			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'I like a carrot.' }],
+			children: [{ type: 'text', color: 'black', text: 'I like a carrot.' }],
 		},
 		{
 			type: 'paragraph',
@@ -446,7 +446,7 @@
 			type: 'paragraph',
 			offset: false,
 			textSize: 'giant',
-			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'I like carrots.' }],
+			children: [{ type: 'text', color: 'black', text: 'I like carrots.' }],
 		},
 		{
 			type: 'paragraph',
@@ -531,7 +531,7 @@
 			type: 'paragraph',
 			offset: true,
 			textSize: 'normal',
-			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'Следующее предложение:' }],
+			children: [{ type: 'text', color: 'black', text: 'Следующее предложение:' }],
 		},
 		{
 			type: 'paragraph',
@@ -776,9 +776,9 @@
 					text: 'учёба, больница или врач',
 				},
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'лечение, церковь' },
+				{ type: 'text', color: 'black', text: 'лечение, церковь' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'богослужение, каникулы' },
+				{ type: 'text', color: 'black', text: 'богослужение, каникулы' },
 
 				{
 					type: 'text',
@@ -865,7 +865,7 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Она спит после обеда.' },
+				{ type: 'text', color: 'black', text: 'Она спит после обеда.' },
 
 				{
 					type: 'text',
@@ -893,7 +893,7 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я напишу тебе про ланч.' },
+				{ type: 'text', color: 'black', text: 'Я напишу тебе про ланч.' },
 
 				{
 					type: 'text',
@@ -1189,7 +1189,7 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я люблю русский язык.' },
+				{ type: 'text', color: 'black', text: 'Я люблю русский язык.' },
 
 				{
 					type: 'text',
@@ -1204,9 +1204,9 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я ненавижу математику.' },
+				{ type: 'text', color: 'black', text: 'Я ненавижу математику.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'I hate Math.' },
+				{ type: 'text', color: 'black', text: 'I hate Math.' },
 			],
 		},
 		{ type: 'header', tag: 'h3', style: 'h3', text: 'Существительное в функции обращения' },
@@ -1410,9 +1410,9 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Уже ночь!' },
+				{ type: 'text', color: 'black', text: 'Уже ночь!' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'It is night already!' },
+				{ type: 'text', color: 'black', text: 'It is night already!' },
 			],
 		},
 		{
@@ -1479,9 +1479,9 @@
 			offset: false,
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'for instance/example' },
+				{ type: 'text', color: 'black', text: 'for instance/example' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'например' },
+				{ type: 'text', color: 'black', text: 'например' },
 			],
 		},
 		{
@@ -1489,9 +1489,9 @@
 			offset: false,
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'by credit card' },
+				{ type: 'text', color: 'black', text: 'by credit card' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'кредитной картой' },
+				{ type: 'text', color: 'black', text: 'кредитной картой' },
 			],
 		},
 		{
@@ -1499,7 +1499,7 @@
 			offset: false,
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'by accident' },
+				{ type: 'text', color: 'black', text: 'by accident' },
 
 				{
 					type: 'text',
@@ -1514,7 +1514,7 @@
 			offset: false,
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'by car/train/bus...' },
+				{ type: 'text', color: 'black', text: 'by car/train/bus...' },
 
 				{
 					type: 'text',
@@ -1535,9 +1535,9 @@
 			offset: false,
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'on foot' },
+				{ type: 'text', color: 'black', text: 'on foot' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'пешком' },
+				{ type: 'text', color: 'black', text: 'пешком' },
 			],
 		},
 		{
@@ -1545,9 +1545,9 @@
 			offset: false,
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'at/to/from work' },
+				{ type: 'text', color: 'black', text: 'at/to/from work' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'на/из работы' },
+				{ type: 'text', color: 'black', text: 'на/из работы' },
 			],
 		},
 		{ type: 'exercises', id: 4, exercises: [], offset: true },

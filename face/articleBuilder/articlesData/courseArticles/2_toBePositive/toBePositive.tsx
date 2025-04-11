@@ -32,9 +32,9 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я космонавт.' },
+				{ type: 'text', color: 'black', text: 'Я космонавт.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'I spaceman.' },
+				{ type: 'text', color: 'black', text: 'I spaceman.' },
 			],
 		},
 		{
@@ -42,9 +42,9 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Они клоуны.' },
+				{ type: 'text', color: 'black', text: 'Они клоуны.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'They clowns.' },
+				{ type: 'text', color: 'black', text: 'They clowns.' },
 			],
 		},
 		{
@@ -52,9 +52,9 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Это щенок.' },
+				{ type: 'text', color: 'black', text: 'Это щенок.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'It puppy.' },
+				{ type: 'text', color: 'black', text: 'It puppy.' },
 			],
 		},
 		{
@@ -95,15 +95,15 @@
 					weight: 'normal',
 					text: 'В предложениях выше подлежащие в виде местоимения. Но в моих переводах нет сказуемого, то есть самого действия. Когда-то давно в русском языке оно ставилось. На современный манер звучало бы как «',
 				},
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'есть' },
+				{ type: 'text', color: 'blue', text: 'есть' },
 				{
 					type: 'text',
 					color: 'black',
 					weight: 'normal',
 					text: '». В болгарском оно существует до сих пор. И в английском тоже. Это глагол ',
 				},
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'be' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '. Поставлю в перевод:' },
+				{ type: 'text', color: 'blue', text: 'be' },
+				{ type: 'text', color: 'black', text: '. Поставлю в перевод:' },
 			],
 		},
 		{
@@ -111,13 +111,13 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(есть)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' космонавт.' },
+				{ type: 'text', color: 'black', text: 'Я ' },
+				{ type: 'text', color: 'gray', text: '(есть)' },
+				{ type: 'text', color: 'black', text: ' космонавт.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'I ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'be' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' spaceman.' },
+				{ type: 'text', color: 'black', text: 'I ' },
+				{ type: 'text', color: 'blue', text: 'be' },
+				{ type: 'text', color: 'black', text: ' spaceman.' },
 			],
 		},
 		{
@@ -125,13 +125,13 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Они ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(есть)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' клоуны.' },
+				{ type: 'text', color: 'black', text: 'Они ' },
+				{ type: 'text', color: 'gray', text: '(есть)' },
+				{ type: 'text', color: 'black', text: ' клоуны.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'They ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'be' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' clowns.' },
+				{ type: 'text', color: 'black', text: 'They ' },
+				{ type: 'text', color: 'blue', text: 'be' },
+				{ type: 'text', color: 'black', text: ' clowns.' },
 			],
 		},
 		{
@@ -139,13 +139,13 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Это ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(есть)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' щенок.' },
+				{ type: 'text', color: 'black', text: 'Это ' },
+				{ type: 'text', color: 'gray', text: '(есть)' },
+				{ type: 'text', color: 'black', text: ' щенок.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'It ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'be' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' puppy.' },
+				{ type: 'text', color: 'black', text: 'It ' },
+				{ type: 'text', color: 'blue', text: 'be' },
+				{ type: 'text', color: 'black', text: ' puppy.' },
 			],
 		},
 		{
@@ -170,8 +170,8 @@
 					offset: false,
 					textSize: 'big',
 					children: [
-						{ type: 'text', color: 'black', weight: 'normal', text: 'Незаконным ' },
-						{ type: 'text', color: 'blue', weight: 'normal', text: 'является' },
+						{ type: 'text', color: 'black', text: 'Незаконным ' },
+						{ type: 'text', color: 'blue', text: 'является' },
 						{
 							type: 'text',
 							color: 'black',
@@ -185,9 +185,9 @@
 					offset: false,
 					textSize: 'big',
 					children: [
-						{ type: 'text', color: 'black', weight: 'normal', text: 'Что вы из себя ' },
-						{ type: 'text', color: 'blue', weight: 'normal', text: 'представляете' },
-						{ type: 'text', color: 'black', weight: 'normal', text: '?' },
+						{ type: 'text', color: 'black', text: 'Что вы из себя ' },
+						{ type: 'text', color: 'blue', text: 'представляете' },
+						{ type: 'text', color: 'black', text: '?' },
 					],
 				},
 				{
@@ -195,9 +195,9 @@
 					offset: false,
 					textSize: 'big',
 					children: [
-						{ type: 'text', color: 'black', weight: 'normal', text: 'Там ' },
-						{ type: 'text', color: 'blue', weight: 'normal', text: 'есть' },
-						{ type: 'text', color: 'black', weight: 'normal', text: ' стол.' },
+						{ type: 'text', color: 'black', text: 'Там ' },
+						{ type: 'text', color: 'blue', text: 'есть' },
+						{ type: 'text', color: 'black', text: ' стол.' },
 					],
 				},
 				{
@@ -218,8 +218,8 @@
 					offset: false,
 					textSize: 'big',
 					children: [
-						{ type: 'text', color: 'black', weight: 'normal', text: 'Борис ' },
-						{ type: 'text', color: 'blue', weight: 'normal', text: '—' },
+						{ type: 'text', color: 'black', text: 'Борис ' },
+						{ type: 'text', color: 'blue', text: '—' },
 						{
 							type: 'text',
 							color: 'black',
@@ -252,7 +252,7 @@
 					offset: false,
 					textSize: 'normal',
 					children: [
-						{ type: 'text', color: 'black', weight: 'normal', text: 'В ' },
+						{ type: 'text', color: 'black', text: 'В ' },
 						{ type: 'text', color: 'black', weight: 'bold', text: 'неопределённой' },
 						{
 							type: 'text',
@@ -260,7 +260,7 @@
 							weight: 'normal',
 							text: ' форме (инфинитиве). Это глагол отвечающий на вопрос «что делать?». Это действие в чистом виде по которому нельзя сказать о времени. Глагол «есть» в неопределённой форме будет ',
 						},
-						{ type: 'text', color: 'blue', weight: 'normal', text: 'be' },
+						{ type: 'text', color: 'blue', text: 'be' },
 						{
 							type: 'text',
 							color: 'black',
@@ -274,9 +274,9 @@
 					offset: false,
 					textSize: 'normal',
 					children: [
-						{ type: 'text', color: 'black', weight: 'normal', text: 'В форме ' },
+						{ type: 'text', color: 'black', text: 'В форме ' },
 						{ type: 'text', color: 'black', weight: 'bold', text: 'настоящего' },
-						{ type: 'text', color: 'black', weight: 'normal', text: ' времени.' },
+						{ type: 'text', color: 'black', text: ' времени.' },
 					],
 				},
 				{
@@ -284,9 +284,9 @@
 					offset: false,
 					textSize: 'normal',
 					children: [
-						{ type: 'text', color: 'black', weight: 'normal', text: 'В форме ' },
+						{ type: 'text', color: 'black', text: 'В форме ' },
 						{ type: 'text', color: 'black', weight: 'bold', text: 'прошедшего' },
-						{ type: 'text', color: 'black', weight: 'normal', text: ' времени.' },
+						{ type: 'text', color: 'black', text: ' времени.' },
 					],
 				},
 			],
@@ -296,8 +296,8 @@
 			offset: true,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Форма глагола ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'be' },
+				{ type: 'text', color: 'black', text: 'Форма глагола ' },
+				{ type: 'text', color: 'blue', text: 'be' },
 				{
 					type: 'text',
 					color: 'black',
@@ -318,7 +318,7 @@
 					weight: 'normal',
 					text: 'Сказуемое всегда должно показывать время совершения действия. Давайте ',
 				},
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'be' },
+				{ type: 'text', color: 'blue', text: 'be' },
 				{
 					type: 'text',
 					color: 'black',
@@ -332,13 +332,13 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(есть)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' космонавт.' },
+				{ type: 'text', color: 'black', text: 'Я ' },
+				{ type: 'text', color: 'gray', text: '(есть)' },
+				{ type: 'text', color: 'black', text: ' космонавт.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'I ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'am' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' spaceman.' },
+				{ type: 'text', color: 'black', text: 'I ' },
+				{ type: 'text', color: 'blue', text: 'am' },
+				{ type: 'text', color: 'black', text: ' spaceman.' },
 			],
 		},
 		{
@@ -346,13 +346,13 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Они ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(есть)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' клоуны.' },
+				{ type: 'text', color: 'black', text: 'Они ' },
+				{ type: 'text', color: 'gray', text: '(есть)' },
+				{ type: 'text', color: 'black', text: ' клоуны.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'They ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'are' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' clowns.' },
+				{ type: 'text', color: 'black', text: 'They ' },
+				{ type: 'text', color: 'blue', text: 'are' },
+				{ type: 'text', color: 'black', text: ' clowns.' },
 			],
 		},
 		{
@@ -360,13 +360,13 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Это ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(есть)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' щенок.' },
+				{ type: 'text', color: 'black', text: 'Это ' },
+				{ type: 'text', color: 'gray', text: '(есть)' },
+				{ type: 'text', color: 'black', text: ' щенок.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'It ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'is' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' puppy.' },
+				{ type: 'text', color: 'black', text: 'It ' },
+				{ type: 'text', color: 'blue', text: 'is' },
+				{ type: 'text', color: 'black', text: ' puppy.' },
 			],
 		},
 		{
@@ -380,7 +380,7 @@
 					weight: 'normal',
 					text: 'Последним шагом перед существительными в единственном числе поставлю неопределённый артикль ',
 				},
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'a' },
+				{ type: 'text', color: 'blue', text: 'a' },
 				{
 					type: 'text',
 					color: 'black',
@@ -394,11 +394,11 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я космонавт.' },
+				{ type: 'text', color: 'black', text: 'Я космонавт.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'I am ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'a' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' spaceman.' },
+				{ type: 'text', color: 'black', text: 'I am ' },
+				{ type: 'text', color: 'blue', text: 'a' },
+				{ type: 'text', color: 'black', text: ' spaceman.' },
 			],
 		},
 		{
@@ -406,9 +406,9 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Они клоуны.' },
+				{ type: 'text', color: 'black', text: 'Они клоуны.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'They are clowns.' },
+				{ type: 'text', color: 'black', text: 'They are clowns.' },
 			],
 		},
 		{
@@ -416,11 +416,11 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Это щенок.' },
+				{ type: 'text', color: 'black', text: 'Это щенок.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'It is ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'a' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' puppy.' },
+				{ type: 'text', color: 'black', text: 'It is ' },
+				{ type: 'text', color: 'blue', text: 'a' },
+				{ type: 'text', color: 'black', text: ' puppy.' },
 			],
 		},
 		{
@@ -1042,8 +1042,8 @@
 			offset: false,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Глагол ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'be' },
+				{ type: 'text', color: 'black', text: 'Глагол ' },
+				{ type: 'text', color: 'blue', text: 'be' },
 				{
 					type: 'text',
 					color: 'black',
@@ -1071,12 +1071,12 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'был' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' космонавтом.' },
-				{ type: 'text', color: 'black', weight: 'normal', text: 'I ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'was' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' a spaceman.' },
+				{ type: 'text', color: 'black', text: 'Я ' },
+				{ type: 'text', color: 'blue', text: 'был' },
+				{ type: 'text', color: 'black', text: ' космонавтом.' },
+				{ type: 'text', color: 'black', text: 'I ' },
+				{ type: 'text', color: 'blue', text: 'was' },
+				{ type: 'text', color: 'black', text: ' a spaceman.' },
 			],
 		},
 		{
@@ -1084,13 +1084,13 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Они ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'были' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' клоунами.' },
+				{ type: 'text', color: 'black', text: 'Они ' },
+				{ type: 'text', color: 'blue', text: 'были' },
+				{ type: 'text', color: 'black', text: ' клоунами.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'They ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'were' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' clowns.' },
+				{ type: 'text', color: 'black', text: 'They ' },
+				{ type: 'text', color: 'blue', text: 'were' },
+				{ type: 'text', color: 'black', text: ' clowns.' },
 			],
 		},
 		{
@@ -1098,9 +1098,9 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Он ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'был' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' щенком.' },
+				{ type: 'text', color: 'black', text: 'Он ' },
+				{ type: 'text', color: 'blue', text: 'был' },
+				{ type: 'text', color: 'black', text: ' щенком.' },
 
 				{ type: 'text', color: 'black', weight: 'normal', text: 'It ' },
 				{ type: 'text', color: 'blue', weight: 'normal', text: 'was' },

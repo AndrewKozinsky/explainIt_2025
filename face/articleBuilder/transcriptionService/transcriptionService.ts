@@ -26,6 +26,7 @@ const transcriptionService = {
 			.toLowerCase()
 			.replace(/[\u2018\u2019\u201A\u201B\u2032\u2035\u0027]/g, '') // remove apostrophes and similar symbols
 			.replace(/\s+/g, '_') // replace spaces with underscores
+			.replace(/-/g, '_') // replace spaces with underscores
 			.replace(/\./g, '') // remove dots
 			.replace(/[^\w_]/g, '') as keyof typeof transcriptions
 	},

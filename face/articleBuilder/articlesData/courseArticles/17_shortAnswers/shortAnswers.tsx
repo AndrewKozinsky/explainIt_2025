@@ -23,7 +23,7 @@ const shortAnswers: ArticleType.Art = {
 					text: 'В английском на закрытый вопрос не принято отвечать голым ',
 				},
 				{ type: 'text', color: 'black', weight: 'bold', text: 'yes' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' (да) или ' },
+				{ type: 'text', color: 'black', text: ' (да) или ' },
 				{ type: 'text', color: 'black', weight: 'bold', text: 'no' },
 				{
 					type: 'text',
@@ -44,7 +44,7 @@ const shortAnswers: ArticleType.Art = {
 					weight: 'normal',
 					text: 'В примере в вопросе использовался вспомогательный глагол ',
 				},
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'be' },
+				{ type: 'text', color: 'blue', text: 'be' },
 				{
 					type: 'text',
 					color: 'black',
@@ -64,7 +64,7 @@ const shortAnswers: ArticleType.Art = {
 							type: 'paragraph',
 							offset: false,
 							textSize: 'small',
-							children: [{ type: 'text', color: 'gray', weight: 'normal', text: 'Вопрос' }],
+							children: [{ type: 'text', color: 'gray', text: 'Вопрос' }],
 						},
 						{
 							type: 'paragraph',
@@ -78,8 +78,8 @@ const shortAnswers: ArticleType.Art = {
 									text: 'Ты голоден?',
 								},
 
-								{ type: 'text', color: 'black', weight: 'normal', text: '' },
-								{ type: 'text', color: 'blue', weight: 'normal', text: 'Are' },
+								{ type: 'text', color: 'black', text: '' },
+								{ type: 'text', color: 'blue', text: 'Are' },
 								{
 									type: 'text',
 									color: 'black',
@@ -110,9 +110,9 @@ const shortAnswers: ArticleType.Art = {
 							offset: false,
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'black', weight: 'normal', text: 'Yes, I ' },
-								{ type: 'text', color: 'blue', weight: 'normal', text: 'am' },
-								{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+								{ type: 'text', color: 'black', text: 'Yes, I ' },
+								{ type: 'text', color: 'blue', text: 'am' },
+								{ type: 'text', color: 'black', text: '.' },
 							],
 						},
 					],
@@ -137,9 +137,9 @@ const shortAnswers: ArticleType.Art = {
 							offset: false,
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'black', weight: 'normal', text: 'No, I ' },
-								{ type: 'text', color: 'blue', weight: 'normal', text: 'am' },
-								{ type: 'text', color: 'black', weight: 'normal', text: ' not.' },
+								{ type: 'text', color: 'black', text: 'No, I ' },
+								{ type: 'text', color: 'blue', text: 'am' },
+								{ type: 'text', color: 'black', text: ' not.' },
 							],
 						},
 					],
@@ -157,7 +157,7 @@ const shortAnswers: ArticleType.Art = {
 					weight: 'normal',
 					text: 'Другими словами на вопрос «Вы есть голодный» нужно отвечать «Да, я есть» или «Нет, я не есть». Конечно ',
 				},
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'be' },
+				{ type: 'text', color: 'blue', text: 'be' },
 				{
 					type: 'text',
 					color: 'black',
@@ -171,7 +171,7 @@ const shortAnswers: ArticleType.Art = {
 			offset: true,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Пример с ' },
+				{ type: 'text', color: 'black', text: 'Пример с ' },
 				{ type: 'text', color: 'black', weight: 'bold', text: 'Past Simple' },
 				{
 					type: 'text',
@@ -179,7 +179,7 @@ const shortAnswers: ArticleType.Art = {
 					weight: 'normal',
 					text: '. Вспомогательным глаголом тут выступает ',
 				},
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'did' },
+				{ type: 'text', color: 'blue', text: 'did' },
 				{
 					type: 'text',
 					color: 'black',
@@ -199,7 +199,7 @@ const shortAnswers: ArticleType.Art = {
 							type: 'paragraph',
 							offset: false,
 							textSize: 'small',
-							children: [{ type: 'text', color: 'gray', weight: 'normal', text: 'Вопрос' }],
+							children: [{ type: 'text', color: 'gray', text: 'Вопрос' }],
 						},
 						{
 							type: 'paragraph',
@@ -213,8 +213,8 @@ const shortAnswers: ArticleType.Art = {
 									text: 'Ты говорила с отцом?',
 								},
 
-								{ type: 'text', color: 'black', weight: 'normal', text: '' },
-								{ type: 'text', color: 'blue', weight: 'normal', text: 'Did' },
+								{ type: 'text', color: 'black', text: '' },
+								{ type: 'text', color: 'blue', text: 'Did' },
 								{
 									type: 'text',
 									color: 'black',
@@ -245,9 +245,9 @@ const shortAnswers: ArticleType.Art = {
 							offset: false,
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'black', weight: 'normal', text: 'Yes, I ' },
-								{ type: 'text', color: 'blue', weight: 'normal', text: 'did' },
-								{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+								{ type: 'text', color: 'black', text: 'Yes, I ' },
+								{ type: 'text', color: 'blue', text: 'did' },
+								{ type: 'text', color: 'black', text: '.' },
 							],
 						},
 					],
@@ -272,9 +272,9 @@ const shortAnswers: ArticleType.Art = {
 							offset: false,
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'black', weight: 'normal', text: 'No, I ' },
-								{ type: 'text', color: 'blue', weight: 'normal', text: 'did' },
-								{ type: 'text', color: 'black', weight: 'normal', text: ' not.' },
+								{ type: 'text', color: 'black', text: 'No, I ' },
+								{ type: 'text', color: 'blue', text: 'did' },
+								{ type: 'text', color: 'black', text: ' not.' },
 							],
 						},
 					],
@@ -296,14 +296,14 @@ const shortAnswers: ArticleType.Art = {
 							weight: 'normal',
 							text: 'No и not переводятся одинаково «нет». Но ',
 						},
-						{ type: 'text', color: 'blue', weight: 'normal', text: 'no' },
+						{ type: 'text', color: 'blue', text: 'no' },
 						{
 							type: 'text',
 							color: 'black',
 							weight: 'normal',
 							text: ' ставится для отрицательного ответа, а ',
 						},
-						{ type: 'text', color: 'blue', weight: 'normal', text: 'not' },
+						{ type: 'text', color: 'blue', text: 'not' },
 						{
 							type: 'text',
 							color: 'black',
@@ -338,7 +338,7 @@ const shortAnswers: ArticleType.Art = {
 							type: 'paragraph',
 							offset: false,
 							textSize: 'small',
-							children: [{ type: 'text', color: 'gray', weight: 'normal', text: 'Вопрос' }],
+							children: [{ type: 'text', color: 'gray', text: 'Вопрос' }],
 						},
 						{
 							type: 'paragraph',
@@ -352,8 +352,8 @@ const shortAnswers: ArticleType.Art = {
 									text: 'Ответишь на вопрос?',
 								},
 
-								{ type: 'text', color: 'black', weight: 'normal', text: '' },
-								{ type: 'text', color: 'blue', weight: 'normal', text: 'Will' },
+								{ type: 'text', color: 'black', text: '' },
+								{ type: 'text', color: 'blue', text: 'Will' },
 								{
 									type: 'text',
 									color: 'black',
@@ -384,9 +384,9 @@ const shortAnswers: ArticleType.Art = {
 							offset: false,
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'black', weight: 'normal', text: 'Yes, I ' },
-								{ type: 'text', color: 'blue', weight: 'normal', text: 'will' },
-								{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+								{ type: 'text', color: 'black', text: 'Yes, I ' },
+								{ type: 'text', color: 'blue', text: 'will' },
+								{ type: 'text', color: 'black', text: '.' },
 							],
 						},
 					],
@@ -411,9 +411,9 @@ const shortAnswers: ArticleType.Art = {
 							offset: false,
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'black', weight: 'normal', text: 'No, I ' },
-								{ type: 'text', color: 'blue', weight: 'normal', text: 'will' },
-								{ type: 'text', color: 'black', weight: 'normal', text: ' not.' },
+								{ type: 'text', color: 'black', text: 'No, I ' },
+								{ type: 'text', color: 'blue', text: 'will' },
+								{ type: 'text', color: 'black', text: ' not.' },
 							],
 						},
 					],
@@ -432,7 +432,7 @@ const shortAnswers: ArticleType.Art = {
 					text: 'Ответ можно сократить ещё больше убрав ',
 				},
 				{ type: 'text', color: 'black', weight: 'bold', text: 'yes' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' или ' },
+				{ type: 'text', color: 'black', text: ' или ' },
 				{ type: 'text', color: 'black', weight: 'bold', text: 'no' },
 				{
 					type: 'text',
@@ -453,7 +453,7 @@ const shortAnswers: ArticleType.Art = {
 							type: 'paragraph',
 							offset: false,
 							textSize: 'small',
-							children: [{ type: 'text', color: 'gray', weight: 'normal', text: 'Вопрос' }],
+							children: [{ type: 'text', color: 'gray', text: 'Вопрос' }],
 						},
 						{
 							type: 'paragraph',
@@ -467,8 +467,8 @@ const shortAnswers: ArticleType.Art = {
 									text: 'Он говорит по-английски?',
 								},
 
-								{ type: 'text', color: 'black', weight: 'normal', text: '' },
-								{ type: 'text', color: 'blue', weight: 'normal', text: 'Does' },
+								{ type: 'text', color: 'black', text: '' },
+								{ type: 'text', color: 'blue', text: 'Does' },
 								{
 									type: 'text',
 									color: 'black',
@@ -499,9 +499,9 @@ const shortAnswers: ArticleType.Art = {
 							offset: false,
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'black', weight: 'normal', text: 'He ' },
-								{ type: 'text', color: 'blue', weight: 'normal', text: 'does' },
-								{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+								{ type: 'text', color: 'black', text: 'He ' },
+								{ type: 'text', color: 'blue', text: 'does' },
+								{ type: 'text', color: 'black', text: '.' },
 							],
 						},
 					],
@@ -526,9 +526,9 @@ const shortAnswers: ArticleType.Art = {
 							offset: false,
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'black', weight: 'normal', text: 'He ' },
-								{ type: 'text', color: 'blue', weight: 'normal', text: 'does' },
-								{ type: 'text', color: 'black', weight: 'normal', text: ' not.' },
+								{ type: 'text', color: 'black', text: 'He ' },
+								{ type: 'text', color: 'blue', text: 'does' },
+								{ type: 'text', color: 'black', text: ' not.' },
 							],
 						},
 					],
@@ -789,9 +789,9 @@ const shortAnswers: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Арбуз фрукт?' },
+				{ type: 'text', color: 'black', text: 'Арбуз фрукт?' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Is watermelon a fruit?' },
+				{ type: 'text', color: 'black', text: 'Is watermelon a fruit?' },
 			],
 		},
 		{
@@ -799,9 +799,9 @@ const shortAnswers: ArticleType.Art = {
 			offset: true,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Нет.' },
+				{ type: 'text', color: 'black', text: 'Нет.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'It isn’t.' },
+				{ type: 'text', color: 'black', text: 'It isn’t.' },
 			],
 		},
 		{
@@ -822,9 +822,9 @@ const shortAnswers: ArticleType.Art = {
 			offset: true,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Нет, это не так.' },
+				{ type: 'text', color: 'black', text: 'Нет, это не так.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'No, it isn’t.' },
+				{ type: 'text', color: 'black', text: 'No, it isn’t.' },
 			],
 		},
 		{
@@ -832,9 +832,9 @@ const shortAnswers: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Нет, не фрукт.' },
+				{ type: 'text', color: 'black', text: 'Нет, не фрукт.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'No, it isn’t a fruit.' },
+				{ type: 'text', color: 'black', text: 'No, it isn’t a fruit.' },
 			],
 		},
 		{
@@ -855,9 +855,9 @@ const shortAnswers: ArticleType.Art = {
 			offset: true,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Ягода.' },
+				{ type: 'text', color: 'black', text: 'Ягода.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'It’s a berry.' },
+				{ type: 'text', color: 'black', text: 'It’s a berry.' },
 			],
 		},
 		{
@@ -915,26 +915,26 @@ const shortAnswers: ArticleType.Art = {
 							weight: 'normal',
 							text: 'Do doctors study for many years? — Yes, they ',
 						},
-						{ type: 'text', color: 'error', weight: 'normal', text: 'study' },
-						{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+						{ type: 'text', color: 'error', text: 'study' },
+						{ type: 'text', color: 'black', text: '.' },
 					],
 				},
 				{
 					type: 'paragraph',
 					offset: true,
 					textSize: 'normal',
-					children: [{ type: 'text', color: 'black', weight: 'normal', text: 'Так правильно:' }],
+					children: [{ type: 'text', color: 'black', text: 'Так правильно:' }],
 				},
 				{
 					type: 'paragraph',
 					offset: false,
 					textSize: 'big',
 					children: [
-						{ type: 'text', color: 'black', weight: 'normal', text: 'Да, участся.' },
+						{ type: 'text', color: 'black', text: 'Да, участся.' },
 
-						{ type: 'text', color: 'black', weight: 'normal', text: 'Yes, they ' },
-						{ type: 'text', color: 'blue', weight: 'normal', text: 'do' },
-						{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+						{ type: 'text', color: 'black', text: 'Yes, they ' },
+						{ type: 'text', color: 'blue', text: 'do' },
+						{ type: 'text', color: 'black', text: '.' },
 					],
 				},
 				{
@@ -975,14 +975,14 @@ const shortAnswers: ArticleType.Art = {
 					offset: false,
 					textSize: 'big',
 					children: [
-						{ type: 'text', color: 'black', weight: 'normal', text: '— Я рад ' },
+						{ type: 'text', color: 'black', text: '— Я рад ' },
 						{
 							type: 'text',
 							color: 'gray',
 							weight: 'normal',
 							text: '(что нравятся лошади)',
 						},
-						{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+						{ type: 'text', color: 'black', text: '.' },
 
 						{
 							type: 'text',

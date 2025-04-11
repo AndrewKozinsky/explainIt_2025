@@ -72,15 +72,15 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Ник хочет ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(что сделать?)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'закрыть' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' окно.' },
+				{ type: 'text', color: 'black', text: 'Ник хочет ' },
+				{ type: 'text', color: 'gray', text: '(что сделать?)' },
+				{ type: 'text', color: 'black', text: ' ' },
+				{ type: 'text', color: 'blue', text: 'закрыть' },
+				{ type: 'text', color: 'black', text: ' окно.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Nic wants ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'to close' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' the window.' },
+				{ type: 'text', color: 'black', text: 'Nic wants ' },
+				{ type: 'text', color: 'blue', text: 'to close' },
+				{ type: 'text', color: 'black', text: ' the window.' },
 			],
 		},
 		{
@@ -88,15 +88,15 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Мы попытаемся ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(что сделать?)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'поймать' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' её.' },
+				{ type: 'text', color: 'black', text: 'Мы попытаемся ' },
+				{ type: 'text', color: 'gray', text: '(что сделать?)' },
+				{ type: 'text', color: 'black', text: ' ' },
+				{ type: 'text', color: 'blue', text: 'поймать' },
+				{ type: 'text', color: 'black', text: ' её.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'We will try ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'to catch' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' her.' },
+				{ type: 'text', color: 'black', text: 'We will try ' },
+				{ type: 'text', color: 'blue', text: 'to catch' },
+				{ type: 'text', color: 'black', text: ' her.' },
 			],
 		},
 		{
@@ -104,7 +104,7 @@
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(что сделать?)' },
+				{ type: 'text', color: 'gray', text: '(что сделать?)' },
 				{
 					type: 'text',
 					color: 'black',
@@ -112,9 +112,9 @@
 					text: ' Решить проблему было легко.',
 				},
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'It was easy ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'to solve' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' the problem.' },
+				{ type: 'text', color: 'black', text: 'It was easy ' },
+				{ type: 'text', color: 'blue', text: 'to solve' },
+				{ type: 'text', color: 'black', text: ' the problem.' },
 			],
 		},
 		{
@@ -148,8 +148,8 @@
 					weight: 'normal',
 					text: 'The puppy wanted to jump and ',
 				},
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'run' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'blue', text: 'run' },
+				{ type: 'text', color: 'black', text: '.' },
 			],
 		},
 		{
@@ -177,9 +177,9 @@
 					text: 'Я был счастлив не видеть тебя.',
 				},
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'I was happy ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'not to see' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' you.' },
+				{ type: 'text', color: 'black', text: 'I was happy ' },
+				{ type: 'text', color: 'blue', text: 'not to see' },
+				{ type: 'text', color: 'black', text: ' you.' },
 			],
 		},
 		{
@@ -231,10 +231,10 @@
 							text: 'Цены будут расти быстрее, инфляция увеличится.',
 						},
 
-						{ type: 'text', color: 'black', weight: 'normal', text: 'Prices ' },
-						{ type: 'text', color: 'gold', weight: 'normal', text: 'will' },
-						{ type: 'text', color: 'black', weight: 'normal', text: ' ' },
-						{ type: 'text', color: 'blue', weight: 'normal', text: 'grow' },
+						{ type: 'text', color: 'black', text: 'Prices ' },
+						{ type: 'text', color: 'gold', text: 'will' },
+						{ type: 'text', color: 'black', text: ' ' },
+						{ type: 'text', color: 'blue', text: 'grow' },
 						{
 							type: 'text',
 							color: 'black',
@@ -263,7 +263,7 @@
 			offset: true,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'После ' },
+				{ type: 'text', color: 'black', text: 'После ' },
 				{ type: 'text', color: 'black', weight: 'bold', text: 'be' },
 				{
 					type: 'text',

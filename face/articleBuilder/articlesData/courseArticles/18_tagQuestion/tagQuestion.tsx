@@ -21,7 +21,7 @@ const tagQuestion: ArticleType.Art = {
 					weight: 'normal',
 					text: 'Разделительный вопрос — это вопрос о правильности утверждения. На русский обычно переводится как «',
 				},
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'не так ли?' },
+				{ type: 'text', color: 'blue', text: 'не так ли?' },
 				{
 					type: 'text',
 					color: 'black',
@@ -35,9 +35,9 @@ const tagQuestion: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Он умён, не так ли?' },
+				{ type: 'text', color: 'black', text: 'Он умён, не так ли?' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'He is smart, is not he?' },
+				{ type: 'text', color: 'black', text: 'He is smart, is not he?' },
 			],
 		},
 		{
@@ -71,9 +71,9 @@ const tagQuestion: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Он не умён, да?' },
+				{ type: 'text', color: 'black', text: 'Он не умён, да?' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'He is not smart, is he?' },
+				{ type: 'text', color: 'black', text: 'He is not smart, is he?' },
 			],
 		},
 		{
@@ -176,7 +176,7 @@ const tagQuestion: ArticleType.Art = {
 					type: 'paragraph',
 					offset: false,
 					textSize: 'big',
-					children: [{ type: 'text', color: 'black', weight: 'normal', text: '..., не так ли' }],
+					children: [{ type: 'text', color: 'black', text: '..., не так ли' }],
 				},
 				{
 					type: 'paragraph',

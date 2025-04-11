@@ -70,7 +70,7 @@ const muchAndMany: ArticleType.Art = {
 									text: 'much/many',
 								},
 
-								{ type: 'text', color: 'black', weight: 'normal', text: 'много' },
+								{ type: 'text', color: 'black', text: 'много' },
 							],
 						},
 						{
@@ -130,9 +130,9 @@ const muchAndMany: ArticleType.Art = {
 							offset: false,
 							textSize: 'big',
 							children: [
-								{ type: 'text', color: 'black', weight: 'normal', text: 'much' },
+								{ type: 'text', color: 'black', text: 'much' },
 
-								{ type: 'text', color: 'black', weight: 'normal', text: 'многое ' },
+								{ type: 'text', color: 'black', text: 'многое ' },
 								{
 									type: 'text',
 									color: 'gray',
@@ -146,9 +146,9 @@ const muchAndMany: ArticleType.Art = {
 							offset: false,
 							textSize: 'big',
 							children: [
-								{ type: 'text', color: 'black', weight: 'normal', text: 'many' },
+								{ type: 'text', color: 'black', text: 'many' },
 
-								{ type: 'text', color: 'black', weight: 'normal', text: 'многие ' },
+								{ type: 'text', color: 'black', text: 'многие ' },
 								{
 									type: 'text',
 									color: 'gray',
@@ -296,7 +296,7 @@ const muchAndMany: ArticleType.Art = {
 							text: 'Much и many можно использовать в любых типах предложений. Но выбор зависит от исчисляемости существительного перед ним. Напротив определители ',
 						},
 						{ type: 'text', color: 'black', weight: 'bold', text: 'a lot of' },
-						{ type: 'text', color: 'black', weight: 'normal', text: ' и ' },
+						{ type: 'text', color: 'black', text: ' и ' },
 						{ type: 'text', color: 'black', weight: 'bold', text: 'plenty of' },
 						{
 							type: 'text',
@@ -610,7 +610,7 @@ const muchAndMany: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'У меня еще две сестры.' },
+				{ type: 'text', color: 'black', text: 'У меня еще две сестры.' },
 
 				{
 					type: 'text',
@@ -1106,9 +1106,9 @@ const muchAndMany: ArticleType.Art = {
 					offset: false,
 					textSize: 'normal',
 					children: [
-						{ type: 'text', color: 'black', weight: 'normal', text: 'A' },
+						{ type: 'text', color: 'black', text: 'A' },
 						{ type: 'text', color: 'black', weight: 'bold', text: ' lot of' },
-						{ type: 'text', color: 'black', weight: 'normal', text: ' и ' },
+						{ type: 'text', color: 'black', text: ' и ' },
 						{ type: 'text', color: 'black', weight: 'bold', text: 'plenty of' },
 						{
 							type: 'text',

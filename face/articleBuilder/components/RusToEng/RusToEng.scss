@@ -34,7 +34,7 @@
 	display: none;
 	flex-direction: column;
 	justify-content: end;
-	transition: height .2s cubic-bezier(0,.51,.7,.99), opacity .2s, padding-top .2s;
+	transition: height .2s cubic-bezier(0,.51,.7,.99), opacity .2s, margin-bottom .2s;
 
 	height: 0;
 	opacity: 0;

@@ -16,7 +16,7 @@ const prepositionTo: ArticleType.Art = {
 			offset: false,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'To' },
+				{ type: 'text', color: 'blue', text: 'To' },
 				{
 					type: 'text',
 					color: 'black',
@@ -30,9 +30,9 @@ const prepositionTo: ArticleType.Art = {
 			offset: false,
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Уличный кот сидел ' },
+				{ type: 'text', color: 'black', text: 'Уличный кот сидел ' },
 				{ type: 'text', color: 'black', weight: 'bold', text: 'на' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' тротуаре.' },
+				{ type: 'text', color: 'black', text: ' тротуаре.' },
 			],
 		},
 		{
@@ -40,7 +40,7 @@ const prepositionTo: ArticleType.Art = {
 			offset: false,
 			textSize: 'small',
 			children: [
-				{ type: 'text', color: 'gray', weight: 'normal', text: 'Предлог «' },
+				{ type: 'text', color: 'gray', text: 'Предлог «' },
 				{ type: 'text', color: 'gray', weight: 'bold', text: 'на' },
 				{
 					type: 'text',
@@ -55,9 +55,9 @@ const prepositionTo: ArticleType.Art = {
 			offset: false,
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Сломанная ветка упала ' },
+				{ type: 'text', color: 'black', text: 'Сломанная ветка упала ' },
 				{ type: 'text', color: 'black', weight: 'bold', text: 'в' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' лужу.' },
+				{ type: 'text', color: 'black', text: ' лужу.' },
 			],
 		},
 		{
@@ -65,7 +65,7 @@ const prepositionTo: ArticleType.Art = {
 			offset: false,
 			textSize: 'small',
 			children: [
-				{ type: 'text', color: 'gray', weight: 'normal', text: 'Предлог «' },
+				{ type: 'text', color: 'gray', text: 'Предлог «' },
 				{ type: 'text', color: 'gray', weight: 'bold', text: 'в' },
 				{
 					type: 'text',
@@ -93,8 +93,8 @@ const prepositionTo: ArticleType.Art = {
 			offset: false,
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Миша ходит ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'к' },
+				{ type: 'text', color: 'black', text: 'Миша ходит ' },
+				{ type: 'text', color: 'blue', text: 'к' },
 				{
 					type: 'text',
 					color: 'black',
@@ -108,9 +108,9 @@ const prepositionTo: ArticleType.Art = {
 			offset: false,
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Он показал ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'на' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' ближайшее здание.' },
+				{ type: 'text', color: 'black', text: 'Он показал ' },
+				{ type: 'text', color: 'blue', text: 'на' },
+				{ type: 'text', color: 'black', text: ' ближайшее здание.' },
 			],
 		},
 		{
@@ -118,9 +118,9 @@ const prepositionTo: ArticleType.Art = {
 			offset: false,
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я ездил ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'в' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' Москву в 2020 году.' },
+				{ type: 'text', color: 'black', text: 'Я ездил ' },
+				{ type: 'text', color: 'blue', text: 'в' },
+				{ type: 'text', color: 'black', text: ' Москву в 2020 году.' },
 			],
 		},
 		{
@@ -141,9 +141,9 @@ const prepositionTo: ArticleType.Art = {
 			offset: false,
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Мы принесли воду ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(кому?)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' животным.' },
+				{ type: 'text', color: 'black', text: 'Мы принесли воду ' },
+				{ type: 'text', color: 'gray', text: '(кому?)' },
+				{ type: 'text', color: 'black', text: ' животным.' },
 			],
 		},
 		{
@@ -157,7 +157,7 @@ const prepositionTo: ArticleType.Art = {
 					weight: 'normal',
 					text: 'В английском направление движения или указание на объект задаёт предлог ',
 				},
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'to' },
+				{ type: 'text', color: 'blue', text: 'to' },
 				{
 					type: 'text',
 					color: 'black',
@@ -172,11 +172,11 @@ const prepositionTo: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Саша подошел к двери.' },
+				{ type: 'text', color: 'black', text: 'Саша подошел к двери.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Sasha walked ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'to' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' the door.' },
+				{ type: 'text', color: 'black', text: 'Sasha walked ' },
+				{ type: 'text', color: 'blue', text: 'to' },
+				{ type: 'text', color: 'black', text: ' the door.' },
 			],
 		},
 		{
@@ -184,13 +184,13 @@ const prepositionTo: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Вика пригласила ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(меня)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' в кино.' },
+				{ type: 'text', color: 'black', text: 'Вика пригласила ' },
+				{ type: 'text', color: 'gray', text: '(меня)' },
+				{ type: 'text', color: 'black', text: ' в кино.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Vika invited me ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'to' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' the cinema.' },
+				{ type: 'text', color: 'black', text: 'Vika invited me ' },
+				{ type: 'text', color: 'blue', text: 'to' },
+				{ type: 'text', color: 'black', text: ' the cinema.' },
 			],
 		},
 		{
@@ -363,9 +363,9 @@ const prepositionTo: ArticleType.Art = {
 					text: 'Пять дней до представления.',
 				},
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Five days ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'to' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' the performance.' },
+				{ type: 'text', color: 'black', text: 'Five days ' },
+				{ type: 'text', color: 'blue', text: 'to' },
+				{ type: 'text', color: 'black', text: ' the performance.' },
 			],
 		},
 		{
@@ -393,9 +393,9 @@ const prepositionTo: ArticleType.Art = {
 					text: 'Я предпочитаю автобус самолёту.',
 				},
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'I prefer the bus ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'to' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' the plane.' },
+				{ type: 'text', color: 'black', text: 'I prefer the bus ' },
+				{ type: 'text', color: 'blue', text: 'to' },
+				{ type: 'text', color: 'black', text: ' the plane.' },
 			],
 		},
 		{
@@ -423,9 +423,9 @@ const prepositionTo: ArticleType.Art = {
 					text: 'У меня есть вопрос к этой теме.',
 				},
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'I have a question ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'to' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' that topic.' },
+				{ type: 'text', color: 'black', text: 'I have a question ' },
+				{ type: 'text', color: 'blue', text: 'to' },
+				{ type: 'text', color: 'black', text: ' that topic.' },
 			],
 		},
 		{
@@ -448,11 +448,11 @@ const prepositionTo: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Мы добры к детям.' },
+				{ type: 'text', color: 'black', text: 'Мы добры к детям.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'We are kind ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'to' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' children.' },
+				{ type: 'text', color: 'black', text: 'We are kind ' },
+				{ type: 'text', color: 'blue', text: 'to' },
+				{ type: 'text', color: 'black', text: ' children.' },
 			],
 		},
 		{
@@ -473,8 +473,8 @@ const prepositionTo: ArticleType.Art = {
 					weight: 'normal',
 					text: 'This collection belongs ',
 				},
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'to' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' me.' },
+				{ type: 'text', color: 'blue', text: 'to' },
+				{ type: 'text', color: 'black', text: ' me.' },
 			],
 		},
 		{
@@ -495,8 +495,8 @@ const prepositionTo: ArticleType.Art = {
 					weight: 'normal',
 					text: 'This report is necessary ',
 				},
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'to' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' us.' },
+				{ type: 'text', color: 'blue', text: 'to' },
+				{ type: 'text', color: 'black', text: ' us.' },
 			],
 		},
 		{
@@ -594,14 +594,14 @@ const prepositionTo: ArticleType.Art = {
 					weight: 'normal',
 					text: 'В предложении ниже действие отправки прямо направлено на ',
 				},
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'деньги' },
+				{ type: 'text', color: 'blue', text: 'деньги' },
 				{
 					type: 'text',
 					color: 'black',
 					weight: 'normal',
 					text: ' (отправляют деньги), а косвенно на ',
 				},
-				{ type: 'text', color: 'gold', weight: 'normal', text: 'тебя' },
+				{ type: 'text', color: 'gold', text: 'тебя' },
 				{
 					type: 'text',
 					color: 'black',
@@ -615,13 +615,13 @@ const prepositionTo: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я отправлю деньги тебе.' },
+				{ type: 'text', color: 'black', text: 'Я отправлю деньги тебе.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'I will send ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'the money' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' to ' },
-				{ type: 'text', color: 'gold', weight: 'normal', text: 'you' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black', text: 'I will send ' },
+				{ type: 'text', color: 'blue', text: 'the money' },
+				{ type: 'text', color: 'black', text: ' to ' },
+				{ type: 'text', color: 'gold', text: 'you' },
+				{ type: 'text', color: 'black', text: '.' },
 			],
 		},
 		{
@@ -635,10 +635,10 @@ const prepositionTo: ArticleType.Art = {
 					weight: 'normal',
 					text: 'Но некоторые глаголы позволяют менять местами ',
 				},
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'прямое' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' и ' },
-				{ type: 'text', color: 'gold', weight: 'normal', text: 'косвенное' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' дополнение.' },
+				{ type: 'text', color: 'blue', text: 'прямое' },
+				{ type: 'text', color: 'black', text: ' и ' },
+				{ type: 'text', color: 'gold', text: 'косвенное' },
+				{ type: 'text', color: 'black', text: ' дополнение.' },
 			],
 		},
 		{
@@ -646,13 +646,13 @@ const prepositionTo: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я отправлю тебе деньги.' },
+				{ type: 'text', color: 'black', text: 'Я отправлю тебе деньги.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'I will send ' },
-				{ type: 'text', color: 'gold', weight: 'normal', text: 'you' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'the money' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black', text: 'I will send ' },
+				{ type: 'text', color: 'gold', text: 'you' },
+				{ type: 'text', color: 'black', text: ' ' },
+				{ type: 'text', color: 'blue', text: 'the money' },
+				{ type: 'text', color: 'black', text: '.' },
 			],
 		},
 		{
@@ -666,15 +666,15 @@ const prepositionTo: ArticleType.Art = {
 					weight: 'normal',
 					text: 'Они называются глаголами допускающими конструкцию с двойным дополнением. И если перед таким глаголом стоит косвенное дополнение, то предлог ',
 				},
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'to' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' не ставится.' },
+				{ type: 'text', color: 'blue', text: 'to' },
+				{ type: 'text', color: 'black', text: ' не ставится.' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
 			textSize: 'normal',
-			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'Список таких глаголов:' }],
+			children: [{ type: 'text', color: 'black', text: 'Список таких глаголов:' }],
 		},
 		{
 			type: 'grid',
@@ -755,7 +755,7 @@ const prepositionTo: ArticleType.Art = {
 			type: 'paragraph',
 			offset: true,
 			textSize: 'normal',
-			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'Ещё несколько примеров:' }],
+			children: [{ type: 'text', color: 'black', text: 'Ещё несколько примеров:' }],
 		},
 		{
 			type: 'grid',
@@ -785,9 +785,9 @@ const prepositionTo: ArticleType.Art = {
 							offset: false,
 							textSize: 'big',
 							children: [
-								{ type: 'text', color: 'gold', weight: 'normal', text: 'Он дал' },
-								{ type: 'text', color: 'black', weight: 'normal', text: ' ' },
-								{ type: 'text', color: 'blue', weight: 'normal', text: 'тебе' },
+								{ type: 'text', color: 'gold', text: 'Он дал' },
+								{ type: 'text', color: 'black', text: ' ' },
+								{ type: 'text', color: 'blue', text: 'тебе' },
 								{
 									type: 'text',
 									color: 'black',
@@ -827,7 +827,7 @@ const prepositionTo: ArticleType.Art = {
 									weight: 'normal',
 									text: 'Я отправлю',
 								},
-								{ type: 'text', color: 'black', weight: 'normal', text: ' ' },
+								{ type: 'text', color: 'black', text: ' ' },
 								{ type: 'text', color: 'blue', weight: 'normal', text: 'Полине' },
 								{
 									type: 'text',

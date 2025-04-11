@@ -29,9 +29,9 @@ const prepositionOf: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я купил бутылку ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(чего?)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' молока.' },
+				{ type: 'text', color: 'black', text: 'Я купил бутылку ' },
+				{ type: 'text', color: 'gray', text: '(чего?)' },
+				{ type: 'text', color: 'black', text: ' молока.' },
 			],
 		},
 		{
@@ -90,7 +90,7 @@ const prepositionOf: ArticleType.Art = {
 			type: 'paragraph',
 			offset: true,
 			textSize: 'normal',
-			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'Другие примеры:' }],
+			children: [{ type: 'text', color: 'black', text: 'Другие примеры:' }],
 		},
 		{
 			type: 'paragraph',
@@ -103,12 +103,12 @@ const prepositionOf: ArticleType.Art = {
 					weight: 'normal',
 					text: 'Ты не платишь мне много ',
 				},
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(чего?)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' денег.' },
+				{ type: 'text', color: 'gray', text: '(чего?)' },
+				{ type: 'text', color: 'black', text: ' денег.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'You don\'t pay me a lot ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(чего?)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' of money.' },
+				{ type: 'text', color: 'black', text: 'You don\'t pay me a lot ' },
+				{ type: 'text', color: 'gray', text: '(чего?)' },
+				{ type: 'text', color: 'black', text: ' of money.' },
 			],
 		},
 		{
@@ -116,8 +116,8 @@ const prepositionOf: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Шумная толпа ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(кого?)' },
+				{ type: 'text', color: 'black', text: 'Шумная толпа ' },
+				{ type: 'text', color: 'gray', text: '(кого?)' },
 				{
 					type: 'text',
 					color: 'black',
@@ -125,8 +125,8 @@ const prepositionOf: ArticleType.Art = {
 					text: ' людей внезапно затихла.',
 				},
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'The noisy crowd ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(кого?)' },
+				{ type: 'text', color: 'black', text: 'The noisy crowd ' },
+				{ type: 'text', color: 'gray', text: '(кого?)' },
 				{
 					type: 'text',
 					color: 'black',
@@ -154,9 +154,9 @@ const prepositionOf: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Мой дом' },
+				{ type: 'text', color: 'black', text: 'Мой дом' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'The house of mine' },
+				{ type: 'text', color: 'black', text: 'The house of mine' },
 			],
 		},
 		{
@@ -164,9 +164,9 @@ const prepositionOf: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Дом моего отца' },
+				{ type: 'text', color: 'black', text: 'Дом моего отца' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'The house of my dad' },
+				{ type: 'text', color: 'black', text: 'The house of my dad' },
 			],
 		},
 		{
@@ -187,11 +187,11 @@ const prepositionOf: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Мой дом' },
+				{ type: 'text', color: 'black', text: 'Мой дом' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'The house of mine' },
+				{ type: 'text', color: 'black', text: 'The house of mine' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'My house' },
+				{ type: 'text', color: 'black', text: 'My house' },
 			],
 		},
 		{
@@ -199,11 +199,11 @@ const prepositionOf: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Дом моего отца' },
+				{ type: 'text', color: 'black', text: 'Дом моего отца' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'The house of my dad' },
+				{ type: 'text', color: 'black', text: 'The house of my dad' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'My dad’s house' },
+				{ type: 'text', color: 'black', text: 'My dad’s house' },
 			],
 		},
 		{
@@ -306,9 +306,9 @@ const prepositionOf: ArticleType.Art = {
 					offset: false,
 					textSize: 'big',
 					children: [
-						{ type: 'text', color: 'black', weight: 'normal', text: 'Julia’s picture' },
+						{ type: 'text', color: 'black', text: 'Julia’s picture' },
 
-						{ type: 'text', color: 'black', weight: 'normal', text: 'Фотография Юлии' },
+						{ type: 'text', color: 'black', text: 'Фотография Юлии' },
 					],
 				},
 			],
@@ -451,10 +451,10 @@ const prepositionOf: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Этот рейс — ' },
-				{ type: 'text', color: 'gold', weight: 'normal', text: 'один' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'из' },
+				{ type: 'text', color: 'black', text: 'Этот рейс — ' },
+				{ type: 'text', color: 'gold', text: 'один' },
+				{ type: 'text', color: 'black', text: ' ' },
+				{ type: 'text', color: 'blue', text: 'из' },
 				{
 					type: 'text',
 					color: 'black',
@@ -462,10 +462,10 @@ const prepositionOf: ArticleType.Art = {
 					text: ' трёх счастливчиков в этом месяце.',
 				},
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'This is ' },
-				{ type: 'text', color: 'gold', weight: 'normal', text: 'one' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'of' },
+				{ type: 'text', color: 'black', text: 'This is ' },
+				{ type: 'text', color: 'gold', text: 'one' },
+				{ type: 'text', color: 'black', text: ' ' },
+				{ type: 'text', color: 'blue', text: 'of' },
 				{
 					type: 'text',
 					color: 'black',
@@ -538,9 +538,9 @@ const prepositionOf: ArticleType.Art = {
 			offset: false,
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'some of' },
+				{ type: 'text', color: 'black', text: 'some of' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'некоторые из' },
+				{ type: 'text', color: 'black', text: 'некоторые из' },
 			],
 		},
 		{
@@ -548,9 +548,9 @@ const prepositionOf: ArticleType.Art = {
 			offset: false,
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'most of' },
+				{ type: 'text', color: 'black', text: 'most of' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'большая часть из' },
+				{ type: 'text', color: 'black', text: 'большая часть из' },
 			],
 		},
 		{
@@ -558,9 +558,9 @@ const prepositionOf: ArticleType.Art = {
 			offset: false,
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'all of' },
+				{ type: 'text', color: 'black', text: 'all of' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'все из' },
+				{ type: 'text', color: 'black', text: 'все из' },
 			],
 		},
 		{
@@ -568,10 +568,10 @@ const prepositionOf: ArticleType.Art = {
 			offset: true,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я прочитал 60 книг, и ' },
-				{ type: 'text', color: 'gold', weight: 'normal', text: 'все' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'из' },
+				{ type: 'text', color: 'black', text: 'Я прочитал 60 книг, и ' },
+				{ type: 'text', color: 'gold', text: 'все' },
+				{ type: 'text', color: 'black', text: ' ' },
+				{ type: 'text', color: 'blue', text: 'из' },
 				{
 					type: 'text',
 					color: 'black',
@@ -579,10 +579,10 @@ const prepositionOf: ArticleType.Art = {
 					text: ' них говорят одно и то же.',
 				},
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'I read 60 books, and ' },
-				{ type: 'text', color: 'gold', weight: 'normal', text: 'all' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'of' },
+				{ type: 'text', color: 'black', text: 'I read 60 books, and ' },
+				{ type: 'text', color: 'gold', text: 'all' },
+				{ type: 'text', color: 'black', text: ' ' },
+				{ type: 'text', color: 'blue', text: 'of' },
 				{
 					type: 'text',
 					color: 'black',
@@ -595,16 +595,16 @@ const prepositionOf: ArticleType.Art = {
 			type: 'paragraph',
 			offset: false,
 			textSize: 'small',
-			children: [{ type: 'text', color: 'gray', weight: 'normal', text: 'Все из этих книг.' }],
+			children: [{ type: 'text', color: 'gray', text: 'Все из этих книг.' }],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Они жили на основе ' },
-				{ type: 'text', color: 'gold', weight: 'normal', text: 'большую часть' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' года.' },
+				{ type: 'text', color: 'black', text: 'Они жили на основе ' },
+				{ type: 'text', color: 'gold', text: 'большую часть' },
+				{ type: 'text', color: 'black', text: ' года.' },
 
 				{
 					type: 'text',
@@ -612,10 +612,10 @@ const prepositionOf: ArticleType.Art = {
 					weight: 'normal',
 					text: 'They lived on another island ',
 				},
-				{ type: 'text', color: 'gold', weight: 'normal', text: 'most' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'of' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' the year.' },
+				{ type: 'text', color: 'gold', text: 'most' },
+				{ type: 'text', color: 'black', text: ' ' },
+				{ type: 'text', color: 'blue', text: 'of' },
+				{ type: 'text', color: 'black', text: ' the year.' },
 			],
 		},
 		{
@@ -653,9 +653,9 @@ const prepositionOf: ArticleType.Art = {
 					offset: false,
 					textSize: 'normal',
 					children: [
-						{ type: 'text', color: 'black', weight: 'normal', text: 'a lot of' },
+						{ type: 'text', color: 'black', text: 'a lot of' },
 
-						{ type: 'text', color: 'black', weight: 'normal', text: 'множество из' },
+						{ type: 'text', color: 'black', text: 'множество из' },
 					],
 				},
 				{
@@ -663,9 +663,9 @@ const prepositionOf: ArticleType.Art = {
 					offset: false,
 					textSize: 'normal',
 					children: [
-						{ type: 'text', color: 'black', weight: 'normal', text: 'many of' },
+						{ type: 'text', color: 'black', text: 'many of' },
 
-						{ type: 'text', color: 'black', weight: 'normal', text: 'множество из' },
+						{ type: 'text', color: 'black', text: 'множество из' },
 					],
 				},
 			],

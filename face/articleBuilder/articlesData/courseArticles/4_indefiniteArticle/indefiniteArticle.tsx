@@ -28,9 +28,9 @@ const indefiniteArticle: ArticleType.Art = {
 					weight: 'normal',
 					text: 'Существительное может быть ',
 				},
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'определённым' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' или ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'неопределённым' },
+				{ type: 'text', color: 'blue', text: 'определённым' },
+				{ type: 'text', color: 'black', text: ' или ' },
+				{ type: 'text', color: 'blue', text: 'неопределённым' },
 				{
 					type: 'text',
 					color: 'black',
@@ -43,7 +43,7 @@ const indefiniteArticle: ArticleType.Art = {
 			type: 'paragraph',
 			offset: false,
 			textSize: 'giant',
-			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'Купи, пожалуйста, мяч.' }],
+			children: [{ type: 'text', color: 'black', text: 'Купи, пожалуйста, мяч.' }],
 		},
 		{
 			type: 'paragraph',
@@ -63,9 +63,9 @@ const indefiniteArticle: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Купи, пожалуйста, ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'тот' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' мяч.' },
+				{ type: 'text', color: 'black', text: 'Купи, пожалуйста, ' },
+				{ type: 'text', color: 'blue', text: 'тот' },
+				{ type: 'text', color: 'black', text: ' мяч.' },
 			],
 		},
 		{
@@ -79,7 +79,7 @@ const indefiniteArticle: ArticleType.Art = {
 					weight: 'normal',
 					text: 'Англоговорящие явно указывают неопределённость или определённость существительного ставя перед ним ',
 				},
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'определитель' },
+				{ type: 'text', color: 'blue', text: 'определитель' },
 				{
 					type: 'text',
 					color: 'black',
@@ -96,7 +96,7 @@ const indefiniteArticle: ArticleType.Art = {
 			offset: false,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'Неопределённый артикль a' },
+				{ type: 'text', color: 'blue', text: 'Неопределённый артикль a' },
 				{
 					type: 'text',
 					color: 'black',
@@ -148,7 +148,7 @@ const indefiniteArticle: ArticleType.Art = {
 			offset: false,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'Определённый артикль the' },
+				{ type: 'text', color: 'blue', text: 'Определённый артикль the' },
 				{
 					type: 'text',
 					color: 'black',
@@ -164,7 +164,7 @@ const indefiniteArticle: ArticleType.Art = {
 			offset: false,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Это ' },
+				{ type: 'text', color: 'black', text: 'Это ' },
 				{
 					type: 'text',
 					color: 'blue',
@@ -186,8 +186,8 @@ const indefiniteArticle: ArticleType.Art = {
 			offset: false,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'И ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'указательные местоимения' },
+				{ type: 'text', color: 'black', text: 'И ' },
+				{ type: 'text', color: 'blue', text: 'указательные местоимения' },
 				{
 					type: 'text',
 					color: 'black',
@@ -234,7 +234,7 @@ const indefiniteArticle: ArticleType.Art = {
 			offset: true,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Вы уже ставили ' },
+				{ type: 'text', color: 'black', text: 'Вы уже ставили ' },
 				{ type: 'text', color: 'black', weight: 'bold', text: 'неопределённый артикль a' },
 				{
 					type: 'text',
@@ -251,8 +251,8 @@ const indefiniteArticle: ArticleType.Art = {
 			offset: false,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Неопределённый артикль ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'a' },
+				{ type: 'text', color: 'black', text: 'Неопределённый артикль ' },
+				{ type: 'text', color: 'blue', text: 'a' },
 				{
 					type: 'text',
 					color: 'black',
@@ -266,10 +266,10 @@ const indefiniteArticle: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'a' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' car' },
+				{ type: 'text', color: 'blue', text: 'a' },
+				{ type: 'text', color: 'black', text: ' car' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'машина' },
+				{ type: 'text', color: 'black', text: 'машина' },
 			],
 		},
 		{
@@ -290,10 +290,10 @@ const indefiniteArticle: ArticleType.Art = {
 			offset: true,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'a' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' carrot' },
+				{ type: 'text', color: 'blue', text: 'a' },
+				{ type: 'text', color: 'black', text: ' carrot' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'морковь' },
+				{ type: 'text', color: 'black', text: 'морковь' },
 			],
 		},
 		{
@@ -315,7 +315,7 @@ const indefiniteArticle: ArticleType.Art = {
 			offset: false,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'Артикль a' },
+				{ type: 'text', color: 'blue', text: 'Артикль a' },
 				{
 					type: 'text',
 					color: 'black',
@@ -336,9 +336,9 @@ const indefiniteArticle: ArticleType.Art = {
 					weight: 'normal',
 					text: 'Исчисляемое существительное — это существительное, обозначающее название лиц или предметов поддающихся счету: студент — ',
 				},
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'a student' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ', кактус — ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'a cactus' },
+				{ type: 'text', color: 'blue', text: 'a student' },
+				{ type: 'text', color: 'black', text: ', кактус — ' },
+				{ type: 'text', color: 'blue', text: 'a cactus' },
 				{
 					type: 'text',
 					color: 'black',
@@ -351,7 +351,7 @@ const indefiniteArticle: ArticleType.Art = {
 			type: 'paragraph',
 			offset: false,
 			textSize: 'giant',
-			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'Три знания' }],
+			children: [{ type: 'text', color: 'black', text: 'Три знания' }],
 		},
 		{
 			type: 'paragraph',
@@ -370,7 +370,7 @@ const indefiniteArticle: ArticleType.Art = {
 			type: 'paragraph',
 			offset: true,
 			textSize: 'giant',
-			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'Два стакана воды' }],
+			children: [{ type: 'text', color: 'black', text: 'Два стакана воды' }],
 		},
 		{
 			type: 'paragraph',
@@ -400,7 +400,7 @@ const indefiniteArticle: ArticleType.Art = {
 							weight: 'normal',
 							text: 'Это правило снова отсылает к изначальному значению артикля ',
 						},
-						{ type: 'text', color: 'blue', weight: 'normal', text: 'a' },
+						{ type: 'text', color: 'blue', text: 'a' },
 						{
 							type: 'text',
 							color: 'black',
@@ -431,7 +431,7 @@ const indefiniteArticle: ArticleType.Art = {
 									weight: 'normal',
 									text: 'Перед неопределёнными исчисляемыми существительными в единственном числе артикль ',
 								},
-								{ type: 'text', color: 'blue', weight: 'normal', text: 'a' },
+								{ type: 'text', color: 'blue', text: 'a' },
 								{
 									type: 'text',
 									color: 'black',
@@ -1024,9 +1024,9 @@ const indefiniteArticle: ArticleType.Art = {
 					text: 'Это чай. Это стакан чая.',
 				},
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'It is tea. It is ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'a' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' tea.' },
+				{ type: 'text', color: 'black', text: 'It is tea. It is ' },
+				{ type: 'text', color: 'blue', text: 'a' },
+				{ type: 'text', color: 'black', text: ' tea.' },
 			],
 		},
 		{
@@ -1060,11 +1060,11 @@ const indefiniteArticle: ArticleType.Art = {
 			offset: false,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Это бумага. Это газета.' },
+				{ type: 'text', color: 'black', text: 'Это бумага. Это газета.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'It is paper. It is ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'a' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' paper.' },
+				{ type: 'text', color: 'black', text: 'It is paper. It is ' },
+				{ type: 'text', color: 'blue', text: 'a' },
+				{ type: 'text', color: 'black', text: ' paper.' },
 			],
 		},
 		{
@@ -1084,7 +1084,7 @@ const indefiniteArticle: ArticleType.Art = {
 			type: 'paragraph',
 			offset: true,
 			textSize: 'normal',
-			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'Ещё примеры:' }],
+			children: [{ type: 'text', color: 'black', text: 'Ещё примеры:' }],
 		},
 		{
 			type: 'grid',
@@ -1098,9 +1098,9 @@ const indefiniteArticle: ArticleType.Art = {
 							offset: false,
 							textSize: 'big',
 							children: [
-								{ type: 'text', color: 'black', weight: 'normal', text: 'wood' },
+								{ type: 'text', color: 'black', text: 'wood' },
 
-								{ type: 'text', color: 'black', weight: 'normal', text: 'лес' },
+								{ type: 'text', color: 'black', text: 'лес' },
 							],
 						},
 						{
@@ -1108,9 +1108,9 @@ const indefiniteArticle: ArticleType.Art = {
 							offset: false,
 							textSize: 'big',
 							children: [
-								{ type: 'text', color: 'black', weight: 'normal', text: 'iron' },
+								{ type: 'text', color: 'black', text: 'iron' },
 
-								{ type: 'text', color: 'black', weight: 'normal', text: 'железо' },
+								{ type: 'text', color: 'black', text: 'железо' },
 							],
 						},
 						{
