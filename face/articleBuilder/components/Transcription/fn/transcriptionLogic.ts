@@ -10,11 +10,10 @@ export function getComponentTexts(transcriptionData: ITranscription) {
 }
 
 export function useGetAudioPlaying(recordKey: string) {
-	const audioRef = useRef(new Audio())
+	const audioRef = useRef<HTMLAudioElement>(null)
 
 	useEffect(() => {
-		// @ts-ignore
-		if (!transcriptionService.getTranscriptionByKey(recordKey).audio) {
+		if (!transcriptionService.getTranscriptionByKey(recordKey as any).audio) {
 			return
 		}
 
@@ -27,6 +26,8 @@ export function useGetAudioPlaying(recordKey: string) {
 
 	const playPauseHandler = useCallback(
 		async function () {
+			if (!audioRef.current) return
+
 			setIsPlay(!isPlay)
 
 			if (isPlay) {
@@ -38,19 +39,26 @@ export function useGetAudioPlaying(recordKey: string) {
 		[isPlay],
 	)
 
-	useEffect(function () {
-		audioRef.current.addEventListener('timeupdate', () => {
-			const { currentTime, duration } = audioRef.current
+	useEffect(
+		function () {
+			if (!audioRef.current) return
 
-			const progress = Math.round((currentTime / duration) * 100)
-			setProgress(progress)
+			audioRef.current.addEventListener('timeupdate', () => {
+				if (!audioRef.current) return
 
-			if (currentTime / duration === 1) {
-				audioRef.current.currentTime = 0
-				setIsPlay(false)
-			}
-		})
-	}, [])
+				const { currentTime, duration } = audioRef.current
+
+				const progress = Math.round((currentTime / duration) * 100)
+				setProgress(progress)
+
+				if (currentTime / duration === 1) {
+					audioRef.current.currentTime = 0
+					setIsPlay(false)
+				}
+			})
+		},
+		[audioRef.current],
+	)
 
 	return {
 		isPlay,
