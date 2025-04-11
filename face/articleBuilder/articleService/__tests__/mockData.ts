@@ -9,7 +9,7 @@
 			slug: 'welcome',
 			articleName: 'Welcome',
 			articleDescription: 'Добро пожаловать на курс',
-			isPaid: false,
+
 		},
 	},
 	{
@@ -21,7 +21,7 @@
 			slug: 'level',
 			articleName: 'Уровень A1',
 			articleDescription: 'Добро пожаловать на курс',
-			isPaid: false,
+
 		},
 	},
 	{
@@ -32,7 +32,7 @@
 			slug: 'my-art-1',
 			articleName: 'Имя статьи 1',
 			articleDescription: 'Описание статьи 1',
-			isPaid: false,
+
 		},
 		content: [
 			{
@@ -48,7 +48,6 @@
 			},
 			{
 				type: 'exercises',
-				id: 0,
 				exercises: [
 					{
 						rusSentence: 'Это книга.',
@@ -131,7 +130,7 @@
 			slug: 'media',
 			articleName: 'Media',
 			articleDescription: 'Фильмы',
-			isPaid: false,
+
 		},
 	},
 	{
@@ -142,7 +141,7 @@
 			slug: 'my-art-2',
 			articleName: 'Имя статьи 2',
 			articleDescription: 'Описание статьи 2',
-			isPaid: false,
+
 		},
 		content: [],
 	},
@@ -155,7 +154,7 @@
 			slug: 'level',
 			articleName: 'Уровень A1',
 			articleDescription: 'Добро пожаловать на курс',
-			isPaid: false,
+
 		},
 	},
 	{
@@ -166,7 +165,7 @@
 			slug: 'my-art-3',
 			articleName: 'Имя статьи 3',
 			articleDescription: 'Описание статьи 3',
-			isPaid: false,
+
 		},
 		content: [],
 	},

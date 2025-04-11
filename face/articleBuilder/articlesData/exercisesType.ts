@@ -3,7 +3,8 @@ import ArticleType from './articleType'
 namespace ExercisesType {
 	export type ExercisesObj = {
 		type: 'exercises'
-		id: number
+		// Do I need it?
+		// id: number
 		exercises: Exercise[]
 		// Должен ли быть отступ от верхнего элемента
 		offset?: boolean

@@ -18,7 +18,7 @@
 				slug: 'personal-pronouns',
 				articleName: 'Личные местоимения',
 				articleDescription: 'Личные местоимения в английском языке.',
-				isPaid: false,
+
 			},
 			content: [],
 		}
@@ -43,7 +43,7 @@
 				slug: 'personal-pronouns',
 				articleName: 'Личные местоимения',
 				articleDescription: 'Личные местоимения в английском языке.',
-				isPaid: false,
+
 			},
 			content: [],
 		}

@@ -4,7 +4,7 @@ import ArticleType from '../articlesData/articleType'
 // import Grid from '../components/Grid/Grid'
 import Header from '../components/Header/Header'
 // import List from '../components/List/List'
-// import Note from '../components/Note/Note'
+import Note from '../components/Note/Note'
 import Paragraph from '../components/Paragraph/Paragraph'
 import './collocations.scss'
 import RusToEng from '../components/RusToEng/RusToEng'
@@ -29,6 +29,8 @@ function ArticleBuilder(props: ArticleBuilderProps): ReactNode {
 					return <RusToEng config={compConf} key={i} />
 				} else if (compConf.type === 'exercises') {
 					return <Exercises exercisesObj={compConf} key={i} />
+				} else if (compConf.type === 'note') {
+					return <Note config={compConf} key={i} />
 				}
 			})}
 		</>
@@ -39,8 +41,6 @@ function ArticleBuilder(props: ArticleBuilderProps): ReactNode {
 			{content.map((compConf, i) => {
 				else if (compConf.type === 'list') {
 					return <List config={compConf} key={i} />
-				} else if (compConf.type === 'note') {
-					return <Note config={compConf} key={i} />
 				} else if (compConf.type === 'customComponent') {
 					return compConf.component
 				} else if (compConf.type === 'faq') {

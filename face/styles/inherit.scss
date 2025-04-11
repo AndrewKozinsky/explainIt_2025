@@ -107,7 +107,7 @@
 }
 
 // Стиль обёртки заметки или обёртки блока с текстами тренировки упражнений
-/*@mixin content-wrapper() {
+@mixin content-wrapper() {
 	padding: 1.2rem 1.4rem;
 	border-radius: $radius-2;
 
@@ -118,5 +118,5 @@
 	@include container-width($monitor-width) {
 		padding: 1.2rem 2rem;
 	}
-}*/
+}
 

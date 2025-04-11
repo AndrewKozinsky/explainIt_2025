@@ -16,7 +16,7 @@
 				slug: 'personal-pronouns',
 				articleName: 'Личные местоимения',
 				articleDescription: 'Личные местоимения в английском языке.',
-				isPaid: false,
+
 			},
 			content: [],
 		}
@@ -43,7 +43,7 @@
 				slug: 'level',
 				articleName: 'Уровень A1',
 				articleDescription: 'Добро пожаловать на курс',
-				isPaid: false,
+
 			},
 		}
 

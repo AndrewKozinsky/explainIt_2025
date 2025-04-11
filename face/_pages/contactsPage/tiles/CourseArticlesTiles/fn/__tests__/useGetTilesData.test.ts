@@ -13,7 +13,7 @@
 			slug: 'welcome',
 			articleName: 'Welcome',
 			articleDescription: 'Добро пожаловать на курс',
-			isPaid: false,
+
 		},
 	},
 	{
@@ -25,7 +25,7 @@
 			slug: 'level',
 			articleName: 'Уровень A1',
 			articleDescription: 'Добро пожаловать на курс',
-			isPaid: false,
+
 		},
 	},
 	{
@@ -35,7 +35,7 @@
 			slug: 'article',
 			articleName: 'Имя статьи 1',
 			articleDescription: 'Описание статьи 1',
-			isPaid: false,
+
 		},
 		content: [],
 	},
@@ -47,7 +47,7 @@
 			slug: 'media',
 			articleName: 'Media',
 			articleDescription: 'Фильмы',
-			isPaid: false,
+
 		},
 	},
 ]*/

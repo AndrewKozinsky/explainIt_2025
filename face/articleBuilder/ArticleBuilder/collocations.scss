@@ -86,9 +86,9 @@
 	margin-top: 2.2rem;
 }*/
 
-/*.art-note + .art-paragraph {
+.art-note + .art-paragraph {
 	margin-top: 1.6rem;
-}*/
+}
 /*.art-note + .art-grid {
 	margin-top: 1.6rem;
 }*/
@@ -188,13 +188,19 @@
 .art-rus-to-eng + .art-rus-to-eng {
 	margin-top: 0.2rem;
 }
-
 .art-rus-to-eng + .art-rus-to-eng--offset {
 	margin-top: 1rem;
 }
-
 .art-rus-to-eng + .art-paragraph--offset {
 	margin-top: 1rem;
+}
+.art-rus-to-eng + .art-note {
+	margin-top: 1.8rem;
+}
+
+// УПРАЖНЕНИЯ
+.exercises + .art-paragraph--offset {
+	margin-top: 2rem;
 }
 
 // СПИСОК (ОТСТУП НЕ УКАЗЫВАЕТСЯ) =====

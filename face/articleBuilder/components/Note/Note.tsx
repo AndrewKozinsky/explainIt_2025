@@ -1,14 +1,14 @@
-// import cn from 'classnames'
-// import ArticleType from '../../../articlesData/articleType'
-// import ArticleBuilder from '../../ArticleBuilder/ArticleBuilder'
-// import './Note.scss'
+import cn from 'classnames'
+import ArticleType from '../../articlesData/articleType'
+import ArticleBuilder from '../../ArticleBuilder/ArticleBuilder'
+import './Note.scss'
 
-/*type NoteProps = {
+type NoteProps = {
 	config: ArticleType.Note
-}*/
+}
 
 /** Серая или оранжевая обёртка для вложенных элементов статьи */
-/*function Note(props: NoteProps) {
+function Note(props: NoteProps) {
 	const { config } = props
 
 	const classes = ['art-note', 'art-note--' + (config.noteStyle || 'gray')]
@@ -18,6 +18,6 @@
 			<ArticleBuilder articleContent={config.children} />
 		</section>
 	)
-}*/
+}
 
-// export default Note
+export default Note

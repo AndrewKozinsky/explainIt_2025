@@ -20,7 +20,7 @@
 				slug: 'personal-pronouns',
 				articleName: 'Art article name',
 				articleDescription: 'Art description',
-				isPaid: false,
+
 			},
 			content: [],
 		}
@@ -34,7 +34,7 @@
 				slug: 'level',
 				articleName: 'Level article name',
 				articleDescription: 'Добро пожаловать на курс',
-				isPaid: false,
+
 			},
 		}
 
