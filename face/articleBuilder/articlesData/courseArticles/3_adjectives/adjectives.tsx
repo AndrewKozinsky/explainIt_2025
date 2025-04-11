@@ -702,7 +702,7 @@ const adjectives: ArticleType.Art = {
 					engSentences: [
 						{ engSentences: ['We are often busy.'], isCorrect: true },
 						{
-							engSentences: ['We often buzy.'],
+							engSentences: ['We often busy.'],
 							isCorrect: false,
 							analysis: [
 								{

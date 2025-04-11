@@ -110,6 +110,10 @@
     margin-top: 1rem;
 }
 
+.art-paragraph + .exercises {
+    margin-top: 2rem;
+}
+
 /*.art-paragraph + .art-header--h4 {
 	margin-top: 1rem;
 }*/
@@ -196,11 +200,6 @@
 // СПИСОК (ОТСТУП НЕ УКАЗЫВАЕТСЯ) =====
 /*.art-list + .art-paragraph {
 	margin-top: 1.2rem;
-}*/
-
-// КНОПКА ОТКРЫТИЯ УПРАЖНЕНИЙ (С ОТСТУПОМ)
-/*.exercises + .exercises {
-
 }*/
 
 // ВОПРОСЫ И ОТВЕТЫ (ОТСТУП НЕ УКАЗЫВАЕТСЯ)

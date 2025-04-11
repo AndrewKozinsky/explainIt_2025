@@ -1,0 +1,13 @@
+@import "@/styles/variables";
+
+.exercises {
+	padding: 1.6rem 2.8rem;
+	border-radius: $radius-2;
+	border: 2px solid $textColor;
+}
+
+.exercises__content {
+	display: flex;
+	gap: 2rem;
+	margin-top: 2rem;
+}

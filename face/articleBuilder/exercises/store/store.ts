@@ -8,8 +8,6 @@
 
 /*export const useExercisesModalStore = create<ExercisesModalStoreType.State>((set) => {
 	return {
-		isModalOpen: false,
-		exercisesId: null,
 		store: null as any,
 	}
 })*/

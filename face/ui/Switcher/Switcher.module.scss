@@ -1,8 +1,8 @@
-//@import 'styles/variables';
-//@import 'styles/mixins';
-//@import 'styles/inherit';
+@import '@/styles/variables';
+@import '@/styles/mixins';
+@import '@/styles/inherit';
 
-/*.wrapper {
+.wrapper {
 	display: flex;
 
 	&--horizontal {
@@ -18,9 +18,9 @@
 			box-sizing: border-box;
 		}
 	}
-}*/
+}
 
-/*.button {
+.button {
 	color: $grayColor-4;
 	cursor: pointer;
 	padding: .4rem 1rem;
@@ -43,7 +43,7 @@
 			border-color: $grayColor-3;
 		}
 	}
-}*/
+}
 
 
 

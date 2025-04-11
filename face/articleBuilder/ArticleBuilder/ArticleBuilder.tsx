@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react'
 import ArticleType from '../articlesData/articleType'
-// import ExercisesButton from '../components/Exercises/ExercisesButton'
 // import FaqInArticle from '../components/FaqInArticle/FaqInArticle'
 // import Grid from '../components/Grid/Grid'
 import Header from '../components/Header/Header'
@@ -9,6 +8,7 @@ import Header from '../components/Header/Header'
 import Paragraph from '../components/Paragraph/Paragraph'
 import './collocations.scss'
 import RusToEng from '../components/RusToEng/RusToEng'
+import { Exercises } from '../exercises/components/Exercises/Exercises'
 
 type ArticleBuilderProps = {
 	articleContent: ArticleType.Content
@@ -27,6 +27,8 @@ function ArticleBuilder(props: ArticleBuilderProps): ReactNode {
 					return <Paragraph config={compConf} key={i} />
 				} else if (compConf.type === 'rusToEng') {
 					return <RusToEng config={compConf} key={i} />
+				} else if (compConf.type === 'exercises') {
+					return <Exercises exercisesObj={compConf} key={i} />
 				}
 			})}
 		</>
@@ -39,8 +41,6 @@ function ArticleBuilder(props: ArticleBuilderProps): ReactNode {
 					return <List config={compConf} key={i} />
 				} else if (compConf.type === 'note') {
 					return <Note config={compConf} key={i} />
-				} else if (compConf.type === 'exercises') {
-					return <ExercisesButton exercises={compConf} key={i} />
 				} else if (compConf.type === 'customComponent') {
 					return compConf.component
 				} else if (compConf.type === 'faq') {

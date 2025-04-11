@@ -82,9 +82,191 @@ const presentSimple: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'Теперь попробуйте самостоятельно перевести несколько предложений:',
+					text: 'Попробуйте самостоятельно перевести несколько предложений:',
 				},
 			],
+		},
+		{
+			type: 'exercises',
+			id: 0,
+			exercises: [
+				{
+					rusSentence: 'Мы счастливые.',
+					engSentences: [
+						{ engSentences: ['We are happy.'], isCorrect: true },
+						{
+							engSentences: ['We happy.'],
+							isCorrect: false,
+							analysis: [
+								{
+									type: 'paragraph',
+									offset: false,
+									textSize: 'normal',
+									children: [
+										{
+											type: 'text',
+											color: 'black',
+											weight: 'normal',
+											text: 'Пропущен глагол to be в форме настоящего времени второго лица: are. Такое предложение является грамматически неправильным.',
+										},
+									],
+								},
+							],
+						},
+						{
+							engSentences: ['She is happy.'],
+							isCorrect: false,
+							analysis: [
+								{
+									type: 'paragraph',
+									offset: false,
+									textSize: 'normal',
+									children: [
+										{
+											type: 'text',
+											color: 'black',
+											weight: 'normal',
+											text: 'They переводится как «они». Мы — это we. А в остальном правильно: после местоимений во втором лице ставится глагол to be в форме are.',
+										},
+									],
+								},
+							],
+						},
+					],
+					words: [{ rusWord: 'счастливый', engWord: 'happy' }],
+				},
+				{
+					rusSentence: 'Кате двадцать лет.',
+					engSentences: [
+						{
+							engSentences: ['Katya is twenty years old.', 'Katya is 20 years old.'],
+							isCorrect: true,
+							analysis: [
+								{
+									type: 'paragraph',
+									offset: false,
+									textSize: 'normal',
+									children: [
+										{
+											type: 'text',
+											color: 'black',
+											weight: 'normal',
+											text: 'Правильно! Вариант ',
+										},
+										{
+											type: 'text',
+											color: 'blue',
+											weight: 'normal',
+											text: 'Katya is twenty',
+										},
+										{
+											type: 'text',
+											color: 'black',
+											weight: 'normal',
+											text: ' тоже верен.',
+										},
+									],
+								},
+							],
+						},
+						{
+							engSentences: ['Katya is twenty.'],
+							isCorrect: true,
+							analysis: [
+								{
+									type: 'paragraph',
+									offset: false,
+									textSize: 'normal',
+									children: [
+										{
+											type: 'text',
+											color: 'black',
+											weight: 'normal',
+											text: 'Правильно! Вариант ',
+										},
+										{
+											type: 'text',
+											color: 'blue',
+											weight: 'normal',
+											text: 'Katya is twenty years old',
+										},
+										{
+											type: 'text',
+											color: 'black',
+											weight: 'normal',
+											text: ' тоже верен.',
+										},
+									],
+								},
+							],
+						},
+						{
+							engSentences: ['Katya is 20.'],
+							isCorrect: true,
+							analysis: [
+								{
+									type: 'paragraph',
+									offset: false,
+									textSize: 'normal',
+									children: [
+										{
+											type: 'text',
+											color: 'black',
+											weight: 'normal',
+											text: 'Правильно! Это сокращённый вариант перевода Katya is 20 years old.',
+										},
+									],
+								},
+							],
+						},
+						{
+							engSentences: ['Katya twenty.'],
+							isCorrect: false,
+							analysis: [
+								{
+									type: 'paragraph',
+									offset: false,
+									textSize: 'normal',
+									children: [
+										{
+											type: 'text',
+											color: 'black',
+											weight: 'normal',
+											text: 'Двадцать лет — это свойство персонажа. Поэтому ставится ',
+										},
+										{
+											type: 'text',
+											color: 'blue',
+											weight: 'normal',
+											text: 'to be',
+										},
+										{
+											type: 'text',
+											color: 'black',
+											weight: 'normal',
+											text: '. Кроме того в русском предложении нет глагола. А это признак того, что в английском нужно ставить ',
+										},
+										{
+											type: 'text',
+											color: 'blue',
+											weight: 'normal',
+											text: 'to be',
+										},
+										{
+											type: 'text',
+											color: 'black',
+											weight: 'normal',
+											text: '.',
+										},
+									],
+								},
+							],
+						},
+					],
+					words: [{ rusWord: 'двадцать лет', engWord: 'twenty years old' }],
+				},
+			],
+			offset: true,
 		},
 	],
 }
