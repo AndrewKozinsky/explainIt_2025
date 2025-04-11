@@ -1,7 +1,7 @@
-//@import '@/styles/variables';
-//@import '@/styles/mixins';
+@import '@/styles/variables';
+@import '@/styles/mixins';
 
-/*.button {
+.button {
 	color: darken($grayColor-4, 20%);
 	background-color: white;
 	cursor: pointer;
@@ -13,4 +13,4 @@
 		background-color: desaturate($grayColor-1, 100%);
 		border-color: $grayColor-3;
 	}
-}*/
+}

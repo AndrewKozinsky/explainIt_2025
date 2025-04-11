@@ -1,6 +1,6 @@
 import ArticleType from '../articlesData/articleType'
 import articles from '../articlesData/courseArticles/articlesData'
-// import ExercisesType from '../articlesData/exercisesType'
+import ExercisesType from '../articlesData/exercisesType'
 // import { PageUrls } from '../сonsts/pageUrls'
 // import ArtType = ArticleType.ArtType
 
@@ -79,7 +79,7 @@ export class ArticleService {
 		return this.prepareArticleWords(wordBlocks)
 	}*/
 
-	/*prepareArticleWords(wordBlocks?: ExercisesType.Word[]) {
+	prepareArticleWords(wordBlocks?: ExercisesType.Word[]) {
 		if (!wordBlocks) return []
 
 		const newWordBlocks: ExercisesType.Word[] = []
@@ -98,10 +98,7 @@ export class ArticleService {
 		newWordBlocks.forEach((currentWord) => {
 			// Найти текущий блок слов в уже очищенном массиве
 			const searchWordInClearedWords = clearedWords.find((clearedWord) => {
-				return (
-					currentWord.rusWord == clearedWord.rusWord &&
-					currentWord.engWord == clearedWord.engWord
-				)
+				return currentWord.rusWord == clearedWord.rusWord && currentWord.engWord == clearedWord.engWord
 			})
 
 			// Если не найден, то поставить
@@ -111,13 +108,13 @@ export class ArticleService {
 		})
 
 		return clearedWords
-	}*/
+	}
 
 	/**
 	 * Получает английское слово и возвращает его транскрипцию (если есть)
 	 * @param engWord
 	 */
-	/*getEnglishWordTranscription(engWord: string) {
+	getEnglishWordTranscription(engWord: string) {
 		const wordTranscriptions = {
 			book: 'bʊk',
 			magazine: 'mæɡəˈziːn',
@@ -260,7 +257,7 @@ export class ArticleService {
 
 		// @ts-ignore
 		return wordTranscriptions[engWord]
-	}*/
+	}
 }
 
 const articleService = new ArticleService(articles)

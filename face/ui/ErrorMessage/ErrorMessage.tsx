@@ -1,20 +1,20 @@
-// import React from 'react'
-// import { ErrorIcon } from '../icons/ErrorIcon/ErrorIcon'
-// import './ErrorMessage.scss'
+import React from 'react'
+import { ErrorIcon } from '../icons/ErrorIcon/ErrorIcon'
+import './ErrorMessage.scss'
 
-/*type LoadingMessageProps = {
+type LoadingMessageProps = {
 	text: string
-}*/
+}
 
-/*function ErrorMessage(props: LoadingMessageProps) {
+function ErrorMessage(props: LoadingMessageProps) {
 	const { text } = props
 
 	return (
-		<div className="error-message">
+		<div className='error-message'>
 			<ErrorIcon />
 			{text}
 		</div>
 	)
-}*/
+}
 
-// export default ErrorMessage
+export default ErrorMessage

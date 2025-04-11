@@ -39,6 +39,12 @@ const presentSimple: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
+			rus: [{ type: 'text', text: 'Ты ешь вишню.' }],
+			eng: [{ type: 'text', text: 'You eat cherry.' }],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
 			rus: [{ type: 'text', text: 'Мы любим зиму.' }],
 			eng: [{ type: 'text', text: 'We love winter.' }],
 		},
@@ -67,6 +73,12 @@ const presentSimple: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
+			rus: [{ type: 'text', text: 'Ты читаешь книги.' }],
+			eng: [{ type: 'text', text: 'You read books.' }],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
 			rus: [{ type: 'text', text: 'Мы работаем полный рабочий день.' }],
 			eng: [{ type: 'text', text: 'We work full-time.' }],
 		},
@@ -91,10 +103,12 @@ const presentSimple: ArticleType.Art = {
 			id: 0,
 			exercises: [
 				{
-					rusSentence: 'Мы счастливые.',
+					rusSentence: 'Они обожают зелёный чай.',
 					engSentences: [
-						{ engSentences: ['We are happy.'], isCorrect: true },
-						{
+						{ engSentences: ['They love green tea.'], isCorrect: true },
+						{ engSentences: ['They adore green tea.'], isCorrect: true },
+						{ engSentences: ['They really like green tea.'], isCorrect: true },
+						/*{
 							engSentences: ['We happy.'],
 							isCorrect: false,
 							analysis: [
@@ -112,7 +126,7 @@ const presentSimple: ArticleType.Art = {
 									],
 								},
 							],
-						},
+						},*/
 						{
 							engSentences: ['She is happy.'],
 							isCorrect: false,
@@ -133,137 +147,304 @@ const presentSimple: ArticleType.Art = {
 							],
 						},
 					],
-					words: [{ rusWord: 'счастливый', engWord: 'happy' }],
+					words: [{ rusWord: 'обожать', engWord: 'adore' }],
 				},
 				{
-					rusSentence: 'Кате двадцать лет.',
+					rusSentence: 'Я путешествую каждое лето.',
 					engSentences: [
 						{
-							engSentences: ['Katya is twenty years old.', 'Katya is 20 years old.'],
+							engSentences: ['I travel every summer.'],
 							isCorrect: true,
-							analysis: [
-								{
-									type: 'paragraph',
-									offset: false,
-									textSize: 'normal',
-									children: [
-										{
-											type: 'text',
-											color: 'black',
-											weight: 'normal',
-											text: 'Правильно! Вариант ',
-										},
-										{
-											type: 'text',
-											color: 'blue',
-											weight: 'normal',
-											text: 'Katya is twenty',
-										},
-										{
-											type: 'text',
-											color: 'black',
-											weight: 'normal',
-											text: ' тоже верен.',
-										},
-									],
-								},
-							],
-						},
-						{
-							engSentences: ['Katya is twenty.'],
-							isCorrect: true,
-							analysis: [
-								{
-									type: 'paragraph',
-									offset: false,
-									textSize: 'normal',
-									children: [
-										{
-											type: 'text',
-											color: 'black',
-											weight: 'normal',
-											text: 'Правильно! Вариант ',
-										},
-										{
-											type: 'text',
-											color: 'blue',
-											weight: 'normal',
-											text: 'Katya is twenty years old',
-										},
-										{
-											type: 'text',
-											color: 'black',
-											weight: 'normal',
-											text: ' тоже верен.',
-										},
-									],
-								},
-							],
-						},
-						{
-							engSentences: ['Katya is 20.'],
-							isCorrect: true,
-							analysis: [
-								{
-									type: 'paragraph',
-									offset: false,
-									textSize: 'normal',
-									children: [
-										{
-											type: 'text',
-											color: 'black',
-											weight: 'normal',
-											text: 'Правильно! Это сокращённый вариант перевода Katya is 20 years old.',
-										},
-									],
-								},
-							],
-						},
-						{
-							engSentences: ['Katya twenty.'],
-							isCorrect: false,
-							analysis: [
-								{
-									type: 'paragraph',
-									offset: false,
-									textSize: 'normal',
-									children: [
-										{
-											type: 'text',
-											color: 'black',
-											weight: 'normal',
-											text: 'Двадцать лет — это свойство персонажа. Поэтому ставится ',
-										},
-										{
-											type: 'text',
-											color: 'blue',
-											weight: 'normal',
-											text: 'to be',
-										},
-										{
-											type: 'text',
-											color: 'black',
-											weight: 'normal',
-											text: '. Кроме того в русском предложении нет глагола. А это признак того, что в английском нужно ставить ',
-										},
-										{
-											type: 'text',
-											color: 'blue',
-											weight: 'normal',
-											text: 'to be',
-										},
-										{
-											type: 'text',
-											color: 'black',
-											weight: 'normal',
-											text: '.',
-										},
-									],
-								},
-							],
 						},
 					],
-					words: [{ rusWord: 'двадцать лет', engWord: 'twenty years old' }],
+					words: [
+						{ rusWord: 'путешествовать', engWord: 'travel' },
+						{ rusWord: 'каждый', engWord: 'every' },
+						{ rusWord: 'лето', engWord: 'summer' },
+					],
+				},
+				{
+					rusSentence: 'Ты обычно выигрываешь.',
+					engSentences: [
+						{
+							engSentences: ['You usually win.'],
+							isCorrect: true,
+						},
+					],
+					words: [
+						{ rusWord: 'путешествовать', engWord: 'travel' },
+						{ rusWord: 'каждый', engWord: 'every' },
+						{ rusWord: 'лето', engWord: 'summer' },
+					],
+				},
+				{
+					rusSentence: 'Я часто готовлю.',
+					engSentences: [
+						{
+							engSentences: ['I often cook.'],
+							isCorrect: true,
+						},
+					],
+					words: [
+						{ rusWord: 'часто', engWord: 'often' },
+						{ rusWord: 'готовить', engWord: 'cook' },
+					],
+				},
+				{
+					rusSentence: 'Они читают медицинские журналы.',
+					engSentences: [
+						{
+							engSentences: ['They read medical journals.'],
+							isCorrect: true,
+						},
+					],
+					words: [
+						{ rusWord: 'читать', engWord: 'read' },
+						{ rusWord: 'медицинский', engWord: 'medical' },
+						{ rusWord: 'журналы', engWord: 'journals' },
+					],
+				},
+				{
+					rusSentence: 'Я работаю.',
+					engSentences: [
+						{
+							engSentences: ['I work.'],
+							isCorrect: true,
+						},
+					],
+					words: [{ rusWord: 'работать', engWord: 'work' }],
+				},
+				{
+					rusSentence: 'Они всегда играют вместе.',
+					engSentences: [
+						{
+							engSentences: ['They always play together.'],
+							isCorrect: true,
+						},
+					],
+					words: [
+						{ rusWord: 'всегда', engWord: 'always' },
+						{ rusWord: 'играть', engWord: 'play' },
+						{ rusWord: 'together', engWord: 'вместе' },
+					],
+				},
+				{
+					rusSentence: 'Мы едим свежие овощи каждый день.',
+					engSentences: [
+						{
+							engSentences: ['We eat fresh vegetables every day.'],
+							isCorrect: true,
+						},
+						{
+							engSentences: ['We have fresh veggies every day.'],
+							isCorrect: true,
+						},
+						{
+							engSentences: ['We eat fresh greens daily.'],
+							isCorrect: true,
+						},
+					],
+					words: [
+						{ rusWord: 'есть', engWord: 'eat' },
+						{ rusWord: 'свежий', engWord: 'fresh' },
+						{ rusWord: 'овощи', engWord: 'vegetables' },
+						{ rusWord: 'день', engWord: 'day' },
+					],
+				},
+				{
+					rusSentence: 'Ты обманываешь каждого человека.',
+					engSentences: [
+						{
+							engSentences: ['You deceive every person.'],
+							isCorrect: true,
+						},
+						{
+							engSentences: ['You trick everyone.'],
+							isCorrect: true,
+						},
+						{
+							engSentences: ['You fool every person.'],
+							isCorrect: true,
+						},
+					],
+					words: [
+						{ rusWord: 'есть', engWord: 'eat' },
+						{ rusWord: 'свежий', engWord: 'fresh' },
+						{ rusWord: 'овощи', engWord: 'vegetables' },
+						{ rusWord: 'день', engWord: 'day' },
+					],
+				},
+				{
+					rusSentence: 'Они редко пекут пиццу.',
+					engSentences: [
+						{
+							engSentences: ['They rarely bake pizza.'],
+							isCorrect: true,
+						},
+						{
+							engSentences: ['They seldom make pizza.'],
+							isCorrect: true,
+						},
+					],
+					words: [
+						{ rusWord: 'редко', engWord: 'rarely' },
+						{ rusWord: 'редко', engWord: 'seldom' },
+						{ rusWord: 'печь', engWord: 'bake' },
+						{ rusWord: 'pizza', engWord: 'pizza' },
+					],
+				},
+				{
+					rusSentence: 'Я проверяю Твиттер каждые 10 минут.',
+					engSentences: [
+						{
+							engSentences: ['I check Twitter every 10 minutes.'],
+							isCorrect: true,
+						},
+						{
+							engSentences: ['I’m on Twitter every 10 minutes.'],
+							isCorrect: true,
+						},
+					],
+					words: [
+						{ rusWord: 'проверять', engWord: 'check' },
+						{ rusWord: 'каждый', engWord: 'every' },
+						{ rusWord: 'минуты', engWord: 'minutes' },
+					],
+				},
+				{
+					rusSentence: 'Я практикую иностранные языки.',
+					engSentences: [
+						{
+							engSentences: ['I practice foreign languages.'],
+							isCorrect: true,
+						},
+					],
+					words: [
+						{ rusWord: 'практиковать', engWord: 'practice' },
+						{ rusWord: 'иностранный', engWord: 'foreign' },
+						{ rusWord: 'языки', engWord: 'languages' },
+					],
+				},
+				{
+					rusSentence: 'Ты говоришь по-английски очень хорошо.',
+					engSentences: [
+						{
+							engSentences: ['You speak English very well.'],
+							isCorrect: true,
+						},
+					],
+					words: [
+						{ rusWord: 'практиковать', engWord: 'practice' },
+						{ rusWord: 'иностранный', engWord: 'foreign' },
+						{ rusWord: 'языки', engWord: 'languages' },
+					],
+				},
+				{
+					rusSentence: 'Мы покупаем только необходимые вещи.',
+					engSentences: [
+						{
+							engSentences: ['I practice foreign languages.'],
+							isCorrect: true,
+						},
+					],
+					words: [
+						{ rusWord: 'практиковать', engWord: 'practice' },
+						{ rusWord: 'иностранный', engWord: 'foreign' },
+						{ rusWord: 'языки', engWord: 'languages' },
+					],
+				},
+				{
+					rusSentence: 'Они строят дома.',
+					engSentences: [
+						{
+							engSentences: ['I practice foreign languages.'],
+							isCorrect: true,
+						},
+					],
+					words: [
+						{ rusWord: 'практиковать', engWord: 'practice' },
+						{ rusWord: 'иностранный', engWord: 'foreign' },
+						{ rusWord: 'языки', engWord: 'languages' },
+					],
+				},
+				{
+					rusSentence: 'Я учусь и тренируюсь каждое утро.',
+					engSentences: [
+						{
+							engSentences: ['I study and train every morning.'],
+							isCorrect: true,
+						},
+					],
+					words: [
+						{ rusWord: 'учиться', engWord: 'study' },
+						{ rusWord: 'тренироваться', engWord: 'train' },
+						{ rusWord: 'каждый', engWord: 'every' },
+						{ rusWord: 'утро', engWord: 'morning' },
+					],
+				},
+				{
+					rusSentence: 'Ты преподаёшь математику.',
+					engSentences: [
+						{
+							engSentences: ['You teach math.'],
+							isCorrect: true,
+						},
+						{
+							engSentences: ['You teach mathematics.'],
+							isCorrect: true,
+						},
+					],
+					words: [
+						{ rusWord: 'учиться', engWord: 'study' },
+						{ rusWord: 'тренироваться', engWord: 'train' },
+						{ rusWord: 'каждый', engWord: 'every' },
+						{ rusWord: 'утро', engWord: 'morning' },
+					],
+				},
+				{
+					rusSentence: 'Они красят стены.',
+					engSentences: [
+						{
+							engSentences: ['I study and train every morning.'],
+							isCorrect: true,
+						},
+					],
+					words: [
+						{ rusWord: 'учиться', engWord: 'study' },
+						{ rusWord: 'тренироваться', engWord: 'train' },
+						{ rusWord: 'каждый', engWord: 'every' },
+						{ rusWord: 'утро', engWord: 'morning' },
+					],
+				},
+				{
+					rusSentence: 'Мы любим детей.',
+					engSentences: [
+						{
+							engSentences: ['I study and train every morning.'],
+							isCorrect: true,
+						},
+					],
+					words: [
+						{ rusWord: 'учиться', engWord: 'study' },
+						{ rusWord: 'тренироваться', engWord: 'train' },
+						{ rusWord: 'каждый', engWord: 'every' },
+						{ rusWord: 'утро', engWord: 'morning' },
+					],
+				},
+				{
+					rusSentence: 'Ты выглядишь таким грустным.',
+					engSentences: [
+						{
+							engSentences: ['You look so sad.'],
+							isCorrect: true,
+						},
+					],
+					words: [
+						{ rusWord: 'учиться', engWord: 'study' },
+						{ rusWord: 'тренироваться', engWord: 'train' },
+						{ rusWord: 'каждый', engWord: 'every' },
+						{ rusWord: 'утро', engWord: 'morning' },
+					],
 				},
 			],
 			offset: true,

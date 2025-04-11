@@ -1,19 +1,19 @@
-// import { useEffect } from 'react'
+import { useEffect } from 'react'
 
-/*type KeydownHandler = {
+type KeydownHandler = {
 	key: string
 	handler: () => void
-}*/
+}
 
-/*function getKeyDown(keydownHandler: KeydownHandler) {
+function getKeyDown(keydownHandler: KeydownHandler) {
 	return function (e: KeyboardEvent) {
 		if (e.key === keydownHandler.key) {
 			keydownHandler.handler()
 		}
 	}
-}*/
+}
 
-/*export function useGetHotKeysHandler(keydownHandler: KeydownHandler) {
+export function useGetHotKeysHandler(keydownHandler: KeydownHandler) {
 	useEffect(
 		function () {
 			const keyDown = getKeyDown(keydownHandler)
@@ -26,4 +26,4 @@
 		},
 		[keydownHandler],
 	)
-}*/
+}

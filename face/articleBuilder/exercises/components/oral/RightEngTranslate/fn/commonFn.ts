@@ -1,8 +1,8 @@
-// import { useMemo } from 'react'
-// import { useExercisesModalStore } from '../../../../store/store'
+import { useMemo } from 'react'
+import { useExercisesModalStore } from '../../../../store/store'
 
 /** Возвращает массив правильных переводов текущего упражнения */
-/*export function useGetExerciseCorrectTranslations() {
+export function useGetExerciseCorrectTranslations() {
 	const exercise = useExercisesModalStore().store.currentExercise
 
 	return useMemo(
@@ -13,4 +13,4 @@
 		},
 		[exercise],
 	)
-}*/
+}

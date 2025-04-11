@@ -1,23 +1,23 @@
-// import React, { useState } from 'react'
-// import ExercisesType from '../../../../../articlesData/exercisesType'
-// import Switcher from '../../../../../ui/Switcher/Switcher'
-// import ArticleBuilder from '../../../../ArticleBuilder/ArticleBuilder'
-// import { ExercisesManagerTypes } from '../../../logic/exercisesManagerTypes'
-// import { useExercisesModalStore } from '../../../store/store'
-// import AnalysisStatus = ExercisesManagerTypes.AnalysisStatus
-// import s from './Analysis.module.scss'
+import React, { useState } from 'react'
+import ExercisesType from '../../../../articlesData/exercisesType'
+import Switcher from '../../../../../ui/Switcher/Switcher'
+import ArticleBuilder from '../../../../ArticleBuilder/ArticleBuilder'
+import { ExercisesManagerTypes } from '../../../logic/exercisesManagerTypes'
+import { useExercisesModalStore } from '../../../store/store'
+import AnalysisStatus = ExercisesManagerTypes.AnalysisStatus
+import s from './Analysis.module.scss'
 
 /** Анализ перевода введённого пользователем либо показ правильных вариантов */
-/*function Analysis() {
+function Analysis() {
 	const { currentExercise: exercise } = useExercisesModalStore().store
 
 	return exercise.userTranslate ? <AnalysisForTranslation /> : <CorrectTranslations />
-}*/
+}
 
-// export default Analysis
+export default Analysis
 
 /** Список правильных вариантов русского предложения */
-/*function CorrectTranslations() {
+function CorrectTranslations() {
 	const { analysis } = useExercisesModalStore().store
 
 	if (analysis.status !== AnalysisStatus.visible) {
@@ -25,10 +25,10 @@
 	}
 
 	return <CorrectTranslationsList correctTranslations={analysis.correctTranslations} />
-}*/
+}
 
 /** Разбор перевода данного пользователем */
-/*function AnalysisForTranslation() {
+function AnalysisForTranslation() {
 	const { analysis } = useExercisesModalStore().store
 
 	const [viewType, setViewType] = useState<'analysis' | 'correctVariants'>('analysis')
@@ -40,7 +40,7 @@
 	return (
 		<div className={s.wrapper}>
 			<Switcher
-				orientation="horizontal"
+				orientation='horizontal'
 				items={[
 					{
 						text: 'Разбор',
@@ -66,14 +66,14 @@
 			)}
 		</div>
 	)
-}*/
+}
 
-/*type CorrectTranslationsListProps = {
+type CorrectTranslationsListProps = {
 	correctTranslations: ExercisesType.EngSentence[]
-}*/
+}
 
 /** Список правильных вариантов перевода */
-/*function CorrectTranslationsList(props: CorrectTranslationsListProps) {
+function CorrectTranslationsList(props: CorrectTranslationsListProps) {
 	const { correctTranslations } = props
 
 	const engSentences: string[] = []
@@ -91,4 +91,4 @@
 			))}
 		</div>
 	)
-}*/
+}

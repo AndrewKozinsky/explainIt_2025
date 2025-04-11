@@ -1,11 +1,11 @@
-// import { useMemo } from 'react'
-// import { ExercisesManagerTypes } from '../../logic/exercisesManagerTypes'
-// import { useExercisesModalStore } from '../../store/store'
-// import ExerciseType = ExercisesManagerTypes.ExerciseType
-// import AnalysisStatus = ExercisesManagerTypes.AnalysisStatus
+import { useMemo } from 'react'
+import { ExercisesManagerTypes } from '../../logic/exercisesManagerTypes'
+import { useExercisesModalStore } from '../../store/store'
+import ExerciseType = ExercisesManagerTypes.ExerciseType
+import AnalysisStatus = ExercisesManagerTypes.AnalysisStatus
 
 /** Возвращает правду если текущее упражнение голосовое и показан результат */
-/*export function useIsShownResultInOralExercise() {
+export function useIsShownResultInOralExercise() {
 	const { currentExercise: exercise, analysis } = useExercisesModalStore().store
 
 	return useMemo(
@@ -14,4 +14,4 @@
 		},
 		[exercise, analysis],
 	)
-}*/
+}

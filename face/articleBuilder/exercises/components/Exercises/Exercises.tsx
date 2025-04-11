@@ -1,10 +1,9 @@
 'use client'
 
-// import Modal from '../../../../ui/Modal/Modal'
-// import { useExercisesModalStore } from '../../store/store'
-// import ExerciseContent from '../ExerciseContent/ExerciseContent'
+import { useExercisesModalStore } from '../../store/store'
+import ExerciseContent from '../ExerciseContent/ExerciseContent'
 import ExercisesLists from '../ExercisesList/ExercisesLists'
-// import { useSetUpStore } from './fn/useSetUpStore'
+import { useSetUpStore } from './fn/useSetUpStore'
 import ExercisesType from '../../../articlesData/exercisesType'
 import Header from '../../../components/Header/Header'
 import './Exercises.scss'
@@ -17,11 +16,11 @@ type ExercisesProps = {
 export function Exercises(props: ExercisesProps) {
 	const { exercisesObj } = props
 
-	// const { store } = useExercisesModalStore()
+	const { store } = useExercisesModalStore()
 
-	// useSetUpStore(exercises)
+	useSetUpStore(exercisesObj.exercises)
 
-	// if (!store) return null
+	if (!store) return null
 
 	return (
 		<div className='exercises'>
@@ -34,8 +33,8 @@ export function Exercises(props: ExercisesProps) {
 				}}
 			/>
 			<div className='exercises__content'>
-				<ExercisesLists exercises={exercisesObj.exercises} />
-				{/*<ExerciseContent />*/}
+				<ExercisesLists />
+				<ExerciseContent />
 			</div>
 		</div>
 	)

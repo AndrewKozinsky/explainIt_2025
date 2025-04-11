@@ -1,25 +1,10 @@
-// import { useEffect } from 'react'
-// import ArticleType from '../../../../../articlesData/articleType'
-// import articleService from '../../../../../articleService/articleService'
-// import { exercisesLogic, useExercisesModalStore } from '../../../store/store'
+import { useEffect } from 'react'
+import ExercisesType from '../../../../articlesData/exercisesType'
+import { exercisesLogic } from '../../../store/store'
 
 /** Хук настраивает Хранилище модального окна прохождения упражнений. */
-/*export function useSetUpStore(article: ArticleType.Art) {
-	const { exercisesId } = useExercisesModalStore()
-
-	useEffect(
-		function () {
-			if (exercisesId === null) return
-
-			const currentExercises = articleService.getArticleExercises(
-				article.meta.slug,
-				exercisesId,
-			)
-			if (!currentExercises) return
-
-			exercisesLogic.initStore(currentExercises.exercises)
-			exercisesLogic.setChapterName(article.meta.articleName)
-		},
-		[exercisesId],
-	)
-}*/
+export function useSetUpStore(exercises: ExercisesType.Exercise[]) {
+	useEffect(function () {
+		exercisesLogic.initStore(exercises)
+	}, [])
+}

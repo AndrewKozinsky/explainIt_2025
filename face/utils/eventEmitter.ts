@@ -1,4 +1,4 @@
-/*export class EventEmitter {
+export class EventEmitter {
 	subscribers: Record<string, Function[]> = {}
 
 	on(eventName: string, listener: (...args: any[]) => any): any {
@@ -20,4 +20,4 @@
 
 		this.subscribers[eventName].forEach((cb) => cb())
 	}
-}*/
+}

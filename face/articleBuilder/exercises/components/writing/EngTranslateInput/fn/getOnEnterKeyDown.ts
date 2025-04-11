@@ -1,4 +1,4 @@
-// import React from 'react'
+import React from 'react'
 
 /**
  * Если в поле ввода ответа нажали Enter, то проигнорировать установку новой строки.
@@ -6,6 +6,6 @@
  * в котором запускается функция показывающая разбор предложения.
  * @param e
  */
-/*export function onEnterKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>) {
+export function onEnterKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>) {
 	if (e.key === 'Enter') e.preventDefault()
-}*/
+}

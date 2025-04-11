@@ -12,7 +12,14 @@ type TranscriptionProps = {
 	engSentence: string
 }
 
+// DELETE LATER
 function Transcription(props: TranscriptionProps) {
+	const { engSentence } = props
+
+	return <div className='transcription'>{engSentence}</div>
+}
+
+/*function Transcription(props: TranscriptionProps) {
 	const { engSentence } = props
 
 	const { isPlay, playPauseHandler, progress } = useGetAudioPlaying(transcriptionService.cleanString(engSentence))
@@ -44,16 +51,16 @@ function Transcription(props: TranscriptionProps) {
 			</div>
 		</div>
 	)
-}
+}*/
 
 export default Transcription
 
-type AudioButtonProps = {
+/*type AudioButtonProps = {
 	isPlay: boolean
 	playPauseHandler: () => void
-}
+}*/
 
-function AudioButton(props: AudioButtonProps) {
+/*function AudioButton(props: AudioButtonProps) {
 	const { isPlay, playPauseHandler } = props
 
 	const sign = isPlay ? pauseSign : playSign
@@ -63,4 +70,4 @@ function AudioButton(props: AudioButtonProps) {
 			<Image src={sign} alt='play sign' />
 		</button>
 	)
-}
+}*/

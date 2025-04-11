@@ -1,9 +1,9 @@
-//@import '@/styles/variables';
-//@import '../../../../../styles/mixins';
-//@import '../../../../../styles/inherit';
+@import '@/styles/variables';
+@import '@/styles/mixins';
+@import '@/styles/inherit';
 
-/*.paragraph {
+.paragraph {
 	width: 100%;
 	@include paragraph-giant();
 	margin: 1rem 0 0 0;
-}*/
+}

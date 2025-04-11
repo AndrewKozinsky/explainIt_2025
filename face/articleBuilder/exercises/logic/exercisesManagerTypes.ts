@@ -1,7 +1,7 @@
-// import ArticleType from '../../../articlesData/articleType'
-// import ExercisesType from '../../../articlesData/exercisesType'
+import ArticleType from '../../articlesData/articleType'
+import ExercisesType from '../../articlesData/exercisesType'
 
-/*export namespace ExercisesManagerTypes {
+export namespace ExercisesManagerTypes {
 	export type Store = {
 		// Письменные упражнения
 		exercisesWriting: Exercise[]
@@ -64,4 +64,4 @@
 	export enum Event {
 		storeChanged = 'storeChanged',
 	}
-}*/
+}

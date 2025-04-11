@@ -1,22 +1,22 @@
-// import React from 'react'
-// import ErrorMessage from '../../../../../ui/ErrorMessage/ErrorMessage'
-// import LoadingMessage from '../../../../../ui/LoadingMessage/LoadingMessage'
-// import './LoadingOrErrorAnalysis.scss'
+import React from 'react'
+import ErrorMessage from '../../../../../ui/ErrorMessage/ErrorMessage'
+import LoadingMessage from '../../../../../ui/LoadingMessage/LoadingMessage'
+import './LoadingOrErrorAnalysis.scss'
 
-/*type LoadingOrErrorAnalysisProps = {
+type LoadingOrErrorAnalysisProps = {
 	type: 'loading' | 'error'
-}*/
+}
 
 /** Блок с сообщением о загрузке данных проверки перевода или об ошибке. */
-/*function LoadingOrErrorAnalysis(props: LoadingOrErrorAnalysisProps) {
+function LoadingOrErrorAnalysis(props: LoadingOrErrorAnalysisProps) {
 	const { type } = props
 
 	return (
-		<div className="loading-error-analysis">
-			{type === 'error' && <ErrorMessage text="При запросе произошла ошибка." />}
-			{type === 'loading' && <LoadingMessage text="Проверка перевода" />}
+		<div className='loading-error-analysis'>
+			{type === 'error' && <ErrorMessage text='При запросе произошла ошибка.' />}
+			{type === 'loading' && <LoadingMessage text='Проверка перевода' />}
 		</div>
 	)
-}*/
+}
 
-// export default LoadingOrErrorAnalysis
+export default LoadingOrErrorAnalysis

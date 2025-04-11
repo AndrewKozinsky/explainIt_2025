@@ -1,16 +1,16 @@
-//@import '@/styles/variables';
-//@import '@/styles/mixins';
-//@import '@/styles/inherit';
+@import '@/styles/variables';
+@import '@/styles/mixins';
+@import '@/styles/inherit';
 
-/*.wrapper {
+.wrapper {
 	display: flex;
 	flex-direction: column;
 	gap: 1.5rem;
-}*/
+}
 
-/*.translationsList {
+.translationsList {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
 	@include paragraph-giant;
-}*/
+}
