@@ -1,6 +1,6 @@
-import ArticleType from '../../articleType'
+// import ArticleType from '../../articleType'
 
-const prepositionTo: ArticleType.Art = {
+/*const prepositionTo: ArticleType.Art = {
 	meta: {
 		number: 28,
 		slug: 'preposition-to',
@@ -1096,6 +1096,6 @@ const prepositionTo: ArticleType.Art = {
 			],
 		},
 	],
-}
+}*/
 
-export default prepositionTo
+// export default prepositionTo

@@ -1,6 +1,6 @@
-import ArticleType from '../../articleType'
+// import ArticleType from '../../articleType'
 
-const muchAndMany: ArticleType.Art = {
+/*const muchAndMany: ArticleType.Art = {
 	meta: {
 		number: 25,
 		slug: 'much-and-many',
@@ -1181,6 +1181,6 @@ const muchAndMany: ArticleType.Art = {
 			offset: true,
 		},
 	],
-}
+}*/
 
-export default muchAndMany
+// export default muchAndMany

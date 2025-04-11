@@ -1,6 +1,6 @@
-import ArticleType from '../../articleType'
+// import ArticleType from '../../articleType'
 
-const demonstrativePronouns: ArticleType.Art = {
+/*const demonstrativePronouns: ArticleType.Art = {
 	meta: {
 		number: 9,
 		slug: 'demonstrative-pronouns',
@@ -1479,6 +1479,6 @@ const demonstrativePronouns: ArticleType.Art = {
 			],
 		},
 	],
-}
+}*/
 
-export default demonstrativePronouns
+// export default demonstrativePronouns

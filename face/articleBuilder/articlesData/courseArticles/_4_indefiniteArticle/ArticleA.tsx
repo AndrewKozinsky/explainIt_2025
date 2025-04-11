@@ -1,8 +1,8 @@
-import React from 'react'
-import Peanuts from './Peanut/Peanuts'
+// import React from 'react'
+// import Peanuts from './Peanut/Peanuts'
 
-function ArticleA() {
+/*function ArticleA() {
 	return <Peanuts imageNames={['a']} />
-}
+}*/
 
-export default ArticleA
+// export default ArticleA

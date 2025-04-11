@@ -16,7 +16,7 @@
 
 @mixin link--current() {
 	cursor: default;
-	//color: $orangeColor-2;
+	color: $orangeColor-2;
 	border-bottom: none;
 
 	&:hover {

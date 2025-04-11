@@ -1,6 +1,6 @@
-import ArticleType from '../../articleType'
+// import ArticleType from '../../articleType'
 
-const adjectives: ArticleType.Art = {
+/*const adjectives: ArticleType.Art = {
 	meta: {
 		number: 5,
 		slug: 'adjectives',
@@ -2676,6 +2676,6 @@ const adjectives: ArticleType.Art = {
 			],
 		},
 	],
-}
+}*/
 
-export default adjectives
+// export default adjectives

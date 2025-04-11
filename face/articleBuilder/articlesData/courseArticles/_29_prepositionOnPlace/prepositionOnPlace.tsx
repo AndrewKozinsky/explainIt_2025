@@ -1,6 +1,6 @@
-import ArticleType from '../../articleType'
+// import ArticleType from '../../articleType'
 
-const prepositionOnPlace: ArticleType.Art = {
+/*const prepositionOnPlace: ArticleType.Art = {
 	meta: {
 		number: 31,
 		slug: 'preposition-on-place',
@@ -648,6 +648,6 @@ const prepositionOnPlace: ArticleType.Art = {
 			offset: true,
 		},
 	],
-}
+}*/
 
-export default prepositionOnPlace
+// export default prepositionOnPlace

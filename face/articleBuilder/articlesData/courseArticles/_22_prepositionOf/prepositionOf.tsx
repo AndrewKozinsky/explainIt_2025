@@ -1,6 +1,6 @@
-import ArticleType from '../../articleType'
+// import ArticleType from '../../articleType'
 
-const prepositionOf: ArticleType.Art = {
+/*const prepositionOf: ArticleType.Art = {
 	meta: {
 		number: 24,
 		slug: 'preposition-of',
@@ -741,6 +741,6 @@ const prepositionOf: ArticleType.Art = {
 		},
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Предлог «о»' },
 	],
-}
+}*/
 
-export default prepositionOf
+// export default prepositionOf

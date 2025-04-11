@@ -1,6 +1,6 @@
-import ArticleType from '../../articleType'
+// import ArticleType from '../../articleType'
 
-const strikeDo: ArticleType.Art = {
+/*const strikeDo: ArticleType.Art = {
 	meta: {
 		number: 18,
 		slug: 'strike-do',
@@ -268,6 +268,6 @@ const strikeDo: ArticleType.Art = {
 		{ type: 'exercises', exercises: [], offset: true },
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Сокращённая форма вспомогательного do' },
 	],
-}
+}*/
 
-export default strikeDo
+// export default strikeDo

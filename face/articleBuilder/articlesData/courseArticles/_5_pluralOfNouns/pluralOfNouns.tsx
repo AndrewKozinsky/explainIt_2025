@@ -1,6 +1,6 @@
-import ArticleType from '../../articleType'
+// import ArticleType from '../../articleType'
 
-const pluralOfNouns: ArticleType.Art = {
+/*const pluralOfNouns: ArticleType.Art = {
 	meta: {
 		number: 7,
 		slug: 'plural-of-nouns',
@@ -874,6 +874,6 @@ const pluralOfNouns: ArticleType.Art = {
 			],
 		},
 	],
-}
+}*/
 
-export default pluralOfNouns
+// export default pluralOfNouns

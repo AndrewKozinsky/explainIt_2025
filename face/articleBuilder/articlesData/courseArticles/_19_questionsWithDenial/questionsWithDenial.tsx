@@ -1,6 +1,6 @@
-import ArticleType from '../../articleType'
+// import ArticleType from '../../articleType'
 
-const questionsWithDenial: ArticleType.Art = {
+/*const questionsWithDenial: ArticleType.Art = {
 	meta: {
 		number: 21,
 		slug: 'questions-with-denial',
@@ -573,6 +573,6 @@ const questionsWithDenial: ArticleType.Art = {
 			offset: true,
 		},
 	],
-}
+}*/
 
-export default questionsWithDenial
+// export default questionsWithDenial

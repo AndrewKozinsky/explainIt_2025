@@ -1,11 +1,11 @@
-import ArticleType from '../../articleType'
-import ArticleA from './ArticleA'
-import ArticleMany from './ArticleMany'
-import ArticleThe from './ArticleThe'
-import ArticleMy from './ArticleMy'
-import ArticleThis from './ArticleThis'
+// import ArticleType from '../../articleType'
+// import ArticleA from './ArticleA'
+// import ArticleMany from './ArticleMany'
+// import ArticleThe from './ArticleThe'
+// import ArticleMy from './ArticleMy'
+// import ArticleThis from './ArticleThis'
 
-const indefiniteArticle: ArticleType.Art = {
+/*const indefiniteArticle: ArticleType.Art = {
 	meta: {
 		number: 6,
 		slug: 'indefinite-article',
@@ -2678,6 +2678,6 @@ const indefiniteArticle: ArticleType.Art = {
 			],
 		},
 	],
-}
+}*/
 
-export default indefiniteArticle
+// export default indefiniteArticle

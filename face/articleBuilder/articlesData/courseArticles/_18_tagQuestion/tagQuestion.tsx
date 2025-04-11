@@ -1,6 +1,6 @@
-import ArticleType from '../../articleType'
+// import ArticleType from '../../articleType'
 
-const tagQuestion: ArticleType.Art = {
+/*const tagQuestion: ArticleType.Art = {
 	meta: {
 		number: 20,
 		slug: 'tag-question',
@@ -247,6 +247,6 @@ const tagQuestion: ArticleType.Art = {
 			offset: true,
 		},
 	],
-}
+}*/
 
-export default tagQuestion
+// export default tagQuestion
