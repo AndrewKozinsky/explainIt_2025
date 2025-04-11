@@ -1,6 +1,6 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
-@import '@/styles/inherit';
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+@use '@/styles/inherit' as inh;
 
 .art-arrow {
 	display: inline-flex;
@@ -8,7 +8,7 @@
 	align-items: center;
 	width: 1em;
 	height: 1em;
-	background-color: $grayColor-3;
+	background-color: vars.$grayColor-3;
 	margin: 0 .28em;
     border-radius: 50%;
 	transform: translateY(-0.05em);

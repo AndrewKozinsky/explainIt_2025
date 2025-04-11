@@ -1,12 +1,12 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
-@import '@/styles/inherit';
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+@use '@/styles/inherit' as inh;
 
 .transcription {
 	display: flex;
 	overflow: hidden;
-	border-radius: $radius-2;
-	border: 1px solid $grayColor-2;
+	border-radius: vars.$radius-2;
+	border: 1px solid vars.$grayColor-2;
 }
 
 .transcription__audio-button {
@@ -16,10 +16,10 @@
 	cursor: pointer;
 	padding-left: 1.5rem;
 	padding-right: 1rem;
-	border-right: 1px solid $grayColor-2;
+	border-right: 1px solid vars.$grayColor-2;
 
 	&:hover {
-		background-color: $grayColor-1;
+		background-color: vars.$grayColor-1;
 	}
 
 	&:focus {
@@ -61,5 +61,5 @@
 	top: 0;
 	left: 0;
 	height: 100%;
-	background: $grayColor-1;
+	background: vars.$grayColor-1;
 }

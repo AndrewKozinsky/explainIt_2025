@@ -1,4 +1,4 @@
-@import '../../../styles/variables';
+@use '@/styles/variables' as vars;
 
 .pagination {
 	display: flex;
@@ -8,12 +8,12 @@
 .pagination-item {
 	display: flex;
 	align-items: center;
-	border: 1px solid darken($grayColor-2, 13%);
+	border: 1px solid darken(vars.$grayColor-2, 13%);
 	border-radius: 1.5rem;
 	transition: border-color 0.25s;
 
 	&:hover {
-		border-color: $grayColor-3;
+		border-color: vars.$grayColor-3;
 	}
 }
 

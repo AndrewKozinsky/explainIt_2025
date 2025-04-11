@@ -1,5 +1,5 @@
-//@import '@/styles/variables';
-//@import '@/styles/mixins';
+//@use '@/styles/variables' as vars;
+//@use '@/styles/mixins' as mix;
 
 /*.phrases-grammar {
 	display: grid;
@@ -17,9 +17,9 @@
 	display: inline-block;
 	font-size: 1.5rem;
 	line-height: 1.7rem;
-	color: $blueColor-2;
+	color: vars.$blueColor-2;
 	font-weight: 500;
-	background-color: $blueColor-1;
+	background-color: vars.$blueColor-1;
 	padding: 0.2rem 0.5rem;
-	border-radius: $radius-1;
+	border-radius: vars.$radius-1;
 }*/

@@ -1,6 +1,6 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
-@import '@/styles/inherit';
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+@use '@/styles/inherit' as inh;
 
 .wrapper {
 	display: flex;
@@ -21,26 +21,26 @@
 }
 
 .button {
-	color: $grayColor-4;
+	color: vars.$grayColor-4;
 	cursor: pointer;
 	padding: .4rem 1rem;
 	border: 1px solid white;
-	border-radius: $radius-1;
+	border-radius: vars.$radius-1;
 	transition: color 0.2s;
 
 	&:hover {
-		color: $textColor;
-		border-color: $grayColor-2;
+		color: vars.$textColor;
+		border-color: vars.$grayColor-2;
 	}
 
 	&--current {
-		color: $textColor;
+		color: vars.$textColor;
 		cursor: default;
-		border-color: $grayColor-3;
+		border-color: vars.$grayColor-3;
 
 		&:hover {
-			color: $textColor;
-			border-color: $grayColor-3;
+			color: vars.$textColor;
+			border-color: vars.$grayColor-3;
 		}
 	}
 }

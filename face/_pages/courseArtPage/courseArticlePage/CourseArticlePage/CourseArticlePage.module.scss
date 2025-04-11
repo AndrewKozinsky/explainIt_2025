@@ -1,6 +1,6 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
-@import '@/styles/inherit';
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+@use '@/styles/inherit' as inh;
 
 .generalWrapper {
 	display: flex;
@@ -13,7 +13,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: $grayColor-3;
+	background-color: vars.$grayColor-3;
 	height: 0.75em;
 	min-width: 0.4em;
 	padding: 0.04em 0.2em;

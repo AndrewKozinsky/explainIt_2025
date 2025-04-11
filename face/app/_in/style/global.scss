@@ -1,6 +1,6 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
-@import '@/styles/inherit';
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+@use '@/styles/inherit' as inh;
 
 :root {
 	// Стандартный размер шрифта в браузере 16 пикселей.
@@ -66,7 +66,7 @@
     list-style: none;
 
 	&:focus {
-		outline: 2px solid $blueColor-2;
+		outline: 2px solid vars.$blueColor-2;
 	}
 }
 
@@ -82,10 +82,10 @@ body {
 	font-size: 1.6rem;
 	line-height: 2.2rem;
 	font-weight: 300;
-	color: $textColor;
-	background: $grayColor-1;
+	color: vars.$textColor;
+	background: vars.$grayColor-1;
 	min-height: 100dvh;
-	max-width: $max-page-width;
+	max-width: vars.$max-page-width;
 	margin: 0 auto;
 
 	-webkit-font-smoothing: antialiased;
@@ -98,8 +98,8 @@ a {
 }
 
 .link {
-	@include link;
+	@include inh.link;
 }
 .link--current {
-	@include link--current;
+	@include inh.link--current;
 }

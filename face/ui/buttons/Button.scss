@@ -1,16 +1,16 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
 
 .button {
-	color: darken($grayColor-4, 20%);
+	color: darken(vars.$grayColor-4, 20%);
 	background-color: white;
 	cursor: pointer;
-	border: 1px solid darken($grayColor-2, 12%);
+	border: 1px solid darken(vars.$grayColor-2, 12%);
 	transition: background-color .25s, border-color .25s, color .25s;
 
 	&:hover {
-		color: $textColor;
-		background-color: desaturate($grayColor-1, 100%);
-		border-color: $grayColor-3;
+		color: vars.$textColor;
+		background-color: desaturate(vars.$grayColor-1, 100%);
+		border-color: vars.$grayColor-3;
 	}
 }

@@ -1,14 +1,14 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
-@import '@/styles/inherit';
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+@use '@/styles/inherit' as inh;
 
 .textarea {
 	width: 100%;
-	@include paragraph-giant();
+	@include inh.paragraph-giant();
 	field-sizing: content;
 
 	&::placeholder {
-		color: $grayColor-2;
+		color: vars.$grayColor-2;
 	}
 
 	&:focus {
@@ -17,9 +17,9 @@
 }
 
 .greenText {
-	color: $greenColor-3;
+	color: vars.$greenColor-3;
 }
 
 .redText {
-	color: $redColor-2;
+	color: vars.$redColor-2;
 }

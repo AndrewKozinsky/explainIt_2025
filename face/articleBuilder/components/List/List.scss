@@ -1,6 +1,6 @@
-//@import '@/styles/variables';
-//@import '@/styles/mixins';
-//@import '@/styles/inherit';
+//@use '@/styles/variables' as vars;
+//@use '@/styles/mixins' as mix;
+//@use '@/styles/inherit' as inh;
 
 //$CN: art-list;
 
@@ -29,7 +29,7 @@
 			left: -1.6rem;
 			width: 0.9rem;
 			height: 0.9rem;
-			background-color: $textColor;
+			background-color: vars.$textColor;
 			border-radius: 50%;
 		}
 	}

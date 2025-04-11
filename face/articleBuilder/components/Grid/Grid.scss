@@ -1,6 +1,6 @@
-//@import '@/styles/variables';
-//@import '@/styles/mixins';
-//@import '@/styles/inherit';
+//@use '@/styles/variables' as vars;
+//@use '@/styles/mixins' as mix;
+//@use '@/styles/inherit' as inh;
 
 //$CN: art-grid;
 
@@ -8,7 +8,7 @@
 	column-gap: 2.5rem;
 	row-gap: 2rem;
 
-	@include container-width($tablet-width) {
+	@include mix.container-width(vars.$tablet-width) {
 		column-gap: 3.5rem;
 	}
 }*/

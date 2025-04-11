@@ -1,5 +1,5 @@
-@import "../../../styles/mixins";
-@import "../../../styles/variables";
+@use "@/styles/mixins" as mix;
+@use "@/styles/variables" as vars;
 
 .page-wrapper {
 	flex-grow: 1;
@@ -12,7 +12,7 @@
 	padding-left: var(--offset);
 	padding-right: var(--offset);
 
-	@include page-width(400px) {
+	@include mix.page-width(400px) {
 		--offset: 4%;
 	}
 }

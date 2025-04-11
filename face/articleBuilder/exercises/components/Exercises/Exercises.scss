@@ -1,9 +1,9 @@
-@import "@/styles/variables";
+@use "@/styles/variables" as vars;
 
 .exercises {
 	padding: 1.6rem 2.8rem 3rem;
-	border-radius: $radius-2;
-	border: 2px solid $textColor;
+	border-radius: vars.$radius-2;
+	border: 2px solid vars.$textColor;
 }
 
 .exercises__content {

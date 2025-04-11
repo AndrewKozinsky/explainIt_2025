@@ -1,5 +1,5 @@
-//@import '@/styles/variables';
-//@import '@/styles/mixins';
+//@use '@/styles/variables' as vars;
+//@use '@/styles/mixins' as mix;
 
 /*.no-word-selected-block {
 	position: sticky;
@@ -16,6 +16,6 @@
 /*.no-word-selected-block__text {
 	font-size: 1.4rem;
 	line-height: 2rem;
-	color: $grayColor-3;
+	color: vars.$grayColor-3;
 	text-align: center;
 }*/

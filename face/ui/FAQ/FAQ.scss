@@ -1,5 +1,5 @@
-//@import '@/styles/variables';
-//@import '@/styles/mixins';
+//@use '@/styles/variables' as vars;
+//@use '@/styles/mixins' as mix;
 
 //$CN: faq;
 
@@ -13,10 +13,10 @@
 
 /*.#{$CN}__divider {
 	height: 1px;
-	background-color: $grayColor-2;
+	background-color: vars.$grayColor-2;
 	margin: 2rem 0;
 
-	@include page-width($tablet-width) {
+	@include mix.page-width(vars.$tablet-width) {
 		margin: 1.6rem 0;
 	}
 }*/
@@ -25,7 +25,7 @@
 	flex-grow: 1;
 	padding: 0 1rem 0 0;
 
-	@include page-width($tablet-width) {
+	@include mix.page-width(vars.$tablet-width) {
 		padding: 0 1.6rem 0 0;
 	}
 }*/
@@ -46,7 +46,7 @@
 	font-size: 1.8rem;
 	line-height: 2.6rem;
 
-	@include page-width($tablet-width) {
+	@include mix.page-width(vars.$tablet-width) {
 		font-size: 2.4rem;
 		line-height: 3.2rem;
 	}
@@ -56,11 +56,11 @@
 	background-color: white;
 	padding: 0.8rem 1rem;
 	margin: .8rem 0 0 0;
-	border-radius: $radius-2;
+	border-radius: vars.$radius-2;
 
-	@include page-width($tablet-width) {
+	@include mix.page-width(vars.$tablet-width) {
 		padding: 1rem 2rem;
-		border-radius: $radius-2;
+		border-radius: vars.$radius-2;
 	}
 }*/
 
@@ -73,7 +73,7 @@
 	font-size: 1.5rem;
 	line-height: 2.1rem;
 
-	@include page-width($tablet-width) {
+	@include mix.page-width(vars.$tablet-width) {
 		font-size: 1.7rem;
 		line-height: 2.6rem;
 	}

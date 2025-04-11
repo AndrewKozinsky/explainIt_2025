@@ -1,16 +1,16 @@
-//@import "@/styles/variables";
+//@use "@/styles/variables" as vars;
 //@import "@/styles/inherit";
 
 /*.link-logo-default {
 	.logo-with-text__name {
-		color: $orangeColor-2;
+		color: vars.$orangeColor-2;
 		border-bottom: 1px solid transparent;
 	}
 }*/
 
 /*.link-logo {
 	.logo-with-text__name {
-		color: $blueColor-2;
+		color: vars.$blueColor-2;
 		border-bottom: 1px solid rgba($blueColor-2, .2);
 		transition: color .2s, border-bottom-color .2s;
 	}

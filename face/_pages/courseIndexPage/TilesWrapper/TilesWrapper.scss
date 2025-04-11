@@ -1,5 +1,5 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
 
 $CN: tiles-wrapper;
 
@@ -7,12 +7,12 @@ $CN: tiles-wrapper;
 	display: grid;
 	gap: 1.2rem;
 
-	@include page-width(calc($tablet-width - 2rem)) {
+	@include mix.page-width(calc(vars.$tablet-width - 2rem)) {
 		grid-template-columns: repeat(auto-fill, minmax(23rem, 1fr));
 		gap: 1.6rem;
 	}
 
-	@include page-width($monitor-width) {
+	@include mix.page-width(vars.$monitor-width) {
 		gap: 2rem;
 	}
 }

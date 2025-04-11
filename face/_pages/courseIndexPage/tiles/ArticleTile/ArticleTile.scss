@@ -1,5 +1,5 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
 
 $CN: article-tile;
 
@@ -8,13 +8,13 @@ $CN: article-tile;
 	background-color: white;
 	overflow: hidden;
 	padding: 7%;
-	border-radius: $radius-2;
+	border-radius: vars.$radius-2;
 
-	@include hover-shadow();
+	@include mix.hover-shadow();
 
 	&--black {
 		color: white;
-		background-color: $textColor;
+		background-color: vars.$textColor;
 	}
 
 	&--welcome {
@@ -38,7 +38,7 @@ $CN: article-tile;
 		&-top {
 			font-size: 1.2rem;
 			line-height: 1.6rem;
-			color: $grayColor-4;
+			color: vars.$grayColor-4;
 			margin-bottom: 1rem;
 		}
 
@@ -55,7 +55,7 @@ $CN: article-tile;
 			-webkit-box-orient: vertical;
 			font-size: 1.3rem;
 			line-height: 1.9rem;
-			color: $grayColor-4;
+			color: vars.$grayColor-4;
 			text-wrap: balance;
 			margin-top: 0.8rem;
 			overflow: hidden;
@@ -78,9 +78,9 @@ $CN: article-tile;
 .#{$CN}-pill {
 	font-size: 1.2rem;
 	line-height: 1.2rem;
-	color: $grayColor-1;
+	color: vars.$grayColor-1;
 	text-transform: capitalize;
 	padding: .6rem 1.1rem;
-	border: 1px solid $grayColor-4;
+	border: 1px solid vars.$grayColor-4;
 	border-radius: 2rem;
 }

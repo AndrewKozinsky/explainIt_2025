@@ -1,5 +1,5 @@
-//@import '@/styles/variables';
-//@import '@/styles/mixins';
+//@use '@/styles/variables' as vars;
+//@use '@/styles/mixins' as mix;
 
 /*.transcriptions {
 	display: flex;
@@ -13,19 +13,19 @@
 	align-items: flex-end;
 	gap: .4rem;
 	padding: .1rem .5rem;
-	border: 1px solid $grayColor-2;
-	border-radius: $radius-1;
+	border: 1px solid vars.$grayColor-2;
+	border-radius: vars.$radius-1;
 }*/
 
 /*.transcription__lang {
 	font-size: 1.3rem;
 	line-height: 1.5rem;
-	color: $grayColor-4;
+	color: vars.$grayColor-4;
 }*/
 
 /*.transcription__text {
 	font-family: Arial;
 	font-size: 2rem;
 	line-height: 2rem;
-	color: $grayColor-4;
+	color: vars.$grayColor-4;
 }*/

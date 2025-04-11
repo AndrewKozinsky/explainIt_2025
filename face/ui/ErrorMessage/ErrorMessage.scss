@@ -1,10 +1,10 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
-@import '@/styles/inherit';
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+@use '@/styles/inherit' as inh;
 
 .error-message {
 	display: flex;
 	align-items: center;
 	gap: .5rem;
-	color: $redColor-2;
+	color: vars.$redColor-2;
 }

@@ -4,13 +4,13 @@
 /*.grammar-widget {
 	overflow: hidden;
 	border: 1px solid transparent;
-	border-radius: $radius-1;
+	border-radius: vars.$radius-1;
 
 	&--gray {
-		border-color: $grayColor-2;
+		border-color: vars.$grayColor-2;
 	}
 	&--orange {
-		border-color: $orangeColor-1;
+		border-color: vars.$orangeColor-1;
 	}
 	&--green {
 		border-color: $greenColor-1;
@@ -30,18 +30,18 @@
 	border-radius: 0 0 $radius-1 0;
 
 	&--gray {
-		background-color: $grayColor-2;
-		border-color: $grayColor-4;
+		background-color: vars.$grayColor-2;
+		border-color: vars.$grayColor-4;
 	}
 	&--orange {
-		color: $orangeColor-2;
-		background-color: $orangeColor-1;
-		border-color: $orangeColor-2;
+		color: vars.$orangeColor-2;
+		background-color: vars.$orangeColor-1;
+		border-color: vars.$orangeColor-2;
 	}
 	&--green {
 		color: $greenColor-2;
 		background-color: $greenColor-1;
-		border-color: $greenColor-3;
+		border-color: vars.$greenColor-3;
 	}
 }*/
 

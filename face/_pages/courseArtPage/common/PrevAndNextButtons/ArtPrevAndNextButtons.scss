@@ -1,4 +1,5 @@
-@import '@/styles/variables';
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
 
 .art-prev-and-next-buttons-outer {
 	container-type: inline-size;
@@ -14,7 +15,7 @@
 		display: none;
 	}
 
-	@include container-width(600px) {
+	@include mix.container-width(600px) {
 		flex-direction: row;
 
 		// Дочерние элементы обёртки ссылок будут шириной 50%.
@@ -29,44 +30,44 @@
 	&--blue {
 		.prev-or-next-button {
 			background-color: white;
-			border-color: lighten($blueColor-2, 20%);
+			border-color: lighten(vars.$blueColor-2, 20%);
 
 			.prev-or-next-button__hr {
-				background: darken($blueColor-1, 12%);
+				background: darken(vars.$blueColor-1, 12%);
 			}
 
 			.prev-or-next-button__arrow {
 				path {
-					fill: $blueColor-2;
+					fill: vars.$blueColor-2;
 				}
 			}
 
 			&__top {
-				color: $grayColor-3;
+				color: vars.$grayColor-3;
 			}
 			&__name {
-				color: $blueColor-2;
+				color: vars.$blueColor-2;
 			}
 			&__description {
-				color: $grayColor-4;
+				color: vars.$grayColor-4;
 			}
 
 			&:hover {
-				border-color: $blueColor-2;
+				border-color: vars.$blueColor-2;
 
 				.prev-or-next-button__hr {
-					background: darken($blueColor-1, 22%);
+					background: darken(vars.$blueColor-1, 22%);
 				}
 
 				.prev-or-next-button {
 					&__top {
-						color: darken($grayColor-3, 10%);
+						color: darken(vars.$grayColor-3, 10%);
 					}
 					&__name {
 						filter: brightness(85%);
 					}
 					&__description {
-						color: darken($grayColor-4, 10%);
+						color: darken(vars.$grayColor-4, 10%);
 					}
 				}
 			}
@@ -77,38 +78,38 @@
 
 	&--white {
 		.prev-or-next-button {
-			border-color: $grayColor-3;
+			border-color: vars.$grayColor-3;
 
 			.prev-or-next-button__hr {
-				background: $grayColor-4;
+				background: vars.$grayColor-4;
 			}
 
 			&__top {
-				color: $grayColor-3;
+				color: vars.$grayColor-3;
 			}
 			&__name {
-				color: $grayColor-1;
+				color: vars.$grayColor-1;
 			}
 			&__description {
-				color: $grayColor-3;
+				color: vars.$grayColor-3;
 			}
 
 			&:hover {
-				border-color: lighten($grayColor-3, 13%);
+				border-color: lighten(vars.$grayColor-3, 13%);
 
 				.prev-or-next-button__hr {
-					background: lighten($grayColor-4, 8%);
+					background: lighten(vars.$grayColor-4, 8%);
 				}
 
 				.prev-or-next-button {
 					&__top {
-						color: lighten($grayColor-3, 9%);
+						color: lighten(vars.$grayColor-3, 9%);
 					}
 					&__name {
 						color: white;
 					}
 					&__description {
-						color: lighten($grayColor-3, 9%);
+						color: lighten(vars.$grayColor-3, 9%);
 					}
 				}
 			}
@@ -116,7 +117,7 @@
 
 		.prev-or-next-button__arrow {
 			path {
-				fill: $grayColor-1;
+				fill: vars.$grayColor-1;
 			}
 		}
 	}
@@ -130,7 +131,7 @@
 	padding: 1.6rem 2rem;
 	border-width: 1px;
 	border-style: solid;
-	border-radius: $radius-2;
+	border-radius: vars.$radius-2;
 	transition: border-color .25s;
 
 	&--prev {
@@ -173,7 +174,7 @@
 	transition: background-color .25s;
 }
 
-@include container-width(400px) {
+@include mix.container-width(400px) {
 	.prev-or-next-button__arrow, .prev-or-next-button__hr {
 		display: block;
 	}

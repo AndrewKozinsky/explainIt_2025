@@ -1,5 +1,5 @@
-//@import '@/styles/variables';
-//@import '@/styles/mixins';
+//@use '@/styles/variables' as vars;
+//@use '@/styles/mixins' as mix;
 
 /*.parts-of-speech {
 	display: grid;
@@ -15,15 +15,15 @@
 /*.part-of-speech__title {
 	font-size: 1.3rem;
 	line-height: 1.8rem;
-	color: $grayColor-3;
+	color: vars.$grayColor-3;
 	width: 9rem;
 }*/
 
 /*.part-of-speech__name {
 	font-size: 1.3rem;
 	line-height: 1.5rem;
-	background-color: $grayColor-1;
+	background-color: vars.$grayColor-1;
 	padding: 2px 5px;
-	border-radius: $radius-1;
+	border-radius: vars.$radius-1;
 }*/
 

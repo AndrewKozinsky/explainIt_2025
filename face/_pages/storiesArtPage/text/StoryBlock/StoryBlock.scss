@@ -12,7 +12,7 @@
 	line-height: 4rem;
 	background-color: white;
 	padding: 2rem 3rem;
-	border-radius: $radius-2 0 0 $radius-2;
+	border-radius: vars.$radius-2 0 0 $radius-2;
 }*/
 
 /*.story-block__word {
@@ -28,11 +28,11 @@
 		left: -3px;
 		right: -3px;
 		z-index: -1;
-		border-radius: $radius-1;
+		border-radius: vars.$radius-1;
 	}
 
 	&:hover::after {
-		background-color: $grayColor-1;
+		background-color: vars.$grayColor-1;
 	}
 
 	&--selected {

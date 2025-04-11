@@ -1,21 +1,21 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
-@import '@/styles/inherit';
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+@use '@/styles/inherit' as inh;
 
 .generalWrapper {
 
 }
 
 .note {
-	@include paragraph-small;
-	color: $grayColor-3;
+	@include inh.paragraph-small;
+	color: vars.$grayColor-3;
 }
 
 .sentence {
-	@include paragraph-giant;
+	@include inh.paragraph-giant;
 	margin-top: .2rem;
 
 	&--gray {
-		color: $grayColor-3;
+		color: vars.$grayColor-3;
 	}
 }

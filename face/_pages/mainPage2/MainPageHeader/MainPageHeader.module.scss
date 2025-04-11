@@ -1,4 +1,4 @@
-//@import "@/styles/variables";
+//@use "@/styles/variables" as vars;
 
 /*.wrapper {
 	display: flex;
@@ -8,7 +8,7 @@
 	margin: 6rem 0 0 0;
 }*/
 /*.header {
-	color: $blueColor-2;
+	color: vars.$blueColor-2;
 }*/
 
 /*.description {
@@ -16,6 +16,6 @@
 	line-height: clamp(3.2rem, 6vw, 4.6rem);
 	background-color: white;
 	padding: 1rem 2rem;
-	border-radius: $radius-2;
+	border-radius: vars.$radius-2;
 }*/
 

@@ -1,11 +1,11 @@
-//@import "@/styles/variables";
+//@use "@/styles/variables" as vars;
 
 /*.image {
 	width: 100%;
 	max-width: 110rem;
 	margin: 3rem 0;
 
-	@include page-width(calc($tablet-width)) {
+	@include mix.page-width(calc(vars.$tablet-width)) {
 		margin: 7rem 0;
 	}
 }*/

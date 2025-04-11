@@ -1,26 +1,26 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
-@import '@/styles/inherit';
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+@use '@/styles/inherit' as inh;
 
 $CN: art-paragraph;
 
 .#{$CN} {
-	@include paragraph();
+	@include inh.paragraph();
 
 	&--size-small {
-		@include paragraph-small();
+		@include inh.paragraph-small();
 	}
 	&--size-big {
-		@include paragraph-big();
+		@include inh.paragraph-big();
 	}
 	&--size-giant {
-		@include paragraph-giant();
+		@include inh.paragraph-giant();
 	}
 
 	&--color-normal {
 
 	}
 	&--color-gray {
-		color: $grayColor-3;
+		color: vars.$grayColor-3;
 	}
 }

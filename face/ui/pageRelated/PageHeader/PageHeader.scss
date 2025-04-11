@@ -1,4 +1,4 @@
-@import '@/styles/inherit';
+@use '@/styles/variables' as vars;
 
 .page-header {
 	font-size: clamp(4rem, 10vw, 8rem);
@@ -11,6 +11,6 @@
 	font-size: clamp(2rem, 2.8vw, 2.8rem);
 	line-height: clamp(3rem, 3.6vw, 3.6rem);
 	font-style: italic;
-	color: $grayColor-3;
+	color: vars.$grayColor-3;
 	margin-top: .5rem;
 }

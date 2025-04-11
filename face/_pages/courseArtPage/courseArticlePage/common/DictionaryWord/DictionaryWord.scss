@@ -1,6 +1,6 @@
-//@import '@/styles/variables';
-//@import '@/styles/mixins';
-//@import '@/styles/inherit';
+//@use '@/styles/variables' as vars;
+//@use '@/styles/mixins' as mix;
+//@use '@/styles/inherit' as inh;
 
 
 /*.dictionary-word {
@@ -10,7 +10,7 @@
 /*.dictionary-word__note {
 	font-size: 0.7em;
 	line-height: 1.1em;
-	color: $grayColor-3;
+	color: vars.$grayColor-3;
 	padding: 0 0 0.4em 0;
 }*/
 
@@ -29,7 +29,7 @@
 
 /*.dictionary-word__rus {
 	display: inline-block;
-	color: $grayColor-4;
+	color: vars.$grayColor-4;
 }*/
 
 /*.dictionary-word__transcription {
@@ -37,7 +37,7 @@
 	font-family: Arial, sans-serif;
 	font-size: 0.8em;
 	line-height: 0.8em;
-	background-color: $grayColor-1;
+	background-color: vars.$grayColor-1;
 	padding: 0.25em 0.3em;
-	border-radius: $radius-1;
+	border-radius: vars.$radius-1;
 }*/

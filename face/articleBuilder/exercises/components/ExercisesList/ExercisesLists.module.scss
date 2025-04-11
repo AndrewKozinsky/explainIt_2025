@@ -1,13 +1,13 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
-@import '@/styles/inherit';
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+@use '@/styles/inherit' as inh;
 
 .generalWrapper {
 	display: flex;
 	flex-direction: column;
 	gap: 1.6rem;
 
-	@include page-width(600px) {
+	@include mix.page-width(600px) {
 		width: 40%;
 		max-width: 27rem;
 	}
@@ -20,5 +20,5 @@
 }
 
 .partHeader {
-	@include header-4();
+	@include inh.header-4();
 }

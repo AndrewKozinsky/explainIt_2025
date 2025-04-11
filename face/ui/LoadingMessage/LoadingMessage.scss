@@ -1,10 +1,10 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
-@import '@/styles/inherit';
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+@use '@/styles/inherit' as inh;
 
 .loading-message {
 	display: flex;
 	align-items: center;
 	gap: .5rem;
-	color: $grayColor-4;
+	color: vars.$grayColor-4;
 }

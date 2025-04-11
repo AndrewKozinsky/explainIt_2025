@@ -6,7 +6,7 @@
 	align-items: start;
 	gap: 4rem;
 
-	@include page-width(calc($monitor-width + 20rem	)) {
+	@include mix.page-width(calc($monitor-width + 20rem	)) {
 		grid-template-columns: repeat(auto-fill, minmax(35rem, 1fr));
 	}
 }*/
@@ -18,7 +18,7 @@
 	opacity: .5;
 }*/
 /*.cellDouble {
-	@include page-width(calc($tablet-width + 30rem	)) {
+	@include mix.page-width(calc(vars.$tablet-width + 30rem	)) {
 		grid-column: span 2;
 	}
 }*/

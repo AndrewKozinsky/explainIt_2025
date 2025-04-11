@@ -1,27 +1,28 @@
-@import 'variables';
+@use 'variables' as vars;
+@use 'mixins' as mix;
 
 // ОБЩИЕ СТИЛИ ДЛЯ РАЗЛИЧНЫХ КОМПОНЕНТОВ.
 // ОНИ БУДУТ ВКЛЮЧАТЬСЯ В КОНКРЕТНЫЕ КЛАССЫ
 
 @mixin link() {
-	color: $blueColor-2;
-	border-bottom: 1px solid rgba($blueColor-2, .2);
+	color: vars.$blueColor-2;
+	border-bottom: 1px solid rgba(vars.$blueColor-2, .2);
 	transition: color .2s, border-bottom-color .2s;
 
 	&:hover {
-		color: saturate($blueColor-2, 100%);
-		border-bottom-color: rgba($blueColor-2, .35);
+		color: saturate(vars.$blueColor-2, 100%);
+		border-bottom-color: rgba(vars.$blueColor-2, .35);
 	}
 }
 
 @mixin link--current() {
 	cursor: default;
-	color: $orangeColor-2;
+	color: vars.$orangeColor-2;
 	border-bottom: none;
 
 	&:hover {
-		color: saturate($orangeColor-2, 100%);
-		border-bottom-color: rgba($orangeColor-2, .35);
+		color: saturate(vars.$orangeColor-2, 100%);
+		border-bottom-color: rgba(vars.$orangeColor-2, .35);
 	}
 }
 
@@ -32,7 +33,7 @@
 	font-weight: 700;
 	font-style: italic;
 
-	@include container-width($tablet-width) {
+	@include mix.container-width(vars.$tablet-width) {
 		font-size: 3.6rem;
 		line-height: 4.4rem;
 	}
@@ -45,12 +46,12 @@
 	font-weight: 600;
 	font-style: italic;
 
-	@include container-width($tablet-width) {
+	@include mix.container-width(vars.$tablet-width) {
 		font-size: 2.6rem;
 		line-height: 3.4rem;
 	}
 
-	@include container-width($monitor-width) {
+	@include mix.container-width(vars.$monitor-width) {
 		font-size: 2.8rem;
 		line-height: 3.6rem;
 	}
@@ -62,12 +63,12 @@
 	line-height: 2.4rem;
 	font-weight: 600;
 
-	@include container-width($tablet-width) {
+	@include mix.container-width(vars.$tablet-width) {
 		font-size: 1.8rem;
 		line-height: 2.6rem;
 	}
 
-	@include container-width($monitor-width) {
+	@include mix.container-width(vars.$monitor-width) {
 		font-size: 2rem;
 		line-height: 2.8rem;
 	}
@@ -77,7 +78,7 @@
 	font-size: 1.4rem;
 	line-height: 2.2rem;
 
-	@include container-width($tablet-width) {
+	@include mix.container-width(vars.$tablet-width) {
 		line-height: 2.4rem;
 	}
 }
@@ -86,7 +87,7 @@
 	font-size: 1.6rem;
 	line-height: 2.4rem;
 
-	@include container-width($tablet-width) {
+	@include mix.container-width(vars.$tablet-width) {
 		line-height: 2.6rem;
 	}
 }
@@ -100,22 +101,22 @@
 	font-size: 2rem;
 	line-height: 3rem;
 
-	@include container-width(calc($tablet-width - 100px)) {
+	/*@include mix.container-width(calc(vars.$tablet-width - 100px)) {
 		font-size: 2.4rem;
 		line-height: 3.2rem;
-	}
+	}*/
 }
 
 // Стиль обёртки заметки или обёртки блока с текстами тренировки упражнений
 @mixin content-wrapper() {
 	padding: 1.2rem 1.4rem;
-	border-radius: $radius-2;
+	border-radius: vars.$radius-2;
 
-	@include container-width($tablet-width) {
+	@include mix.container-width(vars.$tablet-width) {
 		padding: 1.2rem 1.6rem;
 	}
 
-	@include container-width($monitor-width) {
+	@include mix.container-width(vars.$monitor-width) {
 		padding: 1.2rem 2rem;
 	}
 }

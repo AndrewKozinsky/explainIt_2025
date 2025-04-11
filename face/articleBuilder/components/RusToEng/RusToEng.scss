@@ -1,19 +1,19 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
-@import '@/styles/inherit';
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+@use '@/styles/inherit' as inh;
 
 .art-rus-to-eng {
 
 }
 
 .art-rus-to-eng__text {
-	@include paragraph();
+	@include inh.paragraph();
 
 	&--size-big {
-		@include paragraph-big();
+		@include inh.paragraph-big();
 	}
 	&--size-giant {
-		@include paragraph-giant();
+		@include inh.paragraph-giant();
 	}
 }
 

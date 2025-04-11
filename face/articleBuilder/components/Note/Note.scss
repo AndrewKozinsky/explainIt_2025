@@ -1,18 +1,18 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
-@import '@/styles/inherit';
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+@use '@/styles/inherit' as inh;
 
 $CN: art-note;
 
 .#{$CN} {
-	@include content-wrapper();
+	@include inh.content-wrapper();
 
 	&--gray {
-		background-color: $grayColor-1;
+		background-color: vars.$grayColor-1;
 	}
 
 	&--yellow {
 		color: white;
-		background-color: $orangeColor-2;
+		background-color: vars.$orangeColor-2;
 	}
 }
