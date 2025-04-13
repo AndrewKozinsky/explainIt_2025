@@ -1,11 +1,14 @@
-// import React from 'react'
-// import { useExercisesModalStore } from '../../../store/store'
-// import DictionaryWord from '../DictionaryWord/DictionaryWord'
-// import s from './Dictionary.module.scss'
+import { useContext } from 'react'
+import DictionaryWord from '../DictionaryWord/DictionaryWord'
+import { ExercisesContext } from '../../../exercisesContext/exercisesContext'
+import s from './Dictionary.module.scss'
 
 /** Список русских слов с переводом на английский для правильного перевода предложения. */
-/*function Dictionary() {
-	const { words } = useExercisesModalStore().store.currentExercise
+function Dictionary() {
+	const { useGetCurrentExercise } = useContext(ExercisesContext)
+	const exercise = useGetCurrentExercise()
+	const words = exercise?.words
+
 	if (!words) return null
 
 	return (
@@ -15,6 +18,6 @@
 			})}
 		</div>
 	)
-}*/
+}
 
-// export default Dictionary
+export default Dictionary

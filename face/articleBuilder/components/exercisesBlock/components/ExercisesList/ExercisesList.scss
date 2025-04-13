@@ -2,13 +2,7 @@
 @use '@/styles/mixins' as mix;
 @use '@/styles/inherit' as inh;
 
-.generalWrapper {
-	display: flex;
-	flex-direction: column;
-	gap: 1.6rem;
-}
-
-.partWrapper {
+.exercises-list {
 	display: flex;
 	flex-direction: column;
 	gap: .2em;

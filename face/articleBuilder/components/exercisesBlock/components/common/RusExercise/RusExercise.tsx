@@ -1,19 +1,16 @@
 import cn from 'classnames'
+import { useContext } from 'react'
+import { ExercisesContext } from '../../../exercisesContext/exercisesContext'
 import { useIsShownResultInOralExercise } from '../commonFn'
 import s from './RusExercise.module.scss'
+// import exercisesLogic from '../../../logic/exercisesLogic'
 
 // Компонент с предложением на русском языке, которое нужно перевести
-import exercisesLogic from '../../../logic/exercisesLogic'
+function RusExercise() {
+	const { useGetCurrentExercise } = useContext(ExercisesContext)
+	const exercise = useGetCurrentExercise()
 
-type RusExerciseProps = {
-	exercisesBlockId: number
-}
-
-function RusExercise(props: RusExerciseProps) {
-	const { exercisesBlockId } = props
-
-	const exercise = exercisesLogic.useGetCurrentSentence(exercisesBlockId)
-	const isShownResultInOralExercise = useIsShownResultInOralExercise(exercisesBlockId)
+	const isShownResultInOralExercise = useIsShownResultInOralExercise()
 
 	if (!exercise) return null
 

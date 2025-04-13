@@ -1,39 +1,40 @@
-// import React, { useState } from 'react'
-// import ExercisesType from '../../../../articlesData/exercisesType'
-// import Switcher from '../../../../../ui/Switcher/Switcher'
-// import ArticleBuilder from '../../../../ArticleBuilder/ArticleBuilder'
-// import { ExercisesManagerTypes } from '../../../logic/exercisesManagerTypes'
-// import { useExercisesModalStore } from '../../../store/store'
-// import AnalysisStatus = ExercisesManagerTypes.AnalysisStatus
-// import s from './Analysis.module.scss'
+import { useContext, useState } from 'react'
+import ExercisesType from '../../../../../articlesData/exercisesType'
+import Switcher from '../../../../../../ui/Switcher/Switcher'
+import ArticleBuilder from '../../../../../ArticleBuilder/ArticleBuilder'
+import { ExercisesContext } from '../../../exercisesContext/exercisesContext'
+import { ExercisesContextType } from '../../../exercisesContext/exercisesStoreTypes'
+import s from './Analysis.module.scss'
 
 /** Анализ перевода введённого пользователем либо показ правильных вариантов */
-/*function Analysis() {
-	const { currentExercise: exercise } = useExercisesModalStore().store
+function Analysis() {
+	const { useGetCurrentExercise } = useContext(ExercisesContext)
+	const exercise = useGetCurrentExercise()
+	if (!exercise) return null
 
 	return exercise.userTranslate ? <AnalysisForTranslation /> : <CorrectTranslations />
-}*/
+}
 
-// export default Analysis
+export default Analysis
 
 /** Список правильных вариантов русского предложения */
-/*function CorrectTranslations() {
-	const { analysis } = useExercisesModalStore().store
+function CorrectTranslations() {
+	const { analysis } = useContext(ExercisesContext).exercisesBlock
 
-	if (analysis.status !== AnalysisStatus.visible) {
+	if (analysis.status !== ExercisesContextType.AnalysisStatus.visible) {
 		return null
 	}
 
 	return <CorrectTranslationsList correctTranslations={analysis.correctTranslations} />
-}*/
+}
 
 /** Разбор перевода данного пользователем */
-/*function AnalysisForTranslation() {
-	const { analysis } = useExercisesModalStore().store
+function AnalysisForTranslation() {
+	const { analysis } = useContext(ExercisesContext).exercisesBlock
 
 	const [viewType, setViewType] = useState<'analysis' | 'correctVariants'>('analysis')
 
-	if (analysis.status !== AnalysisStatus.visible) {
+	if (analysis.status !== ExercisesContextType.AnalysisStatus.visible) {
 		return null
 	}
 
@@ -66,14 +67,14 @@
 			)}
 		</div>
 	)
-}*/
+}
 
-/*type CorrectTranslationsListProps = {
+type CorrectTranslationsListProps = {
 	correctTranslations: ExercisesType.EngSentence[]
-}*/
+}
 
 /** Список правильных вариантов перевода */
-/*function CorrectTranslationsList(props: CorrectTranslationsListProps) {
+function CorrectTranslationsList(props: CorrectTranslationsListProps) {
 	const { correctTranslations } = props
 
 	const engSentences: string[] = []
@@ -91,4 +92,4 @@
 			))}
 		</div>
 	)
-}*/
+}

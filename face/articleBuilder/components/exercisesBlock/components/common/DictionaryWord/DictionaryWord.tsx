@@ -1,13 +1,13 @@
-// import React from 'react'
-// import ExercisesType from '../../../../articlesData/exercisesType'
-// import './DictionaryWord.scss'
+import React from 'react'
+import './DictionaryWord.scss'
+import ExercisesType from '../../../../../articlesData/exercisesType'
 
-/*type DictionaryWordProps = {
+type DictionaryWordProps = {
 	wordObj: ExercisesType.Word
-}*/
+}
 
 // Абзац с английским словом, переводом и транскрипцией для заучивания
-/*function DictionaryWord(props: DictionaryWordProps) {
+function DictionaryWord(props: DictionaryWordProps) {
 	const { note, rusWord, engWord, transcription } = props.wordObj
 
 	return (
@@ -20,6 +20,6 @@
 			</p>
 		</div>
 	)
-}*/
+}
 
-// export default DictionaryWord
+export default DictionaryWord

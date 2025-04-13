@@ -1,32 +1,25 @@
 'use client'
 
-import React from 'react'
+import { useContext } from 'react'
 import cn from 'classnames'
-import { ExercisesStoreType } from '../../../../../_pages/courseArticlePage/ExercisesStoreWrapper/exercisesStore/exercisesStoreTypes'
 import ArrowCircle from '../../../ArrowCircle/ArrowCircle'
-import { useGetCurrentExercisesType, useGetOnExerciseTypeButtonClick } from './fn/getCurrentExercisesType'
+import { useGetOnExerciseTypeButtonClick } from './fn/getCurrentExercisesType'
+import { ExercisesContext } from '../../exercisesContext/exercisesContext'
+import { ExercisesContextType } from '../../exercisesContext/exercisesStoreTypes'
 import './ExerciseTypeSwitch.scss'
 
-type ExerciseTypeSwitchProps = {
-	exercisesBlockId: number
-}
-
-function ExerciseTypeSwitch(props: ExerciseTypeSwitchProps) {
-	const { exercisesBlockId } = props
-
-	const currentExerciseType = useGetCurrentExercisesType(exercisesBlockId)
+function ExerciseTypeSwitch() {
+	const { exercisesBlock } = useContext(ExercisesContext)
 
 	return (
 		<div className='exercise-type-switch'>
 			<Item
 				text='Письменная'
-				isCurrent={currentExerciseType === ExercisesStoreType.ExerciseType.write}
-				exercisesBlockId={exercisesBlockId}
+				isCurrent={exercisesBlock.currentExerciseType === ExercisesContextType.ExerciseType.write}
 			/>
 			<Item
 				text='Голосовая'
-				isCurrent={currentExerciseType === ExercisesStoreType.ExerciseType.oral}
-				exercisesBlockId={exercisesBlockId}
+				isCurrent={exercisesBlock.currentExerciseType === ExercisesContextType.ExerciseType.oral}
 			/>
 		</div>
 	)
@@ -37,13 +30,12 @@ export default ExerciseTypeSwitch
 type ItemProps = {
 	isCurrent: boolean
 	text: string
-	exercisesBlockId: number
 }
 
 function Item(props: ItemProps) {
-	const { isCurrent, text, exercisesBlockId } = props
+	const { isCurrent, text } = props
 
-	const onExerciseTypeButtonClick = useGetOnExerciseTypeButtonClick(isCurrent, exercisesBlockId)
+	const onExerciseTypeButtonClick = useGetOnExerciseTypeButtonClick(isCurrent)
 
 	return (
 		<button

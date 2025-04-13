@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react'
 import ArticleType from '../articlesData/articleType'
-import ExercisesStoreWrapper from '../../_pages/courseArticlePage/ExercisesStoreWrapper/ExercisesStoreWrapper'
 // import FaqInArticle from '../components/FaqInArticle/FaqInArticle'
 // import Grid from '../components/Grid/Grid'
 import Header from '../components/Header/Header'
@@ -29,7 +28,7 @@ function ArticleBuilder(props: ArticleBuilderProps): ReactNode {
 				} else if (compConf.type === 'rusToEng') {
 					return <RusToEng config={compConf} key={i} />
 				} else if (compConf.type === 'exercises') {
-					return <ExercisesBlock exercisesBlockId={compConf.id} key={i} />
+					return <ExercisesBlock exercises={compConf.exercises} key={i} />
 				} else if (compConf.type === 'note') {
 					return <Note config={compConf} key={i} />
 				}

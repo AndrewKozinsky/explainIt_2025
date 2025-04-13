@@ -1,20 +1,19 @@
-import { useMemo } from 'react'
-import { ExercisesStoreType } from '../../../../../_pages/courseArticlePage/ExercisesStoreWrapper/exercisesStore/exercisesStoreTypes'
-
-import exercisesLogic from '../../logic/exercisesLogic'
+import { useContext, useMemo } from 'react'
+import { ExercisesContext } from '../../exercisesContext/exercisesContext'
+import { ExercisesContextType } from '../../exercisesContext/exercisesStoreTypes'
 
 /** Возвращает правду если текущее упражнение голосовое и показан результат */
-export function useIsShownResultInOralExercise(exercisesBlockId: number) {
-	const exercisesBlock = exercisesLogic.useGetExercisesBlock(exercisesBlockId)
-	const exercise = exercisesLogic.useGetCurrentSentence(exercisesBlockId)
+export function useIsShownResultInOralExercise() {
+	const { useGetCurrentExercise, exercisesBlock } = useContext(ExercisesContext)
+	const exercise = useGetCurrentExercise()
 
-	if (!exercisesBlock || !exercise) return null
+	if (!exercise) return null
 
 	return useMemo(
 		function () {
 			return (
-				exercisesBlock.currentExerciseType === ExercisesStoreType.ExerciseType.oral &&
-				exercisesBlock.analysis.status === ExercisesStoreType.AnalysisStatus.visible
+				exercisesBlock.currentExerciseType === ExercisesContextType.ExerciseType.oral &&
+				exercisesBlock.analysis.status === ExercisesContextType.AnalysisStatus.visible
 			)
 		},
 		[exercise],

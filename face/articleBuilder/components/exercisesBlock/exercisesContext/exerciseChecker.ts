@@ -1,19 +1,20 @@
-// import ArticleType from '../../articlesData/articleType'
-// import ExercisesType from '../../articlesData/exercisesType'
-// import api from '../../../requests/http'
-// import { createAdminTokenString } from '../../../requests/utils'
-// import ApiRouteNames from '../../../сonsts/apiRouteNames'
-// import { ExercisesManagerTypes } from './exercisesManagerTypes'
+import ArticleType from '../../../articlesData/articleType'
+import ExercisesType from '../../../articlesData/exercisesType'
+import { ExercisesContextType } from './exercisesStoreTypes'
 
 /** Класс с методами проверки перевода данного пользователем */
-/*export class ExerciseChecker {
-	/!**
+export const exerciseChecker = {
+	/**
 	 * Ищет в данных упражнения перевод похожий на тот, который дал пользователь.
 	 * И если находит, то возвращает объект с данными, чтобы показать разбор перевода.
 	 * Если не находит, то возвращает undefined.
 	 * @param exercise — данные упражнения
-	 *!/
-	checkInLocalData(exercise: ExercisesManagerTypes.Exercise): undefined | ExercisesManagerTypes.Analysis {
+	 * @param exerciseType
+	 */
+	checkInLocalData(
+		exercise: ExercisesContextType.Exercise,
+		exerciseType: ExercisesContextType.ExerciseType,
+	): undefined | ExercisesContextType.Analysis {
 		// Массив правильных ответов на это упражнение
 		const correctTranslations = this.getCorrectTranslations(exercise)
 
@@ -24,9 +25,9 @@
 		}
 
 		// Если упражнение голосовое нужно просто вернуть правильный ответ потому что ученик ничего не вводит.
-		if (exercise.type === ExercisesManagerTypes.ExerciseType.oral) {
+		if (exerciseType === ExercisesContextType.ExerciseType.oral) {
 			return {
-				status: ExercisesManagerTypes.AnalysisStatus.visible,
+				status: ExercisesContextType.AnalysisStatus.visible,
 				isTranslateCorrect: true, // Значение не важно
 				correctTranslations,
 				translateAnalysis: firstCorrectTranslationAnalysis,
@@ -36,7 +37,7 @@
 		// Если никакой перевод не написали, то помечать такое упражнение проваленным.
 		if (!exercise.userTranslate) {
 			return {
-				status: ExercisesManagerTypes.AnalysisStatus.visible,
+				status: ExercisesContextType.AnalysisStatus.visible,
 				isTranslateCorrect: false,
 				correctTranslations,
 				translateAnalysis: firstCorrectTranslationAnalysis,
@@ -67,44 +68,44 @@
 			}
 
 			return {
-				status: ExercisesManagerTypes.AnalysisStatus.visible,
+				status: ExercisesContextType.AnalysisStatus.visible,
 				isTranslateCorrect: similarTranslation.isCorrect,
 				correctTranslations,
 				translateAnalysis,
 			}
 		}
-	}
+	},
 
-	/!**
+	/**
 	 * Делает запрос на сервер для получения разбора перевода данного пользователем.
 	 * Фомирует и возвращает объект с данными, чтобы показать разбор перевода.
 	 * @param exercise — данные упражнения
-	 *!/
-	async checkByAI(exercise: ExercisesManagerTypes.Exercise): Promise<ExercisesManagerTypes.Analysis> {
+	 */
+	/*async checkByAI(exercise: ExercisesStoreType.Exercise): Promise<ExercisesStoreType.Analysis> {
 		return {
-			status: ExercisesManagerTypes.AnalysisStatus.visible,
+			status: ExercisesStoreType.AnalysisStatus.visible,
 			isTranslateCorrect: false,
 			correctTranslations: [],
 			translateAnalysis: [{ type: 'paragraph', children: [{ type: 'text', text: 'Dummy text' }] }],
 		}
-	}
+	},*/
 
-	/!**
+	/**
 	 * Получает упражнение и вычленяет правильные варианты переводов
 	 * @param exercise — объект упражнения
-	 *!/
-	private getCorrectTranslations(exercise: ExercisesManagerTypes.Exercise) {
+	 */
+	getCorrectTranslations(exercise: ExercisesContextType.Exercise) {
 		return exercise.engSentences.filter((engSentence) => {
 			return engSentence.isCorrect
 		})
-	}
+	},
 
-	/!**
+	/**
 	 * Находит в переданных переводах перевод похожий на тот, что дал пользователь.
 	 * @param translations — список существующих вариантов перевода в данных упражнения
 	 * @param userTranslation — перевод, данный пользователем
-	 *!/
-	private findSimilarTranslation(translations: ExercisesType.EngSentence[], userTranslation: string) {
+	 */
+	findSimilarTranslation(translations: ExercisesType.EngSentence[], userTranslation: string) {
 		const userDryTranslation = this.drySentence(userTranslation)
 
 		return translations.find((translation) => {
@@ -114,13 +115,13 @@
 
 			return !!foundSentences
 		})
-	}
+	},
 
-	/!**
+	/**
 	 * Получает предложение и приводит его к «высушенному» виду чтобы можно было сравнивать с похожими предложениями.
 	 * Например, буквы приводятся к нижнему регистру, убираются знаки препинания, сокращения заменяются на полные варианты.
 	 * @param sentence — предложение, которое нужно высушить
-	 *!/
+	 */
 	drySentence(sentence: string) {
 		// Обрезать пробелы с двух сторон
 		let dryText = sentence.trim()
@@ -152,14 +153,14 @@
 		dryText = dryText.replace(/you've/g, 'you have')
 
 		return dryText
-	}
+	},
 
-	/!**
+	/**
 	 * Делает запрос на сервер для проверки перевода пользователя через искуственный интеллект
 	 * @param exercise — объект упражнения
-	 *!/
-	private async makeRequestToAI(
-		exercise: ExercisesManagerTypes.Exercise,
+	 */
+	/*async makeRequestToAI(
+		exercise: ExercisesStoreType.Exercise,
 	): Promise<{ correct: boolean; analysis: string }> {
 		const question = `Предложение "${exercise.rusSentence}" переведено "${exercise.userTranslate}". Проверь правильность перевода на английский. Ответ дай в объекте JSON: в свойстве isCorrect поставь булево значение правильно ли переведено предложение на английский. В analysis напиши что сделано неправильно и как исправить если были сделаны ошибки.`
 
@@ -172,5 +173,5 @@
 				},
 			},
 		)
-	}
-}*/
+	}*/
+}

@@ -1,19 +1,10 @@
-import ArticleType from '../../../../articleBuilder/articlesData/articleType'
-import ExercisesType from '../../../../articleBuilder/articlesData/exercisesType'
+import ArticleType from '../../../articlesData/articleType'
+import ExercisesType from '../../../articlesData/exercisesType'
 
-export namespace ExercisesStoreType {
-	export type State = {
-		exercises: ExercisesBlock[]
-		toggleExercisesType: (exercisesBlockId: number) => void
-		// getExercisesBlock: (exercisesBlockId: number) => undefined | ExercisesBlock
-		getExercisesBlockIdx: (exercisesBlockId: number) => number
-		switchToSentence: (exercisesBlockId: number, sentenceId: number) => void
-	}
-
+export namespace ExercisesContextType {
 	export type ExercisesBlock = {
-		exercisesBlockId: number
 		// Текущее упражнение
-		currentSentenceId: number
+		currentExercisesId: number
 		currentExerciseType: ExerciseType
 		// Что показывать в результате проверки перевода данного учеником
 		exercises: Exercise[]

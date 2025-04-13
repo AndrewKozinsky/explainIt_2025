@@ -1,6 +1,6 @@
 import React from 'react'
 import ArticleBuilder from '../../../../articleBuilder/ArticleBuilder/ArticleBuilder'
-import ExercisesStoreWrapper from '../../ExercisesStoreWrapper/ExercisesStoreWrapper'
+// import ExercisesStoreWrapper from '../../ExercisesStoreWrapper/ExercisesStoreWrapper'
 // import LearnByHeartButton from '../../../../articleBuilder/components/learnByHeart/LearnByHeartButton/LearnByHeartButton'
 // import { ExercisesModal } from '../../../../articleBuilder/exercisesModal'
 // import { PageUrls } from '../../../../сonsts/pageUrls'
@@ -20,7 +20,7 @@ function ArticleArticleContent(props: ArticleContentProps) {
 
 	return (
 		<div className='article-article'>
-			<ExercisesStoreWrapper articleContent={article.content} />
+			{/*<ExercisesStoreWrapper articleContent={article.content} />*/}
 			<div className='article-article__content'>
 				<ArticleBuilder articleContent={article.content} />
 			</div>
