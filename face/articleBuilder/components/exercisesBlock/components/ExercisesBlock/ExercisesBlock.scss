@@ -1,0 +1,20 @@
+@use "@/styles/variables" as vars;
+
+.exercises {
+	padding: 1.6rem 2.8rem 3rem;
+	border-radius: vars.$radius-2;
+	border: 2px solid vars.$textColor;
+}
+
+.exercises__content {
+	display: flex;
+	gap: 4rem;
+	margin-top: 2rem;
+}
+
+.exercises__content__left {
+	display: grid;
+	gap: 2rem;
+	width: 40%;
+	max-width: 32rem;
+}

@@ -1,4 +1,4 @@
-import CourseArticlePage from '../../../_pages/courseArtPage/courseArticlePage/CourseArticlePage/CourseArticlePage'
+import CourseArticlePage from '../../../_pages/courseArticlePage/courseArticlePage/CourseArticlePage/CourseArticlePage'
 import articleService from '../../../articleBuilder/articleService/articleService'
 
 type TextBookArticleProps = {

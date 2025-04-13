@@ -1,0 +1,14 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+@use '@/styles/inherit' as inh;
+
+.loading-error-analysis {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 5rem 2rem;
+	border: 1px dashed vars.$grayColor-2;
+	border-radius: vars.$radius-1;
+}

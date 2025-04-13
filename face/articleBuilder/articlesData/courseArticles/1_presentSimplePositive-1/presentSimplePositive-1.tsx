@@ -99,6 +99,7 @@ const presentSimplePositive1: ArticleType.Art = {
 		},
 		{
 			type: 'exercises',
+			id: 1,
 			exercises: [
 				{
 					rusSentence: 'Они обожают зелёный чай.',

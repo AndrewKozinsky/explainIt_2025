@@ -7,7 +7,7 @@ $CN: tiles-wrapper;
 	display: grid;
 	gap: 1.2rem;
 
-	@include mix.page-width(calc(vars.$tablet-width - 2rem)) {
+	@include mix.page-width(vars.$tablet-width) {
 		grid-template-columns: repeat(auto-fill, minmax(23rem, 1fr));
 		gap: 1.6rem;
 	}

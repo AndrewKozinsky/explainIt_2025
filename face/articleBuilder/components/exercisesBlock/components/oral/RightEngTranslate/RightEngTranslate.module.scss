@@ -1,0 +1,9 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+@use '@/styles/inherit' as inh;
+
+.paragraph {
+	width: 100%;
+	@include inh.paragraph-giant();
+	margin: 1rem 0 0 0;
+}

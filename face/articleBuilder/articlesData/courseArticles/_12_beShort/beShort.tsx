@@ -1,6 +1,6 @@
-import ArticleType from '../../articleType'
+// import ArticleType from '../../articleType'
 
-const beShort: ArticleType.Art = {
+/*const beShort: ArticleType.Art = {
 	meta: {
 		number: 14,
 		slug: 'be-short',
@@ -977,6 +977,6 @@ const beShort: ArticleType.Art = {
 			],
 		},
 	],
-}
+}*/
 
-export default beShort
+// export default beShort

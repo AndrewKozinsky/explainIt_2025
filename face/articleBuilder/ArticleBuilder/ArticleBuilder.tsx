@@ -1,14 +1,15 @@
 import React, { ReactNode } from 'react'
 import ArticleType from '../articlesData/articleType'
+import ExercisesStoreWrapper from '../../_pages/courseArticlePage/ExercisesStoreWrapper/ExercisesStoreWrapper'
 // import FaqInArticle from '../components/FaqInArticle/FaqInArticle'
 // import Grid from '../components/Grid/Grid'
 import Header from '../components/Header/Header'
 // import List from '../components/List/List'
 import Note from '../components/Note/Note'
 import Paragraph from '../components/Paragraph/Paragraph'
-import './collocations.scss'
 import RusToEng from '../components/RusToEng/RusToEng'
-import { Exercises } from '../exercises/components/Exercises/Exercises'
+import { ExercisesBlock } from '../components/exercisesBlock/components/ExercisesBlock/ExercisesBlock'
+import './collocations.scss'
 
 type ArticleBuilderProps = {
 	articleContent: ArticleType.Content
@@ -28,7 +29,7 @@ function ArticleBuilder(props: ArticleBuilderProps): ReactNode {
 				} else if (compConf.type === 'rusToEng') {
 					return <RusToEng config={compConf} key={i} />
 				} else if (compConf.type === 'exercises') {
-					return <Exercises exercisesObj={compConf} key={i} />
+					return <ExercisesBlock exercisesBlockId={compConf.id} key={i} />
 				} else if (compConf.type === 'note') {
 					return <Note config={compConf} key={i} />
 				}

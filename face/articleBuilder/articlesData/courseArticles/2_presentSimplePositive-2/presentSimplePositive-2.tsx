@@ -5,7 +5,7 @@ const presentSimplePositive2: ArticleType.Art = {
 		number: 2,
 		slug: 'present-simple-positive-2',
 		caption: 'Глава 2',
-		articleName: 'Present Simple в утверждении (продолжение)',
+		articleName: 'Present Simple в утверждении (часть 2)',
 		articleDescription:
 			'Изучим как составлять предложения в грамматическом времени Present Simple для местоимений третьего лица.',
 	},
@@ -164,6 +164,7 @@ const presentSimplePositive2: ArticleType.Art = {
 		},
 		{
 			type: 'exercises',
+			id: 1,
 			exercises: [
 				{
 					rusSentence: 'Дана любит сырые овощи.',
@@ -537,6 +538,7 @@ const presentSimplePositive2: ArticleType.Art = {
 		},
 		{
 			type: 'exercises',
+			id: 2,
 			exercises: [
 				{
 					rusSentence: 'Он преподаёт английский и немецкий.',

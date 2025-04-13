@@ -1,0 +1,25 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+@use '@/styles/inherit' as inh;
+
+.textarea {
+	width: 100%;
+	@include inh.paragraph-giant();
+	field-sizing: content;
+
+	&::placeholder {
+		color: vars.$grayColor-2;
+	}
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.greenText {
+	color: vars.$greenColor-3;
+}
+
+.redText {
+	color: vars.$redColor-2;
+}

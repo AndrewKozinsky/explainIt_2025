@@ -1,6 +1,6 @@
-import ArticleType from '../../articleType'
+// import ArticleType from '../../articleType'
 
-const adjectivesDegreesOfComparison: ArticleType.Art = {
+/*const adjectivesDegreesOfComparison: ArticleType.Art = {
 	meta: {
 		number: 13,
 		slug: 'adjectives-degrees-of-comparison',
@@ -510,6 +510,7 @@ const adjectivesDegreesOfComparison: ArticleType.Art = {
 		},
 		{
 			type: 'exercises',
+			id: 1,
 			exercises: [
 				{
 					rusSentence: 'Армейские самолёты более тяжелые, чем гражданские.',
@@ -808,6 +809,7 @@ const adjectivesDegreesOfComparison: ArticleType.Art = {
 		},
 		{
 			type: 'exercises',
+			id: 2,
 			exercises: [
 				{
 					rusSentence: 'Рыбья молодь — это пища для более крупных рыб.',
@@ -1034,6 +1036,7 @@ const adjectivesDegreesOfComparison: ArticleType.Art = {
 		},
 		{
 			type: 'exercises',
+			id: 3,
 			exercises: [
 				{
 					rusSentence: 'Мой ближайший сосед в полумиле отсюда.',
@@ -1305,6 +1308,7 @@ const adjectivesDegreesOfComparison: ArticleType.Art = {
 		},
 		{
 			type: 'exercises',
+			id: 4,
 			exercises: [
 				{
 					rusSentence: 'Следующий день был Четвёртое Июля, один из самых важных праздников Америки.',
@@ -1537,7 +1541,6 @@ const adjectivesDegreesOfComparison: ArticleType.Art = {
 				},
 			],
 		},
-		{ type: 'exercises', exercises: [], offset: true },
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Исключения' },
 		{
 			type: 'paragraph',
@@ -2000,6 +2003,7 @@ const adjectivesDegreesOfComparison: ArticleType.Art = {
 		},
 		{
 			type: 'exercises',
+			id: 5,
 			exercises: [
 				{
 					rusSentence: 'Это было плохо, но разговор с Ником было хуже, гораздо хуже.',
@@ -2078,6 +2082,6 @@ const adjectivesDegreesOfComparison: ArticleType.Art = {
 			],
 		},
 	],
-}
+}*/
 
-export default adjectivesDegreesOfComparison
+// export default adjectivesDegreesOfComparison

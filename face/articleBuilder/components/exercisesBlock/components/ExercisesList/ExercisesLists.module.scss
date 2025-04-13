@@ -1,0 +1,15 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+@use '@/styles/inherit' as inh;
+
+.generalWrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 1.6rem;
+}
+
+.partWrapper {
+	display: flex;
+	flex-direction: column;
+	gap: .2em;
+}
