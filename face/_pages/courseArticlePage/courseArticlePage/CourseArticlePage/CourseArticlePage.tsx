@@ -1,5 +1,5 @@
 import React from 'react'
-import ArticleType from '../../../../articleBuilder/articlesData/articleType'
+import ArticleType from '../../../../articles/articlesData/articleType'
 import { BreadCrumbs } from '../../../../ui/pageRelated/BreadCrumbs/BreadCrumbs'
 import { PageContentWrapper } from '../../../../ui/pageRelated/PageContentWrapper/PageContentWrapper'
 import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'

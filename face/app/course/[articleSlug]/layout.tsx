@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import { Metadata } from 'next'
-import articleService from '../../../articleBuilder/articleService/articleService'
+import articleService from '../../../articles/articleService/articleService'
 
 type GenerateMetadataParams = {
 	params: Promise<{

@@ -1,5 +1,5 @@
 import CourseArticlePage from '../../../_pages/courseArticlePage/courseArticlePage/CourseArticlePage/CourseArticlePage'
-import articleService from '../../../articleBuilder/articleService/articleService'
+import articleService from '../../../articles/articleService/articleService'
 
 type TextBookArticleProps = {
 	params: Promise<{

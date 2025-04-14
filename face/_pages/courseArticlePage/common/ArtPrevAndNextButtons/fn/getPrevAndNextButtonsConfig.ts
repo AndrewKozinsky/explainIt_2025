@@ -1,5 +1,5 @@
 import { PrevAndNextButtonConfig } from '../../PrevAndNextButtons/PrevAndNextButtons'
-import ArticleType from '../../../../../articleBuilder/articlesData/articleType'
+import ArticleType from '../../../../../articles/articlesData/articleType'
 import { PageUrls } from '../../../../../сonsts/pageUrls'
 
 /**

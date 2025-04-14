@@ -1,11 +1,11 @@
 import React from 'react'
-import ArticleBuilder from '../../../../articleBuilder/ArticleBuilder/ArticleBuilder'
+import ArticleBuilder from '../../../../articles/ArticleBuilder/ArticleBuilder'
 // import ExercisesStoreWrapper from '../../ExercisesStoreWrapper/ExercisesStoreWrapper'
 // import LearnByHeartButton from '../../../../articleBuilder/components/learnByHeart/LearnByHeartButton/LearnByHeartButton'
 // import { ExercisesModal } from '../../../../articleBuilder/exercisesModal'
 // import { PageUrls } from '../../../../сonsts/pageUrls'
 import { PrevAndNextArticlesNav } from '../../common/ArtPrevAndNextButtons/PrevAndNextArticlesNav'
-import ArticleType from '../../../../articleBuilder/articlesData/articleType'
+import ArticleType from '../../../../articles/articlesData/articleType'
 import './ArticleArticleContent.scss'
 
 type ArticleContentProps = {

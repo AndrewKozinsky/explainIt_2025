@@ -1,0 +1,25 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+@use '@/styles/inherit' as inh;
+
+.eng-translate-input {
+	width: 100%;
+	@include inh.paragraph-giant();
+	field-sizing: content;
+
+	&::placeholder {
+		color: vars.$grayColor-2;
+	}
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.eng-translate-input--green-text {
+	color: vars.$greenColor-3;
+}
+
+.eng-translate-input--red-text {
+	color: vars.$redColor-2;
+}
