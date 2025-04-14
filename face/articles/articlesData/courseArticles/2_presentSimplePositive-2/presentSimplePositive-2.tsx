@@ -1,4 +1,6 @@
 import ArticleType from '../../articleType'
+import exercises_1 from './exercises-1'
+import exercises_2 from './exercises-2'
 
 const presentSimplePositive2: ArticleType.Art = {
 	meta: {
@@ -162,163 +164,7 @@ const presentSimplePositive2: ArticleType.Art = {
 				},
 			],
 		},
-		{
-			type: 'exercises',
-			id: 1,
-			exercises: [
-				{
-					rusSentence: 'Дана любит сырые овощи.',
-					engSentences: [{ engSentences: ['Dana loves raw vegetables.'], isCorrect: true }],
-					words: [
-						{ rusWord: 'любить', engWord: 'love' },
-						{ rusWord: 'сырой', engWord: 'raw' },
-						{ rusWord: 'овощи', engWord: 'vegetables' },
-					],
-				},
-				{
-					rusSentence: 'Она носит белую одежду.',
-					engSentences: [
-						{
-							engSentences: ['She wears white clothes.'],
-							isCorrect: true,
-						},
-					],
-					words: [
-						{ rusWord: 'носить', engWord: 'wear' },
-						{ rusWord: 'белый', engWord: 'white' },
-						{ rusWord: 'одежда', engWord: 'clothes' },
-					],
-				},
-				{
-					rusSentence: 'Он предпочитает морепродукты.',
-					engSentences: [
-						{
-							engSentences: ['He prefers seafood.'],
-							isCorrect: true,
-						},
-					],
-					words: [
-						{ rusWord: 'путешествовать', engWord: 'travel' },
-						{ rusWord: 'каждый', engWord: 'every' },
-						{ rusWord: 'лето', engWord: 'summer' },
-					],
-				},
-				{
-					rusSentence: 'Она смотрит телевизор.',
-					engSentences: [
-						{
-							engSentences: ['She watches TV.'],
-							isCorrect: true,
-						},
-					],
-					words: [
-						{ rusWord: 'путешествовать', engWord: 'travel' },
-						{ rusWord: 'каждый', engWord: 'every' },
-						{ rusWord: 'лето', engWord: 'summer' },
-					],
-				},
-				{
-					rusSentence: 'Это работает очень громко.',
-					engSentences: [
-						{
-							engSentences: ['She watches TV.'],
-							isCorrect: true,
-						},
-					],
-					words: [
-						{ rusWord: 'путешествовать', engWord: 'travel' },
-						{ rusWord: 'каждый', engWord: 'every' },
-						{ rusWord: 'лето', engWord: 'summer' },
-					],
-				},
-				{
-					rusSentence: 'Он верит в НЛО.',
-					engSentences: [
-						{
-							engSentences: ['He believes UFO.'],
-							isCorrect: true,
-						},
-					],
-					words: [
-						{ rusWord: 'путешествовать', engWord: 'travel' },
-						{ rusWord: 'каждый', engWord: 'every' },
-						{ rusWord: 'лето', engWord: 'summer' },
-					],
-				},
-				{
-					rusSentence: 'Он получает большие деньги.',
-					engSentences: [
-						{
-							engSentences: ['He gets big money.'],
-							isCorrect: true,
-						},
-					],
-					words: [
-						{ rusWord: 'путешествовать', engWord: 'travel' },
-						{ rusWord: 'каждый', engWord: 'every' },
-						{ rusWord: 'лето', engWord: 'summer' },
-					],
-				},
-				{
-					rusSentence: 'Она курит и пьёт.',
-					engSentences: [
-						{
-							engSentences: ['She smokes.'],
-							isCorrect: true,
-						},
-					],
-					words: [
-						{ rusWord: 'путешествовать', engWord: 'travel' },
-						{ rusWord: 'каждый', engWord: 'every' },
-						{ rusWord: 'лето', engWord: 'summer' },
-					],
-				},
-				{
-					rusSentence: 'Это приносит успех и удачу.',
-					engSentences: [
-						{
-							engSentences: ['She smokes.'],
-							isCorrect: true,
-						},
-					],
-					words: [
-						{ rusWord: 'путешествовать', engWord: 'travel' },
-						{ rusWord: 'каждый', engWord: 'every' },
-						{ rusWord: 'лето', engWord: 'summer' },
-					],
-				},
-				{
-					rusSentence: 'Света растет активной и позитивной девочкой.',
-					engSentences: [
-						{
-							engSentences: ['Sveta grows active and positive girl.'],
-							isCorrect: true,
-						},
-					],
-					words: [
-						{ rusWord: 'расти', engWord: 'grow' },
-						{ rusWord: 'активный', engWord: 'active' },
-						{ rusWord: 'позитивный', engWord: 'positive' },
-						{ rusWord: 'девочка', engWord: 'girl' },
-					],
-				},
-				{
-					rusSentence: 'Он заказывает еду онлайн.',
-					engSentences: [
-						{
-							engSentences: ['He orders food online.'],
-							isCorrect: true,
-						},
-					],
-					words: [
-						{ rusWord: 'расти', engWord: 'grow' },
-						{ rusWord: 'активный', engWord: 'active' },
-						{ rusWord: 'позитивный', engWord: 'positive' },
-						{ rusWord: 'девочка', engWord: 'girl' },
-					],
-				},
-			],
-		},
+		exercises_1,
 		{
 			type: 'paragraph',
 			offset: true,
@@ -536,21 +382,7 @@ const presentSimplePositive2: ArticleType.Art = {
 				},
 			],
 		},
-		{
-			type: 'exercises',
-			id: 2,
-			exercises: [
-				{
-					rusSentence: 'Он преподаёт английский и немецкий.',
-					engSentences: [{ engSentences: ['He teaches English and German.'], isCorrect: true }],
-					words: [
-						{ rusWord: 'обожать', engWord: 'adore' },
-						{ rusWord: 'зелёный', engWord: 'green' },
-						{ rusWord: 'чай', engWord: 'tea' },
-					],
-				},
-			],
-		},
+		exercises_2,
 	],
 }
 
