@@ -101,10 +101,10 @@
 	font-size: 2rem;
 	line-height: 3rem;
 
-	/*@include mix.container-width(calc(vars.$tablet-width - 100px)) {
+	@include mix.container-width(vars.$tablet-width) {
 		font-size: 2.4rem;
 		line-height: 3.2rem;
-	}*/
+	}
 }
 
 // Стиль обёртки заметки или обёртки блока с текстами тренировки упражнений

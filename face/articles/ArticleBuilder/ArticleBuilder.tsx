@@ -7,7 +7,7 @@ import Header from '../components/Header/Header'
 import Note from '../components/Note/Note'
 import Paragraph from '../components/Paragraph/Paragraph'
 import RusToEng from '../components/RusToEng/RusToEng'
-import { ExercisesBlock } from '../components/exercisesBlock/components/ExercisesBlock/ExercisesBlock'
+import { ExercisesBlock } from '../components/exercises/components/ExercisesBlock/ExercisesBlock'
 import './collocations.scss'
 
 type ArticleBuilderProps = {

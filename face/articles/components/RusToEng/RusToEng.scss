@@ -3,7 +3,9 @@
 @use '@/styles/inherit' as inh;
 
 .art-rus-to-eng {
-
+	.art-arrow {
+		margin: 0 .3em;
+	}
 }
 
 .art-rus-to-eng__text {

@@ -168,11 +168,11 @@ const presentSimplePositive2: ArticleType.Art = {
 			exercises: [
 				{
 					rusSentence: 'Дана любит сырые овощи.',
-					engSentences: [{ engSentences: ['Dana loves raw vegetables. '], isCorrect: true }],
+					engSentences: [{ engSentences: ['Dana loves raw vegetables.'], isCorrect: true }],
 					words: [
-						{ rusWord: 'обожать', engWord: 'adore' },
-						{ rusWord: 'зелёный', engWord: 'green' },
-						{ rusWord: 'чай', engWord: 'tea' },
+						{ rusWord: 'любить', engWord: 'love' },
+						{ rusWord: 'сырой', engWord: 'raw' },
+						{ rusWord: 'овощи', engWord: 'vegetables' },
 					],
 				},
 				{
@@ -184,9 +184,9 @@ const presentSimplePositive2: ArticleType.Art = {
 						},
 					],
 					words: [
-						{ rusWord: 'путешествовать', engWord: 'travel' },
-						{ rusWord: 'каждый', engWord: 'every' },
-						{ rusWord: 'лето', engWord: 'summer' },
+						{ rusWord: 'носить', engWord: 'wear' },
+						{ rusWord: 'белый', engWord: 'white' },
+						{ rusWord: 'одежда', engWord: 'clothes' },
 					],
 				},
 				{

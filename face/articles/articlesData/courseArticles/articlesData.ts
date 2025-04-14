@@ -33,7 +33,7 @@ import presentSimplePositive2 from './2_presentSimplePositive-2/presentSimplePos
 // Список статей учебника
 const rowArticles: ArticleType.Art[] = [
 	presentSimplePositive1,
-	// presentSimplePositive2,
+	presentSimplePositive2,
 	// toBePositive,
 	// adjectives,
 	// indefiniteArticle,

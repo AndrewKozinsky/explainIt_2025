@@ -1,0 +1,21 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+@use '@/styles/inherit' as inh;
+
+.exercise-content-rus-sentence {
+
+}
+
+.exercise-content-rus-sentence__note {
+	@include inh.paragraph-small;
+	color: vars.$grayColor-3;
+}
+
+.exercise-content-rus-sentence__text {
+	@include inh.paragraph-giant;
+	margin-top: .2rem;
+
+	&--gray {
+		color: vars.$grayColor-3;
+	}
+}
