@@ -1,13 +1,11 @@
-//@use '@/styles/variables' as vars;
-//@use '@/styles/mixins' as mix;
-//@use '@/styles/inherit' as inh;
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+@use '@/styles/inherit' as inh;
 
-//$CN: art-image;
-
-/*.#{$CN} {
+.art-image {
 	overflow: auto;
 
 	& > img {
 		display: block;
 	}
-}*/
+}

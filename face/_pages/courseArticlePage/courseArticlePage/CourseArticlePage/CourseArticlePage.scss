@@ -2,14 +2,14 @@
 @use '@/styles/mixins' as mix;
 @use '@/styles/inherit' as inh;
 
-.generalWrapper {
+.course-article-page {
 	display: flex;
 	gap: 0.2em;
 	flex-wrap: wrap;
 	align-items: center;
 }
 
-.circle {
+.course-article-page__header-num {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -21,7 +21,7 @@
 	transform: translateY(0.07em);
 }
 
-.circleNum {
+.course-article-page__header-num-text {
 	font-size: 0.7em;
 	line-height: 0.7em;
 	font-weight: 300;

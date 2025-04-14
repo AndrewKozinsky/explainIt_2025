@@ -15,7 +15,7 @@ export function PageHeader(props: PageHeaderProps) {
 	return (
 		<div>
 			<h1 className={cn('page-header', extraClass)}>{children}</h1>
-			{subheaderText ? <p className="page-header__subheader">{subheaderText}</p> : null}
+			{subheaderText ? <p className='page-header__subheader'>{subheaderText}</p> : null}
 		</div>
 	)
 }

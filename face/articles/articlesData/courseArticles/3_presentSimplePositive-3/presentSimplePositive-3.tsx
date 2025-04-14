@@ -1,6 +1,7 @@
 import ArticleType from '../../articleType'
 import exercises_2 from './exercises-2'
 import exercises_1 from './exercises-1'
+import PresentSimplePositiveTable from './PresentSimplePositiveTable'
 
 const presentSimplePositive3: ArticleType.Art = {
 	meta: {
@@ -16,7 +17,35 @@ const presentSimplePositive3: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'Подлежащее — это лицо выполняющее действие. В предыдущих главах подлежащее всегда было местоимением:',
+					text: 'Посмотрим на таблицу составления утвердительного предложения. После местоимений 1-го и 2-го лица используется обычный глагол (обозначается буквой V). А после местоимений 3-го лица к глаголу добавляется окончание -',
+				},
+				{
+					type: 'text',
+					text: 's',
+					color: 'gold',
+				},
+				{
+					type: 'text',
+					text: ' или -',
+				},
+				{
+					type: 'text',
+					text: 'es',
+					color: 'gold',
+				},
+				{
+					type: 'text',
+					text: '.',
+				},
+			],
+		},
+		{ type: 'customComponent', component: <PresentSimplePositiveTable /> },
+		{
+			type: 'paragraph',
+			children: [
+				{
+					type: 'text',
+					text: 'Местоимение в данном контексте выполняют роль подлежащего — лица выполняющего действие:',
 				},
 			],
 		},
@@ -41,7 +70,9 @@ const presentSimplePositive3: ArticleType.Art = {
 			],
 			eng: [
 				{ type: 'text', text: 'He', color: 'blue' },
-				{ type: 'text', text: ' wears suits.' },
+				{ type: 'text', text: ' wear' },
+				{ type: 'text', text: ' s', color: 'gold' },
+				{ type: 'text', text: '  suits.' },
 			],
 		},
 		{
@@ -50,7 +81,25 @@ const presentSimplePositive3: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'Подлежащим может быть не только местоимение, но и существительное или имя. Чтобы понять требуется ли к глаголу добавлять -s/-es нужно мысленно заменить подлежащее на подходящее местоимение. Например:',
+					text: 'Подлежащим может быть не только местоимение, но и существительное или имя. Чтобы понять требуется ли к глаголу добавлять -',
+				},
+				{
+					type: 'text',
+					text: 's',
+					color: 'gold',
+				},
+				{
+					type: 'text',
+					text: '/-',
+				},
+				{
+					type: 'text',
+					text: 'es',
+					color: 'gold',
+				},
+				{
+					type: 'text',
+					text: ' нужно мысленно заменить подлежащее на подходящее местоимение. Например:',
 				},
 			],
 		},
@@ -60,7 +109,34 @@ const presentSimplePositive3: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'Подлежащее «Совы» можно заменить на местоимение they потому что множественное число, это второе лицо. Поэтому к глаголу не добавляется окончание -s:',
+					text: 'Подлежащее «',
+				},
+				{
+					type: 'text',
+					text: 'Совы',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: '» можно заменить на местоимение ',
+				},
+				{
+					type: 'text',
+					text: 'they',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: ' потому что множественное число, это второе лицо. Поэтому к глаголу не добавляется окончание -',
+				},
+				{
+					type: 'text',
+					text: 's',
+					color: 'gold',
+				},
+				{
+					type: 'text',
+					text: ':',
 				},
 			],
 		},
@@ -82,7 +158,34 @@ const presentSimplePositive3: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'Подлежащее «Ваня» можно заменить на местоимение he, это третье лицо. Поэтому к глаголу добавляется окончание -s:',
+					text: 'Подлежащее «',
+				},
+				{
+					type: 'text',
+					text: 'Ваня',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: '» можно заменить на местоимение ',
+				},
+				{
+					type: 'text',
+					text: 'he',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: ', это третье лицо. Поэтому к глаголу добавляется окончание -',
+				},
+				{
+					type: 'text',
+					text: 's',
+					color: 'gold',
+				},
+				{
+					type: 'text',
+					text: ':',
 				},
 			],
 		},
@@ -95,7 +198,9 @@ const presentSimplePositive3: ArticleType.Art = {
 			],
 			eng: [
 				{ type: 'text', text: 'Vanya', color: 'blue' },
-				{ type: 'text', text: '  sleeps after dinner.' },
+				{ type: 'text', text: ' ' },
+				{ type: 'text', text: 's', color: 'gold' },
+				{ type: 'text', text: 'leeps after dinner.' },
 			],
 		},
 		{
@@ -104,7 +209,25 @@ const presentSimplePositive3: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'Если подлежащее — неисчисляемое существительное, то его можно заменить местоимением «это». Это третье лицо. Поэтому к глаголу добавляется окончание -s:',
+					text: 'Если подлежащее — неисчисляемое существительное, то его можно заменить местоимением ',
+				},
+				{
+					type: 'text',
+					text: 'it',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: '. Это третье лицо. Поэтому к глаголу добавляется окончание -',
+				},
+				{
+					type: 'text',
+					text: 's',
+					color: 'gold',
+				},
+				{
+					type: 'text',
+					text: ':',
 				},
 			],
 		},
@@ -117,7 +240,9 @@ const presentSimplePositive3: ArticleType.Art = {
 			],
 			eng: [
 				{ type: 'text', text: 'This money', color: 'blue' },
-				{ type: 'text', text: '  belongs to me.' },
+				{ type: 'text', text: '  belong' },
+				{ type: 'text', text: 's', color: 'gold' },
+				{ type: 'text', text: ' to me.' },
 			],
 		},
 		{
@@ -126,10 +251,29 @@ const presentSimplePositive3: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'Подлежащее может состоять из нескольких действующих лиц. Тогда оно заменяется на местоимение they. Это второе лицо. Поэтому добавлять -s к глаголу не требуется:',
+					text: 'Подлежащее может состоять из нескольких действующих лиц. Тогда оно заменяется на местоимение ',
+				},
+				{
+					type: 'text',
+					text: 'they',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: '. Это второе лицо. Поэтому добавлять -',
+				},
+				{
+					type: 'text',
+					text: 's',
+					color: 'gold',
+				},
+				{
+					type: 'text',
+					text: ' к глаголу не требуется:',
 				},
 			],
 		},
+
 		{
 			type: 'rusToEng',
 			textSize: 'giant',

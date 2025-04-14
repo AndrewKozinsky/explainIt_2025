@@ -1,166 +1,166 @@
-/*export const imageMapper = {
+export const imageMapper = {
 	tables: {
-		PersonalPronounceSubject: {
+		/*PersonalPronounceSubject: {
 			src: '/schemasAndTables/PersonalPronounceSubjectTable.svg',
 			alt: 'Личные местоимения в роли подлежащего',
-		},
-		PersonalPronounceSubjectAndObject: {
+		},*/
+		/*PersonalPronounceSubjectAndObject: {
 			src: '/schemasAndTables/PersonalPronounceSubjectAndObjectTable.svg',
 			alt: 'Личные местоимения в роли подлежащего и дополнения',
-		},
-		ToBePresent: {
+		},*/
+		/*ToBePresent: {
 			src: '/schemasAndTables/ToBePresentTable.svg',
 			alt: 'To be в настоящем времени',
-		},
-		ToBePast: {
+		},*/
+		/*ToBePast: {
 			src: '/schemasAndTables/ToBePastTable.svg',
 			alt: 'To be в прошедшем времени',
-		},
-		ToBeFuture: {
+		},*/
+		/*ToBeFuture: {
 			src: '/schemasAndTables/ToBeFutureTable.svg',
 			alt: 'To be в будущем времени',
-		},
-		PossessivePronouns: {
+		},*/
+		/*PossessivePronouns: {
 			src: '/schemasAndTables/PossessivePronounsTable.svg',
 			alt: 'Притяжательные местоимения',
-		},
-		PastSimplePositive: {
+		},*/
+		/*PastSimplePositive: {
 			src: '/schemasAndTables/PastSimplePositiveTable.svg',
 			alt: 'Past Simple',
-		},
+		},*/
 		PresentSimplePositive: {
 			src: '/schemasAndTables/PresentSimplePositiveTable.svg',
 			alt: 'Present Simple',
 		},
-		PresentSimplePositiveAndQuestion: {
+		/*PresentSimplePositiveAndQuestion: {
 			src: '/schemasAndTables/PresentSimplePositiveAndQuestionTable.svg',
 			alt: 'Present Simple утверждение и вопрос',
-		},
-		PresentSimpleFull: {
+		},*/
+		/*PresentSimpleFull: {
 			src: '/schemasAndTables/PresentSimpleFullTable.svg',
 			alt: 'Present Simple',
-		},
-		FutureSimpleFull: {
+		},*/
+		/*FutureSimpleFull: {
 			src: '/schemasAndTables/FutureSimpleFullTable.svg',
 			alt: 'Future Simple',
-		},
-		/!*FutureSimpleNegative: {
+		},*/
+		/*FutureSimpleNegative: {
 			src: '/schemasAndTables/FutureSimpleNegativeTable.svg',
 			alt: 'Future Simple Negative',
-		},*!/
-		/!*FutureSimplePositiveAndQuestion: {
+		},*/
+		/*FutureSimplePositiveAndQuestion: {
 			src: '/schemasAndTables/FutureSimplePositiveAndQuestionTable.svg',
 			alt: 'Future Simple Positive And Question',
-		},*!/
-		FutureSimplePositive: {
+		},*/
+		/*FutureSimplePositive: {
 			src: '/schemasAndTables/FutureSimplePositiveTable.svg',
 			alt: 'Future Simple Positive',
-		},
-		FutureSimpleQuestion: {
+		},*/
+		/*FutureSimpleQuestion: {
 			src: '/schemasAndTables/FutureSimpleQuestionTable.svg',
 			alt: 'Future Simple Question',
-		},
-		PastSimpleFull: {
+		},*/
+		/*PastSimpleFull: {
 			src: '/schemasAndTables/PastSimpleFullTable.svg',
 			alt: 'Past Simple',
-		},
-		/!*PastSimpleNegative: {
+		},*/
+		/*PastSimpleNegative: {
 			src: '/schemasAndTables/PastSimpleNegativeTable.svg',
 			alt: 'Past Simple Negative',
-		},*!/
-		PastSimplePositiveAndQuestion: {
+		},*/
+		/*PastSimplePositiveAndQuestion: {
 			src: '/schemasAndTables/PastSimplePositiveAndQuestionTable.svg',
 			alt: 'Past Simple Positive and Question',
-		},
-		/!*PastSimpleQuestion: {
+		},*/
+		/*PastSimpleQuestion: {
 			src: '/schemasAndTables/PastSimpleQuestionTable.svg',
 			alt: 'Past Simple Question',
-		},*!/
-		/!*PresentSimpleNegative: {
+		},*/
+		/*PresentSimpleNegative: {
 			src: '/schemasAndTables/PresentSimpleNegativeTable.svg',
 			alt: 'Present Simple Negative',
-		},*!/
-		/!*PresentSimpleQuestion: {
+		},*/
+		/*PresentSimpleQuestion: {
 			src: '/schemasAndTables/PresentSimpleQuestionTable.svg',
 			alt: 'Present Simple Question',
-		},*!/
+		},*/
 	},
 	schemas: {
-		ToBePresentPositive: {
+		/*ToBePresentPositive: {
 			src: '/schemasAndTables/ToBePresentPositiveScheme.svg',
 			alt: '',
-		},
-		PresentSimplePositive: {
+		},*/
+		/*PresentSimplePositive: {
 			src: '/schemasAndTables/PresentSimplePositiveScheme.svg',
 			alt: '',
-		},
-		PastSimplePositive: {
+		},*/
+		/*PastSimplePositive: {
 			src: '/schemasAndTables/PastSimplePositiveScheme.svg',
 			alt: '',
-		},
-		PresentSimpleNegative_1: {
+		},*/
+		/*PresentSimpleNegative_1: {
 			src: '/schemasAndTables/PresentSimpleNegativeScheme_1.svg',
 			alt: '',
-		},
-		ToBePresentNegative: {
+		},*/
+		/*ToBePresentNegative: {
 			src: '/schemasAndTables/ToBePresentNegativeScheme.svg',
 			alt: '',
-		},
-		PresentSimpleQuestion_1: {
+		},*/
+		/*PresentSimpleQuestion_1: {
 			src: '/schemasAndTables/PresentSimpleQuestionScheme_1.svg',
 			alt: '',
-		},
-		PresentSimpleNegative_2: {
+		},*/
+		/*PresentSimpleNegative_2: {
 			src: '/schemasAndTables/PresentSimpleNegativeScheme_2.svg',
 			alt: '',
-		},
-		PastSimpleQuestion_1: {
+		},*/
+		/*PastSimpleQuestion_1: {
 			src: '/schemasAndTables/PastSimpleQuestionScheme_1.svg',
 			alt: '',
-		},
-		PastSimpleQuestion_2: {
+		},*/
+		/*PastSimpleQuestion_2: {
 			src: '/schemasAndTables/PastSimpleQuestionScheme_2.svg',
 			alt: '',
-		},
-		ToBePresentQuestion: {
+		},*/
+		/*ToBePresentQuestion: {
 			src: '/schemasAndTables/ToBePresentQuestionScheme.svg',
 			alt: '',
-		},
-		PresentSimpleQuestion_2: {
+		},*/
+		/*PresentSimpleQuestion_2: {
 			src: '/schemasAndTables/PresentSimpleQuestionScheme_2.svg',
 			alt: '',
-		},
-		/!*FutureSimpleNegative: {
+		},*/
+		/*FutureSimpleNegative: {
 			src: '/schemasAndTables/FutureSimpleNegativeScheme.svg',
 			alt: 'Future Simple',
-		},*!/
-		FutureSimplePositive: {
+		},*/
+		/*FutureSimplePositive: {
 			src: '/schemasAndTables/FutureSimplePositiveScheme.svg',
 			alt: 'Future Simple Positive',
-		},
-		/!*FutureSimpleQuestion: {
+		},*/
+		/*FutureSimpleQuestion: {
 			src: '/schemasAndTables/FutureSimpleQuestionScheme.svg',
 			alt: 'Future Simple Question',
-		},*!/
-		/!*ToBeFuturePositive: {
+		},*/
+		/*ToBeFuturePositive: {
 			src: '/schemasAndTables/ToBeFuturePositiveScheme.svg',
 			alt: 'To Be Future',
-		},*!/
-		PossessiveDeterminate_1_Scheme: {
+		},*/
+		/*PossessiveDeterminate_1_Scheme: {
 			src: '/schemasAndTables/PossessiveDeterminate_1_Scheme.svg',
 			alt: 'Определитель для pizza',
-		},
-		PossessiveDeterminate_2_Scheme: {
+		},*/
+		/*PossessiveDeterminate_2_Scheme: {
 			src: '/schemasAndTables/PossessiveDeterminate_2_Scheme.svg',
 			alt: 'Определители для pizza',
-		},
-		PossessiveDeterminate_3_Scheme: {
+		},*/
+		/*PossessiveDeterminate_3_Scheme: {
 			src: '/schemasAndTables/PossessiveDeterminate_3_Scheme.svg',
 			alt: 'Определитель для pizza',
-		},
-		PossessiveDeterminate_4_Scheme: {
+		},*/
+		/*PossessiveDeterminate_4_Scheme: {
 			src: '/schemasAndTables/PossessiveDeterminate_4_Scheme.svg',
 			alt: 'Определитель для little bird’s и Определитель для nest',
-		},
+		},*/
 	},
-}*/
+}

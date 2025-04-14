@@ -102,7 +102,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{ rusWord: 'удача', engWord: 'luck' },
 			],
 		},
-
 		{
 			rusSentence: 'Он пьёт чай.',
 			engSentences: [{ engSentences: ['He drinks tea.'], isCorrect: true }],
@@ -110,6 +109,20 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{ rusWord: 'любить', engWord: 'love' },
 				{ rusWord: 'сырой', engWord: 'raw' },
 				{ rusWord: 'овощи', engWord: 'vegetables' },
+			],
+		},
+		{
+			rusSentence: 'Это стоит 60 рублей.',
+			engSentences: [
+				{
+					engSentences: ['It costs 60 rubles.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'заказывать', engWord: 'order' },
+				{ rusWord: 'еда', engWord: 'food' },
+				{ rusWord: 'онлайн', engWord: 'online' },
 			],
 		},
 		{

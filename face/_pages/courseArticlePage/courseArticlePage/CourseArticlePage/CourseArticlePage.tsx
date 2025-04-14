@@ -7,7 +7,7 @@ import { PageHeader } from '../../../../ui/pageRelated/PageHeader/PageHeader'
 import { extractNumFromStr } from '../../../../utils/number'
 import ArticleArticleContent from '../ArticleArticleContent/ArticleArticleContent'
 import { PageUrls } from '../../../../сonsts/pageUrls'
-import s from './CourseArticlePage.module.scss'
+import './CourseArticlePage.scss'
 
 type CourseLevelPageProps = {
 	// Предыдущая статья относительно текущей
@@ -44,10 +44,10 @@ function Header(props: ChapterNumberProps) {
 	const chapterNum = extractNumFromStr(caption)
 
 	return (
-		<PageHeader extraClass={s.generalWrapper}>
+		<PageHeader extraClass='course-article-page'>
 			{articleName}
-			<span className={s.circle}>
-				<span className={s.circleNum}>{chapterNum}</span>
+			<span className='course-article-page__header-num'>
+				<span className='course-article-page__header-num-text'>{chapterNum}</span>
 			</span>
 		</PageHeader>
 	)

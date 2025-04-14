@@ -31,6 +31,8 @@ function ArticleBuilder(props: ArticleBuilderProps): ReactNode {
 					return <ExercisesBlock exercises={compConf.exercises} key={i} />
 				} else if (compConf.type === 'note') {
 					return <Note config={compConf} key={i} />
+				} else if (compConf.type === 'customComponent') {
+					return compConf.component
 				}
 			})}
 		</>
@@ -41,8 +43,6 @@ function ArticleBuilder(props: ArticleBuilderProps): ReactNode {
 			{content.map((compConf, i) => {
 				else if (compConf.type === 'list') {
 					return <List config={compConf} key={i} />
-				} else if (compConf.type === 'customComponent') {
-					return compConf.component
 				} else if (compConf.type === 'faq') {
 					return <FaqInArticle config={compConf} key={i} />
 				} else if (compConf.type === 'grid') {
