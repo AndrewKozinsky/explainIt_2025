@@ -26,7 +26,7 @@ const presentSimplePositive3: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: '). А после местоимений 3-го лица к глаголу добавляется окончание -',
+					text: '). А после местоимений 3-го лица к глаголу добавляется окончание ',
 				},
 				{
 					type: 'text',
@@ -35,7 +35,7 @@ const presentSimplePositive3: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: ' или -',
+					text: ' или ',
 				},
 				{
 					type: 'text',
@@ -94,7 +94,7 @@ const presentSimplePositive3: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'Подлежащим может быть не только местоимение, но и существительное или имя. Чтобы понять требуется ли к глаголу добавлять -',
+					text: 'Подлежащим может быть не только местоимение, но и существительное или имя. Чтобы понять требуется ли к глаголу добавлять ',
 				},
 				{
 					type: 'text',
@@ -103,7 +103,7 @@ const presentSimplePositive3: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: '/-',
+					text: '/',
 				},
 				{
 					type: 'text',
@@ -140,7 +140,7 @@ const presentSimplePositive3: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: ' потому что множественное число, это второе лицо. Поэтому к глаголу не добавляется окончание -',
+					text: ' потому что множественное число, это второе лицо. Поэтому к глаголу не добавляется окончание ',
 				},
 				{
 					type: 'text',
@@ -189,7 +189,7 @@ const presentSimplePositive3: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: ', это третье лицо. Поэтому к глаголу добавляется окончание -',
+					text: ', это третье лицо. Поэтому к глаголу добавляется окончание ',
 				},
 				{
 					type: 'text',
@@ -232,7 +232,7 @@ const presentSimplePositive3: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: '. Это третье лицо. Поэтому к глаголу добавляется окончание -',
+					text: '. Это третье лицо. Поэтому к глаголу добавляется окончание ',
 				},
 				{
 					type: 'text',
@@ -274,7 +274,7 @@ const presentSimplePositive3: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: '. Это второе лицо. Поэтому добавлять -',
+					text: '. Это второе лицо. Поэтому добавлять ',
 				},
 				{
 					type: 'text',

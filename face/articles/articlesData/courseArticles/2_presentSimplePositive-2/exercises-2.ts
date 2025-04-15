@@ -35,8 +35,8 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'смотреть', engWord: 'watch' },
-				{ rusWord: 'телевизор', engWord: 'TV' },
+				{ rusWord: 'преподавать', engWord: 'teach' },
+				{ rusWord: 'математика', engWord: 'maths' },
 			],
 		},
 		{
@@ -48,8 +48,8 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'смотреть', engWord: 'watch' },
-				{ rusWord: 'телевизор', engWord: 'TV' },
+				{ rusWord: 'изучать', engWord: 'study' },
+				{ rusWord: 'география', engWord: 'geographic' },
 			],
 		},
 		{
@@ -65,8 +65,8 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'смотреть', engWord: 'watch' },
-				{ rusWord: 'телевизор', engWord: 'TV' },
+				{ rusWord: 'расчёсывать', engWord: 'brush' },
+				{ rusWord: 'волосы', engWord: 'hair' },
 			],
 		},
 		{
@@ -78,8 +78,9 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'смотреть', engWord: 'watch' },
-				{ rusWord: 'телевизор', engWord: 'TV' },
+				{ rusWord: 'целовать', engWord: 'kiss' },
+				{ rusWord: 'её', engWord: 'her' },
+				{ rusWord: 'ребёнок', engWord: 'baby' },
 			],
 		},
 		{
@@ -93,6 +94,8 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			words: [
 				{ rusWord: 'смотреть', engWord: 'watch' },
 				{ rusWord: 'телевизор', engWord: 'TV' },
+				{ rusWord: 'каждый', engWord: 'every' },
+				{ rusWord: 'вечер', engWord: 'evening' },
 			],
 		},
 		{
@@ -104,8 +107,11 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'смотреть', engWord: 'watch' },
-				{ rusWord: 'телевизор', engWord: 'TV' },
+				{ rusWord: 'её', engWord: 'her' },
+				{ rusWord: 'ребёнок', engWord: 'baby' },
+				{ rusWord: 'кричать', engWord: 'cry' },
+				{ rusWord: 'каждый', engWord: 'every' },
+				{ rusWord: 'ночь', engWord: 'night' },
 			],
 		},
 		{
@@ -117,8 +123,9 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'смотреть', engWord: 'watch' },
-				{ rusWord: 'телевизор', engWord: 'TV' },
+				{ rusWord: 'Солнце', engWord: 'the sun' },
+				{ rusWord: 'вставать (о Солнце)', engWord: 'rise' },
+				{ rusWord: 'на востоке', engWord: 'in the east' },
 			],
 		},
 		{
@@ -130,8 +137,8 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'смотреть', engWord: 'watch' },
-				{ rusWord: 'телевизор', engWord: 'TV' },
+				{ rusWord: 'чинить', engWord: 'fix' },
+				{ rusWord: 'компьютеры', engWord: 'computers' },
 			],
 		},
 		{
@@ -143,8 +150,10 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'смотреть', engWord: 'watch' },
-				{ rusWord: 'телевизор', engWord: 'TV' },
+				{ rusWord: 'целовать', engWord: 'kiss' },
+				{ rusWord: 'меня', engWord: 'me' },
+				{ rusWord: 'каждый', engWord: 'every' },
+				{ rusWord: 'день', engWord: 'day' },
 			],
 		},
 		{
@@ -156,8 +165,10 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'смотреть', engWord: 'watch' },
-				{ rusWord: 'телевизор', engWord: 'TV' },
+				{ rusWord: 'после', engWord: 'after' },
+				{ rusWord: 'школа', engWord: 'school' },
+				{ rusWord: 'идти', engWord: 'go' },
+				{ rusWord: 'дом', engWord: 'home' },
 			],
 		},
 		{
@@ -169,8 +180,16 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'смотреть', engWord: 'watch' },
-				{ rusWord: 'телевизор', engWord: 'TV' },
+				{ rusWord: 'занимать', engWord: 'do' },
+				{ rusWord: 'йога', engWord: 'yoga' },
+			],
+		},
+		{
+			rusSentence: 'Том смешивает ингредиенты.',
+			engSentences: [{ engSentences: ['Tom mixes the ingredients.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'смешивать', engWord: 'mix' },
+				{ rusWord: 'ингредиенты', engWord: 'ingredient' },
 			],
 		},
 	],

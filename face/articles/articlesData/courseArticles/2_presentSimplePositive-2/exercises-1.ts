@@ -81,7 +81,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 			words: [
 				{ rusWord: 'купить', engWord: 'smoke' },
-				{ rusWord: 'пить алкоголь', engWord: 'drink' },
+				{ rusWord: 'пить (алкоголь)', engWord: 'drink' },
 			],
 		},
 		{
@@ -106,23 +106,22 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			rusSentence: 'Он пьёт чай.',
 			engSentences: [{ engSentences: ['He drinks tea.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'любить', engWord: 'love' },
-				{ rusWord: 'сырой', engWord: 'raw' },
-				{ rusWord: 'овощи', engWord: 'vegetables' },
+				{ rusWord: 'пить', engWord: 'drink' },
+				{ rusWord: 'чай', engWord: 'tea' },
 			],
 		},
 		{
 			rusSentence: 'Это стоит 60 рублей.',
 			engSentences: [
 				{
-					engSentences: ['It costs 60 rubles.'],
+					engSentences: ['It costs sixty rubles.'],
 					isCorrect: true,
 				},
 			],
 			words: [
-				{ rusWord: 'заказывать', engWord: 'order' },
-				{ rusWord: 'еда', engWord: 'food' },
-				{ rusWord: 'онлайн', engWord: 'online' },
+				{ rusWord: 'стоить', engWord: 'cost' },
+				{ rusWord: 'шестьдесят', engWord: 'sixty' },
+				{ rusWord: 'рубли', engWord: 'rubles' },
 			],
 		},
 		{
@@ -161,8 +160,8 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'действительно', engWord: 'really' },
-				{ rusWord: 'помогать', engWord: 'help' },
+				{ rusWord: 'часто', engWord: 'often' },
+				{ rusWord: 'случаться', engWord: 'happen' },
 			],
 		},
 		{
@@ -174,8 +173,8 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'действительно', engWord: 'really' },
-				{ rusWord: 'помогать', engWord: 'help' },
+				{ rusWord: 'предпочитать', engWord: 'prefer' },
+				{ rusWord: 'кофе', engWord: 'coffee' },
 			],
 		},
 		{
@@ -191,8 +190,10 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'действительно', engWord: 'really' },
-				{ rusWord: 'помогать', engWord: 'help' },
+				{ rusWord: 'обычно', engWord: 'usually' },
+				{ rusWord: 'заказывать', engWord: 'order' },
+				{ rusWord: 'техника', engWord: 'appliances' },
+				{ rusWord: 'онлайн', engWord: 'online' },
 			],
 		},
 		{
@@ -204,8 +205,9 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'действительно', engWord: 'really' },
-				{ rusWord: 'помогать', engWord: 'help' },
+				{ rusWord: 'выглядеть', engWord: 'look' },
+				{ rusWord: 'такой', engWord: 'so' },
+				{ rusWord: 'эффективный', engWord: 'effective' },
 			],
 		},
 		{
@@ -217,8 +219,11 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'действительно', engWord: 'really' },
-				{ rusWord: 'помогать', engWord: 'help' },
+				{ rusWord: 'работать', engWord: 'work' },
+				{ rusWord: 'с', engWord: 'from' },
+				{ rusWord: 'понедельник', engWord: 'Monday' },
+				{ rusWord: 'по', engWord: 'to' },
+				{ rusWord: 'пятница', engWord: 'Friday' },
 			],
 		},
 	],

@@ -111,7 +111,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			words: [
 				{ rusWord: 'всегда', engWord: 'always' },
 				{ rusWord: 'играть', engWord: 'play' },
-				{ rusWord: 'together', engWord: 'вместе' },
+				{ rusWord: 'вместе', engWord: 'together' },
 			],
 		},
 		{
@@ -134,6 +134,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{ rusWord: 'есть', engWord: 'eat' },
 				{ rusWord: 'свежий', engWord: 'fresh' },
 				{ rusWord: 'овощи', engWord: 'vegetables' },
+				{ rusWord: 'каждый', engWord: 'every' },
 				{ rusWord: 'день', engWord: 'day' },
 			],
 		},
@@ -187,13 +188,14 @@ const exercises_1: ExercisesType.ExercisesObj = {
 					isCorrect: true,
 				},
 				{
-					engSentences: ['I’m on Twitter every 10 minutes.'],
+					engSentences: ['I’m on Twitter every ten minutes.'],
 					isCorrect: true,
 				},
 			],
 			words: [
 				{ rusWord: 'проверять', engWord: 'check' },
 				{ rusWord: 'каждый', engWord: 'every' },
+				{ rusWord: 'десять', engWord: 'ten' },
 				{ rusWord: 'минуты', engWord: 'minutes' },
 			],
 		},
@@ -254,7 +256,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			rusSentence: 'Я действительно тебя люблю.',
+			rusSentence: 'Я действительно люблю тебя.',
 			engSentences: [
 				{
 					engSentences: ['I really love you.'],
@@ -262,8 +264,9 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'строить', engWord: 'build' },
-				{ rusWord: 'дома', engWord: 'houses' },
+				{ rusWord: 'действительно', engWord: 'really' },
+				{ rusWord: 'любить', engWord: 'love' },
+				{ rusWord: 'тебя', engWord: 'you' },
 			],
 		},
 		{
@@ -275,8 +278,8 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'строить', engWord: 'build' },
-				{ rusWord: 'дома', engWord: 'houses' },
+				{ rusWord: 'работать', engWord: 'work' },
+				{ rusWord: 'не полный рабочий день', engWord: 'part-time' },
 			],
 		},
 		{

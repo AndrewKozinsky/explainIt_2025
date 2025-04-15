@@ -93,7 +93,7 @@ const presentSimplePositive2: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'Но после местоимений he, she, it к глаголу добавляется окончание -',
+					text: 'Но после местоимений he, she, it к глаголу добавляется окончание ',
 				},
 				{
 					type: 'text',
@@ -171,7 +171,7 @@ const presentSimplePositive2: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'Если глагол заканчивается на свистящий или щипящий звук (-',
+					text: 'Если глагол заканчивается на свистящий или щипящий звук (',
 				},
 				{
 					type: 'text',
@@ -180,7 +180,7 @@ const presentSimplePositive2: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: ', -',
+					text: ', ',
 				},
 				{
 					type: 'text',
@@ -189,7 +189,7 @@ const presentSimplePositive2: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: ', -',
+					text: ', ',
 				},
 				{
 					type: 'text',
@@ -198,7 +198,7 @@ const presentSimplePositive2: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: ', -',
+					text: ', ',
 				},
 				{
 					type: 'text',
@@ -207,7 +207,7 @@ const presentSimplePositive2: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: ', или -',
+					text: ', или ',
 				},
 				{
 					type: 'text',
@@ -216,7 +216,7 @@ const presentSimplePositive2: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: '), то вместо -',
+					text: '), то вместо ',
 				},
 				{
 					type: 'text',
@@ -225,7 +225,7 @@ const presentSimplePositive2: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: ' ставьте -',
+					text: ' ставьте ',
 				},
 				{
 					type: 'text',
@@ -270,7 +270,7 @@ const presentSimplePositive2: ArticleType.Art = {
 					children: [
 						{
 							type: 'text',
-							text: 'Если глагол заканчивается на -',
+							text: 'Если глагол заканчивается на ',
 						},
 						{
 							type: 'text',
@@ -279,7 +279,7 @@ const presentSimplePositive2: ArticleType.Art = {
 						},
 						{
 							type: 'text',
-							text: ', то -',
+							text: ', то ',
 						},
 						{
 							type: 'text',
@@ -288,7 +288,7 @@ const presentSimplePositive2: ArticleType.Art = {
 						},
 						{
 							type: 'text',
-							text: ' меняется на -',
+							text: ' меняется на ',
 						},
 						{
 							type: 'text',
@@ -315,7 +315,7 @@ const presentSimplePositive2: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'Окончание -',
+					text: 'Окончание ',
 				},
 				{
 					type: 'text',
@@ -324,7 +324,7 @@ const presentSimplePositive2: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: ' добавляется для благозвучности потому что если добавить ещё одну -',
+					text: ' добавляется для благозвучности потому что если добавить ещё одну ',
 				},
 				{
 					type: 'text',
@@ -342,7 +342,7 @@ const presentSimplePositive2: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: ', -',
+					text: ', ',
 				},
 				{
 					type: 'text',
@@ -351,7 +351,7 @@ const presentSimplePositive2: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: ', -',
+					text: ', ',
 				},
 				{
 					type: 'text',
@@ -360,7 +360,7 @@ const presentSimplePositive2: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: ', -',
+					text: ', ',
 				},
 				{
 					type: 'text',
