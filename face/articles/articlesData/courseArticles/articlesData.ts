@@ -35,7 +35,7 @@ import presentSimplePositive3 from './3_presentSimplePositive-3/presentSimplePos
 const rowArticles: ArticleType.Art[] = [
 	presentSimplePositive1,
 	presentSimplePositive2,
-	presentSimplePositive3,
+	// presentSimplePositive3,
 	// toBePositive,
 	// adjectives,
 	// indefiniteArticle,

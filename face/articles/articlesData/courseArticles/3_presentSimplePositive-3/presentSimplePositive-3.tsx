@@ -1,7 +1,7 @@
+import { imageMapper } from '../../../../utils/imageMapper'
 import ArticleType from '../../articleType'
 import exercises_2 from './exercises-2'
 import exercises_1 from './exercises-1'
-import PresentSimplePositiveTable from './PresentSimplePositiveTable'
 
 const presentSimplePositive3: ArticleType.Art = {
 	meta: {
@@ -17,7 +17,16 @@ const presentSimplePositive3: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'Посмотрим на таблицу составления утвердительного предложения. После местоимений 1-го и 2-го лица используется обычный глагол (обозначается буквой V). А после местоимений 3-го лица к глаголу добавляется окончание -',
+					text: 'Посмотрим на таблицу составления утвердительного предложения. После местоимений 1-го и 2-го лица используется обычный глагол (обозначается буквой ',
+				},
+				{
+					type: 'text',
+					text: 'V',
+					color: 'blue',
+				},
+				{
+					type: 'text',
+					text: '). А после местоимений 3-го лица к глаголу добавляется окончание -',
 				},
 				{
 					type: 'text',
@@ -39,7 +48,11 @@ const presentSimplePositive3: ArticleType.Art = {
 				},
 			],
 		},
-		{ type: 'customComponent', component: <PresentSimplePositiveTable /> },
+		{
+			type: 'image',
+			src: imageMapper.tables.PresentSimplePositive.src,
+			alt: imageMapper.tables.PresentSimplePositive.alt,
+		},
 		{
 			type: 'paragraph',
 			children: [
@@ -199,8 +212,9 @@ const presentSimplePositive3: ArticleType.Art = {
 			eng: [
 				{ type: 'text', text: 'Vanya', color: 'blue' },
 				{ type: 'text', text: ' ' },
+				{ type: 'text', text: 'sleep' },
 				{ type: 'text', text: 's', color: 'gold' },
-				{ type: 'text', text: 'leeps after dinner.' },
+				{ type: 'text', text: ' after dinner.' },
 			],
 		},
 		{

@@ -32,7 +32,7 @@ namespace ArticleType {
 		| RusToEng
 		| Note
 		| Faq
-		| CustomComponent
+		| Image
 		| Grid
 		| List
 		| ExercisesType.ExercisesObj
@@ -107,9 +107,12 @@ namespace ArticleType {
 	}
 
 	// Нестандартный компонент статьи
-	export type CustomComponent = {
-		type: 'customComponent'
-		component: ReactNode
+	export type Image = {
+		type: 'image'
+		src?: string
+		alt?: string
+		extraClass?: string
+		children?: ReactNode
 	}
 
 	// Вопросы и ответы.

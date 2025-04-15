@@ -3,10 +3,12 @@ import cn from 'classnames'
 import './ArtImage.scss'
 
 type ArtImageProps = {
-	src?: string
-	alt?: string
-	extraClass?: string
-	children?: ReactNode
+	config: {
+		src?: string
+		alt?: string
+		extraClass?: string
+		children?: ReactNode
+	}
 }
 
 /**
@@ -15,7 +17,7 @@ type ArtImageProps = {
  * Если есть вложенные элементы, то вкладываются в обёртку.
  */
 function ArtImage(props: ArtImageProps) {
-	const { src, alt, extraClass, children } = props
+	const { src, alt, extraClass, children } = props.config
 
 	let content: null | ReactNode = null
 

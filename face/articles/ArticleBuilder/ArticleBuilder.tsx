@@ -3,6 +3,7 @@ import ArticleType from '../articlesData/articleType'
 // import FaqInArticle from '../components/FaqInArticle/FaqInArticle'
 // import Grid from '../components/Grid/Grid'
 import Header from '../components/Header/Header'
+import ArtImage from '../components/Image/ArtImage'
 // import List from '../components/List/List'
 import Note from '../components/Note/Note'
 import Paragraph from '../components/Paragraph/Paragraph'
@@ -31,8 +32,8 @@ function ArticleBuilder(props: ArticleBuilderProps): ReactNode {
 					return <ExercisesBlock exercises={compConf.exercises} key={i} />
 				} else if (compConf.type === 'note') {
 					return <Note config={compConf} key={i} />
-				} else if (compConf.type === 'customComponent') {
-					return compConf.component
+				} else if (compConf.type === 'image') {
+					return <ArtImage config={compConf} key={i} />
 				}
 			})}
 		</>
