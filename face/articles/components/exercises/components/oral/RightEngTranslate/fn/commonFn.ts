@@ -1,10 +1,9 @@
-import { useContext, useMemo } from 'react'
-import { ExercisesContext } from '../../../../logic/exercisesContext'
+import { useMemo } from 'react'
+import { exercisesLogic } from '../../../../logic/exercisesLogic'
 
 /** Возвращает массив правильных переводов текущего упражнения */
 export function useGetExerciseCorrectTranslations() {
-	const { useGetCurrentExercise } = useContext(ExercisesContext)
-	const exercise = useGetCurrentExercise()
+	const exercise = exercisesLogic.useGetCurrentExercise()
 
 	return useMemo(
 		function () {

@@ -1,5 +1,5 @@
 import articleService from '../../../../../articles/articleService/articleService'
-import ArticleType from '../../../../../articles/articlesData/articleType'
+import ArticleType from '../../../../../articles/articleTypes/articleType'
 import { ArticleTileType } from '../../ArticleTile/fn/types'
 import { PageUrls } from '../../../../../сonsts/pageUrls'
 

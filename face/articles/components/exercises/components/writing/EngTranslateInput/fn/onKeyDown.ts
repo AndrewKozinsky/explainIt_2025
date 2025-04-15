@@ -1,13 +1,13 @@
-import React, { useCallback, useContext } from 'react'
-import { ExercisesContext } from '../../../../logic/exercisesContext'
+import React from 'react'
+import { exercisesLogic } from '../../../../logic/exercisesLogic'
 
 /** Обработчик ввода текста в поле перевода русского предложения. */
 export function useGetOnInput() {
-	const { useChangeCurrentExercise } = useContext(ExercisesContext)
+	const changeCurrentExercise = exercisesLogic.useGetChangeCurrentExercise()
 
-	return useCallback(function (e: React.KeyboardEvent<HTMLTextAreaElement>) {
+	return function (e: React.KeyboardEvent<HTMLTextAreaElement>) {
 		const $textInput = e.target as HTMLTextAreaElement
 
-		useChangeCurrentExercise({ userTranslate: $textInput.value })
-	}, [])
+		changeCurrentExercise({ userTranslate: $textInput.value })
+	}
 }

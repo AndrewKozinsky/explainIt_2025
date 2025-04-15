@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import ArticleType from '../articlesData/articleType'
+import ArticleType from '../articleTypes/articleType'
 // import FaqInArticle from '../components/FaqInArticle/FaqInArticle'
 // import Grid from '../components/Grid/Grid'
 import Header from '../components/Header/Header'

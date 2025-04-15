@@ -5,7 +5,7 @@ import ArticleBuilder from '../../../../articles/ArticleBuilder/ArticleBuilder'
 // import { ExercisesModal } from '../../../../articleBuilder/exercisesModal'
 // import { PageUrls } from '../../../../сonsts/pageUrls'
 import { PrevAndNextArticlesNav } from '../../common/ArtPrevAndNextButtons/PrevAndNextArticlesNav'
-import ArticleType from '../../../../articles/articlesData/articleType'
+import ArticleType from '../../../../articles/articleTypes/articleType'
 import './ArticleArticleContent.scss'
 
 type ArticleContentProps = {

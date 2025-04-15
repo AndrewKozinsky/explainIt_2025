@@ -1,6 +1,6 @@
 import React from 'react'
 import cn from 'classnames'
-import s from './Switcher.module.scss'
+import './Switcher.scss'
 
 export type SwitcherItem = {
 	text: string
@@ -17,7 +17,7 @@ function Switcher(props: SwitcherProps) {
 	const { orientation, items } = props
 
 	return (
-		<div className={(s.wrapper, s['wrapper--' + orientation])}>
+		<div className={cn('switcher', 'switcher--' + orientation)}>
 			{items.map((item, i) => {
 				return <SwitcherButton item={item} key={i} />
 			})}
@@ -35,7 +35,10 @@ function SwitcherButton(props: SwitcherButtonProps) {
 	const { item } = props
 
 	return (
-		<button className={cn(s.button, item.isCurrent && s['button--current'])} onClick={item.onClick}>
+		<button
+			className={cn('switcher__button', item.isCurrent && 'switcher__button--current')}
+			onClick={item.onClick}
+		>
 			{item.text}
 		</button>
 	)

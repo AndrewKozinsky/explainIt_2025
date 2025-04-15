@@ -1,5 +1,5 @@
-import { imageMapper } from '../../../../utils/imageMapper'
-import ArticleType from '../../articleType'
+import { imageMapper } from '../../../utils/imageMapper'
+import ArticleType from '../../articleTypes/articleType'
 import exercises_2 from './exercises-2'
 import exercises_1 from './exercises-1'
 

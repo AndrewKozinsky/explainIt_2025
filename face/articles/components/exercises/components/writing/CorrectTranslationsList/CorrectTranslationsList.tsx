@@ -1,4 +1,4 @@
-import ExercisesType from '../../../../../articlesData/exercisesType'
+import ExercisesType from '../../../../../articleTypes/exercisesType'
 import './CorrectTranslationsList.scss'
 
 type CorrectTranslationsListProps = {

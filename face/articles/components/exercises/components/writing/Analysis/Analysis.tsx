@@ -1,14 +1,15 @@
 import { useContext } from 'react'
 import { ExercisesContext } from '../../../logic/exercisesContext'
 import { ExercisesContextType } from '../../../logic/exercisesContextTypes'
+import { exercisesLogic } from '../../../logic/exercisesLogic'
 import AnalysisForTranslation from '../AnalysisForTranslation/AnalysisForTranslation'
 import CorrectTranslationsList from '../CorrectTranslationsList/CorrectTranslationsList'
 
 /** Анализ перевода введённого пользователем либо показ правильных вариантов */
 function Analysis() {
-	const { useGetCurrentExercise, exercisesBlock } = useContext(ExercisesContext)
-	// console.log(exercisesBlock.exercises[0].userTranslate)
-	const exercise = useGetCurrentExercise()
+	const { exercisesBlock } = useContext(ExercisesContext)
+
+	const exercise = exercisesLogic.useGetCurrentExercise()
 	if (!exercise) return null
 
 	// Если пользователь не написал перевод

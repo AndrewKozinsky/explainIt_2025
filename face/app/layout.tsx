@@ -1,5 +1,5 @@
-import type { Metadata } from 'next'
 import React from 'react'
+import type { Metadata } from 'next'
 import Metrika from './_in/Metrika/Metrika'
 import './_in/style/global.scss'
 
@@ -24,6 +24,7 @@ export default function RootLayout({
 		<html lang='en'>
 			<head>
 				<meta name='google-site-verification' content='5OljJ97EI98yn2tlM7Vziu_9l0c5ujOn8F3VxahktD4' />
+				<meta name='yandex-verification' content='b8b37674c9ce501f' />
 			</head>
 			<body>
 				<Metrika />

@@ -1,6 +1,6 @@
 import React from 'react'
+import ExercisesType from '../../../../../articleTypes/exercisesType'
 import './DictionaryWord.scss'
-import ExercisesType from '../../../../../articlesData/exercisesType'
 
 type DictionaryWordProps = {
 	wordObj: ExercisesType.Word

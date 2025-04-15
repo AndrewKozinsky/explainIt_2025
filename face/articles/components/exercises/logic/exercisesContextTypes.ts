@@ -1,5 +1,5 @@
-import ArticleType from '../../../articlesData/articleType'
-import ExercisesType from '../../../articlesData/exercisesType'
+import ArticleType from '../../../articleTypes/articleType'
+import ExercisesType from '../../../articleTypes/exercisesType'
 
 export namespace ExercisesContextType {
 	export type ExercisesBlock = {

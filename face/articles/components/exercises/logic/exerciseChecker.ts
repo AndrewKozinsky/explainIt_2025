@@ -1,5 +1,5 @@
-import ArticleType from '../../../articlesData/articleType'
-import ExercisesType from '../../../articlesData/exercisesType'
+import ArticleType from '../../../articleTypes/articleType'
+import ExercisesType from '../../../articleTypes/exercisesType'
 import { ExercisesContextType } from './exercisesContextTypes'
 
 /** Класс с методами проверки перевода данного пользователем */
@@ -89,7 +89,6 @@ export const exerciseChecker = {
 			translateAnalysis: [{ type: 'paragraph', children: [{ type: 'text', text: 'Dummy text' }] }],
 		}
 	},*/
-
 	/**
 	 * Получает упражнение и вычленяет правильные варианты переводов
 	 * @param exercise — объект упражнения
@@ -154,24 +153,4 @@ export const exerciseChecker = {
 
 		return dryText
 	},
-
-	/**
-	 * Делает запрос на сервер для проверки перевода пользователя через искуственный интеллект
-	 * @param exercise — объект упражнения
-	 */
-	/*async makeRequestToAI(
-		exercise: ExercisesStoreType.Exercise,
-	): Promise<{ correct: boolean; analysis: string }> {
-		const question = `Предложение "${exercise.rusSentence}" переведено "${exercise.userTranslate}". Проверь правильность перевода на английский. Ответ дай в объекте JSON: в свойстве isCorrect поставь булево значение правильно ли переведено предложение на английский. В analysis напиши что сделано неправильно и как исправить если были сделаны ошибки.`
-
-		return api.post(
-			ApiRouteNames.AI.value,
-			{ question },
-			{
-				headers: {
-					authorization: createAdminTokenString(),
-				},
-			},
-		)
-	}*/
 }

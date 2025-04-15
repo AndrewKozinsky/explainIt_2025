@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import ArticleType from '../../articlesData/articleType'
+import ArticleType from '../../articleTypes/articleType'
 import ArticleBuilder from '../../ArticleBuilder/ArticleBuilder'
 import './Note.scss'
 

@@ -1,6 +1,6 @@
 'use client'
 
-import ExercisesType from '../../../../articlesData/exercisesType'
+import ExercisesType from '../../../../articleTypes/exercisesType'
 import ExerciseContent from '../ExerciseContent/ExerciseContent'
 import ExercisesList from '../ExercisesList/ExercisesList'
 import Header from '../../../Header/Header'

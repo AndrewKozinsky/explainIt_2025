@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import BottomButton from '../common/BottomButton/BottomButton'
-import { useIsShownResultInOralExercise } from '../common/commonFn'
+import { useIsResultInOralExerciseShown } from '../common/commonFn'
 import Dictionary from '../common/Dictionary/Dictionary'
 import Analysis from '../writing/Analysis/Analysis'
 import EngTranslateInput from '../writing/EngTranslateInput/EngTranslateInput'
@@ -9,6 +9,7 @@ import RusExercise from '../common/RusExercise/RusExercise'
 import LoadingOrErrorAnalysis from '../writing/LoadingOrErrorAnalysis/LoadingOrErrorAnalysis'
 import { ExercisesContext } from '../../logic/exercisesContext'
 import { ExercisesContextType } from '../../logic/exercisesContextTypes'
+import ExerciseTypeSwitch from '../ExerciseTypeSwitch/ExerciseTypeSwitch'
 import './ExerciseContent.scss'
 
 /** Часть блока прохождения упражнений с самим упражнением. */
@@ -27,13 +28,18 @@ export default ExerciseContent
 /** Письменное упражнение. */
 function WritingExerciseContent() {
 	return (
-		<div className='exercise-content'>
-			<div className='exercise-content__top'>
-				<RusExercise />
-				<EngTranslateInput />
+		<div className='exercises-exercise'>
+			<div className='exercises-exercise__type-switch'>
+				<ExerciseTypeSwitch />
 			</div>
-			<WritingExerciseAnalysis />
-			<BottomButton />
+			<div className='exercises-exercise__content'>
+				<div className='exercises-exercise__sentences'>
+					<RusExercise />
+					<EngTranslateInput />
+				</div>
+				<WritingExerciseAnalysis />
+				<BottomButton />
+			</div>
 		</div>
 	)
 }
@@ -53,17 +59,21 @@ function WritingExerciseAnalysis() {
 
 /** Голосовое упражнение. */
 function OralExerciseContent() {
-	// const exercise = exercisesLogic.useGetCurrentSentence(exercisesBlockId)
-	const isShownResultInOralExercise = useIsShownResultInOralExercise()
+	const isShownResultInOralExercise = useIsResultInOralExerciseShown()
 
 	return (
-		<div className='exercise-content'>
-			<div className='exercise-content__top'>
-				<RusExercise />
-				{isShownResultInOralExercise && <RightEngTranslate />}
+		<div className='exercises-exercise'>
+			<div className='exercises-exercise__type-switch'>
+				<ExerciseTypeSwitch />
 			</div>
-			{!isShownResultInOralExercise && <Dictionary />}
-			<BottomButton />
+			<div className='exercises-exercise__content'>
+				<div className='exercises-exercise__sentences'>
+					<RusExercise />
+					{isShownResultInOralExercise && <RightEngTranslate />}
+				</div>
+				{!isShownResultInOralExercise && <Dictionary />}
+				<BottomButton />
+			</div>
 		</div>
 	)
 }

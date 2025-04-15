@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import ArticleType from '../../articlesData/articleType'
+import ArticleType from '../../articleTypes/articleType'
 import ArrowCircle from '../ArrowCircle/ArrowCircle'
 import Text from '../Text/Text'
 import './Paragraph.scss'

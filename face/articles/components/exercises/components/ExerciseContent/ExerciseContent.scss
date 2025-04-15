@@ -1,5 +1,22 @@
-.exercise-content {
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+
+.exercises-exercise {
 	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.exercises-exercise__type-switch {
+	display: block;
+
+	@include mix.container-width(vars.$tablet-width) {
+		display: none;
+	}
+}
+
+.exercises-exercise__content {
 	display: flex;
 	flex-direction: column;
 	gap: 3rem;
@@ -7,7 +24,7 @@
 	container-type: inline-size;
 }
 
-.exercise-content__top {
+.exercises-exercise__sentences {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;

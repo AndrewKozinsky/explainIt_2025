@@ -1,15 +1,13 @@
 import cn from 'classnames'
-import { useContext } from 'react'
-import { ExercisesContext } from '../../../logic/exercisesContext'
-import { useIsShownResultInOralExercise } from '../commonFn'
+import { exercisesLogic } from '../../../logic/exercisesLogic'
+import { useIsResultInOralExerciseShown } from '../commonFn'
 import './RusExercise.scss'
 
 // Компонент с предложением на русском языке, которое нужно перевести
 function RusExercise() {
-	const { useGetCurrentExercise } = useContext(ExercisesContext)
-	const exercise = useGetCurrentExercise()
+	const exercise = exercisesLogic.useGetCurrentExercise()
 
-	const isShownResultInOralExercise = useIsShownResultInOralExercise()
+	const isShownResultInOralExercise = useIsResultInOralExerciseShown()
 
 	if (!exercise) return null
 

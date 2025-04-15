@@ -1,11 +1,13 @@
 @use "@/styles/variables" as vars;
 
-.exercise-type-switch {
-	display: grid;
-	gap: .6rem;
+.exercises-type-switch {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	gap: 1.2rem;
 }
 
-.exercise-type-switch__item {
+.exercises-type-switch__item {
 	font-size: 1.8rem;
 	line-height: 2.2rem;
 	font-weight: 600;
@@ -19,35 +21,34 @@
 		width: 1.2em;
 		height: 1.2em;
 		transform: translateY(-2px);
-		margin: 0 .7rem 0 0;
+		margin: 0 .5rem 0 0;
 	}
 
-	.exercise-type-switch__item-text {
+	.exercises-type-switch__item-text {
 		border-bottom: 1px dashed transparent;
 		transition: border-bottom .2s;
 	}
 }
 
-.exercise-type-switch__item--current {
+.exercises-type-switch__item--current {
 	color: vars.$grayColor-3;
 }
 
-.exercise-type-switch__item--another {
+.exercises-type-switch__item--another {
 	color: vars.$textColor;
 	cursor: pointer;
 
 	&:hover {
-		.exercise-type-switch__item-text {
+		.exercises-type-switch__item-text {
 			border-bottom-color: vars.$grayColor-3;
 		}
 	}
 
 	.art-arrow {
-		visibility: hidden;
+		display: none;
 	}
 
-	.exercise-type-switch__item-text {
-
+	.exercises-type-switch__item-text {
 		border-bottom-color: vars.$grayColor-2;
 	}
 }

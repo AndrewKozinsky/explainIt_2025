@@ -1,4 +1,4 @@
-import ArticleType from '../../articleType'
+import ArticleType from '../../articleTypes/articleType'
 import exercises_1 from './exercises-1'
 import exercises_2 from './exercises-2'
 

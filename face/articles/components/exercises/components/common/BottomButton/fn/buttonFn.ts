@@ -1,14 +1,15 @@
 import { useCallback, useContext, useMemo } from 'react'
 import { useGetHotKeysHandler } from '../../../../../../../utils/hotKeysHandler'
 import { ExercisesContext } from '../../../../logic/exercisesContext'
+import { exercisesLogic } from '../../../../logic/exercisesLogic'
 import { ExercisesContextType } from '../../../../logic/exercisesContextTypes'
 import { useGetCheckCurrentExercise } from '../../../../logic/useGetCheckExercise'
-import AnalysisStatus = ExercisesContextType.AnalysisStatus
 
 /** Возвращает текст кнопки действия в модальном окне прохождения упражнений. */
 export function useGetButtonText() {
-	const { useGetCurrentExercise, exercisesBlock, getNextExercise } = useContext(ExercisesContext)
-	const exercise = useGetCurrentExercise()
+	const { exercisesBlock } = useContext(ExercisesContext)
+	const exercise = exercisesLogic.useGetCurrentExercise()
+	const getNextExercise = exercisesLogic.useGetNextExercise()
 
 	const { analysis } = exercisesBlock
 
@@ -47,18 +48,16 @@ export function useGetButtonText() {
 
 /** Возвращает функция срабатывающую при нажатии на кнопку действия в модальном окне прохождения упражнений */
 export function useGetOnButtonClick() {
-	const {
-		useGetCurrentExercise,
-		exercisesBlock,
-		switchToExercise,
-		switchToFirstExercise,
-		switchExercisesType,
-		getNextExercise,
-	} = useContext(ExercisesContext)
+	const { exercisesBlock } = useContext(ExercisesContext)
+
+	const exercise = exercisesLogic.useGetCurrentExercise()
+	const getNextExercise = exercisesLogic.useGetNextExercise()
+	const switchExercisesType = exercisesLogic.useGetSwitchExercisesType()
+	const switchToFirstExercise = exercisesLogic.useGetSwitchToFirstExercise()
+	const switchToExercise = exercisesLogic.useGetSwitchToExercise()
 
 	const checkCurrentExercise = useGetCheckCurrentExercise()
 
-	const exercise = useGetCurrentExercise()
 	const { analysis } = exercisesBlock
 
 	return useCallback(

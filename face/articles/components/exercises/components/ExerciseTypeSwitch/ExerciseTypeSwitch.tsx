@@ -12,7 +12,7 @@ function ExerciseTypeSwitch() {
 	const { exercisesBlock } = useContext(ExercisesContext)
 
 	return (
-		<div className='exercise-type-switch'>
+		<div className='exercises-type-switch'>
 			<Item
 				text='Письменная'
 				isCurrent={exercisesBlock.currentExerciseType === ExercisesContextType.ExerciseType.write}
@@ -40,13 +40,13 @@ function Item(props: ItemProps) {
 	return (
 		<button
 			className={cn(
-				'exercise-type-switch__item',
-				isCurrent ? 'exercise-type-switch__item--current' : 'exercise-type-switch__item--another',
+				'exercises-type-switch__item',
+				isCurrent ? 'exercises-type-switch__item--current' : 'exercises-type-switch__item--another',
 			)}
 			onClick={onExerciseTypeButtonClick}
 		>
 			<ArrowCircle />
-			<span className='exercise-type-switch__item-text'>{text}</span>
+			<span className='exercises-type-switch__item-text'>{text}</span>
 		</button>
 	)
 }

@@ -1,5 +1,5 @@
 import { RefObject, useCallback, useEffect, useState } from 'react'
-import ArticleType from '../../../articlesData/articleType'
+import ArticleType from '../../../articleTypes/articleType'
 import transcriptionService from '../../../transcriptionService/transcriptionService'
 
 export function getEngTranscription(engSentenceParts: ArticleType.Text[]) {

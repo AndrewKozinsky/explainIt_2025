@@ -1,0 +1,51 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+@use '@/styles/inherit' as inh;
+
+.switcher {
+	position: relative;
+	display: flex;
+}
+.switcher--horizontal {
+	flex-direction: row;
+}
+.switcher--vertical {
+	flex-direction: column;
+	justify-content: stretch;
+
+	& > * {
+		width: 100%;
+		box-sizing: border-box;
+	}
+}
+
+.switcher__button {
+	position: relative;
+	color: vars.$grayColor-4;
+	cursor: pointer;
+	padding: .4rem 1rem;
+	border: 1px solid white;
+	border-radius: vars.$radius-1;
+	transition: color 0.2s;
+
+	&:hover {
+		color: vars.$textColor;
+		border-color: vars.$grayColor-2;
+	}
+
+	&:focus {
+		z-index: 2;
+	}
+}
+
+.switcher__button--current {
+	color: vars.$textColor;
+	cursor: default;
+	border-color: vars.$grayColor-3;
+
+	&:hover {
+		color: vars.$textColor;
+		border-color: vars.$grayColor-3;
+	}
+}
+

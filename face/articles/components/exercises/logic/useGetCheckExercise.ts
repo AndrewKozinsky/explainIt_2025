@@ -2,10 +2,12 @@ import { useCallback, useContext } from 'react'
 import { exerciseChecker } from './exerciseChecker'
 import { ExercisesContext } from './exercisesContext'
 import { ExercisesContextType } from './exercisesContextTypes'
+import { exercisesLogic } from './exercisesLogic'
 
 export function useGetCheckCurrentExercise() {
-	const { useGetCurrentExercise, exercisesBlock, changeExercisesBlock } = useContext(ExercisesContext)
-	const exercise = useGetCurrentExercise()
+	const { exercisesBlock } = useContext(ExercisesContext)
+	const exercise = exercisesLogic.useGetCurrentExercise()
+	const changeExercisesBlock = exercisesLogic.useGetChangeExercisesBlock()
 
 	return useCallback(
 		function () {
@@ -21,11 +23,7 @@ export function useGetCheckCurrentExercise() {
 			}
 
 			changeExercisesBlock({ analysis: { status: ExercisesContextType.AnalysisStatus.loading } })
-			/*const gigaChatAnalysis = await this.exerciseChecker.checkByAI(exercise)
-
-		this.sendMessageToTelegramAboutUnknownTranslation(exercise, gigaChatAnalysis)
-
-		this.store.analysis = gigaChatAnalysis*/
+			// checkByAI(exercise) ...
 		},
 		[exercise],
 	)

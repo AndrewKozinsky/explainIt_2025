@@ -1,4 +1,4 @@
-import ExercisesType from '../../exercisesType'
+import ExercisesType from '../../articleTypes/exercisesType'
 
 const exercises_2: ExercisesType.ExercisesObj = {
 	type: 'exercises',

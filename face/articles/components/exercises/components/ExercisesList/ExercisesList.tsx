@@ -1,11 +1,13 @@
 import { useContext } from 'react'
 import { ExercisesContext } from '../../logic/exercisesContext'
 import Switcher, { SwitcherItem } from '../../../../../ui/Switcher/Switcher'
+import { exercisesLogic } from '../../logic/exercisesLogic'
 import './ExercisesList.scss'
 
 /** Списки упражнений для прохождения. */
 function ExercisesList() {
-	const { exercisesBlock, switchToExercise } = useContext(ExercisesContext)
+	const { exercisesBlock } = useContext(ExercisesContext)
+	const switchToExercise = exercisesLogic.useGetSwitchToExercise()
 
 	const items: SwitcherItem[] = exercisesBlock.exercises.map((exercise) => {
 		return {

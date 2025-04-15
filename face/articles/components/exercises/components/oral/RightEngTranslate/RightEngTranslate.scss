@@ -2,7 +2,7 @@
 @use '@/styles/mixins' as mix;
 @use '@/styles/inherit' as inh;
 
-.paragraph {
+.exercises-right-eng-translate {
 	width: 100%;
 	@include inh.paragraph-giant();
 	margin: 1rem 0 0 0;

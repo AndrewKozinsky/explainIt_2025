@@ -1,6 +1,6 @@
-import ArticleType from '../articlesData/articleType'
-import articles from '../articlesData/courseArticles/articlesData'
-import ExercisesType from '../articlesData/exercisesType'
+import ArticleType from '../articleTypes/articleType'
+import articles from '../articlesData/articlesData'
+import ExercisesType from '../articleTypes/exercisesType'
 // import { PageUrls } from '../сonsts/pageUrls'
 // import ArtType = ArticleType.ArtType
 

@@ -2,7 +2,7 @@
 
 import { RefObject, useRef } from 'react'
 import cn from 'classnames'
-import ArticleType from '../../articlesData/articleType'
+import ArticleType from '../../articleTypes/articleType'
 import ArrowCircle from '../ArrowCircle/ArrowCircle'
 import Text from '../Text/Text'
 import Transcription from '../Transcription/Transcription'

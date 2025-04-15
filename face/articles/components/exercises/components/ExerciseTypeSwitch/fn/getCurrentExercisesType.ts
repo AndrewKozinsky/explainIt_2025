@@ -1,8 +1,8 @@
-import { useCallback, useContext } from 'react'
-import { ExercisesContext } from '../../../logic/exercisesContext'
+import { useCallback } from 'react'
+import { exercisesLogic } from '../../../logic/exercisesLogic'
 
 export function useGetOnExerciseTypeButtonClick(isCurrent: boolean) {
-	const { switchExercisesType } = useContext(ExercisesContext)
+	const switchExercisesType = exercisesLogic.useGetSwitchExercisesType()
 
 	return useCallback(
 		function () {

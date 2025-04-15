@@ -1,5 +1,5 @@
 import { PrevAndNextButtons, PrevAndNextButtonsTextColor } from '../PrevAndNextButtons/PrevAndNextButtons'
-import ArticleType from '../../../../articles/articlesData/articleType'
+import ArticleType from '../../../../articles/articleTypes/articleType'
 import { getPrevAndNextArticlesNavConfig } from './fn/getPrevAndNextButtonsConfig'
 
 type PrevAndNextArticlesNavProps = {
