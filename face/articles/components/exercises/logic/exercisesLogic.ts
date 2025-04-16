@@ -64,7 +64,7 @@ export const exercisesLogic = {
 				const exercisesBlockCopy = { ...exercisesBlock, ...changeObj }
 				setExercisesBlock(exercisesBlockCopy)
 			},
-			[currentExerciseId],
+			[exercisesBlock],
 		)
 	},
 	useGetSwitchExercisesType() {
@@ -117,31 +117,4 @@ export const exercisesLogic = {
 			})
 		}, [])
 	},
-	/*resetCurrentExercise() {
-		const exercisesBlockCopy = { ...exercisesBlock }
-
-		const currentExerciseIdx = exercisesBlockCopy.exercises.findIndex(
-			(exercise) => exercise.id === exercisesBlockCopy.currentExerciseId,
-		)
-		if (currentExerciseIdx === -1) return
-
-		exercisesBlockCopy.exercises = [...exercisesBlockCopy.exercises]
-		exercisesBlockCopy.exercises[currentExerciseIdx] = {
-			...exercisesBlockCopy.exercises[currentExerciseIdx],
-			userTranslate: '',
-		}
-
-		setExercisesBlock(exercisesBlockCopy)
-	},*/
-	/*getNextExercise() {
-		const { currentExerciseId } = exercisesBlock
-
-		const currentExerciseIdx = exercisesBlock.exercises.findIndex(
-			(exercise) => exercise.id === currentExerciseId,
-		)
-		if (currentExerciseIdx === -1) return null
-		console.log(exercisesBlock.exercises[currentExerciseIdx + 1])
-
-		return exercisesBlock.exercises[currentExerciseIdx + 1] || null
-	},*/
 }

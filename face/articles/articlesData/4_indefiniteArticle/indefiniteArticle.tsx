@@ -2,10 +2,11 @@ import ArticleType from '../../articleTypes/articleType'
 import exercises_1 from './exercises-1'
 import exercises_2 from './exercises-2'
 import exercises_3 from './exercises-3'
+import exercises_4 from './exercises-4'
 
 const indefiniteArticle: ArticleType.Art = {
 	meta: {
-		number: 3,
+		number: 4,
 		slug: 'indefinite-article',
 		caption: 'Глава 4',
 		articleName: 'Неопределённый артикль a',
@@ -71,7 +72,6 @@ const indefiniteArticle: ArticleType.Art = {
 						{
 							type: 'text',
 							color: 'black',
-
 							text: 'Неисчисляемое существительное — это существительное не поддающееся счёту:',
 						},
 					],
@@ -90,7 +90,6 @@ const indefiniteArticle: ArticleType.Art = {
 						{
 							type: 'text',
 							color: 'black',
-
 							text: 'Так говорить нельзя, поэтому «деньги» — это неисчисляемое существительное.',
 						},
 					],
@@ -109,7 +108,6 @@ const indefiniteArticle: ArticleType.Art = {
 						{
 							type: 'text',
 							color: 'black',
-
 							text: 'Так говорить нельзя, поэтому «время» — это неисчисляемое существительное.',
 						},
 					],
@@ -128,7 +126,6 @@ const indefiniteArticle: ArticleType.Art = {
 						{
 							type: 'text',
 							color: 'black',
-
 							text: 'Вода — неисчисляемое существительное. Но число относится не к воде, а к стаканам. Стаканы исчисляемое.',
 						},
 					],
@@ -171,7 +168,6 @@ const indefiniteArticle: ArticleType.Art = {
 				{
 					type: 'text',
 					color: 'gray',
-
 					text: 'Учитель — исчисляемое существительное, поэтому перед ним нужно ставить неопределённый артикль a.',
 				},
 			],
@@ -208,6 +204,168 @@ const indefiniteArticle: ArticleType.Art = {
 			],
 		},
 		exercises_1,
+		{ type: 'header', tag: 'h2', style: 'h2', text: 'Изменение артикля на an' },
+		{
+			type: 'paragraph',
+
+			textSize: 'normal',
+			children: [
+				{
+					type: 'text',
+					color: 'black',
+					text: 'Если исчисляемое существительное в единственном числе ',
+				},
+				{ type: 'text', color: 'black', weight: 'bold', text: 'при произношении' },
+				{
+					type: 'text',
+					color: 'black',
+					text: ' (не на письме!) начинается с гласной буквы, то перед ним ставят артикль ',
+				},
+				{ type: 'text', color: 'blue', text: 'an' },
+				{
+					type: 'text',
+					color: 'black',
+					text: ', а если с согласной, то ',
+				},
+				{ type: 'text', color: 'blue', text: 'a' },
+				{
+					type: 'text',
+					color: 'black',
+					text: '. Это нужно для гармонии чтобы не произносить гласные друг за другом.',
+				},
+			],
+		},
+		{
+			type: 'paragraph',
+			offset: true,
+			textSize: 'normal',
+			children: [
+				{ type: 'text', color: 'blue', text: 'an apple' },
+				{ type: 'text', color: 'black', text: ' — произносится ' },
+				{ type: 'text', color: 'blue', text: '[эпл]' },
+				{
+					type: 'text',
+					color: 'black',
+					text: ' и пишется с гласной. Поэтому ставится ',
+				},
+				{ type: 'text', color: 'blue', text: 'an' },
+				{ type: 'text', color: 'black', text: ' вместо ' },
+				{ type: 'text', color: 'blue', text: 'a' },
+				{ type: 'text', color: 'black', text: '.' },
+			],
+		},
+		{
+			type: 'paragraph',
+			offset: true,
+			textSize: 'normal',
+			children: [
+				{ type: 'text', color: 'blue', text: 'an honest boy' },
+				{
+					type: 'text',
+					color: 'black',
+					text: ' — хотя в письме начинается с согласной, но произносится с гласной ',
+				},
+				{ type: 'text', color: 'blue', text: '[онэст]' },
+				{
+					type: 'text',
+					color: 'black',
+					text: '. Поэтому тут также стоит артикль ',
+				},
+				{ type: 'text', color: 'blue', text: 'an' },
+				{
+					type: 'text',
+					color: 'black',
+					text: '. Обратите внимание, что нужно смотреть не на существительное, а на слово, которое стоит после артикля. В этом примере это прилагательное ',
+				},
+				{ type: 'text', color: 'blue', text: 'honest' },
+				{
+					type: 'text',
+					color: 'black',
+					text: ' потому что прилагательные вклиниваются между артиклем и существительным.',
+				},
+			],
+		},
+		{
+			type: 'paragraph',
+			offset: true,
+			textSize: 'normal',
+			children: [
+				{ type: 'text', color: 'blue', text: 'a table' },
+				{
+					type: 'text',
+					color: 'black',
+					text: ' — произносится и пишется ',
+				},
+				{ type: 'text', color: 'blue', text: '[тэйбл]' },
+				{
+					type: 'text',
+					color: 'black',
+					text: ' с согласной. Поэтому стоит артикль ',
+				},
+				{ type: 'text', color: 'blue', text: 'a' },
+				{ type: 'text', color: 'black', text: '.' },
+			],
+		},
+		{
+			type: 'paragraph',
+			offset: true,
+			textSize: 'normal',
+			children: [
+				{ type: 'text', color: 'blue', text: 'a unity' },
+				{
+					type: 'text',
+					color: 'black',
+					text: ' — хотя в письме начинается с гласной, но произносится с согласной ',
+				},
+				{ type: 'text', color: 'blue', text: '[джунэти]' },
+				{ type: 'text', color: 'black', text: '. Поэтому ' },
+				{ type: 'text', color: 'blue', text: 'a' },
+				{ type: 'text', color: 'black', text: '.' },
+			],
+		},
+		{
+			type: 'note',
+			noteStyle: 'gray',
+			children: [
+				{
+					type: 'paragraph',
+					textSize: 'normal',
+					children: [
+						{
+							type: 'text',
+							color: 'black',
+							text: 'Чтобы лучше запоминать произношения слов нужно развивать насмотренность и наслушанность. А это делается через постоянное чтение и прослушивание рассказов. Лучший эффект даст материал где вы понимаете 80% слов. Так будите и понимать смысл и не уставать часто прибегая к словарю.',
+						},
+					],
+				},
+			],
+		},
+		{
+			type: 'paragraph',
+			offset: true,
+			children: [
+				{
+					type: 'text',
+					text: 'Попробуйте потренироваться.',
+				},
+			],
+		},
+		exercises_2,
+		{ type: 'header', tag: 'h2', style: 'h2', text: 'Прилагательное перед существительным' },
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			rus: [{ type: 'text', text: 'A leather jacket.' }],
+			eng: [{ type: 'text', text: 'A leather jacket.' }],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			rus: [{ type: 'text', text: 'A denim shirt.' }],
+			eng: [{ type: 'text', text: 'A denim shirt.' }],
+		},
+		exercises_3,
+		{ type: 'header', tag: 'h2', style: 'h2', text: 'Смешанная практика' },
 		{
 			type: 'paragraph',
 			offset: true,
@@ -236,169 +394,8 @@ const indefiniteArticle: ArticleType.Art = {
 				},
 			],
 		},
+		exercises_4,
 
-		exercises_2,
-		{ type: 'header', tag: 'h2', style: 'h2', text: 'Изменение артикля на an' },
-		{
-			type: 'paragraph',
-
-			textSize: 'normal',
-			children: [
-				{
-					type: 'text',
-					color: 'black',
-
-					text: 'Если исчисляемое существительное в единственном числе ',
-				},
-				{ type: 'text', color: 'black', weight: 'bold', text: 'при произношении' },
-				{
-					type: 'text',
-					color: 'black',
-
-					text: ' (не на письме!) начинается с гласной буквы, то перед ним ставят артикль ',
-				},
-				{ type: 'text', color: 'blue', text: 'an' },
-				{
-					type: 'text',
-					color: 'black',
-
-					text: ', а если с согласной, то ',
-				},
-				{ type: 'text', color: 'blue', text: 'a' },
-				{
-					type: 'text',
-					color: 'black',
-
-					text: '. Это нужно для гармонии чтобы не произносить гласные друг за другом.',
-				},
-			],
-		},
-		{
-			type: 'paragraph',
-			offset: true,
-			textSize: 'normal',
-			children: [
-				{ type: 'text', color: 'blue', text: 'an apple' },
-				{ type: 'text', color: 'black', text: ' — произносится ' },
-				{ type: 'text', color: 'blue', text: '[эпл]' },
-				{
-					type: 'text',
-					color: 'black',
-
-					text: ' и пишется с гласной. Поэтому ставится ',
-				},
-				{ type: 'text', color: 'blue', text: 'an' },
-				{ type: 'text', color: 'black', text: ' вместо ' },
-				{ type: 'text', color: 'blue', text: 'a' },
-				{ type: 'text', color: 'black', text: '.' },
-			],
-		},
-		{
-			type: 'paragraph',
-			offset: true,
-			textSize: 'normal',
-			children: [
-				{ type: 'text', color: 'blue', text: 'an honest boy' },
-				{
-					type: 'text',
-					color: 'black',
-
-					text: ' — хотя в письме начинается с согласной, но произносится с гласной ',
-				},
-				{ type: 'text', color: 'blue', text: '[онэст]' },
-				{
-					type: 'text',
-					color: 'black',
-
-					text: '. Поэтому тут также стоит артикль ',
-				},
-				{ type: 'text', color: 'blue', text: 'an' },
-				{
-					type: 'text',
-					color: 'black',
-
-					text: '. Обратите внимание, что нужно смотреть не на существительное, а на слово, которое стоит после артикля. В этом примере это прилагательное ',
-				},
-				{ type: 'text', color: 'blue', text: 'honest' },
-				{
-					type: 'text',
-					color: 'black',
-
-					text: ' потому что прилагательные вклиниваются между артиклем и существительным.',
-				},
-			],
-		},
-		{
-			type: 'paragraph',
-			offset: true,
-			textSize: 'normal',
-			children: [
-				{ type: 'text', color: 'blue', text: 'a table' },
-				{
-					type: 'text',
-					color: 'black',
-
-					text: ' — произносится и пишется ',
-				},
-				{ type: 'text', color: 'blue', text: '[тэйбл]' },
-				{
-					type: 'text',
-					color: 'black',
-
-					text: ' с согласной. Поэтому стоит артикль ',
-				},
-				{ type: 'text', color: 'blue', text: 'a' },
-				{ type: 'text', color: 'black', text: '.' },
-			],
-		},
-		{
-			type: 'paragraph',
-			offset: true,
-			textSize: 'normal',
-			children: [
-				{ type: 'text', color: 'blue', text: 'a unity' },
-				{
-					type: 'text',
-					color: 'black',
-
-					text: ' — хотя в письме начинается с гласной, но произносится с согласной ',
-				},
-				{ type: 'text', color: 'blue', text: '[джунэти]' },
-				{ type: 'text', color: 'black', text: '. Поэтому ' },
-				{ type: 'text', color: 'blue', text: 'a' },
-				{ type: 'text', color: 'black', text: '.' },
-			],
-		},
-		{
-			type: 'note',
-			noteStyle: 'gray',
-			children: [
-				{
-					type: 'paragraph',
-
-					textSize: 'normal',
-					children: [
-						{
-							type: 'text',
-							color: 'black',
-
-							text: 'Чтобы лучше запоминать произношения слов нужно развивать насмотренность и наслушанность. А это делается через постоянное чтение и прослушивание рассказов. Лучший эффект даст материал где вы понимаете 80% слов. Так будите и понимать смысл и не уставать часто прибегая к словарю.',
-						},
-					],
-				},
-			],
-		},
-		{
-			type: 'paragraph',
-			offset: true,
-			children: [
-				{
-					type: 'text',
-					text: 'Попробуйте потренироваться.',
-				},
-			],
-		},
-		exercises_3,
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Какие свойства даёт артикль a/an существительному' },
 		{ type: 'header', tag: 'h3', style: 'h3', text: 'Одна порция' },
 		{
@@ -526,7 +523,7 @@ const indefiniteArticle: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'В отличии от русского в английском одно и то же слово может быть и существительным и прилагательным и глаголом. Как раз неопределённый артикль указывает на существительное:',
+					text: 'В отличии от русского в английском одна и та же форма слова может быть и существительным и прилагательным и глаголом:',
 				},
 			],
 		},
@@ -536,21 +533,69 @@ const indefiniteArticle: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'beauty ',
-				},
-				{
-					type: 'text',
-					text: '(прилагательное)',
-					color: 'gray',
+					text: 'beauty',
 				},
 				{ type: 'arrow' },
 				{
 					type: 'text',
 					text: 'красивый ',
 				},
+				{
+					type: 'text',
+					color: 'gray',
+					text: '(как прилагательное)',
+				},
+				{
+					type: 'text',
+					text: ', красота ',
+				},
+				{
+					type: 'text',
+					color: 'gray',
+					text: '(как существительное)',
+				},
 			],
 		},
 		{
+			type: 'paragraph',
+			textSize: 'big',
+			children: [
+				{
+					type: 'text',
+					text: 'beauty',
+				},
+				{ type: 'arrow' },
+				{
+					type: 'text',
+					text: 'красивый ',
+				},
+				{
+					type: 'text',
+					color: 'gray',
+					text: '(как прилагательное)',
+				},
+				{
+					type: 'text',
+					text: ', красота ',
+				},
+				{
+					type: 'text',
+					color: 'gray',
+					text: '(как существительное)',
+				},
+			],
+		},
+		{
+			type: 'paragraph',
+			offset: true,
+			children: [
+				{
+					type: 'text',
+					text: 'Как раз неопределённый артикль указывает на существительное:',
+				},
+			],
+		},
+		/*{
 			type: 'paragraph',
 			textSize: 'big',
 			children: [
@@ -569,7 +614,8 @@ const indefiniteArticle: ArticleType.Art = {
 					text: 'красотка, красивая вещь ',
 				},
 			],
-		},
+		},*/
+		{ type: 'header', tag: 'h3', style: 'h3', text: 'Делает существительное любым объектом этого вида' },
 		{
 			type: 'paragraph',
 			offset: true,
@@ -622,6 +668,12 @@ const indefiniteArticle: ArticleType.Art = {
 					text: ' обозначает как существительное «простуда», так и прилагательное «холодный». И неопределённый артикль сообщает, что дальше идёт именно существительное.',
 				},
 			],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			rus: [{ type: 'text', text: 'Вам нужен ковбойский образ.' }],
+			eng: [{ type: 'text', text: 'You need a cowboy look.' }],
 		},
 	],
 }

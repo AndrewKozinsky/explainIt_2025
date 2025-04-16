@@ -4,7 +4,7 @@ const exercises_3: ExercisesType.ExercisesObj = {
 	type: 'exercises',
 	exercises: [
 		{
-			rusSentence: 'Ты пишешь письма',
+			rusSentence: 'Придумай',
 			engSentences: [{ engSentences: ['You write letters'], isCorrect: true }],
 			words: [
 				{ rusWord: 'любить', engWord: 'love' },

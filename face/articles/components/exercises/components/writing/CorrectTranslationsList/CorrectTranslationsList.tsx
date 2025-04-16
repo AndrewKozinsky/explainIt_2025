@@ -1,4 +1,6 @@
 import ExercisesType from '../../../../../articleTypes/exercisesType'
+import Transcription from '../../../../Transcription/Transcription'
+import { useGetEngTranscription } from './fn/componentHandlers'
 import './CorrectTranslationsList.scss'
 
 type CorrectTranslationsListProps = {
@@ -19,11 +21,31 @@ function CorrectTranslationsList(props: CorrectTranslationsListProps) {
 
 	return (
 		<div className='exercises-correct-translations'>
-			{engSentences.map((sentence, i) => (
-				<p key={i}>{sentence}</p>
-			))}
+			{engSentences.map((sentence, i) => {
+				return (
+					<div className='exercises-correct-translations__item' key={i}>
+						<p>{sentence}</p>
+						<TranscriptionBlock engSentence={sentence} />
+					</div>
+				)
+			})}
 		</div>
 	)
 }
 
 export default CorrectTranslationsList
+
+type TranscriptionBlockProps = {
+	engSentence: string
+}
+
+function TranscriptionBlock(props: TranscriptionBlockProps) {
+	const { engSentence } = props
+
+	const engTranscription = useGetEngTranscription(engSentence)
+	if (!engTranscription) {
+		return null
+	}
+
+	return <Transcription engSentence={engTranscription.sentence} />
+}

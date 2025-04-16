@@ -70,7 +70,7 @@ export function useGetOnButtonClick() {
 				return
 			}
 
-			// Если проверка показана...
+			// Если проверка показана, то получить следующее упражнение...
 			const nextExercise = getNextExercise()
 
 			if (nextExercise) {

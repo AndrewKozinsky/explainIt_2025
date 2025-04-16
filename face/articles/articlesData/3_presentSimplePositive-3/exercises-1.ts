@@ -5,7 +5,10 @@ const exercises_2: ExercisesType.ExercisesObj = {
 	exercises: [
 		{
 			rusSentence: 'Даша любит сырые овощи.',
-			engSentences: [{ engSentences: ['Dasha loves raw vegetables.'], isCorrect: true }],
+			engSentences: [
+				{ engSentences: ['Dasha loves raw vegetables.'], isCorrect: true },
+				{ engSentences: ['Dasha love raw vegetables.'], isCorrect: false },
+			],
 			words: [
 				{ rusWord: 'любить', engWord: 'love' },
 				{ rusWord: 'сырой', engWord: 'raw' },

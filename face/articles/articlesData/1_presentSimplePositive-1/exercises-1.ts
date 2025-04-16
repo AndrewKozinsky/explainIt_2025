@@ -425,6 +425,20 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{ rusWord: 'природа', engWord: 'nature' },
 			],
 		},
+		{
+			rusSentence: 'Я продаю, ты покупаешь.',
+			engSentences: [
+				{
+					engSentences: ['I sell, you buy.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'книги', engWord: 'books' },
+				{ rusWord: 'о чем-то', engWord: 'about something' },
+				{ rusWord: 'природа', engWord: 'nature' },
+			],
+		},
 	],
 }
 

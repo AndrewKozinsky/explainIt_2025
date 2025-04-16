@@ -17,6 +17,7 @@ export function useGetCheckCurrentExercise() {
 				exercise,
 				exercisesBlock.currentExerciseType,
 			)
+
 			if (analysisInLocalDataRes) {
 				changeExercisesBlock({ analysis: analysisInLocalDataRes })
 				return

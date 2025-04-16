@@ -35,4 +35,9 @@ export const transcriptions = {
 		transcription: 'ðeɪ wɛr suːts',
 		audio: true,
 	},
+	dasha_loves_raw_vegetables: {
+		sentence: 'Dasha loves raw vegetables.',
+		transcription: 'ˈdɑːʃə lʌvz rɔː ˈvedʒtəbəlz',
+		audio: false,
+	},
 } satisfies Record<string, ITranscription>
