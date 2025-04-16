@@ -2,7 +2,6 @@ import ExercisesType from '../../articleTypes/exercisesType'
 
 const exercises_2: ExercisesType.ExercisesObj = {
 	type: 'exercises',
-	id: 1,
 	exercises: [
 		{
 			rusSentence: 'Я часто пользуюсь интернетом.',

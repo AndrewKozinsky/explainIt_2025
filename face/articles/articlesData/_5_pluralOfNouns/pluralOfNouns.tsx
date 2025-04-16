@@ -18,13 +18,13 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'В прошлой главе я говорил, что англичане делят существительные на определённый и неопределённые. На это указывает один из определителей.',
 				},
 			],
@@ -38,7 +38,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' ставится в трёх случаях:',
 				},
 			],
@@ -49,32 +49,32 @@
 			children: [
 				{
 					type: 'paragraph',
-					offset: false,
+
 					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: 'Перед неопределённым существительным;',
 						},
 					],
 				},
 				{
 					type: 'paragraph',
-					offset: false,
+
 					textSize: 'normal',
 					children: [{ type: 'text', color: 'black', text: 'Исчисляемым;' }],
 				},
 				{
 					type: 'paragraph',
-					offset: false,
+
 					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: 'В единственном числе.',
 						},
 					],
@@ -89,47 +89,47 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'В этих же самых случаях только для существительного во множественном числе ставится ',
 				},
 				{ type: 'text', color: 'blue', text: 'нулевой артикль' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: '. Нулевой артикль — это отсутствие видимого определителя перед существительным. Это странное название, но такое имя.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Жёлтые помидоры — сладкие.',
 				},
 
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Yellow tomatoes are sweet.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: 'Имеют в виду неопределённые помидоры, а не конкретные, помидоры исчисляемые и во множественном числе. Поэтому перед ними будет нулевой артикль.',
 				},
 			],
@@ -142,27 +142,27 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Небоскрёбы всегда высокие.',
 				},
 
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Skyscrapers are always tall.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: 'Любые небоскрёбы высокие. Существительное неопределённое во множественном числе и исчисляемое. Поэтому перед ними будет нулевой артикль.',
 				},
 			],
@@ -173,13 +173,13 @@
 			children: [
 				{
 					type: 'paragraph',
-					offset: false,
+
 					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: 'Тема про нулевой артикль ещё не закончена. Но этого пока хватит. В другой главе вы узнаете другие случаи когда он используется.',
 						},
 					],
@@ -190,13 +190,13 @@
 		{ type: 'header', tag: 'h3', style: 'h3', text: 'Окончание -s' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'В большинстве случаев для образования множественного числа к слову прибавляется окончание ',
 				},
 				{ type: 'text', color: 'blue', text: '-s' },
@@ -205,7 +205,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Мяч — мячи' },
@@ -216,7 +216,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Дерево — Деревья' },
@@ -239,13 +239,13 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: 'Вместе I and Misha обозначают одно подлежащее. Так как это множественное число, то ',
 				},
 				{ type: 'text', color: 'gray', weight: 'bold', text: 'be' },
@@ -254,7 +254,7 @@
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: '. Это можно ещё проверить заменив I and Misha местоимением we (мы). И тоже после него ',
 				},
 				{ type: 'text', color: 'gray', weight: 'bold', text: 'be' },
@@ -263,7 +263,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Крокодилы очень опасны.' },
@@ -287,20 +287,20 @@
 		{ type: 'header', tag: 'h3', style: 'h3', text: 'Окончание -es' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'К некоторым словам для образования множественного числа добавляют окончание ',
 				},
 				{ type: 'text', color: 'blue', text: '-es' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' потому что несколько согласных подряд  затрудняют проговаривание. Такие слова заканчиваются на следующие буквы:',
 				},
 			],
@@ -308,7 +308,7 @@
 		{ type: 'header', tag: 'h3', style: 'h4', text: '-ch' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', text: 'Скамейка' },
@@ -323,7 +323,7 @@
 		{ type: 'header', tag: 'h3', style: 'h4', text: '-s' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', text: 'Автобус' },
@@ -338,7 +338,7 @@
 		{ type: 'header', tag: 'h3', style: 'h4', text: '-ss' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', text: 'Класс' },
@@ -353,7 +353,7 @@
 		{ type: 'header', tag: 'h3', style: 'h4', text: '-sh' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', text: 'Желание' },
@@ -368,7 +368,7 @@
 		{ type: 'header', tag: 'h3', style: 'h4', text: '-x' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', text: 'Лиса' },
@@ -383,7 +383,7 @@
 		{ type: 'header', tag: 'h3', style: 'h4', text: '-o' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', text: 'Картошка' },
@@ -401,13 +401,13 @@
 			children: [
 				{
 					type: 'paragraph',
-					offset: false,
+
 					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: 'Такое запомнить сложно, поэтому не заучивайте. Понимание какое окончание ставить будет интуитивным после чтения английских текстов.',
 						},
 					],
@@ -420,21 +420,21 @@
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: 'Но если этого пока нет, то в случае сомнений попробуйте добавить к слову ',
 						},
 						{ type: 'text', color: 'blue', text: '-s' },
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: '. Если язык не спотыкается от добавления ',
 						},
 						{ type: 'text', color: 'blue', text: '-s' },
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: ', то скорее всего форма слова определена верно. В противном случае попробуйте ',
 						},
 						{ type: 'text', color: 'blue', text: '-es' },
@@ -467,13 +467,13 @@
 		{ type: 'header', tag: 'h3', style: 'h3', text: 'Окончание -ies' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Если существительное оканчивается на ',
 				},
 				{ type: 'text', color: 'gold', text: '-y' },
@@ -486,7 +486,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', text: 'Дитя' },
@@ -499,7 +499,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', text: 'Город' },
@@ -512,7 +512,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', text: 'Мелодия' },
@@ -537,13 +537,13 @@
 		{ type: 'header', tag: 'h3', style: 'h3', text: 'Окончание -ves' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Если существительное оканчивается на ',
 				},
 				{ type: 'text', color: 'gold', text: 'f' },
@@ -556,7 +556,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', text: 'Волк' },
@@ -569,7 +569,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', text: 'Лист' },
@@ -582,7 +582,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', text: 'Булка' },
@@ -595,7 +595,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', text: 'Половина' },
@@ -608,17 +608,17 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Лист ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(дерева)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '' },
+				{ type: 'text', color: 'black',  text: 'Лист ' },
+				{ type: 'text', color: 'gray',  text: '(дерева)' },
+				{ type: 'text', color: 'black',  text: '' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'a lea' },
-				{ type: 'text', color: 'gold', weight: 'normal', text: 'f' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' — lea' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'ves' },
+				{ type: 'text', color: 'black',  text: 'a lea' },
+				{ type: 'text', color: 'gold',  text: 'f' },
+				{ type: 'text', color: 'black',  text: ' — lea' },
+				{ type: 'text', color: 'blue',  text: 'ves' },
 			],
 		},
 		{
@@ -626,51 +626,51 @@
 			offset: true,
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Жизнь' },
+				{ type: 'text', color: 'black',  text: 'Жизнь' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'A li' },
-				{ type: 'text', color: 'gold', weight: 'normal', text: 'fe' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' — li' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'ves' },
+				{ type: 'text', color: 'black',  text: 'A li' },
+				{ type: 'text', color: 'gold',  text: 'fe' },
+				{ type: 'text', color: 'black',  text: ' — li' },
+				{ type: 'text', color: 'blue',  text: 'ves' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Мяч' },
+				{ type: 'text', color: 'black',  text: 'Мяч' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'A kni' },
-				{ type: 'text', color: 'gold', weight: 'normal', text: 'fe' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' — kni' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'ves' },
+				{ type: 'text', color: 'black',  text: 'A kni' },
+				{ type: 'text', color: 'gold',  text: 'fe' },
+				{ type: 'text', color: 'black',  text: ' — kni' },
+				{ type: 'text', color: 'blue',  text: 'ves' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Жизнь' },
+				{ type: 'text', color: 'black',  text: 'Жизнь' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'a li' },
-				{ type: 'text', color: 'gold', weight: 'normal', text: 'fe' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' — li' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'ves' },
+				{ type: 'text', color: 'black',  text: 'a li' },
+				{ type: 'text', color: 'gold',  text: 'fe' },
+				{ type: 'text', color: 'black',  text: ' — li' },
+				{ type: 'text', color: 'blue',  text: 'ves' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Жена' },
+				{ type: 'text', color: 'black',  text: 'Жена' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'a wi' },
-				{ type: 'text', color: 'gold', weight: 'normal', text: 'fe' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' — wi' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'ves' },
+				{ type: 'text', color: 'black',  text: 'a wi' },
+				{ type: 'text', color: 'gold',  text: 'fe' },
+				{ type: 'text', color: 'black',  text: ' — wi' },
+				{ type: 'text', color: 'blue',  text: 'ves' },
 			],
 		},
 		{
@@ -687,108 +687,108 @@
 		{ type: 'header', tag: 'h3', style: 'h3', text: 'Изменение основы слова' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'В английском у некоторых существительных форма множественного числа образуется через изменении основы. Кстати некоторые те же самые русские слова тоже во множественном числе изменяют основу слова. Такие слова нужно запомнить:',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Ребёнок' },
+				{ type: 'text', color: 'black',  text: 'Ребёнок' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'a child — children' },
+				{ type: 'text', color: 'black',  text: 'a child — children' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Стопа' },
+				{ type: 'text', color: 'black',  text: 'Стопа' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'a foot — feet' },
+				{ type: 'text', color: 'black',  text: 'a foot — feet' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Гусь' },
+				{ type: 'text', color: 'black',  text: 'Гусь' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'a goose — geese' },
+				{ type: 'text', color: 'black',  text: 'a goose — geese' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Мужчина' },
+				{ type: 'text', color: 'black',  text: 'Мужчина' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'a man — men' },
+				{ type: 'text', color: 'black',  text: 'a man — men' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: 'Существительное a man/men обозначает не только для мужчину, но человека/людей. Также входит в состав других слов. Например postman (почтальон).',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Женщина' },
+				{ type: 'text', color: 'black',  text: 'Женщина' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'a woman — women' },
+				{ type: 'text', color: 'black',  text: 'a woman — women' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Мышь' },
+				{ type: 'text', color: 'black',  text: 'Мышь' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'a mouse — mice' },
+				{ type: 'text', color: 'black',  text: 'a mouse — mice' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Человек' },
+				{ type: 'text', color: 'black',  text: 'Человек' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'a person — people' },
+				{ type: 'text', color: 'black',  text: 'a person — people' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Зуб' },
+				{ type: 'text', color: 'black',  text: 'Зуб' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'a tooth — teeth' },
+				{ type: 'text', color: 'black',  text: 'a tooth — teeth' },
 			],
 		},
 		{
@@ -825,7 +825,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Ответьте на вопросы чтобы проверить насколько хорошо поняли материал.',
 				},
 			],
@@ -839,13 +839,13 @@
 						value: [
 							{
 								type: 'paragraph',
-								offset: false,
+
 								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
 										color: 'black',
-										weight: 'normal',
+
 										text: 'Зачем используют так много вариантов окончаний для образования множественного числа? Почему для всех случаев бы использовать окончание -s?',
 									},
 								],
@@ -857,13 +857,13 @@
 						value: [
 							{
 								type: 'paragraph',
-								offset: false,
+
 								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
 										color: 'black',
-										weight: 'normal',
+
 										text: 'Если к существительным оканчивающимся на некоторые согласные добавлять окончание -s, то их будет трудно произнести в речи. И чтобы достичь гармоничности для некоторых слов добавляют другие окончания.',
 									},
 								],

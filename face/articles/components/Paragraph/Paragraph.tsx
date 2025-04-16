@@ -30,7 +30,7 @@ function Paragraph(props: ParagraphProps) {
 export default Paragraph
 
 type ParagraphChildrenProps = {
-	textConfigs: ArticleType.Text[]
+	textConfigs: ArticleType.Paragraph['children']
 }
 
 /** Дети компонента абзаца в статье */

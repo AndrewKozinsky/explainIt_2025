@@ -58,7 +58,7 @@ namespace ArticleType {
 		offset?: boolean
 		// Размер текста
 		textSize?: ParagraphSize
-		children: Text[]
+		children: TextContent[]
 	}
 	export type ParagraphSize = 'small' | 'normal' | 'big' | 'giant'
 
@@ -97,6 +97,8 @@ namespace ArticleType {
 	export type ArrowText = {
 		type: 'arrow'
 	}
+
+	export type TextContent = Text | ArrowText
 
 	// Заметка. Может включать весь доступный контент: заголовки, абзацы, грамматические таблицы.
 	export type Note = {

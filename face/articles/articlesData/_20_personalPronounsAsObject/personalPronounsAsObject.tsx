@@ -13,35 +13,35 @@
 	content: [
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'В самом первом уроке рассказывалось, что личные местоимения используются в качестве ',
 				},
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'подлежащего' },
+				{ type: 'text', color: 'blue',  text: 'подлежащего' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' — объекта выполняющего действие. В этом случае они стоят в именительном падеже.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'Мы' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' помогаем.' },
+				{ type: 'text', color: 'blue',  text: 'Мы' },
+				{ type: 'text', color: 'black',  text: ' помогаем.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: '' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'We' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' help.' },
+				{ type: 'text', color: 'black',  text: '' },
+				{ type: 'text', color: 'blue',  text: 'We' },
+				{ type: 'text', color: 'black',  text: ' help.' },
 			],
 		},
 		{
@@ -52,41 +52,41 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Личные местоимения также используются для обозначения ',
 				},
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'дополнения' },
+				{ type: 'text', color: 'blue',  text: 'дополнения' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' — объекта, на который действие направлено. Тогда они должны быть в форме объектного падежа.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Мы помогаем ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'им' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black',  text: 'Мы помогаем ' },
+				{ type: 'text', color: 'blue',  text: 'им' },
+				{ type: 'text', color: 'black',  text: '.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'We help ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'them' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black',  text: 'We help ' },
+				{ type: 'text', color: 'blue',  text: 'them' },
+				{ type: 'text', color: 'black',  text: '.' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: '«Мы» — это подлежащее, оно выполняет действие. А действие направлено на дополнение «им».',
 				},
 			],
@@ -99,7 +99,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'В разных ролях личные местоимения будут иметь разные формы. Это справедливо как для русского, так и английского языка.',
 				},
 			],
@@ -110,59 +110,59 @@
 			offset: true,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Паша отправил ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'ей' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' открытку.' },
+				{ type: 'text', color: 'black',  text: 'Паша отправил ' },
+				{ type: 'text', color: 'blue',  text: 'ей' },
+				{ type: 'text', color: 'black',  text: ' открытку.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Pasha sent ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'her' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' a postcard.' },
+				{ type: 'text', color: 'black',  text: 'Pasha sent ' },
+				{ type: 'text', color: 'blue',  text: 'her' },
+				{ type: 'text', color: 'black',  text: ' a postcard.' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Ты встретишь ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'их' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' на барбекю.' },
+				{ type: 'text', color: 'black',  text: 'Ты встретишь ' },
+				{ type: 'text', color: 'blue',  text: 'их' },
+				{ type: 'text', color: 'black',  text: ' на барбекю.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'You will meet ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'them' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' at the barbeque.' },
+				{ type: 'text', color: 'black',  text: 'You will meet ' },
+				{ type: 'text', color: 'blue',  text: 'them' },
+				{ type: 'text', color: 'black',  text: ' at the barbeque.' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Мы старые друзья, ты знаешь ',
 				},
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'меня' },
+				{ type: 'text', color: 'blue',  text: 'меня' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' и моих людей, мы не убийцы!',
 				},
 
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'We are old friends, you know ',
 				},
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'me' },
+				{ type: 'text', color: 'blue',  text: 'me' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' and my people, we are not murderers!',
 				},
 			],
@@ -173,13 +173,13 @@
 			children: [
 				{
 					type: 'paragraph',
-					offset: false,
+
 					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: 'Только личные местоимения имеют формы для двух падежей. Остальные типы по падежам не изменяются.',
 						},
 					],
@@ -194,34 +194,34 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Довольно часто среди носителей в разговорной речи можно встретить как местоимение ',
 				},
 				{ type: 'text', color: 'black', weight: 'bold', text: 'me' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' используется в качестве подлежащего вместо ',
 				},
 				{ type: 'text', color: 'black', weight: 'bold', text: 'I' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: '. Это грамматические неправильно. Но используется потому что звучит гармоничнее. Поэтому не удивляйтесь.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Me, you and you will go shopping for Hector a little bit each.',
 				},
 			],
@@ -231,25 +231,25 @@
 			offset: true,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'В коротких ответах ' },
+				{ type: 'text', color: 'black',  text: 'В коротких ответах ' },
 				{ type: 'text', color: 'black', weight: 'bold', text: 'I' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' в форме объектного падежа встречается повсеместно.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
 					color: 'blue',
-					weight: 'normal',
+
 					text: 'Who broke the vase? – Not me! / Me. Кто разбил вазу? – Не я! / Я. I am feeling tired. – Me too. Я (очень) устал/(чувств. уставшим). – Я тоже.',
 				},
 			],
@@ -368,7 +368,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Ответьте на вопросы чтобы проверить насколько хорошо поняли материал.',
 				},
 			],
@@ -382,13 +382,13 @@
 						value: [
 							{
 								type: 'paragraph',
-								offset: false,
+
 								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
 										color: 'black',
-										weight: 'normal',
+
 										text: 'Вспомните какие типы местоимений вы уже знаете и в каких случаях используются.',
 									},
 								],
@@ -400,13 +400,13 @@
 						value: [
 							{
 								type: 'paragraph',
-								offset: false,
+
 								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
 										color: 'black',
-										weight: 'normal',
+
 										text: 'ОТВЕТЬ!!!!',
 									},
 								],

@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react'
 import ArticleType from '../articleTypes/articleType'
+import ArrowCircle from '../components/ArrowCircle/ArrowCircle'
 // import FaqInArticle from '../components/FaqInArticle/FaqInArticle'
 // import Grid from '../components/Grid/Grid'
 import Header from '../components/Header/Header'

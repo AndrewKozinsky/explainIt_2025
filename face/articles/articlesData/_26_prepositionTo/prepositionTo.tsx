@@ -12,21 +12,21 @@
 	content: [
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{ type: 'text', color: 'blue', text: 'To' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' может быть не только частицей, но и предлогом. Частица придаёт словам дополнительные оттенки и значения. А предлог —  логически связывает слова друг с другом для задания направления, положения в пространстве, времени совершения действия, причины. Он ставится перед существительными, местоимениями и наречиями.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', text: 'Уличный кот сидел ' },
@@ -36,7 +36,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{ type: 'text', color: 'gray', text: 'Предлог «' },
@@ -44,14 +44,14 @@
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: '» означает, что объект находится на поверхности другого объекта.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', text: 'Сломанная ветка упала ' },
@@ -61,7 +61,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{ type: 'text', color: 'gray', text: 'Предлог «' },
@@ -69,7 +69,7 @@
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: '» обозначает, что один объект находится внутри другого.',
 				},
 			],
@@ -82,14 +82,14 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'В русском языке есть несколько способов передать направленность действия по отношению к другому персонажу. Можно через предлоги:',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', text: 'Миша ходит ' },
@@ -97,14 +97,14 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' стоматологу каждый год.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', text: 'Он показал ' },
@@ -114,7 +114,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', text: 'Я ездил ' },
@@ -130,14 +130,14 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Либо без предлога через склонение глагола в дательном падеже (кому/чему):',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', text: 'Мы принесли воду ' },
@@ -153,14 +153,14 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'В английском направление движения или указание на объект задаёт предлог ',
 				},
 				{ type: 'text', color: 'blue', text: 'to' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: '. Есть несколько распространённых случаев использования.',
 				},
 			],
@@ -168,7 +168,7 @@
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Движение в какое-то место' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Саша подошел к двери.' },
@@ -180,7 +180,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Вика пригласила ' },
@@ -338,26 +338,26 @@
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Указание на объект' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Таким объектом может быть всё, что угодно: момент времени, точка на местности, нематериальная сущность и так далее.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Пять дней до представления.',
 				},
 
@@ -368,26 +368,26 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: 'Указание на представление.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Я предпочитаю автобус самолёту.',
 				},
 
@@ -398,26 +398,26 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: 'Указание на другой вид транспорта.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'У меня есть вопрос к этой теме.',
 				},
 
@@ -428,13 +428,13 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: 'Указание на нематериальный объект.',
 				},
 			],
@@ -443,7 +443,7 @@
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Действие направлено на человека' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Мы добры к детям.' },
@@ -455,20 +455,20 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Эта коллекция принадлежит мне.',
 				},
 
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'This collection belongs ',
 				},
 				{ type: 'text', color: 'blue', text: 'to' },
@@ -477,20 +477,20 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Этот доклад необходим для нас.',
 				},
 
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'This report is necessary ',
 				},
 				{ type: 'text', color: 'blue', text: 'to' },
@@ -582,34 +582,34 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'В предложении ниже действие отправки прямо направлено на ',
 				},
 				{ type: 'text', color: 'blue', text: 'деньги' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' (отправляют деньги), а косвенно на ',
 				},
 				{ type: 'text', color: 'gold', text: 'тебя' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' (деньги отправляют тебе).',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Я отправлю деньги тебе.' },
@@ -629,7 +629,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Но некоторые глаголы позволяют менять местами ',
 				},
 				{ type: 'text', color: 'blue', text: 'прямое' },
@@ -640,7 +640,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Я отправлю тебе деньги.' },
@@ -660,7 +660,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Они называются глаголами допускающими конструкцию с двойным дополнением. И если перед таким глаголом стоит косвенное дополнение, то предлог ',
 				},
 				{ type: 'text', color: 'blue', text: 'to' },
@@ -682,13 +682,13 @@
 					children: [
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'normal',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'Give — дать\nSend — отправить\nShow — показать\nTell — сказать\nOffer — предложить',
 								},
 							],
@@ -699,13 +699,13 @@
 					children: [
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'normal',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'Lend — одолжить\nPay — оплатить\nBring — принести\nWrite — написать\nRead (читать кому-то) — читать',
 								},
 							],
@@ -716,13 +716,13 @@
 					children: [
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'normal',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'Pass — передать\nHand — передать\nOwe — быть должным\nPromise — обещать\nSell — продать',
 								},
 							],
@@ -733,13 +733,13 @@
 					children: [
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'normal',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'Buy — купить\nTeach — научить\nAward — наградить\nGrant — дать\nFeed — кормить',
 								},
 							],
@@ -766,20 +766,20 @@
 						{ type: 'header', tag: 'h4', style: 'h4', text: 'to не ставится' },
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'normal',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'если перед объектом назначения стоит глагол.',
 								},
 							],
 						},
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'big',
 							children: [
 								{ type: 'text', color: 'gold', text: 'Он дал' },
@@ -788,27 +788,27 @@
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: ' тот пакет.',
 								},
 
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'He gaves you that package.',
 								},
 							],
 						},
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'small',
 							children: [
 								{
 									type: 'text',
 									color: 'gray',
-									weight: 'normal',
+
 									text: 'Персонаж, к которому направлено действие, стоит сразу после самого действия, поэтому to не ставится.',
 								},
 							],
@@ -821,35 +821,35 @@
 								{
 									type: 'text',
 									color: 'gold',
-									weight: 'normal',
+
 									text: 'Я отправлю',
 								},
 								{ type: 'text', color: 'black', text: ' ' },
-								{ type: 'text', color: 'blue', weight: 'normal', text: 'Полине' },
+								{ type: 'text', color: 'blue',  text: 'Полине' },
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: ' конверт.',
 								},
 
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'I will send Polina an envelope.',
 								},
 							],
 						},
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'small',
 							children: [
 								{
 									type: 'text',
 									color: 'gray',
-									weight: 'normal',
+
 									text: 'Если не знать это правило, то английский вариант предложения будет перевести затруднительно.',
 								},
 							],
@@ -863,36 +863,36 @@
 						{ type: 'header', tag: 'h4', style: 'h4', text: 'to ставится' },
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'normal',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'если перед объектом назначения стоит не глагол.',
 								},
 							],
 						},
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'big',
 							children: [
-								{ type: 'text', color: 'gold', weight: 'normal', text: 'Я дал' },
+								{ type: 'text', color: 'gold',  text: 'Я дал' },
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: ' тот пакет ',
 								},
-								{ type: 'text', color: 'blue', weight: 'normal', text: 'тебе' },
-								{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+								{ type: 'text', color: 'blue',  text: 'тебе' },
+								{ type: 'text', color: 'black',  text: '.' },
 
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'I gave that package to you.',
 								},
 							],
@@ -905,22 +905,22 @@
 								{
 									type: 'text',
 									color: 'gold',
-									weight: 'normal',
+
 									text: 'Я отправлю',
 								},
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: ' конверт ',
 								},
-								{ type: 'text', color: 'blue', weight: 'normal', text: 'Полине' },
-								{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+								{ type: 'text', color: 'blue',  text: 'Полине' },
+								{ type: 'text', color: 'black',  text: '.' },
 
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'I will send an envelope to Polina.',
 								},
 							],
@@ -934,56 +934,56 @@
 			offset: true,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Предлог ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'to' },
+				{ type: 'text', color: 'black',  text: 'Предлог ' },
+				{ type: 'text', color: 'blue',  text: 'to' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' всегда ставится после глаголов «',
 				},
 				{ type: 'text', color: 'black', weight: 'bold', text: 'объяснять' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '» (explain) и «' },
+				{ type: 'text', color: 'black',  text: '» (explain) и «' },
 				{ type: 'text', color: 'black', weight: 'bold', text: 'слушать' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '» (listen).' },
+				{ type: 'text', color: 'black',  text: '» (listen).' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Я всегда это объясняю своим пациентам.',
 				},
 
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'I always explain it to my patients.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Никто не станет тебя слушать.',
 				},
 
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'No one will ever listen to you.',
 				},
 			],
@@ -1061,13 +1061,13 @@
 						value: [
 							{
 								type: 'paragraph',
-								offset: false,
+
 								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
 										color: 'black',
-										weight: 'normal',
+
 										text: 'Чем отличается частица to от предлога to?',
 									},
 								],
@@ -1079,13 +1079,13 @@
 						value: [
 							{
 								type: 'paragraph',
-								offset: false,
+
 								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
 										color: 'black',
-										weight: 'normal',
+
 										text: 'Частица to используется перед глаголом чтобы показать, что он находится в инфинитивной форме. А предлог to показывает движение в какое-то место в прямом и переносном смысле.',
 									},
 								],

@@ -2,9 +2,15 @@ import ArticleType from '../articleTypes/articleType'
 import presentSimplePositive1 from './1_presentSimplePositive-1/presentSimplePositive-1'
 import presentSimplePositive2 from './2_presentSimplePositive-2/presentSimplePositive-2'
 import presentSimplePositive3 from './3_presentSimplePositive-3/presentSimplePositive-3'
+import indefiniteArticle from './4_indefiniteArticle/indefiniteArticle'
 
 // Список статей учебника
-const rowArticles: ArticleType.Art[] = [presentSimplePositive1, presentSimplePositive2, presentSimplePositive3]
+const rowArticles: ArticleType.Art[] = [
+	presentSimplePositive1,
+	presentSimplePositive2,
+	presentSimplePositive3,
+	// indefiniteArticle,
+]
 
 const articles: ArticleType.Art[] = rowArticles.map((article, i) => {
 	const newArticle = { ...article }

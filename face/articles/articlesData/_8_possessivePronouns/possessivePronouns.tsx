@@ -13,13 +13,13 @@
 	content: [
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Притяжательные местоимения уточняют кому принадлежит персонаж или предмет и отвечают на вопрос ',
 				},
 				{ type: 'text', color: 'black', weight: 'bold', text: 'Чей' },
@@ -34,7 +34,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'gray', text: '(Чей?)' },
@@ -45,7 +45,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'gray', text: '(Чьи?)' },
@@ -60,20 +60,20 @@
 			children: [
 				{
 					type: 'paragraph',
-					offset: false,
+
 					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: 'Английская речь наводнена притяжательными местоимениями. Фраза «Папа запрещает приходить поздно» в английском превращается в «Мой папа запрещает мне приходить поздно» потому что перед существительным всегда должно быть определяющее слово. Так как «папа» конкретный, то перед ним можно поставить или артикль ',
 						},
 						{ type: 'text', color: 'black', weight: 'bold', text: 'the' },
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: ' или указательное или притяжательное местоимение. В этом предложении самым логичным будет притяжательное местоимение «мой».',
 						},
 					],
@@ -86,7 +86,7 @@
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: 'В русском языке нет таких заморочек. И вставка местоимения «мой» даже будет лишней потому что и так понятно, что мой папа запрещает.',
 						},
 					],
@@ -101,20 +101,20 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Есть два типа притяжательных местоимений:',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: '1) После которых должно идти ',
 				},
 				{ type: 'text', color: 'gold', text: 'существительное' },
@@ -123,7 +123,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'blue', text: 'Мой' },
@@ -140,14 +140,14 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: '2) Которые заменяют существительное. Они называются самостоятельными и в русском предложении ставятся в конце предложения:',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Забытые вещи были ' },
@@ -163,14 +163,14 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Два типа местоимений обозначают одно и то же. Но самостоятельные притяжательные местоимения делают акцент на принадлежности.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Это ' },
@@ -184,7 +184,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Эти деньги ' },
@@ -204,14 +204,14 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Ещё самостоятельным притяжательным местоимением можно ответить на вопрос.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Это чьи деньги?' },
@@ -221,7 +221,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'blue', text: 'Мои' },
@@ -234,13 +234,13 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: 'Whose — это относительное местоимение. Будет изучено в одной из следующих глав.',
 				},
 			],
@@ -253,7 +253,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Притяжательные местоимения логичным образом происходят из личных.',
 				},
 			],
@@ -265,13 +265,13 @@
 			children: [
 				{
 					type: 'paragraph',
-					offset: false,
+
 					textSize: 'small',
 					children: [
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: 'В русском языке притяжательное местоимение не меняется в завимости от того если ли перед ним существительное или нет.',
 						},
 					],
@@ -286,7 +286,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Притяжательное местоимение является определяющим словом для существительного. Поэтому перед ним не нужно указывать ещё одно определяющее слово вроде определённого артикля ',
 				},
 				{ type: 'text', color: 'black', weight: 'bold', text: 'the' },
@@ -295,7 +295,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Попробуй салат!' },
@@ -305,7 +305,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Попробуй мой салат!' },
@@ -321,71 +321,71 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'I ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(я)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '' },
+				{ type: 'text', color: 'black',  text: 'I ' },
+				{ type: 'text', color: 'gray',  text: '(я)' },
+				{ type: 'text', color: 'black',  text: '' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Му ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(мой)' },
+				{ type: 'text', color: 'black',  text: 'Му ' },
+				{ type: 'text', color: 'gray',  text: '(мой)' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Это ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'мой' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' компьютер.' },
+				{ type: 'text', color: 'black',  text: 'Это ' },
+				{ type: 'text', color: 'blue',  text: 'мой' },
+				{ type: 'text', color: 'black',  text: ' компьютер.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'It is ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'my' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' computer.' },
+				{ type: 'text', color: 'black',  text: 'It is ' },
+				{ type: 'text', color: 'blue',  text: 'my' },
+				{ type: 'text', color: 'black',  text: ' computer.' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Это ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'моя' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' собственная ложка.' },
+				{ type: 'text', color: 'black',  text: 'Это ' },
+				{ type: 'text', color: 'blue',  text: 'моя' },
+				{ type: 'text', color: 'black',  text: ' собственная ложка.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'It is ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'my' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' own spoon.' },
+				{ type: 'text', color: 'black',  text: 'It is ' },
+				{ type: 'text', color: 'blue',  text: 'my' },
+				{ type: 'text', color: 'black',  text: ' own spoon.' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Ты ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'моё' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' сокровище.' },
+				{ type: 'text', color: 'black',  text: 'Ты ' },
+				{ type: 'text', color: 'blue',  text: 'моё' },
+				{ type: 'text', color: 'black',  text: ' сокровище.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'You are ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'my' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' jewel.' },
+				{ type: 'text', color: 'black',  text: 'You are ' },
+				{ type: 'text', color: 'blue',  text: 'my' },
+				{ type: 'text', color: 'black',  text: ' jewel.' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Сергей и Алёна ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'мои' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' дети.' },
+				{ type: 'text', color: 'black',  text: 'Сергей и Алёна ' },
+				{ type: 'text', color: 'blue',  text: 'мои' },
+				{ type: 'text', color: 'black',  text: ' дети.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Sergei and Alyona are ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'my' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' children.' },
+				{ type: 'text', color: 'black',  text: 'Sergei and Alyona are ' },
+				{ type: 'text', color: 'blue',  text: 'my' },
+				{ type: 'text', color: 'black',  text: ' children.' },
 			],
 		},
 		{
@@ -394,20 +394,20 @@
 			children: [
 				{
 					type: 'paragraph',
-					offset: false,
+
 					textSize: 'small',
 					children: [
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: 'Такое разнообразие переводов местоимения ',
 						},
 						{ type: 'text', color: 'black', weight: 'bold', text: 'my' },
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: ' на русский язык связано с падежами. В английском их нет, поэтому мой, моя, моё и мои переводятся одним и тем же словом.',
 						},
 					],
@@ -419,25 +419,25 @@
 			offset: true,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'You ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(вы)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '' },
+				{ type: 'text', color: 'black',  text: 'You ' },
+				{ type: 'text', color: 'gray',  text: '(вы)' },
+				{ type: 'text', color: 'black',  text: '' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Your ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(ваш)' },
+				{ type: 'text', color: 'black',  text: 'Your ' },
+				{ type: 'text', color: 'gray',  text: '(ваш)' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'Ваша' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' мама не здесь.' },
+				{ type: 'text', color: 'blue',  text: 'Ваша' },
+				{ type: 'text', color: 'black',  text: ' мама не здесь.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: '' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'Your' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' mother is not here.' },
+				{ type: 'text', color: 'black',  text: '' },
+				{ type: 'text', color: 'blue',  text: 'Your' },
+				{ type: 'text', color: 'black',  text: ' mother is not here.' },
 			],
 		},
 		{
@@ -445,44 +445,44 @@
 			offset: true,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'He ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(он)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '' },
+				{ type: 'text', color: 'black',  text: 'He ' },
+				{ type: 'text', color: 'gray',  text: '(он)' },
+				{ type: 'text', color: 'black',  text: '' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'His ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(его)' },
+				{ type: 'text', color: 'black',  text: 'His ' },
+				{ type: 'text', color: 'gray',  text: '(его)' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'Его' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' нос чёрный и влажный.' },
+				{ type: 'text', color: 'blue',  text: 'Его' },
+				{ type: 'text', color: 'black',  text: ' нос чёрный и влажный.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: '' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'His' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' nose is black and wet.' },
+				{ type: 'text', color: 'black',  text: '' },
+				{ type: 'text', color: 'blue',  text: 'His' },
+				{ type: 'text', color: 'black',  text: ' nose is black and wet.' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: 'В этом предложение подлежащее his nose потому что притяжательное местоимение не может существовать отдельно и должно пристыковываться к существительному. Но даже если прибавить пару прилагательных (его холодный и грязный нос), то всё равно это будет одним подлежащим потому что обозначает одну сущность. Поэтому ',
 				},
 				{ type: 'text', color: 'gray', weight: 'bold', text: 'be' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: ' стоит не после ' },
+				{ type: 'text', color: 'gray',  text: ' стоит не после ' },
 				{ type: 'text', color: 'gray', weight: 'bold', text: 'his' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: ', а после ' },
+				{ type: 'text', color: 'gray',  text: ', а после ' },
 				{ type: 'text', color: 'gray', weight: 'bold', text: 'his nose' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'gray',  text: '.' },
 			],
 		},
 		{
@@ -490,26 +490,26 @@
 			offset: true,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'She ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(она)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '' },
+				{ type: 'text', color: 'black',  text: 'She ' },
+				{ type: 'text', color: 'gray',  text: '(она)' },
+				{ type: 'text', color: 'black',  text: '' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Her ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(её)' },
+				{ type: 'text', color: 'black',  text: 'Her ' },
+				{ type: 'text', color: 'gray',  text: '(её)' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Это ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'её' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' новый питомец.' },
+				{ type: 'text', color: 'black',  text: 'Это ' },
+				{ type: 'text', color: 'blue',  text: 'её' },
+				{ type: 'text', color: 'black',  text: ' новый питомец.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'It is ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'her' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' new pet.' },
+				{ type: 'text', color: 'black',  text: 'It is ' },
+				{ type: 'text', color: 'blue',  text: 'her' },
+				{ type: 'text', color: 'black',  text: ' new pet.' },
 			],
 		},
 		{
@@ -517,36 +517,36 @@
 			offset: true,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'It ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(это)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '' },
+				{ type: 'text', color: 'black',  text: 'It ' },
+				{ type: 'text', color: 'gray',  text: '(это)' },
+				{ type: 'text', color: 'black',  text: '' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Its ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(этот)' },
+				{ type: 'text', color: 'black',  text: 'Its ' },
+				{ type: 'text', color: 'gray',  text: '(этот)' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'Эти' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' джинсы синие.' },
+				{ type: 'text', color: 'blue',  text: 'Эти' },
+				{ type: 'text', color: 'black',  text: ' джинсы синие.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: '' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'Its' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' jeans is blue.' },
+				{ type: 'text', color: 'black',  text: '' },
+				{ type: 'text', color: 'blue',  text: 'Its' },
+				{ type: 'text', color: 'black',  text: ' jeans is blue.' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: 'jeans всегда используются во множественном числе. И их количество можно определить по форме глагола to be. Тут стоит в форме is, поэтому они в единственном. Если были бы во множественном, то был бы are.',
 				},
 			],
@@ -559,7 +559,7 @@
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: 'Местоимение its может переводиться не только на русский словом «это», но и «её» и «его» потому что в русском есть рода и предмет может быть среднего, мужского или женского рода. Но если говорим про половую принадлежность, то используйте или his или her.',
 				},
 			],
@@ -569,33 +569,33 @@
 			offset: true,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'We ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(мы)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '' },
+				{ type: 'text', color: 'black',  text: 'We ' },
+				{ type: 'text', color: 'gray',  text: '(мы)' },
+				{ type: 'text', color: 'black',  text: '' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Our ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(наш)' },
+				{ type: 'text', color: 'black',  text: 'Our ' },
+				{ type: 'text', color: 'gray',  text: '(наш)' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'Наша' },
+				{ type: 'text', color: 'blue',  text: 'Наша' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' старшая сестра восхитительна.',
 				},
 
-				{ type: 'text', color: 'black', weight: 'normal', text: '' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'Our' },
+				{ type: 'text', color: 'black',  text: '' },
+				{ type: 'text', color: 'blue',  text: 'Our' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' elder sister is wonderful.',
 				},
 			],
@@ -605,30 +605,30 @@
 			offset: true,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'They ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(они)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '' },
+				{ type: 'text', color: 'black',  text: 'They ' },
+				{ type: 'text', color: 'gray',  text: '(они)' },
+				{ type: 'text', color: 'black',  text: '' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Their ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(их)' },
+				{ type: 'text', color: 'black',  text: 'Their ' },
+				{ type: 'text', color: 'gray',  text: '(их)' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'Их' },
+				{ type: 'text', color: 'blue',  text: 'Их' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' домашнее задание трудное.',
 				},
 
-				{ type: 'text', color: 'black', weight: 'normal', text: '' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'Their' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' homework is difficult.' },
+				{ type: 'text', color: 'black',  text: '' },
+				{ type: 'text', color: 'blue',  text: 'Their' },
+				{ type: 'text', color: 'black',  text: ' homework is difficult.' },
 			],
 		},
 		{
@@ -710,37 +710,37 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Самостоятельные притяжательные местоимения заменяют существительное чтобы исключить повторение.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Это моя тарелка, а это ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'твоя ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(тарелка)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black',  text: 'Это моя тарелка, а это ' },
+				{ type: 'text', color: 'blue',  text: 'твоя ' },
+				{ type: 'text', color: 'gray',  text: '(тарелка)' },
+				{ type: 'text', color: 'black',  text: '.' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: 'После местоимение «моя» нужно ставить существительное, а после «твоя» нет потому что оно самодостаточное и заменяет местоимение «тарелка».',
 				},
 			],
@@ -753,7 +753,7 @@
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: 'Не забывайте, что в русском языке местоимения двух типов выглядят одинаково, а в английском отличаются.',
 				},
 			],
@@ -763,26 +763,26 @@
 			offset: true,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'I ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(я)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '' },
+				{ type: 'text', color: 'black',  text: 'I ' },
+				{ type: 'text', color: 'gray',  text: '(я)' },
+				{ type: 'text', color: 'black',  text: '' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Mine ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(моя)' },
+				{ type: 'text', color: 'black',  text: 'Mine ' },
+				{ type: 'text', color: 'gray',  text: '(моя)' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Эта тарелка ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'моя' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black',  text: 'Эта тарелка ' },
+				{ type: 'text', color: 'blue',  text: 'моя' },
+				{ type: 'text', color: 'black',  text: '.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'This plate is ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'mine' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black',  text: 'This plate is ' },
+				{ type: 'text', color: 'blue',  text: 'mine' },
+				{ type: 'text', color: 'black',  text: '.' },
 			],
 		},
 		{
@@ -791,13 +791,13 @@
 			children: [
 				{
 					type: 'paragraph',
-					offset: false,
+
 					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: 'Предложения «Эта моя тарелка» и «Эта тарелка моя» можно перевести и как This is my plate, так и This plate is mine. Форма с самостоятельным притяжательным местоимением больше подходит чтобы заострить внимание на факте обладания.',
 						},
 					],
@@ -809,26 +809,26 @@
 			offset: true,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'You ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(вы)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '' },
+				{ type: 'text', color: 'black',  text: 'You ' },
+				{ type: 'text', color: 'gray',  text: '(вы)' },
+				{ type: 'text', color: 'black',  text: '' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Yours ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(ваш)' },
+				{ type: 'text', color: 'black',  text: 'Yours ' },
+				{ type: 'text', color: 'gray',  text: '(ваш)' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Это красная книга ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'ваша' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black',  text: 'Это красная книга ' },
+				{ type: 'text', color: 'blue',  text: 'ваша' },
+				{ type: 'text', color: 'black',  text: '.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'This red book is ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'yours' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black',  text: 'This red book is ' },
+				{ type: 'text', color: 'blue',  text: 'yours' },
+				{ type: 'text', color: 'black',  text: '.' },
 			],
 		},
 		{
@@ -836,26 +836,26 @@
 			offset: true,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'He ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(он)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '' },
+				{ type: 'text', color: 'black',  text: 'He ' },
+				{ type: 'text', color: 'gray',  text: '(он)' },
+				{ type: 'text', color: 'black',  text: '' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'His ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(его)' },
+				{ type: 'text', color: 'black',  text: 'His ' },
+				{ type: 'text', color: 'gray',  text: '(его)' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Этот кактус ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'его' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black',  text: 'Этот кактус ' },
+				{ type: 'text', color: 'blue',  text: 'его' },
+				{ type: 'text', color: 'black',  text: '.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'This cactus is ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'his' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black',  text: 'This cactus is ' },
+				{ type: 'text', color: 'blue',  text: 'his' },
+				{ type: 'text', color: 'black',  text: '.' },
 			],
 		},
 		{
@@ -863,26 +863,26 @@
 			offset: true,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'She ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(она)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '' },
+				{ type: 'text', color: 'black',  text: 'She ' },
+				{ type: 'text', color: 'gray',  text: '(она)' },
+				{ type: 'text', color: 'black',  text: '' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Hers ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(её)' },
+				{ type: 'text', color: 'black',  text: 'Hers ' },
+				{ type: 'text', color: 'gray',  text: '(её)' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Этот дневник ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'её' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black',  text: 'Этот дневник ' },
+				{ type: 'text', color: 'blue',  text: 'её' },
+				{ type: 'text', color: 'black',  text: '.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'This diary is ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'hers' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black',  text: 'This diary is ' },
+				{ type: 'text', color: 'blue',  text: 'hers' },
+				{ type: 'text', color: 'black',  text: '.' },
 			],
 		},
 		{
@@ -890,41 +890,41 @@
 			offset: true,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'It ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(это)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '' },
+				{ type: 'text', color: 'black',  text: 'It ' },
+				{ type: 'text', color: 'gray',  text: '(это)' },
+				{ type: 'text', color: 'black',  text: '' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Its ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(эта)' },
+				{ type: 'text', color: 'black',  text: 'Its ' },
+				{ type: 'text', color: 'gray',  text: '(эта)' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Через местоимение ' },
+				{ type: 'text', color: 'black',  text: 'Через местоимение ' },
 				{ type: 'text', color: 'black', weight: 'bold', text: 'it' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' обозначают не только предметы и персонажи не являющиеся людьми, но и человека, у которого неизвестен пол или на него не хотят заострять внимание.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Эта тень ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'его/её' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black',  text: 'Эта тень ' },
+				{ type: 'text', color: 'blue',  text: 'его/её' },
+				{ type: 'text', color: 'black',  text: '.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'This shadow is ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'its' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black',  text: 'This shadow is ' },
+				{ type: 'text', color: 'blue',  text: 'its' },
+				{ type: 'text', color: 'black',  text: '.' },
 			],
 		},
 		{
@@ -932,26 +932,26 @@
 			offset: true,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'We ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(мы)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '' },
+				{ type: 'text', color: 'black',  text: 'We ' },
+				{ type: 'text', color: 'gray',  text: '(мы)' },
+				{ type: 'text', color: 'black',  text: '' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Ours ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(наш)' },
+				{ type: 'text', color: 'black',  text: 'Ours ' },
+				{ type: 'text', color: 'gray',  text: '(наш)' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Этот ноутбук ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'наш' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black',  text: 'Этот ноутбук ' },
+				{ type: 'text', color: 'blue',  text: 'наш' },
+				{ type: 'text', color: 'black',  text: '.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'This laptop is ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'ours' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black',  text: 'This laptop is ' },
+				{ type: 'text', color: 'blue',  text: 'ours' },
+				{ type: 'text', color: 'black',  text: '.' },
 			],
 		},
 		{
@@ -959,26 +959,26 @@
 			offset: true,
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'They ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(они)' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '' },
+				{ type: 'text', color: 'black',  text: 'They ' },
+				{ type: 'text', color: 'gray',  text: '(они)' },
+				{ type: 'text', color: 'black',  text: '' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Theirs ' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '(их)' },
+				{ type: 'text', color: 'black',  text: 'Theirs ' },
+				{ type: 'text', color: 'gray',  text: '(их)' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Это вознаграждение ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'их' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black',  text: 'Это вознаграждение ' },
+				{ type: 'text', color: 'blue',  text: 'их' },
+				{ type: 'text', color: 'black',  text: '.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'This reward is ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'theirs' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black',  text: 'This reward is ' },
+				{ type: 'text', color: 'blue',  text: 'theirs' },
+				{ type: 'text', color: 'black',  text: '.' },
 			],
 		},
 		{
@@ -989,15 +989,15 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Самостоятельные притяжательные местоимения очень похожи на притяжательные местоимения с последующим существительным. Только у них на конце всегда есть буква -',
 				},
 				{ type: 'text', color: 'black', weight: 'bold', text: 's' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '. А местоимение ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'my' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' будет ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'mine' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black',  text: '. А местоимение ' },
+				{ type: 'text', color: 'blue',  text: 'my' },
+				{ type: 'text', color: 'black',  text: ' будет ' },
+				{ type: 'text', color: 'blue',  text: 'mine' },
+				{ type: 'text', color: 'black',  text: '.' },
 			],
 		},
 		{

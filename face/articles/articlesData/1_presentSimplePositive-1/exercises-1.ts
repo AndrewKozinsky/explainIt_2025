@@ -2,7 +2,6 @@ import ExercisesType from '../../articleTypes/exercisesType'
 
 const exercises_1: ExercisesType.ExercisesObj = {
 	type: 'exercises',
-	id: 1,
 	exercises: [
 		{
 			rusSentence: 'Они обожают зелёный чай.',
@@ -16,13 +15,13 @@ const exercises_1: ExercisesType.ExercisesObj = {
 						analysis: [
 							{
 								type: 'paragraph',
-								offset: false,
+
 								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
 										color: 'black',
-										weight: 'normal',
+
 										text: 'Пропущен глагол to be в форме настоящего времени второго лица: are. Такое предложение является грамматически неправильным.',
 									},
 								],
@@ -396,6 +395,34 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			words: [
 				{ rusWord: 'выглядеть', engWord: 'look' },
 				{ rusWord: 'грустный', engWord: 'sad' },
+			],
+		},
+		{
+			rusSentence: 'Я люблю книги о природе.',
+			engSentences: [
+				{
+					engSentences: ['I like books about nature.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'книги', engWord: 'books' },
+				{ rusWord: 'о чем-то', engWord: 'about something' },
+				{ rusWord: 'природа', engWord: 'nature' },
+			],
+		},
+		{
+			rusSentence: 'Он очень часто плавает.',
+			engSentences: [
+				{
+					engSentences: ['He swims very often.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'книги', engWord: 'books' },
+				{ rusWord: 'о чем-то', engWord: 'about something' },
+				{ rusWord: 'природа', engWord: 'nature' },
 			],
 		},
 	],

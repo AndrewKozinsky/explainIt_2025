@@ -18,27 +18,27 @@
 		{ type: 'header', tag: 'h3', style: 'h3', text: 'Отрицание' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Чтобы сделать отрицание для глагола ',
 				},
 				{ type: 'text', color: 'black', weight: 'bold', text: 'be' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' нужно после него поставить отрицательную частицу ',
 				},
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'not' },
+				{ type: 'text', color: 'blue',  text: 'not' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: '. Сам глагол должен быть нагружен подходящим временем.',
 				},
 			],
@@ -64,45 +64,45 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Отрицание в прошедшем времени.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я не был напуган.' },
+				{ type: 'text', color: 'black',  text: 'Я не был напуган.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'I ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'was not' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' afraid.' },
+				{ type: 'text', color: 'black',  text: 'I ' },
+				{ type: 'text', color: 'blue',  text: 'was not' },
+				{ type: 'text', color: 'black',  text: ' afraid.' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Вы не были милым.' },
+				{ type: 'text', color: 'black',  text: 'Вы не были милым.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'You ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'were not' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' cute.' },
+				{ type: 'text', color: 'black',  text: 'You ' },
+				{ type: 'text', color: 'blue',  text: 'were not' },
+				{ type: 'text', color: 'black',  text: ' cute.' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Она не была красивой.' },
+				{ type: 'text', color: 'black',  text: 'Она не была красивой.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'She ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'was not' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' beautiful.' },
+				{ type: 'text', color: 'black',  text: 'She ' },
+				{ type: 'text', color: 'blue',  text: 'was not' },
+				{ type: 'text', color: 'black',  text: ' beautiful.' },
 			],
 		},
 		{
@@ -113,55 +113,55 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Отрицание в настоящем времени.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я не смелый.' },
+				{ type: 'text', color: 'black',  text: 'Я не смелый.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'I ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'am not' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' brave.' },
+				{ type: 'text', color: 'black',  text: 'I ' },
+				{ type: 'text', color: 'blue',  text: 'am not' },
+				{ type: 'text', color: 'black',  text: ' brave.' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Вы не очень сильный мужчина.',
 				},
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'You ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'are not' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' a very strong man.' },
+				{ type: 'text', color: 'black',  text: 'You ' },
+				{ type: 'text', color: 'blue',  text: 'are not' },
+				{ type: 'text', color: 'black',  text: ' a very strong man.' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Инжирное дерево не высокое.',
 				},
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'A fig tree ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'is not' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' tall.' },
+				{ type: 'text', color: 'black',  text: 'A fig tree ' },
+				{ type: 'text', color: 'blue',  text: 'is not' },
+				{ type: 'text', color: 'black',  text: ' tall.' },
 			],
 		},
 		{
@@ -183,13 +183,13 @@
 							analysis: [
 								{
 									type: 'paragraph',
-									offset: false,
+
 									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: 'Забыли про to be. Он должен стоять после подлежащего.',
 										},
 									],
@@ -202,13 +202,13 @@
 							analysis: [
 								{
 									type: 'paragraph',
-									offset: false,
+
 									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: 'Not должен стоять после вспомогательного глагола, а не после отрицаемого слова.',
 										},
 									],
@@ -234,13 +234,13 @@
 							analysis: [
 								{
 									type: 'paragraph',
-									offset: false,
+
 									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: 'В этом предложении to be будет в форме am.',
 										},
 									],
@@ -253,13 +253,13 @@
 							analysis: [
 								{
 									type: 'paragraph',
-									offset: false,
+
 									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: 'После подлежащего I нужно поставить to be потому что дальше стоит предлог с существительным.',
 										},
 									],
@@ -283,25 +283,25 @@
 							analysis: [
 								{
 									type: 'paragraph',
-									offset: false,
+
 									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: 'Забыли про ',
 										},
 										{
 											type: 'text',
 											color: 'blue',
-											weight: 'normal',
+
 											text: 'to be',
 										},
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: '. Он должен стоять после подлежащего.',
 										},
 									],
@@ -314,25 +314,25 @@
 							analysis: [
 								{
 									type: 'paragraph',
-									offset: false,
+
 									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: 'Отрицательную частицу ',
 										},
 										{
 											type: 'text',
 											color: 'blue',
-											weight: 'normal',
+
 											text: 'not',
 										},
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: ' можно ставить после вспомогательного глагола. Сейчас он стоит перед ним.',
 										},
 									],
@@ -356,13 +356,13 @@
 							analysis: [
 								{
 									type: 'paragraph',
-									offset: false,
+
 									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: 'Вариант с The workshop возможен потому что могут иметь конкретный семинар.',
 										},
 									],
@@ -375,13 +375,13 @@
 							analysis: [
 								{
 									type: 'paragraph',
-									offset: false,
+
 									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: 'Вариант с A workshop возможен потому что могут иметь любой семинар.',
 										},
 									],
@@ -394,37 +394,37 @@
 							analysis: [
 								{
 									type: 'paragraph',
-									offset: false,
+
 									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: 'Перед Workshop требуется поставить определитель существительног. Тут подходит или ',
 										},
 										{
 											type: 'text',
 											color: 'blue',
-											weight: 'normal',
+
 											text: 'a',
 										},
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: ' или ',
 										},
 										{
 											type: 'text',
 											color: 'blue',
-											weight: 'normal',
+
 											text: 'the',
 										},
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: '. Какой выбрать?',
 										},
 									],
@@ -451,13 +451,13 @@
 							analysis: [
 								{
 									type: 'paragraph',
-									offset: false,
+
 									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: 'В этом пр',
 										},
 									],
@@ -470,13 +470,13 @@
 							analysis: [
 								{
 									type: 'paragraph',
-									offset: false,
+
 									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: 'В этом п',
 										},
 									],
@@ -525,13 +525,13 @@
 							analysis: [
 								{
 									type: 'paragraph',
-									offset: false,
+
 									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: 'Не стоит неопределённый артикль a перед political party. Его нужно поставить потому что подразумевается, что Открытая Россия не является одной из множества политических партий. Англичанам важно знать какое существительное перед ними: неопределённое или конкретное.',
 										},
 									],
@@ -560,27 +560,27 @@
 		{ type: 'header', tag: 'h3', style: 'h3', text: 'Вопрос' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Чтобы задать вопрос глагол ',
 				},
 				{ type: 'text', color: 'black', weight: 'bold', text: 'be' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' ставят перед подлежащим. В примере ниже ',
 				},
 				{ type: 'text', color: 'black', weight: 'bold', text: 'be' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' перелетает из позиции «после подлежащего» в «до подлежащего».',
 				},
 			],
@@ -602,35 +602,35 @@
 			type: 'paragraph',
 			offset: true,
 			textSize: 'normal',
-			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'Примеры:' }],
+			children: [{ type: 'text', color: 'black',  text: 'Примеры:' }],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я не был напуган?' },
+				{ type: 'text', color: 'black',  text: 'Я не был напуган?' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: '' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'Was' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' I afraid?' },
+				{ type: 'text', color: 'black',  text: '' },
+				{ type: 'text', color: 'blue',  text: 'Was' },
+				{ type: 'text', color: 'black',  text: ' I afraid?' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'С тобой вчера было всё в порядке?',
 				},
 
-				{ type: 'text', color: 'black', weight: 'normal', text: '' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'Was' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' you alright yesterday?' },
+				{ type: 'text', color: 'black',  text: '' },
+				{ type: 'text', color: 'blue',  text: 'Was' },
+				{ type: 'text', color: 'black',  text: ' you alright yesterday?' },
 			],
 		},
 		{
@@ -638,34 +638,34 @@
 			offset: true,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я совсем один?' },
+				{ type: 'text', color: 'black',  text: 'Я совсем один?' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: '' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'Am' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' I completely alone?' },
+				{ type: 'text', color: 'black',  text: '' },
+				{ type: 'text', color: 'blue',  text: 'Am' },
+				{ type: 'text', color: 'black',  text: ' I completely alone?' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Сегодня пятница?' },
+				{ type: 'text', color: 'black',  text: 'Сегодня пятница?' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: '' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'Is' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' it Friday today?' },
+				{ type: 'text', color: 'black',  text: '' },
+				{ type: 'text', color: 'blue',  text: 'Is' },
+				{ type: 'text', color: 'black',  text: ' it Friday today?' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: 'Хотя Friday — это существительное, но перед днями недели определяющее слово не ставится. И названия дней недели всегда с заглавной буквы.',
 				},
 			],
@@ -684,13 +684,13 @@
 							analysis: [
 								{
 									type: 'paragraph',
-									offset: false,
+
 									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: 'В вопросе глагол to be ставится перед подлежащим.',
 										},
 									],
@@ -710,19 +710,19 @@
 							analysis: [
 								{
 									type: 'paragraph',
-									offset: false,
+
 									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
 											color: 'blue',
-											weight: 'normal',
+
 											text: 'Rich',
 										},
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: ' — это не существительное. Поэтому перед ним не нужно ставить неопределённый артикль.',
 										},
 									],
@@ -745,13 +745,13 @@
 							analysis: [
 								{
 									type: 'paragraph',
-									offset: false,
+
 									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: 'Напутан порядок слов. Из-за этого получилось вопрос типа «Готов — это ты?». Но даже так грамматически неверно.',
 										},
 									],
@@ -771,13 +771,13 @@
 							analysis: [
 								{
 									type: 'paragraph',
-									offset: false,
+
 									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: 'В английском нельзя строить вопросы как в русском. Are должен стоять перед подлежащем. Тут же порядок как в повествовательном предложении, но стоит знак вопроса.',
 										},
 									],
@@ -790,13 +790,13 @@
 							analysis: [
 								{
 									type: 'paragraph',
-									offset: false,
+
 									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: 'Am может стоять только если бы следом стояло местоимение I.',
 										},
 									],
@@ -816,13 +816,13 @@
 							analysis: [
 								{
 									type: 'paragraph',
-									offset: false,
+
 									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: 'Перед именами неопределённый артикль a не ставится. Ставьте перед неопределёнными существительными.',
 										},
 									],
@@ -835,13 +835,13 @@
 							analysis: [
 								{
 									type: 'paragraph',
-									offset: false,
+
 									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: 'Форма глагола to be зависит от подлежащего, потому что в повествовательном оно стоит после него. И в вопросе перескакивает на место перед ним. После местоимения you будет использоваться to be в форме are.',
 										},
 									],
@@ -861,13 +861,13 @@
 							analysis: [
 								{
 									type: 'paragraph',
-									offset: false,
+
 									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: 'Перед good plumber должен стоять один из определителей существительного.',
 										},
 									],
@@ -880,25 +880,25 @@
 							analysis: [
 								{
 									type: 'paragraph',
-									offset: false,
+
 									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: 'В английском нельзя строить вопросы как в русском. ',
 										},
 										{
 											type: 'text',
 											color: 'blue',
-											weight: 'normal',
+
 											text: 'Is',
 										},
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: ' должен стоять перед подлежащем. Тут же порядок как в повествовательном предложении, но стоит знак вопроса.',
 										},
 									],
@@ -918,25 +918,25 @@
 							analysis: [
 								{
 									type: 'paragraph',
-									offset: false,
+
 									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: 'Перед ',
 										},
 										{
 											type: 'text',
 											color: 'blue',
-											weight: 'normal',
+
 											text: 'good plumber',
 										},
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: ' должен стоять один из определителей существительного.',
 										},
 									],
@@ -949,25 +949,25 @@
 							analysis: [
 								{
 									type: 'paragraph',
-									offset: false,
+
 									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: 'В английском нельзя строить вопросы как в русском. ',
 										},
 										{
 											type: 'text',
 											color: 'blue',
-											weight: 'normal',
+
 											text: 'Is',
 										},
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: ' должен стоять перед подлежащем. Тут же порядок как в повествовательном предложении, но стоит знак вопроса.',
 										},
 									],
@@ -991,68 +991,68 @@
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Будущее время' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'В английском языке отсутствует отдельная форма глагола для выражения будущего времени, поэтому оно выражается через использование модального глагола ',
 				},
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'will' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' (изъявлять волю).' },
+				{ type: 'text', color: 'blue',  text: 'will' },
+				{ type: 'text', color: 'black',  text: ' (изъявлять волю).' },
 			],
 		},
 		{ type: 'header', tag: 'h3', style: 'h3', text: 'Отрицание' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Когда мы хотим отрицать будущее время, отрицание применяется к самому глаголу ',
 				},
 				{ type: 'text', color: 'black', weight: 'bold', text: 'will' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ', а не к глаголу ' },
+				{ type: 'text', color: 'black',  text: ', а не к глаголу ' },
 				{ type: 'text', color: 'black', weight: 'bold', text: 'be' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: '. Таким образом, мы объявляем отсутствие воли совершить действие, а затем указываем, к чему это отсутствие воли относится. Поэтому ',
 				},
 				{ type: 'text', color: 'black', weight: 'bold', text: 'not' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' ставится после ' },
+				{ type: 'text', color: 'black',  text: ' ставится после ' },
 				{ type: 'text', color: 'black', weight: 'bold', text: 'will' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black',  text: '.' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я не буду счастливым.' },
+				{ type: 'text', color: 'black',  text: 'Я не буду счастливым.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'I will ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'not' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' be happy.' },
+				{ type: 'text', color: 'black',  text: 'I will ' },
+				{ type: 'text', color: 'blue',  text: 'not' },
+				{ type: 'text', color: 'black',  text: ' be happy.' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я не буду счастливым.' },
+				{ type: 'text', color: 'black',  text: 'Я не буду счастливым.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'I will ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'not' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' be happy.' },
+				{ type: 'text', color: 'black',  text: 'I will ' },
+				{ type: 'text', color: 'blue',  text: 'not' },
+				{ type: 'text', color: 'black',  text: ' be happy.' },
 			],
 		},
 		{
@@ -1070,48 +1070,48 @@
 		{ type: 'header', tag: 'h3', style: 'h3', text: 'Вопрос' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'При вопросе ' },
+				{ type: 'text', color: 'black',  text: 'При вопросе ' },
 				{ type: 'text', color: 'black', weight: 'bold', text: 'will' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' переносится в позицию «до подлежащего». А глагол ',
 				},
 				{ type: 'text', color: 'black', weight: 'bold', text: 'be' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' остается без изменений.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я буду счастливый?' },
+				{ type: 'text', color: 'black',  text: 'Я буду счастливый?' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: '' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'Will' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' I be happy?' },
+				{ type: 'text', color: 'black',  text: '' },
+				{ type: 'text', color: 'blue',  text: 'Will' },
+				{ type: 'text', color: 'black',  text: ' I be happy?' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я буду счастливый?' },
+				{ type: 'text', color: 'black',  text: 'Я буду счастливый?' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: '' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'Will' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' I be happy?' },
+				{ type: 'text', color: 'black',  text: '' },
+				{ type: 'text', color: 'blue',  text: 'Will' },
+				{ type: 'text', color: 'black',  text: ' I be happy?' },
 			],
 		},
 		{
@@ -1134,7 +1134,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Ответьте на вопросы чтобы проверить насколько хорошо поняли материал.',
 				},
 			],
@@ -1148,27 +1148,27 @@
 						value: [
 							{
 								type: 'paragraph',
-								offset: false,
+
 								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
 										color: 'black',
-										weight: 'normal',
+
 										text: 'Что означает окончания -',
 									},
 									{ type: 'text', color: 'black', weight: 'bold', text: 'ing' },
 									{
 										type: 'text',
 										color: 'black',
-										weight: 'normal',
+
 										text: ' и -',
 									},
 									{ type: 'text', color: 'black', weight: 'bold', text: 'ed' },
 									{
 										type: 'text',
 										color: 'black',
-										weight: 'normal',
+
 										text: ' в прилагательных?',
 									},
 								],
@@ -1180,13 +1180,13 @@
 						value: [
 							{
 								type: 'paragraph',
-								offset: false,
+
 								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
 										color: 'black',
-										weight: 'normal',
+
 										text: 'ОТВЕТЬ!!!!',
 									},
 								],

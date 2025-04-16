@@ -15,27 +15,27 @@
 	content: [
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Грамматическая конструкция ',
 				},
 				{ type: 'text', color: 'black', weight: 'bold', text: 'подлежащее + глагол' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' называется временами группы ',
 				},
 				{ type: 'text', color: 'blue', text: 'Simple' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: '. Группа состоит из трёх времён: ',
 				},
 				{ type: 'text', color: 'black', weight: 'bold', text: 'прошедшего' },
@@ -54,14 +54,14 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Мы уже строили предложения по этой формуле все предыдущие главы:',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Она уборщица' },
@@ -71,7 +71,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{ type: 'text', color: 'blue', text: 'She' },
@@ -90,7 +90,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' во всех учебниках рассматривается отдельно потому что имеет собственные формы настоящего и прошедшего времени, изменяется по лицам. У остальных глаголов (сидеть, включать, клеить) правила построяния временных форм отличаются. Поэтому о них расскажу отдельно. ',
 				},
 			],
@@ -103,7 +103,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'В этой главе посмотрим построение утвердительного предложения во всех временах.',
 				},
 			],
@@ -111,20 +111,20 @@
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Настоящее время (Present Simple)' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'У всех остальных глаголов в утвердительном предложении форма настоящего времени после подлежащего 1-го и 2-го лица выглядит как инфинитив:',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'run' },
@@ -134,7 +134,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{ type: 'text', color: 'gray', text: 'Инфинитив' },
@@ -142,7 +142,7 @@
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: 'Форма настоящего времени.',
 				},
 			],
@@ -155,7 +155,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'А после подлежащих 3-го лица к глаголу добавляется или окончание -',
 				},
 				{ type: 'text', color: 'blue', text: 's' },
@@ -164,7 +164,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'run' },
@@ -175,7 +175,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{ type: 'text', color: 'gray', text: 'Инфинитив' },
@@ -183,7 +183,7 @@
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: 'Форма настоящего времени после подлежащих 3-го лица.',
 				},
 			],
@@ -196,14 +196,14 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Посмотрим на схеме. Глагол обозначается буквой ',
 				},
 				{ type: 'text', color: 'blue', text: 'V' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' от слова verb (глагол).',
 				},
 			],
@@ -217,47 +217,47 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Посмотрим примеры. Подлежащее «мы» — это второе лицо. Поэтому в настоящем времени глагол выглядит как инфинитив.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Мы работаем полный рабочий день.',
 				},
 
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'We work full-time.\u0003',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: 'Глагол «работать» в инфинитивной форме будет ',
 				},
 				{ type: 'text', color: 'gray', weight: 'bold', text: 'work' },
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: ' . Так как он стоит после подлежащего второго лица, то в настоящем временем он останется неизменным.',
 				},
 			],
@@ -270,7 +270,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Подлежащее «Ваня» — это третье лицо. Поэтому к глаголу в инфинитиве добавляется окончание ',
 				},
 				{ type: 'text', color: 'blue', text: '-s' },
@@ -279,7 +279,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Ваня спит после обеда.' },
@@ -291,20 +291,20 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: 'Глагол «спать» в инфинитивной форме будет ',
 				},
 				{ type: 'text', color: 'gray', weight: 'bold', text: 'sleep' },
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: ' . Так как он стоит после подлежащего третьего лица, то в настоящем временем к нему добавляется окончание ',
 				},
 				{ type: 'text', color: 'gray', weight: 'bold', text: '-s' },
@@ -319,7 +319,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Если глагол заканчивается на свистящий или шипящий звук (',
 				},
 				{ type: 'text', color: 'gold', text: '-ss' },
@@ -340,13 +340,13 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Она целует меня каждый день.',
 				},
 
@@ -362,7 +362,7 @@
 			children: [
 				{
 					type: 'paragraph',
-					offset: false,
+
 					textSize: 'normal',
 					children: [
 						{ type: 'text', color: 'black', text: 'Окончание ' },
@@ -370,7 +370,7 @@
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: ' ставится после глаголов оканчивающихся на ',
 						},
 						{ type: 'text', color: 'gold', text: '-ss' },
@@ -385,21 +385,21 @@
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: '. Если вы помните, то для образования множественного числа у существительных заканчивающихся на на те же буквы нужно тоже добавлять окончание ',
 						},
 						{ type: 'text', color: 'blue', text: '-es' },
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: '. Как будто делаем глагол во множественном числе 🙂. Объясняется это тем, что ',
 						},
 						{ type: 'text', color: 'blue', text: '-s' },
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: ' не поставишь к этим буквам потому что такое сочетание трудно произносить и в существительных и в глаголах.',
 						},
 					],
@@ -516,13 +516,13 @@
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Прошедшее время (Past Simple)' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Чтобы сделать предложение в прошедшем времени нужно поставить сказуемое в форму прошедшего времени. Глаголы в инфинитиве называются первой формой, а в прошедшем второй. На схемах отмечается как ',
 				},
 				{ type: 'text', color: 'blue', text: 'V2' },
@@ -542,7 +542,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: '. Различаются способом образования прошедшего времени.',
 				},
 			],
@@ -559,40 +559,40 @@
 						{ type: 'header', tag: 'h4', style: 'h4', text: 'Правильные глаголы' },
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'normal',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'У таких глаголов прошедшее время образуется по правилу добавления окончание -',
 								},
 								{ type: 'text', color: 'blue', text: 'ed' },
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: ' к инфинитивной форме.',
 								},
 							],
 						},
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'big',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'работать — работал',
 								},
 
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'work — work',
 								},
 								{ type: 'text', color: 'blue', text: 'ed' },
@@ -600,20 +600,20 @@
 						},
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'big',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'начать — начал',
 								},
 
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'start — start',
 								},
 								{ type: 'text', color: 'blue', text: 'ed' },
@@ -621,20 +621,20 @@
 						},
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'big',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'ждать — ждал',
 								},
 
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'wait — wait',
 								},
 								{ type: 'text', color: 'blue', text: 'ed' },
@@ -648,14 +648,14 @@
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'И есть несколько исключений в словах, к которым добавление -',
 								},
 								{ type: 'text', color: 'blue', text: 'ed' },
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: ' создаёт неудобно при говорении.',
 								},
 							],
@@ -668,14 +668,14 @@
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'Если глагол оканчивается на -',
 								},
 								{ type: 'text', color: 'gold', text: 'e' },
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: ', то во второй форме добавляется -',
 								},
 								{ type: 'text', color: 'blue', text: 'd' },
@@ -684,13 +684,13 @@
 						},
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'big',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'спасать — спас',
 								},
 
@@ -709,21 +709,21 @@
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'Если глагол оканчивается на -',
 								},
 								{ type: 'text', color: 'gold', text: 'y' },
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: ', которой предшествует согласная буква, то убирается ',
 								},
 								{ type: 'text', color: 'gold', text: 'y' },
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: ' и добавляется -',
 								},
 								{ type: 'text', color: 'blue', text: 'ied' },
@@ -732,13 +732,13 @@
 						},
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'big',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'пытаться — пытался',
 								},
 
@@ -750,20 +750,20 @@
 						},
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'big',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'учиться — учился',
 								},
 
 								{ type: 'text', color: 'black', text: 'stud' },
-								{ type: 'text', color: 'gold', weight: 'normal', text: 'y' },
-								{ type: 'text', color: 'black', weight: 'normal', text: ' — styd' },
-								{ type: 'text', color: 'blue', weight: 'normal', text: 'ied' },
+								{ type: 'text', color: 'gold',  text: 'y' },
+								{ type: 'text', color: 'black',  text: ' — styd' },
+								{ type: 'text', color: 'blue',  text: 'ied' },
 							],
 						},
 					],
@@ -775,114 +775,114 @@
 						{ type: 'header', tag: 'h4', style: 'h4', text: 'Неправильные глаголы' },
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'normal',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'Форма слова таких глаголов в прошедшем времени не образуется по правилу -',
 								},
-								{ type: 'text', color: 'blue', weight: 'normal', text: 'ed' },
+								{ type: 'text', color: 'blue',  text: 'ed' },
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: '. Поэтому и называются неправильными. Эту форму нужно запомнить.',
 								},
 							],
 						},
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'big',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'делать — делал',
 								},
 
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'make — made',
 								},
 							],
 						},
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'small',
 							children: [
-								{ type: 'text', color: 'gray', weight: 'normal', text: 'Не ' },
-								{ type: 'text', color: 'error', weight: 'normal', text: 'maked' },
-								{ type: 'text', color: 'gray', weight: 'normal', text: ', а ' },
-								{ type: 'text', color: 'blue', weight: 'normal', text: 'made' },
+								{ type: 'text', color: 'gray',  text: 'Не ' },
+								{ type: 'text', color: 'error',  text: 'maked' },
+								{ type: 'text', color: 'gray',  text: ', а ' },
+								{ type: 'text', color: 'blue',  text: 'made' },
 								{
 									type: 'text',
 									color: 'gray',
-									weight: 'normal',
+
 									text: '. Нужно запомнить.',
 								},
 							],
 						},
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'big',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'пить — выпил',
 								},
 
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'drink — drank',
 								},
 							],
 						},
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'small',
 							children: [
-								{ type: 'text', color: 'gray', weight: 'normal', text: 'Не ' },
-								{ type: 'text', color: 'error', weight: 'normal', text: 'drinked' },
-								{ type: 'text', color: 'gray', weight: 'normal', text: ', а ' },
-								{ type: 'text', color: 'blue', weight: 'normal', text: 'drank' },
+								{ type: 'text', color: 'gray',  text: 'Не ' },
+								{ type: 'text', color: 'error',  text: 'drinked' },
+								{ type: 'text', color: 'gray',  text: ', а ' },
+								{ type: 'text', color: 'blue',  text: 'drank' },
 								{
 									type: 'text',
 									color: 'gray',
-									weight: 'normal',
+
 									text: '. Нужно запомнить.',
 								},
 							],
 						},
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'big',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'есть — ел',
 								},
 
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'eat — ate',
 								},
 							],
@@ -895,7 +895,7 @@
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'Неправильные глаголы есть в таблице неправильных глаголов. А ещё они будут указаны в упражнениях.',
 								},
 							],
@@ -906,13 +906,13 @@
 							children: [
 								{
 									type: 'paragraph',
-									offset: false,
+
 									textSize: 'small',
 									children: [
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: 'Глагол ',
 										},
 										{
@@ -924,7 +924,7 @@
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: ' тоже считается неправильным.',
 										},
 									],
@@ -941,20 +941,20 @@
 			children: [
 				{
 					type: 'paragraph',
-					offset: false,
+
 					textSize: 'small',
 					children: [
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: 'Очень давно в английском многие глаголы имели свои формы прошедшего времени. Но постепенно стали подчиняться формальному правилу -',
 						},
 						{ type: 'text', color: 'black', weight: 'bold', text: 'ed' },
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: '. Но некоторые из них сохранили своё наследие до сегодняшнего дня.',
 						},
 					],
@@ -967,7 +967,7 @@
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: 'Неправильные глаголы ещё и самые частоиспользуемые глаголы в английском. А всего их около 200.',
 						},
 					],
@@ -979,82 +979,82 @@
 			offset: true,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Тут никто не жил.' },
+				{ type: 'text', color: 'black',  text: 'Тут никто не жил.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Nobody lived there.' },
+				{ type: 'text', color: 'black',  text: 'Nobody lived there.' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{ type: 'text', color: 'gray', weight: 'bold', text: 'Live' },
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: ' — правильный глагол. Прошедшее время образуется по правилу добавления -',
 				},
 				{ type: 'text', color: 'gray', weight: 'bold', text: 'ed' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: ' к инфинитивной форме.' },
+				{ type: 'text', color: 'gray',  text: ' к инфинитивной форме.' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я понял этот вопрос.' },
+				{ type: 'text', color: 'black',  text: 'Я понял этот вопрос.' },
 
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'I understood this question.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{ type: 'text', color: 'gray', weight: 'bold', text: 'Understand' },
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: ' — неправильный глагол. В прошедшем времени будет ',
 				},
 				{ type: 'text', color: 'gray', weight: 'bold', text: 'understood' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '. Это нужно запомнить' },
+				{ type: 'text', color: 'gray',  text: '. Это нужно запомнить' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Он дал мне ключ.' },
+				{ type: 'text', color: 'black',  text: 'Он дал мне ключ.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'He gave me a key.' },
+				{ type: 'text', color: 'black',  text: 'He gave me a key.' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{ type: 'text', color: 'gray', weight: 'bold', text: 'Give' },
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: ' — неправильный глагол. Прошедшее время будет ',
 				},
 				{ type: 'text', color: 'gray', weight: 'bold', text: 'gave' },
-				{ type: 'text', color: 'gray', weight: 'normal', text: '. Это нужно запомнить.' },
+				{ type: 'text', color: 'gray',  text: '. Это нужно запомнить.' },
 			],
 		},
 		{
@@ -1155,13 +1155,13 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'В главе про прилагательные я писал, что они могут иметь окончание -ed. И правильные глаголы в прошедшем времени имеют то же окончание. Даже более того одно и то же слово будет разными частями речи в зависимости от того слово какой части речи идёт до него.',
 				},
 			],
@@ -1174,27 +1174,27 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Слово confuse является глаголом «запутывать», «сбивать с толку». Глагол правильный, поэтому в прошедшем времени confused.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'This words confused Keola.',
 				},
 
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Эти слова смутили Кеолу.',
 				},
 			],
@@ -1207,19 +1207,19 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Поставлю confused после be и он станет прилагательным смущённый.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Keola is confused.' },
+				{ type: 'text', color: 'black',  text: 'Keola is confused.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Кеола смущённый.' },
+				{ type: 'text', color: 'black',  text: 'Кеола смущённый.' },
 			],
 		},
 		{
@@ -1230,7 +1230,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Чтобы понять какой части речи слово нужно посмотреть что стоит перед ним. В первом предложении перед confused существительное words. Если бы после words, стоять запятая, то значит идёт перечисление существительных, но запятой нет. Значит не существительное. Прилагательное тоже не может быть потому что в английском оно всегда стоить до существительного в отличии от русского языка. Единственным логичным вариантом будет глагол. Ещё в пользу глагола говорит то, что This words — это подлежащее. А после подлежащего может быть только глагол.',
 				},
 			],
@@ -1243,7 +1243,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'confused во втором предложении стоит после глагола be. После него может быть или прилагательное или существительное. Существительных с окончанием -ed нет. К тому же перед ним стоял бы определитель или оно было бы во множественном числе. Поэтому confused — это прилагательное без вариантов.',
 				},
 			],
@@ -1254,13 +1254,13 @@
 			children: [
 				{
 					type: 'paragraph',
-					offset: false,
+
 					textSize: 'small',
 					children: [
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: 'Определители существительного не только поясняют определённость, но и указывают что далее идёт существительное. Это дополнительная помощь чтобы разобраться с частями речи.',
 						},
 					],
@@ -1275,7 +1275,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Понимание части речи — ключ к успешному переводу предложений. На таких простых примерах представленных выше это не кажестя чем-то сложным. Но в более сложных примерах можно легко потеряться и не понять смысла.',
 				},
 			],
@@ -1288,7 +1288,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Такое динамическое изменения части речи во многих словах обычное дело в английском языке. Поэтому переводчик для одного и того же слова представляет переводы для нескольких частей речи.',
 				},
 			],
@@ -1301,7 +1301,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Понимание что может стоять после определённых частей речи можно вывести логически. Никакие таблицы для этого не нужны.',
 				},
 			],
@@ -1314,7 +1314,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Так как часть речи может быть любой, то поэтому в английском языке важен порядок слов в предложении.',
 				},
 			],
@@ -1322,57 +1322,57 @@
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Будущее время (Future Simple)' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Будущее время ничем не отличается от предложений с ',
 				},
 				{ type: 'text', color: 'black', weight: 'bold', text: 'be' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '. Только вместо ' },
+				{ type: 'text', color: 'black',  text: '. Только вместо ' },
 				{ type: 'text', color: 'black', weight: 'bold', text: 'be' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' ставьте любой другой глагол.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Маша принесёт ужин.' },
+				{ type: 'text', color: 'black',  text: 'Маша принесёт ужин.' },
 
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Masha will bring dinner.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Магазин откроется завтра.',
 				},
 
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'The shop will open tomorrow.',
 				},
 			],
@@ -1385,49 +1385,49 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Напомню почему именно так. Английский глагол имеет только инфинитивную форму и формы прошедшего и будущего времени. Чтобы указать на будущие добавляют модальный глагол ',
 				},
 				{ type: 'text', color: 'black', weight: 'bold', text: 'will' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ', который означает «изволить что-то сделать в будущем». Сам глагол ',
 				},
 				{ type: 'text', color: 'black', weight: 'bold', text: 'will' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' стоит в настоящем времени. И получаеся всё предложение тоже в настоящем. Но по смыслу обозначает будущее. Остальные глаголы время не передают и находятся в инфинитивной форме.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я приду в субботу.' },
+				{ type: 'text', color: 'black',  text: 'Я приду в субботу.' },
 
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'I will come on Saturday.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: 'Дословно английский перевод звучит как «Я имею волю приходить в субботу».',
 				},
 			],

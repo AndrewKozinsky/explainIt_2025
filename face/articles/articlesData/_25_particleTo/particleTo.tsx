@@ -15,13 +15,13 @@
 	content: [
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Инфинитив — это глагол без грамматической нагрузки времени. Вы уже встречались с ними при формировании отрицательного и вопросительного предложения.',
 				},
 			],
@@ -34,7 +34,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'В утверждении у глагола есть время совершения действия. Например like в форме настроящего времени после подлежащего третьего лица будет в форме likes.',
 				},
 			],
@@ -48,7 +48,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'А в вопросе появляется глагол do, на который переходит настоящее время. А смысловой like становится инфинитивом.',
 				},
 			],
@@ -62,14 +62,14 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Такие глаголы типа like называют голым инфинитивом. А если глагол стоит после другого глагола и отвечает на вопрос «Что делать?», то к ним добавляется частица to и они называются полным инфинитивом.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Ник хочет ' },
@@ -85,7 +85,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Мы попытаемся ' },
@@ -101,14 +101,14 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'gray', text: '(что сделать?)' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' Решить проблему было легко.',
 				},
 
@@ -125,27 +125,27 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Если перед глаголом в неопределённой форме стоит and (и) либо or (или), то частицу to не ставят.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Щенок хотел прыгать и бегать.',
 				},
 
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'The puppy wanted to jump and ',
 				},
 				{ type: 'text', color: 'blue', text: 'run' },
@@ -160,20 +160,20 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Для создания отрицания инфинитиву не требуется помощь вспомогательного глагола. Not можно добавить прямо к нему.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Я был счастлив не видеть тебя.',
 				},
 
@@ -184,20 +184,20 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Я призываю всех не учить грамматику',
 				},
 
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'I encourage everybody not to learn grammar.',
 				},
 			],
@@ -208,26 +208,26 @@
 			children: [
 				{
 					type: 'paragraph',
-					offset: false,
+
 					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: 'После модальных глаголов всегда стоят глаголы в голом инфинитиве.',
 						},
 					],
 				},
 				{
 					type: 'paragraph',
-					offset: false,
+
 					textSize: 'big',
 					children: [
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: 'Цены будут расти быстрее, инфляция увеличится.',
 						},
 
@@ -238,20 +238,20 @@
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: ' faster, inflation will rise.',
 						},
 					],
 				},
 				{
 					type: 'paragraph',
-					offset: false,
+
 					textSize: 'small',
 					children: [
 						{
 							type: 'text',
 							color: 'gray',
-							weight: 'normal',
+
 							text: 'Глаголы grow и rise в инфинитивной форме, но частица to не стоит потому что после модальных глаголов инфинитивный глагол должен быть без частицы to.',
 						},
 					],
@@ -268,27 +268,27 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' тоже может быть инфинитивный глагол.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Наша цель улучшить результат.',
 				},
 
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Our goal is to improve the result.',
 				},
 			],

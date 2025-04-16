@@ -12,20 +12,20 @@
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Родительский падеж' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Существительное в родительском падеже в русском языке отвечает на вопрос Кого? / Чего?.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Я купил бутылку ' },
@@ -35,13 +35,13 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Без родительского падежа эти слова были бы никак не связаны друг с другом: бутылка молоко.',
 				},
 			],
@@ -54,7 +54,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'В английском языке для этого используют предлог of.',
 				},
 			],
@@ -67,7 +67,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Предлог — это служебная часть речи логически связывающая слова друг с другом для задания принадлежности, направления, положения в пространстве, времени совершения действия, причины. Он ставится перед существительными, местоимениями и наречиями.',
 				},
 			],
@@ -80,7 +80,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'В английском у существительного есть только общий и притяжательный падеж. И связка предлога of + существительного делает ту же работу, что и родительский падеж в русском.',
 				},
 			],
@@ -93,13 +93,13 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Ты не платишь мне много ',
 				},
 				{ type: 'text', color: 'gray', text: '(чего?)' },
@@ -112,7 +112,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Шумная толпа ' },
@@ -120,7 +120,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' людей внезапно затихла.',
 				},
 
@@ -129,7 +129,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' of people was suddenly silent.',
 				},
 			],
@@ -137,20 +137,20 @@
 		{ type: 'header', tag: 'h3', style: 'h3', text: 'Предлог of для указания принадлежности' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Предлог of используется в том числе для указания принадежности персонажа или предмета.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Мой дом' },
@@ -160,7 +160,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Дом моего отца' },
@@ -176,14 +176,14 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Но вы ранее уже изучали притяжательные местоимения и существительные, которые могут заменить предлог of в этом контексте.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Мой дом' },
@@ -195,7 +195,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Дом моего отца' },
@@ -213,7 +213,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Чем руководствоваться при выборе грамматической конструкции:',
 				},
 			],
@@ -224,39 +224,39 @@
 			children: [
 				{
 					type: 'paragraph',
-					offset: false,
+
 					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: 'Если возможно поставить притяжательное местоимение, то лучше предпочесть его. Такая запись выглядит лаконичной и простой.',
 						},
 					],
 				},
 				{
 					type: 'paragraph',
-					offset: false,
+
 					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: 'Если объект принадлежит одушевлённому персонажу, то предпочитают использовать притяжательное существительное.',
 						},
 					],
 				},
 				{
 					type: 'paragraph',
-					offset: false,
+
 					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: 'Во всех остальных случаях ставят предлог of.',
 						},
 					],
@@ -269,40 +269,40 @@
 			children: [
 				{
 					type: 'paragraph',
-					offset: false,
+
 					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: 'Притяжательное существительное и предлог of всегда означают одно и то же. Но, например, то что касается картин и фотографий предлог of обозначает, что там изображён этот человек, а притяжательное местоимение что фотография принадлежит человеку.',
 						},
 					],
 				},
 				{
 					type: 'paragraph',
-					offset: false,
+
 					textSize: 'big',
 					children: [
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: 'A photo of Julia',
 						},
 
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: 'На фотографии Юлия',
 						},
 					],
 				},
 				{
 					type: 'paragraph',
-					offset: false,
+
 					textSize: 'big',
 					children: [
 						{ type: 'text', color: 'black', text: 'Julia’s picture' },
@@ -433,20 +433,20 @@
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Предлог «из»' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Предлог of используется чтобы сообщить о каком-то количестве из других объектов: ',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Этот рейс — ' },
@@ -456,7 +456,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' трёх счастливчиков в этом месяце.',
 				},
 
@@ -467,20 +467,20 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' three lucky flights this month.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: 'Один из трёх «счастливых рейсов».',
 				},
 			],
@@ -493,27 +493,27 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Гавайцы живут на шести из восьми главных островов.',
 				},
 
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Hawaiians live on six of the eight main islands.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: 'Шесть из восьми главных островов.',
 				},
 			],
@@ -526,14 +526,14 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Вместо цифр могут использовать словосочитания',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', text: 'some of' },
@@ -543,7 +543,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', text: 'most of' },
@@ -553,7 +553,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', text: 'all of' },
@@ -573,7 +573,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' них говорят одно и то же.',
 				},
 
@@ -584,14 +584,14 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' the books said the same things.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [{ type: 'text', color: 'gray', text: 'Все из этих книг.' }],
 		},
@@ -607,7 +607,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'They lived on another island ',
 				},
 				{ type: 'text', color: 'gold', text: 'most' },
@@ -618,13 +618,13 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: 'На русском слово «из» отсутствует, но смысл остаётся таким же.',
 				},
 			],
@@ -635,20 +635,20 @@
 			children: [
 				{
 					type: 'paragraph',
-					offset: false,
+
 					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: 'На следующем уроке изучите количественные местоимения, которые используются с предлогом of в значении «из»:',
 						},
 					],
 				},
 				{
 					type: 'paragraph',
-					offset: false,
+
 					textSize: 'normal',
 					children: [
 						{ type: 'text', color: 'black', text: 'a lot of' },
@@ -658,7 +658,7 @@
 				},
 				{
 					type: 'paragraph',
-					offset: false,
+
 					textSize: 'normal',
 					children: [
 						{ type: 'text', color: 'black', text: 'many of' },
@@ -676,7 +676,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Русский предлог «из» ещё используется в значении стартой точки: я вышел из дома. Но в этом значении уже нужно использовать предлог from. Про него будет рассказано в одном из следующих глав.',
 				},
 			],

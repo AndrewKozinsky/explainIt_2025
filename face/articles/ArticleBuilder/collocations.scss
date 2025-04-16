@@ -14,17 +14,17 @@
 
 
 // ЗАГОЛОВКИ (ОТСТУПЫ НЕ УКАЗЫВАЮТСЯ) =====
-/*.art-header--h4 {
+.art-header--h4 {
     margin-bottom: 0.3rem;
-}*/
+}
 
-/*.art-header--h3 {
+.art-header--h3 {
     margin-bottom: 0.3rem;
-}*/
+}
 
-/*.art-header--h2 {
+.art-header--h2 {
     margin-bottom: 0.6rem;
-}*/
+}
 
 // КАРТИНКА (ОТСТУПЫ НЕ УКАЗЫВАЮТСЯ) =====
 /*.art-image + .art-header--h4 {
@@ -135,9 +135,9 @@
 	margin-top: 1.2rem;
 }*/
 
-/*.art-paragraph + .art-note {
+.art-paragraph + .art-note {
 	margin-top: 1.6rem;
-}*/
+}
 
 .art-paragraph + .art-image {
 	margin-top: 1.2rem;
@@ -201,6 +201,19 @@
 // УПРАЖНЕНИЯ
 .exercises + .art-paragraph--offset {
 	margin-top: 2rem;
+}
+.exercises + .art-header--h2 {
+	margin-top: 2.4rem;
+}
+@include mix.container-width(vars.$tablet-width) {
+	.exercises + .art-header--h2 {
+		margin-top: 2.8rem;
+	}
+}
+@include mix.container-width(vars.$monitor-width) {
+	.exercises + .art-header--h2 {
+		margin-top: 3.2rem;
+	}
 }
 
 // СПИСОК (ОТСТУП НЕ УКАЗЫВАЕТСЯ) =====

@@ -13,27 +13,27 @@
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Смысловой глагол' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Любой вспомогательный глагол может быть в роли смыслового. Глагол ',
 				},
 				{ type: 'text', color: 'black', weight: 'bold', text: 'do' },
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: ' в качестве смыслового обозначает глагол «делать».',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Я делаю это всегда.' },
@@ -45,7 +45,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Я делаю это всегда?' },
@@ -57,7 +57,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{ type: 'text', color: 'gray', text: 'Глагол ' },
@@ -65,7 +65,7 @@
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: ' в начале вспомогательный и никак не переводится, а после местоимения ',
 				},
 				{ type: 'text', color: 'gray', weight: 'bold', text: 'I' },
@@ -80,13 +80,13 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Я делаю домашнюю работу.',
 				},
 
@@ -97,13 +97,13 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Я делаю домашнюю работу?',
 				},
 
@@ -126,20 +126,20 @@
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Усиление высказывания' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Глагол do перед другим смысловым глаголом подчёркивает и усиливает действие. На русский язык переводится разными оборотами.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Я ' },
@@ -153,7 +153,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Они ' },
@@ -173,14 +173,14 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'В утвердительных предложениях в Simple только один смысловой глагол может иметь грамматическую нагрузку. И она падает на do. Следующий за ним смысловой глагол стоит в инфинитивной форме. Поэтому после подлежащего в третьем лице do становится does, а believe не изменяется.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Ева ' },
@@ -200,20 +200,20 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'В прошедшем времени на do падает грамматическая нагрузка времени поэтому превращается в did. А следующий смысловой глагол по-прежнему и инфинитивной форме.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Грузчик действительно уронил телевизор.',
 				},
 
@@ -224,13 +224,13 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: 'В русском предложении усилительные конструкции «действительно/на самом деле/всё же» никак не показывают время потому что это не глаголы. Но в английском do является смысловым глаголом. Поэтому обязан показывать время совершения действия в утверждении.',
 				},
 			],
@@ -243,20 +243,20 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'В вопросительных предложениях вместо do используют really.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Он действительно задал вопрос?',
 				},
 

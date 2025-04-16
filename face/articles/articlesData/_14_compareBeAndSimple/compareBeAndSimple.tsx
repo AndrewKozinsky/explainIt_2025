@@ -14,13 +14,13 @@
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Когда применяется be' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Давайте сформулируем более конкретное правило в каких случаях используется be. Я дам три интерпретации, а вы выбирите понравившуюся.',
 				},
 			],
@@ -31,39 +31,39 @@
 			children: [
 				{
 					type: 'paragraph',
-					offset: false,
+
 					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: 'Ставьте be в тех переводах, где в русском можно поставить глагол «есть». Но мы его не проговариваем. Чтобы убедиться в существовании нужно перевести предложение в прошедшее время. И если появляется слово «был/была», то в настоящем будет слово «есть».',
 						},
 					],
 				},
 				{
 					type: 'paragraph',
-					offset: false,
+
 					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: 'В английском предложении всегда должен быть глагол. Если в русском предложении глагола нет, то значит в английском ставьте be.',
 						},
 					],
 				},
 				{
 					type: 'paragraph',
-					offset: false,
+
 					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: 'Через глагол be рассказывается о свойствах предмета, то, чем он является. Можно задать вопрос «Быть каким/кем?»',
 						},
 					],
@@ -82,13 +82,13 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: '1. Между словами можно поставить «есть». 2. В русском нет глагола, значит в переводе должен быть be. 3. Водитель —  это свойство (быть кем?).',
 				},
 			],
@@ -105,13 +105,13 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: '1. Между словами можно поставить «есть». 2. В русском нет глагола, значит в переводе должен быть be. 3. Великолепный —  это свойство.',
 				},
 			],
@@ -126,20 +126,20 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'They are local butterflies.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: '1. Между словами можно поставить «есть». 2. В русском нет глагола, значит в переводе должен быть be. 3. Бабочка —  это свойство (быть кем?).',
 				},
 			],
@@ -152,7 +152,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Посмотрим частные случаи.',
 				},
 			],
@@ -165,14 +165,14 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Be используется чтобы сообщить об имени.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Я Джон Коннор.' },
@@ -184,13 +184,13 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: 'Перед «Я» и «Джон» можно поставить «есть». И в русском предложении нет глагола. Поэтому в переводе для связки должен использоваться to be.',
 				},
 			],
@@ -203,33 +203,33 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Есть более формальный способ сказать своё имя через страдательный залог.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [{ type: 'text', color: 'black', text: 'Меня зовут Андрей.' }],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Англичане не прибегают к таким наворотам. Для них имя — это свойство. Поэтому и «Я Андрей» и «Меня зовут Андрей» переводится одиноково.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [{ type: 'text', color: 'black', text: 'I am Andrew.' }],
 		},
@@ -241,14 +241,14 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: '«Ей» — это местоимение «она» в винительном падеже. А так как в английском падежей нет, то «она/ей» переводятся одним she. И одинадцать лет — это свойство, поэтому be обязателен при переводе.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Ей одиннадцать.' },
@@ -260,13 +260,13 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Ещё русское предложение можно перевести She is eleven years old. Это более официальный вариант.',
 				},
 			],
@@ -279,14 +279,14 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Be используется когда говорят о национальности.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Мы — русские.' },
@@ -304,14 +304,14 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'To be вставляется в предложение если сообщаем о нахождении кого-то где-то.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'black', text: 'Яна в университете.' },
@@ -323,13 +323,13 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: 'Перед подлежащим «Яна» и дополнением «в университете» можно поставить «есть». И в русском предложении нет глагола. Поэтому в переводе для связки должен использоваться be. At — это предлог места. Про них будет рассказано в одном из следующих уроков.',
 				},
 			],
@@ -337,13 +337,13 @@
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Когда используются другие глаголы' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Если подлежащее выполняет другое действие, то используется любой другой глагол кроме ',
 				},
 				{ type: 'text', color: 'black', weight: 'bold', text: 'be' },
@@ -354,7 +354,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'big',
 			children: [
 				{ type: 'text', color: 'black', text: 'Он водит тягач.' },
@@ -364,7 +364,7 @@
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [{ type: 'text', color: 'gray', text: 'Водит тягач.' }],
 		},
@@ -376,39 +376,39 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Настя плавает каждый четверг.',
 				},
 
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Nastya swims every Thursday.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
-			children: [{ type: 'text', color: 'gray', weight: 'normal', text: 'Плавает.' }],
+			children: [{ type: 'text', color: 'gray',  text: 'Плавает.' }],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Мы любим сок.' },
+				{ type: 'text', color: 'black',  text: 'Мы любим сок.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'We like juice.' },
+				{ type: 'text', color: 'black',  text: 'We like juice.' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
-			children: [{ type: 'text', color: 'gray', weight: 'normal', text: 'Любит сок.' }],
+			children: [{ type: 'text', color: 'gray',  text: 'Любит сок.' }],
 		},
 		{
 			type: 'paragraph',
@@ -418,35 +418,35 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'При переводе предложения нужно смотреть не на формальные признаки, а что пытаются сказать. Возьму такое предложение:',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
-			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'У меня есть машина.' }],
+			children: [{ type: 'text', color: 'black',  text: 'У меня есть машина.' }],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Хотя формально в русском предложении явно присутствует слово «есть», но в конкретном случае этот глагол используется в значении обладания предметом. Английский вариант have.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
-			children: [{ type: 'text', color: 'black', weight: 'normal', text: 'I have a car.' }],
+			children: [{ type: 'text', color: 'black',  text: 'I have a car.' }],
 		},
 		{
 			type: 'exercises',
@@ -462,25 +462,25 @@
 							analysis: [
 								{
 									type: 'paragraph',
-									offset: false,
+
 									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: 'Если сообщается о качестве или свойстве, то требуется глагол ',
 										},
 										{
 											type: 'text',
 											color: 'blue',
-											weight: 'normal',
+
 											text: 'to be',
 										},
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: ' в одной из своих форм. Форма зависит от времени и лица подлежащего.',
 										},
 									],
@@ -493,25 +493,25 @@
 							analysis: [
 								{
 									type: 'paragraph',
-									offset: false,
+
 									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: 'Чтобы определить в какой форме должен быть глагол ',
 										},
 										{
 											type: 'text',
 											color: 'blue',
-											weight: 'normal',
+
 											text: 'to be',
 										},
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: ' нужно понять в каком лице находится подлежащее. В этом предложении подлежащее «он». Это третье. А после третьего лица используется to be в форме is.',
 										},
 									],
@@ -549,13 +549,13 @@
 							analysis: [
 								{
 									type: 'paragraph',
-									offset: false,
+
 									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: 'Бесмысленное предложение. В повествовательных предложениях глагол to be не может стоять раньше подлежащего.',
 										},
 									],
@@ -568,13 +568,13 @@
 							analysis: [
 								{
 									type: 'paragraph',
-									offset: false,
+
 									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: 'Грамматически-правильный, но не точный перевод.',
 										},
 									],
@@ -587,13 +587,13 @@
 							analysis: [
 								{
 									type: 'paragraph',
-									offset: false,
+
 									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: 'Перед существительными или прилагательном и существительном должно стоять определяющее слово. Если контекст отсутствует, то при переводе используйте неопределённый артикль.',
 										},
 									],
@@ -664,13 +664,13 @@
 							analysis: [
 								{
 									type: 'paragraph',
-									offset: false,
+
 									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: 'Грамматически правильно. Но «я ... был игрушкой» воспринимается как единственный прошедший отрезок времени. А слово ',
 										},
 										{
@@ -682,7 +682,7 @@
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: ' обозначает «иногда». То есть то, что случалось множество раз. Поэтому тут больше подходит слово ',
 										},
 										{
@@ -694,7 +694,7 @@
 										{
 											type: 'text',
 											color: 'black',
-											weight: 'normal',
+
 											text: '.',
 										},
 									],
@@ -719,13 +719,13 @@
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Про отсутствующие глаголы' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Русский и английский — разные языки. Поэтому нередко возникают ситуации когда в одно языке нет глаголов присутстущих в другом и наоборот. Поэтому одна и та же фраза будет переводиться разными конструкциями.',
 				},
 			],
@@ -738,22 +738,22 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Например у англичан нет глагола «рожать». И простое русское предложение «Она родила дочь» англичане выкрутили в «Она дала рождение дочери».',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Она родила дочь.' },
+				{ type: 'text', color: 'black',  text: 'Она родила дочь.' },
 
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'She gave birth to a daughter.',
 				},
 			],
@@ -766,7 +766,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Но чаще то, что в русском является глаголом в английском будет существительным. И соответственно для связки используется глагол be.',
 				},
 			],
@@ -779,32 +779,32 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Например в английском нет глагола «опаздывать». Поэтому его заменяют прилагательным «опоздавший».',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Ты опоздал.' },
+				{ type: 'text', color: 'black',  text: 'Ты опоздал.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'You ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'are' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' late.' },
+				{ type: 'text', color: 'black',  text: 'You ' },
+				{ type: 'text', color: 'blue',  text: 'are' },
+				{ type: 'text', color: 'black',  text: ' late.' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: 'Тут интересно то, что в русском предложении глагол стоит в прошедшем времени, а be должен быть в настоящем потому что персонаж является опоздавшим сейчас, а не был ранее.',
 				},
 			],
@@ -817,21 +817,21 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Болеть на английком нельзя. Можно ',
 				},
 				{ type: 'text', color: 'black', weight: 'bold', text: 'быть больным' },
-				{ type: 'text', color: 'black', weight: 'normal', text: '.' },
+				{ type: 'text', color: 'black',  text: '.' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Она болела.' },
+				{ type: 'text', color: 'black',  text: 'Она болела.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'She was sick.' },
+				{ type: 'text', color: 'black',  text: 'She was sick.' },
 			],
 		},
 		{
@@ -842,32 +842,32 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Глагола «пить» в английском тоже нет. Вместо него используйте прилагательное thirsty обозначающее «испытывающий жажду».',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Я хочу пить.' },
+				{ type: 'text', color: 'black',  text: 'Я хочу пить.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'I ' },
-				{ type: 'text', color: 'blue', weight: 'normal', text: 'am' },
-				{ type: 'text', color: 'black', weight: 'normal', text: ' thirsty.' },
+				{ type: 'text', color: 'black',  text: 'I ' },
+				{ type: 'text', color: 'blue',  text: 'am' },
+				{ type: 'text', color: 'black',  text: ' thirsty.' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: 'Вы наверное знаете про глагол drink. Но перевод I want to drink обозначает желание выпить алкоголь как в русском предложение «Я хочу выпить». А тут имеется в виду пить воду. Поэтому желание выпить воду англичане оборачивают в фразу «Я есть испытывающий жажду».',
 				},
 			],
@@ -880,20 +880,20 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Вот шпаргалка со списком таких слов. Их нужно просто запомнить и иметь в виду их часть речи при переводе.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: 'Напомню, что be в предложении должен быть в одной из своих временных форм.',
 				},
 			],
@@ -909,130 +909,130 @@
 					children: [
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'big',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'Увлекаться',
 								},
 
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'be keen on',
 								},
 							],
 						},
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'big',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'Опаздывать',
 								},
 
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'be late for smth',
 								},
 							],
 						},
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'big',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'Сожалеть о чем-то',
 								},
 
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'be sorry about',
 								},
 							],
 						},
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'big',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'Скучать (испытывать скуку)',
 								},
 
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'be bored',
 								},
 							],
 						},
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'big',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'Испытывать жажду',
 								},
 
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'be thirsty',
 								},
 							],
 						},
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'big',
 							children: [
-								{ type: 'text', color: 'black', weight: 'normal', text: 'Обожать' },
+								{ type: 'text', color: 'black',  text: 'Обожать' },
 
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'be crazy about',
 								},
 							],
 						},
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'big',
 							children: [
-								{ type: 'text', color: 'black', weight: 'normal', text: 'Бояться' },
+								{ type: 'text', color: 'black',  text: 'Бояться' },
 
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'be afraid of',
 								},
 							],
@@ -1045,135 +1045,135 @@
 					children: [
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'big',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'Запутаться',
 								},
 
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'be confused',
 								},
 							],
 						},
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'big',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'Интересоваться',
 								},
 
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'be interested in',
 								},
 							],
 						},
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'big',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'Гордиться',
 								},
 
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'be proud',
 								},
 							],
 						},
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'big',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'Иметь способность к чему-то',
 								},
 
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'be good at',
 								},
 							],
 						},
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'big',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'Колебаться',
 								},
 
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'be in two minds',
 								},
 							],
 						},
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'big',
 							children: [
-								{ type: 'text', color: 'black', weight: 'normal', text: 'Бояться' },
+								{ type: 'text', color: 'black',  text: 'Бояться' },
 
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'be afraid of',
 								},
 							],
 						},
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'big',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'Сочувствовать кому-то',
 								},
 
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'be sorry',
 								},
 							],
@@ -1190,19 +1190,19 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Но есть и обратная ситуация когда в русском нет глаголов использующихся в английском. Например taste обозначает «иметь вкус». Производить такое действие.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Пицца — вкусная.' },
+				{ type: 'text', color: 'black',  text: 'Пицца — вкусная.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'This pizza tastes good.' },
+				{ type: 'text', color: 'black',  text: 'This pizza tastes good.' },
 			],
 		},
 		{
@@ -1213,30 +1213,30 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'В русском дождь и снег «идут». А в английском в ходу специальные глаголы «дождить» и «снежить» по отношению к погодным явлениям. Поэтому при переводе на английский не нужно использовать существительное с глагол «идти».',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Дожди идут редко.' },
+				{ type: 'text', color: 'black',  text: 'Дожди идут редко.' },
 
-				{ type: 'text', color: 'black', weight: 'normal', text: 'It rains seldom.' },
+				{ type: 'text', color: 'black',  text: 'It rains seldom.' },
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'small',
 			children: [
 				{
 					type: 'text',
 					color: 'gray',
-					weight: 'normal',
+
 					text: 'Перевод затрагивает тему формального подлежащего. Она будет рассматрена в одном из следующих уроков.',
 				},
 			],
@@ -1249,7 +1249,7 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'По отношению к погодным явлениям в русском используется только один глагол «моросить».',
 				},
 			],

@@ -12,13 +12,13 @@
 	content: [
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Предлог in используется чтобы показать, что объект находится внутри закрытого области, предлог at представляет эту область как точку на карте, а предлог on сообщает, что объект находится на какой-то поверхности. На русский язык on обычно переводится предлогом «на».',
 				},
 			],
@@ -26,48 +26,48 @@
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Объект на поверхности' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Поверхность может быть в любой плоскости: сверху, снизу, вертикально.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Книги на столе.' },
+				{ type: 'text', color: 'black',  text: 'Книги на столе.' },
 
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'The books are on the table.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Я повешу эту картину на стену.',
 				},
 
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'I’ll put this picture on the wall.',
 				},
 			],
@@ -80,47 +80,47 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Под поверхностью может восприниматься любая внешняя оболочка.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Они сготовили рыбу на огне.',
 				},
 
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'They cooked the fish on their fire.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Он прыгнул на доктора и двое начали бороться.',
 				},
 
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'He jumped on the doctor and the two men began to fight.',
 				},
 			],
@@ -214,13 +214,13 @@
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Объект в транспорте' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Если на транспорте сидят верхом (мотоцикл, даже лошадь), то используют on. И если  транспорт принимает большое количество людей (автобус, самолёт, корабль), то тоже on, несмотря на то, что пассажиры находятся внутри. Но если человек находится внутри легкового автомобиля, то используется in.',
 				},
 			],
@@ -236,13 +236,13 @@
 					children: [
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'small',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'Предлог on.',
 								},
 							],
@@ -255,40 +255,40 @@
 						},
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'big',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'На велосипеде.',
 								},
 
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'On a bike.',
 								},
 							],
 						},
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'big',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'На лошаде.',
 								},
 
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'On a horse.',
 								},
 							],
@@ -301,13 +301,13 @@
 					children: [
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'small',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'Предлог on.',
 								},
 							],
@@ -320,40 +320,40 @@
 						},
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'big',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'В автобусе.',
 								},
 
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'On a bus.',
 								},
 							],
 						},
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'big',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'В метро.',
 								},
 
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'On a metro.',
 								},
 							],
@@ -366,13 +366,13 @@
 					children: [
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'small',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'Предлог in.',
 								},
 							],
@@ -380,40 +380,40 @@
 						{ type: 'header', tag: 'h3', style: 'h4', text: 'Внутри автомобиля.' },
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'big',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'В машине.',
 								},
 
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'In a car.',
 								},
 							],
 						},
 						{
 							type: 'paragraph',
-							offset: false,
+
 							textSize: 'big',
 							children: [
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'В такси.',
 								},
 
 								{
 									type: 'text',
 									color: 'black',
-									weight: 'normal',
+
 									text: 'In a taxi.',
 								},
 							],
@@ -430,54 +430,54 @@
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Она была в автобусе, когда он позвонил.',
 				},
 
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'She was on the bus, when he called.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Я потратил 10 часов в автобусе.',
 				},
 
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'I spent ten hours on a bus.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Они поймали ее, когда садилась в автобус.',
 				},
 
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'They caught her when she got on a bus.',
 				},
 			],
@@ -488,33 +488,33 @@
 			children: [
 				{
 					type: 'paragraph',
-					offset: false,
+
 					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: 'Но если хотят подчеркнуть нахождение внутри транспорта, то используют in.',
 						},
 					],
 				},
 				{
 					type: 'paragraph',
-					offset: false,
+
 					textSize: 'big',
 					children: [
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: 'Я оставил сумку в фургоне.',
 						},
 
 						{
 							type: 'text',
 							color: 'black',
-							weight: 'normal',
+
 							text: 'I left my bag in the wagon.',
 						},
 					],
@@ -580,48 +580,48 @@
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Объект на линии' },
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Если объект находится на местности напоминающей линию, то тоже используется on. Это может быть река, побережье, дорога. Даже по-русский в названии некоторых городов есть предлог «на» с названием реки, около которой город расположен: Ростов-на-Дону, Тверь-на-Волге, Рязань-на-Оке.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', weight: 'normal', text: 'Город на реке.' },
+				{ type: 'text', color: 'black',  text: 'Город на реке.' },
 
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'The town is on the river.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-			offset: false,
+
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'Они жили на берегу реки.',
 				},
 
 				{
 					type: 'text',
 					color: 'black',
-					weight: 'normal',
+
 					text: 'They lived on the coast of a river.',
 				},
 			],
