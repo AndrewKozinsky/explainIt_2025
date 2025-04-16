@@ -13,11 +13,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Прилагательные в английском языке не зависят от лица подлежащего или времени, не имеют числа и рода. Прилагательные бывают относительными и качественным.',
 				},
@@ -26,12 +24,11 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
-				{ type: 'text', color: 'black', weight: 'bold', text: 'Относительные' },
+				{ type: 'text',  weight: 'bold', text: 'Относительные' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' передают признаки, которые не могут быть в предмете в большей или меньшей степени.',
 				},
@@ -41,13 +38,13 @@
 			type: 'paragraph',
 
 			textSize: 'big',
-			children: [{ type: 'text', color: 'black',  text: 'Стеклянный' }],
+			children: [{ type: 'text',   text: 'Стеклянный' }],
 		},
 		{
 			type: 'paragraph',
 
 			textSize: 'big',
-			children: [{ type: 'text', color: 'black',  text: 'Деревянный' }],
+			children: [{ type: 'text',   text: 'Деревянный' }],
 		},
 		{
 			type: 'paragraph',
@@ -65,12 +62,11 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
-				{ type: 'text', color: 'black', weight: 'bold', text: 'Качественные' },
+				{ type: 'text',  weight: 'bold', text: 'Качественные' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' имеет сравнительную и превосходную степень.',
 				},
@@ -81,11 +77,11 @@
 
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Тяжёлый' },
+				{ type: 'text',   text: 'Тяжёлый' },
 
-				{ type: 'text', color: 'black',  text: 'Тяжелее' },
+				{ type: 'text',   text: 'Тяжелее' },
 
-				{ type: 'text', color: 'black',  text: 'Самый тяжёлый' },
+				{ type: 'text',   text: 'Самый тяжёлый' },
 			],
 		},
 		{
@@ -93,11 +89,11 @@
 
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Высокий' },
+				{ type: 'text',   text: 'Высокий' },
 
-				{ type: 'text', color: 'black',  text: 'Выше' },
+				{ type: 'text',   text: 'Выше' },
 
-				{ type: 'text', color: 'black',  text: 'Самый высокий' },
+				{ type: 'text',   text: 'Самый высокий' },
 			],
 		},
 		{
@@ -125,11 +121,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Давайте посмотрим как образуется сравнительная и превосходная степень у качественных прилагательных.',
 				},
@@ -139,11 +134,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Слог — это звук или сочетание звуков в слове, произносимые одним толчком выдыхаемого воздуха. ',
 				},
@@ -154,9 +147,9 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'fresh [фрэш]' },
+				{ type: 'text',   text: 'fresh [фрэш]' },
 
-				{ type: 'text', color: 'black',  text: 'свежий' },
+				{ type: 'text',   text: 'свежий' },
 			],
 		},
 		{
@@ -177,9 +170,9 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'white [вэйт]' },
+				{ type: 'text',   text: 'white [вэйт]' },
 
-				{ type: 'text', color: 'black',  text: 'белый' },
+				{ type: 'text',   text: 'белый' },
 			],
 		},
 		{
@@ -207,9 +200,9 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'alive [элайв]' },
+				{ type: 'text',   text: 'alive [элайв]' },
 
-				{ type: 'text', color: 'black',  text: 'живой' },
+				{ type: 'text',   text: 'живой' },
 			],
 		},
 		{
@@ -230,9 +223,9 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'accurate [экджурэт]' },
+				{ type: 'text',   text: 'accurate [экджурэт]' },
 
-				{ type: 'text', color: 'black',  text: 'точный' },
+				{ type: 'text',   text: 'точный' },
 			],
 		},
 		{
@@ -252,11 +245,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Это слова состоящие из одного или двух слогов. ',
 				},
@@ -265,29 +256,26 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'В большинстве случаев добавляйте ',
 				},
-				{ type: 'text', color: 'black', weight: 'bold', text: '-' },
+				{ type: 'text',  weight: 'bold', text: '-' },
 				{ type: 'text', color: 'blue', weight: 'bold', text: 'er' },
-				{ type: 'text', color: 'black',  text: ' и ' },
-				{ type: 'text', color: 'black', weight: 'bold', text: '-' },
+				{ type: 'text',   text: ' и ' },
+				{ type: 'text',  weight: 'bold', text: '-' },
 				{ type: 'text', color: 'blue', weight: 'bold', text: 'est' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' соответственно. Такой механизм образования степени прилагательного называется синтетическим. К любой превосходной степени добавляется ',
 				},
-				{ type: 'text', color: 'black', weight: 'bold', text: 'определённый артикль the' },
+				{ type: 'text',  weight: 'bold', text: 'определённый артикль the' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' потому что объект с высшей степерью проявления признака по определению является единственным.',
 				},
@@ -311,7 +299,7 @@
 							type: 'paragraph',
 
 							textSize: 'giant',
-							children: [{ type: 'text', color: 'black',  text: 'long' }],
+							children: [{ type: 'text',   text: 'long' }],
 						},
 						{
 							type: 'paragraph',
@@ -323,7 +311,7 @@
 							type: 'paragraph',
 
 							textSize: 'giant',
-							children: [{ type: 'text', color: 'black',  text: 'poor' }],
+							children: [{ type: 'text',   text: 'poor' }],
 						},
 					],
 				},
@@ -341,7 +329,7 @@
 
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'black',  text: 'long' },
+								{ type: 'text',   text: 'long' },
 								{ type: 'text', color: 'blue',  text: 'er' },
 							],
 						},
@@ -356,7 +344,7 @@
 
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'black',  text: 'poor' },
+								{ type: 'text',   text: 'poor' },
 								{ type: 'text', color: 'blue',  text: 'er' },
 							],
 						},
@@ -377,7 +365,7 @@
 							textSize: 'giant',
 							children: [
 								{ type: 'text', color: 'blue',  text: 'the' },
-								{ type: 'text', color: 'black',  text: ' long' },
+								{ type: 'text',   text: ' long' },
 								{ type: 'text', color: 'blue',  text: 'est' },
 							],
 						},
@@ -400,7 +388,7 @@
 							textSize: 'giant',
 							children: [
 								{ type: 'text', color: 'blue',  text: 'the' },
-								{ type: 'text', color: 'black',  text: ' poor' },
+								{ type: 'text',   text: ' poor' },
 								{ type: 'text', color: 'blue',  text: 'est' },
 							],
 						},
@@ -415,14 +403,13 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Он был быстрее и более надёжным.',
 				},
 
-				{ type: 'text', color: 'black',  text: 'It was fast' },
+				{ type: 'text',   text: 'It was fast' },
 				{ type: 'text', color: 'blue',  text: 'er' },
-				{ type: 'text', color: 'black',  text: ' and more reliable.' },
+				{ type: 'text',   text: ' and more reliable.' },
 			],
 		},
 		{
@@ -432,33 +419,30 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Он был самым богатым мальчиком в Санкт-Петербурге.',
 				},
 
-				{ type: 'text', color: 'black',  text: 'He was ' },
+				{ type: 'text',   text: 'He was ' },
 				{ type: 'text', color: 'blue',  text: 'the' },
-				{ type: 'text', color: 'black',  text: ' rich' },
+				{ type: 'text',   text: ' rich' },
 				{ type: 'text', color: 'blue',  text: 'est' },
-				{ type: 'text', color: 'black',  text: ' boy in St Petersburg.' },
+				{ type: 'text',   text: ' boy in St Petersburg.' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Часто в предложениях в сравнительной степени можно увидеть слово ',
 				},
 				{ type: 'text', color: 'blue',  text: 'than' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' (чем) и дальше описывается объект с которым идёт сравнение.',
 				},
@@ -471,19 +455,17 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Их путь был короче, чем наш.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Their route was shorter ',
 				},
 				{ type: 'text', color: 'blue',  text: 'than' },
-				{ type: 'text', color: 'black',  text: ' ours.' },
+				{ type: 'text',   text: ' ours.' },
 			],
 		},
 		{
@@ -493,19 +475,17 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Её расценки в три раза выше, чем наши.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Her rates are three times higher ',
 				},
 				{ type: 'text', color: 'blue',  text: 'than' },
-				{ type: 'text', color: 'black',  text: ' ours.' },
+				{ type: 'text',   text: ' ours.' },
 			],
 		},
 		{
@@ -576,11 +556,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'В прилагательных, оканчивающихся на одну согласную + гласную + согласную, конечная согласная  удваивается: ',
 				},
@@ -611,7 +590,7 @@
 
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'black',  text: 'ho' },
+								{ type: 'text',   text: 'ho' },
 								{ type: 'text', color: 'gold',  text: 't' },
 							],
 						},
@@ -633,7 +612,7 @@
 
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'black',  text: 'thi' },
+								{ type: 'text',   text: 'thi' },
 								{ type: 'text', color: 'gold',  text: 'n' },
 							],
 						},
@@ -659,7 +638,7 @@
 
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'black',  text: 'ho' },
+								{ type: 'text',   text: 'ho' },
 								{ type: 'text', color: 'gold',  text: 'tt' },
 								{ type: 'text', color: 'blue',  text: 'er' },
 							],
@@ -682,7 +661,7 @@
 
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'black',  text: 'thi' },
+								{ type: 'text',   text: 'thi' },
 								{ type: 'text', color: 'gold',  text: 'nn' },
 								{ type: 'text', color: 'blue',  text: 'er' },
 							],
@@ -710,7 +689,7 @@
 							textSize: 'giant',
 							children: [
 								{ type: 'text', color: 'blue',  text: 'the' },
-								{ type: 'text', color: 'black',  text: ' ho' },
+								{ type: 'text',   text: ' ho' },
 								{ type: 'text', color: 'gold',  text: 'tt' },
 								{ type: 'text', color: 'blue',  text: 'est' },
 							],
@@ -734,7 +713,7 @@
 							textSize: 'giant',
 							children: [
 								{ type: 'text', color: 'blue',  text: 'the' },
-								{ type: 'text', color: 'black',  text: ' thi' },
+								{ type: 'text',   text: ' thi' },
 								{ type: 'text', color: 'gold',  text: 'nn' },
 								{ type: 'text', color: 'blue',  text: 'est' },
 							],
@@ -746,11 +725,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Слово big оканчивается на согласную + гласную + согласную. Поэтому последняя согласная удваивается.',
 				},
@@ -763,31 +741,29 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Ричардсон был его самым большим конкурентом.',
 				},
 
-				{ type: 'text', color: 'black',  text: 'Richardson was his bi' },
+				{ type: 'text',   text: 'Richardson was his bi' },
 				{ type: 'text', color: 'blue',  text: 'gg' },
-				{ type: 'text', color: 'black',  text: 'est competitor.' },
+				{ type: 'text',   text: 'est competitor.' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Тут удваивается последняя ',
 				},
 				{ type: 'text', color: 'blue', weight: 'bold', text: 'l' },
-				{ type: 'text', color: 'black',  text: ' в слове ' },
-				{ type: 'text', color: 'black', weight: 'bold', text: 'small' },
-				{ type: 'text', color: 'black',  text: '.' },
+				{ type: 'text',   text: ' в слове ' },
+				{ type: 'text',  weight: 'bold', text: 'small' },
+				{ type: 'text',   text: '.' },
 			],
 		},
 		{
@@ -797,14 +773,13 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Её двор гораздо меньше нашего.',
 				},
 
-				{ type: 'text', color: 'black',  text: 'Her courtyard is sma' },
+				{ type: 'text',   text: 'Her courtyard is sma' },
 				{ type: 'text', color: 'blue',  text: 'll' },
-				{ type: 'text', color: 'black',  text: 'er than ours.' },
+				{ type: 'text',   text: 'er than ours.' },
 			],
 		},
 		{
@@ -861,29 +836,27 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Если прилагательное оканчивается на ',
 				},
-				{ type: 'text', color: 'black', weight: 'bold', text: '-e' },
-				{ type: 'text', color: 'black',  text: ', то ' },
-				{ type: 'text', color: 'black', weight: 'bold', text: 'e' },
+				{ type: 'text',  weight: 'bold', text: '-e' },
+				{ type: 'text',   text: ', то ' },
+				{ type: 'text',  weight: 'bold', text: 'e' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' не удваивается. То есть добавляется ',
 				},
-				{ type: 'text', color: 'black', weight: 'bold', text: '-' },
+				{ type: 'text',  weight: 'bold', text: '-' },
 				{ type: 'text', color: 'blue', weight: 'bold', text: 'r' },
-				{ type: 'text', color: 'black',  text: ' и ' },
-				{ type: 'text', color: 'black', weight: 'bold', text: '-' },
+				{ type: 'text',   text: ' и ' },
+				{ type: 'text',  weight: 'bold', text: '-' },
 				{ type: 'text', color: 'blue', weight: 'bold', text: 'st' },
-				{ type: 'text', color: 'black',  text: ' соответственно.' },
+				{ type: 'text',   text: ' соответственно.' },
 			],
 		},
 		{
@@ -911,7 +884,7 @@
 
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'black',  text: 'fin' },
+								{ type: 'text',   text: 'fin' },
 								{ type: 'text', color: 'gold',  text: 'e' },
 							],
 						},
@@ -926,7 +899,7 @@
 
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'black',  text: 'fre' },
+								{ type: 'text',   text: 'fre' },
 								{ type: 'text', color: 'gold',  text: 'e' },
 							],
 						},
@@ -952,7 +925,7 @@
 
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'black',  text: 'fin' },
+								{ type: 'text',   text: 'fin' },
 								{ type: 'text', color: 'gold',  text: 'e' },
 								{ type: 'text', color: 'blue',  text: 'r' },
 							],
@@ -968,7 +941,7 @@
 
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'black',  text: 'fre' },
+								{ type: 'text',   text: 'fre' },
 								{ type: 'text', color: 'gold',  text: 'e' },
 								{ type: 'text', color: 'blue',  text: 'r' },
 							],
@@ -996,7 +969,7 @@
 							textSize: 'giant',
 							children: [
 								{ type: 'text', color: 'blue',  text: 'the' },
-								{ type: 'text', color: 'black',  text: ' fin' },
+								{ type: 'text',   text: ' fin' },
 								{ type: 'text', color: 'gold',  text: 'e' },
 								{ type: 'text', color: 'blue',  text: 'st' },
 							],
@@ -1013,7 +986,7 @@
 							textSize: 'giant',
 							children: [
 								{ type: 'text', color: 'blue',  text: 'the' },
-								{ type: 'text', color: 'black',  text: ' fre' },
+								{ type: 'text',   text: ' fre' },
 								{ type: 'text', color: 'gold',  text: 'e' },
 								{ type: 'text', color: 'blue',  text: 'st' },
 							],
@@ -1026,13 +999,13 @@
 			type: 'paragraph',
 			offset: true,
 			textSize: 'giant',
-			children: [{ type: 'text', color: 'black',  text: 'Требуется пример 1.' }],
+			children: [{ type: 'text',   text: 'Требуется пример 1.' }],
 		},
 		{
 			type: 'paragraph',
 
 			textSize: 'giant',
-			children: [{ type: 'text', color: 'black',  text: 'Требуется пример 2.' }],
+			children: [{ type: 'text',   text: 'Требуется пример 2.' }],
 		},
 		{
 			type: 'exercises',
@@ -1063,11 +1036,9 @@
 				{
 					type: 'paragraph',
 
-					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'После прилагательного в превосходной степени существительное можно не ставить если оно подразумевается:',
 						},
@@ -1080,14 +1051,12 @@
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Виктор самый высокий.',
 						},
 
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Victor is the tallest.',
 						},
@@ -1099,38 +1068,33 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Это слова состоящие из трёх и более слогов. Они длинные и если ещё дополнительно прибавлять -',
 				},
 				{ type: 'text', color: 'blue', weight: 'bold', text: 'er' },
-				{ type: 'text', color: 'black',  text: ' или -' },
+				{ type: 'text',   text: ' или -' },
 				{ type: 'text', color: 'blue', weight: 'bold', text: 'est' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ', то произносить станет труднее. Английский не любит длинных слов. Поэтому для сравнительной степени добавьте слово ',
 				},
-				{ type: 'text', color: 'black', weight: 'bold', text: 'more' },
-				{ type: 'text', color: 'black',  text: ' (более) или ' },
-				{ type: 'text', color: 'black', weight: 'bold', text: 'less' },
+				{ type: 'text',  weight: 'bold', text: 'more' },
+				{ type: 'text',   text: ' (более) или ' },
+				{ type: 'text',  weight: 'bold', text: 'less' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' (менее). Для абсолютной ',
 				},
-				{ type: 'text', color: 'black', weight: 'bold', text: 'the most' },
-				{ type: 'text', color: 'black',  text: ' (наибольший) и ' },
-				{ type: 'text', color: 'black', weight: 'bold', text: 'the least' },
+				{ type: 'text',  weight: 'bold', text: 'the most' },
+				{ type: 'text',   text: ' (наибольший) и ' },
+				{ type: 'text',  weight: 'bold', text: 'the least' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' (наименьший). Такой механизм образования степени прилагательного называется аналитическим. ',
 				},
@@ -1163,7 +1127,6 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'realistic',
 								},
@@ -1194,7 +1157,6 @@
 								{ type: 'text', color: 'blue',  text: 'more' },
 								{
 									type: 'text',
-									color: 'black',
 
 									text: ' realistic',
 								},
@@ -1221,7 +1183,6 @@
 								{ type: 'text', color: 'blue',  text: 'less' },
 								{
 									type: 'text',
-									color: 'black',
 
 									text: ' realistic',
 								},
@@ -1252,7 +1213,6 @@
 								{ type: 'text', color: 'blue',  text: 'the most' },
 								{
 									type: 'text',
-									color: 'black',
 
 									text: ' realistic',
 								},
@@ -1284,7 +1244,6 @@
 								},
 								{
 									type: 'text',
-									color: 'black',
 
 									text: ' realistic',
 								},
@@ -1298,13 +1257,13 @@
 			type: 'paragraph',
 			offset: true,
 			textSize: 'giant',
-			children: [{ type: 'text', color: 'black',  text: 'Требуется пример 1.' }],
+			children: [{ type: 'text',   text: 'Требуется пример 1.' }],
 		},
 		{
 			type: 'paragraph',
 
 			textSize: 'giant',
-			children: [{ type: 'text', color: 'black',  text: 'Требуется пример 2.' }],
+			children: [{ type: 'text',   text: 'Требуется пример 2.' }],
 		},
 		{
 			type: 'exercises',
@@ -1328,11 +1287,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Для некоторых односложных и многосложных слов степень можно сделать как через синтетический метод, так и аналитический. Если сомневаетесь какой правильный, то используйте аналитический. У языка идёт тенденция так строить степень прилагательных.',
 				},
@@ -1342,18 +1300,15 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Если прилагательное оканчивается на y с предшествующей согласной, то ',
 				},
-				{ type: 'text', color: 'black', weight: 'bold', text: '-y' },
+				{ type: 'text',  weight: 'bold', text: '-y' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' меняется на i не зависимо это односложное или многосложное слово:',
 				},
@@ -1385,7 +1340,7 @@
 
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'black',  text: 'happ' },
+								{ type: 'text',   text: 'happ' },
 								{ type: 'text', color: 'gold',  text: 'y' },
 							],
 						},
@@ -1400,7 +1355,7 @@
 
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'black',  text: 'bus' },
+								{ type: 'text',   text: 'bus' },
 								{ type: 'text', color: 'gold',  text: 'y' },
 							],
 						},
@@ -1427,7 +1382,7 @@
 
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'black',  text: 'happ' },
+								{ type: 'text',   text: 'happ' },
 								{ type: 'text', color: 'gold',  text: 'i' },
 								{ type: 'text', color: 'blue',  text: 'er' },
 							],
@@ -1450,7 +1405,7 @@
 
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'black',  text: 'bus' },
+								{ type: 'text',   text: 'bus' },
 								{ type: 'text', color: 'gold',  text: 'i' },
 								{ type: 'text', color: 'blue',  text: 'er' },
 							],
@@ -1479,7 +1434,7 @@
 							textSize: 'giant',
 							children: [
 								{ type: 'text', color: 'blue',  text: 'the' },
-								{ type: 'text', color: 'black',  text: ' happ' },
+								{ type: 'text',   text: ' happ' },
 								{ type: 'text', color: 'gold',  text: 'i' },
 								{ type: 'text', color: 'blue',  text: 'est' },
 							],
@@ -1503,7 +1458,7 @@
 							textSize: 'giant',
 							children: [
 								{ type: 'text', color: 'blue',  text: 'the' },
-								{ type: 'text', color: 'black',  text: ' bus' },
+								{ type: 'text',   text: ' bus' },
 								{ type: 'text', color: 'gold',  text: 'i' },
 								{ type: 'text', color: 'blue',  text: 'est' },
 							],
@@ -1516,26 +1471,25 @@
 			type: 'paragraph',
 			offset: true,
 			textSize: 'giant',
-			children: [{ type: 'text', color: 'black',  text: 'Требуется пример 1.' }],
+			children: [{ type: 'text',   text: 'Требуется пример 1.' }],
 		},
 		{
 			type: 'paragraph',
 
 			textSize: 'giant',
-			children: [{ type: 'text', color: 'black',  text: 'Требуется пример 2.' }],
+			children: [{ type: 'text',   text: 'Требуется пример 2.' }],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
-				{ type: 'text', color: 'black',  text: 'Но если перед ' },
-				{ type: 'text', color: 'black', weight: 'bold', text: 'y ' },
-				{ type: 'text', color: 'black',  text: 'стоит гласная, то ' },
-				{ type: 'text', color: 'black', weight: 'bold', text: 'y' },
+				{ type: 'text',   text: 'Но если перед ' },
+				{ type: 'text',  weight: 'bold', text: 'y ' },
+				{ type: 'text',   text: 'стоит гласная, то ' },
+				{ type: 'text',  weight: 'bold', text: 'y' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' остается без изменения.',
 				},
@@ -1545,11 +1499,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'У этих прилагательных у относительной и превосходной степени изменяется корень слова. Такие слова нужно запомнить. Это будет не сложно потому что это одни из самых частоиспользуемых прилагательных.',
 				},
@@ -1573,7 +1525,7 @@
 							type: 'paragraph',
 
 							textSize: 'giant',
-							children: [{ type: 'text', color: 'black',  text: 'good' }],
+							children: [{ type: 'text',   text: 'good' }],
 						},
 						{
 							type: 'paragraph',
@@ -1585,7 +1537,7 @@
 							type: 'paragraph',
 
 							textSize: 'giant',
-							children: [{ type: 'text', color: 'black',  text: 'bad' }],
+							children: [{ type: 'text',   text: 'bad' }],
 						},
 						{
 							type: 'paragraph',
@@ -1604,7 +1556,7 @@
 							type: 'paragraph',
 
 							textSize: 'giant',
-							children: [{ type: 'text', color: 'black',  text: 'little' }],
+							children: [{ type: 'text',   text: 'little' }],
 						},
 					],
 				},
@@ -1621,7 +1573,7 @@
 							type: 'paragraph',
 
 							textSize: 'giant',
-							children: [{ type: 'text', color: 'black',  text: 'better' }],
+							children: [{ type: 'text',   text: 'better' }],
 						},
 						{
 							type: 'paragraph',
@@ -1633,7 +1585,7 @@
 							type: 'paragraph',
 
 							textSize: 'giant',
-							children: [{ type: 'text', color: 'black',  text: 'worse' }],
+							children: [{ type: 'text',   text: 'worse' }],
 						},
 						{
 							type: 'paragraph',
@@ -1645,7 +1597,7 @@
 							type: 'paragraph',
 
 							textSize: 'giant',
-							children: [{ type: 'text', color: 'black',  text: 'less' }],
+							children: [{ type: 'text',   text: 'less' }],
 						},
 					],
 				},
@@ -1665,7 +1617,6 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'the best',
 								},
@@ -1684,7 +1635,6 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'the worst',
 								},
@@ -1710,7 +1660,6 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'the least',
 								},
@@ -1724,28 +1673,27 @@
 			type: 'paragraph',
 			offset: true,
 			textSize: 'giant',
-			children: [{ type: 'text', color: 'black',  text: 'Требуется пример 1.' }],
+			children: [{ type: 'text',   text: 'Требуется пример 1.' }],
 		},
 		{
 			type: 'paragraph',
 
 			textSize: 'giant',
-			children: [{ type: 'text', color: 'black',  text: 'Требуется пример 2.' }],
+			children: [{ type: 'text',   text: 'Требуется пример 2.' }],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
-				{ type: 'text', color: 'black', weight: 'bold', text: 'much' },
+				{ type: 'text',  weight: 'bold', text: 'much' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' используется с неисчисляемыми объектами, а ',
 				},
-				{ type: 'text', color: 'black', weight: 'bold', text: 'many' },
-				{ type: 'text', color: 'black',  text: ' с исчисляемыми.' },
+				{ type: 'text',  weight: 'bold', text: 'many' },
+				{ type: 'text',   text: ' с исчисляемыми.' },
 			],
 		},
 		{
@@ -1775,7 +1723,6 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'much/many',
 								},
@@ -1795,7 +1742,7 @@
 							type: 'paragraph',
 
 							textSize: 'giant',
-							children: [{ type: 'text', color: 'black',  text: 'more' }],
+							children: [{ type: 'text',   text: 'more' }],
 						},
 					],
 				},
@@ -1821,7 +1768,6 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'the most',
 								},
@@ -1835,22 +1781,20 @@
 			type: 'paragraph',
 			offset: true,
 			textSize: 'giant',
-			children: [{ type: 'text', color: 'black',  text: 'Требуется пример 1.' }],
+			children: [{ type: 'text',   text: 'Требуется пример 1.' }],
 		},
 		{
 			type: 'paragraph',
 
 			textSize: 'giant',
-			children: [{ type: 'text', color: 'black',  text: 'Требуется пример 2.' }],
+			children: [{ type: 'text',   text: 'Требуется пример 2.' }],
 		},
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Much more усиливает высказывание:',
 				},
@@ -1863,14 +1807,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Мой подход гораздо более гуманный.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'My approach is much more human.',
 				},
@@ -1879,11 +1821,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Есть различия в сравнительной и превосходной степени у слова old. Тут используются разные слова если сравнивают с каким-то человеком или членом семьи.',
 				},
@@ -1906,7 +1847,7 @@
 							type: 'paragraph',
 
 							textSize: 'giant',
-							children: [{ type: 'text', color: 'black',  text: 'old' }],
+							children: [{ type: 'text',   text: 'old' }],
 						},
 					],
 				},
@@ -1922,7 +1863,7 @@
 							type: 'paragraph',
 
 							textSize: 'giant',
-							children: [{ type: 'text', color: 'black',  text: 'older' }],
+							children: [{ type: 'text',   text: 'older' }],
 						},
 						{
 							type: 'paragraph',
@@ -1941,7 +1882,7 @@
 							type: 'paragraph',
 
 							textSize: 'giant',
-							children: [{ type: 'text', color: 'black',  text: 'elder' }],
+							children: [{ type: 'text',   text: 'elder' }],
 						},
 					],
 				},
@@ -1964,7 +1905,7 @@
 							type: 'paragraph',
 
 							textSize: 'giant',
-							children: [{ type: 'text', color: 'black',  text: 'oldest' }],
+							children: [{ type: 'text',   text: 'oldest' }],
 						},
 						{
 							type: 'paragraph',
@@ -1983,7 +1924,7 @@
 							type: 'paragraph',
 
 							textSize: 'giant',
-							children: [{ type: 'text', color: 'black',  text: 'eldest' }],
+							children: [{ type: 'text',   text: 'eldest' }],
 						},
 					],
 				},
@@ -1993,13 +1934,13 @@
 			type: 'paragraph',
 			offset: true,
 			textSize: 'giant',
-			children: [{ type: 'text', color: 'black',  text: 'Требуется пример 1.' }],
+			children: [{ type: 'text',   text: 'Требуется пример 1.' }],
 		},
 		{
 			type: 'paragraph',
 
 			textSize: 'giant',
-			children: [{ type: 'text', color: 'black',  text: 'Требуется пример 2.' }],
+			children: [{ type: 'text',   text: 'Требуется пример 2.' }],
 		},
 		{
 			type: 'exercises',
@@ -2048,11 +1989,9 @@
 							{
 								type: 'paragraph',
 
-								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'Это предложение написано правильно? It is a tables. ',
 									},
@@ -2066,11 +2005,9 @@
 							{
 								type: 'paragraph',
 
-								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'Нет не правильно. Перед существительными множественного числа не ставится неопределённый артикль. И для множественного числа не используется местоимение it. Должно быть they.',
 									},

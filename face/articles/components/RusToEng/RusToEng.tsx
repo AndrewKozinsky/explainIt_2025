@@ -23,11 +23,17 @@ function RusToEng(props: RusToEngProps) {
 	return (
 		<div className='art-rus-to-eng'>
 			<p className={cn(getRootClasses(config))}>
-				{config.rus.map((config, i) => {
-					return <Text config={config} key={i} />
-				})}
+				{config.revert ? (
+					<EngPart engSentenceParts={config.eng} toggleTranscription={toggleTranscription} />
+				) : (
+					<RusPart rusSentenceParts={config.rus} />
+				)}
 				<ArrowCircle />
-				<EngPart engSentenceParts={config.eng} toggleTranscription={toggleTranscription} />
+				{config.revert ? (
+					<RusPart rusSentenceParts={config.rus} />
+				) : (
+					<EngPart engSentenceParts={config.eng} toggleTranscription={toggleTranscription} />
+				)}
 			</p>
 			<TranscriptionBlock engSentenceParts={config.eng} ref={transcriptionBlockRef} />
 		</div>
@@ -35,6 +41,18 @@ function RusToEng(props: RusToEngProps) {
 }
 
 export default RusToEng
+
+type RusPartProps = {
+	rusSentenceParts: ArticleType.Text[]
+}
+
+function RusPart(props: RusPartProps) {
+	const { rusSentenceParts } = props
+
+	return rusSentenceParts.map((config, i) => {
+		return <Text config={config} key={i} />
+	})
+}
 
 type EngPartProps = {
 	engSentenceParts: ArticleType.Text[]

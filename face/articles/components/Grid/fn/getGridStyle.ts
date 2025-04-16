@@ -1,10 +1,10 @@
-// import ArticleType from '../../../../articlesData/articleType'
+import ArticleType from '../../../articleTypes/articleType'
 
 /**
  * Генерирует стили ячеек сетки чтобы они складывались в один столбик если места не достаточно.
  * @param gridConfig — конфигурация сетки
  */
-/*export function getStyleTagCss(gridConfig: ArticleType.Grid) {
+export function getStyleTagCss(gridConfig: ArticleType.Grid) {
 	const { gridId } = gridConfig
 
 	// Есть ли ячейки с указанной шириной
@@ -47,5 +47,4 @@
 	}
 }
 `
-}*/
-
+}

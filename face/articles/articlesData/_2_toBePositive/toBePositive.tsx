@@ -17,11 +17,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Давайте попробуем дословно перевести следующие предложения:',
 				},
@@ -32,9 +30,9 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Я космонавт.' },
+				{ type: 'text',  text: 'Я космонавт.' },
 
-				{ type: 'text', color: 'black', text: 'I spaceman.' },
+				{ type: 'text',  text: 'I spaceman.' },
 			],
 		},
 		{
@@ -42,9 +40,9 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Они клоуны.' },
+				{ type: 'text',  text: 'Они клоуны.' },
 
-				{ type: 'text', color: 'black', text: 'They clowns.' },
+				{ type: 'text',  text: 'They clowns.' },
 			],
 		},
 		{
@@ -52,33 +50,30 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Это щенок.' },
+				{ type: 'text',  text: 'Это щенок.' },
 
-				{ type: 'text', color: 'black', text: 'It puppy.' },
+				{ type: 'text',  text: 'It puppy.' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Предложение на английском языке должно содержать в себе как минимум подлежащее и сказуемое. ',
 				},
-				{ type: 'text', color: 'black', weight: 'bold', text: 'Подлежащее' },
+				{ type: 'text',  weight: 'bold', text: 'Подлежащее' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' — это объект совершающий действие. Он может быть выражен местоимением, именем, существительным. А ',
 				},
-				{ type: 'text', color: 'black', weight: 'bold', text: 'сказуемое' },
+				{ type: 'text',  weight: 'bold', text: 'сказуемое' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' — это само действие. Выражается глаголом.',
 				},
@@ -87,23 +82,21 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'В предложениях выше подлежащие в виде местоимения. Но в моих переводах нет сказуемого, то есть самого действия. Когда-то давно в русском языке оно ставилось. На современный манер звучало бы как «',
 				},
 				{ type: 'text', color: 'blue', text: 'есть' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: '». В болгарском оно существует до сих пор. И в английском тоже. Это глагол ',
 				},
 				{ type: 'text', color: 'blue', text: 'be' },
-				{ type: 'text', color: 'black', text: '. Поставлю в перевод:' },
+				{ type: 'text',  text: '. Поставлю в перевод:' },
 			],
 		},
 		{
@@ -111,13 +104,13 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Я ' },
+				{ type: 'text',  text: 'Я ' },
 				{ type: 'text', color: 'gray', text: '(есть)' },
-				{ type: 'text', color: 'black', text: ' космонавт.' },
+				{ type: 'text',  text: ' космонавт.' },
 
-				{ type: 'text', color: 'black', text: 'I ' },
+				{ type: 'text',  text: 'I ' },
 				{ type: 'text', color: 'blue', text: 'be' },
-				{ type: 'text', color: 'black', text: ' spaceman.' },
+				{ type: 'text',  text: ' spaceman.' },
 			],
 		},
 		{
@@ -125,13 +118,13 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Они ' },
+				{ type: 'text',  text: 'Они ' },
 				{ type: 'text', color: 'gray', text: '(есть)' },
-				{ type: 'text', color: 'black', text: ' клоуны.' },
+				{ type: 'text',  text: ' клоуны.' },
 
-				{ type: 'text', color: 'black', text: 'They ' },
+				{ type: 'text',  text: 'They ' },
 				{ type: 'text', color: 'blue', text: 'be' },
-				{ type: 'text', color: 'black', text: ' clowns.' },
+				{ type: 'text',  text: ' clowns.' },
 			],
 		},
 		{
@@ -139,13 +132,13 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Это ' },
+				{ type: 'text',  text: 'Это ' },
 				{ type: 'text', color: 'gray', text: '(есть)' },
-				{ type: 'text', color: 'black', text: ' щенок.' },
+				{ type: 'text',  text: ' щенок.' },
 
-				{ type: 'text', color: 'black', text: 'It ' },
+				{ type: 'text',  text: 'It ' },
 				{ type: 'text', color: 'blue', text: 'be' },
-				{ type: 'text', color: 'black', text: ' puppy.' },
+				{ type: 'text',  text: ' puppy.' },
 			],
 		},
 		{
@@ -155,11 +148,9 @@
 				{
 					type: 'paragraph',
 
-					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Иногда и в современном русском языке явно используем глагол «есть» в разных видах:',
 						},
@@ -170,11 +161,10 @@
 
 					textSize: 'big',
 					children: [
-						{ type: 'text', color: 'black', text: 'Незаконным ' },
+						{ type: 'text',  text: 'Незаконным ' },
 						{ type: 'text', color: 'blue', text: 'является' },
 						{
 							type: 'text',
-							color: 'black',
 
 							text: ' способ получения этих средств.',
 						},
@@ -185,9 +175,9 @@
 
 					textSize: 'big',
 					children: [
-						{ type: 'text', color: 'black', text: 'Что вы из себя ' },
+						{ type: 'text',  text: 'Что вы из себя ' },
 						{ type: 'text', color: 'blue', text: 'представляете' },
-						{ type: 'text', color: 'black', text: '?' },
+						{ type: 'text',  text: '?' },
 					],
 				},
 				{
@@ -195,19 +185,18 @@
 
 					textSize: 'big',
 					children: [
-						{ type: 'text', color: 'black', text: 'Там ' },
+						{ type: 'text',  text: 'Там ' },
 						{ type: 'text', color: 'blue', text: 'есть' },
-						{ type: 'text', color: 'black', text: ' стол.' },
+						{ type: 'text',  text: ' стол.' },
 					],
 				},
 				{
 					type: 'paragraph',
 					offset: true,
-					textSize: 'normal',
+
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Тире также аналог слова «есть»:',
 						},
@@ -218,11 +207,10 @@
 
 					textSize: 'big',
 					children: [
-						{ type: 'text', color: 'black', text: 'Борис ' },
+						{ type: 'text',  text: 'Борис ' },
 						{ type: 'text', color: 'blue', text: '—' },
 						{
 							type: 'text',
-							color: 'black',
 
 							text: ' сильный мужчина.',
 						},
@@ -233,11 +221,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Английские глаголы могут находиться в одной из трёх форм:',
 				},
@@ -250,20 +237,17 @@
 				{
 					type: 'paragraph',
 
-					textSize: 'normal',
 					children: [
-						{ type: 'text', color: 'black', text: 'В ' },
-						{ type: 'text', color: 'black', weight: 'bold', text: 'неопределённой' },
+						{ type: 'text',  text: 'В ' },
+						{ type: 'text',  weight: 'bold', text: 'неопределённой' },
 						{
 							type: 'text',
-							color: 'black',
 
 							text: ' форме (инфинитиве). Это глагол отвечающий на вопрос «что делать?». Это действие в чистом виде по которому нельзя сказать о времени. Глагол «есть» в неопределённой форме будет ',
 						},
 						{ type: 'text', color: 'blue', text: 'be' },
 						{
 							type: 'text',
-							color: 'black',
 
 							text: '. Как я и поставил.',
 						},
@@ -272,21 +256,19 @@
 				{
 					type: 'paragraph',
 
-					textSize: 'normal',
 					children: [
-						{ type: 'text', color: 'black', text: 'В форме ' },
-						{ type: 'text', color: 'black', weight: 'bold', text: 'настоящего' },
-						{ type: 'text', color: 'black', text: ' времени.' },
+						{ type: 'text',  text: 'В форме ' },
+						{ type: 'text',  weight: 'bold', text: 'настоящего' },
+						{ type: 'text',  text: ' времени.' },
 					],
 				},
 				{
 					type: 'paragraph',
 
-					textSize: 'normal',
 					children: [
-						{ type: 'text', color: 'black', text: 'В форме ' },
-						{ type: 'text', color: 'black', weight: 'bold', text: 'прошедшего' },
-						{ type: 'text', color: 'black', text: ' времени.' },
+						{ type: 'text',  text: 'В форме ' },
+						{ type: 'text',  weight: 'bold', text: 'прошедшего' },
+						{ type: 'text',  text: ' времени.' },
 					],
 				},
 			],
@@ -294,13 +276,12 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
-				{ type: 'text', color: 'black', text: 'Форма глагола ' },
+				{ type: 'text',  text: 'Форма глагола ' },
 				{ type: 'text', color: 'blue', text: 'be' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' в настоящем времени зависит от лица подлежащего.',
 				},
@@ -310,18 +291,16 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Сказуемое всегда должно показывать время совершения действия. Давайте ',
 				},
 				{ type: 'text', color: 'blue', text: 'be' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' переделаем в форму настоящего времени.',
 				},
@@ -332,13 +311,13 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Я ' },
+				{ type: 'text',  text: 'Я ' },
 				{ type: 'text', color: 'gray', text: '(есть)' },
-				{ type: 'text', color: 'black', text: ' космонавт.' },
+				{ type: 'text',  text: ' космонавт.' },
 
-				{ type: 'text', color: 'black', text: 'I ' },
+				{ type: 'text',  text: 'I ' },
 				{ type: 'text', color: 'blue', text: 'am' },
-				{ type: 'text', color: 'black', text: ' spaceman.' },
+				{ type: 'text',  text: ' spaceman.' },
 			],
 		},
 		{
@@ -346,13 +325,13 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Они ' },
+				{ type: 'text',  text: 'Они ' },
 				{ type: 'text', color: 'gray', text: '(есть)' },
-				{ type: 'text', color: 'black', text: ' клоуны.' },
+				{ type: 'text',  text: ' клоуны.' },
 
-				{ type: 'text', color: 'black', text: 'They ' },
+				{ type: 'text',  text: 'They ' },
 				{ type: 'text', color: 'blue', text: 'are' },
-				{ type: 'text', color: 'black', text: ' clowns.' },
+				{ type: 'text',  text: ' clowns.' },
 			],
 		},
 		{
@@ -360,30 +339,28 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Это ' },
+				{ type: 'text',  text: 'Это ' },
 				{ type: 'text', color: 'gray', text: '(есть)' },
-				{ type: 'text', color: 'black', text: ' щенок.' },
+				{ type: 'text',  text: ' щенок.' },
 
-				{ type: 'text', color: 'black', text: 'It ' },
+				{ type: 'text',  text: 'It ' },
 				{ type: 'text', color: 'blue', text: 'is' },
-				{ type: 'text', color: 'black', text: ' puppy.' },
+				{ type: 'text',  text: ' puppy.' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Последним шагом перед существительными в единственном числе поставлю неопределённый артикль ',
 				},
 				{ type: 'text', color: 'blue', text: 'a' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: '. Его назначение будет объяснено в в одной из следующих глав. ',
 				},
@@ -394,11 +371,11 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Я космонавт.' },
+				{ type: 'text',  text: 'Я космонавт.' },
 
-				{ type: 'text', color: 'black', text: 'I am ' },
+				{ type: 'text',  text: 'I am ' },
 				{ type: 'text', color: 'blue', text: 'a' },
-				{ type: 'text', color: 'black', text: ' spaceman.' },
+				{ type: 'text',  text: ' spaceman.' },
 			],
 		},
 		{
@@ -406,9 +383,9 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Они клоуны.' },
+				{ type: 'text',  text: 'Они клоуны.' },
 
-				{ type: 'text', color: 'black', text: 'They are clowns.' },
+				{ type: 'text',  text: 'They are clowns.' },
 			],
 		},
 		{
@@ -416,21 +393,20 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Это щенок.' },
+				{ type: 'text',  text: 'Это щенок.' },
 
-				{ type: 'text', color: 'black', text: 'It is ' },
+				{ type: 'text',  text: 'It is ' },
 				{ type: 'text', color: 'blue', text: 'a' },
-				{ type: 'text', color: 'black', text: ' puppy.' },
+				{ type: 'text',  text: ' puppy.' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Чтобы закрепить новые значения выполните упражнения на перевод.',
 				},
@@ -451,11 +427,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'В предложении сообщается чем является подлежащее «Это». Поэтому после него ставиться to be в одной из своих форм зависящей от лица подлежащего.',
 										},
@@ -470,11 +444,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Книга упоминается в первый раз. Поэтому существительное «книга» будет в значении «одна из книг». Чтобы это показать поставьте неопределённый артикль ',
 										},
@@ -486,7 +458,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' вместо ',
 										},
@@ -498,7 +469,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '.',
 										},
@@ -520,11 +490,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Перед существительными в единственном числе нужно ставить артикль ',
 										},
@@ -536,7 +504,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '. Подробнее о его назначении будет рассказано в следующей главе.',
 										},
@@ -558,11 +525,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'После ',
 										},
@@ -574,7 +539,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' ',
 										},
@@ -586,7 +550,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' будет в форме ',
 										},
@@ -598,7 +561,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '. Are ставится только после подлежащего второго лица.',
 										},
@@ -613,11 +575,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'They обозначает «они». А в предложении сказано «Это». Поэтому должно быть ',
 										},
@@ -629,7 +589,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '.',
 										},
@@ -651,11 +610,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'В этом предложении сообщается о профессии человека, кем он является. В английском чтобы сообщить и каким является персонаж и кем/чем нужно использовать to be в форме зависящей от лица подлежащего. «Он» — это третье лицо, поэтому to be будет в форме is.',
 										},
@@ -664,11 +621,10 @@
 								{
 									type: 'paragraph',
 									offset: true,
-									textSize: 'normal',
+
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Ещё перед любым существительным англоговорящие ставят определяющее слово каким оно является: определённым или неопределённым. Определённые существительные обозначают точный предмет известный собеседнику. А неопределённые любой предмет из класса таких же предметов. В русском предложении говорится о профессии персонажа: он один из учителей. Поэтому существительное будет неопределённым. А чтобы это обозначить перед ним ставится неопределённый артикль a.',
 										},
@@ -683,11 +639,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'В этом предложении сообщается о профессии человека, кем он является. В английском чтобы сообщить и каким является персонаж и кем/чем нужно использовать to be в форме зависящей от лица подлежащего. «Он» — это третье лицо, поэтому to be будет в форме is.',
 										},
@@ -709,11 +663,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'An используется если следом идёт слово начинающееся на гласную. А phone и на письме и вербально начинается на согласную ph.',
 										},
@@ -728,7 +680,6 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
@@ -738,7 +689,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' — это местоимение третьего лица. Поэтому после него должен стоять ',
 										},
@@ -750,7 +700,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '. И перед существительным не написан неопределённый артикль ',
 										},
@@ -762,7 +711,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' потому что сообщается, что это один из множества старых телефонов, не не какой-то конкретный.',
 										},
@@ -784,11 +732,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Павел является студентом. Тут правильно использован ',
 										},
@@ -800,7 +746,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '. Но ',
 										},
@@ -812,7 +757,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' в чистом виде используется в других типах предложений. Тут ',
 										},
@@ -824,7 +768,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' должен быть в одной из форм настоящего времени потому что без указания времени бытия предложение грамматически неправильное. В какой форме будет ',
 										},
@@ -836,7 +779,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '?',
 										},
@@ -845,11 +787,10 @@
 								{
 									type: 'paragraph',
 									offset: true,
-									textSize: 'normal',
+
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Ещё мы договорились перед существительными ставить один из определителей. Так как тут сообщается, что Павел является одним из студентов, то перед ним ставится неопределённый артикль ',
 										},
@@ -861,7 +802,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '.',
 										},
@@ -876,11 +816,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Перед существительными ставится один из определителей. Так как тут сообщается, что Павел является одним из студентов, то перед ним ставится неопределённый артикль ',
 										},
@@ -892,7 +830,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '.',
 										},
@@ -914,11 +851,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Павел является студентом. Тут правильно использован ',
 										},
@@ -930,7 +865,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '. Но ',
 										},
@@ -942,7 +876,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' в чистом виде используется в других типах предложений. Тут ',
 										},
@@ -954,7 +887,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' должен быть в одной из форм настоящего времени потому что без указания времени бытия предложение грамматически неправильное. В какой форме будет ',
 										},
@@ -966,7 +898,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '?',
 										},
@@ -975,11 +906,10 @@
 								{
 									type: 'paragraph',
 									offset: true,
-									textSize: 'normal',
+
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Ещё мы договорились перед существительными ставить один из определителей. Так как тут сообщается, что Павел является одним из студентов, то перед ним ставится неопределённый артикль ',
 										},
@@ -991,7 +921,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '.',
 										},
@@ -1040,13 +969,11 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', text: 'Глагол ' },
+				{ type: 'text',  text: 'Глагол ' },
 				{ type: 'text', color: 'blue', text: 'be' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' в прошедшем времени тоже зависит от лица подлежащего. Только тут две формы, а не три как в настоящем времени.',
 				},
@@ -1056,11 +983,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'В русском языке глагол «есть» уже явно присутствует в прошедшем времени в виде формы «был/была/было/были».',
 				},
@@ -1071,12 +997,12 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Я ' },
+				{ type: 'text',  text: 'Я ' },
 				{ type: 'text', color: 'blue', text: 'был' },
-				{ type: 'text', color: 'black', text: ' космонавтом.' },
-				{ type: 'text', color: 'black', text: 'I ' },
+				{ type: 'text',  text: ' космонавтом.' },
+				{ type: 'text',  text: 'I ' },
 				{ type: 'text', color: 'blue', text: 'was' },
-				{ type: 'text', color: 'black', text: ' a spaceman.' },
+				{ type: 'text',  text: ' a spaceman.' },
 			],
 		},
 		{
@@ -1084,13 +1010,13 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Они ' },
+				{ type: 'text',  text: 'Они ' },
 				{ type: 'text', color: 'blue', text: 'были' },
-				{ type: 'text', color: 'black', text: ' клоунами.' },
+				{ type: 'text',  text: ' клоунами.' },
 
-				{ type: 'text', color: 'black', text: 'They ' },
+				{ type: 'text',  text: 'They ' },
 				{ type: 'text', color: 'blue', text: 'were' },
-				{ type: 'text', color: 'black', text: ' clowns.' },
+				{ type: 'text',  text: ' clowns.' },
 			],
 		},
 		{
@@ -1098,13 +1024,13 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Он ' },
+				{ type: 'text',  text: 'Он ' },
 				{ type: 'text', color: 'blue', text: 'был' },
-				{ type: 'text', color: 'black', text: ' щенком.' },
+				{ type: 'text',  text: ' щенком.' },
 
-				{ type: 'text', color: 'black',  text: 'It ' },
+				{ type: 'text',   text: 'It ' },
 				{ type: 'text', color: 'blue',  text: 'was' },
-				{ type: 'text', color: 'black',  text: ' a puppy.' },
+				{ type: 'text',   text: ' a puppy.' },
 			],
 		},
 		{
@@ -1127,19 +1053,16 @@
 				{
 					type: 'paragraph',
 
-					textSize: 'normal',
 					children: [
 						{ type: 'text', color: 'blue',  text: 'Was' },
 						{
 							type: 'text',
-							color: 'black',
 
 							text: ' ставится перед подлежащим единственного числа, а ',
 						},
 						{ type: 'text', color: 'blue',  text: 'were' },
 						{
 							type: 'text',
-							color: 'black',
 
 							text: ' множественного. Как и в русском для единственного говорим «был», а для множественного «были». Даже по количеству букв слова совпадают.',
 						},
@@ -1150,11 +1073,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Попробуйте перевести предложения в прошедшем времени.',
 				},
@@ -1227,11 +1149,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Перед существительными в единственном числе нужно ставить артикль ',
 										},
@@ -1243,7 +1163,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '. Подробнее о его назначении будет рассказано в следующей главе.',
 										},
@@ -1281,11 +1200,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Предложение составлено правильно за исключением предлогов ',
 										},
@@ -1297,7 +1214,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '. Предлог ',
 										},
@@ -1309,19 +1225,17 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' употребляется когда указывают время ',
 										},
 										{
 											type: 'text',
-											color: 'black',
+
 											weight: 'bold',
 											text: 'до которого ',
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'событие произошло или произойдёт.',
 										},
@@ -1334,7 +1248,6 @@
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Он уйдёт к утру',
 										},
@@ -1346,14 +1259,12 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '.',
 										},
 
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'He will go by morning.',
 										},
@@ -1362,11 +1273,10 @@
 								{
 									type: 'paragraph',
 									offset: true,
-									textSize: 'normal',
+
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'А у нас указывается время когда событие произойдёт. Тут лучше подходить предлог at.',
 										},
@@ -1389,16 +1299,14 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Английские глаголы не имеет формы будущего времени. Поэтому предложения строят в форме настоящего времени, но применяют некоторые средства чтобы указать на будущие действия. Одно из них — ',
 				},
 				{ type: 'text', color: 'blue',  text: 'модальный глагол will' },
-				{ type: 'text', color: 'black',  text: '.' },
+				{ type: 'text',   text: '.' },
 			],
 		},
 		{
@@ -1408,7 +1316,6 @@
 				{
 					type: 'paragraph',
 
-					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
@@ -1418,14 +1325,12 @@
 						},
 						{
 							type: 'text',
-							color: 'black',
 
 							text: ' выражают действие (летать, прыгать, падать), а ',
 						},
 						{ type: 'text', color: 'blue',  text: 'модальные' },
 						{
 							type: 'text',
-							color: 'black',
 
 							text: ' выражают отношение к действию (могу, буду, должен).',
 						},
@@ -1436,11 +1341,11 @@
 
 					textSize: 'giant',
 					children: [
-						{ type: 'text', color: 'black',  text: 'Я ' },
+						{ type: 'text',   text: 'Я ' },
 						{ type: 'text', color: 'blue',  text: 'могу' },
-						{ type: 'text', color: 'black',  text: ' ' },
+						{ type: 'text',   text: ' ' },
 						{ type: 'text', color: 'gold',  text: 'летать' },
-						{ type: 'text', color: 'black',  text: '.' },
+						{ type: 'text',   text: '.' },
 					],
 				},
 				{
@@ -1448,11 +1353,11 @@
 
 					textSize: 'giant',
 					children: [
-						{ type: 'text', color: 'black',  text: 'Я ' },
+						{ type: 'text',   text: 'Я ' },
 						{ type: 'text', color: 'blue',  text: 'буду' },
-						{ type: 'text', color: 'black',  text: ' ' },
+						{ type: 'text',   text: ' ' },
 						{ type: 'text', color: 'gold',  text: 'прыгать' },
-						{ type: 'text', color: 'black',  text: '.' },
+						{ type: 'text',   text: '.' },
 					],
 				},
 				{
@@ -1460,11 +1365,11 @@
 
 					textSize: 'giant',
 					children: [
-						{ type: 'text', color: 'black',  text: 'Я ' },
+						{ type: 'text',   text: 'Я ' },
 						{ type: 'text', color: 'blue',  text: 'должен' },
-						{ type: 'text', color: 'black',  text: ' ' },
+						{ type: 'text',   text: ' ' },
 						{ type: 'text', color: 'gold',  text: 'взобраться' },
-						{ type: 'text', color: 'black',  text: '.' },
+						{ type: 'text',   text: '.' },
 					],
 				},
 			],
@@ -1472,13 +1377,12 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
-				{ type: 'text', color: 'black',  text: 'Модальный глагол ' },
+				{ type: 'text',   text: 'Модальный глагол ' },
 				{ type: 'text', color: 'blue',  text: 'will' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' означает «изволить что-то сделать».',
 				},
@@ -1487,59 +1391,54 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
-			children: [{ type: 'text', color: 'black',  text: 'Переведу предложение:' }],
+
+			children: [{ type: 'text',   text: 'Переведу предложение:' }],
 		},
 		{
 			type: 'paragraph',
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Я буду космонавтом.' },
+				{ type: 'text',   text: 'Я буду космонавтом.' },
 
-				{ type: 'text', color: 'black',  text: 'I ' },
+				{ type: 'text',   text: 'I ' },
 				{ type: 'text', color: 'blue',  text: 'will' },
-				{ type: 'text', color: 'black',  text: ' ' },
+				{ type: 'text',   text: ' ' },
 				{ type: 'text', color: 'gold',  text: 'be' },
-				{ type: 'text', color: 'black',  text: ' a spaceman.' },
+				{ type: 'text',   text: ' a spaceman.' },
 			],
 		},
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Сказуемое тут — это глагол ',
 				},
 				{ type: 'text', color: 'gold',  text: 'will' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: '. Сказуемое всегда должно стоять во временной форме, вы это уже видели при разборе предложений в настоящем и прошедшем времени. Так как предложение в настоящем времени, то will будет в форме настоящего времени. И дальше должно идти действие, которе я изволяю совершить: ',
 				},
 				{ type: 'text', color: 'gold',  text: 'бытие' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: '. Это дополнение. Дословно можно перевести как «Я ',
 				},
 				{ type: 'text', color: 'blue',  text: 'изволю' },
-				{ type: 'text', color: 'black',  text: ' ' },
+				{ type: 'text',   text: ' ' },
 				{ type: 'text', color: 'gold',  text: 'быть' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' космонавтом». На дополнение не ложится нагрузка времени, поэтому оно стоит в инфинитивной форме ',
 				},
 				{ type: 'text', color: 'gold',  text: 'be' },
-				{ type: 'text', color: 'black',  text: '.' },
+				{ type: 'text',   text: '.' },
 			],
 		},
 		{
@@ -1549,11 +1448,9 @@
 				{
 					type: 'paragraph',
 
-					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'В русском языке тоже после модального глагола стоит глагол в неопределённой форме.',
 						},
@@ -1564,11 +1461,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Формула будущего действия самая простая.',
 				},
@@ -1578,11 +1474,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Попробуйте перевести предложения в будущем времени.',
 				},
@@ -1682,11 +1577,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Ответьте на вопросы чтобы убедиться, что правильно поняли материал.',
 				},
@@ -1702,11 +1596,9 @@
 							{
 								type: 'paragraph',
 
-								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'Что такое подлежащее и сказуемое?',
 									},
@@ -1720,17 +1612,15 @@
 							{
 								type: 'paragraph',
 
-								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
-										color: 'black',
+
 										weight: 'bold',
 										text: 'Подлежащее',
 									},
 									{
 										type: 'text',
-										color: 'black',
 
 										text: ' — это член предложения обозначающий объект совершающий действие. Мы пока изучили личные местоимения, но подлежащим может быть существительное, имя.',
 									},
@@ -1739,24 +1629,22 @@
 							{
 								type: 'paragraph',
 								offset: true,
-								textSize: 'normal',
+
 								children: [
 									{
 										type: 'text',
-										color: 'black',
+
 										weight: 'bold',
 										text: 'Сказуемое',
 									},
 									{
 										type: 'text',
-										color: 'black',
 
 										text: ' — это член предложения обозначающий действие совершаемое подлежащим. Выражается глаголом. Так как в английском предложении всегда должно быть явно обозначено действие, то в таких предложениях где на русском мы указываем свойство объекта, и глагол обычно не ставится, в английском явно есть глагол ',
 									},
-									{ type: 'text', color: 'black', weight: 'bold', text: 'be' },
+									{ type: 'text',  weight: 'bold', text: 'be' },
 									{
 										type: 'text',
-										color: 'black',
 
 										text: ' в одной из временных форм: am, are, is, was, were или be после will для выражения будущего времени.',
 									},
@@ -1772,18 +1660,15 @@
 							{
 								type: 'paragraph',
 
-								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'Почему в заголовке главы говорится про ',
 									},
-									{ type: 'text', color: 'black', weight: 'bold', text: 'be' },
+									{ type: 'text',  weight: 'bold', text: 'be' },
 									{
 										type: 'text',
-										color: 'black',
 
 										text: ', но в предложениях почему-то используется am, are, is, was и were?',
 									},
@@ -1797,25 +1682,21 @@
 							{
 								type: 'paragraph',
 
-								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'Be — это неопределённая форма глагола «быть». По такому глаголу нельзя определить время. Это как сказать «Саша ',
 									},
-									{ type: 'text', color: 'black', weight: 'bold', text: 'печь' },
+									{ type: 'text',  weight: 'bold', text: 'печь' },
 									{
 										type: 'text',
-										color: 'black',
 
 										text: ' печенье». Это действие в чистом виде. Поэтому глагол нагружают каким-то временем изменяя его форму: пёк (прошедшее), печёт (настоящее), испечёт (будущее). То же самое и с ',
 									},
-									{ type: 'text', color: 'black', weight: 'bold', text: 'be' },
+									{ type: 'text',  weight: 'bold', text: 'be' },
 									{
 										type: 'text',
-										color: 'black',
 
 										text: '. В настоящем времени он будет в форме am, are или is. А в прошедшем was или were. Формы будущего времени ни у одного английского глагола нет.',
 									},
@@ -1831,18 +1712,15 @@
 							{
 								type: 'paragraph',
 
-								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'В каком времени стоит глагол ',
 									},
-									{ type: 'text', color: 'black', weight: 'bold', text: 'will' },
+									{ type: 'text',  weight: 'bold', text: 'will' },
 									{
 										type: 'text',
-										color: 'black',
 
 										text: ' в этом предложении? И почему именно в нём?',
 									},
@@ -1855,14 +1733,12 @@
 								children: [
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'Это будет кораблём.',
 									},
 
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'It will be a ship.',
 									},
@@ -1876,11 +1752,9 @@
 							{
 								type: 'paragraph',
 
-								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'После подлежащего должен стоять глагол нагруженный временем совершения действия. Так как английский глагол не имеет формы будущего времени, то стоит в настоящем. Поэтому will будут в настоящем.',
 									},
@@ -1893,11 +1767,9 @@
 									{
 										type: 'paragraph',
 
-										textSize: 'normal',
 										children: [
 											{
 												type: 'text',
-												color: 'black',
 
 												text: 'Модальный глагол will в форме настоящего времени и в инфинитивной форме выглядит одинаково.',
 											},
@@ -1915,25 +1787,21 @@
 							{
 								type: 'paragraph',
 
-								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'Почему в предложениях про будущее время глагол ',
 									},
-									{ type: 'text', color: 'black', weight: 'bold', text: 'be' },
+									{ type: 'text',  weight: 'bold', text: 'be' },
 									{
 										type: 'text',
-										color: 'black',
 
 										text: ' выглядит как инфинитив? Мы же знаем, что такие предложения стоят в настоящем времени, следовательно ',
 									},
-									{ type: 'text', color: 'black', weight: 'bold', text: 'be' },
+									{ type: 'text',  weight: 'bold', text: 'be' },
 									{
 										type: 'text',
-										color: 'black',
 
 										text: ' должен быть в форме am, are или is.',
 									},
@@ -1946,14 +1814,12 @@
 								children: [
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'Это будет дворец.',
 									},
 
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'It will be a palace.',
 									},
@@ -1967,11 +1833,9 @@
 							{
 								type: 'paragraph',
 
-								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'Потому что время совершения действия находится на сказуемом. Сказуемым является модальный глагол will. Он и стоит в форме настоящего времени. А be тут дополнение, через него время не передаётся, поэтому стоит в инфинитивной форме.',
 									},

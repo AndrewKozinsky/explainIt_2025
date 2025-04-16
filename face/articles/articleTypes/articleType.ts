@@ -69,6 +69,7 @@ namespace ArticleType {
 		offset?: boolean
 		// Размер текста
 		textSize?: RusToEngSize
+		revert?: boolean
 		rus: Text[]
 		eng: Text[]
 	}

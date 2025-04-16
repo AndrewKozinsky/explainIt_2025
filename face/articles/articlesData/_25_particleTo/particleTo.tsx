@@ -16,11 +16,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Инфинитив — это глагол без грамматической нагрузки времени. Вы уже встречались с ними при формировании отрицательного и вопросительного предложения.',
 				},
@@ -29,11 +27,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'В утверждении у глагола есть время совершения действия. Например like в форме настроящего времени после подлежащего третьего лица будет в форме likes.',
 				},
@@ -43,11 +40,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'А в вопросе появляется глагол do, на который переходит настоящее время. А смысловой like становится инфинитивом.',
 				},
@@ -57,11 +53,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Такие глаголы типа like называют голым инфинитивом. А если глагол стоит после другого глагола и отвечает на вопрос «Что делать?», то к ним добавляется частица to и они называются полным инфинитивом.',
 				},
@@ -72,15 +67,15 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Ник хочет ' },
+				{ type: 'text',  text: 'Ник хочет ' },
 				{ type: 'text', color: 'gray', text: '(что сделать?)' },
-				{ type: 'text', color: 'black', text: ' ' },
+				{ type: 'text',  text: ' ' },
 				{ type: 'text', color: 'blue', text: 'закрыть' },
-				{ type: 'text', color: 'black', text: ' окно.' },
+				{ type: 'text',  text: ' окно.' },
 
-				{ type: 'text', color: 'black', text: 'Nic wants ' },
+				{ type: 'text',  text: 'Nic wants ' },
 				{ type: 'text', color: 'blue', text: 'to close' },
-				{ type: 'text', color: 'black', text: ' the window.' },
+				{ type: 'text',  text: ' the window.' },
 			],
 		},
 		{
@@ -88,15 +83,15 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Мы попытаемся ' },
+				{ type: 'text',  text: 'Мы попытаемся ' },
 				{ type: 'text', color: 'gray', text: '(что сделать?)' },
-				{ type: 'text', color: 'black', text: ' ' },
+				{ type: 'text',  text: ' ' },
 				{ type: 'text', color: 'blue', text: 'поймать' },
-				{ type: 'text', color: 'black', text: ' её.' },
+				{ type: 'text',  text: ' её.' },
 
-				{ type: 'text', color: 'black', text: 'We will try ' },
+				{ type: 'text',  text: 'We will try ' },
 				{ type: 'text', color: 'blue', text: 'to catch' },
-				{ type: 'text', color: 'black', text: ' her.' },
+				{ type: 'text',  text: ' her.' },
 			],
 		},
 		{
@@ -107,24 +102,22 @@
 				{ type: 'text', color: 'gray', text: '(что сделать?)' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' Решить проблему было легко.',
 				},
 
-				{ type: 'text', color: 'black', text: 'It was easy ' },
+				{ type: 'text',  text: 'It was easy ' },
 				{ type: 'text', color: 'blue', text: 'to solve' },
-				{ type: 'text', color: 'black', text: ' the problem.' },
+				{ type: 'text',  text: ' the problem.' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Если перед глаголом в неопределённой форме стоит and (и) либо or (или), то частицу to не ставят.',
 				},
@@ -137,29 +130,26 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Щенок хотел прыгать и бегать.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'The puppy wanted to jump and ',
 				},
 				{ type: 'text', color: 'blue', text: 'run' },
-				{ type: 'text', color: 'black', text: '.' },
+				{ type: 'text',  text: '.' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Для создания отрицания инфинитиву не требуется помощь вспомогательного глагола. Not можно добавить прямо к нему.',
 				},
@@ -172,14 +162,13 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Я был счастлив не видеть тебя.',
 				},
 
-				{ type: 'text', color: 'black', text: 'I was happy ' },
+				{ type: 'text',  text: 'I was happy ' },
 				{ type: 'text', color: 'blue', text: 'not to see' },
-				{ type: 'text', color: 'black', text: ' you.' },
+				{ type: 'text',  text: ' you.' },
 			],
 		},
 		{
@@ -189,14 +178,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Я призываю всех не учить грамматику',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'I encourage everybody not to learn grammar.',
 				},
@@ -209,11 +196,9 @@
 				{
 					type: 'paragraph',
 
-					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'После модальных глаголов всегда стоят глаголы в голом инфинитиве.',
 						},
@@ -226,18 +211,16 @@
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Цены будут расти быстрее, инфляция увеличится.',
 						},
 
-						{ type: 'text', color: 'black', text: 'Prices ' },
+						{ type: 'text',  text: 'Prices ' },
 						{ type: 'text', color: 'gold', text: 'will' },
-						{ type: 'text', color: 'black', text: ' ' },
+						{ type: 'text',  text: ' ' },
 						{ type: 'text', color: 'blue', text: 'grow' },
 						{
 							type: 'text',
-							color: 'black',
 
 							text: ' faster, inflation will rise.',
 						},
@@ -261,13 +244,12 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
-				{ type: 'text', color: 'black', text: 'После ' },
-				{ type: 'text', color: 'black', weight: 'bold', text: 'be' },
+				{ type: 'text',  text: 'После ' },
+				{ type: 'text',  weight: 'bold', text: 'be' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' тоже может быть инфинитивный глагол.',
 				},
@@ -280,14 +262,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Наша цель улучшить результат.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Our goal is to improve the result.',
 				},

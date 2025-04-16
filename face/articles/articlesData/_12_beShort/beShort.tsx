@@ -13,16 +13,14 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'До этого мы использовали полную запись глагола ',
 				},
-				{ type: 'text', color: 'black', weight: 'bold', text: 'be и will' },
-				{ type: 'text', color: 'black', text: '.' },
+				{ type: 'text',  weight: 'bold', text: 'be и will' },
+				{ type: 'text',  text: '.' },
 			],
 		},
 		{
@@ -32,7 +30,6 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'I am... He is... They are not... You will be...',
 				},
@@ -41,11 +38,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Но такой вариант в основном только используют в навигационных табличках, дорожных знаках, объявлениях, заголовках и прочих местах где надпись должна быть заметна и хорошо читаема.',
 				},
@@ -54,21 +50,20 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'В остальных случаях используют не полную, а сокращённую запись ',
 				},
 				{
 					type: 'text',
-					color: 'black',
+
 					weight: 'bold',
 					text: 'be, will и других глаголов, которые изучим далее',
 				},
-				{ type: 'text', color: 'black', text: '.' },
+				{ type: 'text',  text: '.' },
 			],
 		},
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Be в прошедшем' },
@@ -76,16 +71,14 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'У was/were сокращённая запись есть только при отрицании. Вместо not к was/were вплотую ставится ',
 				},
 				{ type: 'text', color: 'blue', text: 'n’t' },
-				{ type: 'text', color: 'black', text: '.' },
+				{ type: 'text',  text: '.' },
 			],
 		},
 		{
@@ -93,13 +86,13 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Ты не был болен.' },
+				{ type: 'text',  text: 'Ты не был болен.' },
 
-				{ type: 'text', color: 'black', text: 'You ' },
+				{ type: 'text',  text: 'You ' },
 				{ type: 'text', color: 'gray', text: '(were not)' },
-				{ type: 'text', color: 'black', text: ' were' },
+				{ type: 'text',  text: ' were' },
 				{ type: 'text', color: 'blue', text: 'n’t' },
-				{ type: 'text', color: 'black', text: ' sick.' },
+				{ type: 'text',  text: ' sick.' },
 			],
 		},
 		{
@@ -107,23 +100,22 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Это было не просто.' },
+				{ type: 'text',  text: 'Это было не просто.' },
 
-				{ type: 'text', color: 'black', text: 'It ' },
+				{ type: 'text',  text: 'It ' },
 				{ type: 'text', color: 'gray', text: '(was not)' },
-				{ type: 'text', color: 'black', text: ' was' },
+				{ type: 'text',  text: ' was' },
 				{ type: 'text', color: 'blue', text: 'n’t' },
-				{ type: 'text', color: 'black', text: ' simply.' },
+				{ type: 'text',  text: ' simply.' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Постарайтесь при переводе упражнений использовать сокращённый вариант.',
 				},
@@ -160,11 +152,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Принцип прост: пробел и первую букву am/are/is заменяют на апостроф.',
 				},
@@ -175,13 +165,13 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Я уверенный человек.' },
+				{ type: 'text',  text: 'Я уверенный человек.' },
 
-				{ type: 'text', color: 'black', text: '' },
+				{ type: 'text',  text: '' },
 				{ type: 'text', color: 'gray', text: '(I am)' },
-				{ type: 'text', color: 'black', text: ' I' },
+				{ type: 'text',  text: ' I' },
 				{ type: 'text', color: 'blue', text: '’m' },
-				{ type: 'text', color: 'black', text: ' a confident person.' },
+				{ type: 'text',  text: ' a confident person.' },
 			],
 		},
 		{
@@ -189,13 +179,13 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Они инжерены.' },
+				{ type: 'text',  text: 'Они инжерены.' },
 
-				{ type: 'text', color: 'black', text: '' },
+				{ type: 'text',  text: '' },
 				{ type: 'text', color: 'gray', text: '(They are)' },
-				{ type: 'text', color: 'black', text: ' They' },
+				{ type: 'text',  text: ' They' },
 				{ type: 'text', color: 'blue', text: '’re' },
-				{ type: 'text', color: 'black', text: ' engineers.' },
+				{ type: 'text',  text: ' engineers.' },
 			],
 		},
 		{
@@ -203,13 +193,13 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Это восхитительно.' },
+				{ type: 'text',  text: 'Это восхитительно.' },
 
-				{ type: 'text', color: 'black', text: '' },
+				{ type: 'text',  text: '' },
 				{ type: 'text', color: 'gray', text: '(It is)' },
-				{ type: 'text', color: 'black', text: ' It' },
+				{ type: 'text',  text: ' It' },
 				{ type: 'text', color: 'blue', text: '’s' },
-				{ type: 'text', color: 'black', text: ' fascinating.' },
+				{ type: 'text',  text: ' fascinating.' },
 			],
 		},
 		{
@@ -219,11 +209,9 @@
 				{
 					type: 'paragraph',
 
-					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Вместо местоимений можно подставлять другие части речи и сокращённая форма будет работать точно так же для них.',
 						},
@@ -236,16 +224,15 @@
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Моя мама учитель.',
 						},
 
-						{ type: 'text', color: 'black', text: 'My ' },
+						{ type: 'text',  text: 'My ' },
 						{ type: 'text', color: 'gray', text: '(mum is)' },
-						{ type: 'text', color: 'black', text: ' mum' },
+						{ type: 'text',  text: ' mum' },
 						{ type: 'text', color: 'blue', text: "'s" },
-						{ type: 'text', color: 'black', text: ' a teacher.' },
+						{ type: 'text',  text: ' a teacher.' },
 					],
 				},
 				{
@@ -255,16 +242,15 @@
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Вся еда на кухне.',
 						},
 
-						{ type: 'text', color: 'black', text: 'All the ' },
+						{ type: 'text',  text: 'All the ' },
 						{ type: 'text', color: 'gray', text: '(food is)' },
-						{ type: 'text', color: 'black', text: ' food' },
+						{ type: 'text',  text: ' food' },
 						{ type: 'text', color: 'blue', text: "'s" },
-						{ type: 'text', color: 'black', text: ' in the kitchen' },
+						{ type: 'text',  text: ' in the kitchen' },
 					],
 				},
 			],
@@ -272,11 +258,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'При выполнении упражнения постарайтесь использовать сокращённую форму.',
 				},
@@ -310,11 +295,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Вы правильно ответили, что по отношению к человеку используется tall, а не high. Говорят tall когда персонаж или предмет по высоте больше, чем по ширине. А high когда ширина больше высоты, но нужно сказать, что высота большая. Например «Высокий забор». Высота забора не может быть больше ширины. Но заборы бывают высокими.',
 										},
@@ -329,11 +312,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'В русском языке слово «высокий» универсально. Но в английском есть несколько синонимов, которые используются в разных контекстах. ',
 										},
@@ -345,7 +326,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' используют когда персонаж или предмет по высоте больше, чем по ширине. А если ширина больше высоты, но нужно сказать, что высота большая, например Высокий забор, то применяют слово ',
 										},
@@ -357,7 +337,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '.',
 										},
@@ -366,11 +345,10 @@
 								{
 									type: 'paragraph',
 									offset: true,
-									textSize: 'normal',
+
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Сложно представить чтобы человек по высоте был меньше, чем по ширине, поэтому про высоких людей всегда говорят ',
 										},
@@ -382,7 +360,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '.',
 										},
@@ -391,11 +368,10 @@
 								{
 									type: 'paragraph',
 									offset: true,
-									textSize: 'normal',
+
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Если это не знали, то ничего страшного. Мы тут ',
 										},
@@ -407,7 +383,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' изучали, а не тонкости английских прилагательных.',
 										},
@@ -440,11 +415,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Правильно использовать глагол to be в форме ',
 										},
@@ -456,7 +429,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' так как он ставится после местоимений ',
 										},
@@ -468,7 +440,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' и прочих местоимений во втором лице.',
 										},
@@ -490,11 +461,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'В русском предложении сообщается о свойстве персонажа. Поэтому в английском без вставки ',
 										},
@@ -506,7 +475,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' не обойтись.',
 										},
@@ -580,11 +548,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Правильно, но многословно. Так говорят если хотят подчернуть её хорошие качества.',
 										},
@@ -599,11 +565,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'После местоимения she должен стоять is, а не are.',
 										},
@@ -630,22 +594,19 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Сокращённая запись с отрицанием. Тут отрицательная частица ',
 				},
-				{ type: 'text', color: 'black', weight: 'bold', text: 'not' },
-				{ type: 'text', color: 'black', text: ' сливается с be, а ' },
+				{ type: 'text',  weight: 'bold', text: 'not' },
+				{ type: 'text',  text: ' сливается с be, а ' },
 				{ type: 'text', color: 'blue', text: 'o' },
-				{ type: 'text', color: 'black', text: ' в ' },
+				{ type: 'text',  text: ' в ' },
 				{ type: 'text', color: 'blue', text: 'not' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' заменяется на апостроф.',
 				},
@@ -656,13 +617,13 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Я не совершенен.' },
+				{ type: 'text',  text: 'Я не совершенен.' },
 
-				{ type: 'text', color: 'black', text: '' },
+				{ type: 'text',  text: '' },
 				{ type: 'text', color: 'gray', text: '(I am)' },
-				{ type: 'text', color: 'black', text: ' I' },
+				{ type: 'text',  text: ' I' },
 				{ type: 'text', color: 'blue', text: '’m' },
-				{ type: 'text', color: 'black', text: ' not perfect.' },
+				{ type: 'text',  text: ' not perfect.' },
 			],
 		},
 		{
@@ -687,13 +648,13 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Вы не взволнованы.' },
+				{ type: 'text',  text: 'Вы не взволнованы.' },
 
-				{ type: 'text', color: 'black', text: 'You ' },
+				{ type: 'text',  text: 'You ' },
 				{ type: 'text', color: 'gray', text: '(are not)' },
-				{ type: 'text', color: 'black', text: ' are' },
+				{ type: 'text',  text: ' are' },
 				{ type: 'text', color: 'blue', text: 'n’t' },
-				{ type: 'text', color: 'black', text: ' worried.' },
+				{ type: 'text',  text: ' worried.' },
 			],
 		},
 		{
@@ -701,23 +662,22 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Это не секрет.' },
+				{ type: 'text',  text: 'Это не секрет.' },
 
-				{ type: 'text', color: 'black', text: 'It ' },
+				{ type: 'text',  text: 'It ' },
 				{ type: 'text', color: 'gray', text: '(is not)' },
-				{ type: 'text', color: 'black', text: ' is' },
+				{ type: 'text',  text: ' is' },
 				{ type: 'text', color: 'blue', text: 'n’t' },
-				{ type: 'text', color: 'black', text: ' a secret.' },
+				{ type: 'text',  text: ' a secret.' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'При выполнении упражнения постарайтесь использовать сокращённую форму.',
 				},
@@ -773,18 +733,16 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'В сокращённой записи от ',
 				},
-				{ type: 'text', color: 'black', weight: 'bold', text: 'will' },
-				{ type: 'text', color: 'black', text: ' остаётся только ' },
+				{ type: 'text',  weight: 'bold', text: 'will' },
+				{ type: 'text',  text: ' остаётся только ' },
 				{ type: 'text', color: 'blue', text: '‘ll' },
-				{ type: 'text', color: 'black', text: '.' },
+				{ type: 'text',  text: '.' },
 			],
 		},
 		{
@@ -792,13 +750,13 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Я буду королём.' },
+				{ type: 'text',  text: 'Я буду королём.' },
 
-				{ type: 'text', color: 'black', text: '' },
+				{ type: 'text',  text: '' },
 				{ type: 'text', color: 'gray', text: '(I will)' },
-				{ type: 'text', color: 'black', text: ' I' },
+				{ type: 'text',  text: ' I' },
 				{ type: 'text', color: 'blue', text: '’ll' },
-				{ type: 'text', color: 'black', text: ' be late.' },
+				{ type: 'text',  text: ' be late.' },
 			],
 		},
 		{
@@ -806,13 +764,13 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Он будет наследником.' },
+				{ type: 'text',  text: 'Он будет наследником.' },
 
-				{ type: 'text', color: 'black', text: '' },
+				{ type: 'text',  text: '' },
 				{ type: 'text', color: 'gray', text: '(He will)' },
-				{ type: 'text', color: 'black', text: ' He' },
+				{ type: 'text',  text: ' He' },
 				{ type: 'text', color: 'blue', text: '’ll' },
-				{ type: 'text', color: 'black', text: ' be the heir.' },
+				{ type: 'text',  text: ' be the heir.' },
 			],
 		},
 		{
@@ -845,12 +803,11 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', weight: 'bold', text: 'Will not' },
-				{ type: 'text', color: 'black', text: ' сокращается до ' },
+				{ type: 'text',  weight: 'bold', text: 'Will not' },
+				{ type: 'text',  text: ' сокращается до ' },
 				{ type: 'text', color: 'blue', text: 'won’t' },
-				{ type: 'text', color: 'black', text: ':' },
+				{ type: 'text',  text: ':' },
 			],
 		},
 		{
@@ -858,13 +815,13 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Я не опоздаю.' },
+				{ type: 'text',  text: 'Я не опоздаю.' },
 
-				{ type: 'text', color: 'black', text: 'I ' },
+				{ type: 'text',  text: 'I ' },
 				{ type: 'text', color: 'gray', text: '(will not)' },
-				{ type: 'text', color: 'black', text: ' wo' },
+				{ type: 'text',  text: ' wo' },
 				{ type: 'text', color: 'blue', text: 'n’t' },
-				{ type: 'text', color: 'black', text: ' be late.' },
+				{ type: 'text',  text: ' be late.' },
 			],
 		},
 		{
@@ -874,26 +831,24 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Таня не скоро будет там.',
 				},
 
-				{ type: 'text', color: 'black', text: 'Tanya ' },
+				{ type: 'text',  text: 'Tanya ' },
 				{ type: 'text', color: 'gray', text: '(will not)' },
-				{ type: 'text', color: 'black', text: ' wo' },
+				{ type: 'text',  text: ' wo' },
 				{ type: 'text', color: 'blue', text: 'n’t' },
-				{ type: 'text', color: 'black', text: ' be there soon.' },
+				{ type: 'text',  text: ' be there soon.' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'При выполнении упражнения постарайтесь использовать сокращённую форму.',
 				},
@@ -936,11 +891,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Сокращённая форма и слово до него сливаются вместе и на письме и в речи. И для некоторых слов она не уместна потому что сказать такое сочитание звуков затруднительно. Например сочитание guys и are. Сокращение guys’re правильное, но в реальном разговоре такого избегают.',
 				},
@@ -953,24 +907,22 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Hey, these guys are professionals.',
 				},
 
-				{ type: 'text', color: 'black', text: 'Hey, these ' },
+				{ type: 'text',  text: 'Hey, these ' },
 				{ type: 'text', color: 'error', text: 'guys’re' },
-				{ type: 'text', color: 'black', text: ' professionals.' },
+				{ type: 'text',  text: ' professionals.' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'В будущих главая будет использоваться полная форма чтобы вас не запутывать.',
 				},

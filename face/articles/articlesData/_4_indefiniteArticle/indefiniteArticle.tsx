@@ -19,20 +19,17 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Существительное может быть ',
 				},
 				{ type: 'text', color: 'blue', text: 'определённым' },
-				{ type: 'text', color: 'black', text: ' или ' },
+				{ type: 'text',  text: ' или ' },
 				{ type: 'text', color: 'blue', text: 'неопределённым' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: '. Возьму такое предложение:',
 				},
@@ -42,16 +39,14 @@
 			type: 'paragraph',
 
 			textSize: 'giant',
-			children: [{ type: 'text', color: 'black', text: 'Купи, пожалуйста, мяч.' }],
+			children: [{ type: 'text',  text: 'Купи, пожалуйста, мяч.' }],
 		},
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Если про мяч сообщается впервые, то будет обозначать просьбу купить любой мяч. А если упоминался ранее, то конкретный  мяч. В русском языке это понимают по контексту. Но нередко перед определёнными существительными ставим местоимения «тот», «этот» чтобы сделать отсылку на объект упомянутый ранее.',
 				},
@@ -62,26 +57,24 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Купи, пожалуйста, ' },
+				{ type: 'text',  text: 'Купи, пожалуйста, ' },
 				{ type: 'text', color: 'blue', text: 'тот' },
-				{ type: 'text', color: 'black', text: ' мяч.' },
+				{ type: 'text',  text: ' мяч.' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Англоговорящие явно указывают неопределённость или определённость существительного ставя перед ним ',
 				},
 				{ type: 'text', color: 'blue', text: 'определитель' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: '. Есть несколько групп определителей.',
 				},
@@ -93,12 +86,10 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{ type: 'text', color: 'blue', text: 'Неопределённый артикль a' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' используется с неопределёнными существительными в единственном числе.',
 				},
@@ -109,7 +100,6 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
@@ -119,7 +109,6 @@
 				},
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' some, any, many и другие используются перед неопределёнными существительными во множественном числе. ',
 				},
@@ -129,11 +118,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Нулевым артиклем называют отсутствие артикля. В частности перед существительными во множественным числе.',
 				},
@@ -145,12 +132,10 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{ type: 'text', color: 'blue', text: 'Определённый артикль the' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' сообщает, что следом идёт определённое, конкретное существительное. То есть указывается на то, что собеседник знает о каком именно предмете идёт речь.',
 				},
@@ -161,9 +146,8 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', text: 'Это ' },
+				{ type: 'text',  text: 'Это ' },
 				{
 					type: 'text',
 					color: 'blue',
@@ -172,7 +156,6 @@
 				},
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' как и в русском языке. Само собой когда говорят о чьём-то персонаже или предмете, то подразумевают нечто конкретное. Если есть возможность обозначить принадлежность, то предпочтут одно из притяжательных местоимений, а не определённый артикль the.',
 				},
@@ -183,13 +166,11 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', text: 'И ' },
+				{ type: 'text',  text: 'И ' },
 				{ type: 'text', color: 'blue', text: 'указательные местоимения' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' как у нас. И если указывают на предмет, то указывают на конкретный.',
 				},
@@ -199,11 +180,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'По смыслу как притяжательное местоимение, но можно указать принадлежность любым предметом или персонажем.',
 				},
@@ -216,11 +195,9 @@
 				{
 					type: 'paragraph',
 
-					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Выше дано упрощённое представление работы артиклей и других определителей. На самом деле есть большое количество правил когда какой используется. Они будут рассмотрены по ходу курса.',
 						},
@@ -231,13 +208,12 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
-				{ type: 'text', color: 'black', text: 'Вы уже ставили ' },
-				{ type: 'text', color: 'black', weight: 'bold', text: 'неопределённый артикль a' },
+				{ type: 'text',  text: 'Вы уже ставили ' },
+				{ type: 'text',  weight: 'bold', text: 'неопределённый артикль a' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' упражнениях предыдущих глав. Давайте разберём его в деталях. А с другими определителями познакомимся ближе по ходу курса.',
 				},
@@ -248,13 +224,11 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', text: 'Неопределённый артикль ' },
+				{ type: 'text',  text: 'Неопределённый артикль ' },
 				{ type: 'text', color: 'blue', text: 'a' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' ставится перед неопределёнными существительными. То есть когда говорят об одном из объектов без разницы каком.',
 				},
@@ -266,9 +240,9 @@
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'blue', text: 'a' },
-				{ type: 'text', color: 'black', text: ' car' },
+				{ type: 'text',  text: ' car' },
 
-				{ type: 'text', color: 'black', text: 'машина' },
+				{ type: 'text',  text: 'машина' },
 			],
 		},
 		{
@@ -290,9 +264,9 @@
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'blue', text: 'a' },
-				{ type: 'text', color: 'black', text: ' carrot' },
+				{ type: 'text',  text: ' carrot' },
 
-				{ type: 'text', color: 'black', text: 'морковь' },
+				{ type: 'text',  text: 'морковь' },
 			],
 		},
 		{
@@ -312,12 +286,10 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{ type: 'text', color: 'blue', text: 'Артикль a' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' произошёл от древнеанглийского числительного an (один), поэтому его используют только для существительных в единственном числе.',
 				},
@@ -331,18 +303,15 @@
 				{
 					type: 'paragraph',
 
-					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Это правило снова отсылает к изначальному значению артикля ',
 						},
 						{ type: 'text', color: 'blue', text: 'a' },
 						{
 							type: 'text',
-							color: 'black',
 
 							text: '. Зачем говорить «один» для существительных не поддающихся счёту?',
 						},
@@ -362,18 +331,15 @@
 						{
 							type: 'paragraph',
 
-							textSize: 'normal',
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Перед неопределёнными исчисляемыми существительными в единственном числе артикль ',
 								},
 								{ type: 'text', color: 'blue', text: 'a' },
 								{
 									type: 'text',
-									color: 'black',
 
 									text: ' ставится.',
 								},
@@ -386,14 +352,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Это пакет.',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'It is a bag.',
 								},
@@ -406,14 +370,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Это столовая ложка.',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'It is a tablespoon.',
 								},
@@ -428,11 +390,9 @@
 						{
 							type: 'paragraph',
 
-							textSize: 'normal',
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Перед неопределёнными неисчисляемыми не ставится.',
 								},
@@ -445,14 +405,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Это рис.',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'It is rice.',
 								},
@@ -478,14 +436,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Это деньги.',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'It is money.',
 								},
@@ -507,11 +463,10 @@
 						{
 							type: 'paragraph',
 							offset: true,
-							textSize: 'normal',
+
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Вы можете возразить, что рис состоит из рисинок, а деньги из купюр. Это можно посчитать. Но мы же говорим про существительное рис, и не рисинки. И про деньги, а не купюры. Поэтому это посчитать нельзя.',
 								},
@@ -535,18 +490,15 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Кельвин пишется через ',
 										},
-										{ type: 'text', color: 'black', weight: 'bold', text: 'C' },
+										{ type: 'text',  weight: 'bold', text: 'C' },
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ': Calvin. А так предложение правильное.',
 										},
@@ -561,25 +513,21 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Кельвин пишется через ',
 										},
-										{ type: 'text', color: 'black', weight: 'bold', text: 'a' },
+										{ type: 'text',  weight: 'bold', text: 'a' },
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ', а не ',
 										},
-										{ type: 'text', color: 'black', weight: 'bold', text: 'e' },
+										{ type: 'text',  weight: 'bold', text: 'e' },
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ': C',
 										},
@@ -591,7 +539,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'lvin. А так предложение правильное.',
 										},
@@ -613,11 +560,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Местоимение he стоит в третьем лице. А to be в третьем лице настоящего времени будет в форме is. В остальном предложение правильное.',
 										},
@@ -644,11 +589,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Если бы в контексте разговора упоминался какой-то настоящий мужчина и потом сообщили, что Майкл и он есть, то предложение было бы правильным. Но про это ничего не сказано. И смысл предложения в том, что Майкл один из настоящих мужчин. Поэтому перед связкой ',
 										},
@@ -660,7 +603,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' нужно поставить неопределённый артикль ',
 										},
@@ -672,7 +614,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '.',
 										},
@@ -687,11 +628,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Неопределённый артикль a должен стоять перед связкой прилагательного + существительного.',
 										},
@@ -716,11 +655,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'В предложении ',
 										},
@@ -732,7 +669,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' должен быть в один. А тут их два: в форме ',
 										},
@@ -744,7 +680,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' и ',
 										},
@@ -756,7 +691,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '. И артикля a не хватает. Даша ведь одна из симпатичных девушек, а не та самая.',
 										},
@@ -771,11 +705,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'В связке прилагательного и существительного первым идёт неопределённый артикль a. Поставьте его перед прилагательным.',
 										},
@@ -800,11 +732,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Неопределённый артикль a должен стоять перед связкой прилагательного + существительного. Считайте black phone одной сущностью перед которой нужно показать определённость или неопределённость через определяющее слово.',
 										},
@@ -819,11 +749,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Тут одновременно есть два подлежащих: it и phone. Так быть не должно.',
 										},
@@ -848,11 +776,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Если перед существительным есть прилагательное, относящиеся к этому существительному, то артикль a должен стоять перед этим словом, а не после.',
 										},
@@ -870,7 +796,7 @@
 				{
 					rusSentence: 'Кстати, он очень хороший врач.',
 					engSentences: [
-						{ engSentences: ["He's a very good doctor, by the way."], isCorrect: true },
+						{ engSentences: ['He\'s a very good doctor, by the way.'], isCorrect: true },
 						{
 							engSentences: [],
 							isCorrect: false,
@@ -878,11 +804,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Сообщается кем он является — очень хорошим врачом. Поэтому после подлежащего должен быть to be. B один один из «очень хороших докторов». Поэтому перед этим словосочетанием должен быть неопределённый артикль a.',
 										},
@@ -897,11 +821,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Грамматически правильно, но забыли слово «очень».',
 										},
@@ -940,11 +862,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Ко многим неисчисляемым существительным обозначающие вещества можно добавить неопределённый артикль. Тогда они станут исчисляемыми и приобретут значение порции этого вещества.',
 				},
@@ -957,14 +877,13 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Это чай. Это стакан чая.',
 				},
 
-				{ type: 'text', color: 'black', text: 'It is tea. It is ' },
+				{ type: 'text',  text: 'It is tea. It is ' },
 				{ type: 'text', color: 'blue', text: 'a' },
-				{ type: 'text', color: 'black', text: ' tea.' },
+				{ type: 'text',  text: ' tea.' },
 			],
 		},
 		{
@@ -983,11 +902,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'В русском языке вынуждены использовать разные слова для обозначения разных сущностей. А в английском слово приобретает другое значение после добавления неопределённого артикля.',
 				},
@@ -998,11 +916,11 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Это бумага. Это газета.' },
+				{ type: 'text',  text: 'Это бумага. Это газета.' },
 
-				{ type: 'text', color: 'black', text: 'It is paper. It is ' },
+				{ type: 'text',  text: 'It is paper. It is ' },
 				{ type: 'text', color: 'blue', text: 'a' },
-				{ type: 'text', color: 'black', text: ' paper.' },
+				{ type: 'text',  text: ' paper.' },
 			],
 		},
 		{
@@ -1021,8 +939,8 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
-			children: [{ type: 'text', color: 'black', text: 'Ещё примеры:' }],
+
+			children: [{ type: 'text',  text: 'Ещё примеры:' }],
 		},
 		{
 			type: 'grid',
@@ -1036,9 +954,9 @@
 
 							textSize: 'big',
 							children: [
-								{ type: 'text', color: 'black', text: 'wood' },
+								{ type: 'text',  text: 'wood' },
 
-								{ type: 'text', color: 'black', text: 'лес' },
+								{ type: 'text',  text: 'лес' },
 							],
 						},
 						{
@@ -1046,9 +964,9 @@
 
 							textSize: 'big',
 							children: [
-								{ type: 'text', color: 'black', text: 'iron' },
+								{ type: 'text',  text: 'iron' },
 
-								{ type: 'text', color: 'black', text: 'железо' },
+								{ type: 'text',  text: 'железо' },
 							],
 						},
 						{
@@ -1056,9 +974,9 @@
 
 							textSize: 'big',
 							children: [
-								{ type: 'text', color: 'black',  text: 'coal' },
+								{ type: 'text',  text: 'coal' },
 
-								{ type: 'text', color: 'black',  text: 'уголь' },
+								{ type: 'text',  text: 'уголь' },
 							],
 						},
 						{
@@ -1066,9 +984,9 @@
 
 							textSize: 'big',
 							children: [
-								{ type: 'text', color: 'black',  text: 'hair' },
+								{ type: 'text',  text: 'hair' },
 
-								{ type: 'text', color: 'black',  text: 'волосы' },
+								{ type: 'text',  text: 'волосы' },
 							],
 						},
 					],
@@ -1080,9 +998,9 @@
 
 							textSize: 'big',
 							children: [
-								{ type: 'text', color: 'black',  text: 'a wood' },
+								{ type: 'text',  text: 'a wood' },
 
-								{ type: 'text', color: 'black',  text: 'дерево' },
+								{ type: 'text',  text: 'дерево' },
 							],
 						},
 						{
@@ -1090,9 +1008,9 @@
 
 							textSize: 'big',
 							children: [
-								{ type: 'text', color: 'black',  text: 'an iron' },
+								{ type: 'text',  text: 'an iron' },
 
-								{ type: 'text', color: 'black',  text: 'утюг' },
+								{ type: 'text',  text: 'утюг' },
 							],
 						},
 						{
@@ -1100,9 +1018,9 @@
 
 							textSize: 'big',
 							children: [
-								{ type: 'text', color: 'black',  text: 'a coal' },
+								{ type: 'text',  text: 'a coal' },
 
-								{ type: 'text', color: 'black',  text: 'уголёк' },
+								{ type: 'text',  text: 'уголёк' },
 							],
 						},
 						{
@@ -1110,9 +1028,9 @@
 
 							textSize: 'big',
 							children: [
-								{ type: 'text', color: 'black',  text: 'a hair' },
+								{ type: 'text',  text: 'a hair' },
 
-								{ type: 'text', color: 'black',  text: 'волосок' },
+								{ type: 'text',  text: 'волосок' },
 							],
 						},
 					],
@@ -1122,11 +1040,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Некоторые абстрактные понятия можно сделать исчисляемыми.',
 				},
@@ -1139,14 +1056,13 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Это красота. Она красотка.',
 				},
 
-				{ type: 'text', color: 'black',  text: 'It is beauty. She is ' },
-				{ type: 'text', color: 'blue',  text: 'a' },
-				{ type: 'text', color: 'black',  text: ' beauty.' },
+				{ type: 'text',  text: 'It is beauty. She is ' },
+				{ type: 'text', color: 'blue', text: 'a' },
+				{ type: 'text',  text: ' beauty.' },
 			],
 		},
 		{
@@ -1165,108 +1081,8 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
-			children: [{ type: 'text', color: 'black',  text: 'Ещё примеры:' }],
-		},
-		{
-			type: 'grid',
 
-			gridId: 'grid-21718',
-			cells: [
-				{
-					children: [
-						{
-							type: 'paragraph',
-
-							textSize: 'big',
-							children: [
-								{ type: 'text', color: 'black',  text: 'life' },
-
-								{ type: 'text', color: 'black',  text: 'жизнь' },
-							],
-						},
-						{
-							type: 'paragraph',
-
-							textSize: 'big',
-							children: [
-								{ type: 'text', color: 'black',  text: 'time' },
-
-								{ type: 'text', color: 'black',  text: 'время' },
-							],
-						},
-						{
-							type: 'paragraph',
-
-							textSize: 'big',
-							children: [
-								{ type: 'text', color: 'black',  text: 'play' },
-
-								{ type: 'text', color: 'black',  text: 'игра' },
-							],
-						},
-						{
-							type: 'paragraph',
-
-							textSize: 'big',
-							children: [
-								{ type: 'text', color: 'black',  text: 'fire' },
-
-								{ type: 'text', color: 'black',  text: 'огонь' },
-							],
-						},
-					],
-				},
-				{
-					children: [
-						{
-							type: 'paragraph',
-
-							textSize: 'big',
-							children: [
-								{ type: 'text', color: 'black',  text: 'a life' },
-
-								{
-									type: 'text',
-									color: 'black',
-
-									text: 'жизненный путь',
-								},
-							],
-						},
-						{
-							type: 'paragraph',
-
-							textSize: 'big',
-							children: [
-								{ type: 'text', color: 'black',  text: 'a time' },
-
-								{ type: 'text', color: 'black',  text: 'раз' },
-							],
-						},
-						{
-							type: 'paragraph',
-
-							textSize: 'big',
-							children: [
-								{ type: 'text', color: 'black',  text: 'a play' },
-
-								{ type: 'text', color: 'black',  text: 'пьеса' },
-							],
-						},
-						{
-							type: 'paragraph',
-
-							textSize: 'big',
-							children: [
-								{ type: 'text', color: 'black',  text: 'a fire' },
-
-								{ type: 'text', color: 'black',  text: 'пожар' },
-							],
-						},
-					],
-				},
-			],
+			children: [{ type: 'text',  text: 'Ещё примеры:' }],
 		},
 		{
 			type: 'exercises',
@@ -1288,11 +1104,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Вы узнали, что существительные в английском могут быть определёнными или неопределёнными. Определённые — это те, которые уже находятся в контексте разговора. Но до этого их нужно в контекст ввести. Поэтому сначала упоминают неопределённое существительное помечая его артиклем a, а затем оно становится одним из определённых.',
 				},
@@ -1303,9 +1117,9 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Огромный слон.' },
+				{ type: 'text',  text: 'Огромный слон.' },
 
-				{ type: 'text', color: 'black',  text: 'It is a huge elephant.' },
+				{ type: 'text',  text: 'It is a huge elephant.' },
 			],
 		},
 		{
@@ -1326,9 +1140,9 @@
 			offset: true,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Это дверь.' },
+				{ type: 'text',  text: 'Это дверь.' },
 
-				{ type: 'text', color: 'black',  text: 'It is a door.' },
+				{ type: 'text',  text: 'It is a door.' },
 			],
 		},
 		{
@@ -1348,12 +1162,10 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', weight: 'bold', text: 'Неопределённый артикль a' },
+				{ type: 'text',  weight: 'bold', text: 'Неопределённый артикль a' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' могут применять не в значении «один из объектов», а в обобщённом значении как типичное поведение любого объекта этого класса.',
 				},
@@ -1364,9 +1176,9 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Врач лечит людей.' },
+				{ type: 'text',  text: 'Врач лечит людей.' },
 
-				{ type: 'text', color: 'black',  text: 'A doctor treats people.' },
+				{ type: 'text',  text: 'A doctor treats people.' },
 			],
 		},
 		{
@@ -1389,14 +1201,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Кролик — домашнее животное.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'A rabbit is a domestic animal.',
 				},
@@ -1432,25 +1242,21 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Не th',
 										},
-										{ type: 'text', color: 'black', weight: 'bold', text: 'e' },
+										{ type: 'text',  weight: 'bold', text: 'e' },
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'n, а th',
 										},
-										{ type: 'text', color: 'black', weight: 'bold', text: 'a' },
+										{ type: 'text',  weight: 'bold', text: 'a' },
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'n.',
 										},
@@ -1459,23 +1265,21 @@
 								{
 									type: 'paragraph',
 									offset: true,
-									textSize: 'normal',
+
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Перед ',
 										},
 										{
 											type: 'text',
-											color: 'black',
+
 											weight: 'bold',
 											text: 'wooden bench',
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' тоже нужен артикль.',
 										},
@@ -1508,30 +1312,26 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Перед ',
 										},
 										{
 											type: 'text',
-											color: 'black',
+
 											weight: 'bold',
 											text: 'Mobile crypto',
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' забыли неопределённый артикль ',
 										},
 										{ type: 'text', color: 'blue', weight: 'bold', text: 'a' },
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '. Он нужен когда сообщают о типичном поведении объекта.',
 										},
@@ -1562,11 +1362,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Перед loyal pet должен быть неопределённый артикль a потому что подразумевают типичное поведение: любая собака по поведению — это верный питомец.',
 										},
@@ -1592,11 +1390,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'В этом пр',
 										},
@@ -1624,11 +1420,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'В этом пр',
 										},
@@ -1655,11 +1449,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'В русском языке мы также изменяем слова для благозвучности. Например предлог «в» изменим на «во» если после него стоит слово начинающееся на «в»: «в цирке», но «во время исполнения».',
 				},
@@ -1684,11 +1477,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Неопределённый артикль ',
 										},
@@ -1700,7 +1491,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' пишется перед словами начинающиеся с согласной для благозвучности. А envelop начинается с гласной. Поэтому тут используйте ',
 										},
@@ -1712,7 +1502,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '.',
 										},
@@ -1727,11 +1516,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Перед существительным должно быть определяющее слово. О каком конверте идёт речь: об определённом или одном из? Если отдельно не сказано, то об одном из множества.',
 										},
@@ -1755,11 +1542,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Если бы слово adult было прилагательным, то такой вариант был бы правильный. Перед прилагательными артикли не ставятся. Но это должно быть неопределённым существительным. Поэтому ',
 										},
@@ -1771,7 +1556,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' требуется.',
 										},
@@ -1796,11 +1580,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'В английских предложениях есть чёткий порядок слов: за подлежащим следует сказуемое в повествовательных предложениях. Тут сказуемое убежало в конец предложения.',
 										},
@@ -1815,11 +1597,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'После местоимения ',
 										},
@@ -1831,7 +1611,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' следует ',
 										},
@@ -1843,7 +1622,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' в форме ',
 										},
@@ -1855,7 +1633,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '.',
 										},
@@ -1879,11 +1656,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Верно! Прилагательные с окончанием ',
 										},
@@ -1895,7 +1670,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' описывают эмоции человека.',
 										},
@@ -1910,11 +1684,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Верно! Прилагательные с окончанием ',
 										},
@@ -1926,7 +1698,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' описывают эмоции человека.',
 										},
@@ -1941,42 +1712,37 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Глагол ',
 										},
 										{ type: 'text', color: 'blue', weight: 'bold', text: 'be' },
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' должен стоять перед каждым дополнением: и перед ',
 										},
 										{
 											type: 'text',
-											color: 'black',
+
 											weight: 'bold',
 											text: 'noticed',
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' и перед ',
 										},
 										{
 											type: 'text',
-											color: 'black',
+
 											weight: 'bold',
 											text: 'problem',
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '.',
 										},
@@ -2010,11 +1776,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Верно! Прилагательные с окончанием ',
 										},
@@ -2026,7 +1790,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' описывают впечатление оказываемое на человека.',
 										},
@@ -2066,11 +1829,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'editor-in-chief — это существительное. А перед ними мы договорились всегда ставить определяющее слово. Валера один из главных редакторов, поэтому стоит поставить неопределённый артикль a.',
 										},
@@ -2085,11 +1846,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Неопределённый артикль a не может стоять в форме an потому что следом не стоит слово начинающееся на согласную.',
 										},
@@ -2111,11 +1870,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Воспринимайте old village как одну сущность: старая деревня. Но англичанам важно знать это одна из множества старых деревень или та самая конкретная деревня. Это одна из множества. Поэтому перед ней ставьте неопределённый артикль a потому что «деревня» — это исчисляемое существительное в единственном числе. А перед ними ставится артикль ',
 										},
@@ -2127,7 +1884,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '. Но так как перед артиклем стоит слово начинающееся на гласную, то используйте артикль ',
 										},
@@ -2139,7 +1895,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' для благозвучности.',
 										},
@@ -2154,11 +1909,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Слово ',
 										},
@@ -2170,7 +1923,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' пишется и произносится через гласную ',
 										},
@@ -2182,7 +1934,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '. А a используется когда следом идёт слово начинающуюся на согласную. ',
 										},
@@ -2194,7 +1945,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' с согласной сделано для удобства речи потому что язык спотыкается когде есть подряд две гласные.',
 										},
@@ -2221,23 +1971,20 @@
 							{
 								type: 'paragraph',
 
-								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'Что такое ',
 									},
 									{
 										type: 'text',
-										color: 'black',
+
 										weight: 'bold',
 										text: 'определитель',
 									},
 									{
 										type: 'text',
-										color: 'black',
 
 										text: ' и для чего нужен?',
 									},
@@ -2251,11 +1998,9 @@
 							{
 								type: 'paragraph',
 
-								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'Определитель ставится перед существительным обозначая неопределённый или определённый объект. Английский более точный и конкретный язык в отличии от русского. Тут и чёткий порядок членов предложения и указание на конкретные существительные не на уровне контекста и общего смысла разговора, а на уровне грамматики.',
 									},
@@ -2271,21 +2016,19 @@
 							{
 								type: 'paragraph',
 
-								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'Какие условия должны сойтись чтобы поставить ',
 									},
 									{
 										type: 'text',
-										color: 'black',
+
 										weight: 'bold',
 										text: 'неопределённый артикль a',
 									},
-									{ type: 'text', color: 'black',  text: '?' },
+									{ type: 'text',  text: '?' },
 								],
 							},
 						],
@@ -2296,11 +2039,9 @@
 							{
 								type: 'paragraph',
 
-								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'Должно сойтись три условия: существительное должно быть неопределённым, в единственном числе и исчисляемое.',
 									},
@@ -2316,21 +2057,19 @@
 							{
 								type: 'paragraph',
 
-								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'В каком члене предложения указывается ',
 									},
 									{
 										type: 'text',
-										color: 'black',
+
 										weight: 'bold',
 										text: 'время совершения действия',
 									},
-									{ type: 'text', color: 'black',  text: '?' },
+									{ type: 'text',  text: '?' },
 								],
 							},
 						],
@@ -2341,11 +2080,9 @@
 							{
 								type: 'paragraph',
 
-								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'Время совершения действия указывается на ',
 									},
@@ -2355,7 +2092,7 @@
 
 										text: 'сказуемом',
 									},
-									{ type: 'text', color: 'black',  text: '.' },
+									{ type: 'text',  text: '.' },
 								],
 							},
 							{
@@ -2365,21 +2102,18 @@
 								children: [
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'Они умные.',
 									},
 
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'They ',
 									},
-									{ type: 'text', color: 'blue',  text: 'are' },
+									{ type: 'text', color: 'blue', text: 'are' },
 									{
 										type: 'text',
-										color: 'black',
 
 										text: ' smart.',
 									},
@@ -2388,11 +2122,10 @@
 							{
 								type: 'paragraph',
 								offset: true,
-								textSize: 'normal',
+
 								children: [
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'В будущем времени ',
 									},
@@ -2404,21 +2137,18 @@
 									},
 									{
 										type: 'text',
-										color: 'black',
 
 										text: ' становится модальный глагол ',
 									},
-									{ type: 'text', color: 'blue',  text: 'will' },
+									{ type: 'text', color: 'blue', text: 'will' },
 									{
 										type: 'text',
-										color: 'black',
 
 										text: '. На него ложится время. А так как ',
 									},
-									{ type: 'text', color: 'gold',  text: 'be' },
+									{ type: 'text', color: 'gold', text: 'be' },
 									{
 										type: 'text',
-										color: 'black',
 
 										text: ' уже не сказуемое, а дополнение, то находится в ',
 									},
@@ -2430,7 +2160,6 @@
 									},
 									{
 										type: 'text',
-										color: 'black',
 
 										text: ' форме.',
 									},
@@ -2443,23 +2172,20 @@
 								children: [
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'Они будут умными.',
 									},
 
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'They ',
 									},
-									{ type: 'text', color: 'blue',  text: 'will' },
-									{ type: 'text', color: 'black',  text: ' ' },
-									{ type: 'text', color: 'gold',  text: 'be' },
+									{ type: 'text', color: 'blue', text: 'will' },
+									{ type: 'text',  text: ' ' },
+									{ type: 'text', color: 'gold', text: 'be' },
 									{
 										type: 'text',
-										color: 'black',
 
 										text: ' smart.',
 									},

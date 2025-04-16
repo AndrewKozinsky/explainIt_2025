@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react'
 import ArticleType from '../articleTypes/articleType'
 import ArrowCircle from '../components/ArrowCircle/ArrowCircle'
 // import FaqInArticle from '../components/FaqInArticle/FaqInArticle'
-// import Grid from '../components/Grid/Grid'
+import Grid from '../components/Grid/Grid'
 import Header from '../components/Header/Header'
 import ArtImage from '../components/Image/ArtImage'
 // import List from '../components/List/List'
@@ -35,6 +35,8 @@ function ArticleBuilder(props: ArticleBuilderProps): ReactNode {
 					return <Note config={compConf} key={i} />
 				} else if (compConf.type === 'image') {
 					return <ArtImage config={compConf} key={i} />
+				} else if (compConf.type === 'grid') {
+					return <Grid config={compConf} key={i} />
 				}
 			})}
 		</>
@@ -47,8 +49,6 @@ function ArticleBuilder(props: ArticleBuilderProps): ReactNode {
 					return <List config={compConf} key={i} />
 				} else if (compConf.type === 'faq') {
 					return <FaqInArticle config={compConf} key={i} />
-				} else if (compConf.type === 'grid') {
-					return <Grid config={compConf} key={i} />
 				}
 			})}
 		</>

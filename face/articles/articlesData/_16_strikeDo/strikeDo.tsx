@@ -14,18 +14,15 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Любой вспомогательный глагол может быть в роли смыслового. Глагол ',
 				},
-				{ type: 'text', color: 'black', weight: 'bold', text: 'do' },
+				{ type: 'text',  weight: 'bold', text: 'do' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' в качестве смыслового обозначает глагол «делать».',
 				},
@@ -36,11 +33,11 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Я делаю это всегда.' },
+				{ type: 'text',  text: 'Я делаю это всегда.' },
 
-				{ type: 'text', color: 'black', text: 'I ' },
+				{ type: 'text',  text: 'I ' },
 				{ type: 'text', color: 'blue', text: 'do' },
-				{ type: 'text', color: 'black', text: ' it always.' },
+				{ type: 'text',  text: ' it always.' },
 			],
 		},
 		{
@@ -48,11 +45,11 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Я делаю это всегда?' },
+				{ type: 'text',  text: 'Я делаю это всегда?' },
 
-				{ type: 'text', color: 'black', text: 'Do I ' },
+				{ type: 'text',  text: 'Do I ' },
 				{ type: 'text', color: 'blue', text: 'do' },
-				{ type: 'text', color: 'black', text: ' it always?' },
+				{ type: 'text',  text: ' it always?' },
 			],
 		},
 		{
@@ -75,8 +72,8 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
-			children: [{ type: 'text', color: 'black', text: 'Ещё пример:' }],
+
+			children: [{ type: 'text',  text: 'Ещё пример:' }],
 		},
 		{
 			type: 'paragraph',
@@ -85,14 +82,13 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Я делаю домашнюю работу.',
 				},
 
-				{ type: 'text', color: 'black', text: 'I ' },
+				{ type: 'text',  text: 'I ' },
 				{ type: 'text', color: 'blue', text: 'do' },
-				{ type: 'text', color: 'black', text: ' my homework.' },
+				{ type: 'text',  text: ' my homework.' },
 			],
 		},
 		{
@@ -102,14 +98,13 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Я делаю домашнюю работу?',
 				},
 
-				{ type: 'text', color: 'black', text: 'Do I ' },
+				{ type: 'text',  text: 'Do I ' },
 				{ type: 'text', color: 'blue', text: 'do' },
-				{ type: 'text', color: 'black', text: ' my homework?' },
+				{ type: 'text',  text: ' my homework?' },
 			],
 		},
 		{
@@ -127,11 +122,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Глагол do перед другим смысловым глаголом подчёркивает и усиливает действие. На русский язык переводится разными оборотами.',
 				},
@@ -142,13 +135,13 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Я ' },
+				{ type: 'text',  text: 'Я ' },
 				{ type: 'text', color: 'blue', text: 'действительно' },
-				{ type: 'text', color: 'black', text: ' тебя люблю!' },
+				{ type: 'text',  text: ' тебя люблю!' },
 
-				{ type: 'text', color: 'black', text: 'I ' },
+				{ type: 'text',  text: 'I ' },
 				{ type: 'text', color: 'blue', text: 'do' },
-				{ type: 'text', color: 'black', text: ' love you!' },
+				{ type: 'text',  text: ' love you!' },
 			],
 		},
 		{
@@ -156,23 +149,22 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Они ' },
+				{ type: 'text',  text: 'Они ' },
 				{ type: 'text', color: 'blue', text: 'на самом деле' },
-				{ type: 'text', color: 'black', text: ' знают это!' },
+				{ type: 'text',  text: ' знают это!' },
 
-				{ type: 'text', color: 'black', text: 'They ' },
+				{ type: 'text',  text: 'They ' },
 				{ type: 'text', color: 'blue', text: 'do' },
-				{ type: 'text', color: 'black', text: ' know it.' },
+				{ type: 'text',  text: ' know it.' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'В утвердительных предложениях в Simple только один смысловой глагол может иметь грамматическую нагрузку. И она падает на do. Следующий за ним смысловой глагол стоит в инфинитивной форме. Поэтому после подлежащего в третьем лице do становится does, а believe не изменяется.',
 				},
@@ -183,23 +175,22 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Ева ' },
+				{ type: 'text',  text: 'Ева ' },
 				{ type: 'text', color: 'blue', text: 'всё же' },
-				{ type: 'text', color: 'black', text: ' верит ему.' },
+				{ type: 'text',  text: ' верит ему.' },
 
-				{ type: 'text', color: 'black', text: 'Eva ' },
+				{ type: 'text',  text: 'Eva ' },
 				{ type: 'text', color: 'blue', text: 'does' },
-				{ type: 'text', color: 'black', text: ' believe him.' },
+				{ type: 'text',  text: ' believe him.' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'В прошедшем времени на do падает грамматическая нагрузка времени поэтому превращается в did. А следующий смысловой глагол по-прежнему и инфинитивной форме.',
 				},
@@ -212,14 +203,13 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Грузчик действительно уронил телевизор.',
 				},
 
-				{ type: 'text', color: 'black', text: 'The loader ' },
+				{ type: 'text',  text: 'The loader ' },
 				{ type: 'text', color: 'blue', text: 'did' },
-				{ type: 'text', color: 'black', text: ' drop the TV.' },
+				{ type: 'text',  text: ' drop the TV.' },
 			],
 		},
 		{
@@ -238,11 +228,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'В вопросительных предложениях вместо do используют really.',
 				},
@@ -255,14 +244,13 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Он действительно задал вопрос?',
 				},
 
-				{ type: 'text', color: 'black', text: 'Did he ' },
+				{ type: 'text',  text: 'Did he ' },
 				{ type: 'text', color: 'blue', text: 'really' },
-				{ type: 'text', color: 'black', text: ' ask a question?' },
+				{ type: 'text',  text: ' ask a question?' },
 			],
 		},
 		{ type: 'exercises', exercises: [], offset: true },

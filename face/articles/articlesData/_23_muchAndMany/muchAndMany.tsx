@@ -11,11 +11,10 @@
 	content: [
 		{
 			type: 'paragraph',
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'much и many используются чтобы сказать о большом количестве объектов. Они могут выступать в качестве местоимений-существительных или местоимений-прилагательных.',
 				},
@@ -32,7 +31,7 @@
 					children: [
 						{
 							type: 'paragraph',
-							textSize: 'normal',
+
 							children: [
 								{
 									type: 'text',
@@ -45,11 +44,9 @@
 						{
 							type: 'paragraph',
 
-							textSize: 'normal',
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Если после much и many стоит существительное, то они становятся прилагательными и переводятся одинаково.',
 								},
@@ -62,12 +59,11 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'much/many',
 								},
 
-								{ type: 'text', color: 'black', text: 'много' },
+								{ type: 'text',  text: 'много' },
 							],
 						},
 						{
@@ -77,14 +73,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Много людей стояло возле моего дома.',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Many men were outside my house.',
 								},
@@ -99,7 +93,6 @@
 						{
 							type: 'paragraph',
 
-							textSize: 'normal',
 							children: [
 								{
 									type: 'text',
@@ -112,11 +105,9 @@
 						{
 							type: 'paragraph',
 
-							textSize: 'normal',
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Если после much и many существительного нет, то они становятся существительными.',
 								},
@@ -127,9 +118,9 @@
 
 							textSize: 'big',
 							children: [
-								{ type: 'text', color: 'black', text: 'much' },
+								{ type: 'text',  text: 'much' },
 
-								{ type: 'text', color: 'black', text: 'многое ' },
+								{ type: 'text',  text: 'многое ' },
 								{
 									type: 'text',
 									color: 'gray',
@@ -143,9 +134,9 @@
 
 							textSize: 'big',
 							children: [
-								{ type: 'text', color: 'black', text: 'many' },
+								{ type: 'text',  text: 'many' },
 
-								{ type: 'text', color: 'black', text: 'многие ' },
+								{ type: 'text',  text: 'многие ' },
 								{
 									type: 'text',
 									color: 'gray',
@@ -161,14 +152,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Многие стояли возле моего дома.',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Many were outside my house.',
 								},
@@ -182,11 +171,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Как прилагательное many используется перед исчисляемыми существительными, а much перед неисчисляемыми.',
 				},
@@ -208,14 +195,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'У нас у всех есть много грехов.',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'We all have many sins.',
 								},
@@ -224,7 +209,6 @@
 						{
 							type: 'paragraph',
 
-							textSize: 'normal',
 							children: [
 								{
 									type: 'text',
@@ -247,14 +231,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'У нас много снаряжения.',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'We have much gear.',
 								},
@@ -263,7 +245,6 @@
 						{
 							type: 'paragraph',
 
-							textSize: 'normal',
 							children: [
 								{
 									type: 'text',
@@ -284,20 +265,17 @@
 				{
 					type: 'paragraph',
 
-					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Much и many можно использовать в любых типах предложений. Но выбор зависит от исчисляемости существительного перед ним. Напротив определители ',
 						},
-						{ type: 'text', color: 'black', weight: 'bold', text: 'a lot of' },
-						{ type: 'text', color: 'black', text: ' и ' },
-						{ type: 'text', color: 'black', weight: 'bold', text: 'plenty of' },
+						{ type: 'text',  weight: 'bold', text: 'a lot of' },
+						{ type: 'text',  text: ' и ' },
+						{ type: 'text',  weight: 'bold', text: 'plenty of' },
 						{
 							type: 'text',
-							color: 'black',
 
 							text: '  от существительного не зависит. Но можно использовать только в утверждении.',
 						},
@@ -310,14 +288,12 @@
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Вода содержит много кислорода.',
 						},
 
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Water contains a lot of oxygen.',
 						},
@@ -330,14 +306,12 @@
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'У нас будет очень много практики.',
 						},
 
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'We will have plenty of practice.',
 						},
@@ -346,11 +320,10 @@
 				{
 					type: 'paragraph',
 					offset: true,
-					textSize: 'normal',
+
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'A lot of более нейтральное выражение обозначающее большое количество чего-то. Используется и в позитивном и в негативном ключе. A plenty of похоже по значению, но выражает количество, которое более чем достаточно и выражается больше в положительном ключе.',
 						},
@@ -359,11 +332,10 @@
 				{
 					type: 'paragraph',
 					offset: true,
-					textSize: 'normal',
+
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Если сделать из него вопрос, то придётся заменить на much.',
 						},
@@ -376,7 +348,6 @@
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Does water contain much oxygen?',
 						},
@@ -480,11 +451,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Из главы про сравнительную степень прилагательного вы знаете, что сравнительная степень прилательного much/many будет more. Аналогичная форма будет и для местоимений much/many. Но переводиться такие предложения будут по-разному.',
 				},
@@ -506,14 +475,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Более мощные радиостанции имеют больший диапазон.',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'More powerful radios have a larger range.',
 								},
@@ -522,7 +489,6 @@
 						{
 							type: 'paragraph',
 
-							textSize: 'normal',
 							children: [
 								{
 									type: 'text',
@@ -545,14 +511,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Это даст больше пространства для необходимых вещей.',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'This will get more space for the necessary things.',
 								},
@@ -561,7 +525,6 @@
 						{
 							type: 'paragraph',
 
-							textSize: 'normal',
 							children: [
 								{
 									type: 'text',
@@ -578,11 +541,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'До many можно добавить число чтобы указать сколько есть дополнительных объектов. А к так как much употребляется только для неисчисляемых существительных, то и число ставить нельзя. В этом случае можно использовать слово some (некое количество).',
 				},
@@ -591,11 +553,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Если после more стоит исчисляемое существительное, то к нему можно поставить число.',
 				},
@@ -606,11 +566,10 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'У меня еще две сестры.' },
+				{ type: 'text',  text: 'У меня еще две сестры.' },
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'I have two more sisters.',
 				},
@@ -619,7 +578,6 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
@@ -632,11 +590,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'К неисчисляемым число поставить нельзя, но можно добавить слово some обозначающее небольшое количество.',
 				},
@@ -649,14 +606,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'У меня будет немного больше времени.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'I will have some more time.',
 				},
@@ -702,11 +657,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Из главы про превосходную степень прилагательного вы знаете, что превосходная степень прилательного much/many будет the most. Но если превосходная степень будет в значении числительного, то the опускают. Сравните:',
 				},
@@ -728,14 +681,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Это самый важный документ в твоей жизни.',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'This is the most important document of your life.',
 								},
@@ -744,7 +695,6 @@
 						{
 							type: 'paragraph',
 
-							textSize: 'normal',
 							children: [
 								{
 									type: 'text',
@@ -767,14 +717,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Большинство детей пробовали эти фрукты.',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Most kids tried these fruits.',
 								},
@@ -783,7 +731,6 @@
 						{
 							type: 'paragraph',
 
-							textSize: 'normal',
 							children: [
 								{
 									type: 'text',
@@ -800,11 +747,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Интересный пример когда в предложении не указано что именно сравнивается, но неявно сравнение есть. Тут опущена информация о том, что сравнивается количество денег, которые трятят китайские туристы по сравнению с таристами из других стран.',
 				},
@@ -817,14 +763,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Китайские туристы тратят больше всех.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Chinese tourists spend the most.',
 				},
@@ -845,11 +789,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Как существительное much ссылается на большое количество неисчисляемых объектов, а many исчисляемых.',
 				},
@@ -871,14 +813,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Многое будет зависеть от их подхода.',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Much will depend on their approach.',
 								},
@@ -887,7 +827,6 @@
 						{
 							type: 'paragraph',
 
-							textSize: 'normal',
 							children: [
 								{
 									type: 'text',
@@ -910,14 +849,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Многие потеряли свои дома и работы.',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Many lost their homes and jobs.',
 								},
@@ -926,7 +863,6 @@
 						{
 							type: 'paragraph',
 
-							textSize: 'normal',
 							children: [
 								{
 									type: 'text',
@@ -943,11 +879,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Отрицание большого количества можно сделать двумя способами: добавив not к much или many или через вспомогательный do как в обычном Simple.',
 				},
@@ -969,14 +904,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Не многие знают это природное средство.',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Not many people know this natural remedy.',
 								},
@@ -985,7 +918,6 @@
 						{
 							type: 'paragraph',
 
-							textSize: 'normal',
 							children: [
 								{
 									type: 'text',
@@ -1008,14 +940,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Многие не знают это природное средство.',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Many people do not know this natural remedy.',
 								},
@@ -1024,7 +954,6 @@
 						{
 							type: 'paragraph',
 
-							textSize: 'normal',
 							children: [
 								{
 									type: 'text',
@@ -1041,11 +970,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Much и many могут выступать не только в качестве подлежащего, но и дополнения.',
 				},
@@ -1058,14 +986,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'I never though much about my future.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Никогда не думал много о своём будущем.',
 				},
@@ -1078,14 +1004,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Они мало работают и много едят.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'They work little and eat much.',
 				},
@@ -1098,15 +1022,13 @@
 				{
 					type: 'paragraph',
 
-					textSize: 'normal',
 					children: [
-						{ type: 'text', color: 'black', text: 'A' },
-						{ type: 'text', color: 'black', weight: 'bold', text: ' lot of' },
-						{ type: 'text', color: 'black', text: ' и ' },
-						{ type: 'text', color: 'black', weight: 'bold', text: 'plenty of' },
+						{ type: 'text',  text: 'A' },
+						{ type: 'text',  weight: 'bold', text: ' lot of' },
+						{ type: 'text',  text: ' и ' },
+						{ type: 'text',  weight: 'bold', text: 'plenty of' },
 						{
 							type: 'text',
-							color: 'black',
 
 							text: '  нельзя использовать в качестве подлежащего как much и many. После них всегда должно быть указано существительное.',
 						},
@@ -1119,14 +1041,12 @@
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Множество интересных фактов в одной статье.',
 						},
 
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'A lot of interesting things in one post.',
 						},
@@ -1135,11 +1055,10 @@
 				{
 					type: 'paragraph',
 					offset: true,
-					textSize: 'normal',
+
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Но в остальных случаях встречается повсеместно.',
 						},
@@ -1152,14 +1071,12 @@
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Джеймс и Гарри много ругались о религии в прошлом.',
 						},
 
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'James and Harry argued a lot about religion in the past.',
 						},

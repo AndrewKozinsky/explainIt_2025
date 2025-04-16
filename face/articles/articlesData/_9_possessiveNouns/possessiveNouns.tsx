@@ -18,11 +18,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Вы уже встречались с притяжательными местоимениями.',
 				},
@@ -33,9 +31,9 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Эта моя тарелка' },
+				{ type: 'text',  text: 'Эта моя тарелка' },
 
-				{ type: 'text', color: 'black', text: 'This is my plate' },
+				{ type: 'text',  text: 'This is my plate' },
 			],
 		},
 		{
@@ -43,19 +41,18 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Эта тарелка моя' },
+				{ type: 'text',  text: 'Эта тарелка моя' },
 
-				{ type: 'text', color: 'black', text: 'This plate is mine' },
+				{ type: 'text',  text: 'This plate is mine' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Притяжательными можно сделать существительные задав им притяжательный падеж.',
 				},
@@ -64,11 +61,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Падеж — это изменение окончания существительного для выражения связи с другими словами в предложении. В русском языке их 6. В английском 2: общий и притяжательный.',
 				},
@@ -77,22 +73,20 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
-				{ type: 'text', color: 'black', text: 'Существительное ' },
+				{ type: 'text',  text: 'Существительное ' },
 				{ type: 'text', color: 'gold', text: 'в общем падеже' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' — это форма слова в словаре. В русском это ',
 				},
 				{ type: 'text', color: 'gold', text: 'именительный падеж' },
-				{ type: 'text', color: 'black', text: '. А существительное в ' },
+				{ type: 'text',  text: '. А существительное в ' },
 				{ type: 'text', color: 'blue', text: 'притяжательном падеже' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' является определением к следующему за ним существительному, задаёт принадлежность предмета.',
 				},
@@ -103,13 +97,13 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'A ' },
+				{ type: 'text',  text: 'A ' },
 				{ type: 'text', color: 'gold', text: 'cat' },
-				{ type: 'text', color: 'black', text: '' },
+				{ type: 'text',  text: '' },
 
-				{ type: 'text', color: 'black', text: 'A ' },
+				{ type: 'text',  text: 'A ' },
 				{ type: 'text', color: 'blue', text: 'cat’s' },
-				{ type: 'text', color: 'black', text: ' bowl' },
+				{ type: 'text',  text: ' bowl' },
 			],
 		},
 		{
@@ -131,11 +125,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'На русский язык обычно переводится в обратном порядке.',
 				},
@@ -146,21 +139,20 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'A cat’s bowl' },
+				{ type: 'text',  text: 'A cat’s bowl' },
 
-				{ type: 'text', color: 'black', text: 'Кота чашка' },
+				{ type: 'text',  text: 'Кота чашка' },
 
-				{ type: 'text', color: 'black', text: 'Чашка кота' },
+				{ type: 'text',  text: 'Чашка кота' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Притяжательный падеж по назначению похож на притяжательные местоимения. Только тут принадлежность задаёт не местоимение, а существительное.',
 				},
@@ -169,11 +161,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Его можно добавить к любому существительному. Но в основном предпочитают добавлять их к одушевлённым персонажам.',
 				},
@@ -184,16 +175,14 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Существительному добавляется знака апострофа и буквы ',
 				},
 				{ type: 'text', color: 'blue', text: 's' },
-				{ type: 'text', color: 'black', text: ' к форме общего падежа.' },
+				{ type: 'text',  text: ' к форме общего падежа.' },
 			],
 		},
 		{
@@ -201,11 +190,11 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Lisa' },
+				{ type: 'text',  text: 'Lisa' },
 				{ type: 'text', color: 'blue', text: '’s' },
-				{ type: 'text', color: 'black', text: ' friend' },
+				{ type: 'text',  text: ' friend' },
 
-				{ type: 'text', color: 'black', text: 'друг Лизы' },
+				{ type: 'text',  text: 'друг Лизы' },
 			],
 		},
 		{
@@ -213,11 +202,11 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'My father' },
+				{ type: 'text',  text: 'My father' },
 				{ type: 'text', color: 'blue', text: '’s' },
-				{ type: 'text', color: 'black', text: ' lighter' },
+				{ type: 'text',  text: ' lighter' },
 
-				{ type: 'text', color: 'black', text: 'Зажигалка моего отца' },
+				{ type: 'text',  text: 'Зажигалка моего отца' },
 			],
 		},
 		{
@@ -225,28 +214,26 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Children' },
+				{ type: 'text',  text: 'Children' },
 				{ type: 'text', color: 'blue', text: '’s' },
-				{ type: 'text', color: 'black', text: ' umbrella' },
+				{ type: 'text',  text: ' umbrella' },
 
-				{ type: 'text', color: 'black', text: 'Зонт детей' },
+				{ type: 'text',  text: 'Зонт детей' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Если существительное заканчивается на ',
 				},
 				{ type: 'text', color: 'blue', text: 's' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ', то добавляется только апостроф.',
 				},
@@ -257,11 +244,11 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Iris' },
+				{ type: 'text',  text: 'Iris' },
 				{ type: 'text', color: 'blue', text: '’' },
-				{ type: 'text', color: 'black', text: ' coat' },
+				{ type: 'text',  text: ' coat' },
 
-				{ type: 'text', color: 'black', text: 'Пальто Айрис' },
+				{ type: 'text',  text: 'Пальто Айрис' },
 			],
 		},
 		{
@@ -269,21 +256,19 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'My friends' },
+				{ type: 'text',  text: 'My friends' },
 				{ type: 'text', color: 'blue', text: '’' },
-				{ type: 'text', color: 'black', text: ' book' },
+				{ type: 'text',  text: ' book' },
 
-				{ type: 'text', color: 'black', text: 'Книга моих друзей' },
+				{ type: 'text',  text: 'Книга моих друзей' },
 			],
 		},
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'При произношении никакой разницы с существительным в общем падежом нет.',
 				},
@@ -293,18 +278,15 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Если в притяжательном падеже стоит несколько слов, то ',
 				},
 				{ type: 'text', color: 'blue', text: '’s' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' добавляется к последнему слову:',
 				},
@@ -317,11 +299,10 @@
 			children: [
 				{ type: 'text', color: 'gold', text: 'My sister-in-law' },
 				{ type: 'text', color: 'blue', text: '’s' },
-				{ type: 'text', color: 'black', text: ' advice' },
+				{ type: 'text',  text: ' advice' },
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Совет моей сводной сестры.',
 				},
@@ -334,11 +315,10 @@
 			children: [
 				{ type: 'text', color: 'gold', text: 'Romeo and Juliet' },
 				{ type: 'text', color: 'blue', text: '’s' },
-				{ type: 'text', color: 'black', text: ' love story' },
+				{ type: 'text',  text: ' love story' },
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Любовная история Ромео и Джульетты',
 				},
@@ -351,11 +331,10 @@
 			children: [
 				{ type: 'text', color: 'gold', text: 'The King of Monaco son' },
 				{ type: 'text', color: 'blue', text: '’s' },
-				{ type: 'text', color: 'black', text: ' wedding' },
+				{ type: 'text',  text: ' wedding' },
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Свадьба сына короля Монако',
 				},
@@ -370,11 +349,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Определяемое слово может иметь определитель.',
 				},
@@ -384,11 +361,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'А существительное в притяжательном падеже само по себе является определителем. ',
 				},
@@ -406,11 +382,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'У существительного не может быть больше одного определителя. Поэтому определитель определяемого слова вытесняется существительным в притяжательном падеже.',
 				},
@@ -424,11 +399,9 @@
 				{
 					type: 'paragraph',
 
-					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Это правило верно для любых других определителей:',
 						},
@@ -440,18 +413,16 @@
 					textSize: 'big',
 					children: [
 						{ type: 'text', color: 'error', text: 'This my' },
-						{ type: 'text', color: 'black', text: ' pizza is raw' },
+						{ type: 'text',  text: ' pizza is raw' },
 
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'This pizza is raw ',
 						},
 						{ type: 'text', color: 'gray', text: 'или' },
 						{
 							type: 'text',
-							color: 'black',
 
 							text: ' My pizza is raw',
 						},
@@ -462,11 +433,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Но само существительное в притяжательном падеже не теряет собственный артикль:',
 				},
@@ -509,11 +479,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Апостров + s используется в том числе как сокращённая форма глагола be в форме is. Но сомнений обычно не возникает потому что определить это можно по косвенным признакам присущих притяжательным существительным и be.',
 				},
@@ -522,23 +490,21 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
-			children: [{ type: 'text', color: 'black', text: 'Посмотрим примеры.' }],
+
+			children: [{ type: 'text',  text: 'Посмотрим примеры.' }],
 		},
 		{
 			type: 'paragraph',
 
 			textSize: 'giant',
-			children: [{ type: 'text', color: 'black', text: 'Andy’s toy.' }],
+			children: [{ type: 'text',  text: 'Andy’s toy.' }],
 		},
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Если ‘s — это сокращённая форма is, тогда перед toy должен быть неопределённый артикль a. Поэтому переводится не «Энди — игрушка», а «Игрушка Энди».',
 				},
@@ -564,7 +530,6 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Nutcracker’s my favourite book.',
 				},
@@ -573,11 +538,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Если Nutcracker’s — это притяжательное существительное, то после него должно быть существительное. А тут стоит местоимение. Поэтому ‘s — это сокращение от is. Предложение переводится «Щелкунчик моя любимая книга».',
 				},

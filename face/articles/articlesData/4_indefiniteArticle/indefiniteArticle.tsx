@@ -67,12 +67,11 @@ const indefiniteArticle: ArticleType.Art = {
 				{
 					type: 'paragraph',
 
-					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
-							color: 'black',
-							text: 'Неисчисляемое существительное — это существительное не поддающееся счёту:',
+
+							text: 'Неисчисляемое существительное — это существительное не поддающееся счёту. Для проверки добавлю число:',
 						},
 					],
 				},
@@ -80,17 +79,27 @@ const indefiniteArticle: ArticleType.Art = {
 					type: 'paragraph',
 
 					textSize: 'giant',
-					children: [{ type: 'text', color: 'black', text: 'Три денег' }],
+					children: [{ type: 'text', text: 'Три денег' }],
 				},
 				{
 					type: 'paragraph',
 
-					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
-							color: 'black',
-							text: 'Так говорить нельзя, поэтому «деньги» — это неисчисляемое существительное.',
+
+							text: 'Так говорить нельзя, поэтому «',
+						},
+						{
+							type: 'text',
+
+							text: 'деньги',
+							weight: 'bold',
+						},
+						{
+							type: 'text',
+
+							text: '» — это неисчисляемое существительное.',
 						},
 					],
 				},
@@ -98,17 +107,27 @@ const indefiniteArticle: ArticleType.Art = {
 					type: 'paragraph',
 
 					textSize: 'giant',
-					children: [{ type: 'text', color: 'black', text: 'Девять времени' }],
+					children: [{ type: 'text', text: 'Девять времени' }],
 				},
 				{
 					type: 'paragraph',
 
-					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
-							color: 'black',
-							text: 'Так говорить нельзя, поэтому «время» — это неисчисляемое существительное.',
+
+							text: 'Так не говорят, поэтому «',
+						},
+						{
+							type: 'text',
+
+							text: 'время',
+							weight: 'bold',
+						},
+						{
+							type: 'text',
+
+							text: '» — это неисчисляемое существительное.',
 						},
 					],
 				},
@@ -116,17 +135,22 @@ const indefiniteArticle: ArticleType.Art = {
 					type: 'paragraph',
 					offset: true,
 					textSize: 'giant',
-					children: [{ type: 'text', color: 'black', text: 'Два стакана воды' }],
+					children: [{ type: 'text', text: 'Два стакана воды' }],
 				},
 				{
 					type: 'paragraph',
 
-					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
-							color: 'black',
-							text: 'Вода — неисчисляемое существительное. Но число относится не к воде, а к стаканам. Стаканы исчисляемое.',
+
+							text: 'Вода',
+							weight: 'bold',
+						},
+						{
+							type: 'text',
+
+							text: ' — неисчисляемое существительное. Но число относится не к воде, а к стаканам. Стаканы исчисляемое.',
 						},
 					],
 				},
@@ -157,7 +181,7 @@ const indefiniteArticle: ArticleType.Art = {
 			rus: [{ type: 'text', text: 'Я вижу учителя.' }],
 			eng: [
 				{ type: 'text', text: 'I see ' },
-				{ type: 'text', text: 'a', color: 'blue' },
+				{ type: 'text', text: 'a', color: 'blue', weight: 'bold' },
 				{ type: 'text', text: ' teacher.' },
 			],
 		},
@@ -178,7 +202,7 @@ const indefiniteArticle: ArticleType.Art = {
 			rus: [{ type: 'text', text: 'Он живёт в доме.' }],
 			eng: [
 				{ type: 'text', text: 'He lives in ' },
-				{ type: 'text', text: 'a', color: 'blue' },
+				{ type: 'text', text: 'a', color: 'blue', weight: 'bold' },
 				{ type: 'text', text: ' house.' },
 			],
 		},
@@ -199,7 +223,7 @@ const indefiniteArticle: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'Попробуйте перевести такие предложения.',
+					text: 'Попробуйте перевести такие предложения:',
 				},
 			],
 		},
@@ -208,79 +232,78 @@ const indefiniteArticle: ArticleType.Art = {
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
+
 					text: 'Если исчисляемое существительное в единственном числе ',
 				},
-				{ type: 'text', color: 'black', weight: 'bold', text: 'при произношении' },
+				{ type: 'text', weight: 'bold', text: 'при произношении' },
 				{
 					type: 'text',
-					color: 'black',
+
 					text: ' (не на письме!) начинается с гласной буквы, то перед ним ставят артикль ',
 				},
-				{ type: 'text', color: 'blue', text: 'an' },
+				{ type: 'text', color: 'blue', text: 'an', weight: 'bold' },
 				{
 					type: 'text',
-					color: 'black',
+
 					text: ', а если с согласной, то ',
 				},
-				{ type: 'text', color: 'blue', text: 'a' },
+				{ type: 'text', color: 'blue', text: 'a', weight: 'bold' },
 				{
 					type: 'text',
-					color: 'black',
-					text: '. Это нужно для гармонии чтобы не произносить гласные друг за другом.',
+
+					text: '. Это нужно для гармонии чтобы гласные не стояли друг за другом.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
-				{ type: 'text', color: 'blue', text: 'an apple' },
-				{ type: 'text', color: 'black', text: ' — произносится ' },
-				{ type: 'text', color: 'blue', text: '[эпл]' },
+				{ type: 'text', weight: 'bold', text: 'an apple' },
+				{ type: 'text', text: ' — произносится ' },
+				{ type: 'text', color: 'gold', text: '[эпл]' },
 				{
 					type: 'text',
-					color: 'black',
+
 					text: ' и пишется с гласной. Поэтому ставится ',
 				},
-				{ type: 'text', color: 'blue', text: 'an' },
-				{ type: 'text', color: 'black', text: ' вместо ' },
-				{ type: 'text', color: 'blue', text: 'a' },
-				{ type: 'text', color: 'black', text: '.' },
+				{ type: 'text', color: 'blue', text: 'an', weight: 'bold' },
+				{ type: 'text', text: ' вместо ' },
+				{ type: 'text', weight: 'bold', text: 'a' },
+				{ type: 'text', text: '.' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
-				{ type: 'text', color: 'blue', text: 'an honest boy' },
+				{ type: 'text', weight: 'bold', text: 'an honest boy' },
 				{
 					type: 'text',
-					color: 'black',
+
 					text: ' — хотя в письме начинается с согласной, но произносится с гласной ',
 				},
-				{ type: 'text', color: 'blue', text: '[онэст]' },
+				{ type: 'text', color: 'gold', text: '[онэст]' },
 				{
 					type: 'text',
-					color: 'black',
+
 					text: '. Поэтому тут также стоит артикль ',
 				},
-				{ type: 'text', color: 'blue', text: 'an' },
+				{ type: 'text', color: 'blue', text: 'an', weight: 'bold' },
 				{
 					type: 'text',
-					color: 'black',
+
 					text: '. Обратите внимание, что нужно смотреть не на существительное, а на слово, которое стоит после артикля. В этом примере это прилагательное ',
 				},
 				{ type: 'text', color: 'blue', text: 'honest' },
 				{
 					type: 'text',
-					color: 'black',
+
 					text: ' потому что прилагательные вклиниваются между артиклем и существительным.',
 				},
 			],
@@ -288,39 +311,39 @@ const indefiniteArticle: ArticleType.Art = {
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
-				{ type: 'text', color: 'blue', text: 'a table' },
+				{ type: 'text', weight: 'bold', text: 'a table' },
 				{
 					type: 'text',
-					color: 'black',
+
 					text: ' — произносится и пишется ',
 				},
-				{ type: 'text', color: 'blue', text: '[тэйбл]' },
+				{ type: 'text', color: 'gold', text: '[тэйбл]' },
 				{
 					type: 'text',
-					color: 'black',
+
 					text: ' с согласной. Поэтому стоит артикль ',
 				},
-				{ type: 'text', color: 'blue', text: 'a' },
-				{ type: 'text', color: 'black', text: '.' },
+				{ type: 'text', color: 'blue', text: 'a', weight: 'bold' },
+				{ type: 'text', text: '.' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
-				{ type: 'text', color: 'blue', text: 'a unity' },
+				{ type: 'text', weight: 'bold', text: 'a unity' },
 				{
 					type: 'text',
-					color: 'black',
+
 					text: ' — хотя в письме начинается с гласной, но произносится с согласной ',
 				},
-				{ type: 'text', color: 'blue', text: '[джунэти]' },
-				{ type: 'text', color: 'black', text: '. Поэтому ' },
-				{ type: 'text', color: 'blue', text: 'a' },
-				{ type: 'text', color: 'black', text: '.' },
+				{ type: 'text', color: 'gold', text: '[джунэти]' },
+				{ type: 'text', text: '. Поэтому ' },
+				{ type: 'text', color: 'blue', text: 'a', weight: 'bold' },
+				{ type: 'text', text: '.' },
 			],
 		},
 		{
@@ -329,12 +352,56 @@ const indefiniteArticle: ArticleType.Art = {
 			children: [
 				{
 					type: 'paragraph',
-					textSize: 'normal',
+
 					children: [
 						{
 							type: 'text',
-							color: 'black',
-							text: 'Чтобы лучше запоминать произношения слов нужно развивать насмотренность и наслушанность. А это делается через постоянное чтение и прослушивание рассказов. Лучший эффект даст материал где вы понимаете 80% слов. Так будите и понимать смысл и не уставать часто прибегая к словарю.',
+							text: 'В русском языке мы также изменяем слова для благозвучности. Например предлог «',
+						},
+						{
+							type: 'text',
+							text: 'в',
+							weight: 'bold',
+						},
+						{
+							type: 'text',
+							text: '» изменим на «',
+						},
+						{
+							type: 'text',
+							text: 'во',
+							weight: 'bold',
+						},
+						{
+							type: 'text',
+							text: '» если после него стоит слово начинающееся на «',
+						},
+						{
+							type: 'text',
+							text: 'в',
+							weight: 'bold',
+						},
+						{
+							type: 'text',
+							text: '»: «',
+						},
+						{
+							type: 'text',
+							text: 'в цирке',
+							weight: 'bold',
+						},
+						{
+							type: 'text',
+							text: '», но «',
+						},
+						{
+							type: 'text',
+							text: 'во время исполнения',
+							weight: 'bold',
+						},
+						{
+							type: 'text',
+							text: '».',
 						},
 					],
 				},
@@ -346,23 +413,51 @@ const indefiniteArticle: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'Попробуйте потренироваться.',
+					text: 'Потренирутесь:',
 				},
 			],
 		},
 		exercises_2,
+
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Прилагательное перед существительным' },
 		{
-			type: 'rusToEng',
-			textSize: 'giant',
-			rus: [{ type: 'text', text: 'A leather jacket.' }],
-			eng: [{ type: 'text', text: 'A leather jacket.' }],
+			type: 'paragraph',
+			offset: true,
+			children: [
+				{
+					type: 'text',
+					text: 'Если перед существительным стоит прилагательное, то неопределённый артикль ',
+				},
+				{
+					type: 'text',
+					text: 'a/an',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: ' ставится до него.',
+				},
+			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'A denim shirt.' }],
-			eng: [{ type: 'text', text: 'A denim shirt.' }],
+			rus: [{ type: 'text', text: 'Кожаная куртка' }],
+			eng: [
+				{ type: 'text', text: 'A ' },
+				{ type: 'text', text: 'leather', color: 'blue' },
+				{ type: 'text', text: ' jacket' },
+			],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			rus: [{ type: 'text', text: 'Джинсовая рубашка' }],
+			eng: [
+				{ type: 'text', text: 'A ' },
+				{ type: 'text', text: 'denim', color: 'blue' },
+				{ type: 'text', text: ' shirt' },
+			],
 		},
 		exercises_3,
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Смешанная практика' },
@@ -378,6 +473,7 @@ const indefiniteArticle: ArticleType.Art = {
 					type: 'text',
 					text: 'a',
 					color: 'blue',
+					weight: 'bold',
 				},
 				{
 					type: 'text',
@@ -390,7 +486,12 @@ const indefiniteArticle: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: ' (один). Именно поэтому его и ставят перед исчисляемых существительных в единственном числе. Если поставить его перед неисчисляемыми существительными или перед существительными во множественном числе, то это будет выглядеть странно. Давайте сделаем смешанную практику и попереводим предложения с любыми типами существительных.',
+					text: ' (один)',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: '. Именно поэтому его и ставят перед исчисляемых существительных в единственном числе. Если поставить его перед неисчисляемыми существительными или перед существительными во множественном числе, то это будет выглядеть странно. Давайте сделаем смешанную практику и попереводим предложения с любыми типами существительных.',
 				},
 			],
 		},
@@ -404,16 +505,36 @@ const indefiniteArticle: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'Выше я писал, что неопределённый артикль ',
+					text: 'А артикль ',
 				},
 				{
 					type: 'text',
 					text: 'a',
 					color: 'blue',
+					weight: 'bold',
 				},
 				{
 					type: 'text',
-					text: ' не употребляется для неисчисляемых существительных потому что происходит от слова «один». Числа не ставят к таким существительным потому что их нельзя посчитать. Как в этом случае:',
+					text: ' происходит от слова « ',
+				},
+				{
+					type: 'text',
+					text: 'один',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: '». Но числа не ставят к неисчисляемым существительным. Поэтому и артикль ',
+				},
+				{
+					type: 'text',
+					text: 'a',
+					color: 'blue',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: ' тоже к ним не ставят. Как в этом случае:',
 				},
 			],
 		},
@@ -440,7 +561,17 @@ const indefiniteArticle: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'Но если поставить в значении некоторых продуктов, то это будет означать порцию этого продукта.',
+					text: 'Но если поставить ',
+				},
+				{
+					type: 'text',
+					text: 'a',
+					color: 'blue',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: ' в значении некоторых продуктов, то это будет означать порцию этого продукта:',
 				},
 			],
 		},
@@ -467,52 +598,219 @@ const indefiniteArticle: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
+					text: 'Ещё вкусности:',
+				},
+			],
+		},
+		{
+			type: 'grid',
+			gridId: 'grid-21718',
+			cells: [
+				{
+					children: [
+						{
+							type: 'paragraph',
+							textSize: 'big',
+							children: [
+								{
+									type: 'text',
+									text: 'water',
+								},
+								{ type: 'arrow' },
+								{
+									type: 'text',
+									text: 'вода',
+								},
+							],
+						},
+						{
+							type: 'paragraph',
+							textSize: 'big',
+							children: [
+								{
+									type: 'text',
+									text: 'beer',
+								},
+								{ type: 'arrow' },
+								{
+									type: 'text',
+									text: 'пиво',
+								},
+							],
+						},
+						{
+							type: 'paragraph',
+							textSize: 'big',
+							children: [
+								{
+									type: 'text',
+									text: 'cheese',
+								},
+								{ type: 'arrow' },
+								{
+									type: 'text',
+									text: 'сыр',
+								},
+							],
+						},
+					],
+				},
+				{
+					children: [
+						{
+							type: 'paragraph',
+							textSize: 'big',
+							children: [
+								{
+									type: 'text',
+									text: 'A water',
+								},
+								{ type: 'arrow' },
+								{
+									type: 'text',
+									text: 'стакан воды',
+								},
+							],
+						},
+						{
+							type: 'paragraph',
+							textSize: 'big',
+							children: [
+								{
+									type: 'text',
+									text: 'A beer',
+								},
+								{ type: 'arrow' },
+								{
+									type: 'text',
+									text: 'бутылка или стакан пива',
+								},
+							],
+						},
+						{
+							type: 'paragraph',
+							textSize: 'big',
+							children: [
+								{
+									type: 'text',
+									text: 'A cheese',
+								},
+								{ type: 'arrow' },
+								{
+									type: 'text',
+									text: 'один сорт сыра',
+								},
+							],
+						},
+					],
+				},
+			],
+		},
+		{
+			type: 'paragraph',
+			offset: true,
+			children: [
+				{
+					type: 'text',
 					text: 'Другие примеры:',
 				},
 			],
 		},
 		{
-			type: 'paragraph',
-			textSize: 'big',
-			children: [
+			type: 'grid',
+			gridId: 'grid-21718',
+			cells: [
 				{
-					type: 'text',
-					text: 'A water',
+					children: [
+						{
+							type: 'paragraph',
+
+							textSize: 'big',
+							children: [
+								{ type: 'text', text: 'life' },
+								{ type: 'arrow' },
+								{ type: 'text', text: 'жизнь' },
+							],
+						},
+						{
+							type: 'paragraph',
+
+							textSize: 'big',
+							children: [
+								{ type: 'text', text: 'time' },
+								{ type: 'arrow' },
+								{ type: 'text', text: 'время' },
+							],
+						},
+						{
+							type: 'paragraph',
+
+							textSize: 'big',
+							children: [
+								{ type: 'text', text: 'play' },
+								{ type: 'arrow' },
+								{ type: 'text', text: 'игра' },
+							],
+						},
+						{
+							type: 'paragraph',
+
+							textSize: 'big',
+							children: [
+								{ type: 'text', text: 'fire' },
+								{ type: 'arrow' },
+								{ type: 'text', text: 'огонь' },
+							],
+						},
+					],
 				},
-				{ type: 'arrow' },
 				{
-					type: 'text',
-					text: 'стакан воды',
-				},
-			],
-		},
-		{
-			type: 'paragraph',
-			textSize: 'big',
-			children: [
-				{
-					type: 'text',
-					text: 'A beer',
-				},
-				{ type: 'arrow' },
-				{
-					type: 'text',
-					text: 'бутылка или стакан пива',
-				},
-			],
-		},
-		{
-			type: 'paragraph',
-			textSize: 'big',
-			children: [
-				{
-					type: 'text',
-					text: 'A cheese',
-				},
-				{ type: 'arrow' },
-				{
-					type: 'text',
-					text: 'один сорт сыра',
+					children: [
+						{
+							type: 'paragraph',
+
+							textSize: 'big',
+							children: [
+								{ type: 'text', text: 'a life' },
+								{ type: 'arrow' },
+								{
+									type: 'text',
+
+									text: 'жизненный путь',
+								},
+							],
+						},
+						{
+							type: 'paragraph',
+
+							textSize: 'big',
+							children: [
+								{ type: 'text', text: 'a time' },
+								{ type: 'arrow' },
+								{ type: 'text', text: 'раз' },
+							],
+						},
+						{
+							type: 'paragraph',
+
+							textSize: 'big',
+							children: [
+								{ type: 'text', text: 'a play' },
+								{ type: 'arrow' },
+								{ type: 'text', text: 'пьеса' },
+							],
+						},
+						{
+							type: 'paragraph',
+
+							textSize: 'big',
+							children: [
+								{ type: 'text', text: 'a fire' },
+								{ type: 'arrow' },
+								{ type: 'text', text: 'пожар' },
+							],
+						},
+					],
 				},
 			],
 		},
@@ -562,21 +860,21 @@ const indefiniteArticle: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'beauty',
+					text: 'invite',
 				},
 				{ type: 'arrow' },
 				{
 					type: 'text',
-					text: 'красивый ',
+					text: 'приглашать ',
 				},
 				{
 					type: 'text',
 					color: 'gray',
-					text: '(как прилагательное)',
+					text: '(как глагол)',
 				},
 				{
 					type: 'text',
-					text: ', красота ',
+					text: ', приглашение ',
 				},
 				{
 					type: 'text',
@@ -591,38 +889,47 @@ const indefiniteArticle: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'Как раз неопределённый артикль указывает на существительное:',
+					text: 'Неопределённый артикль ',
+				},
+				{
+					type: 'text',
+					text: 'a',
+					weight: 'bold',
+					color: 'blue',
+				},
+				{
+					type: 'text',
+					text: ' всегда указывает на существительное или на прилагательное с существительным.',
 				},
 			],
 		},
-		/*{
+		{
 			type: 'paragraph',
 			textSize: 'big',
 			children: [
 				{
 					type: 'text',
-					text: 'a beauty ',
-				},
-				{
-					type: 'text',
-					text: '(существительное)',
-					color: 'gray',
+					text: 'a beauty',
 				},
 				{ type: 'arrow' },
 				{
 					type: 'text',
-					text: 'красотка, красивая вещь ',
+					text: 'красота ',
 				},
 			],
-		},*/
-		{ type: 'header', tag: 'h3', style: 'h3', text: 'Делает существительное любым объектом этого вида' },
+		},
 		{
 			type: 'paragraph',
-			offset: true,
+			textSize: 'big',
 			children: [
 				{
 					type: 'text',
-					text: '==========================================',
+					text: 'an invite',
+				},
+				{ type: 'arrow' },
+				{
+					type: 'text',
+					text: 'приглашение ',
 				},
 			],
 		},
@@ -632,7 +939,7 @@ const indefiniteArticle: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'С точки зрения русского языка такое уточнение избыточно. Но в английском языке есть тенденция ставить перед существительными уточняющие слова. Это не только неопределённые артикли, но и другие определяющие слова о которых будет сказано в других главах. Такие определяющие слова поясняют, что дальше идёт существительное. Возьму такой пример:',
+					text: 'Разберу такое предложение:',
 				},
 			],
 		},
@@ -656,7 +963,25 @@ const indefiniteArticle: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: ' дословно обозначает «поймать простуду». А на русский язык переводится глаголом «простужаться». Но ещё слово ',
+					text: ' дословно обозначает «',
+				},
+				{
+					type: 'text',
+					text: 'поймать простуду',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: '». А на русский язык переводится глаголом «',
+				},
+				{
+					type: 'text',
+					text: 'простужаться',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: '». Слово ',
 				},
 				{
 					type: 'text',
@@ -665,7 +990,105 @@ const indefiniteArticle: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: ' обозначает как существительное «простуда», так и прилагательное «холодный». И неопределённый артикль сообщает, что дальше идёт именно существительное.',
+					text: ' используется как существительное «',
+				},
+				{
+					type: 'text',
+					text: 'простуда',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: '», так и прилагательное «',
+				},
+				{
+					type: 'text',
+					text: 'холодный',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: '». И неопределённый артикль сообщает, что дальше идёт именно существительное.',
+				},
+			],
+		},
+		{
+			type: 'note',
+			noteStyle: 'gray',
+			children: [
+				{
+					type: 'paragraph',
+
+					children: [
+						{
+							type: 'text',
+							text: 'В русском языке слово «простуда» неисчисляемое. А в английском считается исчисляемым потому что человек может переболеть простудой несколько раз в год. Поэтому в английском переводе перед ',
+						},
+						{
+							type: 'text',
+							text: 'cold',
+							weight: 'bold',
+						},
+						{
+							type: 'text',
+							text: ' стоит неопределённый артикль ',
+						},
+						{
+							type: 'text',
+							text: 'a',
+							weight: 'bold',
+						},
+						{
+							type: 'text',
+							text: '.',
+						},
+					],
+				},
+			],
+		},
+		{
+			type: 'paragraph',
+
+			children: [
+				{
+					type: 'text',
+					text: 'Если убрать ',
+				},
+				{
+					type: 'text',
+					text: 'a',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: ', то просто ',
+				},
+				{
+					type: 'text',
+					text: 'cold',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: ' будет восприниматься как прилагательное и предложение лишается смысла.',
+				},
+			],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			revert: true,
+			rus: [{ type: 'text', text: 'Она ловит холодный 🫤 каждая зима.' }],
+			eng: [{ type: 'text', text: 'She catches cold every winter.' }],
+		},
+		{
+			type: 'paragraph',
+			offset: true,
+			children: [
+				{
+					type: 'text',
+
+					text: 'Другой пример:',
 				},
 			],
 		},
@@ -674,6 +1097,95 @@ const indefiniteArticle: ArticleType.Art = {
 			textSize: 'giant',
 			rus: [{ type: 'text', text: 'Вам нужен ковбойский образ.' }],
 			eng: [{ type: 'text', text: 'You need a cowboy look.' }],
+		},
+		{
+			type: 'paragraph',
+			children: [
+				{
+					type: 'text',
+					text: 'Слово ',
+				},
+				{
+					type: 'text',
+					text: 'look',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: ' используется как глагол «',
+				},
+				{
+					type: 'text',
+					text: 'смотреть',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: '» или существительное — ',
+				},
+				{
+					type: 'text',
+					text: 'образ',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: ', ',
+				},
+				{
+					type: 'text',
+					text: 'взгляд',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: ', ',
+				},
+				{
+					type: 'text',
+					text: 'выражение лица',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: '. Так как ',
+				},
+				{
+					type: 'text',
+					text: 'look',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: ' тут должно использоваться как существительное, то ставится неопределённый артикль. Но он стоит не перед самим существительным, а перед прилагательным относящимся к этому существительному.',
+				},
+			],
+		},
+		{ type: 'header', tag: 'h3', style: 'h3', text: 'Делает существительное неопределённым' },
+		{
+			type: 'paragraph',
+			offset: true,
+			children: [
+				{
+					type: 'text',
+					text: 'Самое важное назначение неопределённого артикля a — указание на то, что это существительное или предмет относится к любому объекту этого класса. Но давайте лучше я объясню это в сравнении с определённым артиклем ',
+				},
+				{
+					type: 'text',
+					text: 'the',
+					weight: 'bold',
+					color: 'blue',
+				},
+				{
+					type: 'text',
+					text: '. Это будет в следующей главе. ',
+				},
+				{
+					type: 'text',
+					text: 'To be continued…',
+					color: 'gray',
+				},
+			],
 		},
 	],
 }

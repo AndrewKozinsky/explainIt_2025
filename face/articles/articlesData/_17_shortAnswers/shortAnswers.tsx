@@ -13,20 +13,17 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'В английском на закрытый вопрос не принято отвечать голым ',
 				},
-				{ type: 'text', color: 'black', weight: 'bold', text: 'yes' },
-				{ type: 'text', color: 'black', text: ' (да) или ' },
-				{ type: 'text', color: 'black', weight: 'bold', text: 'no' },
+				{ type: 'text',  weight: 'bold', text: 'yes' },
+				{ type: 'text',  text: ' (да) или ' },
+				{ type: 'text',  weight: 'bold', text: 'no' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' (нет) как в русском. Это звучит невежливо. Краткий ответ принято крепить к вспомогательному или модальному глаголу, который использовался в вопросе.',
 				},
@@ -35,18 +32,16 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'В примере в вопросе использовался вспомогательный глагол ',
 				},
 				{ type: 'text', color: 'blue', text: 'be' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: '. Поэтому его нужно использовать для ответа: как утвердительного, так отрицательного. Тут ещё нужно заметить, что в ответе подлежащим обычно ставят местоимение.',
 				},
@@ -72,16 +67,14 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Ты голоден?',
 								},
 
-								{ type: 'text', color: 'black', text: '' },
+								{ type: 'text',  text: '' },
 								{ type: 'text', color: 'blue', text: 'Are' },
 								{
 									type: 'text',
-									color: 'black',
 
 									text: ' you hungry?',
 								},
@@ -109,9 +102,9 @@
 
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'black', text: 'Yes, I ' },
+								{ type: 'text',  text: 'Yes, I ' },
 								{ type: 'text', color: 'blue', text: 'am' },
-								{ type: 'text', color: 'black', text: '.' },
+								{ type: 'text',  text: '.' },
 							],
 						},
 					],
@@ -136,9 +129,9 @@
 
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'black', text: 'No, I ' },
+								{ type: 'text',  text: 'No, I ' },
 								{ type: 'text', color: 'blue', text: 'am' },
-								{ type: 'text', color: 'black', text: ' not.' },
+								{ type: 'text',  text: ' not.' },
 							],
 						},
 					],
@@ -148,18 +141,16 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Другими словами на вопрос «Вы есть голодный» нужно отвечать «Да, я есть» или «Нет, я не есть». Конечно ',
 				},
 				{ type: 'text', color: 'blue', text: 'be' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' должен иметь форму лица подлежащего.',
 				},
@@ -168,20 +159,18 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
-				{ type: 'text', color: 'black', text: 'Пример с ' },
-				{ type: 'text', color: 'black', weight: 'bold', text: 'Past Simple' },
+				{ type: 'text',  text: 'Пример с ' },
+				{ type: 'text',  weight: 'bold', text: 'Past Simple' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: '. Вспомогательным глаголом тут выступает ',
 				},
 				{ type: 'text', color: 'blue', text: 'did' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ', поэтому его нужно поставить в ответ.',
 				},
@@ -207,16 +196,14 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Ты говорила с отцом?',
 								},
 
-								{ type: 'text', color: 'black', text: '' },
+								{ type: 'text',  text: '' },
 								{ type: 'text', color: 'blue', text: 'Did' },
 								{
 									type: 'text',
-									color: 'black',
 
 									text: ' you speak with your dad?',
 								},
@@ -244,9 +231,9 @@
 
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'black', text: 'Yes, I ' },
+								{ type: 'text',  text: 'Yes, I ' },
 								{ type: 'text', color: 'blue', text: 'did' },
-								{ type: 'text', color: 'black', text: '.' },
+								{ type: 'text',  text: '.' },
 							],
 						},
 					],
@@ -271,9 +258,9 @@
 
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'black', text: 'No, I ' },
+								{ type: 'text',  text: 'No, I ' },
 								{ type: 'text', color: 'blue', text: 'did' },
-								{ type: 'text', color: 'black', text: ' not.' },
+								{ type: 'text',  text: ' not.' },
 							],
 						},
 					],
@@ -287,25 +274,21 @@
 				{
 					type: 'paragraph',
 
-					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'No и not переводятся одинаково «нет». Но ',
 						},
 						{ type: 'text', color: 'blue', text: 'no' },
 						{
 							type: 'text',
-							color: 'black',
 
 							text: ' ставится для отрицательного ответа, а ',
 						},
 						{ type: 'text', color: 'blue', text: 'not' },
 						{
 							type: 'text',
-							color: 'black',
 
 							text: ' стоит после вспомогательного глагола и отрицает слова за ним.',
 						},
@@ -316,11 +299,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Пример будущего времени с модальным глаголом will.',
 				},
@@ -346,16 +328,14 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Ответишь на вопрос?',
 								},
 
-								{ type: 'text', color: 'black', text: '' },
+								{ type: 'text',  text: '' },
 								{ type: 'text', color: 'blue', text: 'Will' },
 								{
 									type: 'text',
-									color: 'black',
 
 									text: ' you answer my question?',
 								},
@@ -383,9 +363,9 @@
 
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'black', text: 'Yes, I ' },
+								{ type: 'text',  text: 'Yes, I ' },
 								{ type: 'text', color: 'blue', text: 'will' },
-								{ type: 'text', color: 'black', text: '.' },
+								{ type: 'text',  text: '.' },
 							],
 						},
 					],
@@ -410,9 +390,9 @@
 
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'black', text: 'No, I ' },
+								{ type: 'text',  text: 'No, I ' },
 								{ type: 'text', color: 'blue', text: 'will' },
-								{ type: 'text', color: 'black', text: ' not.' },
+								{ type: 'text',  text: ' not.' },
 							],
 						},
 					],
@@ -422,20 +402,18 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Ответ можно сократить ещё больше убрав ',
 				},
-				{ type: 'text', color: 'black', weight: 'bold', text: 'yes' },
-				{ type: 'text', color: 'black', text: ' или ' },
-				{ type: 'text', color: 'black', weight: 'bold', text: 'no' },
+				{ type: 'text',  weight: 'bold', text: 'yes' },
+				{ type: 'text',  text: ' или ' },
+				{ type: 'text',  weight: 'bold', text: 'no' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: '. В этом случае местоимение с вспомогательным глаголом будет расцениваться как положительный ответ, а с прикреплённым к вспомогательному глаголу отрицанием как отрицательный.',
 				},
@@ -461,16 +439,14 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Он говорит по-английски?',
 								},
 
-								{ type: 'text', color: 'black', text: '' },
+								{ type: 'text',  text: '' },
 								{ type: 'text', color: 'blue', text: 'Does' },
 								{
 									type: 'text',
-									color: 'black',
 
 									text: ' he speak English?',
 								},
@@ -498,9 +474,9 @@
 
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'black', text: 'He ' },
+								{ type: 'text',  text: 'He ' },
 								{ type: 'text', color: 'blue', text: 'does' },
-								{ type: 'text', color: 'black', text: '.' },
+								{ type: 'text',  text: '.' },
 							],
 						},
 					],
@@ -525,9 +501,9 @@
 
 							textSize: 'giant',
 							children: [
-								{ type: 'text', color: 'black', text: 'He ' },
+								{ type: 'text',  text: 'He ' },
 								{ type: 'text', color: 'blue', text: 'does' },
-								{ type: 'text', color: 'black', text: ' not.' },
+								{ type: 'text',  text: ' not.' },
 							],
 						},
 					],
@@ -557,11 +533,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Правильный вариант. Ещё можно I am.',
 										},
@@ -576,11 +550,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Правильный вариант. Ещё можно Yes, I am.',
 										},
@@ -595,11 +567,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Лучше не отвечать yes или no, а добавлять местоимение и to be в правильной форме: Yes, I am.',
 										},
@@ -620,11 +590,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Правильный вариант. Ещё можно I am.',
 										},
@@ -639,11 +607,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Вопрос задан правильно, но ответ должен быть совершенно другим',
 										},
@@ -670,11 +636,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Тут смысл следующий: «Любой вегетарианец это вы? Нет, это не так.». Это предложение построено странно. Лучше перевернуть и действующим лицом сделать местоимение you.',
 										},
@@ -689,11 +653,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Это многословный вариант, но грамматически-правильный.',
 										},
@@ -728,11 +690,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Слово honest при произношении начинается с гласной: ˈänəst. Поэтому перед ним неопределённый артикль будет в форме an.',
 										},
@@ -747,11 +707,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Перед good person поставьте неопределённый артикль потому что англичанам важно знать существительное определённое или конкретное. В данном случае существительное определённое.',
 										},
@@ -772,11 +730,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Ответ можно расширить наполнив подробностями.',
 				},
@@ -787,9 +744,9 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Арбуз фрукт?' },
+				{ type: 'text',  text: 'Арбуз фрукт?' },
 
-				{ type: 'text', color: 'black', text: 'Is watermelon a fruit?' },
+				{ type: 'text',  text: 'Is watermelon a fruit?' },
 			],
 		},
 		{
@@ -797,9 +754,9 @@
 			offset: true,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Нет.' },
+				{ type: 'text',  text: 'Нет.' },
 
-				{ type: 'text', color: 'black', text: 'It isn’t.' },
+				{ type: 'text',  text: 'It isn’t.' },
 			],
 		},
 		{
@@ -820,9 +777,9 @@
 			offset: true,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Нет, это не так.' },
+				{ type: 'text',  text: 'Нет, это не так.' },
 
-				{ type: 'text', color: 'black', text: 'No, it isn’t.' },
+				{ type: 'text',  text: 'No, it isn’t.' },
 			],
 		},
 		{
@@ -830,9 +787,9 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Нет, не фрукт.' },
+				{ type: 'text',  text: 'Нет, не фрукт.' },
 
-				{ type: 'text', color: 'black', text: 'No, it isn’t a fruit.' },
+				{ type: 'text',  text: 'No, it isn’t a fruit.' },
 			],
 		},
 		{
@@ -853,9 +810,9 @@
 			offset: true,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Ягода.' },
+				{ type: 'text',  text: 'Ягода.' },
 
-				{ type: 'text', color: 'black', text: 'It’s a berry.' },
+				{ type: 'text',  text: 'It’s a berry.' },
 			],
 		},
 		{
@@ -865,14 +822,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Нет, это не фрукт, а ягода.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'No, it isn’t a fruit. It is a berry.',
 				},
@@ -885,11 +840,9 @@
 				{
 					type: 'paragraph',
 
-					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'В английском языке не приемлемо вместо вспомогательного глагола использовать смысловой в ответе.',
 						},
@@ -902,47 +855,44 @@
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Врачи учатся много лет? — Да, участся.',
 						},
 
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Do doctors study for many years? — Yes, they ',
 						},
 						{ type: 'text', color: 'error', text: 'study' },
-						{ type: 'text', color: 'black', text: '.' },
+						{ type: 'text',  text: '.' },
 					],
 				},
 				{
 					type: 'paragraph',
 					offset: true,
-					textSize: 'normal',
-					children: [{ type: 'text', color: 'black', text: 'Так правильно:' }],
+
+					children: [{ type: 'text',  text: 'Так правильно:' }],
 				},
 				{
 					type: 'paragraph',
 
 					textSize: 'big',
 					children: [
-						{ type: 'text', color: 'black', text: 'Да, участся.' },
+						{ type: 'text',  text: 'Да, участся.' },
 
-						{ type: 'text', color: 'black', text: 'Yes, they ' },
+						{ type: 'text',  text: 'Yes, they ' },
 						{ type: 'text', color: 'blue', text: 'do' },
-						{ type: 'text', color: 'black', text: '.' },
+						{ type: 'text',  text: '.' },
 					],
 				},
 				{
 					type: 'paragraph',
 					offset: true,
-					textSize: 'normal',
+
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Do как бы является ссылкой на смысловой.',
 						},
@@ -955,14 +905,12 @@
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: '— Мне нравятся лошади!',
 						},
 
 						{
 							type: 'text',
-							color: 'black',
 
 							text: '— I love horses!',
 						},
@@ -973,18 +921,17 @@
 
 					textSize: 'big',
 					children: [
-						{ type: 'text', color: 'black', text: '— Я рад ' },
+						{ type: 'text',  text: '— Я рад ' },
 						{
 							type: 'text',
 							color: 'gray',
 
 							text: '(что нравятся лошади)',
 						},
-						{ type: 'text', color: 'black', text: '.' },
+						{ type: 'text',  text: '.' },
 
 						{
 							type: 'text',
-							color: 'black',
 
 							text: '— I am glad you do.',
 						},
@@ -999,11 +946,9 @@
 				{
 					type: 'paragraph',
 
-					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Ходит шутка, что в русском можно сказать и «да» и «нет» в ответе:',
 						},
@@ -1016,7 +961,6 @@
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Да нет, наверное.',
 						},
@@ -1025,11 +969,9 @@
 				{
 					type: 'paragraph',
 
-					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Но тут слово «да» обозначает не положительный ответ, а вводное слово выражающее сомнение и неуверенность. В английском за это отвечает слово well:',
 						},
@@ -1042,14 +984,12 @@
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Well, I don’t think so.',
 						},
 
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Да я не думаю так.',
 						},

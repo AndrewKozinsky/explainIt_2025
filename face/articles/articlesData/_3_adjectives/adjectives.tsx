@@ -14,13 +14,11 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black', text: 'После глагола ' },
+				{ type: 'text',  text: 'После глагола ' },
 				{ type: 'text', color: 'blue', text: 'be' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' может стоять не только существительное, но и прилагательное.',
 				},
@@ -31,12 +29,12 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Я ' },
+				{ type: 'text',  text: 'Я ' },
 				{ type: 'text', color: 'gray', text: '(есть)' },
-				{ type: 'text', color: 'black', text: ' весёлый.' },
-				{ type: 'text', color: 'black', text: 'I ' },
+				{ type: 'text',  text: ' весёлый.' },
+				{ type: 'text',  text: 'I ' },
 				{ type: 'text', color: 'blue', text: 'am' },
-				{ type: 'text', color: 'black', text: ' jolly.' },
+				{ type: 'text',  text: ' jolly.' },
 			],
 		},
 		{
@@ -44,12 +42,12 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Мы ' },
+				{ type: 'text',  text: 'Мы ' },
 				{ type: 'text', color: 'gray', text: '(есть)' },
-				{ type: 'text', color: 'black', text: ' любопытные.' },
-				{ type: 'text', color: 'black', text: 'We ' },
+				{ type: 'text',  text: ' любопытные.' },
+				{ type: 'text',  text: 'We ' },
 				{ type: 'text', color: 'blue', text: 'are' },
-				{ type: 'text', color: 'black', text: ' curious.' },
+				{ type: 'text',  text: ' curious.' },
 			],
 		},
 		{
@@ -57,30 +55,28 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Она ' },
+				{ type: 'text',  text: 'Она ' },
 				{ type: 'text', color: 'gray', text: '(есть)' },
-				{ type: 'text', color: 'black', text: ' добрая.' },
+				{ type: 'text',  text: ' добрая.' },
 
-				{ type: 'text', color: 'black', text: 'She ' },
+				{ type: 'text',  text: 'She ' },
 				{ type: 'text', color: 'blue', text: 'is' },
-				{ type: 'text', color: 'black', text: ' kind.' },
+				{ type: 'text',  text: ' kind.' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Если к существительному добавлено прилагательное, то ',
 				},
-				{ type: 'text', color: 'black', weight: 'bold', text: 'неопределённый артикль a' },
+				{ type: 'text',  weight: 'bold', text: 'неопределённый артикль a' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' ставится перед прилагательным потому что связка прилагательное + существительное по сути является одной сущностью. Например: серая мышь, красивая шляпка. ',
 				},
@@ -97,11 +93,11 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Это помидор.' },
+				{ type: 'text',  text: 'Это помидор.' },
 
-				{ type: 'text', color: 'black', text: 'It is ' },
+				{ type: 'text',  text: 'It is ' },
 				{ type: 'text', color: 'blue', text: 'a tomato' },
-				{ type: 'text', color: 'black', text: '.' },
+				{ type: 'text',  text: '.' },
 			],
 		},
 		{
@@ -109,11 +105,11 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Это спелый помидор.' },
+				{ type: 'text',  text: 'Это спелый помидор.' },
 
-				{ type: 'text', color: 'black', text: 'It is ' },
+				{ type: 'text',  text: 'It is ' },
 				{ type: 'text', color: 'blue', text: 'a ripe tomato' },
-				{ type: 'text', color: 'black', text: '.' },
+				{ type: 'text',  text: '.' },
 			],
 		},
 		{
@@ -121,11 +117,11 @@
 			offset: true,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Это подвал.' },
+				{ type: 'text',  text: 'Это подвал.' },
 
-				{ type: 'text', color: 'black', text: 'It is ' },
+				{ type: 'text',  text: 'It is ' },
 				{ type: 'text', color: 'blue', text: 'a basement' },
-				{ type: 'text', color: 'black', text: '.' },
+				{ type: 'text',  text: '.' },
 			],
 		},
 		{
@@ -133,26 +129,25 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Это тёмный подвал.' },
+				{ type: 'text',  text: 'Это тёмный подвал.' },
 
-				{ type: 'text', color: 'black', text: 'It is ' },
+				{ type: 'text',  text: 'It is ' },
 				{ type: 'text', color: 'blue', text: 'a dark basement' },
-				{ type: 'text', color: 'black', text: '.' },
+				{ type: 'text',  text: '.' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Как прилагательное + существительное является одной сущностью, так и несколько действующих лиц являются одним подлежащим во множественном числе. От этого зависит форма глагола ',
 				},
 				{ type: 'text', color: 'blue', text: 'be' },
-				{ type: 'text', color: 'black', text: '.' },
+				{ type: 'text',  text: '.' },
 			],
 		},
 		{
@@ -162,14 +157,13 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Я и Дженни — два лучших друга.',
 				},
 
-				{ type: 'text', color: 'black', text: 'I and Jenny ' },
+				{ type: 'text',  text: 'I and Jenny ' },
 				{ type: 'text', color: 'blue', text: 'are' },
-				{ type: 'text', color: 'black', text: ' two best-friends.' },
+				{ type: 'text',  text: ' two best-friends.' },
 			],
 		},
 		{
@@ -203,11 +197,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Пропущен глагол to be в форме настоящего времени второго лица: are. Такое предложение является грамматически неправильным.',
 										},
@@ -222,11 +214,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'They переводится как «они». Мы — это we. А в остальном правильно: после местоимений во втором лице ставится глагол to be в форме are.',
 										},
@@ -247,11 +237,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Правильно! Вариант ',
 										},
@@ -263,7 +251,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' тоже верен.',
 										},
@@ -278,11 +265,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Правильно! Вариант ',
 										},
@@ -294,7 +279,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' тоже верен.',
 										},
@@ -309,11 +293,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Правильно! Это сокращённый вариант перевода Katya is 20 years old.',
 										},
@@ -328,11 +310,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Двадцать лет — это свойство персонажа. Поэтому ставится ',
 										},
@@ -344,7 +324,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '. Кроме того в русском предложении нет глагола. А это признак того, что в английском нужно ставить ',
 										},
@@ -356,7 +335,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '.',
 										},
@@ -378,11 +356,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Предложение грамматически правильное, но в русском использовалось местоимение «они», что переводится they.',
 										},
@@ -397,11 +373,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'В русском использовалось местоимение «они», что переводится they, а не you.',
 										},
@@ -437,11 +411,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Если сообщается о качестве или свойстве, то требуется глагол ',
 										},
@@ -453,7 +425,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' в одной из своих форм. Форма зависит от времени и лица подлежащего.',
 										},
@@ -468,11 +439,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Чтобы определить в какой форме должен быть глагол ',
 										},
@@ -484,7 +453,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' нужно понять в каком лице находится подлежащее. В этом предложении подлежащее Амелия. Имена всегда являются третьими лицами. А после третьего лица используется ',
 										},
@@ -496,7 +464,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' в форме ',
 										},
@@ -508,7 +475,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '.',
 										},
@@ -530,59 +496,53 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Ещё вместо ',
 										},
 										{
 											type: 'text',
-											color: 'black',
+
 											weight: 'bold',
 											text: 'path',
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' можно использовать слово ',
 										},
 										{
 											type: 'text',
-											color: 'black',
+
 											weight: 'bold',
 											text: 'way',
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '. ',
 										},
 										{
 											type: 'text',
-											color: 'black',
+
 											weight: 'bold',
 											text: 'Path',
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' по смыслу обозначает путь, который можно пройти сделав определённые шаги чтобы достичь какой-то цели. А ',
 										},
 										{
 											type: 'text',
-											color: 'black',
+
 											weight: 'bold',
 											text: 'way',
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' — это более широкое и абстрактное понятие.',
 										},
@@ -597,11 +557,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Определённый артикль тут использовать не нужно потому что подразумевается один неправильный путь из класса неправильных путей. Поэтому определённый артикль the лучше заменить на ',
 										},
@@ -613,7 +571,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '.',
 										},
@@ -649,11 +606,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Неопределённый артикль a должен стоять перед связкой прилагательного + существительного. По смыслу выглядит как он сумасшедний, а после прикручено слово «учёный» не понятно к чему относящиеся.',
 										},
@@ -668,11 +623,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'В настоящем времени глагол to be после местоимений he (он), she (она), it (оно, это) будет в форме is. Ставить чистый be грамматически неправильно потому что это форма голого инфинитива. Из этого не понятно в каком времени происходит действие бытия.',
 										},
@@ -706,23 +659,20 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Не ',
 										},
 										{
 											type: 'text',
-											color: 'black',
+
 											weight: 'bold',
 											text: 'buzy',
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ', а ',
 										},
@@ -734,7 +684,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '.',
 										},
@@ -765,18 +714,15 @@
 						{
 							type: 'paragraph',
 
-							textSize: 'normal',
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Прилагательные с окончанием ',
 								},
 								{ type: 'text', color: 'blue', text: '–ing' },
 								{
 									type: 'text',
-									color: 'black',
 
 									text: ' описывают впечатление, которое производят на человека.',
 								},
@@ -789,14 +735,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'confusing',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'смущающий',
 								},
@@ -807,11 +751,10 @@
 
 							textSize: 'big',
 							children: [
-								{ type: 'text', color: 'black', text: 'tiring' },
+								{ type: 'text',  text: 'tiring' },
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'утомительный',
 								},
@@ -824,14 +767,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'exciting',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'волнующий',
 								},
@@ -844,14 +785,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'surprising',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'удивительный',
 								},
@@ -864,14 +803,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'interesting',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'интересный',
 								},
@@ -887,18 +824,15 @@
 						{
 							type: 'paragraph',
 
-							textSize: 'normal',
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'А заканчивающиеся на ',
 								},
 								{ type: 'text', color: 'blue', text: '-ed' },
 								{
 									type: 'text',
-									color: 'black',
 
 									text: ' описывают эмоции человека.',
 								},
@@ -911,14 +845,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'confused',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'смущённый',
 								},
@@ -929,9 +861,9 @@
 
 							textSize: 'big',
 							children: [
-								{ type: 'text', color: 'black', text: 'tired' },
+								{ type: 'text',  text: 'tired' },
 
-								{ type: 'text', color: 'black', text: 'усталый' },
+								{ type: 'text',  text: 'усталый' },
 							],
 						},
 						{
@@ -939,11 +871,10 @@
 
 							textSize: 'big',
 							children: [
-								{ type: 'text', color: 'black', text: 'excited' },
+								{ type: 'text',  text: 'excited' },
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'взволнованный',
 								},
@@ -956,14 +887,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'surprised',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'удивленный',
 								},
@@ -976,14 +905,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'interested',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'заинтересованный',
 								},
@@ -1000,14 +927,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Мои дети были так взволнованы.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'My children were so excited.',
 				},
@@ -1020,14 +945,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Это действительно интересная книга.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'It is a really interesting book.',
 				},
@@ -1046,11 +969,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Верно! Прилагательные с окончанием ',
 										},
@@ -1062,7 +983,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' описывают эмоции человека.',
 										},
@@ -1077,11 +997,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Глагол to be в форме is используется в настоящем времени только после подлежащих в третьем лице. Это местоимения he, she, it. А у нас местоимение первого лица, поэтому должен быть am.',
 										},
@@ -1096,11 +1014,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Если сообщаете о свойстве, то при переводе используйте глагол to be в форме настоящего времени. Поэтому он будет выглядеть в одной из трёх форм в зависимости от лица подлежащего: ',
 										},
@@ -1112,7 +1028,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ', ',
 										},
@@ -1124,7 +1039,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' или ',
 										},
@@ -1136,7 +1050,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '. После подлежащего первого лица используется ',
 										},
@@ -1148,7 +1061,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '.',
 										},
@@ -1169,11 +1081,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Верно! Прилагательные с окончанием ',
 										},
@@ -1185,7 +1095,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' описывают эмоции человека.',
 										},
@@ -1200,11 +1109,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Воспринимайте talented singer как одну сущность: талантливая певица. Но англичанам важно знать это одна из множества талантливых певиц или та самая. Одна из множества. Поэтому перед ней ставьте неопределённый артикль a потому что «певица» — это исчисляемое существительное в единственном числе. А артикль ',
 										},
@@ -1216,7 +1123,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' ставится перед ними.',
 										},
@@ -1225,11 +1131,10 @@
 								{
 									type: 'paragraph',
 									offset: true,
-									textSize: 'normal',
+
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Так как сообщается кем является персонаж, то ставится ',
 										},
@@ -1241,7 +1146,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' в форме ',
 										},
@@ -1253,7 +1157,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '. И следом сама конструкция ',
 										},
@@ -1265,7 +1168,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '.',
 										},
@@ -1280,11 +1182,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'После she должен стоять to be в форме is, а не are.',
 										},
@@ -1316,11 +1216,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Верно! Прилагательные с окончанием ',
 										},
@@ -1332,7 +1230,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' описывают впечатление оказываемое на человека.',
 										},
@@ -1347,47 +1244,42 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Инструкции во множественном числе. Поэтому ',
 										},
 										{
 											type: 'text',
-											color: 'black',
+
 											weight: 'bold',
 											text: 'be',
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' будет не в форме ',
 										},
 										{
 											type: 'text',
-											color: 'black',
+
 											weight: 'bold',
 											text: 'is',
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ', а в ',
 										},
 										{
 											type: 'text',
-											color: 'black',
+
 											weight: 'bold',
 											text: 'are',
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '.',
 										},
@@ -1396,11 +1288,10 @@
 								{
 									type: 'paragraph',
 									offset: true,
-									textSize: 'normal',
+
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Посмотрите таблицу в уроке про be. Instructions можно заменить на местоимение they. После they пишется are в настоящем времени.',
 										},
@@ -1426,11 +1317,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Верно! Прилагательные с окончанием ',
 										},
@@ -1442,7 +1331,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' описывают эмоции человека.',
 										},
@@ -1511,11 +1399,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Некоторые префиксы изменяют смысл прилагательного на противоположное.',
 				},
@@ -1524,7 +1410,7 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [{ type: 'text', color: 'blue', text: 'un' }],
 		},
 		{
@@ -1532,11 +1418,11 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Обычный, необычный' },
+				{ type: 'text',  text: 'Обычный, необычный' },
 
-				{ type: 'text', color: 'black', text: 'Usual, ' },
+				{ type: 'text',  text: 'Usual, ' },
 				{ type: 'text', color: 'blue', text: 'un' },
-				{ type: 'text', color: 'black', text: 'usual' },
+				{ type: 'text',  text: 'usual' },
 			],
 		},
 		{
@@ -1544,17 +1430,17 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Знакомый, незнакомый' },
+				{ type: 'text',  text: 'Знакомый, незнакомый' },
 
-				{ type: 'text', color: 'black', text: 'Familiar, ' },
+				{ type: 'text',  text: 'Familiar, ' },
 				{ type: 'text', color: 'blue', text: 'un' },
-				{ type: 'text', color: 'black', text: 'familiar' },
+				{ type: 'text',  text: 'familiar' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [{ type: 'text', color: 'blue', text: 'in' }],
 		},
 		{
@@ -1564,14 +1450,13 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Правильный, неправильный',
 				},
 
-				{ type: 'text', color: 'black', text: 'Correct, ' },
+				{ type: 'text',  text: 'Correct, ' },
 				{ type: 'text', color: 'blue', text: 'in' },
-				{ type: 'text', color: 'black', text: 'correct' },
+				{ type: 'text',  text: 'correct' },
 			],
 		},
 		{
@@ -1579,22 +1464,22 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Полный, неполный' },
+				{ type: 'text',  text: 'Полный, неполный' },
 
-				{ type: 'text', color: 'black', text: 'Complete, ' },
+				{ type: 'text',  text: 'Complete, ' },
 				{ type: 'text', color: 'blue', text: 'In' },
-				{ type: 'text', color: 'black', text: 'complete' },
+				{ type: 'text',  text: 'complete' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{ type: 'text', color: 'blue', text: 'il' },
-				{ type: 'text', color: 'black', text: ' перед ' },
+				{ type: 'text',  text: ' перед ' },
 				{ type: 'text', color: 'gold', text: 'I' },
-				{ type: 'text', color: 'black', text: '.' },
+				{ type: 'text',  text: '.' },
 			],
 		},
 		{
@@ -1602,11 +1487,11 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Законный, незаконный' },
+				{ type: 'text',  text: 'Законный, незаконный' },
 
-				{ type: 'text', color: 'black', text: 'Legal, ' },
+				{ type: 'text',  text: 'Legal, ' },
 				{ type: 'text', color: 'blue', text: 'il' },
-				{ type: 'text', color: 'black', text: 'legal' },
+				{ type: 'text',  text: 'legal' },
 			],
 		},
 		{
@@ -1614,22 +1499,22 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Грамотный, неграмотный' },
+				{ type: 'text',  text: 'Грамотный, неграмотный' },
 
-				{ type: 'text', color: 'black', text: 'Illiterate, ' },
+				{ type: 'text',  text: 'Illiterate, ' },
 				{ type: 'text', color: 'blue', text: 'il' },
-				{ type: 'text', color: 'black', text: 'literate' },
+				{ type: 'text',  text: 'literate' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{ type: 'text', color: 'blue', text: 'ir' },
-				{ type: 'text', color: 'black', text: ' перед ' },
+				{ type: 'text',  text: ' перед ' },
 				{ type: 'text', color: 'gold', text: 'r' },
-				{ type: 'text', color: 'black', text: '.' },
+				{ type: 'text',  text: '.' },
 			],
 		},
 		{
@@ -1637,11 +1522,11 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black', text: 'Уместный, неуместный' },
+				{ type: 'text',  text: 'Уместный, неуместный' },
 
-				{ type: 'text', color: 'black', text: 'Relevant, ' },
+				{ type: 'text',  text: 'Relevant, ' },
 				{ type: 'text', color: 'blue', text: 'ir' },
-				{ type: 'text', color: 'black', text: 'relevant' },
+				{ type: 'text',  text: 'relevant' },
 			],
 		},
 		{
@@ -1651,27 +1536,26 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Ответственный, безответственный',
 				},
 
-				{ type: 'text', color: 'black', text: 'Responsible, ' },
+				{ type: 'text',  text: 'Responsible, ' },
 				{ type: 'text', color: 'blue', text: 'ir' },
-				{ type: 'text', color: 'black', text: 'responsible' },
+				{ type: 'text',  text: 'responsible' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{ type: 'text', color: 'blue', text: 'im' },
-				{ type: 'text', color: 'black', text: ' перед ' },
+				{ type: 'text',  text: ' перед ' },
 				{ type: 'text', color: 'gold',  text: 'm' },
-				{ type: 'text', color: 'black',  text: ' и ' },
+				{ type: 'text',   text: ' и ' },
 				{ type: 'text', color: 'gold',  text: 'p' },
-				{ type: 'text', color: 'black',  text: '.' },
+				{ type: 'text',   text: '.' },
 			],
 		},
 		{
@@ -1679,11 +1563,11 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Вежливый, невежливый' },
+				{ type: 'text',   text: 'Вежливый, невежливый' },
 
-				{ type: 'text', color: 'black',  text: 'Polite, ' },
+				{ type: 'text',   text: 'Polite, ' },
 				{ type: 'text', color: 'blue',  text: 'im' },
-				{ type: 'text', color: 'black',  text: 'polite' },
+				{ type: 'text',   text: 'polite' },
 			],
 		},
 		{
@@ -1691,21 +1575,20 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Возможный, невозможный' },
+				{ type: 'text',   text: 'Возможный, невозможный' },
 
-				{ type: 'text', color: 'black',  text: 'Possible, ' },
+				{ type: 'text',   text: 'Possible, ' },
 				{ type: 'text', color: 'blue',  text: 'im' },
-				{ type: 'text', color: 'black',  text: 'possible' },
+				{ type: 'text',   text: 'possible' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'К сожалению невозможно вычислить через какой префикс задать прилагательному противоположное значение. Это нужно только знать. Дело усугубляется ещё и тем, что не каждое слово может его иметь. А множеству слов вообще нельзя добавлять эти префиксы.  Для таких случаев есть отрицательная частица которую изучим в одной из следующих глав.',
 				},
@@ -1725,23 +1608,20 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Грамматически правильно, но не ',
 										},
 										{
 											type: 'text',
-											color: 'black',
+
 											weight: 'bold',
 											text: 'irreplaceble',
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ', а ',
 										},
@@ -1753,7 +1633,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '. Забыли добавить a.',
 										},
@@ -1762,23 +1641,21 @@
 								{
 									type: 'paragraph',
 									offset: true,
-									textSize: 'normal',
+
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Прилагательное irreplaceable интересно тем, что образовано от глагола ',
 										},
 										{
 											type: 'text',
-											color: 'black',
+
 											weight: 'bold',
 											text: 'replace',
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' (заменить). К нему добавлен суффикс ',
 										},
@@ -1790,7 +1667,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' далающей из него прилагательное характеризующее  свойство либо доступность для какого-либо действия. В данном случае «заменимый».',
 										},
@@ -1799,11 +1675,10 @@
 								{
 									type: 'paragraph',
 									offset: true,
-									textSize: 'normal',
+
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'А префикс ',
 										},
@@ -1815,7 +1690,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' меняет значение прилагательного на противоположное.',
 										},
@@ -1830,11 +1704,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Если в предложении сообщаете о свойстве или качестве не забывайте про ',
 										},
@@ -1846,7 +1718,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '.',
 										},
@@ -1883,23 +1754,20 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Правильно! Прилагательное ',
 										},
 										{
 											type: 'text',
-											color: 'black',
+
 											weight: 'bold',
 											text: 'accurate',
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' переводится «точный». А приставка ',
 										},
@@ -1911,7 +1779,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' задаёт противоположное значение.',
 										},
@@ -1936,18 +1803,15 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Не Джейс, а Джек. Jace',
 										},
 
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Jake.',
 										},
@@ -1975,11 +1839,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Прилагательное можно сделать из существительного через добавления суффикса.',
 				},
@@ -1988,7 +1850,7 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [{ type: 'text', color: 'blue',  text: 'y' }],
 		},
 		{
@@ -1996,16 +1858,16 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Здоровье, здоровый' },
+				{ type: 'text',   text: 'Здоровье, здоровый' },
 
-				{ type: 'text', color: 'black',  text: 'Health, health' },
+				{ type: 'text',   text: 'Health, health' },
 				{ type: 'text', color: 'blue',  text: 'y' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [{ type: 'text', color: 'blue',  text: 'ly' }],
 		},
 		{
@@ -2013,16 +1875,16 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Друг, дружеский' },
+				{ type: 'text',   text: 'Друг, дружеский' },
 
-				{ type: 'text', color: 'black',  text: 'Friend, friend' },
+				{ type: 'text',   text: 'Friend, friend' },
 				{ type: 'text', color: 'blue',  text: 'ly' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [{ type: 'text', color: 'blue',  text: 'al' }],
 		},
 		{
@@ -2030,16 +1892,16 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Политика, политический' },
+				{ type: 'text',   text: 'Политика, политический' },
 
-				{ type: 'text', color: 'black',  text: 'Politic, politic' },
+				{ type: 'text',   text: 'Politic, politic' },
 				{ type: 'text', color: 'blue',  text: 'al' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [{ type: 'text', color: 'blue',  text: 'ful' }],
 		},
 		{
@@ -2047,16 +1909,16 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Красота, красивый' },
+				{ type: 'text',   text: 'Красота, красивый' },
 
-				{ type: 'text', color: 'black',  text: 'Beauty, beauti' },
+				{ type: 'text',   text: 'Beauty, beauti' },
 				{ type: 'text', color: 'blue',  text: 'ful' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [{ type: 'text', color: 'blue',  text: 'ous' }],
 		},
 		{
@@ -2064,16 +1926,16 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Опасность, опасный' },
+				{ type: 'text',   text: 'Опасность, опасный' },
 
-				{ type: 'text', color: 'black',  text: 'Danger, danger' },
+				{ type: 'text',   text: 'Danger, danger' },
 				{ type: 'text', color: 'blue',  text: 'ous' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [{ type: 'text', color: 'blue',  text: 'ish' }],
 		},
 		{
@@ -2081,16 +1943,16 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Швед, шведский' },
+				{ type: 'text',   text: 'Швед, шведский' },
 
-				{ type: 'text', color: 'black',  text: 'Swede, Swed' },
+				{ type: 'text',   text: 'Swede, Swed' },
 				{ type: 'text', color: 'blue',  text: 'ish' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [{ type: 'text', color: 'blue',  text: 'ive' }],
 		},
 		{
@@ -2100,25 +1962,23 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Действие, действительный',
 				},
 
-				{ type: 'text', color: 'black',  text: 'Effect, effect' },
+				{ type: 'text',   text: 'Effect, effect' },
 				{ type: 'text', color: 'blue',  text: 'ive' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
-				{ type: 'text', color: 'black',  text: 'Суффикс ' },
+				{ type: 'text',   text: 'Суффикс ' },
 				{ type: 'text', color: 'blue',  text: 'less' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' указывает на отсутствие свойства или качества.',
 				},
@@ -2129,9 +1989,9 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Дом, бездомный' },
+				{ type: 'text',   text: 'Дом, бездомный' },
 
-				{ type: 'text', color: 'black',  text: 'Home, home' },
+				{ type: 'text',   text: 'Home, home' },
 				{ type: 'text', color: 'blue',  text: 'less' },
 			],
 		},
@@ -2149,11 +2009,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'В предложении говорится чем является это, поэтому должен присутствовать ',
 										},
@@ -2165,7 +2023,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '.',
 										},
@@ -2180,11 +2037,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'В переводе забыто слово «это». И после ',
 										},
@@ -2196,7 +2051,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' ',
 										},
@@ -2208,7 +2062,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' не ставится.',
 										},
@@ -2233,11 +2086,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'После подлежащего должен быть to be в форме are.',
 										},
@@ -2267,11 +2118,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Если в предложении говорится про свойство, то должен быть to be.',
 										},
@@ -2307,18 +2156,16 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Такие образования прилагательных из существительных не характерны в основной массе. В большинстве случаев не только прилагательные, но и другие слова выглядят одинаково для разных частей речи. Например слово ',
 				},
-				{ type: 'text', color: 'black', weight: 'bold', text: 'professional' },
+				{ type: 'text',  weight: 'bold', text: 'professional' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' может быть или существительным «профессионал» и прилагательным «профессиональный». Часть речи зависит от положения слова в предложении.',
 				},
@@ -2327,11 +2174,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Все эти префиксы и суффиксы сразу запомнить невозможно. Но я хочу чтобы эта информация просто осела и при переводе с английского вы это замечали. Также можно сократить количество запоминаемых слов если, например, учить существительные, а на их основе формировать прилагательное.',
 				},
@@ -2340,11 +2186,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Ответьте на вопросы чтобы понять как усвоили материал.',
 				},
@@ -2360,21 +2205,19 @@
 							{
 								type: 'paragraph',
 
-								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'Что такое ',
 									},
 									{
 										type: 'text',
-										color: 'black',
+
 										weight: 'bold',
 										text: 'инфинитив',
 									},
-									{ type: 'text', color: 'black',  text: '?' },
+									{ type: 'text',   text: '?' },
 								],
 							},
 						],
@@ -2385,11 +2228,9 @@
 							{
 								type: 'paragraph',
 
-								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'Это форма глагола отвечающая на вопросы «Что делать?», «Что сделать?». По ней невозможно определить время совершения действия, лицо, число. Выражает само действие в чистом виде.',
 									},
@@ -2408,7 +2249,6 @@
 									},
 									{
 										type: 'text',
-										color: 'black',
 
 										text: ' Смотреть.',
 									},
@@ -2427,7 +2267,6 @@
 									},
 									{
 										type: 'text',
-										color: 'black',
 
 										text: ' Отдыхать.',
 									},
@@ -2436,11 +2275,10 @@
 							{
 								type: 'paragraph',
 								offset: true,
-								textSize: 'normal',
+
 								children: [
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'Неинфинитивные формы глагола содержат время.',
 									},
@@ -2459,7 +2297,6 @@
 									},
 									{
 										type: 'text',
-										color: 'black',
 
 										text: ' Смотрел.',
 									},
@@ -2478,7 +2315,6 @@
 									},
 									{
 										type: 'text',
-										color: 'black',
 
 										text: ' Отдыхаешь.',
 									},
@@ -2494,18 +2330,15 @@
 							{
 								type: 'paragraph',
 
-								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'Что будет если ',
 									},
-									{ type: 'text', color: 'black', weight: 'bold', text: 'be' },
+									{ type: 'text',  weight: 'bold', text: 'be' },
 									{
 										type: 'text',
-										color: 'black',
 
 										text: ' не ставить?',
 									},
@@ -2519,11 +2352,9 @@
 							{
 								type: 'paragraph',
 
-								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'Англичане привыкли, что после подлежащего стоит глагол. Подлежащее выполняет действие направленное на кого-то. Действие связывает подлежащее с остальными частями предложения, устанавливает их взаимоотношения. И если его опустить, то предложение просто лишится смысла. Представьте если вы в предложении',
 									},
@@ -2536,7 +2367,6 @@
 								children: [
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'Осёл ',
 									},
@@ -2548,7 +2378,6 @@
 									},
 									{
 										type: 'text',
-										color: 'black',
 
 										text: ' воду.',
 									},
@@ -2557,11 +2386,9 @@
 							{
 								type: 'paragraph',
 
-								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'убрать глагол «выпил», то отношения между существительными не понятны.',
 									},
@@ -2577,18 +2404,15 @@
 							{
 								type: 'paragraph',
 
-								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'Для чего ставить глагол ',
 									},
-									{ type: 'text', color: 'black', weight: 'bold', text: 'be' },
+									{ type: 'text',  weight: 'bold', text: 'be' },
 									{
 										type: 'text',
-										color: 'black',
 
 										text: ' в одной из временных форм?',
 									},
@@ -2602,12 +2426,10 @@
 							{
 								type: 'paragraph',
 
-								textSize: 'normal',
 								children: [
-									{ type: 'text', color: 'black', weight: 'bold', text: 'Be' },
+									{ type: 'text',  weight: 'bold', text: 'Be' },
 									{
 										type: 'text',
-										color: 'black',
 
 										text: ' для англичан обычный глагол как и любой другой смысловой глагол. Глагол обозначает действие. Персонаж всегда выполняет действие в какое-то определённое время: прошлое, настоящее, будущее. Без указания на время предложение будет неполноценным.',
 									},
@@ -2623,33 +2445,30 @@
 							{
 								type: 'paragraph',
 
-								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'Чем ',
 									},
 									{
 										type: 'text',
-										color: 'black',
+
 										weight: 'bold',
 										text: 'инфинитивная',
 									},
 									{
 										type: 'text',
-										color: 'black',
 
 										text: ' форма глагола отличается от ',
 									},
 									{
 										type: 'text',
-										color: 'black',
+
 										weight: 'bold',
 										text: 'неопределённой',
 									},
-									{ type: 'text', color: 'black',  text: '?' },
+									{ type: 'text',   text: '?' },
 								],
 							},
 						],
@@ -2660,11 +2479,9 @@
 							{
 								type: 'paragraph',
 
-								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'Ничем. Это синонимы. Глагол не нагруженный временем и выражающий чистое действие в русском языке называется неопределённым, а в английском инфинитивом.',
 									},

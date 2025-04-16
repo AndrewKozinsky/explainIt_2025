@@ -114,17 +114,17 @@
     margin-top: 2rem;
 }
 
-/*.art-paragraph + .art-header--h4 {
+.art-paragraph + .art-header--h4 {
 	margin-top: 1rem;
-}*/
+}
 
-/*.art-paragraph + .art-header--h3 {
+.art-paragraph + .art-header--h3 {
 	margin-top: 1.4rem;
-}*/
+}
 
-/*.art-paragraph + .art-header--h2 {
+.art-paragraph + .art-header--h2 {
 	margin-top: 1.8rem;
-}*/
+}
 /*.art-paragraph + .art-paragraph--size-giant:not(.art-paragraph--offset) {
 	margin-top: 0.2rem;
 }*/
@@ -197,6 +197,9 @@
 .art-rus-to-eng + .art-note {
 	margin-top: 1.8rem;
 }
+.art-rus-to-eng + .exercises {
+	margin-top: 1.8rem;
+}
 
 // УПРАЖНЕНИЯ
 .exercises + .art-paragraph--offset {
@@ -230,21 +233,21 @@
 }*/
 
 // СЕТКА (С ОТСТУПОМ)
-/*.art-grid + .art-paragraph {
+.art-grid + .art-paragraph {
 	margin-top: 1.6rem;
-}*/
+}
 
-/*.art-grid + .art-header--h4 {
+.art-grid + .art-header--h4 {
 	margin-top: 1.6rem;
-}*/
+}
 
-/*.art-grid + .art-header--h3 {
+.art-grid + .art-header--h3 {
 	margin-top: 1.6rem;
-}*/
+}
 
-/*.art-grid + .art-header--h2 {
+.art-grid + .art-header--h2 {
 	margin-top: 2.0rem;
-}*/
+}
 
 /*.art-grid + .art-note {
 	margin-top: 2.0rem;

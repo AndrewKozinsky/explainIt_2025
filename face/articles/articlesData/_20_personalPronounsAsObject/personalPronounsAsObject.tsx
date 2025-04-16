@@ -14,18 +14,15 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'В самом первом уроке рассказывалось, что личные местоимения используются в качестве ',
 				},
 				{ type: 'text', color: 'blue',  text: 'подлежащего' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' — объекта выполняющего действие. В этом случае они стоят в именительном падеже.',
 				},
@@ -37,28 +34,26 @@
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'blue',  text: 'Мы' },
-				{ type: 'text', color: 'black',  text: ' помогаем.' },
+				{ type: 'text',   text: ' помогаем.' },
 
-				{ type: 'text', color: 'black',  text: '' },
+				{ type: 'text',   text: '' },
 				{ type: 'text', color: 'blue',  text: 'We' },
-				{ type: 'text', color: 'black',  text: ' help.' },
+				{ type: 'text',   text: ' help.' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Личные местоимения также используются для обозначения ',
 				},
 				{ type: 'text', color: 'blue',  text: 'дополнения' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' — объекта, на который действие направлено. Тогда они должны быть в форме объектного падежа.',
 				},
@@ -69,13 +64,13 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Мы помогаем ' },
+				{ type: 'text',   text: 'Мы помогаем ' },
 				{ type: 'text', color: 'blue',  text: 'им' },
-				{ type: 'text', color: 'black',  text: '.' },
+				{ type: 'text',   text: '.' },
 
-				{ type: 'text', color: 'black',  text: 'We help ' },
+				{ type: 'text',   text: 'We help ' },
 				{ type: 'text', color: 'blue',  text: 'them' },
-				{ type: 'text', color: 'black',  text: '.' },
+				{ type: 'text',   text: '.' },
 			],
 		},
 		{
@@ -94,11 +89,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'В разных ролях личные местоимения будут иметь разные формы. Это справедливо как для русского, так и английского языка.',
 				},
@@ -110,13 +104,13 @@
 			offset: true,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Паша отправил ' },
+				{ type: 'text',   text: 'Паша отправил ' },
 				{ type: 'text', color: 'blue',  text: 'ей' },
-				{ type: 'text', color: 'black',  text: ' открытку.' },
+				{ type: 'text',   text: ' открытку.' },
 
-				{ type: 'text', color: 'black',  text: 'Pasha sent ' },
+				{ type: 'text',   text: 'Pasha sent ' },
 				{ type: 'text', color: 'blue',  text: 'her' },
-				{ type: 'text', color: 'black',  text: ' a postcard.' },
+				{ type: 'text',   text: ' a postcard.' },
 			],
 		},
 		{
@@ -124,13 +118,13 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Ты встретишь ' },
+				{ type: 'text',   text: 'Ты встретишь ' },
 				{ type: 'text', color: 'blue',  text: 'их' },
-				{ type: 'text', color: 'black',  text: ' на барбекю.' },
+				{ type: 'text',   text: ' на барбекю.' },
 
-				{ type: 'text', color: 'black',  text: 'You will meet ' },
+				{ type: 'text',   text: 'You will meet ' },
 				{ type: 'text', color: 'blue',  text: 'them' },
-				{ type: 'text', color: 'black',  text: ' at the barbeque.' },
+				{ type: 'text',   text: ' at the barbeque.' },
 			],
 		},
 		{
@@ -140,28 +134,24 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Мы старые друзья, ты знаешь ',
 				},
 				{ type: 'text', color: 'blue',  text: 'меня' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' и моих людей, мы не убийцы!',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'We are old friends, you know ',
 				},
 				{ type: 'text', color: 'blue',  text: 'me' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' and my people, we are not murderers!',
 				},
@@ -174,11 +164,9 @@
 				{
 					type: 'paragraph',
 
-					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Только личные местоимения имеют формы для двух падежей. Остальные типы по падежам не изменяются.',
 						},
@@ -189,25 +177,22 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Довольно часто среди носителей в разговорной речи можно встретить как местоимение ',
 				},
-				{ type: 'text', color: 'black', weight: 'bold', text: 'me' },
+				{ type: 'text',  weight: 'bold', text: 'me' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' используется в качестве подлежащего вместо ',
 				},
-				{ type: 'text', color: 'black', weight: 'bold', text: 'I' },
+				{ type: 'text',  weight: 'bold', text: 'I' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: '. Это грамматические неправильно. Но используется потому что звучит гармоничнее. Поэтому не удивляйтесь.',
 				},
@@ -220,7 +205,6 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Me, you and you will go shopping for Hector a little bit each.',
 				},
@@ -229,13 +213,12 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
-				{ type: 'text', color: 'black',  text: 'В коротких ответах ' },
-				{ type: 'text', color: 'black', weight: 'bold', text: 'I' },
+				{ type: 'text',   text: 'В коротких ответах ' },
+				{ type: 'text',  weight: 'bold', text: 'I' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' в форме объектного падежа встречается повсеместно.',
 				},
@@ -363,11 +346,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Ответьте на вопросы чтобы проверить насколько хорошо поняли материал.',
 				},
@@ -383,11 +365,9 @@
 							{
 								type: 'paragraph',
 
-								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'Вспомните какие типы местоимений вы уже знаете и в каких случаях используются.',
 									},
@@ -401,11 +381,9 @@
 							{
 								type: 'paragraph',
 
-								textSize: 'normal',
 								children: [
 									{
 										type: 'text',
-										color: 'black',
 
 										text: 'ОТВЕТЬ!!!!',
 									},

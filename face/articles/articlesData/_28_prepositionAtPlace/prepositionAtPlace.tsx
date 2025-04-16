@@ -12,11 +12,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Как предлог in предлог at используется для указания объекта в каком-то месте. Но с другим смысловым отличием.',
 				},
@@ -26,19 +24,16 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{ type: 'text', color: 'blue',  text: 'In' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' используют когда говорят, что персонаж находится внутри области, а через ',
 				},
 				{ type: 'text', color: 'blue',  text: 'at' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' эту область обозначают как точку на карте. Для одних и тех же мест могут использовать оба предлога и выбор будет зависить от закладываемого смысла высказывания.',
 				},
@@ -61,14 +56,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'I waited in the bus stop.',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Я ждал в автобусной остановке.',
 								},
@@ -96,14 +89,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: "I'll meet you in the station.",
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Я встречу тебя в здании вокзала.',
 								},
@@ -136,14 +127,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'I waited at the bus stop.',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Я ждал на автобусной остановке.',
 								},
@@ -169,14 +158,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: "I'll meet you at the station.",
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Я встречу тебя на вокзале.',
 								},
@@ -210,7 +197,6 @@
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Лучше всего смысл in и at передают русские предлоги «в» и «на». Когда мы говорим «Я на стадионе», то подразумеваем «стадион» как точку на карте. Тут не акцентируется нахожусь ли я около стадиона или внутри него. А если я скажу «Я в стадионе», то уже прямо сообщается, что я нахожусь внутри стадиона.',
 						},
@@ -221,11 +207,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Точкой на карте могут быть такие крупные объекты как города.',
 				},
@@ -238,14 +223,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Он встретился с Лениным в Москве в 1921 году.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'He met Lenin at Moscow in 1921.',
 				},
@@ -254,8 +237,8 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
-			children: [{ type: 'text', color: 'black',  text: 'Или даже люди.' }],
+
+			children: [{ type: 'text',   text: 'Или даже люди.' }],
 		},
 		{
 			type: 'paragraph',
@@ -264,14 +247,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Саша и Николай пришли к девушкам.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Sasha and Nikolai arrived at the girls.',
 				},
@@ -280,11 +261,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Выражение in the corner разбиралось в теме про предлог in. И там я говорил, что in the corner используется чтобы сообщить, что объект находится в закрытом пространстве, например комнаты. А форма at the corner если на улице.',
 				},
@@ -295,11 +275,10 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Урна стоит на углу.' },
+				{ type: 'text',   text: 'Урна стоит на углу.' },
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'The trash can is at the corner.',
 				},
@@ -309,11 +288,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Не для всех случаев можно применить at. Возьму такое предложение:',
 				},
@@ -324,11 +301,10 @@
 
 			textSize: 'big',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Ручка в кармане.' },
+				{ type: 'text',   text: 'Ручка в кармане.' },
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'The pen is in my pocket.',
 				},
@@ -337,11 +313,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'The pen is at my pocket будет звучать странно как будто ручка около кармана.',
 				},
@@ -354,14 +328,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Я встречу тебя на кухне.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'I’ll see you in the kitchen.',
 				},
@@ -370,11 +342,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Тут больше подходит in потому что кухня — это закрытое пространство где человек будет находиться. Для нас не привычно использовать комнату как точку на карте.',
 				},
@@ -514,13 +484,11 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Если ' },
+				{ type: 'text',   text: 'Если ' },
 				{ type: 'text', color: 'blue',  text: 'at' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' употребляется рядом с крупными объектами, которые сложно обозначить как точку на карте, то это обозначает нахождение поблизости.',
 				},
@@ -533,14 +501,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'У нас есть дом на берегу моря.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'We have a house at the sea.',
 				},
@@ -562,11 +528,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Если в объект нельзя «зайти», то можно только находиться рядом.',
 				},
@@ -579,14 +544,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Я стояла у окна и слушала.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'I stood at the window and listened.',
 				},

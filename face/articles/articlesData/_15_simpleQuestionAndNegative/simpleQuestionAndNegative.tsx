@@ -34,13 +34,11 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Чтобы предложение с ' },
+				{ type: 'text',   text: 'Чтобы предложение с ' },
 				{ type: 'text', color: 'blue',  text: 'be' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' сделать вопросительным мы ставили глагол перед подлежащим.',
 				},
@@ -62,20 +60,18 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'В английском языке есть два типа глаголов: ',
 				},
 				{ type: 'text', color: 'gold',  text: 'смысловые' },
-				{ type: 'text', color: 'black',  text: ' и ' },
+				{ type: 'text',   text: ' и ' },
 				{ type: 'text', color: 'blue',  text: 'вспомогательные' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: '. Смысловой несёт смысл (красить, читать). Вспомогательные не несут смысла, но участвуют в формировании вопроса.',
 				},
@@ -84,13 +80,12 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
-				{ type: 'text', color: 'black',  text: 'Глагол ' },
+				{ type: 'text',   text: 'Глагол ' },
 				{ type: 'text', color: 'blue',  text: 'be' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' одновременно и смысловой и вспомогательный: передаёт смысл бытия и с его помощью задаётся вопрос. Для этого его ставят перед подлежащим.',
 				},
@@ -103,11 +98,9 @@
 				{
 					type: 'paragraph',
 
-					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Есть только 3 вспомогательных глагола. Ещё несколько модальных. Все остальные смысловые.',
 						},
@@ -119,32 +112,27 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Но в повествовательных предложениях, построенных в Present Simple, не видно ',
 				},
-				{ type: 'text', color: 'black', weight: 'bold', text: 'вспомогательного' },
+				{ type: 'text',  weight: 'bold', text: 'вспомогательного' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' глагола, который можно было бы также поставить перед подлежащим. В примере единственный глагол ',
 				},
 				{ type: 'text', color: 'blue',  text: 'likes' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' передаёт только смысл. И ещё нужно отметить, что этот глагол находится ',
 				},
 				{ type: 'text', color: 'blue',  text: 'в настоящем времени' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: '. Давайте глагол, содержащий время совершения действия, отметим синим цветом.',
 				},
@@ -154,66 +142,60 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Если вспомогательного глагола нет, то его нужно добавить перед подлежащим. Для времён группы Simple таким глаголом будет ',
 				},
 				{ type: 'text', color: 'blue',  text: 'do' },
-				{ type: 'text', color: 'black',  text: '. ' },
+				{ type: 'text',   text: '. ' },
 			],
 		},
 		{ type: 'customComponent', component: <PresentSimpleQuestionScheme_1 /> },
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Но это ещё не всё. На первом шаге на смысловом глаголе ',
 				},
 				{ type: 'text', color: 'blue',  text: 'like' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' стоит настоящее время. Но вспомогательный глагол всегда перетягивает на себя время совершения действия. Поэтому глагол ',
 				},
 				{ type: 'text', color: 'blue',  text: 'likes' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' становится инфинитивом ',
 				},
 				{ type: 'text', color: 'gold',  text: 'like' },
-				{ type: 'text', color: 'black',  text: '. А инфинитив ' },
+				{ type: 'text',   text: '. А инфинитив ' },
 				{ type: 'text', color: 'gold',  text: 'do' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' становится глаголом в настоящем времени. С местоимением 3-го лица выглядит как ',
 				},
 				{ type: 'text', color: 'blue',  text: 'does' },
-				{ type: 'text', color: 'black',  text: '.' },
+				{ type: 'text',   text: '.' },
 			],
 		},
 		{ type: 'customComponent', component: <PresentSimpleQuestionScheme_2 /> },
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'В предложениях с подлежащим 1-го и 2-го лица смысловой глагол в настоящем времени выглядит точно также как в инфинитиве. Поэтому когда время переходит на вспомогательный, то смысловой внешне никак не изменяется.',
 				},
@@ -224,13 +206,13 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'We ' },
+				{ type: 'text',   text: 'We ' },
 				{ type: 'text', color: 'blue',  text: 'like' },
-				{ type: 'text', color: 'black',  text: ' tea.' },
+				{ type: 'text',   text: ' tea.' },
 
-				{ type: 'text', color: 'black',  text: '' },
+				{ type: 'text',   text: '' },
 				{ type: 'text', color: 'blue',  text: 'Do' },
-				{ type: 'text', color: 'black',  text: ' we like tea?' },
+				{ type: 'text',   text: ' we like tea?' },
 			],
 		},
 		{
@@ -249,13 +231,12 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
-				{ type: 'text', color: 'black',  text: 'И сам ' },
+				{ type: 'text',   text: 'И сам ' },
 				{ type: 'text', color: 'blue',  text: 'do' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' с подлежащими 1-го и 2-го лица ничем не отличается от своей инфинитивной формы. Но тем не менее стоит в настоящем времени.',
 				},
@@ -272,7 +253,6 @@
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Наверное такой механизм образования вопроса выглядит страшноватым. В русском достаточно поставить знак вопроса на письме, а в разговоре сказать с вопросительной интонацией. Но такой механизм действует для всех грамматических времён и его нужно понять только один раз.',
 						},
@@ -285,7 +265,6 @@
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'И ещё я хочу чтобы вы понимали почему вообще слово likes превращается в like, а do в does, а не только механически подставляли слова. Даже если забудите схему ниже, то понимая логику образования вопросительного предложения сможете самостоятельно вычислить формулу.',
 						},
@@ -296,11 +275,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Схема образования утвердительного и вопросительного предложения в Present Simple:',
 				},
@@ -310,8 +288,8 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
-			children: [{ type: 'text', color: 'black',  text: 'Примеры:' }],
+
+			children: [{ type: 'text',   text: 'Примеры:' }],
 		},
 		{
 			type: 'paragraph',
@@ -320,14 +298,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Ты помогаешь своим родителям?',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Do you help your parents?',
 				},
@@ -338,9 +314,9 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Он работает здесь?' },
+				{ type: 'text',   text: 'Он работает здесь?' },
 
-				{ type: 'text', color: 'black',  text: 'Does he work here?' },
+				{ type: 'text',   text: 'Does he work here?' },
 			],
 		},
 		{
@@ -392,11 +368,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'По принципу построения вопроса в настоящем времени построем вопросительное из утвердительного в прошедшем времени.',
 				},
@@ -406,11 +380,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Поставлю вспомогательный глагол do перед подлежащим.',
 				},
@@ -420,11 +393,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'И перенесу прошедшее время из смыслового глагола на вспомогательный. Do — это неправильный глагол. Поэтому в форме прошедшего времени выглядит не doed, а имеет собственную форму did. Смысловой глагол лишившись формы прошедшего времени стал в инфинитивную форму.',
 				},
@@ -434,11 +406,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Схема образования утвердительного и вопросительного предложения в Past Simple:',
 				},
@@ -448,8 +419,8 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
-			children: [{ type: 'text', color: 'black',  text: 'Примеры:' }],
+
+			children: [{ type: 'text',   text: 'Примеры:' }],
 		},
 		{
 			type: 'paragraph',
@@ -458,14 +429,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Ты помогал своим родителям?',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Did you help your parents?',
 				},
@@ -476,9 +445,9 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Он работал здесь?' },
+				{ type: 'text',   text: 'Он работал здесь?' },
 
-				{ type: 'text', color: 'black',  text: 'Did he work here?' },
+				{ type: 'text',   text: 'Did he work here?' },
 			],
 		},
 		{ type: 'exercises', id: 1, exercises: [], offset: true },
@@ -486,11 +455,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Для создания утвердительного предложения в будущем мы использовали модальный глагол will.',
 				},
@@ -500,25 +467,23 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Модальный глагол, как и вспомогательный, умеет полномочия образовывать вопросительные предложения. Поэтому как и ',
 				},
 				{ type: 'text', color: 'blue',  text: 'do' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' он перелетает из позиции ',
 				},
-				{ type: 'text', color: 'black', weight: 'bold', text: '«после подлежащего»' },
-				{ type: 'text', color: 'black',  text: ' в ' },
-				{ type: 'text', color: 'black', weight: 'bold', text: '«до подлежащего»' },
-				{ type: 'text', color: 'black',  text: '.' },
+				{ type: 'text',  weight: 'bold', text: '«после подлежащего»' },
+				{ type: 'text',   text: ' в ' },
+				{ type: 'text',  weight: 'bold', text: '«до подлежащего»' },
+				{ type: 'text',   text: '.' },
 			],
 		},
 		{ type: 'customComponent', component: <FutureSimpleQuestionScheme /> },
@@ -527,20 +492,17 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
-				{ type: 'text', color: 'black',  text: 'В предложение с ' },
-				{ type: 'text', color: 'black', weight: 'bold', text: 'be' },
+				{ type: 'text',   text: 'В предложение с ' },
+				{ type: 'text',  weight: 'bold', text: 'be' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' для отрицания мы ставим ',
 				},
 				{ type: 'text', color: 'blue',  text: 'not' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' после вспомогательного глагола.',
 				},
@@ -562,11 +524,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'В Present Simple всё делается по аналогии.',
 				},
@@ -576,11 +537,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'И как в вопросе вспомогательный глагол перетягивает на себя настоящее время со смыслового глагола.',
 				},
@@ -598,7 +558,6 @@
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'У вас мог возникнуть вопрос а нужно ли при переводе точно так же делать два шага. Конечно нет. Это сделано чтобы вы понимали механизм образования вопроса и отрицания. Вы должны стремиться к полному автоматизму при переводе.',
 						},
@@ -609,8 +568,8 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
-			children: [{ type: 'text', color: 'black',  text: 'Примеры:' }],
+
+			children: [{ type: 'text',   text: 'Примеры:' }],
 		},
 		{
 			type: 'paragraph',
@@ -619,14 +578,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Ты не помогаешь своим родителям.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'You do not help your parents.',
 				},
@@ -637,19 +594,18 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Он не работает здесь.' },
+				{ type: 'text',   text: 'Он не работает здесь.' },
 
-				{ type: 'text', color: 'black',  text: 'He does not work here.' },
+				{ type: 'text',   text: 'He does not work here.' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Отрицание в Past Simple:',
 				},
@@ -662,14 +618,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Ты не помогал своим родителям.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'You did not help your parents.',
 				},
@@ -680,19 +634,18 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Он не работал здесь.' },
+				{ type: 'text',   text: 'Он не работал здесь.' },
 
-				{ type: 'text', color: 'black',  text: 'He did not work here.' },
+				{ type: 'text',   text: 'He did not work here.' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Отрицание в Future Simple:',
 				},
@@ -705,14 +658,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Ты не будешь помогать своим родителям.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'You will not help your parents.',
 				},
@@ -725,22 +676,20 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Он не будет работать здесь.',
 				},
 
-				{ type: 'text', color: 'black',  text: 'He will not work here.' },
+				{ type: 'text',   text: 'He will not work here.' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'В английском не приняты двойные отрицания. Поэтому русские обороты вроде «никогда не» переводите через never.',
 				},
@@ -753,12 +702,11 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Мы никогда не ходим пешком.',
 				},
 
-				{ type: 'text', color: 'black',  text: 'We never walk.' },
+				{ type: 'text',   text: 'We never walk.' },
 			],
 		},
 		{
@@ -793,22 +741,22 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
-			children: [{ type: 'text', color: 'black',  text: 'Past Simple.' }],
+
+			children: [{ type: 'text',   text: 'Past Simple.' }],
 		},
 		{ type: 'customComponent', component: <PastSimpleFullTable /> },
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
-			children: [{ type: 'text', color: 'black',  text: 'Present Simple.' }],
+
+			children: [{ type: 'text',   text: 'Present Simple.' }],
 		},
 		{ type: 'customComponent', component: <PresentSimpleFullTable /> },
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
-			children: [{ type: 'text', color: 'black',  text: 'Future Simple.' }],
+
+			children: [{ type: 'text',   text: 'Future Simple.' }],
 		},
 		{ type: 'customComponent', component: <FutureSimpleFullTable /> },
 	],

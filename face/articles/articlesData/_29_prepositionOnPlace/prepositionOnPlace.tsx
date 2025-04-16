@@ -13,11 +13,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Предлог in используется чтобы показать, что объект находится внутри закрытого области, предлог at представляет эту область как точку на карте, а предлог on сообщает, что объект находится на какой-то поверхности. На русский язык on обычно переводится предлогом «на».',
 				},
@@ -27,11 +25,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Поверхность может быть в любой плоскости: сверху, снизу, вертикально.',
 				},
@@ -42,11 +38,10 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Книги на столе.' },
+				{ type: 'text',   text: 'Книги на столе.' },
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'The books are on the table.',
 				},
@@ -59,14 +54,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Я повешу эту картину на стену.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'I’ll put this picture on the wall.',
 				},
@@ -75,11 +68,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Под поверхностью может восприниматься любая внешняя оболочка.',
 				},
@@ -92,14 +84,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Они сготовили рыбу на огне.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'They cooked the fish on their fire.',
 				},
@@ -112,14 +102,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Он прыгнул на доктора и двое начали бороться.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'He jumped on the doctor and the two men began to fight.',
 				},
@@ -215,11 +203,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Если на транспорте сидят верхом (мотоцикл, даже лошадь), то используют on. И если  транспорт принимает большое количество людей (автобус, самолёт, корабль), то тоже on, несмотря на то, что пассажиры находятся внутри. Но если человек находится внутри легкового автомобиля, то используется in.',
 				},
@@ -241,7 +227,6 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Предлог on.',
 								},
@@ -260,14 +245,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'На велосипеде.',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'On a bike.',
 								},
@@ -280,14 +263,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'На лошаде.',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'On a horse.',
 								},
@@ -306,7 +287,6 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Предлог on.',
 								},
@@ -325,14 +305,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'В автобусе.',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'On a bus.',
 								},
@@ -345,14 +323,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'В метро.',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'On a metro.',
 								},
@@ -371,7 +347,6 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Предлог in.',
 								},
@@ -385,14 +360,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'В машине.',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'In a car.',
 								},
@@ -405,14 +378,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'В такси.',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'In a taxi.',
 								},
@@ -429,14 +400,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Она была в автобусе, когда он позвонил.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'She was on the bus, when he called.',
 				},
@@ -449,14 +418,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Я потратил 10 часов в автобусе.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'I spent ten hours on a bus.',
 				},
@@ -469,14 +436,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Они поймали ее, когда садилась в автобус.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'They caught her when she got on a bus.',
 				},
@@ -489,11 +454,9 @@
 				{
 					type: 'paragraph',
 
-					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Но если хотят подчеркнуть нахождение внутри транспорта, то используют in.',
 						},
@@ -506,14 +469,12 @@
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Я оставил сумку в фургоне.',
 						},
 
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'I left my bag in the wagon.',
 						},
@@ -581,11 +542,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Если объект находится на местности напоминающей линию, то тоже используется on. Это может быть река, побережье, дорога. Даже по-русский в названии некоторых городов есть предлог «на» с названием реки, около которой город расположен: Ростов-на-Дону, Тверь-на-Волге, Рязань-на-Оке.',
 				},
@@ -596,11 +555,10 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Город на реке.' },
+				{ type: 'text',   text: 'Город на реке.' },
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'The town is on the river.',
 				},
@@ -613,14 +571,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Они жили на берегу реки.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'They lived on the coast of a river.',
 				},

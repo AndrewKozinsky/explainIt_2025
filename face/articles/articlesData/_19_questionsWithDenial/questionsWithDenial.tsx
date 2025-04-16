@@ -13,11 +13,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Задавая обычный вопрос спрашивающий хочет получить ответ. Такой вопрос эмоционально нейтрален.',
 				},
@@ -28,11 +26,10 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Ты постирал мои вещи?' },
+				{ type: 'text',   text: 'Ты постирал мои вещи?' },
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Did you wash my clothes?',
 				},
@@ -41,11 +38,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Добавив в вопрос отрицание можно выразить раздражение или удивление. Такой вопрос может быть в полной или сокращённой форме. В полной отрицательную частицу not ставьте после подлежащего.',
 				},
@@ -57,13 +53,12 @@
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'blue',  text: 'Did' },
-				{ type: 'text', color: 'black',  text: ' you ' },
+				{ type: 'text',   text: ' you ' },
 				{ type: 'text', color: 'blue',  text: 'not' },
-				{ type: 'text', color: 'black',  text: ' wash my clothes?' },
+				{ type: 'text',   text: ' wash my clothes?' },
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Ты не постирал мои вещи?',
 				},
@@ -72,11 +67,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'А в сокращённой к вспомогательному глаголу образуя сокращённую форму.',
 				},
@@ -88,11 +82,10 @@
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'blue',  text: 'Didn’t' },
-				{ type: 'text', color: 'black',  text: ' you wash my clothes?' },
+				{ type: 'text',   text: ' you wash my clothes?' },
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Ты не постирал мои вещи?',
 				},
@@ -101,11 +94,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Полная форма используется в официальном стили, сокращённая в разговорном.',
 				},
@@ -114,11 +106,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'На русский такой вопрос можно перевести через слово «разве», «неужели».',
 				},
@@ -131,16 +122,14 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Didn’t you wash my clothes?',
 				},
 
-				{ type: 'text', color: 'black',  text: '' },
+				{ type: 'text',   text: '' },
 				{ type: 'text', color: 'blue',  text: 'Разве' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' ты не постирал мои вещи?',
 				},
@@ -153,16 +142,14 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Didn’t you wash my clothes?',
 				},
 
-				{ type: 'text', color: 'black',  text: '' },
+				{ type: 'text',   text: '' },
 				{ type: 'text', color: 'blue',  text: 'Неужели' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' ты не постирал мои вещи?',
 				},
@@ -171,11 +158,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Глагол be является и смысловым и вспомогательным, поэтому переносится до подлежащего. Второй раз в вопросе с отрицанием если ставить не нужно.',
 				},
@@ -188,12 +174,11 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Разве Ира не была в Италии?',
 				},
 
-				{ type: 'text', color: 'black',  text: 'Wasn’t Ira in Italy?' },
+				{ type: 'text',   text: 'Wasn’t Ira in Italy?' },
 			],
 		},
 		{
@@ -217,11 +202,9 @@
 				{
 					type: 'paragraph',
 
-					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Если вам сложно такое осознать, то попробуйте сначала сделать утвердительное предложение, затем вопрос, и потом добавить not для вопроса с отрицанием:',
 						},
@@ -234,21 +217,18 @@
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Ira was in Italy.',
 						},
 
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Was Ira in Italy?',
 						},
 
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Wasn’t Ira in Italy?',
 						},
@@ -259,8 +239,8 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
-			children: [{ type: 'text', color: 'black',  text: 'Ещё один пример:' }],
+
+			children: [{ type: 'text',   text: 'Ещё один пример:' }],
 		},
 		{
 			type: 'paragraph',
@@ -269,14 +249,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Неужели он не решит эту проблему?',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Won’t he solve this problem?',
 				},
@@ -285,11 +263,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Ответ на такой вопрос строится по правилам рассказанным в предыдущей главе.',
 				},
@@ -323,11 +300,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Лучше вместо голого ',
 										},
@@ -339,7 +314,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: ' использовать ',
 										},
@@ -351,7 +325,6 @@
 										},
 										{
 											type: 'text',
-											color: 'black',
 
 											text: '.',
 										},
@@ -366,11 +339,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Если в главном предложении используется утверждение, то во второстепенном должно быть отрицание и наоборот.',
 										},
@@ -392,11 +363,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Если чётко следовать изначальному предложению, то в главном должно быть отрицание, а во второстепенном утверждение. А сам вариант грамматически правильный.',
 										},
@@ -411,11 +380,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'В главном предложении должно быть отрицание.',
 										},
@@ -437,11 +404,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'После местоимения they to be должен быть в форме are.',
 										},
@@ -456,11 +421,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Во втором предложении слова нужно строить под вопрос. Сейчас порядок слов для утвердительного предложения и в конце знак вопроса.',
 										},
@@ -482,11 +445,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Слово here обозначает место, их лучше ставить начале или в конце предложения.',
 										},
@@ -501,11 +462,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'В таких предложениях not нужно ставить или в главном или во второстепенном предложении, но не в двух одновременно. В русском варианте отрицание стоит в главном предложении. Поэтому в переводе not должен быть так же.',
 										},
@@ -530,11 +489,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Получилось многословно, но грамматически правильно.',
 										},
@@ -549,11 +506,9 @@
 								{
 									type: 'paragraph',
 
-									textSize: 'normal',
 									children: [
 										{
 											type: 'text',
-											color: 'black',
 
 											text: 'Конструкцию she is not можно ставить только в повествовательных предложениях и дальше должно идти или прилагательное или существительное. Но вместо повествовательного там должено быть вопросительное.',
 										},

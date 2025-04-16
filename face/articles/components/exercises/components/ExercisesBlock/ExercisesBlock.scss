@@ -7,7 +7,7 @@
 	border: 2px solid vars.$textColor;
 
 	@include mix.container-width(vars.$tablet-width) {
-		padding: 1.6rem 2.8rem 3rem;
+		padding: 1.6rem 2.8rem 2.6rem;
 	}
 }
 

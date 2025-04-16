@@ -48,6 +48,69 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				{ rusWord: 'овощи', engWord: 'vegetables' },
 			],
 		},
+		{
+			rusSentence: 'Ей нужна ручка',
+			engSentences: [{ engSentences: ['She needs a pencil.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'любить', engWord: 'love' },
+				{ rusWord: 'сырой', engWord: 'raw' },
+				{ rusWord: 'овощи', engWord: 'vegetables' },
+			],
+		},
+		{
+			rusSentence: 'Каждую пятницу Дэвид покупает книгу.',
+			engSentences: [{ engSentences: ['Every Friday, David buys a book.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'любить', engWord: 'love' },
+				{ rusWord: 'сырой', engWord: 'raw' },
+				{ rusWord: 'овощи', engWord: 'vegetables' },
+			],
+		},
+		{
+			rusSentence: 'Ты арендуешь машину когда ты путешествуешь.',
+			engSentences: [{ engSentences: ['You rent a car when you travel.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'любить', engWord: 'love' },
+				{ rusWord: 'сырой', engWord: 'raw' },
+				{ rusWord: 'овощи', engWord: 'vegetables' },
+			],
+		},
+		{
+			rusSentence: 'Они смотрят фильм по воскресеньям.',
+			engSentences: [{ engSentences: ['They watch a movie on Sundays.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'любить', engWord: 'love' },
+				{ rusWord: 'сырой', engWord: 'raw' },
+				{ rusWord: 'овощи', engWord: 'vegetables' },
+			],
+		},
+		{
+			rusSentence: 'Он рисует картину на уроке изобразительного искусства.',
+			engSentences: [{ engSentences: ['He draws a picture in art class.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'любить', engWord: 'love' },
+				{ rusWord: 'сырой', engWord: 'raw' },
+				{ rusWord: 'овощи', engWord: 'vegetables' },
+			],
+		},
+		{
+			rusSentence: 'Я ем банан на завтрак.',
+			engSentences: [{ engSentences: ['I eat a banana for breakfast.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'любить', engWord: 'love' },
+				{ rusWord: 'сырой', engWord: 'raw' },
+				{ rusWord: 'овощи', engWord: 'vegetables' },
+			],
+		},
+		{
+			rusSentence: 'Моя тетя приносит подарок на каждый день рождения.',
+			engSentences: [{ engSentences: ['My aunt brings a gift to every birthday.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'любить', engWord: 'love' },
+				{ rusWord: 'сырой', engWord: 'raw' },
+				{ rusWord: 'овощи', engWord: 'vegetables' },
+			],
+		},
 	],
 }
 

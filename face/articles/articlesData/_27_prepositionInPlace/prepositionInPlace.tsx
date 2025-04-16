@@ -12,53 +12,47 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Вы уже познакомились с предлогами на примере ',
 				},
-				{ type: 'text', color: 'black', weight: 'bold', text: 'of' },
-				{ type: 'text', color: 'black',  text: ' и ' },
-				{ type: 'text', color: 'black', weight: 'bold', text: 'to' },
-				{ type: 'text', color: 'black',  text: '.' },
+				{ type: 'text',  weight: 'bold', text: 'of' },
+				{ type: 'text',   text: ' и ' },
+				{ type: 'text',  weight: 'bold', text: 'to' },
+				{ type: 'text',   text: '.' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
-				{ type: 'text', color: 'black',  text: 'Предлог ' },
+				{ type: 'text',   text: 'Предлог ' },
 				{ type: 'text', color: 'blue',  text: 'in' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' указывает на нахождение объекта ',
 				},
-				{ type: 'text', color: 'black', weight: 'bold', text: 'внутри' },
+				{ type: 'text',  weight: 'bold', text: 'внутри' },
 				{
 					type: 'text',
-					color: 'black',
 
 					text: ' ограниченного пространства. Ниже я даю некоторые сгрупированные примеры, но это условное разделение. Нужно только понять идею назначения предлога ',
 				},
-				{ type: 'text', color: 'black', weight: 'bold', text: 'in' },
-				{ type: 'text', color: 'black',  text: '.' },
+				{ type: 'text',  weight: 'bold', text: 'in' },
+				{ type: 'text',   text: '.' },
 			],
 		},
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Внутри объёмного объекта' },
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Под такими объектами может выступать всё, что угодно: коробка, детская площадка, трава.',
 				},
@@ -69,9 +63,9 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Женя в своей комнате.' },
+				{ type: 'text',   text: 'Женя в своей комнате.' },
 
-				{ type: 'text', color: 'black',  text: 'Jane is in her room.' },
+				{ type: 'text',   text: 'Jane is in her room.' },
 			],
 		},
 		{
@@ -92,9 +86,9 @@
 			offset: true,
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Я езжу на машине.' },
+				{ type: 'text',   text: 'Я езжу на машине.' },
 
-				{ type: 'text', color: 'black',  text: 'I drive in a car.' },
+				{ type: 'text',   text: 'I drive in a car.' },
 			],
 		},
 		{
@@ -117,14 +111,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Он увидел каких-то людей в костюмах.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'He saw some people in costumes.',
 				},
@@ -238,11 +230,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Такие объекты напоминают лист с видимыми границами.',
 				},
@@ -255,14 +245,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Я вижу дом на фотографии.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'I see a house in the photo.',
 				},
@@ -288,14 +276,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Она уставилась в зеркало.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'She stared in the mirror.',
 				},
@@ -317,11 +303,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Тут важно, что объект находится «внутри» плоскости, как бы является её частью, а не стоит на ней. ',
 				},
@@ -334,14 +319,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Он узнал знакомый силуэт в газете.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'He recognized the familiar silhouette in the newspaper.',
 				},
@@ -363,11 +346,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Географические объекты тоже можно назвать плоскими. Особенно когда летите на самолёте или смотреть карту местности.',
 				},
@@ -378,9 +360,9 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Сейчас он в Лондоне.' },
+				{ type: 'text',   text: 'Сейчас он в Лондоне.' },
 
-				{ type: 'text', color: 'black',  text: 'Now he is in London.' },
+				{ type: 'text',   text: 'Now he is in London.' },
 			],
 		},
 		{
@@ -403,14 +385,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Кактусы, в основном, растут в пустыне.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Cactus usually grows in the desert.',
 				},
@@ -423,11 +403,9 @@
 				{
 					type: 'paragraph',
 
-					textSize: 'normal',
 					children: [
 						{
 							type: 'text',
-							color: 'black',
 
 							text: 'Слова в повествовательном предложении выстраиваются по принципу «Сначала идёт самое главное». Самым главным является подлежащее, сказуемое, дополнение. А уже затем указывается место совершения действия.',
 						},
@@ -512,11 +490,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Можно быть «внутри» группы людей.',
 				},
@@ -529,14 +505,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Он работает в финансовой группе.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'He works in the finance team.',
 				},
@@ -562,14 +536,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Я работаю в салоне красоты.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'I work in a beauty salon.',
 				},
@@ -605,11 +577,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Вдали тоже можно понимать как некое пространство где находится наездник.',
 				},
@@ -622,14 +592,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Вдали он увидел наездника на чёрной лошиди.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'In the distance he saw a rider on a black horse.',
 				},
@@ -638,11 +606,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Можно быть в какой-то форме или состоянии.',
 				},
@@ -653,9 +620,9 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Она в хорошей форме.' },
+				{ type: 'text',   text: 'Она в хорошей форме.' },
 
-				{ type: 'text', color: 'black',  text: 'She is in a good state.' },
+				{ type: 'text',   text: 'She is in a good state.' },
 			],
 		},
 		{
@@ -665,14 +632,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Дом был очень старый и в плохом состоянии.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'The house was very old and in bad condition.',
 				},
@@ -681,11 +646,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Выражение «на углу» переводится in the corner. Это не согласуется с изначальным спыслом предлога in, то так принято говорить.',
 				},
@@ -698,14 +662,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Вход расположен на углу.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'The entrance is in the corner.',
 				},
@@ -714,8 +676,8 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
-			children: [{ type: 'text', color: 'black',  text: 'Абстрактные вещи.' }],
+
+			children: [{ type: 'text',   text: 'Абстрактные вещи.' }],
 		},
 		{
 			type: 'paragraph',
@@ -724,14 +686,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Я видел твоё лицо в сумраке ночи.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'I saw your face in the darkness of the night.',
 				},
@@ -741,11 +701,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Когда хотите подчеркнуть нахождение объекта внутри закрытого пространства, то вместо предлога in можно использовать существительное inside.',
 				},
@@ -756,11 +714,10 @@
 
 			textSize: 'giant',
 			children: [
-				{ type: 'text', color: 'black',  text: 'Документы внутри папки.' },
+				{ type: 'text',   text: 'Документы внутри папки.' },
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'The documents are inside the folder.',
 				},
@@ -773,14 +730,12 @@
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Оставайтесь внутри здания во время шторма.',
 				},
 
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Stay inside the building during the storm.',
 				},
@@ -789,11 +744,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-			textSize: 'normal',
+
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Предлог in более универсальный и распространённый способ сказать о месте нахождения объекта. Поэтому если сомневаетесь будет ли inside подходить по смыслу, то лучше замените на in.',
 				},
@@ -803,11 +757,9 @@
 		{
 			type: 'paragraph',
 
-			textSize: 'normal',
 			children: [
 				{
 					type: 'text',
-					color: 'black',
 
 					text: 'Если скрестить предлог to, использующийся для указания направления движения и предлог in, то получится предлог into. Он обозначает движение внутрь закрытого пространства.',
 				},
@@ -826,11 +778,9 @@
 						{
 							type: 'paragraph',
 
-							textSize: 'normal',
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Показывает направление движения в сторону комнаты. Но при этом не факт, что они в итоге прибегут в эту комнату.',
 								},
@@ -843,14 +793,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Дети бегут в комнату.',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Children run to the room.',
 								},
@@ -866,11 +814,9 @@
 						{
 							type: 'paragraph',
 
-							textSize: 'normal',
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Показывает, что дети забегают в комнату. Похоже на to, но делается акцент на том, что они уже вбежали туда, произошло движение снаружи внутрь.',
 								},
@@ -883,14 +829,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Дети вбегают в комнату.',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Children run into the room.',
 								},
@@ -906,11 +850,9 @@
 						{
 							type: 'paragraph',
 
-							textSize: 'normal',
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Используется если персонаж уже находится в замкнутом пространстве.',
 								},
@@ -923,14 +865,12 @@
 							children: [
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Дети в комнате.',
 								},
 
 								{
 									type: 'text',
-									color: 'black',
 
 									text: 'Children are in the room.',
 								},

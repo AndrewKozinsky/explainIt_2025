@@ -38,7 +38,7 @@
 			{
 				type: 'paragraph',
 				offset: true,
-				textSize: 'normal',
+
 				children: [
 					{
 						type: 'text',
