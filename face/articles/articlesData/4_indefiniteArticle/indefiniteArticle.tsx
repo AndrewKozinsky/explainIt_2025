@@ -7,7 +7,7 @@ import exercises_4 from './exercises-4'
 const indefiniteArticle: ArticleType.Art = {
 	meta: {
 		number: 4,
-		slug: 'indefinite-article',
+		slug: 'a',
 		caption: 'Глава 4',
 		articleName: 'Неопределённый артикль a',
 		articleDescription: 'Разберёмся как писать исчисляемые существительные в единственном числе.',
@@ -498,14 +498,14 @@ const indefiniteArticle: ArticleType.Art = {
 		exercises_4,
 
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Какие свойства даёт артикль a/an существительному' },
-		{ type: 'header', tag: 'h3', style: 'h3', text: 'Одна порция' },
+		{ type: 'header', tag: 'h3', style: 'h3', text: 'Указывает на единственное число' },
 		{
 			type: 'paragraph',
 			offset: true,
 			children: [
 				{
 					type: 'text',
-					text: 'А артикль ',
+					text: 'Артикль ',
 				},
 				{
 					type: 'text',
@@ -515,7 +515,7 @@ const indefiniteArticle: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: ' происходит от слова « ',
+					text: ' происходит от слова «',
 				},
 				{
 					type: 'text',
@@ -524,7 +524,79 @@ const indefiniteArticle: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: '». Но числа не ставят к неисчисляемым существительным. Поэтому и артикль ',
+					text: '». Поэтому можно или использовать его или существительное ',
+				},
+				{
+					type: 'text',
+					text: 'one',
+					color: 'blue',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: ' чтобы сообщить об одном объекте.',
+				},
+			],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			rus: [{ type: 'text', text: 'Они видят птицу на дереве.' }],
+			eng: [
+				{ type: 'text', text: 'They see ' },
+				{ type: 'text', text: 'a', color: 'blue' },
+				{ type: 'text', text: ' bird in the tree.' },
+			],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			rus: [
+				{ type: 'text', text: 'Они видят ' },
+				{ type: 'text', text: '(одну)', color: 'gray' },
+				{ type: 'text', text: ' птицу на дереве.' },
+			],
+			eng: [
+				{ type: 'text', text: 'They see ' },
+				{ type: 'text', text: 'one', color: 'blue' },
+				{ type: 'text', text: ' bird in the tree.' },
+			],
+		},
+		{
+			type: 'paragraph',
+			offset: true,
+			children: [
+				{
+					type: 'text',
+					text: 'Одновременно ставить ',
+				},
+				{
+					type: 'text',
+					text: 'a',
+					color: 'blue',
+				},
+				{
+					type: 'text',
+					text: ' и ',
+				},
+				{
+					type: 'text',
+					text: 'one',
+					color: 'blue',
+				},
+				{
+					type: 'text',
+					text: ' не нужно.',
+				},
+			],
+		},
+		{
+			type: 'paragraph',
+			offset: true,
+			children: [
+				{
+					type: 'text',
+					text: 'Если существительное неисчисляемое, то числа ставить нельзя как и артикль ',
 				},
 				{
 					type: 'text',
@@ -534,7 +606,16 @@ const indefiniteArticle: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: ' тоже к ним не ставят. Как в этом случае:',
+					text: ' потому что это синоним числа «',
+				},
+				{
+					type: 'text',
+					text: 'один',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: '».',
 				},
 			],
 		},
@@ -551,10 +632,15 @@ const indefiniteArticle: ArticleType.Art = {
 				{
 					type: 'text',
 					color: 'gray',
-					text: 'Чай — неисчисляемое существительное, поэтому неопределённый артикль a не ставится.',
+					text: 'Чай — неисчисляемое существительное, поэтому неопределённый артикль не ставится.',
 				},
 			],
 		},
+
+		// --
+
+		{ type: 'header', tag: 'h3', style: 'h3', text: 'Одна порция' },
+
 		{
 			type: 'paragraph',
 			offset: true,
@@ -598,7 +684,7 @@ const indefiniteArticle: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'Ещё вкусности:',
+					text: 'Другие продукты:',
 				},
 			],
 		},
@@ -712,7 +798,7 @@ const indefiniteArticle: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'Другие примеры:',
+					text: 'Ещё примеры:',
 				},
 			],
 		},
@@ -1161,7 +1247,7 @@ const indefiniteArticle: ArticleType.Art = {
 				},
 			],
 		},
-		{ type: 'header', tag: 'h3', style: 'h3', text: 'Делает существительное неопределённым' },
+		{ type: 'header', tag: 'h3', style: 'h3', text: 'Делает существительное одним из объектов класса' },
 		{
 			type: 'paragraph',
 			offset: true,

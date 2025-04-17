@@ -1,14 +1,26 @@
-version: "3.8"
 services:
   nginx:
     image: nginx:1.19.7-alpine
     container_name: explain-nginx
     depends_on:
       - face
+      - server
     ports:
       - 80:80
     volumes:
       - ./nginx/nginx.conf.dev:/etc/nginx/nginx.conf
+  server:
+    build:
+      context: server/
+      dockerfile: Dockerfile.dev
+    restart: unless-stopped
+    volumes:
+      - ./server/src:/app/src
+    command: yarn start:dev
+    container_name: explain-server
+    environment:
+      mode: dev
+      port: 3000
   face:
     build:
       context: face/
@@ -19,4 +31,6 @@ services:
       - ./face:/public
     command: yarn run dev
     container_name: explain-face
+    depends_on:
+      - server
     environment: {}

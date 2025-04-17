@@ -11,7 +11,7 @@ const rowArticles: ArticleType.Art[] = [
 	presentSimplePositive2,
 	presentSimplePositive3,
 	indefiniteArticle,
-	// the,
+	the,
 ]
 
 const articles: ArticleType.Art[] = rowArticles.map((article, i) => {

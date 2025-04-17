@@ -1,7 +1,11 @@
 import { ConfigSchemaV37Json } from './types/ConfigSchemaV37Json'
 
 const domain = 'explainit.ru'
-type EnvType = 'dev' | 'serverCheck' | 'server'
+export enum EnvType {
+	'dev'= 'dev',
+	'serverCheck' = 'serverCheck',
+	'server' = 'server',
+}
 
 /**
  * Возвращает объект конфигурации docker-compose для разработки, проверки развёртывания на сервере и для сервера
@@ -13,35 +17,36 @@ export function createDockerConfig(env: EnvType): ConfigSchemaV37Json {
 			nginx: {
 				image: 'nginx:1.19.7-alpine',
 				container_name: 'explain-nginx',
-				depends_on: ['site'],
-				ports: env === 'server' ? undefined : ['80:80'],
+				depends_on: ['face', 'server'],
+				ports: env === EnvType.server ? undefined : ['80:80'],
 				volumes: ['./nginx/nginx.conf.dev:/etc/nginx/nginx.conf'],
 				environment: getNginxEnvs(env),
 			},
-			/*api: {
+			server: {
 				build: {
-					context: 'api/',
-					dockerfile: env === 'dev' ? 'Dockerfile.dev' : 'Dockerfile.server',
+					context: 'server/',
+					dockerfile: env === EnvType.dev ? 'Dockerfile.dev' : 'Dockerfile.server',
 				},
 				restart: 'unless-stopped',
-				volumes: ['./api/src:/app/src'],
-				command: env === 'dev' ? 'npm run start:dev' : 'npm run start:prod',
-				container_name: 'explain-api',
-				environment: getApiEnvs(env),
-			},*/
+				volumes: ['./server/src:/app/src'],
+				command: env === EnvType.dev ? 'yarn start:dev' : 'yarn start:prod',
+				container_name: 'explain-server',
+				environment: getServerEnvs(env),
+			},
 			face: {
 				build: {
 					context: 'face/',
 					dockerfile: env === 'dev' ? 'Dockerfile.dev' : 'Dockerfile.server',
 				},
 				restart: 'unless-stopped',
-				volumes: env === 'dev' ? ['./face:/app', './face:/public'] : undefined,
-				command: env === 'dev' ? 'yarn run dev' : 'yarn run start',
+				volumes: env === EnvType.dev ? ['./face:/app', './face:/public'] : undefined,
+				command: env === EnvType.dev ? 'yarn run dev' : 'yarn run start',
 				container_name: 'explain-face',
+				depends_on: ['server'],
 				environment: getSiteEnvs(env),
 			},
 		},
-		networks: env === 'server' ? getServerNetworks() : undefined,
+		networks: env === EnvType.server ? getServerNetworks() : undefined,
 	}
 }
 
@@ -66,7 +71,7 @@ function getServerNetworks() {
  * @param env — тип конфигурации
  */
 function getNginxEnvs(env: EnvType) {
-	if (env !== 'server') return undefined
+	if (env !== EnvType.server) return undefined
 
 	return {
 		VIRTUAL_HOST: `${domain},www.${domain}`,
@@ -78,9 +83,14 @@ function getNginxEnvs(env: EnvType) {
  * Возвращает переменные окружения для Api
  * @param env — тип конфигурации
  */
-/*function getApiEnvs(env: EnvType) {
-	return commonEnvVars
-}*/
+function getServerEnvs(env: EnvType) {
+	// return commonEnvVars
+
+	return {
+		mode: env === EnvType.dev ? 'dev' : 'server',
+		port: 3000,
+	}
+}
 
 /**
  * Возвращает переменные окружения для Face
