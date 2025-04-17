@@ -88,7 +88,7 @@ function getServerEnvs(env: EnvType) {
 
 	return {
 		mode: env === EnvType.dev ? 'dev' : 'server',
-		port: 3000,
+		port: 3001,
 	}
 }
 

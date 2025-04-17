@@ -1,5 +1,6 @@
 @use '@/styles/variables' as vars;
 @use '@/styles/mixins' as mix;
+@use 'sass:color';
 
 .art-prev-and-next-buttons-outer {
 	container-type: inline-size;
@@ -30,10 +31,10 @@
 	&--blue {
 		.prev-or-next-button {
 			background-color: white;
-			border-color: lighten(vars.$blueColor-2, 20%);
+			border-color: color.adjust(vars.$blueColor-2, $saturation: -20%);
 
 			.prev-or-next-button__hr {
-				background: darken(vars.$blueColor-1, 12%);
+				background: color.adjust(vars.$blueColor-1, $saturation: 12%);
 			}
 
 			.prev-or-next-button__arrow {
@@ -56,18 +57,18 @@
 				border-color: vars.$blueColor-2;
 
 				.prev-or-next-button__hr {
-					background: darken(vars.$blueColor-1, 22%);
+					background: color.adjust(vars.$blueColor-1, $saturation: 22%);
 				}
 
 				.prev-or-next-button {
 					&__top {
-						color: darken(vars.$grayColor-3, 10%);
+						color: color.adjust(vars.$grayColor-3, $saturation: 10%);
 					}
 					&__name {
 						filter: brightness(85%);
 					}
 					&__description {
-						color: darken(vars.$grayColor-4, 10%);
+						color: color.adjust(vars.$grayColor-4, $saturation: 10%);
 					}
 				}
 			}
@@ -95,21 +96,21 @@
 			}
 
 			&:hover {
-				border-color: lighten(vars.$grayColor-3, 13%);
+				border-color: color.adjust(vars.$grayColor-3, $saturation: -13%);
 
 				.prev-or-next-button__hr {
-					background: lighten(vars.$grayColor-4, 8%);
+					background: color.adjust(vars.$grayColor-4, $saturation: -8%);
 				}
 
 				.prev-or-next-button {
 					&__top {
-						color: lighten(vars.$grayColor-3, 9%);
+						color: color.adjust(vars.$grayColor-3, $saturation: -9%);
 					}
 					&__name {
 						color: white;
 					}
 					&__description {
-						color: lighten(vars.$grayColor-3, 9%);
+						color: color.adjust(vars.$grayColor-3, $saturation: -9%);
 					}
 				}
 			}

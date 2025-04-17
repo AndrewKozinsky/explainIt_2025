@@ -1,16 +1,17 @@
 @use '@/styles/variables' as vars;
 @use '@/styles/mixins' as mix;
+@use 'sass:color';
 
 .button {
-	color: darken(vars.$grayColor-4, 20%);
+	color: color.adjust(vars.$grayColor-4, $saturation: 20%);
 	background-color: white;
 	cursor: pointer;
-	border: 1px solid darken(vars.$grayColor-2, 12%);
+	border: 1px solid color.adjust(vars.$grayColor-2, $saturation: 12%);
 	transition: background-color .25s, border-color .25s, color .25s;
 
 	&:hover {
 		color: vars.$textColor;
-		background-color: desaturate(vars.$grayColor-1, 100%);
+		background-color: color.adjust(vars.$grayColor-1, $saturation: -100%);
 		border-color: vars.$grayColor-3;
 	}
 }

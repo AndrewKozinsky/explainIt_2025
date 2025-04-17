@@ -20,7 +20,7 @@ services:
     container_name: explain-server
     environment:
       mode: dev
-      port: 3000
+      port: 3001
   face:
     build:
       context: face/

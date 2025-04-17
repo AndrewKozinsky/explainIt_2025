@@ -17,7 +17,7 @@ export class MainConfigService {
 	getEnVariables() {
 		return {
 			mode: this.configService.get<string>('mode') as 'dev' | 'serverCheck' | 'server',
-			port: this.configService.get<number>('port') || 3000,
+			port: this.configService.get<number>('port') || 3001,
 		}
 	}
 }

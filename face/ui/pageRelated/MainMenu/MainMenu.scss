@@ -1,6 +1,7 @@
 @use '@/styles/variables' as vars;
 @use '@/styles/mixins' as mix;
 @use '@/styles/inherit' as inh;
+@use 'sass:color';
 
 .main-menu__ul {
 	display: flex;
@@ -11,10 +12,10 @@
 
 .main-menu__link--current {
 	color: vars.$orangeColor-2;
-	border-bottom-color: darken(vars.$orangeColor-1, 12%);
+	border-bottom-color: color.adjust(vars.$orangeColor-1, $saturation: 12%);
 
 	&:hover {
 		color: vars.$orangeColor-2;
-		border-bottom-color: darken(vars.$orangeColor-1, 20%);
+		border-bottom-color: color.adjust(vars.$orangeColor-1, $saturation: 20%);
 	}
 }
