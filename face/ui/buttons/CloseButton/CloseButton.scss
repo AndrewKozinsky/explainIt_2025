@@ -1,7 +1,7 @@
-//@use '@/styles/variables' as vars;
-//@use '@/styles/mixins' as mix;
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
 
-/*.close-button {
+.close-button {
 	flex-shrink: 0;
 	display: flex;
 	justify-content: center;
@@ -9,4 +9,4 @@
 	width: 3.1rem;
 	height: 3.1rem;
 	border-radius: 50%;
-}*/
+}

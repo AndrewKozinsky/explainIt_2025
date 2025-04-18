@@ -4,6 +4,7 @@ import presentSimplePositive1 from './1_presentSimplePositive-1/presentSimplePos
 import presentSimplePositive2 from './2_presentSimplePositive-2/presentSimplePositive-2'
 import presentSimplePositive3 from './3_presentSimplePositive-3/presentSimplePositive-3'
 import indefiniteArticle from './4_indefiniteArticle/indefiniteArticle'
+import personalPronouns from './6_personalPronouns/personalPronouns'
 
 // Список статей учебника
 const rowArticles: ArticleType.Art[] = [
@@ -12,6 +13,7 @@ const rowArticles: ArticleType.Art[] = [
 	presentSimplePositive3,
 	indefiniteArticle,
 	the,
+	personalPronouns,
 ]
 
 const articles: ArticleType.Art[] = rowArticles.map((article, i) => {

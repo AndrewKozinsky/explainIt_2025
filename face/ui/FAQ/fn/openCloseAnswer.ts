@@ -1,10 +1,10 @@
-// import React from 'react'
-// import { FaqStoreType } from './faqStoreTypes'
+import React from 'react'
+import { FaqStoreType } from './faqStoreTypes'
 
-/*export function useGetOpenCloseAnswer(
+export function useGetOpenCloseAnswer(
 	store: FaqStoreType.State,
 	setStore: React.Dispatch<React.SetStateAction<FaqStoreType.State>>,
-	itemId: number
+	itemId: number,
 ) {
 	return function () {
 		const updatedItems = store.items.map((item) => {
@@ -17,4 +17,4 @@
 
 		setStore({ items: updatedItems })
 	}
-}*/
+}

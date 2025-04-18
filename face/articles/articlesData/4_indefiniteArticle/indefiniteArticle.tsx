@@ -498,6 +498,54 @@ const indefiniteArticle: ArticleType.Art = {
 		exercises_4,
 
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Какие свойства даёт артикль a/an существительному' },
+		{ type: 'header', tag: 'h3', style: 'h3', text: 'Указывает на типичное поведение' },
+		{
+			type: 'paragraph',
+
+			children: [
+				{ type: 'text', weight: 'bold', text: 'Неопределённый артикль a' },
+				{
+					type: 'text',
+
+					text: ' могут применять не в значении «один из объектов», а в обобщённом значении как типичное поведение любого объекта этого класса.',
+				},
+			],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			rus: [{ type: 'text', text: 'Врач лечит людей.' }],
+			eng: [{ type: 'text', text: 'A doctor treats people.' }],
+		},
+		{
+			type: 'paragraph',
+
+			textSize: 'small',
+			children: [
+				{
+					type: 'text',
+					color: 'gray',
+					text: 'Не какой-то врач лечит людей, а в целом любой врач это делает. Это их характерное поведение.',
+				},
+			],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			rus: [{ type: 'text', text: 'Кролик — домашнее животное.' }],
+			eng: [{ type: 'text', text: 'A rabbit is a domestic animal.' }],
+		},
+		{
+			type: 'paragraph',
+			textSize: 'small',
+			children: [
+				{
+					type: 'text',
+					color: 'gray',
+					text: 'Заметьте, что артикль стоит и перед rabbit и перед domestic animal потому что это два неопределённых существительных.',
+				},
+			],
+		},
 		{ type: 'header', tag: 'h3', style: 'h3', text: 'Указывает на единственное число' },
 		{
 			type: 'paragraph',

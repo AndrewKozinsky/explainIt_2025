@@ -27,17 +27,17 @@
 }
 
 // КАРТИНКА (ОТСТУПЫ НЕ УКАЗЫВАЮТСЯ) =====
-/*.art-image + .art-header--h4 {
+.art-image + .art-header--h4 {
     margin-top: 2.2rem;
-}*/
+}
 
-/*.art-image + .art-header--h3 {
+.art-image + .art-header--h3 {
     margin-top: 2.6rem;
-}*/
+}
 
-/*.art-image + .art-header--h2 {
+.art-image + .art-header--h2 {
     margin-top: 2.8rem;
-}*/
+}
 
 .art-image + .art-paragraph {
 	margin-top: 1.2rem;
@@ -47,15 +47,15 @@
 	margin-top: 2.2rem;
 }*/
 @include mix.container-width(vars.$tablet-width) {
-	/*.art-image + .art-header--h4 {
+	.art-image + .art-header--h4 {
 		margin-top: 2.4rem;
-	}*/
-	/*.art-image + .art-header--h3 {
+	}
+	.art-image + .art-header--h3 {
 		margin-top: 2.8rem;
-	}*/
-	/*.art-image + .art-header--h2 {
+	}
+	.art-image + .art-header--h2 {
 		margin-top: 3rem;
-	}*/
+	}
 	/*.art-image + .art-paragraph {
 		margin-top: 1.4rem;
 	}*/

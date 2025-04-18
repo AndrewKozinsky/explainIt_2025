@@ -1,11 +1,9 @@
-//@use '@/styles/variables' as vars;
-//@use '@/styles/mixins' as mix;
-//@use '@/styles/inherit' as inh;
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+@use '@/styles/inherit' as inh;
 
-//$CN: art-faq;
-
-/*.#{$CN} {
+.art-faq {
 	background-color: vars.$grayColor-1;
 	padding: 1.2rem 1.6rem;
 	border-radius: vars.$radius-2;
-}*/
+}

@@ -1,6 +1,6 @@
-// import FaqTypes from './faqTypes'
+import FaqTypes from './faqTypes'
 
-/*export namespace FaqStoreType {
+export namespace FaqStoreType {
 	export type State = {
 		items: Item[]
 	}
@@ -16,4 +16,4 @@
 
 	export type Question = FaqTypes.Question
 	export type Answer = FaqTypes.Answer
-}*/
+}

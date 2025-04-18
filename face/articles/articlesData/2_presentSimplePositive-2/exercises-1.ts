@@ -223,6 +223,23 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{ rusWord: 'пятница', engWord: 'Friday' },
 			],
 		},
+		{
+			// TODO
+			rusSentence: 'Он слышит шум.',
+			engSentences: [
+				{
+					engSentences: ['He hears noise.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'работать', engWord: 'work' },
+				{ rusWord: 'с', engWord: 'from' },
+				{ rusWord: 'понедельник', engWord: 'Monday' },
+				{ rusWord: 'по', engWord: 'to' },
+				{ rusWord: 'пятница', engWord: 'Friday' },
+			],
+		},
 	],
 }
 

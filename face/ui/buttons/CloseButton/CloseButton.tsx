@@ -1,15 +1,15 @@
-// import cn from 'classnames'
-// import React from 'react'
-// import { CloseIcon } from '../../icons/CloseIcon/CloseIcon'
-// import '../Button.scss'
-// import './CloseButton.scss'
+import cn from 'classnames'
+import React from 'react'
+import { CloseIcon } from '../../icons/CloseIcon/CloseIcon'
+import '../Button.scss'
+import './CloseButton.scss'
 
-/*type CloseButtonProps = {
+type CloseButtonProps = {
 	extraClass?: string
 	onClick: () => void
-}*/
+}
 
-/*function CloseButton(props: CloseButtonProps) {
+function CloseButton(props: CloseButtonProps) {
 	const { extraClass, onClick } = props
 
 	return (
@@ -17,6 +17,6 @@
 			<CloseIcon />
 		</button>
 	)
-}*/
+}
 
-// export default CloseButton
+export default CloseButton

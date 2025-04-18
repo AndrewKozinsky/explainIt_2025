@@ -1,13 +1,13 @@
-// import { useMemo } from 'react'
-// import ArticleType from '../../../../articlesData/articleType'
-// import FaqTypes from '../../../../ui/FAQ/fn/faqTypes'
-// import ArticleBuilder from '../../../ArticleBuilder/ArticleBuilder'
+import { useMemo } from 'react'
+import FaqTypes from '../../../../ui/FAQ/fn/faqTypes'
+import ArticleBuilder from '../../../ArticleBuilder/ArticleBuilder'
+import ArticleType from '../../../articleTypes/articleType'
 
 /**
  * Принимает объект конфигурации для построения блока Вопросов и ответов и возвращает улученную версию.
  * @param config — объект конфигурации для построения блока Вопросов и ответов
  */
-/*export function useGetConfig(config: ArticleType.Faq): FaqTypes.Config {
+export function useGetConfig(config: ArticleType.Faq): FaqTypes.Config {
 	return useMemo(function () {
 		return config.items.map((faqItem) => {
 			const question: FaqTypes.Question =
@@ -38,4 +38,4 @@
 			}
 		})
 	}, [])
-}*/
+}

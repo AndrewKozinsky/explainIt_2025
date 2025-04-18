@@ -1122,7 +1122,6 @@
 			textSize: 'giant',
 			children: [
 				{ type: 'text',  text: 'Это дверь.' },
-
 				{ type: 'text',  text: 'It is a door.' },
 			],
 		},
@@ -1134,75 +1133,7 @@
 				{
 					type: 'text',
 					color: 'gray',
-
 					text: 'В первый раз упомянута дверь.',
-				},
-			],
-		},
-		{ type: 'header', tag: 'h3', style: 'h3', text: 'Указывает на типичное поведение' },
-		{
-			type: 'paragraph',
-
-			children: [
-				{ type: 'text',  weight: 'bold', text: 'Неопределённый артикль a' },
-				{
-					type: 'text',
-
-					text: ' могут применять не в значении «один из объектов», а в обобщённом значении как типичное поведение любого объекта этого класса.',
-				},
-			],
-		},
-		{
-			type: 'paragraph',
-
-			textSize: 'giant',
-			children: [
-				{ type: 'text',  text: 'Врач лечит людей.' },
-
-				{ type: 'text',  text: 'A doctor treats people.' },
-			],
-		},
-		{
-			type: 'paragraph',
-
-			textSize: 'small',
-			children: [
-				{
-					type: 'text',
-					color: 'gray',
-
-					text: 'Не какой-то врач лечит людей, а в целом любой врач это делает. Это их характерное поведение.',
-				},
-			],
-		},
-		{
-			type: 'paragraph',
-			offset: true,
-			textSize: 'giant',
-			children: [
-				{
-					type: 'text',
-
-					text: 'Кролик — домашнее животное.',
-				},
-
-				{
-					type: 'text',
-
-					text: 'A rabbit is a domestic animal.',
-				},
-			],
-		},
-		{
-			type: 'paragraph',
-
-			textSize: 'small',
-			children: [
-				{
-					type: 'text',
-					color: 'gray',
-
-					text: 'Заметьте, что артикль стоит и перед rabbit и перед domestic animal потому что это два неопределённых существительных.',
 				},
 			],
 		},
@@ -1222,7 +1153,6 @@
 							analysis: [
 								{
 									type: 'paragraph',
-
 									children: [
 										{
 											type: 'text',

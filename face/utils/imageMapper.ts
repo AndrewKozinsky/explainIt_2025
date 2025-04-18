@@ -1,9 +1,9 @@
 export const imageMapper = {
 	tables: {
-		/*PersonalPronounceSubject: {
+		PersonalPronounceSubject: {
 			src: '/schemasAndTables/PersonalPronounceSubjectTable.svg',
 			alt: 'Личные местоимения в роли подлежащего',
-		},*/
+		},
 		/*PersonalPronounceSubjectAndObject: {
 			src: '/schemasAndTables/PersonalPronounceSubjectAndObjectTable.svg',
 			alt: 'Личные местоимения в роли подлежащего и дополнения',
