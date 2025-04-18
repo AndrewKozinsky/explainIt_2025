@@ -288,8 +288,9 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'строить', engWord: 'build' },
-				{ rusWord: 'дома', engWord: 'houses' },
+				{ rusWord: 'обычно', engWord: 'usually' },
+				{ rusWord: 'смотреть', engWord: 'watch' },
+				{ rusWord: 'телевизор', engWord: 'TV' },
 			],
 		},
 		{
@@ -301,8 +302,9 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'строить', engWord: 'build' },
-				{ rusWord: 'дома', engWord: 'houses' },
+				{ rusWord: 'всегда', engWord: 'always' },
+				{ rusWord: 'пить', engWord: 'drink' },
+				{ rusWord: 'чай', engWord: 'tea' },
 			],
 		},
 		{
@@ -314,8 +316,10 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'строить', engWord: 'build' },
-				{ rusWord: 'дома', engWord: 'houses' },
+				{ rusWord: 'готовить', engWord: 'cook' },
+				{ rusWord: 'рыба', engWord: 'fish' },
+				{ rusWord: 'каждый', engWord: 'every' },
+				{ rusWord: 'четверг', engWord: 'Thursday' },
 			],
 		},
 		{
@@ -405,7 +409,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 			words: [
 				{ rusWord: 'книги', engWord: 'books' },
-				{ rusWord: 'о чем-то', engWord: 'about something' },
+				{ rusWord: 'о чем-то', engWord: 'about' },
 				{ rusWord: 'природа', engWord: 'nature' },
 			],
 		},
@@ -418,9 +422,9 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'книги', engWord: 'books' },
-				{ rusWord: 'о чем-то', engWord: 'about something' },
-				{ rusWord: 'природа', engWord: 'nature' },
+				{ rusWord: 'очень', engWord: 'very' },
+				{ rusWord: 'часто', engWord: 'about often' },
+				{ rusWord: 'плавать', engWord: 'swim' },
 			],
 		},
 		{
@@ -432,9 +436,8 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'книги', engWord: 'books' },
-				{ rusWord: 'о чем-то', engWord: 'about something' },
-				{ rusWord: 'природа', engWord: 'nature' },
+				{ rusWord: 'продавать', engWord: 'sell' },
+				{ rusWord: 'покупать', engWord: 'buy' },
 			],
 		},
 	],

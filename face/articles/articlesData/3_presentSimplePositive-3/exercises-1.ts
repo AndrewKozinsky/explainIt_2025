@@ -19,6 +19,7 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			rusSentence: 'Маша часто путешествует.',
 			engSentences: [{ engSentences: ['Masha often travels.'], isCorrect: true }],
 			words: [
+				{ rusWord: 'Маша', engWord: 'Masha' },
 				{ rusWord: 'часто', engWord: 'often' },
 				{ rusWord: 'путешествовать', engWord: 'travel' },
 			],
@@ -36,6 +37,7 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			rusSentence: 'Джон понимает эту проблему.',
 			engSentences: [{ engSentences: ['John understands this problem.'], isCorrect: true }],
 			words: [
+				{ rusWord: 'Джон', engWord: 'John' },
 				{ rusWord: 'понимать', engWord: 'understand' },
 				{ rusWord: 'эта', engWord: 'this' },
 				{ rusWord: 'проблема', engWord: 'problem' },
@@ -62,6 +64,7 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			rusSentence: 'Эндрю любит чай.',
 			engSentences: [{ engSentences: ['Andrew loves tea.'], isCorrect: true }],
 			words: [
+				{ rusWord: 'Эндрю', engWord: 'Andrew' },
 				{ rusWord: 'любить', engWord: 'love' },
 				{ rusWord: 'чай', engWord: 'tea' },
 			],
@@ -79,9 +82,10 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			rusSentence: 'Вика выглядит хорошо.',
-			engSentences: [{ engSentences: ['Vika looks good.'], isCorrect: true }],
+			rusSentence: 'Виктория выглядит хорошо.',
+			engSentences: [{ engSentences: ['Victoria looks good.'], isCorrect: true }],
 			words: [
+				{ rusWord: 'Виктория', engWord: 'Victoria' },
 				{ rusWord: 'выглядеть', engWord: 'look' },
 				{ rusWord: 'хорошо', engWord: 'good' },
 			],
@@ -113,6 +117,7 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			engSentences: [{ engSentences: ['Uncle George reads English books.'], isCorrect: true }],
 			words: [
 				{ rusWord: 'дядя', engWord: 'uncle' },
+				{ rusWord: 'Джордж', engWord: 'George' },
 				{ rusWord: 'читать', engWord: 'read' },
 				{ rusWord: 'английские', engWord: 'English' },
 				{ rusWord: 'книги', engWord: 'books' },
@@ -127,6 +132,7 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
+				{ rusWord: 'Света', engWord: 'Sveta' },
 				{ rusWord: 'расти', engWord: 'grow' },
 				{ rusWord: 'активный', engWord: 'active' },
 				{ rusWord: 'позитивный', engWord: 'positive' },
@@ -149,6 +155,7 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			rusSentence: 'Джон ненавидит чеснок.',
 			engSentences: [{ engSentences: ['John hates garlic'], isCorrect: true }],
 			words: [
+				{ rusWord: 'Джон', engWord: 'John' },
 				{ rusWord: 'ненавидеть', engWord: 'hate' },
 				{ rusWord: 'чеснок', engWord: 'garlic' },
 			],
@@ -166,6 +173,7 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			rusSentence: 'Дональд часто готовит.',
 			engSentences: [{ engSentences: ['Donald often cooks.'], isCorrect: true }],
 			words: [
+				{ rusWord: 'Дональд', engWord: 'Donald' },
 				{ rusWord: 'часто', engWord: 'often' },
 				{ rusWord: 'готовить', engWord: 'cook' },
 			],

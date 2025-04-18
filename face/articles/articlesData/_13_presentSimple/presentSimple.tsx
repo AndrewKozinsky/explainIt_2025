@@ -392,25 +392,12 @@
 					words: [{ rusWord: 'плавать', engWord: 'swim' }],
 				},
 				{
-					rusSentence: 'Учебный год начинается в сентябре.',
-					engSentences: [{ engSentences: ['The school year begins in September.'], isCorrect: true }],
-					words: [{ rusWord: 'популярный', engWord: 'popular' }],
-				},
-				{
 					rusSentence: 'Я люблю книги о природе.',
 					engSentences: [{ engSentences: ['I like books about nature.'], isCorrect: true }],
 					words: [
 						{ rusWord: 'книга', engWord: 'book' },
 						{ rusWord: 'о чем-то', engWord: 'about something' },
 						{ rusWord: 'природа', engWord: 'nature' },
-					],
-				},
-				{
-					rusSentence: 'Мы изучаем математику.',
-					engSentences: [{ engSentences: ['We study Math.'], isCorrect: true }],
-					words: [
-						{ rusWord: 'изучать', engWord: 'study' },
-						{ rusWord: 'математика', engWord: 'Math' },
 					],
 				},
 				{

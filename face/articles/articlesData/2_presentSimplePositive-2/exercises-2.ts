@@ -179,7 +179,7 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'занимать', engWord: 'do' },
+				{ rusWord: 'заниматься', engWord: 'do' },
 				{ rusWord: 'йога', engWord: 'yoga' },
 			],
 		},
@@ -188,7 +188,7 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			engSentences: [{ engSentences: ['Tom mixes the ingredients.'], isCorrect: true }],
 			words: [
 				{ rusWord: 'смешивать', engWord: 'mix' },
-				{ rusWord: 'ингредиенты', engWord: 'ingredient' },
+				{ rusWord: 'ингредиенты', engWord: 'ingredients' },
 			],
 		},
 	],

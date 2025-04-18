@@ -51,10 +51,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 					isCorrect: true,
 				},
 			],
-			words: [
-				{ rusWord: 'верить', engWord: 'believe' },
-				{ rusWord: 'НЛО', engWord: 'UFO' },
-			],
+			words: [{ rusWord: 'верить в НЛО', engWord: 'believe UFO' }],
 		},
 		{
 			rusSentence: 'Он получает большие деньги.',
@@ -98,6 +95,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			words: [
 				{ rusWord: 'приносить', engWord: 'bring' },
 				{ rusWord: 'успех', engWord: 'success' },
+				{ rusWord: 'и', engWord: 'and' },
 				{ rusWord: 'удача', engWord: 'luck' },
 			],
 		},

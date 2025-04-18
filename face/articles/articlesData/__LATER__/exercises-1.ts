@@ -4,6 +4,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 	type: 'exercises',
 	exercises: [
 		{
+			// TODO
 			rusSentence: 'Это работает очень громко.',
 			engSentences: [
 				{

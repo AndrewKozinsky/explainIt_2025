@@ -47,6 +47,7 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			rusSentence: 'Гарри ест мясо.',
 			engSentences: [{ engSentences: ['Harry eats meat.'], isCorrect: true }],
 			words: [
+				{ rusWord: 'Гарри', engWord: 'Harry' },
 				{ rusWord: 'есть', engWord: 'eat' },
 				{ rusWord: 'мясо', engWord: 'meat' },
 			],
@@ -139,7 +140,7 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			engSentences: [{ engSentences: ['They do different exercises.'], isCorrect: true }],
 			words: [
 				{ rusWord: 'делать', engWord: 'do' },
-				{ rusWord: 'различные', engWord: 'different' },
+				{ rusWord: 'разные', engWord: 'different' },
 				{ rusWord: 'упражнения', engWord: 'exercises' },
 			],
 		},
@@ -203,6 +204,7 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			rusSentence: 'Чарли зарабатывает деньги.',
 			engSentences: [{ engSentences: ['Charley earns money.'], isCorrect: true }],
 			words: [
+				{ rusWord: 'Чарли', engWord: 'Charley' },
 				{ rusWord: 'зарабатывать', engWord: 'earn' },
 				{ rusWord: 'деньги', engWord: 'money' },
 			],
