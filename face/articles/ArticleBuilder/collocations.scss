@@ -143,9 +143,9 @@
 	margin-top: 1.2rem;
 }
 
-/*.art-paragraph + .art-grid {
+.art-paragraph + .art-grid {
 	margin-top: 0.8rem;
-}*/
+}
 
 /*.art-paragraph + .art-faq {
 	margin-top: 1.2rem;
@@ -179,9 +179,9 @@
 	/*.art-paragraph + .art-note {
 		margin-top: 1.8rem;
 	}*/
-	/*.art-paragraph + .art-grid {
+	.art-paragraph + .art-grid {
 		margin-top: 1rem;
-	}*/
+	}
 }
 
 // ПРЕДЛОЖЕНИЕ И ПЕРЕВОД
@@ -199,6 +199,15 @@
 }
 .art-rus-to-eng + .exercises {
 	margin-top: 1.8rem;
+}
+.art-rus-to-eng + .art-header--h4 {
+	margin-top: 1.4rem;
+}
+.art-rus-to-eng + .art-header--h3 {
+	margin-top: 1.6rem;
+}
+.art-rus-to-engh + .art-header--h2 {
+	margin-top: 2.4rem;
 }
 
 // УПРАЖНЕНИЯ
@@ -220,9 +229,9 @@
 }
 
 // СПИСОК (ОТСТУП НЕ УКАЗЫВАЕТСЯ) =====
-/*.art-list + .art-paragraph {
+.art-list + .art-paragraph {
 	margin-top: 1.2rem;
-}*/
+}
 
 // ВОПРОСЫ И ОТВЕТЫ (ОТСТУП НЕ УКАЗЫВАЕТСЯ)
 /*.art-faq + .art-faq {
@@ -249,9 +258,9 @@
 	margin-top: 2.0rem;
 }
 
-/*.art-grid + .art-note {
+.art-grid + .art-note {
 	margin-top: 2.0rem;
-}*/
+}
 
 @include mix.container-width(vars.$tablet-width) {
 	/*.art-grid + .art-header--h4 {
@@ -263,9 +272,9 @@
 	/*.art-grid + .art-header--h2 {
 		margin-top: 2.2rem;
 	}*/
-	/*.art-grid + .art-note {
-		margin-top: 2.2rem;
-	}*/
+	.art-grid + .art-note {
+		margin-top: 2rem;
+	}
 }
 
 @include mix.container-width(vars.$monitor-width) {

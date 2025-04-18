@@ -1,14 +1,14 @@
-// import cn from 'classnames'
-// import Paragraph from '../Paragraph/Paragraph'
-// import ArticleType from '../../../articlesData/articleType'
-// import './List.scss'
+import cn from 'classnames'
+import ArticleType from '../../articleTypes/articleType'
+import Paragraph from '../Paragraph/Paragraph'
+import './List.scss'
 
-/*type ListProps = {
+type ListProps = {
 	config: ArticleType.List
-}*/
+}
 
 /** Нумерованный и ненумерованный список */
-/*function List(props: ListProps) {
+function List(props: ListProps) {
 	const { config } = props
 
 	const classes = ['art-list']
@@ -26,6 +26,6 @@
 			})}
 		</Component>
 	)
-}*/
+}
 
-// export default List
+export default List

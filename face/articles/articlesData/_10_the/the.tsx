@@ -8,7 +8,6 @@
 		articleName: 'Определённый артикль the',
 		articleDescription:
 			'Определённый артикль the используется перед сущностями известными собеседнику из контекста. ',
-
 	},
 	content: [
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Как работает' },
@@ -34,128 +33,7 @@
 			offset: true,
 
 			children: [
-				{
-					type: 'text',
-
-					text: 'Давайте в предложении «Машина в гараже» подставим разные артикли и посмотрим как изменяется смысл.',
-				},
-			],
-		},
-		{
-			type: 'grid',
-			offset: true,
-			gridId: 'grid-92750',
-			cells: [
-				{
-					minWidth: '220px',
-					width: '1fr',
-					children: [
-						{
-							type: 'paragraph',
-
-							textSize: 'giant',
-							children: [
-								{ type: 'text', color: 'gold', text: 'A' },
-								{
-									type: 'text',
-
-									text: ' car in ',
-								},
-								{ type: 'text', color: 'gold', text: 'a' },
-								{ type: 'text',  text: ' garage' },
-							],
-						},
-						{
-							type: 'paragraph',
-
-							children: [
-								{
-									type: 'text',
-
-									text: 'Какая-то машина в каком-то гараже. Предложение лишённое смысла потому что не понятно что это должно сказать собеседнику.',
-								},
-							],
-						},
-					],
-				},
-				{
-					minWidth: '220px',
-					width: '1fr',
-					children: [
-						{
-							type: 'paragraph',
-
-							textSize: 'giant',
-							children: [
-								{ type: 'text', color: 'blue', text: 'The' },
-								{
-									type: 'text',
-
-									text: ' car in ',
-								},
-								{ type: 'text', color: 'gold', text: 'a' },
-								{ type: 'text',  text: ' garage' },
-							],
-						},
-						{
-							type: 'paragraph',
-
-							children: [
-								{
-									type: 'text',
-
-									text: 'Если применён определённый артикль ',
-								},
-								{ type: 'text',  weight: 'bold', text: 'the' },
-								{
-									type: 'text',
-
-									text: ', то значит в контексте разговора участники понимают что это за машина. И эта конкретная машина сейчас находится в каком-то гараже, а не стоит, к примеру, на улице.',
-								},
-							],
-						},
-					],
-				},
-				{
-					minWidth: '220px',
-					width: '1fr',
-					children: [
-						{
-							type: 'paragraph',
-
-							textSize: 'giant',
-							children: [
-								{ type: 'text', color: 'blue', text: 'The' },
-								{
-									type: 'text',
-
-									text: ' car in ',
-								},
-								{ type: 'text', color: 'blue', text: 'the' },
-								{ type: 'text',  text: ' garage' },
-							],
-						},
-						{
-							type: 'paragraph',
-
-							children: [
-								{
-									type: 'text',
-
-									text: 'В контексте разговора участники понимают что это за машина и в каком конкретном гараже она находится.',
-								},
-							],
-						},
-					],
-				},
-			],
-		},
-		{
-			type: 'paragraph',
-			offset: true,
-
-			children: [
-				{ type: 'text',  text: 'Неопределённый артикль ' },
+				{ type: 'text', text: 'Неопределённый артикль ' },
 				{ type: 'text', color: 'blue', text: 'a' },
 				{
 					type: 'text',
@@ -175,9 +53,9 @@
 
 			textSize: 'big',
 			children: [
-				{ type: 'text',  text: 'Яблоки красные.' },
+				{ type: 'text', text: 'Яблоки красные.' },
 
-				{ type: 'text',  text: 'The apples are red.' },
+				{ type: 'text', text: 'The apples are red.' },
 			],
 		},
 		{
@@ -185,213 +63,9 @@
 
 			textSize: 'big',
 			children: [
-				{ type: 'text',  text: 'Багаж тяжёлый.' },
+				{ type: 'text', text: 'Багаж тяжёлый.' },
 
-				{ type: 'text',  text: 'The baggage is heavy.' },
-			],
-		},
-		{ type: 'header', tag: 'h2', style: 'h2', text: 'Случаи употребления' },
-		{
-			type: 'header',
-			tag: 'h4',
-			style: 'h4',
-			text: 'Перед существительными введёнными в контекст ранее',
-		},
-		{
-			type: 'paragraph',
-
-			children: [
-				{
-					type: 'text',
-
-					text: 'В примере ниже это магазин. Сначала на него указали введя в контекст, а затем достали использовав ',
-				},
-				{ type: 'text', color: 'blue', text: 'the' },
-				{ type: 'text',  text: '.' },
-			],
-		},
-		{
-			type: 'paragraph',
-
-			textSize: 'giant',
-			children: [
-				{ type: 'text', color: 'blue', text: 'Этот магазин' },
-				{ type: 'text',  text: ' очень дорогой.' },
-
-				{ type: 'text',  text: '' },
-				{ type: 'text', color: 'blue', text: 'This shop' },
-				{ type: 'text',  text: ' is very expensive.' },
-			],
-		},
-		{
-			type: 'paragraph',
-
-			textSize: 'giant',
-			children: [
-				{ type: 'text', color: 'blue', text: 'Магазин' },
-				{ type: 'text',  text: ' ещё и закрыт сегодня.' },
-
-				{ type: 'text',  text: '' },
-				{ type: 'text', color: 'blue', text: 'The shop' },
-				{ type: 'text',  text: ' is also closed today.' },
-			],
-		},
-		{
-			type: 'header',
-			tag: 'h4',
-			style: 'h4',
-			text: 'Перед существительными находящимися в глобальном контексте ',
-		},
-		{
-			type: 'paragraph',
-
-			children: [
-				{
-					type: 'text',
-
-					text: 'Некоторые конкретные существительные понятны и без ввода в контекст. Например предложения ниже собеседник поймёт как «зима в этом году была ветренной». То есть одна конкретная зима. Поэтому зиму даже не нужно было вводить в контекст. И так понятно что подразумевалось.',
-				},
-			],
-		},
-		{
-			type: 'paragraph',
-
-			textSize: 'giant',
-			children: [
-				{ type: 'text',  text: 'Зима была ветренной.' },
-
-				{ type: 'text',  text: '' },
-				{ type: 'text', color: 'blue', text: 'The winter' },
-				{ type: 'text',  text: ' was windy.' },
-			],
-		},
-		{
-			type: 'header',
-			tag: 'h4',
-			style: 'h4',
-			text: 'Перед существительными, которые по определению будут единственными',
-		},
-		{
-			type: 'paragraph',
-
-			children: [
-				{
-					type: 'text',
-
-					text: 'На корабле может быть только один капитан. А в стране только один президент. Поэтому такие существительные используются с the даже если упоминаются в первый раз.',
-				},
-			],
-		},
-		{
-			type: 'paragraph',
-			offset: true,
-
-			children: [
-				{
-					type: 'text',
-
-					text: 'Туда же относятся предметы имеющие свойство в превосходной степени потому что может быть только один такой объект.',
-				},
-			],
-		},
-		{
-			type: 'paragraph',
-
-			textSize: 'giant',
-			children: [
-				{
-					type: 'text',
-
-					text: 'Он был самым молодым федеральным судьёй в стране.',
-				},
-
-				{
-					type: 'text',
-
-					text: 'He was the youngest federal judge in the country.',
-				},
-			],
-		},
-		{
-			type: 'paragraph',
-
-			children: [
-				{
-					type: 'text',
-
-					text: 'О степенях сравнения прилагательных будет в одном из следующих уроков.',
-				},
-			],
-		},
-		{
-			type: 'header',
-			tag: 'h4',
-			style: 'h4',
-			text: 'Перед существительными ясными из контекста',
-		},
-		{
-			type: 'paragraph',
-
-			children: [
-				{
-					type: 'text',
-
-					text: 'Или заходите в квартиру и спрашиваете «Где туалет?». Перед туалетом тоже будет артикль ',
-				},
-				{ type: 'text', color: 'blue', text: 'the' },
-				{
-					type: 'text',
-
-					text: ' потому что в большинстве случаев в квартире есть один единственный туалет. Он и подразумевается. Даже если это большой дом с несколькими уборными, то такое построение фразы будет верным.',
-				},
-			],
-		},
-		{
-			type: 'paragraph',
-			offset: true,
-
-			children: [
-				{
-					type: 'text',
-
-					text: 'Если сидите в машине и она не заводится, то перед engine будет стоять определённый артикль потому что понятно из контекста о каком двигателе идёт речь.',
-				},
-			],
-		},
-		{
-			type: 'paragraph',
-
-			textSize: 'giant',
-			children: [
-				{
-					type: 'text',
-
-					text: 'Двигатель не запускается.',
-				},
-
-				{
-					type: 'text',
-
-					text: 'The engine refuses to start.',
-				},
-			],
-		},
-		{
-			type: 'paragraph',
-			offset: true,
-
-			children: [
-				{
-					type: 'text',
-
-					text: 'Прочие случаи использования ',
-				},
-				{ type: 'text',  weight: 'bold', text: 'определённого артикля the' },
-				{
-					type: 'text',
-
-					text: ' будут разобраны по ходу курса.',
-				},
+				{ type: 'text', text: 'The baggage is heavy.' },
 			],
 		},
 		{
@@ -552,8 +226,8 @@
 
 					text: 'Начнём с неопределённого артикля ',
 				},
-				{ type: 'text',  weight: 'bold', text: 'a/an' },
-				{ type: 'text',  text: '.' },
+				{ type: 'text', weight: 'bold', text: 'a/an' },
+				{ type: 'text', text: '.' },
 			],
 		},
 		{
@@ -562,7 +236,7 @@
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'blue', text: 'An' },
-				{ type: 'text',  text: ' iron is hot.' },
+				{ type: 'text', text: ' iron is hot.' },
 			],
 		},
 		{
@@ -594,7 +268,7 @@
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'blue', text: 'My' },
-				{ type: 'text',  text: ' iron is hot.' },
+				{ type: 'text', text: ' iron is hot.' },
 			],
 		},
 		{
@@ -626,7 +300,7 @@
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'blue', text: 'This' },
-				{ type: 'text',  text: ' iron is hot.' },
+				{ type: 'text', text: ' iron is hot.' },
 			],
 		},
 		{
@@ -638,7 +312,7 @@
 
 					text: 'Отличное решение когда собеседнику нужно указать на предмет. Но это делается один раз для ввода предмета в контекст. А если я снова хочу что-то сообщить об этом предмете, то опять вводить его в контекст через ',
 				},
-				{ type: 'text',  weight: 'bold', text: 'this' },
+				{ type: 'text', weight: 'bold', text: 'this' },
 				{
 					type: 'text',
 
@@ -651,9 +325,9 @@
 			offset: true,
 
 			children: [
-				{ type: 'text',  text: 'Определённый артикль ' },
-				{ type: 'text',  weight: 'bold', text: 'the' },
-				{ type: 'text',  text: '.' },
+				{ type: 'text', text: 'Определённый артикль ' },
+				{ type: 'text', weight: 'bold', text: 'the' },
+				{ type: 'text', text: '.' },
 			],
 		},
 		{
@@ -662,7 +336,7 @@
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'blue', text: 'The' },
-				{ type: 'text',  text: ' iron is hot.' },
+				{ type: 'text', text: ' iron is hot.' },
 			],
 		},
 		{

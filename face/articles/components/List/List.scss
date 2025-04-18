@@ -1,14 +1,12 @@
-//@use '@/styles/variables' as vars;
-//@use '@/styles/mixins' as mix;
-//@use '@/styles/inherit' as inh;
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+@use '@/styles/inherit' as inh;
 
-//$CN: art-list;
-
-/*.#{$CN} {
+.art-list {
 	position: relative;
 	list-style: none;
 
-	padding: 0 0 0 5rem;
+	padding: 0 0 0 4.4rem;
 	margin-top: 0.4rem;
 
 	li {
@@ -18,10 +16,10 @@
 	li::before {
 		position: absolute;
 	}
-}*/
+}
 
 // Ненумерованный список
-/*ul.#{$CN} {
+ul.art-list {
 	li {
 		&::before {
 			content: '';
@@ -33,10 +31,10 @@
 			border-radius: 50%;
 		}
 	}
-}*/
+}
 
 // Нумерованный список
-/*ol.#{$CN} {
+ol.art-list {
 	counter-reset: li;
 
 	li {
@@ -48,4 +46,4 @@
 			font-weight: 700;
 		}
 	}
-}*/
+}

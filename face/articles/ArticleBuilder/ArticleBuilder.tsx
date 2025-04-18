@@ -5,7 +5,7 @@ import ArrowCircle from '../components/ArrowCircle/ArrowCircle'
 import Grid from '../components/Grid/Grid'
 import Header from '../components/Header/Header'
 import ArtImage from '../components/Image/ArtImage'
-// import List from '../components/List/List'
+import List from '../components/List/List'
 import Note from '../components/Note/Note'
 import Paragraph from '../components/Paragraph/Paragraph'
 import RusToEng from '../components/RusToEng/RusToEng'
@@ -37,6 +37,8 @@ function ArticleBuilder(props: ArticleBuilderProps): ReactNode {
 					return <ArtImage config={compConf} key={i} />
 				} else if (compConf.type === 'grid') {
 					return <Grid config={compConf} key={i} />
+				} else if (compConf.type === 'list') {
+					return <List config={compConf} key={i} />
 				}
 			})}
 		</>
@@ -45,9 +47,7 @@ function ArticleBuilder(props: ArticleBuilderProps): ReactNode {
 	/*return (
 		<>
 			{content.map((compConf, i) => {
-				else if (compConf.type === 'list') {
-					return <List config={compConf} key={i} />
-				} else if (compConf.type === 'faq') {
+				else if (compConf.type === 'faq') {
 					return <FaqInArticle config={compConf} key={i} />
 				}
 			})}

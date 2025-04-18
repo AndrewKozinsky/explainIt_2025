@@ -3,15 +3,15 @@
 @use 'sass:color';
 
 .button {
-	color: color.adjust(vars.$grayColor-4, $saturation: 20%);
+	color: vars.$grayColor-4;
 	background-color: white;
 	cursor: pointer;
-	border: 1px solid color.adjust(vars.$grayColor-2, $saturation: 12%);
+	border: 1px solid color.adjust(vars.$grayColor-2, $lightness: -12%);
 	transition: background-color .25s, border-color .25s, color .25s;
 
 	&:hover {
 		color: vars.$textColor;
-		background-color: color.adjust(vars.$grayColor-1, $saturation: -100%);
+		background-color: color.adjust(vars.$grayColor-1, $lightness: 100%);
 		border-color: vars.$grayColor-3;
 	}
 }
