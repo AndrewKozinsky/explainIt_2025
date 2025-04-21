@@ -1,7 +1,5 @@
 import ArticleType from '../../articleTypes/articleType'
 import exercises_1 from './exercises-1'
-import exercises_5 from './exercises-5'
-import exercises_6 from './exercises-6'
 
 const phrases_1: ArticleType.Art = {
 	meta: {
