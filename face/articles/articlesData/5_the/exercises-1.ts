@@ -12,6 +12,15 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
+			// TODO
+			rusSentence: 'Путешествие начинается сейчас!',
+			engSentences: [{ engSentences: ['The journey begins now!'], isCorrect: true }],
+			words: [
+				{ rusWord: 'открыть', engWord: 'open' },
+				{ rusWord: 'окно', engWord: 'window' },
+			],
+		},
+		{
 			rusSentence: 'Учебный год начинается в сентябре.',
 			engSentences: [{ engSentences: ['The school year begins in September.'], isCorrect: true }],
 			words: [

@@ -440,6 +440,15 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{ rusWord: 'покупать', engWord: 'buy' },
 			],
 		},
+		{
+			// TODO
+			rusSentence: 'Они едят мясо и рыбу.',
+			engSentences: [{ engSentences: ['They eat meat and fish.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'открыть', engWord: 'open' },
+				{ rusWord: 'окно', engWord: 'window' },
+			],
+		},
 	],
 }
 

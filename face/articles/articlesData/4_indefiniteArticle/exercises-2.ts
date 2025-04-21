@@ -41,6 +41,42 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				{ rusWord: 'на каждое событие', engWord: 'for each event' },
 			],
 		},
+		{
+			// TODO
+			rusSentence: 'Он видит аэропорт.',
+			engSentences: [{ engSentences: ['He sees an airport.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'заказывать', engWord: 'order' },
+				{ rusWord: 'омлет', engWord: 'omelet' },
+				{ rusWord: 'на завтрак', engWord: 'for breakfast' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Мы видим университет. —  ',
+			engSentences: [
+				{
+					engSentences: ['We see a university.'],
+					isCorrect: true,
+					analysis: [
+						{
+							type: 'paragraph',
+							children: [
+								{
+									type: 'text',
+									text: 'Тут странная ситуация когда university произносится с гласной, но в транскрипции начинается с j. Поэтому стоит артикль a, а не an.',
+								},
+							],
+						},
+					],
+				},
+			],
+			words: [
+				{ rusWord: 'заказывать', engWord: 'order' },
+				{ rusWord: 'омлет', engWord: 'omelet' },
+				{ rusWord: 'на завтрак', engWord: 'for breakfast' },
+			],
+		},
 	],
 }
 

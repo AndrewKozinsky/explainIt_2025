@@ -147,6 +147,15 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{ rusWord: 'окно', engWord: 'window' },
 			],
 		},
+		{
+			// TODO
+			rusSentence: 'Я думаю у вас неправильный номер.',
+			engSentences: [{ engSentences: ['I think you have the wrong number.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'открыть', engWord: 'open' },
+				{ rusWord: 'окно', engWord: 'window' },
+			],
+		},
 	],
 }
 

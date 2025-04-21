@@ -26,6 +26,10 @@
     margin-bottom: 0.6rem;
 }
 
+.art-header--h2 + .art-note {
+	margin-top: 1rem;
+}
+
 // КАРТИНКА (ОТСТУПЫ НЕ УКАЗЫВАЮТСЯ) =====
 .art-image + .art-header--h4 {
     margin-top: 2.2rem;
@@ -78,16 +82,20 @@
     margin-top: 2rem;
 }*/
 
-/*.art-note + .art-header--h2 {
+.art-note + .art-header--h2 {
 	margin-top: 2.6rem;
-}*/
+}
 
-/*.art-note + .art-header--h3 {
+.art-note + .art-header--h3 {
 	margin-top: 2.2rem;
-}*/
+}
 
 .art-note + .art-paragraph {
 	margin-top: 1.6rem;
+}
+
+.art-note + .exercises {
+	margin-top: 2.2rem;
 }
 /*.art-note + .art-grid {
 	margin-top: 1.6rem;
@@ -240,6 +248,15 @@
 /*.art-faq + .art-note {
 	margin-top: 3rem;
 }*/
+.art-faq + .art-header--h2 {
+	margin-top: 3rem;
+}
+.art-faq + .art-header--h3 {
+	margin-top: 2.6rem;
+}
+.art-faq + .art-header--h4 {
+	margin-top: 2.2rem;
+}
 
 // СЕТКА (С ОТСТУПОМ)
 .art-grid + .art-paragraph {

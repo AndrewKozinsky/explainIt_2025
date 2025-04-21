@@ -12,6 +12,7 @@ export class AiResolver {
 	})
 	async getMyParcelBoxes() {
 		return {
+			correct: false,
 			analysis: 'My analysis',
 		}
 	}
