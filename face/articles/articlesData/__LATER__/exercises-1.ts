@@ -4,7 +4,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 	type: 'exercises',
 	exercises: [
 		{
-			// TODO
 			rusSentence: 'Это работает очень громко.',
 			engSentences: [
 				{
@@ -13,9 +12,9 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'работать', engWord: 'travel' },
-				{ rusWord: 'очень', engWord: 'every' },
-				{ rusWord: 'громко', engWord: 'summer' },
+				{ rusWord: 'работать', engWord: 'work' },
+				{ rusWord: 'очень', engWord: 'very' },
+				{ rusWord: 'громко', engWord: 'loudly' },
 			],
 		},
 	],

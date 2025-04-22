@@ -21,7 +21,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Он знает два иностранных языка.',
 			engSentences: [{ engSentences: ['He knows two foreign languages.'], isCorrect: true }],
 			words: [
@@ -32,7 +31,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Они строят дома.',
 			engSentences: [{ engSentences: ['They build houses.'], isCorrect: true }],
 			words: [
@@ -129,6 +127,15 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{ rusWord: 'писать', engWord: 'write' },
 				{ rusWord: 'это', engWord: 'it' },
 				{ rusWord: 'на бумаге', engWord: 'on paper' },
+			],
+		},
+		{
+			rusSentence: 'Это стоит четыреста долларов.',
+			engSentences: [{ engSentences: ['It costs four hundred dollars.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'стоить', engWord: 'cost' },
+				{ rusWord: 'четыреста', engWord: 'four hundred' },
+				{ rusWord: 'доллар', engWord: 'dollar' },
 			],
 		},
 	],

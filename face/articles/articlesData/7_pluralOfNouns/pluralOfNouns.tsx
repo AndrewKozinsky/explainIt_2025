@@ -11,7 +11,7 @@ const pluralOfNouns: ArticleType.Art = {
 		caption: 'Глава 7',
 		articleName: 'Множественное число',
 		articleDescription:
-			'Разберём способы образования множественного числа существительных от часто используемых до исключений.',
+			'Разберём способы образования множественного числа существительных от основных до исключений.',
 	},
 	content: [
 		{
@@ -270,108 +270,125 @@ const pluralOfNouns: ArticleType.Art = {
 			],
 		},
 		{
-			type: 'rusToEng',
-			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Волк' }],
-			eng: [
-				{ type: 'text', text: 'A wol' },
-				{ type: 'text', weight: 'bold', text: 'f' },
-				{ type: 'text', text: ' — wol' },
-				{ type: 'text', color: 'blue', text: 'ves' },
+			type: 'grid',
+			offset: true,
+			gridId: 'grid-3089',
+			cells: [
+				{
+					children: [
+						{
+							type: 'rusToEng',
+							textSize: 'giant',
+							rus: [{ type: 'text', text: 'Волк' }],
+							eng: [
+								{ type: 'text', text: 'A wol' },
+								{ type: 'text', weight: 'bold', text: 'f' },
+								{ type: 'text', text: ' — wol' },
+								{ type: 'text', color: 'blue', text: 'ves' },
+							],
+						},
+						{
+							type: 'rusToEng',
+							textSize: 'giant',
+							rus: [{ type: 'text', text: 'Лист' }],
+							eng: [
+								{ type: 'text', text: 'A lea' },
+								{ type: 'text', weight: 'bold', text: 'f' },
+								{ type: 'text', text: ' — lea' },
+								{ type: 'text', color: 'blue', text: 'ves' },
+							],
+						},
+						{
+							type: 'rusToEng',
+							textSize: 'giant',
+							rus: [{ type: 'text', text: 'Булка' }],
+							eng: [
+								{ type: 'text', text: 'a loa' },
+								{ type: 'text', weight: 'bold', text: 'f' },
+								{ type: 'text', text: ' — loa' },
+								{ type: 'text', color: 'blue', text: 'ves' },
+							],
+						},
+						{
+							type: 'rusToEng',
+							textSize: 'giant',
+							rus: [{ type: 'text', text: 'Половина' }],
+							eng: [
+								{ type: 'text', text: 'a hal' },
+								{ type: 'text', weight: 'bold', text: 'f' },
+								{ type: 'text', text: ' — hal' },
+								{ type: 'text', color: 'blue', text: 'ves' },
+							],
+						},
+						{
+							type: 'rusToEng',
+							textSize: 'giant',
+							rus: [
+								{ type: 'text', text: 'Лист ' },
+								{ type: 'text', color: 'gray', text: '(дерева)' },
+							],
+							eng: [
+								{ type: 'text', text: '' },
+								{ type: 'text', text: 'a lea' },
+								{ type: 'text', weight: 'bold', text: 'f' },
+								{ type: 'text', text: ' — lea' },
+								{ type: 'text', color: 'blue', text: 'ves' },
+							],
+						},
+					],
+				},
+				{
+					children: [
+						{
+							type: 'rusToEng',
+							textSize: 'giant',
+							offset: true,
+							rus: [{ type: 'text', text: 'Жизнь' }],
+							eng: [
+								{ type: 'text', text: 'A li' },
+								{ type: 'text', weight: 'bold', text: 'fe' },
+								{ type: 'text', text: ' — li' },
+								{ type: 'text', color: 'blue', text: 'ves' },
+							],
+						},
+						{
+							type: 'rusToEng',
+							textSize: 'giant',
+							rus: [{ type: 'text', text: 'Мяч' }],
+							eng: [
+								{ type: 'text', text: 'A kni' },
+								{ type: 'text', weight: 'bold', text: 'fe' },
+								{ type: 'text', text: ' — kni' },
+								{ type: 'text', color: 'blue', text: 'ves' },
+							],
+						},
+						{
+							type: 'rusToEng',
+							textSize: 'giant',
+							rus: [{ type: 'text', text: 'Жизнь' }],
+							eng: [
+								{ type: 'text', text: 'a li' },
+								{ type: 'text', weight: 'bold', text: 'fe' },
+								{ type: 'text', text: ' — li' },
+								{ type: 'text', color: 'blue', text: 'ves' },
+							],
+						},
+						{
+							type: 'rusToEng',
+							textSize: 'giant',
+							rus: [{ type: 'text', text: 'Жена' }],
+							eng: [
+								{ type: 'text', text: 'a wi' },
+								{ type: 'text', weight: 'bold', text: 'fe' },
+								{ type: 'text', text: ' — wi' },
+								{ type: 'text', color: 'blue', text: 'ves' },
+							],
+						},
+					],
+				},
 			],
 		},
-		{
-			type: 'rusToEng',
-			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Лист' }],
-			eng: [
-				{ type: 'text', text: 'A lea' },
-				{ type: 'text', weight: 'bold', text: 'f' },
-				{ type: 'text', text: ' — lea' },
-				{ type: 'text', color: 'blue', text: 'ves' },
-			],
-		},
-		{
-			type: 'rusToEng',
-			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Булка' }],
-			eng: [
-				{ type: 'text', text: 'a loa' },
-				{ type: 'text', weight: 'bold', text: 'f' },
-				{ type: 'text', text: ' — loa' },
-				{ type: 'text', color: 'blue', text: 'ves' },
-			],
-		},
-		{
-			type: 'rusToEng',
-			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Половина' }],
-			eng: [
-				{ type: 'text', text: 'a hal' },
-				{ type: 'text', weight: 'bold', text: 'f' },
-				{ type: 'text', text: ' — hal' },
-				{ type: 'text', color: 'blue', text: 'ves' },
-			],
-		},
-		{
-			type: 'rusToEng',
-			textSize: 'giant',
-			rus: [
-				{ type: 'text', text: 'Лист ' },
-				{ type: 'text', color: 'gray', text: '(дерева)' },
-			],
-			eng: [
-				{ type: 'text', text: '' },
-				{ type: 'text', text: 'a lea' },
-				{ type: 'text', weight: 'bold', text: 'f' },
-				{ type: 'text', text: ' — lea' },
-				{ type: 'text', color: 'blue', text: 'ves' },
-			],
-		},
-		{
-			type: 'rusToEng',
-			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Жизнь' }],
-			eng: [
-				{ type: 'text', text: 'A li' },
-				{ type: 'text', weight: 'bold', text: 'fe' },
-				{ type: 'text', text: ' — li' },
-				{ type: 'text', color: 'blue', text: 'ves' },
-			],
-		},
-		{
-			type: 'rusToEng',
-			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Мяч' }],
-			eng: [
-				{ type: 'text', text: 'A kni' },
-				{ type: 'text', weight: 'bold', text: 'fe' },
-				{ type: 'text', text: ' — kni' },
-				{ type: 'text', color: 'blue', text: 'ves' },
-			],
-		},
-		{
-			type: 'rusToEng',
-			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Жизнь' }],
-			eng: [
-				{ type: 'text', text: 'a li' },
-				{ type: 'text', weight: 'bold', text: 'fe' },
-				{ type: 'text', text: ' — li' },
-				{ type: 'text', color: 'blue', text: 'ves' },
-			],
-		},
-		{
-			type: 'rusToEng',
-			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Жена' }],
-			eng: [
-				{ type: 'text', text: 'a wi' },
-				{ type: 'text', weight: 'bold', text: 'fe' },
-				{ type: 'text', text: ' — wi' },
-				{ type: 'text', color: 'blue', text: 'ves' },
-			],
-		},
+
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Изменение основы слова' },
 		{
 			type: 'paragraph',
@@ -490,6 +507,57 @@ const pluralOfNouns: ArticleType.Art = {
 			],
 		},
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Единственное и множественное число совпадают' },
+		{
+			type: 'paragraph',
+			children: [
+				{
+					type: 'text',
+					text: 'Некоторые существительные всегда находятся во множественном числе несмотря на то, что могут использовать в единственном. Например слово «пижама» всегда находится во множественном числе хотя в предложении используется в единственном:',
+				},
+			],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			rus: [{ type: 'text', text: 'У Гектора ужасная пижама.' }],
+			eng: [{ type: 'text', text: 'Hector has terrible pyjamas.' }],
+		},
+		{
+			type: 'paragraph',
+			textSize: 'small',
+			children: [
+				{
+					type: 'text',
+					color: 'gray',
+					text: 'Так как существительное во множественном, то нельзя ставить неопределённый артикль a.',
+				},
+			],
+		},
+		{
+			type: 'paragraph',
+			children: [
+				{
+					type: 'text',
+					text: 'И если пижама упоминается через местоимение, то нужно использовать именно they потому что это множественное число:',
+				},
+			],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			rus: [{ type: 'text', text: 'Ты должна это видеть, Надя.' }],
+			eng: [{ type: 'text', text: 'You should see them, Nadia.' }],
+		},
+		{
+			type: 'paragraph',
+			offset: true,
+			children: [
+				{
+					type: 'text',
+					text: 'Другие примеры: nice trousers, dirty glasses, scissors, Новость, новости → News, Бильярд → Billiards, Штаны → Trousers, Джинсы → Jeans, Очки → Glasses.',
+				},
+			],
+		},
 		{
 			type: 'note',
 			children: [

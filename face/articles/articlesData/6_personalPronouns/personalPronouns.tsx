@@ -9,8 +9,7 @@ const personalPronouns: ArticleType.Art = {
 		slug: 'personal-pronouns',
 		caption: 'Глава 6',
 		articleName: 'Личные местоимения',
-		articleDescription:
-			'Определённый артикль the используется перед сущностями известными собеседнику из контекста. ',
+		articleDescription: 'Обобщим знания по личным местоимениям и разберёмся с конструкцией «у меня» и «им хочется»',
 	},
 	content: [
 		{

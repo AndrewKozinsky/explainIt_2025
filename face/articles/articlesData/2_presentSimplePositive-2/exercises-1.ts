@@ -250,7 +250,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Он пьёт вино.',
 			engSentences: [
 				{
