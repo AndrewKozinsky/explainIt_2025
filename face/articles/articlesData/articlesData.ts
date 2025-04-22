@@ -17,7 +17,7 @@ const rowArticles: ArticleType.Art[] = [
 	the,
 	personalPronouns,
 	pluralOfNouns,
-	// phrases_1,
+	phrases_1,
 ]
 
 const articles: ArticleType.Art[] = rowArticles.map((article, i) => {

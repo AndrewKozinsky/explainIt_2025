@@ -9,6 +9,7 @@
 /* eslint-disable */
 
 export interface CheckTranslationOutModel {
+    correct: boolean;
     analysis: string;
 }
 

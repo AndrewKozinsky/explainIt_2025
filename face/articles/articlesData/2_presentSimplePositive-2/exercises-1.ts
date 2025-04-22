@@ -224,7 +224,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Он слышит шум.',
 			engSentences: [
 				{
@@ -233,11 +232,35 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'работать', engWord: 'work' },
-				{ rusWord: 'с', engWord: 'from' },
-				{ rusWord: 'понедельник', engWord: 'Monday' },
-				{ rusWord: 'по', engWord: 'to' },
-				{ rusWord: 'пятница', engWord: 'Friday' },
+				{ rusWord: 'слышать', engWord: 'hear' },
+				{ rusWord: 'шум', engWord: 'noise' },
+			],
+		},
+		{
+			rusSentence: 'Он пьёт молоко.',
+			engSentences: [
+				{
+					engSentences: ['He drinks milk.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'пить', engWord: 'drink' },
+				{ rusWord: 'молоко', engWord: 'milk' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Он пьёт вино.',
+			engSentences: [
+				{
+					engSentences: ['He drinks vine.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'пить', engWord: 'drink' },
+				{ rusWord: 'вино', engWord: 'vine' },
 			],
 		},
 	],

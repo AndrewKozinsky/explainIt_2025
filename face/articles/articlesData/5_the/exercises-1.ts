@@ -12,12 +12,12 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Путешествие начинается сейчас!',
 			engSentences: [{ engSentences: ['The journey begins now!'], isCorrect: true }],
 			words: [
-				{ rusWord: 'открыть', engWord: 'open' },
-				{ rusWord: 'окно', engWord: 'window' },
+				{ rusWord: 'путешествие', engWord: 'journey' },
+				{ rusWord: 'начинаться', engWord: 'begin' },
+				{ rusWord: 'сейчас', engWord: 'now' },
 			],
 		},
 		{

@@ -4,57 +4,72 @@ const exercises_6: ExercisesType.ExercisesObj = {
 	type: 'exercises',
 	exercises: [
 		{
-			// TODO
-			rusSentence: 'Они произвели очень дорогие товары?',
-			engSentences: [{ engSentences: ['Did they produce very expensive goods?'], isCorrect: true }],
+			rusSentence: 'Они производят очень дорогие товары.',
+			engSentences: [{ engSentences: ['They produce very expensive goods.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'открыть', engWord: 'open' },
-				{ rusWord: 'окно', engWord: 'window' },
+				{ rusWord: 'производить', engWord: 'produce' },
+				{ rusWord: 'очень', engWord: 'very' },
+				{ rusWord: 'дорогой', engWord: 'expensive' },
+				{ rusWord: 'товар', engWord: 'goods' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Она производит дешёвые товары.',
 			engSentences: [{ engSentences: ['She produces cheap goods.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'открыть', engWord: 'open' },
-				{ rusWord: 'окно', engWord: 'window' },
+				{ rusWord: 'производить', engWord: 'produce' },
+				{ rusWord: 'дешёвый', engWord: 'cheap' },
+				{ rusWord: 'товар', engWord: 'goods' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Ты смотришь новости.',
 			engSentences: [{ engSentences: ['You watch news.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'открыть', engWord: 'open' },
-				{ rusWord: 'окно', engWord: 'window' },
+				{ rusWord: 'смотреть', engWord: 'watch' },
+				{ rusWord: 'новость', engWord: 'news' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Тебе нравится эта новость.',
 			engSentences: [{ engSentences: ['You like this news.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'открыть', engWord: 'open' },
-				{ rusWord: 'окно', engWord: 'window' },
+				{ rusWord: 'нравиться', engWord: 'like' },
+				{ rusWord: 'эта', engWord: 'this' },
+				{ rusWord: 'новость', engWord: 'news' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Он пачкает мою одежду',
 			engSentences: [{ engSentences: ['He stains my clothes.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'открыть', engWord: 'open' },
-				{ rusWord: 'окно', engWord: 'window' },
+				{ rusWord: 'пачкать', engWord: 'stain' },
+				{ rusWord: 'моя', engWord: 'my' },
+				{ rusWord: 'одежда', engWord: 'clothes' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Он делится этими видео.',
-			engSentences: [{ engSentences: ['He shared these videos.'], isCorrect: true }],
+			engSentences: [{ engSentences: ['He shares these videos.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'открыть', engWord: 'open' },
-				{ rusWord: 'окно', engWord: 'window' },
+				{ rusWord: 'делиться', engWord: 'shares' },
+				{ rusWord: 'эти', engWord: 'these' },
+				{ rusWord: 'видео', engWord: 'videos' },
+			],
+		},
+		{
+			rusSentence: 'Они продают очень дорогие товары.',
+			engSentences: [
+				{
+					engSentences: ['They sell very expensive goods.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'продавать', engWord: 'sell' },
+				{ rusWord: 'очень', engWord: 'very' },
+				{ rusWord: 'дорогой', engWord: 'expensive' },
+				{ rusWord: 'товар', engWord: 'goods' },
 			],
 		},
 	],

@@ -191,6 +191,17 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				{ rusWord: 'ингредиенты', engWord: 'ingredients' },
 			],
 		},
+		{
+			rusSentence: 'Это происходит, когда люди работают вместе.',
+			engSentences: [{ engSentences: ['It happens when people work together.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'происходить', engWord: 'happen' },
+				{ rusWord: 'когда', engWord: 'when' },
+				{ rusWord: 'люди', engWord: 'people' },
+				{ rusWord: 'работать', engWord: 'work' },
+				{ rusWord: 'вместе', engWord: 'together' },
+			],
+		},
 	],
 }
 

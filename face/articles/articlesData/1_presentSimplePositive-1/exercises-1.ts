@@ -441,12 +441,21 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Они едят мясо и рыбу.',
 			engSentences: [{ engSentences: ['They eat meat and fish.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'открыть', engWord: 'open' },
-				{ rusWord: 'окно', engWord: 'window' },
+				{ rusWord: 'есть', engWord: 'eat' },
+				{ rusWord: 'мясо', engWord: 'meat' },
+				{ rusWord: 'и', engWord: 'and' },
+				{ rusWord: 'рыба', engWord: 'fish' },
+			],
+		},
+		{
+			rusSentence: 'Они пьют сок.',
+			engSentences: [{ engSentences: ['They drink juice.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'пить', engWord: 'drink' },
+				{ rusWord: 'сок', engWord: 'juice' },
 			],
 		},
 	],

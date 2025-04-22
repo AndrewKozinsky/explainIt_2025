@@ -4,21 +4,20 @@ const exercises_1: ExercisesType.ExercisesObj = {
 	type: 'exercises',
 	exercises: [
 		{
-			// TODO
 			rusSentence: 'Я хочу яблоки.',
 			engSentences: [{ engSentences: ['I want apples.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'открыть', engWord: 'open' },
-				{ rusWord: 'окно', engWord: 'window' },
+				{ rusWord: 'хотеть', engWord: 'want' },
+				{ rusWord: 'яблоко', engWord: 'apple' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Я понимаю эти вещи.',
-			engSentences: [{ engSentences: ['I understand these things..'], isCorrect: true }],
+			engSentences: [{ engSentences: ['I understand these things.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'открыть', engWord: 'open' },
-				{ rusWord: 'окно', engWord: 'window' },
+				{ rusWord: 'понимать', engWord: 'understand' },
+				{ rusWord: 'эти', engWord: 'these' },
+				{ rusWord: 'вещь', engWord: 'things' },
 			],
 		},
 		{
@@ -26,8 +25,10 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			rusSentence: 'Он знает два иностранных языка.',
 			engSentences: [{ engSentences: ['He knows two foreign languages.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'открыть', engWord: 'open' },
-				{ rusWord: 'окно', engWord: 'window' },
+				{ rusWord: 'знать', engWord: 'know' },
+				{ rusWord: 'два', engWord: 'two' },
+				{ rusWord: 'иностранный', engWord: 'foreign' },
+				{ rusWord: 'язык', engWord: 'language' },
 			],
 		},
 		{
@@ -35,71 +36,99 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			rusSentence: 'Они строят дома.',
 			engSentences: [{ engSentences: ['They build houses.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'открыть', engWord: 'open' },
-				{ rusWord: 'окно', engWord: 'window' },
+				{ rusWord: 'строить', engWord: 'build' },
+				{ rusWord: 'дом', engWord: 'house' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'У неё есть другие проблемы.',
 			engSentences: [{ engSentences: ['She has other problems.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'открыть', engWord: 'open' },
-				{ rusWord: 'окно', engWord: 'window' },
+				{ rusWord: 'другие', engWord: 'other' },
+				{ rusWord: 'проблема', engWord: 'problem' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Он строит очень хорошие дома.',
 			engSentences: [{ engSentences: ['He builds very good houses.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'открыть', engWord: 'open' },
-				{ rusWord: 'окно', engWord: 'window' },
+				{ rusWord: 'строить', engWord: 'build' },
+				{ rusWord: 'очень', engWord: 'very' },
+				{ rusWord: 'хороший', engWord: 'good' },
+				{ rusWord: 'дом', engWord: 'house' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'She shows very good results.',
 			engSentences: [{ engSentences: ['Она показывает очень хорошие результаты.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'открыть', engWord: 'open' },
-				{ rusWord: 'окно', engWord: 'window' },
+				{ rusWord: 'показывать', engWord: 'show' },
+				{ rusWord: 'очень', engWord: 'very' },
+				{ rusWord: 'хороший', engWord: 'good' },
+				{ rusWord: 'результат', engWord: 'result' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Она делает свою домашнюю работу без её родителей.',
 			engSentences: [{ engSentences: ['She does her home work without her parents.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'открыть', engWord: 'open' },
-				{ rusWord: 'окно', engWord: 'window' },
+				{ rusWord: 'делать', engWord: 'do' },
+				{ rusWord: 'её', engWord: 'her' },
+				{ rusWord: 'домашняя работа', engWord: 'home work' },
+				{ rusWord: 'без', engWord: 'without' },
+				{ rusWord: 'её', engWord: 'her' },
+				{ rusWord: 'родитель', engWord: 'parent' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Мне нравятся эти экзамены.',
 			engSentences: [{ engSentences: ['I like these exams.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'открыть', engWord: 'open' },
-				{ rusWord: 'окно', engWord: 'window' },
+				{ rusWord: 'нравиться', engWord: 'like' },
+				{ rusWord: 'эти', engWord: 'these' },
+				{ rusWord: 'экзамен', engWord: 'exam' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'У нее есть кошки.',
 			engSentences: [{ engSentences: ['She has cats.'], isCorrect: true }],
-			words: [
-				{ rusWord: 'открыть', engWord: 'open' },
-				{ rusWord: 'окно', engWord: 'window' },
-			],
+			words: [{ rusWord: 'кошка/кот', engWord: 'cat' }],
 		},
 		{
-			// TODO
 			rusSentence: 'Она всегда читает инструкции первым делом.',
 			engSentences: [{ engSentences: ['She always reads instructions first.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'открыть', engWord: 'open' },
-				{ rusWord: 'окно', engWord: 'window' },
+				{ rusWord: 'всегда', engWord: 'always' },
+				{ rusWord: 'читать', engWord: 'read' },
+				{ rusWord: 'инструкция', engWord: 'instruction' },
+				{ rusWord: 'первым делом', engWord: 'first' },
+			],
+		},
+		{
+			rusSentence: 'Она продаёт дешёвые вещи.',
+			engSentences: [{ engSentences: ['She sells cheap things.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'продавать', engWord: 'sell' },
+				{ rusWord: 'дешёвый', engWord: 'cheap' },
+				{ rusWord: 'вещь', engWord: 'thing' },
+			],
+		},
+		{
+			rusSentence: 'Я использую эти правила.',
+			engSentences: [{ engSentences: ['I use these rules.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'использовать', engWord: 'use' },
+				{ rusWord: 'эти', engWord: 'these' },
+				{ rusWord: 'правило', engWord: 'rule' },
+			],
+		},
+		{
+			rusSentence: 'Он пишет это на бумаге.',
+			engSentences: [{ engSentences: ['He writes it on paper.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'писать', engWord: 'write' },
+				{ rusWord: 'это', engWord: 'it' },
+				{ rusWord: 'на бумаге', engWord: 'on paper' },
 			],
 		},
 	],

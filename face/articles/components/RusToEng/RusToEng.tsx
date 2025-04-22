@@ -21,7 +21,7 @@ function RusToEng(props: RusToEngProps) {
 	const toggleTranscription = useGetToggleTranscription(transcriptionBlockRef)
 
 	return (
-		<div className='art-rus-to-eng'>
+		<div className={cn('art-rus-to-eng', props.config.offset && 'art-rus-to-eng--offset')}>
 			<p className={cn(getRootClasses(config))}>
 				{config.revert ? (
 					<EngPart engSentenceParts={config.eng} toggleTranscription={toggleTranscription} />

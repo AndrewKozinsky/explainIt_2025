@@ -4,75 +4,64 @@ const exercises_2: ExercisesType.ExercisesObj = {
 	type: 'exercises',
 	exercises: [
 		{
-			// TODO
 			rusSentence: 'Ему мешает свет.',
 			engSentences: [{ engSentences: ['Light bothers him.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'открыть', engWord: 'open' },
-				{ rusWord: 'окно', engWord: 'window' },
+				{ rusWord: 'свет', engWord: 'light' },
+				{ rusWord: 'мешать', engWord: 'bother' },
+				{ rusWord: 'ему', engWord: 'him' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Мне хочется пить.',
 			engSentences: [{ engSentences: ['I want to water.'], isCorrect: true }],
-			words: [
-				{ rusWord: 'открыть', engWord: 'open' },
-				{ rusWord: 'окно', engWord: 'window' },
-			],
+			words: [{ rusWord: 'хотеть пить', engWord: 'want to water' }],
 		},
 		{
-			// TODO
 			rusSentence: 'Мне нравится музыка.',
 			engSentences: [{ engSentences: ['I like music.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'открыть', engWord: 'open' },
-				{ rusWord: 'окно', engWord: 'window' },
+				{ rusWord: 'нравиться', engWord: 'like' },
+				{ rusWord: 'музыка', engWord: 'music' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Ей хочется есть.',
 			engSentences: [{ engSentences: ['She wants food.'], isCorrect: true }],
-			words: [
-				{ rusWord: 'открыть', engWord: 'open' },
-				{ rusWord: 'окно', engWord: 'window' },
-			],
+			words: [{ rusWord: 'хотеть есть', engWord: 'want food' }],
 		},
 		{
-			// TODO
 			rusSentence: 'Им нужно это.',
 			engSentences: [{ engSentences: ['They need it.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'открыть', engWord: 'open' },
-				{ rusWord: 'окно', engWord: 'window' },
+				{ rusWord: 'нуждаться', engWord: 'need' },
+				{ rusWord: 'это', engWord: 'it' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Ей нравится бегать.',
 			engSentences: [{ engSentences: ['She likes running.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'открыть', engWord: 'open' },
-				{ rusWord: 'окно', engWord: 'window' },
+				{ rusWord: 'нравиться', engWord: 'like' },
+				{ rusWord: 'бег', engWord: 'running' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Мне нужно время.',
 			engSentences: [{ engSentences: ['I need time.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'открыть', engWord: 'open' },
-				{ rusWord: 'окно', engWord: 'window' },
+				{ rusWord: 'нуждаться', engWord: 'need' },
+				{ rusWord: 'время', engWord: 'time' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Мне нужно что-то более удобное.',
 			engSentences: [{ engSentences: ['I need something more comfortable.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'открыть', engWord: 'open' },
-				{ rusWord: 'окно', engWord: 'window' },
+				{ rusWord: 'нуждаться', engWord: 'need' },
+				{ rusWord: 'что-то', engWord: 'something' },
+				{ rusWord: 'более', engWord: 'more' },
+				{ rusWord: 'удобный', engWord: 'comfortable' },
 			],
 		},
 	],

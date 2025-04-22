@@ -4,7 +4,6 @@ const exercises_2: ExercisesType.ExercisesObj = {
 	type: 'exercises',
 	exercises: [
 		{
-			// TODO
 			rusSentence: 'Мы заказываем омлет на завтрак.',
 			engSentences: [{ engSentences: ['We order an omelet for breakfast.'], isCorrect: true }],
 			words: [
@@ -42,18 +41,15 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Он видит аэропорт.',
 			engSentences: [{ engSentences: ['He sees an airport.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'заказывать', engWord: 'order' },
-				{ rusWord: 'омлет', engWord: 'omelet' },
-				{ rusWord: 'на завтрак', engWord: 'for breakfast' },
+				{ rusWord: 'видеть', engWord: 'see' },
+				{ rusWord: 'аэропорт', engWord: 'airport' },
 			],
 		},
 		{
-			// TODO
-			rusSentence: 'Мы видим университет. —  ',
+			rusSentence: 'Мы видим университет.',
 			engSentences: [
 				{
 					engSentences: ['We see a university.'],
@@ -72,9 +68,8 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'заказывать', engWord: 'order' },
-				{ rusWord: 'омлет', engWord: 'omelet' },
-				{ rusWord: 'на завтрак', engWord: 'for breakfast' },
+				{ rusWord: 'видеть', engWord: 'see' },
+				{ rusWord: 'университет', engWord: 'university' },
 			],
 		},
 	],
