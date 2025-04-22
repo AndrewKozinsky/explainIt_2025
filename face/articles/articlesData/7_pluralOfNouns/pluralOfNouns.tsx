@@ -1,5 +1,6 @@
 import ArticleType from '../../articleTypes/articleType'
 import exercises_1 from './exercises-1'
+import exercises_2 from './exercises-2'
 import exercises_5 from './exercises-5'
 import exercises_6 from './exercises-6'
 
@@ -197,6 +198,7 @@ const pluralOfNouns: ArticleType.Art = {
 				},
 			],
 		},
+		exercises_2,
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Окончание -ies' },
 		{
 			type: 'paragraph',

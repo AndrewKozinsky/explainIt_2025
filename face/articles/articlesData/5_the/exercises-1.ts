@@ -64,6 +64,20 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{ rusWord: 'раз', engWord: 'time' },
 			],
 		},
+		{
+			rusSentence: 'Я беру такси из аэропорта каждый раз.',
+			engSentences: [
+				{ engSentences: ['I get a taxi from the airport every time.'], isCorrect: true },
+				{ engSentences: ['I get a taxi from an airport every time.'], isCorrect: true },
+			],
+			words: [
+				{ rusWord: 'сотрудники', engWord: 'staff' },
+				{ rusWord: 'запирать', engWord: 'lock' },
+				{ rusWord: 'дверь', engWord: 'door' },
+				{ rusWord: 'каждый', engWord: 'every' },
+				{ rusWord: 'раз', engWord: 'time' },
+			],
+		},
 	],
 }
 

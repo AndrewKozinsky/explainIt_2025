@@ -48,6 +48,15 @@ const exercises_5: ExercisesType.ExercisesObj = {
 				{ rusWord: 'окно', engWord: 'window' },
 			],
 		},
+		{
+			// TODO
+			rusSentence: 'Женщины любят мужчин в белых халатах.',
+			engSentences: [{ engSentences: ['Women love men in white coats.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'открыть', engWord: 'open' },
+				{ rusWord: 'окно', engWord: 'window' },
+			],
+		},
 	],
 }
 

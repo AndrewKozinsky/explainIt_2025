@@ -16,7 +16,7 @@ const rowArticles: ArticleType.Art[] = [
 	indefiniteArticle,
 	the,
 	personalPronouns,
-	// pluralOfNouns,
+	pluralOfNouns,
 	// phrases_1,
 ]
 

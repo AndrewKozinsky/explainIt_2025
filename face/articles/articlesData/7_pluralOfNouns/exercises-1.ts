@@ -93,6 +93,15 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{ rusWord: 'окно', engWord: 'window' },
 			],
 		},
+		{
+			// TODO
+			rusSentence: 'Она всегда читает инструкции первым делом.',
+			engSentences: [{ engSentences: ['She always reads instructions first.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'открыть', engWord: 'open' },
+				{ rusWord: 'окно', engWord: 'window' },
+			],
+		},
 	],
 }
 

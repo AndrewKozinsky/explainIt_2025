@@ -66,6 +66,15 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				{ rusWord: 'окно', engWord: 'window' },
 			],
 		},
+		{
+			// TODO
+			rusSentence: 'Мне нужно что-то более удобное.',
+			engSentences: [{ engSentences: ['I need something more comfortable.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'открыть', engWord: 'open' },
+				{ rusWord: 'окно', engWord: 'window' },
+			],
+		},
 	],
 }
 
