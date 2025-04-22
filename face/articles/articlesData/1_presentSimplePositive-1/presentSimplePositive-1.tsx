@@ -1,5 +1,6 @@
 import ArticleType from '../../articleTypes/articleType'
 import exercises_1 from './exercises-1'
+import exercises_2 from './exercises-2'
 
 const presentSimplePositive1: ArticleType.Art = {
 	meta: {
@@ -99,6 +100,17 @@ const presentSimplePositive1: ArticleType.Art = {
 			],
 		},
 		exercises_1,
+		{
+			type: 'paragraph',
+			offset: true,
+			children: [
+				{
+					type: 'text',
+					text: 'Предложения посложнее:',
+				},
+			],
+		},
+		exercises_2,
 	],
 }
 

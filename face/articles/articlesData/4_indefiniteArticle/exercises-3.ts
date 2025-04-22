@@ -9,7 +9,7 @@ const exercises_3: ExercisesType.ExercisesObj = {
 			words: [
 				{ rusWord: 'пить', engWord: 'drink' },
 				{ rusWord: 'энергетический', engWord: 'energy' },
-				{ rusWord: 'напиток', engWord: 'drink' },
+				{ rusWord: 'напиток', engWord: 'a drink' },
 				{ rusWord: 'перед', engWord: 'before' },
 				{ rusWord: 'тренировка', engWord: 'training' },
 			],
