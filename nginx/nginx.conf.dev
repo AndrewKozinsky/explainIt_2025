@@ -16,7 +16,7 @@ http {
 
         location /api {
             proxy_pass http://server:3001;
-            #rewrite ^/api/(.*)$ $1 last;
+            rewrite ^/api/(.*)$ $1 last;
         }
 
         location /nginx-test {

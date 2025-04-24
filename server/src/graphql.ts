@@ -8,13 +8,23 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export interface CheckTranslationOutModel {
+export interface CheckTranslationInput {
+    rusSentence: string;
+    engSentence: string;
+}
+
+export interface IQuery {
+    ai_checkTranslation(input: CheckTranslationInput): CheckTranslationOutModel | Promise<CheckTranslationOutModel>;
+}
+
+export interface SuccessResult {
     correct: boolean;
     analysis: string;
 }
 
-export interface IQuery {
-    ai_checkTranslation(): CheckTranslationOutModel | Promise<CheckTranslationOutModel>;
+export interface ErrorResult {
+    error: string;
 }
 
+export type CheckTranslationOutModel = SuccessResult | ErrorResult;
 type Nullable<T> = T | null;

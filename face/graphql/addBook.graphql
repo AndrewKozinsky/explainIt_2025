@@ -1,0 +1,6 @@
+query AICheckTranslation {
+	ai_checkTranslation {
+		correct
+		analysis
+	}
+}

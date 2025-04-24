@@ -1,6 +1,7 @@
 import React from 'react'
 import type { Metadata } from 'next'
 import Metrika from './_in/Metrika/Metrika'
+import ApolloProvider from './_in/ApolloProvider/ApolloProvider'
 import './_in/style/global.scss'
 
 export const metadata: Metadata = {
@@ -28,7 +29,7 @@ export default function RootLayout({
 			</head>
 			<body>
 				<Metrika />
-				{children}
+				<ApolloProvider>{children}</ApolloProvider>
 			</body>
 		</html>
 	)
