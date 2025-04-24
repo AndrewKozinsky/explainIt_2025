@@ -1,5 +1,7 @@
 import { useCallback, useContext } from 'react'
 import graphqlAIQueries from '../../../../graphql/ai/graphqlAIQueries'
+import ArticleType from '../../../articleTypes/articleType'
+import ExercisesType from '../../../articleTypes/exercisesType'
 import { exerciseChecker } from './exerciseChecker'
 import { ExercisesContext } from './exercisesContext'
 import { ExercisesContextType } from './exercisesContextTypes'
@@ -33,9 +35,20 @@ export function useGetCheckCurrentExercise() {
 
 			if ('error' in data.ai_checkTranslation) {
 				changeExercisesBlock({ analysis: { status: ExercisesContextType.AnalysisStatus.error } })
-			} else {
-				console.log(data.ai_checkTranslation.analysis)
+				return
 			}
+
+			changeExercisesBlock({
+				analysis: {
+					status: ExercisesContextType.AnalysisStatus.visible,
+					isTranslateCorrect: data.ai_checkTranslation.correct,
+					correctTranslations: exercise.engSentences.filter((engSentence) => engSentence.isCorrect),
+					translateAnalysis: [
+						{ type: 'paragraph', children: [{ type: 'text', text: data.ai_checkTranslation.analysis }] },
+					],
+				},
+			})
+			// console.log(data.ai_checkTranslation.analysis)
 		},
 		[exercise],
 	)

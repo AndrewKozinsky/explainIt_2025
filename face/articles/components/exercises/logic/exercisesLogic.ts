@@ -57,7 +57,6 @@ export const exercisesLogic = {
 	},
 	useGetChangeExercisesBlock() {
 		const { exercisesBlock, setExercisesBlock } = useContext(ExercisesContext)
-		const { currentExerciseId } = exercisesBlock
 
 		return useCallback(
 			function (changeObj: Partial<ExercisesContextType.ExercisesBlock>) {
