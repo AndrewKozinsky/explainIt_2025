@@ -12,12 +12,12 @@ export class AiResolver {
 		name: RouteNames.AI.CHECK_TRANSLATION,
 	})
 	async checkTranslation(@Args('input') input: CheckTranslationInput) {
-		/*return {
+		return {
 			correct: false,
 			analysis: 'My analysis',
-		}*/
-		return {
-			error: 'There is some error when trying to check translation',
 		}
+		/*return {
+			error: 'There is some error when trying to check translation',
+		}*/
 	}
 }

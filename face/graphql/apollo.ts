@@ -17,13 +17,23 @@ const getHost = () => {
 	if (isServerComponent()) {
 		return 'explain-server:3001'
 	}
-	// When running in the browser, use localhost or the domain
-	return 'localhost:3001'
+	// When running in the browser, use Nginx as a proxy
+	return 'localhost'
+}
+
+// Create a function to get the appropriate URI based on environment
+const getUri = () => {
+	// When running on the server, connect directly to the server container
+	if (isServerComponent()) {
+		return `http://${getHost()}/graphql`
+	}
+	// When running in the browser, use Nginx as a proxy
+	return `/graphql`
 }
 
 // HTTP link
 const httpLink = new HttpLink({
-	uri: `http://${getHost()}/graphql`,
+	uri: getUri(),
 	credentials: 'same-origin',
 })
 
