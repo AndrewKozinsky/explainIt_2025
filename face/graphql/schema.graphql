@@ -1,0 +1,22 @@
+input CheckTranslationInput {
+  """Sentence in English"""
+  engSentence: String!
+
+  """Sentence in Russian"""
+  rusSentence: String!
+}
+
+union CheckTranslationOutModel = ErrorResult | SuccessResult
+
+type ErrorResult {
+  error: String!
+}
+
+type Query {
+  ai_checkTranslation(input: CheckTranslationInput!): CheckTranslationOutModel!
+}
+
+type SuccessResult {
+  analysis: String!
+  correct: Boolean!
+}

@@ -1,0 +1,11 @@
+query AICheckTranslation($rusSentence: String!, $engSentence: String!) {
+	ai_checkTranslation(input: { rusSentence: $rusSentence, engSentence: $engSentence }) {
+		... on SuccessResult {
+			correct
+			analysis
+		}
+		... on ErrorResult {
+			error
+		}
+	}
+}

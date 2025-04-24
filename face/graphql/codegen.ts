@@ -1,13 +1,13 @@
 import type { CodegenConfig } from '@graphql-codegen/cli'
 
 const config: CodegenConfig = {
-	schema: 'http://localhost/api/graphql',
+	schema: 'http://localhost:3001/graphql',
 	generates: {
-		'./schema.graphql': {
+		'./graphql/schema.graphql': {
 			plugins: ['schema-ast'],
 		},
-		'./src/api/index.ts': {
-			documents: ['./src/graphql/*.graphql'],
+		'./graphql/generated/index.ts': {
+			documents: ['./graphql/*.graphql'],
 			plugins: ['typescript', 'typescript-operations', 'typescript-react-apollo'],
 			config: {
 				dedupeOperationSuffix: true,
