@@ -1,5 +1,4 @@
 import React from 'react'
-import { Test } from '../../../../app/course/[articleSlug]/Test'
 import ArticleBuilder from '../../../../articles/ArticleBuilder/ArticleBuilder'
 // import LearnByHeartButton from '../../../../articleBuilder/components/learnByHeart/LearnByHeartButton/LearnByHeartButton'
 import { PrevAndNextArticlesNav } from '../../common/ArtPrevAndNextButtons/PrevAndNextArticlesNav'
@@ -18,7 +17,6 @@ function ArticleArticleContent(props: ArticleContentProps) {
 
 	return (
 		<div className='article-article'>
-			<Test />
 			<div className='article-article__content'>
 				<ArticleBuilder articleContent={article.content} />
 			</div>

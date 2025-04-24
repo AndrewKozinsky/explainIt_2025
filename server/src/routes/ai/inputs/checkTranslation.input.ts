@@ -6,9 +6,9 @@ import { bdConfig } from 'src/db/dbConfig/dbConfig'
 export class CheckTranslationInput {
 	@Field(() => String, { description: 'Sentence in Russian' })
 	@DtoFieldDecorators('rusSentence', bdConfig.AI.dtoProps.rusSentence)
-	rusSentence?: string
+	rusSentence: string
 
 	@Field(() => String, { description: 'Sentence in English' })
-	@DtoFieldDecorators('rusSentence', bdConfig.AI.dtoProps.engSentence)
-	engSentence?: string
+	@DtoFieldDecorators('engSentence', bdConfig.AI.dtoProps.engSentence)
+	engSentence: string
 }

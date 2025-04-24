@@ -7,7 +7,7 @@ const config: CodegenConfig = {
 			plugins: ['schema-ast'],
 		},
 		'./graphql/index.ts': {
-			documents: ['./graphql/*.graphql'],
+			documents: ['./graphql/**/*.graphql'],
 			plugins: ['typescript', 'typescript-operations', 'typescript-react-apollo'],
 			config: {
 				dedupeOperationSuffix: true,
