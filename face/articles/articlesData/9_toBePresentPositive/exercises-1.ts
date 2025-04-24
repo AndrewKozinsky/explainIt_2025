@@ -466,23 +466,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			words: [{ rusWord: 'танцор/танцовщица', engWord: 'dancer' }],
 		},
 		{
-			rusSentence: 'Просто представь себе они уже капитаны!',
-			engSentences: [
-				{
-					engSentences: [
-						'Just imagine they are captains already!',
-						'Just imagine! They are captains already!',
-					],
-					isCorrect: true,
-				},
-			],
-			words: [
-				{ rusWord: 'просто представь', engWord: 'just imagine' },
-				{ rusWord: 'капитаны', engWord: 'captains' },
-				{ rusWord: 'уже', engWord: 'already' },
-			],
-		},
-		{
 			rusSentence: 'Ты и Палмер такие тупые!',
 			engSentences: [
 				{
