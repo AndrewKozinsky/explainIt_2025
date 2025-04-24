@@ -41,7 +41,7 @@ ol.art-list {
 		&::before {
 			content: counter(li);
 			counter-increment: li;
-			top: 0.2em;
+			top: 0.12em;
 			left: -2.2rem;
 			font-weight: 700;
 		}

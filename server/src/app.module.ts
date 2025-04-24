@@ -5,6 +5,7 @@ import { MainConfigModule } from './infrastructure/mainConfig/mainConfig.module'
 import { MainConfigService } from './infrastructure/mainConfig/mainConfig.service'
 import { join } from 'path'
 import { AiModule } from './routes/ai/ai.module'
+import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default'
 
 @Module({
 	imports: [
@@ -12,11 +13,15 @@ import { AiModule } from './routes/ai/ai.module'
 			driver: ApolloDriver,
 			imports: [MainConfigModule],
 			useFactory: (mainConfigService: MainConfigService) => {
+				console.log(mainConfigService.get())
 				return {
 					definitions: {
 						path: join(process.cwd(), 'src/graphql.ts'),
 					},
 					autoSchemaFile: true,
+					// graphiql: mainConfigService.get().mode === 'dev',
+					playground: false,
+					plugins: [ApolloServerPluginLandingPageLocalDefault()],
 				}
 			},
 			inject: [MainConfigService],

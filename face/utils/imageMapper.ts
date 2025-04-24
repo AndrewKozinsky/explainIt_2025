@@ -8,10 +8,10 @@ export const imageMapper = {
 			src: '/schemasAndTables/PersonalPronounceSubjectAndObjectTable.svg',
 			alt: 'Личные местоимения в роли подлежащего и дополнения',
 		},*/
-		/*ToBePresent: {
+		ToBePresent: {
 			src: '/schemasAndTables/ToBePresentTable.svg',
 			alt: 'To be в настоящем времени',
-		},*/
+		},
 		/*ToBePast: {
 			src: '/schemasAndTables/ToBePastTable.svg',
 			alt: 'To be в прошедшем времени',

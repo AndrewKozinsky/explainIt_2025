@@ -7,6 +7,7 @@ import indefiniteArticle from './4_indefiniteArticle/indefiniteArticle'
 import personalPronouns from './6_personalPronouns/personalPronouns'
 import pluralOfNouns from './7_pluralOfNouns/pluralOfNouns'
 import phrases_1 from './8_phrases-1/phrases_1'
+import toBePresentPositive from './9_toBePresentPositive/toBePresentPositive'
 
 // Список статей учебника
 const rowArticles: ArticleType.Art[] = [
@@ -18,6 +19,7 @@ const rowArticles: ArticleType.Art[] = [
 	personalPronouns,
 	pluralOfNouns,
 	phrases_1,
+	toBePresentPositive,
 ]
 
 const articles: ArticleType.Art[] = rowArticles.map((article, i) => {

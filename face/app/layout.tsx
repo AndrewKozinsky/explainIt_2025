@@ -5,11 +5,11 @@ import './_in/style/global.scss'
 
 export const metadata: Metadata = {
 	title: 'Курс английского языка',
-	description: 'Курс английского языка с уровня А1',
+	description: 'Курс английского языка для начинающих',
 	verification: {
 		yandex: '1611c5fab3b46857',
 	},
-	keywords: ['английский', 'a1', 'упражнения на английском', 'адаптированные тексты'],
+	keywords: ['английский', 'a1', 'упражнения на английском', 'адаптированные тексты', 'для начинающих'],
 	icons: {
 		icon: '/favicon.svg',
 	},

@@ -13,6 +13,26 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
+			rusSentence: 'Я играю в компьютерные игры очень редко.',
+			engSentences: [{ engSentences: ['I play computer games very rarely.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'играть', engWord: 'play' },
+				{ rusWord: 'компьютер', engWord: 'computer' },
+				{ rusWord: 'игра', engWord: 'game' },
+				{ rusWord: 'очень', engWord: 'very' },
+				{ rusWord: 'редко', engWord: 'rarely' },
+			],
+		},
+		{
+			rusSentence: 'Он играет на музыкальном инструменте.',
+			engSentences: [{ engSentences: ['He plays a musical instrument.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'играть', engWord: 'play' },
+				{ rusWord: 'музыкальный', engWord: 'musical' },
+				{ rusWord: 'инструмент', engWord: 'instrument' },
+			],
+		},
+		{
 			rusSentence: 'Мы играем в бадминтон.',
 			engSentences: [{ engSentences: ['We play badminton.'], isCorrect: true }],
 			words: [

@@ -72,6 +72,21 @@ const exercises_6: ExercisesType.ExercisesObj = {
 				{ rusWord: 'товар', engWord: 'goods' },
 			],
 		},
+		{
+			rusSentence: 'У меня есть несколько отличных новостей для тебя.',
+			engSentences: [
+				{
+					engSentences: ['I have some great news for you.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'несколько', engWord: 'some' },
+				{ rusWord: 'отличный', engWord: 'great' },
+				{ rusWord: 'новость', engWord: 'news' },
+				{ rusWord: 'для тебя', engWord: 'for you' },
+			],
+		},
 	],
 }
 

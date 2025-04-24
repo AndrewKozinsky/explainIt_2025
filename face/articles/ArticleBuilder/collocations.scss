@@ -158,9 +158,9 @@
 	margin-top: 1rem;
 }
 
-/*.art-paragraph + .art-faq {
+.art-paragraph + .art-faq {
 	margin-top: 1.2rem;
-}*/
+}
 /*.art-paragraph + .art-list {
 	margin-top: 0.4rem;
 }*/
@@ -172,9 +172,9 @@
 	/*.art-paragraph + .art-header--h3 {
 		margin-top: 1.6rem;
 	}*/
-	/*.art-paragraph + .art-header--h2 {
+	.art-paragraph + .art-header--h2 {
 		margin-top: 1.8rem;
-	}*/
+	}
 }
 
 @include mix.container-width(vars.$monitor-width) {
@@ -184,12 +184,12 @@
 	/*.art-paragraph + .art-header--h3 {
 		margin-top: 1.6rem;
 	}*/
-	/*.art-paragraph + .art-header--h2 {
+	.art-paragraph + .art-header--h2 {
 		margin-top: 2.4rem;
-	}*/
-	/*.art-paragraph + .art-note {
+	}
+	.art-paragraph + .art-note {
 		margin-top: 1.8rem;
-	}*/
+	}
 	.art-paragraph + .art-grid {
 		margin-top: 1rem;
 	}
@@ -228,6 +228,9 @@
 .exercises + .art-header--h2 {
 	margin-top: 2.4rem;
 }
+.exercises + .art-note {
+	margin-top: 2.4rem;
+}
 @include mix.container-width(vars.$tablet-width) {
 	.exercises + .art-header--h2 {
 		margin-top: 2.8rem;
@@ -242,6 +245,9 @@
 // СПИСОК (ОТСТУП НЕ УКАЗЫВАЕТСЯ) =====
 .art-list + .art-paragraph {
 	margin-top: 1.2rem;
+}
+.art-list + .art-rus-to-eng {
+	margin-top: 1.6rem;
 }
 
 // ВОПРОСЫ И ОТВЕТЫ (ОТСТУП НЕ УКАЗЫВАЕТСЯ)

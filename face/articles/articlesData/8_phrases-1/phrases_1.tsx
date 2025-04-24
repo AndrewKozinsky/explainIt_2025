@@ -8,7 +8,7 @@ const phrases_1: ArticleType.Art = {
 		slug: 'phrases-1',
 		caption: 'Глава 8',
 		articleName: 'Фразы',
-		articleDescription: 'Посмотрим как строить конструкцию «играть в...» и отличия слово another от other',
+		articleDescription: 'Посмотрим как строить конструкцию «играть в...» и отличия слово another от other.',
 	},
 	content: [
 		{
