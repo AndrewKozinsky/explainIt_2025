@@ -127,6 +127,15 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{ rusWord: 'температура', engWord: 'temperature' },
 			],
 		},
+		{
+			// TODO
+			rusSentence: 'У меня есть машина.',
+			engSentences: [{ engSentences: ['I have a car.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'думать', engWord: 'think' },
+				{ rusWord: 'температура', engWord: 'temperature' },
+			],
+		},
 	],
 }
 

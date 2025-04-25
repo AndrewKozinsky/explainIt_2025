@@ -4,7 +4,7 @@ import exercises_2 from './exercises-2'
 
 const phrases_1: ArticleType.Art = {
 	meta: {
-		number: 7,
+		number: 8,
 		slug: 'phrases-1',
 		caption: 'Глава 8',
 		articleName: 'Фразы',

@@ -1,10 +1,11 @@
-// import ArticleType from '../../articleType'
+import ArticleType from '../../articleTypes/articleType'
+import exercises_1 from './exercises-1'
 
-/*const demonstrativePronouns: ArticleType.Art = {
+const demonstrativePronounce: ArticleType.Art = {
 	meta: {
-		number: 9,
+		number: 10,
 		slug: 'demonstrative-pronouns',
-		caption: 'Глава 7',
+		caption: 'Глава 10',
 		articleName: 'Указательные местоимения',
 		articleDescription: 'Указательные местоимения используются для ввода в контекст нового персонажа или предмета.',
 	},
@@ -12,11 +13,9 @@
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'This и that' },
 		{
 			type: 'paragraph',
-
 			children: [
 				{
 					type: 'text',
-
 					text: 'Указательные местоимения используются чтобы указать на персонаж, предмет, событие.',
 				},
 			],
@@ -24,22 +23,19 @@
 		{
 			type: 'paragraph',
 			offset: true,
-
 			children: [
-				{ type: 'text', color: 'blue',  text: 'This' },
-				{ type: 'text',   text: ' ' },
-				{ type: 'text', color: 'gray',  text: '(этот)' },
+				{ type: 'text', color: 'blue', text: 'This' },
+				{ type: 'text', text: ' ' },
+				{ type: 'text', color: 'gray', text: '(этот)' },
 				{
 					type: 'text',
-
 					text: ' используют когда говорят о предмете находящимся ближе к нам, а ',
 				},
-				{ type: 'text', color: 'blue',  text: 'that' },
-				{ type: 'text',   text: ' ' },
-				{ type: 'text', color: 'gray',  text: '(тот)' },
+				{ type: 'text', color: 'blue', text: 'that' },
+				{ type: 'text', text: ' ' },
+				{ type: 'text', color: 'gray', text: '(тот)' },
 				{
 					type: 'text',
-
 					text: ' когда дальше. Под «ближе/дальше» подразумевается расстояние, эмоциональная окраска, время.',
 				},
 			],
@@ -47,49 +43,45 @@
 		{ type: 'header', tag: 'h3', style: 'h3', text: 'Предметы на разном расстоянии' },
 		{
 			type: 'paragraph',
-
 			children: [
 				{
 					type: 'text',
-
 					text: 'Если один предмет находится ближе другого, то для указания на более близкий используют ',
 				},
-				{ type: 'text',  weight: 'bold', text: 'this' },
-				{ type: 'text',   text: ' ' },
-				{ type: 'text', color: 'gray',  text: '(ближе)' },
-				{ type: 'text',   text: ', а для более дальнего ' },
-				{ type: 'text',  weight: 'bold', text: 'that' },
-				{ type: 'text',   text: ' ' },
-				{ type: 'text', color: 'gray',  text: '(дальше)' },
-				{ type: 'text',   text: ':' },
+				{ type: 'text', weight: 'bold', text: 'this' },
+				{ type: 'text', text: ' ' },
+				{ type: 'text', color: 'gray', text: '(ближе)' },
+				{ type: 'text', text: ', а для более дальнего ' },
+				{ type: 'text', weight: 'bold', text: 'that' },
+				{ type: 'text', text: ' ' },
+				{ type: 'text', color: 'gray', text: '(дальше)' },
+				{ type: 'text', text: ':' },
 			],
 		},
 		{
-			type: 'paragraph',
-
+			type: 'rusToEng',
 			textSize: 'giant',
-			children: [
-				{ type: 'text', color: 'blue',  text: 'Это' },
-				{ type: 'text',   text: ' новая машина, а ' },
-				{ type: 'text', color: 'blue',  text: 'та' },
-				{ type: 'text',   text: ' старая.' },
-
-				{ type: 'text',   text: '' },
-				{ type: 'text', color: 'blue',  text: 'This' },
-				{ type: 'text',   text: '’s a new car, but ' },
-				{ type: 'text', color: 'blue',  text: 'that' },
-				{ type: 'text',   text: ' car is old.' },
+			rus: [
+				{ type: 'text', color: 'blue', text: 'Это' },
+				{ type: 'text', text: ' новая машина, а ' },
+				{ type: 'text', color: 'blue', text: 'та' },
+				{ type: 'text', text: ' старая.' },
+			],
+			eng: [
+				{ type: 'text', text: '' },
+				{ type: 'text', color: 'blue', text: 'This' },
+				{ type: 'text', text: '’s a new car, but ' },
+				{ type: 'text', color: 'blue', text: 'that' },
+				{ type: 'text', text: ' car is old.' },
 			],
 		},
 		{
 			type: 'paragraph',
-
 			textSize: 'small',
 			children: [
 				{
 					type: 'text',
 					color: 'gray',
-
 					text: 'Новая машина ближе, а старая дальше.',
 				},
 			],
@@ -97,11 +89,9 @@
 		{
 			type: 'paragraph',
 			offset: true,
-
 			children: [
 				{
 					type: 'text',
-
 					text: 'Если указываете только один предмет без сравнения с другим, то this и that выбирайте от удалённости от вас.',
 				},
 			],
@@ -112,30 +102,26 @@
 			children: [
 				{
 					type: 'paragraph',
-
 					textSize: 'small',
 					children: [
 						{
 							type: 'text',
-
 							text: 'Чтобы одно и то же существительное не повторять несколько раз его обычно заменяют на слово one. Предложение выше можно передалать так:',
 						},
 					],
 				},
 				{
-					type: 'paragraph',
-
+					type: 'rusToEng',
 					textSize: 'big',
-					children: [
+					rus: [
 						{
 							type: 'text',
-
 							text: 'Это новая машина, а та старая.',
 						},
-
+					],
+					eng: [
 						{
 							type: 'text',
-
 							text: 'This is a new car, but that one is old.',
 						},
 					],
@@ -148,19 +134,16 @@
 			children: [
 				{
 					type: 'paragraph',
-
 					children: [
-						{ type: 'text',   text: 'После ' },
-						{ type: 'text', color: 'blue',  text: 'this' },
+						{ type: 'text', text: 'После ' },
+						{ type: 'text', color: 'blue', text: 'this' },
 						{
 							type: 'text',
-
 							text: ' нельзя ставить короткую форму глагола ',
 						},
-						{ type: 'text', color: 'blue',  text: 'is' },
+						{ type: 'text', color: 'blue', text: 'is' },
 						{
 							type: 'text',
-
 							text: '. Про сокращённую форму be будет в одном из следующих уроков.',
 						},
 					],
@@ -170,41 +153,36 @@
 		{
 			type: 'paragraph',
 			offset: true,
-
 			children: [
 				{
 					type: 'text',
-
 					text: 'Дистанцирование работает и при телефонном разговоре. Чтобы указать на себя используют ',
 				},
-				{ type: 'text',  weight: 'bold', text: 'this' },
-				{ type: 'text',   text: ' ' },
-				{ type: 'text', color: 'gray',  text: '(ближе)' },
+				{ type: 'text', weight: 'bold', text: 'this' },
+				{ type: 'text', text: ' ' },
+				{ type: 'text', color: 'gray', text: '(ближе)' },
 				{
 					type: 'text',
-
 					text: '. Чтобы указать на собеседника, то ',
 				},
-				{ type: 'text',  weight: 'bold', text: 'that' },
-				{ type: 'text',   text: ' ' },
-				{ type: 'text', color: 'gray',  text: '(дальше)' },
+				{ type: 'text', weight: 'bold', text: 'that' },
+				{ type: 'text', text: ' ' },
+				{ type: 'text', color: 'gray', text: '(дальше)' },
 				{
 					type: 'text',
-
 					text: ' потому что он находится далеко, на другом конце провода.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-
 			textSize: 'giant',
 			children: [
-				{ type: 'text',   text: '— Hello. ' },
-				{ type: 'text', color: 'blue',  text: 'This' },
-				{ type: 'text',   text: ' is Andrew. Is ' },
-				{ type: 'text', color: 'blue',  text: 'that' },
-				{ type: 'text',   text: ' Victoria?' },
+				{ type: 'text', text: '— Hello. ' },
+				{ type: 'text', color: 'blue', text: 'This' },
+				{ type: 'text', text: ' is Andrew. Is ' },
+				{ type: 'text', color: 'blue', text: 'that' },
+				{ type: 'text', text: ' Victoria?' },
 			],
 		},
 		{
@@ -213,27 +191,21 @@
 			children: [
 				{
 					type: 'paragraph',
-
 					textSize: 'small',
 					children: [
 						{
 							type: 'text',
-
 							text: 'Но это действует не всегда. Американцы наоборот для указания на собеседника используют ',
 						},
-						{ type: 'text',  weight: 'bold', text: 'this' },
-						{ type: 'text',   text: '.' },
+						{ type: 'text', weight: 'bold', text: 'this' },
+						{ type: 'text', text: '.' },
 					],
 				},
 				{
-					type: 'paragraph',
-
+					type: 'rusToEng',
 					textSize: 'big',
-					children: [
-						{ type: 'text',   text: 'Кто это?' },
-
-						{ type: 'text',   text: 'Who’s this?' },
-					],
+					rus: [{ type: 'text', text: 'Кто это?' }],
+					eng: [{ type: 'text', text: 'Who’s this?' }],
 				},
 			],
 		},
@@ -253,7 +225,6 @@
 							analysis: [
 								{
 									type: 'paragraph',
-
 									children: [
 										{
 											type: 'text',
@@ -300,7 +271,6 @@
 							analysis: [
 								{
 									type: 'paragraph',
-
 									children: [
 										{
 											type: 'text',
@@ -383,75 +353,57 @@
 		{ type: 'header', tag: 'h3', style: 'h3', text: 'Эмоциональное дистанцирование' },
 		{
 			type: 'paragraph',
-
 			children: [
-				{ type: 'text',  weight: 'bold', text: 'This' },
-				{ type: 'text',   text: ' ' },
-				{ type: 'text', color: 'gray',  text: '(ближе)' },
+				{ type: 'text', weight: 'bold', text: 'This' },
+				{ type: 'text', text: ' ' },
+				{ type: 'text', color: 'gray', text: '(ближе)' },
 				{
 					type: 'text',
-
 					text: ' если относятся к объекту с положительным настроем:',
 				},
 			],
 		},
 		{
-			type: 'paragraph',
-
+			type: 'rusToEng',
 			textSize: 'giant',
-			children: [
-				{ type: 'text',   text: 'Это великолепно!' },
-
-				{ type: 'text',   text: 'This is awesome!' },
-			],
+			rus: [{ type: 'text', text: 'Это великолепно!' }],
+			eng: [{ type: 'text', text: 'This is awesome!' }],
 		},
 		{
-			type: 'paragraph',
-
+			type: 'rusToEng',
 			textSize: 'giant',
-			children: [
+			rus: [
 				{
 					type: 'text',
-
 					text: 'Эта сумочка очень дешёвая.',
 				},
-
-				{ type: 'text',   text: 'This bag is very cheap.' },
 			],
+			eng: [{ type: 'text', text: 'This bag is very cheap.' }],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
 
 			children: [
-				{ type: 'text',   text: 'That ' },
-				{ type: 'text', color: 'gray',  text: '(дальше)' },
+				{ type: 'text', text: 'That ' },
+				{ type: 'text', color: 'gray', text: '(дальше)' },
 				{
 					type: 'text',
-
 					text: ' если относимся к объекту в негативном ключе, как бы дистанцируемся.',
 				},
 			],
 		},
 		{
-			type: 'paragraph',
-
+			type: 'rusToEng',
 			textSize: 'giant',
-			children: [
-				{ type: 'text',   text: 'Это кошмар!' },
-
-				{ type: 'text',   text: 'That is a disaster!' },
-			],
+			rus: [{ type: 'text', text: 'Это кошмар!' }],
+			eng: [{ type: 'text', text: 'That is a disaster!' }],
 		},
 		{
-			type: 'paragraph',
-
+			type: 'rusToEng',
 			textSize: 'giant',
-			children: [
-				{ type: 'text',   text: 'Тот человек очень злой.' },
-
-				{ type: 'text',   text: 'That man is very angry.' },
-			],
+			rus: [{ type: 'text', text: 'Тот человек очень злой.' }],
+			eng: [{ type: 'text', text: 'That man is very angry.' }],
 		},
 		{
 			type: 'note',
@@ -464,7 +416,6 @@
 					children: [
 						{
 							type: 'text',
-
 							text: 'Похожее эмоциональное дистанцирование есть в русском языке. Если футбольная команда выиграла, то болельщики говорят «мы выиграли». Если програла, то «они проиграли».',
 						},
 					],
@@ -474,30 +425,23 @@
 		{
 			type: 'paragraph',
 			offset: true,
-
 			children: [
 				{
 					type: 'text',
-
 					text: 'Не воспринимайте это как какое-то абсолютные правило. Если на негативно окрашенное событие укажите через ',
 				},
-				{ type: 'text',  weight: 'bold', text: 'this' },
+				{ type: 'text', weight: 'bold', text: 'this' },
 				{
 					type: 'text',
-
 					text: ', то никакой проблемы не будет.',
 				},
 			],
 		},
 		{
-			type: 'paragraph',
-
+			type: 'rusToEng',
 			textSize: 'giant',
-			children: [
-				{ type: 'text',   text: 'Это кошмар!' },
-
-				{ type: 'text',   text: 'This is a disaster!' },
-			],
+			rus: [{ type: 'text', text: 'Это кошмар!' }],
+			eng: [{ type: 'text', text: 'This is a disaster!' }],
 		},
 		{
 			type: 'exercises',
@@ -627,21 +571,19 @@
 		{ type: 'header', tag: 'h3', style: 'h3', text: 'События в разном времени' },
 		{
 			type: 'paragraph',
-
 			children: [
 				{
 					type: 'text',
-
 					text: 'О событии происходящим в текущее время говорят через ',
 				},
-				{ type: 'text',  weight: 'bold', text: 'this' },
-				{ type: 'text',   text: ' ' },
-				{ type: 'text', color: 'gray',  text: '(ближе)' },
-				{ type: 'text',   text: ', про прошедшее через ' },
-				{ type: 'text',  weight: 'bold', text: 'that' },
-				{ type: 'text',   text: ' ' },
-				{ type: 'text', color: 'gray',  text: '(дальше)' },
-				{ type: 'text',   text: '.' },
+				{ type: 'text', weight: 'bold', text: 'this' },
+				{ type: 'text', text: ' ' },
+				{ type: 'text', color: 'gray', text: '(ближе)' },
+				{ type: 'text', text: ', про прошедшее через ' },
+				{ type: 'text', weight: 'bold', text: 'that' },
+				{ type: 'text', text: ' ' },
+				{ type: 'text', color: 'gray', text: '(дальше)' },
+				{ type: 'text', text: '.' },
 			],
 		},
 		{
@@ -651,45 +593,37 @@
 			children: [
 				{
 					type: 'text',
-
 					text: 'Вы на концерте любимой группы. Выступление вам нравится, и вы говорите:',
 				},
 			],
 		},
 		{
-			type: 'paragraph',
-
+			type: 'rusToEng',
 			textSize: 'giant',
-			children: [
-				{ type: 'text',   text: 'Это великолепно!' },
-
-				{ type: 'text',   text: '' },
-				{ type: 'text', color: 'blue',  text: 'This ' },
-				{ type: 'text',   text: 'is great!' },
+			rus: [{ type: 'text', text: 'Это великолепно!' }],
+			eng: [
+				{ type: 'text', color: 'blue', text: 'This ' },
+				{ type: 'text', text: ' is great!' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-
 			children: [
 				{
 					type: 'text',
-
 					text: 'Когда после концерта вы звоните другу и описываете все, что увидели (ситуацию в прошлом) вы говорите:',
 				},
 			],
 		},
 		{
-			type: 'paragraph',
-
+			type: 'rusToEng',
 			textSize: 'giant',
-			children: [
-				{ type: 'text',   text: 'Это было великолепно!' },
-
-				{ type: 'text',   text: '' },
-				{ type: 'text', color: 'blue',  text: 'That' },
-				{ type: 'text',   text: ' was great!' },
+			rus: [{ type: 'text', text: 'Это было великолепно!' }],
+			eng: [
+				{ type: 'text', text: '' },
+				{ type: 'text', color: 'blue', text: 'That' },
+				{ type: 'text', text: ' was great!' },
 			],
 		},
 		{
@@ -697,12 +631,11 @@
 			offset: true,
 
 			children: [
-				{ type: 'text',  weight: 'bold', text: 'This' },
-				{ type: 'text',   text: ' ' },
-				{ type: 'text', color: 'gray',  text: '(ближе)' },
+				{ type: 'text', weight: 'bold', text: 'This' },
+				{ type: 'text', text: ' ' },
+				{ type: 'text', color: 'gray', text: '(ближе)' },
 				{
 					type: 'text',
-
 					text: ' также используют если событие ещё не произошло .',
 				},
 			],
@@ -719,18 +652,15 @@
 				},
 				{
 					type: 'paragraph',
-
 					textSize: 'small',
 					children: [
 						{
 							type: 'text',
-
 							text: 'При переводе на английский язык указательных местоимений ориентируйтесь на правила приведённые здесь, а не на русский язык. Например если яблоко в руках собеседника, то по-русски я скажу «Дай мне это яблоко». А по-английски «Give me that ',
 						},
-						{ type: 'text', color: 'gray',  text: '(то)' },
+						{ type: 'text', color: 'gray', text: '(то)' },
 						{
 							type: 'text',
-
 							text: ' apple» потому что оно находится не в моей зоне доступа.',
 						},
 					],
@@ -745,7 +675,7 @@
 
 							text: 'Если я буду рассказывать о произошедшем событии, то я скажу «Этот концерт был потрясающий», а по английски «That ',
 						},
-						{ type: 'text', color: 'gray',  text: '(тот)' },
+						{ type: 'text', color: 'gray', text: '(тот)' },
 						{
 							type: 'text',
 
@@ -758,31 +688,27 @@
 		{ type: 'header', tag: 'h3', style: 'h3', text: 'Отсылка к сказанному' },
 		{
 			type: 'paragraph',
-
 			children: [
 				{
 					type: 'text',
-
 					text: 'Если мы ссылаемся к сказанному, то применяется that ',
 				},
-				{ type: 'text', color: 'gray',  text: '(дальше)' },
-				{ type: 'text',   text: ':' },
+				{ type: 'text', color: 'gray', text: '(дальше)' },
+				{ type: 'text', text: ':' },
 			],
 		},
 		{
-			type: 'paragraph',
-
+			type: 'rusToEng',
 			textSize: 'giant',
-			children: [
+			rus: [
 				{
 					type: 'text',
-
 					text: 'Вы — юрист? Да, это так.',
 				},
-
+			],
+			eng: [
 				{
 					type: 'text',
-
 					text: 'Are you a lawyer? Yes, that is right.',
 				},
 			],
@@ -790,34 +716,30 @@
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Отличие this/that от it' },
 		{
 			type: 'paragraph',
-
 			children: [
-				{ type: 'text',  weight: 'bold', text: 'This' },
-				{ type: 'text',   text: '/' },
-				{ type: 'text',  weight: 'bold', text: 'that' },
+				{ type: 'text', weight: 'bold', text: 'This' },
+				{ type: 'text', text: '/' },
+				{ type: 'text', weight: 'bold', text: 'that' },
 				{
 					type: 'text',
-
 					text: ' вводят предмет в контекст:',
 				},
 			],
 		},
 		{
-			type: 'paragraph',
-
+			type: 'rusToEng',
 			textSize: 'giant',
-			children: [
+			rus: [
 				{
 					type: 'text',
-
 					text: 'Этот торт очень очень дорогой.',
 				},
-
-				{ type: 'text',   text: '' },
-				{ type: 'text', color: 'blue',  text: 'This' },
+			],
+			eng: [
+				{ type: 'text', text: '' },
+				{ type: 'text', color: 'blue', text: 'This' },
 				{
 					type: 'text',
-
 					text: ' cake is very expensive.',
 				},
 			],
@@ -825,59 +747,52 @@
 		{
 			type: 'paragraph',
 			offset: true,
-
 			children: [
 				{
 					type: 'text',
-
 					text: 'При последующем указании на предмет используйте ',
 				},
-				{ type: 'text',  weight: 'bold', text: 'it' },
-				{ type: 'text',   text: ':' },
+				{ type: 'text', weight: 'bold', text: 'it' },
+				{ type: 'text', text: ':' },
 			],
 		},
 		{
-			type: 'paragraph',
-
+			type: 'rusToEng',
 			textSize: 'giant',
-			children: [
-				{ type: 'text',   text: 'Но он очень вкусный.' },
-
-				{ type: 'text',   text: 'But ' },
-				{ type: 'text', color: 'blue',  text: 'it ' },
-				{ type: 'text',   text: 'is very tasty.' },
+			rus: [{ type: 'text', text: 'Но он очень вкусный.' }],
+			eng: [
+				{ type: 'text', text: 'But ' },
+				{ type: 'text', color: 'blue', text: 'it ' },
+				{ type: 'text', text: 'is very tasty.' },
 			],
 		},
 		{
 			type: 'paragraph',
 			offset: true,
-
 			children: [
 				{
 					type: 'text',
-
 					text: 'Ещё пример как в одном предложении сначала указывается на существительное через this, а затем используется it для его обозначания:',
 				},
 			],
 		},
 		{
-			type: 'paragraph',
-
+			type: 'rusToEng',
 			textSize: 'giant',
-			children: [
+			rus: [
 				{
 					type: 'text',
-
 					text: 'Это не религиозность, это не духовность, это не мистика.',
 				},
-
-				{ type: 'text',   text: '' },
-				{ type: 'text', color: 'blue',  text: 'This' },
-				{ type: 'text',   text: ' is not religious, ' },
-				{ type: 'text', color: 'blue',  text: 'it' },
-				{ type: 'text',   text: ' is not spiritual, ' },
-				{ type: 'text', color: 'blue',  text: 'it' },
-				{ type: 'text',   text: ' is not mystical.' },
+			],
+			eng: [
+				{ type: 'text', text: '' },
+				{ type: 'text', color: 'blue', text: 'This' },
+				{ type: 'text', text: ' is not religious, ' },
+				{ type: 'text', color: 'blue', text: 'it' },
+				{ type: 'text', text: ' is not spiritual, ' },
+				{ type: 'text', color: 'blue', text: 'it' },
+				{ type: 'text', text: ' is not mystical.' },
 			],
 		},
 		{
@@ -942,25 +857,23 @@
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'These и those' },
 		{
 			type: 'paragraph',
-
 			children: [
-				{ type: 'text',   text: 'Местоимения ' },
-				{ type: 'text',  weight: 'bold', text: 'this' },
-				{ type: 'text',   text: ' и ' },
-				{ type: 'text',  weight: 'bold', text: 'that' },
+				{ type: 'text', text: 'Местоимения ' },
+				{ type: 'text', weight: 'bold', text: 'this' },
+				{ type: 'text', text: ' и ' },
+				{ type: 'text', weight: 'bold', text: 'that' },
 				{
 					type: 'text',
-
 					text: ' используются с существительными в единственном числе. Для указания на несколько предметов вместо ',
 				},
-				{ type: 'text', color: 'gold',  text: 'this' },
-				{ type: 'text',   text: ' используют ' },
-				{ type: 'text', color: 'blue',  text: 'these' },
-				{ type: 'text',   text: ', а вместо ' },
-				{ type: 'text', color: 'gold',  text: 'that' },
-				{ type: 'text',   text: ' — ' },
-				{ type: 'text', color: 'blue',  text: 'those' },
-				{ type: 'text',   text: '.' },
+				{ type: 'text', color: 'gold', text: 'this' },
+				{ type: 'text', text: ' используют ' },
+				{ type: 'text', color: 'blue', text: 'these' },
+				{ type: 'text', text: ', а вместо ' },
+				{ type: 'text', color: 'gold', text: 'that' },
+				{ type: 'text', text: ' — ' },
+				{ type: 'text', color: 'blue', text: 'those' },
+				{ type: 'text', text: '.' },
 			],
 		},
 		{
@@ -971,59 +884,51 @@
 				{
 					children: [
 						{
-							type: 'paragraph',
-
+							type: 'rusToEng',
 							textSize: 'giant',
-							children: [
+							rus: [
 								{
 									type: 'text',
-
 									text: 'этот — this',
 								},
-
+							],
+							eng: [
 								{
 									type: 'text',
-
 									text: 'эти — these',
 								},
 							],
 						},
 						{
-							type: 'paragraph',
-							offset: true,
+							type: 'rusToEng',
 							textSize: 'big',
-							children: [
+							rus: [
 								{
 									type: 'text',
-
 									text: 'Эта сумка огромная.',
 								},
-
-								{ type: 'text',   text: '' },
-								{ type: 'text', color: 'gold',  text: 'This' },
+							],
+							eng: [
+								{ type: 'text', color: 'gold', text: 'This' },
 								{
 									type: 'text',
-
 									text: ' bag is huge.',
 								},
 							],
 						},
 						{
-							type: 'paragraph',
-							offset: true,
+							type: 'rusToEng',
 							textSize: 'big',
-							children: [
+							rus: [
 								{
 									type: 'text',
-
 									text: 'Эти сумки огромные.',
 								},
-
-								{ type: 'text',   text: '' },
-								{ type: 'text', color: 'blue',  text: 'These' },
+							],
+							eng: [
+								{ type: 'text', color: 'blue', text: 'These' },
 								{
 									type: 'text',
-
 									text: ' bags are huge.',
 								},
 							],
@@ -1033,59 +938,51 @@
 				{
 					children: [
 						{
-							type: 'paragraph',
-
+							type: 'rusToEng',
 							textSize: 'giant',
-							children: [
+							rus: [
 								{
 									type: 'text',
-
 									text: 'тот — that',
 								},
-
+							],
+							eng: [
 								{
 									type: 'text',
-
 									text: 'те — those',
 								},
 							],
 						},
 						{
-							type: 'paragraph',
-							offset: true,
+							type: 'rusToEng',
 							textSize: 'big',
-							children: [
+							rus: [
 								{
 									type: 'text',
-
 									text: 'Тот человек ненадёжен.',
 								},
-
-								{ type: 'text',   text: '' },
-								{ type: 'text', color: 'gold',  text: 'That' },
+							],
+							eng: [
+								{ type: 'text', color: 'gold', text: 'That' },
 								{
 									type: 'text',
-
 									text: ' person is unreliable.',
 								},
 							],
 						},
 						{
-							type: 'paragraph',
-							offset: true,
+							type: 'rusToEng',
 							textSize: 'big',
-							children: [
+							rus: [
 								{
 									type: 'text',
-
 									text: 'Те люди ненадежные.',
 								},
-
-								{ type: 'text',   text: '' },
-								{ type: 'text', color: 'blue',  text: 'Those' },
+							],
+							eng: [
+								{ type: 'text', color: 'blue', text: 'Those' },
 								{
 									type: 'text',
-
 									text: ' people are unreliable.',
 								},
 							],
@@ -1097,24 +994,20 @@
 		{
 			type: 'paragraph',
 			offset: true,
-
 			children: [
 				{
 					type: 'text',
-
 					text: 'Давайте для практики переведём такое предложение:',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-
 			textSize: 'giant',
-			children: [{ type: 'text',   text: 'Это наши дети.' }],
+			children: [{ type: 'text', text: 'Это наши дети.' }],
 		},
 		{
 			type: 'paragraph',
-
 			children: [
 				{
 					type: 'text',
@@ -1125,23 +1018,20 @@
 		},
 		{
 			type: 'paragraph',
-
 			textSize: 'giant',
-			children: [{ type: 'text',   text: 'It is our children.' }],
+			children: [{ type: 'text', text: 'It is our children.' }],
 		},
 		{
 			type: 'paragraph',
-
 			children: [
-				{ type: 'text',   text: 'Это — это ' },
-				{ type: 'text',  weight: 'bold', text: 'it' },
-				{ type: 'text',   text: '. После ' },
-				{ type: 'text',  weight: 'bold', text: 'it' },
-				{ type: 'text',   text: ' ставится ' },
-				{ type: 'text',  weight: 'bold', text: 'is' },
+				{ type: 'text', text: 'Это — это ' },
+				{ type: 'text', weight: 'bold', text: 'it' },
+				{ type: 'text', text: '. После ' },
+				{ type: 'text', weight: 'bold', text: 'it' },
+				{ type: 'text', text: ' ставится ' },
+				{ type: 'text', weight: 'bold', text: 'is' },
 				{
 					type: 'text',
-
 					text: '. А дальше идут «наши дети».',
 				},
 			],
@@ -1149,32 +1039,27 @@
 		{
 			type: 'paragraph',
 			offset: true,
-
 			children: [
 				{
 					type: 'text',
-
 					text: 'Но это не правильно потому что «дети» — это множество людей. А местоимением ',
 				},
-				{ type: 'text',  weight: 'bold', text: 'it' },
+				{ type: 'text', weight: 'bold', text: 'it' },
 				{
 					type: 'text',
-
 					text: ' можно заменить только существительное в единственном числе. Для выражения множественного числа подходит местоимение ',
 				},
-				{ type: 'text',  weight: 'bold', text: 'they' },
+				{ type: 'text', weight: 'bold', text: 'they' },
 				{
 					type: 'text',
-
 					text: ' независимо от того человек это или неодушевлённый предмет.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-
 			textSize: 'giant',
-			children: [{ type: 'text',   text: 'They are our children.' }],
+			children: [{ type: 'text', text: 'They are our children.' }],
 		},
 		{
 			type: 'paragraph',
@@ -1183,19 +1068,17 @@
 			children: [
 				{
 					type: 'text',
-
 					text: 'Но если существительное упоминаются в первый раз, то лучше использовать не личные, а указательные местоимения. А тут, похоже, дети упоминаются в первый раз, поэтому заменю ',
 				},
-				{ type: 'text',  weight: 'bold', text: 'they' },
-				{ type: 'text',   text: ' на ' },
-				{ type: 'text',  weight: 'bold', text: 'these' },
-				{ type: 'text',   text: ' или ' },
-				{ type: 'text',  weight: 'bold', text: 'those' },
-				{ type: 'text',   text: '. Выберу ' },
-				{ type: 'text',  weight: 'bold', text: 'these' },
+				{ type: 'text', weight: 'bold', text: 'they' },
+				{ type: 'text', text: ' на ' },
+				{ type: 'text', weight: 'bold', text: 'these' },
+				{ type: 'text', text: ' или ' },
+				{ type: 'text', weight: 'bold', text: 'those' },
+				{ type: 'text', text: '. Выберу ' },
+				{ type: 'text', weight: 'bold', text: 'these' },
 				{
 					type: 'text',
-
 					text: ' потому что дети находятся скорее всего недалеко и упоминуются в положительном ключе.',
 				},
 			],
@@ -1204,7 +1087,7 @@
 			type: 'paragraph',
 
 			textSize: 'giant',
-			children: [{ type: 'text',   text: 'These are our children.' }],
+			children: [{ type: 'text', text: 'These are our children.' }],
 		},
 		{
 			type: 'exercises',
@@ -1307,7 +1190,6 @@
 			children: [
 				{
 					type: 'text',
-
 					text: 'Указательные местоимения являются определяющими словами обозначающими конкретный предмет. Поэтому другое определители ставить не требуется.',
 				},
 			],
@@ -1319,33 +1201,27 @@
 			children: [
 				{
 					type: 'text',
-
 					text: 'Но тут важно разграничивать к какому существительному оно относится. Например:',
 				},
 			],
 		},
 		{
-			type: 'paragraph',
-
+			type: 'rusToEng',
 			textSize: 'giant',
-			children: [
-				{ type: 'text',   text: 'Это животное — жираф.' },
-
+			rus: [{ type: 'text', text: 'Это животное — жираф.' }],
+			eng: [
 				{
 					type: 'text',
-
 					text: 'This animal is a giraffe.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-
 			children: [
-				{ type: 'text',  weight: 'bold', text: 'This' },
+				{ type: 'text', weight: 'bold', text: 'This' },
 				{
 					type: 'text',
-
 					text: ' относится к существительному «животное», поэтому перед ним другое определяющее слово не требуется. А «жираф» — это уже другое существительное, поэтому перед ним должно стоять другое определяющее слово. Так как подразумевают любого жирафа, то стоит неопределённый артикль a.',
 				},
 			],
@@ -1353,49 +1229,40 @@
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Подлежащее' },
 		{
 			type: 'paragraph',
-
 			children: [
 				{
 					type: 'text',
-
-					text: 'This/that может использоваться как подлежащее:',
+					text: 'Указательные местоимения могут использоваться как подлежащее:',
 				},
 			],
 		},
 		{
-			type: 'paragraph',
-
+			type: 'rusToEng',
 			textSize: 'giant',
-			children: [
-				{ type: 'text',   text: 'Это великолепная идея!' },
-
-				{ type: 'text',   text: 'This is a great idea!' },
-			],
+			rus: [{ type: 'text', text: 'Это великолепная идея!' }],
+			eng: [{ type: 'text', text: 'This is a great idea!' }],
 		},
 		{
 			type: 'paragraph',
-
 			children: [
-				{ type: 'text',   text: 'Тут ' },
-				{ type: 'text',  weight: 'bold', text: 'this' },
-				{ type: 'text',   text: ' не относится к ' },
-				{ type: 'text',  weight: 'bold', text: 'great idea' },
+				{ type: 'text', text: 'Тут ' },
+				{ type: 'text', weight: 'bold', text: 'this' },
+				{ type: 'text', text: ' не относится к ' },
+				{ type: 'text', weight: 'bold', text: 'great idea' },
 				{
 					type: 'text',
-
 					text: ', а является подлежащим. Поэтому перед ',
 				},
-				{ type: 'text',  weight: 'bold', text: 'great idea' },
+				{ type: 'text', weight: 'bold', text: 'great idea' },
 				{
 					type: 'text',
-
 					text: ' ставится неопределённый артикль ',
 				},
-				{ type: 'text',  weight: 'bold', text: 'a' },
-				{ type: 'text',   text: '.' },
+				{ type: 'text', weight: 'bold', text: 'a' },
+				{ type: 'text', text: '.' },
 			],
 		},
 	],
-}*/
+}
 
-// export default demonstrativePronouns
+export default demonstrativePronounce

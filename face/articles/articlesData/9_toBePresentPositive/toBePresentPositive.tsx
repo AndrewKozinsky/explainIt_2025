@@ -6,7 +6,7 @@ import exercises_3 from './exercises-3'
 
 const toBePresentPositive: ArticleType.Art = {
 	meta: {
-		number: 7,
+		number: 9,
 		slug: 'to-be-present-positive',
 		caption: 'Глава 9',
 		articleName: 'To be в настоящем в утверждении',
