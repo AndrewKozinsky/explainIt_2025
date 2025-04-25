@@ -18,7 +18,7 @@ type CourseLevelPageProps = {
 	nextArticle: ArticleType.Art | null
 }
 
-/** Страница главы в курса */
+/** Страница главы курса */
 function CourseArticlePage(props: CourseLevelPageProps) {
 	const { prevArticle, article, nextArticle } = props
 
@@ -40,8 +40,7 @@ type ChapterNumberProps = {
 }
 
 function Header(props: ChapterNumberProps) {
-	const { caption, articleName } = props.article.meta
-	const chapterNum = extractNumFromStr(caption)
+	const { articleName, number: chapterNum } = props.article.meta
 
 	return (
 		<PageHeader extraClass='course-article-page'>

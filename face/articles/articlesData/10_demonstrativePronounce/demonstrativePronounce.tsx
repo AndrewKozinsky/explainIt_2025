@@ -5,7 +5,6 @@ const demonstrativePronounce: ArticleType.Art = {
 	meta: {
 		number: 10,
 		slug: 'demonstrative-pronouns',
-		caption: 'Глава 10',
 		articleName: 'Указательные местоимения',
 		articleDescription: 'Указательные местоимения используются для ввода в контекст нового персонажа или предмета.',
 	},

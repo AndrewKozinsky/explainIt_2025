@@ -7,7 +7,6 @@ const presentSimplePositive3: ArticleType.Art = {
 	meta: {
 		number: 3,
 		slug: 'present-simple-positive-3',
-		caption: 'Глава 3',
 		articleName: 'Present Simple в утверждении (часть 3)',
 		articleDescription: 'Смешанная практика по времени Present Simple и ещё узнаем как его использовать с именами.',
 	},

@@ -8,7 +8,6 @@ const pluralOfNouns: ArticleType.Art = {
 	meta: {
 		number: 7,
 		slug: 'plural-of-nouns',
-		caption: 'Глава 7',
 		articleName: 'Множественное число',
 		articleDescription:
 			'Разберём способы образования множественного числа существительных от основных до исключений.',

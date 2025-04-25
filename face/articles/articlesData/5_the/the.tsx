@@ -5,7 +5,6 @@ const the: ArticleType.Art = {
 	meta: {
 		number: 5,
 		slug: 'the',
-		caption: 'Глава 5',
 		articleName: 'Определённый артикль the',
 		articleDescription:
 			'Определённый артикль the используется перед сущностями известными собеседнику из контекста. ',

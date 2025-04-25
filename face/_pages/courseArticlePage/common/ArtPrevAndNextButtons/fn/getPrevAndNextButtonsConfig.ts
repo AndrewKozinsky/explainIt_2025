@@ -25,7 +25,7 @@ export function convertArticleToButtonConfig(article: ArticleType.Art | null): u
 	if (!article) return
 
 	return {
-		topText: article.meta.caption,
+		topText: 'Глава ' + article.meta.number,
 		name: article.meta.articleName,
 		description: article.meta.articleDescription,
 		href: PageUrls.courseArticle(article.meta.slug).url,

@@ -8,7 +8,6 @@ const indefiniteArticle: ArticleType.Art = {
 	meta: {
 		number: 4,
 		slug: 'a',
-		caption: 'Глава 4',
 		articleName: 'Неопределённый артикль a',
 		articleDescription: 'Разберёмся как писать исчисляемые существительные в единственном числе.',
 	},

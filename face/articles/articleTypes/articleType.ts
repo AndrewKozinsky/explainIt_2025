@@ -13,8 +13,9 @@ namespace ArticleType {
 	export type ArtMeta = {
 		// Порядковый номер статьи
 		number: number
+		// DELETE !!!
 		// Подпись статьи: Вводная глава, Уровень А1, Глава 1 и так далее.
-		caption: string
+		// caption: string
 		// Название статьи в адресной строке ('toBe')
 		slug: string
 		// Название статьи ('Глагол to be из данных')

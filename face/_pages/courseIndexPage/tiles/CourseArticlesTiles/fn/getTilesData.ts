@@ -19,7 +19,7 @@ export function getTilesData(): ArticleTileType.Tile[] {
 function getArticleTileConf(article: ArticleType.Art): ArticleTileType.ArticleTile {
 	return {
 		type: 'article',
-		top: article.meta.caption,
+		top: 'Глава ' + article.meta.number,
 		header: article.meta.articleName,
 		description: article.meta.articleDescription,
 		url: PageUrls.courseArticle(article.meta.slug).url,
