@@ -32,6 +32,7 @@ export function createDockerConfig(env: EnvType): ConfigSchemaV37Json {
 				command: env === EnvType.dev ? 'yarn start:dev' : 'yarn start:prod',
 				container_name: 'explain-server',
 				environment: getServerEnvs(env),
+				env_file: ['.env'],
 				ports: env === EnvType.dev ? ['3001:3001'] : undefined,
 			},
 			face: {

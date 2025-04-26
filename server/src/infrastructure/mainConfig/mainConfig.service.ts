@@ -11,13 +11,19 @@ export class MainConfigService {
 		return {
 			mode: enVariables.mode,
 			port: enVariables.port,
+			gigaChatClientId: enVariables.gigaChatClientId,
+			gigaChatClientSecret: enVariables.gigaChatClientSecret,
+			gigaChatAuthorizationKey: enVariables.gigaChatAuthorizationKey,
 		}
 	}
 
 	getEnVariables() {
 		return {
 			mode: this.configService.get<string>('MODE') as 'dev' | 'serverCheck' | 'server',
-			port: this.configService.get<number>('port') || 3001,
+			port: this.configService.get<number>('PORT') || 3001,
+			gigaChatClientId: this.configService.get<string>('GIGA_CHAT_CLIENT_ID') || '',
+			gigaChatClientSecret: this.configService.get<string>('GIGA_CHAT_CLIENT_SECRET') || '',
+			gigaChatAuthorizationKey: this.configService.get<string>('GIGA_CHAT_AUTHORIZATION_KEY') || '',
 		}
 	}
 }

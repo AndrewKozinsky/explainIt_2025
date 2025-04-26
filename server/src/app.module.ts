@@ -1,6 +1,7 @@
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo'
 import { Module } from '@nestjs/common'
 import { GraphQLModule } from '@nestjs/graphql'
+import { GigaChatModule } from './infrastructure/gigaChat/gigaChat.module'
 import { MainConfigModule } from './infrastructure/mainConfig/mainConfig.module'
 import { MainConfigService } from './infrastructure/mainConfig/mainConfig.service'
 import { join } from 'path'
@@ -13,7 +14,6 @@ import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin
 			driver: ApolloDriver,
 			imports: [MainConfigModule],
 			useFactory: (mainConfigService: MainConfigService) => {
-				console.log(mainConfigService.get())
 				return {
 					definitions: {
 						path: join(process.cwd(), 'src/graphql.ts'),
@@ -27,6 +27,7 @@ import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin
 			inject: [MainConfigService],
 		}),
 		MainConfigModule,
+		GigaChatModule,
 		AiModule,
 	],
 	controllers: [],

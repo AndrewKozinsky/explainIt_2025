@@ -21,6 +21,8 @@ services:
     environment:
       MODE: server
       PORT: 3001
+    env_file:
+      - .env
   face:
     build:
       context: face/

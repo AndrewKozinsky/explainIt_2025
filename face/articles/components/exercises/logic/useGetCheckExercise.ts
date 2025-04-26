@@ -29,8 +29,8 @@ export function useGetCheckCurrentExercise() {
 			changeExercisesBlock({ analysis: { status: ExercisesContextType.AnalysisStatus.loading } })
 
 			const { data } = await graphqlAIQueries.checkTranslation({
-				rusSentence: 'My rus sentence',
-				engSentence: 'My eng sentence',
+				rusSentence: exercise.rusSentence,
+				engSentence: exercise.userTranslate,
 			})
 
 			if ('error' in data.ai_checkTranslation) {
@@ -48,7 +48,6 @@ export function useGetCheckCurrentExercise() {
 					],
 				},
 			})
-			// console.log(data.ai_checkTranslation.analysis)
 		},
 		[exercise],
 	)
