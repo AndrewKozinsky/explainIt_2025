@@ -588,6 +588,32 @@ const pluralOfNouns: ArticleType.Art = {
 			],
 		},
 		exercises_6,
+		{ type: 'header', tag: 'h2', style: 'h2', text: 'Пара чего то' },
+		{
+			type: 'paragraph',
+			children: [
+				{
+					type: 'text',
+					text: 'В английском выражение “a pair of jeans” означает одни джинсы, несмотря на слово pair (пара). Это связано с тем, что джинсы (как и брюки, очки, ножницы и т. п.) состоят из двух симметричных частей — двух штанин — поэтому грамматически считается, что это пара.',
+				},
+			],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'big',
+			rus: [
+				{
+					type: 'text',
+					text: 'Шесть футболок, три пары джинсов, четыре пары брюк, две пары вечерних туфель и три зубные щетки.',
+				},
+			],
+			eng: [
+				{
+					type: 'text',
+					text: 'Six T-shirts, three pairs of jeans, four pairs of trousers, two pairs of evening shoes and three toothbrushes.',
+				},
+			],
+		},
 	],
 }
 

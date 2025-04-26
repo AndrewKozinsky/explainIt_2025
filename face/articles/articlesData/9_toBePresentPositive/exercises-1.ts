@@ -479,6 +479,653 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{ rusWord: 'тупой', engWord: 'stupid' },
 			],
 		},
+		{
+			// TODO
+			rusSentence: 'Волк — это хищное животное.',
+			engSentences: [
+				{
+					engSentences: ['A wolf is a predator animal.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'Палмер', engWord: 'Palmer' },
+				{ rusWord: 'такой', engWord: 'so' },
+			],
+		},
+		{
+			rusSentence: 'Это старая деревня.',
+			engSentences: [
+				{ engSentences: ['It is an old village.'], isCorrect: true },
+				{
+					engSentences: ['It is old village.'],
+					isCorrect: false,
+					analysis: [
+						{
+							type: 'paragraph',
+							children: [
+								{
+									type: 'text',
+									text: 'Воспринимайте old village как одну сущность: старая деревня. Но англичанам важно знать это одна из множества старых деревень или та самая конкретная деревня. Это одна из множества. Поэтому перед ней ставьте неопределённый артикль a потому что «деревня» — это исчисляемое существительное в единственном числе. А перед ними ставится артикль ',
+								},
+								{
+									type: 'text',
+									color: 'blue',
+									text: 'a',
+								},
+								{
+									type: 'text',
+									text: '. Но так как перед артиклем стоит слово начинающееся на гласную, то используйте артикль ',
+								},
+								{
+									type: 'text',
+									color: 'blue',
+									text: 'an',
+								},
+								{
+									type: 'text',
+									text: ' для благозвучности.',
+								},
+							],
+						},
+					],
+				},
+				{
+					engSentences: ['It is a old village.'],
+					isCorrect: false,
+					analysis: [
+						{
+							type: 'paragraph',
+							children: [
+								{
+									type: 'text',
+									text: 'Слово ',
+								},
+								{
+									type: 'text',
+									color: 'blue',
+
+									text: 'old',
+								},
+								{
+									type: 'text',
+									text: ' пишется и произносится через гласную ',
+								},
+								{
+									type: 'text',
+									color: 'blue',
+									text: 'o',
+								},
+								{
+									type: 'text',
+									text: '. А a используется когда следом идёт слово начинающуюся на согласную. ',
+								},
+								{
+									type: 'text',
+									color: 'blue',
+									text: 'an',
+								},
+								{
+									type: 'text',
+									text: ' с согласной сделано для удобства речи потому что язык спотыкается когде есть подряд две гласные.',
+								},
+							],
+						},
+					],
+				},
+			],
+			words: [
+				{ rusWord: 'старый', engWord: 'old' },
+				{ rusWord: 'деревня', engWord: 'village' },
+			],
+		},
+		{
+			rusSentence: 'Валера — главный редактор.',
+			engSentences: [
+				{ engSentences: ['Valera is an editor-in-chief.'], isCorrect: true },
+				{
+					engSentences: ['Valera is editor-in-chief.'],
+					isCorrect: false,
+					analysis: [
+						{
+							type: 'paragraph',
+							children: [
+								{
+									type: 'text',
+
+									text: 'editor-in-chief — это существительное. А перед ними мы договорились всегда ставить определяющее слово. Валера один из главных редакторов, поэтому стоит поставить неопределённый артикль a.',
+								},
+							],
+						},
+					],
+				},
+				{
+					engSentences: ['Valera is an editor-in-chief.'],
+					isCorrect: false,
+					analysis: [
+						{
+							type: 'paragraph',
+							children: [
+								{
+									type: 'text',
+									text: 'Неопределённый артикль a не может стоять в форме an потому что следом не стоит слово начинающееся на согласную.',
+								},
+							],
+						},
+					],
+				},
+			],
+			words: [{ rusWord: 'главный редактор', engWord: 'editor-in-chief' }],
+		},
+		{
+			rusSentence: 'Кстати, он очень хороший врач.',
+			engSentences: [
+				{ engSentences: ['He\'s a very good doctor, by the way.'], isCorrect: true },
+				{
+					engSentences: [],
+					isCorrect: false,
+					analysis: [
+						{
+							type: 'paragraph',
+							children: [
+								{
+									type: 'text',
+									text: 'Сообщается кем он является — очень хорошим врачом. Поэтому после подлежащего должен быть to be. B один один из «очень хороших докторов». Поэтому перед этим словосочетанием должен быть неопределённый артикль a.',
+								},
+							],
+						},
+					],
+				},
+				{
+					engSentences: [],
+					isCorrect: false,
+					analysis: [
+						{
+							type: 'paragraph',
+							children: [
+								{
+									type: 'text',
+									text: 'Грамматически правильно, но забыли слово «очень».',
+								},
+							],
+						},
+					],
+				},
+			],
+			words: [
+				{ rusWord: 'кстати', engWord: 'by the way' },
+				{ rusWord: 'очень', engWord: 'good' },
+				{ rusWord: 'очень', engWord: 'very' },
+				{ rusWord: 'врач', engWord: 'doctor' },
+			],
+		},
+		{
+			rusSentence: 'Это железо, а это утюг.',
+			engSentences: [{ engSentences: ['It is iron, but it is an iron.'], isCorrect: true }],
+			words: [{ rusWord: 'железо/утюг', engWord: 'iron' }],
+		},
+		{
+			rusSentence: 'Майкл — настоящий мужчина.',
+			engSentences: [
+				{ engSentences: ['Michael is a real man.'], isCorrect: true },
+				{
+					engSentences: ['Michael is the real man.'],
+					isCorrect: false,
+					analysis: [
+						{
+							type: 'paragraph',
+							children: [
+								{
+									type: 'text',
+									text: 'Если бы в контексте разговора упоминался какой-то настоящий мужчина и потом сообщили, что Майкл и он есть, то предложение было бы правильным. Но про это ничего не сказано. И смысл предложения в том, что Майкл один из настоящих мужчин. Поэтому перед связкой ',
+								},
+								{
+									type: 'text',
+									color: 'blue',
+									text: 'real man',
+								},
+								{
+									type: 'text',
+									text: ' нужно поставить неопределённый артикль ',
+								},
+								{
+									type: 'text',
+									color: 'blue',
+									text: 'a',
+								},
+								{
+									type: 'text',
+									text: '.',
+								},
+							],
+						},
+					],
+				},
+				{
+					engSentences: ['Michael is real a man.'],
+					isCorrect: false,
+					analysis: [
+						{
+							type: 'paragraph',
+							children: [
+								{
+									type: 'text',
+									text: 'Неопределённый артикль a должен стоять перед связкой прилагательного + существительного.',
+								},
+							],
+						},
+					],
+				},
+			],
+			words: [
+				{ rusWord: 'настоящий', engWord: 'real' },
+				{ rusWord: 'мужчина', engWord: 'man' },
+			],
+		},
+		{
+			rusSentence: 'Человеческий младенец полностью беспомощен.',
+			engSentences: [
+				{ engSentences: ['A human baby is totally helpless.'], isCorrect: true },
+				{
+					engSentences: [],
+					isCorrect: false,
+					analysis: [
+						{
+							type: 'paragraph',
+							children: [
+								{
+									type: 'text',
+									text: 'В этом пр',
+								},
+							],
+						},
+					],
+				},
+			],
+			words: [
+				{ rusWord: 'человеческий', engWord: 'human' },
+				{ rusWord: 'младенец', engWord: 'baby' },
+				{ rusWord: 'полностью', engWord: 'totally' },
+				{ rusWord: 'беспомощен', engWord: 'helpless' },
+			],
+		},
+		{
+			rusSentence: 'Собака — верный питомец.',
+			engSentences: [
+				{ engSentences: ['A dog is a loyal pet.'], isCorrect: true },
+				{
+					engSentences: ['A dog is loyal pet.'],
+					isCorrect: false,
+					analysis: [
+						{
+							type: 'paragraph',
+							children: [
+								{
+									type: 'text',
+									text: 'Перед loyal pet должен быть неопределённый артикль a потому что подразумевают типичное поведение: любая собака по поведению — это верный питомец.',
+								},
+							],
+						},
+					],
+				},
+			],
+			words: [
+				{ rusWord: 'собака', engWord: 'dog' },
+				{ rusWord: 'верный', engWord: 'loyal' },
+				{ rusWord: 'домашнее животное', engWord: 'pet' },
+			],
+		},
+		{
+			rusSentence: 'Она художница.',
+			engSentences: [
+				{ engSentences: ['She is an artist.'], isCorrect: true },
+				{
+					engSentences: ['She a artist is.'],
+					isCorrect: false,
+					analysis: [
+						{
+							type: 'paragraph',
+							children: [
+								{
+									type: 'text',
+									text: 'В английских предложениях есть чёткий порядок слов: за подлежащим следует сказуемое в повествовательных предложениях. Тут сказуемое убежало в конец предложения.',
+								},
+							],
+						},
+					],
+				},
+				{
+					engSentences: ['She am a famous artist.'],
+					isCorrect: false,
+					analysis: [
+						{
+							type: 'paragraph',
+							children: [
+								{
+									type: 'text',
+									text: 'После местоимения ',
+								},
+								{
+									type: 'text',
+									color: 'blue',
+									text: 'she',
+								},
+								{
+									type: 'text',
+									text: ' следует ',
+								},
+								{
+									type: 'text',
+									color: 'blue',
+									text: 'to be',
+								},
+								{
+									type: 'text',
+									text: ' в форме ',
+								},
+								{
+									type: 'text',
+									color: 'blue',
+									text: 'is',
+								},
+								{
+									type: 'text',
+									text: '.',
+								},
+							],
+						},
+					],
+				},
+			],
+			words: [
+				{ rusWord: 'знаменитый', engWord: 'famous' },
+				{ rusWord: 'художник', engWord: 'artist' },
+			],
+		},
+
+		{
+			rusSentence: 'Это конверт.',
+			engSentences: [
+				{ engSentences: ['It is an envelop.'], isCorrect: true },
+				{
+					engSentences: ['It is a envelope.'],
+					isCorrect: false,
+					analysis: [
+						{
+							type: 'paragraph',
+							children: [
+								{
+									type: 'text',
+									text: 'Неопределённый артикль ',
+								},
+								{
+									type: 'text',
+									color: 'blue',
+									text: 'a',
+								},
+								{
+									type: 'text',
+									text: ' пишется перед словами начинающиеся с согласной для благозвучности. А envelop начинается с гласной. Поэтому тут используйте ',
+								},
+								{
+									type: 'text',
+									color: 'blue',
+									text: 'an',
+								},
+								{
+									type: 'text',
+									text: '.',
+								},
+							],
+						},
+					],
+				},
+				{
+					engSentences: ['It is envelop.'],
+					isCorrect: false,
+					analysis: [
+						{
+							type: 'paragraph',
+							children: [
+								{
+									type: 'text',
+									text: 'Перед существительным должно быть определяющее слово. О каком конверте идёт речь: об определённом или одном из? Если отдельно не сказано, то об одном из множества.',
+								},
+							],
+						},
+					],
+				},
+			],
+			words: [{ rusWord: 'конверт', engWord: 'envelope' }],
+		},
+		{
+			rusSentence: 'Вы идиот.',
+			engSentences: [{ engSentences: ['You are an idiot '], isCorrect: true }],
+			words: [{ rusWord: 'идиот', engWord: 'idiot' }],
+		},
+		{
+			rusSentence: 'Он дикарь.',
+			engSentences: [
+				{ engSentences: ['He is a savage.'], isCorrect: true },
+				{
+					engSentences: [],
+					isCorrect: false,
+					analysis: [
+						{
+							type: 'paragraph',
+
+							children: [
+								{
+									type: 'text',
+
+									text: 'Местоимение he стоит в третьем лице. А to be в третьем лице настоящего времени будет в форме is. В остальном предложение правильное.',
+								},
+							],
+						},
+					],
+				},
+			],
+			words: [{ rusWord: 'дикарь', engWord: 'savage' }],
+		},
+		{
+			rusSentence: 'Я Кельвин.',
+			engSentences: [
+				{ engSentences: ['I am Calvin.'], isCorrect: true },
+				{
+					engSentences: ['I am Kelvin'],
+					isCorrect: false,
+					analysis: [
+						{
+							type: 'paragraph',
+							children: [
+								{
+									type: 'text',
+									text: 'Кельвин пишется через ',
+								},
+								{ type: 'text', weight: 'bold', text: 'C' },
+								{
+									type: 'text',
+									text: ': Calvin. А так предложение правильное.',
+								},
+							],
+						},
+					],
+				},
+				{
+					engSentences: ['I am Celvin'],
+					isCorrect: false,
+					analysis: [
+						{
+							type: 'paragraph',
+							children: [
+								{
+									type: 'text',
+									text: 'Кельвин пишется через ',
+								},
+								{ type: 'text', weight: 'bold', text: 'a' },
+								{
+									type: 'text',
+									text: ', а не ',
+								},
+								{ type: 'text', weight: 'bold', text: 'e' },
+								{
+									type: 'text',
+									text: ': C',
+								},
+								{
+									type: 'text',
+									color: 'blue',
+									text: 'a',
+								},
+								{
+									type: 'text',
+									text: 'lvin. А так предложение правильное.',
+								},
+							],
+						},
+					],
+				},
+			],
+			words: [],
+		},
+		{
+			rusSentence: 'Он полицейский.',
+			engSentences: [{ engSentences: ['He is a policeman.'], isCorrect: true }],
+			words: [{ rusWord: 'полицейский', engWord: 'policeman' }],
+		},
+		{
+			rusSentence: 'Даша симпатичная девушка.',
+			engSentences: [
+				{ engSentences: ['Dasha is a pretty girl.'], isCorrect: true },
+				{
+					engSentences: ['Dasha is are pretty girl.'],
+					isCorrect: false,
+					analysis: [
+						{
+							type: 'paragraph',
+							children: [
+								{
+									type: 'text',
+									text: 'В предложении ',
+								},
+								{
+									type: 'text',
+									color: 'blue',
+									text: 'to be',
+								},
+								{
+									type: 'text',
+									text: ' должен быть в один. А тут их два: в форме ',
+								},
+								{
+									type: 'text',
+									color: 'blue',
+									text: 'is',
+								},
+								{
+									type: 'text',
+									text: ' и ',
+								},
+								{
+									type: 'text',
+									color: 'blue',
+									text: 'are',
+								},
+								{
+									type: 'text',
+									text: '. И артикля a не хватает. Даша ведь одна из симпатичных девушек, а не та самая.',
+								},
+							],
+						},
+					],
+				},
+				{
+					engSentences: ['Dasha is pretty a girl.'],
+					isCorrect: false,
+					analysis: [
+						{
+							type: 'paragraph',
+							children: [
+								{
+									type: 'text',
+									text: 'В связке прилагательного и существительного первым идёт неопределённый артикль a. Поставьте его перед прилагательным.',
+								},
+							],
+						},
+					],
+				},
+			],
+			words: [
+				{ rusWord: 'симпатичный', engWord: 'pretty' },
+				{ rusWord: 'девушка', engWord: 'girl' },
+			],
+		},
+		{
+			rusSentence: 'Это чёрный телефон.',
+			engSentences: [
+				{ engSentences: ['It is a black phone.'], isCorrect: true },
+				{
+					engSentences: ['It is black a phone.'],
+					isCorrect: false,
+					analysis: [
+						{
+							type: 'paragraph',
+							children: [
+								{
+									type: 'text',
+									text: 'Неопределённый артикль a должен стоять перед связкой прилагательного + существительного. Считайте black phone одной сущностью перед которой нужно показать определённость или неопределённость через определяющее слово.',
+								},
+							],
+						},
+					],
+				},
+				{
+					engSentences: ['It phone is black.'],
+					isCorrect: false,
+					analysis: [
+						{
+							type: 'paragraph',
+							children: [
+								{
+									type: 'text',
+									text: 'Тут одновременно есть два подлежащих: it и phone. Так быть не должно.',
+								},
+							],
+						},
+					],
+				},
+			],
+			words: [
+				{ rusWord: 'чёрный', engWord: 'black' },
+				{ rusWord: 'телефон', engWord: 'phone' },
+			],
+		},
+		{
+			rusSentence: 'Это просто любопытный факт.',
+			engSentences: [
+				{ engSentences: [], isCorrect: false },
+				{
+					engSentences: [],
+					isCorrect: false,
+					analysis: [
+						{
+							type: 'paragraph',
+							children: [
+								{
+									type: 'text',
+									text: 'Если перед существительным есть прилагательное, относящиеся к этому существительному, то артикль a должен стоять перед этим словом, а не после.',
+								},
+							],
+						},
+					],
+				},
+			],
+			words: [
+				{ rusWord: 'просто', engWord: 'just' },
+				{ rusWord: 'любопытный', engWord: 'fun' },
+				{ rusWord: 'факт', engWord: 'fact' },
+			],
+		},
 	],
 }
 

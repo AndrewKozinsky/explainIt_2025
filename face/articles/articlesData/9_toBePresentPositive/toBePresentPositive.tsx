@@ -1,8 +1,9 @@
 import { imageMapper } from '../../../utils/imageMapper'
 import ArticleType from '../../articleTypes/articleType'
 import exercises_1 from './exercises-1'
-import exercises_2 from './exercises-2'
 import exercises_3 from './exercises-3'
+import exercises_2 from './exercises-2'
+import exercises_4 from './exercises-4'
 
 const toBePresentPositive: ArticleType.Art = {
 	meta: {
@@ -117,76 +118,6 @@ const toBePresentPositive: ArticleType.Art = {
 				{ type: 'text', text: 'It ' },
 				{ type: 'text', color: 'blue', text: 'be' },
 				{ type: 'text', text: ' a puppy.' },
-			],
-		},
-		{
-			type: 'note',
-			noteStyle: 'gray',
-			children: [
-				{
-					type: 'paragraph',
-
-					children: [
-						{
-							type: 'text',
-							text: 'Иногда и в современном русском языке явно используем глагол «есть» в разных видах:',
-						},
-					],
-				},
-				{
-					type: 'paragraph',
-
-					textSize: 'big',
-					children: [
-						{ type: 'text', text: 'Незаконным ' },
-						{ type: 'text', color: 'blue', text: 'является' },
-						{
-							type: 'text',
-							text: ' способ получения этих средств.',
-						},
-					],
-				},
-				{
-					type: 'paragraph',
-					textSize: 'big',
-					children: [
-						{ type: 'text', text: 'Что вы из себя ' },
-						{ type: 'text', color: 'blue', text: 'представляете' },
-						{ type: 'text', text: '?' },
-					],
-				},
-				{
-					type: 'paragraph',
-					textSize: 'big',
-					children: [
-						{ type: 'text', text: 'Там ' },
-						{ type: 'text', color: 'blue', text: 'есть' },
-						{ type: 'text', text: ' стол.' },
-					],
-				},
-				{
-					type: 'paragraph',
-					offset: true,
-					children: [
-						{
-							type: 'text',
-							text: 'Тире также аналог слова «есть»:',
-						},
-					],
-				},
-				{
-					type: 'paragraph',
-
-					textSize: 'big',
-					children: [
-						{ type: 'text', text: 'Борис ' },
-						{ type: 'text', color: 'blue', text: '—' },
-						{
-							type: 'text',
-							text: ' сильный мужчина.',
-						},
-					],
-				},
 			],
 		},
 		{
@@ -417,6 +348,69 @@ const toBePresentPositive: ArticleType.Art = {
 		exercises_2,
 		{
 			type: 'paragraph',
+
+			children: [
+				{
+					type: 'text',
+					text: 'Иногда и в современном русском языке явно используем глагол «есть» в разных видах:',
+				},
+			],
+		},
+		{
+			type: 'paragraph',
+			textSize: 'big',
+			children: [
+				{ type: 'text', text: 'Незаконным ' },
+				{ type: 'text', color: 'blue', text: 'является' },
+				{
+					type: 'text',
+					text: ' способ получения этих средств.',
+				},
+			],
+		},
+		{
+			type: 'paragraph',
+			textSize: 'big',
+			children: [
+				{ type: 'text', text: 'Что вы из себя ' },
+				{ type: 'text', color: 'blue', text: 'представляете' },
+				{ type: 'text', text: '?' },
+			],
+		},
+		{
+			type: 'paragraph',
+			textSize: 'big',
+			children: [
+				{ type: 'text', text: 'Там ' },
+				{ type: 'text', color: 'blue', text: 'есть' },
+				{ type: 'text', text: ' стол.' },
+			],
+		},
+		{
+			type: 'paragraph',
+			offset: true,
+			children: [
+				{
+					type: 'text',
+					text: 'Тире также аналог слова «есть»:',
+				},
+			],
+		},
+		{
+			type: 'paragraph',
+			textSize: 'big',
+			children: [
+				{ type: 'text', text: 'Борис ' },
+				{ type: 'text', color: 'blue', text: '—' },
+				{
+					type: 'text',
+					text: ' сильный мужчина.',
+				},
+			],
+		},
+		exercises_3,
+		{
+			type: 'paragraph',
 			offset: true,
 			children: [
 				{
@@ -571,7 +565,7 @@ const toBePresentPositive: ArticleType.Art = {
 				},
 			],
 		},
-		exercises_3,
+		exercises_4,
 		{
 			type: 'paragraph',
 			offset: true,

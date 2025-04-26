@@ -86,33 +86,6 @@
 					],
 				},
 				{
-					rusSentence: 'Асфальт очень старый, а вот скамейки отличные.',
-					engSentences: [
-						{
-							engSentences: ['Asphalt is very old, but the benches are excellent.'],
-							isCorrect: true,
-						},
-						{
-							engSentences: [],
-							isCorrect: false,
-							analysis: [
-								{
-									type: 'paragraph',
-
-									children: [
-										{
-											type: 'text',
-
-											text: 'В этом пр',
-										},
-									],
-								},
-							],
-						},
-					],
-					words: [{ rusWord: 'два', engWord: 'two' }],
-				},
-				{
 					rusSentence: 'Еда в холодильнике.',
 					engSentences: [{ engSentences: ['The food is in the refrigerator'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
@@ -121,22 +94,6 @@
 					rusSentence: 'Он был хорошим учеником.',
 					engSentences: [{ engSentences: ['He was a good pupil.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
-				},
-				{
-					rusSentence: 'Окно закрыто.',
-					engSentences: [{ engSentences: ['The window is closed.'], isCorrect: true }],
-					words: [
-						{ rusWord: 'готовый', engWord: 'ready' },
-						{ rusWord: 'скоро', engWord: 'soon' },
-					],
-				},
-				{
-					rusSentence: 'Кот — чёрный.',
-					engSentences: [{ engSentences: ['The cat is black.'], isCorrect: true }],
-					words: [
-						{ rusWord: 'команда', engWord: 'team' },
-						{ rusWord: 'лидер', engWord: 'leader' },
-					],
 				},
 				{
 					rusSentence: 'Коробки мокрые.',
@@ -178,15 +135,6 @@
 					words: [
 						{ rusWord: 'быть уверенным', engWord: 'to be sure' },
 						{ rusWord: 'быть готовым', engWord: 'to be ready' },
-					],
-				},
-				{
-					rusSentence: 'Орлы — очень сильные  птицы.',
-					engSentences: [{ engSentences: ['Eagles are very strong birds.'], isCorrect: true }],
-					words: [
-						{ rusWord: 'орёл', engWord: 'eagle' },
-						{ rusWord: 'сильный', engWord: 'strong' },
-						{ rusWord: 'птица', engWord: 'bird' },
 					],
 				},
 			],

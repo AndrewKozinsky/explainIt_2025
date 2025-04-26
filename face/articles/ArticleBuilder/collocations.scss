@@ -47,9 +47,9 @@
 	margin-top: 1.2rem;
 }
 
-/*.art-image + .art-note {
-	margin-top: 2.2rem;
-}*/
+.art-image + .art-note {
+	margin-top: 2rem;
+}
 @include mix.container-width(vars.$tablet-width) {
 	.art-image + .art-header--h4 {
 		margin-top: 2.4rem;
@@ -63,19 +63,19 @@
 	/*.art-image + .art-paragraph {
 		margin-top: 1.4rem;
 	}*/
-	/*.art-image + .art-note {
-		margin-top: 2.4rem;
-	}*/
+	.art-image + .art-note {
+		margin-top: 2.2rem;
+	}
 }
 
-/*@include mix.container-width(vars.$monitor-width) {
-	.art-image + .art-paragraph {
+@include mix.container-width(vars.$monitor-width) {
+	/*.art-image + .art-paragraph {
 		margin-top: 1.6rem;
-	}
+	}*/
 	.art-image + .art-note {
-		margin-top: 2.6rem;
+		margin-top: 2.4rem;
 	}
-}*/
+}
 
 // ЗАМЕТКА (ОТСТУП НЕ УКАЗЫВАЕТСЯ) =====
 /*.art-note + .art-note {

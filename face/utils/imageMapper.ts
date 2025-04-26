@@ -32,10 +32,10 @@ export const imageMapper = {
 			src: '/schemasAndTables/PresentSimplePositiveTable.svg',
 			alt: 'Present Simple',
 		},
-		/*PresentSimplePositiveAndQuestion: {
+		PresentSimplePositiveAndQuestion: {
 			src: '/schemasAndTables/PresentSimplePositiveAndQuestionTable.svg',
 			alt: 'Present Simple утверждение и вопрос',
-		},*/
+		},
 		/*PresentSimpleFull: {
 			src: '/schemasAndTables/PresentSimpleFullTable.svg',
 			alt: 'Present Simple',
@@ -90,14 +90,18 @@ export const imageMapper = {
 			src: '/schemasAndTables/ToBePresentPositiveScheme.svg',
 			alt: '',
 		},*/
-		/*PresentSimplePositive: {
+		PresentSimplePositiveSchemeFlat: {
+			src: '/schemasAndTables/PresentSimplePositiveSchemeFlat.svg',
+			alt: '',
+		},
+		PresentSimplePositive: {
 			src: '/schemasAndTables/PresentSimplePositiveScheme.svg',
 			alt: '',
-		},*/
-		/*PastSimplePositive: {
+		},
+		PastSimplePositive: {
 			src: '/schemasAndTables/PastSimplePositiveScheme.svg',
 			alt: '',
-		},*/
+		},
 		/*PresentSimpleNegative_1: {
 			src: '/schemasAndTables/PresentSimpleNegativeScheme_1.svg',
 			alt: '',
@@ -106,30 +110,38 @@ export const imageMapper = {
 			src: '/schemasAndTables/ToBePresentNegativeScheme.svg',
 			alt: '',
 		},*/
-		/*PresentSimpleQuestion_1: {
+		PresentSimpleQuestion_1: {
 			src: '/schemasAndTables/PresentSimpleQuestionScheme_1.svg',
 			alt: '',
-		},*/
+		},
 		/*PresentSimpleNegative_2: {
 			src: '/schemasAndTables/PresentSimpleNegativeScheme_2.svg',
 			alt: '',
 		},*/
-		/*PastSimpleQuestion_1: {
+		PastSimpleQuestion_1: {
 			src: '/schemasAndTables/PastSimpleQuestionScheme_1.svg',
 			alt: '',
-		},*/
-		/*PastSimpleQuestion_2: {
+		},
+		PastSimpleQuestion_2: {
 			src: '/schemasAndTables/PastSimpleQuestionScheme_2.svg',
 			alt: '',
-		},*/
+		},
 		/*ToBePresentQuestion: {
 			src: '/schemasAndTables/ToBePresentQuestionScheme.svg',
 			alt: '',
 		},*/
-		/*PresentSimpleQuestion_2: {
+		PresentSimpleQuestion_2: {
 			src: '/schemasAndTables/PresentSimpleQuestionScheme_2.svg',
 			alt: '',
-		},*/
+		},
+		PresentSimpleFirstPronounQuestionScheme_1: {
+			src: '/schemasAndTables/PresentSimpleFirstPronounQuestionScheme_1.svg',
+			alt: '',
+		},
+		PresentSimpleFirstPronounQuestionScheme_2: {
+			src: '/schemasAndTables/PresentSimpleFirstPronounQuestionScheme_2.svg',
+			alt: '',
+		},
 		/*FutureSimpleNegative: {
 			src: '/schemasAndTables/FutureSimpleNegativeScheme.svg',
 			alt: 'Future Simple',
