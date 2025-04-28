@@ -1,8 +1,6 @@
 import React from 'react'
 import type { Metadata } from 'next'
-import Metrika from './__/Metrika/Metrika'
-import ApolloProvider from './__/ApolloProvider/ApolloProvider'
-import './__/style/global.scss'
+import MainPageLayout from '../_pages/mainPageLayout/MainPageLayout/MainPageLayout'
 
 export const metadata: Metadata = {
 	title: 'Курс английского языка',
@@ -28,8 +26,7 @@ export default function RootLayout({
 				<meta name='yandex-verification' content='b8b37674c9ce501f' />
 			</head>
 			<body>
-				<Metrika />
-				<ApolloProvider>{children}</ApolloProvider>
+				<MainPageLayout>{children}</MainPageLayout>
 			</body>
 		</html>
 	)
