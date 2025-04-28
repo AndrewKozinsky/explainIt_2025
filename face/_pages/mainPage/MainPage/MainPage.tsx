@@ -1,5 +1,4 @@
-// import React from 'react'
-import {PageWrapper} from '../../../ui/pageRelated/PageWrapper/PageWrapper'
+import { PageWrapper } from '../../../ui/pageRelated/PageWrapper/PageWrapper'
 // import CourseFace from '../CourseFace/CourseFace'
 // import FeaturesGridOne from '../featuresGridOne/FeaturesGridOne/FeaturesGridOne'
 import MainPageHeader from '../MainPageHeader/MainPageHeader'

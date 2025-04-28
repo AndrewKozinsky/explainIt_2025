@@ -1,8 +1,8 @@
 import React from 'react'
 import type { Metadata } from 'next'
-import Metrika from './_in/Metrika/Metrika'
-import ApolloProvider from './_in/ApolloProvider/ApolloProvider'
-import './_in/style/global.scss'
+import Metrika from './__/Metrika/Metrika'
+import ApolloProvider from './__/ApolloProvider/ApolloProvider'
+import './__/style/global.scss'
 
 export const metadata: Metadata = {
 	title: 'Курс английского языка',

@@ -8,6 +8,14 @@ export class MainConfigService {
 	get() {
 		const enVariables = this.getEnVariables()
 
+		if (
+			!enVariables.gigaChatClientId ||
+			!enVariables.gigaChatClientSecret ||
+			!enVariables.gigaChatAuthorizationKey
+		) {
+			throw new Error('Env file is wrong!')
+		}
+
 		return {
 			mode: enVariables.mode,
 			port: enVariables.port,

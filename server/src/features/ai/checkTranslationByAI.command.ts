@@ -24,10 +24,8 @@ export class CheckTranslationByAiHandler implements ICommandHandler<CheckTransla
 		const prompt = this.createPrompt(command.checkTranslationByAiInput)
 
 		const answerFromGigaChat = await this.gigaChatService.generateText(prompt)
-		// console.log(answerFromGigaChat)
 
 		const answerObj = this.convertAnswerStrToResult(answerFromGigaChat)
-		// console.log({ answerObj })
 
 		if (!answerObj) {
 			return {
@@ -59,12 +57,8 @@ export class CheckTranslationByAiHandler implements ICommandHandler<CheckTransla
 				.replace(/^```json\s*/, '') // Remove starting ```json and any spaces
 				.replace(/^```/, '') // (In case it's just ``` without json)
 				.replace(/\s*```$/, '') // Remove ending ```
-			console.log(1)
-			console.log(fixedAnswerStr)
 
 			const answerObj = JSON.parse(fixedAnswerStr)
-			console.log(2)
-			console.log(answerObj)
 
 			const answerSchema = z.object({
 				correct: z.boolean(),
