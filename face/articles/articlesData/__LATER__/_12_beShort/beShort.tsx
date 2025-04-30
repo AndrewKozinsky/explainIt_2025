@@ -12,7 +12,6 @@
 	content: [
 		{
 			type: 'paragraph',
-
 			children: [
 				{
 					type: 'text',
@@ -25,7 +24,6 @@
 		},
 		{
 			type: 'paragraph',
-
 			textSize: 'big',
 			children: [
 				{
@@ -38,7 +36,6 @@
 		{
 			type: 'paragraph',
 			offset: true,
-
 			children: [
 				{
 					type: 'text',
@@ -50,7 +47,6 @@
 		{
 			type: 'paragraph',
 			offset: true,
-
 			children: [
 				{
 					type: 'text',
@@ -70,7 +66,6 @@
 		{ type: 'header', tag: 'h3', style: 'h3', text: 'Отрицание' },
 		{
 			type: 'paragraph',
-
 			children: [
 				{
 					type: 'text',
@@ -83,7 +78,6 @@
 		},
 		{
 			type: 'paragraph',
-
 			textSize: 'giant',
 			children: [
 				{ type: 'text',  text: 'Ты не был болен.' },
@@ -97,7 +91,6 @@
 		},
 		{
 			type: 'paragraph',
-
 			textSize: 'giant',
 			children: [
 				{ type: 'text',  text: 'Это было не просто.' },
@@ -112,7 +105,6 @@
 		{
 			type: 'paragraph',
 			offset: true,
-
 			children: [
 				{
 					type: 'text',
@@ -151,7 +143,6 @@
 		{ type: 'header', tag: 'h3', style: 'h3', text: 'Утверждение' },
 		{
 			type: 'paragraph',
-
 			children: [
 				{
 					type: 'text',
@@ -162,7 +153,6 @@
 		},
 		{
 			type: 'paragraph',
-
 			textSize: 'giant',
 			children: [
 				{ type: 'text',  text: 'Я уверенный человек.' },
@@ -176,7 +166,6 @@
 		},
 		{
 			type: 'paragraph',
-
 			textSize: 'giant',
 			children: [
 				{ type: 'text',  text: 'Они инжерены.' },

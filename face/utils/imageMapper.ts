@@ -86,10 +86,10 @@ export const imageMapper = {
 		},*/
 	},
 	schemas: {
-		/*ToBePresentPositive: {
+		ToBePresentPositive: {
 			src: '/schemasAndTables/ToBePresentPositiveScheme.svg',
 			alt: '',
-		},*/
+		},
 		PresentSimplePositiveSchemeFlat: {
 			src: '/schemasAndTables/PresentSimplePositiveSchemeFlat.svg',
 			alt: '',
@@ -126,10 +126,10 @@ export const imageMapper = {
 			src: '/schemasAndTables/PastSimpleQuestionScheme_2.svg',
 			alt: '',
 		},
-		/*ToBePresentQuestion: {
+		ToBePresentQuestion: {
 			src: '/schemasAndTables/ToBePresentQuestionScheme.svg',
 			alt: '',
-		},*/
+		},
 		PresentSimpleQuestion_2: {
 			src: '/schemasAndTables/PresentSimpleQuestionScheme_2.svg',
 			alt: '',

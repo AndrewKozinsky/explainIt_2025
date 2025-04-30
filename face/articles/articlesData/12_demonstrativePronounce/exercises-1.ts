@@ -150,6 +150,12 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			engSentences: [{ engSentences: ['Bridget is in a really good mood today.'], isCorrect: true }],
 			words: [{ rusWord: 'книга', engWord: 'book' }],
 		},
+		{
+			// TODO
+			rusSentence: 'Этот клуб очень модный! Очень эксклюзивный!',
+			engSentences: [{ engSentences: ['This club is very trendy! Very exclusive!'], isCorrect: true }],
+			words: [{ rusWord: 'книга', engWord: 'book' }],
+		},
 	],
 }
 

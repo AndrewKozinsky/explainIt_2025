@@ -1,5 +1,6 @@
 import ArticleType from '../articleTypes/articleType'
 import presentSimpleQuestion from './10_presentSimpleQuestion/presentSimpleQuestion'
+import toBePresentQuestion from './11_toBePresentQuestion/toBePresentQuestion'
 import demonstrativePronounce from './12_demonstrativePronounce/demonstrativePronounce'
 import the from './5_the/the'
 import presentSimplePositive1 from './1_presentSimplePositive-1/presentSimplePositive-1'
@@ -23,6 +24,7 @@ const rowArticles: ArticleType.Art[] = [
 	phrases_1,
 	toBePresentPositive,
 	presentSimpleQuestion,
+	toBePresentQuestion,
 	demonstrativePronounce,
 ]
 

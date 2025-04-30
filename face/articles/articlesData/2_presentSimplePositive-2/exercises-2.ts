@@ -202,6 +202,15 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				{ rusWord: 'вместе', engWord: 'together' },
 			],
 		},
+		{
+			// TODO
+			rusSentence: 'Она часто посещает новые страны и города.',
+			engSentences: [{ engSentences: ['She often visites new countries and cities.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'происходить', engWord: 'happen' },
+				{ rusWord: 'когда', engWord: 'when' },
+			],
+		},
 	],
 }
 
