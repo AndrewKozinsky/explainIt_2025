@@ -14,13 +14,5 @@ export class AiResolver {
 	})
 	async checkTranslation(@Args('input') input: CheckTranslationInput) {
 		return await this.commandBus.execute(new CheckTranslationByAiCommand(input))
-
-		/*return {
-			correct: false,
-			analysis: 'My analysis',
-		}*/
-		/*return {
-			error: 'There is some error when trying to check translation',
-		}*/
 	}
 }

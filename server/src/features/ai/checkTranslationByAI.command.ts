@@ -1,6 +1,7 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { GigaChatService } from '../../infrastructure/gigaChat/gigaChat.service'
 import { z } from 'zod'
+import { GigaChatService } from '../../infrastructure/gigaChat/gigaChat.service'
+import { TelegramService } from '../../infrastructure/telegram/telegram.service'
 
 type CheckTranslationInput = {
 	rusSentence: string
@@ -18,7 +19,10 @@ export class CheckTranslationByAiCommand implements ICommand {
 
 @CommandHandler(CheckTranslationByAiCommand)
 export class CheckTranslationByAiHandler implements ICommandHandler<CheckTranslationByAiCommand> {
-	constructor(private gigaChatService: GigaChatService) {}
+	constructor(
+		private gigaChatService: GigaChatService,
+		private telegramService: TelegramService,
+	) {}
 
 	async execute(command: CheckTranslationByAiCommand) {
 		const prompt = this.createPrompt(command.checkTranslationByAiInput)
@@ -32,6 +36,13 @@ export class CheckTranslationByAiHandler implements ICommandHandler<CheckTransla
 				error: 'Не удалось сделать запрос. Попробуйте ещё раз.',
 			}
 		}
+
+		const messageToBot = this.createMessageToTelegram(
+			command.checkTranslationByAiInput.engSentence,
+			command.checkTranslationByAiInput.rusSentence,
+			answerObj,
+		)
+		this.telegramService.sendMessageToFromExplainBot(messageToBot)
 
 		return answerObj
 	}
@@ -79,5 +90,19 @@ export class CheckTranslationByAiHandler implements ICommandHandler<CheckTransla
 		} catch (err) {
 			return null
 		}
+	}
+
+	createMessageToTelegram(
+		rusSentence: string,
+		userTranslate: string,
+		analysis: {
+			correct: boolean
+			analysis: string
+		},
+	): string {
+		return `Предложение: ${rusSentence}
+Перевод от пользователя: ${userTranslate}
+Правильный: ${analysis.correct ? 'Да' : 'Нет'}
+Анализ: ${analysis.analysis}`
 	}
 }
