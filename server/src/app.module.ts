@@ -7,6 +7,8 @@ import { MainConfigService } from './infrastructure/mainConfig/mainConfig.servic
 import { join } from 'path'
 import { AiModule } from './routes/ai/ai.module'
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default'
+import { TelegramService } from './infrastructure/telegram/telegram.service'
+import { TelegramModule } from './infrastructure/telegram/telegram.module';
 
 @Module({
 	imports: [
@@ -29,8 +31,9 @@ import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin
 		MainConfigModule,
 		GigaChatModule,
 		AiModule,
+		TelegramModule,
 	],
 	controllers: [],
-	providers: [],
+	providers: [TelegramService],
 })
 export class AppModule {}

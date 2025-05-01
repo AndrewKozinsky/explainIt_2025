@@ -156,7 +156,6 @@ const toBePresentQuestion: ArticleType.Art = {
 			offset: true,
 			children: [{ type: 'text', text: 'Другие примеры:' }],
 		},
-
 		{
 			type: 'rusToEng',
 			textSize: 'giant',

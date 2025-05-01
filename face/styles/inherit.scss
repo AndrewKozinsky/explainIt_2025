@@ -1,5 +1,6 @@
 @use 'variables' as vars;
 @use 'mixins' as mix;
+@use 'sass:color';
 
 // ОБЩИЕ СТИЛИ ДЛЯ РАЗЛИЧНЫХ КОМПОНЕНТОВ.
 // ОНИ БУДУТ ВКЛЮЧАТЬСЯ В КОНКРЕТНЫЕ КЛАССЫ
@@ -10,7 +11,7 @@
 	transition: color .2s, border-bottom-color .2s;
 
 	&:hover {
-		color: saturate(vars.$blueColor-2, 100%);
+		color: color.adjust(vars.$blueColor-2, $saturation: 100%);
 		border-bottom-color: rgba(vars.$blueColor-2, .35);
 	}
 }
@@ -21,7 +22,7 @@
 	border-bottom: none;
 
 	&:hover {
-		color: saturate(vars.$orangeColor-2, 100%);
+		color: color.adjust(vars.$orangeColor-2, $saturation: 100%);
 		border-bottom-color: rgba(vars.$orangeColor-2, .35);
 	}
 }

@@ -7,15 +7,15 @@
 }
 
 .exercise-content-rus-sentence__note {
-	@include inh.paragraph-small;
 	color: vars.$grayColor-3;
+	@include inh.paragraph-small;
 }
 
 .exercise-content-rus-sentence__text {
-	@include inh.paragraph-giant;
 	margin-top: .2rem;
+	@include inh.paragraph-giant;
+}
 
-	&--gray {
-		color: vars.$grayColor-3;
-	}
+.exercise-content-rus-sentence__text--gray {
+	color: vars.$grayColor-3;
 }

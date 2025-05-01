@@ -4,8 +4,8 @@
 
 .eng-translate-input {
 	width: 100%;
-	@include inh.paragraph-giant();
 	field-sizing: content;
+	@include inh.paragraph-giant();
 
 	&::placeholder {
 		color: vars.$grayColor-2;
