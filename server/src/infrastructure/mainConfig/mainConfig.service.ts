@@ -8,10 +8,16 @@ export class MainConfigService {
 	get() {
 		const enVariables = this.getEnVariables()
 
+		for (let val of Object.values(enVariables)) {
+			if (!val) throw new Error('Env file is wrong!')
+		}
+
 		if (
 			!enVariables.gigaChatClientId ||
 			!enVariables.gigaChatClientSecret ||
-			!enVariables.gigaChatAuthorizationKey
+			!enVariables.gigaChatAuthorizationKey ||
+			!enVariables.telegramFromExplainBotToken ||
+			!enVariables.telegramFromExplainBotChatId
 		) {
 			throw new Error('Env file is wrong!')
 		}
