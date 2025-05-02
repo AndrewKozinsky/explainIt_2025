@@ -4,62 +4,15 @@
 // import ToBePresentQuestionScheme from './ToBePresentQuestionScheme'
 
 /*const beNegativeAndQuestion: ArticleType.Art = {
-	meta: {
-		number: 8,
-		slug: 'be-negative-and-question',
-		caption: 'Глава 6',
-		articleName: 'Вопрос и отрицание в предложениях с be',
-		articleDescription:
-			'Научимся предложения с глаголом be делать вопросительными и отрицательными во всех временах.',
-
-	},
 	content: [
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Прошедшее и настоящее время' },
 		{ type: 'header', tag: 'h3', style: 'h3', text: 'Отрицание' },
 		{
 			type: 'paragraph',
-
+			offset: true,
 			children: [
 				{
 					type: 'text',
-
-					text: 'Чтобы сделать отрицание для глагола ',
-				},
-				{ type: 'text',  weight: 'bold', text: 'be' },
-				{
-					type: 'text',
-
-					text: ' нужно после него поставить отрицательную частицу ',
-				},
-				{ type: 'text', color: 'blue',  text: 'not' },
-				{
-					type: 'text',
-
-					text: '. Сам глагол должен быть нагружен подходящим временем.',
-				},
-			],
-		},
-		{
-			type: 'grid',
-			offset: true,
-			gridId: 'grid-2915',
-			cells: [
-				{
-					children: [{ type: 'customComponent', component: <ToBePresentPositiveScheme /> }],
-				},
-				{
-					children: [{ type: 'customComponent', component: <ToBePresentNegativeScheme /> }],
-				},
-			],
-		},
-		{
-			type: 'paragraph',
-			offset: true,
-
-			children: [
-				{
-					type: 'text',
-
 					text: 'Отрицание в прошедшем времени.',
 				},
 			],
@@ -78,7 +31,6 @@
 		},
 		{
 			type: 'paragraph',
-
 			textSize: 'giant',
 			children: [
 				{ type: 'text',   text: 'Вы не были милым.' },
@@ -90,7 +42,6 @@
 		},
 		{
 			type: 'paragraph',
-
 			textSize: 'giant',
 			children: [
 				{ type: 'text',   text: 'Она не была красивой.' },
@@ -103,18 +54,15 @@
 		{
 			type: 'paragraph',
 			offset: true,
-
 			children: [
 				{
 					type: 'text',
-
 					text: 'Отрицание в настоящем времени.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-
 			textSize: 'giant',
 			children: [
 				{ type: 'text',   text: 'Я не смелый.' },
@@ -126,12 +74,10 @@
 		},
 		{
 			type: 'paragraph',
-
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
-
 					text: 'Вы не очень сильный мужчина.',
 				},
 
@@ -142,12 +88,10 @@
 		},
 		{
 			type: 'paragraph',
-
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
-
 					text: 'Инжирное дерево не высокое.',
 				},
 
@@ -160,79 +104,11 @@
 			type: 'exercises',
 			id: 0,
 			exercises: [
-				{
-					rusSentence: 'Я имею в виду, он не такой хороший мальчик, как Том.',
-					engSentences: [
-						{ engSentences: ['I mean, he is not a good boy as Tom.'], isCorrect: true },
-						{
-							engSentences: [],
-							isCorrect: false,
-							analysis: [
-								{
-									type: 'paragraph',
 
-									children: [
-										{
-											type: 'text',
-
-											text: 'Забыли про ',
-										},
-										{
-											type: 'text',
-											color: 'blue',
-
-											text: 'to be',
-										},
-										{
-											type: 'text',
-
-											text: '. Он должен стоять после подлежащего.',
-										},
-									],
-								},
-							],
-						},
-						{
-							engSentences: [],
-							isCorrect: false,
-							analysis: [
-								{
-									type: 'paragraph',
-
-									children: [
-										{
-											type: 'text',
-
-											text: 'Отрицательную частицу ',
-										},
-										{
-											type: 'text',
-											color: 'blue',
-
-											text: 'not',
-										},
-										{
-											type: 'text',
-
-											text: ' можно ставить после вспомогательного глагола. Сейчас он стоит перед ним.',
-										},
-									],
-								},
-							],
-						},
-					],
-					words: [
-						{ rusWord: 'Я имею в виду', engWord: 'I mean' },
-						{ rusWord: 'хороший', engWord: 'good' },
-						{ rusWord: 'мальчик', engWord: 'boy' },
-						{ rusWord: 'такой как', engWord: 'as' },
-					],
-				},
 			],
 			offset: true,
 		},
 		{ type: 'header', tag: 'h3', style: 'h3', text: 'Вопрос' },
-
 		{
 			type: 'exercises',
 			id: 1,
@@ -281,7 +157,6 @@
 									children: [
 										{
 											type: 'text',
-
 											text: 'Перед именами неопределённый артикль a не ставится. Ставьте перед неопределёнными существительными.',
 										},
 									],
@@ -294,11 +169,9 @@
 							analysis: [
 								{
 									type: 'paragraph',
-
 									children: [
 										{
 											type: 'text',
-
 											text: 'Форма глагола to be зависит от подлежащего, потому что в повествовательном оно стоит после него. И в вопросе перескакивает на место перед ним. После местоимения you будет использоваться to be в форме are.',
 										},
 									],
@@ -314,11 +187,9 @@
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Будущее время' },
 		{
 			type: 'paragraph',
-
 			children: [
 				{
 					type: 'text',
-
 					text: 'В английском языке отсутствует отдельная форма глагола для выражения будущего времени, поэтому оно выражается через использование модального глагола ',
 				},
 				{ type: 'text', color: 'blue',  text: 'will' },
@@ -328,11 +199,9 @@
 		{ type: 'header', tag: 'h3', style: 'h3', text: 'Отрицание' },
 		{
 			type: 'paragraph',
-
 			children: [
 				{
 					type: 'text',
-
 					text: 'Когда мы хотим отрицать будущее время, отрицание применяется к самому глаголу ',
 				},
 				{ type: 'text',  weight: 'bold', text: 'will' },
@@ -340,7 +209,6 @@
 				{ type: 'text',  weight: 'bold', text: 'be' },
 				{
 					type: 'text',
-
 					text: '. Таким образом, мы объявляем отсутствие воли совершить действие, а затем указываем, к чему это отсутствие воли относится. Поэтому ',
 				},
 				{ type: 'text',  weight: 'bold', text: 'not' },
@@ -388,19 +256,16 @@
 		{ type: 'header', tag: 'h3', style: 'h3', text: 'Вопрос' },
 		{
 			type: 'paragraph',
-
 			children: [
 				{ type: 'text',   text: 'При вопросе ' },
 				{ type: 'text',  weight: 'bold', text: 'will' },
 				{
 					type: 'text',
-
 					text: ' переносится в позицию «до подлежащего». А глагол ',
 				},
 				{ type: 'text',  weight: 'bold', text: 'be' },
 				{
 					type: 'text',
-
 					text: ' остается без изменений.',
 				},
 			],
@@ -444,11 +309,9 @@
 		{
 			type: 'paragraph',
 			offset: true,
-
 			children: [
 				{
 					type: 'text',
-
 					text: 'Ответьте на вопросы чтобы проверить насколько хорошо поняли материал.',
 				},
 			],
@@ -462,23 +325,19 @@
 						value: [
 							{
 								type: 'paragraph',
-
 								children: [
 									{
 										type: 'text',
-
 										text: 'Что означает окончания -',
 									},
 									{ type: 'text',  weight: 'bold', text: 'ing' },
 									{
 										type: 'text',
-
 										text: ' и -',
 									},
 									{ type: 'text',  weight: 'bold', text: 'ed' },
 									{
 										type: 'text',
-
 										text: ' в прилагательных?',
 									},
 								],
@@ -494,7 +353,6 @@
 								children: [
 									{
 										type: 'text',
-
 										text: 'ОТВЕТЬ!!!!',
 									},
 								],

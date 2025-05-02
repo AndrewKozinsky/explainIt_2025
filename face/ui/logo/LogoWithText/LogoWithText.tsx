@@ -4,11 +4,11 @@ import './LogoWithText.scss'
 
 function LogoWithText() {
 	return (
-		<div className="logo-with-text" data-testid="logoWithText">
+		<div className='logo-with-text' data-testid='logoWithText'>
 			<LogoSign />
-			<div className="logo-with-text__right">
-				<p className="logo-with-text__name">Explain it</p>
-				<p className="logo-with-text__description">Упражнения на английском</p>
+			<div className='logo-with-text__right'>
+				<p className='logo-with-text__name'>Explain it</p>
+				<p className='logo-with-text__description'>Курс на английского</p>
 			</div>
 		</div>
 	)

@@ -106,10 +106,10 @@ export const imageMapper = {
 			src: '/schemasAndTables/PresentSimpleNegativeScheme_1.svg',
 			alt: '',
 		},
-		/*ToBePresentNegative: {
+		ToBePresentNegative: {
 			src: '/schemasAndTables/ToBePresentNegativeScheme.svg',
 			alt: '',
-		},*/
+		},
 		PresentSimpleQuestion_1: {
 			src: '/schemasAndTables/PresentSimpleQuestionScheme_1.svg',
 			alt: '',

@@ -14,7 +14,7 @@ const exercises_3: ExercisesType.ExercisesObj = {
 		},
 		{
 			rusSentence: 'Это карандаш? Нет, это ручка.',
-			engSentences: [{ engSentences: ['Is this a pencil? No, it\'s a pen.'], isCorrect: true }],
+			engSentences: [{ engSentences: ["Is this a pencil? No, it's a pen."], isCorrect: true }],
 			words: [
 				{ rusWord: 'карандаш', engWord: 'pencil' },
 				{ rusWord: 'ручка', engWord: 'pen' },
@@ -82,6 +82,20 @@ const exercises_3: ExercisesType.ExercisesObj = {
 			],
 			words: [
 				{ rusWord: 'мексикансая кухня', engWord: 'Mexican food' },
+				{ rusWord: 'корейский', engWord: 'Korean' },
+				{ rusWord: 'острый', engWord: 'spicy' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Он сейчас в той комнате?',
+			engSentences: [
+				{
+					engSentences: ['Is he in that room now?'],
+					isCorrect: true,
+				},
+			],
+			words: [
 				{ rusWord: 'корейский', engWord: 'Korean' },
 				{ rusWord: 'острый', engWord: 'spicy' },
 			],
