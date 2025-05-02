@@ -269,6 +269,21 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				{ rusWord: 'плавать', engWord: 'swim' },
 			],
 		},
+		{
+			// TODO
+			rusSentence: 'Я думаю, Ник и Гектор знают.',
+			engSentences: [
+				{
+					engSentences: ['I think Nick and Hector know.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'очень', engWord: 'very' },
+				{ rusWord: 'часто', engWord: 'about often' },
+				{ rusWord: 'плавать', engWord: 'swim' },
+			],
+		},
 	],
 }
 

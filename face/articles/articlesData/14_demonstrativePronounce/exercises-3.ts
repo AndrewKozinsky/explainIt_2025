@@ -22,7 +22,7 @@ const exercises_3: ExercisesType.ExercisesObj = {
 		},
 		{
 			rusSentence: 'Это океан? Нет, это озеро.',
-			engSentences: [{ engSentences: ['Is this an ocean? No, it\'s a lake.'], isCorrect: true }],
+			engSentences: [{ engSentences: ['Is this an ocean? No, it is a lake.'], isCorrect: true }],
 			words: [
 				{ rusWord: 'океан', engWord: 'ocean' },
 				{ rusWord: 'озеро', engWord: 'lake' },
@@ -47,6 +47,36 @@ const exercises_3: ExercisesType.ExercisesObj = {
 			engSentences: [
 				{
 					engSentences: ['Is this a new computer? Yes, it is very expencive.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'мексикансая кухня', engWord: 'Mexican food' },
+				{ rusWord: 'корейский', engWord: 'Korean' },
+				{ rusWord: 'острый', engWord: 'spicy' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'В этой квартире очень многолюдно.',
+			engSentences: [
+				{
+					engSentences: ['This apartment is very busy.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'мексикансая кухня', engWord: 'Mexican food' },
+				{ rusWord: 'корейский', engWord: 'Korean' },
+				{ rusWord: 'острый', engWord: 'spicy' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Это не твоя квартира. Ты здесь не живешь.',
+			engSentences: [
+				{
+					engSentences: ['This is not your apartment. You do not live here.'],
 					isCorrect: true,
 				},
 			],

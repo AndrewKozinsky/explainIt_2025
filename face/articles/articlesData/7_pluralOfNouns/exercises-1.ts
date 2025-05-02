@@ -138,6 +138,20 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{ rusWord: 'доллар', engWord: 'dollar' },
 			],
 		},
+		{
+			// TODO
+			rusSentence: 'Это очень большая коробка.',
+			engSentences: [
+				{
+					engSentences: ['It is a very big box.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'пить', engWord: 'drink' },
+				{ rusWord: 'вино', engWord: 'vine' },
+			],
+		},
 	],
 }
 

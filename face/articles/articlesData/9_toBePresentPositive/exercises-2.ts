@@ -143,6 +143,15 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				{ rusWord: 'лидер', engWord: 'leader' },
 			],
 		},
+		{
+			// TODO
+			rusSentence: 'Они оба невероятно счастливые.',
+			engSentences: [{ engSentences: ['They are both incredibly happy.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'команда', engWord: 'team' },
+				{ rusWord: 'лидер', engWord: 'leader' },
+			],
+		},
 	],
 }
 

@@ -18,19 +18,19 @@
 }
 
 .page-wrapper__top {
-	@include side-offset;
 	padding-top: 1.7rem;
 	padding-bottom: 3rem;
+	@include side-offset;
 }
 
 .page-wrapper__middle {
-	@include side-offset;
 	flex-grow: 1;
 	display: flex;
+	@include side-offset;
 }
 
 .page-wrapper__bottom {
-	@include side-offset;
 	padding-top: 4rem;
 	padding-bottom: 3rem;
+	@include side-offset;
 }

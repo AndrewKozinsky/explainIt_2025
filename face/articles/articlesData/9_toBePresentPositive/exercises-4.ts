@@ -54,6 +54,34 @@ const exercises_4: ExercisesType.ExercisesObj = {
 				{ rusWord: 'такой', engWord: 'so' },
 			],
 		},
+		{
+			// TODO
+			rusSentence: 'Энни и Гектор так счастливы.',
+			engSentences: [
+				{
+					engSentences: ['Annie and Hector are so happy.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'Палмер', engWord: 'Palmer' },
+				{ rusWord: 'такой', engWord: 'so' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Окно грязное.',
+			engSentences: [
+				{
+					engSentences: ['The window is dirty.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'Палмер', engWord: 'Palmer' },
+				{ rusWord: 'такой', engWord: 'so' },
+			],
+		},
 	],
 }
 

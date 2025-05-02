@@ -122,6 +122,15 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				{ rusWord: 'замечательный', engWord: 'wonderful' },
 			],
 		},
+		{
+			// TODO
+			rusSentence: 'Этот магазин знаменит на весь мир.',
+			engSentences: [{ engSentences: ['This store is famous all over the world.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'фильм', engWord: 'a movie' },
+				{ rusWord: 'замечательный', engWord: 'wonderful' },
+			],
+		},
 	],
 }
 
