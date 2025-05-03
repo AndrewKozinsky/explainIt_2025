@@ -56,7 +56,6 @@ const toBePresentNegative: ArticleType.Art = {
 		},
 		{
 			type: 'paragraph',
-			offset: true,
 			children: [
 				{
 					type: 'text',
@@ -78,7 +77,11 @@ const toBePresentNegative: ArticleType.Art = {
 						{
 							type: 'paragraph',
 							textSize: 'giant',
-							children: [{ type: 'text', text: 'I am ready.' }],
+							children: [
+								{ type: 'text', text: 'I ' },
+								{ type: 'text', text: 'am', color: 'blue' },
+								{ type: 'text', text: ' ready.' },
+							],
 						},
 
 						{
@@ -89,7 +92,11 @@ const toBePresentNegative: ArticleType.Art = {
 						{
 							type: 'paragraph',
 							textSize: 'giant',
-							children: [{ type: 'text', text: 'You are tired.' }],
+							children: [
+								{ type: 'text', text: 'You ' },
+								{ type: 'text', text: 'are', color: 'blue' },
+								{ type: 'text', text: ' tired.' },
+							],
 						},
 
 						{
@@ -100,7 +107,11 @@ const toBePresentNegative: ArticleType.Art = {
 						{
 							type: 'paragraph',
 							textSize: 'giant',
-							children: [{ type: 'text', text: 'It is important.' }],
+							children: [
+								{ type: 'text', text: 'It ' },
+								{ type: 'text', text: 'is', color: 'blue' },
+								{ type: 'text', text: ' important.' },
+							],
 						},
 					],
 				},
@@ -113,7 +124,10 @@ const toBePresentNegative: ArticleType.Art = {
 						{
 							type: 'paragraph',
 							textSize: 'giant',
-							children: [{ type: 'text', text: 'Am I ready?' }],
+							children: [
+								{ type: 'text', text: 'Am', color: 'blue' },
+								{ type: 'text', text: ' I ready?' },
+							],
 						},
 
 						{
@@ -124,7 +138,10 @@ const toBePresentNegative: ArticleType.Art = {
 						{
 							type: 'paragraph',
 							textSize: 'giant',
-							children: [{ type: 'text', text: 'Are you tired?' }],
+							children: [
+								{ type: 'text', text: 'Are', color: 'blue' },
+								{ type: 'text', text: ' you tired?' },
+							],
 						},
 
 						{
@@ -135,7 +152,10 @@ const toBePresentNegative: ArticleType.Art = {
 						{
 							type: 'paragraph',
 							textSize: 'giant',
-							children: [{ type: 'text', text: 'Is it important?' }],
+							children: [
+								{ type: 'text', text: 'Is', color: 'blue' },
+								{ type: 'text', text: ' it important?' },
+							],
 						},
 					],
 				},
@@ -148,7 +168,11 @@ const toBePresentNegative: ArticleType.Art = {
 						{
 							type: 'paragraph',
 							textSize: 'giant',
-							children: [{ type: 'text', text: 'I am not ready.' }],
+							children: [
+								{ type: 'text', text: 'I ' },
+								{ type: 'text', text: 'am not', color: 'blue' },
+								{ type: 'text', text: ' ready.' },
+							],
 						},
 
 						{
@@ -159,7 +183,11 @@ const toBePresentNegative: ArticleType.Art = {
 						{
 							type: 'paragraph',
 							textSize: 'giant',
-							children: [{ type: 'text', text: 'You are not tired.' }],
+							children: [
+								{ type: 'text', text: 'You ' },
+								{ type: 'text', text: 'are not', color: 'blue' },
+								{ type: 'text', text: ' tired.' },
+							],
 						},
 
 						{
@@ -170,7 +198,11 @@ const toBePresentNegative: ArticleType.Art = {
 						{
 							type: 'paragraph',
 							textSize: 'giant',
-							children: [{ type: 'text', text: 'It is not important.' }],
+							children: [
+								{ type: 'text', text: 'It ' },
+								{ type: 'text', text: 'is not', color: 'blue' },
+								{ type: 'text', text: ' important.' },
+							],
 						},
 					],
 				},

@@ -135,21 +135,21 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Она такая умная, такая добрая, такая счастливая!',
 			engSentences: [{ engSentences: ['She is so clever, so kind, so happy!'], isCorrect: true }],
 			words: [
-				{ rusWord: 'команда', engWord: 'team' },
-				{ rusWord: 'лидер', engWord: 'leader' },
+				{ rusWord: 'умный', engWord: 'clever' },
+				{ rusWord: 'добрый', engWord: 'kind' },
+				{ rusWord: 'счастливый', engWord: 'happy' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Они оба невероятно счастливые.',
 			engSentences: [{ engSentences: ['They are both incredibly happy.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'команда', engWord: 'team' },
-				{ rusWord: 'лидер', engWord: 'leader' },
+				{ rusWord: 'оба', engWord: 'both' },
+				{ rusWord: 'невероятно', engWord: 'incredibly' },
+				{ rusWord: 'счастливый', engWord: 'happy' },
 			],
 		},
 	],

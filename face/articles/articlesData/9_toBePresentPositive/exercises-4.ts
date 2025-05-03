@@ -41,7 +41,6 @@ const exercises_4: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Банан растёт в Азии.',
 			engSentences: [
 				{
@@ -50,26 +49,26 @@ const exercises_4: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'Палмер', engWord: 'Palmer' },
-				{ rusWord: 'такой', engWord: 'so' },
+				{ rusWord: 'банан', engWord: 'banan' },
+				{ rusWord: 'расти', engWord: 'grow' },
+				{ rusWord: 'Азия', engWord: 'Asia' },
 			],
 		},
 		{
-			// TODO
-			rusSentence: 'Энни и Гектор так счастливы.',
+			rusSentence: 'Энни и Генри так счастливы.',
 			engSentences: [
 				{
-					engSentences: ['Annie and Hector are so happy.'],
+					engSentences: ['Annie and Henry are so happy.'],
 					isCorrect: true,
 				},
 			],
 			words: [
-				{ rusWord: 'Палмер', engWord: 'Palmer' },
-				{ rusWord: 'такой', engWord: 'so' },
+				{ rusWord: 'Энни', engWord: 'Annie' },
+				{ rusWord: 'Гектор', engWord: 'Hector' },
+				{ rusWord: 'счастливый', engWord: 'happy' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Окно грязное.',
 			engSentences: [
 				{
@@ -78,8 +77,8 @@ const exercises_4: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'Палмер', engWord: 'Palmer' },
-				{ rusWord: 'такой', engWord: 'so' },
+				{ rusWord: 'окно', engWord: 'window' },
+				{ rusWord: 'грязный', engWord: 'dirty' },
 			],
 		},
 	],

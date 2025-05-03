@@ -4,22 +4,31 @@ const exercises_1: ExercisesType.ExercisesObj = {
 	type: 'exercises',
 	exercises: [
 		{
-			// TODO
 			rusSentence: 'Я не работаю в отеле каждое лето.',
 			engSentences: [{ engSentences: ['I do not work in a hotel every summer.'], isCorrect: true }],
-			words: [{ rusWord: 'готов', engWord: 'ready' }],
+			words: [
+				{ rusWord: 'работать', engWord: 'ready' },
+				{ rusWord: 'отель', engWord: 'hotel' },
+				{ rusWord: 'каждый', engWord: 'every' },
+				{ rusWord: 'лето', engWord: 'summer' },
+			],
 		},
 		{
-			// TODO
 			rusSentence: 'Минди не читает гороскопы.',
 			engSentences: [{ engSentences: ['Mindy does not read horoscopes.'], isCorrect: true }],
-			words: [{ rusWord: 'готов', engWord: 'ready' }],
+			words: [
+				{ rusWord: 'Минди', engWord: 'Mindy' },
+				{ rusWord: 'читать', engWord: 'read' },
+				{ rusWord: 'гороскоп', engWord: 'horoscope' },
+			],
 		},
 		{
-			// TODO
 			rusSentence: 'Я не верю тебе.',
 			engSentences: [{ engSentences: ['I do not believe you.'], isCorrect: true }],
-			words: [{ rusWord: 'готов', engWord: 'ready' }],
+			words: [
+				{ rusWord: 'верить', engWord: 'believe' },
+				{ rusWord: 'тебе', engWord: 'you' },
+			],
 		},
 	],
 }

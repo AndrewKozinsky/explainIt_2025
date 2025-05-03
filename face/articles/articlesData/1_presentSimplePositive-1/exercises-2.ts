@@ -270,18 +270,18 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
-			rusSentence: 'Я думаю, Ник и Гектор знают.',
+			rusSentence: 'Я думаю, Сара и Даниэл знают.',
 			engSentences: [
 				{
-					engSentences: ['I think Nick and Hector know.'],
+					engSentences: ['I think Sarah and Daniel know.'],
 					isCorrect: true,
 				},
 			],
 			words: [
-				{ rusWord: 'очень', engWord: 'very' },
-				{ rusWord: 'часто', engWord: 'about often' },
-				{ rusWord: 'плавать', engWord: 'swim' },
+				{ rusWord: 'думать', engWord: 'think' },
+				{ rusWord: 'Сара', engWord: 'Sarah' },
+				{ rusWord: 'Даниэл', engWord: 'Daniel' },
+				{ rusWord: 'знать', engWord: 'know' },
 			],
 		},
 	],

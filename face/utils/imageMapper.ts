@@ -20,10 +20,10 @@ export const imageMapper = {
 			src: '/schemasAndTables/ToBeFutureTable.svg',
 			alt: 'To be в будущем времени',
 		},*/
-		/*PossessivePronouns: {
+		PossessivePronouns: {
 			src: '/schemasAndTables/PossessivePronounsTable.svg',
 			alt: 'Притяжательные местоимения',
-		},*/
+		},
 		/*PastSimplePositive: {
 			src: '/schemasAndTables/PastSimplePositiveTable.svg',
 			alt: 'Past Simple',

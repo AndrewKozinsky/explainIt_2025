@@ -66,10 +66,12 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Я не ребенок, мне 44 года.',
 			engSentences: [{ engSentences: ['I am not a child I am 44.'], isCorrect: true }],
-			words: [{ rusWord: '44 года', engWord: '44 years old' }],
+			words: [
+				{ rusWord: 'ребёнок', engWord: 'child' },
+				{ rusWord: '44 года', engWord: '44 years old' },
+			],
 		},
 		{
 			rusSentence: 'Я не ребёнок, я замужняя женщина.',
@@ -378,6 +380,14 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			words: [
 				{ rusWord: 'йога', engWord: 'yoga' },
 				{ rusWord: 'опасный', engWord: 'dangerous' },
+			],
+		},
+		{
+			rusSentence: 'Это очень забавно?',
+			engSentences: [{ engSentences: ['Is it very funny?'], isCorrect: true }],
+			words: [
+				{ rusWord: 'очень', engWord: 'very' },
+				{ rusWord: 'забавно', engWord: 'funny' },
 			],
 		},
 		{

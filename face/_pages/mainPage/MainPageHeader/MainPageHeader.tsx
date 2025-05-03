@@ -6,9 +6,7 @@ function MainPageHeader() {
 	return (
 		<div className={s.wrapper}>
 			<PageHeader extraClass={s.header}>Понимая английский</PageHeader>
-			<p className={s.description}>
-				Упражнения для тех, кто хочет разобраться и&nbsp;превратить грамматику в навык.
-			</p>
+			<p className={s.description}>Курс для тех, кто хочет разобраться и&nbsp;превратить грамматику в навык.</p>
 		</div>
 	)
 }

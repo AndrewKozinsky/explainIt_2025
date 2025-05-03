@@ -518,8 +518,8 @@ const pluralOfNouns: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'У Гектора ужасная пижама.' }],
-			eng: [{ type: 'text', text: 'Hector has terrible pyjamas.' }],
+			rus: [{ type: 'text', text: 'У Джейкоба ужасная пижама.' }],
+			eng: [{ type: 'text', text: 'Jacob has terrible pyjamas.' }],
 		},
 		{
 			type: 'paragraph',

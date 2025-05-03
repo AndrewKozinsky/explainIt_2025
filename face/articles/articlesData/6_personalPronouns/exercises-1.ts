@@ -128,21 +128,16 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'У меня есть машина.',
 			engSentences: [{ engSentences: ['I have a car.'], isCorrect: true }],
-			words: [
-				{ rusWord: 'думать', engWord: 'think' },
-				{ rusWord: 'температура', engWord: 'temperature' },
-			],
+			words: [{ rusWord: 'машина', engWord: 'car' }],
 		},
 		{
-			// TODO
 			rusSentence: 'У вас очень трудная работа.',
 			engSentences: [{ engSentences: ['You have a very difficult job.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'думать', engWord: 'think' },
-				{ rusWord: 'температура', engWord: 'temperature' },
+				{ rusWord: 'трудный', engWord: 'difficult' },
+				{ rusWord: 'работа', engWord: 'job' },
 			],
 		},
 	],

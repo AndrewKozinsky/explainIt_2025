@@ -139,22 +139,33 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'В этой квартире очень многолюдно.',
 			engSentences: [{ engSentences: ['This apartment is very busy.'], isCorrect: true }],
-			words: [{ rusWord: 'книга', engWord: 'book' }],
+			words: [
+				{ rusWord: 'квартира', engWord: 'apartment' },
+				{ rusWord: 'очень', engWord: 'very' },
+				{ rusWord: 'многолюдный', engWord: 'busy' },
+			],
 		},
 		{
-			// TODO
-			rusSentence: 'Бриджит в очень хорошем настроении сегодня.',
-			engSentences: [{ engSentences: ['Bridget is in a really good mood today.'], isCorrect: true }],
-			words: [{ rusWord: 'книга', engWord: 'book' }],
+			rusSentence: 'Эмма в очень хорошем настроении сегодня.',
+			engSentences: [{ engSentences: ['Emma is in a really good mood today.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'Эмма', engWord: 'Emma' },
+				{ rusWord: 'действительно', engWord: 'really' },
+				{ rusWord: 'хороший', engWord: 'good' },
+				{ rusWord: 'настоение', engWord: 'mood' },
+				{ rusWord: 'сегодня', engWord: 'today' },
+			],
 		},
 		{
-			// TODO
 			rusSentence: 'Этот клуб очень модный! Очень эксклюзивный!',
 			engSentences: [{ engSentences: ['This club is very trendy! Very exclusive!'], isCorrect: true }],
-			words: [{ rusWord: 'книга', engWord: 'book' }],
+			words: [
+				{ rusWord: 'клуб', engWord: 'club' },
+				{ rusWord: 'модный', engWord: 'trendy' },
+				{ rusWord: 'эксклюзивный', engWord: 'exclusive' },
+			],
 		},
 	],
 }

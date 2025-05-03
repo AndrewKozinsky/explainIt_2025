@@ -20,7 +20,24 @@ const exercises_1: ExercisesType.ExercisesObj = {
 		},
 		{
 			rusSentence: 'Оля часто бегает?',
-			engSentences: [{ engSentences: ['Does Olya often run?'], isCorrect: true }],
+			engSentences: [
+				{ engSentences: ['Does Olya often run?'], isCorrect: true },
+				{
+					engSentences: ['Do Olya often run?'],
+					isCorrect: false,
+					analysis: [
+						{
+							type: 'paragraph',
+							children: [
+								{
+									type: 'text',
+									text: 'Имя Olya можно превратить в местоимение she. А если вспомогательный глагол do стоит перед she, to он превращается в does.',
+								},
+							],
+						},
+					],
+				},
+			],
 			words: [
 				{ rusWord: 'часто', engWord: 'often' },
 				{ rusWord: 'бегать', engWord: 'run' },

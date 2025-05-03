@@ -69,12 +69,11 @@ namespace ArticleType {
 		// Должен ли быть отступ от верхнего элемента
 		offset?: boolean
 		// Размер текста
-		textSize?: RusToEngSize
+		textSize?: ParagraphSize
 		revert?: boolean
 		rus: Text[]
 		eng: Text[]
 	}
-	export type RusToEngSize = 'big' | 'giant'
 
 	// Список. Включает в себя блочные элементы.
 	export type List = {

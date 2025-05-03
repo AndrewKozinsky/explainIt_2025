@@ -24,20 +24,17 @@
 		articleName: 'Вопрос и отрицание в Simple',
 		articleDescription:
 			'Научимся строить предложения сообщающие о действии совершаемые переодически или постоянно.',
-
 	},
 	content: [
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Вопрос' },
 		{ type: 'header', tag: 'h3', style: 'h3', text: 'Вопрос в be' },
 		{
 			type: 'paragraph',
-
 			children: [
 				{ type: 'text',   text: 'Чтобы предложение с ' },
 				{ type: 'text', color: 'blue',  text: 'be' },
 				{
 					type: 'text',
-
 					text: ' сделать вопросительным мы ставили глагол перед подлежащим.',
 				},
 			],
@@ -58,11 +55,9 @@
 		{
 			type: 'paragraph',
 			offset: true,
-
 			children: [
 				{
 					type: 'text',
-
 					text: 'В английском языке есть два типа глаголов: ',
 				},
 				{ type: 'text', color: 'gold',  text: 'смысловые' },
@@ -70,7 +65,6 @@
 				{ type: 'text', color: 'blue',  text: 'вспомогательные' },
 				{
 					type: 'text',
-
 					text: '. Смысловой несёт смысл (красить, читать). Вспомогательные не несут смысла, но участвуют в формировании вопроса.',
 				},
 			],
@@ -78,13 +72,11 @@
 		{
 			type: 'paragraph',
 			offset: true,
-
 			children: [
 				{ type: 'text',   text: 'Глагол ' },
 				{ type: 'text', color: 'blue',  text: 'be' },
 				{
 					type: 'text',
-
 					text: ' одновременно и смысловой и вспомогательный: передаёт смысл бытия и с его помощью задаётся вопрос. Для этого его ставят перед подлежащим.',
 				},
 			],
@@ -95,11 +87,9 @@
 			children: [
 				{
 					type: 'paragraph',
-
 					children: [
 						{
 							type: 'text',
-
 							text: 'Есть только 3 вспомогательных глагола. Ещё несколько модальных. Все остальные смысловые.',
 						},
 					],
@@ -109,29 +99,24 @@
 		{ type: 'header', tag: 'h3', style: 'h3', text: 'Вопрос в Present Simple' },
 		{
 			type: 'paragraph',
-
 			children: [
 				{
 					type: 'text',
-
 					text: 'Но в повествовательных предложениях, построенных в Present Simple, не видно ',
 				},
 				{ type: 'text',  weight: 'bold', text: 'вспомогательного' },
 				{
 					type: 'text',
-
 					text: ' глагола, который можно было бы также поставить перед подлежащим. В примере единственный глагол ',
 				},
 				{ type: 'text', color: 'blue',  text: 'likes' },
 				{
 					type: 'text',
-
 					text: ' передаёт только смысл. И ещё нужно отметить, что этот глагол находится ',
 				},
 				{ type: 'text', color: 'blue',  text: 'в настоящем времени' },
 				{
 					type: 'text',
-
 					text: '. Давайте глагол, содержащий время совершения действия, отметим синим цветом.',
 				},
 			],
@@ -140,11 +125,9 @@
 		{
 			type: 'paragraph',
 			offset: true,
-
 			children: [
 				{
 					type: 'text',
-
 					text: 'Если вспомогательного глагола нет, то его нужно добавить перед подлежащим. Для времён группы Simple таким глаголом будет ',
 				},
 				{ type: 'text', color: 'blue',  text: 'do' },
@@ -155,23 +138,19 @@
 		{
 			type: 'paragraph',
 			offset: true,
-
 			children: [
 				{
 					type: 'text',
-
 					text: 'Но это ещё не всё. На первом шаге на смысловом глаголе ',
 				},
 				{ type: 'text', color: 'blue',  text: 'like' },
 				{
 					type: 'text',
-
 					text: ' стоит настоящее время. Но вспомогательный глагол всегда перетягивает на себя время совершения действия. Поэтому глагол ',
 				},
 				{ type: 'text', color: 'blue',  text: 'likes' },
 				{
 					type: 'text',
-
 					text: ' становится инфинитивом ',
 				},
 				{ type: 'text', color: 'gold',  text: 'like' },
@@ -179,7 +158,6 @@
 				{ type: 'text', color: 'gold',  text: 'do' },
 				{
 					type: 'text',
-
 					text: ' становится глаголом в настоящем времени. С местоимением 3-го лица выглядит как ',
 				},
 				{ type: 'text', color: 'blue',  text: 'does' },
@@ -190,11 +168,9 @@
 		{
 			type: 'paragraph',
 			offset: true,
-
 			children: [
 				{
 					type: 'text',
-
 					text: 'В предложениях с подлежащим 1-го и 2-го лица смысловой глагол в настоящем времени выглядит точно также как в инфинитиве. Поэтому когда время переходит на вспомогательный, то смысловой внешне никак не изменяется.',
 				},
 			],
@@ -226,7 +202,6 @@
 		{
 			type: 'paragraph',
 			offset: true,
-
 			children: [
 				{ type: 'text',   text: 'И сам ' },
 				{ type: 'text', color: 'blue',  text: 'do' },
@@ -237,36 +212,8 @@
 			],
 		},
 		{
-			type: 'note',
-			noteStyle: 'gray',
-			children: [
-				{
-					type: 'paragraph',
-					textSize: 'small',
-					children: [
-						{
-							type: 'text',
-							text: 'Наверное такой механизм образования вопроса выглядит страшноватым. В русском достаточно поставить знак вопроса на письме, а в разговоре сказать с вопросительной интонацией. Но такой механизм действует для всех грамматических времён и его нужно понять только один раз.',
-						},
-					],
-				},
-				{
-					type: 'paragraph',
-					offset: true,
-					textSize: 'small',
-					children: [
-						{
-							type: 'text',
-							text: 'И ещё я хочу чтобы вы понимали почему вообще слово likes превращается в like, а do в does, а не только механически подставляли слова. Даже если забудите схему ниже, то понимая логику образования вопросительного предложения сможете самостоятельно вычислить формулу.',
-						},
-					],
-				},
-			],
-		},
-		{
 			type: 'paragraph',
 			offset: true,
-
 			children: [
 				{
 					type: 'text',
@@ -297,58 +244,11 @@
 		},
 		{
 			type: 'paragraph',
-
 			textSize: 'giant',
 			children: [
 				{ type: 'text',   text: 'Он работает здесь?' },
-
 				{ type: 'text',   text: 'Does he work here?' },
 			],
-		},
-		{
-			type: 'exercises',
-			id: 0,
-			exercises: [
-				{
-					rusSentence: 'Ты понимаешь?',
-					engSentences: [{ engSentences: ['Do you understand?'], isCorrect: true }],
-					words: [{ rusWord: 'готов', engWord: 'ready' }],
-				},
-				{
-					rusSentence: 'Я хорошо выгляжу?',
-					engSentences: [{ engSentences: ['Do I look good?'], isCorrect: true }],
-					words: [{ rusWord: 'готов', engWord: 'ready' }],
-				},
-				{
-					rusSentence: 'В твоём чае есть сахар?',
-					engSentences: [{ engSentences: ['Do you have sugar in your tea?'], isCorrect: true }],
-					words: [{ rusWord: 'популярный', engWord: 'popular' }],
-				},
-				{
-					rusSentence: 'Оля часто бегает?',
-					engSentences: [{ engSentences: ['Does Olya often run?'], isCorrect: true }],
-					words: [
-						{ rusWord: 'часто', engWord: 'often' },
-						{ rusWord: 'бегать', engWord: 'run' },
-					],
-				},
-				{
-					rusSentence: 'Ты помогаешь своим родителям?',
-					engSentences: [{ engSentences: ['Do you help your parents?'], isCorrect: true }],
-					words: [{ rusWord: 'многие', engWord: 'many' }],
-				},
-				{
-					rusSentence: 'Он работает здесь?',
-					engSentences: [{ engSentences: ['Does he work here? '], isCorrect: true }],
-					words: [{ rusWord: 'многие', engWord: 'many' }],
-				},
-				{
-					rusSentence: 'Тебе нравится те туфли?',
-					engSentences: [{ engSentences: ['Do you like those shoes?'], isCorrect: true }],
-					words: [{ rusWord: 'многие', engWord: 'many' }],
-				},
-			],
-			offset: true,
 		},
 		{ type: 'header', tag: 'h3', style: 'h3', text: 'Вопрос в Past Simple' },
 		{

@@ -11,6 +11,12 @@
 .art-rus-to-eng__text {
 	@include inh.paragraph();
 
+	&--size-small {
+		@include inh.paragraph-small();
+	}
+	&--size-normal {
+		@include inh.paragraph();
+	}
 	&--size-big {
 		@include inh.paragraph-big();
 	}

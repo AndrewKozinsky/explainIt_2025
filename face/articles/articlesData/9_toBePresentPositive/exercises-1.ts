@@ -480,7 +480,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Волк — это хищное животное.',
 			engSentences: [
 				{
@@ -489,8 +488,9 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'Палмер', engWord: 'Palmer' },
-				{ rusWord: 'такой', engWord: 'so' },
+				{ rusWord: 'волк', engWord: 'wolf' },
+				{ rusWord: 'хищный', engWord: 'predator' },
+				{ rusWord: 'животное', engWord: 'animal' },
 			],
 		},
 		{

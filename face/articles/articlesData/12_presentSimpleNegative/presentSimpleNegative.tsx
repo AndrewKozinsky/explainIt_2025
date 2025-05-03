@@ -352,10 +352,10 @@ const presentSimpleNegative: ArticleType.Art = {
 			rus: [
 				{
 					type: 'text',
-					text: 'Ник никогда меня не замечает.',
+					text: 'Майкл никогда меня не замечает.',
 				},
 			],
-			eng: [{ type: 'text', text: 'Nick never notices me.' }],
+			eng: [{ type: 'text', text: 'Michael never notices me.' }],
 		},
 	],
 }

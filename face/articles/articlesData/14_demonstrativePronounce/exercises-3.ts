@@ -57,7 +57,6 @@ const exercises_3: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'В этой квартире очень многолюдно.',
 			engSentences: [
 				{
@@ -66,13 +65,11 @@ const exercises_3: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'мексикансая кухня', engWord: 'Mexican food' },
-				{ rusWord: 'корейский', engWord: 'Korean' },
-				{ rusWord: 'острый', engWord: 'spicy' },
+				{ rusWord: 'квартира', engWord: 'apartment' },
+				{ rusWord: 'многолюдный', engWord: 'busy' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Это не твоя квартира. Ты здесь не живешь.',
 			engSentences: [
 				{
@@ -81,13 +78,13 @@ const exercises_3: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'мексикансая кухня', engWord: 'Mexican food' },
-				{ rusWord: 'корейский', engWord: 'Korean' },
-				{ rusWord: 'острый', engWord: 'spicy' },
+				{ rusWord: 'твой', engWord: 'your' },
+				{ rusWord: 'квартира', engWord: 'apartment' },
+				{ rusWord: 'жить', engWord: 'live' },
+				{ rusWord: 'здесь', engWord: 'here' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Он сейчас в той комнате?',
 			engSentences: [
 				{
@@ -96,8 +93,8 @@ const exercises_3: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'корейский', engWord: 'Korean' },
-				{ rusWord: 'острый', engWord: 'spicy' },
+				{ rusWord: 'сейчас', engWord: 'now' },
+				{ rusWord: 'комната', engWord: 'room' },
 			],
 		},
 	],
