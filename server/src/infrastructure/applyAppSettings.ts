@@ -1,7 +1,7 @@
 import { BadRequestException, INestApplication, ValidationPipe } from '@nestjs/common'
 import { useContainer } from 'class-validator'
 import { Request, Response, NextFunction } from 'express'
-// import * as cookieParser from 'cookie-parser'
+import * as cookieParser from 'cookie-parser'
 import { AppModule } from '../app.module'
 // import { MainConfigService } from './config/mainConfig.service'
 // import { UserRepository } from '../repo/user.repository'
@@ -10,19 +10,12 @@ import { AppModule } from '../app.module'
 // import { SetUserIntoReqMiddleware } from './middlewares/setUserIntoReq.middleware'
 
 export async function applyAppSettings(app: INestApplication) {
-	// app.use(cookieParser())
+	app.use(cookieParser())
 
 	// Enable NestJS DI for class-validator
 	useContainer(app.select(AppModule), { fallbackOnErrors: true })
 
 	// const mainConfig = await app.resolve(MainConfigService)
-
-	/*if (['testing', 'development'].includes(mainConfig.get().mode)) {
-		app.enableCors({
-			origin: 'http://localhost:3001', // Your frontend URL
-			credentials: true, // Allow credentials (cookies, authorization headers)
-		})
-	}*/
 
 	/*app.use(async (req: Request, res: Response, next: NextFunction) => {
 		const jwtService = await app.resolve(JwtAdapterService)
@@ -34,11 +27,11 @@ export async function applyAppSettings(app: INestApplication) {
 	})*/
 
 	// Thus ensuring all endpoints are protected from receiving incorrect data.
-	/*app.useGlobalPipes(
+	app.useGlobalPipes(
 		new ValidationPipe({
 			transform: true,
 			stopAtFirstError: true,
-			exceptionFactory: (errors) => {
+			/*exceptionFactory: (errors) => {
 				const errorsForResponse: Record<string, string>[] = []
 
 				errors.forEach((e) => {
@@ -51,9 +44,9 @@ export async function applyAppSettings(app: INestApplication) {
 				})
 
 				throw new BadRequestException(errorsForResponse)
-			},
+			},*/
 		}),
-	)*/
+	)
 
 	// app.useGlobalFilters(new GraphQLValidationFilter())
 }

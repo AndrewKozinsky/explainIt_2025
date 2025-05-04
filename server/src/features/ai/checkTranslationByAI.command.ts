@@ -63,7 +63,6 @@ export class CheckTranslationByAiHandler implements ICommandHandler<CheckTransla
 
 	convertAnswerStrToResult(answerStr: string): null | SuccessResult {
 		try {
-			// console.log({ answerStr })
 			let fixedAnswerStr = answerStr
 				.replace(/^```json\s*/, '') // Remove starting ```json and any spaces
 				.replace(/^```/, '') // (In case it's just ``` without json)

@@ -2,7 +2,7 @@ import RouteNames from '../../infrastructure/routeNames'
 
 export const queries = {
 	ai: {
-		/*checkTranslation1(props: { email: string; password: string }) {
+		/*checkTranslation(props: { email: string; password: string }) {
 			return `mutation {
 			  ${RouteNames.AI.CHECK_TRANSLATION}(input: {
 				email: "${props.email}",
@@ -21,7 +21,15 @@ export const queries = {
 						rusSentence: "${data.rusSentence}",
 						engSentence: "${data.engSentence}",
 					}
-				)
+				) {
+			  ... on SuccessResult {
+				correct
+				analysis
+			  }
+			  ... on ErrorResult {
+				error
+			  }
+			}
 			}`
 		},
 	},
