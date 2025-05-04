@@ -284,6 +284,20 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				{ rusWord: 'знать', engWord: 'know' },
 			],
 		},
+		{
+			// TODO
+			rusSentence: 'Я ненавижу насилие.',
+			engSentences: [
+				{
+					engSentences: ['I hate violence.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'думать', engWord: 'think' },
+				{ rusWord: 'Сара', engWord: 'Sarah' },
+			],
+		},
 	],
 }
 

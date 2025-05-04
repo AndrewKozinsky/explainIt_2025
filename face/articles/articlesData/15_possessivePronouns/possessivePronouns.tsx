@@ -2,6 +2,7 @@ import { imageMapper } from '../../../utils/imageMapper'
 import ArticleType from '../../articleTypes/articleType'
 import exercises_1 from './exercises-1'
 import exercises_2 from './exercises-2'
+import exercises_3 from './exercises-3'
 
 const possessivePronouns: ArticleType.Art = {
 	meta: {
@@ -840,6 +841,35 @@ const possessivePronouns: ArticleType.Art = {
 			],
 		},
 		exercises_2,
+		{
+			type: 'paragraph',
+			offset: true,
+			children: [
+				{
+					type: 'text',
+					text: 'В русском языке нередко используется слово «свой», «своё». Это слово переводится притяжательным местоимением',
+				},
+			],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			rus: [{ type: 'text', text: 'Она умывает своё лицо каждый день.' }],
+			eng: [{ type: 'text', text: 'She washes her face every day.' }],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			rus: [{ type: 'text', text: 'Я вижу свой прогресс.' }],
+			eng: [{ type: 'text', text: 'I see my progress.' }],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			rus: [{ type: 'text', text: 'Он не помнит свой адрес.' }],
+			eng: [{ type: 'text', text: 'He does not remember his address.' }],
+		},
+		exercises_3,
 	],
 }
 

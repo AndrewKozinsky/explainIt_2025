@@ -5,6 +5,7 @@ import presentSimpleNegative from './12_presentSimpleNegative/presentSimpleNegat
 import toBePresentNegative from './13_toBePresentNegative/toBePresentNegative'
 import demonstrativePronounce from './14_demonstrativePronounce/demonstrativePronounce'
 import possessivePronouns from './15_possessivePronouns/possessivePronouns'
+import pastSimplePositive1 from './16_pastSimplePositive-1/pastSimplePositive-1'
 import the from './5_the/the'
 import presentSimplePositive1 from './1_presentSimplePositive-1/presentSimplePositive-1'
 import presentSimplePositive2 from './2_presentSimplePositive-2/presentSimplePositive-2'
@@ -32,6 +33,7 @@ const rowArticles: ArticleType.Art[] = [
 	toBePresentNegative,
 	demonstrativePronounce,
 	possessivePronouns,
+	pastSimplePositive1,
 ]
 
 const articles: ArticleType.Art[] = rowArticles.map((article, i) => {

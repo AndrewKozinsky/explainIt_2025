@@ -29,7 +29,7 @@ export class CheckTranslationByAiHandler implements ICommandHandler<CheckTransla
 
 		const answerFromGigaChat = await this.gigaChatService.generateText(prompt)
 
-		const answerObj = this.convertAnswerStrToResult(answerFromGigaChat)
+		const answerObj = this.convertAnswerStrToAnswerObj(answerFromGigaChat)
 
 		if (!answerObj) {
 			return {
@@ -61,7 +61,7 @@ export class CheckTranslationByAiHandler implements ICommandHandler<CheckTransla
 		`
 	}
 
-	convertAnswerStrToResult(answerStr: string): null | SuccessResult {
+	convertAnswerStrToAnswerObj(answerStr: string): null | SuccessResult {
 		try {
 			let fixedAnswerStr = answerStr
 				.replace(/^```json\s*/, '') // Remove starting ```json and any spaces

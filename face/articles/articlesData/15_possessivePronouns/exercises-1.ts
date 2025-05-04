@@ -75,6 +75,53 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 			words: [{ rusWord: 'брат', engWord: 'brother' }],
 		},
+		{
+			// TODO
+			rusSentence: 'Все, что они делают, отражает их любовь к внукам.',
+			engSentences: [
+				{ engSentences: ['Everything they do reflects their love for their grandchildren.'], isCorrect: true },
+			],
+			words: [{ rusWord: 'брат', engWord: 'brother' }],
+		},
+		{
+			rusSentence: 'Мой сын приходит рано.',
+			engSentences: [{ engSentences: ['My son arrives early.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'сын', engWord: 'son' },
+				{ rusWord: 'приходить', engWord: 'arrive' },
+				{ rusWord: 'рано', engWord: 'early' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Мы ненавидим наших соседей.',
+			engSentences: [{ engSentences: ['We hate our neighbors.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'сын', engWord: 'son' },
+				{ rusWord: 'приходить', engWord: 'arrive' },
+				{ rusWord: 'рано', engWord: 'early' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Ее садовый спрей в ванной.',
+			engSentences: [{ engSentences: ['Her garden spray is in the bathroom.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'сын', engWord: 'son' },
+				{ rusWord: 'приходить', engWord: 'arrive' },
+				{ rusWord: 'рано', engWord: 'early' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Это твои яйца?',
+			engSentences: [{ engSentences: ['Are they your eggs?'], isCorrect: true }],
+			words: [
+				{ rusWord: 'сын', engWord: 'son' },
+				{ rusWord: 'приходить', engWord: 'arrive' },
+				{ rusWord: 'рано', engWord: 'early' },
+			],
+		},
 	],
 }
 

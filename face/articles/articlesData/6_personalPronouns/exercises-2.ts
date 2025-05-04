@@ -64,6 +64,69 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				{ rusWord: 'удобный', engWord: 'comfortable' },
 			],
 		},
+		{
+			// TODO
+			rusSentence: 'Ей нравится музыка.',
+			engSentences: [{ engSentences: ['She likes music.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'нуждаться', engWord: 'need' },
+				{ rusWord: 'что-то', engWord: 'something' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Мне нравятся торты.',
+			engSentences: [{ engSentences: ['I like cakes.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'нуждаться', engWord: 'need' },
+				{ rusWord: 'что-то', engWord: 'something' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Мне нравится мороженое.',
+			engSentences: [{ engSentences: ['I like ice-cream.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'нуждаться', engWord: 'need' },
+				{ rusWord: 'что-то', engWord: 'something' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Им не нравится эта игра.',
+			engSentences: [{ engSentences: ['They do not like this game.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'нуждаться', engWord: 'need' },
+				{ rusWord: 'что-то', engWord: 'something' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Мне действительно нравится английский.',
+			engSentences: [{ engSentences: ['I really like English.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'нуждаться', engWord: 'need' },
+				{ rusWord: 'что-то', engWord: 'something' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Мне нравится этот вопрос.',
+			engSentences: [{ engSentences: ['I like this question.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'нуждаться', engWord: 'need' },
+				{ rusWord: 'что-то', engWord: 'something' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Ему нравится эта игра.',
+			engSentences: [{ engSentences: ['He likes this game.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'нуждаться', engWord: 'need' },
+				{ rusWord: 'что-то', engWord: 'something' },
+			],
+		},
 	],
 }
 
