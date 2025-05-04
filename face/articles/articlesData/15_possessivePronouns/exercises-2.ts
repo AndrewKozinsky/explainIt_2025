@@ -49,6 +49,11 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			engSentences: [{ engSentences: ['This bag isn’t yours.'], isCorrect: true }],
 			words: [{ rusWord: 'сумка', engWord: 'bag' }],
 		},
+		{
+			rusSentence: 'Эта диета так же отвратительна, как и ее название.',
+			engSentences: [{ engSentences: ['This diet is as disgusting as its name.'], isCorrect: true }],
+			words: [{ rusWord: 'сумка', engWord: 'bag' }],
+		},
 	],
 }
 

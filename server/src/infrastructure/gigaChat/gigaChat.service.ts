@@ -17,6 +17,11 @@ export class GigaChatService {
 	 * @param prompt — текст вопроса
 	 */
 	async generateText(prompt: string): Promise<string> {
+		if (!prompt) {
+			console.log('Error in GigaChatService => generateText. Empty prompt.')
+			return ''
+		}
+
 		const requestResult: any = await this.makeGenerateTextRequest(prompt)
 
 		if (!requestResult) {

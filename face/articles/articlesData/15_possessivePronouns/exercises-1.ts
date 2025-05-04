@@ -67,6 +67,14 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			engSentences: [{ engSentences: ['My hands are clear.'], isCorrect: true }],
 			words: [{ rusWord: 'брат', engWord: 'brother' }],
 		},
+		{
+			// TODO
+			rusSentence: 'На мой взгляд, мыши — довольно милые существа.',
+			engSentences: [
+				{ engSentences: ['From my point of view mice are pretty nice creatures.'], isCorrect: true },
+			],
+			words: [{ rusWord: 'брат', engWord: 'brother' }],
+		},
 	],
 }
 

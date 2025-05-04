@@ -1,9 +1,11 @@
 import { NestFactory } from '@nestjs/core'
 import { AppModule } from './app.module'
+import { applyAppSettings } from './infrastructure/applyAppSettings'
 import { MainConfigService } from './infrastructure/mainConfig/mainConfig.service'
 
 async function bootstrap() {
 	const app = await NestFactory.create(AppModule)
+	await applyAppSettings(app)
 
 	// Enable CORS for all origins
 	// app.enableCors()

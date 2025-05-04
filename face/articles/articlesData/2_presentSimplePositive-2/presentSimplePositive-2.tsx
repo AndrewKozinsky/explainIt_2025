@@ -170,6 +170,38 @@ const presentSimplePositive2: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
+					text: 'Если к подлежащему относится несколько глаголов, то у всех глаголов будет окончание ',
+				},
+				{
+					type: 'text',
+					text: 's',
+					color: 'blue',
+				},
+				{
+					type: 'text',
+					text: '.',
+				},
+			],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			rus: [{ type: 'text', text: 'Она путешествует, потому что ей это нравится.' }],
+			eng: [
+				{ type: 'text', text: 'She travel' },
+				{ type: 'text', text: 's', color: 'blue' },
+				{ type: 'text', text: ' because she like' },
+				{ type: 'text', text: 's', color: 'blue' },
+				{ type: 'text', text: ' it.' },
+			],
+		},
+		{ type: 'header', tag: 'h2', style: 'h2', text: 'Исключения' },
+		{
+			type: 'paragraph',
+			offset: true,
+			children: [
+				{
+					type: 'text',
 					text: 'Если глагол заканчивается на свистящий или щипящий звук (',
 				},
 				{
