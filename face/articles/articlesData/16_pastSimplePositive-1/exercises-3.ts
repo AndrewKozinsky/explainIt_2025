@@ -29,7 +29,7 @@ const exercises_3: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			rusSentence: '4444',
+			rusSentence: '444',
 			engSentences: [
 				{
 					engSentences: ['6666'],
