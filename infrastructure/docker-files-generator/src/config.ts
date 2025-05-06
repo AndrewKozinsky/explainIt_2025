@@ -28,7 +28,7 @@ export function createDockerConfig(env: EnvType): ConfigSchemaV37Json {
 					dockerfile: env === EnvType.dev ? 'Dockerfile.dev' : 'Dockerfile.server',
 				},
 				restart: 'unless-stopped',
-				volumes: ['./server/src:/app/src'],
+				volumes: env === EnvType.dev ? ['./server/src:/app/src'] : undefined,
 				command: env === EnvType.dev ? 'yarn start:dev' : 'yarn start:prod',
 				container_name: 'explain-server',
 				environment: getServerEnvs(env),

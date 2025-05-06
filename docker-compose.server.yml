@@ -15,8 +15,6 @@ services:
       context: server/
       dockerfile: Dockerfile.server
     restart: unless-stopped
-    volumes:
-      - ./server/src:/app/src
     command: yarn start:prod
     container_name: explain-server
     environment:
