@@ -65,66 +65,60 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Ей нравится музыка.',
 			engSentences: [{ engSentences: ['She likes music.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'нуждаться', engWord: 'need' },
-				{ rusWord: 'что-то', engWord: 'something' },
+				{ rusWord: 'нравиться', engWord: 'like' },
+				{ rusWord: 'музыка', engWord: 'music' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Мне нравятся торты.',
 			engSentences: [{ engSentences: ['I like cakes.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'нуждаться', engWord: 'need' },
-				{ rusWord: 'что-то', engWord: 'something' },
+				{ rusWord: 'нравиться', engWord: 'like' },
+				{ rusWord: 'торт', engWord: 'cake' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Мне нравится мороженое.',
 			engSentences: [{ engSentences: ['I like ice-cream.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'нуждаться', engWord: 'need' },
-				{ rusWord: 'что-то', engWord: 'something' },
+				{ rusWord: 'нравиться', engWord: 'like' },
+				{ rusWord: 'мороженое', engWord: 'ice-cream' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Им не нравится эта игра.',
 			engSentences: [{ engSentences: ['They do not like this game.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'нуждаться', engWord: 'need' },
-				{ rusWord: 'что-то', engWord: 'something' },
+				{ rusWord: 'нравиться', engWord: 'like' },
+				{ rusWord: 'игра', engWord: 'game' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Мне действительно нравится английский.',
 			engSentences: [{ engSentences: ['I really like English.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'нуждаться', engWord: 'need' },
-				{ rusWord: 'что-то', engWord: 'something' },
+				{ rusWord: 'действительно', engWord: 'really' },
+				{ rusWord: 'нравиться', engWord: 'like' },
+				{ rusWord: 'английский', engWord: 'English' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Мне нравится этот вопрос.',
 			engSentences: [{ engSentences: ['I like this question.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'нуждаться', engWord: 'need' },
-				{ rusWord: 'что-то', engWord: 'something' },
+				{ rusWord: 'нравиться', engWord: 'like' },
+				{ rusWord: 'вопрос', engWord: 'question' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Ему нравится эта игра.',
 			engSentences: [{ engSentences: ['He likes this game.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'нуждаться', engWord: 'need' },
-				{ rusWord: 'что-то', engWord: 'something' },
+				{ rusWord: 'нравиться', engWord: 'like' },
+				{ rusWord: 'игра', engWord: 'game' },
 			],
 		},
 	],

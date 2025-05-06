@@ -191,39 +191,34 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Я не смелый.',
 			engSentences: [{ engSentences: ['I am not brave.'], isCorrect: true }],
-			words: [
-				{ rusWord: 'молодой', engWord: 'young' },
-				{ rusWord: 'старый', engWord: 'old' },
-			],
+			words: [{ rusWord: 'смелый', engWord: 'brave' }],
 		},
 		{
-			// TODO
 			rusSentence: 'Вы не очень сильный мужчина.',
 			engSentences: [{ engSentences: ['You are not a very strong man.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'молодой', engWord: 'young' },
-				{ rusWord: 'старый', engWord: 'old' },
+				{ rusWord: 'очень', engWord: 'very' },
+				{ rusWord: 'сильный', engWord: 'strong' },
+				{ rusWord: 'мужчина', engWord: 'man' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Инжирное дерево не высокое.',
 			engSentences: [{ engSentences: ['A fig tree is not tall.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'молодой', engWord: 'young' },
-				{ rusWord: 'старый', engWord: 'old' },
+				{ rusWord: 'инжирное дерево', engWord: 'fig tree' },
+				{ rusWord: 'высокий', engWord: 'tall' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Однако это не простой остров',
 			engSentences: [{ engSentences: ['However, this is not a simple island'], isCorrect: true }],
 			words: [
-				{ rusWord: 'молодой', engWord: 'young' },
-				{ rusWord: 'старый', engWord: 'old' },
+				{ rusWord: 'однако', engWord: 'however' },
+				{ rusWord: 'простой', engWord: 'simple' },
+				{ rusWord: 'остров', engWord: 'island' },
 			],
 		},
 	],

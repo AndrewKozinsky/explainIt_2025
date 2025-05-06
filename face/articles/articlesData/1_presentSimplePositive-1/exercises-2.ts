@@ -285,7 +285,6 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Я ненавижу насилие.',
 			engSentences: [
 				{
@@ -294,8 +293,8 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'думать', engWord: 'think' },
-				{ rusWord: 'Сара', engWord: 'Sarah' },
+				{ rusWord: 'ненавидеть', engWord: 'hate' },
+				{ rusWord: 'насилие', engWord: 'violence' },
 			],
 		},
 	],

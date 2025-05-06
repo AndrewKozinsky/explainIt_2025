@@ -4,7 +4,6 @@ const exercises_2: ExercisesType.ExercisesObj = {
 	type: 'exercises',
 	exercises: [
 		{
-			// TODO
 			rusSentence: 'Я учился очень усердно.',
 			engSentences: [
 				{
@@ -13,12 +12,12 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'работать', engWord: 'work' },
-				{ rusWord: 'работать', engWord: 'work' },
+				{ rusWord: 'учиться', engWord: 'study' },
+				{ rusWord: 'очень', engWord: 'very' },
+				{ rusWord: 'усердно', engWord: 'hard' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Он любил её, и она любила его.',
 			engSentences: [
 				{
@@ -26,13 +25,9 @@ const exercises_2: ExercisesType.ExercisesObj = {
 					isCorrect: true,
 				},
 			],
-			words: [
-				{ rusWord: 'работать', engWord: 'work' },
-				{ rusWord: 'работать', engWord: 'work' },
-			],
+			words: [{ rusWord: 'любить', engWord: 'love' }],
 		},
 		{
-			// TODO
 			rusSentence: 'Я всегда верила ему.',
 			engSentences: [
 				{
@@ -41,8 +36,8 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'работать', engWord: 'work' },
-				{ rusWord: 'работать', engWord: 'work' },
+				{ rusWord: 'всегда', engWord: 'always' },
+				{ rusWord: 'верить', engWord: 'believe' },
 			],
 		},
 	],

@@ -13,6 +13,21 @@ const exercises_3: ExercisesType.ExercisesObj = {
 			],
 			words: [{ rusWord: 'работать', engWord: 'work' }],
 		},
+		{
+			rusSentence: 'Будущее казалось таким ярким.',
+			engSentences: [
+				{
+					engSentences: ['The future seemed so bright.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'будущее', engWord: 'future' },
+				{ rusWord: 'казаться', engWord: 'seem' },
+				{ rusWord: 'такой', engWord: 'so' },
+				{ rusWord: 'яркий', engWord: 'bright' },
+			],
+		},
 	],
 }
 

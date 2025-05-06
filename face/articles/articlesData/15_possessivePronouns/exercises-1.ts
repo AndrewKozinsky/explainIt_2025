@@ -68,20 +68,29 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			words: [{ rusWord: 'брат', engWord: 'brother' }],
 		},
 		{
-			// TODO
 			rusSentence: 'На мой взгляд, мыши — довольно милые существа.',
 			engSentences: [
 				{ engSentences: ['From my point of view mice are pretty nice creatures.'], isCorrect: true },
 			],
-			words: [{ rusWord: 'брат', engWord: 'brother' }],
+			words: [
+				{ rusWord: 'на мой взгляд', engWord: 'from my point of view' },
+				{ rusWord: 'мышь', engWord: 'mouse' },
+				{ rusWord: 'довольно', engWord: 'pretty' },
+				{ rusWord: 'милый', engWord: 'nice' },
+				{ rusWord: 'существо', engWord: 'creature' },
+			],
 		},
 		{
-			// TODO
 			rusSentence: 'Все, что они делают, отражает их любовь к внукам.',
 			engSentences: [
 				{ engSentences: ['Everything they do reflects their love for their grandchildren.'], isCorrect: true },
 			],
-			words: [{ rusWord: 'брат', engWord: 'brother' }],
+			words: [
+				{ rusWord: 'всё', engWord: 'everything' },
+				{ rusWord: 'отражать', engWord: 'reflect' },
+				{ rusWord: 'любовь', engWord: 'love' },
+				{ rusWord: 'внук', engWord: 'grandchild' },
+			],
 		},
 		{
 			rusSentence: 'Мой сын приходит рано.',
@@ -93,34 +102,25 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Мы ненавидим наших соседей.',
 			engSentences: [{ engSentences: ['We hate our neighbors.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'сын', engWord: 'son' },
-				{ rusWord: 'приходить', engWord: 'arrive' },
-				{ rusWord: 'рано', engWord: 'early' },
+				{ rusWord: 'ненавидеть', engWord: 'hate' },
+				{ rusWord: 'сосед', engWord: 'neighbor' },
 			],
 		},
 		{
-			// TODO
-			rusSentence: 'Ее садовый спрей в ванной.',
+			rusSentence: 'Ее губная помада в ванной.',
 			engSentences: [{ engSentences: ['Her garden spray is in the bathroom.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'сын', engWord: 'son' },
-				{ rusWord: 'приходить', engWord: 'arrive' },
-				{ rusWord: 'рано', engWord: 'early' },
+				{ rusWord: 'губная помада', engWord: 'lipstick' },
+				{ rusWord: 'ванная', engWord: 'bathroom' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Это твои яйца?',
 			engSentences: [{ engSentences: ['Are they your eggs?'], isCorrect: true }],
-			words: [
-				{ rusWord: 'сын', engWord: 'son' },
-				{ rusWord: 'приходить', engWord: 'arrive' },
-				{ rusWord: 'рано', engWord: 'early' },
-			],
+			words: [{ rusWord: 'яйцо', engWord: 'egg' }],
 		},
 	],
 }

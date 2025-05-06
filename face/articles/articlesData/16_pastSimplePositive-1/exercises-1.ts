@@ -4,7 +4,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 	type: 'exercises',
 	exercises: [
 		{
-			// TODO
 			rusSentence: 'Я действительно поверил ему.',
 			engSentences: [
 				{
@@ -13,13 +12,12 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'работать', engWord: 'work' },
-				{ rusWord: 'работать', engWord: 'work' },
+				{ rusWord: 'действительно', engWord: 'really' },
+				{ rusWord: 'верить', engWord: 'believe' },
 			],
 		},
 		{
-			// TODO
-			rusSentence: 'Он помыл своё лицо.',
+			rusSentence: 'Он помыл своё тело.',
 			engSentences: [
 				{
 					engSentences: ['He washed his body.'],
@@ -27,12 +25,11 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'работать', engWord: 'work' },
-				{ rusWord: 'работать', engWord: 'work' },
+				{ rusWord: 'мыть', engWord: 'wash' },
+				{ rusWord: 'тело', engWord: 'body' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Это казалось таким странным.',
 			engSentences: [
 				{
@@ -41,12 +38,12 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'работать', engWord: 'work' },
-				{ rusWord: 'работать', engWord: 'work' },
+				{ rusWord: 'казаться', engWord: 'seem' },
+				{ rusWord: 'такой', engWord: 'so' },
+				{ rusWord: 'странный', engWord: 'strange' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Я сдал тот тест.',
 			engSentences: [
 				{
@@ -55,12 +52,11 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'работать', engWord: 'work' },
-				{ rusWord: 'работать', engWord: 'work' },
+				{ rusWord: 'сдать (тест, экзамен)', engWord: 'pass' },
+				{ rusWord: 'тест', engWord: 'test' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Я работал вчера.',
 			engSentences: [
 				{
@@ -70,7 +66,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 			words: [
 				{ rusWord: 'работать', engWord: 'work' },
-				{ rusWord: 'работать', engWord: 'work' },
+				{ rusWord: 'вчера', engWord: 'yesterday' },
 			],
 		},
 	],

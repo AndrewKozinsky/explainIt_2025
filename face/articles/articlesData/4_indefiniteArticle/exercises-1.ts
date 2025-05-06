@@ -114,22 +114,17 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Тебе нужен душ.',
-			engSentences: [{ engSentences: ['You need a shower!'], isCorrect: true }],
+			engSentences: [{ engSentences: ['You need a shower.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'моя', engWord: 'my' },
-				{ rusWord: 'тетя', engWord: 'aunt' },
+				{ rusWord: 'нуждаться', engWord: 'need' },
+				{ rusWord: 'душ', engWord: 'shower' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Она уборщица.',
 			engSentences: [{ engSentences: ['She is a janitor.'], isCorrect: true }],
-			words: [
-				{ rusWord: 'моя', engWord: 'my' },
-				{ rusWord: 'тетя', engWord: 'aunt' },
-			],
+			words: [{ rusWord: 'уборщица', engWord: 'janitor' }],
 		},
 	],
 }
