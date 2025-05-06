@@ -12,16 +12,6 @@ export class MainConfigService {
 			if (!val) throw new Error('Env file is wrong!')
 		}
 
-		if (
-			!enVariables.gigaChatClientId ||
-			!enVariables.gigaChatClientSecret ||
-			!enVariables.gigaChatAuthorizationKey ||
-			!enVariables.telegramFromExplainBotToken ||
-			!enVariables.telegramFromExplainBotChatId
-		) {
-			throw new Error('Env file is wrong!')
-		}
-
 		return {
 			mode: enVariables.mode,
 			port: enVariables.port,
