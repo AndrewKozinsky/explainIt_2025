@@ -1,6 +1,5 @@
 import { INestApplication } from '@nestjs/common'
 import { App } from 'supertest/types'
-import { z } from 'zod'
 import { GigaChatService } from '../../src/infrastructure/gigaChat/gigaChat.service'
 import RouteNames from '../../src/infrastructure/routeNames'
 import { makeGraphQLReq } from '../makeGQReq'
