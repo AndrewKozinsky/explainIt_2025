@@ -37,4 +37,5 @@ services:
     container_name: explain-face
     depends_on:
       - server
-    environment: {}
+    environment:
+      MODE: dev

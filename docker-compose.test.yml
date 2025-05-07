@@ -5,35 +5,37 @@ services:
     depends_on:
       - face
       - server
+    ports:
+      - 80:80
     volumes:
       - ./nginx/nginx.conf.dev:/etc/nginx/nginx.conf
-    environment:
-      VIRTUAL_HOST: explainit.ru,www.explainit.ru
-      LETSENCRYPT_HOST: explainit.ru,www.explainit.ru
   server:
     build:
       context: server/
-      dockerfile: Dockerfile.server
+      dockerfile: Dockerfile.dev
     restart: unless-stopped
-    command: yarn start:prod
+    volumes:
+      - ./server/src:/app/src
+    command: yarn start:dev
     container_name: explain-server
     environment:
-      MODE: server
+      MODE: test
       PORT: 3001
     env_file:
       - .env
+    ports:
+      - 3001:3001
   face:
     build:
       context: face/
       dockerfile: Dockerfile.server
     restart: unless-stopped
-    command: yarn run start
+    volumes:
+      - ./face:/app
+      - ./face:/public
+    command: yarn run dev
     container_name: explain-face
     depends_on:
       - server
     environment:
-      MODE: server
-networks:
-  default:
-    external:
-      name: nginx-proxy
+      MODE: test

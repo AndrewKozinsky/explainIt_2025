@@ -9,7 +9,7 @@ export class MainConfigService {
 		const enVariables = this.getEnVariables()
 
 		for (let val of Object.values(enVariables)) {
-			if (!val) throw new Error('Env file is wrong!')
+			if (!val) throw new Error('Env variable is empty!')
 		}
 
 		return {
@@ -25,7 +25,7 @@ export class MainConfigService {
 
 	getEnVariables() {
 		return {
-			mode: this.configService.get<string>('MODE') as 'dev' | 'serverCheck' | 'server',
+			mode: this.configService.get<string>('MODE') as 'test' | 'dev' | 'server',
 			port: this.configService.get<number>('PORT') || 3001,
 			gigaChatClientId: this.configService.get<string>('GIGA_CHAT_CLIENT_ID') || '',
 			gigaChatClientSecret: this.configService.get<string>('GIGA_CHAT_CLIENT_SECRET') || '',

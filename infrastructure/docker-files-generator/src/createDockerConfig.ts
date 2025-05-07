@@ -2,38 +2,39 @@ import { ConfigSchemaV37Json } from './types/ConfigSchemaV37Json'
 
 const domain = 'explainit.ru'
 export enum EnvType {
+	'test'= 'test',
 	'dev'= 'dev',
-	'serverCheck' = 'serverCheck',
 	'server' = 'server',
 }
 
 /**
  * Возвращает объект конфигурации docker-compose для разработки, проверки развёртывания на сервере и для сервера
  * @param env — тип конфигурации
+ * @param serverCheck — конфигурация для проверки собираемости на сервере
  */
-export function createDockerConfig(env: EnvType): ConfigSchemaV37Json {
+export function createDockerConfig(env: EnvType, serverCheck?: boolean): ConfigSchemaV37Json {
 	return {
 		services: {
 			nginx: {
 				image: 'nginx:1.19.7-alpine',
 				container_name: 'explain-nginx',
 				depends_on: ['face', 'server'],
-				ports: env === EnvType.server ? undefined : ['80:80'],
+				ports: env === EnvType.server && !serverCheck  ? undefined : ['80:80'],
 				volumes: ['./nginx/nginx.conf.dev:/etc/nginx/nginx.conf'],
 				environment: getNginxEnvs(env),
 			},
 			server: {
 				build: {
 					context: 'server/',
-					dockerfile: env === EnvType.dev ? 'Dockerfile.dev' : 'Dockerfile.server',
+					dockerfile: [EnvType.test, EnvType.dev].includes(env) ? 'Dockerfile.dev' : 'Dockerfile.server',
 				},
 				restart: 'unless-stopped',
-				volumes: env === EnvType.dev ? ['./server/src:/app/src'] : undefined,
-				command: env === EnvType.dev ? 'yarn start:dev' : 'yarn start:prod',
+				volumes: [EnvType.test, EnvType.dev].includes(env) ? ['./server/src:/app/src'] : undefined,
+				command: [EnvType.test, EnvType.dev].includes(env) ? 'yarn start:dev' : 'yarn start:prod',
 				container_name: 'explain-server',
 				environment: getServerEnvs(env),
 				env_file: ['.env'],
-				ports: env === EnvType.dev ? ['3001:3001'] : undefined,
+				ports: [EnvType.test, EnvType.dev].includes(env) ? ['3001:3001'] : undefined,
 			},
 			face: {
 				build: {
@@ -41,14 +42,14 @@ export function createDockerConfig(env: EnvType): ConfigSchemaV37Json {
 					dockerfile: env === 'dev' ? 'Dockerfile.dev' : 'Dockerfile.server',
 				},
 				restart: 'unless-stopped',
-				volumes: env === EnvType.dev ? ['./face:/app', './face:/public'] : undefined,
-				command: env === EnvType.dev ? 'yarn run dev' : 'yarn run start',
+				volumes: [EnvType.test, EnvType.dev].includes(env) ? ['./face:/app', './face:/public'] : undefined,
+				command: [EnvType.test, EnvType.dev].includes(env) ? 'yarn run dev' : 'yarn run start',
 				container_name: 'explain-face',
 				depends_on: ['server'],
-				environment: getSiteEnvs(env),
+				environment: getFaceEnvs(env),
 			},
 		},
-		networks: env === EnvType.server ? getServerNetworks() : undefined,
+		networks: env === EnvType.server && !serverCheck ? getServerNetworks() : undefined,
 	}
 }
 
@@ -62,18 +63,13 @@ function getServerNetworks() {
 	}
 }
 
-// Общие переменные окружения для всех сервисов
-/*const commonEnvVars = {
-	ADMIN_LOGIN: 'thnadz45$%',
-	ADMIN_PASSWORD: 'kwcGT09%$#',
-}*/
-
 /**
  * Возвращает переменные окружения для Nginx
  * @param env — тип конфигурации
+ * @param serverCheck — конфигурация для проверки собираемости на сервере
  */
-function getNginxEnvs(env: EnvType) {
-	if (env !== EnvType.server) return undefined
+function getNginxEnvs(env: EnvType, serverCheck?: boolean) {
+	if (env !== EnvType.server || serverCheck) return undefined
 
 	return {
 		VIRTUAL_HOST: `${domain},www.${domain}`,
@@ -86,10 +82,8 @@ function getNginxEnvs(env: EnvType) {
  * @param env — тип конфигурации
  */
 function getServerEnvs(env: EnvType) {
-	// return commonEnvVars
-
 	return {
-		MODE: env === EnvType.dev ? 'dev' : 'server',
+		MODE: env,
 		PORT: 3001,
 	}
 }
@@ -98,13 +92,6 @@ function getServerEnvs(env: EnvType) {
  * Возвращает переменные окружения для Face
  * @param env — тип конфигурации
  */
-function getSiteEnvs(env: EnvType) {
-	return {}
-
-	/*let envMode = 'dev'
-	if (env !== 'dev') {
-		envMode = 'server'
-	}
-
-	return { ...commonEnvVars, ENV_MODE: envMode }*/
+function getFaceEnvs(env: EnvType) {
+	return { MODE: env }
 }

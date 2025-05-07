@@ -1,3 +1,4 @@
+import mainConfig from '../../сonsts/mainConfig'
 import ArticleType from '../articleTypes/articleType'
 import presentSimpleQuestion from './10_presentSimpleQuestion/presentSimpleQuestion'
 import toBePresentQuestion from './11_toBePresentQuestion/toBePresentQuestion'
@@ -15,6 +16,7 @@ import personalPronouns from './6_personalPronouns/personalPronouns'
 import pluralOfNouns from './7_pluralOfNouns/pluralOfNouns'
 import phrases_1 from './8_phrases-1/phrases_1'
 import toBePresentPositive from './9_toBePresentPositive/toBePresentPositive'
+import testChapter from './__test/testChapter/testChapter'
 
 // Список статей учебника
 const rowArticles: ArticleType.Art[] = [
@@ -35,6 +37,10 @@ const rowArticles: ArticleType.Art[] = [
 	possessivePronouns,
 	pastSimplePositive1,
 ]
+
+if (mainConfig.getWorkingMode() === 'dev') {
+	rowArticles.unshift(testChapter)
+}
 
 const articles: ArticleType.Art[] = rowArticles.map((article, i) => {
 	const newArticle = { ...article }

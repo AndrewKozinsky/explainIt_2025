@@ -1,9 +1,14 @@
 import * as fs from 'node:fs'
 import * as YAML from 'yaml'
-import {createDockerConfig, EnvType} from './config'
+import {createDockerConfig, EnvType} from './createDockerConfig'
 
 // Массив с названием и контентом трёх файлов.
 const configs = [
+	{
+		// Докер для тестирования
+		name: 'test',
+		content: createDockerConfig(EnvType.test),
+	},
 	{
 		// Докер для разработки
 		name: 'dev',
@@ -12,7 +17,7 @@ const configs = [
 	{
 		// Докер для проверки как соберётся сборка для сервера
 		name: 'server-check',
-		content: createDockerConfig(EnvType.serverCheck),
+		content: createDockerConfig(EnvType.server, true),
 	},
 	{
 		// Докер для развёртывания

@@ -1,9 +1,20 @@
 import { Global, Module } from '@nestjs/common'
-import { TelegramService } from './telegram.service'
+import { MainConfigService } from '../mainConfig/mainConfig.service'
+import { TelegramService, TelegramServiceMock } from './telegram.service'
+
+const telegramServiceProvider = {
+	provide: TelegramService,
+	useFactory: (mainConfigService: MainConfigService) => {
+		return mainConfigService.get().mode === 'test'
+			? new TelegramServiceMock(mainConfigService)
+			: new TelegramService(mainConfigService)
+	},
+	inject: [MainConfigService],
+}
 
 @Global()
 @Module({
-	providers: [TelegramService],
+	providers: [telegramServiceProvider],
 	exports: [TelegramService],
 })
 export class TelegramModule {}

@@ -2,8 +2,12 @@ import { Injectable } from '@nestjs/common'
 import axios from 'axios'
 import { MainConfigService } from '../mainConfig/mainConfig.service'
 
+export interface TelegramServiceI {
+	sendMessageToFromExplainBot(message: string): Promise<void>
+}
+
 @Injectable()
-export class TelegramService {
+export class TelegramService implements TelegramServiceI {
 	constructor(private mainConfig: MainConfigService) {}
 
 	async sendMessageToFromExplainBot(message: string) {
@@ -27,4 +31,11 @@ export class TelegramService {
 			console.error(error)
 		}
 	}
+}
+
+@Injectable()
+export class TelegramServiceMock implements TelegramServiceI {
+	constructor(private mainConfig: MainConfigService) {}
+
+	async sendMessageToFromExplainBot(message: string) {}
 }

@@ -9,6 +9,9 @@ services:
       - 80:80
     volumes:
       - ./nginx/nginx.conf.dev:/etc/nginx/nginx.conf
+    environment:
+      VIRTUAL_HOST: explainit.ru,www.explainit.ru
+      LETSENCRYPT_HOST: explainit.ru,www.explainit.ru
   server:
     build:
       context: server/
@@ -30,4 +33,5 @@ services:
     container_name: explain-face
     depends_on:
       - server
-    environment: {}
+    environment:
+      MODE: server

@@ -1,7 +1,7 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { z } from 'zod'
 import { GigaChatService } from '../../infrastructure/gigaChat/gigaChat.service'
-import { TelegramService } from '../../infrastructure/telegram/telegram.service'
+import { TelegramService, TelegramServiceI } from '../../infrastructure/telegram/telegram.service'
 
 type CheckTranslationInput = {
 	rusSentence: string
