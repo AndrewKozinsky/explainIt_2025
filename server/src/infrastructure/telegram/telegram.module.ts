@@ -6,7 +6,7 @@ const telegramServiceProvider = {
 	provide: TelegramService,
 	useFactory: (mainConfigService: MainConfigService) => {
 		return mainConfigService.get().mode === 'test'
-			? new TelegramServiceMock(mainConfigService)
+			? new TelegramServiceMock()
 			: new TelegramService(mainConfigService)
 	},
 	inject: [MainConfigService],

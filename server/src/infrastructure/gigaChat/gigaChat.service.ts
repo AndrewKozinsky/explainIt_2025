@@ -122,3 +122,16 @@ export class GigaChatService {
 		}
 	}
 }
+
+export interface GigaChatServiceI {
+	generateText(prompt: string): Promise<string>
+}
+
+@Injectable()
+export class GigaChatServiceMock implements GigaChatServiceI {
+	constructor() {}
+
+	async generateText(prompt: string): Promise<string> {
+		return '{"correct": false, "analysis": "Перевод написан неверно"}'
+	}
+}
