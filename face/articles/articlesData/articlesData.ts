@@ -16,10 +16,12 @@ import personalPronouns from './6_personalPronouns/personalPronouns'
 import pluralOfNouns from './7_pluralOfNouns/pluralOfNouns'
 import phrases_1 from './8_phrases-1/phrases_1'
 import toBePresentPositive from './9_toBePresentPositive/toBePresentPositive'
-import testChapter from './__test/testChapter/testChapter'
+import testChapter1 from './__test/testChapter-1/testChapter-1'
+import testChapter2 from './__test/testChapter-2/testChapter-2'
+import testChapter3 from './__test/testChapter-3/testChapter-3'
 
 // Список статей учебника
-const rowArticles: ArticleType.Art[] = [
+const rowRealArticles: ArticleType.Art[] = [
 	presentSimplePositive1,
 	presentSimplePositive2,
 	presentSimplePositive3,
@@ -38,9 +40,9 @@ const rowArticles: ArticleType.Art[] = [
 	pastSimplePositive1,
 ]
 
-if (mainConfig.getWorkingMode() === 'dev') {
-	rowArticles.unshift(testChapter)
-}
+const rowTestArticles: ArticleType.Art[] = [testChapter1, testChapter2, testChapter3]
+
+const rowArticles = mainConfig.getWorkingMode === 'test' ? rowTestArticles : rowRealArticles
 
 const articles: ArticleType.Art[] = rowArticles.map((article, i) => {
 	const newArticle = { ...article }
