@@ -8,7 +8,8 @@
 		"start": "next start",
 		"lint": "next lint",
 		"codegen": "graphql-codegen --config graphql/codegen.ts",
-		"e2e": "yarn playwright test --ui"
+		"test:e2e": "yarn playwright test --ui",
+		"generate-transcriptions": "ts-node --loader ts-node/esm ./articles/transcriptionService/populateTranscriptions.ts"
 	},
 	"dependencies": {
 		"@apollo/client": "^3.13.8",
@@ -35,6 +36,8 @@
 		"eslint-config-next": "15.2.4",
 		"eslint-plugin-prettier": "^5.2.6",
 		"prettier": "^3.5.3",
+		"recast": "^0.23.11",
+		"ts-node": "^10.9.2",
 		"typescript": "^5",
 		"typescript-eslint": "^8.29.0"
 	}
