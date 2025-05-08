@@ -15,14 +15,14 @@ export const aiDataChecker = {
 		},
 	},
 	getTranscription: {
-		checkErrorRes(checkTranslationResp: any) {
-			expect(checkTranslationResp.data[RouteNames.AI.CHECK_TRANSLATION]).toEqual({
-				error: 'Не удалось сделать запрос.',
+		checkErrorRes(getTranscriptionResp: any) {
+			expect(getTranscriptionResp.data[RouteNames.AI.GET_TRANSCRIPTION]).toEqual({
+				error: 'Не удалось сделать запрос. Попробуйте ещё раз.',
 			})
 		},
-		checkSuccessRes(checkTranslationResp: any) {
-			expect(checkTranslationResp.data[RouteNames.AI.CHECK_TRANSLATION]).toEqual({
-				transcription: expect.any(Boolean),
+		checkSuccessRes(getTranscriptionResp: any) {
+			expect(getTranscriptionResp.data[RouteNames.AI.GET_TRANSCRIPTION]).toEqual({
+				transcription: expect.any(String),
 			})
 		},
 	},

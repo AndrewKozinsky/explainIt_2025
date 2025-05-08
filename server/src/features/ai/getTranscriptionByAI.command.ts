@@ -27,7 +27,7 @@ export class GetTranscriptionByAiHandler implements ICommandHandler<GetTranscrip
 
 		// Remove unnecessary slashes
 		// /aɪ lʌv ju:/ -> aɪ lʌv ju:
-		transcription.replace(/\//g, '')
+		transcription = transcription.replace(/^\/|\/$/g, '')
 
 		if (!transcription) {
 			return {

@@ -24,7 +24,7 @@ describe('AI get transcription (e2e)', () => {
 		jest.clearAllMocks()
 	})
 
-	it.only('should return error response if GigaChat return empty string', async () => {
+	it('should return error response if GigaChat return empty string', async () => {
 		gigaChatService.generateText = jest.fn().mockResolvedValue('')
 
 		const getTranscriptionQuery = queries.ai.getTranscription({ engSentence: 'english' })
@@ -34,26 +34,16 @@ describe('AI get transcription (e2e)', () => {
 		aiDataChecker.getTranscription.checkErrorRes(getTranscriptionResp)
 	})
 
-	/*it('should return success response if GigaChat return data in a correct format', async () => {
-		const gigaChatResultObj: Record<number, any> = {
-			0: { correct: false, analysis: 'Перевод неверный.' },
-			1: { correct: true, analysis: 'Перевод верный.' },
-		}
+	it('should return success response if GigaChat return data in a correct format', async () => {
+		gigaChatService.generateText = jest.fn().mockResolvedValue('/aɪ lʌv ju:/')
 
-		for (let i = 0; i < 2; i++) {
-			let gigaChatResultString = '```json\n' + JSON.stringify(gigaChatResultObj[i]) + '```'
+		const getTranscriptionQuery = queries.ai.getTranscription({
+			engSentence: 'english',
+		})
 
-			gigaChatService.generateText = jest.fn().mockResolvedValue(gigaChatResultString)
+		const [getTranscriptionResp] = await makeGraphQLReq(app, getTranscriptionQuery)
 
-			const checkTranslationQuery = queries.ai.checkTranslation({
-				rusSentence: 'russian',
-				engSentence: 'english',
-			})
-
-			const [checkTranslationResp] = await makeGraphQLReq(app, checkTranslationQuery)
-			aiDataChecker.checkTranslation.checkSuccessRes(checkTranslationResp)
-
-			expect(checkTranslationResp.data[RouteNames.AI.CHECK_TRANSLATION]).toEqual(gigaChatResultObj[i])
-		}
-	})*/
+		aiDataChecker.getTranscription.checkSuccessRes(getTranscriptionResp)
+		expect(getTranscriptionResp.data[RouteNames.AI.GET_TRANSCRIPTION]).toEqual({ transcription: 'aɪ lʌv ju:' })
+	})
 })

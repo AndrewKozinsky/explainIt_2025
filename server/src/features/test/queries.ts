@@ -39,10 +39,10 @@ export const queries = {
 						engSentence: "${data.engSentence}",
 					}
 				) {
-			  ... on CheckTranslationOutSuccessModel {
-				transcription}
+			  ... on GetTranscriptionOutSuccessModel {
+				transcription
 			  }
-			  ... on CheckTranslationOutErrorModel {
+			  ... on GetTranscriptionOutErrorModel {
 				error
 			  }
 			}
