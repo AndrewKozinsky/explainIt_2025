@@ -1,13 +1,13 @@
 import { Field, ObjectType, createUnionType } from '@nestjs/graphql'
 
 @ObjectType()
-export class ErrorResult {
+export class CheckTranslationOutErrorModel {
 	@Field(() => String)
 	error: string
 }
 
 @ObjectType()
-export class SuccessResult {
+export class CheckTranslationOutSuccessModel {
 	@Field(() => Boolean)
 	correct: boolean
 
@@ -17,11 +17,11 @@ export class SuccessResult {
 
 export const CheckTranslationOutModel = createUnionType({
 	name: 'CheckTranslationOutModel',
-	types: () => [SuccessResult, ErrorResult],
+	types: () => [CheckTranslationOutSuccessModel, CheckTranslationOutErrorModel],
 	resolveType(value) {
 		if ('error' in value) {
-			return ErrorResult
+			return CheckTranslationOutErrorModel
 		}
-		return SuccessResult
+		return CheckTranslationOutSuccessModel
 	},
 })

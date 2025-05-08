@@ -143,7 +143,6 @@
 		{
 			type: 'paragraph',
 			offset: true,
-
 			children: [
 				{
 					type: 'text',
@@ -335,7 +334,6 @@
 			children: [
 				{
 					type: 'text',
-
 					text: 'Таким объектом может быть всё, что угодно: момент времени, точка на местности, нематериальная сущность и так далее.',
 				},
 			],
@@ -347,7 +345,6 @@
 			children: [
 				{
 					type: 'text',
-
 					text: 'Пять дней до представления.',
 				},
 
@@ -364,7 +361,6 @@
 				{
 					type: 'text',
 					color: 'gray',
-
 					text: 'Указание на представление.',
 				},
 			],
@@ -376,7 +372,6 @@
 			children: [
 				{
 					type: 'text',
-
 					text: 'Я предпочитаю автобус самолёту.',
 				},
 
@@ -393,19 +388,16 @@
 				{
 					type: 'text',
 					color: 'gray',
-
 					text: 'Указание на другой вид транспорта.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
-
 					text: 'У меня есть вопрос к этой теме.',
 				},
 
@@ -416,13 +408,11 @@
 		},
 		{
 			type: 'paragraph',
-
 			textSize: 'small',
 			children: [
 				{
 					type: 'text',
 					color: 'gray',
-
 					text: 'Указание на нематериальный объект.',
 				},
 			],
@@ -431,7 +421,6 @@
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Действие направлено на человека' },
 		{
 			type: 'paragraph',
-
 			textSize: 'giant',
 			children: [
 				{ type: 'text',  text: 'Мы добры к детям.' },
@@ -443,18 +432,15 @@
 		},
 		{
 			type: 'paragraph',
-
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
-
 					text: 'Эта коллекция принадлежит мне.',
 				},
 
 				{
 					type: 'text',
-
 					text: 'This collection belongs ',
 				},
 				{ type: 'text', color: 'blue', text: 'to' },

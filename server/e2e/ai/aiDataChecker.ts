@@ -14,4 +14,16 @@ export const aiDataChecker = {
 			})
 		},
 	},
+	getTranscription: {
+		checkErrorRes(checkTranslationResp: any) {
+			expect(checkTranslationResp.data[RouteNames.AI.CHECK_TRANSLATION]).toEqual({
+				error: 'Не удалось сделать запрос.',
+			})
+		},
+		checkSuccessRes(checkTranslationResp: any) {
+			expect(checkTranslationResp.data[RouteNames.AI.CHECK_TRANSLATION]).toEqual({
+				transcription: expect.any(Boolean),
+			})
+		},
+	},
 }

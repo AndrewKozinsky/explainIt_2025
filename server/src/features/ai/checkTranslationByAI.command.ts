@@ -1,7 +1,7 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { z } from 'zod'
-import { GigaChatService } from '../../infrastructure/gigaChat/gigaChat.service'
-import { TelegramService, TelegramServiceI } from '../../infrastructure/telegram/telegram.service'
+import { GigaChatModel, GigaChatService } from '../../infrastructure/gigaChat/gigaChat.service'
+import { TelegramService } from '../../infrastructure/telegram/telegram.service'
 
 type CheckTranslationInput = {
 	rusSentence: string
@@ -27,7 +27,7 @@ export class CheckTranslationByAiHandler implements ICommandHandler<CheckTransla
 	async execute(command: CheckTranslationByAiCommand) {
 		const prompt = this.createPrompt(command.checkTranslationByAiInput)
 
-		const answerFromGigaChat = await this.gigaChatService.generateText(prompt)
+		const answerFromGigaChat = await this.gigaChatService.generateText(prompt, GigaChatModel.max)
 
 		const answerObj = this.convertAnswerStrToAnswerObj(answerFromGigaChat)
 

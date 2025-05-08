@@ -5,6 +5,12 @@ import { MainConfigService } from '../mainConfig/mainConfig.service'
 process.env.NODE_EXTRA_CA_CERTS = path.resolve(__dirname, './certificates')
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
 
+export enum GigaChatModel {
+	lite = 'GigaChat-2',
+	pro = 'GigaChat-2-Pro',
+	max = 'GigaChat-2-Max',
+}
+
 @Injectable()
 export class GigaChatService {
 	// Токен доступа действующий 30 минут
@@ -15,14 +21,15 @@ export class GigaChatService {
 	/**
 	 * Отправляет ИИ вопрос на который нужно получить ответ
 	 * @param prompt — текст вопроса
+	 * @param model — используемая модель ГигаЧата
 	 */
-	async generateText(prompt: string): Promise<string> {
+	async generateText(prompt: string, model: GigaChatModel = GigaChatModel.lite): Promise<string> {
 		if (!prompt) {
 			console.log('Error in GigaChatService => generateText. Empty prompt.')
 			return ''
 		}
 
-		const requestResult: any = await this.makeGenerateTextRequest(prompt)
+		const requestResult: any = await this.makeGenerateTextRequest(prompt, model)
 
 		if (!requestResult) {
 			console.log('Error in GigaChatService => generateText')
@@ -40,7 +47,7 @@ export class GigaChatService {
 		return requestResult.choices[0].message.content
 	}
 
-	/** Запрос получающий новый токен доступа и сохраняющий в this.accessToken() */
+	/** Запрос, получающий новый токен доступа и сохраняющий в this.accessToken() */
 	private async updateAccessToken() {
 		const gigaChatAuthorizationKey = this.mainConfig.get().gigaChatAuthorizationKey
 
@@ -77,10 +84,11 @@ export class GigaChatService {
 	/**
 	 * Отправляет ИИ вопрос, на который нужно получить ответ.
 	 * @param question — текст вопроса
+	 * @param model — используемая модель ГигаЧата
 	 */
-	private async makeGenerateTextRequest(question: string) {
+	private async makeGenerateTextRequest(question: string, model: GigaChatModel) {
 		const requestBody = {
-			model: 'GigaChat-2-Max',
+			model,
 			messages: [
 				{
 					role: 'user',

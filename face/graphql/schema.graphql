@@ -6,17 +6,33 @@ input CheckTranslationInput {
   rusSentence: String!
 }
 
-union CheckTranslationOutModel = ErrorResult | SuccessResult
-
-type ErrorResult {
+type CheckTranslationOutErrorModel {
   error: String!
+}
+
+union CheckTranslationOutModel = CheckTranslationOutErrorModel | CheckTranslationOutSuccessModel
+
+type CheckTranslationOutSuccessModel {
+  analysis: String!
+  correct: Boolean!
+}
+
+input GetTranscriptionInput {
+  """Sentence in English"""
+  engSentence: String!
+}
+
+type GetTranscriptionOutErrorModel {
+  error: String!
+}
+
+union GetTranscriptionOutModel = GetTranscriptionOutErrorModel | GetTranscriptionOutSuccessModel
+
+type GetTranscriptionOutSuccessModel {
+  transcription: String!
 }
 
 type Query {
   ai_checkTranslation(input: CheckTranslationInput!): CheckTranslationOutModel!
-}
-
-type SuccessResult {
-  analysis: String!
-  correct: Boolean!
+  ai_getTranscription(input: GetTranscriptionInput!): GetTranscriptionOutModel!
 }

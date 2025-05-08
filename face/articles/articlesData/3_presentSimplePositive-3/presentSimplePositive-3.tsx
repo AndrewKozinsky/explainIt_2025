@@ -84,7 +84,7 @@ const presentSimplePositive3: ArticleType.Art = {
 				{ type: 'text', text: 'He', color: 'blue' },
 				{ type: 'text', text: ' wear' },
 				{ type: 'text', text: ' s', color: 'gold' },
-				{ type: 'text', text: '  suits.' },
+				{ type: 'text', text: ' suits.' },
 			],
 		},
 		{

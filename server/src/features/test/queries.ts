@@ -22,11 +22,27 @@ export const queries = {
 						engSentence: "${data.engSentence}",
 					}
 				) {
-			  ... on SuccessResult {
+			  ... on CheckTranslationOutSuccessModel {
 				correct
 				analysis
 			  }
-			  ... on ErrorResult {
+			  ... on CheckTranslationOutErrorModel {
+				error
+			  }
+			}
+			}`
+		},
+		getTranscription(data: { engSentence: string }) {
+			return `query {
+				${RouteNames.AI.GET_TRANSCRIPTION}(
+					input: {
+						engSentence: "${data.engSentence}",
+					}
+				) {
+			  ... on CheckTranslationOutSuccessModel {
+				transcription}
+			  }
+			  ... on CheckTranslationOutErrorModel {
 				error
 			  }
 			}

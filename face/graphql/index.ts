@@ -24,26 +24,48 @@ export type CheckTranslationInput = {
 	rusSentence: Scalars['String']['input']
 }
 
-export type CheckTranslationOutModel = ErrorResult | SuccessResult
-
-export type ErrorResult = {
-	__typename?: 'ErrorResult'
+export type CheckTranslationOutErrorModel = {
+	__typename?: 'CheckTranslationOutErrorModel'
 	error: Scalars['String']['output']
+}
+
+export type CheckTranslationOutModel = CheckTranslationOutErrorModel | CheckTranslationOutSuccessModel
+
+export type CheckTranslationOutSuccessModel = {
+	__typename?: 'CheckTranslationOutSuccessModel'
+	analysis: Scalars['String']['output']
+	correct: Scalars['Boolean']['output']
+}
+
+export type GetTranscriptionInput = {
+	/** Sentence in English */
+	engSentence: Scalars['String']['input']
+}
+
+export type GetTranscriptionOutErrorModel = {
+	__typename?: 'GetTranscriptionOutErrorModel'
+	error: Scalars['String']['output']
+}
+
+export type GetTranscriptionOutModel = GetTranscriptionOutErrorModel | GetTranscriptionOutSuccessModel
+
+export type GetTranscriptionOutSuccessModel = {
+	__typename?: 'GetTranscriptionOutSuccessModel'
+	transcription: Scalars['String']['output']
 }
 
 export type Query = {
 	__typename?: 'Query'
 	ai_checkTranslation: CheckTranslationOutModel
+	ai_getTranscription: GetTranscriptionOutModel
 }
 
 export type QueryAi_CheckTranslationArgs = {
 	input: CheckTranslationInput
 }
 
-export type SuccessResult = {
-	__typename?: 'SuccessResult'
-	analysis: Scalars['String']['output']
-	correct: Scalars['Boolean']['output']
+export type QueryAi_GetTranscriptionArgs = {
+	input: GetTranscriptionInput
 }
 
 export type AiCheckTranslationVariables = Exact<{
@@ -54,18 +76,18 @@ export type AiCheckTranslationVariables = Exact<{
 export type AiCheckTranslation = {
 	__typename?: 'Query'
 	ai_checkTranslation:
-		| { __typename?: 'ErrorResult'; error: string }
-		| { __typename?: 'SuccessResult'; correct: boolean; analysis: string }
+		| { __typename?: 'CheckTranslationOutErrorModel'; error: string }
+		| { __typename?: 'CheckTranslationOutSuccessModel'; correct: boolean; analysis: string }
 }
 
 export const AiCheckTranslationDocument = gql`
 	query AICheckTranslation($rusSentence: String!, $engSentence: String!) {
 		ai_checkTranslation(input: { rusSentence: $rusSentence, engSentence: $engSentence }) {
-			... on SuccessResult {
+			... on CheckTranslationOutSuccessModel {
 				correct
 				analysis
 			}
-			... on ErrorResult {
+			... on CheckTranslationOutErrorModel {
 				error
 			}
 		}

@@ -9,19 +9,19 @@ export const graphQLRequestsData = {
 			error(data = { error: 'some error' }) {
 				return {
 					...data,
-					__typename: 'ErrorResult',
+					__typename: 'CheckTranslationOutErrorModel',
 				}
 			},
 			wrongTranslation(data = { correct: false, analysis: 'Test translation is incorrect' }) {
 				return {
 					...data,
-					__typename: 'SuccessResult',
+					__typename: 'CheckTranslationOutSuccessModel',
 				}
 			},
 			correctTranslation(data = { correct: true, analysis: 'Test translation is correct' }) {
 				return {
 					...data,
-					__typename: 'SuccessResult',
+					__typename: 'CheckTranslationOutSuccessModel',
 				}
 			},
 		},

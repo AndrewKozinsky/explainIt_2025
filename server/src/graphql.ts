@@ -13,18 +13,32 @@ export interface CheckTranslationInput {
     engSentence: string;
 }
 
-export interface IQuery {
-    ai_checkTranslation(input: CheckTranslationInput): CheckTranslationOutModel | Promise<CheckTranslationOutModel>;
+export interface GetTranscriptionInput {
+    engSentence: string;
 }
 
-export interface SuccessResult {
+export interface IQuery {
+    ai_checkTranslation(input: CheckTranslationInput): CheckTranslationOutModel | Promise<CheckTranslationOutModel>;
+    ai_getTranscription(input: GetTranscriptionInput): GetTranscriptionOutModel | Promise<GetTranscriptionOutModel>;
+}
+
+export interface CheckTranslationOutSuccessModel {
     correct: boolean;
     analysis: string;
 }
 
-export interface ErrorResult {
+export interface CheckTranslationOutErrorModel {
     error: string;
 }
 
-export type CheckTranslationOutModel = SuccessResult | ErrorResult;
+export interface GetTranscriptionOutSuccessModel {
+    transcription: string;
+}
+
+export interface GetTranscriptionOutErrorModel {
+    error: string;
+}
+
+export type CheckTranslationOutModel = CheckTranslationOutSuccessModel | CheckTranslationOutErrorModel;
+export type GetTranscriptionOutModel = GetTranscriptionOutSuccessModel | GetTranscriptionOutErrorModel;
 type Nullable<T> = T | null;
