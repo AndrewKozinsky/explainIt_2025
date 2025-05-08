@@ -7,7 +7,7 @@ import { createApp } from '../utils/createMainApp'
 import { queries } from '../../src/features/test/queries'
 import { aiDataChecker } from './aiDataChecker'
 
-describe('Get me (e2e)', () => {
+describe('Ai check translation (e2e)', () => {
 	let app: INestApplication<App>
 	let gigaChatService: GigaChatService
 	// let commandBus: CommandBus

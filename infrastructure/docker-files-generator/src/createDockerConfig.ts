@@ -29,7 +29,7 @@ export function createDockerConfig(env: EnvType, serverCheck?: boolean): ConfigS
 					dockerfile: [EnvType.test, EnvType.dev].includes(env) ? 'Dockerfile.dev' : 'Dockerfile.server',
 				},
 				restart: 'unless-stopped',
-				volumes: [EnvType.test, EnvType.dev].includes(env) ? ['./server/src:/app/src'] : undefined,
+				volumes: [EnvType.test, EnvType.dev].includes(env) ? ['./server/src:/app/src', './server/e2e:/app/e2e'] : undefined,
 				command: [EnvType.test, EnvType.dev].includes(env) ? 'yarn start:dev' : 'yarn start:prod',
 				container_name: 'explain-server',
 				environment: getServerEnvs(env),

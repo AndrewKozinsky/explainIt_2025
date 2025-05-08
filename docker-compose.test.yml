@@ -16,6 +16,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./server/src:/app/src
+      - ./server/e2e:/app/e2e
     command: yarn start:dev
     container_name: explain-server
     environment:
