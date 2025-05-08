@@ -8,7 +8,7 @@ import List from '../components/List/List'
 import Note from '../components/Note/Note'
 import Paragraph from '../components/Paragraph/Paragraph'
 import RusToEng from '../components/RusToEng/RusToEng'
-import { ExercisesBlock } from '../components/exercises/components/ExercisesBlock/ExercisesBlock'
+import { Exercises } from '../components/exercises/components/Exercises/Exercises'
 import './collocations.scss'
 
 type ArticleBuilderProps = {
@@ -29,7 +29,7 @@ function ArticleBuilder(props: ArticleBuilderProps): ReactNode {
 				} else if (compConf.type === 'rusToEng') {
 					return <RusToEng config={compConf} key={i} />
 				} else if (compConf.type === 'exercises') {
-					return <ExercisesBlock exercises={compConf.exercises} key={i} />
+					return <Exercises exercises={compConf.exercises} key={i} />
 				} else if (compConf.type === 'note') {
 					return <Note config={compConf} key={i} />
 				} else if (compConf.type === 'image') {

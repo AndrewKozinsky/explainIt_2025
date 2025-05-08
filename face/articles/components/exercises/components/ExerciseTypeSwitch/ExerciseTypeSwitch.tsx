@@ -44,6 +44,7 @@ function Item(props: ItemProps) {
 				isCurrent ? 'exercises-type-switch__item--current' : 'exercises-type-switch__item--another',
 			)}
 			onClick={onExerciseTypeButtonClick}
+			data-testid='exercise-type-switch-item'
 		>
 			<ArrowCircle />
 			<span className='exercises-type-switch__item-text'>{text}</span>

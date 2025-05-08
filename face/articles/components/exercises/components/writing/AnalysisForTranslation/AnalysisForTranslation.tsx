@@ -23,7 +23,7 @@ function AnalysisForTranslation() {
 	}
 
 	return (
-		<div className='exercises-analysis-for-translation'>
+		<div className='exercises-analysis-for-translation' data-testid='exercise-analysis-block'>
 			<Switcher
 				orientation='horizontal'
 				items={[

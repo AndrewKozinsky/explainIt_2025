@@ -7,21 +7,21 @@ import Header from '../../../Header/Header'
 import ExerciseTypeSwitch from '../ExerciseTypeSwitch/ExerciseTypeSwitch'
 import { ExercisesContext } from '../../logic/exercisesContext'
 import { useGetExercisesData } from '../../logic/useSetUpExercisesContext'
-import './ExercisesBlock.scss'
+import './Exercises.scss'
 
 type ExercisesBlockProps = {
 	exercises: ExercisesType.Exercise[]
 }
 
 /** Блок прохождения упражнений */
-export function ExercisesBlock(props: ExercisesBlockProps) {
+export function Exercises(props: ExercisesBlockProps) {
 	const { exercises } = props
 
 	const contextValue = useGetExercisesData(exercises)
 
 	return (
 		<ExercisesContext.Provider value={contextValue}>
-			<div className='exercises'>
+			<div className='exercises' data-testid='exercises'>
 				<Header
 					config={{
 						type: 'header',

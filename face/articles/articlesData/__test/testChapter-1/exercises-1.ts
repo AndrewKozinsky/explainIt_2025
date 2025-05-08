@@ -4,14 +4,36 @@ const exercises_1: ExercisesType.ExercisesObj = {
 	type: 'exercises',
 	exercises: [
 		{
-			rusSentence: 'Я работаю.',
+			rusSentence: 'Я обожаю зелёный чай.',
 			engSentences: [
-				{
-					engSentences: ['I work.'],
-					isCorrect: true,
-				},
+				{ engSentences: ['I love green tea.'], isCorrect: true },
+				{ engSentences: ['I adore green tea.'], isCorrect: true },
+				{ engSentences: ['I really like green tea.'], isCorrect: true },
+				{ engSentences: ['I likes green tea'], isCorrect: false },
 			],
-			words: [{ rusWord: 'работать', engWord: 'work' }],
+			words: [
+				{ rusWord: 'обожать', engWord: 'adore' },
+				{ rusWord: 'зелёный', engWord: 'green' },
+				{ rusWord: 'чай', engWord: 'tea' },
+			],
+		},
+		{
+			rusSentence: 'Они обожают зелёный чай.',
+			engSentences: [{ engSentences: ['They love green tea.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'обожать', engWord: 'adore' },
+				{ rusWord: 'зелёный', engWord: 'green' },
+				{ rusWord: 'чай', engWord: 'tea' },
+			],
+		},
+		{
+			rusSentence: 'Он обожает зелёный чай.',
+			engSentences: [{ engSentences: ['He loves green tea.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'обожать', engWord: 'adore' },
+				{ rusWord: 'зелёный', engWord: 'green' },
+				{ rusWord: 'чай', engWord: 'tea' },
+			],
 		},
 	],
 }

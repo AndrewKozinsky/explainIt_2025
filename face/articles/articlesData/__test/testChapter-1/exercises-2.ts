@@ -4,17 +4,54 @@ const exercises_2: ExercisesType.ExercisesObj = {
 	type: 'exercises',
 	exercises: [
 		{
-			rusSentence: 'Они обожают зелёный чай.',
+			rusSentence: 'Я работаю.',
 			engSentences: [
-				{ engSentences: ['They love green tea.'], isCorrect: true },
-				{ engSentences: ['They adore green tea.'], isCorrect: true },
-				{ engSentences: ['They really like green tea.'], isCorrect: true },
+				{
+					engSentences: ['I work.'],
+					isCorrect: true,
+				},
 			],
-			words: [
-				{ rusWord: 'обожать', engWord: 'adore' },
-				{ rusWord: 'зелёный', engWord: 'green' },
-				{ rusWord: 'чай', engWord: 'tea' },
+			words: [{ rusWord: 'работать', engWord: 'work' }],
+		},
+		{
+			rusSentence: 'Вы работаете.',
+			engSentences: [
+				{
+					engSentences: ['You work.'],
+					isCorrect: true,
+				},
 			],
+			words: [{ rusWord: 'работать', engWord: 'work' }],
+		},
+		{
+			rusSentence: 'Ты работаем.',
+			engSentences: [
+				{
+					engSentences: ['We work.'],
+					isCorrect: true,
+				},
+			],
+			words: [{ rusWord: 'работать', engWord: 'work' }],
+		},
+		{
+			rusSentence: 'Он работает.',
+			engSentences: [
+				{
+					engSentences: ['He works.'],
+					isCorrect: true,
+				},
+			],
+			words: [{ rusWord: 'работать', engWord: 'work' }],
+		},
+		{
+			rusSentence: 'Она работает.',
+			engSentences: [
+				{
+					engSentences: ['She works.'],
+					isCorrect: true,
+				},
+			],
+			words: [{ rusWord: 'работать', engWord: 'work' }],
 		},
 	],
 }

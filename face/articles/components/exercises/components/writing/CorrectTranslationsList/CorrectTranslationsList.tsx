@@ -23,7 +23,11 @@ function CorrectTranslationsList(props: CorrectTranslationsListProps) {
 		<div className='exercises-correct-translations'>
 			{engSentences.map((sentence, i) => {
 				return (
-					<div className='exercises-correct-translations__item' key={i}>
+					<div
+						className='exercises-correct-translations__item'
+						key={i}
+						data-testid='exercise-correct-translations-item'
+					>
 						<p>{sentence}</p>
 						<TranscriptionBlock engSentence={sentence} />
 					</div>

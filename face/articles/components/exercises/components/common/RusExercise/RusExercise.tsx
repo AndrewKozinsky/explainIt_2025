@@ -19,6 +19,7 @@ function RusExercise() {
 					'exercise-content-rus-sentence__text',
 					isShownResultInOralExercise && 'exercise-content-rus-sentence__sentence--gray',
 				)}
+				data-testid='exercise-content-rus-sentence-text'
 			>
 				{exercise.rusSentence}
 			</p>

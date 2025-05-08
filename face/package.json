@@ -1,39 +1,41 @@
 {
-  "name": "face",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "codegen": "graphql-codegen --config graphql/codegen.ts"
-  },
-  "dependencies": {
-    "@apollo/client": "^3.13.8",
-    "classnames": "^2.5.1",
-    "graphql": "^16.10.0",
-    "next": "15.2.4",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "sass": "^1.86.3",
-    "zustand": "^5.0.3"
-  },
-  "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@graphql-codegen/cli": "^5.0.5",
-    "@graphql-codegen/schema-ast": "^4.1.0",
-    "@graphql-codegen/typescript": "^4.1.6",
-    "@graphql-codegen/typescript-operations": "^4.6.0",
-    "@graphql-codegen/typescript-react-apollo": "^4.3.2",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9.24.0",
-    "eslint-config-next": "15.2.4",
-    "eslint-plugin-prettier": "^5.2.6",
-    "prettier": "^3.5.3",
-    "typescript": "^5",
-    "typescript-eslint": "^8.29.0"
-  }
+	"name": "face",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"codegen": "graphql-codegen --config graphql/codegen.ts",
+		"e2e": "yarn playwright test --ui"
+	},
+	"dependencies": {
+		"@apollo/client": "^3.13.8",
+		"classnames": "^2.5.1",
+		"graphql": "^16.10.0",
+		"next": "15.2.4",
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0",
+		"sass": "^1.86.3",
+		"zustand": "^5.0.3"
+	},
+	"devDependencies": {
+		"@eslint/eslintrc": "^3",
+		"@graphql-codegen/cli": "^5.0.5",
+		"@graphql-codegen/schema-ast": "^4.1.0",
+		"@graphql-codegen/typescript": "^4.1.6",
+		"@graphql-codegen/typescript-operations": "^4.6.0",
+		"@graphql-codegen/typescript-react-apollo": "^4.3.2",
+		"@playwright/test": "^1.52.0",
+		"@types/node": "^20",
+		"@types/react": "^19",
+		"@types/react-dom": "^19",
+		"eslint": "^9.24.0",
+		"eslint-config-next": "15.2.4",
+		"eslint-plugin-prettier": "^5.2.6",
+		"prettier": "^3.5.3",
+		"typescript": "^5",
+		"typescript-eslint": "^8.29.0"
+	}
 }

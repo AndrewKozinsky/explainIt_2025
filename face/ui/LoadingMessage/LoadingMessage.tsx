@@ -10,7 +10,7 @@ function LoadingMessage(props: LoadingMessageProps) {
 	const { text } = props
 
 	return (
-		<div className='loading-message'>
+		<div className='loading-message' data-testid='exercise-loading-analysis-block'>
 			{text}
 			<Spinner />
 		</div>

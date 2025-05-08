@@ -8,7 +8,7 @@ function BottomButton() {
 	const onButtonClick = useGetOnButtonClick()
 	useSetEnterKeyHandler()
 
-	return <Button text={buttonText} onClick={onButtonClick} />
+	return <Button text={buttonText} onClick={onButtonClick} data-testid='exercise-action-button' />
 }
 
 export default BottomButton

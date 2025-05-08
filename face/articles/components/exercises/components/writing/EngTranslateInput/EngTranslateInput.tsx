@@ -31,6 +31,7 @@ function EngTranslateInput() {
 			onInput={onInput}
 			onKeyDown={onEnterKeyDown}
 			value={exercise.userTranslate}
+			data-testid='exercise-content-eng-sentence-text'
 		/>
 	)
 }
