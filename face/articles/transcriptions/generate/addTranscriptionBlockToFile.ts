@@ -6,14 +6,14 @@ import { builders as b } from 'ast-types'
 /**
  * Adds a new transcription entry to the transcriptions.ts file.
  * This function reads the file, parses it using recast, finds the transcriptions object,
- * adds a new property "i_love" with specified values, and writes the updated content back to the file.
+ * adds a new property with specified values, and writes the updated content back to the file.
  * @param transcriptionObject — transcription object with the following properties:
  * key — It's used as a key in the transcriptions object: "i_learn_english" from "I learn English."
  * engSentence — Regular English sentence: "I learn English."
  * transcription — transcription of English sentence
  * audio — is an audio file available for this sentence?
  */
-export function addTranscriptionToFile(transcriptionObject: {
+export function addTranscriptionBlockToFile(transcriptionObject: {
 	key: string
 	engSentence: string
 	transcription?: string

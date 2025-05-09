@@ -2,7 +2,7 @@ import { wait } from '../../../utils/utils'
 import articles from '../../articlesData/articlesData'
 import { transcriptions } from '../transcriptions'
 import transcriptionService from '../transcriptionService'
-import { addTranscriptionToFile } from './addTranscriptionToFile'
+import { addTranscriptionBlockToFile } from './addTranscriptionBlockToFile'
 
 generateTranscriptionItems()
 
@@ -30,7 +30,7 @@ async function generateTranscriptionItems() {
 		// I learn English. -> i_learn_english
 		const sentenceKey = transcriptionService.cleanString(sentence)
 
-		addTranscriptionToFile({
+		addTranscriptionBlockToFile({
 			key: sentenceKey,
 			engSentence: sentence,
 			transcription: '',
@@ -52,6 +52,18 @@ function getEnglishSentences() {
 				}, '')
 
 				allEnglishSentences.add(englishSentence)
+			}
+
+			if (componentData.type === 'exercises') {
+				componentData.exercises.forEach((exercise) => {
+					exercise.engSentences.forEach((engSentence) => {
+						if (engSentence.isCorrect) {
+							engSentence.engSentences.forEach((engSentence) => {
+								allEnglishSentences.add(engSentence)
+							})
+						}
+					})
+				})
 			}
 		})
 	})
