@@ -1,0 +1,10 @@
+query AIGetTranscription($engSentence: String!) {
+	ai_getTranscription(input: { engSentence: $engSentence }) {
+		... on GetTranscriptionOutSuccessModel {
+			transcription
+		}
+		... on GetTranscriptionOutErrorModel {
+			error
+		}
+	}
+}

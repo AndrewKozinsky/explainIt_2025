@@ -80,6 +80,17 @@ export type AiCheckTranslation = {
 		| { __typename?: 'CheckTranslationOutSuccessModel'; correct: boolean; analysis: string }
 }
 
+export type AiGetTranscriptionVariables = Exact<{
+	engSentence: Scalars['String']['input']
+}>
+
+export type AiGetTranscription = {
+	__typename?: 'Query'
+	ai_getTranscription:
+		| { __typename?: 'GetTranscriptionOutErrorModel'; error: string }
+		| { __typename?: 'GetTranscriptionOutSuccessModel'; transcription: string }
+}
+
 export const AiCheckTranslationDocument = gql`
 	query AICheckTranslation($rusSentence: String!, $engSentence: String!) {
 		ai_checkTranslation(input: { rusSentence: $rusSentence, engSentence: $engSentence }) {
@@ -134,3 +145,55 @@ export type AiCheckTranslationHookResult = ReturnType<typeof useAiCheckTranslati
 export type AiCheckTranslationLazyQueryHookResult = ReturnType<typeof useAiCheckTranslationLazyQuery>
 export type AiCheckTranslationSuspenseQueryHookResult = ReturnType<typeof useAiCheckTranslationSuspenseQuery>
 export type AiCheckTranslationQueryResult = Apollo.QueryResult<AiCheckTranslation, AiCheckTranslationVariables>
+export const AiGetTranscriptionDocument = gql`
+	query AIGetTranscription($engSentence: String!) {
+		ai_getTranscription(input: { engSentence: $engSentence }) {
+			... on GetTranscriptionOutSuccessModel {
+				transcription
+			}
+			... on GetTranscriptionOutErrorModel {
+				error
+			}
+		}
+	}
+`
+
+/**
+ * __useAiGetTranscription__
+ *
+ * To run a query within a React component, call `useAiGetTranscription` and pass it any options that fit your needs.
+ * When your component renders, `useAiGetTranscription` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAiGetTranscription({
+ *   variables: {
+ *      engSentence: // value for 'engSentence'
+ *   },
+ * });
+ */
+export function useAiGetTranscription(
+	baseOptions: Apollo.QueryHookOptions<AiGetTranscription, AiGetTranscriptionVariables> &
+		({ variables: AiGetTranscriptionVariables; skip?: boolean } | { skip: boolean }),
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useQuery<AiGetTranscription, AiGetTranscriptionVariables>(AiGetTranscriptionDocument, options)
+}
+export function useAiGetTranscriptionLazyQuery(
+	baseOptions?: Apollo.LazyQueryHookOptions<AiGetTranscription, AiGetTranscriptionVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useLazyQuery<AiGetTranscription, AiGetTranscriptionVariables>(AiGetTranscriptionDocument, options)
+}
+export function useAiGetTranscriptionSuspenseQuery(
+	baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<AiGetTranscription, AiGetTranscriptionVariables>,
+) {
+	const options = baseOptions === Apollo.skipToken ? baseOptions : { ...defaultOptions, ...baseOptions }
+	return Apollo.useSuspenseQuery<AiGetTranscription, AiGetTranscriptionVariables>(AiGetTranscriptionDocument, options)
+}
+export type AiGetTranscriptionHookResult = ReturnType<typeof useAiGetTranscription>
+export type AiGetTranscriptionLazyQueryHookResult = ReturnType<typeof useAiGetTranscriptionLazyQuery>
+export type AiGetTranscriptionSuspenseQueryHookResult = ReturnType<typeof useAiGetTranscriptionSuspenseQuery>
+export type AiGetTranscriptionQueryResult = Apollo.QueryResult<AiGetTranscription, AiGetTranscriptionVariables>

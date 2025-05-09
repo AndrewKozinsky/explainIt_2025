@@ -24,7 +24,7 @@ export const exerciseChecker = {
 			firstCorrectTranslationAnalysis = correctTranslations[0].analysis
 		}
 
-		// Если упражнение голосовое нужно просто вернуть правильный ответ потому что ученик ничего не вводит.
+		// Если упражнение голосовое, нужно просто вернуть правильный ответ потому что ученик ничего не вводит.
 		if (exerciseType === ExercisesContextType.ExerciseType.oral) {
 			return {
 				status: ExercisesContextType.AnalysisStatus.visible,
@@ -75,20 +75,6 @@ export const exerciseChecker = {
 			}
 		}
 	},
-
-	/**
-	 * Делает запрос на сервер для получения разбора перевода данного пользователем.
-	 * Фомирует и возвращает объект с данными, чтобы показать разбор перевода.
-	 * @param exercise — данные упражнения
-	 */
-	/*async checkByAI(exercise: ExercisesStoreType.Exercise): Promise<ExercisesStoreType.Analysis> {
-		return {
-			status: ExercisesStoreType.AnalysisStatus.visible,
-			isTranslateCorrect: false,
-			correctTranslations: [],
-			translateAnalysis: [{ type: 'paragraph', children: [{ type: 'text', text: 'Dummy text' }] }],
-		}
-	},*/
 	/**
 	 * Получает упражнение и вычленяет правильные варианты переводов
 	 * @param exercise — объект упражнения

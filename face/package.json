@@ -9,7 +9,8 @@
 		"lint": "next lint",
 		"codegen": "graphql-codegen --config graphql/codegen.ts",
 		"test:e2e": "yarn playwright test --ui",
-		"generate-transcriptions": "tsx ./articles/transcriptionService/generate/generateTranscriptions.ts"
+		"generate-transcription-items": "tsx articles/transcriptions/generate/generateTranscriptionItems.ts",
+		"generate-transcription-texts": "tsx articles/transcriptions/generate/generateTranscriptionTexts.ts"
 	},
 	"dependencies": {
 		"@apollo/client": "^3.13.8",

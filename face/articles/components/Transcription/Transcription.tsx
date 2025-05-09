@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import React, { useMemo } from 'react'
-import transcriptionService from '../../transcriptionService/transcriptionService'
+import transcriptionService from '../../transcriptions/transcriptionService'
 import { getComponentTexts, useGetAudioPlaying } from './fn/transcriptionLogic'
 import playSign from './images/play.svg'
 import pauseSign from './images/pause.svg'

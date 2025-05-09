@@ -1,12 +1,16 @@
+import { wait } from '../../../utils/utils'
 import articles from '../../articlesData/articlesData'
 import { transcriptions } from '../transcriptions'
 import transcriptionService from '../transcriptionService'
 import { addTranscriptionToFile } from './addTranscriptionToFile'
 
-generateTranscriptions()
+generateTranscriptionItems()
 
-/** Generates transcriptions.ts file. */
-async function generateTranscriptions() {
+/**
+ * Generates items in transcriptions object
+ * in transcriptions.ts file.
+ * */
+async function generateTranscriptionItems() {
 	// Get all English sentences
 	let englishSentences = getEnglishSentences()
 	clearEnglishSentences(englishSentences)
@@ -33,7 +37,7 @@ async function generateTranscriptions() {
 			audio: false,
 		})
 
-		await new Promise((resolve) => setTimeout(resolve, 5000))
+		await wait(5000)
 	}
 }
 

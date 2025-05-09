@@ -1,8 +1,8 @@
 import { RefObject, useCallback, useEffect, useState } from 'react'
 import ArticleType from '../../../articleTypes/articleType'
-import transcriptionService from '../../../transcriptionService/transcriptionService'
+import transcriptionService from '../../../transcriptions/transcriptionService'
 
-export function getEngTranscription(engSentenceParts: ArticleType.Text[]) {
+export function getEngTranscriptionBlock(engSentenceParts: ArticleType.Text[]) {
 	const collectedSentence = engSentenceParts.reduce((acc, text) => {
 		return acc + text.text
 	}, '')

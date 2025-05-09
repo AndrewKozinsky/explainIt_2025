@@ -1,4 +1,5 @@
 import { Page } from '@playwright/test'
+import { wait } from '../../utils/utils'
 import pagesUrls from './pagesUrls'
 
 export const graphQLRequestsData = {
@@ -41,7 +42,7 @@ export async function mockGraphQLRequest(
 		if (postData.operationName === operation.operationName) {
 			if (delay) {
 				// Simulate delay (e.g., 1 second)
-				await new Promise((resolve) => setTimeout(resolve, delay))
+				await wait(delay)
 			}
 
 			await route.fulfill({

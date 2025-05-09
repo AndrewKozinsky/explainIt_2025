@@ -43,6 +43,6 @@ export class GetTranscriptionByAiHandler implements ICommandHandler<GetTranscrip
 	createPrompt(input: GetTranscriptionInput) {
 		const { engSentence } = input
 
-		return `Напиши транскрипцию для "${engSentence}". Только транскрипция. Больше ничего.`
+		return `Напиши транскрипцию американского английского для предложения "${engSentence}". Пример ответа: /juː si græs/ или /ðeɪ wɛr suːts/`
 	}
 }

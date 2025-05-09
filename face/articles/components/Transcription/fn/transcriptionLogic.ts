@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { ITranscription } from '../../../transcriptionService/transcriptions'
-import transcriptionService from '../../../transcriptionService/transcriptionService'
+import { ITranscription } from '../../../transcriptions/transcriptions'
+import transcriptionService from '../../../transcriptions/transcriptionService'
 
 export function getComponentTexts(transcriptionData: ITranscription) {
 	return {

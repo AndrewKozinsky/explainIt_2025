@@ -6,7 +6,7 @@ import ArticleType from '../../articleTypes/articleType'
 import ArrowCircle from '../ArrowCircle/ArrowCircle'
 import Text from '../Text/Text'
 import Transcription from '../Transcription/Transcription'
-import { getEngTranscription, getRootClasses, useGetToggleTranscription } from './fn/componentHandlers'
+import { getEngTranscriptionBlock, getRootClasses, useGetToggleTranscription } from './fn/componentHandlers'
 import './RusToEng.scss'
 
 type RusToEngProps = {
@@ -66,7 +66,9 @@ function EngPart(props: EngPartProps) {
 		return <Text config={config} key={i} />
 	})
 
-	if (getEngTranscription(engSentenceParts)) {
+	const transcriptionBlock = getEngTranscriptionBlock(engSentenceParts)
+
+	if (transcriptionBlock?.transcription) {
 		return (
 			<span className='art-rus-to-eng__pseudo-link' onClick={toggleTranscription}>
 				{markup}
@@ -85,14 +87,14 @@ type TranscriptionBlockProps = {
 function TranscriptionBlock(props: TranscriptionBlockProps) {
 	const { ref, engSentenceParts } = props
 
-	const engTranscription = getEngTranscription(engSentenceParts)
-	if (!engTranscription) {
+	const transcriptionBlock = getEngTranscriptionBlock(engSentenceParts)
+	if (!transcriptionBlock || !transcriptionBlock.transcription) {
 		return null
 	}
 
 	return (
 		<div className='art-rus-to-eng__transcription' ref={ref}>
-			<Transcription engSentence={engTranscription.sentence} />
+			<Transcription engSentence={transcriptionBlock.sentence} />
 		</div>
 	)
 }

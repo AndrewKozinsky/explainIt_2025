@@ -1,7 +1,5 @@
 import { useCallback, useContext } from 'react'
 import graphqlAIQueries from '../../../../graphql/ai/graphqlAIQueries'
-import ArticleType from '../../../articleTypes/articleType'
-import ExercisesType from '../../../articleTypes/exercisesType'
 import { exerciseChecker } from './exerciseChecker'
 import { ExercisesContext } from './exercisesContext'
 import { ExercisesContextType } from './exercisesContextTypes'

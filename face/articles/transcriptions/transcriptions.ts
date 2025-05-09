@@ -49,37 +49,37 @@ export const transcriptions = {
 
 	you_eat_cherry: {
 		sentence: 'You eat cherry.',
-		transcription: '',
+		transcription: '`juː iːt ˈtʃɛrɪ`',
 		audio: false,
 	},
 
 	you_read_books: {
 		sentence: 'You read books.',
-		transcription: '',
+		transcription: 'ˈjuː riːd bʊkz',
 		audio: false,
 	},
 
 	i_want_more_money: {
 		sentence: 'I want more money.',
-		transcription: '',
+		transcription: 'aɪ ˈwʌnt ˈmɔː ˈmʌn.i',
 		audio: false,
 	},
 
 	you_see_grass: {
 		sentence: 'You see grass.',
-		transcription: '',
+		transcription: 'juː si græs',
 		audio: false,
 	},
 
 	we_show_bad_results: {
 		sentence: 'We show bad results.',
-		transcription: '',
+		transcription: 'wiʃ oʊ bæd rɪzəlts',
 		audio: false,
 	},
 
 	they_perform_magic_tricks: {
 		sentence: 'They perform magic tricks.',
-		transcription: '',
+		transcription: 'ðeɪ pərfoːm mædʒɪk trɪks',
 		audio: false,
 	},
 

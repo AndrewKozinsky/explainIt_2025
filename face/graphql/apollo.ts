@@ -15,7 +15,8 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 const getHost = () => {
 	// When running on the server, use the Docker service name
 	if (isServerComponent()) {
-		return 'explain-server:3001'
+		// return 'explain-server:3001'
+		return 'localhost'
 	}
 	// When running in the browser, use Nginx as a proxy
 	return 'localhost'
@@ -28,7 +29,7 @@ const getUri = () => {
 		return `http://${getHost()}/graphql`
 	}
 	// When running in the browser, use Nginx as a proxy
-	return `/graphql`
+	return '/graphql'
 }
 
 // HTTP link

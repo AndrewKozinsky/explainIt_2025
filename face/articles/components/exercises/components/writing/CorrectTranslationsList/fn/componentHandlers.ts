@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import transcriptionService from '../../../../../../transcriptionService/transcriptionService'
+import transcriptionService from '../../../../../../transcriptions/transcriptionService'
 
 export function useGetEngTranscription(engSentence: string) {
 	return useMemo(function () {
