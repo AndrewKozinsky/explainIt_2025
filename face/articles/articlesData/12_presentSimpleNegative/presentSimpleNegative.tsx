@@ -102,7 +102,6 @@ const presentSimpleNegative: ArticleType.Art = {
 							textSize: 'giant',
 							children: [{ type: 'text', text: 'They smoke.' }],
 						},
-
 						{
 							type: 'paragraph',
 							offset: true,

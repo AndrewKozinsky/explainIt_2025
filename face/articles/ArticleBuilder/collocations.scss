@@ -50,6 +50,10 @@
 .art-image + .art-note {
 	margin-top: 2rem;
 }
+
+.art-image + .art-rus-to-eng {
+	margin-top: 1.4rem;
+}
 @include mix.container-width(vars.$tablet-width) {
 	.art-image + .art-header--h4 {
 		margin-top: 2.4rem;
@@ -65,6 +69,9 @@
 	}*/
 	.art-image + .art-note {
 		margin-top: 2.2rem;
+	}
+	.art-image + .art-rus-to-eng {
+		margin-top: 1.6rem;
 	}
 }
 

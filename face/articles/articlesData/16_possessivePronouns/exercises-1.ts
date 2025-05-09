@@ -122,6 +122,62 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			engSentences: [{ engSentences: ['Are they your eggs?'], isCorrect: true }],
 			words: [{ rusWord: 'яйцо', engWord: 'egg' }],
 		},
+		{
+			// TODO
+			rusSentence: 'Он мой друг по переписке.',
+			engSentences: [{ engSentences: ['He is my pen friend.'], isCorrect: true }],
+			words: [{ rusWord: 'яйцо', engWord: 'egg' }],
+		},
+		{
+			// TODO
+			rusSentence: 'Твоё такси здесь.',
+			engSentences: [{ engSentences: ['Your taxi is here.'], isCorrect: true }],
+			words: [{ rusWord: 'яйцо', engWord: 'egg' }],
+		},
+		{
+			// TODO
+			rusSentence: 'Единственная проблема в том, что ей не нравятся мои манеры, моя прическа и моя одежда.',
+			engSentences: [
+				{
+					engSentences: ['The only problem is, she does not like my manners and my hair and my clothes.'],
+					isCorrect: true,
+				},
+			],
+			words: [{ rusWord: 'яйцо', engWord: 'egg' }],
+		},
+		{
+			// TODO
+			rusSentence: 'Они не мои друзья.',
+			engSentences: [
+				{
+					engSentences: ['They are not my friends.'],
+					isCorrect: true,
+				},
+			],
+			words: [{ rusWord: 'яйцо', engWord: 'egg' }],
+		},
+		{
+			// TODO
+			rusSentence: 'Вы наш клиент.',
+			engSentences: [
+				{
+					engSentences: ['You are our customer.'],
+					isCorrect: true,
+				},
+			],
+			words: [{ rusWord: 'яйцо', engWord: 'egg' }],
+		},
+		{
+			// TODO
+			rusSentence: 'Моя мама не понимает меня.',
+			engSentences: [
+				{
+					engSentences: ['My mun does not understand me.'],
+					isCorrect: true,
+				},
+			],
+			words: [{ rusWord: 'яйцо', engWord: 'egg' }],
+		},
 	],
 }
 

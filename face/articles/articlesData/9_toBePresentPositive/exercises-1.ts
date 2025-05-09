@@ -620,7 +620,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 		{
 			rusSentence: 'Кстати, он очень хороший врач.',
 			engSentences: [
-				{ engSentences: ['He\'s a very good doctor, by the way.'], isCorrect: true },
+				{ engSentences: ['He is a very good doctor, by the way.'], isCorrect: true },
 				{
 					engSentences: [],
 					isCorrect: false,
@@ -1103,7 +1103,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 		{
 			rusSentence: 'Это просто любопытный факт.',
 			engSentences: [
-				{ engSentences: [], isCorrect: false },
+				{ engSentences: ['It is just a curious fact.'], isCorrect: false },
 				{
 					engSentences: [],
 					isCorrect: false,
@@ -1120,6 +1120,35 @@ const exercises_1: ExercisesType.ExercisesObj = {
 					],
 				},
 			],
+			words: [
+				{ rusWord: 'просто', engWord: 'just' },
+				{ rusWord: 'любопытный', engWord: 'fun' },
+				{ rusWord: 'факт', engWord: 'fact' },
+			],
+		},
+		{
+			rusSentence: 'Я думаю, это инструкция.',
+			engSentences: [{ engSentences: ['I think it is the instructions.'], isCorrect: false }],
+			words: [
+				{ rusWord: 'просто', engWord: 'just' },
+				{ rusWord: 'любопытный', engWord: 'fun' },
+				{ rusWord: 'факт', engWord: 'fact' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Это бедствие. Это катастрофа.',
+			engSentences: [{ engSentences: ['It is a disaster. It is a catastrophe.'], isCorrect: false }],
+			words: [
+				{ rusWord: 'просто', engWord: 'just' },
+				{ rusWord: 'любопытный', engWord: 'fun' },
+				{ rusWord: 'факт', engWord: 'fact' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Я очень, очень доволен.',
+			engSentences: [{ engSentences: ['I am very, very pleased.'], isCorrect: false }],
 			words: [
 				{ rusWord: 'просто', engWord: 'just' },
 				{ rusWord: 'любопытный', engWord: 'fun' },

@@ -167,6 +167,15 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{ rusWord: 'эксклюзивный', engWord: 'exclusive' },
 			],
 		},
+		{
+			rusSentence: 'Это футбольный матч?',
+			engSentences: [{ engSentences: ['Is this the football match?'], isCorrect: true }],
+			words: [
+				{ rusWord: 'клуб', engWord: 'club' },
+				{ rusWord: 'модный', engWord: 'trendy' },
+				{ rusWord: 'эксклюзивный', engWord: 'exclusive' },
+			],
+		},
 	],
 }
 
