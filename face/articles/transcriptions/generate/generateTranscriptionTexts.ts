@@ -17,7 +17,7 @@ async function generateTranscriptionTexts() {
 			await updateTranscriptionBlockInFile(transcriptionItemKey, { transcription })
 
 			// Wait some time not to make requests to GigaChat so fast
-			await wait(5000)
+			await wait(6000)
 		}
 	}
 }

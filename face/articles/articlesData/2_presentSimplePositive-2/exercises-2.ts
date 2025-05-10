@@ -131,7 +131,7 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			rusSentence: 'Они чинят компьютеры.',
 			engSentences: [
 				{
-					engSentences: ['They fixes computers.'],
+					engSentences: ['They fix computers.'],
 					isCorrect: true,
 				},
 			],

@@ -44,7 +44,12 @@ export class GigaChatService {
 			return this.generateText(prompt)
 		}
 
-		return requestResult.choices[0].message.content
+		try {
+			return requestResult.choices[0].message.content
+		} catch (err: unknown) {
+			console.log(requestResult)
+			return ''
+		}
 	}
 
 	/** Запрос, получающий новый токен доступа и сохраняющий в this.accessToken() */
