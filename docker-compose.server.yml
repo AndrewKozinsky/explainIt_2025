@@ -4,33 +4,18 @@ services:
     container_name: explain-nginx
     depends_on:
       - face
-      - server
     volumes:
       - ./nginx/nginx.conf.dev:/etc/nginx/nginx.conf
     environment:
       VIRTUAL_HOST: explainit.ru,www.explainit.ru
       LETSENCRYPT_HOST: explainit.ru,www.explainit.ru
-  server:
-    build:
-      context: server/
-      dockerfile: Dockerfile.server
-    restart: unless-stopped
-    command: npm run start:prod
-    container_name: explain-server
-    environment:
-      MODE: server
-      PORT: 3001
-    env_file:
-      - .env
   face:
     build:
       context: face/
       dockerfile: Dockerfile.server
     restart: unless-stopped
-    command: npm run start
+    command: yarn run start
     container_name: explain-face
-    depends_on:
-      - server
     environment:
       MODE: server
 networks:
