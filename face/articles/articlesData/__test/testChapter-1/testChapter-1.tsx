@@ -8,6 +8,7 @@ const testChapter1: ArticleType.Art = {
 		slug: 'test-1',
 		name: 'Тестовая статья',
 		description: 'Описание статьи для тестов.',
+		keywords: ''
 	},
 	content: [exercises_1, exercises_2],
 }
