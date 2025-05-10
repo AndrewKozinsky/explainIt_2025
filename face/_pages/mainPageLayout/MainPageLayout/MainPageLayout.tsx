@@ -1,7 +1,8 @@
 import React from 'react'
-import '../style/global.scss'
+import mainConfig from '../../../сonsts/mainConfig'
 import ApolloProvider from '../ApolloProvider/ApolloProvider'
 import Metrika from '../Metrika/Metrika'
+import '../style/global.scss'
 
 type MainPageLayoutProps = {
 	children: React.ReactNode
@@ -12,7 +13,7 @@ function MainPageLayout(props: MainPageLayoutProps) {
 
 	return (
 		<>
-			<Metrika />
+			{mainConfig.workingMode === 'server' && <Metrika />}
 			<ApolloProvider>{children}</ApolloProvider>
 		</>
 	)

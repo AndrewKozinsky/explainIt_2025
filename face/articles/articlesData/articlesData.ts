@@ -44,7 +44,7 @@ const rowRealArticles: ArticleType.Art[] = [
 
 const rowTestArticles: ArticleType.Art[] = [testChapter1, testChapter2, testChapter3]
 
-const rowArticles = mainConfig.getWorkingMode === 'test' ? rowTestArticles : rowRealArticles
+const rowArticles = mainConfig.workingMode === 'test' ? rowTestArticles : rowRealArticles
 
 const articles: ArticleType.Art[] = rowArticles.map((article, i) => {
 	const newArticle = { ...article }

@@ -1,5 +1,5 @@
 export const mainConfig = {
-	getWorkingMode: process.env.MODE as 'test' | 'dev' | 'prod',
+	workingMode: process.env.MODE as 'test' | 'dev' | 'server',
 }
 
 export default mainConfig
