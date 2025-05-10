@@ -8,8 +8,9 @@ const demonstrativePronounce: ArticleType.Art = {
 	meta: {
 		number: 10,
 		slug: 'demonstrative-pronouns',
-		articleName: 'Указательные местоимения',
-		articleDescription: 'Указательные местоимения используются для ввода в контекст нового персонажа или предмета.',
+		name: 'Указательные местоимения',
+		description: 'Указательные местоимения используются для ввода в контекст нового персонажа или предмета.',
+		keywords: 'Указательные местоимения, this, that, зыс, зет',
 	},
 	content: [
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'This и that' },

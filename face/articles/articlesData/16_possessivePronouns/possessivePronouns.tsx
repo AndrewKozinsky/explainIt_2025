@@ -8,8 +8,10 @@ const possessivePronouns: ArticleType.Art = {
 	meta: {
 		number: 1,
 		slug: 'possessive-pronouns',
-		articleName: 'Притяжательные местоимения',
-		articleDescription: 'Притяжательные местоимения поясняют кому принадлежит персонаж или предмет.',
+		name: 'Притяжательные местоимения',
+		description: 'Притяжательные местоимения поясняют кому принадлежит персонаж или предмет.',
+		keywords:
+			'притяжательные местоимения, my, mine, your, yours, his, her, hers, its, our, ours, their, theirs, whose, самостоятельные притяжательные местоимения',
 	},
 	content: [
 		{

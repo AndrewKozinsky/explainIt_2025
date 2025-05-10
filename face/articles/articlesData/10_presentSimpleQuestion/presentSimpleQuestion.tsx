@@ -6,8 +6,10 @@ const presentSimpleQuestion: ArticleType.Art = {
 	meta: {
 		number: 1,
 		slug: 'present-simple-question',
-		articleName: 'Present Simple в вопросе',
-		articleDescription: 'Изучим как составлять вопросительное предложение в грамматическом времени Present Simple.',
+		name: 'Present Simple в вопросе',
+		description: 'Изучим как составлять вопросительное предложение в грамматическом времени Present Simple.',
+		keywords:
+			'Present Simple questions, do, does, вопросы в Present Simple, вспомогательные глаголы, как задать вопрос в Present Simple, презент симпл',
 	},
 	content: [
 		{

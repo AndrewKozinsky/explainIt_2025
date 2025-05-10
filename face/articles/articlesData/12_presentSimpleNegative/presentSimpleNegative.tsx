@@ -6,8 +6,9 @@ const presentSimpleNegative: ArticleType.Art = {
 	meta: {
 		number: 1,
 		slug: 'present-simple-negative',
-		articleName: 'Present Simple в отрицании',
-		articleDescription: 'Изучим как составлять отрицательные предложения в Present Simple.',
+		name: 'Present Simple в отрицании',
+		description: 'Изучим как составлять отрицательные предложения в Present Simple.',
+		keywords: 'present simple, отрицательные предложения, отрицание, презент симпл, вопрос в настоящем времени',
 	},
 	content: [
 		{

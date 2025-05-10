@@ -6,8 +6,10 @@ const phrases_1: ArticleType.Art = {
 	meta: {
 		number: 8,
 		slug: 'phrases-1',
-		articleName: 'Фразы',
-		articleDescription: 'Посмотрим как строить конструкцию «играть в...» и отличия слово another от other.',
+		name: 'Фразы',
+		description: 'Посмотрим как строить конструкцию «играть в...» и отличия слово another от other.',
+		keywords:
+			'играть в игры, играть на инструменте, презент симпла, another, other, фразы на английском, present simple',
 	},
 	content: [
 		{

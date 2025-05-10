@@ -1,6 +1,7 @@
 import ArticleType from '../articleTypes/articleType'
 import articles from '../articlesData/articlesData'
 import ExercisesType from '../articleTypes/exercisesType'
+import wordTranscriptions from '../transcriptions/wordTranscriptions'
 // import { PageUrls } from '../сonsts/pageUrls'
 // import ArtType = ArticleType.ArtType
 
@@ -87,7 +88,7 @@ export class ArticleService {
 		// Set transcriptions to English words
 		wordBlocks.forEach((wordBlock) => {
 			const wordBlockCopy = { ...wordBlock }
-			wordBlockCopy.transcription = this.getEnglishWordTranscription(wordBlock.engWord)
+			wordBlockCopy.transcription = wordTranscriptions[wordBlock.engWord]
 
 			newWordBlocks.push(wordBlockCopy)
 		})
@@ -108,155 +109,6 @@ export class ArticleService {
 		})
 
 		return clearedWords
-	}
-
-	/**
-	 * Получает английское слово и возвращает его транскрипцию (если есть)
-	 * @param engWord
-	 */
-	getEnglishWordTranscription(engWord: string) {
-		const wordTranscriptions = {
-			book: 'bʊk',
-			magazine: 'mæɡəˈziːn',
-			teacher: 'ˈtiːtʃə',
-			doctor: 'ˈdɒktə',
-			student: 'ˈstjuːd(ə)nt',
-			sick: 'sɪk',
-			child: 'tʃaɪld',
-			glad: 'ɡlæd',
-			ready: 'ˈredɪ',
-			soon: 'suːn',
-			happy: 'ˈhæpɪ',
-			builder: 'ˈbɪldə',
-			phone: 'fəʊn',
-			door: 'dɔː',
-			they: 'ðeɪ',
-			still: 'stɪl',
-			children: 'ˈtʃɪldrən',
-			captains: 'ˈkæptɪnz',
-			already: 'ɔːlˈredɪ',
-			mechanic: 'mɪˈkænɪk',
-			scientist: 'ˈsaɪəntɪst',
-			challenge: 'ˈtʃælɪn(d)ʒ',
-			completely: 'kəmˈpliːtlɪ',
-			alone: 'əˈləʊn',
-			professional: 'prəˈfeʃ(ə)n(ə)l',
-			workaholic: 'wɜːkəˈhɒlɪk',
-			builders: 'ˈbɪldəz',
-			robbers: 'ˈrɒbəz',
-			home: 'həʊm',
-			adult: 'ˈædʌlt',
-			tomorrow: 'təˈmɒrəʊ',
-			new: 'njuː',
-			day: 'deɪ',
-			leader: 'ˈliːdə',
-			team: 'tiːm',
-			salesman: 'ˈseɪlzmən',
-			cashier: 'kæˈʃɪə',
-			frog: 'frɒɡ',
-			princess: 'ˌprɪnˈses',
-			savage: 'ˈsævɪdʒ',
-			idiot: 'ˈɪdɪət',
-			minute: 'ˈmɪnɪt',
-			every: 'ˈevrɪ',
-			ideal: 'aɪˈdɪəl',
-			vine: 'vaɪn',
-			policeman: 'pəˈliːsmən',
-			airport: 'ˈeəpɔːt',
-			envelope: 'ˈenvələʊp',
-			advice: 'ədˈvaɪs',
-			iron: 'ˈaɪən',
-			artist: 'ˈɑːtɪst',
-			curious: 'ˈkjʊərɪəs',
-			that: 'ðæt',
-			quiet: 'ˈkwaɪət',
-			wrong: 'rɒŋ',
-			way: 'weɪ',
-			tough: 'tʌf',
-			decision: 'dɪˈsɪʒ(ə)n',
-			crazy: 'ˈkreɪzɪ',
-			mountain: 'ˈmaʊntɪn',
-			always: 'ˈɔːlweɪz',
-			majestic: 'məˈdʒestɪk',
-			often: 'ˈɒf(ə)n',
-			busy: 'ˈbɪzɪ',
-			potatoes: 'pəˈteɪtəʊz',
-			tomatoes: 'təˈmɑːtəʊz',
-			onions: 'ˈʌnjənz',
-			common: 'ˈkɒmən',
-			tired: 'taɪəd',
-			talented: 'ˈtæləntɪd',
-			singer: 'ˈsɪŋə',
-			limited: 'ˈlɪmɪtɪd',
-			series: 'ˈsɪəriːz',
-			instructions: 'ɪnˈstrʌkʃənz',
-			really: 'ˈriːəlɪ',
-			confusing: 'kənˈfjuːzɪŋ',
-			disappointed: 'dɪsəˈpɔɪntɪd',
-			noticed: 'ˈnəʊtɪst',
-			disgusting: 'dɪsˈɡʌstɪŋ',
-			probably: 'ˈprɒbəblɪ',
-			poisonous: 'ˈpɔɪzənəs',
-			only: 'ˈəʊnlɪ',
-			very: 'ˈverɪ',
-			spoiled: 'spɔɪld',
-			confused: 'kənˈfjuːzd',
-			exciting: 'ɪkˈsaɪtɪŋ',
-			show: 'ʃəʊ',
-			irreplaceable: 'ɪrɪˈpleɪsəb(ə)l',
-			inaccurate: 'ɪnˈækjʊrət',
-			illiterate: 'ɪˈlɪt(ə)rət',
-			beautiful: 'ˈbjuːtɪfʊl',
-			open: 'ˈəʊpən',
-			Russia: 'ˈrʌʃə',
-			political: 'pəˈlɪtɪk(ə)l',
-			party: 'ˈpɑːtɪ',
-			issue: 'ˈɪʃuː',
-			unknown: 'ʌnˈnəʊn',
-			place: 'pleɪs',
-			among: 'əˈmʌŋ',
-			people: 'ˈpiːp(ə)l',
-			unhappy: 'ʌnˈhæpɪ',
-			sure: 'ʃʊə(r)',
-			this: 'ðɪs',
-			yellow: 'ˈjeləʊ',
-			folder: 'ˈfəʊldə',
-			real: 'rɪəl',
-			man: 'mæn',
-			pretty: 'ˈprɪtɪ',
-			girl: 'ɡɜːl',
-			black: 'blæk',
-			just: 'dʒʌst',
-			fun: 'fʌn',
-			fact: 'fækt',
-			good: 'ɡʊd',
-			hysterical: 'hɪˈsterɪk(ə)l',
-			fool: 'fuːl',
-			narcissistic: 'ˌnɑːsɪˈsɪstɪk',
-			metal: 'ˈmet(ə)l',
-			bench: 'ben(t)ʃ',
-			less: 'les',
-			popular: 'ˈpɒpjʊlə',
-			than: 'ðən',
-			wooden: 'ˈwʊd(ə)n',
-			mobile: 'ˈməʊbaɪl',
-			secure: 'sɪˈkjʊə',
-			dog: 'dɒɡ',
-			loyal: 'ˈlɔɪəl',
-			pet: 'pet',
-			human: 'ˈhjuːmən',
-			baby: 'ˈbeɪbɪ',
-			totally: 'ˈtəʊtəlɪ',
-			helpless: 'ˈhelpləs',
-			criminal: 'ˈkrɪmɪn(ə)l',
-			must: 'mʌst',
-			famous: 'ˈfeɪməs',
-			old: 'əʊld',
-			village: 'ˈvɪlɪdʒ',
-		}
-
-		// @ts-ignore
-		return wordTranscriptions[engWord]
 	}
 }
 

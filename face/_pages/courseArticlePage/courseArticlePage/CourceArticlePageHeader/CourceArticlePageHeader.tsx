@@ -8,9 +8,9 @@ type ChapterNumberProps = {
 }
 
 function CourseArticlePageHeader(props: ChapterNumberProps) {
-	const { articleName, number: chapterNum } = props.article.meta
+	const { name, number: chapterNum } = props.article.meta
 
-	const headerBits = articleName.split(' ').map((textBit, i) => {
+	const headerBits = name.split(' ').map((textBit, i) => {
 		return (
 			<React.Fragment key={i}>
 				<span>{textBit}</span>{' '}

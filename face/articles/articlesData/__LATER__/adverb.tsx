@@ -5,8 +5,8 @@ const adverb: ArticleType.Art = {
 	meta: {
 		number: 2,
 		slug: 'present-simple-positive-2',
-		articleName: 'Наречие',
-		articleDescription:
+		name: 'Наречие',
+		description:
 			'Изучим как составлять предложения в грамматическом времени Present Simple для местоимений третьего лица.',
 	},
 	content: [exercises_1],

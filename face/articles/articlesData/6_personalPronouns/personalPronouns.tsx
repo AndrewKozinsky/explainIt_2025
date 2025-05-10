@@ -7,8 +7,9 @@ const personalPronouns: ArticleType.Art = {
 	meta: {
 		number: 6,
 		slug: 'personal-pronouns',
-		articleName: 'Личные местоимения',
-		articleDescription: 'Обобщим знания по личным местоимениям и разберёмся с конструкцией «у меня» и «им хочется»',
+		name: 'Личные местоимения',
+		description: 'Обобщим знания по личным местоимениям и разберёмся с конструкцией «у меня» и «им хочется»',
+		keywords: 'личные местоимения, у меня, у них, им хочется, have',
 	},
 	content: [
 		{

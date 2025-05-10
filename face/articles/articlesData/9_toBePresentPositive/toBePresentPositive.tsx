@@ -9,9 +9,10 @@ const toBePresentPositive: ArticleType.Art = {
 	meta: {
 		number: 9,
 		slug: 'to-be-present-positive',
-		articleName: 'To be в настоящем в утверждении',
-		articleDescription:
+		name: 'To be в настоящем в утверждении',
+		description:
 			'Посмотрим как строить предложения где в русском переводе нет глагола. В английском для этого используется глагол to be.',
+		keywords: 'Перевод, предложение, английский, русский, глагол, be, am, is, are, we, they',
 	},
 	content: [
 		{

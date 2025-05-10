@@ -6,8 +6,8 @@ const testChapter1: ArticleType.Art = {
 	meta: {
 		number: 1,
 		slug: 'test-1',
-		articleName: 'Тестовая статья',
-		articleDescription: 'Описание статьи для тестов.',
+		name: 'Тестовая статья',
+		description: 'Описание статьи для тестов.',
 	},
 	content: [exercises_1, exercises_2],
 }

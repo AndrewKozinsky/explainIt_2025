@@ -20,8 +20,8 @@ function getArticleTileConf(article: ArticleType.Art): ArticleTileType.ArticleTi
 	return {
 		type: 'article',
 		top: 'Глава ' + article.meta.number,
-		header: article.meta.articleName,
-		description: article.meta.articleDescription,
+		header: article.meta.name,
+		description: article.meta.description,
 		url: PageUrls.courseArticle(article.meta.slug).url,
 	}
 }

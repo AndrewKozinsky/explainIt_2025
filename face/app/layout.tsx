@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 	verification: {
 		yandex: '1611c5fab3b46857',
 	},
-	keywords: ['английский', 'a1', 'упражнения на английском', 'адаптированные тексты', 'для начинающих'],
+	keywords: ['английский', 'a1', 'упражнения на английском', 'для начинающих'],
 	icons: {
 		icon: '/favicon.svg',
 	},

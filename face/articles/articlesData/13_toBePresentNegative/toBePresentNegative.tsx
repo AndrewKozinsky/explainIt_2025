@@ -6,8 +6,9 @@ const toBePresentNegative: ArticleType.Art = {
 	meta: {
 		number: 1,
 		slug: 'to-be-present-negative',
-		articleName: 'To be в отрицании',
-		articleDescription: 'Посмотрим как составить отрицательные предложение в to be.',
+		name: 'To be в отрицании',
+		description: 'Посмотрим как составить отрицательные предложение в to be.',
+		keywords: 'to be, отрицательные предложения, презент симпл, вопрос в настоящем времени, вопрос с be, отрицание',
 	},
 	content: [
 		{

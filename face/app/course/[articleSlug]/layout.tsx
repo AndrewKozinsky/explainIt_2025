@@ -21,8 +21,9 @@ export async function generateMetadata(params: GenerateMetadataParams): Promise<
 	}
 
 	return {
-		description: article.meta.articleDescription,
-		title: article.meta.articleName,
+		description: article.meta.description,
+		title: article.meta.name,
+		keywords: article.meta.keywords,
 	}
 }
 

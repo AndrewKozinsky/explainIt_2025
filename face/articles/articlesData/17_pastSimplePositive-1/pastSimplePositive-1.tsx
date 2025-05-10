@@ -7,9 +7,9 @@ const pastSimplePositive1: ArticleType.Art = {
 	meta: {
 		number: 1,
 		slug: 'past-simple-positive-1',
-		articleName: 'Past Simple в утверждении (часть 1)',
-		articleDescription:
-			'Изучим как составлять предложения в грамматическом времени Past Simple для правильных глагов.',
+		name: 'Past Simple в утверждении (часть 1)',
+		description: 'Изучим как составлять предложения в грамматическом времени Past Simple для правильных глагов.',
+		keywords: 'Past Simple, паст симпл, утверждение, правильные глаголы',
 	},
 	content: [
 		{

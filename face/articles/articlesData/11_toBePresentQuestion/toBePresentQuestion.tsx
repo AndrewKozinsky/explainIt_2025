@@ -6,8 +6,9 @@ const toBePresentQuestion: ArticleType.Art = {
 	meta: {
 		number: 1,
 		slug: 'to-be-present-question',
-		articleName: 'To be в вопросе',
-		articleDescription: 'Посмотрим как составить вопросительное предложение в to be.',
+		name: 'To be в вопросе',
+		description: 'Посмотрим как составить вопросительное предложение в to be.',
+		keywords: 'to be, вопросы с to be, am is are, презент симпл, вопрос в настоящем времени, вопрос с be',
 	},
 	content: [
 		{

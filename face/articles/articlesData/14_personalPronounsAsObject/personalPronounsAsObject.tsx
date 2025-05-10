@@ -6,8 +6,10 @@ const personalPronounsAsObject: ArticleType.Art = {
 	meta: {
 		number: 1,
 		slug: 'personal-pronouns-as-object',
-		articleName: 'Личные местоимения в дополнении',
-		articleDescription: 'Узнаем как изменяются личные местоимения когда действие направлено на объект.',
+		name: 'Личные местоимения в дополнении',
+		description: 'Узнаем как изменяются личные местоимения когда действие направлено на объект.',
+		keywords:
+			'личные местоимения, do, does, действующее лицо, подлежащее, дополнение, как задать вопрос в Present Simple, презент симпл',
 	},
 	content: [
 		{
