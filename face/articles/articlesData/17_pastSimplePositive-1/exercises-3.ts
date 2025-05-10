@@ -28,21 +28,6 @@ const exercises_3: ExercisesType.ExercisesObj = {
 				{ rusWord: 'яркий', engWord: 'bright' },
 			],
 		},
-		{
-			rusSentence: '444',
-			engSentences: [
-				{
-					engSentences: ['666'],
-					isCorrect: true,
-				},
-			],
-			words: [
-				{ rusWord: 'будущее', engWord: 'future' },
-				{ rusWord: 'казаться', engWord: 'seem' },
-				{ rusWord: 'такой', engWord: 'so' },
-				{ rusWord: 'яркий', engWord: 'bright' },
-			],
-		},
 	],
 }
 

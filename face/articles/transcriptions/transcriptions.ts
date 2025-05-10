@@ -538,13 +538,13 @@ export const transcriptions = {
 
 	it_puppy: {
 		sentence: 'It puppy.',
-		transcription: 'ɪt ˈpʌp.juː',
+		transcription: 'ɪt ˈpʌpi',
 		audio: false,
 	},
 
 	i_be_a_spaceman: {
 		sentence: 'I be a spaceman.',
-		transcription: 'aɪ bi eɪ spейсмэн',
+		transcription: 'aɪ bi ə ˈspeɪsmæn',
 		audio: false,
 	},
 
@@ -2704,6 +2704,1031 @@ export const transcriptions = {
 
 	'30_minutes_every_day_is_ideal': {
 		sentence: '30 minutes every day is ideal.',
+		transcription: '',
+		audio: false,
+	},
+
+	they_fix_computers: {
+		sentence: 'They fix computers.',
+		transcription: '',
+		audio: false,
+	},
+
+	he_is_a_very_good_friend: {
+		sentence: 'He is a very good friend',
+		transcription: '',
+		audio: false,
+	},
+
+	his_clothes_are_awful_they_are_so_old_fashioned: {
+		sentence: 'His clothes are awful. They are so old-fashioned.',
+		transcription: '',
+		audio: false,
+	},
+
+	i_am_the_shopkeeper_you_are_the_customer: {
+		sentence: 'I am the shopkeeper, you are the customer.',
+		transcription: '',
+		audio: false,
+	},
+
+	just_imagine_they_are_captains_already: {
+		sentence: 'Just imagine they are captains already!',
+		transcription: '',
+		audio: false,
+	},
+
+	masha_is_just_a_hysterical_fool_and_sasha_is_a_narcissistic_idiot: {
+		sentence: 'Masha is just a hysterical fool and Sasha is a narcissistic idiot.',
+		transcription: '',
+		audio: false,
+	},
+
+	i_am_an_only_child_and_very_spoiled: {
+		sentence: 'I am an only child and very spoiled.',
+		transcription: '',
+		audio: false,
+	},
+
+	asphalt_is_very_old_but_the_benches_are_excellent: {
+		sentence: 'Asphalt is very old, but the benches are excellent.',
+		transcription: '',
+		audio: false,
+	},
+
+	the_window_is_closed: {
+		sentence: 'The window is closed.',
+		transcription: '',
+		audio: false,
+	},
+
+	____: {
+		sentence: 'Она показывает очень хорошие результаты.',
+		transcription: '',
+		audio: false,
+	},
+
+	eagles_are_very_strong_birds: {
+		sentence: 'Eagles are very strong birds.',
+		transcription: '',
+		audio: false,
+	},
+
+	the_cat_is_black: {
+		sentence: 'The cat is black.',
+		transcription: '',
+		audio: false,
+	},
+
+	she_is_so_clever_so_kind_so_happy: {
+		sentence: 'She is so clever, so kind, so happy!',
+		transcription: '',
+		audio: false,
+	},
+
+	they_are_both_incredibly_happy: {
+		sentence: 'They are both incredibly happy.',
+		transcription: '',
+		audio: false,
+	},
+
+	a_mobile_crypto_wallet_is_very_secure: {
+		sentence: 'A mobile crypto wallet is very secure.',
+		transcription: '',
+		audio: false,
+	},
+
+	it_is_noticed_and_is_an_issue: {
+		sentence: 'It is noticed and is an issue.',
+		transcription: '',
+		audio: false,
+	},
+
+	it_is_noticed_and_is_a_problem: {
+		sentence: 'It is noticed and is a problem.',
+		transcription: '',
+		audio: false,
+	},
+
+	she_dances_like_a_hippopotamus: {
+		sentence: 'She dances like a hippopotamus.',
+		transcription: '',
+		audio: false,
+	},
+
+	her_husband_is_so_awful: {
+		sentence: 'Her husband is so awful.',
+		transcription: '',
+		audio: false,
+	},
+
+	she_is_such_a_good_friend: {
+		sentence: 'She is such a good friend.',
+		transcription: '',
+		audio: false,
+	},
+
+	you_look_so_nice_together: {
+		sentence: 'You look so nice together.',
+		transcription: '',
+		audio: false,
+	},
+
+	a_banan_grows_in_asia: {
+		sentence: 'A banan grows in Asia.',
+		transcription: '',
+		audio: false,
+	},
+
+	annie_and_henry_are_so_happy: {
+		sentence: 'Annie and Henry are so happy.',
+		transcription: '',
+		audio: false,
+	},
+
+	the_window_is_dirty: {
+		sentence: 'The window is dirty.',
+		transcription: '',
+		audio: false,
+	},
+
+	do_you_understand: {
+		sentence: 'Do you understand?',
+		transcription: '',
+		audio: false,
+	},
+
+	do_i_look_good: {
+		sentence: 'Do I look good?',
+		transcription: '',
+		audio: false,
+	},
+
+	do_you_have_sugar_in_your_tea: {
+		sentence: 'Do you have sugar in your tea?',
+		transcription: '',
+		audio: false,
+	},
+
+	does_olya_often_run: {
+		sentence: 'Does Olya often run?',
+		transcription: '',
+		audio: false,
+	},
+
+	does_he_work_here_: {
+		sentence: 'Does he work here? ',
+		transcription: '',
+		audio: false,
+	},
+
+	do_you_like_those_shoes: {
+		sentence: 'Do you like those shoes?',
+		transcription: '',
+		audio: false,
+	},
+
+	are_you_ready: {
+		sentence: 'Are you ready?',
+		transcription: '',
+		audio: false,
+	},
+
+	olya_is_not_a_popular_singer: {
+		sentence: 'Olya is not a popular singer.',
+		transcription: '',
+		audio: false,
+	},
+
+	i_am_not_a_child_i_am_44: {
+		sentence: 'I am not a child I am 44.',
+		transcription: '',
+		audio: false,
+	},
+
+	i_am_not_a_child_i_am_a_married_woman: {
+		sentence: 'I am not a child, I am a married woman.',
+		transcription: '',
+		audio: false,
+	},
+
+	the_workshop_is_not_a_simple_discussion: {
+		sentence: 'The workshop is not a simple discussion.',
+		transcription: '',
+		audio: false,
+	},
+
+	he_isnt_sick: {
+		sentence: 'He isn’t sick.',
+		transcription: '',
+		audio: false,
+	},
+
+	i_am_not_tired: {
+		sentence: 'I am not tired.',
+		transcription: '',
+		audio: false,
+	},
+
+	european_dishes_are_not_always_healthy: {
+		sentence: 'European dishes are not always healthy',
+		transcription: '',
+		audio: false,
+	},
+
+	ghosts_are_not_real: {
+		sentence: 'Ghosts are not real.',
+		transcription: '',
+		audio: false,
+	},
+
+	is_he_a_good_plumber: {
+		sentence: 'Is he a good plumber?',
+		transcription: '',
+		audio: false,
+	},
+
+	professional_sportsmen_are_not_always_healthy: {
+		sentence: 'Professional sportsmen are not always healthy.',
+		transcription: '',
+		audio: false,
+	},
+
+	is_he_inside: {
+		sentence: 'Is he inside?',
+		transcription: '',
+		audio: false,
+	},
+
+	is_yoga_a_dangerous_sport: {
+		sentence: 'Is yoga a dangerous sport?',
+		transcription: '',
+		audio: false,
+	},
+
+	they_are_children: {
+		sentence: 'They are children.',
+		transcription: '',
+		audio: false,
+	},
+
+	is_it_very_funny: {
+		sentence: 'Is it very funny?',
+		transcription: '',
+		audio: false,
+	},
+
+	is_it_fancy_dress: {
+		sentence: 'Is it fancy dress?',
+		transcription: '',
+		audio: false,
+	},
+
+	open_russia_is_not_a_political_party: {
+		sentence: 'Open Russia is not a political party.',
+		transcription: '',
+		audio: false,
+	},
+
+	are_they_busy: {
+		sentence: 'Are they busy?',
+		transcription: '',
+		audio: false,
+	},
+
+	is_he_happy: {
+		sentence: 'Is he happy?',
+		transcription: '',
+		audio: false,
+	},
+
+	i_do_not_work_in_a_hotel_every_summer: {
+		sentence: 'I do not work in a hotel every summer.',
+		transcription: '',
+		audio: false,
+	},
+
+	mindy_does_not_read_horoscopes: {
+		sentence: 'Mindy does not read horoscopes.',
+		transcription: '',
+		audio: false,
+	},
+
+	i_do_not_believe_you: {
+		sentence: 'I do not believe you.',
+		transcription: '',
+		audio: false,
+	},
+
+	he_is_not_in_the_room: {
+		sentence: 'He is not in the room.',
+		transcription: '',
+		audio: false,
+	},
+
+	i_mean_he_is_not_a_good_boy_as_tom: {
+		sentence: 'I mean, he is not a good boy as Tom.',
+		transcription: '',
+		audio: false,
+	},
+
+	he_is_not_so_old: {
+		sentence: 'He is not so old.',
+		transcription: '',
+		audio: false,
+	},
+
+	it_is_not_so_bad: {
+		sentence: 'It is not so bad.',
+		transcription: '',
+		audio: false,
+	},
+
+	he_is_not_young: {
+		sentence: 'He is not young.',
+		transcription: '',
+		audio: false,
+	},
+
+	it_is_absolutely_free: {
+		sentence: 'It is absolutely free.',
+		transcription: '',
+		audio: false,
+	},
+
+	she_is_not_married: {
+		sentence: 'She is not married.',
+		transcription: '',
+		audio: false,
+	},
+
+	he_is_not_a_doctor: {
+		sentence: 'He is not a doctor.',
+		transcription: '',
+		audio: false,
+	},
+
+	it_is_not_enough: {
+		sentence: 'It is not enough.',
+		transcription: '',
+		audio: false,
+	},
+
+	i_am_really_hungry: {
+		sentence: 'I am really hungry.',
+		transcription: '',
+		audio: false,
+	},
+
+	he_is_not_a_dancer: {
+		sentence: 'He is not a dancer.',
+		transcription: '',
+		audio: false,
+	},
+
+	it_is_not_so_tasty: {
+		sentence: 'It is not so tasty.',
+		transcription: '',
+		audio: false,
+	},
+
+	it_is_not_a_dangerous_situation: {
+		sentence: 'It is not a dangerous situation.',
+		transcription: '',
+		audio: false,
+	},
+
+	it_is_not_expensive: {
+		sentence: 'It is not expensive.',
+		transcription: '',
+		audio: false,
+	},
+
+	you_are_not_right: {
+		sentence: 'You are not right.',
+		transcription: '',
+		audio: false,
+	},
+
+	he_is_not_married: {
+		sentence: 'He is not married.',
+		transcription: '',
+		audio: false,
+	},
+
+	he_is_not_a_dentist: {
+		sentence: 'He is not a dentist.',
+		transcription: '',
+		audio: false,
+	},
+
+	it_is_not_easy: {
+		sentence: 'It is not easy.',
+		transcription: '',
+		audio: false,
+	},
+
+	it_is_not_popular_now: {
+		sentence: 'It is not popular now.',
+		transcription: '',
+		audio: false,
+	},
+
+	i_see_it_is_not_easy: {
+		sentence: 'I see it is not easy.',
+		transcription: '',
+		audio: false,
+	},
+
+	is_he_young_or_old: {
+		sentence: 'Is he young or old?',
+		transcription: '',
+		audio: false,
+	},
+
+	i_am_not_brave: {
+		sentence: 'I am not brave.',
+		transcription: '',
+		audio: false,
+	},
+
+	you_are_not_a_very_strong_man: {
+		sentence: 'You are not a very strong man.',
+		transcription: '',
+		audio: false,
+	},
+
+	a_fig_tree_is_not_tall: {
+		sentence: 'A fig tree is not tall.',
+		transcription: '',
+		audio: false,
+	},
+
+	however_this_is_not_a_simple_island: {
+		sentence: 'However, this is not a simple island',
+		transcription: '',
+		audio: false,
+	},
+
+	we_help: {
+		sentence: 'We help.',
+		transcription: '',
+		audio: false,
+	},
+
+	we_help_them: {
+		sentence: 'We help them.',
+		transcription: '',
+		audio: false,
+	},
+
+	we_are_old_friends_you_know_me: {
+		sentence: 'We are old friends, you know me.',
+		transcription: '',
+		audio: false,
+	},
+
+	pasha_send_her_postcards: {
+		sentence: 'Pasha send her postcards.',
+		transcription: '',
+		audio: false,
+	},
+
+	i_think_about_you_all_the_time: {
+		sentence: 'I think about you all the time.',
+		transcription: '',
+		audio: false,
+	},
+
+	i_understand_you_very_well: {
+		sentence: 'I understand you very well.',
+		transcription: '',
+		audio: false,
+	},
+
+	i_always_respected_her_opinion_even_if_it_differed_from_mine: {
+		sentence: 'I always respected her opinion even if it differed from mine.',
+		transcription: '',
+		audio: false,
+	},
+
+	this_collection_belongs_to_me: {
+		sentence: 'This collection belongs to me.',
+		transcription: '',
+		audio: false,
+	},
+
+	i_do_one_simple_thing: {
+		sentence: 'I do one simple thing.',
+		transcription: '',
+		audio: false,
+	},
+
+	_i_feel_tired__me_too: {
+		sentence: '— I feel tired. – Me too.',
+		transcription: '',
+		audio: false,
+	},
+
+	_who_broke_the_vase__not_me: {
+		sentence: '— Who broke the vase? – Not me!',
+		transcription: '',
+		audio: false,
+	},
+
+	this_salad_is_delicious_but_that_is_too_spicy: {
+		sentence: 'This salad is delicious, but that is too spicy.',
+		transcription: '',
+		audio: false,
+	},
+
+	this_is_not_a_simple_island: {
+		sentence: 'This is not a simple island.',
+		transcription: '',
+		audio: false,
+	},
+
+	this_is_a_pen_and_that_is_a_pencil: {
+		sentence: 'This is a pen, and that is a pencil.',
+		transcription: '',
+		audio: false,
+	},
+
+	this_is_not_so_crazy: {
+		sentence: 'This is not so crazy.',
+		transcription: '',
+		audio: false,
+	},
+
+	maybe_this_is_not_a_suitable_weekend: {
+		sentence: 'Maybe this is not a suitable weekend.',
+		transcription: '',
+		audio: false,
+	},
+
+	that_is_not_an_answer: {
+		sentence: 'That is not an answer!',
+		transcription: '',
+		audio: false,
+	},
+
+	that_is_stupid: {
+		sentence: 'That is stupid.',
+		transcription: '',
+		audio: false,
+	},
+
+	this_is_katya_my_stepsister: {
+		sentence: 'This is Katya, my stepsister.',
+		transcription: '',
+		audio: false,
+	},
+
+	this_is_not_your_footsteps_: {
+		sentence: 'This is not your footsteps. ',
+		transcription: '',
+		audio: false,
+	},
+
+	this_is_not_my_main_occupation: {
+		sentence: 'This is not my main occupation.',
+		transcription: '',
+		audio: false,
+	},
+
+	that_book_was_excellent: {
+		sentence: 'That book was excellent.',
+		transcription: '',
+		audio: false,
+	},
+
+	this_apartment_is_very_busy: {
+		sentence: 'This apartment is very busy.',
+		transcription: '',
+		audio: false,
+	},
+
+	emma_is_in_a_really_good_mood_today: {
+		sentence: 'Emma is in a really good mood today.',
+		transcription: '',
+		audio: false,
+	},
+
+	this_club_is_very_trendy_very_exclusive: {
+		sentence: 'This club is very trendy! Very exclusive!',
+		transcription: '',
+		audio: false,
+	},
+
+	is_this_the_football_match: {
+		sentence: 'Is this the football match?',
+		transcription: '',
+		audio: false,
+	},
+
+	this_apple_is_rotten: {
+		sentence: 'This apple is rotten.',
+		transcription: '',
+		audio: false,
+	},
+
+	that_snake_is_very_toxic_and_this_is_an_common_grass_snake: {
+		sentence: 'That snake is very toxic, and this is an common grass snake.',
+		transcription: '',
+		audio: false,
+	},
+
+	this_soup_is_tasty_but_that_one_is_too_salty: {
+		sentence: 'This soup is tasty, but that one is too salty.',
+		transcription: '',
+		audio: false,
+	},
+
+	this_coast_is_very_dangerous: {
+		sentence: 'This coast is very dangerous.',
+		transcription: '',
+		audio: false,
+	},
+
+	this_fragrance_is_unreal_and_those_ordinary_cheap_perfume: {
+		sentence: 'This fragrance is unreal, and those ordinary cheap perfume',
+		transcription: '',
+		audio: false,
+	},
+
+	this_love_is_difficult_but_its_real: {
+		sentence: "This love is difficult, but it's real.",
+		transcription: '',
+		audio: false,
+	},
+
+	unfortunately_that_person_is_unreliable: {
+		sentence: 'Unfortunately, that person is unreliable.',
+		transcription: '',
+		audio: false,
+	},
+
+	this_book_is_much_more_interesting_than_that: {
+		sentence: 'This book is much more interesting than that.',
+		transcription: '',
+		audio: false,
+	},
+
+	that_movie_wasnt_wonderful: {
+		sentence: 'That movie wasn’t wonderful.',
+		transcription: '',
+		audio: false,
+	},
+
+	this_store_is_famous_all_over_the_world: {
+		sentence: 'This store is famous all over the world.',
+		transcription: '',
+		audio: false,
+	},
+
+	is_this_a_bug_no_it_is_a_spider: {
+		sentence: 'Is this a bug? No, it is a spider.',
+		transcription: '',
+		audio: false,
+	},
+
+	is_this_a_pencil_no_its_a_pen: {
+		sentence: "Is this a pencil? No, it's a pen.",
+		transcription: '',
+		audio: false,
+	},
+
+	is_this_an_ocean_no_it_is_a_lake: {
+		sentence: 'Is this an ocean? No, it is a lake.',
+		transcription: '',
+		audio: false,
+	},
+
+	is_this_mexican_food_no_korean_but_also_spicy: {
+		sentence: 'Is this Mexican food? No, Korean. But also spicy.',
+		transcription: '',
+		audio: false,
+	},
+
+	is_this_a_new_computer_yes_it_is_very_expencive: {
+		sentence: 'Is this a new computer? Yes, it is very expencive.',
+		transcription: '',
+		audio: false,
+	},
+
+	this_is_not_your_apartment_you_do_not_live_here: {
+		sentence: 'This is not your apartment. You do not live here.',
+		transcription: '',
+		audio: false,
+	},
+
+	is_he_in_that_room_now: {
+		sentence: 'Is he in that room now?',
+		transcription: '',
+		audio: false,
+	},
+
+	those_are_my_keys: {
+		sentence: 'Those are my keys.',
+		transcription: '',
+		audio: false,
+	},
+
+	many_people_are_not_aware_about_these_rights: {
+		sentence: 'Many people are not aware about these rights.',
+		transcription: '',
+		audio: false,
+	},
+
+	these_two_people_are_my_neighbors_paul_and_carol: {
+		sentence: 'These two people are my neighbors, Paul and Carol.',
+		transcription: '',
+		audio: false,
+	},
+
+	those_are_cucumbers: {
+		sentence: 'Those are cucumbers.',
+		transcription: '',
+		audio: false,
+	},
+
+	those_arent_real_cats: {
+		sentence: 'Those aren’t real cats.',
+		transcription: '',
+		audio: false,
+	},
+
+	these_chocolates_are_delicious: {
+		sentence: 'These chocolates are delicious.',
+		transcription: '',
+		audio: false,
+	},
+
+	their_children_certainly_are_not_criminals: {
+		sentence: 'Their children certainly are not criminals.',
+		transcription: '',
+		audio: false,
+	},
+
+	these_are_pencils_and_those_are_pens: {
+		sentence: 'These are pencils and those are pens.',
+		transcription: '',
+		audio: false,
+	},
+
+	this_glasses_are_terrible: {
+		sentence: 'This glasses are terrible.',
+		transcription: '',
+		audio: false,
+	},
+
+	i_do_not_know_these_people: {
+		sentence: 'I do not know these people!',
+		transcription: '',
+		audio: false,
+	},
+
+	my_situation_is_awful: {
+		sentence: 'My situation is awful.',
+		transcription: '',
+		audio: false,
+	},
+
+	my_psychology_is_not_well: {
+		sentence: 'My psychology is not well.',
+		transcription: '',
+		audio: false,
+	},
+
+	his_manuscript_was_very_old_and_durty: {
+		sentence: 'His manuscript was very old and durty.',
+		transcription: '',
+		audio: false,
+	},
+
+	he_is_currently_his_agent: {
+		sentence: 'He is currently his agent.',
+		transcription: '',
+		audio: false,
+	},
+
+	english_is_their_second_and_sometimes_their_third_language: {
+		sentence: 'English is their second and sometimes their third language.',
+		transcription: '',
+		audio: false,
+	},
+
+	is_he_your_brother_no_he_is_not: {
+		sentence: 'Is he your brother? No, he is not.',
+		transcription: '',
+		audio: false,
+	},
+
+	my_hands_are_clear: {
+		sentence: 'My hands are clear.',
+		transcription: '',
+		audio: false,
+	},
+
+	from_my_point_of_view_mice_are_pretty_nice_creatures: {
+		sentence: 'From my point of view mice are pretty nice creatures.',
+		transcription: '',
+		audio: false,
+	},
+
+	everything_they_do_reflects_their_love_for_their_grandchildren: {
+		sentence: 'Everything they do reflects their love for their grandchildren.',
+		transcription: '',
+		audio: false,
+	},
+
+	my_son_arrives_early: {
+		sentence: 'My son arrives early.',
+		transcription: '',
+		audio: false,
+	},
+
+	we_hate_our_neighbors: {
+		sentence: 'We hate our neighbors.',
+		transcription: '',
+		audio: false,
+	},
+
+	her_garden_spray_is_in_the_bathroom: {
+		sentence: 'Her garden spray is in the bathroom.',
+		transcription: '',
+		audio: false,
+	},
+
+	are_they_your_eggs: {
+		sentence: 'Are they your eggs?',
+		transcription: '',
+		audio: false,
+	},
+
+	he_is_my_pen_friend: {
+		sentence: 'He is my pen friend.',
+		transcription: '',
+		audio: false,
+	},
+
+	your_taxi_is_here: {
+		sentence: 'Your taxi is here.',
+		transcription: '',
+		audio: false,
+	},
+
+	the_only_problem_is_she_does_not_like_my_manners_and_my_hair_and_my_clothes: {
+		sentence: 'The only problem is, she does not like my manners and my hair and my clothes.',
+		transcription: '',
+		audio: false,
+	},
+
+	they_are_not_my_friends: {
+		sentence: 'They are not my friends.',
+		transcription: '',
+		audio: false,
+	},
+
+	you_are_our_customer: {
+		sentence: 'You are our customer.',
+		transcription: '',
+		audio: false,
+	},
+
+	my_mun_does_not_understand_me: {
+		sentence: 'My mun does not understand me.',
+		transcription: '',
+		audio: false,
+	},
+
+	his_car_is_black_but_hers_is_red: {
+		sentence: 'His car is black, but hers is red.',
+		transcription: '',
+		audio: false,
+	},
+
+	companies_like_ours_are_more_flexible: {
+		sentence: 'Companies like ours are more flexible.',
+		transcription: '',
+		audio: false,
+	},
+
+	his_coat_is_long_but_hers_is_short: {
+		sentence: 'His coat is long, but hers is short.',
+		transcription: '',
+		audio: false,
+	},
+
+	are_those_packages_yours: {
+		sentence: 'Are those packages yours?',
+		transcription: '',
+		audio: false,
+	},
+
+	are_those_houses_theirs: {
+		sentence: 'Are those houses theirs?',
+		transcription: '',
+		audio: false,
+	},
+
+	this_bag_isnt_yours: {
+		sentence: 'This bag isn’t yours.',
+		transcription: '',
+		audio: false,
+	},
+
+	this_diet_is_as_disgusting_as_its_name: {
+		sentence: 'This diet is as disgusting as its name.',
+		transcription: '',
+		audio: false,
+	},
+
+	the_law_says_that_the_house_is_yours: {
+		sentence: 'The law says that the house is yours.',
+		transcription: '',
+		audio: false,
+	},
+
+	i_see_my_result: {
+		sentence: 'I see my result.',
+		transcription: '',
+		audio: false,
+	},
+
+	i_really_believed_him: {
+		sentence: 'I really believed him.',
+		transcription: '',
+		audio: false,
+	},
+
+	he_washed_his_body: {
+		sentence: 'He washed his body.',
+		transcription: '',
+		audio: false,
+	},
+
+	it_seemed_so_strange: {
+		sentence: 'It seemed so strange.',
+		transcription: '',
+		audio: false,
+	},
+
+	i_passed_that_test: {
+		sentence: 'I passed that test.',
+		transcription: '',
+		audio: false,
+	},
+
+	i_worked_yesterday: {
+		sentence: 'I worked yesterday.',
+		transcription: '',
+		audio: false,
+	},
+
+	i_studied_very_hard: {
+		sentence: 'I studied very hard.',
+		transcription: '',
+		audio: false,
+	},
+
+	he_loved_her_and_she_loved_him: {
+		sentence: 'He loved her and she loved him.',
+		transcription: '',
+		audio: false,
+	},
+
+	i_always_believed_him: {
+		sentence: 'I always believed him.',
+		transcription: '',
+		audio: false,
+	},
+
+	my_parents_often_watch_westerns: {
+		sentence: 'My parents often watch westerns.',
+		transcription: '',
+		audio: false,
+	},
+
+	the_future_seemed_so_bright: {
+		sentence: 'The future seemed so bright.',
+		transcription: '',
+		audio: false,
+	},
+
+	i_check_twitter_every_minutes: {
+		sentence: 'I check Twitter every minutes.',
+		transcription: '',
+		audio: false,
+	},
+
+	emergency_services_work_: {
+		sentence: 'Emergency services work /.',
+		transcription: '',
+		audio: false,
+	},
+	emergency_services_operate_: {
+		sentence: 'Emergency services operate /.',
 		transcription: '',
 		audio: false,
 	},
