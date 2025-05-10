@@ -57,8 +57,8 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			rusSentence: 'She shows very good results.',
-			engSentences: [{ engSentences: ['Она показывает очень хорошие результаты.'], isCorrect: true }],
+			rusSentence: 'Она показывает очень хорошие результаты.',
+			engSentences: [{ engSentences: ['She shows very good results.'], isCorrect: true }],
 			words: [
 				{ rusWord: 'показывать', engWord: 'show' },
 				{ rusWord: 'очень', engWord: 'very' },

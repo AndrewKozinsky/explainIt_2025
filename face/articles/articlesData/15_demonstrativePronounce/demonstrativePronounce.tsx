@@ -71,7 +71,6 @@ const demonstrativePronounce: ArticleType.Art = {
 				{ type: 'text', text: ' старая.' },
 			],
 			eng: [
-				{ type: 'text', text: '' },
 				{ type: 'text', color: 'blue', text: 'This' },
 				{ type: 'text', text: '’s a new car, but ' },
 				{ type: 'text', color: 'blue', text: 'that' },
@@ -314,7 +313,6 @@ const demonstrativePronounce: ArticleType.Art = {
 			textSize: 'giant',
 			rus: [{ type: 'text', text: 'Это было великолепно!' }],
 			eng: [
-				{ type: 'text', text: '' },
 				{ type: 'text', color: 'blue', text: 'That' },
 				{ type: 'text', text: ' was great!' },
 			],
@@ -429,7 +427,6 @@ const demonstrativePronounce: ArticleType.Art = {
 				},
 			],
 			eng: [
-				{ type: 'text', text: '' },
 				{ type: 'text', color: 'blue', text: 'This' },
 				{
 					type: 'text',
@@ -479,7 +476,6 @@ const demonstrativePronounce: ArticleType.Art = {
 				},
 			],
 			eng: [
-				{ type: 'text', text: '' },
 				{ type: 'text', color: 'blue', text: 'This' },
 				{ type: 'text', text: ' is not religious, ' },
 				{ type: 'text', color: 'blue', text: 'it' },

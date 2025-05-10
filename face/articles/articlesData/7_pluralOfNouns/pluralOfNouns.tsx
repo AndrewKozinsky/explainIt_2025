@@ -327,7 +327,6 @@ const pluralOfNouns: ArticleType.Art = {
 								{ type: 'text', color: 'gray', text: '(дерева)' },
 							],
 							eng: [
-								{ type: 'text', text: '' },
 								{ type: 'text', text: 'a lea' },
 								{ type: 'text', weight: 'bold', text: 'f' },
 								{ type: 'text', text: ' — lea' },

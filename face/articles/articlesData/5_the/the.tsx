@@ -279,7 +279,6 @@ const the: ArticleType.Art = {
 				{ type: 'text', text: ' очень дорогой.' },
 			],
 			eng: [
-				{ type: 'text', text: '' },
 				{ type: 'text', weight: 'bold', text: 'This shop' },
 				{ type: 'text', text: ' is very expensive.' },
 			],
@@ -292,7 +291,6 @@ const the: ArticleType.Art = {
 				{ type: 'text', text: ' ещё и закрыт сегодня.' },
 			],
 			eng: [
-				{ type: 'text', text: '' },
 				{ type: 'text', color: 'blue', text: 'The shop' },
 				{ type: 'text', text: ' is also closed today.' },
 			],
@@ -317,7 +315,6 @@ const the: ArticleType.Art = {
 			textSize: 'giant',
 			rus: [{ type: 'text', text: 'Зима была ветренной.' }],
 			eng: [
-				{ type: 'text', text: '' },
 				{ type: 'text', color: 'blue', text: 'The winter' },
 				{ type: 'text', text: ' was windy.' },
 			],

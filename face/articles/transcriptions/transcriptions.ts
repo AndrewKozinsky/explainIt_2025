@@ -3727,8 +3727,39 @@ export const transcriptions = {
 		transcription: '',
 		audio: false,
 	},
+
 	emergency_services_operate_: {
 		sentence: 'Emergency services operate /.',
+		transcription: '',
+		audio: false,
+	},
+
+	she_shows_very_good_results: {
+		sentence: 'She shows very good results.',
+		transcription: '',
+		audio: false,
+	},
+
+	you_are_an_idiot: {
+		sentence: 'You are an idiot',
+		transcription: '',
+		audio: false,
+	},
+
+	minutes_every_day_is_ideal: {
+		sentence: 'minutes every day is ideal.',
+		transcription: '',
+		audio: false,
+	},
+
+	i_am_not_a_child_i_am_: {
+		sentence: 'I am not a child I am .',
+		transcription: '',
+		audio: false,
+	},
+
+	this_is_not_your_footsteps: {
+		sentence: 'This is not your footsteps.',
 		transcription: '',
 		audio: false,
 	},

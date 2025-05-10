@@ -193,7 +193,6 @@ const possessivePronouns: ArticleType.Art = {
 				{ type: 'text', text: '.' },
 			],
 			eng: [
-				{ type: 'text', text: '' },
 				{ type: 'text', color: 'blue', text: 'Mine' },
 				{ type: 'text', text: '.' },
 			],
@@ -271,14 +270,11 @@ const possessivePronouns: ArticleType.Art = {
 			text: 'Притяжательные местоимения с существительным',
 		},
 		{
-			type: 'rusToEng',
-			textSize: 'normal',
-			rus: [
+			type: 'paragraph',
+			children: [
 				{ type: 'text', text: 'I ' },
 				{ type: 'text', color: 'gray', text: '(я)' },
-				{ type: 'text', text: '' },
-			],
-			eng: [
+				{ type: 'arrow' },
 				{ type: 'text', text: 'Му ' },
 				{ type: 'text', color: 'gray', text: '(мой)' },
 			],
@@ -361,14 +357,11 @@ const possessivePronouns: ArticleType.Art = {
 			],
 		},
 		{
-			type: 'rusToEng',
-			textSize: 'normal',
-			rus: [
+			type: 'paragraph',
+			children: [
 				{ type: 'text', text: 'You ' },
 				{ type: 'text', color: 'gray', text: '(вы)' },
-				{ type: 'text', text: '' },
-			],
-			eng: [
+				{ type: 'arrow' },
 				{ type: 'text', text: 'Your ' },
 				{ type: 'text', color: 'gray', text: '(ваш)' },
 			],
@@ -381,20 +374,16 @@ const possessivePronouns: ArticleType.Art = {
 				{ type: 'text', text: ' мама не здесь.' },
 			],
 			eng: [
-				{ type: 'text', text: '' },
 				{ type: 'text', color: 'blue', text: 'Your' },
 				{ type: 'text', text: ' mother is not here.' },
 			],
 		},
 		{
-			type: 'rusToEng',
-			textSize: 'normal',
-			rus: [
+			type: 'paragraph',
+			children: [
 				{ type: 'text', text: 'He ' },
 				{ type: 'text', color: 'gray', text: '(он)' },
-				{ type: 'text', text: '' },
-			],
-			eng: [
+				{ type: 'arrow' },
 				{ type: 'text', text: 'His ' },
 				{ type: 'text', color: 'gray', text: '(его)' },
 			],
@@ -407,7 +396,6 @@ const possessivePronouns: ArticleType.Art = {
 				{ type: 'text', text: ' нос чёрный и влажный.' },
 			],
 			eng: [
-				{ type: 'text', text: '' },
 				{ type: 'text', color: 'blue', text: 'His' },
 				{ type: 'text', text: ' nose is black and wet.' },
 			],
@@ -430,14 +418,11 @@ const possessivePronouns: ArticleType.Art = {
 			],
 		},
 		{
-			type: 'rusToEng',
-			textSize: 'normal',
-			rus: [
+			type: 'paragraph',
+			children: [
 				{ type: 'text', text: 'She ' },
 				{ type: 'text', color: 'gray', text: '(она)' },
-				{ type: 'text', text: '' },
-			],
-			eng: [
+				{ type: 'arrow' },
 				{ type: 'text', text: 'Her ' },
 				{ type: 'text', color: 'gray', text: '(её)' },
 			],
@@ -457,14 +442,11 @@ const possessivePronouns: ArticleType.Art = {
 			],
 		},
 		{
-			type: 'rusToEng',
-			textSize: 'normal',
-			rus: [
+			type: 'paragraph',
+			children: [
 				{ type: 'text', text: 'It ' },
 				{ type: 'text', color: 'gray', text: '(это)' },
-				{ type: 'text', text: '' },
-			],
-			eng: [
+				{ type: 'arrow' },
 				{ type: 'text', text: 'Its ' },
 				{ type: 'text', color: 'gray', text: '(этот)' },
 			],
@@ -477,7 +459,6 @@ const possessivePronouns: ArticleType.Art = {
 				{ type: 'text', text: ' джинсы синие.' },
 			],
 			eng: [
-				{ type: 'text', text: '' },
 				{ type: 'text', color: 'blue', text: 'Its' },
 				{ type: 'text', text: ' jeans is blue.' },
 			],
@@ -506,14 +487,11 @@ const possessivePronouns: ArticleType.Art = {
 			],
 		},
 		{
-			type: 'rusToEng',
-			textSize: 'normal',
-			rus: [
+			type: 'paragraph',
+			children: [
 				{ type: 'text', text: 'We ' },
 				{ type: 'text', color: 'gray', text: '(мы)' },
-				{ type: 'text', text: '' },
-			],
-			eng: [
+				{ type: 'arrow' },
 				{ type: 'text', text: 'Our ' },
 				{ type: 'text', color: 'gray', text: '(наш)' },
 			],
@@ -538,12 +516,10 @@ const possessivePronouns: ArticleType.Art = {
 		},
 		{
 			type: 'paragraph',
-			offset: true,
 			children: [
 				{ type: 'text', text: 'They ' },
 				{ type: 'text', color: 'gray', text: '(они)' },
-				{ type: 'text', text: '' },
-
+				{ type: 'arrow' },
 				{ type: 'text', text: 'Their ' },
 				{ type: 'text', color: 'gray', text: '(их)' },
 			],
@@ -559,7 +535,6 @@ const possessivePronouns: ArticleType.Art = {
 				},
 			],
 			eng: [
-				{ type: 'text', text: '' },
 				{ type: 'text', color: 'blue', text: 'Their' },
 				{ type: 'text', text: ' homework is difficult.' },
 			],
@@ -619,7 +594,6 @@ const possessivePronouns: ArticleType.Art = {
 			rus: [
 				{ type: 'text', text: 'I ' },
 				{ type: 'text', color: 'gray', text: '(я)' },
-				{ type: 'text', text: '' },
 			],
 			eng: [
 				{ type: 'text', text: 'Mine ' },
@@ -627,14 +601,12 @@ const possessivePronouns: ArticleType.Art = {
 			],
 		},
 		{
-			type: 'rusToEng',
-			textSize: 'giant',
-			rus: [
+			type: 'paragraph',
+			children: [
 				{ type: 'text', text: 'Эта тарелка ' },
 				{ type: 'text', color: 'blue', text: 'моя' },
 				{ type: 'text', text: '.' },
-			],
-			eng: [
+				{ type: 'arrow' },
 				{ type: 'text', text: 'This plate is ' },
 				{ type: 'text', color: 'blue', text: 'mine' },
 				{ type: 'text', text: '.' },
@@ -656,13 +628,11 @@ const possessivePronouns: ArticleType.Art = {
 			],
 		},
 		{
-			type: 'rusToEng',
-			textSize: 'normal',
-			rus: [
+			type: 'paragraph',
+			children: [
 				{ type: 'text', text: 'You ' },
 				{ type: 'text', color: 'gray', text: '(вы)' },
-			],
-			eng: [
+				{ type: 'arrow' },
 				{ type: 'text', text: 'Yours ' },
 				{ type: 'text', color: 'gray', text: '(ваш)' },
 			],
@@ -682,14 +652,11 @@ const possessivePronouns: ArticleType.Art = {
 			],
 		},
 		{
-			type: 'rusToEng',
-			textSize: 'normal',
-			rus: [
+			type: 'paragraph',
+			children: [
 				{ type: 'text', text: 'He ' },
 				{ type: 'text', color: 'gray', text: '(он)' },
-				{ type: 'text', text: '' },
-			],
-			eng: [
+				{ type: 'arrow' },
 				{ type: 'text', text: 'His ' },
 				{ type: 'text', color: 'gray', text: '(его)' },
 			],
@@ -709,14 +676,11 @@ const possessivePronouns: ArticleType.Art = {
 			],
 		},
 		{
-			type: 'rusToEng',
-			textSize: 'normal',
-			rus: [
+			type: 'paragraph',
+			children: [
 				{ type: 'text', text: 'She ' },
 				{ type: 'text', color: 'gray', text: '(она)' },
-				{ type: 'text', text: '' },
-			],
-			eng: [
+				{ type: 'arrow' },
 				{ type: 'text', text: 'Hers ' },
 				{ type: 'text', color: 'gray', text: '(её)' },
 			],
@@ -736,14 +700,11 @@ const possessivePronouns: ArticleType.Art = {
 			],
 		},
 		{
-			type: 'rusToEng',
-			textSize: 'normal',
-			rus: [
+			type: 'paragraph',
+			children: [
 				{ type: 'text', text: 'It ' },
 				{ type: 'text', color: 'gray', text: '(это)' },
-				{ type: 'text', text: '' },
-			],
-			eng: [
+				{ type: 'arrow' },
 				{ type: 'text', text: 'Its ' },
 				{ type: 'text', color: 'gray', text: '(эта)' },
 			],
@@ -774,13 +735,11 @@ const possessivePronouns: ArticleType.Art = {
 			],
 		},
 		{
-			type: 'rusToEng',
-			textSize: 'normal',
-			rus: [
+			type: 'paragraph',
+			children: [
 				{ type: 'text', text: 'We ' },
 				{ type: 'text', color: 'gray', text: '(мы)' },
-			],
-			eng: [
+				{ type: 'arrow' },
 				{ type: 'text', text: 'Ours ' },
 				{ type: 'text', color: 'gray', text: '(наш)' },
 			],
@@ -800,14 +759,11 @@ const possessivePronouns: ArticleType.Art = {
 			],
 		},
 		{
-			type: 'rusToEng',
-			textSize: 'normal',
-			rus: [
+			type: 'paragraph',
+			children: [
 				{ type: 'text', text: 'They ' },
 				{ type: 'text', color: 'gray', text: '(они)' },
-				{ type: 'text', text: '' },
-			],
-			eng: [
+				{ type: 'arrow' },
 				{ type: 'text', text: 'Theirs ' },
 				{ type: 'text', color: 'gray', text: '(их)' },
 			],

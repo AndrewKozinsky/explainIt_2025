@@ -34,7 +34,6 @@ const personalPronounsAsObject: ArticleType.Art = {
 				{ type: 'text', text: ' помогаем.' },
 			],
 			eng: [
-				{ type: 'text', text: '' },
 				{ type: 'text', color: 'blue', text: 'We' },
 				{ type: 'text', text: ' help.' },
 			],
@@ -307,16 +306,6 @@ const personalPronounsAsObject: ArticleType.Art = {
 				{
 					type: 'text',
 					text: ':',
-				},
-			],
-		},
-		{
-			type: 'paragraph',
-			textSize: 'giant',
-			children: [
-				{
-					type: 'text',
-					text: '',
 				},
 			],
 		},
