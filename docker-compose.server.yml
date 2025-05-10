@@ -15,7 +15,7 @@ services:
       context: server/
       dockerfile: Dockerfile.server
     restart: unless-stopped
-    command: npm i start:prod
+    command: npm run start:prod
     container_name: explain-server
     environment:
       MODE: server
