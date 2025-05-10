@@ -15,7 +15,7 @@ services:
       context: server/
       dockerfile: Dockerfile.server
     restart: unless-stopped
-    command: yarn start:prod
+    command: npm i start:prod
     container_name: explain-server
     environment:
       MODE: server
@@ -27,7 +27,7 @@ services:
       context: face/
       dockerfile: Dockerfile.server
     restart: unless-stopped
-    command: yarn run start
+    command: npm run start
     container_name: explain-face
     depends_on:
       - server
