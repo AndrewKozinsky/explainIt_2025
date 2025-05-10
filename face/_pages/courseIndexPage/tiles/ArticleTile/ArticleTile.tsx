@@ -23,16 +23,16 @@ function ArticleTileArticle(props: ArticleTileArticleProps) {
 	const { tile } = props
 
 	return (
-		<Link href={tile.url} className='article-tile article-tile--article' data-testid='article-tile--article'>
+		<Link href={tile.url} className='article-tile'>
 			{tile.top && (
-				<p className='article-tile--article-top' data-testid='article-tile-article-top'>
+				<p className='article-tile__top' data-testid='article-tile__top'>
 					{tile.top}
 				</p>
 			)}
-			<h3 className='article-tile--article-header' data-testid='article-tile-article-header'>
+			<h3 className='article-tile__header' data-testid='article-tile__header'>
 				{tile.header}
 			</h3>
-			<p className='article-tile--article-description' data-testid='article-tile-article-description'>
+			<p className='article-tile__description' data-testid='article-tile__description'>
 				{tile.description}
 			</p>
 		</Link>
