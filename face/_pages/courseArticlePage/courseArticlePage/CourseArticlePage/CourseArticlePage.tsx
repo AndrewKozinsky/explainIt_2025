@@ -3,11 +3,10 @@ import ArticleType from '../../../../articles/articleTypes/articleType'
 import { BreadCrumbs } from '../../../../ui/pageRelated/BreadCrumbs/BreadCrumbs'
 import { PageContentWrapper } from '../../../../ui/pageRelated/PageContentWrapper/PageContentWrapper'
 import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'
-import { PageHeader } from '../../../../ui/pageRelated/PageHeader/PageHeader'
-import { extractNumFromStr } from '../../../../utils/number'
 import ArticleArticleContent from '../ArticleArticleContent/ArticleArticleContent'
 import { PageUrls } from '../../../../сonsts/pageUrls'
-import './CourseArticlePage.scss'
+
+import CourseArticlePageHeader from '../CourceArticlePageHeader/CourceArticlePageHeader'
 
 type CourseLevelPageProps = {
 	// Предыдущая статья относительно текущей
@@ -26,7 +25,7 @@ function CourseArticlePage(props: CourseLevelPageProps) {
 		<PageWrapper>
 			<PageContentWrapper>
 				<BreadCrumbs items={[PageUrls.course]} />
-				<Header article={article} />
+				<CourseArticlePageHeader article={article} />
 				<ArticleArticleContent prevArticle={prevArticle} article={article} nextArticle={nextArticle} />
 			</PageContentWrapper>
 		</PageWrapper>
@@ -34,20 +33,3 @@ function CourseArticlePage(props: CourseLevelPageProps) {
 }
 
 export default CourseArticlePage
-
-type ChapterNumberProps = {
-	article: ArticleType.Art
-}
-
-function Header(props: ChapterNumberProps) {
-	const { articleName, number: chapterNum } = props.article.meta
-
-	return (
-		<PageHeader extraClass='course-article-page'>
-			{articleName}
-			<span className='course-article-page__header-num'>
-				<span className='course-article-page__header-num-text'>{chapterNum}</span>
-			</span>
-		</PageHeader>
-	)
-}

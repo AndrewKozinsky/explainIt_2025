@@ -2,15 +2,12 @@
 @use '@/styles/mixins' as mix;
 @use '@/styles/inherit' as inh;
 
-.course-article-page {
-	display: flex;
-	gap: 0.2em;
-	flex-wrap: wrap;
-	align-items: center;
+.course-article-page-header {
+
 }
 
-.course-article-page__header-num {
-	display: flex;
+.course-article-page-header__num {
+	display: inline-flex;
 	justify-content: center;
 	align-items: center;
 	background-color: vars.$grayColor-3;
@@ -18,10 +15,10 @@
 	min-width: 0.4em;
 	padding: 0.04em 0.2em;
 	border-radius: 0.4em;
-	transform: translateY(0.07em);
 }
 
-.course-article-page__header-num-text {
+.course-article-page-header__num-text {
+
 	font-size: 0.7em;
 	line-height: 0.7em;
 	font-weight: 300;
