@@ -8,6 +8,7 @@ const adverb: ArticleType.Art = {
 		name: 'Наречие',
 		description:
 			'Изучим как составлять предложения в грамматическом времени Present Simple для местоимений третьего лица.',
+		keywords: '',
 	},
 	content: [exercises_1],
 }
