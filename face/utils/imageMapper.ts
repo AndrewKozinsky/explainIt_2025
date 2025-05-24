@@ -84,6 +84,10 @@ export const imageMapper = {
 			src: '/schemasAndTables/PresentSimpleQuestionTable.svg',
 			alt: 'Present Simple Question',
 		},*/
+		ToBePresentAndPast: {
+			src: '/schemasAndTables/ToBePresentAndPastTable.svg',
+			alt: 'To be in Past and Present',
+		},
 	},
 	schemas: {
 		ToBePresentPositive: {

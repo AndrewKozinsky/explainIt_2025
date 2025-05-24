@@ -26,317 +26,6 @@
 			],
 		},
 		/!*{ type: 'customComponent', component: <ToBePastTable /> },*!/
-		{
-			type: 'paragraph',
-			offset: true,
-
-			children: [
-				{
-					type: 'text',
-					text: 'В русском языке глагол «есть» уже явно присутствует в прошедшем времени в виде формы «был/была/было/были».',
-				},
-			],
-		},
-		{
-			type: 'paragraph',
-
-			textSize: 'giant',
-			children: [
-				{ type: 'text',  text: 'Я ' },
-				{ type: 'text', color: 'blue', text: 'был' },
-				{ type: 'text',  text: ' космонавтом.' },
-				{ type: 'text',  text: 'I ' },
-				{ type: 'text', color: 'blue', text: 'was' },
-				{ type: 'text',  text: ' a spaceman.' },
-			],
-		},
-		{
-			type: 'paragraph',
-
-			textSize: 'giant',
-			children: [
-				{ type: 'text',  text: 'Они ' },
-				{ type: 'text', color: 'blue', text: 'были' },
-				{ type: 'text',  text: ' клоунами.' },
-
-				{ type: 'text',  text: 'They ' },
-				{ type: 'text', color: 'blue', text: 'were' },
-				{ type: 'text',  text: ' clowns.' },
-			],
-		},
-		{
-			type: 'paragraph',
-
-			textSize: 'giant',
-			children: [
-				{ type: 'text',  text: 'Он ' },
-				{ type: 'text', color: 'blue', text: 'был' },
-				{ type: 'text',  text: ' щенком.' },
-
-				{ type: 'text',   text: 'It ' },
-				{ type: 'text', color: 'blue',  text: 'was' },
-				{ type: 'text',   text: ' a puppy.' },
-			],
-		},
-		{
-			type: 'paragraph',
-
-			textSize: 'small',
-			children: [
-				{
-					type: 'text',
-					color: 'gray',
-					text: 'Предложение «Это был щенком» на русском звучит неестественно. Поэтому заменил на «он». Но в английском всё равно будет переводиться через it потому что he и she используются как местоимения для людей. Животные и неодушевлённые предметы называются через it.',
-				},
-			],
-		},
-		{
-			type: 'note',
-			noteStyle: 'gray',
-			children: [
-				{
-					type: 'paragraph',
-
-					children: [
-						{ type: 'text', color: 'blue',  text: 'Was' },
-						{
-							type: 'text',
-							text: ' ставится перед подлежащим единственного числа, а ',
-						},
-						{ type: 'text', color: 'blue',  text: 'were' },
-						{
-							type: 'text',
-							text: ' множественного. Как и в русском для единственного говорим «был», а для множественного «были». Даже по количеству букв слова совпадают.',
-						},
-					],
-				},
-			],
-		},
-		{
-			type: 'paragraph',
-			offset: true,
-
-			children: [
-				{
-					type: 'text',
-
-					text: 'Попробуйте перевести предложения в прошедшем времени.',
-				},
-			],
-		},
-		{
-			type: 'exercises',
-			id: 1,
-			exercises: [
-				{
-					rusSentence: 'Она была врачом.',
-					engSentences: [{ engSentences: ['She was a doctor.'], isCorrect: true }],
-					words: [{ rusWord: 'врач', engWord: 'doctor' }],
-				},
-				{
-					rusSentence: 'Он был слесарем.',
-					engSentences: [{ engSentences: ['He was a mechanic.'], isCorrect: true }],
-					words: [{ rusWord: 'слесарь', engWord: 'mechanic' }],
-				},
-				{
-					rusSentence: 'В то время я был ученым.',
-					engSentences: [{ engSentences: ['At that time, I was a scientist.'], isCorrect: true }],
-					words: [
-						{ rusWord: 'в то время', engWord: 'at that time' },
-						{ rusWord: 'ученый', engWord: 'scientist' },
-					],
-				},
-				{
-					rusSentence: 'Они были детьми.',
-					engSentences: [{ engSentences: ['They were children.'], isCorrect: true }],
-					words: [{ rusWord: 'дети', engWord: 'children' }],
-				},
-				{
-					rusSentence: 'Это было испытанием.',
-					engSentences: [{ engSentences: ['It was a challenge.'], isCorrect: true }],
-					words: [{ rusWord: 'испытание', engWord: 'challenge' }],
-				},
-				{
-					rusSentence: 'Я был ребёнком в глубине души.',
-					engSentences: [{ engSentences: ['I was a child at heart.'], isCorrect: true }],
-					words: [
-						{ rusWord: 'ребёнок', engWord: 'child' },
-						{
-							note: 'Буквально переводится «в сердце»',
-							rusWord: 'в глубине души',
-							engWord: 'at heart',
-						},
-					],
-				},
-				{
-					rusSentence: 'Он был совершенно один.',
-					engSentences: [{ engSentences: ['He was completely alone.'], isCorrect: true }],
-					words: [
-						{ rusWord: 'совершенно', engWord: 'completely' },
-						{
-							note: 'В значении «быть в одиночестве», а не число 1.',
-							rusWord: 'один',
-							engWord: 'alone',
-						},
-					],
-				},
-				{
-					rusSentence: 'Она была профессионалом.',
-					engSentences: [
-						{ engSentences: ['She was a professional.'], isCorrect: true },
-						{
-							engSentences: ['She was professional.'],
-							isCorrect: false,
-							analysis: [
-								{
-									type: 'paragraph',
-
-									children: [
-										{
-											type: 'text',
-
-											text: 'Перед существительными в единственном числе нужно ставить артикль ',
-										},
-										{
-											type: 'text',
-											color: 'blue',
-
-											text: 'a',
-										},
-										{
-											type: 'text',
-
-											text: '. Подробнее о его назначении будет рассказано в следующей главе.',
-										},
-									],
-								},
-							],
-						},
-					],
-					words: [{ rusWord: 'профессионал', engWord: 'professional' }],
-				},
-				{
-					rusSentence: 'Я был трудоголиком в лучшие времена.',
-					engSentences: [
-						{
-							engSentences: ['I was a workaholic in the best of times.'],
-							isCorrect: true,
-						},
-					],
-					words: [
-						{ rusWord: 'трудоголик', engWord: 'workaholic' },
-						{ rusWord: 'в лучшие времена', engWord: 'in the best of times' },
-					],
-				},
-				{
-					rusSentence: 'Они были строителями днём, и грабителями ночью.',
-					engSentences: [
-						{
-							engSentences: ['They were builders at day and robbers at night.'],
-							isCorrect: true,
-						},
-						{
-							engSentences: ['They were builders by day and robbers by night.'],
-							isCorrect: false,
-							analysis: [
-								{
-									type: 'paragraph',
-
-									children: [
-										{
-											type: 'text',
-
-											text: 'Предложение составлено правильно за исключением предлогов ',
-										},
-										{
-											type: 'text',
-											color: 'blue',
-
-											text: 'by',
-										},
-										{
-											type: 'text',
-
-											text: '. Предлог ',
-										},
-										{
-											type: 'text',
-											color: 'blue',
-
-											text: 'by',
-										},
-										{
-											type: 'text',
-
-											text: ' употребляется когда указывают время ',
-										},
-										{
-											type: 'text',
-
-											weight: 'bold',
-											text: 'до которого ',
-										},
-										{
-											type: 'text',
-
-											text: 'событие произошло или произойдёт.',
-										},
-									],
-								},
-								{
-									type: 'paragraph',
-
-									textSize: 'big',
-									children: [
-										{
-											type: 'text',
-
-											text: 'Он уйдёт к утру',
-										},
-										{
-											type: 'text',
-											color: 'gray',
-
-											text: ' (утром его уже не будет)',
-										},
-										{
-											type: 'text',
-
-											text: '.',
-										},
-
-										{
-											type: 'text',
-
-											text: 'He will go by morning.',
-										},
-									],
-								},
-								{
-									type: 'paragraph',
-									offset: true,
-
-									children: [
-										{
-											type: 'text',
-
-											text: 'А у нас указывается время когда событие произойдёт. Тут лучше подходить предлог at.',
-										},
-									],
-								},
-							],
-						},
-					],
-					words: [
-						{ rusWord: 'строители', engWord: 'builders' },
-						{ rusWord: 'грабители', engWord: 'robbers' },
-						{ rusWord: 'днём', engWord: 'at day' },
-						{ rusWord: 'ночью', engWord: 'at night' },
-					],
-				},
-			],
-			offset: true,
-		},
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'В будущем' },
 		{
 			type: 'paragraph',
@@ -380,7 +69,6 @@
 				},
 				{
 					type: 'paragraph',
-
 					textSize: 'giant',
 					children: [
 						{ type: 'text',   text: 'Я ' },
@@ -392,7 +80,6 @@
 				},
 				{
 					type: 'paragraph',
-
 					textSize: 'giant',
 					children: [
 						{ type: 'text',   text: 'Я ' },
@@ -404,7 +91,6 @@
 				},
 				{
 					type: 'paragraph',
-
 					textSize: 'giant',
 					children: [
 						{ type: 'text',   text: 'Я ' },
@@ -419,13 +105,11 @@
 		{
 			type: 'paragraph',
 			offset: true,
-
 			children: [
 				{ type: 'text',   text: 'Модальный глагол ' },
 				{ type: 'text', color: 'blue',  text: 'will' },
 				{
 					type: 'text',
-
 					text: ' означает «изволить что-то сделать».',
 				},
 			],
@@ -433,12 +117,10 @@
 		{
 			type: 'paragraph',
 			offset: true,
-
 			children: [{ type: 'text',   text: 'Переведу предложение:' }],
 		},
 		{
 			type: 'paragraph',
-
 			textSize: 'giant',
 			children: [
 				{ type: 'text',   text: 'Я буду космонавтом.' },
@@ -456,19 +138,16 @@
 			children: [
 				{
 					type: 'text',
-
 					text: 'Сказуемое тут — это глагол ',
 				},
 				{ type: 'text', color: 'gold',  text: 'will' },
 				{
 					type: 'text',
-
 					text: '. Сказуемое всегда должно стоять во временной форме, вы это уже видели при разборе предложений в настоящем и прошедшем времени. Так как предложение в настоящем времени, то will будет в форме настоящего времени. И дальше должно идти действие, которе я изволяю совершить: ',
 				},
 				{ type: 'text', color: 'gold',  text: 'бытие' },
 				{
 					type: 'text',
-
 					text: '. Это дополнение. Дословно можно перевести как «Я ',
 				},
 				{ type: 'text', color: 'blue',  text: 'изволю' },

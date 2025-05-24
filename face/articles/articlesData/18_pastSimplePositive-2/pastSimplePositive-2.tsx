@@ -283,7 +283,16 @@ const pastSimplePositive2: ArticleType.Art = {
 			eng: [
 				{
 					type: 'text',
-					text: 'I understood this question.',
+					text: 'I ',
+				},
+				{
+					type: 'text',
+					text: 'understood',
+					color: 'blue',
+				},
+				{
+					type: 'text',
+					text: ' this question.',
 				},
 			],
 		},
@@ -307,7 +316,11 @@ const pastSimplePositive2: ArticleType.Art = {
 			type: 'rusToEng',
 			textSize: 'giant',
 			rus: [{ type: 'text', text: 'Он дал мне ключ.' }],
-			eng: [{ type: 'text', text: 'He gave me a key.' }],
+			eng: [
+				{ type: 'text', text: 'He ' },
+				{ type: 'text', text: 'gave', color: 'blue' },
+				{ type: 'text', text: ' me a key.' },
+			],
 		},
 		{
 			type: 'paragraph',

@@ -2740,7 +2740,7 @@ export const transcriptions = {
 
 	masha_is_just_a_hysterical_fool_and_sasha_is_a_narcissistic_idiot: {
 		sentence: 'Masha is just a hysterical fool and Sasha is a narcissistic idiot.',
-		transcription: '',
+		transcription: '/məʃə ɪz dʒʌst ə ˈhɪst.ər.ɪ.kəl fʊl ənd səʃə ɪz ə nɑːˈsɪs.tɪk ɪ.d.ət',
 		audio: false,
 	},
 
@@ -3351,7 +3351,7 @@ export const transcriptions = {
 	},
 
 	this_love_is_difficult_but_its_real: {
-		sentence: 'This love is difficult, but it\'s real.',
+		sentence: "This love is difficult, but it's real.",
 		transcription: 'ðɪs lʌv ɪz dɪˈfɪkəlt, bət ɪtˈs rɪəl',
 		audio: false,
 	},
@@ -3387,7 +3387,7 @@ export const transcriptions = {
 	},
 
 	is_this_a_pencil_no_its_a_pen: {
-		sentence: 'Is this a pencil? No, it\'s a pen.',
+		sentence: "Is this a pencil? No, it's a pen.",
 		transcription: 'is ˈðɪs ə ˈpɛn.ɫ.səʊ ˈnəʊ ɪt ɪz ə ˈpɛn',
 		audio: false,
 	},
@@ -3749,6 +3749,372 @@ export const transcriptions = {
 	this_is_not_your_footsteps: {
 		sentence: 'This is not your footsteps.',
 		transcription: 'ðɪs ɪz nɒt jɔː fʊt.stiːps',
+		audio: false,
+	},
+
+	you_have_a_toothache: {
+		sentence: 'You have a toothache.',
+		transcription: 'ju həv eɪ tuː.θ.eɪk',
+		audio: false,
+	},
+
+	such_cases_occur_all_the_time: {
+		sentence: 'Such cases occur all the time.',
+		transcription: 'sʌtʃ keɪz ɒkər ɔl ðə taɪm',
+		audio: false,
+	},
+
+	crocodiles_are_very_dangerous: {
+		sentence: 'Crocodiles are very dangerous.',
+		transcription: 'kɹɒkəˈdaɪ.əlz ɑː ˈvɛ.ɹi ˈdæn.dʒər.əs',
+		audio: false,
+	},
+
+	i_and_misha_are_friends: {
+		sentence: 'I and Misha are friends.',
+		transcription: 'aɪ ˈænd ˈmɪʃ.ə ˈɑːr ˈfrendz.',
+		audio: false,
+	},
+
+	skyscrapers_are_always_tall: {
+		sentence: 'Skyscrapers are always tall.',
+		transcription: 'ˈskaɪ.skræ.bərz ɑː ˈɔː.lwəz tɔː',
+		audio: false,
+	},
+
+	my_mental_health_is_not_good: {
+		sentence: 'My mental health is not good.',
+		transcription: 'maɪ ˈmɛn.təl ˈhɛlθ ɪz nɒt ˈɡʊd',
+		audio: false,
+	},
+
+	my_mental_health_is_bad: {
+		sentence: 'My mental health is bad.',
+		transcription: 'aɪ ˈmɛn.təl ˈhɛlθ ɪz bæd/\n```',
+		audio: false,
+	},
+
+	do_you_like_my_carrot_cake: {
+		sentence: 'Do you like my carrot cake?',
+		transcription: 'du ju lʌ.ka ma ˈkɑː.rət ˈkeɪk',
+		audio: false,
+	},
+
+	do_you_like_my_new_clothes: {
+		sentence: 'Do you like my new clothes?',
+		transcription: 'du ju lʌ.ka ma nju kləʊz',
+		audio: false,
+	},
+
+	this_course_helped_me: {
+		sentence: 'This course helped me.',
+		transcription: 'ðɪs kɔːs hɛlpt mi',
+		audio: false,
+	},
+
+	they_arrived_home: {
+		sentence: 'They arrived home.',
+		transcription: 'ðeɪ ˈɹo.v.əd həʊm',
+		audio: false,
+	},
+
+	i_understood_this_question: {
+		sentence: 'I understood this question.',
+		transcription: 'aɪ ʌŋ.ˈstʊ.dəd ðɪs ˈkwɒs.ʃən.',
+		audio: false,
+	},
+
+	he_gave_me_a_key: {
+		sentence: 'He gave me a key.',
+		transcription: 'hi ɡeɪ  mi  keɪ',
+		audio: false,
+	},
+
+	the_truck_also_hit_a_school_bus: {
+		sentence: 'The truck also hit a school bus.',
+		transcription: 'ðə trʌk ˈoʊ.lʊ ˈhɪt ə skʌl bʌs',
+		audio: false,
+	},
+
+	my_boss_let_me_take_a_break: {
+		sentence: 'My boss let me take a break.',
+		transcription: 'aɪ ˈbɑs ˈlɛt ˈmi ˈteɪk ə ˈbreɪk/\n```',
+		audio: false,
+	},
+
+	he_gave_his_sister_money: {
+		sentence: 'He gave his sister money.',
+		transcription: 'hi ɡeɪ ɹɪs ˈsɪstər ˈmʌni',
+		audio: false,
+	},
+
+	he_let_me_go: {
+		sentence: 'He let me go.',
+		transcription: 'hi ˈlɛt mi ˈgoʊ',
+		audio: false,
+	},
+
+	my_parents_bought_a_car_last_summer: {
+		sentence: 'My parents bought a car last summer.',
+		transcription: 'maɪ ˈpær.ənts ˈbɔː.t ə ˈkɑː ləst ˈsʌ.mə',
+		audio: false,
+	},
+
+	everything_they_have_is_now_ours: {
+		sentence: 'Everything they have is now ours.',
+		transcription: 'ˈev.ər.ʃɪŋ θɛ ˈhæv ɪz nɔː ˈoʊ.z',
+		audio: false,
+	},
+
+	pam_brought_plastic_plates_cups_and_forks: {
+		sentence: 'Pam brought plastic plates, cups and forks.',
+		transcription: 'pæm bɹəʊt plæstɪk plейт, kʌps ænd fɔːks',
+		audio: false,
+	},
+
+	when_they_left_the_stable_they_saw_the_sheriff: {
+		sentence: 'When they left the stable they saw the sheriff.',
+		transcription: 'wén θey lft ðə stəˈbl ðey sə ðə ˈʃər.əf/\n```',
+		audio: false,
+	},
+
+	our_teacher_corrected_me: {
+		sentence: 'Our teacher corrected me.',
+		transcription: 'aʊr ˈtiː.chə ˈkɝ.kə.ɹ.ɛd mi',
+		audio: false,
+	},
+
+	i_did_all_the_work: {
+		sentence: 'I did all the work.',
+		transcription: 'aɪ dɪd ɔːl ðə wɜːk',
+		audio: false,
+	},
+
+	i_completely_forgot_we_need_eggs_lemons_and_flour: {
+		sentence: 'I completely forgot. We need eggs, lemons and flour.',
+		transcription: 'aɪ kəmˈpliːtlɪ ˈfɔː.gɪt. wi niːd ɪɡz lɪ.mənz ænd flɔː',
+		audio: false,
+	},
+
+	last_night_eva_gave_me_a_box: {
+		sentence: 'Last night Eva gave me a box.',
+		transcription: 'læst nait ˈi.və ˈgæv mi ə ˈbɑks',
+		audio: false,
+	},
+
+	i_even_saw_a_black_cat: {
+		sentence: 'I even saw a black cat.',
+		transcription: 'aɪ ˈi.vən ˈsɔː ə ˈblæk ˈkæt',
+		audio: false,
+	},
+
+	the_door_opened_and_i_went_into_the_house: {
+		sentence: 'The door opened and I went into the house.',
+		transcription: 'ði dɔr ˈəʊp.ən ɑnd aɪ wɔnt ɪntu ði hau.s',
+		audio: false,
+	},
+
+	i_made_a_little_mistake_at_work: {
+		sentence: 'I made a little mistake at work.',
+		transcription: 'aɪ ˈmeɪd ə ˈlɪtl ˈmæ.kɪst æt ˈwɜrk',
+		audio: false,
+	},
+
+	i_bought_shampoo_for_my_sister: {
+		sentence: 'I bought shampoo for my sister.',
+		transcription: 'aɪ ˈbɔː.t ˈʃæm.puː fə ˈmaɪ ˈsɪs.tə',
+		audio: false,
+	},
+
+	he_wore_good_quality_clothes_and_he_had_two_guns_and_a_sword: {
+		sentence: 'He wore good quality clothes and he had two guns and a sword.',
+		transcription: 'hi wɝ ˈgud ˈkwɑl.ə.ti ˈkləʊz ænd hi hæd tu ˈɡʌnz ænd ə ˈsɔːrd',
+		audio: false,
+	},
+
+	he_loved_me_he_loved_my_dress_he_loved_my_name: {
+		sentence: 'He loved me, he loved my dress, he loved my name.',
+		transcription: 'hi lʌv.d mi, hi lʌv.d ma dres, hi lʌv.d ma neim',
+		audio: false,
+	},
+
+	he_really_enjoyed_it: {
+		sentence: 'He really enjoyed it!',
+		transcription: 'hi ˈrə.li ɪˈnʤʊd ɪt',
+		audio: false,
+	},
+
+	it_belonged_to_my_grandmother: {
+		sentence: 'It belonged to my grandmother.',
+		transcription: 'ɪt ˈbɪ.lənd tu ˈmaɪ ˈɡræn.dəm',
+		audio: false,
+	},
+
+	i_am_incredibly_happy: {
+		sentence: 'I am incredibly happy.',
+		transcription: 'aɪ ˈæm ɪn.krɪ.bəl ˈhæ.pi',
+		audio: false,
+	},
+
+	mountains_are_always_majestic: {
+		sentence: 'Mountains are always majestic.',
+		transcription: 'maʊntɪnz ɑr ɛlwɜː məˈdʒɛst.ɪk',
+		audio: false,
+	},
+
+	he_is_a_crazy_scientist: {
+		sentence: 'He is a crazy scientist.',
+		transcription: 'hi ɪz ə ˈkreɪ.zi ˈsaɪ.ən.tɪst',
+		audio: false,
+	},
+
+	i_was_a_spaceman: {
+		sentence: 'I was a spaceman.',
+		transcription: 'aɪ wəz ə spейсмэн',
+		audio: false,
+	},
+
+	they_were_clowns: {
+		sentence: 'They were clowns.',
+		transcription: 'ðeɪ wɜː klauŋz',
+		audio: false,
+	},
+
+	it_was_a_strange_decision: {
+		sentence: 'It was a strange decision.',
+		transcription: 'ɪt wəz ə ˈstrɛɪn dɪˈsɪʒ.ən',
+		audio: false,
+	},
+
+	she_was_a_doctor: {
+		sentence: 'She was a doctor.',
+		transcription: 'ʃiː wə ɑ.dʌkt',
+		audio: false,
+	},
+
+	he_was_a_mechanic: {
+		sentence: 'He was a mechanic.',
+		transcription: 'hi wəz ə məˈkæn.ɪk',
+		audio: false,
+	},
+
+	at_that_time_i_was_a_scientist: {
+		sentence: 'At that time, I was a scientist.',
+		transcription: 'æt ðə θaɪm, aɪ wəz ə ˈsaɪ.ən.tɪst.',
+		audio: false,
+	},
+
+	they_were_children: {
+		sentence: 'They were children.',
+		transcription: 'ðeɪ wɜː ˈtʃɪldrən',
+		audio: false,
+	},
+
+	it_was_a_challenge: {
+		sentence: 'It was a challenge.',
+		transcription: 'ɪt wəz ə ˈtʃæl.lɪʤ',
+		audio: false,
+	},
+
+	i_was_a_child_at_heart: {
+		sentence: 'I was a child at heart.',
+		transcription: 'aɪ wəs ə taɪtʃ ət hɑːrt',
+		audio: false,
+	},
+
+	he_was_completely_alone: {
+		sentence: 'He was completely alone.',
+		transcription: 'hi wə ˈkəm.pliət li ˈə.lən',
+		audio: false,
+	},
+
+	she_was_a_professional: {
+		sentence: 'She was a professional.',
+		transcription: 'ʃi ˈwɒz ə ˈprɒf.ə.ʃəl',
+		audio: false,
+	},
+
+	i_was_a_workaholic_in_the_best_of_times: {
+		sentence: 'I was a workaholic in the best of times.',
+		transcription: 'aɪ wəz ə ˈwɜːk.ə.hɑː.lɪk ɪn ðə best ɒv taɪmz',
+		audio: false,
+	},
+
+	they_were_builders_at_day_and_robbers_at_night: {
+		sentence: 'They were builders at day and robbers at night.',
+		transcription: 'ðeɪ wɜː ˈbɪldəz æt deɪ ænd ˈrɑ.bəz æt naɪt',
+		audio: false,
+	},
+
+	he_was_an_illiterate_person: {
+		sentence: 'He was an illiterate person.',
+		transcription: 'hi wəz ɑn ɪ.ləˈr.ə.tə ˈpɜ.sən',
+		audio: false,
+	},
+
+	he_was_an_illiterate_man: {
+		sentence: 'He was an illiterate man.',
+		transcription: 'hi wəz ən ɪˈlɪtərət mæn',
+		audio: false,
+	},
+
+	it_was_an_exciting_show: {
+		sentence: 'It was an exciting show.',
+		transcription: 'ɪt wəz ən ˈeks.taɪŋ ʃoʊ',
+		audio: false,
+	},
+
+	i_was_somewhere_inside_the_ship: {
+		sentence: 'I was somewhere inside the ship.',
+		transcription: 'aɪ wəˈsʌm wɜːˈsər ɪnˈsaɪd ðə ʃɪp',
+		audio: false,
+	},
+
+	his_questions_were_so_unfair: {
+		sentence: 'His questions were so unfair!',
+		transcription: 'hɪs ˈkwɪʃnz wɜr ɪnˈfɔːr',
+		audio: false,
+	},
+
+	pavel_is_such_a_gentle_man: {
+		sentence: 'Pavel is such a gentle man!',
+		transcription: 'peɪ.vəl ɪz sʌ.ʧ ə dʒənt lən',
+		audio: false,
+	},
+
+	i_think_this_was_the_problem: {
+		sentence: 'I think this was the problem.',
+		transcription: 'aɪ θɪŋk ðɪs wəz ðə ˈprɒbləm.',
+		audio: false,
+	},
+
+	that_is_brilliant: {
+		sentence: 'That is brilliant.',
+		transcription: 'ðæt ɪz brɪˈlɪənt',
+		audio: false,
+	},
+
+	she_is_a_bit_emotional_i_think: {
+		sentence: 'She is a bit emotional, I think.',
+		transcription: 'ʃiː ɪz ə bɪt ɪˈməʃ.əl.ə, aɪ θɪŋk',
+		audio: false,
+	},
+
+	last_night_was_horrible: {
+		sentence: 'Last night was horrible!',
+		transcription: 'lɒst najt wə ˈhɔːr.ə.bəl',
+		audio: false,
+	},
+
+	i_also_organized_a_party_for_michael: {
+		sentence: 'I also organized a party for Michael.',
+		transcription: 'I also organized a party for Michael.»:\n\n**/aɪ ˈlɔː.səʊ ˈɔːɡ.əˌraɪ.zɪd ə ˈpɑː.tɪ fə ˈmaɪ.kəɫ',
+		audio: false,
+	},
+
+	the_captain_was_a_kind_man_but_the_mate_was_not: {
+		sentence: 'The captain was a kind man but the mate was not.',
+		transcription: 'ði ˈkeɪ.pənt wəz ə kɪnd mæn bət ðə ˈmeɪt wəz nɔt/\n```',
 		audio: false,
 	},
 } satisfies Record<string, ITranscription>

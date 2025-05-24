@@ -117,14 +117,6 @@
 					],
 				},
 				{
-					rusSentence: 'Я был где-то внутри корабля.',
-					engSentences: [{ engSentences: ['I was somewhere inside the ship.'], isCorrect: true }],
-					words: [
-						{ rusWord: 'быть уверенным', engWord: 'to be sure' },
-						{ rusWord: 'быть готовым', engWord: 'to be ready' },
-					],
-				},
-				{
 					rusSentence: 'Ты будешь принцем, а я буду принцессой',
 					engSentences: [
 						{

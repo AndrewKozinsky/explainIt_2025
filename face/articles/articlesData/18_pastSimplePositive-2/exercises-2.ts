@@ -5,6 +5,15 @@ const exercises_2: ExercisesType.ExercisesObj = {
 	exercises: [
 		{
 			// TODO
+			rusSentence: 'Наш учитель поправил меня.',
+			engSentences: [{ engSentences: ['Our teacher corrected me.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'давать', engWord: 'give' },
+				{ rusWord: 'популярный', engWord: 'popular' },
+			],
+		},
+		{
+			// TODO
 			rusSentence: 'Я сделал всю работу.',
 			engSentences: [{ engSentences: ['I did all the work.'], isCorrect: true }],
 			words: [

@@ -81,6 +81,48 @@ const exercises_4: ExercisesType.ExercisesObj = {
 				{ rusWord: 'грязный', engWord: 'dirty' },
 			],
 		},
+		{
+			// TODO
+			rusSentence: 'Крокодилы очень опасны.',
+			engSentences: [
+				{
+					engSentences: ['Crocodiles are very dangerous.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'окно', engWord: 'window' },
+				{ rusWord: 'грязный', engWord: 'dirty' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Я и Миша — друзья.',
+			engSentences: [
+				{
+					engSentences: ['I and Misha are friends.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'окно', engWord: 'window' },
+				{ rusWord: 'грязный', engWord: 'dirty' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Небоскрёбы всегда высокие.',
+			engSentences: [
+				{
+					engSentences: ['Skyscrapers are always tall.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'окно', engWord: 'window' },
+				{ rusWord: 'грязный', engWord: 'dirty' },
+			],
+		},
 	],
 }
 

@@ -11,6 +11,15 @@ const exercises_3: ExercisesType.ExercisesObj = {
 				{ rusWord: 'результат', engWord: 'result' },
 			],
 		},
+		{
+			// TODO
+			rusSentence: 'Мой двоюродный брат на этой неделе в отпуске.',
+			engSentences: [{ engSentences: ['My cousin is on holiday this week.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'видеть', engWord: 'see' },
+				{ rusWord: 'результат', engWord: 'result' },
+			],
+		},
 	],
 }
 

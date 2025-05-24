@@ -596,59 +596,6 @@
 					],
 				},
 				{
-					rusSentence: 'Он сумасшедший учёный.',
-					engSentences: [
-						{ engSentences: ['He is a crazy scientist.'], isCorrect: true },
-						{
-							engSentences: ['He is crazy a scientist.'],
-							isCorrect: false,
-							analysis: [
-								{
-									type: 'paragraph',
-
-									children: [
-										{
-											type: 'text',
-
-											text: 'Неопределённый артикль a должен стоять перед связкой прилагательного + существительного. По смыслу выглядит как он сумасшедний, а после прикручено слово «учёный» не понятно к чему относящиеся.',
-										},
-									],
-								},
-							],
-						},
-						{
-							engSentences: ['He be a crazy scientist.'],
-							isCorrect: false,
-							analysis: [
-								{
-									type: 'paragraph',
-
-									children: [
-										{
-											type: 'text',
-
-											text: 'В настоящем времени глагол to be после местоимений he (он), she (она), it (оно, это) будет в форме is. Ставить чистый be грамматически неправильно потому что это форма голого инфинитива. Из этого не понятно в каком времени происходит действие бытия.',
-										},
-									],
-								},
-							],
-						},
-					],
-					words: [
-						{ rusWord: 'сумасшедший', engWord: 'crazy' },
-						{ rusWord: 'учёный', engWord: 'scientist' },
-					],
-				},
-				{
-					rusSentence: 'Горы всегда величественны.',
-					engSentences: [{ engSentences: ['Mountains are always majestic.'], isCorrect: true }],
-					words: [
-						{ rusWord: 'гора', engWord: 'mountain' },
-						{ rusWord: 'всегда', engWord: 'always' },
-						{ rusWord: 'величественный', engWord: 'majestic' },
-					],
-				},
-				{
 					rusSentence: 'Мы часто занятые.',
 					engSentences: [
 						{ engSentences: ['We are often busy.'], isCorrect: true },
@@ -658,33 +605,27 @@
 							analysis: [
 								{
 									type: 'paragraph',
-
 									children: [
 										{
 											type: 'text',
-
 											text: 'Не ',
 										},
 										{
 											type: 'text',
-
 											weight: 'bold',
-											text: 'buzy',
+											text: 'busy',
 										},
 										{
 											type: 'text',
-
 											text: ', а ',
 										},
 										{
 											type: 'text',
 											color: 'blue',
-
 											text: 'busy',
 										},
 										{
 											type: 'text',
-
 											text: '.',
 										},
 									],
@@ -703,7 +644,6 @@
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Прилагательные на -ing и -ed' },
 		{
 			type: 'grid',
-
 			gridId: 'grid-2345',
 			cells: [
 				{
@@ -713,56 +653,47 @@
 						{ type: 'header', tag: 'h4', style: 'h4', text: '-ing' },
 						{
 							type: 'paragraph',
-
 							children: [
 								{
 									type: 'text',
-
 									text: 'Прилагательные с окончанием ',
 								},
 								{ type: 'text', color: 'blue', text: '–ing' },
 								{
 									type: 'text',
-
 									text: ' описывают впечатление, которое производят на человека.',
 								},
 							],
 						},
 						{
 							type: 'paragraph',
-
 							textSize: 'big',
 							children: [
 								{
 									type: 'text',
-
 									text: 'confusing',
 								},
 
 								{
 									type: 'text',
-
 									text: 'смущающий',
 								},
 							],
 						},
 						{
 							type: 'paragraph',
-
 							textSize: 'big',
 							children: [
 								{ type: 'text',  text: 'tiring' },
 
 								{
 									type: 'text',
-
 									text: 'утомительный',
 								},
 							],
 						},
 						{
 							type: 'paragraph',
-
 							textSize: 'big',
 							children: [
 								{

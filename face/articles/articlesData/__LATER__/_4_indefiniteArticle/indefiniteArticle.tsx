@@ -911,59 +911,6 @@
 						{ rusWord: 'взрослый', engWord: 'adult' },
 					],
 				},
-				{
-					rusSentence: 'Это было захватывающее шоу.',
-					engSentences: [
-						{
-							engSentences: ['It was an exciting show.'],
-							isCorrect: true,
-							analysis: [
-								{
-									type: 'paragraph',
-
-									children: [
-										{
-											type: 'text',
-
-											text: 'Верно! Прилагательные с окончанием ',
-										},
-										{
-											type: 'text',
-											color: 'blue',
-
-											text: '-ing',
-										},
-										{
-											type: 'text',
-
-											text: ' описывают впечатление оказываемое на человека.',
-										},
-									],
-								},
-							],
-						},
-					],
-					words: [
-						{ rusWord: 'захватывающее', engWord: 'exciting' },
-						{ rusWord: 'шоу', engWord: 'show' },
-					],
-				},
-				{
-					rusSentence: 'Он был безграмотным человеком.',
-					engSentences: [
-						{ engSentences: ['He was an illiterate person.'], isCorrect: true },
-						{ engSentences: ['He was an illiterate man.'], isCorrect: true },
-					],
-					words: [
-						{
-							note: 'Происходит от literate — грамотный',
-							rusWord: 'безграмотный',
-							engWord: 'illiterate',
-						},
-						{ rusWord: 'человек', engWord: 'person' },
-					],
-				},
-
 			],
 			offset: true,
 		},
