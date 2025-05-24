@@ -13,10 +13,13 @@ const exercises_1: ExercisesType.ExercisesObj = {
 		},
 		{
 			rusSentence: 'Мое психологическое состояние плохое.',
-			engSentences: [{ engSentences: ['My psychology is not well.'], isCorrect: true }],
+			engSentences: [
+				{ engSentences: ['My mental health is not good.'], isCorrect: true },
+				{ engSentences: ['My mental health is bad.'], isCorrect: true },
+			],
 			words: [
-				{ rusWord: 'психологическое состояние', engWord: 'psychology' },
-				{ rusWord: 'здоровый, в удовлетворительном состоянии', engWord: 'well' },
+				{ rusWord: 'психологическое состояние', engWord: 'mental health' },
+				{ rusWord: 'плохой', engWord: 'bad' },
 			],
 		},
 		{
@@ -123,16 +126,17 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			words: [{ rusWord: 'яйцо', engWord: 'egg' }],
 		},
 		{
-			// TODO
 			rusSentence: 'Он мой друг по переписке.',
 			engSentences: [{ engSentences: ['He is my pen friend.'], isCorrect: true }],
-			words: [{ rusWord: 'яйцо', engWord: 'egg' }],
+			words: [{ rusWord: 'друг по переписке', engWord: 'pen friend' }],
 		},
 		{
-			// TODO
 			rusSentence: 'Твоё такси здесь.',
 			engSentences: [{ engSentences: ['Your taxi is here.'], isCorrect: true }],
-			words: [{ rusWord: 'яйцо', engWord: 'egg' }],
+			words: [
+				{ rusWord: 'такси', engWord: 'taxi' },
+				{ rusWord: 'здесь', engWord: 'here' },
+			],
 		},
 		{
 			// TODO
@@ -173,6 +177,28 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			engSentences: [
 				{
 					engSentences: ['My mun does not understand me.'],
+					isCorrect: true,
+				},
+			],
+			words: [{ rusWord: 'яйцо', engWord: 'egg' }],
+		},
+		{
+			// TODO
+			rusSentence: 'Вам нравится мой морковный торт?',
+			engSentences: [
+				{
+					engSentences: ['Do you like my carrot cake?'],
+					isCorrect: true,
+				},
+			],
+			words: [{ rusWord: 'яйцо', engWord: 'egg' }],
+		},
+		{
+			// TODO
+			rusSentence: 'Вам нравится моя новая одежда?',
+			engSentences: [
+				{
+					engSentences: ['Do you like my new clothes?'],
 					isCorrect: true,
 				},
 			],

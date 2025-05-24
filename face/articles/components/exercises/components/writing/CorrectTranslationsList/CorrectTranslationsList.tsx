@@ -47,7 +47,7 @@ function TranscriptionBlock(props: TranscriptionBlockProps) {
 	const { engSentence } = props
 
 	const engTranscription = useGetEngTranscription(engSentence)
-	if (!engTranscription) {
+	if (!engTranscription?.transcription) {
 		return null
 	}
 

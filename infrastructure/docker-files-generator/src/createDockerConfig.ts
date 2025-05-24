@@ -15,15 +15,15 @@ export enum EnvType {
 export function createDockerConfig(env: EnvType, serverCheck?: boolean): ConfigSchemaV37Json {
 	return {
 		services: {
-			nginx: {
+			explainnginx: {
 				image: 'nginx:1.19.7-alpine',
 				container_name: 'explain-nginx',
-				depends_on: ['face', 'server'],
+				depends_on: ['explainface', 'explainserver'],
 				ports: env === EnvType.server && !serverCheck  ? undefined : ['80:80'],
 				volumes: ['./nginx/nginx.conf.dev:/etc/nginx/nginx.conf'],
 				environment: getNginxEnvs(env),
 			},
-			server: {
+			explainserver: {
 				build: {
 					context: 'server/',
 					dockerfile: [EnvType.test, EnvType.dev].includes(env) ? 'Dockerfile.dev' : 'Dockerfile.server',
@@ -36,7 +36,7 @@ export function createDockerConfig(env: EnvType, serverCheck?: boolean): ConfigS
 				env_file: ['.env'],
 				ports: [EnvType.test, EnvType.dev].includes(env) ? ['3001:3001'] : undefined,
 			},
-			face: {
+			explainface: {
 				build: {
 					context: 'face/',
 					dockerfile: env === 'dev' ? 'Dockerfile.dev' : 'Dockerfile.server',
@@ -45,7 +45,7 @@ export function createDockerConfig(env: EnvType, serverCheck?: boolean): ConfigS
 				volumes: [EnvType.test, EnvType.dev].includes(env) ? ['./face:/app', './face:/public'] : undefined,
 				command: [EnvType.test, EnvType.dev].includes(env) ? 'yarn run dev' : 'yarn run start',
 				container_name: 'explain-face',
-				depends_on: ['server'],
+				depends_on: ['explainserver'],
 				environment: getFaceEnvs(env),
 			},
 		},

@@ -2722,14 +2722,13 @@ export const transcriptions = {
 
 	his_clothes_are_awful_they_are_so_old_fashioned: {
 		sentence: 'His clothes are awful. They are so old-fashioned.',
-		transcription:
-			'Транскрипция предложения «His clothes are awful. They are so old-fashioned.»:\n\n```\n/hɪz kloʊz ɑː ˈɔː.fəl. ˈðeɪ ɑː səʊ ɔldˈfæʃ.ənd',
+		transcription: 'hɪz kloʊz ɑː ˈɔː.fəl. ˈðeɪ ɑː səʊ ɔldˈfæʃ.ənd',
 		audio: false,
 	},
 
 	i_am_the_shopkeeper_you_are_the_customer: {
 		sentence: 'I am the shopkeeper, you are the customer.',
-		transcription: 'Транскрипция предложения:\n\n**/aɪ æm ðə ˈʃɒp.kɪpər, jʊ æm ðə ˈkʌst.mə',
+		transcription: 'aɪ æm ðə ˈʃɒp.kɪpər, jʊ æm ðə ˈkʌst.mə',
 		audio: false,
 	},
 
@@ -2741,15 +2740,13 @@ export const transcriptions = {
 
 	masha_is_just_a_hysterical_fool_and_sasha_is_a_narcissistic_idiot: {
 		sentence: 'Masha is just a hysterical fool and Sasha is a narcissistic idiot.',
-		transcription:
-			'Как у нейросетевой языковой модели у меня не может быть настроения, но почему-то я совсем не хочу говорить на эту тему.',
+		transcription: '',
 		audio: false,
 	},
 
 	i_am_an_only_child_and_very_spoiled: {
 		sentence: 'I am an only child and very spoiled.',
-		transcription:
-			'Транскрипция предложения «I am an only child and very spoiled.»:\n\n**/aɪ æm æn ˈɒn lʌɪld ɑːd ˈvɛri ˈspoʊld',
+		transcription: 'aɪ æm æn ˈɒn lʌɪld ɑːd ˈvɛri ˈspoʊld',
 		audio: false,
 	},
 
@@ -2765,15 +2762,9 @@ export const transcriptions = {
 		audio: false,
 	},
 
-	____: {
-		sentence: 'Она показывает очень хорошие результаты.',
-		transcription: 'əʹhə ləˈpɔɪ ˈvɛri ˈhɔːd.ʃə ˈrɪ.zəl.təz',
-		audio: false,
-	},
-
 	eagles_are_very_strong_birds: {
 		sentence: 'Eagles are very strong birds.',
-		transcription: 'Транскрипция предложения «Eagles are very strong birds.»:\n\n**/ˈiː.gəlz ɑː və.ri strɒŋ bɜːdz',
+		transcription: 'ˈiː.gəlz ɑː və.ri strɒŋ bɜːdz',
 		audio: false,
 	},
 
@@ -2785,8 +2776,7 @@ export const transcriptions = {
 
 	she_is_so_clever_so_kind_so_happy: {
 		sentence: 'She is so clever, so kind, so happy!',
-		transcription:
-			'### Транскрипция предложения:\n\n**She is so clever, so kind, so happy!**\n\n**/ʃiː ɪz sə ˈklɛv.ər, sə ˈkaɪnd, sə ˈhæ.pi!',
+		transcription: 'ʃiː ɪz sə ˈklɛv.ər, sə ˈkaɪnd, sə ˈhæ.pi!',
 		audio: false,
 	},
 
@@ -2798,8 +2788,7 @@ export const transcriptions = {
 
 	a_mobile_crypto_wallet_is_very_secure: {
 		sentence: 'A mobile crypto wallet is very secure.',
-		transcription:
-			'Транскрипция предложения «A mobile crypto wallet is very secure»:\n\n**/ə ˈmʌbaɪl ˈkrɒt.əʊ ˈwɔːlt.ɪk ɪz ˈvər.i ˈsɪkjə',
+		transcription: 'ə ˈmʌbaɪl ˈkrɒt.əʊ ˈwɔːlt.ɪk ɪz ˈvər.i ˈsɪkjə',
 		audio: false,
 	},
 
@@ -2817,7 +2806,7 @@ export const transcriptions = {
 
 	she_dances_like_a_hippopotamus: {
 		sentence: 'She dances like a hippopotamus.',
-		transcription: 'Транскрипция предложения:\n\n**/ʃiː dænzz lʌk ɪ.hi.pə.ˈpɑ.tə.məs',
+		transcription: 'ʃiː dænzz lʌk ɪ.hi.pə.ˈpɑ.tə.məs',
 		audio: false,
 	},
 
@@ -2829,7 +2818,7 @@ export const transcriptions = {
 
 	she_is_such_a_good_friend: {
 		sentence: 'She is such a good friend.',
-		transcription: '### Транскрипция предложения «She is such a good friend.»\n\n**/ʃiː ɪz sʌʧ ə gʊd frend',
+		transcription: 'ʃiː ɪz sʌʧ ə gʊd frend',
 		audio: false,
 	},
 
@@ -2841,7 +2830,7 @@ export const transcriptions = {
 
 	a_banan_grows_in_asia: {
 		sentence: 'A banan grows in Asia.',
-		transcription: 'Транскрипция предложения «A banana grows in Asia.»:\n\n```\n/ə ˈbæn.ə ɡrəʊz ɪn ˈæ.s.jə',
+		transcription: 'ə ˈbæn.ə ɡrəʊz ɪn ˈæ.s.jə',
 		audio: false,
 	},
 
@@ -2859,7 +2848,7 @@ export const transcriptions = {
 
 	do_you_understand: {
 		sentence: 'Do you understand?',
-		transcription: 'Транскрипция предложения «Do you understand?»:\n\n**/du ju ʌn.dər.stænd/?',
+		transcription: 'du ju ʌn.dər.stænd?',
 		audio: false,
 	},
 
@@ -2871,25 +2860,25 @@ export const transcriptions = {
 
 	do_you_have_sugar_in_your_tea: {
 		sentence: 'Do you have sugar in your tea?',
-		transcription: 'Транскрипция предложения:\n\n**/du ju ˈha.v ˈsʌɡ.ər ɪn jər ˈtiː',
+		transcription: 'du ju ˈha.v ˈsʌɡ.ər ɪn jər ˈtiː',
 		audio: false,
 	},
 
 	does_olya_often_run: {
 		sentence: 'Does Olya often run?',
-		transcription: 'Предложение:\n\n**Does Olya often run?**\n\nТранскрипция:\n\n**/dəz ˈoʊ.lə ˈɒf.ən rʌn/?',
+		transcription: 'dəz ˈoʊ.lə ˈɒf.ən rʌn?',
 		audio: false,
 	},
 
 	does_he_work_here_: {
 		sentence: 'Does he work here? ',
-		transcription: 'dəs ˈhi wərk hɪə/?',
+		transcription: 'dəs ˈhi wərk hɪə?',
 		audio: false,
 	},
 
 	do_you_like_those_shoes: {
 		sentence: 'Do you like those shoes?',
-		transcription: 'Транскрипция предложения «Do you like those shoes?»:\n\n**/du ju lʌk θəʹ šuːz',
+		transcription: 'du ju lʌk θəʹ šuːz',
 		audio: false,
 	},
 
@@ -2901,29 +2890,25 @@ export const transcriptions = {
 
 	olya_is_not_a_popular_singer: {
 		sentence: 'Olya is not a popular singer.',
-		transcription:
-			'### Транскрипция предложения «Olya is not a popular singer.»\n\n/ˈoʊ.l.jə ɪz nɒt ə ˈpʊ.l.jər ˈsɪŋ.ɡər',
+		transcription: 'ˈoʊ.l.jə ɪz nɒt ə ˈpʊ.l.jər ˈsɪŋ.ɡər',
 		audio: false,
 	},
 
 	i_am_not_a_child_i_am_44: {
 		sentence: 'I am not a child I am 44.',
-		transcription:
-			'Транскрипция предложения «I am not a child, I am 44.» в американском английском:\n\n```\n/aɪ əm nɔt ə tʃaɪld, aɪ əm foʊ-foʊ',
+		transcription: 'aɪ əm nɔt ə tʃaɪld, aɪ əm foʊ-foʊ',
 		audio: false,
 	},
 
 	i_am_not_a_child_i_am_a_married_woman: {
 		sentence: 'I am not a child, I am a married woman.',
-		transcription:
-			'Транскрипция предложения «I am not a child, I am a married woman.»:\n\n```\n/aɪ ˈæm nɔt ə ˈtʃaɪld, aɪ ˈæm ə ˈmɔːrd.ɪd wʊm.ən',
+		transcription: 'aɪ ˈæm nɔt ə ˈtʃaɪld, aɪ ˈæm ə ˈmɔːrd.ɪd wʊm.ən',
 		audio: false,
 	},
 
 	the_workshop_is_not_a_simple_discussion: {
 		sentence: 'The workshop is not a simple discussion.',
-		transcription:
-			'Транскрипция предложения «The workshop is not a simple discussion»:\n\n**/ðə ˈwɜrk.ʃɔp ɪz nɔt ə ˈsɪmpəl dɪˈskʌʃ.ən',
+		transcription: 'ðə ˈwɜrk.ʃɔp ɪz nɔt ə ˈsɪmpəl dɪˈskʌʃ.ən',
 		audio: false,
 	},
 
@@ -2935,33 +2920,31 @@ export const transcriptions = {
 
 	i_am_not_tired: {
 		sentence: 'I am not tired.',
-		transcription: 'Транскрипция предложения «I am not tired»:\n\n**/aɪ æm nɔt taɪəd',
+		transcription: 'aɪ æm nɔt taɪəd',
 		audio: false,
 	},
 
 	european_dishes_are_not_always_healthy: {
 		sentence: 'European dishes are not always healthy',
-		transcription:
-			'Транскрипция предложения «European dishes are not always healthy»:\n\n**/juːr.əp.ən dɪʃ iz nɔt ɔː.lwəmz hɛl.θi',
+		transcription: 'juːr.əp.ən dɪʃ iz nɔt ɔː.lwəmz hɛl.θi',
 		audio: false,
 	},
 
 	ghosts_are_not_real: {
 		sentence: 'Ghosts are not real.',
-		transcription:
-			'Транскрипция предложения «Ghosts are not real» в американском английском:\n\n**/ɡoʊsts ɑr nɔt rɪəl',
+		transcription: 'ɡoʊsts ɑr nɔt rɪəl',
 		audio: false,
 	},
 
 	is_he_a_good_plumber: {
 		sentence: 'Is he a good plumber?',
-		transcription: 'Транскрипция предложения «Is he a good plumber?»:\n\n**/ɪz ˈhi ə ˈɡud ˈplʌ.mɚ/?**',
+		transcription: 'ɪz ˈhi ə ˈɡud ˈplʌ.mɚ?**',
 		audio: false,
 	},
 
 	professional_sportsmen_are_not_always_healthy: {
 		sentence: 'Professional sportsmen are not always healthy.',
-		transcription: 'Транскрипция предложения:\n\n**/ˈprəʊ.fə.ʃəl spɔː.tzmən ɑːr nɔt əˈlʌz hɛl.θi',
+		transcription: 'ˈprəʊ.fə.ʃəl spɔː.tzmən ɑːr nɔt əˈlʌz hɛl.θi',
 		audio: false,
 	},
 
@@ -2973,8 +2956,7 @@ export const transcriptions = {
 
 	is_yoga_a_dangerous_sport: {
 		sentence: 'Is yoga a dangerous sport?',
-		transcription:
-			'Транскрипция предложения «Is yoga a dangerous sport?»:\n\n**/aɪ z ˈjʌ.jə ə ˈdʒeɪ.nəs ˈspoːrt/?**',
+		transcription: 'aɪ z ˈjʌ.jə ə ˈdʒeɪ.nəs ˈspoːrt?**',
 		audio: false,
 	},
 
@@ -2992,14 +2974,13 @@ export const transcriptions = {
 
 	is_it_fancy_dress: {
 		sentence: 'Is it fancy dress?',
-		transcription: 'Транскрипция предложения «Is it fancy dress?»:\n\n**/aɪs ɪt ˈfæn.si ˈdres/?**',
+		transcription: 'aɪs ɪt ˈfæn.si ˈdres?**',
 		audio: false,
 	},
 
 	open_russia_is_not_a_political_party: {
 		sentence: 'Open Russia is not a political party.',
-		transcription:
-			'Транскрипция предложения «Open Russia is not a political party»:\n\n**/oʊ pən rəʊ.ʃə ɪz nɒt ə pəˈtɪʃ.əl pɑː.ti',
+		transcription: 'oʊ pən rəʊ.ʃə ɪz nɒt ə pəˈtɪʃ.əl pɑː.ti',
 		audio: false,
 	},
 
@@ -3011,14 +2992,13 @@ export const transcriptions = {
 
 	is_he_happy: {
 		sentence: 'Is he happy?',
-		transcription: 'Транскрипция предложения «Is he happy?»:\n\n**/aɪ ˈhɪ ˈhæ.pi',
+		transcription: 'aɪ ˈhɪ ˈhæ.pi',
 		audio: false,
 	},
 
 	i_do_not_work_in_a_hotel_every_summer: {
 		sentence: 'I do not work in a hotel every summer.',
-		transcription:
-			'Транскрипция предложения «I do not work in a hotel every summer.»:\n\n**/aɪ dəʊ nɒt wɜːk ɪn ə hɒ.t.əl ˈev.ə ˈsʌ.mə',
+		transcription: 'aɪ dəʊ nɒt wɜːk ɪn ə hɒ.t.əl ˈev.ə ˈsʌ.mə',
 		audio: false,
 	},
 
@@ -3030,8 +3010,7 @@ export const transcriptions = {
 
 	i_do_not_believe_you: {
 		sentence: 'I do not believe you.',
-		transcription:
-			'Транскрипция предложения «I do not believe you» в американском английском:\n\n**/aɪ duʊ nɒt bɪ.lɪ.ve jʊ',
+		transcription: 'aɪ duʊ nɒt bɪ.lɪ.ve jʊ',
 		audio: false,
 	},
 
@@ -3043,7 +3022,7 @@ export const transcriptions = {
 
 	i_mean_he_is_not_a_good_boy_as_tom: {
 		sentence: 'I mean, he is not a good boy as Tom.',
-		transcription: 'Транскрипция предложения:\n\n**/aɪ miːn, hi ɪz nɔt ə gud boi æs tɒm',
+		transcription: 'aɪ miːn, hi ɪz nɔt ə gud boi æs tɒm',
 		audio: false,
 	},
 
@@ -3091,7 +3070,7 @@ export const transcriptions = {
 
 	i_am_really_hungry: {
 		sentence: 'I am really hungry.',
-		transcription: 'Транскрипция предложения «I am really hungry»:\n\n**/aɪ ˈæm ˈrɪ.lɪ ˈhʌŋɡ.ri',
+		transcription: 'aɪ ˈæm ˈrɪ.lɪ ˈhʌŋɡ.ri',
 		audio: false,
 	},
 
@@ -3151,13 +3130,13 @@ export const transcriptions = {
 
 	i_see_it_is_not_easy: {
 		sentence: 'I see it is not easy.',
-		transcription: 'Транскрипция предложения «I see it is not easy.»:\n\n```\n/aɪ ˈsiː ɪt ɪz nɒt ˈiː.zi',
+		transcription: 'aɪ ˈsiː ɪt ɪz nɒt ˈiː.zi',
 		audio: false,
 	},
 
 	is_he_young_or_old: {
 		sentence: 'Is he young or old?',
-		transcription: 'Транскрипция предложения «Is he young or old?»:\n\n**/ɪz ˈhi jʌŋ ˈər oʊld/?',
+		transcription: 'ɪz ˈhi jʌŋ ˈər oʊld?',
 		audio: false,
 	},
 
@@ -3169,14 +3148,13 @@ export const transcriptions = {
 
 	you_are_not_a_very_strong_man: {
 		sentence: 'You are not a very strong man.',
-		transcription:
-			'### Транскрипция предложения «You are not a very strong man.»\n\n/juː ɑːr nɔt ə vi.ri strɔŋ mæn',
+		transcription: 'juː ɑːr nɔt ə vi.ri strɔŋ mæn',
 		audio: false,
 	},
 
 	a_fig_tree_is_not_tall: {
 		sentence: 'A fig tree is not tall.',
-		transcription: 'Транскрипция предложения «A fig tree is not tall»:\n\n```\n/ə ˈfɪɡ tri ɪz nɔt tɔl',
+		transcription: 'ə ˈfɪɡ tri ɪz nɔt tɔl',
 		audio: false,
 	},
 
@@ -3200,34 +3178,31 @@ export const transcriptions = {
 
 	we_are_old_friends_you_know_me: {
 		sentence: 'We are old friends, you know me.',
-		transcription:
-			'Транскрипция предложения «We are old friends, you know me.»:\n\n```\n/wi ɑː ɒld frendz, jʊ nəʊ mi',
+		transcription: 'wi ɑː ɒld frendz, jʊ nəʊ mi',
 		audio: false,
 	},
 
 	pasha_send_her_postcards: {
 		sentence: 'Pasha send her postcards.',
-		transcription: 'Транскрипция предложения «Pasha send her postcards»:\n\n**/ˈpæʃə ˈsɛnd ˈhɜː ˈpɒst.kɑːdz',
+		transcription: 'ˈpæʃə ˈsɛnd ˈhɜː ˈpɒst.kɑːdz',
 		audio: false,
 	},
 
 	i_think_about_you_all_the_time: {
 		sentence: 'I think about you all the time.',
-		transcription:
-			'Транскрипция предложения «I think about you all the time»:\n\n**/aɪ θɪŋk ˈɑː.bʌˈtʌ juː ˈɔː.l ðə ˈtaɪm',
+		transcription: 'aɪ θɪŋk ˈɑː.bʌˈtʌ juː ˈɔː.l ðə ˈtaɪm',
 		audio: false,
 	},
 
 	i_understand_you_very_well: {
 		sentence: 'I understand you very well.',
-		transcription: 'Транскрипция предложения:\n\n**/aɪ ˈʌndər.stænd jʊ ˈvɛ.ri ˈwɛl',
+		transcription: 'aɪ ˈʌndər.stænd jʊ ˈvɛ.ri ˈwɛl',
 		audio: false,
 	},
 
 	i_always_respected_her_opinion_even_if_it_differed_from_mine: {
 		sentence: 'I always respected her opinion even if it differed from mine.',
-		transcription:
-			'Транскрипция предложения:\n\n**/aɪ ˈɔː.l.wəz ˈrɛspekt.ɪd hɜr ˈɑp.njən ˈiː.f ɪt ˈdɪ.fərd fɝ̩ mʌ.naɪ',
+		transcription: 'aɪ ˈɔː.l.wəz ˈrɛspekt.ɪd hɜr ˈɑp.njən ˈiː.f ɪt ˈdɪ.fərd fɝ̩ mʌ.naɪ',
 		audio: false,
 	},
 
@@ -3239,19 +3214,19 @@ export const transcriptions = {
 
 	i_do_one_simple_thing: {
 		sentence: 'I do one simple thing.',
-		transcription: 'Транскрипция предложения «I do one simple thing»:\n\n**/aɪ dəʊ wʌn sɪmpəl θɪŋ',
+		transcription: 'aɪ dəʊ wʌn sɪmpəl θɪŋ',
 		audio: false,
 	},
 
 	_i_feel_tired__me_too: {
 		sentence: '— I feel tired. – Me too.',
-		transcription: 'Транскрипция предложения «— I feel tired. – Me too.»:\n\n```\n/aɪ fiːl ˈtaɪəd. – miː ˈtuː',
+		transcription: 'aɪ fiːl ˈtaɪəd. – miː ˈtuː',
 		audio: false,
 	},
 
 	_who_broke_the_vase__not_me: {
 		sentence: '— Who broke the vase? – Not me!',
-		transcription: 'Транскрипция предложения «— Who broke the vase? – Not me!»:\n\n**/wʊ ˈbroʊk ðə ˈveɪs? – nɒt mi',
+		transcription: 'wʊ ˈbroʊk ðə ˈveɪs? – nɒt mi',
 		audio: false,
 	},
 
@@ -3263,7 +3238,7 @@ export const transcriptions = {
 
 	this_is_not_a_simple_island: {
 		sentence: 'This is not a simple island.',
-		transcription: 'Транскрипция предложения «This is not a simple island.»:\n\n**/ðɪs ɪz nɒt ə ˈsɪmpəl ɪˈlɑːnd',
+		transcription: 'ðɪs ɪz nɒt ə ˈsɪmpəl ɪˈlɑːnd',
 		audio: false,
 	},
 
@@ -3281,8 +3256,7 @@ export const transcriptions = {
 
 	maybe_this_is_not_a_suitable_weekend: {
 		sentence: 'Maybe this is not a suitable weekend.',
-		transcription:
-			'### Транскрипция предложения:\n\n**/meyb ɪs θɪs nɒt ə ˈsʌ.təl wɪk.ənd\n\nРазбор транскрипции:\n- **/meyb — may **b** (может быть)\n- **/ɪs — is (это)\n- **/θɪs — this (это)\n- **/nɒt — not (не)\n- **/ə — (неопределённый артикль, не читается)\n- **/sʌ.təl — suitable (подходящий)\n- **/wɪk.ənd — weekend (выходные)',
+		transcription: 'meyb ɪs θɪs nɒt ə ˈsʌ.təl wɪk.ənd',
 		audio: false,
 	},
 
@@ -3306,7 +3280,7 @@ export const transcriptions = {
 
 	this_is_not_your_footsteps_: {
 		sentence: 'This is not your footsteps. ',
-		transcription: 'Транскрипция предложения «This is not your footsteps»:\n\n```\n/ðɪs ɪz nɒt jɔː fʊt.stiːps',
+		transcription: 'ðɪs ɪz nɒt jɔː fʊt.stiːps',
 		audio: false,
 	},
 
@@ -3330,14 +3304,13 @@ export const transcriptions = {
 
 	emma_is_in_a_really_good_mood_today: {
 		sentence: 'Emma is in a really good mood today.',
-		transcription:
-			'Транскрипция предложения «Emma is in a really good mood today»:\n\n```\n/iː.mə ˈɪz ɪn ə ˈrɪ.lɪ ˈɡʊd ˈmuːd ˈtɔː.dɪ',
+		transcription: 'iː.mə ˈɪz ɪn ə ˈrɪ.lɪ ˈɡʊd ˈmuːd ˈtɔː.dɪ',
 		audio: false,
 	},
 
 	this_club_is_very_trendy_very_exclusive: {
 		sentence: 'This club is very trendy! Very exclusive!',
-		transcription: 'Транскрипция предложения:\n\n**/ðɪs kлб iz vɝ ˈtrendi! vɝ ˈekskluːsɪv!',
+		transcription: 'ðɪs kлб iz vɝ ˈtrendi! vɝ ˈekskluːsɪv!',
 		audio: false,
 	},
 
@@ -3379,7 +3352,7 @@ export const transcriptions = {
 
 	this_love_is_difficult_but_its_real: {
 		sentence: 'This love is difficult, but it\'s real.',
-		transcription: 'Транскрипция предложения:\n\n**/ðɪs lʌv ɪz dɪˈfɪkəlt, bət ɪtˈs rɪəl',
+		transcription: 'ðɪs lʌv ɪz dɪˈfɪkəlt, bət ɪtˈs rɪəl',
 		audio: false,
 	},
 
@@ -3409,44 +3382,43 @@ export const transcriptions = {
 
 	is_this_a_bug_no_it_is_a_spider: {
 		sentence: 'Is this a bug? No, it is a spider.',
-		transcription: 'Транскрипция предложения:\n\n/is ɪs ə bʌɡ? nəʊ, ɪt ɪz ə spɪdə',
+		transcription: 'is ɪs ə bʌɡ? nəʊ, ɪt ɪz ə spɪdə',
 		audio: false,
 	},
 
 	is_this_a_pencil_no_its_a_pen: {
 		sentence: 'Is this a pencil? No, it\'s a pen.',
-		transcription: 'Транскрипция предложения:\n\n/is ˈðɪs ə ˈpɛn.ɫ.səʊ ˈnəʊ ɪt ɪz ə ˈpɛn',
+		transcription: 'is ˈðɪs ə ˈpɛn.ɫ.səʊ ˈnəʊ ɪt ɪz ə ˈpɛn',
 		audio: false,
 	},
 
 	is_this_an_ocean_no_it_is_a_lake: {
 		sentence: 'Is this an ocean? No, it is a lake.',
-		transcription: 'Транскрипция предложения:\n\n/is ˈðɪs ən ˈoʊʃ.ən/\u2028/no ˈɪt ɪz ə ˈleɪk',
+		transcription: 'is ˈðɪs ən ˈoʊʃ.ən no ˈɪt ɪz ə ˈleɪk',
 		audio: false,
 	},
 
 	is_this_mexican_food_no_korean_but_also_spicy: {
 		sentence: 'Is this Mexican food? No, Korean. But also spicy.',
-		transcription:
-			'Транскрипция предложения:\n\n/is ˈðɪs məˈsɪkən fʊd/\u2028\u2028\n/nəʊ ˈkɔː.ni/\u2028\u2028\n/bət ˈɔː.lɒʊ ˈspɪ.si',
+		transcription: 'is ˈðɪs məˈsɪkən fʊd nəʊ ˈkɔː.ni bət ˈɔː.lɒʊ ˈspɪ.si',
 		audio: false,
 	},
 
 	is_this_a_new_computer_yes_it_is_very_expencive: {
 		sentence: 'Is this a new computer? Yes, it is very expencive.',
-		transcription: 'Транскрипция предложения:\n\n/is ˈðɪs eɪ ˈnjuː kəm.pjʊ.tər/  \n/yes ɪt ɪz ˈvɛri ˈek.sən.siv',
+		transcription: 'is ˈðɪs eɪ ˈnjuː kəm.pjʊ.tər  \nyes ɪt ɪz ˈvɛri ˈek.sən.siv',
 		audio: false,
 	},
 
 	this_is_not_your_apartment_you_do_not_live_here: {
 		sentence: 'This is not your apartment. You do not live here.',
-		transcription: 'Транскрипция предложения:\n\n**/ðɪs ɪz nɒt jʊər əˈpɑː.tənt. jʊ dʌʊ nɒt lɪv hɪə',
+		transcription: 'ðɪs ɪz nɒt jʊər əˈpɑː.tənt. jʊ dʌʊ nɒt lɪv hɪə',
 		audio: false,
 	},
 
 	is_he_in_that_room_now: {
 		sentence: 'Is he in that room now?',
-		transcription: 'Транскрипция предложения:\n\n**/ɪz hi ɪn ðət rʌm nau',
+		transcription: 'ɪz hi ɪn ðət rʌm nau',
 		audio: false,
 	},
 
@@ -3458,8 +3430,7 @@ export const transcriptions = {
 
 	many_people_are_not_aware_about_these_rights: {
 		sentence: 'Many people are not aware about these rights.',
-		transcription:
-			'Транскрипция предложения «Many people are not aware about these rights» в американском английском:\n\n**/mæn.i ˈpiː.ər ər nɔt ˈɔːr.ə bəˈdaʊs ˈθiːz raɪts',
+		transcription: 'mæn.i ˈpiː.ər ər nɔt ˈɔːr.ə bəˈdaʊs ˈθiːz raɪts',
 		audio: false,
 	},
 
@@ -3489,8 +3460,7 @@ export const transcriptions = {
 
 	their_children_certainly_are_not_criminals: {
 		sentence: 'Their children certainly are not criminals.',
-		transcription:
-			'### Транскрипция предложения:\n\n**/ðeə ˈtʃɪld.ən ˈsɜr.əntlɪ ɑr. nɝ.ˈkrim.nəlz\n\nРазбор транскрипции:\n- **/ðeə — their (их)\n- **/ˈtʃɪld.ən — children (дети)\n- **/ˈsɜr.əntlɪ — certainly (конечно, безусловно)\n- **/ɑr. — are (являются)\n- **/nɝ.ˈkrim.nəlz — criminals (преступники)',
+		transcription: 'ðeə ˈtʃɪld.ən ˈsɜr.əntlɪ ɑr. nɝ.ˈkrim.nəlz',
 		audio: false,
 	},
 
@@ -3508,32 +3478,25 @@ export const transcriptions = {
 
 	i_do_not_know_these_people: {
 		sentence: 'I do not know these people!',
-		transcription: 'Транскрипция предложения «I do not know these people!»:\n\n**/aɪ duʊ nɔt nəʊ θiːz piːpl',
+		transcription: 'aɪ duʊ nɔt nəʊ θiːz piːpl',
 		audio: false,
 	},
 
 	my_situation_is_awful: {
 		sentence: 'My situation is awful.',
-		transcription: 'Транскрипция предложения «My situation is awful.»:\n\n**/maɪ ˈsɪ.ʧ.ʃ.ən ɪz ˈɔː.fəl',
-		audio: false,
-	},
-
-	my_psychology_is_not_well: {
-		sentence: 'My psychology is not well.',
-		transcription: 'Транскрипция предложения «My psychology is not well»:\n\n```\n/maɪ ˈsɪɫ.ə.dʒi ˈɪz nɒt wɛl',
+		transcription: 'maɪ ˈsɪ.ʧ.ʃ.ən ɪz ˈɔː.fəl',
 		audio: false,
 	},
 
 	his_manuscript_was_very_old_and_durty: {
 		sentence: 'His manuscript was very old and durty.',
-		transcription:
-			'Транскрипция предложения «His manuscript was very old and dirty»:\n\n**/hɪz ˈmæn.ʃrɪpt wəz ˈvər.ɪ ˈəʊld ənd ˈdɜː.tɪ',
+		transcription: 'hɪz ˈmæn.ʃrɪpt wəz ˈvər.ɪ ˈəʊld ənd ˈdɜː.tɪ',
 		audio: false,
 	},
 
 	he_is_currently_his_agent: {
 		sentence: 'He is currently his agent.',
-		transcription: 'Транскрипция предложения:\n\n**/hi ɪz kəˈrɛntlɪ hɪz ˈeɪ.dʒənt/',
+		transcription: 'hi ɪz kəˈrɛntlɪ hɪz ˈeɪ.dʒənt',
 		audio: false,
 	},
 
@@ -3545,8 +3508,7 @@ export const transcriptions = {
 
 	is_he_your_brother_no_he_is_not: {
 		sentence: 'Is he your brother? No, he is not.',
-		transcription:
-			'Транскрипция предложения американского английского:\n\n**/ɪz ˈhi jə ˈbrʌ.ðər  \n**/nəʊ ˈhi ɪz nɔː  \n\nРазбор по слогам и фонетическим символам:\n\n- **Is he your brother?**  \n  /ɪz ˈhi jə ˈbrʌ.ðər/  \n  - **Is** — /ɪz/  \n  - **he** — /ˈhi/  \n  - **your** — /jə/  \n  - **brother** — /ˈbrʌ.ðər/\n\n- **No, he is not.**  \n  /nəʊ ˈhi ɪz nɔː/  \n  - **No** — /nəʊ/  \n  - **he** — /ˈhi/  \n  - **is** — /ɪz/  \n  - **not** — /nɔː',
+		transcription: 'ɪz ˈhi jə ˈbrʌ.ðər nəʊ ˈhi ɪz nɔː',
 		audio: false,
 	},
 
@@ -3570,7 +3532,7 @@ export const transcriptions = {
 
 	my_son_arrives_early: {
 		sentence: 'My son arrives early.',
-		transcription: 'Транскрипция предложения «My son arrives early»:\n\n```\n/aɪ maɪ sʌn rɪˈvɑːz ɪˈlɛə',
+		transcription: 'aɪ maɪ sʌn rɪˈvɑːz ɪˈlɛə',
 		audio: false,
 	},
 
@@ -3606,8 +3568,7 @@ export const transcriptions = {
 
 	the_only_problem_is_she_does_not_like_my_manners_and_my_hair_and_my_clothes: {
 		sentence: 'The only problem is, she does not like my manners and my hair and my clothes.',
-		transcription:
-			'Вот транскрипция данного предложения американского английского:\n\n```\n/ði ˈɒn.laɪ ˈprɒbləm ɪz, ʃi dəz nɔt lʌk mʌ.nz ænd ma ˈhɛər ænd ma ˈkləʊz',
+		transcription: 'ði ˈɒn.laɪ ˈprɒbləm ɪz, ʃi dəz nɔt lʌk mʌ.nz ænd ma ˈhɛər ænd ma ˈkləʊz',
 		audio: false,
 	},
 
@@ -3625,14 +3586,13 @@ export const transcriptions = {
 
 	my_mun_does_not_understand_me: {
 		sentence: 'My mun does not understand me.',
-		transcription:
-			'Транскрипция предложения «My mum does not understand me» в американском английском:\n\n**/maɪ mʌm dʌz nɒt ʌndər.stænd mi',
+		transcription: 'maɪ mʌm dʌz nɒt ʌndər.stænd mi',
 		audio: false,
 	},
 
 	his_car_is_black_but_hers_is_red: {
 		sentence: 'His car is black, but hers is red.',
-		transcription: 'hɪs kɑɚ ɪz bælk, bʌt hɜrz ɪz rɛd',
+		transcription: 'hɪz kɑːr ɪz blæk, bət hɜːrz ɪz red',
 		audio: false,
 	},
 
@@ -3644,19 +3604,19 @@ export const transcriptions = {
 
 	his_coat_is_long_but_hers_is_short: {
 		sentence: 'His coat is long, but hers is short.',
-		transcription: 'Транскрипция предложения:\n\n**/hɪs koʊt ɪz lɒŋ, bʌt hɜrz ɪz šɔrt.',
+		transcription: 'hɪs koʊt ɪz lɒŋ, bʌt hɜrz ɪz šɔrt.',
 		audio: false,
 	},
 
 	are_those_packages_yours: {
 		sentence: 'Are those packages yours?',
-		transcription: 'Транскрипция предложения «Are those packages yours?»:\n\n**/ɑːr ðəʹ ˈpækɪdʒ zə ˈjɔːrz/?**',
+		transcription: 'ɑːr ðəʹ ˈpækɪdʒ zə ˈjɔːrz?**',
 		audio: false,
 	},
 
 	are_those_houses_theirs: {
 		sentence: 'Are those houses theirs?',
-		transcription: 'Транскрипция предложения «Are those houses theirs?»:\n\n**/ɑːr ðəʹs həʊs iz zərz',
+		transcription: 'ɑːr ðəʹs həʊs iz zərz',
 		audio: false,
 	},
 
@@ -3668,7 +3628,7 @@ export const transcriptions = {
 
 	this_diet_is_as_disgusting_as_its_name: {
 		sentence: 'This diet is as disgusting as its name.',
-		transcription: 'Транскрипция предложения:\n\n**/ðɪs ˈdaɪ.ət ɪz æs ˈdɪs.gəs.tɪŋ æz ɪts neɪm',
+		transcription: 'ðɪs ˈdaɪ.ət ɪz æs ˈdɪs.gəs.tɪŋ æz ɪts neɪm',
 		audio: false,
 	},
 
@@ -3680,13 +3640,13 @@ export const transcriptions = {
 
 	i_see_my_result: {
 		sentence: 'I see my result.',
-		transcription: 'I si m aɪˈrɪ.zət',
+		transcription: 'I si maɪ ˈrɪ.zət',
 		audio: false,
 	},
 
 	i_really_believed_him: {
 		sentence: 'I really believed him.',
-		transcription: 'Транскрипция предложения «I really believed him»:\n\n**/aɪ ˈrɪ.lɪ ˈbi.lvd ˈhɪm',
+		transcription: 'aɪ ˈrɪ.lɪ ˈbi.lvd ˈhɪm',
 		audio: false,
 	},
 
@@ -3704,7 +3664,7 @@ export const transcriptions = {
 
 	i_passed_that_test: {
 		sentence: 'I passed that test.',
-		transcription: 'Транскрипция предложения «I passed that test.»:\n\n**/aɪ ˈpɑːst ðæt ˈtɛst.',
+		transcription: 'aɪ ˈpɑːst ðæt ˈtɛst.',
 		audio: false,
 	},
 
@@ -3716,13 +3676,13 @@ export const transcriptions = {
 
 	i_studied_very_hard: {
 		sentence: 'I studied very hard.',
-		transcription: 'Транскрипция предложения «I studied very hard.»:\n\n**/aɪ ˈstʌd.i vəˈri ˈhɑrd',
+		transcription: 'aɪ ˈstʌd.i vəˈri ˈhɑrd',
 		audio: false,
 	},
 
 	he_loved_her_and_she_loved_him: {
 		sentence: 'He loved her and she loved him.',
-		transcription: 'Транскрипция предложения:\n\n**/hi lʌv.d ɪ.h ənd ʃi lʌv.d hɪm.',
+		transcription: 'hi lʌv.d ɪ.h ənd ʃi lʌv.d hɪm.',
 		audio: false,
 	},
 
@@ -3745,19 +3705,19 @@ export const transcriptions = {
 	},
 
 	i_check_twitter_every_minutes: {
-		sentence: 'I check Twitter every minutes.',
-		transcription: 'WRONG TRANSCRIPTION',
+		sentence: 'I check Twitter every 10 minutes.',
+		transcription: 'aɪ tʃɛk ˈtwɪt̬ɚ ˈɛvɹi tɛn ˈmɪnəts',
 		audio: false,
 	},
 
 	emergency_services_work_: {
-		sentence: 'Emergency services work 24/7.',
+		sentence: 'Emergency services work 247.',
 		transcription: 'ɪˈmər.dʒə.si ˈsɜːv.ɪ.z iz ˈwɜːk',
 		audio: false,
 	},
 
 	emergency_services_operate_: {
-		sentence: 'Emergency services operate 24/7.',
+		sentence: 'Emergency services operate 247.',
 		transcription: 'ɪˈmər.dʒə.si ˈsɜːvɪs zəˈpɔː.ɡɛt',
 		audio: false,
 	},

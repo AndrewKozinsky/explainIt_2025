@@ -24,10 +24,10 @@ export const imageMapper = {
 			src: '/schemasAndTables/PossessivePronounsTable.svg',
 			alt: 'Притяжательные местоимения',
 		},
-		/*PastSimplePositive: {
+		PastSimplePositive: {
 			src: '/schemasAndTables/PastSimplePositiveTable.svg',
 			alt: 'Past Simple',
-		},*/
+		},
 		PresentSimplePositive: {
 			src: '/schemasAndTables/PresentSimplePositiveTable.svg',
 			alt: 'Present Simple',

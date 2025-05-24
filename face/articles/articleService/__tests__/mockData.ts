@@ -91,7 +91,6 @@
 
 			{
 				type: 'exercises',
-				id: 1,
 				exercises: [
 					{
 						rusSentence: 'К тому времени я был ученым.',

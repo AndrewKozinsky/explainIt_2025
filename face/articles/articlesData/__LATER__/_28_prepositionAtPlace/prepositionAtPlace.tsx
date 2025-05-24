@@ -77,7 +77,6 @@
 								{
 									type: 'text',
 									color: 'gray',
-
 									text: ' автобусной остановки.',
 								},
 							],
@@ -89,13 +88,11 @@
 							children: [
 								{
 									type: 'text',
-
 									text: "I'll meet you in the station.",
 								},
 
 								{
 									type: 'text',
-
 									text: 'Я встречу тебя в здании вокзала.',
 								},
 							],
@@ -158,13 +155,11 @@
 							children: [
 								{
 									type: 'text',
-
 									text: "I'll meet you at the station.",
 								},
 
 								{
 									type: 'text',
-
 									text: 'Я встречу тебя на вокзале.',
 								},
 							],
@@ -328,13 +323,11 @@
 			children: [
 				{
 					type: 'text',
-
 					text: 'Я встречу тебя на кухне.',
 				},
 
 				{
 					type: 'text',
-
 					text: 'I’ll see you in the kitchen.',
 				},
 			],

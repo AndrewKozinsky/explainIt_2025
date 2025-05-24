@@ -8,6 +8,7 @@ import personalPronounsAsObject from './14_personalPronounsAsObject/personalPron
 import demonstrativePronounce from './15_demonstrativePronounce/demonstrativePronounce'
 import possessivePronouns from './16_possessivePronouns/possessivePronouns'
 import pastSimplePositive1 from './17_pastSimplePositive-1/pastSimplePositive-1'
+import pastSimplePositive2 from './18_pastSimplePositive-2/pastSimplePositive-2'
 import the from './5_the/the'
 import presentSimplePositive1 from './1_presentSimplePositive-1/presentSimplePositive-1'
 import presentSimplePositive2 from './2_presentSimplePositive-2/presentSimplePositive-2'
@@ -40,6 +41,7 @@ const rowRealArticles: ArticleType.Art[] = [
 	demonstrativePronounce,
 	possessivePronouns,
 	pastSimplePositive1,
+	pastSimplePositive2,
 ]
 
 const rowTestArticles: ArticleType.Art[] = [testChapter1, testChapter2, testChapter3]

@@ -1,15 +1,15 @@
 services:
-  nginx:
+  explainnginx:
     image: nginx:1.19.7-alpine
     container_name: explain-nginx
     depends_on:
-      - face
-      - server
+      - explainface
+      - explainserver
     ports:
       - 80:80
     volumes:
       - ./nginx/nginx.conf.dev:/etc/nginx/nginx.conf
-  server:
+  explainserver:
     build:
       context: server/
       dockerfile: Dockerfile.dev
@@ -26,7 +26,7 @@ services:
       - .env
     ports:
       - 3001:3001
-  face:
+  explainface:
     build:
       context: face/
       dockerfile: Dockerfile.server
@@ -37,6 +37,6 @@ services:
     command: yarn run dev
     container_name: explain-face
     depends_on:
-      - server
+      - explainserver
     environment:
       MODE: test

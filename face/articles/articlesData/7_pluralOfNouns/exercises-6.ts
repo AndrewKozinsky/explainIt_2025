@@ -87,6 +87,21 @@ const exercises_6: ExercisesType.ExercisesObj = {
 				{ rusWord: 'для тебя', engWord: 'for you' },
 			],
 		},
+		{
+			rusSentence: 'Такие случаи возникают постоянно.',
+			engSentences: [
+				{
+					engSentences: ['Such cases occur all the time.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'такой', engWord: 'some' },
+				{ rusWord: 'случай', engWord: 'great' },
+				{ rusWord: 'возникать, происходить', engWord: 'occur' },
+				{ rusWord: 'постоянно', engWord: 'all the time' },
+			],
+		},
 	],
 }
 
