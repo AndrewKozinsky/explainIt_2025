@@ -61,15 +61,15 @@ const presentSimplePositive1: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'Предложение, отмеченное пунктирной линией, имеет транскрипцию и кнопку воспроизведения для прослушивания. Попробуйте нажать и послушать как оно звучит:',
+					text: 'Предложение, отмеченное пунктирной линией, имеет транскрипцию. Нажмите и посмотрите:',
 				},
 			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Я чувствую себя счастливым.' }],
-			eng: [{ type: 'text', text: 'I feel happy.' }],
+			rus: [{ type: 'text', text: 'Я работаю каждый день.' }],
+			eng: [{ type: 'text', text: 'I work every day.' }],
 		},
 		{
 			type: 'rusToEng',

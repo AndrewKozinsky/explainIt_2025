@@ -4,16 +4,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 	type: 'exercises',
 	exercises: [
 		{
-			rusSentence: 'Я работаю.',
-			engSentences: [
-				{
-					engSentences: ['I work.'],
-					isCorrect: true,
-				},
-			],
-			words: [{ rusWord: 'работать', engWord: 'work' }],
-		},
-		{
 			rusSentence: 'Они строят дома.',
 			engSentences: [
 				{
@@ -191,6 +181,19 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{ rusWord: 'редко', engWord: 'seldom' },
 				{ rusWord: 'печь', engWord: 'bake' },
 				{ rusWord: 'pizza', engWord: 'pizza' },
+			],
+		},
+		{
+			rusSentence: 'Я ненавижу насилие.',
+			engSentences: [
+				{
+					engSentences: ['I hate violence.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'ненавидеть', engWord: 'hate' },
+				{ rusWord: 'насилие', engWord: 'violence' },
 			],
 		},
 	],

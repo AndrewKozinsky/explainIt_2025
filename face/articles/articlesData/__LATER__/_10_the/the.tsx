@@ -13,17 +13,14 @@
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Как работает' },
 		{
 			type: 'paragraph',
-
 			children: [
 				{
 					type: 'text',
-
 					text: 'Из предыдущих уроков вы знаете, что перед каждым существительным должен быть определитель. И определённый артикль ',
 				},
 				{ type: 'text', color: 'blue', text: 'the' },
 				{
 					type: 'text',
-
 					text: ' один из них. Он используется перед объектами известными собеседнику из контекста.',
 				},
 			],
@@ -31,13 +28,11 @@
 		{
 			type: 'paragraph',
 			offset: true,
-
 			children: [
 				{ type: 'text', text: 'Неопределённый артикль ' },
 				{ type: 'text', color: 'blue', text: 'a' },
 				{
 					type: 'text',
-
 					text: ' применяется только для исчисляемых существительных в единственном числе. У определённого артикля ',
 				},
 				{ type: 'text', color: 'blue', text: 'the' },
@@ -94,14 +89,6 @@
 					rusSentence: 'Он был хорошим учеником.',
 					engSentences: [{ engSentences: ['He was a good pupil.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
-				},
-				{
-					rusSentence: 'Коробки мокрые.',
-					engSentences: [{ engSentences: ['The boxes are wet.'], isCorrect: true }],
-					words: [
-						{ rusWord: 'дом', engWord: 'home' },
-						{ rusWord: 'скоро', engWord: 'soon' },
-					],
 				},
 				{
 					rusSentence: 'Капитан был жестоким и не очень хорошим моряком.',

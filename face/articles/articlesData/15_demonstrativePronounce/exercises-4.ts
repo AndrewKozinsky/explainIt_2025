@@ -92,12 +92,11 @@ const exercises_4: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Я не знаю этих людей.',
-			engSentences: [{ engSentences: ['I do not know these people!'], isCorrect: true }],
+			engSentences: [{ engSentences: ['I do not know these people.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'очки', engWord: 'glasses' },
-				{ rusWord: 'ужасный', engWord: 'terrible' },
+				{ rusWord: 'знать', engWord: 'know' },
+				{ rusWord: 'люди', engWord: 'people' },
 			],
 		},
 	],

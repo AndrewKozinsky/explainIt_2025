@@ -35,5 +35,5 @@ services:
       MODE: server
 networks:
   default:
-    external:
-      name: nginx-proxy
+    external: true
+    name: nginx-proxy

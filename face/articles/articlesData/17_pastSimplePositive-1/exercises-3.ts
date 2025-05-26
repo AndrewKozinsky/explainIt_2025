@@ -28,6 +28,16 @@ const exercises_3: ExercisesType.ExercisesObj = {
 				{ rusWord: 'яркий', engWord: 'bright' },
 			],
 		},
+		{
+			rusSentence: 'Он поцеловал её.',
+			engSentences: [
+				{
+					engSentences: ['He kissed her.'],
+					isCorrect: true,
+				},
+			],
+			words: [{ rusWord: 'целовать', engWord: 'kiss' }],
+		},
 	],
 }
 

@@ -85,35 +85,50 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Единственная проблема заключалась в том, что у нас было очень мало денег.',
 			engSentences: [{ engSentences: ['The only problem was that we had very little money.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'врач', engWord: 'doctor' },
-				{ rusWord: 'врач', engWord: 'doctor' },
+				{ rusWord: 'единственный', engWord: 'only' },
+				{ rusWord: 'проблема', engWord: 'problem' },
+				{ rusWord: 'мало', engWord: 'little' },
+				{ rusWord: 'деньги', engWord: 'money' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Этот богач был глупцом.',
 			engSentences: [{ engSentences: ['This rich man was foolish.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'врач', engWord: 'doctor' },
-				{ rusWord: 'врач', engWord: 'doctor' },
+				{ rusWord: 'богач', engWord: 'rich man' },
+				{ rusWord: 'глупец', engWord: 'foolish' },
 			],
 		},
 		{
-			// TODO
-			rusSentence: 'Я думал, что мы уже на полпути через Атлантику, но это оказалось неправдой.',
+			rusSentence: 'Я думал, что мы уже на полпути, но я был не прав.',
 			engSentences: [
 				{
-					engSentences: ['I thought we were halfway across the Atlantic but this was not true.'],
+					engSentences: ['I thought we were halfway, but I was wrong.'],
 					isCorrect: true,
 				},
 			],
 			words: [
-				{ rusWord: 'врач', engWord: 'doctor' },
-				{ rusWord: 'врач', engWord: 'doctor' },
+				{ rusWord: 'думать', engWord: 'thought' },
+				{ rusWord: 'полпути', engWord: 'halfway' },
+				{ rusWord: 'ошибаться', engWord: 'wrong' },
+			],
+		},
+		{
+			rusSentence: 'Он выглядел иначе когда был студентом.',
+			engSentences: [
+				{
+					engSentences: ['He looked different when he was a student.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'выглядеть', engWord: 'look' },
+				{ rusWord: 'иначе', engWord: 'different' },
+				{ rusWord: 'когда', engWord: 'when' },
+				{ rusWord: 'студент', engWord: 'student' },
 			],
 		},
 	],

@@ -139,18 +139,25 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Единственная проблема в том, что ей не нравятся мои манеры, моя прическа и моя одежда.',
 			engSentences: [
 				{
-					engSentences: ['The only problem is, she does not like my manners and my hair and my clothes.'],
+					engSentences: [
+						'The only problem is, she does not like my manners and my hairstyle and my clothes.',
+					],
 					isCorrect: true,
 				},
 			],
-			words: [{ rusWord: 'яйцо', engWord: 'egg' }],
+			words: [
+				{ rusWord: 'единственный', engWord: 'only' },
+				{ rusWord: 'проблема', engWord: 'popular' },
+				{ rusWord: 'нравиться', engWord: 'like' },
+				{ rusWord: 'манеры', engWord: 'manners' },
+				{ rusWord: 'причёска', engWord: 'hairstyle' },
+				{ rusWord: 'одежда', engWord: 'clothes' },
+			],
 		},
 		{
-			// TODO
 			rusSentence: 'Они не мои друзья.',
 			engSentences: [
 				{
@@ -158,10 +165,9 @@ const exercises_1: ExercisesType.ExercisesObj = {
 					isCorrect: true,
 				},
 			],
-			words: [{ rusWord: 'яйцо', engWord: 'egg' }],
+			words: [{ rusWord: 'друг', engWord: 'friend' }],
 		},
 		{
-			// TODO
 			rusSentence: 'Вы наш клиент.',
 			engSentences: [
 				{
@@ -169,21 +175,22 @@ const exercises_1: ExercisesType.ExercisesObj = {
 					isCorrect: true,
 				},
 			],
-			words: [{ rusWord: 'яйцо', engWord: 'egg' }],
+			words: [{ rusWord: 'клиент', engWord: 'customer' }],
 		},
 		{
-			// TODO
 			rusSentence: 'Моя мама не понимает меня.',
 			engSentences: [
 				{
-					engSentences: ['My mun does not understand me.'],
+					engSentences: ['My mum does not understand me.'],
 					isCorrect: true,
 				},
 			],
-			words: [{ rusWord: 'яйцо', engWord: 'egg' }],
+			words: [
+				{ rusWord: 'мама', engWord: 'mum' },
+				{ rusWord: 'понимать', engWord: 'understand' },
+			],
 		},
 		{
-			// TODO
 			rusSentence: 'Вам нравится мой морковный торт?',
 			engSentences: [
 				{
@@ -191,7 +198,11 @@ const exercises_1: ExercisesType.ExercisesObj = {
 					isCorrect: true,
 				},
 			],
-			words: [{ rusWord: 'яйцо', engWord: 'egg' }],
+			words: [
+				{ rusWord: 'нравиться', engWord: 'like' },
+				{ rusWord: 'морковь', engWord: 'carrot' },
+				{ rusWord: 'торт', engWord: 'cake' },
+			],
 		},
 		{
 			// TODO
@@ -202,7 +213,24 @@ const exercises_1: ExercisesType.ExercisesObj = {
 					isCorrect: true,
 				},
 			],
-			words: [{ rusWord: 'яйцо', engWord: 'egg' }],
+			words: [
+				{ rusWord: 'яйцо', engWord: 'egg' },
+				{ rusWord: 'популярный', engWord: 'popular' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Твоя мама очень добрая, но мы хотим скромную свадьбу.',
+			engSentences: [
+				{
+					engSentences: ['Your mother is very kind, but we want a small wedding.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'яйцо', engWord: 'egg' },
+				{ rusWord: 'популярный', engWord: 'popular' },
+			],
 		},
 	],
 }

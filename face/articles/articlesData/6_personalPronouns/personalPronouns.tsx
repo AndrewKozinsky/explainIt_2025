@@ -1,7 +1,6 @@
 import { imageMapper } from '../../../utils/imageMapper'
 import ArticleType from '../../articleTypes/articleType'
 import exercises_1 from './exercises-1'
-import exercises_2 from './exercises-2'
 
 const personalPronouns: ArticleType.Art = {
 	meta: {
@@ -196,85 +195,6 @@ const personalPronouns: ArticleType.Art = {
 			],
 		},
 		exercises_1,
-		{ type: 'header', tag: 'h2', style: 'h2', text: 'Притяжательное местоимение в роли подлежащего' },
-		{
-			type: 'paragraph',
-			children: [
-				{
-					type: 'text',
-					text: 'В русском языке можно часто встречаются предложения где в роли подлежащего выступает притяжательное местоимение:',
-				},
-			],
-		},
-		{
-			type: 'paragraph',
-			textSize: 'giant',
-			children: [
-				{
-					type: 'text',
-					text: 'Мне нравится этот город.',
-				},
-			],
-		},
-		{
-			type: 'paragraph',
-			children: [
-				{
-					type: 'text',
-					text: 'Но если в английском языке в роли подлежащего стоит местоимение, то это местоимение может быть только личным: I, we, he, she, they, we.',
-				},
-			],
-		},
-		{
-			type: 'paragraph',
-			textSize: 'giant',
-			children: [
-				{
-					type: 'text',
-					text: 'I like this city.',
-				},
-			],
-		},
-		{
-			type: 'paragraph',
-			offset: true,
-			children: [
-				{
-					type: 'text',
-					text: 'Похожие конструкции:',
-				},
-			],
-		},
-		{
-			type: 'rusToEng',
-			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Им живется хорошо.' }],
-			eng: [{ type: 'text', text: 'They live well.' }],
-		},
-		{
-			type: 'rusToEng',
-			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Мне хочется спать.' }],
-			eng: [{ type: 'text', text: 'I want to sleep.' }],
-		},
-		{
-			type: 'rusToEng',
-			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Ему мешает шум.' }],
-			eng: [{ type: 'text', text: 'The noise bothers him.' }],
-		},
-		{
-			type: 'paragraph',
-			textSize: 'small',
-			children: [
-				{
-					type: 'text',
-					text: 'Шум мешает ему. Поэтому шум — это лицо выполняющее действие. То есть подлежащие. Действие направлено на него, поэтому местоимение «он» стоит в роли дополнения.',
-					color: 'gray',
-				},
-			],
-		},
-		exercises_2,
 	],
 }
 

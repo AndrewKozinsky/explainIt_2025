@@ -621,31 +621,9 @@
 					],
 				},
 				{
-					rusSentence: 'Они разрешают детям играть в видеоигры.',
-					engSentences: [{ engSentences: ['They let children play video games.'], isCorrect: true }],
-					words: [{ rusWord: 'популярный', engWord: 'popular' }],
-				},
-				{
 					rusSentence: 'Из храма я вышла другим человеком.',
 					engSentences: [{ engSentences: ['I left the church a different man.'], isCorrect: true }],
 					words: [{ rusWord: 'популярный', engWord: 'popular' }],
-				},
-				{
-					note: 'Похоже это тема про нулевой артикль. Нужно изучить. Вот, что ответил ЧатГПТ на вопрос почему тут нет артиклей: In English grammar, the indefinite article "a" is typically used before singular countable nouns that are not specific or previously mentioned. When listing items in a general sense or as part of a category, the indefinite article is often omitted, especially when the items are being grouped together as a collective or category.\nIn your example, "potato," "tomato," and "onion" are being presented as general examples of soup ingredients. Since they are listed as part of a category of usual soup ingredients, the indefinite article "a" is not necessary before each item. The omission of the article helps to suggest that these items are examples or representatives of a larger group rather than specific individual instances.',
-					rusSentence: 'Картошка, помидоры и лук — обычные ингредиенты супа.',
-					engSentences: [
-						{
-							engSentences: ['Potatoes, tomatoes and onions are common soup ingredients.'],
-							isCorrect: true,
-						},
-					],
-					words: [
-						{ rusWord: 'картошка', engWord: 'potatoes' },
-						{ rusWord: 'помидоры', engWord: 'tomatoes' },
-						{ rusWord: 'лук', engWord: 'onions' },
-						{ rusWord: 'обычный', engWord: 'common' },
-						{ rusWord: 'ингрединты супа', engWord: 'soup ingredients' },
-					],
 				},
 				{
 					rusSentence: 'Мы всегда пьём чай.',
@@ -1186,23 +1164,6 @@
 				},
 			],
 		},
-		{
-			type: 'exercises',
-			id: 3,
-			exercises: [
-				{
-					rusSentence: 'Наверняка он был моряком или рыбаком.',
-					engSentences: [
-						{
-							engSentences: ['He was probably a fisherman or sailor.'],
-							isCorrect: true,
-						},
-					],
-					words: [{ rusWord: 'ингрединты супа', engWord: 'soup ingredients' }],
-				},
-			],
-			offset: true,
-		},
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Перечисление типов' },
 		{
 			type: 'paragraph',
@@ -1210,7 +1171,6 @@
 			children: [
 				{
 					type: 'text',
-
 					text: 'Если идёт перечисление типов объектов без уточнения количества, то обычно количество и неопределённый артикль опускают. Так звучит натуральнее и проще. Сравните два варианта:',
 				},
 			],

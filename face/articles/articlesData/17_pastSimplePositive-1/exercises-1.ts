@@ -69,6 +69,20 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{ rusWord: 'вчера', engWord: 'yesterday' },
 			],
 		},
+		{
+			// TODO
+			rusSentence: 'Я разложила подушки в своем особом порядке.',
+			engSentences: [
+				{
+					engSentences: ['I arranged the cushions in my special order.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'работать', engWord: 'work' },
+				{ rusWord: 'вчера', engWord: 'yesterday' },
+			],
+		},
 	],
 }
 

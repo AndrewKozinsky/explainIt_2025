@@ -4,113 +4,143 @@ const exercises_2: ExercisesType.ExercisesObj = {
 	type: 'exercises',
 	exercises: [
 		{
-			// TODO
 			rusSentence: 'Наш учитель поправил меня.',
 			engSentences: [{ engSentences: ['Our teacher corrected me.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'давать', engWord: 'give' },
-				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'учитель', engWord: 'teacher' },
+				{ rusWord: 'поправлять', engWord: 'correct' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Я сделал всю работу.',
 			engSentences: [{ engSentences: ['I did all the work.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'давать', engWord: 'give' },
-				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'весь', engWord: 'all' },
+				{ rusWord: 'работа', engWord: 'work' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Я совсем забыл. Нам нужны яйца, лимоны и мука.',
 			engSentences: [{ engSentences: ['I completely forgot. We need eggs, lemons and flour.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'давать', engWord: 'give' },
-				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'полностью', engWord: 'completely' },
+				{ rusWord: 'забывать', engWord: 'forgot' },
+				{ rusWord: 'нуждаться', engWord: 'need' },
+				{ rusWord: 'яйцо', engWord: 'egg' },
+				{ rusWord: 'лимон', engWord: 'lemon' },
+				{ rusWord: 'мука', engWord: 'flour' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Прошлой ночью Ева дала мне коробку.',
 			engSentences: [{ engSentences: ['Last night Eva gave me a box.'], isCorrect: true }],
 			words: [
+				{ rusWord: 'прошлый', engWord: 'last' },
+				{ rusWord: 'ночь', engWord: 'popular' },
 				{ rusWord: 'давать', engWord: 'give' },
-				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'коробка', engWord: 'box' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Я даже видел чёрного кота.',
 			engSentences: [{ engSentences: ['I even saw a black cat.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'давать', engWord: 'give' },
-				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'даже', engWord: 'even' },
+				{ rusWord: 'видеть', engWord: 'see' },
+				{ rusWord: 'чёрный', engWord: 'black' },
+				{ rusWord: 'кот', engWord: 'cat' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Дверь открылась, и я вошел в дом.',
-			engSentences: [{ engSentences: ['The door opened and I went into the house.'], isCorrect: true }],
+			engSentences: [{ engSentences: ['The door opened and I came into the house.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'давать', engWord: 'give' },
-				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'дверь', engWord: 'door' },
+				{ rusWord: 'открывать', engWord: 'open' },
+				{ rusWord: 'входить', engWord: 'come into' },
+				{ rusWord: 'дом', engWord: 'house' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Я сделал маленькую ошибку на работе.',
 			engSentences: [{ engSentences: ['I made a little mistake at work.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'давать', engWord: 'give' },
-				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'маленький', engWord: 'little' },
+				{ rusWord: 'ошибка', engWord: 'mistake' },
+				{ rusWord: 'на работе', engWord: 'at work' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Я купил шампунь для своей сестры.',
 			engSentences: [{ engSentences: ['I bought shampoo for my sister.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'давать', engWord: 'give' },
-				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'покупать', engWord: 'buy' },
+				{ rusWord: 'шампунь', engWord: 'shampoo' },
+				{ rusWord: 'для', engWord: 'for' },
+				{ rusWord: 'сестра', engWord: 'sister' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Он носил добротную одежду, имел при себе два ружья и меч.',
 			engSentences: [
 				{ engSentences: ['He wore good quality clothes and he had two guns and a sword.'], isCorrect: true },
 			],
 			words: [
-				{ rusWord: 'давать', engWord: 'give' },
-				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'носить', engWord: 'wear' },
+				{ rusWord: 'добротная одежда', engWord: 'good quality clothes' },
+				{ rusWord: 'два', engWord: 'two' },
+				{ rusWord: 'ружьё', engWord: 'gun' },
+				{ rusWord: 'меч', engWord: 'sword' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Ему понравилась я, ему понравилось моё платье, ему понравилось моё имя.',
 			engSentences: [{ engSentences: ['He loved me, he loved my dress, he loved my name.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'давать', engWord: 'give' },
-				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'нравиться', engWord: 'love' },
+				{ rusWord: 'платье', engWord: 'dress' },
+				{ rusWord: 'имя', engWord: 'name' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Ему очень понравилось это!',
 			engSentences: [{ engSentences: ['He really enjoyed it!'], isCorrect: true }],
-			words: [
-				{ rusWord: 'давать', engWord: 'give' },
-				{ rusWord: 'популярный', engWord: 'popular' },
-			],
+			words: [{ rusWord: 'сильно нравиться', engWord: 'enjoy' }],
 		},
 		{
-			// TODO
 			rusSentence: 'Он принадлежал моей бабушке.',
 			engSentences: [{ engSentences: ['It belonged to my grandmother.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'давать', engWord: 'give' },
-				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'принадлежать', engWord: 'belong' },
+				{ rusWord: 'бабушка', engWord: 'grandmother' },
+			],
+		},
+		{
+			rusSentence: 'Сегодня Джейкоб совершил глупость.',
+			engSentences: [{ engSentences: ['Jacob did a stupid thing today.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'сегодня', engWord: 'today' },
+				{ rusWord: 'Джейкоб', engWord: 'Jacob' },
+				{ rusWord: 'глупость', engWord: 'stupid thing' },
+			],
+		},
+		{
+			rusSentence: 'Я принёс вещи вчера.',
+			engSentences: [{ engSentences: ['I brought things yesterday.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'приносить', engWord: 'bring' },
+				{ rusWord: 'вещь', engWord: 'thing' },
+				{ rusWord: 'вчера', engWord: 'yesterday' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Она купила расчёску и зубную щётку',
+			engSentences: [{ engSentences: ['She bought a hair brush and a tooth brush.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'приносить', engWord: 'bring' },
+				{ rusWord: 'вещь', engWord: 'thing' },
+				{ rusWord: 'вчера', engWord: 'yesterday' },
 			],
 		},
 	],

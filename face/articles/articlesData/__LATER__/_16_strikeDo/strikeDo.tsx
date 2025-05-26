@@ -107,17 +107,6 @@
 				{ type: 'text',  text: ' my homework?' },
 			],
 		},
-		{
-			type: 'exercises',
-			exercises: [
-				{
-					rusSentence: 'Я принёс вещи вчера.',
-					engSentences: [{ engSentences: ['I brought things yesterday.'], isCorrect: true }],
-					words: [{ rusWord: 'популярный', engWord: 'popular' }],
-				},
-			],
-			offset: true,
-		},
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Усиление высказывания' },
 		{
 			type: 'paragraph',

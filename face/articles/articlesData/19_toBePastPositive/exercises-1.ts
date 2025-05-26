@@ -247,6 +247,27 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{ rusWord: 'быть готовым', engWord: 'to be ready' },
 			],
 		},
+		{
+			rusSentence: 'Наверняка он был моряком или рыбаком.',
+			engSentences: [
+				{
+					engSentences: ['He was probably a fisherman or sailor.'],
+					isCorrect: true,
+				},
+			],
+			words: [{ rusWord: 'ингрединты супа', engWord: 'soup ingredients' }],
+		},
+		{
+			// TODO
+			rusSentence: 'Я был единственным студентом и это было ужасно.',
+			engSentences: [
+				{
+					engSentences: ['I was the only student, and it was terrible.'],
+					isCorrect: true,
+				},
+			],
+			words: [{ rusWord: 'ингрединты супа', engWord: 'soup ingredients' }],
+		},
 	],
 	offset: true,
 }

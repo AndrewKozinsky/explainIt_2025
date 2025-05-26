@@ -231,102 +231,10 @@
 			type: 'paragraph',
 			textSize: 'giant',
 			children: [
-				{
-					type: 'text',
-					text: 'Ты помогаешь своим родителям?',
-				},
-
-				{
-					type: 'text',
-					text: 'Do you help your parents?',
-				},
-			],
-		},
-		{
-			type: 'paragraph',
-			textSize: 'giant',
-			children: [
 				{ type: 'text',   text: 'Он работает здесь?' },
 				{ type: 'text',   text: 'Does he work here?' },
 			],
 		},
-		{ type: 'header', tag: 'h3', style: 'h3', text: 'Вопрос в Past Simple' },
-		{
-			type: 'paragraph',
-			children: [
-				{
-					type: 'text',
-					text: 'По принципу построения вопроса в настоящем времени построем вопросительное из утвердительного в прошедшем времени.',
-				},
-			],
-		},
-		{ type: 'customComponent', component: <PastSimplePositiveScheme /> },
-		{
-			type: 'paragraph',
-			offset: true,
-
-			children: [
-				{
-					type: 'text',
-					text: 'Поставлю вспомогательный глагол do перед подлежащим.',
-				},
-			],
-		},
-		{ type: 'customComponent', component: <PastSimpleQuestionScheme_1 /> },
-		{
-			type: 'paragraph',
-			offset: true,
-			children: [
-				{
-					type: 'text',
-					text: 'И перенесу прошедшее время из смыслового глагола на вспомогательный. Do — это неправильный глагол. Поэтому в форме прошедшего времени выглядит не doed, а имеет собственную форму did. Смысловой глагол лишившись формы прошедшего времени стал в инфинитивную форму.',
-				},
-			],
-		},
-		{ type: 'customComponent', component: <PastSimpleQuestionScheme_2 /> },
-		{
-			type: 'paragraph',
-			offset: true,
-			children: [
-				{
-					type: 'text',
-					text: 'Схема образования утвердительного и вопросительного предложения в Past Simple:',
-				},
-			],
-		},
-		{ type: 'customComponent', component: <PastSimplePositiveAndQuestionTable /> },
-		{
-			type: 'paragraph',
-			offset: true,
-			children: [{ type: 'text',   text: 'Примеры:' }],
-		},
-		{
-			type: 'paragraph',
-
-			textSize: 'giant',
-			children: [
-				{
-					type: 'text',
-					text: 'Ты помогал своим родителям?',
-				},
-
-				{
-					type: 'text',
-					text: 'Did you help your parents?',
-				},
-			],
-		},
-		{
-			type: 'paragraph',
-
-			textSize: 'giant',
-			children: [
-				{ type: 'text',   text: 'Он работал здесь?' },
-
-				{ type: 'text',   text: 'Did he work here?' },
-			],
-		},
-		{ type: 'exercises', id: 1, exercises: [], offset: true },
 		{ type: 'header', tag: 'h3', style: 'h3', text: 'Вопрос в Future Simple' },
 		{
 			type: 'paragraph',
@@ -388,34 +296,6 @@
 					children: [{ type: 'customComponent', component: <ToBePresentNegativeScheme /> }],
 				},
 			],
-		},
-		{
-			type: 'exercises',
-			id: 3,
-			exercises: [
-				{
-					rusSentence: 'Он никогда не ходит без своих друзей.',
-					engSentences: [{ engSentences: ['He never goes without his friends.'], isCorrect: true }],
-					words: [
-						{ rusWord: 'никогда не', engWord: 'never' },
-						{ rusWord: 'ходить', engWord: 'go' },
-						{ rusWord: 'без', engWord: 'without' },
-						{ rusWord: 'друг', engWord: 'friend' },
-					],
-				},
-				{
-					note: 'Лучше переводить через отрицание.',
-					rusSentence: 'Я чувствую себя неуютно в твоей комнате.',
-					engSentences: [
-						{
-							engSentences: ['I don’t feel comfortable in your room.'],
-							isCorrect: true,
-						},
-					],
-					words: [{ rusWord: 'популярный', engWord: 'popular' }],
-				},
-			],
-			offset: true,
 		},
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Все схемы' },
 		{

@@ -256,20 +256,6 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			rusSentence: 'Он очень часто плавает.',
-			engSentences: [
-				{
-					engSentences: ['He swims very often.'],
-					isCorrect: true,
-				},
-			],
-			words: [
-				{ rusWord: 'очень', engWord: 'very' },
-				{ rusWord: 'часто', engWord: 'about often' },
-				{ rusWord: 'плавать', engWord: 'swim' },
-			],
-		},
-		{
 			rusSentence: 'Я думаю, Сара и Даниэл знают.',
 			engSentences: [
 				{
@@ -282,19 +268,6 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				{ rusWord: 'Сара', engWord: 'Sarah' },
 				{ rusWord: 'Даниэл', engWord: 'Daniel' },
 				{ rusWord: 'знать', engWord: 'know' },
-			],
-		},
-		{
-			rusSentence: 'Я ненавижу насилие.',
-			engSentences: [
-				{
-					engSentences: ['I hate violence.'],
-					isCorrect: true,
-				},
-			],
-			words: [
-				{ rusWord: 'ненавидеть', engWord: 'hate' },
-				{ rusWord: 'насилие', engWord: 'violence' },
 			],
 		},
 	],

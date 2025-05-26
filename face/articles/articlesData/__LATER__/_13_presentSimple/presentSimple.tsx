@@ -57,11 +57,6 @@
 			type: 'exercises',
 			exercises: [
 				{
-					rusSentence: 'Он очень часто плавает.',
-					engSentences: [{ engSentences: ['He swims very often.'], isCorrect: true }],
-					words: [{ rusWord: 'плавать', engWord: 'swim' }],
-				},
-				{
 					rusSentence: 'Я люблю книги о природе.',
 					engSentences: [{ engSentences: ['I like books about nature.'], isCorrect: true }],
 					words: [

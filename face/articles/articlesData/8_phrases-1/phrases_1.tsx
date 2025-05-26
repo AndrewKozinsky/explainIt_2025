@@ -1,6 +1,7 @@
 import ArticleType from '../../articleTypes/articleType'
 import exercises_1 from './exercises-1'
 import exercises_2 from './exercises-2'
+import exercises_3 from './exercises-3'
 
 const phrases_1: ArticleType.Art = {
 	meta: {
@@ -121,6 +122,55 @@ const phrases_1: ArticleType.Art = {
 			eng: [{ type: 'text', text: 'I visit other countries and cities.' }],
 		},
 		exercises_2,
+		{ type: 'header', tag: 'h2', style: 'h2', text: 'Чувствовать себя' },
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			rus: [{ type: 'text', text: 'Я чувствую себя ужасно.' }],
+			eng: [{ type: 'text', text: 'I feel awful.' }],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			rus: [{ type: 'text', text: 'Я не чувствую себя уютно в твоей комнате.' }],
+			eng: [{ type: 'text', text: 'I don’t feel comfortable in your room.' }],
+		},
+		exercises_3,
+		{ type: 'header', tag: 'h2', style: 'h2', text: 'Тетрадь и ноутбук' },
+		{
+			type: 'paragraph',
+			children: [
+				{
+					type: 'text',
+					text: 'В русском языке закрепилось слово «ноутбук» для обозначения небольшого портативного компьютера. Но в самом английском notebook обозначает блокнот или тетрадь. А портативный компьютер называют laptop.',
+				},
+			],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			rus: [{ type: 'text', text: 'Она пишет в тетради.' }],
+			eng: [{ type: 'text', text: 'She writes in the notebook.' }],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			rus: [{ type: 'text', text: 'Мери включает ноутбук каждое утро.' }],
+			eng: [{ type: 'text', text: 'Mary turns on a laptop every morning.' }],
+		},
+		{ type: 'header', tag: 'h2', style: 'h2', text: 'Работать кем-то' },
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			rus: [{ type: 'text', text: 'Гектор работает репортером на 9 канале.' }],
+			eng: [{ type: 'text', text: 'Hector works as a reporter on Channel 9' }],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			rus: [{ type: 'text', text: 'Так вы все еще хотите быть официантом?' }],
+			eng: [{ type: 'text', text: 'So do you still want to be a waiter?' }],
+		},
 	],
 }
 

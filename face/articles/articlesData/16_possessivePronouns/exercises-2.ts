@@ -59,6 +59,12 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			engSentences: [{ engSentences: ['The law says that the house is yours.'], isCorrect: true }],
 			words: [{ rusWord: 'сумка', engWord: 'bag' }],
 		},
+		{
+			// TODO
+			rusSentence: 'Твой секрет в безопасности со мной.',
+			engSentences: [{ engSentences: ['Your secret is safe with me.'], isCorrect: true }],
+			words: [{ rusWord: 'сумка', engWord: 'bag' }],
+		},
 	],
 }
 

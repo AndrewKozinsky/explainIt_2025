@@ -1,6 +1,7 @@
 import { imageMapper } from '../../../utils/imageMapper'
 import ArticleType from '../../articleTypes/articleType'
 import exercises_1 from './exercises-1'
+import exercises_2 from './exercises-2'
 
 const personalPronounsAsObject: ArticleType.Art = {
 	meta: {
@@ -417,6 +418,167 @@ const personalPronounsAsObject: ArticleType.Art = {
 				},
 			],
 		},
+		{ type: 'header', tag: 'h2', style: 'h2', text: 'Дополнение в роли подлежащего' },
+		{
+			type: 'paragraph',
+			offset: true,
+			children: [
+				{
+					type: 'text',
+					text: 'На русском есть множество предложений где используется форма личного местоимения для дополнения:',
+				},
+			],
+		},
+		{
+			type: 'paragraph',
+			textSize: 'giant',
+			children: [
+				{
+					type: 'text',
+					text: 'Мне нравится этот город.',
+				},
+			],
+		},
+		{
+			type: 'paragraph',
+			children: [
+				{
+					type: 'text',
+					text: 'Это оправдано потому что город оказывает положительное влияние на человека, а не человек кому-то нравится.',
+				},
+			],
+		},
+		{
+			type: 'paragraph',
+			children: [
+				{
+					type: 'text',
+					text: '----------',
+				},
+			],
+		},
+		{
+			type: 'paragraph',
+			offset: true,
+			children: [
+				{
+					type: 'text',
+					text: 'Другой интересный случай. Вы знаете, что действующее лицо обычно указывается местоимениями я, вы, они, мы, он, она, а а персонаж, на которой действие направлено местоимениями мне, тебе, им, ей, ему.',
+				},
+			],
+		},
+		{
+			type: 'paragraph',
+			offset: true,
+			children: [
+				{
+					type: 'text',
+					text: 'При переводе нужно не дословно использовать местоимение me, а ставить личное местоимение для подлежащего — I:',
+				},
+			],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			rus: [
+				{
+					type: 'text',
+					text: 'Мне страшно.',
+				},
+			],
+			eng: [
+				{ type: 'text', text: 'I', color: 'blue' },
+				{ type: 'text', text: ' am scared.' },
+			],
+		},
+		{
+			type: 'paragraph',
+			textSize: 'small',
+			children: [
+				{
+					type: 'text',
+					text: 'Про личные местоимения в дополнении разбиралось в одноимённой главе.',
+				},
+			],
+		},
+		{
+			type: 'paragraph',
+			children: [
+				{
+					type: 'text',
+					text: 'В русском языке можно часто встречаются предложения где в роли подлежащего выступает притяжательное местоимение:',
+				},
+			],
+		},
+		{
+			type: 'paragraph',
+			textSize: 'giant',
+			children: [
+				{
+					type: 'text',
+					text: 'Мне нравится этот город.',
+				},
+			],
+		},
+		{
+			type: 'paragraph',
+			children: [
+				{
+					type: 'text',
+					text: 'Но если в английском языке в роли подлежащего стоит местоимение, то это местоимение может быть только личным: I, we, he, she, they, we.',
+				},
+			],
+		},
+		{
+			type: 'paragraph',
+			textSize: 'giant',
+			children: [
+				{
+					type: 'text',
+					text: 'I like this city.',
+				},
+			],
+		},
+		{
+			type: 'paragraph',
+			offset: true,
+			children: [
+				{
+					type: 'text',
+					text: 'Похожие конструкции:',
+				},
+			],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			rus: [{ type: 'text', text: 'Им живется хорошо.' }],
+			eng: [{ type: 'text', text: 'They live well.' }],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			rus: [{ type: 'text', text: 'Мне хочется спать.' }],
+			eng: [{ type: 'text', text: 'I want to sleep.' }],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			rus: [{ type: 'text', text: 'Ему мешает шум.' }],
+			eng: [{ type: 'text', text: 'The noise bothers him.' }],
+		},
+		{
+			type: 'paragraph',
+			textSize: 'small',
+			children: [
+				{
+					type: 'text',
+					text: 'Шум мешает ему. Поэтому шум — это лицо выполняющее действие. То есть подлежащие. Действие направлено на него, поэтому местоимение «он» стоит в роли дополнения.',
+					color: 'gray',
+				},
+			],
+		},
+		exercises_2,
 	],
 }
 

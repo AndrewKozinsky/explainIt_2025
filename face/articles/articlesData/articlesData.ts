@@ -10,6 +10,12 @@ import possessivePronouns from './16_possessivePronouns/possessivePronouns'
 import pastSimplePositive1 from './17_pastSimplePositive-1/pastSimplePositive-1'
 import pastSimplePositive2 from './18_pastSimplePositive-2/pastSimplePositive-2'
 import toBePastPositive from './19_toBePastPositive/toBePastPositive'
+import pastSimpleQuestion from './20_pastSimpleQuestion/past-simple-question'
+import toBePastQuestion from './21_toBePastQuestion/toBePastQuestion'
+import pastSimpleNegative from './22_pastSimpleNegative/past-simple-negative'
+import toBePastNegative from './23_toBePastNegative/toBePastNegative'
+import structure from './24_structure/structure'
+import verbAfterVerb from './25_verbAfterVerb/verbAfterVerb'
 import the from './5_the/the'
 import presentSimplePositive1 from './1_presentSimplePositive-1/presentSimplePositive-1'
 import presentSimplePositive2 from './2_presentSimplePositive-2/presentSimplePositive-2'
@@ -44,6 +50,12 @@ const rowRealArticles: ArticleType.Art[] = [
 	pastSimplePositive1,
 	pastSimplePositive2,
 	toBePastPositive,
+	pastSimpleQuestion,
+	toBePastQuestion,
+	pastSimpleNegative,
+	toBePastNegative,
+	structure,
+	verbAfterVerb,
 ]
 
 const rowTestArticles: ArticleType.Art[] = [testChapter1, testChapter2, testChapter3]

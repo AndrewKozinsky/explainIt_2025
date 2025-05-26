@@ -68,10 +68,10 @@ export const imageMapper = {
 			src: '/schemasAndTables/PastSimpleNegativeTable.svg',
 			alt: 'Past Simple Negative',
 		},*/
-		/*PastSimplePositiveAndQuestion: {
+		PastSimplePositiveAndQuestion: {
 			src: '/schemasAndTables/PastSimplePositiveAndQuestionTable.svg',
 			alt: 'Past Simple Positive and Question',
-		},*/
+		},
 		/*PastSimpleQuestion: {
 			src: '/schemasAndTables/PastSimpleQuestionTable.svg',
 			alt: 'Past Simple Question',

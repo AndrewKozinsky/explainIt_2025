@@ -1136,23 +1136,36 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Это бедствие. Это катастрофа.',
 			engSentences: [{ engSentences: ['It is a disaster. It is a catastrophe.'], isCorrect: false }],
 			words: [
-				{ rusWord: 'просто', engWord: 'just' },
-				{ rusWord: 'любопытный', engWord: 'fun' },
-				{ rusWord: 'факт', engWord: 'fact' },
+				{ rusWord: 'бедствие', engWord: 'disaster' },
+				{ rusWord: 'катастрофа', engWord: 'catastrophe' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Я очень, очень доволен.',
 			engSentences: [{ engSentences: ['I am very, very pleased.'], isCorrect: false }],
 			words: [
-				{ rusWord: 'просто', engWord: 'just' },
-				{ rusWord: 'любопытный', engWord: 'fun' },
-				{ rusWord: 'факт', engWord: 'fact' },
+				{ rusWord: 'очень', engWord: 'very' },
+				{ rusWord: 'довольный', engWord: 'pleased' },
+			],
+		},
+		{
+			rusSentence: 'Коробки мокрые.',
+			engSentences: [{ engSentences: ['The boxes are wet.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'коробка', engWord: 'box' },
+				{ rusWord: 'мокрый', engWord: 'wet' },
+			],
+		},
+		{
+			rusSentence: 'Мэри — хорошая студентка.',
+			engSentences: [{ engSentences: ['Mary is a good student.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'Мэри', engWord: 'Mary' },
+				{ rusWord: 'хороший', engWord: 'good' },
+				{ rusWord: 'студент', engWord: 'student' },
 			],
 		},
 	],

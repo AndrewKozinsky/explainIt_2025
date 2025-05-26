@@ -3351,7 +3351,7 @@ export const transcriptions = {
 	},
 
 	this_love_is_difficult_but_its_real: {
-		sentence: "This love is difficult, but it's real.",
+		sentence: 'This love is difficult, but it\'s real.',
 		transcription: 'ðɪs lʌv ɪz dɪˈfɪkəlt, bət ɪtˈs rɪəl',
 		audio: false,
 	},
@@ -3387,7 +3387,7 @@ export const transcriptions = {
 	},
 
 	is_this_a_pencil_no_its_a_pen: {
-		sentence: "Is this a pencil? No, it's a pen.",
+		sentence: 'Is this a pencil? No, it\'s a pen.',
 		transcription: 'is ˈðɪs ə ˈpɛn.ɫ.səʊ ˈnəʊ ɪt ɪz ə ˈpɛn',
 		audio: false,
 	},
@@ -4108,13 +4108,295 @@ export const transcriptions = {
 
 	i_also_organized_a_party_for_michael: {
 		sentence: 'I also organized a party for Michael.',
-		transcription: 'I also organized a party for Michael.»:\n\n**/aɪ ˈlɔː.səʊ ˈɔːɡ.əˌraɪ.zɪd ə ˈpɑː.tɪ fə ˈmaɪ.kəɫ',
+		transcription: 'aɪ ˈlɔː.səʊ ˈɔːɡ.əˌraɪ.zɪd ə ˈpɑː.tɪ fə ˈmaɪ.kəɫ',
 		audio: false,
 	},
 
 	the_captain_was_a_kind_man_but_the_mate_was_not: {
 		sentence: 'The captain was a kind man but the mate was not.',
-		transcription: 'ði ˈkeɪ.pənt wəz ə kɪnd mæn bət ðə ˈmeɪt wəz nɔt/\n```',
+		transcription: 'ði ˈkeɪ.pənt wəz ə kɪnd mæn bət ðə ˈmeɪt wəz nɔt',
+		audio: false,
+	},
+
+	i_work_every_day: {
+		sentence: 'I work every day.',
+		transcription: 'aɪ ˈwɜːrk ˈev.ə ˈdeɪ',
+		audio: false,
+	},
+
+	i_feel_awful: {
+		sentence: 'I feel awful.',
+		transcription: 'I fiːl ˈɔː.wf',
+		audio: false,
+	},
+
+	he_does_not_feel_happy: {
+		sentence: 'He does not feel happy.',
+		transcription: 'hi dəz nət fiːl hæ.pi',
+		audio: false,
+	},
+
+	does_she_feel_really_happy: {
+		sentence: 'Does she feel really happy?',
+		transcription: 'dʌz ʃi fiːl ri.lē hæ.pi',
+		audio: false,
+	},
+
+	does_he_feel_that_it_really_help_him: {
+		sentence: 'Does he feel that it really help him?',
+		transcription: 'dəz ˈhi fiː ðæt ɪt ˈri.lɪ ˈhɛp hɪm',
+		audio: false,
+	},
+
+	do_you_feel_progress: {
+		sentence: 'Do you feel progress?',
+		transcription: 'du ju fiːl prəˈgɝs/?**',
+		audio: false,
+	},
+
+	i_do_not_feel_happy_because_i_have_bad_results: {
+		sentence: 'I do not feel happy because I have bad results.',
+		transcription: 'aɪ duʊ nɒt fiːl hæ.pi bɪˈkɔː aɪ həv bæd rɪˈzɔːlz/\n```',
+		audio: false,
+	},
+
+	the_boxes_are_wet: {
+		sentence: 'The boxes are wet.',
+		transcription: 'ði ˈbɒks z ɑːr ˈwɛt',
+		audio: false,
+	},
+
+	they_let_children_play_video_games: {
+		sentence: 'They let children play video games.',
+		transcription: 'ðeɪ lɛt tʃɪldrən pleɪ vɪd.i ʤeɪmz',
+		audio: false,
+	},
+
+	potatoes_tomatoes_and_onions_are_common_soup_ingredients: {
+		sentence: 'Potatoes, tomatoes and onions are common soup ingredients.',
+		transcription: 'pəˈteɪ.toz, təˈmeɪ.toʊz ænd ɔnˈjaʊnz ər kəˈmən sʊp ɪnˈɡri.dzənts/**',
+		audio: false,
+	},
+
+	the_only_problem_is_she_does_not_like_my_manners_and_my_hairstyle_and_my_clothes: {
+		sentence: 'The only problem is, she does not like my manners and my hairstyle and my clothes.',
+		transcription: 'ði ˈɒn.l.i ˈprɒbləm ɪz, ʃi dəz nɔt lʌ.ks ma ˈmæn.əz ænd ma ˈher.staɪl ænd ma kləʊz',
+		audio: false,
+	},
+
+	my_mum_does_not_understand_me: {
+		sentence: 'My mum does not understand me.',
+		transcription: 'maɪ mʌm dʌz nɒt ʌndərstænd mi',
+		audio: false,
+	},
+
+	your_secret_is_safe_with_me: {
+		sentence: 'Your secret is safe with me.',
+		transcription: 'jə ˈsɛk.rit ɪz seɪf wɪð mi',
+		audio: false,
+	},
+
+	my_cousin_is_on_holiday_this_week: {
+		sentence: 'My cousin is on holiday this week.',
+		transcription: 'aɪ ˈsʌzn ɪz ɒn ˈhɒl.əd.i ðɪs wɪk',
+		audio: false,
+	},
+
+	he_never_goes_without_his_friends: {
+		sentence: 'He never goes without his friends.',
+		transcription: 'hi nivə goz wɪthˈaʊs hiz frendz',
+		audio: false,
+	},
+
+	he_kissed_her: {
+		sentence: 'He kissed her.',
+		transcription: 'hi ˈkɪsd ˈhər',
+		audio: false,
+	},
+
+	she_put_them_in_the_washing_machine_before_she_went_to_the_garden: {
+		sentence: 'She put them in the washing machine before she went to the garden.',
+		transcription: 'ʃiː pʊt ðəm ɪn ðə wɔː.ʃɪŋ mæ.ʃən bɪf.oʊ ʃiː wɔː.t æt ðə ˈɡɑː.dən/**',
+		audio: false,
+	},
+
+	i_am_sorry_we_had_a_little_party_last_night: {
+		sentence: 'I am sorry, we had a little party last night.',
+		transcription: 'aɪ ˈæm ˈsɔ.ri, wɪ ˈhæd ə ˈlɪtl ˈpɑː.tɪ lɑst ˈnaɪt/**',
+		audio: false,
+	},
+
+	she_shouted_her_phone_number: {
+		sentence: 'She shouted her phone number.',
+		transcription: '### She shouted her phone number.»\n\n**/ʃi ˈʃɔ:t ˈhə ˈfəʊn ˈnʌ.mə/**',
+		audio: false,
+	},
+
+	i_forgot_everything: {
+		sentence: 'I forgot everything.',
+		transcription: 'I forgot everything.»:\n\n**/aɪ ˈfɔː.gət ˈev.ər.ˈθɪŋ/**',
+		audio: false,
+	},
+
+	the_door_opened_and_i_came_into_the_house: {
+		sentence: 'The door opened and I came into the house.',
+		transcription: 'ði dɔr ˈəʊp.ən ænd aɪ ˈkʰɔm ɪntu ði hau.s//**',
+		audio: false,
+	},
+
+	jacob_did_a_stupid_thing_today: {
+		sentence: 'Jacob did a stupid thing today.',
+		transcription: 'dʒəˈkæb dɪd ə ˈstjuːp.əd θɪŋ təˈdeɪ',
+		audio: false,
+	},
+
+	i_brought_things_yesterday: {
+		sentence: 'I brought things yesterday.',
+		transcription: 'aɪ ˈbrɔː.tʰ ˈθɪŋ.z ˈjest.əd.i',
+		audio: false,
+	},
+
+	he_was_probably_a_fisherman_or_sailor: {
+		sentence: 'He was probably a fisherman or sailor.',
+		transcription: 'hi wəˈprɑbəli ə ˈfɪʃ.mən ɔr ˈseɪl.ər',
+		audio: false,
+	},
+
+	that_is_the_truth: {
+		sentence: 'That is the truth.',
+		transcription: 'ðæt ɪz ðə truθ',
+		audio: false,
+	},
+
+	the_only_problem_was_that_we_had_very_little_money: {
+		sentence: 'The only problem was that we had very little money.',
+		transcription: 'ðə ˈɒn.lɪ ˈprɒbləm wəz ðət wɪ ˈhæd ˈvɛri ˈlɪtl ˈmʌn.ɪ',
+		audio: false,
+	},
+
+	this_rich_man_was_foolish: {
+		sentence: 'This rich man was foolish.',
+		transcription: 'ðɪs rɪʧ mæn wəz fʊ.ə.lɪʃ',
+		audio: false,
+	},
+
+	i_thought_we_were_halfway_but_i_was_wrong: {
+		sentence: 'I thought we were halfway, but I was wrong.',
+		transcription: 'aɪ θɔː.t ˈwɪ.z ɪ.z ˈhɔː.w.eɪ, bʌt aɪ wəz rɔːŋ',
+		audio: false,
+	},
+
+	he_looked_different_when_he_was_a_student: {
+		sentence: 'He looked different when he was a student.',
+		transcription: 'hi lʊk.t ˈdɪ.fər.ənt wʌn ˈhi wəz ə ˈstjuː.dənt./**',
+		audio: false,
+	},
+
+	did_you_help_your_parents: {
+		sentence: 'Did you help your parents?',
+		transcription: 'dɪd jʊ hɛlp jʊə ˈpɑː.ɹ.nts',
+		audio: false,
+	},
+
+	did_he_work_here: {
+		sentence: 'Did he work here?',
+		transcription: 'Did he work here?»:\n\n**/dɪd hi wɜːk hɪə/?/**',
+		audio: false,
+	},
+
+	did_you_have_a_good_day: {
+		sentence: 'Did you have a good day?',
+		transcription: 'dɪd jʊ həv ə gʊd deɪ',
+		audio: false,
+	},
+
+	did_your_father_phone: {
+		sentence: 'Did your father phone?',
+		transcription: 'dɪd jə ˈfað.ə ˈfəʊn',
+		audio: false,
+	},
+
+	did_you_hear_that_scream: {
+		sentence: 'Did you hear that scream?',
+		transcription: 'dɪd jʊ ˈhɪə ðæt ˈskriːm',
+		audio: false,
+	},
+
+	did_you_send_this_message: {
+		sentence: 'Did you send this message?',
+		transcription: 'dɪd jʊ sɛnd ðɪs mɛsɪdʒ',
+		audio: false,
+	},
+
+	did_you_have_a_bad_day: {
+		sentence: 'Did you have a bad day?',
+		transcription: 'dɪd jʊ hə və bæd deɪ',
+		audio: false,
+	},
+
+	was_i_afraid: {
+		sentence: 'Was I afraid?',
+		transcription: 'wəz ˈaɪ ˈfɛəd',
+		audio: false,
+	},
+
+	was_you_alright_yesterday: {
+		sentence: 'Was you alright yesterday?',
+		transcription: 'wəz ju ˈɔː.laɪt ˈjest.ster',
+		audio: false,
+	},
+
+	it_was_a_puppy: {
+		sentence: 'It was a puppy.',
+		transcription: 'ɪt wəz ə ˈpʌ.pi',
+		audio: false,
+	},
+
+	he_often_hit_ransome_when_he_was_drunk: {
+		sentence: 'He often hit Ransome when he was drunk.',
+		transcription: 'hi ɔf.n hit ræn.səm wɛn hi wə draŋk/**',
+		audio: false,
+	},
+
+	tom_phoned_his_mummy_and_told_her_the_good_news: {
+		sentence: 'Tom phoned his mummy and told her the good news.',
+		transcription: 'tɒm fəʊnd hɪz mʌm.i ənd tɔːld hɜː ði gəd njuːz/**',
+		audio: false,
+	},
+
+	i_am_sure_my_examination_results_are_here: {
+		sentence: 'I am sure my examination results are here.',
+		transcription: 'aɪ æm ˈsʊr mɪ ˈek.sə.mən ˈrəʹzəl.t ˈɑr ˈhɪə',
+		audio: false,
+	},
+
+	my_father_taught_me: {
+		sentence: 'My father taught me.',
+		transcription: 'maɪ ˈfɑːðər ˈtɔːt ˈmiː',
+		audio: false,
+	},
+
+	he_is_cute_but_he_is_always_hungry: {
+		sentence: 'He is cute but he is always hungry.',
+		transcription: 'hi ɪz kjuːt bət hi ɪz əˈlʌz hʌŋɡri/**',
+		audio: false,
+	},
+
+	she_is_not_blonde_she_is_brunette: {
+		sentence: 'She is not blonde, she is brunette.',
+		transcription: 'ʃiː ɪz nɒt ˈblɒnd, ʃiː ɪz ˈbrʌn.tə',
+		audio: false,
+	},
+
+	i_love_animals_and_i_love_chocolate: {
+		sentence: 'I love animals and I love chocolate.',
+		transcription: 'aɪ lʌv ˈæn.jəl.z ɑːnd aɪ lʌv ˈtʃo.kət',
+		audio: false,
+	},
+
+	do_you_want_some_water: {
+		sentence: 'Do you want some water?',
+		transcription: 'du ju wɒnt sʌm wɔːtər/**',
 		audio: false,
 	},
 } satisfies Record<string, ITranscription>
