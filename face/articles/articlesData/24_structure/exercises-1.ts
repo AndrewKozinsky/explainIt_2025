@@ -24,13 +24,13 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Он часто бил меня, когда был пьян.',
 			engSentences: [{ engSentences: ['He often hit me when he was drunk.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'ходить (куда-то)', engWord: 'go' },
-				{ rusWord: 'стоматолог', engWord: 'every' },
-				{ rusWord: 'каждый год', engWord: 'year' },
+				{ rusWord: 'часто', engWord: 'often' },
+				{ rusWord: 'бить', engWord: 'hit' },
+				{ rusWord: 'когда', engWord: 'when' },
+				{ rusWord: 'быть пьяным', engWord: 'drunk' },
 			],
 		},
 		{

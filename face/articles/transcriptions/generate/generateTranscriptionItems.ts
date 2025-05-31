@@ -47,7 +47,12 @@ function getEnglishSentences() {
 	articles.forEach((article) => {
 		article.content.forEach((componentData) => {
 			if (componentData.type === 'rusToEng') {
-				const englishSentence = componentData.eng.reduce((acc, textElem) => {
+				const englishTexts = componentData.parts.find(p => {
+					return 'eng' in p
+				})
+				if (!englishTexts) return
+
+				const englishSentence = englishTexts.eng.reduce((acc, textElem) => {
 					return (acc += textElem.text)
 				}, '')
 
