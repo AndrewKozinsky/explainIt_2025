@@ -70,7 +70,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Я разложила подушки в своем особом порядке.',
 			engSentences: [
 				{
@@ -79,8 +78,11 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'работать', engWord: 'work' },
-				{ rusWord: 'вчера', engWord: 'yesterday' },
+				{ rusWord: 'раскладывать', engWord: 'arrange' },
+				{ rusWord: 'подушка', engWord: 'cushion' },
+				{ rusWord: 'в', engWord: 'in' },
+				{ rusWord: 'особый', engWord: 'special' },
+				{ rusWord: 'порядок', engWord: 'order' },
 			],
 		},
 	],

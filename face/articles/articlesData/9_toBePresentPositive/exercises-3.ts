@@ -147,10 +147,14 @@ const exercises_3: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Они разрешают детям играть в видеоигры.',
 			engSentences: [{ engSentences: ['They let children play video games.'], isCorrect: true }],
-			words: [{ rusWord: 'популярный', engWord: 'popular' }],
+			words: [
+				{ rusWord: 'позволять', engWord: 'let' },
+				{ rusWord: 'дети', engWord: 'let' },
+				{ rusWord: 'играть', engWord: 'play' },
+				{ rusWord: 'видеоигры', engWord: 'video games' },
+			],
 		},
 		{
 			note: 'Похоже это тема про нулевой артикль. Нужно изучить. Вот, что ответил ЧатГПТ на вопрос почему тут нет артиклей: In English grammar, the indefinite article "a" is typically used before singular countable nouns that are not specific or previously mentioned. When listing items in a general sense or as part of a category, the indefinite article is often omitted, especially when the items are being grouped together as a collective or category.\nIn your example, "potato," "tomato," and "onion" are being presented as general examples of soup ingredients. Since they are listed as part of a category of usual soup ingredients, the indefinite article "a" is not necessary before each item. The omission of the article helps to suggest that these items are examples or representatives of a larger group rather than specific individual instances.',
