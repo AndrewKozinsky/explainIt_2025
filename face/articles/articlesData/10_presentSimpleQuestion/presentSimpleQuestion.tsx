@@ -396,25 +396,33 @@ const presentSimpleQuestion: ArticleType.Art = {
 		},
 		{
 			type: 'rusToEng',
+			parts: [
+				{
+					rus: [
+						{
+							type: 'text',
+							text: 'Ты помогаешь своим родителям?',
+						},
+					],
+				},
+				{
+					eng: [
+						{
+							type: 'text',
+							text: 'Do you help your parents?',
+						},
+					],
+				},
+			],
 			textSize: 'giant',
-			rus: [
-				{
-					type: 'text',
-					text: 'Ты помогаешь своим родителям?',
-				},
-			],
-			eng: [
-				{
-					type: 'text',
-					text: 'Do you help your parents?',
-				},
-			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Он работает здесь?' }],
-			eng: [{ type: 'text', text: 'Does he work here?' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Он работает здесь?' }] },
+				{ eng: [{ type: 'text', text: 'Does he work here?' }] },
+			],
 		},
 		exercises_1,
 	],

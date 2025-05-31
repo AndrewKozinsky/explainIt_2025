@@ -44,20 +44,26 @@ const phrases_1: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Я играю в теннис.' }],
-			eng: [{ type: 'text', text: 'I play tennis.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Я играю в теннис.' }] },
+				{ eng: [{ type: 'text', text: 'I play tennis.' }] },
+			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Мы играем в эту игру.' }],
-			eng: [{ type: 'text', text: 'We play this game.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Мы играем в эту игру.' }] },
+				{ eng: [{ type: 'text', text: 'We play this game.' }] },
+			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Сёстры играют там.' }],
-			eng: [{ type: 'text', text: 'The sisters play there.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Сёстры играют там.' }] },
+				{ eng: [{ type: 'text', text: 'The sisters play there.' }] },
+			],
 		},
 		{
 			type: 'paragraph',
@@ -81,21 +87,29 @@ const phrases_1: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Лена играет на кларнете перед школой.' }],
-			eng: [
-				{ type: 'text', text: 'Lena plays the ' },
-				{ type: 'text', text: 'the', color: 'blue' },
-				{ type: 'text', text: ' clarinet before school.' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Лена играет на кларнете перед школой.' }] },
+				{
+					eng: [
+						{ type: 'text', text: 'Lena plays the ' },
+						{ type: 'text', text: 'the', color: 'blue' },
+						{ type: 'text', text: ' clarinet before school.' },
+					],
+				},
 			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Мои бабушка и дедушка оба играют на аккордеоне.' }],
-			eng: [
-				{ type: 'text', text: 'My grandparents both play ' },
-				{ type: 'text', text: 'the', color: 'blue' },
-				{ type: 'text', text: ' accordion.' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Мои бабушка и дедушка оба играют на аккордеоне.' }] },
+				{
+					eng: [
+						{ type: 'text', text: 'My grandparents both play ' },
+						{ type: 'text', text: 'the', color: 'blue' },
+						{ type: 'text', text: ' accordion.' },
+					],
+				},
 			],
 		},
 		exercises_1,
@@ -112,28 +126,36 @@ const phrases_1: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Это означает другую вещь.' }],
-			eng: [{ type: 'text', text: 'It means another thing.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Это означает другую вещь.' }] },
+				{ eng: [{ type: 'text', text: 'It means another thing.' }] },
+			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Я посещаю другие страны и города.' }],
-			eng: [{ type: 'text', text: 'I visit other countries and cities.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Я посещаю другие страны и города.' }] },
+				{ eng: [{ type: 'text', text: 'I visit other countries and cities.' }] },
+			],
 		},
 		exercises_2,
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Чувствовать себя' },
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Я чувствую себя ужасно.' }],
-			eng: [{ type: 'text', text: 'I feel awful.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Я чувствую себя ужасно.' }] },
+				{ eng: [{ type: 'text', text: 'I feel awful.' }] },
+			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Я не чувствую себя уютно в твоей комнате.' }],
-			eng: [{ type: 'text', text: 'I don’t feel comfortable in your room.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Я не чувствую себя уютно в твоей комнате.' }] },
+				{ eng: [{ type: 'text', text: 'I don’t feel comfortable in your room.' }] },
+			],
 		},
 		exercises_3,
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Тетрадь и ноутбук' },
@@ -149,27 +171,35 @@ const phrases_1: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Она пишет в тетради.' }],
-			eng: [{ type: 'text', text: 'She writes in the notebook.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Она пишет в тетради.' }] },
+				{ eng: [{ type: 'text', text: 'She writes in the notebook.' }] },
+			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Мери включает ноутбук каждое утро.' }],
-			eng: [{ type: 'text', text: 'Mary turns on a laptop every morning.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Мери включает ноутбук каждое утро.' }] },
+				{ eng: [{ type: 'text', text: 'Mary turns on a laptop every morning.' }] },
+			],
 		},
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Работать кем-то' },
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Гектор работает репортером на 9 канале.' }],
-			eng: [{ type: 'text', text: 'Hector works as a reporter on Channel 9' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Гектор работает репортером на 9 канале.' }] },
+				{ eng: [{ type: 'text', text: 'Hector works as a reporter on Channel 9' }] },
+			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Так вы все еще хотите быть официантом?' }],
-			eng: [{ type: 'text', text: 'So do you still want to be a waiter?' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Так вы все еще хотите быть официантом?' }] },
+				{ eng: [{ type: 'text', text: 'So do you still want to be a waiter?' }] },
+			],
 		},
 	],
 }

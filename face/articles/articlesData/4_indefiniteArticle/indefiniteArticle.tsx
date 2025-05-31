@@ -25,29 +25,41 @@ const indefiniteArticle: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{ type: 'text', text: 'Это приносит ему хорошие ' },
-				{ type: 'text', text: 'деньги', color: 'blue' },
-				{ type: 'text', text: '.' },
-			],
-			eng: [
-				{ type: 'text', text: 'It brings him good ' },
-				{ type: 'text', text: 'money', color: 'blue' },
-				{ type: 'text', text: '.' },
+			parts: [
+				{
+					rus: [
+						{ type: 'text', text: 'Это приносит ему хорошие ' },
+						{ type: 'text', text: 'деньги', color: 'blue' },
+						{ type: 'text', text: '.' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', text: 'It brings him good ' },
+						{ type: 'text', text: 'money', color: 'blue' },
+						{ type: 'text', text: '.' },
+					],
+				},
 			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{ type: 'text', text: 'Я имею много свободного ' },
-				{ type: 'text', text: 'времени', color: 'blue' },
-				{ type: 'text', text: '.' },
-			],
-			eng: [
-				{ type: 'text', text: 'I have much free ' },
-				{ type: 'text', text: 'time', color: 'blue' },
-				{ type: 'text', text: '.' },
+			parts: [
+				{
+					rus: [
+						{ type: 'text', text: 'Я имею много свободного ' },
+						{ type: 'text', text: 'времени', color: 'blue' },
+						{ type: 'text', text: '.' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', text: 'I have much free ' },
+						{ type: 'text', text: 'time', color: 'blue' },
+						{ type: 'text', text: '.' },
+					],
+				},
 			],
 		},
 		{
@@ -77,7 +89,6 @@ const indefiniteArticle: ArticleType.Art = {
 				},
 				{
 					type: 'paragraph',
-
 					textSize: 'giant',
 					children: [{ type: 'text', text: 'Три денег' }],
 				},
@@ -105,7 +116,6 @@ const indefiniteArticle: ArticleType.Art = {
 				},
 				{
 					type: 'paragraph',
-
 					textSize: 'giant',
 					children: [{ type: 'text', text: 'Девять времени' }],
 				},
@@ -178,11 +188,15 @@ const indefiniteArticle: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Я вижу учителя.' }],
-			eng: [
-				{ type: 'text', text: 'I see ' },
-				{ type: 'text', text: 'a', color: 'blue', weight: 'bold' },
-				{ type: 'text', text: ' teacher.' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Я вижу учителя.' }] },
+				{
+					eng: [
+						{ type: 'text', text: 'I see ' },
+						{ type: 'text', text: 'a', color: 'blue', weight: 'bold' },
+						{ type: 'text', text: ' teacher.' },
+					],
+				},
 			],
 		},
 		{
@@ -199,11 +213,15 @@ const indefiniteArticle: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Он живёт в доме.' }],
-			eng: [
-				{ type: 'text', text: 'He lives in ' },
-				{ type: 'text', text: 'a', color: 'blue', weight: 'bold' },
-				{ type: 'text', text: ' house.' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Он живёт в доме.' }] },
+				{
+					eng: [
+						{ type: 'text', text: 'He lives in ' },
+						{ type: 'text', text: 'a', color: 'blue', weight: 'bold' },
+						{ type: 'text', text: ' house.' },
+					],
+				},
 			],
 		},
 		{
@@ -442,21 +460,29 @@ const indefiniteArticle: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Кожаная куртка' }],
-			eng: [
-				{ type: 'text', text: 'A ' },
-				{ type: 'text', text: 'leather', color: 'blue' },
-				{ type: 'text', text: ' jacket' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Кожаная куртка' }] },
+				{
+					eng: [
+						{ type: 'text', text: 'A ' },
+						{ type: 'text', text: 'leather', color: 'blue' },
+						{ type: 'text', text: ' jacket' },
+					],
+				},
 			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Джинсовая рубашка' }],
-			eng: [
-				{ type: 'text', text: 'A ' },
-				{ type: 'text', text: 'denim', color: 'blue' },
-				{ type: 'text', text: ' shirt' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Джинсовая рубашка' }] },
+				{
+					eng: [
+						{ type: 'text', text: 'A ' },
+						{ type: 'text', text: 'denim', color: 'blue' },
+						{ type: 'text', text: ' shirt' },
+					],
+				},
 			],
 		},
 		exercises_3,
@@ -514,8 +540,10 @@ const indefiniteArticle: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Врач лечит людей.' }],
-			eng: [{ type: 'text', text: 'A doctor treats people.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Врач лечит людей.' }] },
+				{ eng: [{ type: 'text', text: 'A doctor treats people.' }] },
+			],
 		},
 		{
 			type: 'paragraph',
@@ -532,8 +560,10 @@ const indefiniteArticle: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Кролик — домашнее животное.' }],
-			eng: [{ type: 'text', text: 'A rabbit is a domestic animal.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Кролик — домашнее животное.' }] },
+				{ eng: [{ type: 'text', text: 'A rabbit is a domestic animal.' }] },
+			],
 		},
 		{
 			type: 'paragraph',
@@ -589,25 +619,35 @@ const indefiniteArticle: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Они видят птицу на дереве.' }],
-			eng: [
-				{ type: 'text', text: 'They see ' },
-				{ type: 'text', text: 'a', color: 'blue' },
-				{ type: 'text', text: ' bird in the tree.' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Они видят птицу на дереве.' }] },
+				{
+					eng: [
+						{ type: 'text', text: 'They see ' },
+						{ type: 'text', text: 'a', color: 'blue' },
+						{ type: 'text', text: ' bird in the tree.' },
+					],
+				},
 			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{ type: 'text', text: 'Они видят ' },
-				{ type: 'text', text: '(одну)', color: 'gray' },
-				{ type: 'text', text: ' птицу на дереве.' },
-			],
-			eng: [
-				{ type: 'text', text: 'They see ' },
-				{ type: 'text', text: 'one', color: 'blue' },
-				{ type: 'text', text: ' bird in the tree.' },
+			parts: [
+				{
+					rus: [
+						{ type: 'text', text: 'Они видят ' },
+						{ type: 'text', text: '(одну)', color: 'gray' },
+						{ type: 'text', text: ' птицу на дереве.' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', text: 'They see ' },
+						{ type: 'text', text: 'one', color: 'blue' },
+						{ type: 'text', text: ' bird in the tree.' },
+					],
+				},
 			],
 		},
 		{
@@ -670,8 +710,10 @@ const indefiniteArticle: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Дай мне чай.' }],
-			eng: [{ type: 'text', text: 'Give me tea.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Дай мне чай.' }] },
+				{ eng: [{ type: 'text', text: 'Give me tea.' }] },
+			],
 		},
 		{
 			type: 'paragraph',
@@ -712,8 +754,10 @@ const indefiniteArticle: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Дай мне чашку чая.' }],
-			eng: [{ type: 'text', text: 'Give me a tea.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Дай мне чашку чая.' }] },
+				{ eng: [{ type: 'text', text: 'Give me a tea.' }] },
+			],
 		},
 		{
 			type: 'paragraph',
@@ -1080,8 +1124,10 @@ const indefiniteArticle: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Она простужается каждую зиму.' }],
-			eng: [{ type: 'text', text: 'She catches a cold every winter.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Она простужается каждую зиму.' }] },
+				{ eng: [{ type: 'text', text: 'She catches a cold every winter.' }] },
+			],
 		},
 		{
 			type: 'paragraph',
@@ -1211,9 +1257,10 @@ const indefiniteArticle: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			revert: true,
-			rus: [{ type: 'text', text: 'Она ловит холодный 🫤 каждая зима.' }],
-			eng: [{ type: 'text', text: 'She catches cold every winter.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Она ловит холодный 🫤 каждая зима.' }] },
+				{ eng: [{ type: 'text', text: 'She catches cold every winter.' }] },
+			],
 		},
 		{
 			type: 'paragraph',
@@ -1221,7 +1268,6 @@ const indefiniteArticle: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-
 					text: 'Другой пример:',
 				},
 			],
@@ -1229,8 +1275,10 @@ const indefiniteArticle: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Вам нужен ковбойский образ.' }],
-			eng: [{ type: 'text', text: 'You need a cowboy look.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Вам нужен ковбойский образ.' }] },
+				{ eng: [{ type: 'text', text: 'You need a cowboy look.' }] },
+			],
 		},
 		{
 			type: 'paragraph',

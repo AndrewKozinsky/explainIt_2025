@@ -34,17 +34,23 @@ const pastSimplePositive1: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Я хочу сок.' }],
-			eng: [{ type: 'text', text: 'I want juice.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Я хочу сок.' }] },
+				{ eng: [{ type: 'text', text: 'I want juice.' }] },
+			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Он гладит твои штаны.' }],
-			eng: [
-				{ type: 'text', text: 'He iron' },
-				{ type: 'text', text: 's', color: 'blue' },
-				{ type: 'text', text: ' your trousers.' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Он гладит твои штаны.' }] },
+				{
+					eng: [
+						{ type: 'text', text: 'He iron' },
+						{ type: 'text', text: 's', color: 'blue' },
+						{ type: 'text', text: ' your trousers.' },
+					],
+				},
 			],
 		},
 		{
@@ -69,21 +75,29 @@ const pastSimplePositive1: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Я хотел сок.' }],
-			eng: [
-				{ type: 'text', text: 'I want' },
-				{ type: 'text', text: 'ed', color: 'blue' },
-				{ type: 'text', text: ' juice.' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Я хотел сок.' }] },
+				{
+					eng: [
+						{ type: 'text', text: 'I want' },
+						{ type: 'text', text: 'ed', color: 'blue' },
+						{ type: 'text', text: ' juice.' },
+					],
+				},
 			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Он гладил твои штаны.' }],
-			eng: [
-				{ type: 'text', text: 'He iron' },
-				{ type: 'text', text: 'ed', color: 'blue' },
-				{ type: 'text', text: ' your trousers.' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Он гладил твои штаны.' }] },
+				{
+					eng: [
+						{ type: 'text', text: 'He iron' },
+						{ type: 'text', text: 'ed', color: 'blue' },
+						{ type: 'text', text: ' your trousers.' },
+					],
+				},
 			],
 		},
 		{
@@ -99,11 +113,15 @@ const pastSimplePositive1: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Он гладил твои штаны.' }],
-			eng: [
-				{ type: 'text', text: 'He iron' },
-				{ type: 'text', text: 'ed', color: 'blue' },
-				{ type: 'text', text: ' your trousers.' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Он гладил твои штаны.' }] },
+				{
+					eng: [
+						{ type: 'text', text: 'He iron' },
+						{ type: 'text', text: 'ed', color: 'blue' },
+						{ type: 'text', text: ' your trousers.' },
+					],
+				},
 			],
 		},
 
@@ -143,32 +161,42 @@ const pastSimplePositive1: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'big',
-			rus: [
+			parts: [
 				{
-					type: 'text',
-					text: 'спасать — спас',
+					rus: [
+						{
+							type: 'text',
+							text: 'спасать — спас',
+						},
+					],
 				},
-			],
-			eng: [
-				{ type: 'text', text: 'sav' },
-				{ type: 'text', color: 'gold', text: 'e' },
-				{ type: 'text', text: ' — sav' },
-				{ type: 'text', color: 'gold', text: 'e' },
-				{ type: 'text', color: 'blue', text: 'd' },
+				{
+					eng: [
+						{ type: 'text', text: 'sav' },
+						{ type: 'text', color: 'gold', text: 'e' },
+						{ type: 'text', text: ' — sav' },
+						{ type: 'text', color: 'gold', text: 'e' },
+						{ type: 'text', color: 'blue', text: 'd' },
+					],
+				},
 			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
 			offset: true,
-			rus: [{ type: 'text', text: 'Он спас ей жизнь.' }],
-			eng: [{ type: 'text', text: 'He saved her live.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Он спас ей жизнь.' }] },
+				{ eng: [{ type: 'text', text: 'He saved her live.' }] },
+			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Мой друг переехал в Италию.' }],
-			eng: [{ type: 'text', text: 'My friend moved to Italy.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Мой друг переехал в Италию.' }] },
+				{ eng: [{ type: 'text', text: 'My friend moved to Italy.' }] },
+			],
 		},
 		{
 			type: 'paragraph',
@@ -195,44 +223,60 @@ const pastSimplePositive1: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'big',
-			rus: [
+			parts: [
 				{
-					type: 'text',
-					text: 'пытаться — пытался',
+					rus: [
+						{
+							type: 'text',
+							text: 'пытаться — пытался',
+						},
+					],
 				},
-			],
-			eng: [
-				{ type: 'text', text: 'tr' },
-				{ type: 'text', color: 'gold', text: 'y' },
-				{ type: 'text', text: ' — tr' },
-				{ type: 'text', color: 'blue', text: 'ied' },
+				{
+					eng: [
+						{ type: 'text', text: 'tr' },
+						{ type: 'text', color: 'gold', text: 'y' },
+						{ type: 'text', text: ' — tr' },
+						{ type: 'text', color: 'blue', text: 'ied' },
+					],
+				},
 			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'big',
-			rus: [
+			parts: [
 				{
-					type: 'text',
-					text: 'учиться — учился',
+					rus: [
+						{
+							type: 'text',
+							text: 'учиться — учился',
+						},
+					],
 				},
-			],
-			eng: [
-				{ type: 'text', text: 'stud' },
-				{ type: 'text', color: 'gold', text: 'y' },
-				{ type: 'text', text: ' — styd' },
-				{ type: 'text', color: 'blue', text: 'ied' },
+				{
+					eng: [
+						{ type: 'text', text: 'stud' },
+						{ type: 'text', color: 'gold', text: 'y' },
+						{ type: 'text', text: ' — styd' },
+						{ type: 'text', color: 'blue', text: 'ied' },
+					],
+				},
 			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
 			offset: true,
-			rus: [{ type: 'text', text: 'Она заплакала вдруг.' }],
-			eng: [
-				{ type: 'text', text: 'She cr' },
-				{ type: 'text', text: 'ied', color: 'blue' },
-				{ type: 'text', text: ' suddenly.' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Она заплакала вдруг.' }] },
+				{
+					eng: [
+						{ type: 'text', text: 'She cr' },
+						{ type: 'text', text: 'ied', color: 'blue' },
+						{ type: 'text', text: ' suddenly.' },
+					],
+				},
 			],
 		},
 		exercises_2,

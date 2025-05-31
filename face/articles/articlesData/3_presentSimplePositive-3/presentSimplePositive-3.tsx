@@ -65,27 +65,39 @@ const presentSimplePositive3: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{ type: 'text', text: 'Мы', color: 'blue' },
-				{ type: 'text', text: ' тренируемся вместе.' },
-			],
-			eng: [
-				{ type: 'text', text: 'We', color: 'blue' },
-				{ type: 'text', text: ' train together.' },
+			parts: [
+				{
+					rus: [
+						{ type: 'text', text: 'Мы', color: 'blue' },
+						{ type: 'text', text: ' тренируемся вместе.' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', text: 'We', color: 'blue' },
+						{ type: 'text', text: ' train together.' },
+					],
+				},
 			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{ type: 'text', text: 'Он', color: 'blue' },
-				{ type: 'text', text: ' носит костюмы.' },
-			],
-			eng: [
-				{ type: 'text', text: 'He', color: 'blue' },
-				{ type: 'text', text: ' wear' },
-				{ type: 'text', text: ' s', color: 'gold' },
-				{ type: 'text', text: ' suits.' },
+			parts: [
+				{
+					rus: [
+						{ type: 'text', text: 'Он', color: 'blue' },
+						{ type: 'text', text: ' носит костюмы.' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', text: 'He', color: 'blue' },
+						{ type: 'text', text: ' wear' },
+						{ type: 'text', text: ' s', color: 'gold' },
+						{ type: 'text', text: ' suits.' },
+					],
+				},
 			],
 		},
 		{
@@ -156,13 +168,19 @@ const presentSimplePositive3: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{ type: 'text', text: 'Совы', color: 'blue' },
-				{ type: 'text', text: '  летают по ночам.' },
-			],
-			eng: [
-				{ type: 'text', text: 'Owls', color: 'blue' },
-				{ type: 'text', text: ' fly at night.' },
+			parts: [
+				{
+					rus: [
+						{ type: 'text', text: 'Совы', color: 'blue' },
+						{ type: 'text', text: '  летают по ночам.' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', text: 'Owls', color: 'blue' },
+						{ type: 'text', text: ' fly at night.' },
+					],
+				},
 			],
 		},
 		{
@@ -205,16 +223,22 @@ const presentSimplePositive3: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{ type: 'text', text: 'Ваня', color: 'blue' },
-				{ type: 'text', text: ' спит после обеда.' },
-			],
-			eng: [
-				{ type: 'text', text: 'Vanya', color: 'blue' },
-				{ type: 'text', text: ' ' },
-				{ type: 'text', text: 'sleep' },
-				{ type: 'text', text: 's', color: 'gold' },
-				{ type: 'text', text: ' after dinner.' },
+			parts: [
+				{
+					rus: [
+						{ type: 'text', text: 'Ваня', color: 'blue' },
+						{ type: 'text', text: ' спит после обеда.' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', text: 'Vanya', color: 'blue' },
+						{ type: 'text', text: ' ' },
+						{ type: 'text', text: 'sleep' },
+						{ type: 'text', text: 's', color: 'gold' },
+						{ type: 'text', text: ' after dinner.' },
+					],
+				},
 			],
 		},
 		{
@@ -248,15 +272,21 @@ const presentSimplePositive3: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{ type: 'text', text: 'Эти деньги', color: 'blue' },
-				{ type: 'text', text: ' принадлежат мне.' },
-			],
-			eng: [
-				{ type: 'text', text: 'This money', color: 'blue' },
-				{ type: 'text', text: '  belong' },
-				{ type: 'text', text: 's', color: 'gold' },
-				{ type: 'text', text: ' to me.' },
+			parts: [
+				{
+					rus: [
+						{ type: 'text', text: 'Эти деньги', color: 'blue' },
+						{ type: 'text', text: ' принадлежат мне.' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', text: 'This money', color: 'blue' },
+						{ type: 'text', text: '  belong' },
+						{ type: 'text', text: 's', color: 'gold' },
+						{ type: 'text', text: ' to me.' },
+					],
+				},
 			],
 		},
 		{
@@ -291,13 +321,19 @@ const presentSimplePositive3: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{ type: 'text', text: 'Бернард и Эрик', color: 'blue' },
-				{ type: 'text', text: ' коллекционируют марки.' },
-			],
-			eng: [
-				{ type: 'text', text: 'Bernard and Eric', color: 'blue' },
-				{ type: 'text', text: ' collect stamps.' },
+			parts: [
+				{
+					rus: [
+						{ type: 'text', text: 'Бернард и Эрик', color: 'blue' },
+						{ type: 'text', text: ' коллекционируют марки.' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', text: 'Bernard and Eric', color: 'blue' },
+						{ type: 'text', text: ' collect stamps.' },
+					],
+				},
 			],
 		},
 		{

@@ -34,26 +34,34 @@ const presentSimplePositive1: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Я изучаю английский.' }],
-			eng: [{ type: 'text', text: 'I learn English.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Я изучаю английский.' }] },
+				{ eng: [{ type: 'text', text: 'I learn English.' }] },
+			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Ты ешь вишню.' }],
-			eng: [{ type: 'text', text: 'You eat cherry.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Ты ешь вишню.' }] },
+				{ eng: [{ type: 'text', text: 'You eat cherry.' }] },
+			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Мы любим зиму.' }],
-			eng: [{ type: 'text', text: 'We love winter.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Мы любим зиму.' }] },
+				{ eng: [{ type: 'text', text: 'We love winter.' }] },
+			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Они готовят ужин вместе.' }],
-			eng: [{ type: 'text', text: 'They cook dinner together.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Они готовят ужин вместе.' }] },
+				{ eng: [{ type: 'text', text: 'They cook dinner together.' }] },
+			],
 		},
 		{
 			type: 'paragraph',
@@ -68,26 +76,34 @@ const presentSimplePositive1: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Я работаю каждый день.' }],
-			eng: [{ type: 'text', text: 'I work every day.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Я работаю каждый день.' }] },
+				{ eng: [{ type: 'text', text: 'I work every day.' }] },
+			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Ты читаешь книги.' }],
-			eng: [{ type: 'text', text: 'You read books.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Ты читаешь книги.' }] },
+				{ eng: [{ type: 'text', text: 'You read books.' }] },
+			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Мы работаем полный рабочий день.' }],
-			eng: [{ type: 'text', text: 'We work full-time.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Мы работаем полный рабочий день.' }] },
+				{ eng: [{ type: 'text', text: 'We work full-time.' }] },
+			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Они носят костюмы.' }],
-			eng: [{ type: 'text', text: 'They wear suits.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Они носят костюмы.' }] },
+				{ eng: [{ type: 'text', text: 'They wear suits.' }] },
+			],
 		},
 		{
 			type: 'paragraph',

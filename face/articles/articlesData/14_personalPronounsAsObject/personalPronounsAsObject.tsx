@@ -30,14 +30,13 @@ const personalPronounsAsObject: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{ type: 'text', color: 'blue', text: 'Мы' },
-				{ type: 'text', text: ' помогаем.' },
-			],
-			eng: [
-				{ type: 'text', color: 'blue', text: 'We' },
-				{ type: 'text', text: ' help.' },
-			],
+			parts: [{ rus: [
+					{ type: 'text', color: 'blue', text: 'Мы' },
+					{ type: 'text', text: ' помогаем.' },
+				] }, { eng: [
+					{ type: 'text', color: 'blue', text: 'We' },
+					{ type: 'text', text: ' help.' },
+				] }],
 		},
 		{
 			type: 'paragraph',
@@ -57,15 +56,17 @@ const personalPronounsAsObject: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{ type: 'text', text: 'Мы помогаем ' },
-				{ type: 'text', color: 'blue', text: 'им' },
-				{ type: 'text', text: '.' },
-			],
-			eng: [
-				{ type: 'text', text: 'We help ' },
-				{ type: 'text', color: 'blue', text: 'them' },
-				{ type: 'text', text: '.' },
+			parts: [
+				{ rus: [
+						{ type: 'text', text: 'Мы помогаем ' },
+						{ type: 'text', color: 'blue', text: 'им' },
+						{ type: 'text', text: '.' },
+					] },
+				{ eng: [
+						{ type: 'text', text: 'We help ' },
+						{ type: 'text', color: 'blue', text: 'them' },
+						{ type: 'text', text: '.' },
+					] },
 			],
 		},
 		{
@@ -97,41 +98,45 @@ const personalPronounsAsObject: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{
-					type: 'text',
-					text: 'Мы старые друзья, ты знаешь ',
-				},
-				{ type: 'text', color: 'blue', text: 'меня' },
-				{
-					type: 'text',
-					text: '.',
-				},
-			],
-			eng: [
-				{
-					type: 'text',
-					text: 'We are old friends, you know ',
-				},
-				{ type: 'text', color: 'blue', text: 'me' },
-				{
-					type: 'text',
-					text: '.',
-				},
+			parts: [
+				{ rus: [
+						{
+							type: 'text',
+							text: 'Мы старые друзья, ты знаешь ',
+						},
+						{ type: 'text', color: 'blue', text: 'меня' },
+						{
+							type: 'text',
+							text: '.',
+						},
+					] },
+				{ eng: [
+						{
+							type: 'text',
+							text: 'We are old friends, you know ',
+						},
+						{ type: 'text', color: 'blue', text: 'me' },
+						{
+							type: 'text',
+							text: '.',
+						},
+					] },
 			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{ type: 'text', text: 'Паша отправляет ' },
-				{ type: 'text', color: 'blue', text: 'ей' },
-				{ type: 'text', text: ' открытки.' },
-			],
-			eng: [
-				{ type: 'text', text: 'Pasha send ' },
-				{ type: 'text', color: 'blue', text: 'her' },
-				{ type: 'text', text: ' postcards.' },
+			parts: [
+				{ rus: [
+						{ type: 'text', text: 'Паша отправляет ' },
+						{ type: 'text', color: 'blue', text: 'ей' },
+						{ type: 'text', text: ' открытки.' },
+					] },
+				{ eng: [
+						{ type: 'text', text: 'Pasha send ' },
+						{ type: 'text', color: 'blue', text: 'her' },
+						{ type: 'text', text: ' postcards.' },
+					] },
 			],
 		},
 		{
@@ -313,10 +318,12 @@ const personalPronounsAsObject: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Я делаю одну простую вещь.' }],
-			eng: [
-				{ type: 'text', text: 'I', color: 'blue' },
-				{ type: 'text', text: ' do one simple thing.' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Я делаю одну простую вещь.' }] },
+				{ eng:[
+						{ type: 'text', text: 'I', color: 'blue' },
+						{ type: 'text', text: ' do one simple thing.' },
+					] },
 			],
 		},
 		{
@@ -350,11 +357,13 @@ const personalPronounsAsObject: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: '— Я чувствую себя уставшим. — Я тоже.' }],
-			eng: [
-				{ type: 'text', text: '— I feel tired. – ' },
-				{ type: 'text', text: 'Me', color: 'blue' },
-				{ type: 'text', text: ' too.' },
+			parts: [
+				{ rus: [{ type: 'text', text: '— Я чувствую себя уставшим. — Я тоже.' }] },
+				{ eng: [
+						{ type: 'text', text: '— I feel tired. – ' },
+						{ type: 'text', text: 'Me', color: 'blue' },
+						{ type: 'text', text: ' too.' },
+					] },
 			],
 		},
 		{
@@ -372,11 +381,9 @@ const personalPronounsAsObject: ArticleType.Art = {
 			type: 'rusToEng',
 			offset: true,
 			textSize: 'giant',
-			rus: [{ type: 'text', text: '— Кто разбил вазу? – Не я!' }],
-			eng: [
-				{ type: 'text', text: '— Who broke the vase? – Not ' },
-				{ type: 'text', text: 'me', color: 'blue' },
-				{ type: 'text', text: '!' },
+			parts: [
+				{ rus: [{ type: 'text', text: '— Кто разбил вазу? – Не я!' }] },
+				{ eng: [] },
 			],
 		},
 		{
@@ -480,16 +487,22 @@ const personalPronounsAsObject: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
+			parts: [
 				{
-					type: 'text',
-					text: 'Мне страшно.',
+					rus: [
+						{
+							type: 'text',
+							text: 'Мне страшно.'
+						}
+					]
 				},
-			],
-			eng: [
-				{ type: 'text', text: 'I', color: 'blue' },
-				{ type: 'text', text: ' am scared.' },
-			],
+				{
+					eng: [
+						{type: 'text', text: 'I', color: 'blue'},
+						{type: 'text', text: ' am scared.'}
+					]
+				}
+			]
 		},
 		{
 			type: 'paragraph',
@@ -552,32 +565,14 @@ const personalPronounsAsObject: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Им живется хорошо.' }],
-			eng: [{ type: 'text', text: 'They live well.' }],
+			parts: [{ rus: [{ type: 'text', text: 'Им живется хорошо.' }] }, { eng: [{ type: 'text', text: 'They live well.' }] }],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Мне хочется спать.' }],
-			eng: [{ type: 'text', text: 'I want to sleep.' }],
+			parts: [{ rus: [{ type: 'text', text: 'Мне хочется спать.' }] }, { eng: [{ type: 'text', text: 'I want to sleep.' }] }],
 		},
-		{
-			type: 'rusToEng',
-			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Ему мешает шум.' }],
-			eng: [{ type: 'text', text: 'The noise bothers him.' }],
-		},
-		{
-			type: 'paragraph',
-			textSize: 'small',
-			children: [
-				{
-					type: 'text',
-					text: 'Шум мешает ему. Поэтому шум — это лицо выполняющее действие. То есть подлежащие. Действие направлено на него, поэтому местоимение «он» стоит в роли дополнения.',
-					color: 'gray',
-				},
-			],
-		},
+
 		exercises_2,
 	],
 }

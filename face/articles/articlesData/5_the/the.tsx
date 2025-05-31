@@ -274,25 +274,37 @@ const the: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{ type: 'text', weight: 'bold', text: 'Этот магазин' },
-				{ type: 'text', text: ' очень дорогой.' },
-			],
-			eng: [
-				{ type: 'text', weight: 'bold', text: 'This shop' },
-				{ type: 'text', text: ' is very expensive.' },
+			parts: [
+				{
+					rus: [
+						{ type: 'text', weight: 'bold', text: 'Этот магазин' },
+						{ type: 'text', text: ' очень дорогой.' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', weight: 'bold', text: 'This shop' },
+						{ type: 'text', text: ' is very expensive.' },
+					],
+				},
 			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{ type: 'text', color: 'blue', text: 'Магазин' },
-				{ type: 'text', text: ' ещё и закрыт сегодня.' },
-			],
-			eng: [
-				{ type: 'text', color: 'blue', text: 'The shop' },
-				{ type: 'text', text: ' is also closed today.' },
+			parts: [
+				{
+					rus: [
+						{ type: 'text', color: 'blue', text: 'Магазин' },
+						{ type: 'text', text: ' ещё и закрыт сегодня.' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', color: 'blue', text: 'The shop' },
+						{ type: 'text', text: ' is also closed today.' },
+					],
+				},
 			],
 		},
 		{
@@ -313,10 +325,14 @@ const the: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Зима была ветренной.' }],
-			eng: [
-				{ type: 'text', color: 'blue', text: 'The winter' },
-				{ type: 'text', text: ' was windy.' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Зима была ветренной.' }] },
+				{
+					eng: [
+						{ type: 'text', color: 'blue', text: 'The winter' },
+						{ type: 'text', text: ' was windy.' },
+					],
+				},
 			],
 		},
 		{
@@ -356,34 +372,40 @@ const the: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
+			parts: [
 				{
-					type: 'text',
-					text: 'Он был ',
+					rus: [
+						{
+							type: 'text',
+							text: 'Он был ',
+						},
+						{
+							type: 'text',
+							text: 'самым молодым федеральным судьёй',
+							color: 'blue',
+						},
+						{
+							type: 'text',
+							text: ' в стране.',
+						},
+					],
 				},
 				{
-					type: 'text',
-					text: 'самым молодым федеральным судьёй',
-					color: 'blue',
-				},
-				{
-					type: 'text',
-					text: ' в стране.',
-				},
-			],
-			eng: [
-				{
-					type: 'text',
-					text: 'He was ',
-				},
-				{
-					type: 'text',
-					text: 'the youngest federal judge',
-					color: 'blue',
-				},
-				{
-					type: 'text',
-					text: ' in the country.',
+					eng: [
+						{
+							type: 'text',
+							text: 'He was ',
+						},
+						{
+							type: 'text',
+							text: 'the youngest federal judge',
+							color: 'blue',
+						},
+						{
+							type: 'text',
+							text: ' in the country.',
+						},
+					],
 				},
 			],
 		},
@@ -421,26 +443,32 @@ const the: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
+			parts: [
 				{
-					type: 'text',
-					text: 'Двигатель',
-					color: 'blue',
+					rus: [
+						{
+							type: 'text',
+							text: 'Двигатель',
+							color: 'blue',
+						},
+						{
+							type: 'text',
+							text: ' не запускается.',
+						},
+					],
 				},
 				{
-					type: 'text',
-					text: ' не запускается.',
-				},
-			],
-			eng: [
-				{
-					type: 'text',
-					text: 'The engine',
-					color: 'blue',
-				},
-				{
-					type: 'text',
-					text: ' refuses to start.',
+					eng: [
+						{
+							type: 'text',
+							text: 'The engine',
+							color: 'blue',
+						},
+						{
+							type: 'text',
+							text: ' refuses to start.',
+						},
+					],
 				},
 			],
 		},
@@ -466,16 +494,21 @@ const the: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			revert: true,
-			rus: [
-				{ type: 'text', text: 'Я хожу в ' },
-				{ type: 'text', text: '(тот самый)', color: 'gray' },
-				{ type: 'text', text: ' обувной магазин' },
-			],
-			eng: [
-				{ type: 'text', text: 'I go to ' },
-				{ type: 'text', text: 'the shoe shop', color: 'blue' },
-				{ type: 'text', text: '.' },
+			parts: [
+				{
+					rus: [
+						{ type: 'text', text: 'Я хожу в ' },
+						{ type: 'text', text: '(тот самый)', color: 'gray' },
+						{ type: 'text', text: ' обувной магазин' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', text: 'I go to ' },
+						{ type: 'text', text: 'the shoe shop', color: 'blue' },
+						{ type: 'text', text: '.' },
+					],
+				},
 			],
 		},
 		{
@@ -499,16 +532,21 @@ const the: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			revert: true,
-			rus: [
-				{ type: 'text', text: 'Я хожу в ' },
-				{ type: 'text', text: '(любой)', color: 'gray' },
-				{ type: 'text', text: ' обувной магазин.' },
-			],
-			eng: [
-				{ type: 'text', text: 'I go to ' },
-				{ type: 'text', text: 'a shoe shop', color: 'blue' },
-				{ type: 'text', text: '.' },
+			parts: [
+				{
+					rus: [
+						{ type: 'text', text: 'Я хожу в ' },
+						{ type: 'text', text: '(любой)', color: 'gray' },
+						{ type: 'text', text: ' обувной магазин.' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', text: 'I go to ' },
+						{ type: 'text', text: 'a shoe shop', color: 'blue' },
+						{ type: 'text', text: '.' },
+					],
+				},
 			],
 		},
 		{
@@ -579,8 +617,10 @@ const the: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Соединённое Королевство' }],
-			eng: [{ type: 'text', text: 'The United Kingdom' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Соединённое Королевство' }] },
+				{ eng: [{ type: 'text', text: 'The United Kingdom' }] },
+			],
 		},
 		{
 			type: 'paragraph',
@@ -595,8 +635,7 @@ const the: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Франция' }],
-			eng: [{ type: 'text', text: 'France' }],
+			parts: [{ rus: [{ type: 'text', text: 'Франция' }] }, { eng: [{ type: 'text', text: 'France' }] }],
 		},
 		{
 			type: 'paragraph',
@@ -611,8 +650,10 @@ const the: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Играть в футбол' }],
-			eng: [{ type: 'text', text: 'Play football' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Играть в футбол' }] },
+				{ eng: [{ type: 'text', text: 'Play football' }] },
+			],
 		},
 		{
 			type: 'paragraph',
@@ -627,8 +668,10 @@ const the: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Играть на гитаре' }],
-			eng: [{ type: 'text', text: 'Play the guitar' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Играть на гитаре' }] },
+				{ eng: [{ type: 'text', text: 'Play the guitar' }] },
+			],
 		},
 		{
 			type: 'paragraph',
@@ -643,8 +686,10 @@ const the: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Он всегда говорит по телефону.' }],
-			eng: [{ type: 'text', text: 'He always talks on the phone.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Он всегда говорит по телефону.' }] },
+				{ eng: [{ type: 'text', text: 'He always talks on the phone.' }] },
+			],
 		},
 		{
 			type: 'paragraph',

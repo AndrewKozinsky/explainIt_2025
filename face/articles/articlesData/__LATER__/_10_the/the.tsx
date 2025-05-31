@@ -159,7 +159,6 @@
 		},
 		{
 			type: 'paragraph',
-
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'blue', text: 'An' },
@@ -191,7 +190,6 @@
 		},
 		{
 			type: 'paragraph',
-
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'blue', text: 'My' },
@@ -223,7 +221,6 @@
 		},
 		{
 			type: 'paragraph',
-
 			textSize: 'giant',
 			children: [
 				{ type: 'text', color: 'blue', text: 'This' },

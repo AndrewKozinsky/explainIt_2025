@@ -24,57 +24,81 @@ const presentSimplePositive2: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{ type: 'text', text: 'Я', color: 'blue' },
-				{ type: 'text', text: ' ' },
-				{ type: 'text', text: '(1 лицо)', color: 'gray' },
-				{ type: 'text', text: ' хочу больше денег.' },
-			],
-			eng: [
-				{ type: 'text', text: 'I', color: 'blue' },
-				{ type: 'text', text: ' want more money.' },
-			],
-		},
-		{
-			type: 'rusToEng',
-			textSize: 'giant',
-			rus: [
-				{ type: 'text', text: 'Ты', color: 'blue' },
-				{ type: 'text', text: ' ' },
-				{ type: 'text', text: '(2 лицо)', color: 'gray' },
-				{ type: 'text', text: ' видишь траву.' },
-			],
-			eng: [
-				{ type: 'text', text: 'You', color: 'blue' },
-				{ type: 'text', text: ' see grass.' },
+			parts: [
+				{
+					rus: [
+						{ type: 'text', text: 'Я', color: 'blue' },
+						{ type: 'text', text: ' ' },
+						{ type: 'text', text: '(1 лицо)', color: 'gray' },
+						{ type: 'text', text: ' хочу больше денег.' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', text: 'I', color: 'blue' },
+						{ type: 'text', text: ' want more money.' },
+					],
+				},
 			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{ type: 'text', text: 'Мы', color: 'blue' },
-				{ type: 'text', text: ' ' },
-				{ type: 'text', text: '(2 лицо)', color: 'gray' },
-				{ type: 'text', text: ' показываем плохие результаты.' },
-			],
-			eng: [
-				{ type: 'text', text: 'We', color: 'blue' },
-				{ type: 'text', text: ' show bad results.' },
+			parts: [
+				{
+					rus: [
+						{ type: 'text', text: 'Ты', color: 'blue' },
+						{ type: 'text', text: ' ' },
+						{ type: 'text', text: '(2 лицо)', color: 'gray' },
+						{ type: 'text', text: ' видишь траву.' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', text: 'You', color: 'blue' },
+						{ type: 'text', text: ' see grass.' },
+					],
+				},
 			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{ type: 'text', text: 'Они', color: 'blue' },
-				{ type: 'text', text: ' ' },
-				{ type: 'text', text: '(2 лицо)', color: 'gray' },
-				{ type: 'text', text: ' показывают фокусы.' },
+			parts: [
+				{
+					rus: [
+						{ type: 'text', text: 'Мы', color: 'blue' },
+						{ type: 'text', text: ' ' },
+						{ type: 'text', text: '(2 лицо)', color: 'gray' },
+						{ type: 'text', text: ' показываем плохие результаты.' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', text: 'We', color: 'blue' },
+						{ type: 'text', text: ' show bad results.' },
+					],
+				},
 			],
-			eng: [
-				{ type: 'text', text: 'They', color: 'blue' },
-				{ type: 'text', text: ' perform magic tricks.' },
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			parts: [
+				{
+					rus: [
+						{ type: 'text', text: 'Они', color: 'blue' },
+						{ type: 'text', text: ' ' },
+						{ type: 'text', text: '(2 лицо)', color: 'gray' },
+						{ type: 'text', text: ' показывают фокусы.' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', text: 'They', color: 'blue' },
+						{ type: 'text', text: ' perform magic tricks.' },
+					],
+				},
 			],
 		},
 		{
@@ -109,49 +133,67 @@ const presentSimplePositive2: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{ type: 'text', text: 'Она', color: 'blue' },
-				{ type: 'text', text: ' ' },
-				{ type: 'text', text: '(3 лицо)', color: 'gray' },
-				{ type: 'text', text: ' хочет больше денег.' },
-			],
-			eng: [
-				{ type: 'text', text: 'She', color: 'blue' },
-				{ type: 'text', text: ' want' },
-				{ type: 'text', text: 's', color: 'gold' },
-				{ type: 'text', text: ' more money.' },
-			],
-		},
-		{
-			type: 'rusToEng',
-			textSize: 'giant',
-			rus: [
-				{ type: 'text', text: 'Он', color: 'blue' },
-				{ type: 'text', text: ' ' },
-				{ type: 'text', text: '(3 лицо)', color: 'gray' },
-				{ type: 'text', text: ' видит траву.' },
-			],
-			eng: [
-				{ type: 'text', text: 'He', color: 'blue' },
-				{ type: 'text', text: ' see' },
-				{ type: 'text', text: 's', color: 'gold' },
-				{ type: 'text', text: ' grass.' },
+			parts: [
+				{
+					rus: [
+						{ type: 'text', text: 'Она', color: 'blue' },
+						{ type: 'text', text: ' ' },
+						{ type: 'text', text: '(3 лицо)', color: 'gray' },
+						{ type: 'text', text: ' хочет больше денег.' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', text: 'She', color: 'blue' },
+						{ type: 'text', text: ' want' },
+						{ type: 'text', text: 's', color: 'gold' },
+						{ type: 'text', text: ' more money.' },
+					],
+				},
 			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{ type: 'text', text: 'Это', color: 'blue' },
-				{ type: 'text', text: ' ' },
-				{ type: 'text', text: '(3 лицо)', color: 'gray' },
-				{ type: 'text', text: ' показывает плохие результаты.' },
+			parts: [
+				{
+					rus: [
+						{ type: 'text', text: 'Он', color: 'blue' },
+						{ type: 'text', text: ' ' },
+						{ type: 'text', text: '(3 лицо)', color: 'gray' },
+						{ type: 'text', text: ' видит траву.' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', text: 'He', color: 'blue' },
+						{ type: 'text', text: ' see' },
+						{ type: 'text', text: 's', color: 'gold' },
+						{ type: 'text', text: ' grass.' },
+					],
+				},
 			],
-			eng: [
-				{ type: 'text', text: 'It', color: 'blue' },
-				{ type: 'text', text: ' show' },
-				{ type: 'text', text: 's', color: 'gold' },
-				{ type: 'text', text: ' bad results.' },
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			parts: [
+				{
+					rus: [
+						{ type: 'text', text: 'Это', color: 'blue' },
+						{ type: 'text', text: ' ' },
+						{ type: 'text', text: '(3 лицо)', color: 'gray' },
+						{ type: 'text', text: ' показывает плохие результаты.' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', text: 'It', color: 'blue' },
+						{ type: 'text', text: ' show' },
+						{ type: 'text', text: 's', color: 'gold' },
+						{ type: 'text', text: ' bad results.' },
+					],
+				},
 			],
 		},
 		{
@@ -187,13 +229,17 @@ const presentSimplePositive2: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Она путешествует, потому что ей это нравится.' }],
-			eng: [
-				{ type: 'text', text: 'She travel' },
-				{ type: 'text', text: 's', color: 'blue' },
-				{ type: 'text', text: ' because she like' },
-				{ type: 'text', text: 's', color: 'blue' },
-				{ type: 'text', text: ' it.' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Она путешествует, потому что ей это нравится.' }] },
+				{
+					eng: [
+						{ type: 'text', text: 'She travel' },
+						{ type: 'text', text: 's', color: 'blue' },
+						{ type: 'text', text: ' because she like' },
+						{ type: 'text', text: 's', color: 'blue' },
+						{ type: 'text', text: ' it.' },
+					],
+				},
 			],
 		},
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Исключения' },
@@ -273,23 +319,31 @@ const presentSimplePositive2: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Он смотрит телевизор только иногда.' }],
-			eng: [
-				{ type: 'text', text: 'He wat' },
-				{ type: 'text', text: 'ch', color: 'blue' },
-				{ type: 'text', text: 'es', color: 'gold' },
-				{ type: 'text', text: ' TV only sometimes.' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Он смотрит телевизор только иногда.' }] },
+				{
+					eng: [
+						{ type: 'text', text: 'He wat' },
+						{ type: 'text', text: 'ch', color: 'blue' },
+						{ type: 'text', text: 'es', color: 'gold' },
+						{ type: 'text', text: ' TV only sometimes.' },
+					],
+				},
 			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Она делает это каждый день.' }],
-			eng: [
-				{ type: 'text', text: 'She d' },
-				{ type: 'text', text: 'o', color: 'blue' },
-				{ type: 'text', text: 'es', color: 'gold' },
-				{ type: 'text', text: ' it every day.' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Она делает это каждый день.' }] },
+				{
+					eng: [
+						{ type: 'text', text: 'She d' },
+						{ type: 'text', text: 'o', color: 'blue' },
+						{ type: 'text', text: 'es', color: 'gold' },
+						{ type: 'text', text: ' it every day.' },
+					],
+				},
 			],
 		},
 		{
@@ -336,8 +390,10 @@ const presentSimplePositive2: ArticleType.Art = {
 				{
 					type: 'rusToEng',
 					textSize: 'giant',
-					rus: [{ type: 'text', text: 'Он изучает экономику.' }],
-					eng: [{ type: 'text', text: 'He studies economics.' }],
+					parts: [
+						{ rus: [{ type: 'text', text: 'Он изучает экономику.' }] },
+						{ eng: [{ type: 'text', text: 'He studies economics.' }] },
+					],
 				},
 			],
 		},

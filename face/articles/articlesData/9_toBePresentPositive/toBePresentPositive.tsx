@@ -27,20 +27,23 @@ const toBePresentPositive: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Я космонавт.' }],
-			eng: [{ type: 'text', text: 'I spaceman.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Я космонавт.' }] },
+				{ eng: [{ type: 'text', text: 'I spaceman.' }] },
+			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Они клоуны.' }],
-			eng: [{ type: 'text', text: 'They clowns.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Они клоуны.' }] },
+				{ eng: [{ type: 'text', text: 'They clowns.' }] },
+			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Это щенок.' }],
-			eng: [{ type: 'text', text: 'It puppy.' }],
+			parts: [{ rus: [{ type: 'text', text: 'Это щенок.' }] }, { eng: [{ type: 'text', text: 'It puppy.' }] }],
 		},
 		{
 			type: 'paragraph',
@@ -82,43 +85,61 @@ const toBePresentPositive: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{ type: 'text', text: 'Я ' },
-				{ type: 'text', color: 'gray', text: '(есть)' },
-				{ type: 'text', text: ' космонавт.' },
-			],
-			eng: [
-				{ type: 'text', text: 'I ' },
-				{ type: 'text', color: 'blue', text: 'be' },
-				{ type: 'text', text: ' a spaceman.' },
-			],
-		},
-		{
-			type: 'rusToEng',
-			textSize: 'giant',
-			rus: [
-				{ type: 'text', text: 'Они ' },
-				{ type: 'text', color: 'gray', text: '(есть)' },
-				{ type: 'text', text: ' клоуны.' },
-			],
-			eng: [
-				{ type: 'text', text: 'They ' },
-				{ type: 'text', color: 'blue', text: 'be' },
-				{ type: 'text', text: ' clowns.' },
+			parts: [
+				{
+					rus: [
+						{ type: 'text', text: 'Я ' },
+						{ type: 'text', color: 'gray', text: '(есть)' },
+						{ type: 'text', text: ' космонавт.' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', text: 'I ' },
+						{ type: 'text', color: 'blue', text: 'be' },
+						{ type: 'text', text: ' a spaceman.' },
+					],
+				},
 			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{ type: 'text', text: 'Это ' },
-				{ type: 'text', color: 'gray', text: '(есть)' },
-				{ type: 'text', text: ' щенок.' },
+			parts: [
+				{
+					rus: [
+						{ type: 'text', text: 'Они ' },
+						{ type: 'text', color: 'gray', text: '(есть)' },
+						{ type: 'text', text: ' клоуны.' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', text: 'They ' },
+						{ type: 'text', color: 'blue', text: 'be' },
+						{ type: 'text', text: ' clowns.' },
+					],
+				},
 			],
-			eng: [
-				{ type: 'text', text: 'It ' },
-				{ type: 'text', color: 'blue', text: 'be' },
-				{ type: 'text', text: ' a puppy.' },
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			parts: [
+				{
+					rus: [
+						{ type: 'text', text: 'Это ' },
+						{ type: 'text', color: 'gray', text: '(есть)' },
+						{ type: 'text', text: ' щенок.' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', text: 'It ' },
+						{ type: 'text', color: 'blue', text: 'be' },
+						{ type: 'text', text: ' a puppy.' },
+					],
+				},
 			],
 		},
 		{
@@ -204,43 +225,61 @@ const toBePresentPositive: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{ type: 'text', text: 'Я ' },
-				{ type: 'text', color: 'gray', text: '(есть)' },
-				{ type: 'text', text: ' космонавт.' },
-			],
-			eng: [
-				{ type: 'text', text: 'I ' },
-				{ type: 'text', color: 'blue', text: 'am' },
-				{ type: 'text', text: ' a spaceman.' },
-			],
-		},
-		{
-			type: 'rusToEng',
-			textSize: 'giant',
-			rus: [
-				{ type: 'text', text: 'Они ' },
-				{ type: 'text', color: 'gray', text: '(есть)' },
-				{ type: 'text', text: ' клоуны.' },
-			],
-			eng: [
-				{ type: 'text', text: 'They ' },
-				{ type: 'text', color: 'blue', text: 'are' },
-				{ type: 'text', text: ' clowns.' },
+			parts: [
+				{
+					rus: [
+						{ type: 'text', text: 'Я ' },
+						{ type: 'text', color: 'gray', text: '(есть)' },
+						{ type: 'text', text: ' космонавт.' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', text: 'I ' },
+						{ type: 'text', color: 'blue', text: 'am' },
+						{ type: 'text', text: ' a spaceman.' },
+					],
+				},
 			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{ type: 'text', text: 'Это ' },
-				{ type: 'text', color: 'gray', text: '(есть)' },
-				{ type: 'text', text: ' щенок.' },
+			parts: [
+				{
+					rus: [
+						{ type: 'text', text: 'Они ' },
+						{ type: 'text', color: 'gray', text: '(есть)' },
+						{ type: 'text', text: ' клоуны.' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', text: 'They ' },
+						{ type: 'text', color: 'blue', text: 'are' },
+						{ type: 'text', text: ' clowns.' },
+					],
+				},
 			],
-			eng: [
-				{ type: 'text', text: 'It ' },
-				{ type: 'text', color: 'blue', text: 'is' },
-				{ type: 'text', text: ' a puppy.' },
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			parts: [
+				{
+					rus: [
+						{ type: 'text', text: 'Это ' },
+						{ type: 'text', color: 'gray', text: '(есть)' },
+						{ type: 'text', text: ' щенок.' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', text: 'It ' },
+						{ type: 'text', color: 'blue', text: 'is' },
+						{ type: 'text', text: ' a puppy.' },
+					],
+				},
 			],
 		},
 		{
@@ -270,8 +309,10 @@ const toBePresentPositive: ArticleType.Art = {
 				{
 					type: 'rusToEng',
 					textSize: 'giant',
-					rus: [{ type: 'text', text: 'Я читаю эту книгу.' }],
-					eng: [{ type: 'text', text: 'I read this book.' }],
+					parts: [
+						{ rus: [{ type: 'text', text: 'Я читаю эту книгу.' }] },
+						{ eng: [{ type: 'text', text: 'I read this book.' }] },
+					],
 				},
 				{
 					type: 'paragraph',
@@ -287,8 +328,10 @@ const toBePresentPositive: ArticleType.Art = {
 				{
 					type: 'rusToEng',
 					textSize: 'giant',
-					rus: [{ type: 'text', text: 'Мы курим.' }],
-					eng: [{ type: 'text', text: 'We smoke.' }],
+					parts: [
+						{ rus: [{ type: 'text', text: 'Мы курим.' }] },
+						{ eng: [{ type: 'text', text: 'We smoke.' }] },
+					],
 				},
 				{
 					type: 'paragraph',
@@ -314,8 +357,10 @@ const toBePresentPositive: ArticleType.Art = {
 				{
 					type: 'rusToEng',
 					textSize: 'giant',
-					rus: [{ type: 'text', text: 'Она заказывает еду онлайн.' }],
-					eng: [{ type: 'text', text: 'She orders food online.' }],
+					parts: [
+						{ rus: [{ type: 'text', text: 'Она заказывает еду онлайн.' }] },
+						{ eng: [{ type: 'text', text: 'She orders food online.' }] },
+					],
 				},
 				{
 					type: 'paragraph',
@@ -331,8 +376,10 @@ const toBePresentPositive: ArticleType.Art = {
 				{
 					type: 'rusToEng',
 					textSize: 'giant',
-					rus: [{ type: 'text', text: 'Ему нравится эта профессия.' }],
-					eng: [{ type: 'text', text: 'He likes this profession.' }],
+					parts: [
+						{ rus: [{ type: 'text', text: 'Ему нравится эта профессия.' }] },
+						{ eng: [{ type: 'text', text: 'He likes this profession.' }] },
+					],
 				},
 			],
 		},
@@ -511,8 +558,10 @@ const toBePresentPositive: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Он водитель.' }],
-			eng: [{ type: 'text', text: 'He is a driver.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Он водитель.' }] },
+				{ eng: [{ type: 'text', text: 'He is a driver.' }] },
+			],
 		},
 		{
 			type: 'paragraph',
@@ -529,8 +578,10 @@ const toBePresentPositive: ArticleType.Art = {
 			type: 'rusToEng',
 			textSize: 'giant',
 			offset: true,
-			rus: [{ type: 'text', text: 'Это было великолепно!' }],
-			eng: [{ type: 'text', text: 'That was awesome!' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Это было великолепно!' }] },
+				{ eng: [{ type: 'text', text: 'That was awesome!' }] },
+			],
 		},
 		{
 			type: 'paragraph',
@@ -547,11 +598,15 @@ const toBePresentPositive: ArticleType.Art = {
 			type: 'rusToEng',
 			textSize: 'giant',
 			offset: true,
-			rus: [{ type: 'text', text: 'Это местные бабочки.' }],
-			eng: [
+			parts: [
+				{ rus: [{ type: 'text', text: 'Это местные бабочки.' }] },
 				{
-					type: 'text',
-					text: 'They are local butterflies.',
+					eng: [
+						{
+							type: 'text',
+							text: 'They are local butterflies.',
+						},
+					],
 				},
 			],
 		},
@@ -707,16 +762,22 @@ const toBePresentPositive: ArticleType.Art = {
 							{
 								type: 'rusToEng',
 								textSize: 'big',
-								rus: [
+								parts: [
 									{
-										type: 'text',
-										text: 'Это будет дворец.',
+										rus: [
+											{
+												type: 'text',
+												text: 'Это будет дворец.',
+											},
+										],
 									},
-								],
-								eng: [
 									{
-										type: 'text',
-										text: 'It will be a palace.',
+										eng: [
+											{
+												type: 'text',
+												text: 'It will be a palace.',
+											},
+										],
 									},
 								],
 							},

@@ -13,19 +13,23 @@ const toBePastQuestion: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Я не был напуган?' }],
-			eng: [
-				{ type: 'text', color: 'blue', text: 'Was' },
-				{ type: 'text', text: ' I afraid?' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Я не был напуган?' }] },
+				{ eng: [
+						{ type: 'text', color: 'blue', text: 'Was' },
+						{ type: 'text', text: ' I afraid?' },
+					] },
 			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'С тобой вчера было всё в порядке?' }],
-			eng: [
-				{ type: 'text', color: 'blue', text: 'Was' },
-				{ type: 'text', text: ' you alright yesterday?' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'С тобой вчера было всё в порядке?' }] },
+				{ eng: [
+						{ type: 'text', color: 'blue', text: 'Was' },
+						{ type: 'text', text: ' you alright yesterday?' },
+					] },
 			],
 		},
 	],

@@ -25,8 +25,8 @@ const exercises_1: ExercisesType.ExercisesObj = {
 		},
 		{
 			// TODO
-			rusSentence: 'Он часто бил Рэнсома, когда был пьян.',
-			engSentences: [{ engSentences: ['He often hit Ransome when he was drunk.'], isCorrect: true }],
+			rusSentence: 'Он часто бил меня, когда был пьян.',
+			engSentences: [{ engSentences: ['He often hit me when he was drunk.'], isCorrect: true }],
 			words: [
 				{ rusWord: 'ходить (куда-то)', engWord: 'go' },
 				{ rusWord: 'стоматолог', engWord: 'every' },
@@ -34,10 +34,26 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
-			rusSentence: 'Думаю, я знаю, кто в этом виноват.',
+			rusSentence: 'Думаю, я знаю, кто ответственный за это.',
 			engSentences: [{ engSentences: ['I think I know who is responsible.'], isCorrect: true }],
 			words: [
+				{ rusWord: 'Считать', engWord: 'think' },
+				{ rusWord: 'знать', engWord: 'know' },
+				{ rusWord: 'ответственный', engWord: 'responsible' },
+			],
+		},
+		{
+			rusSentence: 'Будешь воду?',
+			engSentences: [{ engSentences: ['Do you want some water?'], isCorrect: true }],
+			words: [
+				{ rusWord: 'вода', engWord: 'water' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'К этому доступа нет.',
+			engSentences: [{ engSentences: ['There is no access to it.'], isCorrect: true }, { engSentences: ['I don’t have access to it.'], isCorrect: true }],
+			words: [
 				{ rusWord: 'ходить (куда-то)', engWord: 'go' },
 				{ rusWord: 'стоматолог', engWord: 'every' },
 				{ rusWord: 'каждый год', engWord: 'year' },
@@ -45,8 +61,8 @@ const exercises_1: ExercisesType.ExercisesObj = {
 		},
 		{
 			// TODO
-			rusSentence: 'Будешь воду?',
-			engSentences: [{ engSentences: ['Do you want some water?'], isCorrect: true }],
+			rusSentence: 'Не хочу быть нахлебником.',
+			engSentences: [{ engSentences: ['There is no access to it.'], isCorrect: true }, { engSentences: ['I don’t have access to it.'], isCorrect: true }],
 			words: [
 				{ rusWord: 'ходить (куда-то)', engWord: 'go' },
 				{ rusWord: 'стоматолог', engWord: 'every' },

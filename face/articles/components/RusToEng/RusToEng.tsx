@@ -1,6 +1,6 @@
 'use client'
 
-import { RefObject, useRef } from 'react'
+import React, { RefObject, useRef } from 'react'
 import cn from 'classnames'
 import ArticleType from '../../articleTypes/articleType'
 import ArrowCircle from '../ArrowCircle/ArrowCircle'
@@ -23,19 +23,20 @@ function RusToEng(props: RusToEngProps) {
 	return (
 		<div className={cn('art-rus-to-eng', props.config.offset && 'art-rus-to-eng--offset')}>
 			<p className={cn(getRootClasses(config))}>
-				{config.revert ? (
-					<EngPart engSentenceParts={config.eng} toggleTranscription={toggleTranscription} />
-				) : (
-					<RusPart rusSentenceParts={config.rus} />
-				)}
-				<ArrowCircle />
-				{config.revert ? (
-					<RusPart rusSentenceParts={config.rus} />
-				) : (
-					<EngPart engSentenceParts={config.eng} toggleTranscription={toggleTranscription} />
-				)}
+				{config.parts.map((part, i) => {
+					return (
+						<React.Fragment key={i}>
+							{'rus' in part ? (
+								<RusPart rusSentenceParts={part.rus} />
+							) : (
+								<EngPart engSentenceParts={part.eng} toggleTranscription={toggleTranscription} />
+							)}
+							{i < config.parts.length - 1 ? <ArrowCircle /> : null}
+						</React.Fragment>
+					)
+				})}
 			</p>
-			<TranscriptionBlock engSentenceParts={config.eng} ref={transcriptionBlockRef} />
+			<TranscriptionBlockWrapper config={config} transcriptionBlockRef={transcriptionBlockRef} />
 		</div>
 	)
 }
@@ -77,6 +78,22 @@ function EngPart(props: EngPartProps) {
 	} else {
 		return markup
 	}
+}
+
+type TranscriptionBlockWrapperProps = {
+	config: ArticleType.RusToEng
+	transcriptionBlockRef: RefObject<HTMLDivElement | null>
+}
+
+function TranscriptionBlockWrapper(props: TranscriptionBlockWrapperProps) {
+	const { config, transcriptionBlockRef } = props
+
+	const englishSentence = config.parts.find((part) => {
+		return 'eng' in part
+	})
+	if (!englishSentence) return null
+
+	return <TranscriptionBlock engSentenceParts={englishSentence.eng} ref={transcriptionBlockRef} />
 }
 
 type TranscriptionBlockProps = {

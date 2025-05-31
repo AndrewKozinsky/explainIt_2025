@@ -27,12 +27,11 @@ const pastSimplePositive2: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Этот курс помог мне.' }],
-			eng: [
-				{ type: 'text', text: 'This course help' },
-				{ type: 'text', text: 'ed', color: 'blue' },
-				{ type: 'text', text: ' me.' },
-			],
+			parts: [{ rus: [{ type: 'text', text: 'Этот курс помог мне.' }] }, { eng: [
+					{ type: 'text', text: 'This course help' },
+					{ type: 'text', text: 'ed', color: 'blue' },
+					{ type: 'text', text: ' me.' },
+				] }],
 		},
 		{
 			type: 'paragraph',
@@ -52,11 +51,13 @@ const pastSimplePositive2: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Они приехали домой.' }],
-			eng: [
-				{ type: 'text', text: 'They arriv' },
-				{ type: 'text', text: 'ed', color: 'blue' },
-				{ type: 'text', text: ' home.' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Они приехали домой.' }] },
+				{ eng: [
+						{ type: 'text', text: 'They arriv' },
+						{ type: 'text', text: 'ed', color: 'blue' },
+						{ type: 'text', text: ' home.' },
+					] },
 			],
 		},
 		{
@@ -115,52 +116,58 @@ const pastSimplePositive2: ArticleType.Art = {
 						{
 							type: 'rusToEng',
 							textSize: 'big',
-							rus: [
-								{
-									type: 'text',
-									text: 'работать — работал',
-								},
-							],
-							eng: [
-								{
-									type: 'text',
-									text: 'work — work',
-								},
-								{ type: 'text', color: 'blue', text: 'ed' },
-							],
-						},
-						{
-							type: 'rusToEng',
-							textSize: 'big',
-							rus: [
-								{
-									type: 'text',
-									text: 'начать — начал',
-								},
-							],
-							eng: [
-								{
-									type: 'text',
-									text: 'start — start',
-								},
-								{ type: 'text', color: 'blue', text: 'ed' },
+							parts: [
+								{ rus: [
+										{
+											type: 'text',
+											text: 'работать — работал',
+										},
+									] },
+								{ eng: [
+										{
+											type: 'text',
+											text: 'work — work',
+										},
+										{ type: 'text', color: 'blue', text: 'ed' },
+									] },
 							],
 						},
 						{
 							type: 'rusToEng',
 							textSize: 'big',
-							rus: [
-								{
-									type: 'text',
-									text: 'ждать — ждал',
-								},
+							parts: [
+								{ rus: [
+										{
+											type: 'text',
+											text: 'начать — начал',
+										},
+									] },
+								{ eng: [
+										{
+											type: 'text',
+											text: 'start — start',
+										},
+										{ type: 'text', color: 'blue', text: 'ed' },
+									] },
 							],
-							eng: [
-								{
-									type: 'text',
-									text: 'wait — wait',
-								},
-								{ type: 'text', color: 'blue', text: 'ed' },
+						},
+						{
+							type: 'rusToEng',
+							textSize: 'big',
+							parts: [
+								{ rus: [
+										{
+											type: 'text',
+											text: 'ждать — ждал',
+										},
+									] },
+								{ eng: [
+										{
+											type: 'text',
+											text: 'wait — wait',
+										},
+										{ type: 'text', color: 'blue', text: 'ed' },
+									] },
 							],
 						},
 					],
@@ -187,17 +194,19 @@ const pastSimplePositive2: ArticleType.Art = {
 						{
 							type: 'rusToEng',
 							textSize: 'big',
-							rus: [
-								{
-									type: 'text',
-									text: 'делать — делал',
-								},
-							],
-							eng: [
-								{
-									type: 'text',
-									text: 'make — made',
-								},
+							parts: [
+								{ rus: [
+										{
+											type: 'text',
+											text: 'делать — делал',
+										},
+									] },
+								{ eng: [
+										{
+											type: 'text',
+											text: 'make — made',
+										},
+									] },
 							],
 						},
 						{
@@ -218,17 +227,19 @@ const pastSimplePositive2: ArticleType.Art = {
 						{
 							type: 'rusToEng',
 							textSize: 'big',
-							rus: [
-								{
-									type: 'text',
-									text: 'пить — выпил',
-								},
-							],
-							eng: [
-								{
-									type: 'text',
-									text: 'drink — drank',
-								},
+							parts: [
+								{ rus: [
+										{
+											type: 'text',
+											text: 'пить — выпил',
+										},
+									] },
+								{ eng: [
+										{
+											type: 'text',
+											text: 'drink — drank',
+										},
+									] },
 							],
 						},
 						{
@@ -249,17 +260,19 @@ const pastSimplePositive2: ArticleType.Art = {
 						{
 							type: 'rusToEng',
 							textSize: 'big',
-							rus: [
-								{
-									type: 'text',
-									text: 'есть — ел',
-								},
-							],
-							eng: [
-								{
-									type: 'text',
-									text: 'eat — ate',
-								},
+							parts: [
+								{ rus: [
+										{
+											type: 'text',
+											text: 'есть — ел',
+										},
+									] },
+								{ eng:[
+										{
+											type: 'text',
+											text: 'eat — ate',
+										},
+									] },
 							],
 						},
 					],
@@ -279,21 +292,23 @@ const pastSimplePositive2: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Я понял этот вопрос.' }],
-			eng: [
-				{
-					type: 'text',
-					text: 'I ',
-				},
-				{
-					type: 'text',
-					text: 'understood',
-					color: 'blue',
-				},
-				{
-					type: 'text',
-					text: ' this question.',
-				},
+			parts: [
+				{ rus: [{ type: 'text', text: 'Я понял этот вопрос.' }] },
+				{ eng: [
+						{
+							type: 'text',
+							text: 'I ',
+						},
+						{
+							type: 'text',
+							text: 'understood',
+							color: 'blue',
+						},
+						{
+							type: 'text',
+							text: ' this question.',
+						},
+					] },
 			],
 		},
 		{
@@ -315,11 +330,13 @@ const pastSimplePositive2: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Он дал мне ключ.' }],
-			eng: [
-				{ type: 'text', text: 'He ' },
-				{ type: 'text', text: 'gave', color: 'blue' },
-				{ type: 'text', text: ' me a key.' },
+			parts: [
+				{ rus:  [{ type: 'text', text: 'Он дал мне ключ.' }] },
+				{ eng: [
+						{ type: 'text', text: 'He ' },
+						{ type: 'text', text: 'gave', color: 'blue' },
+						{ type: 'text', text: ' me a key.' },
+					] },
 			],
 		},
 		{

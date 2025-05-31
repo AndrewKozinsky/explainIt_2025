@@ -64,17 +64,19 @@ const demonstrativePronounce: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{ type: 'text', color: 'blue', text: 'Это' },
-				{ type: 'text', text: ' новая машина, а ' },
-				{ type: 'text', color: 'blue', text: 'та' },
-				{ type: 'text', text: ' старая.' },
-			],
-			eng: [
-				{ type: 'text', color: 'blue', text: 'This' },
-				{ type: 'text', text: '’s a new car, but ' },
-				{ type: 'text', color: 'blue', text: 'that' },
-				{ type: 'text', text: ' car is old.' },
+			parts: [
+				{ rus: [
+						{ type: 'text', color: 'blue', text: 'Это' },
+						{ type: 'text', text: ' новая машина, а ' },
+						{ type: 'text', color: 'blue', text: 'та' },
+						{ type: 'text', text: ' старая.' },
+					] },
+				{ eng: [
+						{ type: 'text', color: 'blue', text: 'This' },
+						{ type: 'text', text: '’s a new car, but ' },
+						{ type: 'text', color: 'blue', text: 'that' },
+						{ type: 'text', text: ' car is old.' },
+					] },
 			],
 		},
 		{
@@ -115,17 +117,19 @@ const demonstrativePronounce: ArticleType.Art = {
 				{
 					type: 'rusToEng',
 					textSize: 'big',
-					rus: [
-						{
-							type: 'text',
-							text: 'Это новая машина, а та старая.',
-						},
-					],
-					eng: [
-						{
-							type: 'text',
-							text: 'This is a new car, but that one is old.',
-						},
+					parts: [
+						{ rus: [
+								{
+									type: 'text',
+									text: 'Это новая машина, а та старая.',
+								},
+							] },
+						{ eng: [
+								{
+									type: 'text',
+									text: 'This is a new car, but that one is old.',
+								},
+							] },
 					],
 				},
 			],
@@ -182,19 +186,23 @@ const demonstrativePronounce: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Это великолепно!' }],
-			eng: [{ type: 'text', text: 'This is awesome!' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Это великолепно!' }] },
+				{ eng: [{ type: 'text', text: 'This is awesome!' }] },
+			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{
-					type: 'text',
-					text: 'Эта сумочка очень дешёвая.',
-				},
+			parts: [
+				{ rus: [
+						{
+							type: 'text',
+							text: 'Эта сумочка очень дешёвая.',
+						},
+					] },
+				{ eng: [{ type: 'text', text: 'This bag is very cheap.' }] },
 			],
-			eng: [{ type: 'text', text: 'This bag is very cheap.' }],
 		},
 		{
 			type: 'paragraph',
@@ -212,14 +220,18 @@ const demonstrativePronounce: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Это кошмар!' }],
-			eng: [{ type: 'text', text: 'That is a disaster!' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Это кошмар!' }] },
+				{ eng: [{ type: 'text', text: 'That is a disaster!' }] },
+			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Тот человек очень злой.' }],
-			eng: [{ type: 'text', text: 'That man is very angry.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Тот человек очень злой.' }] },
+				{ eng: [{ type: 'text', text: 'That man is very angry.' }] },
+			],
 		},
 		{
 			type: 'note',
@@ -256,8 +268,10 @@ const demonstrativePronounce: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Это кошмар!' }],
-			eng: [{ type: 'text', text: 'This is a disaster!' }],
+			parts: [
+				{ rus:[{ type: 'text', text: 'Это кошмар!' }] },
+				{ eng: [{ type: 'text', text: 'This is a disaster!' }] },
+			],
 		},
 		exercises_2,
 		{ type: 'header', tag: 'h3', style: 'h3', text: 'События в разном времени' },
@@ -292,10 +306,12 @@ const demonstrativePronounce: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Это великолепно!' }],
-			eng: [
-				{ type: 'text', color: 'blue', text: 'This ' },
-				{ type: 'text', text: ' is great!' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Это великолепно!' }] },
+				{ eng: [
+						{ type: 'text', color: 'blue', text: 'This ' },
+						{ type: 'text', text: ' is great!' },
+					] },
 			],
 		},
 		{
@@ -311,10 +327,12 @@ const demonstrativePronounce: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Это было великолепно!' }],
-			eng: [
-				{ type: 'text', color: 'blue', text: 'That' },
-				{ type: 'text', text: ' was great!' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Это было великолепно!' }] },
+				{ eng: [
+						{ type: 'text', color: 'blue', text: 'That' },
+						{ type: 'text', text: ' was great!' },
+					] },
 			],
 		},
 		{
@@ -391,17 +409,19 @@ const demonstrativePronounce: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{
-					type: 'text',
-					text: 'Вы — юрист? Да, это так.',
-				},
-			],
-			eng: [
-				{
-					type: 'text',
-					text: 'Are you a lawyer? Yes, that is right.',
-				},
+			parts: [
+				{ rus: [
+						{
+							type: 'text',
+							text: 'Вы — юрист? Да, это так.',
+						},
+					] },
+				{ eng: [
+						{
+							type: 'text',
+							text: 'Are you a lawyer? Yes, that is right.',
+						},
+					] },
 			],
 		},
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Отличие this/that от it' },
@@ -420,18 +440,20 @@ const demonstrativePronounce: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{
-					type: 'text',
-					text: 'Этот торт очень очень дорогой.',
-				},
-			],
-			eng: [
-				{ type: 'text', color: 'blue', text: 'This' },
-				{
-					type: 'text',
-					text: ' cake is very expensive.',
-				},
+			parts: [
+				{ rus: [
+						{
+							type: 'text',
+							text: 'Этот торт очень очень дорогой.',
+						},
+					] },
+				{ eng: [
+						{ type: 'text', color: 'blue', text: 'This' },
+						{
+							type: 'text',
+							text: ' cake is very expensive.',
+						},
+					] },
 			],
 		},
 		{
@@ -449,11 +471,13 @@ const demonstrativePronounce: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Но он очень вкусный.' }],
-			eng: [
-				{ type: 'text', text: 'But ' },
-				{ type: 'text', color: 'blue', text: 'it ' },
-				{ type: 'text', text: 'is very tasty.' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Но он очень вкусный.' }] },
+				{ eng: [
+						{ type: 'text', text: 'But ' },
+						{ type: 'text', color: 'blue', text: 'it ' },
+						{ type: 'text', text: 'is very tasty.' },
+					] },
 			],
 		},
 		{
@@ -469,19 +493,21 @@ const demonstrativePronounce: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{
-					type: 'text',
-					text: 'Это не религиозность, это не духовность, это не мистика.',
-				},
-			],
-			eng: [
-				{ type: 'text', color: 'blue', text: 'This' },
-				{ type: 'text', text: ' is not religious, ' },
-				{ type: 'text', color: 'blue', text: 'it' },
-				{ type: 'text', text: ' is not spiritual, ' },
-				{ type: 'text', color: 'blue', text: 'it' },
-				{ type: 'text', text: ' is not mystical.' },
+			parts: [
+				{ rus: [
+						{
+							type: 'text',
+							text: 'Это не религиозность, это не духовность, это не мистика.',
+						},
+					] },
+				{ eng: [
+						{ type: 'text', color: 'blue', text: 'This' },
+						{ type: 'text', text: ' is not religious, ' },
+						{ type: 'text', color: 'blue', text: 'it' },
+						{ type: 'text', text: ' is not spiritual, ' },
+						{ type: 'text', color: 'blue', text: 'it' },
+						{ type: 'text', text: ' is not mystical.' },
+					] },
 			],
 		},
 		exercises_3,
@@ -517,51 +543,57 @@ const demonstrativePronounce: ArticleType.Art = {
 						{
 							type: 'rusToEng',
 							textSize: 'giant',
-							rus: [
-								{
-									type: 'text',
-									text: 'этот — this',
-								},
-							],
-							eng: [
-								{
-									type: 'text',
-									text: 'эти — these',
-								},
-							],
-						},
-						{
-							type: 'rusToEng',
-							textSize: 'big',
-							rus: [
-								{
-									type: 'text',
-									text: 'Эта сумка огромная.',
-								},
-							],
-							eng: [
-								{ type: 'text', color: 'gold', text: 'This' },
-								{
-									type: 'text',
-									text: ' bag is huge.',
-								},
+							parts: [
+								{ rus: [
+										{
+											type: 'text',
+											text: 'этот — this',
+										},
+									] },
+								{ eng:[
+										{
+											type: 'text',
+											text: 'эти — these',
+										},
+									] },
 							],
 						},
 						{
 							type: 'rusToEng',
 							textSize: 'big',
-							rus: [
-								{
-									type: 'text',
-									text: 'Эти сумки огромные.',
-								},
+							parts: [
+								{ rus: [
+										{
+											type: 'text',
+											text: 'Эта сумка огромная.',
+										},
+									] },
+								{ eng: [
+										{ type: 'text', color: 'gold', text: 'This' },
+										{
+											type: 'text',
+											text: ' bag is huge.',
+										},
+									] },
 							],
-							eng: [
-								{ type: 'text', color: 'blue', text: 'These' },
-								{
-									type: 'text',
-									text: ' bags are huge.',
-								},
+						},
+						{
+							type: 'rusToEng',
+							textSize: 'big',
+							parts: [
+								{ rus: [
+										{
+											type: 'text',
+											text: 'Эти сумки огромные.',
+										},
+									] },
+								{ eng:[
+										{ type: 'text', color: 'blue', text: 'These' },
+										{
+											type: 'text',
+											text: ' bags are huge.',
+										},
+									] },
 							],
 						},
 					],
@@ -571,52 +603,49 @@ const demonstrativePronounce: ArticleType.Art = {
 						{
 							type: 'rusToEng',
 							textSize: 'giant',
-							rus: [
-								{
-									type: 'text',
-									text: 'тот — that',
-								},
-							],
-							eng: [
-								{
-									type: 'text',
-									text: 'те — those',
-								},
-							],
+							parts: [{ rus: [
+									{
+										type: 'text',
+										text: 'тот — that',
+									},
+								] }, { eng: [
+									{
+										type: 'text',
+										text: 'те — those',
+									},
+								] }],
 						},
 						{
 							type: 'rusToEng',
 							textSize: 'big',
-							rus: [
-								{
-									type: 'text',
-									text: 'Тот человек ненадёжен.',
-								},
-							],
-							eng: [
-								{ type: 'text', color: 'gold', text: 'That' },
-								{
-									type: 'text',
-									text: ' person is unreliable.',
-								},
-							],
+							parts: [{ rus: [
+									{
+										type: 'text',
+										text: 'Тот человек ненадёжен.',
+									},
+								] }, { eng: [
+									{ type: 'text', color: 'gold', text: 'That' },
+									{
+										type: 'text',
+										text: ' person is unreliable.',
+									},
+								] }],
 						},
 						{
 							type: 'rusToEng',
 							textSize: 'big',
-							rus: [
-								{
-									type: 'text',
-									text: 'Те люди ненадежные.',
-								},
-							],
-							eng: [
-								{ type: 'text', color: 'blue', text: 'Those' },
-								{
-									type: 'text',
-									text: ' people are unreliable.',
-								},
-							],
+							parts: [{ rus: [
+									{
+										type: 'text',
+										text: 'Те люди ненадежные.',
+									},
+								] }, { eng: [
+									{ type: 'text', color: 'blue', text: 'Those' },
+									{
+										type: 'text',
+										text: ' people are unreliable.',
+									},
+								] }],
 						},
 					],
 				},
@@ -642,7 +671,6 @@ const demonstrativePronounce: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-
 					text: 'Можно дать такой вариант:',
 				},
 			],
@@ -746,13 +774,12 @@ const demonstrativePronounce: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Это животное — жираф.' }],
-			eng: [
-				{
-					type: 'text',
-					text: 'This animal is a giraffe.',
-				},
-			],
+			parts: [{ rus: [{ type: 'text', text: 'Это животное — жираф.' }] }, { eng: [
+					{
+						type: 'text',
+						text: 'This animal is a giraffe.',
+					},
+				] }],
 		},
 		{
 			type: 'paragraph',
@@ -777,8 +804,7 @@ const demonstrativePronounce: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Это великолепная идея!' }],
-			eng: [{ type: 'text', text: 'This is a great idea!' }],
+			parts: [{ rus: [{ type: 'text', text: 'Это великолепная идея!' }] }, { eng: [{ type: 'text', text: 'This is a great idea!' }] }],
 		},
 		{
 			type: 'paragraph',

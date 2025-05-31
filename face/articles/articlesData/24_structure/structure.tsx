@@ -63,25 +63,27 @@ const structure: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{
-					type: 'text',
-					text: 'Суп ',
-				},
-				{
-					type: 'text',
-					text: '(есть)',
-					color: 'gray',
-				},
-				{
-					type: 'text',
-					text: ' холодный.',
-				},
-			],
-			eng: [
-				{ type: 'text', text: 'The soup ' },
-				{ type: 'text', text: 'is', color: 'blue' },
-				{ type: 'text', text: ' cold.' },
+			parts: [
+				{ rus: [
+						{
+							type: 'text',
+							text: 'Суп ',
+						},
+						{
+							type: 'text',
+							text: '(есть)',
+							color: 'gray',
+						},
+						{
+							type: 'text',
+							text: ' холодный.',
+						},
+					] },
+				{ eng: [
+						{ type: 'text', text: 'The soup ' },
+						{ type: 'text', text: 'is', color: 'blue' },
+						{ type: 'text', text: ' cold.' },
+					] },
 			],
 		},
 		{
@@ -127,15 +129,17 @@ const structure: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{
-					type: 'text',
-					text: 'Не спится.',
-				},
-			],
-			eng: [
-				{ type: 'text', text: 'I', color: 'blue' },
-				{ type: 'text', text: ' cannot sleep.' },
+			parts: [
+				{ rus: [
+						{
+							type: 'text',
+							text: 'Не спится.',
+						},
+					] },
+				{ eng: [
+						{ type: 'text', text: 'I', color: 'blue' },
+						{ type: 'text', text: ' cannot sleep.' },
+					] },
 			],
 		},
 		{
@@ -161,8 +165,10 @@ const structure: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Он милый, но всегда голодный.' }],
-			eng: [{ type: 'text', text: 'He is cute but always hungry.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Он милый, но всегда голодный.' }] },
+				{ eng: [{ type: 'text', text: 'He is cute but always hungry.' }] },
+			],
 		},
 		{
 			type: 'paragraph',
@@ -177,8 +183,10 @@ const structure: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Он милый, но всегда голодный.' }],
-			eng: [{ type: 'text', text: 'He is cute but he is always hungry.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Он милый, но всегда голодный.' }] },
+				{ eng: [{ type: 'text', text: 'He is cute but he is always hungry.' }] },
+			],
 		},
 		{
 			type: 'paragraph',
@@ -246,8 +254,37 @@ const structure: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Меня научил отец.' }],
-			eng: [{ type: 'text', text: 'My father taught me.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Меня научил отец.' }] },
+				{ eng: [{ type: 'text', text: 'My father taught me.' }] },
+			],
+		},
+		{
+			type: 'paragraph',
+			offset: true,
+			children: [
+				{
+					type: 'text',
+					text: 'Другой пример:',
+				},
+			],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			parts: [
+				{ rus: [{ type: 'text', text: 'Ему мешает шум.' }] },
+				{ eng: [{ type: 'text', text: 'The noise bothers him.' }] },
+			],
+		},
+		{
+			type: 'paragraph',
+			children: [
+				{
+					type: 'text',
+					text: 'Шум мешает ему. Поэтому шум — это лицо выполняющее действие. То есть подлежащие. Действие направлено на него, поэтому местоимение «он» стоит в роли дополнения.',
+				},
+			],
 		},
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Не забывайте про определители' },
 		{
@@ -262,24 +299,28 @@ const structure: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{
-					type: 'text',
-					text: 'Он дал сестре деньги.',
-				},
+			parts: [
+				{ rus: [
+						{
+							type: 'text',
+							text: 'Он дал сестре деньги.',
+						},
+					] },
+				{ eng: [{ type: 'text', text: 'He gave his sister money.' }] },
 			],
-			eng: [{ type: 'text', text: 'He gave his sister money.' }],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{
-					type: 'text',
-					text: 'Все, что вам нужно — это паспорт, билеты и деньги.',
-				},
+			parts: [
+				{ rus: [
+						{
+							type: 'text',
+							text: 'Все, что вам нужно — это паспорт, билеты и деньги.',
+						},
+					] },
+				{ eng: [{ type: 'text', text: 'All you need is your passport, your tickets and your money.' }] },
 			],
-			eng: [{ type: 'text', text: 'All you need is your passport, your tickets and your money.' }],
 		},
 		{
 			type: 'paragraph',
@@ -294,15 +335,17 @@ const structure: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{ type: 'text', text: 'Он ' },
-				{ type: 'text', color: 'blue', text: 'был' },
-				{ type: 'text', text: ' щенком.' },
-			],
-			eng: [
-				{ type: 'text', text: 'It ' },
-				{ type: 'text', color: 'blue', text: 'was' },
-				{ type: 'text', text: ' a puppy.' },
+			parts: [
+				{ rus: [
+						{ type: 'text', text: 'Он ' },
+						{ type: 'text', color: 'blue', text: 'был' },
+						{ type: 'text', text: ' щенком.' },
+					] },
+				{ eng: [
+						{ type: 'text', text: 'It ' },
+						{ type: 'text', color: 'blue', text: 'was' },
+						{ type: 'text', text: ' a puppy.' },
+					] },
 			],
 		},
 		{
@@ -319,14 +362,18 @@ const structure: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Том позвонил маме и сообщил радостную новость.' }],
-			eng: [{ type: 'text', text: 'Tom phoned his mummy and told her the good news.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Том позвонил маме и сообщил радостную новость.' }] },
+				{ eng: [{ type: 'text', text: 'Tom phoned his mummy and told her the good news.' }] },
+			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Я уверен, что результаты моих экзаменов здесь.' }],
-			eng: [{ type: 'text', text: 'I am sure my examination results are here.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Я уверен, что результаты моих экзаменов здесь.' }] },
+				{ eng: [{ type: 'text', text: 'I am sure my examination results are here.' }] },
+			],
 		},
 		{
 			type: 'paragraph',
@@ -341,24 +388,28 @@ const structure: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{
-					type: 'text',
-					text: 'Он позволил мне уйти.',
-				},
+			parts: [
+				{ rus: [
+						{
+							type: 'text',
+							text: 'Он позволил мне уйти.',
+						},
+					] },
+				{ eng: [{ type: 'text', text: 'He let me go.' }] },
 			],
-			eng: [{ type: 'text', text: 'He let me go.' }],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
-				{
-					type: 'text',
-					text: 'Он очень часто плавает.',
-				},
+			parts: [
+				{ rus: [
+						{
+							type: 'text',
+							text: 'Он очень часто плавает.',
+						},
+					] },
+				{ eng: [{ type: 'text', text: 'He swims very often.' }] },
 			],
-			eng: [{ type: 'text', text: 'He swims very often.' }],
 		},
 	],
 }

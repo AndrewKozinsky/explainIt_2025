@@ -261,46 +261,62 @@ const presentSimpleNegative: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
+			parts: [
 				{
-					type: 'text',
-					text: 'Ты не помогаешь своим родителям.',
+					rus: [
+						{
+							type: 'text',
+							text: 'Ты не помогаешь своим родителям.',
+						},
+					],
 				},
-			],
-			eng: [
 				{
-					type: 'text',
-					text: 'You do not help your parents.',
+					eng: [
+						{
+							type: 'text',
+							text: 'You do not help your parents.',
+						},
+					],
 				},
 			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Он не работает здесь.' }],
-			eng: [{ type: 'text', text: 'He does not work here.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Он не работает здесь.' }] },
+				{ eng: [{ type: 'text', text: 'He does not work here.' }] },
+			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
+			parts: [
 				{
-					type: 'text',
-					text: 'Я не работаю весь день.',
+					rus: [
+						{
+							type: 'text',
+							text: 'Я не работаю весь день.',
+						},
+					],
 				},
+				{ eng: [{ type: 'text', text: 'I do not work all day.' }] },
 			],
-			eng: [{ type: 'text', text: 'I do not work all day.' }],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
+			parts: [
 				{
-					type: 'text',
-					text: 'Она не есть мясо.',
+					rus: [
+						{
+							type: 'text',
+							text: 'Она не есть мясо.',
+						},
+					],
 				},
+				{ eng: [{ type: 'text', text: 'She does not eat meat.' }] },
 			],
-			eng: [{ type: 'text', text: 'She does not eat meat.' }],
 		},
 		exercises_1,
 		{
@@ -316,46 +332,62 @@ const presentSimpleNegative: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
+			parts: [
 				{
-					type: 'text',
-					text: 'Мы никогда не ходим пешком.',
+					rus: [
+						{
+							type: 'text',
+							text: 'Мы никогда не ходим пешком.',
+						},
+					],
 				},
+				{ eng: [{ type: 'text', text: 'We never walk.' }] },
 			],
-			eng: [{ type: 'text', text: 'We never walk.' }],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
+			parts: [
 				{
-					type: 'text',
-					text: 'У меня никогда нет личной жизни.',
+					rus: [
+						{
+							type: 'text',
+							text: 'У меня никогда нет личной жизни.',
+						},
+					],
 				},
+				{ eng: [{ type: 'text', text: 'I never have any privacy.' }] },
 			],
-			eng: [{ type: 'text', text: 'I never have any privacy.' }],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
+			parts: [
 				{
-					type: 'text',
-					text: 'Ты никогда не меняешься. Ты все еще подросток.',
+					rus: [
+						{
+							type: 'text',
+							text: 'Ты никогда не меняешься. Ты все еще подросток.',
+						},
+					],
 				},
+				{ eng: [{ type: 'text', text: 'You never change. You are still a teenager.' }] },
 			],
-			eng: [{ type: 'text', text: 'You never change. You are still a teenager.' }],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
+			parts: [
 				{
-					type: 'text',
-					text: 'Майкл никогда меня не замечает.',
+					rus: [
+						{
+							type: 'text',
+							text: 'Майкл никогда меня не замечает.',
+						},
+					],
 				},
+				{ eng: [{ type: 'text', text: 'Michael never notices me.' }] },
 			],
-			eng: [{ type: 'text', text: 'Michael never notices me.' }],
 		},
 	],
 }

@@ -169,20 +169,26 @@ const personalPronouns: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'У меня есть вопрос.' }],
-			eng: [{ type: 'text', text: 'I have a question.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'У меня есть вопрос.' }] },
+				{ eng: [{ type: 'text', text: 'I have a question.' }] },
+			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'У него хорошие результаты.' }],
-			eng: [{ type: 'text', text: 'He has good results.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'У него хорошие результаты.' }] },
+				{ eng: [{ type: 'text', text: 'He has good results.' }] },
+			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'У них есть квартира.' }],
-			eng: [{ type: 'text', text: 'They have an apartment.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'У них есть квартира.' }] },
+				{ eng: [{ type: 'text', text: 'They have an apartment.' }] },
+			],
 		},
 		{
 			type: 'paragraph',

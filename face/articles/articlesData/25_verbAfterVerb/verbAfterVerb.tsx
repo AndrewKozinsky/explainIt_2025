@@ -13,20 +13,26 @@ const verbAfterVerb: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Он хотел знать, где я был вчера вечером.' }],
-			eng: [{ type: 'text', text: 'He wanted to know where I was last night.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Он хотел знать, где я был вчера вечером.' }] },
+				{ eng: [{ type: 'text', text: 'He wanted to know where I was last night.' }] },
+			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Я здесь, чтобы расследовать ограбление.' }],
-			eng: [{ type: 'text', text: 'I am here to investigate a robbery.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Я здесь, чтобы расследовать ограбление.' }] },
+				{ eng: [{ type: 'text', text: 'I am here to investigate a robbery.' }] },
+			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Ей нравится фотографировать, и иногда снимки получаются очень удачными.' }],
-			eng: [{ type: 'text', text: 'She likes taking photos and sometimes they are very good.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Ей нравится фотографировать, и иногда снимки получаются очень удачными.' }] },
+				{ eng: [{ type: 'text', text: 'She likes taking photos and sometimes they are very good.' }] },
+			],
 		},
 	],
 }

@@ -46,19 +46,27 @@ const pluralOfNouns: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Мяч — мячи' }],
-			eng: [
-				{ type: 'text', text: 'A ball — ball' },
-				{ type: 'text', color: 'blue', text: 's' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Мяч — мячи' }] },
+				{
+					eng: [
+						{ type: 'text', text: 'A ball — ball' },
+						{ type: 'text', color: 'blue', text: 's' },
+					],
+				},
 			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Дерево — Деревья' }],
-			eng: [
-				{ type: 'text', text: 'A tree — Tree' },
-				{ type: 'text', color: 'blue', text: 's' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Дерево — Деревья' }] },
+				{
+					eng: [
+						{ type: 'text', text: 'A tree — Tree' },
+						{ type: 'text', color: 'blue', text: 's' },
+					],
+				},
 			],
 		},
 		{
@@ -91,78 +99,102 @@ const pluralOfNouns: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Скамейка' }],
-			eng: [
-				{ type: 'text', text: 'A ben' },
-				{ type: 'text', weight: 'bold', text: 'ch' },
-				{ type: 'text', text: ' — ben' },
-				{ type: 'text', weight: 'bold', text: 'ch' },
-				{ type: 'text', color: 'blue', text: 'es' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Скамейка' }] },
+				{
+					eng: [
+						{ type: 'text', text: 'A ben' },
+						{ type: 'text', weight: 'bold', text: 'ch' },
+						{ type: 'text', text: ' — ben' },
+						{ type: 'text', weight: 'bold', text: 'ch' },
+						{ type: 'text', color: 'blue', text: 'es' },
+					],
+				},
 			],
 		},
 		{ type: 'header', tag: 'h3', style: 'h4', text: 's' },
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Автобус' }],
-			eng: [
-				{ type: 'text', text: 'A bu' },
-				{ type: 'text', weight: 'bold', text: 's' },
-				{ type: 'text', text: ' — bu' },
-				{ type: 'text', weight: 'bold', text: 's' },
-				{ type: 'text', color: 'blue', text: 'es' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Автобус' }] },
+				{
+					eng: [
+						{ type: 'text', text: 'A bu' },
+						{ type: 'text', weight: 'bold', text: 's' },
+						{ type: 'text', text: ' — bu' },
+						{ type: 'text', weight: 'bold', text: 's' },
+						{ type: 'text', color: 'blue', text: 'es' },
+					],
+				},
 			],
 		},
 		{ type: 'header', tag: 'h3', style: 'h4', text: '-ss' },
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Класс' }],
-			eng: [
-				{ type: 'text', text: 'A cla' },
-				{ type: 'text', weight: 'bold', text: 'ss ' },
-				{ type: 'text', text: '— cla' },
-				{ type: 'text', weight: 'bold', text: 'ss' },
-				{ type: 'text', color: 'blue', text: 'es' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Класс' }] },
+				{
+					eng: [
+						{ type: 'text', text: 'A cla' },
+						{ type: 'text', weight: 'bold', text: 'ss ' },
+						{ type: 'text', text: '— cla' },
+						{ type: 'text', weight: 'bold', text: 'ss' },
+						{ type: 'text', color: 'blue', text: 'es' },
+					],
+				},
 			],
 		},
 		{ type: 'header', tag: 'h3', style: 'h4', text: '-sh' },
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Желание' }],
-			eng: [
-				{ type: 'text', text: 'A wi' },
-				{ type: 'text', weight: 'bold', text: 'sh' },
-				{ type: 'text', text: ' — wi' },
-				{ type: 'text', weight: 'bold', text: 'sh' },
-				{ type: 'text', color: 'blue', text: 'es' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Желание' }] },
+				{
+					eng: [
+						{ type: 'text', text: 'A wi' },
+						{ type: 'text', weight: 'bold', text: 'sh' },
+						{ type: 'text', text: ' — wi' },
+						{ type: 'text', weight: 'bold', text: 'sh' },
+						{ type: 'text', color: 'blue', text: 'es' },
+					],
+				},
 			],
 		},
 		{ type: 'header', tag: 'h3', style: 'h4', text: '-x' },
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Лиса' }],
-			eng: [
-				{ type: 'text', text: 'A fo' },
-				{ type: 'text', weight: 'bold', text: 'x' },
-				{ type: 'text', text: ' — fo' },
-				{ type: 'text', weight: 'bold', text: 'x' },
-				{ type: 'text', color: 'blue', text: 'es' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Лиса' }] },
+				{
+					eng: [
+						{ type: 'text', text: 'A fo' },
+						{ type: 'text', weight: 'bold', text: 'x' },
+						{ type: 'text', text: ' — fo' },
+						{ type: 'text', weight: 'bold', text: 'x' },
+						{ type: 'text', color: 'blue', text: 'es' },
+					],
+				},
 			],
 		},
 		{ type: 'header', tag: 'h3', style: 'h4', text: '-o' },
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Картошка' }],
-			eng: [
-				{ type: 'text', text: 'a potat' },
-				{ type: 'text', weight: 'bold', text: 'o' },
-				{ type: 'text', text: ' — potat' },
-				{ type: 'text', weight: 'bold', text: 'o' },
-				{ type: 'text', color: 'blue', text: 'es' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Картошка' }] },
+				{
+					eng: [
+						{ type: 'text', text: 'a potat' },
+						{ type: 'text', weight: 'bold', text: 'o' },
+						{ type: 'text', text: ' — potat' },
+						{ type: 'text', weight: 'bold', text: 'o' },
+						{ type: 'text', color: 'blue', text: 'es' },
+					],
+				},
 			],
 		},
 		{
@@ -222,34 +254,46 @@ const pluralOfNouns: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Дитя' }],
-			eng: [
-				{ type: 'text', text: 'A bab' },
-				{ type: 'text', weight: 'bold', text: 'y' },
-				{ type: 'text', text: ' — bab' },
-				{ type: 'text', color: 'blue', text: 'ies' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Дитя' }] },
+				{
+					eng: [
+						{ type: 'text', text: 'A bab' },
+						{ type: 'text', weight: 'bold', text: 'y' },
+						{ type: 'text', text: ' — bab' },
+						{ type: 'text', color: 'blue', text: 'ies' },
+					],
+				},
 			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Город' }],
-			eng: [
-				{ type: 'text', text: 'A cit' },
-				{ type: 'text', weight: 'bold', text: 'y' },
-				{ type: 'text', text: ' — cit' },
-				{ type: 'text', color: 'blue', text: 'ies' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Город' }] },
+				{
+					eng: [
+						{ type: 'text', text: 'A cit' },
+						{ type: 'text', weight: 'bold', text: 'y' },
+						{ type: 'text', text: ' — cit' },
+						{ type: 'text', color: 'blue', text: 'ies' },
+					],
+				},
 			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Мелодия' }],
-			eng: [
-				{ type: 'text', text: 'A melod' },
-				{ type: 'text', weight: 'bold', text: 'y' },
-				{ type: 'text', text: ' — melod' },
-				{ type: 'text', color: 'blue', text: 'ies' },
+			parts: [
+				{ rus: [{ type: 'text', text: 'Мелодия' }] },
+				{
+					eng: [
+						{ type: 'text', text: 'A melod' },
+						{ type: 'text', weight: 'bold', text: 'y' },
+						{ type: 'text', text: ' — melod' },
+						{ type: 'text', color: 'blue', text: 'ies' },
+					],
+				},
 			],
 		},
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Окончание -ves' },
@@ -278,59 +322,81 @@ const pluralOfNouns: ArticleType.Art = {
 						{
 							type: 'rusToEng',
 							textSize: 'giant',
-							rus: [{ type: 'text', text: 'Волк' }],
-							eng: [
-								{ type: 'text', text: 'A wol' },
-								{ type: 'text', weight: 'bold', text: 'f' },
-								{ type: 'text', text: ' — wol' },
-								{ type: 'text', color: 'blue', text: 'ves' },
+							parts: [
+								{ rus: [{ type: 'text', text: 'Волк' }] },
+								{
+									eng: [
+										{ type: 'text', text: 'A wol' },
+										{ type: 'text', weight: 'bold', text: 'f' },
+										{ type: 'text', text: ' — wol' },
+										{ type: 'text', color: 'blue', text: 'ves' },
+									],
+								},
 							],
 						},
 						{
 							type: 'rusToEng',
 							textSize: 'giant',
-							rus: [{ type: 'text', text: 'Лист' }],
-							eng: [
-								{ type: 'text', text: 'A lea' },
-								{ type: 'text', weight: 'bold', text: 'f' },
-								{ type: 'text', text: ' — lea' },
-								{ type: 'text', color: 'blue', text: 'ves' },
+							parts: [
+								{ rus: [{ type: 'text', text: 'Лист' }] },
+								{
+									eng: [
+										{ type: 'text', text: 'A lea' },
+										{ type: 'text', weight: 'bold', text: 'f' },
+										{ type: 'text', text: ' — lea' },
+										{ type: 'text', color: 'blue', text: 'ves' },
+									],
+								},
 							],
 						},
 						{
 							type: 'rusToEng',
 							textSize: 'giant',
-							rus: [{ type: 'text', text: 'Булка' }],
-							eng: [
-								{ type: 'text', text: 'a loa' },
-								{ type: 'text', weight: 'bold', text: 'f' },
-								{ type: 'text', text: ' — loa' },
-								{ type: 'text', color: 'blue', text: 'ves' },
+							parts: [
+								{ rus: [{ type: 'text', text: 'Булка' }] },
+								{
+									eng: [
+										{ type: 'text', text: 'a loa' },
+										{ type: 'text', weight: 'bold', text: 'f' },
+										{ type: 'text', text: ' — loa' },
+										{ type: 'text', color: 'blue', text: 'ves' },
+									],
+								},
 							],
 						},
 						{
 							type: 'rusToEng',
 							textSize: 'giant',
-							rus: [{ type: 'text', text: 'Половина' }],
-							eng: [
-								{ type: 'text', text: 'a hal' },
-								{ type: 'text', weight: 'bold', text: 'f' },
-								{ type: 'text', text: ' — hal' },
-								{ type: 'text', color: 'blue', text: 'ves' },
+							parts: [
+								{ rus: [{ type: 'text', text: 'Половина' }] },
+								{
+									eng: [
+										{ type: 'text', text: 'a hal' },
+										{ type: 'text', weight: 'bold', text: 'f' },
+										{ type: 'text', text: ' — hal' },
+										{ type: 'text', color: 'blue', text: 'ves' },
+									],
+								},
 							],
 						},
 						{
 							type: 'rusToEng',
 							textSize: 'giant',
-							rus: [
-								{ type: 'text', text: 'Лист ' },
-								{ type: 'text', color: 'gray', text: '(дерева)' },
-							],
-							eng: [
-								{ type: 'text', text: 'a lea' },
-								{ type: 'text', weight: 'bold', text: 'f' },
-								{ type: 'text', text: ' — lea' },
-								{ type: 'text', color: 'blue', text: 'ves' },
+							parts: [
+								{
+									rus: [
+										{ type: 'text', text: 'Лист ' },
+										{ type: 'text', color: 'gray', text: '(дерева)' },
+									],
+								},
+								{
+									eng: [
+										{ type: 'text', text: 'a lea' },
+										{ type: 'text', weight: 'bold', text: 'f' },
+										{ type: 'text', text: ' — lea' },
+										{ type: 'text', color: 'blue', text: 'ves' },
+									],
+								},
 							],
 						},
 					],
@@ -341,45 +407,61 @@ const pluralOfNouns: ArticleType.Art = {
 							type: 'rusToEng',
 							textSize: 'giant',
 							offset: true,
-							rus: [{ type: 'text', text: 'Жизнь' }],
-							eng: [
-								{ type: 'text', text: 'A li' },
-								{ type: 'text', weight: 'bold', text: 'fe' },
-								{ type: 'text', text: ' — li' },
-								{ type: 'text', color: 'blue', text: 'ves' },
+							parts: [
+								{ rus: [{ type: 'text', text: 'Жизнь' }] },
+								{
+									eng: [
+										{ type: 'text', text: 'A li' },
+										{ type: 'text', weight: 'bold', text: 'fe' },
+										{ type: 'text', text: ' — li' },
+										{ type: 'text', color: 'blue', text: 'ves' },
+									],
+								},
 							],
 						},
 						{
 							type: 'rusToEng',
 							textSize: 'giant',
-							rus: [{ type: 'text', text: 'Мяч' }],
-							eng: [
-								{ type: 'text', text: 'A kni' },
-								{ type: 'text', weight: 'bold', text: 'fe' },
-								{ type: 'text', text: ' — kni' },
-								{ type: 'text', color: 'blue', text: 'ves' },
+							parts: [
+								{ rus: [{ type: 'text', text: 'Мяч' }] },
+								{
+									eng: [
+										{ type: 'text', text: 'A kni' },
+										{ type: 'text', weight: 'bold', text: 'fe' },
+										{ type: 'text', text: ' — kni' },
+										{ type: 'text', color: 'blue', text: 'ves' },
+									],
+								},
 							],
 						},
 						{
 							type: 'rusToEng',
 							textSize: 'giant',
-							rus: [{ type: 'text', text: 'Жизнь' }],
-							eng: [
-								{ type: 'text', text: 'a li' },
-								{ type: 'text', weight: 'bold', text: 'fe' },
-								{ type: 'text', text: ' — li' },
-								{ type: 'text', color: 'blue', text: 'ves' },
+							parts: [
+								{ rus: [{ type: 'text', text: 'Жизнь' }] },
+								{
+									eng: [
+										{ type: 'text', text: 'a li' },
+										{ type: 'text', weight: 'bold', text: 'fe' },
+										{ type: 'text', text: ' — li' },
+										{ type: 'text', color: 'blue', text: 'ves' },
+									],
+								},
 							],
 						},
 						{
 							type: 'rusToEng',
 							textSize: 'giant',
-							rus: [{ type: 'text', text: 'Жена' }],
-							eng: [
-								{ type: 'text', text: 'a wi' },
-								{ type: 'text', weight: 'bold', text: 'fe' },
-								{ type: 'text', text: ' — wi' },
-								{ type: 'text', color: 'blue', text: 'ves' },
+							parts: [
+								{ rus: [{ type: 'text', text: 'Жена' }] },
+								{
+									eng: [
+										{ type: 'text', text: 'a wi' },
+										{ type: 'text', weight: 'bold', text: 'fe' },
+										{ type: 'text', text: ' — wi' },
+										{ type: 'text', color: 'blue', text: 'ves' },
+									],
+								},
 							],
 						},
 					],
@@ -400,26 +482,25 @@ const pluralOfNouns: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Ребёнок' }],
-			eng: [{ type: 'text', text: 'a child — children' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Ребёнок' }] },
+				{ eng: [{ type: 'text', text: 'a child — children' }] },
+			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Стопа' }],
-			eng: [{ type: 'text', text: 'a foot — feet' }],
+			parts: [{ rus: [{ type: 'text', text: 'Стопа' }] }, { eng: [{ type: 'text', text: 'a foot — feet' }] }],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Гусь' }],
-			eng: [{ type: 'text', text: 'a goose — geese' }],
+			parts: [{ rus: [{ type: 'text', text: 'Гусь' }] }, { eng: [{ type: 'text', text: 'a goose — geese' }] }],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Мужчина' }],
-			eng: [{ type: 'text', text: 'a man — men' }],
+			parts: [{ rus: [{ type: 'text', text: 'Мужчина' }] }, { eng: [{ type: 'text', text: 'a man — men' }] }],
 		},
 		{
 			type: 'paragraph',
@@ -436,26 +517,25 @@ const pluralOfNouns: ArticleType.Art = {
 			type: 'rusToEng',
 			textSize: 'giant',
 			offset: true,
-			rus: [{ type: 'text', text: 'Женщина' }],
-			eng: [{ type: 'text', text: 'a woman — women' }],
+			parts: [{ rus: [{ type: 'text', text: 'Женщина' }] }, { eng: [{ type: 'text', text: 'a woman — women' }] }],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Мышь' }],
-			eng: [{ type: 'text', text: 'a mouse — mice' }],
+			parts: [{ rus: [{ type: 'text', text: 'Мышь' }] }, { eng: [{ type: 'text', text: 'a mouse — mice' }] }],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Человек' }],
-			eng: [{ type: 'text', text: 'a person — people' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Человек' }] },
+				{ eng: [{ type: 'text', text: 'a person — people' }] },
+			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Зуб' }],
-			eng: [{ type: 'text', text: 'a tooth — teeth' }],
+			parts: [{ rus: [{ type: 'text', text: 'Зуб' }] }, { eng: [{ type: 'text', text: 'a tooth — teeth' }] }],
 		},
 		exercises_5,
 		{
@@ -517,8 +597,10 @@ const pluralOfNouns: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'У Джейкоба ужасная пижама.' }],
-			eng: [{ type: 'text', text: 'Jacob has terrible pyjamas.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'У Джейкоба ужасная пижама.' }] },
+				{ eng: [{ type: 'text', text: 'Jacob has terrible pyjamas.' }] },
+			],
 		},
 		{
 			type: 'paragraph',
@@ -543,8 +625,10 @@ const pluralOfNouns: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [{ type: 'text', text: 'Ты должна это видеть, Надя.' }],
-			eng: [{ type: 'text', text: 'You should see them, Nadia.' }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Ты должна это видеть, Надя.' }] },
+				{ eng: [{ type: 'text', text: 'You should see them, Nadia.' }] },
+			],
 		},
 		{
 			type: 'paragraph',
@@ -581,8 +665,10 @@ const pluralOfNouns: ArticleType.Art = {
 				{
 					type: 'rusToEng',
 					textSize: 'big',
-					rus: [{ type: 'text', text: 'Это стоит 50 евро.' }],
-					eng: [{ type: 'text', text: 'It costs fifty euros.' }],
+					parts: [
+						{ rus: [{ type: 'text', text: 'Это стоит 50 евро.' }] },
+						{ eng: [{ type: 'text', text: 'It costs fifty euros.' }] },
+					],
 				},
 			],
 		},
@@ -600,16 +686,22 @@ const pluralOfNouns: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'big',
-			rus: [
+			parts: [
 				{
-					type: 'text',
-					text: 'Шесть футболок, три пары джинсов, четыре пары брюк, две пары вечерних туфель и три зубные щетки.',
+					rus: [
+						{
+							type: 'text',
+							text: 'Шесть футболок, три пары джинсов, четыре пары брюк, две пары вечерних туфель и три зубные щетки.',
+						},
+					],
 				},
-			],
-			eng: [
 				{
-					type: 'text',
-					text: 'Six T-shirts, three pairs of jeans, four pairs of trousers, two pairs of evening shoes and three toothbrushes.',
+					eng: [
+						{
+							type: 'text',
+							text: 'Six T-shirts, three pairs of jeans, four pairs of trousers, two pairs of evening shoes and three toothbrushes.',
+						},
+					],
 				},
 			],
 		},

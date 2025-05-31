@@ -67,9 +67,7 @@ namespace ArticleType {
 		offset?: boolean
 		// Размер текста
 		textSize?: ParagraphSize
-		revert?: boolean
-		rus: Text[]
-		eng: Text[]
+		parts: ({ rus: Text[] } | { eng: Text[] })[]
 	}
 
 	// Список. Включает в себя блочные элементы.

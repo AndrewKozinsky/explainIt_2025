@@ -160,35 +160,47 @@ const toBePresentQuestion: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
+			parts: [
 				{
-					type: 'text',
-					text: 'Я в другой стране?',
+					rus: [
+						{
+							type: 'text',
+							text: 'Я в другой стране?',
+						},
+					],
 				},
+				{ eng: [{ type: 'text', text: 'Am I in another country?' }] },
 			],
-			eng: [{ type: 'text', text: 'Am I in another country?' }],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
+			parts: [
 				{
-					type: 'text',
-					text: 'С тобой всё в порядке?',
+					rus: [
+						{
+							type: 'text',
+							text: 'С тобой всё в порядке?',
+						},
+					],
 				},
+				{ eng: [{ type: 'text', text: 'Are you alright?' }] },
 			],
-			eng: [{ type: 'text', text: 'Are you alright?' }],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			rus: [
+			parts: [
 				{
-					type: 'text',
-					text: 'Это эффективно или нет?',
+					rus: [
+						{
+							type: 'text',
+							text: 'Это эффективно или нет?',
+						},
+					],
 				},
+				{ eng: [{ type: 'text', text: 'Is it effective or not?' }] },
 			],
-			eng: [{ type: 'text', text: 'Is it effective or not?' }],
 		},
 		exercises_1,
 	],
