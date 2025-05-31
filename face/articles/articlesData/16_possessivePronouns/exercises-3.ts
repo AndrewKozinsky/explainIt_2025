@@ -12,16 +12,14 @@ const exercises_3: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Ты помогаешь своим родителям?',
 			engSentences: [{ engSentences: ['Do you help your parents?'], isCorrect: true }],
 			words: [
-				{ rusWord: 'видеть', engWord: 'see' },
-				{ rusWord: 'результат', engWord: 'result' },
+				{ rusWord: 'помогать', engWord: 'help' },
+				{ rusWord: 'родители', engWord: 'parents' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Я был в Дубае со своей девушкой.',
 			engSentences: [
 				{
@@ -29,15 +27,19 @@ const exercises_3: ExercisesType.ExercisesObj = {
 					isCorrect: true,
 				},
 			],
-			words: [{ rusWord: 'ингрединты супа', engWord: 'soup ingredients' }],
+			words: [
+				{ rusWord: 'Дубай', engWord: 'Dubai' },
+				{ rusWord: 'с', engWord: 'with' },
+				{ rusWord: 'подруга', engWord: 'girlfriend' },
+			],
 		},
 		{
-			// TODO
 			rusSentence: 'Мой двоюродный брат на этой неделе в отпуске.',
 			engSentences: [{ engSentences: ['My cousin is on holiday this week.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'видеть', engWord: 'see' },
-				{ rusWord: 'результат', engWord: 'result' },
+				{ rusWord: 'двоюродный брат/сестра', engWord: 'cousin' },
+				{ rusWord: 'неделя', engWord: 'week' },
+				{ rusWord: 'отпуск', engWord: 'holiday' },
 			],
 		},
 		{

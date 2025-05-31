@@ -64,7 +64,8 @@ const structure: ArticleType.Art = {
 			type: 'rusToEng',
 			textSize: 'giant',
 			parts: [
-				{ rus: [
+				{
+					rus: [
 						{
 							type: 'text',
 							text: 'Суп ',
@@ -78,12 +79,15 @@ const structure: ArticleType.Art = {
 							type: 'text',
 							text: ' холодный.',
 						},
-					] },
-				{ eng: [
+					],
+				},
+				{
+					eng: [
 						{ type: 'text', text: 'The soup ' },
 						{ type: 'text', text: 'is', color: 'blue' },
 						{ type: 'text', text: ' cold.' },
-					] },
+					],
+				},
 			],
 		},
 		{
@@ -130,16 +134,20 @@ const structure: ArticleType.Art = {
 			type: 'rusToEng',
 			textSize: 'giant',
 			parts: [
-				{ rus: [
+				{
+					rus: [
 						{
 							type: 'text',
 							text: 'Не спится.',
 						},
-					] },
-				{ eng: [
+					],
+				},
+				{
+					eng: [
 						{ type: 'text', text: 'I', color: 'blue' },
 						{ type: 'text', text: ' cannot sleep.' },
-					] },
+					],
+				},
 			],
 		},
 		{
@@ -300,12 +308,14 @@ const structure: ArticleType.Art = {
 			type: 'rusToEng',
 			textSize: 'giant',
 			parts: [
-				{ rus: [
+				{
+					rus: [
 						{
 							type: 'text',
 							text: 'Он дал сестре деньги.',
 						},
-					] },
+					],
+				},
 				{ eng: [{ type: 'text', text: 'He gave his sister money.' }] },
 			],
 		},
@@ -313,12 +323,14 @@ const structure: ArticleType.Art = {
 			type: 'rusToEng',
 			textSize: 'giant',
 			parts: [
-				{ rus: [
+				{
+					rus: [
 						{
 							type: 'text',
 							text: 'Все, что вам нужно — это паспорт, билеты и деньги.',
 						},
-					] },
+					],
+				},
 				{ eng: [{ type: 'text', text: 'All you need is your passport, your tickets and your money.' }] },
 			],
 		},
@@ -336,16 +348,20 @@ const structure: ArticleType.Art = {
 			type: 'rusToEng',
 			textSize: 'giant',
 			parts: [
-				{ rus: [
+				{
+					rus: [
 						{ type: 'text', text: 'Он ' },
 						{ type: 'text', color: 'blue', text: 'был' },
 						{ type: 'text', text: ' щенком.' },
-					] },
-				{ eng: [
+					],
+				},
+				{
+					eng: [
 						{ type: 'text', text: 'It ' },
 						{ type: 'text', color: 'blue', text: 'was' },
 						{ type: 'text', text: ' a puppy.' },
-					] },
+					],
+				},
 			],
 		},
 		{
@@ -389,12 +405,14 @@ const structure: ArticleType.Art = {
 			type: 'rusToEng',
 			textSize: 'giant',
 			parts: [
-				{ rus: [
+				{
+					rus: [
 						{
 							type: 'text',
 							text: 'Он позволил мне уйти.',
 						},
-					] },
+					],
+				},
 				{ eng: [{ type: 'text', text: 'He let me go.' }] },
 			],
 		},
@@ -402,12 +420,14 @@ const structure: ArticleType.Art = {
 			type: 'rusToEng',
 			textSize: 'giant',
 			parts: [
-				{ rus: [
+				{
+					rus: [
 						{
 							type: 'text',
 							text: 'Он очень часто плавает.',
 						},
-					] },
+					],
+				},
 				{ eng: [{ type: 'text', text: 'He swims very often.' }] },
 			],
 		},

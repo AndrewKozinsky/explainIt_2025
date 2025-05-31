@@ -205,7 +205,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Вам нравится моя новая одежда?',
 			engSentences: [
 				{
@@ -214,12 +213,11 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'яйцо', engWord: 'egg' },
-				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'новый', engWord: 'new' },
+				{ rusWord: 'одежда', engWord: 'clothes' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Твоя мама очень добрая, но мы хотим скромную свадьбу.',
 			engSentences: [
 				{

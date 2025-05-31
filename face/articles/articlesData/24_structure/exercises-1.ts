@@ -4,23 +4,20 @@ const exercises_1: ExercisesType.ExercisesObj = {
 	type: 'exercises',
 	exercises: [
 		{
-			// TODO
 			rusSentence: 'Она не блондинка, а брюнетка.',
 			engSentences: [{ engSentences: ['She is not blonde, she is brunette.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'ходить (куда-то)', engWord: 'go' },
-				{ rusWord: 'стоматолог', engWord: 'every' },
-				{ rusWord: 'каждый год', engWord: 'year' },
+				{ rusWord: 'блондинка', engWord: 'blonde' },
+				{ rusWord: 'брюнетка', engWord: 'brunette' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Я люблю животных и люблю шоколад.',
 			engSentences: [{ engSentences: ['I love animals and I love chocolate.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'ходить (куда-то)', engWord: 'go' },
-				{ rusWord: 'стоматолог', engWord: 'every' },
-				{ rusWord: 'каждый год', engWord: 'year' },
+				{ rusWord: 'любить', engWord: 'love' },
+				{ rusWord: 'животное', engWord: 'animal' },
+				{ rusWord: 'шоколад', engWord: 'chocolate' },
 			],
 		},
 		{
@@ -45,29 +42,15 @@ const exercises_1: ExercisesType.ExercisesObj = {
 		{
 			rusSentence: 'Будешь воду?',
 			engSentences: [{ engSentences: ['Do you want some water?'], isCorrect: true }],
-			words: [
-				{ rusWord: 'вода', engWord: 'water' },
-			],
+			words: [{ rusWord: 'вода', engWord: 'water' }],
 		},
 		{
-			// TODO
 			rusSentence: 'К этому доступа нет.',
-			engSentences: [{ engSentences: ['There is no access to it.'], isCorrect: true }, { engSentences: ['I don’t have access to it.'], isCorrect: true }],
-			words: [
-				{ rusWord: 'ходить (куда-то)', engWord: 'go' },
-				{ rusWord: 'стоматолог', engWord: 'every' },
-				{ rusWord: 'каждый год', engWord: 'year' },
+			engSentences: [
+				{ engSentences: ['There is no access to it.'], isCorrect: true },
+				{ engSentences: ['I don’t have access to it.'], isCorrect: true },
 			],
-		},
-		{
-			// TODO
-			rusSentence: 'Не хочу быть нахлебником.',
-			engSentences: [{ engSentences: ['There is no access to it.'], isCorrect: true }, { engSentences: ['I don’t have access to it.'], isCorrect: true }],
-			words: [
-				{ rusWord: 'ходить (куда-то)', engWord: 'go' },
-				{ rusWord: 'стоматолог', engWord: 'every' },
-				{ rusWord: 'каждый год', engWord: 'year' },
-			],
+			words: [{ rusWord: 'доступ', engWord: 'access' }],
 		},
 	],
 }

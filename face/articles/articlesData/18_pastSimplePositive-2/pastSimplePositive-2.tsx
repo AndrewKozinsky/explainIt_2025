@@ -1,4 +1,3 @@
-import { imageMapper } from '../../../utils/imageMapper'
 import ArticleType from '../../articleTypes/articleType'
 import exercises_1 from './exercises-1'
 import exercises_2 from './exercises-2'
@@ -27,11 +26,16 @@ const pastSimplePositive2: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			parts: [{ rus: [{ type: 'text', text: 'Этот курс помог мне.' }] }, { eng: [
-					{ type: 'text', text: 'This course help' },
-					{ type: 'text', text: 'ed', color: 'blue' },
-					{ type: 'text', text: ' me.' },
-				] }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Этот курс помог мне.' }] },
+				{
+					eng: [
+						{ type: 'text', text: 'This course help' },
+						{ type: 'text', text: 'ed', color: 'blue' },
+						{ type: 'text', text: ' me.' },
+					],
+				},
+			],
 		},
 		{
 			type: 'paragraph',
@@ -53,11 +57,13 @@ const pastSimplePositive2: ArticleType.Art = {
 			textSize: 'giant',
 			parts: [
 				{ rus: [{ type: 'text', text: 'Они приехали домой.' }] },
-				{ eng: [
+				{
+					eng: [
 						{ type: 'text', text: 'They arriv' },
 						{ type: 'text', text: 'ed', color: 'blue' },
 						{ type: 'text', text: ' home.' },
-					] },
+					],
+				},
 			],
 		},
 		{
@@ -117,57 +123,69 @@ const pastSimplePositive2: ArticleType.Art = {
 							type: 'rusToEng',
 							textSize: 'big',
 							parts: [
-								{ rus: [
+								{
+									rus: [
 										{
 											type: 'text',
 											text: 'работать — работал',
 										},
-									] },
-								{ eng: [
+									],
+								},
+								{
+									eng: [
 										{
 											type: 'text',
 											text: 'work — work',
 										},
 										{ type: 'text', color: 'blue', text: 'ed' },
-									] },
+									],
+								},
 							],
 						},
 						{
 							type: 'rusToEng',
 							textSize: 'big',
 							parts: [
-								{ rus: [
+								{
+									rus: [
 										{
 											type: 'text',
 											text: 'начать — начал',
 										},
-									] },
-								{ eng: [
+									],
+								},
+								{
+									eng: [
 										{
 											type: 'text',
 											text: 'start — start',
 										},
 										{ type: 'text', color: 'blue', text: 'ed' },
-									] },
+									],
+								},
 							],
 						},
 						{
 							type: 'rusToEng',
 							textSize: 'big',
 							parts: [
-								{ rus: [
+								{
+									rus: [
 										{
 											type: 'text',
 											text: 'ждать — ждал',
 										},
-									] },
-								{ eng: [
+									],
+								},
+								{
+									eng: [
 										{
 											type: 'text',
 											text: 'wait — wait',
 										},
 										{ type: 'text', color: 'blue', text: 'ed' },
-									] },
+									],
+								},
 							],
 						},
 					],
@@ -195,18 +213,22 @@ const pastSimplePositive2: ArticleType.Art = {
 							type: 'rusToEng',
 							textSize: 'big',
 							parts: [
-								{ rus: [
+								{
+									rus: [
 										{
 											type: 'text',
 											text: 'делать — делал',
 										},
-									] },
-								{ eng: [
+									],
+								},
+								{
+									eng: [
 										{
 											type: 'text',
 											text: 'make — made',
 										},
-									] },
+									],
+								},
 							],
 						},
 						{
@@ -228,18 +250,22 @@ const pastSimplePositive2: ArticleType.Art = {
 							type: 'rusToEng',
 							textSize: 'big',
 							parts: [
-								{ rus: [
+								{
+									rus: [
 										{
 											type: 'text',
 											text: 'пить — выпил',
 										},
-									] },
-								{ eng: [
+									],
+								},
+								{
+									eng: [
 										{
 											type: 'text',
 											text: 'drink — drank',
 										},
-									] },
+									],
+								},
 							],
 						},
 						{
@@ -261,18 +287,22 @@ const pastSimplePositive2: ArticleType.Art = {
 							type: 'rusToEng',
 							textSize: 'big',
 							parts: [
-								{ rus: [
+								{
+									rus: [
 										{
 											type: 'text',
 											text: 'есть — ел',
 										},
-									] },
-								{ eng:[
+									],
+								},
+								{
+									eng: [
 										{
 											type: 'text',
 											text: 'eat — ate',
 										},
-									] },
+									],
+								},
 							],
 						},
 					],
@@ -294,7 +324,8 @@ const pastSimplePositive2: ArticleType.Art = {
 			textSize: 'giant',
 			parts: [
 				{ rus: [{ type: 'text', text: 'Я понял этот вопрос.' }] },
-				{ eng: [
+				{
+					eng: [
 						{
 							type: 'text',
 							text: 'I ',
@@ -308,7 +339,8 @@ const pastSimplePositive2: ArticleType.Art = {
 							type: 'text',
 							text: ' this question.',
 						},
-					] },
+					],
+				},
 			],
 		},
 		{
@@ -331,12 +363,14 @@ const pastSimplePositive2: ArticleType.Art = {
 			type: 'rusToEng',
 			textSize: 'giant',
 			parts: [
-				{ rus:  [{ type: 'text', text: 'Он дал мне ключ.' }] },
-				{ eng: [
+				{ rus: [{ type: 'text', text: 'Он дал мне ключ.' }] },
+				{
+					eng: [
 						{ type: 'text', text: 'He ' },
 						{ type: 'text', text: 'gave', color: 'blue' },
 						{ type: 'text', text: ' me a key.' },
-					] },
+					],
+				},
 			],
 		},
 		{

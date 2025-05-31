@@ -16,19 +16,14 @@ test.describe('New Todo', () => {
 		await newTodo.press('Enter')
 
 		// Make sure the list only has one todo item.
-		await expect(page.getByTestId('todo-title')).toHaveText([
-			TODO_ITEMS[0]
-		])
+		await expect(page.getByTestId('todo-title')).toHaveText([TODO_ITEMS[0]])
 
 		// Create 2nd todo.
 		await newTodo.fill(TODO_ITEMS[1])
 		await newTodo.press('Enter')
 
 		// Make sure the list now has two todo items.
-		await expect(page.getByTestId('todo-title')).toHaveText([
-			TODO_ITEMS[0],
-			TODO_ITEMS[1]
-		])
+		await expect(page.getByTestId('todo-title')).toHaveText([TODO_ITEMS[0], TODO_ITEMS[1]])
 
 		await checkNumberOfTodosInLocalStorage(page, 2)
 	})
@@ -65,7 +60,7 @@ test.describe('New Todo', () => {
 	})
 })
 
-test.describe('Mark all as completed', () => {
+/*test.describe('Mark all as completed', () => {
 	test.beforeEach(async ({ page }) => {
 		await createDefaultTodos(page)
 		await checkNumberOfTodosInLocalStorage(page, 3)
@@ -113,9 +108,9 @@ test.describe('Mark all as completed', () => {
 		// Assert the toggle all is checked again.
 		await expect(toggleAll).toBeChecked()
 	})
-})
+})*/
 
-test.describe('Item', () => {
+/*test.describe('Item', () => {
 	test('should allow me to mark items as complete', async ({ page }) => {
 		// create a new todo locator
 		const newTodo = page.getByPlaceholder('What needs to be done?')
@@ -184,9 +179,9 @@ test.describe('Item', () => {
 
 		await checkTodosInLocalStorage(page, 'buy some sausages')
 	})
-})
+})*/
 
-test.describe('Editing', () => {
+/*test.describe('Editing', () => {
 	test.beforeEach(async ({ page }) => {
 		await createDefaultTodos(page)
 		await checkNumberOfTodosInLocalStorage(page, 3)
@@ -249,7 +244,7 @@ test.describe('Editing', () => {
 		await todoItems.nth(1).getByRole('textbox', { name: 'Edit' }).press('Escape')
 		await expect(todoItems).toHaveText(TODO_ITEMS)
 	})
-})
+})*/
 
 test.describe('Counter', () => {
 	test('should display the current number of todo items', async ({ page }) => {

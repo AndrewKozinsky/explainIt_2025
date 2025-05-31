@@ -1,5 +1,4 @@
 import ArticleType from '../../articleTypes/articleType'
-import exercises_1 from './exercises-1'
 
 const toBePastQuestion: ArticleType.Art = {
 	meta: {
@@ -15,10 +14,12 @@ const toBePastQuestion: ArticleType.Art = {
 			textSize: 'giant',
 			parts: [
 				{ rus: [{ type: 'text', text: 'Я не был напуган?' }] },
-				{ eng: [
+				{
+					eng: [
 						{ type: 'text', color: 'blue', text: 'Was' },
 						{ type: 'text', text: ' I afraid?' },
-					] },
+					],
+				},
 			],
 		},
 		{
@@ -26,10 +27,12 @@ const toBePastQuestion: ArticleType.Art = {
 			textSize: 'giant',
 			parts: [
 				{ rus: [{ type: 'text', text: 'С тобой вчера было всё в порядке?' }] },
-				{ eng: [
+				{
+					eng: [
 						{ type: 'text', color: 'blue', text: 'Was' },
 						{ type: 'text', text: ' you alright yesterday?' },
-					] },
+					],
+				},
 			],
 		},
 	],

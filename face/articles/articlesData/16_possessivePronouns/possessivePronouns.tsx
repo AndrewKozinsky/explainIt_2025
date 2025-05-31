@@ -145,32 +145,40 @@ const possessivePronouns: ArticleType.Art = {
 			type: 'rusToEng',
 			textSize: 'giant',
 			parts: [
-				{ rus: [
+				{
+					rus: [
 						{ type: 'text', text: 'Это ' },
 						{ type: 'text', color: 'blue', text: 'мои' },
 						{ type: 'text', text: ' деньги.' },
-					] },
-				{ eng: [
+					],
+				},
+				{
+					eng: [
 						{ type: 'text', text: 'This is ' },
 						{ type: 'text', color: 'blue', text: 'my' },
 						{ type: 'text', text: ' money.' },
-					] },
+					],
+				},
 			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
 			parts: [
-				{ rus: [
+				{
+					rus: [
 						{ type: 'text', text: 'Эти деньги ' },
 						{ type: 'text', color: 'blue', text: 'мои' },
 						{ type: 'text', text: '.' },
-					] },
-				{ eng: [
+					],
+				},
+				{
+					eng: [
 						{ type: 'text', text: 'This money is ' },
 						{ type: 'text', color: 'blue', text: 'mine' },
 						{ type: 'text', text: '.' },
-					] },
+					],
+				},
 			],
 		},
 		{
@@ -195,14 +203,18 @@ const possessivePronouns: ArticleType.Art = {
 			type: 'rusToEng',
 			textSize: 'giant',
 			parts: [
-				{ rus: [
+				{
+					rus: [
 						{ type: 'text', color: 'blue', text: 'Мои' },
 						{ type: 'text', text: '.' },
-					] },
-				{ eng: [
+					],
+				},
+				{
+					eng: [
 						{ type: 'text', color: 'blue', text: 'Mine' },
 						{ type: 'text', text: '.' },
-					] },
+					],
+				},
 			],
 		},
 		{
@@ -295,64 +307,80 @@ const possessivePronouns: ArticleType.Art = {
 			type: 'rusToEng',
 			textSize: 'giant',
 			parts: [
-				{ rus: [
+				{
+					rus: [
 						{ type: 'text', text: 'Это ' },
 						{ type: 'text', color: 'blue', text: 'мой' },
 						{ type: 'text', text: ' компьютер.' },
-					] },
-				{ eng: [
+					],
+				},
+				{
+					eng: [
 						{ type: 'text', text: 'It is ' },
 						{ type: 'text', color: 'blue', text: 'my' },
 						{ type: 'text', text: ' computer.' },
-					] },
+					],
+				},
 			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
 			parts: [
-				{ rus: [
+				{
+					rus: [
 						{ type: 'text', text: 'Это ' },
 						{ type: 'text', color: 'blue', text: 'моя' },
 						{ type: 'text', text: ' собственная ложка.' },
-					] },
-				{ eng: [
+					],
+				},
+				{
+					eng: [
 						{ type: 'text', text: 'It is ' },
 						{ type: 'text', color: 'blue', text: 'my' },
 						{ type: 'text', text: ' own spoon.' },
-					] },
+					],
+				},
 			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
 			parts: [
-				{ rus: [
+				{
+					rus: [
 						{ type: 'text', text: 'Ты ' },
 						{ type: 'text', color: 'blue', text: 'моё' },
 						{ type: 'text', text: ' сокровище.' },
-					] },
-				{ eng: [
+					],
+				},
+				{
+					eng: [
 						{ type: 'text', text: 'You are ' },
 						{ type: 'text', color: 'blue', text: 'my' },
 						{ type: 'text', text: ' jewel.' },
-					] },
+					],
+				},
 			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
 			parts: [
-				{ rus: [
+				{
+					rus: [
 						{ type: 'text', text: 'Сергей и Алёна ' },
 						{ type: 'text', color: 'blue', text: 'мои' },
 						{ type: 'text', text: ' дети.' },
-					] },
-				{ eng: [
+					],
+				},
+				{
+					eng: [
 						{ type: 'text', text: 'Sergei and Alyona are ' },
 						{ type: 'text', color: 'blue', text: 'my' },
 						{ type: 'text', text: ' children.' },
-					] },
+					],
+				},
 			],
 		},
 		{
@@ -390,14 +418,18 @@ const possessivePronouns: ArticleType.Art = {
 			type: 'rusToEng',
 			textSize: 'giant',
 			parts: [
-				{ rus: [
+				{
+					rus: [
 						{ type: 'text', color: 'blue', text: 'Ваша' },
 						{ type: 'text', text: ' мама не здесь.' },
-					] },
-				{ eng: [
+					],
+				},
+				{
+					eng: [
 						{ type: 'text', color: 'blue', text: 'Your' },
 						{ type: 'text', text: ' mother is not here.' },
-					] },
+					],
+				},
 			],
 		},
 		{
@@ -414,14 +446,18 @@ const possessivePronouns: ArticleType.Art = {
 			type: 'rusToEng',
 			textSize: 'normal',
 			parts: [
-				{ rus: [
+				{
+					rus: [
 						{ type: 'text', color: 'blue', text: 'Его' },
 						{ type: 'text', text: ' нос чёрный и влажный.' },
-					] },
-				{ eng: [
+					],
+				},
+				{
+					eng: [
 						{ type: 'text', color: 'blue', text: 'His' },
 						{ type: 'text', text: ' nose is black and wet.' },
-					] },
+					],
+				},
 			],
 		},
 		{
@@ -455,16 +491,20 @@ const possessivePronouns: ArticleType.Art = {
 			type: 'rusToEng',
 			textSize: 'giant',
 			parts: [
-				{ rus: [
+				{
+					rus: [
 						{ type: 'text', text: 'Это ' },
 						{ type: 'text', color: 'blue', text: 'её' },
 						{ type: 'text', text: ' новый питомец.' },
-					] },
-				{ eng: [
+					],
+				},
+				{
+					eng: [
 						{ type: 'text', text: 'It is ' },
 						{ type: 'text', color: 'blue', text: 'her' },
 						{ type: 'text', text: ' new pet.' },
-					] },
+					],
+				},
 			],
 		},
 		{
@@ -481,14 +521,18 @@ const possessivePronouns: ArticleType.Art = {
 			type: 'rusToEng',
 			textSize: 'giant',
 			parts: [
-				{ rus: [
+				{
+					rus: [
 						{ type: 'text', color: 'blue', text: 'Эти' },
 						{ type: 'text', text: ' джинсы синие.' },
-					] },
-				{ eng: [
+					],
+				},
+				{
+					eng: [
 						{ type: 'text', color: 'blue', text: 'Its' },
 						{ type: 'text', text: ' jeans is blue.' },
-					] },
+					],
+				},
 			],
 		},
 		{
@@ -528,20 +572,24 @@ const possessivePronouns: ArticleType.Art = {
 			type: 'rusToEng',
 			textSize: 'giant',
 			parts: [
-				{ rus: [
+				{
+					rus: [
 						{ type: 'text', color: 'blue', text: 'Наша' },
 						{
 							type: 'text',
 							text: ' старшая сестра восхитительна.',
 						},
-					] },
-				{ eng: [
+					],
+				},
+				{
+					eng: [
 						{ type: 'text', color: 'blue', text: 'Our' },
 						{
 							type: 'text',
 							text: ' elder sister is wonderful.',
 						},
-					] },
+					],
+				},
 			],
 		},
 		{
@@ -558,17 +606,21 @@ const possessivePronouns: ArticleType.Art = {
 			type: 'rusToEng',
 			textSize: 'giant',
 			parts: [
-				{ rus: [
+				{
+					rus: [
 						{ type: 'text', color: 'blue', text: 'Их' },
 						{
 							type: 'text',
 							text: ' домашнее задание трудное.',
 						},
-					] },
-				{ eng:[
+					],
+				},
+				{
+					eng: [
 						{ type: 'text', color: 'blue', text: 'Their' },
 						{ type: 'text', text: ' homework is difficult.' },
-					]},
+					],
+				},
 			],
 		},
 		exercises_1,
@@ -624,14 +676,18 @@ const possessivePronouns: ArticleType.Art = {
 			type: 'rusToEng',
 			textSize: 'normal',
 			parts: [
-				{ rus: [
+				{
+					rus: [
 						{ type: 'text', text: 'I ' },
 						{ type: 'text', color: 'gray', text: '(я)' },
-					] },
-				{ eng: [
+					],
+				},
+				{
+					eng: [
 						{ type: 'text', text: 'Mine ' },
 						{ type: 'text', color: 'gray', text: '(моя)' },
-					] },
+					],
+				},
 			],
 		},
 		{
@@ -674,15 +730,22 @@ const possessivePronouns: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			parts: [{ rus: [
-					{ type: 'text', text: 'Это красная книга ' },
-					{ type: 'text', color: 'blue', text: 'ваша' },
-					{ type: 'text', text: '.' },
-				] }, { eng: [
-					{ type: 'text', text: 'This red book is ' },
-					{ type: 'text', color: 'blue', text: 'yours' },
-					{ type: 'text', text: '.' },
-				] }],
+			parts: [
+				{
+					rus: [
+						{ type: 'text', text: 'Это красная книга ' },
+						{ type: 'text', color: 'blue', text: 'ваша' },
+						{ type: 'text', text: '.' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', text: 'This red book is ' },
+						{ type: 'text', color: 'blue', text: 'yours' },
+						{ type: 'text', text: '.' },
+					],
+				},
+			],
 		},
 		{
 			type: 'paragraph',
@@ -697,15 +760,22 @@ const possessivePronouns: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			parts: [{ rus: [
-					{ type: 'text', text: 'Этот кактус ' },
-					{ type: 'text', color: 'blue', text: 'его' },
-					{ type: 'text', text: '.' },
-				] }, { eng: [
-					{ type: 'text', text: 'This cactus is ' },
-					{ type: 'text', color: 'blue', text: 'his' },
-					{ type: 'text', text: '.' },
-				] }],
+			parts: [
+				{
+					rus: [
+						{ type: 'text', text: 'Этот кактус ' },
+						{ type: 'text', color: 'blue', text: 'его' },
+						{ type: 'text', text: '.' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', text: 'This cactus is ' },
+						{ type: 'text', color: 'blue', text: 'his' },
+						{ type: 'text', text: '.' },
+					],
+				},
+			],
 		},
 		{
 			type: 'paragraph',
@@ -720,15 +790,22 @@ const possessivePronouns: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			parts: [{ rus: [
-					{ type: 'text', text: 'Этот дневник ' },
-					{ type: 'text', color: 'blue', text: 'её' },
-					{ type: 'text', text: '.' },
-				] }, { eng: [
-					{ type: 'text', text: 'This diary is ' },
-					{ type: 'text', color: 'blue', text: 'hers' },
-					{ type: 'text', text: '.' },
-				] }],
+			parts: [
+				{
+					rus: [
+						{ type: 'text', text: 'Этот дневник ' },
+						{ type: 'text', color: 'blue', text: 'её' },
+						{ type: 'text', text: '.' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', text: 'This diary is ' },
+						{ type: 'text', color: 'blue', text: 'hers' },
+						{ type: 'text', text: '.' },
+					],
+				},
+			],
 		},
 		{
 			type: 'paragraph',
@@ -754,15 +831,22 @@ const possessivePronouns: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			parts: [{ rus: [
-					{ type: 'text', text: 'Эта тень ' },
-					{ type: 'text', color: 'blue', text: 'его/её' },
-					{ type: 'text', text: '.' },
-				] }, { eng: [
-					{ type: 'text', text: 'This shadow is ' },
-					{ type: 'text', color: 'blue', text: 'its' },
-					{ type: 'text', text: '.' },
-				] }],
+			parts: [
+				{
+					rus: [
+						{ type: 'text', text: 'Эта тень ' },
+						{ type: 'text', color: 'blue', text: 'его/её' },
+						{ type: 'text', text: '.' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', text: 'This shadow is ' },
+						{ type: 'text', color: 'blue', text: 'its' },
+						{ type: 'text', text: '.' },
+					],
+				},
+			],
 		},
 		{
 			type: 'paragraph',
@@ -777,15 +861,22 @@ const possessivePronouns: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			parts: [{ rus: [
-					{ type: 'text', text: 'Этот ноутбук ' },
-					{ type: 'text', color: 'blue', text: 'наш' },
-					{ type: 'text', text: '.' },
-				] }, { eng: [
-					{ type: 'text', text: 'This laptop is ' },
-					{ type: 'text', color: 'blue', text: 'ours' },
-					{ type: 'text', text: '.' },
-				] }],
+			parts: [
+				{
+					rus: [
+						{ type: 'text', text: 'Этот ноутбук ' },
+						{ type: 'text', color: 'blue', text: 'наш' },
+						{ type: 'text', text: '.' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', text: 'This laptop is ' },
+						{ type: 'text', color: 'blue', text: 'ours' },
+						{ type: 'text', text: '.' },
+					],
+				},
+			],
 		},
 		{
 			type: 'paragraph',
@@ -800,15 +891,22 @@ const possessivePronouns: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			parts: [{ rus: [
-					{ type: 'text', text: 'Это вознаграждение ' },
-					{ type: 'text', color: 'blue', text: 'их' },
-					{ type: 'text', text: '.' },
-				] }, { eng: [
-					{ type: 'text', text: 'This reward is ' },
-					{ type: 'text', color: 'blue', text: 'theirs' },
-					{ type: 'text', text: '.' },
-				] }],
+			parts: [
+				{
+					rus: [
+						{ type: 'text', text: 'Это вознаграждение ' },
+						{ type: 'text', color: 'blue', text: 'их' },
+						{ type: 'text', text: '.' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', text: 'This reward is ' },
+						{ type: 'text', color: 'blue', text: 'theirs' },
+						{ type: 'text', text: '.' },
+					],
+				},
+			],
 		},
 		{
 			type: 'paragraph',
@@ -840,17 +938,26 @@ const possessivePronouns: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			parts: [{ rus:  [{ type: 'text', text: 'Она умывает своё лицо каждый день.' }] }, { eng: [{ type: 'text', text: 'She washes her face every day.' }] }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Она умывает своё лицо каждый день.' }] },
+				{ eng: [{ type: 'text', text: 'She washes her face every day.' }] },
+			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			parts: [{ rus: [{ type: 'text', text: 'Я вижу свой прогресс.' }] }, { eng: [{ type: 'text', text: 'I see my progress.' }] }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Я вижу свой прогресс.' }] },
+				{ eng: [{ type: 'text', text: 'I see my progress.' }] },
+			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			parts: [{ rus: [{ type: 'text', text: 'Он не помнит свой адрес.' }] }, { eng: [{ type: 'text', text: 'He does not remember his address.' }] }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Он не помнит свой адрес.' }] },
+				{ eng: [{ type: 'text', text: 'He does not remember his address.' }] },
+			],
 		},
 		exercises_3,
 	],

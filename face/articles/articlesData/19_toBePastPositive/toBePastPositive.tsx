@@ -35,11 +35,13 @@ const toBePastPositive: ArticleType.Art = {
 			textSize: 'giant',
 			parts: [
 				{ rus: [{ type: 'text', text: 'Я невероятно счастлив.' }] },
-				{ eng: [
+				{
+					eng: [
 						{ type: 'text', text: 'I ' },
 						{ type: 'text', color: 'blue', text: 'am' },
 						{ type: 'text', text: ' incredibly happy.' },
-					] },
+					],
+				},
 			],
 		},
 		{
@@ -47,11 +49,13 @@ const toBePastPositive: ArticleType.Art = {
 			textSize: 'giant',
 			parts: [
 				{ rus: [{ type: 'text', text: 'Горы всегда величественны.' }] },
-				{ eng: [
+				{
+					eng: [
 						{ type: 'text', text: 'Mountains ' },
 						{ type: 'text', color: 'blue', text: 'are' },
 						{ type: 'text', text: ' always majestic.' },
-					] },
+					],
+				},
 			],
 		},
 		{
@@ -59,11 +63,13 @@ const toBePastPositive: ArticleType.Art = {
 			textSize: 'giant',
 			parts: [
 				{ rus: [{ type: 'text', text: 'Он сумасшедший учёный.' }] },
-				{ eng: [
+				{
+					eng: [
 						{ type: 'text', text: 'He ' },
 						{ type: 'text', color: 'blue', text: 'is' },
 						{ type: 'text', text: ' a crazy scientist.' },
-					] },
+					],
+				},
 			],
 		},
 		{
@@ -167,48 +173,60 @@ const toBePastPositive: ArticleType.Art = {
 			type: 'rusToEng',
 			textSize: 'giant',
 			parts: [
-				{ rus: [
+				{
+					rus: [
 						{ type: 'text', text: 'Я ' },
 						{ type: 'text', color: 'blue', text: 'был' },
 						{ type: 'text', text: ' космонавтом.' },
-					] },
-				{ eng: [
+					],
+				},
+				{
+					eng: [
 						{ type: 'text', text: 'I ' },
 						{ type: 'text', color: 'blue', text: 'was' },
 						{ type: 'text', text: ' a spaceman.' },
-					] },
+					],
+				},
 			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
 			parts: [
-				{ rus: [
+				{
+					rus: [
 						{ type: 'text', text: 'Они ' },
 						{ type: 'text', color: 'blue', text: 'были' },
 						{ type: 'text', text: ' клоунами.' },
-					] },
-				{ eng: [
+					],
+				},
+				{
+					eng: [
 						{ type: 'text', text: 'They ' },
 						{ type: 'text', color: 'blue', text: 'were' },
 						{ type: 'text', text: ' clowns.' },
-					] },
+					],
+				},
 			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
 			parts: [
-				{ rus: [
+				{
+					rus: [
 						{ type: 'text', text: 'Это ' },
 						{ type: 'text', color: 'blue', text: 'было' },
 						{ type: 'text', text: ' странным решением.' },
-					] },
-				{ eng: [
+					],
+				},
+				{
+					eng: [
 						{ type: 'text', text: 'It ' },
 						{ type: 'text', color: 'blue', text: 'was' },
 						{ type: 'text', text: ' a strange decision.' },
-					] },
+					],
+				},
 			],
 		},
 		{

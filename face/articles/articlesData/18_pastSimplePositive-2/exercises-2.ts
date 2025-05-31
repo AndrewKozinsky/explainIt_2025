@@ -134,13 +134,13 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Она купила расчёску и зубную щётку',
 			engSentences: [{ engSentences: ['She bought a hair brush and a tooth brush.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'приносить', engWord: 'bring' },
-				{ rusWord: 'вещь', engWord: 'thing' },
-				{ rusWord: 'вчера', engWord: 'yesterday' },
+				{ rusWord: 'купить', engWord: 'buy' },
+				{ rusWord: 'расчёска', engWord: 'hair brush' },
+				{ rusWord: 'зуб', engWord: 'tooth' },
+				{ rusWord: 'щётка', engWord: 'brush' },
 			],
 		},
 	],

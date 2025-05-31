@@ -4,95 +4,103 @@ const exercises_1: ExercisesType.ExercisesObj = {
 	type: 'exercises',
 	exercises: [
 		{
-			// TODO
 			rusSentence: 'Вам нужно иметь карту чтобы купить билет.',
 			engSentences: [{ engSentences: ['You need to have a card to buy a ticket.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'ходить (куда-то)', engWord: 'go' },
-				{ rusWord: 'стоматолог', engWord: 'every' },
-				{ rusWord: 'каждый год', engWord: 'year' },
+				{ rusWord: 'нужно', engWord: 'need' },
+				{ rusWord: 'карта', engWord: 'card' },
+				{ rusWord: 'покупать', engWord: 'buy' },
+				{ rusWord: 'билет', engWord: 'ticket' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Мой брат любит есть апельсины.',
 			engSentences: [{ engSentences: ['My brother likes eating oranges.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'ходить (куда-то)', engWord: 'go' },
-				{ rusWord: 'стоматолог', engWord: 'every' },
-				{ rusWord: 'каждый год', engWord: 'year' },
+				{ rusWord: 'брат', engWord: 'brother' },
+				{ rusWord: 'любить', engWord: 'like' },
+				{ rusWord: 'есть', engWord: 'eat' },
+				{ rusWord: 'апельсин', engWord: 'orange' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Я хочу побыть одна.',
 			engSentences: [{ engSentences: ['I want to be alone.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'ходить (куда-то)', engWord: 'go' },
-				{ rusWord: 'стоматолог', engWord: 'every' },
-				{ rusWord: 'каждый год', engWord: 'year' },
+				{ rusWord: 'хотеть', engWord: 'want' },
+				{ rusWord: 'быть одной', engWord: 'alone' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Мне нужно найти еду.',
 			engSentences: [{ engSentences: ['I need to find food.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'ходить (куда-то)', engWord: 'go' },
-				{ rusWord: 'стоматолог', engWord: 'every' },
-				{ rusWord: 'каждый год', engWord: 'year' },
+				{ rusWord: 'нуждаться', engWord: 'need' },
+				{ rusWord: 'находить', engWord: 'find' },
+				{ rusWord: 'еда', engWord: 'food' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Я согласился им помочь, но на самом деле я не знал, что делать.',
 			engSentences: [
 				{ engSentences: ['I agreed to help them, but really I did not know what to do.'], isCorrect: true },
 			],
 			words: [
-				{ rusWord: 'ходить (куда-то)', engWord: 'go' },
-				{ rusWord: 'стоматолог', engWord: 'every' },
-				{ rusWord: 'каждый год', engWord: 'year' },
+				{ rusWord: 'соглашаться', engWord: 'agreed' },
+				{ rusWord: 'помогать', engWord: 'help' },
+				{ rusWord: 'но', engWord: 'but' },
+				{ rusWord: 'на самом деле', engWord: 'really' },
+				{ rusWord: 'знать', engWord: 'know' },
+				{ rusWord: 'что', engWord: 'what' },
+				{ rusWord: 'делать', engWord: 'do' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Я хотел спросить дядю о моем отце.',
 			engSentences: [{ engSentences: ['I wanted to ask my uncle about my father.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'ходить (куда-то)', engWord: 'go' },
-				{ rusWord: 'стоматолог', engWord: 'every' },
-				{ rusWord: 'каждый год', engWord: 'year' },
+				{ rusWord: 'хотеть', engWord: 'want' },
+				{ rusWord: 'просить', engWord: 'ask' },
+				{ rusWord: 'дядя', engWord: 'uncle' },
+				{ rusWord: 'о чём-то', engWord: 'about' },
+				{ rusWord: 'отец', engWord: 'father' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Мы обещаем Нику не сообщать ему счет.',
 			engSentences: [{ engSentences: ['We promise Nick not to tell him the score.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'ходить (куда-то)', engWord: 'go' },
-				{ rusWord: 'стоматолог', engWord: 'every' },
-				{ rusWord: 'каждый год', engWord: 'year' },
+				{ rusWord: 'обещать', engWord: 'promise' },
+				{ rusWord: 'сообщать', engWord: 'tell' },
+				{ rusWord: 'счет игры', engWord: 'score' },
 			],
 		},
 		{
-			// TODO
-			rusSentence: 'Бриджит попросила Гектора забрать ее вещи из химчистки.',
+			rusSentence: 'Анна попросила Софью забрать ее вещи из химчистки.',
 			engSentences: [{ engSentences: ['Bridget asked Hector to collect her dry cleaning.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'ходить (куда-то)', engWord: 'go' },
-				{ rusWord: 'стоматолог', engWord: 'every' },
-				{ rusWord: 'каждый год', engWord: 'year' },
+				{ rusWord: 'Анна', engWord: 'Ann' },
+				{ rusWord: 'просить', engWord: 'ask' },
+				{ rusWord: 'Софья', engWord: 'Sofia' },
+				{ rusWord: 'забирать вещи из химчистики', engWord: 'collect dry cleaning' },
 			],
 		},
 		{
-			// TODO
-			rusSentence: 'Ник хочет стать голливудской кинозвездой.',
-			engSentences: [{ engSentences: ['Nick wants to be a Hollywood movie star.'], isCorrect: true }],
+			rusSentence: 'Вика хочет стать голливудской кинозвездой.',
+			engSentences: [{ engSentences: ['Vika wants to be a Hollywood movie star.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'ходить (куда-то)', engWord: 'go' },
-				{ rusWord: 'стоматолог', engWord: 'every' },
-				{ rusWord: 'каждый год', engWord: 'year' },
+				{ rusWord: 'Вика', engWord: 'Vika' },
+				{ rusWord: 'хотеть', engWord: 'want' },
+				{ rusWord: 'Голливуд', engWord: 'Hollywood' },
+				{ rusWord: 'кинозвезда', engWord: 'movie star' },
+			],
+		},
+		{
+			rusSentence: 'Не хочу быть нахлебником.',
+			engSentences: [{ engSentences: ['I do not want to be a freeloader.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'хотеть', engWord: 'go' },
+				{ rusWord: 'нахлебник', engWord: 'freeloader' },
 			],
 		},
 	],

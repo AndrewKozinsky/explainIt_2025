@@ -258,7 +258,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			words: [{ rusWord: 'ингрединты супа', engWord: 'soup ingredients' }],
 		},
 		{
-			// TODO
 			rusSentence: 'Я был единственным студентом и это было ужасно.',
 			engSentences: [
 				{
@@ -266,7 +265,10 @@ const exercises_1: ExercisesType.ExercisesObj = {
 					isCorrect: true,
 				},
 			],
-			words: [{ rusWord: 'ингрединты супа', engWord: 'soup ingredients' }],
+			words: [
+				{ rusWord: 'единственный', engWord: 'only' },
+				{ rusWord: 'ужасно', engWord: 'terrible' },
+			],
 		},
 	],
 	offset: true,

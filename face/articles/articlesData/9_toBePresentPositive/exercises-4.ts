@@ -82,7 +82,6 @@ const exercises_4: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Крокодилы очень опасны.',
 			engSentences: [
 				{
@@ -91,12 +90,11 @@ const exercises_4: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'окно', engWord: 'window' },
-				{ rusWord: 'грязный', engWord: 'dirty' },
+				{ rusWord: 'крокодил', engWord: 'crocodile' },
+				{ rusWord: 'опасный', engWord: 'dangerous' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Я и Миша — друзья.',
 			engSentences: [
 				{
@@ -105,12 +103,11 @@ const exercises_4: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'окно', engWord: 'window' },
-				{ rusWord: 'грязный', engWord: 'dirty' },
+				{ rusWord: 'Миша', engWord: 'Misha' },
+				{ rusWord: 'друг', engWord: 'friend' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Небоскрёбы всегда высокие.',
 			engSentences: [
 				{
@@ -119,8 +116,8 @@ const exercises_4: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'окно', engWord: 'window' },
-				{ rusWord: 'грязный', engWord: 'dirty' },
+				{ rusWord: 'небоскрёб', engWord: 'skyscraper' },
+				{ rusWord: 'высокий', engWord: 'tall' },
 			],
 		},
 	],

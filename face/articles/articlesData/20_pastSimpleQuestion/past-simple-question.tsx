@@ -79,18 +79,22 @@ const pastSimpleQuestion: ArticleType.Art = {
 			type: 'rusToEng',
 			textSize: 'giant',
 			parts: [
-				{ rus: [
+				{
+					rus: [
 						{
 							type: 'text',
 							text: 'Ты помогал своим родителям?',
 						},
-					] },
-				{ eng: [
+					],
+				},
+				{
+					eng: [
 						{
 							type: 'text',
 							text: 'Did you help your parents?',
 						},
-					] },
+					],
+				},
 			],
 		},
 		{

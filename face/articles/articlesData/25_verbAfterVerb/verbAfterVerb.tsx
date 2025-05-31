@@ -3,7 +3,7 @@ import exercises_1 from './exercises-1'
 
 const verbAfterVerb: ArticleType.Art = {
 	meta: {
-		number: 0,
+		number: 1,
 		slug: 'verb-after-verb',
 		name: 'Глагол после глагола',
 		description: 'Изучите как поставить другой глагол после глагола.',
@@ -30,7 +30,14 @@ const verbAfterVerb: ArticleType.Art = {
 			type: 'rusToEng',
 			textSize: 'giant',
 			parts: [
-				{ rus: [{ type: 'text', text: 'Ей нравится фотографировать, и иногда снимки получаются очень удачными.' }] },
+				{
+					rus: [
+						{
+							type: 'text',
+							text: 'Ей нравится фотографировать, и иногда снимки получаются очень удачными.',
+						},
+					],
+				},
 				{ eng: [{ type: 'text', text: 'She likes taking photos and sometimes they are very good.' }] },
 			],
 		},

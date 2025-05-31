@@ -4,10 +4,12 @@ const exercises_1: ExercisesType.ExercisesObj = {
 	type: 'exercises',
 	exercises: [
 		{
-			// TODO
 			rusSentence: 'Ты был счастливым вчера?',
 			engSentences: [{ engSentences: ['Was you happy yesterday?'], isCorrect: true }],
-			words: [{ rusWord: 'врач', engWord: 'doctor' }],
+			words: [
+				{ rusWord: 'счастливый', engWord: 'happy' },
+				{ rusWord: 'вчера', engWord: 'yesterday' },
+			],
 		},
 	],
 	offset: true,

@@ -141,16 +141,9 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'У тебя болит зуб.',
 			engSentences: [{ engSentences: ['You have a toothache.'], isCorrect: true }],
-			words: [
-				{ rusWord: 'видеть', engWord: 'see' },
-				{ rusWord: 'вопрос', engWord: 'question' },
-				{ rusWord: 'про (о)', engWord: 'about' },
-				{ rusWord: 'эта', engWord: 'this' },
-				{ rusWord: 'тема', engWord: 'topic' },
-			],
+			words: [{ rusWord: 'больной зуб', engWord: 'toothache' }],
 		},
 	],
 }

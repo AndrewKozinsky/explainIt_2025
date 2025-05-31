@@ -4,30 +4,35 @@ const exercises_1: ExercisesType.ExercisesObj = {
 	type: 'exercises',
 	exercises: [
 		{
-			// TODO
-			rusSentence: 'Автомобиль также врезался в школьный автобус.',
+			rusSentence: 'Грузовик также врезался в школьный автобус.',
 			engSentences: [{ engSentences: ['The truck also hit a school bus.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'популярный', engWord: 'popular' },
-				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'грузовик', engWord: 'truck' },
+				{ rusWord: 'также', engWord: 'also' },
+				{ rusWord: 'врезаться', engWord: 'hit' },
+				{ rusWord: 'школа', engWord: 'school' },
+				{ rusWord: 'автобус', engWord: 'bus' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Мой начальник позволил взять перерыв.',
 			engSentences: [{ engSentences: ['My boss let me take a break.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'популярный', engWord: 'popular' },
-				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'начальник', engWord: 'popular' },
+				{ rusWord: 'позволять', engWord: 'let' },
+				{ rusWord: 'взять', engWord: 'take' },
+				{ rusWord: 'перерыв', engWord: 'break' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Родители купили машину прошлым летом.',
 			engSentences: [{ engSentences: ['My parents bought a car last summer.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'ходить (куда-то)', engWord: 'go' },
-				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'родители', engWord: 'parents' },
+				{ rusWord: 'купить', engWord: 'buy' },
+				{ rusWord: 'машина', engWord: 'car' },
+				{ rusWord: 'прошлый', engWord: 'last' },
+				{ rusWord: 'лето', engWord: 'summer' },
 			],
 		},
 		{
@@ -56,7 +61,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Когда они вышли из конюшни, они увидели шерифа.',
 			engSentences: [
 				{
@@ -65,12 +69,14 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'ходить (куда-то)', engWord: 'go' },
-				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'когда', engWord: 'when' },
+				{ rusWord: 'выходить', engWord: 'leave' },
+				{ rusWord: 'конюшня', engWord: 'stable' },
+				{ rusWord: 'видеть', engWord: 'see' },
+				{ rusWord: 'шериф', engWord: 'sheriff' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Она положила их в стиральную машину прежде чем пойти в сад.',
 			engSentences: [
 				{
@@ -79,8 +85,12 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'ходить (куда-то)', engWord: 'go' },
-				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'положить', engWord: 'put' },
+				{ rusWord: 'в', engWord: 'in' },
+				{ rusWord: 'стиральная машина', engWord: 'washing machine' },
+				{ rusWord: 'до того', engWord: 'before' },
+				{ rusWord: 'идти', engWord: 'go' },
+				{ rusWord: 'сад', engWord: 'garden' },
 			],
 		},
 		{
@@ -114,7 +124,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Я всё забыл.',
 			engSentences: [
 				{
@@ -123,8 +132,8 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'ходить (куда-то)', engWord: 'go' },
-				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'забывать', engWord: 'forget' },
+				{ rusWord: 'всё', engWord: 'everything' },
 			],
 		},
 	],
