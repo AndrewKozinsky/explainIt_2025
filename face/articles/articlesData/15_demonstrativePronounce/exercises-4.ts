@@ -99,6 +99,15 @@ const exercises_4: ExercisesType.ExercisesObj = {
 				{ rusWord: 'люди', engWord: 'people' },
 			],
 		},
+		{
+			// TODO
+			rusSentence: 'Это ожерелье.',
+			engSentences: [{ engSentences: ['This is a necklace.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'знать', engWord: 'know' },
+				{ rusWord: 'люди', engWord: 'people' },
+			],
+		},
 	],
 }
 

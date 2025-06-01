@@ -270,8 +270,33 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{ rusWord: 'ужасно', engWord: 'terrible' },
 			],
 		},
+		{
+			// TODO
+			rusSentence: 'Капитан был жестоким и не очень хорошим моряком.',
+			engSentences: [
+				{
+					engSentences: ['The captain was violent and not a very good sailor.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'быть уверенным', engWord: 'to be sure' },
+				{ rusWord: 'быть готовым', engWord: 'to be ready' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Он был хорошим учеником.',
+			engSentences: [{ engSentences: ['He was a good pupil.'], isCorrect: true }],
+			words: [{ rusWord: 'популярный', engWord: 'popular' }],
+		},
+		{
+			// TODO
+			rusSentence: 'Парад был первым событием.',
+			engSentences: [{ engSentences: ['The parade was the first event.'], isCorrect: true }],
+			words: [{ rusWord: 'положение', engWord: 'situation' }],
+		},
 	],
-	offset: true,
 }
 
 export default exercises_1

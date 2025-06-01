@@ -1,5 +1,4 @@
 import { useCallback, useContext, useMemo } from 'react'
-import { useGetHotKeysHandler } from '../../../../../../../utils/hotKeysHandler'
 import { ExercisesContext } from '../../../../logic/exercisesContext'
 import { exercisesLogic } from '../../../../logic/exercisesLogic'
 import { ExercisesContextType } from '../../../../logic/exercisesContextTypes'
@@ -47,7 +46,7 @@ export function useGetButtonText() {
 }
 
 /** Возвращает функция срабатывающую при нажатии на кнопку действия в модальном окне прохождения упражнений */
-export function useGetOnButtonClick() {
+export function useGetCheckTranslationOrMoveToAnotherExercise() {
 	const { exercisesBlock } = useContext(ExercisesContext)
 
 	const exercise = exercisesLogic.useGetCurrentExercise()
@@ -82,10 +81,4 @@ export function useGetOnButtonClick() {
 		},
 		[analysis.status, exercise],
 	)
-}
-
-/** Назначает обработчик на нажатие клавиши Enter в модальном окне прохождения упражнений. */
-export function useSetEnterKeyHandler() {
-	const handler = useGetOnButtonClick()
-	useGetHotKeysHandler({ key: 'Enter', handler: handler })
 }

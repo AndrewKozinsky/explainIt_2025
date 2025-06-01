@@ -46,9 +46,16 @@ const exercises_1: ExercisesType.ExercisesObj = {
 		},
 		{
 			rusSentence: 'К этому доступа нет.',
+			engSentences: [{ engSentences: ['There is no access to it.'], isCorrect: true }],
+			words: [{ rusWord: 'доступ', engWord: 'access' }],
+		},
+		{
+			rusSentence: 'Эти решения не дороги, но и не бесплатны.',
 			engSentences: [
-				{ engSentences: ['There is no access to it.'], isCorrect: true },
-				{ engSentences: ['I don’t have access to it.'], isCorrect: true },
+				{
+					engSentences: ['These solutions are not expensive, but they are not free.'],
+					isCorrect: true,
+				},
 			],
 			words: [{ rusWord: 'доступ', engWord: 'access' }],
 		},

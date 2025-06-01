@@ -1,4 +1,4 @@
-import { ApolloClient, InMemoryCache, HttpLink, from } from '@apollo/client'
+import { InMemoryCache, ApolloClient, HttpLink, from } from '@apollo/client'
 import { onError } from '@apollo/client/link/error'
 import { isServerComponent } from '../utils/utils'
 

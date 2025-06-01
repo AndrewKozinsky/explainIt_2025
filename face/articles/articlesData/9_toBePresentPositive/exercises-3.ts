@@ -173,6 +173,20 @@ const exercises_3: ExercisesType.ExercisesObj = {
 				{ rusWord: 'ингрединты супа', engWord: 'soup ingredients' },
 			],
 		},
+		{
+			rusSentence: 'На самом деле HTML не очень сложный язык.',
+			engSentences: [
+				{
+					engSentences: ['Actually HTML is not so difficult language.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'на самом деле', engWord: 'actually' },
+				{ rusWord: 'сложный', engWord: 'difficult' },
+				{ rusWord: 'язык', engWord: 'language' },
+			],
+		},
 	],
 }
 

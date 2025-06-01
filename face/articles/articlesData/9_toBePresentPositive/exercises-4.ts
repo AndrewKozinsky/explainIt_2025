@@ -120,6 +120,20 @@ const exercises_4: ExercisesType.ExercisesObj = {
 				{ rusWord: 'высокий', engWord: 'tall' },
 			],
 		},
+		{
+			// TODO
+			rusSentence: 'Bracelets, earrings, rings and necklaces are jewelry.',
+			engSentences: [
+				{
+					engSentences: ['Bracelets, earrings, rings and necklaces are jewelry.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'небоскрёб', engWord: 'skyscraper' },
+				{ rusWord: 'высокий', engWord: 'tall' },
+			],
+		},
 	],
 }
 

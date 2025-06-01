@@ -6,51 +6,6 @@
 /*const beNegativeAndQuestion: ArticleType.Art = {
 	content: [
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Прошедшее и настоящее время' },
-		{ type: 'header', tag: 'h3', style: 'h3', text: 'Отрицание' },
-		{
-			type: 'paragraph',
-			offset: true,
-			children: [
-				{
-					type: 'text',
-					text: 'Отрицание в прошедшем времени.',
-				},
-			],
-		},
-		{
-			type: 'paragraph',
-
-			textSize: 'giant',
-			children: [
-				{ type: 'text',   text: 'Я не был напуган.' },
-
-				{ type: 'text',   text: 'I ' },
-				{ type: 'text', color: 'blue',  text: 'was not' },
-				{ type: 'text',   text: ' afraid.' },
-			],
-		},
-		{
-			type: 'paragraph',
-			textSize: 'giant',
-			children: [
-				{ type: 'text',   text: 'Вы не были милым.' },
-
-				{ type: 'text',   text: 'You ' },
-				{ type: 'text', color: 'blue',  text: 'were not' },
-				{ type: 'text',   text: ' cute.' },
-			],
-		},
-		{
-			type: 'paragraph',
-			textSize: 'giant',
-			children: [
-				{ type: 'text',   text: 'Она не была красивой.' },
-
-				{ type: 'text',   text: 'She ' },
-				{ type: 'text', color: 'blue',  text: 'was not' },
-				{ type: 'text',   text: ' beautiful.' },
-			],
-		},
 		{
 			type: 'paragraph',
 			offset: true,
@@ -109,81 +64,6 @@
 			offset: true,
 		},
 		{ type: 'header', tag: 'h3', style: 'h3', text: 'Вопрос' },
-		{
-			type: 'exercises',
-			id: 1,
-			exercises: [
-				{
-					rusSentence: 'Интересно, он богат?',
-					engSentences: [
-						{ engSentences: ['I wonder, is he rich?'], isCorrect: true },
-						{
-							engSentences: [],
-							isCorrect: false,
-							analysis: [
-								{
-									type: 'paragraph',
-									children: [
-										{
-											type: 'text',
-											color: 'blue',
-											text: 'Rich',
-										},
-										{
-											type: 'text',
-											text: ' — это не существительное. Поэтому перед ним не нужно ставить неопределённый артикль.',
-										},
-									],
-								},
-							],
-						},
-					],
-					words: [
-						{ rusWord: 'интересно', engWord: 'I wonder ' },
-						{ rusWord: 'богат', engWord: 'rich' },
-					],
-				},
-				{
-					rusSentence: 'Вас зовут Сергей?',
-					engSentences: [
-						{ engSentences: ['Are you Sergey?'], isCorrect: true },
-						{
-							engSentences: [],
-							isCorrect: false,
-							analysis: [
-								{
-									type: 'paragraph',
-
-									children: [
-										{
-											type: 'text',
-											text: 'Перед именами неопределённый артикль a не ставится. Ставьте перед неопределёнными существительными.',
-										},
-									],
-								},
-							],
-						},
-						{
-							engSentences: [],
-							isCorrect: false,
-							analysis: [
-								{
-									type: 'paragraph',
-									children: [
-										{
-											type: 'text',
-											text: 'Форма глагола to be зависит от подлежащего, потому что в повествовательном оно стоит после него. И в вопросе перескакивает на место перед ним. После местоимения you будет использоваться to be в форме are.',
-										},
-									],
-								},
-							],
-						},
-					],
-					words: [],
-				},
-			],
-			offset: true,
-		},
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Будущее время' },
 		{
 			type: 'paragraph',

@@ -13,20 +13,17 @@
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Место в предложении' },
 		{
 			type: 'paragraph',
-
 			children: [
 				{ type: 'text',  text: 'После глагола ' },
 				{ type: 'text', color: 'blue', text: 'be' },
 				{
 					type: 'text',
-
 					text: ' может стоять не только существительное, но и прилагательное.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-
 			textSize: 'giant',
 			children: [
 				{ type: 'text',  text: 'Я ' },
@@ -39,7 +36,6 @@
 		},
 		{
 			type: 'paragraph',
-
 			textSize: 'giant',
 			children: [
 				{ type: 'text',  text: 'Мы ' },
@@ -52,7 +48,6 @@
 		},
 		{
 			type: 'paragraph',
-
 			textSize: 'giant',
 			children: [
 				{ type: 'text',  text: 'Она ' },
@@ -67,30 +62,25 @@
 		{
 			type: 'paragraph',
 			offset: true,
-
 			children: [
 				{
 					type: 'text',
-
 					text: 'Если к существительному добавлено прилагательное, то ',
 				},
 				{ type: 'text',  weight: 'bold', text: 'неопределённый артикль a' },
 				{
 					type: 'text',
-
 					text: ' ставится перед прилагательным потому что связка прилагательное + существительное по сути является одной сущностью. Например: серая мышь, красивая шляпка. ',
 				},
 				{
 					type: 'text',
 					color: 'gray',
-
 					text: 'Про неопределённый артикль будет рассказано в следующей главе.',
 				},
 			],
 		},
 		{
 			type: 'paragraph',
-
 			textSize: 'giant',
 			children: [
 				{ type: 'text',  text: 'Это помидор.' },
@@ -102,7 +92,6 @@
 		},
 		{
 			type: 'paragraph',
-
 			textSize: 'giant',
 			children: [
 				{ type: 'text',  text: 'Это спелый помидор.' },
@@ -126,7 +115,6 @@
 		},
 		{
 			type: 'paragraph',
-
 			textSize: 'giant',
 			children: [
 				{ type: 'text',  text: 'Это тёмный подвал.' },
@@ -143,7 +131,6 @@
 			children: [
 				{
 					type: 'text',
-
 					text: 'Как прилагательное + существительное является одной сущностью, так и несколько действующих лиц являются одним подлежащим во множественном числе. От этого зависит форма глагола ',
 				},
 				{ type: 'text', color: 'blue', text: 'be' },
@@ -157,7 +144,6 @@
 			children: [
 				{
 					type: 'text',
-
 					text: 'Я и Дженни — два лучших друга.',
 				},
 
@@ -168,13 +154,11 @@
 		},
 		{
 			type: 'paragraph',
-
 			textSize: 'small',
 			children: [
 				{
 					type: 'text',
 					color: 'gray',
-
 					text: 'Я и Дженни — это подлежащее во множественном числе. Поэтому be будет в форме ',
 				},
 				{ type: 'text', color: 'gray', weight: 'bold', text: 'are' },
@@ -196,11 +180,9 @@
 							analysis: [
 								{
 									type: 'paragraph',
-
 									children: [
 										{
 											type: 'text',
-
 											text: 'Пропущен глагол to be в форме настоящего времени второго лица: are. Такое предложение является грамматически неправильным.',
 										},
 									],
@@ -213,11 +195,9 @@
 							analysis: [
 								{
 									type: 'paragraph',
-
 									children: [
 										{
 											type: 'text',
-
 											text: 'They переводится как «они». Мы — это we. А в остальном правильно: после местоимений во втором лице ставится глагол to be в форме are.',
 										},
 									],
@@ -236,22 +216,18 @@
 							analysis: [
 								{
 									type: 'paragraph',
-
 									children: [
 										{
 											type: 'text',
-
 											text: 'Правильно! Вариант ',
 										},
 										{
 											type: 'text',
 											color: 'blue',
-
 											text: 'Katya is twenty',
 										},
 										{
 											type: 'text',
-
 											text: ' тоже верен.',
 										},
 									],
@@ -264,22 +240,18 @@
 							analysis: [
 								{
 									type: 'paragraph',
-
 									children: [
 										{
 											type: 'text',
-
 											text: 'Правильно! Вариант ',
 										},
 										{
 											type: 'text',
 											color: 'blue',
-
 											text: 'Katya is twenty years old',
 										},
 										{
 											type: 'text',
-
 											text: ' тоже верен.',
 										},
 									],
@@ -292,11 +264,9 @@
 							analysis: [
 								{
 									type: 'paragraph',
-
 									children: [
 										{
 											type: 'text',
-
 											text: 'Правильно! Это сокращённый вариант перевода Katya is 20 years old.',
 										},
 									],
@@ -309,33 +279,27 @@
 							analysis: [
 								{
 									type: 'paragraph',
-
 									children: [
 										{
 											type: 'text',
-
 											text: 'Двадцать лет — это свойство персонажа. Поэтому ставится ',
 										},
 										{
 											type: 'text',
 											color: 'blue',
-
 											text: 'to be',
 										},
 										{
 											type: 'text',
-
 											text: '. Кроме того в русском предложении нет глагола. А это признак того, что в английском нужно ставить ',
 										},
 										{
 											type: 'text',
 											color: 'blue',
-
 											text: 'to be',
 										},
 										{
 											type: 'text',
-
 											text: '.',
 										},
 									],
@@ -359,7 +323,6 @@
 									children: [
 										{
 											type: 'text',
-
 											text: 'Предложение грамматически правильное, но в русском использовалось местоимение «они», что переводится they.',
 										},
 									],
@@ -372,11 +335,9 @@
 							analysis: [
 								{
 									type: 'paragraph',
-
 									children: [
 										{
 											type: 'text',
-
 											text: 'В русском использовалось местоимение «они», что переводится they, а не you.',
 										},
 									],
@@ -414,18 +375,15 @@
 									children: [
 										{
 											type: 'text',
-
 											text: 'Если сообщается о качестве или свойстве, то требуется глагол ',
 										},
 										{
 											type: 'text',
 											color: 'blue',
-
 											text: 'to be',
 										},
 										{
 											type: 'text',
-
 											text: ' в одной из своих форм. Форма зависит от времени и лица подлежащего.',
 										},
 									],
@@ -438,44 +396,36 @@
 							analysis: [
 								{
 									type: 'paragraph',
-
 									children: [
 										{
 											type: 'text',
-
 											text: 'Чтобы определить в какой форме должен быть глагол ',
 										},
 										{
 											type: 'text',
 											color: 'blue',
-
 											text: 'to be',
 										},
 										{
 											type: 'text',
-
 											text: ' нужно понять в каком лице находится подлежащее. В этом предложении подлежащее Амелия. Имена всегда являются третьими лицами. А после третьего лица используется ',
 										},
 										{
 											type: 'text',
 											color: 'blue',
-
 											text: 'to be',
 										},
 										{
 											type: 'text',
-
 											text: ' в форме ',
 										},
 										{
 											type: 'text',
 											color: 'blue',
-
 											text: 'is',
 										},
 										{
 											type: 'text',
-
 											text: '.',
 										},
 									],
@@ -495,7 +445,6 @@
 							analysis: [
 								{
 									type: 'paragraph',
-
 									children: [
 										{
 											type: 'text',
@@ -504,46 +453,38 @@
 										},
 										{
 											type: 'text',
-
 											weight: 'bold',
 											text: 'path',
 										},
 										{
 											type: 'text',
-
 											text: ' можно использовать слово ',
 										},
 										{
 											type: 'text',
-
 											weight: 'bold',
 											text: 'way',
 										},
 										{
 											type: 'text',
-
 											text: '. ',
 										},
 										{
 											type: 'text',
-
 											weight: 'bold',
 											text: 'Path',
 										},
 										{
 											type: 'text',
-
 											text: ' по смыслу обозначает путь, который можно пройти сделав определённые шаги чтобы достичь какой-то цели. А ',
 										},
 										{
 											type: 'text',
-
 											weight: 'bold',
 											text: 'way',
 										},
 										{
 											type: 'text',
-
 											text: ' — это более широкое и абстрактное понятие.',
 										},
 									],
@@ -556,22 +497,18 @@
 							analysis: [
 								{
 									type: 'paragraph',
-
 									children: [
 										{
 											type: 'text',
-
 											text: 'Определённый артикль тут использовать не нужно потому что подразумевается один неправильный путь из класса неправильных путей. Поэтому определённый артикль the лучше заменить на ',
 										},
 										{
 											type: 'text',
 											color: 'blue',
-
 											text: 'a',
 										},
 										{
 											type: 'text',
-
 											text: '.',
 										},
 									],
@@ -698,13 +635,11 @@
 							children: [
 								{
 									type: 'text',
-
 									text: 'exciting',
 								},
 
 								{
 									type: 'text',
-
 									text: 'волнующий',
 								},
 							],
@@ -716,13 +651,11 @@
 							children: [
 								{
 									type: 'text',
-
 									text: 'surprising',
 								},
 
 								{
 									type: 'text',
-
 									text: 'удивительный',
 								},
 							],
@@ -734,13 +667,11 @@
 							children: [
 								{
 									type: 'text',
-
 									text: 'interesting',
 								},
 
 								{
 									type: 'text',
-
 									text: 'интересный',
 								},
 							],
@@ -754,17 +685,14 @@
 						{ type: 'header', tag: 'h4', style: 'h4', text: '-ed' },
 						{
 							type: 'paragraph',
-
 							children: [
 								{
 									type: 'text',
-
 									text: 'А заканчивающиеся на ',
 								},
 								{ type: 'text', color: 'blue', text: '-ed' },
 								{
 									type: 'text',
-
 									text: ' описывают эмоции человека.',
 								},
 							],
@@ -776,20 +704,17 @@
 							children: [
 								{
 									type: 'text',
-
 									text: 'confused',
 								},
 
 								{
 									type: 'text',
-
 									text: 'смущённый',
 								},
 							],
 						},
 						{
 							type: 'paragraph',
-
 							textSize: 'big',
 							children: [
 								{ type: 'text',  text: 'tired' },
@@ -799,7 +724,6 @@
 						},
 						{
 							type: 'paragraph',
-
 							textSize: 'big',
 							children: [
 								{ type: 'text',  text: 'excited' },
@@ -813,36 +737,30 @@
 						},
 						{
 							type: 'paragraph',
-
 							textSize: 'big',
 							children: [
 								{
 									type: 'text',
-
 									text: 'surprised',
 								},
 
 								{
 									type: 'text',
-
 									text: 'удивленный',
 								},
 							],
 						},
 						{
 							type: 'paragraph',
-
 							textSize: 'big',
 							children: [
 								{
 									type: 'text',
-
 									text: 'interested',
 								},
 
 								{
 									type: 'text',
-
 									text: 'заинтересованный',
 								},
 							],
@@ -858,13 +776,11 @@
 			children: [
 				{
 					type: 'text',
-
 					text: 'Мои дети были так взволнованы.',
 				},
 
 				{
 					type: 'text',
-
 					text: 'My children were so excited.',
 				},
 			],
@@ -876,13 +792,11 @@
 			children: [
 				{
 					type: 'text',
-
 					text: 'Это действительно интересная книга.',
 				},
 
 				{
 					type: 'text',
-
 					text: 'It is a really interesting book.',
 				},
 			],
@@ -903,18 +817,15 @@
 									children: [
 										{
 											type: 'text',
-
 											text: 'Верно! Прилагательные с окончанием ',
 										},
 										{
 											type: 'text',
 											color: 'blue',
-
 											text: '-ed',
 										},
 										{
 											type: 'text',
-
 											text: ' описывают эмоции человека.',
 										},
 									],
@@ -927,11 +838,9 @@
 							analysis: [
 								{
 									type: 'paragraph',
-
 									children: [
 										{
 											type: 'text',
-
 											text: 'Глагол to be в форме is используется в настоящем времени только после подлежащих в третьем лице. Это местоимения he, she, it. А у нас местоимение первого лица, поэтому должен быть am.',
 										},
 									],
@@ -944,55 +853,45 @@
 							analysis: [
 								{
 									type: 'paragraph',
-
 									children: [
 										{
 											type: 'text',
-
 											text: 'Если сообщаете о свойстве, то при переводе используйте глагол to be в форме настоящего времени. Поэтому он будет выглядеть в одной из трёх форм в зависимости от лица подлежащего: ',
 										},
 										{
 											type: 'text',
 											color: 'blue',
-
 											text: 'am',
 										},
 										{
 											type: 'text',
-
 											text: ', ',
 										},
 										{
 											type: 'text',
 											color: 'blue',
-
 											text: 'are',
 										},
 										{
 											type: 'text',
-
 											text: ' или ',
 										},
 										{
 											type: 'text',
 											color: 'blue',
-
 											text: 'is',
 										},
 										{
 											type: 'text',
-
 											text: '. После подлежащего первого лица используется ',
 										},
 										{
 											type: 'text',
 											color: 'blue',
-
 											text: 'am',
 										},
 										{
 											type: 'text',
-
 											text: '.',
 										},
 									],
@@ -1011,22 +910,18 @@
 							analysis: [
 								{
 									type: 'paragraph',
-
 									children: [
 										{
 											type: 'text',
-
 											text: 'Верно! Прилагательные с окончанием ',
 										},
 										{
 											type: 'text',
 											color: 'blue',
-
 											text: '-ed',
 										},
 										{
 											type: 'text',
-
 											text: ' описывают эмоции человека.',
 										},
 									],
@@ -1039,22 +934,18 @@
 							analysis: [
 								{
 									type: 'paragraph',
-
 									children: [
 										{
 											type: 'text',
-
 											text: 'Воспринимайте talented singer как одну сущность: талантливая певица. Но англичанам важно знать это одна из множества талантливых певиц или та самая. Одна из множества. Поэтому перед ней ставьте неопределённый артикль a потому что «певица» — это исчисляемое существительное в единственном числе. А артикль ',
 										},
 										{
 											type: 'text',
 											color: 'blue',
-
 											text: 'a',
 										},
 										{
 											type: 'text',
-
 											text: ' ставится перед ними.',
 										},
 									],
@@ -1066,40 +957,33 @@
 									children: [
 										{
 											type: 'text',
-
 											text: 'Так как сообщается кем является персонаж, то ставится ',
 										},
 										{
 											type: 'text',
 											color: 'blue',
-
 											text: 'to be',
 										},
 										{
 											type: 'text',
-
 											text: ' в форме ',
 										},
 										{
 											type: 'text',
 											color: 'blue',
-
 											text: 'is',
 										},
 										{
 											type: 'text',
-
 											text: '. И следом сама конструкция ',
 										},
 										{
 											type: 'text',
 											color: 'blue',
-
 											text: 'a talented singer',
 										},
 										{
 											type: 'text',
-
 											text: '.',
 										},
 									],
@@ -1112,11 +996,9 @@
 							analysis: [
 								{
 									type: 'paragraph',
-
 									children: [
 										{
 											type: 'text',
-
 											text: 'После she должен стоять to be в форме is, а не are.',
 										},
 									],

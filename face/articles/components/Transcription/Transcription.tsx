@@ -26,7 +26,7 @@ function Transcription(props: TranscriptionProps) {
 
 	return (
 		<div className='transcription'>
-			{transcriptionData.audio && <AudioButton isPlay={isPlay} playPauseHandler={playPauseHandler} />}
+			{/*{transcriptionData.audio && <AudioButton isPlay={isPlay} playPauseHandler={playPauseHandler} />}*/}
 			<div className='transcription__content'>
 				<div className='transcription__content-inner'>
 					{engWords.map((engWord, i) => {

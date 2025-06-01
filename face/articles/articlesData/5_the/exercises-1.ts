@@ -78,6 +78,15 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{ rusWord: 'раз', engWord: 'time' },
 			],
 		},
+		{
+			// TODO
+			rusSentence: 'Камин — дорогая вещь.',
+			engSentences: [{ engSentences: ['A fireplace is an expensive thing.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'однажды', engWord: 'one day' },
+				{ rusWord: 'врач', engWord: 'doctor' },
+			],
+		},
 	],
 }
 

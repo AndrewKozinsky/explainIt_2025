@@ -9,13 +9,11 @@
 		caption: 'Глава 2',
 		articleName: 'Глагол be',
 		articleDescription: 'Глагол be используется для описания состояния, местоположения или принадлежности.',
-
 	},
 	content: [
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'В прошедшем' },
 		{
 			type: 'paragraph',
-
 			children: [
 				{ type: 'text',  text: 'Глагол ' },
 				{ type: 'text', color: 'blue', text: 'be' },
@@ -33,7 +31,6 @@
 			children: [
 				{
 					type: 'text',
-
 					text: 'Английские глаголы не имеет формы будущего времени. Поэтому предложения строят в форме настоящего времени, но применяют некоторые средства чтобы указать на будущие действия. Одно из них — ',
 				},
 				{ type: 'text', color: 'blue',  text: 'модальный глагол will' },
@@ -46,23 +43,19 @@
 			children: [
 				{
 					type: 'paragraph',
-
 					children: [
 						{
 							type: 'text',
 							color: 'gold',
-
 							text: 'Смысловые глаголы',
 						},
 						{
 							type: 'text',
-
 							text: ' выражают действие (летать, прыгать, падать), а ',
 						},
 						{ type: 'text', color: 'blue',  text: 'модальные' },
 						{
 							type: 'text',
-
 							text: ' выражают отношение к действию (могу, буду, должен).',
 						},
 					],
@@ -134,7 +127,6 @@
 		},
 		{
 			type: 'paragraph',
-
 			children: [
 				{
 					type: 'text',
@@ -168,7 +160,6 @@
 			children: [
 				{
 					type: 'paragraph',
-
 					children: [
 						{
 							type: 'text',
@@ -182,11 +173,9 @@
 		{
 			type: 'paragraph',
 			offset: true,
-
 			children: [
 				{
 					type: 'text',
-
 					text: 'Формула будущего действия самая простая.',
 				},
 			],
@@ -195,11 +184,9 @@
 		{
 			type: 'paragraph',
 			offset: true,
-
 			children: [
 				{
 					type: 'text',
-
 					text: 'Попробуйте перевести предложения в будущем времени.',
 				},
 			],
