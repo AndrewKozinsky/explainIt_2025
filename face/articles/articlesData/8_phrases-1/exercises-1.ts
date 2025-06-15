@@ -70,6 +70,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
+			// TODO
 			rusSentence: 'Один играет на бас-гитаре, другой на синтезаторе.',
 			engSentences: [
 				{ engSentences: ['One plays the bass guitar, the another plays the keyboard.'], isCorrect: true },
@@ -130,6 +131,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			engSentences: [{ engSentences: ['The play different games.'], isCorrect: true }],
 			words: [
 				{ rusWord: 'играть', engWord: 'play' },
+				{ rusWord: 'разны1', engWord: 'different' },
 				{ rusWord: 'игра', engWord: 'game' },
 			],
 		},
@@ -149,14 +151,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			words: [
 				{ rusWord: 'играть', engWord: 'play' },
 				{ rusWord: 'скрипка', engWord: 'violin' },
-			],
-		},
-		{
-			rusSentence: 'Я хочу поиграть в Доту.',
-			engSentences: [{ engSentences: ['I want to play Dota.'], isCorrect: true }],
-			words: [
-				{ rusWord: 'играть', engWord: 'play' },
-				{ rusWord: 'Дота', engWord: 'Dota' },
 			],
 		},
 	],

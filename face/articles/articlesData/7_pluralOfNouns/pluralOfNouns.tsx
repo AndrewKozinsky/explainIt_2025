@@ -598,8 +598,8 @@ const pluralOfNouns: ArticleType.Art = {
 			type: 'rusToEng',
 			textSize: 'giant',
 			parts: [
-				{ rus: [{ type: 'text', text: 'У Джейкоба ужасная пижама.' }] },
-				{ eng: [{ type: 'text', text: 'Jacob has terrible pyjamas.' }] },
+				{ rus: [{ type: 'text', text: 'У Джона ужасная пижама.' }] },
+				{ eng: [{ type: 'text', text: 'John has terrible pyjamas.' }] },
 			],
 		},
 		{
@@ -636,29 +636,107 @@ const pluralOfNouns: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'Другие примеры: nice trousers, dirty glasses, scissors, Новость, новости → News, Бильярд → Billiards, Штаны → Trousers, Джинсы → Jeans, Очки → Glasses.',
+					text: 'Другие примеры:',
 				},
 			],
 		},
 		{
-			type: 'note',
+			type: 'rusToEng',
+			textSize: 'big',
+			parts: [{ rus: [{ type: 'text', text: 'новости, новость' }] }, { eng: [{ type: 'text', text: 'news' }] }],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'big',
+			parts: [{ rus: [{ type: 'text', text: 'товар, товары' }] }, { eng: [{ type: 'text', text: 'goods' }] }],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'big',
+			parts: [{ rus: [{ type: 'text', text: 'бильярд' }] }, { eng: [{ type: 'text', text: 'billiards' }] }],
+		},
+		{
+			type: 'paragraph',
+			offset: true,
 			children: [
 				{
-					type: 'paragraph',
-					children: [
-						{
-							type: 'text',
-							text: 'На русском языке слово «видео» в единственном и множественном числе выглядят одинаково, но на английском множественное число образуется через добавление -s.',
-						},
+					type: 'text',
+					text: 'На русском и английском есть слова, которые всегда употребляются во множественном:',
+				},
+			],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'big',
+			parts: [{ rus: [{ type: 'text', text: 'очки' }] }, { eng: [{ type: 'text', text: 'glasses' }] }],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'big',
+			parts: [{ rus: [{ type: 'text', text: 'джинсы' }] }, { eng: [{ type: 'text', text: 'jeans' }] }],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'big',
+			parts: [{ rus: [{ type: 'text', text: ' штаны' }] }, { eng: [{ type: 'text', text: 'trousers' }] }],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'big',
+			parts: [{ rus: [{ type: 'text', text: 'ножницы' }] }, { eng: [{ type: 'text', text: 'scissors' }] }],
+		},
+		{
+			type: 'paragraph',
+			offset: true,
+			children: [
+				{
+					type: 'text',
+					text: 'На русском языке слово «видео» в единственном и множественном числе выглядят одинаково, но на английском множественное число образуется через добавление ',
+				},
+				{
+					type: 'text',
+					text: 's',
+					color: 'blue',
+				},
+				{
+					type: 'text',
+					text: '.',
+				},
+			],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'big',
+			parts: [
+				{
+					rus: [
+						{ type: 'text', text: '(одно)', color: 'gray' },
+						{ type: 'text', text: ' видео, два видео' },
 					],
 				},
+				{ eng: [{ type: 'text', text: 'a video, two videos' }] },
+			],
+		},
+
+		{
+			type: 'note',
+			children: [
 				{
 					type: 'paragraph',
 					offset: true,
 					children: [
 						{
 							type: 'text',
-							text: 'По-русски говорим «евро» для любого числа, в английском нужно добавлять -s.\n',
+							text: 'По-русски говорим «евро» для любого числа, в английском нужно добавлять ',
+						},
+						{
+							type: 'text',
+							text: 's',
+							color: 'blue',
+						},
+						{
+							type: 'text',
+							text: '.',
 						},
 					],
 				},
@@ -702,6 +780,16 @@ const pluralOfNouns: ArticleType.Art = {
 							text: 'Six T-shirts, three pairs of jeans, four pairs of trousers, two pairs of evening shoes and three toothbrushes.',
 						},
 					],
+				},
+			],
+		},
+		{
+			type: 'paragraph',
+			offset: true,
+			children: [
+				{
+					type: 'text',
+					text: 'Выражение “a pair of jeans” используют чтобы подчеркнуть единственное число потому что такое существительное может обознать множественное.',
 				},
 			],
 		},

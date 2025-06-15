@@ -85,6 +85,17 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{ rusWord: 'порядок', engWord: 'order' },
 			],
 		},
+		{
+			rusSentence: 'Вчера утром мне стало плохо.',
+			engSentences: [{ engSentences: ['I felt sick yesterday morning'], isCorrect: true }],
+			words: [
+				{ rusWord: 'чувствовать', engWord: 'feel' },
+				{ rusWord: 'больной', engWord: 'sick' },
+				{ rusWord: 'вчерашний день', engWord: 'yesterday' },
+				{ rusWord: 'утро', engWord: 'morning' },
+				{ rusWord: 'плохо', engWord: 'плохо' },
+			],
+		},
 	],
 }
 

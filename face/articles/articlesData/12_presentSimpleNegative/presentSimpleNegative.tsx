@@ -17,7 +17,34 @@ const presentSimpleNegative: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'В вопросе Present Simple вспомогательный глагол do стоит до подлежащего. И он же участвует для формирования отрицания. Только do должен стоять после подлежащего. И ешё отрицательная частица not.',
+					text: 'В русском языке для отрицания действия мы ставим отрицательное слово «не» перед глаголом. В английском это слово ',
+				},
+				{
+					type: 'text',
+					text: 'not',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: '. Но перед ',
+				},
+				{
+					type: 'text',
+					text: 'not',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: ' ещё должен стоять вспомогательный глагол. Во времени Simple это ',
+				},
+				{
+					type: 'text',
+					text: 'do',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: ' как вы уже знаете.',
 				},
 			],
 		},
@@ -32,7 +59,25 @@ const presentSimpleNegative: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'И как в вопросе вспомогательный глагол перетягивает на себя настоящее время со смыслового глагола. Поэтому в третьем лица do превращается в does. А смысловой глагол ставится в неопределённую форму.',
+					text: 'И как в вопросе вспомогательный глагол перетягивает на себя настоящее время со смыслового глагола. Поэтому в третьем лица ',
+				},
+				{
+					type: 'text',
+					text: 'do',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: ' превращается в ',
+				},
+				{
+					type: 'text',
+					text: 'does',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: '. А смысловой глагол ставится в неопределённую форму.',
 				},
 			],
 		},
@@ -40,6 +85,36 @@ const presentSimpleNegative: ArticleType.Art = {
 			type: 'image',
 			src: imageMapper.schemas.PresentSimpleNegative_2.src,
 			alt: imageMapper.schemas.PresentSimpleNegative_2.alt,
+		},
+		{
+			type: 'paragraph',
+			offset: true,
+			children: [
+				{
+					type: 'text',
+					text: 'Поставлю do not перед местоимением первого лица чтобы сделать отрицание.',
+				},
+			],
+		},
+		{
+			type: 'image',
+			src: imageMapper.schemas.PresentSimpleNegative_3.src,
+			alt: imageMapper.schemas.PresentSimpleNegative_3.alt,
+		},
+		{
+			type: 'paragraph',
+			offset: true,
+			children: [
+				{
+					type: 'text',
+					text: 'Снова вспомогательный глагол do перетягивает со смыслового время совершения действия. Поэтому like в форме настоящего времени становится в неопределённую форму. А do с неопределённой форме становится в форму настоящего времени. Но так как в настоящем времени перед местоимениями 1-го и 2-го лица глаголы никак свою форму не меняют, то выглядит так, как будто к глаголу просто подставили do not.',
+				},
+			],
+		},
+		{
+			type: 'image',
+			src: imageMapper.schemas.PresentSimpleNegative_4.src,
+			alt: imageMapper.schemas.PresentSimpleNegative_4.alt,
 		},
 		{
 			type: 'note',
@@ -62,9 +137,14 @@ const presentSimpleNegative: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'После подлежащих 1-го и 2-го лица (I, we, they) вспомогательный do никак не меняется.',
+					text: 'Если по-простому, то для составления отрицания у Present Simple после местоимений первого и второго лица ставьте do not, а третьего does not. Смысловой глагол должен стоять в неопределённой форме.',
 				},
 			],
+		},
+		{
+			type: 'image',
+			src: imageMapper.tables.PresentSimpleNegative.src,
+			alt: imageMapper.tables.PresentSimpleNegative.alt,
 		},
 		{
 			type: 'paragraph',

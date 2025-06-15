@@ -207,7 +207,6 @@ const structure: ArticleType.Art = {
 			],
 		},
 		exercises_1,
-
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Строгий порядок слов' },
 		{
 			type: 'paragraph',

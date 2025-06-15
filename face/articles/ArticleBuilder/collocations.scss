@@ -229,7 +229,7 @@
 }
 
 // УПРАЖНЕНИЯ
-.exercises + .art-paragraph--offset {
+.exercises + .art-paragraph--offset, .exercises + .art-paragraph  {
 	margin-top: 2rem;
 }
 .exercises + .art-header--h2 {
@@ -244,12 +244,18 @@
 .exercises + .exercises {
 	margin-top: 2.6rem;
 }
+.exercises + .art-faq {
+	margin-top: 2.4rem;
+}
 @include mix.container-width(vars.$tablet-width) {
 	.exercises + .art-header--h2 {
 		margin-top: 2.8rem;
 	}
 	.exercises + .exercises {
 		margin-top: 2.8rem;
+	}
+	.exercises + .art-faq {
+		margin-top: 2.6rem;
 	}
 }
 @include mix.container-width(vars.$monitor-width) {
@@ -258,6 +264,9 @@
 	}
 	.exercises + .exercises {
 		margin-top: 3.0rem;
+	}
+	.exercises + .art-faq {
+		margin-top: 2.8rem;
 	}
 }
 

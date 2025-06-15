@@ -52,37 +52,6 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			rusSentence: 'Она расчёсывает волосы.',
-			engSentences: [
-				{
-					engSentences: ['She brushes hair.'],
-					isCorrect: true,
-				},
-				{
-					engSentences: ['She brushes her hair.'],
-					isCorrect: true,
-				},
-			],
-			words: [
-				{ rusWord: 'расчёсывать', engWord: 'brush' },
-				{ rusWord: 'волосы', engWord: 'hair' },
-			],
-		},
-		{
-			rusSentence: 'Она целует её ребёнка.',
-			engSentences: [
-				{
-					engSentences: ['She kisses her baby.'],
-					isCorrect: true,
-				},
-			],
-			words: [
-				{ rusWord: 'целовать', engWord: 'kiss' },
-				{ rusWord: 'её', engWord: 'her' },
-				{ rusWord: 'ребёнок', engWord: 'baby' },
-			],
-		},
-		{
 			rusSentence: 'Он смотрит телевизор каждый вечер.',
 			engSentences: [
 				{
@@ -114,20 +83,6 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			rusSentence: 'Солнце встаёт на востоке.',
-			engSentences: [
-				{
-					engSentences: ['The sun rises in the east.'],
-					isCorrect: true,
-				},
-			],
-			words: [
-				{ rusWord: 'Солнце', engWord: 'the sun' },
-				{ rusWord: 'вставать (о Солнце)', engWord: 'rise' },
-				{ rusWord: 'на востоке', engWord: 'in the east' },
-			],
-		},
-		{
 			rusSentence: 'Они чинят компьютеры.',
 			engSentences: [
 				{
@@ -156,25 +111,10 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			rusSentence: 'После школы она идёт домой.',
-			engSentences: [
-				{
-					engSentences: ['After school she goes home.'],
-					isCorrect: true,
-				},
-			],
-			words: [
-				{ rusWord: 'после', engWord: 'after' },
-				{ rusWord: 'школа', engWord: 'school' },
-				{ rusWord: 'идти', engWord: 'go' },
-				{ rusWord: 'дом', engWord: 'home' },
-			],
-		},
-		{
 			rusSentence: 'Она занимается йогой.',
 			engSentences: [
 				{
-					engSentences: ['She does yoga'],
+					engSentences: ['She does yoga.'],
 					isCorrect: true,
 				},
 			],

@@ -76,10 +76,10 @@ export const imageMapper = {
 			src: '/schemasAndTables/PastSimpleQuestionTable.svg',
 			alt: 'Past Simple Question',
 		},*/
-		/*PresentSimpleNegative: {
+		PresentSimpleNegative: {
 			src: '/schemasAndTables/PresentSimpleNegativeTable.svg',
 			alt: 'Present Simple Negative',
-		},*/
+		},
 		/*PresentSimpleQuestion: {
 			src: '/schemasAndTables/PresentSimpleQuestionTable.svg',
 			alt: 'Present Simple Question',
@@ -120,6 +120,14 @@ export const imageMapper = {
 		},
 		PresentSimpleNegative_2: {
 			src: '/schemasAndTables/PresentSimpleNegativeScheme_2.svg',
+			alt: '',
+		},
+		PresentSimpleNegative_3: {
+			src: '/schemasAndTables/PresentSimpleNegativeScheme_3.svg',
+			alt: '',
+		},
+		PresentSimpleNegative_4: {
+			src: '/schemasAndTables/PresentSimpleNegativeScheme_4.svg',
 			alt: '',
 		},
 		PastSimpleQuestion_1: {

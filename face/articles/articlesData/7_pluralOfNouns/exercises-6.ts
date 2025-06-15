@@ -31,6 +31,15 @@ const exercises_6: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
+			// TODO
+			rusSentence: 'Мне нравится эта новость.',
+			engSentences: [{ engSentences: ['I like this news.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'смотреть', engWord: 'watch' },
+				{ rusWord: 'новость', engWord: 'news' },
+			],
+		},
+		{
 			rusSentence: 'Тебе нравится эта новость.',
 			engSentences: [{ engSentences: ['You like this news.'], isCorrect: true }],
 			words: [
@@ -40,7 +49,7 @@ const exercises_6: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			rusSentence: 'Он пачкает мою одежду',
+			rusSentence: 'Он пачкает мою одежду.',
 			engSentences: [{ engSentences: ['He stains my clothes.'], isCorrect: true }],
 			words: [
 				{ rusWord: 'пачкать', engWord: 'stain' },
@@ -92,6 +101,86 @@ const exercises_6: ExercisesType.ExercisesObj = {
 			engSentences: [
 				{
 					engSentences: ['Such cases occur all the time.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'такой', engWord: 'some' },
+				{ rusWord: 'случай', engWord: 'great' },
+				{ rusWord: 'возникать, происходить', engWord: 'occur' },
+				{ rusWord: 'постоянно', engWord: 'all the time' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Ей нужны новые очки.',
+			engSentences: [
+				{
+					engSentences: ['She needs new glasses.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'такой', engWord: 'some' },
+				{ rusWord: 'случай', engWord: 'great' },
+				{ rusWord: 'возникать, происходить', engWord: 'occur' },
+				{ rusWord: 'постоянно', engWord: 'all the time' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Я покупаю новые брюки.',
+			engSentences: [
+				{
+					engSentences: ['I buy new trousers.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'такой', engWord: 'some' },
+				{ rusWord: 'случай', engWord: 'great' },
+				{ rusWord: 'возникать, происходить', engWord: 'occur' },
+				{ rusWord: 'постоянно', engWord: 'all the time' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Эти джинсы подходят мне.',
+			engSentences: [
+				{
+					engSentences: ['These jeans fit me.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'такой', engWord: 'some' },
+				{ rusWord: 'случай', engWord: 'great' },
+				{ rusWord: 'возникать, происходить', engWord: 'occur' },
+				{ rusWord: 'постоянно', engWord: 'all the time' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Она использует беспроводные наушники.',
+			engSentences: [
+				{
+					engSentences: ['She uses wireless headphones.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'такой', engWord: 'some' },
+				{ rusWord: 'случай', engWord: 'great' },
+				{ rusWord: 'возникать, происходить', engWord: 'occur' },
+				{ rusWord: 'постоянно', engWord: 'all the time' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Весы показывают 70 кг.',
+			engSentences: [
+				{
+					engSentences: ['The scales show 70 kg.'],
 					isCorrect: true,
 				},
 			],

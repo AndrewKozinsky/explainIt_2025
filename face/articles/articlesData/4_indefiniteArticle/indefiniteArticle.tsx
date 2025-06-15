@@ -90,7 +90,7 @@ const indefiniteArticle: ArticleType.Art = {
 				{
 					type: 'paragraph',
 					textSize: 'giant',
-					children: [{ type: 'text', text: 'Три денег' }],
+					children: [{ type: 'text', text: 'Две воды' }],
 				},
 				{
 					type: 'paragraph',
@@ -98,45 +98,16 @@ const indefiniteArticle: ArticleType.Art = {
 					children: [
 						{
 							type: 'text',
-
 							text: 'Так говорить нельзя, поэтому «',
 						},
 						{
 							type: 'text',
 
-							text: 'деньги',
+							text: 'вода',
 							weight: 'bold',
 						},
 						{
 							type: 'text',
-
-							text: '» — это неисчисляемое существительное.',
-						},
-					],
-				},
-				{
-					type: 'paragraph',
-					textSize: 'giant',
-					children: [{ type: 'text', text: 'Девять времени' }],
-				},
-				{
-					type: 'paragraph',
-
-					children: [
-						{
-							type: 'text',
-
-							text: 'Так не говорят, поэтому «',
-						},
-						{
-							type: 'text',
-
-							text: 'время',
-							weight: 'bold',
-						},
-						{
-							type: 'text',
-
 							text: '» — это неисчисляемое существительное.',
 						},
 					],
@@ -145,22 +116,38 @@ const indefiniteArticle: ArticleType.Art = {
 					type: 'paragraph',
 					offset: true,
 					textSize: 'giant',
-					children: [{ type: 'text', text: 'Два стакана воды' }],
+					children: [{ type: 'text', text: 'Три стакана' }],
 				},
 				{
 					type: 'paragraph',
-
 					children: [
 						{
 							type: 'text',
-
-							text: 'Вода',
+							text: 'Так сказать можно. Поэтому ',
+						},
+						{
+							type: 'text',
+							text: 'стакан',
 							weight: 'bold',
 						},
 						{
 							type: 'text',
-
-							text: ' — неисчисляемое существительное. Но число относится не к воде, а к стаканам. Стаканы исчисляемое.',
+							text: ' — это исчисляемое существительное.',
+						},
+					],
+				},
+				{
+					type: 'paragraph',
+					offset: true,
+					textSize: 'giant',
+					children: [{ type: 'text', text: 'Четыре стакана воды' }],
+				},
+				{
+					type: 'paragraph',
+					children: [
+						{
+							type: 'text',
+							text: 'Предложение составлено верно. Количество относится к стаканам. Поэтому они исчисляемые. А вода не исчисляемое как выяснили ранее.',
 						},
 					],
 				},
@@ -213,6 +200,7 @@ const indefiniteArticle: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
+			offset: true,
 			parts: [
 				{ rus: [{ type: 'text', text: 'Он живёт в доме.' }] },
 				{
@@ -241,7 +229,7 @@ const indefiniteArticle: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'Попробуйте перевести такие предложения:',
+					text: 'Это упрощённое представление неопределённого артикля. Ниже детальнее поговорим что конкретно он обозначает. Пока попробуйте перевести предложения.',
 				},
 			],
 		},
@@ -253,25 +241,21 @@ const indefiniteArticle: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-
 					text: 'Если исчисляемое существительное в единственном числе ',
 				},
 				{ type: 'text', weight: 'bold', text: 'при произношении' },
 				{
 					type: 'text',
-
 					text: ' (не на письме!) начинается с гласной буквы, то перед ним ставят артикль ',
 				},
 				{ type: 'text', color: 'blue', text: 'an', weight: 'bold' },
 				{
 					type: 'text',
-
 					text: ', а если с согласной, то ',
 				},
 				{ type: 'text', color: 'blue', text: 'a', weight: 'bold' },
 				{
 					type: 'text',
-
 					text: '. Это нужно для гармонии чтобы гласные не стояли друг за другом.',
 				},
 			],
@@ -286,7 +270,6 @@ const indefiniteArticle: ArticleType.Art = {
 				{ type: 'text', color: 'gold', text: '[эпл]' },
 				{
 					type: 'text',
-
 					text: ' и пишется с гласной. Поэтому ставится ',
 				},
 				{ type: 'text', color: 'blue', text: 'an', weight: 'bold' },
@@ -303,25 +286,21 @@ const indefiniteArticle: ArticleType.Art = {
 				{ type: 'text', weight: 'bold', text: 'an honest boy' },
 				{
 					type: 'text',
-
 					text: ' — хотя в письме начинается с согласной, но произносится с гласной ',
 				},
 				{ type: 'text', color: 'gold', text: '[онэст]' },
 				{
 					type: 'text',
-
 					text: '. Поэтому тут также стоит артикль ',
 				},
 				{ type: 'text', color: 'blue', text: 'an', weight: 'bold' },
 				{
 					type: 'text',
-
 					text: '. Обратите внимание, что нужно смотреть не на существительное, а на слово, которое стоит после артикля. В этом примере это прилагательное ',
 				},
 				{ type: 'text', color: 'blue', text: 'honest' },
 				{
 					type: 'text',
-
 					text: ' потому что прилагательные вклиниваются между артиклем и существительным.',
 				},
 			],
@@ -334,13 +313,11 @@ const indefiniteArticle: ArticleType.Art = {
 				{ type: 'text', weight: 'bold', text: 'a table' },
 				{
 					type: 'text',
-
 					text: ' — произносится и пишется ',
 				},
 				{ type: 'text', color: 'gold', text: '[тэйбл]' },
 				{
 					type: 'text',
-
 					text: ' с согласной. Поэтому стоит артикль ',
 				},
 				{ type: 'text', color: 'blue', text: 'a', weight: 'bold' },
@@ -355,7 +332,6 @@ const indefiniteArticle: ArticleType.Art = {
 				{ type: 'text', weight: 'bold', text: 'a unity' },
 				{
 					type: 'text',
-
 					text: ' — хотя в письме начинается с гласной, но произносится с согласной ',
 				},
 				{ type: 'text', color: 'gold', text: '[джунэти]' },
@@ -374,7 +350,7 @@ const indefiniteArticle: ArticleType.Art = {
 					children: [
 						{
 							type: 'text',
-							text: 'В русском языке мы также изменяем слова для благозвучности. Например предлог «',
+							text: 'В русском языке мы также изменяем предлоги для удобства произношения. Например предлог «',
 						},
 						{
 							type: 'text',
@@ -524,55 +500,13 @@ const indefiniteArticle: ArticleType.Art = {
 		exercises_4,
 
 		{ type: 'header', tag: 'h2', style: 'h2', text: 'Какие свойства даёт артикль a/an существительному' },
-		{ type: 'header', tag: 'h3', style: 'h3', text: 'Указывает на типичное поведение' },
 		{
 			type: 'paragraph',
-
-			children: [
-				{ type: 'text', weight: 'bold', text: 'Неопределённый артикль a' },
-				{
-					type: 'text',
-
-					text: ' могут применять не в значении «один из объектов», а в обобщённом значении как типичное поведение любого объекта этого класса.',
-				},
-			],
-		},
-		{
-			type: 'rusToEng',
-			textSize: 'giant',
-			parts: [
-				{ rus: [{ type: 'text', text: 'Врач лечит людей.' }] },
-				{ eng: [{ type: 'text', text: 'A doctor treats people.' }] },
-			],
-		},
-		{
-			type: 'paragraph',
-
-			textSize: 'small',
+			offset: true,
 			children: [
 				{
 					type: 'text',
-					color: 'gray',
-					text: 'Не какой-то врач лечит людей, а в целом любой врач это делает. Это их характерное поведение.',
-				},
-			],
-		},
-		{
-			type: 'rusToEng',
-			textSize: 'giant',
-			parts: [
-				{ rus: [{ type: 'text', text: 'Кролик — домашнее животное.' }] },
-				{ eng: [{ type: 'text', text: 'A rabbit is a domestic animal.' }] },
-			],
-		},
-		{
-			type: 'paragraph',
-			textSize: 'small',
-			children: [
-				{
-					type: 'text',
-					color: 'gray',
-					text: 'Заметьте, что артикль стоит и перед rabbit и перед domestic animal потому что это два неопределённых существительных.',
+					text: 'Выше я писал, что неопределённый артикль ставится перед исчисляемыми в единственном числе. Это упрощённое представление. Давайте в деталях рассмотрим что он даёт.',
 				},
 			],
 		},
@@ -726,11 +660,7 @@ const indefiniteArticle: ArticleType.Art = {
 				},
 			],
 		},
-
-		// --
-
 		{ type: 'header', tag: 'h3', style: 'h3', text: 'Одна порция' },
-
 		{
 			type: 'paragraph',
 			offset: true,
@@ -876,7 +806,7 @@ const indefiniteArticle: ArticleType.Art = {
 								{ type: 'arrow' },
 								{
 									type: 'text',
-									text: 'один сорт сыра',
+									text: 'один кусочек или сорт сыра',
 								},
 							],
 						},
@@ -902,7 +832,6 @@ const indefiniteArticle: ArticleType.Art = {
 					children: [
 						{
 							type: 'paragraph',
-
 							textSize: 'big',
 							children: [
 								{ type: 'text', text: 'life' },
@@ -912,7 +841,6 @@ const indefiniteArticle: ArticleType.Art = {
 						},
 						{
 							type: 'paragraph',
-
 							textSize: 'big',
 							children: [
 								{ type: 'text', text: 'time' },
@@ -922,7 +850,6 @@ const indefiniteArticle: ArticleType.Art = {
 						},
 						{
 							type: 'paragraph',
-
 							textSize: 'big',
 							children: [
 								{ type: 'text', text: 'play' },
@@ -932,7 +859,6 @@ const indefiniteArticle: ArticleType.Art = {
 						},
 						{
 							type: 'paragraph',
-
 							textSize: 'big',
 							children: [
 								{ type: 'text', text: 'fire' },
@@ -946,7 +872,6 @@ const indefiniteArticle: ArticleType.Art = {
 					children: [
 						{
 							type: 'paragraph',
-
 							textSize: 'big',
 							children: [
 								{ type: 'text', text: 'a life' },
@@ -960,7 +885,6 @@ const indefiniteArticle: ArticleType.Art = {
 						},
 						{
 							type: 'paragraph',
-
 							textSize: 'big',
 							children: [
 								{ type: 'text', text: 'a time' },
@@ -970,7 +894,6 @@ const indefiniteArticle: ArticleType.Art = {
 						},
 						{
 							type: 'paragraph',
-
 							textSize: 'big',
 							children: [
 								{ type: 'text', text: 'a play' },
@@ -980,7 +903,6 @@ const indefiniteArticle: ArticleType.Art = {
 						},
 						{
 							type: 'paragraph',
-
 							textSize: 'big',
 							children: [
 								{ type: 'text', text: 'a fire' },
@@ -1343,6 +1265,55 @@ const indefiniteArticle: ArticleType.Art = {
 				},
 			],
 		},
+		{ type: 'header', tag: 'h3', style: 'h3', text: 'Указывает на типичное поведение' },
+		{
+			type: 'paragraph',
+			children: [
+				{ type: 'text', weight: 'bold', text: 'Неопределённый артикль a' },
+				{
+					type: 'text',
+					text: ' могут применять не в значении «один из объектов», а в обобщённом значении как типичное поведение любого объекта этого класса.',
+				},
+			],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			parts: [
+				{ rus: [{ type: 'text', text: 'Врач лечит людей.' }] },
+				{ eng: [{ type: 'text', text: 'A doctor treats people.' }] },
+			],
+		},
+		{
+			type: 'paragraph',
+			textSize: 'small',
+			children: [
+				{
+					type: 'text',
+					color: 'gray',
+					text: 'Не какой-то врач лечит людей, а в целом любой врач это делает. Это их характерное поведение.',
+				},
+			],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			parts: [
+				{ rus: [{ type: 'text', text: 'Кролик — домашнее животное.' }] },
+				{ eng: [{ type: 'text', text: 'A rabbit is a domestic animal.' }] },
+			],
+		},
+		{
+			type: 'paragraph',
+			textSize: 'small',
+			children: [
+				{
+					type: 'text',
+					color: 'gray',
+					text: 'Заметьте, что артикль стоит и перед rabbit и перед domestic animal потому что это два неопределённых существительных.',
+				},
+			],
+		},
 		{ type: 'header', tag: 'h3', style: 'h3', text: 'Делает существительное одним из объектов класса' },
 		{
 			type: 'paragraph',
@@ -1360,12 +1331,7 @@ const indefiniteArticle: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: '. Это будет в следующей главе. ',
-				},
-				{
-					type: 'text',
-					text: 'To be continued…',
-					color: 'gray',
+					text: '. Это будет в следующей главе.',
 				},
 			],
 		},

@@ -17,7 +17,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			words: [
 				{ rusWord: 'понимать', engWord: 'understand' },
 				{ rusWord: 'эти', engWord: 'these' },
-				{ rusWord: 'вещь', engWord: 'things' },
+				{ rusWord: 'вещь', engWord: 'thing' },
 			],
 		},
 		{
@@ -64,18 +64,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{ rusWord: 'очень', engWord: 'very' },
 				{ rusWord: 'хороший', engWord: 'good' },
 				{ rusWord: 'результат', engWord: 'result' },
-			],
-		},
-		{
-			rusSentence: 'Она делает свою домашнюю работу без её родителей.',
-			engSentences: [{ engSentences: ['She does her home work without her parents.'], isCorrect: true }],
-			words: [
-				{ rusWord: 'делать', engWord: 'do' },
-				{ rusWord: 'её', engWord: 'her' },
-				{ rusWord: 'домашняя работа', engWord: 'home work' },
-				{ rusWord: 'без', engWord: 'without' },
-				{ rusWord: 'её', engWord: 'her' },
-				{ rusWord: 'родитель', engWord: 'parent' },
 			],
 		},
 		{
@@ -136,20 +124,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{ rusWord: 'стоить', engWord: 'cost' },
 				{ rusWord: 'четыреста', engWord: 'four hundred' },
 				{ rusWord: 'доллар', engWord: 'dollar' },
-			],
-		},
-		{
-			rusSentence: 'Это очень большая коробка.',
-			engSentences: [
-				{
-					engSentences: ['It is a very big box.'],
-					isCorrect: true,
-				},
-			],
-			words: [
-				{ rusWord: 'очень', engWord: 'very' },
-				{ rusWord: 'большой', engWord: 'big' },
-				{ rusWord: 'коробка', engWord: 'box' },
 			],
 		},
 	],

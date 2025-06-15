@@ -14,24 +14,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			rusSentence: 'Мой брат любит есть апельсины.',
-			engSentences: [{ engSentences: ['My brother likes eating oranges.'], isCorrect: true }],
-			words: [
-				{ rusWord: 'брат', engWord: 'brother' },
-				{ rusWord: 'любить', engWord: 'like' },
-				{ rusWord: 'есть', engWord: 'eat' },
-				{ rusWord: 'апельсин', engWord: 'orange' },
-			],
-		},
-		{
-			rusSentence: 'Я хочу побыть одна.',
-			engSentences: [{ engSentences: ['I want to be alone.'], isCorrect: true }],
-			words: [
-				{ rusWord: 'хотеть', engWord: 'want' },
-				{ rusWord: 'быть одной', engWord: 'alone' },
-			],
-		},
-		{
 			rusSentence: 'Мне нужно найти еду.',
 			engSentences: [{ engSentences: ['I need to find food.'], isCorrect: true }],
 			words: [
@@ -86,25 +68,161 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			rusSentence: 'Вика хочет стать голливудской кинозвездой.',
-			engSentences: [{ engSentences: ['Vika wants to be a Hollywood movie star.'], isCorrect: true }],
+			rusSentence: 'Я хочу поиграть в Доту.',
+			engSentences: [{ engSentences: ['I want to play Dota.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'Вика', engWord: 'Vika' },
-				{ rusWord: 'хотеть', engWord: 'want' },
-				{ rusWord: 'Голливуд', engWord: 'Hollywood' },
-				{ rusWord: 'кинозвезда', engWord: 'movie star' },
+				{ rusWord: 'играть', engWord: 'play' },
+				{ rusWord: 'Дота', engWord: 'Dota' },
 			],
 		},
 		{
-			rusSentence: 'Не хочу быть нахлебником.',
-			engSentences: [{ engSentences: ['I do not want to be a freeloader.'], isCorrect: true }],
+			rusSentence: 'Она хочет учиться в другой стране.',
+			engSentences: [{ engSentences: ['She wants to study in another country.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'хотеть', engWord: 'go' },
-				{ rusWord: 'нахлебник', engWord: 'freeloader' },
+				{ rusWord: 'хотеть', engWord: 'open' },
+				{ rusWord: 'учиться', engWord: 'to study' },
+				{ rusWord: 'в', engWord: 'in' },
+				{ rusWord: 'страна', engWord: 'country' },
+			],
+		},
+		{
+			rusSentence: 'Твой отец разрешает брать машину?',
+			engSentences: [
+				{
+					engSentences: ['Does your father allow you to take his car?'],
+					isCorrect: true,
+				},
+			],
+			words: [{ rusWord: 'популярный', engWord: 'popular' }],
+		},
+		{
+			rusSentence: 'Я не прошу родителей давать деньги. ',
+			engSentences: [
+				{
+					engSentences: [' I don’t ask my parents to give me money.'],
+					isCorrect: true,
+				},
+			],
+			words: [{ rusWord: 'популярный', engWord: 'popular' }],
+		},
+		{
+			rusSentence: 'Я не разрешаю тебе пропускать уроки.',
+			engSentences: [
+				{
+					engSentences: ['I don’t allow you to skip your lessons.'],
+					isCorrect: true,
+				},
+			],
+			words: [{ rusWord: 'популярный', engWord: 'popular' }],
+		},
+		{
+			rusSentence: 'Егор обожает есть мороженое.',
+			engSentences: [{ engSentences: ['Egor adores to eat ice-cream.'], isCorrect: true }],
+			words: [{ rusWord: 'популярный', engWord: 'popular' }],
+		},
+		{
+			rusSentence: 'Переведи',
+			engSentences: [
+				{
+					engSentences: ['He loved science and wanted to become a biologist.'],
+					isCorrect: true,
+				},
+			],
+			words: [{ rusWord: 'популярный', engWord: 'popular' }],
+		},
+		{
+			rusSentence: 'Переведи',
+			engSentences: [{ engSentences: ['I wanted to start a new life.'], isCorrect: true }],
+			words: [{ rusWord: 'популярный', engWord: 'popular' }],
+		},
+		{
+			rusSentence: 'Он тас',
+			engSentences: [{ engSentences: ['I was tired but happy to be alive.'], isCorrect: true }],
+			words: [{ rusWord: 'каждый год', engWord: 'year' }],
+		},
+		{
+			// TODO
+			rusSentence: 'Офицер призвал нас соблюдать правила.',
+			engSentences: [
+				{
+					engSentences: ['The officer urged us to obey the rule.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'популярный', engWord: 'popular' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Он попросит суд назначить другого адвоката.',
+			engSentences: [
+				{
+					engSentences: ['He will request the court to appoint another lawyer.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'популярный', engWord: 'popular' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Директор заставляла вас что-то делать?',
+			engSentences: [
+				{
+					engSentences: ['Did the principal force you to do anything?'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'популярный', engWord: 'popular' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Меллори желает видеть нас здесь?',
+			engSentences: [{ engSentences: ['Does Mallory want to see us here?'], isCorrect: true }],
+			words: [
+				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'популярный', engWord: 'popular' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Ей нравится фотографировать, и иногда снимки получаются очень удачными.',
+			engSentences: [
+				{ engSentences: ['She likes taking photos and sometimes they are very good.'], isCorrect: true },
+			],
+			words: [
+				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'популярный', engWord: 'popular' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Он такой богатый, такой умный, и он хочет меня видеть.',
+			engSentences: [
+				{ engSentences: ['He is so rich, he is so clever and he wants to see me.'], isCorrect: true },
+			],
+			words: [
+				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'популярный', engWord: 'popular' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Я не хочу потерять работу.',
+			engSentences: [{ engSentences: ['I do not want to lose my job.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'популярный', engWord: 'popular' },
 			],
 		},
 	],
-	offset: true,
 }
 
 export default exercises_1

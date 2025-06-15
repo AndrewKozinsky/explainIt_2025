@@ -124,7 +124,6 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Я был добрым.',
 			engSentences: [
 				{
@@ -132,13 +131,9 @@ const exercises_2: ExercisesType.ExercisesObj = {
 					isCorrect: true,
 				},
 			],
-			words: [
-				{ rusWord: 'выглядеть', engWord: 'look' },
-				{ rusWord: 'иначе', engWord: 'different' },
-			],
+			words: [{ rusWord: 'добрый', engWord: 'kind' }],
 		},
 		{
-			// TODO
 			rusSentence: 'Они были близки.',
 			engSentences: [
 				{
@@ -146,13 +141,9 @@ const exercises_2: ExercisesType.ExercisesObj = {
 					isCorrect: true,
 				},
 			],
-			words: [
-				{ rusWord: 'выглядеть', engWord: 'look' },
-				{ rusWord: 'иначе', engWord: 'different' },
-			],
+			words: [{ rusWord: 'близкий', engWord: 'close' }],
 		},
 		{
-			// TODO
 			rusSentence: 'Оно было ярким.',
 			engSentences: [
 				{
@@ -160,10 +151,7 @@ const exercises_2: ExercisesType.ExercisesObj = {
 					isCorrect: true,
 				},
 			],
-			words: [
-				{ rusWord: 'выглядеть', engWord: 'look' },
-				{ rusWord: 'иначе', engWord: 'different' },
-			],
+			words: [{ rusWord: 'яркий', engWord: 'bright' }],
 		},
 	],
 	offset: true,

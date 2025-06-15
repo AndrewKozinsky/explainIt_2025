@@ -41,23 +41,6 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			rusSentence: 'Просто представь себе они уже капитаны!',
-			engSentences: [
-				{
-					engSentences: [
-						'Just imagine they are captains already!',
-						'Just imagine! They are captains already!',
-					],
-					isCorrect: true,
-				},
-			],
-			words: [
-				{ rusWord: 'просто представь', engWord: 'just imagine' },
-				{ rusWord: 'капитаны', engWord: 'captains' },
-				{ rusWord: 'уже', engWord: 'already' },
-			],
-		},
-		{
 			rusSentence: 'Маша просто истеричная дура, а Саша самовлюблённый болван.',
 			engSentences: [
 				{
@@ -84,6 +67,16 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
+			rusSentence: 'Они оба невероятно счастливые.',
+			engSentences: [{ engSentences: ['They are both incredibly happy.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'оба', engWord: 'both' },
+				{ rusWord: 'невероятно', engWord: 'incredibly' },
+				{ rusWord: 'счастливый', engWord: 'happy' },
+			],
+		},
+		{
+			// TODO
 			rusSentence: 'Асфальт очень старый, а вот скамейки отличные.',
 			engSentences: [
 				{
@@ -110,6 +103,7 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			words: [{ rusWord: 'два', engWord: 'two' }],
 		},
 		{
+			// TODO
 			rusSentence: 'Окно закрыто.',
 			engSentences: [{ engSentences: ['The window is closed.'], isCorrect: true }],
 			words: [
@@ -127,6 +121,7 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
+			// TODO
 			rusSentence: 'Кот — чёрный.',
 			engSentences: [{ engSentences: ['The cat is black.'], isCorrect: true }],
 			words: [
@@ -144,19 +139,12 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			rusSentence: 'Они оба невероятно счастливые.',
-			engSentences: [{ engSentences: ['They are both incredibly happy.'], isCorrect: true }],
-			words: [
-				{ rusWord: 'оба', engWord: 'both' },
-				{ rusWord: 'невероятно', engWord: 'incredibly' },
-				{ rusWord: 'счастливый', engWord: 'happy' },
-			],
-		},
-		{
-			// TODO
 			rusSentence: 'Еда в холодильнике.',
-			engSentences: [{ engSentences: ['The food is in the refrigerator'], isCorrect: true }],
-			words: [{ rusWord: 'популярный', engWord: 'popular' }],
+			engSentences: [{ engSentences: ['The food is in the refrigerator.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'еда', engWord: 'food' },
+				{ rusWord: 'холодильник', engWord: 'refrigerator' },
+			],
 		},
 	],
 }

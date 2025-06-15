@@ -4,6 +4,26 @@ const exercises_3: ExercisesType.ExercisesObj = {
 	type: 'exercises',
 	exercises: [
 		{
+			rusSentence: 'Я живу в зелёном доме.',
+			engSentences: [{ engSentences: ['I live in a green house.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'жить', engWord: 'live' },
+				{ rusWord: 'в', engWord: 'in' },
+				{ rusWord: 'зелёный', engWord: 'green' },
+				{ rusWord: 'дом', engWord: 'a house' },
+			],
+		},
+		{
+			rusSentence: 'Она обычно покупает дорогую одежду.',
+			engSentences: [{ engSentences: ['She usually buys expensive clothes.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'обычно', engWord: 'usually' },
+				{ rusWord: 'покупать', engWord: 'buy' },
+				{ rusWord: 'дорогой', engWord: 'expensive' },
+				{ rusWord: 'одежда', engWord: 'clothes' },
+			],
+		},
+		{
 			rusSentence: 'Ты пьёшь энергетический напиток перед тренировкой.',
 			engSentences: [{ engSentences: ['You drink an energy drink before training.'], isCorrect: true }],
 			words: [
@@ -12,6 +32,15 @@ const exercises_3: ExercisesType.ExercisesObj = {
 				{ rusWord: 'напиток', engWord: 'a drink' },
 				{ rusWord: 'перед', engWord: 'before' },
 				{ rusWord: 'тренировка', engWord: 'training' },
+			],
+		},
+		{
+			rusSentence: 'Он показывает хороший результат.',
+			engSentences: [{ engSentences: ['He shows a good result.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'показывать', engWord: 'show' },
+				{ rusWord: 'хороший', engWord: 'good' },
+				{ rusWord: 'результат', engWord: 'result' },
 			],
 		},
 		{

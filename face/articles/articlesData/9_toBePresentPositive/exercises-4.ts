@@ -121,8 +121,7 @@ const exercises_4: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
-			rusSentence: 'Bracelets, earrings, rings and necklaces are jewelry.',
+			rusSentence: 'Браслеты, серьги, кольца и ожерелья — это ювелирные изделия.',
 			engSentences: [
 				{
 					engSentences: ['Bracelets, earrings, rings and necklaces are jewelry.'],
@@ -130,8 +129,53 @@ const exercises_4: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'небоскрёб', engWord: 'skyscraper' },
-				{ rusWord: 'высокий', engWord: 'tall' },
+				{ rusWord: 'браслет', engWord: 'bracelet' },
+				{ rusWord: 'серьга', engWord: 'earring' },
+				{ rusWord: 'кольцо', engWord: 'ring' },
+				{ rusWord: 'ожерелье', engWord: 'necklace' },
+				{ rusWord: 'увелирное украшение', engWord: 'jewelry' },
+			],
+		},
+		{
+			rusSentence: 'Я вижу беду впереди.',
+			engSentences: [
+				{
+					engSentences: ['I see trouble ahead.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'беда', engWord: 'trouble' },
+				{ rusWord: 'впереди', engWord: 'ahead' },
+			],
+		},
+		{
+			rusSentence: 'Музей работает каждый день.',
+			engSentences: [
+				{
+					engSentences: ['The museum works every day.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'музей', engWord: 'museum' },
+				{ rusWord: 'работать', engWord: 'work' },
+				{ rusWord: 'каждый', engWord: 'every' },
+				{ rusWord: 'день', engWord: 'day' },
+			],
+		},
+		{
+			rusSentence: 'По крайней мере он настоящий мужчина!',
+			engSentences: [
+				{
+					engSentences: ['At least he is a real man!'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'по крайней мере', engWord: 'at least' },
+				{ rusWord: 'настоящий', engWord: 'real' },
+				{ rusWord: 'мужчина', engWord: 'man' },
 			],
 		},
 	],

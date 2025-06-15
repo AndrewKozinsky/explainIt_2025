@@ -26,6 +26,65 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			words: [{ rusWord: 'готов', engWord: 'ready' }],
 		},
 		{
+			rusSentence: 'Он счастливый?',
+			engSentences: [
+				{ engSentences: ['Is he happy?'], isCorrect: true },
+				{
+					engSentences: [],
+					isCorrect: false,
+					analysis: [
+						{
+							type: 'paragraph',
+							children: [
+								{
+									type: 'text',
+									text: 'В вопросе глагол to be ставится перед подлежащим.',
+								},
+							],
+						},
+					],
+				},
+			],
+			words: [{ rusWord: 'счастливый', engWord: 'happy' }],
+		},
+		{
+			rusSentence: 'Они заняты?',
+			engSentences: [
+				{ engSentences: ['Are they busy?'], isCorrect: true },
+				{
+					engSentences: [],
+					isCorrect: false,
+					analysis: [
+						{
+							type: 'paragraph',
+							children: [
+								{
+									type: 'text',
+									text: 'В английском нельзя строить вопросы как в русском. Are должен стоять перед подлежащем. Тут же порядок как в повествовательном предложении, но стоит знак вопроса.',
+								},
+							],
+						},
+					],
+				},
+				{
+					engSentences: [],
+					isCorrect: false,
+					analysis: [
+						{
+							type: 'paragraph',
+							children: [
+								{
+									type: 'text',
+									text: 'Am может стоять только если бы следом стояло местоимение I.',
+								},
+							],
+						},
+					],
+				},
+			],
+			words: [{ rusWord: 'занят', engWord: 'busy' }],
+		},
+		{
 			rusSentence: 'Оля не популярная певица.',
 			engSentences: [
 				{ engSentences: ['Olya is not a popular singer.'], isCorrect: true },
@@ -77,7 +136,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			rusSentence: 'Я не ребёнок, я замужняя женщина.',
 			engSentences: [
 				{
-					engSentences: ['I am not a child, I am a married woman.'],
+					engSentences: ['I am not a child, I am a married woman.', 'I am not a kid, I am a married woman.'],
 					isCorrect: true,
 				},
 				{
@@ -185,7 +244,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'семинар', engWord: 'the workshop' },
+				{ rusWord: 'семинар', engWord: 'workshop' },
 				{ rusWord: 'простой', engWord: 'simple' },
 				{ rusWord: 'обсуждение', engWord: 'a discussion' },
 			],
@@ -196,11 +255,13 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			words: [{ rusWord: 'болен', engWord: 'sick' }],
 		},
 		{
+			// TODO
 			rusSentence: 'Я не уставший.',
 			engSentences: [{ engSentences: ['I am not tired.'], isCorrect: true }],
 			words: [{ rusWord: 'болен', engWord: 'sick' }],
 		},
 		{
+			// TODO
 			rusSentence: 'Европейские блюда не всегда полезные.',
 			engSentences: [
 				{
@@ -304,11 +365,14 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
+				{ rusWord: 'профессиональный', engWord: 'professional' },
+				{ rusWord: 'спортсмен', engWord: 'sportsmen' },
 				{ rusWord: 'всегда', engWord: 'always' },
 				{ rusWord: 'здоровый', engWord: 'healthy' },
 			],
 		},
 		{
+			// TODO
 			rusSentence: 'Он внутри?',
 			engSentences: [
 				{ engSentences: ['Is he inside?'], isCorrect: true },
@@ -339,30 +403,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 						},
 					],
 				},
-				{
-					engSentences: [],
-					isCorrect: false,
-					analysis: [
-						{
-							type: 'paragraph',
-							children: [
-								{
-									type: 'text',
-									text: 'В английском нельзя строить вопросы как в русском. ',
-								},
-								{
-									type: 'text',
-									color: 'blue',
-									text: 'Is',
-								},
-								{
-									type: 'text',
-									text: ' должен стоять перед подлежащем. Тут же порядок как в повествовательном предложении, но стоит знак вопроса.',
-								},
-							],
-						},
-					],
-				},
 			],
 			words: [{ rusWord: 'водопроводчик', engWord: 'a plumber' }],
 		},
@@ -375,6 +415,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
+			// TODO
 			rusSentence: 'Это дети.',
 			engSentences: [{ engSentences: ['They are children.'], isCorrect: true }],
 			words: [
@@ -391,6 +432,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
+			// TODO
 			rusSentence: 'Это маскарадный костюм?',
 			engSentences: [{ engSentences: ['Is it fancy dress?'], isCorrect: true }],
 			words: [
@@ -427,65 +469,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{ rusWord: 'политический', engWord: 'political' },
 				{ rusWord: 'партия', engWord: 'party' },
 			],
-		},
-		{
-			rusSentence: 'Они заняты?',
-			engSentences: [
-				{ engSentences: ['Are they busy?'], isCorrect: true },
-				{
-					engSentences: [],
-					isCorrect: false,
-					analysis: [
-						{
-							type: 'paragraph',
-							children: [
-								{
-									type: 'text',
-									text: 'В английском нельзя строить вопросы как в русском. Are должен стоять перед подлежащем. Тут же порядок как в повествовательном предложении, но стоит знак вопроса.',
-								},
-							],
-						},
-					],
-				},
-				{
-					engSentences: [],
-					isCorrect: false,
-					analysis: [
-						{
-							type: 'paragraph',
-							children: [
-								{
-									type: 'text',
-									text: 'Am может стоять только если бы следом стояло местоимение I.',
-								},
-							],
-						},
-					],
-				},
-			],
-			words: [{ rusWord: 'занят', engWord: 'busy' }],
-		},
-		{
-			rusSentence: 'Он счастливый?',
-			engSentences: [
-				{ engSentences: ['Is he happy?'], isCorrect: true },
-				{
-					engSentences: [],
-					isCorrect: false,
-					analysis: [
-						{
-							type: 'paragraph',
-							children: [
-								{
-									type: 'text',
-									text: 'В вопросе глагол to be ставится перед подлежащим.',
-								},
-							],
-						},
-					],
-				},
-			],
-			words: [{ rusWord: 'счастливый', engWord: 'happy' }],
 		},
 	],
 }

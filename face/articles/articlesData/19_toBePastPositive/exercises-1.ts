@@ -271,7 +271,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Капитан был жестоким и не очень хорошим моряком.',
 			engSentences: [
 				{
@@ -280,21 +279,28 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'быть уверенным', engWord: 'to be sure' },
-				{ rusWord: 'быть готовым', engWord: 'to be ready' },
+				{ rusWord: 'капитан', engWord: 'captain' },
+				{ rusWord: 'жестокий', engWord: 'violent' },
+				{ rusWord: 'хороший', engWord: 'to good' },
+				{ rusWord: 'моряк', engWord: 'sailor' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Он был хорошим учеником.',
 			engSentences: [{ engSentences: ['He was a good pupil.'], isCorrect: true }],
-			words: [{ rusWord: 'популярный', engWord: 'popular' }],
+			words: [
+				{ rusWord: 'хороший', engWord: 'good' },
+				{ rusWord: 'ученик', engWord: 'pupil' },
+			],
 		},
 		{
-			// TODO
 			rusSentence: 'Парад был первым событием.',
 			engSentences: [{ engSentences: ['The parade was the first event.'], isCorrect: true }],
-			words: [{ rusWord: 'положение', engWord: 'situation' }],
+			words: [
+				{ rusWord: 'парад', engWord: 'parade' },
+				{ rusWord: 'первый', engWord: 'first' },
+				{ rusWord: 'событие', engWord: 'event' },
+			],
 		},
 	],
 }

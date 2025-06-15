@@ -17,7 +17,7 @@ const presentSimplePositive2: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'В прошлом уроке разбиралось как строить предложения в Present Simple для местоимений первого и второго лица:',
+					text: 'В прошлом уроке разбиралось как строить предложения в Present Simple. Но в примерах были только местоимения первого и второго лица:',
 				},
 			],
 		},
@@ -107,7 +107,7 @@ const presentSimplePositive2: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'В английском переводе используется голый глагол как в словаре: want, see, show, perform.',
+					text: 'В таких случаях в английском переводе используется голый глагол как в словаре: want, see, show, perform.',
 				},
 			],
 		},
@@ -117,7 +117,34 @@ const presentSimplePositive2: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'Но после местоимений he, she, it к глаголу добавляется окончание ',
+					text: 'Но после местоимений третьего лица ',
+				},
+				{
+					type: 'text',
+					weight: 'bold',
+					text: 'he',
+				},
+				{
+					type: 'text',
+					text: ', ',
+				},
+				{
+					type: 'text',
+					weight: 'bold',
+					text: 'she',
+				},
+				{
+					type: 'text',
+					text: ', ',
+				},
+				{
+					type: 'text',
+					weight: 'bold',
+					text: 'it',
+				},
+				{
+					type: 'text',
+					text: ' к глаголу добавляется окончание ',
 				},
 				{
 					type: 'text',
@@ -202,7 +229,23 @@ const presentSimplePositive2: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'Попробуйте использовать новое знание для перевода предложений:',
+					text: 'Попробуйте использовать новое знание для перевода предложений.',
+				},
+			],
+		},
+		{
+			type: 'note',
+			noteStyle: 'gray',
+			children: [
+				{
+					type: 'paragraph',
+					offset: true,
+					children: [
+						{
+							type: 'text',
+							text: 'Некоторые предложения в этом и последующих упражнениях можно перевести разными грамматическими временами и конструкциями. Используйте, пожалуйста, уже изученные конструкции. Другие будут рассмотрены в дальнейшем. У вас будет возможность попрактиковаться.',
+						},
+					],
 				},
 			],
 		},
@@ -230,14 +273,30 @@ const presentSimplePositive2: ArticleType.Art = {
 			type: 'rusToEng',
 			textSize: 'giant',
 			parts: [
-				{ rus: [{ type: 'text', text: 'Она путешествует, потому что ей это нравится.' }] },
+				{ rus: [{ type: 'text', text: 'Она курит и пьёт.' }] },
 				{
 					eng: [
-						{ type: 'text', text: 'She travel' },
+						{ type: 'text', text: 'She smoke' },
 						{ type: 'text', text: 's', color: 'blue' },
-						{ type: 'text', text: ' because she like' },
+						{ type: 'text', text: ' and drink' },
 						{ type: 'text', text: 's', color: 'blue' },
-						{ type: 'text', text: ' it.' },
+						{ type: 'text', text: '.' },
+					],
+				},
+			],
+		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			parts: [
+				{ rus: [{ type: 'text', text: 'Он тренируется и работает.' }] },
+				{
+					eng: [
+						{ type: 'text', text: 'He train' },
+						{ type: 'text', text: 's', color: 'blue' },
+						{ type: 'text', text: ' and work' },
+						{ type: 'text', text: 's', color: 'blue' },
+						{ type: 'text', text: '.' },
 					],
 				},
 			],
@@ -249,7 +308,7 @@ const presentSimplePositive2: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'Если глагол заканчивается на свистящий или щипящий звук (',
+					text: 'Некоторые глаголы заканчиваются на свистящие или шипящие звуки: ',
 				},
 				{
 					type: 'text',
@@ -285,7 +344,7 @@ const presentSimplePositive2: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: ', или ',
+					text: ', ',
 				},
 				{
 					type: 'text',
@@ -294,7 +353,7 @@ const presentSimplePositive2: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: '), то вместо ',
+					text: '. Добавление ',
 				},
 				{
 					type: 'text',
@@ -303,7 +362,16 @@ const presentSimplePositive2: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: ' ставьте ',
+					text: ' будет трудным для произношения. Поэтому вместо  ',
+				},
+				{
+					type: 'text',
+					text: 's',
+					color: 'gold',
+				},
+				{
+					type: 'text',
+					text: ' добавляют ',
 				},
 				{
 					type: 'text',
@@ -312,7 +380,7 @@ const presentSimplePositive2: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: ':',
+					text: '. ',
 				},
 			],
 		},
@@ -403,70 +471,7 @@ const presentSimplePositive2: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'Окончание ',
-				},
-				{
-					type: 'text',
-					text: 'es',
-					color: 'gold',
-				},
-				{
-					type: 'text',
-					text: ' добавляется для благозвучности потому что если добавить ещё одну ',
-				},
-				{
-					type: 'text',
-					text: 's',
-					color: 'gold',
-				},
-				{
-					type: 'text',
-					text: ' в набор ',
-				},
-				{
-					type: 'text',
-					text: 'ss',
-					color: 'blue',
-				},
-				{
-					type: 'text',
-					text: ', ',
-				},
-				{
-					type: 'text',
-					text: 'sh',
-					color: 'blue',
-				},
-				{
-					type: 'text',
-					text: ', ',
-				},
-				{
-					type: 'text',
-					text: 'ch',
-					color: 'blue',
-				},
-				{
-					type: 'text',
-					text: ', ',
-				},
-				{
-					type: 'text',
-					text: 'x',
-					color: 'blue',
-				},
-				{
-					type: 'text',
-					text: ' будет сложно проговорить. Поэтому добавляют промежуточную ',
-				},
-				{
-					type: 'text',
-					text: 'e',
-					color: 'gold',
-				},
-				{
-					type: 'text',
-					text: '. Даже не пытайтесь заучить окончания таких слов. Это приходит с практикой и после этого никаких проблем с простановкой правильных окончаний не возникает. Тем не менее попробуйте перевести следующие предложения:',
+					text: 'Не пытайтесь заучить эти окончания. Это приходит с практикой и после этого никаких проблем с простановкой правильных окончаний не возникает. Тем не менее попробуйте перевести следующие предложения:',
 				},
 			],
 		},

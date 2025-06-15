@@ -29,13 +29,12 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			rusSentence: 'Она хочет учиться в другой стране.',
-			engSentences: [{ engSentences: ['She wants to study in another country.'], isCorrect: true }],
+			rusSentence: 'Он учится в другой группе.',
+			engSentences: [{ engSentences: ['He studies in another group.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'хотеть', engWord: 'open' },
-				{ rusWord: 'учиться', engWord: 'to study' },
-				{ rusWord: 'в', engWord: 'in' },
-				{ rusWord: 'страна', engWord: 'country' },
+				{ rusWord: 'учиться', engWord: 'study' },
+				{ rusWord: 'другой', engWord: 'another' },
+				{ rusWord: 'группа', engWord: 'group' },
 			],
 		},
 	],

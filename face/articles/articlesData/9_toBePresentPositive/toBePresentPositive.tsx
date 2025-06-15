@@ -51,7 +51,16 @@ const toBePresentPositive: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'Предложение на английском языке должно содержать в себе как минимум подлежащее и сказуемое. ',
+					text: 'В английском предложении ',
+				},
+				{
+					type: 'text',
+					text: 'всегда должно присутствовать подлежащее и сказуемое',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: '. ',
 				},
 				{ type: 'text', weight: 'bold', text: 'Подлежащее' },
 				{
@@ -61,7 +70,7 @@ const toBePresentPositive: ArticleType.Art = {
 				{ type: 'text', weight: 'bold', text: 'сказуемое' },
 				{
 					type: 'text',
-					text: ' — это само действие. Выражается глаголом.',
+					text: ' — это само действие.',
 				},
 			],
 		},
@@ -396,11 +405,10 @@ const toBePresentPositive: ArticleType.Art = {
 		exercises_2,
 		{
 			type: 'paragraph',
-
 			children: [
 				{
 					type: 'text',
-					text: 'Иногда и в современном русском языке явно используем глагол «есть» в разных видах:',
+					text: 'Иногда и в современном русском языке мы явно используем глагол «есть» в разных видах:',
 				},
 			],
 		},
@@ -463,7 +471,16 @@ const toBePresentPositive: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'Давайте сформулируем более конкретное правило в каких случаях используется be. Я дам три интерпретации, а вы выбирите понравившуюся.',
+					text: 'Давайте сформулируем более конкретное правило в каких случаях используется ',
+				},
+				{
+					type: 'text',
+					text: 'be',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: '. Я дам три интерпретации, а вы выбирите понравившуюся.',
 				},
 			],
 		},
@@ -531,7 +548,16 @@ const toBePresentPositive: ArticleType.Art = {
 						},
 						{
 							type: 'text',
-							text: '.',
+							text: '. Но не забывайте ставить ',
+						},
+						{
+							type: 'text',
+							text: 'be',
+							weight: 'bold',
+						},
+						{
+							type: 'text',
+							text: ' в форму настоящего или прошедшего времени.',
 						},
 					],
 				},
@@ -540,7 +566,16 @@ const toBePresentPositive: ArticleType.Art = {
 					children: [
 						{
 							type: 'text',
-							text: 'Через глагол be рассказывается о свойствах предмета, то, чем он является. Можно задать вопрос «',
+							text: 'Через глагол ',
+						},
+						{
+							type: 'text',
+							text: 'be',
+							weight: 'bold',
+						},
+						{
+							type: 'text',
+							text: ' рассказывается о свойствах предмета, то, чем он является. Можно задать вопрос «',
 						},
 						{
 							type: 'text',
@@ -618,6 +653,16 @@ const toBePresentPositive: ArticleType.Art = {
 					type: 'text',
 					color: 'gray',
 					text: '1. Между словами можно поставить «есть». 2. В русском нет глагола, значит в переводе должен быть be. 3. Бабочка —  это свойство (быть кем?).',
+				},
+			],
+		},
+		{
+			type: 'paragraph',
+			offset: true,
+			children: [
+				{
+					type: 'text',
+					text: 'Это смешанная практика на перевод предложений с обычными глаголами и be. Попробуйте правильно определить где какой используется пользуясь правилами выше.',
 				},
 			],
 		},

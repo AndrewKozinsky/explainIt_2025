@@ -60,6 +60,60 @@ const exercises_5: ExercisesType.ExercisesObj = {
 				{ rusWord: 'халат', engWord: 'coat' },
 			],
 		},
+		{
+			// TODO
+			rusSentence: 'У неё трое детей: два мальчика и девочка.',
+			engSentences: [{ engSentences: ['She has three children: two boys and a girl.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'женщина', engWord: 'woman' },
+				{ rusWord: 'любить', engWord: 'love' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Дети играют в парке.',
+			engSentences: [{ engSentences: ['The children are playing in the park.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'женщина', engWord: 'woman' },
+				{ rusWord: 'любить', engWord: 'love' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Многие люди любят тёплую погоду.',
+			engSentences: [{ engSentences: ['Many people like warm weather.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'женщина', engWord: 'woman' },
+				{ rusWord: 'любить', engWord: 'love' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Коты ловят мышей.',
+			engSentences: [{ engSentences: ['Cats catch mice.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'женщина', engWord: 'woman' },
+				{ rusWord: 'любить', engWord: 'love' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'У динозавра острые зубы.',
+			engSentences: [{ engSentences: ['The dinosaur has sharp teeth.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'женщина', engWord: 'woman' },
+				{ rusWord: 'любить', engWord: 'love' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Мы видим диких гусей около озера.',
+			engSentences: [{ engSentences: ['We see wild geese near the lake.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'женщина', engWord: 'woman' },
+				{ rusWord: 'любить', engWord: 'love' },
+			],
+		},
 	],
 }
 

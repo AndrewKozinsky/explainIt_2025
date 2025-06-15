@@ -26,7 +26,7 @@ const presentSimplePositive3: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: '). А после местоимений 3-го лица к глаголу добавляется окончание ',
+					text: '). А после 3-го лица к глаголу добавляется окончание ',
 				},
 				{
 					type: 'text',
@@ -44,7 +44,7 @@ const presentSimplePositive3: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: '.',
+					text: '. Вы это уже изучили в двух первых главах.',
 				},
 			],
 		},
@@ -94,7 +94,7 @@ const presentSimplePositive3: ArticleType.Art = {
 					eng: [
 						{ type: 'text', text: 'He', color: 'blue' },
 						{ type: 'text', text: ' wear' },
-						{ type: 'text', text: ' s', color: 'gold' },
+						{ type: 'text', text: 's', color: 'gold' },
 						{ type: 'text', text: ' suits.' },
 					],
 				},
@@ -138,7 +138,7 @@ const presentSimplePositive3: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: 'Совы',
+					text: 'совы',
 					weight: 'bold',
 				},
 				{
@@ -152,7 +152,7 @@ const presentSimplePositive3: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: ' потому что множественное число, это второе лицо. Поэтому к глаголу не добавляется окончание ',
+					text: ' (второе лицо). Поэтому к глаголу не добавляется окончание ',
 				},
 				{
 					type: 'text',
@@ -207,7 +207,7 @@ const presentSimplePositive3: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: ', это третье лицо. Поэтому к глаголу добавляется окончание ',
+					text: ' (третье лицо). Поэтому к глаголу добавляется окончание ',
 				},
 				{
 					type: 'text',
@@ -256,7 +256,7 @@ const presentSimplePositive3: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: '. Это третье лицо. Поэтому к глаголу добавляется окончание ',
+					text: ' (третье лицо). Поэтому к глаголу добавляется окончание ',
 				},
 				{
 					type: 'text',
@@ -304,7 +304,7 @@ const presentSimplePositive3: ArticleType.Art = {
 				},
 				{
 					type: 'text',
-					text: '. Это второе лицо. Поэтому добавлять ',
+					text: ' (второе лицо). Поэтому добавлять ',
 				},
 				{
 					type: 'text',
@@ -354,6 +354,22 @@ const presentSimplePositive3: ArticleType.Art = {
 				{
 					type: 'text',
 					text: 'Теперь вы знаете теоретический минимум о грамматическом времени Present Simple. Прежде чем перейти к новой теме давайте переведём предложения где нужно использовать все изученные правила.',
+				},
+			],
+		},
+		{
+			type: 'note',
+			noteStyle: 'gray',
+			children: [
+				{
+					type: 'paragraph',
+					offset: true,
+					children: [
+						{
+							type: 'text',
+							text: 'В некоторых предложениях встречаются числа. Лучше записывать их словами — так вы эффективнее изучите числа в английском.',
+						},
+					],
 				},
 			],
 		},

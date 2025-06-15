@@ -43,6 +43,24 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{ rusWord: 'день', engWord: 'day' },
 			],
 		},
+		{
+			// TODO
+			rusSentence: 'Он купил 10 дынь вместо 10 лимонов?',
+			engSentences: [{ engSentences: ['Did he bought 10 melons instead of 10 lemons?'], isCorrect: true }],
+			words: [
+				{ rusWord: 'плохой', engWord: 'bad' },
+				{ rusWord: 'день', engWord: 'day' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Ты получил мой факс?',
+			engSentences: [{ engSentences: ['Did you get my fax?'], isCorrect: true }],
+			words: [
+				{ rusWord: 'плохой', engWord: 'bad' },
+				{ rusWord: 'день', engWord: 'day' },
+			],
+		},
 	],
 }
 

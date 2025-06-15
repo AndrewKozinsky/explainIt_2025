@@ -22,30 +22,26 @@ const exercises_4: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			rusSentence: 'Нам нужны яйца, лимоны и собачья еда.',
-			engSentences: [{ engSentences: ['We need eggs, lemons and dog food.'], isCorrect: true }],
+			rusSentence: 'Нам нужны яйца, лимоны и печенья.',
+			engSentences: [{ engSentences: ['We need eggs, lemons and cookies.'], isCorrect: true }],
 			words: [
 				{ rusWord: 'нуждаться', engWord: 'need' },
 				{ rusWord: 'яйца', engWord: 'eggs' },
 				{ rusWord: 'лимоны', engWord: 'lemons' },
-				{ rusWord: 'собачья', engWord: 'dog' },
-				{ rusWord: 'еда', engWord: 'food' },
-			],
-		},
-		{
-			rusSentence: 'Она готовит еду для её семьи каждый день.',
-			engSentences: [{ engSentences: ['She cooks food for her family every day.'], isCorrect: true }],
-			words: [
-				{ rusWord: 'готовить', engWord: 'cook' },
-				{ rusWord: 'еда', engWord: 'food' },
-				{ rusWord: 'для всей её семьи', engWord: 'for her family' },
-				{ rusWord: 'каждый', engWord: 'every' },
-				{ rusWord: 'день', engWord: 'day' },
+				{ rusWord: 'печенья', engWord: 'cookies' },
 			],
 		},
 		{
 			rusSentence: 'Ты пишешь письма.',
 			engSentences: [{ engSentences: ['You write letters.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'писать', engWord: 'write' },
+				{ rusWord: 'письма', engWord: 'letters' },
+			],
+		},
+		{
+			rusSentence: 'Эмили выбирает кожаную куртку.',
+			engSentences: [{ engSentences: ['Emily chooses a leather jacket.'], isCorrect: true }],
 			words: [
 				{ rusWord: 'писать', engWord: 'write' },
 				{ rusWord: 'письма', engWord: 'letters' },

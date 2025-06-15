@@ -227,14 +227,6 @@
 			offset: true,
 			children: [{ type: 'text',   text: 'Примеры:' }],
 		},
-		{
-			type: 'paragraph',
-			textSize: 'giant',
-			children: [
-				{ type: 'text',   text: 'Он работает здесь?' },
-				{ type: 'text',   text: 'Does he work here?' },
-			],
-		},
 		{ type: 'header', tag: 'h3', style: 'h3', text: 'Вопрос в Future Simple' },
 		{
 			type: 'paragraph',

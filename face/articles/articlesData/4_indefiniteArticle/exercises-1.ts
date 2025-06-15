@@ -5,7 +5,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 	exercises: [
 		{
 			rusSentence: 'Я вижу отель.',
-			engSentences: [{ engSentences: ['I say a hotel.'], isCorrect: true }],
+			engSentences: [{ engSentences: ['I see a hotel.'], isCorrect: true }],
 			words: [
 				{ rusWord: 'видеть', engWord: 'say' },
 				{ rusWord: 'отель', engWord: 'hotel' },
@@ -45,42 +45,24 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			rusSentence: 'Ей нужна ручка',
+			rusSentence: 'Ей нужна ручка.',
 			engSentences: [{ engSentences: ['She needs a pencil.'], isCorrect: true }],
 			words: [
 				{ rusWord: 'ей', engWord: 'she' },
 				{ rusWord: 'нуждаться', engWord: 'need' },
-				{ rusWord: 'ручка', engWord: 'pencil' },
+				{ rusWord: 'ручка пишущая', engWord: 'pencil' },
 			],
 		},
 		{
-			rusSentence: 'Каждую пятницу Дэвид покупает книгу.',
-			engSentences: [{ engSentences: ['Every Friday, David buys a book.'], isCorrect: true }],
+			rusSentence: 'Каждую пятницу Дэвид смотрит новый фильм.',
+			engSentences: [{ engSentences: ['Every Friday, David watches a new movie.'], isCorrect: true }],
 			words: [
 				{ rusWord: 'каждый', engWord: 'every' },
 				{ rusWord: 'пятница', engWord: 'Friday' },
 				{ rusWord: 'Дэвид', engWord: 'David' },
-				{ rusWord: 'покупать', engWord: 'buy' },
-				{ rusWord: 'книга', engWord: 'book' },
-			],
-		},
-		{
-			rusSentence: 'Ты арендуешь машину когда ты путешествуешь.',
-			engSentences: [{ engSentences: ['You rent a car when you travel.'], isCorrect: true }],
-			words: [
-				{ rusWord: 'арендовать', engWord: 'rent' },
-				{ rusWord: 'машина', engWord: 'car' },
-				{ rusWord: 'когда', engWord: 'when' },
-				{ rusWord: 'путешествовать', engWord: 'travel' },
-			],
-		},
-		{
-			rusSentence: 'Они смотрят фильм по воскресеньям.',
-			engSentences: [{ engSentences: ['They watch a movie on Sundays.'], isCorrect: true }],
-			words: [
-				{ rusWord: 'смотреть (фильм)', engWord: 'watch' },
+				{ rusWord: 'смотреть (фильм)', engWord: 'watches' },
+				{ rusWord: 'новый', engWord: 'new' },
 				{ rusWord: 'фильм', engWord: 'movie' },
-				{ rusWord: 'по воскресеньям', engWord: 'on Sundays' },
 			],
 		},
 		{
@@ -114,6 +96,15 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
+			rusSentence: 'Они смотрят фильм по воскресеньям.',
+			engSentences: [{ engSentences: ['They watch a movie on Sundays.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'смотреть (фильм)', engWord: 'watch' },
+				{ rusWord: 'фильм', engWord: 'movie' },
+				{ rusWord: 'по воскресеньям', engWord: 'on Sundays' },
+			],
+		},
+		{
 			rusSentence: 'Тебе нужен душ.',
 			engSentences: [{ engSentences: ['You need a shower.'], isCorrect: true }],
 			words: [
@@ -122,9 +113,14 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			rusSentence: 'Она уборщица.',
-			engSentences: [{ engSentences: ['She is a janitor.'], isCorrect: true }],
-			words: [{ rusWord: 'уборщица', engWord: 'janitor' }],
+			rusSentence: 'Я хочу свежее кокосовое молоко.',
+			engSentences: [{ engSentences: ['I want fresh coconut milk.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'хотеть', engWord: 'want' },
+				{ rusWord: 'свежий', engWord: 'fresh' },
+				{ rusWord: 'кокос', engWord: 'coconut' },
+				{ rusWord: 'молоко', engWord: 'milk' },
+			],
 		},
 	],
 }

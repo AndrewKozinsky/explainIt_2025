@@ -16,7 +16,61 @@ const toBePresentQuestion: ArticleType.Art = {
 			children: [
 				{
 					type: 'text',
-					text: 'В вопросе во времени Present Simple требовалось перед подлежащим поставить вспомогательный глагол do или does. В конструкции с глаголом be проще: его (в настоящем времени это am, are, is) ставят перед подлежащим.',
+					text: 'В вопросе во времени Present Simple требовалось перед подлежащим поставить вспомогательный глагол ',
+				},
+				{
+					type: 'text',
+					text: 'do',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: ' или ',
+				},
+				{
+					type: 'text',
+					text: 'does',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: '. В конструкции с глаголом ',
+				},
+				{
+					type: 'text',
+					text: 'be',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: ' проще: его (в настоящем времени это ',
+				},
+				{
+					type: 'text',
+					text: 'am',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: ', ',
+				},
+				{
+					type: 'text',
+					text: 'are',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: ', ',
+				},
+				{
+					type: 'text',
+					text: 'is',
+					weight: 'bold',
+				},
+				{
+					type: 'text',
+					text: ') ставят перед подлежащим.',
 				},
 			],
 		},
@@ -201,6 +255,11 @@ const toBePresentQuestion: ArticleType.Art = {
 				},
 				{ eng: [{ type: 'text', text: 'Is it effective or not?' }] },
 			],
+		},
+		{
+			type: 'paragraph',
+			offset: true,
+			children: [{ type: 'text', text: 'Теперь ваша очередь:' }],
 		},
 		exercises_1,
 	],

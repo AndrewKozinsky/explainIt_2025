@@ -61,11 +61,12 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			rusSentence: 'Эндрю любит чай.',
-			engSentences: [{ engSentences: ['Andrew loves tea.'], isCorrect: true }],
+			rusSentence: 'Эндрю любит зелёный чай.',
+			engSentences: [{ engSentences: ['Andrew loves green tea.'], isCorrect: true }],
 			words: [
 				{ rusWord: 'Эндрю', engWord: 'Andrew' },
 				{ rusWord: 'любить', engWord: 'love' },
+				{ rusWord: 'зелёный', engWord: 'green' },
 				{ rusWord: 'чай', engWord: 'tea' },
 			],
 		},
@@ -96,20 +97,6 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			words: [
 				{ rusWord: 'любить', engWord: 'like' },
 				{ rusWord: 'яблоки', engWord: 'apples' },
-			],
-		},
-		{
-			rusSentence: 'Подростки всегда спорят с родителям.',
-			engSentences: [
-				{ engSentences: ['Teenagers always argue with parents.'], isCorrect: true },
-				{ engSentences: ['Young people constantly debate with parents.'], isCorrect: true },
-			],
-			words: [
-				{ rusWord: 'подростки', engWord: 'teenagers' },
-				{ rusWord: 'всегда', engWord: 'always' },
-				{ rusWord: 'спорить', engWord: 'argue' },
-				{ rusWord: 'с', engWord: 'with' },
-				{ rusWord: 'родители', engWord: 'parents' },
 			],
 		},
 		{
@@ -152,6 +139,14 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
+			rusSentence: 'Я читаю книги.',
+			engSentences: [{ engSentences: ['I read books.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'читать', engWord: 'read' },
+				{ rusWord: 'книги', engWord: 'books' },
+			],
+		},
+		{
 			rusSentence: 'Джон ненавидит чеснок.',
 			engSentences: [{ engSentences: ['John hates garlic'], isCorrect: true }],
 			words: [
@@ -170,12 +165,36 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
+			rusSentence: 'Они редко пьют молоко.',
+			engSentences: [{ engSentences: ['They seldom drink milk.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'редко', engWord: 'seldom' },
+				{ rusWord: 'пить', engWord: 'drink' },
+				{ rusWord: 'молоко', engWord: 'milk' },
+			],
+		},
+		{
 			rusSentence: 'Дональд часто готовит.',
 			engSentences: [{ engSentences: ['Donald often cooks.'], isCorrect: true }],
 			words: [
 				{ rusWord: 'Дональд', engWord: 'Donald' },
 				{ rusWord: 'часто', engWord: 'often' },
 				{ rusWord: 'готовить', engWord: 'cook' },
+			],
+		},
+
+		{
+			rusSentence: 'Солнце встаёт на востоке.',
+			engSentences: [
+				{
+					engSentences: ['The sun rises in the east.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'Солнце', engWord: 'the sun' },
+				{ rusWord: 'вставать (о Солнце)', engWord: 'rise' },
+				{ rusWord: 'на востоке', engWord: 'in the east' },
 			],
 		},
 		{

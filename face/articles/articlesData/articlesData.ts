@@ -16,6 +16,7 @@ import pastSimpleNegative from './22_pastSimpleNegative/past-simple-negative'
 import toBePastNegative from './23_toBePastNegative/toBePastNegative'
 import structure from './24_structure/structure'
 import verbAfterVerb from './25_verbAfterVerb/verbAfterVerb'
+import imperative from './26_imperative/imperative'
 import the from './5_the/the'
 import presentSimplePositive1 from './1_presentSimplePositive-1/presentSimplePositive-1'
 import presentSimplePositive2 from './2_presentSimplePositive-2/presentSimplePositive-2'
@@ -32,30 +33,31 @@ import testChapter3 from './__test/testChapter-3/testChapter-3'
 // Список статей учебника
 const rowRealArticles: ArticleType.Art[] = [
 	presentSimplePositive1,
-	// presentSimplePositive2,
-	// presentSimplePositive3,
-	// indefiniteArticle,
-	// the,
-	// personalPronouns,
-	// pluralOfNouns,
-	// phrases_1,
-	// toBePresentPositive,
-	// presentSimpleQuestion,
-	// toBePresentQuestion,
-	// presentSimpleNegative,
-	// toBePresentNegative,
-	// personalPronounsAsObject,
-	// demonstrativePronounce,
-	// possessivePronouns,
-	// pastSimplePositive1,
-	// pastSimplePositive2,
-	// toBePastPositive,
-	// pastSimpleQuestion,
-	// toBePastQuestion,
-	// pastSimpleNegative,
-	// toBePastNegative,
-	// structure,
-	// verbAfterVerb,
+	presentSimplePositive2,
+	presentSimplePositive3,
+	indefiniteArticle,
+	the,
+	personalPronouns,
+	pluralOfNouns,
+	phrases_1,
+	toBePresentPositive,
+	presentSimpleQuestion,
+	toBePresentQuestion,
+	presentSimpleNegative,
+	toBePresentNegative,
+	personalPronounsAsObject,
+	demonstrativePronounce,
+	possessivePronouns,
+	pastSimplePositive1,
+	pastSimplePositive2,
+	toBePastPositive,
+	pastSimpleQuestion,
+	toBePastQuestion,
+	pastSimpleNegative,
+	toBePastNegative,
+	structure,
+	verbAfterVerb,
+	imperative,
 ]
 
 const rowTestArticles: ArticleType.Art[] = [testChapter1, testChapter2, testChapter3]

@@ -103,8 +103,8 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'обманываешь', engWord: 'deceive' },
-				{ rusWord: 'обманываешь', engWord: 'trick' },
+				{ rusWord: 'обманывать', engWord: 'deceive' },
+				{ rusWord: 'обманывать', engWord: 'trick' },
 				{ rusWord: 'каждый', engWord: 'every' },
 				{ rusWord: 'человек', engWord: 'person' },
 			],
@@ -238,6 +238,7 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			],
 			words: [
 				{ rusWord: 'выглядеть', engWord: 'look' },
+				{ rusWord: 'такой', engWord: 'so' },
 				{ rusWord: 'грустный', engWord: 'sad' },
 			],
 		},

@@ -463,7 +463,10 @@ const exercises_1: ExercisesType.ExercisesObj = {
 		{
 			rusSentence: 'Эйприл Фокс танцовщица.',
 			engSentences: [{ engSentences: ['April Fox is a dancer.'], isCorrect: true }],
-			words: [{ rusWord: 'танцор/танцовщица', engWord: 'dancer' }],
+			words: [
+				{ rusWord: 'танцор/танцовщица', engWord: 'dancer' },
+				{ rusWord: 'Эйприл Фокс', engWord: 'April Fox' },
+			],
 		},
 		{
 			rusSentence: 'Ты и Палмер такие тупые!',
@@ -654,7 +657,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 			words: [
 				{ rusWord: 'кстати', engWord: 'by the way' },
-				{ rusWord: 'очень', engWord: 'good' },
+				{ rusWord: 'хороший', engWord: 'good' },
 				{ rusWord: 'очень', engWord: 'very' },
 				{ rusWord: 'врач', engWord: 'doctor' },
 			],
@@ -718,6 +721,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
+				{ rusWord: 'Майкл', engWord: 'Michael' },
 				{ rusWord: 'настоящий', engWord: 'real' },
 				{ rusWord: 'мужчина', engWord: 'man' },
 			],
@@ -776,11 +780,11 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			rusSentence: 'Она художница.',
+			rusSentence: 'Она знаменитая художница.',
 			engSentences: [
-				{ engSentences: ['She is an artist.'], isCorrect: true },
+				{ engSentences: ['She is a famous artist.'], isCorrect: true },
 				{
-					engSentences: ['She a artist is.'],
+					engSentences: ['She a famous artist is.'],
 					isCorrect: false,
 					analysis: [
 						{
@@ -986,7 +990,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 					],
 				},
 			],
-			words: [],
+			words: [{ rusWord: 'Кельвин', engWord: 'Calvin' }],
 		},
 		{
 			rusSentence: 'Он полицейский.',
@@ -1056,6 +1060,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
+				{ rusWord: 'Даша', engWord: 'Dasha' },
 				{ rusWord: 'симпатичный', engWord: 'pretty' },
 				{ rusWord: 'девушка', engWord: 'girl' },
 			],
@@ -1102,24 +1107,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 		},
 		{
 			rusSentence: 'Это просто любопытный факт.',
-			engSentences: [
-				{ engSentences: ['It is just a curious fact.'], isCorrect: false },
-				{
-					engSentences: [],
-					isCorrect: false,
-					analysis: [
-						{
-							type: 'paragraph',
-							children: [
-								{
-									type: 'text',
-									text: 'Если перед существительным есть прилагательное, относящиеся к этому существительному, то артикль a должен стоять перед этим словом, а не после.',
-								},
-							],
-						},
-					],
-				},
-			],
+			engSentences: [{ engSentences: ['It is just a curious fact.'], isCorrect: true }],
 			words: [
 				{ rusWord: 'просто', engWord: 'just' },
 				{ rusWord: 'любопытный', engWord: 'fun' },
@@ -1127,6 +1115,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
+			// TODO
 			rusSentence: 'Я думаю, это инструкция.',
 			engSentences: [{ engSentences: ['I think it is the instructions.'], isCorrect: false }],
 			words: [
@@ -1137,7 +1126,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 		},
 		{
 			rusSentence: 'Это бедствие. Это катастрофа.',
-			engSentences: [{ engSentences: ['It is a disaster. It is a catastrophe.'], isCorrect: false }],
+			engSentences: [{ engSentences: ['It is a disaster. It is a catastrophe.'], isCorrect: true }],
 			words: [
 				{ rusWord: 'бедствие', engWord: 'disaster' },
 				{ rusWord: 'катастрофа', engWord: 'catastrophe' },
@@ -1145,7 +1134,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 		},
 		{
 			rusSentence: 'Я очень, очень доволен.',
-			engSentences: [{ engSentences: ['I am very, very pleased.'], isCorrect: false }],
+			engSentences: [{ engSentences: ['I am very, very pleased.'], isCorrect: true }],
 			words: [
 				{ rusWord: 'очень', engWord: 'very' },
 				{ rusWord: 'довольный', engWord: 'pleased' },
@@ -1166,6 +1155,25 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{ rusWord: 'Мэри', engWord: 'Mary' },
 				{ rusWord: 'хороший', engWord: 'good' },
 				{ rusWord: 'студент', engWord: 'student' },
+			],
+		},
+		{
+			rusSentence: 'Она уборщица.',
+			engSentences: [{ engSentences: ['She is a janitor.'], isCorrect: true }],
+			words: [{ rusWord: 'уборщица', engWord: 'janitor' }],
+		},
+		{
+			rusSentence: 'Это очень большая коробка.',
+			engSentences: [
+				{
+					engSentences: ['It is a very big box.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'очень', engWord: 'very' },
+				{ rusWord: 'большой', engWord: 'big' },
+				{ rusWord: 'коробка', engWord: 'box' },
 			],
 		},
 	],

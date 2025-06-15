@@ -4,6 +4,19 @@ const exercises_1: ExercisesType.ExercisesObj = {
 	type: 'exercises',
 	exercises: [
 		{
+			rusSentence: 'Он пьёт вино.',
+			engSentences: [
+				{
+					engSentences: ['He drinks vine.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'пить', engWord: 'drink' },
+				{ rusWord: 'вино', engWord: 'vine' },
+			],
+		},
+		{
 			rusSentence: 'Она носит белую одежду.',
 			engSentences: [
 				{
@@ -65,19 +78,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{ rusWord: 'получать', engWord: 'get' },
 				{ rusWord: 'большой', engWord: 'big' },
 				{ rusWord: 'деньги', engWord: 'money' },
-			],
-		},
-		{
-			rusSentence: 'Она курит и пьёт.',
-			engSentences: [
-				{
-					engSentences: ['She smokes and drinks.'],
-					isCorrect: true,
-				},
-			],
-			words: [
-				{ rusWord: 'купить', engWord: 'smoke' },
-				{ rusWord: 'пить (алкоголь)', engWord: 'drink' },
 			],
 		},
 		{
@@ -149,7 +149,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			rusSentence: 'Это часто случается.',
+			rusSentence: 'Это часто возникает.',
 			engSentences: [
 				{
 					engSentences: ['It often happens.'],
@@ -158,7 +158,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 			words: [
 				{ rusWord: 'часто', engWord: 'often' },
-				{ rusWord: 'случаться', engWord: 'happen' },
+				{ rusWord: 'возникать', engWord: 'happen' },
 			],
 		},
 		{
@@ -247,19 +247,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			words: [
 				{ rusWord: 'пить', engWord: 'drink' },
 				{ rusWord: 'молоко', engWord: 'milk' },
-			],
-		},
-		{
-			rusSentence: 'Он пьёт вино.',
-			engSentences: [
-				{
-					engSentences: ['He drinks vine.'],
-					isCorrect: true,
-				},
-			],
-			words: [
-				{ rusWord: 'пить', engWord: 'drink' },
-				{ rusWord: 'вино', engWord: 'vine' },
 			],
 		},
 	],

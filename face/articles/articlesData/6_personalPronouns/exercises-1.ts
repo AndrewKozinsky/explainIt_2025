@@ -90,7 +90,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			rusSentence: 'Я вижу, у тебя есть вопрос по этой теме',
+			rusSentence: 'Я вижу, у тебя есть вопрос по этой теме.',
 			engSentences: [{ engSentences: ['I see you have a question about this topic.'], isCorrect: true }],
 			words: [
 				{ rusWord: 'видеть', engWord: 'see' },

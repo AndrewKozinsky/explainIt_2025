@@ -30,6 +30,15 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{ rusWord: 'тебе', engWord: 'you' },
 			],
 		},
+		{
+			// TODO
+			rusSentence: 'Она не понимает это.',
+			engSentences: [{ engSentences: ['She does not understand it.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'верить', engWord: 'believe' },
+				{ rusWord: 'тебе', engWord: 'you' },
+			],
+		},
 	],
 }
 

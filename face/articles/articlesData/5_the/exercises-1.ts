@@ -71,20 +71,30 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{ engSentences: ['I get a taxi from an airport every time.'], isCorrect: true },
 			],
 			words: [
-				{ rusWord: 'сотрудники', engWord: 'staff' },
-				{ rusWord: 'запирать', engWord: 'lock' },
-				{ rusWord: 'дверь', engWord: 'door' },
+				{ rusWord: 'брать такси', engWord: 'get a taxi' },
+				{ rusWord: 'из', engWord: 'from' },
+				{ rusWord: 'аэропорт', engWord: 'airport' },
 				{ rusWord: 'каждый', engWord: 'every' },
 				{ rusWord: 'раз', engWord: 'time' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Камин — дорогая вещь.',
 			engSentences: [{ engSentences: ['A fireplace is an expensive thing.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'однажды', engWord: 'one day' },
-				{ rusWord: 'врач', engWord: 'doctor' },
+				{ rusWord: 'камин', engWord: 'fireplace' },
+				{ rusWord: 'дорогой', engWord: 'expensive' },
+				{ rusWord: 'вещь', engWord: 'thing' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Девочка ест вкусное печенье.',
+			engSentences: [{ engSentences: ['The girl eats tasty cookies.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'камин', engWord: 'fireplace' },
+				{ rusWord: 'дорогой', engWord: 'expensive' },
+				{ rusWord: 'вещь', engWord: 'thing' },
 			],
 		},
 	],
