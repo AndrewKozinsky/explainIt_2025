@@ -981,18 +981,15 @@
 		},
 		{
 			type: 'paragraph',
-
 			textSize: 'giant',
 			children: [
 				{
 					type: 'text',
-
 					text: 'I never though much about my future.',
 				},
 
 				{
 					type: 'text',
-
 					text: 'Никогда не думал много о своём будущем.',
 				},
 			],

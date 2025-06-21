@@ -20,7 +20,7 @@ services:
     command: yarn start:prod
     container_name: explain-server
     environment:
-      MODE: server
+      MODE: publish
       PORT: 3001
     env_file:
       - .env
@@ -34,4 +34,4 @@ services:
     depends_on:
       - explainserver
     environment:
-      MODE: server
+      MODE: publish

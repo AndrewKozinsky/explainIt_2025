@@ -4,7 +4,6 @@ const exercises_5: ExercisesType.ExercisesObj = {
 	type: 'exercises',
 	exercises: [
 		{
-			// TODO
 			rusSentence: 'Дай мне заглянуть в мой хрустальный шар.',
 			engSentences: [
 				{
@@ -13,22 +12,22 @@ const exercises_5: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'капитаны', engWord: 'captains' },
-				{ rusWord: 'уже', engWord: 'already' },
+				{ rusWord: 'заглянуть', engWord: 'look into' },
+				{ rusWord: 'хрустальный', engWord: 'crystal' },
+				{ rusWord: 'шар', engWord: 'ball' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Давайте начнем снова.',
 			engSentences: [
 				{
-					engSentences: ['Let\'s begin again.'],
+					engSentences: ["Let's begin again."],
 					isCorrect: true,
 				},
 			],
 			words: [
-				{ rusWord: 'капитаны', engWord: 'captains' },
-				{ rusWord: 'уже', engWord: 'already' },
+				{ rusWord: ' начинать', engWord: 'begin' },
+				{ rusWord: 'снова', engWord: 'again' },
 			],
 		},
 	],

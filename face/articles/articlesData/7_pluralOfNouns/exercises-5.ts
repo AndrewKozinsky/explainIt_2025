@@ -61,57 +61,64 @@ const exercises_5: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'У неё трое детей: два мальчика и девочка.',
 			engSentences: [{ engSentences: ['She has three children: two boys and a girl.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'женщина', engWord: 'woman' },
-				{ rusWord: 'любить', engWord: 'love' },
+				{ rusWord: 'три', engWord: 'woman' },
+				{ rusWord: 'дети', engWord: 'three' },
+				{ rusWord: 'два', engWord: 'two' },
+				{ rusWord: 'мальчик', engWord: 'boy' },
+				{ rusWord: 'девочка', engWord: 'girl' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Дети играют в парке.',
-			engSentences: [{ engSentences: ['The children are playing in the park.'], isCorrect: true }],
+			engSentences: [{ engSentences: ['The children play in the park.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'женщина', engWord: 'woman' },
-				{ rusWord: 'любить', engWord: 'love' },
+				{ rusWord: 'дети', engWord: 'children' },
+				{ rusWord: 'играть', engWord: 'play' },
+				{ rusWord: 'в', engWord: 'in' },
+				{ rusWord: 'парк', engWord: 'park' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Многие люди любят тёплую погоду.',
 			engSentences: [{ engSentences: ['Many people like warm weather.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'женщина', engWord: 'woman' },
-				{ rusWord: 'любить', engWord: 'love' },
+				{ rusWord: 'многие', engWord: 'many' },
+				{ rusWord: 'люди', engWord: 'people' },
+				{ rusWord: 'любить', engWord: 'like' },
+				{ rusWord: 'тёплый', engWord: 'warm' },
+				{ rusWord: 'погода', engWord: 'weather' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Коты ловят мышей.',
 			engSentences: [{ engSentences: ['Cats catch mice.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'женщина', engWord: 'woman' },
-				{ rusWord: 'любить', engWord: 'love' },
+				{ rusWord: 'кот', engWord: 'cat' },
+				{ rusWord: 'ловить', engWord: 'catch' },
+				{ rusWord: 'мышь', engWord: 'mouse' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'У динозавра острые зубы.',
 			engSentences: [{ engSentences: ['The dinosaur has sharp teeth.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'женщина', engWord: 'woman' },
-				{ rusWord: 'любить', engWord: 'love' },
+				{ rusWord: 'динозавр', engWord: 'dinosaur' },
+				{ rusWord: 'острый', engWord: 'sharp' },
+				{ rusWord: 'зуб', engWord: 'tooth' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Мы видим диких гусей около озера.',
 			engSentences: [{ engSentences: ['We see wild geese near the lake.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'женщина', engWord: 'woman' },
-				{ rusWord: 'любить', engWord: 'love' },
+				{ rusWord: 'видеть', engWord: 'see' },
+				{ rusWord: 'дикий', engWord: 'wild' },
+				{ rusWord: 'гусь', engWord: 'goose' },
+				{ rusWord: 'около', engWord: 'near' },
+				{ rusWord: 'озеро', engWord: 'lake' },
 			],
 		},
 	],

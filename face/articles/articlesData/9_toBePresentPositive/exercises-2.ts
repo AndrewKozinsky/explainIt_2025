@@ -76,39 +76,25 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Асфальт очень старый, а вот скамейки отличные.',
 			engSentences: [
 				{
 					engSentences: ['Asphalt is very old, but the benches are excellent.'],
 					isCorrect: true,
 				},
-				{
-					engSentences: [],
-					isCorrect: false,
-					analysis: [
-						{
-							type: 'paragraph',
-
-							children: [
-								{
-									type: 'text',
-									text: 'В этом пр',
-								},
-							],
-						},
-					],
-				},
 			],
-			words: [{ rusWord: 'два', engWord: 'two' }],
+			words: [
+				{ rusWord: 'асфальт', engWord: 'asphalt' },
+				{ rusWord: 'старый', engWord: 'old' },
+				{ rusWord: 'скамейка', engWord: 'excellent' },
+			],
 		},
 		{
-			// TODO
 			rusSentence: 'Окно закрыто.',
 			engSentences: [{ engSentences: ['The window is closed.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'готовый', engWord: 'ready' },
-				{ rusWord: 'скоро', engWord: 'soon' },
+				{ rusWord: 'окно', engWord: 'window' },
+				{ rusWord: 'закрытый', engWord: 'closed' },
 			],
 		},
 		{
@@ -121,12 +107,11 @@ const exercises_2: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Кот — чёрный.',
 			engSentences: [{ engSentences: ['The cat is black.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'команда', engWord: 'team' },
-				{ rusWord: 'лидер', engWord: 'leader' },
+				{ rusWord: 'кот', engWord: 'cat' },
+				{ rusWord: 'чёрный', engWord: 'black' },
 			],
 		},
 		{

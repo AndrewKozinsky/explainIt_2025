@@ -469,6 +469,21 @@ const presentSimpleNegative: ArticleType.Art = {
 				{ eng: [{ type: 'text', text: 'Michael never notices me.' }] },
 			],
 		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			parts: [
+				{
+					rus: [
+						{
+							type: 'text',
+							text: 'Мы никогда не забывает дни рождения.',
+						},
+					],
+				},
+				{ eng: [{ type: 'text', text: 'We never forgets birthdays.' }] },
+			],
+		},
 	],
 }
 

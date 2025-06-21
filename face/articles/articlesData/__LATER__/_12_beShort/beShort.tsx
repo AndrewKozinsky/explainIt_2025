@@ -443,34 +443,6 @@
 					rusSentence: 'Я очень голоден.',
 					engSentences: [
 						{ engSentences: ['I am very hungry.'], isCorrect: true },
-						{
-							engSentences: [],
-							isCorrect: false,
-							analysis: [
-								{
-									type: 'paragraph',
-
-									children: [
-										{
-											type: 'text',
-
-											text: 'В русском предложении сообщается о свойстве персонажа. Поэтому в английском без вставки ',
-										},
-										{
-											type: 'text',
-											color: 'blue',
-
-											text: 'to be',
-										},
-										{
-											type: 'text',
-
-											text: ' не обойтись.',
-										},
-									],
-								},
-							],
-						},
 					],
 					words: [
 						{
@@ -530,40 +502,6 @@
 					rusSentence: 'Она очень добрая и милая девушка.',
 					engSentences: [
 						{ engSentences: ['She’s a sweet girl, a kind girl.'], isCorrect: true },
-						{
-							engSentences: [],
-							isCorrect: false,
-							analysis: [
-								{
-									type: 'paragraph',
-
-									children: [
-										{
-											type: 'text',
-
-											text: 'Правильно, но многословно. Так говорят если хотят подчернуть её хорошие качества.',
-										},
-									],
-								},
-							],
-						},
-						{
-							engSentences: [],
-							isCorrect: false,
-							analysis: [
-								{
-									type: 'paragraph',
-
-									children: [
-										{
-											type: 'text',
-
-											text: 'После местоимения she должен стоять is, а не are.',
-										},
-									],
-								},
-							],
-						},
 					],
 					words: [
 						{ rusWord: 'добрый', engWord: 'kind' },

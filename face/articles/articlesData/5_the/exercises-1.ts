@@ -97,6 +97,15 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{ rusWord: 'вещь', engWord: 'thing' },
 			],
 		},
+		{
+			rusSentence: 'Она ставит чашку на журнальный столик.',
+			engSentences: [{ engSentences: ['She puts the cup on the coffee table.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'класть', engWord: 'put' },
+				{ rusWord: 'чашка', engWord: 'cup' },
+				{ rusWord: 'журнальный столик', engWord: 'coffee table' },
+			],
+		},
 	],
 }
 

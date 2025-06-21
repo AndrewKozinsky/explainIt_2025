@@ -57,39 +57,27 @@ const exercises_3: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Она чувствует себя истощённой.',
 			engSentences: [{ engSentences: ['She feels exhausted.'], isCorrect: true }],
 			words: [
 				{ rusWord: 'чувствовать', engWord: 'feel' },
-				{ rusWord: 'больной', engWord: 'sick' },
-				{ rusWord: 'вчерашний день', engWord: 'yesterday' },
-				{ rusWord: 'утро', engWord: 'morning' },
-				{ rusWord: 'плохо', engWord: 'плохо' },
+				{ rusWord: 'истощённый', engWord: 'exhausted' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Он чувствует себя таким несчастным.',
 			engSentences: [{ engSentences: ['He feels so unhappy.'], isCorrect: true }],
 			words: [
 				{ rusWord: 'чувствовать', engWord: 'feel' },
-				{ rusWord: 'больной', engWord: 'sick' },
-				{ rusWord: 'вчерашний день', engWord: 'yesterday' },
-				{ rusWord: 'утро', engWord: 'morning' },
-				{ rusWord: 'плохо', engWord: 'плохо' },
+				{ rusWord: 'несчастный', engWord: 'unhappy' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Она чувствует себя одинокой.',
 			engSentences: [{ engSentences: ['She feels so lonely.'], isCorrect: true }],
 			words: [
 				{ rusWord: 'чувствовать', engWord: 'feel' },
-				{ rusWord: 'больной', engWord: 'sick' },
-				{ rusWord: 'вчерашний день', engWord: 'yesterday' },
-				{ rusWord: 'утро', engWord: 'morning' },
-				{ rusWord: 'плохо', engWord: 'плохо' },
+				{ rusWord: 'одинокий', engWord: 'lonely' },
 			],
 		},
 	],

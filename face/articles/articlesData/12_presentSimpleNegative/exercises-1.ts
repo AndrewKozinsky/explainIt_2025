@@ -4,6 +4,11 @@ const exercises_1: ExercisesType.ExercisesObj = {
 	type: 'exercises',
 	exercises: [
 		{
+			rusSentence: 'Она не понимает это.',
+			engSentences: [{ engSentences: ['She does not understand it.'], isCorrect: true }],
+			words: [{ rusWord: 'понимать', engWord: 'believe' }],
+		},
+		{
 			rusSentence: 'Я не работаю в отеле каждое лето.',
 			engSentences: [{ engSentences: ['I do not work in a hotel every summer.'], isCorrect: true }],
 			words: [
@@ -31,12 +36,11 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
-			rusSentence: 'Она не понимает это.',
-			engSentences: [{ engSentences: ['She does not understand it.'], isCorrect: true }],
+			rusSentence: 'Мы не понимаем это правило.',
+			engSentences: [{ engSentences: ['We don’t understand this rule.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'верить', engWord: 'believe' },
-				{ rusWord: 'тебе', engWord: 'you' },
+				{ rusWord: 'понимать', engWord: 'understand' },
+				{ rusWord: 'правило', engWord: 'rule' },
 			],
 		},
 	],

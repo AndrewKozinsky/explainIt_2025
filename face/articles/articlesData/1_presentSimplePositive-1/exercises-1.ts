@@ -196,6 +196,34 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{ rusWord: 'насилие', engWord: 'violence' },
 			],
 		},
+		{
+			rusSentence: 'Кошки любят молоко.',
+			engSentences: [
+				{
+					engSentences: ['Cats love milk.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'кошки', engWord: 'cats' },
+				{ rusWord: 'любить', engWord: 'love' },
+				{ rusWord: 'молоко', engWord: 'milk' },
+			],
+		},
+		{
+			rusSentence: 'Я люблю дождливую погоду.',
+			engSentences: [
+				{
+					engSentences: ['I love rainy weather.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'любить', engWord: 'love' },
+				{ rusWord: 'дождливый', engWord: 'rainy' },
+				{ rusWord: 'погода', engWord: 'weather' },
+			],
+		},
 	],
 }
 

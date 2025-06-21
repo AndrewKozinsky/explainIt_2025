@@ -1,0 +1,42 @@
+services:
+  explainnginx:
+    image: nginx:1.19.7-alpine
+    container_name: explain-nginx
+    depends_on:
+      - explainface
+      - explainserver
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/nginx.conf.dev:/etc/nginx/nginx.conf
+  explainserver:
+    build:
+      context: server/
+      dockerfile: Dockerfile.dev
+    restart: unless-stopped
+    volumes:
+      - ./server/src:/app/src
+      - ./server/e2e:/app/e2e
+    command: yarn start:dev
+    container_name: explain-server
+    environment:
+      MODE: dev
+      PORT: 3001
+    env_file:
+      - .env
+    ports:
+      - 3001:3001
+  explainface:
+    build:
+      context: face/
+      dockerfile: Dockerfile.dev
+    restart: unless-stopped
+    volumes:
+      - ./face:/app
+      - ./face:/public
+    command: yarn run dev
+    container_name: explain-face
+    depends_on:
+      - explainserver
+    environment:
+      MODE: dev

@@ -1892,23 +1892,6 @@
 					rusSentence: 'Несмотря на это, они слишком эмоциональны.',
 					engSentences: [
 						{ engSentences: ['Despite it, they are too emotional.'], isCorrect: true },
-						{
-							engSentences: [],
-							isCorrect: false,
-							analysis: [
-								{
-									type: 'paragraph',
-
-									children: [
-										{
-											type: 'text',
-
-											text: 'После подлежащего должен быть to be в форме are.',
-										},
-									],
-								},
-							],
-						},
 					],
 					words: [
 						{ rusWord: 'несмотря на это', engWord: 'despite it' },
@@ -1922,24 +1905,6 @@
 						{
 							engSentences: ['I am brave, I am beautiful, and I am brilliant.'],
 							isCorrect: true,
-						},
-						{ engSentences: [], isCorrect: false },
-						{
-							engSentences: [],
-							isCorrect: false,
-							analysis: [
-								{
-									type: 'paragraph',
-
-									children: [
-										{
-											type: 'text',
-
-											text: 'Если в предложении говорится про свойство, то должен быть to be.',
-										},
-									],
-								},
-							],
 						},
 					],
 					words: [

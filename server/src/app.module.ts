@@ -8,6 +8,7 @@ import { join } from 'path'
 import { AiModule } from './routes/ai/ai.module'
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default'
 import { TelegramModule } from './infrastructure/telegram/telegram.module'
+import {AuthModule} from './routes/auth/auth.module'
 
 @Module({
 	imports: [
@@ -28,9 +29,10 @@ import { TelegramModule } from './infrastructure/telegram/telegram.module'
 			inject: [MainConfigService],
 		}),
 		MainConfigModule,
-		GigaChatModule,
 		AiModule,
+		AuthModule,
 		TelegramModule,
+		GigaChatModule,
 	],
 	providers: [],
 })

@@ -175,10 +175,12 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Она здесь работает?',
 			engSentences: [{ engSentences: ['Does she work here?'], isCorrect: true }],
-			words: [{ rusWord: 'многие', engWord: 'many' }],
+			words: [
+				{ rusWord: 'здесь', engWord: 'here' },
+				{ rusWord: 'работать', engWord: 'work' },
+			],
 		},
 	],
 }

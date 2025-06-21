@@ -1,55 +1,60 @@
 import { ConfigSchemaV37Json } from './types/ConfigSchemaV37Json'
 
-const domain = 'explainit.ru'
-export enum EnvType {
-	'test'= 'test',
-	'dev'= 'dev',
-	'server' = 'server',
+export enum Mode {
+	test = 'test',
+	dev = 'dev',
+	publish = 'publish',
+}
+
+function getDomain(mode: Mode) {
+	return mode === Mode.dev ? 'develop.explainit.ru' : 'explainit.ru'
 }
 
 /**
  * Возвращает объект конфигурации docker-compose для разработки, проверки развёртывания на сервере и для сервера
- * @param env — тип конфигурации
+ * @param mode — тип работы
  * @param serverCheck — конфигурация для проверки собираемости на сервере
  */
-export function createDockerConfig(env: EnvType, serverCheck?: boolean): ConfigSchemaV37Json {
+export function createDockerConfig(mode: Mode, serverCheck?: boolean): ConfigSchemaV37Json {
+	const isDev = [Mode.test, Mode.dev].includes(mode)
+
 	return {
 		services: {
 			explainnginx: {
 				image: 'nginx:1.19.7-alpine',
 				container_name: 'explain-nginx',
 				depends_on: ['explainface', 'explainserver'],
-				ports: env === EnvType.server && !serverCheck  ? undefined : ['80:80'],
+				ports: isDev || serverCheck ? ['80:80'] : undefined,
 				volumes: ['./nginx/nginx.conf.dev:/etc/nginx/nginx.conf'],
-				environment: getNginxEnvs(env),
+				environment: getNginxEnvs(mode),
 			},
 			explainserver: {
 				build: {
 					context: 'server/',
-					dockerfile: [EnvType.test, EnvType.dev].includes(env) ? 'Dockerfile.dev' : 'Dockerfile.server',
+					dockerfile: isDev ? 'Dockerfile.dev' : 'Dockerfile.server',
 				},
 				restart: 'unless-stopped',
-				volumes: [EnvType.test, EnvType.dev].includes(env) ? ['./server/src:/app/src', './server/e2e:/app/e2e'] : undefined,
-				command: [EnvType.test, EnvType.dev].includes(env) ? 'yarn start:dev' : 'yarn start:prod',
+				volumes: isDev ? ['./server/src:/app/src', './server/e2e:/app/e2e'] : undefined,
+				command: isDev ? 'yarn start:dev' : 'yarn start:prod',
 				container_name: 'explain-server',
-				environment: getServerEnvs(env),
+				environment: getServerEnvs(mode),
 				env_file: ['.env'],
-				ports: [EnvType.test, EnvType.dev].includes(env) ? ['3001:3001'] : undefined,
+				ports: isDev ? ['3001:3001'] : undefined,
 			},
 			explainface: {
 				build: {
 					context: 'face/',
-					dockerfile: env === 'dev' ? 'Dockerfile.dev' : 'Dockerfile.server',
+					dockerfile: isDev ? 'Dockerfile.dev' : 'Dockerfile.server',
 				},
 				restart: 'unless-stopped',
-				volumes: [EnvType.test, EnvType.dev].includes(env) ? ['./face:/app', './face:/public'] : undefined,
-				command: [EnvType.test, EnvType.dev].includes(env) ? 'yarn run dev' : 'yarn run start',
+				volumes: isDev ? ['./face:/app', './face:/public'] : undefined,
+				command: isDev ? 'yarn run dev' : 'yarn run start',
 				container_name: 'explain-face',
 				depends_on: ['explainserver'],
-				environment: getFaceEnvs(env),
+				environment: getFaceEnvs(mode),
 			},
 		},
-		networks: env === EnvType.server && !serverCheck ? getServerNetworks() : undefined,
+		networks: mode === Mode.publish && !serverCheck ? getServerNetworks() : undefined,
 	}
 }
 
@@ -64,33 +69,36 @@ function getServerNetworks() {
 
 /**
  * Возвращает переменные окружения для Nginx
- * @param env — тип конфигурации
+ * @param mode — тип конфигурации
  * @param serverCheck — конфигурация для проверки собираемости на сервере
  */
-function getNginxEnvs(env: EnvType, serverCheck?: boolean) {
-	if (env !== EnvType.server || serverCheck) return undefined
+function getNginxEnvs(mode: Mode, serverCheck?: boolean) {
+	if (mode !== Mode.publish || serverCheck) return undefined
+
+	const domain = getDomain(mode)
+	const domains = `${domain},www.${domain}`
 
 	return {
-		VIRTUAL_HOST: `${domain},www.${domain}`,
-		LETSENCRYPT_HOST: `${domain},www.${domain}`,
+		VIRTUAL_HOST: domains,
+		LETSENCRYPT_HOST: domains,
 	}
 }
 
 /**
  * Возвращает переменные окружения для Api
- * @param env — тип конфигурации
+ * @param mode — тип конфигурации
  */
-function getServerEnvs(env: EnvType) {
+function getServerEnvs(mode: Mode) {
 	return {
-		MODE: env,
+		MODE: mode,
 		PORT: 3001,
 	}
 }
 
 /**
  * Возвращает переменные окружения для Face
- * @param env — тип конфигурации
+ * @param mode — тип конфигурации
  */
-function getFaceEnvs(env: EnvType) {
-	return { MODE: env }
+function getFaceEnvs(mode: Mode) {
+	return { MODE: mode }
 }

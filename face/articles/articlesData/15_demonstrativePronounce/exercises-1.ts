@@ -54,25 +54,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 		},
 		{
 			rusSentence: 'Это не так уж и безумно.',
-			engSentences: [
-				{ engSentences: ['This is not so crazy.'], isCorrect: true },
-				{
-					engSentences: [],
-					isCorrect: false,
-					analysis: [
-						{
-							type: 'paragraph',
-							children: [
-								{
-									type: 'text',
-
-									text: 'В этом предложе«Он» — это третье лицо, поэтому to be будет в форме is.',
-								},
-							],
-						},
-					],
-				},
-			],
+			engSentences: [{ engSentences: ['This is not so crazy.'], isCorrect: true }],
 			words: [{ rusWord: 'безумный', engWord: 'crazy' }],
 		},
 		{
@@ -174,6 +156,22 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{ rusWord: 'клуб', engWord: 'club' },
 				{ rusWord: 'модный', engWord: 'trendy' },
 				{ rusWord: 'эксклюзивный', engWord: 'exclusive' },
+			],
+		},
+		{
+			rusSentence: 'Это простая юбка.',
+			engSentences: [{ engSentences: ['This is a plain skirt.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'простой', engWord: 'plain' },
+				{ rusWord: 'юбка', engWord: 'skirt' },
+			],
+		},
+		{
+			rusSentence: 'Это оливковое масло.',
+			engSentences: [{ engSentences: ['This is olive oil.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'оливковый', engWord: 'olive' },
+				{ rusWord: 'масло', engWord: 'oil' },
 			],
 		},
 	],

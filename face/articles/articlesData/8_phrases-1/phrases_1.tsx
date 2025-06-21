@@ -244,7 +244,7 @@ const phrases_1: ArticleType.Art = {
 			textSize: 'giant',
 			parts: [
 				{ rus: [{ type: 'text', text: 'Гектор работает репортером на 9 канале.' }] },
-				{ eng: [{ type: 'text', text: 'Hector works as a reporter on Channel 9' }] },
+				{ eng: [{ type: 'text', text: 'Hector works as a reporter on Channel 9.' }] },
 			],
 		},
 		{

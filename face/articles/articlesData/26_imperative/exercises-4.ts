@@ -22,13 +22,67 @@ const exercises_4: ExercisesType.ExercisesObj = {
 			rusSentence: 'Не клади пакет на стол!',
 			engSentences: [
 				{
-					engSentences: ['Don\'t put the bag on the table!'],
+					engSentences: ['Do not put the bag on the table!'],
 					isCorrect: true,
 				},
 			],
 			words: [
 				{ rusWord: 'капитаны', engWord: 'captains' },
 				{ rusWord: 'уже', engWord: 'already' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Не хлопайте дверью.',
+			engSentences: [
+				{
+					engSentences: ['Do not slam the door.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'капитаны', engWord: 'captains' },
+				{ rusWord: 'уже', engWord: 'already' },
+			],
+		},
+		{
+			rusSentence: 'Не трогай мои вещи.',
+			engSentences: [
+				{
+					engSentences: ['Do not touch my things.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'трогать', engWord: 'touch' },
+				{ rusWord: 'вещь', engWord: 'thing' },
+			],
+		},
+		{
+			// TODO
+			rusSentence: 'Энни, пожалуйста, не будь глупой. Останься и будь с ней мила.',
+			engSentences: [
+				{
+					engSentences: ['Annie, please do not be silly. Stay and be nice to her.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'капитаны', engWord: 'captains' },
+				{ rusWord: 'уже', engWord: 'already' },
+			],
+		},
+		{
+			rusSentence: 'Не ешь это яблоко.',
+			engSentences: [
+				{
+					engSentences: ['Do not eat that apple.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'есть', engWord: 'eat' },
+				{ rusWord: 'яблоко', engWord: 'apple' },
 			],
 		},
 	],

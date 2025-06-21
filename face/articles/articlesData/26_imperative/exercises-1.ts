@@ -21,21 +21,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
-			rusSentence: 'Не хлопайте дверью.',
-			engSentences: [
-				{
-					engSentences: ['Do not slam the door.'],
-					isCorrect: true,
-				},
-			],
-			words: [
-				{ rusWord: 'капитаны', engWord: 'captains' },
-				{ rusWord: 'уже', engWord: 'already' },
-			],
-		},
-		{
-			// TODO
 			rusSentence: 'Больше энергии, пожалуйста!',
 			engSentences: [
 				{
@@ -44,12 +29,12 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'капитаны', engWord: 'captains' },
-				{ rusWord: 'уже', engWord: 'already' },
+				{ rusWord: 'больше', engWord: 'more' },
+				{ rusWord: 'энергия', engWord: 'energy' },
+				{ rusWord: 'пожалуйста', engWord: 'please' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Отделите желток от белка.',
 			engSentences: [
 				{
@@ -58,12 +43,12 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'капитаны', engWord: 'captains' },
-				{ rusWord: 'уже', engWord: 'already' },
+				{ rusWord: 'отделять', engWord: 'separate' },
+				{ rusWord: 'желток', engWord: 'yolk' },
+				{ rusWord: 'белок', engWord: 'white' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Быстро! Переключай каналы!',
 			engSentences: [
 				{
@@ -72,26 +57,12 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'капитаны', engWord: 'captains' },
-				{ rusWord: 'уже', engWord: 'already' },
+				{ rusWord: 'быстро', engWord: 'quick' },
+				{ rusWord: 'переключить', engWord: 'change' },
+				{ rusWord: 'канал', engWord: 'channel' },
 			],
 		},
 		{
-			// TODO
-			rusSentence: 'Не ешь это яблоко.',
-			engSentences: [
-				{
-					engSentences: ['Do not eat that apple.'],
-					isCorrect: true,
-				},
-			],
-			words: [
-				{ rusWord: 'капитаны', engWord: 'captains' },
-				{ rusWord: 'уже', engWord: 'already' },
-			],
-		},
-		{
-			// TODO
 			rusSentence: 'Измерьте расстояние между полками.',
 			engSentences: [
 				{
@@ -100,12 +71,13 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'капитаны', engWord: 'captains' },
-				{ rusWord: 'уже', engWord: 'already' },
+				{ rusWord: 'мерить', engWord: 'measure' },
+				{ rusWord: 'расстояние', engWord: 'distance' },
+				{ rusWord: 'между', engWord: 'between' },
+				{ rusWord: 'полка', engWord: 'shelve' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Пожелайте нам удачи.',
 			engSentences: [
 				{
@@ -114,26 +86,11 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'капитаны', engWord: 'captains' },
-				{ rusWord: 'уже', engWord: 'already' },
+				{ rusWord: 'желать', engWord: 'wish' },
+				{ rusWord: 'удача', engWord: 'luck' },
 			],
 		},
 		{
-			// TODO
-			rusSentence: 'Не трогай мои вещи.',
-			engSentences: [
-				{
-					engSentences: ['Do not touch my things.'],
-					isCorrect: true,
-				},
-			],
-			words: [
-				{ rusWord: 'капитаны', engWord: 'captains' },
-				{ rusWord: 'уже', engWord: 'already' },
-			],
-		},
-		{
-			// TODO
 			rusSentence: 'Закройте глаза и расслабьтесь.',
 			engSentences: [
 				{
@@ -142,12 +99,12 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'капитаны', engWord: 'captains' },
-				{ rusWord: 'уже', engWord: 'already' },
+				{ rusWord: 'закрывать', engWord: 'close' },
+				{ rusWord: 'глаз', engWord: 'eye' },
+				{ rusWord: 'расслабляться', engWord: 'relax' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Иди сюда, дай мне свою руку.',
 			engSentences: [
 				{
@@ -156,12 +113,13 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'капитаны', engWord: 'captains' },
-				{ rusWord: 'уже', engWord: 'already' },
+				{ rusWord: 'иди', engWord: 'come' },
+				{ rusWord: 'сюда', engWord: 'here' },
+				{ rusWord: 'дай', engWord: 'give' },
+				{ rusWord: 'рука', engWord: 'hand' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Сходи в Мигрос и купи корм для котят.',
 			engSentences: [
 				{
@@ -170,8 +128,9 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'капитаны', engWord: 'captains' },
-				{ rusWord: 'уже', engWord: 'already' },
+				{ rusWord: 'купить', engWord: 'captains' },
+				{ rusWord: 'корм', engWord: 'already' },
+				{ rusWord: 'для котят', engWord: 'kitten food' },
 			],
 		},
 		{
@@ -214,6 +173,33 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			words: [
 				{ rusWord: 'капитаны', engWord: 'captains' },
 				{ rusWord: 'уже', engWord: 'already' },
+			],
+		},
+		{
+			rusSentence: 'Доброе утро!',
+			engSentences: [
+				{
+					engSentences: ['Good morning!'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'добрый', engWord: 'good' },
+				{ rusWord: 'утро', engWord: 'morning' },
+			],
+		},
+		{
+			rusSentence: 'Быстро, возьму плёнку!',
+			engSentences: [
+				{
+					engSentences: ['Quick, get the tape.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'быстро', engWord: 'quick' },
+				{ rusWord: 'возьму', engWord: 'get' },
+				{ rusWord: 'плёнка', engWord: 'tape' },
 			],
 		},
 	],

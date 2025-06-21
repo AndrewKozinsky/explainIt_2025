@@ -31,11 +31,11 @@ const exercises_6: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Мне нравится эта новость.',
 			engSentences: [{ engSentences: ['I like this news.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'смотреть', engWord: 'watch' },
+				{ rusWord: 'любить', engWord: 'like' },
+				{ rusWord: 'эта', engWord: 'this' },
 				{ rusWord: 'новость', engWord: 'news' },
 			],
 		},
@@ -112,7 +112,6 @@ const exercises_6: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Ей нужны новые очки.',
 			engSentences: [
 				{
@@ -121,14 +120,12 @@ const exercises_6: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'такой', engWord: 'some' },
-				{ rusWord: 'случай', engWord: 'great' },
-				{ rusWord: 'возникать, происходить', engWord: 'occur' },
-				{ rusWord: 'постоянно', engWord: 'all the time' },
+				{ rusWord: 'нуждаться', engWord: 'need' },
+				{ rusWord: 'новый', engWord: 'new' },
+				{ rusWord: 'очки, происходить', engWord: 'glass' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Я покупаю новые брюки.',
 			engSentences: [
 				{
@@ -137,14 +134,12 @@ const exercises_6: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'такой', engWord: 'some' },
-				{ rusWord: 'случай', engWord: 'great' },
-				{ rusWord: 'возникать, происходить', engWord: 'occur' },
-				{ rusWord: 'постоянно', engWord: 'all the time' },
+				{ rusWord: 'покупать', engWord: 'buy' },
+				{ rusWord: 'новый', engWord: 'new' },
+				{ rusWord: 'брюки', engWord: 'trousers' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Эти джинсы подходят мне.',
 			engSentences: [
 				{
@@ -153,14 +148,11 @@ const exercises_6: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'такой', engWord: 'some' },
-				{ rusWord: 'случай', engWord: 'great' },
-				{ rusWord: 'возникать, происходить', engWord: 'occur' },
-				{ rusWord: 'постоянно', engWord: 'all the time' },
+				{ rusWord: 'джинсы', engWord: 'jeans' },
+				{ rusWord: 'подходить', engWord: 'fit' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Она использует беспроводные наушники.',
 			engSentences: [
 				{
@@ -169,26 +161,24 @@ const exercises_6: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'такой', engWord: 'some' },
-				{ rusWord: 'случай', engWord: 'great' },
-				{ rusWord: 'возникать, происходить', engWord: 'occur' },
-				{ rusWord: 'постоянно', engWord: 'all the time' },
+				{ rusWord: 'использовать', engWord: 'use' },
+				{ rusWord: 'беспроводной', engWord: 'wireless' },
+				{ rusWord: 'наушники', engWord: 'headphones' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Весы показывают 70 кг.',
 			engSentences: [
 				{
-					engSentences: ['The scales show 70 kg.'],
+					engSentences: ['The scales show 70 kg.', 'The scales show seventy kg.'],
 					isCorrect: true,
 				},
 			],
 			words: [
-				{ rusWord: 'такой', engWord: 'some' },
-				{ rusWord: 'случай', engWord: 'great' },
-				{ rusWord: 'возникать, происходить', engWord: 'occur' },
-				{ rusWord: 'постоянно', engWord: 'all the time' },
+				{ rusWord: 'весы', engWord: 'scales' },
+				{ rusWord: '70', engWord: 'seventy' },
+				{ rusWord: 'показывать', engWord: 'show' },
+				{ rusWord: 'кг', engWord: 'kg' },
 			],
 		},
 	],

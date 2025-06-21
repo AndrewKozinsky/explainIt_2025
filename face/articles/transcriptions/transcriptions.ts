@@ -132,6 +132,216 @@ export const transcriptions = {
 		audio: false,
 	},
 
+	do_you_support_this_idea: {
+		sentence: 'Do you support this idea?',
+		transcription: 'duː juː səˈpɔːrt ðɪs aɪˈdɪə',
+		audio: false,
+	},
+
+	do_you_like_this_movie: {
+		sentence: 'Do you like this movie?',
+		transcription: 'duː juː laɪk ðɪs ˈmuːvi',
+		audio: false,
+	},
+
+	do_they_usually_buy_cheap_food: {
+		sentence: 'Do they usually buy cheap food?',
+		transcription: 'duː ðeɪ ˈjuːʒuəli baɪ tʃiːp fuːd',
+		audio: false,
+	},
+
+	do_you_get_enough_money: {
+		sentence: 'Do you get enough money?',
+		transcription: 'duː juː ɡet ɪˈnʌf ˈmʌni',
+		audio: false,
+	},
+
+	does_he_support_the_local_football_club: {
+		sentence: 'Does he support the local football club?',
+		transcription: 'dʌz hiː səˈpɔːrt ðə ˈləʊkl ˈfʊtbɔːl klʌb',
+		audio: false,
+	},
+
+	do_they_buy_it_online: {
+		sentence: 'Do they buy it online?',
+		transcription: 'du ðeɪ ˈbaɪ ɪt ˌɔnˈlaɪn',
+		audio: false,
+	},
+
+	does_she_prefer_only_black_tea: {
+		sentence: 'Does she prefer only black tea?',
+		transcription: 'dʌz ʃi prɪˈfɜr ˈoʊnli blæk ti',
+		audio: false,
+	},
+
+	do_you_believe_in_horoscopes: {
+		sentence: 'Do you believe in horoscopes?',
+		transcription: 'du ju bɪˈliv ɪn ˈhɔrəˌskoʊps',
+		audio: false,
+	},
+
+	do_you_like_this_music: {
+		sentence: 'Do you like this music?',
+		transcription: 'du ju laɪk ðɪs ˈmjuzɪk',
+		audio: false,
+	},
+
+	do_you_wort_in_different_buildings: {
+		sentence: 'Do you wort in different buildings?',
+		transcription: 'du ju wɜrk ɪn ˈdɪf(ə)rənt ˈbɪldɪŋz',
+		audio: false,
+	},
+
+	actually_html_is_not_so_difficult_language: {
+		sentence: 'Actually HTML is not so difficult language.',
+		transcription: 'ˈæk.tʃu.ə.li ˌeɪtʃ.tiː.ɛmˈɛl ɪz nɒt səʊ ˈdɪ.fɪ.kəlt ˈlæŋ.ɡwɪdʒ',
+		audio: false,
+	},
+
+	bracelets_earrings_rings_and_necklaces_are_jewelry: {
+		sentence: 'Bracelets, earrings, rings and necklaces are jewelry.',
+		transcription: 'ˈbreɪ.sləts ˈɪə.rɪŋz rɪŋz ənd ˈnek.lɪ.sɪz ɑː ˈdʒuː.əl.ri',
+		audio: false,
+	},
+
+	i_see_trouble_ahead: {
+		sentence: 'I see trouble ahead.',
+		transcription: 'aɪ siː ˈtrʌ.bəl əˈhed',
+		audio: false,
+	},
+
+	the_museum_works_every_day: {
+		sentence: 'The museum works every day.',
+		transcription: 'ðə mjuˈzɪəm wɜːks ˈev.ri deɪ',
+		audio: false,
+	},
+
+	at_least_he_is_a_real_man: {
+		sentence: 'At least he is a real man!',
+		transcription: 'ət liːst hi ɪz ə ˈrɪəl mæn',
+		audio: false,
+	},
+
+	it_is_just_a_curious_fact: {
+		sentence: 'It is just a curious fact.',
+		transcription: 'ɪt ɪz dʒʌst ə ˈkjʊəriəs fækt',
+		audio: false,
+	},
+
+	it_is_a_disaster_it_is_a_catastrophe: {
+		sentence: 'It is a disaster. It is a catastrophe.',
+		transcription: 'ɪt ɪz ə dɪˈzɑːstə ɪt ɪz ə kəˈtæstrəfi',
+		audio: false,
+	},
+
+	i_am_very_very_pleased: {
+		sentence: 'I am very, very pleased.',
+		transcription: 'aɪ æm ˈveri ˈveri pliːzd',
+		audio: false,
+	},
+
+	mary_is_a_good_student: {
+		sentence: 'Mary is a good student.',
+		transcription: 'ˈmeri ɪz ə ɡʊd ˈstuːdənt',
+		audio: false,
+	},
+
+	the_food_is_in_the_refrigerator: {
+		sentence: 'The food is in the refrigerator.',
+		transcription: 'ðə fuːd ɪz ɪn ðə rəˈfrɪdʒəˌreɪtər',
+		audio: false,
+	},
+
+	she_writes_in_the_notebook: {
+		sentence: 'She writes in the notebook.',
+		transcription: 'ʃi ˈraɪts ɪn ðə ˈnoʊtbʊk',
+		audio: false,
+	},
+
+	mary_turns_on_a_laptop_every_morning: {
+		sentence: 'Mary turns on a laptop every morning.',
+		transcription: 'ˈmɛri ˈtɜrnz ɑn ə ˈlæpˌtɑp ˈɛvri ˈmɔrnɪŋ',
+		audio: false,
+	},
+
+	hector_works_as_a_reporter_on_channel_9: {
+		sentence: 'Hector works as a reporter on Channel 9.',
+		transcription: 'ˈhɛktər wɜrks æz ə rɪˈpɔrtər ɑn ˈʧænəl naɪn',
+		audio: false,
+	},
+
+	so_do_you_still_want_to_be_a_waiter: {
+		sentence: 'So do you still want to be a waiter?',
+		transcription: 'soʊ du ju stɪl wɑnt tə bi ə ˈweɪtər',
+		audio: false,
+	},
+
+	she_is_a_famous_artist: {
+		sentence: 'She is a famous artist.',
+		transcription: 'ʃi ɪz ə ˈfeɪməs ˈɑrtɪst',
+		audio: false,
+	},
+
+	she_feels_so_lonely: {
+		sentence: 'She feels so lonely.',
+		transcription: 'ʃi fiːlz səʊ ˈləʊnli',
+		audio: false,
+	},
+
+	cats_love_milk: {
+		sentence: 'Cats love milk.',
+		transcription: 'kæts lʌv mɪlk',
+		audio: false,
+	},
+
+	i_love_rainy_weather: {
+		sentence: 'I love rainy weather.',
+		transcription: 'aɪ lʌv ˈreɪni ˈwɛðə',
+		audio: false,
+	},
+
+	i_hate_loud_noises: {
+		sentence: 'I hate loud noises.',
+		transcription: 'aɪ heɪt laʊd ˈnɔɪzɪz',
+		audio: false,
+	},
+
+	i_often_visit_my_grandparents: {
+		sentence: 'I often visit my grandparents.',
+		transcription: 'aɪ ˈɔːfən ˈvɪzɪt maɪ ˈɡrændˌperənts',
+		audio: false,
+	},
+
+	the_scales_show_70_kg: {
+		sentence: 'The scales show 70 kg.',
+		transcription: '',
+		audio: false,
+	},
+
+	he_studies_in_another_group: {
+		sentence: 'He studies in another group.',
+		transcription: '',
+		audio: false,
+	},
+
+	i_dont_feel_comfortable_in_your_room: {
+		sentence: 'I don’t feel comfortable in your room.',
+		transcription: '',
+		audio: false,
+	},
+
+	she_feels_exhausted: {
+		sentence: 'She feels exhausted.',
+		transcription: '',
+		audio: false,
+	},
+
+	he_feels_so_unhappy: {
+		sentence: 'He feels so unhappy.',
+		transcription: '',
+		audio: false,
+	},
+
 	// -----
 	we_show_bad_results: {
 		sentence: 'We show bad results.',
@@ -1292,7 +1502,6 @@ export const transcriptions = {
 		transcription: 'aɪ ˈpræktɪs ˈfɔːrn læŋɡwɪdʒz',
 		audio: false,
 	},
-
 	you_speak_english_very_well: {
 		sentence: 'You speak English very well.',
 		transcription: 'juː speik ɛŋɡlɪʃ vɛri wɛl',
@@ -3412,7 +3621,7 @@ export const transcriptions = {
 	},
 
 	this_love_is_difficult_but_its_real: {
-		sentence: 'This love is difficult, but it\'s real.',
+		sentence: "This love is difficult, but it's real.",
 		transcription: 'ðɪs lʌv ɪz dɪˈfɪkəlt, bət ɪtˈs rɪəl',
 		audio: false,
 	},
@@ -3448,7 +3657,7 @@ export const transcriptions = {
 	},
 
 	is_this_a_pencil_no_its_a_pen: {
-		sentence: 'Is this a pencil? No, it\'s a pen.',
+		sentence: "Is this a pencil? No, it's a pen.",
 		transcription: 'is ˈðɪs ə ˈpɛn.ɫ.səʊ ˈnəʊ ɪt ɪz ə ˈpɛn',
 		audio: false,
 	},
@@ -4709,192 +4918,6 @@ export const transcriptions = {
 
 	she_uses_wireless_headphones: {
 		sentence: 'She uses wireless headphones.',
-		transcription: '',
-		audio: false,
-	},
-
-	the_scales_show_70_kg: {
-		sentence: 'The scales show 70 kg.',
-		transcription: '',
-		audio: false,
-	},
-
-	he_studies_in_another_group: {
-		sentence: 'He studies in another group.',
-		transcription: '',
-		audio: false,
-	},
-
-	i_dont_feel_comfortable_in_your_room: {
-		sentence: 'I don’t feel comfortable in your room.',
-		transcription: '',
-		audio: false,
-	},
-
-	she_feels_exhausted: {
-		sentence: 'She feels exhausted.',
-		transcription: '',
-		audio: false,
-	},
-
-	he_feels_so_unhappy: {
-		sentence: 'He feels so unhappy.',
-		transcription: '',
-		audio: false,
-	},
-
-	she_feels_so_lonely: {
-		sentence: 'She feels so lonely.',
-		transcription: '',
-		audio: false,
-	},
-
-	she_writes_in_the_notebook: {
-		sentence: 'She writes in the notebook.',
-		transcription: '',
-		audio: false,
-	},
-
-	mary_turns_on_a_laptop_every_morning: {
-		sentence: 'Mary turns on a laptop every morning.',
-		transcription: '',
-		audio: false,
-	},
-
-	hector_works_as_a_reporter_on_channel_9: {
-		sentence: 'Hector works as a reporter on Channel 9',
-		transcription: '',
-		audio: false,
-	},
-
-	so_do_you_still_want_to_be_a_waiter: {
-		sentence: 'So do you still want to be a waiter?',
-		transcription: '',
-		audio: false,
-	},
-
-	she_is_a_famous_artist: {
-		sentence: 'She is a famous artist.',
-		transcription: '',
-		audio: false,
-	},
-
-	it_is_just_a_curious_fact: {
-		sentence: 'It is just a curious fact.',
-		transcription: '',
-		audio: false,
-	},
-
-	it_is_a_disaster_it_is_a_catastrophe: {
-		sentence: 'It is a disaster. It is a catastrophe.',
-		transcription: '',
-		audio: false,
-	},
-
-	i_am_very_very_pleased: {
-		sentence: 'I am very, very pleased.',
-		transcription: '',
-		audio: false,
-	},
-
-	mary_is_a_good_student: {
-		sentence: 'Mary is a good student.',
-		transcription: '',
-		audio: false,
-	},
-
-	the_food_is_in_the_refrigerator: {
-		sentence: 'The food is in the refrigerator.',
-		transcription: '',
-		audio: false,
-	},
-
-	actually_html_is_not_so_difficult_language: {
-		sentence: 'Actually HTML is not so difficult language.',
-		transcription: '',
-		audio: false,
-	},
-
-	bracelets_earrings_rings_and_necklaces_are_jewelry: {
-		sentence: 'Bracelets, earrings, rings and necklaces are jewelry.',
-		transcription: '',
-		audio: false,
-	},
-
-	i_see_trouble_ahead: {
-		sentence: 'I see trouble ahead.',
-		transcription: '',
-		audio: false,
-	},
-
-	the_museum_works_every_day: {
-		sentence: 'The museum works every day.',
-		transcription: '',
-		audio: false,
-	},
-
-	at_least_he_is_a_real_man: {
-		sentence: 'At least he is a real man!',
-		transcription: '',
-		audio: false,
-	},
-
-	do_they_buy_it_online: {
-		sentence: 'Do they buy it online?',
-		transcription: '',
-		audio: false,
-	},
-
-	does_she_prefer_only_black_tea: {
-		sentence: 'Does she prefer only black tea?',
-		transcription: '',
-		audio: false,
-	},
-
-	do_you_believe_in_horoscopes: {
-		sentence: 'Do you believe in horoscopes?',
-		transcription: '',
-		audio: false,
-	},
-
-	do_you_like_this_music: {
-		sentence: 'Do you like this music?',
-		transcription: '',
-		audio: false,
-	},
-
-	do_you_wort_in_different_buildings: {
-		sentence: 'Do you wort in different buildings?',
-		transcription: '',
-		audio: false,
-	},
-
-	do_you_support_this_idea: {
-		sentence: 'Do you support this idea?',
-		transcription: '',
-		audio: false,
-	},
-
-	do_you_like_this_movie: {
-		sentence: 'Do you like this movie?',
-		transcription: '',
-		audio: false,
-	},
-
-	do_they_usually_buy_cheap_food: {
-		sentence: 'Do they usually buy cheap food?',
-		transcription: '',
-		audio: false,
-	},
-
-	do_you_get_enough_money: {
-		sentence: 'Do you get enough money?',
-		transcription: '',
-		audio: false,
-	},
-
-	does_he_support_the_local_football_club: {
-		sentence: 'Does he support the local football club?',
 		transcription: '',
 		audio: false,
 	},

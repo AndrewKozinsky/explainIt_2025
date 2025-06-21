@@ -29,7 +29,7 @@ services:
   explainface:
     build:
       context: face/
-      dockerfile: Dockerfile.server
+      dockerfile: Dockerfile.dev
     restart: unless-stopped
     volumes:
       - ./face:/app

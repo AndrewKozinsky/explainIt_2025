@@ -622,39 +622,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 		},
 		{
 			rusSentence: 'Кстати, он очень хороший врач.',
-			engSentences: [
-				{ engSentences: ['He is a very good doctor, by the way.'], isCorrect: true },
-				{
-					engSentences: [],
-					isCorrect: false,
-					analysis: [
-						{
-							type: 'paragraph',
-							children: [
-								{
-									type: 'text',
-									text: 'Сообщается кем он является — очень хорошим врачом. Поэтому после подлежащего должен быть to be. B один один из «очень хороших докторов». Поэтому перед этим словосочетанием должен быть неопределённый артикль a.',
-								},
-							],
-						},
-					],
-				},
-				{
-					engSentences: [],
-					isCorrect: false,
-					analysis: [
-						{
-							type: 'paragraph',
-							children: [
-								{
-									type: 'text',
-									text: 'Грамматически правильно, но забыли слово «очень».',
-								},
-							],
-						},
-					],
-				},
-			],
+			engSentences: [{ engSentences: ['He is a very good doctor, by the way.'], isCorrect: true }],
 			words: [
 				{ rusWord: 'кстати', engWord: 'by the way' },
 				{ rusWord: 'хороший', engWord: 'good' },
@@ -728,24 +696,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 		},
 		{
 			rusSentence: 'Человеческий младенец полностью беспомощен.',
-			engSentences: [
-				{ engSentences: ['A human baby is totally helpless.'], isCorrect: true },
-				{
-					engSentences: [],
-					isCorrect: false,
-					analysis: [
-						{
-							type: 'paragraph',
-							children: [
-								{
-									type: 'text',
-									text: 'В этом пр',
-								},
-							],
-						},
-					],
-				},
-			],
+			engSentences: [{ engSentences: ['A human baby is totally helpless.'], isCorrect: true }],
 			words: [
 				{ rusWord: 'человеческий', engWord: 'human' },
 				{ rusWord: 'младенец', engWord: 'baby' },
@@ -909,26 +860,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 		},
 		{
 			rusSentence: 'Он дикарь.',
-			engSentences: [
-				{ engSentences: ['He is a savage.'], isCorrect: true },
-				{
-					engSentences: [],
-					isCorrect: false,
-					analysis: [
-						{
-							type: 'paragraph',
-
-							children: [
-								{
-									type: 'text',
-
-									text: 'Местоимение he стоит в третьем лице. А to be в третьем лице настоящего времени будет в форме is. В остальном предложение правильное.',
-								},
-							],
-						},
-					],
-				},
-			],
+			engSentences: [{ engSentences: ['He is a savage.'], isCorrect: true }],
 			words: [{ rusWord: 'дикарь', engWord: 'savage' }],
 		},
 		{
@@ -1115,13 +1047,11 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Я думаю, это инструкция.',
 			engSentences: [{ engSentences: ['I think it is the instructions.'], isCorrect: false }],
 			words: [
-				{ rusWord: 'просто', engWord: 'just' },
-				{ rusWord: 'любопытный', engWord: 'fun' },
-				{ rusWord: 'факт', engWord: 'fact' },
+				{ rusWord: 'думать', engWord: 'think' },
+				{ rusWord: 'инструкция', engWord: 'instruction' },
 			],
 		},
 		{

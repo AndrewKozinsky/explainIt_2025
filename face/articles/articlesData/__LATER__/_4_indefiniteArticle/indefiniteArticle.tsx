@@ -756,57 +756,6 @@
 							engSentences: ['A metal bench is less popular than a wooden bench.'],
 							isCorrect: true,
 						},
-						{
-							engSentences: [],
-							isCorrect: false,
-							analysis: [
-								{
-									type: 'paragraph',
-									children: [
-										{
-											type: 'text',
-
-											text: 'Не th',
-										},
-										{ type: 'text',  weight: 'bold', text: 'e' },
-										{
-											type: 'text',
-
-											text: 'n, а th',
-										},
-										{ type: 'text',  weight: 'bold', text: 'a' },
-										{
-											type: 'text',
-
-											text: 'n.',
-										},
-									],
-								},
-								{
-									type: 'paragraph',
-									offset: true,
-
-									children: [
-										{
-											type: 'text',
-
-											text: 'Перед ',
-										},
-										{
-											type: 'text',
-
-											weight: 'bold',
-											text: 'wooden bench',
-										},
-										{
-											type: 'text',
-
-											text: ' тоже нужен артикль.',
-										},
-									],
-								},
-							],
-						},
 					],
 					words: [
 						{ rusWord: 'металлический', engWord: 'metal' },
@@ -823,23 +772,6 @@
 					rusSentence: 'Преступник должен быть в тюрьме.',
 					engSentences: [
 						{ engSentences: ['A criminal must be in prison.'], isCorrect: true },
-						{
-							engSentences: [],
-							isCorrect: false,
-							analysis: [
-								{
-									type: 'paragraph',
-
-									children: [
-										{
-											type: 'text',
-
-											text: 'В этом пр',
-										},
-									],
-								},
-							],
-						},
 					],
 					words: [
 						{ rusWord: 'преступник', engWord: 'criminal' },

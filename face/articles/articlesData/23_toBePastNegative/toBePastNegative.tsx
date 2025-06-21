@@ -68,6 +68,7 @@ const toBePastNegative: ArticleType.Art = {
 				},
 			],
 		},
+		exercises_1,
 	],
 }
 
