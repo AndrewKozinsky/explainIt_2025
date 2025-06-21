@@ -26,7 +26,7 @@ export class MainConfigService {
 
 	getEnVariables() {
 		return {
-			mode: this.configService.get<'test' | 'dev' | 'server'>('MODE'),
+			mode: this.configService.get<'localtest' | 'localdev' | 'localcheckserver' | 'serverdevelop' | 'servermaster'>('MODE'),
 			port: this.configService.get<number>('PORT') || 3001,
 			gigaChatClientId: this.configService.get<string>('GIGA_CHAT_CLIENT_ID') || '',
 			gigaChatClientSecret: this.configService.get<string>('GIGA_CHAT_CLIENT_SECRET') || '',

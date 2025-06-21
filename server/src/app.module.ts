@@ -21,7 +21,7 @@ import {AuthModule} from './routes/auth/auth.module'
 						path: join(process.cwd(), 'src/graphql.ts'),
 					},
 					autoSchemaFile: true,
-					// graphiql: mainConfigService.get().mode === 'dev',
+					// graphiql: mainConfigService.get().mode === 'localDev',
 					playground: false,
 					plugins: [ApolloServerPluginLandingPageLocalDefault()],
 				}

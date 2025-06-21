@@ -5,7 +5,7 @@ import { GigaChatService, GigaChatServiceMock } from './gigaChat.service'
 const gigaChatServiceProvider = {
 	provide: GigaChatService,
 	useFactory: (mainConfigService: MainConfigService) => {
-		return mainConfigService.get().mode === 'test'
+		return mainConfigService.get().mode === 'localtest'
 			? new GigaChatServiceMock()
 			: new GigaChatService(mainConfigService)
 	},

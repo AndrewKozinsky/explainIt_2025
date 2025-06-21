@@ -5,7 +5,7 @@ import { TelegramService, TelegramServiceMock } from './telegram.service'
 const telegramServiceProvider = {
 	provide: TelegramService,
 	useFactory: (mainConfigService: MainConfigService) => {
-		return mainConfigService.get().mode === 'test'
+		return mainConfigService.get().mode === 'localtest'
 			? new TelegramServiceMock()
 			: new TelegramService(mainConfigService)
 	},

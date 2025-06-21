@@ -1,4 +1,4 @@
-name: Deploy to the develop server
+name: Deploy to the master server
 on:
   push:
     branches:

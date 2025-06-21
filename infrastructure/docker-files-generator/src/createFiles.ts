@@ -7,27 +7,27 @@ const configs = [
 	{
 		// Докер для тестирования
 		name: 'local.test',
-		content: createDockerConfig(Mode.test),
+		content: createDockerConfig(Mode.localTest),
 	},
 	{
 		// Докер для разработки
 		name: 'local.dev',
-		content: createDockerConfig(Mode.dev),
+		content: createDockerConfig(Mode.localDev),
 	},
 	{
 		// Докер для проверки как соберётся сборка для сервера
 		name: 'local.server-check',
-		content: createDockerConfig(Mode.publish, true),
+		content: createDockerConfig(Mode.localCheckServer),
 	},
 	{
 		// Докер для развёртывания
 		name: 'server.develop',
-		content: createDockerConfig(Mode.dev),
+		content: createDockerConfig(Mode.serverDevelop),
 	},
 	{
 		// Докер для развёртывания
 		name: 'server.master',
-		content: createDockerConfig(Mode.publish),
+		content: createDockerConfig(Mode.serverMaster),
 	},
 ]
 
@@ -41,7 +41,7 @@ for (let i = 0; i < configs.length; i++) {
 		if (err) {
 			console.error(err)
 		} else {
-			// the file was written successfully
+			// The file was written successfully
 		}
 	})
 }

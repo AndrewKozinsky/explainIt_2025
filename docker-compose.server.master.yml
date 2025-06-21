@@ -1,38 +1,38 @@
 services:
-  explainnginx:
+  explainnginxservermaster:
     image: nginx:1.19.7-alpine
-    container_name: explain-nginx
+    container_name: explainnginxservermaster
     depends_on:
-      - explainface
-      - explainserver
+      - explainfaceservermaster
+      - explainserverservermaster
     volumes:
-      - ./nginx/nginx.conf.dev:/etc/nginx/nginx.conf
+      - ./nginx/nginx.conf.servermaster:/etc/nginx/nginx.conf
     environment:
       VIRTUAL_HOST: explainit.ru,www.explainit.ru
       LETSENCRYPT_HOST: explainit.ru,www.explainit.ru
-  explainserver:
+  explainserverservermaster:
     build:
       context: server/
       dockerfile: Dockerfile.server
     restart: unless-stopped
     command: yarn start:prod
-    container_name: explain-server
+    container_name: explainserverservermaster
     environment:
-      MODE: publish
+      MODE: servermaster
       PORT: 3001
     env_file:
       - .env
-  explainface:
+  explainfaceservermaster:
     build:
       context: face/
       dockerfile: Dockerfile.server
     restart: unless-stopped
     command: yarn run start
-    container_name: explain-face
+    container_name: explainfaceservermaster
     depends_on:
-      - explainserver
+      - explainserverservermaster
     environment:
-      MODE: publish
+      MODE: servermaster
 networks:
   default:
     external: true

@@ -1,37 +1,34 @@
 services:
-  explainnginx:
+  explainnginxlocalcheckserver:
     image: nginx:1.19.7-alpine
-    container_name: explain-nginx
+    container_name: explainnginxlocalcheckserver
     depends_on:
-      - explainface
-      - explainserver
+      - explainfacelocalcheckserver
+      - explainserverlocalcheckserver
     ports:
       - 80:80
     volumes:
-      - ./nginx/nginx.conf.dev:/etc/nginx/nginx.conf
-    environment:
-      VIRTUAL_HOST: explainit.ru,www.explainit.ru
-      LETSENCRYPT_HOST: explainit.ru,www.explainit.ru
-  explainserver:
+      - ./nginx/nginx.conf.localcheckserver:/etc/nginx/nginx.conf
+  explainserverlocalcheckserver:
     build:
       context: server/
       dockerfile: Dockerfile.server
     restart: unless-stopped
     command: yarn start:prod
-    container_name: explain-server
+    container_name: explainserverlocalcheckserver
     environment:
-      MODE: publish
+      MODE: localcheckserver
       PORT: 3001
     env_file:
       - .env
-  explainface:
+  explainfacelocalcheckserver:
     build:
       context: face/
       dockerfile: Dockerfile.server
     restart: unless-stopped
     command: yarn run start
-    container_name: explain-face
+    container_name: explainfacelocalcheckserver
     depends_on:
-      - explainserver
+      - explainserverlocalcheckserver
     environment:
-      MODE: publish
+      MODE: localcheckserver

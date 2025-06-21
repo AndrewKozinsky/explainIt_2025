@@ -1,0 +1,9 @@
+{
+  "name": "nginx-files-generator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "generate-nginx-files": "sh scriptDev.bash && sh scriptServer.bash"
+  }
+}

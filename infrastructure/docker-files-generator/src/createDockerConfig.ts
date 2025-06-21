@@ -1,34 +1,35 @@
 import { ConfigSchemaV37Json } from './types/ConfigSchemaV37Json'
 
 export enum Mode {
-	test = 'test',
-	dev = 'dev',
-	publish = 'publish',
-}
-
-function getDomain(mode: Mode) {
-	return mode === Mode.dev ? 'develop.explainit.ru' : 'explainit.ru'
+	localTest = 'localtest',
+	localDev = 'localdev',
+	localCheckServer = 'localcheckserver',
+	serverDevelop = 'serverdevelop',
+	serverMaster = 'servermaster',
 }
 
 /**
  * Возвращает объект конфигурации docker-compose для разработки, проверки развёртывания на сервере и для сервера
  * @param mode — тип работы
- * @param serverCheck — конфигурация для проверки собираемости на сервере
  */
-export function createDockerConfig(mode: Mode, serverCheck?: boolean): ConfigSchemaV37Json {
-	const isDev = [Mode.test, Mode.dev].includes(mode)
+export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
+	const isDev = [Mode.localTest, Mode.localDev].includes(mode)
+
+	const nginxServiceName = 'explainnginx' + mode
+	const serverServiceName = 'explainserver' + mode
+	const faceServiceName = 'explainface' + mode
 
 	return {
 		services: {
-			explainnginx: {
+			[nginxServiceName]: {
 				image: 'nginx:1.19.7-alpine',
-				container_name: 'explain-nginx',
-				depends_on: ['explainface', 'explainserver'],
-				ports: isDev || serverCheck ? ['80:80'] : undefined,
-				volumes: ['./nginx/nginx.conf.dev:/etc/nginx/nginx.conf'],
+				container_name: 'explainnginx' + mode,
+				depends_on: [faceServiceName, serverServiceName],
+				ports: [Mode.localTest, Mode.localDev, Mode.localCheckServer].includes(mode) ? ['80:80'] : undefined,
+				volumes: [`./nginx/nginx.conf.${mode}:/etc/nginx/nginx.conf`],
 				environment: getNginxEnvs(mode),
 			},
-			explainserver: {
+			[serverServiceName]: {
 				build: {
 					context: 'server/',
 					dockerfile: isDev ? 'Dockerfile.dev' : 'Dockerfile.server',
@@ -36,12 +37,12 @@ export function createDockerConfig(mode: Mode, serverCheck?: boolean): ConfigSch
 				restart: 'unless-stopped',
 				volumes: isDev ? ['./server/src:/app/src', './server/e2e:/app/e2e'] : undefined,
 				command: isDev ? 'yarn start:dev' : 'yarn start:prod',
-				container_name: 'explain-server',
+				container_name: 'explainserver' + mode,
 				environment: getServerEnvs(mode),
 				env_file: ['.env'],
 				ports: isDev ? ['3001:3001'] : undefined,
 			},
-			explainface: {
+			[faceServiceName]: {
 				build: {
 					context: 'face/',
 					dockerfile: isDev ? 'Dockerfile.dev' : 'Dockerfile.server',
@@ -49,12 +50,14 @@ export function createDockerConfig(mode: Mode, serverCheck?: boolean): ConfigSch
 				restart: 'unless-stopped',
 				volumes: isDev ? ['./face:/app', './face:/public'] : undefined,
 				command: isDev ? 'yarn run dev' : 'yarn run start',
-				container_name: 'explain-face',
-				depends_on: ['explainserver'],
+				container_name: 'explainface' + mode,
+				depends_on: [serverServiceName],
 				environment: getFaceEnvs(mode),
 			},
 		},
-		networks: mode === Mode.publish && !serverCheck ? getServerNetworks() : undefined,
+		networks: mode === Mode.serverDevelop || mode === Mode.serverMaster
+			? getServerNetworks()
+			: undefined,
 	}
 }
 
@@ -70,18 +73,21 @@ function getServerNetworks() {
 /**
  * Возвращает переменные окружения для Nginx
  * @param mode — тип конфигурации
- * @param serverCheck — конфигурация для проверки собираемости на сервере
  */
-function getNginxEnvs(mode: Mode, serverCheck?: boolean) {
-	if (mode !== Mode.publish || serverCheck) return undefined
+function getNginxEnvs(mode: Mode) {
+	if (mode === Mode.serverDevelop || mode === Mode.serverMaster) {
+		const domain = mode === Mode.serverDevelop
+			? 'develop.explainit.ru'
+			: 'explainit.ru'
+		const domains = `${domain},www.${domain}`
 
-	const domain = getDomain(mode)
-	const domains = `${domain},www.${domain}`
-
-	return {
-		VIRTUAL_HOST: domains,
-		LETSENCRYPT_HOST: domains,
+		return {
+			VIRTUAL_HOST: domains,
+			LETSENCRYPT_HOST: domains,
+		}
 	}
+
+	return undefined
 }
 
 /**

@@ -1,0 +1,35 @@
+events {}
+
+http {
+    include mime.types;
+
+    server {
+        listen 80;
+
+        location ^~ /graphql {
+            proxy_pass http://explainserverlocaldev:3001;
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade ;
+            proxy_set_header Connection "upgrade";
+            proxy_set_header Host ;
+            proxy_set_header X-Real-IP ;
+            proxy_set_header X-Forwarded-For ;
+            proxy_set_header X-Forwarded-Proto ;
+        }
+
+        location / {
+            proxy_pass http://explainfacelocaldev:3000;
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade ;
+            proxy_set_header Connection "upgrade";
+            proxy_set_header Host ;
+            proxy_set_header X-Real-IP ;
+            proxy_set_header X-Forwarded-For ;
+            proxy_set_header X-Forwarded-Proto ;
+        }
+
+        location /nginx-test {
+            return 200 'Hello from test';
+        }
+    }
+}

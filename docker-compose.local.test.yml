@@ -1,15 +1,15 @@
 services:
-  explainnginx:
+  explainnginxlocaltest:
     image: nginx:1.19.7-alpine
-    container_name: explain-nginx
+    container_name: explainnginxlocaltest
     depends_on:
-      - explainface
-      - explainserver
+      - explainfacelocaltest
+      - explainserverlocaltest
     ports:
       - 80:80
     volumes:
-      - ./nginx/nginx.conf.dev:/etc/nginx/nginx.conf
-  explainserver:
+      - ./nginx/nginx.conf.localtest:/etc/nginx/nginx.conf
+  explainserverlocaltest:
     build:
       context: server/
       dockerfile: Dockerfile.dev
@@ -18,15 +18,15 @@ services:
       - ./server/src:/app/src
       - ./server/e2e:/app/e2e
     command: yarn start:dev
-    container_name: explain-server
+    container_name: explainserverlocaltest
     environment:
-      MODE: test
+      MODE: localtest
       PORT: 3001
     env_file:
       - .env
     ports:
       - 3001:3001
-  explainface:
+  explainfacelocaltest:
     build:
       context: face/
       dockerfile: Dockerfile.dev
@@ -35,8 +35,8 @@ services:
       - ./face:/app
       - ./face:/public
     command: yarn run dev
-    container_name: explain-face
+    container_name: explainfacelocaltest
     depends_on:
-      - explainserver
+      - explainserverlocaltest
     environment:
-      MODE: test
+      MODE: localtest
