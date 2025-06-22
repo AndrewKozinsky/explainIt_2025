@@ -33,7 +33,7 @@ import testChapter3 from './__test/testChapter-3/testChapter-3'
 // Список статей учебника
 const rowRealArticles: ArticleType.Art[] = [
 	presentSimplePositive1,
-	// presentSimplePositive2,
+	presentSimplePositive2,
 	// presentSimplePositive3,
 	// indefiniteArticle,
 	// the,

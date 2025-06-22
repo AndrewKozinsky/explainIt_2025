@@ -28,7 +28,7 @@ describe.only('createSchemaPrisma', () => {
 	it('createSchemaPrisma', () => {
 		const expectedPrismaSchema = `generator client {
 	provider      = "prisma-client-js"
-	binaryTargets = ["native", "linux-musl-openssl-3.0.x"]
+	binaryTargets = ["native", "linux-musl-openssl-3.0.x", "linux-musl-arm64-openssl-3.0.x"]
 }
 
 datasource db {
