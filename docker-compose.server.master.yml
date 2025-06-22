@@ -3,13 +3,28 @@ services:
     image: nginx:1.19.7-alpine
     container_name: explainnginxservermaster
     depends_on:
-      - explainfaceservermaster
+      - explainpostgresservermaster
       - explainserverservermaster
+      - explainfaceservermaster
     volumes:
       - ./nginx/nginx.conf.servermaster:/etc/nginx/nginx.conf
     environment:
       VIRTUAL_HOST: explainit.ru,www.explainit.ru
       LETSENCRYPT_HOST: explainit.ru,www.explainit.ru
+  explainpostgresservermaster:
+    image: postgres:16.2
+    restart: unless-stopped
+    container_name: explainpostgres
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    env_file:
+      - .env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
   explainserverservermaster:
     build:
       context: server/
@@ -17,6 +32,8 @@ services:
     restart: unless-stopped
     command: yarn start:prod
     container_name: explainserverservermaster
+    depends_on:
+      - explainpostgresservermaster
     environment:
       MODE: servermaster
       PORT: 3001
@@ -30,6 +47,7 @@ services:
     command: yarn run start
     container_name: explainfaceservermaster
     depends_on:
+      - explainpostgresservermaster
       - explainserverservermaster
     environment:
       MODE: servermaster
@@ -37,3 +55,5 @@ networks:
   default:
     external: true
     name: nginx-proxy
+volumes:
+  pgdata: {}

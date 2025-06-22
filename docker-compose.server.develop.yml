@@ -3,13 +3,28 @@ services:
     image: nginx:1.19.7-alpine
     container_name: explainnginxserverdevelop
     depends_on:
-      - explainfaceserverdevelop
+      - explainpostgresserverdevelop
       - explainserverserverdevelop
+      - explainfaceserverdevelop
     volumes:
       - ./nginx/nginx.conf.serverdevelop:/etc/nginx/nginx.conf
     environment:
       VIRTUAL_HOST: dev.explainit.ru,www.dev.explainit.ru
       LETSENCRYPT_HOST: dev.explainit.ru,www.dev.explainit.ru
+  explainpostgresserverdevelop:
+    image: postgres:16.2
+    restart: unless-stopped
+    container_name: explainpostgres
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    env_file:
+      - .env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
   explainserverserverdevelop:
     build:
       context: server/
@@ -17,6 +32,8 @@ services:
     restart: unless-stopped
     command: yarn start:prod
     container_name: explainserverserverdevelop
+    depends_on:
+      - explainpostgresserverdevelop
     environment:
       MODE: serverdevelop
       PORT: 3001
@@ -30,6 +47,7 @@ services:
     command: yarn run start
     container_name: explainfaceserverdevelop
     depends_on:
+      - explainpostgresserverdevelop
       - explainserverserverdevelop
     environment:
       MODE: serverdevelop
@@ -37,3 +55,5 @@ networks:
   default:
     external: true
     name: nginx-proxy
+volumes:
+  pgdata: {}

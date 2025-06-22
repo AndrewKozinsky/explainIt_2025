@@ -2,7 +2,7 @@ name: Deploy to the master server
 on:
   push:
     branches:
-      - develop
+      - master
 
 jobs:
   deploy:
@@ -21,6 +21,19 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no andrew@192.168.0.102 << 'EOF'
             cd ~/sites/explainIt_2025
+          
+            # Generate .env file
+            cat <<EOT > .env
+GIGA_CHAT_CLIENT_ID=${{ secrets.GIGA_CHAT_CLIENT_ID }}
+GIGA_CHAT_CLIENT_SECRET=${{ secrets.GIGA_CHAT_CLIENT_SECRET }}
+GIGA_CHAT_AUTHORIZATION_KEY=${{ secrets. GIGA_CHAT_AUTHORIZATION_KEY }}
+TELEGRAM_FROM_EXPLAIN_BOT_TOKEN=${{ secrets.TELEGRAM_FROM_EXPLAIN_BOT_TOKEN }}
+TELEGRAM_FROM_EXPLAIN_BOT_CHAT_ID=${{ secrets.TELEGRAM_FROM_EXPLAIN_BOT_CHAT_ID }}
+POSTGRES_DB=${{ secrets.POSTGRES_DB_MASTER }}
+POSTGRES_USER=${{ secrets.POSTGRES_USER }}
+POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}
+DB_URL=${{ secrets.DB_URL }}
+EOT
           
             # Generate .env file
             echo "${{ secrets.ENV_FILE_CONTENT }}" > .env

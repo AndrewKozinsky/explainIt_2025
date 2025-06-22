@@ -320,24 +320,54 @@ export const transcriptions = {
 
 	he_studies_in_another_group: {
 		sentence: 'He studies in another group.',
-		transcription: '',
+		transcription: 'hi ˈstʌdiz ɪn əˈnʌðər ɡruːp',
 		audio: false,
 	},
 
 	i_dont_feel_comfortable_in_your_room: {
 		sentence: 'I don’t feel comfortable in your room.',
-		transcription: '',
+		transcription: 'aɪ doʊnt fiːl ˈkʌmfərtəbəl ɪn jʊr ruːm',
 		audio: false,
 	},
 
 	she_feels_exhausted: {
 		sentence: 'She feels exhausted.',
-		transcription: '',
+		transcription: 'ʃi fiːlz ɪɡˈzɔːstɪd',
 		audio: false,
 	},
 
 	he_feels_so_unhappy: {
 		sentence: 'He feels so unhappy.',
+		transcription: 'hi fiːlz soʊ ʌnˈhæpi',
+		audio: false,
+	},
+
+	a_video_two_videos: {
+		sentence: 'a video, two videos',
+		transcription: 'ə ˈvɪdiˌoʊ tuː ˈvɪdiˌoʊz',
+		audio: false,
+	},
+
+	i_like_this_news: {
+		sentence: 'I like this news.',
+		transcription: '',
+		audio: false,
+	},
+
+	she_needs_new_glasses: {
+		sentence: 'She needs new glasses.',
+		transcription: '',
+		audio: false,
+	},
+
+	i_buy_new_trousers: {
+		sentence: 'I buy new trousers.',
+		transcription: '',
+		audio: false,
+	},
+
+	she_uses_wireless_headphones: {
+		sentence: 'She uses wireless headphones.',
 		transcription: '',
 		audio: false,
 	},
@@ -3621,7 +3651,7 @@ export const transcriptions = {
 	},
 
 	this_love_is_difficult_but_its_real: {
-		sentence: "This love is difficult, but it's real.",
+		sentence: 'This love is difficult, but it\'s real.',
 		transcription: 'ðɪs lʌv ɪz dɪˈfɪkəlt, bət ɪtˈs rɪəl',
 		audio: false,
 	},
@@ -3657,7 +3687,7 @@ export const transcriptions = {
 	},
 
 	is_this_a_pencil_no_its_a_pen: {
-		sentence: "Is this a pencil? No, it's a pen.",
+		sentence: 'Is this a pencil? No, it\'s a pen.',
 		transcription: 'is ˈðɪs ə ˈpɛn.ɫ.səʊ ˈnəʊ ɪt ɪz ə ˈpɛn',
 		audio: false,
 	},
@@ -4888,36 +4918,6 @@ export const transcriptions = {
 
 	scissors: {
 		sentence: 'scissors',
-		transcription: '',
-		audio: false,
-	},
-
-	a_video_two_videos: {
-		sentence: 'a video, two videos',
-		transcription: '',
-		audio: false,
-	},
-
-	i_like_this_news: {
-		sentence: 'I like this news.',
-		transcription: '',
-		audio: false,
-	},
-
-	she_needs_new_glasses: {
-		sentence: 'She needs new glasses.',
-		transcription: '',
-		audio: false,
-	},
-
-	i_buy_new_trousers: {
-		sentence: 'I buy new trousers.',
-		transcription: '',
-		audio: false,
-	},
-
-	she_uses_wireless_headphones: {
-		sentence: 'She uses wireless headphones.',
 		transcription: '',
 		audio: false,
 	},

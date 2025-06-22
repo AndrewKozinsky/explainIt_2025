@@ -59,7 +59,6 @@ const exercises_4: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Энни, пожалуйста, не будь глупой. Останься и будь с ней мила.',
 			engSentences: [
 				{
@@ -68,8 +67,11 @@ const exercises_4: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'капитаны', engWord: 'captains' },
-				{ rusWord: 'уже', engWord: 'already' },
+				{ rusWord: 'Энни', engWord: 'Annie' },
+				{ rusWord: 'пожалуйста', engWord: 'please' },
+				{ rusWord: 'глупый', engWord: 'silly' },
+				{ rusWord: 'оставаться', engWord: 'stay' },
+				{ rusWord: 'милый', engWord: 'nice' },
 			],
 		},
 		{

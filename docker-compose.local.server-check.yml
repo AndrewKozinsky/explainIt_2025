@@ -3,12 +3,27 @@ services:
     image: nginx:1.19.7-alpine
     container_name: explainnginxlocalcheckserver
     depends_on:
-      - explainfacelocalcheckserver
+      - explainpostgreslocalcheckserver
       - explainserverlocalcheckserver
+      - explainfacelocalcheckserver
     ports:
       - 80:80
     volumes:
       - ./nginx/nginx.conf.localcheckserver:/etc/nginx/nginx.conf
+  explainpostgreslocalcheckserver:
+    image: postgres:16.2
+    restart: unless-stopped
+    container_name: explainpostgres
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    env_file:
+      - .env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
   explainserverlocalcheckserver:
     build:
       context: server/
@@ -16,6 +31,8 @@ services:
     restart: unless-stopped
     command: yarn start:prod
     container_name: explainserverlocalcheckserver
+    depends_on:
+      - explainpostgreslocalcheckserver
     environment:
       MODE: localcheckserver
       PORT: 3001
@@ -29,6 +46,9 @@ services:
     command: yarn run start
     container_name: explainfacelocalcheckserver
     depends_on:
+      - explainpostgreslocalcheckserver
       - explainserverlocalcheckserver
     environment:
       MODE: localcheckserver
+volumes:
+  pgdata: {}

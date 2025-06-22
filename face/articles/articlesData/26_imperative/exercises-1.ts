@@ -134,7 +134,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Предоставь это мне, мой друг, у меня есть план!',
 			engSentences: [
 				{
@@ -143,12 +142,12 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'капитаны', engWord: 'captains' },
-				{ rusWord: 'уже', engWord: 'already' },
+				{ rusWord: 'оставлять', engWord: 'leave' },
+				{ rusWord: 'друг', engWord: 'friend' },
+				{ rusWord: 'план', engWord: 'plan' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Поверни на перекрестке направо.',
 			engSentences: [
 				{
@@ -157,22 +156,9 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'капитаны', engWord: 'captains' },
-				{ rusWord: 'уже', engWord: 'already' },
-			],
-		},
-		{
-			// TODO
-			rusSentence: 'Посмотрите на тот пейзаж. Он восхитителен.',
-			engSentences: [
-				{
-					engSentences: ['Look at that scenery. It’s amazing.'],
-					isCorrect: true,
-				},
-			],
-			words: [
-				{ rusWord: 'капитаны', engWord: 'captains' },
-				{ rusWord: 'уже', engWord: 'already' },
+				{ rusWord: 'поворачивать', engWord: 'turn' },
+				{ rusWord: 'на право', engWord: 'to the right' },
+				{ rusWord: 'перекрёсток', engWord: 'crossroads' },
 			],
 		},
 		{

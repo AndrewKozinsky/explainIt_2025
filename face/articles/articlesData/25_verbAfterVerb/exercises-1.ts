@@ -217,12 +217,12 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Я не хочу потерять работу.',
 			engSentences: [{ engSentences: ['I do not want to lose my job.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'популярный', engWord: 'popular' },
-				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'хотеть', engWord: 'want' },
+				{ rusWord: 'терять', engWord: 'lose' },
+				{ rusWord: 'работа', engWord: 'job' },
 			],
 		},
 		{

@@ -3,12 +3,27 @@ services:
     image: nginx:1.19.7-alpine
     container_name: explainnginxlocaldev
     depends_on:
-      - explainfacelocaldev
+      - explainpostgreslocaldev
       - explainserverlocaldev
+      - explainfacelocaldev
     ports:
       - 80:80
     volumes:
       - ./nginx/nginx.conf.localdev:/etc/nginx/nginx.conf
+  explainpostgreslocaldev:
+    image: postgres:16.2
+    restart: unless-stopped
+    container_name: explainpostgres
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    env_file:
+      - .env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
   explainserverlocaldev:
     build:
       context: server/
@@ -19,6 +34,8 @@ services:
       - ./server/e2e:/app/e2e
     command: yarn start:dev
     container_name: explainserverlocaldev
+    depends_on:
+      - explainpostgreslocaldev
     environment:
       MODE: localdev
       PORT: 3001
@@ -37,6 +54,9 @@ services:
     command: yarn run dev
     container_name: explainfacelocaldev
     depends_on:
+      - explainpostgreslocaldev
       - explainserverlocaldev
     environment:
       MODE: localdev
+volumes:
+  pgdata: {}
