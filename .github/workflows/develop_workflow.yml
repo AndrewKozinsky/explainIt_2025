@@ -22,7 +22,7 @@ jobs:
 
       - name: Pull changes on server
         run: |
-          ssh -o StrictHostKeyChecking=no andrew@84.17.46.90 << 'EOF'
+          ssh -o StrictHostKeyChecking=no andrew@79.140.26.128 << 'EOF'
             cd ~/sites/explainIt_2025_develop
           
             git checkout develop
