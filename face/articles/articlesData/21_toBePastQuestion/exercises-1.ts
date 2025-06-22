@@ -133,12 +133,13 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Когда вы были маленькими, ваши бабушки и дедушки были строгими?',
 			engSentences: [{ engSentences: ['Were your grandparents strict when you were little?'], isCorrect: true }],
 			words: [
-				{ rusWord: 'счастливый', engWord: 'happy' },
-				{ rusWord: 'вчера', engWord: 'yesterday' },
+				{ rusWord: 'когда', engWord: 'when' },
+				{ rusWord: 'маленький', engWord: 'little' },
+				{ rusWord: 'бабушки и дедушки', engWord: 'grandparents' },
+				{ rusWord: 'строгий', engWord: 'strict' },
 			],
 		},
 		{

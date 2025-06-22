@@ -25,6 +25,8 @@ jobs:
           ssh -o StrictHostKeyChecking=no andrew@192.168.0.102 << 'EOF'
             cd ~/sites/explainIt_2025_develop
           
+            git checkout develop
+          
             # Generate .env file
             cat <<EOT > .env
           GIGA_CHAT_CLIENT_ID=${{ secrets.GIGA_CHAT_CLIENT_ID }}

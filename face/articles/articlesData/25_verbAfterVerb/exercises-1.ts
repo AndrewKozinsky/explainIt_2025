@@ -237,15 +237,13 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Эмили нравиться выбирать одежду.',
 			engSentences: [{ engSentences: ['Emily likes to choose the clothes.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'София', engWord: 'Sofia' },
-				{ rusWord: 'хотеть', engWord: 'want' },
-				{ rusWord: 'встретить', engWord: 'meet' },
-				{ rusWord: 'красивый', engWord: 'handsome' },
-				{ rusWord: 'незнакомец', engWord: 'stranger' },
+				{ rusWord: 'Эмили', engWord: 'Emily' },
+				{ rusWord: 'любить', engWord: 'likes' },
+				{ rusWord: 'выбирать', engWord: 'choose' },
+				{ rusWord: 'одежда', engWord: 'clothes' },
 			],
 		},
 		{
