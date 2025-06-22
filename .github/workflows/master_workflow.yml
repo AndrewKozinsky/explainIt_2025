@@ -19,7 +19,7 @@ jobs:
 
       - name: Pull changes on server
         run: |
-          ssh -o StrictHostKeyChecking=no andrew@84.17.46.90 << 'EOF'
+          ssh -o StrictHostKeyChecking=no andrew@79.140.26.128 << 'EOF'
             cd ~/sites/explainIt_2025
           
             git checkout master
@@ -34,7 +34,7 @@ jobs:
           POSTGRES_DB=${{ secrets.POSTGRES_DB_MASTER }}
           POSTGRES_USER=${{ secrets.POSTGRES_USER }}
           POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}
-          DB_URL=${{ secrets.DB_URL }}
+          DB_URL="${{ secrets.DB_URL }}"
           EOT
           
             # Generate .env file
