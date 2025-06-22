@@ -11,3 +11,35 @@ jobs:
     steps:
       - name: Display some Text
         run: echo "Some Text"
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Pull changes on server
+        run: |
+          ssh -o StrictHostKeyChecking=no andrew@192.168.0.102 << 'EOF'
+            cd ~/sites/explainIt_2025_develop
+          
+            git checkout develop
+          
+            # Generate .env file
+            cat <<EOT > .env
+          GIGA_CHAT_CLIENT_ID=${{ secrets.GIGA_CHAT_CLIENT_ID }}
+          GIGA_CHAT_CLIENT_SECRET=${{ secrets.GIGA_CHAT_CLIENT_SECRET }}
+          GIGA_CHAT_AUTHORIZATION_KEY=${{ secrets. GIGA_CHAT_AUTHORIZATION_KEY }}
+          TELEGRAM_FROM_EXPLAIN_BOT_TOKEN=${{ secrets.TELEGRAM_FROM_EXPLAIN_BOT_TOKEN }}
+          TELEGRAM_FROM_EXPLAIN_BOT_CHAT_ID=${{ secrets.TELEGRAM_FROM_EXPLAIN_BOT_CHAT_ID }}
+          POSTGRES_DB=${{ secrets.POSTGRES_DB_DEV }}
+          POSTGRES_USER=${{ secrets.POSTGRES_USER }}
+          POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}
+          DB_URL=${{ secrets.DB_URL }}
+          EOT
+            
+            git pull
+            docker compose -f docker-compose.server.develop.yml up --build -d
+          EOF
