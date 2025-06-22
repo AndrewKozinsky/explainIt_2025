@@ -77,7 +77,7 @@ function getServerNetworks() {
 function getNginxEnvs(mode: Mode) {
 	if (mode === Mode.serverDevelop || mode === Mode.serverMaster) {
 		const domain = mode === Mode.serverDevelop
-			? 'develop.explainit.ru'
+			? 'dev.explainit.ru'
 			: 'explainit.ru'
 		const domains = `${domain},www.${domain}`
 

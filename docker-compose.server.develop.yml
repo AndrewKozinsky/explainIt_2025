@@ -8,8 +8,8 @@ services:
     volumes:
       - ./nginx/nginx.conf.serverdevelop:/etc/nginx/nginx.conf
     environment:
-      VIRTUAL_HOST: develop.explainit.ru,www.develop.explainit.ru
-      LETSENCRYPT_HOST: develop.explainit.ru,www.develop.explainit.ru
+      VIRTUAL_HOST: dev.explainit.ru,www.dev.explainit.ru
+      LETSENCRYPT_HOST: dev.explainit.ru,www.dev.explainit.ru
   explainserverserverdevelop:
     build:
       context: server/

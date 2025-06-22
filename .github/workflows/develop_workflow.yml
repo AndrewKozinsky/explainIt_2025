@@ -9,6 +9,9 @@ jobs:
     runs-on: Ubuntu 24.04
 
     steps:
+      - name: Display some Text
+        run: echo "Some Text"
+
       - name: Checkout code
         uses: actions/checkout@v4
 
