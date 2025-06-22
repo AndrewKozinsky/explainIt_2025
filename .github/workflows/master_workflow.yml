@@ -6,7 +6,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: Ubuntu 24.04
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
@@ -19,7 +19,7 @@ jobs:
 
       - name: Pull changes on server
         run: |
-          ssh -o StrictHostKeyChecking=no andrew@192.168.0.102 << 'EOF'
+          ssh -o StrictHostKeyChecking=no andrew@84.17.46.90 << 'EOF'
             cd ~/sites/explainIt_2025
           
             git checkout master
