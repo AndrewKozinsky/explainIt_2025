@@ -3,7 +3,7 @@ import { App } from 'supertest/types'
 import { GigaChatService } from '../../src/infrastructure/gigaChat/gigaChat.service'
 import RouteNames from '../../src/infrastructure/routeNames'
 import { makeGraphQLReq } from '../makeGQReq'
-import { createApp } from '../utils/createMainApp'
+import { createApp } from '../utils/createApp'
 import { queries } from '../../src/features/test/queries'
 import { aiDataChecker } from './aiDataChecker'
 

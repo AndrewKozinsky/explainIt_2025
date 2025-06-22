@@ -1,6 +1,7 @@
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo'
 import { Module } from '@nestjs/common'
 import { GraphQLModule } from '@nestjs/graphql'
+import {EmailAdapterModule} from './infrastructure/emailAdapter/email-adapter.module'
 import { GigaChatModule } from './infrastructure/gigaChat/gigaChat.module'
 import { MainConfigModule } from './infrastructure/mainConfig/mainConfig.module'
 import { MainConfigService } from './infrastructure/mainConfig/mainConfig.service'
@@ -30,6 +31,7 @@ import {AuthModule} from './routes/auth/auth.module'
 		}),
 		MainConfigModule,
 		AiModule,
+		EmailAdapterModule,
 		AuthModule,
 		TelegramModule,
 		GigaChatModule,

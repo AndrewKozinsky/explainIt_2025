@@ -17,6 +17,16 @@ export interface GetTranscriptionInput {
     engSentence: string;
 }
 
+export interface RegisterUserInput {
+    email: string;
+    password: string;
+}
+
+export interface UserOutModel {
+    id: number;
+    email: string;
+}
+
 export interface IQuery {
     ai_checkTranslation(input: CheckTranslationInput): CheckTranslationOutModel | Promise<CheckTranslationOutModel>;
     ai_getTranscription(input: GetTranscriptionInput): GetTranscriptionOutModel | Promise<GetTranscriptionOutModel>;
@@ -37,6 +47,10 @@ export interface GetTranscriptionOutSuccessModel {
 
 export interface GetTranscriptionOutErrorModel {
     error: string;
+}
+
+export interface IMutation {
+    auth_register(input: RegisterUserInput): UserOutModel | Promise<UserOutModel>;
 }
 
 export type CheckTranslationOutModel = CheckTranslationOutSuccessModel | CheckTranslationOutErrorModel;

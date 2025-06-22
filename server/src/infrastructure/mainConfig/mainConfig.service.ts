@@ -21,6 +21,17 @@ export class MainConfigService {
 			gigaChatAuthorizationKey: enVariables.gigaChatAuthorizationKey,
 			telegramFromExplainBotToken: enVariables.telegramFromExplainBotToken,
 			telegramFromExplainBotChatId: enVariables.telegramFromExplainBotChatId,
+			site: {
+				name: 'ExplainIt',
+				domainRoot: enVariables.siteDomainRoot,
+				domainRootWithProtocol: enVariables.siteDomainRootWithProtocol,
+			},
+			emailAdapter: {
+				userId: enVariables.emailAdapterUserId,
+				secret: enVariables.emailAdapterSecret,
+				fromName: 'Andrew Kozinsky',
+				fromEmail: 'mail@andrewkozinsky.ru',
+			},
 		}
 	}
 
@@ -33,6 +44,10 @@ export class MainConfigService {
 			gigaChatAuthorizationKey: this.configService.get<string>('GIGA_CHAT_AUTHORIZATION_KEY') || '',
 			telegramFromExplainBotToken: this.configService.get<string>('TELEGRAM_FROM_EXPLAIN_BOT_TOKEN') || '',
 			telegramFromExplainBotChatId: this.configService.get<number>('TELEGRAM_FROM_EXPLAIN_BOT_CHAT_ID') || 0,
+			siteDomainRoot: this.configService.get<string>('SITE_DOMAIN_ROOT') as string,
+			siteDomainRootWithProtocol: this.configService.get<string>('SITE_DOMAIN_ROOT_WITH_PROTOCOL') as string,
+			emailAdapterUserId: this.configService.get<string>('EMAIL_ADAPTER_USER_ID') as string,
+			emailAdapterSecret: this.configService.get<string>('EMAIL_ADAPTER_SECRET') as string,
 		}
 	}
 }
