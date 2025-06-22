@@ -122,12 +122,14 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Ваш начальник был в хорошем настроении сегодня утром?',
 			engSentences: [{ engSentences: ['Was your boss in a good mood this morning?'], isCorrect: true }],
 			words: [
-				{ rusWord: 'счастливый', engWord: 'happy' },
-				{ rusWord: 'вчера', engWord: 'yesterday' },
+				{ rusWord: 'начальник', engWord: 'boss' },
+				{ rusWord: 'хороший', engWord: 'good' },
+				{ rusWord: 'настроение', engWord: 'mood' },
+				{ rusWord: 'сегодня', engWord: 'yesterday' },
+				{ rusWord: 'утро', engWord: 'morning' },
 			],
 		},
 		{
