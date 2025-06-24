@@ -350,24 +350,90 @@ export const transcriptions = {
 
 	i_like_this_news: {
 		sentence: 'I like this news.',
-		transcription: '',
+		transcription: 'aɪ laɪk ðɪs njuːz',
 		audio: false,
 	},
 
 	she_needs_new_glasses: {
 		sentence: 'She needs new glasses.',
-		transcription: '',
+		transcription: 'ʃi niːdz nuː ˈɡlæsɪz',
 		audio: false,
 	},
 
 	i_buy_new_trousers: {
 		sentence: 'I buy new trousers.',
-		transcription: '',
+		transcription: 'aɪ baɪ nuː ˈtraʊzɚz',
 		audio: false,
 	},
 
 	she_uses_wireless_headphones: {
 		sentence: 'She uses wireless headphones.',
+		transcription: 'ʃi ˈjuːzɪz ˈwaɪɚləs ˈhedfoʊnz',
+		audio: false,
+	},
+
+	goods: {
+		sentence: 'goods',
+		transcription: 'ɡʊdz',
+		audio: false,
+	},
+
+	billiards: {
+		sentence: 'billiards',
+		transcription: 'ˈbɪljɚdz',
+		audio: false,
+	},
+
+	glasses: {
+		sentence: 'glasses',
+		transcription: 'ˈɡlæsɪz',
+		audio: false,
+	},
+
+	jeans: {
+		sentence: 'jeans',
+		transcription: 'dʒinz',
+		audio: false,
+	},
+
+	trousers: {
+		sentence: 'trousers',
+		transcription: 'ˈtraʊzɚz',
+		audio: false,
+	},
+
+	scissors: {
+		sentence: 'scissors',
+		transcription: 'ˈsɪzɚz',
+		audio: false,
+	},
+
+	cats_catch_mice: {
+		sentence: 'Cats catch mice.',
+		transcription: '',
+		audio: false,
+	},
+
+	the_dinosaur_has_sharp_teeth: {
+		sentence: 'The dinosaur has sharp teeth.',
+		transcription: '',
+		audio: false,
+	},
+
+	we_see_wild_geese_near_the_lake: {
+		sentence: 'We see wild geese near the lake.',
+		transcription: '',
+		audio: false,
+	},
+
+	john_has_terrible_pyjamas: {
+		sentence: 'John has terrible pyjamas.',
+		transcription: '',
+		audio: false,
+	},
+
+	news: {
+		sentence: 'news',
 		transcription: '',
 		audio: false,
 	},
@@ -4852,72 +4918,6 @@ export const transcriptions = {
 
 	many_people_like_warm_weather: {
 		sentence: 'Many people like warm weather.',
-		transcription: '',
-		audio: false,
-	},
-
-	cats_catch_mice: {
-		sentence: 'Cats catch mice.',
-		transcription: '',
-		audio: false,
-	},
-
-	the_dinosaur_has_sharp_teeth: {
-		sentence: 'The dinosaur has sharp teeth.',
-		transcription: '',
-		audio: false,
-	},
-
-	we_see_wild_geese_near_the_lake: {
-		sentence: 'We see wild geese near the lake.',
-		transcription: '',
-		audio: false,
-	},
-
-	john_has_terrible_pyjamas: {
-		sentence: 'John has terrible pyjamas.',
-		transcription: '',
-		audio: false,
-	},
-
-	news: {
-		sentence: 'news',
-		transcription: '',
-		audio: false,
-	},
-
-	goods: {
-		sentence: 'goods',
-		transcription: '',
-		audio: false,
-	},
-
-	billiards: {
-		sentence: 'billiards',
-		transcription: '',
-		audio: false,
-	},
-
-	glasses: {
-		sentence: 'glasses',
-		transcription: '',
-		audio: false,
-	},
-
-	jeans: {
-		sentence: 'jeans',
-		transcription: '',
-		audio: false,
-	},
-
-	trousers: {
-		sentence: 'trousers',
-		transcription: '',
-		audio: false,
-	},
-
-	scissors: {
-		sentence: 'scissors',
 		transcription: '',
 		audio: false,
 	},

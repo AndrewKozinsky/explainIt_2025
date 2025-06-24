@@ -156,7 +156,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Он попросит суд назначить другого адвоката.',
 			engSentences: [
 				{
@@ -165,8 +164,11 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'популярный', engWord: 'popular' },
-				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'просить', engWord: 'request' },
+				{ rusWord: 'суд', engWord: 'court' },
+				{ rusWord: 'назначать', engWord: 'appoint' },
+				{ rusWord: 'другой', engWord: 'another' },
+				{ rusWord: 'адвокат', engWord: 'lawyer' },
 			],
 		},
 		{
@@ -206,14 +208,16 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Он такой богатый, такой умный, и он хочет меня видеть.',
 			engSentences: [
 				{ engSentences: ['He is so rich, he is so clever and he wants to see me.'], isCorrect: true },
 			],
 			words: [
-				{ rusWord: 'популярный', engWord: 'popular' },
-				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'такой', engWord: 'so' },
+				{ rusWord: 'богатый', engWord: 'rich' },
+				{ rusWord: 'умный', engWord: 'clever' },
+				{ rusWord: 'хотеть', engWord: 'want' },
+				{ rusWord: 'видеть', engWord: 'see' },
 			],
 		},
 		{
@@ -247,7 +251,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Эмили хочет купить блузку.',
 			engSentences: [
 				{

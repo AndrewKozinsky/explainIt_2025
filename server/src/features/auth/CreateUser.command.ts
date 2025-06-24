@@ -1,6 +1,7 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 // import { EmailAdapterService } from '../../infrastructure/emailAdapter/email-adapter.service'
 import {UserOutModel} from '../../models/user/user.out.model'
+import {UserRepository} from '../../repo/user.repository'
 // import { CustomGraphQLError } from '../../infrastructure/exceptions/customErrors'
 // import { ErrorCode } from '../../infrastructure/exceptions/errorCode'
 // import { errorMessage } from '../../infrastructure/exceptions/errorMessage'
@@ -8,7 +9,6 @@ import {UserOutModel} from '../../models/user/user.out.model'
 // import { SenderOutModel } from '../../models/sender/sender.out.model'
 // import { SenderQueryRepository } from '../../repo/sender.queryRepository'
 // import { SenderRepository } from '../../repo/sender.repository'
-// import { UserRepository } from '../../repo/user.repository'
 import {RegisterUserInput} from '../../routes/auth/inputs/registerUser.input'
 
 export class CreateUserCommand implements ICommand {
@@ -18,7 +18,7 @@ export class CreateUserCommand implements ICommand {
 @CommandHandler(CreateUserCommand)
 export class CreateUserHandler implements ICommandHandler<CreateUserCommand> {
 	constructor(
-		// private userRepository: UserRepository,
+		private userRepository: UserRepository,
 		// private userQueryRepository: UserQueryRepository,
 		// private emailAdapter: EmailAdapterService,
 	) {}

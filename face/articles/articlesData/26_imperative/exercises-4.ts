@@ -4,7 +4,6 @@ const exercises_4: ExercisesType.ExercisesObj = {
 	type: 'exercises',
 	exercises: [
 		{
-			// TODO
 			rusSentence: 'Не потеряйся в лесу.',
 			engSentences: [
 				{
@@ -13,12 +12,11 @@ const exercises_4: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'капитаны', engWord: 'captains' },
-				{ rusWord: 'уже', engWord: 'already' },
+				{ rusWord: 'теряться', engWord: 'get lost' },
+				{ rusWord: 'лес', engWord: 'woods' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Не клади пакет на стол!',
 			engSentences: [
 				{
@@ -27,12 +25,13 @@ const exercises_4: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'капитаны', engWord: 'captains' },
-				{ rusWord: 'уже', engWord: 'already' },
+				{ rusWord: 'класть', engWord: 'put' },
+				{ rusWord: 'пакет', engWord: 'bag' },
+				{ rusWord: 'на', engWord: 'on' },
+				{ rusWord: 'стол', engWord: 'table' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Не хлопайте дверью.',
 			engSentences: [
 				{
@@ -41,8 +40,8 @@ const exercises_4: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'капитаны', engWord: 'captains' },
-				{ rusWord: 'уже', engWord: 'already' },
+				{ rusWord: 'хлопать', engWord: 'slam' },
+				{ rusWord: 'дверь', engWord: 'door' },
 			],
 		},
 		{
