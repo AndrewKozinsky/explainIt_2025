@@ -10,6 +10,7 @@ import { AiModule } from './routes/ai/ai.module'
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default'
 import { TelegramModule } from './infrastructure/telegram/telegram.module'
 import {AuthModule} from './routes/auth/auth.module'
+import {DbModule} from './routes/db/db.module'
 
 @Module({
 	imports: [
@@ -35,6 +36,7 @@ import {AuthModule} from './routes/auth/auth.module'
 		AuthModule,
 		TelegramModule,
 		GigaChatModule,
+		DbModule
 	],
 	providers: [],
 })

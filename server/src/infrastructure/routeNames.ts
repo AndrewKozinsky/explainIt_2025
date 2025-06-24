@@ -12,6 +12,12 @@ export const RouteNames = {
 		CHECK_TRANSLATION: 'ai_checkTranslation',
 		GET_TRANSCRIPTION: 'ai_getTranscription',
 	},
+	// REST
+	TESTING: {
+		ALL_DATA: 'testing/all-data',
+		SEED: 'testing/seed',
+		USER: 'testing/user',
+	},
 }
 
 export default RouteNames

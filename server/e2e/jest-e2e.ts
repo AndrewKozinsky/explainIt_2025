@@ -10,6 +10,9 @@ const config: Config = {
 	},
 	maxWorkers: '100%',
 	transformIgnorePatterns: ['/node_modules/'],
-}
+	moduleNameMapper: {
+		'^src/(.*)$': '<rootDir>/src/$1',
+	},
+};
 
 export default config

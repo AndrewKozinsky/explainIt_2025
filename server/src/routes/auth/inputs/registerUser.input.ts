@@ -1,5 +1,4 @@
 import { Field, InputType } from '@nestjs/graphql'
-import { MinLength } from 'class-validator'
 import { bdConfig } from '../../../db/dbConfig/dbConfig'
 import { DtoFieldDecorators } from '../../../db/dtoFieldDecorators'
 
@@ -10,6 +9,6 @@ export class RegisterUserInput {
 	email: string
 
 	@Field({ description: 'User password' })
-	@DtoFieldDecorators('email', bdConfig.User.dtoProps.password)
+	@DtoFieldDecorators('password', bdConfig.User.dtoProps.password)
 	password: string
 }
