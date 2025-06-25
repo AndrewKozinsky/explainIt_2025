@@ -3,9 +3,7 @@ import { PrismaService } from '../db/prisma.service'
 
 @Injectable()
 export class DBRepository {
-	constructor(
-		private prisma: PrismaService,
-	) {}
+	constructor(private prisma: PrismaService) {}
 
 	async erase() {
 		try {

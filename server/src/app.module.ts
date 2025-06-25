@@ -1,7 +1,8 @@
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo'
-import { Module } from '@nestjs/common'
+import { BadRequestException, Module } from '@nestjs/common'
 import { GraphQLModule } from '@nestjs/graphql'
-import {EmailAdapterModule} from './infrastructure/emailAdapter/email-adapter.module'
+import { GraphQLError } from 'graphql'
+import { EmailAdapterModule } from './infrastructure/emailAdapter/email-adapter.module'
 import { GigaChatModule } from './infrastructure/gigaChat/gigaChat.module'
 import { MainConfigModule } from './infrastructure/mainConfig/mainConfig.module'
 import { MainConfigService } from './infrastructure/mainConfig/mainConfig.service'
@@ -9,8 +10,8 @@ import { join } from 'path'
 import { AiModule } from './routes/ai/ai.module'
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default'
 import { TelegramModule } from './infrastructure/telegram/telegram.module'
-import {AuthModule} from './routes/auth/auth.module'
-import {DbModule} from './routes/db/db.module'
+import { AuthModule } from './routes/auth/auth.module'
+import { DbModule } from './routes/db/db.module'
 
 @Module({
 	imports: [
@@ -26,6 +27,26 @@ import {DbModule} from './routes/db/db.module'
 					// graphiql: mainConfigService.get().mode === 'localDev',
 					playground: false,
 					plugins: [ApolloServerPluginLandingPageLocalDefault()],
+					/*formattedError: (error: GraphQLError) => {
+						const originalError = error?.extensions?.originalError
+
+						if (
+							originalError instanceof BadRequestException &&
+							Array.isArray(originalError.getResponse())
+						) {
+							return {
+								message: error.message,
+								path: error.path,
+								locations: error.locations,
+								extensions: {
+									code: 'BAD_USER_INPUT',
+									validationErrors: originalError.getResponse(), // This will include field names
+								},
+							}
+						}
+
+						return error
+					},*/
 				}
 			},
 			inject: [MainConfigService],
@@ -36,7 +57,7 @@ import {DbModule} from './routes/db/db.module'
 		AuthModule,
 		TelegramModule,
 		GigaChatModule,
-		DbModule
+		DbModule,
 	],
 	providers: [],
 })
