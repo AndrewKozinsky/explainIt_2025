@@ -410,30 +410,60 @@ export const transcriptions = {
 
 	cats_catch_mice: {
 		sentence: 'Cats catch mice.',
-		transcription: '',
+		transcription: 'kæts kæʧ maɪs',
 		audio: false,
 	},
 
 	the_dinosaur_has_sharp_teeth: {
 		sentence: 'The dinosaur has sharp teeth.',
-		transcription: '',
+		transcription: 'ðə ˈdaɪnəˌsɔr hæz ʃɑrp tiθ',
 		audio: false,
 	},
 
 	we_see_wild_geese_near_the_lake: {
 		sentence: 'We see wild geese near the lake.',
-		transcription: '',
+		transcription: 'wi si waɪld ɡis nɪr ðə leɪk',
 		audio: false,
 	},
 
 	john_has_terrible_pyjamas: {
 		sentence: 'John has terrible pyjamas.',
-		transcription: '',
+		transcription: 'ʤɑn hæz ˈtɛrəbl pəˈʤæməz',
 		audio: false,
 	},
 
 	news: {
 		sentence: 'news',
+		transcription: 'nuz',
+		audio: false,
+	},
+
+	she_has_three_different_brushes_for_painting: {
+		sentence: 'She has three different brushes for painting.',
+		transcription: '',
+		audio: false,
+	},
+
+	in_movies_heroes_always_save_the_world: {
+		sentence: 'In movies, heroes always save the world.',
+		transcription: '',
+		audio: false,
+	},
+
+	she_has_three_children_two_boys_and_a_girl: {
+		sentence: 'She has three children: two boys and a girl.',
+		transcription: '',
+		audio: false,
+	},
+
+	the_children_are_playing_in_the_park: {
+		sentence: 'The children are playing in the park.',
+		transcription: '',
+		audio: false,
+	},
+
+	many_people_like_warm_weather: {
+		sentence: 'Many people like warm weather.',
 		transcription: '',
 		audio: false,
 	},
@@ -4888,36 +4918,6 @@ export const transcriptions = {
 
 	we_need_three_tomatoes_for_the_salad: {
 		sentence: 'We need three tomatoes for the salad.',
-		transcription: '',
-		audio: false,
-	},
-
-	she_has_three_different_brushes_for_painting: {
-		sentence: 'She has three different brushes for painting.',
-		transcription: '',
-		audio: false,
-	},
-
-	in_movies_heroes_always_save_the_world: {
-		sentence: 'In movies, heroes always save the world.',
-		transcription: '',
-		audio: false,
-	},
-
-	she_has_three_children_two_boys_and_a_girl: {
-		sentence: 'She has three children: two boys and a girl.',
-		transcription: '',
-		audio: false,
-	},
-
-	the_children_are_playing_in_the_park: {
-		sentence: 'The children are playing in the park.',
-		transcription: '',
-		audio: false,
-	},
-
-	many_people_like_warm_weather: {
-		sentence: 'Many people like warm weather.',
 		transcription: '',
 		audio: false,
 	},

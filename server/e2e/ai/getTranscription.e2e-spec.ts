@@ -8,6 +8,10 @@ import { createApp } from '../utils/createApp'
 import { queries } from '../../src/features/test/queries'
 import { aiDataChecker } from './aiDataChecker'
 
+it('1', () => {
+	expect(2).toBe(2)
+})
+
 describe.skip('AI get transcription (e2e)', () => {
 	let app: INestApplication<App>
 	let gigaChatService: GigaChatService

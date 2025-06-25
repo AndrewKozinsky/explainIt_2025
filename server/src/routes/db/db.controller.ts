@@ -2,6 +2,7 @@ import {
 	BadRequestException,
 	Controller,
 	Delete,
+	Post,
 	Get,
 	HttpCode,
 	HttpStatus,
@@ -38,18 +39,10 @@ export class DbController {
 		throw new BadRequestException()
 	}
 
-	/*@HttpCode(HttpStatus.NO_CONTENT)
+	@HttpCode(HttpStatus.NO_CONTENT)
 	@UseGuards(OnlyDevOrTestingModeGuard)
 	@Post(RouteNames.TESTING.SEED)
 	async seedTestData() {
-		await this.commandBus.execute(new SeedTestDataCommand())
-	}*/
-
-	/*@HttpCode(HttpStatus.OK)
-	@UseGuards(OnlyDevOrTestingModeGuard)
-	@Get(RouteNames.TESTING.USER)
-	@UsePipes(new ValidationPipe({ transform: true, whitelist: true }))
-	async getUser(@Query() query: GetUserQueries) {
-		return await this.commandBus.execute(new GetServiceUserCommand(query.email))
-	}*/
+		// await this.commandBus.execute(new SeedTestDataCommand())
+	}
 }

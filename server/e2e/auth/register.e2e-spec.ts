@@ -1,7 +1,7 @@
-import { INestApplication } from '@nestjs/common'
+import {INestApplication} from '@nestjs/common'
 // import { CommandBus } from '@nestjs/cqrs'
-import { App } from 'supertest/types'
-import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
+import {App} from 'supertest/types'
+import {EmailAdapterService} from '../../src/infrastructure/emailAdapter/email-adapter.service'
 // import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
 // import RouteNames from '../../src/infrastructure/routeNames'
 // import { CellRepository } from '../../src/repo/cell.repository'
@@ -10,11 +10,11 @@ import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email
 // import { ParcelBoxTypeRepository } from '../../src/repo/parcelBoxType.repository'
 // import { UserQueryRepository } from '../../src/repo/user.queryRepository'
 // import { UserRepository } from '../../src/repo/user.repository'
-import { makeGraphQLReq } from '../makeGQReq'
+import {makeGraphQLReq} from '../makeGQReq'
 import {clearAllDB} from '../utils/clearDB'
 // import { defAdminEmail, defAdminPassword, extractErrObjFromResp, seedInitDataInDatabase } from '../utils/common'
-import { createApp } from '../utils/createApp'
-import { queries } from '../../src/features/test/queries'
+import {createApp} from '../utils/createApp'
+import {queries} from '../../src/features/test/queries'
 // import { seedTestData } from '../utils/seedTestData'
 // import '../utils/jestExtendFunctions'
 
@@ -30,7 +30,7 @@ describe('Register user (e2e)', () => {
 	// let parcelBoxTypeRepository: ParcelBoxTypeRepository
 
 	beforeAll(async () => {
-		const createMainAppRes = await createApp({ emailAdapter })
+		const createMainAppRes = await createApp({emailAdapter})
 
 		app = createMainAppRes.app
 		// commandBus = app.get(CommandBus)
@@ -47,12 +47,35 @@ describe('Register user (e2e)', () => {
 	})
 
 	it.only('should return error if wrong data was passed', async () => {
-		const registerAdminMutation = queries.auth.registerAdmin({ email: 'johnexample.com', password: 'my' })
+		const registerAdminMutation = queries.auth.registerAdmin({email: 'johnexample.com', password: 'my'})
 
 		const [createUserResp] = await makeGraphQLReq(app, registerAdminMutation)
 
 		expect(createUserResp.data).toBe(null)
-		console.log(createUserResp)
+		console.log(JSON.stringify(createUserResp))
+
+		const err = {
+			"errors": [
+				{
+					"message": "Bad Request Exception",
+					"locations": [{"line": 2, "column": 6}],
+					"path": ["auth_register"],
+					"extensions": {
+						"code": "BAD_REQUEST",
+						"originalError": {
+							"message": [
+								"Адрес электронной почты должен соответствовать формату example@mail.com",
+								"Минимальное количество символов: 6"
+							],
+							"error": "Bad Request",
+							"statusCode": 400
+						}
+					}
+				}
+			],
+			"data": null
+		}
+		// console.log(createUserResp.errors[0].extensions)
 
 		/*const firstErr = extractErrObjFromResp(createUserResp)
 
