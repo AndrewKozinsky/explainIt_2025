@@ -1,9 +1,9 @@
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo'
-import { BadRequestException, Module } from '@nestjs/common'
+import { Module } from '@nestjs/common'
 import { GraphQLModule } from '@nestjs/graphql'
-import { GraphQLError } from 'graphql'
 import { EmailAdapterModule } from './infrastructure/emailAdapter/email-adapter.module'
 import { GigaChatModule } from './infrastructure/gigaChat/gigaChat.module'
+import { HashAdapterModule } from './infrastructure/hashAdapter/hash-adapter.module'
 import { MainConfigModule } from './infrastructure/mainConfig/mainConfig.module'
 import { MainConfigService } from './infrastructure/mainConfig/mainConfig.service'
 import { join } from 'path'
@@ -27,30 +27,11 @@ import { DbModule } from './routes/db/db.module'
 					// graphiql: mainConfigService.get().mode === 'localDev',
 					playground: false,
 					plugins: [ApolloServerPluginLandingPageLocalDefault()],
-					/*formattedError: (error: GraphQLError) => {
-						const originalError = error?.extensions?.originalError
-
-						if (
-							originalError instanceof BadRequestException &&
-							Array.isArray(originalError.getResponse())
-						) {
-							return {
-								message: error.message,
-								path: error.path,
-								locations: error.locations,
-								extensions: {
-									code: 'BAD_USER_INPUT',
-									validationErrors: originalError.getResponse(), // This will include field names
-								},
-							}
-						}
-
-						return error
-					},*/
 				}
 			},
 			inject: [MainConfigService],
 		}),
+		HashAdapterModule,
 		MainConfigModule,
 		AiModule,
 		EmailAdapterModule,

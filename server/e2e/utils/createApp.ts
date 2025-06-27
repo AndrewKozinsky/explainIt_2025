@@ -29,7 +29,10 @@ export async function createApp(props: { emailAdapter: EmailAdapterService }) {
 	await applyAppSettings(app)
 	await app.init()
 
+	const mockedEmailAdapter = moduleFixture.get<EmailAdapterService>(EmailAdapterService)
+
 	return {
 		app,
+		emailAdapter: mockedEmailAdapter,
 	}
 }

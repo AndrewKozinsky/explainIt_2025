@@ -56,6 +56,27 @@ export const bdConfig = {
 				example: 'z151JPS16jz151JPS16j',
 				required: true,
 			},
-		}
-	}
+			email_confirmation_code: {
+				type: 'string',
+				required: false,
+				minLength: 3,
+				maxLength: 100,
+				description: 'The code with which the user must confirm his email',
+				example: '1836',
+			},
+			email_confirmation_code_expiration_date: {
+				type: 'string',
+				required: false,
+				description: 'The date when email confirmation code will be expired',
+				example: '2024-08-30T08:43:48.596Z',
+			},
+			is_email_confirmed: {
+				type: 'boolean',
+				default: false,
+				description: "Is user's email confirmed",
+				example: true,
+				required: true,
+			},
+		},
+	},
 } satisfies BdConfig.Root
