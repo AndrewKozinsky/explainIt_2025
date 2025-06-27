@@ -1,19 +1,18 @@
 import { Injectable } from '@nestjs/common'
-// import { User } from '@prisma/client'
-// import { add } from 'date-fns'
-// import { UserRole } from '../db/dbConstants'
+import { User } from '@prisma/client'
+import { add } from 'date-fns'
 import { PrismaService } from '../db/prisma.service'
 // import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
-// import { HashAdapterService } from '../infrastructure/hashAdapter/hash-adapter.service'
-// import { UserServiceModel } from '../models/auth/auth.service.model'
-// import { createUniqString } from '../utils/stringUtils'
+import { HashAdapterService } from '../infrastructure/hashAdapter/hash-adapter.service'
+import { UserServiceModel } from '../models/auth/auth.service.model'
+import { createUniqString } from '../utils/stringUtils'
 
 @Injectable()
 export class UserRepository {
-	/*constructor(
+	constructor(
 		private prisma: PrismaService,
 		private hashAdapter: HashAdapterService,
-	) {}*/
+	) {}
 
 	/*@CatchDbError()
 	async getAllUsers() {
@@ -35,7 +34,7 @@ export class UserRepository {
 		return this.mapDbUserToServiceUser(user)
 	}*/
 
-	/*@CatchDbError()
+	// @CatchDbError()
 	async getUserByEmail(email: string) {
 		try {
 			const user = await this.prisma.user.findUnique({
@@ -48,7 +47,7 @@ export class UserRepository {
 		} catch (err: unknown) {
 			console.log(err)
 		}
-	}*/
+	}
 
 	/*@CatchDbError()
 	async getUserByEmailAndPassword(email: string, password: string) {
@@ -104,17 +103,15 @@ export class UserRepository {
 		return this.mapDbUserToServiceUser(user)
 	}*/
 
-	/*@CatchDbError()
-	async createUser(dto: { email: string; password: string }, role: UserRole) {
-		const newUserParams: any = {
+	/*@CatchDbError()*/
+	async createUser(dto: { email: string; password: string }) {
+		const newUserParams = {
 			email: dto.email,
 			password: await this.hashAdapter.hashString(dto.password),
 			email_confirmation_code: createUniqString(),
 			email_confirmation_code_expiration_date: add(new Date(), {
 				days: 3,
 			}).toISOString(),
-			is_email_confirmed: false,
-			role,
 		}
 
 		const user = await this.prisma.user.create({
@@ -122,24 +119,24 @@ export class UserRepository {
 		})
 
 		return this.mapDbUserToServiceUser(user)
-	}*/
+	}
 
-	/*@CatchDbError()
+	/*@CatchDbError()*/
 	async updateUser(userId: number, data: Partial<User>) {
 		await this.prisma.user.update({
 			where: { id: userId },
 			data,
 		})
-	}*/
+	}
 
-	/*@CatchDbError()
+	/*@CatchDbError()*/
 	async makeEmailVerified(userId: number) {
 		await this.updateUser(userId, {
 			email_confirmation_code: null,
 			is_email_confirmed: true,
 			email_confirmation_code_expiration_date: null,
 		})
-	}*/
+	}
 
 	/*@CatchDbError()
 	async deleteUser(userId: number) {
@@ -147,8 +144,7 @@ export class UserRepository {
 			where: { id: userId },
 		})
 	}*/
-
-	/*mapDbUserToServiceUser(dbUser: User): UserServiceModel {
+	mapDbUserToServiceUser(dbUser: User): UserServiceModel {
 		return {
 			id: dbUser.id,
 			email: dbUser.email,
@@ -157,5 +153,5 @@ export class UserRepository {
 			confirmationCodeExpirationDate: dbUser.email_confirmation_code_expiration_date,
 			isEmailConfirmed: dbUser.is_email_confirmed,
 		}
-	}*/
+	}
 }

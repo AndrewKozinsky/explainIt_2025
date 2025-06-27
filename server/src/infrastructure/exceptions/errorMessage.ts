@@ -2,6 +2,7 @@ export const errorMessage = {
 	// EMAIL
 	emailIsAlreadyRegistered: 'Почта уже зарегистрирована.',
 	emailIsNotConfirmed: 'Почта зарегистрирована, но не подтверждена.',
+	wrongEmailFormat: 'Адрес электронной почты должен соответствовать формату example@mail.com',
 	// emailIsAlreadyConfirmed: 'Почта уже подтверждена.',
 	// emailConfirmationCodeIsExpired: 'Срок действия кода подтверждения почты истек.',
 	// emailConfirmationCodeNotFound: 'Код подтверждения почты не найден.',
@@ -21,12 +22,8 @@ export const errorMessage = {
 
 	// INPUT DATA
 	// wrongInputData: 'Неверные значения полей.',
-	minCharacters(num: number) {
-		return 'Минимальное количество символов: ' + num
-	},
-	maxCharacters(num: number) {
-		return 'Максимальное количество символов: ' + num
-	},
+
+	// NUMBERS
 	minNum(num: number) {
 		return 'Минимальное число: ' + num
 	},
@@ -34,7 +31,35 @@ export const errorMessage = {
 		return 'Максимальное число: ' + num
 	},
 
+	// STRINGS
+	mustBeString(name: string) {
+		return name + ' must be a string'
+	},
+	minCharacters(num: number) {
+		return 'Минимальное количество символов: ' + num
+	},
+	maxCharacters(num: number) {
+		return 'Максимальное количество символов: ' + num
+	},
+	stringDateInISO(name: string) {
+		return (
+			name +
+			'Должна быть строка в формате ISO. Например: 2024-09-29T09:18:40.523Z. Чтобы это сделать используйте new Date().toISOString().'
+		)
+	},
+
+	// ARRAY
+	mustBeArray(name: string) {
+		return name + ' must be an array.'
+	},
+	mustBeArrayOfStrings(name: string) {
+		return name + ' must be an array of strings.'
+	},
+	mustBeArrayOfMongoDBStrings(name: string) {
+		return name + ' must be an array of mongoId strings.'
+	},
+
 	// MICK
-	// unknownDbError: 'Неизвестная ошибка в базе данных.',
+	unknownDbError: 'Неизвестная ошибка в базе данных.',
 	// onlyDevMode: 'It works only in development mode.',
 }

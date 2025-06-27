@@ -1,15 +1,17 @@
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo'
 import { Module } from '@nestjs/common'
 import { GraphQLModule } from '@nestjs/graphql'
-import {EmailAdapterModule} from './infrastructure/emailAdapter/email-adapter.module'
+import { EmailAdapterModule } from './infrastructure/emailAdapter/email-adapter.module'
 import { GigaChatModule } from './infrastructure/gigaChat/gigaChat.module'
+import { HashAdapterModule } from './infrastructure/hashAdapter/hash-adapter.module'
 import { MainConfigModule } from './infrastructure/mainConfig/mainConfig.module'
 import { MainConfigService } from './infrastructure/mainConfig/mainConfig.service'
 import { join } from 'path'
 import { AiModule } from './routes/ai/ai.module'
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default'
 import { TelegramModule } from './infrastructure/telegram/telegram.module'
-import {AuthModule} from './routes/auth/auth.module'
+import { AuthModule } from './routes/auth/auth.module'
+import { DbModule } from './routes/db/db.module'
 
 @Module({
 	imports: [
@@ -29,12 +31,14 @@ import {AuthModule} from './routes/auth/auth.module'
 			},
 			inject: [MainConfigService],
 		}),
+		HashAdapterModule,
 		MainConfigModule,
 		AiModule,
 		EmailAdapterModule,
 		AuthModule,
 		TelegramModule,
 		GigaChatModule,
+		DbModule,
 	],
 	providers: [],
 })

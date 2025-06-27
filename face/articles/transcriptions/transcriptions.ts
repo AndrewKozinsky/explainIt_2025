@@ -410,30 +410,120 @@ export const transcriptions = {
 
 	cats_catch_mice: {
 		sentence: 'Cats catch mice.',
-		transcription: '',
+		transcription: 'kæts kæʧ maɪs',
 		audio: false,
 	},
 
 	the_dinosaur_has_sharp_teeth: {
 		sentence: 'The dinosaur has sharp teeth.',
-		transcription: '',
+		transcription: 'ðə ˈdaɪnəˌsɔr hæz ʃɑrp tiθ',
 		audio: false,
 	},
 
 	we_see_wild_geese_near_the_lake: {
 		sentence: 'We see wild geese near the lake.',
-		transcription: '',
+		transcription: 'wi si waɪld ɡis nɪr ðə leɪk',
 		audio: false,
 	},
 
 	john_has_terrible_pyjamas: {
 		sentence: 'John has terrible pyjamas.',
-		transcription: '',
+		transcription: 'ʤɑn hæz ˈtɛrəbl pəˈʤæməz',
 		audio: false,
 	},
 
 	news: {
 		sentence: 'news',
+		transcription: 'nuz',
+		audio: false,
+	},
+
+	she_has_three_different_brushes_for_painting: {
+		sentence: 'She has three different brushes for painting.',
+		transcription: 'ʃi hæz θri ˈdɪfɚənt ˈbrʌʃɪz fɚ ˈpeɪntɪŋ',
+		audio: false,
+	},
+
+	in_movies_heroes_always_save_the_world: {
+		sentence: 'In movies, heroes always save the world.',
+		transcription: 'ɪn ˈmuːviz ˈhɪroʊz ˈɔlweɪz seɪv ðə wɝld',
+		audio: false,
+	},
+
+	she_has_three_children_two_boys_and_a_girl: {
+		sentence: 'She has three children: two boys and a girl.',
+		transcription: 'ʃi hæz θri ˈtʃɪldrən tu bɔɪz ænd ə ɡɝl',
+		audio: false,
+	},
+
+	the_children_are_playing_in_the_park: {
+		sentence: 'The children are playing in the park.',
+		transcription: 'ðə ˈtʃɪldrən ɑr ˈpleɪɪŋ ɪn ðə pɑrk',
+		audio: false,
+	},
+
+	many_people_like_warm_weather: {
+		sentence: 'Many people like warm weather.',
+		transcription: 'ˈmɛni ˈpiːpəl laɪk wɔrm ˈwɛðɚ',
+		audio: false,
+	},
+
+	the_girl_eats_tasty_cookies: {
+		sentence: 'The girl eats tasty cookies.',
+		transcription: 'ðə ɡɝl its ˈteɪsti ˈkʊkiz',
+		audio: false,
+	},
+
+	she_makes_mistakes: {
+		sentence: 'She makes mistakes.',
+		transcription: 'ʃi meɪks mɪˈsteɪks',
+		audio: false,
+	},
+
+	the_city_has_many_buses: {
+		sentence: 'The city has many buses.',
+		transcription: 'ðə ˈsɪti hæz ˈmɛni ˈbʌsəz',
+		audio: false,
+	},
+
+	he_washes_dishes_after_dinner: {
+		sentence: 'He washes dishes after dinner.',
+		transcription: 'hi ˈwɑʃɪz ˈdɪʃəz ˈæftɚ ˈdɪnɚ',
+		audio: false,
+	},
+
+	we_need_three_tomatoes_for_the_salad: {
+		sentence: 'We need three tomatoes for the salad.',
+		transcription: 'wi nid θri təˈmeɪɾoʊz fɚ ðə ˈsæləd',
+		audio: false,
+	},
+
+	she_usually_buys_expensive_clothes: {
+		sentence: 'She usually buys expensive clothes.',
+		transcription: '',
+		audio: false,
+	},
+
+	he_shows_a_good_result: {
+		sentence: 'He shows a good result.',
+		transcription: '',
+		audio: false,
+	},
+
+	we_need_eggs_lemons_and_cookies: {
+		sentence: 'We need eggs, lemons and cookies.',
+		transcription: '',
+		audio: false,
+	},
+
+	emily_chooses_a_leather_jacket: {
+		sentence: 'Emily chooses a leather jacket.',
+		transcription: '',
+		audio: false,
+	},
+
+	a_fireplace_is_an_expensive_thing: {
+		sentence: 'A fireplace is an expensive thing.',
 		transcription: '',
 		audio: false,
 	},
@@ -4828,96 +4918,6 @@ export const transcriptions = {
 
 	i_live_in_a_green_house: {
 		sentence: 'I live in a green house.',
-		transcription: '',
-		audio: false,
-	},
-
-	she_usually_buys_expensive_clothes: {
-		sentence: 'She usually buys expensive clothes.',
-		transcription: '',
-		audio: false,
-	},
-
-	he_shows_a_good_result: {
-		sentence: 'He shows a good result.',
-		transcription: '',
-		audio: false,
-	},
-
-	we_need_eggs_lemons_and_cookies: {
-		sentence: 'We need eggs, lemons and cookies.',
-		transcription: '',
-		audio: false,
-	},
-
-	emily_chooses_a_leather_jacket: {
-		sentence: 'Emily chooses a leather jacket.',
-		transcription: '',
-		audio: false,
-	},
-
-	a_fireplace_is_an_expensive_thing: {
-		sentence: 'A fireplace is an expensive thing.',
-		transcription: '',
-		audio: false,
-	},
-
-	the_girl_eats_tasty_cookies: {
-		sentence: 'The girl eats tasty cookies.',
-		transcription: '',
-		audio: false,
-	},
-
-	she_makes_mistakes: {
-		sentence: 'She makes mistakes.',
-		transcription: '',
-		audio: false,
-	},
-
-	the_city_has_many_buses: {
-		sentence: 'The city has many buses.',
-		transcription: '',
-		audio: false,
-	},
-
-	he_washes_dishes_after_dinner: {
-		sentence: 'He washes dishes after dinner.',
-		transcription: '',
-		audio: false,
-	},
-
-	we_need_three_tomatoes_for_the_salad: {
-		sentence: 'We need three tomatoes for the salad.',
-		transcription: '',
-		audio: false,
-	},
-
-	she_has_three_different_brushes_for_painting: {
-		sentence: 'She has three different brushes for painting.',
-		transcription: '',
-		audio: false,
-	},
-
-	in_movies_heroes_always_save_the_world: {
-		sentence: 'In movies, heroes always save the world.',
-		transcription: '',
-		audio: false,
-	},
-
-	she_has_three_children_two_boys_and_a_girl: {
-		sentence: 'She has three children: two boys and a girl.',
-		transcription: '',
-		audio: false,
-	},
-
-	the_children_are_playing_in_the_park: {
-		sentence: 'The children are playing in the park.',
-		transcription: '',
-		audio: false,
-	},
-
-	many_people_like_warm_weather: {
-		sentence: 'Many people like warm weather.',
 		transcription: '',
 		audio: false,
 	},

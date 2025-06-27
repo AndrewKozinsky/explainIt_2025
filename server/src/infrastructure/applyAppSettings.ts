@@ -1,11 +1,11 @@
 import { BadRequestException, INestApplication, ValidationPipe } from '@nestjs/common'
-import { useContainer } from 'class-validator'
+import { useContainer, ValidationError } from 'class-validator'
 import { Request, Response, NextFunction } from 'express'
 import * as cookieParser from 'cookie-parser'
 import { AppModule } from '../app.module'
+import { ApolloExceptionFilter } from './exceptions/apollo-exception.filter'
 // import { MainConfigService } from './config/mainConfig.service'
 // import { UserRepository } from '../repo/user.repository'
-// import { GraphQLValidationFilter } from './exceptions/graphqlException.filter'
 // import { JwtAdapterService } from './jwtAdapter/jwtAdapter.service'
 // import { SetUserIntoReqMiddleware } from './middlewares/setUserIntoReq.middleware'
 
@@ -29,24 +29,20 @@ export async function applyAppSettings(app: INestApplication) {
 	// Thus ensuring all endpoints are protected from receiving incorrect data.
 	app.useGlobalPipes(
 		new ValidationPipe({
+			whitelist: true,
+			forbidNonWhitelisted: true,
 			transform: true,
 			stopAtFirstError: true,
-			/*exceptionFactory: (errors) => {
-				const errorsForResponse: Record<string, string>[] = []
+			exceptionFactory: (errors: ValidationError[]) => {
+				const formattedErrors = errors.map((err) => ({
+					field: err.property,
+					messages: Object.values(err.constraints || []),
+				}))
 
-				errors.forEach((e) => {
-					// @ts-ignore
-					const constraintsKeys = Object.keys(e.constraints)
-					constraintsKeys.forEach((cKey) => {
-						// @ts-ignore
-						errorsForResponse.push({ message: e.constraints[cKey], field: e.property })
-					})
-				})
-
-				throw new BadRequestException(errorsForResponse)
-			},*/
+				return new BadRequestException(formattedErrors)
+			},
 		}),
 	)
 
-	// app.useGlobalFilters(new GraphQLValidationFilter())
+	app.useGlobalFilters(new ApolloExceptionFilter())
 }

@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing'
 import { AppModule } from '../../src/app.module'
 import { applyAppSettings } from '../../src/infrastructure/applyAppSettings'
-import {EmailAdapterService} from '../../src/infrastructure/emailAdapter/email-adapter.service'
+import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 import { GigaChatService } from '../../src/infrastructure/gigaChat/gigaChat.service'
 import { TelegramService } from '../../src/infrastructure/telegram/telegram.service'
 
@@ -29,7 +29,10 @@ export async function createApp(props: { emailAdapter: EmailAdapterService }) {
 	await applyAppSettings(app)
 	await app.init()
 
+	const mockedEmailAdapter = moduleFixture.get<EmailAdapterService>(EmailAdapterService)
+
 	return {
 		app,
+		emailAdapter: mockedEmailAdapter,
 	}
 }

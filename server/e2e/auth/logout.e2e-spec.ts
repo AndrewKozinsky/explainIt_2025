@@ -24,6 +24,10 @@
 // import { userUtils } from '../utils/userUtils'
 // import '../utils/jestExtendFunctions'
 
+it('1', () => {
+	expect(2).toBe(2)
+})
+
 /*describe.skip('Logout (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus

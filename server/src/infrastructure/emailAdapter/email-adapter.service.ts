@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { MainConfigService } from '../mainConfig/mainConfig.service'
-const sendpulse = require('sendpulse-api')
+const sendPulse = require('sendpulse-api')
 
 @Injectable()
 export class EmailAdapterService implements EmailAdapterServiceI {
@@ -8,7 +8,7 @@ export class EmailAdapterService implements EmailAdapterServiceI {
 
 	async sendEmailConfirmationMessage(userEmail: string, confirmationCode: string) {
 		const siteName = this.mainConfig.get().site.name
-		const {domainRootWithProtocol} = this.mainConfig.get().site
+		const { domainRootWithProtocol } = this.mainConfig.get().site
 
 		const subject = 'Регистрация на ' + siteName
 		const textMessage = 'Регистрация на ' + siteName
@@ -26,7 +26,7 @@ export class EmailAdapterService implements EmailAdapterServiceI {
 	}
 
 	async sendPasswordRecoveryMessage(userEmail: string, recoveryCode: string) {
-		const {domainRootWithProtocol} = this.mainConfig.get().site
+		const { domainRootWithProtocol } = this.mainConfig.get().site
 
 		const subject = 'Password recovery at our web-site'
 		const textMessage = 'Password recovery at our web-site'
@@ -56,7 +56,7 @@ export class EmailAdapterService implements EmailAdapterServiceI {
 			const FROM_EMAIL = this.mainConfig.get().emailAdapter.fromEmail
 			const TOKEN_STORAGE = '/tmp/'
 
-			sendpulse.init(API_USER_ID, API_SECRET, TOKEN_STORAGE, function () {
+			sendPulse.init(API_USER_ID, API_SECRET, TOKEN_STORAGE, function () {
 				const emailOptions = {
 					html: htmlMessage,
 					text: textMessage,
@@ -73,7 +73,7 @@ export class EmailAdapterService implements EmailAdapterServiceI {
 				}
 
 				try {
-					sendpulse.smtpSendMail(() => {
+					sendPulse.smtpSendMail(() => {
 						resolve(null)
 					}, emailOptions)
 				} catch (err) {

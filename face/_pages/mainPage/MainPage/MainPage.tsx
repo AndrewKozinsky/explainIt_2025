@@ -7,6 +7,7 @@ function MainPage() {
 	return (
 		<PageWrapper>
 			<main>
+				{/* Do not forget to use STATE MACHINE FOR COMPONENTS !!! https://zagjs.com/ */}
 				<MainPageHeader />
 				{/*<CourseFace />*/}
 				{/*<FeaturesGridOne />*/}

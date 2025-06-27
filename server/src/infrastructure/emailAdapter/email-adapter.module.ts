@@ -1,5 +1,5 @@
 import { Global, Module } from '@nestjs/common'
-import {MainConfigService} from '../mainConfig/mainConfig.service'
+import { MainConfigService } from '../mainConfig/mainConfig.service'
 import { EmailAdapterService, EmailAdapterServiceMock } from './email-adapter.service'
 
 const emailServiceProvider = {

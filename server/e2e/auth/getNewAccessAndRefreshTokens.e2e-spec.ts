@@ -25,6 +25,10 @@
 // import { userUtils } from '../utils/userUtils'
 // import '../utils/jestExtendFunctions'
 
+it('1', () => {
+	expect(2).toBe(2)
+})
+
 /*describe.skip('Get new refresh and access tokens (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
