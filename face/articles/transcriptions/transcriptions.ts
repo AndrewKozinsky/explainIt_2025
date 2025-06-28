@@ -500,30 +500,60 @@ export const transcriptions = {
 
 	she_usually_buys_expensive_clothes: {
 		sentence: 'She usually buys expensive clothes.',
-		transcription: '',
+		transcription: 'ʃi ˈjuːʒəwəli ˈbaɪz ɪkˈspɛnsɪv kloʊðz',
 		audio: false,
 	},
 
 	he_shows_a_good_result: {
 		sentence: 'He shows a good result.',
-		transcription: '',
+		transcription: 'hi ʃoʊz ə ɡʊd rɪˈzʌlt',
 		audio: false,
 	},
 
 	we_need_eggs_lemons_and_cookies: {
 		sentence: 'We need eggs, lemons and cookies.',
-		transcription: '',
+		transcription: 'wi nid ɛɡz ˈlɛmənz ənd ˈkʊkiz',
 		audio: false,
 	},
 
 	emily_chooses_a_leather_jacket: {
 		sentence: 'Emily chooses a leather jacket.',
-		transcription: '',
+		transcription: 'ˈɛməli ˈʧuzəz ə ˈlɛðɚ ˈʤækɪt',
 		audio: false,
 	},
 
 	a_fireplace_is_an_expensive_thing: {
 		sentence: 'A fireplace is an expensive thing.',
+		transcription: 'ə ˈfaɪɚˌpleɪs ɪz ən ɪkˈspɛnsɪv θɪŋ',
+		audio: false,
+	},
+
+	i_see_an_apple: {
+		sentence: 'I see an apple.',
+		transcription: '',
+		audio: false,
+	},
+
+	we_see_an_airport: {
+		sentence: 'We see an airport.',
+		transcription: '',
+		audio: false,
+	},
+
+	this_lesson_lasts_an_hour: {
+		sentence: 'This lesson lasts an hour.',
+		transcription: '',
+		audio: false,
+	},
+
+	he_rents_an_apartment: {
+		sentence: 'He rents an apartment.',
+		transcription: '',
+		audio: false,
+	},
+
+	i_live_in_a_green_house: {
+		sentence: 'I live in a green house.',
 		transcription: '',
 		audio: false,
 	},
@@ -3807,7 +3837,7 @@ export const transcriptions = {
 	},
 
 	this_love_is_difficult_but_its_real: {
-		sentence: 'This love is difficult, but it\'s real.',
+		sentence: "This love is difficult, but it's real.",
 		transcription: 'ðɪs lʌv ɪz dɪˈfɪkəlt, bət ɪtˈs rɪəl',
 		audio: false,
 	},
@@ -3843,7 +3873,7 @@ export const transcriptions = {
 	},
 
 	is_this_a_pencil_no_its_a_pen: {
-		sentence: 'Is this a pencil? No, it\'s a pen.',
+		sentence: "Is this a pencil? No, it's a pen.",
 		transcription: 'is ˈðɪs ə ˈpɛn.ɫ.səʊ ˈnəʊ ɪt ɪz ə ˈpɛn',
 		audio: false,
 	},
@@ -4888,36 +4918,6 @@ export const transcriptions = {
 
 	i_want_fresh_coconut_milk: {
 		sentence: 'I want fresh coconut milk.',
-		transcription: '',
-		audio: false,
-	},
-
-	i_see_an_apple: {
-		sentence: 'I see an apple.',
-		transcription: '',
-		audio: false,
-	},
-
-	we_see_an_airport: {
-		sentence: 'We see an airport.',
-		transcription: '',
-		audio: false,
-	},
-
-	this_lesson_lasts_an_hour: {
-		sentence: 'This lesson lasts an hour.',
-		transcription: '',
-		audio: false,
-	},
-
-	he_rents_an_apartment: {
-		sentence: 'He rents an apartment.',
-		transcription: '',
-		audio: false,
-	},
-
-	i_live_in_a_green_house: {
-		sentence: 'I live in a green house.',
 		transcription: '',
 		audio: false,
 	},

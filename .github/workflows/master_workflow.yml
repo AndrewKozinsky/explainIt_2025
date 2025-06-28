@@ -30,9 +30,7 @@ jobs:
             # Apply migrations
             npx prisma migrate deploy
           
-            # Generate Prisma client
-            npx prisma generate
-          
             git pull
+          
             docker compose -f docker-compose.server.master.yml up --build -d
           EOF
