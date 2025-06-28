@@ -30,8 +30,9 @@ jobs:
             # Apply migrations
             npx prisma migrate deploy
           
-            # Generate .env file
-            echo "${{ secrets.ENV_FILE_CONTENT }}" > .env
+            # Generate Prisma client
+            npx prisma generate
+          
             git pull
             docker compose -f docker-compose.server.master.yml up --build -d
           EOF

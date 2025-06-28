@@ -9,9 +9,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Display some Text
-        run: echo "Some Text"
-
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -32,6 +29,9 @@ jobs:
           
             # Apply migrations
             npx prisma migrate deploy
+          
+            # Generate Prisma client
+            npx prisma generate
             
             git pull
             docker compose -f docker-compose.server.develop.yml up --build -d

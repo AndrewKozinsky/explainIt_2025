@@ -17,7 +17,6 @@ export class AuthResolver {
 	})
 	@UsePipes(new ValidationPipe({ transform: true }))
 	async register(@Args('input') input: RegisterUserInput) {
-		throw new Error('Method not implemented.')
 		return await this.commandBus.execute(new CreateUserCommand(input))
 	}
 }

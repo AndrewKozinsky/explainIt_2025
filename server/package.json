@@ -6,7 +6,7 @@
 	"private": true,
 	"license": "UNLICENSED",
 	"scripts": {
-		"build": "nest build",
+		"build": "nest build && yarn sentry:sourcemaps",
 		"format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
 		"start": "nest start",
 		"start:dev": "nest start --watch",
@@ -19,7 +19,8 @@
 		"test": "jest --config src/jest.json --runInBand",
 		"test:watch": "jest --watch",
 		"test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-		"test:e2e": "jest --config e2e/jest-e2e.ts --runInBand"
+		"test:e2e": "jest --config e2e/jest-e2e.ts --runInBand",
+		"sentry:sourcemaps": "sentry-cli sourcemaps inject --org explain-4f --project node-nestjs ./dist && sentry-cli sourcemaps upload --org explain-4f --project node-nestjs ./dist"
 	},
 	"dependencies": {
 		"@apollo/server": "^4.12.0",
@@ -31,6 +32,7 @@
 		"@nestjs/graphql": "^13.1.0",
 		"@nestjs/platform-express": "^11.0.1",
 		"@prisma/client": "^6.10.1",
+		"@sentry/cli": "^2.46.0",
 		"@sentry/nestjs": "^9.33.0",
 		"axios": "^1.9.0",
 		"class-transformer": "^0.5.1",
