@@ -1,6 +1,7 @@
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo'
 import { Module } from '@nestjs/common'
 import { GraphQLModule } from '@nestjs/graphql'
+import { SentryModule } from '@sentry/nestjs/setup'
 import { EmailAdapterModule } from './infrastructure/emailAdapter/email-adapter.module'
 import { GigaChatModule } from './infrastructure/gigaChat/gigaChat.module'
 import { HashAdapterModule } from './infrastructure/hashAdapter/hash-adapter.module'
@@ -31,6 +32,7 @@ import { DbModule } from './routes/db/db.module'
 			},
 			inject: [MainConfigService],
 		}),
+		SentryModule.forRoot(),
 		HashAdapterModule,
 		MainConfigModule,
 		AiModule,

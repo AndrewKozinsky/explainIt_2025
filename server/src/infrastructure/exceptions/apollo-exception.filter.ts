@@ -5,8 +5,9 @@ import { CustomGraphQLError } from './customErrors'
 export class ApolloExceptionFilter implements ExceptionFilter {
 	catch(exception: unknown, host: ArgumentsHost) {
 		// @ts-ignore
-		if (host.contextType !== 'graphql') return
-		let statusCode = 500
+		if (host.contextType !== 'graphql') {
+			throw exception
+		}
 
 		let errorResponse: any = {
 			errors: [

@@ -4,6 +4,7 @@ import { Request, Response, NextFunction } from 'express'
 import * as cookieParser from 'cookie-parser'
 import { AppModule } from '../app.module'
 import { ApolloExceptionFilter } from './exceptions/apollo-exception.filter'
+import { SentryExceptionFilter } from './exceptions/centry-exception.filter'
 // import { MainConfigService } from './config/mainConfig.service'
 // import { UserRepository } from '../repo/user.repository'
 // import { JwtAdapterService } from './jwtAdapter/jwtAdapter.service'
@@ -44,5 +45,5 @@ export async function applyAppSettings(app: INestApplication) {
 		}),
 	)
 
-	app.useGlobalFilters(new ApolloExceptionFilter())
+	app.useGlobalFilters(new SentryExceptionFilter(), new ApolloExceptionFilter())
 }
