@@ -1,7 +1,5 @@
 import { ConfigSchemaV37Json } from './types/ConfigSchemaV37Json'
 
-
-
 export enum Mode {
 	localTest = 'localtest',
 	localDev = 'localdev',
@@ -19,6 +17,7 @@ export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
 
 	const nginxServiceName = 'explainnginx' + mode
 	const postgresServiceName = 'explainpostgres' + mode
+	const redisServiceName = 'explainredis' + mode
 	const serverServiceName = 'explainserver' + mode
 	const faceServiceName = 'explainface' + mode
 
@@ -40,6 +39,13 @@ export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
 				environment: getPostgresEnvs(),
 				env_file: ['.env'],
 				volumes: ['pgdata:/var/lib/postgresql/data'],
+			},
+			[redisServiceName]: {
+				image: 'redis:8.0.2',
+				restart: 'unless-stopped',
+				container_name: 'explainredis',
+				ports: ['6379:6379'],
+				volumes: ['redis_data:/data'],
 			},
 			[serverServiceName]: {
 				build: {
@@ -72,7 +78,8 @@ export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
 			? getServerNetworks()
 			: undefined,
 		volumes: {
-			pgdata: {}
+			pgdata: {},
+			redis_data: {}
 		}
 	}
 }
