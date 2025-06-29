@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "ISC",
-  "type": "module",
   "scripts": {
     "generate-docker-files": "npx ts-node ./src/createFiles.ts",
     "lint": "eslint --fix ."

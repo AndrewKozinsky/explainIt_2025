@@ -27,7 +27,7 @@ async function base(props: {
 	accessTokenStr?: string
 	accessTokenMaxAgeInSeconds?: number | string
 	mainConfig?: MainConfigService
-}) {
+}): Promise<[QGResp, any]> {
 	const supertestRequest = request(props.app.getHttpServer())
 		.post('/graphql')
 		.set(
@@ -92,21 +92,21 @@ function extractCookies(cookieArray: undefined | string[]): CookiesObj {
 
 			if (!attribute) continue
 			switch (attribute.toLowerCase()) {
-				case 'max-age':
-					cookieData.maxAge = parseInt(attrValue)
-					break
-				case 'path':
-					cookieData.path = attrValue
-					break
-				case 'expires':
-					cookieData.expires = attrValue as CookieObj['expires']
-					break
-				case 'secure':
-					cookieData.secure = true
-					break
-				case 'samesite':
-					cookieData.sameSite = attrValue as CookieObj['sameSite']
-					break
+			case 'max-age':
+				cookieData.maxAge = parseInt(attrValue)
+				break
+			case 'path':
+				cookieData.path = attrValue
+				break
+			case 'expires':
+				cookieData.expires = attrValue as CookieObj['expires']
+				break
+			case 'secure':
+				cookieData.secure = true
+				break
+			case 'samesite':
+				cookieData.sameSite = attrValue as CookieObj['sameSite']
+				break
 			}
 		}
 
@@ -114,4 +114,12 @@ function extractCookies(cookieArray: undefined | string[]): CookiesObj {
 	})
 
 	return cookieObject
+}
+
+type QGResp = { errors: QGError[]; data: any }
+type QGError = {
+	message: string
+	locations: string[]
+	path: [string]
+	extensions?: { code: string; statusCode: number; message: string }[]
 }

@@ -1,6 +1,5 @@
 import { BadRequestException, INestApplication, ValidationPipe } from '@nestjs/common'
 import { useContainer, ValidationError } from 'class-validator'
-import { Request, Response, NextFunction } from 'express'
 import * as cookieParser from 'cookie-parser'
 import { AppModule } from '../app.module'
 import { ApolloExceptionFilter } from './exceptions/apollo-exception.filter'
@@ -9,9 +8,8 @@ import * as session from 'express-session'
 import { MainConfigService } from './mainConfig/mainConfig.service'
 import IORedis from 'ioredis'
 import { RedisStore } from 'connect-redis'
-// import { UserRepository } from '../repo/user.repository'
-// import { JwtAdapterService } from './jwtAdapter/jwtAdapter.service'
-// import { SetUserIntoReqMiddleware } from './middlewares/setUserIntoReq.middleware'
+import { RedisModule } from './redis/redis.module'
+import { RedisService } from './redis/redis.service'
 
 export async function applyAppSettings(app: INestApplication) {
 	app.use(cookieParser())
@@ -19,13 +17,24 @@ export async function applyAppSettings(app: INestApplication) {
 	// Enable NestJS DI for class-validator
 	useContainer(app.select(AppModule), { fallbackOnErrors: true })
 
+	await setUpSession(app)
+
+	setUpGlobalPipes(app)
+
+	app.useGlobalFilters(new SentryExceptionFilter(), new ApolloExceptionFilter())
+}
+
+async function setUpSession(app: INestApplication) {
 	const mainConfig = await app.resolve(MainConfigService)
-	const redis = new IORedis(mainConfig.get().redis.url)
 
-	app.use(async (req: Request, res: Response, next: NextFunction) => {
-		const sameSite = ['serverdevelop', 'servermaster'].includes(mainConfig.get().mode!) ? 'none' : 'lax'
-		const secure = ['serverdevelop', 'servermaster'].includes(mainConfig.get().mode!)
+	const isOnServer = ['serverdevelop', 'servermaster'].includes(mainConfig.get().mode!)
+	const sameSite = isOnServer ? 'none' : 'lax'
+	const secure = isOnServer
 
+	const redisService = await app.resolve(RedisService)
+	const redis = redisService.get()
+
+	app.use(
 		session({
 			secret: mainConfig.get().session.secret,
 			name: mainConfig.get().session.name,
@@ -42,11 +51,11 @@ export async function applyAppSettings(app: INestApplication) {
 				client: redis,
 				prefix: mainConfig.get().redis.sessionsFolder,
 			}),
-		})
+		}),
+	)
+}
 
-		next()
-	})
-
+function setUpGlobalPipes(app: INestApplication) {
 	// Thus ensuring all endpoints are protected from receiving incorrect data.
 	app.useGlobalPipes(
 		new ValidationPipe({
@@ -64,6 +73,4 @@ export async function applyAppSettings(app: INestApplication) {
 			},
 		}),
 	)
-
-	app.useGlobalFilters(new SentryExceptionFilter(), new ApolloExceptionFilter())
 }

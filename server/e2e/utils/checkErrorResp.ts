@@ -1,7 +1,7 @@
 export function checkErrorResponse(
 	errResponse: unknown,
 	extensionsObj: {
-		code?: string // 'BAD_REQUEST'
+		code?: string // 'Bad Request'
 		statusCode: number // 400
 		message: string
 		validationErrors?: any
@@ -26,7 +26,7 @@ export function checkErrorResponse(
 }
 
 function checkExtensions(extensionsObj: {
-	code?: string // 'BAD_REQUEST'
+	code?: string // 'Bad Request'
 	statusCode: number // 400
 	message: string
 	validationErrors?: any

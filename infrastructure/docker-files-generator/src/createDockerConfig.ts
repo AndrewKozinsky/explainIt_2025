@@ -41,10 +41,12 @@ export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
 				volumes: ['pgdata:/var/lib/postgresql/data'],
 			},
 			[redisServiceName]: {
-				image: 'redis:8.0.2',
+				image: 'redis:7.4.4',
 				restart: 'unless-stopped',
 				container_name: 'explainredis',
 				ports: ['6379:6379'],
+				environment: getRedisEnvs(),
+				env_file: ['.env'],
 				volumes: ['redis_data:/data'],
 			},
 			[serverServiceName]: {
@@ -138,5 +140,12 @@ function getPostgresEnvs() {
 		POSTGRES_DB: '${POSTGRES_DB}',
 		POSTGRES_USER: '${POSTGRES_USER}',
 		POSTGRES_PASSWORD: '${POSTGRES_PASSWORD}',
+	}
+}
+
+/** Returns environment variables for Postgres  */
+function getRedisEnvs() {
+	return {
+		REDIS_PASSWORD: '${REDIS_PASSWORD}'
 	}
 }

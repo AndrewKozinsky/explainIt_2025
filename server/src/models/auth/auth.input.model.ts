@@ -1,6 +1,6 @@
-/*export class ConfirmEmailInputModel {
+export class ConfirmEmailInputModel {
 	code: string
-}*/
+}
 
 export class LoginInputModel {
 	email: string

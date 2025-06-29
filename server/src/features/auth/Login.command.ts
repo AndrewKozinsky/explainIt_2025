@@ -1,18 +1,19 @@
-import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-// import { CustomGraphQLError } from '../../infrastructure/exceptions/customErrors'
-// import { ErrorCode } from '../../infrastructure/exceptions/errorCode'
-// import { errorMessage } from '../../infrastructure/exceptions/errorMessage'
-// import { JwtAdapterService } from '../../infrastructure/jwtAdapter/jwtAdapter.service'
+import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+import { CustomGraphQLError } from '../../infrastructure/exceptions/customErrors'
+import { ErrorCode } from '../../infrastructure/exceptions/errorCode'
+import { errorMessage } from '../../infrastructure/exceptions/errorMessage'
 import { LoginInputModel } from '../../models/auth/auth.input.model'
+import { UserOutModel } from '../../models/user/user.out.model'
 import { UserRepository } from '../../repo/user.repository'
-// import { CreateRefreshTokenCommand } from './CreateRefreshToken.command'
-// import { GetAdminOrSenderByIdCommand } from './GetAdminOrSenderById.command'
+import { Request } from 'express'
+import { UserQueryRepository } from 'src/repo/user.queryRepository'
 
 export class LoginCommand implements ICommand {
 	constructor(
+		public request: Request,
 		public loginInput: LoginInputModel,
-		// public clientIP: string,
-		// public clientName: string,
+		public clientIP: string,
+		public clientName: string,
 	) {}
 }
 
@@ -20,28 +21,51 @@ export class LoginCommand implements ICommand {
 export class LoginHandler implements ICommandHandler<LoginCommand> {
 	constructor(
 		private userRepository: UserRepository,
-		// private commandBus: CommandBus,
-		// private jwtAdapter: JwtAdapterService,
+		private userQueryRepository: UserQueryRepository,
 	) {}
 
 	async execute(command: LoginCommand) {
-		// const { loginInput, clientIP, clientName } = command
-		// const user = await this.userRepository.getUserByEmailAndPassword(loginInput.email, loginInput.password)
-		/*if (!user) {
-			throw new CustomGraphQLError(errorMessage.emailOrPasswordDoNotMatch, ErrorCode.BadRequest_400)
-		}*/
-		/*if (!user.isEmailConfirmed) {
-			throw new CustomGraphQLError(errorMessage.emailIsNotConfirmed, ErrorCode.BadRequest_400)
-		}*/
-		// const accessTokenStr = this.jwtAdapter.createAccessTokenStr(user.id)
-		/*const refreshTokenStr = await this.commandBus.execute(
-			new CreateRefreshTokenCommand(user.id, clientIP, clientName),
-		)*/
-		// const outUser = await this.commandBus.execute(new GetAdminOrSenderByIdCommand(user!.id))
-		/*return {
-			accessTokenStr,
-			refreshTokenStr,
-			user: outUser!,
-		}*/
+		const { request, loginInput, clientIP, clientName } = command
+
+		const user = await this.userRepository.getUserByEmailAndPassword(loginInput.email, loginInput.password)
+		if (!user) {
+			throw new CustomGraphQLError(errorMessage.userNotFound, ErrorCode.BadRequest_400)
+		}
+
+		if (!user.isEmailConfirmed) {
+			throw new CustomGraphQLError(errorMessage.emailIsNotConfirmed, ErrorCode.Forbidden_403)
+		}
+
+		const outUser = await this.userQueryRepository.getUserById(user.id)
+		if (!outUser) {
+			// Add logger here!!!
+			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
+		}
+
+		return this.saveSession(request, outUser, clientIP, clientName)
+	}
+
+	public async saveSession(req: Request, user: UserOutModel, clientIP: string, clientName: string) {
+		return new Promise((resolve, reject) => {
+			if (!req.session) {
+				throw new CustomGraphQLError(errorMessage.noSessionObject, ErrorCode.InternalServerError_500)
+			}
+
+			req.session.userId = user.id
+			req.session.clientIP = clientIP
+			req.session.clientName = clientName
+
+			req.session.save((err) => {
+				if (err) {
+					return reject(
+						new CustomGraphQLError(errorMessage.cannotSaveSession, ErrorCode.InternalServerError_500),
+					)
+				}
+
+				resolve({
+					user,
+				})
+			})
+		})
 	}
 }
