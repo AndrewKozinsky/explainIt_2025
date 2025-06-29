@@ -3,7 +3,6 @@
 // import { add, subDays } from 'date-fns'
 // import { App } from 'supertest/types'
 // import { clearAllDB } from '../utils/clearDB'
-// import { UserRole } from '../../src/db/dbConstants'
 // import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 // import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
 // import { CellRepository } from '../../src/repo/cell.repository'

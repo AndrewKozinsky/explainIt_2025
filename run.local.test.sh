@@ -1,0 +1,1 @@
+docker compose -f docker-compose.local.test.yml up --build

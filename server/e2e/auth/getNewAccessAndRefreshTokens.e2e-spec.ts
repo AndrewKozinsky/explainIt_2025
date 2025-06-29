@@ -3,7 +3,6 @@
 // import { App } from 'supertest/types'
 // import { MainConfigService } from '../../src/infrastructure/config/mainConfig.service'
 // import { clearAllDB } from '../utils/clearDB'
-// import { UserRole } from '../../src/db/dbConstants'
 // import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 // import { JwtAdapterService } from '../../src/infrastructure/jwtAdapter/jwtAdapter.service'
 // import RouteNames from '../../src/infrastructure/routeNames'

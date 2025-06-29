@@ -1,5 +1,6 @@
 import { INestApplication } from '@nestjs/common'
 import RouteNames from '../../src/infrastructure/routeNames'
+import { UserServiceModel } from '../../src/models/auth/auth.service.model'
 import { UserOutModel } from '../../src/models/user/user.out.model'
 import { UserRepository } from '../../src/repo/user.repository'
 import { makeGraphQLReq } from '../makeGQReq'
@@ -84,9 +85,9 @@ export const userUtils = {
 		}
 	},*/
 
-	/*isUserEmailConfirmed(user: UserServiceModel) {
+	isUserEmailConfirmed(user: UserServiceModel) {
 		return user.isEmailConfirmed && !user.emailConfirmationCode && !user.confirmationCodeExpirationDate
-	},*/
+	},
 
 	checkUserOutModel(user: UserOutModel) {
 		expect(typeof user.id).toBe('number')
