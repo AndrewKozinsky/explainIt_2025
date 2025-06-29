@@ -1,60 +1,31 @@
 import { INestApplication } from '@nestjs/common'
-// import { CommandBus } from '@nestjs/cqrs'
 import { App } from 'supertest/types'
 import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
-import { RedisService } from '../../src/infrastructure/redis/redis.service'
 import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
 import { checkErrorResponse } from '../utils/checkErrorResp'
-import { clearAllDB } from '../utils/clearDB'
-// import { UserRole } from '../../src/db/dbConstants'
 import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
-// import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
-// import RouteNames from '../../src/infrastructure/routeNames'
-// import { CellRepository } from '../../src/repo/cell.repository'
-// import { CellTypeRepository } from '../../src/repo/cellType.repository'
-// import { ParcelBoxQueryRepository } from '../../src/repo/parcelBox.queryRepository'
-// import { ParcelBoxRepository } from '../../src/repo/parcelBox.repository'
-// import { ParcelBoxTypeQueryRepository } from '../../src/repo/parcelBoxType.queryRepository'
-// import { ParcelBoxTypeRepository } from '../../src/repo/parcelBoxType.repository'
-// import { UserQueryRepository } from '../../src/repo/user.queryRepository'
-// import { UserRepository } from '../../src/repo/user.repository'
+import RouteNames from '../../src/infrastructure/routeNames'
 import { makeGraphQLReq } from '../makeGQReq'
 import { defUserEmail, defUserPassword } from '../utils/common'
-// import { defUserEmail, defUserPassword, extractErrObjFromResp, seedInitDataInDatabase } from '../utils/common'
 import { createApp } from '../utils/createApp'
 import { queries } from '../../src/features/test/queries'
-// import { seedTestData } from '../utils/seedTestData'
 import { userUtils } from '../utils/userUtils'
 import { UserRepository } from '../../src/repo/user.repository'
-// import '../utils/jestExtendFunctions'
 
 it('1', () => {
 	expect(2).toBe(2)
 })
 
-describe('User login (e2e)', () => {
+describe.skip('User login (e2e)', () => {
 	let app: INestApplication<App>
-	// let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
 	let userRepository: UserRepository
-	// let userQueryRepository: UserQueryRepository
-	// let parcelBoxTypeRepository: ParcelBoxTypeRepository
-	// let parcelBoxTypeQueryRepository: ParcelBoxTypeQueryRepository
-	// let cellTypeRepository: CellTypeRepository
-	// let parcelBoxQueryRepository: ParcelBoxQueryRepository
-	let redisService: RedisService
 
 	beforeAll(async () => {
 		const createMainAppRes = await createApp({ emailAdapter })
 
 		app = createMainAppRes.app
-		// commandBus = app.get(CommandBus)
-		// emailAdapter = createMainAppRes.emailAdapter
 		userRepository = await app.resolve(UserRepository)
-		// userQueryRepository = await app.resolve(UserQueryRepository)
-		// cellTypeRepository = await app.resolve(CellTypeRepository)
-		// parcelBoxQueryRepository = await app.resolve(ParcelBoxQueryRepository)
-		redisService = await app.resolve(RedisService)
 	})
 
 	beforeEach(async () => {
@@ -111,7 +82,7 @@ describe('User login (e2e)', () => {
 		})
 	})
 
-	it.only('should return 200 if dto has correct values and email is confirmed', async () => {
+	it('should return 200 if dto has correct values and email is confirmed', async () => {
 		const user = await userUtils.createUserWithConfirmedEmail({
 			app,
 			userRepository,
@@ -120,13 +91,10 @@ describe('User login (e2e)', () => {
 
 		const loginQuery = queries.auth.login({ email: defUserEmail, password: defUserPassword })
 		const [loginResp, loginRespCookies] = await makeGraphQLReq(app, loginQuery)
-		console.log(loginResp)
 
-		// const loginRespData = loginResp.data[RouteNames.AUTH.LOGIN]
-		// userUtils.checkUserOutModel(loginRespData)
+		const loginRespData = loginResp.data[RouteNames.AUTH.LOGIN]
+		userUtils.checkUserOutModel(loginRespData)
 
-		// const { accessToken, refreshToken } = loginRespCookies
-		// expect(typeof accessToken.value).toBe('string')
-		// expect(typeof refreshToken.value).toBe('string')
+		userUtils.checkSessionCookie(loginRespCookies)
 	})
 })

@@ -6,9 +6,7 @@ import { ApolloExceptionFilter } from './exceptions/apollo-exception.filter'
 import { SentryExceptionFilter } from './exceptions/centry-exception.filter'
 import * as session from 'express-session'
 import { MainConfigService } from './mainConfig/mainConfig.service'
-import IORedis from 'ioredis'
 import { RedisStore } from 'connect-redis'
-import { RedisModule } from './redis/redis.module'
 import { RedisService } from './redis/redis.service'
 
 export async function applyAppSettings(app: INestApplication) {

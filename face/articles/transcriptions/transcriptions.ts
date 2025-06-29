@@ -560,44 +560,43 @@ export const transcriptions = {
 
 	he_trains_and_works: {
 		sentence: 'He trains and works.',
-		transcription: '',
+		transcription: 'hi treɪnz ənd wɜrks',
 		audio: false,
 	},
 
 	andrew_loves_green_tea: {
 		sentence: 'Andrew loves green tea.',
-		transcription: '',
+		transcription: 'ˈændru lʌvz ɡrin ti',
 		audio: false,
 	},
 
 	artem_wants_more_examples: {
 		sentence: 'Artem wants more examples.',
-		transcription: '',
+		transcription: 'ˈɑrtɛm wɑnts mɔr ɪɡˈzæmpəlz',
 		audio: false,
 	},
 
 	i_see_a_hotel: {
 		sentence: 'I see a hotel.',
-		transcription: '',
+		transcription: 'aɪ si ə hoʊˈtɛl',
 		audio: false,
 	},
 
 	every_friday_david_watches_a_new_movie: {
 		sentence: 'Every Friday, David watches a new movie.',
-		transcription: '',
+		transcription: 'ˈɛvri ˈfraɪdeɪ, ˈdeɪvɪd ˈwɑtʃɪz ə nu ˈmuvi',
 		audio: false,
 	},
 
 	i_want_fresh_coconut_milk: {
 		sentence: 'I want fresh coconut milk.',
-		transcription: '',
+		transcription: 'aɪ wɑnt frɛʃ ˈkoʊkəˌnʌt mɪlk',
 		audio: false,
 	},
 
-	// -----
 	we_show_bad_results: {
 		sentence: 'We show bad results.',
-		transcription: 'wiʃ oʊ bæd rɪzəlts',
+		transcription: '',
 		audio: false,
 	},
 
@@ -618,6 +617,8 @@ export const transcriptions = {
 		transcription: 'hi si græs',
 		audio: false,
 	},
+
+	// -----
 
 	it_shows_bad_results: {
 		sentence: 'It shows bad results.',

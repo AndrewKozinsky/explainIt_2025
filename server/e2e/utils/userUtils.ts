@@ -1,6 +1,5 @@
 import { INestApplication } from '@nestjs/common'
 import RouteNames from '../../src/infrastructure/routeNames'
-import { UserServiceModel } from '../../src/models/auth/auth.service.model'
 import { UserOutModel } from '../../src/models/user/user.out.model'
 import { UserRepository } from '../../src/repo/user.repository'
 import { makeGraphQLReq } from '../makeGQReq'
@@ -43,8 +42,6 @@ export const userUtils = {
 		const confirmEmailQuery = queries.auth.confirmEmail(emailConfirmationCode!)
 
 		const [confirmEmailResp] = await makeGraphQLReq(props.app, confirmEmailQuery)
-		//DELETE
-		// await props.userRepository.makeEmailVerified(createdUser.id)
 
 		return props.userRepository.getUserById(createdUser.id)
 	},
@@ -91,9 +88,19 @@ export const userUtils = {
 		return user.isEmailConfirmed && !user.emailConfirmationCode && !user.confirmationCodeExpirationDate
 	},*/
 
-	/*checkUserOutModel(user: UserOutModel) {
+	checkUserOutModel(user: UserOutModel) {
 		expect(typeof user.id).toBe('number')
 		expect(typeof user.email).toBe('string')
-		expect(['admin', 'sender']).toContain(user.role)
-	},*/
+	},
+
+	checkSessionCookie(cookiesObj: any) {
+		expect(cookiesObj).toEqual({
+			session: expect.objectContaining({
+				value: expect.any(String),
+				path: '/',
+				expires: expect.any(String),
+				sameSite: 'Lax',
+			}),
+		})
+	},
 }

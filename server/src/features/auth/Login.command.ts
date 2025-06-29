@@ -38,11 +38,10 @@ export class LoginHandler implements ICommandHandler<LoginCommand> {
 
 		const outUser = await this.userQueryRepository.getUserById(user.id)
 		if (!outUser) {
-			// Add logger here!!!
 			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
 		}
 
-		return this.saveSession(request, outUser, clientIP, clientName)
+		return await this.saveSession(request, outUser, clientIP, clientName)
 	}
 
 	public async saveSession(req: Request, user: UserOutModel, clientIP: string, clientName: string) {
@@ -62,9 +61,7 @@ export class LoginHandler implements ICommandHandler<LoginCommand> {
 					)
 				}
 
-				resolve({
-					user,
-				})
+				resolve(user)
 			})
 		})
 	}

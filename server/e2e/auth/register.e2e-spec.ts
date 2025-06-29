@@ -1,5 +1,4 @@
 import { INestApplication } from '@nestjs/common'
-import IORedis from 'ioredis'
 import { App } from 'supertest/types'
 import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 import RouteNames from '../../src/infrastructure/routeNames'
@@ -8,7 +7,6 @@ import { UserRepository } from '../../src/repo/user.repository'
 import { makeGraphQLReq } from '../makeGQReq'
 import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
 import { checkErrorResponse } from '../utils/checkErrorResp'
-import { clearAllDB } from '../utils/clearDB'
 import { defUserEmail, defUserPassword } from '../utils/common'
 import { createApp } from '../utils/createApp'
 import { queries } from '../../src/features/test/queries'
@@ -23,7 +21,6 @@ describe.skip('Register user (e2e)', () => {
 	let emailAdapter: EmailAdapterService
 	let userRepository: UserRepository
 	let userQueryRepository: UserQueryRepository
-	// let redis: IORedis
 
 	beforeAll(async () => {
 		const createMainAppRes = await createApp({ emailAdapter })
@@ -33,7 +30,6 @@ describe.skip('Register user (e2e)', () => {
 		emailAdapter = createMainAppRes.emailAdapter
 		userRepository = await app.resolve(UserRepository)
 		userQueryRepository = await app.resolve(UserQueryRepository)
-		// redis = new IORedis('redis://:redispassword@explainredis:6379')
 	})
 
 	beforeEach(async () => {

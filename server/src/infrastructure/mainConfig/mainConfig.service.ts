@@ -33,13 +33,13 @@ export class MainConfigService {
 				fromEmail: 'mail@andrewkozinsky.ru',
 			},
 			session: {
-				name: 'token',
+				name: 'session',
 				secret: enVariables.jwtSecret,
 				lifeDurationInMs: 1000 * 60 * 60 * 24 * 30, // 30 days
 			},
 			redis: {
 				url: enVariables.redisUrl,
-				sessionsFolder: 'tokens',
+				sessionsFolder: 'sessions',
 			},
 		}
 	}
