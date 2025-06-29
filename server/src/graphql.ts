@@ -44,6 +44,7 @@ export interface IQuery {
     ai_checkTranslation(input: CheckTranslationInput): CheckTranslationOutModel | Promise<CheckTranslationOutModel>;
     ai_getTranscription(input: GetTranscriptionInput): GetTranscriptionOutModel | Promise<GetTranscriptionOutModel>;
     auth_confirmEmail(input: ConfirmEmailInput): boolean | Promise<boolean>;
+    auth_getMe(): UserOutModel | Promise<UserOutModel>;
 }
 
 export interface CheckTranslationOutSuccessModel {

@@ -44,17 +44,17 @@ export const queries = {
 			  )
 			}`
 		},
-		/*logout() {
-			return `mutation {
-			  ${RouteNames.AUTH.LOGOUT}
-			}`
-		},*/
-		/*getMe() {
+		getMe() {
 			return `query {
 			  ${RouteNames.AUTH.GET_ME} {
 				id
 				email
 			  }
+			}`
+		},
+		/*logout() {
+			return `mutation {
+			  ${RouteNames.AUTH.LOGOUT}
 			}`
 		},*/
 	},

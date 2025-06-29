@@ -10,10 +10,10 @@ export const errorMessage = {
 
 	// USER
 	userNotFound: 'Пользователь не найден.',
+	userUnauthorized: 'Пользователь не авторизован.',
 
 	// AUTH
-	// refreshTokenIsNotValid: 'Токен обновления недействителен.',
-	// accessTokenIsNotValid: 'Токен доступа недействителен.',
+	sessionTokenIsNotValid: 'Токен сессии недействителен.',
 
 	// AI
 	parcelBoxTypeDidNotCreated: 'Тип посыльного ящика не создан.',

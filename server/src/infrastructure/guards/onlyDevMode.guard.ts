@@ -2,7 +2,7 @@ import { Injectable, CanActivate, ExecutionContext } from '@nestjs/common'
 // import { CustomRestError } from '../exceptions/customErrors'
 // import { ErrorCode } from '../exceptions/errorCode'
 import { errorMessage } from '../exceptions/errorMessage'
-import {MainConfigService} from '../mainConfig/mainConfig.service'
+import { MainConfigService } from '../mainConfig/mainConfig.service'
 
 @Injectable()
 export class OnlyDevOrTestingModeGuard implements CanActivate {

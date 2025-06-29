@@ -47,43 +47,57 @@ export const userUtils = {
 		return props.userRepository.getUserById(createdUser.id)
 	},
 
-	/*async createUserAndLogin(props: {
+	async createUserAndLogin(props: {
 		app: INestApplication
 		userRepository: UserRepository
-		role: UserRole
 		email?: string
 		password?: string
 	}) {
-		const { fixedEmail, fixedPassword } = userUtils.getUserEmailAndPasswordDependsOnRole(props)
+		const email = props.email ?? defUserEmail
+		const password = props.password ?? defUserPassword
 
 		await userUtils.createUserWithConfirmedEmail({
 			app: props.app,
 			userRepository: props.userRepository,
-			role: props.role,
-			email: fixedEmail,
-			password: fixedPassword,
+			email,
+			password,
 		})
 
 		return userUtils.loginUser({
 			app: props.app,
-			email: fixedEmail,
-			password: fixedPassword,
+			email,
+			password,
 		})
-	},*/
+	},
 
-	/*async loginUser(props: { app: INestApplication; email: string; password: string }) {
+	async loginUser(props: { app: INestApplication; email: string; password: string }) {
 		const loginQuery = queries.auth.login({ email: props.email, password: props.password })
-		const [loginResp, cookies] = await makeGraphQLReq(props.app, loginQuery)
+		const [loginResp, loginRespCookies] = await makeGraphQLReq(props.app, loginQuery)
+
 		if (!loginResp.data) {
 			throw new Error('Unable to log in')
 		}
 
 		return {
 			loginData: loginResp.data[RouteNames.AUTH.LOGIN],
-			accessToken: cookies?.accessToken,
-			refreshToken: cookies?.refreshToken,
+			sessionToken: loginRespCookies.session,
+		} as {
+			loginData: {
+				data: {
+					auth_login: {
+						id: number
+						email: string
+					}
+				}
+			}
+			sessionToken: {
+				value: string
+				path: '/'
+				expires: string
+				sameSite: string
+			}
 		}
-	},*/
+	},
 
 	isUserEmailConfirmed(user: UserServiceModel) {
 		return user.isEmailConfirmed && !user.emailConfirmationCode && !user.confirmationCodeExpirationDate

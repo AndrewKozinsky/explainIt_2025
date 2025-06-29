@@ -4,8 +4,8 @@ export const RouteNames = {
 		CONFIRM_EMAIL: 'auth_confirmEmail',
 		LOGIN: 'auth_login',
 		RESEND_CONFIRMATION_EMAIL: 'auth_resendConfirmationEmail',
+		GET_ME: 'auth_getMe',
 		// LOGOUT: 'auth_logout',
-		// GET_ME: 'auth_getMe',
 	},
 	AI: {
 		CHECK_TRANSLATION: 'ai_checkTranslation',

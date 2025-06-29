@@ -1,12 +1,14 @@
-import { UsePipes, ValidationPipe } from '@nestjs/common'
+import { UseGuards, UsePipes, ValidationPipe } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql'
 import RouteNames from 'src/infrastructure/routeNames'
 import { ConfirmEmailCommand } from '../../features/auth/ConfirmEmail.command'
 import { CreateUserCommand } from '../../features/auth/CreateUser.command'
+import { GetUserByIdCommand } from '../../features/auth/GetUserById.command'
 import { LoginCommand } from '../../features/auth/Login.command'
 import { ResendConfirmationEmailCommand } from '../../features/auth/ResendConfirmationEmail.command'
 import { BrowserService } from '../../infrastructure/browserService/browser.service'
+import { CheckSessionCookieGuard } from '../../infrastructure/guards/checkSessionCookie.guard'
 import { UserOutModel } from '../../models/user/user.out.model'
 import { ConfirmEmailInput } from './inputs/confirmEmail.input'
 import { LoginInput } from './inputs/login.input'
@@ -59,5 +61,15 @@ export class AuthResolver {
 	@UsePipes(new ValidationPipe({ transform: true }))
 	async resendConfirmationEmail(@Args('input') input: ResendConfirmationEmailInput) {
 		return await this.commandBus.execute(new ResendConfirmationEmailCommand(input.email))
+	}
+
+	@UseGuards(CheckSessionCookieGuard)
+	@Query(() => UserOutModel, {
+		name: RouteNames.AUTH.GET_ME,
+		description: authResolversDesc.getMe,
+	})
+	@UsePipes(new ValidationPipe({ transform: true }))
+	async getMe(@Context('req') request: Request) {
+		return await this.commandBus.execute(new GetUserByIdCommand(request.session.userId!))
 	}
 }

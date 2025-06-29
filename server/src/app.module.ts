@@ -14,6 +14,7 @@ import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin
 import { TelegramModule } from './infrastructure/telegram/telegram.module'
 import { AuthModule } from './routes/auth/auth.module'
 import { DbModule } from './routes/db/db.module'
+import { Request } from 'express'
 
 @Module({
 	imports: [
@@ -26,6 +27,7 @@ import { DbModule } from './routes/db/db.module'
 						path: join(process.cwd(), 'src/graphql.ts'),
 					},
 					autoSchemaFile: true,
+					context: ({ req }: { req: Request }) => ({ req }), // <-- Important for accessing session
 					// graphiql: mainConfigService.get().mode === 'localDev',
 					playground: false,
 					plugins: [ApolloServerPluginLandingPageLocalDefault()],
