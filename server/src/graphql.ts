@@ -31,6 +31,10 @@ export interface LoginInput {
     password: string;
 }
 
+export interface ResendConfirmationEmailInput {
+    email: string;
+}
+
 export interface UserOutModel {
     id: number;
     email: string;
@@ -62,6 +66,7 @@ export interface GetTranscriptionOutErrorModel {
 export interface IMutation {
     auth_register(input: RegisterUserInput): UserOutModel | Promise<UserOutModel>;
     auth_login(input: LoginInput): UserOutModel | Promise<UserOutModel>;
+    auth_resendConfirmationEmail(input: ResendConfirmationEmailInput): boolean | Promise<boolean>;
 }
 
 export type CheckTranslationOutModel = CheckTranslationOutSuccessModel | CheckTranslationOutErrorModel;

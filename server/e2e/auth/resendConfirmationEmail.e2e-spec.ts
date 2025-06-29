@@ -1,78 +1,56 @@
-// import { INestApplication } from '@nestjs/common'
-// import { CommandBus } from '@nestjs/cqrs'
-// import { add, subDays } from 'date-fns'
-// import { App } from 'supertest/types'
-// import { clearAllDB } from '../utils/clearDB'
-// import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
-// import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
-// import { CellRepository } from '../../src/repo/cell.repository'
-// import { CellTypeRepository } from '../../src/repo/cellType.repository'
-// import { ParcelBoxQueryRepository } from '../../src/repo/parcelBox.queryRepository'
-// import { ParcelBoxRepository } from '../../src/repo/parcelBox.repository'
-// import { ParcelBoxTypeQueryRepository } from '../../src/repo/parcelBoxType.queryRepository'
-// import { ParcelBoxTypeRepository } from '../../src/repo/parcelBoxType.repository'
-// import { UserQueryRepository } from '../../src/repo/user.queryRepository'
-// import { UserRepository } from '../../src/repo/user.repository'
-// import { makeGraphQLReq } from '../makeGQReq'
-// import { defUserEmail, defUserPassword, extractErrObjFromResp, seedInitDataInDatabase } from '../utils/common'
-// import { createApp } from '../utils/createApp'
-// import { queries } from '../../src/features/test/queries'
-// import { seedTestData } from '../utils/seedTestData'
-// import { userUtils } from '../utils/userUtils'
-// import '../utils/jestExtendFunctions'
+import { INestApplication } from '@nestjs/common'
+import { add, subDays } from 'date-fns'
+import { App } from 'supertest/types'
+import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
+import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
+import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
+import { UserRepository } from '../../src/repo/user.repository'
+import { makeGraphQLReq } from '../makeGQReq'
+import { checkErrorResponse } from '../utils/checkErrorResp'
+import { defUserEmail, defUserPassword } from '../utils/common'
+import { createApp } from '../utils/createApp'
+import { queries } from '../../src/features/test/queries'
+import { userUtils } from '../utils/userUtils'
 
 it('1', () => {
 	expect(2).toBe(2)
 })
 
-/*describe.skip('Confirm an user email (e2e)', () => {
+describe.skip('Confirm an user email (e2e)', () => {
 	let app: INestApplication<App>
-	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
 	let userRepository: UserRepository
-	let userQueryRepository: UserQueryRepository
-	let parcelBoxTypeRepository: ParcelBoxTypeRepository
-	let parcelBoxTypeQueryRepository: ParcelBoxTypeQueryRepository
-	let cellTypeRepository: CellTypeRepository
-	let parcelBoxQueryRepository: ParcelBoxQueryRepository
-	let parcelBoxRepository: ParcelBoxRepository
-	let cellRepository: CellRepository
 
 	beforeAll(async () => {
 		const createMainAppRes = await createApp({ emailAdapter })
 
 		app = createMainAppRes.app
-		commandBus = app.get(CommandBus)
 		emailAdapter = createMainAppRes.emailAdapter
 		userRepository = await app.resolve(UserRepository)
-		userQueryRepository = await app.resolve(UserQueryRepository)
-		parcelBoxTypeRepository = await app.resolve(ParcelBoxTypeRepository)
-		parcelBoxTypeQueryRepository = await app.resolve(ParcelBoxTypeQueryRepository)
-		cellTypeRepository = await app.resolve(CellTypeRepository)
-		parcelBoxQueryRepository = await app.resolve(ParcelBoxQueryRepository)
-		parcelBoxRepository = await app.resolve(ParcelBoxRepository)
-		cellRepository = await app.resolve(CellRepository)
 	})
 
 	beforeEach(async () => {
-		await clearAllDB(app)
-		await seedInitDataInDatabase(app)
-		await seedTestData(commandBus)
-		jest.clearAllMocks()
+		await beforeEachTest(app)
+	})
+
+	afterEach(async () => {
+		await afterEachTest(app)
 	})
 
 	it('should return error if input has incorrect values', async () => {
 		const resendConfirmationEmailMutation = queries.auth.resendConfirmationEmail('johnexample.com')
 		const [resendConfirmationEmailResp] = await makeGraphQLReq(app, resendConfirmationEmailMutation)
 
-		const firstErr = extractErrObjFromResp(resendConfirmationEmailResp)
-
-		expect(firstErr).toStrictEqual({
-			message: errorMessage.wrongInputData,
-			code: 400,
-			fields: {
-				email: ['The email must match the format example@mail.com'],
-			},
+		checkErrorResponse(resendConfirmationEmailResp, {
+			code: 'Bad Request',
+			statusCode: 400,
+			message: 'Validation failed',
+			validationErrors: [
+				{
+					field: 'email',
+					messages: [errorMessage.wrongEmailFormat],
+				},
+			],
 		})
 
 		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(0)
@@ -82,11 +60,10 @@ it('1', () => {
 		const resendConfirmationEmailMutation = queries.auth.resendConfirmationEmail('john@example.com')
 		const [resendConfirmationEmailResp] = await makeGraphQLReq(app, resendConfirmationEmailMutation)
 
-		const firstErr = extractErrObjFromResp(resendConfirmationEmailResp)
-
-		expect(firstErr).toStrictEqual({
+		checkErrorResponse(resendConfirmationEmailResp, {
+			code: 'Bad Request',
+			statusCode: 400,
 			message: errorMessage.emailNotFound,
-			code: 400,
 		})
 
 		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(0)
@@ -110,20 +87,20 @@ it('1', () => {
 		const resendConfirmationEmailMutation = queries.auth.resendConfirmationEmail(admin.email)
 		const [resendConfirmationEmailResp] = await makeGraphQLReq(app, resendConfirmationEmailMutation)
 
-		// Check for successful answer and thet email adapter was run
+		// Check for successful answer and that email adapter was run
 		expect(resendConfirmationEmailResp.data).toBeTruthy()
 		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(2)
 
-		// Check if an expiration data is bigger than now for 3 hours
-		const updatedAdmin = await userRepository.getUserById(admin.id)
-		if (!updatedAdmin || !updatedAdmin.confirmationCodeExpirationDate) {
+		// Check if expiration data is bigger than now for 3 hours
+		const updatedUser = await userRepository.getUserById(admin.id)
+		if (!updatedUser || !updatedUser.confirmationCodeExpirationDate) {
 			throw new Error('User does not exist')
 		}
 
-		expect(+new Date(updatedAdmin.confirmationCodeExpirationDate)).toBeGreaterThan(
+		expect(+new Date(updatedUser.confirmationCodeExpirationDate)).toBeGreaterThan(
 			+add(new Date(), { days: 2, hours: 23, minutes: 59 }),
 		)
-		expect(+new Date(updatedAdmin.confirmationCodeExpirationDate)).toBeLessThan(
+		expect(+new Date(updatedUser.confirmationCodeExpirationDate)).toBeLessThan(
 			+add(new Date(), { days: 3, minutes: 1 }),
 		)
 	})
@@ -140,13 +117,12 @@ it('1', () => {
 		const resendConfirmationEmailMutation = queries.auth.resendConfirmationEmail(admin.email)
 		const [resendConfirmationEmailResp] = await makeGraphQLReq(app, resendConfirmationEmailMutation)
 
-		const firstErr = extractErrObjFromResp(resendConfirmationEmailResp)
-
-		expect(firstErr).toStrictEqual({
+		checkErrorResponse(resendConfirmationEmailResp, {
+			code: 'Bad Request',
+			statusCode: 400,
 			message: errorMessage.emailIsAlreadyConfirmed,
-			code: 400,
 		})
 
 		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(1)
 	})
-})*/
+})

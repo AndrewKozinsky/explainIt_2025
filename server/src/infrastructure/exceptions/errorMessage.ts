@@ -3,11 +3,10 @@ export const errorMessage = {
 	emailIsAlreadyRegistered: 'Почта уже зарегистрирована.',
 	emailIsNotConfirmed: 'Почта зарегистрирована, но не подтверждена.',
 	wrongEmailFormat: 'Адрес электронной почты должен соответствовать формату example@mail.com',
-	// emailIsAlreadyConfirmed: 'Почта уже подтверждена.',
+	emailIsAlreadyConfirmed: 'Почта уже подтверждена.',
 	emailConfirmationCodeIsExpired: 'Срок действия кода подтверждения почты истек.',
 	emailConfirmationCodeNotFound: 'Код подтверждения почты не найден.',
-	// emailOrPasswordDoNotMatch: 'Почта и пароль не совпадают.',
-	// emailNotFound: 'Почта не найдена.',
+	emailNotFound: 'Почта не найдена.',
 
 	// USER
 	userNotFound: 'Пользователь не найден.',

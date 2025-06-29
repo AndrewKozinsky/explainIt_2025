@@ -5,11 +5,13 @@ import RouteNames from 'src/infrastructure/routeNames'
 import { ConfirmEmailCommand } from '../../features/auth/ConfirmEmail.command'
 import { CreateUserCommand } from '../../features/auth/CreateUser.command'
 import { LoginCommand } from '../../features/auth/Login.command'
+import { ResendConfirmationEmailCommand } from '../../features/auth/ResendConfirmationEmail.command'
 import { BrowserService } from '../../infrastructure/browserService/browser.service'
 import { UserOutModel } from '../../models/user/user.out.model'
 import { ConfirmEmailInput } from './inputs/confirmEmail.input'
 import { LoginInput } from './inputs/login.input'
 import { RegisterUserInput } from './inputs/registerUser.input'
+import { ResendConfirmationEmailInput } from './inputs/resendConfirmationEmail.input'
 import { authResolversDesc } from './resolverDescriptions'
 import { Request } from 'express'
 
@@ -48,5 +50,14 @@ export class AuthResolver {
 	@UsePipes(new ValidationPipe({ transform: true }))
 	async confirmEmail(@Args('input') input: ConfirmEmailInput) {
 		return await this.commandBus.execute(new ConfirmEmailCommand(input))
+	}
+
+	@Mutation(() => Boolean, {
+		name: RouteNames.AUTH.RESEND_CONFIRMATION_EMAIL,
+		description: authResolversDesc.resendConfirmationEmail,
+	})
+	@UsePipes(new ValidationPipe({ transform: true }))
+	async resendConfirmationEmail(@Args('input') input: ResendConfirmationEmailInput) {
+		return await this.commandBus.execute(new ResendConfirmationEmailCommand(input.email))
 	}
 }

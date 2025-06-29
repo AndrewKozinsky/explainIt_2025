@@ -35,43 +35,25 @@ export const queries = {
 			  }
 			}`
 		},
-		/*resendConfirmationEmail(email: string) {
+		resendConfirmationEmail(email: string) {
 			return `mutation {
 			  ${RouteNames.AUTH.RESEND_CONFIRMATION_EMAIL}(
 				input: {
 				  email: "${email}",
 				}
-				)
+			  )
 			}`
-		},*/
+		},
 		/*logout() {
 			return `mutation {
 			  ${RouteNames.AUTH.LOGOUT}
 			}`
 		},*/
-		/*getNewAccessAndRefreshTokens() {
-			return `mutation {
-			  ${RouteNames.AUTH.GET_NEW_ACCESS_AND_REFRESH_TOKENS}
-			}`
-		},*/
 		/*getMe() {
 			return `query {
 			  ${RouteNames.AUTH.GET_ME} {
-				... on AdminOutModel {
-					id
-					email
-					role
-				}
-				... on SenderOutModel {
-					id
-					email
-					firstName
-					lastName
-					passportNum
-					balance
-					active
-					role
-				}
+				id
+				email
 			  }
 			}`
 		},*/
