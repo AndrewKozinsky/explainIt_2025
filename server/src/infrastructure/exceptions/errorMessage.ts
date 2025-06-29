@@ -4,13 +4,13 @@ export const errorMessage = {
 	emailIsNotConfirmed: 'Почта зарегистрирована, но не подтверждена.',
 	wrongEmailFormat: 'Адрес электронной почты должен соответствовать формату example@mail.com',
 	// emailIsAlreadyConfirmed: 'Почта уже подтверждена.',
-	// emailConfirmationCodeIsExpired: 'Срок действия кода подтверждения почты истек.',
-	// emailConfirmationCodeNotFound: 'Код подтверждения почты не найден.',
+	emailConfirmationCodeIsExpired: 'Срок действия кода подтверждения почты истек.',
+	emailConfirmationCodeNotFound: 'Код подтверждения почты не найден.',
 	// emailOrPasswordDoNotMatch: 'Почта и пароль не совпадают.',
 	// emailNotFound: 'Почта не найдена.',
 
 	// USER
-	// userNotFound: 'Пользователь не найден.',
+	userNotFound: 'Пользователь не найден.',
 
 	// AUTH
 	// refreshTokenIsNotValid: 'Токен обновления недействителен.',
@@ -60,6 +60,9 @@ export const errorMessage = {
 	},
 
 	// MICK
+	noSessionObject: 'Нет объект сессии (request.session).',
 	unknownDbError: 'Неизвестная ошибка в базе данных.',
+	unknownError: 'Неизвестная ошибка сервера.',
+	cannotSaveSession: 'Не возможно сохранить сессию',
 	// onlyDevMode: 'It works only in development mode.',
 }

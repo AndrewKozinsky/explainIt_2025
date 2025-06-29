@@ -530,38 +530,73 @@ export const transcriptions = {
 
 	i_see_an_apple: {
 		sentence: 'I see an apple.',
-		transcription: '',
+		transcription: 'aɪ si ən ˈæpəl',
 		audio: false,
 	},
 
 	we_see_an_airport: {
 		sentence: 'We see an airport.',
-		transcription: '',
+		transcription: 'wi si ən ˈɛɚpɔrt',
 		audio: false,
 	},
 
 	this_lesson_lasts_an_hour: {
 		sentence: 'This lesson lasts an hour.',
-		transcription: '',
+		transcription: 'ðɪs ˈlɛsən læsts ən ˈaʊɚ',
 		audio: false,
 	},
 
 	he_rents_an_apartment: {
 		sentence: 'He rents an apartment.',
-		transcription: '',
+		transcription: 'hi rɛnts ən əˈpɑrtmənt',
 		audio: false,
 	},
 
 	i_live_in_a_green_house: {
 		sentence: 'I live in a green house.',
-		transcription: '',
+		transcription: 'aɪ lɪv ɪn ə ɡrin haʊs',
 		audio: false,
 	},
 
-	// -----
+	he_trains_and_works: {
+		sentence: 'He trains and works.',
+		transcription: 'hi treɪnz ənd wɜrks',
+		audio: false,
+	},
+
+	andrew_loves_green_tea: {
+		sentence: 'Andrew loves green tea.',
+		transcription: 'ˈændru lʌvz ɡrin ti',
+		audio: false,
+	},
+
+	artem_wants_more_examples: {
+		sentence: 'Artem wants more examples.',
+		transcription: 'ˈɑrtɛm wɑnts mɔr ɪɡˈzæmpəlz',
+		audio: false,
+	},
+
+	i_see_a_hotel: {
+		sentence: 'I see a hotel.',
+		transcription: 'aɪ si ə hoʊˈtɛl',
+		audio: false,
+	},
+
+	every_friday_david_watches_a_new_movie: {
+		sentence: 'Every Friday, David watches a new movie.',
+		transcription: 'ˈɛvri ˈfraɪdeɪ, ˈdeɪvɪd ˈwɑtʃɪz ə nu ˈmuvi',
+		audio: false,
+	},
+
+	i_want_fresh_coconut_milk: {
+		sentence: 'I want fresh coconut milk.',
+		transcription: 'aɪ wɑnt frɛʃ ˈkoʊkəˌnʌt mɪlk',
+		audio: false,
+	},
+
 	we_show_bad_results: {
 		sentence: 'We show bad results.',
-		transcription: 'wiʃ oʊ bæd rɪzəlts',
+		transcription: '',
 		audio: false,
 	},
 
@@ -582,6 +617,8 @@ export const transcriptions = {
 		transcription: 'hi si græs',
 		audio: false,
 	},
+
+	// -----
 
 	it_shows_bad_results: {
 		sentence: 'It shows bad results.',
@@ -4883,42 +4920,6 @@ export const transcriptions = {
 	do_you_want_some_water: {
 		sentence: 'Do you want some water?',
 		transcription: 'du ju wɒnt sʌm wɔːtər/**',
-		audio: false,
-	},
-
-	he_trains_and_works: {
-		sentence: 'He trains and works.',
-		transcription: '',
-		audio: false,
-	},
-
-	andrew_loves_green_tea: {
-		sentence: 'Andrew loves green tea.',
-		transcription: '',
-		audio: false,
-	},
-
-	artem_wants_more_examples: {
-		sentence: 'Artem wants more examples.',
-		transcription: '',
-		audio: false,
-	},
-
-	i_see_a_hotel: {
-		sentence: 'I see a hotel.',
-		transcription: '',
-		audio: false,
-	},
-
-	every_friday_david_watches_a_new_movie: {
-		sentence: 'Every Friday, David watches a new movie.',
-		transcription: '',
-		audio: false,
-	},
-
-	i_want_fresh_coconut_milk: {
-		sentence: 'I want fresh coconut milk.',
-		transcription: '',
 		audio: false,
 	},
 } satisfies Record<string, ITranscription>

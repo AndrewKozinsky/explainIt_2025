@@ -21,7 +21,7 @@ export class UserRepository {
 		return users.map((user) => this.mapDbUserToServiceUser(user))
 	}*/
 
-	/*@CatchDbError()
+	/*@CatchDbError()*/
 	async getUserById(id: number) {
 		const user = await this.prisma.user.findUnique({
 			where: { id },
@@ -32,7 +32,7 @@ export class UserRepository {
 		}
 
 		return this.mapDbUserToServiceUser(user)
-	}*/
+	}
 
 	// @CatchDbError()
 	async getUserByEmail(email: string) {
@@ -49,20 +49,20 @@ export class UserRepository {
 		}
 	}
 
-	/*@CatchDbError()
+	/*@CatchDbError()*/
 	async getUserByEmailAndPassword(email: string, password: string) {
 		const user = await this.prisma.user.findUnique({
 			where: { email },
 		})
 		if (!user) return null
 
-		const isPasswordMath = await this.hashAdapter.compare(password, user.password)
+		const isPasswordMath = this.hashAdapter.compare(password, user.password)
 		if (!isPasswordMath) return null
 
 		return this.mapDbUserToServiceUser(user)
-	}*/
+	}
 
-	/*@CatchDbError()
+	/*@CatchDbError()*/
 	async getUserByConfirmationCode(confirmationCode: string) {
 		const user = await this.prisma.user.findFirst({
 			where: { email_confirmation_code: confirmationCode },
@@ -71,7 +71,7 @@ export class UserRepository {
 		if (!user) return null
 
 		return this.mapDbUserToServiceUser(user)
-	}*/
+	}
 
 	// @CatchDbError()
 	/*async getUserByPasswordRecoveryCode(password_recovery_code: string) {

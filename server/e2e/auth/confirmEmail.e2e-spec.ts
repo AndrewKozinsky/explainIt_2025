@@ -1,7 +1,7 @@
 // import { INestApplication } from '@nestjs/common'
 // import { CommandBus } from '@nestjs/cqrs'
 // import { App } from 'supertest/types'
-// import { clearAllDB } from '../../src/db/clearDB'
+// import { clearAllDB } from '../utils/clearDB'
 // import { UserRole } from '../../src/db/dbConstants'
 // import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 // import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
@@ -16,7 +16,7 @@
 // import { UserRepository } from '../../src/repo/user.repository'
 // import { makeGraphQLReq } from '../makeGQReq'
 // import { extractErrObjFromResp, seedInitDataInDatabase } from '../utils/common'
-// import { createApp } from '../utils/createMainApp'
+// import { createApp } from '../utils/createApp'
 // import { queries } from '../../src/features/test/queries'
 // import { seedTestData } from '../utils/seedTestData'
 // import { userUtils } from '../utils/userUtils'
@@ -83,7 +83,6 @@ it('1', () => {
 		const createdAdmin = await userUtils.createUserWithUnconfirmedEmail({
 			userRepository,
 			app,
-			role: UserRole.Admin,
 		})
 		if (!createdAdmin) return
 
@@ -108,7 +107,6 @@ it('1', () => {
 		const createdAdmin = await userUtils.createUserWithUnconfirmedEmail({
 			userRepository,
 			app,
-			role: UserRole.Admin,
 		})
 		if (!createdAdmin) return
 
@@ -141,7 +139,6 @@ it('1', () => {
 		const createdAdmin = await userUtils.createUserWithUnconfirmedEmail({
 			userRepository,
 			app,
-			role: UserRole.Admin,
 		})
 		if (!createdAdmin) return
 

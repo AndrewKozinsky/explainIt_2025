@@ -32,12 +32,23 @@ export class MainConfigService {
 				fromName: 'Andrew Kozinsky',
 				fromEmail: 'mail@andrewkozinsky.ru',
 			},
+			session: {
+				name: 'session',
+				secret: enVariables.jwtSecret,
+				lifeDurationInMs: 1000 * 60 * 60 * 24 * 30, // 30 days
+			},
+			redis: {
+				url: enVariables.redisUrl,
+				sessionsFolder: 'sessions',
+			},
 		}
 	}
 
 	getEnVariables() {
 		return {
-			mode: this.configService.get<'localtest' | 'localdev' | 'localcheckserver' | 'serverdevelop' | 'servermaster'>('MODE'),
+			mode: this.configService.get<
+				'localtest' | 'localdev' | 'localcheckserver' | 'serverdevelop' | 'servermaster'
+			>('MODE'),
 			port: this.configService.get<number>('PORT') || 3001,
 			gigaChatClientId: this.configService.get<string>('GIGA_CHAT_CLIENT_ID') || '',
 			gigaChatClientSecret: this.configService.get<string>('GIGA_CHAT_CLIENT_SECRET') || '',
@@ -48,6 +59,8 @@ export class MainConfigService {
 			siteDomainRootWithProtocol: this.configService.get<string>('SITE_DOMAIN_ROOT_WITH_PROTOCOL') as string,
 			emailAdapterUserId: this.configService.get<string>('EMAIL_ADAPTER_USER_ID') as string,
 			emailAdapterSecret: this.configService.get<string>('EMAIL_ADAPTER_SECRET') as string,
+			jwtSecret: this.configService.get<string>('JWT_SECRET') as string,
+			redisUrl: this.configService.get<string>('REDIS_URL') as string,
 		}
 	}
 }

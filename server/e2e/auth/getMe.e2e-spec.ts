@@ -2,7 +2,7 @@
 // import { CommandBus } from '@nestjs/cqrs'
 // import { App } from 'supertest/types'
 // import { MainConfigService } from '../../src/infrastructure/config/mainConfig.service'
-// import { clearAllDB } from '../../src/db/clearDB'
+// import { clearAllDB } from '../utils/clearDB'
 // import { UserRole } from '../../src/db/dbConstants'
 // import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 // import { JwtAdapterService } from '../../src/infrastructure/jwtAdapter/jwtAdapter.service'
@@ -19,13 +19,13 @@
 // import { makeGraphQLReqWithTokens } from '../makeGQReq'
 // import { authUtils } from '../utils/authUtils'
 // import {
-// 	defAdminEmail,
-// 	defAdminPassword,
+// 	defUserEmail,
+// 	defUserPassword,
 // 	defSenderEmail,
 // 	defSenderPassword,
 // 	seedInitDataInDatabase,
 // } from '../utils/common'
-// import { createApp } from '../utils/createMainApp'
+// import { createApp } from '../utils/createApp'
 // import { queries } from '../../src/features/test/queries'
 // import { seedTestData } from '../utils/seedTestData'
 // import { userUtils } from '../utils/userUtils'
@@ -90,7 +90,6 @@ it('1', () => {
 			devicesRepository,
 			jwtAdapter: jwtAdapterService,
 			mainConfig,
-			role: UserRole.Admin,
 		})
 	})
 
@@ -98,9 +97,8 @@ it('1', () => {
 		const { loginData, accessToken, refreshToken } = await userUtils.createUserAndLogin({
 			app,
 			userRepository,
-			role: UserRole.Admin,
-			email: defAdminEmail,
-			password: defAdminPassword,
+			email: defUserEmail,
+			password: defUserPassword,
 		})
 
 		if (!loginData || !accessToken) {
@@ -117,7 +115,7 @@ it('1', () => {
 
 		expect(getMeResp.data[RouteNames.AUTH.GET_ME]).toEqual({
 			id: expect.any(Number),
-			email: defAdminEmail,
+			email: defUserEmail,
 			role: 'admin',
 		})
 	})

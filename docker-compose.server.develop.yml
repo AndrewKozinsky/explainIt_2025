@@ -25,6 +25,18 @@ services:
       - .env
     volumes:
       - pgdata:/var/lib/postgresql/data
+  explainredisserverdevelop:
+    image: redis:7.4.4
+    restart: unless-stopped
+    container_name: explainredis
+    ports:
+      - 6379:6379
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+    env_file:
+      - .env
+    volumes:
+      - redis_data:/data
   explainserverserverdevelop:
     build:
       context: server/
@@ -57,3 +69,4 @@ networks:
     name: nginx-proxy
 volumes:
   pgdata: {}
+  redis_data: {}

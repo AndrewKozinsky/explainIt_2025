@@ -4,6 +4,7 @@ import { CustomGraphQLError } from './customErrors'
 @Catch()
 export class ApolloExceptionFilter implements ExceptionFilter {
 	catch(exception: unknown, host: ArgumentsHost) {
+		// console.log({ exception })
 		// @ts-ignore
 		if (host.contextType !== 'graphql') {
 			throw exception
@@ -40,7 +41,7 @@ export class ApolloExceptionFilter implements ExceptionFilter {
 						message: 'Validation failed',
 						extensions: {
 							message: 'Validation failed',
-							code: 'BAD_REQUEST',
+							code: 'Bad Request',
 							statusCode: 400,
 							validationErrors,
 						},

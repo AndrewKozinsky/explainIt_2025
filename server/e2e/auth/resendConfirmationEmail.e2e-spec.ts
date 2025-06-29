@@ -2,7 +2,7 @@
 // import { CommandBus } from '@nestjs/cqrs'
 // import { add, subDays } from 'date-fns'
 // import { App } from 'supertest/types'
-// import { clearAllDB } from '../../src/db/clearDB'
+// import { clearAllDB } from '../utils/clearDB'
 // import { UserRole } from '../../src/db/dbConstants'
 // import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 // import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
@@ -15,8 +15,8 @@
 // import { UserQueryRepository } from '../../src/repo/user.queryRepository'
 // import { UserRepository } from '../../src/repo/user.repository'
 // import { makeGraphQLReq } from '../makeGQReq'
-// import { defAdminEmail, defAdminPassword, extractErrObjFromResp, seedInitDataInDatabase } from '../utils/common'
-// import { createApp } from '../utils/createMainApp'
+// import { defUserEmail, defUserPassword, extractErrObjFromResp, seedInitDataInDatabase } from '../utils/common'
+// import { createApp } from '../utils/createApp'
 // import { queries } from '../../src/features/test/queries'
 // import { seedTestData } from '../utils/seedTestData'
 // import { userUtils } from '../utils/userUtils'
@@ -97,9 +97,8 @@ it('1', () => {
 		const admin = await userUtils.createUserWithUnconfirmedEmail({
 			app,
 			userRepository,
-			role: UserRole.Admin,
-			email: defAdminEmail,
-			password: defAdminPassword,
+			email: defUserEmail,
+			password: defUserPassword,
 		})
 		if (!admin) return
 
@@ -134,9 +133,8 @@ it('1', () => {
 		const admin = await userUtils.createUserWithConfirmedEmail({
 			app,
 			userRepository,
-			role: UserRole.Admin,
-			email: defAdminEmail,
-			password: defAdminPassword,
+			email: defUserEmail,
+			password: defUserPassword,
 		})
 		if (!admin) return
 

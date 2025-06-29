@@ -2,7 +2,7 @@
 // import { CommandBus } from '@nestjs/cqrs'
 // import { App } from 'supertest/types'
 // import { MainConfigService } from '../../src/infrastructure/config/mainConfig.service'
-// import { clearAllDB } from '../../src/db/clearDB'
+// import { clearAllDB } from '../utils/clearDB'
 // import { UserRole } from '../../src/db/dbConstants'
 // import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 // import { JwtAdapterService } from '../../src/infrastructure/jwtAdapter/jwtAdapter.service'
@@ -17,8 +17,8 @@
 // import { UserQueryRepository } from '../../src/repo/user.queryRepository'
 // import { UserRepository } from '../../src/repo/user.repository'
 // import { makeGraphQLReqWithTokens } from '../makeGQReq'
-// import { defAdminEmail, defAdminPassword, seedInitDataInDatabase } from '../utils/common'
-// import { createApp } from '../utils/createMainApp'
+// import { defUserEmail, defUserPassword, seedInitDataInDatabase } from '../utils/common'
+// import { createApp } from '../utils/createApp'
 // import { queries } from '../../src/features/test/queries'
 // import { seedTestData } from '../utils/seedTestData'
 // import { userUtils } from '../utils/userUtils'
@@ -91,9 +91,8 @@ it('1', () => {
 		const { loginData, accessToken, refreshToken } = await userUtils.createUserAndLogin({
 			app,
 			userRepository,
-			role: UserRole.Admin,
-			email: defAdminEmail,
-			password: defAdminPassword,
+			email: defUserEmail,
+			password: defUserPassword,
 		})
 
 		const logoutMutation = queries.auth.logout()

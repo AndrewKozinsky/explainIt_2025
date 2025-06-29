@@ -1,14 +1,13 @@
 import { BadRequestException, INestApplication, ValidationPipe } from '@nestjs/common'
 import { useContainer, ValidationError } from 'class-validator'
-import { Request, Response, NextFunction } from 'express'
 import * as cookieParser from 'cookie-parser'
 import { AppModule } from '../app.module'
 import { ApolloExceptionFilter } from './exceptions/apollo-exception.filter'
 import { SentryExceptionFilter } from './exceptions/centry-exception.filter'
-// import { MainConfigService } from './config/mainConfig.service'
-// import { UserRepository } from '../repo/user.repository'
-// import { JwtAdapterService } from './jwtAdapter/jwtAdapter.service'
-// import { SetUserIntoReqMiddleware } from './middlewares/setUserIntoReq.middleware'
+import * as session from 'express-session'
+import { MainConfigService } from './mainConfig/mainConfig.service'
+import { RedisStore } from 'connect-redis'
+import { RedisService } from './redis/redis.service'
 
 export async function applyAppSettings(app: INestApplication) {
 	app.use(cookieParser())
@@ -16,17 +15,45 @@ export async function applyAppSettings(app: INestApplication) {
 	// Enable NestJS DI for class-validator
 	useContainer(app.select(AppModule), { fallbackOnErrors: true })
 
-	// const mainConfig = await app.resolve(MainConfigService)
+	await setUpSession(app)
 
-	/*app.use(async (req: Request, res: Response, next: NextFunction) => {
-		const jwtService = await app.resolve(JwtAdapterService)
-		const userRepository = await app.resolve(UserRepository)
-		const mainConfig = await app.resolve(MainConfigService)
+	setUpGlobalPipes(app)
 
-		const userMiddleware = new SetUserIntoReqMiddleware(jwtService, userRepository, mainConfig)
-		await userMiddleware.use(req, res, next)
-	})*/
+	app.useGlobalFilters(new SentryExceptionFilter(), new ApolloExceptionFilter())
+}
 
+async function setUpSession(app: INestApplication) {
+	const mainConfig = await app.resolve(MainConfigService)
+
+	const isOnServer = ['serverdevelop', 'servermaster'].includes(mainConfig.get().mode!)
+	const sameSite = isOnServer ? 'none' : 'lax'
+	const secure = isOnServer
+
+	const redisService = await app.resolve(RedisService)
+	const redis = redisService.get()
+
+	app.use(
+		session({
+			secret: mainConfig.get().session.secret,
+			name: mainConfig.get().session.name,
+			// resave: true,
+			// saveUninitialized: false,
+			rolling: true, // ⬅️ Refreshes cookie expiration on every request
+			cookie: {
+				maxAge: mainConfig.get().session.lifeDurationInMs,
+				httpOnly: true,
+				secure,
+				sameSite,
+			},
+			store: new RedisStore({
+				client: redis,
+				prefix: mainConfig.get().redis.sessionsFolder,
+			}),
+		}),
+	)
+}
+
+function setUpGlobalPipes(app: INestApplication) {
 	// Thus ensuring all endpoints are protected from receiving incorrect data.
 	app.useGlobalPipes(
 		new ValidationPipe({
@@ -44,6 +71,4 @@ export async function applyAppSettings(app: INestApplication) {
 			},
 		}),
 	)
-
-	app.useGlobalFilters(new SentryExceptionFilter(), new ApolloExceptionFilter())
 }

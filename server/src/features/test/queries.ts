@@ -13,7 +13,7 @@ export const queries = {
 			  }
 			}`
 		},
-		/*confirmEmail(code: string) {
+		confirmEmail(code: string) {
 			return `query {
 				${RouteNames.AUTH.CONFIRM_EMAIL}(
 					input: {
@@ -21,8 +21,8 @@ export const queries = {
 					}
 				)
 			}`
-		},*/
-		/*login(props: { email: string; password: string }) {
+		},
+		login(props: { email: string; password: string }) {
 			return `mutation {
 			  ${RouteNames.AUTH.LOGIN}(
 				input: {
@@ -30,24 +30,11 @@ export const queries = {
 				  password: "${props.password}"
 				}
 			) {
-			  ... on AdminOutModel {
-					id
-					email
-					role
-				}
-				... on SenderOutModel {
-					id
-					email
-					firstName
-					lastName
-					passportNum
-					balance
-					active
-					role
-				}
+				id
+				email
 			  }
 			}`
-		},*/
+		},
 		/*resendConfirmationEmail(email: string) {
 			return `mutation {
 			  ${RouteNames.AUTH.RESEND_CONFIRMATION_EMAIL}(

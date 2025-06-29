@@ -15,7 +15,7 @@ import { Response } from 'express'
 // import { SeedTestDataCommand } from '../../features/test/SeedTestData.command'
 import { OnlyDevOrTestingModeGuard } from '../../infrastructure/guards/onlyDevMode.guard'
 import RouteNames from '../../infrastructure/routeNames'
-import {DbService} from './db.service'
+import { DbService } from './db.service'
 // import { GetUserQueries } from '../../models/test/test.input.model'
 
 @Controller()
@@ -27,7 +27,7 @@ export class DbController {
 
 	@HttpCode(HttpStatus.NO_CONTENT)
 	@UseGuards(OnlyDevOrTestingModeGuard)
-	@Delete(RouteNames.TESTING.ALL_DATA)
+	@Delete(RouteNames.DB.ALL_DATA)
 	async deleteAllData(@Res() res: Response) {
 		const isDropped = await this.testsService.drop()
 
@@ -39,10 +39,10 @@ export class DbController {
 		throw new BadRequestException()
 	}
 
-	@HttpCode(HttpStatus.NO_CONTENT)
+	/*@HttpCode(HttpStatus.NO_CONTENT)
 	@UseGuards(OnlyDevOrTestingModeGuard)
-	@Post(RouteNames.TESTING.SEED)
+	@Post(RouteNames.DB.SEED)
 	async seedTestData() {
 		// await this.commandBus.execute(new SeedTestDataCommand())
-	}
+	}*/
 }

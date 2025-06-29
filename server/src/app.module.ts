@@ -8,6 +8,7 @@ import { HashAdapterModule } from './infrastructure/hashAdapter/hash-adapter.mod
 import { MainConfigModule } from './infrastructure/mainConfig/mainConfig.module'
 import { MainConfigService } from './infrastructure/mainConfig/mainConfig.service'
 import { join } from 'path'
+import { RedisModule } from './infrastructure/redis/redis.module'
 import { AiModule } from './routes/ai/ai.module'
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default'
 import { TelegramModule } from './infrastructure/telegram/telegram.module'
@@ -41,6 +42,7 @@ import { DbModule } from './routes/db/db.module'
 		TelegramModule,
 		GigaChatModule,
 		DbModule,
+		RedisModule,
 	],
 	providers: [],
 })
