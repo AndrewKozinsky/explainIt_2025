@@ -5,6 +5,7 @@ import { ConfirmEmailHandler } from '../../features/auth/ConfirmEmail.command'
 import { CreateUserHandler } from '../../features/auth/CreateUser.command'
 import { GetUserByIdHandler } from '../../features/auth/GetUserById.command'
 import { LoginHandler } from '../../features/auth/Login.command'
+import { LogoutHandler } from '../../features/auth/Logout.command'
 import { ResendConfirmationEmailHandler } from '../../features/auth/ResendConfirmationEmail.command'
 import { BrowserService } from '../../infrastructure/browserService/browser.service'
 import { EmailAdapterService } from '../../infrastructure/emailAdapter/email-adapter.service'
@@ -19,6 +20,7 @@ const commandHandlers = [
 	ConfirmEmailHandler,
 	ResendConfirmationEmailHandler,
 	GetUserByIdHandler,
+	LogoutHandler,
 ]
 const resolvers = [AuthResolver]
 const repositories = [UserRepository, UserQueryRepository]

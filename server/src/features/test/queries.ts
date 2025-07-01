@@ -52,11 +52,11 @@ export const queries = {
 			  }
 			}`
 		},
-		/*logout() {
+		logout() {
 			return `mutation {
 			  ${RouteNames.AUTH.LOGOUT}
 			}`
-		},*/
+		},
 	},
 	ai: {
 		checkTranslation(data: { rusSentence: string; engSentence: string }) {

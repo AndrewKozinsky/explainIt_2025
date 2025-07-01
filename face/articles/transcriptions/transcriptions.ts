@@ -618,8 +618,6 @@ export const transcriptions = {
 		audio: false,
 	},
 
-	// -----
-
 	it_shows_bad_results: {
 		sentence: 'It shows bad results.',
 		transcription: 'ɪt ʃoʊz bæd rɪzəlz',
@@ -637,58 +635,52 @@ export const transcriptions = {
 		transcription: 'hi wɔts TV ɔnli saʊmtaimz',
 		audio: false,
 	},
-
-	she_does_it_every_day: {
-		sentence: 'She does it every day.',
-		transcription: 'ʃiː dʌz ɪt evr di',
-		audio: false,
-	},
-
-	we_train_together: {
-		sentence: 'We train together.',
-		transcription: 'wi tréin təˈjəðə',
-		audio: false,
-	},
-
-	he_wears_suits: {
-		sentence: 'He wears suits.',
-		transcription: 'hi wɛəs sʌts',
-		audio: false,
-	},
-
-	owls_fly_at_night: {
-		sentence: 'Owls fly at night.',
-		transcription: 'aʊlz faj ɑt naɪt',
-		audio: false,
-	},
-
 	vanya_sleeps_after_dinner: {
 		sentence: 'Vanya sleeps after dinner.',
 		transcription: 'vænjə sliːps əftə dɪnə',
 		audio: false,
 	},
-
 	bernard_and_eric_collect_stamps: {
 		sentence: 'Bernard and Eric collect stamps.',
 		transcription: 'bərənd ɑnd ɪrɪk kələkt stæmpz',
 		audio: false,
 	},
-
 	it_brings_him_good_money: {
 		sentence: 'It brings him good money.',
 		transcription: 'ɪt brɪŋz hɪm gud mʌni',
 		audio: false,
 	},
-
-	i_have_much_free_time: {
-		sentence: 'I have much free time.',
-		transcription: 'aɪ həv mʌʧ fri tʌɪ',
-		audio: false,
-	},
-
 	i_see_a_teacher: {
 		sentence: 'I see a teacher.',
 		transcription: 'I si ə tɪʃə',
+		audio: false,
+	},
+
+	she_does_it_every_day: {
+		sentence: 'She does it every day.',
+		transcription: 'ʃi ˈdʌz ɪt ˈɛvɹi deɪ',
+		audio: false,
+	},
+
+	we_train_together: {
+		sentence: 'We train together.',
+		transcription: 'wi tɹeɪn təˈɡɛðɚ',
+		audio: false,
+	},
+	he_wears_suits: {
+		sentence: 'He wears suits.',
+		transcription: 'hi wɛɹz suːts',
+		audio: false,
+	},
+
+	owls_fly_at_night: {
+		sentence: 'Owls fly at night.',
+		transcription: 'aʊlz flaɪ ət naɪt',
+		audio: false,
+	},
+	i_have_much_free_time: {
+		sentence: 'I have much free time.',
+		transcription: 'aɪ hæv mʌtʃ fɹi taɪm',
 		audio: false,
 	},
 
@@ -710,11 +702,7 @@ export const transcriptions = {
 		audio: false,
 	},
 
-	a_doctor_treats_people: {
-		sentence: 'A doctor treats people.',
-		transcription: 'ə dɑk.tə trit pə.ʊlz',
-		audio: false,
-	},
+	// -----
 
 	a_rabbit_is_a_domestic_animal: {
 		sentence: 'A rabbit is a domestic animal.',
@@ -4920,6 +4908,14 @@ export const transcriptions = {
 	do_you_want_some_water: {
 		sentence: 'Do you want some water?',
 		transcription: 'du ju wɒnt sʌm wɔːtər/**',
+		audio: false,
+	},
+
+	//
+
+	a_doctor_treats_people: {
+		sentence: 'A doctor treats people.',
+		transcription: 'ə dɑk.tə trit pə.ʊlz',
 		audio: false,
 	},
 } satisfies Record<string, ITranscription>

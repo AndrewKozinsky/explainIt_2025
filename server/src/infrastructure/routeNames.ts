@@ -5,7 +5,7 @@ export const RouteNames = {
 		LOGIN: 'auth_login',
 		RESEND_CONFIRMATION_EMAIL: 'auth_resendConfirmationEmail',
 		GET_ME: 'auth_getMe',
-		// LOGOUT: 'auth_logout',
+		LOGOUT: 'auth_logout',
 	},
 	AI: {
 		CHECK_TRANSLATION: 'ai_checkTranslation',

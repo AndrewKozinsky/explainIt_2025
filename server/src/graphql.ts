@@ -68,6 +68,7 @@ export interface IMutation {
     auth_register(input: RegisterUserInput): UserOutModel | Promise<UserOutModel>;
     auth_login(input: LoginInput): UserOutModel | Promise<UserOutModel>;
     auth_resendConfirmationEmail(input: ResendConfirmationEmailInput): boolean | Promise<boolean>;
+    auth_logout(): boolean | Promise<boolean>;
 }
 
 export type CheckTranslationOutModel = CheckTranslationOutSuccessModel | CheckTranslationOutErrorModel;

@@ -60,6 +60,7 @@ export const errorMessage = {
 
 	// MICK
 	noSessionObject: 'Нет объект сессии (request.session).',
+	cannotFinishSession: 'Не удалось завершить сессию.',
 	unknownDbError: 'Неизвестная ошибка в базе данных.',
 	unknownError: 'Неизвестная ошибка сервера.',
 	cannotSaveSession: 'Не возможно сохранить сессию',

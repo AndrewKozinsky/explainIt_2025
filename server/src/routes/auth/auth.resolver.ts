@@ -6,6 +6,7 @@ import { ConfirmEmailCommand } from '../../features/auth/ConfirmEmail.command'
 import { CreateUserCommand } from '../../features/auth/CreateUser.command'
 import { GetUserByIdCommand } from '../../features/auth/GetUserById.command'
 import { LoginCommand } from '../../features/auth/Login.command'
+import { LogoutCommand } from '../../features/auth/Logout.command'
 import { ResendConfirmationEmailCommand } from '../../features/auth/ResendConfirmationEmail.command'
 import { BrowserService } from '../../infrastructure/browserService/browser.service'
 import { CheckSessionCookieGuard } from '../../infrastructure/guards/checkSessionCookie.guard'
@@ -15,7 +16,7 @@ import { LoginInput } from './inputs/login.input'
 import { RegisterUserInput } from './inputs/registerUser.input'
 import { ResendConfirmationEmailInput } from './inputs/resendConfirmationEmail.input'
 import { authResolversDesc } from './resolverDescriptions'
-import { Request } from 'express'
+import { Request, Response } from 'express'
 
 @Resolver()
 export class AuthResolver {
@@ -71,5 +72,15 @@ export class AuthResolver {
 	@UsePipes(new ValidationPipe({ transform: true }))
 	async getMe(@Context('req') request: Request) {
 		return await this.commandBus.execute(new GetUserByIdCommand(request.session.userId!))
+	}
+
+	@UseGuards(CheckSessionCookieGuard)
+	@Mutation(() => Boolean, {
+		name: RouteNames.AUTH.LOGOUT,
+		description: authResolversDesc.logout,
+	})
+	@UsePipes(new ValidationPipe({ transform: true }))
+	async logout(@Context() context: { req: Request; res: Response }) {
+		return await this.commandBus.execute(new LogoutCommand(context.req, context.res))
 	}
 }

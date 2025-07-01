@@ -36,8 +36,8 @@ async function setUpSession(app: INestApplication) {
 		session({
 			secret: mainConfig.get().session.secret,
 			name: mainConfig.get().session.name,
-			// resave: true,
-			// saveUninitialized: false,
+			resave: true,
+			saveUninitialized: false,
 			rolling: true, // ⬅️ Refreshes cookie expiration on every request
 			cookie: {
 				maxAge: mainConfig.get().session.lifeDurationInMs,
