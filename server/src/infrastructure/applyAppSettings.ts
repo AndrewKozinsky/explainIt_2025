@@ -3,7 +3,6 @@ import { useContainer, ValidationError } from 'class-validator'
 import * as cookieParser from 'cookie-parser'
 import { AppModule } from '../app.module'
 import { ApolloExceptionFilter } from './exceptions/apollo-exception.filter'
-import { SentryExceptionFilter } from './exceptions/centry-exception.filter'
 import * as session from 'express-session'
 import { MainConfigService } from './mainConfig/mainConfig.service'
 import { RedisStore } from 'connect-redis'
@@ -19,7 +18,7 @@ export async function applyAppSettings(app: INestApplication) {
 
 	setUpGlobalPipes(app)
 
-	app.useGlobalFilters(new SentryExceptionFilter(), new ApolloExceptionFilter())
+	app.useGlobalFilters(new ApolloExceptionFilter())
 }
 
 async function setUpSession(app: INestApplication) {
