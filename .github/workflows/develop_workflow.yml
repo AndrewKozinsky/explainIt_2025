@@ -22,6 +22,8 @@ jobs:
           ssh -o StrictHostKeyChecking=no andrew@79.140.26.128 << 'EOF'
             cd ~/sites/explainIt_2025_develop
           
+            sh stop.server.develop.sh
+          
             git checkout develop
           
             # Generate env file

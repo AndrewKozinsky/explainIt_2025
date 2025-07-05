@@ -137,7 +137,6 @@ function getFaceEnvs(mode: Mode) {
 /** Returns environment variables for Postgres  */
 function getPostgresEnvs() {
 	return {
-		POSTGRES_CONTAINER: '${POSTGRES_CONTAINER}',
 		POSTGRES_DB: '${POSTGRES_DB}',
 		POSTGRES_USER: '${POSTGRES_USER}',
 		POSTGRES_PASSWORD: '${POSTGRES_PASSWORD}',
