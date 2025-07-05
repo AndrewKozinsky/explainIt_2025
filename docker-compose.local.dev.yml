@@ -9,7 +9,7 @@ services:
     ports:
       - 80:80
     volumes:
-      - ../../nginx/nginx.conf.localdev:/etc/nginx/nginx.conf
+      - nginx/nginx.conf.localdev:/etc/nginx/nginx.conf
   explainpostgreslocaldev:
     image: postgres:16.2
     restart: unless-stopped
@@ -38,12 +38,12 @@ services:
       - redis_data:/data
   explainserverlocaldev:
     build:
-      context: ../../server/
+      context: server/
       dockerfile: Dockerfile.dev
     restart: unless-stopped
     volumes:
-      - ../../server/src:/app/src
-      - ../../server/e2e:/app/e2e
+      - server/src:/app/src
+      - server/e2e:/app/e2e
     command: yarn start:dev
     container_name: explainserverlocaldev
     depends_on:
@@ -57,12 +57,12 @@ services:
       - 3001:3001
   explainfacelocaldev:
     build:
-      context: ../../face/
+      context: face/
       dockerfile: Dockerfile.dev
     restart: unless-stopped
     volumes:
-      - ../../face:/app
-      - ../../face:/public
+      - face:/app
+      - face:/public
     command: yarn run dev
     container_name: explainfacelocaldev
     depends_on:
