@@ -34,8 +34,12 @@ jobs:
 
             cd ./infrastructure/start
 
-            # Move the env file to the correct location
-            mv ~/env_file_content.txt .env.serverdevelop
+            # Remove existing env file if it exists
+            rm -f .env.serverdevelop
+
+            # Move the env file to the correct location and ensure proper permissions
+            cp ~/env_file_content.txt .env.serverdevelop
+            chmod 600 .env.serverdevelop
 
             sh stop.server.develop.sh
             cd ../..

@@ -34,10 +34,14 @@ jobs:
 
             cd ./infrastructure/start
 
-            # Move the env file to the correct location
-            mv ~/env_file_content.txt .env.servermaster
+            # Remove existing env file if it exists
+            rm -f .env.servermaster
 
-            sh stop.server.develop.sh
+            # Move the env file to the correct location and ensure proper permissions
+            cp ~/env_file_content.txt .env.servermaster
+            chmod 600 .env.servermaster
+
+            sh stop.server.master.sh
             cd ../..
 
             # Apply migrations
