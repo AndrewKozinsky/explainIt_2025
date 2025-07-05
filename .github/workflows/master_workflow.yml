@@ -22,15 +22,23 @@ jobs:
           ssh -o StrictHostKeyChecking=no andrew@79.140.26.128 << 'EOF'
             cd ~/sites/explainIt_2025
           
+            cd infrastructure/start
+            sh stop.server.develop.sh
+            cd ../..
+          
             git checkout master
           
             # Generate .env file
             echo "${{ secrets.ENV_FILE_MASTER }}" > .env.servermaster
           
             # Apply migrations
+            cd /server
             npx prisma migrate deploy
+            cd ..
           
             git pull
           
+            cd infrastructure/start
             sh run.server.master.sh
+            cd ../..
           EOF

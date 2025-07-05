@@ -9,7 +9,7 @@ services:
     ports:
       - 80:80
     volumes:
-      - ./nginx/nginx.conf.localcheckserver:/etc/nginx/nginx.conf
+      - ../../nginx/nginx.conf.localcheckserver:/etc/nginx/nginx.conf
   explainpostgreslocalcheckserver:
     image: postgres:16.2
     restart: unless-stopped
@@ -38,7 +38,7 @@ services:
       - redis_data:/data
   explainserverlocalcheckserver:
     build:
-      context: server/
+      context: ../../server/
       dockerfile: Dockerfile.server
     restart: unless-stopped
     command: yarn start:prod
@@ -52,7 +52,7 @@ services:
       - .env.localcheckserver
   explainfacelocalcheckserver:
     build:
-      context: face/
+      context: ../../face/
       dockerfile: Dockerfile.server
     restart: unless-stopped
     command: yarn run start

@@ -28,7 +28,7 @@ export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
 				container_name: 'explainnginx' + mode,
 				depends_on: [postgresServiceName, serverServiceName, faceServiceName],
 				ports: [Mode.localTest, Mode.localDev, Mode.localCheckServer].includes(mode) ? ['80:80'] : undefined,
-				volumes: [`./nginx/nginx.conf.${mode}:/etc/nginx/nginx.conf`],
+				volumes: [`../../nginx/nginx.conf.${mode}:/etc/nginx/nginx.conf`],
 				environment: getNginxEnvs(mode),
 			},
 			[postgresServiceName]: {
@@ -51,11 +51,11 @@ export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
 			},
 			[serverServiceName]: {
 				build: {
-					context: 'server/',
+					context: '../../server/',
 					dockerfile: isDev ? 'Dockerfile.dev' : 'Dockerfile.server',
 				},
 				restart: 'unless-stopped',
-				volumes: isDev ? ['./server/src:/app/src', './server/e2e:/app/e2e'] : undefined,
+				volumes: isDev ? ['../../server/src:/app/src', '../../server/e2e:/app/e2e'] : undefined,
 				command: isDev ? 'yarn start:dev' : 'yarn start:prod',
 				container_name: 'explainserver' + mode,
 				depends_on: [postgresServiceName],
@@ -65,11 +65,11 @@ export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
 			},
 			[faceServiceName]: {
 				build: {
-					context: 'face/',
+					context: '../../face/',
 					dockerfile: isDev ? 'Dockerfile.dev' : 'Dockerfile.server',
 				},
 				restart: 'unless-stopped',
-				volumes: isDev ? ['./face:/app', './face:/public'] : undefined,
+				volumes: isDev ? ['../../face:/app', '../../face:/public'] : undefined,
 				command: isDev ? 'yarn run dev' : 'yarn run start',
 				container_name: 'explainface' + mode,
 				depends_on: [postgresServiceName, serverServiceName],

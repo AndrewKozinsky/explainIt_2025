@@ -34,7 +34,7 @@ const configs = [
 for (let i = 0; i < configs.length; i++) {
 	const dataItem = configs[i]
 
-	const filePath = '../../docker-compose.' + dataItem.name + '.yml'
+	const filePath = '../start/docker-compose.' + dataItem.name + '.yml'
 	const content = YAML.stringify(dataItem.content)
 
 	fs.writeFile(filePath, content, (err) => {

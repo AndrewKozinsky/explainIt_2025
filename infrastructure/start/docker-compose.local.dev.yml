@@ -1,75 +1,75 @@
 services:
-  explainnginxlocaltest:
+  explainnginxlocaldev:
     image: nginx:1.19.7-alpine
-    container_name: explainnginxlocaltest
+    container_name: explainnginxlocaldev
     depends_on:
-      - explainpostgreslocaltest
-      - explainserverlocaltest
-      - explainfacelocaltest
+      - explainpostgreslocaldev
+      - explainserverlocaldev
+      - explainfacelocaldev
     ports:
       - 80:80
     volumes:
-      - ./nginx/nginx.conf.localtest:/etc/nginx/nginx.conf
-  explainpostgreslocaltest:
+      - ../../nginx/nginx.conf.localdev:/etc/nginx/nginx.conf
+  explainpostgreslocaldev:
     image: postgres:16.2
     restart: unless-stopped
-    container_name: explainpostgreslocaltest
+    container_name: explainpostgreslocaldev
     ports:
-      - 5443:5432
+      - 5444:5432
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     env_file:
-      - .env.localtest
+      - .env.localdev
     volumes:
       - pgdata:/var/lib/postgresql/data
-  explainredislocaltest:
+  explainredislocaldev:
     image: redis:7.4.4
     restart: unless-stopped
-    container_name: explainredislocaltest
+    container_name: explainredislocaldev
     ports:
-      - 6380:6379
+      - 6381:6379
     environment:
       REDIS_PASSWORD: ${REDIS_PASSWORD}
     env_file:
-      - .env.localtest
+      - .env.localdev
     volumes:
       - redis_data:/data
-  explainserverlocaltest:
+  explainserverlocaldev:
     build:
-      context: server/
+      context: ../../server/
       dockerfile: Dockerfile.dev
     restart: unless-stopped
     volumes:
-      - ./server/src:/app/src
-      - ./server/e2e:/app/e2e
+      - ../../server/src:/app/src
+      - ../../server/e2e:/app/e2e
     command: yarn start:dev
-    container_name: explainserverlocaltest
+    container_name: explainserverlocaldev
     depends_on:
-      - explainpostgreslocaltest
+      - explainpostgreslocaldev
     environment:
-      MODE: localtest
+      MODE: localdev
       PORT: 3001
     env_file:
-      - .env.localtest
+      - .env.localdev
     ports:
       - 3001:3001
-  explainfacelocaltest:
+  explainfacelocaldev:
     build:
-      context: face/
+      context: ../../face/
       dockerfile: Dockerfile.dev
     restart: unless-stopped
     volumes:
-      - ./face:/app
-      - ./face:/public
+      - ../../face:/app
+      - ../../face:/public
     command: yarn run dev
-    container_name: explainfacelocaltest
+    container_name: explainfacelocaldev
     depends_on:
-      - explainpostgreslocaltest
-      - explainserverlocaltest
+      - explainpostgreslocaldev
+      - explainserverlocaldev
     environment:
-      MODE: localtest
+      MODE: localdev
 volumes:
   pgdata: {}
   redis_data: {}
