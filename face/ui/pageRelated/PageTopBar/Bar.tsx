@@ -1,13 +1,23 @@
+import cn from 'classnames'
 import React from 'react'
 import { LinkLogoWithText } from '../../logo/LinkLogoWithText/LinkLogoWithText'
 import { MainMenu } from '../MainMenu/MainMenu'
 import './Bar.scss'
 
-function Bar() {
+type BarProps = {
+	position: 'top' | 'bottom'
+}
+
+function Bar(props: BarProps) {
+	const { position } = props
+
 	return (
-		<div className="page-bar">
-			<LinkLogoWithText />
-			<MainMenu />
+		<div className={cn('page-bar', 'page-bar__' + position)}>
+			<div className='page-bar__left'>
+				<LinkLogoWithText />
+				<MainMenu />
+			</div>
+			<div></div>
 		</div>
 	)
 }

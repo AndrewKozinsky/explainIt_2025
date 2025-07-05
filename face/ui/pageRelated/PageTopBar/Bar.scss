@@ -4,3 +4,21 @@
 	flex-wrap: wrap;
 	gap: 1.5rem;
 }
+
+.page-bar__top {
+	.page-bar__left {
+		align-items: flex-start;
+	}
+}
+
+.page-bar__bottom {
+	.page-bar__left {
+		align-items: flex-end;
+	}
+}
+
+.page-bar__left {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4rem;
+}
