@@ -4,4 +4,5 @@ COPY package*.json ./
 RUN yarn
 COPY . .
 RUN yarn prisma generate
+RUN yarn run migrate:deploy
 RUN yarn run build

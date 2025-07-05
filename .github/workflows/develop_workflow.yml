@@ -32,9 +32,4 @@ jobs:
             echo "${{ secrets.ENV_FILE_DEVELOP }}" > .env.serverdevelop
           
             sh run.server.develop.sh
-          
-            # Apply migrations
-            cd server
-            #npx prisma migrate deploy
-            cd ..
           EOF

@@ -42,8 +42,8 @@ services:
       dockerfile: Dockerfile.dev
     restart: unless-stopped
     volumes:
-      - server/src:/app/src
-      - server/e2e:/app/e2e
+      - ./server/src:/app/src
+      - ./server/e2e:/app/e2e
     command: yarn start:dev
     container_name: explainserverlocaltest
     depends_on:
@@ -61,8 +61,8 @@ services:
       dockerfile: Dockerfile.dev
     restart: unless-stopped
     volumes:
-      - face:/app
-      - face:/public
+      - ./face:/app
+      - ./face:/public
     command: yarn run dev
     container_name: explainfacelocaltest
     depends_on:
