@@ -32,7 +32,9 @@ jobs:
             echo "${{ secrets.ENV_FILE_DEVELOP }}" > .env.serverdevelop
 
             # Run Prisma migrations
-            cd server && yarn run migrate:deploy && cd ..
+            cd server
+            yarn run migrate:deploy
+            cd ..
             echo "============"
             pwd
 
