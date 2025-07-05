@@ -24,13 +24,17 @@ jobs:
           
             git checkout master
           
+            git pull
+          
             # Generate .env file
             echo "${{ secrets.ENV_FILE_MASTER }}" > .env.servermaster
           
-            # Apply migrations
-            npx prisma migrate deploy
+            sh stop.server.master.sh
           
-            git pull
+            # Apply migrations
+            cd server
+            npx prisma migrate deploy
+            cd ..
           
             sh run.server.master.sh
           EOF

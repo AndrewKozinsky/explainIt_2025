@@ -55,7 +55,7 @@ export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
 					dockerfile: isDev ? 'Dockerfile.dev' : 'Dockerfile.server',
 				},
 				restart: 'unless-stopped',
-				volumes: isDev ? ['./server/src:/app/src', './server/e2e:/app/e2e'] : undefined,
+				volumes: isDev ? ['server/src:/app/src', 'server/e2e:/app/e2e'] : undefined,
 				command: isDev ? 'yarn start:dev' : 'yarn start:prod',
 				container_name: 'explainserver' + mode,
 				depends_on: [postgresServiceName],
@@ -69,7 +69,7 @@ export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
 					dockerfile: isDev ? 'Dockerfile.dev' : 'Dockerfile.server',
 				},
 				restart: 'unless-stopped',
-				volumes: isDev ? ['./face:/app', './face:/public'] : undefined,
+				volumes: isDev ? ['face:/app', 'face:/public'] : undefined,
 				command: isDev ? 'yarn run dev' : 'yarn run start',
 				container_name: 'explainface' + mode,
 				depends_on: [postgresServiceName, serverServiceName],
@@ -137,7 +137,6 @@ function getFaceEnvs(mode: Mode) {
 /** Returns environment variables for Postgres  */
 function getPostgresEnvs() {
 	return {
-		POSTGRES_CONTAINER: '${POSTGRES_CONTAINER}',
 		POSTGRES_DB: '${POSTGRES_DB}',
 		POSTGRES_USER: '${POSTGRES_USER}',
 		POSTGRES_PASSWORD: '${POSTGRES_PASSWORD}',

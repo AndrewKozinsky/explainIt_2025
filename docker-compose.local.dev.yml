@@ -17,7 +17,6 @@ services:
     ports:
       - 5444:5432
     environment:
-      POSTGRES_CONTAINER: ${POSTGRES_CONTAINER}
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -43,8 +42,8 @@ services:
       dockerfile: Dockerfile.dev
     restart: unless-stopped
     volumes:
-      - ./server/src:/app/src
-      - ./server/e2e:/app/e2e
+      - server/src:/app/src
+      - server/e2e:/app/e2e
     command: yarn start:dev
     container_name: explainserverlocaldev
     depends_on:
@@ -62,8 +61,8 @@ services:
       dockerfile: Dockerfile.dev
     restart: unless-stopped
     volumes:
-      - ./face:/app
-      - ./face:/public
+      - face:/app
+      - face:/public
     command: yarn run dev
     container_name: explainfacelocaldev
     depends_on:

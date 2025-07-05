@@ -11,13 +11,13 @@ export function PageWrapper(props: PageWrapperProps) {
 	const { children } = props
 
 	return (
-		<div className="page-wrapper" data-testid="page-wrapper">
-			<header className="page-wrapper__top">
-				<Bar />
+		<div className='page-wrapper' data-testid='page-wrapper'>
+			<header className='page-wrapper__top'>
+				<Bar position='top' />
 			</header>
-			<div className="page-wrapper__middle">{children}</div>
-			<footer className="page-wrapper__bottom">
-				<Bar />
+			<div className='page-wrapper__middle'>{children}</div>
+			<footer className='page-wrapper__bottom'>
+				<Bar position='bottom' />
 			</footer>
 		</div>
 	)
