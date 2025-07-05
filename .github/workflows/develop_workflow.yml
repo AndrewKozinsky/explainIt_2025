@@ -33,6 +33,8 @@ jobs:
 
             # Run Prisma migrations
             cd server && yarn run migrate:deploy && cd ..
+            echo "============"
+            pwd
 
             sh run.server.develop.sh
           EOF
