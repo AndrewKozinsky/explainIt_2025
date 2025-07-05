@@ -16,7 +16,7 @@ services:
     restart: unless-stopped
     container_name: explainpostgresserverdevelop
     ports:
-      - 5436:5432
+      - 5446:5432
     environment:
       POSTGRES_CONTAINER: ${POSTGRES_CONTAINER}
       POSTGRES_DB: ${POSTGRES_DB}

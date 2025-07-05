@@ -153,11 +153,11 @@ function getRedisEnvs() {
 
 function getPostgresPort(mode: Mode) {
 	const portMapper: Record<Mode, [string]> = {
-		[Mode.localTest]: ['5433:5432'],
-		[Mode.localDev]: ['5434:5432'],
-		[Mode.localCheckServer]: ['5435:5432'],
-		[Mode.serverDevelop]: ['5436:5432'],
-		[Mode.serverMaster]: ['5437:5432'],
+		[Mode.localTest]: ['5443:5432'],
+		[Mode.localDev]: ['5444:5432'],
+		[Mode.localCheckServer]: ['5445:5432'],
+		[Mode.serverDevelop]: ['5446:5432'],
+		[Mode.serverMaster]: ['5447:5432'],
 	}
 
 	return portMapper[mode]
