@@ -27,11 +27,10 @@ jobs:
             git pull
           
             cd ./infrastructure/start
-            echo "-------------------------------==="
-            pwd
 
             # Generate env file
-            echo "${{ secrets.ENV_FILE_DEV }}" > ~/sites/explainIt_2025/infrastructure/start/.env.serverdevelop
+            touch .env.serverdevelop
+            echo "${{ secrets.ENV_FILE_DEV }}" > .env.serverdevelop
           
             sh stop.server.develop.sh
             cd ../..
