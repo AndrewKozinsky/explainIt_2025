@@ -702,8 +702,6 @@ export const transcriptions = {
 		audio: false,
 	},
 
-	// -----
-
 	a_rabbit_is_a_domestic_animal: {
 		sentence: 'A rabbit is a domestic animal.',
 		transcription: 'ə ræbɪt ɪz ə dəˈməʊstɪk ˈænɪməl',
@@ -715,13 +713,6 @@ export const transcriptions = {
 		transcription: 'ðeɪ si ə bɜrd ɪn ðə trɪ',
 		audio: false,
 	},
-
-	they_see_one_bird_in_the_tree: {
-		sentence: 'They see one bird in the tree.',
-		transcription: 'ðe zi wʌn bɜrd ɪn ði tri',
-		audio: false,
-	},
-
 	give_me_tea: {
 		sentence: 'Give me tea.',
 		transcription: 'ɡɪv mi tiː',
@@ -734,23 +725,37 @@ export const transcriptions = {
 		audio: false,
 	},
 
+	a_doctor_treats_people: {
+		sentence: 'A doctor treats people.',
+		transcription: 'ə ˈdɑktɚ tɹits ˈpipəl',
+		audio: false,
+	},
+
+	they_see_one_bird_in_the_tree: {
+		sentence: 'They see one bird in the tree.',
+		transcription: 'ðeɪ si wʌn bɝd ɪn ðə tɹi',
+		audio: false,
+	},
+
 	she_catches_a_cold_every_winter: {
 		sentence: 'She catches a cold every winter.',
-		transcription: 'ʃi kætʧ zə kɔːld evri wɪntə',
+		transcription: 'ʃi ˈkætʃɪz ə koʊld ˈɛvɹi ˈwɪntɚ',
 		audio: false,
 	},
 
 	she_catches_cold_every_winter: {
 		sentence: 'She catches cold every winter.',
-		transcription: 'ʃi kætʧ kɔːld evri wɪntə',
+		transcription: 'ʃi ˈkætʃɪz koʊld ˈɛvɹi ˈwɪntɚ',
 		audio: false,
 	},
 
 	you_need_a_cowboy_look: {
 		sentence: 'You need a cowboy look.',
-		transcription: 'juː ni dʹɛ n kɔʊ bɔɪ lʊk',
+		transcription: 'ju nid ə ˈkaʊbɔɪ lʊk',
 		audio: false,
 	},
+
+	// -----
 
 	this_shop_is_very_expensive: {
 		sentence: 'This shop is very expensive.',
@@ -3862,7 +3867,7 @@ export const transcriptions = {
 	},
 
 	this_love_is_difficult_but_its_real: {
-		sentence: "This love is difficult, but it's real.",
+		sentence: 'This love is difficult, but it\'s real.',
 		transcription: 'ðɪs lʌv ɪz dɪˈfɪkəlt, bət ɪtˈs rɪəl',
 		audio: false,
 	},
@@ -3898,7 +3903,7 @@ export const transcriptions = {
 	},
 
 	is_this_a_pencil_no_its_a_pen: {
-		sentence: "Is this a pencil? No, it's a pen.",
+		sentence: 'Is this a pencil? No, it\'s a pen.',
 		transcription: 'is ˈðɪs ə ˈpɛn.ɫ.səʊ ˈnəʊ ɪt ɪz ə ˈpɛn',
 		audio: false,
 	},
@@ -4912,10 +4917,4 @@ export const transcriptions = {
 	},
 
 	//
-
-	a_doctor_treats_people: {
-		sentence: 'A doctor treats people.',
-		transcription: 'ə dɑk.tə trit pə.ʊlz',
-		audio: false,
-	},
 } satisfies Record<string, ITranscription>
