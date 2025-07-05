@@ -21,15 +21,18 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no andrew@79.140.26.128 << 'EOF'
             cd ~/sites/explainIt_2025_develop
-          
+
             git checkout develop
-          
+
             git pull
-          
+
             sh stop.server.develop.sh
-          
+
             # Generate .env file
             echo "${{ secrets.ENV_FILE_DEVELOP }}" > .env.serverdevelop
-          
+
+            # Run Prisma migrations
+            cd server && yarn run migrate:deploy && cd ..
+
             sh run.server.develop.sh
           EOF
