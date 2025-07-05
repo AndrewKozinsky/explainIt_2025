@@ -1,1 +1,0 @@
-docker compose -f docker-compose.server.develop.yml up --build

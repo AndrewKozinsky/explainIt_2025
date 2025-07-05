@@ -24,13 +24,13 @@ jobs:
           
             git checkout develop
           
-            # Generate .env file
-            echo "${{ secrets.ENV_FILE_DEV }}" > .env
+            # Generate env file
+            echo "${{ secrets.ENV_FILE_DEV }}" > .env.serverdevelop
           
             # Apply migrations
             npx prisma migrate deploy
             
             git pull
           
-            docker compose -f docker-compose.server.develop.yml up --build -d
+            sh run.server.develop.sh
           EOF

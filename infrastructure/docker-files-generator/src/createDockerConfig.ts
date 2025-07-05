@@ -34,19 +34,19 @@ export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
 			[postgresServiceName]: {
 				image: 'postgres:16.2',
 				restart: 'unless-stopped',
-				container_name: 'explainpostgres',
+				container_name: 'explainpostgres' + mode,
 				ports: ['5432:5432'],
 				environment: getPostgresEnvs(),
-				env_file: ['.env'],
+				env_file: ['.env.' + mode],
 				volumes: ['pgdata:/var/lib/postgresql/data'],
 			},
 			[redisServiceName]: {
 				image: 'redis:7.4.4',
 				restart: 'unless-stopped',
-				container_name: 'explainredis',
+				container_name: 'explainredis' + mode,
 				ports: ['6379:6379'],
 				environment: getRedisEnvs(),
-				env_file: ['.env'],
+				env_file:['.env.' + mode],
 				volumes: ['redis_data:/data'],
 			},
 			[serverServiceName]: {
@@ -60,7 +60,7 @@ export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
 				container_name: 'explainserver' + mode,
 				depends_on: [postgresServiceName],
 				environment: getServerEnvs(mode),
-				env_file: ['.env'],
+				env_file: ['.env.' + mode],
 				ports: isDev ? ['3001:3001'] : undefined,
 			},
 			[faceServiceName]: {
@@ -137,6 +137,7 @@ function getFaceEnvs(mode: Mode) {
 /** Returns environment variables for Postgres  */
 function getPostgresEnvs() {
 	return {
+		POSTGRES_CONTAINER: '${POSTGRES_CONTAINER}',
 		POSTGRES_DB: '${POSTGRES_DB}',
 		POSTGRES_USER: '${POSTGRES_USER}',
 		POSTGRES_PASSWORD: '${POSTGRES_PASSWORD}',

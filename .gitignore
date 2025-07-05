@@ -74,9 +74,9 @@ web_modules/
 .yarn-integrity
 
 # dotenv environment variable files
-.env
-.env.server.dev
-.env.server.master
+# all .env files except .env.example
+.env*
+!.env.example
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -204,11 +204,9 @@ web_modules/
 .yarn-integrity
 
 # dotenv environment variable files
-.env
-.env.development.local
-.env.test.local
-.env.production.local
-.env.local
+# all .env files except .env.example
+.env*
+!.env.example
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache

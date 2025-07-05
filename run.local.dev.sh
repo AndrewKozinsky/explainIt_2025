@@ -1,1 +1,1 @@
-docker compose -f docker-compose.local.dev.yml up --build
+docker compose -f docker-compose.local.dev.yml --env-file .env.localdev up --build

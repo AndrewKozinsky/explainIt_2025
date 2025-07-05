@@ -13,7 +13,7 @@ function MainPageLayout(props: MainPageLayoutProps) {
 
 	return (
 		<>
-			{mainConfig.workingMode === 'server' && <Metrika />}
+			{mainConfig.workingMode === 'servermaster' && <Metrika />}
 			<ApolloProvider>{children}</ApolloProvider>
 		</>
 	)
