@@ -27,10 +27,12 @@ jobs:
             git pull
           
             cd ./infrastructure/start
+            echo "-------------------------------==="
+            pwd
 
             # Generate env file
-            touch .env.serverdevelop
-            echo "${{ secrets.ENV_FILE_DEV }}" > .env.serverdevelop
+            printf '%s' "${{ secrets.ENV_FILE_MASTER }}" > .env.serverdevelop
+            # echo "${{ secrets.ENV_FILE_DEV }}" > .env.serverdevelop
           
             sh stop.server.develop.sh
             cd ../..
