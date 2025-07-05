@@ -15,7 +15,7 @@ services:
     restart: unless-stopped
     container_name: explainpostgreslocalcheckserver
     ports:
-      - 5432:5432
+      - 5435:5432
     environment:
       POSTGRES_CONTAINER: ${POSTGRES_CONTAINER}
       POSTGRES_DB: ${POSTGRES_DB}
@@ -30,7 +30,7 @@ services:
     restart: unless-stopped
     container_name: explainredislocalcheckserver
     ports:
-      - 6379:6379
+      - 6382:6379
     environment:
       REDIS_PASSWORD: ${REDIS_PASSWORD}
     env_file:

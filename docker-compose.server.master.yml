@@ -16,7 +16,7 @@ services:
     restart: unless-stopped
     container_name: explainpostgresservermaster
     ports:
-      - 5432:5432
+      - 5437:5432
     environment:
       POSTGRES_CONTAINER: ${POSTGRES_CONTAINER}
       POSTGRES_DB: ${POSTGRES_DB}
@@ -31,7 +31,7 @@ services:
     restart: unless-stopped
     container_name: explainredisservermaster
     ports:
-      - 6379:6379
+      - 6384:6379
     environment:
       REDIS_PASSWORD: ${REDIS_PASSWORD}
     env_file:
