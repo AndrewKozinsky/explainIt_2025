@@ -26,15 +26,15 @@ jobs:
           
             git pull
           
+            sh stop.server.develop.sh
+          
             # Generate .env file
             echo "${{ secrets.ENV_FILE_DEVELOP }}" > .env.serverdevelop
           
-            sh stop.server.develop.sh
+            sh run.server.develop.sh
           
             # Apply migrations
             cd server
             npx prisma migrate deploy
             cd ..
-          
-            sh run.server.develop.sh
           EOF
