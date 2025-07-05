@@ -27,9 +27,10 @@ jobs:
             git pull
           
             cd ./infrastructure/start
+            pwd
           
             # Generate .env file
-            echo "${{ secrets.ENV_FILE_MASTER }}" > .env.servermaster
+            echo "${{ secrets.ENV_FILE_MASTER }}" > ./.env.servermaster
           
             sh stop.server.develop.sh
             cd ../..
