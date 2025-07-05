@@ -35,6 +35,6 @@ jobs:
           
             # Apply migrations
             cd server
-            npx prisma migrate deploy
+            #npx prisma migrate deploy
             cd ..
           EOF
