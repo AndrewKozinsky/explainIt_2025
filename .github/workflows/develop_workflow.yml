@@ -19,26 +19,32 @@ jobs:
 
       - name: Pull changes on server
         run: |
+          # Create a temporary file with the environment variables
+          echo "${{ secrets.ENV_FILE_DEV }}" > env_file_content.txt
+
+          # Copy the file to the server
+          scp -o StrictHostKeyChecking=no env_file_content.txt andrew@79.140.26.128:~/env_file_content.txt
+
           ssh -o StrictHostKeyChecking=no andrew@79.140.26.128 << 'EOF'
             cd ~/sites/explainIt_2025_develop
-          
+
             git checkout develop
-          
+
             git pull
-          
+
             cd ./infrastructure/start
 
-            # Generate env file
-            echo "${{ secrets.ENV_FILE_DEV }}" > .env.serverdevelop
-          
+            # Move the env file to the correct location
+            mv ~/env_file_content.txt .env.serverdevelop
+
             sh stop.server.develop.sh
             cd ../..
-          
+
             # Apply migrations
             cd ./server
             npx prisma migrate deploy
             cd ..
-            
+
             cd ./infrastructure/start
             sh run.server.develop.sh
             cd ../..
