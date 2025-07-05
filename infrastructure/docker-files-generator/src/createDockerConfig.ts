@@ -28,7 +28,7 @@ export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
 				container_name: 'explainnginx' + mode,
 				depends_on: [postgresServiceName, serverServiceName, faceServiceName],
 				ports: [Mode.localTest, Mode.localDev, Mode.localCheckServer].includes(mode) ? ['80:80'] : undefined,
-				volumes: [`nginx/nginx.conf.${mode}:/etc/nginx/nginx.conf`],
+				volumes: [`./nginx/nginx.conf.${mode}:/etc/nginx/nginx.conf`],
 				environment: getNginxEnvs(mode),
 			},
 			[postgresServiceName]: {

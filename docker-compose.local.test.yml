@@ -9,7 +9,7 @@ services:
     ports:
       - 80:80
     volumes:
-      - nginx/nginx.conf.localtest:/etc/nginx/nginx.conf
+      - ./nginx/nginx.conf.localtest:/etc/nginx/nginx.conf
   explainpostgreslocaltest:
     image: postgres:16.2
     restart: unless-stopped

@@ -7,7 +7,7 @@ services:
       - explainserverservermaster
       - explainfaceservermaster
     volumes:
-      - nginx/nginx.conf.servermaster:/etc/nginx/nginx.conf
+      - ./nginx/nginx.conf.servermaster:/etc/nginx/nginx.conf
     environment:
       VIRTUAL_HOST: explainit.ru,www.explainit.ru
       LETSENCRYPT_HOST: explainit.ru,www.explainit.ru

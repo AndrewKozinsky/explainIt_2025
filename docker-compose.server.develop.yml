@@ -7,7 +7,7 @@ services:
       - explainserverserverdevelop
       - explainfaceserverdevelop
     volumes:
-      - nginx/nginx.conf.serverdevelop:/etc/nginx/nginx.conf
+      - ./nginx/nginx.conf.serverdevelop:/etc/nginx/nginx.conf
     environment:
       VIRTUAL_HOST: dev.explainit.ru,www.dev.explainit.ru
       LETSENCRYPT_HOST: dev.explainit.ru,www.dev.explainit.ru

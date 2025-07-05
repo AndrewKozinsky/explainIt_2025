@@ -9,7 +9,7 @@ services:
     ports:
       - 80:80
     volumes:
-      - nginx/nginx.conf.localcheckserver:/etc/nginx/nginx.conf
+      - ./nginx/nginx.conf.localcheckserver:/etc/nginx/nginx.conf
   explainpostgreslocalcheckserver:
     image: postgres:16.2
     restart: unless-stopped
