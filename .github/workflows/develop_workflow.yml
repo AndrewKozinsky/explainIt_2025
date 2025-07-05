@@ -30,7 +30,10 @@ jobs:
 
             # Generate .env file
             echo "${{ secrets.ENV_FILE_DEVELOP }}" > .env.serverdevelop
-
+          
+            # Copy env file to server folder because it needs for migrations
+            cp .env.serverdevelop server/.env
+          
             # Run Prisma migrations
             cd server
             yarn run migrate:deploy

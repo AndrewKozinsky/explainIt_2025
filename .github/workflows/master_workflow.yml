@@ -30,6 +30,9 @@ jobs:
 
             # Generate .env file
             echo "${{ secrets.ENV_FILE_MASTER }}" > .env.servermaster
+          
+            # Copy env file to server folder because it needs for migrations
+            cp .env.serverdevelop server/.env
 
             # Run Prisma migrations
             cd server

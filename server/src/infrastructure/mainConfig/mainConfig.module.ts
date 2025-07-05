@@ -7,14 +7,7 @@ import { MainConfigService } from './mainConfig.service'
 	imports: [
 		ConfigModule.forRoot({
 			isGlobal: true,
-			envFilePath: [
-				'.env.localtest',
-				'.env.localdev',
-				'.env.localcheckserver',
-				'.env.serverdevelop',
-				'.env.servermaster',
-				'.env',
-			],
+			envFilePath: ['.env'],
 		}),
 	],
 	providers: [MainConfigService],
