@@ -543,40 +543,6 @@
 								},
 							],
 						},
-						{
-							engSentences: [],
-							isCorrect: false,
-							analysis: [
-								{
-									type: 'paragraph',
-
-									children: [
-										{
-											type: 'text',
-
-											text: 'Правильный вариант. Ещё можно Yes, I am.',
-										},
-									],
-								},
-							],
-						},
-						{
-							engSentences: [],
-							isCorrect: false,
-							analysis: [
-								{
-									type: 'paragraph',
-
-									children: [
-										{
-											type: 'text',
-
-											text: 'Лучше не отвечать yes или no, а добавлять местоимение и to be в правильной форме: Yes, I am.',
-										},
-									],
-								},
-							],
-						},
 					],
 					words: [{ rusWord: 'готов', engWord: 'ready' }],
 				},
@@ -629,40 +595,6 @@
 					rusSentence: 'Вы вегетарианец? Нет.',
 					engSentences: [
 						{ engSentences: ['Are you a vegetarian? No, I am not.'], isCorrect: true },
-						{
-							engSentences: [],
-							isCorrect: false,
-							analysis: [
-								{
-									type: 'paragraph',
-
-									children: [
-										{
-											type: 'text',
-
-											text: 'Тут смысл следующий: «Любой вегетарианец это вы? Нет, это не так.». Это предложение построено странно. Лучше перевернуть и действующим лицом сделать местоимение you.',
-										},
-									],
-								},
-							],
-						},
-						{
-							engSentences: [],
-							isCorrect: false,
-							analysis: [
-								{
-									type: 'paragraph',
-
-									children: [
-										{
-											type: 'text',
-
-											text: 'Это многословный вариант, но грамматически-правильный.',
-										},
-									],
-								},
-							],
-						},
 					],
 					words: [{ rusWord: 'вегетарианец', engWord: 'a vegetarian' }],
 				},
@@ -682,40 +614,6 @@
 						{
 							engSentences: ['Are you a good person? I am an honest person.'],
 							isCorrect: true,
-						},
-						{
-							engSentences: [],
-							isCorrect: false,
-							analysis: [
-								{
-									type: 'paragraph',
-
-									children: [
-										{
-											type: 'text',
-
-											text: 'Слово honest при произношении начинается с гласной: ˈänəst. Поэтому перед ним неопределённый артикль будет в форме an.',
-										},
-									],
-								},
-							],
-						},
-						{
-							engSentences: [],
-							isCorrect: false,
-							analysis: [
-								{
-									type: 'paragraph',
-
-									children: [
-										{
-											type: 'text',
-
-											text: 'Перед good person поставьте неопределённый артикль потому что англичанам важно знать существительное определённое или конкретное. В данном случае существительное определённое.',
-										},
-									],
-								},
-							],
 						},
 					],
 					words: [

@@ -1,0 +1,1 @@
+docker compose -f docker-compose.local.test.yml --env-file .env.localcheckserver up --build

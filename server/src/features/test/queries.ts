@@ -1,19 +1,64 @@
 import RouteNames from '../../infrastructure/routeNames'
 
 export const queries = {
-	ai: {
-		/*checkTranslation(props: { email: string; password: string }) {
+	auth: {
+		registerUser(props: { email: string; password: string }) {
 			return `mutation {
-			  ${RouteNames.AI.CHECK_TRANSLATION}(input: {
+			  ${RouteNames.AUTH.REGISTER}(input: {
 				email: "${props.email}",
 				password: "${props.password}"
 			  }) {
 				id
 				email
-				role
 			  }
 			}`
-		},*/
+		},
+		confirmEmail(code: string) {
+			return `query {
+				${RouteNames.AUTH.CONFIRM_EMAIL}(
+					input: {
+						code: "${code}",
+					}
+				)
+			}`
+		},
+		login(props: { email: string; password: string }) {
+			return `mutation {
+			  ${RouteNames.AUTH.LOGIN}(
+				input: {
+				  email: "${props.email}",
+				  password: "${props.password}"
+				}
+			) {
+				id
+				email
+			  }
+			}`
+		},
+		resendConfirmationEmail(email: string) {
+			return `mutation {
+			  ${RouteNames.AUTH.RESEND_CONFIRMATION_EMAIL}(
+				input: {
+				  email: "${email}",
+				}
+			  )
+			}`
+		},
+		getMe() {
+			return `query {
+			  ${RouteNames.AUTH.GET_ME} {
+				id
+				email
+			  }
+			}`
+		},
+		logout() {
+			return `mutation {
+			  ${RouteNames.AUTH.LOGOUT}
+			}`
+		},
+	},
+	ai: {
 		checkTranslation(data: { rusSentence: string; engSentence: string }) {
 			return `query {
 				${RouteNames.AI.CHECK_TRANSLATION}(

@@ -141,7 +141,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			words: [{ rusWord: 'каждый год', engWord: 'year' }],
 		},
 		{
-			// TODO
 			rusSentence: 'Офицер призвал нас соблюдать правила.',
 			engSentences: [
 				{
@@ -150,12 +149,13 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'популярный', engWord: 'popular' },
-				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'офицер', engWord: 'officer' },
+				{ rusWord: 'призывать', engWord: 'urge' },
+				{ rusWord: 'повиноваться', engWord: 'obey' },
+				{ rusWord: 'правило', engWord: 'rule' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Он попросит суд назначить другого адвоката.',
 			engSentences: [
 				{
@@ -164,12 +164,14 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'популярный', engWord: 'popular' },
-				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'просить', engWord: 'request' },
+				{ rusWord: 'суд', engWord: 'court' },
+				{ rusWord: 'назначать', engWord: 'appoint' },
+				{ rusWord: 'другой', engWord: 'another' },
+				{ rusWord: 'адвокат', engWord: 'lawyer' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Директор заставляла вас что-то делать?',
 			engSentences: [
 				{
@@ -178,48 +180,89 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'популярный', engWord: 'popular' },
-				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'директор', engWord: 'principal' },
+				{ rusWord: 'заставлять', engWord: 'force' },
+				{ rusWord: 'что-то', engWord: 'anything' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Меллори желает видеть нас здесь?',
 			engSentences: [{ engSentences: ['Does Mallory want to see us here?'], isCorrect: true }],
 			words: [
-				{ rusWord: 'популярный', engWord: 'popular' },
-				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'Меллори', engWord: 'Mallory' },
+				{ rusWord: 'хотеть', engWord: 'want' },
+				{ rusWord: 'видеть', engWord: 'see' },
+				{ rusWord: 'здесь', engWord: 'here' },
 			],
 		},
 		{
-			// TODO
-			rusSentence: 'Ей нравится фотографировать, и иногда снимки получаются очень удачными.',
+			rusSentence: 'Ей нравится фотографировать, и иногда они получаются очень удачными.',
 			engSentences: [
 				{ engSentences: ['She likes taking photos and sometimes they are very good.'], isCorrect: true },
 			],
 			words: [
-				{ rusWord: 'популярный', engWord: 'popular' },
-				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'любить', engWord: 'like' },
+				{ rusWord: 'фотографировать', engWord: 'take photos' },
+				{ rusWord: 'иногда', engWord: 'sometimes' },
+				{ rusWord: 'хороший', engWord: 'good' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Он такой богатый, такой умный, и он хочет меня видеть.',
 			engSentences: [
 				{ engSentences: ['He is so rich, he is so clever and he wants to see me.'], isCorrect: true },
 			],
 			words: [
-				{ rusWord: 'популярный', engWord: 'popular' },
-				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'такой', engWord: 'so' },
+				{ rusWord: 'богатый', engWord: 'rich' },
+				{ rusWord: 'умный', engWord: 'clever' },
+				{ rusWord: 'хотеть', engWord: 'want' },
+				{ rusWord: 'видеть', engWord: 'see' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Я не хочу потерять работу.',
 			engSentences: [{ engSentences: ['I do not want to lose my job.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'популярный', engWord: 'popular' },
-				{ rusWord: 'популярный', engWord: 'popular' },
+				{ rusWord: 'хотеть', engWord: 'want' },
+				{ rusWord: 'терять', engWord: 'lose' },
+				{ rusWord: 'работа', engWord: 'job' },
+			],
+		},
+		{
+			rusSentence: 'София хочет встретить красивого незнакомца.',
+			engSentences: [{ engSentences: ['Sofia wants to meet a handsome stranger.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'София', engWord: 'Sofia' },
+				{ rusWord: 'хотеть', engWord: 'want' },
+				{ rusWord: 'встретить', engWord: 'meet' },
+				{ rusWord: 'красивый', engWord: 'handsome' },
+				{ rusWord: 'незнакомец', engWord: 'stranger' },
+			],
+		},
+		{
+			rusSentence: 'Эмили нравиться выбирать одежду.',
+			engSentences: [{ engSentences: ['Emily likes to choose the clothes.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'Эмили', engWord: 'Emily' },
+				{ rusWord: 'любить', engWord: 'likes' },
+				{ rusWord: 'выбирать', engWord: 'choose' },
+				{ rusWord: 'одежда', engWord: 'clothes' },
+			],
+		},
+		{
+			rusSentence: 'Эмили хочет купить блузку.',
+			engSentences: [
+				{
+					engSentences: ['Emily wants to buy a blouse.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'Эмили', engWord: 'Emily' },
+				{ rusWord: 'хотеть', engWord: 'want' },
+				{ rusWord: 'покупать', engWord: 'buy' },
+				{ rusWord: 'блузка', engWord: 'blouse' },
 			],
 		},
 	],

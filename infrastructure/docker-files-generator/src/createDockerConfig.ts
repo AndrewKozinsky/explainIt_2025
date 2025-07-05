@@ -1,55 +1,88 @@
 import { ConfigSchemaV37Json } from './types/ConfigSchemaV37Json'
 
-const domain = 'explainit.ru'
-export enum EnvType {
-	'test'= 'test',
-	'dev'= 'dev',
-	'server' = 'server',
+export enum Mode {
+	localTest = 'localtest',
+	localDev = 'localdev',
+	localCheckServer = 'localcheckserver',
+	serverDevelop = 'serverdevelop',
+	serverMaster = 'servermaster',
 }
 
 /**
  * Возвращает объект конфигурации docker-compose для разработки, проверки развёртывания на сервере и для сервера
- * @param env — тип конфигурации
- * @param serverCheck — конфигурация для проверки собираемости на сервере
+ * @param mode — тип работы
  */
-export function createDockerConfig(env: EnvType, serverCheck?: boolean): ConfigSchemaV37Json {
+export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
+	const isDev = [Mode.localTest, Mode.localDev].includes(mode)
+
+	const nginxServiceName = 'explainnginx' + mode
+	const postgresServiceName = 'explainpostgres' + mode
+	const redisServiceName = 'explainredis' + mode
+	const serverServiceName = 'explainserver' + mode
+	const faceServiceName = 'explainface' + mode
+
 	return {
 		services: {
-			explainnginx: {
+			[nginxServiceName]: {
 				image: 'nginx:1.19.7-alpine',
-				container_name: 'explain-nginx',
-				depends_on: ['explainface', 'explainserver'],
-				ports: env === EnvType.server && !serverCheck  ? undefined : ['80:80'],
-				volumes: ['./nginx/nginx.conf.dev:/etc/nginx/nginx.conf'],
-				environment: getNginxEnvs(env),
+				container_name: 'explainnginx' + mode,
+				depends_on: [postgresServiceName, serverServiceName, faceServiceName],
+				ports: [Mode.localTest, Mode.localDev, Mode.localCheckServer].includes(mode) ? ['80:80'] : undefined,
+				volumes: [`./nginx/nginx.conf.${mode}:/etc/nginx/nginx.conf`],
+				environment: getNginxEnvs(mode),
 			},
-			explainserver: {
+			[postgresServiceName]: {
+				image: 'postgres:16.2',
+				restart: 'unless-stopped',
+				container_name: 'explainpostgres' + mode,
+				ports: ['5432:5432'],
+				environment: getPostgresEnvs(),
+				env_file: ['.env.' + mode],
+				volumes: ['pgdata:/var/lib/postgresql/data'],
+			},
+			[redisServiceName]: {
+				image: 'redis:7.4.4',
+				restart: 'unless-stopped',
+				container_name: 'explainredis' + mode,
+				ports: ['6379:6379'],
+				environment: getRedisEnvs(),
+				env_file:['.env.' + mode],
+				volumes: ['redis_data:/data'],
+			},
+			[serverServiceName]: {
 				build: {
 					context: 'server/',
-					dockerfile: [EnvType.test, EnvType.dev].includes(env) ? 'Dockerfile.dev' : 'Dockerfile.server',
+					dockerfile: isDev ? 'Dockerfile.dev' : 'Dockerfile.server',
 				},
 				restart: 'unless-stopped',
-				volumes: [EnvType.test, EnvType.dev].includes(env) ? ['./server/src:/app/src', './server/e2e:/app/e2e'] : undefined,
-				command: [EnvType.test, EnvType.dev].includes(env) ? 'yarn start:dev' : 'yarn start:prod',
-				container_name: 'explain-server',
-				environment: getServerEnvs(env),
-				env_file: ['.env'],
-				ports: [EnvType.test, EnvType.dev].includes(env) ? ['3001:3001'] : undefined,
+				volumes: isDev ? ['./server/src:/app/src', './server/e2e:/app/e2e'] : undefined,
+				command: isDev ? 'yarn start:dev' : 'yarn start:prod',
+				container_name: 'explainserver' + mode,
+				depends_on: [postgresServiceName],
+				environment: getServerEnvs(mode),
+				env_file: ['.env.' + mode],
+				ports: isDev ? ['3001:3001'] : undefined,
 			},
-			explainface: {
+			[faceServiceName]: {
 				build: {
 					context: 'face/',
-					dockerfile: env === 'dev' ? 'Dockerfile.dev' : 'Dockerfile.server',
+					dockerfile: isDev ? 'Dockerfile.dev' : 'Dockerfile.server',
 				},
 				restart: 'unless-stopped',
-				volumes: [EnvType.test, EnvType.dev].includes(env) ? ['./face:/app', './face:/public'] : undefined,
-				command: [EnvType.test, EnvType.dev].includes(env) ? 'yarn run dev' : 'yarn run start',
-				container_name: 'explain-face',
-				depends_on: ['explainserver'],
-				environment: getFaceEnvs(env),
+				volumes: isDev ? ['./face:/app', './face:/public'] : undefined,
+				command: isDev ? 'yarn run dev' : 'yarn run start',
+				container_name: 'explainface' + mode,
+				depends_on: [postgresServiceName, serverServiceName],
+				environment: getFaceEnvs(mode),
 			},
 		},
-		networks: env === EnvType.server && !serverCheck ? getServerNetworks() : undefined,
+		networks: mode === Mode.serverDevelop || mode === Mode.serverMaster
+			? getServerNetworks()
+			: undefined,
+		volumes: {
+			pgdata: {},
+			redis_data: {}
+		}
 	}
 }
 
@@ -63,34 +96,57 @@ function getServerNetworks() {
 }
 
 /**
- * Возвращает переменные окружения для Nginx
- * @param env — тип конфигурации
- * @param serverCheck — конфигурация для проверки собираемости на сервере
+ * Returns environment variables for Nginx
+ * @param mode — тип конфигурации
  */
-function getNginxEnvs(env: EnvType, serverCheck?: boolean) {
-	if (env !== EnvType.server || serverCheck) return undefined
+function getNginxEnvs(mode: Mode) {
+	if (mode === Mode.serverDevelop || mode === Mode.serverMaster) {
+		const domain = mode === Mode.serverDevelop
+			? 'dev.explainit.ru'
+			: 'explainit.ru'
+		const domains = `${domain},www.${domain}`
 
-	return {
-		VIRTUAL_HOST: `${domain},www.${domain}`,
-		LETSENCRYPT_HOST: `${domain},www.${domain}`,
+		return {
+			VIRTUAL_HOST: domains,
+			LETSENCRYPT_HOST: domains,
+		}
 	}
+
+	return undefined
 }
 
 /**
- * Возвращает переменные окружения для Api
- * @param env — тип конфигурации
+ * Returns environment variables for Api
+ * @param mode — тип конфигурации
  */
-function getServerEnvs(env: EnvType) {
+function getServerEnvs(mode: Mode) {
 	return {
-		MODE: env,
+		MODE: mode,
 		PORT: 3001,
 	}
 }
 
 /**
- * Возвращает переменные окружения для Face
- * @param env — тип конфигурации
+ * Returns environment variables for Face
+ * @param mode — тип конфигурации
  */
-function getFaceEnvs(env: EnvType) {
-	return { MODE: env }
+function getFaceEnvs(mode: Mode) {
+	return { MODE: mode }
+}
+
+/** Returns environment variables for Postgres  */
+function getPostgresEnvs() {
+	return {
+		POSTGRES_CONTAINER: '${POSTGRES_CONTAINER}',
+		POSTGRES_DB: '${POSTGRES_DB}',
+		POSTGRES_USER: '${POSTGRES_USER}',
+		POSTGRES_PASSWORD: '${POSTGRES_PASSWORD}',
+	}
+}
+
+/** Returns environment variables for Postgres  */
+function getRedisEnvs() {
+	return {
+		REDIS_PASSWORD: '${REDIS_PASSWORD}'
+	}
 }

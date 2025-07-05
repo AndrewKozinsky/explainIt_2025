@@ -1,0 +1,73 @@
+services:
+  explainnginxservermaster:
+    image: nginx:1.19.7-alpine
+    container_name: explainnginxservermaster
+    depends_on:
+      - explainpostgresservermaster
+      - explainserverservermaster
+      - explainfaceservermaster
+    volumes:
+      - ./nginx/nginx.conf.servermaster:/etc/nginx/nginx.conf
+    environment:
+      VIRTUAL_HOST: explainit.ru,www.explainit.ru
+      LETSENCRYPT_HOST: explainit.ru,www.explainit.ru
+  explainpostgresservermaster:
+    image: postgres:16.2
+    restart: unless-stopped
+    container_name: explainpostgresservermaster
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_CONTAINER: ${POSTGRES_CONTAINER}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    env_file:
+      - .env.servermaster
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  explainredisservermaster:
+    image: redis:7.4.4
+    restart: unless-stopped
+    container_name: explainredisservermaster
+    ports:
+      - 6379:6379
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+    env_file:
+      - .env.servermaster
+    volumes:
+      - redis_data:/data
+  explainserverservermaster:
+    build:
+      context: server/
+      dockerfile: Dockerfile.server
+    restart: unless-stopped
+    command: yarn start:prod
+    container_name: explainserverservermaster
+    depends_on:
+      - explainpostgresservermaster
+    environment:
+      MODE: servermaster
+      PORT: 3001
+    env_file:
+      - .env.servermaster
+  explainfaceservermaster:
+    build:
+      context: face/
+      dockerfile: Dockerfile.server
+    restart: unless-stopped
+    command: yarn run start
+    container_name: explainfaceservermaster
+    depends_on:
+      - explainpostgresservermaster
+      - explainserverservermaster
+    environment:
+      MODE: servermaster
+networks:
+  default:
+    external: true
+    name: nginx-proxy
+volumes:
+  pgdata: {}
+  redis_data: {}

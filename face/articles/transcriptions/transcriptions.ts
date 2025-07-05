@@ -132,10 +132,471 @@ export const transcriptions = {
 		audio: false,
 	},
 
-	// -----
+	do_you_support_this_idea: {
+		sentence: 'Do you support this idea?',
+		transcription: 'duː juː səˈpɔːrt ðɪs aɪˈdɪə',
+		audio: false,
+	},
+
+	do_you_like_this_movie: {
+		sentence: 'Do you like this movie?',
+		transcription: 'duː juː laɪk ðɪs ˈmuːvi',
+		audio: false,
+	},
+
+	do_they_usually_buy_cheap_food: {
+		sentence: 'Do they usually buy cheap food?',
+		transcription: 'duː ðeɪ ˈjuːʒuəli baɪ tʃiːp fuːd',
+		audio: false,
+	},
+
+	do_you_get_enough_money: {
+		sentence: 'Do you get enough money?',
+		transcription: 'duː juː ɡet ɪˈnʌf ˈmʌni',
+		audio: false,
+	},
+
+	does_he_support_the_local_football_club: {
+		sentence: 'Does he support the local football club?',
+		transcription: 'dʌz hiː səˈpɔːrt ðə ˈləʊkl ˈfʊtbɔːl klʌb',
+		audio: false,
+	},
+
+	do_they_buy_it_online: {
+		sentence: 'Do they buy it online?',
+		transcription: 'du ðeɪ ˈbaɪ ɪt ˌɔnˈlaɪn',
+		audio: false,
+	},
+
+	does_she_prefer_only_black_tea: {
+		sentence: 'Does she prefer only black tea?',
+		transcription: 'dʌz ʃi prɪˈfɜr ˈoʊnli blæk ti',
+		audio: false,
+	},
+
+	do_you_believe_in_horoscopes: {
+		sentence: 'Do you believe in horoscopes?',
+		transcription: 'du ju bɪˈliv ɪn ˈhɔrəˌskoʊps',
+		audio: false,
+	},
+
+	do_you_like_this_music: {
+		sentence: 'Do you like this music?',
+		transcription: 'du ju laɪk ðɪs ˈmjuzɪk',
+		audio: false,
+	},
+
+	do_you_wort_in_different_buildings: {
+		sentence: 'Do you wort in different buildings?',
+		transcription: 'du ju wɜrk ɪn ˈdɪf(ə)rənt ˈbɪldɪŋz',
+		audio: false,
+	},
+
+	actually_html_is_not_so_difficult_language: {
+		sentence: 'Actually HTML is not so difficult language.',
+		transcription: 'ˈæk.tʃu.ə.li ˌeɪtʃ.tiː.ɛmˈɛl ɪz nɒt səʊ ˈdɪ.fɪ.kəlt ˈlæŋ.ɡwɪdʒ',
+		audio: false,
+	},
+
+	bracelets_earrings_rings_and_necklaces_are_jewelry: {
+		sentence: 'Bracelets, earrings, rings and necklaces are jewelry.',
+		transcription: 'ˈbreɪ.sləts ˈɪə.rɪŋz rɪŋz ənd ˈnek.lɪ.sɪz ɑː ˈdʒuː.əl.ri',
+		audio: false,
+	},
+
+	i_see_trouble_ahead: {
+		sentence: 'I see trouble ahead.',
+		transcription: 'aɪ siː ˈtrʌ.bəl əˈhed',
+		audio: false,
+	},
+
+	the_museum_works_every_day: {
+		sentence: 'The museum works every day.',
+		transcription: 'ðə mjuˈzɪəm wɜːks ˈev.ri deɪ',
+		audio: false,
+	},
+
+	at_least_he_is_a_real_man: {
+		sentence: 'At least he is a real man!',
+		transcription: 'ət liːst hi ɪz ə ˈrɪəl mæn',
+		audio: false,
+	},
+
+	it_is_just_a_curious_fact: {
+		sentence: 'It is just a curious fact.',
+		transcription: 'ɪt ɪz dʒʌst ə ˈkjʊəriəs fækt',
+		audio: false,
+	},
+
+	it_is_a_disaster_it_is_a_catastrophe: {
+		sentence: 'It is a disaster. It is a catastrophe.',
+		transcription: 'ɪt ɪz ə dɪˈzɑːstə ɪt ɪz ə kəˈtæstrəfi',
+		audio: false,
+	},
+
+	i_am_very_very_pleased: {
+		sentence: 'I am very, very pleased.',
+		transcription: 'aɪ æm ˈveri ˈveri pliːzd',
+		audio: false,
+	},
+
+	mary_is_a_good_student: {
+		sentence: 'Mary is a good student.',
+		transcription: 'ˈmeri ɪz ə ɡʊd ˈstuːdənt',
+		audio: false,
+	},
+
+	the_food_is_in_the_refrigerator: {
+		sentence: 'The food is in the refrigerator.',
+		transcription: 'ðə fuːd ɪz ɪn ðə rəˈfrɪdʒəˌreɪtər',
+		audio: false,
+	},
+
+	she_writes_in_the_notebook: {
+		sentence: 'She writes in the notebook.',
+		transcription: 'ʃi ˈraɪts ɪn ðə ˈnoʊtbʊk',
+		audio: false,
+	},
+
+	mary_turns_on_a_laptop_every_morning: {
+		sentence: 'Mary turns on a laptop every morning.',
+		transcription: 'ˈmɛri ˈtɜrnz ɑn ə ˈlæpˌtɑp ˈɛvri ˈmɔrnɪŋ',
+		audio: false,
+	},
+
+	hector_works_as_a_reporter_on_channel_9: {
+		sentence: 'Hector works as a reporter on Channel 9.',
+		transcription: 'ˈhɛktər wɜrks æz ə rɪˈpɔrtər ɑn ˈʧænəl naɪn',
+		audio: false,
+	},
+
+	so_do_you_still_want_to_be_a_waiter: {
+		sentence: 'So do you still want to be a waiter?',
+		transcription: 'soʊ du ju stɪl wɑnt tə bi ə ˈweɪtər',
+		audio: false,
+	},
+
+	she_is_a_famous_artist: {
+		sentence: 'She is a famous artist.',
+		transcription: 'ʃi ɪz ə ˈfeɪməs ˈɑrtɪst',
+		audio: false,
+	},
+
+	she_feels_so_lonely: {
+		sentence: 'She feels so lonely.',
+		transcription: 'ʃi fiːlz səʊ ˈləʊnli',
+		audio: false,
+	},
+
+	cats_love_milk: {
+		sentence: 'Cats love milk.',
+		transcription: 'kæts lʌv mɪlk',
+		audio: false,
+	},
+
+	i_love_rainy_weather: {
+		sentence: 'I love rainy weather.',
+		transcription: 'aɪ lʌv ˈreɪni ˈwɛðə',
+		audio: false,
+	},
+
+	i_hate_loud_noises: {
+		sentence: 'I hate loud noises.',
+		transcription: 'aɪ heɪt laʊd ˈnɔɪzɪz',
+		audio: false,
+	},
+
+	i_often_visit_my_grandparents: {
+		sentence: 'I often visit my grandparents.',
+		transcription: 'aɪ ˈɔːfən ˈvɪzɪt maɪ ˈɡrændˌperənts',
+		audio: false,
+	},
+
+	the_scales_show_70_kg: {
+		sentence: 'The scales show 70 kg.',
+		transcription: '',
+		audio: false,
+	},
+
+	he_studies_in_another_group: {
+		sentence: 'He studies in another group.',
+		transcription: 'hi ˈstʌdiz ɪn əˈnʌðər ɡruːp',
+		audio: false,
+	},
+
+	i_dont_feel_comfortable_in_your_room: {
+		sentence: 'I don’t feel comfortable in your room.',
+		transcription: 'aɪ doʊnt fiːl ˈkʌmfərtəbəl ɪn jʊr ruːm',
+		audio: false,
+	},
+
+	she_feels_exhausted: {
+		sentence: 'She feels exhausted.',
+		transcription: 'ʃi fiːlz ɪɡˈzɔːstɪd',
+		audio: false,
+	},
+
+	he_feels_so_unhappy: {
+		sentence: 'He feels so unhappy.',
+		transcription: 'hi fiːlz soʊ ʌnˈhæpi',
+		audio: false,
+	},
+
+	a_video_two_videos: {
+		sentence: 'a video, two videos',
+		transcription: 'ə ˈvɪdiˌoʊ tuː ˈvɪdiˌoʊz',
+		audio: false,
+	},
+
+	i_like_this_news: {
+		sentence: 'I like this news.',
+		transcription: 'aɪ laɪk ðɪs njuːz',
+		audio: false,
+	},
+
+	she_needs_new_glasses: {
+		sentence: 'She needs new glasses.',
+		transcription: 'ʃi niːdz nuː ˈɡlæsɪz',
+		audio: false,
+	},
+
+	i_buy_new_trousers: {
+		sentence: 'I buy new trousers.',
+		transcription: 'aɪ baɪ nuː ˈtraʊzɚz',
+		audio: false,
+	},
+
+	she_uses_wireless_headphones: {
+		sentence: 'She uses wireless headphones.',
+		transcription: 'ʃi ˈjuːzɪz ˈwaɪɚləs ˈhedfoʊnz',
+		audio: false,
+	},
+
+	goods: {
+		sentence: 'goods',
+		transcription: 'ɡʊdz',
+		audio: false,
+	},
+
+	billiards: {
+		sentence: 'billiards',
+		transcription: 'ˈbɪljɚdz',
+		audio: false,
+	},
+
+	glasses: {
+		sentence: 'glasses',
+		transcription: 'ˈɡlæsɪz',
+		audio: false,
+	},
+
+	jeans: {
+		sentence: 'jeans',
+		transcription: 'dʒinz',
+		audio: false,
+	},
+
+	trousers: {
+		sentence: 'trousers',
+		transcription: 'ˈtraʊzɚz',
+		audio: false,
+	},
+
+	scissors: {
+		sentence: 'scissors',
+		transcription: 'ˈsɪzɚz',
+		audio: false,
+	},
+
+	cats_catch_mice: {
+		sentence: 'Cats catch mice.',
+		transcription: 'kæts kæʧ maɪs',
+		audio: false,
+	},
+
+	the_dinosaur_has_sharp_teeth: {
+		sentence: 'The dinosaur has sharp teeth.',
+		transcription: 'ðə ˈdaɪnəˌsɔr hæz ʃɑrp tiθ',
+		audio: false,
+	},
+
+	we_see_wild_geese_near_the_lake: {
+		sentence: 'We see wild geese near the lake.',
+		transcription: 'wi si waɪld ɡis nɪr ðə leɪk',
+		audio: false,
+	},
+
+	john_has_terrible_pyjamas: {
+		sentence: 'John has terrible pyjamas.',
+		transcription: 'ʤɑn hæz ˈtɛrəbl pəˈʤæməz',
+		audio: false,
+	},
+
+	news: {
+		sentence: 'news',
+		transcription: 'nuz',
+		audio: false,
+	},
+
+	she_has_three_different_brushes_for_painting: {
+		sentence: 'She has three different brushes for painting.',
+		transcription: 'ʃi hæz θri ˈdɪfɚənt ˈbrʌʃɪz fɚ ˈpeɪntɪŋ',
+		audio: false,
+	},
+
+	in_movies_heroes_always_save_the_world: {
+		sentence: 'In movies, heroes always save the world.',
+		transcription: 'ɪn ˈmuːviz ˈhɪroʊz ˈɔlweɪz seɪv ðə wɝld',
+		audio: false,
+	},
+
+	she_has_three_children_two_boys_and_a_girl: {
+		sentence: 'She has three children: two boys and a girl.',
+		transcription: 'ʃi hæz θri ˈtʃɪldrən tu bɔɪz ænd ə ɡɝl',
+		audio: false,
+	},
+
+	the_children_are_playing_in_the_park: {
+		sentence: 'The children are playing in the park.',
+		transcription: 'ðə ˈtʃɪldrən ɑr ˈpleɪɪŋ ɪn ðə pɑrk',
+		audio: false,
+	},
+
+	many_people_like_warm_weather: {
+		sentence: 'Many people like warm weather.',
+		transcription: 'ˈmɛni ˈpiːpəl laɪk wɔrm ˈwɛðɚ',
+		audio: false,
+	},
+
+	the_girl_eats_tasty_cookies: {
+		sentence: 'The girl eats tasty cookies.',
+		transcription: 'ðə ɡɝl its ˈteɪsti ˈkʊkiz',
+		audio: false,
+	},
+
+	she_makes_mistakes: {
+		sentence: 'She makes mistakes.',
+		transcription: 'ʃi meɪks mɪˈsteɪks',
+		audio: false,
+	},
+
+	the_city_has_many_buses: {
+		sentence: 'The city has many buses.',
+		transcription: 'ðə ˈsɪti hæz ˈmɛni ˈbʌsəz',
+		audio: false,
+	},
+
+	he_washes_dishes_after_dinner: {
+		sentence: 'He washes dishes after dinner.',
+		transcription: 'hi ˈwɑʃɪz ˈdɪʃəz ˈæftɚ ˈdɪnɚ',
+		audio: false,
+	},
+
+	we_need_three_tomatoes_for_the_salad: {
+		sentence: 'We need three tomatoes for the salad.',
+		transcription: 'wi nid θri təˈmeɪɾoʊz fɚ ðə ˈsæləd',
+		audio: false,
+	},
+
+	she_usually_buys_expensive_clothes: {
+		sentence: 'She usually buys expensive clothes.',
+		transcription: 'ʃi ˈjuːʒəwəli ˈbaɪz ɪkˈspɛnsɪv kloʊðz',
+		audio: false,
+	},
+
+	he_shows_a_good_result: {
+		sentence: 'He shows a good result.',
+		transcription: 'hi ʃoʊz ə ɡʊd rɪˈzʌlt',
+		audio: false,
+	},
+
+	we_need_eggs_lemons_and_cookies: {
+		sentence: 'We need eggs, lemons and cookies.',
+		transcription: 'wi nid ɛɡz ˈlɛmənz ənd ˈkʊkiz',
+		audio: false,
+	},
+
+	emily_chooses_a_leather_jacket: {
+		sentence: 'Emily chooses a leather jacket.',
+		transcription: 'ˈɛməli ˈʧuzəz ə ˈlɛðɚ ˈʤækɪt',
+		audio: false,
+	},
+
+	a_fireplace_is_an_expensive_thing: {
+		sentence: 'A fireplace is an expensive thing.',
+		transcription: 'ə ˈfaɪɚˌpleɪs ɪz ən ɪkˈspɛnsɪv θɪŋ',
+		audio: false,
+	},
+
+	i_see_an_apple: {
+		sentence: 'I see an apple.',
+		transcription: 'aɪ si ən ˈæpəl',
+		audio: false,
+	},
+
+	we_see_an_airport: {
+		sentence: 'We see an airport.',
+		transcription: 'wi si ən ˈɛɚpɔrt',
+		audio: false,
+	},
+
+	this_lesson_lasts_an_hour: {
+		sentence: 'This lesson lasts an hour.',
+		transcription: 'ðɪs ˈlɛsən læsts ən ˈaʊɚ',
+		audio: false,
+	},
+
+	he_rents_an_apartment: {
+		sentence: 'He rents an apartment.',
+		transcription: 'hi rɛnts ən əˈpɑrtmənt',
+		audio: false,
+	},
+
+	i_live_in_a_green_house: {
+		sentence: 'I live in a green house.',
+		transcription: 'aɪ lɪv ɪn ə ɡrin haʊs',
+		audio: false,
+	},
+
+	he_trains_and_works: {
+		sentence: 'He trains and works.',
+		transcription: 'hi treɪnz ənd wɜrks',
+		audio: false,
+	},
+
+	andrew_loves_green_tea: {
+		sentence: 'Andrew loves green tea.',
+		transcription: 'ˈændru lʌvz ɡrin ti',
+		audio: false,
+	},
+
+	artem_wants_more_examples: {
+		sentence: 'Artem wants more examples.',
+		transcription: 'ˈɑrtɛm wɑnts mɔr ɪɡˈzæmpəlz',
+		audio: false,
+	},
+
+	i_see_a_hotel: {
+		sentence: 'I see a hotel.',
+		transcription: 'aɪ si ə hoʊˈtɛl',
+		audio: false,
+	},
+
+	every_friday_david_watches_a_new_movie: {
+		sentence: 'Every Friday, David watches a new movie.',
+		transcription: 'ˈɛvri ˈfraɪdeɪ, ˈdeɪvɪd ˈwɑtʃɪz ə nu ˈmuvi',
+		audio: false,
+	},
+
+	i_want_fresh_coconut_milk: {
+		sentence: 'I want fresh coconut milk.',
+		transcription: 'aɪ wɑnt frɛʃ ˈkoʊkəˌnʌt mɪlk',
+		audio: false,
+	},
+
 	we_show_bad_results: {
 		sentence: 'We show bad results.',
-		transcription: 'wiʃ oʊ bæd rɪzəlts',
+		transcription: '',
 		audio: false,
 	},
 
@@ -174,58 +635,52 @@ export const transcriptions = {
 		transcription: 'hi wɔts TV ɔnli saʊmtaimz',
 		audio: false,
 	},
-
-	she_does_it_every_day: {
-		sentence: 'She does it every day.',
-		transcription: 'ʃiː dʌz ɪt evr di',
-		audio: false,
-	},
-
-	we_train_together: {
-		sentence: 'We train together.',
-		transcription: 'wi tréin təˈjəðə',
-		audio: false,
-	},
-
-	he_wears_suits: {
-		sentence: 'He wears suits.',
-		transcription: 'hi wɛəs sʌts',
-		audio: false,
-	},
-
-	owls_fly_at_night: {
-		sentence: 'Owls fly at night.',
-		transcription: 'aʊlz faj ɑt naɪt',
-		audio: false,
-	},
-
 	vanya_sleeps_after_dinner: {
 		sentence: 'Vanya sleeps after dinner.',
 		transcription: 'vænjə sliːps əftə dɪnə',
 		audio: false,
 	},
-
 	bernard_and_eric_collect_stamps: {
 		sentence: 'Bernard and Eric collect stamps.',
 		transcription: 'bərənd ɑnd ɪrɪk kələkt stæmpz',
 		audio: false,
 	},
-
 	it_brings_him_good_money: {
 		sentence: 'It brings him good money.',
 		transcription: 'ɪt brɪŋz hɪm gud mʌni',
 		audio: false,
 	},
-
-	i_have_much_free_time: {
-		sentence: 'I have much free time.',
-		transcription: 'aɪ həv mʌʧ fri tʌɪ',
-		audio: false,
-	},
-
 	i_see_a_teacher: {
 		sentence: 'I see a teacher.',
 		transcription: 'I si ə tɪʃə',
+		audio: false,
+	},
+
+	she_does_it_every_day: {
+		sentence: 'She does it every day.',
+		transcription: 'ʃi ˈdʌz ɪt ˈɛvɹi deɪ',
+		audio: false,
+	},
+
+	we_train_together: {
+		sentence: 'We train together.',
+		transcription: 'wi tɹeɪn təˈɡɛðɚ',
+		audio: false,
+	},
+	he_wears_suits: {
+		sentence: 'He wears suits.',
+		transcription: 'hi wɛɹz suːts',
+		audio: false,
+	},
+
+	owls_fly_at_night: {
+		sentence: 'Owls fly at night.',
+		transcription: 'aʊlz flaɪ ət naɪt',
+		audio: false,
+	},
+	i_have_much_free_time: {
+		sentence: 'I have much free time.',
+		transcription: 'aɪ hæv mʌtʃ fɹi taɪm',
 		audio: false,
 	},
 
@@ -247,12 +702,6 @@ export const transcriptions = {
 		audio: false,
 	},
 
-	a_doctor_treats_people: {
-		sentence: 'A doctor treats people.',
-		transcription: 'ə dɑk.tə trit pə.ʊlz',
-		audio: false,
-	},
-
 	a_rabbit_is_a_domestic_animal: {
 		sentence: 'A rabbit is a domestic animal.',
 		transcription: 'ə ræbɪt ɪz ə dəˈməʊstɪk ˈænɪməl',
@@ -264,13 +713,6 @@ export const transcriptions = {
 		transcription: 'ðeɪ si ə bɜrd ɪn ðə trɪ',
 		audio: false,
 	},
-
-	they_see_one_bird_in_the_tree: {
-		sentence: 'They see one bird in the tree.',
-		transcription: 'ðe zi wʌn bɜrd ɪn ði tri',
-		audio: false,
-	},
-
 	give_me_tea: {
 		sentence: 'Give me tea.',
 		transcription: 'ɡɪv mi tiː',
@@ -283,23 +725,37 @@ export const transcriptions = {
 		audio: false,
 	},
 
+	a_doctor_treats_people: {
+		sentence: 'A doctor treats people.',
+		transcription: 'ə ˈdɑktɚ tɹits ˈpipəl',
+		audio: false,
+	},
+
+	they_see_one_bird_in_the_tree: {
+		sentence: 'They see one bird in the tree.',
+		transcription: 'ðeɪ si wʌn bɝd ɪn ðə tɹi',
+		audio: false,
+	},
+
 	she_catches_a_cold_every_winter: {
 		sentence: 'She catches a cold every winter.',
-		transcription: 'ʃi kætʧ zə kɔːld evri wɪntə',
+		transcription: 'ʃi ˈkætʃɪz ə koʊld ˈɛvɹi ˈwɪntɚ',
 		audio: false,
 	},
 
 	she_catches_cold_every_winter: {
 		sentence: 'She catches cold every winter.',
-		transcription: 'ʃi kætʧ kɔːld evri wɪntə',
+		transcription: 'ʃi ˈkætʃɪz koʊld ˈɛvɹi ˈwɪntɚ',
 		audio: false,
 	},
 
 	you_need_a_cowboy_look: {
 		sentence: 'You need a cowboy look.',
-		transcription: 'juː ni dʹɛ n kɔʊ bɔɪ lʊk',
+		transcription: 'ju nid ə ˈkaʊbɔɪ lʊk',
 		audio: false,
 	},
+
+	// -----
 
 	this_shop_is_very_expensive: {
 		sentence: 'This shop is very expensive.',
@@ -1292,7 +1748,6 @@ export const transcriptions = {
 		transcription: 'aɪ ˈpræktɪs ˈfɔːrn læŋɡwɪdʒz',
 		audio: false,
 	},
-
 	you_speak_english_very_well: {
 		sentence: 'You speak English very well.',
 		transcription: 'juː speik ɛŋɡlɪʃ vɛri wɛl',
@@ -4461,441 +4916,5 @@ export const transcriptions = {
 		audio: false,
 	},
 
-	he_trains_and_works: {
-		sentence: 'He trains and works.',
-		transcription: '',
-		audio: false,
-	},
-
-	andrew_loves_green_tea: {
-		sentence: 'Andrew loves green tea.',
-		transcription: '',
-		audio: false,
-	},
-
-	artem_wants_more_examples: {
-		sentence: 'Artem wants more examples.',
-		transcription: '',
-		audio: false,
-	},
-
-	i_see_a_hotel: {
-		sentence: 'I see a hotel.',
-		transcription: '',
-		audio: false,
-	},
-
-	every_friday_david_watches_a_new_movie: {
-		sentence: 'Every Friday, David watches a new movie.',
-		transcription: '',
-		audio: false,
-	},
-
-	i_want_fresh_coconut_milk: {
-		sentence: 'I want fresh coconut milk.',
-		transcription: '',
-		audio: false,
-	},
-
-	i_see_an_apple: {
-		sentence: 'I see an apple.',
-		transcription: '',
-		audio: false,
-	},
-
-	we_see_an_airport: {
-		sentence: 'We see an airport.',
-		transcription: '',
-		audio: false,
-	},
-
-	this_lesson_lasts_an_hour: {
-		sentence: 'This lesson lasts an hour.',
-		transcription: '',
-		audio: false,
-	},
-
-	he_rents_an_apartment: {
-		sentence: 'He rents an apartment.',
-		transcription: '',
-		audio: false,
-	},
-
-	i_live_in_a_green_house: {
-		sentence: 'I live in a green house.',
-		transcription: '',
-		audio: false,
-	},
-
-	she_usually_buys_expensive_clothes: {
-		sentence: 'She usually buys expensive clothes.',
-		transcription: '',
-		audio: false,
-	},
-
-	he_shows_a_good_result: {
-		sentence: 'He shows a good result.',
-		transcription: '',
-		audio: false,
-	},
-
-	we_need_eggs_lemons_and_cookies: {
-		sentence: 'We need eggs, lemons and cookies.',
-		transcription: '',
-		audio: false,
-	},
-
-	emily_chooses_a_leather_jacket: {
-		sentence: 'Emily chooses a leather jacket.',
-		transcription: '',
-		audio: false,
-	},
-
-	a_fireplace_is_an_expensive_thing: {
-		sentence: 'A fireplace is an expensive thing.',
-		transcription: '',
-		audio: false,
-	},
-
-	the_girl_eats_tasty_cookies: {
-		sentence: 'The girl eats tasty cookies.',
-		transcription: '',
-		audio: false,
-	},
-
-	she_makes_mistakes: {
-		sentence: 'She makes mistakes.',
-		transcription: '',
-		audio: false,
-	},
-
-	the_city_has_many_buses: {
-		sentence: 'The city has many buses.',
-		transcription: '',
-		audio: false,
-	},
-
-	he_washes_dishes_after_dinner: {
-		sentence: 'He washes dishes after dinner.',
-		transcription: '',
-		audio: false,
-	},
-
-	we_need_three_tomatoes_for_the_salad: {
-		sentence: 'We need three tomatoes for the salad.',
-		transcription: '',
-		audio: false,
-	},
-
-	she_has_three_different_brushes_for_painting: {
-		sentence: 'She has three different brushes for painting.',
-		transcription: '',
-		audio: false,
-	},
-
-	in_movies_heroes_always_save_the_world: {
-		sentence: 'In movies, heroes always save the world.',
-		transcription: '',
-		audio: false,
-	},
-
-	she_has_three_children_two_boys_and_a_girl: {
-		sentence: 'She has three children: two boys and a girl.',
-		transcription: '',
-		audio: false,
-	},
-
-	the_children_are_playing_in_the_park: {
-		sentence: 'The children are playing in the park.',
-		transcription: '',
-		audio: false,
-	},
-
-	many_people_like_warm_weather: {
-		sentence: 'Many people like warm weather.',
-		transcription: '',
-		audio: false,
-	},
-
-	cats_catch_mice: {
-		sentence: 'Cats catch mice.',
-		transcription: '',
-		audio: false,
-	},
-
-	the_dinosaur_has_sharp_teeth: {
-		sentence: 'The dinosaur has sharp teeth.',
-		transcription: '',
-		audio: false,
-	},
-
-	we_see_wild_geese_near_the_lake: {
-		sentence: 'We see wild geese near the lake.',
-		transcription: '',
-		audio: false,
-	},
-
-	john_has_terrible_pyjamas: {
-		sentence: 'John has terrible pyjamas.',
-		transcription: '',
-		audio: false,
-	},
-
-	news: {
-		sentence: 'news',
-		transcription: '',
-		audio: false,
-	},
-
-	goods: {
-		sentence: 'goods',
-		transcription: '',
-		audio: false,
-	},
-
-	billiards: {
-		sentence: 'billiards',
-		transcription: '',
-		audio: false,
-	},
-
-	glasses: {
-		sentence: 'glasses',
-		transcription: '',
-		audio: false,
-	},
-
-	jeans: {
-		sentence: 'jeans',
-		transcription: '',
-		audio: false,
-	},
-
-	trousers: {
-		sentence: 'trousers',
-		transcription: '',
-		audio: false,
-	},
-
-	scissors: {
-		sentence: 'scissors',
-		transcription: '',
-		audio: false,
-	},
-
-	a_video_two_videos: {
-		sentence: 'a video, two videos',
-		transcription: '',
-		audio: false,
-	},
-
-	i_like_this_news: {
-		sentence: 'I like this news.',
-		transcription: '',
-		audio: false,
-	},
-
-	she_needs_new_glasses: {
-		sentence: 'She needs new glasses.',
-		transcription: '',
-		audio: false,
-	},
-
-	i_buy_new_trousers: {
-		sentence: 'I buy new trousers.',
-		transcription: '',
-		audio: false,
-	},
-
-	she_uses_wireless_headphones: {
-		sentence: 'She uses wireless headphones.',
-		transcription: '',
-		audio: false,
-	},
-
-	the_scales_show_70_kg: {
-		sentence: 'The scales show 70 kg.',
-		transcription: '',
-		audio: false,
-	},
-
-	he_studies_in_another_group: {
-		sentence: 'He studies in another group.',
-		transcription: '',
-		audio: false,
-	},
-
-	i_dont_feel_comfortable_in_your_room: {
-		sentence: 'I don’t feel comfortable in your room.',
-		transcription: '',
-		audio: false,
-	},
-
-	she_feels_exhausted: {
-		sentence: 'She feels exhausted.',
-		transcription: '',
-		audio: false,
-	},
-
-	he_feels_so_unhappy: {
-		sentence: 'He feels so unhappy.',
-		transcription: '',
-		audio: false,
-	},
-
-	she_feels_so_lonely: {
-		sentence: 'She feels so lonely.',
-		transcription: '',
-		audio: false,
-	},
-
-	she_writes_in_the_notebook: {
-		sentence: 'She writes in the notebook.',
-		transcription: '',
-		audio: false,
-	},
-
-	mary_turns_on_a_laptop_every_morning: {
-		sentence: 'Mary turns on a laptop every morning.',
-		transcription: '',
-		audio: false,
-	},
-
-	hector_works_as_a_reporter_on_channel_9: {
-		sentence: 'Hector works as a reporter on Channel 9',
-		transcription: '',
-		audio: false,
-	},
-
-	so_do_you_still_want_to_be_a_waiter: {
-		sentence: 'So do you still want to be a waiter?',
-		transcription: '',
-		audio: false,
-	},
-
-	she_is_a_famous_artist: {
-		sentence: 'She is a famous artist.',
-		transcription: '',
-		audio: false,
-	},
-
-	it_is_just_a_curious_fact: {
-		sentence: 'It is just a curious fact.',
-		transcription: '',
-		audio: false,
-	},
-
-	it_is_a_disaster_it_is_a_catastrophe: {
-		sentence: 'It is a disaster. It is a catastrophe.',
-		transcription: '',
-		audio: false,
-	},
-
-	i_am_very_very_pleased: {
-		sentence: 'I am very, very pleased.',
-		transcription: '',
-		audio: false,
-	},
-
-	mary_is_a_good_student: {
-		sentence: 'Mary is a good student.',
-		transcription: '',
-		audio: false,
-	},
-
-	the_food_is_in_the_refrigerator: {
-		sentence: 'The food is in the refrigerator.',
-		transcription: '',
-		audio: false,
-	},
-
-	actually_html_is_not_so_difficult_language: {
-		sentence: 'Actually HTML is not so difficult language.',
-		transcription: '',
-		audio: false,
-	},
-
-	bracelets_earrings_rings_and_necklaces_are_jewelry: {
-		sentence: 'Bracelets, earrings, rings and necklaces are jewelry.',
-		transcription: '',
-		audio: false,
-	},
-
-	i_see_trouble_ahead: {
-		sentence: 'I see trouble ahead.',
-		transcription: '',
-		audio: false,
-	},
-
-	the_museum_works_every_day: {
-		sentence: 'The museum works every day.',
-		transcription: '',
-		audio: false,
-	},
-
-	at_least_he_is_a_real_man: {
-		sentence: 'At least he is a real man!',
-		transcription: '',
-		audio: false,
-	},
-
-	do_they_buy_it_online: {
-		sentence: 'Do they buy it online?',
-		transcription: '',
-		audio: false,
-	},
-
-	does_she_prefer_only_black_tea: {
-		sentence: 'Does she prefer only black tea?',
-		transcription: '',
-		audio: false,
-	},
-
-	do_you_believe_in_horoscopes: {
-		sentence: 'Do you believe in horoscopes?',
-		transcription: '',
-		audio: false,
-	},
-
-	do_you_like_this_music: {
-		sentence: 'Do you like this music?',
-		transcription: '',
-		audio: false,
-	},
-
-	do_you_wort_in_different_buildings: {
-		sentence: 'Do you wort in different buildings?',
-		transcription: '',
-		audio: false,
-	},
-
-	do_you_support_this_idea: {
-		sentence: 'Do you support this idea?',
-		transcription: '',
-		audio: false,
-	},
-
-	do_you_like_this_movie: {
-		sentence: 'Do you like this movie?',
-		transcription: '',
-		audio: false,
-	},
-
-	do_they_usually_buy_cheap_food: {
-		sentence: 'Do they usually buy cheap food?',
-		transcription: '',
-		audio: false,
-	},
-
-	do_you_get_enough_money: {
-		sentence: 'Do you get enough money?',
-		transcription: '',
-		audio: false,
-	},
-
-	does_he_support_the_local_football_club: {
-		sentence: 'Does he support the local football club?',
-		transcription: '',
-		audio: false,
-	},
+	//
 } satisfies Record<string, ITranscription>

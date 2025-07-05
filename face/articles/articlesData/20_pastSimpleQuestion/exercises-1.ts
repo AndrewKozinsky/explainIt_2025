@@ -44,21 +44,37 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Он купил 10 дынь вместо 10 лимонов?',
-			engSentences: [{ engSentences: ['Did he bought 10 melons instead of 10 lemons?'], isCorrect: true }],
+			engSentences: [
+				{
+					engSentences: [
+						'Did he bought 10 melons instead of 10 lemons?',
+						'Did he bought ten melons instead of ten lemons?',
+					],
+					isCorrect: true,
+				},
+			],
 			words: [
-				{ rusWord: 'плохой', engWord: 'bad' },
-				{ rusWord: 'день', engWord: 'day' },
+				{ rusWord: 'покупать', engWord: 'buy' },
+				{ rusWord: '10', engWord: 'ten' },
+				{ rusWord: 'дыня', engWord: 'melon' },
+				{ rusWord: 'лимон', engWord: 'lemon' },
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Ты получил мой факс?',
 			engSentences: [{ engSentences: ['Did you get my fax?'], isCorrect: true }],
 			words: [
-				{ rusWord: 'плохой', engWord: 'bad' },
-				{ rusWord: 'день', engWord: 'day' },
+				{ rusWord: 'получать', engWord: 'get' },
+				{ rusWord: 'факс', engWord: 'fax' },
+			],
+		},
+		{
+			rusSentence: 'Она надела толстовку?',
+			engSentences: [{ engSentences: ['Did she wear a sweatshirt?'], isCorrect: true }],
+			words: [
+				{ rusWord: 'надевать', engWord: 'wear' },
+				{ rusWord: 'толстовка', engWord: 'sweatshirt' },
 			],
 		},
 	],

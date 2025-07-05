@@ -1,4 +1,5 @@
 import ArticleType from '../../articleTypes/articleType'
+import exercises_1 from './exercises-1'
 
 const toBePastQuestion: ArticleType.Art = {
 	meta: {
@@ -9,6 +10,15 @@ const toBePastQuestion: ArticleType.Art = {
 		keywords: 'Перевод, предложение, английский, русский, глагол, be, was, were',
 	},
 	content: [
+		{
+			type: 'paragraph',
+			children: [
+				{
+					type: 'text',
+					text: 'Сделать вопрос в предложении с be в прошедшем времени можно так же как и в настоящем: глаголу was или were поставить перед подлежащим.',
+				},
+			],
+		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
@@ -35,6 +45,20 @@ const toBePastQuestion: ArticleType.Art = {
 				},
 			],
 		},
+		{
+			type: 'rusToEng',
+			textSize: 'giant',
+			parts: [
+				{ rus: [{ type: 'text', text: 'Эти туфли были дорогими?' }] },
+				{
+					eng: [
+						{ type: 'text', color: 'blue', text: 'Were' },
+						{ type: 'text', text: ' these shoes expensive?' },
+					],
+				},
+			],
+		},
+		exercises_1,
 	],
 }
 

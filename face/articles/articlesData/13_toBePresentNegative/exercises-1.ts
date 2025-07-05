@@ -10,57 +10,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 		},
 		{
 			rusSentence: 'Я имею в виду, он не такой хороший мальчик, как Том.',
-			engSentences: [
-				{ engSentences: ['I mean, he is not a good boy as Tom.'], isCorrect: true },
-				{
-					engSentences: [],
-					isCorrect: false,
-					analysis: [
-						{
-							type: 'paragraph',
-							children: [
-								{
-									type: 'text',
-									text: 'Забыли про ',
-								},
-								{
-									type: 'text',
-									color: 'blue',
-									text: 'to be',
-								},
-								{
-									type: 'text',
-									text: '. Он должен стоять после подлежащего.',
-								},
-							],
-						},
-					],
-				},
-				{
-					engSentences: [],
-					isCorrect: false,
-					analysis: [
-						{
-							type: 'paragraph',
-							children: [
-								{
-									type: 'text',
-									text: 'Отрицательную частицу ',
-								},
-								{
-									type: 'text',
-									color: 'blue',
-									text: 'not',
-								},
-								{
-									type: 'text',
-									text: ' можно ставить после вспомогательного глагола. Сейчас он стоит перед ним.',
-								},
-							],
-						},
-					],
-				},
-			],
+			engSentences: [{ engSentences: ['I mean, he is not a good boy as Tom.'], isCorrect: true }],
 			words: [
 				{ rusWord: 'Я имею в виду', engWord: 'I mean' },
 				{ rusWord: 'хороший', engWord: 'good' },

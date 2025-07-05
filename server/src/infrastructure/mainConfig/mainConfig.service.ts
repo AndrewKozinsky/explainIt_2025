@@ -21,18 +21,46 @@ export class MainConfigService {
 			gigaChatAuthorizationKey: enVariables.gigaChatAuthorizationKey,
 			telegramFromExplainBotToken: enVariables.telegramFromExplainBotToken,
 			telegramFromExplainBotChatId: enVariables.telegramFromExplainBotChatId,
+			site: {
+				name: 'ExplainIt',
+				domainRoot: enVariables.siteDomainRoot,
+				domainRootWithProtocol: enVariables.siteDomainRootWithProtocol,
+			},
+			emailAdapter: {
+				userId: enVariables.emailAdapterUserId,
+				secret: enVariables.emailAdapterSecret,
+				fromName: 'Andrew Kozinsky',
+				fromEmail: 'mail@andrewkozinsky.ru',
+			},
+			session: {
+				name: 'session',
+				secret: enVariables.jwtSecret,
+				lifeDurationInMs: 1000 * 60 * 60 * 24 * 30, // 30 days
+			},
+			redis: {
+				url: enVariables.redisUrl,
+				sessionsFolder: 'sessions',
+			},
 		}
 	}
 
 	getEnVariables() {
 		return {
-			mode: this.configService.get<'test' | 'dev' | 'server'>('MODE'),
+			mode: this.configService.get<
+				'localtest' | 'localdev' | 'localcheckserver' | 'serverdevelop' | 'servermaster'
+			>('MODE'),
 			port: this.configService.get<number>('PORT') || 3001,
 			gigaChatClientId: this.configService.get<string>('GIGA_CHAT_CLIENT_ID') || '',
 			gigaChatClientSecret: this.configService.get<string>('GIGA_CHAT_CLIENT_SECRET') || '',
 			gigaChatAuthorizationKey: this.configService.get<string>('GIGA_CHAT_AUTHORIZATION_KEY') || '',
 			telegramFromExplainBotToken: this.configService.get<string>('TELEGRAM_FROM_EXPLAIN_BOT_TOKEN') || '',
 			telegramFromExplainBotChatId: this.configService.get<number>('TELEGRAM_FROM_EXPLAIN_BOT_CHAT_ID') || 0,
+			siteDomainRoot: this.configService.get<string>('SITE_DOMAIN_ROOT') as string,
+			siteDomainRootWithProtocol: this.configService.get<string>('SITE_DOMAIN_ROOT_WITH_PROTOCOL') as string,
+			emailAdapterUserId: this.configService.get<string>('EMAIL_ADAPTER_USER_ID') as string,
+			emailAdapterSecret: this.configService.get<string>('EMAIL_ADAPTER_SECRET') as string,
+			jwtSecret: this.configService.get<string>('JWT_SECRET') as string,
+			redisUrl: this.configService.get<string>('REDIS_URL') as string,
 		}
 	}
 }

@@ -29,6 +29,14 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				{ rusWord: 'нахлебник', engWord: 'freeloader' },
 			],
 		},
+		{
+			rusSentence: 'Я не был готов услышать это.',
+			engSentences: [{ engSentences: ['I was not ready to hear it.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'готов', engWord: 'ready' },
+				{ rusWord: 'слышать', engWord: 'hear' },
+			],
+		},
 	],
 }
 

@@ -88,13 +88,22 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Девочка ест вкусное печенье.',
 			engSentences: [{ engSentences: ['The girl eats tasty cookies.'], isCorrect: true }],
 			words: [
-				{ rusWord: 'камин', engWord: 'fireplace' },
-				{ rusWord: 'дорогой', engWord: 'expensive' },
-				{ rusWord: 'вещь', engWord: 'thing' },
+				{ rusWord: 'девочка', engWord: 'girl' },
+				{ rusWord: 'есть', engWord: 'eat' },
+				{ rusWord: 'вкусный', engWord: 'tasty' },
+				{ rusWord: 'печенье', engWord: 'cookie' },
+			],
+		},
+		{
+			rusSentence: 'Она ставит чашку на журнальный столик.',
+			engSentences: [{ engSentences: ['She puts the cup on the coffee table.'], isCorrect: true }],
+			words: [
+				{ rusWord: 'класть', engWord: 'put' },
+				{ rusWord: 'чашка', engWord: 'cup' },
+				{ rusWord: 'журнальный столик', engWord: 'coffee table' },
 			],
 		},
 	],

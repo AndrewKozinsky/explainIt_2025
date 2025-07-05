@@ -5,120 +5,22 @@ const exercises_1: ExercisesType.ExercisesObj = {
 	exercises: [
 		{
 			rusSentence: 'Вы готовы?',
-			engSentences: [
-				{ engSentences: ['Are you ready?'], isCorrect: true },
-				{
-					engSentences: [],
-					isCorrect: false,
-					analysis: [
-						{
-							type: 'paragraph',
-							children: [
-								{
-									type: 'text',
-									text: 'Напутан порядок слов. Из-за этого получилось вопрос типа «Готов — это ты?». Но даже так грамматически неверно.',
-								},
-							],
-						},
-					],
-				},
-			],
+			engSentences: [{ engSentences: ['Are you ready?'], isCorrect: true }],
 			words: [{ rusWord: 'готов', engWord: 'ready' }],
 		},
 		{
 			rusSentence: 'Он счастливый?',
-			engSentences: [
-				{ engSentences: ['Is he happy?'], isCorrect: true },
-				{
-					engSentences: [],
-					isCorrect: false,
-					analysis: [
-						{
-							type: 'paragraph',
-							children: [
-								{
-									type: 'text',
-									text: 'В вопросе глагол to be ставится перед подлежащим.',
-								},
-							],
-						},
-					],
-				},
-			],
+			engSentences: [{ engSentences: ['Is he happy?'], isCorrect: true }],
 			words: [{ rusWord: 'счастливый', engWord: 'happy' }],
 		},
 		{
 			rusSentence: 'Они заняты?',
-			engSentences: [
-				{ engSentences: ['Are they busy?'], isCorrect: true },
-				{
-					engSentences: [],
-					isCorrect: false,
-					analysis: [
-						{
-							type: 'paragraph',
-							children: [
-								{
-									type: 'text',
-									text: 'В английском нельзя строить вопросы как в русском. Are должен стоять перед подлежащем. Тут же порядок как в повествовательном предложении, но стоит знак вопроса.',
-								},
-							],
-						},
-					],
-				},
-				{
-					engSentences: [],
-					isCorrect: false,
-					analysis: [
-						{
-							type: 'paragraph',
-							children: [
-								{
-									type: 'text',
-									text: 'Am может стоять только если бы следом стояло местоимение I.',
-								},
-							],
-						},
-					],
-				},
-			],
+			engSentences: [{ engSentences: ['Are they busy?'], isCorrect: true }],
 			words: [{ rusWord: 'занят', engWord: 'busy' }],
 		},
 		{
 			rusSentence: 'Оля не популярная певица.',
-			engSentences: [
-				{ engSentences: ['Olya is not a popular singer.'], isCorrect: true },
-				{
-					engSentences: [],
-					isCorrect: false,
-					analysis: [
-						{
-							type: 'paragraph',
-							children: [
-								{
-									type: 'text',
-									text: 'Забыли про to be. Он должен стоять после подлежащего.',
-								},
-							],
-						},
-					],
-				},
-				{
-					engSentences: [],
-					isCorrect: false,
-					analysis: [
-						{
-							type: 'paragraph',
-							children: [
-								{
-									type: 'text',
-									text: 'Not должен стоять после вспомогательного глагола, а не после отрицаемого слова.',
-								},
-							],
-						},
-					],
-				},
-			],
+			engSentences: [{ engSentences: ['Olya is not a popular singer.'], isCorrect: true }],
 			words: [
 				{ rusWord: 'популярный', engWord: 'popular' },
 				{ rusWord: 'певица', engWord: 'a singer' },
@@ -138,36 +40,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{
 					engSentences: ['I am not a child, I am a married woman.', 'I am not a kid, I am a married woman.'],
 					isCorrect: true,
-				},
-				{
-					engSentences: [],
-					isCorrect: false,
-					analysis: [
-						{
-							type: 'paragraph',
-							children: [
-								{
-									type: 'text',
-									text: 'В этом предложении to be будет в форме am.',
-								},
-							],
-						},
-					],
-				},
-				{
-					engSentences: [],
-					isCorrect: false,
-					analysis: [
-						{
-							type: 'paragraph',
-							children: [
-								{
-									type: 'text',
-									text: 'После подлежащего I нужно поставить to be потому что дальше стоит предлог с существительным.',
-								},
-							],
-						},
-					],
 				},
 			],
 			words: [
@@ -194,54 +66,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 						},
 					],
 				},
-				{
-					engSentences: [],
-					isCorrect: false,
-					analysis: [
-						{
-							type: 'paragraph',
-							children: [
-								{
-									type: 'text',
-									text: 'Вариант с A workshop возможен потому что могут иметь любой семинар.',
-								},
-							],
-						},
-					],
-				},
-				{
-					engSentences: [],
-					isCorrect: false,
-					analysis: [
-						{
-							type: 'paragraph',
-							children: [
-								{
-									type: 'text',
-									text: 'Перед Workshop требуется поставить определитель существительног. Тут подходит или ',
-								},
-								{
-									type: 'text',
-									color: 'blue',
-									text: 'a',
-								},
-								{
-									type: 'text',
-									text: ' или ',
-								},
-								{
-									type: 'text',
-									color: 'blue',
-									text: 'the',
-								},
-								{
-									type: 'text',
-									text: '. Какой выбрать?',
-								},
-							],
-						},
-					],
-				},
 			],
 			words: [
 				{ rusWord: 'семинар', engWord: 'workshop' },
@@ -255,51 +79,24 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			words: [{ rusWord: 'болен', engWord: 'sick' }],
 		},
 		{
-			// TODO
 			rusSentence: 'Я не уставший.',
 			engSentences: [{ engSentences: ['I am not tired.'], isCorrect: true }],
-			words: [{ rusWord: 'болен', engWord: 'sick' }],
+			words: [{ rusWord: 'уставший', engWord: 'tired' }],
 		},
 		{
-			// TODO
 			rusSentence: 'Европейские блюда не всегда полезные.',
 			engSentences: [
 				{
 					engSentences: ['European dishes are not always healthy'],
 					isCorrect: true,
 				},
-				{
-					engSentences: [],
-					isCorrect: false,
-					analysis: [
-						{
-							type: 'paragraph',
-							children: [
-								{
-									type: 'text',
-									text: 'В этом пр',
-								},
-							],
-						},
-					],
-				},
-				{
-					engSentences: [],
-					isCorrect: false,
-					analysis: [
-						{
-							type: 'paragraph',
-							children: [
-								{
-									type: 'text',
-									text: 'В этом п',
-								},
-							],
-						},
-					],
-				},
 			],
-			words: [{ rusWord: 'два', engWord: 'two ' }],
+			words: [
+				{ rusWord: 'европейский', engWord: 'european' },
+				{ rusWord: 'блюдо', engWord: 'dish' },
+				{ rusWord: 'всегда', engWord: 'always' },
+				{ rusWord: 'полезный', engWord: 'healthy' },
+			],
 		},
 		{
 			rusSentence: 'Приведений не существует.',
@@ -311,49 +108,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 		},
 		{
 			rusSentence: 'Он хороший водопроводчик?',
-			engSentences: [
-				{ engSentences: ['Is he a good plumber?'], isCorrect: true },
-				{
-					engSentences: [],
-					isCorrect: false,
-					analysis: [
-						{
-							type: 'paragraph',
-
-							children: [
-								{
-									type: 'text',
-									text: 'Перед good plumber должен стоять один из определителей существительного.',
-								},
-							],
-						},
-					],
-				},
-				{
-					engSentences: [],
-					isCorrect: false,
-					analysis: [
-						{
-							type: 'paragraph',
-							children: [
-								{
-									type: 'text',
-									text: 'В английском нельзя строить вопросы как в русском. ',
-								},
-								{
-									type: 'text',
-									color: 'blue',
-									text: 'Is',
-								},
-								{
-									type: 'text',
-									text: ' должен стоять перед подлежащем. Тут же порядок как в повествовательном предложении, но стоит знак вопроса.',
-								},
-							],
-						},
-					],
-				},
-			],
+			engSentences: [{ engSentences: ['Is he a good plumber?'], isCorrect: true }],
 			words: [{ rusWord: 'водопроводчик', engWord: 'a plumber' }],
 		},
 		{
@@ -372,39 +127,9 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Он внутри?',
-			engSentences: [
-				{ engSentences: ['Is he inside?'], isCorrect: true },
-				{
-					engSentences: [],
-					isCorrect: false,
-					analysis: [
-						{
-							type: 'paragraph',
-							children: [
-								{
-									type: 'text',
-
-									text: 'Перед ',
-								},
-								{
-									type: 'text',
-									color: 'blue',
-
-									text: 'good plumber',
-								},
-								{
-									type: 'text',
-
-									text: ' должен стоять один из определителей существительного.',
-								},
-							],
-						},
-					],
-				},
-			],
-			words: [{ rusWord: 'водопроводчик', engWord: 'a plumber' }],
+			engSentences: [{ engSentences: ['Is he inside?'], isCorrect: true }],
+			words: [{ rusWord: 'внутри', engWord: 'inside' }],
 		},
 		{
 			rusSentence: 'Йога опасный спорт?',
@@ -415,13 +140,9 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Это дети.',
 			engSentences: [{ engSentences: ['They are children.'], isCorrect: true }],
-			words: [
-				{ rusWord: 'йога', engWord: 'yoga' },
-				{ rusWord: 'опасный', engWord: 'dangerous' },
-			],
+			words: [{ rusWord: 'ребёнок', engWord: 'child' }],
 		},
 		{
 			rusSentence: 'Это очень забавно?',
@@ -432,13 +153,9 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Это маскарадный костюм?',
 			engSentences: [{ engSentences: ['Is it fancy dress?'], isCorrect: true }],
-			words: [
-				{ rusWord: 'йога', engWord: 'yoga' },
-				{ rusWord: 'опасный', engWord: 'dangerous' },
-			],
+			words: [{ rusWord: 'маскарадный костюм', engWord: 'fancy dress' }],
 		},
 		{
 			rusSentence: 'Открытая Россия — не политическая партия.',
@@ -446,21 +163,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{
 					engSentences: ['Open Russia is not a political party.'],
 					isCorrect: true,
-				},
-				{
-					engSentences: [],
-					isCorrect: false,
-					analysis: [
-						{
-							type: 'paragraph',
-							children: [
-								{
-									type: 'text',
-									text: 'Не стоит неопределённый артикль a перед political party. Его нужно поставить потому что подразумевается, что Открытая Россия не является одной из множества политических партий. Англичанам важно знать какое существительное перед ними: неопределённое или конкретное.',
-								},
-							],
-						},
-					],
 				},
 			],
 			words: [

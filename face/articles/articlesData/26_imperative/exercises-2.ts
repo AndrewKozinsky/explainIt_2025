@@ -4,7 +4,6 @@ const exercises_2: ExercisesType.ExercisesObj = {
 	type: 'exercises',
 	exercises: [
 		{
-			// TODO
 			rusSentence: 'Музыку, пожалуйста, Энни.',
 			engSentences: [
 				{
@@ -13,8 +12,9 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				},
 			],
 			words: [
-				{ rusWord: 'капитаны', engWord: 'captains' },
-				{ rusWord: 'уже', engWord: 'already' },
+				{ rusWord: 'музыка', engWord: 'music' },
+				{ rusWord: 'пожалуйста', engWord: 'please' },
+				{ rusWord: 'Энни', engWord: 'Annie' },
 			],
 		},
 	],

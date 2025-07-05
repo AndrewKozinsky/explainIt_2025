@@ -70,7 +70,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			],
 		},
 		{
-			// TODO
 			rusSentence: 'Один играет на бас-гитаре, другой на синтезаторе.',
 			engSentences: [
 				{ engSentences: ['One plays the bass guitar, the another plays the keyboard.'], isCorrect: true },
@@ -78,7 +77,7 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			words: [
 				{ rusWord: 'один', engWord: 'one' },
 				{ rusWord: 'играть', engWord: 'play' },
-				{ rusWord: 'бас-гитара', engWord: 'open' },
+				{ rusWord: 'бас-гитара', engWord: 'bass guitar' },
 				{ rusWord: 'другой', engWord: 'another' },
 				{ rusWord: 'синтезатор', engWord: 'keyboard' },
 			],

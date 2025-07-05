@@ -249,6 +249,37 @@ const exercises_1: ExercisesType.ExercisesObj = {
 				{ rusWord: 'молоко', engWord: 'milk' },
 			],
 		},
+
+		{
+			rusSentence: 'На обед Эмма готовит салат.',
+			engSentences: [
+				{
+					engSentences: ['For lunch Emma cooks the salad.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'на обед', engWord: 'for lunch' },
+				{ rusWord: 'Эмма', engWord: 'Emma' },
+				{ rusWord: 'готовить', engWord: 'cook' },
+				{ rusWord: 'салат', engWord: 'salad' },
+			],
+		},
+		{
+			rusSentence: 'Она кладет овощи в чашку.',
+			engSentences: [
+				{
+					engSentences: ['She puts the vegetables into the bowl.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'класть', engWord: 'put' },
+				{ rusWord: 'овощи', engWord: 'vegetables' },
+				{ rusWord: 'в', engWord: 'into' },
+				{ rusWord: 'чашка', engWord: 'bowl' },
+			],
+		},
 	],
 }
 

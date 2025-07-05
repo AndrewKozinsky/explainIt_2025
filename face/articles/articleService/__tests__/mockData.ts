@@ -52,11 +52,7 @@
 					{
 						rusSentence: 'Это книга.',
 						engSentences: [
-							{
-								engSentences: [],
-								isCorrect: false,
-								analysis: [],
-							},
+
 						],
 						words: [
 							{ rusWord: 'книга', engWord: 'a book' },
@@ -65,24 +61,10 @@
 					},
 					{
 						rusSentence: 'Я строитель',
-						engSentences: [
-							{
-								engSentences: [],
-								isCorrect: false,
-								analysis: [],
-							},
-						],
 						words: [{ rusWord: 'строитель', engWord: 'a builder' }],
 					},
 					{
 						rusSentence: 'Это журнал.',
-						engSentences: [
-							{
-								engSentences: [],
-								isCorrect: false,
-								analysis: [],
-							},
-						],
 						words: [{ rusWord: 'журнал', engWord: 'a magazine' }],
 					},
 				],
@@ -94,13 +76,6 @@
 				exercises: [
 					{
 						rusSentence: 'К тому времени я был ученым.',
-						engSentences: [
-							{
-								engSentences: [],
-								isCorrect: false,
-								analysis: [],
-							},
-						],
 						words: [
 							{ rusWord: 'рад', engWord: 'glad' },
 							{ rusWord: 'это', engWord: 'it' },
@@ -108,13 +83,6 @@
 					},
 					{
 						rusSentence: 'Он был слесарем.',
-						engSentences: [
-							{
-								engSentences: [],
-								isCorrect: false,
-								analysis: [],
-							},
-						],
 						words: [{ rusWord: 'рад', engWord: 'glad' }],
 					},
 				],

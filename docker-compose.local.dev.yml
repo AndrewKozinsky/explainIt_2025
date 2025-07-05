@@ -1,0 +1,76 @@
+services:
+  explainnginxlocaldev:
+    image: nginx:1.19.7-alpine
+    container_name: explainnginxlocaldev
+    depends_on:
+      - explainpostgreslocaldev
+      - explainserverlocaldev
+      - explainfacelocaldev
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/nginx.conf.localdev:/etc/nginx/nginx.conf
+  explainpostgreslocaldev:
+    image: postgres:16.2
+    restart: unless-stopped
+    container_name: explainpostgreslocaldev
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_CONTAINER: ${POSTGRES_CONTAINER}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    env_file:
+      - .env.localdev
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  explainredislocaldev:
+    image: redis:7.4.4
+    restart: unless-stopped
+    container_name: explainredislocaldev
+    ports:
+      - 6379:6379
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+    env_file:
+      - .env.localdev
+    volumes:
+      - redis_data:/data
+  explainserverlocaldev:
+    build:
+      context: server/
+      dockerfile: Dockerfile.dev
+    restart: unless-stopped
+    volumes:
+      - ./server/src:/app/src
+      - ./server/e2e:/app/e2e
+    command: yarn start:dev
+    container_name: explainserverlocaldev
+    depends_on:
+      - explainpostgreslocaldev
+    environment:
+      MODE: localdev
+      PORT: 3001
+    env_file:
+      - .env.localdev
+    ports:
+      - 3001:3001
+  explainfacelocaldev:
+    build:
+      context: face/
+      dockerfile: Dockerfile.dev
+    restart: unless-stopped
+    volumes:
+      - ./face:/app
+      - ./face:/public
+    command: yarn run dev
+    container_name: explainfacelocaldev
+    depends_on:
+      - explainpostgreslocaldev
+      - explainserverlocaldev
+    environment:
+      MODE: localdev
+volumes:
+  pgdata: {}
+  redis_data: {}

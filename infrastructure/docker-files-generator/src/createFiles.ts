@@ -1,28 +1,33 @@
 import * as fs from 'node:fs'
 import * as YAML from 'yaml'
-import {createDockerConfig, EnvType} from './createDockerConfig'
+import {createDockerConfig, Mode} from './createDockerConfig'
 
 // Массив с названием и контентом трёх файлов.
 const configs = [
 	{
 		// Докер для тестирования
-		name: 'test',
-		content: createDockerConfig(EnvType.test),
+		name: 'local.test',
+		content: createDockerConfig(Mode.localTest),
 	},
 	{
 		// Докер для разработки
-		name: 'dev',
-		content: createDockerConfig(EnvType.dev),
+		name: 'local.dev',
+		content: createDockerConfig(Mode.localDev),
 	},
 	{
 		// Докер для проверки как соберётся сборка для сервера
-		name: 'server-check',
-		content: createDockerConfig(EnvType.server, true),
+		name: 'local.server-check',
+		content: createDockerConfig(Mode.localCheckServer),
 	},
 	{
 		// Докер для развёртывания
-		name: 'server',
-		content: createDockerConfig(EnvType.server),
+		name: 'server.develop',
+		content: createDockerConfig(Mode.serverDevelop),
+	},
+	{
+		// Докер для развёртывания
+		name: 'server.master',
+		content: createDockerConfig(Mode.serverMaster),
 	},
 ]
 
@@ -36,7 +41,7 @@ for (let i = 0; i < configs.length; i++) {
 		if (err) {
 			console.error(err)
 		} else {
-			// file written successfully
+			// The file was written successfully
 		}
 	})
 }

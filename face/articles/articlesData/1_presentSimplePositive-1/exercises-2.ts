@@ -9,23 +9,6 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				{ engSentences: ['They love green tea.'], isCorrect: true },
 				{ engSentences: ['They adore green tea.'], isCorrect: true },
 				{ engSentences: ['They really like green tea.'], isCorrect: true },
-				/*{
-						engSentences: ['We happy.'],
-						isCorrect: false,
-						analysis: [
-							{
-								type: 'paragraph',
-
-								children: [
-									{
-										type: 'text',
-
-										text: 'Пропущен глагол to be в форме настоящего времени второго лица: are. Такое предложение является грамматически неправильным.',
-									},
-								],
-							},
-						],
-					},*/
 			],
 			words: [
 				{ rusWord: 'обожать', engWord: 'adore' },
@@ -33,7 +16,6 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				{ rusWord: 'чай', engWord: 'tea' },
 			],
 		},
-
 		{
 			rusSentence: 'Они читают медицинские журналы.',
 			engSentences: [
@@ -269,6 +251,34 @@ const exercises_2: ExercisesType.ExercisesObj = {
 				{ rusWord: 'Сара', engWord: 'Sarah' },
 				{ rusWord: 'Даниэл', engWord: 'Daniel' },
 				{ rusWord: 'знать', engWord: 'know' },
+			],
+		},
+		{
+			rusSentence: 'Я ненавижу громкие звуки.',
+			engSentences: [
+				{
+					engSentences: ['I hate loud noises.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'ненавидеть', engWord: 'hate' },
+				{ rusWord: 'громкий', engWord: 'loud' },
+				{ rusWord: 'шум', engWord: 'noise' },
+			],
+		},
+		{
+			rusSentence: 'Я часто навещаю бабушку и дедушку.',
+			engSentences: [
+				{
+					engSentences: ['I often visit my grandparents.'],
+					isCorrect: true,
+				},
+			],
+			words: [
+				{ rusWord: 'часто', engWord: 'often' },
+				{ rusWord: 'навещать', engWord: 'visit' },
+				{ rusWord: 'бабушка и дедушка', engWord: 'grandparents' },
 			],
 		},
 	],

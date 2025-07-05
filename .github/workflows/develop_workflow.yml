@@ -1,0 +1,36 @@
+name: Deploy to the develop server
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Pull changes on server
+        run: |
+          ssh -o StrictHostKeyChecking=no andrew@79.140.26.128 << 'EOF'
+            cd ~/sites/explainIt_2025_develop
+          
+            git checkout develop
+          
+            # Generate env file
+            echo "${{ secrets.ENV_FILE_DEV }}" > .env.serverdevelop
+          
+            # Apply migrations
+            npx prisma migrate deploy
+            
+            git pull
+          
+            sh run.server.develop.sh
+          EOF
