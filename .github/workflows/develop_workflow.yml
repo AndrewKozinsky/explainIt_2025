@@ -26,18 +26,24 @@ jobs:
 
             git pull
 
-            sh stop.server.develop.sh
+            docker compose -f docker-compose.server.develop.yml --env-file .env.serverdevelop down
 
             # Generate .env file
             echo "${{ secrets.ENV_FILE_DEV }}" > .env.serverdevelop
           
+            docker compose -f docker-compose.server.develop.yml --env-file .env.serverdevelop up --build -d
+          
+            sleep 20
+          
             # Copy env file to server folder because it needs for migrations
             cp .env.serverdevelop server/.env
+          
+            # Rewrite POSTGRES_CONTAINER and POSTGRES_PORT environment variables because it needs for migrationns
+            cd server
+            sed -i -e 's/^POSTGRES_CONTAINER=.*/POSTGRES_CONTAINER=0.0.0.0/' \
+              -e 's/^POSTGRES_PORT=.*/POSTGRES_PORT=5446/' .env.servermaster
           
             # Run Prisma migrations
             cd server
             yarn run migrate:deploy
-            cd ..
-
-            sh run.server.develop.sh
           EOF
