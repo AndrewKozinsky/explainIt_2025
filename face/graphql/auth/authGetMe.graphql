@@ -1,0 +1,6 @@
+query Auth_getMe {
+	auth_getMe {
+		id
+		email
+	}
+}

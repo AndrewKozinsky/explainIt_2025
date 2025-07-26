@@ -1,0 +1,6 @@
+mutation Auth_register($input: RegisterUserInput!) {
+	auth_register(input: $input) {
+		id
+		email
+	}
+}

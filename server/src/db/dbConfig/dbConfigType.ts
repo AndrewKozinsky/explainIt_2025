@@ -16,7 +16,9 @@ export namespace BdConfig {
 		| EmailField
 		| NumberField
 		| ArrayField
+		| EnumField
 		| CreatedAtField
+		| UpdatedAtField
 		| ManyToOneField
 		| OneToManyField
 		| ParentOneToOneField
@@ -35,7 +37,7 @@ export namespace BdConfig {
 
 		// Default value
 		default?: string | number | boolean
-		// Is the field required? True by default
+		// Is the field required?
 		required: boolean
 		// Is the field value must be unique?
 		unique?: boolean
@@ -50,7 +52,7 @@ export namespace BdConfig {
 
 		// Default value
 		default?: string
-		// Is the field required? True by default
+		// Is the field required?
 		required: boolean
 		// Is the field value must be unique?
 		unique?: boolean
@@ -65,7 +67,7 @@ export namespace BdConfig {
 
 		// Default value
 		default?: string
-		// Is the field required? True by default
+		// Is the field required?
 		required: boolean
 		// Is the field value must be unique?
 		unique?: boolean
@@ -80,7 +82,7 @@ export namespace BdConfig {
 
 		// Default value
 		default?: string | number | boolean
-		// Is the field required? True by default
+		// Is the field required?
 		required: boolean
 		// Is the field value must be unique?
 		unique?: boolean
@@ -95,7 +97,7 @@ export namespace BdConfig {
 
 		// Default value
 		default?: string | number | boolean
-		// Is the field required? True by default
+		// Is the field required?
 		required: boolean
 		// Is the field value must be unique?
 		unique?: boolean
@@ -112,7 +114,7 @@ export namespace BdConfig {
 
 		// Default value
 		default?: string | number | boolean
-		// Is the field required? True by default
+		// Is the field required?
 		required: boolean
 		// Is the field value must be unique?
 		unique?: boolean
@@ -125,7 +127,7 @@ export namespace BdConfig {
 	export type ArrayField = {
 		type: 'array'
 		arrayItemType: 'string' | 'mongoId' | 'number'
-		// Is the field required? True by default
+		// Is the field required?
 		required: boolean
 		// Field description
 		description?: string
@@ -133,8 +135,23 @@ export namespace BdConfig {
 		example?: string[]
 	}
 
+	export type EnumField = {
+		type: 'enum'
+		enumName: string // Role
+		variants: string[] // ['USER', 'MARKETER', 'MANAGER']
+		default?: string
+		// Is the field required?
+		required: boolean
+		// Field description
+		description?: string
+	}
+
 	export type CreatedAtField = {
 		type: 'createdAt'
+	}
+
+	export type UpdatedAtField = {
+		type: 'updatedAt'
 	}
 
 	export type ManyToOneField = {

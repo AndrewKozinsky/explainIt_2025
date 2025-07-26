@@ -14,7 +14,7 @@ export const queries = {
 			}`
 		},
 		confirmEmail(code: string) {
-			return `query {
+			return `mutation {
 				${RouteNames.AUTH.CONFIRM_EMAIL}(
 					input: {
 						code: "${code}",
@@ -91,6 +91,19 @@ export const queries = {
 				error
 			  }
 			}
+			}`
+		},
+	},
+	payment: {
+		topUpBalanceWithYooKassa(amount: number) {
+			return `mutation {
+				${RouteNames.PAYMENT.YOOKASSA.TOP_UP_BALANCE}(
+					input: {
+						amount: ${amount},
+					}
+				) {
+				  confirmationUrl
+				}
 			}`
 		},
 	},

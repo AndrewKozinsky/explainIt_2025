@@ -41,6 +41,14 @@ export class MainConfigService {
 				url: enVariables.redisUrl,
 				sessionsFolder: 'sessions',
 			},
+			yooKassa: {
+				rootUrl: 'https://api.yookassa.ru/v3/',
+				shopId: enVariables.yooKassa.shopId,
+				secretKey: enVariables.yooKassa.secretKey,
+			},
+			openAi: {
+				apiKey: enVariables.openAi.apiKey,
+			},
 		}
 	}
 
@@ -61,6 +69,13 @@ export class MainConfigService {
 			emailAdapterSecret: this.configService.get<string>('EMAIL_ADAPTER_SECRET') as string,
 			jwtSecret: this.configService.get<string>('JWT_SECRET') as string,
 			redisUrl: this.configService.get<string>('REDIS_URL') as string,
+			yooKassa: {
+				shopId: this.configService.get<string>('YOOKASSA_SHOP_ID') as string,
+				secretKey: this.configService.get<string>('YOOKASSA_SECRET_KEY') as string,
+			},
+			openAi: {
+				apiKey: this.configService.get<string>('OPENAI_API_KEY') as string,
+			},
 		}
 	}
 }

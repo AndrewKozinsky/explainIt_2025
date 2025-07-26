@@ -1,0 +1,18 @@
+.text-input {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	width: 100%;
+}
+.text-input--disabled {
+	opacity: .3;
+}
+
+.text-input__label {
+	display: block;
+}
+
+.text-input__input {
+	padding: 0.5rem;
+	border: 1px solid #ccc;
+}

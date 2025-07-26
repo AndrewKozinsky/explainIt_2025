@@ -17,6 +17,11 @@ type CheckTranslationOutSuccessModel {
   correct: Boolean!
 }
 
+input ConfirmEmailInput {
+  """User email"""
+  code: String!
+}
+
 input GetTranscriptionInput {
   """Sentence in English"""
   engSentence: String!
@@ -32,7 +37,70 @@ type GetTranscriptionOutSuccessModel {
   transcription: String!
 }
 
+input LoginInput {
+  """User email"""
+  email: String!
+
+  """User password"""
+  password: String!
+}
+
+type Mutation {
+  """Email confirmation"""
+  auth_confirmEmail(input: ConfirmEmailInput!): Boolean!
+
+  """User login"""
+  auth_login(input: LoginInput!): UserOutModel!
+
+  """Current user logout"""
+  auth_logout: Boolean!
+
+  """
+  Register a user.
+  	Possible errors:
+  	**Почта зарегистрирована, но не подтверждена.** — the user is already registered, but doesn't confirm his email.
+  	**Почта уже зарегистрирована.** — the user is already registered and confirmed his email.
+  """
+  auth_register(input: RegisterUserInput!): UserOutModel!
+
+  """Resend email confirmation letter"""
+  auth_resendConfirmationEmail(input: ResendConfirmationEmailInput!): Boolean!
+
+  """Top up a balance with YooKassa"""
+  payment_yookassa_top_up_balance(input: TopUpBalanceWithYooKassaInput!): TopUpBalanceWithYooKassaOutModel!
+}
+
 type Query {
   ai_checkTranslation(input: CheckTranslationInput!): CheckTranslationOutModel!
   ai_getTranscription(input: GetTranscriptionInput!): GetTranscriptionOutModel!
+
+  """Get current user data"""
+  auth_getMe: UserOutModel!
+}
+
+input RegisterUserInput {
+  """User email"""
+  email: String!
+
+  """User password"""
+  password: String!
+}
+
+input ResendConfirmationEmailInput {
+  """User email"""
+  email: String!
+}
+
+input TopUpBalanceWithYooKassaInput {
+  """Money amount"""
+  amount: Float!
+}
+
+type TopUpBalanceWithYooKassaOutModel {
+  confirmationUrl: String!
+}
+
+type UserOutModel {
+  email: String!
+  id: Int!
 }

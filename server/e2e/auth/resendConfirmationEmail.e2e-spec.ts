@@ -1,4 +1,5 @@
 import { INestApplication } from '@nestjs/common'
+import { CommandBus } from '@nestjs/cqrs'
 import { add, subDays } from 'date-fns'
 import { App } from 'supertest/types'
 import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
@@ -18,6 +19,7 @@ it('1', () => {
 
 describe.skip('Confirm an user email (e2e)', () => {
 	let app: INestApplication<App>
+	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
 	let userRepository: UserRepository
 
@@ -25,12 +27,13 @@ describe.skip('Confirm an user email (e2e)', () => {
 		const createMainAppRes = await createApp({ emailAdapter })
 
 		app = createMainAppRes.app
+		commandBus = app.get(CommandBus)
 		emailAdapter = createMainAppRes.emailAdapter
 		userRepository = await app.resolve(UserRepository)
 	})
 
 	beforeEach(async () => {
-		await beforeEachTest(app)
+		await beforeEachTest(app, commandBus)
 	})
 
 	afterEach(async () => {

@@ -11,6 +11,8 @@ import { RedisService } from './redis/redis.service'
 export async function applyAppSettings(app: INestApplication) {
 	app.use(cookieParser())
 
+	app.setGlobalPrefix('api')
+
 	// Enable NestJS DI for class-validator
 	useContainer(app.select(AppModule), { fallbackOnErrors: true })
 
@@ -29,6 +31,12 @@ async function setUpSession(app: INestApplication) {
 	const secure = isOnServer
 
 	const redisService = await app.resolve(RedisService)
+	try {
+		await redisService.connect()
+	} catch (error) {
+		console.error(error)
+	}
+
 	const redis = redisService.get()
 
 	app.use(

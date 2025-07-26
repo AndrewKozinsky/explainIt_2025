@@ -1,7 +1,7 @@
 import articleService from '../../../../../articles/articleService/articleService'
 import ArticleType from '../../../../../articles/articleTypes/articleType'
 import { ArticleTileType } from '../../ArticleTile/fn/types'
-import { PageUrls } from '../../../../../сonsts/pageUrls'
+import { pageUrls } from '../../../../../сonsts/pageUrls'
 
 /** Возвращает массив объектов конфигурации для отрисовки плиток-ссылок на статьи курса */
 export function getTilesData(): ArticleTileType.Tile[] {
@@ -22,6 +22,6 @@ function getArticleTileConf(article: ArticleType.Art): ArticleTileType.ArticleTi
 		top: 'Глава ' + article.meta.number,
 		header: article.meta.name,
 		description: article.meta.description,
-		url: PageUrls.courseArticle(article.meta.slug).url,
+		url: pageUrls.courseArticle(article.meta.slug).path,
 	}
 }

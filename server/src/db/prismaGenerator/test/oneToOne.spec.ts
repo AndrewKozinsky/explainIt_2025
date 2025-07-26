@@ -1,5 +1,5 @@
 import { BdConfig } from '../../dbConfig/dbConfigType'
-import { createSchemaPrisma } from '../createSchemaPrisma'
+import { createSchema } from '../createSchema'
 
 export const bdTestConfig = {
 	User: {
@@ -58,7 +58,7 @@ model Sender {
 	user_id Int	@unique
 }`
 
-		const generatedPrismaSchema = createSchemaPrisma(bdTestConfig)
+		const generatedPrismaSchema = createSchema(bdTestConfig)
 
 		expect(generatedPrismaSchema).toBe(expectedPrismaSchema)
 	})

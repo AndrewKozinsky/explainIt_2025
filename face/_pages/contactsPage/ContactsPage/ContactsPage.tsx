@@ -1,16 +1,16 @@
 import React from 'react'
-import { BreadCrumbs } from '../../../ui/pageRelated/BreadCrumbs/BreadCrumbs'
-import { PageContentWrapper } from '../../../ui/pageRelated/PageContentWrapper/PageContentWrapper'
-import { PageHeader } from '../../../ui/pageRelated/PageHeader/PageHeader'
-import { PageWrapper } from '../../../ui/pageRelated/PageWrapper/PageWrapper'
+import { Header } from '@/ui/Header/Header'
+import { BreadCrumbs } from '@/ui/pageRelated/BreadCrumbs/BreadCrumbs'
+import { PageContentWrapper } from '@/ui/pageRelated/PageContentWrapper/PageContentWrapper'
+import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'
 
 /** Страница контактов */
 function ContactsPage() {
 	return (
-		<PageWrapper>
+		<PageWrapper top bottom>
 			<PageContentWrapper>
 				<BreadCrumbs />
-				<PageHeader>Контакты</PageHeader>
+				<Header>Контакты</Header>
 				<p>
 					По всем вопросам обращайтесь в Телеграм{' '}
 					<a href='https://t.me/AndrewKozinsky' className='link'>

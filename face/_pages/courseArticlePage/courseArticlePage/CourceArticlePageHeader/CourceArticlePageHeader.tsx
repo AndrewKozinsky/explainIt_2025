@@ -1,7 +1,7 @@
 import React from 'react'
 import ArticleType from '../../../../articles/articleTypes/articleType'
-import { PageHeader } from '../../../../ui/pageRelated/PageHeader/PageHeader'
 import './CourseArticlePageHeader.scss'
+import { Header } from '../../../../ui/Header/Header'
 
 type ChapterNumberProps = {
 	article: ArticleType.Art
@@ -19,12 +19,12 @@ function CourseArticlePageHeader(props: ChapterNumberProps) {
 	})
 
 	return (
-		<PageHeader extraClass='course-article-page-header'>
+		<Header extraClass='course-article-page-header'>
 			{headerBits}
 			<span className='course-article-page-header__num'>
 				<span className='course-article-page-header__num-text'>{chapterNum}</span>
 			</span>
-		</PageHeader>
+		</Header>
 	)
 }
 

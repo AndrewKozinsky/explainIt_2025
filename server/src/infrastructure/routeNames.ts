@@ -4,8 +4,14 @@ export const RouteNames = {
 		CONFIRM_EMAIL: 'auth_confirmEmail',
 		LOGIN: 'auth_login',
 		RESEND_CONFIRMATION_EMAIL: 'auth_resendConfirmationEmail',
+		FORGET_PASSWORD: 'auth_forgetPassword',
 		GET_ME: 'auth_getMe',
 		LOGOUT: 'auth_logout',
+	},
+	PAYMENT: {
+		YOOKASSA: {
+			TOP_UP_BALANCE: 'payment_yookassa_top_up_balance',
+		},
 	},
 	AI: {
 		CHECK_TRANSLATION: 'ai_checkTranslation',
@@ -14,8 +20,10 @@ export const RouteNames = {
 	// REST
 	DB: {
 		ALL_DATA: 'testing/all-data',
-		// SEED: 'testing/seed',
-		// USER: 'testing/user',
+		SEED: 'testing/seed',
+	},
+	WEBHOOK: {
+		YOOKASSA: 'webhook/yookassa',
 	},
 }
 

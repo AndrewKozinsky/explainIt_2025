@@ -1,18 +1,17 @@
 import React from 'react'
-import { BreadCrumbs } from '../../../ui/pageRelated/BreadCrumbs/BreadCrumbs'
-import { PageContentWrapper } from '../../../ui/pageRelated/PageContentWrapper/PageContentWrapper'
-import { PageHeader } from '../../../ui/pageRelated/PageHeader/PageHeader'
-import { CourseArticlesTiles } from '../tiles/CourseArticlesTiles/CourseArticlesTiles'
-
 import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'
+import { Header } from '@/ui/Header/Header'
+import { BreadCrumbs } from '@/ui/pageRelated/BreadCrumbs/BreadCrumbs'
+import { PageContentWrapper } from '@/ui/pageRelated/PageContentWrapper/PageContentWrapper'
+import { CourseArticlesTiles } from '../tiles/CourseArticlesTiles/CourseArticlesTiles'
 
 /** Страница со ссылками-плитками на главы курса */
 function CourseIndexPage() {
 	return (
-		<PageWrapper>
+		<PageWrapper top bottom>
 			<PageContentWrapper>
 				<BreadCrumbs />
-				<PageHeader>Понимая английский</PageHeader>
+				<Header>Понимая английский</Header>
 				<CourseArticlesTiles />
 			</PageContentWrapper>
 		</PageWrapper>

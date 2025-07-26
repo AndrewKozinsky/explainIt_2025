@@ -89,7 +89,7 @@ export function DtoFieldDecorators(
 		}
 	}
 	if (updatedFieldConf.type === 'number') {
-		// @Type(() => Number)
+		decorators.push(Type(() => Number)) // Converts string to number
 		decorators.push(IsNumber)
 
 		if (updatedFieldConf.min) {

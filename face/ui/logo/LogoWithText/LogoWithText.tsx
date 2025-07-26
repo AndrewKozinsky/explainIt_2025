@@ -8,7 +8,7 @@ function LogoWithText() {
 			<LogoSign />
 			<div className='logo-with-text__right'>
 				<p className='logo-with-text__name'>Explain it</p>
-				<p className='logo-with-text__description'>Курс на английского</p>
+				{/*<p className='logo-with-text__description'>Курс на английского</p>*/}
 			</div>
 		</div>
 	)

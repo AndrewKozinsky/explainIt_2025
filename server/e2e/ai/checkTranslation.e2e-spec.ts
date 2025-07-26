@@ -1,6 +1,6 @@
 import { INestApplication } from '@nestjs/common'
 import { App } from 'supertest/types'
-import {EmailAdapterService} from '../../src/infrastructure/emailAdapter/email-adapter.service'
+import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 import { GigaChatService } from '../../src/infrastructure/gigaChat/gigaChat.service'
 import RouteNames from '../../src/infrastructure/routeNames'
 import { makeGraphQLReq } from '../makeGQReq'
@@ -15,31 +15,16 @@ it('1', () => {
 describe.skip('Ai check translation (e2e)', () => {
 	let app: INestApplication<App>
 	let gigaChatService: GigaChatService
-	// let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
-	// let userRepository: UserRepository
-	// let devicesRepository: DevicesRepository
-	// let jwtAdapterService: JwtAdapterService
-	// let mainConfig: MainConfigService
 
 	beforeAll(async () => {
-		const createMainAppRes = await createApp({emailAdapter: emailAdapter})
+		const createMainAppRes = await createApp({ emailAdapter: emailAdapter })
 
 		app = createMainAppRes.app
 		gigaChatService = await app.resolve(GigaChatService)
-		// commandBus = app.get(CommandBus)
-		// emailAdapter = createMainAppRes.emailAdapter
-		// userRepository = await app.resolve(UserRepository)
-		// devicesRepository = await app.resolve(DevicesRepository)
-		// jwtAdapterService = await app.resolve(JwtAdapterService)
-		// mainConfig = await app.resolve(MainConfigService)
 	})
 
-	beforeEach(async () => {
-		// await clearAllDB(app)
-		// await seedInitDataInDatabase(app)
-		// await seedTestData(commandBus)
-	})
+	beforeEach(async () => {})
 
 	afterEach(() => {
 		jest.clearAllMocks()

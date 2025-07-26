@@ -1,4 +1,5 @@
 import { INestApplication } from '@nestjs/common'
+import { CommandBus } from '@nestjs/cqrs'
 import { App } from 'supertest/types'
 import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
 import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
@@ -18,6 +19,7 @@ it('1', () => {
 
 describe.skip('User login (e2e)', () => {
 	let app: INestApplication<App>
+	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
 	let userRepository: UserRepository
 
@@ -25,11 +27,12 @@ describe.skip('User login (e2e)', () => {
 		const createMainAppRes = await createApp({ emailAdapter })
 
 		app = createMainAppRes.app
+		commandBus = app.get(CommandBus)
 		userRepository = await app.resolve(UserRepository)
 	})
 
 	beforeEach(async () => {
-		await beforeEachTest(app)
+		await beforeEachTest(app, commandBus)
 	})
 
 	afterEach(async () => {

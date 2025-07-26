@@ -1,4 +1,4 @@
-import Faq from '../../../ui/FAQ/FAQ'
+import Faq from '@/ui/FAQ/FAQ'
 import ArticleType from '../../articleTypes/articleType'
 import { useGetConfig } from './fn/getConfig'
 import './FaqInArticle.scss'

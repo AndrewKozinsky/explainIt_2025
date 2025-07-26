@@ -10,14 +10,13 @@ export function LinkLogoWithText() {
 
 	if (pathname === '/') {
 		return (
-			<div className="link-logo-default" data-testid="defaultLogoWithText">
+			<div className='link-logo-default' data-testid='defaultLogoWithText'>
 				<LogoWithText />
 			</div>
 		)
 	}
-
 	return (
-		<Link href="/" className="link-logo" data-testid="linkLogoWithText">
+		<Link href='/' className='link-logo' data-testid='linkLogoWithText'>
 			<LogoWithText />
 		</Link>
 	)

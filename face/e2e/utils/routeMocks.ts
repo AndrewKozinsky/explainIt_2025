@@ -1,6 +1,6 @@
 import { Page } from '@playwright/test'
 import { wait } from '../../utils/utils'
-import pagesUrls from './pagesUrls'
+import testPagesUrls from './testPagesUrls'
 
 export const graphQLRequestsData = {
 	AICheckTranslation: {
@@ -35,7 +35,7 @@ export async function mockGraphQLRequest(
 	response: any,
 	delay?: number,
 ) {
-	await page.route(pagesUrls.graphql, async (route, request) => {
+	await page.route(testPagesUrls.graphql, async (route, request) => {
 		const postData = request.postDataJSON()
 
 		// Match specific operation

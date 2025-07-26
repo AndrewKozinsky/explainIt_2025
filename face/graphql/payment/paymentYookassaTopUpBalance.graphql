@@ -1,0 +1,5 @@
+mutation Payment_yookassaTopUpBalance($input: TopUpBalanceWithYooKassaInput!) {
+	payment_yookassa_top_up_balance(input: $input) {
+		confirmationUrl
+	}
+}

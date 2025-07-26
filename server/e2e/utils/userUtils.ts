@@ -83,12 +83,8 @@ export const userUtils = {
 			sessionToken: loginRespCookies.session,
 		} as {
 			loginData: {
-				data: {
-					auth_login: {
-						id: number
-						email: string
-					}
-				}
+				id: number
+				email: string
 			}
 			sessionToken: {
 				value: string

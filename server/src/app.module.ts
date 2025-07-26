@@ -8,12 +8,15 @@ import { MainConfigModule } from './infrastructure/mainConfig/mainConfig.module'
 import { MainConfigService } from './infrastructure/mainConfig/mainConfig.service'
 import { join } from 'path'
 import { RedisModule } from './infrastructure/redis/redis.module'
+import { YooKassaModule } from './infrastructure/yooKassa/yooKassa.module'
 import { AiModule } from './routes/ai/ai.module'
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default'
 import { TelegramModule } from './infrastructure/telegram/telegram.module'
 import { AuthModule } from './routes/auth/auth.module'
 import { DbModule } from './routes/db/db.module'
 import { Request, Response } from 'express'
+import { PaymentModule } from './routes/payment/payment.module'
+import { WebhookModule } from './routes/webhook/webhook.module'
 
 @Module({
 	imports: [
@@ -43,6 +46,9 @@ import { Request, Response } from 'express'
 		GigaChatModule,
 		DbModule,
 		RedisModule,
+		PaymentModule,
+		YooKassaModule,
+		WebhookModule,
 	],
 	providers: [],
 })

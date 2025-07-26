@@ -1,32 +1,27 @@
 import { Injectable } from '@nestjs/common'
-import IORedis from 'ioredis'
+import { createClient, RedisClientType } from 'redis'
 import RedisMock from 'ioredis-mock'
 import { MainConfigService } from '../mainConfig/mainConfig.service'
 
 @Injectable()
 export class RedisService {
-	redis: IORedis
+	redis: RedisClientType
 
 	constructor(private mainConfig: MainConfigService) {
-		this.redis =
-			this.mainConfig.get().mode === 'localtest'
-				? (this.redis = new RedisMock())
-				: new IORedis(this.mainConfig.get().redis.url)
+		if (this.mainConfig.get().mode === 'localtest') {
+			this.redis = new RedisMock() as any
+		} else {
+			this.redis = createClient({ url: this.mainConfig.get().redis.url })
+		}
+	}
+
+	async connect() {
+		if (this.mainConfig.get().mode !== 'localtest') {
+			await this.redis.connect()
+		}
 	}
 
 	get() {
 		return this.redis
 	}
-
-	/*connect() {
-		return this.redis.connect()
-	}*/
-
-	/*disconnect() {
-		this.redis.disconnect()
-	}*/
-
-	/*async quit() {
-		await this.redis.quit()
-	}*/
 }

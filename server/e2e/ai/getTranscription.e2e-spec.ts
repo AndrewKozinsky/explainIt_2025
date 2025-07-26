@@ -1,6 +1,7 @@
 import { INestApplication } from '@nestjs/common'
+import { CommandBus } from '@nestjs/cqrs'
 import { App } from 'supertest/types'
-import {EmailAdapterService} from '../../src/infrastructure/emailAdapter/email-adapter.service'
+import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 import { GigaChatService } from '../../src/infrastructure/gigaChat/gigaChat.service'
 import RouteNames from '../../src/infrastructure/routeNames'
 import { makeGraphQLReq } from '../makeGQReq'
@@ -14,13 +15,15 @@ it('1', () => {
 
 describe.skip('AI get transcription (e2e)', () => {
 	let app: INestApplication<App>
+	let commandBus: CommandBus
 	let gigaChatService: GigaChatService
 	let emailAdapter: EmailAdapterService
 
 	beforeAll(async () => {
-		const createMainAppRes = await createApp({emailAdapter: emailAdapter})
+		const createMainAppRes = await createApp({ emailAdapter: emailAdapter })
 
 		app = createMainAppRes.app
+		commandBus = app.get(CommandBus)
 		gigaChatService = await app.resolve(GigaChatService)
 	})
 

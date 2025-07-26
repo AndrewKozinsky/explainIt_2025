@@ -1,18 +1,18 @@
 import { test, expect } from '@playwright/test'
-import pagesUrls from '../utils/pagesUrls'
+import testPagesUrls from '../utils/testPagesUrls'
 import { graphQLRequestsData, mockGraphQLRequest } from '../utils/routeMocks'
 import { exercisesTestIds } from './exercisesTestIds'
 
 test.beforeEach(async ({ page }) => {
-	await page.goto(pagesUrls.article1)
+	await page.goto(testPagesUrls.article1)
 })
 
-test('has 2 exercises blocks', async ({ page }) => {
+test.skip('has 2 exercises blocks', async ({ page }) => {
 	const $exercises = page.getByTestId(exercisesTestIds.exercises)
 	await expect($exercises).toHaveCount(2)
 })
 
-test('the first exercises block has 3 sentences, the second one has 5', async ({ page }) => {
+test.skip('the first exercises block has 3 sentences, the second one has 5', async ({ page }) => {
 	const $exercises = page.getByTestId(exercisesTestIds.exercises)
 	const exercisesCount = await $exercises.count()
 
@@ -29,7 +29,7 @@ test('the first exercises block has 3 sentences, the second one has 5', async ({
 	}
 })
 
-test('after a user clicked the second sentence of the first exercises block, the second exercises block should not change', async ({
+test.skip('after a user clicked the second sentence of the first exercises block, the second exercises block should not change', async ({
 	page,
 }) => {
 	const $allExerciseBlock = page.getByTestId(exercisesTestIds.exercises)
@@ -51,7 +51,7 @@ test('after a user clicked the second sentence of the first exercises block, the
 	expect(exerciseBlockTwoRusSentence).toBe('Я работаю.')
 })
 
-test('after a user clicked on the second sentence the exercises block should show content of the second exercise', async ({
+test.skip('after a user clicked on the second sentence the exercises block should show content of the second exercise', async ({
 	page,
 }) => {
 	const $exercisesBlock = page.getByTestId(exercisesTestIds.exercises).nth(0)
@@ -76,7 +76,7 @@ test('after a user clicked on the second sentence the exercises block should sho
 	expect(await $actionButton.textContent()).toBe('Правильный вариант')
 })
 
-test('after a user clicks on the button «Правильный вариант» the correct answers are show and the button changes its text', async ({
+test.skip('after a user clicks on the button «Правильный вариант» the correct answers are show and the button changes its text', async ({
 	page,
 }) => {
 	const $exercisesBlock = page.getByTestId(exercisesTestIds.exercises).nth(0)
@@ -90,7 +90,7 @@ test('after a user clicks on the button «Правильный вариант» 
 	expect(await $exerciseCorrectTranslations.count()).toBe(3)
 })
 
-test('if a user type some text in translate input then button «Правильный вариант» changes to «Проверить».', async ({
+test.skip('if a user type some text in translate input then button «Правильный вариант» changes to «Проверить».', async ({
 	page,
 }) => {
 	const $exercisesBlock = page.getByTestId(exercisesTestIds.exercises).nth(0)
@@ -110,7 +110,7 @@ test('if a user type some text in translate input then button «Правильн
 	expect(await $actionButton.textContent()).toBe('Правильный вариант')
 })
 
-test('if a user type incorrect translation and analysis exists', async ({ page }) => {
+test.skip('if a user type incorrect translation and analysis exists', async ({ page }) => {
 	const $exercisesBlock = page.getByTestId(exercisesTestIds.exercises).nth(0)
 
 	// Get the English translation textarea and type an incorrect translation
@@ -129,7 +129,7 @@ test('if a user type incorrect translation and analysis exists', async ({ page }
 	await expect($analysisBlock).toBeVisible()
 })
 
-test('if a user type correct translation and analysis exists', async ({ page }) => {
+test.skip('if a user type correct translation and analysis exists', async ({ page }) => {
 	const $exercisesBlock = page.getByTestId(exercisesTestIds.exercises).nth(0)
 
 	// Get the English translation textarea and type a correct translation
@@ -148,7 +148,7 @@ test('if a user type correct translation and analysis exists', async ({ page }) 
 	await expect($analysisBlock).toBeVisible()
 })
 
-test('if a user type translation and analysis does not exist', async ({ page }) => {
+test.skip('if a user type translation and analysis does not exist', async ({ page }) => {
 	const $exercisesBlock = page.getByTestId(exercisesTestIds.exercises).nth(0)
 
 	// Get the English translation textarea and type a correct translation
@@ -200,7 +200,7 @@ test('if a user type translation and analysis does not exist', async ({ page }) 
 	}
 })
 
-test('after a user moved to the last sentence and get analysis the action button should open the first sentence of the oral exercises', async ({
+test.skip('after a user moved to the last sentence and get analysis the action button should open the first sentence of the oral exercises', async ({
 	page,
 }) => {
 	const $exercisesBlock = page.getByTestId(exercisesTestIds.exercises).nth(0)

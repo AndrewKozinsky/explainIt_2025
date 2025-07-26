@@ -1,0 +1,30 @@
+@use '@/styles/variables' as vars;
+
+.header {
+	font-weight: 600;
+}
+.header--h1 {
+	font-size: clamp(4rem, 10vw, 8rem);
+	line-height: clamp(4.4rem, 10.4vw, 8.4rem);
+	font-style: italic;
+}
+.header--h2 {
+	font-size: clamp(3.2rem, 10vw, 5rem);
+	line-height: clamp(4rem, 8vw, 7rem);
+}
+.header--h3 {
+	font-size: clamp(2.4rem, 10vw, 4.4rem);
+	line-height: clamp(3.4rem, 8vw, 6rem);
+}
+.header--h4 {
+	font-size: clamp(1.8rem, 10vw, 3.6rem);
+	line-height: clamp(3rem, 8vw, 6rem);
+}
+
+.header__subheader {
+	font-size: clamp(2rem, 2.8vw, 2.8rem);
+	line-height: clamp(3rem, 3.6vw, 3.6rem);
+	font-style: italic;
+	color: vars.$grayColor-3;
+	margin-top: .5rem;
+}

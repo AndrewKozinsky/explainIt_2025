@@ -1,6 +1,4 @@
-import { Injectable, CanActivate, ExecutionContext } from '@nestjs/common'
-// import { CustomRestError } from '../exceptions/customErrors'
-// import { ErrorCode } from '../exceptions/errorCode'
+import { Injectable, CanActivate, ExecutionContext, ForbiddenException } from '@nestjs/common'
 import { errorMessage } from '../exceptions/errorMessage'
 import { MainConfigService } from '../mainConfig/mainConfig.service'
 
@@ -13,7 +11,6 @@ export class OnlyDevOrTestingModeGuard implements CanActivate {
 			return true
 		}
 
-		// throw new CustomRestError(errorMessage.onlyDevMode, ErrorCode.BadRequest_400)
-		return true
+		throw new ForbiddenException(errorMessage.onlyDevMode)
 	}
 }

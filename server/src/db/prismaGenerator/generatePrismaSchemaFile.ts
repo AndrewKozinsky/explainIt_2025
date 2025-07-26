@@ -1,10 +1,10 @@
 import * as path from 'node:path'
 import { writeFile } from '../../utils/writeFile'
-import { createSchemaPrisma } from './createSchemaPrisma'
+import { createSchema } from './createSchema'
 import { bdConfig } from '../dbConfig/dbConfig'
 
 export function generatePrismaSchemaFile() {
-	const prismaSchemaContent = createSchemaPrisma(bdConfig)
+	const prismaSchemaContent = createSchema(bdConfig)
 
 	const prismaFolderPath = path.resolve(__dirname, '../../../prisma')
 	const prismaSchemaName = 'schema.prisma'

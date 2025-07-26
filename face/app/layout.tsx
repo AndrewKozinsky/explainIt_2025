@@ -1,6 +1,6 @@
 import React from 'react'
 import type { Metadata } from 'next'
-import MainPageLayout from '../_pages/mainPageLayout/MainPageLayout/MainPageLayout'
+import MainPageLayout from '../_pages/main/mainPageLayout/MainPageLayout/MainPageLayout'
 
 export const metadata: Metadata = {
 	title: 'Курс английского языка',

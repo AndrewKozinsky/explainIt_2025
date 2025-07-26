@@ -1,24 +1,30 @@
 import React from 'react'
-import Bar from '../PageTopBar/Bar'
 import './PageWrapper.scss'
+import Bar from '../pageTopBar/PageTopBar/Bar'
 
 type PageWrapperProps = {
+	top?: boolean
+	bottom?: boolean
 	// Содержимое страницы
 	children: React.ReactNode
 }
 
 export function PageWrapper(props: PageWrapperProps) {
-	const { children } = props
+	const { top = false, bottom = false, children } = props
 
 	return (
 		<div className='page-wrapper' data-testid='page-wrapper'>
-			<header className='page-wrapper__top'>
-				<Bar position='top' />
-			</header>
+			{top && (
+				<header className='page-wrapper__top'>
+					<Bar />
+				</header>
+			)}
 			<div className='page-wrapper__middle'>{children}</div>
-			<footer className='page-wrapper__bottom'>
-				<Bar position='bottom' />
-			</footer>
+			{bottom && (
+				<footer className='page-wrapper__bottom'>
+					<Bar />
+				</footer>
+			)}
 		</div>
 	)
 }

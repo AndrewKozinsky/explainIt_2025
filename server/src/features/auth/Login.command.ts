@@ -50,12 +50,38 @@ export class LoginHandler implements ICommandHandler<LoginCommand> {
 				throw new CustomGraphQLError(errorMessage.noSessionObject, ErrorCode.InternalServerError_500)
 			}
 
+			// req.session is
+			/*Session {
+				cookie: {
+					path: '/',
+						_expires: 2025-08-25T09:13:56.992Z,
+						originalMaxAge: 2592000000,
+						httpOnly: true,
+						secure: false,
+						sameSite: 'lax'
+				}
+			}*/
+
 			req.session.userId = user.id
 			req.session.clientIP = clientIP
 			req.session.clientName = clientName
 
 			req.session.save((err) => {
 				if (err) {
+					console.log(err)
+					// err is
+					/*ReplyError: ERR syntax error at parseError (/app/node_modules/redis-parser/lib/parser.js:179:12)
+					at parseType (/app/node_modules/redis-parser/lib/parser.js:302:14) {
+						command: {
+							name: 'set',
+								args: [
+								'sessionsXRp1IDeIvjPUevSQ3rP5PVO3YhC8Flx3',
+								'{"cookie":{"originalMaxAge":2592000000,"expires":"2025-08-25T09:18:13.369Z","secure":false,"httpOnly":true,"path":"/","sameSite":"lax"},"userId":2,"clientIP":"192.168.65.1","clientName":"Chrome 138.0.0.0"}',
+								'[object Object]'
+							]
+						}
+					}*/
+
 					return reject(
 						new CustomGraphQLError(errorMessage.cannotSaveSession, ErrorCode.InternalServerError_500),
 					)

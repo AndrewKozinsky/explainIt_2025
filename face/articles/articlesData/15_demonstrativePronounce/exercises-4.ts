@@ -102,9 +102,7 @@ const exercises_4: ExercisesType.ExercisesObj = {
 		{
 			rusSentence: 'Это ожерелье.',
 			engSentences: [{ engSentences: ['This is a necklace.'], isCorrect: true }],
-			words: [
-				{ rusWord: 'ожерелье', engWord: 'necklace' },
-			],
+			words: [{ rusWord: 'ожерелье', engWord: 'necklace' }],
 		},
 	],
 }

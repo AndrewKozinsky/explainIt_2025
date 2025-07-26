@@ -1,4 +1,5 @@
 import { INestApplication } from '@nestjs/common'
+import { CommandBus } from '@nestjs/cqrs'
 import { App } from 'supertest/types'
 import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 import RouteNames from '../../src/infrastructure/routeNames'
@@ -18,6 +19,7 @@ it('1', () => {
 
 describe.skip('Register user (e2e)', () => {
 	let app: INestApplication<App>
+	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
 	let userRepository: UserRepository
 	let userQueryRepository: UserQueryRepository
@@ -26,14 +28,15 @@ describe.skip('Register user (e2e)', () => {
 		const createMainAppRes = await createApp({ emailAdapter })
 
 		app = createMainAppRes.app
-		// commandBus = app.get(CommandBus)
+		commandBus = app.get(CommandBus)
+		commandBus = app.get(CommandBus)
 		emailAdapter = createMainAppRes.emailAdapter
 		userRepository = await app.resolve(UserRepository)
 		userQueryRepository = await app.resolve(UserQueryRepository)
 	})
 
 	beforeEach(async () => {
-		await beforeEachTest(app)
+		await beforeEachTest(app, commandBus)
 	})
 
 	afterEach(async () => {

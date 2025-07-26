@@ -45,7 +45,6 @@ export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
 				restart: 'unless-stopped',
 				container_name: 'explainredis' + mode,
 				ports: getRedisPort(mode),
-				environment: getRedisEnvs(),
 				env_file:['.env.' + mode],
 				volumes: ['redis_data:/data'],
 			},
@@ -143,17 +142,10 @@ function getPostgresEnvs() {
 	}
 }
 
-/** Returns environment variables for Postgres  */
-function getRedisEnvs() {
-	return {
-		REDIS_PASSWORD: '${REDIS_PASSWORD}'
-	}
-}
-
 function getPostgresPort(mode: Mode) {
 	const portMapper: Record<Mode, [string]> = {
 		[Mode.localTest]: ['5443:5432'],
-		[Mode.localDev]: ['5444:5432'],
+		[Mode.localDev]: ['5443:5432'],
 		[Mode.localCheckServer]: ['5445:5432'],
 		[Mode.serverDevelop]: ['5446:5432'],
 		[Mode.serverMaster]: ['5447:5432'],

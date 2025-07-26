@@ -15,10 +15,6 @@ export const errorMessage = {
 	// AUTH
 	sessionTokenIsNotValid: 'Токен сессии недействителен.',
 
-	// AI
-	parcelBoxTypeDidNotCreated: 'Тип посыльного ящика не создан.',
-	parcelBoxTypeDoesNotExist: 'Тип посыльного ящика не найден.',
-
 	// INPUT DATA
 	// wrongInputData: 'Неверные значения полей.',
 
@@ -32,7 +28,7 @@ export const errorMessage = {
 
 	// STRINGS
 	mustBeString(name: string) {
-		return name + ' must be a string'
+		return name + ' должен быть строкой.'
 	},
 	minCharacters(num: number) {
 		return 'Минимальное количество символов: ' + num
@@ -49,13 +45,13 @@ export const errorMessage = {
 
 	// ARRAY
 	mustBeArray(name: string) {
-		return name + ' must be an array.'
+		return name + ' должен быть массивом.'
 	},
 	mustBeArrayOfStrings(name: string) {
-		return name + ' must be an array of strings.'
+		return name + ' должен быть массивом строк.'
 	},
 	mustBeArrayOfMongoDBStrings(name: string) {
-		return name + ' must be an array of mongoId strings.'
+		return name + ' должен быть массивом строк mongoId.'
 	},
 
 	// MICK
@@ -63,6 +59,9 @@ export const errorMessage = {
 	cannotFinishSession: 'Не удалось завершить сессию.',
 	unknownDbError: 'Неизвестная ошибка в базе данных.',
 	unknownError: 'Неизвестная ошибка сервера.',
-	cannotSaveSession: 'Не возможно сохранить сессию',
-	// onlyDevMode: 'It works only in development mode.',
+	cannotSaveSession: 'Невозможно сохранить сессию',
+	onlyDevMode: 'Работает только в режиме разработки.',
+
+	// YOOKASSA
+	yookassaCannotCreatePayment: 'Не удалось создать платеж .',
 }

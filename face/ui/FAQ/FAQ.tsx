@@ -2,7 +2,7 @@
 
 import React from 'react'
 import cn from 'classnames'
-import CloseButton from '../buttons/CloseButton/CloseButton'
+import CloseButton from '@/ui/formRelated/buttons/CloseButton/CloseButton'
 import { FaqStoreType } from './fn/faqStoreTypes'
 import FaqTypes from './fn/faqTypes'
 import { useGetOpenCloseAnswer } from './fn/openCloseAnswer'

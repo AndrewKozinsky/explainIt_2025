@@ -5,4 +5,5 @@ export type UserServiceModel = {
 	emailConfirmationCode: string | null
 	confirmationCodeExpirationDate: string | null
 	isEmailConfirmed: boolean
+	balance: number
 }

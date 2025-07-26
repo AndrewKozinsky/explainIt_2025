@@ -1,10 +1,10 @@
 import React from 'react'
-import ArticleType from '../../../../articles/articleTypes/articleType'
-import { BreadCrumbs } from '../../../../ui/pageRelated/BreadCrumbs/BreadCrumbs'
-import { PageContentWrapper } from '../../../../ui/pageRelated/PageContentWrapper/PageContentWrapper'
 import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'
+import ArticleType from '../../../../articles/articleTypes/articleType'
+import { BreadCrumbs } from '@/ui/pageRelated/BreadCrumbs/BreadCrumbs'
+import { PageContentWrapper } from '../../../../ui/pageRelated/PageContentWrapper/PageContentWrapper'
 import ArticleArticleContent from '../ArticleArticleContent/ArticleArticleContent'
-import { PageUrls } from '../../../../сonsts/pageUrls'
+import { pageUrls } from '../../../../сonsts/pageUrls'
 
 import CourseArticlePageHeader from '../CourceArticlePageHeader/CourceArticlePageHeader'
 
@@ -22,9 +22,9 @@ function CourseArticlePage(props: CourseLevelPageProps) {
 	const { prevArticle, article, nextArticle } = props
 
 	return (
-		<PageWrapper>
+		<PageWrapper top bottom>
 			<PageContentWrapper>
-				<BreadCrumbs items={[PageUrls.course]} />
+				<BreadCrumbs items={[pageUrls.course]} />
 				<CourseArticlePageHeader article={article} />
 				<ArticleArticleContent prevArticle={prevArticle} article={article} nextArticle={nextArticle} />
 			</PageContentWrapper>

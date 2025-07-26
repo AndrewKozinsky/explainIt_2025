@@ -35,7 +35,7 @@ export const bdConfig = {
 				match: /[0-9A-Za-z!"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~]/,
 				matchErrorMessage:
 					'Password must have min length is 6 and max length is 30 and contains letters, numbers and other symbols',
-				description: "User's password",
+				description: 'User\'s password',
 				example: '$1Hn[595n8]T',
 				required: true,
 			},
@@ -47,12 +47,12 @@ export const bdConfig = {
 			email: {
 				type: 'email',
 				unique: true,
-				description: "User's email",
+				description: 'User\'s email',
 				required: true,
 			},
 			password: {
 				type: 'string',
-				description: "Hashed user's password",
+				description: 'Hashed user\'s password',
 				example: 'z151JPS16jz151JPS16j',
 				required: true,
 			},
@@ -73,9 +73,108 @@ export const bdConfig = {
 			is_email_confirmed: {
 				type: 'boolean',
 				default: false,
-				description: "Is user's email confirmed",
+				description: 'Is user\'s email confirmed',
 				example: true,
 				required: true,
+			},
+			balance: {
+				type: 'number',
+				description: 'User\'s balance',
+				example: 100,
+				required: true,
+				default: 0,
+			},
+			created_at: {
+				type: 'createdAt',
+			},
+			Payment: {
+				type: 'oneToMany',
+			},
+			BalanceTransaction: {
+				type: 'oneToMany',
+			},
+		},
+	},
+	Payment: {
+		dtoProps: {},
+		dbFields: {
+			id: {
+				type: 'index',
+			},
+			user_id: {
+				type: 'manyToOne',
+				thisField: 'user_id', // Name of the column of this table that refers to another table
+				foreignTable: 'User', // Name of the table that this column refers to
+				foreignField: 'id',
+			},
+			amount: {
+				type: 'number',
+				description: 'Amount of money',
+				required: true,
+				min: 1,
+				max: 10000,
+			},
+			status: {
+				type: 'enum',
+				description: 'Status of payment',
+				required: true,
+				variants: ['PENDING', 'SUCCESS', 'FAILED', 'CANCELED'],
+				default: 'PENDING',
+				enumName: 'PaymentStatus',
+			},
+			provider_name: {
+				type: 'enum',
+				description: 'Name of payment provider (Yookassa or Stripe)',
+				required: true,
+				variants: ['YOOKASSA'],
+				default: 'YOOKASSA',
+				enumName: 'PaymentProviderName',
+			},
+			external_id: {
+				type: 'string',
+				description: 'id of the payment in the payment provider',
+				required: true,
+				unique: true,
+			},
+			created_at: {
+				type: 'createdAt',
+			},
+			updated_at: {
+				type: 'updatedAt',
+			},
+		},
+	},
+	BalanceTransaction: {
+		dtoProps: {},
+		dbFields: {
+			id: {
+				type: 'index',
+			},
+			user_id: {
+				type: 'manyToOne',
+				thisField: 'user_id', // Name of the column of this table that refers to another table
+				foreignTable: 'User', // Name of the table that this column refers to
+				foreignField: 'id',
+			},
+			type: {
+				type: 'enum',
+				description: 'Status of balance changing ',
+				required: true,
+				variants: ['CREDIT', 'DEBIT'],
+				enumName: 'BalanceTransactionStatus',
+			},
+			amount: {
+				type: 'number',
+				description: 'Amount of money',
+				required: true,
+			},
+			payment_id: {
+				type: 'string',
+				description: 'id of the payment in the payment provider (for debit operation)',
+				required: false,
+			},
+			created_at: {
+				type: 'createdAt',
 			},
 		},
 	},

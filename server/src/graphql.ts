@@ -17,10 +17,6 @@ export interface GetTranscriptionInput {
     engSentence: string;
 }
 
-export interface ConfirmEmailInput {
-    code: string;
-}
-
 export interface RegisterUserInput {
     email: string;
     password: string;
@@ -31,8 +27,16 @@ export interface LoginInput {
     password: string;
 }
 
+export interface ConfirmEmailInput {
+    code: string;
+}
+
 export interface ResendConfirmationEmailInput {
     email: string;
+}
+
+export interface TopUpBalanceWithYooKassaInput {
+    amount: number;
 }
 
 export interface UserOutModel {
@@ -40,10 +44,13 @@ export interface UserOutModel {
     email: string;
 }
 
+export interface TopUpBalanceWithYooKassaOutModel {
+    confirmationUrl: string;
+}
+
 export interface IQuery {
     ai_checkTranslation(input: CheckTranslationInput): CheckTranslationOutModel | Promise<CheckTranslationOutModel>;
     ai_getTranscription(input: GetTranscriptionInput): GetTranscriptionOutModel | Promise<GetTranscriptionOutModel>;
-    auth_confirmEmail(input: ConfirmEmailInput): boolean | Promise<boolean>;
     auth_getMe(): UserOutModel | Promise<UserOutModel>;
 }
 
@@ -67,8 +74,10 @@ export interface GetTranscriptionOutErrorModel {
 export interface IMutation {
     auth_register(input: RegisterUserInput): UserOutModel | Promise<UserOutModel>;
     auth_login(input: LoginInput): UserOutModel | Promise<UserOutModel>;
+    auth_confirmEmail(input: ConfirmEmailInput): boolean | Promise<boolean>;
     auth_resendConfirmationEmail(input: ResendConfirmationEmailInput): boolean | Promise<boolean>;
     auth_logout(): boolean | Promise<boolean>;
+    payment_yookassa_top_up_balance(input: TopUpBalanceWithYooKassaInput): TopUpBalanceWithYooKassaOutModel | Promise<TopUpBalanceWithYooKassaOutModel>;
 }
 
 export type CheckTranslationOutModel = CheckTranslationOutSuccessModel | CheckTranslationOutErrorModel;
