@@ -46,7 +46,7 @@ export class MainConfigService {
 				shopId: enVariables.yooKassa.shopId,
 				secretKey: enVariables.yooKassa.secretKey,
 			},
-			openAi: {
+			openAI: {
 				apiKey: enVariables.openAi.apiKey,
 			},
 		}

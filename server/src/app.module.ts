@@ -7,6 +7,7 @@ import { HashAdapterModule } from './infrastructure/hashAdapter/hash-adapter.mod
 import { MainConfigModule } from './infrastructure/mainConfig/mainConfig.module'
 import { MainConfigService } from './infrastructure/mainConfig/mainConfig.service'
 import { join } from 'path'
+import { OpenAIModule } from './infrastructure/openAI/openAI.module'
 import { RedisModule } from './infrastructure/redis/redis.module'
 import { YooKassaModule } from './infrastructure/yooKassa/yooKassa.module'
 import { AiModule } from './routes/ai/ai.module'
@@ -44,6 +45,7 @@ import { WebhookModule } from './routes/webhook/webhook.module'
 		AuthModule,
 		TelegramModule,
 		GigaChatModule,
+		OpenAIModule,
 		DbModule,
 		RedisModule,
 		PaymentModule,
