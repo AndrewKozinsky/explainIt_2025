@@ -4,7 +4,7 @@ import { ErrorCode } from '../../infrastructure/exceptions/errorCode'
 import { errorMessage } from '../../infrastructure/exceptions/errorMessage'
 import { DBRepository } from '../../repo/db.repository'
 import { PaymentRepository } from '../../repo/payment.repository'
-import { TransactionRepository } from '../../repo/transaction.repository'
+import { BalanceTransactionRepository } from '../../repo/balanceTransaction.repository'
 import { UserRepository } from '../../repo/user.repository'
 
 export class SetPaymentResultWithYooKassaCommand implements ICommand {
@@ -16,11 +16,12 @@ export class SetPaymentResultWithYooKassaCommand implements ICommand {
 	) {}
 }
 
+// Этот командный обработчик будет вызываться при получении ответа от ЮKassa при оплате
 @CommandHandler(SetPaymentResultWithYooKassaCommand)
 export class SetPaymentResultWithYooKassaHandler implements ICommandHandler<SetPaymentResultWithYooKassaCommand> {
 	constructor(
 		private paymentRepository: PaymentRepository,
-		private transactionRepository: TransactionRepository,
+		private transactionRepository: BalanceTransactionRepository,
 		private dbRepository: DBRepository,
 		private userRepository: UserRepository,
 	) {}
@@ -32,11 +33,15 @@ export class SetPaymentResultWithYooKassaHandler implements ICommandHandler<SetP
 			try {
 				await this.dbRepository.wrapIntoPrismaTransaction({
 					executableCode: async () => {
-						const { amount, userId } = await this.paymentRepository.makePaymentSuccessful(yooKassaPaymentId)
+						const {
+							amount,
+							userId,
+							id: paymentId,
+						} = await this.paymentRepository.makePaymentSuccessful(yooKassaPaymentId)
 
 						await Promise.all([
 							this.transactionRepository.createTransaction({
-								paymentId: yooKassaPaymentId,
+								paymentId,
 								amount,
 								userId,
 								status: 'debit',

@@ -12,7 +12,7 @@ type DebitTransactionDto = {
 	status: 'debit'
 	userId: number
 	amount: number
-	paymentId: string
+	paymentId: number
 }
 
 type CreditTransactionDto = {
@@ -22,7 +22,7 @@ type CreditTransactionDto = {
 }
 
 @Injectable()
-export class TransactionRepository {
+export class BalanceTransactionRepository {
 	constructor(private prisma: PrismaService) {}
 
 	@CatchDbError()

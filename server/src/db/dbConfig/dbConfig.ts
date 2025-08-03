@@ -146,6 +146,9 @@ export const bdConfig = {
 				required: true,
 				unique: true,
 			},
+			BalanceTransaction: {
+				type: 'parentOneToOne',
+			},
 			created_at: {
 				type: 'createdAt',
 			},
@@ -179,10 +182,17 @@ export const bdConfig = {
 				required: true,
 			},
 			payment_id: {
+				type: 'childOneToOne',
+				thisField: 'payment_id', // Name of the column of this table that refers to another table
+				foreignTable: 'Payment', // Name of the table that this column refers to
+				foreignField: 'id',
+				// required: false,
+			},
+			/*payment_id: {
 				type: 'string',
 				description: 'id of the payment in the payment provider (for debit operation)',
 				required: false,
-			},
+			},*/
 			created_at: {
 				type: 'createdAt',
 			},
