@@ -44,7 +44,7 @@ export class SetPaymentResultWithYooKassaHandler implements ICommandHandler<SetP
 								paymentId,
 								amount,
 								userId,
-								status: 'debit',
+								type: 'PAYMENT',
 							}),
 
 							// Обновить свойство balance у пользователя.

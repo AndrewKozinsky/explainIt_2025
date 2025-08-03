@@ -8,17 +8,11 @@ import { errorMessage } from '../infrastructure/exceptions/errorMessage'
 import { PaymentServiceModel } from '../models/payment/payment.service.model'
 import { TransactionServiceModel } from '../models/transaction/transaction.service.model'
 
-type DebitTransactionDto = {
-	status: 'debit'
+type TransactionDto = {
 	userId: number
 	amount: number
-	paymentId: number
-}
-
-type CreditTransactionDto = {
-	status: 'credit'
-	userId: number
-	amount: number
+	paymentId?: number
+	type: 'PAYMENT' | 'ACCOUNT_CONFIRMATION_WELCOME_BONUS'
 }
 
 @Injectable()
@@ -26,47 +20,27 @@ export class BalanceTransactionRepository {
 	constructor(private prisma: PrismaService) {}
 
 	@CatchDbError()
-	async createTransaction(dto: DebitTransactionDto | CreditTransactionDto) {
-		let createdTransaction: null | BalanceTransaction = null
-
-		try {
-			if (dto.status === 'debit') {
-				createdTransaction = await this.createDebitTransaction(dto)
-			} else if (dto.status === 'credit') {
-				createdTransaction = await this.createCreditTransaction(dto)
-			}
-		} catch (error: unknown) {
-			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
+	async createTransaction(dto: TransactionDto) {
+		if (dto.type === 'PAYMENT' && !dto.paymentId) {
+			throw new CustomGraphQLError('Payment ID is required for payment transactions', ErrorCode.BadRequest_400)
 		}
+
+		const data = {
+			amount: dto.amount,
+			user_id: dto.userId,
+			payment_id: dto.paymentId,
+			type: dto.type,
+		}
+
+		const createdTransaction = await this.prisma.balanceTransaction.create({
+			data,
+		})
 
 		if (!createdTransaction) {
 			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
 		}
 
 		return this.mapDbTransactionToServiceTransaction(createdTransaction)
-	}
-
-	@CatchDbError()
-	private createDebitTransaction(dto: DebitTransactionDto) {
-		return this.prisma.balanceTransaction.create({
-			data: {
-				type: 'DEBIT',
-				amount: dto.amount,
-				user_id: dto.userId,
-				payment_id: dto.paymentId,
-			},
-		})
-	}
-
-	@CatchDbError()
-	private createCreditTransaction(dto: CreditTransactionDto) {
-		return this.prisma.balanceTransaction.create({
-			data: {
-				type: 'CREDIT',
-				amount: dto.amount,
-				user_id: dto.userId,
-			},
-		})
 	}
 
 	mapDbTransactionToServiceTransaction(dbTransaction: BalanceTransaction): TransactionServiceModel {

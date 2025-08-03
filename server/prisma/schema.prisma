@@ -18,20 +18,8 @@ model User {
     is_user_confirmed                       Boolean              @default(false)
     balance                                 Int                  @default(0)
     created_at                              DateTime             @default(now())
-    Payment                                 Payment[]
     BalanceTransaction                      BalanceTransaction[]
-}
-
-model Payment {
-    id            Int                 @id @default(autoincrement())
-    user          User                @relation(fields: [user_id], references: [id])
-    user_id       Int
-    amount        Int
-    status        PaymentStatus       @default(PENDING)
-    provider_name PaymentProviderName @default(YOOKASSA)
-    external_id   String              @unique
-    created_at    DateTime            @default(now())
-    updated_at    DateTime            @default(now())
+    Payment                                 Payment[]
 }
 
 model BalanceTransaction {
@@ -40,8 +28,27 @@ model BalanceTransaction {
     user_id    Int
     type       BalanceTransactionStatus
     amount     Int
-    payment_id String?
+    payment    Payment?                 @relation(fields: [payment_id], references: [id])
+    payment_id Int?                     @unique
     created_at DateTime                 @default(now())
+}
+
+model Payment {
+    id                 Int                 @id @default(autoincrement())
+    user               User                @relation(fields: [user_id], references: [id])
+    user_id            Int
+    amount             Int
+    status             PaymentStatus       @default(PENDING)
+    provider_name      PaymentProviderName @default(YOOKASSA)
+    external_id        String              @unique
+    BalanceTransaction BalanceTransaction?
+    created_at         DateTime            @default(now())
+    updated_at         DateTime            @default(now())
+}
+
+enum BalanceTransactionStatus {
+    PAYMENT
+    ACCOUNT_CONFIRMATION_WELCOME_BONUS
 }
 
 enum PaymentStatus {
@@ -53,9 +60,4 @@ enum PaymentStatus {
 
 enum PaymentProviderName {
     YOOKASSA
-}
-
-enum BalanceTransactionStatus {
-    CREDIT
-    DEBIT
 }

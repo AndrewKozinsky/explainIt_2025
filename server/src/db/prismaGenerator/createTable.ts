@@ -64,7 +64,7 @@ export function createTable(tableName: string, tableConfig: BdConfig.Table) {
 		} else if (field.type === 'oneToMany') {
 			columnsArr.push(createOneToMany(dbFieldName))
 		} else if (field.type === 'parentOneToOne') {
-			columnsArr.push(createParentOneToOne(dbFieldName))
+			columnsArr.push(createParentOneToOne(dbFieldName, field))
 		} else if (field.type === 'childOneToOne') {
 			columnsArr.push(...createChildOneToOneColumn(field))
 		}

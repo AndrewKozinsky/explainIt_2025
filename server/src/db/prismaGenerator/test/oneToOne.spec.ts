@@ -15,6 +15,7 @@ export const bdTestConfig = {
 			},
 			Sender: {
 				type: 'parentOneToOne',
+				required: true,
 			},
 		},
 	},
@@ -29,6 +30,7 @@ export const bdTestConfig = {
 				thisField: 'user_id',
 				foreignTable: 'User',
 				foreignField: 'id',
+				required: true,
 			},
 		},
 	},

@@ -23,11 +23,11 @@ export class PaymentRepository {
 	}
 
 	@CatchDbError()
-	async createPayment(dto: { userId: number; amount: number; externalId: string }) {
+	async createPayment(dto: { userId: number; amount: number; externalPaymentId: string }) {
 		const newPaymentParams = {
 			user_id: dto.userId,
 			amount: dto.amount,
-			external_id: dto.externalId,
+			external_id: dto.externalPaymentId,
 		}
 
 		const payment = await this.prisma.payment.create({

@@ -29,7 +29,7 @@ export class TopUpBalanceWithYooKassaHandler implements ICommandHandler<TopUpBal
 			userId,
 			// Amount in rubles, but the DB store amount in kopecks
 			amount: Math.round(createPaymentWithYooKassaInput.amount * 100),
-			externalId: yooKassaPaymentId,
+			externalPaymentId: yooKassaPaymentId,
 		})
 
 		return { confirmationUrl }

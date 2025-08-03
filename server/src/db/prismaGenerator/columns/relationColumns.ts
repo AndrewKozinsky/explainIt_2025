@@ -49,6 +49,8 @@ export function createManyToOneColumn(fieldConfig: BdConfig.ManyToOneField) {
  * @param fieldConfig
  */
 export function createChildOneToOneColumn(fieldConfig: BdConfig.ChildOneToOneField) {
+	const unnecessaryFieldSign = fieldConfig.required ? '' : '?'
+
 	// Get first column name from thisField name: userId -> user OR user_id -> user
 	let firstColumnName = fieldConfig.thisField.slice(0, -2)
 	if (firstColumnName.endsWith('_')) {
@@ -57,11 +59,11 @@ export function createChildOneToOneColumn(fieldConfig: BdConfig.ChildOneToOneFie
 
 	// Creates such string:
 	// 'user User @relation(fields: [user_id], references: [id])'
-	const str1 = `${firstColumnName} ${fieldConfig.foreignTable} @relation(fields: [${fieldConfig.thisField}], references: [${fieldConfig.foreignField}])`
+	const str1 = `${firstColumnName} ${fieldConfig.foreignTable}${unnecessaryFieldSign} @relation(fields: [${fieldConfig.thisField}], references: [${fieldConfig.foreignField}])`
 
 	// Creates such string:
 	// 'user_id Int	@unique'
-	const str2 = `${fieldConfig.thisField} Int	@unique`
+	const str2 = `${fieldConfig.thisField} Int${unnecessaryFieldSign}	@unique`
 
 	return ['\t' + str1, '\t' + str2]
 }
@@ -70,6 +72,8 @@ export function createOneToMany(dbFieldName: string) {
 	return `\t${dbFieldName}	${dbFieldName}[]`
 }
 
-export function createParentOneToOne(dbFieldName: string) {
-	return `\t${dbFieldName}	${dbFieldName}?`
+export function createParentOneToOne(dbFieldName: string, fieldConfig: BdConfig.ParentOneToOneField) {
+	const unnecessaryFieldSign = fieldConfig.required ? '' : '?'
+
+	return `\t${dbFieldName}	${dbFieldName}${unnecessaryFieldSign}`
 }

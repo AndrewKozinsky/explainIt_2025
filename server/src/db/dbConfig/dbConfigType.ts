@@ -167,6 +167,7 @@ export namespace BdConfig {
 
 	export type ParentOneToOneField = {
 		type: 'parentOneToOne'
+		required: boolean
 	}
 
 	export type ChildOneToOneField = {
@@ -174,5 +175,6 @@ export namespace BdConfig {
 		thisField: string // Name of the column of this table that refers to another table
 		foreignTable: string // Name of the table that this column refers to
 		foreignField: string // Name of the column of foreign table that this column refers to
+		required: boolean
 	}
 }

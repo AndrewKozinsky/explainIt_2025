@@ -97,14 +97,51 @@ export const bdConfig = {
 			created_at: {
 				type: 'createdAt',
 			},
-			Payment: {
+			BalanceTransaction: {
 				type: 'oneToMany',
 			},
-			BalanceTransaction: {
+			Payment: {
 				type: 'oneToMany',
 			},
 		},
 	},
+	BalanceTransaction: {
+		dtoProps: {},
+		dbFields: {
+			id: {
+				type: 'index',
+			},
+			user_id: {
+				type: 'manyToOne',
+				thisField: 'user_id', // Name of the column of this table that refers to another table
+				foreignTable: 'User', // Name of the table that this column refers to
+				foreignField: 'id',
+			},
+			type: {
+				type: 'enum',
+				description: 'Status of balance changing ',
+				required: true,
+				variants: ['PAYMENT', 'ACCOUNT_CONFIRMATION_WELCOME_BONUS'],
+				enumName: 'BalanceTransactionStatus',
+			},
+			amount: {
+				type: 'number',
+				description: 'Amount of money: negative or positive number',
+				required: true,
+			},
+			Payment: {
+				type: 'childOneToOne',
+				thisField: 'payment_id', // Name of the column of this table that refers to another table
+				foreignTable: 'Payment', // Name of the table that this column refers to
+				foreignField: 'id',
+				required: false,
+			},
+			created_at: {
+				type: 'createdAt',
+			},
+		},
+	},
+	// User increases his balance with payment
 	Payment: {
 		dtoProps: {},
 		dbFields: {
@@ -148,53 +185,13 @@ export const bdConfig = {
 			},
 			BalanceTransaction: {
 				type: 'parentOneToOne',
+				required: false,
 			},
 			created_at: {
 				type: 'createdAt',
 			},
 			updated_at: {
 				type: 'updatedAt',
-			},
-		},
-	},
-	BalanceTransaction: {
-		dtoProps: {},
-		dbFields: {
-			id: {
-				type: 'index',
-			},
-			user_id: {
-				type: 'manyToOne',
-				thisField: 'user_id', // Name of the column of this table that refers to another table
-				foreignTable: 'User', // Name of the table that this column refers to
-				foreignField: 'id',
-			},
-			type: {
-				type: 'enum',
-				description: 'Status of balance changing ',
-				required: true,
-				variants: ['CREDIT', 'DEBIT'],
-				enumName: 'BalanceTransactionStatus',
-			},
-			amount: {
-				type: 'number',
-				description: 'Amount of money',
-				required: true,
-			},
-			payment_id: {
-				type: 'childOneToOne',
-				thisField: 'payment_id', // Name of the column of this table that refers to another table
-				foreignTable: 'Payment', // Name of the table that this column refers to
-				foreignField: 'id',
-				// required: false,
-			},
-			/*payment_id: {
-				type: 'string',
-				description: 'id of the payment in the payment provider (for debit operation)',
-				required: false,
-			},*/
-			created_at: {
-				type: 'createdAt',
 			},
 		},
 	},
