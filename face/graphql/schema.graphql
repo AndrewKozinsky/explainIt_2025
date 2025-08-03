@@ -114,4 +114,5 @@ type TopUpBalanceWithYooKassaOutModel {
 type UserOutModel {
   email: String!
   id: Int!
+  isUserConfirmed: Boolean!
 }

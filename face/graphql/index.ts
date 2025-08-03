@@ -170,6 +170,7 @@ export type UserOutModel = {
   __typename?: 'UserOutModel';
   email: Scalars['String']['output'];
   id: Scalars['Int']['output'];
+  isUserConfirmed: Scalars['Boolean']['output'];
 };
 
 export type AiCheckTranslationVariables = Exact<{
@@ -204,14 +205,14 @@ export type Auth_LoginVariables = Exact<{
 }>;
 
 
-export type Auth_Login = { __typename?: 'Mutation', auth_login: { __typename?: 'UserOutModel', id: number, email: string } };
+export type Auth_Login = { __typename?: 'Mutation', auth_login: { __typename?: 'UserOutModel', id: number, email: string, isUserConfirmed: boolean } };
 
 export type Auth_Login_With_OAuthVariables = Exact<{
   input: LoginWithOAuthInput;
 }>;
 
 
-export type Auth_Login_With_OAuth = { __typename?: 'Mutation', auth_login_with_OAuth: { __typename?: 'UserOutModel', id: number, email: string } };
+export type Auth_Login_With_OAuth = { __typename?: 'Mutation', auth_login_with_OAuth: { __typename?: 'UserOutModel', id: number, email: string, isUserConfirmed: boolean } };
 
 export type Auth_LogoutVariables = Exact<{ [key: string]: never; }>;
 
@@ -403,6 +404,7 @@ export const Auth_LoginDocument = gql`
   auth_login(input: $input) {
     id
     email
+    isUserConfirmed
   }
 }
     `;
@@ -437,6 +439,7 @@ export const Auth_Login_With_OAuthDocument = gql`
   auth_login_with_OAuth(input: $input) {
     id
     email
+    isUserConfirmed
   }
 }
     `;

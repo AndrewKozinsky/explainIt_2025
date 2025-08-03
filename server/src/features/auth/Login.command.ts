@@ -2,11 +2,15 @@ import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { CustomGraphQLError } from '../../infrastructure/exceptions/customErrors'
 import { ErrorCode } from '../../infrastructure/exceptions/errorCode'
 import { errorMessage } from '../../infrastructure/exceptions/errorMessage'
-import { LoginInputModel } from '../../models/auth/auth.input.model'
 import { UserOutModel } from '../../models/user/user.out.model'
 import { UserRepository } from '../../repo/user.repository'
 import { Request } from 'express'
 import { UserQueryRepository } from 'src/repo/user.queryRepository'
+
+class LoginInputModel {
+	email: string
+	password: string
+}
 
 export class LoginCommand implements ICommand {
 	constructor(
