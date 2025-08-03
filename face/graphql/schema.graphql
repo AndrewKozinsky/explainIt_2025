@@ -45,12 +45,23 @@ input LoginInput {
   password: String!
 }
 
+input LoginWithOAuthInput {
+  """Code to get user data from OAuth provider"""
+  code: String!
+
+  """Provider type: github, google, yandex"""
+  providerType: String!
+}
+
 type Mutation {
   """Email confirmation"""
   auth_confirmEmail(input: ConfirmEmailInput!): Boolean!
 
   """User login"""
   auth_login(input: LoginInput!): UserOutModel!
+
+  """User login with OAuth"""
+  auth_login_with_OAuth(input: LoginWithOAuthInput!): UserOutModel!
 
   """Current user logout"""
   auth_logout: Boolean!

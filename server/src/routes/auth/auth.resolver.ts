@@ -5,6 +5,7 @@ import { ConfirmEmailCommand } from '../../features/auth/ConfirmEmail.command'
 import { CreateUserCommand } from '../../features/auth/CreateUser.command'
 import { GetUserByIdCommand } from '../../features/auth/GetUserById.command'
 import { LoginCommand } from '../../features/auth/Login.command'
+import { LoginWithOAuthCommand } from '../../features/auth/LoginWithOAuth.command'
 import { LogoutCommand } from '../../features/auth/Logout.command'
 import { ResendConfirmationEmailCommand } from '../../features/auth/ResendConfirmationEmail.command'
 import { BrowserService } from '../../infrastructure/browserService/browser.service'
@@ -13,6 +14,7 @@ import RouteNames from '../../infrastructure/routeNames'
 import { UserOutModel } from '../../models/user/user.out.model'
 import { ConfirmEmailInput } from './inputs/confirmEmail.input'
 import { LoginInput } from './inputs/login.input'
+import { LoginWithOAuthInput } from './inputs/loginWithOAuth.input'
 import { RegisterUserInput } from './inputs/registerUser.input'
 import { ResendConfirmationEmailInput } from './inputs/resendConfirmationEmail.input'
 import { authResolversDesc } from './resolverDescriptions'
@@ -44,6 +46,18 @@ export class AuthResolver {
 		const clientName = this.browserService.getClientName(request)
 
 		return await this.commandBus.execute(new LoginCommand(request, input, clientIP, clientName))
+	}
+
+	@Mutation(() => UserOutModel, {
+		name: RouteNames.AUTH.LOGIN_WITH_OAUTH,
+		description: authResolversDesc.loginWithOAuth,
+	})
+	@UsePipes(new ValidationPipe({ transform: true })) // Убери, скорее всего будет работать без него потому что это уже установлено
+	async loginWithOAuth(@Args('input') input: LoginWithOAuthInput, @Context('req') request: Request) {
+		const clientIP = this.browserService.getClientIP(request)
+		const clientName = this.browserService.getClientName(request)
+
+		return await this.commandBus.execute(new LoginWithOAuthCommand(request, input, clientIP, clientName))
 	}
 
 	@Mutation(() => Boolean, {

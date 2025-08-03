@@ -37,6 +37,10 @@ export const bdConfig = {
 					'Password must have min length is 6 and max length is 30 and contains letters, numbers and other symbols',
 				description: 'User\'s password',
 				example: '$1Hn[595n8]T',
+				required: false,
+			},
+			codeToGetUserDataFromOAuthProvider: {
+				type: 'string',
 				required: true,
 			},
 		},
@@ -54,7 +58,7 @@ export const bdConfig = {
 				type: 'string',
 				description: 'Hashed user\'s password',
 				example: 'z151JPS16jz151JPS16j',
-				required: true,
+				required: false,
 			},
 			email_confirmation_code: {
 				type: 'string',
@@ -75,6 +79,12 @@ export const bdConfig = {
 				default: false,
 				description: 'Is user\'s email confirmed',
 				example: true,
+				required: true,
+			},
+			is_user_confirmed: {
+				type: 'boolean',
+				default: false,
+				description: 'Is user account confirmed with a social network',
 				required: true,
 			},
 			balance: {

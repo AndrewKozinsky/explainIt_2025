@@ -49,6 +49,23 @@ export class MainConfigService {
 			openAI: {
 				apiKey: enVariables.openAi.apiKey,
 			},
+			oauth: {
+				github: {
+					clientId: enVariables.oauth.github.clientId,
+					redirectUrl: enVariables.oauth.github.redirectUrl,
+					clientSecret: enVariables.oauth.github.clientSecret,
+				},
+				google: {
+					clientId: enVariables.oauth.google.clientId,
+					redirectUrl: enVariables.oauth.google.redirectUrl,
+					clientSecret: enVariables.oauth.google.clientSecret,
+				},
+				yandex: {
+					clientId: enVariables.oauth.yandex.clientId,
+					redirectUrl: enVariables.oauth.yandex.redirectUrl,
+					clientSecret: enVariables.oauth.yandex.clientSecret,
+				},
+			},
 		}
 	}
 
@@ -75,6 +92,23 @@ export class MainConfigService {
 			},
 			openAi: {
 				apiKey: this.configService.get<string>('OPENAI_API_KEY') as string,
+			},
+			oauth: {
+				github: {
+					clientId: this.configService.get<string>('NEXT_PUBLIC_OAUTH_GITHUB_CLIENT_ID'),
+					redirectUrl: this.configService.get<string>('NEXT_PUBLIC_OAUTH_GITHUB_REDIRECT_URL'),
+					clientSecret: this.configService.get<string>('OAUTH_GITHUB_CLIENT_SECRET'),
+				},
+				google: {
+					clientId: this.configService.get<string>('NEXT_PUBLIC_OAUTH_GOOGLE_CLIENT_ID'),
+					redirectUrl: this.configService.get<string>('NEXT_PUBLIC_OAUTH_GOOGLE_REDIRECT_URL'),
+					clientSecret: this.configService.get<string>('OAUTH_GOOGLE_CLIENT_SECRET'),
+				},
+				yandex: {
+					clientId: this.configService.get<string>('NEXT_PUBLIC_OAUTH_YANDEX_CLIENT_ID'),
+					redirectUrl: this.configService.get<string>('NEXT_PUBLIC_OAUTH_YANDEX_REDIRECT_URL'),
+					clientSecret: this.configService.get<string>('OAUTH_YANDEX_CLIENT_SECRET'),
+				},
 			},
 		}
 	}

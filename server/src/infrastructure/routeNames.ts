@@ -3,6 +3,7 @@ export const RouteNames = {
 		REGISTER: 'auth_register',
 		CONFIRM_EMAIL: 'auth_confirmEmail',
 		LOGIN: 'auth_login',
+		LOGIN_WITH_OAUTH: 'auth_login_with_OAuth',
 		RESEND_CONFIRMATION_EMAIL: 'auth_resendConfirmationEmail',
 		FORGET_PASSWORD: 'auth_forgetPassword',
 		GET_ME: 'auth_getMe',

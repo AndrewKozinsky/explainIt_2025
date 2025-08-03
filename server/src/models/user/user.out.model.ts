@@ -7,4 +7,7 @@ export class UserOutModel {
 
 	@Field(() => String)
 	email: string
+
+	@Field(() => Boolean)
+	isUserConfirmed: boolean
 }

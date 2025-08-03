@@ -41,7 +41,7 @@ services:
       context: server/
       dockerfile: Dockerfile.server
     restart: unless-stopped
-    command: yarn start:prod
+    command: npm start:prod
     container_name: explainserverlocalcheckserver
     depends_on:
       - explainpostgreslocalcheckserver
@@ -55,7 +55,7 @@ services:
       context: face/
       dockerfile: Dockerfile.server
     restart: unless-stopped
-    command: yarn run start
+    command: npm run start
     container_name: explainfacelocalcheckserver
     depends_on:
       - explainpostgreslocalcheckserver

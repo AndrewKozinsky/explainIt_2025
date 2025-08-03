@@ -8,6 +8,7 @@ export const authResolversDesc: Record<keyof typeof AuthResolver.prototype, stri
 	**${errorMessage.emailIsNotConfirmed}** — the user is already registered, but doesn't confirm his email.
 	**${errorMessage.emailIsAlreadyRegistered}** — the user is already registered and confirmed his email.`,
 	login: 'User login',
+	loginWithOAuth: 'User login with OAuth',
 	confirmEmail: 'Email confirmation',
 	getMe: 'Get current user data',
 	logout: 'Current user logout',

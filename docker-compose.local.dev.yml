@@ -44,7 +44,7 @@ services:
     volumes:
       - ./server/src:/app/src
       - ./server/e2e:/app/e2e
-    command: yarn start:dev
+    command: npm run start:dev
     container_name: explainserverlocaldev
     depends_on:
       - explainpostgreslocaldev
@@ -63,7 +63,7 @@ services:
     volumes:
       - ./face:/app
       - ./face:/public
-    command: yarn run dev
+    command: npm run dev
     container_name: explainfacelocaldev
     depends_on:
       - explainpostgreslocaldev

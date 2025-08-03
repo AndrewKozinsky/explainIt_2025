@@ -66,12 +66,21 @@ export type LoginInput = {
   password: Scalars['String']['input'];
 };
 
+export type LoginWithOAuthInput = {
+  /** Code to get user data from OAuth provider */
+  code: Scalars['String']['input'];
+  /** Provider type: github, google, yandex */
+  providerType: Scalars['String']['input'];
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   /** Email confirmation */
   auth_confirmEmail: Scalars['Boolean']['output'];
   /** User login */
   auth_login: UserOutModel;
+  /** User login with OAuth */
+  auth_login_with_OAuth: UserOutModel;
   /** Current user logout */
   auth_logout: Scalars['Boolean']['output'];
   /**
@@ -95,6 +104,11 @@ export type MutationAuth_ConfirmEmailArgs = {
 
 export type MutationAuth_LoginArgs = {
   input: LoginInput;
+};
+
+
+export type MutationAuth_Login_With_OAuthArgs = {
+  input: LoginWithOAuthInput;
 };
 
 
@@ -191,6 +205,13 @@ export type Auth_LoginVariables = Exact<{
 
 
 export type Auth_Login = { __typename?: 'Mutation', auth_login: { __typename?: 'UserOutModel', id: number, email: string } };
+
+export type Auth_Login_With_OAuthVariables = Exact<{
+  input: LoginWithOAuthInput;
+}>;
+
+
+export type Auth_Login_With_OAuth = { __typename?: 'Mutation', auth_login_with_OAuth: { __typename?: 'UserOutModel', id: number, email: string } };
 
 export type Auth_LogoutVariables = Exact<{ [key: string]: never; }>;
 
@@ -411,6 +432,40 @@ export function useAuth_Login(baseOptions?: Apollo.MutationHookOptions<Auth_Logi
 export type Auth_LoginHookResult = ReturnType<typeof useAuth_Login>;
 export type Auth_LoginMutationResult = Apollo.MutationResult<Auth_Login>;
 export type Auth_LoginMutationOptions = Apollo.BaseMutationOptions<Auth_Login, Auth_LoginVariables>;
+export const Auth_Login_With_OAuthDocument = gql`
+    mutation Auth_login_with_OAuth($input: LoginWithOAuthInput!) {
+  auth_login_with_OAuth(input: $input) {
+    id
+    email
+  }
+}
+    `;
+export type Auth_Login_With_OAuthMutationFn = Apollo.MutationFunction<Auth_Login_With_OAuth, Auth_Login_With_OAuthVariables>;
+
+/**
+ * __useAuth_Login_With_OAuth__
+ *
+ * To run a mutation, you first call `useAuth_Login_With_OAuth` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useAuth_Login_With_OAuth` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [authLoginWithOAuth, { data, loading, error }] = useAuth_Login_With_OAuth({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useAuth_Login_With_OAuth(baseOptions?: Apollo.MutationHookOptions<Auth_Login_With_OAuth, Auth_Login_With_OAuthVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<Auth_Login_With_OAuth, Auth_Login_With_OAuthVariables>(Auth_Login_With_OAuthDocument, options);
+      }
+export type Auth_Login_With_OAuthHookResult = ReturnType<typeof useAuth_Login_With_OAuth>;
+export type Auth_Login_With_OAuthMutationResult = Apollo.MutationResult<Auth_Login_With_OAuth>;
+export type Auth_Login_With_OAuthMutationOptions = Apollo.BaseMutationOptions<Auth_Login_With_OAuth, Auth_Login_With_OAuthVariables>;
 export const Auth_LogoutDocument = gql`
     mutation Auth_logout {
   auth_logout

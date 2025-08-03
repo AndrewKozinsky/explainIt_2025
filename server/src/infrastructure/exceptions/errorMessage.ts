@@ -14,6 +14,8 @@ export const errorMessage = {
 
 	// AUTH
 	sessionTokenIsNotValid: 'Токен сессии недействителен.',
+	cannotGetAccessTokenForOAuthProvider: 'Не получилось получить токен доступа у поставщика OAuth.',
+	cannotGetUserDataFromOAuthProvider: 'Не получилось получить данные о пользователе у поставщика OAuth.',
 
 	// INPUT DATA
 	// wrongInputData: 'Неверные значения полей.',

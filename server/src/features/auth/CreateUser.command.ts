@@ -1,14 +1,14 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { EmailAdapterService } from '../../infrastructure/emailAdapter/email-adapter.service'
+import { RegisterUserInputModel } from '../../models/auth/auth.input.model'
 import { UserQueryRepository } from '../../repo/user.queryRepository'
 import { UserRepository } from '../../repo/user.repository'
 import { CustomGraphQLError } from '../../infrastructure/exceptions/customErrors'
 import { ErrorCode } from '../../infrastructure/exceptions/errorCode'
 import { errorMessage } from '../../infrastructure/exceptions/errorMessage'
-import { RegisterUserInput } from '../../routes/auth/inputs/registerUser.input'
 
 export class CreateUserCommand implements ICommand {
-	constructor(public createUserInput: RegisterUserInput) {}
+	constructor(public createUserInput: RegisterUserInputModel) {}
 }
 
 @CommandHandler(CreateUserCommand)

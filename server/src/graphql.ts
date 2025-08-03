@@ -27,6 +27,11 @@ export interface LoginInput {
     password: string;
 }
 
+export interface LoginWithOAuthInput {
+    providerType: string;
+    code: string;
+}
+
 export interface ConfirmEmailInput {
     code: string;
 }
@@ -42,6 +47,7 @@ export interface TopUpBalanceWithYooKassaInput {
 export interface UserOutModel {
     id: number;
     email: string;
+    isUserConfirmed: boolean;
 }
 
 export interface TopUpBalanceWithYooKassaOutModel {
@@ -74,6 +80,7 @@ export interface GetTranscriptionOutErrorModel {
 export interface IMutation {
     auth_register(input: RegisterUserInput): UserOutModel | Promise<UserOutModel>;
     auth_login(input: LoginInput): UserOutModel | Promise<UserOutModel>;
+    auth_login_with_OAuth(input: LoginWithOAuthInput): UserOutModel | Promise<UserOutModel>;
     auth_confirmEmail(input: ConfirmEmailInput): boolean | Promise<boolean>;
     auth_resendConfirmationEmail(input: ResendConfirmationEmailInput): boolean | Promise<boolean>;
     auth_logout(): boolean | Promise<boolean>;

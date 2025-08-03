@@ -8,6 +8,7 @@ import Button from '../../../../ui/formRelated/buttons/Button/Button'
 import FormError from '../../../../ui/formRelated/FormError/FormError'
 import FormFieldsWrapper from '../../../../ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
 import TextInput from '../../../../ui/formRelated/TextInput/TextInput'
+import OAuthButtons from '../../../../ui/OAuthButtons/OAuthButtons'
 import { FormStatus } from '../../../../utils/forms'
 import { pageUrls } from '../../../../сonsts/pageUrls'
 import { LoginFormData, loginFormSchema, LoginFormTest } from './fn/form'
@@ -33,32 +34,35 @@ function AuthLoginForm() {
 	}
 
 	return (
-		<form onSubmit={handleSubmit(onSubmit)} data-testid={LoginFormTest.form.id}>
-			<FormFieldsWrapper>
-				<TextInput
-					label='Почта'
-					error={errors.email?.message}
-					disabled={['success', 'submitting'].includes(formStatus)}
-					dataTestId={LoginFormTest.emailField.id}
-					{...register('email', { required: true })}
-				/>
-				<TextInput
-					label='Пароль'
-					error={errors.password?.message}
-					disabled={['success', 'submitting'].includes(formStatus)}
-					dataTestId={LoginFormTest.passwordField.id}
-					{...register('password', { required: true })}
-				/>
-				<Button
-					type='submit'
-					disabled={['success', 'submitting'].includes(formStatus)}
-					dataTestId={LoginFormTest.submitButton.id}
-				>
-					Войти
-				</Button>
-				<FormError text={formError} dataTestId={LoginFormTest.failMessage.id} />
-			</FormFieldsWrapper>
-		</form>
+		<div>
+			<OAuthButtons />
+			<form onSubmit={handleSubmit(onSubmit)} data-testid={LoginFormTest.form.id}>
+				<FormFieldsWrapper>
+					<TextInput
+						label='Почта'
+						error={errors.email?.message}
+						disabled={['success', 'submitting'].includes(formStatus)}
+						dataTestId={LoginFormTest.emailField.id}
+						{...register('email', { required: true })}
+					/>
+					<TextInput
+						label='Пароль'
+						error={errors.password?.message}
+						disabled={['success', 'submitting'].includes(formStatus)}
+						dataTestId={LoginFormTest.passwordField.id}
+						{...register('password', { required: true })}
+					/>
+					<Button
+						type='submit'
+						disabled={['success', 'submitting'].includes(formStatus)}
+						dataTestId={LoginFormTest.submitButton.id}
+					>
+						Войти
+					</Button>
+					<FormError text={formError} dataTestId={LoginFormTest.failMessage.id} />
+				</FormFieldsWrapper>
+			</form>
+		</div>
 	)
 }
 

@@ -38,6 +38,9 @@ jobs:
             # Copy env file to server folder because it needs for migrations
             cp .env.serverdevelop server/.env
           
+            # Copy env file to face folder because it needs for getting oauth client id
+            cp .env.serverdevelop face/.env
+          
             # Rewrite POSTGRES_CONTAINER and POSTGRES_PORT environment variables because it needs for migrationns
             cd server
             sed -i -e 's/^POSTGRES_CONTAINER=.*/POSTGRES_CONTAINER=0.0.0.0/' \
@@ -45,5 +48,5 @@ jobs:
           
             # Run Prisma migrations
             cd server
-            yarn run migrate:deploy
+            npm run migrate:deploy
           EOF
