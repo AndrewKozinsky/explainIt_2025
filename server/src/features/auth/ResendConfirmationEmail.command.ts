@@ -30,12 +30,7 @@ export class ResendConfirmationEmailHandler implements ICommandHandler<ResendCon
 			throw new CustomGraphQLError(errorMessage.emailIsAlreadyConfirmed, ErrorCode.BadRequest_400)
 		}
 
-		const confirmationCode = createUniqString()
-
-		await this.userRepository.updateUser(user.id, {
-			email_confirmation_code: confirmationCode,
-			email_confirmation_code_expiration_date: addDays(new Date(), 3).toISOString(),
-		})
+		const confirmationCode = await this.userRepository.setNewEmailVerifiedCode(user.id)
 
 		this.emailAdapter.sendEmailConfirmationMessage(email, confirmationCode)
 

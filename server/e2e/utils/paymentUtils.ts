@@ -1,7 +1,7 @@
 import { INestApplication } from '@nestjs/common'
 import { agent as request } from 'supertest'
 import { App } from 'supertest/types'
-import { queries } from '../../src/features/test/queries'
+import { queries } from '../../src/features/db/queries'
 import { MainConfigService } from '../../src/infrastructure/mainConfig/mainConfig.service'
 import RouteNames from '../../src/infrastructure/routeNames'
 import { PaymentRepository } from '../../src/repo/payment.repository'

@@ -9,7 +9,7 @@ import { makeGraphQLReqWithTokens } from '../makeGQReq'
 import { authUtils } from '../utils/authUtils'
 import { defUserEmail, defUserPassword } from '../utils/common'
 import { createApp } from '../utils/createApp'
-import { queries } from '../../src/features/test/queries'
+import { queries } from '../../src/features/db/queries'
 import { userUtils } from '../utils/userUtils'
 import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
 
@@ -17,7 +17,7 @@ it('1', () => {
 	expect(2).toBe(2)
 })
 
-describe.skip('Get me (e2e)', () => {
+/*describe('Get me (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
@@ -71,4 +71,4 @@ describe.skip('Get me (e2e)', () => {
 			email: defUserEmail,
 		})
 	})
-})
+})*/

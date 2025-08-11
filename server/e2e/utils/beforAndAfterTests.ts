@@ -5,8 +5,8 @@ import { clearAllDB } from './clearDB'
 
 export async function beforeEachTest(app: INestApplication, commandBus: CommandBus) {
 	await clearAllDB(app)
-	jest.clearAllMocks()
 	await seedTestData(commandBus)
+	jest.clearAllMocks()
 }
 
 export async function afterEachTest(app: INestApplication) {}

@@ -17,12 +17,21 @@ class LoginWithOAuthInputModel {
 	code: string
 }
 
+type UserDataFromProvider = {
+	email: string
+	name: string
+}
+
 export class LoginWithOAuthCommand implements ICommand {
 	constructor(
-		public request: Request,
-		public loginWithOAuthInput: LoginWithOAuthInputModel,
-		public clientIP: string,
-		public clientName: string,
+		public input: {
+			request: Request
+			loginWithOAuthInput: LoginWithOAuthInputModel
+			clientIP: string
+			clientName: string
+			// I want to pass specified email and name for seeding a database
+			overrideDataFromProvider?: UserDataFromProvider
+		},
 	) {}
 }
 
@@ -36,25 +45,9 @@ export class LoginWithOAuthHandler implements ICommandHandler<LoginWithOAuthComm
 	) {}
 
 	async execute(command: LoginWithOAuthCommand) {
-		const { request, loginWithOAuthInput, clientIP, clientName } = command
-		const { code, providerType } = loginWithOAuthInput
+		const { request, loginWithOAuthInput, clientIP, clientName, overrideDataFromProvider } = command.input
 
-		let accessToken = await this.getAccessToken(code, providerType)
-
-		if (!accessToken) {
-			throw new CustomGraphQLError(errorMessage.cannotGetAccessTokenForOAuthProvider, ErrorCode.BadRequest_400)
-		}
-
-		let userData = await this.getUserDataFromOAuthProvider(accessToken, providerType)
-
-		if (!userData) {
-			throw new CustomGraphQLError(
-				errorMessage.cannotGetUserDataFromOAuthProvider,
-				ErrorCode.InternalServerError_500,
-			)
-		}
-
-		const { email } = userData
+		const { email } = await this.getUserDataFromOAuthCode(loginWithOAuthInput, overrideDataFromProvider)
 
 		const user = await this.userRepository.getUserByEmail(email)
 
@@ -73,6 +66,34 @@ export class LoginWithOAuthHandler implements ICommandHandler<LoginWithOAuthComm
 		}
 
 		return await this.saveSession(request, outUser, clientIP, clientName)
+	}
+
+	async getUserDataFromOAuthCode(
+		loginWithOAuthInput: LoginWithOAuthInputModel,
+		overrideDataFromProvider?: UserDataFromProvider,
+	): Promise<UserDataFromProvider> {
+		if (overrideDataFromProvider) {
+			return overrideDataFromProvider
+		}
+
+		const { code, providerType } = loginWithOAuthInput
+
+		let accessToken = await this.getAccessToken(code, providerType)
+
+		if (!accessToken) {
+			throw new CustomGraphQLError(errorMessage.cannotGetAccessTokenForOAuthProvider, ErrorCode.BadRequest_400)
+		}
+
+		let userData = await this.getUserDataFromOAuthProvider(accessToken, providerType)
+
+		if (!userData) {
+			throw new CustomGraphQLError(
+				errorMessage.cannotGetUserDataFromOAuthProvider,
+				ErrorCode.InternalServerError_500,
+			)
+		}
+
+		return userData
 	}
 
 	async getAccessToken(code: string, providerType: OAuthProviderType) {
@@ -147,10 +168,10 @@ export class LoginWithOAuthHandler implements ICommandHandler<LoginWithOAuthComm
 	async getUserDataFromOAuthProvider(
 		accessToken: string,
 		providerType: OAuthProviderType,
-	): Promise<null | { name: null | string; email: string }> {
+	): Promise<null | UserDataFromProvider> {
 		const getUserDataMapper: Record<
 			OAuthProviderType,
-			(accessToken: string) => Promise<null | { name: null | string; email: string }>
+			(accessToken: string) => Promise<null | UserDataFromProvider>
 		> = {
 			github: this.getUserDataFromGitHub,
 			google: this.getUserDataFromGoogle,

@@ -9,7 +9,7 @@ import RouteNames from '../../src/infrastructure/routeNames'
 import { makeGraphQLReq } from '../makeGQReq'
 import { defUserEmail, defUserPassword } from '../utils/common'
 import { createApp } from '../utils/createApp'
-import { queries } from '../../src/features/test/queries'
+import { queries } from '../../src/features/db/queries'
 import { userUtils } from '../utils/userUtils'
 import { UserRepository } from '../../src/repo/user.repository'
 
@@ -17,7 +17,7 @@ it('1', () => {
 	expect(2).toBe(2)
 })
 
-describe.skip('User login (e2e)', () => {
+/*describe.skip('User login (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
@@ -100,4 +100,4 @@ describe.skip('User login (e2e)', () => {
 
 		userUtils.checkSessionCookie(loginRespCookies)
 	})
-})
+})*/

@@ -34,7 +34,7 @@ export class ApolloExceptionFilter implements ExceptionFilter {
 				validationErrors = (res as any).message
 			}
 
-			console.log(validationErrors)
+			// console.log(validationErrors)
 
 			errorResponse = {
 				errors: [

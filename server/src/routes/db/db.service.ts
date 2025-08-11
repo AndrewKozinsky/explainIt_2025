@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common'
-import {DBRepository} from '../../repo/db.repository'
+import { DBRepository } from '../../repo/db.repository'
 
 @Injectable()
 export class DbService {

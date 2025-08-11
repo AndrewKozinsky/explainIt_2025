@@ -10,14 +10,14 @@ import { makeGraphQLReq } from '../makeGQReq'
 import { checkErrorResponse } from '../utils/checkErrorResp'
 import { defUserEmail, defUserPassword } from '../utils/common'
 import { createApp } from '../utils/createApp'
-import { queries } from '../../src/features/test/queries'
+import { queries } from '../../src/features/db/queries'
 import { userUtils } from '../utils/userUtils'
 
 it('1', () => {
 	expect(2).toBe(2)
 })
 
-describe.skip('Confirm an user email (e2e)', () => {
+/*describe.skip('Confirm an user email (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
@@ -128,4 +128,4 @@ describe.skip('Confirm an user email (e2e)', () => {
 
 		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(1)
 	})
-})
+})*/

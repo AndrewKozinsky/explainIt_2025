@@ -8,7 +8,7 @@ import { UserRepository } from '../../src/repo/user.repository'
 import { makeGraphQLReq } from '../makeGQReq'
 import { checkErrorResponse } from '../utils/checkErrorResp'
 import { createApp } from '../utils/createApp'
-import { queries } from '../../src/features/test/queries'
+import { queries } from '../../src/features/db/queries'
 import { userUtils } from '../utils/userUtils'
 import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
 
@@ -16,7 +16,7 @@ it('1', () => {
 	expect(2).toBe(2)
 })
 
-describe.skip('Confirm an user email (e2e)', () => {
+/*describe('Confirm an user email (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
@@ -39,7 +39,7 @@ describe.skip('Confirm an user email (e2e)', () => {
 		await afterEachTest(app)
 	})
 
-	it('should return error if wrong confirmation code was passed', async () => {
+	it.only('should return error if wrong confirmation code was passed', async () => {
 		const confirmEmailQuery = queries.auth.confirmEmail('123')
 		const [confirmEmailResp] = await makeGraphQLReq(app, confirmEmailQuery)
 
@@ -134,4 +134,4 @@ describe.skip('Confirm an user email (e2e)', () => {
 
 		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(1)
 	})
-})
+})*/

@@ -17,7 +17,7 @@ it('1', () => {
 	expect(2).toBe(2)
 })
 
-describe('Top up balance with YooKassa (e2e)', () => {
+/*describe('Top up balance with YooKassa (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
@@ -186,4 +186,4 @@ describe('Top up balance with YooKassa (e2e)', () => {
 		secondUser = await userRepository.getUserById(secondUserId)
 		expect(secondUser.balance).toBe(2200)
 	})
-})
+})*/

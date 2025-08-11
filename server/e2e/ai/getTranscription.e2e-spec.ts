@@ -6,14 +6,14 @@ import { GigaChatService } from '../../src/infrastructure/gigaChat/gigaChat.serv
 import RouteNames from '../../src/infrastructure/routeNames'
 import { makeGraphQLReq } from '../makeGQReq'
 import { createApp } from '../utils/createApp'
-import { queries } from '../../src/features/test/queries'
+import { queries } from '../../src/features/db/queries'
 import { aiDataChecker } from './aiDataChecker'
 
 it('1', () => {
 	expect(2).toBe(2)
 })
 
-describe.skip('AI get transcription (e2e)', () => {
+/*describe.skip('AI get transcription (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let gigaChatService: GigaChatService
@@ -55,4 +55,4 @@ describe.skip('AI get transcription (e2e)', () => {
 		aiDataChecker.getTranscription.checkSuccessRes(getTranscriptionResp)
 		expect(getTranscriptionResp.data[RouteNames.AI.GET_TRANSCRIPTION]).toEqual({ transcription: 'aɪ lʌv ju:' })
 	})
-})
+})*/

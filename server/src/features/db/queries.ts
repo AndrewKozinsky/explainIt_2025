@@ -1,4 +1,5 @@
 import RouteNames from '../../infrastructure/routeNames'
+import { OAuthProviderType } from '../../routes/auth/inputs/loginWithOAuth.input'
 
 export const queries = {
 	auth: {
@@ -10,6 +11,19 @@ export const queries = {
 			  }) {
 				id
 				email
+				isUserConfirmed
+			  }
+			}`
+		},
+		loginUserWithOAuth(props: { providerType: OAuthProviderType; code: string }) {
+			return `mutation {
+			  ${RouteNames.AUTH.LOGIN_WITH_OAUTH}(input: {
+				providerType: "${props.providerType}",
+				code: "${props.code}"
+			  }) {
+				id
+				email
+				isUserConfirmed
 			  }
 			}`
 		},

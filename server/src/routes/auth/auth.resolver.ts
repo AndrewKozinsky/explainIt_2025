@@ -57,7 +57,9 @@ export class AuthResolver {
 		const clientIP = this.browserService.getClientIP(request)
 		const clientName = this.browserService.getClientName(request)
 
-		return await this.commandBus.execute(new LoginWithOAuthCommand(request, input, clientIP, clientName))
+		return await this.commandBus.execute(
+			new LoginWithOAuthCommand({ request, loginWithOAuthInput: input, clientIP, clientName }),
+		)
 	}
 
 	@Mutation(() => Boolean, {

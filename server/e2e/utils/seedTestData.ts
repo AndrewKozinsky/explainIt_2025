@@ -1,5 +1,5 @@
 import { CommandBus, ICommand } from '@nestjs/cqrs'
-import { SeedTestDataCommand } from '../../src/features/test/SeedTestData.command'
+import { SeedTestDataCommand } from '../../src/features/db/SeedTestData.command'
 
 /**
  * Seed database with some data for testing.

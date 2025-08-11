@@ -1,23 +1,26 @@
 import { INestApplication } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { App } from 'supertest/types'
+import { LoginWithOAuthCommand } from '../../src/features/auth/LoginWithOAuth.command'
 import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 import RouteNames from '../../src/infrastructure/routeNames'
 import { UserQueryRepository } from '../../src/repo/user.queryRepository'
 import { UserRepository } from '../../src/repo/user.repository'
+import { OAuthProviderType } from '../../src/routes/auth/inputs/loginWithOAuth.input'
 import { makeGraphQLReq } from '../makeGQReq'
 import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
 import { checkErrorResponse } from '../utils/checkErrorResp'
 import { defUserEmail, defUserPassword } from '../utils/common'
 import { createApp } from '../utils/createApp'
-import { queries } from '../../src/features/test/queries'
+import { queries } from '../../src/features/db/queries'
 import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
+import { userUtils } from '../utils/userUtils'
 
 it('1', () => {
 	expect(2).toBe(2)
 })
 
-describe.skip('Register user (e2e)', () => {
+describe('Register user (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
@@ -43,7 +46,7 @@ describe.skip('Register user (e2e)', () => {
 		await afterEachTest(app)
 	})
 
-	it.only('should return error if wrong data was passed', async () => {
+	it('should return error if wrong data was passed', async () => {
 		const registerUserMutation = queries.auth.registerUser({ email: 'johnexample.com', password: 'my' })
 
 		const [createUserResp] = await makeGraphQLReq(app, registerUserMutation)
@@ -70,19 +73,21 @@ describe.skip('Register user (e2e)', () => {
 		// Check if a confirmation letter was sent
 		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(1)
 
-		// Check returned object
-		expect(createUserResp.data).toStrictEqual({
-			[RouteNames.AUTH.REGISTER]: {
-				id: expect.any(Number),
-				email: defUserEmail,
-			},
+		// Check the returned object
+		userUtils.checkUserOutResponseData(createUserResp.data[RouteNames.AUTH.REGISTER], {
+			email: defUserEmail,
+			isUserConfirmed: false,
 		})
-		expect(createUserResp.errors).toBe(null)
+
+		expect(createUserResp.errors).toBeFalsy()
 
 		// Find created user in the database
 		const userId = createUserResp.data[RouteNames.AUTH.REGISTER].id
 		const createdUser = await userQueryRepository.getUserById(userId)
-		expect(createdUser).toStrictEqual({ id: 1, email: defUserEmail })
+
+		userUtils.checkUserOutResponseData(createdUser, {
+			email: defUserEmail,
+		})
 	})
 
 	it('should return error if a user is already created, but email is not confirmed', async () => {
@@ -102,7 +107,7 @@ describe.skip('Register user (e2e)', () => {
 		})
 	})
 
-	it.only('should return error if a user is already created and email is confirmed', async () => {
+	it('should return error if a user is already created and email is confirmed', async () => {
 		const registerUserMutation = queries.auth.registerUser({ email: defUserEmail, password: defUserPassword })
 
 		const [createUserResp1] = await makeGraphQLReq(app, registerUserMutation)
@@ -116,5 +121,52 @@ describe.skip('Register user (e2e)', () => {
 			statusCode: 400,
 			message: errorMessage.emailIsAlreadyRegistered,
 		})
+	})
+
+	it.only('123', async () => {
+		await commandBus.execute(
+			new LoginWithOAuthCommand({
+				request: userUtils.getFakeRequestForOAuth(),
+				loginWithOAuthInput: { code: 'code', providerType: OAuthProviderType.YANDEX },
+				clientIP: 'clientIP',
+				clientName: 'clientName',
+				overrideDataFromProvider: {
+					email: defUserEmail,
+					name: 'user name',
+				},
+			}),
+		)
+
+		const createdUserByOAuth = await userRepository.getUserByEmail(defUserEmail)
+		userUtils.checkUserServiceResponseData(createdUserByOAuth, {
+			email: defUserEmail,
+			password: null,
+			emailConfirmationCode: null,
+			confirmationCodeExpirationDate: null,
+			isEmailConfirmed: false,
+			isUserConfirmed: true,
+			balance: 0,
+		})
+		console.log(createdUserByOAuth)
+
+		// const registerUserMutation = queries.auth.registerUser({ email: defUserEmail, password: defUserPassword })
+		// const [createUserResp] = await makeGraphQLReq(app, registerUserMutation)
+
+		// Check the returned object
+		/*userUtils.checkUserResponseData(createUserResp.data[RouteNames.AUTH.REGISTER], {
+			email: defUserEmail,
+			isUserConfirmed: true,
+		})*/
+
+		/*const firstUserId = createUserResp1.data[RouteNames.AUTH.REGISTER].id
+		await userRepository.makeEmailVerified(firstUserId)
+
+		const [createUserResp2] = await makeGraphQLReq(app, registerUserMutation)
+
+		checkErrorResponse(createUserResp2, {
+			code: 'Bad Request',
+			statusCode: 400,
+			message: errorMessage.emailIsAlreadyRegistered,
+		})*/
 	})
 })

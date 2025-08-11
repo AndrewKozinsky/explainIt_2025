@@ -67,15 +67,25 @@ export class UserRepository {
 	}
 
 	@CatchDbError()
-	async createUser(dto: { email: string; password?: string; isUserConfirmed?: boolean }) {
+	async createUserByCredentials(dto: { email: string; password: string }) {
 		const newUserParams = {
 			email: dto.email,
 			password: dto.password ? await this.hashAdapter.hashString(dto.password) : null,
-			email_confirmation_code: createUniqString(),
-			email_confirmation_code_expiration_date: add(new Date(), {
-				days: 3,
-			}).toISOString(),
-			is_user_confirmed: !!dto.isUserConfirmed,
+			...this.newConfirmationCodeData(),
+		}
+
+		const user = await this.prisma.user.create({
+			data: newUserParams,
+		})
+
+		return this.mapDbUserToServiceUser(user)
+	}
+
+	@CatchDbError()
+	async createUserByOAuth(dto: { email: string }) {
+		const newUserParams = {
+			email: dto.email,
+			is_user_confirmed: true,
 		}
 
 		const user = await this.prisma.user.create({
@@ -110,12 +120,31 @@ export class UserRepository {
 	}
 
 	@CatchDbError()
+	async setNewEmailVerifiedCode(userId: number) {
+		const newConfirmationCodeData = this.newConfirmationCodeData()
+
+		await this.updateUser(userId, newConfirmationCodeData)
+
+		return newConfirmationCodeData.email_confirmation_code
+	}
+
+	@CatchDbError()
 	async makeEmailVerified(userId: number) {
 		await this.updateUser(userId, {
 			email_confirmation_code: null,
 			is_email_confirmed: true,
 			email_confirmation_code_expiration_date: null,
 		})
+	}
+
+	newConfirmationCodeData() {
+		return {
+			email_confirmation_code: createUniqString(),
+			email_confirmation_code_expiration_date: add(new Date(), {
+				days: 3,
+			}).toISOString(),
+			is_email_confirmed: false,
+		}
 	}
 
 	mapDbUserToServiceUser(dbUser: User): UserServiceModel {

@@ -6,14 +6,14 @@ import { CustomGraphQLError } from '../../infrastructure/exceptions/customErrors
 import { ErrorCode } from '../../infrastructure/exceptions/errorCode'
 import { errorMessage } from '../../infrastructure/exceptions/errorMessage'
 
-export class RegisterUserInputModel {
+export class CreateUserInputModel {
 	email: string
 	password?: string
 	isUserConfirmed?: boolean
 }
 
 export class CreateUserCommand implements ICommand {
-	constructor(public createUserInput: RegisterUserInputModel) {}
+	constructor(public createUserInput: CreateUserInputModel) {}
 }
 
 @CommandHandler(CreateUserCommand)
@@ -30,6 +30,17 @@ export class CreateUserHandler implements ICommandHandler<CreateUserCommand> {
 		const existingUser = await this.userRepository.getUserByEmail(createUserInput.email)
 
 		if (existingUser) {
+			// If a user has already registered with OAuth...
+			if (!existingUser.password && !existingUser.isEmailConfirmed) {
+				// Set new email verification code...
+				const confirmationCode = await this.userRepository.setNewEmailVerifiedCode(existingUser.id)
+
+				// Send email confirmation message
+				await this.emailAdapter.sendEmailConfirmationMessage(existingUser.email, confirmationCode)
+				return await this.userQueryRepository.getUserById(existingUser.id)
+			}
+
+			// If a user has already registered with email and password...
 			const errMessage = existingUser.isEmailConfirmed
 				? errorMessage.emailIsAlreadyRegistered
 				: errorMessage.emailIsNotConfirmed
@@ -37,6 +48,7 @@ export class CreateUserHandler implements ICommandHandler<CreateUserCommand> {
 			throw new CustomGraphQLError(errMessage, ErrorCode.BadRequest_400)
 		}
 
+		// User does not exist, create a new one
 		const createdUser = await this.userRepository.createUser(createUserInput)
 
 		const newUser = await this.userQueryRepository.getUserById(createdUser.id)

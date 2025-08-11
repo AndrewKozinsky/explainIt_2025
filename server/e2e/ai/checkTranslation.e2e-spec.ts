@@ -5,14 +5,14 @@ import { GigaChatService } from '../../src/infrastructure/gigaChat/gigaChat.serv
 import RouteNames from '../../src/infrastructure/routeNames'
 import { makeGraphQLReq } from '../makeGQReq'
 import { createApp } from '../utils/createApp'
-import { queries } from '../../src/features/test/queries'
+import { queries } from '../../src/features/db/queries'
 import { aiDataChecker } from './aiDataChecker'
 
 it('1', () => {
 	expect(2).toBe(2)
 })
 
-describe.skip('Ai check translation (e2e)', () => {
+/*describe.skip('Ai check translation (e2e)', () => {
 	let app: INestApplication<App>
 	let gigaChatService: GigaChatService
 	let emailAdapter: EmailAdapterService
@@ -62,4 +62,4 @@ describe.skip('Ai check translation (e2e)', () => {
 			expect(checkTranslationResp.data[RouteNames.AI.CHECK_TRANSLATION]).toEqual(gigaChatResultObj[i])
 		}
 	})
-})
+})*/

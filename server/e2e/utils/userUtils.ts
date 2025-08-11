@@ -1,11 +1,13 @@
 import { INestApplication } from '@nestjs/common'
+import { Request } from 'express'
 import RouteNames from '../../src/infrastructure/routeNames'
 import { UserServiceModel } from '../../src/models/auth/auth.service.model'
 import { UserOutModel } from '../../src/models/user/user.out.model'
 import { UserRepository } from '../../src/repo/user.repository'
 import { makeGraphQLReq } from '../makeGQReq'
 import { defUserEmail, defUserPassword } from './common'
-import { queries } from '../../src/features/test/queries'
+import { queries } from '../../src/features/db/queries'
+import { z } from 'zod'
 
 export const userUtils = {
 	async createUserWithUnconfirmedEmail(props: {
@@ -113,5 +115,95 @@ export const userUtils = {
 				sameSite: 'Lax',
 			}),
 		})
+	},
+
+	checkUserOutResponseData(user: any, checks?: { id?: number; email?: string; isUserConfirmed?: boolean }) {
+		expect(user).toEqual({
+			id: expect.any(Number),
+			email: expect.any(String),
+			isUserConfirmed: expect.any(Boolean),
+		})
+
+		if (checks?.id) {
+			expect(user.id).toBe(checks.id)
+		}
+		if (checks?.email) {
+			expect(user.email).toBe(checks.email)
+		}
+		if (checks?.isUserConfirmed !== undefined) {
+			expect(user.isUserConfirmed).toBe(checks.isUserConfirmed)
+		}
+	},
+
+	checkUserServiceResponseData(
+		user: any,
+		checks?: {
+			id?: number
+			email?: string
+			password?: null | string
+			emailConfirmationCode?: null | string
+			confirmationCodeExpirationDate?: null | string
+			isEmailConfirmed?: boolean
+			isUserConfirmed?: boolean
+			balance?: number
+		},
+	) {
+		const userDataSchema = z
+			.object({
+				id: z.number(),
+				email: z.string(),
+				password: z.string().nullable(),
+				emailConfirmationCode: z.string().nullable(),
+				confirmationCodeExpirationDate: z.string().nullable(),
+				isEmailConfirmed: z.boolean(),
+				isUserConfirmed: z.boolean(),
+				balance: z.number(),
+			})
+			.strict()
+
+		const parsed = userDataSchema.safeParse(user)
+
+		if (!parsed.success) {
+			throw new Error(`Invalid user object: ${parsed.error.message}`)
+		}
+
+		if (checks?.id) {
+			expect(user.id).toBe(checks.id)
+		}
+		if (checks?.email) {
+			expect(user.email).toBe(checks.email)
+		}
+		if (checks.password !== undefined) {
+			if (checks.password === null) expect(user.password).toBe(null)
+			else expect(typeof user.password).toBe('string')
+		}
+		if (checks.emailConfirmationCode !== undefined) {
+			if (checks.emailConfirmationCode === null) expect(user.emailConfirmationCode).toBe(null)
+			else expect(typeof user.emailConfirmationCode).toBe('string')
+		}
+		if (checks.confirmationCodeExpirationDate !== undefined) {
+			if (checks.confirmationCodeExpirationDate === null) expect(user.confirmationCodeExpirationDate).toBe(null)
+			else expect(typeof user.confirmationCodeExpirationDate).toBe('string')
+		}
+		if (checks?.isEmailConfirmed !== undefined) {
+			expect(user.isEmailConfirmed).toBe(checks.isEmailConfirmed)
+		}
+		if (checks?.isUserConfirmed !== undefined) {
+			expect(user.isUserConfirmed).toBe(checks.isUserConfirmed)
+		}
+		if (checks?.balance !== undefined) {
+			expect(user.balance).toBe(checks.balance)
+		}
+	},
+
+	getFakeRequestForOAuth() {
+		return {
+			session: {
+				userId: null,
+				clientIP: null,
+				clientName: null,
+				save: (callback: (err?: any) => void) => callback(null),
+			},
+		} as any as Request
 	},
 }
