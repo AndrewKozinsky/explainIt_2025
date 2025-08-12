@@ -66,6 +66,7 @@ export class MainConfigService {
 					clientSecret: enVariables.oauth.yandex.clientSecret,
 				},
 			},
+			welcomeBonus: parseInt(enVariables.welcomeBonus),
 		}
 	}
 
@@ -110,6 +111,8 @@ export class MainConfigService {
 					clientSecret: this.configService.get<string>('OAUTH_YANDEX_CLIENT_SECRET'),
 				},
 			},
+			// User gets this amount on balance if he confirms his personality with OAuth
+			welcomeBonus: this.configService.get<string>('WELCOME_BONUS') as string,
 		}
 	}
 }

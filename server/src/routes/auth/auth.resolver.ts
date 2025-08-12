@@ -2,7 +2,8 @@ import { UseGuards, UsePipes, ValidationPipe } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql'
 import { ConfirmEmailCommand } from '../../features/auth/ConfirmEmail.command'
-import { CreateUserCommand } from '../../features/auth/CreateUser.command'
+import { CreateUserWithEmailCommand } from '../../features/auth/CreateUserWithEmail.command'
+import { CreateUserWithEmailAndPasswordCommand } from '../../features/auth/CreateUserWithEmailAndPassword.command'
 import { GetUserByIdCommand } from '../../features/auth/GetUserById.command'
 import { LoginCommand } from '../../features/auth/Login.command'
 import { LoginWithOAuthCommand } from '../../features/auth/LoginWithOAuth.command'
@@ -33,7 +34,7 @@ export class AuthResolver {
 	})
 	@UsePipes(new ValidationPipe({ transform: true })) // Убери, скорее всего будет работать без него потому что это уже установлено
 	async register(@Args('input') input: RegisterUserInput) {
-		return await this.commandBus.execute(new CreateUserCommand(input))
+		return await this.commandBus.execute(new CreateUserWithEmailAndPasswordCommand(input))
 	}
 
 	@Mutation(() => UserOutModel, {

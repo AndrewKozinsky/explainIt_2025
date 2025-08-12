@@ -1,12 +1,11 @@
 import { CommandBus, CommandHandler, ICommandHandler } from '@nestjs/cqrs'
 import { UserRepository } from 'src/repo/user.repository'
-import { makeGraphQLReq } from '../../../e2e/makeGQReq'
 import { OAuthProviderType } from '../../routes/auth/inputs/loginWithOAuth.input'
 import { ConfirmEmailCommand } from '../auth/ConfirmEmail.command'
-import { CreateUserCommand } from '../auth/CreateUser.command'
+import { CreateUserWithEmailCommand } from '../auth/CreateUserWithEmail.command'
+import { CreateUserWithEmailAndPasswordCommand } from '../auth/CreateUserWithEmailAndPassword.command'
 import { LoginWithOAuthCommand } from '../auth/LoginWithOAuth.command'
 import { Request } from 'express'
-import { queries } from './queries'
 import {
 	serverTestDataConfig,
 	userRegisteredWithCredentialsAndOAuthConfig,
@@ -65,12 +64,12 @@ export class SeedTestDataHandler implements ICommandHandler<SeedTestDataCommand>
 	}
 
 	async createUserWithUnconfirmedEmail(userConfig: UserWithUnconfirmedEmailConfig) {
-		const createdUser = await this.commandBus.execute(new CreateUserCommand(userConfig))
+		const createdUser = await this.commandBus.execute(new CreateUserWithEmailCommand(userConfig))
 		return createdUser.id
 	}
 
 	async createUserWithConfirmedEmail(userConfig: userRegisteredWithCredentialsConfig) {
-		const createdUser = await this.commandBus.execute(new CreateUserCommand(userConfig))
+		const createdUser = await this.commandBus.execute(new CreateUserWithEmailAndPasswordCommand(userConfig))
 		if (!createdUser) return null
 
 		const user = await this.userRepository.getUserById(createdUser.id)
@@ -104,9 +103,7 @@ export class SeedTestDataHandler implements ICommandHandler<SeedTestDataCommand>
 	}
 
 	async createUserWithCredentialsAndOAuth(userConfig: userRegisteredWithCredentialsAndOAuthConfig) {
-		const createdUser = await this.commandBus.execute(
-			new CreateUserCommand({ email: userConfig.email, password: userConfig.password }),
-		)
+		const createdUser = await this.commandBus.execute(new CreateUserWithEmailCommand({ email: userConfig.email }))
 
 		await this.commandBus.execute(
 			new LoginWithOAuthCommand({

@@ -9,7 +9,7 @@ import { UserRepository } from '../../repo/user.repository'
 import { Request } from 'express'
 import { UserQueryRepository } from 'src/repo/user.queryRepository'
 import { OAuthProviderType } from '../../routes/auth/inputs/loginWithOAuth.input'
-import { CreateUserCommand } from './CreateUser.command'
+import { CreateUserWithEmailCommand } from './CreateUserWithEmail.command'
 const qs = require('qs')
 
 class LoginWithOAuthInputModel {
@@ -56,7 +56,7 @@ export class LoginWithOAuthHandler implements ICommandHandler<LoginWithOAuthComm
 				await this.userRepository.updateUser(user.id, { is_user_confirmed: true })
 			}
 		} else {
-			const createUserCommand = new CreateUserCommand({ email, isUserConfirmed: true })
+			const createUserCommand = new CreateUserWithEmailCommand({ email })
 			await this.commandBus.execute(createUserCommand)
 		}
 

@@ -67,10 +67,10 @@ export class UserRepository {
 	}
 
 	@CatchDbError()
-	async createUserByCredentials(dto: { email: string; password: string }) {
+	async createUserByEmailAndPassword(dto: { email: string; password: string }) {
 		const newUserParams = {
 			email: dto.email,
-			password: dto.password ? await this.hashAdapter.hashString(dto.password) : null,
+			password: await this.makePasswordHash(dto.password),
 			...this.newConfirmationCodeData(),
 		}
 
@@ -82,9 +82,9 @@ export class UserRepository {
 	}
 
 	@CatchDbError()
-	async createUserByOAuth(dto: { email: string }) {
+	async createUserByEmail(email: string) {
 		const newUserParams = {
-			email: dto.email,
+			email,
 			is_user_confirmed: true,
 		}
 
@@ -100,6 +100,16 @@ export class UserRepository {
 		await this.prisma.user.update({
 			where: { id: userId },
 			data,
+		})
+	}
+
+	@CatchDbError()
+	async setPassword(userId: number, password: string) {
+		await this.prisma.user.update({
+			where: { id: userId },
+			data: {
+				password: await this.makePasswordHash(password),
+			},
 		})
 	}
 
@@ -137,6 +147,18 @@ export class UserRepository {
 		})
 	}
 
+	@CatchDbError()
+	async updateBalance(userId: number, amount: number) {
+		const balanceChangeObj = amount > 0 ? { increment: amount } : { decrement: amount }
+
+		await this.prisma.user.update({
+			where: { id: userId },
+			data: {
+				balance: balanceChangeObj,
+			},
+		})
+	}
+
 	newConfirmationCodeData() {
 		return {
 			email_confirmation_code: createUniqString(),
@@ -145,6 +167,10 @@ export class UserRepository {
 			}).toISOString(),
 			is_email_confirmed: false,
 		}
+	}
+
+	async makePasswordHash(password: string) {
+		return await this.hashAdapter.hashString(password)
 	}
 
 	mapDbUserToServiceUser(dbUser: User): UserServiceModel {

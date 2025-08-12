@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common'
-import { BalanceTransaction, Payment, PaymentStatus } from '@prisma/client'
+import { BalanceTransaction } from '@prisma/client'
 import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 import { CustomGraphQLError } from '../infrastructure/exceptions/customErrors'
 import { ErrorCode } from '../infrastructure/exceptions/errorCode'
 import { errorMessage } from '../infrastructure/exceptions/errorMessage'
-import { PaymentServiceModel } from '../models/payment/payment.service.model'
 import { TransactionServiceModel } from '../models/transaction/transaction.service.model'
+import { UserRepository } from './user.repository'
 
 type TransactionDto = {
 	userId: number
@@ -17,7 +17,10 @@ type TransactionDto = {
 
 @Injectable()
 export class BalanceTransactionRepository {
-	constructor(private prisma: PrismaService) {}
+	constructor(
+		private prisma: PrismaService,
+		private userRepository: UserRepository,
+	) {}
 
 	@CatchDbError()
 	async createTransaction(dto: TransactionDto) {
@@ -39,6 +42,8 @@ export class BalanceTransactionRepository {
 		if (!createdTransaction) {
 			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
 		}
+
+		await this.userRepository.updateBalance(dto.userId, dto.amount)
 
 		return this.mapDbTransactionToServiceTransaction(createdTransaction)
 	}

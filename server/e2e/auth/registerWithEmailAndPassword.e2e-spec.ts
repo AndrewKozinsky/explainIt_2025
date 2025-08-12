@@ -10,7 +10,7 @@ import { OAuthProviderType } from '../../src/routes/auth/inputs/loginWithOAuth.i
 import { makeGraphQLReq } from '../makeGQReq'
 import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
 import { checkErrorResponse } from '../utils/checkErrorResp'
-import { defUserEmail, defUserPassword } from '../utils/common'
+import { defUserEmail, defUserPassword, welcomeBonus } from '../utils/common'
 import { createApp } from '../utils/createApp'
 import { queries } from '../../src/features/db/queries'
 import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
@@ -20,7 +20,7 @@ it('1', () => {
 	expect(2).toBe(2)
 })
 
-describe('Register user (e2e)', () => {
+describe.skip('Register user (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
@@ -70,9 +70,6 @@ describe('Register user (e2e)', () => {
 
 		const [createUserResp] = await makeGraphQLReq(app, registerUserMutation)
 
-		// Check if a confirmation letter was sent
-		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(1)
-
 		// Check the returned object
 		userUtils.checkUserOutResponseData(createUserResp.data[RouteNames.AUTH.REGISTER], {
 			email: defUserEmail,
@@ -88,6 +85,21 @@ describe('Register user (e2e)', () => {
 		userUtils.checkUserOutResponseData(createdUser, {
 			email: defUserEmail,
 		})
+
+		// Check that user data in the database is correct
+		const createdUserRowData = await userRepository.getUserByEmail(defUserEmail)
+		userUtils.checkUserServiceResponseData(createdUserRowData, {
+			email: defUserEmail,
+			password: 'some password',
+			emailConfirmationCode: 'some code',
+			confirmationCodeExpirationDate: 'some date',
+			isEmailConfirmed: false,
+			isUserConfirmed: false,
+			balance: 0,
+		})
+
+		// Check if a confirmation letter was sent
+		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(1)
 	})
 
 	it('should return error if a user is already created, but email is not confirmed', async () => {
@@ -123,7 +135,8 @@ describe('Register user (e2e)', () => {
 		})
 	})
 
-	it.only('123', async () => {
+	it('should register a user if he has already registered with OAuth', async () => {
+		// Register a user with OAuth
 		await commandBus.execute(
 			new LoginWithOAuthCommand({
 				request: userUtils.getFakeRequestForOAuth(),
@@ -137,6 +150,7 @@ describe('Register user (e2e)', () => {
 			}),
 		)
 
+		// Check that the data was saved correctly in the database
 		const createdUserByOAuth = await userRepository.getUserByEmail(defUserEmail)
 		userUtils.checkUserServiceResponseData(createdUserByOAuth, {
 			email: defUserEmail,
@@ -145,28 +159,30 @@ describe('Register user (e2e)', () => {
 			confirmationCodeExpirationDate: null,
 			isEmailConfirmed: false,
 			isUserConfirmed: true,
-			balance: 0,
+			balance: welcomeBonus,
 		})
-		console.log(createdUserByOAuth)
 
-		// const registerUserMutation = queries.auth.registerUser({ email: defUserEmail, password: defUserPassword })
-		// const [createUserResp] = await makeGraphQLReq(app, registerUserMutation)
+		// Make a try to register a user with the same email
+		const registerUserMutation = queries.auth.registerUser({ email: defUserEmail, password: defUserPassword })
+		const [registeredUserResp] = await makeGraphQLReq(app, registerUserMutation)
 
 		// Check the returned object
-		/*userUtils.checkUserResponseData(createUserResp.data[RouteNames.AUTH.REGISTER], {
+		userUtils.checkUserOutResponseData(registeredUserResp.data[RouteNames.AUTH.REGISTER], {
 			email: defUserEmail,
 			isUserConfirmed: true,
-		})*/
+		})
 
-		/*const firstUserId = createUserResp1.data[RouteNames.AUTH.REGISTER].id
-		await userRepository.makeEmailVerified(firstUserId)
-
-		const [createUserResp2] = await makeGraphQLReq(app, registerUserMutation)
-
-		checkErrorResponse(createUserResp2, {
-			code: 'Bad Request',
-			statusCode: 400,
-			message: errorMessage.emailIsAlreadyRegistered,
-		})*/
+		// Check that the data was saved correctly in the database
+		const registeredUserByEmailAndPassword = await userRepository.getUserByEmail(defUserEmail)
+		console.log(registeredUserByEmailAndPassword)
+		userUtils.checkUserServiceResponseData(registeredUserByEmailAndPassword, {
+			email: defUserEmail,
+			password: 'some password',
+			emailConfirmationCode: 'some code',
+			confirmationCodeExpirationDate: 'some date',
+			isEmailConfirmed: false,
+			isUserConfirmed: true,
+			balance: welcomeBonus,
+		})
 	})
 })

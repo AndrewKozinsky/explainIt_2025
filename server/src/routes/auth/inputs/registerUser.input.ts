@@ -10,5 +10,5 @@ export class RegisterUserInput {
 
 	@Field({ description: 'User password' })
 	@DtoFieldDecorators('password', bdConfig.User.dtoProps.password)
-	password?: string
+	password: string
 }

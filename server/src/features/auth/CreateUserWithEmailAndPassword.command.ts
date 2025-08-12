@@ -6,50 +6,51 @@ import { CustomGraphQLError } from '../../infrastructure/exceptions/customErrors
 import { ErrorCode } from '../../infrastructure/exceptions/errorCode'
 import { errorMessage } from '../../infrastructure/exceptions/errorMessage'
 
-export class CreateUserInputModel {
+export class CreateUserWithEmailAndPasswordInputModel {
 	email: string
-	password?: string
-	isUserConfirmed?: boolean
+	password: string
 }
 
-export class CreateUserCommand implements ICommand {
-	constructor(public createUserInput: CreateUserInputModel) {}
+export class CreateUserWithEmailAndPasswordCommand implements ICommand {
+	constructor(public createUserInput: CreateUserWithEmailAndPasswordInputModel) {}
 }
 
-@CommandHandler(CreateUserCommand)
-export class CreateUserHandler implements ICommandHandler<CreateUserCommand> {
+@CommandHandler(CreateUserWithEmailAndPasswordCommand)
+export class CreateUserWithEmailAndPasswordHandler implements ICommandHandler<CreateUserWithEmailAndPasswordCommand> {
 	constructor(
 		private userRepository: UserRepository,
 		private userQueryRepository: UserQueryRepository,
 		private emailAdapter: EmailAdapterService,
 	) {}
 
-	async execute(command: CreateUserCommand) {
+	async execute(command: CreateUserWithEmailAndPasswordCommand) {
 		const { createUserInput } = command
 
 		const existingUser = await this.userRepository.getUserByEmail(createUserInput.email)
 
 		if (existingUser) {
-			// If a user has already registered with OAuth...
-			if (!existingUser.password && !existingUser.isEmailConfirmed) {
-				// Set new email verification code...
-				const confirmationCode = await this.userRepository.setNewEmailVerifiedCode(existingUser.id)
+			if (existingUser.password) {
+				// If a user has already registered with email and password...
+				const errMessage = existingUser.isEmailConfirmed
+					? errorMessage.emailIsAlreadyRegistered
+					: errorMessage.emailIsNotConfirmed
 
-				// Send email confirmation message
-				await this.emailAdapter.sendEmailConfirmationMessage(existingUser.email, confirmationCode)
+				throw new CustomGraphQLError(errMessage, ErrorCode.BadRequest_400)
+			} else if (!existingUser.isEmailConfirmed) {
+				// Set new email verification code...
+				const emailVerificationCode = await this.userRepository.setNewEmailVerifiedCode(existingUser.id)
+
+				// Set new password...
+				await this.userRepository.setPassword(existingUser.id, createUserInput.password)
+
+				// Send an email confirmation message
+				await this.emailAdapter.sendEmailConfirmationMessage(existingUser.email, emailVerificationCode)
 				return await this.userQueryRepository.getUserById(existingUser.id)
 			}
-
-			// If a user has already registered with email and password...
-			const errMessage = existingUser.isEmailConfirmed
-				? errorMessage.emailIsAlreadyRegistered
-				: errorMessage.emailIsNotConfirmed
-
-			throw new CustomGraphQLError(errMessage, ErrorCode.BadRequest_400)
 		}
 
 		// User does not exist, create a new one
-		const createdUser = await this.userRepository.createUser(createUserInput)
+		const createdUser = await this.userRepository.createUserByEmailAndPassword(createUserInput)
 
 		const newUser = await this.userQueryRepository.getUserById(createdUser.id)
 		if (!newUser) {
