@@ -1,11 +1,9 @@
 import { INestApplication } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { App } from 'supertest/types'
-import { LoginWithOAuthHandler } from '../../src/features/auth/LoginWithOAuth.command'
 import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 import RouteNames from '../../src/infrastructure/routeNames'
 import { UserRepository } from '../../src/repo/user.repository'
-import { OAuthProviderType } from '../../src/routes/auth/inputs/loginWithOAuth.input'
 import { makeGraphQLReq } from '../makeGQReq'
 import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
 import { checkErrorResponse } from '../utils/checkErrorResp'
@@ -49,13 +47,11 @@ describe.skip('Register user (e2e)', () => {
 		})
 
 		// Check the returned object
-		userUtils.checkUserOutResponseData(createUserWithOAuthResp.data[RouteNames.AUTH.LOGIN_WITH_OAUTH], {
+		userUtils.checkUserOutResp(createUserWithOAuthResp, {
 			email: defUserEmail,
 			isUserConfirmed: true,
 			balance: 0,
 		})
-
-		expect(createUserWithOAuthResp.errors).toBeFalsy()
 
 		// Check that user data in the database is correct
 		const createdUserRowData = await userRepository.getUserByEmail(defUserEmail)
@@ -81,12 +77,11 @@ describe.skip('Register user (e2e)', () => {
 		})
 
 		// Check the returned object
-		userUtils.checkUserOutResponseData(firstRegisterWithOAuthResp.data[RouteNames.AUTH.LOGIN_WITH_OAUTH], {
+		userUtils.checkUserOutResp(firstRegisterWithOAuthResp, {
 			email: defUserEmail,
 			isUserConfirmed: true,
 			balance: welcomeBonus,
 		})
-		expect(firstRegisterWithOAuthResp.errors).toBeFalsy()
 
 		// 2. Register/login a user with OAuth for the second time
 		const secondRegisterWithOAuthResp = await userUtils.loginUserWithOAuthSuccessfully({
@@ -95,13 +90,11 @@ describe.skip('Register user (e2e)', () => {
 		})
 
 		// Check the returned object
-		userUtils.checkUserOutResponseData(secondRegisterWithOAuthResp.data[RouteNames.AUTH.LOGIN_WITH_OAUTH], {
+		userUtils.checkUserOutResp(secondRegisterWithOAuthResp, {
 			email: defUserEmail,
 			isUserConfirmed: true,
 			balance: welcomeBonus,
 		})
-
-		expect(secondRegisterWithOAuthResp.errors).toBeFalsy()
 
 		// Check that user data in the database is correct
 		const userRowData = await userRepository.getUserByEmail(defUserEmail)
@@ -131,7 +124,7 @@ describe.skip('Register user (e2e)', () => {
 		})
 
 		// Check the returned object
-		await checkUserAfterOAuth(registerWithOAuthResp_1.data[RouteNames.AUTH.LOGIN_WITH_OAUTH])
+		await checkUserAfterOAuth(registerWithOAuthResp_1)
 
 		// 3. Register the user with OAuth for the second time
 		const registerWithOAuthResp_2 = await userUtils.loginUserWithOAuthSuccessfully({
@@ -139,7 +132,7 @@ describe.skip('Register user (e2e)', () => {
 			email: defUserEmail,
 		})
 
-		await checkUserAfterOAuth(registerWithOAuthResp_2.data[RouteNames.AUTH.LOGIN_WITH_OAUTH])
+		await checkUserAfterOAuth(registerWithOAuthResp_2)
 
 		// 4. Check that a confirmation letter was sent only once
 		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(1)
@@ -155,12 +148,11 @@ describe.skip('Register user (e2e)', () => {
 				balance: welcomeBonus,
 			}
 
-			userUtils.checkUserOutResponseData(userOutResponseData, {
+			userUtils.checkUserOutResp(userOutResponseData, {
 				email: defUserEmail,
 				isUserConfirmed: true,
 				balance: welcomeBonus,
 			})
-			expect(registerWithOAuthResp_1.errors).toBeFalsy()
 
 			// Check that user data in the database is correct
 			const userRowData_1 = await userRepository.getUserByEmail(defUserEmail)

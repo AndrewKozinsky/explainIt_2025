@@ -1,23 +1,25 @@
 import { INestApplication } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { App } from 'supertest/types'
+import { LoginWithOAuthHandler } from '../../src/features/auth/LoginWithOAuth.command'
+import { queries } from '../../src/features/db/queries'
 import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 import { MainConfigService } from '../../src/infrastructure/mainConfig/mainConfig.service'
-import { authUtils } from '../utils/authUtils'
 import RouteNames from '../../src/infrastructure/routeNames'
 import { UserRepository } from '../../src/repo/user.repository'
-import { makeGraphQLReqWithTokens } from '../makeGQReq'
+import { OAuthProviderType } from '../../src/routes/auth/inputs/loginWithOAuth.input'
+import { makeGraphQLReq, makeGraphQLReqWithTokens } from '../makeGQReq'
+import { authUtils } from '../utils/authUtils'
+import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
 import { defUserEmail, defUserPassword } from '../utils/common'
 import { createApp } from '../utils/createApp'
-import { queries } from '../../src/features/db/queries'
 import { userUtils } from '../utils/userUtils'
-import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
 
 it('1', () => {
 	expect(2).toBe(2)
 })
 
-/*describe.skip('Logout (e2e)', () => {
+describe('Logout (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
@@ -47,7 +49,7 @@ it('1', () => {
 	})
 
 	it('should give success answer if the JWT refreshToken is valid', async () => {
-		const { loginData, sessionToken } = await userUtils.createUserAndLogin({
+		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
 			userRepository,
 			email: defUserEmail,
@@ -69,4 +71,45 @@ it('1', () => {
 		const expiredSessionTokenDate = new Date(expiredSessionToken.expires)
 		expect(+expiredSessionTokenDate <= +new Date()).toBe(true)
 	})
-})*/
+
+	it.only('should give success answer if user registered with OAuth', async () => {
+		// Get LoginWithOAuthHandler use case to create a mock below
+		const loginWithOAuthHandler = app.get<LoginWithOAuthHandler>(LoginWithOAuthHandler)
+
+		// Method getUserDataFromOAuthCode returns email and name
+		jest.spyOn(loginWithOAuthHandler, 'getUserDataFromOAuthCode').mockResolvedValue({
+			email: defUserEmail,
+			name: 'Test User',
+		})
+
+		const loginWithOAuthQuery = queries.auth.loginUserWithOAuth({
+			code: defUserEmail,
+			providerType: OAuthProviderType.GOOGLE,
+		})
+		const [loginWithOAuthResp, loginWithOAuthRespCookies] = await makeGraphQLReq(app, loginWithOAuthQuery)
+		// console.log(loginWithOAuthResp)
+		console.log(loginWithOAuthRespCookies)
+
+		/*await userUtils.loginUserWithOAuthSuccessfully({
+			app,
+			email: defUserEmail,
+		})*/
+		// console.log(sessionToken)
+
+		// const logoutMutation = queries.auth.logout()
+		/*const [logoutResp, logoutRespCookies] = await makeGraphQLReqWithTokens({
+			app,
+			query: logoutMutation,
+			sessionToken,
+			mainConfig,
+		})*/
+		// console.log(logoutResp)
+
+		// expect(logoutResp.data[RouteNames.AUTH.LOGOUT]).toBe(true)
+
+		// Check if a refresh token in cookie is already expired
+		// const expiredSessionToken = logoutRespCookies[mainConfig.get().session.name]
+		// const expiredSessionTokenDate = new Date(expiredSessionToken.expires)
+		// expect(+expiredSessionTokenDate <= +new Date()).toBe(true)
+	})
+})

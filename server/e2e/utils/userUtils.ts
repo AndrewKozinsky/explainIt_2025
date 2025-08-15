@@ -88,6 +88,8 @@ export const userUtils = {
 			loginData: {
 				id: number
 				email: string
+				isUserConfirmed: boolean
+				balance: number
 			}
 			sessionToken: {
 				value: string
@@ -115,7 +117,13 @@ export const userUtils = {
 
 		// Register the user with OAuth for the first time
 		const [registerWithOAuthResp] = await makeGraphQLReq(props.app, registerWithOAuthUserMutation)
-		return registerWithOAuthResp
+
+		return registerWithOAuthResp.data[RouteNames.AUTH.LOGIN_WITH_OAUTH] as {
+			id: number
+			email: string
+			isUserConfirmed: boolean
+			balance: number
+		}
 	},
 
 	async loginUserWithOAuthFail(props: { app: INestApplication }) {
@@ -151,10 +159,7 @@ export const userUtils = {
 		})
 	},
 
-	checkUserOutResponseData(
-		user: any,
-		checks?: { id?: number; email?: string; isUserConfirmed?: boolean; balance?: number },
-	) {
+	checkUserOutResp(user: any, checks?: { id?: number; email?: string; isUserConfirmed?: boolean; balance?: number }) {
 		expect(user).toEqual({
 			id: expect.any(Number),
 			email: expect.any(String),

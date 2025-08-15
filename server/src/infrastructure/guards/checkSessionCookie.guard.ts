@@ -14,7 +14,9 @@ export class CheckSessionCookieGuard implements CanActivate {
 		const ctx = GqlExecutionContext.create(context)
 		const request = ctx.getContext().req as Request
 
+		// console.log(request.session)
 		if (!request.session?.userId) {
+			// console.log(request.session)
 			throw new CustomGraphQLError(errorMessage.userUnauthorized, ErrorCode.Unauthorized_401)
 		}
 

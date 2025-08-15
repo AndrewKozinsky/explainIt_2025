@@ -68,7 +68,7 @@ describe.skip('Register user (e2e)', () => {
 		const [createUserResp] = await makeGraphQLReq(app, registerUserMutation)
 
 		// Check the returned object
-		userUtils.checkUserOutResponseData(createUserResp.data[RouteNames.AUTH.REGISTER], {
+		userUtils.checkUserOutResp(createUserResp.data[RouteNames.AUTH.REGISTER], {
 			email: defUserEmail,
 			isUserConfirmed: false,
 			balance: 0,
@@ -149,7 +149,7 @@ describe.skip('Register user (e2e)', () => {
 		const [registeredUserResp] = await makeGraphQLReq(app, registerUserMutation)
 
 		// Check the returned object
-		userUtils.checkUserOutResponseData(registeredUserResp.data[RouteNames.AUTH.REGISTER], {
+		userUtils.checkUserOutResp(registeredUserResp.data[RouteNames.AUTH.REGISTER], {
 			email: defUserEmail,
 			isUserConfirmed: true,
 			balance: welcomeBonus,

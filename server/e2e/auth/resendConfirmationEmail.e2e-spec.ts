@@ -17,7 +17,7 @@ it('1', () => {
 	expect(2).toBe(2)
 })
 
-/*describe.skip('Confirm an user email (e2e)', () => {
+describe.skip('Confirm an user email (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
@@ -72,22 +72,42 @@ it('1', () => {
 		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(0)
 	})
 
+	it('should return an error if the user registered with OAuth', async () => {
+		await userUtils.loginUserWithOAuthSuccessfully({
+			app,
+			email: defUserEmail,
+		})
+
+		// Try to resend confirmation email
+		const resendConfirmationEmailMutation = queries.auth.resendConfirmationEmail('john@example.com')
+		const [resendConfirmationEmailResp] = await makeGraphQLReq(app, resendConfirmationEmailMutation)
+
+		// Check the error
+		checkErrorResponse(resendConfirmationEmailResp, {
+			code: 'Bad Request',
+			statusCode: 400,
+			message: errorMessage.emailNotFound,
+		})
+
+		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(0)
+	})
+
 	it('should return success if input has correct values', async () => {
-		const admin = await userUtils.createUserWithUnconfirmedEmail({
+		const user = await userUtils.createUserWithUnconfirmedEmail({
 			app,
 			userRepository,
 			email: defUserEmail,
 			password: defUserPassword,
 		})
-		if (!admin) return
+		if (!user) return
 
 		// Make expiration data expired
-		await userRepository.updateUser(admin.id, {
+		await userRepository.updateUser(user.id, {
 			email_confirmation_code_expiration_date: subDays(new Date(), 5).toISOString(),
 		})
 
 		// Send another confirmation email
-		const resendConfirmationEmailMutation = queries.auth.resendConfirmationEmail(admin.email)
+		const resendConfirmationEmailMutation = queries.auth.resendConfirmationEmail(user.email)
 		const [resendConfirmationEmailResp] = await makeGraphQLReq(app, resendConfirmationEmailMutation)
 
 		// Check for successful answer and that email adapter was run
@@ -95,7 +115,7 @@ it('1', () => {
 		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(2)
 
 		// Check if expiration data is bigger than now for 3 hours
-		const updatedUser = await userRepository.getUserById(admin.id)
+		const updatedUser = await userRepository.getUserById(user.id)
 		if (!updatedUser || !updatedUser.confirmationCodeExpirationDate) {
 			throw new Error('User does not exist')
 		}
@@ -128,4 +148,4 @@ it('1', () => {
 
 		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(1)
 	})
-})*/
+})

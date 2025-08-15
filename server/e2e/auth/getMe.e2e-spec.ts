@@ -2,11 +2,13 @@ import { INestApplication } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { App } from 'supertest/types'
 import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
+import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
 import { MainConfigService } from '../../src/infrastructure/mainConfig/mainConfig.service'
 import RouteNames from '../../src/infrastructure/routeNames'
 import { UserRepository } from '../../src/repo/user.repository'
 import { makeGraphQLReqWithTokens } from '../makeGQReq'
 import { authUtils } from '../utils/authUtils'
+import { checkErrorResponse } from '../utils/checkErrorResp'
 import { defUserEmail, defUserPassword } from '../utils/common'
 import { createApp } from '../utils/createApp'
 import { queries } from '../../src/features/db/queries'
@@ -17,7 +19,7 @@ it('1', () => {
 	expect(2).toBe(2)
 })
 
-/*describe('Get me (e2e)', () => {
+describe.skip('Get me (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
@@ -46,8 +48,31 @@ it('1', () => {
 		await authUtils.tokenNotExist(app, queries.auth.getMe())
 	})
 
+	it('should return 401 if a user has unconfirmed email', async () => {
+		await userUtils.createUserWithUnconfirmedEmail({
+			app,
+			userRepository,
+			email: defUserEmail,
+			password: defUserPassword,
+		})
+
+		const getMeQuery = queries.auth.getMe()
+		const [getMeResp] = await makeGraphQLReqWithTokens({
+			app,
+			query: getMeQuery,
+			sessionToken: null,
+			mainConfig,
+		})
+
+		checkErrorResponse(getMeResp, {
+			code: 'Unauthorized',
+			statusCode: 401,
+			message: errorMessage.userUnauthorized,
+		})
+	})
+
 	it('should return a user if passed session token is valid', async () => {
-		const { loginData, sessionToken } = await userUtils.createUserAndLogin({
+		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
 			userRepository,
 			email: defUserEmail,
@@ -71,4 +96,25 @@ it('1', () => {
 			email: defUserEmail,
 		})
 	})
-})*/
+
+	it('should return 401 if a user registered with OAuth, not with email and password', async () => {
+		await userUtils.loginUserWithOAuthSuccessfully({
+			app,
+			email: defUserEmail,
+		})
+
+		const getMeQuery = queries.auth.getMe()
+		const [getMeResp, getMeRespCookies] = await makeGraphQLReqWithTokens({
+			app,
+			query: getMeQuery,
+			sessionToken: null,
+			mainConfig,
+		})
+
+		checkErrorResponse(getMeResp, {
+			code: 'Unauthorized',
+			statusCode: 401,
+			message: errorMessage.userUnauthorized,
+		})
+	})
+})

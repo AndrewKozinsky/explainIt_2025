@@ -6,9 +6,9 @@ import { errorMessage } from '../../infrastructure/exceptions/errorMessage'
 import { MainConfigService } from '../../infrastructure/mainConfig/mainConfig.service'
 import { UserOutModel } from '../../models/user/user.out.model'
 import { BalanceTransactionRepository, TransactionType } from '../../repo/balanceTransaction.repository'
+import { UserQueryRepository } from '../../repo/user.queryRepository'
 import { UserRepository } from '../../repo/user.repository'
 import { Request } from 'express'
-import { UserQueryRepository } from 'src/repo/user.queryRepository'
 import { OAuthProviderType } from '../../routes/auth/inputs/loginWithOAuth.input'
 const qs = require('qs')
 

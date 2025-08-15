@@ -22,7 +22,9 @@ export class ResendConfirmationEmailHandler implements ICommandHandler<ResendCon
 		const { email } = command
 
 		const user = await this.userRepository.getUserByEmail(email)
-		if (!user) {
+
+		// Throw an error if user is not found or he registered with OAuth
+		if (!user || !user.password) {
 			throw new CustomGraphQLError(errorMessage.emailNotFound, ErrorCode.BadRequest_400)
 		}
 

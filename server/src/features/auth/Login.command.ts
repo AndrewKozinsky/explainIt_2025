@@ -32,8 +32,10 @@ export class LoginHandler implements ICommandHandler<LoginCommand> {
 		const { request, loginInput, clientIP, clientName } = command
 
 		const user = await this.userRepository.getUserByEmailAndPassword(loginInput.email, loginInput.password)
-		if (!user) {
-			throw new CustomGraphQLError(errorMessage.userNotFound, ErrorCode.BadRequest_400)
+
+		// Throw an error if user is not found or he registered with OAuth
+		if (!user || !user.password) {
+			throw new CustomGraphQLError(errorMessage.userNotFound, ErrorCode.NotFound_404)
 		}
 
 		if (!user.isEmailConfirmed) {

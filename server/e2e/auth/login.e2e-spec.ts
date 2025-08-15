@@ -17,7 +17,7 @@ it('1', () => {
 	expect(2).toBe(2)
 })
 
-/*describe.skip('User login (e2e)', () => {
+describe.skip('User login (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
@@ -39,7 +39,7 @@ it('1', () => {
 		await afterEachTest(app)
 	})
 
-	it('should return error if incorrect email and password was sent', async () => {
+	it('should return error if incorrect email and password were sent', async () => {
 		const loginQuery = queries.auth.login({ email: 'wrongemail.com', password: '123' })
 		const [loginResp] = await makeGraphQLReq(app, loginQuery)
 
@@ -96,8 +96,23 @@ it('1', () => {
 		const [loginResp, loginRespCookies] = await makeGraphQLReq(app, loginQuery)
 
 		const loginRespData = loginResp.data[RouteNames.AUTH.LOGIN]
-		userUtils.checkUserOutModel(loginRespData)
+		userUtils.checkUserOutResp(loginRespData)
 
 		userUtils.checkSessionCookie(loginRespCookies)
 	})
-})*/
+
+	it('should return 404 if a user registered with OAuth, but not with email and password', async () => {
+		await userUtils.loginUserWithOAuthSuccessfully({ app, email: defUserEmail })
+
+		const loginQuery = queries.auth.login({ email: defUserEmail, password: defUserPassword })
+		const [loginResp, loginRespCookies] = await makeGraphQLReq(app, loginQuery)
+
+		checkErrorResponse(loginResp, {
+			code: 'Not Found',
+			statusCode: 404,
+			message: errorMessage.userNotFound,
+		})
+
+		expect(loginRespCookies).toEqual({})
+	})
+})

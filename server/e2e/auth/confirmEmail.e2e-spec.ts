@@ -172,4 +172,22 @@ describe.skip('Confirm an user email (e2e)', () => {
 			balance: welcomeBonus,
 		})
 	})
+
+	it('if a user registered with OAuth he cannot confirm email', async () => {
+		// 1. Register with OAuth
+		await userUtils.loginUserWithOAuthSuccessfully({
+			app,
+			email: defUserEmail,
+		})
+
+		// 3. Confirm email
+		const confirmEmailQuery = queries.auth.confirmEmail('some code')
+		const [confirmEmailResp] = await makeGraphQLReq(app, confirmEmailQuery)
+
+		checkErrorResponse(confirmEmailResp, {
+			code: 'Bad Request',
+			statusCode: 400,
+			message: errorMessage.emailConfirmationCodeNotFound,
+		})
+	})
 })
