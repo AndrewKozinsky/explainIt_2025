@@ -24,6 +24,7 @@ export const queries = {
 				id
 				email
 				isUserConfirmed
+				balance
 			  }
 			}`
 		},

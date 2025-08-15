@@ -1,15 +1,15 @@
-import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import axios from 'axios'
 import { CustomGraphQLError } from '../../infrastructure/exceptions/customErrors'
 import { ErrorCode } from '../../infrastructure/exceptions/errorCode'
 import { errorMessage } from '../../infrastructure/exceptions/errorMessage'
 import { MainConfigService } from '../../infrastructure/mainConfig/mainConfig.service'
 import { UserOutModel } from '../../models/user/user.out.model'
+import { BalanceTransactionRepository, TransactionType } from '../../repo/balanceTransaction.repository'
 import { UserRepository } from '../../repo/user.repository'
 import { Request } from 'express'
 import { UserQueryRepository } from 'src/repo/user.queryRepository'
 import { OAuthProviderType } from '../../routes/auth/inputs/loginWithOAuth.input'
-import { CreateUserWithEmailCommand } from './CreateUserWithEmail.command'
 const qs = require('qs')
 
 class LoginWithOAuthInputModel {
@@ -41,7 +41,7 @@ export class LoginWithOAuthHandler implements ICommandHandler<LoginWithOAuthComm
 		private userRepository: UserRepository,
 		private userQueryRepository: UserQueryRepository,
 		private mainConfigService: MainConfigService,
-		private commandBus: CommandBus,
+		private balanceTransactionRepository: BalanceTransactionRepository,
 	) {}
 
 	async execute(command: LoginWithOAuthCommand) {
@@ -49,15 +49,25 @@ export class LoginWithOAuthHandler implements ICommandHandler<LoginWithOAuthComm
 
 		const { email } = await this.getUserDataFromOAuthCode(loginWithOAuthInput, overrideDataFromProvider)
 
+		let userId: null | number = null
 		const user = await this.userRepository.getUserByEmail(email)
 
-		if (user) {
+		if (!user) {
+			const createdUser = await this.userRepository.createUserByEmail(email)
+
+			if (!createdUser) {
+				throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
+			}
+
+			userId = createdUser.id
+			await this.addWelcomeBonus(userId)
+		} else {
+			userId = user.id
+
 			if (!user.isUserConfirmed) {
 				await this.userRepository.updateUser(user.id, { is_user_confirmed: true })
+				await this.addWelcomeBonus(userId)
 			}
-		} else {
-			const createUserCommand = new CreateUserWithEmailCommand({ email })
-			await this.commandBus.execute(createUserCommand)
 		}
 
 		const outUser = await this.userQueryRepository.getUserByEmail(email)
@@ -106,7 +116,7 @@ export class LoginWithOAuthHandler implements ICommandHandler<LoginWithOAuthComm
 		try {
 			return await getAccessTokenMapper[providerType](code)
 		} catch (error: unknown) {
-			console.log(error)
+			// console.log(error)
 			return null
 		}
 	}
@@ -243,6 +253,20 @@ export class LoginWithOAuthHandler implements ICommandHandler<LoginWithOAuthComm
 		return {
 			name: real_name,
 			email: emails[0].toLowerCase(),
+		}
+	}
+
+	async addWelcomeBonus(userId: number) {
+		const { welcomeBonus } = this.mainConfigService.get()
+
+		try {
+			await this.balanceTransactionRepository.createTransaction({
+				userId,
+				amount: welcomeBonus,
+				type: TransactionType.accountConfirmationWelcomeBonus,
+			})
+		} catch (error) {
+			throw new CustomGraphQLError(errorMessage.unknownError, ErrorCode.InternalServerError_500)
 		}
 	}
 

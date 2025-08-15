@@ -10,4 +10,7 @@ export class UserOutModel {
 
 	@Field(() => Boolean)
 	isUserConfirmed: boolean
+
+	@Field(() => Int)
+	balance: number
 }

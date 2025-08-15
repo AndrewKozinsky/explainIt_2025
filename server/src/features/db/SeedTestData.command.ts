@@ -2,7 +2,6 @@ import { CommandBus, CommandHandler, ICommandHandler } from '@nestjs/cqrs'
 import { UserRepository } from 'src/repo/user.repository'
 import { OAuthProviderType } from '../../routes/auth/inputs/loginWithOAuth.input'
 import { ConfirmEmailCommand } from '../auth/ConfirmEmail.command'
-import { CreateUserWithEmailCommand } from '../auth/CreateUserWithEmail.command'
 import { CreateUserWithEmailAndPasswordCommand } from '../auth/CreateUserWithEmailAndPassword.command'
 import { LoginWithOAuthCommand } from '../auth/LoginWithOAuth.command'
 import { Request } from 'express'
@@ -64,7 +63,7 @@ export class SeedTestDataHandler implements ICommandHandler<SeedTestDataCommand>
 	}
 
 	async createUserWithUnconfirmedEmail(userConfig: UserWithUnconfirmedEmailConfig) {
-		const createdUser = await this.commandBus.execute(new CreateUserWithEmailCommand(userConfig))
+		const createdUser = await this.commandBus.execute(new CreateUserWithEmailAndPasswordCommand(userConfig))
 		return createdUser.id
 	}
 
@@ -103,7 +102,7 @@ export class SeedTestDataHandler implements ICommandHandler<SeedTestDataCommand>
 	}
 
 	async createUserWithCredentialsAndOAuth(userConfig: userRegisteredWithCredentialsAndOAuthConfig) {
-		const createdUser = await this.commandBus.execute(new CreateUserWithEmailCommand({ email: userConfig.email }))
+		const createdUser = await this.commandBus.execute(new CreateUserWithEmailAndPasswordCommand(userConfig))
 
 		await this.commandBus.execute(
 			new LoginWithOAuthCommand({

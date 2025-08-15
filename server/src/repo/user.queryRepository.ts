@@ -41,6 +41,7 @@ export class UserQueryRepository {
 			id: dbUser.id,
 			email: dbUser.email,
 			isUserConfirmed: dbUser.is_user_confirmed,
+			balance: dbUser.balance,
 		}
 	}
 }

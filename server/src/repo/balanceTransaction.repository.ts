@@ -8,11 +8,16 @@ import { errorMessage } from '../infrastructure/exceptions/errorMessage'
 import { TransactionServiceModel } from '../models/transaction/transaction.service.model'
 import { UserRepository } from './user.repository'
 
+export enum TransactionType {
+	payment = 'PAYMENT',
+	accountConfirmationWelcomeBonus = 'ACCOUNT_CONFIRMATION_WELCOME_BONUS',
+}
+
 type TransactionDto = {
 	userId: number
 	amount: number
 	paymentId?: number
-	type: 'PAYMENT' | 'ACCOUNT_CONFIRMATION_WELCOME_BONUS'
+	type: TransactionType
 }
 
 @Injectable()
@@ -46,6 +51,18 @@ export class BalanceTransactionRepository {
 		await this.userRepository.updateBalance(dto.userId, dto.amount)
 
 		return this.mapDbTransactionToServiceTransaction(createdTransaction)
+	}
+
+	@CatchDbError()
+	async getTransactionByUserIdAndType(userId: number, transactionType: TransactionType) {
+		const transactions = await this.prisma.balanceTransaction.findMany({
+			where: {
+				user_id: userId,
+				type: transactionType,
+			},
+		})
+
+		return transactions.map(this.mapDbTransactionToServiceTransaction)
 	}
 
 	mapDbTransactionToServiceTransaction(dbTransaction: BalanceTransaction): TransactionServiceModel {

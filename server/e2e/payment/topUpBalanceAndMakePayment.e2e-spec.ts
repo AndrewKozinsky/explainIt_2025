@@ -17,6 +17,8 @@ it('1', () => {
 	expect(2).toBe(2)
 })
 
+// Check a situation when user registered with email and password and with OAuth!!!
+
 /*describe('Top up balance with YooKassa (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus

@@ -73,7 +73,7 @@ export const paymentUtils = {
 		return paymentRepository
 			.getPaymentsByUserId(userId)
 			.then((payments) => {
-				console.log(payments)
+				// console.log(payments)
 				return payments[payments.length - 1]
 			})
 			.catch((err: string) => {

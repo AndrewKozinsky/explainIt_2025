@@ -114,22 +114,6 @@ export class UserRepository {
 	}
 
 	@CatchDbError()
-	async relativeUpdateUserBalance(userId: number, relativeBalanceValue: number) {
-		const updateMethod = relativeBalanceValue > 0 ? 'increment' : 'decrement'
-
-		const updatedUser = await this.prisma.user.update({
-			where: { id: userId },
-			data: {
-				balance: {
-					[updateMethod]: relativeBalanceValue,
-				},
-			},
-		})
-
-		return this.mapDbUserToServiceUser(updatedUser)
-	}
-
-	@CatchDbError()
 	async setNewEmailVerifiedCode(userId: number) {
 		const newConfirmationCodeData = this.newConfirmationCodeData()
 

@@ -32,7 +32,6 @@ describe.skip('Register user (e2e)', () => {
 
 		app = createMainAppRes.app
 		commandBus = app.get(CommandBus)
-		commandBus = app.get(CommandBus)
 		emailAdapter = createMainAppRes.emailAdapter
 		userRepository = await app.resolve(UserRepository)
 		userQueryRepository = await app.resolve(UserQueryRepository)
@@ -74,17 +73,10 @@ describe.skip('Register user (e2e)', () => {
 		userUtils.checkUserOutResponseData(createUserResp.data[RouteNames.AUTH.REGISTER], {
 			email: defUserEmail,
 			isUserConfirmed: false,
+			balance: 0,
 		})
 
 		expect(createUserResp.errors).toBeFalsy()
-
-		// Find created user in the database
-		const userId = createUserResp.data[RouteNames.AUTH.REGISTER].id
-		const createdUser = await userQueryRepository.getUserById(userId)
-
-		userUtils.checkUserOutResponseData(createdUser, {
-			email: defUserEmail,
-		})
 
 		// Check that user data in the database is correct
 		const createdUserRowData = await userRepository.getUserByEmail(defUserEmail)
@@ -170,11 +162,11 @@ describe.skip('Register user (e2e)', () => {
 		userUtils.checkUserOutResponseData(registeredUserResp.data[RouteNames.AUTH.REGISTER], {
 			email: defUserEmail,
 			isUserConfirmed: true,
+			balance: 0,
 		})
 
 		// Check that the data was saved correctly in the database
 		const registeredUserByEmailAndPassword = await userRepository.getUserByEmail(defUserEmail)
-		console.log(registeredUserByEmailAndPassword)
 		userUtils.checkUserServiceResponseData(registeredUserByEmailAndPassword, {
 			email: defUserEmail,
 			password: 'some password',

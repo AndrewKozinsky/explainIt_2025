@@ -104,6 +104,7 @@ export const userUtils = {
 	checkUserOutModel(user: UserOutModel) {
 		expect(typeof user.id).toBe('number')
 		expect(typeof user.email).toBe('string')
+		expect(typeof user.balance).toBe('number')
 	},
 
 	checkSessionCookie(cookiesObj: any) {
@@ -117,11 +118,15 @@ export const userUtils = {
 		})
 	},
 
-	checkUserOutResponseData(user: any, checks?: { id?: number; email?: string; isUserConfirmed?: boolean }) {
+	checkUserOutResponseData(
+		user: any,
+		checks?: { id?: number; email?: string; isUserConfirmed?: boolean; balance?: number },
+	) {
 		expect(user).toEqual({
 			id: expect.any(Number),
 			email: expect.any(String),
 			isUserConfirmed: expect.any(Boolean),
+			balance: expect.any(Number),
 		})
 
 		if (checks?.id) {
@@ -132,6 +137,9 @@ export const userUtils = {
 		}
 		if (checks?.isUserConfirmed !== undefined) {
 			expect(user.isUserConfirmed).toBe(checks.isUserConfirmed)
+		}
+		if (checks?.balance) {
+			expect(user.balance).toBe(checks.balance)
 		}
 	},
 

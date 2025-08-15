@@ -4,7 +4,7 @@ import { ErrorCode } from '../../infrastructure/exceptions/errorCode'
 import { errorMessage } from '../../infrastructure/exceptions/errorMessage'
 import { DBRepository } from '../../repo/db.repository'
 import { PaymentRepository } from '../../repo/payment.repository'
-import { BalanceTransactionRepository } from '../../repo/balanceTransaction.repository'
+import { BalanceTransactionRepository, TransactionType } from '../../repo/balanceTransaction.repository'
 import { UserRepository } from '../../repo/user.repository'
 
 export class SetPaymentResultWithYooKassaCommand implements ICommand {
@@ -44,7 +44,7 @@ export class SetPaymentResultWithYooKassaHandler implements ICommandHandler<SetP
 								paymentId,
 								amount,
 								userId,
-								type: 'PAYMENT',
+								type: TransactionType.payment,
 							}),
 
 							// Обновить свойство balance у пользователя.

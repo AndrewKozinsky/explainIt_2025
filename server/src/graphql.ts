@@ -48,6 +48,7 @@ export interface UserOutModel {
     id: number;
     email: string;
     isUserConfirmed: boolean;
+    balance: number;
 }
 
 export interface TopUpBalanceWithYooKassaOutModel {
