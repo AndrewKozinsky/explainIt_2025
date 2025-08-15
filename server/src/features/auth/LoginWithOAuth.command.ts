@@ -5,11 +5,12 @@ import { ErrorCode } from '../../infrastructure/exceptions/errorCode'
 import { errorMessage } from '../../infrastructure/exceptions/errorMessage'
 import { MainConfigService } from '../../infrastructure/mainConfig/mainConfig.service'
 import { UserOutModel } from '../../models/user/user.out.model'
-import { BalanceTransactionRepository, TransactionType } from '../../repo/balanceTransaction.repository'
+import { BalanceTransactionRepository } from '../../repo/balanceTransaction.repository'
 import { UserQueryRepository } from '../../repo/user.queryRepository'
 import { UserRepository } from '../../repo/user.repository'
 import { Request } from 'express'
 import { OAuthProviderType } from '../../routes/auth/inputs/loginWithOAuth.input'
+import { BalanceTransactionType } from '.prisma/client'
 const qs = require('qs')
 
 class LoginWithOAuthInputModel {
@@ -263,7 +264,7 @@ export class LoginWithOAuthHandler implements ICommandHandler<LoginWithOAuthComm
 			await this.balanceTransactionRepository.createTransaction({
 				userId,
 				amount: welcomeBonus,
-				type: TransactionType.accountConfirmationWelcomeBonus,
+				type: BalanceTransactionType.ACCOUNT_CONFIRMATION_WELCOME_BONUS,
 			})
 		} catch (error) {
 			throw new CustomGraphQLError(errorMessage.unknownError, ErrorCode.InternalServerError_500)

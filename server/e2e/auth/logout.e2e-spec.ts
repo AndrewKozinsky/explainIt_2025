@@ -83,33 +83,13 @@ describe('Logout (e2e)', () => {
 		})
 
 		const loginWithOAuthQuery = queries.auth.loginUserWithOAuth({
-			code: defUserEmail,
+			code: 'some code',
 			providerType: OAuthProviderType.GOOGLE,
 		})
 		const [loginWithOAuthResp, loginWithOAuthRespCookies] = await makeGraphQLReq(app, loginWithOAuthQuery)
 		// console.log(loginWithOAuthResp)
-		console.log(loginWithOAuthRespCookies)
+		// console.log(loginWithOAuthRespCookies)
 
-		/*await userUtils.loginUserWithOAuthSuccessfully({
-			app,
-			email: defUserEmail,
-		})*/
-		// console.log(sessionToken)
-
-		// const logoutMutation = queries.auth.logout()
-		/*const [logoutResp, logoutRespCookies] = await makeGraphQLReqWithTokens({
-			app,
-			query: logoutMutation,
-			sessionToken,
-			mainConfig,
-		})*/
-		// console.log(logoutResp)
-
-		// expect(logoutResp.data[RouteNames.AUTH.LOGOUT]).toBe(true)
-
-		// Check if a refresh token in cookie is already expired
-		// const expiredSessionToken = logoutRespCookies[mainConfig.get().session.name]
-		// const expiredSessionTokenDate = new Date(expiredSessionToken.expires)
-		// expect(+expiredSessionTokenDate <= +new Date()).toBe(true)
+		// This test is unfinished because I was not able to get correct loginWithOAuthRespCookies with user data
 	})
 })

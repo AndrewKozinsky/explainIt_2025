@@ -168,6 +168,7 @@ export type TopUpBalanceWithYooKassaOutModel = {
 
 export type UserOutModel = {
   __typename?: 'UserOutModel';
+  balance: Scalars['Int']['output'];
   email: Scalars['String']['output'];
   id: Scalars['Int']['output'];
   isUserConfirmed: Scalars['Boolean']['output'];
@@ -198,7 +199,7 @@ export type Auth_ConfirmEmail = { __typename?: 'Mutation', auth_confirmEmail: bo
 export type Auth_GetMeVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Auth_GetMe = { __typename?: 'Query', auth_getMe: { __typename?: 'UserOutModel', id: number, email: string } };
+export type Auth_GetMe = { __typename?: 'Query', auth_getMe: { __typename?: 'UserOutModel', id: number, email: string, isUserConfirmed: boolean, balance: number } };
 
 export type Auth_LoginVariables = Exact<{
   input: LoginInput;
@@ -364,6 +365,8 @@ export const Auth_GetMeDocument = gql`
   auth_getMe {
     id
     email
+    isUserConfirmed
+    balance
   }
 }
     `;

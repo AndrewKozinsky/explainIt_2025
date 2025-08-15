@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common'
-import { BalanceTransaction } from '@prisma/client'
+import { BalanceTransaction, BalanceTransactionType } from '@prisma/client'
 import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 import { CustomGraphQLError } from '../infrastructure/exceptions/customErrors'
@@ -8,16 +8,11 @@ import { errorMessage } from '../infrastructure/exceptions/errorMessage'
 import { TransactionServiceModel } from '../models/transaction/transaction.service.model'
 import { UserRepository } from './user.repository'
 
-export enum TransactionType {
-	payment = 'PAYMENT',
-	accountConfirmationWelcomeBonus = 'ACCOUNT_CONFIRMATION_WELCOME_BONUS',
-}
-
 type TransactionDto = {
 	userId: number
 	amount: number
 	paymentId?: number
-	type: TransactionType
+	type: BalanceTransactionType
 }
 
 @Injectable()
@@ -29,19 +24,17 @@ export class BalanceTransactionRepository {
 
 	@CatchDbError()
 	async createTransaction(dto: TransactionDto) {
-		if (dto.type === 'PAYMENT' && !dto.paymentId) {
+		if (dto.type === BalanceTransactionType.PAYMENT && !dto.paymentId) {
 			throw new CustomGraphQLError('Payment ID is required for payment transactions', ErrorCode.BadRequest_400)
 		}
 
-		const data = {
-			amount: dto.amount,
-			user_id: dto.userId,
-			payment_id: dto.paymentId,
-			type: dto.type,
-		}
-
 		const createdTransaction = await this.prisma.balanceTransaction.create({
-			data,
+			data: {
+				amount: dto.amount,
+				user_id: dto.userId,
+				type: dto.type,
+				...(dto.type === BalanceTransactionType.PAYMENT && { payment_id: dto.paymentId }),
+			},
 		})
 
 		if (!createdTransaction) {
@@ -52,9 +45,8 @@ export class BalanceTransactionRepository {
 
 		return this.mapDbTransactionToServiceTransaction(createdTransaction)
 	}
-
 	@CatchDbError()
-	async getTransactionByUserIdAndType(userId: number, transactionType: TransactionType) {
+	async getTransactionByUserIdAndType(userId: number, transactionType: BalanceTransactionType) {
 		const transactions = await this.prisma.balanceTransaction.findMany({
 			where: {
 				user_id: userId,

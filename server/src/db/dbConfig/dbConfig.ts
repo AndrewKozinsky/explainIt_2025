@@ -122,7 +122,7 @@ export const bdConfig = {
 				description: 'Status of balance changing ',
 				required: true,
 				variants: ['PAYMENT', 'ACCOUNT_CONFIRMATION_WELCOME_BONUS'],
-				enumName: 'BalanceTransactionStatus',
+				enumName: 'BalanceTransactionType',
 			},
 			amount: {
 				type: 'number',

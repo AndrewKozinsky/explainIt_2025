@@ -23,14 +23,14 @@ model User {
 }
 
 model BalanceTransaction {
-    id         Int                      @id @default(autoincrement())
-    user       User                     @relation(fields: [user_id], references: [id])
+    id         Int                    @id @default(autoincrement())
+    user       User                   @relation(fields: [user_id], references: [id])
     user_id    Int
-    type       BalanceTransactionStatus
+    type       BalanceTransactionType
     amount     Int
-    payment    Payment?                 @relation(fields: [payment_id], references: [id])
-    payment_id Int?                     @unique
-    created_at DateTime                 @default(now())
+    payment    Payment?               @relation(fields: [payment_id], references: [id])
+    payment_id Int?                   @unique
+    created_at DateTime               @default(now())
 }
 
 model Payment {
@@ -46,7 +46,7 @@ model Payment {
     updated_at         DateTime            @default(now())
 }
 
-enum BalanceTransactionStatus {
+enum BalanceTransactionType {
     PAYMENT
     ACCOUNT_CONFIRMATION_WELCOME_BONUS
 }
