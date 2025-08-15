@@ -1,9 +1,10 @@
 import { INestApplication } from '@nestjs/common'
 import { Request } from 'express'
+import { LoginWithOAuthHandler } from '../../src/features/auth/LoginWithOAuth.command'
 import RouteNames from '../../src/infrastructure/routeNames'
 import { UserServiceModel } from '../../src/models/auth/auth.service.model'
-import { UserOutModel } from '../../src/models/user/user.out.model'
 import { UserRepository } from '../../src/repo/user.repository'
+import { OAuthProviderType } from '../../src/routes/auth/inputs/loginWithOAuth.input'
 import { makeGraphQLReq } from '../makeGQReq'
 import { defUserEmail, defUserPassword } from './common'
 import { queries } from '../../src/features/db/queries'
@@ -49,7 +50,7 @@ export const userUtils = {
 		return props.userRepository.getUserById(createdUser.id)
 	},
 
-	async createUserAndLogin(props: {
+	async createUserWithEmailAndPasswordAndLogin(props: {
 		app: INestApplication
 		userRepository: UserRepository
 		email?: string
@@ -97,14 +98,46 @@ export const userUtils = {
 		}
 	},
 
-	isUserEmailConfirmed(user: UserServiceModel) {
-		return user.isEmailConfirmed && !user.emailConfirmationCode && !user.confirmationCodeExpirationDate
+	async loginUserWithOAuthSuccessfully(props: { app: INestApplication; email: string }) {
+		// Get LoginWithOAuthHandler use case to create a mock below
+		const loginWithOAuthHandler = props.app.get<LoginWithOAuthHandler>(LoginWithOAuthHandler)
+
+		// Method getUserDataFromOAuthCode returns email and name
+		jest.spyOn(loginWithOAuthHandler, 'getUserDataFromOAuthCode').mockResolvedValue({
+			email: props.email,
+			name: 'Test User',
+		})
+
+		const registerWithOAuthUserMutation = queries.auth.loginUserWithOAuth({
+			providerType: OAuthProviderType.YANDEX,
+			code: 'some code',
+		})
+
+		// Register the user with OAuth for the first time
+		const [registerWithOAuthResp] = await makeGraphQLReq(props.app, registerWithOAuthUserMutation)
+		return registerWithOAuthResp
 	},
 
-	checkUserOutModel(user: UserOutModel) {
-		expect(typeof user.id).toBe('number')
-		expect(typeof user.email).toBe('string')
-		expect(typeof user.balance).toBe('number')
+	async loginUserWithOAuthFail(props: { app: INestApplication }) {
+		// Get LoginWithOAuthHandler use case to create a mock below
+		const loginWithOAuthHandler = props.app.get<LoginWithOAuthHandler>(LoginWithOAuthHandler)
+
+		// Create a mock for method getUserDataFromOAuthProvider. It returns null to imitate wrong answer from OAuth provider
+		jest.spyOn(loginWithOAuthHandler, 'getUserDataFromOAuthProvider').mockResolvedValue(null)
+
+		// Create a mutation to register the user with OAuth
+		const registerWithOAuthUserMutation = queries.auth.loginUserWithOAuth({
+			providerType: OAuthProviderType.YANDEX,
+			code: 'some code',
+		})
+
+		// A try to register the user with OAuth
+		const [registerWithOAuthResp] = await makeGraphQLReq(props.app, registerWithOAuthUserMutation)
+		return registerWithOAuthResp
+	},
+
+	isUserEmailConfirmed(user: UserServiceModel) {
+		return user.isEmailConfirmed && !user.emailConfirmationCode && !user.confirmationCodeExpirationDate
 	},
 
 	checkSessionCookie(cookiesObj: any) {
@@ -138,7 +171,7 @@ export const userUtils = {
 		if (checks?.isUserConfirmed !== undefined) {
 			expect(user.isUserConfirmed).toBe(checks.isUserConfirmed)
 		}
-		if (checks?.balance) {
+		if (checks?.balance !== undefined) {
 			expect(user.balance).toBe(checks.balance)
 		}
 	},

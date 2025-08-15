@@ -7,6 +7,7 @@ import RouteNames from '../../src/infrastructure/routeNames'
 import { UserRepository } from '../../src/repo/user.repository'
 import { makeGraphQLReq } from '../makeGQReq'
 import { checkErrorResponse } from '../utils/checkErrorResp'
+import { defUserEmail, welcomeBonus } from '../utils/common'
 import { createApp } from '../utils/createApp'
 import { queries } from '../../src/features/db/queries'
 import { userUtils } from '../utils/userUtils'
@@ -16,7 +17,7 @@ it('1', () => {
 	expect(2).toBe(2)
 })
 
-/*describe('Confirm an user email (e2e)', () => {
+describe.skip('Confirm an user email (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
@@ -39,7 +40,7 @@ it('1', () => {
 		await afterEachTest(app)
 	})
 
-	it.only('should return error if wrong confirmation code was passed', async () => {
+	it('should return error if wrong confirmation code was passed', async () => {
 		const confirmEmailQuery = queries.auth.confirmEmail('123')
 		const [confirmEmailResp] = await makeGraphQLReq(app, confirmEmailQuery)
 
@@ -134,4 +135,41 @@ it('1', () => {
 
 		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(1)
 	})
-})*/
+
+	it('register user, then login with OAuth, then confirm email', async () => {
+		// 1. Register user with email and password
+		const createdUser = await userUtils.createUserWithUnconfirmedEmail({
+			userRepository,
+			app,
+			email: defUserEmail,
+		})
+		if (!createdUser) return
+
+		const { emailConfirmationCode } = createdUser
+
+		// 2. Log in with OAuth
+		await userUtils.loginUserWithOAuthSuccessfully({
+			app,
+			email: defUserEmail,
+		})
+
+		// 3. Confirm email
+		const confirmEmailQuery = queries.auth.confirmEmail(emailConfirmationCode!)
+		const [confirmEmailResp] = await makeGraphQLReq(app, confirmEmailQuery)
+		expect(confirmEmailResp.data).toStrictEqual({
+			[RouteNames.AUTH.CONFIRM_EMAIL]: true,
+		})
+
+		// 4. Check that user data in the database is correct
+		const userRowData = await userRepository.getUserByEmail(defUserEmail)
+		userUtils.checkUserServiceResponseData(userRowData, {
+			email: defUserEmail,
+			password: 'password',
+			emailConfirmationCode: null,
+			confirmationCodeExpirationDate: null,
+			isEmailConfirmed: true,
+			isUserConfirmed: true,
+			balance: welcomeBonus,
+		})
+	})
+})

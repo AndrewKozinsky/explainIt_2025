@@ -1,12 +1,10 @@
 import { INestApplication } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { App } from 'supertest/types'
-import { LoginWithOAuthCommand } from '../../src/features/auth/LoginWithOAuth.command'
 import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 import RouteNames from '../../src/infrastructure/routeNames'
 import { UserQueryRepository } from '../../src/repo/user.queryRepository'
 import { UserRepository } from '../../src/repo/user.repository'
-import { OAuthProviderType } from '../../src/routes/auth/inputs/loginWithOAuth.input'
 import { makeGraphQLReq } from '../makeGQReq'
 import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
 import { checkErrorResponse } from '../utils/checkErrorResp'
@@ -127,20 +125,12 @@ describe.skip('Register user (e2e)', () => {
 		})
 	})
 
-	it('should register a user if he has already registered with OAuth', async () => {
-		// Register a user with OAuth
-		await commandBus.execute(
-			new LoginWithOAuthCommand({
-				request: userUtils.getFakeRequestForOAuth(),
-				loginWithOAuthInput: { code: 'code', providerType: OAuthProviderType.YANDEX },
-				clientIP: 'clientIP',
-				clientName: 'clientName',
-				overrideDataFromProvider: {
-					email: defUserEmail,
-					name: 'user name',
-				},
-			}),
-		)
+	it.only('should register a user if he has already registered with OAuth', async () => {
+		// Register/login a user with OAuth
+		await userUtils.loginUserWithOAuthSuccessfully({
+			app,
+			email: defUserEmail,
+		})
 
 		// Check that the data was saved correctly in the database
 		const createdUserByOAuth = await userRepository.getUserByEmail(defUserEmail)
@@ -162,7 +152,7 @@ describe.skip('Register user (e2e)', () => {
 		userUtils.checkUserOutResponseData(registeredUserResp.data[RouteNames.AUTH.REGISTER], {
 			email: defUserEmail,
 			isUserConfirmed: true,
-			balance: 0,
+			balance: welcomeBonus,
 		})
 
 		// Check that the data was saved correctly in the database

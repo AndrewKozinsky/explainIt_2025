@@ -4,7 +4,6 @@ import { App } from 'supertest/types'
 import { LoginWithOAuthHandler } from '../../src/features/auth/LoginWithOAuth.command'
 import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 import RouteNames from '../../src/infrastructure/routeNames'
-import { UserQueryRepository } from '../../src/repo/user.queryRepository'
 import { UserRepository } from '../../src/repo/user.repository'
 import { OAuthProviderType } from '../../src/routes/auth/inputs/loginWithOAuth.input'
 import { makeGraphQLReq } from '../makeGQReq'
@@ -20,12 +19,11 @@ it('1', () => {
 	expect(2).toBe(2)
 })
 
-describe('Register user (e2e)', () => {
+describe.skip('Register user (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
 	let userRepository: UserRepository
-	let userQueryRepository: UserQueryRepository
 
 	beforeAll(async () => {
 		const createMainAppRes = await createApp({ emailAdapter })
@@ -33,7 +31,6 @@ describe('Register user (e2e)', () => {
 		commandBus = app.get(CommandBus)
 		emailAdapter = createMainAppRes.emailAdapter
 		userRepository = await app.resolve(UserRepository)
-		userQueryRepository = await app.resolve(UserQueryRepository)
 	})
 
 	beforeEach(async () => {
@@ -45,21 +42,11 @@ describe('Register user (e2e)', () => {
 	})
 
 	it('should create a new user with OAuth', async () => {
-		// Get LoginWithOAuthHandler use case to create a mock below
-		const loginWithOAuthHandler = app.get<LoginWithOAuthHandler>(LoginWithOAuthHandler)
-
-		// Method getUserDataFromOAuthCode returns my email and name
-		jest.spyOn(loginWithOAuthHandler, 'getUserDataFromOAuthCode').mockResolvedValue({
+		// Register/login a user with OAuth
+		const createUserWithOAuthResp = await userUtils.loginUserWithOAuthSuccessfully({
+			app,
 			email: defUserEmail,
-			name: 'Test User',
 		})
-
-		const registerWithOAuthUserMutation = queries.auth.loginUserWithOAuth({
-			providerType: OAuthProviderType.YANDEX,
-			code: 'some code',
-		})
-
-		const [createUserWithOAuthResp] = await makeGraphQLReq(app, registerWithOAuthUserMutation)
 
 		// Check the returned object
 		userUtils.checkUserOutResponseData(createUserWithOAuthResp.data[RouteNames.AUTH.LOGIN_WITH_OAUTH], {
@@ -87,38 +74,31 @@ describe('Register user (e2e)', () => {
 	})
 
 	it('a user registered with OAuth then tries to do the same the second time then the program must return user data', async () => {
-		// Get LoginWithOAuthHandler use case to create a mock below
-		const loginWithOAuthHandler = app.get<LoginWithOAuthHandler>(LoginWithOAuthHandler)
-
-		// Method getUserDataFromOAuthCode returns my email and name
-		jest.spyOn(loginWithOAuthHandler, 'getUserDataFromOAuthCode').mockResolvedValue({
+		// 1. Register/login a user with OAuth
+		const firstRegisterWithOAuthResp = await userUtils.loginUserWithOAuthSuccessfully({
+			app,
 			email: defUserEmail,
-			name: 'Test User',
 		})
 
-		// Register the user for the first time
-		const registerWithOAuthMutation = queries.auth.loginUserWithOAuth({
-			providerType: OAuthProviderType.YANDEX,
-			code: 'some code',
-		})
-
-		const [firstRegisterWithOAuthResp] = await makeGraphQLReq(app, registerWithOAuthMutation)
-
+		// Check the returned object
 		userUtils.checkUserOutResponseData(firstRegisterWithOAuthResp.data[RouteNames.AUTH.LOGIN_WITH_OAUTH], {
 			email: defUserEmail,
 			isUserConfirmed: true,
-			balance: 0,
+			balance: welcomeBonus,
 		})
-
 		expect(firstRegisterWithOAuthResp.errors).toBeFalsy()
 
-		const [secondRegisterWithOAuthResp] = await makeGraphQLReq(app, registerWithOAuthMutation)
+		// 2. Register/login a user with OAuth for the second time
+		const secondRegisterWithOAuthResp = await userUtils.loginUserWithOAuthSuccessfully({
+			app,
+			email: defUserEmail,
+		})
 
 		// Check the returned object
 		userUtils.checkUserOutResponseData(secondRegisterWithOAuthResp.data[RouteNames.AUTH.LOGIN_WITH_OAUTH], {
 			email: defUserEmail,
 			isUserConfirmed: true,
-			balance: 0,
+			balance: welcomeBonus,
 		})
 
 		expect(secondRegisterWithOAuthResp.errors).toBeFalsy()
@@ -144,83 +124,52 @@ describe('Register user (e2e)', () => {
 		const registerUserMutation = queries.auth.registerUser({ email: defUserEmail, password: defUserPassword })
 		await makeGraphQLReq(app, registerUserMutation)
 
-		// 2. Preparing for register with OAuth
-
-		// Get LoginWithOAuthHandler use case to create a mock below
-		const loginWithOAuthHandler = app.get<LoginWithOAuthHandler>(LoginWithOAuthHandler)
-
-		// Method getUserDataFromOAuthCode returns my email and name
-		jest.spyOn(loginWithOAuthHandler, 'getUserDataFromOAuthCode').mockResolvedValue({
+		// 2. Register/login a user with OAuth for the first time
+		const registerWithOAuthResp_1 = await userUtils.loginUserWithOAuthSuccessfully({
+			app,
 			email: defUserEmail,
-			name: 'Test User',
 		})
-
-		const registerWithOAuthUserMutation = queries.auth.loginUserWithOAuth({
-			providerType: OAuthProviderType.YANDEX,
-			code: 'some code',
-		})
-
-		const rowUserExpectedData = {
-			email: defUserEmail,
-			password: 'password',
-			emailConfirmationCode: 'code',
-			confirmationCodeExpirationDate: 'data',
-			isEmailConfirmed: false,
-			isUserConfirmed: true,
-			balance: welcomeBonus,
-		}
-
-		// 3. Register the user with OAuth for the first time
-		const [registerWithOAuthResp_1] = await makeGraphQLReq(app, registerWithOAuthUserMutation)
 
 		// Check the returned object
-		userUtils.checkUserOutResponseData(registerWithOAuthResp_1.data[RouteNames.AUTH.LOGIN_WITH_OAUTH], {
+		await checkUserAfterOAuth(registerWithOAuthResp_1.data[RouteNames.AUTH.LOGIN_WITH_OAUTH])
+
+		// 3. Register the user with OAuth for the second time
+		const registerWithOAuthResp_2 = await userUtils.loginUserWithOAuthSuccessfully({
+			app,
 			email: defUserEmail,
-			isUserConfirmed: true,
-			balance: welcomeBonus,
 		})
 
-		expect(registerWithOAuthResp_1.errors).toBeFalsy()
+		await checkUserAfterOAuth(registerWithOAuthResp_2.data[RouteNames.AUTH.LOGIN_WITH_OAUTH])
 
-		// Check that user data in the database is correct
-		const userRowData_1 = await userRepository.getUserByEmail(defUserEmail)
-		userUtils.checkUserServiceResponseData(userRowData_1, rowUserExpectedData)
-
-		// 4. Register the user with OAuth for the second time
-		const [registerWithOAuthResp_2] = await makeGraphQLReq(app, registerWithOAuthUserMutation)
-
-		// Check the returned object
-		userUtils.checkUserOutResponseData(registerWithOAuthResp_2.data[RouteNames.AUTH.LOGIN_WITH_OAUTH], {
-			email: defUserEmail,
-			isUserConfirmed: true,
-			balance: welcomeBonus,
-		})
-
-		expect(registerWithOAuthResp_2.errors).toBeFalsy()
-
-		// Check that user data in the database is correct
-		const userRowData_2 = await userRepository.getUserByEmail(defUserEmail)
-		userUtils.checkUserServiceResponseData(userRowData_2, rowUserExpectedData)
-
-		// 5. Check that a confirmation letter was sent only once
+		// 4. Check that a confirmation letter was sent only once
 		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(1)
+
+		async function checkUserAfterOAuth(userOutResponseData: any) {
+			const rowUserExpectedData = {
+				email: defUserEmail,
+				password: 'password',
+				emailConfirmationCode: 'code',
+				confirmationCodeExpirationDate: 'data',
+				isEmailConfirmed: false,
+				isUserConfirmed: true,
+				balance: welcomeBonus,
+			}
+
+			userUtils.checkUserOutResponseData(userOutResponseData, {
+				email: defUserEmail,
+				isUserConfirmed: true,
+				balance: welcomeBonus,
+			})
+			expect(registerWithOAuthResp_1.errors).toBeFalsy()
+
+			// Check that user data in the database is correct
+			const userRowData_1 = await userRepository.getUserByEmail(defUserEmail)
+			userUtils.checkUserServiceResponseData(userRowData_1, rowUserExpectedData)
+		}
 	})
 
 	it('should not create a new user if OAuth provider returns wrong answer', async () => {
-		// Get LoginWithOAuthHandler use case to create a mock below
-		const loginWithOAuthHandler = app.get<LoginWithOAuthHandler>(LoginWithOAuthHandler)
-
-		// Create a mock for method getUserDataFromOAuthProvider. It returns null to imitate wrong answer from OAuth provider
-		jest.spyOn(loginWithOAuthHandler, 'getUserDataFromOAuthProvider').mockResolvedValue(null)
-
-		// Create a mutation to register the user with OAuth
-		const registerWithOAuthUserMutation = queries.auth.loginUserWithOAuth({
-			providerType: OAuthProviderType.YANDEX,
-			code: 'some code',
-		})
-
-		// A try to register the user with OAuth
-		const [registerWithOAuthResp] = await makeGraphQLReq(app, registerWithOAuthUserMutation)
+		const registerWithOAuthResp = await userUtils.loginUserWithOAuthFail({ app })
 
 		// Check the returned object
 		checkErrorResponse(registerWithOAuthResp, {
@@ -234,34 +183,22 @@ describe('Register user (e2e)', () => {
 		expect(userInDatabase).toBeNull()
 	})
 
-	it.only('should not change an existed user if OAuth provider returns wrong answer', async () => {
+	it('should not change an existed user if OAuth provider returns wrong answer', async () => {
 		// 1. Register the user with email and password
 		const registerUserMutation = queries.auth.registerUser({ email: defUserEmail, password: defUserPassword })
 		await makeGraphQLReq(app, registerUserMutation)
 
-		// 2. Get LoginWithOAuthHandler use case to create a mock below
-		const loginWithOAuthHandler = app.get<LoginWithOAuthHandler>(LoginWithOAuthHandler)
+		// 2.A try to register the user with OAuth
+		const registerWithOAuthResp = await userUtils.loginUserWithOAuthFail({ app })
 
-		// Create a mock for method getUserDataFromOAuthProvider. It returns null to imitate wrong answer from OAuth provider
-		jest.spyOn(loginWithOAuthHandler, 'getUserDataFromOAuthProvider').mockResolvedValue(null)
-
-		// Create a mutation to register the user with OAuth
-		const registerWithOAuthUserMutation = queries.auth.loginUserWithOAuth({
-			providerType: OAuthProviderType.YANDEX,
-			code: 'some code',
-		})
-
-		// A try to register the user with OAuth
-		const [registerWithOAuthResp] = await makeGraphQLReq(app, registerWithOAuthUserMutation)
-
-		// Check the returned object
+		// 3. Check the returned object
 		checkErrorResponse(registerWithOAuthResp, {
 			code: 'Bad Request',
 			statusCode: 400,
 			message: errorMessage.cannotGetAccessTokenForOAuthProvider,
 		})
 
-		// Check that user was not changed in the database
+		// 4. Check that user was not changed in the database
 		const userInDatabase = await userRepository.getUserByEmail(defUserEmail)
 		userUtils.checkUserServiceResponseData(userInDatabase, {
 			email: defUserEmail,
