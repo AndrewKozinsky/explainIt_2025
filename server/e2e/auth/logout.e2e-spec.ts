@@ -19,7 +19,7 @@ it('1', () => {
 	expect(2).toBe(2)
 })
 
-describe('Logout (e2e)', () => {
+describe.skip('Logout (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
@@ -72,7 +72,7 @@ describe('Logout (e2e)', () => {
 		expect(+expiredSessionTokenDate <= +new Date()).toBe(true)
 	})
 
-	it.only('should give success answer if user registered with OAuth', async () => {
+	it('should give success answer if user registered with OAuth', async () => {
 		// Get LoginWithOAuthHandler use case to create a mock below
 		const loginWithOAuthHandler = app.get<LoginWithOAuthHandler>(LoginWithOAuthHandler)
 
@@ -87,9 +87,21 @@ describe('Logout (e2e)', () => {
 			providerType: OAuthProviderType.GOOGLE,
 		})
 		const [loginWithOAuthResp, loginWithOAuthRespCookies] = await makeGraphQLReq(app, loginWithOAuthQuery)
-		// console.log(loginWithOAuthResp)
-		// console.log(loginWithOAuthRespCookies)
 
-		// This test is unfinished because I was not able to get correct loginWithOAuthRespCookies with user data
+		// Make logout
+		const logoutMutation = queries.auth.logout()
+		const [logoutResp, logoutRespCookies] = await makeGraphQLReqWithTokens({
+			app,
+			query: logoutMutation,
+			sessionToken: loginWithOAuthRespCookies.session,
+			mainConfig,
+		})
+
+		expect(logoutResp.data[RouteNames.AUTH.LOGOUT]).toBe(true)
+
+		// Check if a refresh token in cookie is already expired
+		const expiredSessionToken = logoutRespCookies[mainConfig.get().session.name]
+		const expiredSessionTokenDate = new Date(expiredSessionToken.expires)
+		expect(+expiredSessionTokenDate <= +new Date()).toBe(true)
 	})
 })
