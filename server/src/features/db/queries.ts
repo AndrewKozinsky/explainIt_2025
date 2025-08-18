@@ -125,11 +125,17 @@ export const queries = {
 	},
 	book: {
 		create(props: { author?: null | string; name?: null | string; note?: null | string }) {
+			const { author, name, note } = props
+
+			const authorValue = author ? `"${author}"` : null
+			const nameValue = name ? `"${name}"` : null
+			const noteValue = note ? `"${note}"` : null
+
 			return `mutation {
 			  ${RouteNames.BOOK.CREATE}(input: {
-				author: "${props.author}",
-				name: "${props.name}"
-				note: "${props.note}"
+				author: ${authorValue}
+				name: ${nameValue}
+				note: ${noteValue}
 			  }) {
 				id
 				author

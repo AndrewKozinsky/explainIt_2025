@@ -61,14 +61,13 @@ describe('Get user books', () => {
 			password: defUserPassword,
 		})
 
+		// Create the first book
 		const firstBookConfig = {
 			author: 'Gerald Durrell',
 			name: 'My Family and Other Animals',
-			// note: 'My note',
-			note: null,
+			note: 'My note',
 		}
 
-		// Create the first book
 		await bookUtils.createBook({
 			app,
 			mainConfig,
@@ -77,42 +76,40 @@ describe('Get user books', () => {
 		})
 
 		// Get user's books
-		// let userBooks = await bookUtils.getUserBooks({ app, mainConfig, sessionToken })
+		let userBooks = await bookUtils.getUserBooks({ app, mainConfig, sessionToken })
 
 		// Check the returning object
-		// expect(userBooks.length).toBe(1)
-		// bookUtils.checkBookOutResp(userBooks[0])
+		expect(userBooks.length).toBe(1)
+		bookUtils.checkBookOutResp(userBooks[0])
 
 		// Check that the user has only one book in the database
-		// let userBooksFromDb = await bookQueryRepository.getUserBooks(loginData.id)
-		// expect(userBooksFromDb.length).toBe(1)
+		let userBooksFromDb = await bookQueryRepository.getUserBooks(loginData.id)
+		expect(userBooksFromDb.length).toBe(1)
 
-		// -----
-
-		/*const secondBookConfig = {
+		// Create the second book
+		const secondBookConfig = {
 			author: 'Gerald Durrell 2',
 			name: 'My Family and Other Animals 2',
 			note: null,
-		}*/
+		}
 
-		// Create the second book
-		/*await bookUtils.createBook({
+		await bookUtils.createBook({
 			app,
 			mainConfig,
 			sessionToken: sessionToken,
 			...secondBookConfig,
-		})*/
+		})
 
 		// Get user's books
-		// userBooks = await bookUtils.getUserBooks({ app, mainConfig, sessionToken })
+		userBooks = await bookUtils.getUserBooks({ app, mainConfig, sessionToken })
 
 		// Check the returning object
-		// expect(userBooks.length).toBe(2)
-		// bookUtils.checkBookOutResp(userBooks[0], firstBookConfig)
-		// bookUtils.checkBookOutResp(userBooks[1], secondBookConfig)
+		expect(userBooks.length).toBe(2)
+		bookUtils.checkBookOutResp(userBooks[0], firstBookConfig)
+		bookUtils.checkBookOutResp(userBooks[1], secondBookConfig)
 
 		// Check that the user has two books in the database
-		// userBooksFromDb = await bookQueryRepository.getUserBooks(loginData.id)
-		// expect(userBooksFromDb.length).toBe(2)
+		userBooksFromDb = await bookQueryRepository.getUserBooks(loginData.id)
+		expect(userBooksFromDb.length).toBe(2)
 	})
 })

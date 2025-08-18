@@ -20,9 +20,6 @@ export class BookResolver {
 		description: bookResolversDesc.createBook,
 	})
 	async createBook(@Args('input') input: CreateBookInput, @Context('req') request: Request) {
-		console.log('=============')
-		console.log(input)
-		console.log('=============')
 		const userId = request.session.userId!
 		return await this.commandBus.execute(new CreateBookCommand(userId, input))
 	}

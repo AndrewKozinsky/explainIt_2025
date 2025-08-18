@@ -40,9 +40,9 @@ export const bookUtils = {
 		app: INestApplication
 		mainConfig: MainConfigService
 		sessionToken: any
-		author: string
-		name: string
-		note: string
+		author: null | string
+		name: null | string
+		note: null | string
 	}) {
 		// Create a book
 		const createFirstBookMutation = queries.book.create({
@@ -57,9 +57,8 @@ export const bookUtils = {
 			query: createFirstBookMutation,
 			sessionToken: input.sessionToken,
 		})
-		console.log(createBookResp)
 
-		// return createBookResp.data[RouteNames.BOOK.CREATE]
+		return createBookResp.data[RouteNames.BOOK.CREATE]
 	},
 
 	async getUserBooks(input: { app: INestApplication; mainConfig: MainConfigService; sessionToken: any }) {

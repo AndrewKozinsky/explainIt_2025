@@ -14,13 +14,10 @@ export class BookRepository {
 			data: {
 				author: dto.author,
 				name: dto.name,
-				note: dto.note ?? null,
-				// note: null,
+				note: dto.note,
 				user_id: dto.userId,
 			},
 		})
-		// console.log('------')
-		// console.log(newBook)
 
 		return this.mapDbBookToServiceBook(newBook)
 	}
