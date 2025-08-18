@@ -4,12 +4,12 @@ import { ErrorCode } from '../../infrastructure/exceptions/errorCode'
 import { errorMessage } from '../../infrastructure/exceptions/errorMessage'
 import { UserRepository } from '../../repo/user.repository'
 
-export class ConfirmEmailInputModel {
+export class ConfirmEmailInput {
 	code: string
 }
 
 export class ConfirmEmailCommand implements ICommand {
-	constructor(public createAdminInput: ConfirmEmailInputModel) {}
+	constructor(public createAdminInput: ConfirmEmailInput) {}
 }
 
 @CommandHandler(ConfirmEmailCommand)

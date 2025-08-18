@@ -103,6 +103,9 @@ export const bdConfig = {
 			Payment: {
 				type: 'oneToMany',
 			},
+			Book: {
+				type: 'oneToMany',
+			},
 		},
 	},
 	BalanceTransaction: {
@@ -192,6 +195,91 @@ export const bdConfig = {
 			},
 			updated_at: {
 				type: 'updatedAt',
+			},
+		},
+	},
+	Book: {
+		dtoProps: {},
+		dbFields: {
+			id: {
+				type: 'index',
+			},
+			user_id: {
+				type: 'manyToOne',
+				thisField: 'user_id', // Name of the column of this table that refers to another table
+				foreignTable: 'User', // Name of the table that this column refers to
+				foreignField: 'id',
+			},
+			author: {
+				type: 'string',
+				description: 'Author of the book',
+				required: false,
+				minLength: 1,
+				maxLength: 255,
+			},
+			name: {
+				type: 'string',
+				description: 'Name of the book',
+				required: false,
+				minLength: 0,
+				maxLength: 255,
+			},
+			note: {
+				type: 'string',
+				description: 'Note about the book',
+				required: false,
+				minLength: 0,
+				maxLength: 1000,
+			},
+			created_at: {
+				type: 'createdAt',
+			},
+			BookChapter: {
+				type: 'oneToMany',
+			},
+		},
+	},
+	BookChapter: {
+		dtoProps: {},
+		dbFields: {
+			id: {
+				type: 'index',
+			},
+			book_id: {
+				type: 'manyToOne',
+				thisField: 'book_id', // Name of the column of this table that refers to another table
+				foreignTable: 'Book', // Name of the table that this column refers to
+				foreignField: 'id',
+			},
+			chapter: {
+				type: 'string',
+				description: 'Chapter of the chapter. For example: Chapter 1.',
+				required: false,
+				minLength: 1,
+				maxLength: 255,
+			},
+			header: {
+				type: 'string',
+				description: 'Header of the chapter',
+				required: false,
+				minLength: 1,
+				maxLength: 255,
+			},
+			text: {
+				type: 'string',
+				description: 'Text of the chapter',
+				required: false,
+				maxLength: 10000,
+			},
+			note: {
+				type: 'string',
+				description: 'Note about the book',
+				required: false,
+				minLength: 0,
+				maxLength: 1000,
+			},
+			created_at: {
+				type: 'createdAt',
 			},
 		},
 	},

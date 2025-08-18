@@ -4,7 +4,7 @@ import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql'
 import { TopUpBalanceWithYooKassaCommand } from '../../features/payment/TopUpBalanceWithYooKassa.command'
 import { CheckSessionCookieGuard } from '../../infrastructure/guards/checkSessionCookie.guard'
 import RouteNames from '../../infrastructure/routeNames'
-import { TopUpBalanceWithYooKassaOutModel } from '../../models/payment/payment.out.model'
+import { BookOutModel } from '../../models/book/book.out.model'
 import { TopUpBalanceWithYooKassaInput } from './inputs/topUpBalanceWithYooKassa.input'
 import { paymentResolversDesc } from './resolverDescriptions'
 import { Request, Response } from 'express'
@@ -14,8 +14,8 @@ export class PaymentResolver {
 	constructor(private commandBus: CommandBus) {}
 
 	@UseGuards(CheckSessionCookieGuard)
-	@Mutation(() => TopUpBalanceWithYooKassaOutModel, {
-		name: RouteNames.PAYMENT.YOOKASSA.TOP_UP_BALANCE,
+	@Mutation(() => BookOutModel, {
+		name: RouteNames.BOOK.CREATE,
 		description: paymentResolversDesc.topUpBalanceWithYooKassa,
 	})
 	async topUpBalanceWithYooKassa(

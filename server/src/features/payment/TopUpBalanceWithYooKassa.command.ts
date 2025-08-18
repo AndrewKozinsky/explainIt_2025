@@ -1,7 +1,10 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { YooKassaService } from '../../infrastructure/yooKassa/yooKassa.service'
 import { PaymentRepository } from '../../repo/payment.repository'
-import { TopUpBalanceWithYooKassaInput } from '../../routes/payment/inputs/topUpBalanceWithYooKassa.input'
+
+class TopUpBalanceWithYooKassaInput {
+	amount: number
+}
 
 export class TopUpBalanceWithYooKassaCommand implements ICommand {
 	constructor(

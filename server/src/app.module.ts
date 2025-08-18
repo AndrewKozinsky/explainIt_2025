@@ -14,6 +14,7 @@ import { AiModule } from './routes/ai/ai.module'
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default'
 import { TelegramModule } from './infrastructure/telegram/telegram.module'
 import { AuthModule } from './routes/auth/auth.module'
+import { BookModule } from './routes/book/book.module'
 import { DbModule } from './routes/db/db.module'
 import { Request, Response } from 'express'
 import { PaymentModule } from './routes/payment/payment.module'
@@ -51,6 +52,7 @@ import { WebhookModule } from './routes/webhook/webhook.module'
 		PaymentModule,
 		YooKassaModule,
 		WebhookModule,
+		BookModule,
 	],
 	providers: [],
 })

@@ -41,7 +41,7 @@ describe.skip('Register user (e2e)', () => {
 
 	it('should create a new user with OAuth', async () => {
 		// Register/login a user with OAuth
-		const createUserWithOAuthResp = await userUtils.loginUserWithOAuthSuccessfully({
+		const { registerWithOAuthData: createUserWithOAuthResp } = await userUtils.loginUserWithOAuthSuccessfully({
 			app,
 			email: defUserEmail,
 		})
@@ -71,7 +71,7 @@ describe.skip('Register user (e2e)', () => {
 
 	it('a user registered with OAuth then tries to do the same the second time then the program must return user data', async () => {
 		// 1. Register/login a user with OAuth
-		const firstRegisterWithOAuthResp = await userUtils.loginUserWithOAuthSuccessfully({
+		const { registerWithOAuthData: firstRegisterWithOAuthResp } = await userUtils.loginUserWithOAuthSuccessfully({
 			app,
 			email: defUserEmail,
 		})
@@ -84,7 +84,7 @@ describe.skip('Register user (e2e)', () => {
 		})
 
 		// 2. Register/login a user with OAuth for the second time
-		const secondRegisterWithOAuthResp = await userUtils.loginUserWithOAuthSuccessfully({
+		const { registerWithOAuthData: secondRegisterWithOAuthResp } = await userUtils.loginUserWithOAuthSuccessfully({
 			app,
 			email: defUserEmail,
 		})
@@ -118,7 +118,7 @@ describe.skip('Register user (e2e)', () => {
 		await makeGraphQLReq(app, registerUserMutation)
 
 		// 2. Register/login a user with OAuth for the first time
-		const registerWithOAuthResp_1 = await userUtils.loginUserWithOAuthSuccessfully({
+		const { registerWithOAuthData: registerWithOAuthResp_1 } = await userUtils.loginUserWithOAuthSuccessfully({
 			app,
 			email: defUserEmail,
 		})
@@ -127,7 +127,7 @@ describe.skip('Register user (e2e)', () => {
 		await checkUserAfterOAuth(registerWithOAuthResp_1)
 
 		// 3. Register the user with OAuth for the second time
-		const registerWithOAuthResp_2 = await userUtils.loginUserWithOAuthSuccessfully({
+		const { registerWithOAuthData: registerWithOAuthResp_2 } = await userUtils.loginUserWithOAuthSuccessfully({
 			app,
 			email: defUserEmail,
 		})

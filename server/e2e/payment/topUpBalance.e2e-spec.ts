@@ -17,7 +17,7 @@ it('1', () => {
 	expect(2).toBe(2)
 })
 
-/*describe.skip('Top up balance with YooKassa (e2e)', () => {
+describe.skip('Top up balance with YooKassa (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
@@ -46,20 +46,16 @@ it('1', () => {
 		await authUtils.tokenNotExist(app, queries.payment.topUpBalanceWithYooKassa(1))
 	})
 
-	it('should return a confirmation page link', async () => {
-		const { loginData, sessionToken } = await userUtils.createUserAndLogin({
+	it('should return a confirmation page link for user registered with email and password', async () => {
+		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
 			userRepository,
 			email: defUserEmail,
 			password: defUserPassword,
 		})
 
-		if (!loginData || !sessionToken) {
-			throw new Error('Unable to login user')
-		}
-
-		const topUpBalanceQuery = queries.payment.topUpBalanceWithYooKassa(10)
-		const [topUpBalanceResp, topUpBalanceRespCookies] = await makeGraphQLReqWithTokens({
+		const topUpBalanceQuery = queries.payment.topUpBalanceWithYooKassa(20)
+		const [topUpBalanceResp] = await makeGraphQLReqWithTokens({
 			app,
 			query: topUpBalanceQuery,
 			sessionToken,
@@ -69,11 +65,24 @@ it('1', () => {
 		expect(topUpBalanceResp.data[RouteNames.PAYMENT.YOOKASSA.TOP_UP_BALANCE]).toEqual({
 			confirmationUrl: expect.any(String),
 		})
-
-		expect(
-			topUpBalanceResp.data[RouteNames.PAYMENT.YOOKASSA.TOP_UP_BALANCE].confirmationUrl.startsWith(
-				'https://yoomoney.ru/checkout/payments/v2/contract?orderId=',
-			),
-		).toBeTruthy()
 	})
-})*/
+
+	it.only('should return a confirmation page link for user registered with OAuth', async () => {
+		const { registerWithOAuthData, sessionToken } = await userUtils.loginUserWithOAuthSuccessfully({
+			app,
+			email: defUserEmail,
+		})
+
+		const topUpBalanceQuery = queries.payment.topUpBalanceWithYooKassa(20)
+		const [topUpBalanceResp] = await makeGraphQLReqWithTokens({
+			app,
+			query: topUpBalanceQuery,
+			sessionToken,
+			mainConfig,
+		})
+
+		expect(topUpBalanceResp.data[RouteNames.PAYMENT.YOOKASSA.TOP_UP_BALANCE]).toEqual({
+			confirmationUrl: expect.any(String),
+		})
+	})
+})

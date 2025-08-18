@@ -3,7 +3,9 @@ import OpenAI from 'openai'
 import { MainConfigService } from '../mainConfig/mainConfig.service'
 
 enum OpenAIModels {
-	'gpt4oMini' = 'gpt-4o-mini',
+	Standard = 'gpt-5',
+	Mini = 'gpt-5-mini',
+	Nano = 'gpt-5-nano',
 }
 
 @Injectable()
@@ -21,73 +23,51 @@ export class OpenAIService {
 	 * @param prompt — текст вопроса
 	 * @param model
 	 */
-	async generateText(prompt: string, model: OpenAIModels = OpenAIModels.gpt4oMini) {
+	async generateText(prompt: string, model: OpenAIModels = OpenAIModels.Nano) {
 		if (!prompt) {
 			console.log('Error in OpenAIService => generateText. Empty prompt.')
 			return ''
 		}
 
 		try {
-			const response = await this.openai.responses.create({
+			const response = await this.openai.chat.completions.create({
+				model,
+				messages: [
+					{
+						role: 'system',
+						content: `Ты учитель английского. Контекст возьму из {Context}. Напиши перевод предложения {Sentence}. Отдельно разбери фразу {Phrase}. В ответе всегда JSON:
+{"translate": "...", "phrase": "...", "examples": "..."}
+- translate: перевод предложения на русский.
+- phrase: объяснение фразы в контексте этого предложения.
+- examples: 3 примера использования фразы в других предложениях с переводом.
+}`,
+					},
+					{
+						role: 'user',
+						content: JSON.stringify({
+							Sentence: 'This goal can seem out of reach because languages seem hard, but they’re not.',
+							Phrase: 'out of reach',
+							Context:
+								'We want to walk up to someone, open our mouths, forget the rules, and speak automatically. This goal can seem out of reach because languages seem hard, but they’re not. There is no such thing as a “hard” language; any idiot can speak whatever language his parents spoke when he was a child. The real challenge lies in finding a path that conforms to the demands of a busy life.',
+						}),
+					},
+				],
+				response_format: {
+					type: 'json_object',
+				},
+			})
+
+			/*const response = await this.openai.responses.create({
 				model: model,
 				input: prompt,
 				store: true,
-			})
+			})*/
 
-			return response.output_text
+			return response
 		} catch (error: unknown) {
 			console.log('Error in OpenAIService => generateText.', error)
 		}
 	}
-
-	/**
-	 * Отправляет ИИ вопрос, на который нужно получить ответ.
-	 * @param question — текст вопроса
-	 * @param model — используемая модель ГигаЧата
-	 */
-	/*private async makeGenerateTextRequest(question: string, model: OpenAIModel) {
-		const requestBody = {
-			model,
-			messages: [
-				{
-					role: 'user',
-					content: question,
-				},
-			],
-			temperature: 1,
-			top_p: 0.1,
-			n: 1,
-			stream: false,
-			max_tokens: 512,
-			repetition_penalty: 1,
-		}
-
-		try {
-			return new Promise((resolve, reject) => {
-				fetch('https://OpenAI.devices.sberbank.ru/api/v1/chat/completions', {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-						Accept: 'application/json',
-						Authorization: 'Bearer ' + this.accessToken,
-					},
-					body: JSON.stringify(requestBody),
-				})
-					.then((res) => res.json())
-					.then((data) => {
-						resolve(data)
-					})
-			})
-		} catch (err: unknown) {
-			console.log('Error in OpenAIService => makeGenerateTextRequest')
-
-			if (err instanceof Error) {
-				return err.message
-			}
-
-			return null
-		}
-	}*/
 }
 
 export interface OpenAIServiceI {

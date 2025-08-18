@@ -20,6 +20,7 @@ model User {
     created_at                              DateTime             @default(now())
     BalanceTransaction                      BalanceTransaction[]
     Payment                                 Payment[]
+    Book                                    Book[]
 }
 
 model BalanceTransaction {
@@ -44,6 +45,28 @@ model Payment {
     BalanceTransaction BalanceTransaction?
     created_at         DateTime            @default(now())
     updated_at         DateTime            @default(now())
+}
+
+model Book {
+    id          Int           @id @default(autoincrement())
+    user        User          @relation(fields: [user_id], references: [id])
+    user_id     Int
+    author      String?
+    name        String?
+    note        String?
+    created_at  DateTime      @default(now())
+    BookChapter BookChapter[]
+}
+
+model BookChapter {
+    id         Int      @id @default(autoincrement())
+    book       Book     @relation(fields: [book_id], references: [id])
+    book_id    Int
+    chapter    String?
+    header     String?
+    text       String?
+    note       String?
+    created_at DateTime @default(now())
 }
 
 enum BalanceTransactionType {

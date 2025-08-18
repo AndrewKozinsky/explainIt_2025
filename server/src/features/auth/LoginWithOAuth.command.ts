@@ -13,7 +13,7 @@ import { OAuthProviderType } from '../../routes/auth/inputs/loginWithOAuth.input
 import { BalanceTransactionType } from '.prisma/client'
 const qs = require('qs')
 
-class LoginWithOAuthInputModel {
+class LoginWithOAuthInput {
 	providerType: OAuthProviderType
 	code: string
 }
@@ -27,7 +27,7 @@ export class LoginWithOAuthCommand implements ICommand {
 	constructor(
 		public input: {
 			request: Request
-			loginWithOAuthInput: LoginWithOAuthInputModel
+			loginWithOAuthInput: LoginWithOAuthInput
 			clientIP: string
 			clientName: string
 			// I want to pass specified email and name for seeding a database
@@ -80,7 +80,7 @@ export class LoginWithOAuthHandler implements ICommandHandler<LoginWithOAuthComm
 	}
 
 	async getUserDataFromOAuthCode(
-		loginWithOAuthInput: LoginWithOAuthInputModel,
+		loginWithOAuthInput: LoginWithOAuthInput,
 		overrideDataFromProvider?: UserDataFromProvider,
 	): Promise<UserDataFromProvider> {
 		if (overrideDataFromProvider) {

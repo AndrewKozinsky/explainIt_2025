@@ -5,9 +5,11 @@ import { OpenAIService, OpenAIServiceMock } from './openAI.service'
 const openAIServiceProvider = {
 	provide: OpenAIService,
 	useFactory: (mainConfigService: MainConfigService) => {
-		return mainConfigService.get().mode === 'localtest'
+		/*return mainConfigService.get().mode === 'localtest'
 			? new OpenAIServiceMock()
-			: new OpenAIService(mainConfigService)
+			: new OpenAIService(mainConfigService)*/
+
+		return new OpenAIService(mainConfigService)
 	},
 	inject: [MainConfigService],
 }

@@ -116,13 +116,27 @@ export const userUtils = {
 		})
 
 		// Register the user with OAuth for the first time
-		const [registerWithOAuthResp] = await makeGraphQLReq(props.app, registerWithOAuthUserMutation)
+		const [registerWithOAuthResp, registerWithOAuthCookies] = await makeGraphQLReq(
+			props.app,
+			registerWithOAuthUserMutation,
+		)
 
-		return registerWithOAuthResp.data[RouteNames.AUTH.LOGIN_WITH_OAUTH] as {
-			id: number
-			email: string
-			isUserConfirmed: boolean
-			balance: number
+		return {
+			registerWithOAuthData: registerWithOAuthResp.data[RouteNames.AUTH.LOGIN_WITH_OAUTH],
+			sessionToken: registerWithOAuthCookies.session,
+		} as {
+			registerWithOAuthData: {
+				id: number
+				email: string
+				isUserConfirmed: boolean
+				balance: number
+			}
+			sessionToken: {
+				value: string
+				path: '/'
+				expires: string
+				sameSite: string
+			}
 		}
 	},
 

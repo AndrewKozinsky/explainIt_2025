@@ -11,6 +11,7 @@ export const errorMessage = {
 	// USER
 	userNotFound: 'Пользователь не найден.',
 	userUnauthorized: 'Пользователь не авторизован.',
+	userBalanceIsNegative: 'У пользователя отрицательный баланс.',
 
 	// AUTH
 	sessionTokenIsNotValid: 'Токен сессии недействителен.',
@@ -66,4 +67,8 @@ export const errorMessage = {
 
 	// YOOKASSA
 	yookassaCannotCreatePayment: 'Не удалось создать платеж .',
+
+	book: {
+		notCreated: 'Книга не создана.',
+	},
 }

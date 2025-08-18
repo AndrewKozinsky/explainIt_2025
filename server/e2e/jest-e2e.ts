@@ -5,10 +5,14 @@ const config: Config = {
 	rootDir: '.',
 	testEnvironment: 'node',
 	testRegex: '.e2e-spec.ts$',
+	testTimeout: 35000,
 	transform: {
-		'^.+\\.(t|j)s$': ['ts-jest', {
-			useESM: true,
-		}],
+		'^.+\\.(t|j)s$': [
+			'ts-jest',
+			{
+				useESM: true,
+			},
+		],
 	},
 	maxWorkers: '100%',
 	transformIgnorePatterns: ['/node_modules/'],
@@ -21,6 +25,6 @@ const config: Config = {
 		// Enable Node.js built-in modules
 		customExportConditions: ['node', 'node-addons'],
 	},
-};
+}
 
 export default config

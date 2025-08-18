@@ -11,7 +11,7 @@ export class YooKassaService {
 	constructor(private mainConfig: MainConfigService) {}
 
 	/**
-	 * Отправляет ИИ вопрос на который нужно получить ответ
+	 * Отправляет запрос на ЮКассу для оплаты
 	 * @param amount — текст вопроса
 	 */
 	async createPayment(amount: number) {
@@ -26,29 +26,6 @@ export class YooKassaService {
 				return_url: this.mainConfig.get().site.domainRootWithProtocol,
 			},
 			// description: 'Заказ №1',
-		}
-
-		type CreatePaymentResponse = {
-			id: string // '300d9011-000f-5001-8000-1fba2b85ca42'
-			status: 'pending'
-			amount: {
-				value: string // '10.00'
-				currency: string // 'RUB'
-			}
-			description: string // 'Заказ №1'
-			recipient: {
-				account_id: string // '1127600'
-				gateway_id: string // '2496565'
-			}
-			created_at: string // '2025-07-19T11:06:57.593Z'
-			confirmation: {
-				type: 'redirect'
-				confirmation_url: string // 'https://yoomoney.ru/checkout/payments/v2/contract?orderId=300d9011-000f-5001-8000-1fba2b85ca42'
-			}
-			test: boolean
-			paid: false
-			refundable: boolean // false
-			metadata: any
 		}
 
 		const createPaymentResponse = await this.makeRequest<CreatePaymentResponse>({
@@ -71,6 +48,7 @@ export class YooKassaService {
 	 * @param input — объект с данными для настройки запроса
 	 */
 	async makeRequest<T>(input: { requestBody: any; relativeUrl: string }): Promise<undefined | T> {
+		// Если режим тестирования, то возвращаем фиктивные данные
 		if (this.mainConfig.get().mode === 'localtest') {
 			const id = Math.round(Math.random() * 1000000).toString()
 			return {
@@ -102,4 +80,27 @@ export class YooKassaService {
 			console.error(error)
 		}
 	}
+}
+
+type CreatePaymentResponse = {
+	id: string // '300d9011-000f-5001-8000-1fba2b85ca42'
+	status: 'pending'
+	amount: {
+		value: string // '10.00'
+		currency: string // 'RUB'
+	}
+	description: string // 'Заказ №1'
+	recipient: {
+		account_id: string // '1127600'
+		gateway_id: string // '2496565'
+	}
+	created_at: string // '2025-07-19T11:06:57.593Z'
+	confirmation: {
+		type: 'redirect'
+		confirmation_url: string // 'https://yoomoney.ru/checkout/payments/v2/contract?orderId=300d9011-000f-5001-8000-1fba2b85ca42'
+	}
+	test: boolean
+	paid: false
+	refundable: boolean // false
+	metadata: any
 }

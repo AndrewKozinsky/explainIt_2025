@@ -6,13 +6,13 @@ import { CustomGraphQLError } from '../../infrastructure/exceptions/customErrors
 import { ErrorCode } from '../../infrastructure/exceptions/errorCode'
 import { errorMessage } from '../../infrastructure/exceptions/errorMessage'
 
-export class CreateUserWithEmailAndPasswordInputModel {
+class CreateUserWithEmailAndPasswordInput {
 	email: string
 	password: string
 }
 
 export class CreateUserWithEmailAndPasswordCommand implements ICommand {
-	constructor(public createUserInput: CreateUserWithEmailAndPasswordInputModel) {}
+	constructor(public createUserInput: CreateUserWithEmailAndPasswordInput) {}
 }
 
 @CommandHandler(CreateUserWithEmailAndPasswordCommand)

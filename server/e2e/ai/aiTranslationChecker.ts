@@ -1,6 +1,6 @@
 import RouteNames from '../../src/infrastructure/routeNames'
 
-export const aiDataChecker = {
+export const aiTranslationChecker = {
 	checkTranslation: {
 		checkErrorRes(checkTranslationResp: any) {
 			expect(checkTranslationResp.data[RouteNames.AI.CHECK_TRANSLATION]).toEqual({

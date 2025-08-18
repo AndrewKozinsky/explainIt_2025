@@ -26,6 +26,9 @@ export const RouteNames = {
 	WEBHOOK: {
 		YOOKASSA: 'webhook/yookassa',
 	},
+	BOOK: {
+		CREATE: 'book_create',
+	},
 }
 
 export default RouteNames

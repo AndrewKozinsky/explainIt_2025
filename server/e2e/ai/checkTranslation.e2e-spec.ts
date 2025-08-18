@@ -6,7 +6,7 @@ import RouteNames from '../../src/infrastructure/routeNames'
 import { makeGraphQLReq } from '../makeGQReq'
 import { createApp } from '../utils/createApp'
 import { queries } from '../../src/features/db/queries'
-import { aiDataChecker } from './aiDataChecker'
+import { aiTranslationChecker } from './aiTranslationChecker'
 
 it('1', () => {
 	expect(2).toBe(2)
