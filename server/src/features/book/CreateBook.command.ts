@@ -6,9 +6,9 @@ import { BookQueryRepository } from '../../repo/book.queryRepository'
 import { BookRepository } from '../../repo/book.repository'
 
 class CreateBookInput {
-	author: string
-	name: string
-	note: string
+	author: null | string
+	name: null | string
+	note: null | string
 }
 
 export class CreateBookCommand implements ICommand {

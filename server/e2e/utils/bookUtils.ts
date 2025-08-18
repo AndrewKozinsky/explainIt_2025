@@ -29,7 +29,7 @@ export const bookUtils = {
 			expect(book.author).toBe(checks.author)
 		}
 		if (checks?.name !== undefined) {
-			expect(book.author).toBe(checks.name)
+			expect(book.name).toBe(checks.name)
 		}
 		if (checks?.note !== undefined) {
 			expect(book.note).toBe(checks.note)
@@ -44,7 +44,7 @@ export const bookUtils = {
 		name: string
 		note: string
 	}) {
-		// Create the first book
+		// Create a book
 		const createFirstBookMutation = queries.book.create({
 			author: input.author,
 			name: input.name,
@@ -57,7 +57,21 @@ export const bookUtils = {
 			query: createFirstBookMutation,
 			sessionToken: input.sessionToken,
 		})
+		console.log(createBookResp)
 
-		return createBookResp.data[RouteNames.BOOK.CREATE]
+		// return createBookResp.data[RouteNames.BOOK.CREATE]
+	},
+
+	async getUserBooks(input: { app: INestApplication; mainConfig: MainConfigService; sessionToken: any }) {
+		const userBooksQuery = queries.book.getUserBooks()
+
+		const [getUserBooksResp] = await makeGraphQLReqWithTokens({
+			app: input.app,
+			mainConfig: input.mainConfig,
+			query: userBooksQuery,
+			sessionToken: input.sessionToken,
+		})
+
+		return getUserBooksResp.data[RouteNames.BOOK.GET_USER_BOOKS]
 	},
 }

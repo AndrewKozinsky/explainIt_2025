@@ -41,9 +41,9 @@ export interface ResendConfirmationEmailInput {
 }
 
 export interface CreateBookInput {
-    author: string;
-    name: string;
-    note: string;
+    author?: Nullable<string>;
+    name?: Nullable<string>;
+    note?: Nullable<string>;
 }
 
 export interface UserOutModel {
@@ -55,15 +55,16 @@ export interface UserOutModel {
 
 export interface BookOutModel {
     id: number;
-    author: string;
-    name: string;
-    note: string;
+    author?: Nullable<string>;
+    name?: Nullable<string>;
+    note?: Nullable<string>;
 }
 
 export interface IQuery {
     ai_checkTranslation(input: CheckTranslationInput): CheckTranslationOutModel | Promise<CheckTranslationOutModel>;
     ai_getTranscription(input: GetTranscriptionInput): GetTranscriptionOutModel | Promise<GetTranscriptionOutModel>;
     auth_getMe(): UserOutModel | Promise<UserOutModel>;
+    book_user_books(): BookOutModel[] | Promise<BookOutModel[]>;
 }
 
 export interface CheckTranslationOutSuccessModel {

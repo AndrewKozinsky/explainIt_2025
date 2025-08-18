@@ -9,15 +9,18 @@ export class BookRepository {
 	constructor(private prisma: PrismaService) {}
 
 	@CatchDbError()
-	async createBook(dto: { userId: number; author?: string; name?: string; note?: string }) {
+	async createBook(dto: { userId: number; author: null | string; name: null | string; note: null | string }) {
 		const newBook = await this.prisma.book.create({
 			data: {
-				author: dto.author ?? null,
-				name: dto.name ?? null,
+				author: dto.author,
+				name: dto.name,
 				note: dto.note ?? null,
+				// note: null,
 				user_id: dto.userId,
 			},
 		})
+		// console.log('------')
+		// console.log(newBook)
 
 		return this.mapDbBookToServiceBook(newBook)
 	}
