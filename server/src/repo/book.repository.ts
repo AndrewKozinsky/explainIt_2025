@@ -53,6 +53,12 @@ export class BookRepository {
 			},
 		})
 
+		if (!newBook) {
+			return null
+		}
+
+		console.log(newBook)
+
 		return this.mapDbBookToServiceBook(newBook)
 	}
 

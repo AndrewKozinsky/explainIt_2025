@@ -12,6 +12,7 @@ export const errorMessage = {
 	userNotFound: 'Пользователь не найден.',
 	userUnauthorized: 'Пользователь не авторизован.',
 	userBalanceIsNegative: 'У пользователя отрицательный баланс.',
+	userIsNotOwner: 'Пользователь не является владельцем этой сущности.',
 
 	// AUTH
 	sessionTokenIsNotValid: 'Токен сессии недействителен.',
@@ -70,5 +71,6 @@ export const errorMessage = {
 
 	book: {
 		notCreated: 'Книга не создана.',
+		notFound: 'Книга не найдена.',
 	},
 }

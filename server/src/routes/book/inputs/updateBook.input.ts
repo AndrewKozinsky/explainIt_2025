@@ -5,8 +5,8 @@ import { DtoFieldDecorators } from '../../../db/dtoFieldDecorators'
 @InputType()
 export class UpdateBookInput {
 	@Field(() => Int, { description: 'Book id' })
-	@DtoFieldDecorators('bookId', bdConfig.Book.dbFields.id)
-	bookId: number
+	@DtoFieldDecorators('id', bdConfig.Book.dbFields.id)
+	id: number
 
 	@Field(() => String, { description: 'Author', nullable: true })
 	@DtoFieldDecorators('author', bdConfig.Book.dbFields.author)

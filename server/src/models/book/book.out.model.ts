@@ -13,4 +13,7 @@ export class BookOutModel {
 
 	@Field(() => String, { nullable: true })
 	note: string | null
+
+	@Field(() => Int)
+	userId: number
 }

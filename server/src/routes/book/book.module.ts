@@ -7,9 +7,10 @@ import { BookRepository } from '../../repo/book.repository'
 import { UserRepository } from '../../repo/user.repository'
 import { BookResolver } from './book.resolver'
 import { PrismaService } from '../../db/prisma.service'
+import { UpdateBookHandler } from 'src/features/book/UpdateBook.command'
 
 const services = [PrismaService]
-const commandHandlers = [CreateBookHandler, GetUserBooksHandler]
+const commandHandlers = [CreateBookHandler, GetUserBooksHandler, UpdateBookHandler]
 const resolvers = [BookResolver]
 const repositories = [BookRepository, BookQueryRepository, UserRepository]
 

@@ -37,6 +37,7 @@ export class BookQueryRepository {
 			author: dbBook.author,
 			name: dbBook.name,
 			note: dbBook.note,
+			userId: dbBook.user_id,
 		}
 	}
 }

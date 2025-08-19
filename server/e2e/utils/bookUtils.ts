@@ -40,17 +40,16 @@ export const bookUtils = {
 		app: INestApplication
 		mainConfig: MainConfigService
 		sessionToken: any
-		author: null | string
-		name: null | string
-		note: null | string
+		book: {
+			author: null | string
+			name: null | string
+			note: null | string
+		}
 	}) {
-		// Create a book
-		const createFirstBookMutation = queries.book.create({
-			author: input.author,
-			name: input.name,
-			note: input.note,
-		})
+		// Create a book mutation
+		const createFirstBookMutation = queries.book.create(input.book)
 
+		// Run this mutation
 		const [createBookResp] = await makeGraphQLReqWithTokens({
 			app: input.app,
 			mainConfig: input.mainConfig,
@@ -58,7 +57,32 @@ export const bookUtils = {
 			sessionToken: input.sessionToken,
 		})
 
-		return createBookResp.data[RouteNames.BOOK.CREATE]
+		return createBookResp
+	},
+
+	async updateBook(input: {
+		app: INestApplication
+		mainConfig: MainConfigService
+		sessionToken: any
+		book: {
+			id: number
+			author?: null | string
+			name?: null | string
+			note?: null | string
+		}
+	}) {
+		// Update a book mutation
+		const createFirstBookMutation = queries.book.update(input.book)
+
+		// Run this mutation
+		const [updateBookResp] = await makeGraphQLReqWithTokens({
+			app: input.app,
+			mainConfig: input.mainConfig,
+			query: createFirstBookMutation,
+			sessionToken: input.sessionToken,
+		})
+
+		return updateBookResp
 	},
 
 	async getUserBooks(input: { app: INestApplication; mainConfig: MainConfigService; sessionToken: any }) {
@@ -71,6 +95,6 @@ export const bookUtils = {
 			sessionToken: input.sessionToken,
 		})
 
-		return getUserBooksResp.data[RouteNames.BOOK.GET_USER_BOOKS]
+		return getUserBooksResp
 	},
 }

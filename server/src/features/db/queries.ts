@@ -124,8 +124,8 @@ export const queries = {
 		},
 	},
 	book: {
-		create(props: { author?: null | string; name?: null | string; note?: null | string }) {
-			const { author, name, note } = props
+		create(dto: { author?: null | string; name?: null | string; note?: null | string }) {
+			const { author, name, note } = dto
 
 			const authorValue = author ? `"${author}"` : null
 			const nameValue = name ? `"${name}"` : null
@@ -133,6 +133,27 @@ export const queries = {
 
 			return `mutation {
 			  ${RouteNames.BOOK.CREATE}(input: {
+				author: ${authorValue}
+				name: ${nameValue}
+				note: ${noteValue}
+			  }) {
+				id
+				author
+				name
+				note
+			  }
+			}`
+		},
+		update(dto: { id: number; author?: null | string; name?: null | string; note?: null | string }) {
+			const { id, author, name, note } = dto
+
+			const authorValue = author ? `"${author}"` : null
+			const nameValue = name ? `"${name}"` : null
+			const noteValue = note ? `"${note}"` : null
+
+			return `mutation {
+			  ${RouteNames.BOOK.UPDATE}(input: {
+			    id: ${dto.id}
 				author: ${authorValue}
 				name: ${nameValue}
 				note: ${noteValue}

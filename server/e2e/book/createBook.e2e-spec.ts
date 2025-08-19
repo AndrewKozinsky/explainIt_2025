@@ -4,6 +4,7 @@ import { App } from 'supertest/types'
 import { queries } from '../../src/features/db/queries'
 import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 import { MainConfigService } from '../../src/infrastructure/mainConfig/mainConfig.service'
+import RouteNames from '../../src/infrastructure/routeNames'
 import { BookQueryRepository } from '../../src/repo/book.queryRepository'
 import { UserRepository } from '../../src/repo/user.repository'
 import { authUtils } from '../utils/authUtils'
@@ -58,13 +59,15 @@ describe.skip('Create book', () => {
 		})
 
 		// Create the first book
-		const createdBook = await bookUtils.createBook({
+		await bookUtils.createBook({
 			app,
 			mainConfig,
 			sessionToken: sessionToken,
-			author: 'Gerald Durrell',
-			name: 'My Family and Other Animals',
-			note: 'My note',
+			book: {
+				author: 'Gerald Durrell',
+				name: 'My Family and Other Animals',
+				note: 'My note',
+			},
 		})
 
 		// Check that the user has only one book in the database
@@ -74,14 +77,17 @@ describe.skip('Create book', () => {
 		// -----
 
 		// Create the second book
-		const createdBook_2 = await bookUtils.createBook({
+		const createdBook_2Resp = await bookUtils.createBook({
 			app,
 			mainConfig,
 			sessionToken: sessionToken,
-			author: 'Gerald Durrell 2',
-			name: 'My Family and Other Animals 2',
-			note: null,
+			book: {
+				author: 'Gerald Durrell 2',
+				name: 'My Family and Other Animals 2',
+				note: null,
+			},
 		})
+		const createdBook_2 = createdBook_2Resp.data[RouteNames.BOOK.CREATE]
 
 		// Check the returning object
 		bookUtils.checkBookOutResp(createdBook_2)

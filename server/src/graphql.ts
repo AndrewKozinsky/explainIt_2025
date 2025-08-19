@@ -47,7 +47,7 @@ export interface CreateBookInput {
 }
 
 export interface UpdateBookInput {
-    bookId: number;
+    id: number;
     author?: Nullable<string>;
     name?: Nullable<string>;
     note?: Nullable<string>;
@@ -65,6 +65,7 @@ export interface BookOutModel {
     author?: Nullable<string>;
     name?: Nullable<string>;
     note?: Nullable<string>;
+    userId: number;
 }
 
 export interface IQuery {
