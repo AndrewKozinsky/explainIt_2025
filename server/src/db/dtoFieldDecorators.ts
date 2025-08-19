@@ -90,7 +90,7 @@ export function DtoFieldDecorators(
 	}
 	if (updatedFieldConf.type === 'number') {
 		decorators.push(Type(() => Number)) // Converts string to number
-		decorators.push(IsNumber)
+		decorators.push(IsNumber())
 
 		if (updatedFieldConf.min) {
 			decorators.push(Min(updatedFieldConf.min, { message: errorMessage.minNum(updatedFieldConf.min) }))

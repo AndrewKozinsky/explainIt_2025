@@ -65,14 +65,15 @@ describe('Update book', () => {
 			mainConfig,
 			sessionToken: sessionToken,
 			book: {
-				id: 1,
+				id: 999,
 				author: 'Gerald Durrell',
 				name: 'My Family and Other Animals',
 				note: 'My note',
 			},
 		})
 
-		// console.log(updatedBookResp)
+		// @ts-ignore
+		console.log(updatedBookResp.errors[0].extensions.validationErrors)
 		/*checkErrorResponse(updatedBookResp, {
 			code: 'Not Found',
 			statusCode: 404,

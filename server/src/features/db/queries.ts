@@ -153,7 +153,7 @@ export const queries = {
 
 			return `mutation {
 			  ${RouteNames.BOOK.UPDATE}(input: {
-			    id: ${dto.id}
+			    id: ${id}
 				author: ${authorValue}
 				name: ${nameValue}
 				note: ${noteValue}
