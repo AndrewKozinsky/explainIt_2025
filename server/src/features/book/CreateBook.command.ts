@@ -5,7 +5,7 @@ import { errorMessage } from '../../infrastructure/exceptions/errorMessage'
 import { BookQueryRepository } from '../../repo/book.queryRepository'
 import { BookRepository } from '../../repo/book.repository'
 
-class CreateBookInput {
+type CreateBookInput = {
 	author: null | string
 	name: null | string
 	note: null | string

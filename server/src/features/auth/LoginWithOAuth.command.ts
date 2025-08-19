@@ -13,7 +13,7 @@ import { OAuthProviderType } from '../../routes/auth/inputs/loginWithOAuth.input
 import { BalanceTransactionType } from '.prisma/client'
 const qs = require('qs')
 
-class LoginWithOAuthInput {
+type LoginWithOAuthInput = {
 	providerType: OAuthProviderType
 	code: string
 }

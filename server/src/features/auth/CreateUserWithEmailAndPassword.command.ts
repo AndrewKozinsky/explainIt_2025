@@ -6,7 +6,7 @@ import { CustomGraphQLError } from '../../infrastructure/exceptions/customErrors
 import { ErrorCode } from '../../infrastructure/exceptions/errorCode'
 import { errorMessage } from '../../infrastructure/exceptions/errorMessage'
 
-class CreateUserWithEmailAndPasswordInput {
+type CreateUserWithEmailAndPasswordInput = {
 	email: string
 	password: string
 }

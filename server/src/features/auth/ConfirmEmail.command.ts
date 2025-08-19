@@ -4,7 +4,7 @@ import { ErrorCode } from '../../infrastructure/exceptions/errorCode'
 import { errorMessage } from '../../infrastructure/exceptions/errorMessage'
 import { UserRepository } from '../../repo/user.repository'
 
-export class ConfirmEmailInput {
+export type ConfirmEmailInput = {
 	code: string
 }
 

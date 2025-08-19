@@ -7,7 +7,7 @@ import { UserRepository } from '../../repo/user.repository'
 import { Request } from 'express'
 import { UserQueryRepository } from 'src/repo/user.queryRepository'
 
-class LoginInputModel {
+type LoginInputModel = {
 	email: string
 	password: string
 }

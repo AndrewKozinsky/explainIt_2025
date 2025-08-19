@@ -22,6 +22,40 @@ export class BookRepository {
 		return this.mapDbBookToServiceBook(newBook)
 	}
 
+	@CatchDbError()
+	async getBookById(bookId: number) {
+		const book = await this.prisma.book.findUnique({
+			where: { id: bookId },
+		})
+
+		if (!book) {
+			return null
+		}
+
+		return this.mapDbBookToServiceBook(book)
+	}
+
+	@CatchDbError()
+	async updateBookById(
+		bookId: number,
+		dto: {
+			author?: null | string
+			name?: null | string
+			note?: null | string
+		},
+	) {
+		const newBook = await this.prisma.book.update({
+			where: { id: bookId },
+			data: {
+				author: dto.author,
+				name: dto.name,
+				note: dto.note,
+			},
+		})
+
+		return this.mapDbBookToServiceBook(newBook)
+	}
+
 	mapDbBookToServiceBook(dbBook: Book): BookServiceModel {
 		return {
 			id: dbBook.id,

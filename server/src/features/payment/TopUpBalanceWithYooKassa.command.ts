@@ -2,7 +2,7 @@ import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { YooKassaService } from '../../infrastructure/yooKassa/yooKassa.service'
 import { PaymentRepository } from '../../repo/payment.repository'
 
-class TopUpBalanceWithYooKassaInput {
+type TopUpBalanceWithYooKassaInput = {
 	amount: number
 }
 

@@ -46,6 +46,13 @@ export interface CreateBookInput {
     note?: Nullable<string>;
 }
 
+export interface UpdateBookInput {
+    bookId: number;
+    author?: Nullable<string>;
+    name?: Nullable<string>;
+    note?: Nullable<string>;
+}
+
 export interface UserOutModel {
     id: number;
     email: string;
@@ -92,6 +99,7 @@ export interface IMutation {
     auth_resendConfirmationEmail(input: ResendConfirmationEmailInput): boolean | Promise<boolean>;
     auth_logout(): boolean | Promise<boolean>;
     book_create(input: CreateBookInput): BookOutModel | Promise<BookOutModel>;
+    book_update(input: UpdateBookInput): BookOutModel | Promise<BookOutModel>;
 }
 
 export type CheckTranslationOutModel = CheckTranslationOutSuccessModel | CheckTranslationOutErrorModel;

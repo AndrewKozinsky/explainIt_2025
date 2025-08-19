@@ -3,10 +3,12 @@ import { CommandBus } from '@nestjs/cqrs'
 import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql'
 import { CreateBookCommand } from '../../features/book/CreateBook.command'
 import { GetUserBooksCommand } from '../../features/book/GetUserBooks.command'
+import { UpdateBookCommand } from '../../features/book/UpdateBook.command'
 import { CheckSessionCookieGuard } from '../../infrastructure/guards/checkSessionCookie.guard'
 import RouteNames from '../../infrastructure/routeNames'
 import { BookOutModel } from '../../models/book/book.out.model'
 import { CreateBookInput } from './inputs/createBook.input'
+import { UpdateBookInput } from './inputs/updateBook.input'
 import { bookResolversDesc } from './resolverDescriptions'
 import { Request } from 'express'
 
@@ -32,5 +34,15 @@ export class BookResolver {
 	async getUserBooks(@Context('req') request: Request) {
 		const userId = request.session.userId!
 		return await this.commandBus.execute(new GetUserBooksCommand(userId))
+	}
+
+	@UseGuards(CheckSessionCookieGuard)
+	@Mutation(() => BookOutModel, {
+		name: RouteNames.BOOK.UPDATE,
+		description: bookResolversDesc.updateBook,
+	})
+	async updateBook(@Args('input') input: UpdateBookInput, @Context('req') request: Request) {
+		const userId = request.session.userId!
+		return await this.commandBus.execute(new UpdateBookCommand(userId, input))
 	}
 }
