@@ -46,7 +46,10 @@ describe.skip('Create book', () => {
 	})
 
 	it('should return 401 if there is not session token cookie', async () => {
-		await authUtils.tokenNotExist(app, queries.book.create({ author: null, name: null, note: null }))
+		await authUtils.tokenNotExist({
+			app,
+			queryOrMutationStr: queries.book.create({ author: null, name: null, note: null }),
+		})
 	})
 
 	it('should return all user books', async () => {
@@ -61,7 +64,6 @@ describe.skip('Create book', () => {
 		// Create the first book
 		await bookUtils.createBook({
 			app,
-			mainConfig,
 			sessionToken: sessionToken,
 			book: {
 				author: 'Gerald Durrell',
@@ -79,7 +81,6 @@ describe.skip('Create book', () => {
 		// Create the second book
 		const createdBook_2Resp = await bookUtils.createBook({
 			app,
-			mainConfig,
 			sessionToken: sessionToken,
 			book: {
 				author: 'Gerald Durrell 2',

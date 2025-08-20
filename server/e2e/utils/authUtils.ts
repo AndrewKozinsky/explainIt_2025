@@ -5,8 +5,12 @@ import { checkErrorResponse } from './checkErrorResp'
 
 export const authUtils = {
 	// should return 401 if there aren't cookies
-	async tokenNotExist(app: INestApplication, queryOrMutationStr: string) {
-		const [queryResp] = await makeGraphQLReq(app, queryOrMutationStr)
+	async tokenNotExist(props: {
+		app: INestApplication
+		queryOrMutationStr: string
+		queryVariables?: Record<string, any>
+	}) {
+		const [queryResp] = await makeGraphQLReq(props.app, props.queryOrMutationStr, props.queryVariables)
 
 		checkErrorResponse(queryResp, {
 			code: 'Unauthorized',

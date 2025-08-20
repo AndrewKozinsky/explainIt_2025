@@ -31,7 +31,6 @@ export class BookQueryRepository {
 	}
 
 	mapDbBookToOutBook(dbBook: Book): BookOutModel {
-		// console.log(dbBook)
 		return {
 			id: dbBook.id,
 			author: dbBook.author,

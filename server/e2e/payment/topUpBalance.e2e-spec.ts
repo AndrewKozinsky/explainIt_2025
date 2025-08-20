@@ -2,7 +2,6 @@ import { INestApplication } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { App } from 'supertest/types'
 import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
-import { MainConfigService } from '../../src/infrastructure/mainConfig/mainConfig.service'
 import RouteNames from '../../src/infrastructure/routeNames'
 import { UserRepository } from '../../src/repo/user.repository'
 import { makeGraphQLReqWithTokens } from '../makeGQReq'
@@ -22,7 +21,6 @@ describe.skip('Top up balance with YooKassa (e2e)', () => {
 	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
 	let userRepository: UserRepository
-	let mainConfig: MainConfigService
 
 	beforeAll(async () => {
 		const createMainAppRes = await createApp({ emailAdapter })
@@ -31,7 +29,6 @@ describe.skip('Top up balance with YooKassa (e2e)', () => {
 		commandBus = app.get(CommandBus)
 		emailAdapter = createMainAppRes.emailAdapter
 		userRepository = await app.resolve(UserRepository)
-		mainConfig = await app.resolve(MainConfigService)
 	})
 
 	beforeEach(async () => {
@@ -43,7 +40,7 @@ describe.skip('Top up balance with YooKassa (e2e)', () => {
 	})
 
 	it('should return 401 if there is not session token cookie', async () => {
-		await authUtils.tokenNotExist(app, queries.payment.topUpBalanceWithYooKassa(1))
+		await authUtils.tokenNotExist({ app, queryOrMutationStr: queries.payment.topUpBalanceWithYooKassa(1) })
 	})
 
 	it('should return a confirmation page link for user registered with email and password', async () => {
@@ -59,7 +56,6 @@ describe.skip('Top up balance with YooKassa (e2e)', () => {
 			app,
 			query: topUpBalanceQuery,
 			sessionToken,
-			mainConfig,
 		})
 
 		expect(topUpBalanceResp.data[RouteNames.PAYMENT.YOOKASSA.TOP_UP_BALANCE]).toEqual({
@@ -78,7 +74,6 @@ describe.skip('Top up balance with YooKassa (e2e)', () => {
 			app,
 			query: topUpBalanceQuery,
 			sessionToken,
-			mainConfig,
 		})
 
 		expect(topUpBalanceResp.data[RouteNames.PAYMENT.YOOKASSA.TOP_UP_BALANCE]).toEqual({

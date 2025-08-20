@@ -7,9 +7,9 @@ import { BookRepository } from '../../repo/book.repository'
 
 type UpdateBookInput = {
 	id: number
-	author: null | string
-	name: null | string
-	note: null | string
+	author?: null | string
+	name?: null | string
+	note?: null | string
 }
 
 export class UpdateBookCommand implements ICommand {
@@ -30,7 +30,6 @@ export class UpdateBookHandler implements ICommandHandler<UpdateBookCommand> {
 		const { userId, updateBookInput } = command
 
 		const bookForUpdating = await this.bookQueryRepository.getBookById(updateBookInput.id)
-		console.log({ bookForUpdating })
 		if (!bookForUpdating) {
 			throw new CustomGraphQLError(errorMessage.book.notFound, ErrorCode.NotFound_404)
 		}
@@ -44,6 +43,6 @@ export class UpdateBookHandler implements ICommandHandler<UpdateBookCommand> {
 			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
 		}
 
-		return book
+		return this.bookQueryRepository.getBookById(book.id)
 	}
 }

@@ -22,7 +22,6 @@ export const paymentUtils = {
 				expires: string
 				sameSite: string
 			}
-			mainConfig: MainConfigService
 			paymentRepository: PaymentRepository
 			yooKassaService: YooKassaService
 		},
@@ -34,7 +33,6 @@ export const paymentUtils = {
 			app: params.app,
 			query: topUpBalanceQuery,
 			sessionToken: params.sessionToken,
-			mainConfig: params.mainConfig,
 		})
 
 		// Get user's last payment

@@ -1,18 +1,21 @@
 import { INestApplication } from '@nestjs/common'
+import { loggerFor } from 'openai/internal/utils/log'
 import { z } from 'zod'
 import { queries } from '../../src/features/db/queries'
-import { MainConfigService } from '../../src/infrastructure/mainConfig/mainConfig.service'
-import RouteNames from '../../src/infrastructure/routeNames'
 import { makeGraphQLReqWithTokens } from '../makeGQReq'
 
 export const bookUtils = {
-	checkBookOutResp(book: any, checks?: { id?: number; author?: string; name?: string; note?: string }) {
+	checkBookOutResp(
+		book: any,
+		checks?: { id?: number; author?: string; name?: string; note?: string; userId?: number },
+	) {
 		const userDataSchema = z
 			.object({
 				id: z.number(),
 				author: z.string().nullable(),
 				name: z.string().nullable(),
 				note: z.string().nullable(),
+				userId: z.number().nullable(),
 			})
 			.strict()
 
@@ -34,16 +37,18 @@ export const bookUtils = {
 		if (checks?.note !== undefined) {
 			expect(book.note).toBe(checks.note)
 		}
+		if (checks?.userId !== undefined) {
+			expect(book.userId).toBe(checks.userId)
+		}
 	},
 
 	async createBook(input: {
 		app: INestApplication
-		mainConfig: MainConfigService
 		sessionToken: any
 		book: {
-			author: null | string
-			name: null | string
-			note: null | string
+			author?: null | string
+			name?: null | string
+			note?: null | string
 		}
 	}) {
 		// Create a book mutation
@@ -52,7 +57,6 @@ export const bookUtils = {
 		// Run this mutation
 		const [createBookResp] = await makeGraphQLReqWithTokens({
 			app: input.app,
-			mainConfig: input.mainConfig,
 			query: createFirstBookMutation,
 			sessionToken: input.sessionToken,
 		})
@@ -62,7 +66,6 @@ export const bookUtils = {
 
 	async updateBook(input: {
 		app: INestApplication
-		mainConfig: MainConfigService
 		sessionToken: any
 		book: {
 			id: number
@@ -77,20 +80,19 @@ export const bookUtils = {
 		// Run this mutation
 		const [updateBookResp] = await makeGraphQLReqWithTokens({
 			app: input.app,
-			mainConfig: input.mainConfig,
-			query: createFirstBookMutation,
+			query: createFirstBookMutation.query,
+			queryVariables: createFirstBookMutation.variables,
 			sessionToken: input.sessionToken,
 		})
 
 		return updateBookResp
 	},
 
-	async getUserBooks(input: { app: INestApplication; mainConfig: MainConfigService; sessionToken: any }) {
+	async getUserBooks(input: { app: INestApplication; sessionToken: any }) {
 		const userBooksQuery = queries.book.getUserBooks()
 
 		const [getUserBooksResp] = await makeGraphQLReqWithTokens({
 			app: input.app,
-			mainConfig: input.mainConfig,
 			query: userBooksQuery,
 			sessionToken: input.sessionToken,
 		})

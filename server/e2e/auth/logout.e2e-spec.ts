@@ -45,7 +45,7 @@ describe.skip('Logout (e2e)', () => {
 	})
 
 	it('should return 401 if there is not session token cookie', async () => {
-		await authUtils.tokenNotExist(app, queries.auth.logout())
+		await authUtils.tokenNotExist({ app, queryOrMutationStr: queries.auth.logout() })
 	})
 
 	it('should give success answer if the JWT refreshToken is valid', async () => {
@@ -61,7 +61,6 @@ describe.skip('Logout (e2e)', () => {
 			app,
 			query: logoutMutation,
 			sessionToken,
-			mainConfig,
 		})
 
 		expect(logoutResp.data[RouteNames.AUTH.LOGOUT]).toBe(true)
@@ -94,7 +93,6 @@ describe.skip('Logout (e2e)', () => {
 			app,
 			query: logoutMutation,
 			sessionToken: loginWithOAuthRespCookies.session,
-			mainConfig,
 		})
 
 		expect(logoutResp.data[RouteNames.AUTH.LOGOUT]).toBe(true)

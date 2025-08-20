@@ -9,6 +9,6 @@ export class LoginInput {
 	email: string
 
 	@Field({ description: 'User password' })
-	@DtoFieldDecorators('email', bdConfig.User.dtoProps.password)
+	@DtoFieldDecorators('password', bdConfig.User.dtoProps.password)
 	password: string
 }

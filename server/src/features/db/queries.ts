@@ -141,30 +141,48 @@ export const queries = {
 				author
 				name
 				note
+				userId
 			  }
 			}`
 		},
-		update(dto: { id: number; author?: null | string; name?: null | string; note?: null | string }) {
+		// DELETE
+		/*update(dto: { id: number; author?: null | string; name?: null | string; note?: null | string }) {
 			const { id, author, name, note } = dto
-
-			const authorValue = author ? `"${author}"` : null
-			const nameValue = name ? `"${name}"` : null
-			const noteValue = note ? `"${note}"` : null
 
 			return `mutation {
 			  ${RouteNames.BOOK.UPDATE}(input: {
 			    id: ${id}
-				author: ${authorValue}
-				name: ${nameValue}
-				note: ${noteValue}
+				author: ${dto.author}
+				name: ${dto.name}
+				note: ${dto.note}
 			  }) {
 				id
 				author
 				name
 				note
+				userId
 			  }
 			}`
+		},*/
+		update(dto: { id: number; author?: null | string; name?: null | string; note?: null | string }) {
+			return {
+				query: `
+      mutation UpdateBook($input: UpdateBookInput!) {
+        ${RouteNames.BOOK.UPDATE}(input: $input) {
+          id
+          author
+          name
+          note
+          userId
+        }
+      }
+    `,
+				variables: {
+					input: dto,
+				},
+			}
 		},
+
 		getUserBooks() {
 			return `query {
 			  ${RouteNames.BOOK.GET_USER_BOOKS} {
@@ -172,6 +190,7 @@ export const queries = {
 				author
 				name
 				note
+				userId
 			  }
 			}`
 		},

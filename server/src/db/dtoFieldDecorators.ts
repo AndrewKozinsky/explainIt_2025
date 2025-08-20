@@ -35,6 +35,10 @@ export function DtoFieldDecorators(
 
 	const decorators: any[] = []
 
+	if (updatedFieldConf.type === 'index') {
+		decorators.push(Type(() => Number)) // Converts string to number
+		decorators.push(IsNumber())
+	}
 	if (updatedFieldConf.type === 'string') {
 		decorators.push(IsString({ message: name + ' must be a string' }))
 		decorators.push(Trim())

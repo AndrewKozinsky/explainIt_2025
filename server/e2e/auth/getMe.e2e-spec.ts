@@ -45,7 +45,7 @@ describe.skip('Get me (e2e)', () => {
 	})
 
 	it.only('should return 401 if there is not session token cookie', async () => {
-		await authUtils.tokenNotExist(app, queries.auth.getMe())
+		await authUtils.tokenNotExist({ app, queryOrMutationStr: queries.auth.getMe() })
 	})
 
 	it('should return 401 if a user has unconfirmed email', async () => {
@@ -61,7 +61,6 @@ describe.skip('Get me (e2e)', () => {
 			app,
 			query: getMeQuery,
 			sessionToken: null,
-			mainConfig,
 		})
 
 		checkErrorResponse(getMeResp, {
@@ -88,7 +87,6 @@ describe.skip('Get me (e2e)', () => {
 			app,
 			query: getMeQuery,
 			sessionToken,
-			mainConfig,
 		})
 
 		expect(getMeResp.data[RouteNames.AUTH.GET_ME]).toEqual({
@@ -108,7 +106,6 @@ describe.skip('Get me (e2e)', () => {
 			app,
 			query: getMeQuery,
 			sessionToken: null,
-			mainConfig,
 		})
 
 		checkErrorResponse(getMeResp, {

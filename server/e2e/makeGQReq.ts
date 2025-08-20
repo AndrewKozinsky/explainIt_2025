@@ -3,15 +3,15 @@ import * as request from 'supertest'
 import { App } from 'supertest/types'
 import { MainConfigService } from '../src/infrastructure/mainConfig/mainConfig.service'
 
-export async function makeGraphQLReq(app: INestApplication<App>, query: string) {
-	return base({ app, query })
+export async function makeGraphQLReq(app: INestApplication<App>, query: string, queryVariables?: Record<string, any>) {
+	return base({ app, query, queryVariables })
 }
 
 export async function makeGraphQLReqWithTokens(props: {
 	app: INestApplication<App>
 	query: string
+	queryVariables?: Record<string, any>
 	sessionToken?: any
-	mainConfig?: MainConfigService
 }) {
 	return base(props)
 }
@@ -19,8 +19,8 @@ export async function makeGraphQLReqWithTokens(props: {
 async function base(props: {
 	app: INestApplication<App>
 	query: string
+	queryVariables?: Record<string, any>
 	sessionToken?: any
-	mainConfig?: MainConfigService
 }): Promise<[QGResp, any]> {
 	const supertestRequest = request(props.app.getHttpServer())
 		.post('/graphql')
@@ -34,7 +34,7 @@ async function base(props: {
 		supertestRequest.set('Cookie', [sessionCookie])
 	}
 
-	const response = await supertestRequest.send({ query: props.query })
+	const response = await supertestRequest.send({ query: props.query, variables: props.queryVariables })
 	const cookies = extractCookies(response.headers['set-cookie'] as any)
 
 	return [response.body, cookies]
@@ -73,21 +73,21 @@ function extractCookies(cookieArray: undefined | string[]): CookiesObj {
 
 			if (!attribute) continue
 			switch (attribute.toLowerCase()) {
-				case 'max-age':
-					cookieData.maxAge = parseInt(attrValue)
-					break
-				case 'path':
-					cookieData.path = attrValue
-					break
-				case 'expires':
-					cookieData.expires = attrValue as CookieObj['expires']
-					break
-				case 'secure':
-					cookieData.secure = true
-					break
-				case 'samesite':
-					cookieData.sameSite = attrValue as CookieObj['sameSite']
-					break
+			case 'max-age':
+				cookieData.maxAge = parseInt(attrValue)
+				break
+			case 'path':
+				cookieData.path = attrValue
+				break
+			case 'expires':
+				cookieData.expires = attrValue as CookieObj['expires']
+				break
+			case 'secure':
+				cookieData.secure = true
+				break
+			case 'samesite':
+				cookieData.sameSite = attrValue as CookieObj['sameSite']
+				break
 			}
 		}
 

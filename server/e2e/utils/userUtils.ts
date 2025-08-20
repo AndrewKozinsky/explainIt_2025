@@ -27,6 +27,7 @@ export const userUtils = {
 		const [createUserResp] = await makeGraphQLReq(props.app, createUserMutation)
 
 		const routeName = RouteNames.AUTH.REGISTER
+		// console.log(createUserResp.errors[0].extensions.validationErrors)
 		const userId = createUserResp.data[routeName].id
 
 		return props.userRepository.getUserById(userId)

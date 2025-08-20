@@ -35,7 +35,7 @@ export const bdConfig = {
 				match: /[0-9A-Za-z!"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~]/,
 				matchErrorMessage:
 					'Password must have min length is 6 and max length is 30 and contains letters, numbers and other symbols',
-				description: 'User\'s password',
+				description: 'User password',
 				example: '$1Hn[595n8]T',
 				required: false,
 			},

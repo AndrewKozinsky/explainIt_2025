@@ -5,6 +5,7 @@ import { queries } from '../../src/features/db/queries'
 import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
 import { MainConfigService } from '../../src/infrastructure/mainConfig/mainConfig.service'
+import RouteNames from '../../src/infrastructure/routeNames'
 import { BookQueryRepository } from '../../src/repo/book.queryRepository'
 import { UserRepository } from '../../src/repo/user.repository'
 import { authUtils } from '../utils/authUtils'
@@ -25,7 +26,6 @@ describe('Update book', () => {
 	let emailAdapter: EmailAdapterService
 	let userRepository: UserRepository
 	let bookQueryRepository: BookQueryRepository
-	let mainConfig: MainConfigService
 
 	beforeAll(async () => {
 		const createMainAppRes = await createApp({ emailAdapter })
@@ -35,7 +35,6 @@ describe('Update book', () => {
 		emailAdapter = createMainAppRes.emailAdapter
 		userRepository = await app.resolve(UserRepository)
 		bookQueryRepository = await app.resolve(BookQueryRepository)
-		mainConfig = await app.resolve(MainConfigService)
 	})
 
 	beforeEach(async () => {
@@ -47,10 +46,11 @@ describe('Update book', () => {
 	})
 
 	it('should return 401 if there is not session token cookie', async () => {
-		await authUtils.tokenNotExist(app, queries.book.update({ id: 1, author: null, name: null, note: null }))
+		const query = queries.book.update({ id: 1, author: null })
+		await authUtils.tokenNotExist({ app, queryOrMutationStr: query.query, queryVariables: query.variables })
 	})
 
-	it.only('should return 404 status if a book is not exists', async () => {
+	it('should return 404 status if a book is not exists', async () => {
 		// Create a user with confirmed email
 		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
@@ -62,7 +62,6 @@ describe('Update book', () => {
 		// Try to update a non-existent book
 		const updatedBookResp = await bookUtils.updateBook({
 			app,
-			mainConfig,
 			sessionToken: sessionToken,
 			book: {
 				id: 999,
@@ -72,17 +71,15 @@ describe('Update book', () => {
 			},
 		})
 
-		// @ts-ignore
-		console.log(updatedBookResp.errors[0].extensions.validationErrors)
-		/*checkErrorResponse(updatedBookResp, {
+		checkErrorResponse(updatedBookResp, {
 			code: 'Not Found',
 			statusCode: 404,
-			message: 'Validation failed',
-		})*/
+			message: errorMessage.book.notFound,
+		})
 	})
 
-	/*it('should return 404 status if a book is not exists', async () => {
-		// Create a user with confirmed email
+	it('should return 400 status if a book belongs to another user', async () => {
+		// Create a user who will create a book
 		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
 			userRepository,
@@ -90,43 +87,79 @@ describe('Update book', () => {
 			password: defUserPassword,
 		})
 
-		// Create the first book
-		const createdBook = await bookUtils.createBook({
+		const createdBookResp = await bookUtils.createBook({
 			app,
-			mainConfig,
 			sessionToken: sessionToken,
 			book: {
-			author: 'Gerald Durrell',
+				author: 'Gerald Durrell',
+				name: 'My Family and Other Animals',
+				note: null,
+			},
+		})
+		const createdBook = createdBookResp.data[RouteNames.BOOK.CREATE]
+
+		// Create a second user who will try to update this book
+		const { loginData: secondUser, sessionToken: secondUserSeccionData } =
+			await userUtils.createUserWithEmailAndPasswordAndLogin({
+				app,
+				userRepository,
+				email: 'second@example.com',
+				password: 'password',
+			})
+
+		// Try to update this book
+		const updatedBookResp = await bookUtils.updateBook({
+			app,
+			sessionToken: secondUserSeccionData,
+			book: {
+				id: createdBook.id,
+				author: 'author',
+			},
+		})
+
+		checkErrorResponse(updatedBookResp, {
+			code: 'Forbidden',
+			statusCode: 403,
+			message: errorMessage.userIsNotOwner,
+		})
+	})
+
+	it.only('user should update a created book', async () => {
+		// Create a user who will create a book
+		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
+			app,
+			userRepository,
+			email: defUserEmail,
+			password: defUserPassword,
+		})
+
+		const createdBookResp = await bookUtils.createBook({
+			app,
+			sessionToken: sessionToken,
+			book: {
+				author: 'Gerald Durrell',
+				name: 'My Family and Other Animals',
+				note: null,
+			},
+		})
+		const createdBook = createdBookResp.data[RouteNames.BOOK.CREATE]
+
+		// Try to update this book
+		const updatedBookResp = await bookUtils.updateBook({
+			app,
+			sessionToken: sessionToken,
+			book: {
+				id: createdBook.id,
+				// author: 'author',
+				// note: 'my note',
+			},
+		})
+
+		/*bookUtils.checkBookOutResp(updatedBookResp.data[RouteNames.BOOK.UPDATE], {
+			id: createdBook.id,
+			author: 'author',
 			name: 'My Family and Other Animals',
-			note: 'My note',
-			}
-
-		})
-
-		// Check that the user has only one book in the database
-		let userBooks = await bookQueryRepository.getUserBooks(loginData.id)
-		expect(userBooks.length).toBe(1)
-
-		// -----
-
-		// Create the second book
-		const createdBook_2 = await bookUtils.createBook({
-			app,
-			mainConfig,
-			sessionToken: sessionToken,
-			book: {
-			author: 'Gerald Durrell 2',
-			name: 'My Family and Other Animals 2',
-			note: null,
-			}
-
-		})
-
-		// Check the returning object
-		bookUtils.checkBookOutResp(createdBook_2)
-
-		// Check that the user has two books in the database
-		userBooks = await bookQueryRepository.getUserBooks(loginData.id)
-		expect(userBooks.length).toBe(2)
-	})*/
+			note: 'my note',
+		})*/
+	})
 })

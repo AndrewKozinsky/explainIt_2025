@@ -3,4 +3,5 @@ export type BookServiceModel = {
 	author: string | null
 	name: string | null
 	note: string | null
+	userId: number
 }

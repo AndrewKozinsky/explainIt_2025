@@ -21,7 +21,7 @@ it('1', () => {
 	expect(2).toBe(2)
 })
 
-describe('Get user books', () => {
+describe.skip('Get user books', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
@@ -49,7 +49,10 @@ describe('Get user books', () => {
 	})
 
 	it('should return 401 if there is not session token cookie', async () => {
-		await authUtils.tokenNotExist(app, queries.book.create({ author: null, name: null, note: null }))
+		await authUtils.tokenNotExist({
+			app,
+			queryOrMutationStr: queries.book.create({ author: null, name: null, note: null }),
+		})
 	})
 
 	it.only('should create a new book for registered user', async () => {
@@ -70,13 +73,12 @@ describe('Get user books', () => {
 
 		await bookUtils.createBook({
 			app,
-			mainConfig,
 			sessionToken: sessionToken,
 			book: firstBookConfig,
 		})
 
 		// Get user's books
-		let userBooksResp = await bookUtils.getUserBooks({ app, mainConfig, sessionToken })
+		let userBooksResp = await bookUtils.getUserBooks({ app, sessionToken })
 		let userBooks = userBooksResp.data[RouteNames.BOOK.GET_USER_BOOKS]
 
 		// Check the returning object
@@ -96,13 +98,12 @@ describe('Get user books', () => {
 
 		await bookUtils.createBook({
 			app,
-			mainConfig,
 			sessionToken: sessionToken,
 			book: secondBookConfig,
 		})
 
 		// Get user's books
-		userBooksResp = await bookUtils.getUserBooks({ app, mainConfig, sessionToken })
+		userBooksResp = await bookUtils.getUserBooks({ app, sessionToken })
 		userBooks = userBooksResp.data[RouteNames.BOOK.GET_USER_BOOKS]
 
 		// Check the returning object

@@ -57,10 +57,37 @@ export class BookRepository {
 			return null
 		}
 
-		console.log(newBook)
-
 		return this.mapDbBookToServiceBook(newBook)
 	}
+
+	/*async updateBookById(
+		bookId: number,
+		dto: {
+			author?: null | string
+			name?: null | string
+			note?: null | string
+		},
+	) {
+		// Создаем объект данных только с переданными полями
+		const data: any = {}
+		console.log({ data })
+
+		if (dto.author !== undefined) data.author = dto.author
+		if (dto.name !== undefined) data.name = dto.name
+		if (dto.note !== undefined) data.note = dto.note
+		console.log({ data })
+
+		const newBook = await this.prisma.book.update({
+			where: { id: bookId },
+			data: data,
+		})
+
+		if (!newBook) {
+			return null
+		}
+
+		return this.mapDbBookToServiceBook(newBook)
+	}*/
 
 	mapDbBookToServiceBook(dbBook: Book): BookServiceModel {
 		return {
@@ -68,6 +95,7 @@ export class BookRepository {
 			author: dbBook.author,
 			name: dbBook.name,
 			note: dbBook.note,
+			userId: dbBook.user_id,
 		}
 	}
 }
