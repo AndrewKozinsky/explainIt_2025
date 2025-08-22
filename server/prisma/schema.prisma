@@ -62,9 +62,9 @@ model BookChapter {
     id         Int      @id @default(autoincrement())
     book       Book     @relation(fields: [book_id], references: [id])
     book_id    Int
-    chapter    String?
+    name       String?
     header     String?
-    text       String?
+    content    String?
     note       String?
     created_at DateTime @default(now())
 }

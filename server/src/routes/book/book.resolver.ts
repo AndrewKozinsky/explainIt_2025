@@ -42,7 +42,6 @@ export class BookResolver {
 		description: bookResolversDesc.updateBook,
 	})
 	async updateBook(@Args('input') input: UpdateBookInput, @Context('req') request: Request) {
-		console.log(input)
 		const userId = request.session.userId!
 		return await this.commandBus.execute(new UpdateBookCommand(userId, input))
 	}

@@ -3,7 +3,6 @@ import { CommandBus } from '@nestjs/cqrs'
 import { App } from 'supertest/types'
 import { queries } from '../../src/features/db/queries'
 import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
-import { MainConfigService } from '../../src/infrastructure/mainConfig/mainConfig.service'
 import RouteNames from '../../src/infrastructure/routeNames'
 import { BookQueryRepository } from '../../src/repo/book.queryRepository'
 import { UserRepository } from '../../src/repo/user.repository'
@@ -24,7 +23,6 @@ describe.skip('Create book', () => {
 	let emailAdapter: EmailAdapterService
 	let userRepository: UserRepository
 	let bookQueryRepository: BookQueryRepository
-	let mainConfig: MainConfigService
 
 	beforeAll(async () => {
 		const createMainAppRes = await createApp({ emailAdapter })
@@ -34,7 +32,6 @@ describe.skip('Create book', () => {
 		emailAdapter = createMainAppRes.emailAdapter
 		userRepository = await app.resolve(UserRepository)
 		bookQueryRepository = await app.resolve(BookQueryRepository)
-		mainConfig = await app.resolve(MainConfigService)
 	})
 
 	beforeEach(async () => {
@@ -46,13 +43,15 @@ describe.skip('Create book', () => {
 	})
 
 	it('should return 401 if there is not session token cookie', async () => {
+		const { query, variables } = queries.book.create({ author: null, name: null, note: null })
 		await authUtils.tokenNotExist({
 			app,
-			queryOrMutationStr: queries.book.create({ author: null, name: null, note: null }),
+			queryOrMutationStr: query,
+			queryVariables: variables,
 		})
 	})
 
-	it('should return all user books', async () => {
+	it('should create 2 books', async () => {
 		// Create a user with confirmed email
 		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,

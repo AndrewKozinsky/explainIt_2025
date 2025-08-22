@@ -27,7 +27,6 @@ describe.skip('Get user books', () => {
 	let emailAdapter: EmailAdapterService
 	let userRepository: UserRepository
 	let bookQueryRepository: BookQueryRepository
-	let mainConfig: MainConfigService
 
 	beforeAll(async () => {
 		const createMainAppRes = await createApp({ emailAdapter })
@@ -37,7 +36,6 @@ describe.skip('Get user books', () => {
 		emailAdapter = createMainAppRes.emailAdapter
 		userRepository = await app.resolve(UserRepository)
 		bookQueryRepository = await app.resolve(BookQueryRepository)
-		mainConfig = await app.resolve(MainConfigService)
 	})
 
 	beforeEach(async () => {
@@ -49,9 +47,11 @@ describe.skip('Get user books', () => {
 	})
 
 	it('should return 401 if there is not session token cookie', async () => {
+		const { query, variables } = queries.book.create({ author: null, name: null, note: null })
 		await authUtils.tokenNotExist({
 			app,
-			queryOrMutationStr: queries.book.create({ author: null, name: null, note: null }),
+			queryOrMutationStr: query,
+			queryVariables: variables,
 		})
 	})
 

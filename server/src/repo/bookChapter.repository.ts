@@ -1,29 +1,36 @@
 import { Injectable } from '@nestjs/common'
-import { Book } from '@prisma/client'
+import { BookChapter } from '@prisma/client'
 import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 import { BookServiceModel } from '../models/book/book.service.model'
+import { BookChapterServiceModel } from '../models/bookChapter/bookChapter.service.model'
 
 @Injectable()
-export class BookRepository {
+export class BookChapterRepository {
 	constructor(private prisma: PrismaService) {}
 
 	@CatchDbError()
-	async createBook(dto: { userId: number; author: null | string; name: null | string; note: null | string }) {
-		const newBook = await this.prisma.book.create({
+	async createBookChapter(dto: {
+		bookId: number
+		name: null | string
+		header: null | string
+		content: null | string
+		note: null | string
+	}) {
+		const newBookChapter = await this.prisma.bookChapter.create({
 			data: {
-				author: dto.author,
+				book_id: dto.bookId,
 				name: dto.name,
+				content: dto.content,
 				note: dto.note,
-				user_id: dto.userId,
 			},
 		})
 
-		return this.mapDbBookToServiceBook(newBook)
+		return this.mapDbBookChapterToServiceBook(newBookChapter)
 	}
 
-	@CatchDbError()
-	async getBookById(bookId: number) {
+	/*@CatchDbError()
+	async getBookChapterById(bookId: number) {
 		const book = await this.prisma.book.findUnique({
 			where: { id: bookId },
 		})
@@ -33,10 +40,10 @@ export class BookRepository {
 		}
 
 		return this.mapDbBookToServiceBook(book)
-	}
+	}*/
 
-	@CatchDbError()
-	async updateBookById(
+	/*@CatchDbError()
+	async updateBookChapterById(
 		bookId: number,
 		dto: {
 			author?: null | string
@@ -58,15 +65,16 @@ export class BookRepository {
 		}
 
 		return this.mapDbBookToServiceBook(newBook)
-	}
+	}*/
 
-	mapDbBookToServiceBook(dbBook: Book): BookServiceModel {
+	mapDbBookChapterToServiceBook(dbBookChapter: BookChapter): BookChapterServiceModel {
 		return {
-			id: dbBook.id,
-			author: dbBook.author,
-			name: dbBook.name,
-			note: dbBook.note,
-			userId: dbBook.user_id,
+			id: dbBookChapter.id,
+			bookId: dbBookChapter.book_id,
+			header: dbBookChapter.header,
+			name: dbBookChapter.name,
+			content: dbBookChapter.content,
+			note: dbBookChapter.note,
 		}
 	}
 }

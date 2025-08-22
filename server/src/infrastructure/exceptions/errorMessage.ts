@@ -73,4 +73,9 @@ export const errorMessage = {
 		notCreated: 'Книга не создана.',
 		notFound: 'Книга не найдена.',
 	},
+
+	bookChapter: {
+		notCreated: 'Глава книги не создана.',
+		notFound: 'Глава книги не найдена.',
+	},
 }

@@ -124,7 +124,8 @@ export const queries = {
 		},
 	},
 	book: {
-		create(dto: { author?: null | string; name?: null | string; note?: null | string }) {
+		// DELETE LATER!!!
+		/*create(dto: { author?: null | string; name?: null | string; note?: null | string }) {
 			const { author, name, note } = dto
 
 			const authorValue = author ? `"${author}"` : null
@@ -144,26 +145,25 @@ export const queries = {
 				userId
 			  }
 			}`
-		},
-		// DELETE
-		/*update(dto: { id: number; author?: null | string; name?: null | string; note?: null | string }) {
-			const { id, author, name, note } = dto
-
-			return `mutation {
-			  ${RouteNames.BOOK.UPDATE}(input: {
-			    id: ${id}
-				author: ${dto.author}
-				name: ${dto.name}
-				note: ${dto.note}
-			  }) {
-				id
-				author
-				name
-				note
-				userId
-			  }
-			}`
 		},*/
+		create(dto: { author: null | string; name: null | string; note: null | string }) {
+			return {
+				query: `
+				mutation CreateBook($input: CreateBookInput!) {
+				 ${RouteNames.BOOK.CREATE}(input: $input) {
+					id
+					author
+					name
+					note
+					userId
+			  	}
+			}
+			`,
+				variables: {
+					input: dto,
+				},
+			}
+		},
 		update(dto: { id: number; author?: null | string; name?: null | string; note?: null | string }) {
 			return {
 				query: `
@@ -193,6 +193,33 @@ export const queries = {
 				userId
 			  }
 			}`
+		},
+	},
+	bookChapter: {
+		create(dto: {
+			bookId: number
+			name?: null | string
+			header?: null | string
+			content?: null | string
+			note?: null | string
+		}) {
+			return {
+				query: `
+				mutation CreateBookChapter($input: CreateBookChapterInput!) {
+				 ${RouteNames.BOOK_CHAPTER.CREATE}(input: $input) {
+					id
+					bookId
+					name
+					header
+					content
+					note
+			  	}
+			}
+			`,
+				variables: {
+					input: dto,
+				},
+			}
 		},
 	},
 }

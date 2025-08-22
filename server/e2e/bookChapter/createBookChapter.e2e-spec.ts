@@ -5,9 +5,11 @@ import { queries } from '../../src/features/db/queries'
 import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
 import RouteNames from '../../src/infrastructure/routeNames'
+import { BookChapterQueryRepository } from '../../src/repo/bookChapter.queryRepository'
 import { UserRepository } from '../../src/repo/user.repository'
 import { authUtils } from '../utils/authUtils'
 import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
+import { bookChapterUtils } from '../utils/bookChapterUtils'
 import { bookUtils } from '../utils/bookUtils'
 import { checkErrorResponse } from '../utils/checkErrorResp'
 import { defUserEmail, defUserPassword } from '../utils/common'
@@ -18,11 +20,12 @@ it('1', () => {
 	expect(2).toBe(2)
 })
 
-describe.skip('Update book', () => {
+describe.skip('Create book chapter', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
 	let userRepository: UserRepository
+	let bookChapterQueryRepository: BookChapterQueryRepository
 
 	beforeAll(async () => {
 		const createMainAppRes = await createApp({ emailAdapter })
@@ -31,6 +34,7 @@ describe.skip('Update book', () => {
 		commandBus = app.get(CommandBus)
 		emailAdapter = createMainAppRes.emailAdapter
 		userRepository = await app.resolve(UserRepository)
+		bookChapterQueryRepository = await app.resolve(BookChapterQueryRepository)
 	})
 
 	beforeEach(async () => {
@@ -42,11 +46,16 @@ describe.skip('Update book', () => {
 	})
 
 	it('should return 401 if there is not session token cookie', async () => {
-		const query = queries.book.update({ id: 1, author: null })
-		await authUtils.tokenNotExist({ app, queryOrMutationStr: query.query, queryVariables: query.variables })
+		const { query, variables } = queries.bookChapter.create({ bookId: 9999 })
+
+		await authUtils.tokenNotExist({
+			app,
+			queryOrMutationStr: query,
+			queryVariables: variables,
+		})
 	})
 
-	it('should return 404 status if a book is not exists', async () => {
+	it('should throw an error if the book does not exist', async () => {
 		// Create a user with confirmed email
 		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
@@ -55,26 +64,27 @@ describe.skip('Update book', () => {
 			password: defUserPassword,
 		})
 
-		// Try to update a non-existent book
-		const updatedBookResp = await bookUtils.updateBook({
+		// Create a book chapter
+		const createdBookChapterResp = await bookChapterUtils.createBookChapter({
 			app,
 			sessionToken: sessionToken,
-			book: {
-				id: 999,
-				author: 'Gerald Durrell',
-				name: 'My Family and Other Animals',
-				note: 'My note',
+			bookChapter: {
+				bookId: 999,
+				name: 'Chapter 1',
+				header: 'My Family and Other Animals',
+				content: 'Some content',
+				note: null,
 			},
 		})
 
-		checkErrorResponse(updatedBookResp, {
+		checkErrorResponse(createdBookChapterResp, {
 			code: 'Not Found',
 			statusCode: 404,
 			message: errorMessage.book.notFound,
 		})
 	})
 
-	it('should return 400 status if a book belongs to another user', async () => {
+	it('should throw an error if the book belongs to another user', async () => {
 		// Create a user who will create a book
 		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
@@ -92,9 +102,10 @@ describe.skip('Update book', () => {
 				note: null,
 			},
 		})
+
 		const createdBook = createdBookResp.data[RouteNames.BOOK.CREATE]
 
-		// Create a second user who will try to update this book
+		// Create a second user who will try to create a chapter for this book
 		const { loginData: secondUser, sessionToken: secondUserSeccionData } =
 			await userUtils.createUserWithEmailAndPasswordAndLogin({
 				app,
@@ -103,24 +114,24 @@ describe.skip('Update book', () => {
 				password: 'password',
 			})
 
-		// Try to update this book
-		const updatedBookResp = await bookUtils.updateBook({
+		// Try to create a chapter for this book of the first user
+		const createdBookChapterResp = await bookChapterUtils.createBookChapter({
 			app,
 			sessionToken: secondUserSeccionData,
-			book: {
-				id: createdBook.id,
-				author: 'author',
+			bookChapter: {
+				bookId: createdBook.id,
+				name: 'Chapter 1',
 			},
 		})
 
-		checkErrorResponse(updatedBookResp, {
+		checkErrorResponse(createdBookChapterResp, {
 			code: 'Forbidden',
 			statusCode: 403,
 			message: errorMessage.userIsNotOwner,
 		})
 	})
 
-	it('user should update a created book', async () => {
+	it('should create several book chapters if the book belongs to this user', async () => {
 		// Create a user who will create a book
 		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
@@ -138,42 +149,41 @@ describe.skip('Update book', () => {
 				note: null,
 			},
 		})
-		const createdBook = createdBookResp.data[RouteNames.BOOK.CREATE]
 
-		// Try to update this book with no data
-		const updatedBookResp = await bookUtils.updateBook({
+		const book = createdBookResp.data[RouteNames.BOOK.CREATE]
+
+		// Create a chapter for this book
+		const createdFirstBookChapterResp = await bookChapterUtils.createBookChapter({
 			app,
 			sessionToken: sessionToken,
-			book: {
-				id: createdBook.id,
+			bookChapter: {
+				bookId: book.id,
+				name: 'Chapter 1',
+				header: 'Chapter 1',
+				content: 'Content of chapter 1',
+				note: 'Note',
 			},
 		})
+		const firstBookChapter = createdFirstBookChapterResp.data[RouteNames.BOOK_CHAPTER.CREATE]
 
-		// Check that the book was not changed
-		bookUtils.checkBookOutResp(updatedBookResp.data[RouteNames.BOOK.UPDATE], {
-			id: createdBook.id,
-			author: 'Gerald Durrell',
-			name: 'My Family and Other Animals',
-			note: null,
-		})
+		// Check firstBookChapter
+		bookChapterUtils.checkBookChapterOutResp(firstBookChapter)
 
-		// Try to update several fields
-		const updatedBookResp_2 = await bookUtils.updateBook({
+		// Create a chapter for this book
+		const createdSecondBookChapterResp = await bookChapterUtils.createBookChapter({
 			app,
 			sessionToken: sessionToken,
-			book: {
-				id: createdBook.id,
-				author: 'Jack London',
-				note: 'My note',
+			bookChapter: {
+				bookId: book.id,
 			},
 		})
+		const secondBookChapter = createdSecondBookChapterResp.data[RouteNames.BOOK_CHAPTER.CREATE]
 
-		// Check that only these fields were changed
-		bookUtils.checkBookOutResp(updatedBookResp_2.data[RouteNames.BOOK.UPDATE], {
-			id: createdBook.id,
-			author: 'Jack London',
-			name: 'My Family and Other Animals',
-			note: 'My note',
-		})
+		// Check firstBookChapter
+		bookChapterUtils.checkBookChapterOutResp(secondBookChapter)
+
+		// Check that the user has two book chapters in the database
+		const userBookChapters = await bookChapterQueryRepository.getBookChapters(book.id)
+		expect(userBookChapters.length).toBe(2)
 	})
 })

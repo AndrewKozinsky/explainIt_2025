@@ -251,9 +251,9 @@ export const bdConfig = {
 				foreignTable: 'Book', // Name of the table that this column refers to
 				foreignField: 'id',
 			},
-			chapter: {
+			name: {
 				type: 'string',
-				description: 'Chapter of the chapter. For example: Chapter 1.',
+				description: 'Name of the chapter. For example: Chapter 1.',
 				required: false,
 				minLength: 1,
 				maxLength: 255,
@@ -265,9 +265,9 @@ export const bdConfig = {
 				minLength: 1,
 				maxLength: 255,
 			},
-			text: {
+			content: {
 				type: 'string',
-				description: 'Text of the chapter',
+				description: 'Content of the chapter',
 				required: false,
 				maxLength: 10000,
 			},

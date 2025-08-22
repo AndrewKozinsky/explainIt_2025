@@ -15,6 +15,7 @@ import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin
 import { TelegramModule } from './infrastructure/telegram/telegram.module'
 import { AuthModule } from './routes/auth/auth.module'
 import { BookModule } from './routes/book/book.module'
+import { BookChapterModule } from './routes/bookChapter/bookChapter.module'
 import { DbModule } from './routes/db/db.module'
 import { Request, Response } from 'express'
 import { PaymentModule } from './routes/payment/payment.module'
@@ -53,6 +54,7 @@ import { WebhookModule } from './routes/webhook/webhook.module'
 		YooKassaModule,
 		WebhookModule,
 		BookModule,
+		BookChapterModule,
 	],
 	providers: [],
 })

@@ -53,6 +53,22 @@ export interface UpdateBookInput {
     note?: Nullable<string>;
 }
 
+export interface CreateBookChapterInput {
+    bookId: number;
+    name?: Nullable<string>;
+    header?: Nullable<string>;
+    content?: Nullable<string>;
+    note?: Nullable<string>;
+}
+
+export interface UpdateBookChapterInput {
+    id: number;
+    name?: Nullable<string>;
+    header?: Nullable<string>;
+    content?: Nullable<string>;
+    note?: Nullable<string>;
+}
+
 export interface UserOutModel {
     id: number;
     email: string;
@@ -66,6 +82,15 @@ export interface BookOutModel {
     name?: Nullable<string>;
     note?: Nullable<string>;
     userId: number;
+}
+
+export interface BookChapterOutModel {
+    id: number;
+    bookId: number;
+    name?: Nullable<string>;
+    header?: Nullable<string>;
+    content?: Nullable<string>;
+    note?: Nullable<string>;
 }
 
 export interface IQuery {
@@ -101,6 +126,8 @@ export interface IMutation {
     auth_logout(): boolean | Promise<boolean>;
     book_create(input: CreateBookInput): BookOutModel | Promise<BookOutModel>;
     book_update(input: UpdateBookInput): BookOutModel | Promise<BookOutModel>;
+    book_chapter_create(input: CreateBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
+    book_chapter_update(input: UpdateBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
 }
 
 export type CheckTranslationOutModel = CheckTranslationOutSuccessModel | CheckTranslationOutErrorModel;

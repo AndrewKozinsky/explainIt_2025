@@ -1,0 +1,39 @@
+import { UseGuards } from '@nestjs/common'
+import { CommandBus } from '@nestjs/cqrs'
+import { Args, Context, Mutation, Resolver } from '@nestjs/graphql'
+import { CreateBookChapterCommand } from '../../features/bookChapter/CreateBookChapter.command'
+import { UpdateBookChapterCommand } from '../../features/bookChapter/UpdateBookChapter.command'
+import { CheckSessionCookieGuard } from '../../infrastructure/guards/checkSessionCookie.guard'
+import RouteNames from '../../infrastructure/routeNames'
+import { BookChapterOutModel } from '../../models/bookChapter/bookChapter.out.model'
+import { CreateBookChapterInput } from './inputs/createBookChapter.input'
+import { UpdateBookChapterInput } from './inputs/updateBookChapter.input'
+import { bookChapterResolversDesc } from './resolverDescriptions'
+import { Request } from 'express'
+
+@Resolver()
+export class BookChapterResolver {
+	constructor(private commandBus: CommandBus) {}
+
+	@UseGuards(CheckSessionCookieGuard)
+	@Mutation(() => BookChapterOutModel, {
+		name: RouteNames.BOOK_CHAPTER.CREATE,
+		description: bookChapterResolversDesc.createBookChapter,
+	})
+	async createBookChapter(@Args('input') input: CreateBookChapterInput, @Context('req') request: Request) {
+		const userId = request.session.userId!
+		return await this.commandBus.execute(new CreateBookChapterCommand(userId, input))
+	}
+
+	@UseGuards(CheckSessionCookieGuard)
+	@Mutation(() => BookChapterOutModel, {
+		name: RouteNames.BOOK_CHAPTER.UPDATE,
+		description: bookChapterResolversDesc.updateBookChapter,
+	})
+	async updateBookChapter(@Args('input') input: UpdateBookChapterInput, @Context('req') request: Request) {
+		// const userId = request.session.userId!
+		// return await this.commandBus.execute(new UpdateBookChapterCommand(userId, input))
+	}
+}
+// CreateBookChapterInput
+// CreateBookChapterInput

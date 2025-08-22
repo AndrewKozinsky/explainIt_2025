@@ -5,46 +5,46 @@ import { errorMessage } from '../../infrastructure/exceptions/errorMessage'
 import { BookQueryRepository } from '../../repo/book.queryRepository'
 import { BookRepository } from '../../repo/book.repository'
 
-type UpdateBookInput = {
+type UpdateBookChapterInput = {
 	id: number
-	author?: null | string
+	bookId: number
 	name?: null | string
+	header?: null | string
+	content?: null | string
 	note?: null | string
 }
 
-export class UpdateBookCommand implements ICommand {
+export class UpdateBookChapterCommand implements ICommand {
 	constructor(
 		public userId: number,
-		public updateBookInput: UpdateBookInput,
+		public updateBookChapterInput: UpdateBookChapterInput,
 	) {}
 }
 
-@CommandHandler(UpdateBookCommand)
-export class UpdateBookHandler implements ICommandHandler<UpdateBookCommand> {
+@CommandHandler(UpdateBookChapterCommand)
+export class UpdateBookChapterHandler implements ICommandHandler<UpdateBookChapterCommand> {
 	constructor(
 		private bookRepository: BookRepository,
 		private bookQueryRepository: BookQueryRepository,
 	) {}
 
-	async execute(command: UpdateBookCommand) {
-		const { userId, updateBookInput } = command
+	async execute(command: UpdateBookChapterCommand) {
+		/*const { userId, updateBookChapterInput } = command
 
-		// Check if the book exists
-		const bookForUpdating = await this.bookQueryRepository.getBookById(updateBookInput.id)
+		const bookForUpdating = await this.bookQueryRepository.getBookById(updateBookChapterInput.id)
 		if (!bookForUpdating) {
 			throw new CustomGraphQLError(errorMessage.book.notFound, ErrorCode.NotFound_404)
 		}
 
-		// Throw an error if this user is not the owner of the book
 		if (bookForUpdating.userId !== userId) {
 			throw new CustomGraphQLError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
 		}
 
-		const book = await this.bookRepository.updateBookById(updateBookInput.id, updateBookInput)
+		const book = await this.bookRepository.updateBookById(updateBookChapterInput.id, updateBookChapterInput)
 		if (!book) {
 			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
 		}
 
-		return this.bookQueryRepository.getBookById(book.id)
+		return this.bookQueryRepository.getBookById(book.id)*/
 	}
 }

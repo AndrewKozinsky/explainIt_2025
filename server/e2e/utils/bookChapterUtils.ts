@@ -4,68 +4,74 @@ import { z } from 'zod'
 import { queries } from '../../src/features/db/queries'
 import { makeGraphQLReqWithTokens } from '../makeGQReq'
 
-export const bookUtils = {
-	checkBookOutResp(
-		book: any,
-		checks?: { id?: number; author?: string; name?: string; note?: string; userId?: number },
+export const bookChapterUtils = {
+	checkBookChapterOutResp(
+		bookChapter: any,
+		checks?: { id?: number; bookId?: number; name?: string; header?: string; content?: string; note?: string },
 	) {
 		const userDataSchema = z
 			.object({
 				id: z.number(),
-				author: z.string().nullable(),
+				bookId: z.number(),
 				name: z.string().nullable(),
+				header: z.string().nullable(),
+				content: z.string().nullable(),
 				note: z.string().nullable(),
-				userId: z.number().nullable(),
 			})
 			.strict()
 
-		const parsed = userDataSchema.safeParse(book)
+		const parsed = userDataSchema.safeParse(bookChapter)
 
 		if (!parsed.success) {
 			throw new Error(`Invalid user object: ${parsed.error.message}`)
 		}
 
 		if (checks?.id) {
-			expect(book.id).toBe(checks.id)
+			expect(bookChapter.id).toBe(checks.id)
 		}
-		if (checks?.author !== undefined) {
-			expect(book.author).toBe(checks.author)
+		if (checks?.bookId) {
+			expect(bookChapter.bookId).toBe(checks.bookId)
 		}
 		if (checks?.name !== undefined) {
-			expect(book.name).toBe(checks.name)
+			expect(bookChapter.name).toBe(checks.name)
+		}
+		if (checks?.header !== undefined) {
+			expect(bookChapter.header).toBe(checks.header)
+		}
+		if (checks?.content !== undefined) {
+			expect(bookChapter.content).toBe(checks.content)
 		}
 		if (checks?.note !== undefined) {
-			expect(book.note).toBe(checks.note)
-		}
-		if (checks?.userId !== undefined) {
-			expect(book.userId).toBe(checks.userId)
+			expect(bookChapter.note).toBe(checks.note)
 		}
 	},
 
-	async createBook(input: {
+	async createBookChapter(input: {
 		app: INestApplication
 		sessionToken: any
-		book: {
-			author: null | string
-			name: null | string
-			note: null | string
+		bookChapter: {
+			bookId: number
+			name?: null | string
+			header?: null | string
+			content?: null | string
+			note?: null | string
 		}
 	}) {
-		// Create a book mutation
-		const createFirstBookMutation = queries.book.create(input.book)
+		// Create a book Chapter mutation
+		const createFirstBookChapterMutation = queries.bookChapter.create(input.bookChapter)
 
 		// Run this mutation
-		const [createBookResp] = await makeGraphQLReqWithTokens({
+		const [createBookChapterResp] = await makeGraphQLReqWithTokens({
 			app: input.app,
-			query: createFirstBookMutation.query,
-			queryVariables: createFirstBookMutation.variables,
+			query: createFirstBookChapterMutation.query,
+			queryVariables: createFirstBookChapterMutation.variables,
 			sessionToken: input.sessionToken,
 		})
 
-		return createBookResp
+		return createBookChapterResp
 	},
 
-	async updateBook(input: {
+	/*async updateBookChapter(input: {
 		app: INestApplication
 		sessionToken: any
 		book: {
@@ -87,9 +93,9 @@ export const bookUtils = {
 		})
 
 		return updateBookResp
-	},
+	},*/
 
-	async getUserBooks(input: { app: INestApplication; sessionToken: any }) {
+	/*async getUserBooks(input: { app: INestApplication; sessionToken: any }) {
 		const userBooksQuery = queries.book.getUserBooks()
 
 		const [getUserBooksResp] = await makeGraphQLReqWithTokens({
@@ -99,5 +105,5 @@ export const bookUtils = {
 		})
 
 		return getUserBooksResp
-	},
+	},*/
 }
