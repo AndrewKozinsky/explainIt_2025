@@ -52,13 +52,13 @@ export const bookUtils = {
 		}
 	}) {
 		// Create a book mutation
-		const createFirstBookMutation = queries.book.create(input.book)
+		const createBookMutation = queries.book.create(input.book)
 
 		// Run this mutation
 		const [createBookResp] = await makeGraphQLReqWithTokens({
 			app: input.app,
-			query: createFirstBookMutation.query,
-			queryVariables: createFirstBookMutation.variables,
+			query: createBookMutation.query,
+			queryVariables: createBookMutation.variables,
 			sessionToken: input.sessionToken,
 		})
 
@@ -76,13 +76,13 @@ export const bookUtils = {
 		}
 	}) {
 		// Update a book mutation
-		const createFirstBookMutation = queries.book.update(input.book)
+		const createBookMutation = queries.book.update(input.book)
 
 		// Run this mutation
 		const [updateBookResp] = await makeGraphQLReqWithTokens({
 			app: input.app,
-			query: createFirstBookMutation.query,
-			queryVariables: createFirstBookMutation.variables,
+			query: createBookMutation.query,
+			queryVariables: createBookMutation.variables,
 			sessionToken: input.sessionToken,
 		})
 

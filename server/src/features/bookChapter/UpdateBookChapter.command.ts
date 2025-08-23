@@ -4,10 +4,10 @@ import { ErrorCode } from '../../infrastructure/exceptions/errorCode'
 import { errorMessage } from '../../infrastructure/exceptions/errorMessage'
 import { BookQueryRepository } from '../../repo/book.queryRepository'
 import { BookRepository } from '../../repo/book.repository'
+import { BookChapterRepository } from '../../repo/bookChapter.repository'
 
 type UpdateBookChapterInput = {
 	id: number
-	bookId: number
 	name?: null | string
 	header?: null | string
 	content?: null | string
@@ -26,15 +26,18 @@ export class UpdateBookChapterHandler implements ICommandHandler<UpdateBookChapt
 	constructor(
 		private bookRepository: BookRepository,
 		private bookQueryRepository: BookQueryRepository,
+		private bookChapterRepository: BookChapterRepository,
 	) {}
 
 	async execute(command: UpdateBookChapterCommand) {
-		/*const { userId, updateBookChapterInput } = command
+		const { userId, updateBookChapterInput } = command
 
-		const bookForUpdating = await this.bookQueryRepository.getBookById(updateBookChapterInput.id)
-		if (!bookForUpdating) {
-			throw new CustomGraphQLError(errorMessage.book.notFound, ErrorCode.NotFound_404)
+		const bookChapter = await this.bookChapterRepository.getBookChapterById(updateBookChapterInput.id)
+		if (!bookChapter) {
+			throw new CustomGraphQLError(errorMessage.bookChapter.notFound, ErrorCode.NotFound_404)
 		}
+
+		/*const bookForUpdating = await this.bookQueryRepository.getBookById(updateBookChapterInput.id)
 
 		if (bookForUpdating.userId !== userId) {
 			throw new CustomGraphQLError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)

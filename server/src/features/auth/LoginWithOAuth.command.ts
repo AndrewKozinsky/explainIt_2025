@@ -263,7 +263,7 @@ export class LoginWithOAuthHandler implements ICommandHandler<LoginWithOAuthComm
 		try {
 			await this.balanceTransactionRepository.createTransaction({
 				userId,
-				amount: welcomeBonus,
+				amount: welcomeBonus * 100,
 				type: BalanceTransactionType.ACCOUNT_CONFIRMATION_WELCOME_BONUS,
 			})
 		} catch (error) {

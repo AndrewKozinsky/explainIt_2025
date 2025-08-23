@@ -47,8 +47,6 @@ export class SetPaymentResultWithYooKassaHandler implements ICommandHandler<SetP
 								userId,
 								type: BalanceTransactionType.PAYMENT,
 							}),
-							// Обновить свойство balance у пользователя.
-							this.userRepository.updateBalance(userId, amount),
 						])
 					},
 				})

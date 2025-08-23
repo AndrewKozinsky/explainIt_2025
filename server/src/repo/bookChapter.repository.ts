@@ -21,6 +21,7 @@ export class BookChapterRepository {
 			data: {
 				book_id: dto.bookId,
 				name: dto.name,
+				header: dto.header,
 				content: dto.content,
 				note: dto.note,
 			},
@@ -29,18 +30,18 @@ export class BookChapterRepository {
 		return this.mapDbBookChapterToServiceBook(newBookChapter)
 	}
 
-	/*@CatchDbError()
-	async getBookChapterById(bookId: number) {
-		const book = await this.prisma.book.findUnique({
-			where: { id: bookId },
+	@CatchDbError()
+	async getBookChapterById(bookChapterId: number) {
+		const bookChapter = await this.prisma.bookChapter.findUnique({
+			where: { id: bookChapterId },
 		})
 
-		if (!book) {
+		if (!bookChapter) {
 			return null
 		}
 
-		return this.mapDbBookToServiceBook(book)
-	}*/
+		return this.mapDbBookChapterToServiceBook(bookChapter)
+	}
 
 	/*@CatchDbError()
 	async updateBookChapterById(

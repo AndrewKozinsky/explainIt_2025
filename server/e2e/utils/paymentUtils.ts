@@ -60,7 +60,7 @@ export const paymentUtils = {
 			.expect(200)
 
 		// Check if the status of the last payment was updated
-		lastPaymentObject = await this.getUserLastPaymentOrThrowError(params.paymentRepository, params.userId)
+		// lastPaymentObject = await this.getUserLastPaymentOrThrowError(params.paymentRepository, params.userId)
 		if (paymentResult === 'payment.succeeded') {
 			lastPaymentObject.status = 'SUCCEEDED'
 		} else if (paymentResult === 'payment.canceled') {
@@ -71,7 +71,10 @@ export const paymentUtils = {
 		return paymentRepository
 			.getPaymentsByUserId(userId)
 			.then((payments) => {
-				// console.log(payments)
+				if (payments.length === 0) {
+					throw new Error('No payments found')
+				}
+
 				return payments[payments.length - 1]
 			})
 			.catch((err: string) => {

@@ -1,7 +1,6 @@
 import { INestApplication } from '@nestjs/common'
 import * as request from 'supertest'
 import { App } from 'supertest/types'
-import { MainConfigService } from '../src/infrastructure/mainConfig/mainConfig.service'
 
 export async function makeGraphQLReq(app: INestApplication<App>, query: string, queryVariables?: Record<string, any>) {
 	return base({ app, query, queryVariables })

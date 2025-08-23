@@ -58,42 +58,43 @@ export const bookChapterUtils = {
 		}
 	}) {
 		// Create a book Chapter mutation
-		const createFirstBookChapterMutation = queries.bookChapter.create(input.bookChapter)
+		const createBookChapterMutation = queries.bookChapter.create(input.bookChapter)
 
 		// Run this mutation
 		const [createBookChapterResp] = await makeGraphQLReqWithTokens({
 			app: input.app,
-			query: createFirstBookChapterMutation.query,
-			queryVariables: createFirstBookChapterMutation.variables,
+			query: createBookChapterMutation.query,
+			queryVariables: createBookChapterMutation.variables,
 			sessionToken: input.sessionToken,
 		})
 
 		return createBookChapterResp
 	},
 
-	/*async updateBookChapter(input: {
+	async updateBookChapter(input: {
 		app: INestApplication
 		sessionToken: any
-		book: {
+		bookChapter: {
 			id: number
-			author?: null | string
+			header?: null | string
 			name?: null | string
+			content?: null | string
 			note?: null | string
 		}
 	}) {
-		// Update a book mutation
-		const createFirstBookMutation = queries.book.update(input.book)
+		// Update a book chapter mutation
+		const createBookChapterMutation = queries.bookChapter.update(input.bookChapter)
 
 		// Run this mutation
 		const [updateBookResp] = await makeGraphQLReqWithTokens({
 			app: input.app,
-			query: createFirstBookMutation.query,
-			queryVariables: createFirstBookMutation.variables,
+			query: createBookChapterMutation.query,
+			queryVariables: createBookChapterMutation.variables,
 			sessionToken: input.sessionToken,
 		})
 
 		return updateBookResp
-	},*/
+	},
 
 	/*async getUserBooks(input: { app: INestApplication; sessionToken: any }) {
 		const userBooksQuery = queries.book.getUserBooks()

@@ -40,6 +40,10 @@ export interface ResendConfirmationEmailInput {
     email: string;
 }
 
+export interface TopUpBalanceWithYooKassaInput {
+    amount: number;
+}
+
 export interface CreateBookInput {
     author?: Nullable<string>;
     name?: Nullable<string>;
@@ -93,6 +97,10 @@ export interface BookChapterOutModel {
     note?: Nullable<string>;
 }
 
+export interface TopUpBalanceWithYooKassaOutModel {
+    confirmationUrl: string;
+}
+
 export interface IQuery {
     ai_checkTranslation(input: CheckTranslationInput): CheckTranslationOutModel | Promise<CheckTranslationOutModel>;
     ai_getTranscription(input: GetTranscriptionInput): GetTranscriptionOutModel | Promise<GetTranscriptionOutModel>;
@@ -124,6 +132,7 @@ export interface IMutation {
     auth_confirmEmail(input: ConfirmEmailInput): boolean | Promise<boolean>;
     auth_resendConfirmationEmail(input: ResendConfirmationEmailInput): boolean | Promise<boolean>;
     auth_logout(): boolean | Promise<boolean>;
+    payment_yookassa_top_up_balance(input: TopUpBalanceWithYooKassaInput): TopUpBalanceWithYooKassaOutModel | Promise<TopUpBalanceWithYooKassaOutModel>;
     book_create(input: CreateBookInput): BookOutModel | Promise<BookOutModel>;
     book_update(input: UpdateBookInput): BookOutModel | Promise<BookOutModel>;
     book_chapter_create(input: CreateBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;

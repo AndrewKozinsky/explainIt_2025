@@ -6,7 +6,7 @@ import { MainConfigService } from '../../src/infrastructure/mainConfig/mainConfi
 import { YooKassaService } from '../../src/infrastructure/yooKassa/yooKassa.service'
 import { PaymentRepository } from '../../src/repo/payment.repository'
 import { UserRepository } from '../../src/repo/user.repository'
-import { defUserEmail, defUserPassword } from '../utils/common'
+import { defUserEmail, defUserPassword, welcomeBonus } from '../utils/common'
 import { createApp } from '../utils/createApp'
 import { paymentUtils } from '../utils/paymentUtils'
 import { userUtils } from '../utils/userUtils'
@@ -17,9 +17,7 @@ it('1', () => {
 	expect(2).toBe(2)
 })
 
-// Check a situation when user registered with email and password and with OAuth!!!
-
-/*describe('Top up balance with YooKassa (e2e)', () => {
+describe.skip('Top up balance with YooKassa (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
@@ -48,77 +46,87 @@ it('1', () => {
 		await afterEachTest(app)
 	})
 
-	it.only('should return a user if passed session token is valid', async () => {
+	it.only('two users make payments successfully', async () => {
+		let firstUserCalculatedBalance = 0
+		let secondUserCalculatedBalance = welcomeBonus
+
 		// Create 2 users
 		const { loginData: userFirstLoginData, sessionToken: userFirstSessionToken } =
-			await userUtils.createUserAndLogin({
+			await userUtils.createUserWithEmailAndPasswordAndLogin({
 				app,
 				userRepository,
 				email: 'user-1@example.com',
 				password: 'some-pass-1',
 			})
-		const { loginData: userSecondLoginData, sessionToken: userSecondSessionToken } =
-			await userUtils.createUserAndLogin({
+
+		const { registerWithOAuthData: createUserWithOAuthResp, sessionToken: userSecondSessionToken } =
+			await userUtils.loginUserWithOAuthSuccessfully({
 				app,
-				userRepository,
 				email: 'user-2@example.com',
-				password: 'some-pass-2',
 			})
 
 		const firstUserId = userFirstLoginData.id
-		const secondUserId = userSecondLoginData.id
+		const secondUserId = createUserWithOAuthResp.id
+
+		// Check if the first user's balance is 0
+		let firstUser = await userRepository.getUserById(firstUserId)
+		expect(firstUser.balance).toBe(firstUserCalculatedBalance * 100)
+
+		// and the second user's balance is 10 because he registered with OAuth
+		let secondUser = await userRepository.getUserById(secondUserId)
+		expect(secondUser.balance).toBe(secondUserCalculatedBalance * 100)
 
 		// -------
 
-		// The first user pays 10
+		// The first user pays 15
 		await paymentUtils.makePaymentAndPay(
 			{
 				app,
 				userId: firstUserId,
-				moneyAmount: 10,
+				moneyAmount: 15,
 				paymentRepository,
 				yooKassaService,
 				sessionToken: userFirstSessionToken,
-				mainConfig,
 			},
 			'payment.succeeded',
 		)
+		firstUserCalculatedBalance += 15
 
-		// Check if the first user's balance is 10
-		let firstUser = await userRepository.getUserById(firstUserId)
-		expect(firstUser.balance).toBe(1000)
+		// Check if the first user's balance is 15 rubles
+		firstUser = await userRepository.getUserById(firstUserId)
+		expect(firstUser.balance).toBe(firstUserCalculatedBalance * 100)
 
-		// and the second user's balance is 0
-		let secondUser = await userRepository.getUserById(secondUserId)
-		expect(secondUser.balance).toBe(0)
+		// and the second user's balance is welcomeBonus * 100 because he registered with OAuth
+		secondUser = await userRepository.getUserById(secondUserId)
+		expect(secondUser.balance).toBe(secondUserCalculatedBalance * 100)
 
 		// -------
 
-		// The second user pays 20
+		// The second user pays 22 rubles
 		await paymentUtils.makePaymentAndPay(
 			{
 				app,
 				userId: secondUserId,
-				moneyAmount: 20,
+				moneyAmount: 22,
 				paymentRepository,
 				yooKassaService,
 				sessionToken: userSecondSessionToken,
-				mainConfig,
 			},
 			'payment.succeeded',
 		)
+		secondUserCalculatedBalance += 22
 
-		// Check if the first user's balance is 10
+		// Check if the first user's balance is 10 rubles
 		firstUser = await userRepository.getUserById(firstUserId)
-		expect(firstUser.balance).toBe(1000)
+		expect(firstUser.balance).toBe(firstUserCalculatedBalance * 100)
 
 		// and the second user's balance is 20
 		secondUser = await userRepository.getUserById(secondUserId)
-		expect(secondUser.balance).toBe(2000)
+		expect(secondUser.balance).toBe(secondUserCalculatedBalance * 100)
 
 		// -------
 
-		// The second user pays 2
+		// The second user pays 2 rubles
 		await paymentUtils.makePaymentAndPay(
 			{
 				app,
@@ -127,22 +135,22 @@ it('1', () => {
 				paymentRepository,
 				yooKassaService,
 				sessionToken: userSecondSessionToken,
-				mainConfig,
 			},
 			'payment.succeeded',
 		)
+		secondUserCalculatedBalance += 2
 
-		// Check if the first user's balance is 10
+		// Check if the first user's balance is 10 rubles
 		firstUser = await userRepository.getUserById(firstUserId)
-		expect(firstUser.balance).toBe(1000)
+		expect(firstUser.balance).toBe(firstUserCalculatedBalance * 100)
 
-		// and the second user's balance is 22
+		// and the second user's balance is 22 rubles
 		secondUser = await userRepository.getUserById(secondUserId)
-		expect(secondUser.balance).toBe(2200)
+		expect(secondUser.balance).toBe(secondUserCalculatedBalance * 100)
 
 		// -------
 
-		// The first user don't pays 100
+		// The first user don't pays 100 rubles
 		await paymentUtils.makePaymentAndPay(
 			{
 				app,
@@ -151,18 +159,17 @@ it('1', () => {
 				paymentRepository,
 				yooKassaService,
 				sessionToken: userFirstSessionToken,
-				mainConfig,
 			},
 			'payment.canceled',
 		)
 
-		// Check if the first user's balance is 10
+		// Check if the first user's balance is 10 rubles
 		firstUser = await userRepository.getUserById(firstUserId)
-		expect(firstUser.balance).toBe(1000)
+		expect(firstUser.balance).toBe(firstUserCalculatedBalance * 100)
 
-		// and the second user's balance is 22
+		// and the second user's balance is 22 rubles
 		secondUser = await userRepository.getUserById(secondUserId)
-		expect(secondUser.balance).toBe(2200)
+		expect(secondUser.balance).toBe(secondUserCalculatedBalance * 100)
 
 		// -------
 
@@ -175,17 +182,17 @@ it('1', () => {
 				paymentRepository,
 				yooKassaService,
 				sessionToken: userFirstSessionToken,
-				mainConfig,
 			},
 			'payment.succeeded',
 		)
+		firstUserCalculatedBalance += 50
 
-		// Check if the first user's balance is 60
+		// Check if the first user's balance is 75 rubles
 		firstUser = await userRepository.getUserById(firstUserId)
-		expect(firstUser.balance).toBe(6000)
+		expect(firstUser.balance).toBe(firstUserCalculatedBalance * 100)
 
-		// and the second user's balance is 22
+		// and the second user's balance is 34 rubles
 		secondUser = await userRepository.getUserById(secondUserId)
-		expect(secondUser.balance).toBe(2200)
+		expect(secondUser.balance).toBe(secondUserCalculatedBalance * 100)
 	})
-})*/
+})

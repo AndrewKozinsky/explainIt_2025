@@ -1,21 +1,21 @@
 import { UseGuards } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
-import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql'
+import { Args, Context, Mutation, Resolver } from '@nestjs/graphql'
 import { TopUpBalanceWithYooKassaCommand } from '../../features/payment/TopUpBalanceWithYooKassa.command'
 import { CheckSessionCookieGuard } from '../../infrastructure/guards/checkSessionCookie.guard'
 import RouteNames from '../../infrastructure/routeNames'
-import { BookOutModel } from '../../models/book/book.out.model'
+import { TopUpBalanceWithYooKassaOutModel } from '../../models/payment/payment.out.model'
 import { TopUpBalanceWithYooKassaInput } from './inputs/topUpBalanceWithYooKassa.input'
 import { paymentResolversDesc } from './resolverDescriptions'
-import { Request, Response } from 'express'
+import { Request } from 'express'
 
 @Resolver()
 export class PaymentResolver {
 	constructor(private commandBus: CommandBus) {}
 
 	@UseGuards(CheckSessionCookieGuard)
-	@Mutation(() => BookOutModel, {
-		name: RouteNames.BOOK.CREATE,
+	@Mutation(() => TopUpBalanceWithYooKassaOutModel, {
+		name: RouteNames.PAYMENT.YOOKASSA.TOP_UP_BALANCE,
 		description: paymentResolversDesc.topUpBalanceWithYooKassa,
 	})
 	async topUpBalanceWithYooKassa(

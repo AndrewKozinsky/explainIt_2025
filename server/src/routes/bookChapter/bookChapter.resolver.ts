@@ -31,9 +31,7 @@ export class BookChapterResolver {
 		description: bookChapterResolversDesc.updateBookChapter,
 	})
 	async updateBookChapter(@Args('input') input: UpdateBookChapterInput, @Context('req') request: Request) {
-		// const userId = request.session.userId!
-		// return await this.commandBus.execute(new UpdateBookChapterCommand(userId, input))
+		const userId = request.session.userId!
+		return await this.commandBus.execute(new UpdateBookChapterCommand(userId, input))
 	}
 }
-// CreateBookChapterInput
-// CreateBookChapterInput

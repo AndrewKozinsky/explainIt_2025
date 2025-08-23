@@ -221,5 +221,30 @@ export const queries = {
 				},
 			}
 		},
+		update(dto: {
+			id: number
+			name?: null | string
+			header?: null | string
+			content?: null | string
+			note?: null | string
+		}) {
+			return {
+				query: `
+      mutation UpdateBookChapter($input: UpdateBookChapterInput!) {
+        ${RouteNames.BOOK_CHAPTER.UPDATE}(input: $input) {
+          id
+          bookId
+          name
+          header
+          content
+          note
+        }
+      }
+    `,
+				variables: {
+					input: dto,
+				},
+			}
+		},
 	},
 }
