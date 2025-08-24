@@ -3,7 +3,6 @@ import { CustomGraphQLError } from '../../infrastructure/exceptions/customErrors
 import { ErrorCode } from '../../infrastructure/exceptions/errorCode'
 import { errorMessage } from '../../infrastructure/exceptions/errorMessage'
 import { BookQueryRepository } from '../../repo/book.queryRepository'
-import { BookRepository } from '../../repo/book.repository'
 import { BookChapterQueryRepository } from '../../repo/bookChapter.queryRepository'
 import { BookChapterRepository } from '../../repo/bookChapter.repository'
 

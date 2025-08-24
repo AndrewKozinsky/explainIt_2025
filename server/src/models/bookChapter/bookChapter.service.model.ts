@@ -1,3 +1,5 @@
+import { BookServiceModel } from '../book/book.service.model'
+
 export type BookChapterServiceModel = {
 	id: number
 	bookId: number
@@ -5,4 +7,5 @@ export type BookChapterServiceModel = {
 	header: string | null
 	content: string | null
 	note: string | null
+	book: BookServiceModel
 }

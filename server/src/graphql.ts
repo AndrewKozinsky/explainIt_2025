@@ -95,6 +95,7 @@ export interface BookChapterOutModel {
     header?: Nullable<string>;
     content?: Nullable<string>;
     note?: Nullable<string>;
+    book: BookOutModel;
 }
 
 export interface TopUpBalanceWithYooKassaOutModel {

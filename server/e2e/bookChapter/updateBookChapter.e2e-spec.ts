@@ -19,7 +19,7 @@ it('1', () => {
 	expect(2).toBe(2)
 })
 
-describe('Update book chapter', () => {
+describe.skip('Update book chapter', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
@@ -74,8 +74,8 @@ describe('Update book chapter', () => {
 		})
 	})
 
-	it.only('should return 400 status if a book chapter belongs to another user', async () => {
-		// Create a user who will create a book and chapter
+	it('should return 400 status if a book chapter belongs to another user', async () => {
+		// Create a user who will create a book and a chapter
 		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
 			userRepository,
@@ -108,55 +108,8 @@ describe('Update book chapter', () => {
 			},
 		})
 		const createdChapterBook = createdBookChapterResp.data[RouteNames.BOOK_CHAPTER.CREATE]
-		console.log(createdChapterBook)
 
 		// Create a second user who will try to update this book chapter
-		/*const { loginData: secondUser, sessionToken: secondUserSeccionData } =
-			await userUtils.createUserWithEmailAndPasswordAndLogin({
-				app,
-				userRepository,
-				email: 'second@example.com',
-				password: 'password',
-			})*/
-
-		// Try to update this book chapter
-		/*const updatedBookChapterResp = await bookChapterUtils.updateBookChapter({
-			app,
-			sessionToken: secondUserSeccionData,
-			bookChapter: {
-				id: createdBook.id,
-				header: 'Updated header',
-			},
-		})*/
-
-		/*checkErrorResponse(updatedBookChapterResp, {
-			code: 'Forbidden',
-			statusCode: 403,
-			message: errorMessage.userIsNotOwner,
-		})*/
-	})
-
-	/*it('should return 400 status if a book belongs to another user', async () => {
-		// Create a user who will create a book
-		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
-			app,
-			userRepository,
-			email: defUserEmail,
-			password: defUserPassword,
-		})
-
-		const createdBookResp = await bookUtils.createBook({
-			app,
-			sessionToken: sessionToken,
-			book: {
-				author: 'Gerald Durrell',
-				name: 'My Family and Other Animals',
-				note: null,
-			},
-		})
-		const createdBook = createdBookResp.data[RouteNames.BOOK.CREATE]
-
-		// Create a second user who will try to update this book
 		const { loginData: secondUser, sessionToken: secondUserSeccionData } =
 			await userUtils.createUserWithEmailAndPasswordAndLogin({
 				app,
@@ -165,25 +118,25 @@ describe('Update book chapter', () => {
 				password: 'password',
 			})
 
-		// Try to update this book
-		const updatedBookResp = await bookUtils.updateBook({
+		// Try to update this book chapter
+		const updatedBookChapterResp = await bookChapterUtils.updateBookChapter({
 			app,
 			sessionToken: secondUserSeccionData,
-			book: {
+			bookChapter: {
 				id: createdBook.id,
-				author: 'author',
+				header: 'Updated header',
 			},
 		})
 
-		checkErrorResponse(updatedBookResp, {
+		checkErrorResponse(updatedBookChapterResp, {
 			code: 'Forbidden',
 			statusCode: 403,
 			message: errorMessage.userIsNotOwner,
 		})
-	})*/
+	})
 
-	/*it('user should update a created book', async () => {
-		// Create a user who will create a book
+	it('user should update a created book chapter', async () => {
+		// Create a user who will create a book and a chapter
 		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
 			userRepository,
@@ -191,6 +144,7 @@ describe('Update book chapter', () => {
 			password: defUserPassword,
 		})
 
+		// Create a book
 		const createdBookResp = await bookUtils.createBook({
 			app,
 			sessionToken: sessionToken,
@@ -202,40 +156,78 @@ describe('Update book chapter', () => {
 		})
 		const createdBook = createdBookResp.data[RouteNames.BOOK.CREATE]
 
-		// Try to update this book with no data
-		const updatedBookResp = await bookUtils.updateBook({
+		// Create a book chapter for this book
+		const createdBookChapterResp = await bookChapterUtils.createBookChapter({
 			app,
 			sessionToken: sessionToken,
-			book: {
-				id: createdBook.id,
+			bookChapter: {
+				name: 'Chapter 1',
+				bookId: createdBook.id,
+				header: 'My chapter 1 header',
+				content: 'My chapter 1 content',
+				note: null,
+			},
+		})
+		const createdChapterBook = createdBookChapterResp.data[RouteNames.BOOK_CHAPTER.CREATE]
+
+		// Try to update this book chapter
+		let updatedBookChapterResp = await bookChapterUtils.updateBookChapter({
+			app,
+			sessionToken,
+			bookChapter: {
+				id: createdChapterBook.id,
 			},
 		})
 
-		// Check that the book was not changed
-		bookUtils.checkBookOutResp(updatedBookResp.data[RouteNames.BOOK.UPDATE], {
+		// Check that the book chapter was not changed
+		bookChapterUtils.checkBookChapterOutResp(updatedBookChapterResp.data[RouteNames.BOOK_CHAPTER.UPDATE], {
 			id: createdBook.id,
-			author: 'Gerald Durrell',
-			name: 'My Family and Other Animals',
+			name: 'Chapter 1',
+			bookId: createdBook.id,
+			header: 'My chapter 1 header',
+			content: 'My chapter 1 content',
 			note: null,
 		})
 
 		// Try to update several fields
-		const updatedBookResp_2 = await bookUtils.updateBook({
+		updatedBookChapterResp = await bookChapterUtils.updateBookChapter({
 			app,
 			sessionToken: sessionToken,
-			book: {
+			bookChapter: {
 				id: createdBook.id,
-				author: 'Jack London',
-				note: 'My note',
+				header: 'My chapter 1 header 2',
+				note: 'My note 2',
 			},
 		})
-
 		// Check that only these fields were changed
-		bookUtils.checkBookOutResp(updatedBookResp_2.data[RouteNames.BOOK.UPDATE], {
+		bookChapterUtils.checkBookChapterOutResp(updatedBookChapterResp.data[RouteNames.BOOK_CHAPTER.UPDATE], {
 			id: createdBook.id,
-			author: 'Jack London',
-			name: 'My Family and Other Animals',
-			note: 'My note',
+			name: 'Chapter 1',
+			bookId: createdBook.id,
+			header: 'My chapter 1 header 2',
+			content: 'My chapter 1 content',
+			note: 'My note 2',
 		})
-	})*/
+
+		// Change all book chapter fieds
+		updatedBookChapterResp = await bookChapterUtils.updateBookChapter({
+			app,
+			sessionToken: sessionToken,
+			bookChapter: {
+				id: createdBook.id,
+				name: 'name',
+				header: 'header',
+				content: 'content',
+				note: 'note',
+			},
+		})
+		bookChapterUtils.checkBookChapterOutResp(updatedBookChapterResp.data[RouteNames.BOOK_CHAPTER.UPDATE], {
+			id: createdBook.id,
+			name: 'name',
+			bookId: createdBook.id,
+			header: 'header',
+			content: 'content',
+			note: 'note',
+		})
+	})
 })

@@ -1,4 +1,5 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql'
+import { BookOutModel } from '../book/book.out.model'
 
 @ObjectType()
 export class BookChapterOutModel {
@@ -19,4 +20,7 @@ export class BookChapterOutModel {
 
 	@Field(() => String, { nullable: true })
 	note: string | null
+
+	@Field(() => BookOutModel)
+	book: BookOutModel
 }

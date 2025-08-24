@@ -1,9 +1,10 @@
 import { Injectable } from '@nestjs/common'
-import { BookChapter } from '@prisma/client'
+import { Prisma } from '@prisma/client'
 import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
-import { BookServiceModel } from '../models/book/book.service.model'
 import { BookChapterServiceModel } from '../models/bookChapter/bookChapter.service.model'
+
+type BookChapterWithBook = Prisma.BookChapterGetPayload<{ include: { book: true } }>
 
 @Injectable()
 export class BookChapterRepository {
@@ -25,6 +26,9 @@ export class BookChapterRepository {
 				content: dto.content,
 				note: dto.note,
 			},
+			include: {
+				book: true,
+			},
 		})
 
 		return this.mapDbBookChapterToServiceBook(newBookChapter)
@@ -34,6 +38,7 @@ export class BookChapterRepository {
 	async getBookChapterById(bookChapterId: number) {
 		const bookChapter = await this.prisma.bookChapter.findUnique({
 			where: { id: bookChapterId },
+			include: { book: true },
 		})
 
 		if (!bookChapter) {
@@ -43,32 +48,30 @@ export class BookChapterRepository {
 		return this.mapDbBookChapterToServiceBook(bookChapter)
 	}
 
-	/*@CatchDbError()
+	@CatchDbError()
 	async updateBookChapterById(
 		bookId: number,
 		dto: {
-			author?: null | string
 			name?: null | string
+			header?: null | string
+			content?: null | string
 			note?: null | string
 		},
 	) {
-		const newBook = await this.prisma.book.update({
+		const updatedBookChapter = await this.prisma.bookChapter.update({
 			where: { id: bookId },
-			data: {
-				author: dto.author,
-				name: dto.name,
-				note: dto.note,
-			},
+			data: dto,
+			include: { book: true },
 		})
 
-		if (!newBook) {
+		if (!updatedBookChapter) {
 			return null
 		}
 
-		return this.mapDbBookToServiceBook(newBook)
-	}*/
+		return this.mapDbBookChapterToServiceBook(updatedBookChapter)
+	}
 
-	mapDbBookChapterToServiceBook(dbBookChapter: BookChapter): BookChapterServiceModel {
+	mapDbBookChapterToServiceBook(dbBookChapter: BookChapterWithBook): BookChapterServiceModel {
 		return {
 			id: dbBookChapter.id,
 			bookId: dbBookChapter.book_id,
@@ -76,6 +79,13 @@ export class BookChapterRepository {
 			name: dbBookChapter.name,
 			content: dbBookChapter.content,
 			note: dbBookChapter.note,
+			book: {
+				id: dbBookChapter.book.id,
+				name: dbBookChapter.book.name,
+				author: dbBookChapter.book.author,
+				note: dbBookChapter.book.note,
+				userId: dbBookChapter.book.user_id,
+			},
 		}
 	}
 }

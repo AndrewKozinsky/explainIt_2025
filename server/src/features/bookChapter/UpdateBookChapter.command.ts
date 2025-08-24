@@ -2,8 +2,7 @@ import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { CustomGraphQLError } from '../../infrastructure/exceptions/customErrors'
 import { ErrorCode } from '../../infrastructure/exceptions/errorCode'
 import { errorMessage } from '../../infrastructure/exceptions/errorMessage'
-import { BookQueryRepository } from '../../repo/book.queryRepository'
-import { BookRepository } from '../../repo/book.repository'
+import { BookChapterQueryRepository } from '../../repo/bookChapter.queryRepository'
 import { BookChapterRepository } from '../../repo/bookChapter.repository'
 
 type UpdateBookChapterInput = {
@@ -24,8 +23,7 @@ export class UpdateBookChapterCommand implements ICommand {
 @CommandHandler(UpdateBookChapterCommand)
 export class UpdateBookChapterHandler implements ICommandHandler<UpdateBookChapterCommand> {
 	constructor(
-		private bookRepository: BookRepository,
-		private bookQueryRepository: BookQueryRepository,
+		private bookChapterQueryRepository: BookChapterQueryRepository,
 		private bookChapterRepository: BookChapterRepository,
 	) {}
 
@@ -37,17 +35,18 @@ export class UpdateBookChapterHandler implements ICommandHandler<UpdateBookChapt
 			throw new CustomGraphQLError(errorMessage.bookChapter.notFound, ErrorCode.NotFound_404)
 		}
 
-		/*const bookForUpdating = await this.bookQueryRepository.getBookById(updateBookChapterInput.id)
-
-		if (bookForUpdating.userId !== userId) {
+		if (bookChapter.book.userId !== userId) {
 			throw new CustomGraphQLError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
 		}
 
-		const book = await this.bookRepository.updateBookById(updateBookChapterInput.id, updateBookChapterInput)
-		if (!book) {
+		const updatedBookChapter = await this.bookChapterRepository.updateBookChapterById(
+			updateBookChapterInput.id,
+			updateBookChapterInput,
+		)
+		if (!updatedBookChapter) {
 			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
 		}
 
-		return this.bookQueryRepository.getBookById(book.id)*/
+		return this.bookChapterQueryRepository.getBookChapterById(updatedBookChapter.id)
 	}
 }
