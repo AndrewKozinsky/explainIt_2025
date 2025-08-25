@@ -5,6 +5,7 @@ import { queries } from '../../src/features/db/queries'
 import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
 import RouteNames from '../../src/infrastructure/routeNames'
+import { BookRepository } from '../../src/repo/book.repository'
 import { BookChapterRepository } from '../../src/repo/bookChapter.repository'
 import { UserRepository } from '../../src/repo/user.repository'
 import { authUtils } from '../utils/authUtils'
@@ -20,11 +21,12 @@ it('1', () => {
 	expect(2).toBe(2)
 })
 
-describe.skip('Delete book chapter', () => {
+describe('Delete book', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
 	let userRepository: UserRepository
+	let bookRepository: BookRepository
 	let bookChapterRepository: BookChapterRepository
 
 	beforeAll(async () => {
@@ -34,6 +36,7 @@ describe.skip('Delete book chapter', () => {
 		commandBus = app.get(CommandBus)
 		emailAdapter = createMainAppRes.emailAdapter
 		userRepository = await app.resolve(UserRepository)
+		bookRepository = await app.resolve(BookRepository)
 		bookChapterRepository = await app.resolve(BookChapterRepository)
 	})
 
@@ -46,11 +49,11 @@ describe.skip('Delete book chapter', () => {
 	})
 
 	it('should return 401 if there is not session token cookie', async () => {
-		const query = queries.bookChapter.delete({ id: 1 })
+		const query = queries.book.delete({ id: 1 })
 		await authUtils.tokenNotExist({ app, queryOrMutationStr: query.query, queryVariables: query.variables })
 	})
 
-	it('should return 404 status if a book chapter is not exists', async () => {
+	it('should return 404 status if a book is not exists', async () => {
 		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
 			userRepository,
@@ -58,23 +61,23 @@ describe.skip('Delete book chapter', () => {
 			password: defUserPassword,
 		})
 
-		const deletedBookChapterResp = await bookChapterUtils.deleteBookChapter({
+		const deletedBookResp = await bookUtils.deleteBook({
 			app,
 			sessionToken: sessionToken,
-			bookChapter: {
+			book: {
 				id: 999,
 			},
 		})
 
-		checkErrorResponse(deletedBookChapterResp, {
+		checkErrorResponse(deletedBookResp, {
 			code: 'Not Found',
 			statusCode: 404,
-			message: errorMessage.bookChapter.notFound,
+			message: errorMessage.book.notFound,
 		})
 	})
 
-	it('should return 400 status if a book chapter belongs to another user', async () => {
-		// Create a user who will create a book and a chapter
+	it('should return 400 status if a book belongs to another user', async () => {
+		// Create a user who will create a book
 		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
 			userRepository,
@@ -88,27 +91,11 @@ describe.skip('Delete book chapter', () => {
 			sessionToken: sessionToken,
 			book: {
 				author: 'Gerald Durrell',
-				name: 'My Family and Other Animals',
-				note: null,
 			},
 		})
-		const createdBook = createdBookResp.data[RouteNames.BOOK.CREATE]
+		const book = createdBookResp.data[RouteNames.BOOK.CREATE]
 
-		// Create a book chapter for this book
-		const createdBookChapterResp = await bookChapterUtils.createBookChapter({
-			app,
-			sessionToken: sessionToken,
-			bookChapter: {
-				name: 'Chapter 1',
-				bookId: createdBook.id,
-				header: 'My chapter 1 header',
-				content: 'My chapter 1 content',
-				note: 'My chapter 1 note',
-			},
-		})
-		const createdChapterBook = createdBookChapterResp.data[RouteNames.BOOK_CHAPTER.CREATE]
-
-		// Create a second user who will try to delete this book chapter
+		// Create a second user who will try to delete this book
 		const { loginData: secondUser, sessionToken: secondUserSeccionData } =
 			await userUtils.createUserWithEmailAndPasswordAndLogin({
 				app,
@@ -117,24 +104,24 @@ describe.skip('Delete book chapter', () => {
 				password: 'password',
 			})
 
-		// Try to delete this book chapter
-		const deletedBookChapterResp = await bookChapterUtils.deleteBookChapter({
+		// Try to delete this book
+		const deletedBookResp = await bookUtils.deleteBook({
 			app,
 			sessionToken: secondUserSeccionData,
-			bookChapter: {
-				id: createdChapterBook.id,
+			book: {
+				id: book.id,
 			},
 		})
 
-		checkErrorResponse(deletedBookChapterResp, {
+		checkErrorResponse(deletedBookResp, {
 			code: 'Forbidden',
 			statusCode: 403,
 			message: errorMessage.userIsNotOwner,
 		})
 	})
 
-	it('user should delete a created book chapter', async () => {
-		// Create a user who will create a book and a chapter
+	it('user should delete a created book', async () => {
+		// Create a user who will create a book
 		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
 			userRepository,
@@ -152,42 +139,26 @@ describe.skip('Delete book chapter', () => {
 				note: null,
 			},
 		})
-		const createdBook = createdBookResp.data[RouteNames.BOOK.CREATE]
+		const book = createdBookResp.data[RouteNames.BOOK.CREATE]
 
-		// Create a book chapter for this book
-		const createdBookChapterResp = await bookChapterUtils.createBookChapter({
-			app,
-			sessionToken: sessionToken,
-			bookChapter: {
-				name: 'Chapter 1',
-				bookId: createdBook.id,
-				header: 'My chapter 1 header',
-				content: 'My chapter 1 content',
-				note: null,
-			},
-		})
-		const createdChapterBook = createdBookChapterResp.data[RouteNames.BOOK_CHAPTER.CREATE]
-
-		// Try to delete this book chapter
-		let deletedBookChapterResp = await bookChapterUtils.deleteBookChapter({
+		// Try to delete this book
+		let deletedBookResp = await bookUtils.deleteBook({
 			app,
 			sessionToken,
-			bookChapter: {
-				id: createdChapterBook.id,
+			book: {
+				id: book.id,
 			},
 		})
-		const deletedBookChapter = deletedBookChapterResp.data[RouteNames.BOOK_CHAPTER.DELETE]
-		expect(deletedBookChapter).toBe(true)
+		const deletedBook = deletedBookResp.data[RouteNames.BOOK.DELETE]
+		expect(deletedBook).toBe(true)
 
-		// Check that user has no book chapters
-		const bookChapters = await bookChapterUtils.getBookChapters({
-			bookChapterRepository,
-			bookId: createdChapterBook.id,
-		})
-		expect(bookChapters.length).toBe(0)
+		// Check that user has no book
+		const userBooksResp = await bookUtils.getUserBooks({ app, sessionToken })
+		let userBooks = userBooksResp.data[RouteNames.BOOK.GET_USER_BOOKS]
+		expect(userBooks.length).toBe(0)
 	})
 
-	it('user creates 2 books with chapters and deletes several chapter. Test checks that deletion does not delete book chapters from another book', async () => {
+	it.only('should delete user books with all chapters', async () => {
 		// Create a user who will create a book and a chapter
 		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
@@ -215,12 +186,8 @@ describe.skip('Delete book chapter', () => {
 		const firstBook = firstBookResp.data[RouteNames.BOOK.CREATE]
 		const secondBook = secondBookResp.data[RouteNames.BOOK.CREATE]
 
-		// Add 3 chapters to the first book and 4 to the second book
-		const firstBookChaptersIds: number[] = []
-		const secondBookChaptersIds: number[] = []
-
 		for (let i = 0; i < 3; i++) {
-			const bookChaptersResp = await bookChapterUtils.createBookChapter({
+			await bookChapterUtils.createBookChapter({
 				app,
 				sessionToken: sessionToken,
 				bookChapter: {
@@ -228,12 +195,10 @@ describe.skip('Delete book chapter', () => {
 					bookId: firstBook.id,
 				},
 			})
-
-			firstBookChaptersIds.push(bookChaptersResp.data[RouteNames.BOOK_CHAPTER.CREATE].id)
 		}
 
 		for (let i = 0; i < 4; i++) {
-			const bookChaptersResp = await bookChapterUtils.createBookChapter({
+			await bookChapterUtils.createBookChapter({
 				app,
 				sessionToken: sessionToken,
 				bookChapter: {
@@ -241,42 +206,34 @@ describe.skip('Delete book chapter', () => {
 					bookId: secondBook.id,
 				},
 			})
-
-			secondBookChaptersIds.push(bookChaptersResp.data[RouteNames.BOOK_CHAPTER.CREATE].id)
 		}
 
-		// Delete the first 2 chapters from the first and the second book
-		for (let i = 0; i < 2; i++) {
-			await Promise.all([
-				bookChapterUtils.deleteBookChapter({
-					app,
-					sessionToken,
-					bookChapter: {
-						id: firstBookChaptersIds[i],
-					},
-				}),
-				bookChapterUtils.deleteBookChapter({
-					app,
-					sessionToken,
-					bookChapter: {
-						id: secondBookChaptersIds[i],
-					},
-				}),
-			])
-		}
+		// Delete the first book
+		const deleteFirstBookRes = await bookUtils.deleteBook({
+			app,
+			sessionToken,
+			book: {
+				id: firstBook.id,
+			},
+		})
+		expect(deleteFirstBookRes.data[RouteNames.BOOK.DELETE]).toBe(true)
 
-		// Check that the first book has 1 chapter
+		// Check that the first book does not exist
+		const getFirstBook = await bookRepository.getBookById(firstBook.id)
+		expect(getFirstBook).toBe(null)
+
+		// Check that the first book's chapters have gone
 		const firstBookChapters = await bookChapterUtils.getBookChapters({
 			bookChapterRepository,
 			bookId: firstBook.id,
 		})
-		expect(firstBookChapters.length).toBe(1)
+		expect(firstBookChapters.length).toBe(0)
 
-		// Check that the second book has 2 chapters
+		// Check that the second book has 4 chapters
 		const secondBookChapters = await bookChapterUtils.getBookChapters({
 			bookChapterRepository,
 			bookId: secondBook.id,
 		})
-		expect(secondBookChapters.length).toBe(2)
+		expect(secondBookChapters.length).toBe(4)
 	})
 })

@@ -57,6 +57,10 @@ export interface UpdateBookInput {
     note?: Nullable<string>;
 }
 
+export interface DeleteBookInput {
+    id: number;
+}
+
 export interface CreateBookChapterInput {
     bookId: number;
     name?: Nullable<string>;
@@ -140,6 +144,7 @@ export interface IMutation {
     payment_yookassa_top_up_balance(input: TopUpBalanceWithYooKassaInput): TopUpBalanceWithYooKassaOutModel | Promise<TopUpBalanceWithYooKassaOutModel>;
     book_create(input: CreateBookInput): BookOutModel | Promise<BookOutModel>;
     book_update(input: UpdateBookInput): BookOutModel | Promise<BookOutModel>;
+    book_delete(input: DeleteBookInput): boolean | Promise<boolean>;
     book_chapter_create(input: CreateBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
     book_chapter_update(input: UpdateBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
     book_chapter_delete(input: DeleteBookChapterInput): boolean | Promise<boolean>;

@@ -2,7 +2,7 @@ name: Deploy to the develop server
 on:
   push:
     branches:
-      - develop
+      - develop_________
 
 jobs:
   deploy:

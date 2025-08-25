@@ -75,17 +75,38 @@ export const bookUtils = {
 		}
 	}) {
 		// Update a book mutation
-		const createBookMutation = queries.book.update(input.book)
+		const updateBookMutation = queries.book.update(input.book)
 
 		// Run this mutation
 		const [updateBookResp] = await makeGraphQLReqWithTokens({
 			app: input.app,
-			query: createBookMutation.query,
-			queryVariables: createBookMutation.variables,
+			query: updateBookMutation.query,
+			queryVariables: updateBookMutation.variables,
 			sessionToken: input.sessionToken,
 		})
 
 		return updateBookResp
+	},
+
+	async deleteBook(input: {
+		app: INestApplication
+		sessionToken: any
+		book: {
+			id: number
+		}
+	}) {
+		// Delete a book mutation
+		const deleteBookMutation = queries.book.delete(input.book)
+
+		// Run this mutation
+		const [deleteBookResp] = await makeGraphQLReqWithTokens({
+			app: input.app,
+			query: deleteBookMutation.query,
+			queryVariables: deleteBookMutation.variables,
+			sessionToken: input.sessionToken,
+		})
+
+		return deleteBookResp
 	},
 
 	async getUserBooks(input: { app: INestApplication; sessionToken: any }) {

@@ -25,7 +25,7 @@ model User {
 
 model BalanceTransaction {
     id         Int                    @id @default(autoincrement())
-    user       User                   @relation(fields: [user_id], references: [id])
+    user       User                   @relation(fields: [user_id], references: [id], onDelete: Cascade)
     user_id    Int
     type       BalanceTransactionType
     amount     Int
@@ -36,7 +36,7 @@ model BalanceTransaction {
 
 model Payment {
     id                 Int                 @id @default(autoincrement())
-    user               User                @relation(fields: [user_id], references: [id])
+    user               User                @relation(fields: [user_id], references: [id], onDelete: Cascade)
     user_id            Int
     amount             Int
     status             PaymentStatus       @default(PENDING)
@@ -49,7 +49,7 @@ model Payment {
 
 model Book {
     id          Int           @id @default(autoincrement())
-    user        User          @relation(fields: [user_id], references: [id])
+    user        User          @relation(fields: [user_id], references: [id], onDelete: Cascade)
     user_id     Int
     author      String?
     name        String?
@@ -60,7 +60,7 @@ model Book {
 
 model BookChapter {
     id         Int      @id @default(autoincrement())
-    book       Book     @relation(fields: [book_id], references: [id])
+    book       Book     @relation(fields: [book_id], references: [id], onDelete: Cascade)
     book_id    Int
     name       String?
     header     String?

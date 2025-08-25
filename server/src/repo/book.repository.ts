@@ -60,6 +60,13 @@ export class BookRepository {
 		return this.mapDbBookToServiceBook(newBook)
 	}
 
+	@CatchDbError()
+	async deleteBookById(bookId: number) {
+		await this.prisma.book.delete({
+			where: { id: bookId },
+		})
+	}
+
 	mapDbBookToServiceBook(dbBook: Book): BookServiceModel {
 		return {
 			id: dbBook.id,

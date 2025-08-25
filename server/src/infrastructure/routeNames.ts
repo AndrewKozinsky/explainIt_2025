@@ -29,6 +29,7 @@ export const RouteNames = {
 	BOOK: {
 		CREATE: 'book_create',
 		UPDATE: 'book_update',
+		DELETE: 'book_delete',
 		GET_USER_BOOKS: 'book_user_books',
 	},
 	BOOK_CHAPTER: {
