@@ -1,5 +1,4 @@
 import { INestApplication } from '@nestjs/common'
-import { loggerFor } from 'openai/internal/utils/log'
 import { z } from 'zod'
 import { queries } from '../../src/features/db/queries'
 import { makeGraphQLReqWithTokens } from '../makeGQReq'
@@ -46,9 +45,9 @@ export const bookUtils = {
 		app: INestApplication
 		sessionToken: any
 		book: {
-			author: null | string
-			name: null | string
-			note: null | string
+			author?: null | string
+			name?: null | string
+			note?: null | string
 		}
 	}) {
 		// Create a book mutation

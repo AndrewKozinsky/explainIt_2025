@@ -73,6 +73,10 @@ export interface UpdateBookChapterInput {
     note?: Nullable<string>;
 }
 
+export interface DeleteBookChapterInput {
+    id: number;
+}
+
 export interface UserOutModel {
     id: number;
     email: string;
@@ -138,6 +142,7 @@ export interface IMutation {
     book_update(input: UpdateBookInput): BookOutModel | Promise<BookOutModel>;
     book_chapter_create(input: CreateBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
     book_chapter_update(input: UpdateBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
+    book_chapter_delete(input: DeleteBookChapterInput): boolean | Promise<boolean>;
 }
 
 export type CheckTranslationOutModel = CheckTranslationOutSuccessModel | CheckTranslationOutErrorModel;

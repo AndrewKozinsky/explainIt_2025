@@ -34,6 +34,7 @@ export const RouteNames = {
 	BOOK_CHAPTER: {
 		CREATE: 'book_chapter_create',
 		UPDATE: 'book_chapter_update',
+		DELETE: 'book_chapter_delete',
 	},
 }
 

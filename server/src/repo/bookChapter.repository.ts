@@ -49,8 +49,18 @@ export class BookChapterRepository {
 	}
 
 	@CatchDbError()
+	async getBookChapterByBookId(bookId: number) {
+		const bookChapters = await this.prisma.bookChapter.findMany({
+			where: { book_id: bookId },
+			include: { book: true },
+		})
+
+		return bookChapters.map(this.mapDbBookChapterToServiceBook)
+	}
+
+	@CatchDbError()
 	async updateBookChapterById(
-		bookId: number,
+		bookChapterId: number,
 		dto: {
 			name?: null | string
 			header?: null | string
@@ -59,7 +69,7 @@ export class BookChapterRepository {
 		},
 	) {
 		const updatedBookChapter = await this.prisma.bookChapter.update({
-			where: { id: bookId },
+			where: { id: bookChapterId },
 			data: dto,
 			include: { book: true },
 		})
@@ -69,6 +79,13 @@ export class BookChapterRepository {
 		}
 
 		return this.mapDbBookChapterToServiceBook(updatedBookChapter)
+	}
+
+	@CatchDbError()
+	async deleteBookChapterById(bookChapterId: number) {
+		await this.prisma.bookChapter.delete({
+			where: { id: bookChapterId },
+		})
 	}
 
 	mapDbBookChapterToServiceBook(dbBookChapter: BookChapterWithBook): BookChapterServiceModel {

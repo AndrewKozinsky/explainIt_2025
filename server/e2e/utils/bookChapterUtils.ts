@@ -1,7 +1,7 @@
 import { INestApplication } from '@nestjs/common'
-import { loggerFor } from 'openai/internal/utils/log'
 import { z } from 'zod'
 import { queries } from '../../src/features/db/queries'
+import { BookChapterRepository } from '../../src/repo/bookChapter.repository'
 import { makeGraphQLReqWithTokens } from '../makeGQReq'
 
 export const bookChapterUtils = {
@@ -96,15 +96,28 @@ export const bookChapterUtils = {
 		return updateBookResp
 	},
 
-	/*async getUserBooks(input: { app: INestApplication; sessionToken: any }) {
-		const userBooksQuery = queries.book.getUserBooks()
+	async deleteBookChapter(input: {
+		app: INestApplication
+		sessionToken: any
+		bookChapter: {
+			id: number
+		}
+	}) {
+		// Delete a book chapter mutation
+		const deleteBookChapterMutation = queries.bookChapter.delete(input.bookChapter)
 
-		const [getUserBooksResp] = await makeGraphQLReqWithTokens({
+		// Run this mutation
+		const [updateBookResp] = await makeGraphQLReqWithTokens({
 			app: input.app,
-			query: userBooksQuery,
+			query: deleteBookChapterMutation.query,
+			queryVariables: deleteBookChapterMutation.variables,
 			sessionToken: input.sessionToken,
 		})
 
-		return getUserBooksResp
-	},*/
+		return updateBookResp
+	},
+
+	async getBookChapters(input: { bookId: number; bookChapterRepository: BookChapterRepository }) {
+		return await input.bookChapterRepository.getBookChapterByBookId(input.bookId)
+	},
 }
