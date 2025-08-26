@@ -26,7 +26,7 @@ export const DangerTheme: Story = {
 
 export const AllVariants: Story = {
 	render: () => (
-		<div style={{ display: 'flex', alignItems: 'start', gap: '1rem' }}>
+		<div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'start', gap: '1rem' }}>
 			<Button theme='regular'>Regular</Button>
 			<Button theme='danger'>Danger</Button>
 			<Button theme='regular' disabled>
@@ -37,6 +37,9 @@ export const AllVariants: Story = {
 			</Button>
 			<Button theme='regular' icon='/icons/githubButtonIcon.svg'>
 				Github
+			</Button>
+			<Button theme='regular' loading>
+				Regular
 			</Button>
 		</div>
 	),

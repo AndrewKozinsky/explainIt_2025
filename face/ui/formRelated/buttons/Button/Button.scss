@@ -58,3 +58,14 @@
 		outline: 4px solid rgba(vars.$dangerColor-1, .3);
 	}
 }
+
+.button__icon {
+	display: inline-block;
+
+	& > img {
+		display: block;
+	}
+}
+.button__icon--disabled {
+	opacity: 0.4;
+}

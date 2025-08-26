@@ -9,7 +9,7 @@ type LLMPageLayoutProps = {
 	children: React.ReactNode
 }
 
-function LLMPageLayout(props: LLMPageLayoutProps) {
+function BooksPageLayout(props: LLMPageLayoutProps) {
 	const { children } = props
 
 	const user = useUserStore((state) => state.user)
@@ -26,4 +26,4 @@ function LLMPageLayout(props: LLMPageLayoutProps) {
 	return children
 }
 
-export default LLMPageLayout
+export default BooksPageLayout

@@ -156,7 +156,7 @@ test('the form has to show main error if a user types correct data, but it from 
 	await expect($failMessage).toHaveText(errorMessage.fromServer.emailIsNotConfirmed)
 })
 
-test.only('the form has to redirect to the main page after the form was filled up correctly', async ({ page }) => {
+test('the form has to redirect to the main page after the form was filled up correctly', async ({ page }) => {
 	const user = serverTestDataConfig.getUsersConfig().user_2
 
 	const $form = page.getByTestId(LoginFormTest.form.id)

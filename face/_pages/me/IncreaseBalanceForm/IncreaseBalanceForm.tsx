@@ -29,7 +29,7 @@ function IncreaseBalanceForm() {
 	const onSubmit = useGetIncreaseBalanceFormSubmit(setError, setFormStatus, setFormError)
 
 	if (formStatus === 'success') {
-		redirect(pageUrls.llm.path)
+		redirect(pageUrls.books.path)
 	}
 
 	return (

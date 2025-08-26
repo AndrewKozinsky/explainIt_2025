@@ -24,7 +24,7 @@ function OAuthPage(props: OAuthPageProps) {
 		return <ErrorBlock>{error}</ErrorBlock>
 	}
 
-	redirect(pageUrls.llm.path)
+	redirect(pageUrls.books.path)
 }
 
 export default OAuthPage

@@ -14,7 +14,7 @@ export function MainMenu() {
 					<MainMenuLink linkData={pageUrls.howToSayItInRussian} />
 				</li>*/}
 				<li>
-					<MainMenuLink linkData={pageUrls.llm} />
+					<MainMenuLink linkData={pageUrls.books} />
 				</li>
 				<li>
 					<MainMenuLink linkData={pageUrls.contacts} />

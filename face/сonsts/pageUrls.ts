@@ -65,9 +65,9 @@ export const pageUrls = {
 			path: '/auth/oauth/yandex-verification-code',
 		},*/
 	},
-	llm: {
-		name: 'LLM',
-		path: '/llm',
+	books: {
+		name: 'Книги',
+		path: '/books',
 	},
 	course: {
 		name: 'Курс',

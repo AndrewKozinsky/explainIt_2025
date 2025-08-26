@@ -30,7 +30,7 @@ function AuthLoginForm() {
 	const onSubmit = useGetOnLoginFormSubmit(setError, setFormStatus, setFormError)
 
 	if (formStatus === 'success') {
-		redirect(pageUrls.llm.path)
+		redirect(pageUrls.books.path)
 	}
 
 	return (

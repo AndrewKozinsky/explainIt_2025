@@ -14,7 +14,7 @@ class TestPageUrls {
 			graphql: this.host + 'graphql',
 			authRegister: this.host + pageUrls.auth.register.path,
 			authLogin: this.host + pageUrls.auth.login.path,
-			llm: this.host + pageUrls.llm.path,
+			books: this.host + pageUrls.books.path,
 		}
 	}
 }

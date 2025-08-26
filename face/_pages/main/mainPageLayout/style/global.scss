@@ -83,10 +83,11 @@ body {
 	line-height: 2.2rem;
 	font-weight: 300;
 	color: vars.$textColor;
-	background: vars.$grayColor-1;
+	background: vars.$bg;
 	min-height: 100dvh;
 	max-width: vars.$max-page-width;
 	margin: 0 auto;
+	transition: background .5s ease-in-out;
 
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;

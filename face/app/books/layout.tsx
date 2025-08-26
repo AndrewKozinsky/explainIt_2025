@@ -1,4 +1,4 @@
-import LLMPageLayout from '@/_pages/llm/LLMPageLayout/LLMPageLayout'
+import BooksPageLayout from '../../_pages/books/BooksPageLayout/BooksPageLayout'
 import { ReactNode } from 'react'
 
 type LayoutProps = {
@@ -8,7 +8,7 @@ type LayoutProps = {
 function Layout(props: LayoutProps) {
 	const { children } = props
 
-	return <LLMPageLayout>{children}</LLMPageLayout>
+	return <BooksPageLayout>{children}</BooksPageLayout>
 }
 
 export default Layout
