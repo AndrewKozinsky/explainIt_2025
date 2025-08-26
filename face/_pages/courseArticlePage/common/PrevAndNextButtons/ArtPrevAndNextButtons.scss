@@ -31,15 +31,15 @@
 	&--blue {
 		.prev-or-next-button {
 			background-color: white;
-			border-color: color.adjust(vars.$blueColor-2, $saturation: -20%);
+			border-color: color.adjust(vars.$linkColor-2, $saturation: -20%);
 
 			.prev-or-next-button__hr {
-				background: color.adjust(vars.$blueColor-1, $saturation: 12%);
+				background: color.adjust(vars.$linkColor-1, $saturation: 12%);
 			}
 
 			.prev-or-next-button__arrow {
 				path {
-					fill: vars.$blueColor-2;
+					fill: vars.$linkColor-2;
 				}
 			}
 
@@ -47,17 +47,17 @@
 				color: vars.$grayColor-3;
 			}
 			&__name {
-				color: vars.$blueColor-2;
+				color: vars.$linkColor-2;
 			}
 			&__description {
 				color: vars.$grayColor-4;
 			}
 
 			&:hover {
-				border-color: vars.$blueColor-2;
+				border-color: vars.$linkColor-2;
 
 				.prev-or-next-button__hr {
-					background: color.adjust(vars.$blueColor-1, $saturation: 22%);
+					background: color.adjust(vars.$linkColor-1, $saturation: 22%);
 				}
 
 				.prev-or-next-button {

@@ -6,24 +6,24 @@
 // ОНИ БУДУТ ВКЛЮЧАТЬСЯ В КОНКРЕТНЫЕ КЛАССЫ
 
 @mixin link() {
-	color: vars.$blueColor-2;
-	border-bottom: 1px solid rgba(vars.$blueColor-2, .2);
+	color: vars.$linkColor-2;
+	border-bottom: 1px solid rgba(vars.$linkColor-2, .2);
 	transition: color .2s, border-bottom-color .2s;
 
 	&:hover {
-		color: color.adjust(vars.$blueColor-2, $saturation: 100%);
-		border-bottom-color: rgba(vars.$blueColor-2, .35);
+		color: color.adjust(vars.$linkColor-2, $saturation: 100%);
+		border-bottom-color: rgba(vars.$linkColor-2, .35);
 	}
 }
 
 @mixin link--current() {
 	cursor: default;
-	color: vars.$orangeColor-2;
+	color: vars.$accentColor-2;
 	border-bottom: none;
 
 	&:hover {
-		color: color.adjust(vars.$orangeColor-2, $saturation: 100%);
-		border-bottom-color: rgba(vars.$orangeColor-2, .35);
+		color: color.adjust(vars.$accentColor-2, $saturation: 100%);
+		border-bottom-color: rgba(vars.$accentColor-2, .35);
 	}
 }
 

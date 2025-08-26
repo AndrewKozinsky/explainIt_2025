@@ -11,11 +11,11 @@
 }
 
 .main-menu__link--current {
-	color: vars.$orangeColor-2;
-	border-bottom-color: color.adjust(vars.$orangeColor-1, $saturation: 12%);
+	color: vars.$accentColor-2;
+	border-bottom-color: color.adjust(vars.$accentColor-1, $saturation: 12%);
 
 	&:hover {
-		color: vars.$orangeColor-2;
-		border-bottom-color: color.adjust(vars.$orangeColor-1, $saturation: 20%);
+		color: vars.$accentColor-2;
+		border-bottom-color: color.adjust(vars.$accentColor-1, $saturation: 20%);
 	}
 }

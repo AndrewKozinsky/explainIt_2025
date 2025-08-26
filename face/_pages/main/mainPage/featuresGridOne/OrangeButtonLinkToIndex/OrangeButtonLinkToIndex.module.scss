@@ -6,18 +6,18 @@
 	align-items: end;
 	color: white;
 	min-height: 15rem;
-	background-color: vars.$orangeColor-2;
+	background-color: vars.$accentColor-2;
 	background-image: url("/images/mainPage/satellites-ball.jpg");
 	background-size: 12rem 12rem;
 	background-repeat: no-repeat;
 	padding: 1.8rem 2.2rem;
 	border-radius: vars.$radius-2;
-	box-shadow: 0 2px 6px rgba($orangeColor-2, .6);
+	box-shadow: 0 2px 6px rgba($accentColor-2, .6);
 	transition: box-shadow .3s, background-position .3s;
 
 	&:hover {
 		background-position: -2px -2px;
-		box-shadow: 0 2px 6px rgba($orangeColor-2, .8), 0 3px 28px rgba($orangeColor-2, .4);
+		box-shadow: 0 2px 6px rgba($accentColor-2, .8), 0 3px 28px rgba($accentColor-2, .4);
 
 		.textsWrapper {
 			transform: translateX(2px);
