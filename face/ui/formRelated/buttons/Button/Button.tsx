@@ -1,18 +1,26 @@
 'use client'
 
+import cn from 'classnames'
 import React, { ReactNode } from 'react'
+import { ButtonIcon } from './ButtonIcon'
 import './Button.scss'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-	children: ReactNode
+	theme?: 'regular' | 'danger'
+	size?: 'small'
+	children?: ReactNode
+	icon?: string | ReactNode
 	dataTestId?: string
 }
 
 function Button(props: ButtonProps) {
-	const { children, dataTestId, ...restProps } = props
+	const { theme = 'regular', size = 'small', children, icon, dataTestId, ...restProps } = props
+
+	const buttonClasses = ['button', `button--size-${size}`, `button--theme-${theme}`]
 
 	return (
-		<button className='button' {...restProps} data-testid={dataTestId}>
+		<button className={cn(buttonClasses)} {...restProps} data-testid={dataTestId}>
+			<ButtonIcon icon={icon} />
 			{children}
 		</button>
 	)

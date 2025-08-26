@@ -9,7 +9,11 @@ $accentColor-1: #FDF2E8;
 $accentColor-2: #FF630C;
 $linkColor-1: #DFEEFB;
 $linkColor-2: #0076DE;
-$dangerColor-2: #FF3900;
+$dangerColor-1: #FF3900;
+$dangerColor-2: #FFC6C6;
+$dangerColor-3: #FFABAB;
+
+$buttonGradient: linear-gradient(to bottom, white, $bg);
 
 $tablet-width: 600px;
 $monitor-width: 1000px;

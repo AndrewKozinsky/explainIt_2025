@@ -21,7 +21,7 @@
 .art-text--color-error {
 	position: relative;
 	display: inline-block;
-	color: vars.$dangerColor-2;
+	color: vars.$dangerColor-1;
 
 	&::before {
 		content: '';
@@ -30,7 +30,7 @@
 		top: 50%;
 		width: 100%;
 		height: 3px;
-		background-color: vars.$dangerColor-2;
+		background-color: vars.$dangerColor-1;
 		opacity: .3;
 	}
 }

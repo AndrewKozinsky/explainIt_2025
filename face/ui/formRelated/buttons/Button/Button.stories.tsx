@@ -1,31 +1,43 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
-import { fn } from 'storybook/test'
 import Button from './Button'
+// import githubButtonIcon from 'icons/githubButtonIcon.svg'
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
 	title: 'UI/Button',
 	component: Button,
-	/*parameters: {
-		// Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
-		layout: 'centered',
-	},*/
-	// This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
-	// tags: ['autodocs'],
-	// More on argTypes: https://storybook.js.org/docs/api/argtypes
-	/*argTypes: {
-		backgroundColor: { control: 'color' },
-	},*/
-	// Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
-	// args: { onClick: fn() },
 } satisfies Meta<typeof Button>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary: Story = {
+/*export const RegularTheme: Story = {
 	args: {
-		children: 'My button',
+		children: 'Button',
+		theme: 'regular',
 	},
+}
+export const DangerTheme: Story = {
+	args: {
+		children: 'Button',
+		theme: 'danger',
+	},
+}*/
+
+export const AllVariants: Story = {
+	render: () => (
+		<div style={{ display: 'flex', alignItems: 'start', gap: '1rem' }}>
+			<Button theme='regular'>Regular</Button>
+			<Button theme='danger'>Danger</Button>
+			<Button theme='regular' disabled>
+				Regular disabled
+			</Button>
+			<Button theme='danger' disabled>
+				Danger disabled
+			</Button>
+			<Button theme='regular' icon='/icons/githubButtonIcon.svg'>
+				Github
+			</Button>
+		</div>
+	),
 }

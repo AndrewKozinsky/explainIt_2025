@@ -4,8 +4,57 @@
 
 // Base button styles
 .button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: .5rem;
 	cursor: pointer;
-	padding: 8px 16px;
-	border: 1px solid black;
-	border-radius: 4px;
+	background: vars.$buttonGradient;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: vars.$radius-1;
+	transition: border-color .2s ease-in-out;
+
+	&:disabled {
+		color: vars.$grayColor-4;
+		cursor: default;
+		border-color: vars.$grayColor-2;
+
+		&:hover {
+			border-color: vars.$grayColor-2;
+		}
+	}
+}
+
+.button--size-small {
+	font-size: 1.4rem;
+	line-height: 2rem;
+	padding: .4rem 1.2rem;
+}
+
+.button--theme-regular {
+	color: vars.$textColor;
+	border-color: vars.$grayColor-3;
+
+	&:hover {
+		border-color: vars.$grayColor-4;
+	}
+
+	&:focus {
+		border-color: vars.$linkColor-2;
+	}
+}
+
+.button--theme-danger {
+	color: vars.$dangerColor-1;
+	border-color: vars.$dangerColor-2;
+
+	&:hover {
+		border-color: vars.$dangerColor-3;
+	}
+
+	&:focus {
+		border-color: vars.$dangerColor-1;
+		outline: 4px solid rgba(vars.$dangerColor-1, .3);
+	}
 }

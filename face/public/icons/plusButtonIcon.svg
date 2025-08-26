@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>plusButtonIcon</title>
+    <defs>
+        <path d="M0,0 L20,0 L20,20 L0,20 L0,0 Z" id="path-1"></path>
+    </defs>
+    <g id="plusButtonIcon" stroke="none" fill="none" xlink:href="#path-1" fill-rule="evenodd">
+        <rect id="Rectangle" fill="#D8D8D8" opacity="0" x="0" y="0" width="20" height="20"></rect>
+        <rect id="Rectangle-3" fill="#1E1E1E" x="10" y="2" width="1" height="17"></rect>
+        <rect id="Rectangle-4" fill="#1E1E1E" x="2" y="10" width="17" height="1"></rect>
+    </g>
+</svg>

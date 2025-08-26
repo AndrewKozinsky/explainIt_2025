@@ -7,7 +7,11 @@ import { useGetLogout } from './fn/logout'
 function LogoutButton() {
 	const logout = useGetLogout()
 
-	return <Button onClick={logout}>Выйти из учётной записи</Button>
+	return (
+		<Button onClick={logout} icon={<img src='/icons/githubButtonIcon.svg' alt='icon' />}>
+			Выйти из учётной записи
+		</Button>
+	)
 }
 
 export default LogoutButton
