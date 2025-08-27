@@ -4,10 +4,12 @@ import React from 'react'
 import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'
 import BooksSection from '../booksSection/BooksSection/BooksSection'
 import { useChangeBodyBgColor } from './fn/changeBodyBgColor'
+import { useGetFetchBooksAndSetToStore } from './fn/fetchBooksAndSetToStore'
 import './BooksPage.scss'
 
 function BooksPage() {
 	useChangeBodyBgColor()
+	useGetFetchBooksAndSetToStore()
 
 	return (
 		<PageWrapper top>

@@ -1,3 +1,4 @@
+import BooksPage from '../../_pages/books/BooksPage/BooksPage'
 import BooksPageLayout from '../../_pages/books/BooksPageLayout/BooksPageLayout'
 import { ReactNode } from 'react'
 
@@ -8,7 +9,11 @@ type LayoutProps = {
 function Layout(props: LayoutProps) {
 	const { children } = props
 
-	return <BooksPageLayout>{children}</BooksPageLayout>
+	return (
+		<BooksPageLayout>
+			<BooksPage />
+		</BooksPageLayout>
+	)
 }
 
 export default Layout

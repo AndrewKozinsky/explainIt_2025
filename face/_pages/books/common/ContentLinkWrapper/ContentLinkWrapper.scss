@@ -1,0 +1,28 @@
+@use '@/styles/variables' as vars;
+
+.content-link-wrapper {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0.6rem 1.2rem;
+	border: 1px solid transparent;
+	border-radius: vars.$radius-1;
+}
+
+.content-link-wrapper--link {
+	border-color: vars.$grayColor-2;
+	transition: border-color 0.2s ease-in-out;
+
+	&:hover {
+		border-color: vars.$grayColor-3;
+	}
+
+	&:focus {
+		border-color: vars.$linkColor-2;
+	}
+}
+
+.content-link-wrapper--current {
+	color: vars.$accentColor-2;
+	background-color: white;
+	border-color: white;
+}

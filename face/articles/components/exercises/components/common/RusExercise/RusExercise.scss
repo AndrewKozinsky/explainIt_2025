@@ -1,6 +1,6 @@
 @use '@/styles/variables' as vars;
 @use '@/styles/mixins' as mix;
-@use '@/styles/inherit' as inh;
+@use '@/styles/text-inherit' as textInh;
 
 .exercise-content-rus-sentence {
 
@@ -8,12 +8,12 @@
 
 .exercise-content-rus-sentence__note {
 	color: vars.$grayColor-3;
-	@include inh.paragraph-small;
+	@include textInh.paragraph-14();
 }
 
 .exercise-content-rus-sentence__text {
 	margin-top: .2rem;
-	@include inh.paragraph-giant;
+	@include textInh.paragraph-20();
 }
 
 .exercise-content-rus-sentence__text--gray {

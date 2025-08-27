@@ -1,11 +1,11 @@
 @use '@/styles/variables' as vars;
 @use '@/styles/mixins' as mix;
-@use '@/styles/inherit' as inh;
+@use '@/styles/text-inherit' as textInh;
 
 .eng-translate-input {
 	width: 100%;
 	field-sizing: content;
-	@include inh.paragraph-giant();
+	@include textInh.paragraph-20();
 
 	&::placeholder {
 		color: vars.$grayColor-2;

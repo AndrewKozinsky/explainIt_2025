@@ -1,0 +1,21 @@
+@use '@/styles/text-inherit' as textInh;
+
+.paragraph {
+
+}
+
+.paragraph--14 {
+	@include textInh.paragraph-14();
+}
+.paragraph--15 {
+	@include textInh.paragraph-15();
+}
+.paragraph--16 {
+	@include textInh.paragraph-16();
+}
+.paragraph--18 {
+	@include textInh.paragraph-18();
+}
+.paragraph--20 {
+	@include textInh.paragraph-20();
+}

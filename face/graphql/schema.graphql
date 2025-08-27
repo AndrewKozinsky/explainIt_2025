@@ -1,3 +1,30 @@
+type BookChapterLiteOutModel {
+  bookId: Int!
+  header: String
+  id: Int!
+  name: String
+  note: String
+}
+
+type BookChapterOutModel {
+  book: BookOutModel!
+  bookId: Int!
+  content: String
+  header: String
+  id: Int!
+  name: String
+  note: String
+}
+
+type BookOutModel {
+  author: String
+  chapters: [BookChapterLiteOutModel!]!
+  id: Int!
+  name: String
+  note: String
+  userId: Int!
+}
+
 input CheckTranslationInput {
   """Sentence in English"""
   engSentence: String!
@@ -20,6 +47,44 @@ type CheckTranslationOutSuccessModel {
 input ConfirmEmailInput {
   """User email"""
   code: String!
+}
+
+input CreateBookChapterInput {
+  """Book id"""
+  bookId: Int!
+
+  """Content of the chapter"""
+  content: String
+
+  """Header on the chapter"""
+  header: String
+
+  """Name on the chapter (chapter 1)"""
+  name: String
+
+  """Note about this chapter"""
+  note: String
+}
+
+input CreateBookInput {
+  """Author"""
+  author: String
+
+  """Name"""
+  name: String
+
+  """Note"""
+  note: String
+}
+
+input DeleteBookChapterInput {
+  """BookChapter id"""
+  id: Int!
+}
+
+input DeleteBookInput {
+  """Book id"""
+  id: Int!
 }
 
 input GetTranscriptionInput {
@@ -77,6 +142,24 @@ type Mutation {
   """Resend email confirmation letter"""
   auth_resendConfirmationEmail(input: ResendConfirmationEmailInput!): Boolean!
 
+  """Create book chapter"""
+  book_chapter_create(input: CreateBookChapterInput!): BookChapterOutModel!
+
+  """Delete book chapter"""
+  book_chapter_delete(input: DeleteBookChapterInput!): Boolean!
+
+  """Update book chapter"""
+  book_chapter_update(input: UpdateBookChapterInput!): BookChapterOutModel!
+
+  """Create book"""
+  book_create(input: CreateBookInput!): BookOutModel!
+
+  """Delete user book"""
+  book_delete(input: DeleteBookInput!): Boolean!
+
+  """Update user book"""
+  book_update(input: UpdateBookInput!): BookOutModel!
+
   """Top up a balance with YooKassa"""
   payment_yookassa_top_up_balance(input: TopUpBalanceWithYooKassaInput!): TopUpBalanceWithYooKassaOutModel!
 }
@@ -87,6 +170,9 @@ type Query {
 
   """Get current user data"""
   auth_getMe: UserOutModel!
+
+  """Get user books"""
+  book_user_books: [BookOutModel!]!
 }
 
 input RegisterUserInput {
@@ -109,6 +195,37 @@ input TopUpBalanceWithYooKassaInput {
 
 type TopUpBalanceWithYooKassaOutModel {
   confirmationUrl: String!
+}
+
+input UpdateBookChapterInput {
+  """BookChapter content"""
+  content: String
+
+  """BookChapter header"""
+  header: String
+
+  """BookChapter id"""
+  id: Int!
+
+  """BookChapter name (chapter 1)"""
+  name: String
+
+  """BookChapter note"""
+  note: String
+}
+
+input UpdateBookInput {
+  """Author"""
+  author: String
+
+  """Book id"""
+  id: Int!
+
+  """Name"""
+  name: String
+
+  """Note"""
+  note: String
 }
 
 type UserOutModel {

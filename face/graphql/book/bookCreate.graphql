@@ -1,0 +1,16 @@
+mutation Book_create($input: CreateBookInput!) {
+	book_create(input: $input) {
+		id
+		author
+		name
+		note
+		userId
+		chapters {
+			id
+			bookId
+			name
+			header
+			note
+		}
+	}
+}

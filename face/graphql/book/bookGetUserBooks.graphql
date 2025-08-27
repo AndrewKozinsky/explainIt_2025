@@ -1,0 +1,16 @@
+query Book_getUserBooks {
+	book_user_books {
+		id
+		author
+		name
+		note
+		userId
+		chapters {
+			id
+			bookId
+			name
+			header
+			note
+		}
+	}
+}

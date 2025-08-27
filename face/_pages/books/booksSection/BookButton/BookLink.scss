@@ -1,0 +1,13 @@
+@use '@/styles/variables' as vars;
+
+.book-link {
+	container-type: inline-size;
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+
+}
+
+.book-link__author {
+	color: vars.$grayColor-3;
+}

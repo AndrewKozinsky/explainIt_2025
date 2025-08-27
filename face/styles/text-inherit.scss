@@ -50,30 +50,59 @@
 	}
 }
 
-@mixin paragraph-small() {
+@mixin paragraph-14() {
 	font-size: 1.4rem;
 	line-height: 2.2rem;
 
 	@include mix.container-width(vars.$tablet-width) {
 		line-height: 2.4rem;
 	}
+
+	@include mix.container-width(vars.$monitor-width) {
+		line-height: 2.5rem;
+	}
 }
 
-@mixin paragraph() {
+@mixin paragraph-15() {
+	font-size: 1.5rem;
+	line-height: 2.1rem;
+
+	@include mix.container-width(vars.$tablet-width) {
+		line-height: 2.3rem;
+	}
+
+	@include mix.container-width(vars.$monitor-width) {
+		line-height: 2.5rem;
+	}
+}
+
+@mixin paragraph-16() {
 	font-size: 1.6rem;
 	line-height: 2.4rem;
 
 	@include mix.container-width(vars.$tablet-width) {
 		line-height: 2.6rem;
 	}
+
+	@include mix.container-width(vars.$monitor-width) {
+		line-height: 2.7rem;
+	}
 }
 
-@mixin paragraph-big() {
-	font-size: 2rem;
-	line-height: 2.8rem;
+@mixin paragraph-18() {
+	font-size: 1.8rem;
+	line-height: 2.6rem;
+
+	@include mix.container-width(vars.$tablet-width) {
+		line-height: 2.8rem;
+	}
+
+	@include mix.container-width(vars.$monitor-width) {
+		line-height: 3.0rem;
+	}
 }
 
-@mixin paragraph-giant() {
+@mixin paragraph-20() {
 	font-size: 2rem;
 	line-height: 3rem;
 

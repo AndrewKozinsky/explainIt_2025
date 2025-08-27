@@ -1,9 +1,9 @@
 @use '@/styles/variables' as vars;
 @use '@/styles/mixins' as mix;
-@use '@/styles/inherit' as inh;
+@use '@/styles/text-inherit' as textInh;
 
 .exercises-right-eng-translate {
 	width: 100%;
 	margin: 1rem 0 0 0;
-	@include inh.paragraph-giant();
+	@include textInh.paragraph-20();
 }

@@ -14,10 +14,6 @@ export const pageUrls = {
 			name: 'Регистрация',
 			path: '/auth/register',
 		},
-		/*forgetPassword: {
-			name: 'Вспомнить пароль',
-			path: '/auth/forget-password',
-		},*/
 		emailConfirmation: {
 			name: 'Подтверждение эл. почты',
 			path: '/auth/email-confirmation',
@@ -52,22 +48,16 @@ export const pageUrls = {
 				},
 			},
 		},
-		/*oauth/github-verification-code: {
-			name: 'Вход через GitHub',
-			path: '/auth/oauth/github-verification-code',
-		},
-		oauth/google-verification-code: {
-			name: 'Вход через Google',
-			path: '/auth/oauth/google-verification-code',
-		},
-		oauth/yandex-verification-code: {
-			name: 'Вход через Яндекс',
-			path: '/auth/oauth/yandex-verification-code',
-		},*/
 	},
 	books: {
 		name: 'Книги',
 		path: '/books',
+		book(bookId: number) {
+			return {
+				name: 'Книга',
+				path: '/books/' + bookId,
+			}
+		},
 	},
 	course: {
 		name: 'Курс',

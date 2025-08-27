@@ -1,0 +1,16 @@
+mutation Book_update($input: UpdateBookInput!) {
+	book_update(input: $input) {
+		id
+		author
+		name
+		note
+		userId
+		chapters {
+			id
+			bookId
+			name
+			header
+			note
+		}
+	}
+}

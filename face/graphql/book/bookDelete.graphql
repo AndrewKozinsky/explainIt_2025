@@ -1,0 +1,3 @@
+mutation Book_delete($input: DeleteBookInput!) {
+	book_delete(input: $input)
+}
