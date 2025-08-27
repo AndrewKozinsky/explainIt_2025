@@ -146,6 +146,7 @@ test.skip('the form has to show main error if a user types correct data, but it 
 	page,
 }) => {
 	const userWithUnconfirmedEmail = serverTestDataConfig.getUsersConfig().user_1
+	if (userWithUnconfirmedEmail.type !== 'userRegisteredWithCredentials') return
 
 	const $form = page.getByTestId(RegisterFormTest.form.id)
 

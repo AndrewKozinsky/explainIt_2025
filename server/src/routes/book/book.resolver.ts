@@ -1,7 +1,7 @@
 import { UseGuards } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql'
-import { CreateBookCommand } from '../../features/book/CreateBook.command'
+import { CreateBookWithEmptyChapterCommand } from '../../features/book/CreateBookWithEmptyChapter.command'
 import { DeleteBookCommand } from '../../features/book/DeleteBook.command'
 import { GetUserBooksCommand } from '../../features/book/GetUserBooks.command'
 import { UpdateBookCommand } from '../../features/book/UpdateBook.command'
@@ -25,7 +25,7 @@ export class BookResolver {
 	})
 	async createBook(@Args('input') input: CreateBookInput, @Context('req') request: Request) {
 		const userId = request.session.userId!
-		return await this.commandBus.execute(new CreateBookCommand(userId, input))
+		return await this.commandBus.execute(new CreateBookWithEmptyChapterCommand(userId, input))
 	}
 
 	@UseGuards(CheckSessionCookieGuard)

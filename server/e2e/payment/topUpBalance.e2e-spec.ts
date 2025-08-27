@@ -23,7 +23,7 @@ describe.skip('Top up balance with YooKassa (e2e)', () => {
 	let userRepository: UserRepository
 
 	beforeAll(async () => {
-		const createMainAppRes = await createApp({ emailAdapter })
+		const createMainAppRes = await createApp()
 
 		app = createMainAppRes.app
 		commandBus = app.get(CommandBus)

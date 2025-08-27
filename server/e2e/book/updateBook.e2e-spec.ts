@@ -25,7 +25,7 @@ describe.skip('Update book', () => {
 	let userRepository: UserRepository
 
 	beforeAll(async () => {
-		const createMainAppRes = await createApp({ emailAdapter })
+		const createMainAppRes = await createApp()
 
 		app = createMainAppRes.app
 		commandBus = app.get(CommandBus)
@@ -46,7 +46,7 @@ describe.skip('Update book', () => {
 		await authUtils.tokenNotExist({ app, queryOrMutationStr: query.query, queryVariables: query.variables })
 	})
 
-	it('should return 404 status if a book is not exists', async () => {
+	it('should return 404 status if a book does not exist', async () => {
 		// Create a user with confirmed email
 		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,

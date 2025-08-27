@@ -28,7 +28,7 @@ describe.skip('Create book chapter', () => {
 	let bookChapterQueryRepository: BookChapterQueryRepository
 
 	beforeAll(async () => {
-		const createMainAppRes = await createApp({ emailAdapter })
+		const createMainAppRes = await createApp()
 
 		app = createMainAppRes.app
 		commandBus = app.get(CommandBus)
@@ -182,8 +182,8 @@ describe.skip('Create book chapter', () => {
 		// Check firstBookChapter
 		bookChapterUtils.checkBookChapterOutResp(secondBookChapter)
 
-		// Check that the user has two book chapters in the database
+		// Check that the user has three book chapters in the database (one chapter was added when a user created a book)
 		const userBookChapters = await bookChapterQueryRepository.getBookChapters(book.id)
-		expect(userBookChapters.length).toBe(2)
+		expect(userBookChapters.length).toBe(3)
 	})
 })

@@ -8,10 +8,10 @@ import { BookChapterRepository } from '../../repo/bookChapter.repository'
 
 type CreateBookChapterInput = {
 	bookId: number
-	name: null | string
-	header: null | string
-	content: null | string
-	note: null | string
+	name?: null | string
+	header?: null | string
+	content?: null | string
+	note?: null | string
 }
 
 export class CreateBookChapterCommand implements ICommand {

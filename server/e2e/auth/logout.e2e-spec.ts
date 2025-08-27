@@ -27,7 +27,7 @@ describe.skip('Logout (e2e)', () => {
 	let mainConfig: MainConfigService
 
 	beforeAll(async () => {
-		const createMainAppRes = await createApp({ emailAdapter })
+		const createMainAppRes = await createApp()
 
 		app = createMainAppRes.app
 		commandBus = app.get(CommandBus)

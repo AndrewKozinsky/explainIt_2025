@@ -25,7 +25,7 @@ describe.skip('Create book', () => {
 	let bookQueryRepository: BookQueryRepository
 
 	beforeAll(async () => {
-		const createMainAppRes = await createApp({ emailAdapter })
+		const createMainAppRes = await createApp()
 
 		app = createMainAppRes.app
 		commandBus = app.get(CommandBus)
@@ -90,7 +90,19 @@ describe.skip('Create book', () => {
 		const createdBook_2 = createdBook_2Resp.data[RouteNames.BOOK.CREATE]
 
 		// Check the returning object
-		bookUtils.checkBookOutResp(createdBook_2)
+		bookUtils.checkBookOutResp(createdBook_2, {
+			author: 'Gerald Durrell 2',
+			name: 'My Family and Other Animals 2',
+			note: null,
+			chapters: [
+				{
+					name: null,
+					bookId: createdBook_2.id,
+					header: null,
+					note: null,
+				},
+			],
+		})
 
 		// Check that the user has two books in the database
 		userBooks = await bookQueryRepository.getUserBooks(loginData.id)

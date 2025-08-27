@@ -133,6 +133,7 @@ test('the form has to show main error if a user is not found', async ({ page }) 
 
 test('the form has to show main error if a user types correct data, but it from unconfirmed user', async ({ page }) => {
 	const userWithUnconfirmedEmail = serverTestDataConfig.getUsersConfig().user_1
+	if (userWithUnconfirmedEmail.type !== 'userRegisteredWithCredentials') return
 
 	const $form = page.getByTestId(LoginFormTest.form.id)
 
@@ -158,6 +159,7 @@ test('the form has to show main error if a user types correct data, but it from 
 
 test('the form has to redirect to the main page after the form was filled up correctly', async ({ page }) => {
 	const user = serverTestDataConfig.getUsersConfig().user_2
+	if (user.type !== 'userRegisteredWithCredentials') return
 
 	const $form = page.getByTestId(LoginFormTest.form.id)
 
@@ -178,5 +180,5 @@ test('the form has to redirect to the main page after the form was filled up cor
 	await expect($failMessage).toHaveCount(0)
 
 	// Check that current page is home page
-	expect(page.url()).toBe(testPagesUrls.llm)
+	expect(page.url()).toBe(testPagesUrls.books)
 })

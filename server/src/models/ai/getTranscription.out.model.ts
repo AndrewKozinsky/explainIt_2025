@@ -9,7 +9,7 @@ export class GetTranscriptionOutErrorModel {
 @ObjectType()
 export class GetTranscriptionOutSuccessModel {
 	@Field(() => String)
-		transcription: string
+	transcription: string
 }
 
 export const GetTranscriptionOutModel = createUnionType({

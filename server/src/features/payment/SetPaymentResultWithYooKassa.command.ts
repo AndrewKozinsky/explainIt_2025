@@ -24,7 +24,6 @@ export class SetPaymentResultWithYooKassaHandler implements ICommandHandler<SetP
 		private paymentRepository: PaymentRepository,
 		private transactionRepository: BalanceTransactionRepository,
 		private dbRepository: DBRepository,
-		private userRepository: UserRepository,
 	) {}
 
 	async execute(command: SetPaymentResultWithYooKassaCommand) {

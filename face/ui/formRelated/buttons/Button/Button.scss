@@ -17,6 +17,7 @@
 
 	&:disabled {
 		color: vars.$grayColor-4;
+		background: vars.$bg;
 		cursor: default;
 		border-color: vars.$grayColor-2;
 

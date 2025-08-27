@@ -88,14 +88,6 @@ export interface UserOutModel {
     balance: number;
 }
 
-export interface BookOutModel {
-    id: number;
-    author?: Nullable<string>;
-    name?: Nullable<string>;
-    note?: Nullable<string>;
-    userId: number;
-}
-
 export interface BookChapterOutModel {
     id: number;
     bookId: number;
@@ -104,6 +96,23 @@ export interface BookChapterOutModel {
     content?: Nullable<string>;
     note?: Nullable<string>;
     book: BookOutModel;
+}
+
+export interface BookChapterLiteOutModel {
+    id: number;
+    bookId: number;
+    name?: Nullable<string>;
+    header?: Nullable<string>;
+    note?: Nullable<string>;
+}
+
+export interface BookOutModel {
+    id: number;
+    author?: Nullable<string>;
+    name?: Nullable<string>;
+    note?: Nullable<string>;
+    userId: number;
+    chapters: BookChapterLiteOutModel[];
 }
 
 export interface TopUpBalanceWithYooKassaOutModel {

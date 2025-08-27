@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common'
 import { CqrsModule } from '@nestjs/cqrs'
 import { CreateBookHandler } from '../../features/book/CreateBook.command'
+import { CreateBookWithEmptyChapterHandler } from '../../features/book/CreateBookWithEmptyChapter.command'
 import { DeleteBookHandler } from '../../features/book/DeleteBook.command'
 import { GetUserBooksHandler } from '../../features/book/GetUserBooks.command'
 import { BookQueryRepository } from '../../repo/book.queryRepository'
@@ -11,7 +12,13 @@ import { PrismaService } from '../../db/prisma.service'
 import { UpdateBookHandler } from 'src/features/book/UpdateBook.command'
 
 const services = [PrismaService]
-const commandHandlers = [CreateBookHandler, GetUserBooksHandler, UpdateBookHandler, DeleteBookHandler]
+const commandHandlers = [
+	CreateBookHandler,
+	CreateBookWithEmptyChapterHandler,
+	GetUserBooksHandler,
+	UpdateBookHandler,
+	DeleteBookHandler,
+]
 const resolvers = [BookResolver]
 const repositories = [BookRepository, BookQueryRepository, UserRepository]
 

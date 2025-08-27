@@ -59,6 +59,7 @@ export class ApolloExceptionFilter implements ExceptionFilter {
 				],
 			}
 		} else {
+			console.log(exception)
 			console.log('UNKNOWN EXCEPTION. Pay attention!!!')
 		}
 

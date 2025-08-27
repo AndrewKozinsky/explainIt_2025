@@ -4,10 +4,8 @@ import { applyAppSettings } from '../../src/infrastructure/applyAppSettings'
 import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 import { GigaChatService } from '../../src/infrastructure/gigaChat/gigaChat.service'
 import { TelegramService } from '../../src/infrastructure/telegram/telegram.service'
-import { CommandBus, CqrsModule } from '@nestjs/cqrs'
-import { LoginWithOAuthHandler } from '../../src/features/auth/LoginWithOAuth.command'
 
-export async function createApp(props: { emailAdapter: EmailAdapterService }) {
+export async function createApp() {
 	const moduleFixture: TestingModule = await Test.createTestingModule({
 		imports: [AppModule],
 	})

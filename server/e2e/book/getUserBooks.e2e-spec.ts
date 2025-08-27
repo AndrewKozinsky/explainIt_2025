@@ -1,15 +1,11 @@
 import { INestApplication } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { App } from 'supertest/types'
-import { LoginWithOAuthHandler } from '../../src/features/auth/LoginWithOAuth.command'
 import { queries } from '../../src/features/db/queries'
 import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
-import { MainConfigService } from '../../src/infrastructure/mainConfig/mainConfig.service'
 import RouteNames from '../../src/infrastructure/routeNames'
 import { BookQueryRepository } from '../../src/repo/book.queryRepository'
 import { UserRepository } from '../../src/repo/user.repository'
-import { OAuthProviderType } from '../../src/routes/auth/inputs/loginWithOAuth.input'
-import { makeGraphQLReq, makeGraphQLReqWithTokens } from '../makeGQReq'
 import { authUtils } from '../utils/authUtils'
 import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
 import { bookUtils } from '../utils/bookUtils'
@@ -29,7 +25,7 @@ describe.skip('Get user books', () => {
 	let bookQueryRepository: BookQueryRepository
 
 	beforeAll(async () => {
-		const createMainAppRes = await createApp({ emailAdapter })
+		const createMainAppRes = await createApp()
 
 		app = createMainAppRes.app
 		commandBus = app.get(CommandBus)
@@ -55,7 +51,7 @@ describe.skip('Get user books', () => {
 		})
 	})
 
-	it.only('should create a new book for registered user', async () => {
+	it('should return 2 user books', async () => {
 		// Create a user with confirmed email
 		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
@@ -69,6 +65,18 @@ describe.skip('Get user books', () => {
 			author: 'Gerald Durrell',
 			name: 'My Family and Other Animals',
 			note: 'My note',
+		}
+
+		const secondBookConfig = {
+			author: 'Gerald Durrell 2',
+			name: 'My Family and Other Animals 2',
+			note: null,
+		}
+
+		const defaultBookChapterConfig = {
+			name: null,
+			header: null,
+			note: null,
 		}
 
 		await bookUtils.createBook({
@@ -90,12 +98,6 @@ describe.skip('Get user books', () => {
 		expect(userBooksFromDb.length).toBe(1)
 
 		// Create the second book
-		const secondBookConfig = {
-			author: 'Gerald Durrell 2',
-			name: 'My Family and Other Animals 2',
-			note: null,
-		}
-
 		await bookUtils.createBook({
 			app,
 			sessionToken: sessionToken,
@@ -108,8 +110,8 @@ describe.skip('Get user books', () => {
 
 		// Check the returning object
 		expect(userBooks.length).toBe(2)
-		bookUtils.checkBookOutResp(userBooks[0], firstBookConfig)
-		bookUtils.checkBookOutResp(userBooks[1], secondBookConfig)
+		bookUtils.checkBookOutResp(userBooks[0], { ...firstBookConfig, chapters: [defaultBookChapterConfig] })
+		bookUtils.checkBookOutResp(userBooks[1], { ...secondBookConfig, chapters: [defaultBookChapterConfig] })
 
 		// Check that the user has two books in the database
 		userBooksFromDb = await bookQueryRepository.getUserBooks(loginData.id)

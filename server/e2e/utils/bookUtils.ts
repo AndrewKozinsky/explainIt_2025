@@ -6,7 +6,14 @@ import { makeGraphQLReqWithTokens } from '../makeGQReq'
 export const bookUtils = {
 	checkBookOutResp(
 		book: any,
-		checks?: { id?: number; author?: string; name?: string; note?: string; userId?: number },
+		checks?: {
+			id?: number
+			author?: string
+			name?: string
+			note?: string
+			userId?: number
+			chapters?: { id?: number; bookId?: number; name?: string; header?: string; note?: string }[]
+		},
 	) {
 		const userDataSchema = z
 			.object({
@@ -15,6 +22,15 @@ export const bookUtils = {
 				name: z.string().nullable(),
 				note: z.string().nullable(),
 				userId: z.number().nullable(),
+				chapters: z.array(
+					z.object({
+						id: z.number(),
+						bookId: z.number(),
+						name: z.string().nullable(),
+						header: z.string().nullable(),
+						note: z.string().nullable(),
+					}),
+				),
 			})
 			.strict()
 
@@ -38,6 +54,16 @@ export const bookUtils = {
 		}
 		if (checks?.userId !== undefined) {
 			expect(book.userId).toBe(checks.userId)
+		}
+
+		if (checks?.chapters) {
+			checks.chapters.forEach((checkChapter, i) => {
+				const bookChapter = book.chapters[i]
+
+				for (let key in checkChapter) {
+					expect(checkChapter[key]).toBe(bookChapter[key])
+				}
+			})
 		}
 	},
 

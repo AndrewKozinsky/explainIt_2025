@@ -26,7 +26,7 @@ describe.skip('Update book chapter', () => {
 	let userRepository: UserRepository
 
 	beforeAll(async () => {
-		const createMainAppRes = await createApp({ emailAdapter })
+		const createMainAppRes = await createApp()
 
 		app = createMainAppRes.app
 		commandBus = app.get(CommandBus)
@@ -135,7 +135,7 @@ describe.skip('Update book chapter', () => {
 		})
 	})
 
-	it('user should update a created book chapter', async () => {
+	it.only('user should update a created book chapter', async () => {
 		// Create a user who will create a book and a chapter
 		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
@@ -181,7 +181,7 @@ describe.skip('Update book chapter', () => {
 
 		// Check that the book chapter was not changed
 		bookChapterUtils.checkBookChapterOutResp(updatedBookChapterResp.data[RouteNames.BOOK_CHAPTER.UPDATE], {
-			id: createdBook.id,
+			id: createdChapterBook.id,
 			name: 'Chapter 1',
 			bookId: createdBook.id,
 			header: 'My chapter 1 header',
@@ -194,14 +194,14 @@ describe.skip('Update book chapter', () => {
 			app,
 			sessionToken: sessionToken,
 			bookChapter: {
-				id: createdBook.id,
+				id: createdChapterBook.id,
 				header: 'My chapter 1 header 2',
 				note: 'My note 2',
 			},
 		})
 		// Check that only these fields were changed
 		bookChapterUtils.checkBookChapterOutResp(updatedBookChapterResp.data[RouteNames.BOOK_CHAPTER.UPDATE], {
-			id: createdBook.id,
+			id: createdChapterBook.id,
 			name: 'Chapter 1',
 			bookId: createdBook.id,
 			header: 'My chapter 1 header 2',
@@ -214,7 +214,7 @@ describe.skip('Update book chapter', () => {
 			app,
 			sessionToken: sessionToken,
 			bookChapter: {
-				id: createdBook.id,
+				id: createdChapterBook.id,
 				name: 'name',
 				header: 'header',
 				content: 'content',
@@ -222,7 +222,7 @@ describe.skip('Update book chapter', () => {
 			},
 		})
 		bookChapterUtils.checkBookChapterOutResp(updatedBookChapterResp.data[RouteNames.BOOK_CHAPTER.UPDATE], {
-			id: createdBook.id,
+			id: createdChapterBook.id,
 			name: 'name',
 			bookId: createdBook.id,
 			header: 'header',

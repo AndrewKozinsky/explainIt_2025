@@ -13,10 +13,10 @@ export class BookChapterRepository {
 	@CatchDbError()
 	async createBookChapter(dto: {
 		bookId: number
-		name: null | string
-		header: null | string
-		content: null | string
-		note: null | string
+		name?: null | string
+		header?: null | string
+		content?: null | string
+		note?: null | string
 	}) {
 		const newBookChapter = await this.prisma.bookChapter.create({
 			data: {

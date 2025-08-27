@@ -6,9 +6,9 @@ import { BookQueryRepository } from '../../repo/book.queryRepository'
 import { BookRepository } from '../../repo/book.repository'
 
 type CreateBookInput = {
-	author: null | string
-	name: null | string
-	note: null | string
+	author?: null | string
+	name?: null | string
+	note?: null | string
 }
 
 export class CreateBookCommand implements ICommand {
@@ -33,6 +33,6 @@ export class CreateBookHandler implements ICommandHandler<CreateBookCommand> {
 			throw new CustomGraphQLError(errorMessage.book.notCreated, ErrorCode.InternalServerError_500)
 		}
 
-		return this.bookQueryRepository.getBookById(newBook.id)
+		return await this.bookQueryRepository.getBookById(newBook.id)
 	}
 }

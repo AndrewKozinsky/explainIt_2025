@@ -12,6 +12,13 @@ export const queriesBook = {
 					name
 					note
 					userId
+					chapters {
+						id
+						bookId
+						name
+						header
+						note
+					}
 			  	}
 			}`,
 			variables: {
@@ -29,6 +36,13 @@ export const queriesBook = {
           name
           note
           userId
+          chapters {
+			id
+			bookId
+			name
+			header
+			note
+		  }
         }
       }`,
 			variables: {
@@ -57,6 +71,13 @@ export const queriesBook = {
 				name
 				note
 				userId
+				chapters {
+					id
+					bookId
+					name
+					header
+					note
+				}
 			  }
 			}`
 	},

@@ -23,16 +23,14 @@ it('1', () => {
 describe.skip('Delete book chapter', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
-	let emailAdapter: EmailAdapterService
 	let userRepository: UserRepository
 	let bookChapterRepository: BookChapterRepository
 
 	beforeAll(async () => {
-		const createMainAppRes = await createApp({ emailAdapter })
+		const createMainAppRes = await createApp()
 
 		app = createMainAppRes.app
 		commandBus = app.get(CommandBus)
-		emailAdapter = createMainAppRes.emailAdapter
 		userRepository = await app.resolve(UserRepository)
 		bookChapterRepository = await app.resolve(BookChapterRepository)
 	})
@@ -265,18 +263,18 @@ describe.skip('Delete book chapter', () => {
 			])
 		}
 
-		// Check that the first book has 1 chapter
+		// Check that the first book has 2 chapters
 		const firstBookChapters = await bookChapterUtils.getBookChapters({
 			bookChapterRepository,
 			bookId: firstBook.id,
 		})
-		expect(firstBookChapters.length).toBe(1)
+		expect(firstBookChapters.length).toBe(2)
 
-		// Check that the second book has 2 chapters
+		// Check that the second book has 3 chapters
 		const secondBookChapters = await bookChapterUtils.getBookChapters({
 			bookChapterRepository,
 			bookId: secondBook.id,
 		})
-		expect(secondBookChapters.length).toBe(2)
+		expect(secondBookChapters.length).toBe(3)
 	})
 })
