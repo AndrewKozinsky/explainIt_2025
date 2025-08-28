@@ -1,6 +1,7 @@
 import React from 'react'
 import type { Metadata } from 'next'
 import MainPageLayout from '../_pages/main/mainPageLayout/MainPageLayout/MainPageLayout'
+import { NotificationProvider } from '../ui/Notification/Notification'
 
 export const metadata: Metadata = {
 	title: 'Курс английского языка',
@@ -26,7 +27,9 @@ export default function RootLayout({
 				<meta name='yandex-verification' content='b8b37674c9ce501f' />
 			</head>
 			<body>
-				<MainPageLayout>{children}</MainPageLayout>
+				<NotificationProvider>
+					<MainPageLayout>{children}</MainPageLayout>
+				</NotificationProvider>
 			</body>
 		</html>
 	)

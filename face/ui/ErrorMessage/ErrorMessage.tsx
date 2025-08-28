@@ -3,11 +3,15 @@ import { ErrorIcon } from '../icons/ErrorIcon/ErrorIcon'
 import './ErrorMessage.scss'
 
 type LoadingMessageProps = {
-	text: string
+	text: null | string
 }
 
 function ErrorMessage(props: LoadingMessageProps) {
 	const { text } = props
+
+	if (!text) {
+		return null
+	}
 
 	return (
 		<div className='error-message' data-testid='exercise-error-analysis-block'>

@@ -1,0 +1,20 @@
+@use '@/styles/variables' as vars;
+
+.notifications {
+	position: fixed;
+	top: 1.8rem;
+	right: 1.8rem;
+	display: grid;
+	gap: 1rem;
+	width: 100%;
+	max-width: 220px;
+}
+
+.notifications_item {
+	container-type: inline-size;
+	box-sizing: border-box;
+	background-color: #fff;
+	border-radius: vars.$radius-1;
+	padding: 0.4rem 0.8rem;
+	box-shadow: vars.$shadow-1;
+}

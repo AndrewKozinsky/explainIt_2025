@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'
-import BooksSection from '../booksSection/BooksSection/BooksSection'
+import BooksSection from '../booksListSection/BooksSection/BooksSection'
 import { useChangeBodyBgColor } from './fn/changeBodyBgColor'
 import { useGetFetchBooksAndSetToStore } from './fn/fetchBooksAndSetToStore'
 import './BooksPage.scss'

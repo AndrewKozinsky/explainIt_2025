@@ -2,7 +2,7 @@
 
 import { redirect } from 'next/navigation'
 import React from 'react'
-import ErrorBlock from '../../../ui/ErrorBlock/ErrorBlock'
+import ErrorMessage from '../../../ui/ErrorMessage/ErrorMessage'
 import Spinner from '../../../ui/Spinner/Spinner'
 import { pageUrls } from '../../../сonsts/pageUrls'
 import { useAuthorizeUser } from './fn/authorizeUser'
@@ -21,7 +21,7 @@ function OAuthPage(props: OAuthPageProps) {
 	if (authorizationStatus === 'loading') {
 		return <Spinner />
 	} else if (authorizationStatus === 'error') {
-		return <ErrorBlock>{error}</ErrorBlock>
+		return <ErrorMessage text={error} />
 	}
 
 	redirect(pageUrls.books.path)

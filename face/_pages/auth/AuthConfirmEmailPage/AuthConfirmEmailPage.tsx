@@ -2,8 +2,8 @@
 
 import { redirect } from 'next/navigation'
 import React from 'react'
-import ErrorBlock from '@/ui/ErrorBlock/ErrorBlock'
 import Spinner from '@/ui/Spinner/Spinner'
+import ErrorMessage from '../../../ui/ErrorMessage/ErrorMessage'
 import { ConfirmationStatus, useConfirmEmail } from './fn/confirmEmail'
 import { pageUrls } from '@/сonsts/pageUrls'
 
@@ -12,7 +12,7 @@ function AuthConfirmEmailPage() {
 
 	const contentMapper: Record<Exclude<ConfirmationStatus, 'success'>, React.ReactNode> = {
 		loading: <Spinner />,
-		error: <ErrorBlock>Код подтверждения или не найден или истёк.</ErrorBlock>,
+		error: <ErrorMessage text='Код подтверждения или не найден или истёк.' />,
 	}
 
 	if (confirmationStatus === 'success') {
