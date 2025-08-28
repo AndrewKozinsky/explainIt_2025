@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
+import { publicFolderFilesUrls } from '../../../../utils/publicFolderFilesUrls'
 import Button from './Button'
-// import githubButtonIcon from 'icons/githubButtonIcon.svg'
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -10,19 +10,6 @@ const meta = {
 
 export default meta
 type Story = StoryObj<typeof meta>
-
-/*export const RegularTheme: Story = {
-	args: {
-		children: 'Button',
-		theme: 'regular',
-	},
-}
-export const DangerTheme: Story = {
-	args: {
-		children: 'Button',
-		theme: 'danger',
-	},
-}*/
 
 export const AllVariants: Story = {
 	render: () => (
@@ -35,7 +22,7 @@ export const AllVariants: Story = {
 			<Button theme='danger' disabled>
 				Danger disabled
 			</Button>
-			<Button theme='regular' icon='/icons/githubButtonIcon.svg'>
+			<Button theme='regular' icon={publicFolderFilesUrls.icons.githubButtonIcon}>
 				Github
 			</Button>
 			<Button theme='regular' loading>

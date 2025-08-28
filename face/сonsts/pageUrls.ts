@@ -52,10 +52,16 @@ export const pageUrls = {
 	books: {
 		name: 'Книги',
 		path: '/books',
-		book(bookId: number) {
+		book(bookId: string | number) {
 			return {
 				name: 'Книга',
 				path: '/books/' + bookId,
+				chapter(chapterId: string | number) {
+					return {
+						name: 'Книга',
+						path: '/books/' + bookId + '/' + chapterId,
+					}
+				},
 			}
 		},
 	},

@@ -1,10 +1,11 @@
 import React from 'react'
 import ErrorMessage from '../../../../ui/ErrorMessage/ErrorMessage'
+import { booksLogic } from '../../booksLogic'
 import { useBooksStore } from '../../booksStore'
-import BookLink from '../BookButton/BookLink'
+import BookLink from '../BookLink/BookLink'
 
 function BooksList() {
-	const books = useBooksStore().books
+	const books = booksLogic.useGetBooks()
 	const booksError = useBooksStore().booksError
 
 	if (booksError) return <ErrorMessage text={booksError} />

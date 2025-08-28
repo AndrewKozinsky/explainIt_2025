@@ -55,17 +55,17 @@
 	line-height: 2.2rem;
 
 	@include mix.container-width(vars.$tablet-width) {
-		line-height: 2.4rem;
+		line-height: 2.3rem;
 	}
 
 	@include mix.container-width(vars.$monitor-width) {
-		line-height: 2.5rem;
+		line-height: 2.4rem;
 	}
 }
 
 @mixin paragraph-15() {
 	font-size: 1.5rem;
-	line-height: 2.1rem;
+	line-height: 2.3rem;
 
 	@include mix.container-width(vars.$tablet-width) {
 		line-height: 2.3rem;
@@ -91,7 +91,7 @@
 
 @mixin paragraph-18() {
 	font-size: 1.8rem;
-	line-height: 2.6rem;
+	line-height: 2.7rem;
 
 	@include mix.container-width(vars.$tablet-width) {
 		line-height: 2.8rem;
@@ -108,6 +108,10 @@
 
 	@include mix.container-width(vars.$tablet-width) {
 		font-size: 2.4rem;
-		line-height: 3.2rem;
+		line-height: 3.3rem;
+	}
+
+	@include mix.container-width(vars.$monitor-width) {
+		line-height: 3.4rem;
 	}
 }

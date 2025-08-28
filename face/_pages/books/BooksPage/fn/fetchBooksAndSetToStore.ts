@@ -7,9 +7,7 @@ export function useGetFetchBooksAndSetToStore() {
 
 	useEffect(
 		function () {
-			if (loading) {
-				return
-			}
+			if (loading) return
 
 			if (error || !data) {
 				useBooksStore.setState({ booksError: 'Во время загрузки книг возникла ошибка' })

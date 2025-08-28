@@ -2,21 +2,21 @@ import React, { useContext } from 'react'
 import Button from '../../../../ui/formRelated/buttons/Button/Button'
 import { NotificationContext } from '../../../../ui/Notification/context'
 import { publicFolderFilesUrls } from '../../../../utils/publicFolderFilesUrls'
-import { useGetOnAddBookClick } from './fn/getOnAddBookClick'
+import { useGetOnAddChapterClick } from './fn/getOnAddChapterClick'
 
-function AddBookButton() {
+function AddChapterButton() {
 	const { notify } = useContext(NotificationContext)
-	const { onAddBookClick, status } = useGetOnAddBookClick(notify)
+	const { onAddChapterClick, status } = useGetOnAddChapterClick(notify)
 
 	return (
 		<Button
 			icon={publicFolderFilesUrls.icons.plusButtonIcon}
-			onClick={onAddBookClick}
+			onClick={onAddChapterClick}
 			loading={status === 'loading'}
 		>
-			книгу
+			главу
 		</Button>
 	)
 }
 
-export default AddBookButton
+export default AddChapterButton

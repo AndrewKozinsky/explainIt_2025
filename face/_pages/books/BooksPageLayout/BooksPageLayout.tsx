@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation'
 import React from 'react'
 import { useUserStore } from '@/stores/userStore'
 import { pageUrls } from '@/сonsts/pageUrls'
+import LoadingMessage from '../../../ui/LoadingMessage/LoadingMessage'
 
 type LLMPageLayoutProps = {
 	children: React.ReactNode
@@ -16,7 +17,7 @@ function BooksPageLayout(props: LLMPageLayoutProps) {
 	const isLoading = useUserStore((state) => state.isLoading)
 
 	if (isLoading) {
-		return <div>Loading...</div>
+		return <LoadingMessage text='Загрузка...' />
 	}
 
 	if (!user) {

@@ -1,7 +1,7 @@
 import React from 'react'
 import ArticleType from '../../../../articles/articleTypes/articleType'
+import Header from '../../../../ui/ArtHeader/Header'
 import './CourseArticlePageHeader.scss'
-import { Header } from '../../../../ui/Header/Header'
 
 type ChapterNumberProps = {
 	article: ArticleType.Art

@@ -9,17 +9,17 @@ function Metrika() {
 
 	return (
 		<>
-			<script type="text/javascript" {...getMetrika()} />
+			<script type='text/javascript' {...getMetrika()} />
 			{/*Google tag (gtag.js)*/}
-			<script async src="https://www.googletagmanager.com/gtag/js?id=G-87B3J9NFRW" />
+			<script async src='https://www.googletagmanager.com/gtag/js?id=G-87B3J9NFRW' />
 			<script {...getAnalytics()} />
 			{/* // Google tag (gtag.js)*/}
 			<noscript>
 				<div>
 					<img
-						src="https://mc.yandex.ru/watch/94712666"
+						src='https://mc.yandex.ru/watch/94712666'
 						style={{ position: 'absolute', left: -9999 }}
-						alt=""
+						alt=''
 					/>
 				</div>
 			</noscript>

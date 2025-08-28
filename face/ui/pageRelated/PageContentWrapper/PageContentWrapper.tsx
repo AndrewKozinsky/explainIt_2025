@@ -12,8 +12,8 @@ export function PageContentWrapper(props: PageContentWrapperProps) {
 	const content = children[2] || 'Content is required'
 
 	return (
-		<article className="page-content-wrapper">
-			<div className="page-content-wrapper__top">
+		<article className='page-content-wrapper'>
+			<div className='page-content-wrapper__top'>
 				{header}
 				{breadCrumbs}
 			</div>
