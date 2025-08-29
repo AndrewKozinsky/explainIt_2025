@@ -1,11 +1,11 @@
 import { useCallback, useContext, useState } from 'react'
+import { redirect } from 'next/navigation'
 import { Book_GetUserBooksDocument, useBook_Delete } from '../../../../../../graphql'
 import { NotificationContext } from '../../../../../../ui/Notification/context'
 import { pageUrls } from '../../../../../../сonsts/pageUrls'
 import { booksLogic } from '../../../../booksLogic'
-import { redirect } from 'next/navigation'
 
-export function useGetDeleteBook(closeModal: () => void) {
+export function useGetDeleteBook() {
 	const { notify } = useContext(NotificationContext)
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
 
@@ -31,7 +31,6 @@ export function useGetDeleteBook(closeModal: () => void) {
 
 			setStatus('idle')
 
-			closeModal()
 			redirect(pageUrls.books.path)
 		},
 		[book],
