@@ -1,14 +1,14 @@
 import * as yup from 'yup'
-import { errorMessage } from '../../../../utils/errorMessage'
+import { errorMessages } from '../../../../utils/errorMessages'
 
 export const increaseBalanceFormSchema = yup
 	.object({
 		amount: yup
 			.number()
-			.typeError(errorMessage.mustBeNumber)
-			.required(errorMessage.requiredField)
-			.min(10, errorMessage.minNum(10))
-			.max(1000, errorMessage.maxNum(1000)),
+			.typeError(errorMessages.mustBeNumber)
+			.required(errorMessages.requiredField)
+			.min(10, errorMessages.minNum(10))
+			.max(1000, errorMessages.maxNum(1000)),
 	})
 	.required()
 

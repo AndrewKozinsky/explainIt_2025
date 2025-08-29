@@ -5,7 +5,7 @@ import EditChapterForm from '../editChapter/EditChapterForm/EditChapterForm'
 import './EditableFormSection.scss'
 
 function EditableFormSection() {
-	const currentBookId = booksLogic.useGetCurrentBookId()
+	const currentBookId = booksLogic.useGetCurrentBookIdFromUrl()
 	if (!currentBookId) return null
 
 	return (

@@ -2,7 +2,7 @@
 
 import React, { ButtonHTMLAttributes } from 'react'
 import cn from 'classnames'
-import '../button/Button.scss'
+import '../Button/Button.scss'
 import './ExerciseButton.scss'
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {

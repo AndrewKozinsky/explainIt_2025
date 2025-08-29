@@ -9,7 +9,7 @@ import { useGetIsBookPage } from './fn/isBookPage'
 import './BookButton.scss'
 
 function BookButton() {
-	const currentBookId = booksLogic.useGetCurrentBookId()
+	const currentBookId = booksLogic.useGetCurrentBookIdFromUrl()
 	const isBookPage = useGetIsBookPage(currentBookId)
 	const book = booksLogic.useGetCurrentBook()
 

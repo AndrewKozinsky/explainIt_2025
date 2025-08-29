@@ -5,15 +5,15 @@ export const booksLogic = {
 	useGetBooks() {
 		return useBooksStore().books
 	},
-	useGetCurrentBookId() {
+	useGetCurrentBookIdFromUrl() {
 		return useParams().bookId as string
 	},
-	useGetCurrentChapterId() {
+	useGetCurrentChapterIdFromUrl() {
 		return useParams().chapterId as string
 	},
 	useGetCurrentBook() {
 		const books = this.useGetBooks()
-		const currentBookId = this.useGetCurrentBookId()
+		const currentBookId = this.useGetCurrentBookIdFromUrl()
 
 		if (!books || !currentBookId) {
 			return null
@@ -23,7 +23,7 @@ export const booksLogic = {
 	},
 	useGetCurrentChapter() {
 		const book = this.useGetCurrentBook()
-		const currentChapterId = this.useGetCurrentChapterId()
+		const currentChapterId = this.useGetCurrentChapterIdFromUrl()
 
 		if (!book || !currentChapterId) {
 			return null

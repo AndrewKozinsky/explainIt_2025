@@ -3,9 +3,10 @@
 @use '@/styles/inherit' as inh;
 
 .books-page-content {
+	align-self: flex-start;
 	flex-grow: 1;
 	display: grid;
-	gap: 1.4rem;
+	gap: 5rem;
 	grid-template-areas:
             "books"
             "book"
@@ -18,7 +19,7 @@
 		gap: 2.2rem;
 	}
 
-	@include mix.page-width(860px) {
+	@include mix.page-width(900px) {
 		display: flex;
 		gap: 3rem;
 	}
@@ -27,13 +28,19 @@
 .books-page-content__books {
 	flex-grow: 1;
 	grid-area: books;
-	max-width: 290px;
+
+	@include mix.page-width(900px) {
+		max-width: 290px;
+	}
 }
 
 .books-page-content__book {
 	flex-grow: 1;
 	grid-area: book;
-	max-width: 290px;
+
+	@include mix.page-width(900px) {
+		max-width: 290px;
+	}
 }
 
 .books-page-content__content {

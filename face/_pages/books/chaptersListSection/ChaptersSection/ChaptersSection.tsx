@@ -1,13 +1,15 @@
 import React from 'react'
-import { booksLogic } from '../../booksLogic'
+import Paragraph from '../../../../ui/Paragraph/Paragraph'
 import AddChapterButton from '../AddChapterButton/AddChapterButton'
 import BookButton from '../BookButton/BookButton'
 import ChaptersList from '../ChaptersList/ChaptersList'
+import { useIsWrongAddress } from './fn/isWrongAddress'
 import './ChaptersSection.scss'
 
 function ChaptersSection() {
-	const currentBookId = booksLogic.useGetCurrentBookId()
-	if (!currentBookId) return null
+	if (useIsWrongAddress()) {
+		return <Paragraph fontSize='15'>Запрошенной книги не существует.</Paragraph>
+	}
 
 	return (
 		<div className='books-section'>

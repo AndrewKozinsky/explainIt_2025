@@ -27,13 +27,14 @@ export function useGetDeleteBook() {
 					message:
 						'Не удалось удалить книгу. Попробуйте ещё раз или сообщите о проблеме в форме обратной связи.',
 				})
+				return
 			}
 
 			setStatus('idle')
 
 			redirect(pageUrls.books.path)
 		},
-		[book],
+		[book, redirect],
 	)
 
 	return {

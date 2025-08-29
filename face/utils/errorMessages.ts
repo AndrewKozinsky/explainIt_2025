@@ -1,4 +1,4 @@
-export const errorMessage = {
+export const errorMessages = {
 	fromServer: {
 		// EMAIL
 		emailIsAlreadyRegistered: 'Почта уже зарегистрирована.',

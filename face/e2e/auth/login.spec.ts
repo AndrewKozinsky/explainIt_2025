@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
 import { LoginFormTest } from '../../_pages/auth/authLogin/AuthLoginForm/fn/form'
-import { errorMessage } from '../../utils/errorMessage'
+import { errorMessages } from '../../utils/errorMessages'
 import { getTextInputElems } from '../utils/common'
 import testPagesUrls from '../utils/testPagesUrls'
 import { server } from '../utils/server'
@@ -70,12 +70,12 @@ test('the form has to show errors if a user submit the form without filling this
 	// Check there is an error near the email field
 	const { $error: $emailFieldError } = getTextInputElems($form, LoginFormTest.emailField.id)
 	await expect($emailFieldError).toHaveCount(1)
-	await expect($emailFieldError).toHaveText(errorMessage.requiredField)
+	await expect($emailFieldError).toHaveText(errorMessages.requiredField)
 
 	// Check there is an error near the password field
 	const { $error: $passwordFieldError } = getTextInputElems($form, LoginFormTest.passwordField.id)
 	await expect($passwordFieldError).toHaveCount(1)
-	await expect($passwordFieldError).toHaveText(errorMessage.requiredField)
+	await expect($passwordFieldError).toHaveText(errorMessages.requiredField)
 })
 
 test('the form has to show errors if a user types wrong value to the fields', async ({ page }) => {
@@ -100,10 +100,10 @@ test('the form has to show errors if a user types wrong value to the fields', as
 
 	// Check for errors
 	await expect($emailFieldError).toHaveCount(1)
-	await expect($emailFieldError).toHaveText(errorMessage.wrongEmailFormat)
+	await expect($emailFieldError).toHaveText(errorMessages.wrongEmailFormat)
 
 	await expect($passwordFieldError).toHaveCount(1)
-	await expect($passwordFieldError).toHaveText(errorMessage.minCharacters(6))
+	await expect($passwordFieldError).toHaveText(errorMessages.minCharacters(6))
 })
 
 test('the form has to show main error if a user is not found', async ({ page }) => {
@@ -128,7 +128,7 @@ test('the form has to show main error if a user is not found', async ({ page }) 
 	// Check for the main error message
 	const $failMessage = await page.getByTestId(LoginFormTest.failMessage.id)
 	await expect($failMessage).toHaveCount(1)
-	await expect($failMessage).toHaveText(errorMessage.fromServer.userNotFound)
+	await expect($failMessage).toHaveText(errorMessages.fromServer.userNotFound)
 })
 
 test('the form has to show main error if a user types correct data, but it from unconfirmed user', async ({ page }) => {
@@ -154,7 +154,7 @@ test('the form has to show main error if a user types correct data, but it from 
 	// Check for the main error message
 	const $failMessage = page.getByTestId(LoginFormTest.failMessage.id)
 	await expect($failMessage).toHaveCount(1)
-	await expect($failMessage).toHaveText(errorMessage.fromServer.emailIsNotConfirmed)
+	await expect($failMessage).toHaveText(errorMessages.fromServer.emailIsNotConfirmed)
 })
 
 test('the form has to redirect to the main page after the form was filled up correctly', async ({ page }) => {

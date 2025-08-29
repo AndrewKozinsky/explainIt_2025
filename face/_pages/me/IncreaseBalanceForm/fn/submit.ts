@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
 import { usePayment_YookassaTopUpBalance } from '../../../../graphql'
-import { errorMessage } from '../../../../utils/errorMessage'
+import { errorMessages } from '../../../../utils/errorMessages'
 import { FormStatus, setErrorsToForm } from '../../../../utils/forms'
 import { IncreaseBalanceFormData } from './form'
 
@@ -21,7 +21,7 @@ export function useGetIncreaseBalanceFormSubmit(
 			})
 
 			if (!topUpBalanceRes || topUpBalanceRes?.payment_yookassa_top_up_balance?.confirmationUrl === null) {
-				setFormError(errorMessage.cannotGetPaymentConfirmationUrl)
+				setFormError(errorMessages.cannotGetPaymentConfirmationUrl)
 				setFormStatus('idle')
 				return null
 			}

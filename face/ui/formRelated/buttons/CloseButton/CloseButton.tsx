@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import React from 'react'
 import { CloseIcon } from '@/ui/icons/CloseIcon/CloseIcon'
-import '../button/Button.scss'
+import '../Button/Button.scss'
 import './CloseButton.scss'
 
 type CloseButtonProps = {

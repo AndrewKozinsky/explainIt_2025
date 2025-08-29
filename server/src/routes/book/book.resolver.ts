@@ -24,6 +24,7 @@ export class BookResolver {
 		description: bookResolversDesc.createBook,
 	})
 	async createBook(@Args('input') input: CreateBookInput, @Context('req') request: Request) {
+		console.log(2222)
 		const userId = request.session.userId!
 		return await this.commandBus.execute(new CreateBookWithEmptyChapterCommand(userId, input))
 	}
@@ -54,6 +55,7 @@ export class BookResolver {
 		description: bookResolversDesc.deleteBook,
 	})
 	async deleteBook(@Args('input') input: DeleteBookInput, @Context('req') request: Request) {
+		console.log(444)
 		const userId = request.session.userId!
 		return await this.commandBus.execute(new DeleteBookCommand(userId, input))
 	}
