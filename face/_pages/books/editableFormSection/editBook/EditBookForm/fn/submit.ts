@@ -1,33 +1,41 @@
 import { useCallback } from 'react'
-import { useAuth_Login } from '../../../../../../graphql'
-import { FormStatus } from '../../../../../../utils/forms'
+import { Book_GetUserBooksDocument, useBook_Update } from '../../../../../../graphql'
+import { FormStatus, setErrorsToForm } from '../../../../../../utils/forms'
 import { ChangeBookFormData } from './form'
 
-export function useGetOnLoginFormSubmit(
+export function useGetOnUpdateBookFormSubmit(
+	bookId: undefined | number,
 	setFieldError: (field: keyof ChangeBookFormData, params: any) => void,
 	setFormStatus: React.Dispatch<React.SetStateAction<FormStatus>>,
 	setFormError: React.Dispatch<React.SetStateAction<string | null>>,
 ) {
-	const [loginUser] = useAuth_Login()
+	const [updateBook] = useBook_Update({ refetchQueries: [Book_GetUserBooksDocument] })
 
-	return useCallback(async function (formData: ChangeBookFormData) {
-		setFormError(null)
-		setFormStatus('submitting')
+	return useCallback(
+		async function (formData: ChangeBookFormData) {
+			if (!bookId) return
 
-		try {
-			/*const { data } = await loginUser({
-				variables: { input: { email: formData.email, password: formData.password } },
-			})*/
-			/*if (!data || data?.auth_login === null) {
-				setFormError('Неверный логин или пароль')
-				return
-			}*/
-			// Put user data to the User store
-			// useUserStore.setState({ user: data.auth_login })
-			// setFormStatus('success')
-		} catch (gqError: unknown) {
-			// setErrorsToForm(gqError, setFieldError, setFormError)
-			// setFormStatus('idle')
-		}
-	}, [])
+			setFormError(null)
+			setFormStatus('submitting')
+
+			try {
+				const { data, errors } = await updateBook({
+					variables: {
+						input: { id: bookId, author: formData.author, name: formData.name, note: formData.note },
+					},
+				})
+
+				if (errors) {
+					setFormError('Не удалось сохранить книгу')
+					return
+				}
+
+				setFormStatus('idle')
+			} catch (gqError: unknown) {
+				setErrorsToForm(gqError, setFieldError, setFormError)
+				setFormStatus('idle')
+			}
+		},
+		[bookId],
+	)
 }

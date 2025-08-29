@@ -12,7 +12,9 @@ const config: CodegenConfig = {
 			config: {
 				dedupeOperationSuffix: true,
 				omitOperationSuffix: true,
-				avoidOptionals: true,
+				avoidOptionals: {
+					inputValue: false,
+				},
 			},
 		},
 	},

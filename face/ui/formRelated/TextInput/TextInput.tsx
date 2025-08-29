@@ -5,6 +5,7 @@ import './TextInput.scss'
 
 interface TextInputProps extends React.HTMLAttributes<HTMLInputElement> {
 	label: string
+	placeholder?: string
 	error?: null | string
 	disabled?: boolean
 	dataTestId?: string

@@ -20,30 +20,30 @@ export type Scalars = {
 export type BookChapterLiteOutModel = {
 	__typename?: 'BookChapterLiteOutModel'
 	bookId: Scalars['Int']['output']
-	header: Maybe<Scalars['String']['output']>
+	header?: Maybe<Scalars['String']['output']>
 	id: Scalars['Int']['output']
-	name: Maybe<Scalars['String']['output']>
-	note: Maybe<Scalars['String']['output']>
+	name?: Maybe<Scalars['String']['output']>
+	note?: Maybe<Scalars['String']['output']>
 }
 
 export type BookChapterOutModel = {
 	__typename?: 'BookChapterOutModel'
 	book: BookOutModel
 	bookId: Scalars['Int']['output']
-	content: Maybe<Scalars['String']['output']>
-	header: Maybe<Scalars['String']['output']>
+	content?: Maybe<Scalars['String']['output']>
+	header?: Maybe<Scalars['String']['output']>
 	id: Scalars['Int']['output']
-	name: Maybe<Scalars['String']['output']>
-	note: Maybe<Scalars['String']['output']>
+	name?: Maybe<Scalars['String']['output']>
+	note?: Maybe<Scalars['String']['output']>
 }
 
 export type BookOutModel = {
 	__typename?: 'BookOutModel'
-	author: Maybe<Scalars['String']['output']>
+	author?: Maybe<Scalars['String']['output']>
 	chapters: Array<BookChapterLiteOutModel>
 	id: Scalars['Int']['output']
-	name: Maybe<Scalars['String']['output']>
-	note: Maybe<Scalars['String']['output']>
+	name?: Maybe<Scalars['String']['output']>
+	note?: Maybe<Scalars['String']['output']>
 	userId: Scalars['Int']['output']
 }
 
@@ -76,22 +76,22 @@ export type CreateBookChapterInput = {
 	/** Book id */
 	bookId: Scalars['Int']['input']
 	/** Content of the chapter */
-	content: InputMaybe<Scalars['String']['input']>
+	content?: InputMaybe<Scalars['String']['input']>
 	/** Header on the chapter */
-	header: InputMaybe<Scalars['String']['input']>
+	header?: InputMaybe<Scalars['String']['input']>
 	/** Name on the chapter (chapter 1) */
-	name: InputMaybe<Scalars['String']['input']>
+	name?: InputMaybe<Scalars['String']['input']>
 	/** Note about this chapter */
-	note: InputMaybe<Scalars['String']['input']>
+	note?: InputMaybe<Scalars['String']['input']>
 }
 
 export type CreateBookInput = {
 	/** Author */
-	author: InputMaybe<Scalars['String']['input']>
+	author?: InputMaybe<Scalars['String']['input']>
 	/** Name */
-	name: InputMaybe<Scalars['String']['input']>
+	name?: InputMaybe<Scalars['String']['input']>
 	/** Note */
-	note: InputMaybe<Scalars['String']['input']>
+	note?: InputMaybe<Scalars['String']['input']>
 }
 
 export type DeleteBookChapterInput = {
@@ -260,26 +260,26 @@ export type TopUpBalanceWithYooKassaOutModel = {
 
 export type UpdateBookChapterInput = {
 	/** BookChapter content */
-	content: InputMaybe<Scalars['String']['input']>
+	content?: InputMaybe<Scalars['String']['input']>
 	/** BookChapter header */
-	header: InputMaybe<Scalars['String']['input']>
+	header?: InputMaybe<Scalars['String']['input']>
 	/** BookChapter id */
 	id: Scalars['Int']['input']
 	/** BookChapter name (chapter 1) */
-	name: InputMaybe<Scalars['String']['input']>
+	name?: InputMaybe<Scalars['String']['input']>
 	/** BookChapter note */
-	note: InputMaybe<Scalars['String']['input']>
+	note?: InputMaybe<Scalars['String']['input']>
 }
 
 export type UpdateBookInput = {
 	/** Author */
-	author: InputMaybe<Scalars['String']['input']>
+	author?: InputMaybe<Scalars['String']['input']>
 	/** Book id */
 	id: Scalars['Int']['input']
 	/** Name */
-	name: InputMaybe<Scalars['String']['input']>
+	name?: InputMaybe<Scalars['String']['input']>
 	/** Note */
-	note: InputMaybe<Scalars['String']['input']>
+	note?: InputMaybe<Scalars['String']['input']>
 }
 
 export type UserOutModel = {
@@ -366,17 +366,17 @@ export type Book_Create = {
 	book_create: {
 		__typename?: 'BookOutModel'
 		id: number
-		author: string | null
-		name: string | null
-		note: string | null
+		author?: string | null
+		name?: string | null
+		note?: string | null
 		userId: number
 		chapters: Array<{
 			__typename?: 'BookChapterLiteOutModel'
 			id: number
 			bookId: number
-			name: string | null
-			header: string | null
-			note: string | null
+			name?: string | null
+			header?: string | null
+			note?: string | null
 		}>
 	}
 }
@@ -394,17 +394,17 @@ export type Book_GetUserBooks = {
 	book_user_books: Array<{
 		__typename?: 'BookOutModel'
 		id: number
-		author: string | null
-		name: string | null
-		note: string | null
+		author?: string | null
+		name?: string | null
+		note?: string | null
 		userId: number
 		chapters: Array<{
 			__typename?: 'BookChapterLiteOutModel'
 			id: number
 			bookId: number
-			name: string | null
-			header: string | null
-			note: string | null
+			name?: string | null
+			header?: string | null
+			note?: string | null
 		}>
 	}>
 }
@@ -418,17 +418,17 @@ export type Book_Update = {
 	book_update: {
 		__typename?: 'BookOutModel'
 		id: number
-		author: string | null
-		name: string | null
-		note: string | null
+		author?: string | null
+		name?: string | null
+		note?: string | null
 		userId: number
 		chapters: Array<{
 			__typename?: 'BookChapterLiteOutModel'
 			id: number
 			bookId: number
-			name: string | null
-			header: string | null
-			note: string | null
+			name?: string | null
+			header?: string | null
+			note?: string | null
 		}>
 	}
 }
@@ -443,10 +443,10 @@ export type BookChapter_Create = {
 		__typename?: 'BookChapterOutModel'
 		id: number
 		bookId: number
-		name: string | null
-		header: string | null
-		content: string | null
-		note: string | null
+		name?: string | null
+		header?: string | null
+		content?: string | null
+		note?: string | null
 	}
 }
 
@@ -466,10 +466,10 @@ export type BookChapter_Update = {
 		__typename?: 'BookChapterOutModel'
 		id: number
 		bookId: number
-		name: string | null
-		header: string | null
-		content: string | null
-		note: string | null
+		name?: string | null
+		header?: string | null
+		content?: string | null
+		note?: string | null
 	}
 }
 
