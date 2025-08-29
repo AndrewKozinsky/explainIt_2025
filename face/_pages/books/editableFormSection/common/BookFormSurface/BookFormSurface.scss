@@ -1,0 +1,36 @@
+@use '@/styles/variables' as vars;
+
+.book-form-surface {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: white;
+	border-radius: vars.$radius-1;
+	box-shadow: vars.$shadow-1;
+}
+
+.book-form-surface__content {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 2rem 2rem;
+}
+
+.book-form-surface__divider {
+	height: 1px;
+	width: 100%;
+	background-color: vars.$grayColor-1;
+}
+
+.book-form-surface__bottom {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 1rem 2rem;
+}
+
+.book-form-surface__bottom-buttons {
+	display: flex;
+	gap: 1rem;
+}

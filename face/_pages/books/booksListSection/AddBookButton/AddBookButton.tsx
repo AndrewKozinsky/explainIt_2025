@@ -5,8 +5,7 @@ import { publicFolderFilesUrls } from '../../../../utils/publicFolderFilesUrls'
 import { useGetOnAddBookClick } from './fn/getOnAddBookClick'
 
 function AddBookButton() {
-	const { notify } = useContext(NotificationContext)
-	const { onAddBookClick, status } = useGetOnAddBookClick(notify)
+	const { onAddBookClick, status } = useGetOnAddBookClick()
 
 	return (
 		<Button

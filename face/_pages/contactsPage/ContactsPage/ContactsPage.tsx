@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../../../ui/ArtHeader/Header'
+import Header from '../../../ui/Header/Header'
 import { BreadCrumbs } from '@/ui/pageRelated/BreadCrumbs/BreadCrumbs'
 import { PageContentWrapper } from '@/ui/pageRelated/PageContentWrapper/PageContentWrapper'
 import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'

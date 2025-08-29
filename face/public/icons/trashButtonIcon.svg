@@ -6,8 +6,8 @@
     </defs>
     <g id="trashButtonIcon" stroke="none" fill="none" xlink:href="#path-1">
         <rect id="Rectangle" fill="#D8D8D8" fill-rule="evenodd" opacity="0.100000001" x="0" y="0" width="20" height="20"></rect>
-        <line x1="2" y1="3.5" x2="18" y2="3.5" id="Path-Copy-3" stroke="#1E1E1E" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></line>
-        <path d="M4,6 L5.28859485,16.7382904 C5.40921773,17.7434811 6.26194635,18.5 7.27434853,18.5 L12.7256515,18.5 C13.7380536,18.5 14.5907823,17.7434811 14.7114051,16.7382904 L16,6 L16,6" id="Path-Copy-2" stroke="#1E1E1E" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
-        <line x1="7.5" y1="0.5" x2="12.5" y2="0.5" id="Path-Copy" stroke="#1E1E1E" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></line>
+        <line x1="2" y1="3.5" x2="18" y2="3.5" id="Path-Copy-3" stroke="#FC3F1D" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></line>
+        <path d="M4,6 L5.28859485,16.7382904 C5.40921773,17.7434811 6.26194635,18.5 7.27434853,18.5 L12.7256515,18.5 C13.7380536,18.5 14.5907823,17.7434811 14.7114051,16.7382904 L16,6 L16,6" id="Path-Copy-2" stroke="#FC3F1D" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
+        <line x1="7.5" y1="0.5" x2="12.5" y2="0.5" id="Path-Copy" stroke="#FC3F1D" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></line>
     </g>
 </svg>

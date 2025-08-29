@@ -1,8 +1,10 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useContext, useState } from 'react'
 import { Book_GetUserBooksDocument, useBook_Create } from '../../../../../graphql'
-import { NotifyArg } from '../../../../../ui/Notification/context'
+import { NotificationContext } from '../../../../../ui/Notification/context'
 
-export function useGetOnAddBookClick(notify: (data: NotifyArg) => void) {
+export function useGetOnAddBookClick() {
+	const { notify } = useContext(NotificationContext)
+
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
 	const [createBook] = useBook_Create({ refetchQueries: [Book_GetUserBooksDocument] })
 
@@ -12,8 +14,6 @@ export function useGetOnAddBookClick(notify: (data: NotifyArg) => void) {
 		const { errors } = await createBook({
 			variables: { input: { author: null, name: null, note: null } },
 		})
-
-		setStatus('loading')
 
 		if (errors) {
 			notify({ type: 'error', message: 'Не удалось получить список книг.' })
