@@ -1,7 +1,7 @@
 import React from 'react'
 import { booksLogic } from '../../../booksLogic'
 import BookFormSurface from '../../common/BookFormSurface/BookFormSurface'
-import DeleteBookButton from '../DeleteBookButton/DeleteBookButton'
+import DeleteBookButtonAndModal from '../DeleteBookButtonAndModal/DeleteBookButtonAndModal'
 
 export default function EditBookForm() {
 	const book = booksLogic.useGetCurrentBook()
@@ -10,7 +10,7 @@ export default function EditBookForm() {
 	if (!book || currentChapterId) return null
 
 	return (
-		<BookFormSurface leftBottomButtons={[<DeleteBookButton key='1' />]} rightBottomButtons={[]}>
+		<BookFormSurface leftBottomButtons={[<DeleteBookButtonAndModal key='1' />]} rightBottomButtons={[]}>
 			Book
 		</BookFormSurface>
 	)

@@ -5,7 +5,7 @@ import { pageUrls } from '../../../../../../сonsts/pageUrls'
 import { booksLogic } from '../../../../booksLogic'
 import { redirect } from 'next/navigation'
 
-export function useGetDeleteBook() {
+export function useGetDeleteBook(closeModal: () => void) {
 	const { notify } = useContext(NotificationContext)
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
 
@@ -22,11 +22,16 @@ export function useGetDeleteBook() {
 			const { errors } = await deleteBook({ variables: { input: { id: bookId } } })
 
 			if (errors) {
-				notify({ type: 'error', message: 'Не удалось получить список книг.' })
+				notify({
+					type: 'error',
+					message:
+						'Не удалось удалить книгу. Попробуйте ещё раз или сообщите о проблеме в форме обратной связи.',
+				})
 			}
 
 			setStatus('idle')
 
+			closeModal()
 			redirect(pageUrls.books.path)
 		},
 		[book],
