@@ -214,21 +214,18 @@ export const bdConfig = {
 				type: 'string',
 				description: 'Author of the book',
 				required: false,
-				minLength: 0,
 				maxLength: 255,
 			},
 			name: {
 				type: 'string',
 				description: 'Name of the book',
 				required: false,
-				minLength: 0,
 				maxLength: 255,
 			},
 			note: {
 				type: 'string',
 				description: 'Note about the book',
 				required: false,
-				minLength: 0,
 				maxLength: 1000,
 			},
 			created_at: {
@@ -255,14 +252,12 @@ export const bdConfig = {
 				type: 'string',
 				description: 'Name of the chapter. For example: Chapter 1.',
 				required: false,
-				minLength: 1,
 				maxLength: 255,
 			},
 			header: {
 				type: 'string',
 				description: 'Header of the chapter',
 				required: false,
-				minLength: 1,
 				maxLength: 255,
 			},
 			content: {

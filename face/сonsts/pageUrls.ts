@@ -61,6 +61,7 @@ export const pageUrls = {
 						name: 'Книга',
 						path: '/books/' + bookId + '/' + chapterId,
 						reading: {
+							segment: 'reading',
 							name: 'Чтение главы',
 							path: '/books/' + bookId + '/' + chapterId + '/reading',
 						},

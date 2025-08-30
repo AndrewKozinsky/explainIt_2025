@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { pageUrls } from '../../../../сonsts/pageUrls'
+import { pageUrls } from '@/сonsts/pageUrls'
 import { MainMenuLink } from '../../MainMenuLink'
 import { useGetAuthLinkType } from './fn/authLinkType'
 

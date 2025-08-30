@@ -5,6 +5,7 @@ import React from 'react'
 import { useUserStore } from '@/stores/userStore'
 import { pageUrls } from '@/сonsts/pageUrls'
 import LoadingMessage from '../../../ui/LoadingMessage/LoadingMessage'
+import { PageWrapper } from '../../../ui/pageRelated/PageWrapper/PageWrapper'
 
 type LLMPageLayoutProps = {
 	children: React.ReactNode
@@ -24,7 +25,7 @@ function BooksPageLayout(props: LLMPageLayoutProps) {
 		redirect(pageUrls.auth.login.path)
 	}
 
-	return children
+	return <PageWrapper top>{children}</PageWrapper>
 }
 
 export default BooksPageLayout

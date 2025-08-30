@@ -2,9 +2,9 @@ import React from 'react'
 import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'
 import ArticleType from '../../../../articles/articleTypes/articleType'
 import { BreadCrumbs } from '@/ui/pageRelated/BreadCrumbs/BreadCrumbs'
-import { PageContentWrapper } from '../../../../ui/pageRelated/PageContentWrapper/PageContentWrapper'
+import { PageContentWrapper } from '@/ui/pageRelated/PageContentWrapper/PageContentWrapper'
 import ArticleArticleContent from '../ArticleArticleContent/ArticleArticleContent'
-import { pageUrls } from '../../../../сonsts/pageUrls'
+import { pageUrls } from '@/сonsts/pageUrls'
 
 import CourseArticlePageHeader from '../CourceArticlePageHeader/CourceArticlePageHeader'
 

@@ -2,7 +2,7 @@
 
 // import React from 'react'
 // import ArticleType from '../../../../articlesData/articleType'
-// import { ModalIcon } from '../../../../ui/icons/ModalIcon/ModalIcon'
+// import { ModalIcon } from '@/ui/icons/ModalIcon/ModalIcon'
 // import { useGetOpenCloseModal } from '../LearnByHeartModal/fn/clickOnBlock'
 // import LearnByHeartModal from '../LearnByHeartModal/LearnByHeartModal'
 // import { useLearnByHeartStore } from '../store/store'

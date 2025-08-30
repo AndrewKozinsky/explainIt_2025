@@ -1,7 +1,7 @@
 import React from 'react'
 import cn from 'classnames'
 import Link from 'next/link'
-import { LeftArrow, RightArrow } from '../../../../ui/icons/ArrowIcon/ArrowIcon'
+import { LeftArrow, RightArrow } from '@/ui/icons/ArrowIcon/ArrowIcon'
 import './ArtPrevAndNextButtons.scss'
 
 // Какого цвета будет текст кнопки

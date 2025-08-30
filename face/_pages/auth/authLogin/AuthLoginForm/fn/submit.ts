@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
-import { useAuth_Login } from '../../../../../graphql'
+import { useAuth_Login } from '@/graphql'
 import { useUserStore } from '../../../../../stores/userStore'
-import { FormStatus, setErrorsToForm } from '../../../../../utils/forms'
+import { FormStatus, setErrorsToForm } from '@/utils/forms'
 import { LoginFormData } from './form'
 
 export function useGetOnLoginFormSubmit(

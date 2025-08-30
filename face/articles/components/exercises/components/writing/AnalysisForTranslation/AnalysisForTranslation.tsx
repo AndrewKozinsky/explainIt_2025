@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react'
-import Switcher from '../../../../../../ui/Switcher/Switcher'
+import Switcher from '@/ui//Switcher/Switcher'
 import ArticleBuilder from '../../../../../ArticleBuilder/ArticleBuilder'
 import Transcription from '../../../../Transcription/Transcription'
 import { ExercisesContext } from '../../../logic/exercisesContext'
@@ -14,11 +14,9 @@ function AnalysisForTranslation() {
 	const { analysis } = useContext(ExercisesContext).exercisesBlock
 
 	const exercise = exercisesLogic.useGetCurrentExercise()
-	if (!exercise) return null
-
 	const [viewType, setViewType] = useState<'analysis' | 'correctVariants'>('analysis')
 
-	if (analysis.status !== ExercisesContextType.AnalysisStatus.visible) {
+	if (!exercise || analysis.status !== ExercisesContextType.AnalysisStatus.visible) {
 		return null
 	}
 

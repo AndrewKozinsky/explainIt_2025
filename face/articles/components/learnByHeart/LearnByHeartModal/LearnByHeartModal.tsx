@@ -2,7 +2,7 @@
 
 // import React from 'react'
 // import DictionaryWord from '../../../../_pages/courseArtPage/courseArticlePage/common/DictionaryWord/DictionaryWord'
-// import Modal from '../../../../ui/Modal/Modal'
+// import Modal from '@/ui/Modal/Modal'
 // import { useLearnByHeartStore } from '../store/store'
 // import { useGetOpenCloseModal } from './fn/clickOnBlock'
 // import './LearnByHeartModal.scss'

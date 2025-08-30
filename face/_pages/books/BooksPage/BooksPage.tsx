@@ -1,31 +1,19 @@
 'use client'
 
 import React from 'react'
-import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'
-import BooksSection from '../booksListSection/BooksSection/BooksSection'
-import ChaptersSection from '../chaptersListSection/ChaptersSection/ChaptersSection'
-import EditableFormSection from '../editableFormSection/EditableFormSection/EditableFormSection'
-import { useChangeBodyBgColor } from './fn/changeBodyBgColor'
-import './BooksPage.scss'
+import BooksRoot from '../books/BooksRoot/BooksRoot'
+import ReadingRoot from '../reading/ReadingRoot/ReadingRoot'
+import { useGetShowingPageType } from './fn/showingPageType'
 
 function BooksPage() {
-	useChangeBodyBgColor()
+	const showingPageType = useGetShowingPageType()
 
-	return (
-		<PageWrapper top>
-			<main className='books-page-content'>
-				<div className='books-page-content__books'>
-					<BooksSection />
-				</div>
-				<div className='books-page-content__book'>
-					<ChaptersSection />
-				</div>
-				<div className='books-page-content__content'>
-					<EditableFormSection />
-				</div>
-			</main>
-		</PageWrapper>
-	)
+	const pageMapper = {
+		books: <BooksRoot />,
+		reading: <ReadingRoot />,
+	}
+
+	return pageMapper[showingPageType]
 }
 
 export default BooksPage

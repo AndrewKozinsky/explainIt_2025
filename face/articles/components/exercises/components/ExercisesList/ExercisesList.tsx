@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { ExercisesContext } from '../../logic/exercisesContext'
-import Switcher, { SwitcherItem } from '../../../../../ui/Switcher/Switcher'
+import Switcher, { SwitcherItem } from '@/ui/Switcher/Switcher'
 import { exercisesLogic } from '../../logic/exercisesLogic'
 import './ExercisesList.scss'
 

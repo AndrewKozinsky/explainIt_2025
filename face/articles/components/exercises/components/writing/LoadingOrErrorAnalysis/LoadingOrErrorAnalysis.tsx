@@ -1,5 +1,5 @@
-import ErrorMessage from '../../../../../../ui/ErrorMessage/ErrorMessage'
-import LoadingMessage from '../../../../../../ui/LoadingMessage/LoadingMessage'
+import ErrorMessage from '@/ui//ErrorMessage/ErrorMessage'
+import LoadingMessage from '@/ui//LoadingMessage/LoadingMessage'
 import './LoadingOrErrorAnalysis.scss'
 
 type LoadingOrErrorAnalysisProps = {

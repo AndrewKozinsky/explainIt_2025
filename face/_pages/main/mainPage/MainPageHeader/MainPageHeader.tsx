@@ -1,6 +1,6 @@
 import React from 'react'
 import './MainPageHeader.scss'
-import Header from '../../../../ui/Header/Header'
+import Header from '@/ui/Header/Header'
 
 function MainPageHeader() {
 	return (

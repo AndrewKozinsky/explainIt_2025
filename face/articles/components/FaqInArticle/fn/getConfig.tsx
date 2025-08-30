@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import FaqTypes from '../../../../ui/FAQ/fn/faqTypes'
+import FaqTypes from '@/ui/FAQ/fn/faqTypes'
 import ArticleBuilder from '../../../ArticleBuilder/ArticleBuilder'
 import ArticleType from '../../../articleTypes/articleType'
 

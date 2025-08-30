@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
-import { useAuth_Register } from '../../../../../graphql'
-import { FormStatus, setErrorsToForm } from '../../../../../utils/forms'
+import { useAuth_Register } from '@/graphql'
+import { FormStatus, setErrorsToForm } from '@/utils/forms'
 import { RegisterFormData } from './form'
 
 export function useGetOnRegisterFormSubmit(

@@ -1,6 +1,6 @@
 import { PrevAndNextButtonConfig } from '../../PrevAndNextButtons/PrevAndNextButtons'
 import ArticleType from '../../../../../articles/articleTypes/articleType'
-import { pageUrls } from '../../../../../сonsts/pageUrls'
+import { pageUrls } from '@/сonsts/pageUrls'
 
 /**
  * Возвращает объект конфигурации для отрисовки кнопок-ссылок на предыдущую и следующую статью.
