@@ -38,9 +38,11 @@ function IncreaseBalanceForm() {
 				<TextInput
 					label='Сумма'
 					error={errors.amount?.message}
-					disabled={['success', 'submitting'].includes(formStatus)}
 					dataTestId={IncreaseBalanceFormTest.amountField.id}
-					{...register('amount', { required: true })}
+					inputProps={{
+						...register('amount', { required: true }),
+						disabled: ['success', 'submitting'].includes(formStatus),
+					}}
 				/>
 				<Button
 					type='submit'

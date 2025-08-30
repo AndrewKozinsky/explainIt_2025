@@ -41,16 +41,20 @@ function AuthLoginForm() {
 					<TextInput
 						label='Почта'
 						error={errors.email?.message}
-						disabled={['success', 'submitting'].includes(formStatus)}
 						dataTestId={LoginFormTest.emailField.id}
-						{...register('email', { required: true })}
+						inputProps={{
+							...register('email', { required: true }),
+							disabled: ['success', 'submitting'].includes(formStatus),
+						}}
 					/>
 					<TextInput
 						label='Пароль'
 						error={errors.password?.message}
-						disabled={['success', 'submitting'].includes(formStatus)}
 						dataTestId={LoginFormTest.passwordField.id}
-						{...register('password', { required: true })}
+						inputProps={{
+							...register('password', { required: true }),
+							disabled: ['success', 'submitting'].includes(formStatus),
+						}}
 					/>
 					<Button
 						type='submit'

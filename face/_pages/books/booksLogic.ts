@@ -50,7 +50,10 @@ export const booksLogic = {
 	useGetCurrentChapter(): BookChapterOutModel | null {
 		const chapterId = this.useGetCurrentChapterIdFromUrl()
 
-		const { data, error, loading } = useBookChapter_Get({ variables: { input: { id: parseInt(chapterId) } } })
+		const { data, error, loading } = useBookChapter_Get({
+			variables: { input: { id: parseInt(chapterId) } },
+			skip: !chapterId,
+		})
 
 		return useMemo(
 			function () {

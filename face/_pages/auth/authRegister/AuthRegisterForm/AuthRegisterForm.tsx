@@ -37,23 +37,29 @@ function AuthRegisterForm() {
 					<TextInput
 						label='Почта'
 						error={errors.email?.message}
-						disabled={['success', 'submitting'].includes(formStatus)}
 						dataTestId={RegisterFormTest.emailField.id}
-						{...register('email', { required: true })}
+						inputProps={{
+							...register('email', { required: true }),
+							disabled: ['success', 'submitting'].includes(formStatus),
+						}}
 					/>
 					<TextInput
 						label='Пароль'
 						error={errors.password?.message}
-						disabled={['success', 'submitting'].includes(formStatus)}
 						dataTestId={RegisterFormTest.passwordField.id}
-						{...register('password', { required: true })}
+						inputProps={{
+							...register('password', { required: true }),
+							disabled: ['success', 'submitting'].includes(formStatus),
+						}}
 					/>
 					<TextInput
 						label='Пароль ещё раз'
 						error={errors.passwordAgain?.message}
-						disabled={['success', 'submitting'].includes(formStatus)}
 						dataTestId={RegisterFormTest.passwordAgainField.id}
-						{...register('passwordAgain', { required: true })}
+						inputProps={{
+							...register('passwordAgain', { required: true }),
+							disabled: ['success', 'submitting'].includes(formStatus),
+						}}
 					/>
 					<Button
 						type='submit'

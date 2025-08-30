@@ -48,7 +48,10 @@ export const apolloClient = new ApolloClient({
 	cache: new InMemoryCache(),
 	defaultOptions: {
 		watchQuery: {
-			fetchPolicy: 'cache-and-network',
+			fetchPolicy: 'cache-first',
+		},
+		query: {
+			fetchPolicy: 'cache-first',
 		},
 	},
 	// Disable SSR for now to avoid hydration issues
