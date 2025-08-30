@@ -60,6 +60,10 @@ export const pageUrls = {
 					return {
 						name: 'Книга',
 						path: '/books/' + bookId + '/' + chapterId,
+						reading: {
+							name: 'Чтение главы',
+							path: '/books/' + bookId + '/' + chapterId + '/reading',
+						},
 					}
 				},
 			}

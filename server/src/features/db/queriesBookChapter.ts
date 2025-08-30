@@ -63,4 +63,23 @@ export const queriesBookChapter = {
 			},
 		}
 	},
+	get(dto: { id: number }) {
+		return {
+			query: `
+      query GetBookChapter($input: GetBookChapterInput!) {
+        ${RouteNames.BOOK_CHAPTER.GET}(input: $input) {
+          id
+          bookId
+          name
+          header
+          content
+          note
+        }
+      }
+    `,
+			variables: {
+				input: dto,
+			},
+		}
+	},
 }

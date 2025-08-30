@@ -10,9 +10,15 @@ import { BookChapterRepository } from '../../repo/bookChapter.repository'
 import { UserRepository } from '../../repo/user.repository'
 import { BookChapterResolver } from './bookChapter.resolver'
 import { PrismaService } from '../../db/prisma.service'
+import { GetBookChapterHandler } from '../../features/bookChapter/GetBookChapter.command'
 
 const services = [PrismaService]
-const commandHandlers = [CreateBookChapterHandler, UpdateBookChapterHandler, DeleteBookChapterHandler]
+const commandHandlers = [
+	CreateBookChapterHandler,
+	UpdateBookChapterHandler,
+	DeleteBookChapterHandler,
+	GetBookChapterHandler,
+]
 const resolvers = [BookChapterResolver]
 const repositories = [
 	BookRepository,

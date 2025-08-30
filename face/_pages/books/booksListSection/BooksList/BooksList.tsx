@@ -6,7 +6,7 @@ import BookLink from '../BookLink/BookLink'
 
 function BooksList() {
 	const books = booksLogic.useGetBooks()
-	const booksError = useBooksStore().booksError
+	const booksError = useBooksStore().booksFetchError
 
 	if (booksError) return <ErrorMessage text={booksError} />
 	if (!books) return null

@@ -9,8 +9,8 @@ import './BookLink.scss'
 type BookLinkProps = {
 	bookData: {
 		id: number
-		author: null | string
-		name: null | string
+		author?: null | string
+		name?: null | string
 	}
 }
 

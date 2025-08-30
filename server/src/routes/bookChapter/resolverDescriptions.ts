@@ -4,4 +4,5 @@ export const bookChapterResolversDesc: Record<keyof typeof BookChapterResolver.p
 	createBookChapter: 'Create book chapter',
 	updateBookChapter: 'Update book chapter',
 	deleteBookChapter: 'Delete book chapter',
+	getBookChapter: 'Get book chapter',
 }

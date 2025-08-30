@@ -10,7 +10,7 @@ export function useGetFetchBooksAndSetToStore() {
 			if (loading) return
 
 			if (error || !data) {
-				useBooksStore.setState({ booksError: 'Во время загрузки книг возникла ошибка' })
+				useBooksStore.setState({ booksFetchError: 'Во время загрузки книг возникла ошибка' })
 				return
 			}
 

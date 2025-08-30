@@ -1,8 +1,7 @@
-// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
 import storybook from "eslint-plugin-storybook";
-
 import tseslint from 'typescript-eslint'
 import prettierPlugin from 'eslint-plugin-prettier'
+import reactHooks from 'eslint-plugin-react-hooks'
 
 export default tseslint.config([{
   files: ['**/*.ts', '**/*.tsx'],
@@ -11,8 +10,11 @@ export default tseslint.config([{
   },
   plugins: {
     prettier: prettierPlugin,
+	  'react-hooks': reactHooks,
   },
   rules: {
+	  "react-hooks/rules-of-hooks": "error",
+	  "react-hooks/exhaustive-deps": "warn",
     'no-multiple-empty-lines': ['error', {
       max: 1,
       maxEOF: 1,
@@ -33,6 +35,7 @@ export default tseslint.config([{
       printWidth: 120,
       trailingComma: 'all',
       jsxSingleQuote: true,
-    }],
+    },
+	],
   }
 }], storybook.configs["flat/recommended"]);

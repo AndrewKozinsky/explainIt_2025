@@ -33,6 +33,7 @@ export const RouteNames = {
 		GET_USER_BOOKS: 'book_user_books',
 	},
 	BOOK_CHAPTER: {
+		GET: 'book_chapter_get',
 		CREATE: 'book_chapter_create',
 		UPDATE: 'book_chapter_update',
 		DELETE: 'book_chapter_delete',

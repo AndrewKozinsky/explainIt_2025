@@ -21,7 +21,7 @@ export const booksLogic = {
 
 		return books.find((book) => book.id.toString() === currentBookId)
 	},
-	useGetCurrentChapter() {
+	useGetCurrentLiteChapter() {
 		const book = this.useGetCurrentBook()
 		const currentChapterId = this.useGetCurrentChapterIdFromUrl()
 
@@ -29,6 +29,9 @@ export const booksLogic = {
 			return null
 		}
 
-		return book.chapters.find((book) => book.id.toString() === currentChapterId)
+		return book.chapters.find((chapter) => chapter.id.toString() === currentChapterId)
+	},
+	useGetCurrentChapter() {
+		return useBooksStore.getState().chapter
 	},
 }

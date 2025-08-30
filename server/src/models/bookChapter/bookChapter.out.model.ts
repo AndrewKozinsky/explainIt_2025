@@ -6,9 +6,6 @@ export class BookChapterOutModel {
 	@Field(() => Int)
 	id: number
 
-	@Field(() => Int)
-	bookId: number
-
 	@Field(() => String, { nullable: true })
 	name: string | null
 
@@ -21,7 +18,7 @@ export class BookChapterOutModel {
 	@Field(() => String, { nullable: true })
 	note: string | null
 
-	@Field(() => BookOutModel)
+	@Field(() => BookLiteOutModel)
 	book: BookLiteOutModel
 }
 

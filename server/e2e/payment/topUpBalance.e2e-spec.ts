@@ -63,7 +63,7 @@ describe.skip('Top up balance with YooKassa (e2e)', () => {
 		})
 	})
 
-	it.only('should return a confirmation page link for user registered with OAuth', async () => {
+	it('should return a confirmation page link for user registered with OAuth', async () => {
 		const { registerWithOAuthData, sessionToken } = await userUtils.loginUserWithOAuthSuccessfully({
 			app,
 			email: defUserEmail,

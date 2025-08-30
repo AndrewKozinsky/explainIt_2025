@@ -37,7 +37,6 @@ export class BookChapterQueryRepository {
 	mapDbBookChapterToOutBookChapter(dbBook: BookChapterWithBook): BookChapterOutModel {
 		return {
 			id: dbBook.id,
-			bookId: dbBook.book_id,
 			name: dbBook.name,
 			header: dbBook.header,
 			content: dbBook.content,

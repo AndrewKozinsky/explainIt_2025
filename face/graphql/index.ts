@@ -28,13 +28,21 @@ export type BookChapterLiteOutModel = {
 
 export type BookChapterOutModel = {
 	__typename?: 'BookChapterOutModel'
-	book: BookOutModel
-	bookId: Scalars['Int']['output']
+	book: BookLiteOutModel
 	content?: Maybe<Scalars['String']['output']>
 	header?: Maybe<Scalars['String']['output']>
 	id: Scalars['Int']['output']
 	name?: Maybe<Scalars['String']['output']>
 	note?: Maybe<Scalars['String']['output']>
+}
+
+export type BookLiteOutModel = {
+	__typename?: 'BookLiteOutModel'
+	author?: Maybe<Scalars['String']['output']>
+	id: Scalars['Int']['output']
+	name?: Maybe<Scalars['String']['output']>
+	note?: Maybe<Scalars['String']['output']>
+	userId: Scalars['Int']['output']
 }
 
 export type BookOutModel = {
@@ -101,6 +109,11 @@ export type DeleteBookChapterInput = {
 
 export type DeleteBookInput = {
 	/** Book id */
+	id: Scalars['Int']['input']
+}
+
+export type GetBookChapterInput = {
+	/** BookChapter id */
 	id: Scalars['Int']['input']
 }
 
@@ -224,6 +237,8 @@ export type Query = {
 	ai_getTranscription: GetTranscriptionOutModel
 	/** Get current user data */
 	auth_getMe: UserOutModel
+	/** Get book chapter */
+	book_chapter_get: BookChapterOutModel
 	/** Get user books */
 	book_user_books: Array<BookOutModel>
 }
@@ -234,6 +249,10 @@ export type QueryAi_CheckTranslationArgs = {
 
 export type QueryAi_GetTranscriptionArgs = {
 	input: GetTranscriptionInput
+}
+
+export type QueryBook_Chapter_GetArgs = {
+	input: GetBookChapterInput
 }
 
 export type RegisterUserInput = {
@@ -442,11 +461,18 @@ export type BookChapter_Create = {
 	book_chapter_create: {
 		__typename?: 'BookChapterOutModel'
 		id: number
-		bookId: number
 		name?: string | null
 		header?: string | null
 		content?: string | null
 		note?: string | null
+		book: {
+			__typename?: 'BookLiteOutModel'
+			id: number
+			name?: string | null
+			author?: string | null
+			note?: string | null
+			userId: number
+		}
 	}
 }
 
@@ -455,6 +481,30 @@ export type BookChapter_DeleteVariables = Exact<{
 }>
 
 export type BookChapter_Delete = { __typename?: 'Mutation'; book_chapter_delete: boolean }
+
+export type BookChapter_GetVariables = Exact<{
+	input: GetBookChapterInput
+}>
+
+export type BookChapter_Get = {
+	__typename?: 'Query'
+	book_chapter_get: {
+		__typename?: 'BookChapterOutModel'
+		id: number
+		name?: string | null
+		header?: string | null
+		content?: string | null
+		note?: string | null
+		book: {
+			__typename?: 'BookLiteOutModel'
+			id: number
+			name?: string | null
+			author?: string | null
+			note?: string | null
+			userId: number
+		}
+	}
+}
 
 export type BookChapter_UpdateVariables = Exact<{
 	input: UpdateBookChapterInput
@@ -465,11 +515,18 @@ export type BookChapter_Update = {
 	book_chapter_update: {
 		__typename?: 'BookChapterOutModel'
 		id: number
-		bookId: number
 		name?: string | null
 		header?: string | null
 		content?: string | null
 		note?: string | null
+		book: {
+			__typename?: 'BookLiteOutModel'
+			id: number
+			name?: string | null
+			author?: string | null
+			note?: string | null
+			userId: number
+		}
 	}
 }
 
@@ -989,11 +1046,17 @@ export const BookChapter_CreateDocument = gql`
 	mutation BookChapter_create($input: CreateBookChapterInput!) {
 		book_chapter_create(input: $input) {
 			id
-			bookId
 			name
 			header
 			content
 			note
+			book {
+				id
+				name
+				author
+				note
+				userId
+			}
 		}
 	}
 `
@@ -1064,15 +1127,79 @@ export type BookChapter_DeleteMutationOptions = Apollo.BaseMutationOptions<
 	BookChapter_Delete,
 	BookChapter_DeleteVariables
 >
-export const BookChapter_UpdateDocument = gql`
-	mutation BookChapter_update($input: UpdateBookChapterInput!) {
-		book_chapter_update(input: $input) {
+export const BookChapter_GetDocument = gql`
+	query BookChapter_get($input: GetBookChapterInput!) {
+		book_chapter_get(input: $input) {
 			id
-			bookId
 			name
 			header
 			content
 			note
+			book {
+				id
+				name
+				author
+				note
+				userId
+			}
+		}
+	}
+`
+
+/**
+ * __useBookChapter_Get__
+ *
+ * To run a query within a React component, call `useBookChapter_Get` and pass it any options that fit your needs.
+ * When your component renders, `useBookChapter_Get` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useBookChapter_Get({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useBookChapter_Get(
+	baseOptions: Apollo.QueryHookOptions<BookChapter_Get, BookChapter_GetVariables> &
+		({ variables: BookChapter_GetVariables; skip?: boolean } | { skip: boolean }),
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useQuery<BookChapter_Get, BookChapter_GetVariables>(BookChapter_GetDocument, options)
+}
+export function useBookChapter_GetLazyQuery(
+	baseOptions?: Apollo.LazyQueryHookOptions<BookChapter_Get, BookChapter_GetVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useLazyQuery<BookChapter_Get, BookChapter_GetVariables>(BookChapter_GetDocument, options)
+}
+export function useBookChapter_GetSuspenseQuery(
+	baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<BookChapter_Get, BookChapter_GetVariables>,
+) {
+	const options = baseOptions === Apollo.skipToken ? baseOptions : { ...defaultOptions, ...baseOptions }
+	return Apollo.useSuspenseQuery<BookChapter_Get, BookChapter_GetVariables>(BookChapter_GetDocument, options)
+}
+export type BookChapter_GetHookResult = ReturnType<typeof useBookChapter_Get>
+export type BookChapter_GetLazyQueryHookResult = ReturnType<typeof useBookChapter_GetLazyQuery>
+export type BookChapter_GetSuspenseQueryHookResult = ReturnType<typeof useBookChapter_GetSuspenseQuery>
+export type BookChapter_GetQueryResult = Apollo.QueryResult<BookChapter_Get, BookChapter_GetVariables>
+export const BookChapter_UpdateDocument = gql`
+	mutation BookChapter_update($input: UpdateBookChapterInput!) {
+		book_chapter_update(input: $input) {
+			id
+			name
+			header
+			content
+			note
+			book {
+				id
+				name
+				author
+				note
+				userId
+			}
 		}
 	}
 `

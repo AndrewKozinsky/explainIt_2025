@@ -6,7 +6,6 @@ import FormError from '../../../../../ui/formRelated/FormError/FormError'
 import FormFieldsWrapper from '../../../../../ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
 import TextInput from '../../../../../ui/formRelated/TextInput/TextInput'
 import { FormStatus } from '../../../../../utils/forms'
-import { LoginFormTest } from '../../../../auth/authLogin/AuthLoginForm/fn/form'
 import { booksLogic } from '../../../booksLogic'
 import BookFormSurface from '../../common/BookFormSurface/BookFormSurface'
 import InputFieldsOverrider from '../../common/InputFieldsOverrider/InputFieldsOverrider'
@@ -40,7 +39,7 @@ export default function EditBookForm() {
 	if (!book || currentChapterId) return null
 
 	return (
-		<form onSubmit={handleSubmit(onSubmit)} data-testid={LoginFormTest.form.id}>
+		<form onSubmit={handleSubmit(onSubmit)} data-testid={ChangeBookFormTest.form.id}>
 			<BookFormSurface
 				leftBottomButtons={[<DeleteBookButton key='delete' />]}
 				rightBottomButtons={[
@@ -68,7 +67,7 @@ export default function EditBookForm() {
 					<InputFieldsOverrider size='big'>
 						<TextInput
 							label='Название'
-							placeholder={'Alice\'s Adventures in Wonderland'}
+							placeholder={"Alice's Adventures in Wonderland"}
 							error={errors.name?.message}
 							disabled={['success', 'submitting'].includes(formStatus)}
 							dataTestId={ChangeBookFormTest.nameField.id}

@@ -11,7 +11,6 @@ import { createApp } from '../utils/createApp'
 import { paymentUtils } from '../utils/paymentUtils'
 import { userUtils } from '../utils/userUtils'
 import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
-import { agent as request } from 'supertest'
 
 it('1', () => {
 	expect(2).toBe(2)
@@ -46,7 +45,7 @@ describe.skip('Top up balance with YooKassa (e2e)', () => {
 		await afterEachTest(app)
 	})
 
-	it.only('two users make payments successfully', async () => {
+	it('two users make payments successfully', async () => {
 		let firstUserCalculatedBalance = 0
 		let secondUserCalculatedBalance = welcomeBonus
 

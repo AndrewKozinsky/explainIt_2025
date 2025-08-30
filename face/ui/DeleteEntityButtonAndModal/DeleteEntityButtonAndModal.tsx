@@ -5,7 +5,7 @@ import DeleteEntityModal from './DeleteEntityModal'
 
 type DeleteEntityButtonAndModalProps = {
 	// Функция, которая должна срабатывать при нажатии на кнопку удаления в модальном окне
-	onDeleteBookClick: () => Promise<void>
+	onDeleteButtonClick: () => Promise<void>
 	// Показывать ли загрузчик на кнопке удаления в мадальном окне
 	isDeleteButtonLoading: boolean
 	modal: {
@@ -20,7 +20,7 @@ type DeleteEntityButtonAndModalProps = {
 
 // Этот компонент используется для отображения кнопки удаления и модального окна удаления
 function DeleteEntityButtonAndModal(props: DeleteEntityButtonAndModalProps) {
-	const { onDeleteBookClick, isDeleteButtonLoading, modal } = props
+	const { onDeleteButtonClick, isDeleteButtonLoading, modal } = props
 
 	const [isModalOpen, setIsModalOpen] = React.useState(false)
 
@@ -36,7 +36,7 @@ function DeleteEntityButtonAndModal(props: DeleteEntityButtonAndModalProps) {
 			<DeleteEntityModal
 				isModalOpen={isModalOpen}
 				closeModal={() => setIsModalOpen(false)}
-				onDeleteButtonClick={onDeleteBookClick}
+				onDeleteButtonClick={onDeleteButtonClick}
 				isDeleteButtonLoading={isDeleteButtonLoading}
 				modal={modal}
 			/>

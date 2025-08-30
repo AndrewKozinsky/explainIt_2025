@@ -91,7 +91,6 @@ export class BookChapterRepository {
 	mapDbBookChapterToServiceBook(dbBookChapter: BookChapterWithBook): BookChapterServiceModel {
 		return {
 			id: dbBookChapter.id,
-			bookId: dbBookChapter.book_id,
 			header: dbBookChapter.header,
 			name: dbBookChapter.name,
 			content: dbBookChapter.content,

@@ -44,7 +44,7 @@ describe.skip('Get me (e2e)', () => {
 		await afterEachTest(app)
 	})
 
-	it.only('should return 401 if there is not session token cookie', async () => {
+	it('should return 401 if there is not session token cookie', async () => {
 		await authUtils.tokenNotExist({ app, queryOrMutationStr: queries.auth.getMe() })
 	})
 

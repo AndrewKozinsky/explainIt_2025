@@ -125,7 +125,7 @@ describe.skip('Register user (e2e)', () => {
 		})
 	})
 
-	it.only('should register a user if he has already registered with OAuth', async () => {
+	it('should register a user if he has already registered with OAuth', async () => {
 		// Register/login a user with OAuth
 		await userUtils.loginUserWithOAuthSuccessfully({
 			app,

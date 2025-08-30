@@ -120,4 +120,25 @@ export const bookChapterUtils = {
 	async getBookChapters(input: { bookId: number; bookChapterRepository: BookChapterRepository }) {
 		return await input.bookChapterRepository.getBookChapterByBookId(input.bookId)
 	},
+
+	async getBookChapter(input: {
+		app: INestApplication
+		sessionToken: any
+		bookChapter: {
+			id: number
+		}
+	}) {
+		// Get a book chapter query
+		const getBookChapterQuery = queries.bookChapter.get(input.bookChapter)
+
+		// Run this query
+		const [getBookResp] = await makeGraphQLReqWithTokens({
+			app: input.app,
+			query: getBookChapterQuery.query,
+			queryVariables: getBookChapterQuery.variables,
+			sessionToken: input.sessionToken,
+		})
+
+		return getBookResp
+	},
 }

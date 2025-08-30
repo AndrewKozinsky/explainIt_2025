@@ -7,13 +7,20 @@ type BookChapterLiteOutModel {
 }
 
 type BookChapterOutModel {
-  book: BookOutModel!
-  bookId: Int!
+  book: BookLiteOutModel!
   content: String
   header: String
   id: Int!
   name: String
   note: String
+}
+
+type BookLiteOutModel {
+  author: String
+  id: Int!
+  name: String
+  note: String
+  userId: Int!
 }
 
 type BookOutModel {
@@ -84,6 +91,11 @@ input DeleteBookChapterInput {
 
 input DeleteBookInput {
   """Book id"""
+  id: Int!
+}
+
+input GetBookChapterInput {
+  """BookChapter id"""
   id: Int!
 }
 
@@ -170,6 +182,9 @@ type Query {
 
   """Get current user data"""
   auth_getMe: UserOutModel!
+
+  """Get book chapter"""
+  book_chapter_get(input: GetBookChapterInput!): BookChapterOutModel!
 
   """Get user books"""
   book_user_books: [BookOutModel!]!

@@ -7,7 +7,7 @@ function DeleteBookButton() {
 
 	return (
 		<DeleteEntityButtonAndModal
-			onDeleteBookClick={onDeleteBookClick}
+			onDeleteButtonClick={onDeleteBookClick}
 			isDeleteButtonLoading={status === 'loading'}
 			modal={{
 				header: 'Удаление книги',

@@ -17,6 +17,10 @@ export interface GetTranscriptionInput {
     engSentence: string;
 }
 
+export interface GetBookChapterInput {
+    id: number;
+}
+
 export interface RegisterUserInput {
     email: string;
     password: string;
@@ -90,12 +94,11 @@ export interface UserOutModel {
 
 export interface BookChapterOutModel {
     id: number;
-    bookId: number;
     name?: Nullable<string>;
     header?: Nullable<string>;
     content?: Nullable<string>;
     note?: Nullable<string>;
-    book: BookOutModel;
+    book: BookLiteOutModel;
 }
 
 export interface BookChapterLiteOutModel {
@@ -115,6 +118,14 @@ export interface BookOutModel {
     chapters: BookChapterLiteOutModel[];
 }
 
+export interface BookLiteOutModel {
+    id: number;
+    author?: Nullable<string>;
+    name?: Nullable<string>;
+    note?: Nullable<string>;
+    userId: number;
+}
+
 export interface TopUpBalanceWithYooKassaOutModel {
     confirmationUrl: string;
 }
@@ -124,6 +135,7 @@ export interface IQuery {
     ai_getTranscription(input: GetTranscriptionInput): GetTranscriptionOutModel | Promise<GetTranscriptionOutModel>;
     auth_getMe(): UserOutModel | Promise<UserOutModel>;
     book_user_books(): BookOutModel[] | Promise<BookOutModel[]>;
+    book_chapter_get(input: GetBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
 }
 
 export interface CheckTranslationOutSuccessModel {

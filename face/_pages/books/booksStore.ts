@@ -1,18 +1,23 @@
 import { create } from 'zustand'
-import { BookOutModel } from '../../graphql'
+import { BookChapterOutModel, BookOutModel } from '../../graphql'
 
 export type BooksStoreValues = {
 	books: null | BookOutModel[]
-	booksError: null | string
+	booksFetchError: null | string
+	chapter: null | BookChapterOutModel
+	chapterFetchError: null | string
 }
 
 export const booksStoreValues: BooksStoreValues = {
 	books: null,
-	booksError: null,
+	booksFetchError: null,
+	chapter: null,
+	chapterFetchError: null,
 }
 
 export type BooksStoreMethods = {
 	setBooks: (books: BooksStoreValues['books']) => void
+	setChapter: (chapter: BooksStoreValues['chapter']) => void
 }
 
 export type BooksStore = BooksStoreValues & BooksStoreMethods
@@ -22,6 +27,9 @@ export const useBooksStore = create<BooksStore>()((set) => {
 		...booksStoreValues,
 		setBooks: (books: BooksStoreValues['books']) => {
 			set({ books })
+		},
+		setChapter: (chapter: BooksStoreValues['chapter']) => {
+			set({ chapter })
 		},
 	}
 })
