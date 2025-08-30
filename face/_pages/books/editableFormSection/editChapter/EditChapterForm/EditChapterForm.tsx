@@ -58,31 +58,51 @@ export default function EditChapterForm() {
 					<InputFieldsOverrider>
 						<TextInput
 							label='Глава'
-							placeholder='Chapter 1'
 							error={errors.name?.message}
-							disabled={['success', 'submitting'].includes(formStatus)}
 							dataTestId={ChangeChapterFormTest.nameField.id}
-							{...register('name', { required: false })}
+							inputProps={{
+								...register('name', { required: false }),
+								disabled: ['success', 'submitting'].includes(formStatus),
+								placeholder: 'Chapter 1',
+							}}
 						/>
 					</InputFieldsOverrider>
 					<InputFieldsOverrider size='big'>
 						<TextInput
 							label='Заголовок'
-							placeholder='Down the rabbit-hole…'
 							error={errors.header?.message}
-							disabled={['success', 'submitting'].includes(formStatus)}
 							dataTestId={ChangeChapterFormTest.headerField.id}
-							{...register('header', { required: false })}
+							inputProps={{
+								...register('header', { required: false }),
+								disabled: ['success', 'submitting'].includes(formStatus),
+								placeholder: 'Down the rabbit-hole…',
+							}}
+						/>
+					</InputFieldsOverrider>
+					<InputFieldsOverrider>
+						<TextInput
+							label='Текст'
+							error={errors.content?.message}
+							dataTestId={ChangeChapterFormTest.contentField.id}
+							textareaProps={{
+								...register('content', { required: false }),
+								disabled: ['success', 'submitting'].includes(formStatus),
+								placeholder:
+									'ALICE was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do',
+								rows: 10,
+							}}
 						/>
 					</InputFieldsOverrider>
 					<InputFieldsOverrider>
 						<TextInput
 							label='Заметка'
-							placeholder='It tells the story of Alice, a young girl who falls down a rabbit hole…'
 							error={errors.note?.message}
-							disabled={['success', 'submitting'].includes(formStatus)}
 							dataTestId={ChangeChapterFormTest.noteField.id}
-							{...register('note', { required: false })}
+							inputProps={{
+								...register('note', { required: false }),
+								disabled: ['success', 'submitting'].includes(formStatus),
+								placeholder: 'It tells the story of Alice, a young girl who falls down a rabbit hole…',
+							}}
 						/>
 					</InputFieldsOverrider>
 					<FormError text={formError} dataTestId={ChangeChapterFormTest.failMessage.id} />

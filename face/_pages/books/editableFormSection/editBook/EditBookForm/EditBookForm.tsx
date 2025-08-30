@@ -57,31 +57,37 @@ export default function EditBookForm() {
 					<InputFieldsOverrider>
 						<TextInput
 							label='Автор'
-							placeholder='Lewis Carroll'
 							error={errors.author?.message}
-							disabled={['success', 'submitting'].includes(formStatus)}
 							dataTestId={ChangeBookFormTest.authorField.id}
-							{...register('author', { required: false })}
+							inputProps={{
+								...register('author', { required: false }),
+								disabled: ['success', 'submitting'].includes(formStatus),
+								placeholder: 'Lewis Carroll',
+							}}
 						/>
 					</InputFieldsOverrider>
 					<InputFieldsOverrider size='big'>
 						<TextInput
 							label='Название'
-							placeholder={"Alice's Adventures in Wonderland"}
 							error={errors.name?.message}
-							disabled={['success', 'submitting'].includes(formStatus)}
 							dataTestId={ChangeBookFormTest.nameField.id}
-							{...register('name', { required: false })}
+							inputProps={{
+								...register('name', { required: false }),
+								disabled: ['success', 'submitting'].includes(formStatus),
+								placeholder: 'Adventures in Wonderland',
+							}}
 						/>
 					</InputFieldsOverrider>
 					<InputFieldsOverrider>
 						<TextInput
 							label='Заметка'
-							placeholder='It tells the story of Alice, a young girl who falls down a rabbit hole…'
 							error={errors.note?.message}
-							disabled={['success', 'submitting'].includes(formStatus)}
 							dataTestId={ChangeBookFormTest.noteField.id}
-							{...register('note', { required: false })}
+							inputProps={{
+								...register('note', { required: false }),
+								disabled: ['success', 'submitting'].includes(formStatus),
+								placeholder: 'It tells the story of Alice, a young girl who falls down a rabbit hole…',
+							}}
 						/>
 					</InputFieldsOverrider>
 					<FormError text={formError} dataTestId={ChangeBookFormTest.failMessage.id} />
