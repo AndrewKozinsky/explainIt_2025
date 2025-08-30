@@ -8,7 +8,6 @@ import TextInput from '../../../../../ui/formRelated/TextInput/TextInput'
 import { FormStatus } from '../../../../../utils/forms'
 import { booksLogic } from '../../../booksLogic'
 import ReadChapterButton from '../ReadChapterButton/ReadChapterButton'
-import { useFetchCurrentChapterAndSetToStore } from './fn/fetchCurrentChapter'
 import { ChangeChapterFormData, changeChapterFormSchema, ChangeChapterFormTest } from './fn/form'
 import BookFormSurface from '../../common/BookFormSurface/BookFormSurface'
 import InputFieldsOverrider from '../../common/InputFieldsOverrider/InputFieldsOverrider'
@@ -18,9 +17,7 @@ import { useSetFieldValues } from './fn/setFieldValues'
 import { useGetOnUpdateChapterFormSubmit } from './fn/submit'
 
 export default function EditChapterForm() {
-	useFetchCurrentChapterAndSetToStore()
-
-	const useGetCurrentChapter = booksLogic.useGetCurrentChapterIdFromUrl()
+	const chapter = booksLogic.useGetCurrentChapter()
 
 	const [formStatus, setFormStatus] = useState<FormStatus>('idle')
 	const [formError, setFormError] = useState<null | string>(null)
@@ -39,7 +36,7 @@ export default function EditChapterForm() {
 
 	const onSubmit = useGetOnUpdateChapterFormSubmit(setError, setFormStatus, setFormError)
 
-	if (!useGetCurrentChapter) return null
+	if (!chapter) return null
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)} data-testid={ChangeChapterFormTest.form.id}>

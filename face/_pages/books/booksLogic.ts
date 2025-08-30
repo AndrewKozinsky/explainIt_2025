@@ -1,9 +1,25 @@
 import { useParams } from 'next/navigation'
+import { useMemo } from 'react'
+import { BookChapterOutModel, useBook_GetUserBooks, useBookChapter_Get } from '../../graphql'
 import { useBooksStore } from './booksStore'
 
 export const booksLogic = {
 	useGetBooks() {
-		return useBooksStore().books
+		const { data, error, loading } = useBook_GetUserBooks()
+
+		return useMemo(
+			function () {
+				if (loading) return null
+
+				if (error || !data) {
+					useBooksStore.setState({ booksFetchError: 'Во время загрузки книг возникла ошибка' })
+					return null
+				}
+
+				return data.book_user_books
+			},
+			[data, error, loading],
+		)
 	},
 	useGetCurrentBookIdFromUrl() {
 		return useParams().bookId as string
@@ -31,7 +47,22 @@ export const booksLogic = {
 
 		return book.chapters.find((chapter) => chapter.id.toString() === currentChapterId)
 	},
-	useGetCurrentChapter() {
-		return useBooksStore.getState().chapter
+	useGetCurrentChapter(): BookChapterOutModel | null {
+		const chapterId = this.useGetCurrentChapterIdFromUrl()
+
+		const { data, error, loading } = useBookChapter_Get({ variables: { input: { id: parseInt(chapterId) } } })
+
+		return useMemo(
+			function () {
+				if (loading) return null
+
+				if (error || !data) {
+					return null
+				}
+
+				return data.book_chapter_get
+			},
+			[data, error, loading],
+		)
 	},
 }

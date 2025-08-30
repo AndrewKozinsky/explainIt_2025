@@ -214,7 +214,7 @@ export const bdConfig = {
 				type: 'string',
 				description: 'Author of the book',
 				required: false,
-				minLength: 1,
+				minLength: 0,
 				maxLength: 255,
 			},
 			name: {

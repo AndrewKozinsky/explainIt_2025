@@ -10,8 +10,8 @@ type BookLinkProps = {
 	bookId: number | string
 	chapterData: {
 		id: number
-		name: null | string
-		header: null | string
+		name?: null | string
+		header?: null | string
 	}
 }
 
