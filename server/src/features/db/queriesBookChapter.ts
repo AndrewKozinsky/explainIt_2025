@@ -13,11 +13,17 @@ export const queriesBookChapter = {
 				mutation CreateBookChapter($input: CreateBookChapterInput!) {
 				 ${RouteNames.BOOK_CHAPTER.CREATE}(input: $input) {
 					id
-					bookId
 					name
 					header
 					content
 					note
+					book {
+						id
+						name
+						author
+						note
+						userId
+					}
 			  	}
 			}
 			`,
@@ -38,11 +44,17 @@ export const queriesBookChapter = {
       mutation UpdateBookChapter($input: UpdateBookChapterInput!) {
         ${RouteNames.BOOK_CHAPTER.UPDATE}(input: $input) {
           id
-          bookId
           name
           header
           content
           note
+          book {
+			id
+			name
+			author
+			note
+			userId
+		  }
         }
       }
     `,
@@ -69,11 +81,17 @@ export const queriesBookChapter = {
       query GetBookChapter($input: GetBookChapterInput!) {
         ${RouteNames.BOOK_CHAPTER.GET}(input: $input) {
           id
-          bookId
           name
           header
           content
           note
+          book {
+			id
+			name
+			author
+			note
+			userId
+		  }
         }
       }
     `,

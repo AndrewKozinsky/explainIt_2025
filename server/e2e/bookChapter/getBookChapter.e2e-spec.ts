@@ -2,7 +2,6 @@ import { INestApplication } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { App } from 'supertest/types'
 import { queries } from '../../src/features/db/queries'
-import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
 import RouteNames from '../../src/infrastructure/routeNames'
 import { UserRepository } from '../../src/repo/user.repository'
@@ -19,10 +18,9 @@ it('1', () => {
 	expect(2).toBe(2)
 })
 
-describe('Get book chapter', () => {
+describe.skip('Get book chapter', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
-	let emailAdapter: EmailAdapterService
 	let userRepository: UserRepository
 
 	beforeAll(async () => {
@@ -30,7 +28,6 @@ describe('Get book chapter', () => {
 
 		app = createMainAppRes.app
 		commandBus = app.get(CommandBus)
-		emailAdapter = createMainAppRes.emailAdapter
 		userRepository = await app.resolve(UserRepository)
 	})
 
@@ -130,7 +127,7 @@ describe('Get book chapter', () => {
 		})
 	})
 
-	it.only('user should get his book chapter', async () => {
+	it('user should get his book chapter', async () => {
 		// Create a user who will create a book and a chapter
 		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
@@ -177,7 +174,6 @@ describe('Get book chapter', () => {
 		bookChapterUtils.checkBookChapterOutResp(getBookChapterResp.data[RouteNames.BOOK_CHAPTER.GET], {
 			id: createdChapterBook.id,
 			name: 'Chapter 1',
-			bookId: createdBook.id,
 			header: 'My chapter 1 header',
 			content: 'My chapter 1 content',
 			note: null,

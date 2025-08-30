@@ -183,10 +183,15 @@ describe.skip('Update book chapter', () => {
 		bookChapterUtils.checkBookChapterOutResp(updatedBookChapterResp.data[RouteNames.BOOK_CHAPTER.UPDATE], {
 			id: createdChapterBook.id,
 			name: 'Chapter 1',
-			bookId: createdBook.id,
 			header: 'My chapter 1 header',
 			content: 'My chapter 1 content',
 			note: null,
+			book: {
+				id: createdBook.id,
+				name: 'My Family and Other Animals',
+				author: 'Gerald Durrell',
+				note: null,
+			},
 		})
 
 		// Try to update several fields
@@ -203,13 +208,18 @@ describe.skip('Update book chapter', () => {
 		bookChapterUtils.checkBookChapterOutResp(updatedBookChapterResp.data[RouteNames.BOOK_CHAPTER.UPDATE], {
 			id: createdChapterBook.id,
 			name: 'Chapter 1',
-			bookId: createdBook.id,
 			header: 'My chapter 1 header 2',
 			content: 'My chapter 1 content',
 			note: 'My note 2',
+			book: {
+				id: createdBook.id,
+				name: 'My Family and Other Animals',
+				author: 'Gerald Durrell',
+				note: null,
+			},
 		})
 
-		// Change all book chapter fieds
+		// Change each book chapter fieds
 		updatedBookChapterResp = await bookChapterUtils.updateBookChapter({
 			app,
 			sessionToken: sessionToken,
@@ -224,10 +234,15 @@ describe.skip('Update book chapter', () => {
 		bookChapterUtils.checkBookChapterOutResp(updatedBookChapterResp.data[RouteNames.BOOK_CHAPTER.UPDATE], {
 			id: createdChapterBook.id,
 			name: 'name',
-			bookId: createdBook.id,
 			header: 'header',
 			content: 'content',
 			note: 'note',
+			book: {
+				id: createdBook.id,
+				name: 'My Family and Other Animals',
+				author: 'Gerald Durrell',
+				note: null,
+			},
 		})
 	})
 })
