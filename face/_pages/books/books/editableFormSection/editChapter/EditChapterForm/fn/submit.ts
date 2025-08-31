@@ -2,7 +2,7 @@ import { useCallback } from 'react'
 import { useBookChapter_Update } from '@/graphql'
 import { Book_GetUserBooksDocument } from '@/graphql'
 import { FormStatus, setErrorsToForm } from '@/utils/forms'
-import { booksLogic } from '../../../../booksLogic'
+import { booksFetcher } from '@/_pages/books/booksFetcher'
 import { ChangeChapterFormData } from './form'
 
 export function useGetOnUpdateChapterFormSubmit(
@@ -10,7 +10,7 @@ export function useGetOnUpdateChapterFormSubmit(
 	setFormStatus: React.Dispatch<React.SetStateAction<FormStatus>>,
 	setFormError: React.Dispatch<React.SetStateAction<string | null>>,
 ) {
-	const chapter = booksLogic.useGetCurrentChapter()
+	const chapter = booksFetcher.useGetCurrentChapter()
 	const [updateChapter] = useBookChapter_Update({ refetchQueries: [Book_GetUserBooksDocument] })
 
 	return useCallback(

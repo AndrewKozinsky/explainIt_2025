@@ -2,9 +2,9 @@ import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { CustomGraphQLError } from '../../infrastructure/exceptions/customErrors'
 import { ErrorCode } from '../../infrastructure/exceptions/errorCode'
 import { errorMessage } from '../../infrastructure/exceptions/errorMessage'
-import { BookQueryRepository } from '../../repo/book.queryRepository'
-import { BookChapterQueryRepository } from '../../repo/bookChapter.queryRepository'
-import { BookChapterRepository } from '../../repo/bookChapter.repository'
+import { BookQueryRepository } from 'src/repo/book.queryRepository'
+import { BookChapterQueryRepository } from 'src/repo/bookChapter.queryRepository'
+import { BookChapterRepository } from 'src/repo/bookChapter.repository'
 
 export type CreateBookChapterInput = {
 	bookId: number

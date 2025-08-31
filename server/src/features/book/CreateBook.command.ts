@@ -2,8 +2,8 @@ import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { CustomGraphQLError } from '../../infrastructure/exceptions/customErrors'
 import { ErrorCode } from '../../infrastructure/exceptions/errorCode'
 import { errorMessage } from '../../infrastructure/exceptions/errorMessage'
-import { BookQueryRepository } from '../../repo/book.queryRepository'
-import { BookRepository } from '../../repo/book.repository'
+import { BookQueryRepository } from 'src/repo/book.queryRepository'
+import { BookRepository } from 'src/repo/book.repository'
 
 export type CreateBookInput = {
 	author?: null | string

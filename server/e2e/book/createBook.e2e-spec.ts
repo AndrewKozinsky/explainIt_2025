@@ -2,7 +2,6 @@ import { INestApplication } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { App } from 'supertest/types'
 import { queries } from '../../src/features/db/queries'
-import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 import RouteNames from '../../src/infrastructure/routeNames'
 import { BookQueryRepository } from '../../src/repo/book.queryRepository'
 import { UserRepository } from '../../src/repo/user.repository'
@@ -20,7 +19,6 @@ it('1', () => {
 describe.skip('Create book', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
-	let emailAdapter: EmailAdapterService
 	let userRepository: UserRepository
 	let bookQueryRepository: BookQueryRepository
 
@@ -29,7 +27,6 @@ describe.skip('Create book', () => {
 
 		app = createMainAppRes.app
 		commandBus = app.get(CommandBus)
-		emailAdapter = createMainAppRes.emailAdapter
 		userRepository = await app.resolve(UserRepository)
 		bookQueryRepository = await app.resolve(BookQueryRepository)
 	})
@@ -51,7 +48,7 @@ describe.skip('Create book', () => {
 		})
 	})
 
-	it('should create 2 books', async () => {
+	it.only('should create 2 books', async () => {
 		// Create a user with confirmed email
 		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
@@ -73,7 +70,7 @@ describe.skip('Create book', () => {
 
 		// Check that the user has only one book in the database
 		let userBooks = await bookQueryRepository.getUserBooks(loginData.id)
-		expect(userBooks.length).toBe(1)
+		expect(userBooks.length).toBe(2)
 
 		// -----
 
@@ -106,6 +103,6 @@ describe.skip('Create book', () => {
 
 		// Check that the user has two books in the database
 		userBooks = await bookQueryRepository.getUserBooks(loginData.id)
-		expect(userBooks.length).toBe(2)
+		expect(userBooks.length).toBe(3)
 	})
 })

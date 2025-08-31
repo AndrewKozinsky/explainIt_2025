@@ -41,7 +41,7 @@ export const userUtils = {
 		const createdUser = await userUtils.createUserWithUnconfirmedEmail(props)
 		if (!createdUser) return
 
-		this.confirmUserEmail({ app: props.app, emailConfirmationCode: createdUser.emailConfirmationCode })
+		await this.confirmUserEmail({ app: props.app, emailConfirmationCode: createdUser.emailConfirmationCode })
 
 		return props.userRepository.getUserById(createdUser.id)
 	},

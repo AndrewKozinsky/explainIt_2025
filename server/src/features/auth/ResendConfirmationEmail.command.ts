@@ -3,7 +3,7 @@ import { EmailAdapterService } from '../../infrastructure/emailAdapter/email-ada
 import { CustomGraphQLError } from '../../infrastructure/exceptions/customErrors'
 import { ErrorCode } from '../../infrastructure/exceptions/errorCode'
 import { errorMessage } from '../../infrastructure/exceptions/errorMessage'
-import { UserRepository } from '../../repo/user.repository'
+import { UserRepository } from 'src/repo/user.repository'
 
 export class ResendConfirmationEmailCommand {
 	constructor(public readonly email: string) {}

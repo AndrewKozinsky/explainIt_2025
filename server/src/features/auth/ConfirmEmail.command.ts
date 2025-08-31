@@ -2,7 +2,7 @@ import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { CustomGraphQLError } from '../../infrastructure/exceptions/customErrors'
 import { ErrorCode } from '../../infrastructure/exceptions/errorCode'
 import { errorMessage } from '../../infrastructure/exceptions/errorMessage'
-import { UserRepository } from '../../repo/user.repository'
+import { UserRepository } from 'src/repo/user.repository'
 
 export type ConfirmEmailInput = {
 	code: string

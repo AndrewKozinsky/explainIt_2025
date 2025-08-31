@@ -1,10 +1,10 @@
 import { useCallback, useState } from 'react'
 import { Book_GetUserBooksDocument, useBookChapter_Create } from '@/graphql'
 import { NotifyArg } from '@/ui/Notification/context'
-import { booksLogic } from '../../../booksLogic'
+import { booksFetcher } from '@/_pages/books/booksFetcher'
 
 export function useGetOnAddChapterClick(notify: (data: NotifyArg) => void) {
-	const book = booksLogic.useGetCurrentBook()
+	const book = booksFetcher.useGetCurrentBook()
 
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
 	const [createChapter] = useBookChapter_Create({ refetchQueries: [Book_GetUserBooksDocument] })

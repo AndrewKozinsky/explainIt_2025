@@ -1,12 +1,12 @@
-import { useCallback, useContext, useEffect, useState } from 'react'
+import { booksFetcher } from '_pages/books/booksFetcher'
+import { useCallback, useEffect, useState } from 'react'
 import { redirect } from 'next/navigation'
-import { pageUrls } from '../../../../../../../сonsts/pageUrls'
-import { booksLogic } from '../../../../booksLogic'
+import { pageUrls } from '@/сonsts/pageUrls'
 
 export function useIsReadButtonDisabled() {
 	const [isReadButtonDisabled, setIsReadButtonDisabled] = useState(true)
 
-	const chapter = booksLogic.useGetCurrentChapter()
+	const chapter = booksFetcher.useGetCurrentChapter()
 
 	useEffect(
 		function () {
@@ -21,8 +21,8 @@ export function useIsReadButtonDisabled() {
 }
 
 export function useGetOnReadButtonClick() {
-	const bookId = booksLogic.useGetCurrentBookIdFromUrl()
-	const chapterId = booksLogic.useGetCurrentChapterIdFromUrl()
+	const bookId = booksFetcher.useGetCurrentBookIdFromUrl()
+	const chapterId = booksFetcher.useGetCurrentChapterIdFromUrl()
 
 	return useCallback(
 		function () {

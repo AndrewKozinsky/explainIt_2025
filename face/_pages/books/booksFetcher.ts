@@ -1,8 +1,8 @@
-import { useParams } from 'next/navigation'
 import { useMemo } from 'react'
-import { BookChapterOutModel, useBook_GetUserBooks, useBookChapter_Get } from '../../../graphql'
+import { BookChapterOutModel, useBook_GetUserBooks, useBookChapter_Get } from '@/graphql'
+import { useParams } from 'next/navigation'
 
-export const booksLogic = {
+export const booksFetcher = {
 	useGetBooks() {
 		const { data, error, loading } = useBook_GetUserBooks()
 

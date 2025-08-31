@@ -3,7 +3,7 @@ import { CustomGraphQLError } from '../../infrastructure/exceptions/customErrors
 import { ErrorCode } from '../../infrastructure/exceptions/errorCode'
 import { errorMessage } from '../../infrastructure/exceptions/errorMessage'
 import { UserOutModel } from '../../models/user/user.out.model'
-import { UserRepository } from '../../repo/user.repository'
+import { UserRepository } from 'src/repo/user.repository'
 import { Request } from 'express'
 import { UserQueryRepository } from 'src/repo/user.queryRepository'
 

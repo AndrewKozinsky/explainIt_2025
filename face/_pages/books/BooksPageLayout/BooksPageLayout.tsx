@@ -5,7 +5,7 @@ import React from 'react'
 import { useUserStore } from '@/stores/userStore'
 import { pageUrls } from '@/сonsts/pageUrls'
 import LoadingMessage from '../../../ui/LoadingMessage/LoadingMessage'
-import { PageWrapper } from '../../../ui/pageRelated/PageWrapper/PageWrapper'
+import { PageWrapper } from 'ui/pageRelated/PageWrapper/PageWrapper'
 
 type LLMPageLayoutProps = {
 	children: React.ReactNode

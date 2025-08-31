@@ -1,11 +1,11 @@
 import React from 'react'
 import Paragraph from '@/ui/Paragraph/Paragraph'
-import { booksLogic } from '../../booksLogic'
+import { booksFetcher } from '@/_pages/books/booksFetcher'
 import ChapterLink from '../ChapterLink/ChapterLink'
 import './ChaptersList.scss'
 
 function ChaptersList() {
-	const book = booksLogic.useGetCurrentBook()
+	const book = booksFetcher.useGetCurrentBook()
 	if (!book || !book.chapters.length) return null
 
 	return (

@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
-import { booksLogic } from '../../../../booksLogic'
+import { booksFetcher } from '@/_pages/books/booksFetcher'
 
 export function useSetFieldValues(reset: (data: any) => void) {
-	const chapter = booksLogic.useGetCurrentChapter()
+	const chapter = booksFetcher.useGetCurrentChapter()
 
 	useEffect(() => {
 		if (!chapter) return

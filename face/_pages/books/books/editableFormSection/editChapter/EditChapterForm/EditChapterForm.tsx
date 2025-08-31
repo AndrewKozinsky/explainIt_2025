@@ -6,7 +6,7 @@ import FormError from '@/ui/formRelated/FormError/FormError'
 import FormFieldsWrapper from '@/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
 import TextInput from '@/ui/formRelated/TextInput/TextInput'
 import { FormStatus } from '@/utils/forms'
-import { booksLogic } from '../../../booksLogic'
+import { booksFetcher } from '@/_pages/books/booksFetcher'
 import ReadChapterButton from '../ReadChapterButton/ReadChapterButton'
 import { ChangeChapterFormData, changeChapterFormSchema, ChangeChapterFormTest } from './fn/form'
 import BookFormSurface from '../../common/BookFormSurface/BookFormSurface'
@@ -17,7 +17,7 @@ import { useSetFieldValues } from './fn/setFieldValues'
 import { useGetOnUpdateChapterFormSubmit } from './fn/submit'
 
 export default function EditChapterForm() {
-	const chapter = booksLogic.useGetCurrentChapter()
+	const chapter = booksFetcher.useGetCurrentChapter()
 
 	const [formStatus, setFormStatus] = useState<FormStatus>('idle')
 	const [formError, setFormError] = useState<null | string>(null)

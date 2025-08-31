@@ -1,0 +1,32 @@
+@use '@/styles/mixins' as mix;
+
+.reading-root {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 3rem;
+
+	@include mix.page-width(700px) {
+		flex-direction: row;
+		gap: 3rem;
+	}
+}
+
+.reading-root__chapter {
+	flex-grow: 1;
+	display: flex;
+}
+
+.reading-root__analysis {
+	position: relative;
+
+	@include mix.page-width(700px) {
+		flex-grow: 1;
+		min-width: 250px;
+		width: 350px;
+	}
+
+	@include mix.page-width(900px) {
+		min-width: 350px;
+	}
+}

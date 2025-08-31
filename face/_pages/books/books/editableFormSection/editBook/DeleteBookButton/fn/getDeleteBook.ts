@@ -3,13 +3,13 @@ import { redirect } from 'next/navigation'
 import { Book_GetUserBooksDocument, useBook_Delete } from '@/graphql'
 import { NotificationContext } from '@/ui//Notification/context'
 import { pageUrls } from '@/сonsts/pageUrls'
-import { booksLogic } from '../../../../booksLogic'
+import { booksFetcher } from '@/_pages/books/booksFetcher'
 
 export function useGetDeleteBook() {
 	const { notify } = useContext(NotificationContext)
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
 
-	const book = booksLogic.useGetCurrentBook()
+	const book = booksFetcher.useGetCurrentBook()
 	const [deleteBook] = useBook_Delete({ refetchQueries: [Book_GetUserBooksDocument] })
 
 	const onDeleteBookClick = useCallback(

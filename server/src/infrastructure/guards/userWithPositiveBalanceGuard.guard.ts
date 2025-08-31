@@ -1,6 +1,6 @@
 import { Injectable, CanActivate, ExecutionContext } from '@nestjs/common'
 import { GqlExecutionContext } from '@nestjs/graphql'
-import { UserRepository } from '../../repo/user.repository'
+import { UserRepository } from 'src/repo/user.repository'
 import { CustomGraphQLError } from '../exceptions/customErrors'
 import { ErrorCode } from '../exceptions/errorCode'
 import { errorMessage } from '../exceptions/errorMessage'

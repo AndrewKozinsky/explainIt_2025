@@ -3,8 +3,8 @@ import { CustomGraphQLError } from '../../infrastructure/exceptions/customErrors
 import { ErrorCode } from '../../infrastructure/exceptions/errorCode'
 import { errorMessage } from '../../infrastructure/exceptions/errorMessage'
 import { DBRepository } from 'src/repo/db.repository'
-import { PaymentRepository } from '../../repo/payment.repository'
-import { BalanceTransactionRepository } from '../../repo/balanceTransaction.repository'
+import { PaymentRepository } from 'src/repo/payment.repository'
+import { BalanceTransactionRepository } from 'src/repo/balanceTransaction.repository'
 import { BalanceTransactionType } from '.prisma/client'
 
 export class SetPaymentResultWithYooKassaCommand implements ICommand {

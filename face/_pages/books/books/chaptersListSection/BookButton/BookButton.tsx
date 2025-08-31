@@ -2,16 +2,16 @@ import cn from 'classnames'
 import React from 'react'
 import Paragraph from '@/ui/Paragraph/Paragraph'
 import { pageUrls } from '@/сonsts/pageUrls'
-import { booksLogic } from '../../booksLogic'
 import { bookConfig } from '../../common/bookConfig'
 import ContentLinkWrapper from '../../common/ContentLinkWrapper/ContentLinkWrapper'
 import { useGetIsBookPage } from './fn/isBookPage'
+import { booksFetcher } from '@/_pages/books/booksFetcher'
 import './BookButton.scss'
 
 function BookButton() {
-	const currentBookId = booksLogic.useGetCurrentBookIdFromUrl()
+	const currentBookId = booksFetcher.useGetCurrentBookIdFromUrl()
 	const isBookPage = useGetIsBookPage(currentBookId)
-	const book = booksLogic.useGetCurrentBook()
+	const book = booksFetcher.useGetCurrentBook()
 
 	if (!book) return null
 
