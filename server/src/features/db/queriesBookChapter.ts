@@ -1,4 +1,4 @@
-import RouteNames from '../../infrastructure/routeNames'
+import RouteNames from 'infrastructure/routeNames'
 
 export const queriesBookChapter = {
 	create(dto: {

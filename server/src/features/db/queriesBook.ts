@@ -1,5 +1,4 @@
-import RouteNames from '../../infrastructure/routeNames'
-import { OAuthProviderType } from '../../routes/auth/inputs/loginWithOAuth.input'
+import RouteNames from 'infrastructure/routeNames'
 
 export const queriesBook = {
 	create(dto: { author?: null | string; name?: null | string; note?: null | string }) {

@@ -146,4 +146,19 @@ export const bookUtils = {
 
 		return getUserBooksResp
 	},
+
+	checkForDefaultBook(props: { book: any; userId: number }) {
+		const { book, userId } = props
+
+		bookUtils.checkBookOutResp(book, {
+			author: 'Lewis Carroll',
+			name: 'Alice in Wonderland',
+			note: 'It tells the story of Alice, a young girl who falls down a rabbit hole…',
+			userId,
+			chapters: [
+				{ name: 'Chapter 1', header: 'Down the Rabbit-Hole', note: null },
+				{ name: 'Chapter 2', header: 'THE POOL OF TEARS', note: null },
+			],
+		})
+	},
 }

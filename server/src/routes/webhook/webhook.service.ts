@@ -4,7 +4,7 @@ import { z } from 'zod'
 import { SetPaymentResultWithYooKassaCommand } from '../../features/payment/SetPaymentResultWithYooKassa.command'
 import { Request } from 'express'
 import * as ipaddr from 'ipaddr.js'
-import { MainConfigService } from '../../infrastructure/mainConfig/mainConfig.service'
+import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 
 @Injectable()
 export class WebhookService {

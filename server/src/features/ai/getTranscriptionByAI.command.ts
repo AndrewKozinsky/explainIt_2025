@@ -1,5 +1,5 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { GigaChatService } from '../../infrastructure/gigaChat/gigaChat.service'
+import { GigaChatService } from 'infrastructure/gigaChat/gigaChat.service'
 
 type GetTranscriptionInput = {
 	engSentence: string

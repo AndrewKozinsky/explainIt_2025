@@ -1,5 +1,4 @@
-import RouteNames from '../../infrastructure/routeNames'
-import { OAuthProviderType } from '../../routes/auth/inputs/loginWithOAuth.input'
+import RouteNames from 'infrastructure/routeNames'
 
 export const queriesPayment = {
 	topUpBalanceWithYooKassa(amount: number) {

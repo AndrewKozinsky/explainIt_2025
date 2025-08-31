@@ -89,14 +89,5 @@ async function getUserBooksAndCheckForDefaultBook(props: {
 	const userBooksResp = await bookUtils.getUserBooks(props)
 	let userBooks = userBooksResp.data[RouteNames.BOOK.GET_USER_BOOKS]
 
-	bookUtils.checkBookOutResp(userBooks[0], {
-		author: 'Lewis Carroll',
-		name: 'Alice in Wonderland',
-		note: 'It tells the story of Alice, a young girl who falls down a rabbit hole…',
-		userId: props.userId,
-		chapters: [
-			{ name: 'Chapter 1', header: 'Down the Rabbit-Hole', note: null },
-			{ name: 'Chapter 2', header: 'THE POOL OF TEARS', note: null },
-		],
-	})
+	bookUtils.checkForDefaultBook({ book: userBooks[0], userId: props.userId })
 }

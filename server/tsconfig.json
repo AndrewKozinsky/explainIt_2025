@@ -20,6 +20,8 @@
         "noFallthroughCasesInSwitch": false,
         "paths": {
 			"src/*": ["src/*"],
+			"infrastructure/*": ["src/infrastructure/*"],
+			"features/*": ["src/features/*"],
 		},
 
         "inlineSources": true,

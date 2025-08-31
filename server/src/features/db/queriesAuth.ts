@@ -1,4 +1,4 @@
-import RouteNames from '../../infrastructure/routeNames'
+import RouteNames from 'infrastructure/routeNames'
 import { OAuthProviderType } from '../../routes/auth/inputs/loginWithOAuth.input'
 
 export const queriesAuth = {

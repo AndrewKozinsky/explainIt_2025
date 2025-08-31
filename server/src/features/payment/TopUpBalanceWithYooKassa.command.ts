@@ -1,5 +1,5 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { YooKassaService } from '../../infrastructure/yooKassa/yooKassa.service'
+import { YooKassaService } from 'infrastructure/yooKassa/yooKassa.service'
 import { PaymentRepository } from 'src/repo/payment.repository'
 
 type TopUpBalanceWithYooKassaInput = {

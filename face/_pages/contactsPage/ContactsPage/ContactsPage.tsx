@@ -1,7 +1,7 @@
 import React from 'react'
-import Header from '../../../ui/Header/Header'
+import Header from 'ui/Header/Header'
+import { PageContentWrapper } from 'ui/pageRelated/PageContentWrapper/PageContentWrapper'
 import { BreadCrumbs } from '@/ui/pageRelated/BreadCrumbs/BreadCrumbs'
-import { PageContentWrapper } from '@/ui/pageRelated/PageContentWrapper/PageContentWrapper'
 import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'
 
 /** Страница контактов */

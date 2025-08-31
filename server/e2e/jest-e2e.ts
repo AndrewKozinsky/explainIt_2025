@@ -18,6 +18,8 @@ const config: Config = {
 	transformIgnorePatterns: ['/node_modules/'],
 	moduleNameMapper: {
 		'^src/(.*)$': '<rootDir>/../src/$1',
+		'^infrastructure/(.*)$': '<rootDir>/../src/infrastructure/$1',
+		'^features/(.*)$': '<rootDir>/../src/features/$1',
 	},
 	// Configure ts-jest to use Node.js environment
 	preset: 'ts-jest',

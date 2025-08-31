@@ -1,9 +1,9 @@
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs'
 import { Request, Response } from 'express'
-import { CustomGraphQLError } from '../../infrastructure/exceptions/customErrors'
-import { ErrorCode } from '../../infrastructure/exceptions/errorCode'
-import { errorMessage } from '../../infrastructure/exceptions/errorMessage'
-import { MainConfigService } from '../../infrastructure/mainConfig/mainConfig.service'
+import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+import { ErrorCode } from 'infrastructure/exceptions/errorCode'
+import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 
 export class LogoutCommand {
 	constructor(

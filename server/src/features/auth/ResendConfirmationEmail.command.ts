@@ -1,8 +1,8 @@
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs'
-import { EmailAdapterService } from '../../infrastructure/emailAdapter/email-adapter.service'
-import { CustomGraphQLError } from '../../infrastructure/exceptions/customErrors'
-import { ErrorCode } from '../../infrastructure/exceptions/errorCode'
-import { errorMessage } from '../../infrastructure/exceptions/errorMessage'
+import { EmailAdapterService } from 'infrastructure/emailAdapter/email-adapter.service'
+import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+import { ErrorCode } from 'infrastructure/exceptions/errorCode'
+import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { UserRepository } from 'src/repo/user.repository'
 
 export class ResendConfirmationEmailCommand {

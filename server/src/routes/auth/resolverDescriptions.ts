@@ -1,5 +1,4 @@
-import e from 'express'
-import { errorMessage } from '../../infrastructure/exceptions/errorMessage'
+import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { AuthResolver } from './auth.resolver'
 
 export const authResolversDesc: Record<keyof typeof AuthResolver.prototype, string> = {
