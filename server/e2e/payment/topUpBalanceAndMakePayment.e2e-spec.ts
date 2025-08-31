@@ -6,7 +6,7 @@ import { MainConfigService } from '../../src/infrastructure/mainConfig/mainConfi
 import { YooKassaService } from '../../src/infrastructure/yooKassa/yooKassa.service'
 import { PaymentRepository } from '../../src/repo/payment.repository'
 import { UserRepository } from '../../src/repo/user.repository'
-import { defUserEmail, defUserPassword, welcomeBonus } from '../utils/common'
+import { welcomeBonusInRUR } from '../utils/common'
 import { createApp } from '../utils/createApp'
 import { paymentUtils } from '../utils/paymentUtils'
 import { userUtils } from '../utils/userUtils'
@@ -47,7 +47,7 @@ describe.skip('Top up balance with YooKassa (e2e)', () => {
 
 	it('two users make payments successfully', async () => {
 		let firstUserCalculatedBalance = 0
-		let secondUserCalculatedBalance = welcomeBonus
+		let secondUserCalculatedBalance = welcomeBonusInRUR
 
 		// Create 2 users
 		const { loginData: userFirstLoginData, sessionToken: userFirstSessionToken } =

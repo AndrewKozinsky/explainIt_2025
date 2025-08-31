@@ -2,10 +2,9 @@ import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { CustomGraphQLError } from '../../infrastructure/exceptions/customErrors'
 import { ErrorCode } from '../../infrastructure/exceptions/errorCode'
 import { errorMessage } from '../../infrastructure/exceptions/errorMessage'
-import { DBRepository } from '../../repo/db.repository'
+import { DBRepository } from 'src/repo/db.repository'
 import { PaymentRepository } from '../../repo/payment.repository'
 import { BalanceTransactionRepository } from '../../repo/balanceTransaction.repository'
-import { UserRepository } from '../../repo/user.repository'
 import { BalanceTransactionType } from '.prisma/client'
 
 export class SetPaymentResultWithYooKassaCommand implements ICommand {

@@ -27,7 +27,6 @@ export const userUtils = {
 		const [createUserResp] = await makeGraphQLReq(props.app, createUserMutation)
 
 		const routeName = RouteNames.AUTH.REGISTER
-		// console.log(createUserResp.errors[0].extensions.validationErrors)
 		const userId = createUserResp.data[routeName].id
 
 		return props.userRepository.getUserById(userId)
@@ -42,13 +41,15 @@ export const userUtils = {
 		const createdUser = await userUtils.createUserWithUnconfirmedEmail(props)
 		if (!createdUser) return
 
-		const { emailConfirmationCode } = createdUser
-
-		const confirmEmailQuery = queries.auth.confirmEmail(emailConfirmationCode!)
-
-		const [confirmEmailResp] = await makeGraphQLReq(props.app, confirmEmailQuery)
+		this.confirmUserEmail({ app: props.app, emailConfirmationCode: createdUser.emailConfirmationCode })
 
 		return props.userRepository.getUserById(createdUser.id)
+	},
+
+	async confirmUserEmail(props: { app: INestApplication; emailConfirmationCode: string }) {
+		const confirmEmailQuery = queries.auth.confirmEmail(props.emailConfirmationCode!)
+
+		const [confirmEmailResp] = await makeGraphQLReq(props.app, confirmEmailQuery)
 	},
 
 	async createUserWithEmailAndPasswordAndLogin(props: {
@@ -67,14 +68,14 @@ export const userUtils = {
 			password,
 		})
 
-		return userUtils.loginUser({
+		return userUtils.loginUserSuccessfully({
 			app: props.app,
 			email,
 			password,
 		})
 	},
 
-	async loginUser(props: { app: INestApplication; email: string; password: string }) {
+	async loginUserSuccessfully(props: { app: INestApplication; email: string; password: string }) {
 		const loginQuery = queries.auth.login({ email: props.email, password: props.password })
 		const [loginResp, loginRespCookies] = await makeGraphQLReq(props.app, loginQuery)
 

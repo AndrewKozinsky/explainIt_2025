@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { BalanceTransaction, BalanceTransactionType } from '@prisma/client'
+import { DBRepository } from 'src/repo/db.repository'
 import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 import { CustomGraphQLError } from '../infrastructure/exceptions/customErrors'
@@ -20,6 +21,7 @@ export class BalanceTransactionRepository {
 	constructor(
 		private prisma: PrismaService,
 		private userRepository: UserRepository,
+		private dbRepository: DBRepository,
 	) {}
 
 	@CatchDbError()
@@ -28,22 +30,30 @@ export class BalanceTransactionRepository {
 			throw new CustomGraphQLError('Payment ID is required for payment transactions', ErrorCode.BadRequest_400)
 		}
 
-		const createdTransaction = await this.prisma.balanceTransaction.create({
-			data: {
-				amount: dto.amount,
-				user_id: dto.userId,
-				type: dto.type,
-				...(dto.type === BalanceTransactionType.PAYMENT && { payment_id: dto.paymentId }),
-			},
-		})
+		try {
+			await this.dbRepository.wrapIntoPrismaTransaction({
+				executableCode: async () => {
+					const createdTransaction = await this.prisma.balanceTransaction.create({
+						data: {
+							amount: dto.amount,
+							user_id: dto.userId,
+							type: dto.type,
+							...(dto.type === BalanceTransactionType.PAYMENT && { payment_id: dto.paymentId }),
+						},
+					})
 
-		if (!createdTransaction) {
-			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
+					if (!createdTransaction) {
+						throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
+					}
+
+					await this.userRepository.updateBalance(dto.userId, dto.amount)
+
+					return this.mapDbTransactionToServiceTransaction(createdTransaction)
+				},
+			})
+		} catch (error) {
+			throw new CustomGraphQLError(errorMessage.unknownError, ErrorCode.InternalServerError_500)
 		}
-
-		await this.userRepository.updateBalance(dto.userId, dto.amount)
-
-		return this.mapDbTransactionToServiceTransaction(createdTransaction)
 	}
 	@CatchDbError()
 	async getTransactionByUserIdAndType(userId: number, transactionType: BalanceTransactionType) {

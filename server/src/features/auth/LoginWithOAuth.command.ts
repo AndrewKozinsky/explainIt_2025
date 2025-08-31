@@ -1,5 +1,7 @@
-import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import axios from 'axios'
+import { CreateBookCommand } from 'src/features/book/CreateBook.command'
+import { CreateDefaultBookCommand } from 'src/features/book/CreateDefaultBook.command'
 import { CustomGraphQLError } from '../../infrastructure/exceptions/customErrors'
 import { ErrorCode } from '../../infrastructure/exceptions/errorCode'
 import { errorMessage } from '../../infrastructure/exceptions/errorMessage'
@@ -43,6 +45,7 @@ export class LoginWithOAuthHandler implements ICommandHandler<LoginWithOAuthComm
 		private userQueryRepository: UserQueryRepository,
 		private mainConfigService: MainConfigService,
 		private balanceTransactionRepository: BalanceTransactionRepository,
+		private commandBus: CommandBus,
 	) {}
 
 	async execute(command: LoginWithOAuthCommand) {
@@ -62,6 +65,7 @@ export class LoginWithOAuthHandler implements ICommandHandler<LoginWithOAuthComm
 
 			userId = createdUser.id
 			await this.addWelcomeBonus(userId)
+			this.createDefaultBook(userId)
 		} else {
 			userId = user.id
 
@@ -269,6 +273,10 @@ export class LoginWithOAuthHandler implements ICommandHandler<LoginWithOAuthComm
 		} catch (error) {
 			throw new CustomGraphQLError(errorMessage.unknownError, ErrorCode.InternalServerError_500)
 		}
+	}
+
+	async createDefaultBook(userId: number) {
+		await this.commandBus.execute(new CreateDefaultBookCommand(userId))
 	}
 
 	async saveSession(req: Request, user: UserOutModel, clientIP: string, clientName: string) {

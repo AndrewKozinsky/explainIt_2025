@@ -6,7 +6,7 @@ import { BookQueryRepository } from '../../repo/book.queryRepository'
 import { BookChapterQueryRepository } from '../../repo/bookChapter.queryRepository'
 import { BookChapterRepository } from '../../repo/bookChapter.repository'
 
-type CreateBookChapterInput = {
+export type CreateBookChapterInput = {
 	bookId: number
 	name?: null | string
 	header?: null | string

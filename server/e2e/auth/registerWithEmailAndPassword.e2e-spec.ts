@@ -8,7 +8,7 @@ import { UserRepository } from '../../src/repo/user.repository'
 import { makeGraphQLReq } from '../makeGQReq'
 import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
 import { checkErrorResponse } from '../utils/checkErrorResp'
-import { defUserEmail, defUserPassword, welcomeBonus } from '../utils/common'
+import { defUserEmail, defUserPassword, welcomeBonusInRUR } from '../utils/common'
 import { createApp } from '../utils/createApp'
 import { queries } from '../../src/features/db/queries'
 import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
@@ -141,7 +141,7 @@ describe.skip('Register user (e2e)', () => {
 			confirmationCodeExpirationDate: null,
 			isEmailConfirmed: false,
 			isUserConfirmed: true,
-			balance: welcomeBonus,
+			balance: welcomeBonusInRUR,
 		})
 
 		// Make a try to register a user with the same email
@@ -152,7 +152,7 @@ describe.skip('Register user (e2e)', () => {
 		userUtils.checkUserOutResp(registeredUserResp.data[RouteNames.AUTH.REGISTER], {
 			email: defUserEmail,
 			isUserConfirmed: true,
-			balance: welcomeBonus,
+			balance: welcomeBonusInRUR,
 		})
 
 		// Check that the data was saved correctly in the database
@@ -164,7 +164,7 @@ describe.skip('Register user (e2e)', () => {
 			confirmationCodeExpirationDate: 'some date',
 			isEmailConfirmed: false,
 			isUserConfirmed: true,
-			balance: welcomeBonus,
+			balance: welcomeBonusInRUR,
 		})
 	})
 })

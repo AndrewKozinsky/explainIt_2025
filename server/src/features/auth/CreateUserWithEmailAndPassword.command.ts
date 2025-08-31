@@ -1,4 +1,5 @@
-import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+import { CreateDefaultBookCommand } from 'src/features/book/CreateDefaultBook.command'
 import { EmailAdapterService } from '../../infrastructure/emailAdapter/email-adapter.service'
 import { UserQueryRepository } from '../../repo/user.queryRepository'
 import { UserRepository } from '../../repo/user.repository'
@@ -21,6 +22,7 @@ export class CreateUserWithEmailAndPasswordHandler implements ICommandHandler<Cr
 		private userRepository: UserRepository,
 		private userQueryRepository: UserQueryRepository,
 		private emailAdapter: EmailAdapterService,
+		private commandBus: CommandBus,
 	) {}
 
 	async execute(command: CreateUserWithEmailAndPasswordCommand) {
@@ -58,8 +60,14 @@ export class CreateUserWithEmailAndPasswordHandler implements ICommandHandler<Cr
 			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
 		}
 
-		await this.emailAdapter.sendEmailConfirmationMessage(createdUser.email, createdUser.emailConfirmationCode!)
+		this.createDefaultBook(newUser.id)
+
+		this.emailAdapter.sendEmailConfirmationMessage(createdUser.email, createdUser.emailConfirmationCode!)
 
 		return newUser
+	}
+
+	async createDefaultBook(userId: number) {
+		await this.commandBus.execute(new CreateDefaultBookCommand(userId))
 	}
 }

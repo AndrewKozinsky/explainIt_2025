@@ -7,7 +7,7 @@ import RouteNames from '../../src/infrastructure/routeNames'
 import { UserRepository } from '../../src/repo/user.repository'
 import { makeGraphQLReq } from '../makeGQReq'
 import { checkErrorResponse } from '../utils/checkErrorResp'
-import { defUserEmail, welcomeBonus } from '../utils/common'
+import { defUserEmail, welcomeBonusInRUR } from '../utils/common'
 import { createApp } from '../utils/createApp'
 import { queries } from '../../src/features/db/queries'
 import { userUtils } from '../utils/userUtils'
@@ -169,7 +169,7 @@ describe.skip('Confirm an user email (e2e)', () => {
 			confirmationCodeExpirationDate: null,
 			isEmailConfirmed: true,
 			isUserConfirmed: true,
-			balance: welcomeBonus,
+			balance: welcomeBonusInRUR,
 		})
 	})
 
