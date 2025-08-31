@@ -65,7 +65,7 @@ export class LoginWithOAuthHandler implements ICommandHandler<LoginWithOAuthComm
 
 			userId = createdUser.id
 			await this.addWelcomeBonus(userId)
-			this.createDefaultBook(userId)
+			await this.createDefaultBook(userId)
 		} else {
 			userId = user.id
 

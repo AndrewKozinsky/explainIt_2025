@@ -69,7 +69,7 @@ export type UsersConfig = Record<string, UserConfig>
 
 const usersConfig = {
 	// A user with unconfirmed email
-	/*user_1: {
+	user_1: {
 		type: 'userWithUnconfirmedEmail',
 		id: null,
 		email: 'user-1@email.com',
@@ -80,13 +80,13 @@ const usersConfig = {
 		id: null,
 		email: 'user-2@email.com',
 		password: 'password-2',
-	},*/
+	},
 	user_3: {
 		type: 'userRegisteredWithOAuth',
 		id: null,
 		email: 'user-3@email.com',
 	},
-	/*user_4: {
+	user_4: {
 		type: 'userRegisteredWithCredentialsAndOAuth',
 		id: null,
 		email: 'user-4@email.com',
@@ -143,5 +143,5 @@ const usersConfig = {
 				],
 			},
 		],
-	},*/
+	},
 } satisfies UsersConfig

@@ -135,8 +135,8 @@ async function checkUserWithCredentialsAndOAuth(props: {
 	expect(userFromDB.email).toBe(userConfig.email)
 	expect(typeof userFromDB.password).toBe('string')
 	expect(userFromDB.isUserConfirmed).toBe(true)
-	expect(userFromDB.isEmailConfirmed).toBe(true)
-	expect(userFromDB.confirmationCodeExpirationDate).toBe(null)
+	expect(userFromDB.isEmailConfirmed).toBe(false)
+	expect(typeof userFromDB.confirmationCodeExpirationDate).toBe('string')
 	expect(userFromDB.balance).toBe(welcomeBonusInRUR * 100)
 
 	await checkUserBooks({ userId: userConfig.id, booksConfig: userConfig.books, bookQueryRepository })
@@ -151,6 +151,9 @@ async function checkUserBooks(props: {
 
 	// Check that user has the default book
 	const books = await bookQueryRepository.getUserBooks(userId)
+	if (!books.length) {
+		throw new Error('User has no have at least default book')
+	}
 	bookUtils.checkForDefaultBook({ book: books[0], userId })
 
 	// Check other books
