@@ -1,5 +1,6 @@
 import { CommandBus, CommandHandler, ICommandHandler } from '@nestjs/cqrs'
 import { CreateBookCommand } from 'src/features/book/CreateBook.command'
+import { CreateBookChapterCommand } from 'src/features/bookChapter/CreateBookChapter.command'
 import { UserRepository } from 'src/repo/user.repository'
 import { OAuthProviderType } from '../../routes/auth/inputs/loginWithOAuth.input'
 import { ConfirmEmailCommand } from '../auth/ConfirmEmail.command'
@@ -50,7 +51,6 @@ export class SeedTestDataHandler implements ICommandHandler<SeedTestDataCommand>
 				createdUserId = await this.createUserWithOAuth(userConfig)
 			}
 			if (userConfig.type === 'userRegisteredWithCredentialsAndOAuth') {
-				// createdUserId = 1
 				createdUserId = await this.createUserWithCredentialsAndOAuth(userConfig)
 			}
 
@@ -134,7 +134,9 @@ export class SeedTestDataHandler implements ICommandHandler<SeedTestDataCommand>
 			if (!bookConfig.chapters) return
 
 			for (const chapterConfig of bookConfig.chapters) {
-				const createdChapter = await this.commandBus.execute(new CreateBookCommand(userId, bookConfig))
+				const createdChapter = await this.commandBus.execute(
+					new CreateBookChapterCommand(userId, { bookId: 1, ...chapterConfig }),
+				)
 				chapterConfig.id = createdChapter.id
 			}
 		}

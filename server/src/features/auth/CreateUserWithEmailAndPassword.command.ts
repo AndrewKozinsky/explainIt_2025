@@ -60,7 +60,7 @@ export class CreateUserWithEmailAndPasswordHandler implements ICommandHandler<Cr
 			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
 		}
 
-		this.createDefaultBook(newUser.id)
+		await this.createDefaultBook(newUser.id)
 
 		this.emailAdapter.sendEmailConfirmationMessage(createdUser.email, createdUser.emailConfirmationCode!)
 

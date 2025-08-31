@@ -3,11 +3,11 @@ import { CommandBus } from '@nestjs/cqrs'
 import { welcomeBonusInRUR } from '../utils/common'
 import { bookUtils } from '../../e2e/utils/bookUtils'
 import { BookQueryRepository } from '../../src/repo/book.queryRepository'
-import { BookRepository } from '../../src/repo/book.repository'
 import { UserRepository } from '../../src/repo/user.repository'
 import {
 	serverTestDataConfig,
 	UserBookConfig,
+	UserRegisteredWithCredentialsAndOAuthConfig,
 	UserRegisteredWithCredentialsConfig,
 	UserRegisteredWithOAuthConfig,
 	UserWithUnconfirmedEmailConfig,
@@ -20,7 +20,6 @@ describe('Check that test user were created correctly (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let userRepository: UserRepository
-	let bookRepository: BookRepository
 	let bookQueryRepository: BookQueryRepository
 
 	beforeAll(async () => {
@@ -29,7 +28,6 @@ describe('Check that test user were created correctly (e2e)', () => {
 		app = createMainAppRes.app
 		commandBus = app.get(CommandBus)
 		userRepository = await app.resolve(UserRepository)
-		bookRepository = await app.resolve(BookRepository)
 		bookQueryRepository = await app.resolve(BookQueryRepository)
 	})
 
@@ -54,15 +52,11 @@ describe('Check that test user were created correctly (e2e)', () => {
 				await checkUserWithConfirmedEmail({ userConfig, userRepository, bookQueryRepository })
 			}
 			if (userConfig.type === 'userRegisteredWithOAuth') {
-				// await checkUserWithOAuth({ userConfig, userRepository, bookQueryRepository })
+				await checkUserWithOAuth({ userConfig, userRepository, bookQueryRepository })
 			}
 			if (userConfig.type === 'userRegisteredWithCredentialsAndOAuth') {
-				// await checkUserWithCredentialsAndOAuth({ userConfig, userRepository })
+				await checkUserWithCredentialsAndOAuth({ userConfig, userRepository, bookQueryRepository })
 			}
-
-			/*if (userConfig.books) {
-				await this.createUserBooks(createdUserId, userConfig.books)
-			}*/
 		}
 	})
 })
@@ -129,6 +123,25 @@ async function checkUserWithOAuth(props: {
 	await checkUserBooks({ userId: userConfig.id, booksConfig: userConfig.books, bookQueryRepository })
 }
 
+async function checkUserWithCredentialsAndOAuth(props: {
+	userConfig: UserRegisteredWithCredentialsAndOAuthConfig
+	userRepository: UserRepository
+	bookQueryRepository: BookQueryRepository
+}) {
+	const { userConfig, userRepository, bookQueryRepository } = props
+
+	const userFromDB = await userRepository.getUserByEmail(userConfig.email)
+
+	expect(userFromDB.email).toBe(userConfig.email)
+	expect(typeof userFromDB.password).toBe('string')
+	expect(userFromDB.isUserConfirmed).toBe(true)
+	expect(userFromDB.isEmailConfirmed).toBe(true)
+	expect(userFromDB.confirmationCodeExpirationDate).toBe(null)
+	expect(userFromDB.balance).toBe(welcomeBonusInRUR * 100)
+
+	await checkUserBooks({ userId: userConfig.id, booksConfig: userConfig.books, bookQueryRepository })
+}
+
 async function checkUserBooks(props: {
 	userId: number
 	booksConfig?: UserBookConfig[]
@@ -138,11 +151,12 @@ async function checkUserBooks(props: {
 
 	// Check that user has the default book
 	const books = await bookQueryRepository.getUserBooks(userId)
-	console.log(books)
 	bookUtils.checkForDefaultBook({ book: books[0], userId })
 
 	// Check other books
-	if (booksConfig.length) {
-		// expect(books.length).toBe(books.length + 1)
+	if (booksConfig?.length) {
+		expect(books.length).toBe(booksConfig.length + 1)
+	} else {
+		expect(books.length).toBe(1)
 	}
 }
