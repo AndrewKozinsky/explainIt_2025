@@ -1,3 +1,4 @@
+import { BooksTest } from '_pages/books/books/booksTest'
 import React from 'react'
 import Paragraph from '@/ui/Paragraph/Paragraph'
 import { pageUrls } from '@/сonsts/pageUrls'
@@ -20,7 +21,11 @@ function BookLink(props: BookLinkProps) {
 	const isPageCurrent = useGetIsPageCurrent(id)
 
 	return (
-		<ContentLinkWrapper href={pageUrls.books.book(id).path} isCurrent={isPageCurrent}>
+		<ContentLinkWrapper
+			href={pageUrls.books.book(id).path}
+			isCurrent={isPageCurrent}
+			dataTestId={BooksTest.bookLink}
+		>
 			<div className='book-link'>
 				{author && (
 					<Paragraph fontSize='14' extraClass='book-link__author'>

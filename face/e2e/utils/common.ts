@@ -1,6 +1,6 @@
 import { Locator, Page } from '@playwright/test'
 import { LoginFormTest } from '../../_pages/auth/authLogin/AuthLoginForm/fn/form'
-import { serverTestDataConfig } from './serverTestDataConfig'
+import { serverTestDataConfig, UserRegisteredWithCredentialsConfig } from './serverTestDataConfig'
 import testPagesUrls from './testPagesUrls'
 
 export const consts = {
@@ -19,11 +19,16 @@ export function getTextInputElems($parentElem: Locator, rootDataTextId: string) 
 	}
 }
 
-export async function loginUser(page: Page) {
+/**
+ *
+ * @param page
+ * @param userConfig — user config from serverTestDataConfig.ts (serverTestDataConfig.getUsersConfig().user_2)
+ */
+export async function loginUser(page: Page, userConfig?: UserRegisteredWithCredentialsConfig) {
 	// Move to the Login page
 	await page.goto(testPagesUrls.authLogin)
 
-	const user = serverTestDataConfig.getUsersConfig().user_2
+	const user = userConfig ? userConfig : serverTestDataConfig.getUsersConfig().user_2
 	if (user.type !== 'userRegisteredWithCredentials') return
 
 	const $form = page.getByTestId(LoginFormTest.form.id)

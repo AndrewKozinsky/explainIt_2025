@@ -1,3 +1,4 @@
+import { BooksTest } from '_pages/books/books/booksTest'
 import React from 'react'
 import Button from '@/ui/formRelated/buttons/Button/Button'
 import { publicFolderFilesUrls } from '@/utils/publicFolderFilesUrls'
@@ -11,6 +12,7 @@ function AddBookButton() {
 			icon={publicFolderFilesUrls.icons.plusButtonIcon}
 			onClick={onAddBookClick}
 			loading={status === 'loading'}
+			dataTestId={BooksTest.addBookButton}
 		>
 			книгу
 		</Button>

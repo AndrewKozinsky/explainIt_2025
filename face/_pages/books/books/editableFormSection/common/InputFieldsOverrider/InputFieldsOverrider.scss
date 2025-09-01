@@ -16,14 +16,15 @@
 		padding: 0;
 		border: none;
 		border-bottom: 1px solid vars.$grayColor-1;
-		transition: border-color ease-in-out .15s;
+		transition: border-color ease-in-out .25s;
 
 		&:hover {
 			border-bottom-color: vars.$grayColor-2;
 		}
 
 		&:focus {
-			border-bottom-color: vars.$grayColor-3;
+			outline: none;
+			border-bottom-color: vars.$linkColor-2;
 		}
 	}
 }

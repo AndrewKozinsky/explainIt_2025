@@ -14,6 +14,7 @@ export type UserWithUnconfirmedEmailConfig = {
 	books?: UserBookConfig[]
 }
 
+// User with confirmed email
 export type UserRegisteredWithCredentialsConfig = {
 	type: 'userRegisteredWithCredentials'
 	// Initially user id is null.
@@ -100,16 +101,9 @@ const usersConfig = {
 		books: [
 			{
 				id: null,
-				author: 'Book 1 author',
-				note: 'Book 1 note',
-				name: 'Book 1 name',
 				chapters: [
 					{
 						id: null,
-						name: 'Book 1, Chapter 1',
-						header: 'Book 1, Chapter 1 header',
-						content: 'Book 1, Chapter 1 content',
-						note: 'Book 1, Chapter 1 note',
 					},
 				],
 			},

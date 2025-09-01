@@ -1,6 +1,8 @@
 import { useCallback, useContext, useState } from 'react'
 import { Book_GetUserBooksDocument, useBook_Create } from '@/graphql'
 import { NotificationContext } from '@/ui/Notification/context'
+import { pageUrls } from 'сonsts/pageUrls'
+import { redirect } from 'next/navigation'
 
 export function useGetOnAddBookClick() {
 	const { notify } = useContext(NotificationContext)
@@ -12,7 +14,7 @@ export function useGetOnAddBookClick() {
 		async function () {
 			setStatus('loading')
 
-			const { errors } = await createBook({
+			const { errors, data } = await createBook({
 				variables: { input: { author: null, name: null, note: null } },
 			})
 
@@ -21,6 +23,16 @@ export function useGetOnAddBookClick() {
 			}
 
 			setStatus('idle')
+
+			console.log(data)
+			const bookId = data?.book_create.id
+			if (!bookId) {
+				notify({ type: 'error', message: 'Не удалось создать книгу.' })
+				return
+			}
+
+			// Open a page with created book
+			redirect(pageUrls.books.book(bookId).path)
 		},
 		[createBook, notify],
 	)
