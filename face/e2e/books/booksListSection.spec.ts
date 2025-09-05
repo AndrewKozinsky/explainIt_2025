@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test'
 import { BooksTest } from '_pages/books/books/booksTest'
 import { serverTestDataConfig, UserRegisteredWithCredentialsConfig } from 'e2e/utils/serverTestDataConfig'
 import { pageUrls } from 'сonsts/pageUrls'
-import { loginUser } from '../utils/common'
+import { getElementsStartsWithDataTestId, loginUser } from '../utils/common'
 import testPagesUrls from '../utils/testPagesUrls'
 import { server } from '../utils/server'
 
@@ -21,7 +21,7 @@ test.describe('Books list section', () => {
 		await page.goto(testPagesUrls.books)
 
 		// Check that user has a default book in books list
-		const $booksLinks = page.getByTestId(BooksTest.bookLink)
+		const $booksLinks = await getElementsStartsWithDataTestId(page, BooksTest.booksList.bookLinkItem(''))
 		await expect($booksLinks).toHaveCount(1)
 	})
 
@@ -34,7 +34,7 @@ test.describe('Books list section', () => {
 		await page.goto(testPagesUrls.books)
 
 		// Click on the Add book button
-		const $addBookButton = page.getByTestId(BooksTest.addBookButton)
+		const $addBookButton = page.getByTestId(BooksTest.booksList.addBookButton)
 		await $addBookButton.click()
 
 		// Check that new book button is disabled
@@ -48,7 +48,7 @@ test.describe('Books list section', () => {
 		await expect($addBookButton).toBeEnabled()
 
 		// Check that new book has appeared in the books list
-		const $booksLinks = page.getByTestId(BooksTest.bookLink)
+		const $booksLinks = await getElementsStartsWithDataTestId(page, BooksTest.booksList.bookLinkItem(''))
 		await expect($booksLinks).toHaveCount(3)
 	})
 
@@ -63,7 +63,7 @@ test.describe('Books list section', () => {
 		await page.goto(pageUrls.books.path)
 
 		// Click on the Add book button
-		const $addBookButton = page.getByTestId(BooksTest.addBookButton)
+		const $addBookButton = page.getByTestId(BooksTest.booksList.addBookButton)
 		await $addBookButton.click()
 
 		// Wait for the GraphQL createBook response
@@ -78,6 +78,8 @@ test.describe('Books list section', () => {
 		const bookPageUrl = pageUrls.books.book(newBookId).path
 		await page.waitForURL(bookPageUrl)
 		expect(page.url()).toContain(bookPageUrl)
+
+		// await page.locator('[data-testid^="booksList_bookLink"]')
 	})
 
 	test.only('if a user in his configuratin has several books its count must be equal count of these books + 1', async ({
@@ -93,7 +95,7 @@ test.describe('Books list section', () => {
 		await page.goto(testPagesUrls.books)
 
 		// Check that user has a default book in the books list
-		const $booksLinks = page.getByTestId(BooksTest.bookLink)
+		const $booksLinks = await getElementsStartsWithDataTestId(page, BooksTest.booksList.bookLinkItem(''))
 		await expect($booksLinks).toHaveCount(userBooksCount + 1)
 	})
 })

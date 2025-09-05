@@ -24,7 +24,7 @@ function BookLink(props: BookLinkProps) {
 		<ContentLinkWrapper
 			href={pageUrls.books.book(id).path}
 			isCurrent={isPageCurrent}
-			dataTestId={BooksTest.bookLink}
+			dataTestId={BooksTest.booksList.bookLinkItem(id)}
 		>
 			<div className='book-link'>
 				{author && (

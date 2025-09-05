@@ -44,3 +44,7 @@ export async function loginUser(page: Page, userConfig?: UserRegisteredWithCrede
 	const $submitButton = page.getByTestId(LoginFormTest.submitButton.id)
 	await $submitButton.click()
 }
+
+export async function getElementsStartsWithDataTestId(page: Page, dataTestId: string) {
+	return await page.locator(`[data-testid^="${dataTestId}"]`)
+}

@@ -12,7 +12,7 @@ function AddBookButton() {
 			icon={publicFolderFilesUrls.icons.plusButtonIcon}
 			onClick={onAddBookClick}
 			loading={status === 'loading'}
-			dataTestId={BooksTest.addBookButton}
+			dataTestId={BooksTest.booksList.addBookButton}
 		>
 			книгу
 		</Button>

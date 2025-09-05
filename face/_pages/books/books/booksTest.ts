@@ -4,6 +4,10 @@ export const BooksTest = {
 		bookSection: 'booksRoot__BookSection',
 		editSection: 'booksRoot__EditSection',
 	},
-	bookLink: 'bookLink',
-	addBookButton: 'addBookButton',
+	booksList: {
+		bookLinkItem(id: string | number) {
+			return 'booksListItem_bookLink_' + id
+		},
+		addBookButton: 'booksList_addBookButton',
+	},
 }
