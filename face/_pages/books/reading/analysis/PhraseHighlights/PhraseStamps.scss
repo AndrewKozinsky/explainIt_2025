@@ -1,6 +1,6 @@
 @use '@/styles/variables' as vars;
 
-.phrase-stamps {
+.phrase-highlights {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -9,30 +9,29 @@
 	pointer-events: none;
 }
 
-.phrase-stamp {
+.phrase-highlight {
 	border: 1px solid vars.$grayColor-3;
-	background-color: transparent;
 	box-sizing: border-box;
 	transition: all 0.2s ease;
 }
 
-.phrase-stamp--both-round {
+.phrase-highlight--both-round {
 	border-radius: vars.$radius-1;
 }
 
-.phrase-stamp--left-round {
+.phrase-highlight--left-round {
 	border-radius: vars.$radius-1 0 0 vars.$radius-1;
 }
 
-.phrase-stamp--no-round {
+.phrase-highlight--no-round {
 	border-radius: 0;
 }
 
-.phrase-stamp--right-round {
+.phrase-highlight--right-round {
 	border-radius: 0 vars.$radius-1 vars.$radius-1 0;
 }
 
-.phrase-stamp--current {
+.phrase-highlight--current {
 	background-color: vars.$grayColor-2;
 	border-color: vars.$grayColor-4;
 }

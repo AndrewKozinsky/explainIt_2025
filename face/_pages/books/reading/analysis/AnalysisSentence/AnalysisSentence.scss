@@ -6,6 +6,11 @@
 	line-height: 3.3rem;
 }
 
+.analysis-sentence_sentence {
+	position: relative;
+	z-index: 1;
+}
+
 .analysis-sentence__word {
 	display: inline-block;
 	cursor: pointer;

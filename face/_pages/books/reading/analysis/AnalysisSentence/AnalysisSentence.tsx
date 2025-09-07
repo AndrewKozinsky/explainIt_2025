@@ -1,6 +1,6 @@
 import { useChapterStore } from '_pages/books/reading/chapterStore'
 import React from 'react'
-import PhraseStamps from '../PhraseStamps/PhraseStamps'
+import PhraseHighlights from '_pages/books/reading/analysis/PhraseHighlights/PhraseHighlights'
 import './AnalysisSentence.scss'
 
 function AnalysisSentence() {
@@ -8,7 +8,7 @@ function AnalysisSentence() {
 
 	return (
 		<div className='analysis-sentence'>
-			<p>
+			<p className='analysis-sentence_sentence'>
 				{sentence.parts.map((part) => {
 					const { value } = part
 
@@ -27,7 +27,7 @@ function AnalysisSentence() {
 					}
 				})}
 			</p>
-			<PhraseStamps />
+			<PhraseHighlights />
 		</div>
 	)
 }

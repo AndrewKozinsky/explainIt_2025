@@ -95,11 +95,15 @@ function Analysis() {
 		phrases: [
 			{
 				id: 1,
-				wordIds: [1, 2, 8],
+				wordIds: [1, 2, 3, 4, 5, 6, 7, 8, 9],
 			},
 			{
 				id: 2,
 				wordIds: [12, 13],
+			},
+			{
+				id: 3,
+				wordIds: [10],
 			},
 		],
 		currentPhraseId: 2,
