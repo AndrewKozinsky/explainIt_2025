@@ -3,7 +3,9 @@
 	position: sticky;
 	top: 1rem;
 	left: 0;
-	background: #0076DE;
+	/* Dynamic height so the bottom always touches the viewport edge */
+	height: calc(100dvh - var(--ra-top, 1rem));
+	box-sizing: border-box;
 }
 
 .reading-analysis__top {

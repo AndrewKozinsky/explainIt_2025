@@ -1,9 +1,14 @@
+import { useSetCorrectHeightToMainContainer } from '_pages/books/reading/analysis/Analysis/fn/setCorrectHeightToMainContainer'
 import AnalysisSentence from '_pages/books/reading/analysis/AnalysisSentence/AnalysisSentence'
 import { PhraseStatus, Sentence, useChapterStore } from '_pages/books/reading/chapterStore'
 import React from 'react'
 import './Analysis.scss'
 
 function Analysis() {
+	const containerRef = React.useRef<HTMLDivElement | null>(null)
+
+	useSetCorrectHeightToMainContainer(containerRef)
+
 	const selectedSentence: Sentence = {
 		parts: [
 			{
@@ -119,12 +124,12 @@ function Analysis() {
 	}
 
 	return (
-		<div className='reading-analysis'>
+		<div className='reading-analysis' ref={containerRef}>
 			<div className='reading-analysis__top'>
 				<AnalysisSentence />
 			</div>
 			<div className='reading-analysis__bottom'>
-				<p>123</p>
+				<p style={{ width: 100, height: 2000, background: 'red' }}>123</p>
 			</div>
 		</div>
 	)
