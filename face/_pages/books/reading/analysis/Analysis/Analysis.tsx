@@ -1,5 +1,5 @@
 import AnalysisSentence from '_pages/books/reading/analysis/AnalysisSentence/AnalysisSentence'
-import { Sentence, useChapterStore } from '_pages/books/reading/chapterStore'
+import { PhraseStatus, Sentence, useChapterStore } from '_pages/books/reading/chapterStore'
 import React from 'react'
 import './Analysis.scss'
 
@@ -93,16 +93,19 @@ function Analysis() {
 			},
 		],
 		phrases: [
-			{
+			/*{
 				id: 1,
+				status: PhraseStatus.collectingWords,
 				wordIds: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-			},
+			},*/
 			{
 				id: 2,
+				status: PhraseStatus.readyAnalysis,
 				wordIds: [12, 13],
 			},
 			{
 				id: 3,
+				status: PhraseStatus.readyAnalysis,
 				wordIds: [10],
 			},
 		],
@@ -117,7 +120,12 @@ function Analysis() {
 
 	return (
 		<div className='reading-analysis'>
-			<AnalysisSentence />
+			<div className='reading-analysis__top'>
+				<AnalysisSentence />
+			</div>
+			<div className='reading-analysis__bottom'>
+				<p>123</p>
+			</div>
 		</div>
 	)
 }

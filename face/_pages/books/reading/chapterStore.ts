@@ -39,4 +39,16 @@ type SentencePunctuationPart = {
 type Phrase = {
 	id: number
 	wordIds: number[]
+	status: PhraseStatus
+}
+
+export enum PhraseStatus {
+	// Пользователь указывает слова для разбора (одно или несколько).
+	collectingWords = 'collectingWords',
+	// Слова выбраны и нажата кнопка начала разбора.
+	loadingAnalysis = 'loadingAnalysis',
+	// Во время разбора произошла ошибка.
+	errorAnalysis = 'errorAnalysis',
+	// Разбор выделенных слов завершен и ответ получен.
+	readyAnalysis = 'readyAnalysis',
 }
