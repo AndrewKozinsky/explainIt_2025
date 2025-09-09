@@ -112,7 +112,7 @@ function Analysis() {
 				wordIds: [10],
 			},
 		],
-		selectedWordIds: [2],
+		selectedWordIds: [6],
 	}
 
 	useChapterStore.setState({ selectedSentence: selectedSentence })

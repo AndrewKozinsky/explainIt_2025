@@ -1,12 +1,10 @@
 import { useChapterStore } from '_pages/books/reading/chapterStore'
 import React from 'react'
-import './AnalysisSentence.scss'
 import PhraseHighlights from '../PhraseHighlights/PhraseHighlights'
+import './AnalysisSentence.scss'
 
 function AnalysisSentence() {
 	const { selectedSentence } = useChapterStore.getState()
-	selectedSentence.sentenceTranslation
-	// selectedWordIds
 
 	return (
 		<div className='analysis-sentence'>
