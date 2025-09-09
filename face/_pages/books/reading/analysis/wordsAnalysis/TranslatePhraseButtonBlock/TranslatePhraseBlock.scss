@@ -1,0 +1,13 @@
+@use '@/styles/variables' as vars;
+
+.translate-phrase-block {
+	display: flex;
+	flex-direction: column;
+	gap: .6rem;
+	align-items: flex-start;
+	margin-top: 1rem;
+}
+
+.translate-phrase-block__hint {
+	color: vars.$grayColor-5;
+}

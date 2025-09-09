@@ -99,7 +99,7 @@ function Analysis() {
 		],
 		sentenceTranslation: null,
 		translatedPhrases: [
-			{
+			/*{
 				id: 1,
 				wordIds: [1, 2, 4],
 			},
@@ -110,9 +110,13 @@ function Analysis() {
 			{
 				id: 3,
 				wordIds: [10],
-			},
+			},*/
 		],
 		selectedWordIds: [6],
+		fetchTranslation: {
+			isLoading: false,
+			error: null,
+		},
 	}
 
 	useChapterStore.setState({ selectedSentence: selectedSentence })

@@ -1,6 +1,6 @@
 import React from 'react'
 import AnalysisSentence from '../AnalysisSentence/AnalysisSentence'
-import TranslatePhraseButtonBlock from '../TranslatePhraseButtonBlock/TranslatePhraseButtonBlock'
+import TranslatePhraseBlock from '_pages/books/reading/analysis/wordsAnalysis/TranslatePhraseButtonBlock/TranslatePhraseBlock'
 import './WordsAnalysis.scss'
 
 function WordsAnalysis() {
@@ -8,9 +8,9 @@ function WordsAnalysis() {
 		<>
 			<div className='words-analysis__top'>
 				<AnalysisSentence />
-				<TranslatePhraseButtonBlock />
+				<TranslatePhraseBlock />
 			</div>
-			<div className='words-analysis__bottom'>123</div>
+			<div className='words-analysis__bottom'>bottom</div>
 		</>
 	)
 }
