@@ -1,10 +1,12 @@
-import { useChapterStore } from '_pages/books/reading/chapterStore'
 import React from 'react'
+import { useChapterStore } from '_pages/books/reading/chapterStore'
 import PhraseHighlights from '../PhraseHighlights/PhraseHighlights'
+import { useGetWordClickHandler } from './fn/wordClickHandler'
 import './AnalysisSentence.scss'
 
 function AnalysisSentence() {
-	const { selectedSentence } = useChapterStore.getState()
+	const selectedSentence = useChapterStore((s) => s.selectedSentence)
+	const wordClickHandler = useGetWordClickHandler()
 
 	return (
 		<div className='analysis-sentence'>
@@ -14,7 +16,12 @@ function AnalysisSentence() {
 
 					if (part.type === 'word') {
 						return (
-							<span className='analysis-sentence__word' key={part.id} data-word-id={part.id}>
+							<span
+								className='analysis-sentence__word'
+								key={part.id}
+								data-word-id={part.id}
+								onClick={(e) => wordClickHandler(e, part.id)}
+							>
 								{value}
 							</span>
 						)

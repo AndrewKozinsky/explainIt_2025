@@ -10,7 +10,7 @@ function PhraseHighlights() {
 	return (
 		<div className='phrase-highlights' ref={containerRef}>
 			{highlights.map((s) => (
-				<div
+				<span
 					key={s.key}
 					className={s.classNames.join(' ')}
 					style={{

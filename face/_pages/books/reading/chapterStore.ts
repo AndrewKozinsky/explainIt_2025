@@ -7,6 +7,30 @@ export const chapterStoreValues: ChapterStoreValues = {
 export const useChapterStore = create<UserStore>()((set) => {
 	return {
 		...chapterStoreValues,
+		selectSingleWord: (wordId: number) =>
+			set((state) => {
+				const sentence = state.selectedSentence
+				if (!sentence) return state
+				return {
+					selectedSentence: {
+						...sentence,
+						selectedWordIds: [wordId],
+					},
+				}
+			}),
+		addWordToSelection: (wordId: number) =>
+			set((state) => {
+				const sentence = state.selectedSentence
+				if (!sentence) return state
+				const alreadySelected = sentence.selectedWordIds.includes(wordId)
+				if (alreadySelected) return state
+				return {
+					selectedSentence: {
+						...sentence,
+						selectedWordIds: [...sentence.selectedWordIds, wordId],
+					},
+				}
+			}),
 	}
 })
 
@@ -15,7 +39,12 @@ export type ChapterStoreValues = {
 	selectedSentence: Sentence
 }
 
-export type UserStore = ChapterStoreValues
+export type UserStore = ChapterStoreValues & {
+	// Заменяет выбор одним словом
+	selectSingleWord: (wordId: number) => void
+	// Добавляет слово к выбору, если его ещё нет
+	addWordToSelection: (wordId: number) => void
+}
 
 export type Sentence = {
 	// Части выделенного предложения
