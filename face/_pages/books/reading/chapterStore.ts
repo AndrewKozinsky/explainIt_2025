@@ -55,6 +55,10 @@ export type Sentence = {
 	translatedPhrases: Phrase[]
 	// Выделенные слова, которые хотят перевести и разобрать
 	selectedWordIds: number[]
+	fetchTranslation: {
+		isLoading: boolean
+		error: null | string
+	}
 }
 
 type SentencePart = SentenceWordPart | SentencePunctuationPart

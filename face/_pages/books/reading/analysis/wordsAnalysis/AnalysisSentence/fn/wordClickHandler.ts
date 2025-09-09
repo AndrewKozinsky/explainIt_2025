@@ -1,5 +1,5 @@
-import { useChapterStore } from '_pages/books/reading/chapterStore'
 import React from 'react'
+import { useChapterStore } from '_pages/books/reading/chapterStore'
 
 export function useGetWordClickHandler() {
 	const selectSingleWord = useChapterStore((s) => s.selectSingleWord)
