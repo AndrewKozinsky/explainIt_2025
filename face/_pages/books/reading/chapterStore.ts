@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 
 export const chapterStoreValues: ChapterStoreValues = {
-	sentence: null as any as Sentence,
+	selectedSentence: null as any as Sentence,
 }
 
 export const useChapterStore = create<UserStore>()((set) => {
@@ -11,15 +11,21 @@ export const useChapterStore = create<UserStore>()((set) => {
 })
 
 export type ChapterStoreValues = {
-	sentence: Sentence
+	// Данные выделенного предложения
+	selectedSentence: Sentence
 }
 
 export type UserStore = ChapterStoreValues
 
 export type Sentence = {
-	parts: SentencePart[]
-	phrases: Phrase[]
-	currentPhraseId: number
+	// Части выделенного предложения
+	sentenceParts: SentencePart[]
+	// Перевод выделенного предложения
+	sentenceTranslation: null | string
+	// Уже переведённые и разобранные фразы
+	translatedPhrases: Phrase[]
+	// Выделенные слова, которые хотят перевести и разобрать
+	selectedWordIds: number[]
 }
 
 type SentencePart = SentenceWordPart | SentencePunctuationPart
@@ -39,16 +45,4 @@ type SentencePunctuationPart = {
 type Phrase = {
 	id: number
 	wordIds: number[]
-	status: PhraseStatus
-}
-
-export enum PhraseStatus {
-	// Пользователь указывает слова для разбора (одно или несколько).
-	collectingWords = 'collectingWords',
-	// Слова выбраны и нажата кнопка начала разбора.
-	loadingAnalysis = 'loadingAnalysis',
-	// Во время разбора произошла ошибка.
-	errorAnalysis = 'errorAnalysis',
-	// Разбор выделенных слов завершен и ответ получен.
-	readyAnalysis = 'readyAnalysis',
 }

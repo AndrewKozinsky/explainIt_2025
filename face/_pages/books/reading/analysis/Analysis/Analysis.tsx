@@ -1,6 +1,6 @@
 import { useSetCorrectHeightToMainContainer } from '_pages/books/reading/analysis/Analysis/fn/setCorrectHeightToMainContainer'
-import AnalysisSentence from '_pages/books/reading/analysis/AnalysisSentence/AnalysisSentence'
-import { PhraseStatus, Sentence, useChapterStore } from '_pages/books/reading/chapterStore'
+import WordsAnalysis from '_pages/books/reading/analysis/wordsAnalysis/WordsAnalysis/WordsAnalysis'
+import { Sentence, useChapterStore } from '_pages/books/reading/chapterStore'
 import React from 'react'
 import './Analysis.scss'
 
@@ -10,7 +10,7 @@ function Analysis() {
 	useSetCorrectHeightToMainContainer(containerRef)
 
 	const selectedSentence: Sentence = {
-		parts: [
+		sentenceParts: [
 			{
 				id: 1,
 				type: 'word',
@@ -97,40 +97,33 @@ function Analysis() {
 				value: '.',
 			},
 		],
-		phrases: [
-			/*{
+		sentenceTranslation: null,
+		translatedPhrases: [
+			{
 				id: 1,
-				status: PhraseStatus.collectingWords,
-				wordIds: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-			},*/
+				wordIds: [1, 2, 4],
+			},
 			{
 				id: 2,
-				status: PhraseStatus.readyAnalysis,
 				wordIds: [12, 13],
 			},
 			{
 				id: 3,
-				status: PhraseStatus.readyAnalysis,
 				wordIds: [10],
 			},
 		],
-		currentPhraseId: 2,
+		selectedWordIds: [2],
 	}
 
-	useChapterStore.setState({ sentence: selectedSentence })
+	useChapterStore.setState({ selectedSentence: selectedSentence })
 
-	if (!useChapterStore.getState().sentence) {
+	if (!useChapterStore.getState().selectedSentence) {
 		return null
 	}
 
 	return (
 		<div className='reading-analysis' ref={containerRef}>
-			<div className='reading-analysis__top'>
-				<AnalysisSentence />
-			</div>
-			<div className='reading-analysis__bottom'>
-				<p style={{ width: 100, height: 2000, background: 'red' }}>123</p>
-			</div>
+			<WordsAnalysis />
 		</div>
 	)
 }
