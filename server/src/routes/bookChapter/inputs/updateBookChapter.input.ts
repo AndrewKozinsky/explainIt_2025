@@ -23,4 +23,12 @@ export class UpdateBookChapterInput {
 	@Field(() => String, { description: 'BookChapter note', nullable: true })
 	@DtoFieldDecorators('note', bdConfig.BookChapter.dbFields.note)
 	note?: null | string
+
+	@Field(() => Boolean, { description: 'Should a program convert the content into a structure?', nullable: true })
+	@DtoFieldDecorators('convertContentIntoStructure', {
+		type: 'boolean',
+		description: 'Should a program convert the content into a structure?',
+		required: false,
+	})
+	convertContentIntoStructure?: boolean
 }

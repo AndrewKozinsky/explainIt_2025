@@ -70,7 +70,12 @@ export class BookChapterRepository {
 	) {
 		const updatedBookChapter = await this.prisma.bookChapter.update({
 			where: { id: bookChapterId },
-			data: dto,
+			data: {
+				name: dto.name,
+				header: dto.header,
+				content: dto.content,
+				note: dto.note,
+			},
 			include: { book: true },
 		})
 

@@ -5,6 +5,7 @@ mutation BookChapter_update($input: UpdateBookChapterInput!) {
 		header
 		content
 		note
+		note
 		book {
 			id
 			name
