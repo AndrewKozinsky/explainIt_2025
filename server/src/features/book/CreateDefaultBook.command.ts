@@ -1,6 +1,6 @@
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { CreateBookCommand, CreateBookInput } from 'src/features/book/CreateBook.command'
-import { CreateBookChapterCommand, CreateBookChapterInput } from 'src/features/bookChapter/CreateBookChapter.command'
+import { CreateBookCommand, CreateBookInput } from 'features/book/CreateBook.command'
+import { CreateBookChapterCommand, CreateBookChapterInput } from 'features/bookChapter/CreateBookChapter.command'
 import { CustomGraphQLError } from 'src/infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'src/infrastructure/exceptions/errorCode'
 import { errorMessage } from 'src/infrastructure/exceptions/errorMessage'

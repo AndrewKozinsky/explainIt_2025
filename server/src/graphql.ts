@@ -17,6 +17,12 @@ export interface GetTranscriptionInput {
     engSentence: string;
 }
 
+export interface GetSentenceAndPhraseAnalysesInput {
+    context: string;
+    sentence: string;
+    phrase: string;
+}
+
 export interface GetBookChapterInput {
     id: number;
 }
@@ -85,6 +91,10 @@ export interface DeleteBookChapterInput {
     id: number;
 }
 
+export interface SentenceAndPhraseAnalysesOutModel {
+    id: number;
+}
+
 export interface UserOutModel {
     id: number;
     email: string;
@@ -133,6 +143,7 @@ export interface TopUpBalanceWithYooKassaOutModel {
 export interface IQuery {
     ai_checkTranslation(input: CheckTranslationInput): CheckTranslationOutModel | Promise<CheckTranslationOutModel>;
     ai_getTranscription(input: GetTranscriptionInput): GetTranscriptionOutModel | Promise<GetTranscriptionOutModel>;
+    ai_GetSentenceAndPhraseAnalyses(input: GetSentenceAndPhraseAnalysesInput): SentenceAndPhraseAnalysesOutModel | Promise<SentenceAndPhraseAnalysesOutModel>;
     auth_getMe(): UserOutModel | Promise<UserOutModel>;
     book_user_books(): BookOutModel[] | Promise<BookOutModel[]>;
     book_chapter_get(input: GetBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;

@@ -1,5 +1,5 @@
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { CreateDefaultBookCommand } from 'src/features/book/CreateDefaultBook.command'
+import { CreateDefaultBookCommand } from 'features/book/CreateDefaultBook.command'
 import { EmailAdapterService } from 'infrastructure/emailAdapter/email-adapter.service'
 import { UserQueryRepository } from 'src/repo/user.queryRepository'
 import { UserRepository } from 'src/repo/user.repository'

@@ -1,7 +1,7 @@
 import { UseGuards } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql'
-import { CreateBookWithEmptyChapterCommand } from '../../features/book/CreateBookWithEmptyChapter.command'
+import { CreateBookWithEmptyChapterCommand } from 'features/book/CreateBookWithEmptyChapter.command'
 import { DeleteBookCommand } from '../../features/book/DeleteBook.command'
 import { GetUserBooksCommand } from '../../features/book/GetUserBooks.command'
 import { UpdateBookCommand } from '../../features/book/UpdateBook.command'

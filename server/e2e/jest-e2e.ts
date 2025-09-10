@@ -20,6 +20,8 @@ const config: Config = {
 		'^src/(.*)$': '<rootDir>/../src/$1',
 		'^infrastructure/(.*)$': '<rootDir>/../src/infrastructure/$1',
 		'^features/(.*)$': '<rootDir>/../src/features/$1',
+		'^models/(.*)$': '<rootDir>/../src/models/$1',
+		'^db/(.*)$': '<rootDir>/../src/db/$1',
 	},
 	// Configure ts-jest to use Node.js environment
 	preset: 'ts-jest',

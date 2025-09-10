@@ -2,6 +2,7 @@ import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { textIntoChapterStructure } from 'src/features/bookChapter/chapterStructure/textIntoChapterStructure'
 import { BookQueryRepository } from 'src/repo/book.queryRepository'
 import { BookChapterQueryRepository } from 'src/repo/bookChapter.queryRepository'
 import { BookChapterRepository } from 'src/repo/bookChapter.repository'
@@ -43,11 +44,25 @@ export class CreateBookChapterHandler implements ICommandHandler<CreateBookChapt
 			throw new CustomGraphQLError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
 		}
 
-		const newBookChapter = await this.bookChapterRepository.createBookChapter(createBookChapterInput)
+		const newBookChapter = await this.bookChapterRepository.createBookChapter({
+			...createBookChapterInput,
+			content: this.prepareChapterContent(createBookChapterInput.content),
+		})
+
 		if (!newBookChapter) {
 			throw new CustomGraphQLError(errorMessage.bookChapter.notCreated, ErrorCode.InternalServerError_500)
 		}
 
 		return this.bookChapterQueryRepository.getBookChapterById(newBookChapter.id)
+	}
+
+	// Convert chapter text into a structure then converts it into JSON
+	prepareChapterContent(content: undefined | null | string) {
+		try {
+			const chapterStructure = content ? textIntoChapterStructure(content) : null
+			return chapterStructure ? JSON.stringify(chapterStructure) : null
+		} catch (err: unknown) {
+			return null
+		}
 	}
 }

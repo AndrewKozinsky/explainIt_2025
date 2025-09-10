@@ -17,6 +17,7 @@ export const RouteNames = {
 	AI: {
 		CHECK_TRANSLATION: 'ai_checkTranslation',
 		GET_TRANSCRIPTION: 'ai_getTranscription',
+		GET_SENTENCE_AND_PHRASE_ANALYSES: 'ai_GetSentenceAndPhraseAnalyses',
 	},
 	// REST
 	DB: {
