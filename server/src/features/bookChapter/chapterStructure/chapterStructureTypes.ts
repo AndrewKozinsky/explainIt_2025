@@ -1,15 +1,18 @@
 export namespace ChapterTextStructure {
-	export type Chapter = Paragraph[]
-
-	type Paragraph = Sentence[]
+	export type Chapter = (Sentence | SentenceSpacePart | SentenceCarriageReturnPart | SentencePunctuationPart)[]
 
 	type Sentence = {
-		sentence: string
+		id: number
+		type: 'sentence'
 		translatedSentence: null | string
 		sentenceParts: SentencePart[]
 	}
 
-	export type SentencePart = SentenceWordPart | SentencePunctuationPart
+	export type SentencePart =
+		| SentenceWordPart
+		| SentenceSpacePart
+		| SentencePunctuationPart
+		| SentenceCarriageReturnPart
 
 	type SentenceWordPart = {
 		id: number
@@ -17,9 +20,19 @@ export namespace ChapterTextStructure {
 		value: string
 	}
 
+	type SentenceSpacePart = {
+		id: number
+		type: 'space'
+	}
+
 	type SentencePunctuationPart = {
 		id: number
 		type: 'punctuation'
 		value: string
+	}
+
+	type SentenceCarriageReturnPart = {
+		id: number
+		type: 'carriageReturn'
 	}
 }
