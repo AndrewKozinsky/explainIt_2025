@@ -37,7 +37,7 @@ export class CreateDefaultBookHandler implements ICommandHandler<CreateDefaultBo
 
 	getBookChapters(bookId: number): CreateBookChapterInput[] {
 		return [
-			{
+			/*{
 				bookId,
 				name: 'Chapter 1',
 				header: 'Down the Rabbit-Hole',
@@ -94,8 +94,14 @@ Soon her eye fell on a little glass box that was lying under the table: she open
 She ate a little bit, and said anxiously to herself, “Which way? Which way?”, holding her hand on the top of her head to feel which way it was growing, and she was quite surprised to find that she remained the same size: to be sure, this generally happens when one eats cake, but Alice had got so much into the way of expecting nothing but out-of-the-way things to happen, that it seemed quite dull and stupid for life to go on in the common way.
 
 So she set to work, and very soon finished off the cake.`,
-			},
+			},*/
 			{
+				bookId,
+				name: 'Chapter 1',
+				header: 'Down the Rabbit-Hole',
+				content: 'Alice was beginning',
+			},
+			/*{
 				bookId,
 				name: 'Chapter 2',
 				header: 'THE POOL OF TEARS',
@@ -158,6 +164,12 @@ Just then she heard something splashing about in the pool a little way off, and 
 So she called softly after it, “Mouse dear! Do come back again, and we won’t talk about cats or dogs either, if you don’t like them!” When the Mouse heard this, it turned round and swam slowly back to her: its face was quite pale (with passion, Alice thought), and it said in a low trembling voice, “Let us get to the shore, and then I’ll tell you my history, and you’ll understand why it is I hate cats and dogs.”
 
 It was high time to go, for the pool was getting quite crowded with the birds and animals that had fallen into it: there were a Duck and a Dodo, a Lory and an Eaglet, and several other curious creatures. Alice led the way, and the whole party swam to the shore.`,
+			},*/
+			{
+				bookId,
+				name: 'Chapter 2',
+				header: 'THE POOL OF TEARS',
+				content: '“Curiouser and curiouser!” cried Alice.',
 			},
 		]
 	}

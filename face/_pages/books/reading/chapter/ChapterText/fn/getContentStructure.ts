@@ -1,4 +1,4 @@
-import { ChapterTextStructure } from '@/_pages/books/books/editableFormSection/common/chapterStructure/chapterStructureTypes'
+import { ChapterTextStructure } from '@/_pages/books/books/editableFormSection/common/chapterStructureTypes'
 import { booksFetcher } from '_pages/books/booksFetcher'
 
 export function useGetContentStructure() {

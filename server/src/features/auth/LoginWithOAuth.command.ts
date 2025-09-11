@@ -10,7 +10,7 @@ import { BalanceTransactionRepository } from 'src/repo/balanceTransaction.reposi
 import { UserQueryRepository } from 'src/repo/user.queryRepository'
 import { UserRepository } from 'src/repo/user.repository'
 import { Request } from 'express'
-import { OAuthProviderType } from '../../routes/auth/inputs/loginWithOAuth.input'
+import { OAuthProviderType } from 'src/routes/auth/inputs/loginWithOAuth.input'
 import { BalanceTransactionType } from '.prisma/client'
 const qs = require('qs')
 
@@ -275,7 +275,7 @@ export class LoginWithOAuthHandler implements ICommandHandler<LoginWithOAuthComm
 	}
 
 	async createDefaultBook(userId: number) {
-		await this.commandBus.execute(new CreateDefaultBookCommand(userId))
+		// await this.commandBus.execute(new CreateDefaultBookCommand(userId))
 	}
 
 	async saveSession(req: Request, user: UserOutModel, clientIP: string, clientName: string) {

@@ -165,135 +165,334 @@ export const bookChapterUtils = {
 	},
 
 	getExampleChapterText() {
-		return `Alice was very tired: she had peeped into the book. “And what is the use of a book,” thought Alice “without conversations?”
+		return `Alice was very tired: she had the book. “What is the use of a book,” thought Alice “without conversations?”
 
-So she was considering in her own mind. Suddenly a White Rabbit ran close by her.`
+So she was confused.
+White Rabbit ran by her.`
 	},
 
 	getExampleChapterTextStructure(): ChapterTextStructure.Chapter {
 		return [
-			[
-				{
-					sentence: 'Alice was very tired: she had peeped into the book.',
-					translatedSentence: null,
-					sentenceParts: [
-						{ id: 1, type: 'word', value: 'Alice' },
-						{ id: 2, type: 'word', value: 'was' },
-						{ id: 3, type: 'word', value: 'very' },
-						{ id: 4, type: 'word', value: 'tired' },
-						{ id: 5, type: 'punctuation', value: ':' },
-						{ id: 6, type: 'word', value: 'she' },
-						{ id: 7, type: 'word', value: 'had' },
-						{ id: 8, type: 'word', value: 'peeped' },
-						{ id: 9, type: 'word', value: 'into' },
-						{ id: 10, type: 'word', value: 'the' },
-						{ id: 11, type: 'word', value: 'book' },
-						{ id: 12, type: 'punctuation', value: '.' },
-					],
-				},
-				{
-					sentence: '“And what is the use of a book,” thought Alice “without conversations?”',
-					translatedSentence: null,
-					sentenceParts: [
-						{ id: 1, type: 'punctuation', value: '“' },
-						{
-							id: 2,
-							type: 'word',
-							value: 'And',
-						},
-						{
-							id: 3,
-							type: 'word',
-							value: 'what',
-						},
-						{
-							id: 4,
-							type: 'word',
-							value: 'is',
-						},
-						{
-							id: 5,
-							type: 'word',
-							value: 'the',
-						},
-						{
-							id: 6,
-							type: 'word',
-							value: 'use',
-						},
-						{
-							id: 7,
-							type: 'word',
-							value: 'of',
-						},
-						{
-							id: 8,
-							type: 'word',
-							value: 'a',
-						},
-						{
-							id: 9,
-							type: 'word',
-							value: 'book',
-						},
-						{ id: 10, type: 'punctuation', value: ',”' },
-						{
-							id: 11,
-							type: 'word',
-							value: 'thought',
-						},
-						{
-							id: 12,
-							type: 'word',
-							value: 'Alice',
-						},
-						{ id: 13, type: 'punctuation', value: '“' },
-						{
-							id: 14,
-							type: 'word',
-							value: 'without',
-						},
-						{
-							id: 15,
-							type: 'word',
-							value: 'conversations',
-						},
-						{ id: 16, type: 'punctuation', value: '?”' },
-					],
-				},
-			],
-			[
-				{
-					sentence: 'So she was considering in her own mind.',
-					translatedSentence: null,
-					sentenceParts: [
-						{ id: 1, type: 'word', value: 'So' },
-						{ id: 2, type: 'word', value: 'she' },
-						{ id: 3, type: 'word', value: 'was' },
-						{ id: 4, type: 'word', value: 'considering' },
-						{ id: 5, type: 'word', value: 'in' },
-						{ id: 6, type: 'word', value: 'her' },
-						{ id: 7, type: 'word', value: 'own' },
-						{ id: 8, type: 'word', value: 'mind' },
-						{ id: 9, type: 'punctuation', value: '.' },
-					],
-				},
-				{
-					sentence: 'Suddenly a White Rabbit ran close by her.',
-					translatedSentence: null,
-					sentenceParts: [
-						{ id: 1, type: 'word', value: 'Suddenly' },
-						{ id: 2, type: 'word', value: 'a' },
-						{ id: 3, type: 'word', value: 'White' },
-						{ id: 4, type: 'word', value: 'Rabbit' },
-						{ id: 5, type: 'word', value: 'ran' },
-						{ id: 6, type: 'word', value: 'close' },
-						{ id: 7, type: 'word', value: 'by' },
-						{ id: 8, type: 'word', value: 'her' },
-						{ id: 9, type: 'punctuation', value: '.' },
-					],
-				},
-			],
+			{
+				id: 1,
+				type: 'sentence',
+				translatedSentence: null,
+				sentenceParts: [
+					{
+						id: 1,
+						type: 'word',
+						value: 'Alice',
+					},
+					{
+						id: 2,
+						type: 'space',
+					},
+					{
+						id: 3,
+						type: 'word',
+						value: 'was',
+					},
+					{
+						id: 4,
+						type: 'space',
+					},
+					{
+						id: 5,
+						type: 'word',
+						value: 'very',
+					},
+					{
+						id: 6,
+						type: 'space',
+					},
+					{
+						id: 7,
+						type: 'word',
+						value: 'tired',
+					},
+					{
+						id: 8,
+						type: 'punctuation',
+						value: ':',
+					},
+					{
+						id: 9,
+						type: 'space',
+					},
+					{
+						id: 10,
+						type: 'word',
+						value: 'she',
+					},
+					{
+						id: 11,
+						type: 'space',
+					},
+					{
+						id: 12,
+						type: 'word',
+						value: 'had',
+					},
+					{
+						id: 13,
+						type: 'space',
+					},
+					{
+						id: 14,
+						type: 'word',
+						value: 'the',
+					},
+					{
+						id: 15,
+						type: 'space',
+					},
+					{
+						id: 16,
+						type: 'word',
+						value: 'book',
+					},
+					{
+						id: 17,
+						type: 'punctuation',
+						value: '.',
+					},
+				],
+			},
+			{
+				id: 2,
+				type: 'space',
+			},
+			{
+				id: 3,
+				type: 'sentence',
+				translatedSentence: null,
+				sentenceParts: [
+					{
+						id: 1,
+						type: 'punctuation',
+						value: '“',
+					},
+					{
+						id: 2,
+						type: 'word',
+						value: 'What',
+					},
+					{
+						id: 3,
+						type: 'space',
+					},
+					{
+						id: 4,
+						type: 'word',
+						value: 'is',
+					},
+					{
+						id: 5,
+						type: 'space',
+					},
+					{
+						id: 6,
+						type: 'word',
+						value: 'the',
+					},
+					{
+						id: 7,
+						type: 'space',
+					},
+					{
+						id: 8,
+						type: 'word',
+						value: 'use',
+					},
+					{
+						id: 9,
+						type: 'space',
+					},
+					{
+						id: 10,
+						type: 'word',
+						value: 'of',
+					},
+					{
+						id: 11,
+						type: 'space',
+					},
+					{
+						id: 12,
+						type: 'word',
+						value: 'a',
+					},
+					{
+						id: 13,
+						type: 'space',
+					},
+					{
+						id: 14,
+						type: 'word',
+						value: 'book',
+					},
+					{
+						id: 15,
+						type: 'punctuation',
+						value: ',”',
+					},
+					{
+						id: 16,
+						type: 'space',
+					},
+					{
+						id: 17,
+						type: 'word',
+						value: 'thought',
+					},
+					{
+						id: 18,
+						type: 'space',
+					},
+					{
+						id: 19,
+						type: 'word',
+						value: 'Alice',
+					},
+					{
+						id: 20,
+						type: 'space',
+					},
+					{
+						id: 21,
+						type: 'punctuation',
+						value: '“',
+					},
+					{
+						id: 22,
+						type: 'word',
+						value: 'without',
+					},
+					{
+						id: 23,
+						type: 'space',
+					},
+					{
+						id: 24,
+						type: 'word',
+						value: 'conversations',
+					},
+					{
+						id: 25,
+						type: 'punctuation',
+						value: '?”',
+					},
+				],
+			},
+			{
+				id: 4,
+				type: 'carriageReturn',
+			},
+			{
+				id: 5,
+				type: 'carriageReturn',
+			},
+			{
+				id: 6,
+				type: 'sentence',
+				translatedSentence: null,
+				sentenceParts: [
+					{
+						id: 1,
+						type: 'word',
+						value: 'So',
+					},
+					{
+						id: 2,
+						type: 'space',
+					},
+					{
+						id: 3,
+						type: 'word',
+						value: 'she',
+					},
+					{
+						id: 4,
+						type: 'space',
+					},
+					{
+						id: 5,
+						type: 'word',
+						value: 'was',
+					},
+					{
+						id: 6,
+						type: 'space',
+					},
+					{
+						id: 7,
+						type: 'word',
+						value: 'confused',
+					},
+					{
+						id: 8,
+						type: 'punctuation',
+						value: '.',
+					},
+				],
+			},
+			{
+				id: 7,
+				type: 'carriageReturn',
+			},
+			{
+				id: 8,
+				type: 'sentence',
+				translatedSentence: null,
+				sentenceParts: [
+					{
+						id: 1,
+						type: 'word',
+						value: 'White',
+					},
+					{
+						id: 2,
+						type: 'space',
+					},
+					{
+						id: 3,
+						type: 'word',
+						value: 'Rabbit',
+					},
+					{
+						id: 4,
+						type: 'space',
+					},
+					{
+						id: 5,
+						type: 'word',
+						value: 'ran',
+					},
+					{
+						id: 6,
+						type: 'space',
+					},
+					{
+						id: 7,
+						type: 'word',
+						value: 'by',
+					},
+					{
+						id: 8,
+						type: 'space',
+					},
+					{
+						id: 9,
+						type: 'word',
+						value: 'her',
+					},
+					{
+						id: 10,
+						type: 'punctuation',
+						value: '.',
+					},
+				],
+			},
 		]
 	},
 }

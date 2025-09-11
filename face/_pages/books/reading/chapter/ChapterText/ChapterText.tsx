@@ -11,8 +11,8 @@ function ChapterText() {
 			{contentStructure.map((paragraph, index) => {
 				return (
 					<p key={index}>
-						{paragraph.map((sentence, sentenceIndex) => {
-							console.log(sentence)
+						{/*{paragraph.map((sentence, sentenceIndex) => {
+							// console.log(sentence)
 							return sentence.sentenceParts.map((sentencePart) => {
 								if (sentencePart.type === 'word') {
 									return <span className='chapter-text__word'>{sentencePart.value}</span>
@@ -20,7 +20,7 @@ function ChapterText() {
 									return <span>{sentencePart.value}</span>
 								}
 							})
-						})}
+						})}*/}
 					</p>
 				)
 			})}

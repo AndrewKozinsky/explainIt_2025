@@ -1,4 +1,4 @@
-import { ChapterTextStructure } from '_pages/books/books/editableFormSection/common/chapterStructure/chapterStructureTypes'
+import { ChapterTextStructure } from '_pages/books/books/editableFormSection/common/chapterStructureTypes'
 import { useMemo } from 'react'
 import { BookChapterOutModel, useBook_GetUserBooks, useBookChapter_Get } from '@/graphql'
 import { useParams } from 'next/navigation'
@@ -61,6 +61,7 @@ export const booksFetcher = {
 				if (error || !data) {
 					return null
 				}
+				console.log(JSON.parse(data.book_chapter_get.content))
 
 				return data.book_chapter_get
 			},
@@ -72,16 +73,34 @@ export const booksFetcher = {
 
 		const chapterStructure = JSON.parse(chapter) as ChapterTextStructure.Chapter
 
-		const paragraphs = chapterStructure
-			.map((paragraph) =>
-				(paragraph || [])
-					.map((s) => (s?.sentence ?? '').trim())
-					.filter((s) => s.length > 0)
-					.join(' ')
-					.trim(),
-			)
-			.filter((p) => p.length > 0)
+		let text = ''
+		for (const element of chapterStructure) {
+			switch (element.type) {
+				case 'sentence':
+					for (const part of element.sentenceParts) {
+						switch (part.type) {
+							case 'word':
+							case 'punctuation':
+								text += part.value
+								break
+							case 'space':
+								text += ' '
+								break
+							case 'carriageReturn':
+								text += '\n'
+								break
+						}
+					}
+					break
+				case 'space':
+					text += ' '
+					break
+				case 'carriageReturn':
+					text += '\n'
+					break
+			}
+		}
 
-		return paragraphs.join('\n\n')
+		return text
 	},
 }

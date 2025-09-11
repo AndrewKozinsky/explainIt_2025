@@ -88,7 +88,7 @@ export default function EditChapterForm() {
 								...register('content', { required: false }),
 								disabled: ['success', 'submitting'].includes(formStatus),
 								placeholder:
-									'ALICE was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do',
+									'Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do',
 								rows: 10,
 							}}
 						/>

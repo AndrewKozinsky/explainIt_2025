@@ -17,14 +17,78 @@ import { ChapterTextStructure } from './chapterStructureTypes'
  * @returns ChapterTextStructure.Chapter Structured paragraphs -> sentences -> parts
  */
 export function textIntoChapterStructure(chapterText: string): ChapterTextStructure.Chapter {
-	// Write function code
+	const normalizedText = chapterText.replace(/\r\n/g, '\n').trim()
+	const paragraphs = normalizedText.split(/\n{2,}/)
+
+	const chapter: ChapterTextStructure.Chapter = []
+	let componentId = 1
+
+	paragraphs.forEach((paragraph, pIndex) => {
+		const sentences = paragraph.split(/(?<=[.?!])\s*/)
+
+		sentences.forEach((sentenceStr, sIndex) => {
+			if (!sentenceStr.trim()) return
+
+			const sentenceParts: ChapterTextStructure.SentencePart[] = []
+			let partId = 1
+			let currentPos = 0
+
+			while (currentPos < sentenceStr.length) {
+				const remainingStr = sentenceStr.substring(currentPos)
+
+				let match = remainingStr.match(/^(\s+)/)
+				if (match) {
+					const spaces = match[0]
+					for (let i = 0; i < spaces.length; i++) {
+						if (spaces[i] === '\n') {
+							sentenceParts.push({ id: partId++, type: 'carriageReturn' })
+						} else {
+							sentenceParts.push({ id: partId++, type: 'space' })
+						}
+					}
+					currentPos += spaces.length
+					continue
+				}
+
+				match = remainingStr.match(/^(“|”|"|'|:|\.|,|\?|!|,|”|,)/)
+				if (match) {
+					sentenceParts.push({ id: partId++, type: 'punctuation', value: match[0] })
+					currentPos += match[0].length
+					continue
+				}
+
+				match = remainingStr.match(/^([a-zA-Z0-9]+)/)
+				if (match) {
+					sentenceParts.push({ id: partId++, type: 'word', value: match[0] })
+					currentPos += match[0].length
+					continue
+				}
+
+				currentPos++
+			}
+
+			chapter.push({
+				id: componentId++,
+				type: 'sentence',
+				translatedSentence: null,
+				sentenceParts: sentenceParts,
+			})
+		})
+
+		if (pIndex < paragraphs.length - 1) {
+			chapter.push({ id: componentId++, type: 'carriageReturn' })
+			chapter.push({ id: componentId++, type: 'carriageReturn' })
+		}
+	})
+
+	return chapter
 }
 
 // Example usage:
-textIntoChapterStructure(`Alice was very tired: she had peeped into the book. “And what is the use of a book,” thought Alice “without conversations?”
+textIntoChapterStructure(`Alice was very tired: she had the book. “What is the use of a book,” thought Alice “without conversations?”
 
-So she was considering in her own mind.
-Suddenly a White Rabbit ran close by her.`)
+So she was confused.
+White Rabbit ran by her.`)
 
 const expectedResult: ChapterTextStructure.Chapter = [
 	{
@@ -94,7 +158,7 @@ const expectedResult: ChapterTextStructure.Chapter = [
 			{
 				id: 14,
 				type: 'word',
-				value: 'peeped',
+				value: 'the',
 			},
 			{
 				id: 15,
@@ -103,28 +167,10 @@ const expectedResult: ChapterTextStructure.Chapter = [
 			{
 				id: 16,
 				type: 'word',
-				value: 'into ',
-			},
-			{
-				id: 17,
-				type: 'space',
-			},
-			{
-				id: 18,
-				type: 'word',
-				value: 'the',
-			},
-			{
-				id: 19,
-				type: 'space',
-			},
-			{
-				id: 20,
-				type: 'word',
 				value: 'book',
 			},
 			{
-				id: 21,
+				id: 17,
 				type: 'punctuation',
 				value: '.',
 			},
@@ -147,7 +193,7 @@ const expectedResult: ChapterTextStructure.Chapter = [
 			{
 				id: 2,
 				type: 'word',
-				value: 'And',
+				value: 'What',
 			},
 			{
 				id: 3,
@@ -156,7 +202,7 @@ const expectedResult: ChapterTextStructure.Chapter = [
 			{
 				id: 4,
 				type: 'word',
-				value: 'what',
+				value: 'is',
 			},
 			{
 				id: 5,
@@ -165,7 +211,7 @@ const expectedResult: ChapterTextStructure.Chapter = [
 			{
 				id: 6,
 				type: 'word',
-				value: 'is',
+				value: 'the',
 			},
 			{
 				id: 7,
@@ -174,7 +220,7 @@ const expectedResult: ChapterTextStructure.Chapter = [
 			{
 				id: 8,
 				type: 'word',
-				value: 'the',
+				value: 'use',
 			},
 			{
 				id: 9,
@@ -183,7 +229,7 @@ const expectedResult: ChapterTextStructure.Chapter = [
 			{
 				id: 10,
 				type: 'word',
-				value: 'use',
+				value: 'of',
 			},
 			{
 				id: 11,
@@ -192,7 +238,7 @@ const expectedResult: ChapterTextStructure.Chapter = [
 			{
 				id: 12,
 				type: 'word',
-				value: 'of',
+				value: 'a',
 			},
 			{
 				id: 13,
@@ -201,21 +247,21 @@ const expectedResult: ChapterTextStructure.Chapter = [
 			{
 				id: 14,
 				type: 'word',
-				value: 'a',
-			},
-			{
-				id: 15,
-				type: 'space',
-			},
-			{
-				id: 16,
-				type: 'word',
 				value: 'book',
 			},
 			{
-				id: 17,
+				id: 15,
 				type: 'punctuation',
 				value: ',”',
+			},
+			{
+				id: 16,
+				type: 'space',
+			},
+			{
+				id: 17,
+				type: 'word',
+				value: 'thought',
 			},
 			{
 				id: 18,
@@ -224,7 +270,7 @@ const expectedResult: ChapterTextStructure.Chapter = [
 			{
 				id: 19,
 				type: 'word',
-				value: 'thought',
+				value: 'Alice',
 			},
 			{
 				id: 20,
@@ -232,34 +278,25 @@ const expectedResult: ChapterTextStructure.Chapter = [
 			},
 			{
 				id: 21,
-				type: 'word',
-				value: 'Alice',
-			},
-			{
-				id: 22,
-				type: 'space',
-			},
-			{
-				id: 23,
 				type: 'punctuation',
 				value: '“',
 			},
 			{
-				id: 24,
+				id: 22,
 				type: 'word',
 				value: 'without',
 			},
 			{
-				id: 25,
+				id: 23,
 				type: 'space',
 			},
 			{
-				id: 26,
+				id: 24,
 				type: 'word',
 				value: 'conversations',
 			},
 			{
-				id: 27,
+				id: 25,
 				type: 'punctuation',
 				value: '?”',
 			},
@@ -308,46 +345,10 @@ const expectedResult: ChapterTextStructure.Chapter = [
 			{
 				id: 7,
 				type: 'word',
-				value: 'considering',
+				value: 'confused',
 			},
 			{
 				id: 8,
-				type: 'space',
-			},
-			{
-				id: 9,
-				type: 'word',
-				value: 'in',
-			},
-			{
-				id: 10,
-				type: 'space',
-			},
-			{
-				id: 11,
-				type: 'word',
-				value: 'her',
-			},
-			{
-				id: 12,
-				type: 'space',
-			},
-			{
-				id: 13,
-				type: 'word',
-				value: 'own',
-			},
-			{
-				id: 14,
-				type: 'space',
-			},
-			{
-				id: 15,
-				type: 'word',
-				value: 'mind',
-			},
-			{
-				id: 16,
 				type: 'punctuation',
 				value: '.',
 			},
@@ -365,7 +366,7 @@ const expectedResult: ChapterTextStructure.Chapter = [
 			{
 				id: 1,
 				type: 'word',
-				value: 'Suddenly',
+				value: 'White',
 			},
 			{
 				id: 2,
@@ -374,7 +375,7 @@ const expectedResult: ChapterTextStructure.Chapter = [
 			{
 				id: 3,
 				type: 'word',
-				value: 'a',
+				value: 'Rabbit',
 			},
 			{
 				id: 4,
@@ -383,7 +384,7 @@ const expectedResult: ChapterTextStructure.Chapter = [
 			{
 				id: 5,
 				type: 'word',
-				value: 'White',
+				value: 'ran',
 			},
 			{
 				id: 6,
@@ -392,7 +393,7 @@ const expectedResult: ChapterTextStructure.Chapter = [
 			{
 				id: 7,
 				type: 'word',
-				value: 'Rabbit',
+				value: 'by',
 			},
 			{
 				id: 8,
@@ -401,37 +402,10 @@ const expectedResult: ChapterTextStructure.Chapter = [
 			{
 				id: 9,
 				type: 'word',
-				value: 'ran',
-			},
-			{
-				id: 10,
-				type: 'space',
-			},
-			{
-				id: 11,
-				type: 'word',
-				value: 'close',
-			},
-			{
-				id: 12,
-				type: 'space',
-			},
-			{
-				id: 13,
-				type: 'word',
-				value: 'by',
-			},
-			{
-				id: 14,
-				type: 'space',
-			},
-			{
-				id: 15,
-				type: 'word',
 				value: 'her',
 			},
 			{
-				id: 16,
+				id: 10,
 				type: 'punctuation',
 				value: '.',
 			},
