@@ -99,6 +99,17 @@ input GetBookChapterInput {
   id: Int!
 }
 
+input GetSentenceAndPhraseAnalysesInput {
+  """Context"""
+  context: String!
+
+  """Phrase"""
+  phrase: String!
+
+  """Sentence"""
+  sentence: String!
+}
+
 input GetTranscriptionInput {
   """Sentence in English"""
   engSentence: String!
@@ -177,6 +188,7 @@ type Mutation {
 }
 
 type Query {
+  ai_GetSentenceAndPhraseAnalyses(input: GetSentenceAndPhraseAnalysesInput!): SentenceAndPhraseAnalysesOutModel!
   ai_checkTranslation(input: CheckTranslationInput!): CheckTranslationOutModel!
   ai_getTranscription(input: GetTranscriptionInput!): GetTranscriptionOutModel!
 
@@ -203,6 +215,10 @@ input ResendConfirmationEmailInput {
   email: String!
 }
 
+type SentenceAndPhraseAnalysesOutModel {
+  id: Int!
+}
+
 input TopUpBalanceWithYooKassaInput {
   """Money amount"""
   amount: Float!
@@ -215,6 +231,9 @@ type TopUpBalanceWithYooKassaOutModel {
 input UpdateBookChapterInput {
   """BookChapter content"""
   content: String
+
+  """Should a program convert the content into a structure?"""
+  convertContentIntoStructure: Boolean
 
   """BookChapter header"""
   header: String

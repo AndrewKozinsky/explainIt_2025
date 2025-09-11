@@ -29,6 +29,7 @@ export function useGetOnUpdateChapterFormSubmit(
 							header: formData.header,
 							content: formData.content,
 							note: formData.note,
+							convertContentIntoStructure: true,
 						},
 					},
 				})

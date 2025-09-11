@@ -1,3 +1,4 @@
+import { ChapterTextStructure } from '_pages/books/books/editableFormSection/common/chapterStructure/chapterStructureTypes'
 import { useMemo } from 'react'
 import { BookChapterOutModel, useBook_GetUserBooks, useBookChapter_Get } from '@/graphql'
 import { useParams } from 'next/navigation'
@@ -45,7 +46,7 @@ export const booksFetcher = {
 
 		return book.chapters.find((chapter) => chapter.id.toString() === currentChapterId)
 	},
-	useGetCurrentChapter(): BookChapterOutModel | null {
+	useGetCurrentChapter(): null | BookChapterOutModel {
 		const chapterId = this.useGetCurrentChapterIdFromUrl()
 
 		const { data, error, loading } = useBookChapter_Get({
@@ -65,5 +66,22 @@ export const booksFetcher = {
 			},
 			[data, error, loading],
 		)
+	},
+	jsonChapterContentStructureToText(chapter: undefined | null | string): string {
+		if (!chapter) return ''
+
+		const chapterStructure = JSON.parse(chapter) as ChapterTextStructure.Chapter
+
+		const paragraphs = chapterStructure
+			.map((paragraph) =>
+				(paragraph || [])
+					.map((s) => (s?.sentence ?? '').trim())
+					.filter((s) => s.length > 0)
+					.join(' ')
+					.trim(),
+			)
+			.filter((p) => p.length > 0)
+
+		return paragraphs.join('\n\n')
 	},
 }

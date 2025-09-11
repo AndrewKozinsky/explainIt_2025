@@ -117,6 +117,15 @@ export type GetBookChapterInput = {
 	id: Scalars['Int']['input']
 }
 
+export type GetSentenceAndPhraseAnalysesInput = {
+	/** Context */
+	context: Scalars['String']['input']
+	/** Phrase */
+	phrase: Scalars['String']['input']
+	/** Sentence */
+	sentence: Scalars['String']['input']
+}
+
 export type GetTranscriptionInput = {
 	/** Sentence in English */
 	engSentence: Scalars['String']['input']
@@ -233,6 +242,7 @@ export type MutationPayment_Yookassa_Top_Up_BalanceArgs = {
 
 export type Query = {
 	__typename?: 'Query'
+	ai_GetSentenceAndPhraseAnalyses: SentenceAndPhraseAnalysesOutModel
 	ai_checkTranslation: CheckTranslationOutModel
 	ai_getTranscription: GetTranscriptionOutModel
 	/** Get current user data */
@@ -241,6 +251,10 @@ export type Query = {
 	book_chapter_get: BookChapterOutModel
 	/** Get user books */
 	book_user_books: Array<BookOutModel>
+}
+
+export type QueryAi_GetSentenceAndPhraseAnalysesArgs = {
+	input: GetSentenceAndPhraseAnalysesInput
 }
 
 export type QueryAi_CheckTranslationArgs = {
@@ -267,6 +281,11 @@ export type ResendConfirmationEmailInput = {
 	email: Scalars['String']['input']
 }
 
+export type SentenceAndPhraseAnalysesOutModel = {
+	__typename?: 'SentenceAndPhraseAnalysesOutModel'
+	id: Scalars['Int']['output']
+}
+
 export type TopUpBalanceWithYooKassaInput = {
 	/** Money amount */
 	amount: Scalars['Float']['input']
@@ -280,6 +299,8 @@ export type TopUpBalanceWithYooKassaOutModel = {
 export type UpdateBookChapterInput = {
 	/** BookChapter content */
 	content?: InputMaybe<Scalars['String']['input']>
+	/** Should a program convert the content into a structure? */
+	convertContentIntoStructure?: InputMaybe<Scalars['Boolean']['input']>
 	/** BookChapter header */
 	header?: InputMaybe<Scalars['String']['input']>
 	/** BookChapter id */
@@ -1222,6 +1243,7 @@ export type BookChapter_UpdateMutationFn = Apollo.MutationFunction<BookChapter_U
  *   },
  * });
  */
+
 export function useBookChapter_Update(
 	baseOptions?: Apollo.MutationHookOptions<BookChapter_Update, BookChapter_UpdateVariables>,
 ) {
