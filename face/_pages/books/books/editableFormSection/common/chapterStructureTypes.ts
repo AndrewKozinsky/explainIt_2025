@@ -1,5 +1,35 @@
 export namespace ChapterTextStructure {
-	export type Chapter = (Sentence | SentenceSpacePart | SentenceCarriageReturnPart | SentencePunctuationPart)[]
+	export type Chapter = (Sentence | Space | CarriageReturn | Punctuation)[]
+
+	type Sentence = {
+		t: 'sentence'
+		translate: null | string
+		parts: SentencePart[]
+	}
+
+	export type SentencePart = Word | Space | Punctuation | CarriageReturn
+
+	type Word = {
+		t: 'word'
+		v: string
+	}
+
+	type Space = {
+		t: 'space'
+	}
+
+	type Punctuation = {
+		t: 'punctuation'
+		v: string
+	}
+
+	type CarriageReturn = {
+		t: 'carriageReturn'
+	}
+}
+
+export namespace ChapterTextStructureFull {
+	export type Chapter = (Sentence | Space | CarriageReturn | Punctuation)[]
 
 	type Sentence = {
 		id: number
@@ -8,30 +38,26 @@ export namespace ChapterTextStructure {
 		sentenceParts: SentencePart[]
 	}
 
-	export type SentencePart =
-		| SentenceWordPart
-		| SentenceSpacePart
-		| SentencePunctuationPart
-		| SentenceCarriageReturnPart
+	export type SentencePart = Word | Space | Punctuation | CarriageReturn
 
-	type SentenceWordPart = {
+	type Word = {
 		id: number
 		type: 'word'
 		value: string
 	}
 
-	type SentenceSpacePart = {
+	type Space = {
 		id: number
 		type: 'space'
 	}
 
-	type SentencePunctuationPart = {
+	type Punctuation = {
 		id: number
 		type: 'punctuation'
 		value: string
 	}
 
-	type SentenceCarriageReturnPart = {
+	type CarriageReturn = {
 		id: number
 		type: 'carriageReturn'
 	}

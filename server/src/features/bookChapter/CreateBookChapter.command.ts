@@ -60,8 +60,6 @@ export class CreateBookChapterHandler implements ICommandHandler<CreateBookChapt
 	prepareChapterContent(content: undefined | null | string) {
 		try {
 			const chapterStructure = content ? textIntoChapterStructure(content) : null
-			// console.log(content)
-			// console.log(chapterStructure)
 			return chapterStructure ? JSON.stringify(chapterStructure) : null
 		} catch (err: unknown) {
 			return null

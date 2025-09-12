@@ -5,13 +5,27 @@
 	line-height: 1.6;
 }
 
+.chapter-text__sentence {
+}
+
 .chapter-text__word {
+	position: relative;
 	display: inline-block;
 	cursor: pointer;
-	padding: 0 0.25em;
+	z-index: 2;
 	border-radius: 0.22em;
 
 	&:hover {
-		background-color: vars.$grayColor-1;
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: -5px;
+			bottom: 0;
+			right: -5px;
+			z-index: 1;
+			border-radius: 0.22em;
+			border: 1px solid vars.$grayColor-3;
+		}
 	}
 }

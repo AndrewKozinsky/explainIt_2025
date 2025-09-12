@@ -61,7 +61,7 @@ export const booksFetcher = {
 				if (error || !data) {
 					return null
 				}
-				console.log(JSON.parse(data.book_chapter_get.content))
+				// console.log(JSON.parse(data.book_chapter_get.content))
 
 				return data.book_chapter_get
 			},
@@ -71,33 +71,50 @@ export const booksFetcher = {
 	jsonChapterContentStructureToText(chapter: undefined | null | string): string {
 		if (!chapter) return ''
 
-		const chapterStructure = JSON.parse(chapter) as ChapterTextStructure.Chapter
+		let arr: any
+		try {
+			arr = JSON.parse(chapter)
+		} catch (_e) {
+			return ''
+		}
+		if (!Array.isArray(arr)) return ''
+
+		const getType = (o: any): string | null => (o && (o.t ?? o.type)) ?? null
+		const getValue = (o: any): string => (o && (o.v ?? o.value)) ?? ''
+		const getParts = (o: any): any[] | null => {
+			if (!o) return null
+			if (Array.isArray(o.parts)) return o.parts
+			if (Array.isArray(o.sentenceParts)) return o.sentenceParts
+			return null
+		}
 
 		let text = ''
-		for (const element of chapterStructure) {
-			switch (element.type) {
-				case 'sentence':
-					for (const part of element.sentenceParts) {
-						switch (part.type) {
-							case 'word':
-							case 'punctuation':
-								text += part.value
-								break
-							case 'space':
-								text += ' '
-								break
-							case 'carriageReturn':
-								text += '\n'
-								break
-						}
+		for (const element of arr) {
+			const t = getType(element)
+			if (t === 'sentence') {
+				const parts = getParts(element) ?? []
+				for (const part of parts) {
+					const pt = getType(part)
+					switch (pt) {
+						case 'word':
+						case 'punctuation':
+							text += getValue(part)
+							break
+						case 'space':
+							text += ' '
+							break
+						case 'carriageReturn':
+							text += '\n'
+							break
 					}
-					break
-				case 'space':
-					text += ' '
-					break
-				case 'carriageReturn':
-					text += '\n'
-					break
+				}
+			} else if (t === 'space') {
+				text += ' '
+			} else if (t === 'carriageReturn') {
+				text += '\n'
+			} else if (t === 'punctuation') {
+				// In case top-level punctuation appears in structure
+				text += getValue(element)
 			}
 		}
 

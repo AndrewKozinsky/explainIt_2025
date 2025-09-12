@@ -275,7 +275,7 @@ export class LoginWithOAuthHandler implements ICommandHandler<LoginWithOAuthComm
 	}
 
 	async createDefaultBook(userId: number) {
-		// await this.commandBus.execute(new CreateDefaultBookCommand(userId))
+		await this.commandBus.execute(new CreateDefaultBookCommand(userId))
 	}
 
 	async saveSession(req: Request, user: UserOutModel, clientIP: string, clientName: string) {
