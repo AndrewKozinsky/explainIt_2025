@@ -1,4 +1,4 @@
-import { Sentence, useChapterStore } from '_pages/books/reading/chapterStore'
+import { Sentence, useReadingStore } from '_pages/books/reading/readingStore'
 import React, { useEffect } from 'react'
 
 type ContainerRef = React.RefObject<HTMLDivElement | null>
@@ -13,7 +13,7 @@ type Highlight = {
 }
 
 export function useGetHighlights(containerRef: ContainerRef) {
-	const { selectedSentence } = useChapterStore.getState()
+	const selectedSentence = useReadingStore.getState().sentence
 	const [highlights, setHighlights] = React.useState<Highlight[]>([])
 
 	const computeHighlights = React.useCallback(() => {
@@ -30,7 +30,7 @@ export function useGetHighlights(containerRef: ContainerRef) {
 		window.addEventListener('resize', onResize)
 
 		// Subscribe to store updates in case layout/phrase changes without remount
-		const unsubscribe = useChapterStore.subscribe(() => {
+		const unsubscribe = useReadingStore.subscribe(() => {
 			// Defer to next frame to ensure DOM has updated
 			requestAnimationFrame(() => computeHighlights())
 		})
@@ -74,7 +74,7 @@ function calculateHighlights(
 	}
 
 	// Build word index by id according to sentence order (only words)
-	const orderedWordIds = sentence.sentenceParts.filter((p) => p.type === 'word').map((p: any) => p.id as number)
+	const orderedWordIds = sentence.sentence.filter((p) => p.type === 'word').map((p: any) => p.id as number)
 
 	const idToOrderIndex = new Map<number, number>()
 	orderedWordIds.forEach((id, idx) => idToOrderIndex.set(id, idx))

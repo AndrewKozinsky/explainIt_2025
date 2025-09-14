@@ -1,13 +1,13 @@
 import React from 'react'
 
-type PunctiationProps = {
+type PunctuationProps = {
 	value: string
 }
 
-function Punctiation(props: PunctiationProps) {
+function Punctuation(props: PunctuationProps) {
 	const { value } = props
 
 	return <span>{value}</span>
 }
 
-export default Punctiation
+export default Punctuation

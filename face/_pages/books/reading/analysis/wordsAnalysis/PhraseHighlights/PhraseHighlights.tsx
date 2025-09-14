@@ -1,6 +1,6 @@
 import React from 'react'
-import { useGetHighlights } from '_pages/books/reading/analysis/wordsAnalysis/PhraseHighlights/fn/getHighlights'
-import '_pages/books/reading/analysis/wordsAnalysis/PhraseHighlights/PhraseHighlights.scss'
+import { useGetHighlights } from './fn/getHighlights'
+import './PhraseHighlights.scss'
 
 function PhraseHighlights() {
 	const containerRef = React.useRef<HTMLDivElement | null>(null)

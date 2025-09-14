@@ -1,4 +1,3 @@
-import React from 'react'
 import Chapter from '../chapter/Chapter/Chapter'
 import Analysis from '../analysis/Analysis/Analysis'
 import './ReadingRoot.scss'

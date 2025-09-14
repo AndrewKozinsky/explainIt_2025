@@ -1,9 +1,9 @@
 import React from 'react'
-import { useChapterStore } from '_pages/books/reading/chapterStore'
+import { useReadingStore } from '_pages/books/reading/readingStore'
 
 export function useGetWordClickHandler() {
-	const selectSingleWord = useChapterStore((s) => s.selectSingleWord)
-	const addWordToSelection = useChapterStore((s) => s.addWordToSelection)
+	const selectSingleWord = useReadingStore((s) => s.selectSingleWord)
+	const addWordToSelection = useReadingStore((s) => s.addWordToSelection)
 
 	return React.useCallback(
 		(e: React.MouseEvent, wordId: number) => {

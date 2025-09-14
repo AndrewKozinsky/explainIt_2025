@@ -14,7 +14,6 @@
 .analysis-sentence__word {
 	display: inline-block;
 	cursor: pointer;
-	padding: 0 .35rem;
 	border-radius: vars.$radius-1;
 
 	&:hover {
@@ -24,5 +23,4 @@
 
 .analysis-sentence__punctuation {
 	display: inline-block;
-	margin-left: -.35rem;;
 }

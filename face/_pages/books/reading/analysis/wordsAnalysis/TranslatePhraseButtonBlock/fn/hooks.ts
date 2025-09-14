@@ -1,9 +1,9 @@
 import React from 'react'
-import { useChapterStore } from '_pages/books/reading/chapterStore'
+import { useReadingStore } from '_pages/books/reading/readingStore'
 import { getButtonText, getParagraphText, shouldShowButton, shouldShowParagraph } from './logic'
 
 export function useGetParagraphLogic() {
-	const selectedSentence = useChapterStore((s) => s.selectedSentence)
+	const selectedSentence = useReadingStore((s) => s.sentence)
 
 	const selectedWordIds = selectedSentence?.selectedWordIds ?? []
 	const translatedPhrases = selectedSentence?.translatedPhrases ?? []
@@ -20,12 +20,12 @@ export function useGetParagraphLogic() {
 }
 
 export function useGetButtonLogic() {
-	const selectedSentence = useChapterStore((s) => s.selectedSentence)
+	const selectedSentence = useReadingStore((s) => s.sentence)
 
 	const selectedWordIds = selectedSentence?.selectedWordIds ?? []
 	const translatedPhrases = selectedSentence?.translatedPhrases ?? []
 	const sentenceTranslation = selectedSentence?.sentenceTranslation ?? null
-	const sentenceParts = selectedSentence?.sentenceParts ?? []
+	const sentenceParts = selectedSentence?.sentence ?? []
 
 	const isButtonVisible = React.useMemo(() => shouldShowButton(selectedWordIds), [selectedWordIds])
 	const buttonText = React.useMemo(

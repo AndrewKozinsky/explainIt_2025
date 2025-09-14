@@ -1,7 +1,8 @@
+// Тип данных для структуры текста приходящий с сервера
 export namespace ChapterTextStructure {
 	export type Chapter = (Sentence | Space | CarriageReturn | Punctuation)[]
 
-	type Sentence = {
+	export type Sentence = {
 		t: 'sentence'
 		translate: null | string
 		parts: SentencePart[]
@@ -28,14 +29,15 @@ export namespace ChapterTextStructure {
 	}
 }
 
+// Тип данных для структуры текста наполненный дополнительными сведениями (используется на клиенте)
 export namespace ChapterTextStructureFull {
 	export type Chapter = (Sentence | Space | CarriageReturn | Punctuation)[]
 
-	type Sentence = {
+	export type Sentence = {
 		id: number
 		type: 'sentence'
 		translatedSentence: null | string
-		sentenceParts: SentencePart[]
+		parts: SentencePart[]
 	}
 
 	export type SentencePart = Word | Space | Punctuation | CarriageReturn

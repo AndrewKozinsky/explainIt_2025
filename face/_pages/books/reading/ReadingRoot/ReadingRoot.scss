@@ -19,7 +19,6 @@
 
 .reading-root__analysis {
 	position: relative;
-	overflow: hidden;
 
 	@include mix.page-width(700px) {
 		flex-grow: 1;

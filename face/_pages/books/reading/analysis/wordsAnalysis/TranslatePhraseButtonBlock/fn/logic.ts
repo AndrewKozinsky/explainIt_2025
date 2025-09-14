@@ -1,4 +1,5 @@
-export type SentencePart = { id: number; type: 'word' | 'punctuation'; value: string }
+import { ChapterTextStructureFull } from '_pages/books/chapterStructureTypes'
+
 export type TranslatedPhrase = { id: number; wordIds: number[] }
 
 export function isMacOS(): boolean {
@@ -17,12 +18,16 @@ export function arraysEqualAsSets(a: number[], b: number[]): boolean {
 	return true
 }
 
-export function getWordValueById(wordId: number, sentenceParts: SentencePart[]) {
+export function getWordValueById(wordId: number, sentenceParts: ChapterTextStructureFull.SentencePart[]) {
 	const found = sentenceParts.find((p) => p.type === 'word' && p.id === wordId)
-	return found?.value ?? ''
+	if (!found || found.type !== 'word') {
+		return ''
+	}
+
+	return found.value
 }
 
-export function getSelectedWordsValues(ids: number[], sentenceParts: SentencePart[]) {
+export function getSelectedWordsValues(ids: number[], sentenceParts: ChapterTextStructureFull.SentencePart[]) {
 	return ids.map((id) => getWordValueById(id, sentenceParts)).filter((v) => v)
 }
 
@@ -47,7 +52,7 @@ export function getButtonText(args: {
 	sentenceTranslation: string | null
 	selectedWordIds: number[]
 	translatedPhrases: TranslatedPhrase[]
-	sentenceParts: SentencePart[]
+	sentenceParts: ChapterTextStructureFull.SentencePart[]
 }) {
 	const { sentenceTranslation, selectedWordIds, translatedPhrases, sentenceParts } = args
 

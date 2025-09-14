@@ -1,4 +1,3 @@
-import React from 'react'
 import Button from 'ui/formRelated/buttons/Button/Button'
 import Paragraph from 'ui/Paragraph/Paragraph'
 import { useGetButtonLogic, useGetParagraphLogic } from './fn/hooks'

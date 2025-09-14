@@ -1,3 +1,4 @@
+import { booksHelper } from '_pages/books/booksHelper'
 import { useEffect } from 'react'
 import { booksFetcher } from '@/_pages/books/booksFetcher'
 
@@ -10,7 +11,7 @@ export function useSetFieldValues(reset: (data: any) => void) {
 		reset({
 			name: chapter.name ?? '',
 			header: chapter.header ?? '',
-			content: chapter.content ? booksFetcher.jsonChapterContentStructureToText(chapter.content) : '',
+			content: chapter.content ? booksHelper.jsonChapterContentStructureToText(chapter.content) : '',
 			note: chapter.note ?? '',
 		})
 	}, [chapter, reset])
