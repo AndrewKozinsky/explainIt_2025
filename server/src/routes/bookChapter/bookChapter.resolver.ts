@@ -1,7 +1,7 @@
 import { UseGuards } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql'
-import { CreateBookChapterCommand } from '../../features/bookChapter/CreateBookChapter.command'
+import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter.command'
 import { DeleteBookChapterCommand } from '../../features/bookChapter/DeleteBookChapter.command'
 import { UpdateBookChapterCommand } from '../../features/bookChapter/UpdateBookChapter.command'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'

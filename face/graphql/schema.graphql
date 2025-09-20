@@ -100,6 +100,12 @@ input GetBookChapterInput {
 }
 
 input GetSentenceAndPhraseAnalysesInput {
+  """Book author"""
+  bookAuthor: String
+
+  """Book name"""
+  bookName: String
+
   """Context"""
   context: String!
 
@@ -217,6 +223,7 @@ input ResendConfirmationEmailInput {
 
 type SentenceAndPhraseAnalysesOutModel {
   id: Int!
+  sentenceTranslation: String!
 }
 
 input TopUpBalanceWithYooKassaInput {

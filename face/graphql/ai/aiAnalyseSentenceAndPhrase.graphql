@@ -1,0 +1,6 @@
+query AIAnalyseSentenceAndPhrase($input: GetSentenceAndPhraseAnalysesInput!) {
+	ai_GetSentenceAndPhraseAnalyses(input: $input) {
+		id
+		sentenceTranslation
+	}
+}

@@ -3,6 +3,22 @@ import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
 
 @InputType()
 export class GetSentenceAndPhraseAnalysesInput {
+	@Field(() => String, { description: 'Book author', nullable: true })
+	@DtoFieldDecorators('bookAuthor', {
+		type: 'string',
+		description: 'Name of the author book',
+		required: false,
+	})
+	bookAuthor: null | string
+
+	@Field(() => String, { description: 'Book name', nullable: true })
+	@DtoFieldDecorators('bookAuthor', {
+		type: 'string',
+		description: 'Name of the book',
+		required: false,
+	})
+	bookName: null | string
+
 	@Field(() => String, { description: 'Context' })
 	@DtoFieldDecorators('context', {
 		type: 'string',

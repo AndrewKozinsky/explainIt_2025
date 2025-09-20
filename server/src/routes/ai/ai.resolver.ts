@@ -5,6 +5,7 @@ import RouteNames from 'infrastructure/routeNames'
 import { CheckTranslationOutModel } from 'models/ai/checkTranslation.out.model'
 import { GetTranscriptionOutModel } from 'models/ai/getTranscription.out.model'
 import { SentenceAndPhraseAnalysesOutModel } from 'models/ai/sentenceAndPhraseAnalyses.out.model'
+import { AnalysePhaseInSentenceByAiCommand } from 'features/ai/analysePhaseInSentenceByAi.command'
 import { GetSentenceAndPhraseAnalysesInput } from 'src/routes/ai/inputs/getSentenceAndPhraseAnalyses.input'
 import { CheckTranslationInput } from './inputs/checkTranslation.input'
 import { GetTranscriptionInput } from './inputs/getTranscription.input'
@@ -32,6 +33,7 @@ export class AiResolver {
 		name: RouteNames.AI.GET_SENTENCE_AND_PHRASE_ANALYSES,
 	})
 	async analyseSentenceAndPhrase(@Args('input') input: GetSentenceAndPhraseAnalysesInput) {
-		// return await this.commandBus.execute(new GetTranscriptionByAiCommand(input))
+		console.log(input)
+		return await this.commandBus.execute(new AnalysePhaseInSentenceByAiCommand(input))
 	}
 }

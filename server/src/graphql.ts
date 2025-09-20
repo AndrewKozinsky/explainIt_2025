@@ -18,6 +18,8 @@ export interface GetTranscriptionInput {
 }
 
 export interface GetSentenceAndPhraseAnalysesInput {
+    bookAuthor?: Nullable<string>;
+    bookName?: Nullable<string>;
     context: string;
     sentence: string;
     phrase: string;
@@ -94,6 +96,7 @@ export interface DeleteBookChapterInput {
 
 export interface SentenceAndPhraseAnalysesOutModel {
     id: number;
+    sentenceTranslation: string;
 }
 
 export interface UserOutModel {

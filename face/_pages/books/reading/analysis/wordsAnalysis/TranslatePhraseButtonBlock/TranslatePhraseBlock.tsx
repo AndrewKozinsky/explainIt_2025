@@ -1,4 +1,5 @@
 import Button from 'ui/formRelated/buttons/Button/Button'
+import { useGetOnButtonClick } from './fn/onButtonClick'
 import Paragraph from 'ui/Paragraph/Paragraph'
 import { useGetButtonLogic, useGetParagraphLogic } from './fn/hooks'
 import './TranslatePhraseBlock.scss'
@@ -6,6 +7,7 @@ import './TranslatePhraseBlock.scss'
 function TranslatePhraseBlock() {
 	const { isParagraphVisible, paragraphText } = useGetParagraphLogic()
 	const { isButtonVisible, buttonText } = useGetButtonLogic()
+	const onButtonClick = useGetOnButtonClick()
 
 	return (
 		<div className='translate-phrase-block'>
@@ -14,7 +16,7 @@ function TranslatePhraseBlock() {
 					{paragraphText}
 				</Paragraph>
 			)}
-			{isButtonVisible && <Button>{buttonText}</Button>}
+			{isButtonVisible && <Button onClick={onButtonClick}>{buttonText}</Button>}
 		</div>
 	)
 }
