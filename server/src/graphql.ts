@@ -17,7 +17,7 @@ export interface GetTranscriptionInput {
     engSentence: string;
 }
 
-export interface GetSentenceAndPhraseAnalysesInput {
+export interface AnalyseSentenceAndPhraseInput {
     bookAuthor?: Nullable<string>;
     bookName?: Nullable<string>;
     context: string;
@@ -147,7 +147,7 @@ export interface TopUpBalanceWithYooKassaOutModel {
 export interface IQuery {
     ai_checkTranslation(input: CheckTranslationInput): CheckTranslationOutModel | Promise<CheckTranslationOutModel>;
     ai_getTranscription(input: GetTranscriptionInput): GetTranscriptionOutModel | Promise<GetTranscriptionOutModel>;
-    ai_GetSentenceAndPhraseAnalyses(input: GetSentenceAndPhraseAnalysesInput): SentenceAndPhraseAnalysesOutModel | Promise<SentenceAndPhraseAnalysesOutModel>;
+    ai_AnalyseSentenceAndPhrase(input: AnalyseSentenceAndPhraseInput): SentenceAndPhraseAnalysesOutModel | Promise<SentenceAndPhraseAnalysesOutModel>;
     auth_getMe(): UserOutModel | Promise<UserOutModel>;
     book_user_books(): BookOutModel[] | Promise<BookOutModel[]>;
     book_chapter_get(input: GetBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;

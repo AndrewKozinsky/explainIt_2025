@@ -42,7 +42,7 @@ export namespace ChapterTextStructureFull {
 
 	export type SentencePart = Word | Space | Punctuation | CarriageReturn
 
-	type Word = {
+	export type Word = {
 		id: number
 		type: 'word'
 		value: string

@@ -77,5 +77,6 @@ export const errorMessage = {
 	bookChapter: {
 		notCreated: 'Глава книги не создана.',
 		notFound: 'Глава книги не найдена.',
+		cannotAnalyzeSentenceAndPhrase: 'Не удалось проанализировать предложение и фразу.',
 	},
 }

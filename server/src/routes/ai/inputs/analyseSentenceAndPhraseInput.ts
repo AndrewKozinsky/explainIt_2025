@@ -2,7 +2,7 @@ import { Field, InputType } from '@nestjs/graphql'
 import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
 
 @InputType()
-export class GetSentenceAndPhraseAnalysesInput {
+export class AnalyseSentenceAndPhraseInput {
 	@Field(() => String, { description: 'Book author', nullable: true })
 	@DtoFieldDecorators('bookAuthor', {
 		type: 'string',

@@ -1,3 +1,20 @@
+input AnalyseSentenceAndPhraseInput {
+  """Book author"""
+  bookAuthor: String
+
+  """Book name"""
+  bookName: String
+
+  """Context"""
+  context: String!
+
+  """Phrase"""
+  phrase: String!
+
+  """Sentence"""
+  sentence: String!
+}
+
 type BookChapterLiteOutModel {
   bookId: Int!
   header: String
@@ -99,23 +116,6 @@ input GetBookChapterInput {
   id: Int!
 }
 
-input GetSentenceAndPhraseAnalysesInput {
-  """Book author"""
-  bookAuthor: String
-
-  """Book name"""
-  bookName: String
-
-  """Context"""
-  context: String!
-
-  """Phrase"""
-  phrase: String!
-
-  """Sentence"""
-  sentence: String!
-}
-
 input GetTranscriptionInput {
   """Sentence in English"""
   engSentence: String!
@@ -194,7 +194,7 @@ type Mutation {
 }
 
 type Query {
-  ai_GetSentenceAndPhraseAnalyses(input: GetSentenceAndPhraseAnalysesInput!): SentenceAndPhraseAnalysesOutModel!
+  ai_AnalyseSentenceAndPhrase(input: AnalyseSentenceAndPhraseInput!): SentenceAndPhraseAnalysesOutModel!
   ai_checkTranslation(input: CheckTranslationInput!): CheckTranslationOutModel!
   ai_getTranscription(input: GetTranscriptionInput!): GetTranscriptionOutModel!
 

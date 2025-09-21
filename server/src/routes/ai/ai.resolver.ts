@@ -1,3 +1,4 @@
+import { UseGuards } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { Args, Query, Resolver } from '@nestjs/graphql'
 import { GetTranscriptionByAiCommand } from 'features/ai/getTranscriptionByAI.command'
@@ -5,8 +6,9 @@ import RouteNames from 'infrastructure/routeNames'
 import { CheckTranslationOutModel } from 'models/ai/checkTranslation.out.model'
 import { GetTranscriptionOutModel } from 'models/ai/getTranscription.out.model'
 import { SentenceAndPhraseAnalysesOutModel } from 'models/ai/sentenceAndPhraseAnalyses.out.model'
-import { AnalysePhaseInSentenceByAiCommand } from 'features/ai/analysePhaseInSentenceByAi.command'
-import { GetSentenceAndPhraseAnalysesInput } from 'src/routes/ai/inputs/getSentenceAndPhraseAnalyses.input'
+import { AnalyseSentenceAndPhraseCommand } from 'src/features/ai/analyseSentenceAndPhrase.command'
+import { CheckSessionCookieGuard } from 'src/infrastructure/guards/checkSessionCookie.guard'
+import { AnalyseSentenceAndPhraseInput } from 'src/routes/ai/inputs/analyseSentenceAndPhraseInput'
 import { CheckTranslationInput } from './inputs/checkTranslation.input'
 import { GetTranscriptionInput } from './inputs/getTranscription.input'
 import { CheckTranslationByAiCommand } from 'features/ai/checkTranslationByAI.command'
@@ -29,11 +31,11 @@ export class AiResolver {
 		return await this.commandBus.execute(new GetTranscriptionByAiCommand(input))
 	}
 
+	@UseGuards(CheckSessionCookieGuard)
 	@Query(() => SentenceAndPhraseAnalysesOutModel, {
-		name: RouteNames.AI.GET_SENTENCE_AND_PHRASE_ANALYSES,
+		name: RouteNames.AI.ANALYSE_SENTENCE_AND_PHRASE,
 	})
-	async analyseSentenceAndPhrase(@Args('input') input: GetSentenceAndPhraseAnalysesInput) {
-		console.log(input)
-		return await this.commandBus.execute(new AnalysePhaseInSentenceByAiCommand(input))
+	async analyseSentenceAndPhrase(@Args('input') input: AnalyseSentenceAndPhraseInput) {
+		return await this.commandBus.execute(new AnalyseSentenceAndPhraseCommand(input))
 	}
 }

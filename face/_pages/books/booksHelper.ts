@@ -1,4 +1,4 @@
-import { ChapterTextStructure } from '_pages/books/chapterStructureTypes'
+import { ChapterTextStructure, ChapterTextStructureFull } from '_pages/books/chapterStructureTypes'
 
 export const booksHelper = {
 	jsonChapterContentStructureToText(chapter: undefined | null | string): string {
@@ -13,8 +13,7 @@ export const booksHelper = {
 			return ''
 		}
 	},
-
-	chapterContentStructureToText(chapter: ChapterTextStructure.Chapter): string {
+	chapterContentStructureToText(chapter: ChapterTextStructure.Chapter | ChapterTextStructureFull.Chapter): string {
 		const getType = (o: any): string | null => (o && (o.t ?? o.type)) ?? null
 		const getValue = (o: any): string => (o && (o.v ?? o.value)) ?? ''
 		const getParts = (o: any): any[] | null => {

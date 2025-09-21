@@ -17,6 +17,19 @@ export type Scalars = {
   Float: { input: number; output: number; }
 };
 
+export type AnalyseSentenceAndPhraseInput = {
+  /** Book author */
+  bookAuthor?: InputMaybe<Scalars['String']['input']>;
+  /** Book name */
+  bookName?: InputMaybe<Scalars['String']['input']>;
+  /** Context */
+  context: Scalars['String']['input'];
+  /** Phrase */
+  phrase: Scalars['String']['input'];
+  /** Sentence */
+  sentence: Scalars['String']['input'];
+};
+
 export type BookChapterLiteOutModel = {
   __typename?: 'BookChapterLiteOutModel';
   bookId: Scalars['Int']['output'];
@@ -115,19 +128,6 @@ export type DeleteBookInput = {
 export type GetBookChapterInput = {
   /** BookChapter id */
   id: Scalars['Int']['input'];
-};
-
-export type GetSentenceAndPhraseAnalysesInput = {
-  /** Book author */
-  bookAuthor?: InputMaybe<Scalars['String']['input']>;
-  /** Book name */
-  bookName?: InputMaybe<Scalars['String']['input']>;
-  /** Context */
-  context: Scalars['String']['input'];
-  /** Phrase */
-  phrase: Scalars['String']['input'];
-  /** Sentence */
-  sentence: Scalars['String']['input'];
 };
 
 export type GetTranscriptionInput = {
@@ -258,7 +258,7 @@ export type MutationPayment_Yookassa_Top_Up_BalanceArgs = {
 
 export type Query = {
   __typename?: 'Query';
-  ai_GetSentenceAndPhraseAnalyses: SentenceAndPhraseAnalysesOutModel;
+  ai_AnalyseSentenceAndPhrase: SentenceAndPhraseAnalysesOutModel;
   ai_checkTranslation: CheckTranslationOutModel;
   ai_getTranscription: GetTranscriptionOutModel;
   /** Get current user data */
@@ -270,8 +270,8 @@ export type Query = {
 };
 
 
-export type QueryAi_GetSentenceAndPhraseAnalysesArgs = {
-  input: GetSentenceAndPhraseAnalysesInput;
+export type QueryAi_AnalyseSentenceAndPhraseArgs = {
+  input: AnalyseSentenceAndPhraseInput;
 };
 
 
@@ -352,11 +352,11 @@ export type UserOutModel = {
 };
 
 export type AiAnalyseSentenceAndPhraseVariables = Exact<{
-  input: GetSentenceAndPhraseAnalysesInput;
+  input: AnalyseSentenceAndPhraseInput;
 }>;
 
 
-export type AiAnalyseSentenceAndPhrase = { __typename?: 'Query', ai_GetSentenceAndPhraseAnalyses: { __typename?: 'SentenceAndPhraseAnalysesOutModel', id: number, sentenceTranslation: string } };
+export type AiAnalyseSentenceAndPhrase = { __typename?: 'Query', ai_AnalyseSentenceAndPhrase: { __typename?: 'SentenceAndPhraseAnalysesOutModel', id: number, sentenceTranslation: string } };
 
 export type AiCheckTranslationVariables = Exact<{
   rusSentence: Scalars['String']['input'];
@@ -474,8 +474,8 @@ export type Payment_YookassaTopUpBalance = { __typename?: 'Mutation', payment_yo
 
 
 export const AiAnalyseSentenceAndPhraseDocument = gql`
-    query AIAnalyseSentenceAndPhrase($input: GetSentenceAndPhraseAnalysesInput!) {
-  ai_GetSentenceAndPhraseAnalyses(input: $input) {
+    query AIAnalyseSentenceAndPhrase($input: AnalyseSentenceAndPhraseInput!) {
+  ai_AnalyseSentenceAndPhrase(input: $input) {
     id
     sentenceTranslation
   }
