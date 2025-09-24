@@ -4,6 +4,7 @@ import { create } from 'zustand'
 export const readingStoreValues: ReadingStoreValues = {
 	bookAuthor: null,
 	bookName: null,
+	chapterId: null,
 	chapter: null as any as ChapterTextStructureFull.Chapter,
 	sentence: {
 		context: '',
@@ -66,6 +67,7 @@ export type ReadingStoreValues = {
 	bookAuthor: null | string
 	// Название книги
 	bookName: null | string
+	chapterId: null | number
 	chapter: ChapterTextStructureFull.Chapter
 	// Данные выделенного предложения
 	sentence: Sentence

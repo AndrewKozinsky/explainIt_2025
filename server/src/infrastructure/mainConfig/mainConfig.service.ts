@@ -66,7 +66,26 @@ export class MainConfigService {
 					clientSecret: enVariables.oauth.yandex.clientSecret,
 				},
 			},
-			welcomeBonus: parseInt(enVariables.welcomeBonus),
+			welcomeBonusInRub: parseInt(enVariables.welcomeBonusInRub),
+			// Стоимость одного токена в долларах
+			providerTokenPriceInRub: {
+				openAi: {
+					nano: {
+						input: (100 * 0.05) / 1_000_000, // 100 рублей за доллар * количество долларов / количество токенов
+						output: (100 * 0.4) / 1_000_000,
+					},
+					mini: {
+						input: (100 * 0.25) / 1_000_000,
+						output: (100 * 2) / 1_000_000,
+					},
+					standard: {
+						input: (100 * 1.25) / 1_000_000,
+						output: (100 * 10) / 1_000_000,
+					},
+				},
+			},
+			// Моя наценка к стоимости одного токена
+			myPriceMultiplier: 2,
 		}
 	}
 
@@ -112,7 +131,7 @@ export class MainConfigService {
 				},
 			},
 			// User gets this amount on balance if he confirms his personality with OAuth
-			welcomeBonus: this.configService.get<string>('WELCOME_BONUS') as string,
+			welcomeBonusInRub: this.configService.get<string>('WELCOME_BONUS') as string,
 		}
 	}
 }

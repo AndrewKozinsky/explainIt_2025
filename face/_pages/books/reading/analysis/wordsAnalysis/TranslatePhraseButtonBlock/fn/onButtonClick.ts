@@ -1,19 +1,25 @@
+import { useBookChapter_AnalyseSentenceAndPhraseLazyQuery } from '@/graphql'
 import { useCallback } from 'react'
 import { ChapterTextStructureFull } from '_pages/books/chapterStructureTypes'
 import { useReadingStore } from '_pages/books/reading/readingStore'
-import { useAiAnalyseSentenceAndPhraseLazyQuery } from '@/graphql'
 import { booksHelper } from '_pages/books/booksHelper'
 
 export function useGetTranslatePhraseAndSentence() {
 	const bookAuthor = useReadingStore((s) => s.bookAuthor)
 	const bookName = useReadingStore((s) => s.bookName)
 	const sentence = useReadingStore((s) => s.sentence)
+	const chapterId = useReadingStore((s) => s.chapterId)
 	const chapter = useReadingStore((s) => s.chapter)
 
 	// Use the lazy query version
-	const [analyzeSentence] = useAiAnalyseSentenceAndPhraseLazyQuery()
+	const [analyzeSentence] = useBookChapter_AnalyseSentenceAndPhraseLazyQuery()
 
 	return useCallback(async () => {
+		if (!chapterId) {
+			console.error('No chapter selected')
+			return
+		}
+
 		if (!sentence.sentenceId) {
 			console.error('No sentence selected')
 			return
@@ -33,6 +39,7 @@ export function useGetTranslatePhraseAndSentence() {
 			const result = await analyzeSentence({
 				variables: {
 					input: {
+						bookChapterId: chapterId,
 						bookAuthor,
 						bookName,
 						context: sentence.context,

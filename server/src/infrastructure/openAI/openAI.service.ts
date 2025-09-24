@@ -6,6 +6,9 @@ import {
 	ResponseFormatText,
 	ReasoningEffort,
 } from 'openai/resources'
+import { CustomGraphQLError } from 'src/infrastructure/exceptions/customErrors'
+import { ErrorCode } from 'src/infrastructure/exceptions/errorCode'
+import { errorMessage } from 'src/infrastructure/exceptions/errorMessage'
 import { MainConfigService } from '../mainConfig/mainConfig.service'
 
 export enum OpenAIModels {
@@ -38,42 +41,27 @@ export class OpenAIService {
 		// Уровень «обдумывания» ответа. Если не указывать, то ChatGPT будет выбирать его самостоятельно в зависимости от вопроса
 		reasoningEffort?: ReasoningEffort
 	}) {
-		try {
-			const response = await this.openai.chat.completions.create({
-				model: input.model ?? OpenAIModels.Nano,
-				reasoning_effort: input.reasoningEffort,
-				messages: input.messages,
-				response_format: input.responseFormat ?? {
-					type: 'json_object',
-				},
-			})
+		const response = await this.openai.chat.completions.create({
+			model: input.model ?? OpenAIModels.Nano,
+			reasoning_effort: input.reasoningEffort,
+			messages: input.messages,
+			response_format: input.responseFormat ?? {
+				type: 'text',
+			},
+		})
 
-			if (!response.usage) {
-				console.log('Error in OpenAIService => generateText.', 'No response')
-				return
-			}
+		if (!response.usage) {
+			throw new CustomGraphQLError(errorMessage.unknownOpenAIError, ErrorCode.InternalServerError_500)
+		}
 
-			const resultObj = {
-				// Сколько токенов ушло на запрос.
-				// Считается по меньшей стоимости
-				inputTokens: response.usage.prompt_tokens, // 295
-				// Сколько токенов модель сгенерировала в ответе. // 3968
-				// Считается по большей стоимости
-				outputTokens: response.usage.completion_tokens,
-				message: response.choices[0].message.content as string,
-			}
-
-			if (!resultObj.message) {
-				console.log('Error in OpenAIService => generateText.', 'No message')
-				return null
-			}
-
-			console.log(resultObj)
-
-			return resultObj
-		} catch (error: unknown) {
-			console.log('Error in OpenAIService => generateText.', error)
-			return null
+		return {
+			// Сколько токенов ушло на запрос.
+			// Считается по меньшей стоимости
+			inputTokens: response.usage.prompt_tokens, // 295
+			// Сколько токенов модель сгенерировала в ответе. // 3968
+			// Считается по большей стоимости
+			outputTokens: response.usage.completion_tokens,
+			message: response?.choices[0]?.message?.content as null | string,
 		}
 	}
 }
@@ -86,7 +74,11 @@ export interface OpenAIServiceI {
 export class OpenAIServiceMock implements OpenAIServiceI {
 	constructor() {}
 
-	async generateText(prompt: string): Promise<string> {
-		return '{"correct": false, "analysis": "Перевод написан неверно"}'
+	async generateText(prompt: string): Promise<any> {
+		return {
+			inputTokens: 100,
+			outputTokens: 3000,
+			message: 'OpenAI message',
+		}
 	}
 }

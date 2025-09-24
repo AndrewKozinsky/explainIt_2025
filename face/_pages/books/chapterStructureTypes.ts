@@ -31,6 +31,7 @@ export namespace ChapterTextStructure {
 
 // Тип данных для структуры текста наполненный дополнительными сведениями (используется на клиенте)
 export namespace ChapterTextStructureFull {
+	// Надо бы добавить сюда идентификатор статьи. Требуется при запросах на анализ.
 	export type Chapter = (Sentence | Space | CarriageReturn | Punctuation)[]
 
 	export type Sentence = {

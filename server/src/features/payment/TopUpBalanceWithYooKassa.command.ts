@@ -13,6 +13,8 @@ export class TopUpBalanceWithYooKassaCommand implements ICommand {
 	) {}
 }
 
+// Пополнение баланса через ЮКассу. Создаётся оплата в БД, затем идёт обращение в Юкассу для получения ссылки на оплату.
+// Возвращает ссылку на оплату.
 @CommandHandler(TopUpBalanceWithYooKassaCommand)
 export class TopUpBalanceWithYooKassaHandler implements ICommandHandler<TopUpBalanceWithYooKassaCommand> {
 	constructor(

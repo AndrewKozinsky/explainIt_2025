@@ -20,6 +20,8 @@ export type Scalars = {
 export type AnalyseSentenceAndPhraseInput = {
   /** Book author */
   bookAuthor?: InputMaybe<Scalars['String']['input']>;
+  /** Book chapter id */
+  bookChapterId: Scalars['Int']['input'];
   /** Book name */
   bookName?: InputMaybe<Scalars['String']['input']>;
   /** Context */
@@ -47,6 +49,15 @@ export type BookChapterOutModel = {
   id: Scalars['Int']['output'];
   name?: Maybe<Scalars['String']['output']>;
   note?: Maybe<Scalars['String']['output']>;
+};
+
+export type BookChapterPhraseOutModel = {
+  __typename?: 'BookChapterPhraseOutModel';
+  analysis: Scalars['String']['output'];
+  examples: Array<PhraseExample>;
+  id: Scalars['Int']['output'];
+  phrase: Scalars['String']['output'];
+  translation: Scalars['String']['output'];
 };
 
 export type BookLiteOutModel = {
@@ -256,22 +267,24 @@ export type MutationPayment_Yookassa_Top_Up_BalanceArgs = {
   input: TopUpBalanceWithYooKassaInput;
 };
 
+export type PhraseExample = {
+  __typename?: 'PhraseExample';
+  id: Scalars['Int']['output'];
+  sentence: Scalars['String']['output'];
+  translate: Scalars['String']['output'];
+};
+
 export type Query = {
   __typename?: 'Query';
-  ai_AnalyseSentenceAndPhrase: SentenceAndPhraseAnalysesOutModel;
   ai_checkTranslation: CheckTranslationOutModel;
   ai_getTranscription: GetTranscriptionOutModel;
   /** Get current user data */
   auth_getMe: UserOutModel;
+  book_chapter_AnalyseSentenceAndPhrase: SentenceAndPhraseAnalysesOutModel;
   /** Get book chapter */
   book_chapter_get: BookChapterOutModel;
   /** Get user books */
   book_user_books: Array<BookOutModel>;
-};
-
-
-export type QueryAi_AnalyseSentenceAndPhraseArgs = {
-  input: AnalyseSentenceAndPhraseInput;
 };
 
 
@@ -282,6 +295,11 @@ export type QueryAi_CheckTranslationArgs = {
 
 export type QueryAi_GetTranscriptionArgs = {
   input: GetTranscriptionInput;
+};
+
+
+export type QueryBook_Chapter_AnalyseSentenceAndPhraseArgs = {
+  input: AnalyseSentenceAndPhraseInput;
 };
 
 
@@ -303,7 +321,7 @@ export type ResendConfirmationEmailInput = {
 
 export type SentenceAndPhraseAnalysesOutModel = {
   __typename?: 'SentenceAndPhraseAnalysesOutModel';
-  id: Scalars['Int']['output'];
+  phrase: BookChapterPhraseOutModel;
   sentenceTranslation: Scalars['String']['output'];
 };
 
@@ -350,13 +368,6 @@ export type UserOutModel = {
   id: Scalars['Int']['output'];
   isUserConfirmed: Scalars['Boolean']['output'];
 };
-
-export type AiAnalyseSentenceAndPhraseVariables = Exact<{
-  input: AnalyseSentenceAndPhraseInput;
-}>;
-
-
-export type AiAnalyseSentenceAndPhrase = { __typename?: 'Query', ai_AnalyseSentenceAndPhrase: { __typename?: 'SentenceAndPhraseAnalysesOutModel', id: number, sentenceTranslation: string } };
 
 export type AiCheckTranslationVariables = Exact<{
   rusSentence: Scalars['String']['input'];
@@ -437,6 +448,13 @@ export type Book_UpdateVariables = Exact<{
 
 export type Book_Update = { __typename?: 'Mutation', book_update: { __typename?: 'BookOutModel', id: number, author?: string | null, name?: string | null, note?: string | null, userId: number, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
 
+export type BookChapter_AnalyseSentenceAndPhraseVariables = Exact<{
+  input: AnalyseSentenceAndPhraseInput;
+}>;
+
+
+export type BookChapter_AnalyseSentenceAndPhrase = { __typename?: 'Query', book_chapter_AnalyseSentenceAndPhrase: { __typename?: 'SentenceAndPhraseAnalysesOutModel', sentenceTranslation: string, phrase: { __typename?: 'BookChapterPhraseOutModel', id: number, phrase: string, translation: string, analysis: string, examples: Array<{ __typename?: 'PhraseExample', id: number, sentence: string, translate: string }> } } };
+
 export type BookChapter_CreateVariables = Exact<{
   input: CreateBookChapterInput;
 }>;
@@ -473,47 +491,6 @@ export type Payment_YookassaTopUpBalanceVariables = Exact<{
 export type Payment_YookassaTopUpBalance = { __typename?: 'Mutation', payment_yookassa_top_up_balance: { __typename?: 'TopUpBalanceWithYooKassaOutModel', confirmationUrl: string } };
 
 
-export const AiAnalyseSentenceAndPhraseDocument = gql`
-    query AIAnalyseSentenceAndPhrase($input: AnalyseSentenceAndPhraseInput!) {
-  ai_AnalyseSentenceAndPhrase(input: $input) {
-    id
-    sentenceTranslation
-  }
-}
-    `;
-
-/**
- * __useAiAnalyseSentenceAndPhrase__
- *
- * To run a query within a React component, call `useAiAnalyseSentenceAndPhrase` and pass it any options that fit your needs.
- * When your component renders, `useAiAnalyseSentenceAndPhrase` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useAiAnalyseSentenceAndPhrase({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useAiAnalyseSentenceAndPhrase(baseOptions: Apollo.QueryHookOptions<AiAnalyseSentenceAndPhrase, AiAnalyseSentenceAndPhraseVariables> & ({ variables: AiAnalyseSentenceAndPhraseVariables; skip?: boolean; } | { skip: boolean; }) ) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<AiAnalyseSentenceAndPhrase, AiAnalyseSentenceAndPhraseVariables>(AiAnalyseSentenceAndPhraseDocument, options);
-      }
-export function useAiAnalyseSentenceAndPhraseLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AiAnalyseSentenceAndPhrase, AiAnalyseSentenceAndPhraseVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<AiAnalyseSentenceAndPhrase, AiAnalyseSentenceAndPhraseVariables>(AiAnalyseSentenceAndPhraseDocument, options);
-        }
-export function useAiAnalyseSentenceAndPhraseSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<AiAnalyseSentenceAndPhrase, AiAnalyseSentenceAndPhraseVariables>) {
-          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<AiAnalyseSentenceAndPhrase, AiAnalyseSentenceAndPhraseVariables>(AiAnalyseSentenceAndPhraseDocument, options);
-        }
-export type AiAnalyseSentenceAndPhraseHookResult = ReturnType<typeof useAiAnalyseSentenceAndPhrase>;
-export type AiAnalyseSentenceAndPhraseLazyQueryHookResult = ReturnType<typeof useAiAnalyseSentenceAndPhraseLazyQuery>;
-export type AiAnalyseSentenceAndPhraseSuspenseQueryHookResult = ReturnType<typeof useAiAnalyseSentenceAndPhraseSuspenseQuery>;
-export type AiAnalyseSentenceAndPhraseQueryResult = Apollo.QueryResult<AiAnalyseSentenceAndPhrase, AiAnalyseSentenceAndPhraseVariables>;
 export const AiCheckTranslationDocument = gql`
     query AICheckTranslation($rusSentence: String!, $engSentence: String!) {
   ai_checkTranslation(
@@ -984,6 +961,57 @@ export function useBook_Update(baseOptions?: Apollo.MutationHookOptions<Book_Upd
 export type Book_UpdateHookResult = ReturnType<typeof useBook_Update>;
 export type Book_UpdateMutationResult = Apollo.MutationResult<Book_Update>;
 export type Book_UpdateMutationOptions = Apollo.BaseMutationOptions<Book_Update, Book_UpdateVariables>;
+export const BookChapter_AnalyseSentenceAndPhraseDocument = gql`
+    query BookChapter_AnalyseSentenceAndPhrase($input: AnalyseSentenceAndPhraseInput!) {
+  book_chapter_AnalyseSentenceAndPhrase(input: $input) {
+    sentenceTranslation
+    phrase {
+      id
+      phrase
+      translation
+      analysis
+      examples {
+        id
+        sentence
+        translate
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useBookChapter_AnalyseSentenceAndPhrase__
+ *
+ * To run a query within a React component, call `useBookChapter_AnalyseSentenceAndPhrase` and pass it any options that fit your needs.
+ * When your component renders, `useBookChapter_AnalyseSentenceAndPhrase` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useBookChapter_AnalyseSentenceAndPhrase({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useBookChapter_AnalyseSentenceAndPhrase(baseOptions: Apollo.QueryHookOptions<BookChapter_AnalyseSentenceAndPhrase, BookChapter_AnalyseSentenceAndPhraseVariables> & ({ variables: BookChapter_AnalyseSentenceAndPhraseVariables; skip?: boolean; } | { skip: boolean; }) ) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<BookChapter_AnalyseSentenceAndPhrase, BookChapter_AnalyseSentenceAndPhraseVariables>(BookChapter_AnalyseSentenceAndPhraseDocument, options);
+      }
+export function useBookChapter_AnalyseSentenceAndPhraseLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<BookChapter_AnalyseSentenceAndPhrase, BookChapter_AnalyseSentenceAndPhraseVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<BookChapter_AnalyseSentenceAndPhrase, BookChapter_AnalyseSentenceAndPhraseVariables>(BookChapter_AnalyseSentenceAndPhraseDocument, options);
+        }
+export function useBookChapter_AnalyseSentenceAndPhraseSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<BookChapter_AnalyseSentenceAndPhrase, BookChapter_AnalyseSentenceAndPhraseVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<BookChapter_AnalyseSentenceAndPhrase, BookChapter_AnalyseSentenceAndPhraseVariables>(BookChapter_AnalyseSentenceAndPhraseDocument, options);
+        }
+export type BookChapter_AnalyseSentenceAndPhraseHookResult = ReturnType<typeof useBookChapter_AnalyseSentenceAndPhrase>;
+export type BookChapter_AnalyseSentenceAndPhraseLazyQueryHookResult = ReturnType<typeof useBookChapter_AnalyseSentenceAndPhraseLazyQuery>;
+export type BookChapter_AnalyseSentenceAndPhraseSuspenseQueryHookResult = ReturnType<typeof useBookChapter_AnalyseSentenceAndPhraseSuspenseQuery>;
+export type BookChapter_AnalyseSentenceAndPhraseQueryResult = Apollo.QueryResult<BookChapter_AnalyseSentenceAndPhrase, BookChapter_AnalyseSentenceAndPhraseVariables>;
 export const BookChapter_CreateDocument = gql`
     mutation BookChapter_create($input: CreateBookChapterInput!) {
   book_chapter_create(input: $input) {

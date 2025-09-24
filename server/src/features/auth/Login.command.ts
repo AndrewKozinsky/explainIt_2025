@@ -2,7 +2,7 @@ import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { UserOutModel } from '../../models/user/user.out.model'
+import { UserOutModel } from 'models/user/user.out.model'
 import { UserRepository } from 'src/repo/user.repository'
 import { Request } from 'express'
 import { UserQueryRepository } from 'src/repo/user.queryRepository'
@@ -38,7 +38,8 @@ export class LoginHandler implements ICommandHandler<LoginCommand> {
 			throw new CustomGraphQLError(errorMessage.userNotFound, ErrorCode.NotFound_404)
 		}
 
-		if (!user.isEmailConfirmed) {
+		// If user has not registered with OAuth and has unconfirmed email
+		if (!user.isUserConfirmed && !user.isEmailConfirmed) {
 			throw new CustomGraphQLError(errorMessage.emailIsNotConfirmed, ErrorCode.Forbidden_403)
 		}
 
@@ -69,6 +70,7 @@ export class LoginHandler implements ICommandHandler<LoginCommand> {
 					)
 				}
 
+				console.log(99999)
 				resolve(user)
 			})
 		})

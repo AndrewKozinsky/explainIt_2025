@@ -41,7 +41,9 @@ export function shouldShowParagraph(args: {
 }
 
 export function getParagraphText() {
-	return isMacOS() ? 'Зажмите cmd для выделения нескольких слов.' : 'Зажмите ctrl для выделения нескольких слов.'
+	return isMacOS()
+		? 'Зажмите cmd для выделения нескольких связанных слов.'
+		: 'Зажмите ctrl для выделения нескольких слов.'
 }
 
 export function shouldShowButton(selectedWordIds: number[]) {

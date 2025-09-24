@@ -90,6 +90,9 @@
 Если нужно стереть все данные:
 ```npx prisma migrate reset```
 
+После стирания снова попробуйте запустить миграцию:
+```npm run migrate:dev```
+
 И сгенерируйте типы данных для клиента:
 ```npm run migrate:generate-types```
 

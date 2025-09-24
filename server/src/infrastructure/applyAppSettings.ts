@@ -55,6 +55,7 @@ async function setUpSession(app: INestApplication) {
 			store: new RedisStore({
 				client: redis,
 				prefix: mainConfig.get().redis.sessionsFolder,
+				ttl: mainConfig.get().session.lifeDurationInMs / 1000,
 			}),
 		}),
 	)

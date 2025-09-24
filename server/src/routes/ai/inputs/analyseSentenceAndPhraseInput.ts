@@ -1,8 +1,13 @@
-import { Field, InputType } from '@nestjs/graphql'
+import { Field, InputType, Int } from '@nestjs/graphql'
 import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
+import { bdConfig } from 'src/db/dbConfig/dbConfig'
 
 @InputType()
 export class AnalyseSentenceAndPhraseInput {
+	@Field(() => Int, { description: 'Book chapter id' })
+	@DtoFieldDecorators('id', bdConfig.BookChapter.dbFields.id)
+	bookChapterId: number
+
 	@Field(() => String, { description: 'Book author', nullable: true })
 	@DtoFieldDecorators('bookAuthor', {
 		type: 'string',

@@ -261,12 +261,12 @@ export class LoginWithOAuthHandler implements ICommandHandler<LoginWithOAuthComm
 	}
 
 	async addWelcomeBonus(userId: number) {
-		const { welcomeBonus } = this.mainConfigService.get()
+		const { welcomeBonusInRub } = this.mainConfigService.get()
 
 		try {
 			await this.balanceTransactionRepository.createTransaction({
 				userId,
-				amount: welcomeBonus * 100,
+				amount: welcomeBonusInRub * 100,
 				type: BalanceTransactionType.ACCOUNT_CONFIRMATION_WELCOME_BONUS,
 			})
 		} catch (error) {

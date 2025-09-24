@@ -16,7 +16,8 @@ export class SetPaymentResultWithYooKassaCommand implements ICommand {
 	) {}
 }
 
-// Этот командный обработчик будет вызываться при получении ответа от ЮKassa при оплате
+// Этот командный обработчик будет вызываться при получении ответа от ЮKassa при оплате.
+// При положительном ответе от Юкассы создаёт транзакцию в балансе пользователя вместе с увеличением баланса.
 @CommandHandler(SetPaymentResultWithYooKassaCommand)
 export class SetPaymentResultWithYooKassaHandler implements ICommandHandler<SetPaymentResultWithYooKassaCommand> {
 	constructor(
@@ -38,14 +39,12 @@ export class SetPaymentResultWithYooKassaHandler implements ICommandHandler<SetP
 							id: paymentId,
 						} = await this.paymentRepository.makePaymentSuccessful(yooKassaPaymentId)
 
-						await Promise.all([
-							this.transactionRepository.createTransaction({
-								paymentId,
-								amount,
-								userId,
-								type: BalanceTransactionType.PAYMENT,
-							}),
-						])
+						await this.transactionRepository.createTransaction({
+							paymentId,
+							amount,
+							userId,
+							type: BalanceTransactionType.TOP_UP,
+						})
 					},
 				})
 			} catch (error) {

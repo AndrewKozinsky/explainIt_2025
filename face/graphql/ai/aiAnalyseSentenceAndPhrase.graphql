@@ -1,6 +1,0 @@
-query AIAnalyseSentenceAndPhrase($input: AnalyseSentenceAndPhraseInput!) {
-	ai_AnalyseSentenceAndPhrase(input: $input) {
-		id
-		sentenceTranslation
-	}
-}

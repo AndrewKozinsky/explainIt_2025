@@ -1,86 +1,109 @@
 generator client {
-    provider      = "prisma-client-js"
-    binaryTargets = ["native", "linux-musl-openssl-3.0.x", "linux-musl-arm64-openssl-3.0.x"]
+	provider      = "prisma-client-js"
+	binaryTargets = ["native", "linux-musl-openssl-3.0.x", "linux-musl-arm64-openssl-3.0.x"]
 }
 
 datasource db {
-    provider = "postgresql"
-    url      = env("DB_URL")
+	provider = "postgresql"
+	url      = env("DB_URL")
 }
 
 model User {
-    id                                      Int                  @id @default(autoincrement())
-    email                                   String               @unique
-    password                                String?
-    email_confirmation_code                 String?
-    email_confirmation_code_expiration_date String?
-    is_email_confirmed                      Boolean              @default(false)
-    is_user_confirmed                       Boolean              @default(false)
-    balance                                 Int                  @default(0)
-    created_at                              DateTime             @default(now())
-    BalanceTransaction                      BalanceTransaction[]
-    Payment                                 Payment[]
-    Book                                    Book[]
+	id	Int	@id	@default(autoincrement())
+	email	String	@unique
+	password	String?
+	email_confirmation_code	String?
+	email_confirmation_code_expiration_date	String?
+	is_email_confirmed	Boolean	@default(false)
+	is_user_confirmed	Boolean	@default(false)
+	balance	Int	@default(0)
+	created_at	DateTime	@default(now())
+	BalanceTransaction	BalanceTransaction[]
+	Payment	Payment[]
+	Book	Book[]
 }
 
 model BalanceTransaction {
-    id         Int                    @id @default(autoincrement())
-    user       User                   @relation(fields: [user_id], references: [id], onDelete: Cascade)
-    user_id    Int
-    type       BalanceTransactionType
-    amount     Int
-    payment    Payment?               @relation(fields: [payment_id], references: [id])
-    payment_id Int?                   @unique
-    created_at DateTime               @default(now())
+	id	Int	@id	@default(autoincrement())
+	user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+	user_id Int
+	type	BalanceTransactionType
+	amount	Int
+	payment Payment? @relation(fields: [payment_id], references: [id])
+	payment_id Int?	@unique
+	created_at	DateTime	@default(now())
 }
 
 model Payment {
-    id                 Int                 @id @default(autoincrement())
-    user               User                @relation(fields: [user_id], references: [id], onDelete: Cascade)
-    user_id            Int
-    amount             Int
-    status             PaymentStatus       @default(PENDING)
-    provider_name      PaymentProviderName @default(YOOKASSA)
-    external_id        String              @unique
-    BalanceTransaction BalanceTransaction?
-    created_at         DateTime            @default(now())
-    updated_at         DateTime            @default(now())
+	id	Int	@id	@default(autoincrement())
+	user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+	user_id Int
+	amount	Int
+	status	PaymentStatus	@default(PENDING)
+	provider_name	PaymentProviderName	@default(YOOKASSA)
+	external_id	String	@unique
+	BalanceTransaction	BalanceTransaction?
+	created_at	DateTime	@default(now())
+	updated_at	DateTime	@default(now())
 }
 
 model Book {
-    id          Int           @id @default(autoincrement())
-    user        User          @relation(fields: [user_id], references: [id], onDelete: Cascade)
-    user_id     Int
-    author      String?
-    name        String?
-    note        String?
-    created_at  DateTime      @default(now())
-    BookChapter BookChapter[]
+	id	Int	@id	@default(autoincrement())
+	user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+	user_id Int
+	author	String?
+	name	String?
+	note	String?
+	created_at	DateTime	@default(now())
+	BookChapter	BookChapter[]
 }
 
 model BookChapter {
-    id         Int      @id @default(autoincrement())
-    book       Book     @relation(fields: [book_id], references: [id], onDelete: Cascade)
-    book_id    Int
-    name       String?
-    header     String?
-    content    String?
-    note       String?
-    created_at DateTime @default(now())
+	id	Int	@id	@default(autoincrement())
+	book Book @relation(fields: [book_id], references: [id], onDelete: Cascade)
+	book_id Int
+	name	String?
+	header	String?
+	content	String?
+	note	String?
+	BookChapterPhrase	BookChapterPhrase[]
+	created_at	DateTime	@default(now())
+}
+
+model BookChapterPhrase {
+	id	Int	@id	@default(autoincrement())
+	sentence	String
+	phrase	String
+	phraseTranslation	String
+	phraseAnalysis	String
+	book_chapter BookChapter @relation(fields: [book_chapter_id], references: [id], onDelete: Cascade)
+	book_chapter_id Int
+	BookChapterPhraseExample	BookChapterPhraseExample[]
+	created_at	DateTime	@default(now())
+}
+
+model BookChapterPhraseExample {
+	id	Int	@id	@default(autoincrement())
+	book_chapter_phrase BookChapterPhrase @relation(fields: [book_chapter_phrase_id], references: [id], onDelete: Cascade)
+	book_chapter_phrase_id Int
+	sentence	String
+	translate	String
+	created_at	DateTime	@default(now())
 }
 
 enum BalanceTransactionType {
-    PAYMENT
-    ACCOUNT_CONFIRMATION_WELCOME_BONUS
+	TOP_UP
+	CHARGE
+	ACCOUNT_CONFIRMATION_WELCOME_BONUS
 }
 
 enum PaymentStatus {
-    PENDING
-    SUCCESS
-    FAILED
-    CANCELED
+	PENDING
+	SUCCESS
+	FAILED
+	CANCELED
 }
 
 enum PaymentProviderName {
-    YOOKASSA
+	YOOKASSA
 }

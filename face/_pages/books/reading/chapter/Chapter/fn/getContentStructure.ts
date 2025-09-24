@@ -22,7 +22,12 @@ export function useGetChapterDataAndSetToStore() {
 			const chapter = fullChapterStructureUsefulData(chapterStructure)
 
 			// Put data to the ReadingStore
-			useReadingStore.setState({ chapter, bookName: bookData.name, bookAuthor: bookData.author })
+			useReadingStore.setState({
+				chapterId: chapterData.id,
+				chapter: chapter,
+				bookName: bookData.name,
+				bookAuthor: bookData.author,
+			})
 		},
 		[bookData, chapterData],
 	)

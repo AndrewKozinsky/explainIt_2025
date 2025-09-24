@@ -17,7 +17,6 @@ export const RouteNames = {
 	AI: {
 		CHECK_TRANSLATION: 'ai_checkTranslation',
 		GET_TRANSCRIPTION: 'ai_getTranscription',
-		ANALYSE_SENTENCE_AND_PHRASE: 'ai_AnalyseSentenceAndPhrase',
 	},
 	// REST
 	DB: {
@@ -38,6 +37,7 @@ export const RouteNames = {
 		CREATE: 'book_chapter_create',
 		UPDATE: 'book_chapter_update',
 		DELETE: 'book_chapter_delete',
+		ANALYSE_SENTENCE_AND_PHRASE: 'book_chapter_AnalyseSentenceAndPhrase',
 	},
 }
 

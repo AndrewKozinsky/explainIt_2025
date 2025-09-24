@@ -62,6 +62,7 @@ export const errorMessage = {
 	noSessionObject: 'Нет объект сессии (request.session).',
 	cannotFinishSession: 'Не удалось завершить сессию.',
 	unknownDbError: 'Неизвестная ошибка в базе данных.',
+	unknownOpenAIError: 'Неизвестная ошибка при запросе в OpenAI.',
 	unknownError: 'Неизвестная ошибка сервера.',
 	cannotSaveSession: 'Невозможно сохранить сессию',
 	onlyDevMode: 'Работает только в режиме разработки.',

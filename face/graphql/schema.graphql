@@ -2,6 +2,9 @@ input AnalyseSentenceAndPhraseInput {
   """Book author"""
   bookAuthor: String
 
+  """Book chapter id"""
+  bookChapterId: Int!
+
   """Book name"""
   bookName: String
 
@@ -30,6 +33,14 @@ type BookChapterOutModel {
   id: Int!
   name: String
   note: String
+}
+
+type BookChapterPhraseOutModel {
+  analysis: String!
+  examples: [PhraseExample!]!
+  id: Int!
+  phrase: String!
+  translation: String!
 }
 
 type BookLiteOutModel {
@@ -193,13 +204,19 @@ type Mutation {
   payment_yookassa_top_up_balance(input: TopUpBalanceWithYooKassaInput!): TopUpBalanceWithYooKassaOutModel!
 }
 
+type PhraseExample {
+  id: Int!
+  sentence: String!
+  translate: String!
+}
+
 type Query {
-  ai_AnalyseSentenceAndPhrase(input: AnalyseSentenceAndPhraseInput!): SentenceAndPhraseAnalysesOutModel!
   ai_checkTranslation(input: CheckTranslationInput!): CheckTranslationOutModel!
   ai_getTranscription(input: GetTranscriptionInput!): GetTranscriptionOutModel!
 
   """Get current user data"""
   auth_getMe: UserOutModel!
+  book_chapter_AnalyseSentenceAndPhrase(input: AnalyseSentenceAndPhraseInput!): SentenceAndPhraseAnalysesOutModel!
 
   """Get book chapter"""
   book_chapter_get(input: GetBookChapterInput!): BookChapterOutModel!
@@ -222,7 +239,7 @@ input ResendConfirmationEmailInput {
 }
 
 type SentenceAndPhraseAnalysesOutModel {
-  id: Int!
+  phrase: BookChapterPhraseOutModel!
   sentenceTranslation: String!
 }
 

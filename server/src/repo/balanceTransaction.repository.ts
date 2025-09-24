@@ -11,6 +11,7 @@ import { UserRepository } from './user.repository'
 
 type TransactionDto = {
 	userId: number
+	// Стоимость указывается в копейках
 	amount: number
 	paymentId?: number
 	type: BalanceTransactionType
@@ -26,8 +27,22 @@ export class BalanceTransactionRepository {
 
 	@CatchDbError()
 	async createTransaction(dto: TransactionDto) {
-		if (dto.type === BalanceTransactionType.PAYMENT && !dto.paymentId) {
+		if (dto.type === BalanceTransactionType.TOP_UP && !dto.paymentId) {
 			throw new CustomGraphQLError('Payment ID is required for payment transactions', ErrorCode.BadRequest_400)
+		}
+
+		if (dto.type === BalanceTransactionType.TOP_UP && dto.amount < 0) {
+			throw new CustomGraphQLError(
+				'You cannot deposit an amount less than zero into your balance.',
+				ErrorCode.BadRequest_400,
+			)
+		}
+
+		if (dto.type === BalanceTransactionType.CHARGE && dto.amount > 0) {
+			throw new CustomGraphQLError(
+				'You cannot write off an amount greater than zero from your balance.',
+				ErrorCode.BadRequest_400,
+			)
 		}
 
 		try {
@@ -38,7 +53,7 @@ export class BalanceTransactionRepository {
 							amount: dto.amount,
 							user_id: dto.userId,
 							type: dto.type,
-							...(dto.type === BalanceTransactionType.PAYMENT && { payment_id: dto.paymentId }),
+							...(dto.type === BalanceTransactionType.TOP_UP && { payment_id: dto.paymentId }),
 						},
 					})
 

@@ -1,0 +1,16 @@
+query BookChapter_AnalyseSentenceAndPhrase($input: AnalyseSentenceAndPhraseInput!) {
+	book_chapter_AnalyseSentenceAndPhrase(input: $input) {
+		sentenceTranslation
+		phrase {
+			id
+			phrase
+			translation
+			analysis
+			examples {
+				id
+				sentence
+				translate
+			}
+		}
+	}
+}

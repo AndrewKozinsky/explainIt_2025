@@ -124,7 +124,10 @@ export const bdConfig = {
 				type: 'enum',
 				description: 'Status of balance changing ',
 				required: true,
-				variants: ['PAYMENT', 'ACCOUNT_CONFIRMATION_WELCOME_BONUS'],
+				// TOP_UP — пополнение баланса
+				// CHARGE — списание с баланса
+				// ACCOUNT_CONFIRMATION_WELCOME_BONUS — приветственный бонус за регистрацию
+				variants: ['TOP_UP', 'CHARGE', 'ACCOUNT_CONFIRMATION_WELCOME_BONUS'],
 				enumName: 'BalanceTransactionType',
 			},
 			amount: {
@@ -272,6 +275,90 @@ export const bdConfig = {
 				required: false,
 				minLength: 0,
 				maxLength: 1000,
+			},
+			BookChapterPhrase: {
+				type: 'oneToMany',
+			},
+			created_at: {
+				type: 'createdAt',
+			},
+		},
+	},
+	// Переводы одного или нескольких слов (фраза).
+	// Используется для хранения переведённых фраз и для заучивания
+	BookChapterPhrase: {
+		dtoProps: {},
+		dbFields: {
+			id: {
+				type: 'index',
+			},
+			sentence: {
+				type: 'string',
+				description: 'Предложение где находится фраза',
+				required: true,
+				minLength: 1,
+				maxLength: 1000,
+			},
+			phrase: {
+				type: 'string',
+				description: 'Одно или несколько слов на иностранном языке для заучивания',
+				required: true,
+				minLength: 1,
+				maxLength: 200,
+			},
+			phraseTranslation: {
+				type: 'string',
+				description: 'Перевод фразы на русский язык',
+				required: true,
+				minLength: 1,
+				maxLength: 200,
+			},
+			phraseAnalysis: {
+				type: 'string',
+				description: 'Анализ что обозначает фраза более подробно',
+				required: true,
+				minLength: 1,
+				maxLength: 1000,
+			},
+			book_chapter_id: {
+				type: 'manyToOne',
+				thisField: 'book_chapter_id', // Name of the column of this table that refers to another table
+				foreignTable: 'BookChapter', // Name of the table that this column refers to
+				foreignField: 'id',
+			},
+			BookChapterPhraseExample: {
+				type: 'oneToMany',
+			},
+			created_at: {
+				type: 'createdAt',
+			},
+		},
+	},
+	// К каждой фразе (BookChapterPhrase) есть массив примеров использования.
+	// Они содержатся в этой таблице.
+	BookChapterPhraseExample: {
+		dtoProps: {},
+		dbFields: {
+			id: {
+				type: 'index',
+			},
+			book_chapter_phrase_id: {
+				type: 'manyToOne',
+				thisField: 'book_chapter_phrase_id', // Name of the column of this table that refers to another table
+				foreignTable: 'BookChapterPhrase', // Name of the table that this column refers to
+				foreignField: 'id',
+			},
+			sentence: {
+				type: 'string',
+				description: 'A sentence example with this phrase. For example: ',
+				required: true,
+				maxLength: 500,
+			},
+			translate: {
+				type: 'string',
+				description: 'A translate of sentence example with this phrase. For example: ',
+				required: true,
+				maxLength: 500,
 			},
 			created_at: {
 				type: 'createdAt',
