@@ -27,7 +27,11 @@ export class BookChapterPhraseRepository {
 				phraseAnalysis: dto.phraseAnalysis,
 			},
 			include: {
-				BookChapterPhraseExample: true,
+				BookChapterPhraseExample: {
+					orderBy: {
+						created_at: 'asc',
+					},
+				},
 			},
 		})
 

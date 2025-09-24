@@ -14,7 +14,13 @@ export class BookChapterPhraseQueryRepository {
 	async getPhraseById(phraseId: number) {
 		const phrase = await this.prisma.bookChapterPhrase.findUnique({
 			where: { id: phraseId },
-			include: { BookChapterPhraseExample: true },
+			include: {
+				BookChapterPhraseExample: {
+					orderBy: {
+						created_at: 'asc',
+					},
+				},
+			},
 		})
 
 		if (!phrase) {

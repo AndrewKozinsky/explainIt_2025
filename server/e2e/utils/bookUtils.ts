@@ -1,4 +1,5 @@
 import { INestApplication } from '@nestjs/common'
+import { bookChapterUtils } from './bookChapterUtils'
 import { z } from 'zod'
 import { queries } from '../../src/features/db/queries'
 import { makeGraphQLReqWithTokens } from '../makeGQReq'
@@ -145,6 +146,59 @@ export const bookUtils = {
 		})
 
 		return getUserBooksResp
+	},
+
+	async createBookWithChapters(input: {
+		app: INestApplication
+		sessionToken: any
+		book: {
+			author?: null | string
+			name?: null | string
+			note?: null | string
+		}
+		chapters: Array<{
+			name?: null | string
+			header?: null | string
+			content?: null | string
+			note?: null | string
+		}>
+	}) {
+		// First create the book
+		const createBookResp = await this.createBook({
+			app: input.app,
+			sessionToken: input.sessionToken,
+			book: input.book,
+		})
+
+		if (createBookResp.errors) {
+			throw new Error(`Failed to create book: ${JSON.stringify(createBookResp.errors)}`)
+		}
+
+		const bookId = createBookResp.data.book_create.id
+
+		// Create all chapters
+		const createdChapters = []
+		for (const chapterData of input.chapters) {
+			const createChapterResp = await bookChapterUtils.createBookChapter({
+				app: input.app,
+				sessionToken: input.sessionToken,
+				bookChapter: {
+					bookId,
+					...chapterData,
+				},
+			})
+
+			if (createChapterResp.errors) {
+				throw new Error(`Failed to create chapter: ${JSON.stringify(createChapterResp.errors)}`)
+			}
+
+			createdChapters.push(createChapterResp.data.book_chapter_create)
+		}
+
+		return {
+			book: createBookResp.data.book_create,
+			chapters: createdChapters,
+		}
 	},
 
 	checkForDefaultBook(props: { book: any; userId: number }) {

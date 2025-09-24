@@ -53,18 +53,20 @@ export class AnalyseSentenceAndPhraseHandler implements ICommandHandler<AnalyseS
 			bookChapterId: analyseSentenceAndPhraseInput.bookChapterId,
 			sentence: analyseSentenceAndPhraseInput.sentence,
 			phrase: analyseSentenceAndPhraseInput.phrase,
-			phraseTranslation: analysis.phraseAnalysis,
+			phraseTranslation: analysis.phraseTranslate,
 			phraseAnalysis: analysis.phraseAnalysis,
 		})
 
 		// Save phrase examples
-		analysis.phraseExamples.forEach((phraseExample) => {
-			this.bookChapterPhraseExampleRepository.createPhraseExample({
+		for (let i = 0; i < analysis.phraseExamples.length; i++) {
+			const phraseExample = analysis.phraseExamples[i]
+
+			await this.bookChapterPhraseExampleRepository.createPhraseExample({
 				bookChapterPhraseId: createPhraseRes.id,
 				sentence: phraseExample.sentence,
 				translate: phraseExample.translation,
 			})
-		})
+		}
 
 		const phraseOutRes = await this.bookChapterPhraseQueryRepository.getPhraseById(createPhraseRes.id)
 		if (!phraseOutRes) {

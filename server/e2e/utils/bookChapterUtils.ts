@@ -67,6 +67,83 @@ export const bookChapterUtils = {
 		}
 	},
 
+	checkAnalyseSentenceAndPhraseResp(
+		responseData: any,
+		checks?: {
+			sentenceTranslation?: string
+			phrase?: {
+				id?: number
+				phrase?: string
+				translation?: string
+				analysis?: string
+				examples?: Array<{
+					id?: number
+					sentence?: string
+					translate?: string
+				}>
+			}
+		},
+	) {
+		const analysisResponseSchema = z
+			.object({
+				sentenceTranslation: z.string(),
+				phrase: z.object({
+					id: z.number(),
+					phrase: z.string(),
+					translation: z.string(),
+					analysis: z.string(),
+					examples: z.array(
+						z.object({
+							id: z.number(),
+							sentence: z.string(),
+							translate: z.string(),
+						}),
+					),
+				}),
+			})
+			.strict()
+
+		const parsed = analysisResponseSchema.safeParse(responseData)
+
+		if (!parsed.success) {
+			throw new Error(`Invalid analysis response object: ${parsed.error.message}`)
+		}
+
+		if (checks?.sentenceTranslation !== undefined) {
+			expect(responseData.sentenceTranslation).toBe(checks.sentenceTranslation)
+		}
+
+		if (checks?.phrase) {
+			if (checks.phrase.id !== undefined) {
+				expect(responseData.phrase.id).toBe(checks.phrase.id)
+			}
+			if (checks.phrase.phrase !== undefined) {
+				expect(responseData.phrase.phrase).toBe(checks.phrase.phrase)
+			}
+			if (checks.phrase.translation !== undefined) {
+				expect(responseData.phrase.translation).toBe(checks.phrase.translation)
+			}
+			if (checks.phrase.analysis !== undefined) {
+				expect(responseData.phrase.analysis).toBe(checks.phrase.analysis)
+			}
+			if (checks.phrase.examples !== undefined) {
+				expect(responseData.phrase.examples).toHaveLength(checks.phrase.examples.length)
+				checks.phrase.examples.forEach((expectedExample, index) => {
+					const actualExample = responseData.phrase.examples[index]
+					if (expectedExample.id !== undefined) {
+						expect(actualExample.id).toBe(expectedExample.id)
+					}
+					if (expectedExample.sentence !== undefined) {
+						expect(actualExample.sentence).toBe(expectedExample.sentence)
+					}
+					if (expectedExample.translate !== undefined) {
+						expect(actualExample.translate).toBe(expectedExample.translate)
+					}
+				})
+			}
+		}
+	},
+
 	async createBookChapter(input: {
 		app: INestApplication
 		sessionToken: any
@@ -174,322 +251,254 @@ White Rabbit ran by her.`
 	getExampleChapterTextStructure(): ChapterTextStructure.Chapter {
 		return [
 			{
-				id: 1,
-				type: 'sentence',
-				translatedSentence: null,
-				sentenceParts: [
+				t: 'sentence',
+				translate: null,
+				parts: [
 					{
-						id: 1,
-						type: 'word',
-						value: 'Alice',
+						t: 'word',
+						v: 'Alice',
 					},
 					{
-						id: 2,
-						type: 'space',
+						t: 'space',
 					},
 					{
-						id: 3,
-						type: 'word',
-						value: 'was',
+						t: 'word',
+						v: 'was',
 					},
 					{
-						id: 4,
-						type: 'space',
+						t: 'space',
 					},
 					{
-						id: 5,
-						type: 'word',
-						value: 'very',
+						t: 'word',
+						v: 'very',
 					},
 					{
-						id: 6,
-						type: 'space',
+						t: 'space',
 					},
 					{
-						id: 7,
-						type: 'word',
-						value: 'tired',
+						t: 'word',
+						v: 'tired',
 					},
 					{
-						id: 8,
-						type: 'punctuation',
-						value: ':',
+						t: 'punctuation',
+						v: ':',
 					},
 					{
-						id: 9,
-						type: 'space',
+						t: 'space',
 					},
 					{
-						id: 10,
-						type: 'word',
-						value: 'she',
+						t: 'word',
+						v: 'she',
 					},
 					{
-						id: 11,
-						type: 'space',
+						t: 'space',
 					},
 					{
-						id: 12,
-						type: 'word',
-						value: 'had',
+						t: 'word',
+						v: 'had',
 					},
 					{
-						id: 13,
-						type: 'space',
+						t: 'space',
 					},
 					{
-						id: 14,
-						type: 'word',
-						value: 'the',
+						t: 'word',
+						v: 'the',
 					},
 					{
-						id: 15,
-						type: 'space',
+						t: 'space',
 					},
 					{
-						id: 16,
-						type: 'word',
-						value: 'book',
+						t: 'word',
+						v: 'book',
 					},
 					{
-						id: 17,
-						type: 'punctuation',
-						value: '.',
+						t: 'punctuation',
+						v: '.',
 					},
 				],
 			},
 			{
-				id: 2,
-				type: 'space',
+				t: 'space',
 			},
 			{
-				id: 3,
-				type: 'sentence',
-				translatedSentence: null,
-				sentenceParts: [
+				t: 'sentence',
+				translate: null,
+				parts: [
 					{
-						id: 1,
-						type: 'punctuation',
-						value: '“',
+						t: 'punctuation',
+						v: '“',
 					},
 					{
-						id: 2,
-						type: 'word',
-						value: 'What',
+						t: 'word',
+						v: 'What',
 					},
 					{
-						id: 3,
-						type: 'space',
+						t: 'space',
 					},
 					{
-						id: 4,
-						type: 'word',
-						value: 'is',
+						t: 'word',
+						v: 'is',
 					},
 					{
-						id: 5,
-						type: 'space',
+						t: 'space',
 					},
 					{
-						id: 6,
-						type: 'word',
-						value: 'the',
+						t: 'word',
+						v: 'the',
 					},
 					{
-						id: 7,
-						type: 'space',
+						t: 'space',
 					},
 					{
-						id: 8,
-						type: 'word',
-						value: 'use',
+						t: 'word',
+						v: 'use',
 					},
 					{
-						id: 9,
-						type: 'space',
+						t: 'space',
 					},
 					{
-						id: 10,
-						type: 'word',
-						value: 'of',
+						t: 'word',
+						v: 'of',
 					},
 					{
-						id: 11,
-						type: 'space',
+						t: 'space',
 					},
 					{
-						id: 12,
-						type: 'word',
-						value: 'a',
+						t: 'word',
+						v: 'a',
 					},
 					{
-						id: 13,
-						type: 'space',
+						t: 'space',
 					},
 					{
-						id: 14,
-						type: 'word',
-						value: 'book',
+						t: 'word',
+						v: 'book',
 					},
 					{
-						id: 15,
-						type: 'punctuation',
-						value: ',”',
+						t: 'punctuation',
+						v: ',”',
 					},
 					{
-						id: 16,
-						type: 'space',
+						t: 'space',
 					},
 					{
-						id: 17,
-						type: 'word',
-						value: 'thought',
+						t: 'word',
+						v: 'thought',
 					},
 					{
-						id: 18,
-						type: 'space',
+						t: 'space',
 					},
 					{
-						id: 19,
-						type: 'word',
-						value: 'Alice',
+						t: 'word',
+						v: 'Alice',
 					},
 					{
-						id: 20,
-						type: 'space',
+						t: 'space',
 					},
 					{
-						id: 21,
-						type: 'punctuation',
-						value: '“',
+						t: 'punctuation',
+						v: '“',
 					},
 					{
-						id: 22,
-						type: 'word',
-						value: 'without',
+						t: 'word',
+						v: 'without',
 					},
 					{
-						id: 23,
-						type: 'space',
+						t: 'space',
 					},
 					{
-						id: 24,
-						type: 'word',
-						value: 'conversations',
+						t: 'word',
+						v: 'conversations',
 					},
 					{
-						id: 25,
-						type: 'punctuation',
-						value: '?”',
+						t: 'punctuation',
+						v: '?”',
 					},
 				],
 			},
 			{
-				id: 4,
-				type: 'carriageReturn',
+				t: 'carriageReturn',
 			},
 			{
-				id: 5,
-				type: 'carriageReturn',
+				t: 'carriageReturn',
 			},
 			{
-				id: 6,
-				type: 'sentence',
-				translatedSentence: null,
-				sentenceParts: [
+				t: 'sentence',
+				translate: null,
+				parts: [
 					{
-						id: 1,
-						type: 'word',
-						value: 'So',
+						t: 'word',
+						v: 'So',
 					},
 					{
-						id: 2,
-						type: 'space',
+						t: 'space',
 					},
 					{
-						id: 3,
-						type: 'word',
-						value: 'she',
+						t: 'word',
+						v: 'she',
 					},
 					{
-						id: 4,
-						type: 'space',
+						t: 'space',
 					},
 					{
-						id: 5,
-						type: 'word',
-						value: 'was',
+						t: 'word',
+						v: 'was',
 					},
 					{
-						id: 6,
-						type: 'space',
+						t: 'space',
 					},
 					{
-						id: 7,
-						type: 'word',
-						value: 'confused',
+						t: 'word',
+						v: 'confused',
 					},
 					{
-						id: 8,
-						type: 'punctuation',
-						value: '.',
+						t: 'punctuation',
+						v: '.',
 					},
 				],
 			},
 			{
-				id: 7,
-				type: 'carriageReturn',
+				t: 'carriageReturn',
 			},
 			{
-				id: 8,
-				type: 'sentence',
-				translatedSentence: null,
-				sentenceParts: [
+				t: 'sentence',
+				translate: null,
+				parts: [
 					{
-						id: 1,
-						type: 'word',
-						value: 'White',
+						t: 'word',
+						v: 'White',
 					},
 					{
-						id: 2,
-						type: 'space',
+						t: 'space',
 					},
 					{
-						id: 3,
-						type: 'word',
-						value: 'Rabbit',
+						t: 'word',
+						v: 'Rabbit',
 					},
 					{
-						id: 4,
-						type: 'space',
+						t: 'space',
 					},
 					{
-						id: 5,
-						type: 'word',
-						value: 'ran',
+						t: 'word',
+						v: 'ran',
 					},
 					{
-						id: 6,
-						type: 'space',
+						t: 'space',
 					},
 					{
-						id: 7,
-						type: 'word',
-						value: 'by',
+						t: 'word',
+						v: 'by',
 					},
 					{
-						id: 8,
-						type: 'space',
+						t: 'space',
 					},
 					{
-						id: 9,
-						type: 'word',
-						value: 'her',
+						t: 'word',
+						v: 'her',
 					},
 					{
-						id: 10,
-						type: 'punctuation',
-						value: '.',
+						t: 'punctuation',
+						v: '.',
 					},
 				],
 			},
