@@ -27,7 +27,7 @@ export class AnalyseSentenceAndPhraseInput {
 	@Field(() => String, { description: 'Context' })
 	@DtoFieldDecorators('context', {
 		type: 'string',
-		description: 'Context of the sentence or phrase',
+		description: 'Context of the sentence or phrase (5 sentences before and 5 after)',
 		required: true,
 	})
 	context: string

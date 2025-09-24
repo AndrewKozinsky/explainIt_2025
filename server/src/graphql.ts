@@ -138,6 +138,7 @@ export interface BookLiteOutModel {
 
 export interface BookChapterPhraseOutModel {
     id: number;
+    sentence: string;
     phrase: string;
     translation: string;
     analysis: string;

@@ -101,4 +101,36 @@ export const queriesBookChapter = {
 			},
 		}
 	},
+	analyseSentenceAndPhrase(dto: {
+		bookChapterId: number
+		bookAuthor: null | number
+		bookName: null | string
+		context: string
+		sentence: string
+		phrase: string
+	}) {
+		return {
+			query: `
+      query GetBookChapter($input: AnalyseSentenceAndPhraseInput!) {
+        ${RouteNames.BOOK_CHAPTER.ANALYSE_SENTENCE_AND_PHRASE}(input: $input) {
+			sentenceTranslation
+			phrase {
+				id
+				phrase
+				translation
+				analysis
+				examples {
+					id
+					sentence
+					translate
+				}
+			}
+        }
+      }
+    `,
+			variables: {
+				input: dto,
+			},
+		}
+	},
 }
