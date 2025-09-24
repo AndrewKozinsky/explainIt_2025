@@ -33,17 +33,13 @@ export class TokenUsageBalanceChargeHandler implements ICommandHandler<TokenUsag
 	async execute(command: TokenUsageBalanceChargeCommand) {
 		const { userId } = command.dto
 
-		const amount = this.calculateAmountInKopeckDependsOnTokens(command.dto)
+		const amountInKopecks = this.calculateAmountInKopeckDependsOnTokens(command.dto)
 
 		try {
-			await this.dbRepository.wrapIntoPrismaTransaction({
-				executableCode: async () => {
-					await this.transactionRepository.createTransaction({
-						amount: -amount,
-						userId,
-						type: BalanceTransactionType.CHARGE,
-					})
-				},
+			await this.transactionRepository.createTransaction({
+				amount: -amountInKopecks,
+				userId,
+				type: BalanceTransactionType.CHARGE,
 			})
 		} catch (error) {
 			throw new CustomGraphQLError(errorMessage.unknownError, ErrorCode.InternalServerError_500)
@@ -66,13 +62,14 @@ export class TokenUsageBalanceChargeHandler implements ICommandHandler<TokenUsag
 			[OpenAIModels.Standard]: this.mainConfig.get().providerTokenPriceInRub.openAi.standard,
 		}
 
-		const providerPrices = providerPricesMapper[input.aiModelName]
+		const providerPricesForOneToken = providerPricesMapper[input.aiModelName]
 
-		const providerPriceInRub = input.inputTokens * providerPrices.input + input.outputTokens * providerPrices.output
+		const providerTotalPriceInRub =
+			input.inputTokens * providerPricesForOneToken.input + input.outputTokens * providerPricesForOneToken.output
 
-		const myPriceInRub = providerPriceInRub * this.mainConfig.get().myPriceMultiplier
+		const myPriceInRub = providerTotalPriceInRub * this.mainConfig.get().myPriceMultiplier
 
 		// Вернуть стоимость в копейках
-		return Math.round(myPriceInRub / 100)
+		return Math.ceil(myPriceInRub * 100)
 	}
 }

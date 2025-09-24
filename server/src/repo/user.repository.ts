@@ -133,7 +133,8 @@ export class UserRepository {
 
 	@CatchDbError()
 	async updateBalance(userId: number, amount: number) {
-		const balanceChangeObj = amount > 0 ? { increment: amount } : { decrement: amount }
+		// Если число отрицательное, то при записи в БД сделать положительным иначе не сработает правильным образом
+		const balanceChangeObj = amount > 0 ? { increment: amount } : { decrement: -amount }
 
 		await this.prisma.user.update({
 			where: { id: userId },

@@ -1,8 +1,8 @@
 export function checkErrorResponse(
 	errResponse: unknown,
 	extensionsObj: {
-		code?: 'Bad Request' | 'Not Found' | 'Unauthorized' | 'Forbidden'
-		statusCode: 400 | 401 | 403 | 404
+		code?: 'Bad Request' | 'Not Found' | 'Unauthorized' | 'Forbidden' | 'Internal Server Error'
+		statusCode: 400 | 401 | 403 | 404 | 500
 		message: string
 		validationErrors?: any
 	},

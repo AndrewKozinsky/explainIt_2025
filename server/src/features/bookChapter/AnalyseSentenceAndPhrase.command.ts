@@ -45,10 +45,7 @@ export class AnalyseSentenceAndPhraseHandler implements ICommandHandler<AnalyseS
 		// Получить перевод предложения и перевод и анализ фразы через OpenAI.
 		const analysis = await this.getAnalysis(userId, analyseSentenceAndPhraseInput)
 		if (!analysis) {
-			throw new CustomGraphQLError(
-				errorMessage.bookChapter.cannotAnalyzeSentenceAndPhrase,
-				ErrorCode.InternalServerError_500,
-			)
+			throw new CustomGraphQLError(errorMessage.unknownOpenAIError, ErrorCode.InternalServerError_500)
 		}
 
 		// Записать в БД перевод фразы

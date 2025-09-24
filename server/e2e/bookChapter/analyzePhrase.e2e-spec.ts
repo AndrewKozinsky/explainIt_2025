@@ -1,10 +1,9 @@
 import { INestApplication } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
-import { ChapterTextStructure } from '../../src/features/bookChapter/chapterStructure/chapterStructureTypes'
+import { OpenAIService } from '../../src/infrastructure/openAI/openAI.service'
 import { App } from 'supertest/types'
 import { queries } from '../../src/features/db/queries'
 import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
-import RouteNames from '../../src/infrastructure/routeNames'
 import { BookChapterQueryRepository } from '../../src/repo/bookChapter.queryRepository'
 import { UserRepository } from '../../src/repo/user.repository'
 import { authUtils } from '../utils/authUtils'
@@ -22,6 +21,7 @@ describe('Analyze phase', () => {
 	let commandBus: CommandBus
 	let userRepository: UserRepository
 	let bookChapterQueryRepository: BookChapterQueryRepository
+	let openAIService: OpenAIService
 
 	beforeAll(async () => {
 		const createMainAppRes = await createApp()
@@ -30,6 +30,7 @@ describe('Analyze phase', () => {
 		commandBus = app.get(CommandBus)
 		userRepository = await app.resolve(UserRepository)
 		bookChapterQueryRepository = await app.resolve(BookChapterQueryRepository)
+		openAIService = await app.resolve(OpenAIService)
 	})
 
 	beforeEach(async () => {
@@ -90,5 +91,51 @@ describe('Analyze phase', () => {
 			code: 'Bad Request',
 			statusCode: 400,
 		})
+	})
+
+	it('should return 500 error when openAI returns malformed response but still charge tokens', async () => {
+		// Create user with sufficient balance
+		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
+			app,
+			userRepository,
+			email: defUserEmail,
+			password: defUserPassword,
+		})
+
+		// Add balance to user (assuming we can update balance somehow)
+		await userRepository.updateBalance(loginData.id, 100)
+
+		jest.spyOn(openAIService, 'generateText').mockResolvedValue({
+			inputTokens: 500,
+			outputTokens: 3000,
+			message: null, // Missing message property - malformed response
+		})
+
+		const { query, variables } = queries.bookChapter.analyseSentenceAndPhrase({
+			bookChapterId: 9999,
+			sentence: 'Test sentence',
+			phrase: 'test phrase',
+			bookAuthor: 'Test Author',
+			bookName: 'Test Book',
+			context: 'Test context',
+		})
+
+		const [response] = await makeGraphQLReqWithTokens({
+			app,
+			query,
+			queryVariables: variables,
+			sessionToken,
+		})
+
+		// Should return unknownOpenAIError with 500 status
+		checkErrorResponse(response, {
+			message: errorMessage.unknownOpenAIError,
+			code: 'Internal Server Error',
+			statusCode: 500,
+		})
+
+		// Verify that tokens were still charged from user balance
+		const updatedUser = await userRepository.getUserById(loginData.id)
+		expect(updatedUser?.balance).toBeLessThan(100) // Balance should be reduced due to token usage
 	})
 })
