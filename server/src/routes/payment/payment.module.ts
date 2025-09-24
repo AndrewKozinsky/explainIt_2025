@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common'
 import { CqrsModule } from '@nestjs/cqrs'
-import { TopUpBalanceWithYooKassaHandler } from '../../features/payment/TopUpBalanceWithYooKassa.command'
+import { TopUpBalanceWithYooKassaHandler } from 'features/payment/TopUpBalanceWithYooKassa.command'
 import { PaymentRepository } from 'src/repo/payment.repository'
 import { PaymentResolver } from './payment.resolver'
 import { PrismaService } from '../../db/prisma.service'

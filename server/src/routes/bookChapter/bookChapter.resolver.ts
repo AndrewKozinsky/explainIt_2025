@@ -6,8 +6,8 @@ import { AnalyseSentenceAndPhraseCommand } from 'features/bookChapter/AnalyseSen
 import { UserWithPositiveBalanceGuard } from 'src/infrastructure/guards/userWithPositiveBalanceGuard.guard'
 import { SentenceAndPhraseAnalysesOutModel } from 'src/models/ai/sentenceAndPhraseAnalyses.out.model'
 import { AnalyseSentenceAndPhraseInput } from 'src/routes/ai/inputs/analyseSentenceAndPhraseInput'
-import { DeleteBookChapterCommand } from '../../features/bookChapter/DeleteBookChapter.command'
-import { UpdateBookChapterCommand } from '../../features/bookChapter/UpdateBookChapter.command'
+import { DeleteBookChapterCommand } from 'features/bookChapter/DeleteBookChapter.command'
+import { UpdateBookChapterCommand } from 'features/bookChapter/UpdateBookChapter.command'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
 import RouteNames from 'infrastructure/routeNames'
 import { BookChapterOutModel } from '../../models/bookChapter/bookChapter.out.model'
@@ -17,7 +17,7 @@ import { GetBookChapterInput } from './inputs/getBookChapter.input'
 import { UpdateBookChapterInput } from './inputs/updateBookChapter.input'
 import { bookChapterResolversDesc } from './resolverDescriptions'
 import { Request } from 'express'
-import { GetBookChapterCommand } from '../../features/bookChapter/GetBookChapter.command'
+import { GetBookChapterCommand } from 'features/bookChapter/GetBookChapter.command'
 
 @Resolver()
 export class BookChapterResolver {

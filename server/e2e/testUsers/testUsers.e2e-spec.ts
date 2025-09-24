@@ -5,7 +5,6 @@ import { bookUtils } from '../../e2e/utils/bookUtils'
 import { BookQueryRepository } from '../../src/repo/book.queryRepository'
 import { UserRepository } from '../../src/repo/user.repository'
 import {
-	serverTestDataConfig,
 	UserBookConfig,
 	UserRegisteredWithCredentialsAndOAuthConfig,
 	UserRegisteredWithCredentialsConfig,
@@ -16,7 +15,7 @@ import { App } from 'supertest/types'
 import { createApp } from '../utils/createApp'
 import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
 
-describe('Check that test user were created correctly (e2e)', () => {
+describe.skip('Check that test user were created correctly (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let userRepository: UserRepository

@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common'
 import { CqrsModule } from '@nestjs/cqrs'
 import { PrismaService } from '../../db/prisma.service'
-import { SetPaymentResultWithYooKassaHandler } from '../../features/payment/SetPaymentResultWithYooKassa.command'
+import { SetPaymentResultWithYooKassaHandler } from 'features/payment/SetPaymentResultWithYooKassa.command'
 import { DBRepository } from 'src/repo/db.repository'
 import { PaymentRepository } from 'src/repo/payment.repository'
 import { BalanceTransactionRepository } from 'src/repo/balanceTransaction.repository'

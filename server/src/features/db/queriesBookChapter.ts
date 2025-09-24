@@ -103,7 +103,7 @@ export const queriesBookChapter = {
 	},
 	analyseSentenceAndPhrase(dto: {
 		bookChapterId: number
-		bookAuthor: null | number
+		bookAuthor: null | string
 		bookName: null | string
 		context: string
 		sentence: string

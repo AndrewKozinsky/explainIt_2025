@@ -15,6 +15,7 @@ import { checkErrorResponse } from '../utils/checkErrorResp'
 import { defUserEmail, defUserPassword } from '../utils/common'
 import { createApp } from '../utils/createApp'
 import { userUtils } from '../utils/userUtils'
+import { makeGraphQLReqWithTokens } from '../makeGQReq'
 
 describe('Analyze phase', () => {
 	let app: INestApplication<App>
@@ -53,6 +54,41 @@ describe('Analyze phase', () => {
 			app,
 			queryOrMutationStr: query,
 			queryVariables: variables,
+		})
+	})
+
+	it('should return 400 error if user has zero balance', async () => {
+		// Create and login user (new users start with zero balance)
+		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
+			app,
+			userRepository,
+			email: defUserEmail,
+			password: defUserPassword,
+		})
+
+		// Verify user has zero balance
+		expect(loginData.balance).toBe(0)
+
+		const { query, variables } = queries.bookChapter.analyseSentenceAndPhrase({
+			bookChapterId: 9999,
+			sentence: 'Test sentence',
+			phrase: 'test phrase',
+			bookAuthor: 'Test Author',
+			bookName: 'Test Book',
+			context: 'Test context',
+		})
+
+		const [response] = await makeGraphQLReqWithTokens({
+			app,
+			query,
+			queryVariables: variables,
+			sessionToken,
+		})
+
+		checkErrorResponse(response, {
+			message: errorMessage.userBalanceIsNegative,
+			code: 'Bad Request',
+			statusCode: 400,
 		})
 	})
 })

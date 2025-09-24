@@ -70,7 +70,6 @@ export class LoginHandler implements ICommandHandler<LoginCommand> {
 					)
 				}
 
-				console.log(99999)
 				resolve(user)
 			})
 		})

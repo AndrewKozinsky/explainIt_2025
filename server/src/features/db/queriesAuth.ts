@@ -47,6 +47,8 @@ export const queriesAuth = {
 			) {
 				id
 				email
+				isUserConfirmed
+				balance
 			  }
 			}`
 	},

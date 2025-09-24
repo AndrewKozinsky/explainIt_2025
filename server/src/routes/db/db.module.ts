@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common'
 import { CqrsModule } from '@nestjs/cqrs'
-import { SeedTestDataHandler } from '../../features/db/SeedTestData.command'
+import { SeedTestDataHandler } from 'features/db/SeedTestData.command'
 import { DBRepository } from 'src/repo/db.repository'
 import { UserRepository } from 'src/repo/user.repository'
 import { DbController } from './db.controller'
