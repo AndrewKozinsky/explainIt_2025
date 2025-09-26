@@ -1,6 +1,7 @@
 import { usePathname } from 'next/navigation'
-import { pageUrls } from '../../../../сonsts/pageUrls'
+import { pageUrls } from 'сonsts/pageUrls'
 
+/** Определяет какую страницу показать в зависимости от адреса страницы */
 export function useGetShowingPageType(): 'books' | 'reading' {
 	const pathname = usePathname()
 

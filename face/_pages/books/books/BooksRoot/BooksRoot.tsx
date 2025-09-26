@@ -1,7 +1,6 @@
 'use client'
 
 import { BooksTest } from '_pages/books/books/booksTest'
-import React from 'react'
 import BooksSection from '../booksListSection/BooksSection/BooksSection'
 import ChaptersSection from '../chaptersListSection/ChaptersSection/ChaptersSection'
 import EditableFormSection from '../editableFormSection/EditableFormSection/EditableFormSection'
@@ -10,6 +9,8 @@ import './BooksRoot.scss'
 
 function BooksRoot() {
 	useChangeBodyBgColor()
+
+	// Лучше изначально поставить все необходимые данные в Хранилище и информацию брать оттуда
 
 	return (
 		<main className='books-page-content'>

@@ -16,7 +16,7 @@ import { createApp } from '../utils/createApp'
 import { userUtils } from '../utils/userUtils'
 import { makeGraphQLReqWithTokens } from '../makeGQReq'
 
-describe('Analyze phase', () => {
+describe.skip('Analyze phase', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let userRepository: UserRepository

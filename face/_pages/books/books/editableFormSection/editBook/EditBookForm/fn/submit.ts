@@ -1,4 +1,4 @@
-import { useCallback } from 'react'
+import React, { useCallback } from 'react'
 import { Book_GetUserBooksDocument, useBook_Update } from '@/graphql'
 import { FormStatus, setErrorsToForm } from '@/utils/forms'
 import { ChangeBookFormData } from './form'
@@ -36,6 +36,6 @@ export function useGetOnUpdateBookFormSubmit(
 				setFormStatus('idle')
 			}
 		},
-		[bookId],
+		[bookId, setFieldError, setFormError, setFormStatus, updateBook],
 	)
 }

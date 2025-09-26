@@ -1,11 +1,11 @@
-import React from 'react'
+// import React from 'react'
 
-type WordProps = {
+/*type WordProps = {
 	value: string
 	onClick: () => void
-}
+}*/
 
-function Word(props: WordProps) {
+/*function Word(props: WordProps) {
 	const { value, onClick } = props
 
 	return (
@@ -13,6 +13,6 @@ function Word(props: WordProps) {
 			{value}
 		</span>
 	)
-}
+}*/
 
-export default Word
+// export default Word

@@ -1,12 +1,8 @@
+import { Book_GetUserBooks, BookChapterOutModel, BookOutModel } from 'graphql'
 import { useEffect } from 'react'
-import { booksFetcher } from '@/_pages/books/booksFetcher'
 
-export function useSetFieldValues(reset: (data: any) => void) {
-	const book = booksFetcher.useGetCurrentBook()
-
+export function useSetFieldValues(reset: (data: any) => void, book: BookOutModel) {
 	useEffect(() => {
-		if (!book) return
-
 		reset({
 			author: book.author ?? '',
 			name: book.name ?? '',

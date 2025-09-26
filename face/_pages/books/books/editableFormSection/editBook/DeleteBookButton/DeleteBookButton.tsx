@@ -2,8 +2,14 @@ import React from 'react'
 import DeleteEntityButtonAndModal from '@/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
 import { useGetDeleteBook } from './fn/getDeleteBook'
 
-function DeleteBookButton() {
-	const { onDeleteBookClick, status } = useGetDeleteBook()
+type DeleteBookButtonProps = {
+	bookId: number
+}
+
+function DeleteBookButton(props: DeleteBookButtonProps) {
+	const { bookId } = props
+
+	const { onDeleteBookClick, status } = useGetDeleteBook(bookId)
 
 	return (
 		<DeleteEntityButtonAndModal

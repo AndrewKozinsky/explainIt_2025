@@ -3,20 +3,18 @@ import { redirect } from 'next/navigation'
 import { Book_GetUserBooksDocument, useBookChapter_Delete } from '@/graphql'
 import { NotificationContext } from '@/ui//Notification/context'
 import { pageUrls } from '@/сonsts/pageUrls'
-import { booksFetcher } from '@/_pages/books/booksFetcher'
+import { BookChapterOutModel } from 'graphql'
+import { booksFetcher } from '@/_pages/books/commonLogic/booksFetcher'
 
-export function useGetDeleteBook() {
+export function useGetDeleteBook(chapter: BookChapterOutModel) {
 	const { notify } = useContext(NotificationContext)
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
 
-	const book = booksFetcher.useGetCurrentBook()
-	const chapter = booksFetcher.useGetCurrentLiteChapter()
+	const bookId = booksFetcher.useGetCurrentBookIdFromUrl()
 	const [deleteChapter] = useBookChapter_Delete({ refetchQueries: [Book_GetUserBooksDocument] })
 
 	const onDeleteChapterClick = useCallback(
 		async function () {
-			if (!book || !chapter) return
-			const bookId = book.id
 			const chapterId = chapter.id
 
 			setStatus('loading')
@@ -36,7 +34,7 @@ export function useGetDeleteBook() {
 
 			redirect(pageUrls.books.book(bookId).path)
 		},
-		[book, chapter, deleteChapter, notify],
+		[bookId, chapter, deleteChapter, notify],
 	)
 
 	return {

@@ -1,6 +1,6 @@
 import { usePathname } from 'next/navigation'
 import { pageUrls } from '@/сonsts/pageUrls'
-import { booksFetcher } from '@/_pages/books/booksFetcher'
+import { booksFetcher } from '@/_pages/books/commonLogic/booksFetcher'
 
 export function useIsWrongUrl() {
 	const pathname = usePathname()

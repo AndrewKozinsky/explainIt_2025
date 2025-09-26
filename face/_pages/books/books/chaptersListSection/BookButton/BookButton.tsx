@@ -1,19 +1,29 @@
 import cn from 'classnames'
-import React from 'react'
 import Paragraph from '@/ui/Paragraph/Paragraph'
 import { pageUrls } from '@/сonsts/pageUrls'
+import Spinner from 'ui/Spinner/Spinner'
 import { bookConfig } from '../../common/bookConfig'
 import ContentLinkWrapper from '../../common/ContentLinkWrapper/ContentLinkWrapper'
 import { useGetIsBookPage } from './fn/isBookPage'
-import { booksFetcher } from '@/_pages/books/booksFetcher'
+import { booksFetcher } from '_pages/books/commonLogic/booksFetcher'
 import './BookButton.scss'
 
 function BookButton() {
 	const currentBookId = booksFetcher.useGetCurrentBookIdFromUrl()
 	const isBookPage = useGetIsBookPage(currentBookId)
-	const book = booksFetcher.useGetCurrentBook()
+	const getBookRes = booksFetcher.useGetCurrentBook()
 
-	if (!book) return null
+	if (getBookRes.status === 'loading') {
+		return <Spinner />
+	}
+	if (getBookRes.status === 'noData') {
+		return <Paragraph fontSize={16}>Книга не найдена</Paragraph>
+	}
+	if (getBookRes.status !== 'success' || !getBookRes.data) {
+		return null
+	}
+
+	const book = getBookRes.data
 
 	return (
 		<ContentLinkWrapper href={pageUrls.books.book(currentBookId).path} isCurrent={isBookPage}>

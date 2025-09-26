@@ -24,7 +24,6 @@ export function useGetOnAddBookClick() {
 
 			setStatus('idle')
 
-			console.log(data)
 			const bookId = data?.book_create.id
 			if (!bookId) {
 				notify({ type: 'error', message: 'Не удалось создать книгу.' })

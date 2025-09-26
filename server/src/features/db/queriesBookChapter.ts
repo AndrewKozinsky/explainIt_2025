@@ -38,7 +38,6 @@ export const queriesBookChapter = {
 		header?: null | string
 		content?: null | string
 		note?: null | string
-		convertContentIntoStructure?: boolean
 	}) {
 		return {
 			query: `

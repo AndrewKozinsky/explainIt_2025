@@ -1,4 +1,3 @@
-import React from 'react'
 import Paragraph from '@/ui/Paragraph/Paragraph'
 import AddChapterButton from '../AddChapterButton/AddChapterButton'
 import BookButton from '../BookButton/BookButton'

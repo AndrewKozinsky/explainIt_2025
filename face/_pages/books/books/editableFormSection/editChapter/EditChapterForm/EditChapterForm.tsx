@@ -1,4 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup'
+import { BookChapterOutModel } from 'graphql'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Button from '@/ui/formRelated/buttons/Button/Button'
@@ -6,7 +7,6 @@ import FormError from '@/ui/formRelated/FormError/FormError'
 import FormFieldsWrapper from '@/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
 import TextInput from '@/ui/formRelated/TextInput/TextInput'
 import { FormStatus } from '@/utils/forms'
-import { booksFetcher } from '@/_pages/books/booksFetcher'
 import ReadChapterButton from '../ReadChapterButton/ReadChapterButton'
 import { ChangeChapterFormData, changeChapterFormSchema, ChangeChapterFormTest } from './fn/form'
 import BookFormSurface from '../../common/BookFormSurface/BookFormSurface'
@@ -16,8 +16,12 @@ import * as yup from 'yup'
 import { useSetFieldValues } from './fn/setFieldValues'
 import { useGetOnUpdateChapterFormSubmit } from './fn/submit'
 
-export default function EditChapterForm() {
-	const chapter = booksFetcher.useGetCurrentChapter()
+type EditChapterFormProps = {
+	chapter: BookChapterOutModel
+}
+
+export default function EditChapterForm(props: EditChapterFormProps) {
+	const { chapter } = props
 
 	const [formStatus, setFormStatus] = useState<FormStatus>('idle')
 	const [formError, setFormError] = useState<null | string>(null)
@@ -32,16 +36,16 @@ export default function EditChapterForm() {
 		resolver: yupResolver(changeChapterFormSchema as yup.AnyObjectSchema),
 	})
 
-	useSetFieldValues(reset)
+	useSetFieldValues(reset, chapter)
 
-	const onSubmit = useGetOnUpdateChapterFormSubmit(setError, setFormStatus, setFormError)
+	const onSubmit = useGetOnUpdateChapterFormSubmit(chapter.id, setError, setFormStatus, setFormError)
 
 	if (!chapter) return null
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)} data-testid={ChangeChapterFormTest.form.id}>
 			<BookFormSurface
-				leftBottomButtons={[<DeleteChapterButton key='delete' />]}
+				leftBottomButtons={[<DeleteChapterButton chapter={chapter} key='delete' />]}
 				rightBottomButtons={[
 					<Button
 						type='submit'
@@ -51,7 +55,7 @@ export default function EditChapterForm() {
 					>
 						Сохранить
 					</Button>,
-					<ReadChapterButton key='reading' />,
+					<ReadChapterButton chapter={chapter} key='reading' />,
 				]}
 			>
 				<FormFieldsWrapper gap='big'>

@@ -1,9 +1,9 @@
-import { ChapterTextStructure, ChapterTextStructureFull } from '@/_pages/books/chapterStructureTypes'
-import { booksFetcher } from '_pages/books/booksFetcher'
-import { useReadingStore } from '_pages/books/reading/readingStore'
-import { useEffect } from 'react'
+// import { ChapterTextStructure, ChapterTextStructurePopulated } from '@/_pages/books/chapterStructureTypes'
+// import { booksFetcher } from '_pages/books/booksFetcher'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
+// import { useEffect } from 'react'
 
-export function useGetChapterDataAndSetToStore() {
+/*export function useGetChapterDataAndSetToStore() {
 	const bookData = booksFetcher.useGetCurrentBook()
 	const chapterData = booksFetcher.useGetCurrentChapter()
 
@@ -31,17 +31,17 @@ export function useGetChapterDataAndSetToStore() {
 		},
 		[bookData, chapterData],
 	)
-}
+}*/
 
 /**
  * Получает структуру главы с сервера и наполняет её полезными данными чтобы из
  * ChapterTextStructure.Chapter получить ChapterTextStructureFull.Chapter
  * @param chapterStructure — данные с сервера преобразованные в массив объектов
  */
-function fullChapterStructureUsefulData(chapterStructure: ChapterTextStructure.Chapter) {
+/*function fullChapterStructureUsefulData(chapterStructure: ChapterTextStructure.Chapter) {
 	let elementId = 1
 
-	const fullStructure: ChapterTextStructureFull.Chapter = chapterStructure.map((item: any) => {
+	const fullStructure: ChapterTextStructurePopulated.Chapter = chapterStructure.map((item: any) => {
 		const currentId = elementId++
 		if (item.t === 'sentence') {
 			let partId = 1
@@ -79,4 +79,4 @@ function fullChapterStructureUsefulData(chapterStructure: ChapterTextStructure.C
 	})
 
 	return fullStructure
-}
+}*/

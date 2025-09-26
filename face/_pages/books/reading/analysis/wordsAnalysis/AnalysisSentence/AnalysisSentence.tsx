@@ -1,9 +1,9 @@
-import { useReadingStore } from '_pages/books/reading/readingStore'
-import PhraseHighlights from '../PhraseHighlights/PhraseHighlights'
-import { useGetWordClickHandler } from './fn/wordClickHandler'
-import './AnalysisSentence.scss'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
+// import PhraseHighlights from '../PhraseHighlights/PhraseHighlights'
+// import { useGetWordClickHandler } from './fn/wordClickHandler'
+// import './AnalysisSentence.scss'
 
-function AnalysisSentence() {
+/*function AnalysisSentence() {
 	const sentence = useReadingStore((s) => s.sentence.sentence)
 	const wordClickHandler = useGetWordClickHandler()
 
@@ -38,6 +38,6 @@ function AnalysisSentence() {
 			<PhraseHighlights />
 		</div>
 	)
-}
+}*/
 
-export default AnalysisSentence
+// export default AnalysisSentence

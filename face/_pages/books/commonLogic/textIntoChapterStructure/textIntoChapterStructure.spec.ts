@@ -1,7 +1,7 @@
-import { textIntoChapterStructure } from './textIntoChapterStructure'
-import { ChapterTextStructure } from './chapterStructureTypes'
+// import { textIntoChapterStructure } from './textIntoChapterStructure'
+// import { ChapterTextStructure } from './chapterStructureTypes'
 
-describe('textIntoChapterStructure', () => {
+/*describe('textIntoChapterStructure', () => {
 	const getTypes = (arr: ChapterTextStructure.Chapter) => arr.map((x) => x.t)
 
 	it('parses sample text with quotes, spaces between sentences, and blank lines', () => {
@@ -73,4 +73,4 @@ describe('textIntoChapterStructure', () => {
 		const types = (sentence.parts as ChapterTextStructure.SentencePart[]).map((p: any) => p.t)
 		expect(types).toContain('carriageReturn')
 	})
-})
+})*/

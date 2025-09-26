@@ -1,9 +1,16 @@
+import { BookChapterOutModel } from 'graphql'
 import React from 'react'
 import DeleteEntityButtonAndModal from '@/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
 import { useGetDeleteBook } from './fn/getDeleteBook'
 
-function DeleteChapterButton() {
-	const { onDeleteChapterClick, status } = useGetDeleteBook()
+type DeleteChapterButtonProps = {
+	chapter: BookChapterOutModel
+}
+
+function DeleteChapterButton(props: DeleteChapterButtonProps) {
+	const { chapter } = props
+
+	const { onDeleteChapterClick, status } = useGetDeleteBook(chapter)
 
 	return (
 		<DeleteEntityButtonAndModal

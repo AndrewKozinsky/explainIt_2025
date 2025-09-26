@@ -1,4 +1,3 @@
-import React from 'react'
 import Paragraph from '@/ui/Paragraph/Paragraph'
 import { pageUrls } from '@/сonsts/pageUrls'
 import ContentLinkWrapper from '../../common/ContentLinkWrapper/ContentLinkWrapper'

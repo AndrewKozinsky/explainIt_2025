@@ -1,17 +1,15 @@
-import { booksFetcher } from '_pages/books/booksFetcher'
+import { BookChapterOutModel } from 'graphql'
 import { useCallback, useEffect, useState } from 'react'
 import { redirect } from 'next/navigation'
 import { pageUrls } from '@/сonsts/pageUrls'
 
-export function useIsReadButtonDisabled() {
-	const [isReadButtonDisabled, setIsReadButtonDisabled] = useState(true)
+import { booksFetcher } from '_pages/books/commonLogic/booksFetcher'
 
-	const chapter = booksFetcher.useGetCurrentChapter()
+export function useIsReadButtonDisabled(chapter: BookChapterOutModel) {
+	const [isReadButtonDisabled, setIsReadButtonDisabled] = useState(true)
 
 	useEffect(
 		function () {
-			if (!chapter) return
-
 			setIsReadButtonDisabled(!chapter.content)
 		},
 		[chapter],

@@ -1,9 +1,9 @@
-import { useReadingStore } from '_pages/books/reading/readingStore'
-import AnalysisSentence from '../AnalysisSentence/AnalysisSentence'
-import TranslatePhraseBlock from '_pages/books/reading/analysis/wordsAnalysis/TranslatePhraseButtonBlock/TranslatePhraseBlock'
-import './WordsAnalysis.scss'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
+// import AnalysisSentence from '../AnalysisSentence/AnalysisSentence'
+// import TranslatePhraseBlock from '_pages/books/reading/analysis/wordsAnalysis/TranslatePhraseButtonBlock/TranslatePhraseBlock'
+// import './WordsAnalysis.scss'
 
-function WordsAnalysis() {
+/*function WordsAnalysis() {
 	const sentence = useReadingStore((s) => s.sentence)
 
 	if (!sentence || !sentence.sentence || !sentence.selectedWordIds.length) {
@@ -19,6 +19,6 @@ function WordsAnalysis() {
 			<div className='words-analysis__bottom'>bottom</div>
 		</>
 	)
-}
+}*/
 
-export default WordsAnalysis
+// export default WordsAnalysis

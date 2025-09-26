@@ -1,9 +1,9 @@
-import { booksHelper } from '_pages/books/booksHelper'
-import { ChapterTextStructureFull } from '_pages/books/chapterStructureTypes'
-import { useReadingStore } from '_pages/books/reading/readingStore'
-import { useEffect } from 'react'
+// import { booksHelper } from '_pages/books/booksHelper'
+// import { ChapterTextStructurePopulated } from '_pages/books/chapterStructureTypes'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
+// import { useEffect } from 'react'
 
-export function useSetSelectedSentenceToStore() {
+/*export function useSetSelectedSentenceToStore() {
 	const chapter = useReadingStore((s) => s.chapter)
 	const sentenceId = useReadingStore((s) => s.sentence.sentenceId)
 
@@ -22,39 +22,39 @@ export function useSetSelectedSentenceToStore() {
 		},
 		[chapter, sentenceId],
 	)
-}
+}*/
 
 // Returns selected sentence by sentenceId
-export function getSelectedSentence(
-	content: ChapterTextStructureFull.Chapter | null,
+/*export function getSelectedSentence(
+	content: ChapterTextStructurePopulated.Chapter | null,
 	sentenceId: number,
-): ChapterTextStructureFull.Sentence | undefined {
+): ChapterTextStructurePopulated.Sentence | undefined {
 	if (!content) return undefined
 	const currentIndex = content.findIndex(
-		(el): el is ChapterTextStructureFull.Sentence => el.type === 'sentence' && el.id === sentenceId,
+		(el): el is ChapterTextStructurePopulated.Sentence => el.type === 'sentence' && el.id === sentenceId,
 	)
 	if (currentIndex === -1) return undefined
-	return content[currentIndex] as ChapterTextStructureFull.Sentence
-}
+	return content[currentIndex] as ChapterTextStructurePopulated.Sentence
+}*/
 
 // Builds textual context around the sentence so that
 // - there are at least `thresholdValue` words BEFORE the selected sentence
 // - and at least `thresholdValue` words AFTER the selected sentence
 // Words from the selected sentence are NOT counted for the thresholds.
 // Only whole sentences can be added; overshooting the threshold is acceptable.
-export function buildContext(
-	content: ChapterTextStructureFull.Chapter | null,
+/*export function buildContext(
+	content: ChapterTextStructurePopulated.Chapter | null,
 	sentenceId: number,
 	thresholdValue = 50,
 ): string {
 	if (!content) return ''
 
 	const currentIndex = content.findIndex(
-		(el): el is ChapterTextStructureFull.Sentence => el.type === 'sentence' && el.id === sentenceId,
+		(el): el is ChapterTextStructurePopulated.Sentence => el.type === 'sentence' && el.id === sentenceId,
 	)
 	if (currentIndex === -1) return ''
 
-	const countWords = (s: ChapterTextStructureFull.Sentence) =>
+	const countWords = (s: ChapterTextStructurePopulated.Sentence) =>
 		s.parts.reduce((acc, p) => acc + (p.type === 'word' ? 1 : 0), 0)
 
 	// Start with the selected sentence bounds
@@ -65,7 +65,7 @@ export function buildContext(
 	let wordsAbove = 0
 	for (let i = currentIndex - 1; i >= 0 && wordsAbove < thresholdValue; i--) {
 		if (content[i].type === 'sentence') {
-			wordsAbove += countWords(content[i] as ChapterTextStructureFull.Sentence)
+			wordsAbove += countWords(content[i] as ChapterTextStructurePopulated.Sentence)
 			minSentenceIdx = i
 		}
 	}
@@ -74,7 +74,7 @@ export function buildContext(
 	let wordsBelow = 0
 	for (let i = currentIndex + 1; i < content.length && wordsBelow < thresholdValue; i++) {
 		if (content[i].type === 'sentence') {
-			wordsBelow += countWords(content[i] as ChapterTextStructureFull.Sentence)
+			wordsBelow += countWords(content[i] as ChapterTextStructurePopulated.Sentence)
 			maxSentenceIdx = i
 		}
 	}
@@ -82,4 +82,4 @@ export function buildContext(
 	// Slice the original content to preserve spaces/punctuation between the chosen sentences
 	const contextSlice = content.slice(minSentenceIdx, maxSentenceIdx + 1)
 	return booksHelper.jsonChapterContentStructureToText(JSON.stringify(contextSlice))
-}
+}*/

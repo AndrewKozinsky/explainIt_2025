@@ -38,6 +38,15 @@ export class BookChapterPhraseRepository {
 		return this.mapDbPhraseToServicePhrase(newBookChapterPhrase)
 	}
 
+	@CatchDbError()
+	async deleteBookChapterPhrases(bookChapterId: number) {
+		await this.prisma.bookChapterPhrase.deleteMany({
+			where: {
+				book_chapter_id: bookChapterId,
+			},
+		})
+	}
+
 	mapDbPhraseToServicePhrase(dbBookChapter: PhraseWithPhraseExamples): BookChapterPhraseServiceModel {
 		return {
 			id: dbBookChapter.id,

@@ -9,6 +9,7 @@ type BookLinkBlockProps = {
 	dataTestId?: string
 }
 
+// Обёртка для книги или главы
 function ContentLinkWrapper(props: BookLinkBlockProps) {
 	const { href, isCurrent, children, dataTestId } = props
 

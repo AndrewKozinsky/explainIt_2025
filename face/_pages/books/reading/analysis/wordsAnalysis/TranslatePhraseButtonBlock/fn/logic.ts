@@ -1,60 +1,60 @@
-import { ChapterTextStructureFull } from '_pages/books/chapterStructureTypes'
+// import { ChapterTextStructurePopulated } from '_pages/books/chapterStructureTypes'
 
-export type TranslatedPhrase = { id: number; wordIds: number[] }
+// export type TranslatedPhrase = { id: number; wordIds: number[] }
 
-export function isMacOS(): boolean {
+/*export function isMacOS(): boolean {
 	if (typeof navigator === 'undefined') return false
 	const ua = navigator.userAgent || ''
 	const platform = (navigator as any).platform || ''
 	return /Mac|Macintosh|Mac OS/.test(ua) || /Mac/.test(platform)
-}
+}*/
 
-export function arraysEqualAsSets(a: number[], b: number[]): boolean {
+/*export function arraysEqualAsSets(a: number[], b: number[]): boolean {
 	if (a.length !== b.length) return false
 	const setA = new Set(a)
 	for (const id of b) {
 		if (!setA.has(id)) return false
 	}
 	return true
-}
+}*/
 
-export function getWordValueById(wordId: number, sentenceParts: ChapterTextStructureFull.SentencePart[]) {
+/*export function getWordValueById(wordId: number, sentenceParts: ChapterTextStructurePopulated.SentencePart[]) {
 	const found = sentenceParts.find((p) => p.type === 'word' && p.id === wordId)
 	if (!found || found.type !== 'word') {
 		return ''
 	}
 
 	return found.value
-}
+}*/
 
-export function getSelectedWordsValues(ids: number[], sentenceParts: ChapterTextStructureFull.SentencePart[]) {
+/*export function getSelectedWordsValues(ids: number[], sentenceParts: ChapterTextStructurePopulated.SentencePart[]) {
 	return ids.map((id) => getWordValueById(id, sentenceParts)).filter((v) => v)
-}
+}*/
 
-export function shouldShowParagraph(args: {
+/*export function shouldShowParagraph(args: {
 	selectedWordIds: number[]
 	translatedPhrases: TranslatedPhrase[]
 	isLoading: boolean
 }) {
 	const { selectedWordIds, translatedPhrases, isLoading } = args
 	return selectedWordIds.length && !translatedPhrases.length && !isLoading
-}
+}*/
 
-export function getParagraphText() {
+/*export function getParagraphText() {
 	return isMacOS()
 		? 'Зажмите cmd для выделения нескольких связанных слов.'
 		: 'Зажмите ctrl для выделения нескольких слов.'
-}
+}*/
 
-export function shouldShowButton(selectedWordIds: number[]) {
+/*export function shouldShowButton(selectedWordIds: number[]) {
 	return selectedWordIds.length > 0
-}
+}*/
 
-export function getButtonText(args: {
+/*export function getButtonText(args: {
 	sentenceTranslation: string | null
 	selectedWordIds: number[]
 	translatedPhrases: TranslatedPhrase[]
-	sentenceParts: ChapterTextStructureFull.SentencePart[]
+	sentenceParts: ChapterTextStructurePopulated.SentencePart[]
 }) {
 	const { sentenceTranslation, selectedWordIds, translatedPhrases, sentenceParts } = args
 
@@ -81,4 +81,4 @@ export function getButtonText(args: {
 		return `Перевести ${word}`
 	}
 	return 'Перевести фразу'
-}
+}*/

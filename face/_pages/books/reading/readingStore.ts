@@ -1,15 +1,15 @@
-import { ChapterTextStructureFull } from '_pages/books/chapterStructureTypes'
-import { create } from 'zustand'
+// import { ChapterTextStructurePopulated } from '_pages/books/chapterStructureTypes'
+// import { create } from 'zustand'
 
-export const readingStoreValues: ReadingStoreValues = {
+/*export const readingStoreValues: ReadingStoreValues = {
 	bookAuthor: null,
 	bookName: null,
 	chapterId: null,
-	chapter: null as any as ChapterTextStructureFull.Chapter,
+	chapter: null as any as ChapterTextStructurePopulated.Chapter,
 	sentence: {
 		context: '',
 		sentenceId: null,
-		sentence: null as any as ChapterTextStructureFull.SentencePart[],
+		sentence: null as any as ChapterTextStructurePopulated.SentencePart[],
 		sentenceTranslation: null,
 		selectedWordIds: [],
 		fetchTranslation: {
@@ -18,9 +18,9 @@ export const readingStoreValues: ReadingStoreValues = {
 		},
 		translatedPhrases: [],
 	},
-}
+}*/
 
-export const useReadingStore = create<ReadingStore>()((set) => {
+/*export const useReadingStore = create<ReadingStore>()((set) => {
 	return {
 		...readingStoreValues,
 		updateSentence(sentence: Partial<Sentence>) {
@@ -58,38 +58,38 @@ export const useReadingStore = create<ReadingStore>()((set) => {
 				}
 			}),
 	}
-})
+})*/
 
-export type ReadingStore = ReadingStoreValues & ReadingStoreMethods
+// export type ReadingStore = ReadingStoreValues & ReadingStoreMethods
 
-export type ReadingStoreValues = {
+/*export type ReadingStoreValues = {
 	// Автор книги
 	bookAuthor: null | string
 	// Название книги
 	bookName: null | string
 	chapterId: null | number
-	chapter: ChapterTextStructureFull.Chapter
+	chapter: ChapterTextStructurePopulated.Chapter
 	// Данные выделенного предложения
 	sentence: Sentence
 	// Возможно сюда же следует записать сам текст предложения...
 	// И ещё настройки отображения главы...
-}
+}*/
 
-export type ReadingStoreMethods = {
+/*export type ReadingStoreMethods = {
 	updateSentence: (sentence: Partial<Sentence>) => void
 	// Заменяет выбор одним словом
 	selectSingleWord: (wordId: number) => void
 	// Добавляет слово к выбору, если его ещё нет
 	addWordToSelection: (wordId: number) => void
-}
+}*/
 
-export type Sentence = {
+/*export type Sentence = {
 	// Текст из нескольких предложений до выделенного и несколько после чтобы ИИ понимал контекст
 	context: string
 	// Идентификатор выделенного предложения
 	sentenceId: null | number
 	// Выделенное предложение
-	sentence: ChapterTextStructureFull.SentencePart[]
+	sentence: ChapterTextStructurePopulated.SentencePart[]
 	// Перевод выделенного предложения
 	sentenceTranslation: null | string
 	// Выделенные слова, которые хотят перевести и разобрать
@@ -101,9 +101,9 @@ export type Sentence = {
 	}
 	// Уже переведённые и разобранные фразы
 	translatedPhrases: Phrase[]
-}
+}*/
 
-type Phrase = {
+/*type Phrase = {
 	id: number
 	wordIds: number[]
-}
+}*/

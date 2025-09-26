@@ -1,4 +1,4 @@
-import { ChapterTextStructure } from './chapterStructureTypes'
+import { ChapterTextStructure } from '../chapterStructureTypes'
 
 /**
  * Converts raw chapter text into a structured representation of sentences, carriage return.

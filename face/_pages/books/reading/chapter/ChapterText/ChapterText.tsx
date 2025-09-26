@@ -1,12 +1,12 @@
-import { useGetSelectSentenceAndWord } from './fn/selectSentenceAndWord'
-import { useReadingStore } from '_pages/books/reading/readingStore'
-import CarriageReturn from './CarriageReturn'
-import Word from './Word'
-import Punctuation from '_pages/books/reading/chapter/ChapterText/Punctuation'
-import Space from './Space'
-import './ChapterText.scss'
+// import { useGetSelectSentenceAndWord } from './fn/selectSentenceAndWord'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
+// import CarriageReturn from './CarriageReturn'
+// import Word from './Word'
+// import Punctuation from '_pages/books/reading/chapter/ChapterText/Punctuation'
+// import Space from './Space'
+// import './ChapterText.scss'
 
-function ChapterText() {
+/*function ChapterText() {
 	const chapter = useReadingStore((state) => state.chapter)
 	const selectSentenceAndWord = useGetSelectSentenceAndWord()
 
@@ -48,6 +48,6 @@ function ChapterText() {
 			})}
 		</div>
 	)
-}
+}*/
 
-export default ChapterText
+// export default ChapterText

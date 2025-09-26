@@ -38,6 +38,7 @@ export const RouteNames = {
 		UPDATE: 'book_chapter_update',
 		DELETE: 'book_chapter_delete',
 		ANALYSE_SENTENCE_AND_PHRASE: 'book_chapter_AnalyseSentenceAndPhrase',
+		DELETE_BOOK_CHAPTER_PHRASES: 'book_chapter_DeleteBookChapterPhrases',
 	},
 }
 

@@ -1,18 +1,18 @@
-import { Sentence, useReadingStore } from '_pages/books/reading/readingStore'
-import React, { useEffect } from 'react'
+// import { Sentence, useReadingStore } from '_pages/books/reading/readingStore'
+// import React, { useEffect } from 'react'
 
-type ContainerRef = React.RefObject<HTMLDivElement | null>
+// type ContainerRef = React.RefObject<HTMLDivElement | null>
 
-type Highlight = {
+/*type Highlight = {
 	key: string
 	top: number
 	left: number
 	width: number
 	height: number
 	classNames: string[]
-}
+}*/
 
-export function useGetHighlights(containerRef: ContainerRef) {
+/*export function useGetHighlights(containerRef: ContainerRef) {
 	const selectedSentence = useReadingStore.getState().sentence
 	const [highlights, setHighlights] = React.useState<Highlight[]>([])
 
@@ -42,9 +42,9 @@ export function useGetHighlights(containerRef: ContainerRef) {
 	}, [computeHighlights])
 
 	return highlights
-}
+}*/
 
-function calculateHighlights(
+/*function calculateHighlights(
 	containerRef: ContainerRef,
 	setHighlights: React.Dispatch<React.SetStateAction<Highlight[]>>,
 	sentence: Sentence,
@@ -179,4 +179,4 @@ function calculateHighlights(
 	}
 
 	setHighlights(highlights)
-}
+}*/

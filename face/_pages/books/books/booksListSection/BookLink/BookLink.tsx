@@ -3,7 +3,7 @@ import React from 'react'
 import Paragraph from '@/ui/Paragraph/Paragraph'
 import { pageUrls } from '@/сonsts/pageUrls'
 import ContentLinkWrapper from '../../common/ContentLinkWrapper/ContentLinkWrapper'
-import { useGetIsPageCurrent } from './fn/isPageCurrent'
+import { useGetIsBookCurrent } from './fn/isPageCurrent'
 import { bookConfig } from '../../common/bookConfig'
 import './BookLink.scss'
 
@@ -18,7 +18,7 @@ type BookLinkProps = {
 function BookLink(props: BookLinkProps) {
 	const { id, author, name } = props.bookData
 
-	const isPageCurrent = useGetIsPageCurrent(id)
+	const isPageCurrent = useGetIsBookCurrent(id)
 
 	return (
 		<ContentLinkWrapper

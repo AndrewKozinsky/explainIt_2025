@@ -1,8 +1,8 @@
-import React from 'react'
-import { useReadingStore } from '_pages/books/reading/readingStore'
-import { getButtonText, getParagraphText, shouldShowButton, shouldShowParagraph } from './logic'
+// import React from 'react'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
+// import { getButtonText, getParagraphText, shouldShowButton, shouldShowParagraph } from './logic'
 
-export function useGetParagraphLogic() {
+/*export function useGetParagraphLogic() {
 	const selectedSentence = useReadingStore((s) => s.sentence)
 
 	const selectedWordIds = selectedSentence?.selectedWordIds ?? []
@@ -17,9 +17,9 @@ export function useGetParagraphLogic() {
 	const paragraphText = React.useMemo(() => getParagraphText(), [])
 
 	return { isParagraphVisible, paragraphText }
-}
+}*/
 
-export function useGetButtonLogic() {
+/*export function useGetButtonLogic() {
 	const selectedSentence = useReadingStore((s) => s.sentence)
 
 	const selectedWordIds = selectedSentence?.selectedWordIds ?? []
@@ -48,4 +48,4 @@ export function useGetButtonLogic() {
 	)
 
 	return { isButtonVisible, buttonText }
-}
+}*/

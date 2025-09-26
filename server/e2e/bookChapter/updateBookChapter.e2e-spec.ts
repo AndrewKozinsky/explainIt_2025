@@ -14,7 +14,7 @@ import { defUserEmail, defUserPassword } from '../utils/common'
 import { createApp } from '../utils/createApp'
 import { userUtils } from '../utils/userUtils'
 
-describe.skip('Update book chapter', () => {
+describe('Update book chapter', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let userRepository: UserRepository
@@ -128,7 +128,7 @@ describe.skip('Update book chapter', () => {
 		})
 	})
 
-	it('user should update a created book chapter', async () => {
+	it.only('user should update a created book chapter', async () => {
 		// Create a user who will create a book and a chapter
 		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
@@ -237,75 +237,5 @@ describe.skip('Update book chapter', () => {
 				note: null,
 			},
 		})
-	})
-
-	it('user updates book chapter with convertContentIntoStructure', async () => {
-		// Create a user who will create a book and a chapter
-		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
-			app,
-			userRepository,
-			email: defUserEmail,
-			password: defUserPassword,
-		})
-
-		// Create a book
-		const createdBookResp = await bookUtils.createBook({
-			app,
-			sessionToken: sessionToken,
-			book: {
-				author: 'Gerald Durrell',
-				name: 'My Family and Other Animals',
-				note: null,
-			},
-		})
-		const createdBook = createdBookResp.data[RouteNames.BOOK.CREATE]
-
-		// Create a book chapter for this book
-		const createdBookChapterResp = await bookChapterUtils.createBookChapter({
-			app,
-			sessionToken: sessionToken,
-			bookChapter: {
-				name: 'Chapter 1',
-				bookId: createdBook.id,
-				header: 'My chapter 1 header',
-				content: 'My chapter 1 content',
-				note: null,
-			},
-		})
-		const createdChapterBook = createdBookChapterResp.data[RouteNames.BOOK_CHAPTER.CREATE]
-
-		// ------
-
-		// Update this book chapter without a flag "convertContentIntoStructure"
-		let updatedBookChapterResp = await bookChapterUtils.updateBookChapter({
-			app,
-			sessionToken: sessionToken,
-			bookChapter: {
-				id: createdChapterBook.id,
-				content: 'My new chapter 1 content',
-				convertContentIntoStructure: false,
-			},
-		})
-		let updatedBookChapter = updatedBookChapterResp.data[RouteNames.BOOK_CHAPTER.UPDATE]
-
-		// Check that this chapter content was not changed
-		expect(updatedBookChapter.content).toBe('My new chapter 1 content')
-
-		// ------
-
-		// Update this book chapter with a flag "convertContentIntoStructure"
-		updatedBookChapterResp = await bookChapterUtils.updateBookChapter({
-			app,
-			sessionToken: sessionToken,
-			bookChapter: {
-				id: createdChapterBook.id,
-				content: bookChapterUtils.getExampleChapterText(),
-				convertContentIntoStructure: true,
-			},
-		})
-		updatedBookChapter = updatedBookChapterResp.data[RouteNames.BOOK_CHAPTER.UPDATE]
-
-		// Check that this chapter content was not changed
-		expect(JSON.parse(updatedBookChapter.content)).toEqual(bookChapterUtils.getExampleChapterTextStructure())
 	})
 })

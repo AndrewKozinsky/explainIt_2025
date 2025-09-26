@@ -88,7 +88,6 @@ export interface UpdateBookChapterInput {
     header?: Nullable<string>;
     content?: Nullable<string>;
     note?: Nullable<string>;
-    convertContentIntoStructure?: Nullable<boolean>;
 }
 
 export interface DeleteBookChapterInput {

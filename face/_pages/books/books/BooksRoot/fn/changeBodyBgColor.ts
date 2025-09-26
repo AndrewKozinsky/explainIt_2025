@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-// Change body background color when user see this page.
+// Change body background color when a user sees this page.
 // Remove style if a user leaves this page.
 export function useChangeBodyBgColor() {
 	useEffect(function () {

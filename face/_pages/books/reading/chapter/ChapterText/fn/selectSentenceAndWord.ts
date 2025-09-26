@@ -1,9 +1,9 @@
-import { useReadingStore } from '_pages/books/reading/readingStore'
-import { useCallback } from 'react'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
+// import { useCallback } from 'react'
 // import { booksHelper } from '_pages/books/booksHelper'
 // import { ChapterTextStructureFull } from '@/_pages/books/chapterStructureTypes'
 
-export function useGetSelectSentenceAndWord() {
+/*export function useGetSelectSentenceAndWord() {
 	const chapter = useReadingStore((s) => s.chapter)
 
 	return useCallback(
@@ -14,4 +14,4 @@ export function useGetSelectSentenceAndWord() {
 		},
 		[chapter],
 	)
-}
+}*/

@@ -3,14 +3,15 @@ import { CommandBus } from '@nestjs/cqrs'
 import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql'
 import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter.command'
 import { AnalyseSentenceAndPhraseCommand } from 'features/bookChapter/AnalyseSentenceAndPhrase.command'
+import { DeleteBookChapterPhrasesCommand } from 'src/features/bookChapter/DeleteBookChapterPhrases.command'
 import { UserWithPositiveBalanceGuard } from 'src/infrastructure/guards/userWithPositiveBalanceGuard.guard'
 import { SentenceAndPhraseAnalysesOutModel } from 'src/models/ai/sentenceAndPhraseAnalyses.out.model'
-import { AnalyseSentenceAndPhraseInput } from 'src/routes/ai/inputs/analyseSentenceAndPhraseInput'
 import { DeleteBookChapterCommand } from 'features/bookChapter/DeleteBookChapter.command'
 import { UpdateBookChapterCommand } from 'features/bookChapter/UpdateBookChapter.command'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
 import RouteNames from 'infrastructure/routeNames'
-import { BookChapterOutModel } from '../../models/bookChapter/bookChapter.out.model'
+import { DeleteBookChapterPhrasesInput } from 'src/routes/bookChapter/inputs/deleteBookChapterPhrasesInput'
+import { BookChapterOutModel } from 'models/bookChapter/bookChapter.out.model'
 import { CreateBookChapterInput } from './inputs/createBookChapter.input'
 import { DeleteBookChapterInput } from './inputs/deleteBookChapter.input'
 import { GetBookChapterInput } from './inputs/getBookChapter.input'
@@ -18,6 +19,7 @@ import { UpdateBookChapterInput } from './inputs/updateBookChapter.input'
 import { bookChapterResolversDesc } from './resolverDescriptions'
 import { Request } from 'express'
 import { GetBookChapterCommand } from 'features/bookChapter/GetBookChapter.command'
+import { AnalyseSentenceAndPhraseInput } from './inputs/analyseSentenceAndPhraseInput'
 
 @Resolver()
 export class BookChapterResolver {
@@ -73,5 +75,13 @@ export class BookChapterResolver {
 	) {
 		const userId = request.session.userId!
 		return await this.commandBus.execute(new AnalyseSentenceAndPhraseCommand(userId, input))
+	}
+
+	@UseGuards(CheckSessionCookieGuard)
+	@Query(() => Boolean, {
+		name: RouteNames.BOOK_CHAPTER.DELETE_BOOK_CHAPTER_PHRASES,
+	})
+	async deleteBookChapterPhrases(@Args('input') input: DeleteBookChapterPhrasesInput) {
+		return await this.commandBus.execute(new DeleteBookChapterPhrasesCommand(input.bookChapterId))
 	}
 }

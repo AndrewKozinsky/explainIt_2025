@@ -4,6 +4,7 @@ import { CreateBookChapterHandler } from 'features/bookChapter/CreateBookChapter
 import { DeleteBookChapterHandler } from 'features/bookChapter/DeleteBookChapter.command'
 import { UpdateBookChapterHandler } from 'features/bookChapter/UpdateBookChapter.command'
 import { AnalyseSentenceAndPhraseHandler } from 'features/bookChapter/AnalyseSentenceAndPhrase.command'
+import { DeleteBookChapterPhrasesHandler } from 'src/features/bookChapter/DeleteBookChapterPhrases.command'
 import { BookQueryRepository } from 'src/repo/book.queryRepository'
 import { BookRepository } from 'src/repo/book.repository'
 import { BookChapterQueryRepository } from 'src/repo/bookChapter.queryRepository'
@@ -23,6 +24,7 @@ const commandHandlers = [
 	DeleteBookChapterHandler,
 	GetBookChapterHandler,
 	AnalyseSentenceAndPhraseHandler,
+	DeleteBookChapterPhrasesHandler,
 ]
 const resolvers = [BookChapterResolver]
 const repositories = [

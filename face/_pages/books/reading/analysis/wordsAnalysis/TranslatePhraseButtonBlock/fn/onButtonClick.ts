@@ -1,10 +1,10 @@
-import { useBookChapter_AnalyseSentenceAndPhraseLazyQuery } from '@/graphql'
-import { useCallback } from 'react'
-import { ChapterTextStructureFull } from '_pages/books/chapterStructureTypes'
-import { useReadingStore } from '_pages/books/reading/readingStore'
-import { booksHelper } from '_pages/books/booksHelper'
+// import { useBookChapter_AnalyseSentenceAndPhraseLazyQuery } from '@/graphql'
+// import { useCallback } from 'react'
+// import { ChapterTextStructurePopulated } from '_pages/books/chapterStructureTypes'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
+// import { booksHelper } from '_pages/books/booksHelper'
 
-export function useGetTranslatePhraseAndSentence() {
+/*export function useGetTranslatePhraseAndSentence() {
 	const bookAuthor = useReadingStore((s) => s.bookAuthor)
 	const bookName = useReadingStore((s) => s.bookName)
 	const sentence = useReadingStore((s) => s.sentence)
@@ -57,18 +57,18 @@ export function useGetTranslatePhraseAndSentence() {
 			throw error
 		}
 	}, [analyzeSentence, bookAuthor, bookName, sentence, chapter])
-}
+}*/
 
 /**
  * Получает массив данных предложения, идентификаторы выделенных слов и формирует строку из текста выделенных слов.
  * @param sentence — данные предложения
  * @param wordIds — id выделенных слов
  */
-function getPhaseText(sentence: ChapterTextStructureFull.SentencePart[], wordIds: number[]) {
+/*function getPhaseText(sentence: ChapterTextStructurePopulated.SentencePart[], wordIds: number[]) {
 	return wordIds
 		.map((selectedWordId) => {
-			const selectedWord: undefined | ChapterTextStructureFull.Word = sentence.find(
-				(word): word is ChapterTextStructureFull.Word => {
+			const selectedWord: undefined | ChapterTextStructurePopulated.Word = sentence.find(
+				(word): word is ChapterTextStructurePopulated.Word => {
 					return word.type === 'word' && word.id === selectedWordId
 				},
 			)
@@ -78,4 +78,4 @@ function getPhaseText(sentence: ChapterTextStructureFull.SentencePart[], wordIds
 			}
 		})
 		.join(' ')
-}
+}*/
