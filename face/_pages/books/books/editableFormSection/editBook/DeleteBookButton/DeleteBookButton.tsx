@@ -1,15 +1,8 @@
-import React from 'react'
 import DeleteEntityButtonAndModal from '@/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
 import { useGetDeleteBook } from './fn/getDeleteBook'
 
-type DeleteBookButtonProps = {
-	bookId: number
-}
-
-function DeleteBookButton(props: DeleteBookButtonProps) {
-	const { bookId } = props
-
-	const { onDeleteBookClick, status } = useGetDeleteBook(bookId)
+function DeleteBookButton() {
+	const { onDeleteBookClick, status } = useGetDeleteBook()
 
 	return (
 		<DeleteEntityButtonAndModal

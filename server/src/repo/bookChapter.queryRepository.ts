@@ -4,7 +4,16 @@ import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 import { BookChapterOutModel } from '../models/bookChapter/bookChapter.out.model'
 
-type BookChapterWithBook = Prisma.BookChapterGetPayload<{ include: { book: true } }>
+type FullBookChapter = Prisma.BookChapterGetPayload<{
+	include: {
+		book: true
+		BookChapterPhrase: {
+			include: {
+				BookChapterPhraseExample: true
+			}
+		}
+	}
+}>
 
 @Injectable()
 export class BookChapterQueryRepository {
@@ -14,7 +23,7 @@ export class BookChapterQueryRepository {
 	async getBookChapterById(id: number) {
 		const bookChapter = await this.prisma.bookChapter.findUnique({
 			where: { id },
-			include: { book: true },
+			include: { book: true, BookChapterPhrase: { include: { BookChapterPhraseExample: true } } },
 		})
 
 		if (!bookChapter) {
@@ -28,13 +37,13 @@ export class BookChapterQueryRepository {
 	async getBookChapters(bookId: number) {
 		const bookChapters = await this.prisma.bookChapter.findMany({
 			where: { book_id: bookId },
-			include: { book: true },
+			include: { book: true, BookChapterPhrase: { include: { BookChapterPhraseExample: true } } },
 		})
 
 		return bookChapters.map(this.mapDbBookChapterToOutBookChapter)
 	}
 
-	mapDbBookChapterToOutBookChapter(dbBook: BookChapterWithBook): BookChapterOutModel {
+	mapDbBookChapterToOutBookChapter(dbBook: FullBookChapter): BookChapterOutModel {
 		return {
 			id: dbBook.id,
 			name: dbBook.name,
@@ -48,6 +57,18 @@ export class BookChapterQueryRepository {
 				note: dbBook.book.note,
 				userId: dbBook.book.user_id,
 			},
+			phrases: dbBook.BookChapterPhrase.map((phrase) => ({
+				id: phrase.id,
+				sentence: phrase.sentence,
+				phrase: phrase.phrase,
+				translation: phrase.phraseTranslation,
+				analysis: phrase.phraseAnalysis,
+				examples: phrase.BookChapterPhraseExample.map((example) => ({
+					id: example.id,
+					sentence: example.sentence,
+					translation: example.translation,
+				})),
+			})),
 		}
 	}
 }

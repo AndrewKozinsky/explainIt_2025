@@ -9,12 +9,12 @@ export class BookChapterPhraseExampleRepository {
 	constructor(private prisma: PrismaService) {}
 
 	@CatchDbError()
-	async createPhraseExample(dto: { bookChapterPhraseId: number; sentence: string; translate: string }) {
+	async createPhraseExample(dto: { bookChapterPhraseId: number; sentence: string; translation: string }) {
 		const newPhraseExample = await this.prisma.bookChapterPhraseExample.create({
 			data: {
 				book_chapter_phrase_id: dto.bookChapterPhraseId,
 				sentence: dto.sentence,
-				translate: dto.translate,
+				translation: dto.translation,
 			},
 		})
 
@@ -25,7 +25,7 @@ export class BookChapterPhraseExampleRepository {
 		return {
 			id: dbPhraseExample.id,
 			sentence: dbPhraseExample.sentence,
-			translate: dbPhraseExample.translate,
+			translation: dbPhraseExample.translation,
 		}
 	}
 }

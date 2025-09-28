@@ -78,10 +78,16 @@ export class BookChapterResolver {
 	}
 
 	@UseGuards(CheckSessionCookieGuard)
-	@Query(() => Boolean, {
+	@Mutation(() => Boolean, {
 		name: RouteNames.BOOK_CHAPTER.DELETE_BOOK_CHAPTER_PHRASES,
 	})
-	async deleteBookChapterPhrases(@Args('input') input: DeleteBookChapterPhrasesInput) {
-		return await this.commandBus.execute(new DeleteBookChapterPhrasesCommand(input.bookChapterId))
+	async deleteBookChapterPhrases(
+		@Args('input') input: DeleteBookChapterPhrasesInput,
+		@Context('req') request: Request,
+	) {
+		const userId = request.session.userId!
+		return await this.commandBus.execute(
+			new DeleteBookChapterPhrasesCommand({ userId, bookChapterId: input.bookChapterId }),
+		)
 	}
 }

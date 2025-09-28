@@ -9,7 +9,7 @@ query BookChapter_AnalyseSentenceAndPhrase($input: AnalyseSentenceAndPhraseInput
 			examples {
 				id
 				sentence
-				translate
+				translation
 			}
 		}
 	}

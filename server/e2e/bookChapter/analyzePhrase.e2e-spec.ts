@@ -263,11 +263,11 @@ describe.skip('Analyze phase', () => {
 				examples: [
 					{
 						sentence: 'Example sentence 1 with test phrase',
-						translate: 'Пример предложения 1 с тестовой фразой',
+						translation: 'Пример предложения 1 с тестовой фразой',
 					},
 					{
 						sentence: 'Example sentence 2 with test phrase',
-						translate: 'Пример предложения 2 с тестовой фразой',
+						translation: 'Пример предложения 2 с тестовой фразой',
 					},
 				],
 			},

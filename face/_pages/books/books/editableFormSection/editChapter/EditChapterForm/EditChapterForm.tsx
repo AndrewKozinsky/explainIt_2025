@@ -1,5 +1,4 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import { BookChapterOutModel } from 'graphql'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Button from '@/ui/formRelated/buttons/Button/Button'
@@ -16,13 +15,7 @@ import * as yup from 'yup'
 import { useSetFieldValues } from './fn/setFieldValues'
 import { useGetOnUpdateChapterFormSubmit } from './fn/submit'
 
-type EditChapterFormProps = {
-	chapter: BookChapterOutModel
-}
-
-export default function EditChapterForm(props: EditChapterFormProps) {
-	const { chapter } = props
-
+export default function EditChapterForm() {
 	const [formStatus, setFormStatus] = useState<FormStatus>('idle')
 	const [formError, setFormError] = useState<null | string>(null)
 
@@ -36,16 +29,14 @@ export default function EditChapterForm(props: EditChapterFormProps) {
 		resolver: yupResolver(changeChapterFormSchema as yup.AnyObjectSchema),
 	})
 
-	useSetFieldValues(reset, chapter)
+	useSetFieldValues(reset)
 
-	const onSubmit = useGetOnUpdateChapterFormSubmit(chapter.id, setError, setFormStatus, setFormError)
-
-	if (!chapter) return null
+	const onSubmit = useGetOnUpdateChapterFormSubmit(setError, setFormStatus, setFormError)
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)} data-testid={ChangeChapterFormTest.form.id}>
 			<BookFormSurface
-				leftBottomButtons={[<DeleteChapterButton chapter={chapter} key='delete' />]}
+				leftBottomButtons={[<DeleteChapterButton key='delete' />]}
 				rightBottomButtons={[
 					<Button
 						type='submit'
@@ -55,7 +46,7 @@ export default function EditChapterForm(props: EditChapterFormProps) {
 					>
 						Сохранить
 					</Button>,
-					<ReadChapterButton chapter={chapter} key='reading' />,
+					<ReadChapterButton key='reading' />,
 				]}
 			>
 				<FormFieldsWrapper gap='big'>

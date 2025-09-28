@@ -31,5 +31,5 @@ class PhraseExample {
 	sentence: string
 
 	@Field(() => String)
-	translate: string
+	translation: string
 }

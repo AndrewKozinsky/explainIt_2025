@@ -33,6 +33,7 @@ type BookChapterOutModel {
   id: Int!
   name: String
   note: String
+  phrases: [BookChapterPhraseOutModel!]!
 }
 
 type BookChapterPhraseOutModel {
@@ -40,6 +41,7 @@ type BookChapterPhraseOutModel {
   examples: [PhraseExample!]!
   id: Int!
   phrase: String!
+  sentence: String!
   translation: String!
 }
 
@@ -117,6 +119,11 @@ input DeleteBookChapterInput {
   id: Int!
 }
 
+input DeleteBookChapterPhrasesInput {
+  """Book chapter id"""
+  bookChapterId: Int!
+}
+
 input DeleteBookInput {
   """Book id"""
   id: Int!
@@ -181,6 +188,7 @@ type Mutation {
 
   """Resend email confirmation letter"""
   auth_resendConfirmationEmail(input: ResendConfirmationEmailInput!): Boolean!
+  book_chapter_DeleteBookChapterPhrases(input: DeleteBookChapterPhrasesInput!): Boolean!
 
   """Create book chapter"""
   book_chapter_create(input: CreateBookChapterInput!): BookChapterOutModel!
@@ -207,7 +215,7 @@ type Mutation {
 type PhraseExample {
   id: Int!
   sentence: String!
-  translate: String!
+  translation: String!
 }
 
 type Query {
@@ -255,9 +263,6 @@ type TopUpBalanceWithYooKassaOutModel {
 input UpdateBookChapterInput {
   """BookChapter content"""
   content: String
-
-  """Should a program convert the content into a structure?"""
-  convertContentIntoStructure: Boolean
 
   """BookChapter header"""
   header: String

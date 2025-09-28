@@ -267,7 +267,7 @@ export const bdConfig = {
 				type: 'string',
 				description: 'Content of the chapter',
 				required: false,
-				maxLength: 50000,
+				maxLength: 500000,
 			},
 			note: {
 				type: 'string',
@@ -354,7 +354,7 @@ export const bdConfig = {
 				required: true,
 				maxLength: 500,
 			},
-			translate: {
+			translation: {
 				type: 'string',
 				description: 'A translate of sentence example with this phrase. For example: ',
 				required: true,

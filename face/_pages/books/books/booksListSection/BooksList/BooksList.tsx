@@ -1,21 +1,22 @@
+import React from 'react'
 import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
+import LoadingMessage from 'ui/LoadingMessage/LoadingMessage'
 import Paragraph from 'ui/Paragraph/Paragraph'
-import Spinner from 'ui/Spinner/Spinner'
 import BookLink from '../BookLink/BookLink'
-import { booksFetcher } from '@/_pages/books/commonLogic/booksFetcher'
+import { useBooksStore } from '_pages/books/books/booksStore'
 
 function BooksList() {
-	const getBooksRes = booksFetcher.useGetBooks()
+	const books = useBooksStore((state) => state.books)
 
-	if (getBooksRes.status === 'loading') {
-		return <Spinner />
-	} else if (getBooksRes.status === 'error') {
-		return <ErrorMessage text={getBooksRes.error.message} />
-	} else if (getBooksRes.status === 'noData') {
+	if (books.loading) {
+		return <LoadingMessage text='Загрузка...' />
+	} else if (books.errorMessage) {
+		return <ErrorMessage text={books.errorMessage} />
+	} else if (!books.data.length) {
 		return <Paragraph fontSize={16}>Не создано ни одной книги</Paragraph>
 	}
 
-	return getBooksRes.data.map((book) => <BookLink bookData={book} key={book.id} />)
+	return books.data.map((book) => <BookLink bookData={book} key={book.id} />)
 }
 
 export default BooksList

@@ -1,3 +1,4 @@
+import cn from 'classnames'
 import Link from 'next/link'
 import React from 'react'
 import './ContentLinkWrapper.scss'
@@ -13,16 +14,13 @@ type BookLinkBlockProps = {
 function ContentLinkWrapper(props: BookLinkBlockProps) {
 	const { href, isCurrent, children, dataTestId } = props
 
+	const classes = ['content-link-wrapper', 'content-link-wrapper--link']
 	if (isCurrent) {
-		return (
-			<div className='content-link-wrapper content-link-wrapper--current' data-testid={dataTestId}>
-				{children}
-			</div>
-		)
+		classes.push('content-link-wrapper--current')
 	}
 
 	return (
-		<Link href={href} className='content-link-wrapper content-link-wrapper--link' data-testid={dataTestId}>
+		<Link href={href} className={cn(classes)} data-testid={dataTestId}>
 			{children}
 		</Link>
 	)

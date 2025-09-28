@@ -18,6 +18,10 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 function Button(props: ButtonProps) {
 	const { theme = 'regular', size = 'small', children, icon, loading = false, dataTestId, ...restProps } = props
 
+	if (!restProps.type) {
+		restProps.type = 'button'
+	}
+
 	const buttonClasses = ['button', `button--size-${size}`, `button--theme-${theme}`]
 
 	let disabled = (props.disabled || loading) ?? false

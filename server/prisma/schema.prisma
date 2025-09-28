@@ -87,7 +87,7 @@ model BookChapterPhraseExample {
 	book_chapter_phrase BookChapterPhrase @relation(fields: [book_chapter_phrase_id], references: [id], onDelete: Cascade)
 	book_chapter_phrase_id Int
 	sentence	String
-	translate	String
+	translation	String
 	created_at	DateTime	@default(now())
 }
 

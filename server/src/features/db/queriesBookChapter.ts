@@ -92,6 +92,18 @@ export const queriesBookChapter = {
 			note
 			userId
 		  }
+		  phrases {
+			id
+			sentence
+			phrase
+			translation
+			analysis
+			examples {
+				id
+				sentence
+				translation
+			}
+		  }
         }
       }
     `,
@@ -121,10 +133,22 @@ export const queriesBookChapter = {
 				examples {
 					id
 					sentence
-					translate
+					translation
 				}
 			}
         }
+      }
+    `,
+			variables: {
+				input: dto,
+			},
+		}
+	},
+	deleteChapterPhrases(dto: { bookChapterId: number }) {
+		return {
+			query: `
+      mutation DeleteBookChapterPhrases($input: DeleteBookChapterPhrasesInput!) {
+        ${RouteNames.BOOK_CHAPTER.DELETE_BOOK_CHAPTER_PHRASES}(input: $input)
       }
     `,
 			variables: {

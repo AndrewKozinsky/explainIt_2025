@@ -2,18 +2,19 @@ import React, { useCallback } from 'react'
 import { Book_GetUserBooksDocument, useBook_Update } from '@/graphql'
 import { FormStatus, setErrorsToForm } from '@/utils/forms'
 import { ChangeBookFormData } from './form'
+import { useBooksStore } from '@/_pages/books/books/booksStore'
 
 export function useGetOnUpdateBookFormSubmit(
-	bookId: undefined | number,
 	setFieldError: (field: keyof ChangeBookFormData, params: any) => void,
 	setFormStatus: React.Dispatch<React.SetStateAction<FormStatus>>,
 	setFormError: React.Dispatch<React.SetStateAction<string | null>>,
 ) {
+	const book = useBooksStore((s) => s.book)
 	const [updateBook] = useBook_Update({ refetchQueries: [Book_GetUserBooksDocument] })
 
 	return useCallback(
 		async function (formData: ChangeBookFormData) {
-			if (!bookId) return
+			if (!book) return
 
 			setFormError(null)
 			setFormStatus('submitting')
@@ -21,7 +22,7 @@ export function useGetOnUpdateBookFormSubmit(
 			try {
 				const { data, errors } = await updateBook({
 					variables: {
-						input: { id: bookId, author: formData.author, name: formData.name, note: formData.note },
+						input: { id: book.id, author: formData.author, name: formData.name, note: formData.note },
 					},
 				})
 
@@ -36,6 +37,6 @@ export function useGetOnUpdateBookFormSubmit(
 				setFormStatus('idle')
 			}
 		},
-		[bookId, setFieldError, setFormError, setFormStatus, updateBook],
+		[book, setFieldError, setFormError, setFormStatus, updateBook],
 	)
 }

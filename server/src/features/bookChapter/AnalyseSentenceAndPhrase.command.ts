@@ -64,7 +64,7 @@ export class AnalyseSentenceAndPhraseHandler implements ICommandHandler<AnalyseS
 			await this.bookChapterPhraseExampleRepository.createPhraseExample({
 				bookChapterPhraseId: createPhraseRes.id,
 				sentence: phraseExample.sentence,
-				translate: phraseExample.translation,
+				translation: phraseExample.translation,
 			})
 		}
 

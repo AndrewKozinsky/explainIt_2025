@@ -11,7 +11,7 @@ export const exercisesLogic = {
 			function () {
 				return exercisesBlock.exercises.find((exercise) => exercise.id === currentExerciseId)
 			},
-			[exercisesBlock],
+			[currentExerciseId, exercisesBlock.exercises],
 		)
 	},
 	useGetNextExercise() {
@@ -33,7 +33,6 @@ export const exercisesLogic = {
 	},
 	useGetChangeCurrentExercise() {
 		const { exercisesBlock, setExercisesBlock } = useContext(ExercisesContext)
-		const { currentExerciseId } = exercisesBlock
 
 		return useCallback(
 			function (changeObj: Partial<ExercisesContextType.Exercise>) {
@@ -52,7 +51,7 @@ export const exercisesLogic = {
 
 				setExercisesBlock(exercisesBlockCopy)
 			},
-			[currentExerciseId],
+			[exercisesBlock, setExercisesBlock],
 		)
 	},
 	useGetChangeExercisesBlock() {
@@ -63,57 +62,66 @@ export const exercisesLogic = {
 				const exercisesBlockCopy = { ...exercisesBlock, ...changeObj }
 				setExercisesBlock(exercisesBlockCopy)
 			},
-			[exercisesBlock],
+			[exercisesBlock, setExercisesBlock],
 		)
 	},
 	useGetSwitchExercisesType() {
 		const { setExercisesBlock } = useContext(ExercisesContext)
 
-		return useCallback(function () {
-			setExercisesBlock((exercisesBlock) => {
-				const exercisesBlockCopy = { ...exercisesBlock }
+		return useCallback(
+			function () {
+				setExercisesBlock((exercisesBlock) => {
+					const exercisesBlockCopy = { ...exercisesBlock }
 
-				exercisesBlockCopy.currentExerciseType =
-					exercisesBlockCopy.currentExerciseType === ExercisesContextType.ExerciseType.write
-						? ExercisesContextType.ExerciseType.oral
-						: ExercisesContextType.ExerciseType.write
+					exercisesBlockCopy.currentExerciseType =
+						exercisesBlockCopy.currentExerciseType === ExercisesContextType.ExerciseType.write
+							? ExercisesContextType.ExerciseType.oral
+							: ExercisesContextType.ExerciseType.write
 
-				exercisesBlockCopy.analysis = { status: ExercisesContextType.AnalysisStatus.hidden }
+					exercisesBlockCopy.analysis = { status: ExercisesContextType.AnalysisStatus.hidden }
 
-				return exercisesBlockCopy
-			})
-		}, [])
+					return exercisesBlockCopy
+				})
+			},
+			[setExercisesBlock],
+		)
 	},
 	useGetSwitchToExercise() {
 		const { setExercisesBlock } = useContext(ExercisesContext)
 
-		return useCallback(function (exerciseId: number) {
-			setExercisesBlock((exercisesBlock) => {
-				const exercisesBlockCopy = { ...exercisesBlock }
-				exercisesBlockCopy.currentExerciseId = exerciseId
+		return useCallback(
+			function (exerciseId: number) {
+				setExercisesBlock((exercisesBlock) => {
+					const exercisesBlockCopy = { ...exercisesBlock }
+					exercisesBlockCopy.currentExerciseId = exerciseId
 
-				exercisesBlockCopy.analysis = { status: ExercisesContextType.AnalysisStatus.hidden }
+					exercisesBlockCopy.analysis = { status: ExercisesContextType.AnalysisStatus.hidden }
 
-				exercisesBlockCopy.exercises = exercisesBlockCopy.exercises.map((exercise) => {
-					return { ...exercise, userTranslate: '' }
+					exercisesBlockCopy.exercises = exercisesBlockCopy.exercises.map((exercise) => {
+						return { ...exercise, userTranslate: '' }
+					})
+
+					return exercisesBlockCopy
 				})
-
-				return exercisesBlockCopy
-			})
-		}, [])
+			},
+			[setExercisesBlock],
+		)
 	},
 	useGetSwitchToFirstExercise() {
 		const { setExercisesBlock } = useContext(ExercisesContext)
 
-		return useCallback(function () {
-			setExercisesBlock((exercisesBlock) => {
-				const exercisesBlockCopy = { ...exercisesBlock }
-				exercisesBlockCopy.currentExerciseId = exercisesBlockCopy.exercises[0].id
+		return useCallback(
+			function () {
+				setExercisesBlock((exercisesBlock) => {
+					const exercisesBlockCopy = { ...exercisesBlock }
+					exercisesBlockCopy.currentExerciseId = exercisesBlockCopy.exercises[0].id
 
-				exercisesBlockCopy.analysis = { status: ExercisesContextType.AnalysisStatus.hidden }
+					exercisesBlockCopy.analysis = { status: ExercisesContextType.AnalysisStatus.hidden }
 
-				return exercisesBlockCopy
-			})
-		}, [])
+					return exercisesBlockCopy
+				})
+			},
+			[setExercisesBlock],
+		)
 	},
 }

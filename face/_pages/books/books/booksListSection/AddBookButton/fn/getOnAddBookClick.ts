@@ -8,7 +8,7 @@ export function useGetOnAddBookClick() {
 	const { notify } = useContext(NotificationContext)
 
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
-	const [createBook] = useBook_Create({ refetchQueries: [Book_GetUserBooksDocument] })
+	const [createBook] = useBook_Create({ refetchQueries: [Book_GetUserBooksDocument], awaitRefetchQueries: true })
 
 	const onAddBookClick = useCallback(
 		async function () {

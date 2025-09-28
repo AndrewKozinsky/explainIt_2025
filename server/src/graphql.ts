@@ -94,11 +94,30 @@ export interface DeleteBookChapterInput {
     id: number;
 }
 
+export interface DeleteBookChapterPhrasesInput {
+    bookChapterId: number;
+}
+
 export interface UserOutModel {
     id: number;
     email: string;
     isUserConfirmed: boolean;
     balance: number;
+}
+
+export interface BookChapterPhraseOutModel {
+    id: number;
+    sentence: string;
+    phrase: string;
+    translation: string;
+    analysis: string;
+    examples: PhraseExample[];
+}
+
+export interface PhraseExample {
+    id: number;
+    sentence: string;
+    translation: string;
 }
 
 export interface BookChapterOutModel {
@@ -108,6 +127,7 @@ export interface BookChapterOutModel {
     content?: Nullable<string>;
     note?: Nullable<string>;
     book: BookLiteOutModel;
+    phrases: BookChapterPhraseOutModel[];
 }
 
 export interface BookChapterLiteOutModel {
@@ -133,21 +153,6 @@ export interface BookLiteOutModel {
     name?: Nullable<string>;
     note?: Nullable<string>;
     userId: number;
-}
-
-export interface BookChapterPhraseOutModel {
-    id: number;
-    sentence: string;
-    phrase: string;
-    translation: string;
-    analysis: string;
-    examples: PhraseExample[];
-}
-
-export interface PhraseExample {
-    id: number;
-    sentence: string;
-    translate: string;
 }
 
 export interface SentenceAndPhraseAnalysesOutModel {
@@ -199,6 +204,7 @@ export interface IMutation {
     book_chapter_create(input: CreateBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
     book_chapter_update(input: UpdateBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
     book_chapter_delete(input: DeleteBookChapterInput): boolean | Promise<boolean>;
+    book_chapter_DeleteBookChapterPhrases(input: DeleteBookChapterPhrasesInput): boolean | Promise<boolean>;
 }
 
 export type CheckTranslationOutModel = CheckTranslationOutSuccessModel | CheckTranslationOutErrorModel;

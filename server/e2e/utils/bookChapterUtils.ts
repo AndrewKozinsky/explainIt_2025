@@ -78,7 +78,7 @@ export const bookChapterUtils = {
 				examples?: Array<{
 					id?: number
 					sentence?: string
-					translate?: string
+					translation?: string
 				}>
 			}
 		},
@@ -95,7 +95,7 @@ export const bookChapterUtils = {
 						z.object({
 							id: z.number(),
 							sentence: z.string(),
-							translate: z.string(),
+							translation: z.string(),
 						}),
 					),
 				}),
@@ -135,8 +135,8 @@ export const bookChapterUtils = {
 					if (expectedExample.sentence !== undefined) {
 						expect(actualExample.sentence).toBe(expectedExample.sentence)
 					}
-					if (expectedExample.translate !== undefined) {
-						expect(actualExample.translate).toBe(expectedExample.translate)
+					if (expectedExample.translation !== undefined) {
+						expect(actualExample.translation).toBe(expectedExample.translation)
 					}
 				})
 			}
@@ -204,14 +204,14 @@ export const bookChapterUtils = {
 		const deleteBookChapterMutation = queries.bookChapter.delete(input.bookChapter)
 
 		// Run this mutation
-		const [updateBookResp] = await makeGraphQLReqWithTokens({
+		const [delteBookChapterResp] = await makeGraphQLReqWithTokens({
 			app: input.app,
 			query: deleteBookChapterMutation.query,
 			queryVariables: deleteBookChapterMutation.variables,
 			sessionToken: input.sessionToken,
 		})
 
-		return updateBookResp
+		return delteBookChapterResp
 	},
 
 	async getBookChapters(input: { bookId: number; bookChapterRepository: BookChapterRepository }) {

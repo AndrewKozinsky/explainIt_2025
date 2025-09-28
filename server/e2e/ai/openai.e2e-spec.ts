@@ -17,7 +17,7 @@ describe.skip('OpenAI (e2e)', () => {
 	let emailAdapter: EmailAdapterService
 
 	beforeAll(async () => {
-		const createMainAppRes = await createApp({ emailAdapter: emailAdapter })
+		const createMainAppRes = await createApp()
 		app = createMainAppRes.app
 		openAIService = await app.resolve(OpenAIService)
 	})
@@ -31,18 +31,6 @@ describe.skip('OpenAI (e2e)', () => {
 	})
 
 	it('test', async () => {
-		const res = await openAIService.generateText(
-			'Ты учитель английского для ученика с продвинутыми знаниями. Есть предложение: "I joined the fencing team in high school in order to get out of gym class.". Что обозначает "get" в этом контексте?',
-		)
-		console.log(JSON.stringify(res))
-		console.log('------')
-		// @ts-ignore
-		console.log(JSON.stringify(res.choices[0]).message.content)
-		// expect(res).toEqual(res)
+		expect(1).toBe(1)
 	})
 })
-
-const ff = {
-	translate: 'Я присоединился к команде фехтования, чтобы не ходить на уроки физкультуры.',
-	phrase: '«get out of» не означает «получить» здесь. Это именно фразовый глагол со значением «избежать, уйти от». Это разговорный стиль. Формально можно сказать «to be exempt from gym class» или «to avoid gym class»/«to skip gym class».',
-}

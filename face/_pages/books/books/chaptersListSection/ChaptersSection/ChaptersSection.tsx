@@ -2,19 +2,19 @@ import Paragraph from '@/ui/Paragraph/Paragraph'
 import AddChapterButton from '../AddChapterButton/AddChapterButton'
 import BookButton from '../BookButton/BookButton'
 import ChaptersList from '../ChaptersList/ChaptersList'
-import { useIsBooksUrl, useIsWrongUrl } from './fn/isWrongAddress'
+import { useBooksStore } from '_pages/books/books/booksStore'
 import './ChaptersSection.scss'
 
 function ChaptersSection() {
-	const isWrongUrl = useIsWrongUrl()
-	const isBooksUrl = useIsBooksUrl()
+	const pageType = useBooksStore((s) => s.pageType)
+	const currentBook = useBooksStore((s) => s.book)
 
-	if (isWrongUrl) {
-		return <Paragraph fontSize='15'>Запрошенной книги не существует.</Paragraph>
+	if (pageType === 'books') {
+		return null
 	}
 
-	if (isBooksUrl) {
-		return null
+	if (!currentBook) {
+		return <Paragraph fontSize='15'>Запрошенной книги не существует.</Paragraph>
 	}
 
 	return (

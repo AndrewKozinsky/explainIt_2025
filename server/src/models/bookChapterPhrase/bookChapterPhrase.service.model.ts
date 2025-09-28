@@ -10,5 +10,5 @@ export type BookChapterPhraseServiceModel = {
 type PhraseExample = {
 	id: number
 	sentence: string
-	translate: string
+	translation: string
 }

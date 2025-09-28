@@ -4,6 +4,7 @@ import { CreateBookChapterCommand, CreateBookChapterInput } from 'features/bookC
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { textIntoChapterStructure } from 'src/features/book/chapterStructure/textIntoChapterStructure'
 
 export class CreateDefaultBookCommand implements ICommand {
 	constructor(public userId: number) {}
@@ -36,12 +37,7 @@ export class CreateDefaultBookHandler implements ICommandHandler<CreateDefaultBo
 	}
 
 	getBookChapters(bookId: number): CreateBookChapterInput[] {
-		return [
-			{
-				bookId,
-				name: 'Chapter 1',
-				header: 'ODD COUPLE',
-				content: `The Two Steves
+		const textContent = `The Two Steves
 
 While a student in McCollum’s class, Jobs became friends with a graduate who was the teacher’s all-time favorite and a school legend for his wizardry in the class. Stephen Wozniak, whose younger brother had been on a swim team with Jobs, was almost five years older than Jobs and far more knowledgeable about electronics. But emotionally and socially he was still a high school geek.
 
@@ -66,7 +62,15 @@ By the end of his senior year, he had become a master. “I was now designing co
 On Thanksgiving weekend of his senior year, Wozniak visited the University of Colorado. It was closed for the holiday, but he found an engineering student who took him on a tour of the labs. He begged his father to let him go there, even though the out-ofstate tuition was more than the family could easily afford. They struck a deal: He would be allowed to go for one year, but then he would transfer to De Anza Community College back home. After arriving at Colorado in the fall of 1969, he spent so much time playing pranks (such as producing reams of printouts
 saying “Fuck Nixon”) that he failed a couple of his Steve Jobs by Walter Isaacson 41 courses and was put on probation. In addition, he created a program to calculate Fibonacci numbers that burned up so much computer time the university threatened to bill him for the cost. So he readily lived up to his bargain with his parents and transferred to De Anza.
 
-After a pleasant year at De Anza, Wozniak took time off to make some money. He found work at a company that made computers for the California Motor Vehicle Department, and a coworker made him a wonderful offer: He would provide some spare chips so Wozniak could make one of the computers he had been sketching on paper. Wozniak decided to use as few chips as possible, both as a personal challenge and because he did not want to take advantage of his colleague’s largesse.`,
+After a pleasant year at De Anza, Wozniak took time off to make some money. He found work at a company that made computers for the California Motor Vehicle Department, and a coworker made him a wonderful offer: He would provide some spare chips so Wozniak could make one of the computers he had been sketching on paper. Wozniak decided to use as few chips as possible, both as a personal challenge and because he did not want to take advantage of his colleague’s largesse.`
+		const structuredContent = textIntoChapterStructure(textContent)
+
+		return [
+			{
+				bookId,
+				name: 'Chapter 1',
+				header: 'ODD COUPLE',
+				content: JSON.stringify(structuredContent),
 			},
 			/*{
 				bookId,

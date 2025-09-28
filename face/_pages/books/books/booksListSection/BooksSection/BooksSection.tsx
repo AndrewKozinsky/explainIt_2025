@@ -1,6 +1,6 @@
 import React from 'react'
-import AddBookButton from '../AddBookButton/AddBookButton'
 import BooksList from '../BooksList/BooksList'
+import AddBookButton from '../AddBookButton/AddBookButton'
 import './BooksSection.scss'
 
 function BooksSection() {

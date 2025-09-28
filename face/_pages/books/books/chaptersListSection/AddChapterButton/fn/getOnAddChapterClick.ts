@@ -1,27 +1,28 @@
 import { useCallback, useState } from 'react'
 import { Book_GetUserBooksDocument, useBookChapter_Create } from '@/graphql'
 import { NotifyArg } from '@/ui/Notification/context'
-import { booksFetcher } from '_pages/books/commonLogic/booksFetcher'
+import { useBooksStore } from '_pages/books/books/booksStore'
 
 export function useGetOnAddChapterClick(notify: (data: NotifyArg) => void) {
-	const getBookRes = booksFetcher.useGetCurrentBook()
+	const book = useBooksStore((s) => s.book)
 
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
-	const [createChapter] = useBookChapter_Create({ refetchQueries: [Book_GetUserBooksDocument] })
+	const [createChapter] = useBookChapter_Create({
+		refetchQueries: [Book_GetUserBooksDocument],
+		awaitRefetchQueries: true,
+	})
 
 	const onAddChapterClick = useCallback(
 		async function () {
-			if (getBookRes.status !== 'success' || !getBookRes.data) {
-				setStatus('loading')
+			if (!book) {
 				return
 			}
-			const book = getBookRes.data
+
+			setStatus('loading')
 
 			const { errors } = await createChapter({
 				variables: { input: { bookId: book.id, header: null, name: null, content: null, note: null } },
 			})
-
-			setStatus('loading')
 
 			if (errors) {
 				notify({ type: 'error', message: 'Не удалось получить список книг.' })
@@ -29,7 +30,7 @@ export function useGetOnAddChapterClick(notify: (data: NotifyArg) => void) {
 
 			setStatus('idle')
 		},
-		[getBookRes, createChapter, notify],
+		[book, createChapter, notify],
 	)
 
 	return {

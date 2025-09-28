@@ -1,23 +1,11 @@
 import ChapterLink from '../ChapterLink/ChapterLink'
-import { booksFetcher } from '_pages/books/commonLogic/booksFetcher'
 import Paragraph from 'ui/Paragraph/Paragraph'
-import Spinner from 'ui/Spinner/Spinner'
+import { useBooksStore } from '_pages/books/books/booksStore'
 import './ChaptersList.scss'
 
 function ChaptersList() {
-	const getBookRes = booksFetcher.useGetCurrentBook()
+	const book = useBooksStore((s) => s.book)
 
-	if (getBookRes.status === 'loading') {
-		return <Spinner />
-	}
-	if (getBookRes.status === 'noData') {
-		return <Paragraph fontSize={16}>Книга не найдена</Paragraph>
-	}
-	if (getBookRes.status !== 'success') {
-		return null
-	}
-
-	const book = getBookRes.data
 	if (!book || !book.chapters.length) return null
 
 	return (

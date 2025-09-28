@@ -1,10 +1,14 @@
 import { chapterStructureIntoText } from '_pages/books/commonLogic/chapterStructureIntoText/chapterStructureIntoText'
+import { useBooksStore } from '_pages/books/books/booksStore'
 import { ChapterTextStructure } from '_pages/books/commonLogic/chapterStructureTypes'
-import { BookChapterOutModel } from 'graphql'
 import { useEffect } from 'react'
 
-export function useSetFieldValues(reset: (data: any) => void, chapter: BookChapterOutModel) {
+export function useSetFieldValues(reset: (data: any) => void) {
+	const chapter = useBooksStore((s) => s.chapter.data)
+
 	useEffect(() => {
+		if (!chapter) return
+
 		reset({
 			name: chapter.name ?? '',
 			header: chapter.header ?? '',

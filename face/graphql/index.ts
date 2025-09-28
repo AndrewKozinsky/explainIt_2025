@@ -49,6 +49,7 @@ export type BookChapterOutModel = {
 	id: Scalars['Int']['output']
 	name?: Maybe<Scalars['String']['output']>
 	note?: Maybe<Scalars['String']['output']>
+	phrases: Array<BookChapterPhraseOutModel>
 }
 
 export type BookChapterPhraseOutModel = {
@@ -57,6 +58,7 @@ export type BookChapterPhraseOutModel = {
 	examples: Array<PhraseExample>
 	id: Scalars['Int']['output']
 	phrase: Scalars['String']['output']
+	sentence: Scalars['String']['output']
 	translation: Scalars['String']['output']
 }
 
@@ -131,6 +133,11 @@ export type DeleteBookChapterInput = {
 	id: Scalars['Int']['input']
 }
 
+export type DeleteBookChapterPhrasesInput = {
+	/** Book chapter id */
+	bookChapterId: Scalars['Int']['input']
+}
+
 export type DeleteBookInput = {
 	/** Book id */
 	id: Scalars['Int']['input']
@@ -191,6 +198,7 @@ export type Mutation = {
 	auth_register: UserOutModel
 	/** Resend email confirmation letter */
 	auth_resendConfirmationEmail: Scalars['Boolean']['output']
+	book_chapter_DeleteBookChapterPhrases: Scalars['Boolean']['output']
 	/** Create book chapter */
 	book_chapter_create: BookChapterOutModel
 	/** Delete book chapter */
@@ -227,6 +235,10 @@ export type MutationAuth_ResendConfirmationEmailArgs = {
 	input: ResendConfirmationEmailInput
 }
 
+export type MutationBook_Chapter_DeleteBookChapterPhrasesArgs = {
+	input: DeleteBookChapterPhrasesInput
+}
+
 export type MutationBook_Chapter_CreateArgs = {
 	input: CreateBookChapterInput
 }
@@ -259,7 +271,7 @@ export type PhraseExample = {
 	__typename?: 'PhraseExample'
 	id: Scalars['Int']['output']
 	sentence: Scalars['String']['output']
-	translate: Scalars['String']['output']
+	translation: Scalars['String']['output']
 }
 
 export type Query = {
@@ -322,8 +334,6 @@ export type TopUpBalanceWithYooKassaOutModel = {
 export type UpdateBookChapterInput = {
 	/** BookChapter content */
 	content?: InputMaybe<Scalars['String']['input']>
-	/** Should a program convert the content into a structure? */
-	convertContentIntoStructure?: InputMaybe<Scalars['Boolean']['input']>
 	/** BookChapter header */
 	header?: InputMaybe<Scalars['String']['input']>
 	/** BookChapter id */
@@ -511,7 +521,7 @@ export type BookChapter_AnalyseSentenceAndPhrase = {
 			phrase: string
 			translation: string
 			analysis: string
-			examples: Array<{ __typename?: 'PhraseExample'; id: number; sentence: string; translate: string }>
+			examples: Array<{ __typename?: 'PhraseExample'; id: number; sentence: string; translation: string }>
 		}
 	}
 }
@@ -546,6 +556,15 @@ export type BookChapter_DeleteVariables = Exact<{
 
 export type BookChapter_Delete = { __typename?: 'Mutation'; book_chapter_delete: boolean }
 
+export type BookChapter_DeleteBookChapterPhrasesVariables = Exact<{
+	input: DeleteBookChapterPhrasesInput
+}>
+
+export type BookChapter_DeleteBookChapterPhrases = {
+	__typename?: 'Mutation'
+	book_chapter_DeleteBookChapterPhrases: boolean
+}
+
 export type BookChapter_GetVariables = Exact<{
 	input: GetBookChapterInput
 }>
@@ -567,6 +586,15 @@ export type BookChapter_Get = {
 			note?: string | null
 			userId: number
 		}
+		phrases: Array<{
+			__typename?: 'BookChapterPhraseOutModel'
+			id: number
+			sentence: string
+			phrase: string
+			translation: string
+			analysis: string
+			examples: Array<{ __typename?: 'PhraseExample'; id: number; sentence: string; translation: string }>
+		}>
 	}
 }
 
@@ -1118,7 +1146,7 @@ export const BookChapter_AnalyseSentenceAndPhraseDocument = gql`
 				examples {
 					id
 					sentence
-					translate
+					translation
 				}
 			}
 		}
@@ -1276,6 +1304,52 @@ export type BookChapter_DeleteMutationOptions = Apollo.BaseMutationOptions<
 	BookChapter_Delete,
 	BookChapter_DeleteVariables
 >
+export const BookChapter_DeleteBookChapterPhrasesDocument = gql`
+	mutation BookChapter_DeleteBookChapterPhrases($input: DeleteBookChapterPhrasesInput!) {
+		book_chapter_DeleteBookChapterPhrases(input: $input)
+	}
+`
+export type BookChapter_DeleteBookChapterPhrasesMutationFn = Apollo.MutationFunction<
+	BookChapter_DeleteBookChapterPhrases,
+	BookChapter_DeleteBookChapterPhrasesVariables
+>
+
+/**
+ * __useBookChapter_DeleteBookChapterPhrases__
+ *
+ * To run a mutation, you first call `useBookChapter_DeleteBookChapterPhrases` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useBookChapter_DeleteBookChapterPhrases` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [bookChapterDeleteBookChapterPhrases, { data, loading, error }] = useBookChapter_DeleteBookChapterPhrases({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useBookChapter_DeleteBookChapterPhrases(
+	baseOptions?: Apollo.MutationHookOptions<
+		BookChapter_DeleteBookChapterPhrases,
+		BookChapter_DeleteBookChapterPhrasesVariables
+	>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useMutation<BookChapter_DeleteBookChapterPhrases, BookChapter_DeleteBookChapterPhrasesVariables>(
+		BookChapter_DeleteBookChapterPhrasesDocument,
+		options,
+	)
+}
+export type BookChapter_DeleteBookChapterPhrasesHookResult = ReturnType<typeof useBookChapter_DeleteBookChapterPhrases>
+export type BookChapter_DeleteBookChapterPhrasesMutationResult =
+	Apollo.MutationResult<BookChapter_DeleteBookChapterPhrases>
+export type BookChapter_DeleteBookChapterPhrasesMutationOptions = Apollo.BaseMutationOptions<
+	BookChapter_DeleteBookChapterPhrases,
+	BookChapter_DeleteBookChapterPhrasesVariables
+>
 export const BookChapter_GetDocument = gql`
 	query BookChapter_get($input: GetBookChapterInput!) {
 		book_chapter_get(input: $input) {
@@ -1290,6 +1364,18 @@ export const BookChapter_GetDocument = gql`
 				author
 				note
 				userId
+			}
+			phrases {
+				id
+				sentence
+				phrase
+				translation
+				analysis
+				examples {
+					id
+					sentence
+					translation
+				}
 			}
 		}
 	}

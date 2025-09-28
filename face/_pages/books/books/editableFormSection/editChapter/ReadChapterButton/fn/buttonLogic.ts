@@ -1,16 +1,17 @@
-import { BookChapterOutModel } from 'graphql'
+import { useBooksStore } from '_pages/books/books/booksStore'
 import { useCallback, useEffect, useState } from 'react'
 import { redirect } from 'next/navigation'
 import { pageUrls } from '@/сonsts/pageUrls'
 
-import { booksFetcher } from '_pages/books/commonLogic/booksFetcher'
-
-export function useIsReadButtonDisabled(chapter: BookChapterOutModel) {
+export function useIsReadButtonDisabled() {
+	const chapter = useBooksStore((s) => s.chapter)
 	const [isReadButtonDisabled, setIsReadButtonDisabled] = useState(true)
 
 	useEffect(
 		function () {
-			setIsReadButtonDisabled(!chapter.content)
+			const chapterContent = chapter.data?.content ? chapter.data.content : ''
+
+			setIsReadButtonDisabled(!chapterContent)
 		},
 		[chapter],
 	)
@@ -19,13 +20,16 @@ export function useIsReadButtonDisabled(chapter: BookChapterOutModel) {
 }
 
 export function useGetOnReadButtonClick() {
-	const bookId = booksFetcher.useGetCurrentBookIdFromUrl()
-	const chapterId = booksFetcher.useGetCurrentChapterIdFromUrl()
+	const book = useBooksStore((s) => s.book)
+	const chapter = useBooksStore((s) => s.chapter)
 
 	return useCallback(
 		function () {
-			redirect(pageUrls.books.book(bookId).chapter(chapterId).reading.path)
+			if (!book) return
+			if (!chapter.data) return
+
+			redirect(pageUrls.books.book(book.id).chapter(chapter.data.id).reading.path)
 		},
-		[bookId, chapterId],
+		[book, chapter],
 	)
 }

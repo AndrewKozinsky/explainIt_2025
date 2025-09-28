@@ -57,7 +57,7 @@ export class BookChapterPhraseRepository {
 			examples: dbBookChapter.BookChapterPhraseExample.map((example) => ({
 				id: example.id,
 				sentence: example.sentence,
-				translate: example.translate,
+				translation: example.translation,
 			})),
 		}
 	}

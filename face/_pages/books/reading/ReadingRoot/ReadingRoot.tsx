@@ -1,6 +1,6 @@
 // import Chapter from '../chapter/Chapter/Chapter'
 // import Analysis from '../analysis/Analysis/Analysis'
-// import './ReadingRoot.scss'
+import './ReadingRoot.scss'
 
 function ReadingRoot() {
 	return (

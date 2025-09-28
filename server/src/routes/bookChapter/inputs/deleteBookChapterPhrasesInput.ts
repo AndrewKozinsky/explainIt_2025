@@ -5,6 +5,6 @@ import { bdConfig } from 'src/db/dbConfig/dbConfig'
 @InputType()
 export class DeleteBookChapterPhrasesInput {
 	@Field(() => Int, { description: 'Book chapter id' })
-	@DtoFieldDecorators('id', bdConfig.BookChapter.dbFields.id)
+	@DtoFieldDecorators('bookChapterId', bdConfig.BookChapter.dbFields.id)
 	bookChapterId: number
 }

@@ -40,7 +40,7 @@ export class BookChapterPhraseQueryRepository {
 			examples: dbPhraseChapter.BookChapterPhraseExample.map((example) => ({
 				id: example.id,
 				sentence: example.sentence,
-				translate: example.translate,
+				translation: example.translation,
 			})),
 		}
 	}

@@ -1,34 +1,23 @@
 import cn from 'classnames'
+import { useBooksStore } from '_pages/books/books/booksStore'
 import Paragraph from '@/ui/Paragraph/Paragraph'
 import { pageUrls } from '@/сonsts/pageUrls'
-import Spinner from 'ui/Spinner/Spinner'
 import { bookConfig } from '../../common/bookConfig'
 import ContentLinkWrapper from '../../common/ContentLinkWrapper/ContentLinkWrapper'
-import { useGetIsBookPage } from './fn/isBookPage'
-import { booksFetcher } from '_pages/books/commonLogic/booksFetcher'
 import './BookButton.scss'
 
 function BookButton() {
-	const currentBookId = booksFetcher.useGetCurrentBookIdFromUrl()
-	const isBookPage = useGetIsBookPage(currentBookId)
-	const getBookRes = booksFetcher.useGetCurrentBook()
+	const book = useBooksStore((s) => s.book)
+	const pageType = useBooksStore((s) => s.pageType)
 
-	if (getBookRes.status === 'loading') {
-		return <Spinner />
-	}
-	if (getBookRes.status === 'noData') {
-		return <Paragraph fontSize={16}>Книга не найдена</Paragraph>
-	}
-	if (getBookRes.status !== 'success' || !getBookRes.data) {
+	if (!book) {
 		return null
 	}
 
-	const book = getBookRes.data
-
 	return (
-		<ContentLinkWrapper href={pageUrls.books.book(currentBookId).path} isCurrent={isBookPage}>
+		<ContentLinkWrapper href={pageUrls.books.book(book?.id).path} isCurrent={pageType === 'book'}>
 			<div className='book-button'>
-				<BookLabel isBookPage={isBookPage} />
+				<BookLabel />
 				{book.author && (
 					<Paragraph fontSize='14' extraClass='book-button__author'>
 						{book.author}
@@ -42,12 +31,9 @@ function BookButton() {
 
 export default BookButton
 
-type BookLabelProps = {
-	isBookPage: boolean
-}
-
-function BookLabel(props: BookLabelProps) {
-	const { isBookPage } = props
+function BookLabel() {
+	const pageType = useBooksStore((s) => s.pageType)
+	const isBookPage = pageType === 'book'
 
 	return (
 		<span className={cn('book-button__label', isBookPage ? 'book-button__lighter' : 'book-button__label--darker')}>

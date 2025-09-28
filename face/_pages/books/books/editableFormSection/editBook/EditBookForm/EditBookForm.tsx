@@ -13,15 +13,8 @@ import { ChangeBookFormData, changeBookFormSchema, ChangeBookFormTest } from './
 import * as yup from 'yup'
 import { useSetFieldValues } from './fn/setFieldValues'
 import { useGetOnUpdateBookFormSubmit } from './fn/submit'
-import { BookOutModel } from '@/graphql'
 
-type ChangeBookFormProps = {
-	book: BookOutModel
-}
-
-export default function EditBookForm(props: ChangeBookFormProps) {
-	const { book } = props
-
+export default function EditBookForm() {
 	const [formStatus, setFormStatus] = useState<FormStatus>('idle')
 	const [formError, setFormError] = useState<null | string>(null)
 
@@ -35,18 +28,19 @@ export default function EditBookForm(props: ChangeBookFormProps) {
 		resolver: yupResolver(changeBookFormSchema as yup.AnyObjectSchema),
 	})
 
-	useSetFieldValues(reset, book)
+	useSetFieldValues(reset)
 
-	const onSubmit = useGetOnUpdateBookFormSubmit(book.id, setError, setFormStatus, setFormError)
+	const onSubmit = useGetOnUpdateBookFormSubmit(setError, setFormStatus, setFormError)
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)} data-testid={ChangeBookFormTest.form.id}>
 			<BookFormSurface
-				leftBottomButtons={[<DeleteBookButton key='delete' bookId={book.id} />]}
+				leftBottomButtons={[<DeleteBookButton key='delete' />]}
 				rightBottomButtons={[
 					<Button
 						type='submit'
 						disabled={['success', 'submitting'].includes(formStatus) || !isDirty}
+						loading={formStatus === 'submitting'}
 						dataTestId={ChangeBookFormTest.submitButton.id}
 						key='save'
 					>

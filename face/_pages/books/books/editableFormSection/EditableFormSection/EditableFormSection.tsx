@@ -1,19 +1,19 @@
-import EditBookFormWrapper from '_pages/books/books/editableFormSection/EditBookFormWrapper/EditBookFormWrapper'
-import { booksFetcher } from '_pages/books/commonLogic/booksFetcher'
-import EditChapterFormWrapper from '../EditChapterFormWrapper/EditChapterFormWrapper'
+import { useBooksStore } from '_pages/books/books/booksStore'
+import EditChapterForm from '_pages/books/books/editableFormSection/editChapter/EditChapterForm/EditChapterForm'
+import EditBookForm from '../editBook/EditBookForm/EditBookForm'
 import './EditableFormSection.scss'
 
 function EditableFormSection() {
-	const pageType = booksFetcher.useGetPageType()
+	const pageType = useBooksStore((s) => s.pageType)
 
-	if (pageType === 'anotherPage') {
+	if (pageType === 'books') {
 		return null
 	}
 
 	return (
 		<div className='editable-form-section'>
-			{pageType === 'bookPage' && <EditBookFormWrapper />}
-			{pageType === 'chapterPage' && <EditChapterFormWrapper />}
+			{pageType === 'book' && <EditBookForm />}
+			{pageType === 'chapter' && <EditChapterForm />}
 		</div>
 	)
 }

@@ -12,5 +12,17 @@ query BookChapter_get($input: GetBookChapterInput!) {
 			note
 			userId
 		}
+		phrases {
+			id
+			sentence
+			phrase
+			translation
+			analysis
+			examples {
+				id
+				sentence
+				translation
+			}
+		}
 	}
 }

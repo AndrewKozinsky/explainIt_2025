@@ -1,5 +1,6 @@
 'use client'
 
+import { usePopulateBooksStore } from '_pages/books/books/BooksRoot/fn/populateBooksStore'
 import { BooksTest } from '_pages/books/books/booksTest'
 import BooksSection from '../booksListSection/BooksSection/BooksSection'
 import ChaptersSection from '../chaptersListSection/ChaptersSection/ChaptersSection'
@@ -9,8 +10,7 @@ import './BooksRoot.scss'
 
 function BooksRoot() {
 	useChangeBodyBgColor()
-
-	// Лучше изначально поставить все необходимые данные в Хранилище и информацию брать оттуда
+	usePopulateBooksStore()
 
 	return (
 		<main className='books-page-content'>

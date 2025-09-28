@@ -10,7 +10,7 @@
 
 .content-link-wrapper--link {
 	border-color: vars.$grayColor-2;
-	transition: border-color 0.2s ease-in-out;
+	transition: border-color 0.05s ease-in-out;
 
 	&:hover {
 		border-color: vars.$grayColor-3;
