@@ -1,7 +1,7 @@
-// import React from 'react'
-// import { useReadingStore } from '_pages/books/reading/readingStore'
+import React from 'react'
+import { useReadingStore } from '_pages/books/reading/readingStore'
 
-/*export function useGetWordClickHandler() {
+export function useGetWordClickHandler() {
 	const selectSingleWord = useReadingStore((s) => s.selectSingleWord)
 	const addWordToSelection = useReadingStore((s) => s.addWordToSelection)
 
@@ -15,4 +15,4 @@
 		},
 		[addWordToSelection, selectSingleWord],
 	)
-}*/
+}

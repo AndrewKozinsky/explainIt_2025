@@ -27,6 +27,7 @@ export const RouteNames = {
 		YOOKASSA: 'webhook/yookassa',
 	},
 	BOOK: {
+		GET: 'book_get',
 		CREATE: 'book_create',
 		UPDATE: 'book_update',
 		DELETE: 'book_delete',

@@ -72,7 +72,9 @@ model BookChapter {
 
 model BookChapterPhrase {
 	id	Int	@id	@default(autoincrement())
+	sentenceId	Int
 	sentence	String
+	phraseWordsIdx	Int[]
 	phrase	String
 	phraseTranslation	String
 	phraseAnalysis	String

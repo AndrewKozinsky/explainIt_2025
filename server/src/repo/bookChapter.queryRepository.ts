@@ -59,8 +59,10 @@ export class BookChapterQueryRepository {
 			},
 			phrases: dbBook.BookChapterPhrase.map((phrase) => ({
 				id: phrase.id,
+				sentenceId: phrase.sentenceId,
 				sentence: phrase.sentence,
 				phrase: phrase.phrase,
+				phraseWordsIdx: phrase.phraseWordsIdx,
 				translation: phrase.phraseTranslation,
 				analysis: phrase.phraseAnalysis,
 				examples: phrase.BookChapterPhraseExample.map((example) => ({

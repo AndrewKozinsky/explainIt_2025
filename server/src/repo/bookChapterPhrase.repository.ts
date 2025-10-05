@@ -13,16 +13,20 @@ export class BookChapterPhraseRepository {
 	@CatchDbError()
 	async createBookChapterPhrase(dto: {
 		bookChapterId: number
+		sentenceId: number
 		sentence: string
 		phrase: string
+		phraseWordsIdx: number[]
 		phraseTranslation: string
 		phraseAnalysis: string
 	}) {
 		const newBookChapterPhrase = await this.prisma.bookChapterPhrase.create({
 			data: {
 				book_chapter_id: dto.bookChapterId,
+				sentenceId: dto.sentenceId,
 				sentence: dto.sentence,
 				phrase: dto.phrase,
+				phraseWordsIdx: dto.phraseWordsIdx,
 				phraseTranslation: dto.phraseTranslation,
 				phraseAnalysis: dto.phraseAnalysis,
 			},
@@ -50,8 +54,10 @@ export class BookChapterPhraseRepository {
 	mapDbPhraseToServicePhrase(dbBookChapter: PhraseWithPhraseExamples): BookChapterPhraseServiceModel {
 		return {
 			id: dbBookChapter.id,
+			sentenceId: dbBookChapter.sentenceId,
 			sentence: dbBookChapter.sentence,
 			phrase: dbBookChapter.phrase,
+			phraseWordsIdx: dbBookChapter.phraseWordsIdx,
 			phraseTranslation: dbBookChapter.phraseTranslation,
 			phraseAnalysis: dbBookChapter.phraseAnalysis,
 			examples: dbBookChapter.BookChapterPhraseExample.map((example) => ({

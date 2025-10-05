@@ -14,8 +14,10 @@ query BookChapter_get($input: GetBookChapterInput!) {
 		}
 		phrases {
 			id
+			sentenceId
 			sentence
 			phrase
+			phraseWordsIdx
 			translation
 			analysis
 			examples {

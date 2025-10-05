@@ -4,5 +4,6 @@ export const bookResolversDesc: Record<keyof typeof BookResolver.prototype, stri
 	createBook: 'Create book',
 	updateBook: 'Update user book',
 	deleteBook: 'Delete user book',
+	getBook: 'Get user book',
 	getUserBooks: 'Get user books',
 }

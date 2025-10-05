@@ -8,6 +8,10 @@
 .chapter-text__sentence {
 }
 
+	.chapter-text__sentence--selected {
+	color: vars.$linkColor-2;
+}
+
 .chapter-text__word {
 	position: relative;
 	display: inline-block;

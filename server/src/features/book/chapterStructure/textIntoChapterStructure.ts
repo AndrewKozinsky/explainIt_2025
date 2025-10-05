@@ -59,7 +59,7 @@ export function textIntoChapterStructure(chapterText: string): ChapterTextStruct
 		flushWord()
 		flushPunct()
 		if (currentSentenceParts && currentSentenceParts.length > 0) {
-			result.push({ t: 'sentence', translate: null, parts: currentSentenceParts })
+			result.push({ t: 'sentence', translation: null, parts: currentSentenceParts })
 		}
 		currentSentenceParts = null
 	}

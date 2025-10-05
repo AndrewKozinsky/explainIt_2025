@@ -292,6 +292,12 @@ export const bdConfig = {
 			id: {
 				type: 'index',
 			},
+			sentenceId: {
+				type: 'number',
+				description: 'id of sentence where the phrase is located',
+				example: 100,
+				required: true,
+			},
 			sentence: {
 				type: 'string',
 				description: 'Предложение где находится фраза',
@@ -299,12 +305,16 @@ export const bdConfig = {
 				minLength: 1,
 				maxLength: 1000,
 			},
+			phraseWordsIdx: {
+				type: 'array',
+				arrayItemType: 'number',
+				description: 'Порядковые номера одного или нескольких слов на иностранном языке в предложении',
+				required: true,
+			},
 			phrase: {
 				type: 'string',
-				description: 'Одно или несколько слов на иностранном языке для заучивания',
+				description: 'Фраза на иностранном языке для заучивания',
 				required: true,
-				minLength: 1,
-				maxLength: 200,
 			},
 			phraseTranslation: {
 				type: 'string',

@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common'
 import { CqrsModule } from '@nestjs/cqrs'
 import { CreateBookHandler } from 'features/book/CreateBook.command'
 import { TokenUsageBalanceChargeHandler } from 'features/payment/TokenUsageBalanceCharge.command'
+import { GetBookHandler } from 'src/features/book/GetBook.command'
 import { BalanceTransactionRepository } from 'src/repo/balanceTransaction.repository'
 import { DBRepository } from 'src/repo/db.repository'
 import { CreateBookWithEmptyChapterHandler } from 'features/book/CreateBookWithEmptyChapter.command'
@@ -19,6 +20,7 @@ const commandHandlers = [
 	CreateBookHandler,
 	CreateBookWithEmptyChapterHandler,
 	GetUserBooksHandler,
+	GetBookHandler,
 	UpdateBookHandler,
 	DeleteBookHandler,
 	TokenUsageBalanceChargeHandler,

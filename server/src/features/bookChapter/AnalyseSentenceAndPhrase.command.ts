@@ -15,8 +15,10 @@ type AnalyseSentenceAndPhraseInput = {
 	bookAuthor: null | string
 	bookName: null | string
 	context: string
+	sentenceId: number
 	sentence: string
 	phrase: string
+	phraseWordsIdx: number[]
 }
 
 export class AnalyseSentenceAndPhraseCommand implements ICommand {
@@ -51,8 +53,10 @@ export class AnalyseSentenceAndPhraseHandler implements ICommandHandler<AnalyseS
 		// Записать в БД перевод фразы
 		const createPhraseRes = await this.bookChapterPhraseRepository.createBookChapterPhrase({
 			bookChapterId: analyseSentenceAndPhraseInput.bookChapterId,
+			sentenceId: analyseSentenceAndPhraseInput.sentenceId,
 			sentence: analyseSentenceAndPhraseInput.sentence,
 			phrase: analyseSentenceAndPhraseInput.phrase,
+			phraseWordsIdx: analyseSentenceAndPhraseInput.phraseWordsIdx,
 			phraseTranslation: analysis.phraseTranslate,
 			phraseAnalysis: analysis.phraseAnalysis,
 		})

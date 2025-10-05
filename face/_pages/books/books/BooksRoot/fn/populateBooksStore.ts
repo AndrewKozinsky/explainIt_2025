@@ -12,7 +12,7 @@ export function usePopulateBooksStore() {
 	useFetchChapterAndSetToStore()
 }
 
-// Определяет тип текущей страницы
+// Определяет тип текущей страницы и возвращает в виде типа
 export function useChangeCurrentPageType() {
 	const bookId = useParams().bookId as string
 	const pathname = usePathname()

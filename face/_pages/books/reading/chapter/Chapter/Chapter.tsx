@@ -1,21 +1,16 @@
-// 'use client'
+import { useReadingStore } from '_pages/books/reading/readingStore'
+import ChapterText from '../ChapterText/ChapterText'
+import './Chapter.scss'
 
-// import { useReadingStore } from '_pages/books/reading/readingStore'
-// import { useGetChapterDataAndSetToStore } from './fn/getContentStructure'
-// import ChapterText from '../ChapterText/ChapterText'
-// import './Chapter.scss'
-
-/*function Chapter() {
-	useGetChapterDataAndSetToStore()
-
-	const chapter = useReadingStore((state) => state.chapter)
-	if (!chapter) return null
+function Chapter() {
+	const populatedChapter = useReadingStore((state) => state.populatedChapter)
+	if (!populatedChapter) return null
 
 	return (
 		<div className='reading-chapter'>
 			<ChapterText />
 		</div>
 	)
-}*/
+}
 
-// export default Chapter
+export default Chapter

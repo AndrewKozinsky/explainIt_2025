@@ -1,44 +1,15 @@
-// import { ChapterTextStructure, ChapterTextStructurePopulated } from '@/_pages/books/chapterStructureTypes'
-// import { booksFetcher } from '_pages/books/booksFetcher'
-// import { useReadingStore } from '_pages/books/reading/readingStore'
-// import { useEffect } from 'react'
-
-/*export function useGetChapterDataAndSetToStore() {
-	const bookData = booksFetcher.useGetCurrentBook()
-	const chapterData = booksFetcher.useGetCurrentChapter()
-
-	useEffect(
-		function () {
-			if (!chapterData || !bookData) return
-
-			const chapterStructure = chapterData.content
-				? (JSON.parse(chapterData.content) as ChapterTextStructure.Chapter)
-				: null
-
-			if (!chapterStructure) {
-				return
-			}
-
-			const chapter = fullChapterStructureUsefulData(chapterStructure)
-
-			// Put data to the ReadingStore
-			useReadingStore.setState({
-				chapterId: chapterData.id,
-				chapter: chapter,
-				bookName: bookData.name,
-				bookAuthor: bookData.author,
-			})
-		},
-		[bookData, chapterData],
-	)
-}*/
+import { ChapterTextStructure, ChapterTextStructurePopulated } from '../chapterStructureTypes'
 
 /**
  * Получает структуру главы с сервера и наполняет её полезными данными чтобы из
  * ChapterTextStructure.Chapter получить ChapterTextStructureFull.Chapter
  * @param chapterStructure — данные с сервера преобразованные в массив объектов
+ * @param phrases — данные о переведённых фразах
  */
-/*function fullChapterStructureUsefulData(chapterStructure: ChapterTextStructure.Chapter) {
+export function fullChapterStructureUsefulData(
+	chapterStructure: ChapterTextStructure.Chapter,
+	phrases: ChapterTextStructure.Phrase[],
+): ChapterTextStructurePopulated.Chapter {
 	let elementId = 1
 
 	const fullStructure: ChapterTextStructurePopulated.Chapter = chapterStructure.map((item: any) => {
@@ -60,11 +31,29 @@
 				return { id: currentPartId, type: 'space' } as const
 			})
 
+			// Build phrases mapping for this sentence by matching sentenceId
+			const phrasesMapping = (phrases || [])
+				.filter((p) => p.sentenceId === currentId)
+				.map((p) => ({
+					phraseIdInDb: p.id,
+					phrase: p.phrase,
+					wordIds: p.phraseWordsIdx,
+					analysis: {
+						translation: p.translation,
+						analysis: p.analysis,
+						examples: (p.examples || []).map((ex) => ({
+							foreignLang: ex.sentence,
+							nativeLang: ex.translation,
+						})),
+					},
+				}))
+
 			return {
 				id: currentId,
 				type: 'sentence',
-				translatedSentence: item.translate ?? null,
+				translation: item.translation ?? null,
 				parts,
+				phrasesMapping,
 			}
 		} else if (item.t === 'space') {
 			return { id: currentId, type: 'space' }
@@ -79,4 +68,4 @@
 	})
 
 	return fullStructure
-}*/
+}

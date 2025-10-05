@@ -1,16 +1,21 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql'
-import { BookLiteOutModel, BookOutModel } from '../book/book.out.model'
 
 @ObjectType()
 export class BookChapterPhraseOutModel {
 	@Field(() => Int)
 	id: number
 
+	@Field(() => Int)
+	sentenceId: number
+
 	@Field(() => String)
 	sentence: string
 
 	@Field(() => String)
 	phrase: string
+
+	@Field(() => [Int])
+	phraseWordsIdx: number[]
 
 	@Field(() => String)
 	translation: string

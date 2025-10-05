@@ -11,11 +11,17 @@ input AnalyseSentenceAndPhraseInput {
   """Context"""
   context: String!
 
-  """Phrase"""
+  """Фраза на иностранном языке для заучивания"""
   phrase: String!
 
-  """Sentence"""
+  """Ids of the words in the phrase"""
+  phraseWordsIdx: [Int!]!
+
+  """Предложение где находится фраза"""
   sentence: String!
+
+  """Порядковый номер предложения где находится фраза"""
+  sentenceId: Float!
 }
 
 type BookChapterLiteOutModel {
@@ -41,7 +47,9 @@ type BookChapterPhraseOutModel {
   examples: [PhraseExample!]!
   id: Int!
   phrase: String!
+  phraseWordsIdx: [Int!]!
   sentence: String!
+  sentenceId: Int!
   translation: String!
 }
 
@@ -131,6 +139,11 @@ input DeleteBookInput {
 
 input GetBookChapterInput {
   """BookChapter id"""
+  id: Int!
+}
+
+input GetBookInput {
+  """Book id"""
   id: Int!
 }
 
@@ -228,6 +241,9 @@ type Query {
 
   """Get book chapter"""
   book_chapter_get(input: GetBookChapterInput!): BookChapterOutModel!
+
+  """Get user book"""
+  book_get(input: GetBookInput!): BookOutModel!
 
   """Get user books"""
   book_user_books: [BookOutModel!]!

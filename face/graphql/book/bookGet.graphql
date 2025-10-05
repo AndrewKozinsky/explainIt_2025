@@ -1,0 +1,16 @@
+query Book_get($input: GetBookInput!) {
+	book_get(input: $input) {
+		id
+		author
+		name
+		note
+		userId
+		chapters {
+			id
+			bookId
+			name
+			header
+			note
+		}
+	}
+}

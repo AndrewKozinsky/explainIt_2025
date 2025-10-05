@@ -1,10 +1,10 @@
-// import { useReadingStore } from '_pages/books/reading/readingStore'
-// import AnalysisSentence from '../AnalysisSentence/AnalysisSentence'
-// import TranslatePhraseBlock from '_pages/books/reading/analysis/wordsAnalysis/TranslatePhraseButtonBlock/TranslatePhraseBlock'
-// import './WordsAnalysis.scss'
+import { useReadingStore } from '_pages/books/reading/readingStore'
+import AnalysisSentence from '../AnalysisSentence/AnalysisSentence'
+import TranslatePhraseBlock from '../TranslatePhraseButtonBlock/TranslatePhraseBlock'
+import './WordsAnalysis.scss'
 
-/*function WordsAnalysis() {
-	const sentence = useReadingStore((s) => s.sentence)
+function WordsAnalysis() {
+	const sentence = useReadingStore((s) => s.selectedSentence)
 
 	if (!sentence || !sentence.sentence || !sentence.selectedWordIds.length) {
 		return null
@@ -19,6 +19,6 @@
 			<div className='words-analysis__bottom'>bottom</div>
 		</>
 	)
-}*/
+}
 
-// export default WordsAnalysis
+export default WordsAnalysis

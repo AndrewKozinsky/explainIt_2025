@@ -1,12 +1,13 @@
-// import Button from 'ui/formRelated/buttons/Button/Button'
-// import { useGetTranslatePhraseAndSentence } from './fn/onButtonClick'
-// import Paragraph from 'ui/Paragraph/Paragraph'
-// import { useGetButtonLogic, useGetParagraphLogic } from './fn/hooks'
-// import './TranslatePhraseBlock.scss'
+import Button from 'ui/formRelated/buttons/Button/Button'
+import { useGetTranslatePhraseAndSentence } from './fn/onButtonClick'
+import Paragraph from 'ui/Paragraph/Paragraph'
+import { useGetParagraphVisibilityAndText } from '_pages/books/reading/analysis/wordsAnalysis/TranslatePhraseButtonBlock/fn/paragraphVisibilityAndText'
+import { useGetButtonVisibilityAndText } from './fn/buttonVisibilityAndText'
+import './TranslatePhraseBlock.scss'
 
-/*function TranslatePhraseBlock() {
-	const { isParagraphVisible, paragraphText } = useGetParagraphLogic()
-	const { isButtonVisible, buttonText } = useGetButtonLogic()
+function TranslatePhraseBlock() {
+	const { isParagraphVisible, paragraphText } = useGetParagraphVisibilityAndText()
+	const { isButtonVisible, buttonText } = useGetButtonVisibilityAndText()
 	const onButtonClick = useGetTranslatePhraseAndSentence()
 
 	return (
@@ -19,6 +20,6 @@
 			{isButtonVisible && <Button onClick={onButtonClick}>{buttonText}</Button>}
 		</div>
 	)
-}*/
+}
 
-// export default TranslatePhraseBlock
+export default TranslatePhraseBlock

@@ -11,7 +11,7 @@ expectedResult — это массив типа ChapterTextStructure.Chapter. К
 Тип предложения:
 type Sentence = {
 	t: 'sentence' // type: sentence
-	translate: null | string
+	translation: null | string
 	parts: SentencePart[]
 }
 

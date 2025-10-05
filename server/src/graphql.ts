@@ -17,6 +17,10 @@ export interface GetTranscriptionInput {
     engSentence: string;
 }
 
+export interface GetBookInput {
+    id: number;
+}
+
 export interface GetBookChapterInput {
     id: number;
 }
@@ -26,8 +30,10 @@ export interface AnalyseSentenceAndPhraseInput {
     bookAuthor?: Nullable<string>;
     bookName?: Nullable<string>;
     context: string;
+    sentenceId: number;
     sentence: string;
     phrase: string;
+    phraseWordsIdx: number[];
 }
 
 export interface RegisterUserInput {
@@ -107,8 +113,10 @@ export interface UserOutModel {
 
 export interface BookChapterPhraseOutModel {
     id: number;
+    sentenceId: number;
     sentence: string;
     phrase: string;
+    phraseWordsIdx: number[];
     translation: string;
     analysis: string;
     examples: PhraseExample[];
@@ -120,6 +128,14 @@ export interface PhraseExample {
     translation: string;
 }
 
+export interface BookChapterLiteOutModel {
+    id: number;
+    bookId: number;
+    name?: Nullable<string>;
+    header?: Nullable<string>;
+    note?: Nullable<string>;
+}
+
 export interface BookChapterOutModel {
     id: number;
     name?: Nullable<string>;
@@ -128,14 +144,6 @@ export interface BookChapterOutModel {
     note?: Nullable<string>;
     book: BookLiteOutModel;
     phrases: BookChapterPhraseOutModel[];
-}
-
-export interface BookChapterLiteOutModel {
-    id: number;
-    bookId: number;
-    name?: Nullable<string>;
-    header?: Nullable<string>;
-    note?: Nullable<string>;
 }
 
 export interface BookOutModel {
@@ -169,6 +177,7 @@ export interface IQuery {
     ai_getTranscription(input: GetTranscriptionInput): GetTranscriptionOutModel | Promise<GetTranscriptionOutModel>;
     auth_getMe(): UserOutModel | Promise<UserOutModel>;
     book_user_books(): BookOutModel[] | Promise<BookOutModel[]>;
+    book_get(input: GetBookInput): BookOutModel | Promise<BookOutModel>;
     book_chapter_get(input: GetBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
     book_chapter_AnalyseSentenceAndPhrase(input: AnalyseSentenceAndPhraseInput): SentenceAndPhraseAnalysesOutModel | Promise<SentenceAndPhraseAnalysesOutModel>;
 }

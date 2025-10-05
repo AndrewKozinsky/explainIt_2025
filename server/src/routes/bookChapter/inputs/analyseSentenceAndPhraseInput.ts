@@ -32,19 +32,19 @@ export class AnalyseSentenceAndPhraseInput {
 	})
 	context: string
 
-	@Field(() => String, { description: 'Sentence' })
-	@DtoFieldDecorators('sentence', {
-		type: 'string',
-		description: 'Sentence for translation',
-		required: true,
-	})
+	@Field(() => Number, { description: 'Порядковый номер предложения где находится фраза' })
+	@DtoFieldDecorators('sentence', bdConfig.BookChapterPhrase.dbFields.sentenceId)
+	sentenceId: number
+
+	@Field(() => String, { description: 'Предложение где находится фраза' })
+	@DtoFieldDecorators('sentence', bdConfig.BookChapterPhrase.dbFields.sentence)
 	sentence: string
 
-	@Field(() => String, { description: 'Phrase' })
-	@DtoFieldDecorators('phrase', {
-		type: 'string',
-		description: 'Phase from sentence for translation',
-		required: true,
-	})
+	@Field(() => String, { description: 'Фраза на иностранном языке для заучивания' })
+	@DtoFieldDecorators('phrase', bdConfig.BookChapterPhrase.dbFields.phrase)
 	phrase: string
+
+	@Field(() => [Int], { description: 'Ids of the words in the phrase' })
+	@DtoFieldDecorators('id', bdConfig.BookChapterPhrase.dbFields.phraseWordsIdx)
+	phraseWordsIdx: number[]
 }

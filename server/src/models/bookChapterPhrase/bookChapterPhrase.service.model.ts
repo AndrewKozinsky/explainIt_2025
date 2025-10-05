@@ -1,7 +1,9 @@
 export type BookChapterPhraseServiceModel = {
 	id: number
+	sentenceId: number
 	sentence: string
 	phrase: string
+	phraseWordsIdx: number[]
 	phraseTranslation: string
 	phraseAnalysis: string
 	examples: PhraseExample[]

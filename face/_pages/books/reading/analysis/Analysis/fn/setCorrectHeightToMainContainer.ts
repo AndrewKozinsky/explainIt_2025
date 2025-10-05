@@ -1,11 +1,11 @@
-// import React from 'react'
+import React from 'react'
 
 /**
  * Sets the CSS var --ra-top to the container's current distance to the viewport top,
  * but never less than its sticky top value.
  * @param containerRef
  */
-/*export function useSetCorrectHeightToMainContainer(containerRef: React.RefObject<HTMLDivElement | null>) {
+export function useSetCorrectHeightToMainContainer(containerRef: React.RefObject<HTMLDivElement | null>) {
 	React.useEffect(() => {
 		const el = containerRef.current
 		if (!el) return
@@ -46,4 +46,4 @@
 			window.removeEventListener('resize', onScrollOrResize)
 		}
 	}, [containerRef])
-}*/
+}

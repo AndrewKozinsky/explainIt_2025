@@ -1,8 +1,8 @@
-// import React from 'react'
-// import { useGetHighlights } from './fn/getHighlights'
-// import './PhraseHighlights.scss'
+import React from 'react'
+import { useGetHighlights } from './fn/getHighlights'
+import './PhraseHighlights.scss'
 
-/*function PhraseHighlights() {
+function PhraseHighlights() {
 	const containerRef = React.useRef<HTMLDivElement | null>(null)
 
 	const highlights = useGetHighlights(containerRef)
@@ -24,6 +24,6 @@
 			))}
 		</div>
 	)
-}*/
+}
 
-// export default PhraseHighlights
+export default PhraseHighlights

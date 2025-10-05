@@ -13,6 +13,8 @@ import { DeleteBookInput } from './inputs/deleteBook.input'
 import { UpdateBookInput } from './inputs/updateBook.input'
 import { bookResolversDesc } from './resolverDescriptions'
 import { Request } from 'express'
+import { GetBookInput } from './inputs/getBook.input'
+import { GetBookCommand } from 'src/features/book/GetBook.command'
 
 @Resolver()
 export class BookResolver {
@@ -36,6 +38,16 @@ export class BookResolver {
 	async getUserBooks(@Context('req') request: Request) {
 		const userId = request.session.userId!
 		return await this.commandBus.execute(new GetUserBooksCommand(userId))
+	}
+
+	@UseGuards(CheckSessionCookieGuard)
+	@Query(() => BookOutModel, {
+		name: RouteNames.BOOK.GET,
+		description: bookResolversDesc.getBook,
+	})
+	async getBook(@Args('input') input: GetBookInput, @Context('req') request: Request) {
+		const userId = request.session.userId!
+		return await this.commandBus.execute(new GetBookCommand(userId, input.id))
 	}
 
 	@UseGuards(CheckSessionCookieGuard)

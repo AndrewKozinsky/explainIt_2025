@@ -1,10 +1,41 @@
+const dd = {
+	id: 1,
+	name: 'book chapter name',
+	header: 'book chapter header',
+	content: '',
+	note: 'book chapter note',
+	book: {
+		id: 1,
+		author: 'author name',
+		name: 'book name',
+		note: 'just a note',
+		userId: 1,
+	},
+	phrases: [
+		{
+			id: 1,
+			sentence: 'some sentence',
+			phrase: 'get out',
+			translation: 'Избежать',
+			analysis: 'Это фразовый глагол',
+			examples: [
+				{
+					id: 1,
+					sentence: 'some sentence',
+					translation: 'some translation',
+				},
+			],
+		},
+	],
+}
+
 // Тип данных для структуры текста приходящий с сервера
 export namespace ChapterTextStructure {
 	export type Chapter = (Sentence | Space | CarriageReturn | Punctuation)[]
 
 	export type Sentence = {
 		t: 'sentence'
-		translate: null | string
+		translation: null | string
 		// Составные части предложения
 		parts: SentencePart[]
 		// Соответствия между идентификаторами слов в предложении и идентификаторами фраз в базе данных с анализом фразы
@@ -30,6 +61,23 @@ export namespace ChapterTextStructure {
 	type CarriageReturn = {
 		t: 'carriageReturn'
 	}
+
+	export type Phrase = {
+		id: number
+		sentenceId: number
+		sentence: string
+		phrase: string
+		phraseWordsIdx: number[]
+		translation: string
+		analysis: string
+		examples: PhraseExample[]
+	}
+
+	type PhraseExample = {
+		id: number
+		sentence: string
+		translation: string
+	}
 }
 
 // Тип данных для структуры текста наполненный дополнительными сведениями (используется на клиенте)
@@ -40,11 +88,12 @@ export namespace ChapterTextStructurePopulated {
 	export type Sentence = {
 		id: number
 		type: 'sentence'
-		translatedSentence: null | string
+		translation: null | string
 		parts: SentencePart[]
 		phrasesMapping: {
-			wordIds: number[]
 			phraseIdInDb: number
+			phrase: string
+			wordIds: number[]
 			analysis: {
 				// Краткий перевод фразы
 				translation: string

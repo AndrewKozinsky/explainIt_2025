@@ -1,21 +1,29 @@
-// import { useGetSelectSentenceAndWord } from './fn/selectSentenceAndWord'
-// import { useReadingStore } from '_pages/books/reading/readingStore'
-// import CarriageReturn from './CarriageReturn'
-// import Word from './Word'
-// import Punctuation from '_pages/books/reading/chapter/ChapterText/Punctuation'
-// import Space from './Space'
-// import './ChapterText.scss'
+import cn from 'classnames'
+import { useGetSelectSentenceAndWord } from './fn/selectSentenceAndWord'
+import { useReadingStore } from '_pages/books/reading/readingStore'
+import CarriageReturn from './CarriageReturn'
+import Word from './Word'
+import Punctuation from './Punctuation'
+import Space from './Space'
+import './ChapterText.scss'
 
-/*function ChapterText() {
-	const chapter = useReadingStore((state) => state.chapter)
+function ChapterText() {
+	const populatedChapter = useReadingStore((state) => state.populatedChapter)
+	const selectedSentence = useReadingStore((state) => state.selectedSentence)
 	const selectSentenceAndWord = useGetSelectSentenceAndWord()
 
 	return (
 		<div className='chapter-text'>
-			{chapter.map((sentence) => {
+			{populatedChapter.map((sentence) => {
 				if (sentence.type === 'sentence') {
 					return (
-						<span className='chapter-text__sentence' key={sentence.id}>
+						<span
+							className={cn(
+								'chapter-text__sentence',
+								sentence.id === selectedSentence.sentenceId && 'chapter-text__sentence--selected',
+							)}
+							key={sentence.id}
+						>
 							{sentence.parts.map((part) => {
 								if (part.type === 'word') {
 									return (
@@ -48,6 +56,6 @@
 			})}
 		</div>
 	)
-}*/
+}
 
-// export default ChapterText
+export default ChapterText

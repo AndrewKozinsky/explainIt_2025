@@ -33,8 +33,10 @@ export class BookChapterPhraseQueryRepository {
 	mapDbPhraseToOutPhrase(dbPhraseChapter: PhraseWithPhraseExamples): BookChapterPhraseOutModel {
 		return {
 			id: dbPhraseChapter.id,
+			sentenceId: dbPhraseChapter.sentenceId,
 			sentence: dbPhraseChapter.sentence,
 			phrase: dbPhraseChapter.phrase,
+			phraseWordsIdx: dbPhraseChapter.phraseWordsIdx,
 			translation: dbPhraseChapter.phraseTranslation,
 			analysis: dbPhraseChapter.phraseAnalysis,
 			examples: dbPhraseChapter.BookChapterPhraseExample.map((example) => ({

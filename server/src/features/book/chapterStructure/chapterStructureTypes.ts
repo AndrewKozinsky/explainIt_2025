@@ -4,7 +4,7 @@ export namespace ChapterTextStructure {
 
 	export type Sentence = {
 		t: 'sentence'
-		translate: null | string
+		translation: null | string
 		// Составные части предложения
 		parts: SentencePart[]
 		// Соответствия между идентификаторами слов в предложении и идентификаторами фраз в базе данных с анализом фразы

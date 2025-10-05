@@ -1,12 +1,9 @@
-// import React from 'react'
-// import { useSetCorrectHeightToMainContainer } from '_pages/books/reading/analysis/Analysis/fn/setCorrectHeightToMainContainer'
-// import WordsAnalysis from '../wordsAnalysis/WordsAnalysis/WordsAnalysis'
-// import { useSetSelectedSentenceToStore } from './fn/setSelectedSentenceToStore'
-// import './Analysis.scss'
+import React from 'react'
+import { useSetCorrectHeightToMainContainer } from './fn/setCorrectHeightToMainContainer'
+import WordsAnalysis from '../wordsAnalysis/WordsAnalysis/WordsAnalysis'
+import './Analysis.scss'
 
-/*function Analysis() {
-	useSetSelectedSentenceToStore()
-
+function Analysis() {
 	const containerRef = React.useRef<HTMLDivElement | null>(null)
 
 	useSetCorrectHeightToMainContainer(containerRef)
@@ -16,6 +13,6 @@
 			<WordsAnalysis />
 		</div>
 	)
-}*/
+}
 
-// export default Analysis
+export default Analysis
