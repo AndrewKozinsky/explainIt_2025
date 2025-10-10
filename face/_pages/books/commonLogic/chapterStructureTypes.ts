@@ -1,34 +1,3 @@
-const dd = {
-	id: 1,
-	name: 'book chapter name',
-	header: 'book chapter header',
-	content: '',
-	note: 'book chapter note',
-	book: {
-		id: 1,
-		author: 'author name',
-		name: 'book name',
-		note: 'just a note',
-		userId: 1,
-	},
-	phrases: [
-		{
-			id: 1,
-			sentence: 'some sentence',
-			phrase: 'get out',
-			translation: 'Избежать',
-			analysis: 'Это фразовый глагол',
-			examples: [
-				{
-					id: 1,
-					sentence: 'some sentence',
-					translation: 'some translation',
-				},
-			],
-		},
-	],
-}
-
 // Тип данных для структуры текста приходящий с сервера
 export namespace ChapterTextStructure {
 	export type Chapter = (Sentence | Space | CarriageReturn | Punctuation)[]
@@ -90,22 +59,7 @@ export namespace ChapterTextStructurePopulated {
 		type: 'sentence'
 		translation: null | string
 		parts: SentencePart[]
-		phrasesMapping: {
-			phraseIdInDb: number
-			phrase: string
-			wordIds: number[]
-			analysis: {
-				// Краткий перевод фразы
-				translation: string
-				// Анализ фразы
-				analysis: string
-				// Примеры использования фразы (предложение на иностранном языке и родном)
-				examples: {
-					foreignLang: string
-					nativeLang: string
-				}[]
-			}
-		}[]
+		phrases: Phrase[]
 	}
 
 	export type SentencePart = Word | Space | Punctuation | CarriageReturn
@@ -130,5 +84,42 @@ export namespace ChapterTextStructurePopulated {
 	type CarriageReturn = {
 		id: number
 		type: 'carriageReturn'
+	}
+
+	export type Phrase = IdlePhrase | LoadingPhrase | ErrorPhrase | SuccessPhrase
+
+	type IdlePhrase = {
+		type: 'idle'
+		wordIds: number[]
+	}
+
+	type LoadingPhrase = {
+		type: 'loading'
+		wordIds: number[]
+	}
+
+	type ErrorPhrase = {
+		type: 'error'
+		wordIds: number[]
+	}
+
+	type SuccessPhrase = {
+		type: 'success'
+		phraseIdInDb: number
+		phrase: string
+		// Идентификаторы выделенных слов этой фразы
+		wordIds: number[]
+		analysis: {
+			// Краткий перевод фразы
+			translation: string
+			// Анализ фразы
+			analysis: string
+			// Примеры использования фразы (предложение на иностранном языке и родном)
+			examples: {
+				id: number
+				foreignLang: string
+				nativeLang: string
+			}[]
+		}
 	}
 }

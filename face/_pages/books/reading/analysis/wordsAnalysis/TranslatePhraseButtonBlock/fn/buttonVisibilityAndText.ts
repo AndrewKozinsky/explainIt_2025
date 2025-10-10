@@ -1,29 +1,37 @@
-import {
-	getButtonText,
-	shouldShowButton,
-} from '_pages/books/reading/analysis/wordsAnalysis/TranslatePhraseButtonBlock/fn/logic'
-import { useReadingStore } from '_pages/books/reading/readingStore'
 import React from 'react'
+import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
+import { useGetIdlePhraseIsSelectedSentence, useGetSelectedSentence } from '_pages/books/reading/logic'
 
 export function useGetButtonVisibilityAndText() {
-	const selectedSentence = useReadingStore((s) => s.selectedSentence)
+	const selectedSentence = useGetSelectedSentence()
+	const idlePhrase = useGetIdlePhraseIsSelectedSentence()
 
-	const selectedWordIds = React.useMemo(() => selectedSentence?.selectedWordIds ?? [], [selectedSentence])
-	const translatedPhrases = React.useMemo(() => selectedSentence?.translatedPhrases ?? [], [selectedSentence])
-	const sentenceTranslation = React.useMemo(() => selectedSentence?.sentenceTranslation ?? null, [selectedSentence])
-	const sentenceParts = React.useMemo(() => selectedSentence?.sentence ?? [], [selectedSentence])
+	const isButtonVisible = React.useMemo(() => {
+		if (!idlePhrase) return false
 
-	const isButtonVisible = React.useMemo(() => shouldShowButton(selectedWordIds), [selectedWordIds])
+		return !!idlePhrase.wordIds.length
+	}, [idlePhrase])
 
 	const buttonText = React.useMemo(() => {
-		if (!isButtonVisible) return ''
-		return getButtonText({
-			sentenceTranslation,
-			selectedWordIds,
-			translatedPhrases,
-			sentenceParts,
-		})
-	}, [isButtonVisible, sentenceTranslation, selectedWordIds, translatedPhrases, sentenceParts])
+		if (!isButtonVisible || !idlePhrase) return ''
+
+		const withSentenceTranslate = selectedSentence.translation ? 'предложение и ' : ''
+		if (idlePhrase.wordIds.length === 1) {
+			const word = getWordValueById(selectedSentence.parts, idlePhrase.wordIds[0])
+			return `Перевести ${withSentenceTranslate}${word}`
+		} else {
+			return `Перевести ${withSentenceTranslate} и фразу`
+		}
+	}, [idlePhrase, isButtonVisible, selectedSentence.parts, selectedSentence.translation])
 
 	return { isButtonVisible, buttonText }
+}
+
+export function getWordValueById(sentenceParts: ChapterTextStructurePopulated.SentencePart[], wordId: number) {
+	const found = sentenceParts.find((p) => p.type === 'word' && p.id === wordId)
+	if (!found || found.type !== 'word') {
+		return ''
+	}
+
+	return found.value
 }

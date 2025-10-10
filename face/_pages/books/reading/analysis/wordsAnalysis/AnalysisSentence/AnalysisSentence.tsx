@@ -1,16 +1,16 @@
-import { useReadingStore } from '_pages/books/reading/readingStore'
 import PhraseHighlights from '../PhraseHighlights/PhraseHighlights'
 import { useGetWordClickHandler } from './fn/wordClickHandler'
+import { useGetSelectedSentence } from '_pages/books/reading/logic'
 import './AnalysisSentence.scss'
 
 function AnalysisSentence() {
-	const sentence = useReadingStore((s) => s.selectedSentence.sentence)
+	const sentence = useGetSelectedSentence()
 	const wordClickHandler = useGetWordClickHandler()
 
 	return (
 		<div className='analysis-sentence'>
 			<p className='analysis-sentence_sentence'>
-				{sentence.map((part) => {
+				{sentence.parts.map((part) => {
 					if (part.type === 'word') {
 						return (
 							<span

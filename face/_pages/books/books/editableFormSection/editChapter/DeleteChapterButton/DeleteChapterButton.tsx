@@ -1,4 +1,3 @@
-import { useBooksStore } from '_pages/books/books/booksStore'
 import React from 'react'
 import DeleteEntityButtonAndModal from '@/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
 import { useGetDeleteBook } from './fn/getDeleteBook'

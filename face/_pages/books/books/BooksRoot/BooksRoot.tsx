@@ -1,5 +1,3 @@
-'use client'
-
 import { usePopulateBooksStore } from '_pages/books/books/BooksRoot/fn/populateBooksStore'
 import { BooksTest } from '_pages/books/books/booksTest'
 import BooksSection from '../booksListSection/BooksSection/BooksSection'

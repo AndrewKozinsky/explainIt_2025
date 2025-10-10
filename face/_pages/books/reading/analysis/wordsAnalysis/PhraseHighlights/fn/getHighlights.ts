@@ -1,4 +1,6 @@
-import { Sentence, useReadingStore } from '_pages/books/reading/readingStore'
+import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
+import { useGetSelectedSentence } from '_pages/books/reading/logic'
+import { useReadingStore } from '_pages/books/reading/readingStore'
 import React, { useEffect } from 'react'
 
 type ContainerRef = React.RefObject<HTMLDivElement | null>
@@ -13,7 +15,7 @@ type Highlight = {
 }
 
 export function useGetHighlights(containerRef: ContainerRef) {
-	const selectedSentence = useReadingStore.getState().selectedSentence
+	const selectedSentence = useGetSelectedSentence()
 	const [highlights, setHighlights] = React.useState<Highlight[]>([])
 
 	const computeHighlights = React.useCallback(() => {
@@ -47,7 +49,7 @@ export function useGetHighlights(containerRef: ContainerRef) {
 function calculateHighlights(
 	containerRef: ContainerRef,
 	setHighlights: React.Dispatch<React.SetStateAction<Highlight[]>>,
-	sentence: Sentence,
+	sentence: ChapterTextStructurePopulated.Sentence,
 ) {
 	const container = containerRef.current
 	if (!container || !sentence) {
@@ -74,7 +76,7 @@ function calculateHighlights(
 	}
 
 	// Build word index by id according to sentence order (only words)
-	const orderedWordIds = sentence.sentence.filter((p) => p.type === 'word').map((p: any) => p.id as number)
+	const orderedWordIds = sentence.parts.filter((p) => p.type === 'word').map((p: any) => p.id as number)
 
 	const idToOrderIndex = new Map<number, number>()
 	orderedWordIds.forEach((id, idx) => idToOrderIndex.set(id, idx))
@@ -169,13 +171,14 @@ function calculateHighlights(
 	}
 
 	// Translated phrases
-	for (const phrase of sentence.translatedPhrases || []) {
-		buildHighlightsForGroup(`phrase-${phrase.id}`, phrase.wordIds)
-	}
+	const idlePhrase = sentence.phrases.find((phrase) => phrase.type === 'idle')
+	/*for (const wordId of idlePhrase!.wordIds || []) {
+		buildHighlightsForGroup(`phrase-${wordId}`, [wordId])
+	}*/
 
 	// Currently selected words (single group) with additional class
-	if (sentence.selectedWordIds && sentence.selectedWordIds.length) {
-		buildHighlightsForGroup('current', sentence.selectedWordIds, ['phrase-highlight--current'])
+	if (idlePhrase) {
+		buildHighlightsForGroup('current', idlePhrase.wordIds, ['phrase-highlight--current'])
 	}
 
 	setHighlights(highlights)

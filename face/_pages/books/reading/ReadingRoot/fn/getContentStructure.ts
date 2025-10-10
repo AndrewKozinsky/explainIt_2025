@@ -1,6 +1,6 @@
 import { useBook_Get, useBookChapter_Get } from '@/graphql'
 import { ChapterTextStructure } from '_pages/books/commonLogic/chapterStructureTypes'
-import { fullChapterStructureUsefulData } from '_pages/books/commonLogic/fullChapterStructureUsefulData/fullChapterStructureUsefulData'
+import { populateChapterStructure } from '_pages/books/commonLogic/fullChapterStructureUsefulData/populateChapterStructure'
 import { useReadingStore } from '_pages/books/reading/readingStore'
 import { useParams } from 'next/navigation'
 import { useEffect } from 'react'
@@ -8,6 +8,7 @@ import { useEffect } from 'react'
 export function usePopulateReadingStore() {
 	useFetchBookAndSetToStore()
 	useFetchChapterAndSetToStore()
+	useCreatePopulatedChapterAndSetToStore()
 }
 
 function useFetchBookAndSetToStore() {
@@ -82,18 +83,24 @@ function useFetchChapterAndSetToStore() {
 					errorMessage: null,
 					data: chapter,
 				})
-
-				const chapterStructure = chapter.content
-					? (JSON.parse(chapter.content) as ChapterTextStructure.Chapter)
-					: null
-
-				if (!chapterStructure) return
-
-				const populatedChapter = fullChapterStructureUsefulData(chapterStructure, chapter.phrases)
-
-				useReadingStore.getState().updatePopulatedChapter(populatedChapter)
 			}
 		},
 		[data, error, loading],
+	)
+}
+
+function useCreatePopulatedChapterAndSetToStore() {
+	const chapterData = useReadingStore((s) => s.chapter.data)
+
+	useEffect(
+		function () {
+			if (!chapterData || !chapterData.content) return
+
+			const chapterStructure = JSON.parse(chapterData.content) as ChapterTextStructure.Chapter
+			const populatedChapter = populateChapterStructure(chapterStructure, chapterData.phrases)
+
+			useReadingStore.getState().updatePopulatedChapter(populatedChapter)
+		},
+		[chapterData],
 	)
 }

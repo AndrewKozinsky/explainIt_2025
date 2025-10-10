@@ -1,65 +1,73 @@
 import { useBookChapter_AnalyseSentenceAndPhraseLazyQuery } from '@/graphql'
+import { useGetIdlePhraseIsSelectedSentence, useGetSelectedSentence } from '_pages/books/reading/logic'
 import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
-import { populatedChapterStructureIntoText } from '_pages/books/commonLogic/populatedChapterStructureIntoText/chapterStructureIntoText'
+import { chapterStructureIntoText } from '_pages/books/commonLogic/populatedChapterStructureIntoText/chapterStructureIntoText'
 import { useCallback } from 'react'
 import { useReadingStore } from '_pages/books/reading/readingStore'
-// import { booksHelper } from '_pages/books/booksHelper'
 
 export function useGetTranslatePhraseAndSentence() {
 	const bookAuthor = useReadingStore((s) => s.book.data?.author)
 	const bookName = useReadingStore((s) => s.book.data?.name)
-	const sentence = useReadingStore((s) => s.selectedSentence)
 	const chapter = useReadingStore((s) => s.chapter)
-	const populatedChapter = useReadingStore((s) => s.populatedChapter)
+	const selectedSentence = useReadingStore((s) => s.selectedSentence)
+	const turnIdlePhraseIntoLoadingInSelectedSentence = useReadingStore(
+		(s) => s.turnIdlePhraseIntoLoadingInSelectedSentence,
+	)
+	const sentence = useGetSelectedSentence()
+	const idlePhrase = useGetIdlePhraseIsSelectedSentence()
 
 	// Use the lazy query version
 	const [analyzeSentence] = useBookChapter_AnalyseSentenceAndPhraseLazyQuery()
 
 	return useCallback(async () => {
-		if (!chapter || !chapter.data?.id) {
+		if (!chapter || !chapter.data?.id || !idlePhrase) {
 			console.error('No chapter selected')
 			return
 		}
 
-		if (!sentence.sentenceId) {
+		if (!sentence.id) {
 			console.error('No sentence selected')
 			return
 		}
 
-		// Get sentence text here
-		const selectedSentence = populatedChapter.find((s) => s.id === sentence.sentenceId)
-		if (!selectedSentence || selectedSentence.type !== 'sentence') {
-			console.error('Selected sentence not found')
-			return
-		}
-
-		let sentenceText = populatedChapterStructureIntoText([selectedSentence])
-		let phraseText = getPhaseText(selectedSentence.parts, sentence.selectedWordIds)
+		let sentenceText = chapterStructureIntoText([sentence])
+		let phraseText = getPhaseText(sentence.parts, idlePhrase.wordIds)
 
 		try {
-			const result = await analyzeSentence({
+			/*const result = await analyzeSentence({
 				variables: {
 					input: {
 						bookChapterId: chapter.data.id,
 						bookAuthor,
 						bookName,
-						context: sentence.context,
+						context: selectedSentence.context,
 						sentence: sentenceText,
-						sentenceId: sentence.sentenceId,
+						sentenceId: sentence.id,
 						phrase: phraseText,
-						phraseWordsIdx: sentence.selectedWordIds,
+						phraseWordsIdx: idlePhrase.wordIds,
 					},
 				},
-			})
+			})*/
+
+			turnIdlePhraseIntoLoadingInSelectedSentence()
 
 			// Handle the result here
-			console.log('Analysis result:', result.data)
-			return result
+			// console.log('Analysis result:', result.data)
+			// return result
 		} catch (error) {
 			console.error('Error analyzing sentence:', error)
 			throw error
 		}
-	}, [analyzeSentence, bookAuthor, bookName, sentence, chapter, populatedChapter])
+	}, [
+		chapter,
+		idlePhrase,
+		sentence,
+		analyzeSentence,
+		bookAuthor,
+		bookName,
+		selectedSentence.context,
+		turnIdlePhraseIntoLoadingInSelectedSentence,
+	])
 }
 
 /**

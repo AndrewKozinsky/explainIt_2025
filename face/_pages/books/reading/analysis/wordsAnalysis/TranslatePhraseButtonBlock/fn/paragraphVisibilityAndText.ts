@@ -1,20 +1,21 @@
+import { useGetIdlePhraseIsSelectedSentence, useGetSelectedSentence } from '_pages/books/reading/logic'
 import React from 'react'
-import { useReadingStore } from '_pages/books/reading/readingStore'
-import { getButtonText, getParagraphText, shouldShowButton, shouldShowParagraph } from './logic'
+import { isMacOS } from 'utils/utils'
 
-export function useGetParagraphVisibilityAndText() {
-	const selectedSentence = useReadingStore((s) => s.selectedSentence)
+export function useGetHintVisibilityAndText() {
+	const idlePhrase = useGetIdlePhraseIsSelectedSentence()
 
-	const selectedWordIds = React.useMemo(() => selectedSentence?.selectedWordIds ?? [], [selectedSentence])
-	const translatedPhrases = React.useMemo(() => selectedSentence?.translatedPhrases ?? [], [selectedSentence])
-	const isLoading = React.useMemo(() => Boolean(selectedSentence?.fetchTranslation?.isLoading), [selectedSentence])
+	const isHintVisible = React.useMemo(() => {
+		return !!idlePhrase
+	}, [idlePhrase])
 
-	const isParagraphVisible = React.useMemo(
-		() => shouldShowParagraph({ selectedWordIds, translatedPhrases, isLoading }),
-		[selectedWordIds, translatedPhrases, isLoading],
-	)
+	const paragraphText = React.useMemo(() => {
+		if (!idlePhrase) return ''
 
-	const paragraphText = React.useMemo(() => getParagraphText(), [])
+		return isMacOS()
+			? 'Зажмите cmd для выделения нескольких связанных слов.'
+			: 'Зажмите ctrl для выделения нескольких слов.'
+	}, [idlePhrase])
 
-	return { isParagraphVisible, paragraphText }
+	return { isHintVisible, hintText: paragraphText }
 }

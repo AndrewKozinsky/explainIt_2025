@@ -1,20 +1,20 @@
 import Button from 'ui/formRelated/buttons/Button/Button'
 import { useGetTranslatePhraseAndSentence } from './fn/onButtonClick'
 import Paragraph from 'ui/Paragraph/Paragraph'
-import { useGetParagraphVisibilityAndText } from '_pages/books/reading/analysis/wordsAnalysis/TranslatePhraseButtonBlock/fn/paragraphVisibilityAndText'
+import { useGetHintVisibilityAndText } from './fn/paragraphVisibilityAndText'
 import { useGetButtonVisibilityAndText } from './fn/buttonVisibilityAndText'
 import './TranslatePhraseBlock.scss'
 
 function TranslatePhraseBlock() {
-	const { isParagraphVisible, paragraphText } = useGetParagraphVisibilityAndText()
+	const { isHintVisible, hintText } = useGetHintVisibilityAndText()
 	const { isButtonVisible, buttonText } = useGetButtonVisibilityAndText()
 	const onButtonClick = useGetTranslatePhraseAndSentence()
 
 	return (
 		<div className='translate-phrase-block'>
-			{isParagraphVisible && (
+			{isHintVisible && (
 				<Paragraph fontSize={14} extraClass='translate-phrase-block__hint'>
-					{paragraphText}
+					{hintText}
 				</Paragraph>
 			)}
 			{isButtonVisible && <Button onClick={onButtonClick}>{buttonText}</Button>}
