@@ -57,6 +57,7 @@ export namespace ChapterTextStructurePopulated {
 	export type Sentence = {
 		id: number
 		type: 'sentence'
+		context: string
 		translation: null | string
 		parts: SentencePart[]
 		phrases: Phrase[]
@@ -88,22 +89,22 @@ export namespace ChapterTextStructurePopulated {
 
 	export type Phrase = IdlePhrase | LoadingPhrase | ErrorPhrase | SuccessPhrase
 
-	type IdlePhrase = {
+	export type IdlePhrase = {
 		type: 'idle'
 		wordIds: number[]
 	}
 
-	type LoadingPhrase = {
+	export type LoadingPhrase = {
 		type: 'loading'
 		wordIds: number[]
 	}
 
-	type ErrorPhrase = {
+	export type ErrorPhrase = {
 		type: 'error'
 		wordIds: number[]
 	}
 
-	type SuccessPhrase = {
+	export type SuccessPhrase = {
 		type: 'success'
 		phraseIdInDb: number
 		phrase: string

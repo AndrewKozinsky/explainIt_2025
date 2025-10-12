@@ -1,4 +1,4 @@
-import { ChapterTextStructure, ChapterTextStructurePopulated } from '../chapterStructureTypes'
+import { ChapterTextStructure, ChapterTextStructurePopulated } from './chapterStructureTypes'
 
 /**
  * Получает структуру главы с сервера и наполняет её полезными данными чтобы из
@@ -35,6 +35,7 @@ function populateSentenceStructure(
 	return {
 		id: currentId,
 		type: 'sentence',
+		context: '', // TODO Put correct context later!!!
 		translation: sentenceStructure.translation ?? null,
 		parts: populateSentencePartsStructure(sentenceStructure.parts),
 		phrases: populateSentencePhrases(phrases, currentId),

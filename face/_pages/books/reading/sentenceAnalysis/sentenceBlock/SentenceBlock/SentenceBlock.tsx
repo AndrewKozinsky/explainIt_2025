@@ -1,11 +1,15 @@
 import PhraseHighlights from '../PhraseHighlights/PhraseHighlights'
 import { useGetWordClickHandler } from './fn/wordClickHandler'
 import { useGetSelectedSentence } from '_pages/books/reading/logic'
-import './AnalysisSentence.scss'
+import './SentenceBlock.scss'
 
-function AnalysisSentence() {
+function SentenceBlock() {
 	const sentence = useGetSelectedSentence()
 	const wordClickHandler = useGetWordClickHandler()
+
+	if (!sentence) {
+		return null
+	}
 
 	return (
 		<div className='analysis-sentence'>
@@ -40,4 +44,4 @@ function AnalysisSentence() {
 	)
 }
 
-export default AnalysisSentence
+export default SentenceBlock

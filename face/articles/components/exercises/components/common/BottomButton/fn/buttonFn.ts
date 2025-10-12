@@ -41,7 +41,7 @@ export function useGetButtonText() {
 				}
 			}
 		},
-		[exercise?.userTranslate, analysis.status],
+		[exercise, analysis.status, getNextExercise, exercisesBlock.currentExerciseType],
 	)
 }
 
@@ -79,6 +79,14 @@ export function useGetCheckTranslationOrMoveToAnotherExercise() {
 				switchExercisesType()
 			}
 		},
-		[analysis.status, exercise],
+		[
+			analysis.status,
+			checkCurrentExercise,
+			exercise,
+			getNextExercise,
+			switchExercisesType,
+			switchToExercise,
+			switchToFirstExercise,
+		],
 	)
 }

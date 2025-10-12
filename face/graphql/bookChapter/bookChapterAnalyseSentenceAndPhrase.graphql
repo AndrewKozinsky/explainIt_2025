@@ -3,7 +3,10 @@ query BookChapter_AnalyseSentenceAndPhrase($input: AnalyseSentenceAndPhraseInput
 		sentenceTranslation
 		phrase {
 			id
+			sentenceId
+			sentence
 			phrase
+			phraseWordsIdx
 			translation
 			analysis
 			examples {

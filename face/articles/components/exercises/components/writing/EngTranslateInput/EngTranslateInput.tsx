@@ -29,7 +29,7 @@ function EngTranslateInput() {
 	return (
 		<textarea
 			className={cn('eng-translate-input', additionalTextClass)}
-			placeholder='Перевод...'
+			placeholder='Идёт перевод...'
 			onInput={onInput}
 			onKeyDown={(e) => onEnterKeyDown(e, checkTranslationOrMoveToAnotherExercise)}
 			value={exercise.userTranslate}

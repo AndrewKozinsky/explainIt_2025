@@ -1,12 +1,13 @@
 @use '@/styles/variables' as vars;
 @use '@/styles/mixins' as mix;
 @use '@/styles/inherit' as inh;
+@use '@/styles/text-inherit' as textInh;
 
 .exercises-correct-translations {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
-	@include inh.paragraph-20;
+	@include textInh.paragraph-20;
 }
 
 .exercises-correct-translations__item {

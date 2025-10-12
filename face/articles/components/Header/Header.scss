@@ -1,6 +1,7 @@
 @use '@/styles/variables' as vars;
 @use '@/styles/mixins' as mix;
 @use '@/styles/inherit' as inh;
+@use '@/styles/text-inherit' as textInh;
 
 $CN: art-header;
 
@@ -8,14 +9,14 @@ $CN: art-header;
 	text-wrap: balance;
 
 	&--h2 {
-		@include inh.header-2();
+		@include textInh.header-2();
 	}
 
 	&--h3 {
-		@include inh.header-3();
+		@include textInh.header-3();
 	}
 
 	&--h4 {
-		@include inh.header-4();
+		@include textInh.header-4();
 	}
 }
