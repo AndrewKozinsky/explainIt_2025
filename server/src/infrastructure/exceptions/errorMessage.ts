@@ -11,7 +11,7 @@ export const errorMessage = {
 	// USER
 	userNotFound: 'Пользователь не найден.',
 	userUnauthorized: 'Пользователь не авторизован.',
-	userBalanceIsNegative: 'У пользователя отрицательный баланс.',
+	userBalanceIsNegative: 'Отрицательный баланс.',
 	userIsNotOwner: 'Пользователь не является владельцем этой сущности.',
 
 	// AUTH

@@ -1,6 +1,5 @@
 import { useCallback } from 'react'
 import { useBookChapter_AnalyseSentenceAndPhraseLazyQuery, BookChapter_UpdateDocument } from '@/graphql'
-import { apolloClient } from '@/graphql/apollo'
 import { populatedChapterStructureIntoChapterStructure } from '_pages/books/commonLogic/populatedChapterStructureIntoChapterStructure'
 import { getPhaseTextFromWordIdx, useGetSentenceById } from '_pages/books/reading/logic'
 import { chapterStructureIntoText } from '_pages/books/commonLogic/populatedChapterStructureIntoText/chapterStructureIntoText'
@@ -47,7 +46,11 @@ export function useGetTranslatePhraseAndSentence(sentenceId: number, phraseWordI
 			})
 
 			if (!result.data) {
-				throw new Error('No result')
+				const errorMessage = result.error?.message
+					? result.error.message
+					: 'Данных нет. Возможно недостаточный баланс.'
+
+				throw new Error(errorMessage)
 			}
 
 			// Put sentence translation
@@ -55,18 +58,19 @@ export function useGetTranslatePhraseAndSentence(sentenceId: number, phraseWordI
 			if (sentenceTranslation) {
 				const { sentenceId } = result.data.book_chapter_AnalyseSentenceAndPhrase.phrase
 				setSentenceTranslation(sentenceId, sentenceTranslation)
-				await saveChapterInDB(chapter.data.id)
+				// Use direct HTTP request to avoid Apollo cache updates
+				updateChapterInDBToSaveSentenceTranslationDirect(chapter.data.id)
 			}
 
 			// Put phrase analysis
 			setPhraseAnalysisIntoSentence(result.data)
-
-			// Handle the result here
-			console.log('Analysis result:', result.data)
-			return result
 		} catch (error) {
-			turnPhraseIntoErrorPhrase(phraseWordIds)
-			console.error('Error analyzing sentence:', error)
+			if (error instanceof Error) {
+				turnPhraseIntoErrorPhrase(phraseWordIds, error.message)
+				console.error('Error analyzing sentence:')
+			} else {
+				turnPhraseIntoErrorPhrase(phraseWordIds, 'Возникла неизвестная ошибка.')
+			}
 		}
 	}, [
 		chapter,
@@ -82,25 +86,48 @@ export function useGetTranslatePhraseAndSentence(sentenceId: number, phraseWordI
 	])
 }
 
-async function saveChapterInDB(chapterId: number) {
+// GraphQL mutation for updating book chapter (for direct HTTP request)
+const UPDATE_CHAPTER_MUTATION = `
+	mutation BookChapter_update($input: UpdateBookChapterInput!) {
+		book_chapter_update(input: $input) {
+			id
+			content
+		}
+	}
+`
+
+async function updateChapterInDBToSaveSentenceTranslationDirect(chapterId: number) {
 	const dryChapterStructure = populatedChapterStructureIntoChapterStructure(
 		useReadingStore.getState().populatedChapter,
 	)
 
-	apolloClient
-		.mutate({
-			mutation: BookChapter_UpdateDocument,
-			variables: {
-				input: {
-					id: chapterId,
-					content: JSON.stringify(dryChapterStructure),
-				},
+	// Use direct fetch to avoid Apollo cache updates
+	try {
+		const response = await fetch('/graphql', {
+			method: 'POST',
+			credentials: 'same-origin', // Include cookies for authentication
+			headers: {
+				'Content-Type': 'application/json',
 			},
+			body: JSON.stringify({
+				query: UPDATE_CHAPTER_MUTATION,
+				variables: {
+					input: {
+						id: chapterId,
+						content: JSON.stringify(dryChapterStructure),
+					},
+				},
+			}),
 		})
-		.then((data) => {
-			console.log(data)
-		})
-		.catch((err) => {
-			console.log(err)
-		})
+
+		const result = await response.json()
+
+		if (result.errors) {
+			console.error('GraphQL errors:', result.errors)
+		} else {
+			console.log('Chapter updated successfully:', result.data)
+		}
+	} catch (error) {
+		console.error('Error updating chapter:', error)
+	}
 }

@@ -1,0 +1,7 @@
+@use '@/styles/mixins' as mix;
+
+.what-about-cost-texts {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}

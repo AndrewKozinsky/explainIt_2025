@@ -1,0 +1,8 @@
+@use "@/styles/variables" as vars;
+
+.main-page-hero-image {
+	width: 100%;
+	overflow: hidden;
+	box-shadow: vars.$shadow-1;
+	border-radius: vars.$radius-1;
+}

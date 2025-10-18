@@ -120,7 +120,7 @@ export const useReadingStore = create<ReadingStore>()((set) => {
 			})
 		},
 		/** Ищет фразу с переданными идентификаторам слов и делает её ошибочный */
-		turnPhraseIntoErrorPhrase(wordIds: number[]) {
+		turnPhraseIntoErrorPhrase(wordIds: number[], errorMessage: string) {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
 					const selectedSentenceId = baseState.selectedSentence.sentenceId
@@ -140,7 +140,11 @@ export const useReadingStore = create<ReadingStore>()((set) => {
 						return draftState
 					}
 
-					selectedSentence.phrases[phraseWithTheSameIds].type = 'error'
+					selectedSentence.phrases[phraseWithTheSameIds] = {
+						type: 'error',
+						wordIds: selectedSentence.phrases[phraseWithTheSameIds].wordIds,
+						errorMessage,
+					} as ChapterTextStructurePopulated.ErrorPhrase
 				})
 			})
 		},
@@ -241,7 +245,7 @@ export type ReadingStoreMethods = {
 	updateSentence: (context: string, sentenceId: number) => void
 	addOrUpdateIdlePhraseInSelectedSentence: (wordId: number, insertType: 'add' | 'replace') => void
 	turnPhraseIntoLoadingInSelectedSentence: (wordIds: number[]) => void
-	turnPhraseIntoErrorPhrase: (wordIds: number[]) => void
+	turnPhraseIntoErrorPhrase: (wordIds: number[], errorMessage: string) => void
 	setSentenceTranslation: (sentenceId: number, sentenceTranslation: string) => void
 	setPhraseAnalysisIntoSentence: (analysisData: BookChapter_AnalyseSentenceAndPhrase) => void
 }

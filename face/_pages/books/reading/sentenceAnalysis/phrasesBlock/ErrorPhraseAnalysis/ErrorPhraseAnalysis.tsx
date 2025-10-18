@@ -7,11 +7,11 @@ import Paragraph from 'ui/Paragraph/Paragraph'
 import { useGetPhraseData } from './fn/getPhraseData'
 import './ErrorPhraseAnalysis.scss'
 
-type LoadingPhraseAnalysisProps = {
+type ErrorPhraseAnalysisProps = {
 	phrase: ChapterTextStructurePopulated.ErrorPhrase
 }
 
-function ErrorPhraseAnalysis(props: LoadingPhraseAnalysisProps) {
+function ErrorPhraseAnalysis(props: ErrorPhraseAnalysisProps) {
 	const { phrase } = props
 
 	const sentence = useGetSelectedSentence()
@@ -21,7 +21,7 @@ function ErrorPhraseAnalysis(props: LoadingPhraseAnalysisProps) {
 		<div className='phrase-analysis-error'>
 			<PhraseAnalysisPhrase>{phraseData.phraseText}</PhraseAnalysisPhrase>
 			<Paragraph fontSize={14} extraClass='phrase-analysis-error__error-text'>
-				Не удалось получить перевод из-за ошибки сервера. Попробуйте ещё раз.
+				{phraseData.errorMessage}
 			</Paragraph>
 			<TranslatePhraseButton sentenceId={sentence.id} phraseWordIds={phrase.wordIds} />
 		</div>

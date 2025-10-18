@@ -1,6 +1,8 @@
 import React from 'react'
+import invariant from 'ts-invariant'
 import { useGetHighlights } from './fn/getHighlights'
 import './PhraseHighlights.scss'
+import log = invariant.log
 
 function PhraseHighlights() {
 	const containerRef = React.useRef<HTMLDivElement | null>(null)
@@ -8,7 +10,7 @@ function PhraseHighlights() {
 	const highlights = useGetHighlights(containerRef)
 
 	return (
-		<div className='phrase-highlights' ref={containerRef}>
+		<div className='word-highlights' ref={containerRef}>
 			{highlights.map((s) => (
 				<span
 					key={s.key}

@@ -1,5 +1,5 @@
 import Button from 'ui/formRelated/buttons/Button/Button'
-import { useGetTranslatePhraseAndSentence } from './fn/onButtonClick'
+import { useGetTranslatePhraseAndSentence } from '_pages/books/reading/sentenceAnalysis/TranslatePhraseButton/fn/getTranslatePhraseAndSentence'
 import { useGetButtonText } from './fn/getButtonText'
 
 type TranslatePhraseButtonProps = {

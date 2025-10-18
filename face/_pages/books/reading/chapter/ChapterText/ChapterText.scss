@@ -6,9 +6,10 @@
 }
 
 .chapter-text__sentence {
+
 }
 
-	.chapter-text__sentence--selected {
+.chapter-text__sentence--selected {
 	color: vars.$linkColor-2;
 }
 
@@ -24,12 +25,17 @@
 			content: '';
 			position: absolute;
 			top: 0;
-			left: -5px;
+			left: -2px;
 			bottom: 0;
-			right: -5px;
+			right: -2px;
 			z-index: 1;
 			border-radius: 0.22em;
 			border: 1px solid vars.$grayColor-3;
 		}
 	}
+}
+
+.chapter-text__word--selected {
+	color: vars.$linkColor-2;
+	background-color: vars.$linkColor-1;
 }

@@ -1,0 +1,18 @@
+@use '@/styles/mixins' as mix;
+
+.why-ai-better-then-translator-block {
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+
+	@include mix.page-width(800px) {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+.why-ai-better-then-translator-block__text-block {
+	display: flex;
+	flex-direction: column;
+	gap: .8rem;
+}

@@ -1,16 +1,24 @@
-// import CourseFace from '../CourseFace/CourseFace'
+import WhatAboutCostBlock from '_pages/main/mainPage/WhatAboutCostBlock/WhatAboutCostBlock'
+import React from 'react'
 import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'
-// import FeaturesGridOne from '../featuresGridOne/FeaturesGridOne/FeaturesGridOne'
-import MainPageHeader from '../MainPageHeader/MainPageHeader'
+import MainPageHeader from '_pages/main/mainPage/MainPageHeader/MainPageHeader'
+import MainPageHeroImage from '_pages/main/mainPage/MainPageHeroImage/MainPageHeroImage'
+import WhyAIBetterThenTranslatorBlock from '../WhyAIBetterThenTranslatorBlock/WhyAIBetterThenTranslatorBlock'
+import WhatWillYouGetAfterAnalysis from '../WhatWillYouGetAfterAnalysis/WhatWillYouGetAfterAnalysis'
+import ReadAnyBookBlock from '../ReadAnyBookBlock/ReadAnyBookBlock'
+import './MainPage.scss'
 
 function MainPage() {
 	return (
 		<PageWrapper top bottom>
-			<main>
+			<main className='main-page'>
 				{/* Do not forget to use STATE MACHINE FOR COMPONENTS !!! https://zagjs.com/ */}
 				<MainPageHeader />
-				{/*<CourseFace />*/}
-				{/*<FeaturesGridOne />*/}
+				<MainPageHeroImage />
+				<WhyAIBetterThenTranslatorBlock />
+				<WhatWillYouGetAfterAnalysis />
+				<ReadAnyBookBlock />
+				<WhatAboutCostBlock />
 			</main>
 		</PageWrapper>
 	)

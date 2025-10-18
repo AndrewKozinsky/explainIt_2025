@@ -4,8 +4,8 @@ import MainPageLayout from '../_pages/main/mainPageLayout/MainPageLayout/MainPag
 import { NotificationProvider } from '../ui/Notification/Notification'
 
 export const metadata: Metadata = {
-	title: 'Курс английского языка',
-	description: 'Курс английского языка для начинающих',
+	title: 'Чтение книг на иностранном языке',
+	description: 'Приложение для чтения книг на иностранном языка',
 	verification: {
 		yandex: '1611c5fab3b46857',
 	},

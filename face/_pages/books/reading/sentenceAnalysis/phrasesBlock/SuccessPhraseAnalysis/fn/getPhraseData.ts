@@ -6,7 +6,6 @@ export function useGetPhraseData(phrase: ChapterTextStructurePopulated.SuccessPh
 	const sentence = useGetSelectedSentence()
 
 	return useMemo(() => {
-		console.log(phrase)
 		return {
 			phraseText: getPhaseTextFromWordIdx(sentence.parts, phrase.wordIds),
 			translation: phrase.analysis.translation,

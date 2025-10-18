@@ -7,9 +7,9 @@ export function MainMenu() {
 	return (
 		<nav data-testid='main-menu'>
 			<ul className='main-menu__ul'>
-				<li>
+				{/*<li>
 					<MainMenuLink linkData={pageUrls.course} />
-				</li>
+				</li>*/}
 				{/*<li>
 					<MainMenuLink linkData={pageUrls.howToSayItInRussian} />
 				</li>*/}

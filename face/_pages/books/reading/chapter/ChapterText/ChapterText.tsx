@@ -1,5 +1,4 @@
 import cn from 'classnames'
-import { useGetSelectSentenceAndWord } from './fn/selectSentenceAndWord'
 import { useReadingStore } from '_pages/books/reading/readingStore'
 import CarriageReturn from './CarriageReturn'
 import Word from './Word'
@@ -10,7 +9,6 @@ import './ChapterText.scss'
 function ChapterText() {
 	const populatedChapter = useReadingStore((state) => state.populatedChapter)
 	const selectedSentence = useReadingStore((state) => state.selectedSentence)
-	const selectSentenceAndWord = useGetSelectSentenceAndWord()
 
 	return (
 		<div className='chapter-text'>
@@ -26,13 +24,7 @@ function ChapterText() {
 						>
 							{sentence.parts.map((part) => {
 								if (part.type === 'word') {
-									return (
-										<Word
-											onClick={() => selectSentenceAndWord(sentence.id, part.id)}
-											key={part.id}
-											value={part.value}
-										/>
-									)
+									return <Word wordData={part} sentence={sentence} key={part.id} />
 								} else if (part.type === 'punctuation') {
 									return <Punctuation key={part.id} value={part.value} />
 								} else if (part.type === 'space') {

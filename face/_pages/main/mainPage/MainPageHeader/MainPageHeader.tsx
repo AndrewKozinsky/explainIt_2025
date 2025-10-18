@@ -1,14 +1,16 @@
 import React from 'react'
+import Header from 'ui/Header/Header'
 import './MainPageHeader.scss'
-import Header from '@/ui/Header/Header'
 
 function MainPageHeader() {
 	return (
 		<div className='main-page-header'>
-			<Header extraClass='main-page-header__header'>Понимая английский</Header>
-			<p className='main-page-header__description'>
-				Курс для тех, кто хочет разобраться и&nbsp;превратить грамматику в навык.
-			</p>
+			<Header hStyle={1}>Читайте книги на иностранном языке — с умным переводом и объяснением от ИИ</Header>
+			<div className='main-page-header__description'>
+				<p className='main-page-header__description-text'>Понимайте смысл каждой фразы</p>
+				<p className='main-page-header__description-text'>Изучайте слова в контексте</p>
+				<p className='main-page-header__description-text'>Осваивайте грамматику в процессе</p>
+			</div>
 		</div>
 	)
 }

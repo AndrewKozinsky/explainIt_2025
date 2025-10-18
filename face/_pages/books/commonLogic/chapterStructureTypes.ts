@@ -102,6 +102,7 @@ export namespace ChapterTextStructurePopulated {
 	export type ErrorPhrase = {
 		type: 'error'
 		wordIds: number[]
+		errorMessage: string
 	}
 
 	export type SuccessPhrase = {

@@ -1,6 +1,6 @@
 @use '@/styles/variables' as vars;
 
-.phrase-highlights {
+.word-highlights {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -9,29 +9,15 @@
 	pointer-events: none;
 }
 
-.phrase-highlight {
+.word-highlight {
 	border: 1px solid vars.$grayColor-3;
-	box-sizing: border-box;
-	transition: all 0.2s ease;
-}
-
-.phrase-highlight--both-round {
 	border-radius: vars.$radius-1;
+	box-sizing: border-box;
+	//transition: all 0.2s ease;
 }
 
-.phrase-highlight--left-round {
-	border-radius: vars.$radius-1 0 0 vars.$radius-1;
-}
-
-.phrase-highlight--no-round {
-	border-radius: 0;
-}
-
-.phrase-highlight--right-round {
-	border-radius: 0 vars.$radius-1 vars.$radius-1 0;
-}
-
-.phrase-highlight--current {
+.word-highlight--idle {
 	background-color: vars.$grayColor-2;
-	border-color: vars.$grayColor-4;
+	border-radius: vars.$radius-1;
+	box-sizing: border-box;
 }
