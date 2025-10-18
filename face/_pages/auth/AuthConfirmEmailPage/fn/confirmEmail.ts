@@ -1,6 +1,6 @@
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { useAuth_ConfirmEmail } from '../../../../graphql'
+import { useAuth_ConfirmEmail } from 'graphql'
 
 export type ConfirmationStatus = 'loading' | 'success' | 'error'
 

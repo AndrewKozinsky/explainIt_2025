@@ -1,5 +1,5 @@
 import { Locator, Page } from '@playwright/test'
-import { LoginFormTest } from '../../_pages/auth/authLogin/AuthLoginForm/fn/form'
+import { LoginFormTest } from '_pages/auth/authLogin/AuthLoginForm/fn/form'
 import { serverTestDataConfig, UserRegisteredWithCredentialsConfig } from './serverTestDataConfig'
 import testPagesUrls from './testPagesUrls'
 

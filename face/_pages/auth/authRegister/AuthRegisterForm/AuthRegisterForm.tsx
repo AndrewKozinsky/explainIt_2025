@@ -1,6 +1,7 @@
 'use client'
 
 import { yupResolver } from '@hookform/resolvers/yup'
+import Link from 'next/link'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Button from '@/ui/formRelated/buttons/Button/Button'
@@ -9,7 +10,8 @@ import FormFieldsWrapper from '@/ui/formRelated/FormFieldsWrapper/FormFieldsWrap
 import TextInput from '@/ui/formRelated/TextInput/TextInput'
 import InfoBlock from '@/ui/InfoBlock/InfoBlock'
 import OAuthButtons from '@/ui/OAuthButtons/OAuthButtons'
-import { FormStatus } from '../../../../utils/forms'
+import { FormStatus } from 'utils/forms'
+import { pageUrls } from 'сonsts/pageUrls'
 import { RegisterFormData, registerFormSchema, RegisterFormTest } from './fn/form'
 import { useGetOnRegisterFormSubmit } from './fn/submit'
 
@@ -61,6 +63,12 @@ function AuthRegisterForm() {
 							disabled: ['success', 'submitting'].includes(formStatus),
 						}}
 					/>
+					<p>
+						☑️ Регистрируясь вы даёте{' '}
+						<Link href={pageUrls.docs.privacyPolicy.path} className='link'>
+							согласие на обработку персональных данных
+						</Link>
+					</p>
 					<Button
 						type='submit'
 						disabled={['success', 'submitting'].includes(formStatus)}

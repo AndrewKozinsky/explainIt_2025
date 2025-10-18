@@ -1,6 +1,8 @@
+import Link from 'next/link'
 import React from 'react'
-import './PageWrapper.scss'
+import { pageUrls } from 'сonsts/pageUrls'
 import Bar from '../pageTopBar/PageTopBar/Bar'
+import './PageWrapper.scss'
 
 type PageWrapperProps = {
 	top?: boolean
@@ -22,7 +24,11 @@ export function PageWrapper(props: PageWrapperProps) {
 			<div className='page-wrapper__middle'>{children}</div>
 			{bottom && (
 				<footer className='page-wrapper__bottom'>
-					<Bar />
+					<p>
+						<Link className='link' href={pageUrls.docs.privacyPolicy.path}>
+							{pageUrls.docs.privacyPolicy.name}
+						</Link>
+					</p>
 				</footer>
 			)}
 		</div>

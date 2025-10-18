@@ -1,0 +1,17 @@
+@use "@/styles/variables" as vars;
+
+.go-to-reading-button {
+	position: sticky;
+	bottom: 30px;
+	left: 50%;
+	font-size: 2.2rem;
+	line-height: 2.8rem;
+	color: white;
+	text-align: center;
+	background-color: vars.$accentColor-2;
+	width: fit-content;
+	cursor: pointer;
+	transform: translateX(-50%);
+	padding: 1.4rem 4rem;
+	border-radius: 3rem;
+}

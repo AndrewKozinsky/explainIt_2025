@@ -92,4 +92,18 @@ export const pageUrls = {
 		name: 'Моя учётная запись',
 		path: '/me',
 	},
+	docs: {
+		privacyPolicy: {
+			name: 'Политика конфиденциальности',
+			path: '/docs/privacy-policy',
+		},
+		offer: {
+			name: 'Пользовательское соглашение (Оферта)',
+			path: '/docs/offer',
+		},
+		contentUsePolicy: {
+			name: 'Политика использования контента',
+			path: '/docs/content-use-policy',
+		},
+	},
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import type { Metadata } from 'next'
 import MainPageLayout from '../_pages/main/mainPageLayout/MainPageLayout/MainPageLayout'
-import { NotificationProvider } from '../ui/Notification/Notification'
+import { NotificationProvider } from 'ui/Notification/Notification'
 
 export const metadata: Metadata = {
 	title: 'Чтение книг на иностранном языке',

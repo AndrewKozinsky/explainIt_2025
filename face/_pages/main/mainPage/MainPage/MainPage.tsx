@@ -6,6 +6,7 @@ import MainPageHeroImage from '_pages/main/mainPage/MainPageHeroImage/MainPageHe
 import WhyAIBetterThenTranslatorBlock from '../WhyAIBetterThenTranslatorBlock/WhyAIBetterThenTranslatorBlock'
 import WhatWillYouGetAfterAnalysis from '../WhatWillYouGetAfterAnalysis/WhatWillYouGetAfterAnalysis'
 import ReadAnyBookBlock from '../ReadAnyBookBlock/ReadAnyBookBlock'
+import GoToReadingButton from '../GoToReadingButton/GoToReadingButton'
 import './MainPage.scss'
 
 function MainPage() {
@@ -19,6 +20,7 @@ function MainPage() {
 				<WhatWillYouGetAfterAnalysis />
 				<ReadAnyBookBlock />
 				<WhatAboutCostBlock />
+				<GoToReadingButton />
 			</main>
 		</PageWrapper>
 	)

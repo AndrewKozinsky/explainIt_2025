@@ -1,7 +1,7 @@
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { useAuth_Login_With_OAuth } from '../../../../graphql'
-import { useUserStore } from '../../../../stores/userStore'
+import { useAuth_Login_With_OAuth } from 'graphql'
+import { useUserStore } from 'stores/userStore'
 
 export function useAuthorizeUser(providerType: string) {
 	const code = useSearchParams().get('code')!

@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation'
 import React from 'react'
 import ErrorMessage from '../../../ui/ErrorMessage/ErrorMessage'
 import Spinner from '../../../ui/Spinner/Spinner'
-import { pageUrls } from '../../../сonsts/pageUrls'
+import { pageUrls } from 'сonsts/pageUrls'
 import { useAuthorizeUser } from './fn/authorizeUser'
 
 type ProviderType = 'github' | 'google' | 'yandex'

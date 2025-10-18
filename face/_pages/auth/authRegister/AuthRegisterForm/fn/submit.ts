@@ -11,22 +11,25 @@ export function useGetOnRegisterFormSubmit(
 ) {
 	const [registerUser] = useAuth_Register()
 
-	return useCallback(async function (formData: RegisterFormData) {
-		setFormError(null)
-		setFormStatus('submitting')
+	return useCallback(
+		async function (formData: RegisterFormData) {
+			setFormError(null)
+			setFormStatus('submitting')
 
-		try {
-			const { data } = await registerUser({
-				variables: { input: { email: formData.email, password: formData.password } },
-			})
+			try {
+				const { data } = await registerUser({
+					variables: { input: { email: formData.email, password: formData.password } },
+				})
 
-			setFormStatus('success')
-			setFormSuccess('На почту ' + data?.auth_register.email + ' отправлено письмо с кодом подтверждения.')
-		} catch (gqError: unknown) {
-			setErrorsToForm(gqError, setFieldError, setFormError)
+				setFormStatus('success')
+				setFormSuccess('На почту ' + data?.auth_register.email + ' отправлено письмо с кодом подтверждения.')
+			} catch (gqError: unknown) {
+				setErrorsToForm(gqError, setFieldError, setFormError)
+				setFormStatus('idle')
+			}
+
 			setFormStatus('idle')
-		}
-
-		setFormStatus('idle')
-	}, [])
+		},
+		[registerUser, setFieldError, setFormError, setFormStatus, setFormSuccess],
+	)
 }
