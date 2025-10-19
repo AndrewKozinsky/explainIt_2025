@@ -1,1 +1,1 @@
-docker compose -f docker-compose.local.dev.yml --env-file .env.localdev down
+docker compose -f docker-compose.local.dev.yml --env-file .env.local.dev down

@@ -26,25 +26,25 @@ jobs:
 
             git pull
 
-            docker compose -f docker-compose.server.develop.yml --env-file .env.serverdevelop down
+            docker compose -f docker-compose.server.develop.yml --env-file .env.server.develop down
 
             # Generate .env file
-            echo "${{ secrets.ENV_FILE_DEV }}" > .env.serverdevelop
+            echo "${{ secrets.ENV_FILE_DEV }}" > .env.server.develop
           
-            docker compose -f docker-compose.server.develop.yml --env-file .env.serverdevelop up --build -d
+            docker compose -f docker-compose.server.develop.yml --env-file .env.server.develop up --build -d
           
             sleep 20
           
             # Copy env file to server folder because it needs for migrations
-            cp .env.serverdevelop server/.env
+            cp .env.server.develop server/.env
           
             # Copy env file to face folder because it needs for getting oauth client id
-            cp .env.serverdevelop face/.env
+            cp .env.server.develop face/.env
           
             # Rewrite POSTGRES_CONTAINER and POSTGRES_PORT environment variables because it needs for migrationns
             cd server
             sed -i -e 's/^POSTGRES_CONTAINER=.*/POSTGRES_CONTAINER=0.0.0.0/' \
-              -e 's/^POSTGRES_PORT=.*/POSTGRES_PORT=5446/' .env.serverdevelop
+              -e 's/^POSTGRES_PORT=.*/POSTGRES_PORT=5446/' .env.server.develop
           
             # Run Prisma migrations
             cd server

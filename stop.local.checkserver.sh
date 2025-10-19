@@ -1,1 +1,1 @@
-docker compose -f docker-compose.local.server-check.yml --env-file .env.localcheckserver down
+docker compose -f docker-compose.local.server-check.yml --env-file .env.local.checkserver down
