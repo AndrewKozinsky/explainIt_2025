@@ -1,6 +1,6 @@
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import axios from 'axios'
-import { CreateDefaultBookCommand } from 'features/book/CreateDefaultBook.command'
+import { CreateDefaultBookCommand } from 'features/book/defaultBook/CreateDefaultBook.command'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'

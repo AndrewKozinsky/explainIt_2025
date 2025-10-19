@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common'
 import { CqrsModule } from '@nestjs/cqrs'
-import { CreateDefaultBookHandler } from 'features/book/CreateDefaultBook.command'
+import { CreateDefaultBookHandler } from 'features/book/defaultBook/CreateDefaultBook.command'
 import { PrismaService } from '../../db/prisma.service'
 import { ConfirmEmailHandler } from 'features/auth/ConfirmEmail.command'
 import { CreateUserWithEmailAndPasswordHandler } from 'features/auth/CreateUserWithEmailAndPassword.command'
