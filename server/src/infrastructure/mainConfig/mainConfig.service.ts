@@ -10,6 +10,8 @@ export class MainConfigService {
 
 		for (let key in enVariables) {
 			// @ts-ignore
+			console.log(key, '=', enVariables[key])
+			// @ts-ignore
 			if (!enVariables[key]) throw new Error(`Env variable ${key} is empty!`)
 		}
 
