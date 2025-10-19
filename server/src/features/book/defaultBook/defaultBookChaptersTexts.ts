@@ -2258,3 +2258,32 @@ const chapter_24_text = `Aunt Em had just come out of the house to water the cab
 “My darling child!” she cried, folding the little girl in her arms and covering her face with kisses. “Where in the world did you come from?”
 
 “From the Land of Oz,” said Dorothy gravely. “And here is Toto, too. And oh, Aunt Em! I’m so glad to be at home again!”`
+
+export function getDefaultBookChapters() {
+	return [
+		{ name: chapter_1_name, header: chapter_1_header, text: chapter_1_text },
+		{ name: chapter_2_name, header: chapter_2_header, text: chapter_2_text },
+		{ name: chapter_3_name, header: chapter_3_header, text: chapter_3_text },
+		{ name: chapter_4_name, header: chapter_4_header, text: chapter_4_text },
+		{ name: chapter_5_name, header: chapter_5_header, text: chapter_5_text },
+		{ name: chapter_6_name, header: chapter_6_header, text: chapter_6_text },
+		{ name: chapter_7_name, header: chapter_7_header, text: chapter_7_text },
+		{ name: chapter_8_name, header: chapter_8_header, text: chapter_8_text },
+		{ name: chapter_9_name, header: chapter_9_header, text: chapter_9_text },
+		{ name: chapter_10_name, header: chapter_10_header, text: chapter_10_text },
+		{ name: chapter_11_name, header: chapter_11_header, text: chapter_11_text },
+		{ name: chapter_12_name, header: chapter_12_header, text: chapter_12_text },
+		{ name: chapter_13_name, header: chapter_13_header, text: chapter_13_text },
+		{ name: chapter_14_name, header: chapter_14_header, text: chapter_14_text },
+		{ name: chapter_15_name, header: chapter_15_header, text: chapter_15_text },
+		{ name: chapter_16_name, header: chapter_16_header, text: chapter_16_text },
+		{ name: chapter_17_name, header: chapter_17_header, text: chapter_17_text },
+		{ name: chapter_18_name, header: chapter_18_header, text: chapter_18_text },
+		{ name: chapter_19_name, header: chapter_19_header, text: chapter_19_text },
+		{ name: chapter_20_name, header: chapter_20_header, text: chapter_20_text },
+		{ name: chapter_21_name, header: chapter_21_header, text: chapter_21_text },
+		{ name: chapter_22_name, header: chapter_22_header, text: chapter_22_text },
+		{ name: chapter_23_name, header: chapter_23_header, text: chapter_23_text },
+		{ name: chapter_24_name, header: chapter_24_header, text: chapter_24_text },
+	]
+}
