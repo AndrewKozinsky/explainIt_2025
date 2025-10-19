@@ -3,40 +3,12 @@ services:
     image: nginx:1.19.7-alpine
     container_name: explainnginxserverdevelop
     depends_on:
-      - explainpostgresserverdevelop
       - explainserverserverdevelop
-      - explainfaceserverdevelop
     volumes:
       - ./nginx/nginx.conf.serverdevelop:/etc/nginx/nginx.conf
     environment:
       VIRTUAL_HOST: dev.explainit.ru,www.dev.explainit.ru
       LETSENCRYPT_HOST: dev.explainit.ru,www.dev.explainit.ru
-  explainpostgresserverdevelop:
-    image: postgres:16.2
-    restart: unless-stopped
-    container_name: explainpostgresserverdevelop
-    ports:
-      - 5446:5432
-    environment:
-      POSTGRES_DB: ${POSTGRES_DB}
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-    env_file:
-      - .env.serverdevelop
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-  explainredisserverdevelop:
-    image: redis:7.4.4
-    restart: unless-stopped
-    container_name: explainredisserverdevelop
-    ports:
-      - 6383:6379
-    environment:
-      REDIS_PASSWORD: ${REDIS_PASSWORD}
-    env_file:
-      - .env.serverdevelop
-    volumes:
-      - redis_data:/data
   explainserverserverdevelop:
     build:
       context: server/
@@ -44,29 +16,12 @@ services:
     restart: unless-stopped
     command: npm start:prod
     container_name: explainserverserverdevelop
-    depends_on:
-      - explainpostgresserverdevelop
     environment:
       MODE: serverdevelop
       PORT: 3001
     env_file:
       - .env.serverdevelop
-  explainfaceserverdevelop:
-    build:
-      context: face/
-      dockerfile: Dockerfile.server
-    restart: unless-stopped
-    command: npm run start
-    container_name: explainfaceserverdevelop
-    depends_on:
-      - explainpostgresserverdevelop
-      - explainserverserverdevelop
-    environment:
-      MODE: serverdevelop
 networks:
   default:
     external: true
     name: nginx-proxy
-volumes:
-  pgdata: {}
-  redis_data: {}
