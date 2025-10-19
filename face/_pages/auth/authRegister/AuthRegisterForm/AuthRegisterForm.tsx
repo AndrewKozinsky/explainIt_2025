@@ -68,6 +68,12 @@ function AuthRegisterForm() {
 						<Link href={pageUrls.docs.privacyPolicy.path} className='link'>
 							согласие на обработку персональных данных
 						</Link>
+						<Link href={pageUrls.docs.offer.path} className='link'>
+							соглашаетесь с офертой
+						</Link>
+						<Link href={pageUrls.docs.contentUsePolicy.path} className='link'>
+							с политикой использования контента
+						</Link>
 					</p>
 					<Button
 						type='submit'

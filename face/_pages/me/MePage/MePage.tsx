@@ -8,8 +8,8 @@ function MePage() {
 		<PageWrapper top bottom>
 			<main>
 				{/* Do not forget to use STATE MACHINE FOR COMPONENTS !!! https://zagjs.com/ */}
-				<LogoutButton />
 				<IncreaseBalanceForm />
+				<LogoutButton />
 			</main>
 		</PageWrapper>
 	)

@@ -1,6 +1,7 @@
 'use client'
 
 import { yupResolver } from '@hookform/resolvers/yup'
+import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
@@ -44,6 +45,13 @@ function IncreaseBalanceForm() {
 						disabled: ['success', 'submitting'].includes(formStatus),
 					}}
 				/>
+				<p>
+					Пополняя баланс вы соглашаетесь с{' '}
+					<Link className='link' href={pageUrls.docs.offer.path}>
+						офертой
+					</Link>
+					.
+				</p>
 				<Button
 					type='submit'
 					disabled={['success', 'submitting'].includes(formStatus)}

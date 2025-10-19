@@ -1,6 +1,6 @@
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { useAuth_Login_With_OAuth } from 'graphql'
+import { useAuth_Login_With_OAuth } from '@/graphql'
 import { useUserStore } from 'stores/userStore'
 
 export function useAuthorizeUser(providerType: string) {

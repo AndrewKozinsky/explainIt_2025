@@ -30,13 +30,20 @@ const personalPronounsAsObject: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			parts: [{ rus: [
-					{ type: 'text', color: 'blue', text: 'Мы' },
-					{ type: 'text', text: ' помогаем.' },
-				] }, { eng: [
-					{ type: 'text', color: 'blue', text: 'We' },
-					{ type: 'text', text: ' help.' },
-				] }],
+			parts: [
+				{
+					rus: [
+						{ type: 'text', color: 'blue', text: 'Мы' },
+						{ type: 'text', text: ' помогаем.' },
+					],
+				},
+				{
+					eng: [
+						{ type: 'text', color: 'blue', text: 'We' },
+						{ type: 'text', text: ' help.' },
+					],
+				},
+			],
 		},
 		{
 			type: 'paragraph',
@@ -57,16 +64,20 @@ const personalPronounsAsObject: ArticleType.Art = {
 			type: 'rusToEng',
 			textSize: 'giant',
 			parts: [
-				{ rus: [
+				{
+					rus: [
 						{ type: 'text', text: 'Мы помогаем ' },
 						{ type: 'text', color: 'blue', text: 'им' },
 						{ type: 'text', text: '.' },
-					] },
-				{ eng: [
+					],
+				},
+				{
+					eng: [
 						{ type: 'text', text: 'We help ' },
 						{ type: 'text', color: 'blue', text: 'them' },
 						{ type: 'text', text: '.' },
-					] },
+					],
+				},
 			],
 		},
 		{
@@ -99,7 +110,8 @@ const personalPronounsAsObject: ArticleType.Art = {
 			type: 'rusToEng',
 			textSize: 'giant',
 			parts: [
-				{ rus: [
+				{
+					rus: [
 						{
 							type: 'text',
 							text: 'Мы старые друзья, ты знаешь ',
@@ -109,8 +121,10 @@ const personalPronounsAsObject: ArticleType.Art = {
 							type: 'text',
 							text: '.',
 						},
-					] },
-				{ eng: [
+					],
+				},
+				{
+					eng: [
 						{
 							type: 'text',
 							text: 'We are old friends, you know ',
@@ -120,23 +134,28 @@ const personalPronounsAsObject: ArticleType.Art = {
 							type: 'text',
 							text: '.',
 						},
-					] },
+					],
+				},
 			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
 			parts: [
-				{ rus: [
+				{
+					rus: [
 						{ type: 'text', text: 'Паша отправляет ' },
 						{ type: 'text', color: 'blue', text: 'ей' },
 						{ type: 'text', text: ' открытки.' },
-					] },
-				{ eng: [
+					],
+				},
+				{
+					eng: [
 						{ type: 'text', text: 'Pasha send ' },
 						{ type: 'text', color: 'blue', text: 'her' },
 						{ type: 'text', text: ' postcards.' },
-					] },
+					],
+				},
 			],
 		},
 		{
@@ -320,10 +339,12 @@ const personalPronounsAsObject: ArticleType.Art = {
 			textSize: 'giant',
 			parts: [
 				{ rus: [{ type: 'text', text: 'Я делаю одну простую вещь.' }] },
-				{ eng:[
+				{
+					eng: [
 						{ type: 'text', text: 'I', color: 'blue' },
 						{ type: 'text', text: ' do one simple thing.' },
-					] },
+					],
+				},
 			],
 		},
 		{
@@ -359,11 +380,13 @@ const personalPronounsAsObject: ArticleType.Art = {
 			textSize: 'giant',
 			parts: [
 				{ rus: [{ type: 'text', text: '— Я чувствую себя уставшим. — Я тоже.' }] },
-				{ eng: [
+				{
+					eng: [
 						{ type: 'text', text: '— I feel tired. – ' },
 						{ type: 'text', text: 'Me', color: 'blue' },
 						{ type: 'text', text: ' too.' },
-					] },
+					],
+				},
 			],
 		},
 		{
@@ -381,10 +404,7 @@ const personalPronounsAsObject: ArticleType.Art = {
 			type: 'rusToEng',
 			offset: true,
 			textSize: 'giant',
-			parts: [
-				{ rus: [{ type: 'text', text: '— Кто разбил вазу? – Не я!' }] },
-				{ eng: [] },
-			],
+			parts: [{ rus: [{ type: 'text', text: '— Кто разбил вазу? – Не я!' }] }, { eng: [] }],
 		},
 		{
 			type: 'paragraph',
@@ -492,17 +512,17 @@ const personalPronounsAsObject: ArticleType.Art = {
 					rus: [
 						{
 							type: 'text',
-							text: 'Мне страшно.'
-						}
-					]
+							text: 'Мне страшно.',
+						},
+					],
 				},
 				{
 					eng: [
-						{type: 'text', text: 'I', color: 'blue'},
-						{type: 'text', text: ' am scared.'}
-					]
-				}
-			]
+						{ type: 'text', text: 'I', color: 'blue' },
+						{ type: 'text', text: ' am scared.' },
+					],
+				},
+			],
 		},
 		{
 			type: 'paragraph',
@@ -565,12 +585,18 @@ const personalPronounsAsObject: ArticleType.Art = {
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			parts: [{ rus: [{ type: 'text', text: 'Им живется хорошо.' }] }, { eng: [{ type: 'text', text: 'They live well.' }] }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Им живется хорошо.' }] },
+				{ eng: [{ type: 'text', text: 'They live well.' }] },
+			],
 		},
 		{
 			type: 'rusToEng',
 			textSize: 'giant',
-			parts: [{ rus: [{ type: 'text', text: 'Мне хочется спать.' }] }, { eng: [{ type: 'text', text: 'I want to sleep.' }] }],
+			parts: [
+				{ rus: [{ type: 'text', text: 'Мне хочется спать.' }] },
+				{ eng: [{ type: 'text', text: 'I want to sleep.' }] },
+			],
 		},
 
 		exercises_2,
