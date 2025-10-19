@@ -26,11 +26,11 @@ export async function applyAppSettings(app: INestApplication) {
 async function setUpSession(app: INestApplication) {
 	const mainConfig = await app.resolve(MainConfigService)
 
-	console.log('==========================')
-	console.log(mainConfig.get().mode)
-	console.log('==========================')
 	const isOnServer = ['serverdevelop', 'servermaster'].includes(mainConfig.get().mode!)
 	const sameSite = isOnServer ? 'none' : 'lax'
+	console.log('=================')
+	console.log(sameSite)
+	console.log('=================')
 	const secure = isOnServer
 
 	const redisService = await app.resolve(RedisService)
