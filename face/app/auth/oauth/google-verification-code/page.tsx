@@ -1,5 +1,11 @@
+import { Suspense } from 'react'
 import OAuthPage from '../../../../_pages/auth/OAuthPage/OAuthPage'
+import Spinner from '@/ui/Spinner/Spinner'
 
 export default async function Page() {
-	return <OAuthPage providerType='google' />
+	return (
+		<Suspense fallback={<Spinner />}>
+			<OAuthPage providerType='google' />
+		</Suspense>
+	)
 }
