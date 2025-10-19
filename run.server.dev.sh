@@ -1,6 +1,6 @@
 git pull
 
-(docker compose -f docker-compose.server.dev.yml --env-file .env.serverdev up --build) &
+(docker compose -f docker-compose.serverdevelop.yml --env-file .env.serverdevelop up --build) &
 sleep 10
 cd server || exit
-yarn run migrate:dev
+npm run migrate:dev
