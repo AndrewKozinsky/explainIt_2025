@@ -21,7 +21,7 @@ services:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     env_file:
-      - .env.localdev
+      - .env.localdevelop
     volumes:
       - pgdata:/var/lib/postgresql/data
   explainredislocaldev:
@@ -31,7 +31,7 @@ services:
     ports:
       - 6381:6379
     env_file:
-      - .env.localdev
+      - .env.localdevelop
     volumes:
       - redis_data:/data
   explainserverlocaldev:
@@ -50,7 +50,7 @@ services:
       MODE: localdev
       PORT: 3001
     env_file:
-      - .env.localdev
+      - .env.localdevelop
     ports:
       - 3001:3001
   explainfacelocaldev:
