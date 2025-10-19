@@ -9,6 +9,11 @@ import { RedisStore } from 'connect-redis'
 import { RedisService } from './redis/redis.service'
 
 export async function applyAppSettings(app: INestApplication) {
+	const mainConfig = await app.resolve(MainConfigService)
+
+	// Setup CORS
+	setUpCors(app, mainConfig)
+
 	app.use(cookieParser())
 
 	app.setGlobalPrefix('api')
@@ -23,15 +28,34 @@ export async function applyAppSettings(app: INestApplication) {
 	app.useGlobalFilters(new ApolloExceptionFilter())
 }
 
+function setUpCors(app: INestApplication, mainConfig: MainConfigService) {
+	const isOnServer = ['serverdevelop', 'servermaster'].includes(mainConfig.get().mode!)
+
+	// For server environments, enable CORS with credentials
+	if (isOnServer) {
+		app.enableCors({
+			origin: mainConfig.get().site.domainRootWithProtocol,
+			credentials: true, // ⬅️ Required for cookies with sameSite: 'none'
+			methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+			allowedHeaders: ['Content-Type', 'Authorization', 'Accept'],
+		})
+	} else {
+		// For local development, allow all origins
+		app.enableCors({
+			origin: true,
+			credentials: true,
+		})
+	}
+}
+
 async function setUpSession(app: INestApplication) {
 	const mainConfig = await app.resolve(MainConfigService)
 
 	const isOnServer = ['serverdevelop', 'servermaster'].includes(mainConfig.get().mode!)
 	const sameSite = isOnServer ? 'none' : 'lax'
-	console.log('=================')
-	console.log(sameSite)
-	console.log('=================')
 	const secure = isOnServer
+	// Extract domain from domainRoot (e.g., "explainit.ru" or "dev.explainit.ru")
+	const domain = isOnServer ? mainConfig.get().site.domainRoot : undefined
 
 	const redisService = await app.resolve(RedisService)
 	try {
@@ -54,6 +78,7 @@ async function setUpSession(app: INestApplication) {
 				httpOnly: true,
 				secure,
 				sameSite,
+				domain, // ⬅️ Explicitly set domain for server environments
 			},
 			store: new RedisStore({
 				client: redis,
