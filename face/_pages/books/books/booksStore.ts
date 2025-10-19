@@ -1,4 +1,4 @@
-import { BookChapterOutModel, BookOutModel } from 'graphql'
+import { BookChapterOutModel, BookOutModel } from '@/graphql'
 import { create } from 'zustand'
 
 export const booksStoreValues: BooksStoreValues = {

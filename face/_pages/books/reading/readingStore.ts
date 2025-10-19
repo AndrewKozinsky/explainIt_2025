@@ -1,5 +1,5 @@
 import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
-import { BookChapter_AnalyseSentenceAndPhrase, BookChapterOutModel, BookOutModel } from 'graphql'
+import { BookChapter_AnalyseSentenceAndPhrase, BookChapterOutModel, BookOutModel } from '@/graphql'
 import { areArraysEqualIgnoringOrder } from 'utils/arrays'
 import { create } from 'zustand'
 import { produce } from 'immer'
