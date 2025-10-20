@@ -29,7 +29,7 @@ export function useAuthorizeUser(providerType: string) {
 						return
 					}
 
-					// Put user data to the User store
+					// Put user data in the User store
 					useUserStore.setState({ user: payload })
 
 					setAuthorizationStatus('success')
