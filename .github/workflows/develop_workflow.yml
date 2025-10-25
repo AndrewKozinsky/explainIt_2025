@@ -26,10 +26,16 @@ jobs:
 
             git pull
           
+            echo "HELLO"
+          
             # Generate .env file
             echo "${{ secrets.ENV_FILE_DEV }}" > .env.server.develop
+          
+            echo "HELLO 2"
 
             docker compose -f docker-compose.server.develop.yml --env-file .env.server.develop down
+          
+            echo "HELLO 3"
             
             # ->>
             docker compose -f docker-compose.server.develop.yml --env-file .env.server.develop up --build -d
