@@ -39,33 +39,21 @@ export const apolloClient = new ApolloClient({
 
 export default apolloClient
 
-// Create a function to get the appropriate URI based on environment
-/*function getUri() {
-	// When running on the server, connect directly to the server container
-	if (isServerComponent()) {
-		return `http://${getHost()}/graphql`
-	}
-	// When running in the browser, use Nginx as a proxy
-	return '/graphql'
-}*/
+// Create a function to get the appropriate URI based on the environment
 function getUri() {
+	const mode = process.env.NEXT_PUBLIC_WORK_MODE
+
 	// When running on the server, connect directly to the server container
 	if (isServerComponent()) {
-		return `https://${getHost()}/graphql`
+		const hostMapper = {
+			development: 'http://localhost',
+			serverDevelop: 'https://dev.explainit.ru',
+			serverMaster: 'https://explainit.ru',
+		}
+
+		const host = hostMapper[mode]
+		return `${host}/graphql`
 	}
 	// When running in the browser, use Nginx as a proxy
 	return '/graphql'
-}
-
-// Create a function to get the appropriate host based on environment
-/*function getHost() {
-	// When running on the server, use the Docker service name
-	if (isServerComponent()) {
-		return 'localhost'
-	}
-	// When running in the browser, use Nginx as a proxy
-	return 'localhost'
-}*/
-function getHost() {
-	return 'dev.explainit.ru'
 }
