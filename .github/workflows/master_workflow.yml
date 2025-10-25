@@ -20,16 +20,16 @@ jobs:
       - name: Pull changes on server
         run: |
           ssh -o StrictHostKeyChecking=no andrew@109.69.17.69 << 'EOF'
-            cd ~/sites/explainIt_2025
+            cd ~/sites/explain
 
             git checkout master
 
             git pull
-
-            docker compose -f docker-compose.server.master.yml --env-file .env.server.master down
-
+          
             # Generate .env file
             echo "${{ secrets.ENV_FILE_MASTER }}" > .env.server.master
+
+            docker compose -f docker-compose.server.master.yml --env-file .env.server.master down
 
             docker compose -f docker-compose.server.master.yml --env-file .env.server.master up --build -d
           
