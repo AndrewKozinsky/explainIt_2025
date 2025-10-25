@@ -31,22 +31,5 @@ jobs:
 
             docker compose -f docker-compose.server.develop.yml --env-file .env.server.dev down
           
-            docker compose -f docker-compose.server.develop.yml --env-file .env.server.develop up --build -d
-          
-            sleep 20
-          
-            # Copy env file to server folder because it needs for migrations
-            cp .env.server.develop server/.env
-          
-            # Copy env file to face folder because it needs for getting oauth client id
-            cp .env.server.develop face/.env
-          
-            # Rewrite POSTGRES_CONTAINER and POSTGRES_PORT environment variables because it needs for migrationns
-            cd server
-            sed -i -e 's/^POSTGRES_CONTAINER=.*/POSTGRES_CONTAINER=0.0.0.0/' \
-              -e 's/^POSTGRES_PORT=.*/POSTGRES_PORT=5446/' .env.server.develop
-          
-            # Run Prisma migrations
-            cd server
-            npm run migrate:deploy
+            
           EOF
