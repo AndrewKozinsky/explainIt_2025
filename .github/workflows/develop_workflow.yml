@@ -45,4 +45,8 @@ jobs:
             cd server
             sed -i -e 's/^POSTGRES_CONTAINER=.*/POSTGRES_CONTAINER=0.0.0.0/' \
               -e 's/^POSTGRES_PORT=.*/POSTGRES_PORT=5446/' .env
+          
+            # Run Prisma migrations
+            cd server
+            npm run migrate:deploy
           EOF
