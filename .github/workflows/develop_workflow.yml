@@ -44,5 +44,5 @@ jobs:
             # Rewrite POSTGRES_CONTAINER and POSTGRES_PORT environment variables because it needs for migrationns
             cd server
             sed -i -e 's/^POSTGRES_CONTAINER=.*/POSTGRES_CONTAINER=0.0.0.0/' \
-              -e 's/^POSTGRES_PORT=.*/POSTGRES_PORT=5446/' .env.server.develop
+              -e 's/^POSTGRES_PORT=.*/POSTGRES_PORT=5446/' .env
           EOF
