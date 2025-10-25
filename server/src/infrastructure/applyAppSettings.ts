@@ -9,10 +9,6 @@ import { RedisStore } from 'connect-redis'
 import { RedisService } from './redis/redis.service'
 
 export async function applyAppSettings(app: INestApplication) {
-	const mainConfig = await app.resolve(MainConfigService)
-
-	setUpCors(app, mainConfig)
-
 	app.use(cookieParser())
 
 	app.setGlobalPrefix('api')
@@ -27,31 +23,7 @@ export async function applyAppSettings(app: INestApplication) {
 	app.useGlobalFilters(new ApolloExceptionFilter())
 }
 
-function setUpCors(app: INestApplication, mainConfig: MainConfigService) {
-	// Enable CORS with credentials support for cookie-based authentication
-	const isProduction = ['serverdevelop', 'servermaster'].includes(mainConfig.get().mode!)
-
-	if (isProduction) {
-		app.enableCors({
-			origin: mainConfig.get().site.domainRootWithProtocol,
-			credentials: true,
-		})
-	} else {
-		// For local development, allow all origins
-		app.enableCors({
-			origin: true,
-			credentials: true,
-		})
-	}
-}
-
 async function setUpSession(app: INestApplication) {
-	const mainConfig = await app.resolve(MainConfigService)
-
-	// For same-site requests (nginx proxies everything to one domain), 'lax' is sufficient
-	const isProduction = ['serverdevelop', 'servermaster'].includes(mainConfig.get().mode!)
-	const secure = isProduction
-
 	const redisService = await app.resolve(RedisService)
 	try {
 		await redisService.connect()
@@ -60,6 +32,12 @@ async function setUpSession(app: INestApplication) {
 	}
 
 	const redis = redisService.get()
+
+	const mainConfig = await app.resolve(MainConfigService)
+
+	// For same-site requests (nginx proxies everything to one domain), 'lax' is sufficient
+	const isProduction = ['serverdevelop', 'servermaster'].includes(mainConfig.get().mode!)
+	const secure = isProduction
 
 	// Extract domain from config for production environments
 	const cookieConfig: any = {
@@ -70,12 +48,12 @@ async function setUpSession(app: INestApplication) {
 	}
 
 	// Set domain for production to ensure cookies work across subdomains
-	if (isProduction) {
+	/*if (isProduction) {
 		const domain = mainConfig.get().site.domainRoot
 		if (domain) {
 			cookieConfig.domain = domain
 		}
-	}
+	}*/
 
 	app.use(
 		session({
