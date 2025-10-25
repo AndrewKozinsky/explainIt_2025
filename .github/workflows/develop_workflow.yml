@@ -47,6 +47,5 @@ jobs:
               -e 's/^POSTGRES_PORT=.*/POSTGRES_PORT=5446/' .env
           
             # Run Prisma migrations
-            cd server
             npm run migrate:deploy
           EOF
