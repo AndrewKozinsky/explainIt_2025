@@ -40,4 +40,7 @@ jobs:
           
             # Copy env file to face folder because it needs for getting oauth client id
             cp .env.server.develop face/.env
+          
+            # Rewrite POSTGRES_CONTAINER and POSTGRES_PORT environment variables because it needs for migrationns
+            cd server
           EOF
