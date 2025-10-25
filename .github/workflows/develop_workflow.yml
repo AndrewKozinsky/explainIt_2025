@@ -19,14 +19,14 @@ jobs:
 
       - name: Pull changes on server
         run: |
-          ssh -o StrictHostKeyChecking=no root@95.81.118.2 << 'EOF'
-            cd ~/sites/explainIt_2025_develop
+          ssh -o StrictHostKeyChecking=no root@109.69.17.69 << 'EOF'
+            cd ~/sites/explain_dev
 
             git checkout develop
 
             git pull
 
-            docker compose -f docker-compose.server.develop.yml --env-file .env.server.develop down
+            docker compose -f docker-compose.server.develop.yml --env-file .env.server.dev down
 
             # Generate .env file
             echo "${{ secrets.ENV_FILE_DEV }}" > .env.server.develop
