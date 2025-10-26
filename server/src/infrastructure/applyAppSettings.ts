@@ -70,7 +70,7 @@ async function setUpSession(app: INestApplication) {
 	const cookieConfig: any = {
 		maxAge: mainConfig.get().session.lifeDurationInMs,
 		httpOnly: true,
-		secure,
+		secure: false,
 		sameSite: 'lax', // ⬅️ 'lax' works for same-site requests (frontend and backend on same domain)
 	}
 
