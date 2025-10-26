@@ -72,6 +72,7 @@ async function setUpSession(app: INestApplication) {
 		httpOnly: true,
 		secure,
 		sameSite: 'lax', // ⬅️ 'lax' works for same-site requests (frontend and backend on same domain)
+		domain: '.explainit.ru',
 	}
 
 	console.log('=== Session Configuration ===')
