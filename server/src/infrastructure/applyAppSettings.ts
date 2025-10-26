@@ -15,29 +15,6 @@ export async function applyAppSettings(app: INestApplication) {
 
 	app.use(cookieParser())
 
-	// Debug middleware to log headers
-	app.use((req: any, res: any, next: any) => {
-		console.log('=== Incoming Request ===')
-		console.log('Protocol:', req.protocol)
-		console.log('Secure:', req.secure)
-		console.log('X-Forwarded-Proto:', req.headers['x-forwarded-proto'])
-		console.log('X-Forwarded-For:', req.headers['x-forwarded-for'])
-		console.log('Host:', req.headers.host)
-		console.log('Cookie:', req.headers.cookie)
-
-		// Log response Set-Cookie header
-		const originalSetHeader = res.setHeader.bind(res)
-		res.setHeader = function (name: string, value: any) {
-			if (name.toLowerCase() === 'set-cookie') {
-				console.log('=== Setting Cookie ===')
-				console.log('Set-Cookie:', value)
-			}
-			return originalSetHeader(name, value)
-		}
-
-		next()
-	})
-
 	app.setGlobalPrefix('api')
 
 	// Enable NestJS DI for class-validator
@@ -70,15 +47,9 @@ async function setUpSession(app: INestApplication) {
 	const cookieConfig: any = {
 		maxAge: mainConfig.get().session.lifeDurationInMs,
 		httpOnly: true,
-		secure,
+		secure: false,
 		sameSite: 'lax', // ⬅️ 'lax' works for same-site requests (frontend and backend on same domain)
 	}
-
-	console.log('=== Session Configuration ===')
-	console.log('Mode:', mainConfig.get().mode)
-	console.log('Is Production:', isProduction)
-	console.log('Cookie Config:', cookieConfig)
-	console.log('Session Name:', mainConfig.get().session.name)
 
 	app.use(
 		session({
