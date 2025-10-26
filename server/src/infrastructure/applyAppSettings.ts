@@ -53,7 +53,7 @@ async function setUpSession(app: INestApplication) {
 		maxAge: mainConfig.get().session.lifeDurationInMs,
 		httpOnly: true,
 		secure,
-		sameSite: 'none', // ⬅️ 'lax' works for same-site requests (frontend and backend on same domain)
+		sameSite: 'lax', // ⬅️ 'lax' works for same-site requests (frontend and backend on same domain)
 	}
 
 	app.use(
