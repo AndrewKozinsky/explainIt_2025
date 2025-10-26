@@ -5,6 +5,7 @@ http {
 
     server {
         listen 80;
+        listen 443;
 
         location ~ ^/(graphql|api) {
             proxy_pass http://explainserverserverdevelop:3001;
