@@ -36,6 +36,10 @@ import { WebhookModule } from './routes/webhook/webhook.module'
 					// graphiql: mainConfigService.get().mode === 'localDev',
 					playground: false,
 					plugins: [ApolloServerPluginLandingPageLocalDefault()],
+					cors: {
+						origin: true, // Allow requests from the same origin (handled by Nginx)
+						credentials: true, // Enable cookies
+					},
 				}
 			},
 			inject: [MainConfigService],
