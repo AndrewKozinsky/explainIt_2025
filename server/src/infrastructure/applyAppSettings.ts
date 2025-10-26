@@ -10,8 +10,8 @@ import { RedisService } from './redis/redis.service'
 
 export async function applyAppSettings(app: INestApplication) {
 	// Trust proxy to correctly handle X-Forwarded-* headers from Nginx
-	const expressApp = app.getHttpAdapter().getInstance()
-	expressApp.set('trust proxy', 1)
+	// const expressApp = app.getHttpAdapter().getInstance()
+	// expressApp.set('trust proxy', 1)
 
 	app.use(cookieParser())
 
