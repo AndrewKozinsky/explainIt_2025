@@ -47,11 +47,6 @@ services:
     environment:
       MODE: serverdevelop
       PORT: 3001
-      VIRTUAL_HOST: dev.explainit.ru
-      LETSENCRYPT_HOST: dev.explainit.ru
-      LETSENCRYPT_EMAIL: andkozinskiy@yandex.ru
-      VIRTUAL_PROTO: https  # Важно: указываем, что внешний протокол HTTPS
-      VIRTUAL_PORT: 443
     env_file:
       - .env.serverdevelop
   explainfaceserverdevelop:
