@@ -18,7 +18,7 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 // HTTP link
 const httpLink = new HttpLink({
 	uri: getUri(),
-	credentials: 'same-origin',
+	credentials: 'include',
 })
 
 // Create the Apollo Client instance

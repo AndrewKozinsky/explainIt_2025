@@ -47,14 +47,6 @@ async function setUpSession(app: INestApplication) {
 		sameSite: 'lax', // ⬅️ 'lax' works for same-site requests (frontend and backend on same domain)
 	}
 
-	// Set domain for production to ensure cookies work across subdomains
-	/*if (isProduction) {
-		const domain = mainConfig.get().site.domainRoot
-		if (domain) {
-			cookieConfig.domain = domain
-		}
-	}*/
-
 	app.use(
 		session({
 			secret: mainConfig.get().session.secret,
