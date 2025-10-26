@@ -9,10 +9,15 @@ import { RedisStore } from 'connect-redis'
 import { RedisService } from './redis/redis.service'
 
 export async function applyAppSettings(app: INestApplication) {
+	app.enableCors({
+		origin: 'https://dev.explainit.ru',
+		credentials: true,
+	})
+
 	// Trust proxy to correctly handle X-Forwarded-* headers from Nginx
 	const expressApp = app.getHttpAdapter().getInstance()
 	expressApp.set('trust proxy', 1)
-	
+
 	app.use(cookieParser())
 
 	app.setGlobalPrefix('api')
@@ -48,7 +53,7 @@ async function setUpSession(app: INestApplication) {
 		maxAge: mainConfig.get().session.lifeDurationInMs,
 		httpOnly: true,
 		secure,
-		sameSite: 'lax', // ⬅️ 'lax' works for same-site requests (frontend and backend on same domain)
+		sameSite: 'none', // ⬅️ 'lax' works for same-site requests (frontend and backend on same domain)
 	}
 
 	app.use(
