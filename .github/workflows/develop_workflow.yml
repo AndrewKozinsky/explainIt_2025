@@ -19,7 +19,7 @@ jobs:
 
       - name: Pull changes on server
         run: |
-          ssh -o StrictHostKeyChecking=no root@109.69.17.69 << 'EOF'
+          ssh -o StrictHostKeyChecking=no root@83.222.23.70 << 'EOF'
             cd ~/sites/explain_dev
 
             git checkout develop
