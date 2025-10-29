@@ -1,6 +1,7 @@
+import { useMemo } from 'react'
 import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
 import { useReadingStore } from '_pages/books/reading/readingStore'
-import { useMemo } from 'react'
+import { areArraysEqualIgnoringOrder } from 'utils/arrays'
 
 export function useGetSelectedSentence() {
 	const populatedChapter = useReadingStore((s) => s.populatedChapter)
@@ -8,7 +9,7 @@ export function useGetSelectedSentence() {
 
 	return useMemo(
 		function () {
-			return populatedChapter.find(
+			return populatedChapter.parts.find(
 				(chapterPart) => chapterPart.id === sentenceId,
 			) as ChapterTextStructurePopulated.Sentence
 		},
@@ -21,7 +22,7 @@ export function useGetSentenceById(sentenceId: number) {
 
 	return useMemo(
 		function () {
-			return populatedChapter.find(
+			return populatedChapter.parts.find(
 				(chapterPart) => chapterPart.id === sentenceId,
 			) as ChapterTextStructurePopulated.Sentence
 		},
@@ -39,6 +40,26 @@ export function useGetIdlePhraseFromSelectedSentence() {
 			})
 		},
 		[selectedSentence],
+	)
+}
+
+/**
+ * Возвращает булево значение переведена ли уже фраза с указанными идентификаторами слов.
+ * @param wordIds — id выделенных слов
+ */
+export function useGetTranslatedPhraseByWordIdsFromSelectedSentence(wordIds: number[]) {
+	const selectedSentence = useGetSelectedSentence()
+
+	return useMemo(
+		function () {
+			return selectedSentence.phrases.find((phrase) => {
+				const thisPhrase = areArraysEqualIgnoringOrder(phrase.wordIds, wordIds)
+				if (!thisPhrase) return false
+
+				return phrase.type === 'success'
+			})
+		},
+		[selectedSentence.phrases, wordIds],
 	)
 }
 

@@ -37,6 +37,7 @@ export class BookChapterQueryRepository {
 	async getBookChapters(bookId: number) {
 		const bookChapters = await this.prisma.bookChapter.findMany({
 			where: { book_id: bookId },
+			orderBy: { created_at: 'asc' },
 			include: { book: true, BookChapterPhrase: { include: { BookChapterPhraseExample: true } } },
 		})
 

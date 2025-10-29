@@ -1,8 +1,8 @@
-import { isWordAnalyzed } from '_pages/books/reading/chapter/ChapterText/fn/isWordAnalyzed'
-import cn from 'classnames'
 import React from 'react'
+import cn from 'classnames'
 import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
 import { useGetSelectSentenceAndWord } from './fn/selectSentenceAndWord'
+import { isWordAnalyzed } from './fn/isWordAnalyzed'
 
 type WordProps = {
 	sentence: ChapterTextStructurePopulated.Sentence

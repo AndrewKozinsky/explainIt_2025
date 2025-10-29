@@ -10,7 +10,8 @@ export function useGetSelectSentenceAndWord() {
 		function (sentenceId: number, wordId: number) {
 			const context = buildContext(populatedChapter, sentenceId, 28)
 
-			useReadingStore.getState().updateSentence(context, sentenceId)
+			useReadingStore.getState().changeSelectedSentence(context, sentenceId)
+			useReadingStore.getState().addWordInIdlePhraseInSentence(sentenceId, wordId, 'replaceAll')
 		},
 		[populatedChapter],
 	)

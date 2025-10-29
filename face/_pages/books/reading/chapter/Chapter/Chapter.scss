@@ -1,9 +1,0 @@
-@use '@/styles/variables' as vars;
-
-.reading-chapter {
-	flex-grow: 1;
-	background: white;
-	padding: 2rem;
-	border-radius: vars.$radius-1;
-	box-shadow: vars.$shadow-1;
-}

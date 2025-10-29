@@ -31,9 +31,9 @@ export class CreateDefaultBookHandler implements ICommandHandler<CreateDefaultBo
 
 	getBookData(): CreateBookInput {
 		return {
-			author: 'Walter Isaacson',
-			name: 'Steve Jobs',
-			note: 'His tale is instructive and cautionary, filled with lessons about innovation, character, leadership, and values.',
+			author: 'L. Frank Baum',
+			name: 'The Wonderful Wizard of Oz',
+			note: 'A young girl named Dorothy is swept by a tornado to the magical Land of Oz, where she seeks the Wizard’s help to return home and learns she had the power to do so all along.',
 		}
 	}
 

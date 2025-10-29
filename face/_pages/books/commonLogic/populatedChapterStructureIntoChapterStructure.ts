@@ -7,7 +7,7 @@ import { ChapterTextStructure, ChapterTextStructurePopulated } from './chapterSt
 export function populatedChapterStructureIntoChapterStructure(
 	populatedChapterStructure: ChapterTextStructurePopulated.Chapter,
 ): ChapterTextStructure.Chapter {
-	return populatedChapterStructure.map((structurePart) => {
+	return populatedChapterStructure.parts.map((structurePart) => {
 		if (structurePart.type === 'sentence') {
 			return drySentenceStructure(structurePart)
 		} else if (structurePart.type === 'space') {

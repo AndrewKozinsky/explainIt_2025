@@ -13,7 +13,7 @@ export function buildContext(
 ): string {
 	if (!content) return ''
 
-	const currentIndex = content.findIndex(
+	const currentIndex = content.parts.findIndex(
 		(el): el is ChapterTextStructurePopulated.Sentence => el.type === 'sentence' && el.id === sentenceId,
 	)
 	if (currentIndex === -1) return ''
@@ -28,22 +28,22 @@ export function buildContext(
 	// Collect enough words ABOVE (before) the selected sentence
 	let wordsAbove = 0
 	for (let i = currentIndex - 1; i >= 0 && wordsAbove < thresholdValue; i--) {
-		if (content[i].type === 'sentence') {
-			wordsAbove += countWords(content[i] as ChapterTextStructurePopulated.Sentence)
+		if (content.parts[i].type === 'sentence') {
+			wordsAbove += countWords(content.parts[i] as ChapterTextStructurePopulated.Sentence)
 			minSentenceIdx = i
 		}
 	}
 
 	// Collect enough words BELOW (after) the selected sentence
 	let wordsBelow = 0
-	for (let i = currentIndex + 1; i < content.length && wordsBelow < thresholdValue; i++) {
-		if (content[i].type === 'sentence') {
-			wordsBelow += countWords(content[i] as ChapterTextStructurePopulated.Sentence)
+	for (let i = currentIndex + 1; i < content.parts.length && wordsBelow < thresholdValue; i++) {
+		if (content.parts[i].type === 'sentence') {
+			wordsBelow += countWords(content.parts[i] as ChapterTextStructurePopulated.Sentence)
 			maxSentenceIdx = i
 		}
 	}
 
 	// Slice the original content to preserve spaces/punctuation between the chosen sentences
-	const contextSlice = content.slice(minSentenceIdx, maxSentenceIdx + 1)
+	const contextSlice = content.parts.slice(minSentenceIdx, maxSentenceIdx + 1)
 	return chapterStructureIntoText(contextSlice)
 }

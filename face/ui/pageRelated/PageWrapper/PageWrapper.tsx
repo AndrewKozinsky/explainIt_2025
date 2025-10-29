@@ -29,13 +29,15 @@ export function PageWrapper(props: PageWrapperProps) {
 							{pageUrls.docs.privacyPolicy.name}
 						</Link>
 					</p>
-					<p>Самозанятый Козинский Андрей Сергеевич</p>
-					<p>ИНН: 560912925372</p>
-					<p>Россия, Оренбург</p>
-					<p>andkozinskiy@yandex.ru</p>
-					<p>
-						Переводы выполняются автоматически с использованием искусственного интеллекта. Возможны
-						неточности.
+					<p className='page-wrapper__legal-text-wrapper'>
+						<span>Самозанятый Козинский Андрей Сергеевич</span>
+						<span>ИНН: 560912925372</span>
+						<span>Россия, Оренбург</span>
+						<span>andkozinskiy@yandex.ru</span>
+						<span>
+							Переводы выполняются автоматически с использованием искусственного интеллекта. Возможны
+							неточности.
+						</span>
 					</p>
 				</footer>
 			)}

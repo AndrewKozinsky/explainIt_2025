@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="31px" height="17px" viewBox="0 0 31 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Frame 2</title>
+    <defs>
+        <path d="M0,0 L31,0 L31,17 L0,17 L0,0 Z" id="path-1"></path>
+    </defs>
+    <g id="Frame-2" stroke="none" fill="none" xlink:href="#path-1">
+        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+        <path d="M1.5,8 L30.5,8 C30.7761424,8 31,8.22385763 31,8.5 C31,8.77614237 30.7761424,9 30.5,9 L1.5,9 C1.22385763,9 1,8.77614237 1,8.5 C1,8.22385763 1.22385763,8 1.5,8 Z" id="Rectangle-3-Copy" fill="#A0A0A0" fill-rule="evenodd"></path>
+        <polyline id="Path-Copy" stroke="#A0A0A0" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" points="9 0.5 1 8.5 9 16.5"></polyline>
+    </g>
+</svg>

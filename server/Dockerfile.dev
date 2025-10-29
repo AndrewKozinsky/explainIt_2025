@@ -1,7 +1,18 @@
 FROM node:22.2.0-alpine3.19
+
+# Ensure TLS works for Prisma binary downloads inside Alpine
+RUN apk add --no-cache ca-certificates openssl && update-ca-certificates
+
 WORKDIR /app
 COPY package*.json ./
-RUN npm install
+
+# Prefer deterministic installs when possible
+RUN npm ci || npm install
+
 COPY . .
 
+# Hint Prisma to use binary engines compatible with Alpine (musl)
+ENV PRISMA_CLI_QUERY_ENGINE_TYPE=binary
+
+# Generate Prisma client
 RUN npx prisma generate

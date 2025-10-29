@@ -5,16 +5,8 @@ import { create } from 'zustand'
 import { produce } from 'immer'
 
 export const readingStoreValues: ReadingStoreValues = {
-	book: {
-		loading: true,
-		errorMessage: null,
-		data: null,
-	},
-	chapter: {
-		loading: true,
-		errorMessage: null,
-		data: null,
-	},
+	book: null as any as ReadingStore.BookData,
+	chapter: null as any as ReadingStore.ChapterData,
 	populatedChapter: null as any as ChapterTextStructurePopulated.Chapter,
 	selectedSentence: {
 		context: '',
@@ -22,7 +14,7 @@ export const readingStoreValues: ReadingStoreValues = {
 	},
 }
 
-export const useReadingStore = create<ReadingStore>()((set) => {
+export const useReadingStore = create<ReadingStore>()((set, get) => {
 	return {
 		...readingStoreValues,
 		updateBook: (book: ReadingStore.BookData) => {
@@ -46,7 +38,7 @@ export const useReadingStore = create<ReadingStore>()((set) => {
 				}
 			})
 		},
-		updateSentence(context: string, sentenceId: number) {
+		changeSelectedSentence(context: string, sentenceId: number) {
 			set((state) => {
 				return {
 					selectedSentence: {
@@ -56,38 +48,60 @@ export const useReadingStore = create<ReadingStore>()((set) => {
 				}
 			})
 		},
+		clearSelectedSentence() {
+			set((state) => {
+				return {
+					selectedSentence: {
+						context: '',
+						sentenceId: null,
+					},
+				}
+			})
+		},
 		/**
 		 * Когда выделено какое-либо предложение и пользователь выделяет слова, то их идентификаторы попадают в массив phrases с типом idle.
 		 * Такой тип фразы может быть только один. Если пользователь делает запрос на анализ, то он становится в тип loading.
-		 * @param wordId — id слова, которое нужно поставить в фразу ожидающую перевода
+		 * @param wordId — id слова, которое нужно поставить во фразу ожидающую перевода
 		 * @param insertType — тип вставки:
 		 * add — добавить слово в существующие слова фразы,
-		 * replace — убрать все остальные идентификаторы слов заменив этим
+		 * replaceAll — убрать все остальные идентификаторы слов заменив этим
 		 */
-		addOrUpdateIdlePhraseInSelectedSentence(wordId: number, insertType: 'add' | 'replace') {
+		addWordInIdlePhraseInSelectedSentence(wordId: number, insertType: 'add' | 'replaceAll') {
+			const selectedSentenceId = get().selectedSentence.sentenceId
+			if (!selectedSentenceId) return
+
+			get().addWordInIdlePhraseInSentence(selectedSentenceId, wordId, insertType)
+		},
+		/**
+		 * Добавляет в фразу типа 'idle' слово с указанным идентификатором.
+		 * @param sentenceId — в каком предложении добавлять слово в фразу с типом 'idle'
+		 * @param wordId — id слова, которое нужно поставить во фразу
+		 * @param insertType — тип вставки:
+		 * add — добавить слово в существующие слова фразы,
+		 * replaceAll — убрать все остальные идентификаторы слов заменив этим
+		 */
+		addWordInIdlePhraseInSentence(sentenceId: number, wordId: number, insertType: 'add' | 'replaceAll') {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
-					const selectedSentenceId = baseState.selectedSentence.sentenceId
-
-					const selectedSentence = draftState.populatedChapter.find((sentence) => {
-						return sentence.id === selectedSentenceId
+					const sentence = draftState.populatedChapter.parts.find((sentence) => {
+						return sentence.id === sentenceId
 					})
-					if (!selectedSentence || selectedSentence.type !== 'sentence') {
-						return draftState
+					if (!sentence || sentence.type !== 'sentence') {
+						return
 					}
 
-					const idlePhraseIdx = selectedSentence.phrases.findIndex((phrase) => {
+					const idlePhraseIdx = sentence.phrases.findIndex((phrase) => {
 						return phrase.type === 'idle'
 					})
 
 					if (idlePhraseIdx >= 0) {
-						if (insertType === 'replace') {
-							selectedSentence.phrases[idlePhraseIdx].wordIds = [wordId]
+						if (insertType === 'replaceAll') {
+							sentence.phrases[idlePhraseIdx].wordIds = [wordId]
 						} else if (insertType === 'add') {
-							selectedSentence.phrases[idlePhraseIdx].wordIds.push(wordId)
+							sentence.phrases[idlePhraseIdx].wordIds.push(wordId)
 						}
 					} else {
-						selectedSentence.phrases.push({
+						sentence.phrases.push({
 							type: 'idle',
 							wordIds: [wordId],
 						})
@@ -96,36 +110,34 @@ export const useReadingStore = create<ReadingStore>()((set) => {
 			})
 		},
 		/** Ищет фразу с типом idle у выделенного предложения и ставит ей тип loading.*/
-		turnPhraseIntoLoadingInSelectedSentence() {
+		turnPhraseIntoLoadingInSelectedSentence(wordIds: number[]) {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
 					const selectedSentenceId = baseState.selectedSentence.sentenceId
 
-					const selectedSentence = draftState.populatedChapter.find((sentence) => {
+					const selectedSentence = draftState.populatedChapter.parts.find((sentence) => {
 						return sentence.id === selectedSentenceId
 					})
 					if (!selectedSentence || selectedSentence.type !== 'sentence') {
 						return draftState
 					}
 
-					const idlePhraseIdx = selectedSentence.phrases.findIndex((phrase) => {
-						return phrase.type === 'idle'
+					const phraseIdx = selectedSentence.phrases.findIndex((phrase) => {
+						return areArraysEqualIgnoringOrder(phrase.wordIds, wordIds)
 					})
-					if (idlePhraseIdx < 0) {
-						return draftState
-					}
+					if (phraseIdx < 0) return draftState
 
-					selectedSentence.phrases[idlePhraseIdx].type = 'loading'
+					selectedSentence.phrases[phraseIdx].type = 'loading'
 				})
 			})
 		},
 		/** Ищет фразу с переданными идентификаторам слов и делает её ошибочный */
-		turnPhraseIntoErrorPhrase(wordIds: number[], errorMessage: string) {
+		turnPhraseIntoErrorPhraseInSelectedSentence(wordIds: number[], errorMessage: string) {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
 					const selectedSentenceId = baseState.selectedSentence.sentenceId
 
-					const selectedSentence = draftState.populatedChapter.find((sentence) => {
+					const selectedSentence = draftState.populatedChapter.parts.find((sentence) => {
 						return sentence.id === selectedSentenceId
 					})
 					if (!selectedSentence || selectedSentence.type !== 'sentence') {
@@ -152,7 +164,7 @@ export const useReadingStore = create<ReadingStore>()((set) => {
 		setSentenceTranslation(sentenceId: number, sentenceTranslation: string) {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
-					const sentence = draftState.populatedChapter.find((sentence) => {
+					const sentence = draftState.populatedChapter.parts.find((sentence) => {
 						return sentence.id === sentenceId
 					})
 					if (!sentence || sentence.type !== 'sentence') {
@@ -165,13 +177,13 @@ export const useReadingStore = create<ReadingStore>()((set) => {
 				})
 			})
 		},
-		/** Ищет фразу с переданными идентификаторам слов и делает её ошибочный */
+		/** ??? */
 		setPhraseAnalysisIntoSentence(analysisData: BookChapter_AnalyseSentenceAndPhrase) {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
 					const analysis = analysisData.book_chapter_AnalyseSentenceAndPhrase
 
-					const sentence = draftState.populatedChapter.find((sentence) => {
+					const sentence = draftState.populatedChapter.parts.find((sentence) => {
 						const sentenceId = analysis.phrase.sentenceId
 						return sentence.id === sentenceId
 					})
@@ -217,12 +229,12 @@ export namespace ReadingStore {
 	export type BookData = {
 		loading: boolean
 		errorMessage: null | string
-		data: null | BookOutModel
+		data: BookOutModel
 	}
 	export type ChapterData = {
 		loading: boolean
 		errorMessage: null | string
-		data: null | BookChapterOutModel
+		data: BookChapterOutModel
 	}
 }
 
@@ -242,10 +254,12 @@ export type ReadingStoreMethods = {
 	updateBook: (book: ReadingStore.BookData) => void
 	updateChapter: (chapter: ReadingStore.ChapterData) => void
 	updatePopulatedChapter: (populatedChapter: ChapterTextStructurePopulated.Chapter) => void
-	updateSentence: (context: string, sentenceId: number) => void
-	addOrUpdateIdlePhraseInSelectedSentence: (wordId: number, insertType: 'add' | 'replace') => void
+	changeSelectedSentence: (context: string, sentenceId: number) => void
+	clearSelectedSentence: () => void
+	addWordInIdlePhraseInSelectedSentence: (wordId: number, insertType: 'add' | 'replaceAll') => void
+	addWordInIdlePhraseInSentence: (sentenceId: number, wordId: number, insertType: 'add' | 'replaceAll') => void
 	turnPhraseIntoLoadingInSelectedSentence: (wordIds: number[]) => void
-	turnPhraseIntoErrorPhrase: (wordIds: number[], errorMessage: string) => void
+	turnPhraseIntoErrorPhraseInSelectedSentence: (wordIds: number[], errorMessage: string) => void
 	setSentenceTranslation: (sentenceId: number, sentenceTranslation: string) => void
 	setPhraseAnalysisIntoSentence: (analysisData: BookChapter_AnalyseSentenceAndPhrase) => void
 }

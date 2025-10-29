@@ -1,4 +1,3 @@
-import React from 'react'
 import { useGetSelectedSentence } from '_pages/books/reading/logic'
 import './SentenceTranslationBlock.scss'
 

@@ -25,7 +25,11 @@ function BooksPageLayout(props: LLMPageLayoutProps) {
 		redirect(pageUrls.auth.login.path)
 	}
 
-	return <PageWrapper top>{children}</PageWrapper>
+	return (
+		<PageWrapper top bottom>
+			{children}
+		</PageWrapper>
+	)
 }
 
 export default BooksPageLayout

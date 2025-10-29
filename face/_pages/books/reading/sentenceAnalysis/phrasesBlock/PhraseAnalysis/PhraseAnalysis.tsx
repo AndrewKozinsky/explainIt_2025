@@ -1,4 +1,3 @@
-import React from 'react'
 import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
 import LoadingPhraseAnalysis from '../LoadingPhraseAnalysis/LoadingPhraseAnalysis'
 import ErrorPhraseAnalysis from '../ErrorPhraseAnalysis/ErrorPhraseAnalysis'

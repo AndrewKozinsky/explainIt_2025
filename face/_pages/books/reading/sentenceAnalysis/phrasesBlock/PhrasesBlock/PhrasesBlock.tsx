@@ -1,9 +1,8 @@
-import React from 'react'
 import PhraseAnalysis from '../PhraseAnalysis/PhraseAnalysis'
-import { useGetPhrases } from './fn/getPhrases'
+import { useGetAllNotIdlePhrases } from './fn/getPhrases'
 
 function PhrasesBlock() {
-	const phrases = useGetPhrases()
+	const phrases = useGetAllNotIdlePhrases()
 
 	return phrases.map((phrase) => {
 		return <PhraseAnalysis key={JSON.stringify(phrase.wordIds)} phrase={phrase} />

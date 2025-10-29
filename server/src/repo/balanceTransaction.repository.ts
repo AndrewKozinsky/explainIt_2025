@@ -77,6 +77,7 @@ export class BalanceTransactionRepository {
 				user_id: userId,
 				type: transactionType,
 			},
+			orderBy: { created_at: 'asc' },
 		})
 
 		return transactions.map(this.mapDbTransactionToServiceTransaction)

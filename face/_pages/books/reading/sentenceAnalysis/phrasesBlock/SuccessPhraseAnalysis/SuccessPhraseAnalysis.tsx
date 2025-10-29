@@ -1,7 +1,6 @@
-import React from 'react'
 import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
-import PhraseAnalysisPhrase from '_pages/books/reading/sentenceAnalysis/phrasesBlock/PhraseAnalysisPhrase/PhraseAnalysisPhrase'
 import { useGetPhraseData } from './fn/getPhraseData'
+import PhraseAnalysisPhrase from '../PhraseAnalysisPhrase/PhraseAnalysisPhrase'
 import './SuccessPhraseAnalysis.scss'
 
 type SuccessPhraseAnalysisProps = {

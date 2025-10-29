@@ -1,7 +1,6 @@
+import { useMemo } from 'react'
 import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
 import { getPhaseTextFromWordIdx, useGetSelectedSentence } from '_pages/books/reading/logic'
-import { useMemo } from 'react'
-import errorMessage from 'ui/ErrorMessage/ErrorMessage'
 
 export function useGetPhraseData(phrase: ChapterTextStructurePopulated.ErrorPhrase) {
 	const sentence = useGetSelectedSentence()

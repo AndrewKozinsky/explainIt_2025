@@ -14,7 +14,11 @@ export class BookQueryRepository {
 	async getBookById(id: number) {
 		const book = await this.prisma.book.findUnique({
 			where: { id },
-			include: { BookChapter: true },
+			include: {
+				BookChapter: {
+					orderBy: { created_at: 'asc' },
+				},
+			},
 		})
 
 		if (!book) {
@@ -28,7 +32,7 @@ export class BookQueryRepository {
 	async getUserBooks(userId: number) {
 		const books = await this.prisma.book.findMany({
 			where: { user_id: userId },
-			include: { BookChapter: true },
+			include: { BookChapter: { orderBy: { created_at: 'asc' } } },
 		})
 
 		return books.map(this.mapDbBookToOutBook)

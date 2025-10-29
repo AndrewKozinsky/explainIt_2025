@@ -9,8 +9,8 @@ import Button from '../../../ui/formRelated/buttons/Button/Button'
 import FormError from '../../../ui/formRelated/FormError/FormError'
 import FormFieldsWrapper from '../../../ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
 import TextInput from '../../../ui/formRelated/TextInput/TextInput'
-import { FormStatus } from '../../../utils/forms'
-import { pageUrls } from '../../../сonsts/pageUrls'
+import { FormStatus } from 'utils/forms'
+import { pageUrls } from 'сonsts/pageUrls'
 import { IncreaseBalanceFormData, increaseBalanceFormSchema, IncreaseBalanceFormTest } from './fn/form'
 import { useGetIncreaseBalanceFormSubmit } from './fn/submit'
 
@@ -45,13 +45,6 @@ function IncreaseBalanceForm() {
 						disabled: ['success', 'submitting'].includes(formStatus),
 					}}
 				/>
-				<p>
-					Пополняя баланс вы соглашаетесь с{' '}
-					<Link className='link' href={pageUrls.docs.offer.path}>
-						офертой
-					</Link>
-					.
-				</p>
 				<Button
 					type='submit'
 					disabled={['success', 'submitting'].includes(formStatus)}

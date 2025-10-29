@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="31px" height="17px" viewBox="0 0 31 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Frame 2 Copy</title>
+    <defs>
+        <path d="M0,0 L31,0 L31,17 L0,17 L0,0 Z" id="path-1"></path>
+    </defs>
+    <g id="Frame-2-Copy" stroke="none" fill="none" xlink:href="#path-1">
+        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+        <path d="M0.5,8 L29.5,8 C29.7761424,8 30,8.22385763 30,8.5 C30,8.77614237 29.7761424,9 29.5,9 L0.5,9 C0.223857625,9 0,8.77614237 0,8.5 C0,8.22385763 0.223857625,8 0.5,8 Z" id="Rectangle-3-Copy" fill="#A0A0A0" fill-rule="evenodd"></path>
+        <polyline id="Path-Copy" stroke="#A0A0A0" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" transform="translate(26, 8.5) scale(-1, 1) translate(-26, -8.5)" points="30 0.5 22 8.5 30 16.5"></polyline>
+    </g>
+</svg>

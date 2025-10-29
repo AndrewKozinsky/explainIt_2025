@@ -12,7 +12,7 @@ function ChapterText() {
 
 	return (
 		<div className='chapter-text'>
-			{populatedChapter.map((sentence) => {
+			{populatedChapter.parts.map((sentence) => {
 				if (sentence.type === 'sentence') {
 					return (
 						<span

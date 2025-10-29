@@ -1,8 +1,8 @@
-import { useGetSelectedSentence } from '_pages/books/reading/logic'
 import { useMemo } from 'react'
+import { useGetSelectedSentence } from '_pages/books/reading/logic'
 
 /** Returns all phrases apart with a status 'idle' */
-export function useGetPhrases() {
+export function useGetAllNotIdlePhrases() {
 	const sentence = useGetSelectedSentence()
 
 	return useMemo(

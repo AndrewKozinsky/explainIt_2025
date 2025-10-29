@@ -2,21 +2,23 @@ import { ChapterTextStructure, ChapterTextStructurePopulated } from './chapterSt
 
 /**
  * Получает структуру главы с сервера и наполняет её полезными данными чтобы из
- * ChapterTextStructure.Chapter получить ChapterTextStructureFull.Chapter
- * @param chapterStructure — данные с сервера преобразованные в массив объектов
- * @param phrases — данные о переведённых фразах
+ * ChapterTextStructure.Chapter получить ChapterTextStructurePopulated.Chapter
+ * @param chapter — данные главы
  */
-export function populateChapterStructure(
-	chapterStructure: ChapterTextStructure.Chapter,
-	phrases: ChapterTextStructure.Phrase[],
-): ChapterTextStructurePopulated.Chapter {
+export function populateChapterStructure(chapter: {
+	id: number
+	header: undefined | null | string
+	name: undefined | null | string
+	content: ChapterTextStructure.Chapter
+	phrases: ChapterTextStructure.Phrase[]
+}): ChapterTextStructurePopulated.Chapter {
 	let elementId = 1
 
-	return chapterStructure.map((item: any) => {
+	const parts: ChapterTextStructurePopulated.Part[] = chapter.content.map((item: any) => {
 		const currentId = elementId++
 
 		if (item.t === 'sentence') {
-			return populateSentenceStructure(currentId, item, phrases)
+			return populateSentenceStructure(currentId, item, chapter.phrases)
 		} else if (item.t === 'space') {
 			return { id: currentId, type: 'space' }
 		} else if (item.t === 'carriageReturn') {
@@ -25,6 +27,13 @@ export function populateChapterStructure(
 
 		return { id: currentId, type: 'punctuation', value: item.v }
 	})
+
+	return {
+		id: chapter.id,
+		header: chapter.header || null,
+		name: chapter.name || null,
+		parts,
+	}
 }
 
 function populateSentenceStructure(

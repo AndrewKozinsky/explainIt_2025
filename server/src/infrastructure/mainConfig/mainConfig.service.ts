@@ -85,7 +85,7 @@ export class MainConfigService {
 				},
 			},
 			// Моя наценка к стоимости одного токена
-			myPriceMultiplier: 2,
+			myPriceMultiplier: 2.1,
 		}
 	}
 

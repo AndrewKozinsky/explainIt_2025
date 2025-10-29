@@ -1,20 +1,34 @@
 @use '@/styles/mixins' as mix;
+@use '@/styles/variables' as vars;
 
 .reading-root {
 	flex-grow: 1;
 	display: flex;
 	flex-direction: column;
-	padding-bottom: 3rem;
+	background: white;
+	border-radius: vars.$radius-1;
+	box-shadow: vars.$shadow-1;
 
 	@include mix.page-width(700px) {
 		flex-direction: row;
-		gap: 3rem;
 	}
 }
 
 .reading-root__chapter {
 	flex-grow: 1;
-	display: flex;
+}
+.reading-root__chapter-content {
+	padding: 2rem vars.$reading-page-chapter-horizontal-padding;
+}
+
+.reading-root__hr {
+	height: 1px;
+	background: vars.$grayColor-1;
+
+	@include mix.page-width(700px) {
+		width: 1px;
+		height: 100%;
+	}
 }
 
 .reading-root__analysis {

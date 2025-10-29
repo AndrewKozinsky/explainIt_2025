@@ -1,8 +1,6 @@
 import React from 'react'
-import invariant from 'ts-invariant'
 import { useGetHighlights } from './fn/getHighlights'
 import './PhraseHighlights.scss'
-import log = invariant.log
 
 function PhraseHighlights() {
 	const containerRef = React.useRef<HTMLDivElement | null>(null)
