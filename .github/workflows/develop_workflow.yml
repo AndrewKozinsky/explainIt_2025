@@ -26,19 +26,19 @@ jobs:
             git pull
           
             # Generate .env file
-            touch .env.server.develop
-            echo "${{ secrets.ENV_FILE_DEV }}" > .env.server.develop
+            touch .env.serverdevelop
+            echo "${{ secrets.ENV_FILE_DEV }}" > .env.serverdevelop
 
-            docker compose -f docker-compose.server.develop.yml --env-file .env.server.develop down
-            docker compose -f docker-compose.server.develop.yml --env-file .env.server.develop up --build -d
+            docker compose -f docker-compose.server.develop.yml --env-file .env.serverdevelop down
+            docker compose -f docker-compose.server.develop.yml --env-file .env.serverdevelop up --build -d
           
             sleep 20
           
             # Copy env file to server folder because it needs for migrations
-            cp .env.server.develop server/.env
+            cp .env.serverdevelop server/.env
           
             # Copy env file to face folder because it needs for getting oauth client id
-            cp .env.server.develop face/.env
+            cp .env.serverdevelop face/.env
           
             # Enter to the server container and run migrations
             docker exec -i explainserverserverdevelop sh -lc 'cd /app && npm run migrate:deploy'
