@@ -23,14 +23,13 @@ jobs:
             cd ~/sites/explain_dev
 
             git checkout develop
-
             git pull
           
             # Generate .env file
+            touch .env.server.develop
             echo "${{ secrets.ENV_FILE_DEV }}" > .env.server.develop
 
             docker compose -f docker-compose.server.develop.yml --env-file .env.server.develop down
-          
             docker compose -f docker-compose.server.develop.yml --env-file .env.server.develop up --build -d
           
             sleep 20

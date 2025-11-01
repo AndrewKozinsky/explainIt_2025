@@ -23,14 +23,13 @@ jobs:
             cd ~/sites/explain
 
             git checkout master
-
             git pull
           
             # Generate .env file
+            touch .env.server.develop
             echo "${{ secrets.ENV_FILE_MASTER }}" > .env.server.master
 
             docker compose -f docker-compose.server.master.yml --env-file .env.server.master down
-
             docker compose -f docker-compose.server.master.yml --env-file .env.server.master up --build -d
           
             sleep 20
