@@ -24,9 +24,12 @@ export function PageWrapper(props: PageWrapperProps) {
 			<div className='page-wrapper__middle'>{children}</div>
 			{bottom && (
 				<footer className='page-wrapper__bottom'>
-					<p>
+					<p className='page-wrapper__legal-text-wrapper'>
 						<Link className='link' href={pageUrls.docs.privacyPolicy.path}>
 							{pageUrls.docs.privacyPolicy.name}
+						</Link>
+						<Link className='link' href={pageUrls.docs.offer.path}>
+							{pageUrls.docs.offer.name}
 						</Link>
 					</p>
 					<p className='page-wrapper__legal-text-wrapper'>
