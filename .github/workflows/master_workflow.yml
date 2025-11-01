@@ -40,5 +40,5 @@ jobs:
             cp .env.servermaster face/.env
           
             # Enter to the server container and run migrations
-            docker exec -i explainserverserverdevelop sh -lc 'cd /app && npm run migrate:deploy'
+            docker exec -i explainserverservermaster sh -lc 'cd /app && npm run migrate:deploy'
           EOF
