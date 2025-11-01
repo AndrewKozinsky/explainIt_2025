@@ -26,7 +26,6 @@ jobs:
             git pull
           
             # Generate .env file
-            touch .env.servermaster
             echo "${{ secrets.ENV_FILE_MASTER }}" > .env.servermaster
 
             docker compose -f docker-compose.server.master.yml --env-file .env.servermaster down
