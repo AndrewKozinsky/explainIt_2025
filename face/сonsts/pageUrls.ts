@@ -94,7 +94,7 @@ export const pageUrls = {
 	},
 	docs: {
 		privacyPolicy: {
-			name: 'Политика конфиденциальности',
+			name: 'Политика обработки персональных данных',
 			path: '/docs/privacy-policy',
 		},
 		offer: {
