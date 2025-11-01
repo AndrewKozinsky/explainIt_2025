@@ -35,11 +35,13 @@ jobs:
             sleep 20
           
             # Copy env file to server folder because it needs for migrations
-            #cp .env.serverdevelop server/.env
+            touch server/.env
+            cp .env.serverdevelop server/.env
           
             # Copy env file to face folder because it needs for getting oauth client id
-            #cp .env.serverdevelop face/.env
+            touch server/.env
+            cp .env.serverdevelop face/.env
           
             # Enter to the server container and run migrations
-            #docker exec -i explainserverserverdevelop sh -lc 'cd /app && npm run migrate:deploy'
+            docker exec -i explainserverserverdevelop sh -lc 'cd /app && npm run migrate:deploy'
           EOF
