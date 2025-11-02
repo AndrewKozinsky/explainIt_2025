@@ -1,4 +1,14 @@
 .oauth {
 	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	border: 1px solid #ccc;
+	border-radius: 1rem;
+	padding: 2rem;
+	margin-bottom: 2rem;
+}
+
+.oauth__buttons {
+	display: flex;
 	gap: 1rem;
 }

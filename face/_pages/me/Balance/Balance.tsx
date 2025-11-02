@@ -33,7 +33,14 @@ function Balance() {
 		)
 	}
 	const balance = (data.auth_getMe.balance / 100).toFixed(2).replace('.', ',')
-	return <div>Текущий баланс: {balance} руб.</div>
+	return (
+		<div>
+			<p>Текущий баланс: {balance} руб.</p>
+			<p>
+				Каждое обращение к ИИ расходует баланс — в среднем 5–15 копеек. Стоимость зависит от сложности перевода.
+			</p>
+		</div>
+	)
 }
 
 export default Balance
