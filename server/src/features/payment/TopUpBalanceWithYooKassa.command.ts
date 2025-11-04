@@ -1,6 +1,10 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { YooKassaService } from 'infrastructure/yooKassa/yooKassa.service'
+import { CustomGraphQLError } from 'src/infrastructure/exceptions/customErrors'
+import { ErrorCode } from 'src/infrastructure/exceptions/errorCode'
+import { errorMessage } from 'src/infrastructure/exceptions/errorMessage'
 import { PaymentRepository } from 'src/repo/payment.repository'
+import { UserRepository } from 'src/repo/user.repository'
 
 type TopUpBalanceWithYooKassaInput = {
 	amount: number
@@ -20,13 +24,20 @@ export class TopUpBalanceWithYooKassaHandler implements ICommandHandler<TopUpBal
 	constructor(
 		private paymentRepository: PaymentRepository,
 		private yooKassaService: YooKassaService,
+		private userRepository: UserRepository,
 	) {}
 
 	async execute(command: TopUpBalanceWithYooKassaCommand) {
 		const { userId, createPaymentWithYooKassaInput } = command
 
+		const user = await this.userRepository.getUserById(userId)
+		if (!user) {
+			throw new CustomGraphQLError(errorMessage.userNotFound, ErrorCode.BadRequest_400)
+		}
+
 		const { yooKassaPaymentId, confirmationUrl } = await this.yooKassaService.createPayment(
 			createPaymentWithYooKassaInput.amount,
+			user.email,
 		)
 
 		// Create a payment in database
