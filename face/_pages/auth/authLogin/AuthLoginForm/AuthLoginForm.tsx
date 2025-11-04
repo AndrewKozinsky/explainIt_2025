@@ -54,6 +54,7 @@ function AuthLoginForm() {
 						inputProps={{
 							...register('password', { required: true }),
 							disabled: ['success', 'submitting'].includes(formStatus),
+							type: 'password',
 						}}
 					/>
 					<Button

@@ -14,7 +14,7 @@ export class YooKassaService {
 	 * Отправляет запрос на ЮКассу для оплаты
 	 * @param amount — текст вопроса
 	 */
-	async createPayment(amount: number) {
+	async createPayment(amount: number, userEmail: string) {
 		const paymentData = {
 			amount: {
 				value: amount,
@@ -25,7 +25,23 @@ export class YooKassaService {
 				type: 'redirect',
 				return_url: this.mainConfig.get().site.domainRootWithProtocol,
 			},
-			// description: 'Заказ №1',
+			description: 'Пополнение баланса',
+			receipt: {
+				customer: {
+					email: userEmail,
+				},
+				items: [
+					{
+						description: 'Пополнение баланса',
+						quantity: '1.00',
+						amount: {
+							value: amount,
+							currency: 'RUB',
+						},
+						vat_code: 1, // 1 — без НДС, 2-6 — если с НДС
+					},
+				],
+			},
 		}
 
 		const createPaymentResponse = await this.makeRequest<CreatePaymentResponse>({
