@@ -1,0 +1,10 @@
+@use '@/styles/variables' as vars;
+
+.book-chapter-header {
+	font-size: clamp(3.6rem, 10vw, 6rem);
+	line-height: clamp(4rem, 10.4vw, 6.8rem);
+	font-weight: 900;
+	font-style: italic;
+	text-transform: uppercase;
+	margin-bottom: .8rem;
+}

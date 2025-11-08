@@ -23,6 +23,7 @@ jobs:
             cd ~/sites/explain
 
             git checkout master
+            git reset --hard
             git pull
           
             # Generate .env file

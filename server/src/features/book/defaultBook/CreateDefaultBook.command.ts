@@ -4,7 +4,7 @@ import { CreateBookChapterCommand, CreateBookChapterInput } from 'features/bookC
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { textIntoChapterStructure } from 'src/features/book/chapterStructure/textIntoChapterStructure'
+import { chapters, getStructuredContent } from 'src/features/book/defaultBook/structure/structure'
 import { getDefaultBookChapters } from './defaultBookChaptersTexts'
 
 export class CreateDefaultBookCommand implements ICommand {
@@ -37,7 +37,8 @@ export class CreateDefaultBookHandler implements ICommandHandler<CreateDefaultBo
 		}
 	}
 
-	getBookChapters(bookId: number): CreateBookChapterInput[] {
+	// DELETE LATER
+	/*getBookChapters(bookId: number): CreateBookChapterInput[] {
 		const chapters = getDefaultBookChapters()
 
 		return chapters.map((chapter) => {
@@ -49,6 +50,21 @@ export class CreateDefaultBookHandler implements ICommandHandler<CreateDefaultBo
 				name: chapter.name,
 				header: chapter.header,
 				content: textContent,
+			}
+		})
+	}*/
+
+	getBookChapters(bookId: number): CreateBookChapterInput[] {
+		const structuredContent = getStructuredContent()
+
+		return chapters.map((chapter, i) => {
+			const content = JSON.stringify(structuredContent[i])
+
+			return {
+				bookId,
+				name: chapter.name,
+				header: chapter.header,
+				content,
 			}
 		})
 	}

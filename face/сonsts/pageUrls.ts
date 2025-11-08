@@ -65,6 +65,11 @@ export const pageUrls = {
 							name: 'Чтение главы',
 							path: '/books/' + bookId + '/' + chapterId + '/reading',
 						},
+						readingNext: {
+							segment: 'readingNext',
+							name: 'Чтение главы Next',
+							path: '/books/' + bookId + '/' + chapterId + '/readingNext',
+						},
 					}
 				},
 			}
