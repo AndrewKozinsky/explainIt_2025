@@ -1,5 +1,5 @@
 import React from 'react'
-import { useIsShowPressEnterVisible } from '_pages/books/readingNext/analysis/HintBlock/fn/isShowPressEnterVisible'
+import { useIsShowPressEnterVisible } from './fn/isShowPressEnterVisible'
 import { HotKeyButton } from './details'
 
 export function PressEnterForTranslation() {

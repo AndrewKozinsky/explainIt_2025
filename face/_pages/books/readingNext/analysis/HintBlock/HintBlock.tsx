@@ -1,4 +1,4 @@
-import { PressEnterForTranslation } from '_pages/books/readingNext/analysis/HintBlock/PressEnterForTranslation'
+import { PressEnterForTranslation } from './PressEnterForTranslation'
 import { useReadingStoreNext } from '_pages/books/readingNext/readingStoreNext'
 import { HoldToSelectRelatedWords } from './HoldToSelectRelatedWords'
 import './HintBlock.scss'

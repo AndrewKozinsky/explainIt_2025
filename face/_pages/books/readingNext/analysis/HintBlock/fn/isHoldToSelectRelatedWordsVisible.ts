@@ -17,26 +17,24 @@ export function useIsHoldToSelectRelatedWordsVisible() {
 /** Определяет, выбраны ли все слова в выделенном предложении */
 export function useIsAllWordsSelected() {
 	const getSelectedSentence = useReadingStoreNext((s) => s.getSelectedSentence)
-	const selectedSentence = getSelectedSentence()
+	const fullSelectedSentence = getSelectedSentence()
+	const selectedSentence = useReadingStoreNext((s) => s.selectedSentence)
 
 	return useMemo(
 		function () {
-			if (!selectedSentence) {
+			if (!selectedSentence.id || !fullSelectedSentence) {
 				return false
 			}
 
-			const wordsCount = selectedSentence.parts.reduce((acc, part) => {
+			const wordsCount = fullSelectedSentence.parts.reduce((acc, part) => {
 				if (part.type === 'word') {
 					acc++
 				}
 				return acc
 			}, 0)
 
-			const idlePhrase = selectedSentence.phrases.find((part) => part.type === 'idle')
-			if (!idlePhrase) return false
-
-			return wordsCount > idlePhrase.wordIds.length
+			return wordsCount > selectedSentence.wordIds.length
 		},
-		[selectedSentence],
+		[fullSelectedSentence, selectedSentence.id, selectedSentence.wordIds.length],
 	)
 }

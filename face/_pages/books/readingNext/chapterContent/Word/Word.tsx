@@ -1,7 +1,8 @@
-import { getWordType } from '_pages/books/readingNext/chapterContent/Word/fn/getWordType'
 import cn from 'classnames'
 import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
 import { useGetOnWordClick } from './fn/selectSentenceAndWord'
+import { getWordPrimaryType } from './fn/getWordPrimaryType'
+import { useReadingStoreNext } from '../../readingStoreNext'
 import './Word.scss'
 
 type WordProps = {
@@ -11,8 +12,9 @@ type WordProps = {
 
 function Word(props: WordProps) {
 	const { sentence, wordData } = props
+	const selectedSentence = useReadingStoreNext((state) => state.selectedSentence)
 
-	const wordType = getWordType(sentence, wordData.id)
+	const wordType = getWordPrimaryType(selectedSentence, sentence, wordData.id)
 	const onWordClick = useGetOnWordClick()
 
 	return (

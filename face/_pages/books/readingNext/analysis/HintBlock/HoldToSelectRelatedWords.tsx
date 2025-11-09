@@ -1,7 +1,4 @@
-import {
-	getHotKeyName,
-	useIsHoldToSelectRelatedWordsVisible,
-} from '_pages/books/readingNext/analysis/HintBlock/fn/isHoldToSelectRelatedWordsVisible'
+import { getHotKeyName, useIsHoldToSelectRelatedWordsVisible } from './fn/isHoldToSelectRelatedWordsVisible'
 import React from 'react'
 import { HotKeyButton } from './details'
 

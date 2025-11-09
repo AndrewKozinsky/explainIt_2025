@@ -3,7 +3,7 @@ import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterS
 import { useReadingStore } from '_pages/books/reading/readingStore'
 // import { areArraysEqualIgnoringOrder } from 'utils/arrays'
 
-export function useGetSelectedSentence() {
+/*export function useGetSelectedSentence() {
 	const populatedChapter = useReadingStore((s) => s.populatedChapter)
 	const sentenceId = useReadingStore((s) => s.selectedSentence.sentenceId)
 
@@ -15,7 +15,7 @@ export function useGetSelectedSentence() {
 		},
 		[populatedChapter, sentenceId],
 	)
-}
+}*/
 
 /*export function useGetSentenceById(sentenceId: number) {
 	const populatedChapter = useReadingStore((s) => s.populatedChapter)

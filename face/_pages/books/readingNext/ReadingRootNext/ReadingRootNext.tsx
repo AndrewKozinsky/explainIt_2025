@@ -1,14 +1,14 @@
-import BookAuthorAndName from '_pages/books/readingNext/chapter/BookAuthorAndName/BookAuthorAndName'
 import { useReadingStoreNext } from '../readingStoreNext'
 import { useClearSelectedSentenceAfterChapterWasChanged } from './fn/clearSelectedSenteceAfterChapterWasChanged'
 import { usePopulateReadingStore } from './fn/getContentStructure'
-import ChapterContent from '_pages/books/readingNext/chapterContent/ChapterContent/ChapterContent'
 import BookAndPrevAndNextChapters from '../chapter/BookAndPrevAndNextChapters/BookAndPrevAndNextChapters'
 import ChapterName from '../chapter/ChapterName/ChapterName'
 import ChapterHeader from '../chapter/ChapterHeader/ChapterHeader'
 import { useRegisterCmdSelectionListener } from './fn/wordClickHandler'
 import Analysis from '../analysis/Analysis/Analysis'
 import { useSetDeviceType } from './fn/setDeviceType'
+import BookAuthorAndName from '../chapter/BookAuthorAndName/BookAuthorAndName'
+import ChapterContent from '../chapterContent/ChapterContent/ChapterContent'
 import './ReadingRootNext.scss'
 
 function ReadingRootNext() {

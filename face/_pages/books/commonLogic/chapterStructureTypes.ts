@@ -94,12 +94,7 @@ export namespace ChapterTextStructurePopulated {
 		type: 'carriageReturn'
 	}
 
-	export type Phrase = IdlePhrase | LoadingPhrase | ErrorPhrase | SuccessPhrase
-
-	export type IdlePhrase = {
-		type: 'idle'
-		wordIds: number[]
-	}
+	export type Phrase = LoadingPhrase | ErrorPhrase | SuccessPhrase
 
 	export type LoadingPhrase = {
 		type: 'loading'
