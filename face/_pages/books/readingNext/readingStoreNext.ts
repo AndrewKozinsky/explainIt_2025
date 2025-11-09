@@ -2,16 +2,15 @@ import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterS
 import { BookChapter_AnalyseSentenceAndPhrase, BookChapterOutModel, BookOutModel } from '@/graphql'
 // import { areArraysEqualIgnoringOrder } from 'utils/arrays'
 import { create } from 'zustand'
-// import { produce } from 'immer'
+import { produce } from 'immer'
 
 export const readingStoreValues: ReadingStoreValues = {
 	book: null as any as ReadingStore.BookData,
 	chapter: null as any as ReadingStore.ChapterData,
 	populatedChapter: null as any as ChapterTextStructurePopulated.Chapter,
-	selectedSentence: {
-		// context: '',
-		sentenceId: null,
-	},
+	selectedSentenceId: null,
+	isWordsAddingModeEnabled: false,
+	deviceType: 'mouse',
 }
 
 export const useReadingStoreNext = create<ReadingStoreNext>()((set, get) => {
@@ -38,24 +37,40 @@ export const useReadingStoreNext = create<ReadingStoreNext>()((set, get) => {
 				}
 			})
 		},
-		/*changeSelectedSentence(context: string, sentenceId: number) {
+		changeSelectedSentenceId(sentenceId: number) {
 			set((state) => {
 				return {
-					selectedSentence: {
-						context,
-						sentenceId,
-					},
+					selectedSentenceId: sentenceId,
 				}
 			})
-		},*/
+		},
 		clearSelectedSentence() {
 			set((state) => {
 				return {
-					selectedSentence: {
-						context: '',
-						sentenceId: null,
-					},
+					selectedSentenceId: null,
 				}
+			})
+		},
+		getSelectedSentence() {
+			const { populatedChapter, selectedSentenceId } = get()
+			if (selectedSentenceId == null) return null
+
+			const sentence = populatedChapter.parts.find((part) => part.id === selectedSentenceId)
+			if (!sentence || sentence.type !== 'sentence') return null
+
+			return sentence
+		},
+		clearIdlePhrasesInAllSentences() {
+			set((baseState) => {
+				return produce(baseState, (draftState) => {
+					draftState.populatedChapter.parts.forEach((sentence) => {
+						if (sentence.type !== 'sentence') return
+
+						sentence.phrases = sentence.phrases.filter((phrase) => {
+							return phrase.type !== 'idle'
+						})
+					})
+				})
 			})
 		},
 		/**
@@ -80,7 +95,7 @@ export const useReadingStoreNext = create<ReadingStoreNext>()((set, get) => {
 		 * add — добавить слово в существующие слова фразы,
 		 * replaceAll — убрать все остальные идентификаторы слов заменив этим
 		 */
-		/*addWordInIdlePhraseInSentence(sentenceId: number, wordId: number, insertType: 'add' | 'replaceAll') {
+		addWordInIdlePhraseInSentence(sentenceId: number, wordId: number, insertType: 'add' | 'replaceAll') {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
 					const sentence = draftState.populatedChapter.parts.find((sentence) => {
@@ -108,7 +123,21 @@ export const useReadingStoreNext = create<ReadingStoreNext>()((set, get) => {
 					}
 				})
 			})
-		},*/
+		},
+		changeWordsAddingMode(isEnabled: boolean) {
+			set((state) => {
+				return {
+					isWordsAddingModeEnabled: isEnabled,
+				}
+			})
+		},
+		changeDeviceType(deviceType: DeviceType) {
+			set((state) => {
+				return {
+					deviceType,
+				}
+			})
+		},
 		/** Ищет фразу с типом idle у выделенного предложения и ставит ей тип loading.*/
 		/*turnPhraseIntoLoadingInSelectedSentence(wordIds: number[]) {
 			set((baseState) => {
@@ -240,33 +269,34 @@ export namespace ReadingStore {
 
 export type ReadingStoreNext = ReadingStoreValues & ReadingStoreMethods
 
+type DeviceType = 'mouse' | 'touch'
+
 export type ReadingStoreValues = {
 	book: ReadingStore.BookData
 	chapter: ReadingStore.ChapterData
 	populatedChapter: ChapterTextStructurePopulated.Chapter
 	// Данные выделенного предложения
-	selectedSentence: SelectedSentence
-	// Возможно сюда же следует записать сам текст предложения...
-	// И ещё настройки отображения главы...
+	selectedSentenceId: null | number
+	// Если этот режим включен, то при нажатии на слово оно будет добавляться во фразу типа idle.
+	// Если выключен, то заменит все слова поставленные во фразу типа idle.
+	isWordsAddingModeEnabled: boolean
+	deviceType: DeviceType
 }
 
 export type ReadingStoreMethods = {
 	updateBook: (book: ReadingStore.BookData) => void
 	updateChapter: (chapter: ReadingStore.ChapterData) => void
 	updatePopulatedChapter: (populatedChapter: ChapterTextStructurePopulated.Chapter) => void
-	// changeSelectedSentence: (context: string, sentenceId: number) => void
+	changeSelectedSentenceId: (sentenceId: number) => void
 	clearSelectedSentence: () => void
+	getSelectedSentence: () => ChapterTextStructurePopulated.Sentence | null
+	clearIdlePhrasesInAllSentences: () => void
 	// addWordInIdlePhraseInSelectedSentence: (wordId: number, insertType: 'add' | 'replaceAll') => void
-	// addWordInIdlePhraseInSentence: (sentenceId: number, wordId: number, insertType: 'add' | 'replaceAll') => void
+	addWordInIdlePhraseInSentence: (sentenceId: number, wordId: number, insertType: 'add' | 'replaceAll') => void
+	changeWordsAddingMode: (isEnabled: boolean) => void
+	changeDeviceType: (deviceType: DeviceType) => void
 	// turnPhraseIntoLoadingInSelectedSentence: (wordIds: number[]) => void
 	// turnPhraseIntoErrorPhraseInSelectedSentence: (wordIds: number[], errorMessage: string) => void
 	// setSentenceTranslation: (sentenceId: number, sentenceTranslation: string) => void
 	// setPhraseAnalysisIntoSentence: (analysisData: BookChapter_AnalyseSentenceAndPhrase) => void
-}
-
-export type SelectedSentence = {
-	// Текст из нескольких предложений до выделенного и несколько после чтобы ИИ понимал контекст
-	// context: string
-	// Идентификатор выделенного предложения
-	sentenceId: null | number
 }

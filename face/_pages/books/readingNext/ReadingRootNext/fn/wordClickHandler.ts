@@ -1,0 +1,34 @@
+import { useEffect } from 'react'
+import { isMacOS } from 'utils/utils'
+import { useReadingStoreNext } from '../../readingStoreNext'
+
+/**
+ * В Хранилище есть булево значение isWordsAddingModeEnabled.
+ * Оно показывает что делать если пользователь нажимает на слова в предложениях: нужно или добавлять их к уже выделенным словам или заменить предыдущие.
+ * Если пользователь работает с сайтом на стандартном мониторе, то для выделения нескольких слов должен нажать клавишу Cmd.
+ * Поэтому в зависимости от этого меняется значение isWordsAddingModeEnabled в Хранилище.
+ */
+export function useRegisterCmdSelectionListener() {
+	const changeWordsAddingMode = useReadingStoreNext((s) => s.changeWordsAddingMode)
+
+	useEffect(
+		function () {
+			const isMac = isMacOS()
+
+			const changeAddingModeDependsOnPressedKey = (e: KeyboardEvent) => {
+				const isKeyPressed = isMac ? e.metaKey : e.ctrlKey
+				changeWordsAddingMode(isKeyPressed)
+			}
+
+			window.addEventListener('keydown', changeAddingModeDependsOnPressedKey)
+			window.addEventListener('keyup', changeAddingModeDependsOnPressedKey)
+
+			return () => {
+				window.removeEventListener('keydown', changeAddingModeDependsOnPressedKey)
+				window.removeEventListener('keyup', changeAddingModeDependsOnPressedKey)
+				changeWordsAddingMode(false)
+			}
+		},
+		[changeWordsAddingMode],
+	)
+}

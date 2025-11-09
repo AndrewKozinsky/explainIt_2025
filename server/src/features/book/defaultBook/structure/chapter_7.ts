@@ -21,17 +21,17 @@ export const chapter_7 = {
 		},
 		{
 			sentence: '“If you wish,” said the Lion, “I will go into the forest and kill a deer for you.',
-			translate: '«Если хочешь, — сказал Лев, — я пойду в лес и добуду вам оленя».',
+			translate: '«Если хочешь, — сказал Лев, — я пойду в лес и добуду тебе оленя».',
 		},
 		{
 			sentence:
 				'You can roast it by the fire, since your tastes are so peculiar that you prefer cooked food, and then you will have a very good breakfast.” “Don’t!',
 			translate:
-				'«Вы сможете поджарить его на костре, раз вам по вкусу приготовленная еда, и у вас будет отличный завтрак». — «Не надо!',
+				'«Ты сможешь поджарить его на костре, раз тебе по вкусу приготовленная еда, и у тебя будет отличный завтрак».',
 		},
 		{
 			sentence: 'Please don’t,” begged the Tin Woodman.',
-			translate: 'Пожалуйста, не надо», — взмолился Железный Дровосек.',
+			translate: '«Не надо! Пожалуйста, не надо», — взмолился Железный Дровосек.',
 		},
 		{
 			sentence:

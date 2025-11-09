@@ -18,7 +18,7 @@ export const chapter_2 = {
 			sentence:
 				'Dorothy sat up and noticed that the house was not moving; nor was it dark, for the bright sunshine came in at the window, flooding the little room.',
 			translate:
-				'Дороти села и заметила, что дом не двигается; и было не темно, потому что яркий солнечный свет лился в окно, заливая маленькую комнату.',
+				'Дороти села и заметила, что дом больше не двигался; и было не темно: яркий солнечный свет лился в окно, заливая маленькую комнату.',
 		},
 		{
 			sentence: 'She sprang from her bed and with Toto at her heels ran and opened the door.',
@@ -28,7 +28,7 @@ export const chapter_2 = {
 			sentence:
 				'The little girl gave a cry of amazement and looked about her, her eyes growing bigger and bigger at the wonderful sights she saw.',
 			translate:
-				'Девочка вскрикнула от изумления и огляделась; её глаза становились всё больше от чудесных видов, которые она увидела.',
+				'Девочка вскрикнула от изумления и огляделась; её глаза всё шире раскрывались от чудесных видов вокруг.',
 		},
 		{
 			sentence:
@@ -39,7 +39,7 @@ export const chapter_2 = {
 			sentence:
 				'There were lovely patches of greensward all about, with stately trees bearing rich and luscious fruits.',
 			translate:
-				'Всюду были милые зелёные лужайки, со стройными деревьями, усыпанными сочными и вкусными плодами.',
+				'Всюду были зелёные лужайки, а вокруг — величавые деревья, усыпанные налитыми, сочными плодами.',
 		},
 		{
 			sentence:
@@ -51,7 +51,7 @@ export const chapter_2 = {
 			sentence:
 				'A little way off was a small brook, rushing and sparkling along between green banks, and murmuring in a voice very grateful to a little girl who had lived so long on the dry, gray prairies.',
 			translate:
-				'Неподалёку журчал и искрился небольшой ручей между зелёными берегами и шелестел голосом, очень приятным для девочки, так долго жившей на сухих серых прериях.',
+				'Неподалёку между зелёными берегами бежал и искрился небольшой ручей и журчал голосом, очень приятным для девочки, так долго жившей на сухих серых прериях.',
 		},
 		{
 			sentence:
@@ -63,23 +63,23 @@ export const chapter_2 = {
 			sentence:
 				'They were not as big as the grown folk she had always been used to; but neither were they very small.',
 			translate:
-				'Они были не такие большие, как взрослые, к которым она привыкла; но и совсем маленькими их назвать нельзя.',
+				'Они были не такие большие, как взрослые, к которым она привыкла; но и совсем маленькими они не были.',
 		},
 		{
 			sentence:
 				'In fact, they seemed about as tall as Dorothy, who was a well-grown child for her age, although they were, so far as looks go, many years older.',
 			translate:
-				'На деле они были примерно ростом с Дороти, которая была довольно высокой для своего возраста, хотя на вид они казались на много лет старше.',
+				'На деле они были примерно ростом с Дороти, которая была довольно высокой для своего возраста, хотя на вид они были намного старше.',
 		},
 		{
 			sentence: 'Three were men and one a woman, and all were oddly dressed.',
-			translate: 'Трое были мужчинами, а одна — женщиной, и одеты они были странно.',
+			translate: 'Трое — мужчины, одна — женщина; одеты они были странно.',
 		},
 		{
 			sentence:
 				'They wore round hats that rose to a small point a foot above their heads, with little bells around the brims that tinkled sweetly as they moved.',
 			translate:
-				'На них были круглые шляпы, поднимавшиеся маленьким остриём на фут над головой, с колокольчиками по полям, которые сладко звенели, когда они двигались.',
+				'На них были круглые шляпы с маленьким остриём, поднимавшимся на фут над головой, и с колокольчиками по полям, которые мелодично звенели, когда они двигались.',
 		},
 		{
 			sentence:
@@ -95,7 +95,7 @@ export const chapter_2 = {
 			sentence:
 				'The men were dressed in blue, of the same shade as their hats, and wore well-polished boots with a deep roll of blue at the tops.',
 			translate:
-				'Мужчины были одеты в голубое, в тон шляпам, и носили хорошо начищенные сапоги с высоким голубым отворотом сверху.',
+				'Мужчины были одеты в голубое, в тон шляпам, и носили хорошо начищенные сапоги с широким голубым отворотом вверху.',
 		},
 		{
 			sentence: 'The men, Dorothy thought, were about as old as Uncle Henry, for two of them had beards.',
@@ -107,7 +107,7 @@ export const chapter_2 = {
 		},
 		{
 			sentence: 'Her face was covered with wrinkles, her hair was nearly white, and she walked rather stiffly.',
-			translate: 'Её лицо было покрыто морщинами, волосы почти белые, и ходила она довольно-таки неуклюже.',
+			translate: 'Её лицо было покрыто морщинами, волосы почти белые, и ходила она довольно-таки скованно.',
 		},
 		{
 			sentence:
@@ -143,7 +143,7 @@ export const chapter_2 = {
 			sentence:
 				'But the little woman evidently expected her to answer; so Dorothy said, with hesitation, “You are very kind, but there must be some mistake.',
 			translate:
-				'Но маленькая женщина явно ожидала от неё ответа, и Дороти с нерешительностью сказала: «Вы очень добры, но, должно быть, какая‑то ошибка.',
+				'Но маленькая женщина явно ожидала от неё ответа, и Дороти нерешительно сказала: «Вы очень добры, но, должно быть, какая‑то ошибка.',
 		},
 		{
 			sentence:
@@ -205,7 +205,7 @@ export const chapter_2 = {
 			sentence:
 				'“They are the people who live in this land of the East where the Wicked Witch ruled.” “Are you a Munchkin?” asked Dorothy.',
 			translate:
-				'«Это люди, живущие в этой восточной стране, где правила Злая Ведьма». — «А вы — мункин?» — спросила Дороти.',
+				'«Это люди, живущие в этой восточной стране, где правила Злая Ведьма». — «А вы — из народа мункинов?» — спросила Дороти.',
 		},
 		{
 			sentence: '“No, but I am their friend, although I live in the land of the North.',
@@ -215,11 +215,11 @@ export const chapter_2 = {
 			sentence:
 				'When they saw the Witch of the East was dead the Munchkins sent a swift messenger to me, and I came at once.',
 			translate:
-				'Когда они увидели, что Ведьма Востока мертва, мункины отправили ко мне быстрого гонца, и я пришла сразу.',
+				'Когда они увидели, что Ведьма Востока мертва, мункины отправили ко мне быстрого гонца, и я тут же пришла.',
 		},
 		{
 			sentence: 'I am the Witch of the North.” “Oh, gracious!” cried Dorothy.',
-			translate: '«Я — Ведьма Севера». — «Ах, милость небес!» — воскликнула Дороти.',
+			translate: '«Я — Ведьма Севера». — «Ах, Боже мой!» — воскликнула Дороти.',
 		},
 		{
 			sentence: '“Are you a real witch?” “Yes, indeed,” answered the little woman.',
@@ -233,7 +233,7 @@ export const chapter_2 = {
 			sentence:
 				'I am not as powerful as the Wicked Witch was who ruled here, or I should have set the people free myself.” “But I thought all witches were wicked,” said the girl, who was half frightened at facing a real witch.',
 			translate:
-				'«Я не настолько могущественна, как Злая Ведьма, что правила здесь, иначе я бы сама освободила людей». — «А я думала, все ведьмы злые», — сказала девочка, наполовину испуганная встречей с настоящей ведьмой.',
+				'«Я не настолько могущественна, как Злая Ведьма, что правила здесь, иначе я бы сама освободила людей». — «А я думала, все ведьмы злые», — сказала девочка, которой было немного страшно стоять перед настоящей ведьмой.',
 		},
 		{
 			sentence: '“Oh, no, that is a great mistake.',
@@ -259,7 +259,7 @@ export const chapter_2 = {
 			sentence:
 				'“She is my aunt who lives in Kansas, where I came from.” The Witch of the North seemed to think for a time, with her head bowed and her eyes upon the ground.',
 			translate:
-				'«Это моя тётя, она живёт в Канзасе, откуда я приехала». Ведьма Севера ненадолго задумалась, опустив голову и уставив взгляд в землю.',
+				'«Это моя тётя, она живёт в Канзасе, откуда я приехала». Ведьма Севера ненадолго задумалась, опустив голову и глядя в землю.',
 		},
 		{
 			sentence:
@@ -296,7 +296,7 @@ export const chapter_2 = {
 		},
 		{
 			sentence: '“He is more powerful than all the rest of us together.',
-			translate: '«Он могущественнее всех нас вместе взятых.',
+			translate: '— Он могущественнее всех нас вместе взятых.',
 		},
 		{
 			sentence:
@@ -371,13 +371,13 @@ export const chapter_2 = {
 			sentence:
 				'Her tears seemed to grieve the kind-hearted Munchkins, for they immediately took out their handkerchiefs and began to weep also.',
 			translate:
-				'Её слёзы, казалось, огорчили добрых мункинов, и они тотчас же достали платочки и тоже принялись вытирать глаза.',
+				'Её слёзы, казалось, огорчили добрых мункинов, и они тотчас же достали платочки и тоже заплакали.',
 		},
 		{
 			sentence:
 				'As for the little old woman, she took off her cap and balanced the point on the end of her nose, while she counted “One, two, three” in a solemn voice.',
 			translate:
-				'Что до маленькой старушки, то она сняла свой колпак и уравновесила кончик на кончике носа, чинно считая: «Раз, два, три».',
+				'Что до маленькой старушки, то она сняла свой колпак и уравновесила его остриё на кончике носа, чинно считая: «Раз, два, три».',
 		},
 		{
 			sentence:
@@ -422,7 +422,7 @@ export const chapter_2 = {
 			sentence:
 				'However, I will use all the magic arts I know of to keep you from harm.” “Won’t you go with me?” pleaded the girl, who had begun to look upon the little old woman as her only friend.',
 			translate:
-				'Однако я употреблю все известные мне чары, чтобы уберечь тебя от бед». — «А вы не пойдёте со мной?» — умоляла девочка, которая уже начала видеть в маленькой старушке свою единственную подругу.',
+				'Однако я применю все известные мне чары, чтобы уберечь тебя от бед». — «А вы не пойдёте со мной?» — умоляла девочка, которая уже начала видеть в маленькой старушке свою единственную подругу.',
 		},
 		{
 			sentence:
@@ -444,7 +444,7 @@ export const chapter_2 = {
 			sentence:
 				'“The road to the City of Emeralds is paved with yellow brick,” said the Witch, “so you cannot miss it.',
 			translate:
-				'«Дорога в Изумрудный город вымощена жёлтым кирпичом, — сказала Ведьма, — так что ты её не потеряешь.',
+				'«Дорога в Изумрудный город вымощена жёлтым кирпичом, — сказала Ведьма, — так что ты её не пропустишь.',
 		},
 		{
 			sentence: 'When you get to Oz do not be afraid of him, but tell your story and ask him to help you.',

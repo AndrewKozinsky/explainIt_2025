@@ -6,10 +6,8 @@ function BookAndPrevAndNextChapters() {
 	return (
 		<div className='book-and-prev-and-next-chapters'>
 			<BookLink />
-			<div className='book-and-prev-and-next-chapters__right-part'>
-				<PrevChapterLink />
-				<NextChapterLink />
-			</div>
+			<PrevChapterLink />
+			<NextChapterLink />
 		</div>
 	)
 }

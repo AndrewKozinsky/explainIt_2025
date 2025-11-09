@@ -5,239 +5,239 @@ export const chapter_12 = {
 		{
 			sentence:
 				'The soldier with the green whiskers led them through the streets of the Emerald City until they reached the room where the Guardian of the Gates lived.',
-			translate: '',
+			translate: 'Солдат с зелёными усами провёл их по улицам Изумрудного города, пока они не дошли до комнаты, где жил Страж ворот.',
 		},
 		{
 			sentence:
 				'This officer unlocked their spectacles to put them back in his great box, and then he politely opened the gate for our friends.',
-			translate: '',
+			translate: 'Этот служащий отпер замки на их очках, чтобы вернуть их в свой большой ящик, а затем вежливо распахнул ворота для наших друзей.',
 		},
 		{
 			sentence: '“Which road leads to the Wicked Witch of the West?” asked Dorothy.',
-			translate: '',
+			translate: '«Какая дорога ведёт к Злой Ведьме Запада?» — спросила Дороти.',
 		},
 		{
 			sentence: '“There is no road,” answered the Guardian of the Gates.',
-			translate: '',
+			translate: '«Дороги туда нет», — ответил Страж ворот.',
 		},
 		{
 			sentence: '“No one ever wishes to go that way.” “How, then, are we to find her?” inquired the girl.',
-			translate: '',
+			translate: '«Никто никогда не желает идти в ту сторону». — «Тогда как нам её найти?» — спросила девочка.',
 		},
 		{
 			sentence:
 				'“That will be easy,” replied the man, “for when she knows you are in the country of the Winkies she will find you, and make you all her slaves.” “Perhaps not,” said the Scarecrow, “for we mean to destroy her.” “Oh, that is different,” said the Guardian of the Gates.',
-			translate: '',
+			translate: '«Это будет нетрудно, — ответил мужчина, — когда она узнает, что вы в стране Винкиев, она сама найдёт вас и обратит всех в своих рабов». — «Пожалуй, нет, — возразило Пугало, — ведь мы намерены уничтожить её». — «Ну, это другое дело», — сказал Страж ворот.',
 		},
 		{
 			sentence:
 				'“No one has ever destroyed her before, so I naturally thought she would make slaves of you, as she has of the rest.',
-			translate: '',
+			translate: '«Никто прежде её не уничтожал, так что я естественно подумал, что она поработит и вас, как остальных.',
 		},
 		{
 			sentence: 'But take care; for she is wicked and fierce, and may not allow you to destroy her.',
-			translate: '',
+			translate: 'Но будьте осторожны: она зла и свирепа и может не позволить вам уничтожить её.',
 		},
 		{
 			sentence:
 				'Keep to the West, where the sun sets, and you cannot fail to find her.” They thanked him and bade him good-bye, and turned toward the West, walking over fields of soft grass dotted here and there with daisies and buttercups.',
-			translate: '',
+			translate: 'Держитесь Запада, туда, где садится солнце, — и вы непременно её найдёте». Они поблагодарили его, попрощались и повернули на запад, шагая по полям мягкой травы, местами усеянным ромашками и лютиками.',
 		},
 		{
 			sentence:
 				'Dorothy still wore the pretty silk dress she had put on in the palace, but now, to her surprise, she found it was no longer green, but pure white.',
-			translate: '',
+			translate: 'Дороти всё ещё была в красивом шёлковом платье, которое надела во дворце, но теперь, к своему удивлению, обнаружила, что оно уже не зелёное, а белоснежное.',
 		},
 		{
 			sentence:
 				'The ribbon around Toto’s neck had also lost its green color and was as white as Dorothy’s dress.',
-			translate: '',
+			translate: 'Лента на шее Тото тоже потеряла зелёный цвет и стала такой же белой, как платье Дороти.',
 		},
 		{
 			sentence: 'The Emerald City was soon left far behind.',
-			translate: '',
+			translate: 'Изумрудный город вскоре остался далеко позади.',
 		},
 		{
 			sentence:
 				'As they advanced the ground became rougher and hillier, for there were no farms nor houses in this country of the West, and the ground was untilled.',
-			translate: '',
+			translate: 'По мере их продвижения местность становилась всё более неровной и холмистой, ведь в этой западной стране не было ни ферм, ни домов, и земля оставалась необработанной.',
 		},
 		{
 			sentence:
 				'In the afternoon the sun shone hot in their faces, for there were no trees to offer them shade; so that before night Dorothy and Toto and the Lion were tired, and lay down upon the grass and fell asleep, with the Woodman and the Scarecrow keeping watch.',
-			translate: '',
+			translate: 'Днём солнце жгло им в лица, потому что не было деревьев, дающих тень; поэтому до наступления ночи Дороти, Тото и Лев устали, легли на траву и заснули, а Железный Дровосек и Пугало остались на страже.',
 		},
 		{
 			sentence:
 				'Now the Wicked Witch of the West had but one eye, yet that was as powerful as a telescope, and could see everywhere.',
-			translate: '',
+			translate: 'У Злой Ведьмы Запада был лишь один глаз, но он был силён, как подзорная труба, и видел повсюду.',
 		},
 		{
 			sentence:
 				'So, as she sat in the door of her castle, she happened to look around and saw Dorothy lying asleep, with her friends all about her.',
-			translate: '',
+			translate: 'И вот, сидя у входа в свой замок, она огляделась и увидела спящую Дороти, вокруг которой расположились её друзья.',
 		},
 		{
 			sentence:
 				'They were a long distance off, but the Wicked Witch was angry to find them in her country; so she blew upon a silver whistle that hung around her neck.',
-			translate: '',
+			translate: 'Они были очень далеко, но Ведьма рассердилась, увидев их в своей стране, и дунула в серебряный свисток, висевший у неё на шее.',
 		},
 		{
 			sentence: 'At once there came running to her from all directions a pack of great wolves.',
-			translate: '',
+			translate: 'Тотчас со всех сторон к ней подбежала стая огромных волков.',
 		},
 		{
 			sentence: 'They had long legs and fierce eyes and sharp teeth.',
-			translate: '',
+			translate: 'У них были длинные ноги, свирепые глаза и острые зубы.',
 		},
 		{
 			sentence:
 				'“Go to those people,” said the Witch, “and tear them to pieces.” “Are you not going to make them your slaves?” asked the leader of the wolves.',
-			translate: '',
+			translate: '«Ступайте к тем людям, — сказала Ведьма, — и разорвите их на куски». — «Разве ты не собираешься сделать их своими рабами?» — спросил вожак волков.',
 		},
 		{
 			sentence: '“No,” she answered, “one is of tin, and one of straw; one is a girl and another a Lion.',
-			translate: '',
+			translate: '«Нет, — ответила она, — один из жести, другой из соломы; одна — девочка, другой — Лев.',
 		},
 		{
 			sentence:
 				'None of them is fit to work, so you may tear them into small pieces.” “Very well,” said the wolf, and he dashed away at full speed, followed by the others.',
-			translate: '',
+			translate: 'Никто из них к работе не годится, так что можете изрубить их в мелкие кусочки». — «Хорошо», — сказал волк и со всех ног помчался вперёд, за ним — вся стая.',
 		},
 		{
 			sentence: 'It was lucky the Scarecrow and the Woodman were wide awake and heard the wolves coming.',
-			translate: '',
+			translate: 'К счастью, Пугало и Дровосек не спали и услышали приближение волков.',
 		},
 		{
 			sentence:
 				'“This is my fight,” said the Woodman, “so get behind me and I will meet them as they come.” He seized his axe, which he had made very sharp, and as the leader of the wolves came on the Tin Woodman swung his arm and chopped the wolf’s head from its body, so that it immediately died.',
-			translate: '',
+			translate: '«Это мой бой, — сказал Дровосек, — встаньте за мной, я встречу их». Он схватил свой топор, наточенный им до остроты бритвы, и когда вожак волков подскочил, Железный Дровосек взмахнул рукой и отсёк волку голову — тот сразу же пал замертво.',
 		},
 		{
 			sentence:
 				'As soon as he could raise his axe another wolf came up, and he also fell under the sharp edge of the Tin Woodman’s weapon.',
-			translate: '',
+			translate: 'Едва он успел поднять топор, как подбежал следующий волк, и тот тоже пал под острым лезвием оружия Железного Дровосека.',
 		},
 		{
 			sentence:
 				'There were forty wolves, and forty times a wolf was killed, so that at last they all lay dead in a heap before the Woodman.',
-			translate: '',
+			translate: 'Волков было сорок, и сорок раз волк был сражён — в конце концов все они лежали мёртвой кучей перед Дровосеком.',
 		},
 		{
 			sentence:
 				'Then he put down his axe and sat beside the Scarecrow, who said, “It was a good fight, friend.” They waited until Dorothy awoke the next morning.',
-			translate: '',
+			translate: 'Тогда он опустил топор и сел рядом с Пугалом. — «Хороший бой, дружище», — сказало Пугало. Они дождались, пока Дороти проснётся утром.',
 		},
 		{
 			sentence:
 				'The little girl was quite frightened when she saw the great pile of shaggy wolves, but the Tin Woodman told her all.',
-			translate: '',
+			translate: 'Маленькая девочка сильно испугалась, увидев огромную кучу косматых волков, но Железный Дровосек всё ей рассказал.',
 		},
 		{
 			sentence:
 				'She thanked him for saving them and sat down to breakfast, after which they started again upon their journey.',
-			translate: '',
+			translate: 'Она поблагодарила его за спасение и села завтракать, после чего они снова отправились в путь.',
 		},
 		{
 			sentence:
 				'Now this same morning the Wicked Witch came to the door of her castle and looked out with her one eye that could see far off.',
-			translate: '',
+			translate: 'В то же утро Злая Ведьма вышла к дверям своего замка и взглянула своим единственным глазом, что видел далеко‑далеко.',
 		},
 		{
 			sentence: 'She saw all her wolves lying dead, and the strangers still traveling through her country.',
-			translate: '',
+			translate: 'Она увидела всех своих волков мёртвыми, а чужеземцы всё ещё шли по её земле.',
 		},
 		{
 			sentence: 'This made her angrier than before, and she blew her silver whistle twice.',
-			translate: '',
+			translate: 'От этого она рассердилась ещё сильнее и дважды свистнула в серебряный свисток.',
 		},
 		{
 			sentence: 'Straightway a great flock of wild crows came flying toward her, enough to darken the sky.',
-			translate: '',
+			translate: 'Сразу же к ней полетела огромная стая диких ворон, так большая, что потемнело небо.',
 		},
 		{
 			sentence:
 				'And the Wicked Witch said to the King Crow, “Fly at once to the strangers; peck out their eyes and tear them to pieces.” The wild crows flew in one great flock toward Dorothy and her companions.',
-			translate: '',
+			translate: 'И Злая Ведьма сказала Ворону‑королю: «Сию же минуту лети к чужеземцам, выклюй им глаза и разорви их на куски». Дикие вороны одной огромной стаей полетели к Дороти и её спутникам.',
 		},
 		{
 			sentence: 'When the little girl saw them coming she was afraid.',
-			translate: '',
+			translate: 'Увидев их, девочка испугалась.',
 		},
 		{
 			sentence:
 				'But the Scarecrow said, “This is my battle, so lie down beside me and you will not be harmed.” So they all lay upon the ground except the Scarecrow, and he stood up and stretched out his arms.',
-			translate: '',
+			translate: 'Но Пугало сказало: «Это моя битва; лягте рядом со мной — и вам ничего не будет». Все легли на землю, кроме Пугала; оно встало и раскинуло руки.',
 		},
 		{
 			sentence:
 				'And when the crows saw him they were frightened, as these birds always are by scarecrows, and did not dare to come any nearer.',
-			translate: '',
+			translate: 'И, завидев его, вороны испугались, как это всегда бывает с воронами при виде пугал, и не решались подлетать ближе.',
 		},
 		{
 			sentence: 'But the King Crow said: “It is only a stuffed man.',
-			translate: '',
+			translate: 'Но Ворон‑король сказал: «Да это же просто набитый соломой человечек.',
 		},
 		{
 			sentence:
 				'I will peck his eyes out.” The King Crow flew at the Scarecrow, who caught it by the head and twisted its neck until it died.',
-			translate: '',
+			translate: 'Сейчас я выклюю ему глаза». Ворон‑король кинулся на Пугало, но оно схватило его за голову и свернуло ему шею насмерть.',
 		},
 		{
 			sentence: 'And then another crow flew at him, and the Scarecrow twisted its neck also.',
-			translate: '',
+			translate: 'Тут на него налетел другой ворон — и Пугало свернуло шею и ему.',
 		},
 		{
 			sentence:
 				'There were forty crows, and forty times the Scarecrow twisted a neck, until at last all were lying dead beside him.',
-			translate: '',
+			translate: 'Воронов было сорок, и сорок раз Пугало сворачивало шеи — пока, наконец, все не лежали мёртвыми рядом с ним.',
 		},
 		{
 			sentence: 'Then he called to his companions to rise, and again they went upon their journey.',
-			translate: '',
+			translate: 'Тогда оно позвало товарищей подняться, и они снова двинулись в путь.',
 		},
 		{
 			sentence:
 				'When the Wicked Witch looked out again and saw all her crows lying in a heap, she got into a terrible rage, and blew three times upon her silver whistle.',
-			translate: '',
+			translate: 'Когда Злая Ведьма выглянула вновь и увидела своих ворон, сваленных кучей, её охватил страшный гнев, и она трижды свистнула в серебряный свисток.',
 		},
 		{
 			sentence:
 				'Forthwith there was heard a great buzzing in the air, and a swarm of black bees came flying toward her.',
-			translate: '',
+			translate: 'Тотчас в воздухе послышался громкий гул, и к ней подлетел рой чёрных пчёл.',
 		},
 		{
 			sentence:
 				'“Go to the strangers and sting them to death!” commanded the Witch, and the bees turned and flew rapidly until they came to where Dorothy and her friends were walking.',
-			translate: '',
+			translate: '«Летите к чужеземцам и ужальте их до смерти!» — приказала Ведьма, и пчёлы развернулись и стремительно полетели туда, где шли Дороти и её друзья.',
 		},
 		{
 			sentence: 'But the Woodman had seen them coming, and the Scarecrow had decided what to do.',
-			translate: '',
+			translate: 'Но Дровосек заметил их приближение, а Пугало уже решило, что делать.',
 		},
 		{
 			sentence:
 				'“Take out my straw and scatter it over the little girl and the dog and the Lion,” he said to the Woodman, “and the bees cannot sting them.” This the Woodman did, and as Dorothy lay close beside the Lion and held Toto in her arms, the straw covered them entirely.',
-			translate: '',
+			translate: '«Вытащи из меня солому и рассыпь её поверх девочки, собачки и Льва, — сказал он Дровосеку, — тогда пчёлы не смогут их жалить». Дровосек так и сделал; Дороти легла рядом со Львом и крепко прижала Тото, и солома полностью их укрыла.',
 		},
 		{
 			sentence:
 				'The bees came and found no one but the Woodman to sting, so they flew at him and broke off all their stings against the tin, without hurting the Woodman at all.',
-			translate: '',
+			translate: 'Пчёлы подлетели и не нашли никого, кроме Дровосека, чтобы жалить, — налетели на него и обломали все жала о жесть, нисколько его не повредив.',
 		},
 		{
 			sentence:
 				'And as bees cannot live when their stings are broken that was the end of the black bees, and they lay scattered thick about the Woodman, like little heaps of fine coal.',
-			translate: '',
+			translate: 'А так как пчёлы не могут жить с обломанными жалами, на этом пришёл конец чёрным пчёлам: они густо лежали вокруг Дровосека, словно маленькие кучки мелкого угля.',
 		},
 		{
 			sentence:
 				'Then Dorothy and the Lion got up, and the girl helped the Tin Woodman put the straw back into the Scarecrow again, until he was as good as ever.',
-			translate: '',
+			translate: 'Тогда Дороти и Лев поднялись, и девочка помогла Железному Дровосеку снова набить Пугало соломой — пока оно не стало таким же, как прежде.',
 		},
 		{
 			sentence: 'So they started upon their journey once more.',
-			translate: '',
+			translate: 'И они снова тронулись в путь.',
 		},
 		{
 			sentence:

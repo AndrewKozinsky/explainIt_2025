@@ -1,5 +1,5 @@
 export const chapter_6 = {
-	name: 'Move…',
+	name: 'Chapter VI',
 	header: 'The Cowardly Lion',
 	data: [
 		{
@@ -10,7 +10,7 @@ export const chapter_6 = {
 			sentence:
 				'The road was still paved with yellow brick, but these were much covered by dried branches and dead leaves from the trees, and the walking was not at all good.',
 			translate:
-				'Дорога всё ещё была вымощена жёлтым кирпичом, но его сильно покрывали сухие ветки и опавшие листья, и идти было совсем неудобно.',
+				'Дорога всё ещё была вымощена жёлтым кирпичом, но жёлтые кирпичи были сильно завалены сухими ветками и опавшими листьями, и идти было совсем неудобно.',
 		},
 		{
 			sentence:
@@ -74,7 +74,7 @@ export const chapter_6 = {
 			sentence:
 				'Little Toto, now that he had an enemy to face, ran barking toward the Lion, and the great beast had opened his mouth to bite the dog, when Dorothy, fearing Toto would be killed, and heedless of danger, rushed forward and slapped the Lion upon his nose as hard as she could, while she cried out: “Don’t you dare to bite Toto!',
 			translate:
-				'Маленький Тото, получив наконец противника, кинулся, лая, на Льва; зверь уже раскрыл пасть, чтобы схватить собачку, как Дороти, боясь, что Тото убьют, и не думая об опасности, бросилась вперёд и изо всех сил шлёпнула Льва по носу, крикнув: «Не смей кусать Тото!»,',
+				'Маленький Тото, получив наконец противника, кинулся, лая, на Льва; зверь уже раскрыл пасть, чтобы схватить собачку, как Дороти, боясь, что Тото убьют, и не думая об опасности, бросилась вперёд и изо всех сил шлёпнула Льва по носу, крикнув: «Не смей кусать Тото!»',
 		},
 		{
 			sentence:
@@ -114,7 +114,7 @@ export const chapter_6 = {
 		},
 		{
 			sentence: '“It astonished me to see him whirl around so.',
-			translate: '«Меня поразило, как он закрутился.»',
+			translate: '«Меня поразило, как он закрутился».',
 		},
 		{
 			sentence:
@@ -145,7 +145,7 @@ export const chapter_6 = {
 		},
 		{
 			sentence: 'He’s a—a—a meat dog,” said the girl.',
-			translate: 'Он... он... живой пёс», — сказала девочка.',
+			translate: '«Он... он... живой пёс», — сказала девочка.',
 		},
 		{
 			sentence: '“Oh!',
@@ -153,7 +153,7 @@ export const chapter_6 = {
 		},
 		{
 			sentence: 'He’s a curious animal and seems remarkably small, now that I look at him.',
-			translate: '«Забавное животное и кажется на редкость маленьким, если приглядеться.',
+			translate: '«Забавное животное и кажется на редкость маленьким, если приглядеться».',
 		},
 		{
 			sentence:
@@ -169,11 +169,11 @@ export const chapter_6 = {
 		},
 		{
 			sentence: '“It’s a mystery,” replied the Lion.',
-			translate: '«Это загадка, — ответил Лев.',
+			translate: '«Это загадка», — ответил Лев.',
 		},
 		{
 			sentence: '“I suppose I was born that way.',
-			translate: 'Думаю, я таким родился.',
+			translate: '«Думаю, я таким родился».',
 		},
 		{
 			sentence:
@@ -189,13 +189,13 @@ export const chapter_6 = {
 			sentence:
 				'Whenever I’ve met a man I’ve been awfully scared; but I just roared at him, and he has always run away as fast as he could go.',
 			translate:
-				'Когда я встречал человека, мне было ужасно страшно; но стоило мне зарычать, он всегда удирал что было сил.',
+				'Когда я встречал человека, мне было ужасно страшно; но стоило мне зарычать, он всегда удирал что есть мочи.',
 		},
 		{
 			sentence:
 				'If the elephants and the tigers and the bears had ever tried to fight me, I should have run myself—I’m such a coward; but just as soon as they hear me roar they all try to get away from me, and of course I let them go.” “But that isn’t right.',
 			translate:
-				'Если бы слоны, тигры и медведи хоть раз попытались со мной сразиться, я бы сам убежал — я такой трус; но как только они слышат мой рёв, сразу стараются смыться, и я, конечно, их отпускаю». — «Но это неправильно.',
+				'Если бы слоны, тигры и медведи хоть раз попытались со мной сразиться, я бы сам убежал — я такой трус; но как только они слышат мой рёв, сразу стараются убежать, и я, конечно, их отпускаю». — «Но это неправильно.',
 		},
 		{
 			sentence: 'The King of Beasts shouldn’t be a coward,” said the Scarecrow.',
@@ -286,7 +286,7 @@ export const chapter_6 = {
 		{
 			sentence:
 				'But after a time he became more at ease, and presently Toto and the Cowardly Lion had grown to be good friends.',
-			translate: 'Но вскоре он освоился, и вскоре Тото и Трусливый Лев стали хорошими друзьями.',
+			translate: 'Но вскоре он освоился, и Тото с Трусливым Львом стали хорошими друзьями.',
 		},
 		{
 			sentence: 'During the rest of that day there was no other adventure to mar the peace of their journey.',
@@ -338,13 +338,13 @@ export const chapter_6 = {
 			sentence:
 				'For if I should kill another bug or beetle I should surely cry again, and crying rusts my jaws so that I cannot speak.” Thereafter he walked very carefully, with his eyes on the road, and when he saw a tiny ant toiling by he would step over it, so as not to harm it.',
 			translate:
-				'Ведь если я опять раздавлю букашку или жука, я наверняка снова заплачу, а от слёз мои челюсти ржавеют, и я не могу говорить». После этого он шёл очень осторожно, глядя себе под ноги; завидев крошечную муравьишку, проходил шагом, чтобы не повредить ей.',
+				'Ведь если я опять раздавлю букашку или жука, я наверняка снова заплачу, а от слёз мои челюсти ржавеют, и я не могу говорить». После этого он шёл очень осторожно, глядя себе под ноги; завидев крошечную муравьишку, он перешагивал через неё, чтобы не навредить ей.',
 		},
 		{
 			sentence:
 				'The Tin Woodman knew very well he had no heart, and therefore he took great care never to be cruel or unkind to anything.',
 			translate:
-				'Железный Дровосек прекрасно знал, что у него нет сердца, и потому очень старался никогда не быть жестоким или грубым ни к чему.',
+				'Железный Дровосек прекрасно знал, что у него нет сердца, и потому очень старался никогда не быть жестоким или грубым ни к одному живому существу.',
 		},
 		{
 			sentence:

@@ -28,13 +28,13 @@ export const chapter_5 = {
 			sentence:
 				'“To wash my face clean after the dust of the road, and to drink, so the dry bread will not stick in my throat.” “It must be inconvenient to be made of flesh,” said the Scarecrow thoughtfully, “for you must sleep, and eat and drink.',
 			translate:
-				'«Чтобы умыть лицо после дорожной пыли и чтобы пить, иначе сухой хлеб будет застревать у меня в горле». — «Наверно, неудобно быть сделанной из плоти, — задумчиво сказал Пугало, — ведь тебе нужно спать, есть и пить.',
+				'«Чтобы умыть лицо после дорожной пыли и чтобы пить, иначе сухой хлеб будет застревать у меня в горле». — «Наверное, неудобно быть сделанной из плоти, — задумчиво сказал Пугало, — ведь тебе нужно спать, есть и пить.',
 		},
 		{
 			sentence:
 				'However, you have brains, and it is worth a lot of bother to be able to think properly.” They left the cottage and walked through the trees until they found a little spring of clear water, where Dorothy drank and bathed and ate her breakfast.',
 			translate:
-				'Однако у тебя есть мозги, а ради умения правильно думать стоит терпеть многие неудобства». Они вышли из избушки и пошли меж деревьев, пока не нашли маленький ключ с чистой водой; там Дороти напилась, умылась и позавтракала.',
+				'Однако у тебя есть мозги, а ради умения правильно думать стоит терпеть многие неудобства». Они вышли из избушки и пошли между деревьями, пока не нашли маленький ключ с чистой водой; там Дороти напилась, умылась и позавтракала.',
 		},
 		{
 			sentence:
@@ -46,7 +46,7 @@ export const chapter_5 = {
 			sentence:
 				'When she had finished her meal, and was about to go back to the road of yellow brick, she was startled to hear a deep groan near by.',
 			translate:
-				'Когда она закончила еду и уже собиралась вернуться на жёлтую дорогу, её вдруг испугал глубокий стон неподалёку.',
+				'Когда она закончила еду и уже собиралась вернуться на жёлтую кирпичную дорогу, её вдруг испугал глубокий стон неподалёку.',
 		},
 		{
 			sentence: '“What was that?” she asked timidly.',
@@ -84,7 +84,7 @@ export const chapter_5 = {
 			sentence:
 				'Dorothy looked at him in amazement, and so did the Scarecrow, while Toto barked sharply and made a snap at the tin legs, which hurt his teeth.',
 			translate:
-				'Дороти изумлённо уставилась на него, и Пугало тоже; а Тото заливисто лаял и щёлкнул зубами у жестяных ног, о которые тут же ушиб себе зубы.',
+				'Дороти изумлённо уставилась на него, и Пугало тоже; а Тото заливисто лаял и попробовал цапнуть жестяные ноги — да только о них тут же ушиб себе зубы.',
 		},
 		{
 			sentence: '“Did you groan?” asked Dorothy.',
@@ -92,7 +92,7 @@ export const chapter_5 = {
 		},
 		{
 			sentence: '“Yes,” answered the tin man, “I did.',
-			translate: '«Да, — ответил жестяной человек, — я.',
+			translate: '«Да, — ответил Железный Дровосек, — это я.',
 		},
 		{
 			sentence:
@@ -120,7 +120,7 @@ export const chapter_5 = {
 			sentence:
 				'So she oiled it, and as it was quite badly rusted the Scarecrow took hold of the tin head and moved it gently from side to side until it worked freely, and then the man could turn it himself.',
 			translate:
-				'Она смазала её, и, поскольку ржавчина была сильной, Пугало взялся за жестяную голову и осторожно покачивал её из стороны в сторону, пока та не начала свободно вращаться; тогда мужчина смог поворачивать её сам.',
+				'Она смазала её, и, так как шея сильно заржавела, Пугало взялся за жестяную голову и осторожно покачивал её из стороны в сторону, пока та не начала свободно вращаться; тогда Железный Дровосек смог поворачивать её сам.',
 		},
 		{
 			sentence: '“Now oil the joints in my arms,” he said.',
@@ -150,7 +150,7 @@ export const chapter_5 = {
 			sentence:
 				'Now, if you will oil the joints of my legs, I shall be all right once more.” So they oiled his legs until he could move them freely; and he thanked them again and again for his release, for he seemed a very polite creature, and very grateful.',
 			translate:
-				'А теперь, если смажете суставы на моих ногах, я снова буду совсем как прежде». Они смазали и ноги, пока он не смог свободно ими двигать; он снова и снова благодарил их за освобождение, ибо он оказался очень вежливым и признательным существом.',
+				'А теперь, если смажете суставы на моих ногах, я снова буду совсем как прежде». Они смазали и ноги, пока он не смог свободно ими двигать; он снова и снова благодарил их за освобождение — он оказался очень вежливым и признательным существом.',
 		},
 		{
 			sentence:
@@ -186,7 +186,7 @@ export const chapter_5 = {
 			sentence:
 				'“So, if you will allow me to join your party, I will also go to the Emerald City and ask Oz to help me.” “Come along,” said the Scarecrow heartily, and Dorothy added that she would be pleased to have his company.',
 			translate:
-				'«Тогда, если позволите, я присоединюсь к вам; я тоже пойду в Изумрудный город просить Оза помочь мне». — «Пойдём», — сердечно сказал Пугало, а Дороти добавила, что будет рада его компании.',
+				'«Тогда, если позволите, я присоединюсь к вам; я тоже пойду в Изумрудный город просить Оза помочь мне». — «Пойдём», — сердечно сказал Пугало, а Дороти добавила, что будет рада его обществу.',
 		},
 		{
 			sentence:
@@ -282,7 +282,7 @@ export const chapter_5 = {
 			sentence:
 				'But the girl lived with an old woman who did not want her to marry anyone, for she was so lazy she wished the girl to remain with her and do the cooking and the housework.',
 			translate:
-				'Но девушка жила со старой женщиной, которая не хотела, чтобы она за кого‑нибудь выходила: лентяйка хотела, чтобы девушка оставалась с ней, готовила и вела хозяйство.',
+				'Но девушка жила со старой женщиной, которая не хотела, чтобы она за кого‑нибудь выходила: она была столь ленива, что хотела, чтобы девушка оставалась с ней, готовила и вела хозяйство.',
 		},
 		{
 			sentence:
@@ -344,7 +344,7 @@ export const chapter_5 = {
 			sentence:
 				'“I thought I had beaten the Wicked Witch then, and I worked harder than ever; but I little knew how cruel my enemy could be.',
 			translate:
-				'«Мне казалось, что я победил Злую Ведьму и работал ещё усерднее; но я и не предполагал, насколько жестокой может быть моя врагиня.',
+				'«Мне казалось, что я победил Злую Ведьму и работал ещё усерднее; но я и не предполагал, насколько жестокой может быть моя противница.',
 		},
 		{
 			sentence:
@@ -412,7 +412,7 @@ export const chapter_5 = {
 			sentence:
 				'“All the same,” said the Scarecrow, “I shall ask for brains instead of a heart; for a fool would not know what to do with a heart if he had one.” “I shall take the heart,” returned the Tin Woodman; “for brains do not make one happy, and happiness is the best thing in the world.” Dorothy did not say anything, for she was puzzled to know which of her two friends was right, and she decided if she could only get back to Kansas and Aunt Em, it did not matter so much whether the Woodman had no brains and the Scarecrow no heart, or each got what he wanted.',
 			translate:
-				'«А я всё равно попрошу мозги, а не сердце, — сказал Пугало, — ведь дурак не знал бы, что делать с сердцем, даже если бы оно у него было». — «А я выберу сердце, — возразил Железный Дровосек, — потому что мозги не делают человека счастливым, а счастье — лучшее в мире». Дороти ничего не сказала: ей было трудно решить, кто из друзей прав; она подумала, что если только удастся вернуться в Канзас к тёте Эм, то уже не так важно, будет ли у Дровосека без мозгов, а у Пугала без сердца, или же они оба получат, чего хотят.',
+				'«А я всё равно попрошу мозги, а не сердце, — сказал Пугало, — ведь дурак не знал бы, что делать с сердцем, даже если бы оно у него было». — «А я выберу сердце, — возразил Железный Дровосек, — потому что мозги не делают человека счастливым, а счастье — лучшее в мире». Дороти ничего не сказала: ей было трудно решить, кто из друзей прав; она подумала, что если только удастся вернуться в Канзас к тёте Эм, то уже не так важно, останется ли Дровосек без мозгов, а Пугало — без сердца, или же оба получат, чего хотят.',
 		},
 		{
 			sentence:

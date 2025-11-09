@@ -7,7 +7,7 @@
 	// Поэтому 10 пикселей будет 62.5%.
 	// Размер в процентах указывается для слабовидящих у которых в браузере стоит увеличенный шрифт.
 	font-size: 62.5%;
-	--reading-page-chapter-horizontal-padding: #{vars.$reading-page-chapter-horizontal-padding};
+	--reading-page-chapter-horizontal-padding: 2%;
 }
 
 @include mix.page-width(500px) {
@@ -17,7 +17,7 @@
 }
 @include mix.page-width(vars.$monitor-width) {
   	:root {
-  		--reading-page-chapter-horizontal-padding: 2.8rem;
+  		--reading-page-chapter-horizontal-padding: 3.4rem;
   	}
 }
 @font-face {

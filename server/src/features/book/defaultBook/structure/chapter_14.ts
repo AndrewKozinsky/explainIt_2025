@@ -180,7 +180,7 @@ export const chapter_14 = {
 		},
 		{ sentence: '“Hil-lo, hol-lo, hel-lo!” Dorothy went on, standing this time on her right foot.', translate: '«Хил‑ло, хол‑ло, хел‑ло!» — продолжала Дороти, стоя теперь на правой ноге.' },
 		{ sentence: '“Hello!” replied the Tin Woodman calmly.', translate: '«Привет!» — спокойно откликнулся Железный Дровосек.' },
-		{ sentence: '“Ziz-zy, zuz-zy, zik!” said Dorothy, who was now standing on both feet.', translate: '«Зиз‑зи, zuz‑зи, зик!» — сказала Дороти, уже стоя на обеих ногах.' },
+		{ sentence: '“Ziz-zy, zuz-zy, zik!” said Dorothy, who was now standing on both feet.', translate: '«Зиз‑зи, зуз‑зи, зик!» — сказала Дороти, уже стоя на обеих ногах.' },
 		{
 			sentence:
 				'This ended the saying of the charm, and they heard a great chattering and flapping of wings, as the band of Winged Monkeys flew up to them.',

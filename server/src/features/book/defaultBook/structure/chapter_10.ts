@@ -28,7 +28,7 @@ export const chapter_10 = {
 			sentence:
 				'But, comrades, what shall we do now?” “We must journey on until we find the road of yellow brick again,” said Dorothy, “and then we can keep on to the Emerald City.” So, the Lion being fully refreshed, and feeling quite himself again, they all started upon the journey, greatly enjoying the walk through the soft, fresh grass; and it was not long before they reached the road of yellow brick and turned again toward the Emerald City where the Great Oz dwelt.',
 			translate:
-				'Но, товарищи, что же нам теперь делать?» — «Мы должны идти дальше, пока снова не найдём дорогу из жёлтого кирпича, — сказала Дороти, — а потом продолжим путь к Изумрудному городу». Лев полностью пришёл в себя и, чувствуя себя вновь прежним, они все отправились в путь, с удовольствием шагая по мягкой свежей траве; и вскоре они дошли до дороги из жёлтого кирпича и вновь повернули к Изумрудному городу, где обитал Великий Оз.',
+				'Но, товарищи, что же нам теперь делать?» — «Мы должны идти дальше, пока снова не найдём жёлтую кирпичную дорогу, — сказала Дороти, — а потом продолжим путь к Изумрудному городу». Лев полностью пришёл в себя и, чувствуя себя вновь прежним, они все отправились в путь, с удовольствием шагая по мягкой свежей траве; и вскоре они дошли до жёлтой кирпичной дороги и вновь повернули к Изумрудному городу, где обитал Великий Оз.',
 		},
 		{
 			sentence:
@@ -161,7 +161,7 @@ export const chapter_10 = {
 		{
 			sentence: '“He has more brains than he needs.” “And I want him to give me a heart,” said the Tin Woodman.',
 			translate:
-				'«У него мозгов больше, чем ему нужно». — «А я хочу, чтобы он дал мне сердце», — сказал Жестяной Дровосек.',
+				'«У него мозгов больше, чем ему нужно». — «А я хочу, чтобы он дал мне сердце», — сказал Железный Дровосек.',
 		},
 		{
 			sentence:
@@ -222,7 +222,7 @@ export const chapter_10 = {
 		},
 		{
 			sentence: 'The Scarecrow and the Tin Woodman ate nothing at all.',
-			translate: 'Пугало и Жестяной Дровосек вовсе ничего не ели.',
+			translate: 'Пугало и Железный Дровосек вовсе ничего не ели.',
 		},
 		{
 			sentence: 'Toto ate a little of everything, and was glad to get a good supper again.',
@@ -238,7 +238,7 @@ export const chapter_10 = {
 			sentence:
 				'The Scarecrow and the Tin Woodman stood up in a corner and kept quiet all night, although of course they could not sleep.',
 			translate:
-				'Пугало и Жестяной Дровосек стояли в углу и всю ночь вели себя тихо, хотя спать, конечно, не могли.',
+				'Пугало и Железный Дровосек стояли в углу и всю ночь вели себя тихо, хотя спать, конечно, не могли.',
 		},
 		{
 			sentence:
@@ -268,12 +268,12 @@ export const chapter_10 = {
 			sentence:
 				'In front of them, and at the end of the road of yellow brick, was a big gate, all studded with emeralds that glittered so in the sun that even the painted eyes of the Scarecrow were dazzled by their brilliancy.',
 			translate:
-				'Перед ними, в конце дороги из жёлтого кирпича, были большие ворота, усыпанные изумрудами, которые так сверкали на солнце, что даже нарисованные глаза Пугала были ослеплены их блеском.',
+				'Перед ними, в конце жёлтой кирпичной дороги, были большие ворота, усыпанные изумрудами, которые так сверкали на солнце, что даже нарисованные глаза Пугала были ослеплены их блеском.',
 		},
 		{
 			sentence:
 				'There was a bell beside the gate, and Dorothy pushed the button and heard a silvery tinkle sound within.',
-			translate: 'Рядом с воротами висел колокол; Дороти нажала кнопку и услышала внутри серебристый перезвон.',
+			translate: 'Рядом с воротами висел колокол; Дороти нажала кнопку звонка и услышала внутри серебристый перезвон.',
 		},
 		{
 			sentence:
@@ -376,7 +376,7 @@ export const chapter_10 = {
 			sentence:
 				'Then the green man fitted spectacles for the Scarecrow and the Tin Woodman and the Lion, and even on little Toto; and all were locked fast with the key.',
 			translate:
-				'Затем зелёный человечек подобрал очки для Пугала, Жестяного Дровосека и Льва, и даже для маленького Тото; и все они были крепко заперты ключом.',
+				'Затем зелёный человечек подобрал очки для Пугала, Железного Дровосека и Льва, и даже для маленького Тото; и все они были крепко заперты ключом.',
 		},
 		{
 			sentence:

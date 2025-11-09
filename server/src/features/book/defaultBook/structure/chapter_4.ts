@@ -6,19 +6,19 @@ export const chapter_4 = {
 			sentence:
 				'After a few hours the road began to be rough, and the walking grew so difficult that the Scarecrow often stumbled over the yellow bricks, which were here very uneven.',
 			translate:
-				'Через несколько часов дорога стала неровной, и идти было так трудно, что Пугало часто спотыкался о жёлтые кирпичи, которые здесь лежали очень неровно.',
+				'Через несколько часов дорога стала неровной, и идти было так трудно, что Пугало часто спотыкался о жёлтые кирпичи, которые здесь были уложены очень неровно.',
 		},
 		{
 			sentence:
 				'Sometimes, indeed, they were broken or missing altogether, leaving holes that Toto jumped across and Dorothy walked around.',
 			translate:
-				'Иногда они и вовсе оказывались сломанными или отсутствовали, оставляя ямы, через которые Тото перепрыгивал, а Дороти обходила.',
+				'Иногда они и вовсе оказывались сломанными или отсутствовали, оставляя ямы, через которые Тото перепрыгивал, а Дороти обходила их.',
 		},
 		{
 			sentence:
 				'As for the Scarecrow, having no brains, he walked straight ahead, and so stepped into the holes and fell at full length on the hard bricks.',
 			translate:
-				'Что до Пугала, то, не имея мозгов, он шёл прямо вперёд, поэтому наступал в ямы и растягивался во весь рост на твёрдых кирпичах.',
+				'Что до Пугала, то, не имея мозгов, он шёл прямо вперёд, поэтому проваливался в ямы и растягивался во весь рост на твёрдых кирпичах.',
 		},
 		{
 			sentence:
@@ -28,7 +28,7 @@ export const chapter_4 = {
 		},
 		{
 			sentence: 'The farms were not nearly so well cared for here as they were farther back.',
-			translate: 'Здесь за фермами ухаживали куда хуже, чем раньше по пути.',
+			translate: 'Здесь за фермами ухаживали куда хуже, чем в тех местах, что остались позади.',
 		},
 		{
 			sentence:
@@ -50,7 +50,7 @@ export const chapter_4 = {
 			sentence:
 				'“I am never hungry,” he said, “and it is a lucky thing I am not, for my mouth is only painted, and if I should cut a hole in it so I could eat, the straw I am stuffed with would come out, and that would spoil the shape of my head.” Dorothy saw at once that this was true, so she only nodded and went on eating her bread.',
 			translate:
-				'«Я никогда не бываю голоден, — сказал он, — и это к счастью, ведь мой рот только нарисован; если вырезать в нём дырку, чтобы я мог есть, солома, которой я набит, вылезет, и форма моей головы испортится». Дороти сразу поняла, что это правда, кивнула и продолжила есть свой хлеб.',
+				'«Я никогда не бываю голоден, — сказал он, — и это даже к счастью, ведь мой рот только нарисован; если вырезать в нём дырку, чтобы я мог есть, солома, которой я набит, высыплется, и форма моей головы испортится». Дороти сразу поняла, что это правда, кивнула и продолжила есть свой хлеб.',
 		},
 		{
 			sentence:
@@ -62,7 +62,7 @@ export const chapter_4 = {
 			sentence:
 				'So she told him all about Kansas, and how gray everything was there, and how the cyclone had carried her to this queer Land of Oz.',
 			translate:
-				'Тогда она рассказала ему всё о Канзасе, о том, какой там всё серый, и как циклон занёс её в эту странную Страну Оз.',
+				'Тогда она рассказала ему всё о Канзасе, о том, какое там всё серое, и как циклон занёс её в эту странную Страну Оз.',
 		},
 		{
 			sentence:
@@ -78,7 +78,7 @@ export const chapter_4 = {
 		},
 		{
 			sentence: 'There is no place like home.” The Scarecrow sighed.',
-			translate: 'Нет места лучше дома», — вздохнул Пугало.',
+			translate: '«Нет места лучше дома», — сказала Дороти. Пугало вздохнул.',
 		},
 		{
 			sentence: '“Of course I cannot understand it,” he said.',
@@ -222,7 +222,7 @@ export const chapter_4 = {
 			sentence:
 				'The other birds, seeing he was not harmed by me, came to eat the corn too, so in a short time there was a great flock of them about me.',
 			translate:
-				'Другие птицы, увидев, что я его не тронул, тоже прилетели клевать кукурузу, и очень скоро вокруг меня собралось целое стадо.',
+				'Другие птицы, увидев, что я его не тронул, тоже прилетели клевать кукурузу, и очень скоро вокруг меня собралась целая стая.',
 		},
 		{
 			sentence:
@@ -256,7 +256,7 @@ export const chapter_4 = {
 			sentence:
 				'Toward evening they came to a great forest, where the trees grew so big and close together that their branches met over the road of yellow brick.',
 			translate:
-				'К вечеру они подошли к большому лесу, где деревья росли такими большими и близкими рядами, что их ветви сходились над жёлтой кирпичной дорогой.',
+				'К вечеру они подошли к большому лесу, где деревья росли такими большими и так тесно, что их ветви смыкались над жёлтой кирпичной дорогой.',
 		},
 		{
 			sentence:
@@ -312,7 +312,7 @@ export const chapter_4 = {
 		},
 		{
 			sentence: 'She lay down at once, and with Toto beside her soon fell into a sound sleep.',
-			translate: 'Она сразу легла и вскоре крепко заснула, Тото устроился рядом.',
+			translate: 'Она сразу легла и вскоре крепко заснула, а Тото устроился рядом.',
 		},
 		{
 			sentence:

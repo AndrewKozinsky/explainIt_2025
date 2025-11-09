@@ -22,7 +22,7 @@ export const chapter_8 = {
 			sentence:
 				'But the raft was nearly done, and after the Tin Woodman had cut a few more logs and fastened them together with wooden pins, they were ready to start.',
 			translate:
-				'Но плот был почти готов, и, когда Жестяной Дровосек нарубил ещё несколько брёвен и скрепил их деревянными штырями, они были готовы отплывать.',
+				'Но плот был почти готов, и, когда Железный Дровосек нарубил ещё несколько брёвен и скрепил их деревянными штырями, они были готовы отплывать.',
 		},
 		{
 			sentence: 'Dorothy sat down in the middle of the raft and held Toto in her arms.',
@@ -32,13 +32,13 @@ export const chapter_8 = {
 			sentence:
 				'When the Cowardly Lion stepped upon the raft it tipped badly, for he was big and heavy; but the Scarecrow and the Tin Woodman stood upon the other end to steady it, and they had long poles in their hands to push the raft through the water.',
 			translate:
-				'Когда Трусливый Лев ступил на плот, тот сильно накренился — Лев был большой и тяжёлый; но Пугало и Жестяной Дровосек встали на другой конец, чтобы удержать равновесие, и взяли в руки длинные шесты, чтобы толкать плот по воде.',
+				'Когда Трусливый Лев ступил на плот, тот сильно накренился — Лев был большой и тяжёлый; но Пугало и Железный Дровосек встали на другой конец, чтобы удержать равновесие, и взяли в руки длинные шесты, чтобы толкать плот по воде.',
 		},
 		{
 			sentence:
 				'They got along quite well at first, but when they reached the middle of the river the swift current swept the raft downstream, farther and farther away from the road of yellow brick.',
 			translate:
-				'Сначала всё шло довольно хорошо, но когда они доплыли до середины реки, быстрое течение понесло плот вниз по течению, всё дальше и дальше от дороги из жёлтого кирпича.',
+				'Сначала всё шло довольно хорошо, но когда они доплыли до середины реки, быстрое течение понесло плот вниз по течению, всё дальше и дальше от жёлтой кирпичной дороги.',
 		},
 		{
 			sentence: 'And the water grew so deep that the long poles would not touch the bottom.',
@@ -48,7 +48,7 @@ export const chapter_8 = {
 			sentence:
 				'“This is bad,” said the Tin Woodman, “for if we cannot get to the land we shall be carried into the country of the Wicked Witch of the West, and she will enchant us and make us her slaves.” “And then I should get no brains,” said the Scarecrow.',
 			translate:
-				'«Дело плохо, — сказал Жестяной Дровосек. — Если мы не сможем добраться до берега, нас унесёт в страну Злой Ведьмы Запада, и она околдует нас и обратит в своих рабов». — «А тогда я так и не получу мозгов», — сказал Пугало.',
+				'«Дело плохо, — сказал Железный Дровосек. — Если мы не сможем добраться до берега, нас унесёт в страну Злой Ведьмы Запада, и она околдует нас и обратит в своих рабов». — «А тогда я так и не получу мозгов», — сказал Пугало.',
 		},
 		{
 			sentence: '“And I should get no courage,” said the Cowardly Lion.',
@@ -56,7 +56,7 @@ export const chapter_8 = {
 		},
 		{
 			sentence: '“And I should get no heart,” said the Tin Woodman.',
-			translate: '«А я не получу сердца», — сказал Жестяной Дровосек.',
+			translate: '«А я не получу сердца», — сказал Железный Дровосек.',
 		},
 		{
 			sentence: '“And I should never get back to Kansas,” said Dorothy.',
@@ -82,7 +82,7 @@ export const chapter_8 = {
 			sentence:
 				'Indeed, the Tin Woodman began to cry, but fortunately remembered that he might rust, and so dried his tears on Dorothy’s apron.',
 			translate:
-				'Жестяной Дровосек даже расплакался, но, к счастью, вовремя вспомнил, что может заржаветь, и вытер слёзы о фартук Дороти.',
+				'Железный Дровосек даже расплакался, но, к счастью, вовремя вспомнил, что может заржаветь, и вытер слёзы о фартук Дороти.',
 		},
 		{
 			sentence: 'Of course this was a bad thing for the Scarecrow.',
@@ -116,7 +116,7 @@ export const chapter_8 = {
 			sentence:
 				'I think I can swim to the shore and pull the raft after me, if you will only hold fast to the tip of my tail.” So he sprang into the water, and the Tin Woodman caught fast hold of his tail.',
 			translate:
-				'Думаю, я смогу доплыть до берега и потянуть за собой плот, если вы только крепко удержитесь за кончик моего хвоста». С этими словами он прыгнул в воду, а Жестяной Дровосек крепко ухватился за его хвост.',
+				'Думаю, я смогу доплыть до берега и потянуть за собой плот, если вы только крепко удержитесь за кончик моего хвоста». С этими словами он прыгнул в воду, а Железный Дровосек крепко ухватился за его хвост.',
 		},
 		{
 			sentence: 'Then the Lion began to swim with all his might toward the shore.',
@@ -126,19 +126,19 @@ export const chapter_8 = {
 			sentence:
 				'It was hard work, although he was so big; but by and by they were drawn out of the current, and then Dorothy took the Tin Woodman’s long pole and helped push the raft to the land.',
 			translate:
-				'Это было нелёгкое дело, хотя он был очень большой; но вскоре их вынесло из быстрого течения, и тогда Дороти взяла длинный шест Жестяного Дровосека и помогла подтолкнуть плот к берегу.',
+				'Это было нелёгкое дело, хотя он был очень велик; но вскоре их вынесло из быстрого течения, и тогда Дороти взяла длинный шест Железного Дровосека и помогла подтолкнуть плот к берегу.',
 		},
 		{
 			sentence:
 				'They were all tired out when they reached the shore at last and stepped off upon the pretty green grass, and they also knew that the stream had carried them a long way past the road of yellow brick that led to the Emerald City.',
 			translate:
-				'Когда наконец они достигли берега и сошли на красивую зелёную траву, все были совершенно вымотаны, и к тому же знали, что течение унесло их далеко мимо дороги из жёлтого кирпича, ведущей к Изумрудному городу.',
+				'Когда наконец они достигли берега и сошли на красивую зелёную траву, все были совершенно вымотаны, и к тому же знали, что течение унесло их далеко мимо жёлтой кирпичной дороги, ведущей к Изумрудному городу.',
 		},
 		{
 			sentence:
 				'“What shall we do now?” asked the Tin Woodman, as the Lion lay down on the grass to let the sun dry him.',
 			translate:
-				'«Что же нам теперь делать?» — спросил Жестяной Дровосек, а Лев лёг на траву, чтобы солнце его обсушило.',
+				'«Что же нам теперь делать?» — спросил Железный Дровосек, а Лев лёг на траву, чтобы солнце его обсушило.',
 		},
 		{
 			sentence: '“We must get back to the road, in some way,” said Dorothy.',
@@ -165,7 +165,7 @@ export const chapter_8 = {
 			sentence:
 				'They walked along as fast as they could, Dorothy only stopping once to pick a beautiful flower; and after a time the Tin Woodman cried out: “Look!” Then they all looked at the river and saw the Scarecrow perched upon his pole in the middle of the water, looking very lonely and sad.',
 			translate:
-				'Они шли так быстро, как могли; Дороти лишь раз остановилась, чтобы сорвать прекрасный цветок. И вскоре Жестяной Дровосек вскрикнул: «Смотрите!» Все обернулись к реке и увидели Пугало, сидевшего на своём шесте посреди воды, такое одинокое и печальное.',
+				'Они шли так быстро, как могли; Дороти лишь раз остановилась, чтобы сорвать прекрасный цветок. И вскоре Железный Дровосек вскрикнул: «Смотрите!» Все обернулись к реке и увидели Пугало, сидевшее на своём шесте посреди воды, такое одинокое и печальное.',
 		},
 		{
 			sentence: '“What can we do to save him?” asked Dorothy.',
@@ -183,13 +183,13 @@ export const chapter_8 = {
 		},
 		{
 			sentence: '“Who are you and where are you going?” asked the Stork.',
-			translate: '«Кто вы и куда идёте?» — спросил Аист.',
+			translate: '«Кто вы и куда идёте?» — спросила Аистиха.',
 		},
 		{
 			sentence:
 				'“I am Dorothy,” answered the girl, “and these are my friends, the Tin Woodman and the Cowardly Lion; and we are going to the Emerald City.” “This isn’t the road,” said the Stork, as she twisted her long neck and looked sharply at the queer party.',
 			translate:
-				'«Я Дороти, — ответила девочка, — а это мои друзья, Жестяной Дровосек и Трусливый Лев; мы идём в Изумрудный город». — «Это не та дорога», — сказала Аистиха, изогнув длинную шею и пристально оглядев эту странную компанию.',
+				'«Я Дороти, — ответила девочка, — а это мои друзья, Железный Дровосек и Трусливый Лев; мы идём в Изумрудный город». — «Это не та дорога», — сказала Аистиха, изогнув длинную шею и пристально оглядев эту странную компанию.',
 		},
 		{
 			sentence:
@@ -215,7 +215,7 @@ export const chapter_8 = {
 			sentence:
 				'Then the Stork with her great claws grabbed the Scarecrow by the arm and carried him up into the air and back to the bank, where Dorothy and the Lion and the Tin Woodman and Toto were sitting.',
 			translate:
-				'Затем Аистиха своими мощными когтями схватила Пугало за руку, подняла его в воздух и перенесла на берег, где сидели Дороти, Лев, Жестяной Дровосек и Тото.',
+				'Затем Аистиха своими мощными когтями схватила Пугало за руку, подняла его в воздух и перенесла на берег, где сидели Дороти, Лев, Железный Дровосек и Тото.',
 		},
 		{
 			sentence:
@@ -268,7 +268,7 @@ export const chapter_8 = {
 			sentence:
 				'“When I have brains, I shall probably like them better.” “If I only had a heart, I should love them,” added the Tin Woodman.',
 			translate:
-				'«Когда у меня будут мозги, вероятно, они понравятся мне ещё больше». — «Если бы у меня было сердце, я бы их полюбил», — добавил Жестяной Дровосек.',
+				'«Когда у меня будут мозги, вероятно, они понравятся мне ещё больше». — «Если бы у меня было сердце, я бы их полюбил», — добавил Железный Дровосек.',
 		},
 		{
 			sentence: '“I always did like flowers,” said the Lion.',
@@ -298,13 +298,13 @@ export const chapter_8 = {
 		},
 		{
 			sentence: 'But the Tin Woodman would not let her do this.',
-			translate: 'Но Жестяной Дровосек не позволил ей этого.',
+			translate: 'Но Железный Дровосек не позволил ей этого.',
 		},
 		{
 			sentence:
 				'“We must hurry and get back to the road of yellow brick before dark,” he said; and the Scarecrow agreed with him.',
 			translate:
-				'«Нам нужно поторопиться и вернуться на дорогу из жёлтого кирпича до темноты», — сказал он, и Пугало с ним согласилось.',
+				'«Нам нужно поторопиться и вернуться на жёлтую кирпичную дорогу до темноты», — сказал он, и Пугало с ним согласилось.',
 		},
 		{
 			sentence: 'So they kept walking until Dorothy could stand no longer.',
@@ -317,7 +317,7 @@ export const chapter_8 = {
 		},
 		{
 			sentence: '“What shall we do?” asked the Tin Woodman.',
-			translate: '«Что нам делать?» — спросил Жестяной Дровосек.',
+			translate: '«Что нам делать?» — спросил Железный Дровосек.',
 		},
 		{
 			sentence: '“If we leave her here she will die,” said the Lion.',
@@ -331,12 +331,12 @@ export const chapter_8 = {
 			sentence:
 				'I myself can scarcely keep my eyes open, and the dog is asleep already.” It was true; Toto had fallen down beside his little mistress.',
 			translate:
-				'Я сам едва держу глаза открытыми, а собачка уже заснула». Это было правда: Тото повалился рядом со своей маленькой хозяйкой.',
+				'Я сам едва держу глаза открытыми, а собачка уже заснула». Это было правдой: Тото повалился рядом со своей маленькой хозяйкой.',
 		},
 		{
 			sentence:
 				'But the Scarecrow and the Tin Woodman, not being made of flesh, were not troubled by the scent of the flowers.',
-			translate: 'Но Пугало и Жестяной Дровосек, поскольку они не из плоти, не страдали от запаха цветов.',
+			translate: 'Но Пугало и Железный Дровосек, поскольку они не из плоти, не страдали от запаха цветов.',
 		},
 		{
 			sentence:
@@ -385,7 +385,7 @@ export const chapter_8 = {
 		{
 			sentence: '“We can do nothing for him,” said the Tin Woodman, sadly; “for he is much too heavy to lift.',
 			translate:
-				'«Мы ничего не можем для него сделать, — печально сказал Жестяной Дровосек, — он слишком тяжёл, чтобы поднять.',
+				'«Мы ничего не можем для него сделать, — печально сказал Железный Дровосек, — он слишком тяжёл, чтобы поднять.',
 		},
 		{
 			sentence:

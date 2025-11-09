@@ -14,7 +14,7 @@ export const chapter_3 = {
 			sentence:
 				'She gave some to Toto, and taking a pail from the shelf she carried it down to the little brook and filled it with clear, sparkling water.',
 			translate:
-				'Она дала немного Тото и, взяв с полки вёдрышко, отнесла его к ручью и наполнила чистой искрящейся водой.',
+				'Она дала Тото немного и, взяв с полки вёдрышко, отнесла его к ручью и наполнила его чистой, искрящейся водой.',
 		},
 		{
 			sentence: 'Toto ran over to the trees and began to bark at the birds sitting there.',
@@ -24,13 +24,13 @@ export const chapter_3 = {
 			sentence:
 				'Dorothy went to get him, and saw such delicious fruit hanging from the branches that she gathered some of it, finding it just what she wanted to help out her breakfast.',
 			translate:
-				'Дороти пошла за ним и увидела на ветвях такие аппетитные плоды, что сорвала немного — как раз то, что хотелось добавить к завтраку.',
+				'Дороти пошла за ним и увидела на ветвях такие аппетитные плоды, что сорвала немного — как раз то, чего хотелось добавить к завтраку.',
 		},
 		{
 			sentence:
 				'Then she went back to the house, and having helped herself and Toto to a good drink of the cool, clear water, she set about making ready for the journey to the City of Emeralds.',
 			translate:
-				'Потом она вернулась в дом и, напоив себя и Тото прохладной чистой водой, принялась готовиться к пути в Изумрудный город.',
+				'Потом она вернулась в дом и, напоив себя и Тото прохладной, чистой водой, принялась готовиться к пути в Изумрудный город.',
 		},
 		{
 			sentence:
@@ -42,13 +42,13 @@ export const chapter_3 = {
 			sentence:
 				'It was gingham, with checks of white and blue; and although the blue was somewhat faded with many washings, it was still a pretty frock.',
 			translate:
-				'Это был ситцевый сарафан в бело‑синюю клетку; и хотя синий немного выцвел от многочисленных стирок, платье всё равно было милым.',
+				'Это было платье из гингема в бело‑синюю клетку; и хотя синий немного выцвел от многочисленных стирок, платье всё равно было милым.',
 		},
 		{
 			sentence:
 				'The girl washed herself carefully, dressed herself in the clean gingham, and tied her pink sunbonnet on her head.',
 			translate:
-				'Девочка тщательно умылась, надела чистое клетчатое платье и повязала на голову розовую косынку от солнца.',
+				'Девочка тщательно умылась, надела чистое клетчатое платье и повязала на голову розовый капор.',
 		},
 		{
 			sentence:
@@ -99,7 +99,7 @@ export const chapter_3 = {
 		},
 		{
 			sentence: 'And so, with Toto trotting along soberly behind her, she started on her journey.',
-			translate: 'И так, с Тото, серьёзно семенившим следом, она отправилась в путь.',
+			translate: 'И вот, с Тото, серьёзно семенившим следом, она отправилась в путь.',
 		},
 		{
 			sentence:
@@ -116,11 +116,11 @@ export const chapter_3 = {
 			sentence:
 				'The sun shone bright and the birds sang sweetly, and Dorothy did not feel nearly so bad as you might think a little girl would who had been suddenly whisked away from her own country and set down in the midst of a strange land.',
 			translate:
-				'Солнце ярко светило, птицы сладко пели, и Дороти было далеко не так плохо, как можно было бы ожидать от девочки, внезапно унесённой из родной страны и оставленной посреди незнакомой земли.',
+				'Солнце ярко светило, птицы сладко пели, и Дороти было далеко не так плохо, как можно было бы подумать о девочке, внезапно унесённой из родной страны и оставленной посреди незнакомой земли.',
 		},
 		{
 			sentence: 'She was surprised, as she walked along, to see how pretty the country was about her.',
-			translate: 'Идя дальше, она с удивлением видела, как красива вокруг местность.',
+			translate: 'Идя дальше, она с удивлением замечала, как красива вокруг эта страна.',
 		},
 		{
 			sentence:
@@ -161,13 +161,13 @@ export const chapter_3 = {
 			sentence:
 				'Five little fiddlers played as loudly as possible, and the people were laughing and singing, while a big table near by was loaded with delicious fruits and nuts, pies and cakes, and many other good things to eat.',
 			translate:
-				'Пятеро маленьких скрипачей играли изо всех сил, люди смеялись и пели, а рядом стоял большой стол, ломившийся от вкусных фруктов и орехов, пирогов и тортов и всякой другой снеди.',
+				'Пятеро маленьких скрипачей играли изо всех сил, люди смеялись и пели, а рядом стоял большой стол, ломившийся от вкусных фруктов и орехов, пирогов и тортов и множества других лакомств.',
 		},
 		{
 			sentence:
 				'The people greeted Dorothy kindly, and invited her to supper and to pass the night with them; for this was the home of one of the richest Munchkins in the land, and his friends were gathered with him to celebrate their freedom from the bondage of the Wicked Witch.',
 			translate:
-				'Люди приветливо встретили Дороти, пригласили её к ужину и переночевать у них; это был дом одного из самых богатых мункинов, и друзья собрались у него отпраздновать освобождение от власти Злой Ведьмы.',
+				'Люди приветливо встретили Дороти, пригласили её к ужину и переночевать; это был дом одного из самых богатых мункинов, и друзья собрались у него отпраздновать освобождение от власти Злой Ведьмы.',
 		},
 		{
 			sentence:
@@ -205,12 +205,12 @@ export const chapter_3 = {
 			sentence:
 				'So we know you are a friendly witch.” Dorothy did not know what to say to this, for all the people seemed to think her a witch, and she knew very well she was only an ordinary little girl who had come by the chance of a cyclone into a strange land.',
 			translate:
-				'Так что мы знаем, что ты добрая ведьма». Дороти не знала, что на это ответить: все, казалось, считали её ведьмой, хотя она прекрасно понимала, что она лишь обычная девочка, занесённая сюда случайностью циклона.',
+				'Так что мы знаем, что ты добрая ведьма». Дороти не знала, что на это ответить: все, казалось, считали её ведьмой, хотя она прекрасно понимала, что всего лишь обычная девочка, занесённая сюда случайностью циклона.',
 		},
 		{
 			sentence:
 				'When she had tired watching the dancing, Boq led her into the house, where he gave her a room with a pretty bed in it.',
-			translate: 'Когда ей надоело смотреть танцы, Бок провёл её в дом и отвёл комнату с красивой кроватью.',
+			translate: 'Когда ей надоело смотреть танцы, Бок провёл её в дом и отвёл ей комнату с красивой кроватью.',
 		},
 		{
 			sentence:
@@ -222,7 +222,7 @@ export const chapter_3 = {
 			sentence:
 				'She ate a hearty breakfast, and watched a wee Munchkin baby, who played with Toto and pulled his tail and crowed and laughed in a way that greatly amused Dorothy.',
 			translate:
-				'Она сытно позавтракала и наблюдала за крошкой‑мункином, который играл с Тото, дёргал его за хвост и радостно гоготал и смеялся — что очень забавляло Дороти.',
+				'Она сытно позавтракала и наблюдала за крошкой‑мункином, который играл с Тото, дёргал его за хвост и радостно гулил и смеялся — что очень забавляло Дороти.',
 		},
 		{
 			sentence: 'Toto was a fine curiosity to all the people, for they had never seen a dog before.',
@@ -257,7 +257,7 @@ export const chapter_3 = {
 		{
 			sentence:
 				'When she had gone several miles she thought she would stop to rest, and so climbed to the top of the fence beside the road and sat down.',
-			translate: 'Пройдя несколько миль, она решила отдохнуть, забралась на верх забора у дороги и села.',
+			translate: 'Пройдя несколько миль, она решила отдохнуть, забралась на верхушку забора у дороги и села.',
 		},
 		{
 			sentence:
@@ -273,7 +273,7 @@ export const chapter_3 = {
 			sentence:
 				'Its head was a small sack stuffed with straw, with eyes, nose, and mouth painted on it to represent a face.',
 			translate:
-				'Его голова была небольшим мешочком, набитым соломой; глаза, нос и рот были нарисованы, изображая лицо.',
+				'Его голова была небольшим мешочком, набитым соломой; на нём были нарисованы глаза, нос и рот — чтобы получалось лицо.',
 		},
 		{
 			sentence:
@@ -318,13 +318,13 @@ export const chapter_3 = {
 		},
 		{
 			sentence: '“How do you do?” “I’m pretty well, thank you,” replied Dorothy politely.',
-			translate: '«Как поживаешь?» «Спасибо, неплохо», — вежливо ответила Дороти.',
+			translate: '«Как поживаешь?» — «Спасибо, неплохо», — вежливо ответила Дороти.',
 		},
 		{
 			sentence:
 				'“How do you do?” “I’m not feeling well,” said the Scarecrow, with a smile, “for it is very tedious being perched up here night and day to scare away crows.” “Can’t you get down?” asked Dorothy.',
 			translate:
-				'«А ты?» — сказал Пугало с улыбкой, — «Мне не слишком хорошо, — сказал Пугало, — целыми днями и ночами торчать здесь, отпугивая ворон, очень скучно». «А ты не можешь слезть?» — спросила Дороти.',
+				'«А ты?» — с улыбкой спросило Пугало. — «Мне не слишком хорошо: целыми днями и ночами торчать здесь, отпугивая ворон, очень скучно». — «А ты не можешь слезть?» — спросила Дороти.',
 		},
 		{
 			sentence: '“No, for this pole is stuck up my back.',
@@ -334,11 +334,11 @@ export const chapter_3 = {
 			sentence:
 				'If you will please take away the pole I shall be greatly obliged to you.” Dorothy reached up both arms and lifted the figure off the pole, for, being stuffed with straw, it was quite light.',
 			translate:
-				'Если бы ты убрала шест, я был бы тебе очень признателен». Дороти подняла обе руки и сняла фигуру с шеста — ведь, будучи набитой соломой, она была совсем лёгкой.',
+				'Если ты уберёшь шест, я буду тебе очень признателен». Дороти подняла обе руки и сняла фигуру с шеста — ведь, будучи набитой соломой, она была совсем лёгкой.',
 		},
 		{
 			sentence: '“Thank you very much,” said the Scarecrow, when he had been set down on the ground.',
-			translate: '«Большое спасибо», — сказал Пугало, когда его поставили на землю.',
+			translate: '«Большое спасибо», — сказал Пугало, когда она поставила его на землю.',
 		},
 		{
 			sentence:
@@ -413,11 +413,11 @@ export const chapter_3 = {
 			sentence:
 				'Dorothy helped him over the fence, and they started along the path of yellow brick for the Emerald City.',
 			translate:
-				'Дороти помогла ему перелезть через забор, и они направились по жёлтой кирпичной тропе к Изумрудному городу.',
+				'Дороти помогла ему перелезть через забор, и они направились по жёлтой кирпичной дороге к Изумрудному городу.',
 		},
 		{
 			sentence: 'Toto did not like this addition to the party at first.',
-			translate: 'Тото поначалу не понравился такой попутчик.',
+			translate: 'Тото поначалу не обрадовался новому спутнику.',
 		},
 		{
 			sentence:

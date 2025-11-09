@@ -6,7 +6,7 @@ export const chapter_9 = {
 			sentence:
 				'“We cannot be far from the road of yellow brick, now,” remarked the Scarecrow, as he stood beside the girl, “for we have come nearly as far as the river carried us away.” The Tin Woodman was about to reply when he heard a low growl, and turning his head (which worked beautifully on hinges) he saw a strange beast come bounding over the grass toward them.',
 			translate:
-				'«Мы уже недалеко от дороги из жёлтого кирпича», — заметило Пугало, стоя рядом с девочкой, — «ведь мы прошли почти столько же, насколько река унесла нас». Жестяной Дровосек уже собирался ответить, как услышал тихое рычание и, повернув голову (которая прекрасно вращалась на петлях), увидел странного зверя, несущегося к ним по траве.',
+				'«Мы уже недалеко от жёлтой кирпичной дороги, — заметило Пугало, стоя рядом с девочкой, — ведь мы прошли почти столько же, насколько река унесла нас». Железный Дровосек уже собирался ответить, как услышал тихое рычание и, повернув голову (которая прекрасно вращалась на петлях), увидел странного зверя, несущегося к ним по траве.',
 		},
 		{
 			sentence:
@@ -18,7 +18,7 @@ export const chapter_9 = {
 			sentence:
 				'As it came nearer the Tin Woodman saw that running before the beast was a little gray field mouse, and although he had no heart he knew it was wrong for the Wildcat to try to kill such a pretty, harmless creature.',
 			translate:
-				'Когда зверь приблизился, Жестяной Дровосек увидел, что перед ним бежит маленькая серая полёвка, и, хотя у него не было сердца, он понимал, что неправильно позволять рыси убить такое милое, безобидное создание.',
+				'Когда зверь приблизился, Железный Дровосек увидел, что перед ним бежит маленькая серая полёвка, и, хотя у него не было сердца, он понимал, что неправильно позволять рыси убить такое милое, безобидное создание.',
 		},
 		{
 			sentence:
@@ -91,7 +91,7 @@ export const chapter_9 = {
 			sentence:
 				'But the Tin Woodman caught the dog in his arms and held him tight, while he called to the mice, “Come back!',
 			translate:
-				'Но Жестяной Дровосек схватил собаку на руки и крепко удержал её, а сам крикнул мышам: «Вернитесь!',
+				'Но Железный Дровосек схватил собаку на руки и крепко удержал её, а сам крикнул мышам: «Вернитесь!',
 		},
 		{
 			sentence: 'Come back!',
@@ -151,7 +151,7 @@ export const chapter_9 = {
 			sentence:
 				'“Now,” said the Scarecrow to the Tin Woodman, “you must go to those trees by the riverside and make a truck that will carry the Lion.” So the Woodman went at once to the trees and began to work; and he soon made a truck out of the limbs of trees, from which he chopped away all the leaves and branches.',
 			translate:
-				'«А теперь, — сказал Пугало Жестяному Дровосеку, — ты должен пойти к тем деревьям у реки и сделать тележку, на которой можно будет везти Льва». Дровосек тотчас отправился к деревьям и принялся за работу; вскоре он сделал тележку из сучьев, с которых обрубил все листья и ветки.',
+				'«А теперь, — сказал Пугало Железному Дровосеку, — ты должен пойти к тем деревьям у реки и сделать тележку, на которой можно будет везти Льва». Дровосек тотчас отправился к деревьям и принялся за работу; вскоре он сделал тележку из сучьев, с которых обрубил все листья и ветки.',
 		},
 		{
 			sentence:
@@ -207,12 +207,12 @@ export const chapter_9 = {
 			sentence:
 				'Even the Scarecrow and the Tin Woodman could sit on it, and were drawn swiftly by their queer little horses to the place where the Lion lay asleep.',
 			translate:
-				'На неё могли даже сесть Пугало и Жестяной Дровосек, и их быстро повезли эти странные маленькие лошадки туда, где лежал спящий Лев.',
+				'На неё могли даже сесть Пугало и Железный Дровосек, и их быстро повезли эти странные маленькие лошадки туда, где лежал спящий Лев.',
 		},
 		{
 			sentence:
 				'After a great deal of hard work, for the Lion was heavy, they managed to get him up on the truck.',
-			translate: 'После больших усилий — ведь Лев был тяжел — им удалось взгромоздить его на тележку.',
+			translate: 'После больших усилий — ведь Лев был тяжёл — им удалось взгромоздить его на тележку.',
 		},
 		{
 			sentence:

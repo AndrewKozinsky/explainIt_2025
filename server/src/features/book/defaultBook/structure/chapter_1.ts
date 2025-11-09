@@ -5,19 +5,18 @@ export const chapter_1 = {
 		{
 			sentence:
 				'Dorothy lived in the midst of the great Kansas prairies, with Uncle Henry, who was a farmer, and Aunt Em, who was the farmer’s wife.',
-			translate:
-				'Дороти жила среди обширных прерий Канзаса с дядей Генри, который был фермером, и тётей Эм, женой фермера.',
+			translate: 'Дороти жила посреди огромных прерий Канзаса с дядей Генри, фермером, и тётей Эм, его женой.',
 		},
 		{
 			sentence: 'Their house was small, for the lumber to build it had to be carried by wagon many miles.',
 			translate:
-				'Их дом был маленьким, потому что лес для строительства приходилось везти на повозках за многие мили.',
+				'Их дом был маленьким, потому что лес для строительства приходилось везти на повозке за много миль.',
 		},
 		{
 			sentence:
 				'There were four walls, a floor and a roof, which made one room; and this room contained a rusty looking cookstove, a cupboard for the dishes, a table, three or four chairs, and the beds.',
 			translate:
-				'В нём было четыре стены, пол и крыша, образовывавшие одну комнату; в этой комнате стояли ржавая на вид печка, буфет для посуды, стол, три-четыре стула и кровати.',
+				'В нём были четыре стены, пол и крыша — всё вместе составляло одну комнату; в этой комнате стояли ржавая кухонная плита, шкаф для посуды, стол, три-четыре стула и кровати.',
 		},
 		{
 			sentence:
@@ -28,28 +27,28 @@ export const chapter_1 = {
 			sentence:
 				'There was no garret at all, and no cellar—except a small hole dug in the ground, called a cyclone cellar, where the family could go in case one of those great whirlwinds arose, mighty enough to crush any building in its path.',
 			translate:
-				'Чердака не было вовсе, как и подвала — только небольшая яма, выкопанная в земле, так называемый «циклонный подвал», куда семья могла спуститься в случае одного из тех огромных вихрей, способных сокрушить любое строение на своём пути.',
+				'Чердака не было вовсе, как и подвала — только небольшая яма, выкопанная в земле, так называемый «циклонный подвал», куда семья могла спуститься, если налетал один из тех огромных вихрей, достаточно сильный, чтобы сокрушить любое строение на пути.',
 		},
 		{
 			sentence:
 				'It was reached by a trap door in the middle of the floor, from which a ladder led down into the small, dark hole.',
-			translate: 'К нему вела люк-дверь посреди пола, откуда лестница спускалась в маленькую тёмную яму.',
+			translate: 'К нему вёл люк посреди пола, и оттуда лестница спускалась в маленькую тёмную яму.',
 		},
 		{
 			sentence:
 				'When Dorothy stood in the doorway and looked around, she could see nothing but the great gray prairie on every side.',
 			translate:
-				'Когда Дороти вставала в дверном проёме и оглядывалась вокруг, она видела повсюду лишь огромную серую прерию.',
+				'Когда Дороти стояла в дверном проёме и оглядывалась вокруг, она видела повсюду лишь огромную серую прерию.',
 		},
 		{
 			sentence:
 				'Not a tree nor a house broke the broad sweep of flat country that reached to the edge of the sky in all directions.',
 			translate:
-				'Ни дерево, ни дом не нарушали широкого размаха ровной местности, тянувшейся до самого края неба во всех направлениях.',
+				'Ни дерево, ни дом не прерывали широкий простор ровной равнины, тянувшейся во все стороны до самого края неба.',
 		},
 		{
 			sentence: 'The sun had baked the plowed land into a gray mass, with little cracks running through it.',
-			translate: 'Солнце запекло вспаханную землю в серую массу, иссечённую мелкими трещинами.',
+			translate: 'Солнце запекло вспаханную землю в серую массу, прорезанную мелкими трещинами.',
 		},
 		{
 			sentence:
@@ -72,7 +71,7 @@ export const chapter_1 = {
 			sentence:
 				'They had taken the sparkle from her eyes and left them a sober gray; they had taken the red from her cheeks and lips, and they were gray also.',
 			translate:
-				'Они забрали блеск из её глаз, оставив их трезво-серыми; они унесли румянец с щёк и губ — и те тоже стали серыми.',
+				'Они забрали блеск из её глаз, оставив их тускло-серыми; они унесли румянец с щёк и губ — и те тоже стали серыми.',
 		},
 		{
 			sentence: 'She was thin and gaunt, and never smiled now.',
@@ -82,7 +81,7 @@ export const chapter_1 = {
 			sentence:
 				'When Dorothy, who was an orphan, first came to her, Aunt Em had been so startled by the child’s laughter that she would scream and press her hand upon her heart whenever Dorothy’s merry voice reached her ears; and she still looked at the little girl with wonder that she could find anything to laugh at.',
 			translate:
-				'Когда Дороти, сирота, впервые оказалась у неё, тётя Эм так поражалась детскому смеху, что вскрикивала и прижимала руку к сердцу всякий раз, как только до неё доносился весёлый голосок Дороти; и до сих пор она с удивлением смотрела на девочку, как та вообще умудряется находить повод для смеха.',
+				'Когда Дороти, сирота, впервые оказалась у неё, тётя Эм так пугалась детского смеха, что вскрикивала и прижимала руку к сердцу всякий раз, как только до неё доносился весёлый голосок Дороти; и до сих пор она с удивлением смотрела на девочку, как та вообще умудряется находить повод для смеха.',
 		},
 		{ sentence: 'Uncle Henry never laughed.', translate: 'Дядя Генри никогда не смеялся.' },
 		{
@@ -105,7 +104,7 @@ export const chapter_1 = {
 			sentence:
 				'Toto was not gray; he was a little black dog, with long silky hair and small black eyes that twinkled merrily on either side of his funny, wee nose.',
 			translate:
-				'Тото не был серым; это был маленький чёрный пёсик с длинной шёлковистой шерстью и крошечными чёрными глазами, весело поблёскивавшими по обе стороны его забавного носика-пуговки.',
+				'Тото не был серым; это был маленький чёрный пёсик с длинной шёлковистой шерстью и крошечными чёрными глазами, весело поблёскивавшими по обе стороны его забавного крошечного носика.',
 		},
 		{
 			sentence: 'Toto played all day long, and Dorothy played with him, and loved him dearly.',
@@ -127,7 +126,7 @@ export const chapter_1 = {
 			sentence:
 				'From the far north they heard a low wail of the wind, and Uncle Henry and Dorothy could see where the long grass bowed in waves before the coming storm.',
 			translate:
-				'С далёкого севера донесся тихий вой ветра, и дядя Генри с Дороти видели, как длинная трава наклонялась волнами перед надвигающейся бурей.',
+				'С далёкого севера донёсся низкий вой ветра, и дядя Генри с Дороти видели, как длинная трава наклонялась волнами перед надвигающейся бурей.',
 		},
 		{
 			sentence:
@@ -157,7 +156,7 @@ export const chapter_1 = {
 		{ sentence: '“Run for the cellar!”', translate: '«Беги в подвал!»' },
 		{
 			sentence: 'Toto jumped out of Dorothy’s arms and hid under the bed, and the girl started to get him.',
-			translate: 'Тото спрыгнул с рук Дороти и спрятался под кровать, и девочка бросилась его достать.',
+			translate: 'Тото спрыгнул с рук Дороти и спрятался под кровать, и девочка бросилась его вытащить.',
 		},
 		{
 			sentence:
@@ -173,9 +172,9 @@ export const chapter_1 = {
 			sentence:
 				'When she was halfway across the room there came a great shriek from the wind, and the house shook so hard that she lost her footing and sat down suddenly upon the floor.',
 			translate:
-				'Когда она была на середине комнаты, раздался сильный вопль ветра, и дом так затрясся, что она потеряла равновесие и со стуком села на пол.',
+				'Когда она была на середине комнаты, раздался пронзительный вопль ветра, и дом так затрясся, что она потеряла равновесие и со стуком села на пол.',
 		},
-		{ sentence: 'Then a strange thing happened.', translate: 'Потом случилось странное.' },
+		{ sentence: 'Then a strange thing happened.', translate: 'Тут случилось странное.' },
 		{
 			sentence: 'The house whirled around two or three times and rose slowly through the air.',
 			translate: 'Дом завертелся два-три раза и медленно поднялся в воздух.',
@@ -193,7 +192,7 @@ export const chapter_1 = {
 			sentence:
 				'In the middle of a cyclone the air is generally still, but the great pressure of the wind on every side of the house raised it up higher and higher, until it was at the very top of the cyclone; and there it remained and was carried miles and miles away as easily as you could carry a feather.',
 			translate:
-				'Посреди циклона воздух обычно неподвижен, но сильное давление ветра со всех сторон поднимало дом всё выше и выше, пока он не оказался на самой вершине циклона; и там он удерживался и нёсся на многие и многие мили так же легко, как вы бы понесли перышко.',
+				'Посреди циклона воздух обычно неподвижен, но сильное давление ветра со всех сторон поднимало дом всё выше и выше, пока он не оказался на самой вершине циклона; и там он удерживался и нёсся на многие и многие мили так же легко, как нести пёрышко.',
 		},
 		{
 			sentence:
@@ -206,12 +205,12 @@ export const chapter_1 = {
 			translate:
 				'После первых нескольких оборотов и ещё одного момента, когда дом сильно накренился, ей стало казаться, что её мягко укачивают, как младенца в колыбели.',
 		},
-		{ sentence: 'Toto did not like it.', translate: 'Тото это не понравилось.' },
+		{ sentence: 'Toto did not like it.', translate: 'Тото это не нравилось.' },
 		{
 			sentence:
 				'He ran about the room, now here, now there, barking loudly; but Dorothy sat quite still on the floor and waited to see what would happen.',
 			translate:
-				'Он бегал по комнате то туда, то сюда, громко лая; а Дороти сидела на полу совершенно спокойно и ждала, что будет дальше.',
+				'Он бегал по комнате то тут, то там, громко лая; а Дороти сидела на полу совершенно спокойно и ждала, что будет дальше.',
 		},
 		{
 			sentence:
