@@ -1,12 +1,12 @@
-import cn from 'classnames'
-import { useReadingStore } from '_pages/books/reading/readingStore'
-import CarriageReturn from './CarriageReturn'
-import Word from './Word'
-import Punctuation from './Punctuation'
-import Space from './Space'
-import './ChapterText.scss'
+// import cn from 'classnames'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
+// import CarriageReturn from './CarriageReturn'
+// import Word from './Word'
+// import Punctuation from './Punctuation'
+// import Space from './Space'
+// import './ChapterText.scss'
 
-function ChapterText() {
+/*function ChapterText() {
 	const populatedChapter = useReadingStore((state) => state.populatedChapter)
 	const selectedSentence = useReadingStore((state) => state.selectedSentence)
 
@@ -48,6 +48,6 @@ function ChapterText() {
 			})}
 		</div>
 	)
-}
+}*/
 
-export default ChapterText
+// export default ChapterText

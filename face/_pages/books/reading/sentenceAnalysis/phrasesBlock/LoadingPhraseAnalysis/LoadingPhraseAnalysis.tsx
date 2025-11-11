@@ -1,14 +1,14 @@
-import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
-import Paragraph from 'ui/Paragraph/Paragraph'
-import { useGetPhraseData } from './fn/getPhraseData'
-import PhraseAnalysisPhrase from '../PhraseAnalysisPhrase/PhraseAnalysisPhrase'
-import './LoadingPhraseAnalysis.scss'
+// import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
+// import Paragraph from 'ui/Paragraph/Paragraph'
+// import { useGetPhraseData } from './fn/getPhraseData'
+// import PhraseAnalysisPhrase from '../PhraseAnalysisPhrase/PhraseAnalysisPhrase'
+// import './LoadingPhraseAnalysis.scss'
 
-type LoadingPhraseAnalysisProps = {
+/*type LoadingPhraseAnalysisProps = {
 	phrase: ChapterTextStructurePopulated.LoadingPhrase
-}
+}*/
 
-function LoadingPhraseAnalysis(props: LoadingPhraseAnalysisProps) {
+/*function LoadingPhraseAnalysis(props: LoadingPhraseAnalysisProps) {
 	const { phrase } = props
 
 	const phraseData = useGetPhraseData(phrase)
@@ -21,6 +21,6 @@ function LoadingPhraseAnalysis(props: LoadingPhraseAnalysisProps) {
 			</Paragraph>
 		</div>
 	)
-}
+}*/
 
-export default LoadingPhraseAnalysis
+// export default LoadingPhraseAnalysis

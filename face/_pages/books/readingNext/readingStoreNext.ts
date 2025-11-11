@@ -1,5 +1,7 @@
 import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
 import { BookChapterOutModel, BookOutModel } from '@/graphql'
+import invariant from 'ts-invariant'
+import { areArraysEqualIgnoringOrder } from 'utils/arrays'
 import { create } from 'zustand'
 import { produce } from 'immer'
 
@@ -7,9 +9,10 @@ export const readingStoreValues: ReadingStoreValues = {
 	book: null as any as ReadingStore.BookData,
 	chapter: null as any as ReadingStore.ChapterData,
 	populatedChapter: null as any as ChapterTextStructurePopulated.Chapter,
-	selectedSentence: {
-		id: null,
+	selection: {
+		sentenceId: null,
 		wordIds: [],
+		phraseId: null,
 	},
 	isWordsAddingModeEnabled: false,
 	deviceType: 'mouse',
@@ -42,25 +45,34 @@ export const useReadingStoreNext = create<ReadingStoreNext>()((set, get) => {
 		changeSelectedSentenceId(id: number) {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
-					draftState.selectedSentence.id = id
+					draftState.selection.sentenceId = id
+					draftState.selection.wordIds = []
+				})
+			})
+		},
+		changeSelectedPhraseId(id: null | number) {
+			set((baseState) => {
+				return produce(baseState, (draftState) => {
+					draftState.selection.phraseId = id
 				})
 			})
 		},
 		clearSelectedSentence() {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
-					draftState.selectedSentence = {
-						id: null,
+					draftState.selection = {
+						sentenceId: null,
 						wordIds: [],
+						phraseId: null,
 					}
 				})
 			})
 		},
 		getSelectedSentence() {
-			const { populatedChapter, selectedSentence } = get()
-			if (selectedSentence.id == null) return null
+			const { populatedChapter, selection } = get()
+			if (selection.sentenceId == null) return null
 
-			const sentence = populatedChapter.parts.find((part) => part.id === selectedSentence.id)
+			const sentence = populatedChapter.parts.find((part) => part.id === selection.sentenceId)
 			if (!sentence || sentence.type !== 'sentence') return null
 
 			return sentence
@@ -84,9 +96,9 @@ export const useReadingStoreNext = create<ReadingStoreNext>()((set, get) => {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
 					if (insertType === 'replaceAll') {
-						draftState.selectedSentence.wordIds = [wordId]
+						draftState.selection.wordIds = [wordId]
 					} else {
-						draftState.selectedSentence.wordIds.push(wordId)
+						draftState.selection.wordIds.push(wordId)
 					}
 				})
 			})
@@ -103,6 +115,31 @@ export const useReadingStoreNext = create<ReadingStoreNext>()((set, get) => {
 				return {
 					deviceType,
 				}
+			})
+		},
+		/** Ищет фразу с типом idle у выделенного предложения и ставит ей тип loading.*/
+		createLoadingPhraseInSelectedSentenceFromSelectedWords() {
+			set((baseState) => {
+				return produce(baseState, (draftState) => {
+					const { sentenceId } = draftState.selection
+					if (sentenceId == null) return
+
+					const selectedSentence = draftState.populatedChapter.parts.find((part) => part.id === sentenceId)
+					if (!selectedSentence || selectedSentence.type !== 'sentence') return
+
+					const phraseWithTheseWords = selectedSentence.phrases.find((phrase) =>
+						areArraysEqualIgnoringOrder(phrase.wordIds, draftState.selection.wordIds),
+					)
+					if (phraseWithTheseWords) return
+
+					const maxPhraseId = selectedSentence.phrases.reduce((max, phrase) => Math.max(max, phrase.id), 0)
+
+					selectedSentence.phrases.push({
+						id: maxPhraseId + 1,
+						type: 'loading',
+						wordIds: [...draftState.selection.wordIds],
+					})
+				})
 			})
 		},
 	}
@@ -130,7 +167,7 @@ export type ReadingStoreValues = {
 	chapter: ReadingStore.ChapterData
 	populatedChapter: ChapterTextStructurePopulated.Chapter
 	// Данные выделенного предложения
-	selectedSentence: SelectedSentence
+	selection: SelectedSentence
 	// Если этот режим включен, то при нажатии на слово оно будет добавляться во фразу типа idle.
 	// Если выключен, то заменит все слова поставленные во фразу типа idle.
 	isWordsAddingModeEnabled: boolean
@@ -138,8 +175,11 @@ export type ReadingStoreValues = {
 }
 
 export type SelectedSentence = {
-	id: null | number
+	sentenceId: null | number
+	// Идентификаторы выделенных слов
 	wordIds: number[]
+	// Идентификатор фразы, анализ которой хочет видеть пользователь
+	phraseId: number | null
 }
 
 export type ReadingStoreMethods = {
@@ -147,6 +187,7 @@ export type ReadingStoreMethods = {
 	updateChapter: (chapter: ReadingStore.ChapterData) => void
 	updatePopulatedChapter: (populatedChapter: ChapterTextStructurePopulated.Chapter) => void
 	changeSelectedSentenceId: (id: number) => void
+	changeSelectedPhraseId: (id: null | number) => void
 	clearSelectedSentence: () => void
 	getSelectedSentence: () => ChapterTextStructurePopulated.Sentence | null
 	getSentenceById: (id: number) => ChapterTextStructurePopulated.Sentence | null
@@ -154,7 +195,7 @@ export type ReadingStoreMethods = {
 	addWordToSelectedSentence: (wordId: number, insertType: 'add' | 'replaceAll') => void
 	changeWordsAddingMode: (isEnabled: boolean) => void
 	changeDeviceType: (deviceType: DeviceType) => void
-	// turnPhraseIntoLoadingInSelectedSentence: (wordIds: number[]) => void
+	createLoadingPhraseInSelectedSentenceFromSelectedWords: () => void
 	// turnPhraseIntoErrorPhraseInSelectedSentence: (wordIds: number[], errorMessage: string) => void
 	// setSentenceTranslation: (sentenceId: number, sentenceTranslation: string) => void
 	// setPhraseAnalysisIntoSentence: (analysisData: BookChapter_AnalyseSentenceAndPhrase) => void

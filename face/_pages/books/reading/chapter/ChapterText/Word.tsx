@@ -1,15 +1,15 @@
-import React from 'react'
-import cn from 'classnames'
-import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
-import { useGetSelectSentenceAndWord } from './fn/selectSentenceAndWord'
-import { isWordAnalyzed } from './fn/isWordAnalyzed'
+// import React from 'react'
+// import cn from 'classnames'
+// import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
+// import { useGetSelectSentenceAndWord } from './fn/selectSentenceAndWord'
+// import { isWordAnalyzed } from './fn/isWordAnalyzed'
 
-type WordProps = {
+/*type WordProps = {
 	sentence: ChapterTextStructurePopulated.Sentence
 	wordData: ChapterTextStructurePopulated.Word
-}
+}*/
 
-function Word(props: WordProps) {
+/*function Word(props: WordProps) {
 	const { sentence, wordData } = props
 
 	const selectSentenceAndWord = useGetSelectSentenceAndWord()
@@ -23,6 +23,6 @@ function Word(props: WordProps) {
 			{wordData.value}
 		</span>
 	)
-}
+}*/
 
-export default Word
+// export default Word

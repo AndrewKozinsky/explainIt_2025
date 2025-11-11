@@ -1,11 +1,11 @@
-import { useCallback } from 'react'
-import { useBookChapter_AnalyseSentenceAndPhraseLazyQuery, BookChapter_UpdateDocument } from '@/graphql'
-import { populatedChapterStructureIntoChapterStructure } from '_pages/books/commonLogic/populatedChapterStructureIntoChapterStructure'
-import { getPhaseTextFromWordIdx, useGetSentenceById } from '_pages/books/reading/logic'
-import { chapterStructureIntoText } from '_pages/books/commonLogic/populatedChapterStructureIntoText/chapterStructureIntoText'
-import { useReadingStore } from '_pages/books/reading/readingStore'
+// import { useCallback } from 'react'
+// import { useBookChapter_AnalyseSentenceAndPhraseLazyQuery, BookChapter_UpdateDocument } from '@/graphql'
+// import { populatedChapterStructureIntoChapterStructure } from '_pages/books/commonLogic/populatedChapterStructureIntoChapterStructure'
+// import { getPhaseTextFromWordIdx, useGetSentenceById } from '_pages/books/reading/logic'
+// import { chapterStructureIntoText } from '_pages/books/commonLogic/populatedChapterStructureIntoText/chapterStructureIntoText'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
 
-export function useGetTranslatePhraseAndSentence(sentenceId: number, phraseWordIds: number[]) {
+/*export function useGetTranslatePhraseAndSentence(sentenceId: number, phraseWordIds: number[]) {
 	const bookAuthor = useReadingStore((s) => s.book.data?.author)
 	const bookName = useReadingStore((s) => s.book.data?.name)
 	const chapter = useReadingStore((s) => s.chapter)
@@ -84,7 +84,7 @@ export function useGetTranslatePhraseAndSentence(sentenceId: number, phraseWordI
 		setSentenceTranslation,
 		turnPhraseIntoErrorPhrase,
 	])
-}
+}*/
 
 // GraphQL mutation for updating book chapter (for direct HTTP request)
 const UPDATE_CHAPTER_MUTATION = `
@@ -96,7 +96,7 @@ const UPDATE_CHAPTER_MUTATION = `
 	}
 `
 
-async function updateChapterInDBToSaveSentenceTranslationDirect(chapterId: number) {
+/*async function updateChapterInDBToSaveSentenceTranslationDirect(chapterId: number) {
 	const dryChapterStructure = populatedChapterStructureIntoChapterStructure(
 		useReadingStore.getState().populatedChapter,
 	)
@@ -130,4 +130,4 @@ async function updateChapterInDBToSaveSentenceTranslationDirect(chapterId: numbe
 	} catch (error) {
 		console.error('Error updating chapter:', error)
 	}
-}
+}*/

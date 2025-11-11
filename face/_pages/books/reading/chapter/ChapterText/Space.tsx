@@ -1,7 +1,7 @@
-import React from 'react'
+// import React from 'react'
 
-function Space() {
+/*function Space() {
 	return <span> </span>
-}
+}*/
 
-export default Space
+// export default Space

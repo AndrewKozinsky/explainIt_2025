@@ -1,9 +1,9 @@
-import { useGetIdlePhraseFromSelectedSentence, useGetSelectedSentence } from '_pages/books/reading/logic'
-import { useIsButtonVisible } from './fn/buttonVisibilityAndText'
-import { TranslatePhraseButton } from '../TranslatePhraseButton/TranslatePhraseButton'
-import './TranslateButtonsBlock.scss'
+// import { useGetIdlePhraseFromSelectedSentence, useGetSelectedSentence } from '_pages/books/reading/logic'
+// import { useIsButtonVisible } from './fn/buttonVisibilityAndText'
+// import { TranslatePhraseButton } from '../TranslatePhraseButton/TranslatePhraseButton'
+// import './TranslateButtonsBlock.scss'
 
-function TranslateButtonsBlock() {
+/*function TranslateButtonsBlock() {
 	return (
 		<div className='translate-buttons-block'>
 			<div>
@@ -12,11 +12,11 @@ function TranslateButtonsBlock() {
 			<div></div>
 		</div>
 	)
-}
+}*/
 
-export default TranslateButtonsBlock
+// export default TranslateButtonsBlock
 
-function TranslateIdlePhraseButton() {
+/*function TranslateIdlePhraseButton() {
 	const selectedSentence = useGetSelectedSentence()
 	const idlePhrase = useGetIdlePhraseFromSelectedSentence()
 
@@ -27,4 +27,4 @@ function TranslateIdlePhraseButton() {
 	}
 
 	return <TranslatePhraseButton sentenceId={selectedSentence.id} phraseWordIds={idlePhrase.wordIds} />
-}
+}*/

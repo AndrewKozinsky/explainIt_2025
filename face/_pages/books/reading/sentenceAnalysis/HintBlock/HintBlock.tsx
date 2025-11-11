@@ -1,8 +1,8 @@
-import Paragraph from 'ui/Paragraph/Paragraph'
-import { useGetHintText, useGetHintVisibility } from './fn/paragraphVisibilityAndText'
-import './HintBlock.scss'
+// import Paragraph from 'ui/Paragraph/Paragraph'
+// import { useGetHintText, useGetHintVisibility } from './fn/paragraphVisibilityAndText'
+// import './HintBlock.scss'
 
-function HintBlock() {
+/*function HintBlock() {
 	const isHintVisible = useGetHintVisibility()
 	const hintText = useGetHintText()
 
@@ -13,6 +13,6 @@ function HintBlock() {
 			{hintText}
 		</Paragraph>
 	)
-}
+}*/
 
-export default HintBlock
+// export default HintBlock

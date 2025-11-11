@@ -1,10 +1,10 @@
-import React from 'react'
-import { useReadingStore } from '_pages/books/reading/readingStore'
-import { useSetCorrectHeightToMainContainer } from './fn/setCorrectHeightToMainContainer'
-import SentenceAnalysisRoot from '_pages/books/reading/sentenceAnalysis/SentenceAnalysisRoot/SentenceAnalysis'
-import './RightPart.scss'
+// import React from 'react'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
+// import { useSetCorrectHeightToMainContainer } from './fn/setCorrectHeightToMainContainer'
+// import SentenceAnalysisRoot from '_pages/books/reading/sentenceAnalysis/SentenceAnalysisRoot/SentenceAnalysis'
+// import './RightPart.scss'
 
-function RightPart() {
+/*function RightPart() {
 	const containerRef = React.useRef<HTMLDivElement | null>(null)
 	useSetCorrectHeightToMainContainer(containerRef)
 
@@ -16,6 +16,6 @@ function RightPart() {
 			<SentenceAnalysisRoot />
 		</div>
 	)
-}
+}*/
 
-export default RightPart
+// export default RightPart

@@ -1,16 +1,20 @@
+import { useAutoSetProperPhraseId } from './fn/autoSetProperPhraseId'
 import { useReadingStoreNext } from '_pages/books/readingNext/readingStoreNext'
 import HintBlock from '../HintBlock/HintBlock'
+import SelectedPhraseAnalyseRouter from '../SelectedPhraseAnalyseRouter/SelectedPhraseAnalyseRouter'
+import PhrasesSwitch from '../PhraseSwitch/PhrasesSwitch'
 import './Analysis.scss'
 
 function Analysis() {
-	const selectedSentence = useReadingStoreNext((s) => s.selectedSentence)
-	if (selectedSentence.id) {
-		return null
-	}
+	useAutoSetProperPhraseId()
 
-	console.log(444)
+	const selection = useReadingStoreNext((s) => s.selection)
+	if (!selection.sentenceId) return null
+
 	return (
 		<div className='analysis'>
+			<PhrasesSwitch />
+			<SelectedPhraseAnalyseRouter />
 			<HintBlock />
 		</div>
 	)

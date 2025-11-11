@@ -97,17 +97,20 @@ export namespace ChapterTextStructurePopulated {
 	export type Phrase = LoadingPhrase | ErrorPhrase | SuccessPhrase
 
 	export type LoadingPhrase = {
+		id: number
 		type: 'loading'
 		wordIds: number[]
 	}
 
 	export type ErrorPhrase = {
+		id: number
 		type: 'error'
 		wordIds: number[]
 		errorMessage: string
 	}
 
 	export type SuccessPhrase = {
+		id: number
 		type: 'success'
 		phraseIdInDb: number
 		phrase: string

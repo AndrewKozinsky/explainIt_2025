@@ -1,14 +1,14 @@
-import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
-import LoadingPhraseAnalysis from '../LoadingPhraseAnalysis/LoadingPhraseAnalysis'
-import ErrorPhraseAnalysis from '../ErrorPhraseAnalysis/ErrorPhraseAnalysis'
-import SuccessPhraseAnalysis from '../SuccessPhraseAnalysis/SuccessPhraseAnalysis'
-import './PhraseAnalysis.scss'
+// import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
+// import LoadingPhraseAnalysis from '../LoadingPhraseAnalysis/LoadingPhraseAnalysis'
+// import ErrorPhraseAnalysis from '../ErrorPhraseAnalysis/ErrorPhraseAnalysis'
+// import SuccessPhraseAnalysis from '../SuccessPhraseAnalysis/SuccessPhraseAnalysis'
+// import './PhraseAnalysis.scss'
 
-type PhraseAnalysisProps = {
+/*type PhraseAnalysisProps = {
 	phrase: ChapterTextStructurePopulated.Phrase
-}
+}*/
 
-function PhraseAnalysis(props: PhraseAnalysisProps) {
+/*function PhraseAnalysis(props: PhraseAnalysisProps) {
 	const { phrase } = props
 
 	return (
@@ -18,5 +18,5 @@ function PhraseAnalysis(props: PhraseAnalysisProps) {
 			{phrase.type === 'success' && <SuccessPhraseAnalysis phrase={phrase} />}
 		</div>
 	)
-}
-export default PhraseAnalysis
+}*/
+// export default PhraseAnalysis

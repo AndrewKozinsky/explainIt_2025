@@ -1,9 +1,9 @@
-import { useCallback } from 'react'
-import { useReadingStore } from '_pages/books/reading/readingStore'
-import { buildContext } from './buildContext'
+// import { useCallback } from 'react'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
+// import { buildContext } from './buildContext'
 
 /** Возвращает обработчик нажатия на слово в тексте главы. */
-export function useGetSelectSentenceAndWord() {
+/*export function useGetSelectSentenceAndWord() {
 	const populatedChapter = useReadingStore((s) => s.populatedChapter)
 
 	return useCallback(
@@ -15,4 +15,4 @@ export function useGetSelectSentenceAndWord() {
 		},
 		[populatedChapter],
 	)
-}
+}*/

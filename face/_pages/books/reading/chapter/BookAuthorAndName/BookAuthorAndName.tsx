@@ -1,10 +1,10 @@
-import Link from 'next/link'
-import React from 'react'
-import { useReadingStore } from '_pages/books/reading/readingStore'
-import { pageUrls } from 'сonsts/pageUrls'
-import './BookAuthorAndName.scss'
+// import Link from 'next/link'
+// import React from 'react'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
+// import { pageUrls } from 'сonsts/pageUrls'
+// import './BookAuthorAndName.scss'
 
-function BookAuthorAndName() {
+/*function BookAuthorAndName() {
 	const book = useReadingStore((s) => s.book.data)
 
 	if (!book.author && !book.name) {
@@ -16,11 +16,11 @@ function BookAuthorAndName() {
 			<BookAuthorAndNameContent />
 		</div>
 	)
-}
+}*/
 
-export default BookAuthorAndName
+// export default BookAuthorAndName
 
-function BookAuthorAndNameContent() {
+/*function BookAuthorAndNameContent() {
 	const book = useReadingStore((s) => s.book.data)
 
 	if (book.author && !book.name) {
@@ -41,4 +41,4 @@ function BookAuthorAndNameContent() {
 			</div>
 		</>
 	)
-}
+}*/

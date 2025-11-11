@@ -1,12 +1,12 @@
-import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
-import { chapterStructureIntoText } from '_pages/books/commonLogic/populatedChapterStructureIntoText/chapterStructureIntoText'
+// import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
+// import { chapterStructureIntoText } from '_pages/books/commonLogic/populatedChapterStructureIntoText/chapterStructureIntoText'
 
 // Builds textual context around the sentence so that
 // - there are at least `thresholdValue` words BEFORE the selected sentence
 // - and at least `thresholdValue` words AFTER the selected sentence
 // Words from the selected sentence are NOT counted for the thresholds.
 // Only whole sentences can be added; overshooting the threshold is acceptable.
-export function buildContext(
+/*export function buildContext(
 	content: ChapterTextStructurePopulated.Chapter | null,
 	sentenceId: number,
 	thresholdValue = 100,
@@ -46,4 +46,4 @@ export function buildContext(
 	// Slice the original content to preserve spaces/punctuation between the chosen sentences
 	const contextSlice = content.parts.slice(minSentenceIdx, maxSentenceIdx + 1)
 	return chapterStructureIntoText(contextSlice)
-}
+}*/

@@ -1,10 +1,10 @@
-import React from 'react'
-import {
-	useGetIdlePhraseFromSelectedSentence,
-	useGetTranslatedPhraseByWordIdsFromSelectedSentence,
-} from '_pages/books/reading/logic'
+// import React from 'react'
+// import {
+// 	useGetIdlePhraseFromSelectedSentence,
+// 	useGetTranslatedPhraseByWordIdsFromSelectedSentence,
+// } from '_pages/books/reading/logic'
 
-export function useIsButtonVisible() {
+/*export function useIsButtonVisible() {
 	const idlePhrase = useGetIdlePhraseFromSelectedSentence()
 	const phraseWithTheSameWordIds = useGetTranslatedPhraseByWordIdsFromSelectedSentence(idlePhrase?.wordIds || [])
 
@@ -13,4 +13,4 @@ export function useIsButtonVisible() {
 
 		return !!idlePhrase.wordIds.length
 	}, [idlePhrase, phraseWithTheSameWordIds])
-}
+}*/

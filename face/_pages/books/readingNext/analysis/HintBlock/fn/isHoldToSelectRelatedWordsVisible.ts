@@ -18,11 +18,11 @@ export function useIsHoldToSelectRelatedWordsVisible() {
 export function useIsAllWordsSelected() {
 	const getSelectedSentence = useReadingStoreNext((s) => s.getSelectedSentence)
 	const fullSelectedSentence = getSelectedSentence()
-	const selectedSentence = useReadingStoreNext((s) => s.selectedSentence)
+	const selectedSentence = useReadingStoreNext((s) => s.selection)
 
 	return useMemo(
 		function () {
-			if (!selectedSentence.id || !fullSelectedSentence) {
+			if (!selectedSentence.sentenceId || !fullSelectedSentence) {
 				return false
 			}
 
@@ -35,6 +35,6 @@ export function useIsAllWordsSelected() {
 
 			return wordsCount > selectedSentence.wordIds.length
 		},
-		[fullSelectedSentence, selectedSentence.id, selectedSentence.wordIds.length],
+		[fullSelectedSentence, selectedSentence.sentenceId, selectedSentence.wordIds.length],
 	)
 }

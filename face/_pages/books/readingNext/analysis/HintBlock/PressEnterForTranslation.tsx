@@ -1,9 +1,9 @@
 import React from 'react'
-import { useIsShowPressEnterVisible } from './fn/isShowPressEnterVisible'
+import { useCanRunTranslation } from '_pages/books/readingNext/lib/canRunTranslation'
 import { HotKeyButton } from './details'
 
 export function PressEnterForTranslation() {
-	const isVisible = useIsShowPressEnterVisible()
+	const isVisible = useCanRunTranslation()
 	if (!isVisible) return null
 
 	return (

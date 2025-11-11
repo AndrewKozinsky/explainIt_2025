@@ -1,17 +1,17 @@
-import { useEffect } from 'react'
-import { BookChapterOutModel, BookOutModel, useBook_Get, useBookChapter_Get } from '@/graphql'
-import { ChapterTextStructure } from '_pages/books/commonLogic/chapterStructureTypes'
-import { populateChapterStructure } from '_pages/books/commonLogic/populateChapterStructure'
-import { useReadingStore } from '_pages/books/reading/readingStore'
-import { useParams } from 'next/navigation'
+// import { useEffect } from 'react'
+// import { BookChapterOutModel, BookOutModel, useBook_Get, useBookChapter_Get } from '@/graphql'
+// import { ChapterTextStructure } from '_pages/books/commonLogic/chapterStructureTypes'
+// import { populateChapterStructure } from '_pages/books/commonLogic/populateChapterStructure'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
+// import { useParams } from 'next/navigation'
 
-export function usePopulateReadingStore() {
+/*export function usePopulateReadingStore() {
 	useFetchBookAndSetToStore()
 	useFetchChapterAndSetToStore()
 	useCreatePopulatedChapterAndSetToStore()
-}
+}*/
 
-function useFetchBookAndSetToStore() {
+/*function useFetchBookAndSetToStore() {
 	const bookId = useParams().bookId as string
 	const { data, error, loading } = useBook_Get({ variables: { input: { id: parseInt(bookId) } } })
 
@@ -45,9 +45,9 @@ function useFetchBookAndSetToStore() {
 		},
 		[data, error, loading],
 	)
-}
+}*/
 
-function useFetchChapterAndSetToStore() {
+/*function useFetchChapterAndSetToStore() {
 	const chapterId = useParams().chapterId as string
 
 	const { data, error, loading } = useBookChapter_Get({
@@ -87,9 +87,9 @@ function useFetchChapterAndSetToStore() {
 		},
 		[data, error, loading, chapterId],
 	)
-}
+}*/
 
-function useCreatePopulatedChapterAndSetToStore() {
+/*function useCreatePopulatedChapterAndSetToStore() {
 	const chapter = useReadingStore((s) => s.chapter)
 
 	useEffect(
@@ -110,4 +110,4 @@ function useCreatePopulatedChapterAndSetToStore() {
 		},
 		[chapter],
 	)
-}
+}*/

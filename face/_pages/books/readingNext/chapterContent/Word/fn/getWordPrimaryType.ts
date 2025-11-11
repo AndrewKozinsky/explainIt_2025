@@ -15,7 +15,7 @@ export function getWordPrimaryType(
 	wordId: number,
 ): null | 'selected' | 'loading' | 'error' | 'success' {
 	// Если перебираемое предложение является выделенным
-	if (selectedSentence.id === thisSentence.id) {
+	if (selectedSentence.sentenceId === thisSentence.id) {
 		// то проверить, что в словах выделенного предложения есть идентификатор текущего слова
 		// Из чего можно заключить, что текущее слово является выделенным.
 		if (selectedSentence.wordIds.includes(wordId)) {

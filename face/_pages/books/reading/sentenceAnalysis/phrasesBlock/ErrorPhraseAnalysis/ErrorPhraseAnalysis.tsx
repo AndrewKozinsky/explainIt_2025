@@ -1,16 +1,16 @@
-import { useGetSelectedSentence } from '_pages/books/reading/logic'
-import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
-import Paragraph from 'ui/Paragraph/Paragraph'
-import { useGetPhraseData } from './fn/getPhraseData'
-import PhraseAnalysisPhrase from '../PhraseAnalysisPhrase/PhraseAnalysisPhrase'
-import { TranslatePhraseButton } from '../../translateButtonsBlock/TranslatePhraseButton/TranslatePhraseButton'
-import './ErrorPhraseAnalysis.scss'
+// import { useGetSelectedSentence } from '_pages/books/reading/logic'
+// import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
+// import Paragraph from 'ui/Paragraph/Paragraph'
+// import { useGetPhraseData } from './fn/getPhraseData'
+// import PhraseAnalysisPhrase from '../PhraseAnalysisPhrase/PhraseAnalysisPhrase'
+// import { TranslatePhraseButton } from '../../translateButtonsBlock/TranslatePhraseButton/TranslatePhraseButton'
+// import './ErrorPhraseAnalysis.scss'
 
-type ErrorPhraseAnalysisProps = {
+/*type ErrorPhraseAnalysisProps = {
 	phrase: ChapterTextStructurePopulated.ErrorPhrase
-}
+}*/
 
-function ErrorPhraseAnalysis(props: ErrorPhraseAnalysisProps) {
+/*function ErrorPhraseAnalysis(props: ErrorPhraseAnalysisProps) {
 	const { phrase } = props
 
 	const sentence = useGetSelectedSentence()
@@ -25,6 +25,6 @@ function ErrorPhraseAnalysis(props: ErrorPhraseAnalysisProps) {
 			<TranslatePhraseButton sentenceId={sentence.id} phraseWordIds={phrase.wordIds} />
 		</div>
 	)
-}
+}*/
 
-export default ErrorPhraseAnalysis
+// export default ErrorPhraseAnalysis

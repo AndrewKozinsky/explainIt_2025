@@ -1,6 +1,6 @@
-import { useMemo } from 'react'
-import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
-import { useReadingStore } from '_pages/books/reading/readingStore'
+// import { useMemo } from 'react'
+// import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
 // import { areArraysEqualIgnoringOrder } from 'utils/arrays'
 
 /*export function useGetSelectedSentence() {

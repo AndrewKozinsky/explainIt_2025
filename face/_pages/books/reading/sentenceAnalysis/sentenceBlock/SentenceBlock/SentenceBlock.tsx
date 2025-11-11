@@ -1,9 +1,9 @@
-import PhraseHighlights from '../PhraseHighlights/PhraseHighlights'
-import { useGetWordClickHandler } from './fn/wordClickHandler'
-import { useGetSelectedSentence } from '_pages/books/reading/logic'
-import './SentenceBlock.scss'
+// import PhraseHighlights from '../PhraseHighlights/PhraseHighlights'
+// import { useGetWordClickHandler } from './fn/wordClickHandler'
+// import { useGetSelectedSentence } from '_pages/books/reading/logic'
+// import './SentenceBlock.scss'
 
-function SentenceBlock() {
+/*function SentenceBlock() {
 	const sentence = useGetSelectedSentence()
 	const wordClickHandler = useGetWordClickHandler()
 
@@ -42,6 +42,6 @@ function SentenceBlock() {
 			<PhraseHighlights />
 		</div>
 	)
-}
+}*/
 
-export default SentenceBlock
+// export default SentenceBlock

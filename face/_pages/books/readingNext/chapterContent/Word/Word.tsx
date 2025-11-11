@@ -12,7 +12,7 @@ type WordProps = {
 
 function Word(props: WordProps) {
 	const { sentence, wordData } = props
-	const selectedSentence = useReadingStoreNext((state) => state.selectedSentence)
+	const selectedSentence = useReadingStoreNext((state) => state.selection)
 
 	const wordType = getWordPrimaryType(selectedSentence, sentence, wordData.id)
 	const onWordClick = useGetOnWordClick()

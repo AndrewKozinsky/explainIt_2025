@@ -1,8 +1,8 @@
-type LinkArrowProps = {
+/*type LinkArrowProps = {
 	direction: 'left' | 'right'
-}
+}*/
 
-export default function LinkArrow(props: LinkArrowProps) {
+/*export default function LinkArrow(props: LinkArrowProps) {
 	const { direction } = props
 
 	if (direction === 'left') {
@@ -20,4 +20,4 @@ export default function LinkArrow(props: LinkArrowProps) {
 			<img src='/readingPage/RightArrow.svg' alt='arrow sign' />
 		</div>
 	)
-}
+}*/

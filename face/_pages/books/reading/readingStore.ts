@@ -1,10 +1,10 @@
-import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
-import { BookChapter_AnalyseSentenceAndPhrase, BookChapterOutModel, BookOutModel } from '@/graphql'
-import { areArraysEqualIgnoringOrder } from 'utils/arrays'
-import { create } from 'zustand'
-import { produce } from 'immer'
+// import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
+// import { BookChapter_AnalyseSentenceAndPhrase, BookChapterOutModel, BookOutModel } from '@/graphql'
+// import { areArraysEqualIgnoringOrder } from 'utils/arrays'
+// import { create } from 'zustand'
+// import { produce } from 'immer'
 
-export const readingStoreValues: ReadingStoreValues = {
+/*export const readingStoreValues: ReadingStoreValues = {
 	book: null as any as ReadingStore.BookData,
 	chapter: null as any as ReadingStore.ChapterData,
 	populatedChapter: null as any as ChapterTextStructurePopulated.Chapter,
@@ -12,9 +12,9 @@ export const readingStoreValues: ReadingStoreValues = {
 		context: '',
 		sentenceId: null,
 	},
-}
+}*/
 
-export const useReadingStore = create<ReadingStore>()((set, get) => {
+/*export const useReadingStore = create<ReadingStore>()((set, get) => {
 	return {
 		...readingStoreValues,
 		updateBook: (book: ReadingStore.BookData) => {
@@ -58,28 +58,28 @@ export const useReadingStore = create<ReadingStore>()((set, get) => {
 				}
 			})
 		},
-		/**
+		/!**
 		 * Когда выделено какое-либо предложение и пользователь выделяет слова, то их идентификаторы попадают в массив phrases с типом idle.
 		 * Такой тип фразы может быть только один. Если пользователь делает запрос на анализ, то он становится в тип loading.
 		 * @param wordId — id слова, которое нужно поставить во фразу ожидающую перевода
 		 * @param insertType — тип вставки:
 		 * add — добавить слово в существующие слова фразы,
 		 * replaceAll — убрать все остальные идентификаторы слов заменив этим
-		 */
+		 *!/
 		addWordInIdlePhraseInSelectedSentence(wordId: number, insertType: 'add' | 'replaceAll') {
 			const selectedSentenceId = get().selectedSentence.sentenceId
 			if (!selectedSentenceId) return
 
 			get().addWordInIdlePhraseInSentence(selectedSentenceId, wordId, insertType)
 		},
-		/**
+		/!**
 		 * Добавляет в фразу типа 'idle' слово с указанным идентификатором.
 		 * @param sentenceId — в каком предложении добавлять слово в фразу с типом 'idle'
 		 * @param wordId — id слова, которое нужно поставить во фразу
 		 * @param insertType — тип вставки:
 		 * add — добавить слово в существующие слова фразы,
 		 * replaceAll — убрать все остальные идентификаторы слов заменив этим
-		 */
+		 *!/
 		addWordInIdlePhraseInSentence(sentenceId: number, wordId: number, insertType: 'add' | 'replaceAll') {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
@@ -109,7 +109,7 @@ export const useReadingStore = create<ReadingStore>()((set, get) => {
 				})
 			})
 		},
-		/** Ищет фразу с типом idle у выделенного предложения и ставит ей тип loading.*/
+		/!** Ищет фразу с типом idle у выделенного предложения и ставит ей тип loading.*!/
 		turnPhraseIntoLoadingInSelectedSentence(wordIds: number[]) {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
@@ -131,7 +131,7 @@ export const useReadingStore = create<ReadingStore>()((set, get) => {
 				})
 			})
 		},
-		/** Ищет фразу с переданными идентификаторам слов и делает её ошибочный */
+		/!** Ищет фразу с переданными идентификаторам слов и делает её ошибочный *!/
 		turnPhraseIntoErrorPhraseInSelectedSentence(wordIds: number[], errorMessage: string) {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
@@ -160,7 +160,7 @@ export const useReadingStore = create<ReadingStore>()((set, get) => {
 				})
 			})
 		},
-		/** Ищет фразу с переданными идентификаторам слов и делает её ошибочный */
+		/!** Ищет фразу с переданными идентификаторам слов и делает её ошибочный *!/
 		setSentenceTranslation(sentenceId: number, sentenceTranslation: string) {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
@@ -177,7 +177,7 @@ export const useReadingStore = create<ReadingStore>()((set, get) => {
 				})
 			})
 		},
-		/** ??? */
+		/!** ??? *!/
 		setPhraseAnalysisIntoSentence(analysisData: BookChapter_AnalyseSentenceAndPhrase) {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
@@ -223,9 +223,9 @@ export const useReadingStore = create<ReadingStore>()((set, get) => {
 			})
 		},
 	}
-})
+})*/
 
-export namespace ReadingStore {
+/*export namespace ReadingStore {
 	export type BookData = {
 		loading: boolean
 		errorMessage: null | string
@@ -236,11 +236,11 @@ export namespace ReadingStore {
 		errorMessage: null | string
 		data: BookChapterOutModel
 	}
-}
+}*/
 
-export type ReadingStore = ReadingStoreValues & ReadingStoreMethods
+// export type ReadingStore = ReadingStoreValues & ReadingStoreMethods
 
-export type ReadingStoreValues = {
+/*export type ReadingStoreValues = {
 	book: ReadingStore.BookData
 	chapter: ReadingStore.ChapterData
 	populatedChapter: ChapterTextStructurePopulated.Chapter
@@ -248,9 +248,9 @@ export type ReadingStoreValues = {
 	selectedSentence: SelectedSentence
 	// Возможно сюда же следует записать сам текст предложения...
 	// И ещё настройки отображения главы...
-}
+}*/
 
-export type ReadingStoreMethods = {
+/*export type ReadingStoreMethods = {
 	updateBook: (book: ReadingStore.BookData) => void
 	updateChapter: (chapter: ReadingStore.ChapterData) => void
 	updatePopulatedChapter: (populatedChapter: ChapterTextStructurePopulated.Chapter) => void
@@ -262,11 +262,11 @@ export type ReadingStoreMethods = {
 	turnPhraseIntoErrorPhraseInSelectedSentence: (wordIds: number[], errorMessage: string) => void
 	setSentenceTranslation: (sentenceId: number, sentenceTranslation: string) => void
 	setPhraseAnalysisIntoSentence: (analysisData: BookChapter_AnalyseSentenceAndPhrase) => void
-}
+}*/
 
-export type SelectedSentence = {
+/*export type SelectedSentence = {
 	// Текст из нескольких предложений до выделенного и несколько после чтобы ИИ понимал контекст
 	context: string
 	// Идентификатор выделенного предложения
 	sentenceId: null | number
-}
+}*/

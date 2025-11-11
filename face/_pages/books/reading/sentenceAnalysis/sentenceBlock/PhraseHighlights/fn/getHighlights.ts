@@ -1,26 +1,26 @@
-import { useGetSelectedSentence } from '_pages/books/reading/logic'
-import React, { useCallback, useLayoutEffect, useMemo, useState } from 'react'
+// import { useGetSelectedSentence } from '_pages/books/reading/logic'
+// import React, { useCallback, useLayoutEffect, useMemo, useState } from 'react'
 
-type ContainerRef = React.RefObject<HTMLDivElement | null>
+// type ContainerRef = React.RefObject<HTMLDivElement | null>
 
-export type Highlight = {
+/*export type Highlight = {
 	key: string
 	top: number
 	left: number
 	width: number
 	height: number
 	classNames: string[]
-}
+}*/
 
 // External paddings to enlarge highlight rectangle around a word
-export const WORD_HIGHLIGHT_PADDING = {
+/*export const WORD_HIGHLIGHT_PADDING = {
 	left: 2,
 	right: 2,
 	top: 0,
 	bottom: 0,
-}
+}*/
 
-export function useGetHighlights(containerRef: ContainerRef): Highlight[] {
+/*export function useGetHighlights(containerRef: ContainerRef): Highlight[] {
 	const selectedSentence = useGetSelectedSentence()
 	const [highlights, setHighlights] = useState<Highlight[]>([])
 
@@ -86,4 +86,4 @@ export function useGetHighlights(containerRef: ContainerRef): Highlight[] {
 	}, [measure])
 
 	return highlights
-}
+}*/

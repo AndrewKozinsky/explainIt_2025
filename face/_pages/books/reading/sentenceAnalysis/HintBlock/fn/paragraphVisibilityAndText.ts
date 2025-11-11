@@ -1,16 +1,16 @@
-import React from 'react'
-import { useGetIdlePhraseFromSelectedSentence } from '_pages/books/reading/logic'
-import { isMacOS } from 'utils/utils'
+// import React from 'react'
+// import { useGetIdlePhraseFromSelectedSentence } from '_pages/books/reading/logic'
+// import { isMacOS } from 'utils/utils'
 
-export function useGetHintVisibility() {
+/*export function useGetHintVisibility() {
 	const idlePhrase = useGetIdlePhraseFromSelectedSentence()
 
 	return React.useMemo(() => {
 		return !!idlePhrase
 	}, [idlePhrase])
-}
+}*/
 
-export function useGetHintText() {
+/*export function useGetHintText() {
 	const idlePhrase = useGetIdlePhraseFromSelectedSentence()
 
 	return React.useMemo(() => {
@@ -18,4 +18,4 @@ export function useGetHintText() {
 
 		return isMacOS() ? 'Зажмите cmd для выделения связанных слов.' : 'Зажмите ctrl для выделения нескольких слов.'
 	}, [idlePhrase])
-}
+}*/

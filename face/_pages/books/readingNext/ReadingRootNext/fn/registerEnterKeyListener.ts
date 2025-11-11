@@ -1,0 +1,24 @@
+import { useEffect } from 'react'
+import { canRunTranslation } from '../../lib/canRunTranslation'
+import { runTranslation } from '../../lib/translateSelectedPhrase'
+
+/**
+ * Sets Enter key pressing handler.
+ * It runs translation if the Enter key was pressed.
+ */
+export function useRegisterEnterKeyListener() {
+	useEffect(function () {
+		window.addEventListener('keydown', translate)
+
+		return () => {
+			window.removeEventListener('keydown', translate)
+		}
+	}, [])
+}
+
+function translate(e: KeyboardEvent) {
+	if (e.key !== 'Enter') return
+	if (!canRunTranslation()) return
+
+	runTranslation()
+}

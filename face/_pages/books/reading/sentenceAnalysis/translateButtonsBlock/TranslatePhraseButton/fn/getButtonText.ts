@@ -1,7 +1,7 @@
-import React from 'react'
-import { getWordValueById, useGetSelectedSentence } from '_pages/books/reading/logic'
+// import React from 'react'
+// import { getWordValueById, useGetSelectedSentence } from '_pages/books/reading/logic'
 
-export function useGetButtonText(phraseWordIds: number[]) {
+/*export function useGetButtonText(phraseWordIds: number[]) {
 	const selectedSentence = useGetSelectedSentence()
 
 	return React.useMemo(() => {
@@ -13,4 +13,4 @@ export function useGetButtonText(phraseWordIds: number[]) {
 			return `Перевести ${withSentenceTranslate} и фразу`
 		}
 	}, [phraseWordIds, selectedSentence.parts, selectedSentence.translation])
-}
+}*/

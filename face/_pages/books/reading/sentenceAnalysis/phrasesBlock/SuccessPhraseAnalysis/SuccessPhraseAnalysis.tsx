@@ -1,13 +1,13 @@
-import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
-import { useGetPhraseData } from './fn/getPhraseData'
-import PhraseAnalysisPhrase from '../PhraseAnalysisPhrase/PhraseAnalysisPhrase'
-import './SuccessPhraseAnalysis.scss'
+// import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
+// import { useGetPhraseData } from './fn/getPhraseData'
+// import PhraseAnalysisPhrase from '../PhraseAnalysisPhrase/PhraseAnalysisPhrase'
+// import './SuccessPhraseAnalysis.scss'
 
-type SuccessPhraseAnalysisProps = {
+/*type SuccessPhraseAnalysisProps = {
 	phrase: ChapterTextStructurePopulated.SuccessPhrase
-}
+}*/
 
-function SuccessPhraseAnalysis(props: SuccessPhraseAnalysisProps) {
+/*function SuccessPhraseAnalysis(props: SuccessPhraseAnalysisProps) {
 	const { phrase } = props
 
 	const phraseData = useGetPhraseData(phrase)
@@ -20,19 +20,19 @@ function SuccessPhraseAnalysis(props: SuccessPhraseAnalysisProps) {
 			<PhraseExamples phraseExamples={phraseData.examples} />
 		</div>
 	)
-}
+}*/
 
-export default SuccessPhraseAnalysis
+// export default SuccessPhraseAnalysis
 
-type PhraseExamplesProps = {
+/*type PhraseExamplesProps = {
 	phraseExamples: {
 		id: number
 		foreignLang: string
 		nativeLang: string
 	}[]
-}
+}*/
 
-function PhraseExamples(props: PhraseExamplesProps) {
+/*function PhraseExamples(props: PhraseExamplesProps) {
 	const { phraseExamples } = props
 
 	return (
@@ -48,4 +48,4 @@ function PhraseExamples(props: PhraseExamplesProps) {
 			})}
 		</div>
 	)
-}
+}*/

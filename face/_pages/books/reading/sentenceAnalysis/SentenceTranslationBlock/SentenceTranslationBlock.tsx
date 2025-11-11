@@ -1,7 +1,7 @@
-import { useGetSelectedSentence } from '_pages/books/reading/logic'
-import './SentenceTranslationBlock.scss'
+// import { useGetSelectedSentence } from '_pages/books/reading/logic'
+// import './SentenceTranslationBlock.scss'
 
-function SentenceTranslationBlock() {
+/*function SentenceTranslationBlock() {
 	const sentence = useGetSelectedSentence()
 
 	if (!sentence || !sentence.translation) {
@@ -9,6 +9,6 @@ function SentenceTranslationBlock() {
 	}
 
 	return <p className='sentence-translation'>{sentence.translation}</p>
-}
+}*/
 
-export default SentenceTranslationBlock
+// export default SentenceTranslationBlock

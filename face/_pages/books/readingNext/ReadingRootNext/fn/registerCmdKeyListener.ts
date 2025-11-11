@@ -8,7 +8,7 @@ import { useReadingStoreNext } from '../../readingStoreNext'
  * Если пользователь работает с сайтом на стандартном мониторе, то для выделения нескольких слов должен нажать клавишу Cmd.
  * Поэтому в зависимости от этого меняется значение isWordsAddingModeEnabled в Хранилище.
  */
-export function useRegisterCmdSelectionListener() {
+export function useRegisterCmdKeyListener() {
 	const changeWordsAddingMode = useReadingStoreNext((s) => s.changeWordsAddingMode)
 
 	useEffect(
@@ -19,13 +19,16 @@ export function useRegisterCmdSelectionListener() {
 				const isKeyPressed = isMac ? e.metaKey : e.ctrlKey
 				changeWordsAddingMode(isKeyPressed)
 			}
+			const clearAddingMode = () => {
+				changeWordsAddingMode(false)
+			}
 
 			window.addEventListener('keydown', changeAddingModeDependsOnPressedKey)
-			window.addEventListener('keyup', changeAddingModeDependsOnPressedKey)
+			window.addEventListener('keyup', clearAddingMode)
 
 			return () => {
 				window.removeEventListener('keydown', changeAddingModeDependsOnPressedKey)
-				window.removeEventListener('keyup', changeAddingModeDependsOnPressedKey)
+				window.removeEventListener('keyup', clearAddingMode)
 				changeWordsAddingMode(false)
 			}
 		},

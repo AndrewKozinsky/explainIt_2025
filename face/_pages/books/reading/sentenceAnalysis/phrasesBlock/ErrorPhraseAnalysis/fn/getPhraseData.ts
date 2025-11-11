@@ -1,8 +1,8 @@
-import { useMemo } from 'react'
-import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
-import { getPhaseTextFromWordIdx, useGetSelectedSentence } from '_pages/books/reading/logic'
+// import { useMemo } from 'react'
+// import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
+// import { getPhaseTextFromWordIdx, useGetSelectedSentence } from '_pages/books/reading/logic'
 
-export function useGetPhraseData(phrase: ChapterTextStructurePopulated.ErrorPhrase) {
+/*export function useGetPhraseData(phrase: ChapterTextStructurePopulated.ErrorPhrase) {
 	const sentence = useGetSelectedSentence()
 
 	return useMemo(() => {
@@ -16,4 +16,4 @@ export function useGetPhraseData(phrase: ChapterTextStructurePopulated.ErrorPhra
 			errorMessage,
 		}
 	}, [phrase.errorMessage, phrase.wordIds, sentence.parts])
-}
+}*/
