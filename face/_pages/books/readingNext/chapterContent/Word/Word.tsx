@@ -19,7 +19,9 @@ function Word(props: WordProps) {
 
 	return (
 		<span className={cn('word', 'word--' + wordType)} onClick={() => onWordClick(sentence.id, wordData.id)}>
-			<span className='word__text'>{wordData.value}</span>
+			<span className='word__text' data-text={wordData.value}>
+				{wordData.value}
+			</span>
 		</span>
 	)
 }

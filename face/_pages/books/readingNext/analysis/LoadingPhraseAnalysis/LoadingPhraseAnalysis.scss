@@ -1,47 +1,8 @@
+@use '@/styles/inherit' as inh;
+
 .loading-phrase-analysis {
 	font-size: 5rem;
 	line-height: 5.4rem;
-	color: #dfdfdf;
-	position: relative;
-	display: inline-block;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	/* Adaptive sweep width relative to element width */
-	--sweep-w: clamp(200px, 12%, 300px);
+	@include inh.ai-shimmer-text();
 }
 
-.loading-phrase-analysis::after {
-	content: attr(data-text);
-	position: absolute;
-	inset: 0;
-	pointer-events: none;
-	color: transparent;
-	background-image: linear-gradient(
-		90deg,
-		rgba(0, 0, 0, 0) 0%,
-			#FC3F1D 30%,
-			#006AFF 50%,
-			#FC3F1D 70%,
-		rgba(0, 0, 0, 0) 100%
-	);
-	background-size: var(--sweep-w) 100%;
-	background-repeat: no-repeat;
-	background-position: 0 0;
-	-webkit-background-clip: text;
-	background-clip: text;
-	-webkit-text-fill-color: transparent;
-	animation: loading-phrase-sweep 4s linear infinite;
-}
-
-@keyframes loading-phrase-sweep {
-	0% { background-position: calc(-1 * var(--sweep-w)) 0; }
-	99.9% { background-position: 100% 0; }
-	100% { background-position: 0 0; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-	.loading-phrase-analysis::after {
-		animation: none;
-		background-position: 50% 0;
-	}
-}
