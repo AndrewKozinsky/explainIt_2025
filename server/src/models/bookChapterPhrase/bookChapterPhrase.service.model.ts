@@ -3,6 +3,7 @@ export type BookChapterPhraseServiceModel = {
 	sentenceId: number
 	sentence: string
 	phrase: string
+	transcription: string
 	phraseWordsIdx: number[]
 	phraseTranslation: string
 	phraseAnalysis: string

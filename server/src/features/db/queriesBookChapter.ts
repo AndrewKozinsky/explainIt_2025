@@ -112,7 +112,7 @@ export const queriesBookChapter = {
 			},
 		}
 	},
-	analyseSentenceAndPhrase(dto: {
+	analysePhrase(dto: {
 		bookChapterId: number
 		bookAuthor: null | string
 		bookName: null | string
@@ -122,12 +122,13 @@ export const queriesBookChapter = {
 	}) {
 		return {
 			query: `
-      query GetBookChapter($input: AnalyseSentenceAndPhraseInput!) {
-        ${RouteNames.BOOK_CHAPTER.ANALYSE_SENTENCE_AND_PHRASE}(input: $input) {
+      query GetBookChapter($input: AnalysePhraseInput!) {
+        ${RouteNames.BOOK_CHAPTER.ANALYSE_PHRASE}(input: $input) {
 			sentenceTranslation
 			phrase {
 				id
 				phrase
+				transcription
 				translation
 				analysis
 				examples {

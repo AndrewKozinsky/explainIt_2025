@@ -3,7 +3,7 @@ import { CqrsModule } from '@nestjs/cqrs'
 import { CreateBookChapterHandler } from 'features/bookChapter/CreateBookChapter.command'
 import { DeleteBookChapterHandler } from 'features/bookChapter/DeleteBookChapter.command'
 import { UpdateBookChapterHandler } from 'features/bookChapter/UpdateBookChapter.command'
-import { AnalyseSentenceAndPhraseHandler } from 'features/bookChapter/AnalyseSentenceAndPhrase.command'
+import { AnalysePhraseHandler } from 'features/bookChapter/AnalysePhrase.command'
 import { DeleteBookChapterPhrasesHandler } from 'src/features/bookChapter/DeleteBookChapterPhrases.command'
 import { BookQueryRepository } from 'src/repo/book.queryRepository'
 import { BookRepository } from 'src/repo/book.repository'
@@ -23,7 +23,7 @@ const commandHandlers = [
 	UpdateBookChapterHandler,
 	DeleteBookChapterHandler,
 	GetBookChapterHandler,
-	AnalyseSentenceAndPhraseHandler,
+	AnalysePhraseHandler,
 	DeleteBookChapterPhrasesHandler,
 ]
 const resolvers = [BookChapterResolver]

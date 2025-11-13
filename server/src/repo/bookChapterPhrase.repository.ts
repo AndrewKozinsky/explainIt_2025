@@ -16,6 +16,7 @@ export class BookChapterPhraseRepository {
 		sentenceId: number
 		sentence: string
 		phrase: string
+		transcription: string
 		phraseWordsIdx: number[]
 		phraseTranslation: string
 		phraseAnalysis: string
@@ -26,6 +27,7 @@ export class BookChapterPhraseRepository {
 				sentenceId: dto.sentenceId,
 				sentence: dto.sentence,
 				phrase: dto.phrase,
+				phraseTranscription: dto.transcription,
 				phraseWordsIdx: dto.phraseWordsIdx,
 				phraseTranslation: dto.phraseTranslation,
 				phraseAnalysis: dto.phraseAnalysis,
@@ -51,16 +53,17 @@ export class BookChapterPhraseRepository {
 		})
 	}
 
-	mapDbPhraseToServicePhrase(dbBookChapter: PhraseWithPhraseExamples): BookChapterPhraseServiceModel {
+	mapDbPhraseToServicePhrase(dbPhrase: PhraseWithPhraseExamples): BookChapterPhraseServiceModel {
 		return {
-			id: dbBookChapter.id,
-			sentenceId: dbBookChapter.sentenceId,
-			sentence: dbBookChapter.sentence,
-			phrase: dbBookChapter.phrase,
-			phraseWordsIdx: dbBookChapter.phraseWordsIdx,
-			phraseTranslation: dbBookChapter.phraseTranslation,
-			phraseAnalysis: dbBookChapter.phraseAnalysis,
-			examples: dbBookChapter.BookChapterPhraseExample.map((example) => ({
+			id: dbPhrase.id,
+			sentenceId: dbPhrase.sentenceId,
+			sentence: dbPhrase.sentence,
+			phrase: dbPhrase.phrase,
+			transcription: dbPhrase.phraseTranscription,
+			phraseWordsIdx: dbPhrase.phraseWordsIdx,
+			phraseTranslation: dbPhrase.phraseTranslation,
+			phraseAnalysis: dbPhrase.phraseAnalysis,
+			examples: dbPhrase.BookChapterPhraseExample.map((example) => ({
 				id: example.id,
 				sentence: example.sentence,
 				translation: example.translation,

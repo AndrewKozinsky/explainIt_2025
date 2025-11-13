@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import { canRunTranslation } from '../../lib/canRunTranslation'
-import { runTranslation } from '../../lib/translateSelectedPhrase'
 
 /**
  * Sets Enter key pressing handler.
@@ -20,5 +19,5 @@ function translate(e: KeyboardEvent) {
 	if (e.key !== 'Enter') return
 	if (!canRunTranslation()) return
 
-	runTranslation()
+	// runTranslation()
 }

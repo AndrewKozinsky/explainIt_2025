@@ -1,5 +1,6 @@
+import { returnStatement } from '@babel/types'
 import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
-import { BookChapterOutModel, BookOutModel } from '@/graphql'
+import { Book_Chapter_AnalysePhrase, BookChapterOutModel, BookChapterPhraseOutModel, BookOutModel } from '@/graphql'
 import invariant from 'ts-invariant'
 import { areArraysEqualIgnoringOrder } from 'utils/arrays'
 import { create } from 'zustand'
@@ -142,6 +143,70 @@ export const useReadingStoreNext = create<ReadingStoreNext>()((set, get) => {
 				})
 			})
 		},
+		/** В предложени ищет фразу с указанным id и ставит ей тип error*/
+		turnPhraseIntoErrorPhrase(sentenceId: number, phraseId: number, errorMessage: string) {
+			set((baseState) => {
+				return produce(baseState, (draftState) => {
+					const sentence = draftState.populatedChapter.parts.find((part) => part.id === sentenceId)
+					if (!sentence || sentence.type !== 'sentence') return
+
+					const phraseIdx = sentence.phrases.findIndex((phrase) => phrase.id === phraseId)
+					if (phraseIdx < 0) return
+
+					sentence.phrases[phraseIdx] = {
+						type: 'error',
+						id: phraseId,
+						errorMessage,
+						wordIds: [...sentence.phrases[phraseIdx].wordIds],
+					}
+				})
+			})
+		},
+		setPhraseAnalysisIntoSentence(analysis: BookChapterPhraseOutModel) {
+			set((baseState) => {
+				return produce(baseState, (draftState) => {
+					const sentence = draftState.populatedChapter.parts.find((sentence) => {
+						const sentenceId = analysis.sentenceId
+						return sentence.id === sentenceId
+					})
+					if (!sentence || sentence.type !== 'sentence') {
+						return draftState
+					}
+
+					const phraseWithTheSameIdx = sentence.phrases.findIndex((phrase) => {
+						return areArraysEqualIgnoringOrder(phrase.wordIds, analysis.phraseWordsIdx)
+					})
+					if (phraseWithTheSameIdx < 0) {
+						return draftState
+					}
+
+					const maxPhraseId = sentence.phrases.reduce((max, phrase) => Math.max(max, phrase.id), 0)
+
+					sentence.phrases[phraseWithTheSameIdx] = {
+						id: maxPhraseId + 1,
+						type: 'success',
+						phraseIdInDb: analysis.id,
+						phrase: analysis.phrase,
+						// Идентификаторы выделенных слов этой фразы
+						wordIds: analysis.phraseWordsIdx,
+						analysis: {
+							// Краткий перевод фразы
+							translation: analysis.translation,
+							// Анализ фразы
+							analysis: analysis.analysis,
+							// Примеры использования фразы (предложение на иностранном языке и родном)
+							examples: analysis.examples.map((example) => {
+								return {
+									id: example.id,
+									foreignLang: example.sentence,
+									nativeLang: example.translation,
+								}
+							}),
+						},
+					}
+				})
+			})
+		},
 	}
 })
 
@@ -196,7 +261,6 @@ export type ReadingStoreMethods = {
 	changeWordsAddingMode: (isEnabled: boolean) => void
 	changeDeviceType: (deviceType: DeviceType) => void
 	createLoadingPhraseInSelectedSentenceFromSelectedWords: () => void
-	// turnPhraseIntoErrorPhraseInSelectedSentence: (wordIds: number[], errorMessage: string) => void
-	// setSentenceTranslation: (sentenceId: number, sentenceTranslation: string) => void
-	// setPhraseAnalysisIntoSentence: (analysisData: BookChapter_AnalyseSentenceAndPhrase) => void
+	turnPhraseIntoErrorPhrase: (sentenceId: number, phraseId: number, errorMessage: string) => void
+	setPhraseAnalysisIntoSentence: (analysis: BookChapterPhraseOutModel) => void
 }

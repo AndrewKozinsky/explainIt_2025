@@ -81,6 +81,7 @@ CREATE TABLE "public"."BookChapterPhrase" (
     "phraseWordsIdx" INTEGER[],
     "phrase" TEXT NOT NULL,
     "phraseTranslation" TEXT NOT NULL,
+    "phraseTranscription" TEXT NOT NULL,
     "phraseAnalysis" TEXT NOT NULL,
     "book_chapter_id" INTEGER NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,

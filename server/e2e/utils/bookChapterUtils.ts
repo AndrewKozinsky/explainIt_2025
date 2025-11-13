@@ -66,7 +66,7 @@ export const bookChapterUtils = {
 		}
 	},
 
-	checkAnalyseSentenceAndPhraseResp(
+	checkAnalysePhraseResp(
 		responseData: any,
 		checks?: {
 			sentenceTranslation?: string

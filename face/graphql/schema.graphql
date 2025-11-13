@@ -1,4 +1,4 @@
-input AnalyseSentenceAndPhraseInput {
+input AnalysePhraseInput {
   """Book author"""
   bookAuthor: String
 
@@ -50,6 +50,7 @@ type BookChapterPhraseOutModel {
   phraseWordsIdx: [Int!]!
   sentence: String!
   sentenceId: Int!
+  transcription: String!
   translation: String!
 }
 
@@ -237,7 +238,7 @@ type Query {
 
   """Get current user data"""
   auth_getMe: UserOutModel!
-  book_chapter_AnalyseSentenceAndPhrase(input: AnalyseSentenceAndPhraseInput!): SentenceAndPhraseAnalysesOutModel!
+  book_chapter_AnalysePhrase(input: AnalysePhraseInput!): BookChapterPhraseOutModel!
 
   """Get book chapter"""
   book_chapter_get(input: GetBookChapterInput!): BookChapterOutModel!
@@ -260,11 +261,6 @@ input RegisterUserInput {
 input ResendConfirmationEmailInput {
   """User email"""
   email: String!
-}
-
-type SentenceAndPhraseAnalysesOutModel {
-  phrase: BookChapterPhraseOutModel!
-  sentenceTranslation: String!
 }
 
 input TopUpBalanceWithYooKassaInput {

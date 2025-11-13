@@ -10,7 +10,7 @@ import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { OpenAIModels, OpenAIService } from 'infrastructure/openAI/openAI.service'
 
-type AnalyseSentenceAndPhraseInput = {
+type AnalysePhraseInput = {
 	bookChapterId: number
 	bookAuthor: null | string
 	bookName: null | string
@@ -21,18 +21,18 @@ type AnalyseSentenceAndPhraseInput = {
 	phraseWordsIdx: number[]
 }
 
-export class AnalyseSentenceAndPhraseCommand implements ICommand {
+export class AnalysePhraseCommand implements ICommand {
 	constructor(
 		public userId: number,
-		public analyseSentenceAndPhraseInput: AnalyseSentenceAndPhraseInput,
+		public analysePhraseInput: AnalysePhraseInput,
 	) {}
 }
 
-// Принимает данные для анализа предложения и фразы и через OpenAI получает перевод предложения и перевод и анализ фразы.
-// Снимает с пользователя баланс за переводы.
-// Возвращает перевод предложения и перевод и анализ фразы.
-@CommandHandler(AnalyseSentenceAndPhraseCommand)
-export class AnalyseSentenceAndPhraseHandler implements ICommandHandler<AnalyseSentenceAndPhraseCommand> {
+// Принимает данные для анализа фразы и через OpenAI получает перевод и анализ фразы.
+// Снимает с пользователя баланс за перевод.
+// Возвращает перевод и анализ фразы.
+@CommandHandler(AnalysePhraseCommand)
+export class AnalysePhraseHandler implements ICommandHandler<AnalysePhraseCommand> {
 	constructor(
 		private openAIService: OpenAIService,
 		private commandBus: CommandBus,
@@ -41,29 +41,30 @@ export class AnalyseSentenceAndPhraseHandler implements ICommandHandler<AnalyseS
 		private bookChapterPhraseExampleRepository: BookChapterPhraseExampleRepository,
 	) {}
 
-	async execute(command: AnalyseSentenceAndPhraseCommand) {
-		const { userId, analyseSentenceAndPhraseInput } = command
+	async execute(command: AnalysePhraseCommand) {
+		const { userId, analysePhraseInput } = command
 
 		// Получить перевод предложения и перевод и анализ фразы через OpenAI.
-		const analysis = await this.getAnalysis(userId, analyseSentenceAndPhraseInput)
+		const analysis = await this.getAnalysis(userId, analysePhraseInput)
 		if (!analysis) {
 			throw new CustomGraphQLError(errorMessage.unknownOpenAIError, ErrorCode.InternalServerError_500)
 		}
 
 		// Записать в БД перевод фразы
 		const createPhraseRes = await this.bookChapterPhraseRepository.createBookChapterPhrase({
-			bookChapterId: analyseSentenceAndPhraseInput.bookChapterId,
-			sentenceId: analyseSentenceAndPhraseInput.sentenceId,
-			sentence: analyseSentenceAndPhraseInput.sentence,
-			phrase: analyseSentenceAndPhraseInput.phrase,
-			phraseWordsIdx: analyseSentenceAndPhraseInput.phraseWordsIdx,
-			phraseTranslation: analysis.phraseTranslate,
-			phraseAnalysis: analysis.phraseAnalysis,
+			bookChapterId: analysePhraseInput.bookChapterId,
+			sentenceId: analysePhraseInput.sentenceId,
+			sentence: analysePhraseInput.sentence,
+			transcription: analysis.transcription,
+			phrase: analysePhraseInput.phrase,
+			phraseWordsIdx: analysePhraseInput.phraseWordsIdx,
+			phraseTranslation: analysis.translate,
+			phraseAnalysis: analysis.analysis,
 		})
 
 		// Save phrase examples
-		for (let i = 0; i < analysis.phraseExamples.length; i++) {
-			const phraseExample = analysis.phraseExamples[i]
+		for (let i = 0; i < analysis.examples.length; i++) {
+			const phraseExample = analysis.examples[i]
 
 			await this.bookChapterPhraseExampleRepository.createPhraseExample({
 				bookChapterPhraseId: createPhraseRes.id,
@@ -77,20 +78,17 @@ export class AnalyseSentenceAndPhraseHandler implements ICommandHandler<AnalyseS
 			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
 		}
 
-		return {
-			sentenceTranslation: analysis.sentenceTranslate,
-			phrase: phraseOutRes,
-		}
+		return phraseOutRes
 	}
 
 	/**
 	 * Запрашивает перевод предложения и перевод и анализ фразы через OpenAI.
 	 * @param userId — user id who make a request to OpenAI
-	 * @param analyseSentenceAndPhraseInput — данные для анализа предложения и фразы.
+	 * @param analysePhraseInput — данные для анализа предложения и фразы.
 	 */
-	async getAnalysis(userId: number, analyseSentenceAndPhraseInput: AnalyseSentenceAndPhraseInput) {
+	async getAnalysis(userId: number, analysePhraseInput: AnalysePhraseInput) {
 		// Подготовка данных для передачи в OpenAI.
-		const messages = this.getAnalysisTask(analyseSentenceAndPhraseInput)
+		const messages = this.getAnalysisTask(analysePhraseInput)
 
 		// Запрос на анализ текстов
 		const aiResult = await this.openAIService.generateText({
@@ -118,11 +116,9 @@ export class AnalyseSentenceAndPhraseHandler implements ICommandHandler<AnalyseS
 
 	/**
 	 * Формирует задачу для передачи в OpenAI.
-	 * @param analyseSentenceAndPhraseInput — данные для анализа предложения и фразы.
+	 * @param analysePhraseInput — данные для анализа предложения и фразы.
 	 */
-	getAnalysisTask(
-		analyseSentenceAndPhraseInput: AnalyseSentenceAndPhraseInput,
-	): OpenAI.Chat.Completions.ChatCompletionMessageParam[] {
+	getAnalysisTask(analysePhraseInput: AnalysePhraseInput): OpenAI.Chat.Completions.ChatCompletionMessageParam[] {
 		const firstTaskSentenceMapper = {
 			bookName_bookAuthor: 'Предложение {Sentence} в контексте {Context} из книги {BookName} автора {BookAuthor}',
 			bookName_: 'Предложение {Sentence} в контексте {Context} из книги {BookName}',
@@ -132,17 +128,17 @@ export class AnalyseSentenceAndPhraseHandler implements ICommandHandler<AnalyseS
 
 		const firstTaskSentence =
 			firstTaskSentenceMapper[
-				`${analyseSentenceAndPhraseInput.bookName ? 'bookName' : ''}_${analyseSentenceAndPhraseInput.bookAuthor ? 'bookAuthor' : ''}`
+				`${analysePhraseInput.bookName ? 'bookName' : ''}_${analysePhraseInput.bookAuthor ? 'bookAuthor' : ''}`
 			]
 
 		return [
 			{
 				role: 'system',
 				content: `${firstTaskSentence}. Сформируй JSON:
-{"sentenceTranslate": "...", "phraseTranslate": "...", "phraseAnalysis": "...", "phraseExamples": "..."}
-- sentenceTranslate: перевод предложения {Sentence} на русский.
-- phraseTranslate: ёмкий перевод фразы {Phrase} на русский.
-- phraseAnalysis: объяснение фразы в контексте этого предложения.
+{"transcription": "...", "translate": "...", "analysis": "...", "examples": "..."}
+- transcription: транскрипция фразы {Phrase}.
+- translate: ёмкий перевод фразы {Phrase} на русский.
+- analysis: объяснение фразы в контексте этого предложения.
 - examples: Массив из трёх примеров использования фразы в других предложениях с переводом. Например:
 [{"sentence": "...", "translation": "..."},{"sentence": "...","translation": "..."},...]`,
 			},
@@ -150,11 +146,11 @@ export class AnalyseSentenceAndPhraseHandler implements ICommandHandler<AnalyseS
 				role: 'user',
 				content: JSON.stringify(
 					{
-						BookAuthor: analyseSentenceAndPhraseInput.bookAuthor,
-						BookName: analyseSentenceAndPhraseInput.sentence,
-						Sentence: analyseSentenceAndPhraseInput.sentence,
-						Phrase: analyseSentenceAndPhraseInput.phrase,
-						Context: analyseSentenceAndPhraseInput.context,
+						BookAuthor: analysePhraseInput.bookAuthor,
+						BookName: analysePhraseInput.sentence,
+						Sentence: analysePhraseInput.sentence,
+						Phrase: analysePhraseInput.phrase,
+						Context: analysePhraseInput.context,
 					},
 					(key, value) => {
 						return value ? value : undefined
@@ -175,10 +171,10 @@ export class AnalyseSentenceAndPhraseHandler implements ICommandHandler<AnalyseS
 		// Схема для проверки сообщения через zod
 		const AnalysisMessageSchema = z
 			.object({
-				sentenceTranslate: z.string(),
-				phraseTranslate: z.string(),
-				phraseAnalysis: z.string(),
-				phraseExamples: z.array(
+				transcription: z.string(),
+				translate: z.string(),
+				analysis: z.string(),
+				examples: z.array(
 					z.object({
 						sentence: z.string(),
 						translation: z.string(),

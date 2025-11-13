@@ -42,7 +42,7 @@ describe.skip('Analyze phase', () => {
 	})
 
 	it('should return 401 if there is not session token cookie', async () => {
-		const { query, variables } = queries.bookChapter.analyseSentenceAndPhrase({
+		const { query, variables } = queries.bookChapter.analysePhrase({
 			bookChapterId: 9999,
 			sentence: '',
 			phrase: '',
@@ -89,7 +89,7 @@ describe.skip('Analyze phase', () => {
 			],
 		})
 
-		const { query, variables } = queries.bookChapter.analyseSentenceAndPhrase({
+		const { query, variables } = queries.bookChapter.analysePhrase({
 			bookChapterId: chapters[0].id,
 			sentence: 'Test sentence',
 			phrase: 'test phrase',
@@ -149,7 +149,7 @@ describe.skip('Analyze phase', () => {
 			message: null, // Missing message property - malformed response
 		})
 
-		const { query, variables } = queries.bookChapter.analyseSentenceAndPhrase({
+		const { query, variables } = queries.bookChapter.analysePhrase({
 			bookChapterId: chapters[0].id,
 			sentence: 'Test sentence',
 			phrase: 'test phrase',
@@ -231,7 +231,7 @@ describe.skip('Analyze phase', () => {
 
 		jest.spyOn(openAIService, 'generateText').mockResolvedValue(mockOpenAIResponse)
 
-		const { query, variables } = queries.bookChapter.analyseSentenceAndPhrase({
+		const { query, variables } = queries.bookChapter.analysePhrase({
 			bookChapterId: chapters[0].id,
 			sentence: 'Test sentence',
 			phrase: 'test phrase',
@@ -254,7 +254,7 @@ describe.skip('Analyze phase', () => {
 		const responseData = response.data.book_chapter_AnalyseSentenceAndPhrase
 		expect(responseData).toBeDefined()
 
-		bookChapterUtils.checkAnalyseSentenceAndPhraseResp(responseData, {
+		bookChapterUtils.checkAnalysePhraseResp(responseData, {
 			sentenceTranslation: 'Тестовое предложение переведено',
 			phrase: {
 				phrase: 'test phrase',

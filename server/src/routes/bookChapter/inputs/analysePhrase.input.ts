@@ -3,7 +3,7 @@ import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
 import { bdConfig } from 'src/db/dbConfig/dbConfig'
 
 @InputType()
-export class AnalyseSentenceAndPhraseInput {
+export class AnalysePhraseInput {
 	@Field(() => Int, { description: 'Book chapter id' })
 	@DtoFieldDecorators('id', bdConfig.BookChapter.dbFields.id)
 	bookChapterId: number

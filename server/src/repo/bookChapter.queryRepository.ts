@@ -63,6 +63,7 @@ export class BookChapterQueryRepository {
 				sentenceId: phrase.sentenceId,
 				sentence: phrase.sentence,
 				phrase: phrase.phrase,
+				transcription: phrase.phraseTranslation,
 				phraseWordsIdx: phrase.phraseWordsIdx,
 				translation: phrase.phraseTranslation,
 				analysis: phrase.phraseAnalysis,

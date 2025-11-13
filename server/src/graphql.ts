@@ -25,7 +25,7 @@ export interface GetBookChapterInput {
     id: number;
 }
 
-export interface AnalyseSentenceAndPhraseInput {
+export interface AnalysePhraseInput {
     bookChapterId: number;
     bookAuthor?: Nullable<string>;
     bookName?: Nullable<string>;
@@ -115,6 +115,7 @@ export interface BookChapterPhraseOutModel {
     id: number;
     sentenceId: number;
     sentence: string;
+    transcription: string;
     phrase: string;
     phraseWordsIdx: number[];
     translation: string;
@@ -163,11 +164,6 @@ export interface BookLiteOutModel {
     userId: number;
 }
 
-export interface SentenceAndPhraseAnalysesOutModel {
-    sentenceTranslation: string;
-    phrase: BookChapterPhraseOutModel;
-}
-
 export interface TopUpBalanceWithYooKassaOutModel {
     confirmationUrl: string;
 }
@@ -179,7 +175,7 @@ export interface IQuery {
     book_user_books(): BookOutModel[] | Promise<BookOutModel[]>;
     book_get(input: GetBookInput): BookOutModel | Promise<BookOutModel>;
     book_chapter_get(input: GetBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
-    book_chapter_AnalyseSentenceAndPhrase(input: AnalyseSentenceAndPhraseInput): SentenceAndPhraseAnalysesOutModel | Promise<SentenceAndPhraseAnalysesOutModel>;
+    book_chapter_AnalysePhrase(input: AnalysePhraseInput): BookChapterPhraseOutModel | Promise<BookChapterPhraseOutModel>;
 }
 
 export interface CheckTranslationOutSuccessModel {
