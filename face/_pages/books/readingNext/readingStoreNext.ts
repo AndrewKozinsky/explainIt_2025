@@ -15,6 +15,12 @@ export const readingStoreValues: ReadingStoreValues = {
 	},
 	isWordsAddingModeEnabled: false,
 	deviceType: 'mouse',
+	hoveredWord: {
+		sentenceId: null,
+		wordId: null,
+		pos: null,
+		container: null,
+	},
 }
 
 export const useReadingStoreNext = create<ReadingStoreNext>()((set, get) => {
@@ -114,6 +120,30 @@ export const useReadingStoreNext = create<ReadingStoreNext>()((set, get) => {
 				return {
 					deviceType,
 				}
+			})
+		},
+		setHoveredWord(sentenceId: number, wordId: number, pos: { left: number; top: number }, container: { width: number; height: number }) {
+			set((baseState) => {
+				return produce(baseState, (draftState) => {
+					draftState.hoveredWord = {
+						sentenceId,
+						wordId,
+						pos,
+						container,
+					}
+				})
+			})
+		},
+		clearHoveredWord() {
+			set((baseState) => {
+				return produce(baseState, (draftState) => {
+					draftState.hoveredWord = {
+						sentenceId: null,
+						wordId: null,
+						pos: null,
+						container: null,
+					}
+				})
 			})
 		},
 		/** Ищет фразу с типом idle у выделенного предложения и ставит ей тип loading.*/
@@ -239,6 +269,13 @@ export type ReadingStoreValues = {
 	// Если выключен, то заменит все слова поставленные во фразу типа idle.
 	isWordsAddingModeEnabled: boolean
 	deviceType: DeviceType
+	// Данные наведённого слова для отображения всплывающей подсказки
+	hoveredWord: {
+		sentenceId: number | null
+		wordId: number | null
+		pos: { left: number; top: number } | null
+		container: { width: number; height: number } | null
+	}
 }
 
 export type SelectedSentence = {
@@ -265,4 +302,11 @@ export type ReadingStoreMethods = {
 	createLoadingPhraseInSelectedSentenceFromSelectedWords: () => void
 	turnPhraseIntoErrorPhrase: (sentenceId: number, phraseId: number, errorMessage: string) => void
 	setPhraseAnalysisIntoSentence: (analysis: BookChapterPhraseOutModel) => void
+	setHoveredWord: (
+		sentenceId: number,
+		wordId: number,
+		pos: { left: number; top: number },
+		container: { width: number; height: number },
+	) => void
+	clearHoveredWord: () => void
 }
