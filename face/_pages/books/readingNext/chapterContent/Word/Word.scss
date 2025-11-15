@@ -69,6 +69,7 @@
 		color: white;
 		&:before {
 			background-color: vars.$grayColor-3;
+			border: none;
 		}
 	}
 }

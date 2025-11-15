@@ -21,7 +21,8 @@ export function useChapterTooltip() {
 	const currentPhrases: ChapterTextStructurePopulated.SuccessPhrase[] = useMemo(() => {
 		if (!sentence || hovered.wordId == null) return []
 		return sentence.phrases.filter(
-			(p): p is ChapterTextStructurePopulated.SuccessPhrase => p.type === 'success' && p.wordIds.includes(hovered.wordId as number),
+			(p): p is ChapterTextStructurePopulated.SuccessPhrase =>
+				p.type === 'success' && p.wordIds.includes(hovered.wordId as number),
 		)
 	}, [sentence, hovered.wordId])
 
@@ -62,7 +63,7 @@ export function useChapterTooltip() {
 	}, [hovered.pos, hovered.container, currentPhrases, visible])
 
 	useLayoutEffect(() => {
-		if (!hovered.pos || !hovered.container) return
+		if (!hovered.pos || !hovered.container || currentPhrases.length === 0) return
 		const initialLeft = hovered.pos.left
 		const initialTop = hovered.pos.top
 		setCoords({ left: initialLeft, top: initialTop })
@@ -83,7 +84,16 @@ export function useChapterTooltip() {
 		})
 
 		return () => cancelAnimationFrame(raf)
-	}, [hovered.pos?.left, hovered.pos?.top, hovered.container?.width, hovered.container?.height, visible])
+	}, [
+		hovered.pos?.left,
+		hovered.pos?.top,
+		hovered.container?.width,
+		hovered.container?.height,
+		visible,
+		currentPhrases.length,
+		hovered.pos,
+		hovered.container,
+	])
 
 	const show = Boolean(visible && coords && phrases.length > 0)
 

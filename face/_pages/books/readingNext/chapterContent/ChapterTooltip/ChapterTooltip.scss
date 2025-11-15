@@ -1,0 +1,45 @@
+@use '@/styles/variables' as vars;
+
+.chapter-tooltip {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+
+	font-size: 1.6rem;
+	line-height: 2.2rem;
+	max-width: 36rem;
+	background-color: vars.$grayColor-3;
+	padding: 1rem 1.2rem;
+	z-index: 3;
+	pointer-events: none;
+	transition: left 160ms ease, top 160ms ease;
+	transform: translateX(-50%);
+	border-radius: vars.$radius-2;
+}
+
+.chapter-tooltip__item {
+	display: flex;
+	flex-direction: column;
+	grid-template-columns: 1fr auto;
+	gap: 3px;
+	color: white;
+	align-items: start;
+
+	& + & {
+		margin-top: 6px;
+		padding-top: 6px;
+	}
+}
+
+.chapter-tooltip__phrase {
+	font-size: 1.5rem;
+	line-height: 1.9rem;
+
+}
+
+.chapter-tooltip__translation {
+	font-size: 2rem;
+	line-height: 2.6rem;
+
+}

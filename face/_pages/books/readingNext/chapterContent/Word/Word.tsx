@@ -1,9 +1,10 @@
+import { useRef } from 'react'
 import cn from 'classnames'
 import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
-import { useGetOnWordClick } from './fn/selectSentenceAndWord'
+import { useLongPress } from 'utils/events'
+import { useGetOnWordClick, useGetOnWordLongTap } from './fn/selectSentenceAndWord'
 import { getWordPrimaryType } from './fn/getWordPrimaryType'
 import { useReadingStoreNext } from '../../readingStoreNext'
-import { useRef } from 'react'
 import { useWordHoverHandlers } from './fn/useWordHoverHandlers'
 import './Word.scss'
 
@@ -18,6 +19,14 @@ function Word(props: WordProps) {
 
 	const wordType = getWordPrimaryType(selectedSentence, sentence, wordData.id)
 	const onWordClick = useGetOnWordClick()
+	const onWordLongTap = useGetOnWordLongTap()
+
+	const { onMouseDown, onMouseUp } = useLongPress({
+		onLongPress: () => onWordLongTap(sentence.id, wordData.id),
+		onClick: () => onWordClick(sentence.id, wordData.id),
+		delay: 500,
+		vibrate: 50,
+	})
 
 	const wrapperRef = useRef<HTMLSpanElement | null>(null)
 
@@ -26,7 +35,8 @@ function Word(props: WordProps) {
 	return (
 		<span
 			className={cn('word', 'word--' + wordType)}
-			onClick={() => onWordClick(sentence.id, wordData.id)}
+			onMouseDown={onMouseDown}
+			onMouseUp={onMouseUp}
 			onMouseEnter={onMouseEnter}
 			onMouseLeave={onMouseLeave}
 			ref={wrapperRef}

@@ -5,6 +5,16 @@
 	gap: 3rem;
 }
 
+.hint-block--for-mouse {
+	gap: 3rem;
+}
+
+.hint-block--for-touch {
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+}
+
 .hint-block__text-block {
 	font-size: 1.4rem;
 	line-height: 1.8rem;

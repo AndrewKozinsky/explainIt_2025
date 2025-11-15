@@ -3,7 +3,7 @@ import Punctuation from '../parts/Punctuation'
 import Space from '../parts/Space'
 import { useReadingStoreNext } from '../../readingStoreNext'
 import SentenceBlock from '../SentenceBlock/SentenceBlock'
-import ChapterTooltip from '../../chapter/ChapterTooltip/ChapterTooltip'
+import ChapterTooltip from '../ChapterTooltip/ChapterTooltip'
 import './ChapterContent.scss'
 
 function ChapterContent() {
