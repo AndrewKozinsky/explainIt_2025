@@ -1,6 +1,7 @@
-import { useLayoutEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
 import { useReadingStoreNext } from '../../../readingStoreNext'
+import { CHAPTER_TOOLTIP_DELAY_MS } from '../constants'
 
 export function useChapterTooltip() {
 	const hovered = useReadingStoreNext((s) => s.hoveredWord)
@@ -8,18 +9,57 @@ export function useChapterTooltip() {
 
 	const tooltipRef = useRef<HTMLDivElement | null>(null)
 	const [coords, setCoords] = useState<{ left: number; top: number } | null>(null)
+	const [visible, setVisible] = useState(false)
+	const showTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+	const hideTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
 	const sentence = useMemo(() => {
 		if (hovered.sentenceId == null) return null
 		return getSentenceById(hovered.sentenceId)
 	}, [hovered.sentenceId, getSentenceById])
 
-	const phrases: ChapterTextStructurePopulated.SuccessPhrase[] = useMemo(() => {
+	const currentPhrases: ChapterTextStructurePopulated.SuccessPhrase[] = useMemo(() => {
 		if (!sentence || hovered.wordId == null) return []
 		return sentence.phrases.filter(
 			(p): p is ChapterTextStructurePopulated.SuccessPhrase => p.type === 'success' && p.wordIds.includes(hovered.wordId as number),
 		)
 	}, [sentence, hovered.wordId])
+
+	const [phrases, setPhrases] = useState<ChapterTextStructurePopulated.SuccessPhrase[]>([])
+
+	useEffect(() => {
+		const hasHoverData = Boolean(hovered.pos && hovered.container && currentPhrases.length > 0)
+
+		if (hasHoverData) {
+			setPhrases(currentPhrases)
+			if (hideTimerRef.current) {
+				clearTimeout(hideTimerRef.current)
+				hideTimerRef.current = null
+			}
+
+			if (!visible && !showTimerRef.current) {
+				showTimerRef.current = setTimeout(() => {
+					setVisible(true)
+					showTimerRef.current = null
+				}, CHAPTER_TOOLTIP_DELAY_MS)
+			}
+		} else {
+			if (showTimerRef.current) {
+				clearTimeout(showTimerRef.current)
+				showTimerRef.current = null
+			}
+			if (visible && !hideTimerRef.current) {
+				hideTimerRef.current = setTimeout(() => {
+					setVisible(false)
+					hideTimerRef.current = null
+				}, CHAPTER_TOOLTIP_DELAY_MS)
+			}
+		}
+
+		return () => {
+			// no-op
+		}
+	}, [hovered.pos, hovered.container, currentPhrases, visible])
 
 	useLayoutEffect(() => {
 		if (!hovered.pos || !hovered.container) return
@@ -29,21 +69,23 @@ export function useChapterTooltip() {
 
 		const raf = requestAnimationFrame(() => {
 			const tip = tooltipRef.current
-			if (!tip) return
+			if (!tip || !visible) return
 			const tipRect = tip.getBoundingClientRect()
 
-			const centeredLeft = initialLeft - tipRect.width / 2
-			const maxLeft = hovered.container!.width - tipRect.width - 4
+			const halfW = tipRect.width / 2
+			const minCenter = 4 + halfW
+			const maxCenter = hovered.container!.width - 4 - halfW
+			const clampedCenter = Math.max(minCenter, Math.min(initialLeft, maxCenter))
+
 			const maxTop = hovered.container!.height - tipRect.height - 4
-			const clampedLeft = Math.max(4, Math.min(centeredLeft, maxLeft))
 			const clampedTop = Math.max(4, Math.min(initialTop, maxTop))
-			setCoords({ left: clampedLeft, top: clampedTop })
+			setCoords({ left: clampedCenter, top: clampedTop })
 		})
 
 		return () => cancelAnimationFrame(raf)
-	}, [hovered.pos?.left, hovered.pos?.top, hovered.container?.width, hovered.container?.height])
+	}, [hovered.pos?.left, hovered.pos?.top, hovered.container?.width, hovered.container?.height, visible])
 
-	const show = Boolean(hovered.pos && hovered.container && coords && phrases.length > 0)
+	const show = Boolean(visible && coords && phrases.length > 0)
 
 	return { tooltipRef, coords, phrases, show }
 }

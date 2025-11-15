@@ -9,6 +9,8 @@
 	pointer-events: none;
 	font-size: 1.6rem;
 	line-height: 2.2rem;
+	transition: left 160ms ease, top 160ms ease;
+	transform: translateX(-50%);
 }
 
 .chapter-tooltip__item {
