@@ -14,7 +14,6 @@ import DeleteChapterButton from '../DeleteChapterButton/DeleteChapterButton'
 import * as yup from 'yup'
 import { useSetFieldValues } from './fn/setFieldValues'
 import { useGetOnUpdateChapterFormSubmit } from './fn/submit'
-import ReadChapterNextButton from '../ReadChapterNextButton/ReadChapterNextButton'
 
 export default function EditChapterForm() {
 	const [formStatus, setFormStatus] = useState<FormStatus>('idle')
@@ -48,7 +47,6 @@ export default function EditChapterForm() {
 						Сохранить
 					</Button>,
 					<ReadChapterButton key='reading' />,
-					<ReadChapterNextButton key='readingNext' />,
 				]}
 			>
 				<FormFieldsWrapper gap='big'>
