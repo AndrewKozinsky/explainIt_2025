@@ -35,7 +35,7 @@ export const chapter_21 = {
 		},
 		{
 			sentence: '“It seems gloomy,” said the Scarecrow.',
-			translate: '«Он кажется мрачным», — сказал Пугало.',
+			translate: '«Он кажется мрачным», — сказало Пугало.',
 		},
 		{
 			sentence: '“Not a bit of it,” answered the Lion.',
@@ -85,7 +85,7 @@ export const chapter_21 = {
 			sentence:
 				'Toto whimpered a little, but none of the others was frightened, and they kept along the well-trodden path until they came to an opening in the wood, in which were gathered hundreds of beasts of every variety.',
 			translate:
-				'Тото слегка заскулил, но никто из остальных не испугался, и они шли по наезженной тропе, пока не вышли на поляну в лесу, где собралось сотни зверей самых разных видов.',
+				'Тото слегка заскулил, но никто из остальных не испугался, и они шли по протоптанной тропе, пока не вышли на поляну в лесу, где собрались сотни зверей самых разных видов.',
 		},
 		{
 			sentence:
@@ -97,7 +97,7 @@ export const chapter_21 = {
 			sentence:
 				'But the Lion explained that the animals were holding a meeting, and he judged by their snarling and growling that they were in great trouble.',
 			translate:
-				'Но Лев объяснил, что животные проводят собрание, и, судя по их рычанию и ворчанию, заключил, что у них большие беды.',
+				'Но Лев объяснил, что животные проводят собрание, и, судя по их рычанию и ворчанию, заключил, что у них большая беда.',
 		},
 		{
 			sentence:
@@ -129,7 +129,7 @@ export const chapter_21 = {
 			sentence:
 				'It is a most tremendous monster, like a great spider, with a body as big as an elephant and legs as long as a tree trunk.',
 			translate:
-				'Это ужаснейшее чудовище, похожее на огромного паука, с телом величиной со слона и ногами длиной с ствол дерева.',
+				'Это ужаснейшее чудовище, похожее на огромного паука, с телом величиной со слона и ногами длиной, как ствол дерева.',
 		},
 		{
 			sentence:
@@ -229,7 +229,7 @@ export const chapter_21 = {
 		},
 		{
 			sentence: '“You need fear your enemy no longer.”',
-			translate: '«Вам больше нечего бояться вашего врага.»',
+			translate: '«Вам больше нечего бояться.»',
 		},
 		{
 			sentence:

@@ -1,7 +1,5 @@
-import { returnStatement } from '@babel/types'
 import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
-import { Book_Chapter_AnalysePhrase, BookChapterOutModel, BookChapterPhraseOutModel, BookOutModel } from '@/graphql'
-import invariant from 'ts-invariant'
+import { BookChapterOutModel, BookChapterPhraseOutModel, BookOutModel } from '@/graphql'
 import { areArraysEqualIgnoringOrder } from 'utils/arrays'
 import { create } from 'zustand'
 import { produce } from 'immer'
@@ -134,12 +132,15 @@ export const useReadingStoreNext = create<ReadingStoreNext>()((set, get) => {
 					if (phraseWithTheseWords) return
 
 					const maxPhraseId = selectedSentence.phrases.reduce((max, phrase) => Math.max(max, phrase.id), 0)
+					const newPhraseId = maxPhraseId + 1
 
 					selectedSentence.phrases.push({
-						id: maxPhraseId + 1,
+						id: newPhraseId,
 						type: 'loading',
 						wordIds: [...draftState.selection.wordIds],
 					})
+
+					draftState.selection.phraseId = newPhraseId
 				})
 			})
 		},
@@ -190,6 +191,7 @@ export const useReadingStoreNext = create<ReadingStoreNext>()((set, get) => {
 						// Идентификаторы выделенных слов этой фразы
 						wordIds: analysis.phraseWordsIdx,
 						analysis: {
+							transcription: analysis.transcription,
 							// Краткий перевод фразы
 							translation: analysis.translation,
 							// Анализ фразы

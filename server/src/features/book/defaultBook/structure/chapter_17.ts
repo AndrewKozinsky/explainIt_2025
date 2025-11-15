@@ -9,14 +9,13 @@ export const chapter_17 = {
 		{
 			sentence:
 				'These were sad days for the little girl, although her friends were all quite happy and contented.',
-			translate:
-				'Это были печальные дни для девочки, хотя её друзья были вполне счастливы и довольны.',
+			translate: 'Это были печальные дни для девочки, хотя её друзья были вполне счастливы и довольны.',
 		},
 		{
 			sentence:
 				'The Scarecrow told them there were wonderful thoughts in his head; but he would not say what they were because he knew no one could understand them but himself.',
 			translate:
-				'Пугало говорил им, что в его голове чудесные мысли; но не рассказывал какие, ведь знал, что кроме него их никто не поймёт.',
+				'Пугало говорило им, что в его голове чудесные мысли; но не рассказывало, какие: ведь знало, что их никто, кроме него, не поймёт.',
 		},
 		{
 			sentence:
@@ -28,13 +27,13 @@ export const chapter_17 = {
 			sentence:
 				'The Lion declared he was afraid of nothing on earth, and would gladly face an army or a dozen of the fierce Kalidahs.',
 			translate:
-				'Лев заявил, что не боится ничто на земле и охотно встретил бы армию или дюжину свирепых Калидас.',
+				'Лев заявил, что не боится ничего на земле и охотно встретил бы армию или дюжину свирепых Калидасов.',
 		},
 		{
 			sentence:
 				'Thus each of the little party was satisfied except Dorothy, who longed more than ever to get back to Kansas.',
 			translate:
-				'Так каждый из маленькой компании был доволен, кроме Дороти, которая как никогда тосковала по возвращению в Канзас.',
+				'Так каждый из маленькой компании был доволен, кроме Дороти, которая как никогда тосковала о возвращении в Канзас.',
 		},
 		{
 			sentence:
@@ -48,7 +47,7 @@ export const chapter_17 = {
 		},
 		{
 			sentence: '“And back to Kansas?” she asked eagerly.',
-			translate: '«И обратно в Канзас?» — поспешно спросила она.',
+			translate: '«И обратно в Канзас?» — с нетерпением спросила она.',
 		},
 		{
 			sentence:
@@ -64,7 +63,7 @@ export const chapter_17 = {
 			sentence:
 				'“Well, I’ll tell you what I think,” said the little man. “You see, when I came to this country it was in a balloon. You also came through the air, being carried by a cyclone. So I believe the best way to get across the desert will be through the air. Now, it is quite beyond my powers to make a cyclone; but I’ve been thinking the matter over, and I believe I can make a balloon.”',
 			translate:
-				'«Скажу, как я думаю, — сказал маленький человек. — Когда я попал в эту страну, это было на воздушном шаре. Ты тоже прилетела по воздуху, унесённая циклоном. Значит, лучший способ пересечь пустыню — по воздуху. Циклон создать мне не под силу; но я обдумал всё и верю, что смогу сделать шар».',
+				'«Скажу, как я думаю, — сказал старичок. — Когда я попал в эту страну, это было на воздушном шаре. Ты тоже прилетела по воздуху, унесённая циклоном. Значит, лучший способ пересечь пустыню — по воздуху. Циклон создать мне не под силу; но я обдумал всё и верю, что смогу сделать шар».',
 		},
 		{
 			sentence: '“How?” asked Dorothy.',
@@ -88,7 +87,7 @@ export const chapter_17 = {
 		},
 		{
 			sentence: '“We!” exclaimed the girl. “Are you going with me?”',
-			translate: '«Мы!» — воскликнула девочка. — «Ты пойдёшь со мной?»',
+			translate: '«Мы! — воскликнула девочка. — Ты пойдёшь со мной?»',
 		},
 		{
 			sentence:
@@ -134,7 +133,7 @@ export const chapter_17 = {
 			sentence:
 				'“But we must have a basket to ride in,” he said. So he sent the soldier with the green whiskers for a big clothes basket, which he fastened with many ropes to the bottom of the balloon.',
 			translate:
-				'«Но нам нужна корзина, чтобы ехать», — сказал он. Тогда он послал солдата с зелёными усами за большой бельевой корзиной и прикрепил её множеством верёвок к шарu.',
+				'«Но нам нужна корзина, чтобы ехать», — сказал он. Тогда он послал солдата с зелёными усами за большой бельевой корзиной и прикрепил её множеством верёвок к шару.',
 		},
 		{
 			sentence:
@@ -149,8 +148,7 @@ export const chapter_17 = {
 		{
 			sentence:
 				'Oz ordered the balloon carried out in front of the Palace, and the people gazed upon it with much curiosity.',
-			translate:
-				'Оз велел вынести шар перед Дворцом, и люди разглядывали его с большим любопытством.',
+			translate: 'Оз велел вынести шар перед Дворцом, и люди разглядывали его с большим любопытством.',
 		},
 		{
 			sentence:
@@ -159,7 +157,8 @@ export const chapter_17 = {
 				'Железный Дровосек наколол большую кучу дров и развёл из них огонь, а Оз держал устье шара над пламенем, чтобы горячий воздух, поднимаясь, наполнял шёлковый мешок.',
 		},
 		{
-			sentence: 'Gradually the balloon swelled out and rose into the air, until finally the basket just touched the ground.',
+			sentence:
+				'Gradually the balloon swelled out and rose into the air, until finally the basket just touched the ground.',
 			translate: 'Постепенно шар надулся и поднялся в воздух, так что корзина лишь касалась земли.',
 		},
 		{
@@ -167,8 +166,10 @@ export const chapter_17 = {
 			translate: 'Тогда Оз забрался в корзину и громко сказал всем людям:',
 		},
 		{
-			sentence: '“I am now going away to make a visit. While I am gone the Scarecrow will rule over you. I command you to obey him as you would me.”',
-			translate: '«Сейчас я уезжаю с визитом. Пока меня не будет, вами будет править Пугало. Повинуйтесь ему, как мне».',
+			sentence:
+				'“I am now going away to make a visit. While I am gone the Scarecrow will rule over you. I command you to obey him as you would me.”',
+			translate:
+				'«Сейчас я уезжаю с визитом. Пока меня не будет, вами будет править Пугало. Повинуйтесь ему, как мне».',
 		},
 		{
 			sentence:
@@ -178,7 +179,7 @@ export const chapter_17 = {
 		},
 		{
 			sentence: '“Come, Dorothy!” cried the Wizard. “Hurry up, or the balloon will fly away.”',
-			translate: '«Идём, Дороти!» — крикнул Волшебник. — «Скорее, а то шар улетит!»',
+			translate: '«Идём, Дороти! — крикнул Волшебник. — Скорее, а то шар улетит!»',
 		},
 		{
 			sentence:
@@ -198,11 +199,11 @@ export const chapter_17 = {
 		},
 		{
 			sentence: '“Come back!” she screamed. “I want to go, too!”',
-			translate: '«Вернись!» — закричала она. — «Я тоже хочу лететь!»',
+			translate: '«Вернись! — закричала она. — Я тоже хочу лететь!»',
 		},
 		{
 			sentence: '“I can’t come back, my dear,” called Oz from the basket. “Good-bye!”',
-			translate: '«Я не могу вернуться, дорогая», — крикнул из корзины Оз. — «Прощай!»',
+			translate: '«Я не могу вернуться, дорогая, — крикнул из корзины Оз. — Прощай!»',
 		},
 		{
 			sentence:
@@ -217,10 +218,8 @@ export const chapter_17 = {
 				'И это было последнее, что кто‑либо из них видел Оза, Дивного Волшебника, хоть, возможно, он благополучно добрался до Омахи и, как знать, сейчас там.',
 		},
 		{
-			sentence:
-				'But the people remembered him lovingly, and said to one another:',
-			translate:
-				'Но люди вспоминали его с любовью и говорили друг другу:',
+			sentence: 'But the people remembered him lovingly, and said to one another:',
+			translate: 'Но люди вспоминали его с любовью и говорили друг другу:',
 		},
 		{
 			sentence:
@@ -231,8 +230,7 @@ export const chapter_17 = {
 		{
 			sentence:
 				'Still, for many days they grieved over the loss of the Wonderful Wizard, and would not be comforted.',
-			translate:
-				'И всё же многие дни они горевали об утрате Дивного Волшебника и никак не могли утешиться.',
+			translate: 'И всё же многие дни они горевали об утрате Дивного Волшебника и никак не могли утешиться.',
 		},
 	],
 }

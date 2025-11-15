@@ -17,8 +17,7 @@ export const chapter_18 = {
 			translate: 'К ней подошёл Железный Дровосек и сказал:',
 		},
 		{
-			sentence:
-				'“Truly I should be ungrateful if I failed to mourn for the man who gave me my lovely heart.',
+			sentence: '“Truly I should be ungrateful if I failed to mourn for the man who gave me my lovely heart.',
 			translate:
 				'«Поистине я был бы неблагодарным, если бы не оплакивал человека, который дал мне моё милое сердце.',
 		},
@@ -29,10 +28,8 @@ export const chapter_18 = {
 				'Мне хотелось бы немного поплакать, потому что Оза больше нет, если ты любезно вытрешь мои слёзы, чтобы я не заржавел».',
 		},
 		{
-			sentence:
-				'“With pleasure,” she answered, and brought a towel at once.',
-			translate:
-				'«С удовольствием», — ответила она и тотчас принесла полотенце.',
+			sentence: '“With pleasure,” she answered, and brought a towel at once.',
+			translate: '«С удовольствием», — ответила она и тотчас принесла полотенце.',
 		},
 		{
 			sentence:
@@ -50,11 +47,10 @@ export const chapter_18 = {
 			sentence:
 				'The Scarecrow was now the ruler of the Emerald City, and although he was not a Wizard the people were proud of him.',
 			translate:
-				'Пугало теперь было правителем Изумрудного города, и хотя он не был Волшебником, люди гордились им.',
+				'Пугало теперь было правителем Изумрудного города, и хотя оно не было Волшебником, люди гордились им.',
 		},
 		{
-			sentence:
-				'“For,” they said, “there is not another city in all the world that is ruled by a stuffed man.”',
+			sentence: '“For,” they said, “there is not another city in all the world that is ruled by a stuffed man.”',
 			translate:
 				'«Ведь, — говорили они, — во всём мире нет другого города, которым правил бы набитый соломой человек».',
 		},
@@ -69,10 +65,8 @@ export const chapter_18 = {
 				'Наутро после того, как шар унес Оза, четверо путешественников встретились в Тронном зале и обсудили положение дел.',
 		},
 		{
-			sentence:
-				'The Scarecrow sat in the big throne and the others stood respectfully before him.',
-			translate:
-				'Пугало сидел на большом троне, а остальные почтительно стояли перед ним.',
+			sentence: 'The Scarecrow sat in the big throne and the others stood respectfully before him.',
+			translate: 'Пугало сидело на большом троне, а остальные почтительно стояли перед ним.',
 		},
 		{
 			sentence:
@@ -87,16 +81,22 @@ export const chapter_18 = {
 				'Когда я вспоминаю, что совсем недавно торчал на шесте на кукурузном поле фермера, а теперь я правитель этого прекрасного Города, я вполне доволен своей судьбой».',
 		},
 		{
-			sentence: '“I also,” said the Tin Woodman, “am well-pleased with my new heart; and, really, that was the only thing I wished in all the world.”',
-			translate: '«А я, — сказал Железный Дровосек, — вполне доволен своим новым сердцем; и, правда, это было единственное, чего я желал во всём мире».',
+			sentence:
+				'“I also,” said the Tin Woodman, “am well-pleased with my new heart; and, really, that was the only thing I wished in all the world.”',
+			translate:
+				'«А я, — сказал Железный Дровосек, — вполне доволен своим новым сердцем; и, правда, это было единственное, чего я желал во всём мире».',
 		},
 		{
-			sentence: '“For my part, I am content in knowing I am as brave as any beast that ever lived, if not braver,” said the Lion modestly.',
-			translate: '«Что до меня, я доволен тем, что знаю: я храбр, как любой зверь, когда‑либо живший, если не храбрее», — скромно сказал Лев.',
+			sentence:
+				'“For my part, I am content in knowing I am as brave as any beast that ever lived, if not braver,” said the Lion modestly.',
+			translate:
+				'«Что до меня, я доволен тем, что знаю: я храбр, как любой зверь, когда‑либо живший, если не храбрее», — скромно сказал Лев.',
 		},
 		{
-			sentence: '“If Dorothy would only be contented to live in the Emerald City,” continued the Scarecrow, “we might all be happy together.”',
-			translate: '«Если бы Дороти согласилась жить в Изумрудном городе, — продолжил Пугало, — мы все могли бы быть счастливы вместе».',
+			sentence:
+				'“If Dorothy would only be contented to live in the Emerald City,” continued the Scarecrow, “we might all be happy together.”',
+			translate:
+				'«Если бы Дороти согласилась жить в Изумрудном городе, — продолжило Пугало, — мы все могли бы быть счастливы вместе».',
 		},
 		{
 			sentence: '“But I don’t want to live here,” cried Dorothy.',
@@ -114,11 +114,11 @@ export const chapter_18 = {
 			sentence:
 				'The Scarecrow decided to think, and he thought so hard that the pins and needles began to stick out of his brains.',
 			translate:
-				'Пугало решил подумать, и думал так усердно, что булавки и иголки начали торчать у него из мозгов.',
+				'Пугало решило подумать и думало так усердно, что булавки и иголки начали торчать у него из мозгов.',
 		},
 		{
 			sentence: 'Finally he said:',
-			translate: 'Наконец он сказал:',
+			translate: 'Наконец оно сказало:',
 		},
 		{
 			sentence: '“Why not call the Winged Monkeys, and ask them to carry you over the desert?”',
@@ -154,7 +154,7 @@ export const chapter_18 = {
 		},
 		{
 			sentence: '“I want you to fly with me to Kansas,” said Dorothy.',
-			translate: '«Я хочу, чтобы вы улетели со мной в Канзас», — сказала Дороти.',
+			translate: '«Я хочу, чтобы вы полетели со мной в Канзас», — сказала Дороти.',
 		},
 		{
 			sentence: 'But the Monkey King shook his head.',
@@ -165,10 +165,8 @@ export const chapter_18 = {
 			translate: '«Это невозможно», — сказал он.',
 		},
 		{
-			sentence:
-				'“We belong to this country alone, and cannot leave it.',
-			translate:
-				'«Мы принадлежим только этой стране и не можем покидать её.',
+			sentence: '“We belong to this country alone, and cannot leave it.',
+			translate: '«Мы принадлежим только этой стране и не можем покидать её.',
 		},
 		{
 			sentence:
@@ -177,10 +175,8 @@ export const chapter_18 = {
 				'В Канзасе ещё никогда не было Крылатых Обезьян, и, полагаю, никогда не будет — им там не место.',
 		},
 		{
-			sentence:
-				'We shall be glad to serve you in any way in our power, but we cannot cross the desert.',
-			translate:
-				'Мы будем рады служить тебе любым доступным нам образом, но пересечь пустыню не можем.',
+			sentence: 'We shall be glad to serve you in any way in our power, but we cannot cross the desert.',
+			translate: 'Мы будем рады служить тебе любым доступным нам образом, но пересечь пустыню не можем.',
 		},
 		{
 			sentence: 'Good-bye.”',
@@ -190,7 +186,7 @@ export const chapter_18 = {
 			sentence:
 				'And with another bow, the Monkey King spread his wings and flew away through the window, followed by all his band.',
 			translate:
-				'И, снова поклонившись, Король Обезьян расправил крылья и улетел в окно, а за ним полетел весь его отряд.',
+				'И, снова поклонившись, Король Обезьян расправил крылья и вылетел через окно, а за ним полетел весь его отряд.',
 		},
 		{
 			sentence: 'Dorothy was ready to cry with disappointment.',
@@ -210,11 +206,11 @@ export const chapter_18 = {
 			sentence:
 				'The Scarecrow was thinking again, and his head bulged out so horribly that Dorothy feared it would burst.',
 			translate:
-				'Пугало снова задумался, и его голова так ужасно вздулась, что Дороти боялась, как бы она не лопнула.',
+				'Пугало снова задумалось, и его голова так ужасно вздулась, что Дороти боялась, как бы она не лопнула.',
 		},
 		{
 			sentence: '“Let us call in the soldier with the green whiskers,” he said, “and ask his advice.”',
-			translate: '«Давайте пригласим солдата с зелёными усами, — сказал он, — и спросим его совета».',
+			translate: '«Давайте пригласим солдата с зелёными усами, — сказало Пугало, — и спросим его совета».',
 		},
 		{
 			sentence:
@@ -223,18 +219,18 @@ export const chapter_18 = {
 				'Солдата позвали, и он робко вошёл в Тронный зал, потому что при жизни Оза ему никогда не позволяли заходить дальше двери.',
 		},
 		{
-			sentence:
-				'“This little girl,” said the Scarecrow to the soldier, “wishes to cross the desert.',
-			translate:
-				'«Эта девочка, — сказал Пугало солдату, — хочет пересечь пустыню.',
+			sentence: '“This little girl,” said the Scarecrow to the soldier, “wishes to cross the desert.',
+			translate: '«Эта девочка, — сказало Пугало солдату, — хочет пересечь пустыню.',
 		},
 		{
 			sentence: 'How can she do so?”',
 			translate: 'Как она может это сделать?»',
 		},
 		{
-			sentence: '“I cannot tell,” answered the soldier, “for nobody has ever crossed the desert, unless it is Oz himself.”',
-			translate: '«Не могу сказать, — ответил солдат, — ведь никто никогда не пересекал пустыню, если только не сам Оз».',
+			sentence:
+				'“I cannot tell,” answered the soldier, “for nobody has ever crossed the desert, unless it is Oz himself.”',
+			translate:
+				'«Не могу сказать, — ответил солдат, — ведь никто никогда не пересекал пустыню, если только не сам Оз».',
 		},
 		{
 			sentence: '“Is there no one who can help me?” asked Dorothy earnestly.',
@@ -246,29 +242,24 @@ export const chapter_18 = {
 		},
 		{
 			sentence: '“Who is Glinda?” inquired the Scarecrow.',
-			translate: '«Кто такая Глинда?» — осведомился Пугало.',
+			translate: '«Кто такая Глинда?» — осведомилось Пугало.',
 		},
 		{
 			sentence:
 				'“The Witch of the South. She is the most powerful of all the Witches, and rules over the Quadlings.',
-			translate:
-				'«Ведьма Юга. Она самая могущественная из всех Ведьм и правит Куадлингами.',
+			translate: '«Ведьма Юга. Она самая могущественная из всех Ведьм и правит Куадлингами.',
 		},
 		{
-			sentence:
-				'Besides, her castle stands on the edge of the desert, so she may know a way to cross it.”',
-			translate:
-				'К тому же её замок стоит на краю пустыни, так что она может знать путь, как её пересечь».',
+			sentence: 'Besides, her castle stands on the edge of the desert, so she may know a way to cross it.”',
+			translate: 'К тому же её замок стоит на краю пустыни, так что она может знать путь, как её пересечь».',
 		},
 		{
 			sentence: '“Glinda is a Good Witch, isn’t she?” asked the child.',
 			translate: '«Глинда — Добрая Ведьма, правда?» — спросила девочка.',
 		},
 		{
-			sentence:
-				'“The Quadlings think she is good,” said the soldier, “and she is kind to everyone.',
-			translate:
-				'«Куадлинги считают её доброй, — сказал солдат, — и она добра ко всем.',
+			sentence: '“The Quadlings think she is good,” said the soldier, “and she is kind to everyone.',
+			translate: '«Куадлинги считают её доброй, — сказал солдат, — и она добра ко всем.',
 		},
 		{
 			sentence:
@@ -283,8 +274,7 @@ export const chapter_18 = {
 		{
 			sentence:
 				'“The road is straight to the South,” he answered, “but it is said to be full of dangers to travelers.',
-			translate:
-				'«Дорога идёт прямо на юг, — ответил он, — но говорят, что она полна опасностей для путников.',
+			translate: '«Дорога идёт прямо на юг, — ответил он, — но говорят, что она полна опасностей для путников.',
 		},
 		{
 			sentence:
@@ -298,7 +288,7 @@ export const chapter_18 = {
 		},
 		{
 			sentence: 'The soldier then left them and the Scarecrow said:',
-			translate: 'После этого солдат ушёл, и Пугало сказал:',
+			translate: 'После этого солдат ушёл, и Пугало сказало:',
 		},
 		{
 			sentence:
@@ -316,7 +306,7 @@ export const chapter_18 = {
 		},
 		{
 			sentence: '“I have,” said the Scarecrow.',
-			translate: '«Так и есть», — сказал Пугало.',
+			translate: '«Так и есть», — сказало Пугало.',
 		},
 		{
 			sentence:
@@ -383,10 +373,8 @@ export const chapter_18 = {
 			translate: '«Мы отправимся завтра утром», — ответило Пугало.',
 		},
 		{
-			sentence:
-				'“So now let us all get ready, for it will be a long journey.”',
-			translate:
-				'«А теперь давайте все приготовимся, ведь путь будет долгим».',
+			sentence: '“So now let us all get ready, for it will be a long journey.”',
+			translate: '«А теперь давайте все приготовимся, ведь путь будет долгим».',
 		},
 	],
 }

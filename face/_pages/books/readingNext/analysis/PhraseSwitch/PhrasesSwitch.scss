@@ -1,0 +1,27 @@
+@use '@/styles/variables' as vars;
+
+.phrases-switch {
+	display: flex;
+	flex-wrap: wrap;
+	gap: .8rem;
+	margin-bottom: -0.8rem;
+}
+
+.phrases-switch__item {
+	font-size: 1.6rem;
+	line-height: 2rem;
+	cursor: pointer;
+	background-color: vars.$grayColor-1;
+	padding: 0.5rem 1rem;
+	border-radius: .6rem;
+
+	&:hover:not(.phrases-switch__item--selected) {
+		background-color: vars.$grayColor-2;
+	}
+}
+
+.phrases-switch__item--selected {
+	color: white;
+	background-color: vars.$linkColor-2;
+	cursor: default;
+}

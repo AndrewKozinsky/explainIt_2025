@@ -85,6 +85,7 @@ function populateSentencePhrases(
 			// Идентификаторы выделенных слов этой фразы
 			wordIds: phrase.phraseWordsIdx,
 			analysis: {
+				transcription: phrase.transcription,
 				// Краткий перевод фразы
 				translation: phrase.translation,
 				// Анализ фразы

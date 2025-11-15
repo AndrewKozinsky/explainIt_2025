@@ -4,7 +4,7 @@ export const chapter_16 = {
 	data: [
 		{
 			sentence: 'Next morning the Scarecrow said to his friends:',
-			translate: 'На следующее утро Пугало сказал своим друзьям:',
+			translate: 'На следующее утро Пугало сказало своим друзьям:',
 		},
 		{
 			sentence:
@@ -19,7 +19,7 @@ export const chapter_16 = {
 			sentence:
 				'“It is kind of you to like a Scarecrow,” he replied. “But surely you will think more of me when you hear the splendid thoughts my new brain is going to turn out.”',
 			translate:
-				'«Это очень мило — любить Пугало, — ответил он. — Но ты наверняка будешь думать обо мне лучше, когда услышишь великолепные мысли, которые породит мой новый мозг».',
+				'«Это очень мило — любить Пугало, — ответило оно. — Но ты наверняка будешь думать обо мне лучше, когда услышишь великолепные мысли, которые породит мой новый мозг».',
 		},
 		{
 			sentence:
@@ -30,11 +30,11 @@ export const chapter_16 = {
 		{
 			sentence:
 				'The Scarecrow went in and found the little man sitting down by the window, engaged in deep thought.',
-			translate: 'Пугало вошёл и увидел маленького человека у окна, погружённого в глубокие раздумья.',
+			translate: 'Пугало вошло и увидело маленького человека у окна, погружённого в глубокие раздумья.',
 		},
 		{
 			sentence: '“I have come for my brains,” remarked the Scarecrow, a little uneasily.',
-			translate: '«Я пришёл за своими мозгами», — несколько тревожно заметил Пугало.',
+			translate: '«Я пришёл за своими мозгами», — несколько тревожно заметило Пугало.',
 		},
 		{
 			sentence:
@@ -46,7 +46,7 @@ export const chapter_16 = {
 			sentence:
 				'“That’s all right,” said the Scarecrow. “You are quite welcome to take my head off, as long as it will be a better one when you put it on again.”',
 			translate:
-				'«Ничего страшного, — сказал Пугало. — Можешь снять мою голову, раз уж вернёшь её лучше, чем была».',
+				'«Ничего страшного, — сказало Пугало. — Можешь снять мою голову, раз уж вернёшь её лучше, чем была».',
 		},
 		{
 			sentence:
@@ -70,7 +70,7 @@ export const chapter_16 = {
 			sentence:
 				'The Scarecrow was both pleased and proud at the fulfillment of his greatest wish, and having thanked Oz warmly he went back to his friends.',
 			translate:
-				'Пугало был и рад, и горд исполнением своего заветного желания, тепло поблагодарил Оза и вернулся к друзьям.',
+				'Пугало и радовалось, и гордилось исполнением своего заветного желания, тепло поблагодарило Оза и вернулось к друзьям.',
 		},
 		{
 			sentence: 'Dorothy looked at him curiously. His head was quite bulged out at the top with brains.',
@@ -81,7 +81,7 @@ export const chapter_16 = {
 			sentence:
 				'“I feel wise indeed,” he answered earnestly. “When I get used to my brains I shall know everything.”',
 			translate:
-				'«Чувствую себя по‑настоящему мудрым, — серьёзно ответил он. — Когда привыкну к мозгам, буду знать всё».',
+				'«Чувствую себя по‑настоящему мудрым, — серьёзно ответило Пугало. — Когда привыкну к мозгам, буду знать всё».',
 		},
 		{
 			sentence: '“Why are those needles and pins sticking out of your head?” asked the Tin Woodman.',
@@ -89,11 +89,11 @@ export const chapter_16 = {
 		},
 		{
 			sentence: '“That is proof that he is sharp,” remarked the Lion.',
-			translate: '«Это доказательство того, что он остроумен», — заметил Лев.',
+			translate: '«Это доказательство того, что у Пугала острый ум», — заметил Лев.',
 		},
 		{
 			sentence: '“Well, I must go to Oz and get my heart,” said the Woodman.',
-			translate: '«Ну, а мне пора к Озy за сердцем», — сказал Дровосек.',
+			translate: '«Ну, а мне пора к Озу за сердцем», — сказал Дровосек.',
 		},
 		{
 			sentence: 'So he walked to the Throne Room and knocked at the door.',
@@ -107,7 +107,7 @@ export const chapter_16 = {
 			sentence:
 				'“Very well,” answered the little man. “But I shall have to cut a hole in your breast, so I can put your heart in the right place. I hope it won’t hurt you.”',
 			translate:
-				'«Хорошо, — ответил маленький человек. — Но мне придётся вырезать отверстие в твоей груди, чтобы поместить сердце на место. Надеюсь, тебе не будет больно».',
+				'«Хорошо, — ответил старичок. — Но мне придётся вырезать отверстие в твоей груди, чтобы поместить сердце на место. Надеюсь, тебе не будет больно».',
 		},
 		{
 			sentence: '“Oh, no,” answered the Woodman. “I shall not feel it at all.”',
@@ -128,7 +128,7 @@ export const chapter_16 = {
 		{ sentence: '“Isn’t it a beauty?” he asked.', translate: '«Разве оно не прекрасно?» — спросил он.' },
 		{
 			sentence: '“It is, indeed!” replied the Woodman, who was greatly pleased. “But is it a kind heart?”',
-			translate: '«Ещё как!» — ответил Дровосек, очень довольный. — «Но доброе ли оно?»',
+			translate: '«Ещё как! — ответил Дровосек, очень довольный. — Но доброе ли оно?»',
 		},
 		{ sentence: '“Oh, very!” answered Oz.', translate: '«О, очень доброе», — ответил Оз.' },
 		{
@@ -168,7 +168,7 @@ export const chapter_16 = {
 		},
 		{
 			sentence: '“Very well,” answered the little man; “I will get it for you.”',
-			translate: '«Очень хорошо, — ответил маленький человек. — Сейчас принесу».',
+			translate: '«Очень хорошо, — ответил старичок. — Сейчас принесу».',
 		},
 		{
 			sentence:

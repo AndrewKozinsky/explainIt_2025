@@ -26,7 +26,7 @@ export const chapter_15 = {
 		},
 		{
 			sentence: '“We did visit her,” said the Scarecrow.',
-			translate: '«Мы действительно ходили к ней», — сказал Пугало.',
+			translate: '«Мы действительно ходили к ней», — сказало Пугало.',
 		},
 		{
 			sentence: '“And she let you go again?” asked the man, in wonder.',
@@ -34,7 +34,7 @@ export const chapter_15 = {
 		},
 		{
 			sentence: '“She could not help it, for she is melted,” explained the Scarecrow.',
-			translate: '«Она не могла иначе: она растаяла», — объяснило Пугало.',
+			translate: '«Она ничего не могла поделать: она растаяла», — объяснило Пугало.',
 		},
 		{
 			sentence: '“Melted! Well, that is good news, indeed,” said the man.',
@@ -94,13 +94,13 @@ export const chapter_15 = {
 			sentence:
 				'The waiting was tiresome and wearing, and at last they grew vexed that Oz should treat them in so poor a fashion, after sending them to undergo hardships and slavery.',
 			translate:
-				'Ожидание было утомительным и изнурительным, и в конце концов их рассердило, что Оз обращается с ними так плохо после того, как послал их на лишения и рабство.',
+				'Ожидание было утомительным и изнурительным, и в конце концов они рассердились, что Оз обращается с ними так плохо после того, как отправил их на лишения и в рабство.',
 		},
 		{
 			sentence:
 				'So the Scarecrow at last asked the green girl to take another message to Oz, saying if he did not let them in to see him at once they would call the Winged Monkeys to help them, and find out whether he kept his promises or not.',
 			translate:
-				'Тогда Пугало попросил зелёную девушку отнести ещё одно послание Озу: если он немедленно их не примет, они призовут Крылатых Обезьян и выяснят, сдерживает ли он обещания.',
+				'Тогда Пугало попросил зелёную девушку отнести ещё одно послание Озу: если он немедленно их не примет, они призовут на помощь Крылатых Обезьян и выяснят, сдержал он свои обещания или нет.',
 		},
 		{
 			sentence:
@@ -175,7 +175,7 @@ export const chapter_15 = {
 		},
 		{
 			sentence: '“We have come to claim our promise, O Oz.”',
-			translate: '«Мы пришли потребовать исполнить обещание, о Оз».',
+			translate: '«Мы пришли потребовать исполнения данного нам обещания, о, Оз».',
 		},
 		{ sentence: '“What promise?” asked Oz.', translate: '«Какое обещание?» — спросил Оз.' },
 		{
@@ -184,7 +184,7 @@ export const chapter_15 = {
 		},
 		{
 			sentence: '“And you promised to give me brains,” said the Scarecrow.',
-			translate: '«А мне ты обещал дать мозги», — сказал Пугало.',
+			translate: '«А мне ты обещал дать мозги», — сказало Пугало.',
 		},
 		{
 			sentence: '“And you promised to give me a heart,” said the Tin Woodman.',
@@ -216,7 +216,7 @@ export const chapter_15 = {
 		},
 		{
 			sentence: '“We shan’t wait a day longer,” said the Scarecrow.',
-			translate: '«Мы не будем ждать ни дня больше», — сказал Пугало.',
+			translate: '«Мы не будем ждать ни дня больше», — сказало Пугало.',
 		},
 		{
 			sentence: '“You must keep your promises to us!” exclaimed Dorothy.',
@@ -250,7 +250,7 @@ export const chapter_15 = {
 		},
 		{
 			sentence: '“But don’t strike me—please don’t—and I’ll do anything you want me to.”',
-			translate: '«Только не ударяй меня — прошу! — я сделаю всё, что вы хотите».',
+			translate: '«Только не ударяй меня — прошу! — я сделаю всё, что ты хочешь».',
 		},
 		{
 			sentence: 'Our friends looked at him in surprise and dismay.',
@@ -262,7 +262,7 @@ export const chapter_15 = {
 		},
 		{
 			sentence: '“And I thought Oz was a lovely Lady,” said the Scarecrow.',
-			translate: '«А я думал, Оз — прекрасная Леди», — сказал Пугало.',
+			translate: '«А я думал, Оз — прекрасная Леди», — сказало Пугало.',
 		},
 		{
 			sentence: '“And I thought Oz was a terrible Beast,” said the Tin Woodman.',
@@ -278,7 +278,7 @@ export const chapter_15 = {
 		},
 		{
 			sentence: '“Making believe!” cried Dorothy. “Are you not a Great Wizard?”',
-			translate: '«Притворялись!» — вскричала Дороти. — «Так вы не Великий Волшебник?»',
+			translate: '«Притворялись! Так ты не Великий Волшебник?» — вскричала Дороти.',
 		},
 		{
 			sentence:
@@ -286,19 +286,19 @@ export const chapter_15 = {
 			translate:
 				'«Тсс, милая, — сказал он. — Не говори так громко, а то услышат — и мне конец. Все считают, что я Великий Волшебник».',
 		},
-		{ sentence: '“And aren’t you?” she asked.', translate: '«А вы разве не он?» — спросила она.' },
+		{ sentence: '“And aren’t you?” she asked.', translate: '«А ты разве не он?» — спросила она.' },
 		{
 			sentence: '“Not a bit of it, my dear; I’m just a common man.”',
 			translate: '«Нисколько, дорогая; я всего лишь обыкновенный человек».',
 		},
 		{
 			sentence: '“You’re more than that,” said the Scarecrow, in a grieved tone; “you’re a humbug.”',
-			translate: '«Вы больше, чем обыкновенный, — с огорчением сказал Пугало. — Вы — шарлатан».',
+			translate: '«Ты больше, чем обыкновенный, — с огорчением сказало Пугало. — Ты — шарлатан».',
 		},
 		{
 			sentence:
 				'“Exactly so!” declared the little man, rubbing his hands together as if it pleased him. “I am a humbug.”',
-			translate: '«Именно так!» — воскликнул старичок, потирая руки, словно это его радовало. — «Я шарлатан».',
+			translate: '«Именно так! — воскликнул старичок, потирая руки, словно это его радовало. — Я шарлатан».',
 		},
 		{
 			sentence: '“But this is terrible,” said the Tin Woodman. “How shall I ever get my heart?”',
@@ -307,7 +307,7 @@ export const chapter_15 = {
 		{ sentence: '“Or I my courage?” asked the Lion.', translate: '«А мне — храбрость?» — спросил Лев.' },
 		{
 			sentence: '“Or I my brains?” wailed the Scarecrow, wiping the tears from his eyes with his coat sleeve.',
-			translate: '«А мне — мозги?» — причитал Пугало, вытирая слёзы рукавом.',
+			translate: '«А мне — мозги?» — причитало Пугало, вытирая слёзы рукавом.',
 		},
 		{
 			sentence:
@@ -317,7 +317,7 @@ export const chapter_15 = {
 		},
 		{
 			sentence: '“Doesn’t anyone else know you’re a humbug?” asked Dorothy.',
-			translate: '«Разве больше никто не знает, что вы шарлатан?» — спросила Дороти.',
+			translate: '«Разве больше никто не знает, что ты шарлатан?» — спросила Дороти.',
 		},
 		{
 			sentence:
@@ -402,13 +402,13 @@ export const chapter_15 = {
 		},
 		{
 			sentence: '“Really,” said the Scarecrow, “you ought to be ashamed of yourself for being such a humbug.”',
-			translate: '«Право слово, — сказал Пугало, — вам должно быть стыдно за то, что вы такой шарлатан».',
+			translate: '«Право слово, — сказало Пугало, — тебе должно быть стыдно за то, что ты такой шарлатан».',
 		},
 		{
 			sentence:
 				'“I am—I certainly am,” answered the little man sorrowfully; “but it was the only thing I could do.',
 			translate:
-				'«Мне стыдно — конечно стыдно, — печально ответил старичок; — но это было единственное, что я мог сделать.',
+				'«Мне стыдно — конечно, стыдно, — печально ответил старичок, — но это было единственное, что я мог сделать.',
 		},
 		{
 			sentence: 'Sit down, please, there are plenty of chairs; and I will tell you my story.”',
@@ -425,7 +425,7 @@ export const chapter_15 = {
 		},
 		{
 			sentence: '“No, but it’s farther from here,” he said, shaking his head at her sadly.',
-			translate: '«Да, но оттуда дальше до этого места», — сказал он, печально качая головой.',
+			translate: '«Нет, но отсюда до него дальше», — сказал он, печально качая головой.',
 		},
 		{
 			sentence:
@@ -434,7 +434,7 @@ export const chapter_15 = {
 		},
 		{
 			sentence: 'I can imitate any kind of a bird or beast.”',
-			translate: 'Я могу подражать любым птицам и зверям».',
+			translate: 'Я могу подражать любой птице или зверю».',
 		},
 		{
 			sentence:
@@ -445,7 +445,7 @@ export const chapter_15 = {
 			sentence: '“After a time,” continued Oz, “I tired of that, and became a balloonist.”',
 			translate: '«Со временем, — продолжал Оз, — мне это надоело, и я стал воздухоплавателем».',
 		},
-		{ sentence: '“What is that?” asked Dorothy.', translate: '«А кто это?» — спросила Дороти.' },
+		{ sentence: '“What is that?” asked Dorothy.', translate: '«Что это такое?» — спросила Дороти.' },
 		{
 			sentence:
 				'“A man who goes up in a balloon on circus day, so as to draw a crowd of people together and get them to pay to see the circus,” he explained.',
@@ -528,7 +528,7 @@ export const chapter_15 = {
 			sentence:
 				'and it certainly is a beautiful place, abounding in jewels and precious metals, and every good thing that is needed to make one happy.',
 			translate:
-				'и это, безусловно, прекрасное место, богатое драгоценностями и металлами, и всем, что нужно для счастья.',
+				'и это, безусловно, прекрасное место, богатое драгоценностями и драгоценными металлами и всем, что нужно для счастья.',
 		},
 		{
 			sentence: 'I have been good to the people, and they like me;',
@@ -579,7 +579,7 @@ export const chapter_15 = {
 		},
 		{
 			sentence: '“I think you are a very bad man,” said Dorothy.',
-			translate: '«Думаю, вы очень плохой человек», — сказала Дороти.',
+			translate: '«Думаю, ты очень плохой человек», — сказала Дороти.',
 		},
 		{
 			sentence: '“Oh, no, my dear; I’m really a very good man, but I’m a very bad Wizard, I must admit.”',
@@ -588,7 +588,7 @@ export const chapter_15 = {
 		},
 		{
 			sentence: '“Can’t you give me brains?” asked the Scarecrow.',
-			translate: '«А разве вы не можете дать мне мозги?» — спросило Пугало.',
+			translate: '«А разве ты не можешь дать мне мозги?» — спросило Пугало.',
 		},
 		{
 			sentence: '“You don’t need them. You are learning something every day.',
@@ -608,7 +608,7 @@ export const chapter_15 = {
 			sentence:
 				'“That may all be true,” said the Scarecrow, “but I shall be very unhappy unless you give me brains.”',
 			translate:
-				'«Может, всё это и правда, — сказал Пугало, — но я буду очень несчастен, если вы не дадите мне мозги».',
+				'«Может, всё это и правда, — сказало Пугало, — но я буду очень несчастен, если ты не дашь мне мозги».',
 		},
 		{
 			sentence: 'The false Wizard looked at him carefully.',
@@ -626,7 +626,7 @@ export const chapter_15 = {
 		},
 		{
 			sentence: '“Oh, thank you—thank you!” cried the Scarecrow. “I’ll find a way to use them, never fear!”',
-			translate: '«О, спасибо — спасибо!» — воскликнул Пугало. — «Не бойтесь, я найду, как ими воспользоваться!»',
+			translate: '«О, спасибо — спасибо!» — воскликнуло Пугало. — «Не бойтесь, я найду, как ими воспользоваться!»',
 		},
 		{
 			sentence: '“But how about my courage?” asked the Lion anxiously.',

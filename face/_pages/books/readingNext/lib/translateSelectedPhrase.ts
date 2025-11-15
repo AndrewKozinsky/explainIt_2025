@@ -2,83 +2,66 @@ import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterS
 import { getSentenceById } from '_pages/books/readingNext/lib/getSentenceById'
 import { getTextByPhraseId } from '_pages/books/readingNext/lib/getTextByWordIds'
 import { useReadingStoreNext } from '_pages/books/readingNext/readingStoreNext'
-import { useCallback } from 'react'
-import { canRunTranslation } from './canRunTranslation'
-import { useBook_Chapter_AnalysePhraseLazyQuery } from '@/graphql'
+import {
+	Book_Chapter_AnalysePhrase,
+	Book_Chapter_AnalysePhraseDocument,
+	Book_Chapter_AnalysePhraseVariables,
+} from '@/graphql'
+import apolloClient from '@/graphql/apollo'
 import { chapterStructureIntoText } from '_pages/books/commonLogic/populatedChapterStructureIntoText/chapterStructureIntoText'
 
-export function useGetRunTranslation() {
-	const populatedChapter = useReadingStoreNext((s) => s.populatedChapter)
-	const selection = useReadingStoreNext((s) => s.selection)
-	const bookAuthor = useReadingStoreNext((s) => s.book.data.author)
-	const bookName = useReadingStoreNext((s) => s.book.data.name)
-	const chapter = useReadingStoreNext((s) => s.chapter)
-	const createLoadingPhraseInSelectedSentenceFromSelectedWords = useReadingStoreNext(
-		(s) => s.createLoadingPhraseInSelectedSentenceFromSelectedWords,
-	)
-	const turnPhraseIntoErrorPhrase = useReadingStoreNext((s) => s.turnPhraseIntoErrorPhrase)
-	const setPhraseAnalysisIntoSentence = useReadingStoreNext((s) => s.setPhraseAnalysisIntoSentence)
+export async function translateSelectedPhrase() {
+	useReadingStoreNext.getState().createLoadingPhraseInSelectedSentenceFromSelectedWords()
 
-	const [analyzePhrase] = useBook_Chapter_AnalysePhraseLazyQuery()
+	const { turnPhraseIntoErrorPhrase, setPhraseAnalysisIntoSentence, chapter, populatedChapter, selection, book } =
+		useReadingStoreNext.getState()
+	const { phraseId, sentenceId, wordIds } = selection
 
-	return useCallback(async () => {
-		if (!canRunTranslation() || !selection.sentenceId || !selection.phraseId) return
-		const { wordIds, sentenceId, phraseId } = selection
+	if (!sentenceId || !phraseId) return
 
-		const sentence = getSentenceById(sentenceId)
-		if (!sentence) return
+	const sentence = getSentenceById(sentenceId)
+	if (!sentence) return
 
-		const context = buildContext(populatedChapter, sentenceId, 20)
-		let sentenceText = chapterStructureIntoText([sentence])
-		let phraseText = getTextByPhraseId(sentenceId, phraseId)
+	const context = buildContext(populatedChapter, sentenceId, 20)
+	let sentenceText = chapterStructureIntoText([sentence])
+	let phraseText = getTextByPhraseId(sentenceId, phraseId)
 
-		try {
-			createLoadingPhraseInSelectedSentenceFromSelectedWords()
-
-			const result = await analyzePhrase({
-				variables: {
-					input: {
-						bookChapterId: chapter.data.id,
-						bookAuthor,
-						bookName,
-						context,
-						sentence: sentenceText,
-						sentenceId: sentenceId,
-						phrase: phraseText,
-						phraseWordsIdx: wordIds,
-					},
+	try {
+		const result = await apolloClient.query<Book_Chapter_AnalysePhrase, Book_Chapter_AnalysePhraseVariables>({
+			query: Book_Chapter_AnalysePhraseDocument,
+			variables: {
+				input: {
+					bookChapterId: chapter.data.id,
+					bookAuthor: book.data.author,
+					bookName: book.data.name,
+					context,
+					sentence: sentenceText,
+					sentenceId: sentenceId,
+					phrase: phraseText,
+					phraseWordsIdx: wordIds,
 				},
-			})
+			},
+		})
 
-			if (!result.data) {
-				const errorMessage = result.error?.message
-					? result.error.message
+		if (!result.data) {
+			const errorMessage =
+				result.errors && result.errors.length > 0
+					? result.errors[0].message
 					: 'Данных нет. Возможно недостаточный баланс.'
 
-				throw new Error(errorMessage)
-			}
-
-			// Put phrase analysis
-			setPhraseAnalysisIntoSentence(result.data.book_chapter_AnalysePhrase)
-		} catch (error) {
-			if (error instanceof Error) {
-				turnPhraseIntoErrorPhrase(sentenceId, phraseId, error.message)
-				console.error('Error analyzing sentence:')
-			} else {
-				turnPhraseIntoErrorPhrase(sentenceId, phraseId, 'Возникла неизвестная ошибка.')
-			}
+			throw new Error(errorMessage)
 		}
-	}, [
-		selection,
-		populatedChapter,
-		createLoadingPhraseInSelectedSentenceFromSelectedWords,
-		analyzePhrase,
-		chapter.data.id,
-		bookAuthor,
-		bookName,
-		setPhraseAnalysisIntoSentence,
-		turnPhraseIntoErrorPhrase,
-	])
+
+		// Put phrase analysis
+		setPhraseAnalysisIntoSentence(result.data.book_chapter_AnalysePhrase)
+	} catch (error) {
+		if (error instanceof Error) {
+			turnPhraseIntoErrorPhrase(sentenceId, phraseId, error.message)
+			console.error('Error analyzing sentence:')
+		} else {
+			turnPhraseIntoErrorPhrase(sentenceId, phraseId, 'Возникла неизвестная ошибка.')
+		}
+	}
 }
 
 // Builds textual context around the sentence so that

@@ -7,9 +7,9 @@ export function useSetDeviceType() {
 
 	useEffect(
 		function () {
-			const deviceType = getDeviceType()
-
-			changeDeviceType(deviceType)
+			// const deviceType = getDeviceType()
+			// changeDeviceType(deviceType)
+			changeDeviceType('touch')
 		},
 		[changeDeviceType],
 	)

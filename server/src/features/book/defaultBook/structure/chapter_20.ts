@@ -26,7 +26,7 @@ export const chapter_20 = {
 		},
 		{
 			sentence: '“When we have climbed over it, we shall know what is on the other side.”',
-			translate: '«Когда перелезем через неё, узнаем, что по ту сторону.»',
+			translate: '«Когда перелезем через неё, узнаем, что находится по ту сторону.»',
 		},
 		{
 			sentence: 'After a time the ladder was finished.',
@@ -34,25 +34,22 @@ export const chapter_20 = {
 		},
 		{
 			sentence: 'It looked clumsy, but the Tin Woodman was sure it was strong and would answer their purpose.',
-			translate: 'Она выглядела неуклюже, но Железный Дровосек был уверен, что она крепкая и послужит их цели.',
+			translate:
+				'Она выглядела неуклюже, но Железный Дровосек был уверен, что она крепкая и послужит нашей цели.',
 		},
 		{
-			sentence:
-				'The Scarecrow waked Dorothy and the Lion and Toto, and told them that the ladder was ready.',
-			translate:
-				'Пугало разбудило Дороти, Льва и Тото и сказало им, что лестница готова.',
+			sentence: 'The Scarecrow waked Dorothy and the Lion and Toto, and told them that the ladder was ready.',
+			translate: 'Пугало разбудило Дороти, Льва и Тото и сказало им, что лестница готова.',
 		},
 		{
 			sentence:
 				'The Scarecrow climbed up the ladder first, but he was so awkward that Dorothy had to follow close behind and keep him from falling off.',
 			translate:
-				'Пугало первым взобралось по лестнице, но он был так неуклюж, что Дороти пришлось идти прямо за ним и не дать ему сорваться.',
+				'Пугало первым взобралось по лестнице, но взбиралось так неуклюже, что Дороти пришлось идти прямо за ним и не дать ему сорваться.',
 		},
 		{
-			sentence:
-				'When he got his head over the top of the wall the Scarecrow said, “Oh, my!”',
-			translate:
-				'Когда он высунул голову над верхом стены, Пугало сказал: «Ох, боже!»',
+			sentence: 'When he got his head over the top of the wall the Scarecrow said, “Oh, my!”',
+			translate: 'Когда Пугало высунуло голову над верхом стены, оно сказало: «Ох, боже!»',
 		},
 		{
 			sentence: '“Go on,” exclaimed Dorothy.',
@@ -65,10 +62,8 @@ export const chapter_20 = {
 				'Тогда Пугало поднялся выше и сел на вершине стены, а Дороти высунулась и вскрикнула: «Ох, боже!», точно как Пугало.',
 		},
 		{
-			sentence:
-				'Then Toto came up, and immediately began to bark, but Dorothy made him be still.',
-			translate:
-				'Затем поднялся Тото и сразу начал лаять, но Дороти заставила его замолчать.',
+			sentence: 'Then Toto came up, and immediately began to bark, but Dorothy made him be still.',
+			translate: 'Затем поднялся Тото и сразу начал лаять, но Дороти заставила его замолчать.',
 		},
 		{
 			sentence:
@@ -79,8 +74,7 @@ export const chapter_20 = {
 		{
 			sentence:
 				'When they were all sitting in a row on the top of the wall, they looked down and saw a strange sight.',
-			translate:
-				'Когда они все сидели рядком на вершине стены, они посмотрели вниз и увидели странную картину.',
+			translate: 'Когда они все сидели рядком на вершине стены, они посмотрели вниз и увидели странную картину.',
 		},
 		{
 			sentence:
@@ -89,16 +83,13 @@ export const chapter_20 = {
 				'Перед ними простиралась огромная страна с поверхностью такой же гладкой, блестящей и белой, как дно большого блюда.',
 		},
 		{
-			sentence:
-				'Scattered around were many houses made entirely of china and painted in the brightest colors.',
+			sentence: 'Scattered around were many houses made entirely of china and painted in the brightest colors.',
 			translate:
-				'Вокруг были разбросаны множество домиков, полностью сделанных из фарфора и раскрашенных в самые яркие цвета.',
+				'Вокруг было разбросано множество домиков, полностью сделанных из фарфора и раскрашенных в самые яркие цвета.',
 		},
 		{
-			sentence:
-				'These houses were quite small, the biggest of them reaching only as high as Dorothy’s waist.',
-			translate:
-				'Эти домики были совсем маленькими, самые большие доходили Дороти лишь до пояса.',
+			sentence: 'These houses were quite small, the biggest of them reaching only as high as Dorothy’s waist.',
+			translate: 'Эти домики были совсем маленькими, самые большие доходили Дороти лишь до пояса.',
 		},
 		{
 			sentence:
@@ -114,7 +105,7 @@ export const chapter_20 = {
 			sentence:
 				'There were milkmaids and shepherdesses, with brightly colored bodices and golden spots all over their gowns; and princesses with most gorgeous frocks of silver and gold and purple; and shepherds dressed in knee breeches with pink and yellow and blue stripes down them, and golden buckles on their shoes; and princes with jeweled crowns upon their heads, wearing ermine robes and satin doublets; and funny clowns in ruffled gowns, with round red spots upon their cheeks and tall, pointed caps.',
 			translate:
-				'Там были доярки и пастушки в ярких корсажах и с золотыми пятнами на платьях; принцессы в великолепных нарядах из серебра, золота и пурпура; пастухи в бриджах с розовыми, жёлтыми и голубыми полосками и с золотыми пряжками на туфлях; принцы с усыпанными драгоценностями коронами на головах, в ермолковых мантиях и атласных камзолах; и забавные клоуны в платьях с оборками, с круглыми красными пятнами на щёках и в высоких заострённых колпаках.',
+				'Там были доярки и пастушки в ярких корсажах и с золотыми пятнами на платьях; принцессы в великолепных нарядах из серебра, золота и пурпура; пастухи в бриджах с розовыми, жёлтыми и голубыми полосками и с золотыми пряжками на туфлях; принцы с усыпанными драгоценностями коронами на головах, в горностаевых мантиях и атласных камзолах; и забавные клоуны в платьях с оборками, с круглыми красными пятнами на щёках и в высоких заострённых колпаках.',
 		},
 		{
 			sentence:
@@ -126,7 +117,7 @@ export const chapter_20 = {
 			sentence:
 				'No one did so much as look at the travelers at first, except one little purple china dog with an extra-large head, which came to the wall and barked at them in a tiny voice, afterwards running away again.',
 			translate:
-				'Поначалу никто даже не посмотрел на путешественников, кроме одной маленькой лиловой фарфоровой собачки с необычно большой головой, которая подошла к стене, тоненьким голоском облаяла их и снова убежала.',
+				'Поначалу никто даже не посмотрел на путешественников, кроме одной маленькой лиловой фарфоровой собачки с необычно большой головой, которая подошла к стене, тоненьким голоском залаяла на них и снова убежала.',
 		},
 		{
 			sentence: '“How shall we get down?” asked Dorothy.',
@@ -199,10 +190,8 @@ export const chapter_20 = {
 			translate: 'Но красивая доярка была слишком раздосадована, чтобы отвечать.',
 		},
 		{
-			sentence:
-				'She picked up the leg sulkily and led her cow away, the poor animal limping on three legs.',
-			translate:
-				'Она сердито подняла ногу и увела свою корову, бедное животное хромало на трёх ногах.',
+			sentence: 'She picked up the leg sulkily and led her cow away, the poor animal limping on three legs.',
+			translate: 'Она сердито подняла ногу и увела свою корову, бедное животное хромало на трёх ногах.',
 		},
 		{
 			sentence:
@@ -239,10 +228,8 @@ export const chapter_20 = {
 			translate: '«Не гоняйся за мной! Не гоняйся за мной!»',
 		},
 		{
-			sentence:
-				'She had such a frightened little voice that Dorothy stopped and said, “Why not?”',
-			translate:
-				'Её голосок был таким испуганным, что Дороти остановилась и спросила: «Почему?»',
+			sentence: 'She had such a frightened little voice that Dorothy stopped and said, “Why not?”',
+			translate: 'Её голосок был таким испуганным, что Дороти остановилась и спросила: «Почему?»',
 		},
 		{
 			sentence:
@@ -255,8 +242,7 @@ export const chapter_20 = {
 			translate: '«А разве тебя нельзя починить?» — спросила девочка.',
 		},
 		{
-			sentence:
-				'“Oh, yes; but one is never so pretty after being mended, you know,” replied the Princess.',
+			sentence: '“Oh, yes; but one is never so pretty after being mended, you know,” replied the Princess.',
 			translate:
 				'«О, можно; но после починки уже никогда не бывает столь красивой, ты знаешь», — ответила Принцесса.',
 		},
@@ -273,8 +259,7 @@ export const chapter_20 = {
 		{
 			sentence:
 				'He has broken himself so often that he is mended in a hundred places, and doesn’t look at all pretty.',
-			translate:
-				'Он ломал себя столько раз, что починен в сотне мест и совсем некрасиво выглядит.',
+			translate: 'Он ломал себя столько раз, что починен в сотне мест и совсем некрасиво выглядит.',
 		},
 		{
 			sentence: 'Here he comes now, so you can see for yourself.”',
@@ -314,13 +299,11 @@ export const chapter_20 = {
 		},
 		{
 			sentence: '“Oh, I don’t mind him a bit,” said Dorothy.',
-			translate: '«О, я совсем не против него», — сказала Дороти.',
+			translate: '«О, я совсем не обращаю на него внимания», — сказала Дороти.',
 		},
 		{
-			sentence:
-				'“But you are so beautiful,” she continued, “that I am sure I could love you dearly.',
-			translate:
-				'«Но вы так прекрасны, — продолжила она, — что я уверена, полюбила бы вас всей душой.',
+			sentence: '“But you are so beautiful,” she continued, “that I am sure I could love you dearly.',
+			translate: '«Но вы так прекрасны, — продолжила она, — что я уверена, полюбила бы вас всей душой.',
 		},
 		{
 			sentence: 'Won’t you let me carry you back to Kansas, and stand you on Aunt Em’s mantel?',
@@ -336,7 +319,7 @@ export const chapter_20 = {
 		},
 		{
 			sentence: '“You see, here in our country we live contentedly, and can talk and move around as we please.',
-			translate: '«Видишь ли, здесь, в нашей стране, мы живём довольные и можем говорить и двигаться, как нам угодно.',
+			translate: '«Видишь ли, здесь, в нашей стране, мы довольны и можем говорить и двигаться, как нам угодно.',
 		},
 		{
 			sentence:
@@ -397,8 +380,7 @@ export const chapter_20 = {
 		{
 			sentence:
 				'“They are, indeed,” said the Scarecrow, “and I am thankful I am made of straw and cannot be easily damaged.',
-			translate:
-				'«И правда, — сказал Пугало, — и я благодарен, что сделан из соломы и меня нелегко повредить.',
+			translate: '«И правда, — сказало Пугало, — и я благодарен, что сделан из соломы и меня нелегко повредить.',
 		},
 		{
 			sentence: 'There are worse things in the world than being a Scarecrow.”',

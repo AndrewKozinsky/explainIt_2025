@@ -627,6 +627,7 @@ export type BookChapter_Get = {
 			sentenceId: number
 			sentence: string
 			phrase: string
+			transcription: string
 			phraseWordsIdx: Array<number>
 			translation: string
 			analysis: string
@@ -1453,6 +1454,7 @@ export const BookChapter_GetDocument = gql`
 				sentenceId
 				sentence
 				phrase
+				transcription
 				phraseWordsIdx
 				translation
 				analysis

@@ -49,11 +49,26 @@
 .word--error {
 	&:before {
 		background-color: vars.$dangerColor-2;
+		border: none;
+	}
+
+	&:hover {
+		color: white;
+		&:before {
+			background-color: vars.$dangerColor-3;
+		}
 	}
 }
 
 .word--success {
 	&:before {
-		background-color: vars.$grayColor-4;
+		background-color: vars.$grayColor-2;
+	}
+
+	&:hover {
+		color: white;
+		&:before {
+			background-color: vars.$grayColor-3;
+		}
 	}
 }

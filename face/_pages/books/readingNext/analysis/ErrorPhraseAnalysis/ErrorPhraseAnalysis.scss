@@ -1,0 +1,5 @@
+@use '@/styles/variables' as vars;
+
+.error-phrase-analysis {
+	color: vars.$dangerColor-1;
+}

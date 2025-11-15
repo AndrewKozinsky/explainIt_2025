@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { translateSelectedPhrase } from '_pages/books/readingNext/lib/translateSelectedPhrase'
 import { canRunTranslation } from '../../lib/canRunTranslation'
 
 /**
@@ -19,5 +20,5 @@ function translate(e: KeyboardEvent) {
 	if (e.key !== 'Enter') return
 	if (!canRunTranslation()) return
 
-	// runTranslation()
+	translateSelectedPhrase()
 }

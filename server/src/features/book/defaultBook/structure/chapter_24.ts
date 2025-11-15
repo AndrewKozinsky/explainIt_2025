@@ -27,7 +27,7 @@ export const chapter_24 = {
 		},
 		{
 			sentence: 'And oh, Aunt Em!',
-			translate: '«И о, тётя Эм!»',
+			translate: '«О, тётя Эм!»',
 		},
 		{
 			sentence: 'I’m so glad to be at home again!',

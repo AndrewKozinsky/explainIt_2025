@@ -12,7 +12,7 @@ export const chapter_19 = {
 			sentence:
 				'When the Guardian of the Gate saw them again he wondered greatly that they could leave the beautiful City to get into new trouble.',
 			translate:
-				'Когда Страж Ворот вновь увидел их, он сильно удивился, как они могут покинуть прекрасный Город, чтобы ввязаться в новые неприятности.',
+				'Когда Страж ворот вновь увидел их, он сильно удивился, как они могут покинуть прекрасный Город, чтобы ввязаться в новые неприятности.',
 		},
 		{
 			sentence:
@@ -61,7 +61,7 @@ export const chapter_19 = {
 		},
 		{
 			sentence: 'The sun shone brightly as our friends turned their faces toward the Land of the South.',
-			translate: 'Солнце ярко сияло, когда наши друзья повернули лица к Стране Юга.',
+			translate: 'Солнце ярко сияло, когда наши друзья направились в Страну Юга.',
 		},
 		{
 			sentence: 'They were all in the best of spirits, and laughed and chatted together.',
@@ -108,7 +108,7 @@ export const chapter_19 = {
 		},
 		{
 			sentence: '“He knew how to give me brains, and very good brains, too,” said the Scarecrow.',
-			translate: '«Он знал, как дать мне мозги, и очень даже хорошие», — сказал Пугало.',
+			translate: '«Он знал, как дать мне мозги — и очень даже хорошие», — сказало Пугало.',
 		},
 		{
 			sentence:
@@ -158,18 +158,18 @@ export const chapter_19 = {
 			sentence:
 				'The Scarecrow, who was in the lead, finally discovered a big tree with such wide-spreading branches that there was room for the party to pass underneath.',
 			translate:
-				'Пугало, шедший впереди, наконец нашёл большое дерево с такими широко раскинутыми ветвями, что под ними было место пройти всей компании.',
+				'Пугало, шедшее впереди, наконец нашло большое дерево с такими широко раскинутыми ветвями, что под ними было место пройти всей компании.',
 		},
 		{
 			sentence:
 				'So he walked forward to the tree, but just as he came under the first branches they bent down and twined around him, and the next minute he was raised from the ground and flung headlong among his fellow travelers.',
 			translate:
-				'Он подошёл к дереву, но стоило ему войти под первые ветви, как они согнулись и обвились вокруг него, и в следующую минуту его подняло с земли и швырнуло головой вперёд к товарищам по путешествию.',
+				'Оно подошло к дереву, но стоило ему войти под первые ветви, как они согнулись и обвились вокруг него, и в следующую минуту его подняло с земли и швырнуло головой вперёд к товарищам по путешествию.',
 		},
 		{
 			sentence:
 				'This did not hurt the Scarecrow, but it surprised him, and he looked rather dizzy when Dorothy picked him up.',
-			translate: 'Пугало не ушибся, но был удивлён, и когда Дороти подняла его, он выглядел слегка ошеломлённым.',
+			translate: 'Пугало не ушиблось, но было удивлено, и когда Дороти подняла его, оно выглядело слегка ошеломлённым.',
 		},
 		{
 			sentence: '“Here is another space between the trees,” called the Lion.',
@@ -177,7 +177,7 @@ export const chapter_19 = {
 		},
 		{
 			sentence: '“Let me try it first,” said the Scarecrow, “for it doesn’t hurt me to get thrown about.”',
-			translate: '«Позвольте мне попробовать первым, — сказал Пугало, — меня не больно швырять.»',
+			translate: '«Позвольте мне попробовать первым, — сказало Пугало, — мне не больно, когда меня швыряют».',
 		},
 		{
 			sentence:

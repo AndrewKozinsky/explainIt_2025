@@ -6,7 +6,7 @@ export const chapter_23 = {
 			sentence:
 				'Before they went to see Glinda, however, they were taken to a room of the Castle, where Dorothy washed her face and combed her hair, and the Lion shook the dust out of his mane, and the Scarecrow patted himself into his best shape, and the Woodman polished his tin and oiled his joints.',
 			translate:
-				'Прежде чем идти к Глинде, их отвели в комнату замка, где Дороти умылась и причёсанула волосы, Лев вытряхнул пыль из своей гривы, Пугало пригладило себя, приняв лучший вид, а Дровосек начистил своё олово и смазал суставы.',
+				'Прежде чем идти к Глинде, их отвели в комнату замка, где Дороти умылась и причесала волосы, Лев вытряхнул пыль из своей гривы, Пугало пригладило солому, придав себе лучший вид, а Дровосек начистил своё олово и смазал суставы.',
 		},
 		{
 			sentence:
@@ -60,7 +60,7 @@ export const chapter_23 = {
 			sentence:
 				'“Willingly!” exclaimed Dorothy; “indeed, it is of no use to me now, and when you have it you can command the Winged Monkeys three times.”',
 			translate:
-				'«С удовольствием!» — воскликнула Дороти. «Теперь она мне всё равно не нужна, а имея её, ты сможешь трижды повелевать Крылатыми Обезьянами.»',
+				'«С удовольствием! — воскликнула Дороти. — Теперь она мне всё равно не нужна, а имея её, ты сможешь трижды повелевать Крылатыми Обезьянами».',
 		},
 		{
 			sentence: '“And I think I shall need their service just those three times,” answered Glinda, smiling.',
@@ -76,7 +76,7 @@ export const chapter_23 = {
 			sentence:
 				'“I will return to the Emerald City,” he replied, “for Oz has made me its ruler and the people like me.',
 			translate:
-				'«Я вернусь в Изумрудный город, — ответил он, — ведь Оз сделал меня его правителем, и люди меня любят.',
+				'«Я вернусь в Изумрудный город, — ответило Пугало, — ведь Оз сделал меня его правителем, и люди меня любят.',
 		},
 		{
 			sentence: 'The only thing that worries me is how to cross the hill of the Hammer-Heads.”',
@@ -110,7 +110,7 @@ export const chapter_23 = {
 			sentence:
 				'Then he said, “The Winkies were very kind to me, and wanted me to rule over them after the Wicked Witch died.',
 			translate:
-				'Потом сказал: «Винки были ко мне очень добры и хотели, чтобы я правил ими после смерти Злой Ведьмы.',
+				'Затем он сказал: «Винки были ко мне очень добры и хотели, чтобы я правил ими после смерти Злой Ведьмы.',
 		},
 		{
 			sentence:

@@ -12,11 +12,11 @@ export const chapter_22 = {
 			sentence:
 				'“That will be a hard climb,” said the Scarecrow, “but we must get over the hill, nevertheless.”',
 			translate:
-				'«Подъём будет трудным, — сказал Пугало, — но нам всё равно нужно перебраться через холм.»',
+				'«Подъём будет трудным, — сказало Пугало, — но нам всё равно нужно перебраться через холм.»',
 		},
 		{
 			sentence: 'So he led the way and the others followed.',
-			translate: 'И он повёл вперёд, а остальные последовали за ним.',
+			translate: 'И Пугало повело вперёд, а остальные последовали за ним.',
 		},
 		{
 			sentence:
@@ -36,7 +36,7 @@ export const chapter_22 = {
 		},
 		{
 			sentence: '“But we must cross it,” said the Scarecrow.',
-			translate: '«Но нам необходимо перейти его», — сказал Пугало.',
+			translate: '«Но нам необходимо перейти его», — сказало Пугало.',
 		},
 		{
 			sentence: '“We’re going to the country of the Quadlings.”',
@@ -52,7 +52,7 @@ export const chapter_22 = {
 			sentence:
 				'He was quite short and stout and had a big head, which was flat at the top and supported by a thick neck full of wrinkles.',
 			translate:
-				'Он был довольно низким и коренастым, с большой головой, приплюснутой сверху, удерживаемой толстою, вся в морщинах, шеей.',
+				'Он был довольно низким и коренастым, с большой головой, приплюснутой сверху, удерживаемой толстой, вся в морщинах, шеей.',
 		},
 		{
 			sentence:
@@ -64,7 +64,7 @@ export const chapter_22 = {
 			sentence:
 				'So he said, “I’m sorry not to do as you wish, but we must pass over your hill whether you like it or not,” and he walked boldly forward.',
 			translate:
-				'Тогда он сказал: «Сожалею, что не могу поступить по‑вашему, но нам нужно перейти ваш холм, нравится вам это или нет», — и смело пошёл вперёд.',
+				'Тогда Пугало сказало: «Сожалею, что не могу поступить по‑вашему, но нам нужно перейти ваш холм, нравится вам это или нет», — и смело пошло вперёд.',
 		},
 		{
 			sentence:
@@ -100,7 +100,7 @@ export const chapter_22 = {
 			sentence:
 				'Dorothy ran down and helped the Scarecrow to his feet, and the Lion came up to her, feeling rather bruised and sore, and said, “It is useless to fight people with shooting heads; no one can withstand them.”',
 			translate:
-				'Дороти сбежала вниз и помогла Пугалу подняться, а Лев подошёл к ней, чувствуя себя ушибленным и побитым, и сказал: «Бесполезно сражаться с людьми, у которых головы выстреливают; никто не может им противостоять.»',
+				'Дороти сбежала вниз и помогла Пугалу подняться, а Лев подошёл к ней, чувствуя себя ушибленным и побитым, и сказал: «Бесполезно сражаться с людьми с выскакивающими головами; никто не может им противостоять.»',
 		},
 		{
 			sentence: '“What can we do, then?” she asked.',
@@ -112,7 +112,7 @@ export const chapter_22 = {
 		},
 		{
 			sentence: '“You have still the right to command them once more.”',
-			translate: '«У тебя всё ещё есть право приказать им ещё один раз.»',
+			translate: '«У тебя всё ещё есть право приказать им ещё раз.»',
 		},
 		{
 			sentence:

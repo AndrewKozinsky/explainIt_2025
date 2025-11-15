@@ -37,6 +37,7 @@ export namespace ChapterTextStructure {
 		sentence: string
 		phrase: string
 		phraseWordsIdx: number[]
+		transcription: string
 		translation: string
 		analysis: string
 		examples: PhraseExample[]
@@ -117,6 +118,7 @@ export namespace ChapterTextStructurePopulated {
 		// Идентификаторы выделенных слов этой фразы
 		wordIds: number[]
 		analysis: {
+			transcription: string
 			// Краткий перевод фразы
 			translation: string
 			// Анализ фразы
