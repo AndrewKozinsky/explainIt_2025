@@ -5,7 +5,6 @@ import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { chapters, getStructuredContent } from 'src/features/book/defaultBook/structure/structure'
-import { getDefaultBookChapters } from './defaultBookChaptersTexts'
 
 export class CreateDefaultBookCommand implements ICommand {
 	constructor(public userId: number) {}
@@ -36,23 +35,6 @@ export class CreateDefaultBookHandler implements ICommandHandler<CreateDefaultBo
 			note: 'A young girl named Dorothy is swept by a tornado to the magical Land of Oz, where she seeks the Wizard’s help to return home and learns she had the power to do so all along.',
 		}
 	}
-
-	// DELETE LATER
-	/*getBookChapters(bookId: number): CreateBookChapterInput[] {
-		const chapters = getDefaultBookChapters()
-
-		return chapters.map((chapter) => {
-			const structuredContent = textIntoChapterStructure(chapter.text)
-			const textContent = JSON.stringify(structuredContent)
-
-			return {
-				bookId,
-				name: chapter.name,
-				header: chapter.header,
-				content: textContent,
-			}
-		})
-	}*/
 
 	getBookChapters(bookId: number): CreateBookChapterInput[] {
 		const structuredContent = getStructuredContent()

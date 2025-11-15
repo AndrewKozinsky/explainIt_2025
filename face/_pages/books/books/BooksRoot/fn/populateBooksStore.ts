@@ -78,15 +78,16 @@ function useSetBookToStore() {
 
 	useEffect(
 		function () {
-			if (!booksData) {
+			if (!booksData || !booksData.length) {
 				useBooksStore.setState({
 					book: null,
 				})
 				return
 			}
 
+			const currentBook = booksData.find((book) => book.id.toString() === currentBookId) ?? null
 			useBooksStore.setState({
-				book: booksData.find((book) => book.id.toString() === currentBookId) ?? null,
+				book: currentBook,
 			})
 		},
 		[booksData, currentBookId],

@@ -6,6 +6,32 @@ export const chapter_1 = {
 			sentence:
 				'Dorothy lived in the midst of the great Kansas prairies, with Uncle Henry, who was a farmer, and Aunt Em, who was the farmer’s wife.',
 			translate: 'Дороти жила посреди огромных прерий Канзаса с дядей Генри, фермером, и тётей Эм, его женой.',
+			phrases: [
+				{
+					wordIds: [10],
+					analysis: {
+						analysis:
+							'Midst означает \'в середине\' или \'посреди\' и часто подчеркивает главное пространство или окружение вокруг предмета. В предложении указывается, что Дороти живет прямо в центре огромной прерии штата Канзас, т.е. в середине открытой плоской местности, окруженной прерием.',
+						examples: [
+							{
+								foreignLang: 'She stood in the midst of the crowd.',
+								nativeLang: 'Она стояла среди толпы.',
+							},
+							{
+								foreignLang: 'In the midst of winter, the village held a small festival.',
+								nativeLang: 'Посреди зимы деревня устроила небольшой фестиваль.',
+							},
+
+							{
+								foreignLang: 'They found themselves in the midst of a thick forest.',
+								nativeLang: 'Они оказались в гуще леса.',
+							},
+						],
+						transcription: 'mɪdst',
+						translation: 'посреди, среди',
+					},
+				},
+			],
 		},
 		{
 			sentence: 'Their house was small, for the lumber to build it had to be carried by wagon many miles.',
