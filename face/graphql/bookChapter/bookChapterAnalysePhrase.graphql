@@ -1,4 +1,4 @@
-query Book_chapter_AnalysePhrase($input: AnalysePhraseInput!) {
+mutation Book_chapter_AnalysePhrase($input: AnalysePhraseInput!) {
 	book_chapter_AnalysePhrase(input: $input) {
 		id
 		sentenceId

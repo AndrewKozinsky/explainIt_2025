@@ -69,7 +69,7 @@ export class BookChapterResolver {
 	}
 
 	@UseGuards(CheckSessionCookieGuard, UserWithPositiveBalanceGuard)
-	@Query(() => BookChapterPhraseOutModel, {
+	@Mutation(() => BookChapterPhraseOutModel, {
 		name: RouteNames.BOOK_CHAPTER.ANALYSE_PHRASE,
 	})
 	async analysePhrase(@Args('input') input: AnalysePhraseInput, @Context('req') request: Request) {
@@ -78,7 +78,7 @@ export class BookChapterResolver {
 	}
 
 	@UseGuards(CheckSessionCookieGuard, UserWithPositiveBalanceGuard)
-	@Query(() => BookChapterTranslateOfSentencesOutModel, {
+	@Mutation(() => BookChapterTranslateOfSentencesOutModel, {
 		name: RouteNames.BOOK_CHAPTER.TRANSLATE_SENTENCES,
 	})
 	async translateSentences(@Args('input') input: TranslateSentencesInput, @Context('req') request: Request) {

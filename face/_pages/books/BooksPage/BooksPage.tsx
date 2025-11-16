@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import ReadingRootNext from '_pages/books/readingNext/ReadingRootNext/ReadingRootNext'
+import ReadingRoot from '_pages/books/reading/ReadingRoot/ReadingRoot'
 import BooksRoot from '../books/BooksRoot/BooksRoot'
 import { useGetShowingPageType } from './fn/showingPageType'
 
@@ -10,7 +10,7 @@ function BooksPage() {
 
 	const pageMapper = {
 		books: <BooksRoot />,
-		reading: <ReadingRootNext />,
+		reading: <ReadingRoot />,
 	}
 
 	return pageMapper[showingPageType]

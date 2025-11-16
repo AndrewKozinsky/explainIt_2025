@@ -54,6 +54,10 @@ type BookChapterPhraseOutModel {
   translation: String!
 }
 
+type BookChapterTranslateOfSentencesOutModel {
+  translates: [String!]!
+}
+
 type BookLiteOutModel {
   author: String
   id: Int!
@@ -202,7 +206,9 @@ type Mutation {
 
   """Resend email confirmation letter"""
   auth_resendConfirmationEmail(input: ResendConfirmationEmailInput!): Boolean!
+  book_chapter_AnalysePhrase(input: AnalysePhraseInput!): BookChapterPhraseOutModel!
   book_chapter_DeleteBookChapterPhrases(input: DeleteBookChapterPhrasesInput!): Boolean!
+  book_chapter_TranslateSentences(input: TranslateSentencesInput!): BookChapterTranslateOfSentencesOutModel!
 
   """Create book chapter"""
   book_chapter_create(input: CreateBookChapterInput!): BookChapterOutModel!
@@ -238,7 +244,6 @@ type Query {
 
   """Get current user data"""
   auth_getMe: UserOutModel!
-  book_chapter_AnalysePhrase(input: AnalysePhraseInput!): BookChapterPhraseOutModel!
 
   """Get book chapter"""
   book_chapter_get(input: GetBookChapterInput!): BookChapterOutModel!
@@ -270,6 +275,17 @@ input TopUpBalanceWithYooKassaInput {
 
 type TopUpBalanceWithYooKassaOutModel {
   confirmationUrl: String!
+}
+
+input TranslateSentencesInput {
+  """Book author"""
+  bookAuthor: String
+
+  """Book name"""
+  bookName: String
+
+  """Array of sentences"""
+  sentences: [String!]!
 }
 
 input UpdateBookChapterInput {
