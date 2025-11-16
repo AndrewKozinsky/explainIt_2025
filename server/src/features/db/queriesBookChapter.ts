@@ -117,25 +117,27 @@ export const queriesBookChapter = {
 		bookAuthor: null | string
 		bookName: null | string
 		context: string
+		sentenceId: number
 		sentence: string
 		phrase: string
+		phraseWordsIdx: number[]
 	}) {
 		return {
 			query: `
       query AnalysePhrase($input: AnalysePhraseInput!) {
         ${RouteNames.BOOK_CHAPTER.ANALYSE_PHRASE}(input: $input) {
-			sentenceTranslation
-			phrase {
+			id
+			sentenceId
+			sentence
+			transcription
+			phrase
+			phraseWordsIdx
+			translation
+			analysis
+			examples {
 				id
-				phrase
-				transcription
+				sentence
 				translation
-				analysis
-				examples {
-					id
-					sentence
-					translation
-				}
 			}
         }
       }

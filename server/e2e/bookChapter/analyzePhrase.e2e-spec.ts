@@ -43,12 +43,14 @@ describe.skip('Analyze phase', () => {
 
 	it('should return 401 if there is not session token cookie', async () => {
 		const { query, variables } = queries.bookChapter.analysePhrase({
+			sentenceId: 1,
 			bookChapterId: 9999,
 			sentence: '',
 			phrase: '',
 			bookAuthor: null,
 			bookName: null,
 			context: '',
+			phraseWordsIdx: [1, 2],
 		})
 
 		await authUtils.tokenNotExist({
@@ -90,12 +92,14 @@ describe.skip('Analyze phase', () => {
 		})
 
 		const { query, variables } = queries.bookChapter.analysePhrase({
+			sentenceId: 1,
 			bookChapterId: chapters[0].id,
 			sentence: 'Test sentence',
 			phrase: 'test phrase',
 			bookAuthor: 'Test Author',
 			bookName: 'Test Book',
 			context: 'Test context',
+			phraseWordsIdx: [1, 2],
 		})
 
 		const [response] = await makeGraphQLReqWithTokens({
@@ -150,12 +154,14 @@ describe.skip('Analyze phase', () => {
 		})
 
 		const { query, variables } = queries.bookChapter.analysePhrase({
+			sentenceId: 1,
 			bookChapterId: chapters[0].id,
 			sentence: 'Test sentence',
 			phrase: 'test phrase',
 			bookAuthor: 'Test Author',
 			bookName: 'Test Book',
 			context: 'Test context',
+			phraseWordsIdx: [1, 2],
 		})
 
 		const [response] = await makeGraphQLReqWithTokens({
@@ -177,7 +183,7 @@ describe.skip('Analyze phase', () => {
 		expect(updatedUser?.balance).toBeLessThan(100) // Balance should be reduced due to token usage
 	})
 
-	it.only('should successfully analyze sentence and phrase when openAI returns correct format', async () => {
+	it('should successfully analyze sentence and phrase when openAI returns correct format', async () => {
 		// Create a user with sufficient balance
 		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
@@ -213,10 +219,10 @@ describe.skip('Analyze phase', () => {
 			inputTokens: 500,
 			outputTokens: 2000,
 			message: JSON.stringify({
-				sentenceTranslate: 'Тестовое предложение переведено',
-				phraseTranslate: 'тестовая фраза',
-				phraseAnalysis: 'Анализ тестовой фразы в контексте предложения',
-				phraseExamples: [
+				transcription: 'транскрипция',
+				translate: 'тестовая фраза',
+				analysis: 'Анализ тестовой фразы в контексте предложения',
+				examples: [
 					{
 						sentence: 'Example sentence 1 with test phrase',
 						translation: 'Пример предложения 1 с тестовой фразой',
@@ -232,12 +238,14 @@ describe.skip('Analyze phase', () => {
 		jest.spyOn(openAIService, 'generateText').mockResolvedValue(mockOpenAIResponse)
 
 		const { query, variables } = queries.bookChapter.analysePhrase({
+			sentenceId: 1,
 			bookChapterId: chapters[0].id,
 			sentence: 'Test sentence',
-			phrase: 'test phrase',
+			phrase: 'Test phrase',
 			bookAuthor: 'Test Author',
 			bookName: 'Test Book',
 			context: 'Test context',
+			phraseWordsIdx: [1, 2],
 		})
 
 		const [response] = await makeGraphQLReqWithTokens({
@@ -251,32 +259,32 @@ describe.skip('Analyze phase', () => {
 		expect(response.errors).toBeUndefined()
 		expect(response.data).toBeDefined()
 
-		const responseData = response.data.book_chapter_AnalyseSentenceAndPhrase
+		const responseData = response.data.book_chapter_AnalysePhrase
 		expect(responseData).toBeDefined()
 
 		bookChapterUtils.checkAnalysePhraseResp(responseData, {
-			sentenceTranslation: 'Тестовое предложение переведено',
-			phrase: {
-				phrase: 'test phrase',
-				translation: 'тестовая фраза',
-				analysis: 'Анализ тестовой фразы в контексте предложения',
-				examples: [
-					{
-						sentence: 'Example sentence 1 with test phrase',
-						translation: 'Пример предложения 1 с тестовой фразой',
-					},
-					{
-						sentence: 'Example sentence 2 with test phrase',
-						translation: 'Пример предложения 2 с тестовой фразой',
-					},
-				],
-			},
+			sentence: 'Test sentence',
+			transcription: 'транскрипция',
+			phrase: 'Test phrase',
+			phraseWordsIdx: [1, 2],
+			translation: 'тестовая фраза',
+			analysis: 'Анализ тестовой фразы в контексте предложения',
+			examples: [
+				{
+					sentence: 'Example sentence 1 with test phrase',
+					translation: 'Пример предложения 1 с тестовой фразой',
+				},
+				{
+					sentence: 'Example sentence 2 with test phrase',
+					translation: 'Пример предложения 2 с тестовой фразой',
+				},
+			],
 		})
 
 		// Verify phrase was created in database
-		const createdPhrase = await bookChapterPhraseQueryRepository.getPhraseById(responseData.phrase.id)
+		const createdPhrase = await bookChapterPhraseQueryRepository.getPhraseById(responseData.id)
 		expect(createdPhrase).toBeDefined()
-		expect(createdPhrase?.phrase).toBe('test phrase')
+		expect(createdPhrase?.phrase).toBe('Test phrase')
 		expect(createdPhrase?.translation).toBe('тестовая фраза')
 		expect(createdPhrase?.examples).toHaveLength(2)
 

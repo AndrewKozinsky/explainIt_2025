@@ -119,28 +119,41 @@ export class AnalysePhraseHandler implements ICommandHandler<AnalysePhraseComman
 	 * @param analysePhraseInput — данные для анализа предложения и фразы.
 	 */
 	getAnalysisTask(analysePhraseInput: AnalysePhraseInput): OpenAI.Chat.Completions.ChatCompletionMessageParam[] {
-		const firstTaskSentenceMapper = {
-			bookName_bookAuthor: 'Предложение {Sentence} в контексте {Context} из книги {BookName} автора {BookAuthor}',
-			bookName_: 'Предложение {Sentence} в контексте {Context} из книги {BookName}',
-			_bookAuthor: 'Предложение {Sentence} в контексте {Context} из книги автора {BookAuthor}',
-			_: 'Предложение {Sentence} в контексте {Context}',
+		const fieldsMapper = {
+			bookName_bookAuthor: 'BookAuthor, BookName,',
+			bookName_: 'BookName,',
+			_bookAuthor: 'BookAuthor,',
+			_: '',
 		}
-
-		const firstTaskSentence =
-			firstTaskSentenceMapper[
+		const fields =
+			fieldsMapper[
 				`${analysePhraseInput.bookName ? 'bookName' : ''}_${analysePhraseInput.bookAuthor ? 'bookAuthor' : ''}`
 			]
+
+		const systemPrompt = `Ты получишь JSON с полями ${fields} Sentence, Phrase и Context.
+Используй эти данные.
+
+Сформируй строго валидный JSON следующей структуры:
+{
+  "transcription": "...",
+  "translate": "...",
+  "analysis": "...",
+  "examples": [
+    {"sentence": "...", "translation": "..."},
+    {"sentence": "...", "translation": "..."},
+    {"sentence": "...", "translation": "..."}
+  ]
+}
+
+- transcription: фонетическая транскрипция фразы Phrase.
+- translate: краткий и точный перевод фразы Phrase на русский язык.
+- analysis: объяснение смысла фразы Phrase в контексте предложения Sentence.
+- examples: три примера использования фразы Phrase в других предложениях, каждый с переводом.`
 
 		return [
 			{
 				role: 'system',
-				content: `${firstTaskSentence}. Сформируй JSON:
-{"transcription": "...", "translate": "...", "analysis": "...", "examples": "..."}
-- transcription: транскрипция фразы {Phrase}.
-- translate: ёмкий перевод фразы {Phrase} на русский.
-- analysis: объяснение фразы в контексте этого предложения.
-- examples: Массив из трёх примеров использования фразы в других предложениях с переводом. Например:
-[{"sentence": "...", "translation": "..."},{"sentence": "...","translation": "..."},...]`,
+				content: systemPrompt,
 			},
 			{
 				role: 'user',
