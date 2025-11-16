@@ -25,17 +25,6 @@ export interface GetBookChapterInput {
     id: number;
 }
 
-export interface AnalyseSentenceAndPhraseInput {
-    bookChapterId: number;
-    bookAuthor?: Nullable<string>;
-    bookName?: Nullable<string>;
-    context: string;
-    sentenceId: number;
-    sentence: string;
-    phrase: string;
-    phraseWordsIdx: number[];
-}
-
 export interface RegisterUserInput {
     email: string;
     password: string;
@@ -100,6 +89,23 @@ export interface DeleteBookChapterInput {
     id: number;
 }
 
+export interface AnalysePhraseInput {
+    bookChapterId: number;
+    bookAuthor?: Nullable<string>;
+    bookName?: Nullable<string>;
+    context: string;
+    sentenceId: number;
+    sentence: string;
+    phrase: string;
+    phraseWordsIdx: number[];
+}
+
+export interface TranslateSentencesInput {
+    bookAuthor?: Nullable<string>;
+    bookName?: Nullable<string>;
+    sentences: string[];
+}
+
 export interface DeleteBookChapterPhrasesInput {
     bookChapterId: number;
 }
@@ -115,6 +121,7 @@ export interface BookChapterPhraseOutModel {
     id: number;
     sentenceId: number;
     sentence: string;
+    transcription: string;
     phrase: string;
     phraseWordsIdx: number[];
     translation: string;
@@ -163,9 +170,8 @@ export interface BookLiteOutModel {
     userId: number;
 }
 
-export interface SentenceAndPhraseAnalysesOutModel {
-    sentenceTranslation: string;
-    phrase: BookChapterPhraseOutModel;
+export interface BookChapterTranslateOfSentencesOutModel {
+    translates: string[];
 }
 
 export interface TopUpBalanceWithYooKassaOutModel {
@@ -179,7 +185,6 @@ export interface IQuery {
     book_user_books(): BookOutModel[] | Promise<BookOutModel[]>;
     book_get(input: GetBookInput): BookOutModel | Promise<BookOutModel>;
     book_chapter_get(input: GetBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
-    book_chapter_AnalyseSentenceAndPhrase(input: AnalyseSentenceAndPhraseInput): SentenceAndPhraseAnalysesOutModel | Promise<SentenceAndPhraseAnalysesOutModel>;
 }
 
 export interface CheckTranslationOutSuccessModel {
@@ -213,6 +218,8 @@ export interface IMutation {
     book_chapter_create(input: CreateBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
     book_chapter_update(input: UpdateBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
     book_chapter_delete(input: DeleteBookChapterInput): boolean | Promise<boolean>;
+    book_chapter_AnalysePhrase(input: AnalysePhraseInput): BookChapterPhraseOutModel | Promise<BookChapterPhraseOutModel>;
+    book_chapter_TranslateSentences(input: TranslateSentencesInput): BookChapterTranslateOfSentencesOutModel | Promise<BookChapterTranslateOfSentencesOutModel>;
     book_chapter_DeleteBookChapterPhrases(input: DeleteBookChapterPhrasesInput): boolean | Promise<boolean>;
 }
 

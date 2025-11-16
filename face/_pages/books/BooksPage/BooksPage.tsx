@@ -1,8 +1,8 @@
 'use client'
 
 import React from 'react'
+import ReadingRoot from '_pages/books/reading/ReadingRoot/ReadingRoot'
 import BooksRoot from '../books/BooksRoot/BooksRoot'
-import ReadingRoot from '../reading/ReadingRoot/ReadingRoot'
 import { useGetShowingPageType } from './fn/showingPageType'
 
 function BooksPage() {

@@ -66,7 +66,6 @@ function populateSentencePartsStructure(
 		} else if (part.t === 'carriageReturn') {
 			return { id: partId, type: 'carriageReturn' } as const
 		}
-
 		return { id: partId, type: 'punctuation', value: part.v } as const
 	})
 }
@@ -77,14 +76,16 @@ function populateSentencePhrases(
 ): ChapterTextStructurePopulated.Phrase[] {
 	const thisSentencePhrases = allPhrases.filter((phrase) => phrase.sentenceId === sentenceId)
 
-	return thisSentencePhrases.map((phrase) => {
+	return thisSentencePhrases.map((phrase, idx) => {
 		return {
+			id: idx + 1,
 			type: 'success',
 			phraseIdInDb: phrase.id,
 			phrase: phrase.phrase,
 			// Идентификаторы выделенных слов этой фразы
 			wordIds: phrase.phraseWordsIdx,
 			analysis: {
+				transcription: phrase.transcription,
 				// Краткий перевод фразы
 				translation: phrase.translation,
 				// Анализ фразы

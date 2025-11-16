@@ -36,6 +36,7 @@ export class BookChapterPhraseQueryRepository {
 			sentenceId: dbPhraseChapter.sentenceId,
 			sentence: dbPhraseChapter.sentence,
 			phrase: dbPhraseChapter.phrase,
+			transcription: dbPhraseChapter.phraseTranscription,
 			phraseWordsIdx: dbPhraseChapter.phraseWordsIdx,
 			translation: dbPhraseChapter.phraseTranslation,
 			analysis: dbPhraseChapter.phraseAnalysis,

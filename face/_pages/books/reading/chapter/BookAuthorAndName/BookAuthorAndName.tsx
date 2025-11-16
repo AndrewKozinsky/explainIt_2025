@@ -1,7 +1,6 @@
 import Link from 'next/link'
-import React from 'react'
-import { useReadingStore } from '_pages/books/reading/readingStore'
 import { pageUrls } from 'сonsts/pageUrls'
+import { useReadingStore } from '_pages/books/reading/readingStore'
 import './BookAuthorAndName.scss'
 
 function BookAuthorAndName() {
@@ -33,7 +32,6 @@ function BookAuthorAndNameContent() {
 	return (
 		<>
 			<div className='book-author-and-name__left'>{book.author}</div>
-			<div className='book-author-and-name__hr' />
 			<div className='book-author-and-name__right'>
 				<Link href={pageUrls.books.book(book.id).path} className='link'>
 					{book.name}

@@ -37,6 +37,7 @@ export namespace ChapterTextStructure {
 		sentence: string
 		phrase: string
 		phraseWordsIdx: number[]
+		transcription: string
 		translation: string
 		analysis: string
 		examples: PhraseExample[]
@@ -94,31 +95,30 @@ export namespace ChapterTextStructurePopulated {
 		type: 'carriageReturn'
 	}
 
-	export type Phrase = IdlePhrase | LoadingPhrase | ErrorPhrase | SuccessPhrase
-
-	export type IdlePhrase = {
-		type: 'idle'
-		wordIds: number[]
-	}
+	export type Phrase = LoadingPhrase | ErrorPhrase | SuccessPhrase
 
 	export type LoadingPhrase = {
+		id: number
 		type: 'loading'
 		wordIds: number[]
 	}
 
 	export type ErrorPhrase = {
+		id: number
 		type: 'error'
 		wordIds: number[]
 		errorMessage: string
 	}
 
 	export type SuccessPhrase = {
+		id: number
 		type: 'success'
 		phraseIdInDb: number
 		phrase: string
 		// Идентификаторы выделенных слов этой фразы
 		wordIds: number[]
 		analysis: {
+			transcription: string
 			// Краткий перевод фразы
 			translation: string
 			// Анализ фразы

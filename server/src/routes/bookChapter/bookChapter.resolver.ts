@@ -2,16 +2,19 @@ import { UseGuards } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql'
 import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter.command'
-import { AnalyseSentenceAndPhraseCommand } from 'features/bookChapter/AnalyseSentenceAndPhrase.command'
+import { AnalysePhraseCommand } from 'src/features/bookChapter/AnalysePhrase.command'
 import { DeleteBookChapterPhrasesCommand } from 'src/features/bookChapter/DeleteBookChapterPhrases.command'
+import { TranslateSentencesCommand } from 'src/features/bookChapter/TranslateSentences.command'
 import { UserWithPositiveBalanceGuard } from 'src/infrastructure/guards/userWithPositiveBalanceGuard.guard'
-import { SentenceAndPhraseAnalysesOutModel } from 'src/models/ai/sentenceAndPhraseAnalyses.out.model'
 import { DeleteBookChapterCommand } from 'features/bookChapter/DeleteBookChapter.command'
 import { UpdateBookChapterCommand } from 'features/bookChapter/UpdateBookChapter.command'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
 import RouteNames from 'infrastructure/routeNames'
+import { BookChapterPhraseOutModel } from 'src/models/bookChapterPhrase/bookChapterPhrase.out.model'
+import { BookChapterTranslateOfSentencesOutModel } from 'src/models/bookChapterPhrase/bookChapterTranslateOfSentences.out.model'
 import { DeleteBookChapterPhrasesInput } from 'src/routes/bookChapter/inputs/deleteBookChapterPhrasesInput'
 import { BookChapterOutModel } from 'models/bookChapter/bookChapter.out.model'
+import { TranslateSentencesInput } from 'src/routes/bookChapter/inputs/translateSentences.input'
 import { CreateBookChapterInput } from './inputs/createBookChapter.input'
 import { DeleteBookChapterInput } from './inputs/deleteBookChapter.input'
 import { GetBookChapterInput } from './inputs/getBookChapter.input'
@@ -19,7 +22,7 @@ import { UpdateBookChapterInput } from './inputs/updateBookChapter.input'
 import { bookChapterResolversDesc } from './resolverDescriptions'
 import { Request } from 'express'
 import { GetBookChapterCommand } from 'features/bookChapter/GetBookChapter.command'
-import { AnalyseSentenceAndPhraseInput } from './inputs/analyseSentenceAndPhraseInput'
+import { AnalysePhraseInput } from 'src/routes/bookChapter/inputs/analysePhrase.input'
 
 @Resolver()
 export class BookChapterResolver {
@@ -66,15 +69,21 @@ export class BookChapterResolver {
 	}
 
 	@UseGuards(CheckSessionCookieGuard, UserWithPositiveBalanceGuard)
-	@Query(() => SentenceAndPhraseAnalysesOutModel, {
-		name: RouteNames.BOOK_CHAPTER.ANALYSE_SENTENCE_AND_PHRASE,
+	@Mutation(() => BookChapterPhraseOutModel, {
+		name: RouteNames.BOOK_CHAPTER.ANALYSE_PHRASE,
 	})
-	async analyseSentenceAndPhrase(
-		@Args('input') input: AnalyseSentenceAndPhraseInput,
-		@Context('req') request: Request,
-	) {
+	async analysePhrase(@Args('input') input: AnalysePhraseInput, @Context('req') request: Request) {
 		const userId = request.session.userId!
-		return await this.commandBus.execute(new AnalyseSentenceAndPhraseCommand(userId, input))
+		return await this.commandBus.execute(new AnalysePhraseCommand(userId, input))
+	}
+
+	@UseGuards(CheckSessionCookieGuard, UserWithPositiveBalanceGuard)
+	@Mutation(() => BookChapterTranslateOfSentencesOutModel, {
+		name: RouteNames.BOOK_CHAPTER.TRANSLATE_SENTENCES,
+	})
+	async translateSentences(@Args('input') input: TranslateSentencesInput, @Context('req') request: Request) {
+		const userId = request.session.userId!
+		return await this.commandBus.execute(new TranslateSentencesCommand(userId, input))
 	}
 
 	@UseGuards(CheckSessionCookieGuard)

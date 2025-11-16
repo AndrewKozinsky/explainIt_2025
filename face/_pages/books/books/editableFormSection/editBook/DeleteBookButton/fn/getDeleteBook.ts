@@ -6,7 +6,6 @@ import { pageUrls } from '@/сonsts/pageUrls'
 import { useBooksStore } from '_pages/books/books/booksStore'
 
 export function useGetDeleteBook() {
-	const book = useBooksStore((s) => s.book)
 	const { notify } = useContext(NotificationContext)
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
 
@@ -14,7 +13,9 @@ export function useGetDeleteBook() {
 
 	const onDeleteBookClick = useCallback(
 		async function () {
+			const book = useBooksStore.getState().book
 			if (!book) return
+
 			setStatus('loading')
 
 			const { errors } = await deleteBook({ variables: { input: { id: book.id } } })
@@ -32,7 +33,7 @@ export function useGetDeleteBook() {
 
 			redirect(pageUrls.books.path)
 		},
-		[book, deleteBook, notify],
+		[deleteBook, notify],
 	)
 
 	return {

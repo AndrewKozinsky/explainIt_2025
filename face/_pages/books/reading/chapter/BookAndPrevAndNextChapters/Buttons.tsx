@@ -1,9 +1,9 @@
-import { useReadingStore } from '_pages/books/reading/readingStore'
 import { pageUrls } from 'сonsts/pageUrls'
 import { RegularText, SmallGrayText } from './Texts'
 import { LinkButton } from './LinkButton'
 import LinkArrow from './LinkArrow'
 import { useGetPrevAndNextChapters } from './fn/prevAndNextChapters'
+import { useReadingStore } from '_pages/books/reading/readingStore'
 
 export function BookLink() {
 	const book = useReadingStore((s) => s.book.data)
@@ -21,7 +21,9 @@ export function BookLink() {
 export function PrevChapterLink() {
 	const book = useReadingStore((s) => s.book.data)
 	const prevChapter = useGetPrevAndNextChapters().prev
-	if (!prevChapter) return null
+	if (!prevChapter) {
+		return <span />
+	}
 
 	return (
 		<LinkButton href={pageUrls.books.book(book.id).chapter(prevChapter.id).reading.path}>
@@ -37,7 +39,9 @@ export function PrevChapterLink() {
 export function NextChapterLink() {
 	const book = useReadingStore((s) => s.book.data)
 	const nextChapter = useGetPrevAndNextChapters().next
-	if (!nextChapter) return null
+	if (!nextChapter) {
+		return <span />
+	}
 
 	return (
 		<LinkButton href={pageUrls.books.book(book.id).chapter(nextChapter.id).reading.path}>

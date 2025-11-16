@@ -2,8 +2,8 @@ import { useEffect } from 'react'
 import { BookChapterOutModel, BookOutModel, useBook_Get, useBookChapter_Get } from '@/graphql'
 import { ChapterTextStructure } from '_pages/books/commonLogic/chapterStructureTypes'
 import { populateChapterStructure } from '_pages/books/commonLogic/populateChapterStructure'
-import { useReadingStore } from '_pages/books/reading/readingStore'
 import { useParams } from 'next/navigation'
+import { useReadingStore } from '_pages/books/reading/readingStore'
 
 export function usePopulateReadingStore() {
 	useFetchBookAndSetToStore()

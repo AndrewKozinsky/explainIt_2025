@@ -1,11 +1,12 @@
 import { ChapterTextStructure } from './chapterStructureTypes'
 
+// DELETE LATER
 /**
  * Converts raw chapter text into a structured representation of sentences, carriage return.
  * @param chapterText Raw chapter text consisting of one or more paragraphs
  * @returns ChapterTextStructure.Chapter Structured paragraphs -> sentences -> parts
  */
-export function textIntoChapterStructure(chapterText: string): ChapterTextStructure.Chapter {
+/*export function textIntoChapterStructure(chapterText: string): ChapterTextStructure.Chapter {
 	// Normalize newlines to \n
 	const text = chapterText.replace(/\r\n/g, '\n').replace(/\r/g, '\n')
 	const result: ChapterTextStructure.Chapter = []
@@ -219,4 +220,4 @@ export function textIntoChapterStructure(chapterText: string): ChapterTextStruct
 	if (currentSentenceParts) finalizeSentence()
 
 	return result
-}
+}*/

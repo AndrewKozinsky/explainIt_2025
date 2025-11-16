@@ -1,0 +1,5 @@
+mutation Book_chapter_TranslateSentences($input: TranslateSentencesInput!) {
+	book_chapter_TranslateSentences(input: $input) {
+		translates
+	}
+}

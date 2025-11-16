@@ -323,6 +323,13 @@ export const bdConfig = {
 				minLength: 1,
 				maxLength: 200,
 			},
+			phraseTranscription: {
+				type: 'string',
+				description: 'Транскрипция фразы',
+				required: true,
+				minLength: 1,
+				maxLength: 250,
+			},
 			phraseAnalysis: {
 				type: 'string',
 				description: 'Анализ что обозначает фраза более подробно',

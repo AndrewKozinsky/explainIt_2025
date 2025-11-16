@@ -1,6 +1,6 @@
 import React from 'react'
 import { useReadingStore } from '_pages/books/reading/readingStore'
-import '_pages/books/reading/chapter/ChapterName/ChapterName.scss'
+import './ChapterName.scss'
 
 function ChapterName() {
 	const chapter = useReadingStore((s) => s.populatedChapter)

@@ -3,15 +3,41 @@
 
 .book-and-prev-and-next-chapters {
 	display: flex;
-	justify-content: space-between;
-	gap: 2rem;
-	margin-top: 2.8rem;
-}
+	flex-direction: column;
+	gap: 1rem;
+	margin-top: 3rem;
 
-.book-and-prev-and-next-chapters__right-part {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: .8rem;
+	@include mix.page-width(630px) {
+		flex-direction: row;
+		justify-content: space-between;
+		margin-top: 4rem;
+
+		& > *:nth-child(2) {
+			margin-left: auto;
+		}
+		& > *:nth-child(2), & > *:nth-child(3) {
+			width: 200px;
+		}
+	}
+
+	@include mix.page-width(800px) {
+		& > *:nth-child(2), & > *:nth-child(3) {
+			width: 230px;
+		}
+	}
+
+	@include mix.page-width(850px) {
+		& > *:nth-child(2), & > *:nth-child(3) {
+			width: 250px;
+		}
+	}
+
+	@include mix.page-width(1050px) {
+		& > * {
+			width: 270px;
+		}
+	}
+
 }
 
 .book-and-prev-and-next-chapters__container {
@@ -24,12 +50,11 @@
 .book-and-prev-and-next-chapters__link {
 	display: flex;
 	gap: 1.2rem;
-	max-width: 25rem;
 	padding: 8px 12px;
 	border: 1px solid vars.$grayColor-1;
 	border-radius: 6px;
 
-	&:hover {
+	&:hover, &:focus {
 		border-color: vars.$grayColor-2;
 
 		.book-and-prev-and-next-chapters__arrow-hr {
@@ -64,7 +89,13 @@
 	align-items: center;
 	gap: 8px;
 
-	@include mix.page-width(1000px) {
+	@include mix.page-width(350px) {
+		display: flex;
+	}
+	@include mix.page-width(630px) {
+		display: none;
+	}
+	@include mix.page-width(780px) {
 		display: flex;
 	}
 

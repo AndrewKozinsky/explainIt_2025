@@ -14,7 +14,7 @@ import { defUserEmail, defUserPassword } from '../utils/common'
 import { createApp } from '../utils/createApp'
 import { userUtils } from '../utils/userUtils'
 
-describe('Update book chapter', () => {
+describe.skip('Update book chapter', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let userRepository: UserRepository

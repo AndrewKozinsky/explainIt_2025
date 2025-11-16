@@ -17,7 +17,7 @@ export type Scalars = {
 	Float: { input: number; output: number }
 }
 
-export type AnalyseSentenceAndPhraseInput = {
+export type AnalysePhraseInput = {
 	/** Book author */
 	bookAuthor?: InputMaybe<Scalars['String']['input']>
 	/** Book chapter id */
@@ -65,7 +65,13 @@ export type BookChapterPhraseOutModel = {
 	phraseWordsIdx: Array<Scalars['Int']['output']>
 	sentence: Scalars['String']['output']
 	sentenceId: Scalars['Int']['output']
+	transcription: Scalars['String']['output']
 	translation: Scalars['String']['output']
+}
+
+export type BookChapterTranslateOfSentencesOutModel = {
+	__typename?: 'BookChapterTranslateOfSentencesOutModel'
+	translates: Array<Scalars['String']['output']>
 }
 
 export type BookLiteOutModel = {
@@ -209,7 +215,9 @@ export type Mutation = {
 	auth_register: UserOutModel
 	/** Resend email confirmation letter */
 	auth_resendConfirmationEmail: Scalars['Boolean']['output']
+	book_chapter_AnalysePhrase: BookChapterPhraseOutModel
 	book_chapter_DeleteBookChapterPhrases: Scalars['Boolean']['output']
+	book_chapter_TranslateSentences: BookChapterTranslateOfSentencesOutModel
 	/** Create book chapter */
 	book_chapter_create: BookChapterOutModel
 	/** Delete book chapter */
@@ -246,8 +254,16 @@ export type MutationAuth_ResendConfirmationEmailArgs = {
 	input: ResendConfirmationEmailInput
 }
 
+export type MutationBook_Chapter_AnalysePhraseArgs = {
+	input: AnalysePhraseInput
+}
+
 export type MutationBook_Chapter_DeleteBookChapterPhrasesArgs = {
 	input: DeleteBookChapterPhrasesInput
+}
+
+export type MutationBook_Chapter_TranslateSentencesArgs = {
+	input: TranslateSentencesInput
 }
 
 export type MutationBook_Chapter_CreateArgs = {
@@ -291,7 +307,6 @@ export type Query = {
 	ai_getTranscription: GetTranscriptionOutModel
 	/** Get current user data */
 	auth_getMe: UserOutModel
-	book_chapter_AnalyseSentenceAndPhrase: SentenceAndPhraseAnalysesOutModel
 	/** Get book chapter */
 	book_chapter_get: BookChapterOutModel
 	/** Get user book */
@@ -306,10 +321,6 @@ export type QueryAi_CheckTranslationArgs = {
 
 export type QueryAi_GetTranscriptionArgs = {
 	input: GetTranscriptionInput
-}
-
-export type QueryBook_Chapter_AnalyseSentenceAndPhraseArgs = {
-	input: AnalyseSentenceAndPhraseInput
 }
 
 export type QueryBook_Chapter_GetArgs = {
@@ -332,12 +343,6 @@ export type ResendConfirmationEmailInput = {
 	email: Scalars['String']['input']
 }
 
-export type SentenceAndPhraseAnalysesOutModel = {
-	__typename?: 'SentenceAndPhraseAnalysesOutModel'
-	phrase: BookChapterPhraseOutModel
-	sentenceTranslation: Scalars['String']['output']
-}
-
 export type TopUpBalanceWithYooKassaInput = {
 	/** Money amount */
 	amount: Scalars['Float']['input']
@@ -346,6 +351,15 @@ export type TopUpBalanceWithYooKassaInput = {
 export type TopUpBalanceWithYooKassaOutModel = {
 	__typename?: 'TopUpBalanceWithYooKassaOutModel'
 	confirmationUrl: Scalars['String']['output']
+}
+
+export type TranslateSentencesInput = {
+	/** Book author */
+	bookAuthor?: InputMaybe<Scalars['String']['input']>
+	/** Book name */
+	bookName?: InputMaybe<Scalars['String']['input']>
+	/** Array of sentences */
+	sentences: Array<Scalars['String']['input']>
 }
 
 export type UpdateBookChapterInput = {
@@ -547,26 +561,23 @@ export type Book_Update = {
 	}
 }
 
-export type BookChapter_AnalyseSentenceAndPhraseVariables = Exact<{
-	input: AnalyseSentenceAndPhraseInput
+export type Book_Chapter_AnalysePhraseVariables = Exact<{
+	input: AnalysePhraseInput
 }>
 
-export type BookChapter_AnalyseSentenceAndPhrase = {
-	__typename?: 'Query'
-	book_chapter_AnalyseSentenceAndPhrase: {
-		__typename?: 'SentenceAndPhraseAnalysesOutModel'
-		sentenceTranslation: string
-		phrase: {
-			__typename?: 'BookChapterPhraseOutModel'
-			id: number
-			sentenceId: number
-			sentence: string
-			phrase: string
-			phraseWordsIdx: Array<number>
-			translation: string
-			analysis: string
-			examples: Array<{ __typename?: 'PhraseExample'; id: number; sentence: string; translation: string }>
-		}
+export type Book_Chapter_AnalysePhrase = {
+	__typename?: 'Mutation'
+	book_chapter_AnalysePhrase: {
+		__typename?: 'BookChapterPhraseOutModel'
+		id: number
+		sentenceId: number
+		sentence: string
+		phrase: string
+		transcription: string
+		phraseWordsIdx: Array<number>
+		translation: string
+		analysis: string
+		examples: Array<{ __typename?: 'PhraseExample'; id: number; sentence: string; translation: string }>
 	}
 }
 
@@ -636,11 +647,24 @@ export type BookChapter_Get = {
 			sentenceId: number
 			sentence: string
 			phrase: string
+			transcription: string
 			phraseWordsIdx: Array<number>
 			translation: string
 			analysis: string
 			examples: Array<{ __typename?: 'PhraseExample'; id: number; sentence: string; translation: string }>
 		}>
+	}
+}
+
+export type Book_Chapter_TranslateSentencesVariables = Exact<{
+	input: TranslateSentencesInput
+}>
+
+export type Book_Chapter_TranslateSentences = {
+	__typename?: 'Mutation'
+	book_chapter_TranslateSentences: {
+		__typename?: 'BookChapterTranslateOfSentencesOutModel'
+		translates: Array<string>
 	}
 }
 
@@ -1236,93 +1260,61 @@ export function useBook_Update(baseOptions?: Apollo.MutationHookOptions<Book_Upd
 export type Book_UpdateHookResult = ReturnType<typeof useBook_Update>
 export type Book_UpdateMutationResult = Apollo.MutationResult<Book_Update>
 export type Book_UpdateMutationOptions = Apollo.BaseMutationOptions<Book_Update, Book_UpdateVariables>
-export const BookChapter_AnalyseSentenceAndPhraseDocument = gql`
-	query BookChapter_AnalyseSentenceAndPhrase($input: AnalyseSentenceAndPhraseInput!) {
-		book_chapter_AnalyseSentenceAndPhrase(input: $input) {
-			sentenceTranslation
-			phrase {
+export const Book_Chapter_AnalysePhraseDocument = gql`
+	mutation Book_chapter_AnalysePhrase($input: AnalysePhraseInput!) {
+		book_chapter_AnalysePhrase(input: $input) {
+			id
+			sentenceId
+			sentence
+			phrase
+			transcription
+			phraseWordsIdx
+			translation
+			analysis
+			examples {
 				id
-				sentenceId
 				sentence
-				phrase
-				phraseWordsIdx
 				translation
-				analysis
-				examples {
-					id
-					sentence
-					translation
-				}
 			}
 		}
 	}
 `
+export type Book_Chapter_AnalysePhraseMutationFn = Apollo.MutationFunction<
+	Book_Chapter_AnalysePhrase,
+	Book_Chapter_AnalysePhraseVariables
+>
 
 /**
- * __useBookChapter_AnalyseSentenceAndPhrase__
+ * __useBook_Chapter_AnalysePhrase__
  *
- * To run a query within a React component, call `useBookChapter_AnalyseSentenceAndPhrase` and pass it any options that fit your needs.
- * When your component renders, `useBookChapter_AnalyseSentenceAndPhrase` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
+ * To run a mutation, you first call `useBook_Chapter_AnalysePhrase` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useBook_Chapter_AnalysePhrase` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
  *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
  *
  * @example
- * const { data, loading, error } = useBookChapter_AnalyseSentenceAndPhrase({
+ * const [bookChapterAnalysePhrase, { data, loading, error }] = useBook_Chapter_AnalysePhrase({
  *   variables: {
  *      input: // value for 'input'
  *   },
  * });
  */
-export function useBookChapter_AnalyseSentenceAndPhrase(
-	baseOptions: Apollo.QueryHookOptions<
-		BookChapter_AnalyseSentenceAndPhrase,
-		BookChapter_AnalyseSentenceAndPhraseVariables
-	> &
-		({ variables: BookChapter_AnalyseSentenceAndPhraseVariables; skip?: boolean } | { skip: boolean }),
+export function useBook_Chapter_AnalysePhrase(
+	baseOptions?: Apollo.MutationHookOptions<Book_Chapter_AnalysePhrase, Book_Chapter_AnalysePhraseVariables>,
 ) {
 	const options = { ...defaultOptions, ...baseOptions }
-	return Apollo.useQuery<BookChapter_AnalyseSentenceAndPhrase, BookChapter_AnalyseSentenceAndPhraseVariables>(
-		BookChapter_AnalyseSentenceAndPhraseDocument,
+	return Apollo.useMutation<Book_Chapter_AnalysePhrase, Book_Chapter_AnalysePhraseVariables>(
+		Book_Chapter_AnalysePhraseDocument,
 		options,
 	)
 }
-export function useBookChapter_AnalyseSentenceAndPhraseLazyQuery(
-	baseOptions?: Apollo.LazyQueryHookOptions<
-		BookChapter_AnalyseSentenceAndPhrase,
-		BookChapter_AnalyseSentenceAndPhraseVariables
-	>,
-) {
-	const options = { ...defaultOptions, ...baseOptions }
-	return Apollo.useLazyQuery<BookChapter_AnalyseSentenceAndPhrase, BookChapter_AnalyseSentenceAndPhraseVariables>(
-		BookChapter_AnalyseSentenceAndPhraseDocument,
-		options,
-	)
-}
-export function useBookChapter_AnalyseSentenceAndPhraseSuspenseQuery(
-	baseOptions?:
-		| Apollo.SkipToken
-		| Apollo.SuspenseQueryHookOptions<
-				BookChapter_AnalyseSentenceAndPhrase,
-				BookChapter_AnalyseSentenceAndPhraseVariables
-		  >,
-) {
-	const options = baseOptions === Apollo.skipToken ? baseOptions : { ...defaultOptions, ...baseOptions }
-	return Apollo.useSuspenseQuery<BookChapter_AnalyseSentenceAndPhrase, BookChapter_AnalyseSentenceAndPhraseVariables>(
-		BookChapter_AnalyseSentenceAndPhraseDocument,
-		options,
-	)
-}
-export type BookChapter_AnalyseSentenceAndPhraseHookResult = ReturnType<typeof useBookChapter_AnalyseSentenceAndPhrase>
-export type BookChapter_AnalyseSentenceAndPhraseLazyQueryHookResult = ReturnType<
-	typeof useBookChapter_AnalyseSentenceAndPhraseLazyQuery
->
-export type BookChapter_AnalyseSentenceAndPhraseSuspenseQueryHookResult = ReturnType<
-	typeof useBookChapter_AnalyseSentenceAndPhraseSuspenseQuery
->
-export type BookChapter_AnalyseSentenceAndPhraseQueryResult = Apollo.QueryResult<
-	BookChapter_AnalyseSentenceAndPhrase,
-	BookChapter_AnalyseSentenceAndPhraseVariables
+export type Book_Chapter_AnalysePhraseHookResult = ReturnType<typeof useBook_Chapter_AnalysePhrase>
+export type Book_Chapter_AnalysePhraseMutationResult = Apollo.MutationResult<Book_Chapter_AnalysePhrase>
+export type Book_Chapter_AnalysePhraseMutationOptions = Apollo.BaseMutationOptions<
+	Book_Chapter_AnalysePhrase,
+	Book_Chapter_AnalysePhraseVariables
 >
 export const BookChapter_CreateDocument = gql`
 	mutation BookChapter_create($input: CreateBookChapterInput!) {
@@ -1475,6 +1467,7 @@ export const BookChapter_GetDocument = gql`
 				sentenceId
 				sentence
 				phrase
+				transcription
 				phraseWordsIdx
 				translation
 				analysis
@@ -1527,6 +1520,50 @@ export type BookChapter_GetHookResult = ReturnType<typeof useBookChapter_Get>
 export type BookChapter_GetLazyQueryHookResult = ReturnType<typeof useBookChapter_GetLazyQuery>
 export type BookChapter_GetSuspenseQueryHookResult = ReturnType<typeof useBookChapter_GetSuspenseQuery>
 export type BookChapter_GetQueryResult = Apollo.QueryResult<BookChapter_Get, BookChapter_GetVariables>
+export const Book_Chapter_TranslateSentencesDocument = gql`
+	mutation Book_chapter_TranslateSentences($input: TranslateSentencesInput!) {
+		book_chapter_TranslateSentences(input: $input) {
+			translates
+		}
+	}
+`
+export type Book_Chapter_TranslateSentencesMutationFn = Apollo.MutationFunction<
+	Book_Chapter_TranslateSentences,
+	Book_Chapter_TranslateSentencesVariables
+>
+
+/**
+ * __useBook_Chapter_TranslateSentences__
+ *
+ * To run a mutation, you first call `useBook_Chapter_TranslateSentences` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useBook_Chapter_TranslateSentences` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [bookChapterTranslateSentences, { data, loading, error }] = useBook_Chapter_TranslateSentences({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useBook_Chapter_TranslateSentences(
+	baseOptions?: Apollo.MutationHookOptions<Book_Chapter_TranslateSentences, Book_Chapter_TranslateSentencesVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useMutation<Book_Chapter_TranslateSentences, Book_Chapter_TranslateSentencesVariables>(
+		Book_Chapter_TranslateSentencesDocument,
+		options,
+	)
+}
+export type Book_Chapter_TranslateSentencesHookResult = ReturnType<typeof useBook_Chapter_TranslateSentences>
+export type Book_Chapter_TranslateSentencesMutationResult = Apollo.MutationResult<Book_Chapter_TranslateSentences>
+export type Book_Chapter_TranslateSentencesMutationOptions = Apollo.BaseMutationOptions<
+	Book_Chapter_TranslateSentences,
+	Book_Chapter_TranslateSentencesVariables
+>
 export const BookChapter_UpdateDocument = gql`
 	mutation BookChapter_update($input: UpdateBookChapterInput!) {
 		book_chapter_update(input: $input) {
