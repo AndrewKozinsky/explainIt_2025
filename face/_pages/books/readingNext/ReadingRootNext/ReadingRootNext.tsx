@@ -32,8 +32,10 @@ function ReadingRootNext() {
 				<ChapterName />
 				<ChapterHeader />
 				<ChapterContent />
-				<Analysis />
-				<BookAndPrevAndNextChapters />
+				<div className='reading-root__bottom'>
+					<Analysis />
+					<BookAndPrevAndNextChapters />
+				</div>
 			</div>
 		</div>
 	)

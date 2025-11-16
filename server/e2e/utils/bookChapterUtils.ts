@@ -143,6 +143,29 @@ export const bookChapterUtils = {
 		}
 	},
 
+	checkTranslateSentencesResp(
+		responseData: any,
+		checks?: {
+			translates?: string[]
+		},
+	) {
+		const translatesResponseSchema = z
+			.object({
+				translates: z.array(z.string()),
+			})
+			.strict()
+
+		const parsed = translatesResponseSchema.safeParse(responseData)
+
+		if (!parsed.success) {
+			throw new Error(`Invalid translates response object: ${parsed.error.message}`)
+		}
+
+		if (checks?.translates !== undefined) {
+			expect(responseData.translates).toStrictEqual(checks.translates)
+		}
+	},
+
 	async createBookChapter(input: {
 		app: INestApplication
 		sessionToken: any

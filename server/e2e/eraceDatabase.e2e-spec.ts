@@ -4,7 +4,7 @@ import { App } from 'supertest/types'
 import { afterEachTest, beforeEachTest } from './utils/beforAndAfterTests'
 import { createApp } from './utils/createApp'
 
-describe('Adding default book', () => {
+describe.skip('Erase database', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 

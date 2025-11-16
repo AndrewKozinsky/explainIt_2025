@@ -122,7 +122,7 @@ export const queriesBookChapter = {
 	}) {
 		return {
 			query: `
-      query GetBookChapter($input: AnalysePhraseInput!) {
+      query AnalysePhrase($input: AnalysePhraseInput!) {
         ${RouteNames.BOOK_CHAPTER.ANALYSE_PHRASE}(input: $input) {
 			sentenceTranslation
 			phrase {
@@ -137,6 +137,20 @@ export const queriesBookChapter = {
 					translation
 				}
 			}
+        }
+      }
+    `,
+			variables: {
+				input: dto,
+			},
+		}
+	},
+	translateSentences(dto: { bookAuthor: null | string; bookName: null | string; sentences: string[] }) {
+		return {
+			query: `
+      query TranslateSentences($input: TranslateSentencesInput!) {
+        ${RouteNames.BOOK_CHAPTER.TRANSLATE_SENTENCES}(input: $input) {
+			translates
         }
       }
     `,

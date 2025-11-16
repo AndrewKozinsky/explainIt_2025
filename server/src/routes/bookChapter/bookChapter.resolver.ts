@@ -4,14 +4,17 @@ import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql'
 import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter.command'
 import { AnalysePhraseCommand } from 'src/features/bookChapter/AnalysePhrase.command'
 import { DeleteBookChapterPhrasesCommand } from 'src/features/bookChapter/DeleteBookChapterPhrases.command'
+import { TranslateSentencesCommand } from 'src/features/bookChapter/TranslateSentences.command'
 import { UserWithPositiveBalanceGuard } from 'src/infrastructure/guards/userWithPositiveBalanceGuard.guard'
 import { DeleteBookChapterCommand } from 'features/bookChapter/DeleteBookChapter.command'
 import { UpdateBookChapterCommand } from 'features/bookChapter/UpdateBookChapter.command'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
 import RouteNames from 'infrastructure/routeNames'
 import { BookChapterPhraseOutModel } from 'src/models/bookChapterPhrase/bookChapterPhrase.out.model'
+import { BookChapterTranslateOfSentencesOutModel } from 'src/models/bookChapterPhrase/bookChapterTranslateOfSentences.out.model'
 import { DeleteBookChapterPhrasesInput } from 'src/routes/bookChapter/inputs/deleteBookChapterPhrasesInput'
 import { BookChapterOutModel } from 'models/bookChapter/bookChapter.out.model'
+import { TranslateSentencesInput } from 'src/routes/bookChapter/inputs/translateSentences.input'
 import { CreateBookChapterInput } from './inputs/createBookChapter.input'
 import { DeleteBookChapterInput } from './inputs/deleteBookChapter.input'
 import { GetBookChapterInput } from './inputs/getBookChapter.input'
@@ -72,6 +75,15 @@ export class BookChapterResolver {
 	async analysePhrase(@Args('input') input: AnalysePhraseInput, @Context('req') request: Request) {
 		const userId = request.session.userId!
 		return await this.commandBus.execute(new AnalysePhraseCommand(userId, input))
+	}
+
+	@UseGuards(CheckSessionCookieGuard, UserWithPositiveBalanceGuard)
+	@Query(() => BookChapterTranslateOfSentencesOutModel, {
+		name: RouteNames.BOOK_CHAPTER.TRANSLATE_SENTENCES,
+	})
+	async translateSentences(@Args('input') input: TranslateSentencesInput, @Context('req') request: Request) {
+		const userId = request.session.userId!
+		return await this.commandBus.execute(new TranslateSentencesCommand(userId, input))
 	}
 
 	@UseGuards(CheckSessionCookieGuard)
