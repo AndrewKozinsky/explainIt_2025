@@ -1601,7 +1601,6 @@ export type BookChapter_UpdateMutationFn = Apollo.MutationFunction<BookChapter_U
  *   },
  * });
  */
-
 export function useBookChapter_Update(
 	baseOptions?: Apollo.MutationHookOptions<BookChapter_Update, BookChapter_UpdateVariables>,
 ) {

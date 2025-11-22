@@ -267,7 +267,7 @@ export const bdConfig = {
 				type: 'string',
 				description: 'Content of the chapter',
 				required: false,
-				maxLength: 500000,
+				maxLength: 900000,
 			},
 			note: {
 				type: 'string',

@@ -16,6 +16,7 @@ type WordProps = {
 function Word(props: WordProps) {
 	const { sentence, wordData } = props
 	const selectedSentence = useReadingStore((state) => state.selection)
+	const deviceType = useReadingStore((state) => state.deviceType)
 
 	const wordType = getWordPrimaryType(selectedSentence, sentence, wordData.id)
 	const onWordClick = useGetOnWordClick()
@@ -24,7 +25,7 @@ function Word(props: WordProps) {
 	const { onMouseDown, onMouseUp } = useLongPress({
 		onLongPress: () => onWordLongTap(sentence.id, wordData.id),
 		onClick: () => onWordClick(sentence.id, wordData.id),
-		delay: 500,
+		delay: 400,
 		vibrate: 50,
 	})
 
@@ -41,7 +42,11 @@ function Word(props: WordProps) {
 			onMouseLeave={onMouseLeave}
 			ref={wrapperRef}
 		>
-			<span className='word__text' data-text={wordData.value}>
+			<span
+				className={cn('word__text', deviceType === 'touch' && 'no-select')}
+				onContextMenu={(e) => e.preventDefault()}
+				data-text={wordData.value}
+			>
 				{wordData.value}
 			</span>
 		</span>

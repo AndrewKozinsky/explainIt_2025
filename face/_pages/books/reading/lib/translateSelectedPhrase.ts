@@ -27,8 +27,8 @@ export async function translateSelectedPhrase() {
 	let phraseText = getTextByPhraseId(sentenceId, phraseId)
 
 	try {
-		const result = await apolloClient.query<Book_Chapter_AnalysePhrase, Book_Chapter_AnalysePhraseVariables>({
-			query: Book_Chapter_AnalysePhraseDocument,
+		const result = await apolloClient.mutate<Book_Chapter_AnalysePhrase, Book_Chapter_AnalysePhraseVariables>({
+			mutation: Book_Chapter_AnalysePhraseDocument,
 			variables: {
 				input: {
 					bookChapterId: chapter.data.id,
