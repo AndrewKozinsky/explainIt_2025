@@ -16,7 +16,8 @@ export type CreateBookChapterInput = {
 
 export class CreateBookChapterCommand implements ICommand {
 	constructor(
-		public userId: number,
+		public forPublicBook: boolean,
+		public userId: null | number,
 		public createBookChapterInput: CreateBookChapterInput,
 	) {}
 }
@@ -30,7 +31,7 @@ export class CreateBookChapterHandler implements ICommandHandler<CreateBookChapt
 	) {}
 
 	async execute(command: CreateBookChapterCommand) {
-		const { userId, createBookChapterInput } = command
+		const { forPublicBook, userId, createBookChapterInput } = command
 
 		// Check if the book exists
 		const bookForChapter = await this.bookQueryRepository.getBookById(createBookChapterInput.bookId)
@@ -39,7 +40,7 @@ export class CreateBookChapterHandler implements ICommandHandler<CreateBookChapt
 		}
 
 		// Throw an error if this user is not the owner of the book
-		if (bookForChapter.userId !== userId) {
+		if (!forPublicBook && bookForChapter.userId !== userId) {
 			throw new CustomGraphQLError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
 		}
 

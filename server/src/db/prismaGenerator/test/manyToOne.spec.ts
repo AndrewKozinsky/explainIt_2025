@@ -49,6 +49,7 @@ export const bdTestConfig = {
 				thisField: 'user_id',
 				foreignTable: 'User',
 				foreignField: 'id',
+				required: true,
 			},
 		},
 	},

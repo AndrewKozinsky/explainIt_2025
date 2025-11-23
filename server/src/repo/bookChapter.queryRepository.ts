@@ -15,6 +15,11 @@ type FullBookChapter = Prisma.BookChapterGetPayload<{
 	}
 }>
 
+// Helper type: same as FullBookChapter but with non-nullable 'book' relation
+type FullBookChapterPrivate = Omit<FullBookChapter, 'book'> & {
+	book: NonNullable<FullBookChapter['book']>
+}
+
 @Injectable()
 export class BookChapterQueryRepository {
 	constructor(private prisma: PrismaService) {}
@@ -26,11 +31,11 @@ export class BookChapterQueryRepository {
 			include: { book: true, BookChapterPhrase: { include: { BookChapterPhraseExample: true } } },
 		})
 
-		if (!bookChapter) {
+		if (!bookChapter || !bookChapter.book) {
 			return null
 		}
 
-		return this.mapDbBookChapterToOutBookChapter(bookChapter)
+		return this.mapDbBookChapterToOutBookChapter(bookChapter as FullBookChapterPrivate)
 	}
 
 	@CatchDbError()
@@ -41,10 +46,10 @@ export class BookChapterQueryRepository {
 			include: { book: true, BookChapterPhrase: { include: { BookChapterPhraseExample: true } } },
 		})
 
-		return bookChapters.map(this.mapDbBookChapterToOutBookChapter)
+		return bookChapters.map((ch) => this.mapDbBookChapterToOutBookChapter(ch as FullBookChapterPrivate))
 	}
 
-	mapDbBookChapterToOutBookChapter(dbBook: FullBookChapter): BookChapterOutModel {
+	mapDbBookChapterToOutBookChapter(dbBook: FullBookChapterPrivate): BookChapterOutModel {
 		return {
 			id: dbBook.id,
 			name: dbBook.name,

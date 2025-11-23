@@ -58,10 +58,22 @@ model Book {
 	BookChapter	BookChapter[]
 }
 
+model BookPublic {
+	id	Int	@id	@default(autoincrement())
+	cover	String
+	author	String
+	name	String
+	note	String
+	created_at	DateTime	@default(now())
+	BookChapter	BookChapter[]
+}
+
 model BookChapter {
 	id	Int	@id	@default(autoincrement())
-	book Book @relation(fields: [book_id], references: [id], onDelete: Cascade)
-	book_id Int
+	book Book? @relation(fields: [book_id], references: [id], onDelete: Cascade)
+	book_id Int?
+	book_public BookPublic? @relation(fields: [book_public_id], references: [id], onDelete: Cascade)
+	book_public_id Int?
 	name	String?
 	header	String?
 	content	String?

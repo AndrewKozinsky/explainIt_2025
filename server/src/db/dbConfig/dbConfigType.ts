@@ -159,6 +159,8 @@ export namespace BdConfig {
 		thisField: string // Name of the column of this table that refers to another table
 		foreignTable: string // Name of the table that this column refers to
 		foreignField: string // Name of the column of foreign table that this column refers to
+		// Is the field required?
+		required: boolean
 	}
 
 	export type OneToManyField = {

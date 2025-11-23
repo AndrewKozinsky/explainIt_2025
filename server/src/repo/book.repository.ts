@@ -82,7 +82,7 @@ export class BookRepository {
 			userId: dbBook.user_id,
 			chapters: dbBook.BookChapter.map((chapter) => ({
 				id: chapter.id,
-				bookId: chapter.book_id,
+				bookId: dbBook.id,
 				name: chapter.name,
 				header: chapter.header,
 				note: chapter.note,

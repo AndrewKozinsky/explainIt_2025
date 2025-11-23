@@ -61,9 +61,22 @@ CREATE TABLE "public"."Book" (
 );
 
 -- CreateTable
+CREATE TABLE "public"."BookPublic" (
+    "id" SERIAL NOT NULL,
+    "cover" TEXT NOT NULL,
+    "author" TEXT NOT NULL,
+    "name" TEXT NOT NULL,
+    "note" TEXT NOT NULL,
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "BookPublic_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
 CREATE TABLE "public"."BookChapter" (
     "id" SERIAL NOT NULL,
-    "book_id" INTEGER NOT NULL,
+    "book_id" INTEGER,
+    "book_public_id" INTEGER,
     "name" TEXT,
     "header" TEXT,
     "content" TEXT,
@@ -123,6 +136,9 @@ ALTER TABLE "public"."Book" ADD CONSTRAINT "Book_user_id_fkey" FOREIGN KEY ("use
 
 -- AddForeignKey
 ALTER TABLE "public"."BookChapter" ADD CONSTRAINT "BookChapter_book_id_fkey" FOREIGN KEY ("book_id") REFERENCES "public"."Book"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "public"."BookChapter" ADD CONSTRAINT "BookChapter_book_public_id_fkey" FOREIGN KEY ("book_public_id") REFERENCES "public"."BookPublic"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "public"."BookChapterPhrase" ADD CONSTRAINT "BookChapterPhrase_book_chapter_id_fkey" FOREIGN KEY ("book_chapter_id") REFERENCES "public"."BookChapter"("id") ON DELETE CASCADE ON UPDATE CASCADE;

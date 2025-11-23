@@ -26,7 +26,7 @@ export class GetBookChapterHandler implements ICommandHandler<GetBookChapterComm
 	async execute(command: GetBookChapterCommand) {
 		const { userId, getBookChapterInput } = command
 
-		const bookChapter = await this.bookChapterRepository.getBookChapterById(getBookChapterInput.id)
+		const bookChapter = await this.bookChapterRepository.getBookChapter({ id: getBookChapterInput.id })
 		if (!bookChapter) {
 			throw new CustomGraphQLError(errorMessage.bookChapter.notFound, ErrorCode.NotFound_404)
 		}
@@ -35,7 +35,7 @@ export class GetBookChapterHandler implements ICommandHandler<GetBookChapterComm
 			throw new CustomGraphQLError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
 		}
 
-		const getBookChapter = await this.bookChapterRepository.getBookChapterById(getBookChapterInput.id)
+		const getBookChapter = await this.bookChapterRepository.getBookChapter({ id: getBookChapterInput.id })
 		if (!getBookChapter) {
 			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
 		}

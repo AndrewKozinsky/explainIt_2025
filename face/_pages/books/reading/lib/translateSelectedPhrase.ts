@@ -8,7 +8,7 @@ import {
 	Book_Chapter_AnalysePhraseVariables,
 } from '@/graphql'
 import apolloClient from '@/graphql/apollo'
-import { chapterStructureIntoText } from '_pages/books/commonLogic/populatedChapterStructureIntoText/chapterStructureIntoText'
+import { populatedChapterStructureIntoText } from '_pages/books/commonLogic/populatedChapterStructureIntoText/populatedChapterStructureIntoText'
 
 export async function translateSelectedPhrase() {
 	useReadingStore.getState().createLoadingPhraseInSelectedSentenceFromSelectedWords()
@@ -23,7 +23,7 @@ export async function translateSelectedPhrase() {
 	if (!sentence) return
 
 	const context = buildContext(populatedChapter, sentenceId, 20)
-	let sentenceText = chapterStructureIntoText([sentence])
+	let sentenceText = populatedChapterStructureIntoText([sentence])
 	let phraseText = getTextByPhraseId(sentenceId, phraseId)
 
 	try {
@@ -108,5 +108,5 @@ function buildContext(
 
 	// Slice the original content to preserve spaces/punctuation between the chosen sentences
 	const contextSlice = chapter.parts.slice(minSentenceIdx, maxSentenceIdx + 1)
-	return chapterStructureIntoText(contextSlice)
+	return populatedChapterStructureIntoText(contextSlice)
 }

@@ -6,6 +6,10 @@ import { BookChapterServiceModel } from '../models/bookChapter/bookChapter.servi
 
 type BookChapterWithBook = Prisma.BookChapterGetPayload<{ include: { book: true } }>
 
+type BookChapterWithBookPrivate = Omit<BookChapterWithBook, 'book'> & {
+	book: NonNullable<BookChapterWithBook['book']>
+}
+
 @Injectable()
 export class BookChapterRepository {
 	constructor(private prisma: PrismaService) {}
@@ -31,21 +35,30 @@ export class BookChapterRepository {
 			},
 		})
 
-		return this.mapDbBookChapterToServiceBook(newBookChapter)
+		return this.mapDbBookChapterToServiceBook(newBookChapter as BookChapterWithBookPrivate)
 	}
 
 	@CatchDbError()
-	async getBookChapterById(bookChapterId: number) {
-		const bookChapter = await this.prisma.bookChapter.findUnique({
-			where: { id: bookChapterId },
-			include: { book: true },
-		})
+	async getBookChapter(input: { id?: number; bookId?: number; name?: null | string }) {
+		const where: Prisma.BookChapterWhereInput = {}
+		if (typeof input.id === 'number') where.id = input.id
+		if (typeof input.bookId === 'number') where.book_id = input.bookId
+		if (typeof input.name === 'string') where.name = input.name
 
-		if (!bookChapter) {
+		if (Object.keys(where).length === 0) {
 			return null
 		}
 
-		return this.mapDbBookChapterToServiceBook(bookChapter)
+		const bookChapter = await this.prisma.bookChapter.findFirst({
+			where,
+			include: { book: true },
+		})
+
+		if (!bookChapter || !bookChapter.book) {
+			return null
+		}
+
+		return this.mapDbBookChapterToServiceBook(bookChapter as BookChapterWithBookPrivate)
 	}
 
 	@CatchDbError()
@@ -55,7 +68,7 @@ export class BookChapterRepository {
 			include: { book: true },
 		})
 
-		return bookChapters.map(this.mapDbBookChapterToServiceBook)
+		return bookChapters.map((ch) => this.mapDbBookChapterToServiceBook(ch as BookChapterWithBookPrivate))
 	}
 
 	@CatchDbError()
@@ -79,11 +92,11 @@ export class BookChapterRepository {
 			include: { book: true },
 		})
 
-		if (!updatedBookChapter) {
+		if (!updatedBookChapter || !updatedBookChapter.book) {
 			return null
 		}
 
-		return this.mapDbBookChapterToServiceBook(updatedBookChapter)
+		return this.mapDbBookChapterToServiceBook(updatedBookChapter as BookChapterWithBookPrivate)
 	}
 
 	@CatchDbError()
@@ -93,7 +106,7 @@ export class BookChapterRepository {
 		})
 	}
 
-	mapDbBookChapterToServiceBook(dbBookChapter: BookChapterWithBook): BookChapterServiceModel {
+	mapDbBookChapterToServiceBook(dbBookChapter: BookChapterWithBookPrivate): BookChapterServiceModel {
 		return {
 			id: dbBookChapter.id,
 			header: dbBookChapter.header,

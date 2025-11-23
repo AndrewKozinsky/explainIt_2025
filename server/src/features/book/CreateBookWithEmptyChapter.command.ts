@@ -28,7 +28,7 @@ export class CreateBookWithEmptyChapterHandler implements ICommandHandler<Create
 		const { userId, createBookInput } = command
 
 		const newBook: BookOutModel = await this.commandBus.execute(new CreateBookCommand(userId, createBookInput))
-		await this.commandBus.execute(new CreateBookChapterCommand(userId, { bookId: newBook.id }))
+		await this.commandBus.execute(new CreateBookChapterCommand(false, userId, { bookId: newBook.id }))
 
 		return await this.bookQueryRepository.getBookById(newBook.id)
 	}
