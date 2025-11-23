@@ -14,5 +14,5 @@ export type BookLiteServiceModel = {
 	author: string | null
 	name: string | null
 	note: string | null
-	userId: number
+	userId: null | number
 }

@@ -84,12 +84,6 @@ export const chapter_1_2 = {
 		},
 		{
 			sentence:
-				'[2] Mr. Quatermain’s ideas about ancient Danes seem to be rather confused; we have always understood that they were dark-haired people. Probably he was thinking of Saxons.—Editor.',
-			translate:
-				'[2] Представления мистера Квотермейна о древних датчанах, кажется, несколько спутаны; мы всегда считали, что это были темноволосые люди. Вероятно, он имел в виду саксов. — Ред.',
-		},
-		{
-			sentence:
 				'The other man, who stood talking to Sir Henry, was stout and dark, and of quite a different cut.',
 			translate: 'Другой мужчина, беседовавший с сэром Генри, был коренастым и тёмным и совершенно иного склада.',
 		},

@@ -7,8 +7,9 @@ export namespace ChapterTextStructure {
 		translation: null | string
 		// Составные части предложения
 		parts: SentencePart[]
+		// Maybe you should delate later
 		// Соответствия между идентификаторами слов в предложении и идентификаторами фраз в базе данных с анализом фразы
-		phrasesMapping?: { wordIds: number[]; phraseIdInDb: number }[]
+		// phrasesMapping?: { wordIds: number[]; phraseIdInDb: number }[]
 	}
 
 	export type SentencePart = Word | Space | Punctuation | CarriageReturn

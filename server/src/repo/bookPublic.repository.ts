@@ -59,6 +59,7 @@ export class BookPublicRepository {
 			author: dbBook.author,
 			name: dbBook.name,
 			note: dbBook.note,
+			cover: dbBook.cover,
 			chapters: dbBook.BookChapter.map((chapter) => ({
 				id: chapter.id,
 				bookId: dbBook.id,

@@ -1,6 +1,6 @@
 import { BookChapterLiteServiceModel } from '../bookChapter/bookChapter.service.model'
 
-export type BookPublicServiceModel = {
+export type BookPublicOutModel = {
 	id: number
 	author: string
 	name: string

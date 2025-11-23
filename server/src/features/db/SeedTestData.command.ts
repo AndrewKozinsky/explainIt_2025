@@ -135,7 +135,11 @@ export class SeedTestDataHandler implements ICommandHandler<SeedTestDataCommand>
 
 			for (const chapterConfig of bookConfig.chapters) {
 				const createdChapter = await this.commandBus.execute(
-					new CreateBookChapterCommand(false, userId, { bookId: bookConfig.id!, ...chapterConfig }),
+					new CreateBookChapterCommand(userId, {
+						bookType: 'private',
+						bookId: bookConfig.id!,
+						...chapterConfig,
+					}),
 				)
 				chapterConfig.id = createdChapter.id
 			}

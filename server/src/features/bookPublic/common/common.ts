@@ -17,6 +17,7 @@ export function getBookChapters(bookId: number, chapters: ChapterData[]): Create
 		const content = JSON.stringify(structuredContent[i])
 
 		return {
+			bookType: 'public',
 			bookId,
 			name: chapter.name,
 			header: chapter.header,

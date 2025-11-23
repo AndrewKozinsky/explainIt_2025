@@ -15,7 +15,7 @@ export class CreateBooksPublicCommand implements ICommand {
 }
 
 @CommandHandler(CreateBooksPublicCommand)
-export class CreateDefaultBooksHandler implements ICommandHandler<CreateBooksPublicCommand> {
+export class CreatePublicBooksHandler implements ICommandHandler<CreateBooksPublicCommand> {
 	constructor(
 		private commandBus: CommandBus,
 		public bookPublicRepository: BookPublicRepository,
@@ -51,12 +51,13 @@ export class CreateDefaultBooksHandler implements ICommandHandler<CreateBooksPub
 
 		for (const bookChapter of bookChaptersData) {
 			const existingChapter = await this.bookChapterRepository.getBookChapter({
+				bookType: 'public',
 				bookId,
 				name: bookChapter.name,
 			})
 			if (existingChapter) return
 
-			await this.commandBus.execute(new CreateBookChapterCommand(true, null, bookChapter))
+			await this.commandBus.execute(new CreateBookChapterCommand(null, bookChapter))
 		}
 	}
 }

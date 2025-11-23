@@ -13,6 +13,7 @@ import { BookChapterRepository } from 'src/repo/bookChapter.repository'
 import { BookChapterPhraseQueryRepository } from 'src/repo/bookChapterPhrase.queryRepository'
 import { BookChapterPhraseRepository } from 'src/repo/bookChapterPhrase.repository'
 import { BookChapterPhraseExampleRepository } from 'src/repo/bookChapterPhraseExample.repository'
+import { BookPublicRepository } from 'src/repo/bookPublic.repository'
 import { UserRepository } from 'src/repo/user.repository'
 import { BookChapterResolver } from './bookChapter.resolver'
 import { PrismaService } from 'db/prisma.service'
@@ -38,6 +39,7 @@ const repositories = [
 	BookChapterPhraseRepository,
 	BookChapterPhraseQueryRepository,
 	BookChapterPhraseExampleRepository,
+	BookPublicRepository,
 ]
 
 @Module({

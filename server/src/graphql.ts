@@ -22,6 +22,7 @@ export interface GetBookInput {
 }
 
 export interface GetBookChapterInput {
+    bookType: string;
     id: number;
 }
 
@@ -70,6 +71,7 @@ export interface DeleteBookInput {
 }
 
 export interface CreateBookChapterInput {
+    bookType: string;
     bookId: number;
     name?: Nullable<string>;
     header?: Nullable<string>;

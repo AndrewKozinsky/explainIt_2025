@@ -24,7 +24,7 @@ export class DeleteBookChapterPhrasesHandler implements ICommandHandler<DeleteBo
 	async execute(command: DeleteBookChapterPhrasesCommand) {
 		const { userId, bookChapterId } = command.input
 
-		const bookChapter = await this.bookChapterRepository.getBookChapter({ id: bookChapterId })
+		const bookChapter = await this.bookChapterRepository.getBookChapter({ bookType: 'private', id: bookChapterId })
 		if (!bookChapter) {
 			throw new CustomGraphQLError(errorMessage.bookChapter.notFound, ErrorCode.NotFound_404)
 		}

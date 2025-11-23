@@ -35,7 +35,7 @@ export class BookChapterResolver {
 	})
 	async createBookChapter(@Args('input') input: CreateBookChapterInput, @Context('req') request: Request) {
 		const userId = request.session.userId!
-		return await this.commandBus.execute(new CreateBookChapterCommand(false, userId, input))
+		return await this.commandBus.execute(new CreateBookChapterCommand(userId, input))
 	}
 
 	@UseGuards(CheckSessionCookieGuard)

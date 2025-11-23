@@ -30,7 +30,10 @@ export class UpdateBookChapterHandler implements ICommandHandler<UpdateBookChapt
 	async execute(command: UpdateBookChapterCommand) {
 		const { userId, updateBookChapterInput } = command
 
-		const bookChapter = await this.bookChapterRepository.getBookChapter({ id: updateBookChapterInput.id })
+		const bookChapter = await this.bookChapterRepository.getBookChapter({
+			bookType: 'private',
+			id: updateBookChapterInput.id,
+		})
 		if (!bookChapter) {
 			throw new CustomGraphQLError(errorMessage.bookChapter.notFound, ErrorCode.NotFound_404)
 		}

@@ -1,5 +1,5 @@
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { BookOutModel } from '../../models/book/book.out.model'
+import { BookOutModel } from 'models/book/book.out.model'
 import { BookQueryRepository } from 'src/repo/book.queryRepository'
 import { CreateBookChapterCommand } from '../bookChapter/CreateBookChapter.command'
 import { CreateBookCommand } from './CreateBook.command'
@@ -28,7 +28,7 @@ export class CreateBookWithEmptyChapterHandler implements ICommandHandler<Create
 		const { userId, createBookInput } = command
 
 		const newBook: BookOutModel = await this.commandBus.execute(new CreateBookCommand(userId, createBookInput))
-		await this.commandBus.execute(new CreateBookChapterCommand(false, userId, { bookId: newBook.id }))
+		await this.commandBus.execute(new CreateBookChapterCommand(userId, { bookType: 'private', bookId: newBook.id }))
 
 		return await this.bookQueryRepository.getBookById(newBook.id)
 	}
