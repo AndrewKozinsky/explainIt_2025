@@ -17,7 +17,7 @@ it('1', () => {
 	expect(2).toBe(2)
 })
 
-describe.skip('Confirm an user email (e2e)', () => {
+describe('Confirm an user email (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService

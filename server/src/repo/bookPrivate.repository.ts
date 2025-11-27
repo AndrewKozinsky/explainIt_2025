@@ -1,18 +1,18 @@
 import { Injectable } from '@nestjs/common'
-import { Book, Prisma } from '@prisma/client'
+import { BookPrivate, Prisma } from '@prisma/client'
 import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 import { BookServiceModel } from '../models/book/book.service.model'
 
-type BookWithChapters = Prisma.BookGetPayload<{ include: { BookChapter: true } }>
+type BookWithChapters = Prisma.BookPrivateGetPayload<{ include: { BookChapter: true } }>
 
 @Injectable()
-export class BookRepository {
+export class BookPrivateRepository {
 	constructor(private prisma: PrismaService) {}
 
 	@CatchDbError()
 	async createBook(dto: { userId: number; author?: null | string; name?: null | string; note?: null | string }) {
-		const newBook = await this.prisma.book.create({
+		const newBook = await this.prisma.bookPrivate.create({
 			data: {
 				author: dto.author,
 				name: dto.name,
@@ -27,7 +27,7 @@ export class BookRepository {
 
 	@CatchDbError()
 	async getBookById(bookId: number) {
-		const book = await this.prisma.book.findUnique({
+		const book = await this.prisma.bookPrivate.findUnique({
 			where: { id: bookId },
 			include: { BookChapter: true },
 		})
@@ -48,7 +48,7 @@ export class BookRepository {
 			note?: null | string
 		},
 	) {
-		const newBook = await this.prisma.book.update({
+		const newBook = await this.prisma.bookPrivate.update({
 			where: { id: bookId },
 			data: {
 				author: dto.author,
@@ -67,7 +67,7 @@ export class BookRepository {
 
 	@CatchDbError()
 	async deleteBookById(bookId: number) {
-		await this.prisma.book.delete({
+		await this.prisma.bookPrivate.delete({
 			where: { id: bookId },
 			include: { BookChapter: true },
 		})

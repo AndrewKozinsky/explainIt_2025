@@ -2,7 +2,7 @@ import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { BookQueryRepository } from 'src/repo/book.queryRepository'
+import { BookPrivateQueryRepository } from 'src/repo/bookPrivate.queryRepository'
 import { BookChapterQueryRepository } from 'src/repo/bookChapter.queryRepository'
 import { BookChapterRepository } from 'src/repo/bookChapter.repository'
 import { BookPublicRepository } from 'src/repo/bookPublic.repository'
@@ -26,7 +26,7 @@ export class CreateBookChapterCommand implements ICommand {
 @CommandHandler(CreateBookChapterCommand)
 export class CreateBookChapterHandler implements ICommandHandler<CreateBookChapterCommand> {
 	constructor(
-		private bookQueryRepository: BookQueryRepository,
+		private bookQueryRepository: BookPrivateQueryRepository,
 		private bookPublicRepository: BookPublicRepository,
 		private bookChapterRepository: BookChapterRepository,
 		private bookChapterQueryRepository: BookChapterQueryRepository,

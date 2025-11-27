@@ -5,7 +5,7 @@ import { queries } from '../../src/features/db/queries'
 import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
 import RouteNames from '../../src/infrastructure/routeNames'
-import { BookRepository } from '../../src/repo/book.repository'
+import { BookPrivateRepository } from 'server/src/repo/bookPrivate.repository'
 import { BookChapterRepository } from '../../src/repo/bookChapter.repository'
 import { UserRepository } from '../../src/repo/user.repository'
 import { authUtils } from '../utils/authUtils'
@@ -26,7 +26,7 @@ describe.skip('Delete book', () => {
 	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
 	let userRepository: UserRepository
-	let bookRepository: BookRepository
+	let bookRepository: BookPrivateRepository
 	let bookChapterRepository: BookChapterRepository
 
 	beforeAll(async () => {
@@ -36,7 +36,7 @@ describe.skip('Delete book', () => {
 		commandBus = app.get(CommandBus)
 		emailAdapter = createMainAppRes.emailAdapter
 		userRepository = await app.resolve(UserRepository)
-		bookRepository = await app.resolve(BookRepository)
+		bookRepository = await app.resolve(BookPrivateRepository)
 		bookChapterRepository = await app.resolve(BookChapterRepository)
 	})
 

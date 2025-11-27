@@ -4,15 +4,15 @@ import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 import { BookOutModel } from '../models/book/book.out.model'
 
-type BookWithChapters = Prisma.BookGetPayload<{ include: { BookChapter: true } }>
+type BookWithChapters = Prisma.BookPrivateGetPayload<{ include: { BookChapter: true } }>
 
 @Injectable()
-export class BookQueryRepository {
+export class BookPrivateQueryRepository {
 	constructor(private prisma: PrismaService) {}
 
 	@CatchDbError()
 	async getBookById(id: number) {
-		const book = await this.prisma.book.findUnique({
+		const book = await this.prisma.bookPrivate.findUnique({
 			where: { id },
 			include: {
 				BookChapter: {
@@ -30,7 +30,7 @@ export class BookQueryRepository {
 
 	@CatchDbError()
 	async getUserBooks(userId: number) {
-		const books = await this.prisma.book.findMany({
+		const books = await this.prisma.bookPrivate.findMany({
 			where: { user_id: userId },
 			include: { BookChapter: { orderBy: { created_at: 'asc' } } },
 		})

@@ -20,7 +20,7 @@ model User {
 	created_at	DateTime	@default(now())
 	BalanceTransaction	BalanceTransaction[]
 	Payment	Payment[]
-	Book	Book[]
+	BookPrivate	BookPrivate[]
 }
 
 model BalanceTransaction {
@@ -47,7 +47,7 @@ model Payment {
 	updated_at	DateTime	@default(now())
 }
 
-model Book {
+model BookPrivate {
 	id	Int	@id	@default(autoincrement())
 	user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
 	user_id Int
@@ -70,7 +70,7 @@ model BookPublic {
 
 model BookChapter {
 	id	Int	@id	@default(autoincrement())
-	book Book? @relation(fields: [book_id], references: [id], onDelete: Cascade)
+	book BookPrivate? @relation(fields: [book_id], references: [id], onDelete: Cascade)
 	book_id Int?
 	book_public BookPublic? @relation(fields: [book_public_id], references: [id], onDelete: Cascade)
 	book_public_id Int?

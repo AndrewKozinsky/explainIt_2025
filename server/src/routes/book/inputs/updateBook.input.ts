@@ -5,18 +5,18 @@ import { DtoFieldDecorators } from '../../../db/dtoFieldDecorators'
 @InputType()
 export class UpdateBookInput {
 	@Field(() => Int, { description: 'Book id' })
-	@DtoFieldDecorators('id', bdConfig.Book.dbFields.id, { type: 'number', required: true, min: 1 })
+	@DtoFieldDecorators('id', bdConfig.BookPrivate.dbFields.id, { type: 'number', required: true, min: 1 })
 	id: number
 
 	@Field(() => String, { description: 'Author', nullable: true })
-	@DtoFieldDecorators('author', bdConfig.Book.dbFields.author)
+	@DtoFieldDecorators('author', bdConfig.BookPrivate.dbFields.author)
 	author?: null | string
 
 	@Field(() => String, { description: 'Name', nullable: true })
-	@DtoFieldDecorators('name', bdConfig.Book.dbFields.name)
+	@DtoFieldDecorators('name', bdConfig.BookPrivate.dbFields.name)
 	name?: null | string
 
 	@Field(() => String, { description: 'Note', nullable: true })
-	@DtoFieldDecorators('note', bdConfig.Book.dbFields.note)
+	@DtoFieldDecorators('note', bdConfig.BookPrivate.dbFields.note)
 	note?: null | string
 }

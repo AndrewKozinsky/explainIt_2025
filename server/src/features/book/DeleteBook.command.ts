@@ -2,8 +2,8 @@ import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { BookQueryRepository } from 'src/repo/book.queryRepository'
-import { BookRepository } from 'src/repo/book.repository'
+import { BookPrivateQueryRepository } from 'src/repo/bookPrivate.queryRepository'
+import { BookPrivateRepository } from 'src/repo/bookPrivate.repository'
 
 type DeleteBookInput = {
 	id: number
@@ -19,8 +19,8 @@ export class DeleteBookCommand implements ICommand {
 @CommandHandler(DeleteBookCommand)
 export class DeleteBookHandler implements ICommandHandler<DeleteBookCommand> {
 	constructor(
-		private bookRepository: BookRepository,
-		private bookQueryRepository: BookQueryRepository,
+		private bookRepository: BookPrivateRepository,
+		private bookQueryRepository: BookPrivateQueryRepository,
 	) {}
 
 	async execute(command: DeleteBookCommand) {

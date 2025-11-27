@@ -5,6 +5,6 @@ import { DtoFieldDecorators } from '../../../db/dtoFieldDecorators'
 @InputType()
 export class DeleteBookInput {
 	@Field(() => Int, { description: 'Book id' })
-	@DtoFieldDecorators('id', bdConfig.Book.dbFields.id, { type: 'number', required: true, min: 1 })
+	@DtoFieldDecorators('id', bdConfig.BookPrivate.dbFields.id, { type: 'number', required: true, min: 1 })
 	id: number
 }

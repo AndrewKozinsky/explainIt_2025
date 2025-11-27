@@ -28,8 +28,9 @@ function drySentenceStructure(
 		translation: sentenceStructure.translation,
 		// Составные части предложения
 		parts: drySentencePartsStructure(sentenceStructure.parts),
+		// Try not to use it
 		// Соответствия между идентификаторами слов в предложении и идентификаторами фраз в базе данных с анализом фразы
-		phrasesMapping: drySentencePhrases(sentenceStructure.phrases),
+		// phrasesMapping: drySentencePhrases(sentenceStructure.phrases),
 	}
 }
 
@@ -49,7 +50,8 @@ function drySentencePartsStructure(
 	})
 }
 
-function drySentencePhrases(
+// Try not to use it
+/*function drySentencePhrases(
 	phrases: ChapterTextStructurePopulated.Phrase[],
 ): { wordIds: number[]; phraseIdInDb: number }[] {
 	const successfulPhrases = phrases.filter((phrase) => phrase.type == 'success')
@@ -57,4 +59,4 @@ function drySentencePhrases(
 	return successfulPhrases.map((phrase) => {
 		return { wordIds: phrase.wordIds, phraseIdInDb: phrase.phraseIdInDb }
 	})
-}
+}*/

@@ -103,7 +103,7 @@ export const bdConfig = {
 			Payment: {
 				type: 'oneToMany',
 			},
-			Book: {
+			BookPrivate: {
 				type: 'oneToMany',
 			},
 		},
@@ -203,7 +203,7 @@ export const bdConfig = {
 			},
 		},
 	},
-	Book: {
+	BookPrivate: {
 		dtoProps: {},
 		dbFields: {
 			id: {
@@ -289,7 +289,7 @@ export const bdConfig = {
 			book_id: {
 				type: 'manyToOne',
 				thisField: 'book_id', // Name of the column of this table that refers to another table
-				foreignTable: 'Book', // Name of the table that this column refers to
+				foreignTable: 'BookPrivate', // Name of the table that this column refers to
 				foreignField: 'id',
 				required: false,
 			},

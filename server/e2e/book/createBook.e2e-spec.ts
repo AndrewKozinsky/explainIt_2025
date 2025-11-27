@@ -3,7 +3,7 @@ import { CommandBus } from '@nestjs/cqrs'
 import { App } from 'supertest/types'
 import { queries } from '../../src/features/db/queries'
 import RouteNames from '../../src/infrastructure/routeNames'
-import { BookQueryRepository } from '../../src/repo/book.queryRepository'
+import { BookPrivateQueryRepository } from 'server/src/repo/bookPrivate.queryRepository'
 import { UserRepository } from '../../src/repo/user.repository'
 import { authUtils } from '../utils/authUtils'
 import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
@@ -20,7 +20,7 @@ describe.skip('Create book', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let userRepository: UserRepository
-	let bookQueryRepository: BookQueryRepository
+	let bookQueryRepository: BookPrivateQueryRepository
 
 	beforeAll(async () => {
 		const createMainAppRes = await createApp()
@@ -28,7 +28,7 @@ describe.skip('Create book', () => {
 		app = createMainAppRes.app
 		commandBus = app.get(CommandBus)
 		userRepository = await app.resolve(UserRepository)
-		bookQueryRepository = await app.resolve(BookQueryRepository)
+		bookQueryRepository = await app.resolve(BookPrivateQueryRepository)
 	})
 
 	beforeEach(async () => {
