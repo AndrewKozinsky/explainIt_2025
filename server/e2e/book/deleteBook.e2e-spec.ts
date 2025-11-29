@@ -5,7 +5,7 @@ import { queries } from '../../src/features/db/queries'
 import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
 import RouteNames from '../../src/infrastructure/routeNames'
-import { BookPrivateRepository } from 'server/src/repo/bookPrivate.repository'
+import { BookPrivateRepository } from '../../src/repo/bookPrivate.repository'
 import { BookChapterRepository } from '../../src/repo/bookChapter.repository'
 import { UserRepository } from '../../src/repo/user.repository'
 import { authUtils } from '../utils/authUtils'
@@ -86,7 +86,7 @@ describe.skip('Delete book', () => {
 		})
 
 		// Create a book
-		const createdBookResp = await bookUtils.createBook({
+		const createdBookResp = await bookUtils.createBookPrivate({
 			app,
 			sessionToken: sessionToken,
 			book: {
@@ -130,7 +130,7 @@ describe.skip('Delete book', () => {
 		})
 
 		// Create a book
-		const createdBookResp = await bookUtils.createBook({
+		const createdBookResp = await bookUtils.createBookPrivate({
 			app,
 			sessionToken: sessionToken,
 			book: {
@@ -168,14 +168,14 @@ describe.skip('Delete book', () => {
 		})
 
 		// Create the first and the second book
-		const firstBookResp = await bookUtils.createBook({
+		const firstBookResp = await bookUtils.createBookPrivate({
 			app,
 			sessionToken: sessionToken,
 			book: {
 				author: 'Gerald Durrell',
 			},
 		})
-		const secondBookResp = await bookUtils.createBook({
+		const secondBookResp = await bookUtils.createBookPrivate({
 			app,
 			sessionToken: sessionToken,
 			book: {
@@ -191,7 +191,7 @@ describe.skip('Delete book', () => {
 				app,
 				sessionToken: sessionToken,
 				bookChapter: {
-					name: 'Chapter 1',
+					name: 'Chapter ' + i,
 					bookId: firstBook.id,
 				},
 			})
@@ -202,7 +202,7 @@ describe.skip('Delete book', () => {
 				app,
 				sessionToken: sessionToken,
 				bookChapter: {
-					name: 'Chapter 1',
+					name: 'Chapter' + i,
 					bookId: secondBook.id,
 				},
 			})

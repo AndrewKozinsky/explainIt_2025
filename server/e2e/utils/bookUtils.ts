@@ -68,7 +68,7 @@ export const bookUtils = {
 		}
 	},
 
-	async createBook(input: {
+	async createBookPrivate(input: {
 		app: INestApplication
 		sessionToken: any
 		book: {
@@ -78,13 +78,13 @@ export const bookUtils = {
 		}
 	}) {
 		// Create a book mutation
-		const createBookMutation = queries.book.create(input.book)
+		const createBookPrivateMutation = queries.book.create(input.book)
 
 		// Run this mutation
 		const [createBookResp] = await makeGraphQLReqWithTokens({
 			app: input.app,
-			query: createBookMutation.query,
-			queryVariables: createBookMutation.variables,
+			query: createBookPrivateMutation.query,
+			queryVariables: createBookPrivateMutation.variables,
 			sessionToken: input.sessionToken,
 		})
 
@@ -164,7 +164,7 @@ export const bookUtils = {
 		}>
 	}) {
 		// First create the book
-		const createBookResp = await this.createBook({
+		const createBookResp = await this.createBookPrivate({
 			app: input.app,
 			sessionToken: input.sessionToken,
 			book: input.book,
@@ -199,20 +199,5 @@ export const bookUtils = {
 			book: createBookResp.data.book_create,
 			chapters: createdChapters,
 		}
-	},
-
-	checkForDefaultBook(props: { book: any; userId: number }) {
-		const { book, userId } = props
-
-		bookUtils.checkBookOutResp(book, {
-			author: 'Lewis Carroll',
-			name: 'Alice in Wonderland',
-			note: 'It tells the story of Alice, a young girl who falls down a rabbit hole…',
-			userId,
-			chapters: [
-				{ name: 'Chapter 1', header: 'Down the Rabbit-Hole', note: null },
-				{ name: 'Chapter 2', header: 'THE POOL OF TEARS', note: null },
-			],
-		})
 	},
 }

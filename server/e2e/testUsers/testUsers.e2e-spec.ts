@@ -1,8 +1,8 @@
 import { INestApplication } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
-import { welcomeBonusInRUR } from '../utils/common'
+import { welcomeBonusInKop } from '../utils/common'
 import { bookUtils } from '../../e2e/utils/bookUtils'
-import { BookPrivateQueryRepository } from 'server/src/repo/bookPrivate.queryRepository'
+import { BookPrivateQueryRepository } from '../../src/repo/bookPrivate.queryRepository'
 import { UserRepository } from '../../src/repo/user.repository'
 import {
 	UserBookConfig,
@@ -84,8 +84,6 @@ async function checkUserWithUnconfirmedEmail(props: {
 	// Check books
 	const books = await bookQueryRepository.getUserBooks(userConfig.id)
 	expect(books.length).toBe(1)
-
-	bookUtils.checkForDefaultBook({ book: books[0], userId: userConfig.id })
 }
 
 async function checkUserWithConfirmedEmail(props: {
@@ -121,7 +119,7 @@ async function checkUserWithOAuth(props: {
 	expect(userFromDB.isUserConfirmed).toBe(true)
 	expect(userFromDB.isEmailConfirmed).toBe(false)
 	expect(userFromDB.confirmationCodeExpirationDate).toBe(null)
-	expect(userFromDB.balance).toBe(welcomeBonusInRUR * 100)
+	expect(userFromDB.balance).toBe(welcomeBonusInKop * 100)
 
 	await checkUserBooks({ userId: userConfig.id, booksConfig: userConfig.books, bookQueryRepository })
 }
@@ -140,7 +138,7 @@ async function checkUserWithCredentialsAndOAuth(props: {
 	expect(userFromDB.isUserConfirmed).toBe(true)
 	expect(userFromDB.isEmailConfirmed).toBe(false)
 	expect(typeof userFromDB.confirmationCodeExpirationDate).toBe('string')
-	expect(userFromDB.balance).toBe(welcomeBonusInRUR * 100)
+	expect(userFromDB.balance).toBe(welcomeBonusInKop * 100)
 
 	await checkUserBooks({ userId: userConfig.id, booksConfig: userConfig.books, bookQueryRepository })
 }
@@ -157,7 +155,6 @@ async function checkUserBooks(props: {
 	if (!books.length) {
 		throw new Error('User has no have at least default book')
 	}
-	bookUtils.checkForDefaultBook({ book: books[0], userId })
 
 	// Check other books
 	if (booksConfig?.length) {

@@ -1,0 +1,4 @@
+This is the file where you need to fill in new data: @chapter_2_1.ts
+I will give you a text from the book "King Solomon's mines" by Haggard H. Rider. Take this text and divide it into sentences. Put each sentence into the "sentence" property. Translate each sentence into Russian as closely as possible to the original, while keeping the translation natural in Russian. Then put it into "translate" property. Do these steps for each sentence.
+
+The text:

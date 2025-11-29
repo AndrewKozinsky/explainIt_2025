@@ -7,6 +7,7 @@ import { BookChapterOutModel } from '../models/bookChapter/bookChapter.out.model
 type FullBookChapter = Prisma.BookChapterGetPayload<{
 	include: {
 		book: true
+		book_public: true
 		BookChapterPhrase: {
 			include: {
 				BookChapterPhraseExample: true
@@ -18,6 +19,7 @@ type FullBookChapter = Prisma.BookChapterGetPayload<{
 // Helper type: same as FullBookChapter but with non-nullable 'book' relation
 type FullBookChapterPrivate = Omit<FullBookChapter, 'book'> & {
 	book: NonNullable<FullBookChapter['book']>
+	book_public: NonNullable<FullBookChapter['book_public']>
 }
 
 @Injectable()
@@ -28,10 +30,14 @@ export class BookChapterQueryRepository {
 	async getBookChapterById(id: number) {
 		const bookChapter = await this.prisma.bookChapter.findUnique({
 			where: { id },
-			include: { book: true, BookChapterPhrase: { include: { BookChapterPhraseExample: true } } },
+			include: {
+				book: true,
+				book_public: true,
+				BookChapterPhrase: { include: { BookChapterPhraseExample: true } },
+			},
 		})
 
-		if (!bookChapter || !bookChapter.book) {
+		if (!bookChapter) {
 			return null
 		}
 
@@ -50,6 +56,8 @@ export class BookChapterQueryRepository {
 	}
 
 	mapDbBookChapterToOutBookChapter(dbBook: FullBookChapterPrivate): BookChapterOutModel {
+		const book = dbBook.book_public ? dbBook.book_public : dbBook.book
+
 		return {
 			id: dbBook.id,
 			name: dbBook.name,
@@ -57,11 +65,11 @@ export class BookChapterQueryRepository {
 			content: dbBook.content,
 			note: dbBook.note,
 			book: {
-				id: dbBook.book.id,
-				name: dbBook.book.name,
-				author: dbBook.book.author,
-				note: dbBook.book.note,
-				userId: dbBook.book.user_id,
+				id: book.id,
+				name: book.name,
+				author: book.author,
+				note: book.note,
+				userId: dbBook.book_public ? null : dbBook.book.user_id,
 			},
 			phrases: dbBook.BookChapterPhrase.map((phrase) => ({
 				id: phrase.id,

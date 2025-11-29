@@ -4,7 +4,7 @@ import { App } from 'supertest/types'
 import { queries } from '../../src/features/db/queries'
 import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 import RouteNames from '../../src/infrastructure/routeNames'
-import { BookPrivateQueryRepository } from 'server/src/repo/bookPrivate.queryRepository'
+import { BookPrivateQueryRepository } from '../../src/repo/bookPrivate.queryRepository'
 import { UserRepository } from '../../src/repo/user.repository'
 import { authUtils } from '../utils/authUtils'
 import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
@@ -79,7 +79,7 @@ describe.skip('Get user books', () => {
 			note: null,
 		}
 
-		await bookUtils.createBook({
+		await bookUtils.createBookPrivate({
 			app,
 			sessionToken: sessionToken,
 			book: firstBookConfig,
@@ -98,7 +98,7 @@ describe.skip('Get user books', () => {
 		expect(userBooksFromDb.length).toBe(1)
 
 		// Create the second book
-		await bookUtils.createBook({
+		await bookUtils.createBookPrivate({
 			app,
 			sessionToken: sessionToken,
 			book: secondBookConfig,

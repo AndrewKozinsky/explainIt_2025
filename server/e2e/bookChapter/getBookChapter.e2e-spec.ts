@@ -40,11 +40,11 @@ describe.skip('Get book chapter', () => {
 	})
 
 	it('should return 401 if there is not session token cookie', async () => {
-		const query = queries.bookChapter.get({ id: 1 })
+		const query = queries.bookChapter.get({ id: 1, bookType: 'private' })
 		await authUtils.tokenNotExist({ app, queryOrMutationStr: query.query, queryVariables: query.variables })
 	})
 
-	it('should return 404 status if a book chapter is not exists', async () => {
+	it('should return 404 status if a book chapter does not exist', async () => {
 		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
 			userRepository,
@@ -57,6 +57,7 @@ describe.skip('Get book chapter', () => {
 			sessionToken: sessionToken,
 			bookChapter: {
 				id: 999,
+				bookType: 'private',
 			},
 		})
 
@@ -77,7 +78,7 @@ describe.skip('Get book chapter', () => {
 		})
 
 		// Create a book
-		const createdBookResp = await bookUtils.createBook({
+		const createdBookResp = await bookUtils.createBookPrivate({
 			app,
 			sessionToken: sessionToken,
 			book: {
@@ -116,7 +117,8 @@ describe.skip('Get book chapter', () => {
 			app,
 			sessionToken: secondUserSeccionData,
 			bookChapter: {
-				id: createdBook.id,
+				id: createdChapterBook.id,
+				bookType: 'private',
 			},
 		})
 
@@ -137,7 +139,7 @@ describe.skip('Get book chapter', () => {
 		})
 
 		// Create a book
-		const createdBookResp = await bookUtils.createBook({
+		const createdBookResp = await bookUtils.createBookPrivate({
 			app,
 			sessionToken: sessionToken,
 			book: {
@@ -168,6 +170,7 @@ describe.skip('Get book chapter', () => {
 			sessionToken,
 			bookChapter: {
 				id: createdChapterBook.id,
+				bookType: 'private',
 			},
 		})
 

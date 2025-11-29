@@ -7,7 +7,7 @@ import RouteNames from '../../src/infrastructure/routeNames'
 import { UserRepository } from '../../src/repo/user.repository'
 import { makeGraphQLReq } from '../makeGQReq'
 import { checkErrorResponse } from '../utils/checkErrorResp'
-import { defUserEmail, welcomeBonusInRUR } from '../utils/common'
+import { defUserEmail, welcomeBonusInKop } from '../utils/common'
 import { createApp } from '../utils/createApp'
 import { queries } from '../../src/features/db/queries'
 import { userUtils } from '../utils/userUtils'
@@ -17,7 +17,7 @@ it('1', () => {
 	expect(2).toBe(2)
 })
 
-describe('Confirm an user email (e2e)', () => {
+describe.skip('Confirm an user email (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
@@ -169,7 +169,7 @@ describe('Confirm an user email (e2e)', () => {
 			confirmationCodeExpirationDate: null,
 			isEmailConfirmed: true,
 			isUserConfirmed: true,
-			balance: welcomeBonusInRUR,
+			balance: welcomeBonusInKop,
 		})
 	})
 

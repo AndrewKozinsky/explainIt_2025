@@ -10,7 +10,7 @@ export class TranslateSentencesInput {
 		description: 'Name of the author book',
 		required: false,
 	})
-		bookAuthor: null | string
+	bookAuthor: null | string
 
 	@Field(() => String, { description: 'Book name', nullable: true })
 	@DtoFieldDecorators('bookAuthor', {
@@ -18,10 +18,10 @@ export class TranslateSentencesInput {
 		description: 'Name of the book',
 		required: false,
 	})
-		bookName: null | string
+	bookName: null | string
 
 	@Field(() => [String], { description: 'Array of sentences' })
 	@IsArray()
 	@IsString({ each: true })
-		sentences: string[]
+	sentences: string[]
 }

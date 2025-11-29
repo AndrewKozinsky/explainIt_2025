@@ -45,13 +45,15 @@ export class BookPrivateQueryRepository {
 			name: dbBook.name,
 			note: dbBook.note,
 			userId: dbBook.user_id,
-			chapters: dbBook.BookChapter.map((chapter) => ({
-				id: chapter.id,
-				bookId: dbBook.id,
-				name: chapter.name,
-				header: chapter.header,
-				note: chapter.note,
-			})),
+			chapters: dbBook.BookChapter.map((chapter) => {
+				return {
+					id: chapter.id,
+					bookId: dbBook.id,
+					name: chapter.name,
+					header: chapter.header,
+					note: chapter.note,
+				}
+			}),
 		}
 	}
 }

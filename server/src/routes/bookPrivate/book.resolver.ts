@@ -7,7 +7,7 @@ import { GetUserBooksCommand } from 'features/book/GetUserBooks.command'
 import { UpdateBookCommand } from 'features/book/UpdateBook.command'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
 import RouteNames from 'infrastructure/routeNames'
-import { BookOutModel } from '../../models/book/book.out.model'
+import { BookOutModel } from 'models/book/book.out.model'
 import { CreateBookInput } from './inputs/createBook.input'
 import { DeleteBookInput } from './inputs/deleteBook.input'
 import { UpdateBookInput } from './inputs/updateBook.input'
@@ -23,9 +23,9 @@ export class BookResolver {
 	@UseGuards(CheckSessionCookieGuard)
 	@Mutation(() => BookOutModel, {
 		name: RouteNames.BOOK.CREATE,
-		description: bookResolversDesc.createBook,
+		description: bookResolversDesc.createBookPrivate,
 	})
-	async createBook(@Args('input') input: CreateBookInput, @Context('req') request: Request) {
+	async createBookPrivate(@Args('input') input: CreateBookInput, @Context('req') request: Request) {
 		const userId = request.session.userId!
 		return await this.commandBus.execute(new CreateBookWithEmptyChapterCommand(userId, input))
 	}

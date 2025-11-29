@@ -1,17 +1,23 @@
-import { BookChapterLiteServiceModel } from '../bookChapter/bookChapter.service.model'
+import { Field, Int, ObjectType } from '@nestjs/graphql'
+import { BookChapterLiteOutModel } from 'src/models/bookChapter/bookChapter.out.model'
 
-export type BookPublicOutModel = {
+@ObjectType()
+export class BookPublicOutModel {
+	@Field(() => Int)
 	id: number
-	author: string
-	name: string
-	note: string
-	cover: string
-	chapters: BookChapterLiteServiceModel[]
-}
 
-/*export type BookPublicLiteServiceModel = {
-	id: number
+	@Field(() => String, { nullable: true })
 	author: string | null
+
+	@Field(() => String, { nullable: true })
 	name: string | null
+
+	@Field(() => String, { nullable: true })
 	note: string | null
-}*/
+
+	@Field(() => String)
+	cover: string
+
+	@Field(() => [BookChapterLiteOutModel])
+	chapters: BookChapterLiteOutModel[]
+}

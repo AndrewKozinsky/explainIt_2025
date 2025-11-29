@@ -31,6 +31,25 @@ export const bookChapterUtils = {
 					note: z.string().nullable(),
 					userId: z.number(),
 				}),
+				phrases: z.array(
+					z.object({
+						id: z.number(),
+						sentenceId: z.number(),
+						sentence: z.string(),
+						phrase: z.string(),
+						transcription: z.string(),
+						phraseWordsIdx: z.array(z.number()),
+						translation: z.string(),
+						analysis: z.string(),
+						examples: z.array(
+							z.object({
+								id: z.number(),
+								sentence: z.string(),
+								translation: z.string(),
+							}),
+						),
+					}),
+				),
 			})
 			.strict()
 
@@ -182,7 +201,7 @@ export const bookChapterUtils = {
 		}
 	}) {
 		// Create a book Chapter mutation
-		const createBookChapterMutation = queries.bookChapter.create(input.bookChapter)
+		const createBookChapterMutation = queries.bookChapter.create({ ...input.bookChapter, bookType: 'private' })
 
 		// Run this mutation
 		const [createBookChapterResp] = await makeGraphQLReqWithTokens({
@@ -250,6 +269,7 @@ export const bookChapterUtils = {
 		sessionToken: any
 		bookChapter: {
 			id: number
+			bookType: 'public' | 'private'
 		}
 	}) {
 		// Get a book chapter query

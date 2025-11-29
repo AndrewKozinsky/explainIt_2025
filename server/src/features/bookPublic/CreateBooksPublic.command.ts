@@ -1,8 +1,8 @@
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { ChapterData, getBookChapters } from 'src/features/bookPublic/common/common'
-import { CreateBookPublicCommand, CreateBookPublicInput } from 'src/features/bookPublic/CreateBookPublic.command'
-import { solomonMinesBookData, solomonMinesChapters } from 'src/features/bookPublic/solomonMines/solomonMinesBook'
-import { wizardOfOzBookData, wizardOfOzChapters } from 'src/features/bookPublic/wizardOfOz/wizardOfOzBook'
+import { ChapterData, getBookChapters } from './common/common'
+import { CreateBookPublicCommand, CreateBookPublicInput } from './CreateBookPublic.command'
+import { solomonMinesBookData, solomonMinesChapters } from './solomonMines/solomonMinesBook'
+import { wizardOfOzBookData, wizardOfOzChapters } from './wizardOfOz/wizardOfOzBook'
 import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter.command'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
@@ -23,8 +23,23 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreateBooksPubl
 	) {}
 
 	async execute() {
-		await this.createBookAndChaptersOfNotExists(wizardOfOzBookData, wizardOfOzChapters)
-		await this.createBookAndChaptersOfNotExists(solomonMinesBookData, solomonMinesChapters)
+		for (let i = 0; i < this.getBooksData().length; i++) {
+			const { book, chapters } = this.getBooksData()[i]
+			await this.createBookAndChaptersOfNotExists(book, chapters)
+		}
+	}
+
+	getBooksData() {
+		return [
+			{
+				book: wizardOfOzBookData,
+				chapters: wizardOfOzChapters,
+			},
+			{
+				book: solomonMinesBookData,
+				chapters: solomonMinesChapters,
+			},
+		]
 	}
 
 	async createBookAndChaptersOfNotExists(bookData: CreateBookPublicInput, chaptersData: ChapterData[]) {
@@ -55,9 +70,10 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreateBooksPubl
 				bookId,
 				name: bookChapter.name,
 			})
-			if (existingChapter) return
 
-			await this.commandBus.execute(new CreateBookChapterCommand(null, bookChapter))
+			if (!existingChapter) {
+				await this.commandBus.execute(new CreateBookChapterCommand(null, bookChapter))
+			}
 		}
 	}
 }

@@ -77,7 +77,7 @@ describe.skip('Update book chapter', () => {
 		})
 
 		// Create a book
-		const createdBookResp = await bookUtils.createBook({
+		const createdBookResp = await bookUtils.createBookPrivate({
 			app,
 			sessionToken: sessionToken,
 			book: {
@@ -116,7 +116,7 @@ describe.skip('Update book chapter', () => {
 			app,
 			sessionToken: secondUserSeccionData,
 			bookChapter: {
-				id: createdBook.id,
+				id: createdChapterBook.id,
 				header: 'Updated header',
 			},
 		})
@@ -128,7 +128,7 @@ describe.skip('Update book chapter', () => {
 		})
 	})
 
-	it.only('user should update a created book chapter', async () => {
+	it('user should update a created book chapter', async () => {
 		// Create a user who will create a book and a chapter
 		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
@@ -138,7 +138,7 @@ describe.skip('Update book chapter', () => {
 		})
 
 		// Create a book
-		const createdBookResp = await bookUtils.createBook({
+		const createdBookResp = await bookUtils.createBookPrivate({
 			app,
 			sessionToken: sessionToken,
 			book: {
@@ -197,6 +197,7 @@ describe.skip('Update book chapter', () => {
 				note: 'My note 2',
 			},
 		})
+
 		// Check that only these fields were changed
 		bookChapterUtils.checkBookChapterOutResp(updatedBookChapterResp.data[RouteNames.BOOK_CHAPTER.UPDATE], {
 			id: createdChapterBook.id,
@@ -224,6 +225,7 @@ describe.skip('Update book chapter', () => {
 				note: 'note',
 			},
 		})
+
 		bookChapterUtils.checkBookChapterOutResp(updatedBookChapterResp.data[RouteNames.BOOK_CHAPTER.UPDATE], {
 			id: createdChapterBook.id,
 			name: 'name',

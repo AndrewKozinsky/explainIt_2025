@@ -50,15 +50,13 @@ export class BookChapterRepository {
 		name?: null | string
 	}) {
 		const where: Prisma.BookChapterWhereInput = {}
-		if (typeof input.id === 'number') where.id = input.id
-		if (typeof input.bookId === 'number') {
-			if (input.bookType === 'public') {
-				where.book_public_id = input.bookId
-			} else {
-				where.book_id = input.bookId
-			}
+		if (input.id) where.id = input.id
+		if (input.name) where.name = input.name
+
+		if (!input.id && input.bookId) {
+			const bookKey = input.bookType === 'public' ? 'book_public_id' : 'book_id'
+			where[bookKey] = input.bookId
 		}
-		if (typeof input.name === 'string') where.name = input.name
 
 		if (Object.keys(where).length === 0) {
 			return null
@@ -70,6 +68,7 @@ export class BookChapterRepository {
 		})
 
 		if (!bookChapter) return null
+
 		if (input.bookType === 'public' && !bookChapter.book_public) {
 			return null
 		} else if (input.bookType !== 'public' && !bookChapter.book) {
