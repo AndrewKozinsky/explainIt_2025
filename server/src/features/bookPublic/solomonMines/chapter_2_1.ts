@@ -1,6 +1,6 @@
 export const chapter_2_1 = {
-	name: 'Chapter II (1)',
-	header: 'The legend of Solomon’s mines (1)',
+	name: 'Chapter II',
+	header: 'The legend of Solomon’s mines',
 	data: [
 		{
 			sentence:
@@ -9,10 +9,8 @@ export const chapter_2_1 = {
 				'«Что же вы слышали о путешествии моего брата в Бамангвато?» — спросил сэр Генри, пока я остановился, чтобы набить трубку, прежде чем ответить капитану Гуду.',
 		},
 		{
-			sentence:
-				'“I heard this,” I answered, “and I have never mentioned it to a soul till to-day.',
-			translate:
-				'«Я слышал вот что, — ответил я, — и до сегодняшнего дня никому об этом не говорил».',
+			sentence: '“I heard this,” I answered, “and I have never mentioned it to a soul till to-day.',
+			translate: '«Я слышал вот что, — ответил я, — и до сегодняшнего дня никому об этом не говорил».',
 		},
 		{
 			sentence: 'I heard that he was starting for Solomon’s Mines.”',
@@ -28,8 +26,7 @@ export const chapter_2_1 = {
 		},
 		{
 			sentence: '“I don’t know,” I said; “I know where they are said to be.',
-			translate:
-				'«Не знаю, — сказал я, — я лишь знаю, где, как говорят, они находятся».',
+			translate: '«Не знаю, — сказал я, — я лишь знаю, где, как говорят, они находятся».',
 		},
 		{
 			sentence:
@@ -75,8 +72,7 @@ export const chapter_2_1 = {
 		},
 		{
 			sentence: 'That was when I was on my first elephant hunt in the Matabele country.',
-			translate:
-				'Это было, когда я совершал свою первую охоту на слонов в стране матабеле.',
+			translate: 'Это было, когда я совершал свою первую охоту на слонов в стране матабеле.',
 		},
 		{
 			sentence:
@@ -111,8 +107,7 @@ export const chapter_2_1 = {
 		{
 			sentence:
 				'Also, about twenty paces in, the gallery is built across, and a beautiful bit of masonry it is.”',
-			translate:
-				'Кроме того, шагах в двадцати от входа галерея перегорожена, и кладка эта — просто прекрасная».',
+			translate: 'Кроме того, шагах в двадцати от входа галерея перегорожена, и кладка эта — просто прекрасная».',
 		},
 		{
 			sentence:

@@ -8,7 +8,7 @@ import { chapter_2_2 } from './chapter_2_2'
 import { chapter_2_3 } from './chapter_2_3'
 
 export const solomonMinesBookData = {
-	author: 'Haggard H. Rider',
+	author: 'Henry Rider Haggard',
 	name: 'King Solomon\'s mines',
 	note: 'A quest for a lost diamond mine in the unexplored heart of Africa.',
 	cover: 'https://m.media-amazon.com/images/I/81bF35Bi8zL._SY522_.jpg',

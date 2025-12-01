@@ -25,7 +25,7 @@ import { chapter_23 } from './chapter_23'
 import { chapter_24 } from './chapter_24'
 
 export const wizardOfOzBookData = {
-	author: 'L. Frank Baum',
+	author: 'Lyman Frank Baum',
 	name: 'The Wonderful Wizard of Oz',
 	note: 'A young girl named Dorothy is swept by a tornado to the magical Land of Oz, where she seeks the Wizard’s help to return home and learns she had the power to do so all along.',
 	cover: 'https://m.media-amazon.com/images/I/41EgKM0z6sL._SY445_SX342_FMwebp_.jpg',

@@ -14,24 +14,27 @@ export function useGetOnAddBookClick() {
 		async function () {
 			setStatus('loading')
 
-			const { errors, data } = await createBook({
-				variables: { input: { author: null, name: null, note: null } },
-			})
+			try {
+				const { errors, data } = await createBook({
+					variables: { input: { author: null, name: null, note: null } },
+				})
 
-			if (errors) {
+				if (errors) {
+					throw new Error('Не удалось создать книгу.')
+				}
+
+				const bookId = data?.book_create.id
+				if (!bookId) {
+					throw new Error('Не удалось создать книгу.')
+				}
+
+				// Open a page with created book
+				redirect(pageUrls.books.book(bookId, 'private').path)
+			} catch (error) {
 				notify({ type: 'error', message: 'Не удалось получить список книг.' })
+			} finally {
+				setStatus('idle')
 			}
-
-			setStatus('idle')
-
-			const bookId = data?.book_create.id
-			if (!bookId) {
-				notify({ type: 'error', message: 'Не удалось создать книгу.' })
-				return
-			}
-
-			// Open a page with created book
-			redirect(pageUrls.books.book(bookId).path)
 		},
 		[createBook, notify],
 	)

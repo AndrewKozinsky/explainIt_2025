@@ -13,7 +13,7 @@ function AddBookButton() {
 			loading={status === 'loading'}
 			dataTestId={BooksTest.booksList.addBookButton}
 		>
-			книгу
+			Добавить книгу
 		</Button>
 	)
 }

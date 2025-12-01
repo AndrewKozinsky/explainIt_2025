@@ -1,12 +1,12 @@
-import cn from 'classnames'
-import { useBooksStore } from '_pages/books/books/booksStore'
-import Paragraph from '@/ui/Paragraph/Paragraph'
-import { pageUrls } from '@/сonsts/pageUrls'
-import { bookConfig } from '../../common/bookConfig'
-import ContentLinkWrapper from '../../common/ContentLinkWrapper/ContentLinkWrapper'
-import './BookButton.scss'
+// import cn from 'classnames'
+// import { useBooksStore } from '_pages/books/books/booksStore'
+// import Paragraph from '@/ui/Paragraph/Paragraph'
+// import { pageUrls } from '@/сonsts/pageUrls'
+// import { bookConfig } from '../../common/bookConfig'
+// import ContentLinkWrapper from '../../common/ContentLinkWrapper/ContentLinkWrapper'
+// import './BookButton.scss'
 
-function BookButton() {
+/*function BookButton() {
 	const book = useBooksStore((s) => s.book)
 	const pageType = useBooksStore((s) => s.pageType)
 
@@ -27,11 +27,11 @@ function BookButton() {
 			</div>
 		</ContentLinkWrapper>
 	)
-}
+}*/
 
-export default BookButton
+// export default BookButton
 
-function BookLabel() {
+/*function BookLabel() {
 	const pageType = useBooksStore((s) => s.pageType)
 	const isBookPage = pageType === 'book'
 
@@ -40,4 +40,4 @@ function BookLabel() {
 			Книга
 		</span>
 	)
-}
+}*/

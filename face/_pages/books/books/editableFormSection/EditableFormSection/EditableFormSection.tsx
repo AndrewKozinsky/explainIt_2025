@@ -1,9 +1,8 @@
-import { useBooksStore } from '_pages/books/books/booksStore'
-import EditChapterForm from '_pages/books/books/editableFormSection/editChapter/EditChapterForm/EditChapterForm'
-import EditBookForm from '../editBook/EditBookForm/EditBookForm'
-import './EditableFormSection.scss'
+// import { useBooksStore } from '_pages/books/books/booksStore'
+// import EditChapterForm from '_pages/books/books/editableFormSection/editChapter/EditChapterForm/EditChapterForm'
+// import EditBookForm from '../editBook/EditBookForm/EditBookForm'
 
-function EditableFormSection() {
+/*function EditableFormSection() {
 	const pageType = useBooksStore((s) => s.pageType)
 
 	if (pageType === 'books') {
@@ -16,6 +15,6 @@ function EditableFormSection() {
 			{pageType === 'chapter' && <EditChapterForm />}
 		</div>
 	)
-}
+}*/
 
-export default EditableFormSection
+// export default EditableFormSection

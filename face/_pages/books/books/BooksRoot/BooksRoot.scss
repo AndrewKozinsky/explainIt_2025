@@ -3,47 +3,48 @@
 @use '@/styles/inherit' as inh;
 
 .books-page-content {
-	align-self: flex-start;
 	flex-grow: 1;
-	display: grid;
-	gap: 5rem;
-	grid-template-areas:
-            "books"
-            "book"
-            "content";
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
 
-	@include mix.page-width(500px) {
-		grid-template-areas:
-            "books book"
-            "content content";
-		gap: 2.2rem;
-	}
+.books-page-content__blocks {
+	display: block;
 
-	@include mix.page-width(900px) {
+	@include mix.page-width(vars.$books-desktop-width) {
+		//align-self: flex-start;
 		display: flex;
 		gap: 3rem;
 	}
 }
 
-.books-page-content__books {
+.books-page-content__item {
 	flex-grow: 1;
-	grid-area: books;
+	display: none;
 
-	@include mix.page-width(900px) {
-		max-width: 290px;
+	@include mix.page-width(vars.$books-desktop-width) {
+		display: block;
+	}
+}
+.books-page-content__item--always-visible {
+	display: block;
+}
+
+.books-page-content__item--books {
+	@include mix.page-width(vars.$books-desktop-width) {
+		max-width: 280px;
 	}
 }
 
-.books-page-content__book {
-	flex-grow: 1;
-	grid-area: book;
-
-	@include mix.page-width(900px) {
-		max-width: 290px;
+.books-page-content__item--book {
+	@include mix.page-width(vars.$books-desktop-width) {
+		max-width: 280px;
 	}
 }
 
-.books-page-content__content {
-	flex-grow: 1;
-	grid-area: content;
+.books-page-content__item--chapter {
+
 }
+
+

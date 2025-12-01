@@ -1,21 +1,21 @@
-import { yupResolver } from '@hookform/resolvers/yup'
-import React, { useState } from 'react'
-import { useForm } from 'react-hook-form'
-import Button from '@/ui/formRelated/buttons/Button/Button'
-import FormError from '@/ui/formRelated/FormError/FormError'
-import FormFieldsWrapper from '@/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
-import TextInput from '@/ui/formRelated/TextInput/TextInput'
-import { FormStatus } from '@/utils/forms'
-import ReadChapterButton from '../ReadChapterButton/ReadChapterButton'
-import { ChangeChapterFormData, changeChapterFormSchema, ChangeChapterFormTest } from './fn/form'
-import BookFormSurface from '../../common/BookFormSurface/BookFormSurface'
-import InputFieldsOverrider from '../../common/InputFieldsOverrider/InputFieldsOverrider'
-import DeleteChapterButton from '../DeleteChapterButton/DeleteChapterButton'
-import * as yup from 'yup'
-import { useSetFieldValues } from './fn/setFieldValues'
-import { useGetOnUpdateChapterFormSubmit } from './fn/submit'
+// import { yupResolver } from '@hookform/resolvers/yup'
+// import React, { useState } from 'react'
+// import { useForm } from 'react-hook-form'
+// import Button from '@/ui/formRelated/buttons/Button/Button'
+// import FormError from '@/ui/formRelated/FormError/FormError'
+// import FormFieldsWrapper from '@/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
+// import TextInput from '@/ui/formRelated/TextInput/TextInput'
+// import { FormStatus } from '@/utils/forms'
+// import ReadChapterButton from '../ReadChapterButton/ReadChapterButton'
+// import { ChangeChapterFormData, changeChapterFormSchema, ChangeChapterFormTest } from './fn/form'
+// import BookFormSurface from '../../common/BookFormSurface/BookFormSurface'
+// import InputFieldsOverrider from '../../common/InputFieldsOverrider/InputFieldsOverrider'
+// import DeleteChapterButton from '../DeleteChapterButton/DeleteChapterButton'
+// import * as yup from 'yup'
+// import { useSetFieldValues } from './fn/setFieldValues'
+// import { useGetOnUpdateChapterFormSubmit } from './fn/submit'
 
-export default function EditChapterForm() {
+/*export default function EditChapterForm() {
 	const [formStatus, setFormStatus] = useState<FormStatus>('idle')
 	const [formError, setFormError] = useState<null | string>(null)
 
@@ -105,4 +105,4 @@ export default function EditChapterForm() {
 			</BookFormSurface>
 		</form>
 	)
-}
+}*/

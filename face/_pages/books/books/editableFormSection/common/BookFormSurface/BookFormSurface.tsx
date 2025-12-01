@@ -1,13 +1,13 @@
-import React from 'react'
-import './BookFormSurface.scss'
+// import React from 'react'
+// import './BookFormSurface.scss'
 
-type BookFormSurfaceProps = {
+/*type BookFormSurfaceProps = {
 	children: React.ReactNode
 	leftBottomButtons: React.ReactNode[]
 	rightBottomButtons: React.ReactNode[]
-}
+}*/
 
-function BookFormSurface(props: BookFormSurfaceProps) {
+/*function BookFormSurface(props: BookFormSurfaceProps) {
 	const { children, leftBottomButtons, rightBottomButtons } = props
 
 	return (
@@ -20,6 +20,6 @@ function BookFormSurface(props: BookFormSurfaceProps) {
 			</div>
 		</div>
 	)
-}
+}*/
 
-export default BookFormSurface
+// export default BookFormSurface

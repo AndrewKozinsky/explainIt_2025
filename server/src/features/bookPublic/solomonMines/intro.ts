@@ -1,5 +1,5 @@
 export const intro = {
-	name: 'INTRODUCTION',
+	name: 'Introduction',
 	header: '',
 	data: [
 		{

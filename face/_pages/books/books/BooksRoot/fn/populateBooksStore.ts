@@ -1,19 +1,22 @@
 import { useBooksStore } from '_pages/books/books/booksStore'
-import { useBook_GetUserBooks, useBookChapter_Get } from '@/graphql'
+import { useBook_GetBooksPublic, useBook_GetUserBooks } from '@/graphql'
+// import { useBookChapter_Get } from '@/graphql'
 import { useParams, usePathname } from 'next/navigation'
 import { useEffect } from 'react'
-import { pageUrls } from 'сonsts/pageUrls'
+import { useUserStore } from 'stores/userStore'
+import { extractBookIdFromUrlBookId, getBookTypeByUrlBookId, pageUrls } from 'сonsts/pageUrls'
 
 /** Наполняет Хранилище данными для начала работы */
 export function usePopulateBooksStore() {
-	useChangeCurrentPageType()
-	useFetchBooksAndSetToStore()
+	useDefineCurrentPageType()
+	useFetchPublicBooksAndSetToStore()
+	useFetchPrivateBooksAndSetToStore()
 	useSetBookToStore()
-	useFetchChapterAndSetToStore()
+	// useFetchChapterAndSetToStore()
 }
 
 // Определяет тип текущей страницы и возвращает в виде типа
-export function useChangeCurrentPageType() {
+export function useDefineCurrentPageType() {
 	const bookId = useParams().bookId as string
 	const pathname = usePathname()
 
@@ -21,47 +24,84 @@ export function useChangeCurrentPageType() {
 	// чтобы избежать ошибки "Cannot update a component while rendering a different component".
 	// Обновляем pageType внутри useEffect при изменении входных данных.
 	useEffect(() => {
-		if (!bookId) {
+		const bookType = getBookTypeByUrlBookId(bookId)
+
+		if (!bookId || !bookType) {
 			useBooksStore.setState({
-				pageType: 'books',
+				pageUrlType: 'books',
 			})
-		} else if (pathname === pageUrls.books.book(bookId).path) {
+		} else if (pathname === pageUrls.books.book(bookId, bookType).path) {
 			useBooksStore.setState({
-				pageType: 'book',
+				pageUrlType: 'book',
 			})
 		} else {
 			useBooksStore.setState({
-				pageType: 'chapter',
+				pageUrlType: 'chapter',
 			})
 		}
 	}, [bookId, pathname])
 }
 
-function useFetchBooksAndSetToStore() {
-	const { data, error, loading } = useBook_GetUserBooks()
+function useFetchPublicBooksAndSetToStore() {
+	const { data, error, loading } = useBook_GetBooksPublic()
 
 	useEffect(
 		function () {
 			if (loading) {
-				useBooksStore.getState().updateBooks({
+				useBooksStore.getState().updatePublicBooks({
 					loading: true,
 					errorMessage: null,
 					data: [],
 				})
 			} else if (error) {
-				useBooksStore.getState().updateBooks({
+				useBooksStore.getState().updatePublicBooks({
 					loading: false,
 					errorMessage: error.message,
 					data: [],
 				})
 			} else if (!data) {
-				useBooksStore.getState().updateBooks({
+				useBooksStore.getState().updatePublicBooks({
 					loading: false,
 					errorMessage: null,
 					data: [],
 				})
 			} else {
-				useBooksStore.getState().updateBooks({
+				useBooksStore.getState().updatePublicBooks({
+					loading: false,
+					errorMessage: null,
+					data: data.book_public_get_books,
+				})
+			}
+		},
+		[data, error, loading],
+	)
+}
+
+function useFetchPrivateBooksAndSetToStore() {
+	const { data, error, loading } = useBook_GetUserBooks()
+
+	useEffect(
+		function () {
+			if (loading) {
+				useBooksStore.getState().updatePrivateBooks({
+					loading: true,
+					errorMessage: null,
+					data: [],
+				})
+			} else if (error) {
+				useBooksStore.getState().updatePrivateBooks({
+					loading: false,
+					errorMessage: error.message,
+					data: [],
+				})
+			} else if (!data) {
+				useBooksStore.getState().updatePrivateBooks({
+					loading: false,
+					errorMessage: null,
+					data: [],
+				})
+			} else {
+				useBooksStore.getState().updatePrivateBooks({
 					loading: false,
 					errorMessage: null,
 					data: data.book_user_books,
@@ -73,28 +113,42 @@ function useFetchBooksAndSetToStore() {
 }
 
 function useSetBookToStore() {
-	const booksData = useBooksStore((s) => s.books.data)
-	const currentBookId = useParams().bookId as string
+	const publicBooks = useBooksStore((s) => s.publicBooks.data)
+	const privateBooks = useBooksStore((s) => s.privateBooks.data)
+
+	const bookIdWithPrefix = useParams().bookId
+	const bookType = getBookTypeByUrlBookId(bookIdWithPrefix)
 
 	useEffect(
 		function () {
-			if (!booksData || !booksData.length) {
-				useBooksStore.setState({
-					book: null,
-				})
-				return
-			}
+			const bookId = extractBookIdFromUrlBookId(bookIdWithPrefix)
 
-			const currentBook = booksData.find((book) => book.id.toString() === currentBookId) ?? null
-			useBooksStore.setState({
-				book: currentBook,
-			})
+			if (bookType === 'public' && publicBooks) {
+				const publicBook = publicBooks.find((book) => book.id === bookId) ?? null
+
+				useBooksStore.setState({
+					publicBook,
+					privateBook: null,
+				})
+			} else if (bookType === 'private' && privateBooks) {
+				const privateBook = privateBooks.find((book) => book.id === bookId) ?? null
+
+				useBooksStore.setState({
+					publicBook: null,
+					privateBook,
+				})
+			} else {
+				useBooksStore.setState({
+					publicBook: null,
+					privateBook: null,
+				})
+			}
 		},
-		[booksData, currentBookId],
+		[publicBooks, privateBooks, bookIdWithPrefix, bookType],
 	)
 }
 
-function useFetchChapterAndSetToStore() {
+/*function useFetchChapterAndSetToStore() {
 	const chapterId = useParams().chapterId as string
 
 	const { data, error, loading } = useBookChapter_Get({
@@ -132,4 +186,4 @@ function useFetchChapterAndSetToStore() {
 		},
 		[data, error, loading],
 	)
-}
+}*/

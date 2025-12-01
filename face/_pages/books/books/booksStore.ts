@@ -1,34 +1,52 @@
-import { BookChapterOutModel, BookOutModel } from '@/graphql'
+// import { BookChapterOutModel } from '@/graphql'
+import { BookPublicOutModel, BookOutModel } from '@/graphql'
 import { create } from 'zustand'
 
 export const booksStoreValues: BooksStoreValues = {
-	pageType: 'books',
-	books: {
+	pageUrlType: 'books',
+	mobileCurrentContentType: 'books',
+	publicBooks: {
+		loading: true,
+		errorMessage: null,
+		data: null as any as BookPublicOutModel[],
+	},
+	privateBooks: {
 		loading: true,
 		errorMessage: null,
 		data: null as any as BookOutModel[],
 	},
-	book: null,
-	chapter: {
+	publicBook: null,
+	privateBook: null,
+	// bookType: null,
+	/*chapter: {
 		loading: true,
 		errorMessage: null,
 		data: null as any as BookChapterOutModel,
-	},
+	},*/
 }
 
 export const useBooksStore = create<ReadingStore>()((set) => {
 	return {
 		...booksStoreValues,
-		updateBooks: (books: BooksStore.BooksData) => {
+		updatePublicBooks: (publicBooks: BooksStore.PublicBooksData) => {
 			set((state) => {
 				return {
-					books: {
+					publicBooks: {
+						...publicBooks,
+					},
+				}
+			})
+		},
+		updatePrivateBooks: (books: BooksStore.PrivateBooksData) => {
+			set((state) => {
+				return {
+					privateBooks: {
 						...books,
 					},
 				}
 			})
 		},
-		updateChapter: (chapter: BooksStore.ChapterData) => {
+		/*updateChapter: (chapter: BooksStore.ChapterData) => {
 			set((state) => {
 				return {
 					chapter: {
@@ -36,36 +54,50 @@ export const useBooksStore = create<ReadingStore>()((set) => {
 					},
 				}
 			})
-		},
+		},*/
 	}
 })
 
 export type ReadingStore = BooksStoreValues & BooksStoreMethods
 
 export type BooksStoreValues = {
-	pageType: BooksStore.PageType
-	books: BooksStore.BooksData
-	book: null | BookOutModel
-	chapter: BooksStore.ChapterData
+	pageUrlType: BooksStore.PageUrlType
+	mobileCurrentContentType: BooksStore.MobileCurrentContentType
+	publicBooks: BooksStore.PublicBooksData
+	privateBooks: BooksStore.PrivateBooksData
+	publicBook: null | BookPublicOutModel
+	privateBook: null | BookOutModel
+	// bookType: null | 'public' | 'private'
+	// chapter: BooksStore.ChapterData
 }
 
 export namespace BooksStore {
-	export type PageType = 'books' | 'book' | 'chapter'
+	export type PageUrlType = 'books' | 'book' | 'chapter'
+	// На телефоне показываются 3 кнопки: Книги, Главы и Детали.
+	// В зависимости от нажатой кнопки показывается одна из трёх колонок
+	export type MobileCurrentContentType = 'books' | 'book' | 'chapter'
 
-	export type BooksData = {
+	export type PublicBooksData = {
+		loading: boolean
+		errorMessage: null | string
+		data: BookPublicOutModel[]
+	}
+
+	export type PrivateBooksData = {
 		loading: boolean
 		errorMessage: null | string
 		data: BookOutModel[]
 	}
 
-	export type ChapterData = {
+	/*export type ChapterData = {
 		loading: boolean
 		errorMessage: null | string
 		data: null | BookChapterOutModel
-	}
+	}*/
 }
 
 type BooksStoreMethods = {
-	updateBooks: (books: BooksStore.BooksData) => void
-	updateChapter: (books: BooksStore.ChapterData) => void
+	updatePublicBooks: (books: BooksStore.PublicBooksData) => void
+	updatePrivateBooks: (books: BooksStore.PrivateBooksData) => void
+	// updateChapter: (books: BooksStore.ChapterData) => void
 }

@@ -4,10 +4,9 @@
 	container-type: inline-size;
 	display: flex;
 	flex-direction: column;
-	gap: 0.6rem;
-
+	gap: 0.4rem;
 }
 
 .chapter-link__author {
-	color: vars.$grayColor-3;
+	color: vars.$grayColor-5;
 }

@@ -13,16 +13,26 @@
 	transition: border-color 0.05s ease-in-out;
 
 	&:hover {
-		border-color: vars.$grayColor-3;
+		border-color: vars.$grayColor-5;
 	}
 
 	&:focus {
-		border-color: vars.$linkColor-2;
+		border-color: vars.$accentColor-2;
 	}
 }
 
+.content-link-wrapper--idle {
+}
 .content-link-wrapper--current {
 	color: vars.$accentColor-2;
 	background-color: white;
-	border-color: white;
+	border-color: vars.$accentColor-2;
+
+	&:hover {
+		border-color: vars.$accentColor-2;
+	}
+}
+.content-link-wrapper--nested {
+	background-color: white;
+	border-color: vars.$grayColor-4;
 }

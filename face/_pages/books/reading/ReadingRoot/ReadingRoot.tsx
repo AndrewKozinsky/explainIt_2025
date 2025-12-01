@@ -11,8 +11,8 @@ import { useSetDeviceType } from './fn/setDeviceType'
 import BookAuthorAndName from '../chapter/BookAuthorAndName/BookAuthorAndName'
 import ChapterContent from '../chapterContent/ChapterContent/ChapterContent'
 import { useRegisterEnterKeyListener } from './fn/registerEnterKeyListener'
-import '_pages/books/reading/ReadingRoot/ReadingRoot.scss'
 import TranslateSentences from '_pages/books/reading/TranslateSentences/TranslateSentences'
+import './ReadingRoot.scss'
 
 function ReadingRoot() {
 	usePopulateReadingStore()
