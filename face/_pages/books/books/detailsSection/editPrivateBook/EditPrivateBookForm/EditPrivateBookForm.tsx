@@ -14,11 +14,11 @@
 // import { useSetFieldValues } from './fn/setFieldValues'
 // import { useGetOnUpdateBookFormSubmit } from './fn/submit'
 
-/*export default function EditBookForm() {
-	const [formStatus, setFormStatus] = useState<FormStatus>('idle')
-	const [formError, setFormError] = useState<null | string>(null)
+export default function EditBookForm() {
+	// const [formStatus, setFormStatus] = useState<FormStatus>('idle')
+	// const [formError, setFormError] = useState<null | string>(null)
 
-	const {
+	/*const {
 		register,
 		handleSubmit,
 		reset,
@@ -26,13 +26,13 @@
 		setError,
 	} = useForm<ChangeBookFormData>({
 		resolver: yupResolver(changeBookFormSchema as yup.AnyObjectSchema),
-	})
+	})*/
 
-	useSetFieldValues(reset)
+	// useSetFieldValues(reset)
 
-	const onSubmit = useGetOnUpdateBookFormSubmit(setError, setFormStatus, setFormError)
+	// const onSubmit = useGetOnUpdateBookFormSubmit(setError, setFormStatus, setFormError)
 
-	return (
+	/*return (
 		<form onSubmit={handleSubmit(onSubmit)} data-testid={ChangeBookFormTest.form.id}>
 			<BookFormSurface
 				leftBottomButtons={[<DeleteBookButton key='delete' />]}
@@ -89,5 +89,6 @@
 				</FormFieldsWrapper>
 			</BookFormSurface>
 		</form>
-	)
-}*/
+	)*/
+	return null
+}

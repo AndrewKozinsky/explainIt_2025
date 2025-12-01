@@ -4,7 +4,7 @@ import { useBook_GetBooksPublic, useBook_GetUserBooks } from '@/graphql'
 import { useParams, usePathname } from 'next/navigation'
 import { useEffect } from 'react'
 import { useUserStore } from 'stores/userStore'
-import { extractBookIdFromUrlBookId, getBookTypeByUrlBookId, pageUrls } from 'сonsts/pageUrls'
+import { createBookIdUrl, extractBookIdFromUrlBookId, getBookTypeByUrlBookId, pageUrls } from 'сonsts/pageUrls'
 
 /** Наполняет Хранилище данными для начала работы */
 export function usePopulateBooksStore() {
@@ -17,20 +17,23 @@ export function usePopulateBooksStore() {
 
 // Определяет тип текущей страницы и возвращает в виде типа
 export function useDefineCurrentPageType() {
-	const bookId = useParams().bookId as string
+	const urlBookId = useParams().bookId as string
 	const pathname = usePathname()
 
 	// Важно: не обновляем Zustand-хранилище синхронно во время рендера,
 	// чтобы избежать ошибки "Cannot update a component while rendering a different component".
 	// Обновляем pageType внутри useEffect при изменении входных данных.
 	useEffect(() => {
-		const bookType = getBookTypeByUrlBookId(bookId)
+		const bookType = getBookTypeByUrlBookId(urlBookId)
 
-		if (!bookId || !bookType) {
+		if (!urlBookId || !bookType) {
 			useBooksStore.setState({
 				pageUrlType: 'books',
 			})
-		} else if (pathname === pageUrls.books.book(bookId, bookType).path) {
+			return
+		}
+
+		if (pathname === pageUrls.books.book(urlBookId).path) {
 			useBooksStore.setState({
 				pageUrlType: 'book',
 			})
@@ -39,7 +42,7 @@ export function useDefineCurrentPageType() {
 				pageUrlType: 'chapter',
 			})
 		}
-	}, [bookId, pathname])
+	}, [urlBookId, pathname])
 }
 
 function useFetchPublicBooksAndSetToStore() {

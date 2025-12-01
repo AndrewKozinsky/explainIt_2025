@@ -25,6 +25,7 @@
 
 	@include mix.page-width(vars.$books-desktop-width) {
 		display: block;
+		width: 33%;
 	}
 }
 .books-page-content__item--always-visible {

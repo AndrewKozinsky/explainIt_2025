@@ -6,14 +6,14 @@ export class BookPublicOutModel {
 	@Field(() => Int)
 	id: number
 
-	@Field(() => String, { nullable: true })
-	author: string | null
+	@Field(() => String)
+	author: string
 
-	@Field(() => String, { nullable: true })
-	name: string | null
+	@Field(() => String)
+	name: string
 
-	@Field(() => String, { nullable: true })
-	note: string | null
+	@Field(() => String)
+	note: string
 
 	@Field(() => String)
 	cover: string

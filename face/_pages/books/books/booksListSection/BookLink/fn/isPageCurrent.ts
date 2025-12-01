@@ -1,5 +1,5 @@
 import { routesUtils } from '@/utils/routes'
-import { pageUrls } from '@/сonsts/pageUrls'
+import { createBookIdUrl, pageUrls } from '@/сonsts/pageUrls'
 
 /**
  * Возвращает статус ссылки для визуальной подсветки:
@@ -10,7 +10,8 @@ import { pageUrls } from '@/сonsts/pageUrls'
  * @param bookId — id of book
  */
 export function useGetBookLinkStatus(bookId: number, bookType: 'public' | 'private'): 'idle' | 'current' | 'nested' {
-	const pageUrl = pageUrls.books.book(bookId, bookType).path
+	const bookIdInUrl = createBookIdUrl(bookId, bookType)
+	const pageUrl = pageUrls.books.book(bookIdInUrl).path
 
 	const isCurrentPage = routesUtils.useIsCurrentPage(pageUrl)
 	const isNestedPage = routesUtils.useIsCurrentPage(pageUrl)

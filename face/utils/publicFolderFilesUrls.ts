@@ -15,4 +15,7 @@ export const publicFolderFilesUrls = {
 			navArrowRight: 'navArrowRight.svg',
 		},
 	},
+	books: {
+		covers: '/books/covers/',
+	},
 }

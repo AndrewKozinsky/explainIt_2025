@@ -10,8 +10,12 @@ import { chapter_2_3 } from './chapter_2_3'
 export const solomonMinesBookData = {
 	author: 'Henry Rider Haggard',
 	name: 'King Solomon\'s mines',
-	note: 'A quest for a lost diamond mine in the unexplored heart of Africa.',
-	cover: 'https://m.media-amazon.com/images/I/81bF35Bi8zL._SY522_.jpg',
+	note: `Погоня за легендарными алмазами в самом сердце неисследованной Африки. Охотник Аллан Квотермейн ведёт двух джентльменов через смертоносные пустыни, заснеженные горы и земли воинственных племён, чтобы найти потерянные сокровища и пропавшего брата.
+
+Это эталон приключенческого романа: закрученный сюжет, экзотические опасности, предательства и кодекс чести, где богатство — не главная цель. Хаггард создал мир, который вдохновил «Индиану Джонса». Читается на одном дыхании.
+
+Уровень B2-C1.`,
+	cover: 'solomonMines.webp',
 }
 
 export const solomonMinesChapters = [

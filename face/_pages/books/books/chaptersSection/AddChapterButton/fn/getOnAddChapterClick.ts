@@ -3,7 +3,7 @@ import { useCallback, useState } from 'react'
 import { Book_GetUserBooksDocument, useBookChapter_Create } from '@/graphql'
 import { NotifyArg } from '@/ui/Notification/context'
 import { useBooksStore } from '_pages/books/books/booksStore'
-import { pageUrls } from 'сonsts/pageUrls'
+import { createBookIdUrl, pageUrls } from 'сonsts/pageUrls'
 
 export function useGetOnAddChapterClick(notify: (data: NotifyArg) => void) {
 	const privateBook = useBooksStore((s) => s.privateBook)
@@ -21,6 +21,8 @@ export function useGetOnAddChapterClick(notify: (data: NotifyArg) => void) {
 			}
 
 			setStatus('loading')
+
+			let createdChapterId: string | number | null = null
 
 			try {
 				const { data, errors } = await createChapter({
@@ -45,12 +47,17 @@ export function useGetOnAddChapterClick(notify: (data: NotifyArg) => void) {
 					throw new Error('Не удалось создать главу.')
 				}
 
-				// Open a page with created chapter
-				redirect(pageUrls.books.book(chapterId, 'private').chapter(chapterId).path)
+				createdChapterId = chapterId
 			} catch (error) {
 				notify({ type: 'error', message: 'Не удалось создать главу.' })
 			} finally {
 				setStatus('idle')
+			}
+
+			if (createdChapterId) {
+				const bookIdInUrl = createBookIdUrl(privateBook.id, 'private')
+				// Open a page with created chapter
+				redirect(pageUrls.books.book(bookIdInUrl).chapter(createdChapterId).path)
 			}
 		},
 		[privateBook, createChapter, notify],

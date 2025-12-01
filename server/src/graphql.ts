@@ -167,9 +167,9 @@ export interface BookChapterOutModel {
 
 export interface BookPublicOutModel {
     id: number;
-    author?: Nullable<string>;
-    name?: Nullable<string>;
-    note?: Nullable<string>;
+    author: string;
+    name: string;
+    note: string;
     cover: string;
     chapters: BookChapterLiteOutModel[];
 }

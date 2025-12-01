@@ -1,7 +1,7 @@
 import { useGetOnBookLinkClick } from '_pages/books/books/booksListSection/BookLink/fn/onClick'
 import { BooksTest } from '_pages/books/books/booksTest'
 import Paragraph from '@/ui/Paragraph/Paragraph'
-import { pageUrls } from '@/сonsts/pageUrls'
+import { createBookIdUrl, pageUrls } from '@/сonsts/pageUrls'
 import cn from 'classnames'
 import ContentLinkWrapper from '../../common/ContentLinkWrapper/ContentLinkWrapper'
 import { useGetBookLinkStatus } from './fn/isPageCurrent'
@@ -22,10 +22,11 @@ function BookLink(props: BookLinkProps) {
 
 	const bookLinkStatus = useGetBookLinkStatus(id, bookType)
 	const onBookLinkClick = useGetOnBookLinkClick()
+	const bookIdInUrl = createBookIdUrl(id, bookType)
 
 	return (
 		<ContentLinkWrapper
-			href={pageUrls.books.book(id, bookType).path}
+			href={pageUrls.books.book(bookIdInUrl).path}
 			status={bookLinkStatus}
 			dataTestId={BooksTest.booksList.bookLinkItem(id)}
 			onClick={onBookLinkClick}

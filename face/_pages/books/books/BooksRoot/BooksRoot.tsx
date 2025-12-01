@@ -1,13 +1,11 @@
 import { getSectionClasses } from '_pages/books/books/BooksRoot/fn/getSectionClasses'
-import { BooksStore, useBooksStore } from '_pages/books/books/booksStore'
+import { useBooksStore } from '_pages/books/books/booksStore'
 import MobileNavigation from '_pages/books/books/MobileNavigation/MobileNavigation'
-import cn from 'classnames'
 import { usePopulateBooksStore } from './fn/populateBooksStore'
 import { BooksTest } from '_pages/books/books/booksTest'
 import BooksSection from '../booksListSection/BooksSection/BooksSection'
 import ChaptersSection from '_pages/books/books/chaptersSection/ChaptersSection/ChaptersSection'
-// import EditableFormSection from '../editableFormSection/EditableFormSection/EditableFormSection'
-// import { useChangeBodyBgColor } from './fn/changeBodyBgColor'
+import DetailsSection from '_pages/books/books/detailsSection/DetailsSection/DetailsSection'
 import './BooksRoot.scss'
 
 function BooksRoot() {
@@ -35,7 +33,7 @@ function BooksRoot() {
 					className={getSectionClasses('chapter', currentMobileContentType)}
 					data-testid={BooksTest.booksRoot.editSection}
 				>
-					{/*<EditableFormSection />*/}
+					<DetailsSection />
 				</div>
 			</div>
 		</main>

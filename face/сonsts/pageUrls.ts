@@ -54,20 +54,19 @@ export const pageUrls = {
 	books: {
 		name: 'Книги',
 		path: '/books',
-		book(bookId: string | number, bookType: 'public' | 'private') {
-			const bookTypePrefix = getBookTypePrefixInUrl(bookType)
-
+		// bookId: p1 or u1
+		book(bookId: string) {
 			return {
 				name: 'Книга',
-				path: '/books/' + bookTypePrefix + bookId,
+				path: '/books/' + bookId,
 				chapter(chapterId: string | number) {
 					return {
 						name: 'Книга',
-						path: '/books/' + bookTypePrefix + bookId + '/' + chapterId,
+						path: '/books/' + bookId + '/' + chapterId,
 						reading: {
 							segment: 'reading',
 							name: 'Чтение главы',
-							path: '/books/' + bookTypePrefix + bookId + '/' + chapterId + '/reading',
+							path: '/books/' + bookId + '/' + chapterId + '/reading',
 						},
 					}
 				},
@@ -114,6 +113,10 @@ export const pageUrls = {
 
 export function getBookTypePrefixInUrl(bookType: 'public' | 'private') {
 	return bookType === 'public' ? 'p' : 'u'
+}
+
+export function createBookIdUrl(bookId: string | number, bookType: 'public' | 'private') {
+	return getBookTypePrefixInUrl(bookType) + bookId
 }
 
 export function getBookTypeByUrlBookId(urlBookId: ParamValue | undefined | null | string): null | 'public' | 'private' {

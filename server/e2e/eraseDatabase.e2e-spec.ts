@@ -4,7 +4,7 @@ import { App } from 'supertest/types'
 import { afterEachTest, beforeEachTest } from './utils/beforAndAfterTests'
 import { createApp } from './utils/createApp'
 
-describe.skip('Erase database', () => {
+describe('Erase database', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 

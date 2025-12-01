@@ -1,10 +1,10 @@
+import NoteText from '_pages/books/books/common/NoteText/NoteText'
 import AddChapterButton from '../AddChapterButton/AddChapterButton'
 import { useBooksStore } from '_pages/books/books/booksStore'
 import PublicBookChaptersList from '../PublicBookChaptersList/PublicBookChaptersList'
 import Paragraph from 'ui/Paragraph/Paragraph'
 import { SectionWithHeader } from '../../common/SectionWithHeader/SectionWithHeader'
 import PrivateBookChaptersList from '../PrivateBookChaptersList/PrivateBookChaptersList'
-import './ChaptersSection.scss'
 
 function ChaptersSection() {
 	return (
@@ -22,11 +22,7 @@ function Content() {
 	const privateBook = useBooksStore((s) => s.privateBook)
 
 	if (pageUrlType === 'books') {
-		return (
-			<Paragraph fontSize={15} extraClass='books-section__select-book-text'>
-				Выберите книгу для просмотра глав.
-			</Paragraph>
-		)
+		return <NoteText>Выберите книгу для просмотра глав.</NoteText>
 	}
 
 	if (!publicBook && !privateBook) {

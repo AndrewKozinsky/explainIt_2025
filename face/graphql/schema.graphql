@@ -76,12 +76,12 @@ type BookOutModel {
 }
 
 type BookPublicOutModel {
-  author: String
+  author: String!
   chapters: [BookChapterLiteOutModel!]!
   cover: String!
   id: Int!
-  name: String
-  note: String
+  name: String!
+  note: String!
 }
 
 input CheckTranslationInput {

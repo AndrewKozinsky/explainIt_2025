@@ -9,7 +9,7 @@ function PublicBookChaptersList() {
 	return (
 		<>
 			{publicBook.chapters.map((chapter) => {
-				return <ChapterLink bookId={publicBook.id} chapterData={chapter} bookType='public' key={chapter.id} />
+				return <ChapterLink bookId={publicBook.id} bookType='public' chapterData={chapter} key={chapter.id} />
 			})}
 		</>
 	)

@@ -9,7 +9,7 @@ function LogoutButton() {
 	const logout = useGetLogout()
 
 	return (
-		<Button onClick={logout} icon={<img src={publicFolderFilesUrls.icons.githubButtonIcon} alt='icon' />}>
+		<Button onClick={logout} icon={<img src={.icons.githubButtonIcon} alt='icon' />}>
 			Выйти из учётной записи
 		</Button>
 	)
