@@ -1,0 +1,26 @@
+@use '@/styles/variables' as vars;
+
+.edit-details-form-header {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.6rem;
+	margin-bottom: 2.4rem;
+}
+
+.edit-details-form-header__label {
+	font-size: 1.4rem;
+	line-height: 2rem;
+	font-style: italic;
+	color: vars.$grayColor-5;
+	background-color: vars.$grayColor-2;
+	border-radius: vars.$radius-1;
+	padding: 0.3rem 0.8rem;
+}
+
+.edit-details-form-header__header {
+	font-size: 5rem;
+	line-height: 5.9rem;
+	font-weight: 700;
+	font-style: italic;
+}

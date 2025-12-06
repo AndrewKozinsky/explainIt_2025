@@ -1,14 +1,14 @@
-// import { useCallback, useContext, useState } from 'react'
-// import { redirect } from 'next/navigation'
-// import { Book_GetUserBooksDocument, useBookChapter_Delete } from '@/graphql'
-// import { NotificationContext } from '@/ui//Notification/context'
-// import { pageUrls } from '@/сonsts/pageUrls'
-// import { useBooksStore } from '_pages/books/books/booksStore'
+import { useCallback, useContext, useState } from 'react'
+import { redirect } from 'next/navigation'
+import { Book_GetUserBooksDocument, useBookChapter_Delete } from '@/graphql'
+import { NotificationContext } from '@/ui//Notification/context'
+import { createBookIdUrl, pageUrls } from '@/сonsts/pageUrls'
+import { useBooksStore } from '_pages/books/books/booksStore'
 
-/*export function useGetDeleteBook() {
+export function useGetDeleteBook() {
 	// Subscribe to store to trigger re-renders if needed
 	useBooksStore((s) => s.chapter)
-	useBooksStore((s) => s.book)
+	useBooksStore((s) => s.privateBook)
 
 	const { notify } = useContext(NotificationContext)
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
@@ -18,10 +18,10 @@
 	const onDeleteChapterClick = useCallback(
 		async function () {
 			// Read fresh values from the store to avoid stale closures
-			const { chapter, book } = useBooksStore.getState()
-			if (!chapter.data || !book) return
+			const { chapter, privateBook } = useBooksStore.getState()
+			if (!chapter.data || !privateBook) return
 
-			const bookId = book.id
+			const bookId = privateBook.id
 			const chapterId = chapter.data.id
 
 			setStatus('loading')
@@ -39,7 +39,8 @@
 
 			setStatus('idle')
 
-			redirect(pageUrls.books.book(bookId).path)
+			const bookIdInUrl = createBookIdUrl(bookId, 'private')
+			redirect(pageUrls.books.book(bookIdInUrl).path)
 		},
 		[deleteChapter, notify],
 	)
@@ -48,4 +49,4 @@
 		status,
 		onDeleteChapterClick,
 	}
-}*/
+}

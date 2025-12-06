@@ -1,9 +1,9 @@
-// import { useBooksStore } from '_pages/books/books/booksStore'
-// import { useCallback, useEffect, useState } from 'react'
-// import { redirect } from 'next/navigation'
-// import { pageUrls } from '@/сonsts/pageUrls'
+import { useBooksStore } from '_pages/books/books/booksStore'
+import { useCallback, useEffect, useState } from 'react'
+import { redirect } from 'next/navigation'
+import { createBookIdUrl, pageUrls } from '@/сonsts/pageUrls'
 
-/*export function useIsReadButtonDisabled() {
+export function useIsReadButtonDisabled() {
 	const chapter = useBooksStore((s) => s.chapter)
 	const [isReadButtonDisabled, setIsReadButtonDisabled] = useState(true)
 
@@ -17,10 +17,10 @@
 	)
 
 	return isReadButtonDisabled
-}*/
+}
 
-/*export function useGetOnReadButtonClick() {
-	const book = useBooksStore((s) => s.book)
+export function useGetOnReadButtonClick() {
+	const book = useBooksStore((s) => s.privateBook)
 	const chapter = useBooksStore((s) => s.chapter)
 
 	return useCallback(
@@ -28,8 +28,9 @@
 			if (!book) return
 			if (!chapter.data) return
 
-			redirect(pageUrls.books.book(book.id).chapter(chapter.data.id).reading.path)
+			const bookIdInUrl = createBookIdUrl(book.id, 'private')
+			redirect(pageUrls.books.book(bookIdInUrl).chapter(chapter.data.id).reading.path)
 		},
 		[book, chapter],
 	)
-}*/
+}

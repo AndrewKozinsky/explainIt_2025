@@ -1,6 +1,6 @@
 import { useBooksStore } from '_pages/books/books/booksStore'
 import { useBook_GetBooksPublic, useBook_GetUserBooks } from '@/graphql'
-// import { useBookChapter_Get } from '@/graphql'
+import { useBookChapter_Get } from '@/graphql'
 import { useParams, usePathname } from 'next/navigation'
 import { useEffect } from 'react'
 import { useUserStore } from 'stores/userStore'
@@ -12,7 +12,7 @@ export function usePopulateBooksStore() {
 	useFetchPublicBooksAndSetToStore()
 	useFetchPrivateBooksAndSetToStore()
 	useSetBookToStore()
-	// useFetchChapterAndSetToStore()
+	useFetchChapterAndSetToStore()
 }
 
 // Определяет тип текущей страницы и возвращает в виде типа
@@ -151,11 +151,11 @@ function useSetBookToStore() {
 	)
 }
 
-/*function useFetchChapterAndSetToStore() {
+function useFetchChapterAndSetToStore() {
 	const chapterId = useParams().chapterId as string
 
 	const { data, error, loading } = useBookChapter_Get({
-		variables: { input: { id: parseInt(chapterId) } },
+		variables: { input: { id: parseInt(chapterId), bookType: 'private' } },
 		skip: !chapterId,
 	})
 
@@ -189,4 +189,4 @@ function useSetBookToStore() {
 		},
 		[data, error, loading],
 	)
-}*/
+}

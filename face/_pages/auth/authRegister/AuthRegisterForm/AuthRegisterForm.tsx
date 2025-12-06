@@ -91,7 +91,9 @@ function AuthRegisterForm() {
 					</Button>
 					<FormError text={formError} dataTestId={RegisterFormTest.failMessage.id} />
 					{formSuccess && (
-						<InfoBlock dataTestId={RegisterFormTest.successMessage.id}>{formSuccess}</InfoBlock>
+						<InfoBlock type='success' dataTestId={RegisterFormTest.successMessage.id}>
+							{formSuccess}
+						</InfoBlock>
 					)}
 				</FormFieldsWrapper>
 			</form>

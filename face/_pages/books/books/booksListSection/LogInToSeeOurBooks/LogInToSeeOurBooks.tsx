@@ -7,7 +7,7 @@ function LogInToSeeOurBooks() {
 			<Link href={pageUrls.auth.login.path} className='link'>
 				Войдите
 			</Link>{' '}
-			чтобы читать загруженные книги.
+			чтобы создавать и читать загруженные книги.
 		</p>
 	)
 }

@@ -10,10 +10,11 @@
 }
 
 .books-page-content__blocks {
+	position: relative;
 	display: block;
 
 	@include mix.page-width(vars.$books-desktop-width) {
-		//align-self: flex-start;
+		align-items: flex-start;
 		display: flex;
 		gap: 3rem;
 	}
@@ -24,6 +25,9 @@
 	display: none;
 
 	@include mix.page-width(vars.$books-desktop-width) {
+		position: sticky;
+		top: 1rem;
+		left: 0;
 		display: block;
 		width: 33%;
 	}

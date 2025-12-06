@@ -51,7 +51,7 @@ function useFetchChapterAndSetToStore() {
 	const chapterId = useParams().chapterId as string
 
 	const { data, error, loading } = useBookChapter_Get({
-		variables: { input: { id: parseInt(chapterId) } },
+		variables: { input: { id: parseInt(chapterId), bookType: 'private' } },
 		skip: !chapterId,
 	})
 

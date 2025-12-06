@@ -1,9 +1,9 @@
-// import { chapterStructureIntoText } from '_pages/books/commonLogic/chapterStructureIntoText/chapterStructureIntoText'
-// import { useBooksStore } from '_pages/books/books/booksStore'
-// import { ChapterTextStructure } from '_pages/books/commonLogic/chapterStructureTypes'
-// import { useEffect } from 'react'
+import { chapterStructureIntoText } from '_pages/books/commonLogic/chapterStructureIntoText/chapterStructureIntoText'
+import { useBooksStore } from '_pages/books/books/booksStore'
+import { ChapterTextStructure } from '_pages/books/commonLogic/chapterStructureTypes'
+import { useEffect } from 'react'
 
-/*export function useSetFieldValues(reset: (data: any) => void) {
+export function useSetFieldValues(reset: (data: any) => void) {
 	const chapter = useBooksStore((s) => s.chapter.data)
 
 	useEffect(() => {
@@ -16,9 +16,9 @@
 			note: chapter.note ?? '',
 		})
 	}, [chapter, reset])
-}*/
+}
 
-/*function getCorrectContent(content: string | null | undefined) {
+function getCorrectContent(content: string | null | undefined) {
 	if (!content) {
 		return ''
 	}
@@ -29,4 +29,4 @@
 	} catch (e) {
 		return ''
 	}
-}*/
+}
