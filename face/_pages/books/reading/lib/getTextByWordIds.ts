@@ -1,5 +1,4 @@
 import { getSentenceById } from '_pages/books/reading/lib/getSentenceById'
-import { useReadingStore } from '_pages/books/reading/readingStore'
 
 export function getTextByPhraseId(sentenceId: number, phraseId: number) {
 	const sentence = getSentenceById(sentenceId)
@@ -17,6 +16,7 @@ export function getTextByPhraseId(sentenceId: number, phraseId: number) {
 
 	return words.join(' ')
 }
+
 export function getTextByWordIds(sentenceId: number, wordIds: number[]) {
 	const sentence = getSentenceById(sentenceId)
 	if (!sentence) return ''

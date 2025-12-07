@@ -21,6 +21,10 @@ export interface GetBookInput {
     id: number;
 }
 
+export interface GetBookPublicInput {
+    id: number;
+}
+
 export interface GetBookChapterInput {
     bookType: string;
     id: number;
@@ -196,6 +200,7 @@ export interface IQuery {
     book_user_books(): BookOutModel[] | Promise<BookOutModel[]>;
     book_get(input: GetBookInput): BookOutModel | Promise<BookOutModel>;
     book_public_get_books(): BookPublicOutModel[] | Promise<BookPublicOutModel[]>;
+    book_public_get_book(input: GetBookPublicInput): BookPublicOutModel | Promise<BookPublicOutModel>;
     book_chapter_get(input: GetBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
 }
 

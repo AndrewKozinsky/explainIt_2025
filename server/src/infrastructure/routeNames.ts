@@ -35,6 +35,7 @@ export const RouteNames = {
 	},
 	BOOK_PUBLIC: {
 		GET_BOOKS: 'book_public_get_books',
+		GET_BOOK: 'book_public_get_book',
 	},
 	BOOK_CHAPTER: {
 		GET: 'book_chapter_get',

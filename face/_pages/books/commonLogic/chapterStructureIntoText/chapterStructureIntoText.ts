@@ -5,31 +5,31 @@ export function chapterStructureIntoText(chapterStructure: ChapterTextStructure.
 
 	for (const element of chapterStructure) {
 		switch (element.t) {
-			case 'sentence':
-				for (const part of element.parts) {
+			case 'sn':
+				for (const part of element.p) {
 					switch (part.t) {
-						case 'word':
+						case 'w':
 							text += part.v
 							break
-						case 'punctuation':
+						case 'pn':
 							text += part.v
 							break
-						case 'space':
+						case 's':
 							text += ' '
 							break
-						case 'carriageReturn':
+						case 'cr':
 							text += '\n'
 							break
 					}
 				}
 				break
-			case 'space':
+			case 's':
 				text += ' '
 				break
-			case 'carriageReturn':
+			case 'cr':
 				text += '\n'
 				break
-			case 'punctuation':
+			case 'pn':
 				text += element.v
 				break
 		}

@@ -12,8 +12,8 @@ type GetBookChapterInput = {
 
 export class GetBookChapterCommand implements ICommand {
 	constructor(
-		public userId: number,
 		public getBookChapterInput: GetBookChapterInput,
+		public userId?: number,
 	) {}
 }
 
@@ -31,11 +31,12 @@ export class GetBookChapterHandler implements ICommandHandler<GetBookChapterComm
 			bookType: getBookChapterInput.bookType,
 			id: getBookChapterInput.id,
 		})
+
 		if (!bookChapter) {
 			throw new CustomGraphQLError(errorMessage.bookChapter.notFound, ErrorCode.NotFound_404)
 		}
 
-		if (bookChapter.book.userId !== userId) {
+		if (bookChapter.book.userId && bookChapter.book.userId !== userId) {
 			throw new CustomGraphQLError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
 		}
 

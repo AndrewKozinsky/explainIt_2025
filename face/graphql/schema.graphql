@@ -167,6 +167,11 @@ input GetBookInput {
   id: Int!
 }
 
+input GetBookPublicInput {
+  """Book id"""
+  id: Int!
+}
+
 input GetTranscriptionInput {
   """Sentence in English"""
   engSentence: String!
@@ -265,6 +270,9 @@ type Query {
 
   """Get user book"""
   book_get(input: GetBookInput!): BookOutModel!
+
+  """Get public book"""
+  book_public_get_book(input: GetBookPublicInput!): BookPublicOutModel!
 
   """Get public books"""
   book_public_get_books: [BookPublicOutModel!]!

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { useParams } from 'next/navigation'
 import { pageUrls } from 'сonsts/pageUrls'
 import { useReadingStore } from '_pages/books/reading/readingStore'
 import './BookAuthorAndName.scss'
@@ -20,6 +21,7 @@ function BookAuthorAndName() {
 export default BookAuthorAndName
 
 function BookAuthorAndNameContent() {
+	const bookIdInUrl = useParams().bookId as string
 	const book = useReadingStore((s) => s.book.data)
 
 	if (book.author && !book.name) {
@@ -33,7 +35,7 @@ function BookAuthorAndNameContent() {
 		<>
 			<div className='book-author-and-name__left'>{book.author}</div>
 			<div className='book-author-and-name__right'>
-				<Link href={pageUrls.books.book(book.id).path} className='link'>
+				<Link href={pageUrls.books.book(bookIdInUrl).path} className='link'>
 					{book.name}
 				</Link>
 			</div>

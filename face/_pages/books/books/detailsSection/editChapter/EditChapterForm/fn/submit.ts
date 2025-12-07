@@ -4,7 +4,6 @@ import { textIntoChapterStructure } from '_pages/books/commonLogic/textIntoChapt
 import { useBookChapter_DeleteBookChapterPhrases, useBookChapter_Update } from '@/graphql'
 import { Book_GetUserBooksDocument } from '@/graphql'
 import { FormStatus, setErrorsToForm } from '@/utils/forms'
-import { FieldErrors } from 'react-hook-form'
 import { ChangeChapterFormData } from './form'
 
 export function useGetOnUpdateChapterFormSubmit(
@@ -24,9 +23,11 @@ export function useGetOnUpdateChapterFormSubmit(
 			setFormError(null)
 			setFormStatus('submitting')
 
-			const preparedContent = formData.content ? JSON.stringify(textIntoChapterStructure(formData.content)) : null
-
 			try {
+				const preparedContent = formData.content
+					? JSON.stringify(textIntoChapterStructure(formData.content))
+					: null
+
 				// Update chapter data
 				const { data, errors } = await updateChapter({
 					variables: {

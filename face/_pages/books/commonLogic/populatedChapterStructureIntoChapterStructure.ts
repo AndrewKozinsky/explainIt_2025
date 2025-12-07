@@ -11,12 +11,12 @@ export function populatedChapterStructureIntoChapterStructure(
 		if (structurePart.type === 'sentence') {
 			return drySentenceStructure(structurePart)
 		} else if (structurePart.type === 'space') {
-			return { t: 'space' }
+			return { t: 's' }
 		} else if (structurePart.type === 'carriageReturn') {
-			return { t: 'carriageReturn' }
+			return { t: 'cr' }
 		}
 
-		return { t: 'punctuation', v: structurePart.value }
+		return { t: 'pn', v: structurePart.value }
 	})
 }
 
@@ -24,10 +24,10 @@ function drySentenceStructure(
 	sentenceStructure: ChapterTextStructurePopulated.Sentence,
 ): ChapterTextStructure.Sentence {
 	return {
-		t: 'sentence',
-		translation: sentenceStructure.translation,
+		t: 'sn',
+		tr: sentenceStructure.translation,
 		// Составные части предложения
-		parts: drySentencePartsStructure(sentenceStructure.parts),
+		p: drySentencePartsStructure(sentenceStructure.parts),
 		// Try not to use it
 		// Соответствия между идентификаторами слов в предложении и идентификаторами фраз в базе данных с анализом фразы
 		// phrasesMapping: drySentencePhrases(sentenceStructure.phrases),
@@ -39,14 +39,14 @@ function drySentencePartsStructure(
 ): ChapterTextStructure.SentencePart[] {
 	return sentenceParts.map((part) => {
 		if (part.type === 'word') {
-			return { t: 'word', v: part.value } as const
+			return { t: 'w', v: part.value } as const
 		} else if (part.type === 'space') {
-			return { t: 'space' } as const
+			return { t: 's' } as const
 		} else if (part.type === 'carriageReturn') {
-			return { t: 'carriageReturn' } as const
+			return { t: 'cr' } as const
 		}
 
-		return { t: 'punctuation', v: part.value } as const
+		return { t: 'pn', v: part.value } as const
 	})
 }
 

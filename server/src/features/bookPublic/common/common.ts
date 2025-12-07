@@ -30,9 +30,9 @@ export function getStructuredContent(chapters: ChapterData[]): ChapterTextStruct
 	return chapters.map((chapter) => {
 		return chapter.data.map((sentence) => {
 			return {
-				t: 'sentence',
-				translation: sentence.translate,
-				parts: divideTextIntoSentenceParts(sentence.sentence),
+				t: 'sn',
+				tr: sentence.translate,
+				p: divideTextIntoSentenceParts(sentence.sentence),
 			} as ChapterTextStructure.Sentence
 		})
 	})
@@ -59,19 +59,19 @@ export function divideTextIntoSentenceParts(sentenceText: string): ChapterTextSt
 			} else {
 				i += 1
 			}
-			parts.push({ t: 'carriageReturn' })
+			parts.push({ t: 'cr' })
 			continue
 		}
 		if (ch === '\n') {
 			i += 1
-			parts.push({ t: 'carriageReturn' })
+			parts.push({ t: 'cr' })
 			continue
 		}
 
 		// Collapse consecutive spaces/tabs/nbsp into a single space token
 		if (isWhitespace(ch)) {
 			while (i < len && isWhitespace(sentenceText[i])) i++
-			parts.push({ t: 'space' })
+			parts.push({ t: 's' })
 			continue
 		}
 
@@ -96,19 +96,19 @@ export function divideTextIntoSentenceParts(sentenceText: string): ChapterTextSt
 				break
 			}
 			const word = sentenceText.slice(start, i)
-			parts.push({ t: 'word', v: word })
+			parts.push({ t: 'w', v: word })
 			continue
 		}
 
 		// Ellipsis '...' as a single punctuation token
 		if (ch === '.' && i + 2 < len && sentenceText[i + 1] === '.' && sentenceText[i + 2] === '.') {
-			parts.push({ t: 'punctuation', v: '...' })
+			parts.push({ t: 'pn', v: '...' })
 			i += 3
 			continue
 		}
 
 		// Any other symbol treated as punctuation (quotes, dashes, hyphens, commas, etc.)
-		parts.push({ t: 'punctuation', v: ch })
+		parts.push({ t: 'pn', v: ch })
 		i += 1
 	}
 

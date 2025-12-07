@@ -3,10 +3,12 @@ export namespace ChapterTextStructure {
 	export type Chapter = (Sentence | Space | CarriageReturn | Punctuation)[]
 
 	export type Sentence = {
-		t: 'sentence'
-		translation: null | string
+		// sentence
+		t: 'sn'
+		// translation
+		tr: null | string
 		// Составные части предложения
-		parts: SentencePart[]
+		p: SentencePart[]
 		// Соответствия между идентификаторами слов в предложении и идентификаторами фраз в базе данных с анализом фразы
 		// Try not to use it
 		// phrasesMapping?: { wordIds: number[]; phraseIdInDb: number }[]
@@ -15,21 +17,25 @@ export namespace ChapterTextStructure {
 	export type SentencePart = Word | Space | Punctuation | CarriageReturn
 
 	type Word = {
-		t: 'word'
+		// word
+		t: 'w'
 		v: string
 	}
 
 	type Space = {
-		t: 'space'
+		// space
+		t: 's'
 	}
 
 	type Punctuation = {
-		t: 'punctuation'
+		// punctuation
+		t: 'pn'
 		v: string
 	}
 
 	type CarriageReturn = {
-		t: 'carriageReturn'
+		// carriage return
+		t: 'cr'
 	}
 
 	export type Phrase = {

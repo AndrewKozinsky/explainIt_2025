@@ -179,6 +179,11 @@ export type GetBookInput = {
   id: Scalars['Int']['input'];
 };
 
+export type GetBookPublicInput = {
+  /** Book id */
+  id: Scalars['Int']['input'];
+};
+
 export type GetTranscriptionInput = {
   /** Sentence in English */
   engSentence: Scalars['String']['input'];
@@ -340,6 +345,8 @@ export type Query = {
   book_chapter_get: BookChapterOutModel;
   /** Get user book */
   book_get: BookOutModel;
+  /** Get public book */
+  book_public_get_book: BookPublicOutModel;
   /** Get public books */
   book_public_get_books: Array<BookPublicOutModel>;
   /** Get user books */
@@ -364,6 +371,11 @@ export type QueryBook_Chapter_GetArgs = {
 
 export type QueryBook_GetArgs = {
   input: GetBookInput;
+};
+
+
+export type QueryBook_Public_Get_BookArgs = {
+  input: GetBookPublicInput;
 };
 
 export type RegisterUserInput = {
@@ -563,6 +575,13 @@ export type Book_UpdateVariables = Exact<{
 
 
 export type Book_Update = { __typename?: 'Mutation', book_update: { __typename?: 'BookOutModel', id: number, author?: string | null, name?: string | null, note?: string | null, userId: number, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
+
+export type Book_GetBookPublicVariables = Exact<{
+  input: GetBookPublicInput;
+}>;
+
+
+export type Book_GetBookPublic = { __typename?: 'Query', book_public_get_book: { __typename?: 'BookPublicOutModel', id: number, author: string, name: string, note: string, cover: string, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
 
 export type Book_GetBooksPublicVariables = Exact<{ [key: string]: never; }>;
 
@@ -1392,6 +1411,57 @@ export function useBook_Update(baseOptions?: Apollo.MutationHookOptions<Book_Upd
 export type Book_UpdateHookResult = ReturnType<typeof useBook_Update>;
 export type Book_UpdateMutationResult = Apollo.MutationResult<Book_Update>;
 export type Book_UpdateMutationOptions = Apollo.BaseMutationOptions<Book_Update, Book_UpdateVariables>;
+export const Book_GetBookPublicDocument = gql`
+    query Book_getBookPublic($input: GetBookPublicInput!) {
+  book_public_get_book(input: $input) {
+    id
+    author
+    name
+    note
+    cover
+    chapters {
+      id
+      bookId
+      name
+      header
+      note
+    }
+  }
+}
+    `;
+
+/**
+ * __useBook_GetBookPublic__
+ *
+ * To run a query within a React component, call `useBook_GetBookPublic` and pass it any options that fit your needs.
+ * When your component renders, `useBook_GetBookPublic` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useBook_GetBookPublic({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useBook_GetBookPublic(baseOptions: Apollo.QueryHookOptions<Book_GetBookPublic, Book_GetBookPublicVariables> & ({ variables: Book_GetBookPublicVariables; skip?: boolean; } | { skip: boolean; }) ) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<Book_GetBookPublic, Book_GetBookPublicVariables>(Book_GetBookPublicDocument, options);
+      }
+export function useBook_GetBookPublicLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Book_GetBookPublic, Book_GetBookPublicVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<Book_GetBookPublic, Book_GetBookPublicVariables>(Book_GetBookPublicDocument, options);
+        }
+export function useBook_GetBookPublicSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Book_GetBookPublic, Book_GetBookPublicVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<Book_GetBookPublic, Book_GetBookPublicVariables>(Book_GetBookPublicDocument, options);
+        }
+export type Book_GetBookPublicHookResult = ReturnType<typeof useBook_GetBookPublic>;
+export type Book_GetBookPublicLazyQueryHookResult = ReturnType<typeof useBook_GetBookPublicLazyQuery>;
+export type Book_GetBookPublicSuspenseQueryHookResult = ReturnType<typeof useBook_GetBookPublicSuspenseQuery>;
+export type Book_GetBookPublicQueryResult = Apollo.QueryResult<Book_GetBookPublic, Book_GetBookPublicVariables>;
 export const Book_GetBooksPublicDocument = gql`
     query Book_getBooksPublic {
   book_public_get_books {

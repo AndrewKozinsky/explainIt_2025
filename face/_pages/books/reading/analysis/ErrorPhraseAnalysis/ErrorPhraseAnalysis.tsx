@@ -1,5 +1,5 @@
 import React from 'react'
-import { useGetErrorMessage } from '_pages/books/reading/analysis/ErrorPhraseAnalysis/fn/getPhraseData'
+import { useGetErrorMessage } from './fn/getPhraseData'
 import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
 
 function ErrorPhraseAnalysis() {

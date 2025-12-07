@@ -1,4 +1,3 @@
-import React from 'react'
 import { useGetSelectedPhrase } from '_pages/books/reading/lib/getSelectedPhraseType'
 import LoadingPhraseAnalysis from '../LoadingPhraseAnalysis/LoadingPhraseAnalysis'
 import ErrorPhraseAnalysis from '../ErrorPhraseAnalysis/ErrorPhraseAnalysis'

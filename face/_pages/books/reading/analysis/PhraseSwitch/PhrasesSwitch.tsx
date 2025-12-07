@@ -1,4 +1,4 @@
-import { useGetSelectedPhrasesConfig } from '_pages/books/reading/analysis/PhraseSwitch/fn/phrasesConfig'
+import { useGetSelectedPhrasesConfig } from './fn/phrasesConfig'
 import cn from 'classnames'
 import React from 'react'
 import { useGetSelectPhrase } from './fn/selectPhrase'

@@ -8,10 +8,11 @@ import { BookPublicRepository } from 'src/repo/bookPublic.repository'
 import { PrismaService } from 'db/prisma.service'
 import { CreateBookPublicHandler } from 'src/features/bookPublic/CreateBookPublic.command'
 import { BookPublicResolver } from './bookPublic.resolver'
+import { GetBookPublicHandler } from 'src/features/bookPublic/GetBookPublic.command'
 
 const services = [PrismaService]
 const resolvers = [BookPublicResolver]
-const commandHandlers = [CreatePublicBooksHandler, CreateBookPublicHandler, GetBooksPublicHandler]
+const commandHandlers = [CreatePublicBooksHandler, CreateBookPublicHandler, GetBooksPublicHandler, GetBookPublicHandler]
 const repositories = [BookPublicRepository, BookPublicQueryRepository, BookChapterRepository]
 
 @Module({

@@ -21,6 +21,7 @@ function HintBlockMouse() {
 		</div>
 	)
 }
+
 function HintBlockMobile() {
 	return (
 		<div className='hint-block hint-block--for-touch'>

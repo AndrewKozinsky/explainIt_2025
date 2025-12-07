@@ -1,0 +1,16 @@
+query Book_getBookPublic($input: GetBookPublicInput!) {
+	book_public_get_book(input: $input) {
+		id
+		author
+		name
+		note
+		cover
+		chapters {
+			id
+			bookId
+			name
+			header
+			note
+		}
+	}
+}
