@@ -9,9 +9,6 @@ export namespace ChapterTextStructure {
 		tr: null | string
 		// Составные части предложения
 		p: SentencePart[]
-		// Соответствия между идентификаторами слов в предложении и идентификаторами фраз в базе данных с анализом фразы
-		// Try not to use it
-		// phrasesMapping?: { wordIds: number[]; phraseIdInDb: number }[]
 	}
 
 	export type SentencePart = Word | Space | Punctuation | CarriageReturn

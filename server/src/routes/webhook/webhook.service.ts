@@ -119,6 +119,6 @@ const YooKassaPaymentSchema = z.object({
 		}),
 		paid: z.boolean(), // true
 		refundable: z.boolean(), // true
-		metadata: z.record(z.any()), // {}
+		metadata: z.record(z.any(), z.any()), // {}
 	}),
 })

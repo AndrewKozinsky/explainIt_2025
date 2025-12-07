@@ -28,9 +28,6 @@ function drySentenceStructure(
 		tr: sentenceStructure.translation,
 		// Составные части предложения
 		p: drySentencePartsStructure(sentenceStructure.parts),
-		// Try not to use it
-		// Соответствия между идентификаторами слов в предложении и идентификаторами фраз в базе данных с анализом фразы
-		// phrasesMapping: drySentencePhrases(sentenceStructure.phrases),
 	}
 }
 
