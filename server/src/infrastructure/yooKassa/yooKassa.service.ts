@@ -13,11 +13,12 @@ export class YooKassaService {
 	/**
 	 * Отправляет запрос на ЮКассу для оплаты
 	 * @param amount — текст вопроса
+	 * @param userEmail — адрес почты пользователя
 	 */
 	async createPayment(amount: number, userEmail: string) {
 		const paymentData = {
 			amount: {
-				value: amount,
+				value: amount / 100,
 				currency: 'RUB',
 			},
 			capture: true,

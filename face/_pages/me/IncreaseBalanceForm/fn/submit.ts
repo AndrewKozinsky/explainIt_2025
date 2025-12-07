@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
-import { usePayment_YookassaTopUpBalance } from '../../../../graphql'
-import { errorMessages } from '../../../../utils/errorMessages'
-import { FormStatus, setErrorsToForm } from '../../../../utils/forms'
+import { usePayment_YookassaTopUpBalance } from '@/graphql'
+import { errorMessages } from '@/utils/errorMessages'
+import { FormStatus, setErrorsToForm } from '@/utils/forms'
 import { IncreaseBalanceFormData } from './form'
 
 export function useGetIncreaseBalanceFormSubmit(
@@ -17,7 +17,7 @@ export function useGetIncreaseBalanceFormSubmit(
 
 		try {
 			const { data: topUpBalanceRes } = await topUpBalance({
-				variables: { input: { amount: formData.amount } },
+				variables: { input: { amount: formData.amount * 100 } },
 			})
 
 			if (!topUpBalanceRes || topUpBalanceRes?.payment_yookassa_top_up_balance?.confirmationUrl === null) {

@@ -9,20 +9,16 @@ export const chapter_22 = {
 				'Четверо путешественников благополучно прошли оставшуюся часть леса и, выйдя из его мрака, увидели перед собой крутой холм, покрытый сверху донизу огромными глыбами камня.',
 		},
 		{
-			sentence:
-				'“That will be a hard climb,” said the Scarecrow, “but we must get over the hill, nevertheless.”',
-			translate:
-				'«Подъём будет трудным, — сказало Пугало, — но нам всё равно нужно перебраться через холм.»',
+			sentence: '“That will be a hard climb,” said the Scarecrow, “but we must get over the hill, nevertheless.”',
+			translate: '«Подъём будет трудным, — сказало Пугало, — но нам всё равно нужно перебраться через холм.»',
 		},
 		{
 			sentence: 'So he led the way and the others followed.',
 			translate: 'И Пугало повело вперёд, а остальные последовали за ним.',
 		},
 		{
-			sentence:
-				'They had nearly reached the first rock when they heard a rough voice cry out, “Keep back!”',
-			translate:
-				'Они почти достигли первого камня, когда услышали резкий голос: «Назад!»',
+			sentence: 'They had nearly reached the first rock when they heard a rough voice cry out, “Keep back!”',
+			translate: 'Они почти достигли первого камня, когда услышали резкий голос: «Назад!»',
 		},
 		{
 			sentence: '“Who are you?” asked the Scarecrow.',
@@ -115,14 +111,11 @@ export const chapter_22 = {
 			translate: '«У тебя всё ещё есть право приказать им ещё раз.»',
 		},
 		{
-			sentence:
-				'“Very well,” she answered, and putting on the Golden Cap she uttered the magic words.',
-			translate:
-				'«Хорошо», — ответила она и, надев Золотую Шапку, произнесла волшебные слова.',
+			sentence: '“Very well,” she answered, and putting on the Golden Cap she uttered the magic words.',
+			translate: '«Хорошо», — ответила она и, надев Золотую Шапку, произнесла волшебные слова.',
 		},
 		{
-			sentence:
-				'The Monkeys were as prompt as ever, and in a few moments the entire band stood before her.',
+			sentence: 'The Monkeys were as prompt as ever, and in a few moments the entire band stood before her.',
 			translate:
 				'Обезьяны явились так же быстро, как всегда, и через несколько мгновений весь отряд уже стоял перед ней.',
 		},
@@ -233,10 +226,8 @@ export const chapter_22 = {
 			translate: '«Назовите ваше имя, и я спрошу у Глинды, примет ли она вас.»',
 		},
 		{
-			sentence:
-				'They told who they were, and the girl soldier went into the Castle.',
-			translate:
-				'Они назвали себя, и девушка‑солдат вошла в Замок.',
+			sentence: 'They told who they were, and the girl soldier went into the Castle.',
+			translate: 'Они назвали себя, и девушка‑солдат вошла в Замок.',
 		},
 		{
 			sentence:

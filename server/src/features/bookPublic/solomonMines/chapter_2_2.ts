@@ -212,9 +212,9 @@ export const chapter_2_2 = {
 		},
 		{
 			sentence:
-				'he died very quietly, and I buried him deep, with big boulders on his breast; so I do not think that the jackals can have dug him up.',
+				'He died very quietly, and I buried him deep, with big boulders on his breast; so I do not think that the jackals can have dug him up.',
 			translate:
-				'он умер очень тихо, и я похоронил его глубоко, уложив на грудь большие валуны; так что я не думаю, чтобы шакалы могли его отрыть.',
+				'Он умер очень тихо, и я похоронил его глубоко, уложив на грудь большие валуны; так что я не думаю, чтобы шакалы могли его отрыть.',
 		},
 		{
 			sentence: 'And then I came away.”',

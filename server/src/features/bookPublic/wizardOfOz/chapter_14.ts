@@ -50,13 +50,12 @@ export const chapter_14 = {
 		},
 		{
 			sentence: '“If we walk far enough,” said Dorothy, “I am sure we shall sometime come to some place.”',
-			translate: '«Если мы будем идти достаточно долго, — сказала Дороти, — я уверена, мы рано или поздно куда‑нибудь придём».',
+			translate:
+				'«Если мы будем идти достаточно долго, — сказала Дороти, — я уверена, мы рано или поздно куда‑нибудь придём».',
 		},
 		{
-			sentence:
-				'But day by day passed away, and they still saw nothing before them but the scarlet fields.',
-			translate:
-				'Но день за днём проходил, и перед ними всё так же простирались только алые поля.',
+			sentence: 'But day by day passed away, and they still saw nothing before them but the scarlet fields.',
+			translate: 'Но день за днём проходил, и перед ними всё так же простирались только алые поля.',
 		},
 		{ sentence: 'The Scarecrow began to grumble a bit.', translate: 'Пугало начал немного ворчать.' },
 		{
@@ -65,7 +64,10 @@ export const chapter_14 = {
 			translate:
 				'«Мы наверняка сбились с пути, — сказал он, — и если мы вовремя не отыщем дорогу к Изумрудному городу, я никогда не получу своих мозгов».',
 		},
-		{ sentence: '“Nor I my heart,” declared the Tin Woodman.', translate: '«И я — своего сердца», — заявил Железный Дровосек.' },
+		{
+			sentence: '“Nor I my heart,” declared the Tin Woodman.',
+			translate: '«И я — своего сердца», — заявил Железный Дровосек.',
+		},
 		{
 			sentence:
 				'“It seems to me I can scarcely wait till I get to Oz, and you must admit this is a very long journey.”',
@@ -91,12 +93,18 @@ export const chapter_14 = {
 			translate:
 				'Поэтому он высунул язык, начал тяжело дышать и посмотрел на Дороти так, будто спрашивал, что им делать дальше.',
 		},
-		{ sentence: '“Suppose we call the field mice,” she suggested.', translate: '«Давайте позовём полевых мышей», — предложила она.' },
+		{
+			sentence: '“Suppose we call the field mice,” she suggested.',
+			translate: '«Давайте позовём полевых мышей», — предложила она.',
+		},
 		{
 			sentence: '“They could probably tell us the way to the Emerald City.”',
 			translate: '«Они, вероятно, подскажут нам дорогу в Изумрудный город».',
 		},
-		{ sentence: '“To be sure they could,” cried the Scarecrow.', translate: '«Разумеется, могли бы», — воскликнул Пугало.' },
+		{
+			sentence: '“To be sure they could,” cried the Scarecrow.',
+			translate: '«Разумеется, могли бы», — воскликнул Пугало.',
+		},
 		{ sentence: '“Why didn’t we think of that before?”', translate: '«Почему мы не додумались до этого раньше?»' },
 		{
 			sentence:
@@ -135,7 +143,10 @@ export const chapter_14 = {
 			translate:
 				'Затем она заметила Золотую Шапку Дороти и сказала: «Почему бы тебе не воспользоваться чарами Шапки и не позвать к себе Крылатых Обезьян?»',
 		},
-		{ sentence: '“They will carry you to the City of Oz in less than an hour.”', translate: '«Они доставят тебя в Город Оза меньше чем за час».' },
+		{
+			sentence: '“They will carry you to the City of Oz in less than an hour.”',
+			translate: '«Они доставят тебя в Город Оза меньше чем за час».',
+		},
 		{
 			sentence: '“I didn’t know there was a charm,” answered Dorothy, in surprise.',
 			translate: '«Я не знала, что там есть чары», — удивилась Дороти.',
@@ -151,19 +162,23 @@ export const chapter_14 = {
 			translate:
 				'«Но если ты собираешься звать Крылатых Обезьян, нам нужно бежать, потому что они полны проказ и считают большим весельем дразнить нас».',
 		},
-		{ sentence: '“Won’t they hurt me?” asked the girl anxiously.', translate: '«А они не причинят мне вреда?» — тревожно спросила девочка.' },
+		{
+			sentence: '“Won’t they hurt me?” asked the girl anxiously.',
+			translate: '«А они не причинят мне вреда?» — тревожно спросила девочка.',
+		},
 		{ sentence: '“Oh, no.”', translate: '«О нет».' },
-		{ sentence: '“They must obey the wearer of the Cap.', translate: '«Они обязаны повиноваться обладателю Шапки.' },
+		{
+			sentence: '“They must obey the wearer of the Cap.',
+			translate: '«Они обязаны повиноваться обладателю Шапки.',
+		},
 		{ sentence: 'Good-bye!”', translate: 'Прощай!»' },
 		{
 			sentence: 'And she scampered out of sight, with all the mice hurrying after her.',
 			translate: 'И она стрелой скрылась из виду, и все мыши стремглав помчались за ней.',
 		},
 		{
-			sentence:
-				'Dorothy looked inside the Golden Cap and saw some words written upon the lining.',
-			translate:
-				'Дороти заглянула внутрь Золотой Шапки и увидела слова, написанные на подкладке.',
+			sentence: 'Dorothy looked inside the Golden Cap and saw some words written upon the lining.',
+			translate: 'Дороти заглянула внутрь Золотой Шапки и увидела слова, написанные на подкладке.',
 		},
 		{
 			sentence:
@@ -171,16 +186,26 @@ export const chapter_14 = {
 			translate:
 				'Она подумала, что это и есть заклинание, внимательно прочитала указания и надела Шапку на голову.',
 		},
-		{ sentence: '“Ep-pe, pep-pe, kak-ke!” she said, standing on her left foot.', translate: '«Эп‑пе, пеп‑пе, как‑ке!» — сказала она, стоя на левой ноге.' },
 		{
-			sentence:
-				'“What did you say?” asked the Scarecrow, who did not know what she was doing.',
-			translate:
-				'«Что ты сказала?» — спросило Пугало, не понимая, что она делает.',
+			sentence: '“Ep-pe, pep-pe, kak-ke!” she said, standing on her left foot.',
+			translate: '«Эп‑пе, пеп‑пе, как‑ке!» — сказала она, стоя на левой ноге.',
 		},
-		{ sentence: '“Hil-lo, hol-lo, hel-lo!” Dorothy went on, standing this time on her right foot.', translate: '«Хил‑ло, хол‑ло, хел‑ло!» — продолжала Дороти, стоя теперь на правой ноге.' },
-		{ sentence: '“Hello!” replied the Tin Woodman calmly.', translate: '«Привет!» — спокойно откликнулся Железный Дровосек.' },
-		{ sentence: '“Ziz-zy, zuz-zy, zik!” said Dorothy, who was now standing on both feet.', translate: '«Зиз‑зи, зуз‑зи, зик!» — сказала Дороти, уже стоя на обеих ногах.' },
+		{
+			sentence: '“What did you say?” asked the Scarecrow, who did not know what she was doing.',
+			translate: '«Что ты сказала?» — спросило Пугало, не понимая, что она делает.',
+		},
+		{
+			sentence: '“Hil-lo, hol-lo, hel-lo!” Dorothy went on, standing this time on her right foot.',
+			translate: '«Хил‑ло, хол‑ло, хел‑ло!» — продолжала Дороти, стоя теперь на правой ноге.',
+		},
+		{
+			sentence: '“Hello!” replied the Tin Woodman calmly.',
+			translate: '«Привет!» — спокойно откликнулся Железный Дровосек.',
+		},
+		{
+			sentence: '“Ziz-zy, zuz-zy, zik!” said Dorothy, who was now standing on both feet.',
+			translate: '«Зиз‑зи, зуз‑зи, зик!» — сказала Дороти, уже стоя на обеих ногах.',
+		},
 		{
 			sentence:
 				'This ended the saying of the charm, and they heard a great chattering and flapping of wings, as the band of Winged Monkeys flew up to them.',
@@ -192,10 +217,8 @@ export const chapter_14 = {
 			translate: 'Король низко поклонился Дороти и спросил: «Каково твоё повеление?»',
 		},
 		{
-			sentence:
-				'“We wish to go to the Emerald City,” said the child, “and we have lost our way.”',
-			translate:
-				'«Мы хотим попасть в Изумрудный город, — сказала девочка, — а мы заблудились».',
+			sentence: '“We wish to go to the Emerald City,” said the child, “and we have lost our way.”',
+			translate: '«Мы хотим попасть в Изумрудный город, — сказала девочка, — а мы заблудились».',
 		},
 		{
 			sentence:
@@ -227,15 +250,24 @@ export const chapter_14 = {
 			translate:
 				'Дороти обнаружила, что летит с удобством между двумя самыми крупными Обезьянами, и одна из них — сам Король.',
 		},
-		{ sentence: 'They had made a chair of their hands and were careful not to hurt her.', translate: 'Они сделали из своих рук кресло и старались не причинить ей вреда.' },
-		{ sentence: '“Why do you have to obey the charm of the Golden Cap?” she asked.', translate: '«Почему вы вынуждены повиноваться чарам Золотой Шапки?» — спросила она.' },
+		{
+			sentence: 'They had made a chair of their hands and were careful not to hurt her.',
+			translate: 'Они сделали из своих рук кресло и старались не причинить ей вреда.',
+		},
+		{
+			sentence: '“Why do you have to obey the charm of the Golden Cap?” she asked.',
+			translate: '«Почему вы вынуждены повиноваться чарам Золотой Шапки?» — спросила она.',
+		},
 		{
 			sentence:
 				'“That is a long story,” answered the King, with a winged laugh; “but as we have a long journey before us, I will pass the time by telling you about it, if you wish.”',
 			translate:
 				'«Это долгая история, — ответил Король со взмахом крыльев. — Но раз нам предстоит долгий полёт, я скоротаю время, рассказывая её тебе, если хочешь».',
 		},
-		{ sentence: '“I shall be glad to hear it,” she replied.', translate: '«С удовольствием послушаю», — ответила она.' },
+		{
+			sentence: '“I shall be glad to hear it,” she replied.',
+			translate: '«С удовольствием послушаю», — ответила она.',
+		},
 		{
 			sentence:
 				'“Once,” began the leader, “we were a free people, living happily in the great forest, flying from tree to tree, eating nuts and fruit, and doing just as we pleased without calling anybody master.',
@@ -252,22 +284,34 @@ export const chapter_14 = {
 			sentence: 'But we were careless and happy and full of fun, and enjoyed every minute of the day.',
 			translate: 'Но мы были беспечными, весёлыми и счастливыми и радовались каждой минуте дня.',
 		},
-		{ sentence: 'This was many years ago, long before Oz came out of the clouds to rule over this land.', translate: 'Это было много лет назад, задолго до того, как Оз сошёл из облаков править этой страной.' },
+		{
+			sentence: 'This was many years ago, long before Oz came out of the clouds to rule over this land.',
+			translate: 'Это было много лет назад, задолго до того, как Оз сошёл из облаков править этой страной.',
+		},
 		{
 			sentence:
 				'There lived here then, away at the North, a beautiful princess, who was also a powerful sorceress.',
 			translate:
 				'Тогда здесь, на далёком Севере, жила прекрасная принцесса, которая также была могущественной волшебницей.',
 		},
-		{ sentence: 'All her magic was used to help the people, and she was never known to hurt anyone who was good.', translate: 'Все свои чары она употребляла на благо людей и никогда не вредила тем, кто добр.' },
-		{ sentence: 'Her name was Gayelette, and she lived in a handsome palace built from great blocks of ruby.', translate: 'Звали её Гайелетт, и жила она в прекрасном дворце, сложенном из огромных рубиновых блоков.' },
+		{
+			sentence: 'All her magic was used to help the people, and she was never known to hurt anyone who was good.',
+			translate: 'Все свои чары она употребляла на благо людей и никогда не вредила тем, кто добр.',
+		},
+		{
+			sentence: 'Her name was Gayelette, and she lived in a handsome palace built from great blocks of ruby.',
+			translate: 'Звали её Гайелетт, и жила она в прекрасном дворце, сложенном из огромных рубиновых блоков.',
+		},
 		{
 			sentence:
 				'Everyone loved her, but her greatest sorrow was that she could find no one to love in return, since all the men were much too stupid and ugly to mate with one so beautiful and wise.',
 			translate:
 				'Все её любили, но самым большим её горем было то, что она не находила себе любви в ответ: все мужчины были слишком глупы и некрасивы, чтобы сочетаться с такой прекрасной и мудрой.',
 		},
-		{ sentence: 'At last, however, she found a boy who was handsome and manly and wise beyond his years.', translate: 'Однако наконец она нашла юношу красивого, мужественного и мудрого не по годам.' },
+		{
+			sentence: 'At last, however, she found a boy who was handsome and manly and wise beyond his years.',
+			translate: 'Однако наконец она нашла юношу красивого, мужественного и мудрого не по годам.',
+		},
 		{
 			sentence:
 				'Gayelette made up her mind that when he grew to be a man she would make him her husband, so she took him to her ruby palace and used all her magic powers to make him as strong and good and lovely as any woman could wish.',
@@ -286,7 +330,11 @@ export const chapter_14 = {
 			translate:
 				'Мой дед в то время был Королём Крылатых Обезьян, живших в лесу у дворца Гайелетт, и старина любил хорошую шутку больше, чем вкусный обед.',
 		},
-		{ sentence: 'One day, just before the wedding, my grandfather was flying out with his band when he saw Quelala walking beside the river.', translate: 'Однажды, накануне свадьбы, дед летал со своей ватагой и увидел Куелалу, шедшего вдоль реки.' },
+		{
+			sentence:
+				'One day, just before the wedding, my grandfather was flying out with his band when he saw Quelala walking beside the river.',
+			translate: 'Однажды, накануне свадьбы, дед летал со своей ватагой и увидел Куелалу, шедшего вдоль реки.',
+		},
 		{
 			sentence:
 				'He was dressed in a rich costume of pink silk and purple velvet, and my grandfather thought he would see what he could do.',
@@ -299,7 +347,10 @@ export const chapter_14 = {
 			translate:
 				'По его слову ватага спустилась вниз, схватила Куелалу, несла его на руках, пока не оказалась над серединой реки, а затем бросила в воду.',
 		},
-		{ sentence: '“‘Swim out, my fine fellow,’ cried my grandfather, ‘and see if the water has spotted your clothes.’', translate: '«Плыви к берегу, красавчик, — крикнул мой дед, — и посмотри, испачкала ли вода твою одежду».',
+		{
+			sentence:
+				'“‘Swim out, my fine fellow,’ cried my grandfather, ‘and see if the water has spotted your clothes.’',
+			translate: '«Плыви к берегу, красавчик, — крикнул мой дед, — и посмотри, испачкала ли вода твою одежду».',
 		},
 		{
 			sentence:
@@ -307,9 +358,19 @@ export const chapter_14 = {
 			translate:
 				'Куелала был слишком разумен, чтобы не уметь плавать, и его нисколько не испортили все его удачи.',
 		},
-		{ sentence: 'He laughed, when he came to the top of the water, and swam in to shore.', translate: 'Когда он вынырнул, то рассмеялся и поплыл к берегу.' },
-		{ sentence: 'But when Gayelette came running out to him she found his silks and velvet all ruined by the river.', translate: 'Но когда Гайелетт выбежала к нему, она увидела, что его шёлк и бархат испорчены речной водой.' },
-		{ sentence: '“The princess was angry, and she knew, of course, who did it.', translate: '«Принцесса рассердилась и, конечно же, знала, кто это сделал.' },
+		{
+			sentence: 'He laughed, when he came to the top of the water, and swam in to shore.',
+			translate: 'Когда он вынырнул, то рассмеялся и поплыл к берегу.',
+		},
+		{
+			sentence:
+				'But when Gayelette came running out to him she found his silks and velvet all ruined by the river.',
+			translate: 'Но когда Гайелетт выбежала к нему, она увидела, что его шёлк и бархат испорчены речной водой.',
+		},
+		{
+			sentence: '“The princess was angry, and she knew, of course, who did it.',
+			translate: '«Принцесса рассердилась и, конечно же, знала, кто это сделал.',
+		},
 		{
 			sentence:
 				'She had all the Winged Monkeys brought before her, and she said at first that their wings should be tied and they should be treated as they had treated Quelala, and dropped in the river.',
@@ -322,14 +383,22 @@ export const chapter_14 = {
 			translate:
 				'Но мой дед горячо молил о пощаде, ведь он знал, что Обезьяны утонут в реке со связанными крыльями, и Куелала тоже замолвил за них доброе слово; поэтому Гайелетт в итоге пощадила их при условии, что отныне Крылатые Обезьяны трижды исполнят повеление владельца Золотой Шапки.',
 		},
-		{ sentence: 'This Cap had been made for a wedding present to Quelala, and it is said to have cost the princess half her kingdom.', translate: 'Эта Шапка была изготовлена в качестве свадебного подарка Куелале, и говорят, что она обошлась принцессе в половину царства.' },
+		{
+			sentence:
+				'This Cap had been made for a wedding present to Quelala, and it is said to have cost the princess half her kingdom.',
+			translate:
+				'Эта Шапка была изготовлена в качестве свадебного подарка Куелале, и говорят, что она обошлась принцессе в половину царства.',
+		},
 		{
 			sentence:
 				'Of course my grandfather and all the other Monkeys at once agreed to the condition, and that is how it happens that we are three times the slaves of the owner of the Golden Cap, whosoever he may be.”',
 			translate:
 				'Разумеется, мой дед и все прочие Обезьяны тотчас согласились на это условие, и так случилось, что мы трижды рабы владельца Золотой Шапки — кто бы им ни был.»',
 		},
-		{ sentence: '“And what became of them?” asked Dorothy, who had been greatly interested in the story.', translate: '«И что с ними стало?» — спросила Дороти, которую очень заинтересовал рассказ.' },
+		{
+			sentence: '“And what became of them?” asked Dorothy, who had been greatly interested in the story.',
+			translate: '«И что с ними стало?» — спросила Дороти, которую очень заинтересовал рассказ.',
+		},
 		{
 			sentence:
 				'“Quelala being the first owner of the Golden Cap,” replied the Monkey, “he was the first to lay his wishes upon us.',
@@ -348,20 +417,37 @@ export const chapter_14 = {
 			translate:
 				'«Это было всё, что мы когда‑либо должны были делать, пока Золотая Шапка не попала в руки Злой Ведьмы Запада, которая заставила нас поработить Винков, а затем изгнать самого Оза из Страны Запада.',
 		},
-		{ sentence: 'Now the Golden Cap is yours, and three times you have the right to lay your wishes upon us.”', translate: 'Теперь Золотая Шапка — твоя, и ты трижды имеешь право возложить на нас свои повеления».' },
-		{ sentence: 'As the Monkey King finished his story Dorothy looked down and saw the green, shining walls of the Emerald City before them.', translate: 'Когда Король Обезьян закончил свою историю, Дороти посмотрела вниз и увидела перед ними зелёные, сияющие стены Изумрудного города.' },
-		{ sentence: 'She wondered at the rapid flight of the Monkeys, but was glad the journey was over.', translate: 'Её удивляла стремительность полёта Обезьян, но она радовалась, что путешествие завершилось.' },
+		{
+			sentence: 'Now the Golden Cap is yours, and three times you have the right to lay your wishes upon us.”',
+			translate: 'Теперь Золотая Шапка — твоя, и ты трижды имеешь право возложить на нас свои повеления».',
+		},
+		{
+			sentence:
+				'As the Monkey King finished his story Dorothy looked down and saw the green, shining walls of the Emerald City before them.',
+			translate:
+				'Когда Король Обезьян закончил свою историю, Дороти посмотрела вниз и увидела перед ними зелёные, сияющие стены Изумрудного города.',
+		},
+		{
+			sentence: 'She wondered at the rapid flight of the Monkeys, but was glad the journey was over.',
+			translate: 'Её удивляла стремительность полёта Обезьян, но она радовалась, что путешествие завершилось.',
+		},
 		{
 			sentence:
 				'The strange creatures set the travelers down carefully before the gate of the City, the King bowed low to Dorothy, and then flew swiftly away, followed by all his band.',
 			translate:
 				'Диковинные создания бережно опустили путешественников перед городскими воротами, Король низко поклонился Дороти, а затем стремительно улетел, и весь его отряд последовал за ним.',
 		},
-		{ sentence: '“That was a good ride,” said the little girl.', translate: '«Это была хорошая поездка», — сказала девочка.' },
+		{
+			sentence: '“That was a good ride,” said the little girl.',
+			translate: '«Это была хорошая поездка», — сказала девочка.',
+		},
 		{
 			sentence: '“Yes, and a quick way out of our troubles,” replied the Lion.',
 			translate: '«Да, и быстрый способ выбраться из бед», — ответил Лев.',
 		},
-		{ sentence: '“How lucky it was you brought away that wonderful Cap!”', translate: '«Как же нам повезло, что ты взяла с собой эту чудесную Шапку!»' },
-		],
+		{
+			sentence: '“How lucky it was you brought away that wonderful Cap!”',
+			translate: '«Как же нам повезло, что ты взяла с собой эту чудесную Шапку!»',
+		},
+	],
 }

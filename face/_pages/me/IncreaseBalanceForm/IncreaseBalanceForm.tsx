@@ -37,7 +37,7 @@ function IncreaseBalanceForm() {
 		<form onSubmit={handleSubmit(onSubmit)} data-testid={IncreaseBalanceFormTest.form.id}>
 			<FormFieldsWrapper>
 				<TextInput
-					label='Пополнение баланса (от 10 рублей)'
+					label='Пополнение баланса (от 5 рублей)'
 					error={errors.amount?.message}
 					dataTestId={IncreaseBalanceFormTest.amountField.id}
 					inputProps={{

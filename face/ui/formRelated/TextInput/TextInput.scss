@@ -24,6 +24,10 @@
 	&::placeholder {
 		color: vars.$grayColor-3;
 	}
+
+	&:focus {
+		box-shadow: 0 0 0 1px vars.$linkColor-2;
+	}
 }
 
 .text-input__counter {

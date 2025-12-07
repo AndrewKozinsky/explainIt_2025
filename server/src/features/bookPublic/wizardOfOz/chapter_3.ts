@@ -47,8 +47,7 @@ export const chapter_3 = {
 		{
 			sentence:
 				'The girl washed herself carefully, dressed herself in the clean gingham, and tied her pink sunbonnet on her head.',
-			translate:
-				'Девочка тщательно умылась, надела чистое клетчатое платье и повязала на голову розовый капор.',
+			translate: 'Девочка тщательно умылась, надела чистое клетчатое платье и повязала на голову розовый капор.',
 		},
 		{
 			sentence:
