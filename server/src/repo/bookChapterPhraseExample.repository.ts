@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common'
-import { BookChapterPhraseExample } from '@prisma/client'
+import { BookChapterPhraseExample } from 'prisma/generated/client'
 import { BookChapterPhraseExampleServiceModel } from 'src/models/bookChapterPhraseExample/bookChapterPhraseExample.service.model'
 import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'

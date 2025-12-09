@@ -38,19 +38,20 @@ export const chapter_3_3 = {
 		},
 		{
 			sentence:
-				'Sir Henry and Good slept in a tent pitched in my little grove of orange trees at the end of the garden, for there was no room for them in the house, and what with the smell of the bloom, and the sight of the green and golden fruit—in Durban you will see all three on the tree together—I daresay it is a pleasant place enough, for we have few mosquitos here on the Berea, unless there happens to come an unusually heavy rain.',
+				'Sir Henry and Good slept in a tent pitched in my little grove of orange trees at the end of the garden, for there was no room for them in the house, and what with the smell of the bloom, and the sight of the green and golden fruit—in Durban you will see all three on the tree together — I daresay it is a pleasant place enough, for we have few mosquitos here on the Berea, unless there happens to come an unusually heavy rain.',
 			translate:
 				'Сэр Генри и Гуд спали в палатке, поставленной в моей маленькой роще апельсиновых деревьев в конце сада, потому что в доме для них не было места; а уж с запахом цветения и видом зелёных и золотых плодов — в Дурбане вы увидите все три стадии разом на одном дереве — полагаю, место это весьма приятно, да и комаров у нас на Берее немного, если только не случится необычно сильный дождь.',
 		},
 		{
 			sentence:
-				'Well, to get on—for if I do not, Harry, you will be tired of my story before ever we fetch up at Suliman’s Mountains—having once made up my mind to go I set about making the necessary preparations.',
+				'Well, to get on — for if I do not, Harry, you will be tired of my story before ever we fetch up at Suliman’s Mountains—having once made up my mind to go I set about making the necessary preparations.',
 			translate:
 				'Ну, ближе к делу — иначе, Гарри, ты устанешь от моего рассказа ещё до того, как мы доберёмся до гор Сулиман, — раз уж я решил идти, то принялся за необходимые приготовления.',
 		},
 		{
 			sentence: 'First I secured the deed from Sir Henry, providing for you, my boy, in case of accidents.',
-			translate: 'Прежде всего я получил у сэра Генри акт, обеспечивающий тебя, мальчик мой, на случай несчастья.',
+			translate:
+				'Прежде всего я получил у сэра Генри акт, обеспечивающий тебя, мальчик мой, на случай несчастья.',
 		},
 		{
 			sentence:
@@ -75,8 +76,10 @@ export const chapter_3_3 = {
 				'Это был двадцатидвухфутовый фургон с железными осями, очень крепкий, очень лёгкий и весь из стинквуда; не совсем новый — уже сходил на Алмазные прииски и обратно, — но, на мой взгляд, тем и лучше: я видел, что древесина хорошо выдержана.',
 		},
 		{
-			sentence: 'If anything is going to give in a wagon, or if there is green wood in it, it will show out on the first trip.',
-			translate: 'Если в фургоне чему‑то суждено подвести, или если в нём есть сырой лес, это проявится уже в первом рейсе.',
+			sentence:
+				'If anything is going to give in a wagon, or if there is green wood in it, it will show out on the first trip.',
+			translate:
+				'Если в фургоне чему‑то суждено подвести, или если в нём есть сырой лес, это проявится уже в первом рейсе.',
 		},
 		{
 			sentence:
@@ -169,8 +172,7 @@ export const chapter_3_3 = {
 				'Разумеется, диплома у него нет, но, как мы впоследствии убедились, он знает в этом деле больше, чем иной, кто вправе приписывать к имени M.D.; к тому же у него был превосходный походный аптечный ящик и набор инструментов.',
 		},
 		{
-			sentence:
-				'Whilst we were at Durban he cut off a Kafir’s big toe in a way which it was a pleasure to see.',
+			sentence: 'Whilst we were at Durban he cut off a Kafir’s big toe in a way which it was a pleasure to see.',
 			translate:
 				'Пока мы были в Дурбане, он отнял у кафра большой палец на ноге — так, что было приятно смотреть.',
 		},
