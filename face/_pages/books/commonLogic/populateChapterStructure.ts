@@ -21,8 +21,6 @@ export function populateChapterStructure(chapter: {
 			return populateSentenceStructure(currentId, item, chapter.phrases)
 		} else if (item.t === 's') {
 			return { id: currentId, type: 'space' }
-		} else if (item.t === 'cr') {
-			return { id: currentId, type: 'carriageReturn' }
 		}
 
 		return { id: currentId, type: 'punctuation', value: item.v }
@@ -63,8 +61,6 @@ function populateSentencePartsStructure(
 			return { id: partId, type: 'word', value: part.v } as const
 		} else if (part.t === 's') {
 			return { id: partId, type: 'space' } as const
-		} else if (part.t === 'cr') {
-			return { id: partId, type: 'carriageReturn' } as const
 		}
 		return { id: partId, type: 'punctuation', value: part.v } as const
 	})

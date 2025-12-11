@@ -1,1 +1,0 @@
-Let's rewrite function textIntoChapterStructure @textIntoChapterStructure.ts . It takes some text and divide it into sentences, then creates a structure of type ChapterTextStructure.Chapter. I need more simple logic. Remove difficult rules. Just divide text into sentences and resolve it into the structure.

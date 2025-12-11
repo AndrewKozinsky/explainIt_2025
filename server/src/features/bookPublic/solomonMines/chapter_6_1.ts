@@ -1,6 +1,6 @@
 export const chapter_6_1 = {
-	name: 'Chapter VI (1)',
-	header: 'Water! Water! (1)',
+	name: 'Chapter VI',
+	header: 'Water! Water!',
 	data: [
 		{
 			sentence:

@@ -1,6 +1,6 @@
 // Тип данных для структуры текста приходящий с сервера
 export namespace ChapterTextStructure {
-	export type Chapter = (Sentence | Space | CarriageReturn | Punctuation)[]
+	export type Chapter = Sentence[]
 
 	export type Sentence = {
 		// sentence
@@ -11,7 +11,7 @@ export namespace ChapterTextStructure {
 		p: SentencePart[]
 	}
 
-	export type SentencePart = Word | Space | Punctuation | CarriageReturn
+	export type SentencePart = Word | Space | Punctuation
 
 	type Word = {
 		// word
@@ -27,12 +27,8 @@ export namespace ChapterTextStructure {
 	type Punctuation = {
 		// punctuation
 		t: 'pn'
+		// value
 		v: string
-	}
-
-	type CarriageReturn = {
-		// carriage return
-		t: 'cr'
 	}
 
 	export type Phrase = {
@@ -64,7 +60,7 @@ export namespace ChapterTextStructurePopulated {
 		parts: Part[]
 	}
 
-	export type Part = Sentence | Space | CarriageReturn | Punctuation
+	export type Part = Sentence | Space | Punctuation
 
 	export type Sentence = {
 		id: number
@@ -75,7 +71,7 @@ export namespace ChapterTextStructurePopulated {
 		phrases: Phrase[]
 	}
 
-	export type SentencePart = Word | Space | Punctuation | CarriageReturn
+	export type SentencePart = Word | Space | Punctuation
 
 	export type Word = {
 		id: number
@@ -92,11 +88,6 @@ export namespace ChapterTextStructurePopulated {
 		id: number
 		type: 'punctuation'
 		value: string
-	}
-
-	type CarriageReturn = {
-		id: number
-		type: 'carriageReturn'
 	}
 
 	export type Phrase = LoadingPhrase | ErrorPhrase | SuccessPhrase

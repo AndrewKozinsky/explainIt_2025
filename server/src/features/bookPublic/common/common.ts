@@ -46,27 +46,11 @@ export function divideTextIntoSentenceParts(sentenceText: string): ChapterTextSt
 	const len = sentenceText.length
 
 	const isAlphaNum = (ch: string) => /[A-Za-z0-9]/.test(ch)
-	const isWhitespace = (ch: string) => ch === ' ' || ch === '\t' || ch === '\u00A0'
+	const isWhitespace = (ch: string) => ch === ' ' || ch === '\t' || ch === '\u00A0' || ch === '\n' || ch === '\r'
 	const isApostrophe = (ch: string) => ch === '\'' || ch === '’'
 
 	while (i < len) {
 		const ch = sentenceText[i]
-
-		// Handle new lines (\r\n as single CR, or standalone \r / \n)
-		if (ch === '\r') {
-			if (i + 1 < len && sentenceText[i + 1] === '\n') {
-				i += 2
-			} else {
-				i += 1
-			}
-			parts.push({ t: 'cr' })
-			continue
-		}
-		if (ch === '\n') {
-			i += 1
-			parts.push({ t: 'cr' })
-			continue
-		}
 
 		// Collapse consecutive spaces/tabs/nbsp into a single space token
 		if (isWhitespace(ch)) {

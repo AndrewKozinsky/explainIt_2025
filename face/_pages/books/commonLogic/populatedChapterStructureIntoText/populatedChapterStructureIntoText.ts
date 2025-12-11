@@ -13,8 +13,6 @@ export function populatedChapterStructureIntoText(chapterSentences: ChapterTextS
 					result += ' '
 				} else if (part.type === 'punctuation') {
 					result += part.value
-				} else if (part.type === 'carriageReturn') {
-					result += '\n'
 				}
 			}
 			continue
@@ -26,8 +24,6 @@ export function populatedChapterStructureIntoText(chapterSentences: ChapterTextS
 			result += ' '
 		} else if (t === 'punctuation') {
 			result += (item as any).value
-		} else if (t === 'carriageReturn') {
-			result += '\n'
 		}
 	}
 

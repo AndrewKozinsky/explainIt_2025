@@ -1,4 +1,3 @@
-import CarriageReturn from '../parts/CarriageReturn'
 import Punctuation from '../parts/Punctuation'
 import Space from '../parts/Space'
 import { useReadingStore } from '_pages/books/reading/readingStore'
@@ -18,8 +17,6 @@ function ChapterContent() {
 					return <Space key={sentence.id} />
 				} else if (sentence.type === 'punctuation') {
 					return <Punctuation key={sentence.id} value={sentence.value} />
-				} else if (sentence.type === 'carriageReturn') {
-					return <CarriageReturn key={sentence.id} />
 				}
 				return null
 			})}

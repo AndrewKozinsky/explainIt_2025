@@ -1,6 +1,6 @@
 export const chapter_3_1 = {
-	name: 'Chapter III (1)',
-	header: 'Umbora enters our service (1)',
+	name: 'Chapter III',
+	header: 'Umbora enters our service',
 	data: [
 		{
 			sentence:
@@ -59,8 +59,7 @@ export const chapter_3_1 = {
 		{
 			sentence:
 				'Well, all the time that we were steaming up to Natal I was thinking over Sir Henry Curtis’s offer.',
-			translate:
-				'Всю дорогу, пока мы шли паром к Наталю, я обдумывал предложение сэра Генри Кёртиса.',
+			translate: 'Всю дорогу, пока мы шли паром к Наталю, я обдумывал предложение сэра Генри Кёртиса.',
 		},
 		{
 			sentence:

@@ -6,122 +6,97 @@ import { ChapterTextStructure } from '../chapterStructureTypes'
  * @returns ChapterTextStructure.Chapter Structured paragraphs -> sentences -> parts
  */
 export function textIntoChapterStructure(chapterText: string): ChapterTextStructure.Chapter {
-	// Normalize newlines to \n
-	const text = chapterText.replace(/\r\n/g, '\n').replace(/\r/g, '\n')
-	const result: ChapterTextStructure.Chapter = []
+	const sentences: ChapterTextStructure.Chapter = []
 
-	let currentSentenceParts: ChapterTextStructure.SentencePart[] | null = null
-	let wordBuffer = ''
-	let punctBuffer = ''
+	let i = 0
+	const n = chapterText.length
+	let parts: ChapterTextStructure.Sentence['p'] = []
 
-	const startSentence = () => {
-		if (!currentSentenceParts) currentSentenceParts = []
+	function pushSpaceIfNeeded() {
+		if (parts.length === 0) return
+		const last = parts[parts.length - 1]
+		if (last.t !== 's') parts.push({ t: 's' })
 	}
 
-	const flushWord = () => {
-		if (wordBuffer) {
-			startSentence()
-			currentSentenceParts!.push({ t: 'w', v: wordBuffer })
-			wordBuffer = ''
+	function trimTrailingSpace() {
+		if (parts.length && parts[parts.length - 1].t === 's') parts.pop()
+	}
+
+	const isAlphaNum = (ch: string) => /[A-Za-z0-9]/.test(ch)
+	const isWhitespace = (ch: string) => /\s/.test(ch)
+	const isWordJoiner = (prev: string, cur: string, next: string) => {
+		// Allow hyphen or apostrophe as part of a word when surrounded by alphanumerics
+		if ((cur === '-' || cur === '\'' || cur === '’') && isAlphaNum(prev) && isAlphaNum(next)) return true
+		return false
+	}
+
+	while (i < n) {
+		// Skip leading whitespace for a sentence (do not add spaces between sentences)
+		if (parts.length === 0) {
+			while (i < n && isWhitespace(chapterText[i])) i++
+			if (i >= n) break
 		}
-	}
 
-	const flushPunct = () => {
-		if (punctBuffer) {
-			startSentence()
-			currentSentenceParts!.push({ t: 'pn', v: punctBuffer })
-			punctBuffer = ''
-		}
-	}
+		const ch = chapterText[i]
 
-	const pushSpacePart = () => {
-		startSentence()
-		const last = currentSentenceParts![currentSentenceParts!.length - 1]
-		if (!last || last.t !== 's') currentSentenceParts!.push({ t: 's' })
-	}
-
-	const pushCarriagePart = () => {
-		startSentence()
-		const last = currentSentenceParts![currentSentenceParts!.length - 1]
-		if (!last || last.t !== 'cr') currentSentenceParts!.push({ t: 'cr' })
-	}
-
-	const finalizeSentence = () => {
-		flushWord()
-		flushPunct()
-		if (currentSentenceParts && currentSentenceParts.length > 0) {
-			result.push({ t: 'sn', tr: null, p: currentSentenceParts })
-		}
-		currentSentenceParts = null
-	}
-
-	const isLetterOrDigit = (ch: string) => /[A-Za-z0-9]/.test(ch)
-	const isSpace = (ch: string) => ch === ' '
-	const isNewline = (ch: string) => ch === '\n'
-	const isSentenceEndPunct = (ch: string) => ch === '.' || ch === '!' || ch === '?'
-
-	// Any non-letter/digit that is not space/newline and not a sentence-ending mark
-	const isOtherPunct = (ch: string) =>
-		!isLetterOrDigit(ch) && !isSpace(ch) && !isNewline(ch) && !isSentenceEndPunct(ch)
-
-	for (let i = 0; i < text.length; i++) {
-		const ch = text[i]
-
-		// Newlines -> carriage returns
-		if (isNewline(ch)) {
-			if (currentSentenceParts) {
-				flushWord()
-				flushPunct()
-				pushCarriagePart()
-			} else {
-				// top-level carriage return
-				result.push({ t: 'cr' })
+		if (isAlphaNum(ch)) {
+			// Build a word, allowing internal hyphens/apostrophes when surrounded by alphanumerics
+			let start = i
+			i++
+			while (i < n) {
+				const cur = chapterText[i]
+				if (isAlphaNum(cur)) {
+					i++
+					continue
+				}
+				const prev = chapterText[i - 1]
+				const next = i + 1 < n ? chapterText[i + 1] : ''
+				if (isWordJoiner(prev, cur, next)) {
+					i += 1 // include joiner
+					continue
+				}
+				break
 			}
+			parts.push({ t: 'w', v: chapterText.slice(start, i) })
 			continue
 		}
 
-		// Spaces
-		if (isSpace(ch)) {
-			if (currentSentenceParts) {
-				flushWord()
-				flushPunct()
-				pushSpacePart()
+		if (isWhitespace(ch)) {
+			// Collapse any sequence of whitespace into a single space inside a sentence
+			pushSpaceIfNeeded()
+			while (i < n && isWhitespace(chapterText[i])) i++
+			continue
+		}
+
+		// Punctuation: aggregate consecutive punctuation characters
+		let pStart = i
+		let encounteredTerminator = false
+		while (i < n) {
+			const c = chapterText[i]
+			if (isAlphaNum(c) || isWhitespace(c)) break
+			if (c === '.' || c === '!' || c === '?') encounteredTerminator = true
+			i++
+		}
+		const punc = chapterText.slice(pStart, i)
+		parts.push({ t: 'pn', v: punc })
+
+		if (encounteredTerminator) {
+			// End of sentence: include trailing punctuation, trim trailing space, finalize
+			trimTrailingSpace()
+			if (parts.length) {
+				sentences.push({ t: 'sn', tr: null, p: parts })
 			}
-			// Ignore spaces between sentences at top level
-			continue
+			parts = []
+			// Skip any whitespace between sentences without adding it
+			while (i < n && isWhitespace(chapterText[i])) i++
 		}
-
-		// Sentence-ending punctuation: finish sentence
-		if (isSentenceEndPunct(ch)) {
-			startSentence()
-			flushWord()
-			punctBuffer += ch
-			// collect repeated sentence-ending chars like "?!" or "..."
-			while (i + 1 < text.length && isSentenceEndPunct(text[i + 1])) {
-				punctBuffer += text[i + 1]
-				i++
-			}
-			flushPunct()
-			finalizeSentence()
-			continue
-		}
-
-		// Other punctuation inside a sentence
-		if (isOtherPunct(ch)) {
-			startSentence()
-			flushWord()
-			punctBuffer += ch
-			flushPunct()
-			continue
-		}
-
-		// Letters/digits and any remaining characters -> word
-		startSentence()
-		wordBuffer += ch
 	}
 
-	// Flush any remaining sentence at EOF
-	if (currentSentenceParts) finalizeSentence()
+	// Flush last sentence if any content remains
+	trimTrailingSpace()
+	if (parts.length) {
+		sentences.push({ t: 'sn', tr: null, p: parts })
+	}
 
-	return result
+	return sentences
 }

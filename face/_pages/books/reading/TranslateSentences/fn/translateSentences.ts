@@ -84,7 +84,7 @@ function collectSentences(): string[] {
 			if (part.type === 'word') {
 				acc += part.value
 			}
-			if (part.type === 'space' || part.type === 'carriageReturn') {
+			if (part.type === 'space') {
 				acc += ' '
 			}
 			if (part.type === 'punctuation') {

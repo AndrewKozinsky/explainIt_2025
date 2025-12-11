@@ -1,6 +1,6 @@
 export const chapter_10_1 = {
-	name: 'Chapter X (1)',
-	header: 'The witch-hunt (1)',
+	name: 'Chapter X',
+	header: 'The witch-hunt',
 	data: [
 		{
 			sentence: 'On reaching our hut I motioned to Infadoos to enter with us.',

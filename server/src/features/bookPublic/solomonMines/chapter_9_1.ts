@@ -1,6 +1,6 @@
 export const chapter_9_1 = {
-	name: 'Chapter IX (1)',
-	header: 'Twala the king (1)',
+	name: 'Chapter IX',
+	header: 'Twala the king',
 	data: [
 		{
 			sentence: 'It will not be necessary for me to detail at length the incidents of our journey to Loo.',

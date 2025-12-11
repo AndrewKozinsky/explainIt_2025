@@ -12,8 +12,6 @@ export function populatedChapterStructureIntoChapterStructure(
 			return drySentenceStructure(structurePart)
 		} else if (structurePart.type === 'space') {
 			return { t: 's' }
-		} else if (structurePart.type === 'carriageReturn') {
-			return { t: 'cr' }
 		}
 
 		return { t: 'pn', v: structurePart.value }
@@ -39,8 +37,6 @@ function drySentencePartsStructure(
 			return { t: 'w', v: part.value } as const
 		} else if (part.type === 'space') {
 			return { t: 's' } as const
-		} else if (part.type === 'carriageReturn') {
-			return { t: 'cr' } as const
 		}
 
 		return { t: 'pn', v: part.value } as const
