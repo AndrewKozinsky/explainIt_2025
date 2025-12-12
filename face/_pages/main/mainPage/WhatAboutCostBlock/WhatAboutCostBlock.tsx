@@ -8,7 +8,7 @@ function WhatAboutCostBlock() {
 		<MainPageBlockWrapper header='Что по стоимости'>
 			<div className='what-about-cost-texts'>
 				<Paragraph fontSize={20}>
-					Каждое обращение к ИИ расходует баланс — в среднем 6–16 копеек. Стоимость зависит от сложности и
+					Каждое обращение к ИИ расходует баланс — в среднем 5–15 копеек. Стоимость зависит от сложности и
 					количества переводимых слов .
 				</Paragraph>
 				<Paragraph fontSize={20}>

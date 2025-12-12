@@ -63,6 +63,50 @@ import { chapter_12_3 } from './chapter_12_3'
 import { chapter_12_4 } from './chapter_12_4'
 import { chapter_12_5 } from './chapter_12_5'
 import { chapter_12_6 } from './chapter_12_6'
+import { chapter_13_1 } from './chapter_13_1'
+import { chapter_13_2 } from './chapter_13_2'
+import { chapter_13_3 } from './chapter_13_3'
+import { chapter_13_4 } from './chapter_13_4'
+import { chapter_13_5 } from './chapter_13_5'
+import { chapter_14_1 } from './chapter_14_1'
+import { chapter_14_2 } from './chapter_14_2'
+import { chapter_14_3 } from './chapter_14_3'
+import { chapter_14_4 } from './chapter_14_4'
+import { chapter_14_5 } from './chapter_14_5'
+import { chapter_14_6 } from './chapter_14_6'
+import { chapter_14_7 } from './chapter_14_7'
+import { chapter_14_8 } from './chapter_14_8'
+import { chapter_14_9 } from './chapter_14_9'
+import { chapter_15_1 } from './chapter_15_1'
+import { chapter_15_2 } from './chapter_15_2'
+import { chapter_15_3 } from './chapter_15_3'
+import { chapter_15_4 } from './chapter_15_4'
+import { chapter_15_5 } from './chapter_15_5'
+import { chapter_15_6 } from './chapter_15_6'
+import { chapter_16_1 } from './chapter_16_1'
+import { chapter_16_2 } from './chapter_16_2'
+import { chapter_16_3 } from './chapter_16_3'
+import { chapter_16_4 } from './chapter_16_4'
+import { chapter_16_5 } from './chapter_16_5'
+import { chapter_16_6 } from './chapter_16_6'
+import { chapter_17_1 } from './chapter_17_1'
+import { chapter_17_2 } from './chapter_17_2'
+import { chapter_17_3 } from './chapter_17_3'
+import { chapter_17_4 } from './chapter_17_4'
+import { chapter_17_5 } from './chapter_17_5'
+import { chapter_17_6 } from './chapter_17_6'
+import { chapter_18_1 } from './chapter_18_1'
+import { chapter_18_2 } from './chapter_18_2'
+import { chapter_18_3 } from './chapter_18_3'
+import { chapter_18_4 } from './chapter_18_4'
+import { chapter_18_5 } from './chapter_18_5'
+import { chapter_18_6 } from './chapter_18_6'
+import { chapter_19_1 } from './chapter_19_1'
+import { chapter_19_2 } from './chapter_19_2'
+import { chapter_19_3 } from './chapter_19_3'
+import { chapter_19_4 } from './chapter_19_4'
+import { chapter_20_1 } from './chapter_20_1'
+import { chapter_20_2 } from './chapter_20_2'
 
 export const solomonMinesBookData = {
 	author: 'Henry Rider Haggard',
@@ -137,4 +181,48 @@ export const solomonMinesChapters = [
 	chapter_12_4,
 	chapter_12_5,
 	chapter_12_6,
+	chapter_13_1,
+	chapter_13_2,
+	chapter_13_3,
+	chapter_13_4,
+	chapter_13_5,
+	chapter_14_1,
+	chapter_14_2,
+	chapter_14_3,
+	chapter_14_4,
+	chapter_14_5,
+	chapter_14_6,
+	chapter_14_7,
+	chapter_14_8,
+	chapter_14_9,
+	chapter_15_1,
+	chapter_15_2,
+	chapter_15_3,
+	chapter_15_4,
+	chapter_15_5,
+	chapter_15_6,
+	chapter_16_1,
+	chapter_16_2,
+	chapter_16_3,
+	chapter_16_4,
+	chapter_16_5,
+	chapter_16_6,
+	chapter_17_1,
+	chapter_17_2,
+	chapter_17_3,
+	chapter_17_4,
+	chapter_17_5,
+	chapter_17_6,
+	chapter_18_1,
+	chapter_18_2,
+	chapter_18_3,
+	chapter_18_4,
+	chapter_18_5,
+	chapter_18_6,
+	chapter_19_1,
+	chapter_19_2,
+	chapter_19_3,
+	chapter_19_4,
+	chapter_20_1,
+	chapter_20_2,
 ]
