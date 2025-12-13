@@ -10,7 +10,7 @@
 		"start": "nest start",
 		"start:dev": "nest start --watch",
 		"start:debug": "nest start --debug --watch",
-		"start:prod": "node dist/main",
+		"start:prod": "node dist/src/main",
 		"build": "nest build",
 		"generatePrismaFile": "ts-node src/db/prismaGenerator/generatePrismaSchemaFile.ts",
 		"generate": "prisma generate",
