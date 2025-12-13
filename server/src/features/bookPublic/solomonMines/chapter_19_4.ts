@@ -1,5 +1,5 @@
 export const chapter_19_4 = {
-	name: 'Chapter XIX (4)',
+	name: 'Chapter XIX',
 	header: 'Ignosi’s farewell (4)',
 	data: [
 		{

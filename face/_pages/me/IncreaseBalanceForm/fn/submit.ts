@@ -16,8 +16,11 @@ export function useGetIncreaseBalanceFormSubmit(
 		setFormStatus('submitting')
 
 		try {
+			// 5.77 -> 500
+			const amount = Math.floor(formData.amount) * 100
+
 			const { data: topUpBalanceRes } = await topUpBalance({
-				variables: { input: { amount: formData.amount * 100 } },
+				variables: { input: { amount } },
 			})
 
 			if (!topUpBalanceRes || topUpBalanceRes?.payment_yookassa_top_up_balance?.confirmationUrl === null) {

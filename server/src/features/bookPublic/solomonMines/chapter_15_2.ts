@@ -1,5 +1,5 @@
 export const chapter_15_2 = {
-	name: 'Chapter XV (2)',
+	name: 'Chapter XV',
 	header: 'Good falls sick (2)',
 	data: [
 		{
@@ -41,8 +41,7 @@ export const chapter_15_2 = {
 		{
 			sentence:
 				'He was delighted to see us, but much grieved at Good’s condition, and shook our hands cordially.',
-			translate:
-				'Он был рад нас видеть, но очень сокрушался о состоянии Гуда и крепко пожал нам руки.',
+			translate: 'Он был рад нас видеть, но очень сокрушался о состоянии Гуда и крепко пожал нам руки.',
 		},
 		{
 			sentence:
@@ -115,10 +114,8 @@ export const chapter_15_2 = {
 			translate: '«Здрав будь, о царь!» — сказал я, вставая.',
 		},
 		{
-			sentence:
-				'“Yes, Macumazahn. King at last, by the might of your three right hands,” was the ready answer.',
-			translate:
-				'«Да, Макумазан. Наконец‑то царь — силою ваших трёх правых рук», — последовал готовый ответ.',
+			sentence: '“Yes, Macumazahn. King at last, by the might of your three right hands,” was the ready answer.',
+			translate: '«Да, Макумазан. Наконец‑то царь — силою ваших трёх правых рук», — последовал готовый ответ.',
 		},
 		{
 			sentence:

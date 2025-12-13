@@ -1,5 +1,5 @@
 export const chapter_11_2 = {
-	name: 'Chapter XI (2)',
+	name: 'Chapter XI',
 	header: 'We give a sign (2)',
 	data: [
 		{
@@ -71,10 +71,8 @@ export const chapter_11_2 = {
 				'Но раз дело велико, и мы разгневаны на царя из‑за резни, что мы видели, и из‑за поступка Исануси Гагаулы, которая хотела предать смерти нашего друга Игноси, — мы решили нарушить правило и дать такой знак, который все смогут увидеть.',
 		},
 		{
-			sentence:
-				'Come hither”; and I led them to the door of the hut and pointed to the red ball of the moon.',
-			translate:
-				'«Подойдите сюда», — и я подвёл их к двери хижины и указал на красный шар луны.',
+			sentence: 'Come hither”; and I led them to the door of the hut and pointed to the red ball of the moon.',
+			translate: '«Подойдите сюда», — и я подвёл их к двери хижины и указал на красный шар луны.',
 		},
 		{
 			sentence: '“What see ye there?”',
@@ -119,8 +117,7 @@ export const chapter_11_2 = {
 		{
 			sentence:
 				'Yes, deep darkness shall cover the earth, and it shall be for a sign that Ignosi is indeed king of the Kukuanas.',
-			translate:
-				'Да, глубокая тьма покроет землю, и это будет знаком, что Игноси воистину король Кукуанов.',
+			translate: 'Да, глубокая тьма покроет землю, и это будет знаком, что Игноси воистину король Кукуанов.',
 		},
 		{
 			sentence: 'If we do this thing, will ye be satisfied?”',
@@ -135,8 +132,7 @@ export const chapter_11_2 = {
 		{
 			sentence:
 				'“It shall be done; we three, Incubu, Bougwan, and Macumazahn, have said it, and it shall be done.',
-			translate:
-				'«Так и будет: мы трое, Инкубу, Бугван и Макумазан, сказали это — и так и будет.',
+			translate: '«Так и будет: мы трое, Инкубу, Бугван и Макумазан, сказали это — и так и будет.',
 		},
 		{
 			sentence: 'Dost thou hear, Infadoos?”',
@@ -163,14 +159,13 @@ export const chapter_11_2 = {
 				'Сегодня, через два часа после захода солнца, Твала пошлёт за моими владыками, чтобы они увидели пляску девушек, и через час после начала пляски девушку, которую Твала сочтёт прекраснейшей, Скрагга, сын царя, убьёт в жертву Безмолвным, что сидят и стерегут у вон тех гор», — и он указал на три вершины странного вида, где, как полагали, заканчивалась дорога Соломона.',
 		},
 		{
-			sentence: '“Then let my lords darken the moon, and save the maiden’s life, and the people will believe indeed.”',
+			sentence:
+				'“Then let my lords darken the moon, and save the maiden’s life, and the people will believe indeed.”',
 			translate: '«Тогда пусть мои владыки затемнят луну и спасут жизнь девицы — и народ действительно поверит».',
 		},
 		{
-			sentence:
-				'“Ay,” said the old chief, still smiling a little, “the people will believe indeed.”',
-			translate:
-				'«Ай, — сказал старый вождь, всё ещё слегка улыбаясь, — народ и впрямь поверит».',
+			sentence: '“Ay,” said the old chief, still smiling a little, “the people will believe indeed.”',
+			translate: '«Ай, — сказал старый вождь, всё ещё слегка улыбаясь, — народ и впрямь поверит».',
 		},
 		{
 			sentence:
@@ -179,10 +174,8 @@ export const chapter_11_2 = {
 				'«В двух милях от Лу, — продолжил Инфадоос, — есть холм, изогнутый, как молодой месяц, укрепление, где стоит мой полк и ещё три полка, которыми командуют эти вожди.',
 		},
 		{
-			sentence:
-				'This morning we will make a plan whereby two or three other regiments may be moved there also.',
-			translate:
-				'Этим утром мы составим план, по которому туда можно будет перебросить ещё два‑три полка.',
+			sentence: 'This morning we will make a plan whereby two or three other regiments may be moved there also.',
+			translate: 'Этим утром мы составим план, по которому туда можно будет перебросить ещё два‑три полка.',
 		},
 		{
 			sentence:

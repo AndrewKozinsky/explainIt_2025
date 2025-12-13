@@ -1,5 +1,5 @@
 export const chapter_10_7 = {
-	name: 'Chapter X (7)',
+	name: 'Chapter X',
 	header: 'The witch-hunt (7)',
 	data: [
 		{
@@ -54,7 +54,8 @@ export const chapter_10_7 = {
 		},
 		{
 			sentence: '“Hang me if I don’t believe she is going to try her games on us,” ejaculated Good in horror.',
-			translate: '«Будь я проклят, если она не собирается пробовать свои штучки на нас», — в ужасе воскликнул Гуд.',
+			translate:
+				'«Будь я проклят, если она не собирается пробовать свои штучки на нас», — в ужасе воскликнул Гуд.',
 		},
 		{
 			sentence: '“Nonsense!” said Sir Henry.',
@@ -101,10 +102,8 @@ export const chapter_10_7 = {
 			translate: '«Я вынюхала его!» — взвизгнула она.',
 		},
 		{
-			sentence:
-				'“Kill him, kill him, he is full of evil; kill him, the stranger, before blood flows from him.',
-			translate:
-				'«Убейте его, убейте — он полон зла; убейте чужака, пока из него не пролилась кровь».',
+			sentence: '“Kill him, kill him, he is full of evil; kill him, the stranger, before blood flows from him.',
+			translate: '«Убейте его, убейте — он полон зла; убейте чужака, пока из него не пролилась кровь».',
 		},
 		{
 			sentence: 'Slay him, O king.”',
@@ -147,18 +146,16 @@ export const chapter_10_7 = {
 		{
 			sentence:
 				'As for Ignosi, he clutched his spear, and raised it as though determined to sell his life dearly.',
-			translate:
-				'Что до Игноси, он сжал своё копьё и поднял его, словно решив дорого продать свою жизнь.',
+			translate: 'Что до Игноси, он сжал своё копьё и поднял его, словно решив дорого продать свою жизнь.',
 		},
 		{
-			sentence:
-				'“Stand back, ye dogs!” I shouted, “if ye would see to-morrow’s light.',
-			translate:
-				'«Назад, псы!» — крикнул я, — «если хотите увидеть свет завтрашнего дня».',
+			sentence: '“Stand back, ye dogs!” I shouted, “if ye would see to-morrow’s light.',
+			translate: '«Назад, псы!» — крикнул я, — «если хотите увидеть свет завтрашнего дня».',
 		},
 		{
 			sentence: 'Touch one hair of his head and your king dies,” and I covered Twala with my revolver.',
-			translate: '«Только коснитесь хоть волоска на его голове — и ваш царь умрёт», — и я нацелил револьвер на Твалу.',
+			translate:
+				'«Только коснитесь хоть волоска на его голове — и ваш царь умрёт», — и я нацелил револьвер на Твалу.',
 		},
 		{
 			sentence:

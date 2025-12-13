@@ -51,7 +51,7 @@ export const chapter_1 = {
 		},
 		{
 			sentence:
-				'There was no garret at all, and no cellar—except a small hole dug in the ground, called a cyclone cellar, where the family could go in case one of those great whirlwinds arose, mighty enough to crush any building in its path.',
+				'There was no garret at all, and no cellar except a small hole dug in the ground, called a cyclone cellar, where the family could go in case one of those great whirlwinds arose, mighty enough to crush any building in its path.',
 			translate:
 				'Чердака не было вовсе, как и подвала — только небольшая яма, выкопанная в земле, так называемый «циклонный подвал», куда семья могла спуститься, если налетал один из тех огромных вихрей, достаточно сильный, чтобы сокрушить любое строение на пути.',
 		},

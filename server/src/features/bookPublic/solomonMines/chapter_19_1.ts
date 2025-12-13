@@ -1,6 +1,6 @@
 export const chapter_19_1 = {
-	name: 'Chapter XIX (1)',
-	header: 'Ignosi’s farewell (1)',
+	name: 'Chapter XIX',
+	header: 'Ignosi’s farewell',
 	data: [
 		{
 			sentence:
@@ -145,6 +145,6 @@ export const chapter_19_1 = {
 		{
 			sentence: 'So we had not done so badly.',
 			translate: 'Так что вышло у нас не так уж плохо.',
-		}
+		},
 	],
 }

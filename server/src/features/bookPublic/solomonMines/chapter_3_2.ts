@@ -1,5 +1,5 @@
 export const chapter_3_2 = {
-	name: 'Chapter III (2)',
+	name: 'Chapter III',
 	header: 'Umbora enters our service (2)',
 	data: [
 		{
@@ -9,10 +9,8 @@ export const chapter_3_2 = {
 				'Мы втроём — то есть сэр Генри Кёртис, капитан Гуд и я — пошли и сели у штурвала и некоторое время молчали.',
 		},
 		{
-			sentence:
-				'“Well, Mr. Quatermain,” said Sir Henry presently, “have you been thinking about my proposals?”',
-			translate:
-				'«Ну что, мистер Квотермейн, — сказал вскоре сэр Генри, — вы размышляли о моих предложениях?»',
+			sentence: '“Well, Mr. Quatermain,” said Sir Henry presently, “have you been thinking about my proposals?”',
+			translate: '«Ну что, мистер Квотермейн, — сказал вскоре сэр Генри, — вы размышляли о моих предложениях?»',
 		},
 		{
 			sentence: '“Ay,” echoed Captain Good, “what do you think of them, Mr. Quatermain?”',
@@ -99,10 +97,8 @@ export const chapter_3_2 = {
 				'Прежде всего, господа, я присматривался к вам обоим последние несколько дней и, если не сочтёте меня дерзким, скажу, что вы мне нравитесь, и я верю, что мы потянем в одной упряжке.',
 		},
 		{
-			sentence:
-				'That is something, let me tell you, when one has a long journey like this before one.',
-			translate:
-				'А это, скажу вам, немало значит, когда впереди такой долгий путь.',
+			sentence: 'That is something, let me tell you, when one has a long journey like this before one.',
+			translate: 'А это, скажу вам, немало значит, когда впереди такой долгий путь.',
 		},
 		{
 			sentence:
@@ -123,10 +119,8 @@ export const chapter_3_2 = {
 			translate: 'Какова была участь вашего брата?',
 		},
 		{
-			sentence:
-				'I tell you frankly, gentlemen, that as their fates were so I believe ours will be.”',
-			translate:
-				'Откровенно скажу, господа: какова была их участь, такою, по моему убеждению, будет и наша».',
+			sentence: 'I tell you frankly, gentlemen, that as their fates were so I believe ours will be.”',
+			translate: 'Откровенно скажу, господа: какова была их участь, такою, по моему убеждению, будет и наша».',
 		},
 		{
 			sentence: 'I paused to watch the effect of my words.',
@@ -157,8 +151,7 @@ export const chapter_3_2 = {
 				'Во‑первых, я фаталист и верю, что мой срок назначен независимо от моих действий и воли, и что если мне суждено пойти в горы Сулиман и быть убитым, я туда пойду и буду убит.',
 		},
 		{
-			sentence:
-				'God Almighty, no doubt, knows His mind about me, so I need not trouble on that point.',
+			sentence: 'God Almighty, no doubt, knows His mind about me, so I need not trouble on that point.',
 			translate:
 				'Всемогущий Бог, несомненно, знает Своё намерение насчёт меня, так что мне не о чем беспокоиться в этом отношении.',
 		},
@@ -167,10 +160,8 @@ export const chapter_3_2 = {
 			translate: 'Во‑вторых, я человек небогатый.',
 		},
 		{
-			sentence:
-				'For nearly forty years I have hunted and traded, but I have never made more than a living.',
-			translate:
-				'Почти сорок лет я охотился и торговал, но никогда не зарабатывал больше, чем на жизнь.',
+			sentence: 'For nearly forty years I have hunted and traded, but I have never made more than a living.',
+			translate: 'Почти сорок лет я охотился и торговал, но никогда не зарабатывал больше, чем на жизнь.',
 		},
 		{
 			sentence:
@@ -207,8 +198,7 @@ export const chapter_3_2 = {
 		{
 			sentence:
 				'But whether you are right or wrong, I may as well tell you at once that I am going through with it to the end, sweet or bitter.',
-			translate:
-				'Но правы вы или неправы, скажу сразу: я доведу это до конца — будь он сладок или горек.',
+			translate: 'Но правы вы или неправы, скажу сразу: я доведу это до конца — будь он сладок или горек.',
 		},
 		{
 			sentence:
@@ -227,10 +217,8 @@ export const chapter_3_2 = {
 				'«Мы втроём привыкли встречать опасность и держать свою жизнь в руках самыми разными способами, так что теперь нет смысла отступать.',
 		},
 		{
-			sentence:
-				'And now I vote we go down to the saloon and take an observation just for luck, you know.”',
-			translate:
-				'А теперь предлагаю спуститься в салун и «снять наблюдение» на удачу, понимаете».',
+			sentence: 'And now I vote we go down to the saloon and take an observation just for luck, you know.”',
+			translate: 'А теперь предлагаю спуститься в салун и «снять наблюдение» на удачу, понимаете».',
 		},
 		{
 			sentence: 'And we did—through the bottom of a tumbler.',

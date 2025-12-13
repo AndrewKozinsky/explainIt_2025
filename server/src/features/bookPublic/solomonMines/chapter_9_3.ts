@@ -1,5 +1,5 @@
 export const chapter_9_3 = {
-	name: 'Chapter IX (3)',
+	name: 'Chapter IX',
 	header: 'Twala the king (3)',
 	data: [
 		{

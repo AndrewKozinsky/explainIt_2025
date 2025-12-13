@@ -1,5 +1,5 @@
 export const chapter_14_7 = {
-	name: 'Chapter XIV (7)',
+	name: 'Chapter XIV',
 	header: 'The last stand of the Grays (7)',
 	data: [
 		{

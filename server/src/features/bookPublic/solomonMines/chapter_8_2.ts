@@ -1,5 +1,5 @@
 export const chapter_8_2 = {
-	name: 'Chapter VIII (2)',
+	name: 'Chapter VIII',
 	header: 'We enter Kukuanaland (2)',
 	data: [
 		{

@@ -1,5 +1,5 @@
 export const chapter_3_4 = {
-	name: 'Chapter III (4)',
+	name: 'Chapter III',
 	header: 'Umbora enters our service (4)',
 	data: [
 		{

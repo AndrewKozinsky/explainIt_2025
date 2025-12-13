@@ -1,12 +1,10 @@
 export const chapter_16_6 = {
-	name: 'Chapter XVI (6)',
+	name: 'Chapter XVI',
 	header: 'The place of death (6)',
 	data: [
 		{
-			sentence:
-				'Presently she stopped and pointed at the brown object seated on the table.',
-			translate:
-				'Вскоре она остановилась и указала на коричневый предмет, усевшийся на столе.',
+			sentence: 'Presently she stopped and pointed at the brown object seated on the table.',
+			translate: 'Вскоре она остановилась и указала на коричневый предмет, усевшийся на столе.',
 		},
 		{
 			sentence:
@@ -38,10 +36,12 @@ export const chapter_16_6 = {
 		},
 		{
 			sentence: 'They were human bodies indeed, or rather they had been human; now they were stalactites.',
-			translate: 'Это и впрямь были человеческие тела, точнее — бывшие человеческими; теперь это были сталактиты.',
+			translate:
+				'Это и впрямь были человеческие тела, точнее — бывшие человеческими; теперь это были сталактиты.',
 		},
 		{
-			sentence: 'This was the way in which the Kukuana people had from time immemorial preserved their royal dead.',
+			sentence:
+				'This was the way in which the Kukuana people had from time immemorial preserved their royal dead.',
 			translate: 'Так с незапамятных времён народ кукуана сохранял своих царственных мертвецов.',
 		},
 		{
@@ -91,8 +91,10 @@ export const chapter_16_6 = {
 				'Мне кажется, этот ужасающий образ был прихотью воображения какого‑то древнего скульптора, и что его присутствие подсказало кукуанам мысль помещать своих царственных мёртвых под его устрашающее председательство.',
 		},
 		{
-			sentence: 'Or perhaps it was set there to frighten away any marauders who might have designs upon the treasure chamber beyond.',
-			translate: 'Или, возможно, его поставили там, чтобы отпугнуть любых мародёров, которые могли бы позариться на сокровищницу дальше.',
+			sentence:
+				'Or perhaps it was set there to frighten away any marauders who might have designs upon the treasure chamber beyond.',
+			translate:
+				'Или, возможно, его поставили там, чтобы отпугнуть любых мародёров, которые могли бы позариться на сокровищницу дальше.',
 		},
 		{
 			sentence: 'I cannot say.',

@@ -1,5 +1,5 @@
 export const chapter_11_5 = {
-	name: 'Chapter XI (5)',
+	name: 'Chapter XI',
 	header: 'We give a sign (5)',
 	data: [
 		{
@@ -9,10 +9,8 @@ export const chapter_11_5 = {
 				'Двое мужчин выступили вперёд, и, когда они приближались, девушка, впервые осознав свою близкую участь, пронзительно закричала и бросилась бежать.',
 		},
 		{
-			sentence:
-				'But the strong hands caught her fast, and brought her, struggling and weeping, before us.',
-			translate:
-				'Но крепкие руки крепко схватили её и, несмотря на её рыдания и сопротивление, привели к нам.',
+			sentence: 'But the strong hands caught her fast, and brought her, struggling and weeping, before us.',
+			translate: 'Но крепкие руки крепко схватили её и, несмотря на её рыдания и сопротивление, привели к нам.',
 		},
 		{
 			sentence: '“What is thy name, girl?” piped Gagool.',
@@ -29,16 +27,12 @@ export const chapter_11_5 = {
 				'На этот намёк Скрагга, выглядевший злее прежнего, шагнул вперёд и поднял своё большое копьё, и в тот же миг я увидел, как рука Гуда потянулась к револьверу.',
 		},
 		{
-			sentence:
-				'The poor girl caught the faint glint of steel through her tears, and it sobered her anguish.',
-			translate:
-				'Бедная девушка сквозь слёзы уловила слабый блеск стали — и это немного отрезвило её отчаяние.',
+			sentence: 'The poor girl caught the faint glint of steel through her tears, and it sobered her anguish.',
+			translate: 'Бедная девушка сквозь слёзы уловила слабый блеск стали — и это немного отрезвило её отчаяние.',
 		},
 		{
-			sentence:
-				'She ceased struggling, and clasping her hands convulsively, stood shuddering from head to foot.',
-			translate:
-				'Она перестала сопротивляться и, судорожно сложив руки, стояла, сотрясаясь от головы до пят.',
+			sentence: 'She ceased struggling, and clasping her hands convulsively, stood shuddering from head to foot.',
+			translate: 'Она перестала сопротивляться и, судорожно сложив руки, стояла, сотрясаясь от головы до пят.',
 		},
 		{
 			sentence:
@@ -75,10 +69,8 @@ export const chapter_11_5 = {
 				'«Ты и впрямь должна умереть — как жертва Безмолвным, что сидят вон там», — и она указала на вершины; — «но лучше спать ночью, чем трудиться днём; лучше умереть, чем жить, и ты умрёшь от царской руки самого сына царя».',
 		},
 		{
-			sentence:
-				'The girl Foulata wrung her hands in anguish, and cried out aloud, “Oh, cruel! and I so young! ',
-			translate:
-				'Девушка Фулата заломила руки в муке и громко вскрикнула: «О, жестоко! и я такая юная! ',
+			sentence: 'The girl Foulata wrung her hands in anguish, and cried out aloud, “Oh, cruel! and I so young! ',
+			translate: 'Девушка Фулата заломила руки в муке и громко вскрикнула: «О, жестоко! и я такая юная! ',
 		},
 		{
 			sentence:
@@ -165,10 +157,8 @@ export const chapter_11_5 = {
 				'Признав силу довода и бросив ещё один отчаянный взгляд на светлое лицо луны — ибо никогда самый горячий астроном, стремящийся доказать свою теорию, не ждал небесного явления с такой тревогой, — я, собрав всю возможную важность, встал между распростёртой девушкой и приближающимся копьём Скрагги.',
 		},
 		{
-			sentence:
-				'“King,” I said, “it shall not be; we will not endure this thing; let the girl go in safety.”',
-			translate:
-				'«О царь, этого не будет; мы не потерпим этого; отпусти девушку невредимой», — сказал я.',
+			sentence: '“King,” I said, “it shall not be; we will not endure this thing; let the girl go in safety.”',
+			translate: '«О царь, этого не будет; мы не потерпим этого; отпусти девушку невредимой», — сказал я.',
 		},
 	],
 }

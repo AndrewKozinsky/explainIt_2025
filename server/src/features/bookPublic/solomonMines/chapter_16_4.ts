@@ -1,5 +1,5 @@
 export const chapter_16_4 = {
-	name: 'Chapter XVI (4)',
+	name: 'Chapter XVI',
 	header: 'The place of death (4)',
 	data: [
 		{

@@ -1,5 +1,5 @@
 export const chapter_17_5 = {
-	name: 'Chapter XVII (5)',
+	name: 'Chapter XVII',
 	header: 'Solomon’s treasure chamber (5)',
 	data: [
 		{
@@ -27,10 +27,8 @@ export const chapter_17_5 = {
 			translate: '«Помогите! помогите! Она меня заколола!»',
 		},
 		{
-			sentence:
-				'By now we are running down the passage, and this is what the light from the lamp shows us.',
-			translate:
-				'К этому времени мы уже бежали по проходу, и вот что показал нам свет лампы.',
+			sentence: 'By now we are running down the passage, and this is what the light from the lamp shows us.',
+			translate: 'К этому времени мы уже бежали по проходу, и вот что показал нам свет лампы.',
 		},
 		{
 			sentence: 'The door of the rock is closing down slowly; it is not three feet from the floor.',
@@ -191,7 +189,8 @@ export const chapter_17_5 = {
 				'Тяжёлая масса камня сомкнулась, вероятно, навсегда, ибо единственный ум, знавший её тайну, был размолот в прах под её тяжестью.',
 		},
 		{
-			sentence: 'This was a door that none could hope to force with anything short of dynamite in large quantities.',
+			sentence:
+				'This was a door that none could hope to force with anything short of dynamite in large quantities.',
 			translate: 'Это была дверь, которую никто не смог бы взломать без разве что большого количества динамита.',
 		},
 		{

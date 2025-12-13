@@ -1,5 +1,5 @@
 export const chapter_12_2 = {
-	name: 'Chapter XII (2)',
+	name: 'Chapter XII',
 	header: 'Before the battle (2)',
 	data: [
 		{
@@ -47,8 +47,7 @@ export const chapter_12_2 = {
 		{
 			sentence:
 				'Having reiterated all that Infadoos his uncle had said, he concluded a powerful speech in these words:—',
-			translate:
-				'Повторив всё, что сказал его дядя Инфадоос, он закончил сильную речь такими словами:—',
+			translate: 'Повторив всё, что сказал его дядя Инфадоос, он закончил сильную речь такими словами:—',
 		},
 		{
 			sentence: '“O chiefs, captains, soldiers, and people, ye have heard my words.',
@@ -68,7 +67,8 @@ export const chapter_12_2 = {
 		},
 		{
 			sentence: 'If I were not the king, would these white men be on my side with all their magic?',
-			translate: 'Если бы я не был королём, разве эти белые люди были бы на моей стороне со всем своим колдовством?',
+			translate:
+				'Если бы я не был королём, разве эти белые люди были бы на моей стороне со всем своим колдовством?',
 		},
 		{
 			sentence: 'Tremble, chiefs, captains, soldiers, and people!',
