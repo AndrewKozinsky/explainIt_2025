@@ -17,20 +17,8 @@ export function chapterStructureIntoText(chapterStructure: ChapterTextStructure.
 						case 's':
 							text += ' '
 							break
-						case 'cr':
-							text += '\n'
-							break
 					}
 				}
-				break
-			case 's':
-				text += ' '
-				break
-			case 'cr':
-				text += '\n'
-				break
-			case 'pn':
-				text += element.v
 				break
 		}
 	}
