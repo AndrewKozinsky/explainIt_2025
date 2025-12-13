@@ -9,11 +9,14 @@ RUN apt-get update \
 WORKDIR /app
 COPY package*.json ./
 
-# Prefer deterministic installs when possible
-RUN npm ci || npm install
+# Install all dependencies (including devDependencies for build)
+RUN npm ci --include=dev || npm install
 
 COPY . .
 
 # Generate Prisma client
 RUN npx prisma generate
 RUN npm run build
+
+# Verify dist was created
+RUN ls -la dist/
