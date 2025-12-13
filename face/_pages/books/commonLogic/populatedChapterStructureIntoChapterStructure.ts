@@ -8,13 +8,7 @@ export function populatedChapterStructureIntoChapterStructure(
 	populatedChapterStructure: ChapterTextStructurePopulated.Chapter,
 ): ChapterTextStructure.Chapter {
 	return populatedChapterStructure.parts.map((structurePart) => {
-		if (structurePart.type === 'sentence') {
-			return drySentenceStructure(structurePart)
-		} else if (structurePart.type === 'space') {
-			return { t: 's' }
-		}
-
-		return { t: 'pn', v: structurePart.value }
+		return drySentenceStructure(structurePart)
 	})
 }
 
@@ -42,14 +36,3 @@ function drySentencePartsStructure(
 		return { t: 'pn', v: part.value } as const
 	})
 }
-
-// Try not to use it
-/*function drySentencePhrases(
-	phrases: ChapterTextStructurePopulated.Phrase[],
-): { wordIds: number[]; phraseIdInDb: number }[] {
-	const successfulPhrases = phrases.filter((phrase) => phrase.type == 'success')
-
-	return successfulPhrases.map((phrase) => {
-		return { wordIds: phrase.wordIds, phraseIdInDb: phrase.phraseIdInDb }
-	})
-}*/

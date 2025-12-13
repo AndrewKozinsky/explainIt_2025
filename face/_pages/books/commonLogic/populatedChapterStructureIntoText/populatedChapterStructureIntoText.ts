@@ -1,29 +1,19 @@
 import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
 
-export function populatedChapterStructureIntoText(chapterSentences: ChapterTextStructurePopulated.Part[]): string {
+export function populatedChapterStructureIntoText(chapterSentences: ChapterTextStructurePopulated.Sentence[]): string {
 	let result = ''
 
 	for (const item of chapterSentences) {
-		if ((item as any).type === 'sentence') {
-			const sentence = item as ChapterTextStructurePopulated.Sentence
-			for (const part of sentence.parts) {
-				if (part.type === 'word') {
-					result += part.value
-				} else if (part.type === 'space') {
-					result += ' '
-				} else if (part.type === 'punctuation') {
-					result += part.value
-				}
-			}
-			continue
-		}
+		const sentence = item as ChapterTextStructurePopulated.Sentence
 
-		// Top-level parts (space, punctuation, carriageReturn)
-		const t = (item as any).type
-		if (t === 'space') {
-			result += ' '
-		} else if (t === 'punctuation') {
-			result += (item as any).value
+		for (const part of sentence.parts) {
+			if (part.type === 'word') {
+				result += part.value
+			} else if (part.type === 'space') {
+				result += ' '
+			} else if (part.type === 'punctuation') {
+				result += part.value
+			}
 		}
 	}
 

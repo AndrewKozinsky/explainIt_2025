@@ -14,16 +14,10 @@ export function populateChapterStructure(chapter: {
 }): ChapterTextStructurePopulated.Chapter {
 	let elementId = 1
 
-	const parts: ChapterTextStructurePopulated.Part[] = chapter.content.map((item) => {
+	const parts: ChapterTextStructurePopulated.Sentence[] = chapter.content.map((item) => {
 		const currentId = elementId++
 
-		if (item.t === 'sn') {
-			return populateSentenceStructure(currentId, item, chapter.phrases)
-		} else if (item.t === 's') {
-			return { id: currentId, type: 'space' }
-		}
-
-		return { id: currentId, type: 'punctuation', value: item.v }
+		return populateSentenceStructure(currentId, item, chapter.phrases)
 	})
 
 	return {

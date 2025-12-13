@@ -57,10 +57,8 @@ export namespace ChapterTextStructurePopulated {
 		id: number
 		header: null | string
 		name: null | string
-		parts: Part[]
+		parts: Sentence[]
 	}
-
-	export type Part = Sentence | Space | Punctuation
 
 	export type Sentence = {
 		id: number
