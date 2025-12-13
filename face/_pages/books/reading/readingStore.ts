@@ -267,6 +267,7 @@ export namespace ReadingStore {
 		loading: boolean
 		errorMessage: null | string
 		data: BookOutModel | BookPublicOutModel
+		type: 'public' | 'private'
 	}
 	export type ChapterData = {
 		loading: boolean

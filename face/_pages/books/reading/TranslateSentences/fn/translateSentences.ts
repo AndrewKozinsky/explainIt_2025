@@ -6,6 +6,8 @@ import { useBook_Chapter_TranslateSentences } from '@/graphql'
 import { extractGraphQLError } from '@/graphql/extractGraphQLError'
 
 export function useGetTranslateSentencesButtonDetails() {
+	const bookType = useReadingStore((s) => s.book.type)
+
 	const [isButtonVisible, setIsButtonVisible] = useState(true)
 	const [isButtonDisabled, setIsButtonDisabled] = useState(false)
 	const [error, setError] = useState('')
@@ -13,16 +15,24 @@ export function useGetTranslateSentencesButtonDetails() {
 	const putTranslatedSentencesIntoChapter = useReadingStore((s) => s.putTranslatedSentencesIntoChapter)
 	const [translateSentences] = useBook_Chapter_TranslateSentences()
 
-	useEffect(function () {
-		const sentences: ChapterTextStructurePopulated.Sentence[] = useReadingStore
-			.getState()
-			.populatedChapter.parts.filter((part) => part.type === 'sentence')
-		if (!sentences.length) return
+	useEffect(
+		function () {
+			if (bookType === 'public') {
+				setIsButtonVisible(false)
+				return
+			}
 
-		if (sentences[0].translation) {
-			setIsButtonVisible(false)
-		}
-	}, [])
+			const sentences: ChapterTextStructurePopulated.Sentence[] = useReadingStore
+				.getState()
+				.populatedChapter.parts.filter((part) => part.type === 'sentence')
+			if (!sentences.length) return
+
+			if (sentences[0].translation) {
+				setIsButtonVisible(false)
+			}
+		},
+		[bookType],
+	)
 
 	const onButtonClick = useCallback(
 		async function () {

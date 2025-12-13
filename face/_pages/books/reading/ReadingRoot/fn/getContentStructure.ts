@@ -52,24 +52,28 @@ function useFetchBookAndSetToStore() {
 					loading: true,
 					errorMessage: null,
 					data: null as any as BookOutModel,
+					type: 'public',
 				})
 			} else if (error) {
 				useReadingStore.getState().updateBook({
 					loading: false,
 					errorMessage: error.message,
 					data: null as any as BookOutModel,
+					type: 'public',
 				})
 			} else if (!book) {
 				useReadingStore.getState().updateBook({
 					loading: false,
 					errorMessage: null,
 					data: null as any as BookOutModel,
+					type: 'public',
 				})
 			} else {
 				useReadingStore.getState().updateBook({
 					loading: false,
 					errorMessage: null,
 					data: book,
+					type: bookType || 'public',
 				})
 			}
 		},
