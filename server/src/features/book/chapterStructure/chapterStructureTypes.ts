@@ -1,85 +1,51 @@
 // Тип данных для структуры текста приходящий с сервера
 export namespace ChapterTextStructure {
-	export type Chapter = (Sentence | Space | CarriageReturn | Punctuation)[]
+	export type Chapter = Sentence[]
 
 	export type Sentence = {
-		t: 'sentence'
-		translation: null | string
+		// sentence
+		t: 'sn'
+		// translation
+		tr: null | string
 		// Составные части предложения
-		parts: SentencePart[]
-		// Соответствия между идентификаторами слов в предложении и идентификаторами фраз в базе данных с анализом фразы
-		phrasesMapping?: { wordIds: number[]; phraseIdInDb: number }[]
+		p: SentencePart[]
 	}
 
-	export type SentencePart = Word | Space | Punctuation | CarriageReturn
+	export type SentencePart = Word | Space | Punctuation
 
 	type Word = {
-		t: 'word'
+		// word
+		t: 'w'
 		v: string
 	}
 
 	type Space = {
-		t: 'space'
+		// space
+		t: 's'
 	}
 
 	type Punctuation = {
-		t: 'punctuation'
+		// punctuation
+		t: 'pn'
+		// value
 		v: string
 	}
 
-	type CarriageReturn = {
-		t: 'carriageReturn'
-	}
-}
-
-// Тип данных для структуры текста наполненный дополнительными сведениями (используется на клиенте)
-export namespace ChapterTextStructurePopulated {
-	// Надо бы добавить сюда идентификатор статьи. Требуется при запросах на анализ.
-	export type Chapter = (Sentence | Space | CarriageReturn | Punctuation)[]
-
-	export type Sentence = {
+	export type Phrase = {
 		id: number
-		type: 'sentence'
-		translatedSentence: null | string
-		parts: SentencePart[]
-		phrasesMapping: {
-			wordIds: number[]
-			phraseIdInDb: number
-			analysis: {
-				// Краткий перевод фразы
-				translation: string
-				// Анализ фразы
-				analysis: string
-				// Примеры использования фразы (предложение на иностранном языке и родном)
-				examples: {
-					foreignLang: string
-					nativeLang: string
-				}[]
-			}
-		}[]
+		sentenceId: number
+		sentence: string
+		phrase: string
+		phraseWordsIdx: number[]
+		transcription: string
+		translation: string
+		analysis: string
+		examples: PhraseExample[]
 	}
 
-	export type SentencePart = Word | Space | Punctuation | CarriageReturn
-
-	export type Word = {
+	type PhraseExample = {
 		id: number
-		type: 'word'
-		value: string
-	}
-
-	type Space = {
-		id: number
-		type: 'space'
-	}
-
-	type Punctuation = {
-		id: number
-		type: 'punctuation'
-		value: string
-	}
-
-	type CarriageReturn = {
-		id: number
-		type: 'carriageReturn'
+		sentence: string
+		translation: string
 	}
 }

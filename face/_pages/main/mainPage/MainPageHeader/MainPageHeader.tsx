@@ -5,7 +5,7 @@ import './MainPageHeader.scss'
 function MainPageHeader() {
 	return (
 		<div className='main-page-header'>
-			<Header hStyle={1}>Читайте книги на иностранном языке — с умным переводом и объяснением от ИИ</Header>
+			<Header hStyle={1}>Читайте книги на английском языке — с умным переводом и объяснением от ИИ</Header>
 			<div className='main-page-header__description'>
 				<p className='main-page-header__description-text'>Понимайте смысл каждой фразы</p>
 				<p className='main-page-header__description-text'>Изучайте слова в контексте</p>

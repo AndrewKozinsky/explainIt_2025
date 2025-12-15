@@ -7,11 +7,11 @@ export class GetUserByIdCommand implements ICommand {
 
 @CommandHandler(GetUserByIdCommand)
 export class GetUserByIdHandler implements ICommandHandler<GetUserByIdCommand> {
-	constructor(private adminQueryRepository: UserQueryRepository) {}
+	constructor(private userQueryRepository: UserQueryRepository) {}
 
 	async execute(command: GetUserByIdCommand) {
 		const { userId } = command
 
-		return await this.adminQueryRepository.getUserById(userId)
+		return await this.userQueryRepository.getUserById(userId)
 	}
 }

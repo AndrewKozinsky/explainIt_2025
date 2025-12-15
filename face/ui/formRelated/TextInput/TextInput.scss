@@ -12,13 +12,28 @@
 
 .text-input__label {
 	display: block;
+	font-size: 1.6rem;
+	line-height: 2.2rem;
 }
 
 .text-input__input {
-	padding: 0.5rem;
-	border: 1px solid #ccc;
+	background-color: white;
+	padding: 0.7rem 1rem;
+	border-radius: vars.$radius-1;
 
 	&::placeholder {
 		color: vars.$grayColor-3;
 	}
+
+	&:focus {
+		box-shadow: 0 0 0 1px vars.$linkColor-2;
+	}
+}
+
+.text-input__counter {
+	font-size: 1.4rem;
+	line-height: 1.6rem;
+}
+.text-input__counter--error {
+	color: vars.$dangerColor-1;
 }

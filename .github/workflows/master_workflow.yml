@@ -19,7 +19,7 @@ jobs:
 
       - name: Pull changes on server
         run: |
-          ssh -o StrictHostKeyChecking=no root@46.173.19.159 << 'EOF'
+          ssh -o StrictHostKeyChecking=no root@45.144.178.155 << 'EOF'
             cd ~/sites/explain
 
             git checkout master
@@ -28,18 +28,13 @@ jobs:
           
             # Generate .env file
             echo "${{ secrets.ENV_FILE_MASTER }}" > .env.servermaster
-
-            docker compose -f docker-compose.server.master.yml --env-file .env.servermaster down
-            docker compose -f docker-compose.server.master.yml --env-file .env.servermaster up --build -d
-          
-            sleep 20
           
             # Copy env file to server folder because it needs for migrations
             cp .env.servermaster server/.env
           
             # Copy env file to face folder because it needs for getting oauth client id
             cp .env.servermaster face/.env
-          
-            # Enter to the server container and run migrations
-            docker exec -i explainserverservermaster sh -lc 'cd /app && npm run migrate:deploy'
+
+            docker compose -f docker-compose.server.master.yml --env-file .env.servermaster down
+            docker compose -f docker-compose.server.master.yml --env-file .env.servermaster up --build -d
           EOF

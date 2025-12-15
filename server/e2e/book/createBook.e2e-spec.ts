@@ -3,7 +3,7 @@ import { CommandBus } from '@nestjs/cqrs'
 import { App } from 'supertest/types'
 import { queries } from '../../src/features/db/queries'
 import RouteNames from '../../src/infrastructure/routeNames'
-import { BookQueryRepository } from '../../src/repo/book.queryRepository'
+import { BookPrivateQueryRepository } from '../../src/repo/bookPrivate.queryRepository'
 import { UserRepository } from '../../src/repo/user.repository'
 import { authUtils } from '../utils/authUtils'
 import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
@@ -20,7 +20,7 @@ describe.skip('Create book', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let userRepository: UserRepository
-	let bookQueryRepository: BookQueryRepository
+	let bookQueryRepository: BookPrivateQueryRepository
 
 	beforeAll(async () => {
 		const createMainAppRes = await createApp()
@@ -28,7 +28,7 @@ describe.skip('Create book', () => {
 		app = createMainAppRes.app
 		commandBus = app.get(CommandBus)
 		userRepository = await app.resolve(UserRepository)
-		bookQueryRepository = await app.resolve(BookQueryRepository)
+		bookQueryRepository = await app.resolve(BookPrivateQueryRepository)
 	})
 
 	beforeEach(async () => {
@@ -48,7 +48,7 @@ describe.skip('Create book', () => {
 		})
 	})
 
-	it.only('should create 2 books', async () => {
+	it('should create 2 books', async () => {
 		// Create a user with confirmed email
 		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
@@ -58,7 +58,7 @@ describe.skip('Create book', () => {
 		})
 
 		// Create the first book
-		await bookUtils.createBook({
+		await bookUtils.createBookPrivate({
 			app,
 			sessionToken: sessionToken,
 			book: {
@@ -70,12 +70,12 @@ describe.skip('Create book', () => {
 
 		// Check that the user has only one book in the database
 		let userBooks = await bookQueryRepository.getUserBooks(loginData.id)
-		expect(userBooks.length).toBe(2)
+		expect(userBooks.length).toBe(1)
 
 		// -----
 
 		// Create the second book
-		const createdBook_2Resp = await bookUtils.createBook({
+		const createdBook_2Resp = await bookUtils.createBookPrivate({
 			app,
 			sessionToken: sessionToken,
 			book: {
@@ -103,6 +103,6 @@ describe.skip('Create book', () => {
 
 		// Check that the user has two books in the database
 		userBooks = await bookQueryRepository.getUserBooks(loginData.id)
-		expect(userBooks.length).toBe(3)
+		expect(userBooks.length).toBe(2)
 	})
 })

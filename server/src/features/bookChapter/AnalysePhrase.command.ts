@@ -146,8 +146,8 @@ export class AnalysePhraseHandler implements ICommandHandler<AnalysePhraseComman
 }
 
 - transcription: фонетическая транскрипция фразы Phrase.
-- translate: краткий и точный перевод фразы Phrase на русский язык.
-- analysis: объяснение смысла фразы Phrase в контексте предложения Sentence.
+- translate: краткий перевод cлов из Phrase на русский язык как в словаре. Не пиши часть речи. Не пиши перевод других слов из контекста. Контекст даётся чтобы передать в каком значении используются слово или слова из Phrase.
+- analysis: объяснение смысла фразы Phrase в контексте предложения Sentence на русском языке.
 - examples: три примера использования фразы Phrase в других предложениях, каждый с переводом.`
 
 		return [

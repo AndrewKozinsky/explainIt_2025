@@ -6,13 +6,14 @@ import { UpdateBookChapterHandler } from 'features/bookChapter/UpdateBookChapter
 import { AnalysePhraseHandler } from 'features/bookChapter/AnalysePhrase.command'
 import { DeleteBookChapterPhrasesHandler } from 'src/features/bookChapter/DeleteBookChapterPhrases.command'
 import { TranslateSentencesHandler } from 'src/features/bookChapter/TranslateSentences.command'
-import { BookQueryRepository } from 'src/repo/book.queryRepository'
-import { BookRepository } from 'src/repo/book.repository'
+import { BookPrivateQueryRepository } from 'src/repo/bookPrivate.queryRepository'
+import { BookPrivateRepository } from 'src/repo/bookPrivate.repository'
 import { BookChapterQueryRepository } from 'src/repo/bookChapter.queryRepository'
 import { BookChapterRepository } from 'src/repo/bookChapter.repository'
 import { BookChapterPhraseQueryRepository } from 'src/repo/bookChapterPhrase.queryRepository'
 import { BookChapterPhraseRepository } from 'src/repo/bookChapterPhrase.repository'
 import { BookChapterPhraseExampleRepository } from 'src/repo/bookChapterPhraseExample.repository'
+import { BookPublicRepository } from 'src/repo/bookPublic.repository'
 import { UserRepository } from 'src/repo/user.repository'
 import { BookChapterResolver } from './bookChapter.resolver'
 import { PrismaService } from 'db/prisma.service'
@@ -30,14 +31,15 @@ const commandHandlers = [
 ]
 const resolvers = [BookChapterResolver]
 const repositories = [
-	BookRepository,
-	BookQueryRepository,
+	BookPrivateRepository,
+	BookPrivateQueryRepository,
 	BookChapterRepository,
 	BookChapterQueryRepository,
 	UserRepository,
 	BookChapterPhraseRepository,
 	BookChapterPhraseQueryRepository,
 	BookChapterPhraseExampleRepository,
+	BookPublicRepository,
 ]
 
 @Module({

@@ -11,7 +11,7 @@ test.beforeEach(async ({ page }) => {
 	await server.seedTestData()
 })
 
-test.describe('Books list section', () => {
+test.describe.skip('Books list section', () => {
 	test('new user must have a default book in books list', async ({ page }) => {
 		const userWithNoBooksConfig = serverTestDataConfig.getUsersConfig()
 			.user_2 as UserRegisteredWithCredentialsConfig

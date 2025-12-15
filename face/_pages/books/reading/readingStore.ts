@@ -1,5 +1,5 @@
 import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
-import { BookChapterOutModel, BookChapterPhraseOutModel, BookOutModel } from '@/graphql'
+import { BookChapterOutModel, BookChapterPhraseOutModel, BookOutModel, BookPublicOutModel } from '@/graphql'
 import { areArraysEqualIgnoringOrder } from 'utils/arrays'
 import { create } from 'zustand'
 import { produce } from 'immer'
@@ -266,7 +266,8 @@ export namespace ReadingStore {
 	export type BookData = {
 		loading: boolean
 		errorMessage: null | string
-		data: BookOutModel
+		data: BookOutModel | BookPublicOutModel
+		type: 'public' | 'private'
 	}
 	export type ChapterData = {
 		loading: boolean

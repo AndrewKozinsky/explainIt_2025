@@ -2,6 +2,7 @@ import RouteNames from 'infrastructure/routeNames'
 
 export const queriesBookChapter = {
 	create(dto: {
+		bookType: 'public' | 'private'
 		bookId: number
 		name?: null | string
 		header?: null | string
@@ -75,7 +76,7 @@ export const queriesBookChapter = {
 			},
 		}
 	},
-	get(dto: { id: number }) {
+	get(dto: { id: number; bookType: 'public' | 'private' }) {
 		return {
 			query: `
       query GetBookChapter($input: GetBookChapterInput!) {
@@ -123,8 +124,8 @@ export const queriesBookChapter = {
 		phraseWordsIdx: number[]
 	}) {
 		return {
-			query: `
-      query AnalysePhrase($input: AnalysePhraseInput!) {
+			mutation: `
+      mutation AnalysePhrase($input: AnalysePhraseInput!) {
         ${RouteNames.BOOK_CHAPTER.ANALYSE_PHRASE}(input: $input) {
 			id
 			sentenceId
@@ -149,8 +150,8 @@ export const queriesBookChapter = {
 	},
 	translateSentences(dto: { bookAuthor: null | string; bookName: null | string; sentences: string[] }) {
 		return {
-			query: `
-      query TranslateSentences($input: TranslateSentencesInput!) {
+			mutation: `
+      mutation TranslateSentences($input: TranslateSentencesInput!) {
         ${RouteNames.BOOK_CHAPTER.TRANSLATE_SENTENCES}(input: $input) {
 			translates
         }

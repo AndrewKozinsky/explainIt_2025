@@ -51,12 +51,12 @@ export const bdConfig = {
 			email: {
 				type: 'email',
 				unique: true,
-				description: 'User\'s email',
+				description: "User's email",
 				required: true,
 			},
 			password: {
 				type: 'string',
-				description: 'Hashed user\'s password',
+				description: "Hashed user's password",
 				example: 'z151JPS16jz151JPS16j',
 				required: false,
 			},
@@ -77,7 +77,7 @@ export const bdConfig = {
 			is_email_confirmed: {
 				type: 'boolean',
 				default: false,
-				description: 'Is user\'s email confirmed',
+				description: "Is user's email confirmed",
 				example: true,
 				required: true,
 			},
@@ -89,7 +89,7 @@ export const bdConfig = {
 			},
 			balance: {
 				type: 'number',
-				description: 'User\'s balance',
+				description: "User's balance",
 				example: 100,
 				required: true,
 				default: 0,
@@ -103,7 +103,7 @@ export const bdConfig = {
 			Payment: {
 				type: 'oneToMany',
 			},
-			Book: {
+			BookPrivate: {
 				type: 'oneToMany',
 			},
 		},
@@ -119,6 +119,7 @@ export const bdConfig = {
 				thisField: 'user_id', // Name of the column of this table that refers to another table
 				foreignTable: 'User', // Name of the table that this column refers to
 				foreignField: 'id',
+				required: true,
 			},
 			type: {
 				type: 'enum',
@@ -159,6 +160,7 @@ export const bdConfig = {
 				thisField: 'user_id', // Name of the column of this table that refers to another table
 				foreignTable: 'User', // Name of the table that this column refers to
 				foreignField: 'id',
+				required: true,
 			},
 			amount: {
 				type: 'number',
@@ -201,7 +203,7 @@ export const bdConfig = {
 			},
 		},
 	},
-	Book: {
+	BookPrivate: {
 		dtoProps: {},
 		dbFields: {
 			id: {
@@ -212,6 +214,7 @@ export const bdConfig = {
 				thisField: 'user_id', // Name of the column of this table that refers to another table
 				foreignTable: 'User', // Name of the table that this column refers to
 				foreignField: 'id',
+				required: true,
 			},
 			author: {
 				type: 'string',
@@ -239,6 +242,44 @@ export const bdConfig = {
 			},
 		},
 	},
+	BookPublic: {
+		dtoProps: {},
+		dbFields: {
+			id: {
+				type: 'index',
+			},
+			cover: {
+				type: 'string',
+				description: 'Cover of the book',
+				required: true,
+				maxLength: 255,
+			},
+			author: {
+				type: 'string',
+				description: 'Author of the book',
+				required: true,
+				maxLength: 255,
+			},
+			name: {
+				type: 'string',
+				description: 'Name of the book',
+				required: true,
+				maxLength: 255,
+			},
+			note: {
+				type: 'string',
+				description: 'Note about the book',
+				required: true,
+				maxLength: 2000,
+			},
+			created_at: {
+				type: 'createdAt',
+			},
+			BookChapter: {
+				type: 'oneToMany',
+			},
+		},
+	},
 	BookChapter: {
 		dtoProps: {},
 		dbFields: {
@@ -248,8 +289,16 @@ export const bdConfig = {
 			book_id: {
 				type: 'manyToOne',
 				thisField: 'book_id', // Name of the column of this table that refers to another table
-				foreignTable: 'Book', // Name of the table that this column refers to
+				foreignTable: 'BookPrivate', // Name of the table that this column refers to
 				foreignField: 'id',
+				required: false,
+			},
+			book_public_id: {
+				type: 'manyToOne',
+				thisField: 'book_public_id', // Name of the column of this table that refers to another table
+				foreignTable: 'BookPublic', // Name of the table that this column refers to
+				foreignField: 'id',
+				required: false,
 			},
 			name: {
 				type: 'string',
@@ -267,7 +316,7 @@ export const bdConfig = {
 				type: 'string',
 				description: 'Content of the chapter',
 				required: false,
-				maxLength: 500000,
+				maxLength: 900000,
 			},
 			note: {
 				type: 'string',
@@ -342,6 +391,7 @@ export const bdConfig = {
 				thisField: 'book_chapter_id', // Name of the column of this table that refers to another table
 				foreignTable: 'BookChapter', // Name of the table that this column refers to
 				foreignField: 'id',
+				required: true,
 			},
 			BookChapterPhraseExample: {
 				type: 'oneToMany',
@@ -364,6 +414,7 @@ export const bdConfig = {
 				thisField: 'book_chapter_phrase_id', // Name of the column of this table that refers to another table
 				foreignTable: 'BookChapterPhrase', // Name of the table that this column refers to
 				foreignField: 'id',
+				required: true,
 			},
 			sentence: {
 				type: 'string',

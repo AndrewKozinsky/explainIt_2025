@@ -81,7 +81,7 @@ describe.skip('Delete book chapter', () => {
 		})
 
 		// Create a book
-		const createdBookResp = await bookUtils.createBook({
+		const createdBookResp = await bookUtils.createBookPrivate({
 			app,
 			sessionToken: sessionToken,
 			book: {
@@ -141,7 +141,7 @@ describe.skip('Delete book chapter', () => {
 		})
 
 		// Create a book
-		const createdBookResp = await bookUtils.createBook({
+		const createdBookResp = await bookUtils.createBookPrivate({
 			app,
 			sessionToken: sessionToken,
 			book: {
@@ -195,14 +195,14 @@ describe.skip('Delete book chapter', () => {
 		})
 
 		// Create the first and the second book
-		const firstBookResp = await bookUtils.createBook({
+		const firstBookResp = await bookUtils.createBookPrivate({
 			app,
 			sessionToken: sessionToken,
 			book: {
 				author: 'Gerald Durrell',
 			},
 		})
-		const secondBookResp = await bookUtils.createBook({
+		const secondBookResp = await bookUtils.createBookPrivate({
 			app,
 			sessionToken: sessionToken,
 			book: {

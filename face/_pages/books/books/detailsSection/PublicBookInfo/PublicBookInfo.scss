@@ -1,0 +1,47 @@
+@use "@/styles/mixins" as mix;
+@use '@/styles/variables' as vars;
+
+.public-book-info {
+	container-type: inline-size;
+	display: flex;
+	gap: 1.2rem;
+	flex-direction: column;
+}
+
+.public-book-info__author {
+	font-size: clamp(2.2rem, 8cqw, 2.8rem);
+	line-height: clamp(2.8rem, 10cqw, 3.4rem);
+	font-weight: 500;
+	font-style: italic;
+}
+
+.public-book-info__header {
+	font-size: clamp(4rem, 10cqw, 5rem);
+	line-height: clamp(4.6rem, 10cqw, 5.8rem);
+	font-weight: 700;
+	font-style: italic;
+}
+
+.public-book-info__description {
+	font-size: 1.6rem;
+	line-height: 2.7rem;
+}
+
+.public-book-info__cover {
+	display: block;
+	width: 100%;
+	max-width: 300px;
+	border-radius: 4px;
+	overflow: hidden;
+	margin: 0 0 1rem 0;
+
+	@include mix.container-width(350px) {
+		float: right;
+		min-width: 20rem;
+		width: 50%;
+		max-width: 30rem;
+		margin: 0 0 1rem 2rem;
+	}
+}
+
+

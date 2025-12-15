@@ -1,3 +1,4 @@
+import { queriesBookPublic } from 'src/features/db/queriesBookPublic'
 import { queriesAI } from './queriesAI'
 import { queriesAuth } from './queriesAuth'
 import { queriesBook } from './queriesBook'
@@ -9,5 +10,6 @@ export const queries = {
 	ai: queriesAI,
 	payment: queriesPayment,
 	book: queriesBook,
+	bookPublic: queriesBookPublic,
 	bookChapter: queriesBookChapter,
 }

@@ -114,3 +114,13 @@ a {
 .link--current {
 	@include inh.link--current;
 }
+
+.no-select {
+	user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	-webkit-touch-callout: none; /* iOS долгий тап */
+}
+.no-select * {
+	-webkit-tap-highlight-color: transparent;
+}

@@ -58,14 +58,13 @@ export class BookChapterResolver {
 		return await this.commandBus.execute(new DeleteBookChapterCommand(userId, input))
 	}
 
-	@UseGuards(CheckSessionCookieGuard)
 	@Query(() => BookChapterOutModel, {
 		name: RouteNames.BOOK_CHAPTER.GET,
 		description: bookChapterResolversDesc.getBookChapter,
 	})
 	async getBookChapter(@Args('input') input: GetBookChapterInput, @Context('req') request: Request) {
-		const userId = request.session.userId!
-		return await this.commandBus.execute(new GetBookChapterCommand(userId, input))
+		const userId = request.session.userId
+		return await this.commandBus.execute(new GetBookChapterCommand(input, userId))
 	}
 
 	@UseGuards(CheckSessionCookieGuard, UserWithPositiveBalanceGuard)

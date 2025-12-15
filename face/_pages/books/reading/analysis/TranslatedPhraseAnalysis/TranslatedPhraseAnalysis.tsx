@@ -1,4 +1,4 @@
-import { useIsLongTopText } from '_pages/books/reading/analysis/TranslatedPhraseAnalysis/fn/isLargeTopText'
+import { useIsLongTopText } from './fn/isLargeTopText'
 import cn from 'classnames'
 import React from 'react'
 import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'

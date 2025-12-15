@@ -1,6 +1,5 @@
 import { INestApplication } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
-import { ChapterTextStructure } from '../../src/features/bookChapter/chapterStructure/chapterStructureTypes'
 import { App } from 'supertest/types'
 import { queries } from '../../src/features/db/queries'
 import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
@@ -40,7 +39,7 @@ describe.skip('Create book chapter', () => {
 	})
 
 	it('should return 401 if there is not session token cookie', async () => {
-		const { query, variables } = queries.bookChapter.create({ bookId: 9999 })
+		const { query, variables } = queries.bookChapter.create({ bookId: 9999, bookType: 'private' })
 
 		await authUtils.tokenNotExist({
 			app,
@@ -87,7 +86,7 @@ describe.skip('Create book chapter', () => {
 			password: defUserPassword,
 		})
 
-		const createdBookResp = await bookUtils.createBook({
+		const createdBookResp = await bookUtils.createBookPrivate({
 			app,
 			sessionToken: sessionToken,
 			book: {
@@ -134,7 +133,7 @@ describe.skip('Create book chapter', () => {
 			password: defUserPassword,
 		})
 
-		const createdBookResp = await bookUtils.createBook({
+		const createdBookResp = await bookUtils.createBookPrivate({
 			app,
 			sessionToken: sessionToken,
 			book: {
@@ -190,7 +189,7 @@ describe.skip('Create book chapter', () => {
 			password: defUserPassword,
 		})
 
-		const createdBookResp = await bookUtils.createBook({
+		const createdBookResp = await bookUtils.createBookPrivate({
 			app,
 			sessionToken: sessionToken,
 			book: {
@@ -216,6 +215,6 @@ describe.skip('Create book chapter', () => {
 		})
 		const firstBookChapter = createdFirstBookChapterResp.data[RouteNames.BOOK_CHAPTER.CREATE]
 
-		expect(JSON.parse(firstBookChapter.content)).toEqual(bookChapterUtils.getExampleChapterTextStructure())
+		expect(firstBookChapter.content).toEqual(bookChapterUtils.getExampleChapterText())
 	})
 })

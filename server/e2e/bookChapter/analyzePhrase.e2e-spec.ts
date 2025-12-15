@@ -42,7 +42,7 @@ describe.skip('Analyze phase', () => {
 	})
 
 	it('should return 401 if there is not session token cookie', async () => {
-		const { query, variables } = queries.bookChapter.analysePhrase({
+		const { mutation, variables } = queries.bookChapter.analysePhrase({
 			sentenceId: 1,
 			bookChapterId: 9999,
 			sentence: '',
@@ -55,7 +55,7 @@ describe.skip('Analyze phase', () => {
 
 		await authUtils.tokenNotExist({
 			app,
-			queryOrMutationStr: query,
+			queryOrMutationStr: mutation,
 			queryVariables: variables,
 		})
 	})
@@ -91,7 +91,7 @@ describe.skip('Analyze phase', () => {
 			],
 		})
 
-		const { query, variables } = queries.bookChapter.analysePhrase({
+		const { mutation, variables } = queries.bookChapter.analysePhrase({
 			sentenceId: 1,
 			bookChapterId: chapters[0].id,
 			sentence: 'Test sentence',
@@ -104,7 +104,7 @@ describe.skip('Analyze phase', () => {
 
 		const [response] = await makeGraphQLReqWithTokens({
 			app,
-			query,
+			query: mutation,
 			queryVariables: variables,
 			sessionToken,
 		})
@@ -153,7 +153,7 @@ describe.skip('Analyze phase', () => {
 			message: null, // Missing message property - malformed response
 		})
 
-		const { query, variables } = queries.bookChapter.analysePhrase({
+		const { mutation, variables } = queries.bookChapter.analysePhrase({
 			sentenceId: 1,
 			bookChapterId: chapters[0].id,
 			sentence: 'Test sentence',
@@ -166,7 +166,7 @@ describe.skip('Analyze phase', () => {
 
 		const [response] = await makeGraphQLReqWithTokens({
 			app,
-			query,
+			query: mutation,
 			queryVariables: variables,
 			sessionToken,
 		})
@@ -237,7 +237,7 @@ describe.skip('Analyze phase', () => {
 
 		jest.spyOn(openAIService, 'generateText').mockResolvedValue(mockOpenAIResponse)
 
-		const { query, variables } = queries.bookChapter.analysePhrase({
+		const { mutation, variables } = queries.bookChapter.analysePhrase({
 			sentenceId: 1,
 			bookChapterId: chapters[0].id,
 			sentence: 'Test sentence',
@@ -250,7 +250,7 @@ describe.skip('Analyze phase', () => {
 
 		const [response] = await makeGraphQLReqWithTokens({
 			app,
-			query,
+			query: mutation,
 			queryVariables: variables,
 			sessionToken,
 		})

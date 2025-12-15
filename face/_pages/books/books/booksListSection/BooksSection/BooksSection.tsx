@@ -1,13 +1,12 @@
-import React from 'react'
-import BooksList from '../BooksList/BooksList'
-import AddBookButton from '../AddBookButton/AddBookButton'
+import PrivateBooksListSection from '_pages/books/books/booksListSection/PrivateBooksSection/PrivateBooksListSection'
+import PublicBooksList from '../PublicBooksList/PublicBooksList'
 import './BooksSection.scss'
 
 function BooksSection() {
 	return (
 		<div className='books-section'>
-			<BooksList />
-			<AddBookButton />
+			<PublicBooksList />
+			<PrivateBooksListSection />
 		</div>
 	)
 }

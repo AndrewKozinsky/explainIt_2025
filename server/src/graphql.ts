@@ -21,7 +21,12 @@ export interface GetBookInput {
     id: number;
 }
 
+export interface GetBookPublicInput {
+    id: number;
+}
+
 export interface GetBookChapterInput {
+    bookType: string;
     id: number;
 }
 
@@ -70,6 +75,7 @@ export interface DeleteBookInput {
 }
 
 export interface CreateBookChapterInput {
+    bookType: string;
     bookId: number;
     name?: Nullable<string>;
     header?: Nullable<string>;
@@ -110,13 +116,6 @@ export interface DeleteBookChapterPhrasesInput {
     bookChapterId: number;
 }
 
-export interface UserOutModel {
-    id: number;
-    email: string;
-    isUserConfirmed: boolean;
-    balance: number;
-}
-
 export interface BookChapterPhraseOutModel {
     id: number;
     sentenceId: number;
@@ -133,6 +132,23 @@ export interface PhraseExample {
     id: number;
     sentence: string;
     translation: string;
+}
+
+export interface BookOutModel {
+    id: number;
+    author?: Nullable<string>;
+    name?: Nullable<string>;
+    note?: Nullable<string>;
+    userId: number;
+    chapters: BookChapterLiteOutModel[];
+}
+
+export interface BookLiteOutModel {
+    id: number;
+    author?: Nullable<string>;
+    name?: Nullable<string>;
+    note?: Nullable<string>;
+    userId?: Nullable<number>;
 }
 
 export interface BookChapterLiteOutModel {
@@ -153,21 +169,20 @@ export interface BookChapterOutModel {
     phrases: BookChapterPhraseOutModel[];
 }
 
-export interface BookOutModel {
+export interface BookPublicOutModel {
     id: number;
-    author?: Nullable<string>;
-    name?: Nullable<string>;
-    note?: Nullable<string>;
-    userId: number;
+    author: string;
+    name: string;
+    note: string;
+    cover: string;
     chapters: BookChapterLiteOutModel[];
 }
 
-export interface BookLiteOutModel {
+export interface UserOutModel {
     id: number;
-    author?: Nullable<string>;
-    name?: Nullable<string>;
-    note?: Nullable<string>;
-    userId: number;
+    email: string;
+    isUserConfirmed: boolean;
+    balance: number;
 }
 
 export interface BookChapterTranslateOfSentencesOutModel {
@@ -184,6 +199,8 @@ export interface IQuery {
     auth_getMe(): UserOutModel | Promise<UserOutModel>;
     book_user_books(): BookOutModel[] | Promise<BookOutModel[]>;
     book_get(input: GetBookInput): BookOutModel | Promise<BookOutModel>;
+    book_public_get_books(): BookPublicOutModel[] | Promise<BookPublicOutModel[]>;
+    book_public_get_book(input: GetBookPublicInput): BookPublicOutModel | Promise<BookPublicOutModel>;
     book_chapter_get(input: GetBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
 }
 

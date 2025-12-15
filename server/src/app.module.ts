@@ -1,6 +1,9 @@
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo'
 import { Module } from '@nestjs/common'
+import { CqrsModule } from '@nestjs/cqrs'
 import { GraphQLModule } from '@nestjs/graphql'
+import { StartServerTasksRunner } from 'src/infrastructure/StartServerTasksRunner'
+import { BookPublicModule } from 'src/routes/bookPublic/bookPublic.module'
 import { EmailAdapterModule } from './infrastructure/emailAdapter/email-adapter.module'
 import { GigaChatModule } from './infrastructure/gigaChat/gigaChat.module'
 import { HashAdapterModule } from './infrastructure/hashAdapter/hash-adapter.module'
@@ -14,7 +17,7 @@ import { AiModule } from './routes/ai/ai.module'
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default'
 import { TelegramModule } from './infrastructure/telegram/telegram.module'
 import { AuthModule } from './routes/auth/auth.module'
-import { BookModule } from './routes/book/book.module'
+import { BookModule } from './routes/bookPrivate/book.module'
 import { BookChapterModule } from './routes/bookChapter/bookChapter.module'
 import { DbModule } from './routes/db/db.module'
 import { Request, Response } from 'express'
@@ -44,6 +47,7 @@ import { WebhookModule } from './routes/webhook/webhook.module'
 			},
 			inject: [MainConfigService],
 		}),
+		CqrsModule,
 		HashAdapterModule,
 		MainConfigModule,
 		AiModule,
@@ -58,8 +62,9 @@ import { WebhookModule } from './routes/webhook/webhook.module'
 		YooKassaModule,
 		WebhookModule,
 		BookModule,
+		BookPublicModule,
 		BookChapterModule,
 	],
-	providers: [],
+	providers: [StartServerTasksRunner],
 })
 export class AppModule {}

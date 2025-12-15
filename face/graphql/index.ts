@@ -80,7 +80,7 @@ export type BookLiteOutModel = {
 	id: Scalars['Int']['output']
 	name?: Maybe<Scalars['String']['output']>
 	note?: Maybe<Scalars['String']['output']>
-	userId: Scalars['Int']['output']
+	userId?: Maybe<Scalars['Int']['output']>
 }
 
 export type BookOutModel = {
@@ -91,6 +91,16 @@ export type BookOutModel = {
 	name?: Maybe<Scalars['String']['output']>
 	note?: Maybe<Scalars['String']['output']>
 	userId: Scalars['Int']['output']
+}
+
+export type BookPublicOutModel = {
+	__typename?: 'BookPublicOutModel'
+	author: Scalars['String']['output']
+	chapters: Array<BookChapterLiteOutModel>
+	cover: Scalars['String']['output']
+	id: Scalars['Int']['output']
+	name: Scalars['String']['output']
+	note: Scalars['String']['output']
 }
 
 export type CheckTranslationInput = {
@@ -121,6 +131,8 @@ export type ConfirmEmailInput = {
 export type CreateBookChapterInput = {
 	/** Book id */
 	bookId: Scalars['Int']['input']
+	/** Book type: public or private */
+	bookType: Scalars['String']['input']
 	/** Content of the chapter */
 	content?: InputMaybe<Scalars['String']['input']>
 	/** Header on the chapter */
@@ -156,11 +168,18 @@ export type DeleteBookInput = {
 }
 
 export type GetBookChapterInput = {
+	/** Book type: public or private */
+	bookType: Scalars['String']['input']
 	/** BookChapter id */
 	id: Scalars['Int']['input']
 }
 
 export type GetBookInput = {
+	/** Book id */
+	id: Scalars['Int']['input']
+}
+
+export type GetBookPublicInput = {
 	/** Book id */
 	id: Scalars['Int']['input']
 }
@@ -311,6 +330,10 @@ export type Query = {
 	book_chapter_get: BookChapterOutModel
 	/** Get user book */
 	book_get: BookOutModel
+	/** Get public book */
+	book_public_get_book: BookPublicOutModel
+	/** Get public books */
+	book_public_get_books: Array<BookPublicOutModel>
 	/** Get user books */
 	book_user_books: Array<BookOutModel>
 }
@@ -331,6 +354,10 @@ export type QueryBook_GetArgs = {
 	input: GetBookInput
 }
 
+export type QueryBook_Public_Get_BookArgs = {
+	input: GetBookPublicInput
+}
+
 export type RegisterUserInput = {
 	/** User email */
 	email: Scalars['String']['input']
@@ -344,7 +371,7 @@ export type ResendConfirmationEmailInput = {
 }
 
 export type TopUpBalanceWithYooKassaInput = {
-	/** Money amount */
+	/** Money amount in kopecks */
 	amount: Scalars['Float']['input']
 }
 
@@ -461,6 +488,137 @@ export type Auth_Register = {
 	auth_register: { __typename?: 'UserOutModel'; id: number; email: string }
 }
 
+export type Book_Chapter_AnalysePhraseVariables = Exact<{
+	input: AnalysePhraseInput
+}>
+
+export type Book_Chapter_AnalysePhrase = {
+	__typename?: 'Mutation'
+	book_chapter_AnalysePhrase: {
+		__typename?: 'BookChapterPhraseOutModel'
+		id: number
+		sentenceId: number
+		sentence: string
+		phrase: string
+		transcription: string
+		phraseWordsIdx: Array<number>
+		translation: string
+		analysis: string
+		examples: Array<{ __typename?: 'PhraseExample'; id: number; sentence: string; translation: string }>
+	}
+}
+
+export type BookChapter_CreateVariables = Exact<{
+	input: CreateBookChapterInput
+}>
+
+export type BookChapter_Create = {
+	__typename?: 'Mutation'
+	book_chapter_create: {
+		__typename?: 'BookChapterOutModel'
+		id: number
+		name?: string | null
+		header?: string | null
+		content?: string | null
+		note?: string | null
+		book: {
+			__typename?: 'BookLiteOutModel'
+			id: number
+			name?: string | null
+			author?: string | null
+			note?: string | null
+			userId?: number | null
+		}
+	}
+}
+
+export type BookChapter_DeleteVariables = Exact<{
+	input: DeleteBookChapterInput
+}>
+
+export type BookChapter_Delete = { __typename?: 'Mutation'; book_chapter_delete: boolean }
+
+export type BookChapter_DeleteBookChapterPhrasesVariables = Exact<{
+	input: DeleteBookChapterPhrasesInput
+}>
+
+export type BookChapter_DeleteBookChapterPhrases = {
+	__typename?: 'Mutation'
+	book_chapter_DeleteBookChapterPhrases: boolean
+}
+
+export type BookChapter_GetVariables = Exact<{
+	input: GetBookChapterInput
+}>
+
+export type BookChapter_Get = {
+	__typename?: 'Query'
+	book_chapter_get: {
+		__typename?: 'BookChapterOutModel'
+		id: number
+		name?: string | null
+		header?: string | null
+		content?: string | null
+		note?: string | null
+		book: {
+			__typename?: 'BookLiteOutModel'
+			id: number
+			name?: string | null
+			author?: string | null
+			note?: string | null
+			userId?: number | null
+		}
+		phrases: Array<{
+			__typename?: 'BookChapterPhraseOutModel'
+			id: number
+			sentenceId: number
+			sentence: string
+			phrase: string
+			transcription: string
+			phraseWordsIdx: Array<number>
+			translation: string
+			analysis: string
+			examples: Array<{ __typename?: 'PhraseExample'; id: number; sentence: string; translation: string }>
+		}>
+	}
+}
+
+export type Book_Chapter_TranslateSentencesVariables = Exact<{
+	input: TranslateSentencesInput
+}>
+
+export type Book_Chapter_TranslateSentences = {
+	__typename?: 'Mutation'
+	book_chapter_TranslateSentences: {
+		__typename?: 'BookChapterTranslateOfSentencesOutModel'
+		translates: Array<string>
+	}
+}
+
+export type BookChapter_UpdateVariables = Exact<{
+	input: UpdateBookChapterInput
+}>
+
+export type BookChapter_Update = {
+	__typename?: 'Mutation'
+	book_chapter_update: {
+		__typename?: 'BookChapterOutModel'
+		id: number
+		name?: string | null
+		header?: string | null
+		content?: string | null
+		note?: string | null
+		book: {
+			__typename?: 'BookLiteOutModel'
+			id: number
+			name?: string | null
+			author?: string | null
+			note?: string | null
+			userId?: number | null
+		}
+	}
+}
+
 export type Book_CreateVariables = Exact<{
 	input: CreateBookInput
 }>
@@ -561,135 +719,50 @@ export type Book_Update = {
 	}
 }
 
-export type Book_Chapter_AnalysePhraseVariables = Exact<{
-	input: AnalysePhraseInput
+export type Book_GetBookPublicVariables = Exact<{
+	input: GetBookPublicInput
 }>
 
-export type Book_Chapter_AnalysePhrase = {
-	__typename?: 'Mutation'
-	book_chapter_AnalysePhrase: {
-		__typename?: 'BookChapterPhraseOutModel'
-		id: number
-		sentenceId: number
-		sentence: string
-		phrase: string
-		transcription: string
-		phraseWordsIdx: Array<number>
-		translation: string
-		analysis: string
-		examples: Array<{ __typename?: 'PhraseExample'; id: number; sentence: string; translation: string }>
-	}
-}
-
-export type BookChapter_CreateVariables = Exact<{
-	input: CreateBookChapterInput
-}>
-
-export type BookChapter_Create = {
-	__typename?: 'Mutation'
-	book_chapter_create: {
-		__typename?: 'BookChapterOutModel'
-		id: number
-		name?: string | null
-		header?: string | null
-		content?: string | null
-		note?: string | null
-		book: {
-			__typename?: 'BookLiteOutModel'
-			id: number
-			name?: string | null
-			author?: string | null
-			note?: string | null
-			userId: number
-		}
-	}
-}
-
-export type BookChapter_DeleteVariables = Exact<{
-	input: DeleteBookChapterInput
-}>
-
-export type BookChapter_Delete = { __typename?: 'Mutation'; book_chapter_delete: boolean }
-
-export type BookChapter_DeleteBookChapterPhrasesVariables = Exact<{
-	input: DeleteBookChapterPhrasesInput
-}>
-
-export type BookChapter_DeleteBookChapterPhrases = {
-	__typename?: 'Mutation'
-	book_chapter_DeleteBookChapterPhrases: boolean
-}
-
-export type BookChapter_GetVariables = Exact<{
-	input: GetBookChapterInput
-}>
-
-export type BookChapter_Get = {
+export type Book_GetBookPublic = {
 	__typename?: 'Query'
-	book_chapter_get: {
-		__typename?: 'BookChapterOutModel'
+	book_public_get_book: {
+		__typename?: 'BookPublicOutModel'
 		id: number
-		name?: string | null
-		header?: string | null
-		content?: string | null
-		note?: string | null
-		book: {
-			__typename?: 'BookLiteOutModel'
+		author: string
+		name: string
+		note: string
+		cover: string
+		chapters: Array<{
+			__typename?: 'BookChapterLiteOutModel'
 			id: number
+			bookId: number
 			name?: string | null
-			author?: string | null
+			header?: string | null
 			note?: string | null
-			userId: number
-		}
-		phrases: Array<{
-			__typename?: 'BookChapterPhraseOutModel'
-			id: number
-			sentenceId: number
-			sentence: string
-			phrase: string
-			transcription: string
-			phraseWordsIdx: Array<number>
-			translation: string
-			analysis: string
-			examples: Array<{ __typename?: 'PhraseExample'; id: number; sentence: string; translation: string }>
 		}>
 	}
 }
 
-export type Book_Chapter_TranslateSentencesVariables = Exact<{
-	input: TranslateSentencesInput
-}>
+export type Book_GetBooksPublicVariables = Exact<{ [key: string]: never }>
 
-export type Book_Chapter_TranslateSentences = {
-	__typename?: 'Mutation'
-	book_chapter_TranslateSentences: {
-		__typename?: 'BookChapterTranslateOfSentencesOutModel'
-		translates: Array<string>
-	}
-}
-
-export type BookChapter_UpdateVariables = Exact<{
-	input: UpdateBookChapterInput
-}>
-
-export type BookChapter_Update = {
-	__typename?: 'Mutation'
-	book_chapter_update: {
-		__typename?: 'BookChapterOutModel'
+export type Book_GetBooksPublic = {
+	__typename?: 'Query'
+	book_public_get_books: Array<{
+		__typename?: 'BookPublicOutModel'
 		id: number
-		name?: string | null
-		header?: string | null
-		content?: string | null
-		note?: string | null
-		book: {
-			__typename?: 'BookLiteOutModel'
+		author: string
+		name: string
+		note: string
+		cover: string
+		chapters: Array<{
+			__typename?: 'BookChapterLiteOutModel'
 			id: number
+			bookId: number
 			name?: string | null
-			author?: string | null
+			header?: string | null
 			note?: string | null
-			userId: number
-		}
-	}
+		}>
+	}>
 }
 
 export type Payment_YookassaTopUpBalanceVariables = Exact<{
@@ -1029,237 +1102,6 @@ export function useAuth_Register(baseOptions?: Apollo.MutationHookOptions<Auth_R
 export type Auth_RegisterHookResult = ReturnType<typeof useAuth_Register>
 export type Auth_RegisterMutationResult = Apollo.MutationResult<Auth_Register>
 export type Auth_RegisterMutationOptions = Apollo.BaseMutationOptions<Auth_Register, Auth_RegisterVariables>
-export const Book_CreateDocument = gql`
-	mutation Book_create($input: CreateBookInput!) {
-		book_create(input: $input) {
-			id
-			author
-			name
-			note
-			userId
-			chapters {
-				id
-				bookId
-				name
-				header
-				note
-			}
-		}
-	}
-`
-export type Book_CreateMutationFn = Apollo.MutationFunction<Book_Create, Book_CreateVariables>
-
-/**
- * __useBook_Create__
- *
- * To run a mutation, you first call `useBook_Create` within a React component and pass it any options that fit your needs.
- * When your component renders, `useBook_Create` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [bookCreate, { data, loading, error }] = useBook_Create({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useBook_Create(baseOptions?: Apollo.MutationHookOptions<Book_Create, Book_CreateVariables>) {
-	const options = { ...defaultOptions, ...baseOptions }
-	return Apollo.useMutation<Book_Create, Book_CreateVariables>(Book_CreateDocument, options)
-}
-export type Book_CreateHookResult = ReturnType<typeof useBook_Create>
-export type Book_CreateMutationResult = Apollo.MutationResult<Book_Create>
-export type Book_CreateMutationOptions = Apollo.BaseMutationOptions<Book_Create, Book_CreateVariables>
-export const Book_DeleteDocument = gql`
-	mutation Book_delete($input: DeleteBookInput!) {
-		book_delete(input: $input)
-	}
-`
-export type Book_DeleteMutationFn = Apollo.MutationFunction<Book_Delete, Book_DeleteVariables>
-
-/**
- * __useBook_Delete__
- *
- * To run a mutation, you first call `useBook_Delete` within a React component and pass it any options that fit your needs.
- * When your component renders, `useBook_Delete` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [bookDelete, { data, loading, error }] = useBook_Delete({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useBook_Delete(baseOptions?: Apollo.MutationHookOptions<Book_Delete, Book_DeleteVariables>) {
-	const options = { ...defaultOptions, ...baseOptions }
-	return Apollo.useMutation<Book_Delete, Book_DeleteVariables>(Book_DeleteDocument, options)
-}
-export type Book_DeleteHookResult = ReturnType<typeof useBook_Delete>
-export type Book_DeleteMutationResult = Apollo.MutationResult<Book_Delete>
-export type Book_DeleteMutationOptions = Apollo.BaseMutationOptions<Book_Delete, Book_DeleteVariables>
-export const Book_GetDocument = gql`
-	query Book_get($input: GetBookInput!) {
-		book_get(input: $input) {
-			id
-			author
-			name
-			note
-			userId
-			chapters {
-				id
-				bookId
-				name
-				header
-				note
-			}
-		}
-	}
-`
-
-/**
- * __useBook_Get__
- *
- * To run a query within a React component, call `useBook_Get` and pass it any options that fit your needs.
- * When your component renders, `useBook_Get` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useBook_Get({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useBook_Get(
-	baseOptions: Apollo.QueryHookOptions<Book_Get, Book_GetVariables> &
-		({ variables: Book_GetVariables; skip?: boolean } | { skip: boolean }),
-) {
-	const options = { ...defaultOptions, ...baseOptions }
-	return Apollo.useQuery<Book_Get, Book_GetVariables>(Book_GetDocument, options)
-}
-export function useBook_GetLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Book_Get, Book_GetVariables>) {
-	const options = { ...defaultOptions, ...baseOptions }
-	return Apollo.useLazyQuery<Book_Get, Book_GetVariables>(Book_GetDocument, options)
-}
-export function useBook_GetSuspenseQuery(
-	baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Book_Get, Book_GetVariables>,
-) {
-	const options = baseOptions === Apollo.skipToken ? baseOptions : { ...defaultOptions, ...baseOptions }
-	return Apollo.useSuspenseQuery<Book_Get, Book_GetVariables>(Book_GetDocument, options)
-}
-export type Book_GetHookResult = ReturnType<typeof useBook_Get>
-export type Book_GetLazyQueryHookResult = ReturnType<typeof useBook_GetLazyQuery>
-export type Book_GetSuspenseQueryHookResult = ReturnType<typeof useBook_GetSuspenseQuery>
-export type Book_GetQueryResult = Apollo.QueryResult<Book_Get, Book_GetVariables>
-export const Book_GetUserBooksDocument = gql`
-	query Book_getUserBooks {
-		book_user_books {
-			id
-			author
-			name
-			note
-			userId
-			chapters {
-				id
-				bookId
-				name
-				header
-				note
-			}
-		}
-	}
-`
-
-/**
- * __useBook_GetUserBooks__
- *
- * To run a query within a React component, call `useBook_GetUserBooks` and pass it any options that fit your needs.
- * When your component renders, `useBook_GetUserBooks` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useBook_GetUserBooks({
- *   variables: {
- *   },
- * });
- */
-export function useBook_GetUserBooks(
-	baseOptions?: Apollo.QueryHookOptions<Book_GetUserBooks, Book_GetUserBooksVariables>,
-) {
-	const options = { ...defaultOptions, ...baseOptions }
-	return Apollo.useQuery<Book_GetUserBooks, Book_GetUserBooksVariables>(Book_GetUserBooksDocument, options)
-}
-export function useBook_GetUserBooksLazyQuery(
-	baseOptions?: Apollo.LazyQueryHookOptions<Book_GetUserBooks, Book_GetUserBooksVariables>,
-) {
-	const options = { ...defaultOptions, ...baseOptions }
-	return Apollo.useLazyQuery<Book_GetUserBooks, Book_GetUserBooksVariables>(Book_GetUserBooksDocument, options)
-}
-export function useBook_GetUserBooksSuspenseQuery(
-	baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Book_GetUserBooks, Book_GetUserBooksVariables>,
-) {
-	const options = baseOptions === Apollo.skipToken ? baseOptions : { ...defaultOptions, ...baseOptions }
-	return Apollo.useSuspenseQuery<Book_GetUserBooks, Book_GetUserBooksVariables>(Book_GetUserBooksDocument, options)
-}
-export type Book_GetUserBooksHookResult = ReturnType<typeof useBook_GetUserBooks>
-export type Book_GetUserBooksLazyQueryHookResult = ReturnType<typeof useBook_GetUserBooksLazyQuery>
-export type Book_GetUserBooksSuspenseQueryHookResult = ReturnType<typeof useBook_GetUserBooksSuspenseQuery>
-export type Book_GetUserBooksQueryResult = Apollo.QueryResult<Book_GetUserBooks, Book_GetUserBooksVariables>
-export const Book_UpdateDocument = gql`
-	mutation Book_update($input: UpdateBookInput!) {
-		book_update(input: $input) {
-			id
-			author
-			name
-			note
-			userId
-			chapters {
-				id
-				bookId
-				name
-				header
-				note
-			}
-		}
-	}
-`
-export type Book_UpdateMutationFn = Apollo.MutationFunction<Book_Update, Book_UpdateVariables>
-
-/**
- * __useBook_Update__
- *
- * To run a mutation, you first call `useBook_Update` within a React component and pass it any options that fit your needs.
- * When your component renders, `useBook_Update` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [bookUpdate, { data, loading, error }] = useBook_Update({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useBook_Update(baseOptions?: Apollo.MutationHookOptions<Book_Update, Book_UpdateVariables>) {
-	const options = { ...defaultOptions, ...baseOptions }
-	return Apollo.useMutation<Book_Update, Book_UpdateVariables>(Book_UpdateDocument, options)
-}
-export type Book_UpdateHookResult = ReturnType<typeof useBook_Update>
-export type Book_UpdateMutationResult = Apollo.MutationResult<Book_Update>
-export type Book_UpdateMutationOptions = Apollo.BaseMutationOptions<Book_Update, Book_UpdateVariables>
 export const Book_Chapter_AnalysePhraseDocument = gql`
 	mutation Book_chapter_AnalysePhrase($input: AnalysePhraseInput!) {
 		book_chapter_AnalysePhrase(input: $input) {
@@ -1601,7 +1443,6 @@ export type BookChapter_UpdateMutationFn = Apollo.MutationFunction<BookChapter_U
  *   },
  * });
  */
-
 export function useBookChapter_Update(
 	baseOptions?: Apollo.MutationHookOptions<BookChapter_Update, BookChapter_UpdateVariables>,
 ) {
@@ -1614,6 +1455,354 @@ export type BookChapter_UpdateMutationOptions = Apollo.BaseMutationOptions<
 	BookChapter_Update,
 	BookChapter_UpdateVariables
 >
+export const Book_CreateDocument = gql`
+	mutation Book_create($input: CreateBookInput!) {
+		book_create(input: $input) {
+			id
+			author
+			name
+			note
+			userId
+			chapters {
+				id
+				bookId
+				name
+				header
+				note
+			}
+		}
+	}
+`
+export type Book_CreateMutationFn = Apollo.MutationFunction<Book_Create, Book_CreateVariables>
+
+/**
+ * __useBook_Create__
+ *
+ * To run a mutation, you first call `useBook_Create` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useBook_Create` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [bookCreate, { data, loading, error }] = useBook_Create({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useBook_Create(baseOptions?: Apollo.MutationHookOptions<Book_Create, Book_CreateVariables>) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useMutation<Book_Create, Book_CreateVariables>(Book_CreateDocument, options)
+}
+export type Book_CreateHookResult = ReturnType<typeof useBook_Create>
+export type Book_CreateMutationResult = Apollo.MutationResult<Book_Create>
+export type Book_CreateMutationOptions = Apollo.BaseMutationOptions<Book_Create, Book_CreateVariables>
+export const Book_DeleteDocument = gql`
+	mutation Book_delete($input: DeleteBookInput!) {
+		book_delete(input: $input)
+	}
+`
+export type Book_DeleteMutationFn = Apollo.MutationFunction<Book_Delete, Book_DeleteVariables>
+
+/**
+ * __useBook_Delete__
+ *
+ * To run a mutation, you first call `useBook_Delete` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useBook_Delete` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [bookDelete, { data, loading, error }] = useBook_Delete({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useBook_Delete(baseOptions?: Apollo.MutationHookOptions<Book_Delete, Book_DeleteVariables>) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useMutation<Book_Delete, Book_DeleteVariables>(Book_DeleteDocument, options)
+}
+export type Book_DeleteHookResult = ReturnType<typeof useBook_Delete>
+export type Book_DeleteMutationResult = Apollo.MutationResult<Book_Delete>
+export type Book_DeleteMutationOptions = Apollo.BaseMutationOptions<Book_Delete, Book_DeleteVariables>
+export const Book_GetDocument = gql`
+	query Book_get($input: GetBookInput!) {
+		book_get(input: $input) {
+			id
+			author
+			name
+			note
+			userId
+			chapters {
+				id
+				bookId
+				name
+				header
+				note
+			}
+		}
+	}
+`
+
+/**
+ * __useBook_Get__
+ *
+ * To run a query within a React component, call `useBook_Get` and pass it any options that fit your needs.
+ * When your component renders, `useBook_Get` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useBook_Get({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useBook_Get(
+	baseOptions: Apollo.QueryHookOptions<Book_Get, Book_GetVariables> &
+		({ variables: Book_GetVariables; skip?: boolean } | { skip: boolean }),
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useQuery<Book_Get, Book_GetVariables>(Book_GetDocument, options)
+}
+export function useBook_GetLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Book_Get, Book_GetVariables>) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useLazyQuery<Book_Get, Book_GetVariables>(Book_GetDocument, options)
+}
+export function useBook_GetSuspenseQuery(
+	baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Book_Get, Book_GetVariables>,
+) {
+	const options = baseOptions === Apollo.skipToken ? baseOptions : { ...defaultOptions, ...baseOptions }
+	return Apollo.useSuspenseQuery<Book_Get, Book_GetVariables>(Book_GetDocument, options)
+}
+export type Book_GetHookResult = ReturnType<typeof useBook_Get>
+export type Book_GetLazyQueryHookResult = ReturnType<typeof useBook_GetLazyQuery>
+export type Book_GetSuspenseQueryHookResult = ReturnType<typeof useBook_GetSuspenseQuery>
+export type Book_GetQueryResult = Apollo.QueryResult<Book_Get, Book_GetVariables>
+export const Book_GetUserBooksDocument = gql`
+	query Book_getUserBooks {
+		book_user_books {
+			id
+			author
+			name
+			note
+			userId
+			chapters {
+				id
+				bookId
+				name
+				header
+				note
+			}
+		}
+	}
+`
+
+/**
+ * __useBook_GetUserBooks__
+ *
+ * To run a query within a React component, call `useBook_GetUserBooks` and pass it any options that fit your needs.
+ * When your component renders, `useBook_GetUserBooks` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useBook_GetUserBooks({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useBook_GetUserBooks(
+	baseOptions?: Apollo.QueryHookOptions<Book_GetUserBooks, Book_GetUserBooksVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useQuery<Book_GetUserBooks, Book_GetUserBooksVariables>(Book_GetUserBooksDocument, options)
+}
+export function useBook_GetUserBooksLazyQuery(
+	baseOptions?: Apollo.LazyQueryHookOptions<Book_GetUserBooks, Book_GetUserBooksVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useLazyQuery<Book_GetUserBooks, Book_GetUserBooksVariables>(Book_GetUserBooksDocument, options)
+}
+export function useBook_GetUserBooksSuspenseQuery(
+	baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Book_GetUserBooks, Book_GetUserBooksVariables>,
+) {
+	const options = baseOptions === Apollo.skipToken ? baseOptions : { ...defaultOptions, ...baseOptions }
+	return Apollo.useSuspenseQuery<Book_GetUserBooks, Book_GetUserBooksVariables>(Book_GetUserBooksDocument, options)
+}
+export type Book_GetUserBooksHookResult = ReturnType<typeof useBook_GetUserBooks>
+export type Book_GetUserBooksLazyQueryHookResult = ReturnType<typeof useBook_GetUserBooksLazyQuery>
+export type Book_GetUserBooksSuspenseQueryHookResult = ReturnType<typeof useBook_GetUserBooksSuspenseQuery>
+export type Book_GetUserBooksQueryResult = Apollo.QueryResult<Book_GetUserBooks, Book_GetUserBooksVariables>
+export const Book_UpdateDocument = gql`
+	mutation Book_update($input: UpdateBookInput!) {
+		book_update(input: $input) {
+			id
+			author
+			name
+			note
+			userId
+			chapters {
+				id
+				bookId
+				name
+				header
+				note
+			}
+		}
+	}
+`
+export type Book_UpdateMutationFn = Apollo.MutationFunction<Book_Update, Book_UpdateVariables>
+
+/**
+ * __useBook_Update__
+ *
+ * To run a mutation, you first call `useBook_Update` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useBook_Update` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [bookUpdate, { data, loading, error }] = useBook_Update({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useBook_Update(baseOptions?: Apollo.MutationHookOptions<Book_Update, Book_UpdateVariables>) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useMutation<Book_Update, Book_UpdateVariables>(Book_UpdateDocument, options)
+}
+export type Book_UpdateHookResult = ReturnType<typeof useBook_Update>
+export type Book_UpdateMutationResult = Apollo.MutationResult<Book_Update>
+export type Book_UpdateMutationOptions = Apollo.BaseMutationOptions<Book_Update, Book_UpdateVariables>
+export const Book_GetBookPublicDocument = gql`
+	query Book_getBookPublic($input: GetBookPublicInput!) {
+		book_public_get_book(input: $input) {
+			id
+			author
+			name
+			note
+			cover
+			chapters {
+				id
+				bookId
+				name
+				header
+				note
+			}
+		}
+	}
+`
+
+/**
+ * __useBook_GetBookPublic__
+ *
+ * To run a query within a React component, call `useBook_GetBookPublic` and pass it any options that fit your needs.
+ * When your component renders, `useBook_GetBookPublic` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useBook_GetBookPublic({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useBook_GetBookPublic(
+	baseOptions: Apollo.QueryHookOptions<Book_GetBookPublic, Book_GetBookPublicVariables> &
+		({ variables: Book_GetBookPublicVariables; skip?: boolean } | { skip: boolean }),
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useQuery<Book_GetBookPublic, Book_GetBookPublicVariables>(Book_GetBookPublicDocument, options)
+}
+export function useBook_GetBookPublicLazyQuery(
+	baseOptions?: Apollo.LazyQueryHookOptions<Book_GetBookPublic, Book_GetBookPublicVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useLazyQuery<Book_GetBookPublic, Book_GetBookPublicVariables>(Book_GetBookPublicDocument, options)
+}
+export function useBook_GetBookPublicSuspenseQuery(
+	baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Book_GetBookPublic, Book_GetBookPublicVariables>,
+) {
+	const options = baseOptions === Apollo.skipToken ? baseOptions : { ...defaultOptions, ...baseOptions }
+	return Apollo.useSuspenseQuery<Book_GetBookPublic, Book_GetBookPublicVariables>(Book_GetBookPublicDocument, options)
+}
+export type Book_GetBookPublicHookResult = ReturnType<typeof useBook_GetBookPublic>
+export type Book_GetBookPublicLazyQueryHookResult = ReturnType<typeof useBook_GetBookPublicLazyQuery>
+export type Book_GetBookPublicSuspenseQueryHookResult = ReturnType<typeof useBook_GetBookPublicSuspenseQuery>
+export type Book_GetBookPublicQueryResult = Apollo.QueryResult<Book_GetBookPublic, Book_GetBookPublicVariables>
+export const Book_GetBooksPublicDocument = gql`
+	query Book_getBooksPublic {
+		book_public_get_books {
+			id
+			author
+			name
+			note
+			cover
+			chapters {
+				id
+				bookId
+				name
+				header
+				note
+			}
+		}
+	}
+`
+
+/**
+ * __useBook_GetBooksPublic__
+ *
+ * To run a query within a React component, call `useBook_GetBooksPublic` and pass it any options that fit your needs.
+ * When your component renders, `useBook_GetBooksPublic` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useBook_GetBooksPublic({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useBook_GetBooksPublic(
+	baseOptions?: Apollo.QueryHookOptions<Book_GetBooksPublic, Book_GetBooksPublicVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useQuery<Book_GetBooksPublic, Book_GetBooksPublicVariables>(Book_GetBooksPublicDocument, options)
+}
+export function useBook_GetBooksPublicLazyQuery(
+	baseOptions?: Apollo.LazyQueryHookOptions<Book_GetBooksPublic, Book_GetBooksPublicVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useLazyQuery<Book_GetBooksPublic, Book_GetBooksPublicVariables>(Book_GetBooksPublicDocument, options)
+}
+export function useBook_GetBooksPublicSuspenseQuery(
+	baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Book_GetBooksPublic, Book_GetBooksPublicVariables>,
+) {
+	const options = baseOptions === Apollo.skipToken ? baseOptions : { ...defaultOptions, ...baseOptions }
+	return Apollo.useSuspenseQuery<Book_GetBooksPublic, Book_GetBooksPublicVariables>(
+		Book_GetBooksPublicDocument,
+		options,
+	)
+}
+export type Book_GetBooksPublicHookResult = ReturnType<typeof useBook_GetBooksPublic>
+export type Book_GetBooksPublicLazyQueryHookResult = ReturnType<typeof useBook_GetBooksPublicLazyQuery>
+export type Book_GetBooksPublicSuspenseQueryHookResult = ReturnType<typeof useBook_GetBooksPublicSuspenseQuery>
+export type Book_GetBooksPublicQueryResult = Apollo.QueryResult<Book_GetBooksPublic, Book_GetBooksPublicVariables>
 export const Payment_YookassaTopUpBalanceDocument = gql`
 	mutation Payment_yookassaTopUpBalance($input: TopUpBalanceWithYooKassaInput!) {
 		payment_yookassa_top_up_balance(input: $input) {

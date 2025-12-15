@@ -1,34 +1,34 @@
 // Тип данных для структуры текста приходящий с сервера
 export namespace ChapterTextStructure {
-	export type Chapter = (Sentence | Space | CarriageReturn | Punctuation)[]
+	export type Chapter = Sentence[]
 
 	export type Sentence = {
-		t: 'sentence'
-		translation: null | string
+		// sentence
+		t: 'sn'
+		// translation
+		tr: null | string
 		// Составные части предложения
-		parts: SentencePart[]
-		// Соответствия между идентификаторами слов в предложении и идентификаторами фраз в базе данных с анализом фразы
-		phrasesMapping?: { wordIds: number[]; phraseIdInDb: number }[]
+		p: SentencePart[]
 	}
 
-	export type SentencePart = Word | Space | Punctuation | CarriageReturn
+	export type SentencePart = Word | Space | Punctuation
 
 	type Word = {
-		t: 'word'
+		// word
+		t: 'w'
 		v: string
 	}
 
 	type Space = {
-		t: 'space'
+		// space
+		t: 's'
 	}
 
 	type Punctuation = {
-		t: 'punctuation'
+		// punctuation
+		t: 'pn'
+		// value
 		v: string
-	}
-
-	type CarriageReturn = {
-		t: 'carriageReturn'
 	}
 
 	export type Phrase = {
@@ -57,10 +57,8 @@ export namespace ChapterTextStructurePopulated {
 		id: number
 		header: null | string
 		name: null | string
-		parts: Part[]
+		parts: Sentence[]
 	}
-
-	export type Part = Sentence | Space | CarriageReturn | Punctuation
 
 	export type Sentence = {
 		id: number
@@ -71,7 +69,7 @@ export namespace ChapterTextStructurePopulated {
 		phrases: Phrase[]
 	}
 
-	export type SentencePart = Word | Space | Punctuation | CarriageReturn
+	export type SentencePart = Word | Space | Punctuation
 
 	export type Word = {
 		id: number
@@ -88,11 +86,6 @@ export namespace ChapterTextStructurePopulated {
 		id: number
 		type: 'punctuation'
 		value: string
-	}
-
-	type CarriageReturn = {
-		id: number
-		type: 'carriageReturn'
 	}
 
 	export type Phrase = LoadingPhrase | ErrorPhrase | SuccessPhrase

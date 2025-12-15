@@ -1,4 +1,4 @@
-import { useIsHoldToSelectRelatedWordsVisible } from '_pages/books/reading/analysis/HintBlock/fn/isHoldToSelectRelatedWordsVisible'
+import { useIsHoldToSelectRelatedWordsVisible } from './fn/isHoldToSelectRelatedWordsVisible'
 import React from 'react'
 
 function LongTapForSelectSeveralWords() {

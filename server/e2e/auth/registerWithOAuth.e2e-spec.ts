@@ -7,7 +7,7 @@ import { UserRepository } from '../../src/repo/user.repository'
 import { makeGraphQLReq } from '../makeGQReq'
 import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
 import { checkErrorResponse } from '../utils/checkErrorResp'
-import { defUserEmail, defUserPassword, welcomeBonusInRUR } from '../utils/common'
+import { defUserEmail, defUserPassword, welcomeBonusInKop } from '../utils/common'
 import { createApp } from '../utils/createApp'
 import { queries } from '../../src/features/db/queries'
 import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
@@ -50,7 +50,7 @@ describe.skip('Register user (e2e)', () => {
 		userUtils.checkUserOutResp(createUserWithOAuthResp, {
 			email: defUserEmail,
 			isUserConfirmed: true,
-			balance: 0,
+			balance: welcomeBonusInKop,
 		})
 
 		// Check that user data in the database is correct
@@ -62,7 +62,7 @@ describe.skip('Register user (e2e)', () => {
 			confirmationCodeExpirationDate: null,
 			isEmailConfirmed: false,
 			isUserConfirmed: true,
-			balance: welcomeBonusInRUR,
+			balance: welcomeBonusInKop,
 		})
 
 		// Check that a confirmation letter was not sent
@@ -80,7 +80,7 @@ describe.skip('Register user (e2e)', () => {
 		userUtils.checkUserOutResp(firstRegisterWithOAuthResp, {
 			email: defUserEmail,
 			isUserConfirmed: true,
-			balance: welcomeBonusInRUR,
+			balance: welcomeBonusInKop,
 		})
 
 		// 2. Register/login a user with OAuth for the second time
@@ -93,7 +93,7 @@ describe.skip('Register user (e2e)', () => {
 		userUtils.checkUserOutResp(secondRegisterWithOAuthResp, {
 			email: defUserEmail,
 			isUserConfirmed: true,
-			balance: welcomeBonusInRUR,
+			balance: welcomeBonusInKop,
 		})
 
 		// Check that user data in the database is correct
@@ -105,7 +105,7 @@ describe.skip('Register user (e2e)', () => {
 			confirmationCodeExpirationDate: null,
 			isEmailConfirmed: false,
 			isUserConfirmed: true,
-			balance: welcomeBonusInRUR,
+			balance: welcomeBonusInKop,
 		})
 
 		// Check that a confirmation letter was not sent
@@ -145,13 +145,13 @@ describe.skip('Register user (e2e)', () => {
 				confirmationCodeExpirationDate: 'data',
 				isEmailConfirmed: false,
 				isUserConfirmed: true,
-				balance: welcomeBonusInRUR,
+				balance: welcomeBonusInKop,
 			}
 
 			userUtils.checkUserOutResp(userOutResponseData, {
 				email: defUserEmail,
 				isUserConfirmed: true,
-				balance: welcomeBonusInRUR,
+				balance: welcomeBonusInKop,
 			})
 
 			// Check that user data in the database is correct

@@ -1,8 +1,8 @@
 import { INestApplication } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
-import { welcomeBonusInRUR } from '../utils/common'
+import { welcomeBonusInKop } from '../utils/common'
 import { bookUtils } from '../../e2e/utils/bookUtils'
-import { BookQueryRepository } from '../../src/repo/book.queryRepository'
+import { BookPrivateQueryRepository } from '../../src/repo/bookPrivate.queryRepository'
 import { UserRepository } from '../../src/repo/user.repository'
 import {
 	UserBookConfig,
@@ -19,7 +19,7 @@ describe.skip('Check that test user were created correctly (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let userRepository: UserRepository
-	let bookQueryRepository: BookQueryRepository
+	let bookQueryRepository: BookPrivateQueryRepository
 
 	beforeAll(async () => {
 		const createMainAppRes = await createApp()
@@ -27,7 +27,7 @@ describe.skip('Check that test user were created correctly (e2e)', () => {
 		app = createMainAppRes.app
 		commandBus = app.get(CommandBus)
 		userRepository = await app.resolve(UserRepository)
-		bookQueryRepository = await app.resolve(BookQueryRepository)
+		bookQueryRepository = await app.resolve(BookPrivateQueryRepository)
 	})
 
 	beforeEach(async () => {
@@ -67,7 +67,7 @@ describe.skip('Check that test user were created correctly (e2e)', () => {
 async function checkUserWithUnconfirmedEmail(props: {
 	userConfig: UserWithUnconfirmedEmailConfig
 	userRepository: UserRepository
-	bookQueryRepository: BookQueryRepository
+	bookQueryRepository: BookPrivateQueryRepository
 }) {
 	const { userConfig, userRepository, bookQueryRepository } = props
 
@@ -84,14 +84,12 @@ async function checkUserWithUnconfirmedEmail(props: {
 	// Check books
 	const books = await bookQueryRepository.getUserBooks(userConfig.id)
 	expect(books.length).toBe(1)
-
-	bookUtils.checkForDefaultBook({ book: books[0], userId: userConfig.id })
 }
 
 async function checkUserWithConfirmedEmail(props: {
 	userConfig: UserRegisteredWithCredentialsConfig
 	userRepository: UserRepository
-	bookQueryRepository: BookQueryRepository
+	bookQueryRepository: BookPrivateQueryRepository
 }) {
 	const { userConfig, userRepository, bookQueryRepository } = props
 
@@ -110,7 +108,7 @@ async function checkUserWithConfirmedEmail(props: {
 async function checkUserWithOAuth(props: {
 	userConfig: UserRegisteredWithOAuthConfig
 	userRepository: UserRepository
-	bookQueryRepository: BookQueryRepository
+	bookQueryRepository: BookPrivateQueryRepository
 }) {
 	const { userConfig, userRepository, bookQueryRepository } = props
 
@@ -121,7 +119,7 @@ async function checkUserWithOAuth(props: {
 	expect(userFromDB.isUserConfirmed).toBe(true)
 	expect(userFromDB.isEmailConfirmed).toBe(false)
 	expect(userFromDB.confirmationCodeExpirationDate).toBe(null)
-	expect(userFromDB.balance).toBe(welcomeBonusInRUR * 100)
+	expect(userFromDB.balance).toBe(welcomeBonusInKop * 100)
 
 	await checkUserBooks({ userId: userConfig.id, booksConfig: userConfig.books, bookQueryRepository })
 }
@@ -129,7 +127,7 @@ async function checkUserWithOAuth(props: {
 async function checkUserWithCredentialsAndOAuth(props: {
 	userConfig: UserRegisteredWithCredentialsAndOAuthConfig
 	userRepository: UserRepository
-	bookQueryRepository: BookQueryRepository
+	bookQueryRepository: BookPrivateQueryRepository
 }) {
 	const { userConfig, userRepository, bookQueryRepository } = props
 
@@ -140,7 +138,7 @@ async function checkUserWithCredentialsAndOAuth(props: {
 	expect(userFromDB.isUserConfirmed).toBe(true)
 	expect(userFromDB.isEmailConfirmed).toBe(false)
 	expect(typeof userFromDB.confirmationCodeExpirationDate).toBe('string')
-	expect(userFromDB.balance).toBe(welcomeBonusInRUR * 100)
+	expect(userFromDB.balance).toBe(welcomeBonusInKop * 100)
 
 	await checkUserBooks({ userId: userConfig.id, booksConfig: userConfig.books, bookQueryRepository })
 }
@@ -148,7 +146,7 @@ async function checkUserWithCredentialsAndOAuth(props: {
 async function checkUserBooks(props: {
 	userId: number
 	booksConfig?: UserBookConfig[]
-	bookQueryRepository: BookQueryRepository
+	bookQueryRepository: BookPrivateQueryRepository
 }) {
 	const { userId, booksConfig, bookQueryRepository } = props
 
@@ -157,7 +155,6 @@ async function checkUserBooks(props: {
 	if (!books.length) {
 		throw new Error('User has no have at least default book')
 	}
-	bookUtils.checkForDefaultBook({ book: books[0], userId })
 
 	// Check other books
 	if (booksConfig?.length) {

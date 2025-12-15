@@ -1,4 +1,4 @@
-import { useGetTranslateSentencesButtonDetails } from '_pages/books/reading/TranslateSentences/fn/translateSentences'
+import { useGetTranslateSentencesButtonDetails } from './fn/translateSentences'
 import React from 'react'
 import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
 import Button from 'ui/formRelated/buttons/Button/Button'

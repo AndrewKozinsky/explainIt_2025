@@ -40,7 +40,7 @@ describe.skip('Translate sentences', () => {
 	})
 
 	it('should return 401 if there is not session token cookie', async () => {
-		const { query, variables } = queries.bookChapter.translateSentences({
+		const { mutation, variables } = queries.bookChapter.translateSentences({
 			bookName: null,
 			bookAuthor: null,
 			sentences: ['The first sentence'],
@@ -48,7 +48,7 @@ describe.skip('Translate sentences', () => {
 
 		await authUtils.tokenNotExist({
 			app,
-			queryOrMutationStr: query,
+			queryOrMutationStr: mutation,
 			queryVariables: variables,
 		})
 	})
@@ -65,7 +65,7 @@ describe.skip('Translate sentences', () => {
 		// Verify user has zero balance
 		expect(loginData.balance).toBe(0)
 
-		const { query, variables } = queries.bookChapter.translateSentences({
+		const { mutation, variables } = queries.bookChapter.translateSentences({
 			bookName: null,
 			bookAuthor: null,
 			sentences: ['The first sentence'],
@@ -73,7 +73,7 @@ describe.skip('Translate sentences', () => {
 
 		const [response] = await makeGraphQLReqWithTokens({
 			app,
-			query,
+			query: mutation,
 			queryVariables: variables,
 			sessionToken,
 		})
@@ -94,7 +94,7 @@ describe.skip('Translate sentences', () => {
 			password: defUserPassword,
 		})
 
-		// Add balance to user (assuming we can update balance somehow)
+		// Add balance to a user (assuming we can update balance somehow)
 		await userRepository.updateBalance(loginData.id, 100)
 
 		jest.spyOn(openAIService, 'generateText').mockResolvedValue({
@@ -103,14 +103,14 @@ describe.skip('Translate sentences', () => {
 			message: null, // Missing message property - malformed response
 		})
 
-		const { query, variables } = queries.bookChapter.translateSentences({
+		const { mutation, variables } = queries.bookChapter.translateSentences({
 			bookName: null,
 			bookAuthor: null,
 			sentences: ['The first sentence.', 'The second sentence.', 'The third sentence.'],
 		})
 		const [response] = await makeGraphQLReqWithTokens({
 			app,
-			query,
+			query: mutation,
 			queryVariables: variables,
 			sessionToken,
 		})
@@ -153,7 +153,7 @@ describe.skip('Translate sentences', () => {
 		}
 
 		jest.spyOn(openAIService, 'generateText').mockResolvedValue(mockOpenAIResponse)
-		const { query, variables } = queries.bookChapter.translateSentences({
+		const { mutation, variables } = queries.bookChapter.translateSentences({
 			bookAuthor: 'Test Author',
 			bookName: 'Test Book',
 			sentences: ['The first sentence.', 'The second sentence.', 'The third sentence.'],
@@ -161,7 +161,7 @@ describe.skip('Translate sentences', () => {
 
 		const [response] = await makeGraphQLReqWithTokens({
 			app,
-			query,
+			query: mutation,
 			queryVariables: variables,
 			sessionToken,
 		})

@@ -1,3 +1,5 @@
+import { ParamValue } from 'next/dist/server/request/params'
+
 export const pageUrls = {
 	main: {
 		name: 'Главная',
@@ -52,7 +54,8 @@ export const pageUrls = {
 	books: {
 		name: 'Книги',
 		path: '/books',
-		book(bookId: string | number) {
+		// bookId: p1 or u1
+		book(bookId: string) {
 			return {
 				name: 'Книга',
 				path: '/books/' + bookId,
@@ -64,11 +67,6 @@ export const pageUrls = {
 							segment: 'reading',
 							name: 'Чтение главы',
 							path: '/books/' + bookId + '/' + chapterId + '/reading',
-						},
-						readingNext: {
-							segment: 'readingNext',
-							name: 'Чтение главы Next',
-							path: '/books/' + bookId + '/' + chapterId + '/readingNext',
 						},
 					}
 				},
@@ -111,4 +109,25 @@ export const pageUrls = {
 			path: '/docs/content-use-policy',
 		},
 	},
+}
+
+export function getBookTypePrefixInUrl(bookType: 'public' | 'private') {
+	return bookType === 'public' ? 'p' : 'u'
+}
+
+export function createBookIdUrl(bookId: string | number, bookType: 'public' | 'private') {
+	return getBookTypePrefixInUrl(bookType) + bookId
+}
+
+export function getBookTypeByUrlBookId(urlBookId: ParamValue | undefined | null | string): null | 'public' | 'private' {
+	if (!urlBookId || typeof urlBookId !== 'string') return null
+
+	return urlBookId.startsWith('p') ? 'public' : 'private'
+}
+
+export function extractBookIdFromUrlBookId(urlBookId: ParamValue | undefined | null | string): null | number {
+	if (!urlBookId || typeof urlBookId !== 'string') return null
+
+	const bookIdStr = urlBookId.slice(1)
+	return parseInt(bookIdStr)
 }

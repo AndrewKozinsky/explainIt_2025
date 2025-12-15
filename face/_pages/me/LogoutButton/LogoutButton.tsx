@@ -1,8 +1,8 @@
 'use client'
 
 import React from 'react'
+import { publicFolderFilesUrls } from 'utils/publicFolderFilesUrls'
 import Button from '../../../ui/formRelated/buttons/Button/Button'
-import { publicFolderFilesUrls } from '../../../utils/publicFolderFilesUrls'
 import { useGetLogout } from './fn/logout'
 
 function LogoutButton() {

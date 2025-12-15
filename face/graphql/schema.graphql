@@ -63,7 +63,7 @@ type BookLiteOutModel {
   id: Int!
   name: String
   note: String
-  userId: Int!
+  userId: Int
 }
 
 type BookOutModel {
@@ -73,6 +73,15 @@ type BookOutModel {
   name: String
   note: String
   userId: Int!
+}
+
+type BookPublicOutModel {
+  author: String!
+  chapters: [BookChapterLiteOutModel!]!
+  cover: String!
+  id: Int!
+  name: String!
+  note: String!
 }
 
 input CheckTranslationInput {
@@ -102,6 +111,9 @@ input ConfirmEmailInput {
 input CreateBookChapterInput {
   """Book id"""
   bookId: Int!
+
+  """Book type: public or private"""
+  bookType: String!
 
   """Content of the chapter"""
   content: String
@@ -143,11 +155,19 @@ input DeleteBookInput {
 }
 
 input GetBookChapterInput {
+  """Book type: public or private"""
+  bookType: String!
+
   """BookChapter id"""
   id: Int!
 }
 
 input GetBookInput {
+  """Book id"""
+  id: Int!
+}
+
+input GetBookPublicInput {
   """Book id"""
   id: Int!
 }
@@ -251,6 +271,12 @@ type Query {
   """Get user book"""
   book_get(input: GetBookInput!): BookOutModel!
 
+  """Get public book"""
+  book_public_get_book(input: GetBookPublicInput!): BookPublicOutModel!
+
+  """Get public books"""
+  book_public_get_books: [BookPublicOutModel!]!
+
   """Get user books"""
   book_user_books: [BookOutModel!]!
 }
@@ -269,7 +295,7 @@ input ResendConfirmationEmailInput {
 }
 
 input TopUpBalanceWithYooKassaInput {
-  """Money amount"""
+  """Money amount in kopecks"""
   amount: Float!
 }
 

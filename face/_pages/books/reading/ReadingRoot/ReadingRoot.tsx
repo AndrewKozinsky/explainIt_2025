@@ -1,3 +1,4 @@
+import { useAutoScrollToTop } from '_pages/books/reading/ReadingRoot/fn/autoScrollToTop'
 import { useReadingStore } from '_pages/books/reading/readingStore'
 import { useClearSelectedSentenceAfterChapterWasChanged } from './fn/clearSelectedSenteceAfterChapterWasChanged'
 import { usePopulateReadingStore } from './fn/getContentStructure'
@@ -10,8 +11,8 @@ import { useSetDeviceType } from './fn/setDeviceType'
 import BookAuthorAndName from '../chapter/BookAuthorAndName/BookAuthorAndName'
 import ChapterContent from '../chapterContent/ChapterContent/ChapterContent'
 import { useRegisterEnterKeyListener } from './fn/registerEnterKeyListener'
-import '_pages/books/reading/ReadingRoot/ReadingRoot.scss'
-import TranslateSentences from '_pages/books/reading/TranslateSentences/TranslateSentences'
+import TranslateSentences from '../TranslateSentences/TranslateSentences'
+import './ReadingRoot.scss'
 
 function ReadingRoot() {
 	usePopulateReadingStore()
@@ -19,6 +20,7 @@ function ReadingRoot() {
 	useRegisterCmdKeyListener()
 	useRegisterEnterKeyListener()
 	useSetDeviceType()
+	useAutoScrollToTop()
 
 	const bookData = useReadingStore((s) => s.book?.data)
 	const populatedChapter = useReadingStore((s) => s.populatedChapter)
@@ -34,6 +36,7 @@ function ReadingRoot() {
 				<ChapterHeader />
 				<TranslateSentences />
 				<ChapterContent />
+				<div className='reading-root__auto-height-elem' />
 				<Analysis />
 				<BookAndPrevAndNextChapters />
 			</div>

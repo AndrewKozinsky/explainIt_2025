@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common'
-import { Prisma } from '@prisma/client'
+import { Prisma } from 'prisma/generated/client'
 import CatchDbError from 'src/infrastructure/exceptions/CatchDBErrors'
 import { BookChapterPhraseOutModel } from 'src/models/bookChapterPhrase/bookChapterPhrase.out.model'
 import { PrismaService } from '../db/prisma.service'

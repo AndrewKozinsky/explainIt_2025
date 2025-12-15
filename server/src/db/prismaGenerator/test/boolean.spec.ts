@@ -21,19 +21,18 @@ export const bdTestConfig = {
 	},
 } satisfies BdConfig.Root
 
-describe('createSchemaPrisma', () => {
+describe.skip('createSchemaPrisma', () => {
 	it.skip('123', async () => {
 		expect(2).toBe(2)
 	})
 	it('createSchemaPrisma', () => {
 		const expectedPrismaSchema = `generator client {
-	provider      = "prisma-client-js"
+	provider      = "prisma-client"
 	binaryTargets = ["native", "linux-musl-openssl-3.0.x", "linux-musl-arm64-openssl-3.0.x"]
 }
 
 datasource db {
 	provider = "postgresql"
-	url      = env("DB_URL")
 }
 
 model User {

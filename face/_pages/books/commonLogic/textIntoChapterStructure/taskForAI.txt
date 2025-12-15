@@ -1,0 +1,43 @@
+@textIntoChapterStructure.ts Функция textIntoChapterStructure принимает текст. Например
+`Alice was very tired: she had the book. “What is the use of a book,” thought Alice “without conversations?”
+
+So she was confused.
+White Rabbit ran by her.`
+
+В ответ функция должна вернуть массив типа ChapterTextStructure.Chapter. Каждый элемент массива состоит из типа данных предложения:
+type Sentence = {
+	t: 'sn'
+	tr: null
+	// Составные части предложения
+	p: SentencePart[]
+}
+Самостоятельно определи что является предложением в тексте на английском языке.
+
+Каждое предложение может состоять из слов (ChapterTextStructure.Word), пробельных знаков (ChapterTextStructure.Space) и знаков пунктуации (ChapterTextStructure.Punctuation).
+
+Слово — это отдельное слово или несколько слов разделённых дефисами. В ключе v содержится слово.
+type Word = {
+	t: 'w'
+	v: string
+}
+
+Пробельный знак — это сам пробельный знак во всех вариантах и символ переноса строки (carriage return). Если подряд идут несколько пробельных символов, то ставить один пробельный символ.
+type Space = {
+	t: 's'
+}
+
+Всё остальное относится к пунктуации. В ключе v содержится слово.
+type Punctuation = {
+	t: 'pn'
+	v: string
+}
+
+Если подряд идут несколько знаков пунктуации, то их можно поставить в один объект. Например:
+{
+	t: 'pn',
+	v: ',”',
+}
+
+Если между предложениями есть пробел, то его не нужно ставить в структуру. ChapterTextStructure.Chapter — это массив предложений.
+
+Напиши тесты чтобы проверить работоспособность функции.

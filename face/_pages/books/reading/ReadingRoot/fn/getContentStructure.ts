@@ -1,9 +1,19 @@
 import { useEffect } from 'react'
-import { BookChapterOutModel, BookOutModel, useBook_Get, useBookChapter_Get } from '@/graphql'
+import {
+	BookChapterOutModel,
+	BookOutModel,
+	useBook_Get,
+	useBook_GetBookPublic,
+	useBook_GetBooksPublic,
+	useBookChapter_Get,
+} from '@/graphql'
 import { ChapterTextStructure } from '_pages/books/commonLogic/chapterStructureTypes'
 import { populateChapterStructure } from '_pages/books/commonLogic/populateChapterStructure'
 import { useParams } from 'next/navigation'
 import { useReadingStore } from '_pages/books/reading/readingStore'
+import invariant from 'ts-invariant'
+import { extractBookIdFromUrlBookId, getBookTypeByUrlBookId } from 'сonsts/pageUrls'
+import log = invariant.log
 
 export function usePopulateReadingStore() {
 	useFetchBookAndSetToStore()
@@ -12,46 +22,80 @@ export function usePopulateReadingStore() {
 }
 
 function useFetchBookAndSetToStore() {
-	const bookId = useParams().bookId as string
-	const { data, error, loading } = useBook_Get({ variables: { input: { id: parseInt(bookId) } } })
+	const bookIdInUrl = useParams().bookId as string
+	const bookType = getBookTypeByUrlBookId(bookIdInUrl)
+	const bookId = extractBookIdFromUrlBookId(bookIdInUrl)
+
+	const {
+		data: privateBookData,
+		error: privateBookError,
+		loading: privateBookLoading,
+	} = useBook_Get({ variables: { input: { id: bookId! } }, skip: bookType !== 'private' })
+
+	const {
+		data: publicBookData,
+		error: publicBookError,
+		loading: publicBookLoading,
+	} = useBook_GetBookPublic({
+		variables: { input: { id: bookId! } },
+		skip: bookType !== 'public',
+	})
 
 	useEffect(
 		function () {
+			const book = bookType === 'private' ? privateBookData?.book_get : publicBookData?.book_public_get_book
+			const error = bookType === 'private' ? privateBookError : publicBookError
+			const loading = bookType === 'private' ? privateBookLoading : publicBookLoading
+
 			if (loading) {
 				useReadingStore.getState().updateBook({
 					loading: true,
 					errorMessage: null,
 					data: null as any as BookOutModel,
+					type: 'public',
 				})
 			} else if (error) {
 				useReadingStore.getState().updateBook({
 					loading: false,
 					errorMessage: error.message,
 					data: null as any as BookOutModel,
+					type: 'public',
 				})
-			} else if (!data) {
+			} else if (!book) {
 				useReadingStore.getState().updateBook({
 					loading: false,
 					errorMessage: null,
 					data: null as any as BookOutModel,
+					type: 'public',
 				})
 			} else {
 				useReadingStore.getState().updateBook({
 					loading: false,
 					errorMessage: null,
-					data: data.book_get,
+					data: book,
+					type: bookType || 'public',
 				})
 			}
 		},
-		[data, error, loading],
+		[
+			bookType,
+			privateBookData,
+			privateBookError,
+			privateBookLoading,
+			publicBookData,
+			publicBookError,
+			publicBookLoading,
+		],
 	)
 }
 
 function useFetchChapterAndSetToStore() {
+	const bookIdInUrl = useParams().bookId as string
+	const bookType = getBookTypeByUrlBookId(bookIdInUrl)
 	const chapterId = useParams().chapterId as string
 
 	const { data, error, loading } = useBookChapter_Get({
-		variables: { input: { id: parseInt(chapterId) } },
+		variables: { input: { id: parseInt(chapterId), bookType: bookType || 'private' } },
 		skip: !chapterId,
 	})
 
