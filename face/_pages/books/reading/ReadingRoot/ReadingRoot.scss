@@ -1,5 +1,5 @@
-@use '@/styles/mixins' as mix;
 @use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
 
 .reading-root {
 	flex-grow: 1;
@@ -8,39 +8,20 @@
 	background: white;
 	border-radius: vars.$radius-1;
 	box-shadow: vars.$shadow-1;
-
-	@include mix.page-width(700px) {
-		flex-direction: row;
-	}
 }
 
-.reading-root__chapter {
-	flex-grow: 1;
-}
 .reading-root__chapter-content {
-	padding: 2rem vars.$reading-page-chapter-horizontal-padding;
-}
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	padding: 1rem var(--reading-page-chapter-horizontal-padding);
 
-.reading-root__hr {
-	height: 1px;
-	background: vars.$grayColor-1;
-
-	@include mix.page-width(700px) {
-		width: 1px;
-		height: 100%;
+	@media (min-width: 600px) {
+		padding-top: 2rem;
+		padding-bottom: 2rem;
 	}
 }
 
-.reading-root__analysis {
-	position: relative;
-
-	@include mix.page-width(700px) {
-		flex-grow: 1;
-		min-width: 250px;
-		width: 350px;
-	}
-
-	@include mix.page-width(900px) {
-		min-width: 350px;
-	}
+.reading-root__auto-height-elem {
+	flex-grow: 1;
 }

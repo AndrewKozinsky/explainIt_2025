@@ -26,11 +26,15 @@ export function createManyToOneColumn(fieldConfig: BdConfig.ManyToOneField) {
 	// User, userId, id
 	const { foreignTable, thisField, foreignField } = fieldConfig
 
+	const requiredMark = fieldConfig.required ? '' : '?'
+
 	// For example: 'user User @relation(fields: [userId], references: [id])'
-	const firstColumn = `${firstColumnName} ${foreignTable} @relation(fields: [${thisField}], references: [${foreignField}], onDelete: Cascade)`
+	// Or: 'user User? @relation(fields: [userId], references: [id])'
+	const firstColumn = `${firstColumnName} ${foreignTable}${requiredMark} @relation(fields: [${thisField}], references: [${foreignField}], onDelete: Cascade)`
 
 	// For example: 'userId Int'
-	const secondColumn = thisField + ' Int'
+	// Or: 'userId Int?'
+	const secondColumn = thisField + ' Int' + requiredMark
 
 	return ['\t' + firstColumn, '\t' + secondColumn]
 }

@@ -1,4 +1,4 @@
-input AnalyseSentenceAndPhraseInput {
+input AnalysePhraseInput {
   """Book author"""
   bookAuthor: String
 
@@ -50,7 +50,12 @@ type BookChapterPhraseOutModel {
   phraseWordsIdx: [Int!]!
   sentence: String!
   sentenceId: Int!
+  transcription: String!
   translation: String!
+}
+
+type BookChapterTranslateOfSentencesOutModel {
+  translates: [String!]!
 }
 
 type BookLiteOutModel {
@@ -58,7 +63,7 @@ type BookLiteOutModel {
   id: Int!
   name: String
   note: String
-  userId: Int!
+  userId: Int
 }
 
 type BookOutModel {
@@ -68,6 +73,15 @@ type BookOutModel {
   name: String
   note: String
   userId: Int!
+}
+
+type BookPublicOutModel {
+  author: String!
+  chapters: [BookChapterLiteOutModel!]!
+  cover: String!
+  id: Int!
+  name: String!
+  note: String!
 }
 
 input CheckTranslationInput {
@@ -97,6 +111,9 @@ input ConfirmEmailInput {
 input CreateBookChapterInput {
   """Book id"""
   bookId: Int!
+
+  """Book type: public or private"""
+  bookType: String!
 
   """Content of the chapter"""
   content: String
@@ -138,11 +155,19 @@ input DeleteBookInput {
 }
 
 input GetBookChapterInput {
+  """Book type: public or private"""
+  bookType: String!
+
   """BookChapter id"""
   id: Int!
 }
 
 input GetBookInput {
+  """Book id"""
+  id: Int!
+}
+
+input GetBookPublicInput {
   """Book id"""
   id: Int!
 }
@@ -201,7 +226,9 @@ type Mutation {
 
   """Resend email confirmation letter"""
   auth_resendConfirmationEmail(input: ResendConfirmationEmailInput!): Boolean!
+  book_chapter_AnalysePhrase(input: AnalysePhraseInput!): BookChapterPhraseOutModel!
   book_chapter_DeleteBookChapterPhrases(input: DeleteBookChapterPhrasesInput!): Boolean!
+  book_chapter_TranslateSentences(input: TranslateSentencesInput!): BookChapterTranslateOfSentencesOutModel!
 
   """Create book chapter"""
   book_chapter_create(input: CreateBookChapterInput!): BookChapterOutModel!
@@ -237,13 +264,18 @@ type Query {
 
   """Get current user data"""
   auth_getMe: UserOutModel!
-  book_chapter_AnalyseSentenceAndPhrase(input: AnalyseSentenceAndPhraseInput!): SentenceAndPhraseAnalysesOutModel!
 
   """Get book chapter"""
   book_chapter_get(input: GetBookChapterInput!): BookChapterOutModel!
 
   """Get user book"""
   book_get(input: GetBookInput!): BookOutModel!
+
+  """Get public book"""
+  book_public_get_book(input: GetBookPublicInput!): BookPublicOutModel!
+
+  """Get public books"""
+  book_public_get_books: [BookPublicOutModel!]!
 
   """Get user books"""
   book_user_books: [BookOutModel!]!
@@ -262,18 +294,24 @@ input ResendConfirmationEmailInput {
   email: String!
 }
 
-type SentenceAndPhraseAnalysesOutModel {
-  phrase: BookChapterPhraseOutModel!
-  sentenceTranslation: String!
-}
-
 input TopUpBalanceWithYooKassaInput {
-  """Money amount"""
+  """Money amount in kopecks"""
   amount: Float!
 }
 
 type TopUpBalanceWithYooKassaOutModel {
   confirmationUrl: String!
+}
+
+input TranslateSentencesInput {
+  """Book author"""
+  bookAuthor: String
+
+  """Book name"""
+  bookName: String
+
+  """Array of sentences"""
+  sentences: [String!]!
 }
 
 input UpdateBookChapterInput {

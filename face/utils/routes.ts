@@ -4,7 +4,7 @@ export const routesUtils = {
 	useIsCurrentPage(menuItemHref: string) {
 		return usePathname() === menuItemHref
 	},
-	useIsCurrentPageOrParentForCurrentPage(menuItemHref: string) {
+	useIsCurrentPageOrNestForCurrentPage(menuItemHref: string) {
 		const pathname = usePathname()
 
 		const isPageCurrent = pathname === menuItemHref

@@ -6,7 +6,7 @@ import './GoToReadingButton.scss'
 function GoToReadingButton() {
 	return (
 		<Link href={pageUrls.books.path} className='go-to-reading-button'>
-			Войти и начать чтение
+			В библиотеку
 		</Link>
 	)
 }

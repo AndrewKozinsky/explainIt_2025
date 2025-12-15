@@ -4,6 +4,7 @@ $grayColor-2: #E3E3E3;
 $grayColor-3: #C3C3C3;
 $grayColor-4: rgb(160, 160, 160);
 $grayColor-5: rgb(115, 115, 115);
+$grayColor-6: rgb(90, 90, 90);
 $textColor: rgb(30, 30, 30);
 $accentColor-1: #FDF2E8;
 $accentColor-2: #FF630C;
@@ -12,6 +13,9 @@ $linkColor-2: #0076DE;
 $dangerColor-1: #FF3900;
 $dangerColor-2: #FFC6C6;
 $dangerColor-3: #FFABAB;
+$successColor-1: #DDE8DA;
+$successColor-2: #c6ddc3;
+$successColor-3: #6A9956;
 
 $buttonGradient: linear-gradient(to bottom, white, $bg);
 
@@ -19,10 +23,11 @@ $tablet-width: 600px;
 $monitor-width: 1000px;
 $max-page-width: 1460px;
 
+// Ширина страницы книг после которой показывается версия для монитора
+$books-desktop-width: 800px;
+
 $radius-1: 0.6rem;
 $radius-2: 1rem;
 
 $shadow-1: 0 1px 2px rgba(0, 0, 0, .05);
-
-// Reading page
-$reading-page-chapter-horizontal-padding: 2.6rem;
+$shadow-2: 0 5px 20px rgba(0, 0, 0, .08);

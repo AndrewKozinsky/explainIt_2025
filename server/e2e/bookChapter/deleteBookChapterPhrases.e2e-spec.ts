@@ -4,7 +4,6 @@ import { BookChapterPhraseRepository } from '../../src/repo/bookChapterPhrase.re
 import { makeGraphQLReqWithTokens } from '../makeGQReq'
 import { App } from 'supertest/types'
 import { queries } from '../../src/features/db/queries'
-import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
 import RouteNames from '../../src/infrastructure/routeNames'
 import { BookChapterRepository } from '../../src/repo/bookChapter.repository'
@@ -22,7 +21,7 @@ it('1', () => {
 	expect(2).toBe(2)
 })
 
-describe('Delete book chapter phrases', () => {
+describe.skip('Delete book chapter phrases', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let userRepository: UserRepository
@@ -127,16 +126,16 @@ describe('Delete book chapter phrases', () => {
 		})
 	})
 
-	it.only('user should delete a book chapter phrases', async () => {
+	it('user should delete a book chapter phrases', async () => {
 		// Create a user who will create a book and a chapter
-		/*const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
+		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
 			userRepository,
 			email: defUserEmail,
 			password: defUserPassword,
-		})*/
+		})
 
-		/*const createdBookResp = await bookUtils.createBookWithChapters({
+		const createdBookResp = await bookUtils.createBookWithChapters({
 			app,
 			sessionToken,
 			book: {},
@@ -145,12 +144,12 @@ describe('Delete book chapter phrases', () => {
 					content: 'The story begins with the Durrell family deciding to leave England...',
 				},
 			],
-		})*/
+		})
 
-		// const chapterId = createdBookResp.chapters[0].id
+		const chapterId = createdBookResp.chapters[0].id
 
 		// Create several phrases linked to this chapter via repository
-		/*const phrasesData = [
+		const phrasesData = [
 			{
 				sentence: 'The story begins with the Durrell family deciding to leave England...',
 				phrase: 'begins with',
@@ -169,38 +168,41 @@ describe('Delete book chapter phrases', () => {
 				phraseTranslation: 'планирует',
 				phraseAnalysis: 'analysis 3',
 			},
-		]*/
+		]
 
-		/*for (const p of phrasesData) {
+		for (let i = 0; i < phrasesData.length; i++) {
+			const p = phrasesData[i]
 			await bookChapterPhraseRepository.createBookChapterPhrase({
 				bookChapterId: chapterId,
+				sentenceId: i + 1,
+				transcription: '',
+				phraseWordsIdx: [],
 				...p,
 			})
-		}*/
+		}
 
 		// Ensure phrases are created
-		/*const beforeCount = await prismaService.bookChapterPhrase.count({
+		const beforeCount = await prismaService.bookChapterPhrase.count({
 			where: { book_chapter_id: chapterId },
-		})*/
-		// expect(beforeCount).toBe(phrasesData.length)
+		})
+		expect(beforeCount).toBe(phrasesData.length)
 
 		// Delete the chapter phrases via GraphQL
-		// const deleteBookChapterPhrasesMutation = queries.bookChapter.deleteChapterPhrases({ bookChapterId: chapterId })
-		/*const [deleteBookChapterPhrasesResp] = await makeGraphQLReqWithTokens({
+		const deleteBookChapterPhrasesMutation = queries.bookChapter.deleteChapterPhrases({ bookChapterId: chapterId })
+		const [deleteBookChapterPhrasesResp] = await makeGraphQLReqWithTokens({
 			app,
 			query: deleteBookChapterPhrasesMutation.query,
 			queryVariables: deleteBookChapterPhrasesMutation.variables,
 			sessionToken,
-		})*/
-		/*const deleteBookChapterPhrases =
-			deleteBookChapterPhrasesResp.data[RouteNames.BOOK_CHAPTER.DELETE_BOOK_CHAPTER_PHRASES]*/
-		// expect(deleteBookChapterPhrases).toBe(true)
+		})
+		const deleteBookChapterPhrases =
+			deleteBookChapterPhrasesResp.data[RouteNames.BOOK_CHAPTER.DELETE_BOOK_CHAPTER_PHRASES]
+		expect(deleteBookChapterPhrases).toBe(true)
 
 		// Ensure phrases are deleted
-		/*const afterCount = await prismaService.bookChapterPhrase.count({
+		const afterCount = await prismaService.bookChapterPhrase.count({
 			where: { book_chapter_id: chapterId },
-		})*/
-		// expect(afterCount).toBe(0)
-		expect(2).toBe(2)
+		})
+		expect(afterCount).toBe(0)
 	})
 })

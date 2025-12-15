@@ -2,7 +2,7 @@ import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { BookQueryRepository } from 'src/repo/book.queryRepository'
+import { BookPrivateQueryRepository } from 'src/repo/bookPrivate.queryRepository'
 
 export class GetBookCommand implements ICommand {
 	constructor(
@@ -13,7 +13,7 @@ export class GetBookCommand implements ICommand {
 
 @CommandHandler(GetBookCommand)
 export class GetBookHandler implements ICommandHandler<GetBookCommand> {
-	constructor(private bookQueryRepository: BookQueryRepository) {}
+	constructor(private bookQueryRepository: BookPrivateQueryRepository) {}
 
 	async execute(command: GetBookCommand) {
 		const { userId, bookId } = command

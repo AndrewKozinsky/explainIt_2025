@@ -2,12 +2,11 @@ import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { BalanceTransactionType } from 'prisma/generated/enums'
 import { MainConfigService } from 'src/infrastructure/mainConfig/mainConfig.service'
 import { OpenAIModels } from 'src/infrastructure/openAI/openAI.service'
 import { DBRepository } from 'src/repo/db.repository'
-import { PaymentRepository } from 'src/repo/payment.repository'
 import { BalanceTransactionRepository } from 'src/repo/balanceTransaction.repository'
-import { BalanceTransactionType } from '.prisma/client'
 
 export class TokenUsageBalanceChargeCommand implements ICommand {
 	constructor(

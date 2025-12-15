@@ -48,6 +48,7 @@ export class OpenAIService {
 			response_format: input.responseFormat ?? {
 				type: 'text',
 			},
+			service_tier: 'flex',
 		})
 
 		if (!response.usage) {

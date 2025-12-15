@@ -4,34 +4,18 @@ export function chapterStructureIntoText(chapterStructure: ChapterTextStructure.
 	let text = ''
 
 	for (const element of chapterStructure) {
-		switch (element.t) {
-			case 'sentence':
-				for (const part of element.parts) {
-					switch (part.t) {
-						case 'word':
-							text += part.v
-							break
-						case 'punctuation':
-							text += part.v
-							break
-						case 'space':
-							text += ' '
-							break
-						case 'carriageReturn':
-							text += '\n'
-							break
-					}
-				}
-				break
-			case 'space':
-				text += ' '
-				break
-			case 'carriageReturn':
-				text += '\n'
-				break
-			case 'punctuation':
-				text += element.v
-				break
+		for (const part of element.p) {
+			switch (part.t) {
+				case 'w':
+					text += part.v
+					break
+				case 'pn':
+					text += part.v
+					break
+				case 's':
+					text += ' '
+					break
+			}
 		}
 	}
 

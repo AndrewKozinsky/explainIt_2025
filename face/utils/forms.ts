@@ -1,6 +1,6 @@
-import { extractGraphQLError } from '../graphql/extractGraphQLError'
+import { extractGraphQLError } from '@/graphql/extractGraphQLError'
 
-export type FormStatus = 'idle' | 'submitting' | 'success'
+export type FormStatus = 'idle' | 'submitting' | 'success' | 'hasErrors'
 
 export function setErrorsToForm(
 	gqError: unknown,

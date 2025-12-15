@@ -31,6 +31,25 @@ export const bookChapterUtils = {
 					note: z.string().nullable(),
 					userId: z.number(),
 				}),
+				phrases: z.array(
+					z.object({
+						id: z.number(),
+						sentenceId: z.number(),
+						sentence: z.string(),
+						phrase: z.string(),
+						transcription: z.string(),
+						phraseWordsIdx: z.array(z.number()),
+						translation: z.string(),
+						analysis: z.string(),
+						examples: z.array(
+							z.object({
+								id: z.number(),
+								sentence: z.string(),
+								translation: z.string(),
+							}),
+						),
+					}),
+				),
 			})
 			.strict()
 
@@ -66,39 +85,40 @@ export const bookChapterUtils = {
 		}
 	},
 
-	checkAnalyseSentenceAndPhraseResp(
+	checkAnalysePhraseResp(
 		responseData: any,
 		checks?: {
-			sentenceTranslation?: string
-			phrase?: {
+			id?: number
+			sentence?: string
+			transcription?: string
+			phrase?: string
+			phraseWordsIdx?: number[]
+			translation?: string
+			analysis?: string
+			examples?: Array<{
 				id?: number
-				phrase?: string
+				sentence?: string
 				translation?: string
-				analysis?: string
-				examples?: Array<{
-					id?: number
-					sentence?: string
-					translation?: string
-				}>
-			}
+			}>
 		},
 	) {
 		const analysisResponseSchema = z
 			.object({
-				sentenceTranslation: z.string(),
-				phrase: z.object({
-					id: z.number(),
-					phrase: z.string(),
-					translation: z.string(),
-					analysis: z.string(),
-					examples: z.array(
-						z.object({
-							id: z.number(),
-							sentence: z.string(),
-							translation: z.string(),
-						}),
-					),
-				}),
+				id: z.number(),
+				sentenceId: z.number(),
+				sentence: z.string(),
+				transcription: z.string(),
+				phrase: z.string(),
+				phraseWordsIdx: z.array(z.number()),
+				translation: z.string(),
+				analysis: z.string(),
+				examples: z.array(
+					z.object({
+						id: z.number(),
+						sentence: z.string(),
+						translation: z.string(),
+					}),
+				),
 			})
 			.strict()
 
@@ -108,38 +128,64 @@ export const bookChapterUtils = {
 			throw new Error(`Invalid analysis response object: ${parsed.error.message}`)
 		}
 
-		if (checks?.sentenceTranslation !== undefined) {
-			expect(responseData.sentenceTranslation).toBe(checks.sentenceTranslation)
+		if (checks.id !== undefined) {
+			expect(responseData.phrase.id).toBe(checks.id)
+		}
+		if (checks.sentence !== undefined) {
+			expect(responseData.sentence).toBe(checks.sentence)
+		}
+		if (checks.transcription !== undefined) {
+			expect(responseData.transcription).toBe(checks.transcription)
+		}
+		if (checks.phrase !== undefined) {
+			expect(responseData.phrase).toBe(checks.phrase)
+		}
+		if (checks.phraseWordsIdx !== undefined) {
+			expect(responseData.phraseWordsIdx).toStrictEqual(checks.phraseWordsIdx)
+		}
+		if (checks.translation !== undefined) {
+			expect(responseData.translation).toBe(checks.translation)
+		}
+		if (checks.analysis !== undefined) {
+			expect(responseData.analysis).toBe(checks.analysis)
+		}
+		if (checks.examples !== undefined) {
+			expect(responseData.examples).toHaveLength(checks.examples.length)
+			checks.examples.forEach((expectedExample, index) => {
+				const actualExample = responseData.examples[index]
+				if (expectedExample.id !== undefined) {
+					expect(actualExample.id).toBe(expectedExample.id)
+				}
+				if (expectedExample.sentence !== undefined) {
+					expect(actualExample.sentence).toBe(expectedExample.sentence)
+				}
+				if (expectedExample.translation !== undefined) {
+					expect(actualExample.translation).toBe(expectedExample.translation)
+				}
+			})
+		}
+	},
+
+	checkTranslateSentencesResp(
+		responseData: any,
+		checks?: {
+			translates?: string[]
+		},
+	) {
+		const translatesResponseSchema = z
+			.object({
+				translates: z.array(z.string()),
+			})
+			.strict()
+
+		const parsed = translatesResponseSchema.safeParse(responseData)
+
+		if (!parsed.success) {
+			throw new Error(`Invalid translates response object: ${parsed.error.message}`)
 		}
 
-		if (checks?.phrase) {
-			if (checks.phrase.id !== undefined) {
-				expect(responseData.phrase.id).toBe(checks.phrase.id)
-			}
-			if (checks.phrase.phrase !== undefined) {
-				expect(responseData.phrase.phrase).toBe(checks.phrase.phrase)
-			}
-			if (checks.phrase.translation !== undefined) {
-				expect(responseData.phrase.translation).toBe(checks.phrase.translation)
-			}
-			if (checks.phrase.analysis !== undefined) {
-				expect(responseData.phrase.analysis).toBe(checks.phrase.analysis)
-			}
-			if (checks.phrase.examples !== undefined) {
-				expect(responseData.phrase.examples).toHaveLength(checks.phrase.examples.length)
-				checks.phrase.examples.forEach((expectedExample, index) => {
-					const actualExample = responseData.phrase.examples[index]
-					if (expectedExample.id !== undefined) {
-						expect(actualExample.id).toBe(expectedExample.id)
-					}
-					if (expectedExample.sentence !== undefined) {
-						expect(actualExample.sentence).toBe(expectedExample.sentence)
-					}
-					if (expectedExample.translation !== undefined) {
-						expect(actualExample.translation).toBe(expectedExample.translation)
-					}
-				})
-			}
+		if (checks?.translates !== undefined) {
+			expect(responseData.translates).toStrictEqual(checks.translates)
 		}
 	},
 
@@ -155,7 +201,7 @@ export const bookChapterUtils = {
 		}
 	}) {
 		// Create a book Chapter mutation
-		const createBookChapterMutation = queries.bookChapter.create(input.bookChapter)
+		const createBookChapterMutation = queries.bookChapter.create({ ...input.bookChapter, bookType: 'private' })
 
 		// Run this mutation
 		const [createBookChapterResp] = await makeGraphQLReqWithTokens({
@@ -223,6 +269,7 @@ export const bookChapterUtils = {
 		sessionToken: any
 		bookChapter: {
 			id: number
+			bookType: 'public' | 'private'
 		}
 	}) {
 		// Get a book chapter query

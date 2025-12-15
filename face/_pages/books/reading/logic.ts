@@ -1,9 +1,9 @@
-import { useMemo } from 'react'
-import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
-import { useReadingStore } from '_pages/books/reading/readingStore'
-import { areArraysEqualIgnoringOrder } from 'utils/arrays'
+// import { useMemo } from 'react'
+// import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
+// import { areArraysEqualIgnoringOrder } from 'utils/arrays'
 
-export function useGetSelectedSentence() {
+/*export function useGetSelectedSentence() {
 	const populatedChapter = useReadingStore((s) => s.populatedChapter)
 	const sentenceId = useReadingStore((s) => s.selectedSentence.sentenceId)
 
@@ -15,9 +15,9 @@ export function useGetSelectedSentence() {
 		},
 		[populatedChapter, sentenceId],
 	)
-}
+}*/
 
-export function useGetSentenceById(sentenceId: number) {
+/*export function useGetSentenceById(sentenceId: number) {
 	const populatedChapter = useReadingStore((s) => s.populatedChapter)
 
 	return useMemo(
@@ -28,9 +28,9 @@ export function useGetSentenceById(sentenceId: number) {
 		},
 		[populatedChapter, sentenceId],
 	)
-}
+}*/
 
-export function useGetIdlePhraseFromSelectedSentence() {
+/*export function useGetIdlePhraseFromSelectedSentence() {
 	const selectedSentence = useGetSelectedSentence()
 
 	return useMemo(
@@ -41,13 +41,13 @@ export function useGetIdlePhraseFromSelectedSentence() {
 		},
 		[selectedSentence],
 	)
-}
+}*/
 
 /**
  * Возвращает булево значение переведена ли уже фраза с указанными идентификаторами слов.
  * @param wordIds — id выделенных слов
  */
-export function useGetTranslatedPhraseByWordIdsFromSelectedSentence(wordIds: number[]) {
+/*export function useGetTranslatedPhraseByWordIdsFromSelectedSentence(wordIds: number[]) {
 	const selectedSentence = useGetSelectedSentence()
 
 	return useMemo(
@@ -61,14 +61,14 @@ export function useGetTranslatedPhraseByWordIdsFromSelectedSentence(wordIds: num
 		},
 		[selectedSentence.phrases, wordIds],
 	)
-}
+}*/
 
 /**
  * Получает массив данных предложения, идентификаторы выделенных слов и формирует строку из текста выделенных слов.
  * @param sentence — данные предложения
  * @param wordIds — id выделенных слов
  */
-export function getPhaseTextFromWordIdx(sentence: ChapterTextStructurePopulated.SentencePart[], wordIds: number[]) {
+/*export function getPhaseTextFromWordIdx(sentence: ChapterTextStructurePopulated.SentencePart[], wordIds: number[]) {
 	return wordIds
 		.map((selectedWordId) => {
 			const selectedWord: undefined | ChapterTextStructurePopulated.Word = sentence.find(
@@ -82,13 +82,13 @@ export function getPhaseTextFromWordIdx(sentence: ChapterTextStructurePopulated.
 			}
 		})
 		.join(' ')
-}
+}*/
 
-export function getWordValueById(sentenceParts: ChapterTextStructurePopulated.SentencePart[], wordId: number) {
+/*export function getWordValueById(sentenceParts: ChapterTextStructurePopulated.SentencePart[], wordId: number) {
 	const found = sentenceParts.find((p) => p.type === 'word' && p.id === wordId)
 	if (!found || found.type !== 'word') {
 		return ''
 	}
 
 	return found.value
-}
+}*/

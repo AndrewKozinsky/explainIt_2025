@@ -4,7 +4,6 @@ import { App } from 'supertest/types'
 import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
 import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
 import { checkErrorResponse } from '../utils/checkErrorResp'
-import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 import RouteNames from '../../src/infrastructure/routeNames'
 import { makeGraphQLReq } from '../makeGQReq'
 import { defUserEmail, defUserPassword } from '../utils/common'
@@ -20,7 +19,6 @@ it('1', () => {
 describe.skip('User login (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
-	let emailAdapter: EmailAdapterService
 	let userRepository: UserRepository
 
 	beforeAll(async () => {

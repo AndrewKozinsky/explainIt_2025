@@ -1,0 +1,18 @@
+@use '@/styles/variables' as vars;
+
+.sentence-block {
+	display: grid;
+	gap: .3rem;
+}
+
+.sentence-block__sentence {
+
+}
+
+.sentence-block__translation {
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+	color: vars.$grayColor-5;
+}
+
+

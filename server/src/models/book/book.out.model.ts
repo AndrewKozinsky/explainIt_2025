@@ -36,6 +36,6 @@ export class BookLiteOutModel {
 	@Field(() => String, { nullable: true })
 	note: string | null
 
-	@Field(() => Int)
-	userId: number
+	@Field(() => Int, { nullable: true })
+	userId: null | number
 }

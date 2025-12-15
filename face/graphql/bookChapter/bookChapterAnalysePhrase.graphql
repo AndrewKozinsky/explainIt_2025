@@ -1,0 +1,17 @@
+mutation Book_chapter_AnalysePhrase($input: AnalysePhraseInput!) {
+	book_chapter_AnalysePhrase(input: $input) {
+		id
+		sentenceId
+		sentence
+		phrase
+		transcription
+		phraseWordsIdx
+		translation
+		analysis
+		examples {
+			id
+			sentence
+			translation
+		}
+	}
+}

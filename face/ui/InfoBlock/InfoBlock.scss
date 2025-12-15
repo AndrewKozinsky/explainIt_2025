@@ -1,3 +1,24 @@
-.error-block {
-	color: green;
+@use '@/styles/variables' as vars;
+
+.info-block {
+	display: flex;
+	align-items: center;
+	gap: 1.2rem;
+	padding: 16px;
+	border-radius: vars.$radius-1;
+}
+
+.info-block--error {
+	color: vars.$dangerColor-1;
+	background-color: vars.$dangerColor-2;
+}
+.info-block--warning {
+	color: #6E5510;
+	background-color: #FFF7E1;
+}
+.info-block--info {
+	color: #ff00c3;
+}
+.info-block--success {
+	color: #ff00c3;
 }

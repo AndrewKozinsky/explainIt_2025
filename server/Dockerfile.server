@@ -1,8 +1,22 @@
-FROM node:22.2.0-alpine3.19
+FROM node:24.11.1
+
+# Ensure TLS works for Prisma binary downloads
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends ca-certificates openssl \
+    && update-ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
 COPY package*.json ./
-RUN npm install
+
+# Install all dependencies (including devDependencies for build)
+RUN npm ci --include=dev || npm install
+
 COPY . .
 
+# Generate Prisma client
 RUN npx prisma generate
 RUN npm run build
+
+# Verify dist was created
+RUN ls -la dist/

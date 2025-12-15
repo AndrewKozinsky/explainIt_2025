@@ -7,6 +7,7 @@ import { PaymentRepository } from 'src/repo/payment.repository'
 import { UserRepository } from 'src/repo/user.repository'
 
 type TopUpBalanceWithYooKassaInput = {
+	// Amount in kopecks
 	amount: number
 }
 
@@ -44,7 +45,7 @@ export class TopUpBalanceWithYooKassaHandler implements ICommandHandler<TopUpBal
 		await this.paymentRepository.createPayment({
 			userId,
 			// Amount in rubles, but the DB store amount in kopecks
-			amount: Math.round(createPaymentWithYooKassaInput.amount * 100),
+			amount: createPaymentWithYooKassaInput.amount,
 			externalPaymentId: yooKassaPaymentId,
 		})
 

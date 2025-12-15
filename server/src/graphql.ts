@@ -21,19 +21,13 @@ export interface GetBookInput {
     id: number;
 }
 
-export interface GetBookChapterInput {
+export interface GetBookPublicInput {
     id: number;
 }
 
-export interface AnalyseSentenceAndPhraseInput {
-    bookChapterId: number;
-    bookAuthor?: Nullable<string>;
-    bookName?: Nullable<string>;
-    context: string;
-    sentenceId: number;
-    sentence: string;
-    phrase: string;
-    phraseWordsIdx: number[];
+export interface GetBookChapterInput {
+    bookType: string;
+    id: number;
 }
 
 export interface RegisterUserInput {
@@ -81,6 +75,7 @@ export interface DeleteBookInput {
 }
 
 export interface CreateBookChapterInput {
+    bookType: string;
     bookId: number;
     name?: Nullable<string>;
     header?: Nullable<string>;
@@ -100,21 +95,32 @@ export interface DeleteBookChapterInput {
     id: number;
 }
 
-export interface DeleteBookChapterPhrasesInput {
+export interface AnalysePhraseInput {
     bookChapterId: number;
+    bookAuthor?: Nullable<string>;
+    bookName?: Nullable<string>;
+    context: string;
+    sentenceId: number;
+    sentence: string;
+    phrase: string;
+    phraseWordsIdx: number[];
 }
 
-export interface UserOutModel {
-    id: number;
-    email: string;
-    isUserConfirmed: boolean;
-    balance: number;
+export interface TranslateSentencesInput {
+    bookAuthor?: Nullable<string>;
+    bookName?: Nullable<string>;
+    sentences: string[];
+}
+
+export interface DeleteBookChapterPhrasesInput {
+    bookChapterId: number;
 }
 
 export interface BookChapterPhraseOutModel {
     id: number;
     sentenceId: number;
     sentence: string;
+    transcription: string;
     phrase: string;
     phraseWordsIdx: number[];
     translation: string;
@@ -126,6 +132,23 @@ export interface PhraseExample {
     id: number;
     sentence: string;
     translation: string;
+}
+
+export interface BookOutModel {
+    id: number;
+    author?: Nullable<string>;
+    name?: Nullable<string>;
+    note?: Nullable<string>;
+    userId: number;
+    chapters: BookChapterLiteOutModel[];
+}
+
+export interface BookLiteOutModel {
+    id: number;
+    author?: Nullable<string>;
+    name?: Nullable<string>;
+    note?: Nullable<string>;
+    userId?: Nullable<number>;
 }
 
 export interface BookChapterLiteOutModel {
@@ -146,26 +169,24 @@ export interface BookChapterOutModel {
     phrases: BookChapterPhraseOutModel[];
 }
 
-export interface BookOutModel {
+export interface BookPublicOutModel {
     id: number;
-    author?: Nullable<string>;
-    name?: Nullable<string>;
-    note?: Nullable<string>;
-    userId: number;
+    author: string;
+    name: string;
+    note: string;
+    cover: string;
     chapters: BookChapterLiteOutModel[];
 }
 
-export interface BookLiteOutModel {
+export interface UserOutModel {
     id: number;
-    author?: Nullable<string>;
-    name?: Nullable<string>;
-    note?: Nullable<string>;
-    userId: number;
+    email: string;
+    isUserConfirmed: boolean;
+    balance: number;
 }
 
-export interface SentenceAndPhraseAnalysesOutModel {
-    sentenceTranslation: string;
-    phrase: BookChapterPhraseOutModel;
+export interface BookChapterTranslateOfSentencesOutModel {
+    translates: string[];
 }
 
 export interface TopUpBalanceWithYooKassaOutModel {
@@ -178,8 +199,9 @@ export interface IQuery {
     auth_getMe(): UserOutModel | Promise<UserOutModel>;
     book_user_books(): BookOutModel[] | Promise<BookOutModel[]>;
     book_get(input: GetBookInput): BookOutModel | Promise<BookOutModel>;
+    book_public_get_books(): BookPublicOutModel[] | Promise<BookPublicOutModel[]>;
+    book_public_get_book(input: GetBookPublicInput): BookPublicOutModel | Promise<BookPublicOutModel>;
     book_chapter_get(input: GetBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
-    book_chapter_AnalyseSentenceAndPhrase(input: AnalyseSentenceAndPhraseInput): SentenceAndPhraseAnalysesOutModel | Promise<SentenceAndPhraseAnalysesOutModel>;
 }
 
 export interface CheckTranslationOutSuccessModel {
@@ -213,6 +235,8 @@ export interface IMutation {
     book_chapter_create(input: CreateBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
     book_chapter_update(input: UpdateBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
     book_chapter_delete(input: DeleteBookChapterInput): boolean | Promise<boolean>;
+    book_chapter_AnalysePhrase(input: AnalysePhraseInput): BookChapterPhraseOutModel | Promise<BookChapterPhraseOutModel>;
+    book_chapter_TranslateSentences(input: TranslateSentencesInput): BookChapterTranslateOfSentencesOutModel | Promise<BookChapterTranslateOfSentencesOutModel>;
     book_chapter_DeleteBookChapterPhrases(input: DeleteBookChapterPhrasesInput): boolean | Promise<boolean>;
 }
 

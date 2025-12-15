@@ -12,6 +12,9 @@ export class BookChapterPhraseOutModel {
 	sentence: string
 
 	@Field(() => String)
+	transcription: string
+
+	@Field(() => String)
 	phrase: string
 
 	@Field(() => [Int])

@@ -8,15 +8,7 @@ export function populatedChapterStructureIntoChapterStructure(
 	populatedChapterStructure: ChapterTextStructurePopulated.Chapter,
 ): ChapterTextStructure.Chapter {
 	return populatedChapterStructure.parts.map((structurePart) => {
-		if (structurePart.type === 'sentence') {
-			return drySentenceStructure(structurePart)
-		} else if (structurePart.type === 'space') {
-			return { t: 'space' }
-		} else if (structurePart.type === 'carriageReturn') {
-			return { t: 'carriageReturn' }
-		}
-
-		return { t: 'punctuation', v: structurePart.value }
+		return drySentenceStructure(structurePart)
 	})
 }
 
@@ -24,12 +16,10 @@ function drySentenceStructure(
 	sentenceStructure: ChapterTextStructurePopulated.Sentence,
 ): ChapterTextStructure.Sentence {
 	return {
-		t: 'sentence',
-		translation: sentenceStructure.translation,
+		t: 'sn',
+		tr: sentenceStructure.translation,
 		// Составные части предложения
-		parts: drySentencePartsStructure(sentenceStructure.parts),
-		// Соответствия между идентификаторами слов в предложении и идентификаторами фраз в базе данных с анализом фразы
-		phrasesMapping: drySentencePhrases(sentenceStructure.phrases),
+		p: drySentencePartsStructure(sentenceStructure.parts),
 	}
 }
 
@@ -38,23 +28,11 @@ function drySentencePartsStructure(
 ): ChapterTextStructure.SentencePart[] {
 	return sentenceParts.map((part) => {
 		if (part.type === 'word') {
-			return { t: 'word', v: part.value } as const
+			return { t: 'w', v: part.value } as const
 		} else if (part.type === 'space') {
-			return { t: 'space' } as const
-		} else if (part.type === 'carriageReturn') {
-			return { t: 'carriageReturn' } as const
+			return { t: 's' } as const
 		}
 
-		return { t: 'punctuation', v: part.value } as const
-	})
-}
-
-function drySentencePhrases(
-	phrases: ChapterTextStructurePopulated.Phrase[],
-): { wordIds: number[]; phraseIdInDb: number }[] {
-	const successfulPhrases = phrases.filter((phrase) => phrase.type == 'success')
-
-	return successfulPhrases.map((phrase) => {
-		return { wordIds: phrase.wordIds, phraseIdInDb: phrase.phraseIdInDb }
+		return { t: 'pn', v: part.value } as const
 	})
 }

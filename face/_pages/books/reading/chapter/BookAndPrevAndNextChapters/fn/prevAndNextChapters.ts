@@ -4,8 +4,7 @@ import { useReadingStore } from '_pages/books/reading/readingStore'
 
 export function useGetPrevAndNextChapters() {
 	const book = useReadingStore((s) => s.book.data)
-	// const currentChapterId = useReadingStore((s) => s.chapter?.data?.id)
-	const currentChapterId = useReadingStore((s) => s.populatedChapter?.id)
+	const currentChapterId = useReadingStore((s) => s.populatedChapter.id)
 
 	return useMemo(
 		function (): { prev: null | BookChapterLiteOutModel; next: null | BookChapterLiteOutModel } {

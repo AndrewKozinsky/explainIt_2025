@@ -20,8 +20,8 @@ export class WebhookService {
 				return
 			}
 		}
-		const checkDataResult = YooKassaPaymentSchema.safeParse(unsafeDataFromYooKassa)
 
+		const checkDataResult = YooKassaPaymentSchema.passthrough().safeParse(unsafeDataFromYooKassa)
 		if (!checkDataResult.success) {
 			console.log('Check data result from YooKassa is not success')
 			return
@@ -105,12 +105,10 @@ const YooKassaPaymentSchema = z.object({
 			gateway_id: z.string(), // '2496565'
 		}),
 		payment_method: z.object({
-			type: z.literal('yoo_money'),
+			type: z.string(), // z.literal('yoo_money'), z.literal('sberbank')
 			id: z.string(), // '300dab13-000f-5000-8000-10aada9fc601'
 			saved: z.boolean(), // false
 			status: z.literal('inactive'),
-			title: z.string(), // 'YooMoney wallet 410011758831136'
-			account_number: z.string(), // '410011758831136'
 		}),
 		captured_at: z.string().datetime(), // '2025-07-19T13:02:21.886Z'
 		created_at: z.string().datetime(), // '2025-07-19T13:02:11.551Z'
@@ -121,6 +119,6 @@ const YooKassaPaymentSchema = z.object({
 		}),
 		paid: z.boolean(), // true
 		refundable: z.boolean(), // true
-		metadata: z.record(z.any()), // {}
+		metadata: z.record(z.any(), z.any()), // {}
 	}),
 })

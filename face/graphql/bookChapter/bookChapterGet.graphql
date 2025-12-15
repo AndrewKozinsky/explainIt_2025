@@ -17,6 +17,7 @@ query BookChapter_get($input: GetBookChapterInput!) {
 			sentenceId
 			sentence
 			phrase
+			transcription
 			phraseWordsIdx
 			translation
 			analysis

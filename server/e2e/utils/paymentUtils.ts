@@ -43,7 +43,7 @@ export const paymentUtils = {
 			throw new Error('Payment status is not pending')
 		}
 
-		expect(lastPaymentObject.amount).toBe(params.moneyAmount * 100)
+		expect(lastPaymentObject.amount).toBe(params.moneyAmount)
 
 		// 2. After a user opens the confirmation page and makes a payment or cancel this operation
 		// YooKassa send a request to POST /webhook/yookassa with a confirmation of payment.

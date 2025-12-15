@@ -1,0 +1,75 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/inherit' as inh;
+
+.word {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	border-radius: 0.22em;
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: -2px;
+		bottom: 0;
+		right: -2px;
+		z-index: 1;
+		border-radius: 0.22em;
+		border: 1px solid transparent;
+	}
+
+	&:hover {
+		&:before {
+			border-color: vars.$grayColor-3;
+		}
+	}
+}
+
+.word__text {
+	position: relative;
+	z-index: 2;
+}
+
+.word--selected {
+	color: white;
+
+	&:before {
+		background-color: vars.$linkColor-2;
+		border: none;
+	}
+}
+
+.word--loading {
+	.word__text {
+		@include inh.ai-shimmer-text();
+	}
+}
+
+.word--error {
+	&:before {
+		background-color: vars.$dangerColor-2;
+		border: none;
+	}
+
+	&:hover {
+		color: white;
+		&:before {
+			background-color: vars.$dangerColor-3;
+		}
+	}
+}
+
+.word--success {
+	&:before {
+		background-color: vars.$grayColor-2;
+	}
+
+	&:hover {
+		color: white;
+		&:before {
+			background-color: vars.$grayColor-3;
+			border: none;
+		}
+	}
+}

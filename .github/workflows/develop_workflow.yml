@@ -19,26 +19,22 @@ jobs:
 
       - name: Pull changes on server
         run: |
-          ssh -o StrictHostKeyChecking=no root@46.173.19.159 << 'EOF'
+          ssh -o StrictHostKeyChecking=no root@45.144.178.155 << 'EOF'
             cd ~/sites/explain_dev
 
             git checkout develop
+            git reset --hard
             git pull
           
             # Generate .env file
             echo "${{ secrets.ENV_FILE_DEV }}" > .env.serverdevelop
-
-            docker compose -f docker-compose.server.develop.yml --env-file .env.serverdevelop down
-            docker compose -f docker-compose.server.develop.yml --env-file .env.serverdevelop up --build -d
-          
-            sleep 20
           
             # Copy env file to server folder because it needs for migrations
             cp .env.serverdevelop server/.env
           
             # Copy env file to face folder because it needs for getting oauth client id
             cp .env.serverdevelop face/.env
-          
-            # Enter to the server container and run migrations
-            docker exec -i explainserverserverdevelop sh -lc 'cd /app && npm run migrate:deploy'
+
+            docker compose -f docker-compose.server.develop.yml --env-file .env.serverdevelop down
+            docker compose -f docker-compose.server.develop.yml --env-file .env.serverdevelop up --build -d
           EOF

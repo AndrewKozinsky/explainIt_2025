@@ -19,3 +19,19 @@
 .paragraph--20 {
 	@include textInh.paragraph-20();
 }
+
+.paragraph--line-height-14 {
+	line-height: 14px;
+}
+.paragraph--line-height-15 {
+	line-height: 15px;
+}
+.paragraph--line-height-16 {
+	line-height: 16px;
+}
+.paragraph--line-height-18 {
+	line-height: 18px;
+}
+.paragraph--line-height-20 {
+	line-height: 20px;
+}

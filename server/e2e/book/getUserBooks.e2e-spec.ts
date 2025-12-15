@@ -4,7 +4,7 @@ import { App } from 'supertest/types'
 import { queries } from '../../src/features/db/queries'
 import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 import RouteNames from '../../src/infrastructure/routeNames'
-import { BookQueryRepository } from '../../src/repo/book.queryRepository'
+import { BookPrivateQueryRepository } from '../../src/repo/bookPrivate.queryRepository'
 import { UserRepository } from '../../src/repo/user.repository'
 import { authUtils } from '../utils/authUtils'
 import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
@@ -22,7 +22,7 @@ describe.skip('Get user books', () => {
 	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
 	let userRepository: UserRepository
-	let bookQueryRepository: BookQueryRepository
+	let bookQueryRepository: BookPrivateQueryRepository
 
 	beforeAll(async () => {
 		const createMainAppRes = await createApp()
@@ -31,7 +31,7 @@ describe.skip('Get user books', () => {
 		commandBus = app.get(CommandBus)
 		emailAdapter = createMainAppRes.emailAdapter
 		userRepository = await app.resolve(UserRepository)
-		bookQueryRepository = await app.resolve(BookQueryRepository)
+		bookQueryRepository = await app.resolve(BookPrivateQueryRepository)
 	})
 
 	beforeEach(async () => {
@@ -79,7 +79,7 @@ describe.skip('Get user books', () => {
 			note: null,
 		}
 
-		await bookUtils.createBook({
+		await bookUtils.createBookPrivate({
 			app,
 			sessionToken: sessionToken,
 			book: firstBookConfig,
@@ -98,7 +98,7 @@ describe.skip('Get user books', () => {
 		expect(userBooksFromDb.length).toBe(1)
 
 		// Create the second book
-		await bookUtils.createBook({
+		await bookUtils.createBookPrivate({
 			app,
 			sessionToken: sessionToken,
 			book: secondBookConfig,

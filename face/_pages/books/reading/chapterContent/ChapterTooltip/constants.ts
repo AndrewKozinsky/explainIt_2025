@@ -1,0 +1,1 @@
+export const CHAPTER_TOOLTIP_DELAY_MS = 200

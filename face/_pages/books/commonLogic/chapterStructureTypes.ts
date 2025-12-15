@@ -1,34 +1,34 @@
 // Тип данных для структуры текста приходящий с сервера
 export namespace ChapterTextStructure {
-	export type Chapter = (Sentence | Space | CarriageReturn | Punctuation)[]
+	export type Chapter = Sentence[]
 
 	export type Sentence = {
-		t: 'sentence'
-		translation: null | string
+		// sentence
+		t: 'sn'
+		// translation
+		tr: null | string
 		// Составные части предложения
-		parts: SentencePart[]
-		// Соответствия между идентификаторами слов в предложении и идентификаторами фраз в базе данных с анализом фразы
-		phrasesMapping?: { wordIds: number[]; phraseIdInDb: number }[]
+		p: SentencePart[]
 	}
 
-	export type SentencePart = Word | Space | Punctuation | CarriageReturn
+	export type SentencePart = Word | Space | Punctuation
 
 	type Word = {
-		t: 'word'
+		// word
+		t: 'w'
 		v: string
 	}
 
 	type Space = {
-		t: 'space'
+		// space
+		t: 's'
 	}
 
 	type Punctuation = {
-		t: 'punctuation'
+		// punctuation
+		t: 'pn'
+		// value
 		v: string
-	}
-
-	type CarriageReturn = {
-		t: 'carriageReturn'
 	}
 
 	export type Phrase = {
@@ -37,6 +37,7 @@ export namespace ChapterTextStructure {
 		sentence: string
 		phrase: string
 		phraseWordsIdx: number[]
+		transcription: string
 		translation: string
 		analysis: string
 		examples: PhraseExample[]
@@ -56,10 +57,8 @@ export namespace ChapterTextStructurePopulated {
 		id: number
 		header: null | string
 		name: null | string
-		parts: Part[]
+		parts: Sentence[]
 	}
-
-	export type Part = Sentence | Space | CarriageReturn | Punctuation
 
 	export type Sentence = {
 		id: number
@@ -70,7 +69,7 @@ export namespace ChapterTextStructurePopulated {
 		phrases: Phrase[]
 	}
 
-	export type SentencePart = Word | Space | Punctuation | CarriageReturn
+	export type SentencePart = Word | Space | Punctuation
 
 	export type Word = {
 		id: number
@@ -89,36 +88,30 @@ export namespace ChapterTextStructurePopulated {
 		value: string
 	}
 
-	type CarriageReturn = {
-		id: number
-		type: 'carriageReturn'
-	}
-
-	export type Phrase = IdlePhrase | LoadingPhrase | ErrorPhrase | SuccessPhrase
-
-	export type IdlePhrase = {
-		type: 'idle'
-		wordIds: number[]
-	}
+	export type Phrase = LoadingPhrase | ErrorPhrase | SuccessPhrase
 
 	export type LoadingPhrase = {
+		id: number
 		type: 'loading'
 		wordIds: number[]
 	}
 
 	export type ErrorPhrase = {
+		id: number
 		type: 'error'
 		wordIds: number[]
 		errorMessage: string
 	}
 
 	export type SuccessPhrase = {
+		id: number
 		type: 'success'
 		phraseIdInDb: number
 		phrase: string
 		// Идентификаторы выделенных слов этой фразы
 		wordIds: number[]
 		analysis: {
+			transcription: string
 			// Краткий перевод фразы
 			translation: string
 			// Анализ фразы

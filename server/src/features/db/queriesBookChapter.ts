@@ -2,6 +2,7 @@ import RouteNames from 'infrastructure/routeNames'
 
 export const queriesBookChapter = {
 	create(dto: {
+		bookType: 'public' | 'private'
 		bookId: number
 		name?: null | string
 		header?: null | string
@@ -75,7 +76,7 @@ export const queriesBookChapter = {
 			},
 		}
 	},
-	get(dto: { id: number }) {
+	get(dto: { id: number; bookType: 'public' | 'private' }) {
 		return {
 			query: `
       query GetBookChapter($input: GetBookChapterInput!) {
@@ -112,30 +113,47 @@ export const queriesBookChapter = {
 			},
 		}
 	},
-	analyseSentenceAndPhrase(dto: {
+	analysePhrase(dto: {
 		bookChapterId: number
 		bookAuthor: null | string
 		bookName: null | string
 		context: string
+		sentenceId: number
 		sentence: string
 		phrase: string
+		phraseWordsIdx: number[]
 	}) {
 		return {
-			query: `
-      query GetBookChapter($input: AnalyseSentenceAndPhraseInput!) {
-        ${RouteNames.BOOK_CHAPTER.ANALYSE_SENTENCE_AND_PHRASE}(input: $input) {
-			sentenceTranslation
-			phrase {
+			mutation: `
+      mutation AnalysePhrase($input: AnalysePhraseInput!) {
+        ${RouteNames.BOOK_CHAPTER.ANALYSE_PHRASE}(input: $input) {
+			id
+			sentenceId
+			sentence
+			transcription
+			phrase
+			phraseWordsIdx
+			translation
+			analysis
+			examples {
 				id
-				phrase
+				sentence
 				translation
-				analysis
-				examples {
-					id
-					sentence
-					translation
-				}
 			}
+        }
+      }
+    `,
+			variables: {
+				input: dto,
+			},
+		}
+	},
+	translateSentences(dto: { bookAuthor: null | string; bookName: null | string; sentences: string[] }) {
+		return {
+			mutation: `
+      mutation TranslateSentences($input: TranslateSentencesInput!) {
+        ${RouteNames.BOOK_CHAPTER.TRANSLATE_SENTENCES}(input: $input) {
+			translates
         }
       }
     `,

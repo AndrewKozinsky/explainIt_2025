@@ -31,7 +31,7 @@ function DeleteEntityButtonAndModal(props: DeleteEntityButtonAndModalProps) {
 				onClick={() => setIsModalOpen(true)}
 				icon={publicFolderFilesUrls.icons.trashButtonIcon}
 			>
-				Удалить...
+				Удалить главу...
 			</Button>
 			<DeleteEntityModal
 				isModalOpen={isModalOpen}

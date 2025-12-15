@@ -1,10 +1,15 @@
 import { Injectable } from '@nestjs/common'
-import { Prisma } from '@prisma/client'
+import { Prisma } from 'prisma/generated/client'
 import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 import { BookChapterServiceModel } from '../models/bookChapter/bookChapter.service.model'
 
-type BookChapterWithBook = Prisma.BookChapterGetPayload<{ include: { book: true } }>
+type BookChapterWithBook = Prisma.BookChapterGetPayload<{ include: { book: true; book_public: true } }>
+
+type BookChapterWithBookNotNull = Omit<BookChapterWithBook, 'book' | 'book_public'> & {
+	book: NonNullable<BookChapterWithBook['book']>
+	book_public: NonNullable<BookChapterWithBook['book_public']>
+}
 
 @Injectable()
 export class BookChapterRepository {
@@ -12,6 +17,7 @@ export class BookChapterRepository {
 
 	@CatchDbError()
 	async createBookChapter(dto: {
+		bookType: 'public' | 'private'
 		bookId: number
 		name?: null | string
 		header?: null | string
@@ -20,7 +26,8 @@ export class BookChapterRepository {
 	}) {
 		const newBookChapter = await this.prisma.bookChapter.create({
 			data: {
-				book_id: dto.bookId,
+				book_id: dto.bookType === 'public' ? null : dto.bookId,
+				book_public_id: dto.bookType === 'public' ? dto.bookId : null,
 				name: dto.name,
 				header: dto.header,
 				content: dto.content,
@@ -28,34 +35,57 @@ export class BookChapterRepository {
 			},
 			include: {
 				book: true,
+				book_public: true,
 			},
 		})
 
-		return this.mapDbBookChapterToServiceBook(newBookChapter)
+		return this.mapDbBookChapterToServiceBook(dto.bookType, newBookChapter as BookChapterWithBookNotNull)
 	}
 
 	@CatchDbError()
-	async getBookChapterById(bookChapterId: number) {
-		const bookChapter = await this.prisma.bookChapter.findUnique({
-			where: { id: bookChapterId },
-			include: { book: true },
-		})
+	async getBookChapter(input: {
+		bookType: 'public' | 'private'
+		id?: number
+		bookId?: number
+		name?: null | string
+	}) {
+		const where: Prisma.BookChapterWhereInput = {}
+		if (input.id) where.id = input.id
+		if (input.name) where.name = input.name
 
-		if (!bookChapter) {
+		if (!input.id && input.bookId) {
+			const bookKey = input.bookType === 'public' ? 'book_public_id' : 'book_id'
+			where[bookKey] = input.bookId
+		}
+
+		if (Object.keys(where).length === 0) {
 			return null
 		}
 
-		return this.mapDbBookChapterToServiceBook(bookChapter)
+		const bookChapter = await this.prisma.bookChapter.findFirst({
+			where,
+			include: { book: true, book_public: true },
+		})
+
+		if (!bookChapter) return null
+
+		if (input.bookType === 'public' && !bookChapter.book_public) {
+			return null
+		} else if (input.bookType !== 'public' && !bookChapter.book) {
+			return null
+		}
+
+		return this.mapDbBookChapterToServiceBook(input.bookType, bookChapter as BookChapterWithBookNotNull)
 	}
 
 	@CatchDbError()
 	async getBookChapterByBookId(bookId: number) {
 		const bookChapters = await this.prisma.bookChapter.findMany({
 			where: { book_id: bookId },
-			include: { book: true },
+			include: { book: true, book_public: true },
 		})
 
-		return bookChapters.map(this.mapDbBookChapterToServiceBook)
+		return bookChapters.map((ch) => this.mapDbBookChapterToServiceBook('private', ch as BookChapterWithBookNotNull))
 	}
 
 	@CatchDbError()
@@ -76,14 +106,14 @@ export class BookChapterRepository {
 				content: dto.content,
 				note: dto.note,
 			},
-			include: { book: true },
+			include: { book: true, book_public: true },
 		})
 
-		if (!updatedBookChapter) {
+		if (!updatedBookChapter || !updatedBookChapter.book) {
 			return null
 		}
 
-		return this.mapDbBookChapterToServiceBook(updatedBookChapter)
+		return this.mapDbBookChapterToServiceBook('private', updatedBookChapter as BookChapterWithBookNotNull)
 	}
 
 	@CatchDbError()
@@ -93,7 +123,12 @@ export class BookChapterRepository {
 		})
 	}
 
-	mapDbBookChapterToServiceBook(dbBookChapter: BookChapterWithBook): BookChapterServiceModel {
+	mapDbBookChapterToServiceBook(
+		bookType: 'public' | 'private',
+		dbBookChapter: BookChapterWithBookNotNull,
+	): BookChapterServiceModel {
+		const book = bookType === 'public' ? dbBookChapter.book_public : dbBookChapter.book
+
 		return {
 			id: dbBookChapter.id,
 			header: dbBookChapter.header,
@@ -101,11 +136,11 @@ export class BookChapterRepository {
 			content: dbBookChapter.content,
 			note: dbBookChapter.note,
 			book: {
-				id: dbBookChapter.book.id,
-				name: dbBookChapter.book.name,
-				author: dbBookChapter.book.author,
-				note: dbBookChapter.book.note,
-				userId: dbBookChapter.book.user_id,
+				id: book.id,
+				name: book.name,
+				author: book.author,
+				note: book.note,
+				userId: bookType === 'public' ? null : dbBookChapter.book.user_id,
 			},
 		}
 	}

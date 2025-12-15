@@ -7,13 +7,23 @@
 	// Поэтому 10 пикселей будет 62.5%.
 	// Размер в процентах указывается для слабовидящих у которых в браузере стоит увеличенный шрифт.
 	font-size: 62.5%;
+	--reading-page-chapter-horizontal-padding: 2%;
 }
 
-
+@include mix.page-width(500px) {
+  	:root {
+  		--reading-page-chapter-horizontal-padding: 3%;
+  	}
+}
+@include mix.page-width(vars.$monitor-width) {
+  	:root {
+  		--reading-page-chapter-horizontal-padding: 3.4rem;
+  	}
+}
 @font-face {
-    font-family: "Suisse";
-    src: url("fonts/SuisseIntl-Regular.woff2") format("woff2");
-    font-weight: 300;
+	font-family: "Suisse";
+	src: url("fonts/SuisseIntl-Regular.woff2") format("woff2");
+	font-weight: 300;
 }
 @font-face {
     font-family: "Suisse";
@@ -54,11 +64,11 @@
     font-weight: 700;
 	font-style: italic;
 }
-/*@font-face {
+@font-face {
     font-family: "Suisse";
     src: url("./fonts/SuisseIntl-Black.woff2") format("woff2");
     font-weight: 900;
-}*/
+}
 
 *:not(svg, g, path) {
 	all: unset;
@@ -103,4 +113,14 @@ a {
 }
 .link--current {
 	@include inh.link--current;
+}
+
+.no-select {
+	user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	-webkit-touch-callout: none; /* iOS долгий тап */
+}
+.no-select * {
+	-webkit-tap-highlight-color: transparent;
 }

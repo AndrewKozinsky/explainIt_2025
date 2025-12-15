@@ -1,10 +1,9 @@
-import type { Preview } from '@storybook/nextjs-vite'
 import '../styles/inherit.scss'
 import '../styles/variables.scss'
 import '../styles/mixins.scss'
 import '../_pages/main/mainPageLayout/style/global.scss'
 
-const preview: Preview = {
+const preview = {
 	parameters: {
 		controls: {
 			matchers: {

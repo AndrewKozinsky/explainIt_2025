@@ -41,3 +41,52 @@
 	}
 }
 
+
+// Анимированный «AI shimmer» эффект по тексту.
+// Требует, чтобы элемент имел data-text с тем же содержимым, что и текстовый узел.
+// Пример: <p class="..." data-text="...">...</p>
+@mixin ai-shimmer-text() {
+  color: vars.$grayColor-2;
+  position: relative;
+  display: inline-block;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  /* Фиксированная (адаптивная) ширина полосы */
+  --sweep-w: clamp(200px, 12%, 300px);
+
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    color: transparent;
+    background-image: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0) 0%,
+        #FC3F1D 30%,
+        #006AFF 50%,
+        #FC3F1D 70%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    background-size: var(--sweep-w) 100%;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: ai-shimmer-sweep 3s linear infinite;
+  }
+
+  @keyframes ai-shimmer-sweep {
+    0% { background-position: calc(-1 * var(--sweep-w)) 0; }
+    100% { background-position: calc(100% + var(--sweep-w)) 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &::after {
+      animation: none;
+      background-position: 50% 0;
+    }
+  }
+}
+

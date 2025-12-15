@@ -47,7 +47,7 @@ describe.skip('Update book', () => {
 	})
 
 	it('should return 404 status if a book does not exist', async () => {
-		// Create a user with confirmed email
+		// Create a user with a confirmed email
 		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
 			userRepository,
@@ -83,7 +83,7 @@ describe.skip('Update book', () => {
 			password: defUserPassword,
 		})
 
-		const createdBookResp = await bookUtils.createBook({
+		const createdBookResp = await bookUtils.createBookPrivate({
 			app,
 			sessionToken: sessionToken,
 			book: {
@@ -129,7 +129,7 @@ describe.skip('Update book', () => {
 			password: defUserPassword,
 		})
 
-		const createdBookResp = await bookUtils.createBook({
+		const createdBookResp = await bookUtils.createBookPrivate({
 			app,
 			sessionToken: sessionToken,
 			book: {

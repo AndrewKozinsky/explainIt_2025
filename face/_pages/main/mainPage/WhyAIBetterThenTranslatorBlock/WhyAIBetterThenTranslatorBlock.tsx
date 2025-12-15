@@ -5,7 +5,7 @@ import './WhyAIBetterThenTranslatorBlock.scss'
 
 function WhyAIBetterThenTranslatorBlock() {
 	return (
-		<MainPageBlockWrapper header='Чем ИИ лучше переводчика'>
+		<MainPageBlockWrapper header='Чем лучше переводчика'>
 			<div className='why-ai-better-then-translator-block'>
 				<div className='why-ai-better-then-translator-block__text-block'>
 					<Paragraph fontSize={16}>
@@ -27,13 +27,13 @@ function WhyAIBetterThenTranslatorBlock() {
 					</Paragraph>
 				</div>
 				<div className='why-ai-better-then-translator-block__text-block'>
-					<Paragraph fontSize={16}>Переводчик просто заменяет слова.</Paragraph>
 					<Paragraph fontSize={16}>
 						ИИ работает иначе: анализирует всё предложение целиком, учитывает контекст книги, стиль автора и
 						даже предыдущие фразы.
 					</Paragraph>
 					<Paragraph fontSize={16}>
-						По ощущениям — будто рядом полиглот, который объясняет смысл, а не просто переводит.
+						По ощущениям — будто рядом полиглот, который не просто переводит, а объясняет смысл и ведёт за
+						ручку.
 					</Paragraph>
 				</div>
 			</div>
