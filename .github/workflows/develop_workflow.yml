@@ -2,7 +2,7 @@ name: Deploy to the develop server
 on:
   push:
     branches:
-      - books-pages-redesign
+      - develop
 
 jobs:
   deploy:
@@ -22,7 +22,7 @@ jobs:
           ssh -o StrictHostKeyChecking=no root@45.144.178.155 << 'EOF'
             cd ~/sites/explain_dev
 
-            git checkout books-pages-redesign
+            git checkout develop
             git reset --hard
             git pull
           

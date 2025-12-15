@@ -62,6 +62,7 @@ function AuthRegisterForm() {
 						inputProps={{
 							...register('passwordAgain', { required: true }),
 							disabled: ['success', 'submitting'].includes(formStatus),
+							type: 'password',
 						}}
 					/>
 					<p>
