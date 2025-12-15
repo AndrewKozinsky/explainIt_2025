@@ -5,7 +5,7 @@ import './WhyAIBetterThenTranslatorBlock.scss'
 
 function WhyAIBetterThenTranslatorBlock() {
 	return (
-		<MainPageBlockWrapper header='Чем ИИ лучше переводчика'>
+		<MainPageBlockWrapper header='Чем лучше переводчика'>
 			<div className='why-ai-better-then-translator-block'>
 				<div className='why-ai-better-then-translator-block__text-block'>
 					<Paragraph fontSize={16}>

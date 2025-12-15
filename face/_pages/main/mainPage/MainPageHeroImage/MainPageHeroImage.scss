@@ -3,6 +3,7 @@
 .main-page-hero-image {
 	width: 100%;
 	overflow: hidden;
+	//box-shadow: 0 1px 20px rgba(0, 0, 0, .05);
 	box-shadow: vars.$shadow-1;
 	border-radius: vars.$radius-1;
 }
