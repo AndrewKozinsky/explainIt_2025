@@ -92,7 +92,7 @@ export class AnalysePhraseHandler implements ICommandHandler<AnalysePhraseComman
 
 		// Запрос на анализ текстов
 		const aiResult = await this.openAIService.generateText({
-			model: OpenAIModels.Nano,
+			model: OpenAIModels.Mini,
 			messages,
 			reasoningEffort: 'low',
 			responseFormat: {
@@ -104,7 +104,7 @@ export class AnalysePhraseHandler implements ICommandHandler<AnalysePhraseComman
 		await this.commandBus.execute(
 			new TokenUsageBalanceChargeCommand({
 				userId,
-				aiModelName: OpenAIModels.Nano,
+				aiModelName: OpenAIModels.Mini,
 				inputTokens: aiResult.inputTokens,
 				outputTokens: aiResult.outputTokens,
 			}),
@@ -130,10 +130,13 @@ export class AnalysePhraseHandler implements ICommandHandler<AnalysePhraseComman
 				`${analysePhraseInput.bookName ? 'bookName' : ''}_${analysePhraseInput.bookAuthor ? 'bookAuthor' : ''}`
 			]
 
-		const systemPrompt = `Ты получишь JSON с полями ${fields} Sentence, Phrase и Context.
-Используй эти данные.
+		const systemPrompt = `You are an experienced English teacher explaining vocabulary to Russian-speaking learners (CEFR B1–B2).
+You will receive a JSON object with fields ${fields} Sentence, Phrase and Context. Use these data as context from a literary text.
 
-Сформируй строго валидный JSON следующей структуры:
+Think in English first. Analyze the meaning, nuance, usage, collocations, and style of the expression Phrase in English.
+Then explain everything in Russian, in a friendly and well-structured teaching style.
+
+You must answer strictly in the following JSON format:
 {
   "transcription": "...",
   "translate": "...",
@@ -145,10 +148,17 @@ export class AnalysePhraseHandler implements ICommandHandler<AnalysePhraseComman
   ]
 }
 
-- transcription: фонетическая транскрипция фразы Phrase.
-- translate: краткий перевод cлов из Phrase на русский язык как в словаре. Не пиши часть речи. Не пиши перевод других слов из контекста. Контекст даётся чтобы передать в каком значении используются слово или слова из Phrase.
-- analysis: объяснение смысла фразы Phrase в контексте предложения Sentence на русском языке.
-- examples: три примера использования фразы Phrase в других предложениях, каждый с переводом.`
+Field requirements:
+- transcription: phonetic transcription of Phrase in American English.
+- translate: a short dictionary-style translation into Russian of only the words from Phrase. Do not write the part of speech. Do not translate any other words from the context. The context is used only to choose the correct sense of the words in Phrase.
+- analysis: an extended but clear explanation in Russian, written for a learner, in the form of a small mini-lesson. Make sure to:
+  1) Briefly explain the meaning of Phrase in the context of Sentence (what it means here in Russian).
+  2) Explain how Phrase is typically used: how frequent it is, whether it sounds conversational or more literary/formal, and which typical constructions or collocations it appears in (for example, fixed expressions like "in the midst of ..."). If Phrase is a verb, briefly explain what kind of action it emphasizes (process, result, force, control, duration).
+  3) Compare Phrase with 1–2 close synonyms and clearly explain the difference in tone or usage (for example, middle / center).
+  4) When relevant, briefly describe the mental image or feeling that this word or phrase creates in the scene.
+  5) Keep the analysis concise but informative (about 120–180 words).
+  6) Write in Russian in a simple, friendly style for a person who is learning English, and break the text into small paragraphs or numbered points so that everything feels clearly organized.
+- examples: three different example sentences using Phrase in other contexts (do not copy Sentence), each with a translation of the whole sentence into Russian.`
 
 		return [
 			{
@@ -160,7 +170,7 @@ export class AnalysePhraseHandler implements ICommandHandler<AnalysePhraseComman
 				content: JSON.stringify(
 					{
 						BookAuthor: analysePhraseInput.bookAuthor,
-						BookName: analysePhraseInput.sentence,
+						BookName: analysePhraseInput.bookName,
 						Sentence: analysePhraseInput.sentence,
 						Phrase: analysePhraseInput.phrase,
 						Context: analysePhraseInput.context,
