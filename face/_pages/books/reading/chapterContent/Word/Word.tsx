@@ -22,7 +22,14 @@ function Word(props: WordProps) {
 	const onWordClick = useGetOnWordClick()
 	const onWordLongTap = useGetOnWordLongTap()
 
-	const { onMouseDown, onMouseUp } = useLongPress({
+	const {
+		onMouseDown,
+		onMouseUp,
+		onMouseLeave: onLongPressMouseLeave,
+		onTouchStart,
+		onTouchEnd,
+		onTouchCancel,
+	} = useLongPress({
 		onLongPress: () => onWordLongTap(sentence.id, wordData.id),
 		onClick: () => onWordClick(sentence.id, wordData.id),
 		delay: 400,
@@ -31,7 +38,16 @@ function Word(props: WordProps) {
 
 	const wrapperRef = useRef<HTMLSpanElement | null>(null)
 
-	const { onMouseEnter, onMouseLeave } = useWordHoverHandlers(wrapperRef, sentence.id, wordData.id)
+	const { onMouseEnter, onMouseLeave: onHoverMouseLeave } = useWordHoverHandlers(
+		wrapperRef,
+		sentence.id,
+		wordData.id,
+	)
+
+	const handleMouseLeave = (e: React.MouseEvent<HTMLSpanElement>) => {
+		onLongPressMouseLeave(e)
+		onHoverMouseLeave()
+	}
 
 	return (
 		<span
@@ -39,7 +55,10 @@ function Word(props: WordProps) {
 			onMouseDown={onMouseDown}
 			onMouseUp={onMouseUp}
 			onMouseEnter={onMouseEnter}
-			onMouseLeave={onMouseLeave}
+			onMouseLeave={handleMouseLeave}
+			onTouchStart={onTouchStart}
+			onTouchEnd={onTouchEnd}
+			onTouchCancel={onTouchCancel}
 			ref={wrapperRef}
 		>
 			<span
