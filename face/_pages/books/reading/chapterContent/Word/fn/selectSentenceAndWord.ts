@@ -28,7 +28,10 @@ export function useGetOnWordLongTap() {
 
 	return useCallback(
 		function (sentenceId: number, wordId: number) {
-			if (deviceType !== 'touch') return
+			if (deviceType !== 'touch') {
+				alert('not touch')
+				return
+			}
 
 			if (selectedSentence.sentenceId !== sentenceId) {
 				changeSelectedSentenceId(sentenceId)
