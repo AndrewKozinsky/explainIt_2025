@@ -17,25 +17,23 @@ export function useLongPress(input: LongPressInput) {
 	onClickRef.current = onClick
 
 	const timerRef = useRef<number | null>(null)
-	const isLongPressRef = useRef(false)
-	const preventMouseRef = useRef(false)
 	const startPosRef = useRef<{ x: number; y: number } | null>(null)
 
 	const start = useCallback(
-		(e: React.SyntheticEvent) => {
-			if (e.type === 'mousedown' && preventMouseRef.current) return
-			if (e.type === 'touchstart') {
-				preventMouseRef.current = true
-				const touch = (e as unknown as React.TouchEvent).touches[0]
-				startPosRef.current = { x: touch.clientX, y: touch.clientY }
-			}
-
+		(e: React.PointerEvent) => {
+			if (e.pointerType === 'mouse' && e.button !== 0) return
 			if (e.persist) e.persist()
 
-			isLongPressRef.current = false
+			// Захватываем указатель, чтобы отслеживать движение за пределами элемента
+			const target = e.target as HTMLElement
+			if (target.setPointerCapture) {
+				target.setPointerCapture(e.pointerId)
+			}
+
+			startPosRef.current = { x: e.clientX, y: e.clientY }
 
 			timerRef.current = window.setTimeout(() => {
-				isLongPressRef.current = true
+				timerRef.current = null
 
 				// Хаптический отклик
 				if (vibrate && navigator.vibrate) {
@@ -52,56 +50,54 @@ export function useLongPress(input: LongPressInput) {
 		[delay, vibrate],
 	)
 
-	const cancel = useCallback(
-		(e: React.SyntheticEvent) => {
-			if (e.type === 'mouseup' && preventMouseRef.current) {
-				return
-			}
-			// Блокируем вызов onMouseLeave, если он произошел сразу после тача
-			if (e.type === 'mouseleave' && preventMouseRef.current) {
-				return
-			}
+	const move = useCallback((e: React.PointerEvent) => {
+		if (timerRef.current && startPosRef.current) {
+			const moveThreshold = 10
+			const diffX = Math.abs(e.clientX - startPosRef.current.x)
+			const diffY = Math.abs(e.clientY - startPosRef.current.y)
 
-			if (e.type === 'touchmove' && startPosRef.current) {
-				const touch = (e as unknown as React.TouchEvent).touches[0]
-				const moveThreshold = 10
-				const diffX = Math.abs(touch.clientX - startPosRef.current.x)
-				const diffY = Math.abs(touch.clientY - startPosRef.current.y)
-
-				if (diffX < moveThreshold && diffY < moveThreshold) {
-					return
+			if (diffX > moveThreshold || diffY > moveThreshold) {
+				if (timerRef.current) {
+					clearTimeout(timerRef.current)
+					timerRef.current = null
 				}
+			}
+		}
+	}, [])
+
+	const end = useCallback(
+		(e: React.PointerEvent) => {
+			const target = e.target as HTMLElement
+			if (target.releasePointerCapture) {
+				target.releasePointerCapture(e.pointerId)
 			}
 
 			if (timerRef.current) {
 				clearTimeout(timerRef.current)
 				timerRef.current = null
-			}
-
-			if (e.type === 'touchend' || e.type === 'touchcancel' || e.type === 'touchmove') {
-				// Сбрасываем блокировку мыши через небольшую задержку, чтобы пропустить все эмулированные события
-				setTimeout(() => {
-					preventMouseRef.current = false
-				}, 600)
-			}
-
-			if (e.type === 'touchmove') return
-
-			if (!isLongPressRef.current && onClickRef.current) {
-				onClickRef.current(e)
+				// Если таймер не сработал (и не был отменен движением), значит это клик
+				onClickRef.current?.(e)
 			}
 		},
 		[],
 	)
 
-	return {
-		onMouseDown: start,
-		onMouseUp: cancel,
-		onMouseLeave: cancel,
+	const cancel = useCallback((e: React.PointerEvent) => {
+		const target = e.target as HTMLElement
+		if (target.releasePointerCapture) {
+			target.releasePointerCapture(e.pointerId)
+		}
 
-		onTouchStart: start,
-		onTouchEnd: cancel,
-		onTouchCancel: cancel,
-		onTouchMove: cancel,
+		if (timerRef.current) {
+			clearTimeout(timerRef.current)
+			timerRef.current = null
+		}
+	}, [])
+
+	return {
+		onPointerDown: start,
+		onPointerUp: end,
+		onPointerCancel: cancel,
+		onPointerMove: move,
 	}
 }
