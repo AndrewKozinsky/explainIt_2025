@@ -6,9 +6,11 @@ function LoadingPhraseAnalysis() {
 	const phraseText = useGetText()
 
 	return (
-		<p className='loading-phrase-analysis' data-text={phraseText}>
-			{phraseText}
-		</p>
+		<div className='loading-phrase-analysis'>
+			<p className='loading-phrase-analysis__text' data-text={phraseText}>
+				{phraseText}
+			</p>
+		</div>
 	)
 }
 

@@ -5,7 +5,11 @@ import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
 function ErrorPhraseAnalysis() {
 	const errorMessage = useGetErrorMessage()
 
-	return <ErrorMessage text={errorMessage} />
+	return (
+		<div style={{ paddingTop: '1.5rem' }}>
+			<ErrorMessage text={errorMessage} />
+		</div>
+	)
 }
 
 export default ErrorPhraseAnalysis
