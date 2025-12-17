@@ -16,9 +16,11 @@ export class YooKassaService {
 	 * @param userEmail — адрес почты пользователя
 	 */
 	async createPayment(amount: number, userEmail: string) {
+		const fixedAmount = amount / 100
+
 		const paymentData = {
 			amount: {
-				value: amount / 100,
+				value: fixedAmount,
 				currency: 'RUB',
 			},
 			capture: true,
@@ -36,7 +38,7 @@ export class YooKassaService {
 						description: 'Пополнение баланса',
 						quantity: '1.00',
 						amount: {
-							value: amount,
+							value: fixedAmount,
 							currency: 'RUB',
 						},
 						vat_code: 1, // 1 — без НДС, 2-6 — если с НДС

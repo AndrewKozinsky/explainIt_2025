@@ -1,6 +1,10 @@
 @use '@/styles/inherit' as inh;
 
 .loading-phrase-analysis {
+	padding-top: 1rem;
+}
+
+.loading-phrase-analysis__text {
 	font-size: 5rem;
 	line-height: 5.4rem;
 	@include inh.ai-shimmer-text();
