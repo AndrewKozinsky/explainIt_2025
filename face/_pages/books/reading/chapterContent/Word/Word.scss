@@ -6,6 +6,9 @@
 	display: inline-block;
 	cursor: pointer;
 	border-radius: 0.22em;
+	user-select: none;
+	-webkit-user-select: none;
+	-webkit-touch-callout: none;
 
 	&:before {
 		content: '';

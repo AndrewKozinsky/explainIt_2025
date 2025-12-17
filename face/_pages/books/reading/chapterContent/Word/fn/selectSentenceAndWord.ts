@@ -23,21 +23,16 @@ export function useGetOnWordClick() {
 /** Возвращает обработчик долгого нажатия на слово в тексте главы. */
 export function useGetOnWordLongTap() {
 	const selectedSentence = useReadingStore((s) => s.selection)
-	const deviceType = useReadingStore((s) => s.deviceType)
 	const changeSelectedSentenceId = useReadingStore((s) => s.changeSelectedSentenceId)
 
 	return useCallback(
 		function (sentenceId: number, wordId: number) {
-			if (deviceType !== 'touch') {
-				return
-			}
-
 			if (selectedSentence.sentenceId !== sentenceId) {
 				changeSelectedSentenceId(sentenceId)
 			}
 
 			useReadingStore.getState().addWordToSelectedSentence(wordId, 'add')
 		},
-		[changeSelectedSentenceId, deviceType, selectedSentence.sentenceId],
+		[changeSelectedSentenceId, selectedSentence.sentenceId],
 	)
 }
