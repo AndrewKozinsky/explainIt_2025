@@ -90,9 +90,11 @@ export class AnalysePhraseHandler implements ICommandHandler<AnalysePhraseComman
 		// Подготовка данных для передачи в OpenAI.
 		const messages = this.getAnalysisTask(analysePhraseInput)
 
+		const openAIModel = OpenAIModels.Mini
+
 		// Запрос на анализ текстов
 		const aiResult = await this.openAIService.generateText({
-			model: OpenAIModels.Mini,
+			model: openAIModel,
 			messages,
 			reasoningEffort: 'low',
 			responseFormat: {
@@ -105,7 +107,7 @@ export class AnalysePhraseHandler implements ICommandHandler<AnalysePhraseComman
 		await this.commandBus.execute(
 			new TokenUsageBalanceChargeCommand({
 				userId,
-				aiModelName: OpenAIModels.Mini,
+				aiModelName: openAIModel,
 				inputTokens: aiResult.inputTokens,
 				outputTokens: aiResult.outputTokens,
 			}),
