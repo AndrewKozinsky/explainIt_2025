@@ -32,14 +32,13 @@ export const chapter_2 = {
 		},
 		{
 			sentence:
-				'The cyclone had set the house down very gently—for a cyclone—in the midst of a country of marvelous beauty.',
+				'The cyclone had set the house down very gently — for a cyclone — in the midst of a country of marvelous beauty.',
 			translate: 'Циклон опустил дом очень мягко — как для циклона — посреди страны изумительной красоты.',
 		},
 		{
 			sentence:
 				'There were lovely patches of greensward all about, with stately trees bearing rich and luscious fruits.',
-			translate:
-				'Всюду были зелёные лужайки, а вокруг — величавые деревья, усыпанные налитыми, сочными плодами.',
+			translate: 'Всюду были зелёные лужайки, а вокруг — величавые деревья, усыпанные налитыми, сочными плодами.',
 		},
 		{
 			sentence:

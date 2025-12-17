@@ -90,21 +90,24 @@ export class AnalysePhraseHandler implements ICommandHandler<AnalysePhraseComman
 		// Подготовка данных для передачи в OpenAI.
 		const messages = this.getAnalysisTask(analysePhraseInput)
 
+		const openAIModel = OpenAIModels.Mini
+
 		// Запрос на анализ текстов
 		const aiResult = await this.openAIService.generateText({
-			model: OpenAIModels.Nano,
+			model: openAIModel,
 			messages,
 			reasoningEffort: 'low',
 			responseFormat: {
 				type: 'json_object',
 			},
 		})
+		console.log(aiResult)
 
 		// Снять с баланса пользователя плату за использованные токены.
 		await this.commandBus.execute(
 			new TokenUsageBalanceChargeCommand({
 				userId,
-				aiModelName: OpenAIModels.Nano,
+				aiModelName: openAIModel,
 				inputTokens: aiResult.inputTokens,
 				outputTokens: aiResult.outputTokens,
 			}),
@@ -130,10 +133,13 @@ export class AnalysePhraseHandler implements ICommandHandler<AnalysePhraseComman
 				`${analysePhraseInput.bookName ? 'bookName' : ''}_${analysePhraseInput.bookAuthor ? 'bookAuthor' : ''}`
 			]
 
-		const systemPrompt = `Ты получишь JSON с полями ${fields} Sentence, Phrase и Context.
-Используй эти данные.
+		const systemPrompt = `You are an experienced English teacher explaining vocabulary to Russian-speaking learners (CEFR B1–B2).
+You will receive a JSON object with fields ${fields} Sentence, Phrase and Context. Use these data as context from a literary text.
 
-Сформируй строго валидный JSON следующей структуры:
+Think in English first. Analyze the meaning, nuance, usage, collocations, and style of the expression Phrase in English.
+Then explain everything in Russian, in a friendly and well-structured teaching style.
+
+You must answer strictly in the following JSON format:
 {
   "transcription": "...",
   "translate": "...",
@@ -145,10 +151,16 @@ export class AnalysePhraseHandler implements ICommandHandler<AnalysePhraseComman
   ]
 }
 
-- transcription: фонетическая транскрипция фразы Phrase.
-- translate: краткий перевод cлов из Phrase на русский язык как в словаре. Не пиши часть речи. Не пиши перевод других слов из контекста. Контекст даётся чтобы передать в каком значении используются слово или слова из Phrase.
-- analysis: объяснение смысла фразы Phrase в контексте предложения Sentence на русском языке.
-- examples: три примера использования фразы Phrase в других предложениях, каждый с переводом.`
+Field requirements:
+- transcription: the IPA transcription of the Phrase. Only plain IPA symbols. Do not use slashes (/), brackets, quotes, or any additional text. Use American English.
+- translate: a short dictionary-style translation into Russian of only the words from Phrase. Do not write the part of speech. Do not translate any other words from the context. The context is used only to choose the correct sense of the words in Phrase.
+- analysis: a structured explanation in Russian, written for a learner, in the form of a small mini-lesson. The "analysis" field must be a JSON string that encodes an object with the following keys: meaning_in_context, usage, comparison, image_or_feeling, summary. Each value must be plain Russian text (no numbering or bullet symbols).
+  Each analysis field must answer a different question. If a field does not add any new information beyond what is already said in other fields, set its value to an empty string "". Do NOT repeat the same idea in multiple fields. Prefer fewer, stronger insights over longer explanations. Use the fields as follows:
+  - meaning_in_context: briefly explain the meaning of Phrase in the context of Sentence (what it means here in Russian).
+  - usage: explain where and how Phrase is typically used: which typical constructions or collocations it appears in (for example, fixed expressions like "in the midst of ..."). If Phrase is a verb, briefly explain what kind of action it emphasizes (process, result, force, control, duration).
+  - comparison: compare Phrase with 1–2 close synonyms and clearly explain the difference in tone or usage (for example, middle / center). If there is no useful comparison, leave this field as an empty string.
+  Keep the overall explanation across all analysis fields concise but informative (usually up to about 120 words in total, not a strict limit). Write in Russian in a simple, friendly style for a person who is learning English, and use short sentences and small paragraphs so that everything feels clearly organized.
+- examples: three different example sentences using Phrase in other contexts (do not copy Sentence), each with a translation of the whole sentence into Russian.`
 
 		return [
 			{
@@ -160,7 +172,7 @@ export class AnalysePhraseHandler implements ICommandHandler<AnalysePhraseComman
 				content: JSON.stringify(
 					{
 						BookAuthor: analysePhraseInput.bookAuthor,
-						BookName: analysePhraseInput.sentence,
+						BookName: analysePhraseInput.bookName,
 						Sentence: analysePhraseInput.sentence,
 						Phrase: analysePhraseInput.phrase,
 						Context: analysePhraseInput.context,
@@ -201,11 +213,15 @@ export class AnalysePhraseHandler implements ICommandHandler<AnalysePhraseComman
 		try {
 			parsedMessage = JSON.parse(aiResultMessage as string)
 		} catch (e) {
+			console.log('getAnalysisParsedData => JSON.parse failed')
 			return null
 		}
 
 		const validation = AnalysisMessageSchema.safeParse(parsedMessage)
-		if (!validation.success) return null
+		if (!validation.success) {
+			console.log('getAnalysisParsedData => safeParse failed')
+			return null
+		}
 
 		return validation.data as z.infer<typeof AnalysisMessageSchema>
 	}

@@ -5,7 +5,6 @@ import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { BalanceTransactionType } from 'prisma/generated/enums'
 import { MainConfigService } from 'src/infrastructure/mainConfig/mainConfig.service'
 import { OpenAIModels } from 'src/infrastructure/openAI/openAI.service'
-import { DBRepository } from 'src/repo/db.repository'
 import { BalanceTransactionRepository } from 'src/repo/balanceTransaction.repository'
 
 export class TokenUsageBalanceChargeCommand implements ICommand {
@@ -26,7 +25,6 @@ export class TokenUsageBalanceChargeHandler implements ICommandHandler<TokenUsag
 	constructor(
 		private mainConfig: MainConfigService,
 		private transactionRepository: BalanceTransactionRepository,
-		private dbRepository: DBRepository,
 	) {}
 
 	async execute(command: TokenUsageBalanceChargeCommand) {
