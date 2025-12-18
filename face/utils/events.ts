@@ -17,6 +17,8 @@ export function useLongPress(input: LongPressInput) {
 	const timerRef = useRef<number | null>(null)
 	const isLongPressRef = useRef(false)
 	const wasCancelledRef = useRef(false)
+	const startXRef = useRef(0)
+	const startYRef = useRef(0)
 
 	const start = useCallback(
 		(e: React.SyntheticEvent) => {
@@ -24,6 +26,10 @@ export function useLongPress(input: LongPressInput) {
 				globalPreventMouseUntil = Date.now() + 1500
 				globalTouchStartTime = Date.now()
 				globalDidLongPressFire = false
+
+				const touch = (e as unknown as React.TouchEvent).touches[0]
+				startXRef.current = touch.clientX
+				startYRef.current = touch.clientY
 			} else if (e.type === 'mousedown' && Date.now() < globalPreventMouseUntil) {
 				return
 			}
@@ -48,6 +54,23 @@ export function useLongPress(input: LongPressInput) {
 		},
 		[onLongPress, delay, vibrate],
 	)
+
+	const onMove = useCallback((e: React.SyntheticEvent) => {
+		if (e.type === 'touchmove' && timerRef.current) {
+			const touch = (e as unknown as React.TouchEvent).touches[0]
+			const x = touch.clientX
+			const y = touch.clientY
+
+			const dx = Math.abs(x - startXRef.current)
+			const dy = Math.abs(y - startYRef.current)
+
+			// Если палец сдвинулся более чем на 10px, считаем это скроллом/свайпом
+			if (dx > 10 || dy > 10) {
+				clearTimer()
+				wasCancelledRef.current = true
+			}
+		}
+	}, [])
 
 	const clearTimer = () => {
 		if (timerRef.current) {
@@ -98,6 +121,7 @@ export function useLongPress(input: LongPressInput) {
 		onMouseLeave: onCancel,
 
 		onTouchStart: start,
+		onTouchMove: onMove,
 		onTouchEnd: onFinish,
 		onTouchCancel: onCancel,
 	}

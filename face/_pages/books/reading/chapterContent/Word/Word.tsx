@@ -27,6 +27,7 @@ function Word(props: WordProps) {
 		onMouseUp,
 		onTouchStart,
 		onTouchEnd,
+		onTouchMove,
 		onTouchCancel,
 		onMouseLeave: onLongPressMouseLeave,
 	} = useLongPress({
@@ -46,6 +47,7 @@ function Word(props: WordProps) {
 			onMouseDown={onMouseDown}
 			onMouseUp={onMouseUp}
 			onTouchStart={onTouchStart}
+			onTouchMove={onTouchMove}
 			onTouchEnd={onTouchEnd}
 			onTouchCancel={onTouchCancel}
 			onMouseEnter={onMouseEnter}
