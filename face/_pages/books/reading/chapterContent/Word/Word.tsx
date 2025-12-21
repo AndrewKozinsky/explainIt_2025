@@ -22,7 +22,15 @@ function Word(props: WordProps) {
 	const onWordClick = useGetOnWordClick()
 	const onWordLongTap = useGetOnWordLongTap()
 
-	const { onMouseDown, onMouseUp } = useLongPress({
+	const {
+		onMouseDown,
+		onMouseUp,
+		onTouchStart,
+		onTouchEnd,
+		onTouchMove,
+		onTouchCancel,
+		onMouseLeave: onLongPressMouseLeave,
+	} = useLongPress({
 		onLongPress: () => onWordLongTap(sentence.id, wordData.id),
 		onClick: () => onWordClick(sentence.id, wordData.id),
 		delay: 400,
@@ -38,8 +46,15 @@ function Word(props: WordProps) {
 			className={cn('word', 'word--' + wordType)}
 			onMouseDown={onMouseDown}
 			onMouseUp={onMouseUp}
+			onTouchStart={onTouchStart}
+			onTouchMove={onTouchMove}
+			onTouchEnd={onTouchEnd}
+			onTouchCancel={onTouchCancel}
 			onMouseEnter={onMouseEnter}
-			onMouseLeave={onMouseLeave}
+			onMouseLeave={(e) => {
+				onMouseLeave()
+				onLongPressMouseLeave(e)
+			}}
 			ref={wrapperRef}
 		>
 			<span
