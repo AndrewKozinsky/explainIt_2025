@@ -1,14 +1,14 @@
 -- CreateEnum
-CREATE TYPE "public"."BalanceTransactionType" AS ENUM ('TOP_UP', 'CHARGE', 'ACCOUNT_CONFIRMATION_WELCOME_BONUS');
+CREATE TYPE "BalanceTransactionType" AS ENUM ('TOP_UP', 'CHARGE', 'ACCOUNT_CONFIRMATION_WELCOME_BONUS');
 
 -- CreateEnum
-CREATE TYPE "public"."PaymentStatus" AS ENUM ('PENDING', 'SUCCESS', 'FAILED', 'CANCELED');
+CREATE TYPE "PaymentStatus" AS ENUM ('PENDING', 'SUCCESS', 'FAILED', 'CANCELED');
 
 -- CreateEnum
-CREATE TYPE "public"."PaymentProviderName" AS ENUM ('YOOKASSA');
+CREATE TYPE "PaymentProviderName" AS ENUM ('YOOKASSA');
 
 -- CreateTable
-CREATE TABLE "public"."User" (
+CREATE TABLE "User" (
     "id" SERIAL NOT NULL,
     "email" TEXT NOT NULL,
     "password" TEXT,
@@ -23,10 +23,10 @@ CREATE TABLE "public"."User" (
 );
 
 -- CreateTable
-CREATE TABLE "public"."BalanceTransaction" (
+CREATE TABLE "BalanceTransaction" (
     "id" SERIAL NOT NULL,
     "user_id" INTEGER NOT NULL,
-    "type" "public"."BalanceTransactionType" NOT NULL,
+    "type" "BalanceTransactionType" NOT NULL,
     "amount" INTEGER NOT NULL,
     "payment_id" INTEGER,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -35,12 +35,12 @@ CREATE TABLE "public"."BalanceTransaction" (
 );
 
 -- CreateTable
-CREATE TABLE "public"."Payment" (
+CREATE TABLE "Payment" (
     "id" SERIAL NOT NULL,
     "user_id" INTEGER NOT NULL,
     "amount" INTEGER NOT NULL,
-    "status" "public"."PaymentStatus" NOT NULL DEFAULT 'PENDING',
-    "provider_name" "public"."PaymentProviderName" NOT NULL DEFAULT 'YOOKASSA',
+    "status" "PaymentStatus" NOT NULL DEFAULT 'PENDING',
+    "provider_name" "PaymentProviderName" NOT NULL DEFAULT 'YOOKASSA',
     "external_id" TEXT NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -49,7 +49,7 @@ CREATE TABLE "public"."Payment" (
 );
 
 -- CreateTable
-CREATE TABLE "public"."BookPrivate" (
+CREATE TABLE "BookPrivate" (
     "id" SERIAL NOT NULL,
     "user_id" INTEGER NOT NULL,
     "author" TEXT,
@@ -61,7 +61,7 @@ CREATE TABLE "public"."BookPrivate" (
 );
 
 -- CreateTable
-CREATE TABLE "public"."BookPublic" (
+CREATE TABLE "BookPublic" (
     "id" SERIAL NOT NULL,
     "cover" TEXT NOT NULL,
     "author" TEXT NOT NULL,
@@ -73,7 +73,7 @@ CREATE TABLE "public"."BookPublic" (
 );
 
 -- CreateTable
-CREATE TABLE "public"."BookChapter" (
+CREATE TABLE "BookChapter" (
     "id" SERIAL NOT NULL,
     "book_id" INTEGER,
     "book_public_id" INTEGER,
@@ -87,7 +87,7 @@ CREATE TABLE "public"."BookChapter" (
 );
 
 -- CreateTable
-CREATE TABLE "public"."BookChapterPhrase" (
+CREATE TABLE "BookChapterPhrase" (
     "id" SERIAL NOT NULL,
     "sentenceId" INTEGER NOT NULL,
     "sentence" TEXT NOT NULL,
@@ -103,7 +103,7 @@ CREATE TABLE "public"."BookChapterPhrase" (
 );
 
 -- CreateTable
-CREATE TABLE "public"."BookChapterPhraseExample" (
+CREATE TABLE "BookChapterPhraseExample" (
     "id" SERIAL NOT NULL,
     "book_chapter_phrase_id" INTEGER NOT NULL,
     "sentence" TEXT NOT NULL,
@@ -113,35 +113,50 @@ CREATE TABLE "public"."BookChapterPhraseExample" (
     CONSTRAINT "BookChapterPhraseExample_pkey" PRIMARY KEY ("id")
 );
 
--- CreateIndex
-CREATE UNIQUE INDEX "User_email_key" ON "public"."User"("email");
+-- CreateTable
+CREATE TABLE "VideoPrivate" (
+    "id" SERIAL NOT NULL,
+    "user_id" INTEGER NOT NULL,
+    "url" TEXT,
+    "name" TEXT,
+    "subtitles" TEXT,
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "VideoPrivate_pkey" PRIMARY KEY ("id")
+);
 
 -- CreateIndex
-CREATE UNIQUE INDEX "BalanceTransaction_payment_id_key" ON "public"."BalanceTransaction"("payment_id");
+CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Payment_external_id_key" ON "public"."Payment"("external_id");
+CREATE UNIQUE INDEX "BalanceTransaction_payment_id_key" ON "BalanceTransaction"("payment_id");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Payment_external_id_key" ON "Payment"("external_id");
 
 -- AddForeignKey
-ALTER TABLE "public"."BalanceTransaction" ADD CONSTRAINT "BalanceTransaction_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "public"."User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "BalanceTransaction" ADD CONSTRAINT "BalanceTransaction_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "public"."BalanceTransaction" ADD CONSTRAINT "BalanceTransaction_payment_id_fkey" FOREIGN KEY ("payment_id") REFERENCES "public"."Payment"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "BalanceTransaction" ADD CONSTRAINT "BalanceTransaction_payment_id_fkey" FOREIGN KEY ("payment_id") REFERENCES "Payment"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "public"."Payment" ADD CONSTRAINT "Payment_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "public"."User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "Payment" ADD CONSTRAINT "Payment_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "public"."BookPrivate" ADD CONSTRAINT "BookPrivate_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "public"."User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "BookPrivate" ADD CONSTRAINT "BookPrivate_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "public"."BookChapter" ADD CONSTRAINT "BookChapter_book_id_fkey" FOREIGN KEY ("book_id") REFERENCES "public"."BookPrivate"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "BookChapter" ADD CONSTRAINT "BookChapter_book_id_fkey" FOREIGN KEY ("book_id") REFERENCES "BookPrivate"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "public"."BookChapter" ADD CONSTRAINT "BookChapter_book_public_id_fkey" FOREIGN KEY ("book_public_id") REFERENCES "public"."BookPublic"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "BookChapter" ADD CONSTRAINT "BookChapter_book_public_id_fkey" FOREIGN KEY ("book_public_id") REFERENCES "BookPublic"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "public"."BookChapterPhrase" ADD CONSTRAINT "BookChapterPhrase_book_chapter_id_fkey" FOREIGN KEY ("book_chapter_id") REFERENCES "public"."BookChapter"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "BookChapterPhrase" ADD CONSTRAINT "BookChapterPhrase_book_chapter_id_fkey" FOREIGN KEY ("book_chapter_id") REFERENCES "BookChapter"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "public"."BookChapterPhraseExample" ADD CONSTRAINT "BookChapterPhraseExample_book_chapter_phrase_id_fkey" FOREIGN KEY ("book_chapter_phrase_id") REFERENCES "public"."BookChapterPhrase"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "BookChapterPhraseExample" ADD CONSTRAINT "BookChapterPhraseExample_book_chapter_phrase_id_fkey" FOREIGN KEY ("book_chapter_phrase_id") REFERENCES "BookChapterPhrase"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "VideoPrivate" ADD CONSTRAINT "VideoPrivate_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;

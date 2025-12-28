@@ -1,7 +1,7 @@
-import { v4 as uuid } from 'uuid'
+import { randomUUID } from 'crypto'
 
 export function createUniqString() {
-	return uuid()
+	return randomUUID()
 }
 
 /*type CookieObj = {

@@ -1,3 +1,4 @@
+
 /*
  * -------------------------------------------------------
  * THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
@@ -26,6 +27,10 @@ export interface GetBookPublicInput {
 
 export interface GetBookChapterInput {
     bookType: string;
+    id: number;
+}
+
+export interface GetPrivateVideoInput {
     id: number;
 }
 
@@ -130,6 +135,10 @@ export interface UpdatePrivateVideoInput {
     fileMimeType?: Nullable<string>;
 }
 
+export interface DeletePrivateVideoInput {
+    id: number;
+}
+
 export interface BookChapterPhraseOutModel {
     id: number;
     sentenceId: number;
@@ -208,6 +217,13 @@ export interface UpdateVideoPrivateOutModel {
     uploadUrl?: Nullable<string>;
 }
 
+export interface VideoPrivateOutModel {
+    id: number;
+    name?: Nullable<string>;
+    subtitles?: Nullable<string>;
+    userId: number;
+}
+
 export interface UserOutModel {
     id: number;
     email: string;
@@ -232,6 +248,8 @@ export interface IQuery {
     book_public_get_books(): BookPublicOutModel[] | Promise<BookPublicOutModel[]>;
     book_public_get_book(input: GetBookPublicInput): BookPublicOutModel | Promise<BookPublicOutModel>;
     book_chapter_get(input: GetBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
+    video_private_user_videos(): VideoPrivateOutModel[] | Promise<VideoPrivateOutModel[]>;
+    video_private_get(input: GetPrivateVideoInput): VideoPrivateOutModel | Promise<VideoPrivateOutModel>;
 }
 
 export interface CheckTranslationOutSuccessModel {
@@ -270,6 +288,7 @@ export interface IMutation {
     book_chapter_DeleteBookChapterPhrases(input: DeleteBookChapterPhrasesInput): boolean | Promise<boolean>;
     video_private_create(input: CreatePrivateVideoInput): CreateVideoPrivateOutModel | Promise<CreateVideoPrivateOutModel>;
     video_private_update(input: UpdatePrivateVideoInput): UpdateVideoPrivateOutModel | Promise<UpdateVideoPrivateOutModel>;
+    video_private_delete(input: DeletePrivateVideoInput): boolean | Promise<boolean>;
 }
 
 export type CheckTranslationOutModel = CheckTranslationOutSuccessModel | CheckTranslationOutErrorModel;

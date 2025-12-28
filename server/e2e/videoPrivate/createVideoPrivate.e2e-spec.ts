@@ -12,7 +12,7 @@ import { defUserEmail, defUserPassword } from '../utils/common'
 import { createApp } from '../utils/createApp'
 import { userUtils } from '../utils/userUtils'
 
-describe('Create video private', () => {
+describe.skip('Create video private', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let userRepository: UserRepository

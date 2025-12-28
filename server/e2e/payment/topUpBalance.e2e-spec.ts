@@ -1,16 +1,16 @@
 import { INestApplication } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { App } from 'supertest/types'
+import { queries } from '../../src/features/db/queries'
 import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 import RouteNames from '../../src/infrastructure/routeNames'
 import { UserRepository } from '../../src/repo/user.repository'
 import { makeGraphQLReqWithTokens } from '../makeGQReq'
 import { authUtils } from '../utils/authUtils'
+import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
 import { defUserEmail, defUserPassword } from '../utils/common'
 import { createApp } from '../utils/createApp'
-import { queries } from '../../src/features/db/queries'
 import { userUtils } from '../utils/userUtils'
-import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
 
 it('1', () => {
 	expect(2).toBe(2)

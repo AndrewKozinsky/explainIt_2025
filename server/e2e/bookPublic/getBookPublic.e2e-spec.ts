@@ -11,7 +11,7 @@ it('1', () => {
 	expect(2).toBe(2)
 })
 
-describe.skip('Get user books', () => {
+describe.skip('Get public book', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let createPublicBooksHandler: CreatePublicBooksHandler
@@ -32,22 +32,19 @@ describe.skip('Get user books', () => {
 		await afterEachTest(app)
 	})
 
-	it('should return all public books', async () => {
-		// Get public books
-		let publicBooksResp = await bookPublicUtils.getBooks(app)
-		let publicBooks = publicBooksResp.data[RouteNames.BOOK_PUBLIC.GET_BOOKS]
+	it('should return one public book by id', async () => {
+		const publicBooksResp = await bookPublicUtils.getBooks(app)
+		const publicBooks = publicBooksResp.data[RouteNames.BOOK_PUBLIC.GET_BOOKS]
 
-		// Get public books data
+		expect(publicBooks.length).toBeGreaterThan(0)
+
+		const bookFromList = publicBooks[0]
+		const getBookResp = await bookPublicUtils.getBook(app, { id: bookFromList.id })
+		const book = getBookResp.data[RouteNames.BOOK_PUBLIC.GET_BOOK]
+
 		const booksDataConfig = createPublicBooksHandler.getBooksData()
+		const configBook = booksDataConfig[0]
 
-		expect(publicBooks.length).toBe(booksDataConfig.length)
-
-		// Check the returning objects
-		for (let i = 0; i < publicBooks.length; i++) {
-			const dataFromServer = publicBooks[i]
-			const configData = booksDataConfig[i]
-
-			bookPublicUtils.matchBookPublicOutWithBookPublicConfig(dataFromServer, configData)
-		}
+		bookPublicUtils.matchBookPublicOutWithBookPublicConfig(book, configBook)
 	})
 })
