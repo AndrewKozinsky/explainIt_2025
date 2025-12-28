@@ -67,4 +67,20 @@ export const queriesVideoPrivate = {
 			}
 		}`
 	},
+	get(dto: { id: number }) {
+		return {
+			query: `
+				query GetVideoPrivate($input: GetPrivateVideoInput!) {
+					${RouteNames.VIDEO_PRIVATE.GET}(input: $input) {
+						id
+						name
+						subtitles
+						userId
+					}
+				}`,
+			variables: {
+				input: dto,
+			},
+		}
+	},
 }
