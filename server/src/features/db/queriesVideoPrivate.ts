@@ -46,4 +46,15 @@ export const queriesVideoPrivate = {
 			},
 		}
 	},
+	delete(dto: { id: number }) {
+		return {
+			query: `
+				mutation DeleteVideoPrivate($input: DeletePrivateVideoInput!) {
+					${RouteNames.VIDEO_PRIVATE.DELETE}(input: $input)
+				}`,
+			variables: {
+				input: dto,
+			},
+		}
+	},
 }
