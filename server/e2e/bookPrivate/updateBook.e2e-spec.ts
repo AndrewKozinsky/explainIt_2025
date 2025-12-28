@@ -2,7 +2,6 @@ import { INestApplication } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { App } from 'supertest/types'
 import { queries } from '../../src/features/db/queries'
-import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
 import RouteNames from '../../src/infrastructure/routeNames'
 import { UserRepository } from '../../src/repo/user.repository'
@@ -21,7 +20,6 @@ it('1', () => {
 describe.skip('Update book', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
-	let emailAdapter: EmailAdapterService
 	let userRepository: UserRepository
 
 	beforeAll(async () => {
@@ -29,7 +27,6 @@ describe.skip('Update book', () => {
 
 		app = createMainAppRes.app
 		commandBus = app.get(CommandBus)
-		emailAdapter = createMainAppRes.emailAdapter
 		userRepository = await app.resolve(UserRepository)
 	})
 

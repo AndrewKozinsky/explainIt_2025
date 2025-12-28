@@ -12,6 +12,7 @@
 — `infrastructure` — a tool for creating Docker-compose files
 
 ## Front-end part
+A Next.js project with Apollo GraphQl and SCSS.
 — prefer ordinary functions rather than arrow functions. Use arrow functions only if this way gives better readability or scoping.
 — try to avoid excessive nesting and deeply nested conditionals.
 — use meaningful variable and function names.
@@ -30,3 +31,4 @@
 
 ## Server-side
 A Nest.js project with GraphQl, Prisma ORM and Postgres.
+— use clear and descriptive variable names
