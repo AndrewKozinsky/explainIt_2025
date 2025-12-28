@@ -22,6 +22,8 @@
         "paths": {
 			"src/*": ["src/*"],
 			"infrastructure/*": ["src/infrastructure/*"],
+			"repo/*": ["src/repo/*"],
+			"routes/*": ["src/routes/*"],
 			"features/*": ["src/features/*"],
 			"models/*": ["src/models/*"],
 			"db/*": ["src/db/*"],

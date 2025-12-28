@@ -1,11 +1,11 @@
 import { CommandBus } from '@nestjs/cqrs'
 import { Args, Query, Resolver } from '@nestjs/graphql'
+import { GetBookPublicInput } from 'routes/bookPublic/inputs/getBookPublic.input'
+import { GetBookPublicCommand } from 'features/bookPublic/GetBookPublic.command'
+import { GetBooksPublicCommand } from 'features/bookPublic/GetBooksPublic.command'
 import RouteNames from 'infrastructure/routeNames'
 import { BookPublicOutModel } from 'models/bookPublic/bookPublic.out.model'
-import { GetBookPublicCommand } from 'src/features/bookPublic/GetBookPublic.command'
-import { GetBookPublicInput } from 'src/routes/bookPublic/inputs/getBookPublic.input'
 import { bookResolversDesc } from './resolverDescriptions'
-import { GetBooksPublicCommand } from 'src/features/bookPublic/GetBooksPublic.command'
 
 @Resolver()
 export class BookPublicResolver {
