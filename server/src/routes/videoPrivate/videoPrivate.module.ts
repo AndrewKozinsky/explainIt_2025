@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common'
 import { CqrsModule } from '@nestjs/cqrs'
 import { CreatePrivateVideoHandler } from 'src/features/videoPrivate/CreatePrivateVideo.command'
 import { DeletePrivateVideoHandler } from 'src/features/videoPrivate/DeletePrivateVideo.command'
+import { GetVideoPrivateHandler } from 'src/features/videoPrivate/GetVideoPrivate.command'
 import { GetUserVideosPrivateHandler } from 'src/features/videoPrivate/GetUserVideosPrivate.command'
 import { UpdatePrivateVideoHandler } from 'src/features/videoPrivate/UpdatePrivateVideo.command'
 import { UserRepository } from 'src/repo/user.repository'
@@ -16,6 +17,7 @@ const commandHandlers = [
 	UpdatePrivateVideoHandler,
 	DeletePrivateVideoHandler,
 	GetUserVideosPrivateHandler,
+	GetVideoPrivateHandler,
 ]
 const resolvers = [VideoPrivateResolver]
 const repositories = [VideoPrivateRepository, VideoPrivateQueryRepository, UserRepository]

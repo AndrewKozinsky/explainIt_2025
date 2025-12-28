@@ -5,6 +5,7 @@ import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCooki
 import RouteNames from 'infrastructure/routeNames'
 import { CreatePrivateVideoCommand } from 'src/features/videoPrivate/CreatePrivateVideo.command'
 import { DeletePrivateVideoCommand } from 'src/features/videoPrivate/DeletePrivateVideo.command'
+import { GetVideoPrivateCommand } from 'src/features/videoPrivate/GetVideoPrivate.command'
 import { GetUserVideosPrivateCommand } from 'src/features/videoPrivate/GetUserVideosPrivate.command'
 import { UpdatePrivateVideoCommand } from 'src/features/videoPrivate/UpdatePrivateVideo.command'
 import { CreateVideoPrivateOutModel } from 'src/models/videoPrivate/createVideoPrivate.out.model'
@@ -12,6 +13,7 @@ import { UpdateVideoPrivateOutModel } from 'src/models/videoPrivate/updateVideoP
 import { VideoPrivateOutModel } from 'src/models/videoPrivate/videoPrivate.out.model'
 import { CreatePrivateVideoInput } from 'src/routes/videoPrivate/inputs/createPrivateVideo.input'
 import { DeletePrivateVideoInput } from 'src/routes/videoPrivate/inputs/deletePrivateVideo.input'
+import { GetPrivateVideoInput } from 'src/routes/videoPrivate/inputs/getPrivateVideo.input'
 import { UpdatePrivateVideoInput } from 'src/routes/videoPrivate/inputs/updatePrivateVideo.input'
 import { videoPrivateResolversDesc } from './resolverDescriptions'
 import { Request } from 'express'
@@ -58,5 +60,15 @@ export class VideoPrivateResolver {
 	async getUserVideosPrivate(@Context('req') request: Request) {
 		const userId = request.session.userId!
 		return await this.commandBus.execute(new GetUserVideosPrivateCommand(userId))
+	}
+
+	@UseGuards(CheckSessionCookieGuard)
+	@Query(() => VideoPrivateOutModel, {
+		name: RouteNames.VIDEO_PRIVATE.GET,
+		description: videoPrivateResolversDesc.getVideoPrivate,
+	})
+	async getVideoPrivate(@Args('input') input: GetPrivateVideoInput, @Context('req') request: Request) {
+		const userId = request.session.userId!
+		return await this.commandBus.execute(new GetVideoPrivateCommand(userId, input.id))
 	}
 }

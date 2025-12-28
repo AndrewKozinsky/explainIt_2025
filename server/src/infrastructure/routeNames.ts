@@ -51,6 +51,7 @@ export const RouteNames = {
 		UPDATE: 'video_private_update',
 		DELETE: 'video_private_delete',
 		GET_USER_VIDEOS: 'video_private_user_videos',
+		GET: 'video_private_get',
 	},
 }
 
