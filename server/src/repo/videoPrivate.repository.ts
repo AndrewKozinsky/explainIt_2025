@@ -9,16 +9,42 @@ export class VideoPrivateRepository {
 	constructor(private prisma: PrismaService) {}
 
 	@CatchDbError()
-	async createVideo(dto: { userId: number; author?: null | string; name?: null | string; note?: null | string }) {
+	async createVideo(dto: { userId: number; url?: null | string; name?: null | string; subtitles?: null | string }) {
 		const newVideo = await this.prisma.videoPrivate.create({
 			data: {
+				url: dto.url,
 				name: dto.name,
-				subtitles: dto.note,
+				subtitles: dto.subtitles,
 				user_id: dto.userId,
 			},
 		})
 
 		return this.mapDbVideoToServiceVideo(newVideo)
+	}
+
+	@CatchDbError()
+	async updateVideoById(
+		videoId: number,
+		dto: {
+			url?: null | string
+			name?: null | string
+			subtitles?: null | string
+		},
+	) {
+		const updatedVideo = await this.prisma.videoPrivate.update({
+			where: { id: videoId },
+			data: {
+				url: dto.url,
+				name: dto.name,
+				subtitles: dto.subtitles,
+			},
+		})
+
+		if (!updatedVideo) {
+			return null
+		}
+
+		return this.mapDbVideoToServiceVideo(updatedVideo)
 	}
 
 	mapDbVideoToServiceVideo(dbVideo: VideoPrivate): VideoPrivateServiceModel {
