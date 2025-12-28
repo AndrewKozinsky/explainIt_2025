@@ -57,4 +57,14 @@ export const queriesVideoPrivate = {
 			},
 		}
 	},
+	getUserVideos() {
+		return `query {
+			${RouteNames.VIDEO_PRIVATE.GET_USER_VIDEOS} {
+				id
+				name
+				subtitles
+				userId
+			}
+		}`
+	},
 }
