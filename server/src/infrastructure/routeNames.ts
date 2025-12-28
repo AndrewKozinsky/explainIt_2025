@@ -50,6 +50,7 @@ export const RouteNames = {
 		CREATE: 'video_private_create',
 		UPDATE: 'video_private_update',
 		DELETE: 'video_private_delete',
+		GET_USER_VIDEOS: 'video_private_user_videos',
 	},
 }
 

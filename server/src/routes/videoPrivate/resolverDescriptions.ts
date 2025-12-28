@@ -4,4 +4,5 @@ export const videoPrivateResolversDesc: Record<keyof typeof VideoPrivateResolver
 	createVideoPrivate: 'Create a video',
 	updateVideoPrivate: 'Update a video',
 	deleteVideoPrivate: 'Delete a video',
+	getUserVideosPrivate: 'Get user videos',
 }

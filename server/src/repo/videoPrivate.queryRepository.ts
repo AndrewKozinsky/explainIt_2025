@@ -21,6 +21,16 @@ export class VideoPrivateQueryRepository {
 		return this.mapDbVideoToOutVideo(video)
 	}
 
+	@CatchDbError()
+	async getUserVideos(userId: number) {
+		const videos = await this.prisma.videoPrivate.findMany({
+			where: { user_id: userId },
+			orderBy: { created_at: 'desc' },
+		})
+
+		return videos.map((video) => this.mapDbVideoToOutVideo(video))
+	}
+
 	mapDbVideoToOutVideo(dbVideo: VideoPrivate): VideoPrivateOutModel {
 		return {
 			id: dbVideo.id,

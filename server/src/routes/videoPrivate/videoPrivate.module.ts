@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common'
 import { CqrsModule } from '@nestjs/cqrs'
 import { CreatePrivateVideoHandler } from 'src/features/videoPrivate/CreatePrivateVideo.command'
 import { DeletePrivateVideoHandler } from 'src/features/videoPrivate/DeletePrivateVideo.command'
+import { GetUserVideosPrivateHandler } from 'src/features/videoPrivate/GetUserVideosPrivate.command'
 import { UpdatePrivateVideoHandler } from 'src/features/videoPrivate/UpdatePrivateVideo.command'
 import { UserRepository } from 'src/repo/user.repository'
 import { VideoPrivateQueryRepository } from 'src/repo/videoPrivate.queryRepository'
@@ -10,7 +11,12 @@ import { VideoPrivateResolver } from 'src/routes/videoPrivate/videoPrivate.resol
 import { PrismaService } from 'db/prisma.service'
 
 const services = [PrismaService]
-const commandHandlers = [CreatePrivateVideoHandler, UpdatePrivateVideoHandler, DeletePrivateVideoHandler]
+const commandHandlers = [
+	CreatePrivateVideoHandler,
+	UpdatePrivateVideoHandler,
+	DeletePrivateVideoHandler,
+	GetUserVideosPrivateHandler,
+]
 const resolvers = [VideoPrivateResolver]
 const repositories = [VideoPrivateRepository, VideoPrivateQueryRepository, UserRepository]
 

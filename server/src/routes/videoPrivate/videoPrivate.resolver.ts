@@ -1,13 +1,15 @@
 import { UseGuards } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
-import { Args, Context, Mutation, Resolver } from '@nestjs/graphql'
+import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
 import RouteNames from 'infrastructure/routeNames'
 import { CreatePrivateVideoCommand } from 'src/features/videoPrivate/CreatePrivateVideo.command'
 import { DeletePrivateVideoCommand } from 'src/features/videoPrivate/DeletePrivateVideo.command'
+import { GetUserVideosPrivateCommand } from 'src/features/videoPrivate/GetUserVideosPrivate.command'
 import { UpdatePrivateVideoCommand } from 'src/features/videoPrivate/UpdatePrivateVideo.command'
 import { CreateVideoPrivateOutModel } from 'src/models/videoPrivate/createVideoPrivate.out.model'
 import { UpdateVideoPrivateOutModel } from 'src/models/videoPrivate/updateVideoPrivate.out.model'
+import { VideoPrivateOutModel } from 'src/models/videoPrivate/videoPrivate.out.model'
 import { CreatePrivateVideoInput } from 'src/routes/videoPrivate/inputs/createPrivateVideo.input'
 import { DeletePrivateVideoInput } from 'src/routes/videoPrivate/inputs/deletePrivateVideo.input'
 import { UpdatePrivateVideoInput } from 'src/routes/videoPrivate/inputs/updatePrivateVideo.input'
@@ -46,5 +48,15 @@ export class VideoPrivateResolver {
 	async deleteVideoPrivate(@Args('input') input: DeletePrivateVideoInput, @Context('req') request: Request) {
 		const userId = request.session.userId!
 		return await this.commandBus.execute(new DeletePrivateVideoCommand(userId, input))
+	}
+
+	@UseGuards(CheckSessionCookieGuard)
+	@Query(() => [VideoPrivateOutModel], {
+		name: RouteNames.VIDEO_PRIVATE.GET_USER_VIDEOS,
+		description: videoPrivateResolversDesc.getUserVideosPrivate,
+	})
+	async getUserVideosPrivate(@Context('req') request: Request) {
+		const userId = request.session.userId!
+		return await this.commandBus.execute(new GetUserVideosPrivateCommand(userId))
 	}
 }
