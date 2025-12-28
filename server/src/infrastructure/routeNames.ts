@@ -49,6 +49,7 @@ export const RouteNames = {
 	VIDEO_PRIVATE: {
 		CREATE: 'video_private_create',
 		UPDATE: 'video_private_update',
+		DELETE: 'video_private_delete',
 	},
 }
 

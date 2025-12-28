@@ -4,10 +4,12 @@ import { Args, Context, Mutation, Resolver } from '@nestjs/graphql'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
 import RouteNames from 'infrastructure/routeNames'
 import { CreatePrivateVideoCommand } from 'src/features/videoPrivate/CreatePrivateVideo.command'
+import { DeletePrivateVideoCommand } from 'src/features/videoPrivate/DeletePrivateVideo.command'
 import { UpdatePrivateVideoCommand } from 'src/features/videoPrivate/UpdatePrivateVideo.command'
 import { CreateVideoPrivateOutModel } from 'src/models/videoPrivate/createVideoPrivate.out.model'
 import { UpdateVideoPrivateOutModel } from 'src/models/videoPrivate/updateVideoPrivate.out.model'
 import { CreatePrivateVideoInput } from 'src/routes/videoPrivate/inputs/createPrivateVideo.input'
+import { DeletePrivateVideoInput } from 'src/routes/videoPrivate/inputs/deletePrivateVideo.input'
 import { UpdatePrivateVideoInput } from 'src/routes/videoPrivate/inputs/updatePrivateVideo.input'
 import { videoPrivateResolversDesc } from './resolverDescriptions'
 import { Request } from 'express'
@@ -34,5 +36,15 @@ export class VideoPrivateResolver {
 	async updateVideoPrivate(@Args('input') input: UpdatePrivateVideoInput, @Context('req') request: Request) {
 		const userId = request.session.userId!
 		return await this.commandBus.execute(new UpdatePrivateVideoCommand(userId, input))
+	}
+
+	@UseGuards(CheckSessionCookieGuard)
+	@Mutation(() => Boolean, {
+		name: RouteNames.VIDEO_PRIVATE.DELETE,
+		description: videoPrivateResolversDesc.deleteVideoPrivate,
+	})
+	async deleteVideoPrivate(@Args('input') input: DeletePrivateVideoInput, @Context('req') request: Request) {
+		const userId = request.session.userId!
+		return await this.commandBus.execute(new DeletePrivateVideoCommand(userId, input))
 	}
 }

@@ -1,7 +1,7 @@
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner'
 import { Injectable } from '@nestjs/common'
 import { MainConfigService } from '../mainConfig/mainConfig.service'
-import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3'
+import { DeleteObjectCommand, PutObjectCommand, S3Client } from '@aws-sdk/client-s3'
 
 @Injectable()
 export class YandexCloudS3Service {
@@ -34,10 +34,20 @@ export class YandexCloudS3Service {
 			expiresIn: 60 * 5, // 5 minutes
 		})
 	}
+
+	async deleteFile(fileUrl: string): Promise<void> {
+		const command = new DeleteObjectCommand({
+			Bucket: this.mainConfig.get().yandexCloud.s3.bucketName,
+			Key: fileUrl,
+		})
+
+		await this.s3.send(command)
+	}
 }
 
 export interface YandexCloudS3ServiceI {
 	createUploadUrl(fileName: string, mimeType: string): Promise<string>
+	deleteFile(fileUrl: string): Promise<void>
 }
 
 @Injectable()
@@ -46,5 +56,9 @@ export class YandexCloudS3ServiceMock implements YandexCloudS3ServiceI {
 
 	async createUploadUrl(fileName: string, mimeType: string): Promise<any> {
 		return 'file'
+	}
+
+	async deleteFile(fileUrl: string): Promise<void> {
+		return
 	}
 }

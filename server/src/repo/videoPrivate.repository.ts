@@ -47,6 +47,33 @@ export class VideoPrivateRepository {
 		return this.mapDbVideoToServiceVideo(updatedVideo)
 	}
 
+	@CatchDbError()
+	async deleteVideoById(videoId: number) {
+		await this.prisma.videoPrivate.delete({
+			where: { id: videoId },
+		})
+	}
+
+	@CatchDbError()
+	async getVideoOwnerAndUrlByVideoId(id: number) {
+		const video = await this.prisma.videoPrivate.findUnique({
+			where: { id },
+			select: {
+				user_id: true,
+				url: true,
+			},
+		})
+
+		if (!video) {
+			return null
+		}
+
+		return {
+			userId: video.user_id,
+			url: video.url,
+		}
+	}
+
 	mapDbVideoToServiceVideo(dbVideo: VideoPrivate): VideoPrivateServiceModel {
 		return {
 			id: dbVideo.id,
