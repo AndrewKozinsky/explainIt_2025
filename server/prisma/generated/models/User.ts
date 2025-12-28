@@ -255,6 +255,7 @@ export type UserWhereInput = {
   BalanceTransaction?: Prisma.BalanceTransactionListRelationFilter
   Payment?: Prisma.PaymentListRelationFilter
   BookPrivate?: Prisma.BookPrivateListRelationFilter
+  VideoPrivate?: Prisma.VideoPrivateListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -270,6 +271,7 @@ export type UserOrderByWithRelationInput = {
   BalanceTransaction?: Prisma.BalanceTransactionOrderByRelationAggregateInput
   Payment?: Prisma.PaymentOrderByRelationAggregateInput
   BookPrivate?: Prisma.BookPrivateOrderByRelationAggregateInput
+  VideoPrivate?: Prisma.VideoPrivateOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -288,6 +290,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   BalanceTransaction?: Prisma.BalanceTransactionListRelationFilter
   Payment?: Prisma.PaymentListRelationFilter
   BookPrivate?: Prisma.BookPrivateListRelationFilter
+  VideoPrivate?: Prisma.VideoPrivateListRelationFilter
 }, "id" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -334,6 +337,7 @@ export type UserCreateInput = {
   BalanceTransaction?: Prisma.BalanceTransactionCreateNestedManyWithoutUserInput
   Payment?: Prisma.PaymentCreateNestedManyWithoutUserInput
   BookPrivate?: Prisma.BookPrivateCreateNestedManyWithoutUserInput
+  VideoPrivate?: Prisma.VideoPrivateCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -349,6 +353,7 @@ export type UserUncheckedCreateInput = {
   BalanceTransaction?: Prisma.BalanceTransactionUncheckedCreateNestedManyWithoutUserInput
   Payment?: Prisma.PaymentUncheckedCreateNestedManyWithoutUserInput
   BookPrivate?: Prisma.BookPrivateUncheckedCreateNestedManyWithoutUserInput
+  VideoPrivate?: Prisma.VideoPrivateUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserUpdateInput = {
@@ -363,6 +368,7 @@ export type UserUpdateInput = {
   BalanceTransaction?: Prisma.BalanceTransactionUpdateManyWithoutUserNestedInput
   Payment?: Prisma.PaymentUpdateManyWithoutUserNestedInput
   BookPrivate?: Prisma.BookPrivateUpdateManyWithoutUserNestedInput
+  VideoPrivate?: Prisma.VideoPrivateUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -378,6 +384,7 @@ export type UserUncheckedUpdateInput = {
   BalanceTransaction?: Prisma.BalanceTransactionUncheckedUpdateManyWithoutUserNestedInput
   Payment?: Prisma.PaymentUncheckedUpdateManyWithoutUserNestedInput
   BookPrivate?: Prisma.BookPrivateUncheckedUpdateManyWithoutUserNestedInput
+  VideoPrivate?: Prisma.VideoPrivateUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -532,6 +539,20 @@ export type UserUpdateOneRequiredWithoutBookPrivateNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutBookPrivateInput, Prisma.UserUpdateWithoutBookPrivateInput>, Prisma.UserUncheckedUpdateWithoutBookPrivateInput>
 }
 
+export type UserCreateNestedOneWithoutVideoPrivateInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutVideoPrivateInput, Prisma.UserUncheckedCreateWithoutVideoPrivateInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutVideoPrivateInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutVideoPrivateNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutVideoPrivateInput, Prisma.UserUncheckedCreateWithoutVideoPrivateInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutVideoPrivateInput
+  upsert?: Prisma.UserUpsertWithoutVideoPrivateInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutVideoPrivateInput, Prisma.UserUpdateWithoutVideoPrivateInput>, Prisma.UserUncheckedUpdateWithoutVideoPrivateInput>
+}
+
 export type UserCreateWithoutBalanceTransactionInput = {
   email: string
   password?: string | null
@@ -543,6 +564,7 @@ export type UserCreateWithoutBalanceTransactionInput = {
   created_at?: Date | string
   Payment?: Prisma.PaymentCreateNestedManyWithoutUserInput
   BookPrivate?: Prisma.BookPrivateCreateNestedManyWithoutUserInput
+  VideoPrivate?: Prisma.VideoPrivateCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutBalanceTransactionInput = {
@@ -557,6 +579,7 @@ export type UserUncheckedCreateWithoutBalanceTransactionInput = {
   created_at?: Date | string
   Payment?: Prisma.PaymentUncheckedCreateNestedManyWithoutUserInput
   BookPrivate?: Prisma.BookPrivateUncheckedCreateNestedManyWithoutUserInput
+  VideoPrivate?: Prisma.VideoPrivateUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutBalanceTransactionInput = {
@@ -586,6 +609,7 @@ export type UserUpdateWithoutBalanceTransactionInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Payment?: Prisma.PaymentUpdateManyWithoutUserNestedInput
   BookPrivate?: Prisma.BookPrivateUpdateManyWithoutUserNestedInput
+  VideoPrivate?: Prisma.VideoPrivateUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutBalanceTransactionInput = {
@@ -600,6 +624,7 @@ export type UserUncheckedUpdateWithoutBalanceTransactionInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Payment?: Prisma.PaymentUncheckedUpdateManyWithoutUserNestedInput
   BookPrivate?: Prisma.BookPrivateUncheckedUpdateManyWithoutUserNestedInput
+  VideoPrivate?: Prisma.VideoPrivateUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutPaymentInput = {
@@ -613,6 +638,7 @@ export type UserCreateWithoutPaymentInput = {
   created_at?: Date | string
   BalanceTransaction?: Prisma.BalanceTransactionCreateNestedManyWithoutUserInput
   BookPrivate?: Prisma.BookPrivateCreateNestedManyWithoutUserInput
+  VideoPrivate?: Prisma.VideoPrivateCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutPaymentInput = {
@@ -627,6 +653,7 @@ export type UserUncheckedCreateWithoutPaymentInput = {
   created_at?: Date | string
   BalanceTransaction?: Prisma.BalanceTransactionUncheckedCreateNestedManyWithoutUserInput
   BookPrivate?: Prisma.BookPrivateUncheckedCreateNestedManyWithoutUserInput
+  VideoPrivate?: Prisma.VideoPrivateUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutPaymentInput = {
@@ -656,6 +683,7 @@ export type UserUpdateWithoutPaymentInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   BalanceTransaction?: Prisma.BalanceTransactionUpdateManyWithoutUserNestedInput
   BookPrivate?: Prisma.BookPrivateUpdateManyWithoutUserNestedInput
+  VideoPrivate?: Prisma.VideoPrivateUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutPaymentInput = {
@@ -670,6 +698,7 @@ export type UserUncheckedUpdateWithoutPaymentInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   BalanceTransaction?: Prisma.BalanceTransactionUncheckedUpdateManyWithoutUserNestedInput
   BookPrivate?: Prisma.BookPrivateUncheckedUpdateManyWithoutUserNestedInput
+  VideoPrivate?: Prisma.VideoPrivateUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutBookPrivateInput = {
@@ -683,6 +712,7 @@ export type UserCreateWithoutBookPrivateInput = {
   created_at?: Date | string
   BalanceTransaction?: Prisma.BalanceTransactionCreateNestedManyWithoutUserInput
   Payment?: Prisma.PaymentCreateNestedManyWithoutUserInput
+  VideoPrivate?: Prisma.VideoPrivateCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutBookPrivateInput = {
@@ -697,6 +727,7 @@ export type UserUncheckedCreateWithoutBookPrivateInput = {
   created_at?: Date | string
   BalanceTransaction?: Prisma.BalanceTransactionUncheckedCreateNestedManyWithoutUserInput
   Payment?: Prisma.PaymentUncheckedCreateNestedManyWithoutUserInput
+  VideoPrivate?: Prisma.VideoPrivateUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutBookPrivateInput = {
@@ -726,6 +757,7 @@ export type UserUpdateWithoutBookPrivateInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   BalanceTransaction?: Prisma.BalanceTransactionUpdateManyWithoutUserNestedInput
   Payment?: Prisma.PaymentUpdateManyWithoutUserNestedInput
+  VideoPrivate?: Prisma.VideoPrivateUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutBookPrivateInput = {
@@ -740,6 +772,81 @@ export type UserUncheckedUpdateWithoutBookPrivateInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   BalanceTransaction?: Prisma.BalanceTransactionUncheckedUpdateManyWithoutUserNestedInput
   Payment?: Prisma.PaymentUncheckedUpdateManyWithoutUserNestedInput
+  VideoPrivate?: Prisma.VideoPrivateUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutVideoPrivateInput = {
+  email: string
+  password?: string | null
+  email_confirmation_code?: string | null
+  email_confirmation_code_expiration_date?: string | null
+  is_email_confirmed?: boolean
+  is_user_confirmed?: boolean
+  balance?: number
+  created_at?: Date | string
+  BalanceTransaction?: Prisma.BalanceTransactionCreateNestedManyWithoutUserInput
+  Payment?: Prisma.PaymentCreateNestedManyWithoutUserInput
+  BookPrivate?: Prisma.BookPrivateCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutVideoPrivateInput = {
+  id?: number
+  email: string
+  password?: string | null
+  email_confirmation_code?: string | null
+  email_confirmation_code_expiration_date?: string | null
+  is_email_confirmed?: boolean
+  is_user_confirmed?: boolean
+  balance?: number
+  created_at?: Date | string
+  BalanceTransaction?: Prisma.BalanceTransactionUncheckedCreateNestedManyWithoutUserInput
+  Payment?: Prisma.PaymentUncheckedCreateNestedManyWithoutUserInput
+  BookPrivate?: Prisma.BookPrivateUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutVideoPrivateInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutVideoPrivateInput, Prisma.UserUncheckedCreateWithoutVideoPrivateInput>
+}
+
+export type UserUpsertWithoutVideoPrivateInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutVideoPrivateInput, Prisma.UserUncheckedUpdateWithoutVideoPrivateInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutVideoPrivateInput, Prisma.UserUncheckedCreateWithoutVideoPrivateInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutVideoPrivateInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutVideoPrivateInput, Prisma.UserUncheckedUpdateWithoutVideoPrivateInput>
+}
+
+export type UserUpdateWithoutVideoPrivateInput = {
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email_confirmation_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email_confirmation_code_expiration_date?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  balance?: Prisma.IntFieldUpdateOperationsInput | number
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  BalanceTransaction?: Prisma.BalanceTransactionUpdateManyWithoutUserNestedInput
+  Payment?: Prisma.PaymentUpdateManyWithoutUserNestedInput
+  BookPrivate?: Prisma.BookPrivateUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutVideoPrivateInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email_confirmation_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email_confirmation_code_expiration_date?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  balance?: Prisma.IntFieldUpdateOperationsInput | number
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  BalanceTransaction?: Prisma.BalanceTransactionUncheckedUpdateManyWithoutUserNestedInput
+  Payment?: Prisma.PaymentUncheckedUpdateManyWithoutUserNestedInput
+  BookPrivate?: Prisma.BookPrivateUncheckedUpdateManyWithoutUserNestedInput
 }
 
 
@@ -751,12 +858,14 @@ export type UserCountOutputType = {
   BalanceTransaction: number
   Payment: number
   BookPrivate: number
+  VideoPrivate: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   BalanceTransaction?: boolean | UserCountOutputTypeCountBalanceTransactionArgs
   Payment?: boolean | UserCountOutputTypeCountPaymentArgs
   BookPrivate?: boolean | UserCountOutputTypeCountBookPrivateArgs
+  VideoPrivate?: boolean | UserCountOutputTypeCountVideoPrivateArgs
 }
 
 /**
@@ -790,6 +899,13 @@ export type UserCountOutputTypeCountBookPrivateArgs<ExtArgs extends runtime.Type
   where?: Prisma.BookPrivateWhereInput
 }
 
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountVideoPrivateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.VideoPrivateWhereInput
+}
+
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -804,6 +920,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   BalanceTransaction?: boolean | Prisma.User$BalanceTransactionArgs<ExtArgs>
   Payment?: boolean | Prisma.User$PaymentArgs<ExtArgs>
   BookPrivate?: boolean | Prisma.User$BookPrivateArgs<ExtArgs>
+  VideoPrivate?: boolean | Prisma.User$VideoPrivateArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -848,6 +965,7 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   BalanceTransaction?: boolean | Prisma.User$BalanceTransactionArgs<ExtArgs>
   Payment?: boolean | Prisma.User$PaymentArgs<ExtArgs>
   BookPrivate?: boolean | Prisma.User$BookPrivateArgs<ExtArgs>
+  VideoPrivate?: boolean | Prisma.User$VideoPrivateArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -859,6 +977,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     BalanceTransaction: Prisma.$BalanceTransactionPayload<ExtArgs>[]
     Payment: Prisma.$PaymentPayload<ExtArgs>[]
     BookPrivate: Prisma.$BookPrivatePayload<ExtArgs>[]
+    VideoPrivate: Prisma.$VideoPrivatePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1267,6 +1386,7 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   BalanceTransaction<T extends Prisma.User$BalanceTransactionArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$BalanceTransactionArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BalanceTransactionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   Payment<T extends Prisma.User$PaymentArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$PaymentArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   BookPrivate<T extends Prisma.User$BookPrivateArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$BookPrivateArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BookPrivatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  VideoPrivate<T extends Prisma.User$VideoPrivateArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$VideoPrivateArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$VideoPrivatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1762,6 +1882,30 @@ export type User$BookPrivateArgs<ExtArgs extends runtime.Types.Extensions.Intern
   take?: number
   skip?: number
   distinct?: Prisma.BookPrivateScalarFieldEnum | Prisma.BookPrivateScalarFieldEnum[]
+}
+
+/**
+ * User.VideoPrivate
+ */
+export type User$VideoPrivateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the VideoPrivate
+   */
+  select?: Prisma.VideoPrivateSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the VideoPrivate
+   */
+  omit?: Prisma.VideoPrivateOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.VideoPrivateInclude<ExtArgs> | null
+  where?: Prisma.VideoPrivateWhereInput
+  orderBy?: Prisma.VideoPrivateOrderByWithRelationInput | Prisma.VideoPrivateOrderByWithRelationInput[]
+  cursor?: Prisma.VideoPrivateWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.VideoPrivateScalarFieldEnum | Prisma.VideoPrivateScalarFieldEnum[]
 }
 
 /**

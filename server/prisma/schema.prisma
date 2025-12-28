@@ -21,6 +21,7 @@ model User {
     BalanceTransaction                      BalanceTransaction[]
     Payment                                 Payment[]
     BookPrivate                             BookPrivate[]
+    VideoPrivate                            VideoPrivate[]
 }
 
 model BalanceTransaction {
@@ -104,6 +105,16 @@ model BookChapterPhraseExample {
     sentence               String
     translation            String
     created_at             DateTime          @default(now())
+}
+
+model VideoPrivate {
+    id         Int      @id @default(autoincrement())
+    user       User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    user_id    Int
+    url        String?
+    name       String?
+    subtitles  String?
+    created_at DateTime @default(now())
 }
 
 enum BalanceTransactionType {

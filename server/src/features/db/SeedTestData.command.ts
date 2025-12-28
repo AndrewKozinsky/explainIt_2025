@@ -1,5 +1,5 @@
 import { CommandBus, CommandHandler, ICommandHandler } from '@nestjs/cqrs'
-import { CreateBookCommand } from 'features/book/CreateBook.command'
+import { CreateBookCommand } from 'features/bookPrivate/CreateBook.command'
 import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter.command'
 import { UserRepository } from 'src/repo/user.repository'
 import { OAuthProviderType } from '../../routes/auth/inputs/loginWithOAuth.input'

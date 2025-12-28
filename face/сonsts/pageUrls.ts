@@ -83,9 +83,9 @@ export const pageUrls = {
 			path: '/course/' + articleSlug,
 		}
 	},
-	howToSayItInRussian: {
-		name: 'Как это сказать по-русски',
-		path: '/how-to-say-it-in-russian',
+	video: {
+		name: 'Видео',
+		path: '/video',
 	},
 	contacts: {
 		name: 'Контакты',

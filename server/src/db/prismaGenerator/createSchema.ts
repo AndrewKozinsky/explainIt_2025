@@ -53,8 +53,9 @@ export function createSchema(bdConfig: BdConfig.Root) {
 
 function getTopPrismaSchema() {
 	return `generator client {
-	provider      = "prisma-client"
-	binaryTargets = ["native", "linux-musl-openssl-3.0.x", "linux-musl-arm64-openssl-3.0.x"]
+    provider     = "prisma-client"
+    output       = "../prisma/generated"
+    moduleFormat = "cjs"
 }
 
 datasource db {

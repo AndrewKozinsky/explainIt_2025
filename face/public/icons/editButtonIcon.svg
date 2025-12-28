@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>editButtonIcon</title>
+    <defs>
+        <path d="M0,0 L20,0 L20,20 L0,20 L0,0 Z" id="path-1"></path>
+    </defs>
+    <g id="editButtonIcon" stroke="none" fill="none" xlink:href="#path-1">
+        <rect id="Rectangle" opacity="0.100000001" x="0" y="0" width="20" height="20"></rect>
+        <path d="M3,14.1895737 L3,16.7192236 C3,17.2715083 3.44771525,17.7192236 4,17.7192236 C4.08176181,17.7192236 4.16321502,17.7091962 4.24253563,17.6893661 L6.36199004,17.1595025 C6.77641511,17.0558962 7.14677954,16.8223195 7.41884229,16.4929804 L15.1882227,7.08794097 C15.8917025,6.23636014 15.7716429,4.9757344 14.9200621,4.27225458 C14.9049493,4.25977008 14.8896537,4.24750844 14.8741804,4.23547364 L13.5739707,3.22419943 C12.7039272,2.5474989 11.4503897,2.70227985 10.7710795,3.57028734 L3.42499,12.9569572 C3.14961751,13.3088221 3,13.7427641 3,14.1895737 Z" id="Path" stroke="#1E1E1E" stroke-width="1"></path>
+        <line x1="10" y1="4.5" x2="14.5" y2="8" id="Path" stroke="#1E1E1E" stroke-width="1"></line>
+        <line x1="10.5" y1="17.5" x2="17.5" y2="17.5" id="Path" stroke="#1E1E1E" stroke-width="1" stroke-linecap="round"></line>
+    </g>
+</svg>

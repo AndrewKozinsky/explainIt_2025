@@ -80,4 +80,9 @@ export const errorMessage = {
 		notFound: 'Глава книги не найдена.',
 		cannotAnalyzeSentenceAndPhrase: 'Не удалось проанализировать предложение и фразу.',
 	},
+
+	video: {
+		notCreated: 'Видел не создано.',
+		notFound: 'Видео не найдено.',
+	},
 }

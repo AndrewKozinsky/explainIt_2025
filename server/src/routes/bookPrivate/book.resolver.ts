@@ -1,10 +1,10 @@
 import { UseGuards } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql'
-import { CreateBookWithEmptyChapterCommand } from 'features/book/CreateBookWithEmptyChapter.command'
-import { DeleteBookCommand } from 'features/book/DeleteBook.command'
-import { GetUserBooksCommand } from 'features/book/GetUserBooks.command'
-import { UpdateBookCommand } from 'features/book/UpdateBook.command'
+import { CreateBookWithEmptyChapterCommand } from 'src/features/bookPrivate/CreateBookWithEmptyChapter.command'
+import { DeleteBookCommand } from 'src/features/bookPrivate/DeleteBook.command'
+import { GetUserBooksCommand } from 'src/features/bookPrivate/GetUserBooks.command'
+import { UpdateBookCommand } from 'src/features/bookPrivate/UpdateBook.command'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
 import RouteNames from 'infrastructure/routeNames'
 import { BookOutModel } from 'models/book/book.out.model'
@@ -14,7 +14,7 @@ import { UpdateBookInput } from './inputs/updateBook.input'
 import { bookResolversDesc } from './resolverDescriptions'
 import { Request } from 'express'
 import { GetBookInput } from './inputs/getBook.input'
-import { GetBookCommand } from 'src/features/book/GetBook.command'
+import { GetBookCommand } from 'src/features/bookPrivate/GetBook.command'
 
 @Resolver()
 export class BookResolver {

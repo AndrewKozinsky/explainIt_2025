@@ -10,11 +10,11 @@ export function MainMenu() {
 				{/*<li>
 					<MainMenuLink linkData={pageUrls.course} />
 				</li>*/}
-				{/*<li>
-					<MainMenuLink linkData={pageUrls.howToSayItInRussian} />
-				</li>*/}
 				<li>
 					<MainMenuLink linkData={{ name: pageUrls.books.name, path: pageUrls.books.path }} />
+				</li>
+				<li>
+					<MainMenuLink linkData={pageUrls.video} />
 				</li>
 				<li>
 					<MainMenuLink linkData={pageUrls.contacts} />

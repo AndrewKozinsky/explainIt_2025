@@ -46,6 +46,9 @@ export const RouteNames = {
 		TRANSLATE_SENTENCES: 'book_chapter_TranslateSentences',
 		DELETE_BOOK_CHAPTER_PHRASES: 'book_chapter_DeleteBookChapterPhrases',
 	},
+	VIDEO_PRIVATE: {
+		CREATE: 'video_private_create',
+	},
 }
 
 export default RouteNames

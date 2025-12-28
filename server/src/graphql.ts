@@ -116,6 +116,13 @@ export interface DeleteBookChapterPhrasesInput {
     bookChapterId: number;
 }
 
+export interface CreatePrivateVideoInput {
+    name?: Nullable<string>;
+    subtitles?: Nullable<string>;
+    fileName?: Nullable<string>;
+    fileMimeType?: Nullable<string>;
+}
+
 export interface BookChapterPhraseOutModel {
     id: number;
     sentenceId: number;
@@ -178,6 +185,14 @@ export interface BookPublicOutModel {
     chapters: BookChapterLiteOutModel[];
 }
 
+export interface CreateVideoPrivateOutModel {
+    id: number;
+    name?: Nullable<string>;
+    subtitles?: Nullable<string>;
+    userId: number;
+    uploadUrl?: Nullable<string>;
+}
+
 export interface UserOutModel {
     id: number;
     email: string;
@@ -238,6 +253,7 @@ export interface IMutation {
     book_chapter_AnalysePhrase(input: AnalysePhraseInput): BookChapterPhraseOutModel | Promise<BookChapterPhraseOutModel>;
     book_chapter_TranslateSentences(input: TranslateSentencesInput): BookChapterTranslateOfSentencesOutModel | Promise<BookChapterTranslateOfSentencesOutModel>;
     book_chapter_DeleteBookChapterPhrases(input: DeleteBookChapterPhrasesInput): boolean | Promise<boolean>;
+    video_private_create(input: CreatePrivateVideoInput): CreateVideoPrivateOutModel | Promise<CreateVideoPrivateOutModel>;
 }
 
 export type CheckTranslationOutModel = CheckTranslationOutSuccessModel | CheckTranslationOutErrorModel;

@@ -58,7 +58,8 @@ export const ModelName = {
   BookPublic: 'BookPublic',
   BookChapter: 'BookChapter',
   BookChapterPhrase: 'BookChapterPhrase',
-  BookChapterPhraseExample: 'BookChapterPhraseExample'
+  BookChapterPhraseExample: 'BookChapterPhraseExample',
+  VideoPrivate: 'VideoPrivate'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -181,6 +182,18 @@ export const BookChapterPhraseExampleScalarFieldEnum = {
 } as const
 
 export type BookChapterPhraseExampleScalarFieldEnum = (typeof BookChapterPhraseExampleScalarFieldEnum)[keyof typeof BookChapterPhraseExampleScalarFieldEnum]
+
+
+export const VideoPrivateScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  url: 'url',
+  name: 'name',
+  subtitles: 'subtitles',
+  created_at: 'created_at'
+} as const
+
+export type VideoPrivateScalarFieldEnum = (typeof VideoPrivateScalarFieldEnum)[keyof typeof VideoPrivateScalarFieldEnum]
 
 
 export const SortOrder = {

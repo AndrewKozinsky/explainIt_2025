@@ -1,4 +1,4 @@
-import { ChapterTextStructure } from 'src/features/book/chapterStructure/chapterStructureTypes'
+import { ChapterTextStructure } from 'src/features/bookPrivate/chapterStructure/chapterStructureTypes'
 import { CreateBookChapterInput } from 'src/features/bookChapter/CreateBookChapter.command'
 
 export type ChapterData = {

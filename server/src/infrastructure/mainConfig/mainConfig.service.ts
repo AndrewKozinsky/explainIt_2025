@@ -86,6 +86,13 @@ export class MainConfigService {
 			},
 			// Моя наценка к стоимости одного токена
 			myPriceMultiplier: 2.3,
+			yandexCloud: {
+				s3: {
+					keyId: enVariables.yandexCloud.s3.keyId,
+					secretKey: enVariables.yandexCloud.s3.secretKey,
+					bucketName: 'explain',
+				},
+			},
 		}
 	}
 
@@ -132,6 +139,12 @@ export class MainConfigService {
 			},
 			// User gets this amount on balance if he confirms his personality with OAuth
 			welcomeBonusInRub: this.configService.get<string>('WELCOME_BONUS') as string,
+			yandexCloud: {
+				s3: {
+					keyId: this.configService.get<string>('YANDEX_CLOUD_S3_KEY_ID') as string,
+					secretKey: this.configService.get<string>('YANDEX_CLOUD_S3_SECRET_KEY') as string,
+				},
+			},
 		}
 	}
 }

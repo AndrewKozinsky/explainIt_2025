@@ -1,5 +1,6 @@
 export const publicFolderFilesUrls = {
 	icons: {
+		editButtonIcon: '/icons/editButtonIcon.svg',
 		githubButtonIcon: '/icons/githubButtonIcon.svg',
 		googleButtonIcon: '/icons/googleButtonIcon.svg',
 		plusButtonIcon: '/icons/plusButtonIcon.svg',

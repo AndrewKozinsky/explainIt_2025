@@ -3,7 +3,9 @@ import { Module } from '@nestjs/common'
 import { CqrsModule } from '@nestjs/cqrs'
 import { GraphQLModule } from '@nestjs/graphql'
 import { StartServerTasksRunner } from 'src/infrastructure/StartServerTasksRunner'
+import { YandexCloudS3Module } from 'src/infrastructure/yandexCloudS3/yandexCloudS3.module'
 import { BookPublicModule } from 'src/routes/bookPublic/bookPublic.module'
+import { VideoPrivateModule } from 'src/routes/videoPrivate/videoPrivate.module'
 import { EmailAdapterModule } from './infrastructure/emailAdapter/email-adapter.module'
 import { GigaChatModule } from './infrastructure/gigaChat/gigaChat.module'
 import { HashAdapterModule } from './infrastructure/hashAdapter/hash-adapter.module'
@@ -56,6 +58,7 @@ import { WebhookModule } from './routes/webhook/webhook.module'
 		TelegramModule,
 		GigaChatModule,
 		OpenAIModule,
+		YandexCloudS3Module,
 		DbModule,
 		RedisModule,
 		PaymentModule,
@@ -64,6 +67,7 @@ import { WebhookModule } from './routes/webhook/webhook.module'
 		BookModule,
 		BookPublicModule,
 		BookChapterModule,
+		VideoPrivateModule,
 	],
 	providers: [StartServerTasksRunner],
 })

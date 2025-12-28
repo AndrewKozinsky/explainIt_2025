@@ -106,6 +106,9 @@ export const bdConfig = {
 			BookPrivate: {
 				type: 'oneToMany',
 			},
+			VideoPrivate: {
+				type: 'oneToMany',
+			},
 		},
 	},
 	BalanceTransaction: {
@@ -427,6 +430,54 @@ export const bdConfig = {
 				description: 'A translate of sentence example with this phrase. For example: ',
 				required: true,
 				maxLength: 500,
+			},
+			created_at: {
+				type: 'createdAt',
+			},
+		},
+	},
+	VideoPrivate: {
+		dtoProps: {
+			fileName: {
+				type: 'string',
+				description: 'File name of the video',
+				required: false,
+				maxLength: 255,
+			},
+			fileMimeType: {
+				type: 'string',
+				description: 'File Mime Type of the video',
+				required: false,
+				maxLength: 50,
+			},
+		},
+		dbFields: {
+			id: {
+				type: 'index',
+			},
+			user_id: {
+				type: 'manyToOne',
+				thisField: 'user_id', // Name of the column of this table that refers to another table
+				foreignTable: 'User', // Name of the table that this column refers to
+				foreignField: 'id',
+				required: true,
+			},
+			url: {
+				type: 'string',
+				description: 'URL of the video',
+				required: false,
+				maxLength: 1000,
+			},
+			name: {
+				type: 'string',
+				description: 'Name of the video',
+				required: false,
+				maxLength: 255,
+			},
+			subtitles: {
+				type: 'string',
+				description: 'Transcription of the video',
+				required: false,
 			},
 			created_at: {
 				type: 'createdAt',
