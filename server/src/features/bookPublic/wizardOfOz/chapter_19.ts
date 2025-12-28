@@ -169,7 +169,8 @@ export const chapter_19 = {
 		{
 			sentence:
 				'This did not hurt the Scarecrow, but it surprised him, and he looked rather dizzy when Dorothy picked him up.',
-			translate: 'Пугало не ушиблось, но было удивлено, и когда Дороти подняла его, оно выглядело слегка ошеломлённым.',
+			translate:
+				'Пугало не ушиблось, но было удивлено, и когда Дороти подняла его, оно выглядело слегка ошеломлённым.',
 		},
 		{
 			sentence: '“Here is another space between the trees,” called the Lion.',

@@ -1,6 +1,6 @@
 import { Field, InputType, Int } from '@nestjs/graphql'
+import { bdConfig } from 'db/dbConfig/dbConfig'
 import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
-import { bdConfig } from 'src/db/dbConfig/dbConfig'
 
 @InputType()
 export class DeleteBookChapterPhrasesInput {

@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common'
 import { CqrsModule } from '@nestjs/cqrs'
+import { UserRepository } from 'repo/user.repository'
+import { PrismaService } from 'db/prisma.service'
 import { CheckTranslationByAiHandler } from 'features/ai/checkTranslationByAI.command'
 import { GetTranscriptionByAiHandler } from 'features/ai/getTranscriptionByAI.command'
-import { PrismaService } from 'src/db/prisma.service'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
-import { UserRepository } from 'src/repo/user.repository'
 import { AiResolver } from './ai.resolver'
 
 const commandHandlers = [CheckTranslationByAiHandler, GetTranscriptionByAiHandler]

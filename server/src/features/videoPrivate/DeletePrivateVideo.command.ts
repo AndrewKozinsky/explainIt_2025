@@ -1,9 +1,9 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+import { VideoPrivateRepository } from 'repo/videoPrivate.repository'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { YandexCloudS3Service } from 'src/infrastructure/yandexCloudS3/yandexCloudS3.service'
-import { VideoPrivateRepository } from 'src/repo/videoPrivate.repository'
+import { YandexCloudS3Service } from 'infrastructure/yandexCloudS3/yandexCloudS3.service'
 
 type DeletePrivateVideoInput = {
 	id: number

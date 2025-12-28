@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
-import { createClient, RedisClientType } from 'redis'
 import RedisMock from 'ioredis-mock'
+import { createClient, RedisClientType } from 'redis'
 import { MainConfigService } from '../mainConfig/mainConfig.service'
 
 @Injectable()

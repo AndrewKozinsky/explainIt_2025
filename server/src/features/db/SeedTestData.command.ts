@@ -1,12 +1,12 @@
 import { CommandBus, CommandHandler, ICommandHandler } from '@nestjs/cqrs'
-import { CreateBookCommand } from 'features/bookPrivate/CreateBook.command'
+import { Request } from 'express'
+import { UserRepository } from 'repo/user.repository'
+import { OAuthProviderType } from 'routes/auth/inputs/loginWithOAuth.input'
 import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter.command'
-import { UserRepository } from 'src/repo/user.repository'
-import { OAuthProviderType } from '../../routes/auth/inputs/loginWithOAuth.input'
+import { CreateBookCommand } from 'features/bookPrivate/CreateBook.command'
 import { ConfirmEmailCommand } from '../auth/ConfirmEmail.command'
 import { CreateUserWithEmailAndPasswordCommand } from '../auth/CreateUserWithEmailAndPassword.command'
 import { LoginWithOAuthCommand } from '../auth/LoginWithOAuth.command'
-import { Request } from 'express'
 import {
 	serverTestDataConfig,
 	UserBookConfig,

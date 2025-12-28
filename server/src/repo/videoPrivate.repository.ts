@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common'
+import { Prisma, VideoPrivate } from 'prisma/generated/client'
 import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 import { VideoPrivateServiceModel } from '../models/videoPrivate/videoPrivate.service.model'
-import { Prisma, VideoPrivate } from 'prisma/generated/client'
 
 @Injectable()
 export class VideoPrivateRepository {

@@ -1,5 +1,5 @@
-import { Injectable } from '@nestjs/common'
 import * as path from 'path'
+import { Injectable } from '@nestjs/common'
 import { MainConfigService } from '../mainConfig/mainConfig.service'
 
 process.env.NODE_EXTRA_CA_CERTS = path.resolve(__dirname, './certificates')

@@ -1,5 +1,5 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { VideoPrivateQueryRepository } from 'src/repo/videoPrivate.queryRepository'
+import { VideoPrivateQueryRepository } from 'repo/videoPrivate.queryRepository'
 
 export class GetUserVideosPrivateCommand implements ICommand {
 	constructor(public userId: number) {}

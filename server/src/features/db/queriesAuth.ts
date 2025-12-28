@@ -1,5 +1,5 @@
+import { OAuthProviderType } from 'routes/auth/inputs/loginWithOAuth.input'
 import RouteNames from 'infrastructure/routeNames'
-import { OAuthProviderType } from '../../routes/auth/inputs/loginWithOAuth.input'
 
 export const queriesAuth = {
 	registerUser(props: { email: string; password: string }) {

@@ -1,7 +1,7 @@
 import { UseGuards, UsePipes, ValidationPipe } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql'
-import { UserOutModel } from 'src/models/user/user.out.model'
+import { Request, Response } from 'express'
 import { ConfirmEmailCommand } from 'features/auth/ConfirmEmail.command'
 import { CreateUserWithEmailAndPasswordCommand } from 'features/auth/CreateUserWithEmailAndPassword.command'
 import { GetUserByIdCommand } from 'features/auth/GetUserById.command'
@@ -12,13 +12,13 @@ import { ResendConfirmationEmailCommand } from 'features/auth/ResendConfirmation
 import { BrowserService } from 'infrastructure/browserService/browser.service'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
 import RouteNames from 'infrastructure/routeNames'
+import { UserOutModel } from 'models/user/user.out.model'
 import { ConfirmEmailInput } from './inputs/confirmEmail.input'
 import { LoginInput } from './inputs/login.input'
 import { LoginWithOAuthInput } from './inputs/loginWithOAuth.input'
 import { RegisterUserInput } from './inputs/registerUser.input'
 import { ResendConfirmationEmailInput } from './inputs/resendConfirmationEmail.input'
 import { authResolversDesc } from './resolverDescriptions'
-import { Request, Response } from 'express'
 
 @Resolver()
 export class AuthResolver {

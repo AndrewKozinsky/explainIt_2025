@@ -1,13 +1,13 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+import { VideoPrivateQueryRepository } from 'repo/videoPrivate.queryRepository'
+import { VideoPrivateRepository } from 'repo/videoPrivate.repository'
+import { VideoPrivateFileUrlBase } from 'features/videoPrivate/VideoPrivateFileUrl.base'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { MainConfigService } from 'src/infrastructure/mainConfig/mainConfig.service'
-import { YandexCloudS3Service } from 'src/infrastructure/yandexCloudS3/yandexCloudS3.service'
-import { UpdateVideoPrivateOutModel } from 'src/models/videoPrivate/updateVideoPrivate.out.model'
-import { VideoPrivateQueryRepository } from 'src/repo/videoPrivate.queryRepository'
-import { VideoPrivateRepository } from 'src/repo/videoPrivate.repository'
-import { VideoPrivateFileUrlBase } from 'src/features/videoPrivate/VideoPrivateFileUrl.base'
+import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+import { YandexCloudS3Service } from 'infrastructure/yandexCloudS3/yandexCloudS3.service'
+import { UpdateVideoPrivateOutModel } from 'models/videoPrivate/updateVideoPrivate.out.model'
 
 export type UpdatePrivateVideoInput = {
 	id: number

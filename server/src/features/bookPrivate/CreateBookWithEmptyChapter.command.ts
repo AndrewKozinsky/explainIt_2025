@@ -1,6 +1,6 @@
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+import { BookPrivateQueryRepository } from 'repo/bookPrivate.queryRepository'
 import { BookOutModel } from 'models/book/book.out.model'
-import { BookPrivateQueryRepository } from 'src/repo/bookPrivate.queryRepository'
 import { CreateBookChapterCommand } from '../bookChapter/CreateBookChapter.command'
 import { CreateBookCommand } from './CreateBook.command'
 

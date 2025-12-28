@@ -1,9 +1,9 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+import { BookChapterQueryRepository } from 'repo/bookChapter.queryRepository'
+import { BookChapterRepository } from 'repo/bookChapter.repository'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { BookChapterQueryRepository } from 'src/repo/bookChapter.queryRepository'
-import { BookChapterRepository } from 'src/repo/bookChapter.repository'
 
 type UpdateBookChapterInput = {
 	id: number

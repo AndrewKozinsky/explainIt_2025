@@ -1,5 +1,5 @@
-import { MainConfigService } from 'src/infrastructure/mainConfig/mainConfig.service'
-import { YandexCloudS3Service } from 'src/infrastructure/yandexCloudS3/yandexCloudS3.service'
+import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+import { YandexCloudS3Service } from 'infrastructure/yandexCloudS3/yandexCloudS3.service'
 
 export class VideoPrivateFileUrlBase {
 	constructor(protected mainConfig: MainConfigService) {}

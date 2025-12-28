@@ -1,8 +1,8 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+import { BookPrivateQueryRepository } from 'repo/bookPrivate.queryRepository'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { BookPrivateQueryRepository } from 'src/repo/bookPrivate.queryRepository'
 
 export class GetBookCommand implements ICommand {
 	constructor(

@@ -626,7 +626,8 @@ export const chapter_15 = {
 		},
 		{
 			sentence: '“Oh, thank you—thank you!” cried the Scarecrow. “I’ll find a way to use them, never fear!”',
-			translate: '«О, спасибо — спасибо!» — воскликнуло Пугало. — «Не бойтесь, я найду, как ими воспользоваться!»',
+			translate:
+				'«О, спасибо — спасибо!» — воскликнуло Пугало. — «Не бойтесь, я найду, как ими воспользоваться!»',
 		},
 		{
 			sentence: '“But how about my courage?” asked the Lion anxiously.',

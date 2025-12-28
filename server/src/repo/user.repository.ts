@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
-import { User } from 'prisma/generated/client'
 import { add } from 'date-fns'
+import { User } from 'prisma/generated/client'
 import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 import { HashAdapterService } from '../infrastructure/hashAdapter/hash-adapter.service'

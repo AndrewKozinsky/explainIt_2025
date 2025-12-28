@@ -1,7 +1,7 @@
 import * as path from 'node:path'
 import { writeFile } from '../../utils/writeFile'
-import { createSchema } from './createSchema'
 import { bdConfig } from '../dbConfig/dbConfig'
+import { createSchema } from './createSchema'
 
 export function generatePrismaSchemaFile() {
 	const prismaSchemaContent = createSchema(bdConfig)

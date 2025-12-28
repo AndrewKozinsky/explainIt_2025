@@ -1,12 +1,12 @@
 import { CommandBus } from '@nestjs/cqrs'
 import { Args, Query, Resolver } from '@nestjs/graphql'
+import { CheckTranslationByAiCommand } from 'features/ai/checkTranslationByAI.command'
 import { GetTranscriptionByAiCommand } from 'features/ai/getTranscriptionByAI.command'
 import RouteNames from 'infrastructure/routeNames'
 import { CheckTranslationOutModel } from 'models/ai/checkTranslation.out.model'
 import { GetTranscriptionOutModel } from 'models/ai/getTranscription.out.model'
 import { CheckTranslationInput } from './inputs/checkTranslation.input'
 import { GetTranscriptionInput } from './inputs/getTranscription.input'
-import { CheckTranslationByAiCommand } from 'features/ai/checkTranslationByAI.command'
 
 @Resolver()
 export class AiResolver {

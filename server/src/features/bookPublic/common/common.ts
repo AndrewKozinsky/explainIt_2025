@@ -1,5 +1,5 @@
-import { ChapterTextStructure } from 'src/features/bookPrivate/chapterStructure/chapterStructureTypes'
-import { CreateBookChapterInput } from 'src/features/bookChapter/CreateBookChapter.command'
+import { CreateBookChapterInput } from 'features/bookChapter/CreateBookChapter.command'
+import { ChapterTextStructure } from 'features/bookPrivate/chapterStructure/chapterStructureTypes'
 
 export type ChapterData = {
 	name: string
@@ -47,7 +47,7 @@ export function divideTextIntoSentenceParts(sentenceText: string): ChapterTextSt
 
 	const isAlphaNum = (ch: string) => /[A-Za-z0-9]/.test(ch)
 	const isWhitespace = (ch: string) => ch === ' ' || ch === '\t' || ch === '\u00A0' || ch === '\n' || ch === '\r'
-	const isApostrophe = (ch: string) => ch === '\'' || ch === '’'
+	const isApostrophe = (ch: string) => ch === "'" || ch === '’'
 
 	while (i < len) {
 		const ch = sentenceText[i]

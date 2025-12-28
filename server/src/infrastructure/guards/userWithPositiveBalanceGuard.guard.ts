@@ -1,10 +1,9 @@
 import { Injectable, CanActivate, ExecutionContext } from '@nestjs/common'
 import { GqlExecutionContext } from '@nestjs/graphql'
-import { UserRepository } from 'src/repo/user.repository'
+import { Request } from 'express'
 import { CustomGraphQLError } from '../exceptions/customErrors'
 import { ErrorCode } from '../exceptions/errorCode'
 import { errorMessage } from '../exceptions/errorMessage'
-import { Request } from 'express'
 
 @Injectable()
 export class UserWithPositiveBalanceGuard implements CanActivate {

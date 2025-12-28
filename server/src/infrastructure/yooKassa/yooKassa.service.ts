@@ -1,10 +1,10 @@
+import { randomUUID } from 'crypto'
 import { Injectable } from '@nestjs/common'
 import axios from 'axios'
 import { CustomGraphQLError } from '../exceptions/customErrors'
 import { ErrorCode } from '../exceptions/errorCode'
 import { errorMessage } from '../exceptions/errorMessage'
 import { MainConfigService } from '../mainConfig/mainConfig.service'
-import { randomUUID } from 'crypto'
 
 @Injectable()
 export class YooKassaService {

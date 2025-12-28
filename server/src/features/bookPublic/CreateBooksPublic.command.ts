@@ -1,14 +1,14 @@
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { ChapterData, getBookChapters } from './common/common'
-import { CreateBookPublicCommand, CreateBookPublicInput } from './CreateBookPublic.command'
-import { solomonMinesBookData, solomonMinesChapters } from './solomonMines/solomonMinesBook'
-import { wizardOfOzBookData, wizardOfOzChapters } from './wizardOfOz/wizardOfOzBook'
+import { BookChapterRepository } from 'repo/bookChapter.repository'
+import { BookPublicRepository } from 'repo/bookPublic.repository'
 import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter.command'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { BookChapterRepository } from 'src/repo/bookChapter.repository'
-import { BookPublicRepository } from 'src/repo/bookPublic.repository'
+import { ChapterData, getBookChapters } from './common/common'
+import { CreateBookPublicCommand, CreateBookPublicInput } from './CreateBookPublic.command'
+import { solomonMinesBookData, solomonMinesChapters } from './solomonMines/solomonMinesBook'
+import { wizardOfOzBookData, wizardOfOzChapters } from './wizardOfOz/wizardOfOzBook'
 
 export class CreateBooksPublicCommand implements ICommand {
 	constructor() {}

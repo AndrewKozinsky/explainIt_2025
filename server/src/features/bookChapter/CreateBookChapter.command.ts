@@ -1,11 +1,11 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+import { BookChapterQueryRepository } from 'repo/bookChapter.queryRepository'
+import { BookChapterRepository } from 'repo/bookChapter.repository'
+import { BookPrivateQueryRepository } from 'repo/bookPrivate.queryRepository'
+import { BookPublicRepository } from 'repo/bookPublic.repository'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { BookPrivateQueryRepository } from 'src/repo/bookPrivate.queryRepository'
-import { BookChapterQueryRepository } from 'src/repo/bookChapter.queryRepository'
-import { BookChapterRepository } from 'src/repo/bookChapter.repository'
-import { BookPublicRepository } from 'src/repo/bookPublic.repository'
 
 export type CreateBookChapterInput = {
 	bookType: 'public' | 'private'

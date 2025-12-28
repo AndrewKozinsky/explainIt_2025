@@ -1,4 +1,4 @@
-import { queriesBookPublic } from 'src/features/db/queriesBookPublic'
+import { queriesBookPublic } from 'features/db/queriesBookPublic'
 import { queriesAI } from './queriesAI'
 import { queriesAuth } from './queriesAuth'
 import { queriesBook } from './queriesBook'

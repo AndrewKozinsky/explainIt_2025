@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common'
+import { BookPublicOutModel } from 'models/bookPublic/bookPublic.out.model'
 import { Prisma } from 'prisma/generated/client'
 import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
-import { BookPublicOutModel } from 'src/models/bookPublic/bookPublic.out.model'
 
 type BookPublicWithChapters = Prisma.BookPublicGetPayload<{ include: { BookChapter: true } }>
 

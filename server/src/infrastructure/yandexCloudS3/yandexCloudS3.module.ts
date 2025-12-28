@@ -1,6 +1,6 @@
 import { Global, Module } from '@nestjs/common'
+import { YandexCloudS3Service } from 'infrastructure/yandexCloudS3/yandexCloudS3.service'
 import { MainConfigService } from '../mainConfig/mainConfig.service'
-import { YandexCloudS3Service } from 'src/infrastructure/yandexCloudS3/yandexCloudS3.service'
 
 const yandexCloudS3ServiceProvider = {
 	provide: YandexCloudS3Service,

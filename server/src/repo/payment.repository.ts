@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common'
 import { Payment } from 'prisma/generated/client'
+import { PaymentStatus } from 'prisma/generated/enums'
 import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 import { PaymentServiceModel } from '../models/payment/payment.service.model'
-import { PaymentStatus } from 'prisma/generated/enums'
 
 @Injectable()
 export class PaymentRepository {

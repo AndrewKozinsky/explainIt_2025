@@ -1,14 +1,14 @@
 import { Module } from '@nestjs/common'
 import { CqrsModule } from '@nestjs/cqrs'
-import { CreatePublicBooksHandler } from 'src/features/bookPublic/CreateBooksPublic.command'
-import { GetBooksPublicHandler } from 'src/features/bookPublic/GetBooksPublic.command'
-import { BookChapterRepository } from 'src/repo/bookChapter.repository'
-import { BookPublicQueryRepository } from 'src/repo/bookPublic.queryRepository'
-import { BookPublicRepository } from 'src/repo/bookPublic.repository'
+import { BookChapterRepository } from 'repo/bookChapter.repository'
+import { BookPublicQueryRepository } from 'repo/bookPublic.queryRepository'
+import { BookPublicRepository } from 'repo/bookPublic.repository'
 import { PrismaService } from 'db/prisma.service'
-import { CreateBookPublicHandler } from 'src/features/bookPublic/CreateBookPublic.command'
+import { CreateBookPublicHandler } from 'features/bookPublic/CreateBookPublic.command'
+import { CreatePublicBooksHandler } from 'features/bookPublic/CreateBooksPublic.command'
+import { GetBookPublicHandler } from 'features/bookPublic/GetBookPublic.command'
+import { GetBooksPublicHandler } from 'features/bookPublic/GetBooksPublic.command'
 import { BookPublicResolver } from './bookPublic.resolver'
-import { GetBookPublicHandler } from 'src/features/bookPublic/GetBookPublic.command'
 
 const services = [PrismaService]
 const resolvers = [BookPublicResolver]

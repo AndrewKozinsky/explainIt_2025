@@ -1,9 +1,9 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+import { BookChapterRepository } from 'repo/bookChapter.repository'
+import { BookChapterPhraseRepository } from 'repo/bookChapterPhrase.repository'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { BookChapterRepository } from 'src/repo/bookChapter.repository'
-import { BookChapterPhraseRepository } from 'src/repo/bookChapterPhrase.repository'
 
 type DeleteBookChapterPhrasesInput = {
 	userId: number
