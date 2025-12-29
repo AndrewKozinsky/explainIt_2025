@@ -11,7 +11,7 @@ it('1', () => {
 	expect(2).toBe(2)
 })
 
-describe.skip('Get public book', () => {
+describe('Get public book', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let createPublicBooksHandler: CreatePublicBooksHandler

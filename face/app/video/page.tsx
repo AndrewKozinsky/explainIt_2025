@@ -1,5 +1,5 @@
-import VideoPage from '_pages/video/VideoPage/VideoPage'
+import VideosPage from '_pages/video/VideosPage/VideosPage'
 
 export default function Home() {
-	return <VideoPage />
+	return <VideosPage />
 }

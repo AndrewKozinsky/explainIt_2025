@@ -1,0 +1,55 @@
+//@use '@/styles/variables' as vars;
+//@use '@/styles/mixins' as mix;
+//@use '@/styles/inherit' as inh;
+
+/*.books-page-content {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}*/
+
+/*.books-page-content__blocks {
+	position: relative;
+	display: block;
+
+	@include mix.page-width(vars.$books-desktop-width) {
+		align-items: flex-start;
+		display: flex;
+		gap: 3rem;
+	}
+}*/
+
+/*.books-page-content__item {
+	flex-grow: 1;
+	display: none;
+
+	@include mix.page-width(vars.$books-desktop-width) {
+		position: sticky;
+		top: 1rem;
+		left: 0;
+		display: block;
+		width: 33%;
+	}
+}*/
+/*.books-page-content__item--always-visible {
+	display: block;
+}*/
+
+/*.books-page-content__item--books {
+	@include mix.page-width(vars.$books-desktop-width) {
+		max-width: 280px;
+	}
+}*/
+
+/*.books-page-content__item--book {
+	@include mix.page-width(vars.$books-desktop-width) {
+		max-width: 280px;
+	}
+}*/
+
+/*.books-page-content__item--chapter {
+
+}*/
+
+

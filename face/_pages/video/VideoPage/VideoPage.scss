@@ -1,9 +1,0 @@
-@use '@/styles/variables' as vars;
-
-.video-page__content {
-	flex-grow: 1;
-	background-color: white;
-	border-radius: vars.$radius-1;
-	box-shadow: vars.$shadow-1;
-	max-height: 100vh;
-}
