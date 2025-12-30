@@ -4,6 +4,8 @@
 // import BooksRoot from '_pages/video/videos/BooksRoot/BooksRoot'
 // import { useGetShowingPageType } from './fn/showingPageType'
 
+import VideosRoot from '_pages/video/videos/VideosRoot/VideosRoot'
+
 function VideosPage() {
 	// const showingPageType = useGetShowingPageType()
 
@@ -13,7 +15,7 @@ function VideosPage() {
 	}*/
 
 	// return pageMapper[showingPageType]
-	return <p>videos</p>
+	return <VideosRoot />
 }
 
 export default VideosPage

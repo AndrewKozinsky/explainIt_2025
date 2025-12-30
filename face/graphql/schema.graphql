@@ -139,6 +139,28 @@ input CreateBookInput {
   note: String
 }
 
+input CreatePrivateVideoInput {
+  """Subtitles"""
+  fileMimeType: String
+
+  """Subtitles"""
+  fileName: String
+
+  """Name"""
+  name: String
+
+  """Subtitles"""
+  subtitles: String
+}
+
+type CreateVideoPrivateOutModel {
+  id: Int!
+  name: String
+  subtitles: String
+  uploadUrl: String
+  userId: Int!
+}
+
 input DeleteBookChapterInput {
   """BookChapter id"""
   id: Int!
@@ -151,6 +173,11 @@ input DeleteBookChapterPhrasesInput {
 
 input DeleteBookInput {
   """Book id"""
+  id: Int!
+}
+
+input DeletePrivateVideoInput {
+  """Video id"""
   id: Int!
 }
 
@@ -169,6 +196,11 @@ input GetBookInput {
 
 input GetBookPublicInput {
   """Book id"""
+  id: Int!
+}
+
+input GetPrivateVideoInput {
+  """Video id"""
   id: Int!
 }
 
@@ -250,6 +282,15 @@ type Mutation {
 
   """Top up a balance with YooKassa"""
   payment_yookassa_top_up_balance(input: TopUpBalanceWithYooKassaInput!): TopUpBalanceWithYooKassaOutModel!
+
+  """Create a video"""
+  video_private_create(input: CreatePrivateVideoInput!): CreateVideoPrivateOutModel!
+
+  """Delete a video"""
+  video_private_delete(input: DeletePrivateVideoInput!): Boolean!
+
+  """Update a video"""
+  video_private_update(input: UpdatePrivateVideoInput!): UpdateVideoPrivateOutModel!
 }
 
 type PhraseExample {
@@ -279,6 +320,12 @@ type Query {
 
   """Get user books"""
   book_user_books: [BookOutModel!]!
+
+  """Get a video"""
+  video_private_get(input: GetPrivateVideoInput!): VideoPrivateOutModel!
+
+  """Get user videos"""
+  video_private_user_videos: [VideoPrivateOutModel!]!
 }
 
 input RegisterUserInput {
@@ -345,9 +392,41 @@ input UpdateBookInput {
   note: String
 }
 
+input UpdatePrivateVideoInput {
+  """File mime type"""
+  fileMimeType: String
+
+  """File name"""
+  fileName: String
+
+  """Video id"""
+  id: Int!
+
+  """Name"""
+  name: String
+
+  """Subtitles"""
+  subtitles: String
+}
+
+type UpdateVideoPrivateOutModel {
+  id: Int!
+  name: String
+  subtitles: String
+  uploadUrl: String
+  userId: Int!
+}
+
 type UserOutModel {
   balance: Int!
   email: String!
   id: Int!
   isUserConfirmed: Boolean!
+}
+
+type VideoPrivateOutModel {
+  id: Int!
+  name: String
+  subtitles: String
+  userId: Int!
 }

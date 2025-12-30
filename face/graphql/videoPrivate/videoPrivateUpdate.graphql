@@ -1,0 +1,9 @@
+mutation VideoPrivate_update($input: UpdatePrivateVideoInput!) {
+	video_private_update(input: $input) {
+		id
+		name
+		subtitles
+		userId
+		uploadUrl
+	}
+}

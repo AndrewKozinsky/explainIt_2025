@@ -152,6 +152,26 @@ export type CreateBookInput = {
 	note?: InputMaybe<Scalars['String']['input']>
 }
 
+export type CreatePrivateVideoInput = {
+	/** Subtitles */
+	fileMimeType?: InputMaybe<Scalars['String']['input']>
+	/** Subtitles */
+	fileName?: InputMaybe<Scalars['String']['input']>
+	/** Name */
+	name?: InputMaybe<Scalars['String']['input']>
+	/** Subtitles */
+	subtitles?: InputMaybe<Scalars['String']['input']>
+}
+
+export type CreateVideoPrivateOutModel = {
+	__typename?: 'CreateVideoPrivateOutModel'
+	id: Scalars['Int']['output']
+	name?: Maybe<Scalars['String']['output']>
+	subtitles?: Maybe<Scalars['String']['output']>
+	uploadUrl?: Maybe<Scalars['String']['output']>
+	userId: Scalars['Int']['output']
+}
+
 export type DeleteBookChapterInput = {
 	/** BookChapter id */
 	id: Scalars['Int']['input']
@@ -164,6 +184,11 @@ export type DeleteBookChapterPhrasesInput = {
 
 export type DeleteBookInput = {
 	/** Book id */
+	id: Scalars['Int']['input']
+}
+
+export type DeletePrivateVideoInput = {
+	/** Video id */
 	id: Scalars['Int']['input']
 }
 
@@ -181,6 +206,11 @@ export type GetBookInput = {
 
 export type GetBookPublicInput = {
 	/** Book id */
+	id: Scalars['Int']['input']
+}
+
+export type GetPrivateVideoInput = {
+	/** Video id */
 	id: Scalars['Int']['input']
 }
 
@@ -251,6 +281,12 @@ export type Mutation = {
 	book_update: BookOutModel
 	/** Top up a balance with YooKassa */
 	payment_yookassa_top_up_balance: TopUpBalanceWithYooKassaOutModel
+	/** Create a video */
+	video_private_create: CreateVideoPrivateOutModel
+	/** Delete a video */
+	video_private_delete: Scalars['Boolean']['output']
+	/** Update a video */
+	video_private_update: UpdateVideoPrivateOutModel
 }
 
 export type MutationAuth_ConfirmEmailArgs = {
@@ -313,6 +349,18 @@ export type MutationPayment_Yookassa_Top_Up_BalanceArgs = {
 	input: TopUpBalanceWithYooKassaInput
 }
 
+export type MutationVideo_Private_CreateArgs = {
+	input: CreatePrivateVideoInput
+}
+
+export type MutationVideo_Private_DeleteArgs = {
+	input: DeletePrivateVideoInput
+}
+
+export type MutationVideo_Private_UpdateArgs = {
+	input: UpdatePrivateVideoInput
+}
+
 export type PhraseExample = {
 	__typename?: 'PhraseExample'
 	id: Scalars['Int']['output']
@@ -336,6 +384,10 @@ export type Query = {
 	book_public_get_books: Array<BookPublicOutModel>
 	/** Get user books */
 	book_user_books: Array<BookOutModel>
+	/** Get a video */
+	video_private_get: VideoPrivateOutModel
+	/** Get user videos */
+	video_private_user_videos: Array<VideoPrivateOutModel>
 }
 
 export type QueryAi_CheckTranslationArgs = {
@@ -356,6 +408,10 @@ export type QueryBook_GetArgs = {
 
 export type QueryBook_Public_Get_BookArgs = {
 	input: GetBookPublicInput
+}
+
+export type QueryVideo_Private_GetArgs = {
+	input: GetPrivateVideoInput
 }
 
 export type RegisterUserInput = {
@@ -413,12 +469,42 @@ export type UpdateBookInput = {
 	note?: InputMaybe<Scalars['String']['input']>
 }
 
+export type UpdatePrivateVideoInput = {
+	/** File mime type */
+	fileMimeType?: InputMaybe<Scalars['String']['input']>
+	/** File name */
+	fileName?: InputMaybe<Scalars['String']['input']>
+	/** Video id */
+	id: Scalars['Int']['input']
+	/** Name */
+	name?: InputMaybe<Scalars['String']['input']>
+	/** Subtitles */
+	subtitles?: InputMaybe<Scalars['String']['input']>
+}
+
+export type UpdateVideoPrivateOutModel = {
+	__typename?: 'UpdateVideoPrivateOutModel'
+	id: Scalars['Int']['output']
+	name?: Maybe<Scalars['String']['output']>
+	subtitles?: Maybe<Scalars['String']['output']>
+	uploadUrl?: Maybe<Scalars['String']['output']>
+	userId: Scalars['Int']['output']
+}
+
 export type UserOutModel = {
 	__typename?: 'UserOutModel'
 	balance: Scalars['Int']['output']
 	email: Scalars['String']['output']
 	id: Scalars['Int']['output']
 	isUserConfirmed: Scalars['Boolean']['output']
+}
+
+export type VideoPrivateOutModel = {
+	__typename?: 'VideoPrivateOutModel'
+	id: Scalars['Int']['output']
+	name?: Maybe<Scalars['String']['output']>
+	subtitles?: Maybe<Scalars['String']['output']>
+	userId: Scalars['Int']['output']
 }
 
 export type AiCheckTranslationVariables = Exact<{
@@ -772,6 +858,72 @@ export type Payment_YookassaTopUpBalanceVariables = Exact<{
 export type Payment_YookassaTopUpBalance = {
 	__typename?: 'Mutation'
 	payment_yookassa_top_up_balance: { __typename?: 'TopUpBalanceWithYooKassaOutModel'; confirmationUrl: string }
+}
+
+export type VideoPrivate_CreateVariables = Exact<{
+	input: CreatePrivateVideoInput
+}>
+
+export type VideoPrivate_Create = {
+	__typename?: 'Mutation'
+	video_private_create: {
+		__typename?: 'CreateVideoPrivateOutModel'
+		id: number
+		name?: string | null
+		subtitles?: string | null
+		userId: number
+		uploadUrl?: string | null
+	}
+}
+
+export type VideoPrivate_DeleteVariables = Exact<{
+	input: DeletePrivateVideoInput
+}>
+
+export type VideoPrivate_Delete = { __typename?: 'Mutation'; video_private_delete: boolean }
+
+export type VideoPrivate_GetVariables = Exact<{
+	input: GetPrivateVideoInput
+}>
+
+export type VideoPrivate_Get = {
+	__typename?: 'Query'
+	video_private_get: {
+		__typename?: 'VideoPrivateOutModel'
+		id: number
+		name?: string | null
+		subtitles?: string | null
+		userId: number
+	}
+}
+
+export type VideoPrivate_GetUserVideosVariables = Exact<{ [key: string]: never }>
+
+export type VideoPrivate_GetUserVideos = {
+	__typename?: 'Query'
+	video_private_user_videos: Array<{
+		__typename?: 'VideoPrivateOutModel'
+		id: number
+		name?: string | null
+		subtitles?: string | null
+		userId: number
+	}>
+}
+
+export type VideoPrivate_UpdateVariables = Exact<{
+	input: UpdatePrivateVideoInput
+}>
+
+export type VideoPrivate_Update = {
+	__typename?: 'Mutation'
+	video_private_update: {
+		__typename?: 'UpdateVideoPrivateOutModel'
+		id: number
+		name?: string | null
+		subtitles?: string | null
+		userId: number
+		uploadUrl?: string | null
+	}
 }
 
 export const AiCheckTranslationDocument = gql`
@@ -1846,4 +1998,238 @@ export type Payment_YookassaTopUpBalanceMutationResult = Apollo.MutationResult<P
 export type Payment_YookassaTopUpBalanceMutationOptions = Apollo.BaseMutationOptions<
 	Payment_YookassaTopUpBalance,
 	Payment_YookassaTopUpBalanceVariables
+>
+export const VideoPrivate_CreateDocument = gql`
+	mutation VideoPrivate_create($input: CreatePrivateVideoInput!) {
+		video_private_create(input: $input) {
+			id
+			name
+			subtitles
+			userId
+			uploadUrl
+		}
+	}
+`
+export type VideoPrivate_CreateMutationFn = Apollo.MutationFunction<VideoPrivate_Create, VideoPrivate_CreateVariables>
+
+/**
+ * __useVideoPrivate_Create__
+ *
+ * To run a mutation, you first call `useVideoPrivate_Create` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useVideoPrivate_Create` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [videoPrivateCreate, { data, loading, error }] = useVideoPrivate_Create({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useVideoPrivate_Create(
+	baseOptions?: Apollo.MutationHookOptions<VideoPrivate_Create, VideoPrivate_CreateVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useMutation<VideoPrivate_Create, VideoPrivate_CreateVariables>(VideoPrivate_CreateDocument, options)
+}
+export type VideoPrivate_CreateHookResult = ReturnType<typeof useVideoPrivate_Create>
+export type VideoPrivate_CreateMutationResult = Apollo.MutationResult<VideoPrivate_Create>
+export type VideoPrivate_CreateMutationOptions = Apollo.BaseMutationOptions<
+	VideoPrivate_Create,
+	VideoPrivate_CreateVariables
+>
+export const VideoPrivate_DeleteDocument = gql`
+	mutation VideoPrivate_delete($input: DeletePrivateVideoInput!) {
+		video_private_delete(input: $input)
+	}
+`
+export type VideoPrivate_DeleteMutationFn = Apollo.MutationFunction<VideoPrivate_Delete, VideoPrivate_DeleteVariables>
+
+/**
+ * __useVideoPrivate_Delete__
+ *
+ * To run a mutation, you first call `useVideoPrivate_Delete` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useVideoPrivate_Delete` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [videoPrivateDelete, { data, loading, error }] = useVideoPrivate_Delete({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useVideoPrivate_Delete(
+	baseOptions?: Apollo.MutationHookOptions<VideoPrivate_Delete, VideoPrivate_DeleteVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useMutation<VideoPrivate_Delete, VideoPrivate_DeleteVariables>(VideoPrivate_DeleteDocument, options)
+}
+export type VideoPrivate_DeleteHookResult = ReturnType<typeof useVideoPrivate_Delete>
+export type VideoPrivate_DeleteMutationResult = Apollo.MutationResult<VideoPrivate_Delete>
+export type VideoPrivate_DeleteMutationOptions = Apollo.BaseMutationOptions<
+	VideoPrivate_Delete,
+	VideoPrivate_DeleteVariables
+>
+export const VideoPrivate_GetDocument = gql`
+	query VideoPrivate_get($input: GetPrivateVideoInput!) {
+		video_private_get(input: $input) {
+			id
+			name
+			subtitles
+			userId
+		}
+	}
+`
+
+/**
+ * __useVideoPrivate_Get__
+ *
+ * To run a query within a React component, call `useVideoPrivate_Get` and pass it any options that fit your needs.
+ * When your component renders, `useVideoPrivate_Get` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useVideoPrivate_Get({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useVideoPrivate_Get(
+	baseOptions: Apollo.QueryHookOptions<VideoPrivate_Get, VideoPrivate_GetVariables> &
+		({ variables: VideoPrivate_GetVariables; skip?: boolean } | { skip: boolean }),
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useQuery<VideoPrivate_Get, VideoPrivate_GetVariables>(VideoPrivate_GetDocument, options)
+}
+export function useVideoPrivate_GetLazyQuery(
+	baseOptions?: Apollo.LazyQueryHookOptions<VideoPrivate_Get, VideoPrivate_GetVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useLazyQuery<VideoPrivate_Get, VideoPrivate_GetVariables>(VideoPrivate_GetDocument, options)
+}
+export function useVideoPrivate_GetSuspenseQuery(
+	baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<VideoPrivate_Get, VideoPrivate_GetVariables>,
+) {
+	const options = baseOptions === Apollo.skipToken ? baseOptions : { ...defaultOptions, ...baseOptions }
+	return Apollo.useSuspenseQuery<VideoPrivate_Get, VideoPrivate_GetVariables>(VideoPrivate_GetDocument, options)
+}
+export type VideoPrivate_GetHookResult = ReturnType<typeof useVideoPrivate_Get>
+export type VideoPrivate_GetLazyQueryHookResult = ReturnType<typeof useVideoPrivate_GetLazyQuery>
+export type VideoPrivate_GetSuspenseQueryHookResult = ReturnType<typeof useVideoPrivate_GetSuspenseQuery>
+export type VideoPrivate_GetQueryResult = Apollo.QueryResult<VideoPrivate_Get, VideoPrivate_GetVariables>
+export const VideoPrivate_GetUserVideosDocument = gql`
+	query VideoPrivate_getUserVideos {
+		video_private_user_videos {
+			id
+			name
+			subtitles
+			userId
+		}
+	}
+`
+
+/**
+ * __useVideoPrivate_GetUserVideos__
+ *
+ * To run a query within a React component, call `useVideoPrivate_GetUserVideos` and pass it any options that fit your needs.
+ * When your component renders, `useVideoPrivate_GetUserVideos` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useVideoPrivate_GetUserVideos({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useVideoPrivate_GetUserVideos(
+	baseOptions?: Apollo.QueryHookOptions<VideoPrivate_GetUserVideos, VideoPrivate_GetUserVideosVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useQuery<VideoPrivate_GetUserVideos, VideoPrivate_GetUserVideosVariables>(
+		VideoPrivate_GetUserVideosDocument,
+		options,
+	)
+}
+export function useVideoPrivate_GetUserVideosLazyQuery(
+	baseOptions?: Apollo.LazyQueryHookOptions<VideoPrivate_GetUserVideos, VideoPrivate_GetUserVideosVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useLazyQuery<VideoPrivate_GetUserVideos, VideoPrivate_GetUserVideosVariables>(
+		VideoPrivate_GetUserVideosDocument,
+		options,
+	)
+}
+export function useVideoPrivate_GetUserVideosSuspenseQuery(
+	baseOptions?:
+		| Apollo.SkipToken
+		| Apollo.SuspenseQueryHookOptions<VideoPrivate_GetUserVideos, VideoPrivate_GetUserVideosVariables>,
+) {
+	const options = baseOptions === Apollo.skipToken ? baseOptions : { ...defaultOptions, ...baseOptions }
+	return Apollo.useSuspenseQuery<VideoPrivate_GetUserVideos, VideoPrivate_GetUserVideosVariables>(
+		VideoPrivate_GetUserVideosDocument,
+		options,
+	)
+}
+export type VideoPrivate_GetUserVideosHookResult = ReturnType<typeof useVideoPrivate_GetUserVideos>
+export type VideoPrivate_GetUserVideosLazyQueryHookResult = ReturnType<typeof useVideoPrivate_GetUserVideosLazyQuery>
+export type VideoPrivate_GetUserVideosSuspenseQueryHookResult = ReturnType<
+	typeof useVideoPrivate_GetUserVideosSuspenseQuery
+>
+export type VideoPrivate_GetUserVideosQueryResult = Apollo.QueryResult<
+	VideoPrivate_GetUserVideos,
+	VideoPrivate_GetUserVideosVariables
+>
+export const VideoPrivate_UpdateDocument = gql`
+	mutation VideoPrivate_update($input: UpdatePrivateVideoInput!) {
+		video_private_update(input: $input) {
+			id
+			name
+			subtitles
+			userId
+			uploadUrl
+		}
+	}
+`
+export type VideoPrivate_UpdateMutationFn = Apollo.MutationFunction<VideoPrivate_Update, VideoPrivate_UpdateVariables>
+
+/**
+ * __useVideoPrivate_Update__
+ *
+ * To run a mutation, you first call `useVideoPrivate_Update` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useVideoPrivate_Update` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [videoPrivateUpdate, { data, loading, error }] = useVideoPrivate_Update({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useVideoPrivate_Update(
+	baseOptions?: Apollo.MutationHookOptions<VideoPrivate_Update, VideoPrivate_UpdateVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useMutation<VideoPrivate_Update, VideoPrivate_UpdateVariables>(VideoPrivate_UpdateDocument, options)
+}
+export type VideoPrivate_UpdateHookResult = ReturnType<typeof useVideoPrivate_Update>
+export type VideoPrivate_UpdateMutationResult = Apollo.MutationResult<VideoPrivate_Update>
+export type VideoPrivate_UpdateMutationOptions = Apollo.BaseMutationOptions<
+	VideoPrivate_Update,
+	VideoPrivate_UpdateVariables
 >

@@ -1,22 +1,21 @@
 // import { getSectionClasses } from '_pages/books/books/BooksRoot/fn/getSectionClasses'
-// import { useBooksStore } from '_pages/books/books/booksStore'
 // import MobileNavigation from '_pages/books/books/MobileNavigation/MobileNavigation'
-// import { usePopulateBooksStore } from './fn/populateBooksStore'
+import { usePopulateVideosStore } from '_pages/video/videos/VideosRoot/fn/populateVideosStore'
 // import { BooksTest } from '_pages/books/books/booksTest'
 // import BooksSection from '_pages/video/videos/videosListSection/BooksSection/BooksSection'
 // import ChaptersSection from '_pages/books/books/chaptersSection/ChaptersSection/ChaptersSection'
 // import DetailsSection from '_pages/books/books/detailsSection/DetailsSection/DetailsSection'
-// import './BooksRoot.scss'
+import './VideosRoot.scss'
 
-/*function BooksRoot() {
-	usePopulateBooksStore()
+function VideosRoot() {
+	usePopulateVideosStore()
 
-	const currentMobileContentType = useBooksStore((s) => s.mobileCurrentContentType)
+	// const currentMobileContentType = useVideosStore((s) => s.mobileCurrentContentType)
 
 	return (
-		<main className='books-page-content'>
-			<MobileNavigation />
-			<div className='books-page-content__blocks'>
+		<main className='videos-page-content'>
+			{/*<MobileNavigation />*/}
+			{/*<div className='books-page-content__blocks'>
 				<div
 					className={getSectionClasses('books', currentMobileContentType)}
 					data-testid={BooksTest.booksRoot.booksSection}
@@ -24,20 +23,14 @@
 					<BooksSection />
 				</div>
 				<div
-					className={getSectionClasses('book', currentMobileContentType)}
-					data-testid={BooksTest.booksRoot.bookSection}
-				>
-					<ChaptersSection />
-				</div>
-				<div
 					className={getSectionClasses('chapter', currentMobileContentType)}
 					data-testid={BooksTest.booksRoot.editSection}
 				>
 					<DetailsSection />
 				</div>
-			</div>
+			</div>*/}
 		</main>
 	)
-}*/
+}
 
-// export default BooksRoot
+export default VideosRoot

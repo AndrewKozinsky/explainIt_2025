@@ -83,9 +83,9 @@ export const pageUrls = {
 			path: '/course/' + articleSlug,
 		}
 	},
-	video: {
+	videos: {
 		name: 'Видео',
-		path: '/video',
+		path: '/videos',
 	},
 	contacts: {
 		name: 'Контакты',

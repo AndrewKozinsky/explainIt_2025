@@ -1,101 +1,54 @@
-// import { BookChapterOutModel } from '@/graphql'
-// import { BookPublicOutModel, BookOutModel } from '@/graphql'
-// import { create } from 'zustand'
+import { VideoPrivateOutModel } from '@/graphql'
+import { create } from 'zustand'
 
-/*export const booksStoreValues: BooksStoreValues = {
-	pageUrlType: 'books',
-	mobileCurrentContentType: 'books',
-	publicBooks: {
+export const videosStoreValues: VideosStoreValues = {
+	pageUrlType: 'videos',
+	mobileCurrentContentType: 'videos',
+	privateVideos: {
 		loading: true,
 		errorMessage: null,
-		data: null as any as BookPublicOutModel[],
+		data: null as any as VideoPrivateOutModel[],
 	},
-	privateBooks: {
-		loading: true,
-		errorMessage: null,
-		data: null as any as BookOutModel[],
-	},
-	publicBook: null,
-	privateBook: null,
-	chapter: {
-		loading: true,
-		errorMessage: null,
-		data: null as any as BookChapterOutModel,
-	},
-}*/
+	privateVideo: null,
+}
 
-/*export const useBooksStore = create<ReadingStore>()((set) => {
+export const useVideosStore = create<VideosStoreFull>()((set) => {
 	return {
-		...booksStoreValues,
-		updatePublicBooks: (publicBooks: BooksStore.PublicBooksData) => {
+		...videosStoreValues,
+		updatePrivateVideos: (books: VideosStore.PrivateVideosData) => {
 			set((state) => {
 				return {
-					publicBooks: {
-						...publicBooks,
-					},
-				}
-			})
-		},
-		updatePrivateBooks: (books: BooksStore.PrivateBooksData) => {
-			set((state) => {
-				return {
-					privateBooks: {
+					privateVideos: {
 						...books,
 					},
 				}
 			})
 		},
-		updateChapter: (chapter: BooksStore.ChapterData) => {
-			set((state) => {
-				return {
-					chapter: {
-						...chapter,
-					},
-				}
-			})
-		},
 	}
-})*/
+})
 
-// export type ReadingStore = BooksStoreValues & BooksStoreMethods
+export type VideosStoreFull = VideosStoreValues & VideosStoreMethods
 
-/*export type BooksStoreValues = {
-	pageUrlType: BooksStore.PageUrlType
-	mobileCurrentContentType: BooksStore.MobileCurrentContentType
-	publicBooks: BooksStore.PublicBooksData
-	privateBooks: BooksStore.PrivateBooksData
-	publicBook: null | BookPublicOutModel
-	privateBook: null | BookOutModel
-	chapter: BooksStore.ChapterData
-}*/
+export type VideosStoreValues = {
+	pageUrlType: VideosStore.PageUrlType
+	mobileCurrentContentType: VideosStore.MobileCurrentContentType
+	privateVideos: VideosStore.PrivateVideosData
+	privateVideo: null | VideoPrivateOutModel
+}
 
-/*export namespace BooksStore {
-	export type PageUrlType = 'books' | 'book' | 'chapter'
+export namespace VideosStore {
+	export type PageUrlType = 'videos' | 'video'
 	// На телефоне показываются 3 кнопки: Книги, Главы и Детали.
 	// В зависимости от нажатой кнопки показывается одна из трёх колонок
-	export type MobileCurrentContentType = 'books' | 'book' | 'chapter'
+	export type MobileCurrentContentType = 'videos' | 'video'
 
-	export type PublicBooksData = {
+	export type PrivateVideosData = {
 		loading: boolean
 		errorMessage: null | string
-		data: BookPublicOutModel[]
+		data: VideoPrivateOutModel[]
 	}
+}
 
-	export type PrivateBooksData = {
-		loading: boolean
-		errorMessage: null | string
-		data: BookOutModel[]
-	}
-
-	export type ChapterData = {
-		loading: boolean
-		errorMessage: null | string
-		data: null | BookChapterOutModel
-	}
-}*/
-
-/*type BooksStoreMethods = {
-	updatePublicBooks: (books: BooksStore.PublicBooksData) => void
-	updatePrivateBooks: (books: BooksStore.PrivateBooksData) => void
-	updateChapter: (books: BooksStore.ChapterData) => void
-}*/
+type VideosStoreMethods = {
+	updatePrivateVideos: (videos: VideosStore.PrivateVideosData) => void
+}
