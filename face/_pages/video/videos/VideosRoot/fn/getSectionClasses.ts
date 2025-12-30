@@ -1,17 +1,18 @@
-// import { BooksStore } from '_pages/books/books/booksStore'
-// import cn from 'classnames'
+import cn from 'classnames'
 
-/*export function getSectionClasses(
-	mobileContentType: BooksStore.MobileCurrentContentType,
-	currentMobileContentType: BooksStore.MobileCurrentContentType,
+import { VideosStore } from '../../videosStore'
+
+export function getSectionClasses(
+	mobileContentType: VideosStore.MobileCurrentContentType,
+	currentMobileContentType: VideosStore.MobileCurrentContentType,
 ) {
-	const classes = ['books-page-content__item', `books-page-content__item--${mobileContentType}`]
+	const classes = ['videos-page-content__item', `videos-page-content__item--${mobileContentType}`]
 
 	const isThisBlockVisible = currentMobileContentType === mobileContentType
 
 	if (isThisBlockVisible) {
-		classes.push('books-page-content__item--always-visible')
+		classes.push('videos-page-content__item--always-visible')
 	}
 
 	return cn(classes)
-}*/
+}

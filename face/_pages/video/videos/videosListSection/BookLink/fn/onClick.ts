@@ -1,10 +1,10 @@
-// import { useBooksStore } from '_pages/books/books/booksStore'
-// import { useCallback } from 'react'
+import { useCallback } from 'react'
+import { useVideosStore } from '../../../videosStore'
 
-/*export function useGetOnBookLinkClick() {
+export function useGetOnBookLinkClick() {
 	return useCallback(function () {
-		useBooksStore.setState({
-			mobileCurrentContentType: 'book',
+		useVideosStore.setState({
+			mobileCurrentContentType: 'video',
 		})
 	}, [])
-}*/
+}

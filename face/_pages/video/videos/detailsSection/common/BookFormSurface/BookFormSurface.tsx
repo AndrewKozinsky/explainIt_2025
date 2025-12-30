@@ -1,24 +1,24 @@
-// import React from 'react'
-// import './BookFormSurface.scss'
+import React from 'react'
+import './BookFormSurface.scss'
 
-/*type BookFormSurfaceProps = {
+type BookFormSurfaceProps = {
 	children: React.ReactNode
 	leftBottomButtons: React.ReactNode[]
 	rightBottomButtons: React.ReactNode[]
-}*/
+}
 
-/*function BookFormSurface(props: BookFormSurfaceProps) {
+function BookFormSurface(props: BookFormSurfaceProps) {
 	const { children, leftBottomButtons, rightBottomButtons } = props
 
 	return (
-		<div className='book-form-surface'>
-			<div className='book-form-surface__content'>{children}</div>
-			<div className='book-form-surface__bottom'>
-				<div className='book-form-surface__bottom-buttons'>{leftBottomButtons}</div>
-				<div className='book-form-surface__bottom-buttons'>{rightBottomButtons}</div>
+		<div className='video-form-surface'>
+			<div className='video-form-surface__content'>{children}</div>
+			<div className='video-form-surface__bottom'>
+				<div className='video-form-surface__bottom-buttons'>{leftBottomButtons}</div>
+				<div className='video-form-surface__bottom-buttons'>{rightBottomButtons}</div>
 			</div>
 		</div>
 	)
-}*/
+}
 
-// export default BookFormSurface
+export default BookFormSurface

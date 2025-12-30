@@ -1,0 +1,8 @@
+@use '@/styles/mixins' as mix;
+@use '@/styles/variables' as vars;
+
+.mobile-navigation {
+	@include mix.page-width(vars.$books-desktop-width) {
+		display: none;
+	}
+}

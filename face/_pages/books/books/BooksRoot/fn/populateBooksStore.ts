@@ -3,8 +3,7 @@ import { useBook_GetBooksPublic, useBook_GetUserBooks } from '@/graphql'
 import { useBookChapter_Get } from '@/graphql'
 import { useParams, usePathname } from 'next/navigation'
 import { useEffect } from 'react'
-import { useUserStore } from 'stores/userStore'
-import { createBookIdUrl, extractBookIdFromUrlBookId, getBookTypeByUrlBookId, pageUrls } from 'сonsts/pageUrls'
+import { extractBookIdFromUrlBookId, getBookTypeByUrlBookId, pageUrls } from 'сonsts/pageUrls'
 
 /** Наполняет Хранилище данными для начала работы */
 export function usePopulateBooksStore() {

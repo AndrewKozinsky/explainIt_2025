@@ -1,4 +1,4 @@
-import PrivateBooksListSection from '_pages/books/books/booksListSection/PrivateBooksSection/PrivateBooksListSection'
+import PrivateVideosListSection from '_pages/books/books/booksListSection/PrivateVideosSection/PrivateVideosListSection'
 import PublicBooksList from '../PublicBooksList/PublicBooksList'
 import './BooksSection.scss'
 
@@ -6,7 +6,7 @@ function BooksSection() {
 	return (
 		<div className='books-section'>
 			<PublicBooksList />
-			<PrivateBooksListSection />
+			<PrivateVideosListSection />
 		</div>
 	)
 }

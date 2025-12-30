@@ -15,6 +15,13 @@ export const videosStoreValues: VideosStoreValues = {
 export const useVideosStore = create<VideosStoreFull>()((set) => {
 	return {
 		...videosStoreValues,
+		updateMobileCurrentContentType: (contentType: VideosStore.MobileCurrentContentType) => {
+			set((state) => {
+				return {
+					mobileCurrentContentType: contentType,
+				}
+			})
+		},
 		updatePrivateVideos: (books: VideosStore.PrivateVideosData) => {
 			set((state) => {
 				return {
@@ -50,5 +57,6 @@ export namespace VideosStore {
 }
 
 type VideosStoreMethods = {
+	updateMobileCurrentContentType: (contentType: VideosStore.MobileCurrentContentType) => void
 	updatePrivateVideos: (videos: VideosStore.PrivateVideosData) => void
 }

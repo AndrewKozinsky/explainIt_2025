@@ -1,0 +1,34 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/inherit' as inh;
+@use '@/styles/mixins' as mix;
+
+.tabs {
+	display: flex;
+	justify-content: space-between;
+	gap: 2px;
+	background-color: vars.$grayColor-1;
+	padding: 2px;
+	border-radius: vars.$radius-1;
+}
+
+.tabs__button {
+	flex-grow: 1;
+	font-size: 1.5rem;
+	line-height: 2.1rem;
+	text-align: center;
+	padding: 6px;
+	border-radius: vars.$radius-1;
+}
+.tabs__button--link {
+	cursor: pointer;
+
+	&:hover {
+		background-color: vars.$grayColor-2;
+	}
+}
+.tabs__button--active {
+	background-color: white;
+
+	box-shadow: vars.$shadow-1;
+
+}

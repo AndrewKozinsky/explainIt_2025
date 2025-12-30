@@ -86,6 +86,12 @@ export const pageUrls = {
 	videos: {
 		name: 'Видео',
 		path: '/videos',
+		video(videoId: string | number) {
+			return {
+				name: 'Видео',
+				path: '/videos/' + videoId,
+			}
+		},
 	},
 	contacts: {
 		name: 'Контакты',

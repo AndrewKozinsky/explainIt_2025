@@ -1,16 +1,15 @@
-// import { useBooksStore } from '_pages/books/books/booksStore'
-// import { useEffect } from 'react'
+import { useVideosStore } from '_pages/video/videos/videosStore'
+import { useEffect } from 'react'
 
-/*export function useSetFieldValues(reset: (data: any) => void) {
-	const book = useBooksStore((s) => s.privateBook)
+export function useSetFieldValues(reset: (data: any) => void) {
+	const book = useVideosStore((s) => s.privateVideo)
 
 	useEffect(() => {
 		if (!book) return
 
 		reset({
-			author: book.author ?? '',
 			name: book.name ?? '',
-			note: book.note ?? '',
+			subtitles: book.subtitles ?? '',
 		})
 	}, [book, reset])
-}*/
+}

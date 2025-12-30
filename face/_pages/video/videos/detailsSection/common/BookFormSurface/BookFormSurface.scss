@@ -1,25 +1,25 @@
-//@use '@/styles/variables' as vars;
+@use '@/styles/variables' as vars;
 
-/*.book-form-surface {
+.video-form-surface {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	gap: 2rem;
-}*/
+}
 
-/*.book-form-surface__content {
+.video-form-surface__content {
 	width: 100%;
 	box-sizing: border-box;
-}*/
+}
 
-/*.book-form-surface__bottom {
+.video-form-surface__bottom {
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
-}*/
+}
 
-/*.book-form-surface__bottom-buttons {
+.video-form-surface__bottom-buttons {
 	display: flex;
 	gap: 1rem;
-}*/
+}

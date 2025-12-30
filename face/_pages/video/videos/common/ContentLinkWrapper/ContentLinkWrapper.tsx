@@ -1,9 +1,8 @@
-// import cn from 'classnames'
-// import Link from 'next/link'
-// import React from 'react'
-// import './ContentLinkWrapper.scss'
+import cn from 'classnames'
+import Link from 'next/link'
+import './ContentLinkWrapper.scss'
 
-/*type BookLinkBlockProps = {
+type ContentLinkWrapperProps = {
 	href: string
 	// Статус ссылки:
 	// idle — пользователь не на этой странице
@@ -13,10 +12,10 @@
 	children: React.ReactNode
 	dataTestId?: string
 	onClick?: () => void
-}*/
+}
 
 // Обёртка для книги или главы
-/*function ContentLinkWrapper(props: BookLinkBlockProps) {
+function ContentLinkWrapper(props: ContentLinkWrapperProps) {
 	const { href, status, children, dataTestId, onClick } = props
 
 	const classes = ['content-link-wrapper', 'content-link-wrapper--link', 'content-link-wrapper--' + status]
@@ -26,6 +25,6 @@
 			{children}
 		</Link>
 	)
-}*/
+}
 
-// export default ContentLinkWrapper
+export default ContentLinkWrapper

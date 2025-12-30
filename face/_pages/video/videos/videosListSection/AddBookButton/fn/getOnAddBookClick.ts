@@ -1,14 +1,17 @@
-// import { useCallback, useContext, useState } from 'react'
-// import { Book_GetUserBooksDocument, useBook_Create } from '@/graphql'
-// import { NotificationContext } from '@/ui/Notification/context'
-// import { createBookIdUrl, pageUrls } from 'сonsts/pageUrls'
-// import { redirect } from 'next/navigation'
+import { useVideoPrivate_Create, VideoPrivate_GetUserVideosDocument } from '@/graphql'
+import { useCallback, useContext, useState } from 'react'
+import { NotificationContext } from '@/ui/Notification/context'
+import { pageUrls } from 'сonsts/pageUrls'
+import { redirect } from 'next/navigation'
 
-/*export function useGetOnAddBookClick() {
+export function useGetOnAddBookClick() {
 	const { notify } = useContext(NotificationContext)
 
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
-	const [createBook] = useBook_Create({ refetchQueries: [Book_GetUserBooksDocument], awaitRefetchQueries: true })
+	const [createVideo] = useVideoPrivate_Create({
+		refetchQueries: [VideoPrivate_GetUserVideosDocument],
+		awaitRefetchQueries: true,
+	})
 
 	const onAddBookClick = useCallback(
 		async function () {
@@ -17,20 +20,20 @@
 			let createdBookId: string | number | null = null
 
 			try {
-				const { errors, data } = await createBook({
-					variables: { input: { author: null, name: null, note: null } },
+				const { errors, data } = await createVideo({
+					variables: { input: { name: null, fileName: null, fileMimeType: null, subtitles: null } },
 				})
 
 				if (errors) {
 					throw new Error('Не удалось создать книгу.')
 				}
 
-				const bookId = data?.book_create.id
-				if (!bookId) {
+				const videoId = data?.video_private_create.id
+				if (!videoId) {
 					throw new Error('Не удалось создать книгу.')
 				}
 
-				createdBookId = bookId
+				createdBookId = videoId
 			} catch (error) {
 				notify({ type: 'error', message: 'Не удалось получить список книг.' })
 			} finally {
@@ -39,15 +42,14 @@
 
 			if (createdBookId) {
 				// Open a page with created book
-				const bookIdInUrl = createBookIdUrl(createdBookId, 'private')
-				redirect(pageUrls.books.book(bookIdInUrl).path)
+				redirect(pageUrls.videos.video(createdBookId).path)
 			}
 		},
-		[createBook, notify],
+		[createVideo, notify],
 	)
 
 	return {
 		status,
 		onAddBookClick,
 	}
-}*/
+}

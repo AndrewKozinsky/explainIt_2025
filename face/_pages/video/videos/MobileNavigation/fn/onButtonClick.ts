@@ -1,18 +1,22 @@
-// import { BooksStore, useBooksStore } from '_pages/books/books/booksStore'
-// import { useCallback } from 'react'
+import { useVideosStore, VideosStore } from '../../videosStore'
 
-/*export function useGetChangeCurrentMobileContentType(contentType: BooksStore.MobileCurrentContentType) {
-	return useCallback(
-		function () {
-			useBooksStore.setState({
-				mobileCurrentContentType: contentType,
-			})
-		},
-		[contentType],
-	)
-}*/
+export const tabsConfig = [
+	{
+		id: 'videos',
+		label: 'Видео',
+		onClick: getChangeCurrentMobileContentType('videos'),
+	},
+	{
+		id: 'video',
+		label: 'Детали видео',
+		onClick: getChangeCurrentMobileContentType('video'),
+	},
+]
 
-/*export function useIsActiveButton(contentType: BooksStore.MobileCurrentContentType) {
-	const mobileCurrentContentType = useBooksStore((s) => s.mobileCurrentContentType)
-	return mobileCurrentContentType === contentType
-}*/
+function getChangeCurrentMobileContentType(contentType: VideosStore.MobileCurrentContentType) {
+	const { updateMobileCurrentContentType } = useVideosStore.getState()
+
+	return () => {
+		updateMobileCurrentContentType(contentType)
+	}
+}

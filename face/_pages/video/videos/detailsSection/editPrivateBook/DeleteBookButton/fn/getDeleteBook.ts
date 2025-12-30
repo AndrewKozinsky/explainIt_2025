@@ -1,43 +1,43 @@
-// import { useCallback, useContext, useState } from 'react'
-// import { redirect } from 'next/navigation'
-// import { Book_GetUserBooksDocument, useBook_Delete } from '@/graphql'
-// import { NotificationContext } from '@/ui//Notification/context'
-// import { pageUrls } from '@/сonsts/pageUrls'
-// import { useBooksStore } from '_pages/books/books/booksStore'
+import { useVideoPrivate_Delete, VideoPrivate_GetUserVideosDocument } from '@/graphql'
+import { useCallback, useContext, useState } from 'react'
+import { redirect } from 'next/navigation'
+import { NotificationContext } from '@/ui//Notification/context'
+import { useVideosStore } from '@/_pages/video/videos/videosStore'
+import { pageUrls } from '@/сonsts/pageUrls'
 
-/*export function useGetDeleteBook() {
+export function useGetDeleteVideo() {
 	const { notify } = useContext(NotificationContext)
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
 
-	const [deleteBook] = useBook_Delete({ refetchQueries: [Book_GetUserBooksDocument] })
+	const [deleteVideo] = useVideoPrivate_Delete({ refetchQueries: [VideoPrivate_GetUserVideosDocument] })
 
-	const onDeleteBookClick = useCallback(
+	const onDeleteVideoClick = useCallback(
 		async function () {
-			const book = useBooksStore.getState().privateBook
-			if (!book) return
+			const video = useVideosStore.getState().privateVideo
+			if (!video) return
 
 			setStatus('loading')
 
-			const { errors } = await deleteBook({ variables: { input: { id: book.id } } })
+			const { errors } = await deleteVideo({ variables: { input: { id: video.id } } })
 
 			if (errors) {
 				notify({
 					type: 'error',
 					message:
-						'Не удалось удалить книгу. Попробуйте ещё раз или сообщите о проблеме в форме обратной связи.',
+						'Не удалось удалить видео. Попробуйте ещё раз или сообщите о проблеме в форме обратной связи.',
 				})
 				return
 			}
 
 			setStatus('idle')
 
-			redirect(pageUrls.books.path)
+			redirect(pageUrls.videos.path)
 		},
-		[deleteBook, notify],
+		[deleteVideo, notify],
 	)
 
 	return {
 		status,
-		onDeleteBookClick,
+		onDeleteVideoClick,
 	}
-}*/
+}

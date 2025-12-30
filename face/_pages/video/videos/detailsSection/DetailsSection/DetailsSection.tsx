@@ -1,25 +1,20 @@
-// import { useBooksStore } from '_pages/books/books/booksStore'
-// import NoteText from '_pages/books/books/common/NoteText/NoteText'
-// import EditChapterForm from '../editChapter/EditChapterForm/EditChapterForm'
-// import PublicBookInfo from '_pages/books/books/detailsSection/PublicBookInfo/PublicBookInfo'
-// import EditBookForm from '../editPrivateBook/EditPrivateBookForm/EditPrivateBookForm'
+import NoteText from '../../common/NoteText/NoteText'
+import EditPrivateVideoForm from '../editPrivateBook/EditPrivateBookForm/EditPrivateBookForm'
+import { useVideosStore } from '_pages/video/videos/videosStore'
 
-/*function DetailsSection() {
-	const pageUrlType = useBooksStore((s) => s.pageUrlType)
-	const publicBook = useBooksStore((s) => s.publicBook)
-	const privateBook = useBooksStore((s) => s.privateBook)
+function DetailsSection() {
+	const pageUrlType = useVideosStore((s) => s.pageUrlType)
+	const privateVideo = useVideosStore((s) => s.privateVideo)
 
-	if (pageUrlType === 'books') {
+	if (pageUrlType === 'videos') {
 		return <NoteText>Выберите книгу или главу для просмотра детальной информации.</NoteText>
 	}
 
 	return (
 		<div className='editable-form-section'>
-			{pageUrlType === 'book' && publicBook && <PublicBookInfo />}
-			{pageUrlType === 'book' && privateBook && <EditBookForm />}
-			{pageUrlType === 'chapter' && <EditChapterForm />}
+			{pageUrlType === 'video' && privateVideo && <EditPrivateVideoForm />}
 		</div>
 	)
-}*/
+}
 
-// export default DetailsSection
+export default DetailsSection

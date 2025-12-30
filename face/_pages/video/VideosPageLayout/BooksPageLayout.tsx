@@ -6,7 +6,7 @@ type LLMPageLayoutProps = {
 	children: React.ReactNode
 }
 
-function BooksPageLayout(props: LLMPageLayoutProps) {
+function VideosPageLayout(props: LLMPageLayoutProps) {
 	const { children } = props
 
 	return (
@@ -16,4 +16,4 @@ function BooksPageLayout(props: LLMPageLayoutProps) {
 	)
 }
 
-export default BooksPageLayout
+export default VideosPageLayout
