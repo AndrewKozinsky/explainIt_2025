@@ -1,0 +1,10 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+@use '@/styles/inherit' as inh;
+
+.success-message {
+	display: flex;
+	align-items: center;
+	gap: .5rem;
+	color: vars.$successColor-3;
+}

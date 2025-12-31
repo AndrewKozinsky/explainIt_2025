@@ -9,12 +9,12 @@ export function useGetOnUpdateVideoFormSubmit(
 	setFormStatus: React.Dispatch<React.SetStateAction<FormStatus>>,
 	setFormError: React.Dispatch<React.SetStateAction<string | null>>,
 ) {
-	const book = useVideosStore((s) => s.privateVideo)
+	const video = useVideosStore((s) => s.privateVideo)
 	const [updateBook] = useVideoPrivate_Update({ refetchQueries: [VideoPrivate_GetUserVideosDocument] })
 
 	return useCallback(
 		async function (formData: ChangeVideoFormData) {
-			if (!book) return
+			if (!video) return
 
 			setFormError(null)
 			setFormStatus('submitting')
@@ -22,7 +22,7 @@ export function useGetOnUpdateVideoFormSubmit(
 			try {
 				const { data, errors } = await updateBook({
 					variables: {
-						input: { id: book.id, name: formData.name, subtitles: formData.subtitles },
+						input: { id: video.id, name: formData.name, subtitles: formData.subtitles },
 					},
 				})
 
@@ -37,6 +37,6 @@ export function useGetOnUpdateVideoFormSubmit(
 				setFormStatus('idle')
 			}
 		},
-		[book, setFieldError, setFormError, setFormStatus, updateBook],
+		[video, setFieldError, setFormError, setFormStatus, updateBook],
 	)
 }

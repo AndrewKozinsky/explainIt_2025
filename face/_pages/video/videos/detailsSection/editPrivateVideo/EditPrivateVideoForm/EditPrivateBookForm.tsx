@@ -1,4 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup'
+import VideoDropzone from '_pages/video/videos/detailsSection/editPrivateVideo/VideoDropzone/VideoDropzone'
+import { useVideosStore } from '_pages/video/videos/videosStore'
+import { useParams } from 'next/navigation'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Button from '@/ui/formRelated/buttons/Button/Button'
@@ -6,14 +9,17 @@ import FormError from '@/ui/formRelated/FormError/FormError'
 import FormFieldsWrapper from '@/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
 import TextInput from '@/ui/formRelated/TextInput/TextInput'
 import { FormStatus } from '@/utils/forms'
-import BookFormSurface from '../../common/BookFormSurface/BookFormSurface'
-import DeleteVideoButton from '_pages/video/videos/detailsSection/editPrivateBook/DeleteBookButton/DeleteVideoButton'
+import BookFormSurface from '_pages/video/videos/detailsSection/common/VideoFormSurface/BookFormSurface'
+import DeleteVideoButton from '_pages/video/videos/detailsSection/editPrivateVideo/DeleteVideoButton/DeleteVideoButton'
 import { ChangeVideoFormData, changeVideoFormSchema } from './fn/form'
 import * as yup from 'yup'
 import { useSetFieldValues } from './fn/setFieldValues'
 import { useGetOnUpdateVideoFormSubmit } from './fn/submit'
 
 export default function EditPrivateVideoForm() {
+	const privateVideo = useVideosStore((s) => s.privateVideo)
+	// const videoId = useParams().videoId as string
+
 	const [formStatus, setFormStatus] = useState<FormStatus>('idle')
 	const [formError, setFormError] = useState<null | string>(null)
 
@@ -56,6 +62,7 @@ export default function EditPrivateVideoForm() {
 							placeholder: 'Adventures in Wonderland',
 						}}
 					/>
+					<VideoDropzone videoId={privateVideo!.id} />
 					<TextInput
 						label='Субтитры'
 						error={errors.subtitles?.message}

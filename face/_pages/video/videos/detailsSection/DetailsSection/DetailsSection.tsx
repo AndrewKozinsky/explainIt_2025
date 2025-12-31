@@ -1,5 +1,5 @@
 import NoteText from '../../common/NoteText/NoteText'
-import EditPrivateVideoForm from '../editPrivateBook/EditPrivateBookForm/EditPrivateBookForm'
+import EditPrivateVideoForm from '_pages/video/videos/detailsSection/editPrivateVideo/EditPrivateVideoForm/EditPrivateBookForm'
 import { useVideosStore } from '_pages/video/videos/videosStore'
 
 function DetailsSection() {

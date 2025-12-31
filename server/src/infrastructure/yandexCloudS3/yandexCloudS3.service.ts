@@ -9,6 +9,7 @@ export class YandexCloudS3Service {
 
 	constructor(private mainConfig: MainConfigService) {
 		this.s3 = new S3Client({
+			endpoint: 'https://storage.yandexcloud.net',
 			region: 'ru-central1',
 			credentials: {
 				accessKeyId: mainConfig.get().yandexCloud.s3.keyId,

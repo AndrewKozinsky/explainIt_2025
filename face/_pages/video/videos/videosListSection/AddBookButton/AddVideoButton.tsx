@@ -11,7 +11,7 @@ function AddVideoButton() {
 			onClick={onAddBookClick}
 			loading={status === 'loading'}
 		>
-			Добавить книгу
+			Добавить видео
 		</Button>
 	)
 }
