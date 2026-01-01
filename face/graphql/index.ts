@@ -476,6 +476,8 @@ export type UpdatePrivateVideoInput = {
 	fileName?: InputMaybe<Scalars['String']['input']>
 	/** Video id */
 	id: Scalars['Int']['input']
+	/** Is file was upload to S3 */
+	isFileUploaded?: InputMaybe<Scalars['Boolean']['input']>
 	/** Name */
 	name?: InputMaybe<Scalars['String']['input']>
 	/** Subtitles */
@@ -501,7 +503,9 @@ export type UserOutModel = {
 
 export type VideoPrivateOutModel = {
 	__typename?: 'VideoPrivateOutModel'
+	fileUrl?: Maybe<Scalars['String']['output']>
 	id: Scalars['Int']['output']
+	isFileUploaded: Scalars['Boolean']['output']
 	name?: Maybe<Scalars['String']['output']>
 	subtitles?: Maybe<Scalars['String']['output']>
 	userId: Scalars['Int']['output']
@@ -894,6 +898,8 @@ export type VideoPrivate_Get = {
 		name?: string | null
 		subtitles?: string | null
 		userId: number
+		isFileUploaded: boolean
+		fileUrl?: string | null
 	}
 }
 
@@ -907,6 +913,8 @@ export type VideoPrivate_GetUserVideos = {
 		name?: string | null
 		subtitles?: string | null
 		userId: number
+		isFileUploaded: boolean
+		fileUrl?: string | null
 	}>
 }
 
@@ -2084,6 +2092,8 @@ export const VideoPrivate_GetDocument = gql`
 			name
 			subtitles
 			userId
+			isFileUploaded
+			fileUrl
 		}
 	}
 `
@@ -2134,6 +2144,8 @@ export const VideoPrivate_GetUserVideosDocument = gql`
 			name
 			subtitles
 			userId
+			isFileUploaded
+			fileUrl
 		}
 	}
 `

@@ -23,4 +23,11 @@ export class UpdatePrivateVideoInput {
 	@Field(() => String, { description: 'File mime type', nullable: true })
 	@DtoFieldDecorators('fileMimeType', bdConfig.VideoPrivate.dtoProps.fileMimeType)
 	fileMimeType?: null | string
+
+	@Field(() => Boolean, { description: 'Is file was upload to S3', nullable: true })
+	@DtoFieldDecorators('isFileUploaded', bdConfig.VideoPrivate.dbFields.is_file_uploaded, {
+		type: 'boolean',
+		required: false,
+	})
+	isFileUploaded?: boolean
 }

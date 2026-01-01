@@ -402,6 +402,9 @@ input UpdatePrivateVideoInput {
   """Video id"""
   id: Int!
 
+  """Is file was upload to S3"""
+  isFileUploaded: Boolean
+
   """Name"""
   name: String
 
@@ -425,7 +428,9 @@ type UserOutModel {
 }
 
 type VideoPrivateOutModel {
+  fileUrl: String
   id: Int!
+  isFileUploaded: Boolean!
   name: String
   subtitles: String
   userId: Int!

@@ -133,6 +133,7 @@ export interface UpdatePrivateVideoInput {
     subtitles?: Nullable<string>;
     fileName?: Nullable<string>;
     fileMimeType?: Nullable<string>;
+    isFileUploaded?: Nullable<boolean>;
 }
 
 export interface DeletePrivateVideoInput {

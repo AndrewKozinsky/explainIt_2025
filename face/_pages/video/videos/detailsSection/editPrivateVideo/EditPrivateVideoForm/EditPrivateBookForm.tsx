@@ -1,7 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import VideoDropzone from '_pages/video/videos/detailsSection/editPrivateVideo/VideoDropzone/VideoDropzone'
-import { useVideosStore } from '_pages/video/videos/videosStore'
-import { useParams } from 'next/navigation'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Button from '@/ui/formRelated/buttons/Button/Button'
@@ -17,9 +15,6 @@ import { useSetFieldValues } from './fn/setFieldValues'
 import { useGetOnUpdateVideoFormSubmit } from './fn/submit'
 
 export default function EditPrivateVideoForm() {
-	const privateVideo = useVideosStore((s) => s.privateVideo)
-	// const videoId = useParams().videoId as string
-
 	const [formStatus, setFormStatus] = useState<FormStatus>('idle')
 	const [formError, setFormError] = useState<null | string>(null)
 
@@ -62,7 +57,7 @@ export default function EditPrivateVideoForm() {
 							placeholder: 'Adventures in Wonderland',
 						}}
 					/>
-					<VideoDropzone videoId={privateVideo!.id} />
+					<VideoDropzone />
 					<TextInput
 						label='Субтитры'
 						error={errors.subtitles?.message}

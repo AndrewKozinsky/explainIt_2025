@@ -79,7 +79,7 @@ export class UpdatePrivateVideoHandler
 		updateVideoInput: UpdatePrivateVideoInput,
 	): Promise<{ fileUrl: null | string; isFileUploaded: boolean; uploadUrl: null | string }> {
 		// If try to delete a file then delete it
-		if (updateVideoInput.fileName === null) {
+		if (updateVideoInput.fileName === null || updateVideoInput.isFileUploaded === false) {
 			if (videoForUpdating.isFileUploaded && videoForUpdating.fileUrl) {
 				await this.yandexCloudS3Service.deleteFile(videoForUpdating.fileUrl)
 			}
@@ -94,12 +94,12 @@ export class UpdatePrivateVideoHandler
 		if (updateVideoInput.isFileUploaded) {
 			return {
 				fileUrl: videoForUpdating.fileUrl,
-				isFileUploaded: updateVideoInput.isFileUploaded,
+				isFileUploaded: true,
 				uploadUrl: null,
 			}
 		}
 
-		if (!videoForUpdating.fileUrl) {
+		if (updateVideoInput.fileName && updateVideoInput.fileMimeType) {
 			const { fileUrl, uploadUrl } = await this.prepareFileUrlAndUploadUrl(
 				{ fileName: updateVideoInput.fileName, fileMimeType: updateVideoInput.fileMimeType },
 				this.yandexCloudS3Service,
@@ -114,7 +114,7 @@ export class UpdatePrivateVideoHandler
 
 		return {
 			fileUrl: videoForUpdating.fileUrl,
-			isFileUploaded: videoForUpdating.isFileUploaded,
+			isFileUploaded: true,
 			uploadUrl: null,
 		}
 	}

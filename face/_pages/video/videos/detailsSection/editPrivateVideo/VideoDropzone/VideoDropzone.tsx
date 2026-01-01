@@ -1,10 +1,11 @@
 import { useVideoPrivate_Update, VideoPrivate_GetUserVideosDocument } from '@/graphql'
 import ContentFileUploaded from '_pages/video/videos/detailsSection/editPrivateVideo/VideoDropzone/ContentFileUploaded'
 import ContentFileUploading from '_pages/video/videos/detailsSection/editPrivateVideo/VideoDropzone/ContentFileUploading'
-import React, { useState } from 'react'
+import { useVideosStore } from '_pages/video/videos/videosStore'
+import React, { useContext, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
+import { NotificationContext } from 'ui/Notification/context'
 import ContentIdle from './ContentIdle'
-import ContentError from './ContentError'
 import ContentFileDragging from './ContentFileDragging'
 import ContentFileSelected from './ContentFileSelected'
 import './VideoDropzone.scss'
@@ -15,23 +16,22 @@ enum VideoDropzoneStatus {
 	FILE_SELECTED,
 	FILE_UPLOADING,
 	FILE_UPLOADED,
-	ERROR,
 }
 
 const supportedVideoFormatsStr = 'MP4, WebM, OGG'
 
-type VideoDropzoneProps = {
-	videoId: number
-}
+function VideoDropzone() {
+	const video = useVideosStore.getState().privateVideo
 
-function VideoDropzone(props: VideoDropzoneProps) {
-	const { videoId } = props
+	const { notify } = useContext(NotificationContext)
 
-	const [inputStatus, setInputStatus] = useState<VideoDropzoneStatus>(VideoDropzoneStatus.IDLE)
-	const [errorText, setErrorText] = useState('')
+	const [inputStatus, setInputStatus] = useState<VideoDropzoneStatus>(
+		video!.isFileUploaded ? VideoDropzoneStatus.FILE_UPLOADED : VideoDropzoneStatus.IDLE,
+	)
 	const [uploadingPercentage, setUploadingPercentage] = useState(0)
+	const [fileName, setFileName] = useState(video?.fileUrl ? video.fileUrl : '')
 
-	const [updateBook] = useVideoPrivate_Update({ refetchQueries: [VideoPrivate_GetUserVideosDocument] })
+	const [updateVideo] = useVideoPrivate_Update({ refetchQueries: [VideoPrivate_GetUserVideosDocument] })
 
 	const { getRootProps, getInputProps } = useDropzone({
 		accept: { 'video/mp4': ['.mp4'], 'video/webm': ['.webm'], 'video/ogg': ['.ogg'] },
@@ -44,11 +44,12 @@ function VideoDropzone(props: VideoDropzoneProps) {
 
 			const file = files[0]
 			const fileName = file.name
+			setFileName(fileName)
 			const fileMimeType = file.type
 
-			updateBook({
+			updateVideo({
 				variables: {
-					input: { id: videoId, fileMimeType, fileName },
+					input: { id: video!.id, fileMimeType, fileName },
 				},
 			}).then((data) => {
 				if (!data.data) {
@@ -58,8 +59,10 @@ function VideoDropzone(props: VideoDropzoneProps) {
 
 				const uploadUrl = data.data.video_private_update.uploadUrl
 				if (!uploadUrl) {
-					setInputStatus(VideoDropzoneStatus.ERROR)
-					setErrorText('Не удалось получить ссылку для загрузки')
+					notify({
+						type: 'error',
+						message: 'Не удалось получить ссылку для загрузки',
+					})
 					return
 				}
 
@@ -79,31 +82,53 @@ function VideoDropzone(props: VideoDropzoneProps) {
 
 				xhr.onload = () => {
 					if (xhr.status === 200) {
-						setInputStatus(VideoDropzoneStatus.FILE_UPLOADED)
+						updateVideo({
+							variables: {
+								input: { id: video!.id, isFileUploaded: true },
+							},
+						})
+							.then((data) => {
+								setInputStatus(VideoDropzoneStatus.FILE_UPLOADED)
+							})
+							.catch((err: unknown) => {
+								notify({
+									type: 'error',
+									message: 'Не удалось загрузить видео',
+								})
+							})
 					} else {
-						setInputStatus(VideoDropzoneStatus.ERROR)
-						setErrorText('Не удалось загрузить видео')
+						notify({
+							type: 'error',
+							message: 'Не удалось загрузить видео',
+						})
 					}
 				}
 
 				xhr.onerror = () => {
-					setInputStatus(VideoDropzoneStatus.ERROR)
-					setErrorText('Не удалось загрузить видео')
+					notify({
+						type: 'error',
+						message: 'Не удалось загрузить видео',
+					})
 				}
 
 				xhr.send(file)
 			})
 		},
 		onDropRejected: () => {
-			setInputStatus(VideoDropzoneStatus.ERROR)
-			setErrorText(`Можно перетащить только файлы с расширением ${supportedVideoFormatsStr}.`)
-
-			setTimeout(() => {
-				setInputStatus(VideoDropzoneStatus.IDLE)
-				setErrorText('')
-			}, 3000)
+			notify({
+				type: 'error',
+				message: `Можно перетащить только файлы с расширением ${supportedVideoFormatsStr}.`,
+			})
 		},
 	})
+
+	if (inputStatus === VideoDropzoneStatus.FILE_UPLOADED) {
+		return (
+			<div className='video-dropzone__wrapper'>
+				<ContentFileUploaded fileName={fileName} />
+			</div>
+		)
+	}
 
 	return (
 		<div {...getRootProps()} className='video-dropzone__wrapper'>
@@ -114,8 +139,6 @@ function VideoDropzone(props: VideoDropzoneProps) {
 			{inputStatus === VideoDropzoneStatus.FILE_UPLOADING && (
 				<ContentFileUploading percentage={uploadingPercentage} />
 			)}
-			{inputStatus === VideoDropzoneStatus.FILE_UPLOADED && <ContentFileUploaded />}
-			{inputStatus === VideoDropzoneStatus.ERROR && <ContentError errorText={errorText} />}
 		</div>
 	)
 }

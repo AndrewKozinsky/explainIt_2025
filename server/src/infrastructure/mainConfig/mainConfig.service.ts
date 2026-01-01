@@ -91,6 +91,7 @@ export class MainConfigService {
 					keyId: enVariables.yandexCloud.s3.keyId,
 					secretKey: enVariables.yandexCloud.s3.secretKey,
 					bucketName: 'explain',
+					bucketUrl: 'https://storage.yandexcloud.net/explain',
 				},
 			},
 		}

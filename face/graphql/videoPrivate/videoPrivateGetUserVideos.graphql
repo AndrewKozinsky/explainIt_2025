@@ -4,5 +4,7 @@ query VideoPrivate_getUserVideos {
 		name
 		subtitles
 		userId
+		isFileUploaded
+		fileUrl
 	}
 }

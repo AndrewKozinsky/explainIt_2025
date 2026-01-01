@@ -4,5 +4,7 @@ query VideoPrivate_get($input: GetPrivateVideoInput!) {
 		name
 		subtitles
 		userId
+		isFileUploaded
+		fileUrl
 	}
 }

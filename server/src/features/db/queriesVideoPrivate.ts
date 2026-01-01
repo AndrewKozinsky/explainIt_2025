@@ -74,6 +74,7 @@ export const queriesVideoPrivate = {
 					${RouteNames.VIDEO_PRIVATE.GET}(input: $input) {
 						id
 						name
+						isFileUploaded
 						subtitles
 						userId
 					}

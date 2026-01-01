@@ -1,10 +1,17 @@
+import DeleteVideoFileButton from '_pages/video/videos/detailsSection/editPrivateVideo/DeleteVideoFileButton/DeleteVideoFileButton'
 import React from 'react'
-import SuccessMessage from 'ui/SuccessMessage/SuccessMessage'
 
-function ContentFileUploaded() {
+type ContentFileUploadedProps = {
+	fileName: string
+}
+
+function ContentFileUploaded(props: ContentFileUploadedProps) {
+	const { fileName } = props
+
 	return (
 		<div className='video-dropzone video-dropzone--file-uploading'>
-			<SuccessMessage text='2025-11-03 18-56-49.mov успешно загружен' />
+			<p>{fileName}</p>
+			<DeleteVideoFileButton />
 		</div>
 	)
 }
