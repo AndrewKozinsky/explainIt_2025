@@ -32,3 +32,7 @@ A Next.js project with Apollo GraphQl and SCSS.
 ## Server-side
 A Nest.js project with GraphQl, Prisma ORM and Postgres.
 — use clear and descriptive variable names
+
+Use a command
+nvm use 24
+to switch to an actual Node.js version if you are going to run any command with it.

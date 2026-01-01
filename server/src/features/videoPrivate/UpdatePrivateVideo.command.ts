@@ -99,15 +99,23 @@ export class UpdatePrivateVideoHandler
 			}
 		}
 
-		const { fileUrl, uploadUrl } = await this.prepareFileUrlAndUploadUrl(
-			{ fileName: updateVideoInput.fileName, fileMimeType: updateVideoInput.fileMimeType },
-			this.yandexCloudS3Service,
-		)
+		if (!videoForUpdating.fileUrl) {
+			const { fileUrl, uploadUrl } = await this.prepareFileUrlAndUploadUrl(
+				{ fileName: updateVideoInput.fileName, fileMimeType: updateVideoInput.fileMimeType },
+				this.yandexCloudS3Service,
+			)
+
+			return {
+				fileUrl,
+				isFileUploaded: false,
+				uploadUrl,
+			}
+		}
 
 		return {
-			fileUrl,
+			fileUrl: videoForUpdating.fileUrl,
 			isFileUploaded: videoForUpdating.isFileUploaded,
-			uploadUrl,
+			uploadUrl: null,
 		}
 	}
 }
