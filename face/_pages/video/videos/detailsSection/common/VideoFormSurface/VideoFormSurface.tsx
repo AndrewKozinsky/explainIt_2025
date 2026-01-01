@@ -7,7 +7,7 @@ type BookFormSurfaceProps = {
 	rightBottomButtons: React.ReactNode[]
 }
 
-function BookFormSurface(props: BookFormSurfaceProps) {
+function VideoFormSurface(props: BookFormSurfaceProps) {
 	const { children, leftBottomButtons, rightBottomButtons } = props
 
 	return (
@@ -21,4 +21,4 @@ function BookFormSurface(props: BookFormSurfaceProps) {
 	)
 }
 
-export default BookFormSurface
+export default VideoFormSurface

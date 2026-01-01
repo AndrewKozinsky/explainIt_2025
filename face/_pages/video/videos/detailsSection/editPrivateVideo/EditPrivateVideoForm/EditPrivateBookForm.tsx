@@ -1,5 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup'
+import FileNameAndDeleteFileButton from '_pages/video/videos/detailsSection/editPrivateVideo/FileNameAndDeleteFileButton/FileNameAndDeleteFileButton'
 import VideoDropzone from '_pages/video/videos/detailsSection/editPrivateVideo/VideoDropzone/VideoDropzone'
+import WatchMovieButton from '_pages/video/videos/detailsSection/editPrivateVideo/WatchMovieButton/WatchMovieButton'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Button from '@/ui/formRelated/buttons/Button/Button'
@@ -7,7 +9,7 @@ import FormError from '@/ui/formRelated/FormError/FormError'
 import FormFieldsWrapper from '@/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
 import TextInput from '@/ui/formRelated/TextInput/TextInput'
 import { FormStatus } from '@/utils/forms'
-import BookFormSurface from '_pages/video/videos/detailsSection/common/VideoFormSurface/BookFormSurface'
+import VideoFormSurface from '_pages/video/videos/detailsSection/common/VideoFormSurface/VideoFormSurface'
 import DeleteVideoButton from '_pages/video/videos/detailsSection/editPrivateVideo/DeleteVideoButton/DeleteVideoButton'
 import { ChangeVideoFormData, changeVideoFormSchema } from './fn/form'
 import * as yup from 'yup'
@@ -34,7 +36,7 @@ export default function EditPrivateVideoForm() {
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>
-			<BookFormSurface
+			<VideoFormSurface
 				leftBottomButtons={[<DeleteVideoButton key='delete' />]}
 				rightBottomButtons={[
 					<Button
@@ -45,6 +47,7 @@ export default function EditPrivateVideoForm() {
 					>
 						Сохранить
 					</Button>,
+					<WatchMovieButton key='watch' />,
 				]}
 			>
 				<FormFieldsWrapper gap='big'>
@@ -57,6 +60,7 @@ export default function EditPrivateVideoForm() {
 							placeholder: 'Adventures in Wonderland',
 						}}
 					/>
+					<FileNameAndDeleteFileButton />
 					<VideoDropzone />
 					<TextInput
 						label='Субтитры'
@@ -69,7 +73,7 @@ export default function EditPrivateVideoForm() {
 					/>
 					<FormError text={formError} />
 				</FormFieldsWrapper>
-			</BookFormSurface>
+			</VideoFormSurface>
 		</form>
 	)
 }

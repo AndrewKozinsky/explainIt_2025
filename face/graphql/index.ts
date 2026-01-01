@@ -153,10 +153,6 @@ export type CreateBookInput = {
 }
 
 export type CreatePrivateVideoInput = {
-	/** Subtitles */
-	fileMimeType?: InputMaybe<Scalars['String']['input']>
-	/** Subtitles */
-	fileName?: InputMaybe<Scalars['String']['input']>
 	/** Name */
 	name?: InputMaybe<Scalars['String']['input']>
 	/** Subtitles */
@@ -168,7 +164,6 @@ export type CreateVideoPrivateOutModel = {
 	id: Scalars['Int']['output']
 	name?: Maybe<Scalars['String']['output']>
 	subtitles?: Maybe<Scalars['String']['output']>
-	uploadUrl?: Maybe<Scalars['String']['output']>
 	userId: Scalars['Int']['output']
 }
 
@@ -503,6 +498,8 @@ export type UserOutModel = {
 
 export type VideoPrivateOutModel = {
 	__typename?: 'VideoPrivateOutModel'
+	fileName?: Maybe<Scalars['String']['output']>
+	fileS3Key?: Maybe<Scalars['String']['output']>
 	fileUrl?: Maybe<Scalars['String']['output']>
 	id: Scalars['Int']['output']
 	isFileUploaded: Scalars['Boolean']['output']
@@ -876,7 +873,6 @@ export type VideoPrivate_Create = {
 		name?: string | null
 		subtitles?: string | null
 		userId: number
-		uploadUrl?: string | null
 	}
 }
 
@@ -898,8 +894,10 @@ export type VideoPrivate_Get = {
 		name?: string | null
 		subtitles?: string | null
 		userId: number
-		isFileUploaded: boolean
+		fileName?: string | null
+		fileS3Key?: string | null
 		fileUrl?: string | null
+		isFileUploaded: boolean
 	}
 }
 
@@ -913,8 +911,10 @@ export type VideoPrivate_GetUserVideos = {
 		name?: string | null
 		subtitles?: string | null
 		userId: number
-		isFileUploaded: boolean
+		fileName?: string | null
+		fileS3Key?: string | null
 		fileUrl?: string | null
+		isFileUploaded: boolean
 	}>
 }
 
@@ -2014,7 +2014,6 @@ export const VideoPrivate_CreateDocument = gql`
 			name
 			subtitles
 			userId
-			uploadUrl
 		}
 	}
 `
@@ -2092,8 +2091,10 @@ export const VideoPrivate_GetDocument = gql`
 			name
 			subtitles
 			userId
-			isFileUploaded
+			fileName
+			fileS3Key
 			fileUrl
+			isFileUploaded
 		}
 	}
 `
@@ -2144,8 +2145,10 @@ export const VideoPrivate_GetUserVideosDocument = gql`
 			name
 			subtitles
 			userId
-			isFileUploaded
+			fileName
+			fileS3Key
 			fileUrl
+			isFileUploaded
 		}
 	}
 `

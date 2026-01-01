@@ -90,6 +90,11 @@ export const pageUrls = {
 			return {
 				name: 'Видео',
 				path: '/videos/' + videoId,
+				watching: {
+					segment: 'watching',
+					name: 'Просмотр видео',
+					path: '/videos/' + videoId + '/watching',
+				},
 			}
 		},
 	},

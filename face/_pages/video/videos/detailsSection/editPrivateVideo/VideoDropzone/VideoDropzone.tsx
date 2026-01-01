@@ -1,5 +1,4 @@
 import { useVideoPrivate_Update, VideoPrivate_GetUserVideosDocument } from '@/graphql'
-import ContentFileUploaded from '_pages/video/videos/detailsSection/editPrivateVideo/VideoDropzone/ContentFileUploaded'
 import ContentFileUploading from '_pages/video/videos/detailsSection/editPrivateVideo/VideoDropzone/ContentFileUploading'
 import { useVideosStore } from '_pages/video/videos/videosStore'
 import React, { useContext, useState } from 'react'
@@ -15,7 +14,6 @@ enum VideoDropzoneStatus {
 	FILE_DRAGGING,
 	FILE_SELECTED,
 	FILE_UPLOADING,
-	FILE_UPLOADED,
 }
 
 const supportedVideoFormatsStr = 'MP4, WebM, OGG'
@@ -25,11 +23,10 @@ function VideoDropzone() {
 
 	const { notify } = useContext(NotificationContext)
 
-	const [inputStatus, setInputStatus] = useState<VideoDropzoneStatus>(
-		video!.isFileUploaded ? VideoDropzoneStatus.FILE_UPLOADED : VideoDropzoneStatus.IDLE,
-	)
-	const [uploadingPercentage, setUploadingPercentage] = useState(0)
-	const [fileName, setFileName] = useState(video?.fileUrl ? video.fileUrl : '')
+	const [inputStatus, setInputStatus] = useState<VideoDropzoneStatus>(VideoDropzoneStatus.IDLE)
+	const [uploadedBytes, setUploadedBytes] = useState(0)
+	const [totalBytes, setTotalBytes] = useState(0)
+	const [fileName, setFileName] = useState('')
 
 	const [updateVideo] = useVideoPrivate_Update({ refetchQueries: [VideoPrivate_GetUserVideosDocument] })
 
@@ -75,8 +72,8 @@ function VideoDropzone() {
 
 				xhr.upload.onprogress = (event) => {
 					if (event.lengthComputable) {
-						const percent = Math.round((event.loaded / event.total) * 100)
-						setUploadingPercentage(percent)
+						setUploadedBytes(event.loaded)
+						setTotalBytes(event.total)
 					}
 				}
 
@@ -88,19 +85,21 @@ function VideoDropzone() {
 							},
 						})
 							.then((data) => {
-								setInputStatus(VideoDropzoneStatus.FILE_UPLOADED)
+								setInputStatus(VideoDropzoneStatus.IDLE)
 							})
 							.catch((err: unknown) => {
 								notify({
 									type: 'error',
 									message: 'Не удалось загрузить видео',
 								})
+								setInputStatus(VideoDropzoneStatus.IDLE)
 							})
 					} else {
 						notify({
 							type: 'error',
 							message: 'Не удалось загрузить видео',
 						})
+						setInputStatus(VideoDropzoneStatus.IDLE)
 					}
 				}
 
@@ -122,12 +121,8 @@ function VideoDropzone() {
 		},
 	})
 
-	if (inputStatus === VideoDropzoneStatus.FILE_UPLOADED) {
-		return (
-			<div className='video-dropzone__wrapper'>
-				<ContentFileUploaded fileName={fileName} />
-			</div>
-		)
+	if (!video || video.isFileUploaded) {
+		return null
 	}
 
 	return (
@@ -137,7 +132,7 @@ function VideoDropzone() {
 			{inputStatus === VideoDropzoneStatus.FILE_DRAGGING && <ContentFileDragging />}
 			{inputStatus === VideoDropzoneStatus.FILE_SELECTED && <ContentFileSelected />}
 			{inputStatus === VideoDropzoneStatus.FILE_UPLOADING && (
-				<ContentFileUploading percentage={uploadingPercentage} />
+				<ContentFileUploading uploadedBytes={uploadedBytes} totalBytes={totalBytes} fileName={fileName} />
 			)}
 		</div>
 	)

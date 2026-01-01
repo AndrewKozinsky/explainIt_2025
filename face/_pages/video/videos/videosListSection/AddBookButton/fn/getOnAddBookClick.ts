@@ -21,7 +21,7 @@ export function useGetOnAddBookClick() {
 
 			try {
 				const { errors, data } = await createVideo({
-					variables: { input: { name: null, fileName: null, fileMimeType: null, subtitles: null } },
+					variables: { input: { name: null, subtitles: null } },
 				})
 
 				if (errors) {
@@ -35,7 +35,7 @@ export function useGetOnAddBookClick() {
 
 				createdBookId = videoId
 			} catch (error) {
-				notify({ type: 'error', message: 'Не удалось получить список книг.' })
+				notify({ type: 'error', message: 'Не удалось получить список видео.' })
 			} finally {
 				setStatus('idle')
 			}

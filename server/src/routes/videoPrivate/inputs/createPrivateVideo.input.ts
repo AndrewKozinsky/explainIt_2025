@@ -11,12 +11,4 @@ export class CreatePrivateVideoInput {
 	@Field(() => String, { description: 'Subtitles', nullable: true })
 	@DtoFieldDecorators('subtitles', bdConfig.VideoPrivate.dbFields.subtitles)
 	subtitles: null | string
-
-	@Field(() => String, { description: 'Subtitles', nullable: true })
-	@DtoFieldDecorators('subtitles', bdConfig.VideoPrivate.dtoProps.fileName)
-	fileName: null | string
-
-	@Field(() => String, { description: 'Subtitles', nullable: true })
-	@DtoFieldDecorators('subtitles', bdConfig.VideoPrivate.dtoProps.fileMimeType)
-	fileMimeType: null | string
 }

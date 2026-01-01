@@ -187,6 +187,8 @@ export type BookChapterPhraseExampleScalarFieldEnum = (typeof BookChapterPhraseE
 export const VideoPrivateScalarFieldEnum = {
   id: 'id',
   user_id: 'user_id',
+  file_name: 'file_name',
+  file_s3_key: 'file_s3_key',
   file_url: 'file_url',
   is_file_uploaded: 'is_file_uploaded',
   name: 'name',

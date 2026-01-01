@@ -462,6 +462,20 @@ export const bdConfig = {
 				foreignField: 'id',
 				required: true,
 			},
+			file_name: {
+				type: 'string',
+				description: 'Name of the video',
+				required: false,
+				maxLength: 200,
+				example: 'Zootopia-2016.mp4',
+			},
+			file_s3_key: {
+				type: 'string',
+				description: 'S3 key',
+				required: false,
+				maxLength: 1000,
+				example: 'video_dev/Zootopia-2016.mp4',
+			},
 			file_url: {
 				type: 'string',
 				description: 'URL of the video',

@@ -36,10 +36,10 @@ export class YandexCloudS3Service {
 		})
 	}
 
-	async deleteFile(fileUrl: string): Promise<void> {
+	async deleteFile(fileKey: string): Promise<void> {
 		const command = new DeleteObjectCommand({
 			Bucket: this.mainConfig.get().yandexCloud.s3.bucketName,
-			Key: fileUrl,
+			Key: fileKey,
 		})
 
 		await this.s3.send(command)

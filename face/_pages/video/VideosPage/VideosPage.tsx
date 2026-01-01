@@ -1,21 +1,18 @@
 'use client'
 
-// import ReadingRoot from '_pages/books/reading/ReadingRoot/ReadingRoot'
-// import BooksRoot from '_pages/video/videos/BooksRoot/BooksRoot'
-// import { useGetShowingPageType } from './fn/showingPageType'
-
+import { useGetShowingPageType } from './fn/showingPageType'
 import VideosRoot from '_pages/video/videos/VideosRoot/VideosRoot'
+import WatchingRoot from '_pages/video/watching/ReadingRoot/WatchingRoot'
 
 function VideosPage() {
-	// const showingPageType = useGetShowingPageType()
+	const showingPageType = useGetShowingPageType()
 
-	/*const pageMapper = {
-		books: <BooksRoot />,
-		reading: <ReadingRoot />,
-	}*/
+	const pageMapper = {
+		videos: <VideosRoot />,
+		watching: <WatchingRoot />,
+	}
 
-	// return pageMapper[showingPageType]
-	return <VideosRoot />
+	return pageMapper[showingPageType]
 }
 
 export default VideosPage

@@ -111,6 +111,8 @@ model VideoPrivate {
 	id               Int      @id @default(autoincrement())
 	user             User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
 	user_id          Int
+	file_name        String?
+	file_s3_key      String?
 	file_url         String?
 	is_file_uploaded Boolean  @default(false)
 	name             String?

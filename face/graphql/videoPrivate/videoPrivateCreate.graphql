@@ -4,6 +4,5 @@ mutation VideoPrivate_create($input: CreatePrivateVideoInput!) {
 		name
 		subtitles
 		userId
-		uploadUrl
 	}
 }

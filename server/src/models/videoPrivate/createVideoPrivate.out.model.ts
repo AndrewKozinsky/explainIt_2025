@@ -14,7 +14,4 @@ export class CreateVideoPrivateOutModel {
 
 	@Field(() => Int)
 	userId: number
-
-	@Field(() => String, { nullable: true })
-	uploadUrl: string | null
 }

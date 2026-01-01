@@ -4,22 +4,22 @@ import { YandexCloudS3Service } from 'infrastructure/yandexCloudS3/yandexCloudS3
 export class VideoPrivateFileUrlBase {
 	constructor(protected mainConfig: MainConfigService) {}
 
-	protected async prepareFileUrlAndUploadUrl(
+	protected async prepareFileKeyAndUploadUrl(
 		params: {
 			fileName?: null | string
 			fileMimeType?: null | string
 		},
 		yandexCloudS3Service: YandexCloudS3Service,
 	) {
-		let fileUrl: null | string = null
+		let s3FileKey: null | string = null
 		let uploadUrl: null | string = null
 
 		if (params.fileName && params.fileMimeType) {
-			fileUrl = this.createVideoFileUrl(params.fileName)
-			uploadUrl = await yandexCloudS3Service.createUploadUrl(fileUrl, params.fileMimeType)
+			s3FileKey = this.createVideoFileUrl(params.fileName)
+			uploadUrl = await yandexCloudS3Service.createUploadUrl(s3FileKey, params.fileMimeType)
 		}
 
-		return { fileUrl, uploadUrl }
+		return { s3FileKey, uploadUrl }
 	}
 
 	protected createVideoFileUrl(fileName: string) {

@@ -123,8 +123,6 @@ export interface DeleteBookChapterPhrasesInput {
 export interface CreatePrivateVideoInput {
     name?: Nullable<string>;
     subtitles?: Nullable<string>;
-    fileName?: Nullable<string>;
-    fileMimeType?: Nullable<string>;
 }
 
 export interface UpdatePrivateVideoInput {
@@ -207,7 +205,6 @@ export interface CreateVideoPrivateOutModel {
     name?: Nullable<string>;
     subtitles?: Nullable<string>;
     userId: number;
-    uploadUrl?: Nullable<string>;
 }
 
 export interface UpdateVideoPrivateOutModel {
@@ -220,11 +217,13 @@ export interface UpdateVideoPrivateOutModel {
 
 export interface VideoPrivateOutModel {
     id: number;
+    userId: number;
     name?: Nullable<string>;
+    subtitles?: Nullable<string>;
+    fileName?: Nullable<string>;
+    fileS3Key?: Nullable<string>;
     fileUrl?: Nullable<string>;
     isFileUploaded: boolean;
-    subtitles?: Nullable<string>;
-    userId: number;
 }
 
 export interface UserOutModel {

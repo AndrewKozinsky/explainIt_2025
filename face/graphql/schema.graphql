@@ -140,12 +140,6 @@ input CreateBookInput {
 }
 
 input CreatePrivateVideoInput {
-  """Subtitles"""
-  fileMimeType: String
-
-  """Subtitles"""
-  fileName: String
-
   """Name"""
   name: String
 
@@ -157,7 +151,6 @@ type CreateVideoPrivateOutModel {
   id: Int!
   name: String
   subtitles: String
-  uploadUrl: String
   userId: Int!
 }
 
@@ -428,6 +421,8 @@ type UserOutModel {
 }
 
 type VideoPrivateOutModel {
+  fileName: String
+  fileS3Key: String
   fileUrl: String
   id: Int!
   isFileUploaded: Boolean!
