@@ -10,6 +10,12 @@ export class VideoPrivateOutModel {
 	name: string | null
 
 	@Field(() => String, { nullable: true })
+	fileUrl: string | null
+
+	@Field(() => Boolean)
+	isFileUploaded: boolean
+
+	@Field(() => String, { nullable: true })
 	subtitles: string | null
 
 	@Field(() => Int)

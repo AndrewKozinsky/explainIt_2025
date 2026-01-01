@@ -35,6 +35,8 @@ export class VideoPrivateQueryRepository {
 		return {
 			id: dbVideo.id,
 			name: dbVideo.name,
+			fileUrl: dbVideo.file_url,
+			isFileUploaded: dbVideo.is_file_uploaded,
 			subtitles: dbVideo.subtitles,
 			userId: dbVideo.user_id,
 		}

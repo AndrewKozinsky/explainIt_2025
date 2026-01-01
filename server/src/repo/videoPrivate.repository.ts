@@ -12,7 +12,7 @@ export class VideoPrivateRepository {
 	async createVideo(dto: { userId: number; url?: null | string; name?: null | string; subtitles?: null | string }) {
 		const newVideo = await this.prisma.videoPrivate.create({
 			data: {
-				url: dto.url,
+				file_url: dto.url,
 				name: dto.name,
 				subtitles: dto.subtitles,
 				user_id: dto.userId,
@@ -26,7 +26,8 @@ export class VideoPrivateRepository {
 	async updateVideoById(
 		videoId: number,
 		dto: {
-			url?: null | string
+			fileUrl?: null | string
+			isFileUploaded?: boolean
 			name?: null | string
 			subtitles?: null | string
 		},
@@ -34,7 +35,8 @@ export class VideoPrivateRepository {
 		const updatedVideo = await this.prisma.videoPrivate.update({
 			where: { id: videoId },
 			data: {
-				url: dto.url,
+				file_url: dto.fileUrl,
+				is_file_uploaded: dto.isFileUploaded,
 				name: dto.name,
 				subtitles: dto.subtitles,
 			},
@@ -60,7 +62,7 @@ export class VideoPrivateRepository {
 			where: { id },
 			select: {
 				user_id: true,
-				url: true,
+				file_url: true,
 			},
 		})
 
@@ -70,7 +72,7 @@ export class VideoPrivateRepository {
 
 		return {
 			userId: video.user_id,
-			url: video.url,
+			url: video.file_url,
 		}
 	}
 
@@ -78,6 +80,7 @@ export class VideoPrivateRepository {
 		return {
 			id: dbVideo.id,
 			name: dbVideo.name,
+			fileUrl: dbVideo.file_url,
 			subtitles: dbVideo.subtitles,
 			userId: dbVideo.user_id,
 		}

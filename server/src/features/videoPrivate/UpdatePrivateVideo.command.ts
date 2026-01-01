@@ -8,6 +8,7 @@ import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { YandexCloudS3Service } from 'infrastructure/yandexCloudS3/yandexCloudS3.service'
 import { UpdateVideoPrivateOutModel } from 'models/videoPrivate/updateVideoPrivate.out.model'
+import { VideoPrivateOutModel } from 'models/videoPrivate/videoPrivate.out.model'
 
 export type UpdatePrivateVideoInput = {
 	id: number
@@ -15,6 +16,7 @@ export type UpdatePrivateVideoInput = {
 	subtitles?: null | string
 	fileName?: null | string
 	fileMimeType?: null | string
+	isFileUploaded?: boolean
 }
 
 export class UpdatePrivateVideoCommand implements ICommand {
@@ -50,15 +52,16 @@ export class UpdatePrivateVideoHandler
 			throw new CustomGraphQLError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
 		}
 
-		const { fileUrl, uploadUrl } = await this.prepareFileUrlAndUploadUrl(
-			{ fileName: updateVideoInput.fileName, fileMimeType: updateVideoInput.fileMimeType },
-			this.yandexCloudS3Service,
+		const { fileUrl, isFileUploaded, uploadUrl } = await this.getUploadFileUrlAndFileUrlAndUploadUrl(
+			videoForUpdating,
+			updateVideoInput,
 		)
 
 		const updatedVideo = await this.videoRepository.updateVideoById(updateVideoInput.id, {
 			name: updateVideoInput.name,
 			subtitles: updateVideoInput.subtitles,
-			url: fileUrl,
+			fileUrl,
+			isFileUploaded,
 		})
 
 		if (!updatedVideo) {
@@ -67,6 +70,43 @@ export class UpdatePrivateVideoHandler
 
 		return {
 			...updatedVideo,
+			uploadUrl,
+		}
+	}
+
+	async getUploadFileUrlAndFileUrlAndUploadUrl(
+		videoForUpdating: VideoPrivateOutModel,
+		updateVideoInput: UpdatePrivateVideoInput,
+	): Promise<{ fileUrl: null | string; isFileUploaded: boolean; uploadUrl: null | string }> {
+		// If try to delete a file then delete it
+		if (updateVideoInput.fileName === null) {
+			if (videoForUpdating.isFileUploaded && videoForUpdating.fileUrl) {
+				await this.yandexCloudS3Service.deleteFile(videoForUpdating.fileUrl)
+			}
+
+			return {
+				fileUrl: null,
+				isFileUploaded: false,
+				uploadUrl: null,
+			}
+		}
+
+		if (updateVideoInput.isFileUploaded) {
+			return {
+				fileUrl: videoForUpdating.fileUrl,
+				isFileUploaded: updateVideoInput.isFileUploaded,
+				uploadUrl: null,
+			}
+		}
+
+		const { fileUrl, uploadUrl } = await this.prepareFileUrlAndUploadUrl(
+			{ fileName: updateVideoInput.fileName, fileMimeType: updateVideoInput.fileMimeType },
+			this.yandexCloudS3Service,
+		)
+
+		return {
+			fileUrl,
+			isFileUploaded: videoForUpdating.isFileUploaded,
 			uploadUrl,
 		}
 	}

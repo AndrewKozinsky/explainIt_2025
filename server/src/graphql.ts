@@ -220,6 +220,8 @@ export interface UpdateVideoPrivateOutModel {
 export interface VideoPrivateOutModel {
     id: number;
     name?: Nullable<string>;
+    fileUrl?: Nullable<string>;
+    isFileUploaded: boolean;
     subtitles?: Nullable<string>;
     userId: number;
 }

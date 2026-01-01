@@ -462,11 +462,18 @@ export const bdConfig = {
 				foreignField: 'id',
 				required: true,
 			},
-			url: {
+			file_url: {
 				type: 'string',
 				description: 'URL of the video',
 				required: false,
 				maxLength: 1000,
+			},
+			is_file_uploaded: {
+				type: 'boolean',
+				default: false,
+				description: 'Is file was uploaded',
+				example: true,
+				required: true,
 			},
 			name: {
 				type: 'string',
@@ -481,6 +488,9 @@ export const bdConfig = {
 			},
 			created_at: {
 				type: 'createdAt',
+			},
+			updated_at: {
+				type: 'updatedAt',
 			},
 		},
 	},

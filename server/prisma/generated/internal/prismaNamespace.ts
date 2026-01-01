@@ -1226,10 +1226,12 @@ export type BookChapterPhraseExampleScalarFieldEnum = (typeof BookChapterPhraseE
 export const VideoPrivateScalarFieldEnum = {
   id: 'id',
   user_id: 'user_id',
-  url: 'url',
+  file_url: 'file_url',
+  is_file_uploaded: 'is_file_uploaded',
   name: 'name',
   subtitles: 'subtitles',
-  created_at: 'created_at'
+  created_at: 'created_at',
+  updated_at: 'updated_at'
 } as const
 
 export type VideoPrivateScalarFieldEnum = (typeof VideoPrivateScalarFieldEnum)[keyof typeof VideoPrivateScalarFieldEnum]
