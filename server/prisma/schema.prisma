@@ -121,6 +121,15 @@ model VideoPrivate {
 	updated_at       DateTime @default(now())
 }
 
+model EnglishRussianDictionary {
+	id            Int      @id @default(autoincrement())
+	eng           String
+	rus           String
+	transcription String?
+	created_at    DateTime @default(now())
+	updated_at    DateTime @default(now())
+}
+
 enum BalanceTransactionType {
 	TOP_UP
 	CHARGE

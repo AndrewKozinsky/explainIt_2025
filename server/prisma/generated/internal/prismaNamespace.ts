@@ -392,7 +392,8 @@ export const ModelName = {
   BookChapter: 'BookChapter',
   BookChapterPhrase: 'BookChapterPhrase',
   BookChapterPhraseExample: 'BookChapterPhraseExample',
-  VideoPrivate: 'VideoPrivate'
+  VideoPrivate: 'VideoPrivate',
+  EnglishRussianDictionary: 'EnglishRussianDictionary'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -408,7 +409,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "balanceTransaction" | "payment" | "bookPrivate" | "bookPublic" | "bookChapter" | "bookChapterPhrase" | "bookChapterPhraseExample" | "videoPrivate"
+    modelProps: "user" | "balanceTransaction" | "payment" | "bookPrivate" | "bookPublic" | "bookChapter" | "bookChapterPhrase" | "bookChapterPhraseExample" | "videoPrivate" | "englishRussianDictionary"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1078,6 +1079,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    EnglishRussianDictionary: {
+      payload: Prisma.$EnglishRussianDictionaryPayload<ExtArgs>
+      fields: Prisma.EnglishRussianDictionaryFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EnglishRussianDictionaryFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnglishRussianDictionaryPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EnglishRussianDictionaryFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnglishRussianDictionaryPayload>
+        }
+        findFirst: {
+          args: Prisma.EnglishRussianDictionaryFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnglishRussianDictionaryPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EnglishRussianDictionaryFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnglishRussianDictionaryPayload>
+        }
+        findMany: {
+          args: Prisma.EnglishRussianDictionaryFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnglishRussianDictionaryPayload>[]
+        }
+        create: {
+          args: Prisma.EnglishRussianDictionaryCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnglishRussianDictionaryPayload>
+        }
+        createMany: {
+          args: Prisma.EnglishRussianDictionaryCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EnglishRussianDictionaryCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnglishRussianDictionaryPayload>[]
+        }
+        delete: {
+          args: Prisma.EnglishRussianDictionaryDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnglishRussianDictionaryPayload>
+        }
+        update: {
+          args: Prisma.EnglishRussianDictionaryUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnglishRussianDictionaryPayload>
+        }
+        deleteMany: {
+          args: Prisma.EnglishRussianDictionaryDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EnglishRussianDictionaryUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EnglishRussianDictionaryUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnglishRussianDictionaryPayload>[]
+        }
+        upsert: {
+          args: Prisma.EnglishRussianDictionaryUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnglishRussianDictionaryPayload>
+        }
+        aggregate: {
+          args: Prisma.EnglishRussianDictionaryAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEnglishRussianDictionary>
+        }
+        groupBy: {
+          args: Prisma.EnglishRussianDictionaryGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnglishRussianDictionaryGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EnglishRussianDictionaryCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnglishRussianDictionaryCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1237,6 +1312,18 @@ export const VideoPrivateScalarFieldEnum = {
 } as const
 
 export type VideoPrivateScalarFieldEnum = (typeof VideoPrivateScalarFieldEnum)[keyof typeof VideoPrivateScalarFieldEnum]
+
+
+export const EnglishRussianDictionaryScalarFieldEnum = {
+  id: 'id',
+  eng: 'eng',
+  rus: 'rus',
+  transcription: 'transcription',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type EnglishRussianDictionaryScalarFieldEnum = (typeof EnglishRussianDictionaryScalarFieldEnum)[keyof typeof EnglishRussianDictionaryScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1477,6 +1564,7 @@ export type GlobalOmitConfig = {
   bookChapterPhrase?: Prisma.BookChapterPhraseOmit
   bookChapterPhraseExample?: Prisma.BookChapterPhraseExampleOmit
   videoPrivate?: Prisma.VideoPrivateOmit
+  englishRussianDictionary?: Prisma.EnglishRussianDictionaryOmit
 }
 
 /* Types for Logging */

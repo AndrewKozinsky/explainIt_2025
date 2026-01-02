@@ -62,3 +62,8 @@ export type BookChapterPhraseExample = Prisma.BookChapterPhraseExampleModel
  * 
  */
 export type VideoPrivate = Prisma.VideoPrivateModel
+/**
+ * Model EnglishRussianDictionary
+ * 
+ */
+export type EnglishRussianDictionary = Prisma.EnglishRussianDictionaryModel
