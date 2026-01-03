@@ -2,7 +2,7 @@ query VideoPrivate_getUserVideos {
 	video_private_user_videos {
 		id
 		name
-		subtitles
+		text
 		userId
 		fileName
 		fileS3Key

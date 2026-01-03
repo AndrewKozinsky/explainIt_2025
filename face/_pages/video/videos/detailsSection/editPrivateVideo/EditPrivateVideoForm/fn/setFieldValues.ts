@@ -9,7 +9,7 @@ export function useSetFieldValues(reset: (data: any) => void) {
 
 		reset({
 			name: book.name ?? '',
-			subtitles: book.subtitles ?? '',
+			text: book.text ?? '',
 		})
 	}, [book, reset])
 }

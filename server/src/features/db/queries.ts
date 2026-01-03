@@ -4,6 +4,7 @@ import { queriesAuth } from './queriesAuth'
 import { queriesBook } from './queriesBook'
 import { queriesBookChapter } from './queriesBookChapter'
 import { queriesPayment } from './queriesPayment'
+import { queriesTranslate } from './queriesTranslate'
 import { queriesVideoPrivate } from './queriesVideoPrivate'
 
 export const queries = {
@@ -13,5 +14,6 @@ export const queries = {
 	book: queriesBook,
 	bookPublic: queriesBookPublic,
 	bookChapter: queriesBookChapter,
+	translate: queriesTranslate,
 	videoPrivate: queriesVideoPrivate,
 }

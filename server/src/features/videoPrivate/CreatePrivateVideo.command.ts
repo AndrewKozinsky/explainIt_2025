@@ -9,7 +9,7 @@ import { CreateVideoPrivateOutModel } from 'models/videoPrivate/createVideoPriva
 
 export type CreatePrivateVideoInput = {
 	name?: null | string
-	subtitles?: null | string
+	text?: null | string
 }
 
 export class CreatePrivateVideoCommand implements ICommand {
@@ -37,7 +37,7 @@ export class CreatePrivateVideoHandler
 		const createdVideo = await this.videoRepository.createVideo({
 			userId,
 			name: createVideoInput.name,
-			subtitles: createVideoInput.subtitles,
+			text: createVideoInput.text,
 		})
 		if (!createdVideo) {
 			throw new CustomGraphQLError(errorMessage.video.notCreated, ErrorCode.InternalServerError_500)

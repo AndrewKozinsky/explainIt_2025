@@ -10,11 +10,11 @@ export class VideoPrivateRepository {
 	constructor(private prisma: PrismaService) {}
 
 	@CatchDbError()
-	async createVideo(dto: { userId: number; name?: null | string; subtitles?: null | string }) {
+	async createVideo(dto: { userId: number; name?: null | string; text?: null | string }) {
 		const newVideo = await this.prisma.videoPrivate.create({
 			data: {
 				name: dto.name,
-				subtitles: dto.subtitles,
+				text: dto.text,
 				user_id: dto.userId,
 			},
 		})
@@ -31,7 +31,7 @@ export class VideoPrivateRepository {
 			fileUrl?: null | string
 			isFileUploaded?: boolean
 			name?: null | string
-			subtitles?: null | string
+			text?: null | string
 		},
 	) {
 		const updatedVideo = await this.prisma.videoPrivate.update({
@@ -42,7 +42,7 @@ export class VideoPrivateRepository {
 				file_url: dto.fileUrl,
 				is_file_uploaded: dto.isFileUploaded,
 				name: dto.name,
-				subtitles: dto.subtitles,
+				text: dto.text,
 			},
 		})
 
@@ -85,7 +85,7 @@ export class VideoPrivateRepository {
 			id: dbVideo.id,
 			name: dbVideo.name,
 			fileUrl: dbVideo.file_url,
-			subtitles: dbVideo.subtitles,
+			text: dbVideo.text,
 			userId: dbVideo.user_id,
 		}
 	}

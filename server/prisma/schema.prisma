@@ -116,7 +116,7 @@ model VideoPrivate {
 	file_url         String?
 	is_file_uploaded Boolean  @default(false)
 	name             String?
-	subtitles        String?
+	text             String?
 	created_at       DateTime @default(now())
 	updated_at       DateTime @default(now())
 }

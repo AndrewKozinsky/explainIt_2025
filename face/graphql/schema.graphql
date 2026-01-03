@@ -143,14 +143,14 @@ input CreatePrivateVideoInput {
   """Name"""
   name: String
 
-  """Subtitles"""
-  subtitles: String
+  """Text"""
+  text: String
 }
 
 type CreateVideoPrivateOutModel {
   id: Int!
   name: String
-  subtitles: String
+  text: String
   userId: Int!
 }
 
@@ -275,6 +275,7 @@ type Mutation {
 
   """Top up a balance with YooKassa"""
   payment_yookassa_top_up_balance(input: TopUpBalanceWithYooKassaInput!): TopUpBalanceWithYooKassaOutModel!
+  translate_translate(input: TranslateTextInput!): TranslateTextOutModel!
 
   """Create a video"""
   video_private_create(input: CreatePrivateVideoInput!): CreateVideoPrivateOutModel!
@@ -354,6 +355,21 @@ input TranslateSentencesInput {
   sentences: [String!]!
 }
 
+input TranslateTextInput {
+  """Source language code"""
+  sourceLanguageCode: String
+
+  """Target language code"""
+  targetLanguageCode: String!
+
+  """Text for translation"""
+  text: String!
+}
+
+type TranslateTextOutModel {
+  translatedText: String!
+}
+
 input UpdateBookChapterInput {
   """BookChapter content"""
   content: String
@@ -402,13 +418,13 @@ input UpdatePrivateVideoInput {
   name: String
 
   """Subtitles"""
-  subtitles: String
+  text: String
 }
 
 type UpdateVideoPrivateOutModel {
   id: Int!
   name: String
-  subtitles: String
+  text: String
   uploadUrl: String
   userId: Int!
 }
@@ -427,6 +443,6 @@ type VideoPrivateOutModel {
   id: Int!
   isFileUploaded: Boolean!
   name: String
-  subtitles: String
+  text: String
   userId: Int!
 }

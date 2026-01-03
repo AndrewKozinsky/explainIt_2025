@@ -88,7 +88,7 @@ describe.skip('Delete video private', () => {
 
 		const createVideoMutation = queries.videoPrivate.create({
 			name: 'My video',
-			subtitles: null,
+			text: null,
 			fileName: null,
 			fileMimeType: null,
 		})
@@ -134,7 +134,7 @@ describe.skip('Delete video private', () => {
 
 		const createVideoMutation = queries.videoPrivate.create({
 			name: 'My video',
-			subtitles: 'My subtitles',
+			text: 'My subtitles',
 			fileName: 'video.mp4',
 			fileMimeType: 'video/mp4',
 		})

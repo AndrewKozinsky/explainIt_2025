@@ -13,7 +13,7 @@ import { VideoPrivateOutModel } from 'models/videoPrivate/videoPrivate.out.model
 export type UpdatePrivateVideoInput = {
 	id: number
 	name?: null | string
-	subtitles?: null | string
+	text?: null | string
 	fileName?: null | string
 	fileMimeType?: null | string
 	isFileUploaded?: boolean
@@ -57,7 +57,7 @@ export class UpdatePrivateVideoHandler
 
 		const updatedVideo = await this.videoRepository.updateVideoById(updateVideoInput.id, {
 			name: updateVideoInput.name,
-			subtitles: updateVideoInput.subtitles,
+			text: updateVideoInput.text,
 			fileName,
 			fileS3Key,
 			fileUrl,

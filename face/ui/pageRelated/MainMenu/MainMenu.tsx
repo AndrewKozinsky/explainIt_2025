@@ -14,7 +14,7 @@ export function MainMenu() {
 					<MainMenuLink linkData={{ name: pageUrls.books.name, path: pageUrls.books.path }} />
 				</li>
 				<li>
-					<MainMenuLink linkData={pageUrls.videos} />
+					<MainMenuLink linkData={{ name: pageUrls.videos.name, path: pageUrls.videos.path }} />
 				</li>
 				<li>
 					<MainMenuLink linkData={pageUrls.contacts} />

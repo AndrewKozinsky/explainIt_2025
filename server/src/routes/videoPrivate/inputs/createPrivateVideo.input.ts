@@ -8,7 +8,7 @@ export class CreatePrivateVideoInput {
 	@DtoFieldDecorators('name', bdConfig.VideoPrivate.dbFields.name)
 	name: null | string
 
-	@Field(() => String, { description: 'Subtitles', nullable: true })
-	@DtoFieldDecorators('subtitles', bdConfig.VideoPrivate.dbFields.subtitles)
-	subtitles: null | string
+	@Field(() => String, { description: 'Text', nullable: true })
+	@DtoFieldDecorators('subtitles', bdConfig.VideoPrivate.dbFields.text)
+	text: null | string
 }

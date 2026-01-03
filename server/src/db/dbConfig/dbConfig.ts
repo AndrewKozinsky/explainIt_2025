@@ -495,9 +495,9 @@ export const bdConfig = {
 				required: false,
 				maxLength: 255,
 			},
-			subtitles: {
+			text: {
 				type: 'string',
-				description: 'Transcription of the video',
+				description: 'Subtitles or text of the video',
 				required: false,
 			},
 			created_at: {

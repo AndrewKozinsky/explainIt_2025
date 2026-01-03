@@ -93,6 +93,14 @@ export class MainConfigService {
 					bucketName: 'explain',
 					bucketUrl: 'https://storage.yandexcloud.net/explain',
 				},
+				translate: {
+					keyId: enVariables.yandexCloud.translate.keyId,
+					secretKey: enVariables.yandexCloud.translate.secretKey,
+					folderId: enVariables.yandexCloud.translate.folderId,
+				},
+				dictionary: {
+					key: enVariables.yandexCloud.dictionary.key,
+				},
 			},
 		}
 	}
@@ -144,6 +152,14 @@ export class MainConfigService {
 				s3: {
 					keyId: this.configService.get<string>('YANDEX_CLOUD_S3_KEY_ID') as string,
 					secretKey: this.configService.get<string>('YANDEX_CLOUD_S3_SECRET_KEY') as string,
+				},
+				translate: {
+					keyId: this.configService.get<string>('YANDEX_CLOUD_TRANSLATE_KEY_ID') as string,
+					secretKey: this.configService.get<string>('YANDEX_CLOUD_TRANSLATE_SECRET_KEY') as string,
+					folderId: this.configService.get<string>('YANDEX_CLOUD_TRANSLATE_FOLDER_ID') as string,
+				},
+				dictionary: {
+					key: this.configService.get<string>('YANDEX_DICTIONARY_KEY') as string,
 				},
 			},
 		}

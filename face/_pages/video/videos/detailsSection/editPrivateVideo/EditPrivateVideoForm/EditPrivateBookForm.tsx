@@ -64,9 +64,9 @@ export default function EditPrivateVideoForm() {
 					<VideoDropzone />
 					<TextInput
 						label='Субтитры'
-						error={errors.subtitles?.message}
+						error={errors.text?.message}
 						inputProps={{
-							...register('subtitles'),
+							...register('text'),
 							disabled: ['success', 'submitting'].includes(formStatus),
 							placeholder: 'It tells the story of Alice, a young girl who falls down a rabbit hole…',
 						}}

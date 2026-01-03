@@ -80,14 +80,14 @@ describe.skip('Get user videos private', () => {
 
 		const createFirstVideoMutation = queries.videoPrivate.create({
 			name: 'First user video 1',
-			subtitles: null,
+			text: null,
 			fileName: null,
 			fileMimeType: null,
 		})
 
 		const createSecondVideoMutation = queries.videoPrivate.create({
 			name: 'First user video 2',
-			subtitles: 'Subtitles',
+			text: 'Subtitles',
 			fileName: null,
 			fileMimeType: null,
 		})
@@ -116,7 +116,7 @@ describe.skip('Get user videos private', () => {
 
 		const createOtherUserVideoMutation = queries.videoPrivate.create({
 			name: 'Second user video',
-			subtitles: null,
+			text: null,
 			fileName: null,
 			fileMimeType: null,
 		})

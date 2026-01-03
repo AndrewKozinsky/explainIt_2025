@@ -39,7 +39,7 @@ describe.skip('Create video private', () => {
 	it('should return 401 if there is not session token cookie', async () => {
 		const { query, variables } = queries.videoPrivate.create({
 			name: null,
-			subtitles: null,
+			text: null,
 			fileName: 'video.mp4',
 			fileMimeType: 'video/mp4',
 		})
@@ -61,7 +61,7 @@ describe.skip('Create video private', () => {
 
 		const createMutation = queries.videoPrivate.create({
 			name: 'My video',
-			subtitles: 'My subtitles',
+			text: 'My subtitles',
 			fileName: 'video.mp4',
 			fileMimeType: 'video/mp4',
 		})
@@ -76,7 +76,7 @@ describe.skip('Create video private', () => {
 		const createdVideo = createVideoResp.data[RouteNames.VIDEO_PRIVATE.CREATE]
 		expect(createdVideo.id).toEqual(expect.any(Number))
 		expect(createdVideo.name).toBe('My video')
-		expect(createdVideo.subtitles).toBe('My subtitles')
+		expect(createdVideo.text).toBe('My subtitles')
 		expect(createdVideo.userId).toEqual(expect.any(Number))
 		expect(createdVideo.uploadUrl).toEqual(expect.any(String))
 

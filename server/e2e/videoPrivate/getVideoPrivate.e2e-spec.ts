@@ -80,7 +80,7 @@ describe.skip('Get video private', () => {
 
 		const createVideoMutation = queries.videoPrivate.create({
 			name: 'My video',
-			subtitles: null,
+			text: null,
 			fileName: null,
 			fileMimeType: null,
 		})
@@ -127,7 +127,7 @@ describe.skip('Get video private', () => {
 
 		const createVideoMutation = queries.videoPrivate.create({
 			name: 'My video',
-			subtitles: 'My subtitles',
+			text: 'My subtitles',
 			fileName: null,
 			fileMimeType: null,
 		})
@@ -152,7 +152,7 @@ describe.skip('Get video private', () => {
 		expect(getVideoResponse.data[RouteNames.VIDEO_PRIVATE.GET]).toEqual({
 			id: createdVideo.id,
 			name: 'My video',
-			subtitles: 'My subtitles',
+			text: 'My subtitles',
 			userId: ownerUserData.id,
 		})
 	})

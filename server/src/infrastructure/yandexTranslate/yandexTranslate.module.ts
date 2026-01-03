@@ -5,9 +5,11 @@ import { YandexTranslateService, YandexTranslateServiceMock } from './yandexTran
 const yandexTranslateServiceProvider = {
 	provide: YandexTranslateService,
 	useFactory: (mainConfigService: MainConfigService) => {
-		return mainConfigService.get().mode === 'localtest'
+		/*return mainConfigService.get().mode === 'localtest'
 			? new YandexTranslateServiceMock()
-			: new YandexTranslateService(mainConfigService)
+			: new YandexTranslateService(mainConfigService)*/
+
+		return new YandexTranslateService(mainConfigService)
 	},
 	inject: [MainConfigService],
 }

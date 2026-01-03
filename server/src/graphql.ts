@@ -122,13 +122,13 @@ export interface DeleteBookChapterPhrasesInput {
 
 export interface CreatePrivateVideoInput {
     name?: Nullable<string>;
-    subtitles?: Nullable<string>;
+    text?: Nullable<string>;
 }
 
 export interface UpdatePrivateVideoInput {
     id: number;
     name?: Nullable<string>;
-    subtitles?: Nullable<string>;
+    text?: Nullable<string>;
     fileName?: Nullable<string>;
     fileMimeType?: Nullable<string>;
     isFileUploaded?: Nullable<boolean>;
@@ -136,6 +136,12 @@ export interface UpdatePrivateVideoInput {
 
 export interface DeletePrivateVideoInput {
     id: number;
+}
+
+export interface TranslateTextInput {
+    text: string;
+    sourceLanguageCode?: Nullable<string>;
+    targetLanguageCode: string;
 }
 
 export interface BookChapterPhraseOutModel {
@@ -203,14 +209,14 @@ export interface BookPublicOutModel {
 export interface CreateVideoPrivateOutModel {
     id: number;
     name?: Nullable<string>;
-    subtitles?: Nullable<string>;
+    text?: Nullable<string>;
     userId: number;
 }
 
 export interface UpdateVideoPrivateOutModel {
     id: number;
     name?: Nullable<string>;
-    subtitles?: Nullable<string>;
+    text?: Nullable<string>;
     userId: number;
     uploadUrl?: Nullable<string>;
 }
@@ -219,7 +225,7 @@ export interface VideoPrivateOutModel {
     id: number;
     userId: number;
     name?: Nullable<string>;
-    subtitles?: Nullable<string>;
+    text?: Nullable<string>;
     fileName?: Nullable<string>;
     fileS3Key?: Nullable<string>;
     fileUrl?: Nullable<string>;
@@ -239,6 +245,10 @@ export interface BookChapterTranslateOfSentencesOutModel {
 
 export interface TopUpBalanceWithYooKassaOutModel {
     confirmationUrl: string;
+}
+
+export interface TranslateTextOutModel {
+    translatedText: string;
 }
 
 export interface IQuery {
@@ -291,6 +301,7 @@ export interface IMutation {
     video_private_create(input: CreatePrivateVideoInput): CreateVideoPrivateOutModel | Promise<CreateVideoPrivateOutModel>;
     video_private_update(input: UpdatePrivateVideoInput): UpdateVideoPrivateOutModel | Promise<UpdateVideoPrivateOutModel>;
     video_private_delete(input: DeletePrivateVideoInput): boolean | Promise<boolean>;
+    translate_translate(input: TranslateTextInput): TranslateTextOutModel | Promise<TranslateTextOutModel>;
 }
 
 export type CheckTranslationOutModel = CheckTranslationOutSuccessModel | CheckTranslationOutErrorModel;

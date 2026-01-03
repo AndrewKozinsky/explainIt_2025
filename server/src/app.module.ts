@@ -26,6 +26,7 @@ import { BookModule } from './routes/bookPrivate/book.module'
 import { DbModule } from './routes/db/db.module'
 import { PaymentModule } from './routes/payment/payment.module'
 import { WebhookModule } from './routes/webhook/webhook.module'
+import { YandexTranslateRouteModule } from './routes/yandexTranslate/yandexTranslate.module'
 
 @Module({
 	imports: [
@@ -70,6 +71,7 @@ import { WebhookModule } from './routes/webhook/webhook.module'
 		BookPublicModule,
 		BookChapterModule,
 		VideoPrivateModule,
+		YandexTranslateRouteModule,
 	],
 	providers: [StartServerTasksRunner],
 })

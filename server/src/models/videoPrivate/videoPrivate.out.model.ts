@@ -13,7 +13,7 @@ export class VideoPrivateOutModel {
 	name: string | null
 
 	@Field(() => String, { nullable: true })
-	subtitles: string | null
+	text: string | null
 
 	@Field(() => String, { nullable: true })
 	fileName: string | null

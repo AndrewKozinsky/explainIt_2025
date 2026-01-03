@@ -18,6 +18,9 @@ export const RouteNames = {
 		CHECK_TRANSLATION: 'ai_checkTranslation',
 		GET_TRANSCRIPTION: 'ai_getTranscription',
 	},
+	TRANSLATE: {
+		TRANSLATE: 'translate_translate',
+	},
 	// REST
 	DB: {
 		ALL_DATA: 'testing/all-data',

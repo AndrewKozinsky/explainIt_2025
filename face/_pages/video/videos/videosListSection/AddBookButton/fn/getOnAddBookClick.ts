@@ -21,7 +21,7 @@ export function useGetOnAddBookClick() {
 
 			try {
 				const { errors, data } = await createVideo({
-					variables: { input: { name: null, subtitles: null } },
+					variables: { input: { name: null, text: null } },
 				})
 
 				if (errors) {

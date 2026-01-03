@@ -22,7 +22,7 @@ export function useGetOnUpdateVideoFormSubmit(
 			try {
 				const { data, errors } = await updateBook({
 					variables: {
-						input: { id: video.id, name: formData.name, subtitles: formData.subtitles },
+						input: { id: video.id, name: formData.name, text: formData.text },
 					},
 				})
 
