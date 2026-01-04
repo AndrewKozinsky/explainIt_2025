@@ -1,13 +1,12 @@
 import { useWatchingStore } from '_pages/video/watching/watchingStore'
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 
-export function useVideoController() {
-	const videoRef = useRef<HTMLVideoElement>(null)
+export function usePlayerController(playerRef: React.RefObject<HTMLVideoElement | null>) {
 	const command = useWatchingStore((s) => s.player.command)
 
 	// Execute commands
 	useEffect(() => {
-		const video = videoRef.current
+		const video = playerRef.current
 		if (!video || !command) return
 
 		switch (command.type) {
@@ -27,7 +26,5 @@ export function useVideoController() {
 				video.volume = command.volume
 				break
 		}
-	}, [command])
-
-	return videoRef
+	}, [command, playerRef])
 }

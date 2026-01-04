@@ -1,21 +1,27 @@
-import React from 'react'
+import { usePlayerControl } from '_pages/video/watching/video/VideoRoot/fn/playerControl'
+import React, { useRef } from 'react'
 import { useWatchingStore } from '../../watchingStore'
-import { useVideoController } from './fn/controller'
+import { usePlayerController } from './fn/controller'
 import './VideoRoot.scss'
 
 function VideoRoot() {
 	const video = useWatchingStore((s) => s.video?.data)
 	const fileUrl = video!.fileUrl as string
 
+	const playerWrapperRef = useRef<HTMLDivElement>(null)
+	const playerRef = useRef<HTMLVideoElement>(null)
+
 	const { setPlayerState } = useWatchingStore()
-	const videoRef = useVideoController()
+
+	usePlayerControl(playerWrapperRef)
+	usePlayerController(playerRef)
 
 	return (
-		<div className='video-root'>
+		<div className='video-root' ref={playerWrapperRef}>
 			<video
 				src={fileUrl}
 				className='video-root__video'
-				ref={videoRef}
+				ref={playerRef}
 				onTimeUpdate={(e) =>
 					setPlayerState({
 						currentTime: e.currentTarget.currentTime,

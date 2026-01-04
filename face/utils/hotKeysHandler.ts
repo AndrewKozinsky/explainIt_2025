@@ -1,14 +1,14 @@
 import { useEffect } from 'react'
 
 type KeydownHandler = {
-	key: string
-	handler: () => void
+	key: ' ' | 'Enter'
+	handler: (e: KeyboardEvent) => void
 }
 
 function getKeyDown(keydownHandler: KeydownHandler) {
 	return function (e: KeyboardEvent) {
 		if (e.key === keydownHandler.key) {
-			keydownHandler.handler()
+			keydownHandler.handler(e)
 		}
 	}
 }

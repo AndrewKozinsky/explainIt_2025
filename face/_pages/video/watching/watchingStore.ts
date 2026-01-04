@@ -81,7 +81,7 @@ export type WatchingStoreValues = {
 	deviceType: DeviceType
 }
 
-type PlayerCommand =
+export type PlayerCommand =
 	| { type: 'PLAY' }
 	| { type: 'PAUSE' }
 	| { type: 'SET_TIME'; time: number }
