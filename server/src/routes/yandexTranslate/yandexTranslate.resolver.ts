@@ -1,6 +1,6 @@
 import { CommandBus } from '@nestjs/cqrs'
 import { Args, Mutation, Resolver } from '@nestjs/graphql'
-import { TranslateTextCommand } from 'features/yandexTranslate/TranslateText.command'
+import { TranslateTextCommand } from 'src/features/translate/TranslateText.command'
 import RouteNames from 'infrastructure/routeNames'
 import { TranslateTextOutModel } from 'models/yandexTranslate/translateText.out.model'
 import { TranslateTextInput } from './inputs/translateText.input'

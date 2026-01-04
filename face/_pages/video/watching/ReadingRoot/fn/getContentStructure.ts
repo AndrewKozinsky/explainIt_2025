@@ -1,140 +1,56 @@
-// import { useEffect } from 'react'
-// import {
-// 	BookChapterOutModel,
-// 	BookOutModel,
-// 	useBook_Get,
-// 	useBook_GetBookPublic,
-// 	useBook_GetBooksPublic,
-// 	useBookChapter_Get,
-// } from '@/graphql'
-// import { ChapterTextStructure } from '_pages/books/commonLogic/chapterStructureTypes'
+import { useEffect } from 'react'
+import { useVideoPrivate_Get, VideoPrivateOutModel } from '@/graphql'
 // import { populateChapterStructure } from '_pages/books/commonLogic/populateChapterStructure'
-// import { useParams } from 'next/navigation'
-// import { useReadingStore } from '_pages/books/reading/readingStore'
-// import invariant from 'ts-invariant'
-// import { extractBookIdFromUrlBookId, getBookTypeByUrlBookId } from 'сonsts/pageUrls'
-// import log = invariant.log
+import { useParams } from 'next/navigation'
+import { useWatchingStore } from '../../watchingStore'
 
-/*export function usePopulateReadingStore() {
-	useFetchBookAndSetToStore()
-	useFetchChapterAndSetToStore()
-	useCreatePopulatedChapterAndSetToStore()
-}*/
+export function usePopulateWatchingStore() {
+	useFetchVideoAndSetToStore()
+	// useCreatePopulatedChapterAndSetToStore()
+}
 
-/*function useFetchBookAndSetToStore() {
-	const bookIdInUrl = useParams().bookId as string
-	const bookType = getBookTypeByUrlBookId(bookIdInUrl)
-	const bookId = extractBookIdFromUrlBookId(bookIdInUrl)
+function useFetchVideoAndSetToStore() {
+	const videoIdStr = useParams().videoId as string
+	const videoId = parseInt(videoIdStr)
 
-	const {
-		data: privateBookData,
-		error: privateBookError,
-		loading: privateBookLoading,
-	} = useBook_Get({ variables: { input: { id: bookId! } }, skip: bookType !== 'private' })
-
-	const {
-		data: publicBookData,
-		error: publicBookError,
-		loading: publicBookLoading,
-	} = useBook_GetBookPublic({
-		variables: { input: { id: bookId! } },
-		skip: bookType !== 'public',
-	})
+	const { data, error, loading } = useVideoPrivate_Get({ variables: { input: { id: videoId! } } })
 
 	useEffect(
 		function () {
-			const book = bookType === 'private' ? privateBookData?.book_get : publicBookData?.book_public_get_book
-			const error = bookType === 'private' ? privateBookError : publicBookError
-			const loading = bookType === 'private' ? privateBookLoading : publicBookLoading
+			const video = data?.video_private_get
 
 			if (loading) {
-				useReadingStore.getState().updateBook({
+				useWatchingStore.getState().updateVideo({
 					loading: true,
 					errorMessage: null,
-					data: null as any as BookOutModel,
-					type: 'public',
+					data: null as any as VideoPrivateOutModel,
 				})
 			} else if (error) {
-				useReadingStore.getState().updateBook({
+				useWatchingStore.getState().updateVideo({
 					loading: false,
 					errorMessage: error.message,
-					data: null as any as BookOutModel,
-					type: 'public',
+					data: null as any as VideoPrivateOutModel,
 				})
-			} else if (!book) {
-				useReadingStore.getState().updateBook({
+			} else if (!video) {
+				useWatchingStore.getState().updateVideo({
 					loading: false,
 					errorMessage: null,
-					data: null as any as BookOutModel,
-					type: 'public',
+					data: null as any as VideoPrivateOutModel,
 				})
 			} else {
-				useReadingStore.getState().updateBook({
+				useWatchingStore.getState().updateVideo({
 					loading: false,
 					errorMessage: null,
-					data: book,
-					type: bookType || 'public',
+					data: video,
 				})
 			}
 		},
-		[
-			bookType,
-			privateBookData,
-			privateBookError,
-			privateBookLoading,
-			publicBookData,
-			publicBookError,
-			publicBookLoading,
-		],
+		[data, error, loading],
 	)
-}*/
-
-/*function useFetchChapterAndSetToStore() {
-	const bookIdInUrl = useParams().bookId as string
-	const bookType = getBookTypeByUrlBookId(bookIdInUrl)
-	const chapterId = useParams().chapterId as string
-
-	const { data, error, loading } = useBookChapter_Get({
-		variables: { input: { id: parseInt(chapterId), bookType: bookType || 'private' } },
-		skip: !chapterId,
-	})
-
-	useEffect(
-		function () {
-			if (loading) {
-				useReadingStore.getState().updateChapter({
-					loading: true,
-					errorMessage: null,
-					data: null as any as BookChapterOutModel,
-				})
-			} else if (error) {
-				useReadingStore.getState().updateChapter({
-					loading: false,
-					errorMessage: error.message,
-					data: null as any as BookChapterOutModel,
-				})
-			} else if (!data) {
-				useReadingStore.getState().updateChapter({
-					loading: false,
-					errorMessage: null,
-					data: null as any as BookChapterOutModel,
-				})
-			} else {
-				const chapter = data.book_chapter_get
-
-				useReadingStore.getState().updateChapter({
-					loading: false,
-					errorMessage: null,
-					data: chapter,
-				})
-			}
-		},
-		[data, error, loading, chapterId],
-	)
-}*/
+}
 
 /*function useCreatePopulatedChapterAndSetToStore() {
-	const chapter = useReadingStore((s) => s.chapter)
+	const chapter = useWatchingStore((s) => s.chapter)
 
 	useEffect(
 		function () {
@@ -150,7 +66,7 @@
 				phrases: chapterData.phrases,
 			})
 
-			useReadingStore.getState().updatePopulatedChapter(populatedChapter)
+			useWatchingStore.getState().updatePopulatedChapter(populatedChapter)
 		},
 		[chapter],
 	)

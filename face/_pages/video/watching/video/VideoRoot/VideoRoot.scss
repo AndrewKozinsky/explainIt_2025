@@ -1,0 +1,10 @@
+@use '@/styles/variables' as vars;
+
+.video-root {
+	display: flex;
+	justify-content: center;
+	height: 100%;
+	background-color: black;
+}
+.video-root__video {
+}

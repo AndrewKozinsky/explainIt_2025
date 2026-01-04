@@ -1,9 +1,9 @@
-// import { useEffect } from 'react'
-// import { useReadingStore } from '_pages/books/reading/readingStore'
-// import { getDeviceType } from 'utils/utils'
+import { useEffect } from 'react'
+import { getDeviceType } from 'utils/utils'
+import { useWatchingStore } from '../../watchingStore'
 
-/*export function useSetDeviceType() {
-	const changeDeviceType = useReadingStore((s) => s.changeDeviceType)
+export function useSetDeviceType() {
+	const changeDeviceType = useWatchingStore((s) => s.changeDeviceType)
 
 	useEffect(
 		function () {
@@ -12,4 +12,4 @@
 		},
 		[changeDeviceType],
 	)
-}*/
+}

@@ -9,6 +9,7 @@ import { BookPublicModule } from 'routes/bookPublic/bookPublic.module'
 import { VideoPrivateModule } from 'routes/videoPrivate/videoPrivate.module'
 import { StartServerTasksRunner } from 'infrastructure/StartServerTasksRunner'
 import { YandexCloudS3Module } from 'infrastructure/yandexCloudS3/yandexCloudS3.module'
+import { YandexDictionaryModule } from 'infrastructure/yandexDictionary/yandexDictionary.module'
 import { YandexTranslateModule } from 'infrastructure/yandexTranslate/yandexTranslate.module'
 import { EmailAdapterModule } from './infrastructure/emailAdapter/email-adapter.module'
 import { GigaChatModule } from './infrastructure/gigaChat/gigaChat.module'
@@ -61,6 +62,7 @@ import { YandexTranslateRouteModule } from './routes/yandexTranslate/yandexTrans
 		GigaChatModule,
 		OpenAIModule,
 		YandexCloudS3Module,
+		YandexDictionaryModule,
 		YandexTranslateModule,
 		DbModule,
 		RedisModule,

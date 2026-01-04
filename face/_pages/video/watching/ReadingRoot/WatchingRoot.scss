@@ -1,0 +1,38 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+
+.watching-root {
+	flex-grow: 1;
+	background: white;
+	max-height: 100vh;
+	overflow: hidden;
+	border-radius: vars.$radius-1;
+	box-shadow: vars.$shadow-1;
+}
+
+.watching-root__center {
+	flex-grow: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.watching-root__content {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.watching-root__no-video {
+	height: 100%;
+}
+.watching-root__video-container {
+	max-height: 50%;
+}
+
+.watching-root__no-text {
+	height: 100%;
+}
+.watching-root__text-container {
+	flex-grow: 1;
+}

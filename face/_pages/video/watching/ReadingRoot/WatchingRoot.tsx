@@ -1,48 +1,21 @@
-// import { useAutoScrollToTop } from '_pages/books/reading/ReadingRoot/fn/autoScrollToTop'
-// import { useReadingStore } from '_pages/books/reading/readingStore'
-// import { useClearSelectedSentenceAfterChapterWasChanged } from './fn/clearSelectedSenteceAfterChapterWasChanged'
-// import { usePopulateReadingStore } from './fn/getContentStructure'
-// import BookAndPrevAndNextChapters from '../chapter/BookAndPrevAndNextChapters/BookAndPrevAndNextChapters'
-// import ChapterName from '../chapter/ChapterName/ChapterName'
-// import ChapterHeader from '../chapter/ChapterHeader/ChapterHeader'
-// import { useRegisterCmdKeyListener } from './fn/registerCmdKeyListener'
-// import Analysis from '../analysis/Analysis/Analysis'
-// import { useSetDeviceType } from './fn/setDeviceType'
-// import BookAuthorAndName from '../chapter/BookAuthorAndName/BookAuthorAndName'
-// import ChapterContent from '../chapterContent/ChapterContent/ChapterContent'
-// import { useRegisterEnterKeyListener } from './fn/registerEnterKeyListener'
-// import TranslateSentences from '../TranslateSentences/TranslateSentences'
-import './ReadingRoot.scss'
+import { usePopulateWatchingStore } from './fn/getContentStructure'
+import { useSetDeviceType } from './fn/setDeviceType'
+import WatchingRootContent from './WatchingRootContent'
+import WatchingRootError from './WatchingRootError'
+import WatchingRootLoading from './WatchingRootLoading'
+import './WatchingRoot.scss'
 
 function WatchingRoot() {
-	// usePopulateReadingStore()
-	// useClearSelectedSentenceAfterChapterWasChanged()
-	// useRegisterCmdKeyListener()
-	// useRegisterEnterKeyListener()
-	// useSetDeviceType()
-	// useAutoScrollToTop()
+	usePopulateWatchingStore()
+	useSetDeviceType()
 
-	// const bookData = useReadingStore((s) => s.book?.data)
-	// const populatedChapter = useReadingStore((s) => s.populatedChapter)
-	/*if (!bookData || !populatedChapter) {
-		return null
-	}*/
-
-	/*return (
-		<div className='reading-root'>
-			<BookAuthorAndName />
-			<div className='reading-root__chapter-content'>
-				<ChapterName />
-				<ChapterHeader />
-				<TranslateSentences />
-				<ChapterContent />
-				<div className='reading-root__auto-height-elem' />
-				<Analysis />
-				<BookAndPrevAndNextChapters />
-			</div>
+	return (
+		<div className='watching-root'>
+			<WatchingRootLoading />
+			<WatchingRootError />
+			<WatchingRootContent />
 		</div>
-	)*/
-	return <p>WatchingRoot</p>
+	)
 }
 
 export default WatchingRoot
