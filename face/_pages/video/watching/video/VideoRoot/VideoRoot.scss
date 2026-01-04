@@ -3,8 +3,40 @@
 .video-root {
 	display: flex;
 	justify-content: center;
+	position: relative;
 	height: 100%;
 	background-color: black;
 }
 .video-root__video {
+	flex: 1;
+	min-height: 0;
+	width: 100%;
+	object-fit: contain;
+}
+
+.video-root__progress {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: 2;
+	height: 12px;
+	width: 100%;
+	cursor: pointer;
+	touch-action: none;
+	user-select: none;
+
+	&:hover {
+		.video-root__progress-bar {
+			height: 100%;
+		}
+	}
+}
+
+.video-root__progress-bar {
+	height: 4px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	background-color: vars.$linkColor-2;
+	transition: height 150ms ease;
 }

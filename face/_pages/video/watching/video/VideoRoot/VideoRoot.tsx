@@ -2,6 +2,7 @@ import { usePlayerControl } from '_pages/video/watching/video/VideoRoot/fn/playe
 import React, { useRef } from 'react'
 import { useWatchingStore } from '../../watchingStore'
 import { usePlayerController } from './fn/controller'
+import VideoProgress from './VideoProgress'
 import './VideoRoot.scss'
 
 function VideoRoot() {
@@ -35,6 +36,7 @@ function VideoRoot() {
 				onPlay={() => setPlayerState({ paused: false })}
 				onPause={() => setPlayerState({ paused: true })}
 			/>
+			<VideoProgress />
 		</div>
 	)
 }
