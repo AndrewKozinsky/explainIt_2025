@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
 type KeydownHandler = {
-	key: ' ' | 'Enter'
+	key: ' ' | 'Enter' | 'ArrowLeft' | 'ArrowRight'
 	handler: (e: KeyboardEvent) => void
 }
 
