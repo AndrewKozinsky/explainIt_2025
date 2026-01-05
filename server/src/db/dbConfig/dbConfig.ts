@@ -51,12 +51,12 @@ export const bdConfig = {
 			email: {
 				type: 'email',
 				unique: true,
-				description: 'User\'s email',
+				description: 'User-s email',
 				required: true,
 			},
 			password: {
 				type: 'string',
-				description: 'Hashed user\'s password',
+				description: 'Hashed user-s password',
 				example: 'z151JPS16jz151JPS16j',
 				required: false,
 			},
@@ -77,7 +77,7 @@ export const bdConfig = {
 			is_email_confirmed: {
 				type: 'boolean',
 				default: false,
-				description: 'Is user\'s email confirmed',
+				description: 'Is user-s email confirmed',
 				example: true,
 				required: true,
 			},
@@ -89,7 +89,7 @@ export const bdConfig = {
 			},
 			balance: {
 				type: 'number',
-				description: 'User\'s balance',
+				description: 'User-s balance',
 				example: 100,
 				required: true,
 				default: 0,
@@ -498,6 +498,11 @@ export const bdConfig = {
 			text: {
 				type: 'string',
 				description: 'Subtitles or text of the video',
+				required: false,
+			},
+			text_populated: {
+				type: 'string',
+				description: 'Populated subtitles or text of the video',
 				required: false,
 			},
 			created_at: {
