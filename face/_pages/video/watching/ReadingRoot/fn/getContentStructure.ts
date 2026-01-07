@@ -1,12 +1,15 @@
 import { useEffect } from 'react'
+import { PopulatedTextStructure } from '_pages/video/watching/common/populatedTextStructure'
+import { ResolvedSubtitlesStructure } from '_pages/video/watching/common/resolvedSubtitlesStructure'
+import { ResolvedTextStructure } from '_pages/video/watching/common/resolvedTextStructure'
 import { useVideoPrivate_Get, VideoPrivateOutModel } from '@/graphql'
-// import { populateChapterStructure } from '_pages/books/commonLogic/populateChapterStructure'
 import { useParams } from 'next/navigation'
 import { useWatchingStore } from '../../watchingStore'
+import { sentenceToParts } from './sentenceToParts'
 
 export function usePopulateWatchingStore() {
 	useFetchVideoAndSetToStore()
-	// useCreatePopulatedChapterAndSetToStore()
+	useCreatePopulatedChapterAndSetToStore()
 }
 
 function useFetchVideoAndSetToStore() {
@@ -49,25 +52,32 @@ function useFetchVideoAndSetToStore() {
 	)
 }
 
-/*function useCreatePopulatedChapterAndSetToStore() {
-	const chapter = useWatchingStore((s) => s.chapter)
+function useCreatePopulatedChapterAndSetToStore() {
+	const video = useWatchingStore((s) => s.video)
 
 	useEffect(
 		function () {
-			const chapterData = chapter?.data
-			if (!chapterData || !chapterData.content) return
+			const videoData = video?.data
+			if (!videoData || !videoData.resolvedText) return
 
-			const chapterStructure = JSON.parse(chapterData.content) as ChapterTextStructure.Chapter
-			const populatedChapter = populateChapterStructure({
-				id: chapterData.id,
-				header: chapterData.header,
-				name: chapterData.name,
-				content: chapterStructure,
-				phrases: chapterData.phrases,
-			})
+			const resolvedTextStructure = JSON.parse(videoData.resolvedText) as
+				| ResolvedTextStructure.Structure
+				| ResolvedSubtitlesStructure.Structure
 
-			useWatchingStore.getState().updatePopulatedChapter(populatedChapter)
+			if (resolvedTextStructure.type === 'plainText') {
+				const populatedPlainText: PopulatedTextStructure.Structure = {
+					sentences: resolvedTextStructure.sentences.map((resolvedSentence, i) => {
+						return {
+							id: i,
+							parts: sentenceToParts(resolvedSentence.s),
+							translation: resolvedSentence.t,
+						}
+					}),
+				}
+
+				useWatchingStore.getState().updateStore({ populatedPlainText })
+			}
 		},
-		[chapter],
+		[video],
 	)
-}*/
+}

@@ -40,6 +40,7 @@ export class VideoPrivateQueryRepository {
 			fileUrl: dbVideo.file_url,
 			isFileUploaded: dbVideo.is_file_uploaded,
 			text: dbVideo.text,
+			resolvedText: dbVideo.text_resolved,
 			userId: dbVideo.user_id,
 		}
 	}

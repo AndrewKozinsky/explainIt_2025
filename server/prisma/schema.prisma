@@ -117,7 +117,7 @@ model VideoPrivate {
     is_file_uploaded Boolean  @default(false)
     name             String?
     text             String?
-    text_populated   String?
+    text_resolved    String?
     created_at       DateTime @default(now())
     updated_at       DateTime @default(now())
 }

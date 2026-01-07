@@ -65,10 +65,11 @@ export default function EditPrivateVideoForm() {
 					<TextInput
 						label='Субтитры'
 						error={errors.text?.message}
-						inputProps={{
+						textareaProps={{
 							...register('text'),
 							disabled: ['success', 'submitting'].includes(formStatus),
 							placeholder: 'It tells the story of Alice, a young girl who falls down a rabbit hole…',
+							rows: 10,
 						}}
 					/>
 					<FormError text={formError} />

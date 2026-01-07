@@ -500,7 +500,7 @@ export const bdConfig = {
 				description: 'Subtitles or text of the video',
 				required: false,
 			},
-			text_populated: {
+			text_resolved: {
 				type: 'string',
 				description: 'Populated subtitles or text of the video',
 				required: false,

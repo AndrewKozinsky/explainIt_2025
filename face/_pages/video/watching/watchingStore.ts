@@ -1,8 +1,9 @@
 import { VideoPrivateOutModel } from '@/graphql'
+import { PopulatedTextStructure } from '_pages/video/watching/common/populatedTextStructure'
 import { create } from 'zustand'
 
 export const watchingStoreValues: WatchingStoreValues = {
-	video: null as any as WatchingStore.VideoData,
+	video: null as any as WatchingStoreI.VideoData,
 	player: {
 		currentTime: 0,
 		duration: 0,
@@ -10,26 +11,39 @@ export const watchingStoreValues: WatchingStoreValues = {
 		command: null,
 	},
 	deviceType: 'mouse',
+	mobileCurrentContentType: 'text',
+	fullScreen: false,
+	populatedPlainText: null as any as PopulatedTextStructure.Structure,
 }
 
-export const useWatchingStore = create<WatchingStoreNext>()((set, get) => {
+export const useWatchingStore = create<WatchingStore>()((set, get) => {
 	return {
 		...watchingStoreValues,
-		updateVideo: (video: WatchingStore.VideoData) => {
+		updateStore: (storePart: Partial<WatchingStoreValues>) => {
+			set(storePart)
+		},
+		updateMobileCurrentContentType: (contentType) => {
+			set((state) => {
+				return {
+					mobileCurrentContentType: contentType,
+				}
+			})
+		},
+		updateVideo: (video) => {
 			set((state) => {
 				return {
 					video,
 				}
 			})
 		},
-		changeDeviceType(deviceType: DeviceType) {
+		changeDeviceType(deviceType) {
 			set((state) => {
 				return {
 					deviceType,
 				}
 			})
 		},
-		setPlayerState(playerState: Partial<WatchingStore.Player>) {
+		setPlayerState(playerState) {
 			set((state) => {
 				return {
 					player: {
@@ -39,7 +53,7 @@ export const useWatchingStore = create<WatchingStoreNext>()((set, get) => {
 				}
 			})
 		},
-		sendPlayerCommand(command: PlayerCommand) {
+		sendPlayerCommand(command) {
 			set((state) => {
 				return {
 					player: {
@@ -49,10 +63,17 @@ export const useWatchingStore = create<WatchingStoreNext>()((set, get) => {
 				}
 			})
 		},
+		toggleFullScreen() {
+			set((state) => {
+				return {
+					fullScreen: !state.fullScreen,
+				}
+			})
+		},
 	}
 })
 
-export namespace WatchingStore {
+export namespace WatchingStoreI {
 	export type VideoData = {
 		loading: boolean
 		errorMessage: null | string
@@ -64,14 +85,17 @@ export namespace WatchingStore {
 		paused: boolean
 		command: null | PlayerCommand
 	}
+	// На телефоне показываются 2 кнопки: Текст и Детали.
+	// В зависимости от нажатой кнопки показывается одна из двух колонок
+	export type MobileCurrentContentType = 'text' | 'details'
 }
 
-export type WatchingStoreNext = WatchingStoreValues & WatchingStoreMethods
+export type WatchingStore = WatchingStoreValues & WatchingStoreMethods
 
 type DeviceType = 'mouse' | 'touch'
 
 export type WatchingStoreValues = {
-	video: WatchingStore.VideoData
+	video: WatchingStoreI.VideoData
 	player: {
 		currentTime: number
 		duration: number
@@ -79,6 +103,9 @@ export type WatchingStoreValues = {
 		command: null | PlayerCommand
 	}
 	deviceType: DeviceType
+	mobileCurrentContentType: WatchingStoreI.MobileCurrentContentType
+	fullScreen: boolean
+	populatedPlainText: PopulatedTextStructure.Structure
 }
 
 export type PlayerCommand =
@@ -94,8 +121,11 @@ export type PlayerCommand =
 	| { type: 'SET_VOLUME'; volume: number }
 
 export type WatchingStoreMethods = {
-	updateVideo: (book: WatchingStore.VideoData) => void
+	updateStore: (store: Partial<WatchingStoreValues>) => void
+	updateMobileCurrentContentType: (contentType: WatchingStoreI.MobileCurrentContentType) => void
+	updateVideo: (book: WatchingStoreI.VideoData) => void
 	changeDeviceType: (deviceType: DeviceType) => void
-	setPlayerState: (state: Partial<WatchingStore.Player>) => void
+	setPlayerState: (state: Partial<WatchingStoreI.Player>) => void
 	sendPlayerCommand: (command: PlayerCommand) => void
+	toggleFullScreen: () => void
 }

@@ -3,6 +3,7 @@ query VideoPrivate_getUserVideos {
 		id
 		name
 		text
+		resolvedText
 		userId
 		fileName
 		fileS3Key

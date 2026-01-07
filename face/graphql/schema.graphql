@@ -150,6 +150,7 @@ input CreatePrivateVideoInput {
 type CreateVideoPrivateOutModel {
   id: Int!
   name: String
+  resolvedText: String
   text: String
   userId: Int!
 }
@@ -424,6 +425,7 @@ input UpdatePrivateVideoInput {
 type UpdateVideoPrivateOutModel {
   id: Int!
   name: String
+  resolvedText: String
   text: String
   uploadUrl: String
   userId: Int!
@@ -443,6 +445,7 @@ type VideoPrivateOutModel {
   id: Int!
   isFileUploaded: Boolean!
   name: String
+  resolvedText: String
   text: String
   userId: Int!
 }

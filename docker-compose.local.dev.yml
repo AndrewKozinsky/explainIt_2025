@@ -21,7 +21,7 @@ services:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     env_file:
-      - .env.localdevelop
+      - .env.localdev
     volumes:
       - pgdata:/var/lib/postgresql/data
   explainredislocaldev:
@@ -31,7 +31,7 @@ services:
     ports:
       - 6381:6379
     env_file:
-      - .env.localdevelop
+      - .env.localdev
     volumes:
       - redis_data:/data
   explainserverlocaldev:
@@ -46,11 +46,12 @@ services:
     container_name: explainserverlocaldev
     depends_on:
       - explainpostgreslocaldev
+      - explainnlplocaldev
     environment:
       MODE: localdev
       PORT: 3001
     env_file:
-      - .env.localdevelop
+      - .env.localdev
     ports:
       - 3001:3001
   explainfacelocaldev:
@@ -68,6 +69,12 @@ services:
       - explainserverlocaldev
     environment:
       MODE: localdev
+  explainnlplocaldev:
+    build:
+      context: nlp/
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
 volumes:
   pgdata: {}
   redis_data: {}

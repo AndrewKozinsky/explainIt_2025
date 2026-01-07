@@ -194,7 +194,7 @@ export const VideoPrivateScalarFieldEnum = {
   is_file_uploaded: 'is_file_uploaded',
   name: 'name',
   text: 'text',
-  text_populated: 'text_populated',
+  text_resolved: 'text_resolved',
   created_at: 'created_at',
   updated_at: 'updated_at'
 } as const

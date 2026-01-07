@@ -7,6 +7,7 @@ export const publicFolderFilesUrls = {
 		trashButtonIcon: '/icons/trashButtonIcon.svg',
 		walletButtonIcon: '/icons/walletButtonIcon.svg',
 		yandexButtonIcon: '/icons/yandexButtonIcon.svg',
+		fullScreenButtonIcon: '/icons/fullScreenButtonIcon.svg',
 		warningTriangle: '/icons/warningTriangle.svg',
 	},
 	images: {

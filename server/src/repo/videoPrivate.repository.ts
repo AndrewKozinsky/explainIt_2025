@@ -32,6 +32,7 @@ export class VideoPrivateRepository {
 			isFileUploaded?: boolean
 			name?: null | string
 			text?: null | string
+			textResolved?: null | string
 		},
 	) {
 		const updatedVideo = await this.prisma.videoPrivate.update({
@@ -43,6 +44,7 @@ export class VideoPrivateRepository {
 				is_file_uploaded: dto.isFileUploaded,
 				name: dto.name,
 				text: dto.text,
+				text_resolved: dto.textResolved,
 			},
 		})
 
@@ -86,6 +88,7 @@ export class VideoPrivateRepository {
 			name: dbVideo.name,
 			fileUrl: dbVideo.file_url,
 			text: dbVideo.text,
+			resolvedText: dbVideo.text_resolved,
 			userId: dbVideo.user_id,
 		}
 	}

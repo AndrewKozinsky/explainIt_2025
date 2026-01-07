@@ -11,6 +11,9 @@ export class UpdateVideoPrivateOutModel {
 	@Field(() => String, { nullable: true })
 	text: string | null
 
+	@Field(() => String, { nullable: true })
+	resolvedText: string | null
+
 	@Field(() => Int)
 	userId: number
 

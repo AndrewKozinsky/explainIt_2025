@@ -46,6 +46,7 @@ services:
     container_name: explainserverlocaltest
     depends_on:
       - explainpostgreslocaltest
+      - explainnlplocaltest
     environment:
       MODE: localtest
       PORT: 3001
@@ -68,6 +69,12 @@ services:
       - explainserverlocaltest
     environment:
       MODE: localtest
+  explainnlplocaltest:
+    build:
+      context: nlp/
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
 volumes:
   pgdata: {}
   redis_data: {}

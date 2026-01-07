@@ -163,6 +163,7 @@ export type CreateVideoPrivateOutModel = {
   __typename?: 'CreateVideoPrivateOutModel';
   id: Scalars['Int']['output'];
   name?: Maybe<Scalars['String']['output']>;
+  resolvedText?: Maybe<Scalars['String']['output']>;
   text?: Maybe<Scalars['String']['output']>;
   userId: Scalars['Int']['output'];
 };
@@ -527,6 +528,7 @@ export type UpdateVideoPrivateOutModel = {
   __typename?: 'UpdateVideoPrivateOutModel';
   id: Scalars['Int']['output'];
   name?: Maybe<Scalars['String']['output']>;
+  resolvedText?: Maybe<Scalars['String']['output']>;
   text?: Maybe<Scalars['String']['output']>;
   uploadUrl?: Maybe<Scalars['String']['output']>;
   userId: Scalars['Int']['output'];
@@ -548,6 +550,7 @@ export type VideoPrivateOutModel = {
   id: Scalars['Int']['output'];
   isFileUploaded: Scalars['Boolean']['output'];
   name?: Maybe<Scalars['String']['output']>;
+  resolvedText?: Maybe<Scalars['String']['output']>;
   text?: Maybe<Scalars['String']['output']>;
   userId: Scalars['Int']['output'];
 };
@@ -725,12 +728,12 @@ export type VideoPrivate_GetVariables = Exact<{
 }>;
 
 
-export type VideoPrivate_Get = { __typename?: 'Query', video_private_get: { __typename?: 'VideoPrivateOutModel', id: number, name?: string | null, text?: string | null, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean } };
+export type VideoPrivate_Get = { __typename?: 'Query', video_private_get: { __typename?: 'VideoPrivateOutModel', id: number, name?: string | null, text?: string | null, resolvedText?: string | null, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean } };
 
 export type VideoPrivate_GetUserVideosVariables = Exact<{ [key: string]: never; }>;
 
 
-export type VideoPrivate_GetUserVideos = { __typename?: 'Query', video_private_user_videos: Array<{ __typename?: 'VideoPrivateOutModel', id: number, name?: string | null, text?: string | null, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean }> };
+export type VideoPrivate_GetUserVideos = { __typename?: 'Query', video_private_user_videos: Array<{ __typename?: 'VideoPrivateOutModel', id: number, name?: string | null, text?: string | null, resolvedText?: string | null, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean }> };
 
 export type VideoPrivate_UpdateVariables = Exact<{
   input: UpdatePrivateVideoInput;
@@ -1762,6 +1765,7 @@ export const VideoPrivate_GetDocument = gql`
     id
     name
     text
+    resolvedText
     userId
     fileName
     fileS3Key
@@ -1809,6 +1813,7 @@ export const VideoPrivate_GetUserVideosDocument = gql`
     id
     name
     text
+    resolvedText
     userId
     fileName
     fileS3Key

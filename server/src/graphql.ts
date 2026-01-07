@@ -210,6 +210,7 @@ export interface CreateVideoPrivateOutModel {
     id: number;
     name?: Nullable<string>;
     text?: Nullable<string>;
+    resolvedText?: Nullable<string>;
     userId: number;
 }
 
@@ -217,6 +218,7 @@ export interface UpdateVideoPrivateOutModel {
     id: number;
     name?: Nullable<string>;
     text?: Nullable<string>;
+    resolvedText?: Nullable<string>;
     userId: number;
     uploadUrl?: Nullable<string>;
 }
@@ -226,6 +228,7 @@ export interface VideoPrivateOutModel {
     userId: number;
     name?: Nullable<string>;
     text?: Nullable<string>;
+    resolvedText?: Nullable<string>;
     fileName?: Nullable<string>;
     fileS3Key?: Nullable<string>;
     fileUrl?: Nullable<string>;

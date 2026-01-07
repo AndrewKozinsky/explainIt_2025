@@ -43,6 +43,7 @@ services:
     container_name: explainserverlocalcheckserver
     depends_on:
       - explainpostgreslocalcheckserver
+      - explainnlplocalcheckserver
     environment:
       MODE: localcheckserver
       PORT: 3001
@@ -60,6 +61,12 @@ services:
       - explainserverlocalcheckserver
     environment:
       MODE: localcheckserver
+  explainnlplocalcheckserver:
+    build:
+      context: nlp/
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
 volumes:
   pgdata: {}
   redis_data: {}

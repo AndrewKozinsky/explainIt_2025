@@ -16,6 +16,9 @@ export class VideoPrivateOutModel {
 	text: string | null
 
 	@Field(() => String, { nullable: true })
+	resolvedText: string | null
+
+	@Field(() => String, { nullable: true })
 	fileName: string | null
 
 	@Field(() => String, { nullable: true })

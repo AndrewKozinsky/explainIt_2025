@@ -102,6 +102,10 @@ export class MainConfigService {
 					key: enVariables.yandexCloud.dictionary.key,
 				},
 			},
+			// Python container with NLP service
+			nlp: {
+				containerUrl: `http://explainnlp${enVariables.mode}:8000`,
+			},
 		}
 	}
 

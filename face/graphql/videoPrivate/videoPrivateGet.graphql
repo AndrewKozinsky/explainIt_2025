@@ -3,6 +3,7 @@ query VideoPrivate_get($input: GetPrivateVideoInput!) {
 		id
 		name
 		text
+		resolvedText
 		userId
 		fileName
 		fileS3Key
