@@ -73,6 +73,10 @@ function useCreatePopulatedChapterAndSetToStore() {
 							translation: resolvedSentence.t,
 						}
 					}),
+					selected: {
+						sentenceId: null,
+						wordIds: [],
+					},
 				}
 
 				useWatchingStore.getState().updateStore({ populatedPlainText })

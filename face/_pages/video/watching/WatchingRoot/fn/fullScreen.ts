@@ -11,9 +11,13 @@ export function useFullScreen(rootRef: RefObject<HTMLDivElement | null>) {
 			}
 
 			if (isFullScreen) {
-				rootRef.current.requestFullscreen()
+				void rootRef.current.requestFullscreen().catch(() => undefined)
 			} else {
-				document.exitFullscreen()
+				if (!document.fullscreenElement) {
+					return
+				}
+
+				void document.exitFullscreen().catch(() => undefined)
 			}
 		},
 		[rootRef, isFullScreen],

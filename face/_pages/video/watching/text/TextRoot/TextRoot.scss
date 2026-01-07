@@ -15,6 +15,7 @@
 	flex-grow: 1;
 	position: relative;
 	display: flex;
+	overflow: hidden;
 
 	@include mix.page-width(vars.$watching-desktop-width) {
 		align-items: flex-start;

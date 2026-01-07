@@ -316,7 +316,6 @@ export type ReadingStoreMethods = {
 	clearSelectedSentence: () => void
 	getSelectedSentence: () => ChapterTextStructurePopulated.Sentence | null
 	getSentenceById: (id: number) => ChapterTextStructurePopulated.Sentence | null
-	// addWordInIdlePhraseInSelectedSentence: (wordId: number, insertType: 'add' | 'replaceAll') => void
 	addWordToSelectedSentence: (wordId: number, insertType: 'add' | 'replaceAll') => void
 	changeWordsAddingMode: (isEnabled: boolean) => void
 	changeDeviceType: (deviceType: DeviceType) => void

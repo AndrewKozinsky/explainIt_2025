@@ -2,7 +2,7 @@
 
 import { useGetShowingPageType } from './fn/showingPageType'
 import VideosRoot from '_pages/video/videos/VideosRoot/VideosRoot'
-import WatchingRoot from '_pages/video/watching/ReadingRoot/WatchingRoot'
+import WatchingRoot from '_pages/video/watching/WatchingRoot/WatchingRoot'
 
 function VideosPage() {
 	const showingPageType = useGetShowingPageType()

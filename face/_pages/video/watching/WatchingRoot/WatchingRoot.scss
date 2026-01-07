@@ -4,7 +4,7 @@
 .watching-root {
 	flex-grow: 1;
 	background: white;
-	max-height: 100vh;
+	max-height: 99vh;
 	overflow: hidden;
 	border-radius: vars.$radius-1;
 	box-shadow: vars.$shadow-1;
@@ -36,4 +36,5 @@
 .watching-root__text-container {
 	flex-grow: 1;
 	display: flex;
+	overflow: hidden;
 }

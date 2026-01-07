@@ -1,6 +1,5 @@
 import { useWatchingStore } from '_pages/video/watching/watchingStore'
 import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
-import Spinner from 'ui/Spinner/Spinner'
 
 function WatchingRootError() {
 	const videoErrorMessage = useWatchingStore((s) => s.video?.errorMessage)

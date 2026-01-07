@@ -1,5 +1,6 @@
 import { VideoPrivateOutModel } from '@/graphql'
 import { PopulatedTextStructure } from '_pages/video/watching/common/populatedTextStructure'
+import { produce } from 'immer'
 import { create } from 'zustand'
 
 export const watchingStoreValues: WatchingStoreValues = {
@@ -14,6 +15,7 @@ export const watchingStoreValues: WatchingStoreValues = {
 	mobileCurrentContentType: 'text',
 	fullScreen: false,
 	populatedPlainText: null as any as PopulatedTextStructure.Structure,
+	isWordsAddingModeEnabled: false,
 }
 
 export const useWatchingStore = create<WatchingStore>()((set, get) => {
@@ -70,6 +72,58 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 				}
 			})
 		},
+		changeWordsAddingMode(isEnabled: boolean) {
+			set((state) => {
+				return {
+					isWordsAddingModeEnabled: isEnabled,
+				}
+			})
+		},
+		updatePopulatedPlainTextSelected(selectedSentenceId: number, selectedWordId: number) {
+			set((baseState) => {
+				return produce(baseState, (draftState) => {
+					const selectedObj = { ...draftState.populatedPlainText.selected }
+
+					// Если ничего не выделяли или выделили слово другого предложения
+					if (!selectedObj.sentenceId || selectedObj.sentenceId !== selectedSentenceId) {
+						selectedObj.sentenceId = selectedSentenceId
+						selectedObj.wordIds = [selectedWordId]
+					}
+					// Если выделили слово, принадлежащее выделенному предложению
+					else {
+						const isAddingMode = baseState.isWordsAddingModeEnabled
+
+						// Если слово уже выделено, то вернёт число больше -1
+						const thisSelectedWordIdx = selectedObj.wordIds.findIndex(
+							(thisWordId) => thisWordId === selectedWordId,
+						)
+
+						// Если слово выделено
+						if (thisSelectedWordIdx > -1) {
+							if (isAddingMode) {
+								// Убрать идентификатор этого слова из массива выделенных слов
+								selectedObj.wordIds.splice(thisSelectedWordIdx, 1)
+							} else {
+								// Полностью заменить добавленные слова новым
+								selectedObj.wordIds = [selectedWordId]
+							}
+						}
+						// Если слово не выделено
+						else {
+							if (isAddingMode) {
+								// Добавить новое слово к существующим
+								selectedObj.wordIds.push(selectedWordId)
+							} else {
+								// Полностью заменить добавленные слова новым
+								selectedObj.wordIds = [selectedWordId]
+							}
+						}
+					}
+
+					draftState.populatedPlainText.selected = selectedObj
+				})
+			})
+		},
 	}
 })
 
@@ -106,6 +160,9 @@ export type WatchingStoreValues = {
 	mobileCurrentContentType: WatchingStoreI.MobileCurrentContentType
 	fullScreen: boolean
 	populatedPlainText: PopulatedTextStructure.Structure
+	// Если этот режим включен, то при нажатии на слово оно будет добавляться во фразу типа idle.
+	// Если выключен, то заменит все слова поставленные во фразу типа idle.
+	isWordsAddingModeEnabled: boolean
 }
 
 export type PlayerCommand =
@@ -128,4 +185,6 @@ export type WatchingStoreMethods = {
 	setPlayerState: (state: Partial<WatchingStoreI.Player>) => void
 	sendPlayerCommand: (command: PlayerCommand) => void
 	toggleFullScreen: () => void
+	changeWordsAddingMode: (isEnabled: boolean) => void
+	updatePopulatedPlainTextSelected: (selectedSentenceId: number, selectedWordId: number) => void
 }

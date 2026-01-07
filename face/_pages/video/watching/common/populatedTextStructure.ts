@@ -2,6 +2,7 @@
 export namespace PopulatedTextStructure {
 	export type Structure = {
 		sentences: Sentence[]
+		selected: Selected
 	}
 
 	export type Sentence = {
@@ -29,5 +30,10 @@ export namespace PopulatedTextStructure {
 		id: number
 		type: 'punctuation'
 		value: string
+	}
+
+	export type Selected = {
+		sentenceId: null | number
+		wordIds: number[]
 	}
 }
