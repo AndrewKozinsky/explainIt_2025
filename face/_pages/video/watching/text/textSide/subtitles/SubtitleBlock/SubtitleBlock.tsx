@@ -6,13 +6,14 @@ import './SubtitleBlock.scss'
 type SubtitleBlockProps = {
 	subtitle: PopulatedSubtitlesStructure.Subtitle
 	isCurrent: boolean
+	subtitleId: number
 }
 
 function SubtitleBlock(props: SubtitleBlockProps) {
-	const { subtitle, isCurrent } = props
+	const { subtitle, isCurrent, subtitleId } = props
 
 	return (
-		<div className='subtitle-block'>
+		<div className='subtitle-block' data-subtitle-id={subtitleId}>
 			<p className={cn('subtitle-block__subtitle', isCurrent && 'subtitle-block__subtitle--current')}>
 				{subtitle.texts.map((text) => {
 					return text.textParts.map((textPart) => {
