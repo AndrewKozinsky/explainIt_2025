@@ -1,9 +1,9 @@
 @use '@/styles/variables' as vars;
 
-/*.subtitle-block {
+.subtitle-block {
 	display: grid;
 	gap: .3rem;
-}*/
+}
 
 .subtitle-block__subtitle {
 	font-size: 2.2rem;
@@ -13,10 +13,5 @@
 	color: vars.$linkColor-2;
 }
 
-/*.subtitle-block__translation {
-	font-size: 1.6rem;
-	line-height: 2.4rem;
-	color: vars.$grayColor-5;
-}*/
 
 

@@ -15,6 +15,7 @@
 A Next.js project with Apollo GraphQl and SCSS.
 — prefer ordinary functions rather than arrow functions. Use arrow functions only if this way gives better readability or scoping.
 — try to avoid excessive nesting and deeply nested conditionals.
+— when logic becomes nested or hard to read, extract small helper functions to keep code flat and readable.
 — use meaningful variable and function names.
 — avoid using any type; prefer specific types or unions.
 — for each component create a separate folder with component files. For example: `Button`, `Button.tsx`, `Button.scss`.

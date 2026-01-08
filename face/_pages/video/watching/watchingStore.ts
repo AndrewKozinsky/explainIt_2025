@@ -18,6 +18,10 @@ export const watchingStoreValues: WatchingStoreValues = {
 	populatedPlainText: null as any as PopulatedTextStructure.Structure,
 	populatedSubtitles: null as any as PopulatedSubtitlesStructure.Structure,
 	isWordsAddingModeEnabled: false,
+	selectedText: {
+		sentence: null,
+		words: [],
+	},
 }
 
 export const useWatchingStore = create<WatchingStore>()((set, get) => {
@@ -171,6 +175,16 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 				})
 			})
 		},
+		updateSelectedText(sentence: null | string, words: string[]) {
+			set((baseState) => {
+				return produce(baseState, (draftState) => {
+					draftState.selectedText = {
+						sentence,
+						words,
+					}
+				})
+			})
+		},
 	}
 })
 
@@ -211,6 +225,10 @@ export type WatchingStoreValues = {
 	// Если этот режим включен, то при нажатии на слово оно будет добавляться во фразу типа idle.
 	// Если выключен, то заменит все слова поставленные во фразу типа idle.
 	isWordsAddingModeEnabled: boolean
+	selectedText: {
+		sentence: string | null
+		words: string[]
+	}
 }
 
 export type PlayerCommand =
@@ -236,4 +254,5 @@ export type WatchingStoreMethods = {
 	changeWordsAddingMode: (isEnabled: boolean) => void
 	updateSelectedPlainText: (sentenceId: number, wordId: number) => void
 	updateSelectedSubtitle: (subtitleId: number, wordId: number) => void
+	updateSelectedText: (sentence: null | string, words: string[]) => void
 }

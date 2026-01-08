@@ -3,10 +3,13 @@ import MobileNavigation from '_pages/video/watching/text/MobileNavigation/Mobile
 import { useWatchingStore } from '_pages/video/watching/watchingStore'
 import { getSectionClasses } from './fn/getSectionClasses'
 import TextSide from '../textSide/TextSide/TextSide'
+import { useUpdateRootSelectedText } from './fn/useUpdateRootSelectedText'
 import './TextRoot.scss'
+import DetailsSide from '../detailsSide/DetailsSide/DetailsSide'
 
 function TextRoot() {
 	const currentMobileContentType = useWatchingStore((s) => s.mobileCurrentContentType)
+	useUpdateRootSelectedText()
 
 	return (
 		<div className='watching-text-root'>
@@ -16,7 +19,7 @@ function TextRoot() {
 					<TextSide />
 				</div>
 				<div className={getSectionClasses('details', currentMobileContentType)}>
-					<p>Details Section</p>
+					<DetailsSide />
 				</div>
 			</div>
 		</div>
