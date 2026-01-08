@@ -2,8 +2,8 @@ import { useWatchingStore } from '_pages/video/watching/watchingStore'
 import cn from 'classnames'
 import { useLongPress } from 'utils/events'
 import { useGetOnWordClick, useGetOnWordLongTap } from './fn/selectSentenceAndWord'
-import { useGetIsWordSelected } from '_pages/video/watching/text/textSide/sentenceParts/Word/fn/isWordSelected'
 import { PopulatedTextStructure } from '_pages/video/watching/common/populatedTextStructure'
+import { useGetIsWordSelected } from './fn/isWordSelected'
 import './Word.scss'
 
 type WordProps = {

@@ -3,7 +3,7 @@ import { useCallback } from 'react'
 
 /** Возвращает обработчик нажатия на слово в тексте. */
 export function useGetOnWordClick() {
-	const updatePopulatedPlainTextSelected = useWatchingStore((s) => s.updatePopulatedPlainTextSelected)
+	const updatePopulatedPlainTextSelected = useWatchingStore((s) => s.updateSelectedPlainText)
 
 	return useCallback(
 		function (sentenceId: number, wordId: number) {
@@ -15,7 +15,7 @@ export function useGetOnWordClick() {
 
 /** Возвращает обработчик долгого нажатия на слово в тексте главы. */
 export function useGetOnWordLongTap() {
-	const updatePopulatedPlainTextSelected = useWatchingStore((s) => s.updatePopulatedPlainTextSelected)
+	const updatePopulatedPlainTextSelected = useWatchingStore((s) => s.updateSelectedPlainText)
 	const deviceType = useWatchingStore((s) => s.deviceType)
 
 	return useCallback(

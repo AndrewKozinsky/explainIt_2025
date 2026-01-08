@@ -30,12 +30,15 @@ function VideoRoot() {
 				src={fileUrl}
 				className='video-root__video'
 				ref={playerRef}
-				onTimeUpdate={(e) => (
+				onTimeUpdate={(e) => {
+					const { currentTime } = e.currentTarget
+
 					setPlayerState({
-						currentTime: e.currentTarget.currentTime,
-					}),
-					saveProgress(e.currentTarget.currentTime)
-				)}
+						currentTime,
+					})
+
+					saveProgress(currentTime)
+				}}
 				onLoadedMetadata={(e) => {
 					setPlayerState({
 						duration: e.currentTarget.duration,

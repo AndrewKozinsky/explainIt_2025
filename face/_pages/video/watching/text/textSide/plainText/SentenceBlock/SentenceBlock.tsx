@@ -1,7 +1,5 @@
 import { PopulatedTextStructure } from '_pages/video/watching/common/populatedTextStructure'
 import Word from '../Word/Word'
-import Punctuation from '../Punctuation'
-import Space from '../Space'
 import './SentenceBlock.scss'
 
 type SentenceBlockProps = {
@@ -18,12 +16,10 @@ function SentenceBlock(props: SentenceBlockProps) {
 					if (part.type === 'word') {
 						return <Word wordData={part} sentence={sentence} key={part.id} />
 					} else if (part.type === 'punctuation') {
-						return <Punctuation key={part.id} value={part.value} />
+						return <span key={part.id}>{part.value}</span>
 					} else if (part.type === 'space') {
-						return <Space key={part.id} />
+						return <span key={part.id}> </span>
 					}
-
-					return null
 				})}
 			</p>
 			{sentence.translation && <p className='sentence-block__translation'>{sentence.translation}</p>}

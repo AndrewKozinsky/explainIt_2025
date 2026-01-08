@@ -1,8 +1,8 @@
-import TextSide from '_pages/video/watching/text/textSide/TextSide/TextSide'
 import React from 'react'
 import MobileNavigation from '_pages/video/watching/text/MobileNavigation/MobileNavigation'
 import { useWatchingStore } from '_pages/video/watching/watchingStore'
 import { getSectionClasses } from './fn/getSectionClasses'
+import TextSide from '../textSide/TextSide/TextSide'
 import './TextRoot.scss'
 
 function TextRoot() {

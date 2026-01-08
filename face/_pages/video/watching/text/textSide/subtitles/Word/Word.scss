@@ -1,6 +1,6 @@
-@use '@/styles/variables' as vars;
+//@use '@/styles/variables' as vars;
 
-.word {
+/*.word {
 	position: relative;
 	display: inline-block;
 	cursor: pointer;
@@ -23,18 +23,18 @@
 			border-color: vars.$grayColor-3;
 		}
 	}
-}
+}*/
 
-.word--selected {
+/*.word--selected {
 	color: white;
 
 	&:before {
-		background-color: vars.$linkColor-2;
+		background-color: vars.$accentColor-2;
 		border: none;
 	}
-}
+}*/
 
-.word__text {
+/*.word__text {
 	position: relative;
 	z-index: 2;
-}
+}*/

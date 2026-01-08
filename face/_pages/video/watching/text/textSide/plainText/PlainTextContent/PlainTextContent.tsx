@@ -1,6 +1,6 @@
-import SentenceBlock from '_pages/video/watching/text/textSide/sentenceParts/SentenceBlock/SentenceBlock'
-import { useWatchingStore } from '_pages/video/watching/watchingStore'
 import React from 'react'
+import { useWatchingStore } from '_pages/video/watching/watchingStore'
+import SentenceBlock from '../SentenceBlock/SentenceBlock'
 import './PlainTextContent.scss'
 
 function PlainTextContent() {

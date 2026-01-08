@@ -1,4 +1,3 @@
-// Тип данных для структуры текста приходящий с сервера
 export namespace PopulatedTextStructure {
 	export type Structure = {
 		sentences: Sentence[]
