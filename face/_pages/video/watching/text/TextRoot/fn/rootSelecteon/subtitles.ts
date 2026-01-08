@@ -1,21 +1,6 @@
 import { PopulatedSubtitlesStructure } from '_pages/video/watching/common/populatedSubtitlesStructure'
-import { useWatchingStore } from '_pages/video/watching/watchingStore'
-import { useEffect } from 'react'
 
-export function useUpdateRootSelectedText() {
-	const populatedSubtitles = useWatchingStore((s) => s.populatedSubtitles)
-
-	const updateSelectedText = useWatchingStore((s) => s.updateSelectedText)
-
-	useEffect(
-		function () {
-			updateFromSubtitlesSelected(populatedSubtitles, updateSelectedText)
-		},
-		[populatedSubtitles, updateSelectedText],
-	)
-}
-
-function updateFromSubtitlesSelected(
+export function updateFromSubtitlesSelected(
 	populatedSubtitles: PopulatedSubtitlesStructure.Structure | null,
 	updateSelectedText: (sentence: null | string, words: string[]) => void,
 ) {
@@ -34,17 +19,20 @@ function updateFromSubtitlesSelected(
 		return
 	}
 
-	const sentence = subtitle.texts.map((text) => textPartsToString(text.textParts)).join(' ')
-
-	const words: string[] = []
-	for (const text of subtitle.texts) {
-		for (const part of text.textParts) {
-			if (part.type !== 'word') continue
-			if (!wordIds.includes(part.id)) continue
-
-			words.push(part.value)
-		}
+	const selectedText = subtitle.texts.find((text) => hasAnySelectedWord(text.textParts, wordIds))
+	if (!selectedText) {
+		updateSelectedText(null, [])
+		return
 	}
+
+	const sentenceObj = populatedSubtitles.sentences.find((sentence) => sentence.id === selectedText.sentenceId)
+	if (!sentenceObj) {
+		updateSelectedText(null, [])
+		return
+	}
+
+	const sentence = textPartsToString(sentenceObj.text)
+	const words = getSelectedWordsFromTextParts(selectedText.textParts, wordIds)
 
 	updateSelectedText(sentence, words)
 }
@@ -57,6 +45,28 @@ function textPartsToString(textParts: PopulatedSubtitlesStructure.TextPart[]): s
 	}
 
 	return result
+}
+
+function hasAnySelectedWord(textParts: PopulatedSubtitlesStructure.TextPart[], wordIds: number[]): boolean {
+	for (const part of textParts) {
+		if (part.type !== 'word') continue
+		if (wordIds.includes(part.id)) return true
+	}
+
+	return false
+}
+
+function getSelectedWordsFromTextParts(textParts: PopulatedSubtitlesStructure.TextPart[], wordIds: number[]): string[] {
+	const words: string[] = []
+
+	for (const part of textParts) {
+		if (part.type !== 'word') continue
+		if (!wordIds.includes(part.id)) continue
+
+		words.push(part.value)
+	}
+
+	return words
 }
 
 function isSubtitleById(subtitleId: number) {

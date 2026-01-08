@@ -3,7 +3,7 @@ import MobileNavigation from '_pages/video/watching/text/MobileNavigation/Mobile
 import { useWatchingStore } from '_pages/video/watching/watchingStore'
 import { getSectionClasses } from './fn/getSectionClasses'
 import TextSide from '../textSide/TextSide/TextSide'
-import { useUpdateRootSelectedText } from './fn/useUpdateRootSelectedText'
+import { useUpdateRootSelectedText } from './fn/rootSelecteon/useUpdateRootSelectedText'
 import './TextRoot.scss'
 import DetailsSide from '../detailsSide/DetailsSide/DetailsSide'
 
