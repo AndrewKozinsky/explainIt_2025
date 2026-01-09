@@ -10,7 +10,7 @@ export function getSectionClasses(
 	const isThisBlockVisible = currentMobileContentType === mobileContentType
 
 	if (isThisBlockVisible) {
-		classes.push('watching-text-root__item--always-visible')
+		classes.push('watching-text-root__item--visible')
 	}
 
 	return cn(classes)

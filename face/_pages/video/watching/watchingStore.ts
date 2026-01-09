@@ -14,6 +14,7 @@ export const watchingStoreValues: WatchingStoreValues = {
 	},
 	deviceType: 'mouse',
 	mobileCurrentContentType: 'text',
+	helpCurrentContentType: 'keyboard',
 	fullScreen: false,
 	populatedPlainText: null as any as PopulatedTextStructure.Structure,
 	populatedSubtitles: null as any as PopulatedSubtitlesStructure.Structure,
@@ -30,10 +31,17 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 		updateStore: (storePart: Partial<WatchingStoreValues>) => {
 			set(storePart)
 		},
-		updateMobileCurrentContentType: (contentType) => {
+		updateMobileCurrentContentType: (mobileCurrentContentType) => {
 			set((state) => {
 				return {
-					mobileCurrentContentType: contentType,
+					mobileCurrentContentType,
+				}
+			})
+		},
+		updateHelpCurrentContentType: (helpCurrentContentType) => {
+			set((state) => {
+				return {
+					helpCurrentContentType,
 				}
 			})
 		},
@@ -130,18 +138,20 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 				})
 			})
 		},
-		updateSelectedSubtitle(selectedSubtitleId: number, selectedWordId: number) {
+		updateSelectedSubtitle(selectedSubtitleId: number, selectedSentenceId: number, selectedWordId: number) {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
 					const selectedObj = { ...draftState.populatedSubtitles.selected }
 
-					// Если ничего не выделяли или выделили слово другого предложения
-					if (!selectedObj.subtitleId || selectedObj.subtitleId !== selectedSubtitleId) {
+					// Если ничего не выделяли, выделили слово другого субтитра или другого предложения
+					if (
+						selectedObj.subtitleId !== selectedSubtitleId ||
+						selectedObj.sentenceId !== selectedSentenceId
+					) {
 						selectedObj.subtitleId = selectedSubtitleId
+						selectedObj.sentenceId = selectedSentenceId
 						selectedObj.wordIds = [selectedWordId]
-					}
-					// Если выделили слово, принадлежащее выделенному предложению
-					else {
+					} else {
 						const isAddingMode = baseState.isWordsAddingModeEnabled
 
 						// Если слово уже выделено, то вернёт число больше -1
@@ -203,6 +213,9 @@ export namespace WatchingStoreI {
 	// На телефоне показываются 2 кнопки: Текст и Детали.
 	// В зависимости от нажатой кнопки показывается одна из двух колонок
 	export type MobileCurrentContentType = 'text' | 'details'
+	// Если не выбрано ни одно слово, то показывается справка
+	// В зависимости от нажатой кнопки показывается одна из двух колонок
+	export type HelpCurrentContentType = 'keyboard' | 'mouse'
 }
 
 export type WatchingStore = WatchingStoreValues & WatchingStoreMethods
@@ -219,6 +232,7 @@ export type WatchingStoreValues = {
 	}
 	deviceType: DeviceType
 	mobileCurrentContentType: WatchingStoreI.MobileCurrentContentType
+	helpCurrentContentType: WatchingStoreI.HelpCurrentContentType
 	fullScreen: boolean
 	populatedPlainText: PopulatedTextStructure.Structure
 	populatedSubtitles: PopulatedSubtitlesStructure.Structure
@@ -246,6 +260,7 @@ export type PlayerCommand =
 export type WatchingStoreMethods = {
 	updateStore: (store: Partial<WatchingStoreValues>) => void
 	updateMobileCurrentContentType: (contentType: WatchingStoreI.MobileCurrentContentType) => void
+	updateHelpCurrentContentType: (contentType: WatchingStoreI.HelpCurrentContentType) => void
 	updateVideo: (book: WatchingStoreI.VideoData) => void
 	changeDeviceType: (deviceType: DeviceType) => void
 	setPlayerState: (state: Partial<WatchingStoreI.Player>) => void
@@ -253,6 +268,6 @@ export type WatchingStoreMethods = {
 	toggleFullScreen: () => void
 	changeWordsAddingMode: (isEnabled: boolean) => void
 	updateSelectedPlainText: (sentenceId: number, wordId: number) => void
-	updateSelectedSubtitle: (subtitleId: number, wordId: number) => void
+	updateSelectedSubtitle: (subtitleId: number, sentenceId: number, wordId: number) => void
 	updateSelectedText: (sentence: null | string, words: string[]) => void
 }

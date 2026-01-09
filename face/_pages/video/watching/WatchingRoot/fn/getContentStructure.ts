@@ -113,6 +113,7 @@ function createPopulatedSubtitles(
 		}),
 		selected: {
 			subtitleId: null,
+			sentenceId: null,
 			wordIds: [],
 		},
 		playingSubtitleOrSpeechlessBarId: 0,

@@ -1,0 +1,45 @@
+@use '@/styles/variables' as vars;
+
+.details-help {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.4rem;
+	line-height: 2rem;
+	color: vars.$grayColor-5;
+	gap: 3rem;
+}
+
+.details-help__tabs {
+	max-width: 300px;
+	width: 100%;
+}
+
+.details-help__item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.2rem;
+}
+
+.details-help__content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.6rem;
+}
+
+.details-help__header {
+	font-size: 1.6rem;
+	line-height: 2.2rem;
+	font-weight: 600;
+}
+
+.details-help__key {
+	display: inline-block;
+	padding: 0.1rem 0.6rem;
+	border-radius: 6px;
+	border: 1px solid vars.$grayColor-2;
+}

@@ -21,4 +21,7 @@ export const publicFolderFilesUrls = {
 	books: {
 		covers: '/books/covers/',
 	},
+	video: {
+		helpFilmFrame: '/video/help-film-frame.svg',
+	},
 }

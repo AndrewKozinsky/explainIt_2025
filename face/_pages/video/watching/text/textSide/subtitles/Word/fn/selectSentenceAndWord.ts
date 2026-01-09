@@ -6,8 +6,8 @@ export function useGetOnWordClick() {
 	const updatePopulatedSubtitleSelected = useWatchingStore((s) => s.updateSelectedSubtitle)
 
 	return useCallback(
-		function (sentenceId: number, wordId: number) {
-			updatePopulatedSubtitleSelected(sentenceId, wordId)
+		function (subtitleId: number, sentenceId: number, wordId: number) {
+			updatePopulatedSubtitleSelected(subtitleId, sentenceId, wordId)
 		},
 		[updatePopulatedSubtitleSelected],
 	)
@@ -19,10 +19,10 @@ export function useGetOnWordLongTap() {
 	const deviceType = useWatchingStore((s) => s.deviceType)
 
 	return useCallback(
-		function (sentenceId: number, wordId: number) {
+		function (subtitleId: number, sentenceId: number, wordId: number) {
 			if (deviceType !== 'touch') return
 
-			updatePopulatedSubtitleSelected(sentenceId, wordId)
+			updatePopulatedSubtitleSelected(subtitleId, sentenceId, wordId)
 		},
 		[deviceType, updatePopulatedSubtitleSelected],
 	)

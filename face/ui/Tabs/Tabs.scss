@@ -16,6 +16,7 @@
 	font-size: 1.5rem;
 	line-height: 2.1rem;
 	text-align: center;
+	color: vars.$grayColor-5;
 	padding: 5px;
 	border-radius: vars.$radius-1;
 }
@@ -27,8 +28,7 @@
 	}
 }
 .tabs__button--active {
+	color: vars.$textColor;
 	background-color: white;
-
 	box-shadow: vars.$shadow-1;
-
 }

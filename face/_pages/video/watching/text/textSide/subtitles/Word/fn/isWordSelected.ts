@@ -5,9 +5,14 @@ import { useWatchingStore } from '_pages/video/watching/watchingStore'
  * @param thisSubtitleId — идентификатор этого предложения
  * @param thisWordId — идентификатор этого слова
  */
-export function useGetIsWordSelected(thisSubtitleId: number, thisWordId: number): boolean {
-	const selectedSentenceId = useWatchingStore((state) => state.populatedSubtitles.selected.subtitleId)
+export function useGetIsWordSelected(thisSubtitleId: number, thisSentenceId: number, thisWordId: number): boolean {
+	const selectedSubtitleId = useWatchingStore((state) => state.populatedSubtitles.selected.subtitleId)
+	const selectedSentenceId = useWatchingStore((state) => state.populatedSubtitles.selected.sentenceId)
 	const selectedWordsIds = useWatchingStore((state) => state.populatedSubtitles.selected.wordIds)
 
-	return selectedSentenceId === thisSubtitleId && selectedWordsIds.includes(thisWordId)
+	return (
+		selectedSubtitleId === thisSubtitleId &&
+		selectedSentenceId === thisSentenceId &&
+		selectedWordsIds.includes(thisWordId)
+	)
 }

@@ -7,37 +7,25 @@
 	flex-direction: column;
 
 	@include mix.page-width(vars.$watching-desktop-width) {
-		gap: 2rem;
+		flex-direction: row;
 	}
 }
 
 .watching-text-root__blocks {
-	flex-grow: 1;
-	position: relative;
 	display: flex;
-	overflow: hidden;
-
-	@include mix.page-width(vars.$watching-desktop-width) {
-		align-items: flex-start;
-		gap: 3rem;
-	}
+	flex-grow: 1;
 }
 
 .watching-text-root__item {
 	flex-grow: 1;
 	display: none;
-	height: 100%;
 
 	@include mix.page-width(vars.$watching-desktop-width) {
-		position: sticky;
-		top: 1rem;
-		left: 0;
-		display: block;
-		width: 33%;
+		display: flex;
 	}
 }
 
-.watching-text-root__item--always-visible {
+.watching-text-root__item--visible {
 	display: flex;
 }
 
@@ -49,7 +37,10 @@
 }
 
 .watching-text-root__item--details {
+	overflow: auto;
+	padding: 2rem;
+
 	@include mix.page-width(vars.$watching-desktop-width) {
-		//max-width: 600px;
+		flex-grow: 1;
 	}
 }

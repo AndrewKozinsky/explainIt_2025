@@ -8,20 +8,21 @@ import './Word.scss'
 
 type WordProps = {
 	subtitle: PopulatedSubtitlesStructure.Subtitle
+	sentenceId: number
 	wordData: PopulatedSubtitlesStructure.Word
 }
 
 function Word(props: WordProps) {
-	const { subtitle, wordData } = props
+	const { subtitle, sentenceId, wordData } = props
 	const deviceType = useWatchingStore((state) => state.deviceType)
 
-	const isWordSelected = useGetIsWordSelected(subtitle.id, wordData.id)
+	const isWordSelected = useGetIsWordSelected(subtitle.id, sentenceId, wordData.id)
 	const onWordClick = useGetOnWordClick()
 	const onWordLongTap = useGetOnWordLongTap()
 
 	const { onMouseDown, onMouseUp } = useLongPress({
-		onLongPress: () => onWordLongTap(subtitle.id, wordData.id),
-		onClick: () => onWordClick(subtitle.id, wordData.id),
+		onLongPress: () => onWordLongTap(subtitle.id, sentenceId, wordData.id),
+		onClick: () => onWordClick(subtitle.id, sentenceId, wordData.id),
 		delay: 400,
 		vibrate: 50,
 	})

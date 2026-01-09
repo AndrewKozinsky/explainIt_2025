@@ -21,7 +21,14 @@ function SubtitleBlock(props: SubtitleBlockProps) {
 						<Fragment key={text.sentenceId}>
 							{text.textParts.map((textPart) => {
 								if (textPart.type === 'word') {
-									return <Word wordData={textPart} subtitle={subtitle} key={textPart.id} />
+									return (
+										<Word
+											wordData={textPart}
+											subtitle={subtitle}
+											sentenceId={text.sentenceId}
+											key={textPart.id}
+										/>
+									)
 								} else if (textPart.type === 'punctuation') {
 									return <span key={textPart.id}>{textPart.value}</span>
 								} else if (textPart.type === 'space') {
