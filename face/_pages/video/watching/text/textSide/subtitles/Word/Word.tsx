@@ -20,18 +20,27 @@ function Word(props: WordProps) {
 	const onWordClick = useGetOnWordClick()
 	const onWordLongTap = useGetOnWordLongTap()
 
-	const { onMouseDown, onMouseUp } = useLongPress({
-		onLongPress: () => onWordLongTap(subtitle.id, sentenceId, wordData.id),
-		onClick: () => onWordClick(subtitle.id, sentenceId, wordData.id),
-		delay: 400,
-		vibrate: 50,
-	})
+	const { onMouseDown, onMouseUp, onMouseLeave, onTouchStart, onTouchMove, onTouchEnd, onTouchCancel } = useLongPress(
+		{
+			onLongPress: () => onWordLongTap(subtitle.id, sentenceId, wordData.id),
+			onClick: () => onWordClick(subtitle.id, sentenceId, wordData.id),
+			delay: 400,
+			vibrate: 50,
+			getScrollContainer: (e) => (e.currentTarget as HTMLElement).closest('.watching-text-side__content'),
+		},
+	)
 
 	return (
 		<span
-			className={cn('word', isWordSelected && 'word--selected')}
+			className={cn('word', isWordSelected && 'word--selecte	d', deviceType === 'touch' && 'no-select')}
 			onMouseDown={onMouseDown}
 			onMouseUp={onMouseUp}
+			onMouseLeave={onMouseLeave}
+			onTouchStart={onTouchStart}
+			onTouchMove={onTouchMove}
+			onTouchEnd={onTouchEnd}
+			onTouchCancel={onTouchCancel}
+			onContextMenu={(e) => e.preventDefault()}
 		>
 			<span
 				className={cn('word__text', deviceType === 'touch' && 'no-select')}
