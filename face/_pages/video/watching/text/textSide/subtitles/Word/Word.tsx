@@ -32,7 +32,7 @@ function Word(props: WordProps) {
 
 	return (
 		<span
-			className={cn('word', isWordSelected && 'word--selecte	d', deviceType === 'touch' && 'no-select')}
+			className={cn('word', isWordSelected && 'word--selected', deviceType === 'touch' && 'no-select')}
 			onMouseDown={onMouseDown}
 			onMouseUp={onMouseUp}
 			onMouseLeave={onMouseLeave}

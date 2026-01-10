@@ -97,14 +97,18 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
 					const selectedObj = { ...draftState.populatedPlainText.selected }
+					console.log(selectedObj)
 
 					// Если ничего не выделяли или выделили слово другого предложения
-					if (!selectedObj.sentenceId || selectedObj.sentenceId !== selectedSentenceId) {
+					if (selectedObj.sentenceId === null || selectedObj.sentenceId !== selectedSentenceId) {
 						selectedObj.sentenceId = selectedSentenceId
 						selectedObj.wordIds = [selectedWordId]
 					}
 					// Если выделили слово, принадлежащее выделенному предложению
 					else {
+						// Если уже выделили 4 слова, то больше не выделять
+						if (selectedObj.wordIds.length >= 4) return
+
 						const isAddingMode = baseState.isWordsAddingModeEnabled
 
 						// Если слово уже выделено, то вернёт число больше -1
@@ -152,6 +156,9 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 						selectedObj.sentenceId = selectedSentenceId
 						selectedObj.wordIds = [selectedWordId]
 					} else {
+						// Если уже выделили 4 слова, то больше не выделять
+						if (selectedObj.wordIds.length >= 4) return
+
 						const isAddingMode = baseState.isWordsAddingModeEnabled
 
 						// Если слово уже выделено, то вернёт число больше -1

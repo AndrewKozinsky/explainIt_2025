@@ -1,8 +1,8 @@
 import React from 'react'
-import SubtitlesContent from '_pages/video/watching/text/textSide/subtitles/SubtitlesContent/SubtitlesContent'
 import { useWatchingStore } from '_pages/video/watching/watchingStore'
 import FullScreenButton from '../FullScreenButton/FullScreenButton'
 import PlainTextContent from '../plainText/PlainTextContent/PlainTextContent'
+import SubtitlesContent from '../subtitles/SubtitlesContent/SubtitlesContent'
 import './TextSide.scss'
 
 function TextSide() {
