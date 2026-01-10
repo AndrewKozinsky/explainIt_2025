@@ -97,7 +97,6 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
 					const selectedObj = { ...draftState.populatedPlainText.selected }
-					console.log(selectedObj)
 
 					// Если ничего не выделяли или выделили слово другого предложения
 					if (selectedObj.sentenceId === null || selectedObj.sentenceId !== selectedSentenceId) {

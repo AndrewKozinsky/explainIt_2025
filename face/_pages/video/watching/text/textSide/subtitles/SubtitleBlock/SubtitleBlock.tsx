@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import { Fragment } from 'react'
-import Word from '../Word/Word'
+import Word from '../../common/Word/Word'
 import { PopulatedSubtitlesStructure } from '_pages/video/watching/common/populatedSubtitlesStructure'
 import './SubtitleBlock.scss'
 
@@ -23,9 +23,11 @@ function SubtitleBlock(props: SubtitleBlockProps) {
 								if (textPart.type === 'word') {
 									return (
 										<Word
-											wordData={textPart}
-											subtitle={subtitle}
+											contentType='subtitles'
+											subtitleId={subtitle.id}
 											sentenceId={text.sentenceId}
+											wordId={textPart.id}
+											wordValue={textPart.value}
 											key={textPart.id}
 										/>
 									)
