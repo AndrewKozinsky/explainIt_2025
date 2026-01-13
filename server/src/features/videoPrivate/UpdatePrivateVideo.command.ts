@@ -1,7 +1,7 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { VideoPrivateQueryRepository } from 'repo/videoPrivate.queryRepository'
 import { VideoPrivateRepository } from 'repo/videoPrivate.repository'
-import { textToResolved } from 'src/features/videoPrivate/resolvedText/textToResolved'
+import { textToResolved } from 'features/videoPrivate/resolvedText/textToResolved'
 import { VideoPrivateFileUrlBase } from 'features/videoPrivate/VideoPrivateFileUrl.base'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
@@ -15,6 +15,7 @@ export type UpdatePrivateVideoInput = {
 	id: number
 	name?: null | string
 	text?: null | string
+	textResolved?: null | string
 	fileName?: null | string
 	fileMimeType?: null | string
 	isFileUploaded?: boolean
@@ -56,12 +57,15 @@ export class UpdatePrivateVideoHandler
 		const { fileName, fileS3Key, fileUrl, isFileUploaded, uploadUrl } =
 			await this.getUploadFileUrlAndFileUrlAndUploadUrl(videoForUpdating, updateVideoInput)
 
-		const resolvedText = await textToResolved(this.mainConfig, updateVideoInput.text)
+		let textResolved: undefined | string = updateVideoInput.textResolved ?? undefined
+		if (!updateVideoInput.textResolved && updateVideoInput.text) {
+			textResolved = await textToResolved(this.mainConfig, updateVideoInput.text)
+		}
 
 		const updatedVideo = await this.videoRepository.updateVideoById(updateVideoInput.id, {
 			name: updateVideoInput.name,
 			text: updateVideoInput.text,
-			textResolved: resolvedText,
+			textResolved,
 			fileName,
 			fileS3Key,
 			fileUrl,

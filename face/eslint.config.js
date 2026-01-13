@@ -51,6 +51,26 @@ export default tseslint.config([{
           group: 'index',
           position: 'after',
         },
+        {
+          pattern: './*.scss',
+          group: 'index',
+          position: 'after',
+        },
+        {
+          pattern: './**/*.scss',
+          group: 'index',
+          position: 'after',
+        },
+        {
+          pattern: '../*.scss',
+          group: 'index',
+          position: 'after',
+        },
+        {
+          pattern: '../**/*.scss',
+          group: 'index',
+          position: 'after',
+        },
       ],
       pathGroupsExcludedImportTypes: ['react'],
     }],

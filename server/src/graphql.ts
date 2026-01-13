@@ -129,6 +129,7 @@ export interface UpdatePrivateVideoInput {
     id: number;
     name?: Nullable<string>;
     text?: Nullable<string>;
+    textResolved?: Nullable<string>;
     fileName?: Nullable<string>;
     fileMimeType?: Nullable<string>;
     isFileUploaded?: Nullable<boolean>;

@@ -12,9 +12,13 @@ export class UpdatePrivateVideoInput {
 	@DtoFieldDecorators('name', bdConfig.VideoPrivate.dbFields.name)
 	name?: null | string
 
-	@Field(() => String, { description: 'Subtitles', nullable: true })
-	@DtoFieldDecorators('subtitles', bdConfig.VideoPrivate.dbFields.text)
+	@Field(() => String, { description: 'Text', nullable: true })
+	@DtoFieldDecorators('text', bdConfig.VideoPrivate.dbFields.text)
 	text?: null | string
+
+	@Field(() => String, { description: 'Text resolved', nullable: true })
+	@DtoFieldDecorators('textResolved', bdConfig.VideoPrivate.dbFields.text_resolved)
+	textResolved?: null | string
 
 	@Field(() => String, { description: 'File name', nullable: true })
 	@DtoFieldDecorators('fileName', bdConfig.VideoPrivate.dtoProps.fileName)

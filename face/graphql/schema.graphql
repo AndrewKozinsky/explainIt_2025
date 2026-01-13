@@ -430,8 +430,11 @@ input UpdatePrivateVideoInput {
   """Name"""
   name: String
 
-  """Subtitles"""
+  """Text"""
   text: String
+
+  """Text resolved"""
+  textResolved: String
 }
 
 type UpdateVideoPrivateOutModel {
