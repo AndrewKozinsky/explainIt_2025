@@ -1,6 +1,6 @@
 import React from 'react'
-import DeleteVideoFileButton from '_pages/video/videos/detailsSection/editPrivateVideo/DeleteVideoFileButton/DeleteVideoFileButton'
 import { useVideosStore } from '_pages/video/videos/videosStore'
+import DeleteVideoFileButton from '../DeleteVideoFileButton/DeleteVideoFileButton'
 import './FileNameAndDeleteFileButton.scss'
 
 function FileNameAndDeleteFileButton() {

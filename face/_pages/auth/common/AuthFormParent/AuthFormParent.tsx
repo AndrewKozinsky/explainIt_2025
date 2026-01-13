@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import React from 'react'
+import Link from 'next/link'
 import Header from '@/ui/Header/Header'
 import mainConfig from '../../../../сonsts/mainConfig'
 import './AuthFormParent.scss'

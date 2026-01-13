@@ -1,6 +1,6 @@
-import NoteText from '../../common/NoteText/NoteText'
-import EditPrivateVideoForm from '_pages/video/videos/detailsSection/editPrivateVideo/EditPrivateVideoForm/EditPrivateBookForm'
 import { useVideosStore } from '_pages/video/videos/videosStore'
+import NoteText from '../../common/NoteText/NoteText'
+import EditPrivateVideoForm from '../editPrivateVideo/EditPrivateVideoForm/EditPrivateBookForm'
 
 function DetailsSection() {
 	const pageUrlType = useVideosStore((s) => s.pageUrlType)

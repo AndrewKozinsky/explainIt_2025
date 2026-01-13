@@ -1,6 +1,6 @@
-import { useGetSelectedPhrasesConfig } from './fn/phrasesConfig'
-import cn from 'classnames'
 import React from 'react'
+import cn from 'classnames'
+import { useGetSelectedPhrasesConfig } from './fn/phrasesConfig'
 import { useGetSelectPhrase } from './fn/selectPhrase'
 import './PhrasesSwitch.scss'
 

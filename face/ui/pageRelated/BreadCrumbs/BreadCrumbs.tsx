@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react'
+import cn from 'classnames'
 import Link from 'next/link'
 import { pageUrls } from '@/сonsts/pageUrls'
 import LogoSign from '../../logo/LogoSign/LogoSign'
-import cn from 'classnames'
 import './Pagination.scss'
 
 type PagItemType = {

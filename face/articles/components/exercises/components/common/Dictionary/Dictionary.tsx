@@ -1,5 +1,5 @@
-import DictionaryWord from '../DictionaryWord/DictionaryWord'
 import { exercisesLogic } from '../../../logic/exercisesLogic'
+import DictionaryWord from '../DictionaryWord/DictionaryWord'
 import './Dictionary.scss'
 
 /** Список русских слов с переводом на английский для правильного перевода предложения. */

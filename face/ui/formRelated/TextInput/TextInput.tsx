@@ -1,5 +1,5 @@
-import cn from 'classnames'
 import React from 'react'
+import cn from 'classnames'
 import MaxCharactersCounter from 'ui/formRelated/TextInput/MaxCharactersCounter'
 import FieldError from '../FieldError/FieldError'
 import { throwErrorIfWrongProps } from './fn/wrongPropsError'

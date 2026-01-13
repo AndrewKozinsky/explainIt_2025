@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react'
 import ArticleType from '../articleTypes/articleType'
+import { Exercises } from '../components/exercises/components/Exercises/Exercises'
 import FaqInArticle from '../components/FaqInArticle/FaqInArticle'
 import Grid from '../components/Grid/Grid'
 import Header from '../components/Header/Header'
@@ -8,7 +9,6 @@ import List from '../components/List/List'
 import Note from '../components/Note/Note'
 import Paragraph from '../components/Paragraph/Paragraph'
 import RusToEng from '../components/RusToEng/RusToEng'
-import { Exercises } from '../components/exercises/components/Exercises/Exercises'
 import './collocations.scss'
 
 type ArticleBuilderProps = {

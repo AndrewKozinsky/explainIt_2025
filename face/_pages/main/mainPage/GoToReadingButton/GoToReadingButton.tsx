@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import React from 'react'
+import Link from 'next/link'
 import { pageUrls } from 'сonsts/pageUrls'
 import './GoToReadingButton.scss'
 

@@ -1,6 +1,6 @@
 import { useReadingStore } from '_pages/books/reading/readingStore'
-import SentenceBlock from '../SentenceBlock/SentenceBlock'
 import ChapterTooltip from '../ChapterTooltip/ChapterTooltip'
+import SentenceBlock from '../SentenceBlock/SentenceBlock'
 import './ChapterContent.scss'
 
 function ChapterContent() {

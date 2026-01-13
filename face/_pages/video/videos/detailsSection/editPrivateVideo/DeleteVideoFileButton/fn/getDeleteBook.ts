@@ -1,7 +1,7 @@
-import { useVideoPrivate_Update, VideoPrivate_GetUserVideosDocument } from '@/graphql'
 import { useCallback, useContext, useState } from 'react'
-import { NotificationContext } from '@/ui//Notification/context'
 import { useVideosStore } from '@/_pages/video/videos/videosStore'
+import { useVideoPrivate_Update, VideoPrivate_GetUserVideosDocument } from '@/graphql'
+import { NotificationContext } from '@/ui//Notification/context'
 
 export function useGetDeleteVideoFile() {
 	const { notify } = useContext(NotificationContext)

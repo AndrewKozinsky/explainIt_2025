@@ -1,5 +1,5 @@
-import cn from 'classnames'
 import React from 'react'
+import cn from 'classnames'
 import { CloseIcon } from '@/ui/icons/CloseIcon/CloseIcon'
 import '../Button/Button.scss'
 import './CloseButton.scss'

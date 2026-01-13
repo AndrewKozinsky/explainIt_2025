@@ -1,9 +1,9 @@
 'use client'
 
-import { useAuth_GetMe } from '@/graphql'
 import React, { useEffect } from 'react'
 import { useUserStore } from 'stores/userStore'
 import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
+import { useAuth_GetMe } from '@/graphql'
 
 function Balance() {
 	const { data, loading, error } = useAuth_GetMe()

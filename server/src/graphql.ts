@@ -212,6 +212,10 @@ export interface BookPublicOutModel {
     chapters: BookChapterLiteOutModel[];
 }
 
+export interface TranslateTextOutModel {
+    translatedText: string;
+}
+
 export interface CreateVideoPrivateOutModel {
     id: number;
     name?: Nullable<string>;
@@ -239,10 +243,6 @@ export interface VideoPrivateOutModel {
     fileS3Key?: Nullable<string>;
     fileUrl?: Nullable<string>;
     isFileUploaded: boolean;
-}
-
-export interface TranslateTextOutModel {
-    translatedText: string;
 }
 
 export interface UserOutModel {

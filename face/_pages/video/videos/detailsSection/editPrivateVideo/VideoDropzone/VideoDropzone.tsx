@@ -1,12 +1,12 @@
-import { useVideoPrivate_Update, VideoPrivate_GetUserVideosDocument } from '@/graphql'
-import ContentFileUploading from '_pages/video/videos/detailsSection/editPrivateVideo/VideoDropzone/ContentFileUploading'
-import { useVideosStore } from '_pages/video/videos/videosStore'
 import React, { useContext, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
 import { NotificationContext } from 'ui/Notification/context'
-import ContentIdle from './ContentIdle'
+import { useVideoPrivate_Update, VideoPrivate_GetUserVideosDocument } from '@/graphql'
+import ContentFileUploading from '_pages/video/videos/detailsSection/editPrivateVideo/VideoDropzone/ContentFileUploading'
+import { useVideosStore } from '_pages/video/videos/videosStore'
 import ContentFileDragging from './ContentFileDragging'
 import ContentFileSelected from './ContentFileSelected'
+import ContentIdle from './ContentIdle'
 import './VideoDropzone.scss'
 
 enum VideoDropzoneStatus {

@@ -1,5 +1,5 @@
-import cn from 'classnames'
 import React from 'react'
+import cn from 'classnames'
 import './FormFieldsWrapper.scss'
 
 type FormWrapperProps = {

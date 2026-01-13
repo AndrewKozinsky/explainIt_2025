@@ -1,12 +1,12 @@
-import WhatAboutCostBlock from '_pages/main/mainPage/WhatAboutCostBlock/WhatAboutCostBlock'
 import React from 'react'
 import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'
 import MainPageHeader from '_pages/main/mainPage/MainPageHeader/MainPageHeader'
 import MainPageHeroImage from '_pages/main/mainPage/MainPageHeroImage/MainPageHeroImage'
-import WhyAIBetterThenTranslatorBlock from '../WhyAIBetterThenTranslatorBlock/WhyAIBetterThenTranslatorBlock'
-import WhatWillYouGetAfterAnalysis from '../WhatWillYouGetAfterAnalysis/WhatWillYouGetAfterAnalysis'
-import ReadAnyBookBlock from '../ReadAnyBookBlock/ReadAnyBookBlock'
+import WhatAboutCostBlock from '_pages/main/mainPage/WhatAboutCostBlock/WhatAboutCostBlock'
 import GoToReadingButton from '../GoToReadingButton/GoToReadingButton'
+import ReadAnyBookBlock from '../ReadAnyBookBlock/ReadAnyBookBlock'
+import WhatWillYouGetAfterAnalysis from '../WhatWillYouGetAfterAnalysis/WhatWillYouGetAfterAnalysis'
+import WhyAIBetterThenTranslatorBlock from '../WhyAIBetterThenTranslatorBlock/WhyAIBetterThenTranslatorBlock'
 import './MainPage.scss'
 
 function MainPage() {

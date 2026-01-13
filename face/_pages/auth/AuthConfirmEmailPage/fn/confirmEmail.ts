@@ -1,5 +1,5 @@
-import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { useAuth_ConfirmEmail } from '@/graphql'
 
 export type ConfirmationStatus = 'loading' | 'success' | 'error'

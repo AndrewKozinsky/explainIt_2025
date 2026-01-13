@@ -1,7 +1,7 @@
-import { useVideosStore } from '_pages/video/videos/videosStore'
 import { useCallback, useEffect, useState } from 'react'
 import { redirect } from 'next/navigation'
 import { pageUrls } from '@/сonsts/pageUrls'
+import { useVideosStore } from '_pages/video/videos/videosStore'
 
 export function useIsWatchButtonDisabled() {
 	const video = useVideosStore((s) => s.privateVideo)

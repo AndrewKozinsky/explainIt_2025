@@ -1,9 +1,9 @@
 import React, { useRef } from 'react'
 import { useWatchingStore } from '_pages/video/watching/watchingStore'
-import SubtitleBlock from '../SubtitleBlock/SubtitleBlock'
 import SpeechlessBar from '../SpeechlessBar/SpeechlessBar'
-import { useAutoScrollCurrentSubtitle } from './fn/useAutoScrollCurrentSubtitle'
+import SubtitleBlock from '../SubtitleBlock/SubtitleBlock'
 import { useGetCurrentSubtitleId } from './fn/getCurrentSubtitleId'
+import { useAutoScrollCurrentSubtitle } from './fn/useAutoScrollCurrentSubtitle'
 import './SubtitlesContent.scss'
 
 function SubtitlesContent() {

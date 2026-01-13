@@ -1,10 +1,10 @@
 import { useRef } from 'react'
 import cn from 'classnames'
-import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
 import { useLongPress } from 'utils/events'
-import { useGetOnWordClick, useGetOnWordLongTap } from './fn/selectSentenceAndWord'
-import { getWordPrimaryType } from './fn/getWordPrimaryType'
+import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
 import { useReadingStore } from '_pages/books/reading/readingStore'
+import { getWordPrimaryType } from './fn/getWordPrimaryType'
+import { useGetOnWordClick, useGetOnWordLongTap } from './fn/selectSentenceAndWord'
 import { useWordHoverHandlers } from './fn/useWordHoverHandlers'
 import './Word.scss'
 

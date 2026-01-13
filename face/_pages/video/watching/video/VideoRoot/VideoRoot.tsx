@@ -1,9 +1,9 @@
+import React, { useRef } from 'react'
 import { usePlayerControl } from '_pages/video/watching/video/VideoRoot/fn/playerControl'
 import {
 	createVideoProgressSaver,
 	loadVideoProgressSeconds,
 } from '_pages/video/watching/video/VideoRoot/fn/videoProgressStorage'
-import React, { useRef } from 'react'
 import { useWatchingStore } from '../../watchingStore'
 import { usePlayerController } from './fn/controller'
 import VideoProgress from './VideoProgress'

@@ -1,11 +1,11 @@
-import AddBookButton from '_pages/books/books/booksListSection/AddBookButton/AddBookButton'
-import BookLink from '_pages/books/books/booksListSection/BookLink/BookLink'
-import { useBooksStore } from '_pages/books/books/booksStore'
 import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
 import LoadingMessage from 'ui/LoadingMessage/LoadingMessage'
 import Paragraph from 'ui/Paragraph/Paragraph'
+import AddBookButton from '_pages/books/books/booksListSection/AddBookButton/AddBookButton'
+import BookLink from '_pages/books/books/booksListSection/BookLink/BookLink'
+import { useBooksStore } from '_pages/books/books/booksStore'
 
-function PrivateVideosList() {
+function PrivateBooksList() {
 	return (
 		<>
 			<PrivateBooksListContent />
@@ -14,7 +14,7 @@ function PrivateVideosList() {
 	)
 }
 
-export default PrivateVideosList
+export default PrivateBooksList
 
 function PrivateBooksListContent() {
 	const privateBooks = useBooksStore((state) => state.privateBooks)

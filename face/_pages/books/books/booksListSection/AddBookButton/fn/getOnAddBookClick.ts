@@ -1,8 +1,8 @@
 import { useCallback, useContext, useState } from 'react'
+import { redirect } from 'next/navigation'
 import { Book_GetUserBooksDocument, useBook_Create } from '@/graphql'
 import { NotificationContext } from '@/ui/Notification/context'
 import { createBookIdUrl, pageUrls } from 'сonsts/pageUrls'
-import { redirect } from 'next/navigation'
 
 export function useGetOnAddBookClick() {
 	const { notify } = useContext(NotificationContext)

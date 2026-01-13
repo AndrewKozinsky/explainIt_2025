@@ -1,7 +1,7 @@
 'use client'
 
-import cn from 'classnames'
 import React, { ReactNode } from 'react'
+import cn from 'classnames'
 import Spinner from '../../../Spinner/Spinner'
 import { ButtonIcon } from './ButtonIcon'
 import './Button.scss'

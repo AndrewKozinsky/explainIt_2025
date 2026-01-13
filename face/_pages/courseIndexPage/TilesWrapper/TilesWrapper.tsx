@@ -10,7 +10,7 @@ export function TilesWrapper(props: TilesWrapperProps) {
 	const { children } = props
 
 	return (
-		<div className="tiles-wrapper" data-testid="tiles-wrapper">
+		<div className='tiles-wrapper' data-testid='tiles-wrapper'>
 			{children}
 		</div>
 	)

@@ -1,7 +1,7 @@
 import React from 'react'
 import Tabs from 'ui/Tabs/Tabs'
-import { tabsConfig } from './fn/onButtonClick'
 import { useVideosStore } from '../videosStore'
+import { tabsConfig } from './fn/onButtonClick'
 import './MobileNavigation.scss'
 
 function MobileNavigation() {

@@ -1,12 +1,12 @@
 'use client'
 
 import ExercisesType from '../../../../articleTypes/exercisesType'
-import ExerciseContent from '../ExerciseContent/ExerciseContent'
-import ExercisesList from '../ExercisesList/ExercisesList'
 import Header from '../../../Header/Header'
-import ExerciseTypeSwitch from '../ExerciseTypeSwitch/ExerciseTypeSwitch'
 import { ExercisesContext } from '../../logic/exercisesContext'
 import { useGetExercisesData } from '../../logic/useSetUpExercisesContext'
+import ExerciseContent from '../ExerciseContent/ExerciseContent'
+import ExercisesList from '../ExercisesList/ExercisesList'
+import ExerciseTypeSwitch from '../ExerciseTypeSwitch/ExerciseTypeSwitch'
 import './Exercises.scss'
 
 type ExercisesBlockProps = {

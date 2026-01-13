@@ -1,7 +1,7 @@
-import { useVideoPrivate_Update, VideoPrivate_GetUserVideosDocument } from '@/graphql'
 import React, { useCallback } from 'react'
-import { FormStatus, setErrorsToForm } from '@/utils/forms'
 import { useVideosStore } from '@/_pages/video/videos/videosStore'
+import { useVideoPrivate_Update, VideoPrivate_GetUserVideosDocument } from '@/graphql'
+import { FormStatus, setErrorsToForm } from '@/utils/forms'
 import { ChangeVideoFormData } from './form'
 
 export function useGetOnUpdateVideoFormSubmit(

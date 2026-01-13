@@ -1,18 +1,17 @@
 'use client'
 
-import { yupResolver } from '@hookform/resolvers/yup'
-import Link from 'next/link'
-import { redirect } from 'next/navigation'
 import React, { useState } from 'react'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { redirect } from 'next/navigation'
 import { useForm } from 'react-hook-form'
+import { FormStatus } from 'utils/forms'
 import Button from '../../../ui/formRelated/buttons/Button/Button'
 import FormError from '../../../ui/formRelated/FormError/FormError'
 import FormFieldsWrapper from '../../../ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
 import TextInput from '../../../ui/formRelated/TextInput/TextInput'
-import { FormStatus } from 'utils/forms'
-import { pageUrls } from 'сonsts/pageUrls'
 import { IncreaseBalanceFormData, increaseBalanceFormSchema, IncreaseBalanceFormTest } from './fn/form'
 import { useGetIncreaseBalanceFormSubmit } from './fn/submit'
+import { pageUrls } from 'сonsts/pageUrls'
 
 function IncreaseBalanceForm() {
 	const [formStatus, setFormStatus] = useState<FormStatus>('idle')
