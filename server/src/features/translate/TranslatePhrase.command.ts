@@ -7,7 +7,7 @@ import { YandexTranslateService } from 'infrastructure/yandexTranslate/yandexTra
 
 export type TranslateTextInput = {
 	text: string
-	targetLanguageCode: string
+	targetLanguageCode?: null | string
 	sourceLanguageCode?: null | string
 }
 
@@ -15,43 +15,40 @@ export type TranslateTextResult = {
 	translatedText: string
 }
 
-export class TranslateTextCommand implements ICommand {
+export class TranslatePhraseCommand implements ICommand {
 	constructor(public input: TranslateTextInput) {}
 }
 
-@CommandHandler(TranslateTextCommand)
-export class TranslateTextHandler implements ICommandHandler<TranslateTextCommand> {
+@CommandHandler(TranslatePhraseCommand)
+export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCommand> {
 	constructor(
 		private yandexTranslateService: YandexTranslateService,
 		private yandexDictionaryService: YandexDictionaryService,
 	) {}
 
-	async execute(command: TranslateTextCommand): Promise<TranslateTextResult> {
+	async execute(command: TranslatePhraseCommand): Promise<TranslateTextResult> {
 		const { input } = command
 
 		try {
 			// Transform this code late to get a transcription and dictionary words if it possible
-			const res = await this.yandexDictionaryService.lookupWord({
+			/*const res = await this.yandexDictionaryService.lookupWord({
 				// text: input.text,
 				text: 'quite a lot',
 				directionOfTranslation: 'en-ru',
 			})
-			console.log(JSON.stringify(res))
+			console.log(JSON.stringify(res))*/
 
-			/*const result = await this.yandexTranslateService.translateText({
+			const result = await this.yandexTranslateService.translateText({
 				text: input.text,
-				targetLanguageCode: input.targetLanguageCode,
+				targetLanguageCode: input.targetLanguageCode ?? 'ru',
 				sourceLanguageCode: input.sourceLanguageCode ?? 'en',
-			})*/
+			})
 
-			/*return {
-				translatedText: result.translatedText,
-			}*/
 			return {
-				translatedText: 'Привет',
+				translatedText: result.translatedText,
 			}
 		} catch (error) {
-			console.log('Error in TranslateTextHandler => execute')
+			console.log('Error in TranslatePhraseHandler => execute')
 			console.error(error)
 
 			throw new CustomGraphQLError(errorMessage.unknownError, ErrorCode.InternalServerError_500)

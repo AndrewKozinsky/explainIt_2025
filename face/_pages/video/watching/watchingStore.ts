@@ -20,8 +20,8 @@ export const watchingStoreValues: WatchingStoreValues = {
 	populatedSubtitles: null as any as PopulatedSubtitlesStructure.Structure,
 	isWordsAddingModeEnabled: false,
 	selectedText: {
-		sentence: null,
-		words: [],
+		plainText: null,
+		subtitle: null,
 	},
 }
 
@@ -181,7 +181,7 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 								// Добавить новое слово к существующим
 								selectedObj.wordIds.push(selectedWordId)
 							} else {
-								// Полностью заменить добавленные слова новым
+								// Полностью заменить добавляемое слово существующими
 								selectedObj.wordIds = [selectedWordId]
 							}
 						}
@@ -191,13 +191,10 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 				})
 			})
 		},
-		updateSelectedText(sentence: null | string, words: string[]) {
+		updateSelectedText(selectedText: WatchingStoreI.SelectedText) {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
-					draftState.selectedText = {
-						sentence,
-						words,
-					}
+					draftState.selectedText = selectedText
 				})
 			})
 		},
@@ -222,6 +219,34 @@ export namespace WatchingStoreI {
 	// Если не выбрано ни одно слово, то показывается справка
 	// В зависимости от нажатой кнопки показывается одна из двух колонок
 	export type HelpCurrentContentType = 'keyboard' | 'mouse'
+
+	export type SelectedText = {
+		plainText: null | SelectedPlainText
+		subtitle: null | SelectedSubtitle
+	}
+
+	export type SelectedSentencePart =
+		| { id: number; type: 'word'; value: string }
+		| { id: number; type: 'punctuation'; value: string }
+		| { id: number; type: 'space' }
+
+	export type SelectedPlainText = {
+		sentenceId: number
+		sentenceText: string
+		sentenceParts: SelectedSentencePart[]
+		wordIds: number[]
+		wordsTexts: string[]
+	}
+
+	export type SelectedSubtitle = {
+		subtitleId: number
+		subtitleText: string
+		sentenceId: number
+		sentenceText: string
+		sentenceParts: SelectedSentencePart[]
+		wordIds: number[]
+		wordsTexts: string[]
+	}
 }
 
 export type WatchingStore = WatchingStoreValues & WatchingStoreMethods
@@ -246,8 +271,8 @@ export type WatchingStoreValues = {
 	// Если выключен, то заменит все слова поставленные во фразу типа idle.
 	isWordsAddingModeEnabled: boolean
 	selectedText: {
-		sentence: string | null
-		words: string[]
+		plainText: null | WatchingStoreI.SelectedPlainText
+		subtitle: null | WatchingStoreI.SelectedSubtitle
 	}
 }
 
@@ -275,5 +300,5 @@ export type WatchingStoreMethods = {
 	changeWordsAddingMode: (isEnabled: boolean) => void
 	updateSelectedPlainText: (sentenceId: number, wordId: number) => void
 	updateSelectedSubtitle: (subtitleId: number, sentenceId: number, wordId: number) => void
-	updateSelectedText: (sentence: null | string, words: string[]) => void
+	updateSelectedText: (selectedText: WatchingStoreI.SelectedText) => void
 }

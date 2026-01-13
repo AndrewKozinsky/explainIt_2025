@@ -7,7 +7,7 @@ import { MainConfigService } from '../mainConfig/mainConfig.service'
 
 export type TranslateTextInput = {
 	text: string
-	targetLanguageCode: string
+	targetLanguageCode?: string
 	sourceLanguageCode?: string
 }
 
@@ -70,7 +70,6 @@ export interface YandexTranslateServiceI {
 @Injectable()
 export class YandexTranslateServiceMock implements YandexTranslateServiceI {
 	async translateText(input: TranslateTextInput): Promise<TranslateTextResult> {
-		console.log(3333)
 		return {
 			translatedText: input.text,
 		}

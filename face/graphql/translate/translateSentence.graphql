@@ -1,0 +1,5 @@
+mutation Translate_translateSentence($input: TranslateSentenceInput!) {
+	translate_translate_sentence(input: $input) {
+		translatedText
+	}
+}

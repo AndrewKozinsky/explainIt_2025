@@ -17,14 +17,7 @@ function SubtitlesContent() {
 		<div className='subtitles-content' ref={containerRef}>
 			{populatedSubtitles.subtitles.map((item, index) => {
 				if (item.type === 'subtitle') {
-					return (
-						<SubtitleBlock
-							subtitle={item}
-							key={index}
-							subtitleId={item.id}
-							isCurrent={currentSubtitleId === item.id}
-						/>
-					)
+					return <SubtitleBlock subtitle={item} key={index} isCurrent={currentSubtitleId === item.id} />
 				}
 				return <SpeechlessBar key={index} subtitleId={item.id} isCurrent={currentSubtitleId === item.id} />
 			})}

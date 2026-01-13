@@ -1,0 +1,15 @@
+.details-sentence {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.details-sentence__sentence {
+	font-size: 1.8rem;
+	line-height: 2.4rem;
+}
+
+.details-sentence__buttons {
+	display: flex;
+	gap: 1rem;
+}

@@ -22,7 +22,12 @@ function Button(props: ButtonProps) {
 		restProps.type = 'button'
 	}
 
-	const buttonClasses = ['button', `button--size-${size}`, `button--theme-${theme}`]
+	const buttonClasses = [
+		'button',
+		`button--size-${size}`,
+		`button--theme-${theme}`,
+		!children && icon && 'button--icon-only',
+	]
 
 	let disabled = (props.disabled || loading) ?? false
 

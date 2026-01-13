@@ -19,7 +19,8 @@ export const RouteNames = {
 		GET_TRANSCRIPTION: 'ai_getTranscription',
 	},
 	TRANSLATE: {
-		TRANSLATE: 'translate_translate',
+		TRANSLATE_PHRASE: 'translate_translate_phrase',
+		TRANSLATE_SENTENCE: 'translate_translate_sentence',
 	},
 	// REST
 	DB: {

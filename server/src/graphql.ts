@@ -138,10 +138,16 @@ export interface DeletePrivateVideoInput {
     id: number;
 }
 
-export interface TranslateTextInput {
+export interface TranslatePhraseInput {
     text: string;
     sourceLanguageCode?: Nullable<string>;
-    targetLanguageCode: string;
+    targetLanguageCode?: Nullable<string>;
+}
+
+export interface TranslateSentenceInput {
+    text: string;
+    sourceLanguageCode?: Nullable<string>;
+    targetLanguageCode?: Nullable<string>;
 }
 
 export interface BookChapterPhraseOutModel {
@@ -235,6 +241,10 @@ export interface VideoPrivateOutModel {
     isFileUploaded: boolean;
 }
 
+export interface TranslateTextOutModel {
+    translatedText: string;
+}
+
 export interface UserOutModel {
     id: number;
     email: string;
@@ -248,10 +258,6 @@ export interface BookChapterTranslateOfSentencesOutModel {
 
 export interface TopUpBalanceWithYooKassaOutModel {
     confirmationUrl: string;
-}
-
-export interface TranslateTextOutModel {
-    translatedText: string;
 }
 
 export interface IQuery {
@@ -304,7 +310,8 @@ export interface IMutation {
     video_private_create(input: CreatePrivateVideoInput): CreateVideoPrivateOutModel | Promise<CreateVideoPrivateOutModel>;
     video_private_update(input: UpdatePrivateVideoInput): UpdateVideoPrivateOutModel | Promise<UpdateVideoPrivateOutModel>;
     video_private_delete(input: DeletePrivateVideoInput): boolean | Promise<boolean>;
-    translate_translate(input: TranslateTextInput): TranslateTextOutModel | Promise<TranslateTextOutModel>;
+    translate_translate_phrase(input: TranslatePhraseInput): TranslateTextOutModel | Promise<TranslateTextOutModel>;
+    translate_translate_sentence(input: TranslateSentenceInput): TranslateTextOutModel | Promise<TranslateTextOutModel>;
 }
 
 export type CheckTranslationOutModel = CheckTranslationOutSuccessModel | CheckTranslationOutErrorModel;

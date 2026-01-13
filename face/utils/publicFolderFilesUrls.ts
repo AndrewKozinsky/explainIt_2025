@@ -9,6 +9,7 @@ export const publicFolderFilesUrls = {
 		yandexButtonIcon: '/icons/yandexButtonIcon.svg',
 		fullScreenButtonIcon: '/icons/fullScreenButtonIcon.svg',
 		warningTriangle: '/icons/warningTriangle.svg',
+		copyButtonIcon: '/icons/copyButtonIcon.svg',
 	},
 	images: {
 		common: {

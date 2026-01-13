@@ -6,6 +6,7 @@ import { CqrsModule } from '@nestjs/cqrs'
 import { GraphQLModule } from '@nestjs/graphql'
 import { Request, Response } from 'express'
 import { BookPublicModule } from 'routes/bookPublic/bookPublic.module'
+import { YandexTranslateRouteModule } from 'routes/translate/translate.module'
 import { VideoPrivateModule } from 'routes/videoPrivate/videoPrivate.module'
 import { StartServerTasksRunner } from 'infrastructure/StartServerTasksRunner'
 import { YandexCloudS3Module } from 'infrastructure/yandexCloudS3/yandexCloudS3.module'
@@ -27,7 +28,6 @@ import { BookModule } from './routes/bookPrivate/book.module'
 import { DbModule } from './routes/db/db.module'
 import { PaymentModule } from './routes/payment/payment.module'
 import { WebhookModule } from './routes/webhook/webhook.module'
-import { YandexTranslateRouteModule } from './routes/yandexTranslate/yandexTranslate.module'
 
 @Module({
 	imports: [

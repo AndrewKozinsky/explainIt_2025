@@ -276,7 +276,8 @@ type Mutation {
 
   """Top up a balance with YooKassa"""
   payment_yookassa_top_up_balance(input: TopUpBalanceWithYooKassaInput!): TopUpBalanceWithYooKassaOutModel!
-  translate_translate(input: TranslateTextInput!): TranslateTextOutModel!
+  translate_translate_phrase(input: TranslatePhraseInput!): TranslateTextOutModel!
+  translate_translate_sentence(input: TranslateSentenceInput!): TranslateTextOutModel!
 
   """Create a video"""
   video_private_create(input: CreatePrivateVideoInput!): CreateVideoPrivateOutModel!
@@ -345,6 +346,28 @@ type TopUpBalanceWithYooKassaOutModel {
   confirmationUrl: String!
 }
 
+input TranslatePhraseInput {
+  """Source language code"""
+  sourceLanguageCode: String
+
+  """Target language code"""
+  targetLanguageCode: String
+
+  """Text for translation"""
+  text: String!
+}
+
+input TranslateSentenceInput {
+  """Source language code"""
+  sourceLanguageCode: String
+
+  """Target language code"""
+  targetLanguageCode: String
+
+  """Sentence for translation"""
+  text: String!
+}
+
 input TranslateSentencesInput {
   """Book author"""
   bookAuthor: String
@@ -354,17 +377,6 @@ input TranslateSentencesInput {
 
   """Array of sentences"""
   sentences: [String!]!
-}
-
-input TranslateTextInput {
-  """Source language code"""
-  sourceLanguageCode: String
-
-  """Target language code"""
-  targetLanguageCode: String!
-
-  """Text for translation"""
-  text: String!
 }
 
 type TranslateTextOutModel {
