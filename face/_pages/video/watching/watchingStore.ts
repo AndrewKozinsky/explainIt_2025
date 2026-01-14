@@ -1,8 +1,8 @@
+import { produce } from 'immer'
+import { create } from 'zustand'
 import { VideoPrivateOutModel } from '@/graphql'
 import { PopulatedSubtitlesStructure } from '_pages/video/watching/common/populatedSubtitlesStructure'
 import { PopulatedTextStructure } from '_pages/video/watching/common/populatedTextStructure'
-import { produce } from 'immer'
-import { create } from 'zustand'
 
 export const watchingStoreValues: WatchingStoreValues = {
 	video: null as any as WatchingStoreI.VideoData,

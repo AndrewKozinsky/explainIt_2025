@@ -126,6 +126,7 @@ function createSubtitlesWithSpeechlessBars(
 	const subtitles: PopulatedSubtitlesStructure.Structure['subtitles'] = []
 	let id = 0
 	let prevEndMs = 0
+	const sentenceNextPartIdBySentenceId = new Map<number, number>()
 
 	for (let i = 0; i < resolvedSubtitlesStructure.subtitles.length; i++) {
 		const subtitle = resolvedSubtitlesStructure.subtitles[i]
@@ -150,9 +151,14 @@ function createSubtitlesWithSpeechlessBars(
 			to: subtitle.to,
 			toSeconds: toMs / 1000,
 			texts: subtitle.ts.map((text) => {
+				const sentenceId = text.sId
+				const startId = sentenceNextPartIdBySentenceId.get(sentenceId) ?? 0
+				const textParts = sentenceToParts(text.t, startId)
+				sentenceNextPartIdBySentenceId.set(sentenceId, startId + textParts.length)
+
 				return {
-					textParts: sentenceToParts(text.t),
-					sentenceId: text.sId,
+					textParts,
+					sentenceId,
 				}
 			}),
 		})

@@ -1,9 +1,12 @@
 import { PopulatedTextStructure } from '_pages/video/watching/common/populatedTextStructure'
 
-export function sentenceToParts(sentence: string): PopulatedTextStructure.SentencePart[] {
+export function sentenceToParts(
+	sentence: string,
+	startId: number = 0,
+): PopulatedTextStructure.SentencePart[] {
 	const parts: PopulatedTextStructure.SentencePart[] = []
 
-	let partId = 0
+	let partId = startId
 	let i = 0
 
 	while (i < sentence.length) {
