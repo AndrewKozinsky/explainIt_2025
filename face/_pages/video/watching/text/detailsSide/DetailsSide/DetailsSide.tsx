@@ -7,7 +7,6 @@ function DetailsSide() {
 	const selectedText = useWatchingStore((s) => s.selectedText)
 	const selectedItem = selectedText.subtitle ?? selectedText.plainText
 
-	console.log(selectedItem?.wordsTexts)
 	if (!selectedItem || !selectedItem.wordsTexts.length) {
 		return <DetailsHelp />
 	}

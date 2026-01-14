@@ -61,7 +61,6 @@ export namespace PopulatedSubtitlesStructure {
 	}
 
 	export type Selected = {
-		subtitleId: null | number
 		sentenceId: null | number
 		wordIds: number[]
 	}

@@ -18,7 +18,6 @@ function DetailsSentence() {
 							return (
 								<Word
 									contentType='subtitles'
-									subtitleId={selectedSubtitle.subtitleId}
 									sentenceId={selectedSubtitle.sentenceId}
 									wordId={part.id}
 									wordValue={part.value}

@@ -7,8 +7,8 @@ export function updateFromSubtitlesSelected(
 ) {
 	if (!populatedSubtitles) return
 
-	const { subtitleId, sentenceId, wordIds } = populatedSubtitles.selected
-	if (subtitleId === null || sentenceId === null || !wordIds.length) {
+	const { sentenceId, wordIds } = populatedSubtitles.selected
+	if (sentenceId === null || !wordIds.length) {
 		updateSelectedText({ plainText: null, subtitle: null })
 		return
 	}
@@ -24,8 +24,8 @@ export function updateFromSubtitlesSelected(
 		return
 	}
 
-	const subtitleObj = populatedSubtitles.subtitles.find((item) => item.type === 'subtitle' && item.id === subtitleId)
-	const subtitleText = subtitleObj && subtitleObj.type === 'subtitle' ? subtitleToString(subtitleObj) : ''
+	const subtitleObj = findSubtitleBySelectedWord(populatedSubtitles, sentenceId, wordIds)
+	const subtitleText = subtitleObj ? subtitleToString(subtitleObj) : ''
 
 	const sentence = textPartsToString(sentenceObj.text)
 	const { wordIds: selectedWordIds, wordsTexts } = getSelectedWordsFromTextParts(sentenceObj.text, wordIds)
@@ -34,7 +34,6 @@ export function updateFromSubtitlesSelected(
 	updateSelectedText({
 		plainText: null,
 		subtitle: {
-			subtitleId,
 			subtitleText,
 			sentenceId,
 			sentenceText: sentence,
@@ -43,6 +42,25 @@ export function updateFromSubtitlesSelected(
 			wordsTexts,
 		},
 	})
+}
+
+function findSubtitleBySelectedWord(
+	populatedSubtitles: PopulatedSubtitlesStructure.Structure,
+	sentenceId: number,
+	wordIds: number[],
+): PopulatedSubtitlesStructure.Subtitle | null {
+	for (const item of populatedSubtitles.subtitles) {
+		if (item.type !== 'subtitle') continue
+
+		for (const text of item.texts) {
+			if (text.sentenceId !== sentenceId) continue
+			if (text.textParts.some((part) => wordIds.includes(part.id))) {
+				return item
+			}
+		}
+	}
+
+	return null
 }
 
 function subtitleToString(subtitle: PopulatedSubtitlesStructure.Subtitle): string {

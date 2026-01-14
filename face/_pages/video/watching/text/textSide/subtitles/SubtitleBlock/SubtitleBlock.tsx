@@ -23,7 +23,6 @@ function SubtitleBlock(props: SubtitleBlockProps) {
 									return (
 										<Word
 											contentType='subtitles'
-											subtitleId={subtitle.id}
 											sentenceId={text.sentenceId}
 											wordId={textPart.id}
 											wordValue={textPart.value}

@@ -10,7 +10,6 @@ type PlainTextWordProps = BaseWordProps & {
 
 type SubtitlesWordProps = BaseWordProps & {
 	contentType: 'subtitles'
-	subtitleId: number
 	sentenceId: number
 }
 

@@ -141,17 +141,13 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 				})
 			})
 		},
-		updateSelectedSubtitle(selectedSubtitleId: number, selectedSentenceId: number, selectedWordId: number) {
+		updateSelectedSubtitle(selectedSentenceId: number, selectedWordId: number) {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
 					const selectedObj = { ...draftState.populatedSubtitles.selected }
 
-					// Если ничего не выделяли, выделили слово другого субтитра или другого предложения
-					if (
-						selectedObj.subtitleId !== selectedSubtitleId ||
-						selectedObj.sentenceId !== selectedSentenceId
-					) {
-						selectedObj.subtitleId = selectedSubtitleId
+					// Если ничего не выделяли или выделили слово другого предложения
+					if (selectedObj.sentenceId === null || selectedObj.sentenceId !== selectedSentenceId) {
 						selectedObj.sentenceId = selectedSentenceId
 						selectedObj.wordIds = [selectedWordId]
 					} else {
@@ -239,7 +235,6 @@ export namespace WatchingStoreI {
 	}
 
 	export type SelectedSubtitle = {
-		subtitleId: number
 		subtitleText: string
 		sentenceId: number
 		sentenceText: string
@@ -299,6 +294,6 @@ export type WatchingStoreMethods = {
 	toggleFullScreen: () => void
 	changeWordsAddingMode: (isEnabled: boolean) => void
 	updateSelectedPlainText: (sentenceId: number, wordId: number) => void
-	updateSelectedSubtitle: (subtitleId: number, sentenceId: number, wordId: number) => void
+	updateSelectedSubtitle: (sentenceId: number, wordId: number) => void
 	updateSelectedText: (selectedText: WatchingStoreI.SelectedText) => void
 }

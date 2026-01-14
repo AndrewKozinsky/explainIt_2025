@@ -13,10 +13,6 @@ export function useWord(props: WordProps) {
 	const plainSelectedWordIds = useWatchingStore(
 		(state) => state.populatedPlainText?.selected?.wordIds ?? EMPTY_WORD_IDS,
 	)
-
-	const subtitlesSelectedSubtitleId = useWatchingStore(
-		(state) => state.populatedSubtitles?.selected?.subtitleId ?? null,
-	)
 	const subtitlesSelectedSentenceId = useWatchingStore(
 		(state) => state.populatedSubtitles?.selected?.sentenceId ?? null,
 	)
@@ -27,15 +23,13 @@ export function useWord(props: WordProps) {
 	const isSelected =
 		props.contentType === 'plainText'
 			? plainSelectedSentenceId === props.sentenceId && plainSelectedWordIds.includes(props.wordId)
-			: subtitlesSelectedSubtitleId === props.subtitleId &&
-				subtitlesSelectedSentenceId === props.sentenceId &&
-				subtitlesSelectedWordIds.includes(props.wordId)
+			: subtitlesSelectedSentenceId === props.sentenceId && subtitlesSelectedWordIds.includes(props.wordId)
 
 	function handleClick() {
 		if (props.contentType === 'plainText') {
 			updateSelectedPlainText(props.sentenceId, props.wordId)
 		} else {
-			updateSelectedSubtitle(props.subtitleId, props.sentenceId, props.wordId)
+			updateSelectedSubtitle(props.sentenceId, props.wordId)
 		}
 	}
 
