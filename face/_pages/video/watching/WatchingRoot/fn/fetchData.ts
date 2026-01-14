@@ -1,10 +1,10 @@
-import { PopulatedSubtitlesStructure } from '_pages/video/watching/common/populatedSubtitlesStructure'
 import { useEffect } from 'react'
+import { useParams } from 'next/navigation'
+import { useVideoPrivate_Get, VideoPrivateOutModel } from '@/graphql'
+import { PopulatedSubtitlesStructure } from '_pages/video/watching/common/populatedSubtitlesStructure'
 import { PopulatedTextStructure } from '_pages/video/watching/common/populatedTextStructure'
 import { ResolvedSubtitlesStructure } from '_pages/video/watching/common/resolvedSubtitlesStructure'
 import { ResolvedTextStructure } from '_pages/video/watching/common/resolvedTextStructure'
-import { useVideoPrivate_Get, VideoPrivateOutModel } from '@/graphql'
-import { useParams } from 'next/navigation'
 import { useWatchingStore } from '../../watchingStore'
 import { sentenceToParts } from './sentenceToParts'
 
@@ -164,8 +164,8 @@ function createSubtitlesWithSpeechlessBars(
 	return subtitles
 }
 
-function timeCodeToMs(timecode: string): number {
-	const trimmed = timecode.trim()
+function timeCodeToMs(timeCode: string): number {
+	const trimmed = timeCode.trim()
 	const match = trimmed.match(/^(\d+):(\d{2}):(\d{2})(?:[,.](\d{1,3}))?$/)
 	if (!match) return 0
 

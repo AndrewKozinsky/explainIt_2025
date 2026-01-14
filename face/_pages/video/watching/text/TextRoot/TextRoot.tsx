@@ -1,10 +1,10 @@
 import React from 'react'
 import MobileNavigation from '_pages/video/watching/text/MobileNavigation/MobileNavigation'
 import { useWatchingStore } from '_pages/video/watching/watchingStore'
-import { getSectionClasses } from './fn/getSectionClasses'
-import TextSide from '../textSide/TextSide/TextSide'
-import { useUpdateRootSelectedText } from './fn/rootSelecteon/useUpdateRootSelectedText'
 import DetailsSide from '../detailsSide/DetailsSide/DetailsSide'
+import TextSide from '../textSide/TextSide/TextSide'
+import { getSectionClasses } from './fn/getSectionClasses'
+import { useUpdateRootSelectedText } from './fn/rootSelecteon/useUpdateRootSelectedText'
 import './TextRoot.scss'
 
 function TextRoot() {

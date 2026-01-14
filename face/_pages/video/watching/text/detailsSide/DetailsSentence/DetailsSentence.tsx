@@ -1,8 +1,8 @@
-import { useGetSelectedItem } from './fn/getSelectedItem'
-import TranslateButton from './TranslateButton'
 import React from 'react'
 import Word from '../../textSide/common/Word/Word'
 import CopyButton from './CopyButton'
+import { useGetSelectedItem } from './fn/getSelectedItem'
+import TranslateButton from './TranslateButton'
 import './DetailsSentence.scss'
 
 function DetailsSentence() {

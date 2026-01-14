@@ -1,7 +1,7 @@
-import cn from 'classnames'
 import { Fragment } from 'react'
+import cn from 'classnames'
+import { PopulatedSubtitlesStructure } from '@/_pages/video/watching/common/populatedSubtitlesStructure'
 import Word from '../../common/Word/Word'
-import { PopulatedSubtitlesStructure } from '_pages/video/watching/common/populatedSubtitlesStructure'
 import './SubtitleBlock.scss'
 
 type SubtitleBlockProps = {

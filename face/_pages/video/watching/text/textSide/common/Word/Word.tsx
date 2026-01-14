@@ -1,6 +1,6 @@
 import cn from 'classnames'
-import { useWord } from './fn/useWord'
 import { WordProps } from './fn/types'
+import { useWord } from './fn/useWord'
 import './Word.scss'
 
 function Word(props: WordProps) {

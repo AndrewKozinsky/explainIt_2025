@@ -1,5 +1,5 @@
-import { useWatchingStore } from '_pages/video/watching/watchingStore'
 import { useLongPress } from 'utils/events'
+import { useWatchingStore } from '_pages/video/watching/watchingStore'
 import { EMPTY_WORD_IDS, WordProps } from './types'
 
 export function useWord(props: WordProps) {
@@ -10,11 +10,19 @@ export function useWord(props: WordProps) {
 	const updateSelectedSubtitle = useWatchingStore((state) => state.updateSelectedSubtitle)
 
 	const plainSelectedSentenceId = useWatchingStore((state) => state.populatedPlainText?.selected?.sentenceId ?? null)
-	const plainSelectedWordIds = useWatchingStore((state) => state.populatedPlainText?.selected?.wordIds ?? EMPTY_WORD_IDS)
+	const plainSelectedWordIds = useWatchingStore(
+		(state) => state.populatedPlainText?.selected?.wordIds ?? EMPTY_WORD_IDS,
+	)
 
-	const subtitlesSelectedSubtitleId = useWatchingStore((state) => state.populatedSubtitles?.selected?.subtitleId ?? null)
-	const subtitlesSelectedSentenceId = useWatchingStore((state) => state.populatedSubtitles?.selected?.sentenceId ?? null)
-	const subtitlesSelectedWordIds = useWatchingStore((state) => state.populatedSubtitles?.selected?.wordIds ?? EMPTY_WORD_IDS)
+	const subtitlesSelectedSubtitleId = useWatchingStore(
+		(state) => state.populatedSubtitles?.selected?.subtitleId ?? null,
+	)
+	const subtitlesSelectedSentenceId = useWatchingStore(
+		(state) => state.populatedSubtitles?.selected?.sentenceId ?? null,
+	)
+	const subtitlesSelectedWordIds = useWatchingStore(
+		(state) => state.populatedSubtitles?.selected?.wordIds ?? EMPTY_WORD_IDS,
+	)
 
 	const isSelected =
 		props.contentType === 'plainText'

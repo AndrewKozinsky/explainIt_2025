@@ -1,11 +1,11 @@
 import { useRef } from 'react'
+import { usePopulateWatchingStore } from '_pages/video/watching/WatchingRoot/fn/fetchData'
 import { useFullScreen } from './fn/fullScreen'
-import { usePopulateWatchingStore } from './fn/getContentStructure'
+import { useRegisterCmdKeyListener } from './fn/registerCmdKeyListener'
 import { useSetDeviceType } from './fn/setDeviceType'
 import WatchingRootContent from './WatchingRootContent'
 import WatchingRootError from './WatchingRootError'
 import WatchingRootLoading from './WatchingRootLoading'
-import { useRegisterCmdKeyListener } from './fn/registerCmdKeyListener'
 import './WatchingRoot.scss'
 
 function WatchingRoot() {
