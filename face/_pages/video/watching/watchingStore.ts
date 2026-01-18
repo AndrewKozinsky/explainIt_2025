@@ -31,6 +31,36 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 		updateStore: (storePart: Partial<WatchingStoreValues>) => {
 			set(storePart)
 		},
+		updatePlainTextSentenceTranslation(sentenceId: number, translation: string) {
+			set((baseState) => {
+				return produce(baseState, (draftState) => {
+					const sentence = draftState.populatedPlainText.sentences.find(
+						(thisSentence) => thisSentence.id === sentenceId,
+					)
+					if (!sentence) return
+					sentence.translation = translation
+
+					if (draftState.selectedText.plainText?.sentenceId === sentenceId) {
+						draftState.selectedText.plainText.translation = translation
+					}
+				})
+			})
+		},
+		updateSubtitlesSentenceTranslation(sentenceId: number, translation: string) {
+			set((baseState) => {
+				return produce(baseState, (draftState) => {
+					const sentence = draftState.populatedSubtitles.sentences.find(
+						(thisSentence) => thisSentence.id === sentenceId,
+					)
+					if (!sentence) return
+					sentence.translation = translation
+
+					if (draftState.selectedText.subtitle?.sentenceId === sentenceId) {
+						draftState.selectedText.subtitle.translation = translation
+					}
+				})
+			})
+		},
 		updateMobileCurrentContentType: (mobileCurrentContentType) => {
 			set((state) => {
 				return {
@@ -229,6 +259,7 @@ export namespace WatchingStoreI {
 	export type SelectedPlainText = {
 		sentenceId: number
 		sentenceText: string
+		translation?: null | string
 		sentenceParts: SelectedSentencePart[]
 		wordIds: number[]
 		wordsTexts: string[]
@@ -238,6 +269,7 @@ export namespace WatchingStoreI {
 		subtitleText: string
 		sentenceId: number
 		sentenceText: string
+		translation?: null | string
 		sentenceParts: SelectedSentencePart[]
 		wordIds: number[]
 		wordsTexts: string[]
@@ -285,6 +317,8 @@ export type PlayerCommand =
 
 export type WatchingStoreMethods = {
 	updateStore: (store: Partial<WatchingStoreValues>) => void
+	updatePlainTextSentenceTranslation: (sentenceId: number, translation: string) => void
+	updateSubtitlesSentenceTranslation: (sentenceId: number, translation: string) => void
 	updateMobileCurrentContentType: (contentType: WatchingStoreI.MobileCurrentContentType) => void
 	updateHelpCurrentContentType: (contentType: WatchingStoreI.HelpCurrentContentType) => void
 	updateVideo: (book: WatchingStoreI.VideoData) => void

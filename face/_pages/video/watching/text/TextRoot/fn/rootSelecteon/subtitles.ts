@@ -37,6 +37,7 @@ export function updateFromSubtitlesSelected(
 			subtitleText,
 			sentenceId,
 			sentenceText: sentence,
+			translation: sentenceObj.translation ?? null,
 			sentenceParts,
 			wordIds: selectedWordIds,
 			wordsTexts,

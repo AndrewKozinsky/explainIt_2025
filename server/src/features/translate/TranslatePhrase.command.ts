@@ -29,6 +29,18 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 	async execute(command: TranslatePhraseCommand): Promise<TranslateTextResult> {
 		const { input } = command
 
+		// 1. This command gets a word or several words in the text property.
+		// 2. The program checks existing of these words in the EnglishRussianDictionary table in the database.
+		// 3. If these words exist in the EnglishRussianDictionary table, it returns full data.
+		// 4. If these words don't exist in the EnglishRussianDictionary table, the program must do a request to Yandex Dictionary service and to get a translation.
+		// 5. After the Yandex Dictionary service returns correct data, I have to remain it in the EnglishRussianDictionary table.
+		// 6. Then I have to get transcriptions for all words. To do this, I have to call the YandexDictionaryService and pass my words there.
+		// 7. If YandexDictionaryService returns a successful answer, I put this data in EnglishRussianDictionary table, then I return full data.
+		// 8. If YandexDictionaryService returns an unsuccessful answer, I divide text, then I check if this word exists in EnglishRussianDictionary table.
+		// 9. If it doesn't exist, I do a request to Yandex Dictionary service to get full analysis.
+		// 10. Then I save the full analysis in EnglishRussianDictionary table.
+		// 11. In the end, I collect a translation, transcription and data from the dictionary to full answer and return in to the client.
+
 		try {
 			// Transform this code late to get a transcription and dictionary words if it possible
 			/*const res = await this.yandexDictionaryService.lookupWord({

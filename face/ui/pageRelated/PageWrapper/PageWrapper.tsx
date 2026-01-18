@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import React from 'react'
+import Link from 'next/link'
 import { pageUrls } from 'сonsts/pageUrls'
 import Bar from '../pageTopBar/PageTopBar/Bar'
 import './PageWrapper.scss'
@@ -38,8 +38,7 @@ export function PageWrapper(props: PageWrapperProps) {
 						<span>Россия, Оренбург</span>
 						<span>andkozinskiy@yandex.ru</span>
 						<span>
-							Переводы выполняются автоматически с использованием искусственного интеллекта. Возможны
-							неточности.
+							Переводы выполняются автоматически с использованием LLM и переводчиков. Возможны неточности.
 						</span>
 						{/*TODO Сделай чтобы эта надпись появлялась только на странице где действительно используется Словарь, а не на всех*/}
 						<span>

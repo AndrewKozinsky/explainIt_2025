@@ -32,6 +32,7 @@ export function updateFromPlainTextSelected(
 		plainText: {
 			sentenceId,
 			sentenceText: sentence,
+			translation: sentenceObj.translation ?? null,
 			sentenceParts,
 			wordIds: selectedWordIds,
 			wordsTexts,

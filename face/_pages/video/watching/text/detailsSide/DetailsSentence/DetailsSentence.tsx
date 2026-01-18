@@ -11,39 +11,42 @@ function DetailsSentence() {
 
 	return (
 		<div className='details-sentence'>
-			<p className='details-sentence__sentence'>
-				{selectedItem.sentenceParts.map((part) => {
-					if (part.type === 'word') {
-						if (selectedSubtitle) {
-							return (
-								<Word
-									contentType='subtitles'
-									sentenceId={selectedSubtitle.sentenceId}
-									wordId={part.id}
-									wordValue={part.value}
-									key={part.id}
-								/>
-							)
-						}
+			<div className='details-sentence__sentences'>
+				<p className='details-sentence__sentence'>
+					{selectedItem.sentenceParts.map((part) => {
+						if (part.type === 'word') {
+							if (selectedSubtitle) {
+								return (
+									<Word
+										contentType='subtitles'
+										sentenceId={selectedSubtitle.sentenceId}
+										wordId={part.id}
+										wordValue={part.value}
+										key={part.id}
+									/>
+								)
+							}
 
-						if (selectedPlainText) {
-							return (
-								<Word
-									contentType='plainText'
-									sentenceId={selectedPlainText.sentenceId}
-									wordId={part.id}
-									wordValue={part.value}
-									key={part.id}
-								/>
-							)
+							if (selectedPlainText) {
+								return (
+									<Word
+										contentType='plainText'
+										sentenceId={selectedPlainText.sentenceId}
+										wordId={part.id}
+										wordValue={part.value}
+										key={part.id}
+									/>
+								)
+							}
+						} else if (part.type === 'punctuation') {
+							return <span key={part.id}>{part.value}</span>
+						} else if (part.type === 'space') {
+							return <span key={part.id}> </span>
 						}
-					} else if (part.type === 'punctuation') {
-						return <span key={part.id}>{part.value}</span>
-					} else if (part.type === 'space') {
-						return <span key={part.id}> </span>
-					}
-				})}
-			</p>
+					})}
+				</p>
+				<p className='details-sentence__translation'>{selectedItem.translation}</p>
+			</div>
 			<div className='details-sentence__buttons'>
 				<CopyButton />
 				<TranslateButton />
