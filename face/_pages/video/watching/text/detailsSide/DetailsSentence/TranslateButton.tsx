@@ -49,7 +49,6 @@ function TranslateButton() {
 			const textResolved = updatedWatchingStore.selectedText.subtitle
 				? JSON.stringify(populatedSubtitlesToResolved(updatedWatchingStore.populatedSubtitles))
 				: JSON.stringify(populatedPlainTextToResolved(updatedWatchingStore.populatedPlainText))
-			console.log(textResolved)
 
 			await updateVideo({
 				variables: {

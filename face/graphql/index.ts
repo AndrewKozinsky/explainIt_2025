@@ -188,6 +188,15 @@ export type DeletePrivateVideoInput = {
   id: Scalars['Int']['input'];
 };
 
+export type EngRusDictionaryItemOutModel = {
+  __typename?: 'EngRusDictionaryItemOutModel';
+  engPhrase: Scalars['String']['output'];
+  id: Scalars['Int']['output'];
+  lexemes?: Maybe<Scalars['String']['output']>;
+  rusPhrase: Scalars['String']['output'];
+  transcription?: Maybe<Scalars['String']['output']>;
+};
+
 export type GetBookChapterInput = {
   /** Book type: public or private */
   bookType: Scalars['String']['input'];
@@ -277,8 +286,8 @@ export type Mutation = {
   book_update: BookOutModel;
   /** Top up a balance with YooKassa */
   payment_yookassa_top_up_balance: TopUpBalanceWithYooKassaOutModel;
-  translate_translate_phrase: TranslateTextOutModel;
-  translate_translate_sentence: TranslateTextOutModel;
+  translate_translate_phrase: EngRusDictionaryItemOutModel;
+  translate_translate_sentence: TranslateSentenceOutModel;
   /** Create a video */
   video_private_create: CreateVideoPrivateOutModel;
   /** Delete a video */
@@ -486,6 +495,11 @@ export type TranslateSentenceInput = {
   text: Scalars['String']['input'];
 };
 
+export type TranslateSentenceOutModel = {
+  __typename?: 'TranslateSentenceOutModel';
+  translatedText: Scalars['String']['output'];
+};
+
 export type TranslateSentencesInput = {
   /** Book author */
   bookAuthor?: InputMaybe<Scalars['String']['input']>;
@@ -493,11 +507,6 @@ export type TranslateSentencesInput = {
   bookName?: InputMaybe<Scalars['String']['input']>;
   /** Array of sentences */
   sentences: Array<Scalars['String']['input']>;
-};
-
-export type TranslateTextOutModel = {
-  __typename?: 'TranslateTextOutModel';
-  translatedText: Scalars['String']['output'];
 };
 
 export type UpdateBookChapterInput = {
@@ -529,6 +538,8 @@ export type UpdatePrivateVideoInput = {
   fileMimeType?: InputMaybe<Scalars['String']['input']>;
   /** File name */
   fileName?: InputMaybe<Scalars['String']['input']>;
+  /** File size */
+  fileSizeMb?: InputMaybe<Scalars['Float']['input']>;
   /** Video id */
   id: Scalars['Int']['input'];
   /** Is file was upload to S3 */
@@ -543,6 +554,7 @@ export type UpdatePrivateVideoInput = {
 
 export type UpdateVideoPrivateOutModel = {
   __typename?: 'UpdateVideoPrivateOutModel';
+  fileSizeMb?: Maybe<Scalars['Float']['output']>;
   id: Scalars['Int']['output'];
   name?: Maybe<Scalars['String']['output']>;
   resolvedText?: Maybe<Scalars['String']['output']>;
@@ -563,6 +575,7 @@ export type VideoPrivateOutModel = {
   __typename?: 'VideoPrivateOutModel';
   fileName?: Maybe<Scalars['String']['output']>;
   fileS3Key?: Maybe<Scalars['String']['output']>;
+  fileSizeMb: Scalars['Float']['output'];
   fileUrl?: Maybe<Scalars['String']['output']>;
   id: Scalars['Int']['output'];
   isFileUploaded: Scalars['Boolean']['output'];
@@ -731,14 +744,14 @@ export type Translate_TranslatePhraseVariables = Exact<{
 }>;
 
 
-export type Translate_TranslatePhrase = { __typename?: 'Mutation', translate_translate_phrase: { __typename?: 'TranslateTextOutModel', translatedText: string } };
+export type Translate_TranslatePhrase = { __typename?: 'Mutation', translate_translate_phrase: { __typename?: 'EngRusDictionaryItemOutModel', id: number, engPhrase: string, rusPhrase: string, transcription?: string | null, lexemes?: string | null } };
 
 export type Translate_TranslateSentenceVariables = Exact<{
   input: TranslateSentenceInput;
 }>;
 
 
-export type Translate_TranslateSentence = { __typename?: 'Mutation', translate_translate_sentence: { __typename?: 'TranslateTextOutModel', translatedText: string } };
+export type Translate_TranslateSentence = { __typename?: 'Mutation', translate_translate_sentence: { __typename?: 'TranslateSentenceOutModel', translatedText: string } };
 
 export type VideoPrivate_CreateVariables = Exact<{
   input: CreatePrivateVideoInput;
@@ -759,19 +772,19 @@ export type VideoPrivate_GetVariables = Exact<{
 }>;
 
 
-export type VideoPrivate_Get = { __typename?: 'Query', video_private_get: { __typename?: 'VideoPrivateOutModel', id: number, name?: string | null, text?: string | null, resolvedText?: string | null, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean } };
+export type VideoPrivate_Get = { __typename?: 'Query', video_private_get: { __typename?: 'VideoPrivateOutModel', id: number, name?: string | null, text?: string | null, resolvedText?: string | null, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean, fileSizeMb: number } };
 
 export type VideoPrivate_GetUserVideosVariables = Exact<{ [key: string]: never; }>;
 
 
-export type VideoPrivate_GetUserVideos = { __typename?: 'Query', video_private_user_videos: Array<{ __typename?: 'VideoPrivateOutModel', id: number, name?: string | null, text?: string | null, resolvedText?: string | null, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean }> };
+export type VideoPrivate_GetUserVideos = { __typename?: 'Query', video_private_user_videos: Array<{ __typename?: 'VideoPrivateOutModel', id: number, name?: string | null, text?: string | null, resolvedText?: string | null, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean, fileSizeMb: number }> };
 
 export type VideoPrivate_UpdateVariables = Exact<{
   input: UpdatePrivateVideoInput;
 }>;
 
 
-export type VideoPrivate_Update = { __typename?: 'Mutation', video_private_update: { __typename?: 'UpdateVideoPrivateOutModel', id: number, name?: string | null, text?: string | null, userId: number, uploadUrl?: string | null } };
+export type VideoPrivate_Update = { __typename?: 'Mutation', video_private_update: { __typename?: 'UpdateVideoPrivateOutModel', id: number, name?: string | null, text?: string | null, userId: number, uploadUrl?: string | null, fileSizeMb?: number | null } };
 
 
 export const AiCheckTranslationDocument = gql`
@@ -1726,7 +1739,11 @@ export type Payment_YookassaTopUpBalanceMutationOptions = Apollo.BaseMutationOpt
 export const Translate_TranslatePhraseDocument = gql`
     mutation Translate_translatePhrase($input: TranslatePhraseInput!) {
   translate_translate_phrase(input: $input) {
-    translatedText
+    id
+    engPhrase
+    rusPhrase
+    transcription
+    lexemes
   }
 }
     `;
@@ -1868,6 +1885,7 @@ export const VideoPrivate_GetDocument = gql`
     fileS3Key
     fileUrl
     isFileUploaded
+    fileSizeMb
   }
 }
     `;
@@ -1916,6 +1934,7 @@ export const VideoPrivate_GetUserVideosDocument = gql`
     fileS3Key
     fileUrl
     isFileUploaded
+    fileSizeMb
   }
 }
     `;
@@ -1959,6 +1978,7 @@ export const VideoPrivate_UpdateDocument = gql`
     text
     userId
     uploadUrl
+    fileSizeMb
   }
 }
     `;

@@ -29,4 +29,7 @@ export class VideoPrivateOutModel {
 
 	@Field(() => Boolean)
 	isFileUploaded: boolean
+
+	@Field(() => Number)
+	fileSizeMb: number
 }

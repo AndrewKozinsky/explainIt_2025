@@ -9,5 +9,6 @@ query VideoPrivate_getUserVideos {
 		fileS3Key
 		fileUrl
 		isFileUploaded
+		fileSizeMb
 	}
 }

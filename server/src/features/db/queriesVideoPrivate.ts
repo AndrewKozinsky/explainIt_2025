@@ -39,6 +39,7 @@ export const queriesVideoPrivate = {
 						text
 						userId
 						uploadUrl
+						fileSizeMb
 					}
 				}`,
 			variables: {

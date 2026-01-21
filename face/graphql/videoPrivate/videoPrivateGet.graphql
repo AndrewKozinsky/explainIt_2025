@@ -9,5 +9,6 @@ query VideoPrivate_get($input: GetPrivateVideoInput!) {
 		fileS3Key
 		fileUrl
 		isFileUploaded
+		fileSizeMb
 	}
 }

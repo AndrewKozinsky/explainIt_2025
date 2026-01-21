@@ -1,18 +1,16 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+import { EngRusDictionaryRepository } from 'repo/engRusDictionary.repository'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { YandexDictionaryService } from 'infrastructure/yandexDictionary/yandexDictionary.service'
 import { YandexTranslateService } from 'infrastructure/yandexTranslate/yandexTranslate.service'
+import { EngRusDictionaryItemOutModel } from 'models/dictionary/dictionary.out.model'
 
 export type TranslateTextInput = {
 	text: string
 	targetLanguageCode?: null | string
 	sourceLanguageCode?: null | string
-}
-
-export type TranslateTextResult = {
-	translatedText: string
 }
 
 export class TranslatePhraseCommand implements ICommand {
@@ -24,47 +22,82 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 	constructor(
 		private yandexTranslateService: YandexTranslateService,
 		private yandexDictionaryService: YandexDictionaryService,
+		private engRusDictionaryRepository: EngRusDictionaryRepository,
 	) {}
 
-	async execute(command: TranslatePhraseCommand): Promise<TranslateTextResult> {
+	async execute(command: TranslatePhraseCommand): Promise<EngRusDictionaryItemOutModel> {
 		const { input } = command
 
-		// 1. This command gets a word or several words in the text property.
-		// 2. The program checks existing of these words in the EnglishRussianDictionary table in the database.
-		// 3. If these words exist in the EnglishRussianDictionary table, it returns full data.
-		// 4. If these words don't exist in the EnglishRussianDictionary table, the program must do a request to Yandex Dictionary service and to get a translation.
-		// 5. After the Yandex Dictionary service returns correct data, I have to remain it in the EnglishRussianDictionary table.
-		// 6. Then I have to get transcriptions for all words. To do this, I have to call the YandexDictionaryService and pass my words there.
-		// 7. If YandexDictionaryService returns a successful answer, I put this data in EnglishRussianDictionary table, then I return full data.
-		// 8. If YandexDictionaryService returns an unsuccessful answer, I divide text, then I check if this word exists in EnglishRussianDictionary table.
-		// 9. If it doesn't exist, I do a request to Yandex Dictionary service to get full analysis.
-		// 10. Then I save the full analysis in EnglishRussianDictionary table.
-		// 11. In the end, I collect a translation, transcription and data from the dictionary to full answer and return in to the client.
+		// 1. This command gets a word or several words in English.
+		// 2. The program checks existing of these words in the EngRusDictionary table in the database.
+		const dictionaryItem = await this.engRusDictionaryRepository.getDictionaryItemByEngPhrase(input.text)
 
-		try {
-			// Transform this code late to get a transcription and dictionary words if it possible
-			/*const res = await this.yandexDictionaryService.lookupWord({
-				// text: input.text,
-				text: 'quite a lot',
-				directionOfTranslation: 'en-ru',
-			})
-			console.log(JSON.stringify(res))*/
-
-			const result = await this.yandexTranslateService.translateText({
-				text: input.text,
-				targetLanguageCode: input.targetLanguageCode ?? 'ru',
-				sourceLanguageCode: input.sourceLanguageCode ?? 'en',
-			})
-
-			return {
-				translatedText: result.translatedText,
-			}
-		} catch (error) {
-			console.log('Error in TranslatePhraseHandler => execute')
-			console.error(error)
-
-			throw new CustomGraphQLError(errorMessage.unknownError, ErrorCode.InternalServerError_500)
+		// 3. If these words exist in the EngRusDictionary table, it returns full data.
+		if (dictionaryItem) {
+			return dictionaryItem
 		}
+
+		// 4. If these words don't exist in the EngRusDictionary table, the program must do a request to Yandex Translate service and to get a translation.
+		const yandexTranslateResponse = await this.yandexTranslateService.translateText({
+			text: input.text,
+			targetLanguageCode: 'ru',
+			sourceLanguageCode: 'en',
+		})
+
+		// Get transcription
+		const transcription = await this.getTranscription(input.text)
+		// Get lexemes
+		const lexemes = await this.getPhraseLexemes(input.text)
+
+		// Save all data to the database
+		const createdPhrase = await this.engRusDictionaryRepository.saveDictionaryItem({
+			engPhrase: input.text,
+			rusPhrase: yandexTranslateResponse.translatedText,
+			transcription,
+			lexemes,
+		})
+		if (!createdPhrase) {
+			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
+		}
+
+		return createdPhrase
+	}
+
+	async getTranscription(phrase: string) {
+		const words = phrase.trim().split(/\s+/).filter(Boolean)
+		if (words.length === 0) return ''
+
+		const transcriptions = await Promise.all(
+			words.map(async (word) => {
+				try {
+					const dictionaryItem = await this.engRusDictionaryRepository.getDictionaryItemByEngPhrase(word)
+					if (dictionaryItem) {
+						return dictionaryItem.transcription ?? word
+					}
+
+					const response = await this.yandexDictionaryService.lookupWord({
+						text: word,
+						directionOfTranslation: 'en-ru',
+						ui: 'ru',
+					})
+					const transcription = response.def?.[0]?.ts
+					return transcription ?? word
+				} catch {
+					return word
+				}
+			}),
+		)
+
+		return transcriptions.join(' ')
+	}
+
+	async getPhraseLexemes(phrase: string) {
+		const lexemes = await this.yandexDictionaryService.lookupWord({ text: phrase })
+		if (!lexemes || !lexemes.def || !lexemes.def.length) {
+			return null
+		}
+
+		return JSON.stringify(lexemes.def)
 	}
 }
 
@@ -87,6 +120,48 @@ const dd = {
 			pos: 'прилагательное',
 			ts: 'ˈseɪvɪŋz',
 			tr: [{ text: 'сберегательный', pos: 'прилагательное', fr: 10, mean: [{ text: 'saving' }] }],
+		},
+	],
+	nmt_code: 200,
+	code: 200,
+}
+
+const dd2 = {
+	head: {},
+	def: [
+		{
+			text: 'and',
+			pos: 'союз',
+			ts: 'ænd',
+			tr: [
+				{
+					text: 'и',
+					pos: 'союз',
+					fr: 10,
+					syn: [{ text: 'а', pos: 'союз', fr: 5 }],
+					mean: [{ text: 'or' }, { text: 'as' }],
+				},
+				{ text: 'а также', pos: 'союз', fr: 1, mean: [{ text: 'as well as' }] },
+				{
+					text: 'причем',
+					pos: 'союз',
+					fr: 1,
+					syn: [{ text: 'но', pos: 'союз', fr: 1 }],
+					mean: [{ text: 'while' }, { text: 'but' }],
+				},
+			],
+		},
+		{
+			text: 'and',
+			pos: 'наречие',
+			ts: 'ænd',
+			tr: [{ text: 'так и', pos: 'наречие', fr: 1, mean: [{ text: 'as well as' }] }],
+		},
+		{
+			text: 'and',
+			pos: 'предлог',
+			ts: 'ænd',
+			tr: [{ text: 'с', pos: 'предлог', fr: 1, mean: [{ text: 'with' }] }],
 		},
 	],
 	nmt_code: 200,

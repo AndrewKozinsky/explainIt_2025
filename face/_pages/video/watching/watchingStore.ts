@@ -23,6 +23,14 @@ export const watchingStoreValues: WatchingStoreValues = {
 		plainText: null,
 		subtitle: null,
 	},
+	analysis: {
+		engText: '',
+		analysis: {
+			type: 'loading',
+		},
+	},
+	// Идентификатор текущей вкладки лексемов
+	lexemTabId: '0',
 }
 
 export const useWatchingStore = create<WatchingStore>()((set, get) => {
@@ -218,10 +226,22 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 			})
 		},
 		updateSelectedText(selectedText: WatchingStoreI.SelectedText) {
-			set((baseState) => {
-				return produce(baseState, (draftState) => {
-					draftState.selectedText = selectedText
-				})
+			set((state) => {
+				return { selectedText }
+			})
+		},
+		updateAnalysis(analysis: WatchingStoreI.Analysis) {
+			set((state) => {
+				if (analysis.analysis.type !== 'data' || !analysis.analysis.lexemes?.length) {
+					return { analysis }
+				}
+
+				return { analysis, lexemTabId: analysis.analysis.lexemes[0].pos }
+			})
+		},
+		updateLexemTabId(tabId: string) {
+			set((state) => {
+				return { lexemTabId: tabId }
 			})
 		},
 	}
@@ -274,6 +294,42 @@ export namespace WatchingStoreI {
 		wordIds: number[]
 		wordsTexts: string[]
 	}
+
+	export type Analysis = {
+		engText: string
+		analysis: AnalysisLoading | AnalysisError | AnalysisData
+	}
+
+	type AnalysisLoading = {
+		type: 'loading'
+	}
+	type AnalysisError = {
+		type: 'error'
+		message: string
+	}
+	type AnalysisData = {
+		type: 'data'
+		rusText: string
+		transcription?: string
+		lexemes?: Lexeme[]
+	}
+	type Lexeme = {
+		text: string
+		pos?: string
+		ts?: string
+		tr?: LexemeTranslation[]
+	}
+	export type LexemeTranslation = {
+		text: string
+		pos?: string
+		gen?: string
+		syn?: Array<{ text: string; pos?: string; gen?: string }>
+		mean?: Array<{ text: string }>
+		ex?: Array<{
+			text: string
+			tr?: Array<{ text: string }>
+		}>
+	}
 }
 
 export type WatchingStore = WatchingStoreValues & WatchingStoreMethods
@@ -301,6 +357,8 @@ export type WatchingStoreValues = {
 		plainText: null | WatchingStoreI.SelectedPlainText
 		subtitle: null | WatchingStoreI.SelectedSubtitle
 	}
+	analysis: WatchingStoreI.Analysis
+	lexemTabId: string
 }
 
 export type PlayerCommand =
@@ -330,4 +388,6 @@ export type WatchingStoreMethods = {
 	updateSelectedPlainText: (sentenceId: number, wordId: number) => void
 	updateSelectedSubtitle: (sentenceId: number, wordId: number) => void
 	updateSelectedText: (selectedText: WatchingStoreI.SelectedText) => void
+	updateAnalysis: (analysis: WatchingStoreI.Analysis) => void
+	updateLexemTabId: (tabId: string) => void
 }

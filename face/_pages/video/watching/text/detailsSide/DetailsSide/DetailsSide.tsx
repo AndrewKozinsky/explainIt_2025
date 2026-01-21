@@ -1,7 +1,9 @@
 import React from 'react'
-import DetailsSentence from '_pages/video/watching/text/detailsSide/DetailsSentence/DetailsSentence'
 import { useWatchingStore } from '_pages/video/watching/watchingStore'
 import DetailsHelp from '../DetailsHelp/DetailsHelp'
+import DetailsSentence from '../DetailsSentence/DetailsSentence'
+import PhraseAnalysis from '../PhraseAnalysis/PhraseAnalysis'
+import './DetailsSide.scss'
 
 function DetailsSide() {
 	const selectedText = useWatchingStore((s) => s.selectedText)
@@ -11,7 +13,12 @@ function DetailsSide() {
 		return <DetailsHelp />
 	}
 
-	return <DetailsSentence />
+	return (
+		<div className='details-side'>
+			<DetailsSentence />
+			<PhraseAnalysis />
+		</div>
+	)
 }
 
 export default DetailsSide

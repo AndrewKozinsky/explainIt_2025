@@ -19,6 +19,7 @@ export type UpdatePrivateVideoInput = {
 	fileName?: null | string
 	fileMimeType?: null | string
 	isFileUploaded?: boolean
+	fileSizeMb?: number
 }
 
 export class UpdatePrivateVideoCommand implements ICommand {
@@ -70,6 +71,7 @@ export class UpdatePrivateVideoHandler
 			fileS3Key,
 			fileUrl,
 			isFileUploaded,
+			fileSizeMb: updateVideoInput.fileSizeMb,
 		})
 
 		if (!updatedVideo) {

@@ -175,6 +175,14 @@ input DeletePrivateVideoInput {
   id: Int!
 }
 
+type EngRusDictionaryItemOutModel {
+  engPhrase: String!
+  id: Int!
+  lexemes: String
+  rusPhrase: String!
+  transcription: String
+}
+
 input GetBookChapterInput {
   """Book type: public or private"""
   bookType: String!
@@ -276,8 +284,8 @@ type Mutation {
 
   """Top up a balance with YooKassa"""
   payment_yookassa_top_up_balance(input: TopUpBalanceWithYooKassaInput!): TopUpBalanceWithYooKassaOutModel!
-  translate_translate_phrase(input: TranslatePhraseInput!): TranslateTextOutModel!
-  translate_translate_sentence(input: TranslateSentenceInput!): TranslateTextOutModel!
+  translate_translate_phrase(input: TranslatePhraseInput!): EngRusDictionaryItemOutModel!
+  translate_translate_sentence(input: TranslateSentenceInput!): TranslateSentenceOutModel!
 
   """Create a video"""
   video_private_create(input: CreatePrivateVideoInput!): CreateVideoPrivateOutModel!
@@ -368,6 +376,10 @@ input TranslateSentenceInput {
   text: String!
 }
 
+type TranslateSentenceOutModel {
+  translatedText: String!
+}
+
 input TranslateSentencesInput {
   """Book author"""
   bookAuthor: String
@@ -377,10 +389,6 @@ input TranslateSentencesInput {
 
   """Array of sentences"""
   sentences: [String!]!
-}
-
-type TranslateTextOutModel {
-  translatedText: String!
 }
 
 input UpdateBookChapterInput {
@@ -421,6 +429,9 @@ input UpdatePrivateVideoInput {
   """File name"""
   fileName: String
 
+  """File size"""
+  fileSizeMb: Float
+
   """Video id"""
   id: Int!
 
@@ -438,6 +449,7 @@ input UpdatePrivateVideoInput {
 }
 
 type UpdateVideoPrivateOutModel {
+  fileSizeMb: Float
   id: Int!
   name: String
   resolvedText: String
@@ -456,6 +468,7 @@ type UserOutModel {
 type VideoPrivateOutModel {
   fileName: String
   fileS3Key: String
+  fileSizeMb: Float!
   fileUrl: String
   id: Int!
   isFileUploaded: Boolean!

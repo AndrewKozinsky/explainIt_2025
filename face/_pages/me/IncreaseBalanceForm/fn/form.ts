@@ -1,5 +1,5 @@
-import * as yup from 'yup'
 import { errorMessages } from 'utils/errorMessages'
+import * as yup from 'yup'
 
 export const increaseBalanceFormSchema = yup
 	.object({

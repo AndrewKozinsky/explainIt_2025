@@ -60,7 +60,7 @@ export const ModelName = {
   BookChapterPhrase: 'BookChapterPhrase',
   BookChapterPhraseExample: 'BookChapterPhraseExample',
   VideoPrivate: 'VideoPrivate',
-  EnglishRussianDictionary: 'EnglishRussianDictionary'
+  EngRusDictionary: 'EngRusDictionary'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -192,6 +192,7 @@ export const VideoPrivateScalarFieldEnum = {
   file_s3_key: 'file_s3_key',
   file_url: 'file_url',
   is_file_uploaded: 'is_file_uploaded',
+  file_size_mb: 'file_size_mb',
   name: 'name',
   text: 'text',
   text_resolved: 'text_resolved',
@@ -202,16 +203,17 @@ export const VideoPrivateScalarFieldEnum = {
 export type VideoPrivateScalarFieldEnum = (typeof VideoPrivateScalarFieldEnum)[keyof typeof VideoPrivateScalarFieldEnum]
 
 
-export const EnglishRussianDictionaryScalarFieldEnum = {
+export const EngRusDictionaryScalarFieldEnum = {
   id: 'id',
   eng: 'eng',
   rus: 'rus',
   transcription: 'transcription',
+  lexemes: 'lexemes',
   created_at: 'created_at',
   updated_at: 'updated_at'
 } as const
 
-export type EnglishRussianDictionaryScalarFieldEnum = (typeof EnglishRussianDictionaryScalarFieldEnum)[keyof typeof EnglishRussianDictionaryScalarFieldEnum]
+export type EngRusDictionaryScalarFieldEnum = (typeof EngRusDictionaryScalarFieldEnum)[keyof typeof EngRusDictionaryScalarFieldEnum]
 
 
 export const SortOrder = {

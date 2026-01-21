@@ -133,6 +133,7 @@ export interface UpdatePrivateVideoInput {
     fileName?: Nullable<string>;
     fileMimeType?: Nullable<string>;
     isFileUploaded?: Nullable<boolean>;
+    fileSizeMb?: Nullable<number>;
 }
 
 export interface DeletePrivateVideoInput {
@@ -213,7 +214,15 @@ export interface BookPublicOutModel {
     chapters: BookChapterLiteOutModel[];
 }
 
-export interface TranslateTextOutModel {
+export interface EngRusDictionaryItemOutModel {
+    id: number;
+    engPhrase: string;
+    rusPhrase: string;
+    transcription?: Nullable<string>;
+    lexemes?: Nullable<string>;
+}
+
+export interface TranslateSentenceOutModel {
     translatedText: string;
 }
 
@@ -232,6 +241,7 @@ export interface UpdateVideoPrivateOutModel {
     resolvedText?: Nullable<string>;
     userId: number;
     uploadUrl?: Nullable<string>;
+    fileSizeMb?: Nullable<number>;
 }
 
 export interface VideoPrivateOutModel {
@@ -244,6 +254,7 @@ export interface VideoPrivateOutModel {
     fileS3Key?: Nullable<string>;
     fileUrl?: Nullable<string>;
     isFileUploaded: boolean;
+    fileSizeMb: number;
 }
 
 export interface UserOutModel {
@@ -311,8 +322,8 @@ export interface IMutation {
     video_private_create(input: CreatePrivateVideoInput): CreateVideoPrivateOutModel | Promise<CreateVideoPrivateOutModel>;
     video_private_update(input: UpdatePrivateVideoInput): UpdateVideoPrivateOutModel | Promise<UpdateVideoPrivateOutModel>;
     video_private_delete(input: DeletePrivateVideoInput): boolean | Promise<boolean>;
-    translate_translate_phrase(input: TranslatePhraseInput): TranslateTextOutModel | Promise<TranslateTextOutModel>;
-    translate_translate_sentence(input: TranslateSentenceInput): TranslateTextOutModel | Promise<TranslateTextOutModel>;
+    translate_translate_phrase(input: TranslatePhraseInput): EngRusDictionaryItemOutModel | Promise<EngRusDictionaryItemOutModel>;
+    translate_translate_sentence(input: TranslateSentenceInput): TranslateSentenceOutModel | Promise<TranslateSentenceOutModel>;
 }
 
 export type CheckTranslationOutModel = CheckTranslationOutSuccessModel | CheckTranslationOutErrorModel;

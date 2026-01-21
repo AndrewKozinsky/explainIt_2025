@@ -45,7 +45,9 @@ function DetailsSentence() {
 						}
 					})}
 				</p>
-				<p className='details-sentence__translation'>{selectedItem.translation}</p>
+				{selectedItem.translation && (
+					<p className='details-sentence__translation'>{selectedItem.translation}</p>
+				)}
 			</div>
 			<div className='details-sentence__buttons'>
 				<CopyButton />

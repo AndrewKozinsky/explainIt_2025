@@ -1,7 +1,7 @@
-import { useVideosStore } from '_pages/video/videos/videosStore'
-import { useVideoPrivate_GetUserVideos } from '@/graphql'
-import { useParams, usePathname } from 'next/navigation'
 import { useEffect } from 'react'
+import { useParams, usePathname } from 'next/navigation'
+import { useVideoPrivate_GetUserVideos } from '@/graphql'
+import { useVideosStore } from '_pages/video/videos/videosStore'
 
 /** Наполняет Хранилище данными для начала работы */
 export function usePopulateVideosStore() {

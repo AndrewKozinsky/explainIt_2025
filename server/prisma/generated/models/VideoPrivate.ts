@@ -29,11 +29,13 @@ export type AggregateVideoPrivate = {
 export type VideoPrivateAvgAggregateOutputType = {
   id: number | null
   user_id: number | null
+  file_size_mb: number | null
 }
 
 export type VideoPrivateSumAggregateOutputType = {
   id: number | null
   user_id: number | null
+  file_size_mb: number | null
 }
 
 export type VideoPrivateMinAggregateOutputType = {
@@ -43,6 +45,7 @@ export type VideoPrivateMinAggregateOutputType = {
   file_s3_key: string | null
   file_url: string | null
   is_file_uploaded: boolean | null
+  file_size_mb: number | null
   name: string | null
   text: string | null
   text_resolved: string | null
@@ -57,6 +60,7 @@ export type VideoPrivateMaxAggregateOutputType = {
   file_s3_key: string | null
   file_url: string | null
   is_file_uploaded: boolean | null
+  file_size_mb: number | null
   name: string | null
   text: string | null
   text_resolved: string | null
@@ -71,6 +75,7 @@ export type VideoPrivateCountAggregateOutputType = {
   file_s3_key: number
   file_url: number
   is_file_uploaded: number
+  file_size_mb: number
   name: number
   text: number
   text_resolved: number
@@ -83,11 +88,13 @@ export type VideoPrivateCountAggregateOutputType = {
 export type VideoPrivateAvgAggregateInputType = {
   id?: true
   user_id?: true
+  file_size_mb?: true
 }
 
 export type VideoPrivateSumAggregateInputType = {
   id?: true
   user_id?: true
+  file_size_mb?: true
 }
 
 export type VideoPrivateMinAggregateInputType = {
@@ -97,6 +104,7 @@ export type VideoPrivateMinAggregateInputType = {
   file_s3_key?: true
   file_url?: true
   is_file_uploaded?: true
+  file_size_mb?: true
   name?: true
   text?: true
   text_resolved?: true
@@ -111,6 +119,7 @@ export type VideoPrivateMaxAggregateInputType = {
   file_s3_key?: true
   file_url?: true
   is_file_uploaded?: true
+  file_size_mb?: true
   name?: true
   text?: true
   text_resolved?: true
@@ -125,6 +134,7 @@ export type VideoPrivateCountAggregateInputType = {
   file_s3_key?: true
   file_url?: true
   is_file_uploaded?: true
+  file_size_mb?: true
   name?: true
   text?: true
   text_resolved?: true
@@ -226,6 +236,7 @@ export type VideoPrivateGroupByOutputType = {
   file_s3_key: string | null
   file_url: string | null
   is_file_uploaded: boolean
+  file_size_mb: number
   name: string | null
   text: string | null
   text_resolved: string | null
@@ -263,6 +274,7 @@ export type VideoPrivateWhereInput = {
   file_s3_key?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   file_url?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   is_file_uploaded?: Prisma.BoolFilter<"VideoPrivate"> | boolean
+  file_size_mb?: Prisma.IntFilter<"VideoPrivate"> | number
   name?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   text?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   text_resolved?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
@@ -278,6 +290,7 @@ export type VideoPrivateOrderByWithRelationInput = {
   file_s3_key?: Prisma.SortOrderInput | Prisma.SortOrder
   file_url?: Prisma.SortOrderInput | Prisma.SortOrder
   is_file_uploaded?: Prisma.SortOrder
+  file_size_mb?: Prisma.SortOrder
   name?: Prisma.SortOrderInput | Prisma.SortOrder
   text?: Prisma.SortOrderInput | Prisma.SortOrder
   text_resolved?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -296,6 +309,7 @@ export type VideoPrivateWhereUniqueInput = Prisma.AtLeast<{
   file_s3_key?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   file_url?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   is_file_uploaded?: Prisma.BoolFilter<"VideoPrivate"> | boolean
+  file_size_mb?: Prisma.IntFilter<"VideoPrivate"> | number
   name?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   text?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   text_resolved?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
@@ -311,6 +325,7 @@ export type VideoPrivateOrderByWithAggregationInput = {
   file_s3_key?: Prisma.SortOrderInput | Prisma.SortOrder
   file_url?: Prisma.SortOrderInput | Prisma.SortOrder
   is_file_uploaded?: Prisma.SortOrder
+  file_size_mb?: Prisma.SortOrder
   name?: Prisma.SortOrderInput | Prisma.SortOrder
   text?: Prisma.SortOrderInput | Prisma.SortOrder
   text_resolved?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -333,6 +348,7 @@ export type VideoPrivateScalarWhereWithAggregatesInput = {
   file_s3_key?: Prisma.StringNullableWithAggregatesFilter<"VideoPrivate"> | string | null
   file_url?: Prisma.StringNullableWithAggregatesFilter<"VideoPrivate"> | string | null
   is_file_uploaded?: Prisma.BoolWithAggregatesFilter<"VideoPrivate"> | boolean
+  file_size_mb?: Prisma.IntWithAggregatesFilter<"VideoPrivate"> | number
   name?: Prisma.StringNullableWithAggregatesFilter<"VideoPrivate"> | string | null
   text?: Prisma.StringNullableWithAggregatesFilter<"VideoPrivate"> | string | null
   text_resolved?: Prisma.StringNullableWithAggregatesFilter<"VideoPrivate"> | string | null
@@ -345,6 +361,7 @@ export type VideoPrivateCreateInput = {
   file_s3_key?: string | null
   file_url?: string | null
   is_file_uploaded?: boolean
+  file_size_mb: number
   name?: string | null
   text?: string | null
   text_resolved?: string | null
@@ -360,6 +377,7 @@ export type VideoPrivateUncheckedCreateInput = {
   file_s3_key?: string | null
   file_url?: string | null
   is_file_uploaded?: boolean
+  file_size_mb: number
   name?: string | null
   text?: string | null
   text_resolved?: string | null
@@ -372,6 +390,7 @@ export type VideoPrivateUpdateInput = {
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   text_resolved?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -387,6 +406,7 @@ export type VideoPrivateUncheckedUpdateInput = {
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   text_resolved?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -401,6 +421,7 @@ export type VideoPrivateCreateManyInput = {
   file_s3_key?: string | null
   file_url?: string | null
   is_file_uploaded?: boolean
+  file_size_mb: number
   name?: string | null
   text?: string | null
   text_resolved?: string | null
@@ -413,6 +434,7 @@ export type VideoPrivateUpdateManyMutationInput = {
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   text_resolved?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -427,6 +449,7 @@ export type VideoPrivateUncheckedUpdateManyInput = {
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   text_resolved?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -451,6 +474,7 @@ export type VideoPrivateCountOrderByAggregateInput = {
   file_s3_key?: Prisma.SortOrder
   file_url?: Prisma.SortOrder
   is_file_uploaded?: Prisma.SortOrder
+  file_size_mb?: Prisma.SortOrder
   name?: Prisma.SortOrder
   text?: Prisma.SortOrder
   text_resolved?: Prisma.SortOrder
@@ -461,6 +485,7 @@ export type VideoPrivateCountOrderByAggregateInput = {
 export type VideoPrivateAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
+  file_size_mb?: Prisma.SortOrder
 }
 
 export type VideoPrivateMaxOrderByAggregateInput = {
@@ -470,6 +495,7 @@ export type VideoPrivateMaxOrderByAggregateInput = {
   file_s3_key?: Prisma.SortOrder
   file_url?: Prisma.SortOrder
   is_file_uploaded?: Prisma.SortOrder
+  file_size_mb?: Prisma.SortOrder
   name?: Prisma.SortOrder
   text?: Prisma.SortOrder
   text_resolved?: Prisma.SortOrder
@@ -484,6 +510,7 @@ export type VideoPrivateMinOrderByAggregateInput = {
   file_s3_key?: Prisma.SortOrder
   file_url?: Prisma.SortOrder
   is_file_uploaded?: Prisma.SortOrder
+  file_size_mb?: Prisma.SortOrder
   name?: Prisma.SortOrder
   text?: Prisma.SortOrder
   text_resolved?: Prisma.SortOrder
@@ -494,6 +521,7 @@ export type VideoPrivateMinOrderByAggregateInput = {
 export type VideoPrivateSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
+  file_size_mb?: Prisma.SortOrder
 }
 
 export type VideoPrivateCreateNestedManyWithoutUserInput = {
@@ -543,6 +571,7 @@ export type VideoPrivateCreateWithoutUserInput = {
   file_s3_key?: string | null
   file_url?: string | null
   is_file_uploaded?: boolean
+  file_size_mb: number
   name?: string | null
   text?: string | null
   text_resolved?: string | null
@@ -556,6 +585,7 @@ export type VideoPrivateUncheckedCreateWithoutUserInput = {
   file_s3_key?: string | null
   file_url?: string | null
   is_file_uploaded?: boolean
+  file_size_mb: number
   name?: string | null
   text?: string | null
   text_resolved?: string | null
@@ -599,6 +629,7 @@ export type VideoPrivateScalarWhereInput = {
   file_s3_key?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   file_url?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   is_file_uploaded?: Prisma.BoolFilter<"VideoPrivate"> | boolean
+  file_size_mb?: Prisma.IntFilter<"VideoPrivate"> | number
   name?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   text?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   text_resolved?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
@@ -612,6 +643,7 @@ export type VideoPrivateCreateManyUserInput = {
   file_s3_key?: string | null
   file_url?: string | null
   is_file_uploaded?: boolean
+  file_size_mb: number
   name?: string | null
   text?: string | null
   text_resolved?: string | null
@@ -624,6 +656,7 @@ export type VideoPrivateUpdateWithoutUserInput = {
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   text_resolved?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -637,6 +670,7 @@ export type VideoPrivateUncheckedUpdateWithoutUserInput = {
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   text_resolved?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -650,6 +684,7 @@ export type VideoPrivateUncheckedUpdateManyWithoutUserInput = {
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   text_resolved?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -666,6 +701,7 @@ export type VideoPrivateSelect<ExtArgs extends runtime.Types.Extensions.Internal
   file_s3_key?: boolean
   file_url?: boolean
   is_file_uploaded?: boolean
+  file_size_mb?: boolean
   name?: boolean
   text?: boolean
   text_resolved?: boolean
@@ -681,6 +717,7 @@ export type VideoPrivateSelectCreateManyAndReturn<ExtArgs extends runtime.Types.
   file_s3_key?: boolean
   file_url?: boolean
   is_file_uploaded?: boolean
+  file_size_mb?: boolean
   name?: boolean
   text?: boolean
   text_resolved?: boolean
@@ -696,6 +733,7 @@ export type VideoPrivateSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.
   file_s3_key?: boolean
   file_url?: boolean
   is_file_uploaded?: boolean
+  file_size_mb?: boolean
   name?: boolean
   text?: boolean
   text_resolved?: boolean
@@ -711,6 +749,7 @@ export type VideoPrivateSelectScalar = {
   file_s3_key?: boolean
   file_url?: boolean
   is_file_uploaded?: boolean
+  file_size_mb?: boolean
   name?: boolean
   text?: boolean
   text_resolved?: boolean
@@ -718,7 +757,7 @@ export type VideoPrivateSelectScalar = {
   updated_at?: boolean
 }
 
-export type VideoPrivateOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "file_name" | "file_s3_key" | "file_url" | "is_file_uploaded" | "name" | "text" | "text_resolved" | "created_at" | "updated_at", ExtArgs["result"]["videoPrivate"]>
+export type VideoPrivateOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "file_name" | "file_s3_key" | "file_url" | "is_file_uploaded" | "file_size_mb" | "name" | "text" | "text_resolved" | "created_at" | "updated_at", ExtArgs["result"]["videoPrivate"]>
 export type VideoPrivateInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -741,6 +780,7 @@ export type $VideoPrivatePayload<ExtArgs extends runtime.Types.Extensions.Intern
     file_s3_key: string | null
     file_url: string | null
     is_file_uploaded: boolean
+    file_size_mb: number
     name: string | null
     text: string | null
     text_resolved: string | null
@@ -1176,6 +1216,7 @@ export interface VideoPrivateFieldRefs {
   readonly file_s3_key: Prisma.FieldRef<"VideoPrivate", 'String'>
   readonly file_url: Prisma.FieldRef<"VideoPrivate", 'String'>
   readonly is_file_uploaded: Prisma.FieldRef<"VideoPrivate", 'Boolean'>
+  readonly file_size_mb: Prisma.FieldRef<"VideoPrivate", 'Int'>
   readonly name: Prisma.FieldRef<"VideoPrivate", 'String'>
   readonly text: Prisma.FieldRef<"VideoPrivate", 'String'>
   readonly text_resolved: Prisma.FieldRef<"VideoPrivate", 'String'>

@@ -4,14 +4,15 @@ import { TranslatePhraseInput } from 'routes/translate/inputs/translatePhrase.in
 import { TranslatePhraseCommand } from 'features/translate/TranslatePhrase.command'
 import { TranslateSentenceCommand } from 'features/translate/TranslateSentence.command'
 import RouteNames from 'infrastructure/routeNames'
-import { TranslateTextOutModel } from 'models/yandexTranslate/translateText.out.model'
+import { EngRusDictionaryItemOutModel } from 'models/dictionary/dictionary.out.model'
+import { TranslateSentenceOutModel } from 'models/translate/translateSentenceOutModel'
 import { TranslateSentenceInput } from './inputs/translateSentence.input'
 
 @Resolver()
 export class TranslateResolver {
 	constructor(private commandBus: CommandBus) {}
 
-	@Mutation(() => TranslateTextOutModel, {
+	@Mutation(() => EngRusDictionaryItemOutModel, {
 		name: RouteNames.TRANSLATE.TRANSLATE_PHRASE,
 	})
 	async translatePhrase(@Args('input') input: TranslatePhraseInput) {
@@ -24,7 +25,7 @@ export class TranslateResolver {
 		)
 	}
 
-	@Mutation(() => TranslateTextOutModel, {
+	@Mutation(() => TranslateSentenceOutModel, {
 		name: RouteNames.TRANSLATE.TRANSLATE_SENTENCE,
 	})
 	async translateSentence(@Args('input') input: TranslateSentenceInput) {

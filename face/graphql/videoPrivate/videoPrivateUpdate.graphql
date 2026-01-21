@@ -5,5 +5,6 @@ mutation VideoPrivate_update($input: UpdatePrivateVideoInput!) {
 		text
 		userId
 		uploadUrl
+		fileSizeMb
 	}
 }

@@ -42,6 +42,7 @@ export class VideoPrivateQueryRepository {
 			text: dbVideo.text,
 			resolvedText: dbVideo.text_resolved,
 			userId: dbVideo.user_id,
+			fileSizeMb: dbVideo.file_size_mb,
 		}
 	}
 }

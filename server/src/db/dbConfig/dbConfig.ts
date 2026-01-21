@@ -489,6 +489,12 @@ export const bdConfig = {
 				example: true,
 				required: true,
 			},
+			file_size_mb: {
+				type: 'number',
+				description: 'size of the file in megabytes',
+				example: 100,
+				required: true,
+			},
 			name: {
 				type: 'string',
 				description: 'Name of the video',
@@ -513,8 +519,23 @@ export const bdConfig = {
 			},
 		},
 	},
-	EnglishRussianDictionary: {
-		dtoProps: {},
+	EngRusDictionary: {
+		dtoProps: {
+			sourceLanguageCode: {
+				type: 'string',
+				description: 'Language code',
+				required: true,
+				maxLength: 2,
+				example: 'en',
+			},
+			targetLanguageCode: {
+				type: 'string',
+				description: 'Language code',
+				required: true,
+				maxLength: 2,
+				example: 'ru',
+			},
+		},
 		dbFields: {
 			id: {
 				type: 'index',
@@ -523,21 +544,28 @@ export const bdConfig = {
 				type: 'string',
 				description: 'English text',
 				required: true,
-				maxLength: 1000,
+				maxLength: 500,
 				example: 'life',
+				unique: true,
 			},
 			rus: {
 				type: 'string',
 				description: 'Russian text',
 				required: true,
-				maxLength: 1000,
+				maxLength: 500,
 				example: 'жизнь',
 			},
 			transcription: {
 				type: 'string',
 				description: 'Transcription',
 				required: false,
-				maxLength: 1000,
+				maxLength: 500,
+			},
+			lexemes: {
+				type: 'string',
+				description: 'Lexemes',
+				required: false,
+				maxLength: 5000,
 			},
 			created_at: {
 				type: 'createdAt',

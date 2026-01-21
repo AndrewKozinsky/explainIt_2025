@@ -34,4 +34,11 @@ export class UpdatePrivateVideoInput {
 		required: false,
 	})
 	isFileUploaded?: boolean
+
+	@Field(() => Number, { description: 'File size', nullable: true })
+	@DtoFieldDecorators('isFileUploaded', bdConfig.VideoPrivate.dbFields.file_size_mb, {
+		type: 'number',
+		required: false,
+	})
+	fileSizeMb?: number
 }

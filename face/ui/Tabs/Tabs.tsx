@@ -1,5 +1,5 @@
-import cn from 'classnames'
 import React from 'react'
+import cn from 'classnames'
 import './Tabs.scss'
 
 type TabsProps = {
@@ -7,7 +7,7 @@ type TabsProps = {
 	currentTabId: string
 }
 
-type TabConfig = {
+export type TabConfig = {
 	id: string
 	label: string
 	onClick: () => void

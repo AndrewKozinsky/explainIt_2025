@@ -19,4 +19,7 @@ export class UpdateVideoPrivateOutModel {
 
 	@Field(() => String, { nullable: true })
 	uploadUrl: string | null
+
+	@Field(() => Number, { nullable: true })
+	fileSizeMb: number
 }

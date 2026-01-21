@@ -10,6 +10,7 @@ import { CreateVideoPrivateOutModel } from 'models/videoPrivate/createVideoPriva
 export type CreatePrivateVideoInput = {
 	name?: null | string
 	text?: null | string
+	fileSizeMb?: number
 }
 
 export class CreatePrivateVideoCommand implements ICommand {
@@ -38,6 +39,7 @@ export class CreatePrivateVideoHandler
 			userId,
 			name: createVideoInput.name,
 			text: createVideoInput.text,
+			fileSizeMb: createVideoInput.fileSizeMb ?? 0,
 		})
 		if (!createdVideo) {
 			throw new CustomGraphQLError(errorMessage.video.notCreated, ErrorCode.InternalServerError_500)

@@ -7,7 +7,7 @@ function DetailsSection() {
 	const privateVideo = useVideosStore((s) => s.privateVideo)
 
 	if (pageUrlType === 'videos') {
-		return <NoteText>Выберите книгу или главу для просмотра детальной информации.</NoteText>
+		return <NoteText>Выберите видео для просмотра детальной информации.</NoteText>
 	}
 
 	return (

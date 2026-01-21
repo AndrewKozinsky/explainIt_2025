@@ -7,7 +7,7 @@ import { MainConfigService } from '../mainConfig/mainConfig.service'
 
 export type LookupWordInput = {
 	text: string
-	directionOfTranslation: 'en-ru' // "en-ru" or "ru-en"
+	directionOfTranslation?: 'en-ru' // "en-ru" or "ru-en"
 	// Язык интерфейса пользователя, на котором будут отображаться названия частей речи в словарной статье.
 	// Возможные значения:
 	// en - английский;
@@ -33,7 +33,7 @@ export class YandexDictionaryService {
 					params: {
 						key,
 						text: input.text,
-						lang: input.directionOfTranslation,
+						lang: input.directionOfTranslation ?? 'en-ru',
 						ui: input.ui ?? 'ru',
 					},
 				},

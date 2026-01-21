@@ -115,6 +115,7 @@ model VideoPrivate {
     file_s3_key      String?
     file_url         String?
     is_file_uploaded Boolean  @default(false)
+    file_size_mb     Int
     name             String?
     text             String?
     text_resolved    String?
@@ -122,11 +123,12 @@ model VideoPrivate {
     updated_at       DateTime @default(now())
 }
 
-model EnglishRussianDictionary {
+model EngRusDictionary {
     id            Int      @id @default(autoincrement())
-    eng           String
+    eng           String   @unique
     rus           String
     transcription String?
+    lexemes       String?
     created_at    DateTime @default(now())
     updated_at    DateTime @default(now())
 }

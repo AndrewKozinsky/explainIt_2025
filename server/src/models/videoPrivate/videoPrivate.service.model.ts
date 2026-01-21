@@ -5,4 +5,5 @@ export type VideoPrivateServiceModel = {
 	text: string | null
 	resolvedText: string | null
 	userId: number
+	fileSizeMb: number
 }
