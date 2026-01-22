@@ -1,11 +1,11 @@
 'use client'
 
-import Image from 'next/image'
 import React, { useMemo } from 'react'
+import Image from 'next/image'
 import transcriptionService from '../../transcriptions/transcriptionService'
 import { getComponentTexts, useGetAudioPlaying } from './fn/transcriptionLogic'
-import playSign from './images/play.svg'
 import pauseSign from './images/pause.svg'
+import playSign from './images/play.svg'
 import './Transcription.scss'
 
 type TranscriptionProps = {

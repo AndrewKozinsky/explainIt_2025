@@ -273,7 +273,8 @@ export const chapter_10 = {
 		{
 			sentence:
 				'There was a bell beside the gate, and Dorothy pushed the button and heard a silvery tinkle sound within.',
-			translate: 'Рядом с воротами висел колокол; Дороти нажала кнопку звонка и услышала внутри серебристый перезвон.',
+			translate:
+				'Рядом с воротами висел колокол; Дороти нажала кнопку звонка и услышала внутри серебристый перезвон.',
 		},
 		{
 			sentence:

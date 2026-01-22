@@ -27,10 +27,14 @@
 	}
 }
 
-.button--size-small {
+.button--size-medium {
 	font-size: 1.4rem;
 	line-height: 2rem;
 	padding: .4rem 1.2rem;
+
+	&.button--icon-only {
+		padding: .4rem;
+	}
 }
 
 .button--theme-regular {

@@ -2,8 +2,8 @@
 
 import { ReactNode } from 'react'
 import Paragraph from '../Paragraph/Paragraph'
-import { useGetNotify } from './fn/notify'
 import { NotificationContext } from './context'
+import { useGetNotify } from './fn/notify'
 import './Notifications.scss'
 
 type NotificationProviderProps = {

@@ -20,6 +20,7 @@ export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
 	const redisServiceName = 'explainredis' + mode
 	const serverServiceName = 'explainserver' + mode
 	const faceServiceName = 'explainface' + mode
+	const nlpServiceName = 'explainnlp' + mode
 
 	return {
 		services: {
@@ -57,7 +58,7 @@ export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
 				volumes: isDev ? ['./server/src:/app/src', './server/e2e:/app/e2e'] : undefined,
 				command: isDev ? 'npm run start:dev' : 'npm run start:prod',
 				container_name: 'explainserver' + mode,
-				depends_on: [postgresServiceName],
+				depends_on: [postgresServiceName, nlpServiceName],
 				environment: getServerEnvs(mode),
 				env_file: ['.env.' + mode],
 				ports: isDev ? ['3001:3001'] : undefined,
@@ -73,6 +74,13 @@ export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
 				container_name: 'explainface' + mode,
 				depends_on: [postgresServiceName, serverServiceName],
 				environment: getFaceEnvs(mode),
+			},
+			[nlpServiceName]: {
+				build: {
+					context: 'nlp/',
+					dockerfile: 'Dockerfile',
+				},
+				ports: ["8000:8000"]
 			},
 		},
 		networks: mode === Mode.serverDevelop || mode === Mode.serverMaster

@@ -80,12 +80,12 @@ export type PrismaVersion = {
 }
 
 /**
- * Prisma Client JS version: 7.1.0
- * Query Engine version: ab635e6b9d606fa5c8fb8b1a7f909c3c3c1c98ba
+ * Prisma Client JS version: 7.2.0
+ * Query Engine version: 0c8ef2ce45c83248ab3df073180d5eda9e8be7a3
  */
 export const prismaVersion: PrismaVersion = {
-  client: "7.1.0",
-  engine: "ab635e6b9d606fa5c8fb8b1a7f909c3c3c1c98ba"
+  client: "7.2.0",
+  engine: "0c8ef2ce45c83248ab3df073180d5eda9e8be7a3"
 }
 
 /**
@@ -391,7 +391,9 @@ export const ModelName = {
   BookPublic: 'BookPublic',
   BookChapter: 'BookChapter',
   BookChapterPhrase: 'BookChapterPhrase',
-  BookChapterPhraseExample: 'BookChapterPhraseExample'
+  BookChapterPhraseExample: 'BookChapterPhraseExample',
+  VideoPrivate: 'VideoPrivate',
+  EngRusDictionary: 'EngRusDictionary'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -407,7 +409,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "balanceTransaction" | "payment" | "bookPrivate" | "bookPublic" | "bookChapter" | "bookChapterPhrase" | "bookChapterPhraseExample"
+    modelProps: "user" | "balanceTransaction" | "payment" | "bookPrivate" | "bookPublic" | "bookChapter" | "bookChapterPhrase" | "bookChapterPhraseExample" | "videoPrivate" | "engRusDictionary"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1003,6 +1005,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    VideoPrivate: {
+      payload: Prisma.$VideoPrivatePayload<ExtArgs>
+      fields: Prisma.VideoPrivateFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.VideoPrivateFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.VideoPrivateFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>
+        }
+        findFirst: {
+          args: Prisma.VideoPrivateFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.VideoPrivateFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>
+        }
+        findMany: {
+          args: Prisma.VideoPrivateFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>[]
+        }
+        create: {
+          args: Prisma.VideoPrivateCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>
+        }
+        createMany: {
+          args: Prisma.VideoPrivateCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.VideoPrivateCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>[]
+        }
+        delete: {
+          args: Prisma.VideoPrivateDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>
+        }
+        update: {
+          args: Prisma.VideoPrivateUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>
+        }
+        deleteMany: {
+          args: Prisma.VideoPrivateDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.VideoPrivateUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.VideoPrivateUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>[]
+        }
+        upsert: {
+          args: Prisma.VideoPrivateUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>
+        }
+        aggregate: {
+          args: Prisma.VideoPrivateAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateVideoPrivate>
+        }
+        groupBy: {
+          args: Prisma.VideoPrivateGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.VideoPrivateGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.VideoPrivateCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.VideoPrivateCountAggregateOutputType> | number
+        }
+      }
+    }
+    EngRusDictionary: {
+      payload: Prisma.$EngRusDictionaryPayload<ExtArgs>
+      fields: Prisma.EngRusDictionaryFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EngRusDictionaryFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EngRusDictionaryPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EngRusDictionaryFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EngRusDictionaryPayload>
+        }
+        findFirst: {
+          args: Prisma.EngRusDictionaryFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EngRusDictionaryPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EngRusDictionaryFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EngRusDictionaryPayload>
+        }
+        findMany: {
+          args: Prisma.EngRusDictionaryFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EngRusDictionaryPayload>[]
+        }
+        create: {
+          args: Prisma.EngRusDictionaryCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EngRusDictionaryPayload>
+        }
+        createMany: {
+          args: Prisma.EngRusDictionaryCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EngRusDictionaryCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EngRusDictionaryPayload>[]
+        }
+        delete: {
+          args: Prisma.EngRusDictionaryDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EngRusDictionaryPayload>
+        }
+        update: {
+          args: Prisma.EngRusDictionaryUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EngRusDictionaryPayload>
+        }
+        deleteMany: {
+          args: Prisma.EngRusDictionaryDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EngRusDictionaryUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EngRusDictionaryUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EngRusDictionaryPayload>[]
+        }
+        upsert: {
+          args: Prisma.EngRusDictionaryUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EngRusDictionaryPayload>
+        }
+        aggregate: {
+          args: Prisma.EngRusDictionaryAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEngRusDictionary>
+        }
+        groupBy: {
+          args: Prisma.EngRusDictionaryGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EngRusDictionaryGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EngRusDictionaryCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EngRusDictionaryCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1146,6 +1296,37 @@ export const BookChapterPhraseExampleScalarFieldEnum = {
 } as const
 
 export type BookChapterPhraseExampleScalarFieldEnum = (typeof BookChapterPhraseExampleScalarFieldEnum)[keyof typeof BookChapterPhraseExampleScalarFieldEnum]
+
+
+export const VideoPrivateScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  file_name: 'file_name',
+  file_s3_key: 'file_s3_key',
+  file_url: 'file_url',
+  is_file_uploaded: 'is_file_uploaded',
+  file_size_mb: 'file_size_mb',
+  name: 'name',
+  text: 'text',
+  text_resolved: 'text_resolved',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type VideoPrivateScalarFieldEnum = (typeof VideoPrivateScalarFieldEnum)[keyof typeof VideoPrivateScalarFieldEnum]
+
+
+export const EngRusDictionaryScalarFieldEnum = {
+  id: 'id',
+  eng: 'eng',
+  rus: 'rus',
+  transcription: 'transcription',
+  lexemes: 'lexemes',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type EngRusDictionaryScalarFieldEnum = (typeof EngRusDictionaryScalarFieldEnum)[keyof typeof EngRusDictionaryScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1385,6 +1566,8 @@ export type GlobalOmitConfig = {
   bookChapter?: Prisma.BookChapterOmit
   bookChapterPhrase?: Prisma.BookChapterPhraseOmit
   bookChapterPhraseExample?: Prisma.BookChapterPhraseExampleOmit
+  videoPrivate?: Prisma.VideoPrivateOmit
+  engRusDictionary?: Prisma.EngRusDictionaryOmit
 }
 
 /* Types for Logging */

@@ -36,4 +36,12 @@ export const bookPublicUtils = {
 
 		return getBooksPublicResp
 	},
+
+	async getBook(app: INestApplication, dto: { id: number }) {
+		const getBookPublicQuery = queries.bookPublic.getBook(dto)
+
+		const [getBookPublicResp] = await makeGraphQLReq(app, getBookPublicQuery.query, getBookPublicQuery.variables)
+
+		return getBookPublicResp
+	},
 }

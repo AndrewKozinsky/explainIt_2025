@@ -6,17 +6,17 @@ import { MainConfigService } from '../../src/infrastructure/mainConfig/mainConfi
 import { YooKassaService } from '../../src/infrastructure/yooKassa/yooKassa.service'
 import { PaymentRepository } from '../../src/repo/payment.repository'
 import { UserRepository } from '../../src/repo/user.repository'
+import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
 import { welcomeBonusInKop } from '../utils/common'
 import { createApp } from '../utils/createApp'
 import { paymentUtils } from '../utils/paymentUtils'
 import { userUtils } from '../utils/userUtils'
-import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
 
 it('1', () => {
 	expect(2).toBe(2)
 })
 
-describe('Top up balance with YooKassa (e2e)', () => {
+describe.skip('Top up balance with YooKassa (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService

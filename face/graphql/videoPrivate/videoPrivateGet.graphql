@@ -1,0 +1,14 @@
+query VideoPrivate_get($input: GetPrivateVideoInput!) {
+	video_private_get(input: $input) {
+		id
+		name
+		text
+		resolvedText
+		userId
+		fileName
+		fileS3Key
+		fileUrl
+		isFileUploaded
+		fileSizeMb
+	}
+}

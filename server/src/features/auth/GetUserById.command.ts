@@ -1,5 +1,5 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { UserQueryRepository } from 'src/repo/user.queryRepository'
+import { UserQueryRepository } from 'repo/user.queryRepository'
 
 export class GetUserByIdCommand implements ICommand {
 	constructor(public userId: number) {}

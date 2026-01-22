@@ -1,12 +1,12 @@
 import { INestApplication } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
-import { bookPublicUtils } from '../utils/bookPublicUtils'
-import { CreatePublicBooksHandler } from '../../src/features/bookPublic/CreateBooksPublic.command'
-import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
-import { BookPublicQueryRepository } from '../../src/repo/bookPublic.queryRepository'
 import { App } from 'supertest/types'
-import { createApp } from '../utils/createApp'
 import { PrismaService } from '../../src/db/prisma.service'
+import { CreatePublicBooksHandler } from '../../src/features/bookPublic/CreateBooksPublic.command'
+import { BookPublicQueryRepository } from '../../src/repo/bookPublic.queryRepository'
+import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
+import { bookPublicUtils } from '../utils/bookPublicUtils'
+import { createApp } from '../utils/createApp'
 
 it('1', () => {
 	expect(2).toBe(2)

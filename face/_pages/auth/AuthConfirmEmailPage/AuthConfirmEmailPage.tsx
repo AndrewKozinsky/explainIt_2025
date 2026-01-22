@@ -1,11 +1,11 @@
 'use client'
 
-import { redirect } from 'next/navigation'
 import React from 'react'
+import { redirect } from 'next/navigation'
 import Spinner from '@/ui/Spinner/Spinner'
+import { pageUrls } from '@/сonsts/pageUrls'
 import ErrorMessage from '../../../ui/ErrorMessage/ErrorMessage'
 import { ConfirmationStatus, useConfirmEmail } from './fn/confirmEmail'
-import { pageUrls } from '@/сonsts/pageUrls'
 
 function AuthConfirmEmailPage() {
 	const confirmationStatus = useConfirmEmail()

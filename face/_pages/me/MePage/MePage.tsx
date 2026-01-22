@@ -1,8 +1,8 @@
 import React from 'react'
 import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'
+import Balance from '../Balance/Balance'
 import IncreaseBalanceForm from '../IncreaseBalanceForm/IncreaseBalanceForm'
 import LogoutButton from '../LogoutButton/LogoutButton'
-import Balance from '../Balance/Balance'
 import './MePage.scss'
 
 function MePage() {

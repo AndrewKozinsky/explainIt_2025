@@ -1,6 +1,6 @@
 import { getSectionClasses } from '_pages/books/books/BooksRoot/fn/getSectionClasses'
 import { useBooksStore } from '_pages/books/books/booksStore'
-import MobileNavigation from '_pages/books/books/MobileNavigation/MobileNavigation'
+import MobileNavigation from '../MobileNavigation/MobileNavigation'
 import { usePopulateBooksStore } from './fn/populateBooksStore'
 import { BooksTest } from '_pages/books/books/booksTest'
 import BooksSection from '../booksListSection/BooksSection/BooksSection'

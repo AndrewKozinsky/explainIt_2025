@@ -1,18 +1,28 @@
 import { BooksStore, useBooksStore } from '_pages/books/books/booksStore'
 import { useCallback } from 'react'
 
-export function useGetChangeCurrentMobileContentType(contentType: BooksStore.MobileCurrentContentType) {
-	return useCallback(
-		function () {
-			useBooksStore.setState({
-				mobileCurrentContentType: contentType,
-			})
-		},
-		[contentType],
-	)
-}
+export const tabsConfig = [
+	{
+		id: 'books',
+		label: 'Книги',
+		onClick: getChangeCurrentMobileContentType('books'),
+	},
+	{
+		id: 'book',
+		label: 'Главы',
+		onClick: getChangeCurrentMobileContentType('book'),
+	},
+	{
+		id: 'chapter',
+		label: 'Детали',
+		onClick: getChangeCurrentMobileContentType('chapter'),
+	},
+]
 
-export function useIsActiveButton(contentType: BooksStore.MobileCurrentContentType) {
-	const mobileCurrentContentType = useBooksStore((s) => s.mobileCurrentContentType)
-	return mobileCurrentContentType === contentType
+function getChangeCurrentMobileContentType(contentType: BooksStore.MobileCurrentContentType) {
+	const { updateMobileCurrentContentType } = useBooksStore.getState()
+
+	return () => {
+		updateMobileCurrentContentType(contentType)
+	}
 }

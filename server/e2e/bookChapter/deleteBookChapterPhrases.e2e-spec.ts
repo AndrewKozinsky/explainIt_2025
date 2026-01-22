@@ -25,7 +25,6 @@ describe.skip('Delete book chapter phrases', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let userRepository: UserRepository
-	let bookChapterRepository: BookChapterRepository
 	let bookChapterPhraseRepository: BookChapterPhraseRepository
 	let prismaService: PrismaService
 
@@ -35,7 +34,6 @@ describe.skip('Delete book chapter phrases', () => {
 		app = createMainAppRes.app
 		commandBus = app.get(CommandBus)
 		userRepository = await app.resolve(UserRepository)
-		bookChapterRepository = await app.resolve(BookChapterRepository)
 		bookChapterPhraseRepository = await app.resolve(BookChapterPhraseRepository)
 		prismaService = await app.resolve(PrismaService)
 	})

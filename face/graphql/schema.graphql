@@ -139,6 +139,22 @@ input CreateBookInput {
   note: String
 }
 
+input CreatePrivateVideoInput {
+  """Name"""
+  name: String
+
+  """Text"""
+  text: String
+}
+
+type CreateVideoPrivateOutModel {
+  id: Int!
+  name: String
+  resolvedText: String
+  text: String
+  userId: Int!
+}
+
 input DeleteBookChapterInput {
   """BookChapter id"""
   id: Int!
@@ -152,6 +168,19 @@ input DeleteBookChapterPhrasesInput {
 input DeleteBookInput {
   """Book id"""
   id: Int!
+}
+
+input DeletePrivateVideoInput {
+  """Video id"""
+  id: Int!
+}
+
+type EngRusDictionaryItemOutModel {
+  engPhrase: String!
+  id: Int!
+  lexemes: String
+  rusPhrase: String!
+  transcription: String
 }
 
 input GetBookChapterInput {
@@ -169,6 +198,11 @@ input GetBookInput {
 
 input GetBookPublicInput {
   """Book id"""
+  id: Int!
+}
+
+input GetPrivateVideoInput {
+  """Video id"""
   id: Int!
 }
 
@@ -250,6 +284,17 @@ type Mutation {
 
   """Top up a balance with YooKassa"""
   payment_yookassa_top_up_balance(input: TopUpBalanceWithYooKassaInput!): TopUpBalanceWithYooKassaOutModel!
+  translate_translate_phrase(input: TranslatePhraseInput!): EngRusDictionaryItemOutModel!
+  translate_translate_sentence(input: TranslateSentenceInput!): TranslateSentenceOutModel!
+
+  """Create a video"""
+  video_private_create(input: CreatePrivateVideoInput!): CreateVideoPrivateOutModel!
+
+  """Delete a video"""
+  video_private_delete(input: DeletePrivateVideoInput!): Boolean!
+
+  """Update a video"""
+  video_private_update(input: UpdatePrivateVideoInput!): UpdateVideoPrivateOutModel!
 }
 
 type PhraseExample {
@@ -279,6 +324,12 @@ type Query {
 
   """Get user books"""
   book_user_books: [BookOutModel!]!
+
+  """Get a video"""
+  video_private_get(input: GetPrivateVideoInput!): VideoPrivateOutModel!
+
+  """Get user videos"""
+  video_private_user_videos: [VideoPrivateOutModel!]!
 }
 
 input RegisterUserInput {
@@ -301,6 +352,32 @@ input TopUpBalanceWithYooKassaInput {
 
 type TopUpBalanceWithYooKassaOutModel {
   confirmationUrl: String!
+}
+
+input TranslatePhraseInput {
+  """Source language code"""
+  sourceLanguageCode: String
+
+  """Target language code"""
+  targetLanguageCode: String
+
+  """Text for translation"""
+  text: String!
+}
+
+input TranslateSentenceInput {
+  """Source language code"""
+  sourceLanguageCode: String
+
+  """Target language code"""
+  targetLanguageCode: String
+
+  """Sentence for translation"""
+  text: String!
+}
+
+type TranslateSentenceOutModel {
+  translatedText: String!
 }
 
 input TranslateSentencesInput {
@@ -345,9 +422,58 @@ input UpdateBookInput {
   note: String
 }
 
+input UpdatePrivateVideoInput {
+  """File mime type"""
+  fileMimeType: String
+
+  """File name"""
+  fileName: String
+
+  """File size"""
+  fileSizeMb: Float
+
+  """Video id"""
+  id: Int!
+
+  """Is file was upload to S3"""
+  isFileUploaded: Boolean
+
+  """Name"""
+  name: String
+
+  """Text"""
+  text: String
+
+  """Text resolved"""
+  textResolved: String
+}
+
+type UpdateVideoPrivateOutModel {
+  fileSizeMb: Float
+  id: Int!
+  name: String
+  resolvedText: String
+  text: String
+  uploadUrl: String
+  userId: Int!
+}
+
 type UserOutModel {
   balance: Int!
   email: String!
   id: Int!
   isUserConfirmed: Boolean!
+}
+
+type VideoPrivateOutModel {
+  fileName: String
+  fileS3Key: String
+  fileSizeMb: Float!
+  fileUrl: String
+  id: Int!
+  isFileUploaded: Boolean!
+  name: String
+  resolvedText: String
+  text: String
+  userId: Int!
 }

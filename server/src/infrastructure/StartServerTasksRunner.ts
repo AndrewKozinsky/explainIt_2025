@@ -1,7 +1,7 @@
+import { promisify } from 'util'
 import { Injectable, OnApplicationBootstrap } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { CreateBooksPublicCommand } from 'features/bookPublic/CreateBooksPublic.command'
-import { promisify } from 'util'
 
 @Injectable()
 export class StartServerTasksRunner implements OnApplicationBootstrap {

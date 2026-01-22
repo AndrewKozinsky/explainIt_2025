@@ -1,5 +1,5 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql'
-import { BookChapterLiteOutModel } from 'src/models/bookChapter/bookChapter.out.model'
+import { BookChapterLiteOutModel } from 'models/bookChapter/bookChapter.out.model'
 
 @ObjectType()
 export class BookPublicOutModel {

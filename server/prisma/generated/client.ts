@@ -77,3 +77,13 @@ export type BookChapterPhrase = Prisma.BookChapterPhraseModel
  * 
  */
 export type BookChapterPhraseExample = Prisma.BookChapterPhraseExampleModel
+/**
+ * Model VideoPrivate
+ * 
+ */
+export type VideoPrivate = Prisma.VideoPrivateModel
+/**
+ * Model EngRusDictionary
+ * 
+ */
+export type EngRusDictionary = Prisma.EngRusDictionaryModel

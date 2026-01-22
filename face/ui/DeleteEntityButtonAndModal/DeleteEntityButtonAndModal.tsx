@@ -4,6 +4,7 @@ import { publicFolderFilesUrls } from '@/utils/publicFolderFilesUrls'
 import DeleteEntityModal from './DeleteEntityModal'
 
 type DeleteEntityButtonAndModalProps = {
+	deleteButtonText: string
 	// Функция, которая должна срабатывать при нажатии на кнопку удаления в модальном окне
 	onDeleteButtonClick: () => Promise<void>
 	// Показывать ли загрузчик на кнопке удаления в мадальном окне
@@ -20,7 +21,7 @@ type DeleteEntityButtonAndModalProps = {
 
 // Этот компонент используется для отображения кнопки удаления и модального окна удаления
 function DeleteEntityButtonAndModal(props: DeleteEntityButtonAndModalProps) {
-	const { onDeleteButtonClick, isDeleteButtonLoading, modal } = props
+	const { deleteButtonText, onDeleteButtonClick, isDeleteButtonLoading, modal } = props
 
 	const [isModalOpen, setIsModalOpen] = React.useState(false)
 
@@ -31,7 +32,7 @@ function DeleteEntityButtonAndModal(props: DeleteEntityButtonAndModalProps) {
 				onClick={() => setIsModalOpen(true)}
 				icon={publicFolderFilesUrls.icons.trashButtonIcon}
 			>
-				Удалить главу...
+				{deleteButtonText}
 			</Button>
 			<DeleteEntityModal
 				isModalOpen={isModalOpen}

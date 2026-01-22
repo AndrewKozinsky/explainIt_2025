@@ -1,13 +1,13 @@
 $bg: #F6F6F9;
-$grayColor-1: #F3F3F3;
-$grayColor-2: #E3E3E3;
-$grayColor-3: #C3C3C3;
-$grayColor-4: rgb(160, 160, 160);
-$grayColor-5: rgb(115, 115, 115);
+$grayColor-1: #F3F2EF;
+$grayColor-2: #E4E3E1;
+$grayColor-3: #C7C6C2;
+$grayColor-4: #A3A2A0;
+$grayColor-5: #6D6D6C;
 $grayColor-6: rgb(90, 90, 90);
 $textColor: rgb(30, 30, 30);
 $accentColor-1: #FDF2E8;
-$accentColor-2: #FF630C;
+$accentColor-2: #FF4D0C;
 $linkColor-1: #DFEEFB;
 $linkColor-2: #0076DE;
 $dangerColor-1: #FF3900;
@@ -25,6 +25,10 @@ $max-page-width: 1460px;
 
 // Ширина страницы книг после которой показывается версия для монитора
 $books-desktop-width: 800px;
+
+// Ширина страницы книг после которой показывается версия для монитора
+$videos-desktop-width: 600px;
+$watching-desktop-width: 550px;
 
 $radius-1: 0.6rem;
 $radius-2: 1rem;

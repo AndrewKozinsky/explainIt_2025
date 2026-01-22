@@ -1,4 +1,5 @@
 import { applyDecorators } from '@nestjs/common'
+import { Type } from 'class-transformer'
 import {
 	IsArray,
 	IsDateString,
@@ -15,7 +16,6 @@ import {
 import { errorMessage } from '../infrastructure/exceptions/errorMessage'
 import { Trim } from '../infrastructure/pipes/Trim.decorator'
 import { BdConfig } from './dbConfig/dbConfigType'
-import { Type } from 'class-transformer'
 
 /**
  * Creates universal decorator to check property in DTO for compliance with fieldConf

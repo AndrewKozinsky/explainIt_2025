@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
-import { PrismaService } from '../db/prisma.service'
 import { Prisma } from 'prisma/generated/client'
+import { PrismaService } from '../db/prisma.service'
 import { wait } from '../utils/time'
 
 @Injectable()
@@ -49,7 +49,12 @@ BEGIN
     EXECUTE 'SET session_replication_role = replica';
 
     -- Loop through all tables and truncate
-    FOR r IN (SELECT tablename FROM pg_tables WHERE schemaname = 'public') LOOP
+    FOR r IN (
+		SELECT tablename
+		FROM pg_tables
+		WHERE schemaname = 'public'
+			AND tablename <> '_prisma_migrations'
+	) LOOP
         EXECUTE 'TRUNCATE TABLE "' || r.tablename || '" RESTART IDENTITY CASCADE';
     END LOOP;
 

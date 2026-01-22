@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
+import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
+import { BookChapterPhraseOutModel } from 'models/bookChapterPhrase/bookChapterPhrase.out.model'
 import { Prisma } from 'prisma/generated/client'
-import CatchDbError from 'src/infrastructure/exceptions/CatchDBErrors'
-import { BookChapterPhraseOutModel } from 'src/models/bookChapterPhrase/bookChapterPhrase.out.model'
 import { PrismaService } from '../db/prisma.service'
 
 type PhraseWithPhraseExamples = Prisma.BookChapterPhraseGetPayload<{ include: { BookChapterPhraseExample: true } }>

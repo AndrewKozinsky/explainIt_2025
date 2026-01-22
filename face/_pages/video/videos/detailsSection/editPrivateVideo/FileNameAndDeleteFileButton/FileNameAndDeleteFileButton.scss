@@ -1,0 +1,11 @@
+@use '@/styles/variables' as vars;
+
+.file-name-and-delete-file-button {
+
+}
+
+.file-name-and-delete-file-button__video {
+	max-width: 100%;
+	border-radius: vars.$radius-1;
+	overflow: hidden;
+}

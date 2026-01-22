@@ -19,4 +19,29 @@ export const queriesBookPublic = {
 			  }
 			}`
 	},
+	getBook(dto: { id: number }) {
+		return {
+			query: `
+				query GetBookPublic($input: GetBookPublicInput!) {
+					${RouteNames.BOOK_PUBLIC.GET_BOOK}(input: $input) {
+						id
+						author
+						name
+						note
+						cover
+						chapters {
+							id
+							bookId
+							name
+							header
+							note
+						}
+					}
+				}
+			`,
+			variables: {
+				input: dto,
+			},
+		}
+	},
 }

@@ -1,0 +1,3 @@
+mutation VideoPrivate_delete($input: DeletePrivateVideoInput!) {
+	video_private_delete(input: $input)
+}

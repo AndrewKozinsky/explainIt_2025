@@ -3,12 +3,21 @@ import { AppModule } from '../../src/app.module'
 import { applyAppSettings } from '../../src/infrastructure/applyAppSettings'
 import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 import { GigaChatService } from '../../src/infrastructure/gigaChat/gigaChat.service'
+import { StartServerTasksRunner } from '../../src/infrastructure/StartServerTasksRunner'
 import { TelegramService } from '../../src/infrastructure/telegram/telegram.service'
+import {
+	YandexCloudS3Service,
+	YandexCloudS3ServiceMock,
+} from '../../src/infrastructure/yandexCloudS3/yandexCloudS3.service'
 
 export async function createApp() {
 	const moduleFixture: TestingModule = await Test.createTestingModule({
 		imports: [AppModule],
 	})
+		.overrideProvider(StartServerTasksRunner)
+		.useValue({
+			onApplicationBootstrap: async function onApplicationBootstrap() {},
+		})
 		.overrideProvider(EmailAdapterService)
 		.useValue({
 			sendEmailConfirmationMessage: jest.fn().mockResolvedValue('Mocked Email Response'),
@@ -23,6 +32,8 @@ export async function createApp() {
 		.useValue({
 			sendMessageToFromExplainBot: jest.fn().mockResolvedValue(true),
 		})
+		.overrideProvider(YandexCloudS3Service)
+		.useValue(new YandexCloudS3ServiceMock())
 		.compile()
 
 	const app = moduleFixture.createNestApplication()
@@ -30,9 +41,11 @@ export async function createApp() {
 	await app.init()
 
 	const mockedEmailAdapter = moduleFixture.get<EmailAdapterService>(EmailAdapterService)
+	const mockedS3 = moduleFixture.get<YandexCloudS3ServiceMock>(YandexCloudS3Service)
 
 	return {
 		app,
 		emailAdapter: mockedEmailAdapter,
+		s3: mockedS3,
 	}
 }

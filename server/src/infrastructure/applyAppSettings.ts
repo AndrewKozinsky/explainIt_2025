@@ -1,11 +1,11 @@
 import { BadRequestException, INestApplication, ValidationPipe } from '@nestjs/common'
 import { useContainer, ValidationError } from 'class-validator'
+import { RedisStore } from 'connect-redis'
 import * as cookieParser from 'cookie-parser'
+import * as session from 'express-session'
 import { AppModule } from '../app.module'
 import { ApolloExceptionFilter } from './exceptions/apollo-exception.filter'
-import * as session from 'express-session'
 import { MainConfigService } from './mainConfig/mainConfig.service'
-import { RedisStore } from 'connect-redis'
 import { RedisService } from './redis/redis.service'
 
 export async function applyAppSettings(app: INestApplication) {

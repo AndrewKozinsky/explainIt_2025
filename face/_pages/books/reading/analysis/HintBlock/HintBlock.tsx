@@ -1,8 +1,8 @@
-import { PressEnterForTranslation } from './PressEnterForTranslation'
+import LongTapForSelectSeveralWords from '_pages/books/reading/analysis/HintBlock/LongTapForSelectSeveralWords'
 import { useReadingStore } from '_pages/books/reading/readingStore'
 import { HoldToSelectRelatedWords } from './HoldToSelectRelatedWords'
+import { PressEnterForTranslation } from './PressEnterForTranslation'
 import TranslateButton from './TranslateButton'
-import LongTapForSelectSeveralWords from '_pages/books/reading/analysis/HintBlock/LongTapForSelectSeveralWords'
 import './HintBlock.scss'
 
 function HintBlock() {

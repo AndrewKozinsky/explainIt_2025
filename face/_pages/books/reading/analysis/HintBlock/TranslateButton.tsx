@@ -1,7 +1,7 @@
 import React from 'react'
+import Button from 'ui/formRelated/buttons/Button/Button'
 import { useCanRunTranslation } from '_pages/books/reading/lib/canRunTranslation'
 import { translateSelectedPhrase } from '_pages/books/reading/lib/translateSelectedPhrase'
-import Button from 'ui/formRelated/buttons/Button/Button'
 
 function TranslateButton() {
 	const isVisible = useCanRunTranslation()

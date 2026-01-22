@@ -1,6 +1,6 @@
 import React from 'react'
-import ArticleType from '../../../../articles/articleTypes/articleType'
 import Header from '@/ui/Header/Header'
+import ArticleType from '../../../../articles/articleTypes/articleType'
 import './CourseArticlePageHeader.scss'
 
 type ChapterNumberProps = {

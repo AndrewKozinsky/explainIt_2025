@@ -18,6 +18,10 @@ export const RouteNames = {
 		CHECK_TRANSLATION: 'ai_checkTranslation',
 		GET_TRANSCRIPTION: 'ai_getTranscription',
 	},
+	TRANSLATE: {
+		TRANSLATE_PHRASE: 'translate_translate_phrase',
+		TRANSLATE_SENTENCE: 'translate_translate_sentence',
+	},
 	// REST
 	DB: {
 		ALL_DATA: 'testing/all-data',
@@ -45,6 +49,13 @@ export const RouteNames = {
 		ANALYSE_PHRASE: 'book_chapter_AnalysePhrase',
 		TRANSLATE_SENTENCES: 'book_chapter_TranslateSentences',
 		DELETE_BOOK_CHAPTER_PHRASES: 'book_chapter_DeleteBookChapterPhrases',
+	},
+	VIDEO_PRIVATE: {
+		CREATE: 'video_private_create',
+		UPDATE: 'video_private_update',
+		DELETE: 'video_private_delete',
+		GET_USER_VIDEOS: 'video_private_user_videos',
+		GET: 'video_private_get',
 	},
 }
 

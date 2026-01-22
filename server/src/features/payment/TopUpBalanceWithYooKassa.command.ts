@@ -1,10 +1,10 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+import { PaymentRepository } from 'repo/payment.repository'
+import { UserRepository } from 'repo/user.repository'
+import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+import { ErrorCode } from 'infrastructure/exceptions/errorCode'
+import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { YooKassaService } from 'infrastructure/yooKassa/yooKassa.service'
-import { CustomGraphQLError } from 'src/infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'src/infrastructure/exceptions/errorCode'
-import { errorMessage } from 'src/infrastructure/exceptions/errorMessage'
-import { PaymentRepository } from 'src/repo/payment.repository'
-import { UserRepository } from 'src/repo/user.repository'
 
 type TopUpBalanceWithYooKassaInput = {
 	// Amount in kopecks

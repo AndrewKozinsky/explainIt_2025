@@ -1,6 +1,6 @@
 import cn from 'classnames'
-import ArticleType from '../../articleTypes/articleType'
 import { typographyText } from '../../../utils/strings'
+import ArticleType from '../../articleTypes/articleType'
 import './Text.scss'
 
 type TextProps = {

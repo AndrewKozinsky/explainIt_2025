@@ -3,9 +3,15 @@ import { NestFactory } from '@nestjs/core'
 import { AppModule } from './app.module'
 import { applyAppSettings } from './infrastructure/applyAppSettings'
 import { MainConfigService } from './infrastructure/mainConfig/mainConfig.service'
+import { json, urlencoded } from 'express'
 
 async function bootstrap() {
 	const app = await NestFactory.create(AppModule)
+
+	// Increase request body size limits to 10 MB for JSON and URL-encoded payloads
+	app.use(json({ limit: '10mb' }))
+	app.use(urlencoded({ extended: true, limit: '10mb' }))
+
 	await applyAppSettings(app)
 
 	const mainConfig = await app.resolve(MainConfigService)

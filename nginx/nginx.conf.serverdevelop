@@ -7,6 +7,7 @@ http {
 
     server {
         listen 80;
+        client_max_body_size 10m;
 
         set $api_upstream "http://explainserverserverdevelop:3001";
         set $face_upstream "http://explainfaceserverdevelop:3000";

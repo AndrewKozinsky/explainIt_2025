@@ -6,9 +6,9 @@ import {
 	ResponseFormatText,
 	ReasoningEffort,
 } from 'openai/resources'
-import { CustomGraphQLError } from 'src/infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'src/infrastructure/exceptions/errorCode'
-import { errorMessage } from 'src/infrastructure/exceptions/errorMessage'
+import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+import { ErrorCode } from 'infrastructure/exceptions/errorCode'
+import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from '../mainConfig/mainConfig.service'
 
 export enum OpenAIModels {

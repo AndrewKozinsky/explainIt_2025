@@ -1,11 +1,11 @@
-import { useGetOnBookLinkClick } from '_pages/books/books/booksListSection/BookLink/fn/onClick'
-import { BooksTest } from '_pages/books/books/booksTest'
+import cn from 'classnames'
 import Paragraph from '@/ui/Paragraph/Paragraph'
 import { createBookIdUrl, pageUrls } from '@/сonsts/pageUrls'
-import cn from 'classnames'
+import { useGetOnBookLinkClick } from '_pages/books/books/booksListSection/BookLink/fn/onClick'
+import { BooksTest } from '_pages/books/books/booksTest'
+import { bookConfig } from '../../common/bookConfig'
 import ContentLinkWrapper from '../../common/ContentLinkWrapper/ContentLinkWrapper'
 import { useGetBookLinkStatus } from './fn/isPageCurrent'
-import { bookConfig } from '../../common/bookConfig'
 import './BookLink.scss'
 
 type BookLinkProps = {

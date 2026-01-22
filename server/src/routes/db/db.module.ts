@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common'
 import { CqrsModule } from '@nestjs/cqrs'
+import { DBRepository } from 'repo/db.repository'
+import { UserRepository } from 'repo/user.repository'
 import { SeedTestDataHandler } from 'features/db/SeedTestData.command'
-import { DBRepository } from 'src/repo/db.repository'
-import { UserRepository } from 'src/repo/user.repository'
-import { DbController } from './db.controller'
 import { PrismaService } from '../../db/prisma.service'
+import { DbController } from './db.controller'
 import { DbService } from './db.service'
 
 const services = [PrismaService, DbService]

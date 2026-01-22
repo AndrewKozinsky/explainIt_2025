@@ -1,0 +1,14 @@
+query VideoPrivate_getUserVideos {
+	video_private_user_videos {
+		id
+		name
+		text
+		resolvedText
+		userId
+		fileName
+		fileS3Key
+		fileUrl
+		isFileUploaded
+		fileSizeMb
+	}
+}

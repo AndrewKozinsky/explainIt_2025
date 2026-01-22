@@ -44,6 +44,7 @@ services:
     container_name: explainserverservermaster
     depends_on:
       - explainpostgresservermaster
+      - explainnlpservermaster
     environment:
       MODE: servermaster
       PORT: 3001
@@ -61,6 +62,12 @@ services:
       - explainserverservermaster
     environment:
       MODE: servermaster
+  explainnlpservermaster:
+    build:
+      context: nlp/
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
 networks:
   default:
     external: true

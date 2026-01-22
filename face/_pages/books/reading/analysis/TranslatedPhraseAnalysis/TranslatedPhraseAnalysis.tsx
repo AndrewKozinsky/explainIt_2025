@@ -1,9 +1,9 @@
-import { useGetParsedAnalysis } from '_pages/books/reading/analysis/TranslatedPhraseAnalysis/fn/parceAnalysis'
-import { useIsLongTopText } from './fn/isLargeTopText'
-import cn from 'classnames'
 import React from 'react'
+import cn from 'classnames'
 import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
+import { useGetParsedAnalysis } from '_pages/books/reading/analysis/TranslatedPhraseAnalysis/fn/parceAnalysis'
 import { useGetSelectedPhrase } from '_pages/books/reading/lib/getSelectedPhraseType'
+import { useIsLongTopText } from './fn/isLargeTopText'
 import './TranslatedPhraseAnalysis.scss'
 
 function TranslatedPhraseAnalysis() {

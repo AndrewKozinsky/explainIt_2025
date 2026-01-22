@@ -1,6 +1,6 @@
+import { useEffect } from 'react'
 import { useAuth_GetMe } from '@/graphql'
 import { useUserStore } from '@/stores/userStore'
-import { useEffect } from 'react'
 
 export function useFetchCurrentUser() {
 	const { data, loading, error } = useAuth_GetMe()

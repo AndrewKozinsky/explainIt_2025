@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
+import { DBRepository } from 'repo/db.repository'
 import { BalanceTransaction } from 'prisma/generated/client'
 import { BalanceTransactionType } from 'prisma/generated/enums'
-import { DBRepository } from 'src/repo/db.repository'
 import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 import { CustomGraphQLError } from '../infrastructure/exceptions/customErrors'

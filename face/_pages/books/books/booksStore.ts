@@ -27,6 +27,13 @@ export const booksStoreValues: BooksStoreValues = {
 export const useBooksStore = create<ReadingStore>()((set) => {
 	return {
 		...booksStoreValues,
+		updateMobileCurrentContentType: (contentType: BooksStore.MobileCurrentContentType) => {
+			set((state) => {
+				return {
+					mobileCurrentContentType: contentType,
+				}
+			})
+		},
 		updatePublicBooks: (publicBooks: BooksStore.PublicBooksData) => {
 			set((state) => {
 				return {
@@ -95,6 +102,7 @@ export namespace BooksStore {
 }
 
 type BooksStoreMethods = {
+	updateMobileCurrentContentType: (contentType: BooksStore.MobileCurrentContentType) => void
 	updatePublicBooks: (books: BooksStore.PublicBooksData) => void
 	updatePrivateBooks: (books: BooksStore.PrivateBooksData) => void
 	updateChapter: (books: BooksStore.ChapterData) => void

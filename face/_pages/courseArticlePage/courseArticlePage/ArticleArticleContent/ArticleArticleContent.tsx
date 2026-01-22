@@ -1,8 +1,8 @@
 import React from 'react'
 import ArticleBuilder from '../../../../articles/ArticleBuilder/ArticleBuilder'
 // import LearnByHeartButton from '../../../../articleBuilder/components/learnByHeart/LearnByHeartButton/LearnByHeartButton'
-import { PrevAndNextArticlesNav } from '../../common/ArtPrevAndNextButtons/PrevAndNextArticlesNav'
 import ArticleType from '../../../../articles/articleTypes/articleType'
+import { PrevAndNextArticlesNav } from '../../common/ArtPrevAndNextButtons/PrevAndNextArticlesNav'
 import './ArticleArticleContent.scss'
 
 type ArticleContentProps = {

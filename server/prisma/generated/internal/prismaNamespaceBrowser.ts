@@ -58,7 +58,9 @@ export const ModelName = {
   BookPublic: 'BookPublic',
   BookChapter: 'BookChapter',
   BookChapterPhrase: 'BookChapterPhrase',
-  BookChapterPhraseExample: 'BookChapterPhraseExample'
+  BookChapterPhraseExample: 'BookChapterPhraseExample',
+  VideoPrivate: 'VideoPrivate',
+  EngRusDictionary: 'EngRusDictionary'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -181,6 +183,37 @@ export const BookChapterPhraseExampleScalarFieldEnum = {
 } as const
 
 export type BookChapterPhraseExampleScalarFieldEnum = (typeof BookChapterPhraseExampleScalarFieldEnum)[keyof typeof BookChapterPhraseExampleScalarFieldEnum]
+
+
+export const VideoPrivateScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  file_name: 'file_name',
+  file_s3_key: 'file_s3_key',
+  file_url: 'file_url',
+  is_file_uploaded: 'is_file_uploaded',
+  file_size_mb: 'file_size_mb',
+  name: 'name',
+  text: 'text',
+  text_resolved: 'text_resolved',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type VideoPrivateScalarFieldEnum = (typeof VideoPrivateScalarFieldEnum)[keyof typeof VideoPrivateScalarFieldEnum]
+
+
+export const EngRusDictionaryScalarFieldEnum = {
+  id: 'id',
+  eng: 'eng',
+  rus: 'rus',
+  transcription: 'transcription',
+  lexemes: 'lexemes',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type EngRusDictionaryScalarFieldEnum = (typeof EngRusDictionaryScalarFieldEnum)[keyof typeof EngRusDictionaryScalarFieldEnum]
 
 
 export const SortOrder = {

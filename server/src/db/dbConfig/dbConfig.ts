@@ -51,12 +51,12 @@ export const bdConfig = {
 			email: {
 				type: 'email',
 				unique: true,
-				description: "User's email",
+				description: 'User-s email',
 				required: true,
 			},
 			password: {
 				type: 'string',
-				description: "Hashed user's password",
+				description: 'Hashed user-s password',
 				example: 'z151JPS16jz151JPS16j',
 				required: false,
 			},
@@ -77,7 +77,7 @@ export const bdConfig = {
 			is_email_confirmed: {
 				type: 'boolean',
 				default: false,
-				description: "Is user's email confirmed",
+				description: 'Is user-s email confirmed',
 				example: true,
 				required: true,
 			},
@@ -89,7 +89,7 @@ export const bdConfig = {
 			},
 			balance: {
 				type: 'number',
-				description: "User's balance",
+				description: 'User-s balance',
 				example: 100,
 				required: true,
 				default: 0,
@@ -104,6 +104,9 @@ export const bdConfig = {
 				type: 'oneToMany',
 			},
 			BookPrivate: {
+				type: 'oneToMany',
+			},
+			VideoPrivate: {
 				type: 'oneToMany',
 			},
 		},
@@ -430,6 +433,145 @@ export const bdConfig = {
 			},
 			created_at: {
 				type: 'createdAt',
+			},
+		},
+	},
+	VideoPrivate: {
+		dtoProps: {
+			fileName: {
+				type: 'string',
+				description: 'File name of the video',
+				required: false,
+				maxLength: 255,
+			},
+			fileMimeType: {
+				type: 'string',
+				description: 'File Mime Type of the video',
+				required: false,
+				maxLength: 50,
+			},
+		},
+		dbFields: {
+			id: {
+				type: 'index',
+			},
+			user_id: {
+				type: 'manyToOne',
+				thisField: 'user_id', // Name of the column of this table that refers to another table
+				foreignTable: 'User', // Name of the table that this column refers to
+				foreignField: 'id',
+				required: true,
+			},
+			file_name: {
+				type: 'string',
+				description: 'Name of the video',
+				required: false,
+				maxLength: 200,
+				example: 'Zootopia-2016.mp4',
+			},
+			file_s3_key: {
+				type: 'string',
+				description: 'S3 key',
+				required: false,
+				maxLength: 1000,
+				example: 'video_dev/Zootopia-2016.mp4',
+			},
+			file_url: {
+				type: 'string',
+				description: 'URL of the video',
+				required: false,
+				maxLength: 1000,
+			},
+			is_file_uploaded: {
+				type: 'boolean',
+				default: false,
+				description: 'Is file was uploaded',
+				example: true,
+				required: true,
+			},
+			file_size_mb: {
+				type: 'number',
+				description: 'size of the file in megabytes',
+				example: 100,
+				required: true,
+			},
+			name: {
+				type: 'string',
+				description: 'Name of the video',
+				required: false,
+				maxLength: 255,
+			},
+			text: {
+				type: 'string',
+				description: 'Subtitles or text of the video',
+				required: false,
+			},
+			text_resolved: {
+				type: 'string',
+				description: 'Populated subtitles or text of the video',
+				required: false,
+			},
+			created_at: {
+				type: 'createdAt',
+			},
+			updated_at: {
+				type: 'updatedAt',
+			},
+		},
+	},
+	EngRusDictionary: {
+		dtoProps: {
+			sourceLanguageCode: {
+				type: 'string',
+				description: 'Language code',
+				required: true,
+				maxLength: 2,
+				example: 'en',
+			},
+			targetLanguageCode: {
+				type: 'string',
+				description: 'Language code',
+				required: true,
+				maxLength: 2,
+				example: 'ru',
+			},
+		},
+		dbFields: {
+			id: {
+				type: 'index',
+			},
+			eng: {
+				type: 'string',
+				description: 'English text',
+				required: true,
+				maxLength: 500,
+				example: 'life',
+				unique: true,
+			},
+			rus: {
+				type: 'string',
+				description: 'Russian text',
+				required: true,
+				maxLength: 500,
+				example: 'жизнь',
+			},
+			transcription: {
+				type: 'string',
+				description: 'Transcription',
+				required: false,
+				maxLength: 500,
+			},
+			lexemes: {
+				type: 'string',
+				description: 'Lexemes',
+				required: false,
+				maxLength: 5000,
+			},
+			created_at: {
+				type: 'createdAt',
+			},
+			updated_at: {
+				type: 'updatedAt',
 			},
 		},
 	},

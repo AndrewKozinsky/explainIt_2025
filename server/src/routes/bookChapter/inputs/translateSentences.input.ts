@@ -1,6 +1,6 @@
 import { Field, InputType, Int } from '@nestjs/graphql'
 import { IsArray, IsString } from 'class-validator'
-import { DtoFieldDecorators } from 'src/db/dtoFieldDecorators'
+import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
 
 @InputType()
 export class TranslateSentencesInput {

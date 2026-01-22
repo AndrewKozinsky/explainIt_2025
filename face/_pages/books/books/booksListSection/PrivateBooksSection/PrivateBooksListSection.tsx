@@ -1,7 +1,7 @@
-import LogInToSeeOurBooks from '_pages/books/books/booksListSection/LogInToSeeOurBooks/LogInToSeeOurBooks'
 import { useUserStore } from 'stores/userStore'
+import LogInToSeeOurBooks from '_pages/books/books/booksListSection/LogInToSeeOurBooks/LogInToSeeOurBooks'
+import PrivateBooksList from '_pages/books/books/booksListSection/PrivateBooksList/PrivateBooksList'
 import { SectionWithHeader } from '../../common/SectionWithHeader/SectionWithHeader'
-import PrivateBooksList from '../PrivateBooksList/PrivateBooksList'
 
 function PrivateBooksListSection() {
 	const user = useUserStore((state) => state.user)
@@ -10,8 +10,9 @@ function PrivateBooksListSection() {
 	if (isUserLoading) {
 		return null
 	}
+
 	return (
-		<SectionWithHeader title='Загруженные книги'>
+		<SectionWithHeader title='Загруженные видео'>
 			{user ? <PrivateBooksList /> : <LogInToSeeOurBooks />}
 		</SectionWithHeader>
 	)

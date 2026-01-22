@@ -1,7 +1,7 @@
 'use client'
 
-import cn from 'classnames'
 import React, { ReactNode } from 'react'
+import cn from 'classnames'
 import CloseButton from '../formRelated/buttons/CloseButton/CloseButton'
 import { useFixBodyScrolling } from './fn/fixBodyScrolling'
 import './Modal.scss'

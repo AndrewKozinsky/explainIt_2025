@@ -1,7 +1,7 @@
 import { Controller, HttpCode, HttpStatus, Body, Post, Req } from '@nestjs/common'
+import { Request } from 'express'
 import RouteNames from 'infrastructure/routeNames'
 import { WebhookService } from './webhook.service'
-import { Request } from 'express'
 
 @Controller()
 export class WebhookController {

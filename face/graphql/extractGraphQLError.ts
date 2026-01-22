@@ -12,6 +12,7 @@ type GraphQLFieldError = { field: 'password'; messages: ['Минимальное
 export function extractGraphQLError(error: unknown) {
 	if (error instanceof ApolloError) {
 		const firstError = error.graphQLErrors[0]
+		if (!firstError) return null
 
 		const { extensions } = firstError
 		if (!extensions) return null

@@ -1,26 +1,31 @@
+import { join } from 'path'
+import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default'
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo'
 import { Module } from '@nestjs/common'
 import { CqrsModule } from '@nestjs/cqrs'
 import { GraphQLModule } from '@nestjs/graphql'
-import { StartServerTasksRunner } from 'src/infrastructure/StartServerTasksRunner'
-import { BookPublicModule } from 'src/routes/bookPublic/bookPublic.module'
+import { Request, Response } from 'express'
+import { BookPublicModule } from 'routes/bookPublic/bookPublic.module'
+import { YandexTranslateRouteModule } from 'routes/translate/translate.module'
+import { VideoPrivateModule } from 'routes/videoPrivate/videoPrivate.module'
+import { StartServerTasksRunner } from 'infrastructure/StartServerTasksRunner'
+import { YandexCloudS3Module } from 'infrastructure/yandexCloudS3/yandexCloudS3.module'
+import { YandexDictionaryModule } from 'infrastructure/yandexDictionary/yandexDictionary.module'
+import { YandexTranslateModule } from 'infrastructure/yandexTranslate/yandexTranslate.module'
 import { EmailAdapterModule } from './infrastructure/emailAdapter/email-adapter.module'
 import { GigaChatModule } from './infrastructure/gigaChat/gigaChat.module'
 import { HashAdapterModule } from './infrastructure/hashAdapter/hash-adapter.module'
 import { MainConfigModule } from './infrastructure/mainConfig/mainConfig.module'
 import { MainConfigService } from './infrastructure/mainConfig/mainConfig.service'
-import { join } from 'path'
 import { OpenAIModule } from './infrastructure/openAI/openAI.module'
 import { RedisModule } from './infrastructure/redis/redis.module'
+import { TelegramModule } from './infrastructure/telegram/telegram.module'
 import { YooKassaModule } from './infrastructure/yooKassa/yooKassa.module'
 import { AiModule } from './routes/ai/ai.module'
-import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default'
-import { TelegramModule } from './infrastructure/telegram/telegram.module'
 import { AuthModule } from './routes/auth/auth.module'
-import { BookModule } from './routes/bookPrivate/book.module'
 import { BookChapterModule } from './routes/bookChapter/bookChapter.module'
+import { BookModule } from './routes/bookPrivate/book.module'
 import { DbModule } from './routes/db/db.module'
-import { Request, Response } from 'express'
 import { PaymentModule } from './routes/payment/payment.module'
 import { WebhookModule } from './routes/webhook/webhook.module'
 
@@ -56,6 +61,9 @@ import { WebhookModule } from './routes/webhook/webhook.module'
 		TelegramModule,
 		GigaChatModule,
 		OpenAIModule,
+		YandexCloudS3Module,
+		YandexDictionaryModule,
+		YandexTranslateModule,
 		DbModule,
 		RedisModule,
 		PaymentModule,
@@ -64,6 +72,8 @@ import { WebhookModule } from './routes/webhook/webhook.module'
 		BookModule,
 		BookPublicModule,
 		BookChapterModule,
+		VideoPrivateModule,
+		YandexTranslateRouteModule,
 	],
 	providers: [StartServerTasksRunner],
 })

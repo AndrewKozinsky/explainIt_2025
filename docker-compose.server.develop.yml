@@ -44,6 +44,7 @@ services:
     container_name: explainserverserverdevelop
     depends_on:
       - explainpostgresserverdevelop
+      - explainnlpserverdevelop
     environment:
       MODE: serverdevelop
       PORT: 3001
@@ -61,6 +62,12 @@ services:
       - explainserverserverdevelop
     environment:
       MODE: serverdevelop
+  explainnlpserverdevelop:
+    build:
+      context: nlp/
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
 networks:
   default:
     external: true

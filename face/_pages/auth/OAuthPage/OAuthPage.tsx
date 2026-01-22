@@ -1,11 +1,11 @@
 'use client'
 
-import { redirect } from 'next/navigation'
 import React from 'react'
+import { redirect } from 'next/navigation'
 import ErrorMessage from '../../../ui/ErrorMessage/ErrorMessage'
 import Spinner from '../../../ui/Spinner/Spinner'
-import { pageUrls } from 'сonsts/pageUrls'
 import { useAuthorizeUser } from './fn/authorizeUser'
+import { pageUrls } from 'сonsts/pageUrls'
 
 type ProviderType = 'github' | 'google' | 'yandex'
 

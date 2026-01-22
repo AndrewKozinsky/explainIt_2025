@@ -1,5 +1,5 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { BookPublicQueryRepository } from 'src/repo/bookPublic.queryRepository'
+import { BookPublicQueryRepository } from 'repo/bookPublic.queryRepository'
 
 export class GetBookPublicCommand implements ICommand {
 	constructor(public bookId: number) {}
