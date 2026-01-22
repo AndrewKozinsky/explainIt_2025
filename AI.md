@@ -12,7 +12,7 @@
 — `infrastructure` — a tool for creating Docker-compose files
 
 ## Front-end part
-A Next.js project with Apollo GraphQl and SCSS.
+A Next.js project with Apollo GraphQl and SCSS in the folder "face".
 — prefer ordinary functions rather than arrow functions. Use arrow functions only if this way gives better readability or scoping.
 — try to avoid excessive nesting and deeply nested conditionals.
 — when logic becomes nested or hard to read, extract small helper functions to keep code flat and readable.
@@ -31,9 +31,12 @@ A Next.js project with Apollo GraphQl and SCSS.
 — ensure responsive design for various screen sizes
 
 ## Server-side
-A Nest.js project with GraphQl, Prisma ORM and Postgres.
+A Nest.js project with GraphQl, Prisma ORM and Postgres in the folder "server".
 — use clear and descriptive variable names
 
 Use a command
 nvm use 24
 to switch to an actual Node.js version if you are going to run any command with it.
+
+## Nginx
+Nginx reverse proxy in the folder "nginx". It is used to communicate with the server from the front-end.

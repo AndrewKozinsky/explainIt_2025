@@ -5,6 +5,7 @@ http {
 
     server {
         listen 80;
+        client_max_body_size 10m;
 
         location ~ ^/(graphql|api) {
             proxy_pass http://explainserverlocalcheckserver:3001;

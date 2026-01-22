@@ -17,8 +17,11 @@ export function useGetPartOfSpeechTabsConfig(): TabConfig[] {
 			прилагательное: 'прил.',
 			причастие: 'прич.',
 			глагол: 'гл.',
-			наречие: 'нар.',
+			наречие: 'нареч.',
 			междометие: 'междом.',
+			местоимение: 'мест.',
+			частица: 'частица',
+			союз: 'союз',
 		}
 		const label = labelMapper[lexema.pos as 'причастие'] ?? lexema.pos ?? 'н/д'
 

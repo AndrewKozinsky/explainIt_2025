@@ -9,7 +9,6 @@ function Lexemes() {
 	if (analysis.analysis.type !== 'data' || !analysis.analysis.lexemes) {
 		return null
 	}
-	console.log(analysis.analysis.lexemes)
 
 	return (
 		<div className='phrase-analysis__lexemes'>
@@ -39,7 +38,11 @@ function CurrentLexemes() {
 	return (
 		<div className='phrase-analysis__lexemes-list'>
 			{lexeme.tr!.map((tr) => {
-				return <p className='phrase-analysis__lexemes-rus'>{tr.text}</p>
+				return (
+					<p className='phrase-analysis__lexemes-rus' key={tr.text}>
+						{tr.text}
+					</p>
+				)
 			})}
 		</div>
 	)
