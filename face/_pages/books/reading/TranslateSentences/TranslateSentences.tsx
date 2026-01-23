@@ -1,10 +1,10 @@
-import React from 'react'
-import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
-import Button from 'ui/formRelated/buttons/Button/Button'
-import { useGetTranslateSentencesButtonDetails } from './fn/translateSentences'
-import './TranslateSentences.scss'
+// import React from 'react'
+// import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
+// import Button from 'ui/formRelated/buttons/Button/Button'
+// import { useGetTranslateSentencesButtonDetails } from './fn/translateSentences'
+// import './TranslateSentences.scss'
 
-function TranslateSentences() {
+/*function TranslateSentences() {
 	const { onButtonClick, isButtonDisabled, isButtonVisible, error } = useGetTranslateSentencesButtonDetails()
 	if (!isButtonVisible) return null
 
@@ -16,6 +16,6 @@ function TranslateSentences() {
 			</Button>
 		</div>
 	)
-}
+}*/
 
-export default TranslateSentences
+// export default TranslateSentences

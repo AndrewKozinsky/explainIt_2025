@@ -1,5 +1,5 @@
-import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
-import { SelectedSentence } from '_pages/books/reading/readingStore'
+// import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
+// import { SelectedSentence } from '_pages/books/reading/readingStore'
 
 /**
  * Возвращает тип слова в зависимости от того выделено ли оно
@@ -9,7 +9,7 @@ import { SelectedSentence } from '_pages/books/reading/readingStore'
  * @param thisSentence — предложение с этим словом
  * @param wordId — идентификатор этого слова
  */
-export function getWordPrimaryType(
+/*export function getWordPrimaryType(
 	selectedSentence: SelectedSentence,
 	thisSentence: ChapterTextStructurePopulated.Sentence,
 	wordId: number,
@@ -53,4 +53,4 @@ export function getWordPrimaryType(
 	}
 
 	return null
-}
+}*/

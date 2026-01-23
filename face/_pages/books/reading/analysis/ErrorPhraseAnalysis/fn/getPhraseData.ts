@@ -1,8 +1,8 @@
-import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
-import { useGetSelectedPhrase } from '_pages/books/reading/lib/getSelectedPhraseType'
-import { useMemo } from 'react'
+// import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
+// import { useGetSelectedPhrase } from '_pages/books/reading/lib/getSelectedPhraseType'
+// import { useMemo } from 'react'
 
-export function useGetErrorMessage() {
+/*export function useGetErrorMessage() {
 	const phrase = useGetSelectedPhrase<ChapterTextStructurePopulated.ErrorPhrase>()
 
 	return useMemo(() => {
@@ -13,4 +13,4 @@ export function useGetErrorMessage() {
 
 		return errorMessage
 	}, [phrase.errorMessage])
-}
+}*/

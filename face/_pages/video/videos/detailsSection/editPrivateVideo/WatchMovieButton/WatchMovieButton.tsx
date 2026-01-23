@@ -1,7 +1,7 @@
-import Button from '@/ui/formRelated/buttons/Button/Button'
-import { useGetOnWatchButtonClick, useIsWatchButtonDisabled } from './fn/buttonLogic'
+// import Button from '@/ui/formRelated/buttons/Button/Button'
+// import { useGetOnWatchButtonClick, useIsWatchButtonDisabled } from './fn/buttonLogic'
 
-function WatchMovieButton() {
+/*function WatchMovieButton() {
 	const isButtonDisabled = useIsWatchButtonDisabled()
 	const onButtonClick = useGetOnWatchButtonClick()
 
@@ -10,6 +10,6 @@ function WatchMovieButton() {
 			Смотреть
 		</Button>
 	)
-}
+}*/
 
-export default WatchMovieButton
+// export default WatchMovieButton

@@ -12,20 +12,5 @@ query BookChapter_get($input: GetBookChapterInput!) {
 			note
 			userId
 		}
-		phrases {
-			id
-			sentenceId
-			sentence
-			phrase
-			transcription
-			phraseWordsIdx
-			translation
-			analysis
-			examples {
-				id
-				sentence
-				translation
-			}
-		}
 	}
 }

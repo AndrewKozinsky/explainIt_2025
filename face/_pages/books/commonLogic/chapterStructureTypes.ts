@@ -1,5 +1,5 @@
 // Тип данных для структуры текста приходящий с сервера
-export namespace ChapterTextStructure {
+/*export namespace ChapterTextStructure {
 	export type Chapter = Sentence[]
 
 	export type Sentence = {
@@ -48,10 +48,10 @@ export namespace ChapterTextStructure {
 		sentence: string
 		translation: string
 	}
-}
+}*/
 
 // Тип данных для структуры текста наполненный дополнительными сведениями (используется на клиенте)
-export namespace ChapterTextStructurePopulated {
+/*export namespace ChapterTextStructurePopulated {
 	// Надо бы добавить сюда идентификатор статьи. Требуется при запросах на анализ.
 	export type Chapter = {
 		id: number
@@ -124,4 +124,4 @@ export namespace ChapterTextStructurePopulated {
 			}[]
 		}
 	}
-}
+}*/

@@ -70,41 +70,26 @@ model BookPublic {
 }
 
 model BookChapter {
-    id                Int                 @id @default(autoincrement())
-    book              BookPrivate?        @relation(fields: [book_id], references: [id], onDelete: Cascade)
-    book_id           Int?
-    book_public       BookPublic?         @relation(fields: [book_public_id], references: [id], onDelete: Cascade)
-    book_public_id    Int?
-    name              String?
-    header            String?
-    content           String?
-    note              String?
-    BookChapterPhrase BookChapterPhrase[]
-    created_at        DateTime            @default(now())
+    id             Int          @id @default(autoincrement())
+    book           BookPrivate? @relation(fields: [book_id], references: [id], onDelete: Cascade)
+    book_id        Int?
+    book_public    BookPublic?  @relation(fields: [book_public_id], references: [id], onDelete: Cascade)
+    book_public_id Int?
+    name           String?
+    header         String?
+    content        String?
+    note           String?
+    created_at     DateTime     @default(now())
+    Sentence       Sentence[]
 }
 
-model BookChapterPhrase {
-    id                       Int                        @id @default(autoincrement())
-    sentenceId               Int
-    sentence                 String
-    phraseWordsIdx           Int[]
-    phrase                   String
-    phraseTranslation        String
-    phraseTranscription      String
-    phraseAnalysis           String
-    book_chapter             BookChapter                @relation(fields: [book_chapter_id], references: [id], onDelete: Cascade)
-    book_chapter_id          Int
-    BookChapterPhraseExample BookChapterPhraseExample[]
-    created_at               DateTime                   @default(now())
-}
-
-model BookChapterPhraseExample {
-    id                     Int               @id @default(autoincrement())
-    book_chapter_phrase    BookChapterPhrase @relation(fields: [book_chapter_phrase_id], references: [id], onDelete: Cascade)
-    book_chapter_phrase_id Int
-    sentence               String
-    translation            String
-    created_at             DateTime          @default(now())
+model Sentence {
+    id              Int          @id @default(autoincrement())
+    book_chapter    BookChapter? @relation(fields: [book_chapter_id], references: [id], onDelete: Cascade)
+    book_chapter_id Int?
+    start_offset    Int
+    length          Int
+    order_index     Int
 }
 
 model VideoPrivate {
@@ -117,8 +102,7 @@ model VideoPrivate {
     is_file_uploaded Boolean  @default(false)
     file_size_mb     Int
     name             String?
-    text             String?
-    text_resolved    String?
+    content          String?
     created_at       DateTime @default(now())
     updated_at       DateTime @default(now())
 }

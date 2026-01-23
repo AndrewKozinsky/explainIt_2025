@@ -1,6 +1,6 @@
-import { useGetSelectedSentence } from '_pages/books/reading/lib/getSelectedSentence'
-import { useReadingStore } from '_pages/books/reading/readingStore'
-import { useEffect } from 'react'
+// import { useGetSelectedSentence } from '_pages/books/reading/lib/getSelectedSentence'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
+// import { useEffect } from 'react'
 
 /**
  * При выделении любого слова или слов хук смотрит в какие фразы входят выделенные слова.
@@ -9,7 +9,7 @@ import { useEffect } from 'react'
  * Если в selectedSentence.phraseId уже есть идентификатор одной из входящих в выделенные слова,
  * то ничего не делает.
  */
-export function useAutoSetProperPhraseId() {
+/*export function useAutoSetProperPhraseId() {
 	const selection = useReadingStore((s) => s.selection)
 	const getSelectedSentence = useReadingStore((s) => s.getSelectedSentence)
 	const changeSelectedPhraseId = useReadingStore((s) => s.changeSelectedPhraseId)
@@ -38,4 +38,4 @@ export function useAutoSetProperPhraseId() {
 		},
 		[changeSelectedPhraseId, getSelectedSentence, selection, selectedSentence],
 	)
-}
+}*/

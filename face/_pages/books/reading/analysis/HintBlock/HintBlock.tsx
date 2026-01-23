@@ -1,32 +1,32 @@
-import LongTapForSelectSeveralWords from '_pages/books/reading/analysis/HintBlock/LongTapForSelectSeveralWords'
-import { useReadingStore } from '_pages/books/reading/readingStore'
-import { HoldToSelectRelatedWords } from './HoldToSelectRelatedWords'
-import { PressEnterForTranslation } from './PressEnterForTranslation'
-import TranslateButton from './TranslateButton'
-import './HintBlock.scss'
+// import LongTapForSelectSeveralWords from '_pages/books/reading/analysis/HintBlock/LongTapForSelectSeveralWords'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
+// import { HoldToSelectRelatedWords } from './HoldToSelectRelatedWords'
+// import { PressEnterForTranslation } from './PressEnterForTranslation'
+// import TranslateButton from './TranslateButton'
+// import './HintBlock.scss'
 
-function HintBlock() {
+/*function HintBlock() {
 	const deviceType = useReadingStore((s) => s.deviceType)
 
 	return deviceType === 'mouse' ? <HintBlockMouse /> : <HintBlockMobile />
-}
+}*/
 
-export default HintBlock
+// export default HintBlock
 
-function HintBlockMouse() {
+/*function HintBlockMouse() {
 	return (
 		<div className='hint-block hint-block--for-mouse'>
 			<PressEnterForTranslation />
 			<HoldToSelectRelatedWords />
 		</div>
 	)
-}
+}*/
 
-function HintBlockMobile() {
+/*function HintBlockMobile() {
 	return (
 		<div className='hint-block hint-block--for-touch'>
 			<LongTapForSelectSeveralWords />
 			<TranslateButton />
 		</div>
 	)
-}
+}*/

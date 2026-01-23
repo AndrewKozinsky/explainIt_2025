@@ -80,12 +80,12 @@ export type PrismaVersion = {
 }
 
 /**
- * Prisma Client JS version: 7.2.0
- * Query Engine version: 0c8ef2ce45c83248ab3df073180d5eda9e8be7a3
+ * Prisma Client JS version: 7.3.0
+ * Query Engine version: 9d6ad21cbbceab97458517b147a6a09ff43aa735
  */
 export const prismaVersion: PrismaVersion = {
-  client: "7.2.0",
-  engine: "0c8ef2ce45c83248ab3df073180d5eda9e8be7a3"
+  client: "7.3.0",
+  engine: "9d6ad21cbbceab97458517b147a6a09ff43aa735"
 }
 
 /**
@@ -390,8 +390,7 @@ export const ModelName = {
   BookPrivate: 'BookPrivate',
   BookPublic: 'BookPublic',
   BookChapter: 'BookChapter',
-  BookChapterPhrase: 'BookChapterPhrase',
-  BookChapterPhraseExample: 'BookChapterPhraseExample',
+  Sentence: 'Sentence',
   VideoPrivate: 'VideoPrivate',
   EngRusDictionary: 'EngRusDictionary'
 } as const
@@ -409,7 +408,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "balanceTransaction" | "payment" | "bookPrivate" | "bookPublic" | "bookChapter" | "bookChapterPhrase" | "bookChapterPhraseExample" | "videoPrivate" | "engRusDictionary"
+    modelProps: "user" | "balanceTransaction" | "payment" | "bookPrivate" | "bookPublic" | "bookChapter" | "sentence" | "videoPrivate" | "engRusDictionary"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -857,151 +856,77 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    BookChapterPhrase: {
-      payload: Prisma.$BookChapterPhrasePayload<ExtArgs>
-      fields: Prisma.BookChapterPhraseFieldRefs
+    Sentence: {
+      payload: Prisma.$SentencePayload<ExtArgs>
+      fields: Prisma.SentenceFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.BookChapterPhraseFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookChapterPhrasePayload> | null
+          args: Prisma.SentenceFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.BookChapterPhraseFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookChapterPhrasePayload>
+          args: Prisma.SentenceFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePayload>
         }
         findFirst: {
-          args: Prisma.BookChapterPhraseFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookChapterPhrasePayload> | null
+          args: Prisma.SentenceFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.BookChapterPhraseFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookChapterPhrasePayload>
+          args: Prisma.SentenceFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePayload>
         }
         findMany: {
-          args: Prisma.BookChapterPhraseFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookChapterPhrasePayload>[]
+          args: Prisma.SentenceFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePayload>[]
         }
         create: {
-          args: Prisma.BookChapterPhraseCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookChapterPhrasePayload>
+          args: Prisma.SentenceCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePayload>
         }
         createMany: {
-          args: Prisma.BookChapterPhraseCreateManyArgs<ExtArgs>
+          args: Prisma.SentenceCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.BookChapterPhraseCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookChapterPhrasePayload>[]
+          args: Prisma.SentenceCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePayload>[]
         }
         delete: {
-          args: Prisma.BookChapterPhraseDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookChapterPhrasePayload>
+          args: Prisma.SentenceDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePayload>
         }
         update: {
-          args: Prisma.BookChapterPhraseUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookChapterPhrasePayload>
+          args: Prisma.SentenceUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePayload>
         }
         deleteMany: {
-          args: Prisma.BookChapterPhraseDeleteManyArgs<ExtArgs>
+          args: Prisma.SentenceDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.BookChapterPhraseUpdateManyArgs<ExtArgs>
+          args: Prisma.SentenceUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.BookChapterPhraseUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookChapterPhrasePayload>[]
+          args: Prisma.SentenceUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePayload>[]
         }
         upsert: {
-          args: Prisma.BookChapterPhraseUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookChapterPhrasePayload>
+          args: Prisma.SentenceUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePayload>
         }
         aggregate: {
-          args: Prisma.BookChapterPhraseAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateBookChapterPhrase>
+          args: Prisma.SentenceAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSentence>
         }
         groupBy: {
-          args: Prisma.BookChapterPhraseGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.BookChapterPhraseGroupByOutputType>[]
+          args: Prisma.SentenceGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SentenceGroupByOutputType>[]
         }
         count: {
-          args: Prisma.BookChapterPhraseCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.BookChapterPhraseCountAggregateOutputType> | number
-        }
-      }
-    }
-    BookChapterPhraseExample: {
-      payload: Prisma.$BookChapterPhraseExamplePayload<ExtArgs>
-      fields: Prisma.BookChapterPhraseExampleFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.BookChapterPhraseExampleFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookChapterPhraseExamplePayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.BookChapterPhraseExampleFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookChapterPhraseExamplePayload>
-        }
-        findFirst: {
-          args: Prisma.BookChapterPhraseExampleFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookChapterPhraseExamplePayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.BookChapterPhraseExampleFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookChapterPhraseExamplePayload>
-        }
-        findMany: {
-          args: Prisma.BookChapterPhraseExampleFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookChapterPhraseExamplePayload>[]
-        }
-        create: {
-          args: Prisma.BookChapterPhraseExampleCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookChapterPhraseExamplePayload>
-        }
-        createMany: {
-          args: Prisma.BookChapterPhraseExampleCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.BookChapterPhraseExampleCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookChapterPhraseExamplePayload>[]
-        }
-        delete: {
-          args: Prisma.BookChapterPhraseExampleDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookChapterPhraseExamplePayload>
-        }
-        update: {
-          args: Prisma.BookChapterPhraseExampleUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookChapterPhraseExamplePayload>
-        }
-        deleteMany: {
-          args: Prisma.BookChapterPhraseExampleDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.BookChapterPhraseExampleUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.BookChapterPhraseExampleUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookChapterPhraseExamplePayload>[]
-        }
-        upsert: {
-          args: Prisma.BookChapterPhraseExampleUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookChapterPhraseExamplePayload>
-        }
-        aggregate: {
-          args: Prisma.BookChapterPhraseExampleAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateBookChapterPhraseExample>
-        }
-        groupBy: {
-          args: Prisma.BookChapterPhraseExampleGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.BookChapterPhraseExampleGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.BookChapterPhraseExampleCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.BookChapterPhraseExampleCountAggregateOutputType> | number
+          args: Prisma.SentenceCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SentenceCountAggregateOutputType> | number
         }
       }
     }
@@ -1271,31 +1196,15 @@ export const BookChapterScalarFieldEnum = {
 export type BookChapterScalarFieldEnum = (typeof BookChapterScalarFieldEnum)[keyof typeof BookChapterScalarFieldEnum]
 
 
-export const BookChapterPhraseScalarFieldEnum = {
+export const SentenceScalarFieldEnum = {
   id: 'id',
-  sentenceId: 'sentenceId',
-  sentence: 'sentence',
-  phraseWordsIdx: 'phraseWordsIdx',
-  phrase: 'phrase',
-  phraseTranslation: 'phraseTranslation',
-  phraseTranscription: 'phraseTranscription',
-  phraseAnalysis: 'phraseAnalysis',
   book_chapter_id: 'book_chapter_id',
-  created_at: 'created_at'
+  start_offset: 'start_offset',
+  length: 'length',
+  order_index: 'order_index'
 } as const
 
-export type BookChapterPhraseScalarFieldEnum = (typeof BookChapterPhraseScalarFieldEnum)[keyof typeof BookChapterPhraseScalarFieldEnum]
-
-
-export const BookChapterPhraseExampleScalarFieldEnum = {
-  id: 'id',
-  book_chapter_phrase_id: 'book_chapter_phrase_id',
-  sentence: 'sentence',
-  translation: 'translation',
-  created_at: 'created_at'
-} as const
-
-export type BookChapterPhraseExampleScalarFieldEnum = (typeof BookChapterPhraseExampleScalarFieldEnum)[keyof typeof BookChapterPhraseExampleScalarFieldEnum]
+export type SentenceScalarFieldEnum = (typeof SentenceScalarFieldEnum)[keyof typeof SentenceScalarFieldEnum]
 
 
 export const VideoPrivateScalarFieldEnum = {
@@ -1307,8 +1216,7 @@ export const VideoPrivateScalarFieldEnum = {
   is_file_uploaded: 'is_file_uploaded',
   file_size_mb: 'file_size_mb',
   name: 'name',
-  text: 'text',
-  text_resolved: 'text_resolved',
+  content: 'content',
   created_at: 'created_at',
   updated_at: 'updated_at'
 } as const
@@ -1564,8 +1472,7 @@ export type GlobalOmitConfig = {
   bookPrivate?: Prisma.BookPrivateOmit
   bookPublic?: Prisma.BookPublicOmit
   bookChapter?: Prisma.BookChapterOmit
-  bookChapterPhrase?: Prisma.BookChapterPhraseOmit
-  bookChapterPhraseExample?: Prisma.BookChapterPhraseExampleOmit
+  sentence?: Prisma.SentenceOmit
   videoPrivate?: Prisma.VideoPrivateOmit
   engRusDictionary?: Prisma.EngRusDictionaryOmit
 }

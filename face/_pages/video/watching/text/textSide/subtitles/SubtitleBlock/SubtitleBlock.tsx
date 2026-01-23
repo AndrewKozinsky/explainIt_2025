@@ -1,19 +1,19 @@
-import { Fragment, useMemo } from 'react'
-import cn from 'classnames'
-import { PopulatedSubtitlesStructure } from '@/_pages/video/watching/common/populatedSubtitlesStructure'
-import { useWatchingStore } from '@/_pages/video/watching/watchingStore'
-import Word from '../../common/Word/Word'
-import './SubtitleBlock.scss'
+// import { Fragment, useMemo } from 'react'
+// import cn from 'classnames'
+// import { PopulatedSubtitlesStructure } from '@/_pages/video/watching/common/populatedSubtitlesStructure'
+// import { useWatchingStore } from '@/_pages/video/watching/watchingStore'
+// import Word from '../../common/Word/Word'
+// import './SubtitleBlock.scss'
 
-type SubtitleBlockProps = {
+/*type SubtitleBlockProps = {
 	subtitle: PopulatedSubtitlesStructure.Subtitle
 	isCurrent: boolean
 	// Идентификаторы предложений, которые начинаются в данном субтитре.
 	// Если не переданы, компонент отрисует все тексты субтитра; переводы ниже появятся только если есть такие идентификаторы.
 	startingSentenceIds?: number[]
-}
+}*/
 
-function SubtitleBlock(props: SubtitleBlockProps) {
+/*function SubtitleBlock(props: SubtitleBlockProps) {
 	const { subtitle, isCurrent, startingSentenceIds } = props
 
 	// Достаём предложения с переводами из Хранилища
@@ -63,6 +63,6 @@ function SubtitleBlock(props: SubtitleBlockProps) {
 			)}
 		</div>
 	)
-}
+}*/
 
-export default SubtitleBlock
+// export default SubtitleBlock

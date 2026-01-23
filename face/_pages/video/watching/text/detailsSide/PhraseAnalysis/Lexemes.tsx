@@ -1,10 +1,10 @@
-import React from 'react'
-import Tabs from 'ui/Tabs/Tabs'
-import { useGetPartOfSpeechTabsConfig } from '_pages/video/watching/text/detailsSide/PhraseAnalysis/fn/lexemesTabsConfig'
-import { useWatchingStore } from '_pages/video/watching/watchingStore'
-import { useGetCurrentLexemes } from './fn/currentLexemes'
+// import React from 'react'
+// import Tabs from 'ui/Tabs/Tabs'
+// import { useGetPartOfSpeechTabsConfig } from '_pages/video/watching/text/detailsSide/PhraseAnalysis/fn/lexemesTabsConfig'
+// import { useWatchingStore } from '_pages/video/watching/watchingStore'
+// import { useGetCurrentLexemes } from './fn/currentLexemes'
 
-function Lexemes() {
+/*function Lexemes() {
 	const analysis = useWatchingStore((s) => s.analysis)
 	if (analysis.analysis.type !== 'data' || !analysis.analysis.lexemes) {
 		return null
@@ -16,11 +16,11 @@ function Lexemes() {
 			<CurrentLexemes />
 		</div>
 	)
-}
+}*/
 
-export default Lexemes
+// export default Lexemes
 
-function PartOfSpeechTabs() {
+/*function PartOfSpeechTabs() {
 	const lexemTabId = useWatchingStore((s) => s.lexemTabId)
 	const tabsConfig = useGetPartOfSpeechTabsConfig()
 
@@ -29,9 +29,9 @@ function PartOfSpeechTabs() {
 	}
 
 	return <Tabs tabsConfig={tabsConfig} currentTabId={lexemTabId} />
-}
+}*/
 
-function CurrentLexemes() {
+/*function CurrentLexemes() {
 	const lexeme = useGetCurrentLexemes()
 	if (!lexeme) return null
 
@@ -46,4 +46,4 @@ function CurrentLexemes() {
 			})}
 		</div>
 	)
-}
+}*/

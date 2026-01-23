@@ -1,10 +1,10 @@
-import { PopulatedSubtitlesStructure } from '_pages/video/watching/common/populatedSubtitlesStructure'
-import { PopulatedTextStructure } from '_pages/video/watching/common/populatedTextStructure'
-import { ResolvedSubtitlesStructure } from '_pages/video/watching/common/resolvedSubtitlesStructure'
-import { ResolvedTextStructure } from '_pages/video/watching/common/resolvedTextStructure'
-import { sentenceToParts } from './sentenceToParts'
+// import { PopulatedSubtitlesStructure } from '_pages/video/watching/common/populatedSubtitlesStructure'
+// import { PopulatedTextStructure } from '_pages/video/watching/common/populatedTextStructure'
+// import { ResolvedSubtitlesStructure } from '_pages/video/watching/common/resolvedSubtitlesStructure'
+// import { ResolvedTextStructure } from '_pages/video/watching/common/resolvedTextStructure'
+// import { sentenceToParts } from './sentenceToParts'
 
-export function createPopulatedPlainText(
+/*export function createPopulatedPlainText(
 	resolvedTextStructure: ResolvedTextStructure.Structure,
 ): PopulatedTextStructure.Structure {
 	return {
@@ -20,9 +20,9 @@ export function createPopulatedPlainText(
 			wordIds: [],
 		},
 	}
-}
+}*/
 
-export function createPopulatedSubtitles(
+/*export function createPopulatedSubtitles(
 	resolvedSubtitlesStructure: ResolvedSubtitlesStructure.Structure,
 ): PopulatedSubtitlesStructure.Structure {
 	const subtitles = createSubtitlesWithSpeechlessBars(resolvedSubtitlesStructure)
@@ -48,9 +48,9 @@ export function createPopulatedSubtitles(
 		},
 		playingSubtitleOrSpeechlessBarId: 0,
 	}
-}
+}*/
 
-function createSubtitlesWithSpeechlessBars(
+/*function createSubtitlesWithSpeechlessBars(
 	resolvedSubtitlesStructure: ResolvedSubtitlesStructure.Structure,
 ): PopulatedSubtitlesStructure.Structure['subtitles'] {
 	const subtitles: PopulatedSubtitlesStructure.Structure['subtitles'] = []
@@ -108,7 +108,7 @@ function createSubtitlesWithSpeechlessBars(
 	}
 
 	return subtitles
-}
+}*/
 
 /**
  * Converts a subtitle text fragment (`text`) into `TextPart[]` with `id`s that match the
@@ -128,7 +128,7 @@ function createSubtitlesWithSpeechlessBars(
  * - Subtitles come in time order, so `startSearchPos` can advance monotonically for a given sentence.
  * - `text` is usually an exact substring of `fullSentence`.
  */
-function createTextPartsWithSentenceIds(
+/*function createTextPartsWithSentenceIds(
 	resolvedSubtitlesStructure: ResolvedSubtitlesStructure.Structure,
 	partsWithRangesBySentenceId: Map<
 		number,
@@ -188,7 +188,7 @@ function createTextPartsWithSentenceIds(
 	}
 
 	return { textParts: result, nextCursor: endPos }
-}
+}*/
 
 /**
  * Returns cached full-sentence parts and their `[start, end)` character ranges.
@@ -199,7 +199,7 @@ function createTextPartsWithSentenceIds(
  *
  * The result is used to map subtitle fragments to exact part ids from the full sentence.
  */
-function getOrCreatePartsWithRanges(
+/*function getOrCreatePartsWithRanges(
 	partsWithRangesBySentenceId: Map<
 		number,
 		{ parts: PopulatedSubtitlesStructure.TextPart[]; ranges: { start: number; end: number }[] }
@@ -235,9 +235,9 @@ function getOrCreatePartsWithRanges(
 
 	partsWithRangesBySentenceId.set(sentenceId, { parts, ranges })
 	return partsWithRangesBySentenceId.get(sentenceId)!
-}
+}*/
 
-function timeCodeToMs(timeCode: string): number {
+/*function timeCodeToMs(timeCode: string): number {
 	const trimmed = timeCode.trim()
 	const match = trimmed.match(/^(\d+):(\d{2}):(\d{2})(?:[,.](\d{1,3}))?$/)
 	if (!match) return 0
@@ -249,4 +249,4 @@ function timeCodeToMs(timeCode: string): number {
 	const millis = parseInt(msStr.padEnd(3, '0'))
 
 	return hours * 3_600_000 + minutes * 60_000 + seconds * 1_000 + millis
-}
+}*/

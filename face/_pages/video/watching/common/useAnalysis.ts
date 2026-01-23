@@ -1,9 +1,9 @@
-import { useCallback } from 'react'
-import { extractGraphQLError } from 'graphql/extractGraphQLError'
-import { useTranslate_TranslatePhrase } from '@/graphql'
-import { useWatchingStore } from '_pages/video/watching/watchingStore'
+// import { useCallback } from 'react'
+// import { extractGraphQLError } from 'graphql/extractGraphQLError'
+// import { useTranslate_TranslatePhrase } from '@/graphql'
+// import { useWatchingStore } from '_pages/video/watching/watchingStore'
 
-export function useGetFetchAnalysisAndSetInStore() {
+/*export function useGetFetchAnalysisAndSetInStore() {
 	const updateAnalysis = useWatchingStore((s) => s.updateAnalysis)
 
 	// Apollo codegen mutation hooks usually return a tuple: [mutateFn, { data, loading, error }]
@@ -62,4 +62,4 @@ export function useGetFetchAnalysisAndSetInStore() {
 		},
 		[translatePhrase, updateAnalysis],
 	)
-}
+}*/

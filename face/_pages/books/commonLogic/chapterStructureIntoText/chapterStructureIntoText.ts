@@ -1,6 +1,6 @@
-import { ChapterTextStructure } from '_pages/books/commonLogic/chapterStructureTypes'
+// import { ChapterTextStructure } from '_pages/books/commonLogic/chapterStructureTypes'
 
-export function chapterStructureIntoText(chapterStructure: ChapterTextStructure.Chapter): string {
+/*export function chapterStructureIntoText(chapterStructure: ChapterTextStructure.Chapter): string {
 	let text = ''
 
 	for (const element of chapterStructure) {
@@ -20,4 +20,4 @@ export function chapterStructureIntoText(chapterStructure: ChapterTextStructure.
 	}
 
 	return text
-}
+}*/

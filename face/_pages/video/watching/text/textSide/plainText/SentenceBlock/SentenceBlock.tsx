@@ -1,12 +1,12 @@
-import { PopulatedTextStructure } from '_pages/video/watching/common/populatedTextStructure'
-import Word from '../../common/Word/Word'
-import './SentenceBlock.scss'
+// import { PopulatedTextStructure } from '_pages/video/watching/common/populatedTextStructure'
+// import Word from '../../common/Word/Word'
+// import './SentenceBlock.scss'
 
-type SentenceBlockProps = {
+/*type SentenceBlockProps = {
 	sentence: PopulatedTextStructure.Sentence
-}
+}*/
 
-function SentenceBlock(props: SentenceBlockProps) {
+/*function SentenceBlock(props: SentenceBlockProps) {
 	const { sentence } = props
 
 	return (
@@ -33,6 +33,6 @@ function SentenceBlock(props: SentenceBlockProps) {
 			{sentence.translation && <p className='sentence-block__translation'>{sentence.translation}</p>}
 		</div>
 	)
-}
+}*/
 
-export default SentenceBlock
+// export default SentenceBlock

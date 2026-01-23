@@ -1,14 +1,14 @@
-import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
-import Punctuation from '../parts/Punctuation'
-import Space from '../parts/Space'
-import Word from '../Word/Word'
-import './SentenceBlock.scss'
+// import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
+// import Punctuation from '../parts/Punctuation'
+// import Space from '../parts/Space'
+// import Word from '../Word/Word'
+// import './SentenceBlock.scss'
 
-type SentenceBlockProps = {
+/*type SentenceBlockProps = {
 	sentence: ChapterTextStructurePopulated.Sentence
-}
+}*/
 
-function SentenceBlock(props: SentenceBlockProps) {
+/*function SentenceBlock(props: SentenceBlockProps) {
 	const { sentence } = props
 
 	return (
@@ -29,6 +29,6 @@ function SentenceBlock(props: SentenceBlockProps) {
 			{sentence.translation && <p className='sentence-block__translation'>{sentence.translation}</p>}
 		</div>
 	)
-}
+}*/
 
-export default SentenceBlock
+// export default SentenceBlock

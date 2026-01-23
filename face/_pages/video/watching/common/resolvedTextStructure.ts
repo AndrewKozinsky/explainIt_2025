@@ -1,5 +1,5 @@
 // Тип данных для структуры текста приходящий с сервера
-export namespace ResolvedTextStructure {
+/*export namespace ResolvedTextStructure {
 	export type Structure = {
 		type: 'plainText'
 		sentences: Sentence[]
@@ -11,4 +11,4 @@ export namespace ResolvedTextStructure {
 		// Translation
 		t?: string
 	}
-}
+}*/

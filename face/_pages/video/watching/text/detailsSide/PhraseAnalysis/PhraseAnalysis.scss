@@ -1,6 +1,6 @@
-@use '@/styles/variables' as vars;
+//@use '@/styles/variables' as vars;
 
-.phrase-analysis {
+/*.phrase-analysis {
 	flex-grow: 1;
 	display: flex;
 	flex-direction: column;
@@ -8,17 +8,17 @@
 	overflow: auto;
 	padding: 1rem 1rem 0 0;
 	border-top: 1px solid vars.$grayColor-1;
-}
+}*/
 
-.phrase-analysis__top-text {
+/*.phrase-analysis__top-text {
 	display: flex;
 	align-items: baseline;
 	column-gap: 1rem;
 	flex-wrap: wrap;
 	font-size: clamp(1.5rem, 10cqi, 5rem);
 	line-height: clamp(2.5rem, 11cqi, 5.8rem);
-}
-.phrase-analysis__top-text-circle {
+}*/
+/*.phrase-analysis__top-text-circle {
 	align-self: center;
 	display: flex;
 	justify-content: center;
@@ -28,21 +28,21 @@
 	border-radius: 50%;
 	background-color: vars.$grayColor-2;
 	transform: translateY(.05em);
-}
-.phrase-analysis__circle-loading {
+}*/
+/*.phrase-analysis__circle-loading {
 	width: 0.6em;
 	height: 0.6em;
 	color: white;
-}
-.phrase-analysis__top-text-circle-arrow {
+}*/
+/*.phrase-analysis__top-text-circle-arrow {
 	font-size: .6em;
 	line-height: .6em;
 	font-weight: 600;
 	color: white;
 	transform: translateY(-.06em);
-}
+}*/
 
-.phrase-analysis__top-text-transcription {
+/*.phrase-analysis__top-text-transcription {
 	display: inline-block;
 	font-size: .7em;
 	line-height: 1em;
@@ -50,19 +50,19 @@
 	border: 1px solid vars.$grayColor-4;
 	border-radius: vars.$radius-1;
 	padding: .1em .1em;
-}
+}*/
 
-.phrase-analysis__lexemes {
+/*.phrase-analysis__lexemes {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
-}
-.phrase-analysis__lexemes-list {
+}*/
+/*.phrase-analysis__lexemes-list {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
-}
-.phrase-analysis__lexemes-rus {
+}*/
+/*.phrase-analysis__lexemes-rus {
 	font-size: 1.8rem;
 	line-height: 2.4rem;
-}
+}*/

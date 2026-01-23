@@ -17,25 +17,6 @@ export type Scalars = {
   Float: { input: number; output: number; }
 };
 
-export type AnalysePhraseInput = {
-  /** Book author */
-  bookAuthor?: InputMaybe<Scalars['String']['input']>;
-  /** Book chapter id */
-  bookChapterId: Scalars['Int']['input'];
-  /** Book name */
-  bookName?: InputMaybe<Scalars['String']['input']>;
-  /** Context */
-  context: Scalars['String']['input'];
-  /** Фраза на иностранном языке для заучивания */
-  phrase: Scalars['String']['input'];
-  /** Ids of the words in the phrase */
-  phraseWordsIdx: Array<Scalars['Int']['input']>;
-  /** Предложение где находится фраза */
-  sentence: Scalars['String']['input'];
-  /** Порядковый номер предложения где находится фраза */
-  sentenceId: Scalars['Float']['input'];
-};
-
 export type BookChapterLiteOutModel = {
   __typename?: 'BookChapterLiteOutModel';
   bookId: Scalars['Int']['output'];
@@ -53,25 +34,6 @@ export type BookChapterOutModel = {
   id: Scalars['Int']['output'];
   name?: Maybe<Scalars['String']['output']>;
   note?: Maybe<Scalars['String']['output']>;
-  phrases: Array<BookChapterPhraseOutModel>;
-};
-
-export type BookChapterPhraseOutModel = {
-  __typename?: 'BookChapterPhraseOutModel';
-  analysis: Scalars['String']['output'];
-  examples: Array<PhraseExample>;
-  id: Scalars['Int']['output'];
-  phrase: Scalars['String']['output'];
-  phraseWordsIdx: Array<Scalars['Int']['output']>;
-  sentence: Scalars['String']['output'];
-  sentenceId: Scalars['Int']['output'];
-  transcription: Scalars['String']['output'];
-  translation: Scalars['String']['output'];
-};
-
-export type BookChapterTranslateOfSentencesOutModel = {
-  __typename?: 'BookChapterTranslateOfSentencesOutModel';
-  translates: Array<Scalars['String']['output']>;
 };
 
 export type BookLiteOutModel = {
@@ -152,39 +114,13 @@ export type CreateBookInput = {
   note?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type CreatePrivateVideoInput = {
-  /** Name */
-  name?: InputMaybe<Scalars['String']['input']>;
-  /** Text */
-  text?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type CreateVideoPrivateOutModel = {
-  __typename?: 'CreateVideoPrivateOutModel';
-  id: Scalars['Int']['output'];
-  name?: Maybe<Scalars['String']['output']>;
-  resolvedText?: Maybe<Scalars['String']['output']>;
-  text?: Maybe<Scalars['String']['output']>;
-  userId: Scalars['Int']['output'];
-};
-
 export type DeleteBookChapterInput = {
   /** BookChapter id */
   id: Scalars['Int']['input'];
 };
 
-export type DeleteBookChapterPhrasesInput = {
-  /** Book chapter id */
-  bookChapterId: Scalars['Int']['input'];
-};
-
 export type DeleteBookInput = {
   /** Book id */
-  id: Scalars['Int']['input'];
-};
-
-export type DeletePrivateVideoInput = {
-  /** Video id */
   id: Scalars['Int']['input'];
 };
 
@@ -211,11 +147,6 @@ export type GetBookInput = {
 
 export type GetBookPublicInput = {
   /** Book id */
-  id: Scalars['Int']['input'];
-};
-
-export type GetPrivateVideoInput = {
-  /** Video id */
   id: Scalars['Int']['input'];
 };
 
@@ -269,9 +200,6 @@ export type Mutation = {
   auth_register: UserOutModel;
   /** Resend email confirmation letter */
   auth_resendConfirmationEmail: Scalars['Boolean']['output'];
-  book_chapter_AnalysePhrase: BookChapterPhraseOutModel;
-  book_chapter_DeleteBookChapterPhrases: Scalars['Boolean']['output'];
-  book_chapter_TranslateSentences: BookChapterTranslateOfSentencesOutModel;
   /** Create book chapter */
   book_chapter_create: BookChapterOutModel;
   /** Delete book chapter */
@@ -288,12 +216,6 @@ export type Mutation = {
   payment_yookassa_top_up_balance: TopUpBalanceWithYooKassaOutModel;
   translate_translate_phrase: EngRusDictionaryItemOutModel;
   translate_translate_sentence: TranslateSentenceOutModel;
-  /** Create a video */
-  video_private_create: CreateVideoPrivateOutModel;
-  /** Delete a video */
-  video_private_delete: Scalars['Boolean']['output'];
-  /** Update a video */
-  video_private_update: UpdateVideoPrivateOutModel;
 };
 
 
@@ -319,21 +241,6 @@ export type MutationAuth_RegisterArgs = {
 
 export type MutationAuth_ResendConfirmationEmailArgs = {
   input: ResendConfirmationEmailInput;
-};
-
-
-export type MutationBook_Chapter_AnalysePhraseArgs = {
-  input: AnalysePhraseInput;
-};
-
-
-export type MutationBook_Chapter_DeleteBookChapterPhrasesArgs = {
-  input: DeleteBookChapterPhrasesInput;
-};
-
-
-export type MutationBook_Chapter_TranslateSentencesArgs = {
-  input: TranslateSentencesInput;
 };
 
 
@@ -381,28 +288,6 @@ export type MutationTranslate_Translate_SentenceArgs = {
   input: TranslateSentenceInput;
 };
 
-
-export type MutationVideo_Private_CreateArgs = {
-  input: CreatePrivateVideoInput;
-};
-
-
-export type MutationVideo_Private_DeleteArgs = {
-  input: DeletePrivateVideoInput;
-};
-
-
-export type MutationVideo_Private_UpdateArgs = {
-  input: UpdatePrivateVideoInput;
-};
-
-export type PhraseExample = {
-  __typename?: 'PhraseExample';
-  id: Scalars['Int']['output'];
-  sentence: Scalars['String']['output'];
-  translation: Scalars['String']['output'];
-};
-
 export type Query = {
   __typename?: 'Query';
   ai_checkTranslation: CheckTranslationOutModel;
@@ -419,10 +304,6 @@ export type Query = {
   book_public_get_books: Array<BookPublicOutModel>;
   /** Get user books */
   book_user_books: Array<BookOutModel>;
-  /** Get a video */
-  video_private_get: VideoPrivateOutModel;
-  /** Get user videos */
-  video_private_user_videos: Array<VideoPrivateOutModel>;
 };
 
 
@@ -448,11 +329,6 @@ export type QueryBook_GetArgs = {
 
 export type QueryBook_Public_Get_BookArgs = {
   input: GetBookPublicInput;
-};
-
-
-export type QueryVideo_Private_GetArgs = {
-  input: GetPrivateVideoInput;
 };
 
 export type RegisterUserInput = {
@@ -500,15 +376,6 @@ export type TranslateSentenceOutModel = {
   translatedText: Scalars['String']['output'];
 };
 
-export type TranslateSentencesInput = {
-  /** Book author */
-  bookAuthor?: InputMaybe<Scalars['String']['input']>;
-  /** Book name */
-  bookName?: InputMaybe<Scalars['String']['input']>;
-  /** Array of sentences */
-  sentences: Array<Scalars['String']['input']>;
-};
-
 export type UpdateBookChapterInput = {
   /** BookChapter content */
   content?: InputMaybe<Scalars['String']['input']>;
@@ -533,56 +400,12 @@ export type UpdateBookInput = {
   note?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type UpdatePrivateVideoInput = {
-  /** File mime type */
-  fileMimeType?: InputMaybe<Scalars['String']['input']>;
-  /** File name */
-  fileName?: InputMaybe<Scalars['String']['input']>;
-  /** File size */
-  fileSizeMb?: InputMaybe<Scalars['Float']['input']>;
-  /** Video id */
-  id: Scalars['Int']['input'];
-  /** Is file was upload to S3 */
-  isFileUploaded?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Name */
-  name?: InputMaybe<Scalars['String']['input']>;
-  /** Text */
-  text?: InputMaybe<Scalars['String']['input']>;
-  /** Text resolved */
-  textResolved?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type UpdateVideoPrivateOutModel = {
-  __typename?: 'UpdateVideoPrivateOutModel';
-  fileSizeMb?: Maybe<Scalars['Float']['output']>;
-  id: Scalars['Int']['output'];
-  name?: Maybe<Scalars['String']['output']>;
-  resolvedText?: Maybe<Scalars['String']['output']>;
-  text?: Maybe<Scalars['String']['output']>;
-  uploadUrl?: Maybe<Scalars['String']['output']>;
-  userId: Scalars['Int']['output'];
-};
-
 export type UserOutModel = {
   __typename?: 'UserOutModel';
   balance: Scalars['Int']['output'];
   email: Scalars['String']['output'];
   id: Scalars['Int']['output'];
   isUserConfirmed: Scalars['Boolean']['output'];
-};
-
-export type VideoPrivateOutModel = {
-  __typename?: 'VideoPrivateOutModel';
-  fileName?: Maybe<Scalars['String']['output']>;
-  fileS3Key?: Maybe<Scalars['String']['output']>;
-  fileSizeMb: Scalars['Float']['output'];
-  fileUrl?: Maybe<Scalars['String']['output']>;
-  id: Scalars['Int']['output'];
-  isFileUploaded: Scalars['Boolean']['output'];
-  name?: Maybe<Scalars['String']['output']>;
-  resolvedText?: Maybe<Scalars['String']['output']>;
-  text?: Maybe<Scalars['String']['output']>;
-  userId: Scalars['Int']['output'];
 };
 
 export type AiCheckTranslationVariables = Exact<{
@@ -638,13 +461,6 @@ export type Auth_RegisterVariables = Exact<{
 
 export type Auth_Register = { __typename?: 'Mutation', auth_register: { __typename?: 'UserOutModel', id: number, email: string } };
 
-export type Book_Chapter_AnalysePhraseVariables = Exact<{
-  input: AnalysePhraseInput;
-}>;
-
-
-export type Book_Chapter_AnalysePhrase = { __typename?: 'Mutation', book_chapter_AnalysePhrase: { __typename?: 'BookChapterPhraseOutModel', id: number, sentenceId: number, sentence: string, phrase: string, transcription: string, phraseWordsIdx: Array<number>, translation: string, analysis: string, examples: Array<{ __typename?: 'PhraseExample', id: number, sentence: string, translation: string }> } };
-
 export type BookChapter_CreateVariables = Exact<{
   input: CreateBookChapterInput;
 }>;
@@ -659,26 +475,12 @@ export type BookChapter_DeleteVariables = Exact<{
 
 export type BookChapter_Delete = { __typename?: 'Mutation', book_chapter_delete: boolean };
 
-export type BookChapter_DeleteBookChapterPhrasesVariables = Exact<{
-  input: DeleteBookChapterPhrasesInput;
-}>;
-
-
-export type BookChapter_DeleteBookChapterPhrases = { __typename?: 'Mutation', book_chapter_DeleteBookChapterPhrases: boolean };
-
 export type BookChapter_GetVariables = Exact<{
   input: GetBookChapterInput;
 }>;
 
 
-export type BookChapter_Get = { __typename?: 'Query', book_chapter_get: { __typename?: 'BookChapterOutModel', id: number, name?: string | null, header?: string | null, content?: string | null, note?: string | null, book: { __typename?: 'BookLiteOutModel', id: number, name?: string | null, author?: string | null, note?: string | null, userId?: number | null }, phrases: Array<{ __typename?: 'BookChapterPhraseOutModel', id: number, sentenceId: number, sentence: string, phrase: string, transcription: string, phraseWordsIdx: Array<number>, translation: string, analysis: string, examples: Array<{ __typename?: 'PhraseExample', id: number, sentence: string, translation: string }> }> } };
-
-export type Book_Chapter_TranslateSentencesVariables = Exact<{
-  input: TranslateSentencesInput;
-}>;
-
-
-export type Book_Chapter_TranslateSentences = { __typename?: 'Mutation', book_chapter_TranslateSentences: { __typename?: 'BookChapterTranslateOfSentencesOutModel', translates: Array<string> } };
+export type BookChapter_Get = { __typename?: 'Query', book_chapter_get: { __typename?: 'BookChapterOutModel', id: number, name?: string | null, header?: string | null, content?: string | null, note?: string | null, book: { __typename?: 'BookLiteOutModel', id: number, name?: string | null, author?: string | null, note?: string | null, userId?: number | null } } };
 
 export type BookChapter_UpdateVariables = Exact<{
   input: UpdateBookChapterInput;
@@ -738,53 +540,6 @@ export type Payment_YookassaTopUpBalanceVariables = Exact<{
 
 
 export type Payment_YookassaTopUpBalance = { __typename?: 'Mutation', payment_yookassa_top_up_balance: { __typename?: 'TopUpBalanceWithYooKassaOutModel', confirmationUrl: string } };
-
-export type Translate_TranslatePhraseVariables = Exact<{
-  input: TranslatePhraseInput;
-}>;
-
-
-export type Translate_TranslatePhrase = { __typename?: 'Mutation', translate_translate_phrase: { __typename?: 'EngRusDictionaryItemOutModel', id: number, engPhrase: string, rusPhrase: string, transcription?: string | null, lexemes?: string | null } };
-
-export type Translate_TranslateSentenceVariables = Exact<{
-  input: TranslateSentenceInput;
-}>;
-
-
-export type Translate_TranslateSentence = { __typename?: 'Mutation', translate_translate_sentence: { __typename?: 'TranslateSentenceOutModel', translatedText: string } };
-
-export type VideoPrivate_CreateVariables = Exact<{
-  input: CreatePrivateVideoInput;
-}>;
-
-
-export type VideoPrivate_Create = { __typename?: 'Mutation', video_private_create: { __typename?: 'CreateVideoPrivateOutModel', id: number, name?: string | null, text?: string | null, userId: number } };
-
-export type VideoPrivate_DeleteVariables = Exact<{
-  input: DeletePrivateVideoInput;
-}>;
-
-
-export type VideoPrivate_Delete = { __typename?: 'Mutation', video_private_delete: boolean };
-
-export type VideoPrivate_GetVariables = Exact<{
-  input: GetPrivateVideoInput;
-}>;
-
-
-export type VideoPrivate_Get = { __typename?: 'Query', video_private_get: { __typename?: 'VideoPrivateOutModel', id: number, name?: string | null, text?: string | null, resolvedText?: string | null, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean, fileSizeMb: number } };
-
-export type VideoPrivate_GetUserVideosVariables = Exact<{ [key: string]: never; }>;
-
-
-export type VideoPrivate_GetUserVideos = { __typename?: 'Query', video_private_user_videos: Array<{ __typename?: 'VideoPrivateOutModel', id: number, name?: string | null, text?: string | null, resolvedText?: string | null, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean, fileSizeMb: number }> };
-
-export type VideoPrivate_UpdateVariables = Exact<{
-  input: UpdatePrivateVideoInput;
-}>;
-
-
-export type VideoPrivate_Update = { __typename?: 'Mutation', video_private_update: { __typename?: 'UpdateVideoPrivateOutModel', id: number, name?: string | null, text?: string | null, userId: number, uploadUrl?: string | null, fileSizeMb?: number | null } };
 
 
 export const AiCheckTranslationDocument = gql`
@@ -1088,51 +843,6 @@ export function useAuth_Register(baseOptions?: Apollo.MutationHookOptions<Auth_R
 export type Auth_RegisterHookResult = ReturnType<typeof useAuth_Register>;
 export type Auth_RegisterMutationResult = Apollo.MutationResult<Auth_Register>;
 export type Auth_RegisterMutationOptions = Apollo.BaseMutationOptions<Auth_Register, Auth_RegisterVariables>;
-export const Book_Chapter_AnalysePhraseDocument = gql`
-    mutation Book_chapter_AnalysePhrase($input: AnalysePhraseInput!) {
-  book_chapter_AnalysePhrase(input: $input) {
-    id
-    sentenceId
-    sentence
-    phrase
-    transcription
-    phraseWordsIdx
-    translation
-    analysis
-    examples {
-      id
-      sentence
-      translation
-    }
-  }
-}
-    `;
-export type Book_Chapter_AnalysePhraseMutationFn = Apollo.MutationFunction<Book_Chapter_AnalysePhrase, Book_Chapter_AnalysePhraseVariables>;
-
-/**
- * __useBook_Chapter_AnalysePhrase__
- *
- * To run a mutation, you first call `useBook_Chapter_AnalysePhrase` within a React component and pass it any options that fit your needs.
- * When your component renders, `useBook_Chapter_AnalysePhrase` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [bookChapterAnalysePhrase, { data, loading, error }] = useBook_Chapter_AnalysePhrase({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useBook_Chapter_AnalysePhrase(baseOptions?: Apollo.MutationHookOptions<Book_Chapter_AnalysePhrase, Book_Chapter_AnalysePhraseVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<Book_Chapter_AnalysePhrase, Book_Chapter_AnalysePhraseVariables>(Book_Chapter_AnalysePhraseDocument, options);
-      }
-export type Book_Chapter_AnalysePhraseHookResult = ReturnType<typeof useBook_Chapter_AnalysePhrase>;
-export type Book_Chapter_AnalysePhraseMutationResult = Apollo.MutationResult<Book_Chapter_AnalysePhrase>;
-export type Book_Chapter_AnalysePhraseMutationOptions = Apollo.BaseMutationOptions<Book_Chapter_AnalysePhrase, Book_Chapter_AnalysePhraseVariables>;
 export const BookChapter_CreateDocument = gql`
     mutation BookChapter_create($input: CreateBookChapterInput!) {
   book_chapter_create(input: $input) {
@@ -1208,37 +918,6 @@ export function useBookChapter_Delete(baseOptions?: Apollo.MutationHookOptions<B
 export type BookChapter_DeleteHookResult = ReturnType<typeof useBookChapter_Delete>;
 export type BookChapter_DeleteMutationResult = Apollo.MutationResult<BookChapter_Delete>;
 export type BookChapter_DeleteMutationOptions = Apollo.BaseMutationOptions<BookChapter_Delete, BookChapter_DeleteVariables>;
-export const BookChapter_DeleteBookChapterPhrasesDocument = gql`
-    mutation BookChapter_DeleteBookChapterPhrases($input: DeleteBookChapterPhrasesInput!) {
-  book_chapter_DeleteBookChapterPhrases(input: $input)
-}
-    `;
-export type BookChapter_DeleteBookChapterPhrasesMutationFn = Apollo.MutationFunction<BookChapter_DeleteBookChapterPhrases, BookChapter_DeleteBookChapterPhrasesVariables>;
-
-/**
- * __useBookChapter_DeleteBookChapterPhrases__
- *
- * To run a mutation, you first call `useBookChapter_DeleteBookChapterPhrases` within a React component and pass it any options that fit your needs.
- * When your component renders, `useBookChapter_DeleteBookChapterPhrases` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [bookChapterDeleteBookChapterPhrases, { data, loading, error }] = useBookChapter_DeleteBookChapterPhrases({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useBookChapter_DeleteBookChapterPhrases(baseOptions?: Apollo.MutationHookOptions<BookChapter_DeleteBookChapterPhrases, BookChapter_DeleteBookChapterPhrasesVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<BookChapter_DeleteBookChapterPhrases, BookChapter_DeleteBookChapterPhrasesVariables>(BookChapter_DeleteBookChapterPhrasesDocument, options);
-      }
-export type BookChapter_DeleteBookChapterPhrasesHookResult = ReturnType<typeof useBookChapter_DeleteBookChapterPhrases>;
-export type BookChapter_DeleteBookChapterPhrasesMutationResult = Apollo.MutationResult<BookChapter_DeleteBookChapterPhrases>;
-export type BookChapter_DeleteBookChapterPhrasesMutationOptions = Apollo.BaseMutationOptions<BookChapter_DeleteBookChapterPhrases, BookChapter_DeleteBookChapterPhrasesVariables>;
 export const BookChapter_GetDocument = gql`
     query BookChapter_get($input: GetBookChapterInput!) {
   book_chapter_get(input: $input) {
@@ -1253,21 +932,6 @@ export const BookChapter_GetDocument = gql`
       author
       note
       userId
-    }
-    phrases {
-      id
-      sentenceId
-      sentence
-      phrase
-      transcription
-      phraseWordsIdx
-      translation
-      analysis
-      examples {
-        id
-        sentence
-        translation
-      }
     }
   }
 }
@@ -1305,39 +969,6 @@ export type BookChapter_GetHookResult = ReturnType<typeof useBookChapter_Get>;
 export type BookChapter_GetLazyQueryHookResult = ReturnType<typeof useBookChapter_GetLazyQuery>;
 export type BookChapter_GetSuspenseQueryHookResult = ReturnType<typeof useBookChapter_GetSuspenseQuery>;
 export type BookChapter_GetQueryResult = Apollo.QueryResult<BookChapter_Get, BookChapter_GetVariables>;
-export const Book_Chapter_TranslateSentencesDocument = gql`
-    mutation Book_chapter_TranslateSentences($input: TranslateSentencesInput!) {
-  book_chapter_TranslateSentences(input: $input) {
-    translates
-  }
-}
-    `;
-export type Book_Chapter_TranslateSentencesMutationFn = Apollo.MutationFunction<Book_Chapter_TranslateSentences, Book_Chapter_TranslateSentencesVariables>;
-
-/**
- * __useBook_Chapter_TranslateSentences__
- *
- * To run a mutation, you first call `useBook_Chapter_TranslateSentences` within a React component and pass it any options that fit your needs.
- * When your component renders, `useBook_Chapter_TranslateSentences` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [bookChapterTranslateSentences, { data, loading, error }] = useBook_Chapter_TranslateSentences({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useBook_Chapter_TranslateSentences(baseOptions?: Apollo.MutationHookOptions<Book_Chapter_TranslateSentences, Book_Chapter_TranslateSentencesVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<Book_Chapter_TranslateSentences, Book_Chapter_TranslateSentencesVariables>(Book_Chapter_TranslateSentencesDocument, options);
-      }
-export type Book_Chapter_TranslateSentencesHookResult = ReturnType<typeof useBook_Chapter_TranslateSentences>;
-export type Book_Chapter_TranslateSentencesMutationResult = Apollo.MutationResult<Book_Chapter_TranslateSentences>;
-export type Book_Chapter_TranslateSentencesMutationOptions = Apollo.BaseMutationOptions<Book_Chapter_TranslateSentences, Book_Chapter_TranslateSentencesVariables>;
 export const BookChapter_UpdateDocument = gql`
     mutation BookChapter_update($input: UpdateBookChapterInput!) {
   book_chapter_update(input: $input) {
@@ -1736,275 +1367,3 @@ export function usePayment_YookassaTopUpBalance(baseOptions?: Apollo.MutationHoo
 export type Payment_YookassaTopUpBalanceHookResult = ReturnType<typeof usePayment_YookassaTopUpBalance>;
 export type Payment_YookassaTopUpBalanceMutationResult = Apollo.MutationResult<Payment_YookassaTopUpBalance>;
 export type Payment_YookassaTopUpBalanceMutationOptions = Apollo.BaseMutationOptions<Payment_YookassaTopUpBalance, Payment_YookassaTopUpBalanceVariables>;
-export const Translate_TranslatePhraseDocument = gql`
-    mutation Translate_translatePhrase($input: TranslatePhraseInput!) {
-  translate_translate_phrase(input: $input) {
-    id
-    engPhrase
-    rusPhrase
-    transcription
-    lexemes
-  }
-}
-    `;
-export type Translate_TranslatePhraseMutationFn = Apollo.MutationFunction<Translate_TranslatePhrase, Translate_TranslatePhraseVariables>;
-
-/**
- * __useTranslate_TranslatePhrase__
- *
- * To run a mutation, you first call `useTranslate_TranslatePhrase` within a React component and pass it any options that fit your needs.
- * When your component renders, `useTranslate_TranslatePhrase` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [translateTranslatePhrase, { data, loading, error }] = useTranslate_TranslatePhrase({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useTranslate_TranslatePhrase(baseOptions?: Apollo.MutationHookOptions<Translate_TranslatePhrase, Translate_TranslatePhraseVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<Translate_TranslatePhrase, Translate_TranslatePhraseVariables>(Translate_TranslatePhraseDocument, options);
-      }
-export type Translate_TranslatePhraseHookResult = ReturnType<typeof useTranslate_TranslatePhrase>;
-export type Translate_TranslatePhraseMutationResult = Apollo.MutationResult<Translate_TranslatePhrase>;
-export type Translate_TranslatePhraseMutationOptions = Apollo.BaseMutationOptions<Translate_TranslatePhrase, Translate_TranslatePhraseVariables>;
-export const Translate_TranslateSentenceDocument = gql`
-    mutation Translate_translateSentence($input: TranslateSentenceInput!) {
-  translate_translate_sentence(input: $input) {
-    translatedText
-  }
-}
-    `;
-export type Translate_TranslateSentenceMutationFn = Apollo.MutationFunction<Translate_TranslateSentence, Translate_TranslateSentenceVariables>;
-
-/**
- * __useTranslate_TranslateSentence__
- *
- * To run a mutation, you first call `useTranslate_TranslateSentence` within a React component and pass it any options that fit your needs.
- * When your component renders, `useTranslate_TranslateSentence` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [translateTranslateSentence, { data, loading, error }] = useTranslate_TranslateSentence({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useTranslate_TranslateSentence(baseOptions?: Apollo.MutationHookOptions<Translate_TranslateSentence, Translate_TranslateSentenceVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<Translate_TranslateSentence, Translate_TranslateSentenceVariables>(Translate_TranslateSentenceDocument, options);
-      }
-export type Translate_TranslateSentenceHookResult = ReturnType<typeof useTranslate_TranslateSentence>;
-export type Translate_TranslateSentenceMutationResult = Apollo.MutationResult<Translate_TranslateSentence>;
-export type Translate_TranslateSentenceMutationOptions = Apollo.BaseMutationOptions<Translate_TranslateSentence, Translate_TranslateSentenceVariables>;
-export const VideoPrivate_CreateDocument = gql`
-    mutation VideoPrivate_create($input: CreatePrivateVideoInput!) {
-  video_private_create(input: $input) {
-    id
-    name
-    text
-    userId
-  }
-}
-    `;
-export type VideoPrivate_CreateMutationFn = Apollo.MutationFunction<VideoPrivate_Create, VideoPrivate_CreateVariables>;
-
-/**
- * __useVideoPrivate_Create__
- *
- * To run a mutation, you first call `useVideoPrivate_Create` within a React component and pass it any options that fit your needs.
- * When your component renders, `useVideoPrivate_Create` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [videoPrivateCreate, { data, loading, error }] = useVideoPrivate_Create({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useVideoPrivate_Create(baseOptions?: Apollo.MutationHookOptions<VideoPrivate_Create, VideoPrivate_CreateVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<VideoPrivate_Create, VideoPrivate_CreateVariables>(VideoPrivate_CreateDocument, options);
-      }
-export type VideoPrivate_CreateHookResult = ReturnType<typeof useVideoPrivate_Create>;
-export type VideoPrivate_CreateMutationResult = Apollo.MutationResult<VideoPrivate_Create>;
-export type VideoPrivate_CreateMutationOptions = Apollo.BaseMutationOptions<VideoPrivate_Create, VideoPrivate_CreateVariables>;
-export const VideoPrivate_DeleteDocument = gql`
-    mutation VideoPrivate_delete($input: DeletePrivateVideoInput!) {
-  video_private_delete(input: $input)
-}
-    `;
-export type VideoPrivate_DeleteMutationFn = Apollo.MutationFunction<VideoPrivate_Delete, VideoPrivate_DeleteVariables>;
-
-/**
- * __useVideoPrivate_Delete__
- *
- * To run a mutation, you first call `useVideoPrivate_Delete` within a React component and pass it any options that fit your needs.
- * When your component renders, `useVideoPrivate_Delete` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [videoPrivateDelete, { data, loading, error }] = useVideoPrivate_Delete({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useVideoPrivate_Delete(baseOptions?: Apollo.MutationHookOptions<VideoPrivate_Delete, VideoPrivate_DeleteVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<VideoPrivate_Delete, VideoPrivate_DeleteVariables>(VideoPrivate_DeleteDocument, options);
-      }
-export type VideoPrivate_DeleteHookResult = ReturnType<typeof useVideoPrivate_Delete>;
-export type VideoPrivate_DeleteMutationResult = Apollo.MutationResult<VideoPrivate_Delete>;
-export type VideoPrivate_DeleteMutationOptions = Apollo.BaseMutationOptions<VideoPrivate_Delete, VideoPrivate_DeleteVariables>;
-export const VideoPrivate_GetDocument = gql`
-    query VideoPrivate_get($input: GetPrivateVideoInput!) {
-  video_private_get(input: $input) {
-    id
-    name
-    text
-    resolvedText
-    userId
-    fileName
-    fileS3Key
-    fileUrl
-    isFileUploaded
-    fileSizeMb
-  }
-}
-    `;
-
-/**
- * __useVideoPrivate_Get__
- *
- * To run a query within a React component, call `useVideoPrivate_Get` and pass it any options that fit your needs.
- * When your component renders, `useVideoPrivate_Get` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useVideoPrivate_Get({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useVideoPrivate_Get(baseOptions: Apollo.QueryHookOptions<VideoPrivate_Get, VideoPrivate_GetVariables> & ({ variables: VideoPrivate_GetVariables; skip?: boolean; } | { skip: boolean; }) ) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<VideoPrivate_Get, VideoPrivate_GetVariables>(VideoPrivate_GetDocument, options);
-      }
-export function useVideoPrivate_GetLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<VideoPrivate_Get, VideoPrivate_GetVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<VideoPrivate_Get, VideoPrivate_GetVariables>(VideoPrivate_GetDocument, options);
-        }
-export function useVideoPrivate_GetSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<VideoPrivate_Get, VideoPrivate_GetVariables>) {
-          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<VideoPrivate_Get, VideoPrivate_GetVariables>(VideoPrivate_GetDocument, options);
-        }
-export type VideoPrivate_GetHookResult = ReturnType<typeof useVideoPrivate_Get>;
-export type VideoPrivate_GetLazyQueryHookResult = ReturnType<typeof useVideoPrivate_GetLazyQuery>;
-export type VideoPrivate_GetSuspenseQueryHookResult = ReturnType<typeof useVideoPrivate_GetSuspenseQuery>;
-export type VideoPrivate_GetQueryResult = Apollo.QueryResult<VideoPrivate_Get, VideoPrivate_GetVariables>;
-export const VideoPrivate_GetUserVideosDocument = gql`
-    query VideoPrivate_getUserVideos {
-  video_private_user_videos {
-    id
-    name
-    text
-    resolvedText
-    userId
-    fileName
-    fileS3Key
-    fileUrl
-    isFileUploaded
-    fileSizeMb
-  }
-}
-    `;
-
-/**
- * __useVideoPrivate_GetUserVideos__
- *
- * To run a query within a React component, call `useVideoPrivate_GetUserVideos` and pass it any options that fit your needs.
- * When your component renders, `useVideoPrivate_GetUserVideos` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useVideoPrivate_GetUserVideos({
- *   variables: {
- *   },
- * });
- */
-export function useVideoPrivate_GetUserVideos(baseOptions?: Apollo.QueryHookOptions<VideoPrivate_GetUserVideos, VideoPrivate_GetUserVideosVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<VideoPrivate_GetUserVideos, VideoPrivate_GetUserVideosVariables>(VideoPrivate_GetUserVideosDocument, options);
-      }
-export function useVideoPrivate_GetUserVideosLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<VideoPrivate_GetUserVideos, VideoPrivate_GetUserVideosVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<VideoPrivate_GetUserVideos, VideoPrivate_GetUserVideosVariables>(VideoPrivate_GetUserVideosDocument, options);
-        }
-export function useVideoPrivate_GetUserVideosSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<VideoPrivate_GetUserVideos, VideoPrivate_GetUserVideosVariables>) {
-          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<VideoPrivate_GetUserVideos, VideoPrivate_GetUserVideosVariables>(VideoPrivate_GetUserVideosDocument, options);
-        }
-export type VideoPrivate_GetUserVideosHookResult = ReturnType<typeof useVideoPrivate_GetUserVideos>;
-export type VideoPrivate_GetUserVideosLazyQueryHookResult = ReturnType<typeof useVideoPrivate_GetUserVideosLazyQuery>;
-export type VideoPrivate_GetUserVideosSuspenseQueryHookResult = ReturnType<typeof useVideoPrivate_GetUserVideosSuspenseQuery>;
-export type VideoPrivate_GetUserVideosQueryResult = Apollo.QueryResult<VideoPrivate_GetUserVideos, VideoPrivate_GetUserVideosVariables>;
-export const VideoPrivate_UpdateDocument = gql`
-    mutation VideoPrivate_update($input: UpdatePrivateVideoInput!) {
-  video_private_update(input: $input) {
-    id
-    name
-    text
-    userId
-    uploadUrl
-    fileSizeMb
-  }
-}
-    `;
-export type VideoPrivate_UpdateMutationFn = Apollo.MutationFunction<VideoPrivate_Update, VideoPrivate_UpdateVariables>;
-
-/**
- * __useVideoPrivate_Update__
- *
- * To run a mutation, you first call `useVideoPrivate_Update` within a React component and pass it any options that fit your needs.
- * When your component renders, `useVideoPrivate_Update` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [videoPrivateUpdate, { data, loading, error }] = useVideoPrivate_Update({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useVideoPrivate_Update(baseOptions?: Apollo.MutationHookOptions<VideoPrivate_Update, VideoPrivate_UpdateVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<VideoPrivate_Update, VideoPrivate_UpdateVariables>(VideoPrivate_UpdateDocument, options);
-      }
-export type VideoPrivate_UpdateHookResult = ReturnType<typeof useVideoPrivate_Update>;
-export type VideoPrivate_UpdateMutationResult = Apollo.MutationResult<VideoPrivate_Update>;
-export type VideoPrivate_UpdateMutationOptions = Apollo.BaseMutationOptions<VideoPrivate_Update, VideoPrivate_UpdateVariables>;

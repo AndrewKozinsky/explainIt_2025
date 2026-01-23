@@ -1,4 +1,3 @@
-import React from 'react'
 import Tabs from 'ui/Tabs/Tabs'
 import { useVideosStore } from '../videosStore'
 import { tabsConfig } from './fn/onButtonClick'

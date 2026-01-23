@@ -1,7 +1,7 @@
-import { RefObject, useCallback } from 'react'
-import { useReadingStore } from '_pages/books/reading/readingStore'
+// import { RefObject, useCallback } from 'react'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
 
-export function useWordHoverHandlers(
+/*export function useWordHoverHandlers(
 	wrapperRef: RefObject<null | HTMLSpanElement>,
 	sentenceId: number,
 	wordId: number,
@@ -35,4 +35,4 @@ export function useWordHoverHandlers(
 	}, [clearHoveredWord])
 
 	return { onMouseEnter, onMouseLeave }
-}
+}*/

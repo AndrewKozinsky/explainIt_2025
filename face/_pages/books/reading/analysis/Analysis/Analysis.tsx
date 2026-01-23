@@ -1,11 +1,11 @@
-import { useAutoSetProperPhraseId } from './fn/autoSetProperPhraseId'
-import { useReadingStore } from '_pages/books/reading/readingStore'
-import HintBlock from '../HintBlock/HintBlock'
-import SelectedPhraseAnalyseRouter from '../SelectedPhraseAnalyseRouter/SelectedPhraseAnalyseRouter'
-import PhrasesSwitch from '../PhraseSwitch/PhrasesSwitch'
-import './Analysis.scss'
+// import { useAutoSetProperPhraseId } from './fn/autoSetProperPhraseId'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
+// import HintBlock from '../HintBlock/HintBlock'
+// import SelectedPhraseAnalyseRouter from '../SelectedPhraseAnalyseRouter/SelectedPhraseAnalyseRouter'
+// import PhrasesSwitch from '../PhraseSwitch/PhrasesSwitch'
+// import './Analysis.scss'
 
-function Analysis() {
+/*function Analysis() {
 	useAutoSetProperPhraseId()
 
 	const selection = useReadingStore((s) => s.selection)
@@ -18,6 +18,6 @@ function Analysis() {
 			<HintBlock />
 		</div>
 	)
-}
+}*/
 
-export default Analysis
+// export default Analysis

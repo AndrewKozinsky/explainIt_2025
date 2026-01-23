@@ -1,22 +1,22 @@
-import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { VideoPrivateRepository } from 'repo/videoPrivate.repository'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
-import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { YandexCloudS3Service } from 'infrastructure/yandexCloudS3/yandexCloudS3.service'
+// import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+// import { VideoPrivateRepository } from 'repo/videoPrivate.repository'
+// import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+// import { ErrorCode } from 'infrastructure/exceptions/errorCode'
+// import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+// import { YandexCloudS3Service } from 'infrastructure/yandexCloudS3/yandexCloudS3.service'
 
-type DeletePrivateVideoInput = {
+/*type DeletePrivateVideoInput = {
 	id: number
-}
+}*/
 
-export class DeletePrivateVideoCommand implements ICommand {
+/*export class DeletePrivateVideoCommand implements ICommand {
 	constructor(
 		public userId: number,
 		public deleteVideoInput: DeletePrivateVideoInput,
 	) {}
-}
+}*/
 
-@CommandHandler(DeletePrivateVideoCommand)
+/*@CommandHandler(DeletePrivateVideoCommand)
 export class DeletePrivateVideoHandler implements ICommandHandler<DeletePrivateVideoCommand> {
 	constructor(
 		private videoRepository: VideoPrivateRepository,
@@ -47,4 +47,4 @@ export class DeletePrivateVideoHandler implements ICommandHandler<DeletePrivateV
 
 		return true
 	}
-}
+}*/

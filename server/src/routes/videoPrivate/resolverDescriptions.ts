@@ -1,9 +1,9 @@
-import { VideoPrivateResolver } from 'routes/videoPrivate/videoPrivate.resolver'
+// import { VideoPrivateResolver } from 'routes/videoPrivate/videoPrivate.resolver'
 
-export const videoPrivateResolversDesc: Record<keyof typeof VideoPrivateResolver.prototype, string> = {
+/*export const videoPrivateResolversDesc: Record<keyof typeof VideoPrivateResolver.prototype, string> = {
 	createVideoPrivate: 'Create a video',
 	updateVideoPrivate: 'Update a video',
 	deleteVideoPrivate: 'Delete a video',
 	getUserVideosPrivate: 'Get user videos',
 	getVideoPrivate: 'Get a video',
-}
+}*/

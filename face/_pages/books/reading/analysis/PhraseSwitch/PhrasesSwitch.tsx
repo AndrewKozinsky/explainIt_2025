@@ -1,10 +1,10 @@
-import React from 'react'
-import cn from 'classnames'
-import { useGetSelectedPhrasesConfig } from './fn/phrasesConfig'
-import { useGetSelectPhrase } from './fn/selectPhrase'
-import './PhrasesSwitch.scss'
+// import React from 'react'
+// import cn from 'classnames'
+// import { useGetSelectedPhrasesConfig } from './fn/phrasesConfig'
+// import { useGetSelectPhrase } from './fn/selectPhrase'
+// import './PhrasesSwitch.scss'
 
-function PhrasesSwitch() {
+/*function PhrasesSwitch() {
 	const phrasesConfig = useGetSelectedPhrasesConfig()
 	const selectPhrase = useGetSelectPhrase()
 
@@ -23,6 +23,6 @@ function PhrasesSwitch() {
 			))}
 		</div>
 	)
-}
+}*/
 
-export default PhrasesSwitch
+// export default PhrasesSwitch

@@ -1,16 +1,16 @@
-import { CreateBookChapterInput } from 'features/bookChapter/CreateBookChapter.command'
-import { ChapterTextStructure } from 'features/bookPrivate/chapterStructure/chapterStructureTypes'
+// import { CreateBookChapterInput } from 'features/bookChapter/CreateBookChapter.command'
+// import { ChapterTextStructure } from 'features/bookPrivate/chapterStructure/chapterStructureTypes'
 
-export type ChapterData = {
+/*export type ChapterData = {
 	name: string
 	header: string
 	data: {
 		sentence: string
 		translate: string
 	}[]
-}
+}*/
 
-export function getBookChapters(bookId: number, chapters: ChapterData[]): CreateBookChapterInput[] {
+/*export function getBookChapters(bookId: number, chapters: ChapterData[]): CreateBookChapterInput[] {
 	const structuredContent = getStructuredContent(chapters)
 
 	return chapters.map((chapter, i) => {
@@ -24,9 +24,9 @@ export function getBookChapters(bookId: number, chapters: ChapterData[]): Create
 			content,
 		}
 	})
-}
+}*/
 
-export function getStructuredContent(chapters: ChapterData[]): ChapterTextStructure.Chapter[] {
+/*export function getStructuredContent(chapters: ChapterData[]): ChapterTextStructure.Chapter[] {
 	return chapters.map((chapter) => {
 		return chapter.data.map((sentence) => {
 			return {
@@ -36,9 +36,9 @@ export function getStructuredContent(chapters: ChapterData[]): ChapterTextStruct
 			} as ChapterTextStructure.Sentence
 		})
 	})
-}
+}*/
 
-export function divideTextIntoSentenceParts(sentenceText: string): ChapterTextStructure.SentencePart[] {
+/*export function divideTextIntoSentenceParts(sentenceText: string): ChapterTextStructure.SentencePart[] {
 	const parts: ChapterTextStructure.SentencePart[] = []
 	if (!sentenceText) return parts
 
@@ -97,4 +97,4 @@ export function divideTextIntoSentenceParts(sentenceText: string): ChapterTextSt
 	}
 
 	return parts
-}
+}*/

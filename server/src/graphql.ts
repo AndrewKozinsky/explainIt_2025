@@ -30,10 +30,6 @@ export interface GetBookChapterInput {
     id: number;
 }
 
-export interface GetPrivateVideoInput {
-    id: number;
-}
-
 export interface RegisterUserInput {
     email: string;
     password: string;
@@ -99,47 +95,6 @@ export interface DeleteBookChapterInput {
     id: number;
 }
 
-export interface AnalysePhraseInput {
-    bookChapterId: number;
-    bookAuthor?: Nullable<string>;
-    bookName?: Nullable<string>;
-    context: string;
-    sentenceId: number;
-    sentence: string;
-    phrase: string;
-    phraseWordsIdx: number[];
-}
-
-export interface TranslateSentencesInput {
-    bookAuthor?: Nullable<string>;
-    bookName?: Nullable<string>;
-    sentences: string[];
-}
-
-export interface DeleteBookChapterPhrasesInput {
-    bookChapterId: number;
-}
-
-export interface CreatePrivateVideoInput {
-    name?: Nullable<string>;
-    text?: Nullable<string>;
-}
-
-export interface UpdatePrivateVideoInput {
-    id: number;
-    name?: Nullable<string>;
-    text?: Nullable<string>;
-    textResolved?: Nullable<string>;
-    fileName?: Nullable<string>;
-    fileMimeType?: Nullable<string>;
-    isFileUploaded?: Nullable<boolean>;
-    fileSizeMb?: Nullable<number>;
-}
-
-export interface DeletePrivateVideoInput {
-    id: number;
-}
-
 export interface TranslatePhraseInput {
     text: string;
     sourceLanguageCode?: Nullable<string>;
@@ -150,24 +105,6 @@ export interface TranslateSentenceInput {
     text: string;
     sourceLanguageCode?: Nullable<string>;
     targetLanguageCode?: Nullable<string>;
-}
-
-export interface BookChapterPhraseOutModel {
-    id: number;
-    sentenceId: number;
-    sentence: string;
-    transcription: string;
-    phrase: string;
-    phraseWordsIdx: number[];
-    translation: string;
-    analysis: string;
-    examples: PhraseExample[];
-}
-
-export interface PhraseExample {
-    id: number;
-    sentence: string;
-    translation: string;
 }
 
 export interface BookOutModel {
@@ -202,7 +139,6 @@ export interface BookChapterOutModel {
     content?: Nullable<string>;
     note?: Nullable<string>;
     book: BookLiteOutModel;
-    phrases: BookChapterPhraseOutModel[];
 }
 
 export interface BookPublicOutModel {
@@ -226,46 +162,11 @@ export interface TranslateSentenceOutModel {
     translatedText: string;
 }
 
-export interface CreateVideoPrivateOutModel {
-    id: number;
-    name?: Nullable<string>;
-    text?: Nullable<string>;
-    resolvedText?: Nullable<string>;
-    userId: number;
-}
-
-export interface UpdateVideoPrivateOutModel {
-    id: number;
-    name?: Nullable<string>;
-    text?: Nullable<string>;
-    resolvedText?: Nullable<string>;
-    userId: number;
-    uploadUrl?: Nullable<string>;
-    fileSizeMb?: Nullable<number>;
-}
-
-export interface VideoPrivateOutModel {
-    id: number;
-    userId: number;
-    name?: Nullable<string>;
-    text?: Nullable<string>;
-    resolvedText?: Nullable<string>;
-    fileName?: Nullable<string>;
-    fileS3Key?: Nullable<string>;
-    fileUrl?: Nullable<string>;
-    isFileUploaded: boolean;
-    fileSizeMb: number;
-}
-
 export interface UserOutModel {
     id: number;
     email: string;
     isUserConfirmed: boolean;
     balance: number;
-}
-
-export interface BookChapterTranslateOfSentencesOutModel {
-    translates: string[];
 }
 
 export interface TopUpBalanceWithYooKassaOutModel {
@@ -281,8 +182,6 @@ export interface IQuery {
     book_public_get_books(): BookPublicOutModel[] | Promise<BookPublicOutModel[]>;
     book_public_get_book(input: GetBookPublicInput): BookPublicOutModel | Promise<BookPublicOutModel>;
     book_chapter_get(input: GetBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
-    video_private_user_videos(): VideoPrivateOutModel[] | Promise<VideoPrivateOutModel[]>;
-    video_private_get(input: GetPrivateVideoInput): VideoPrivateOutModel | Promise<VideoPrivateOutModel>;
 }
 
 export interface CheckTranslationOutSuccessModel {
@@ -316,12 +215,6 @@ export interface IMutation {
     book_chapter_create(input: CreateBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
     book_chapter_update(input: UpdateBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
     book_chapter_delete(input: DeleteBookChapterInput): boolean | Promise<boolean>;
-    book_chapter_AnalysePhrase(input: AnalysePhraseInput): BookChapterPhraseOutModel | Promise<BookChapterPhraseOutModel>;
-    book_chapter_TranslateSentences(input: TranslateSentencesInput): BookChapterTranslateOfSentencesOutModel | Promise<BookChapterTranslateOfSentencesOutModel>;
-    book_chapter_DeleteBookChapterPhrases(input: DeleteBookChapterPhrasesInput): boolean | Promise<boolean>;
-    video_private_create(input: CreatePrivateVideoInput): CreateVideoPrivateOutModel | Promise<CreateVideoPrivateOutModel>;
-    video_private_update(input: UpdatePrivateVideoInput): UpdateVideoPrivateOutModel | Promise<UpdateVideoPrivateOutModel>;
-    video_private_delete(input: DeletePrivateVideoInput): boolean | Promise<boolean>;
     translate_translate_phrase(input: TranslatePhraseInput): EngRusDictionaryItemOutModel | Promise<EngRusDictionaryItemOutModel>;
     translate_translate_sentence(input: TranslateSentenceInput): TranslateSentenceOutModel | Promise<TranslateSentenceOutModel>;
 }

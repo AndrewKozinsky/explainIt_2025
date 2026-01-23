@@ -1,3 +1,3 @@
-export const videoConfig = {
+/*export const videoConfig = {
 	emptyVideoName: 'Новое видео...',
-}
+}*/

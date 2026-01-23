@@ -1,11 +1,11 @@
-@use "@/styles/variables" as vars;
-@use "@/styles/mixins" as mix;
+//@use "@/styles/variables" as vars;
+//@use "@/styles/mixins" as mix;
 
-.translated-phrase-analysis {
+/*.translated-phrase-analysis {
 	position: relative;
-}
+}*/
 
-.translated-phrase-analysis__top-block {
+/*.translated-phrase-analysis__top-block {
 	position: sticky;
 	top: 0;
 	left: 0;
@@ -23,13 +23,13 @@
 	& > *:nth-child(3) {
 		margin-right: 1rem;
 	}
-}
-.translated-phrase-analysis__top-block--long {
+}*/
+/*.translated-phrase-analysis__top-block--long {
 	font-size: clamp(2.8rem, 8vw, 4rem);
 	line-height: clamp(3.2rem, 8vw, 4.4rem);
-}
+}*/
 
-.translated-phrase-analysis__phrase-arrow {
+/*.translated-phrase-analysis__phrase-arrow {
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
@@ -46,9 +46,9 @@
 		font-weight: 500;
 		transform: translateY(-.06em);
 	}
-}
+}*/
 
-.translated-phrase-analysis__phrase-transcription {
+/*.translated-phrase-analysis__phrase-transcription {
 	display: inline-block;
 	font-size: .7em;
 	line-height: 1em;
@@ -56,9 +56,9 @@
 	border: 1px solid vars.$grayColor-4;
 	border-radius: vars.$radius-1;
 	padding: .1em .1em;
-}
+}*/
 
-.translated-phrase-analysis__content {
+/*.translated-phrase-analysis__content {
 	display: flex;
 	flex-direction: column;
 	gap: 1.4rem;
@@ -69,41 +69,41 @@
 		flex-direction: row;
 		gap: 2.4rem;
 	}
-}
-.translated-phrase-analysis__content-analysis {
+}*/
+/*.translated-phrase-analysis__content-analysis {
 	display: flex;
 	flex-direction: column;
 	gap: 1.2rem;
 	flex-basis: 66%;
-}
+}*/
 
-.translated-phrase-analysis__content-examples {
+/*.translated-phrase-analysis__content-examples {
 	flex-basis: 34%;
-}
-.translated-phrase-analysis__content-examples-items {
+}*/
+/*.translated-phrase-analysis__content-examples-items {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
 
 	line-height: 2.5rem;
-}
-.translated-phrase-analysis__content-example {
+}*/
+/*.translated-phrase-analysis__content-example {
 	font-weight: 500;
-}
-.translated-phrase-analysis__content-example-native {
+}*/
+/*.translated-phrase-analysis__content-example-native {
 	font-weight: 300;
 	color: vars.$grayColor-6;
-}
+}*/
 
 // ----
 
-.translated-phrase-analysis__content-and-header {
+/*.translated-phrase-analysis__content-and-header {
 	display: flex;
 	flex-direction: column;
 	gap: .2rem;
-}
-.translated-phrase-analysis__content-and-header-header {
+}*/
+/*.translated-phrase-analysis__content-and-header-header {
 	font-size: 1.8rem;
 	line-height: 2.2rem;
 	font-weight: 500;
-}
+}*/

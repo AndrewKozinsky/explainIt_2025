@@ -1,12 +1,12 @@
-import { parseSync } from 'subtitle'
-import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
-import { ResolvedSubtitlesStructure } from './resolvedSubtitlesStructure'
+// import { parseSync } from 'subtitle'
+// import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+// import { ResolvedSubtitlesStructure } from './resolvedSubtitlesStructure'
 
-type SubtitleCue = {
+/*type SubtitleCue = {
 	startTime: number
 	endTime: number
 	text: string
-}
+}*/
 
 /**
  * Gets subtitles like:
@@ -24,7 +24,7 @@ type SubtitleCue = {
  * @param mainConfigService
  * @param subtitles
  */
-export async function subtitlesToResolved(
+/*export async function subtitlesToResolved(
 	mainConfigService: MainConfigService,
 	subtitles?: null | string,
 ): Promise<ResolvedSubtitlesStructure.Structure> {
@@ -131,9 +131,9 @@ export async function subtitlesToResolved(
 			})
 			.filter((s): s is { id: number; s: string } => s !== null),
 	}
-}
+}*/
 
-function msToTimecode(ms: number): string {
+/*function msToTimecode(ms: number): string {
 	const totalMs = Math.max(0, Math.floor(ms))
 	const hours = Math.floor(totalMs / 3_600_000)
 	const minutes = Math.floor((totalMs % 3_600_000) / 60_000)
@@ -146,8 +146,8 @@ function msToTimecode(ms: number): string {
 	const mmm = String(millis).padStart(3, '0')
 
 	return `${hh}:${mm}:${ss},${mmm}`
-}
+}*/
 
-function normalizeText(text: string): string {
+/*function normalizeText(text: string): string {
 	return text.replace(/\r\n?/g, '\n').replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim()
-}
+}*/

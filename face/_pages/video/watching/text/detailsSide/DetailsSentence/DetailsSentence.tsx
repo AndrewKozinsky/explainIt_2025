@@ -1,11 +1,11 @@
-import React from 'react'
-import Word from '../../textSide/common/Word/Word'
-import CopyButton from './CopyButton'
-import { useGetSelectedItem } from './fn/getSelectedItem'
-import TranslateButton from './TranslateButton'
-import './DetailsSentence.scss'
+// import React from 'react'
+// import Word from '../../textSide/common/Word/Word'
+// import CopyButton from './CopyButton'
+// import { useGetSelectedItem } from './fn/getSelectedItem'
+// import TranslateButton from './TranslateButton'
+// import './DetailsSentence.scss'
 
-function DetailsSentence() {
+/*function DetailsSentence() {
 	const { selectedItem, selectedPlainText, selectedSubtitle } = useGetSelectedItem()
 	if (!selectedItem) return null
 
@@ -55,6 +55,6 @@ function DetailsSentence() {
 			</div>
 		</div>
 	)
-}
+}*/
 
-export default DetailsSentence
+// export default DetailsSentence

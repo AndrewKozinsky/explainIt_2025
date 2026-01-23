@@ -1,16 +1,16 @@
-import { useMemo } from 'react'
-import { useReadingStore } from '_pages/books/reading/readingStore'
-import { areArraysEqualIgnoringOrder } from 'utils/arrays'
-import { getFullSelectedSentence } from './getFullSelectedSentence'
+// import { useMemo } from 'react'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
+// import { areArraysEqualIgnoringOrder } from 'utils/arrays'
+// import { getFullSelectedSentence } from './getFullSelectedSentence'
 
-export function useCanRunTranslation() {
+/*export function useCanRunTranslation() {
 	const selectedSentence = useReadingStore((s) => s.selection)
 	const populatedChapter = useReadingStore((s) => s.populatedChapter)
 
 	return useMemo(canRunTranslation, [selectedSentence, populatedChapter])
-}
+}*/
 
-export function canRunTranslation() {
+/*export function canRunTranslation() {
 	const selectedSentence = useReadingStore.getState().selection
 	if (!selectedSentence.sentenceId || !selectedSentence.wordIds.length) {
 		return false
@@ -30,4 +30,4 @@ export function canRunTranslation() {
 	}
 
 	return !['success', 'loading'].includes(selectedPhrase.type)
-}
+}*/

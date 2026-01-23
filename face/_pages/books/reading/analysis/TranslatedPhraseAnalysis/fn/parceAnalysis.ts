@@ -1,14 +1,14 @@
-import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
-import { useGetSelectedPhrase } from '_pages/books/reading/lib/getSelectedPhraseType'
+// import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
+// import { useGetSelectedPhrase } from '_pages/books/reading/lib/getSelectedPhraseType'
 
-type AnalysisDetails = {
+/*type AnalysisDetails = {
 	meaning_in_context: string
 	usage: string
 	comparison: string
 	image_or_feeling: string
 	summary: string
-}
-type AnalysisDetailsPopulated = {
+}*/
+/*type AnalysisDetailsPopulated = {
 	meaning_in_context?: {
 		header: string
 		value: string
@@ -21,9 +21,9 @@ type AnalysisDetailsPopulated = {
 		header: string
 		value: string
 	}
-}
+}*/
 
-export function useGetParsedAnalysis(): AnalysisDetailsPopulated {
+/*export function useGetParsedAnalysis(): AnalysisDetailsPopulated {
 	const selectedPhrase = useGetSelectedPhrase<ChapterTextStructurePopulated.SuccessPhrase>()
 
 	const rawAnalysis = selectedPhrase.analysis.analysis
@@ -58,4 +58,4 @@ export function useGetParsedAnalysis(): AnalysisDetailsPopulated {
 	} catch (e) {}
 
 	return populatedDetails
-}
+}*/

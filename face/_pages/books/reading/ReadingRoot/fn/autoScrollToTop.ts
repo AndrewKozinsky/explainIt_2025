@@ -1,7 +1,7 @@
-import { useReadingStore } from '_pages/books/reading/readingStore'
-import { useEffect } from 'react'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
+// import { useEffect } from 'react'
 
-export function useAutoScrollToTop() {
+/*export function useAutoScrollToTop() {
 	const chapter = useReadingStore((s) => s.chapter)
 
 	useEffect(
@@ -11,4 +11,4 @@ export function useAutoScrollToTop() {
 		},
 		[chapter?.data?.id],
 	)
-}
+}*/

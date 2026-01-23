@@ -48,15 +48,10 @@ export type BookPublic = Prisma.BookPublicModel
  */
 export type BookChapter = Prisma.BookChapterModel
 /**
- * Model BookChapterPhrase
+ * Model Sentence
  * 
  */
-export type BookChapterPhrase = Prisma.BookChapterPhraseModel
-/**
- * Model BookChapterPhraseExample
- * 
- */
-export type BookChapterPhraseExample = Prisma.BookChapterPhraseExampleModel
+export type Sentence = Prisma.SentenceModel
 /**
  * Model VideoPrivate
  * 

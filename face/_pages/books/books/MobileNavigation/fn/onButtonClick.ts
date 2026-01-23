@@ -1,5 +1,4 @@
 import { BooksStore, useBooksStore } from '_pages/books/books/booksStore'
-import { useCallback } from 'react'
 
 export const tabsConfig = [
 	{

@@ -1,7 +1,7 @@
-import { useWatchingStore } from '_pages/video/watching/watchingStore'
-import Spinner from 'ui/Spinner/Spinner'
+// import { useWatchingStore } from '_pages/video/watching/watchingStore'
+// import Spinner from 'ui/Spinner/Spinner'
 
-function WatchingRootLoading() {
+/*function WatchingRootLoading() {
 	const isVideoLoading = useWatchingStore((s) => s.video?.loading)
 	if (!isVideoLoading) return null
 
@@ -10,6 +10,6 @@ function WatchingRootLoading() {
 			<Spinner />
 		</div>
 	)
-}
+}*/
 
-export default WatchingRootLoading
+// export default WatchingRootLoading

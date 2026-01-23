@@ -1,6 +1,6 @@
-import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
+// import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
 
-export function populatedChapterStructureIntoText(chapterSentences: ChapterTextStructurePopulated.Sentence[]): string {
+/*export function populatedChapterStructureIntoText(chapterSentences: ChapterTextStructurePopulated.Sentence[]): string {
 	let result = ''
 
 	for (const item of chapterSentences) {
@@ -18,4 +18,4 @@ export function populatedChapterStructureIntoText(chapterSentences: ChapterTextS
 	}
 
 	return result
-}
+}*/

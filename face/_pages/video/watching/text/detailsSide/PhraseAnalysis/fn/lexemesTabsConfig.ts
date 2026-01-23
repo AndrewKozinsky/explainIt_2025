@@ -1,7 +1,7 @@
-import { TabConfig } from 'ui/Tabs/Tabs'
-import { useWatchingStore } from '_pages/video/watching/watchingStore'
+// import { TabConfig } from 'ui/Tabs/Tabs'
+// import { useWatchingStore } from '_pages/video/watching/watchingStore'
 
-export function useGetPartOfSpeechTabsConfig(): TabConfig[] {
+/*export function useGetPartOfSpeechTabsConfig(): TabConfig[] {
 	const analysis = useWatchingStore((s) => s.analysis)
 	const updateLexemTabId = useWatchingStore((s) => s.updateLexemTabId)
 
@@ -31,4 +31,4 @@ export function useGetPartOfSpeechTabsConfig(): TabConfig[] {
 			onClick: () => updateLexemTabId(id),
 		}
 	})
-}
+}*/

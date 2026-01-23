@@ -1,10 +1,10 @@
-import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
-import { BookChapterOutModel, BookChapterPhraseOutModel, BookOutModel, BookPublicOutModel } from '@/graphql'
-import { areArraysEqualIgnoringOrder } from 'utils/arrays'
-import { create } from 'zustand'
-import { produce } from 'immer'
+// import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
+// import { BookChapterOutModel, BookChapterPhraseOutModel, BookOutModel, BookPublicOutModel } from '@/graphql'
+// import { areArraysEqualIgnoringOrder } from 'utils/arrays'
+// import { create } from 'zustand'
+// import { produce } from 'immer'
 
-export const readingStoreValues: ReadingStoreValues = {
+/*export const readingStoreValues: ReadingStoreValues = {
 	book: null as any as ReadingStore.BookData,
 	chapter: null as any as ReadingStore.ChapterData,
 	populatedChapter: null as any as ChapterTextStructurePopulated.Chapter,
@@ -21,9 +21,9 @@ export const readingStoreValues: ReadingStoreValues = {
 		pos: null,
 		container: null,
 	},
-}
+}*/
 
-export const useReadingStore = create<ReadingStoreNext>()((set, get) => {
+/*export const useReadingStore = create<ReadingStoreNext>()((set, get) => {
 	return {
 		...readingStoreValues,
 		updateBook: (book: ReadingStore.BookData) => {
@@ -90,13 +90,13 @@ export const useReadingStore = create<ReadingStoreNext>()((set, get) => {
 
 			return sentence
 		},
-		/**
+		/!**
 		 * Добавляет в выделенное предложение идентификатор выделенного слова.
 		 * @param wordId — id слова, которое нужно поставить во фразу
 		 * @param insertType — тип вставки:
 		 * add — добавить id слова с сохранением других идентификаторов в массиве выделенных слов,
 		 * replaceAll — убрать все остальные идентификаторы слов заменив этим
-		 */
+		 *!/
 		addWordToSelectedSentence(wordId: number, insertType: 'add' | 'replaceAll') {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
@@ -151,7 +151,7 @@ export const useReadingStore = create<ReadingStoreNext>()((set, get) => {
 				})
 			})
 		},
-		/** Ищет фразу с типом idle у выделенного предложения и ставит ей тип loading.*/
+		/!** Ищет фразу с типом idle у выделенного предложения и ставит ей тип loading.*!/
 		createLoadingPhraseInSelectedSentenceFromSelectedWords() {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
@@ -179,7 +179,7 @@ export const useReadingStore = create<ReadingStoreNext>()((set, get) => {
 				})
 			})
 		},
-		/** В предложени ищет фразу с указанным id и ставит ей тип error*/
+		/!** В предложени ищет фразу с указанным id и ставит ей тип error*!/
 		turnPhraseIntoErrorPhrase(sentenceId: number, phraseId: number, errorMessage: string) {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
@@ -260,9 +260,9 @@ export const useReadingStore = create<ReadingStoreNext>()((set, get) => {
 			})
 		},
 	}
-})
+})*/
 
-export namespace ReadingStore {
+/*export namespace ReadingStore {
 	export type BookData = {
 		loading: boolean
 		errorMessage: null | string
@@ -274,13 +274,13 @@ export namespace ReadingStore {
 		errorMessage: null | string
 		data: BookChapterOutModel
 	}
-}
+}*/
 
-export type ReadingStoreNext = ReadingStoreValues & ReadingStoreMethods
+// export type ReadingStoreNext = ReadingStoreValues & ReadingStoreMethods
 
-type DeviceType = 'mouse' | 'touch'
+// type DeviceType = 'mouse' | 'touch'
 
-export type ReadingStoreValues = {
+/*export type ReadingStoreValues = {
 	book: ReadingStore.BookData
 	chapter: ReadingStore.ChapterData
 	populatedChapter: ChapterTextStructurePopulated.Chapter
@@ -297,17 +297,17 @@ export type ReadingStoreValues = {
 		pos: { left: number; top: number } | null
 		container: { width: number; height: number } | null
 	}
-}
+}*/
 
-export type SelectedSentence = {
+/*export type SelectedSentence = {
 	sentenceId: null | number
 	// Идентификаторы выделенных слов
 	wordIds: number[]
 	// Идентификатор фразы, анализ которой хочет видеть пользователь
 	phraseId: number | null
-}
+}*/
 
-export type ReadingStoreMethods = {
+/*export type ReadingStoreMethods = {
 	updateBook: (book: ReadingStore.BookData) => void
 	updateChapter: (chapter: ReadingStore.ChapterData) => void
 	updatePopulatedChapter: (populatedChapter: ChapterTextStructurePopulated.Chapter) => void
@@ -330,4 +330,4 @@ export type ReadingStoreMethods = {
 	) => void
 	clearHoveredWord: () => void
 	putTranslatedSentencesIntoChapter: (translatedSentences: string[]) => void
-}
+}*/

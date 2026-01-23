@@ -1,16 +1,16 @@
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import OpenAI from 'openai'
-import { z } from 'zod'
-import { TokenUsageBalanceChargeCommand } from 'features/payment/TokenUsageBalanceCharge.command'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
-import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+// import OpenAI from 'openai'
+// import { z } from 'zod'
+// import { TokenUsageBalanceChargeCommand } from 'features/payment/TokenUsageBalanceCharge.command'
+// import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+// import { ErrorCode } from 'infrastructure/exceptions/errorCode'
+// import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { OpenAIModels, OpenAIService } from 'infrastructure/openAI/openAI.service'
 
 type TranslateSentencesInput = {
-	bookAuthor: null | string
-	bookName: null | string
-	sentences: string[]
+	// bookAuthor: null | string
+	// bookName: null | string
+	// sentences: string[]
 }
 
 export class TranslateSentencesCommand implements ICommand {
@@ -31,15 +31,13 @@ export class TranslateSentencesHandler implements ICommandHandler<TranslateSente
 	) {}
 
 	async execute(command: TranslateSentencesCommand) {
-		const { userId, translateSentencesInput } = command
-
+		// const { userId, translateSentencesInput } = command
 		// Получить перевод предложений через OpenAI.
-		const translates = await this.getAnalysis(userId, translateSentencesInput)
-		if (!translates) {
+		// const translates = await this.getAnalysis(userId, translateSentencesInput)
+		/*if (!translates) {
 			throw new CustomGraphQLError(errorMessage.unknownOpenAIError, ErrorCode.InternalServerError_500)
-		}
-
-		return translates
+		}*/
+		// return translates
 	}
 
 	/**
@@ -47,7 +45,7 @@ export class TranslateSentencesHandler implements ICommandHandler<TranslateSente
 	 * @param userId — user id who make a request to OpenAI
 	 * @param translateSentencesInput — данные для анализа предложений.
 	 */
-	async getAnalysis(userId: number, translateSentencesInput: TranslateSentencesInput) {
+	/*async getAnalysis(userId: number, translateSentencesInput: TranslateSentencesInput) {
 		// Подготовка данных для передачи в OpenAI.
 		const messages = this.getAnalysisTask(translateSentencesInput)
 
@@ -73,13 +71,13 @@ export class TranslateSentencesHandler implements ICommandHandler<TranslateSente
 
 		// Convert fetched data into expected format
 		return this.getAnalysisParsedData(aiResult.message)
-	}
+	}*/
 
 	/**
 	 * Формирует задачу для передачи в OpenAI.
 	 * @param translateSentencesInput — данные для анализа предложения и фразы.
 	 */
-	getAnalysisTask(
+	/*getAnalysisTask(
 		translateSentencesInput: TranslateSentencesInput,
 	): OpenAI.Chat.Completions.ChatCompletionMessageParam[] {
 		const firstTaskSentenceMapper = {
@@ -110,14 +108,14 @@ export class TranslateSentencesHandler implements ICommandHandler<TranslateSente
 				content: sentences,
 			},
 		]
-	}
+	}*/
 
 	/*
 	 * Разбирает и проверяет ответ от OpenAI. Возвращает объект с подготовленными полями.
 	 * @param aiResultMessage — ответ от OpenAI
 
 	 */
-	getAnalysisParsedData(aiResultMessage: null | string) {
+	/*getAnalysisParsedData(aiResultMessage: null | string) {
 		// Схема для проверки сообщения через zod
 		const VerificationSchema = z
 			.object({
@@ -137,5 +135,5 @@ export class TranslateSentencesHandler implements ICommandHandler<TranslateSente
 		if (!validation.success) return null
 
 		return validation.data as z.infer<typeof VerificationSchema>
-	}
+	}*/
 }

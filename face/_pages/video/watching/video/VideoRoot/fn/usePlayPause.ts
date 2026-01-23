@@ -1,8 +1,8 @@
-import { PlayerCommand, useWatchingStore } from '_pages/video/watching/watchingStore'
-import { useGetHotKeysHandler } from 'utils/hotKeysHandler'
-import { useEffect, useMemo } from 'react'
+// import { PlayerCommand, useWatchingStore } from '_pages/video/watching/watchingStore'
+// import { useGetHotKeysHandler } from 'utils/hotKeysHandler'
+// import { useEffect, useMemo } from 'react'
 
-export function usePlayPause(
+/*export function usePlayPause(
 	playerWrapperRef: React.RefObject<HTMLDivElement | null>,
 	getPlayerWrapperPressArea: (wrapper: HTMLDivElement, clientX: number) => 'left' | 'center' | 'right',
 ) {
@@ -37,4 +37,4 @@ export function usePlayPause(
 			wrapper.removeEventListener('pointerup', handlePointerUp)
 		}
 	}, [playerWrapperRef, sendPlayerCommand, nextCommand, getPlayerWrapperPressArea])
-}
+}*/

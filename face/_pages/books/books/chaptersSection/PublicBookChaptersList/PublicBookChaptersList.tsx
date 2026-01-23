@@ -1,5 +1,5 @@
-import ChapterLink from '../ChapterLink/ChapterLink'
 import { useBooksStore } from '_pages/books/books/booksStore'
+import ChapterLink from '../ChapterLink/ChapterLink'
 
 function PublicBookChaptersList() {
 	const publicBook = useBooksStore((s) => s.publicBook)
@@ -15,4 +15,4 @@ function PublicBookChaptersList() {
 	)
 }
 
-export default PublicBookChaptersList
+// export default PublicBookChaptersList

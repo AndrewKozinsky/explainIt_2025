@@ -1,16 +1,16 @@
-import React from 'react'
-import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
-import Button from 'ui/formRelated/buttons/Button/Button'
-import { useTranslate_TranslateSentence, useVideoPrivate_Update } from '@/graphql'
-import { extractGraphQLError } from '@/graphql/extractGraphQLError'
-import {
-	populatedPlainTextToResolved,
-	populatedSubtitlesToResolved,
-} from '_pages/video/watching/common/populatedToResolved'
-import { useGetSelectedItem } from '_pages/video/watching/text/detailsSide/DetailsSentence/fn/getSelectedItem'
-import { useWatchingStore } from '_pages/video/watching/watchingStore'
+// import React from 'react'
+// import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
+// import Button from 'ui/formRelated/buttons/Button/Button'
+// import { useTranslate_TranslateSentence, useVideoPrivate_Update } from '@/graphql'
+// import { extractGraphQLError } from '@/graphql/extractGraphQLError'
+// import {
+// 	populatedPlainTextToResolved,
+// 	populatedSubtitlesToResolved,
+// } from '_pages/video/watching/common/populatedToResolved'
+// import { useGetSelectedItem } from '_pages/video/watching/text/detailsSide/DetailsSentence/fn/getSelectedItem'
+// import { useWatchingStore } from '_pages/video/watching/watchingStore'
 
-function TranslateButton() {
+/*function TranslateButton() {
 	const { selectedItem } = useGetSelectedItem()
 	const video = useWatchingStore((s) => s.video)
 
@@ -75,6 +75,6 @@ function TranslateButton() {
 			<ErrorMessage text={errorText} />
 		</>
 	)
-}
+}*/
 
-export default TranslateButton
+// export default TranslateButton

@@ -1,10 +1,10 @@
-import { produce } from 'immer'
-import { create } from 'zustand'
-import { VideoPrivateOutModel } from '@/graphql'
-import { PopulatedSubtitlesStructure } from '_pages/video/watching/common/populatedSubtitlesStructure'
-import { PopulatedTextStructure } from '_pages/video/watching/common/populatedTextStructure'
+// import { produce } from 'immer'
+// import { create } from 'zustand'
+// import { VideoPrivateOutModel } from '@/graphql'
+// import { PopulatedSubtitlesStructure } from '_pages/video/watching/common/populatedSubtitlesStructure'
+// import { PopulatedTextStructure } from '_pages/video/watching/common/populatedTextStructure'
 
-export const watchingStoreValues: WatchingStoreValues = {
+/*export const watchingStoreValues: WatchingStoreValues = {
 	video: null as any as WatchingStoreI.VideoData,
 	player: {
 		currentTime: 0,
@@ -31,9 +31,9 @@ export const watchingStoreValues: WatchingStoreValues = {
 	},
 	// Идентификатор текущей вкладки лексемов
 	lexemTabId: '0',
-}
+}*/
 
-export const useWatchingStore = create<WatchingStore>()((set, get) => {
+/*export const useWatchingStore = create<WatchingStore>()((set, get) => {
 	return {
 		...watchingStoreValues,
 		updateStore: (storePart: Partial<WatchingStoreValues>) => {
@@ -245,9 +245,9 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 			})
 		},
 	}
-})
+})*/
 
-export namespace WatchingStoreI {
+/*export namespace WatchingStoreI {
 	export type VideoData = {
 		loading: boolean
 		errorMessage: null | string
@@ -330,13 +330,13 @@ export namespace WatchingStoreI {
 			tr?: Array<{ text: string }>
 		}>
 	}
-}
+}*/
 
-export type WatchingStore = WatchingStoreValues & WatchingStoreMethods
+// export type WatchingStore = WatchingStoreValues & WatchingStoreMethods
 
-type DeviceType = 'mouse' | 'touch'
+// type DeviceType = 'mouse' | 'touch'
 
-export type WatchingStoreValues = {
+/*export type WatchingStoreValues = {
 	video: WatchingStoreI.VideoData
 	player: {
 		currentTime: number
@@ -359,9 +359,9 @@ export type WatchingStoreValues = {
 	}
 	analysis: WatchingStoreI.Analysis
 	lexemTabId: string
-}
+}*/
 
-export type PlayerCommand =
+/*export type PlayerCommand =
 	| { type: 'PLAY' }
 	| { type: 'PAUSE' }
 	| { type: 'SET_TIME'; time: number }
@@ -371,9 +371,9 @@ export type PlayerCommand =
 	| { type: 'STOP_FORWARD_HOLD' }
 	| { type: 'START_REVERSE_SEEK'; rate: number }
 	| { type: 'STOP_REVERSE_SEEK' }
-	| { type: 'SET_VOLUME'; volume: number }
+	| { type: 'SET_VOLUME'; volume: number }*/
 
-export type WatchingStoreMethods = {
+/*export type WatchingStoreMethods = {
 	updateStore: (store: Partial<WatchingStoreValues>) => void
 	updatePlainTextSentenceTranslation: (sentenceId: number, translation: string) => void
 	updateSubtitlesSentenceTranslation: (sentenceId: number, translation: string) => void
@@ -390,4 +390,4 @@ export type WatchingStoreMethods = {
 	updateSelectedText: (selectedText: WatchingStoreI.SelectedText) => void
 	updateAnalysis: (analysis: WatchingStoreI.Analysis) => void
 	updateLexemTabId: (tabId: string) => void
-}
+}*/

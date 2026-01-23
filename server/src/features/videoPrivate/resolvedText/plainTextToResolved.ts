@@ -1,7 +1,7 @@
-import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
-import { ResolvedTextStructure } from './resolvedTextStructure'
+// import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+// import { ResolvedTextStructure } from './resolvedTextStructure'
 
-export async function plainTextToResolved(
+/*export async function plainTextToResolved(
 	mainConfigService: MainConfigService,
 	plainText?: null | string,
 ): Promise<ResolvedTextStructure.Structure> {
@@ -26,4 +26,4 @@ export async function plainTextToResolved(
 			s: sentence,
 		})),
 	}
-}
+}*/

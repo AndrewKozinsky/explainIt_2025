@@ -1,6 +1,6 @@
-import { PopulatedTextStructure } from '_pages/video/watching/common/populatedTextStructure'
+// import { PopulatedTextStructure } from '_pages/video/watching/common/populatedTextStructure'
 
-export function sentenceToParts(
+/*export function sentenceToParts(
 	sentence: string,
 	startId: number = 0,
 ): PopulatedTextStructure.SentencePart[] {
@@ -55,23 +55,23 @@ export function sentenceToParts(
 	}
 
 	return parts
-}
+}*/
 
-function isWhitespace(char: string): boolean {
+/*function isWhitespace(char: string): boolean {
 	return /\s/u.test(char)
-}
+}*/
 
-function isWordChar(char: string): boolean {
+/*function isWordChar(char: string): boolean {
 	return /[\p{L}\p{N}]/u.test(char)
-}
+}*/
 
-function isWordApostrophe(char: string): boolean {
+/*function isWordApostrophe(char: string): boolean {
 	return char === '\'' || char === '’'
-}
+}*/
 
-function isPunctuationChar(char: string): boolean {
+/*function isPunctuationChar(char: string): boolean {
 	if (isWhitespace(char)) return false
 	if (isWordChar(char)) return false
 
 	return true
-}
+}*/

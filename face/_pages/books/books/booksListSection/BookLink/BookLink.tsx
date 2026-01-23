@@ -1,11 +1,10 @@
 import cn from 'classnames'
 import Paragraph from '@/ui/Paragraph/Paragraph'
 import { createBookIdUrl, pageUrls } from '@/сonsts/pageUrls'
-import { useGetOnBookLinkClick } from '_pages/books/books/booksListSection/BookLink/fn/onClick'
-import { BooksTest } from '_pages/books/books/booksTest'
 import { bookConfig } from '../../common/bookConfig'
 import ContentLinkWrapper from '../../common/ContentLinkWrapper/ContentLinkWrapper'
 import { useGetBookLinkStatus } from './fn/isPageCurrent'
+import { useGetOnBookLinkClick } from './fn/onClick'
 import './BookLink.scss'
 
 type BookLinkProps = {
@@ -28,7 +27,6 @@ function BookLink(props: BookLinkProps) {
 		<ContentLinkWrapper
 			href={pageUrls.books.book(bookIdInUrl).path}
 			status={bookLinkStatus}
-			dataTestId={BooksTest.booksList.bookLinkItem(id)}
 			onClick={onBookLinkClick}
 		>
 			<div className='book-link'>

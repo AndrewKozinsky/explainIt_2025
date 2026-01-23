@@ -1,8 +1,8 @@
-import { useCallback } from 'react'
-import { NotifyArg } from 'ui/Notification/context'
-import { useWatchingStore } from '_pages/video/watching/watchingStore'
+// import { useCallback } from 'react'
+// import { NotifyArg } from 'ui/Notification/context'
+// import { useWatchingStore } from '_pages/video/watching/watchingStore'
 
-export function useGetOnCopyClick(notify: (arg: NotifyArg) => void) {
+/*export function useGetOnCopyClick(notify: (arg: NotifyArg) => void) {
 	const selectedText = useWatchingStore((s) => s.selectedText)
 	const sentenceText = selectedText.subtitle?.sentenceText ?? selectedText.plainText?.sentenceText ?? ''
 
@@ -21,9 +21,9 @@ export function useGetOnCopyClick(notify: (arg: NotifyArg) => void) {
 		sentenceText,
 		onCopy,
 	}
-}
+}*/
 
-async function copyToClipboard(text: string) {
+/*async function copyToClipboard(text: string) {
 	if (navigator?.clipboard?.writeText) {
 		try {
 			await navigator.clipboard.writeText(text)
@@ -34,9 +34,9 @@ async function copyToClipboard(text: string) {
 	}
 
 	copyToClipboardByExecCommand(text)
-}
+}*/
 
-function copyToClipboardByExecCommand(text: string) {
+/*function copyToClipboardByExecCommand(text: string) {
 	if (!document?.body) throw new Error('No document body')
 
 	const textarea = document.createElement('textarea')
@@ -58,4 +58,4 @@ function copyToClipboardByExecCommand(text: string) {
 	} finally {
 		document.body.removeChild(textarea)
 	}
-}
+}*/

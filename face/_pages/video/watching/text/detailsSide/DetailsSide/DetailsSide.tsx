@@ -1,11 +1,11 @@
-import React from 'react'
-import { useWatchingStore } from '_pages/video/watching/watchingStore'
-import DetailsHelp from '../DetailsHelp/DetailsHelp'
-import DetailsSentence from '../DetailsSentence/DetailsSentence'
-import PhraseAnalysis from '../PhraseAnalysis/PhraseAnalysis'
-import './DetailsSide.scss'
+// import React from 'react'
+// import { useWatchingStore } from '_pages/video/watching/watchingStore'
+// import DetailsHelp from '../DetailsHelp/DetailsHelp'
+// import DetailsSentence from '../DetailsSentence/DetailsSentence'
+// import PhraseAnalysis from '../PhraseAnalysis/PhraseAnalysis'
+// import './DetailsSide.scss'
 
-function DetailsSide() {
+/*function DetailsSide() {
 	const selectedText = useWatchingStore((s) => s.selectedText)
 	const selectedItem = selectedText.subtitle ?? selectedText.plainText
 
@@ -19,6 +19,6 @@ function DetailsSide() {
 			<PhraseAnalysis />
 		</div>
 	)
-}
+}*/
 
-export default DetailsSide
+// export default DetailsSide

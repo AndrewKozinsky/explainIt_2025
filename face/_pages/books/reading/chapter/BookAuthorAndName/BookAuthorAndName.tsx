@@ -1,10 +1,10 @@
-import Link from 'next/link'
-import { useParams } from 'next/navigation'
-import { pageUrls } from 'сonsts/pageUrls'
-import { useReadingStore } from '_pages/books/reading/readingStore'
-import './BookAuthorAndName.scss'
+// import Link from 'next/link'
+// import { useParams } from 'next/navigation'
+// import { pageUrls } from 'сonsts/pageUrls'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
+// import './BookAuthorAndName.scss'
 
-function BookAuthorAndName() {
+/*function BookAuthorAndName() {
 	const book = useReadingStore((s) => s.book.data)
 
 	if (!book.author && !book.name) {
@@ -16,11 +16,11 @@ function BookAuthorAndName() {
 			<BookAuthorAndNameContent />
 		</div>
 	)
-}
+}*/
 
-export default BookAuthorAndName
+// export default BookAuthorAndName
 
-function BookAuthorAndNameContent() {
+/*function BookAuthorAndNameContent() {
 	const bookIdInUrl = useParams().bookId as string
 	const book = useReadingStore((s) => s.book.data)
 
@@ -41,4 +41,4 @@ function BookAuthorAndNameContent() {
 			</div>
 		</>
 	)
-}
+}*/

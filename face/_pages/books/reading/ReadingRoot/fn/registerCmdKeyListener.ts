@@ -1,6 +1,6 @@
-import { useEffect } from 'react'
-import { isMacOS } from 'utils/utils'
-import { useReadingStore } from '_pages/books/reading/readingStore'
+// import { useEffect } from 'react'
+// import { isMacOS } from 'utils/utils'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
 
 /**
  * В Хранилище есть булево значение isWordsAddingModeEnabled.
@@ -8,7 +8,7 @@ import { useReadingStore } from '_pages/books/reading/readingStore'
  * Если пользователь работает с сайтом на стандартном мониторе, то для выделения нескольких слов должен нажать клавишу Cmd.
  * Поэтому в зависимости от этого меняется значение isWordsAddingModeEnabled в Хранилище.
  */
-export function useRegisterCmdKeyListener() {
+/*export function useRegisterCmdKeyListener() {
 	const changeWordsAddingMode = useReadingStore((s) => s.changeWordsAddingMode)
 
 	useEffect(
@@ -34,4 +34,4 @@ export function useRegisterCmdKeyListener() {
 		},
 		[changeWordsAddingMode],
 	)
-}
+}*/

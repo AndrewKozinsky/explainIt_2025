@@ -25,7 +25,7 @@ export class BookPrivateRepository {
 		return this.mapDbBookToServiceBook(newBook)
 	}
 
-	@CatchDbError()
+	/*@CatchDbError()
 	async getBookById(bookId: number) {
 		const book = await this.prisma.bookPrivate.findUnique({
 			where: { id: bookId },
@@ -37,7 +37,7 @@ export class BookPrivateRepository {
 		}
 
 		return this.mapDbBookToServiceBook(book)
-	}
+	}*/
 
 	@CatchDbError()
 	async updateBookById(

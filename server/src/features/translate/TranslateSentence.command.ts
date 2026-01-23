@@ -1,24 +1,24 @@
-import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
-import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { YandexTranslateService } from 'infrastructure/yandexTranslate/yandexTranslate.service'
+// import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+// import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+// import { ErrorCode } from 'infrastructure/exceptions/errorCode'
+// import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+// import { YandexTranslateService } from 'infrastructure/yandexTranslate/yandexTranslate.service'
 
-export type TranslateSentenceInput = {
+/*export type TranslateSentenceInput = {
 	sentence: string
 	targetLanguageCode?: null | string
 	sourceLanguageCode?: null | string
-}
+}*/
 
-export type TranslateSentenceResult = {
+/*export type TranslateSentenceResult = {
 	translatedText: string
-}
+}*/
 
-export class TranslateSentenceCommand implements ICommand {
+/*export class TranslateSentenceCommand implements ICommand {
 	constructor(public input: TranslateSentenceInput) {}
-}
+}*/
 
-@CommandHandler(TranslateSentenceCommand)
+/*@CommandHandler(TranslateSentenceCommand)
 export class TranslateSentenceHandler implements ICommandHandler<TranslateSentenceCommand> {
 	constructor(private yandexTranslateService: YandexTranslateService) {}
 
@@ -42,4 +42,4 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 			throw new CustomGraphQLError(errorMessage.unknownError, ErrorCode.InternalServerError_500)
 		}
 	}
-}
+}*/

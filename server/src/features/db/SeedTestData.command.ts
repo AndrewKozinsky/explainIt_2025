@@ -2,8 +2,8 @@ import { CommandBus, CommandHandler, ICommandHandler } from '@nestjs/cqrs'
 import { Request } from 'express'
 import { UserRepository } from 'repo/user.repository'
 import { OAuthProviderType } from 'routes/auth/inputs/loginWithOAuth.input'
-import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter.command'
-import { CreateBookCommand } from 'features/bookPrivate/CreateBook.command'
+// import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter.command'
+// import { CreateBookCommand } from 'features/bookPrivate/CreateBook.command'
 import { ConfirmEmailCommand } from '../auth/ConfirmEmail.command'
 import { CreateUserWithEmailAndPasswordCommand } from '../auth/CreateUserWithEmailAndPassword.command'
 import { LoginWithOAuthCommand } from '../auth/LoginWithOAuth.command'
@@ -127,7 +127,7 @@ export class SeedTestDataHandler implements ICommandHandler<SeedTestDataCommand>
 	}
 
 	async createUserBooks(userId: number, booksConfig: UserBookConfig[]) {
-		for (const bookConfig of booksConfig) {
+		/*for (const bookConfig of booksConfig) {
 			const createdBook = await this.commandBus.execute(new CreateBookCommand(userId, bookConfig))
 			bookConfig.id = createdBook.id
 
@@ -143,7 +143,7 @@ export class SeedTestDataHandler implements ICommandHandler<SeedTestDataCommand>
 				)
 				chapterConfig.id = createdChapter.id
 			}
-		}
+		}*/
 	}
 
 	getFakeRequest() {

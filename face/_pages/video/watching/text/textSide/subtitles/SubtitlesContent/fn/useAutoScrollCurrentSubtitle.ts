@@ -1,13 +1,13 @@
-import { RefObject, useEffect } from 'react'
+// import { RefObject, useEffect } from 'react'
 
-type UseAutoScrollCurrentSubtitleParams = {
+/*type UseAutoScrollCurrentSubtitleParams = {
 	containerRef: RefObject<HTMLElement | null>
 	currentSubtitleId: number
 	bottomThresholdPx?: number
 	topPaddingPx?: number
-}
+}*/
 
-function getScrollableParent(element: HTMLElement | null) {
+/*function getScrollableParent(element: HTMLElement | null) {
 	let el: HTMLElement | null = element
 
 	while (el) {
@@ -24,9 +24,9 @@ function getScrollableParent(element: HTMLElement | null) {
 	}
 
 	return null
-}
+}*/
 
-export function useAutoScrollCurrentSubtitle(params: UseAutoScrollCurrentSubtitleParams) {
+/*export function useAutoScrollCurrentSubtitle(params: UseAutoScrollCurrentSubtitleParams) {
 	const { containerRef, currentSubtitleId, bottomThresholdPx = 40, topPaddingPx = 20 } = params
 
 	useEffect(
@@ -62,4 +62,4 @@ export function useAutoScrollCurrentSubtitle(params: UseAutoScrollCurrentSubtitl
 		},
 		[bottomThresholdPx, containerRef, currentSubtitleId, topPaddingPx],
 	)
-}
+}*/

@@ -1,10 +1,10 @@
-import React from 'react'
-import { useGetAnalysisAfterSelectedWordChange } from './fn/getAnalysis'
-import Lexemes from './Lexemes'
-import TopText from './TopText'
-import './PhraseAnalysis.scss'
+// import React from 'react'
+// import { useGetAnalysisAfterSelectedWordChange } from './fn/getAnalysis'
+// import Lexemes from './Lexemes'
+// import TopText from './TopText'
+// import './PhraseAnalysis.scss'
 
-function PhraseAnalysis() {
+/*function PhraseAnalysis() {
 	useGetAnalysisAfterSelectedWordChange()
 
 	return (
@@ -13,6 +13,6 @@ function PhraseAnalysis() {
 			<Lexemes />
 		</div>
 	)
-}
+}*/
 
-export default PhraseAnalysis
+// export default PhraseAnalysis

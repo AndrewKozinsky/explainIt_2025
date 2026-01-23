@@ -1,11 +1,11 @@
 import { INestApplication } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
-import { BookChapterPhraseQueryRepository } from '../../src/repo/bookChapterPhrase.queryRepository'
-import { OpenAIService } from '../../src/infrastructure/openAI/openAI.service'
 import { App } from 'supertest/types'
 import { queries } from '../../src/features/db/queries'
 import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
+import { OpenAIService } from '../../src/infrastructure/openAI/openAI.service'
 import { UserRepository } from '../../src/repo/user.repository'
+import { makeGraphQLReqWithTokens } from '../makeGQReq'
 import { authUtils } from '../utils/authUtils'
 import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
 import { bookChapterUtils } from '../utils/bookChapterUtils'
@@ -14,7 +14,6 @@ import { checkErrorResponse } from '../utils/checkErrorResp'
 import { defUserEmail, defUserPassword } from '../utils/common'
 import { createApp } from '../utils/createApp'
 import { userUtils } from '../utils/userUtils'
-import { makeGraphQLReqWithTokens } from '../makeGQReq'
 
 describe.skip('Translate sentences', () => {
 	let app: INestApplication<App>

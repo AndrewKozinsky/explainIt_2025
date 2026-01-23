@@ -1,11 +1,11 @@
-import { populatedChapterStructureIntoChapterStructure } from '_pages/books/commonLogic/populatedChapterStructureIntoChapterStructure'
-import { useCallback, useEffect, useState } from 'react'
-import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
-import { useReadingStore } from '_pages/books/reading/readingStore'
-import { useBook_Chapter_TranslateSentences } from '@/graphql'
-import { extractGraphQLError } from '@/graphql/extractGraphQLError'
+// import { populatedChapterStructureIntoChapterStructure } from '_pages/books/commonLogic/populatedChapterStructureIntoChapterStructure'
+// import { useCallback, useEffect, useState } from 'react'
+// import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
+// import { useBook_Chapter_TranslateSentences } from '@/graphql'
+// import { extractGraphQLError } from '@/graphql/extractGraphQLError'
 
-export function useGetTranslateSentencesButtonDetails() {
+/*export function useGetTranslateSentencesButtonDetails() {
 	const bookType = useReadingStore((s) => s.book.type)
 
 	const [isButtonVisible, setIsButtonVisible] = useState(true)
@@ -71,9 +71,9 @@ export function useGetTranslateSentencesButtonDetails() {
 	)
 
 	return { isButtonVisible, onButtonClick, isButtonDisabled, error }
-}
+}*/
 
-function getBookNameAndAuthorName() {
+/*function getBookNameAndAuthorName() {
 	const chapterId = useReadingStore.getState().populatedChapter.id
 	const bookName = useReadingStore.getState().book.data.name || null
 	const bookAuthor = useReadingStore.getState().book.data.author || null
@@ -83,8 +83,8 @@ function getBookNameAndAuthorName() {
 		bookName,
 		bookAuthor,
 	}
-}
-function collectSentences(): string[] {
+}*/
+/*function collectSentences(): string[] {
 	const sentences: ChapterTextStructurePopulated.Sentence[] = useReadingStore
 		.getState()
 		.populatedChapter.parts.filter((part) => part.type === 'sentence')
@@ -104,9 +104,9 @@ function collectSentences(): string[] {
 			return acc
 		}, '')
 	})
-}
+}*/
 
-async function updateChapterInDB(chapterId: number) {
+/*async function updateChapterInDB(chapterId: number) {
 	const populatedChapter = useReadingStore.getState().populatedChapter
 	const dryChapterStructure = populatedChapterStructureIntoChapterStructure(populatedChapter)
 
@@ -148,4 +148,4 @@ async function updateChapterInDB(chapterId: number) {
 	} catch (error) {
 		console.error('Error updating chapter:', error)
 	}
-}
+}*/

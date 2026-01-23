@@ -1,7 +1,7 @@
-import { useReadingStore } from '_pages/books/reading/readingStore'
-import { useCallback } from 'react'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
+// import { useCallback } from 'react'
 
-export function useGetSelectPhrase() {
+/*export function useGetSelectPhrase() {
 	const selection = useReadingStore((s) => s.selection)
 	const changeSelectedPhraseId = useReadingStore((s) => s.changeSelectedPhraseId)
 
@@ -15,4 +15,4 @@ export function useGetSelectPhrase() {
 		},
 		[changeSelectedPhraseId, selection.phraseId],
 	)
-}
+}*/

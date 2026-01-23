@@ -1,8 +1,8 @@
-import { useEffect } from 'react'
-import { useGetFetchAnalysisAndSetInStore } from '_pages/video/watching/common/useAnalysis'
-import { useWatchingStore } from '_pages/video/watching/watchingStore'
+// import { useEffect } from 'react'
+// import { useGetFetchAnalysisAndSetInStore } from '_pages/video/watching/common/useAnalysis'
+// import { useWatchingStore } from '_pages/video/watching/watchingStore'
 
-export function useGetAnalysisAfterSelectedWordChange() {
+/*export function useGetAnalysisAfterSelectedWordChange() {
 	const getAnalysis = useGetFetchAnalysisAndSetInStore()
 
 	const selectedText = useWatchingStore((s) => s.selectedText)
@@ -15,4 +15,4 @@ export function useGetAnalysisAfterSelectedWordChange() {
 		},
 		[engText, getAnalysis],
 	)
-}
+}*/

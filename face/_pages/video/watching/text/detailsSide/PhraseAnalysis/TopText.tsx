@@ -1,8 +1,8 @@
-import React from 'react'
-import Spinner from 'ui/Spinner/Spinner'
-import { useWatchingStore } from '_pages/video/watching/watchingStore'
+// import React from 'react'
+// import Spinner from 'ui/Spinner/Spinner'
+// import { useWatchingStore } from '_pages/video/watching/watchingStore'
 
-function TopText() {
+/*function TopText() {
 	return (
 		<div className='phrase-analysis__top-text'>
 			<EngText />
@@ -11,17 +11,17 @@ function TopText() {
 			<Transcription />
 		</div>
 	)
-}
+}*/
 
-export default TopText
+// export default TopText
 
-function EngText() {
+/*function EngText() {
 	const analysis = useWatchingStore((s) => s.analysis)
 
 	return analysis.engText
-}
+}*/
 
-function Circle() {
+/*function Circle() {
 	const analysis = useWatchingStore((s) => s.analysis)
 	const isLoading = analysis.analysis.type === 'loading'
 	const isError = analysis.analysis.type === 'error'
@@ -41,22 +41,22 @@ function Circle() {
 			)}
 		</div>
 	)
-}
+}*/
 
-function RusText() {
+/*function RusText() {
 	const analysis = useWatchingStore((s) => s.analysis)
 	if (analysis.analysis.type !== 'data') {
 		return null
 	}
 
 	return analysis.analysis.rusText
-}
+}*/
 
-function Transcription() {
+/*function Transcription() {
 	const analysis = useWatchingStore((s) => s.analysis)
 	if (analysis.analysis.type !== 'data' || !analysis.analysis.transcription) {
 		return null
 	}
 
 	return <span className='phrase-analysis__top-text-transcription'>{analysis.analysis.transcription}</span>
-}
+}*/

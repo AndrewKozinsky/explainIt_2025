@@ -1,8 +1,7 @@
-import cn from 'classnames'
+// import cn from 'classnames'
+// import { VideosStore } from '../../videosStore'
 
-import { VideosStore } from '../../videosStore'
-
-export function getSectionClasses(
+/*export function getSectionClasses(
 	mobileContentType: VideosStore.MobileCurrentContentType,
 	currentMobileContentType: VideosStore.MobileCurrentContentType,
 ) {
@@ -15,4 +14,4 @@ export function getSectionClasses(
 	}
 
 	return cn(classes)
-}
+}*/

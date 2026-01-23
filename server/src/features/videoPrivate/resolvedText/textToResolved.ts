@@ -1,10 +1,10 @@
-import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
-import { plainTextToResolved } from './plainTextToResolved'
-import { ResolvedSubtitlesStructure } from './resolvedSubtitlesStructure'
-import { ResolvedTextStructure } from './resolvedTextStructure'
-import { subtitlesToResolved } from './subtitlesToResolved'
+// import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+// import { plainTextToResolved } from './plainTextToResolved'
+// import { ResolvedSubtitlesStructure } from './resolvedSubtitlesStructure'
+// import { ResolvedTextStructure } from './resolvedTextStructure'
+// import { subtitlesToResolved } from './subtitlesToResolved'
 
-export async function textToResolved(mainConfigService: MainConfigService, userText?: null | string) {
+/*export async function textToResolved(mainConfigService: MainConfigService, userText?: null | string) {
 	if (!userText) return ''
 
 	const userTextType = getUserTextType(userText)
@@ -21,7 +21,7 @@ export async function textToResolved(mainConfigService: MainConfigService, userT
 	}
 
 	return JSON.stringify(resolvedText)
-}
+}*/
 
 /**
  * Detects the user input type.
@@ -40,7 +40,7 @@ export async function textToResolved(mainConfigService: MainConfigService, userT
  * - Looks for SRT timecode lines (`HH:MM:SS,mmm --> HH:MM:SS,mmm` or with `.`).
  * - Optionally checks that timecode lines are preceded by numeric indices.
  */
-function getUserTextType(userText: string): 'plainText' | 'subtitles' {
+/*function getUserTextType(userText: string): 'plainText' | 'subtitles' {
 	const normalized = userText
 		.replace(/^\uFEFF/, '')
 		.replace(/\r\n?/g, '\n')
@@ -83,4 +83,4 @@ function getUserTextType(userText: string): 'plainText' | 'subtitles' {
 	}
 
 	return 'plainText'
-}
+}*/

@@ -1,8 +1,8 @@
-import { getTextByPhraseId } from '_pages/books/reading/lib/getTextByWordIds'
-import { useMemo } from 'react'
-import { useReadingStore } from '_pages/books/reading/readingStore'
+// import { getTextByPhraseId } from '_pages/books/reading/lib/getTextByWordIds'
+// import { useMemo } from 'react'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
 
-export function useGetText() {
+/*export function useGetText() {
 	const { sentenceId, phraseId } = useReadingStore((s) => s.selection)
 
 	return useMemo(
@@ -13,4 +13,4 @@ export function useGetText() {
 		},
 		[phraseId, sentenceId],
 	)
-}
+}*/

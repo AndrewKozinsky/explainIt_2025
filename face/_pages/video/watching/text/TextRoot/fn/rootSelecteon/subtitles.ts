@@ -1,7 +1,7 @@
-import { PopulatedSubtitlesStructure } from '_pages/video/watching/common/populatedSubtitlesStructure'
-import { WatchingStoreI } from '_pages/video/watching/watchingStore'
+// import { PopulatedSubtitlesStructure } from '_pages/video/watching/common/populatedSubtitlesStructure'
+// import { WatchingStoreI } from '_pages/video/watching/watchingStore'
 
-export function updateFromSubtitlesSelected(
+/*export function updateFromSubtitlesSelected(
 	populatedSubtitles: PopulatedSubtitlesStructure.Structure | null,
 	updateSelectedText: (selectedText: WatchingStoreI.SelectedText) => void,
 ) {
@@ -43,9 +43,9 @@ export function updateFromSubtitlesSelected(
 			wordsTexts,
 		},
 	})
-}
+}*/
 
-function findSubtitleBySelectedWord(
+/*function findSubtitleBySelectedWord(
 	populatedSubtitles: PopulatedSubtitlesStructure.Structure,
 	sentenceId: number,
 	wordIds: number[],
@@ -62,9 +62,9 @@ function findSubtitleBySelectedWord(
 	}
 
 	return null
-}
+}*/
 
-function subtitleToString(subtitle: PopulatedSubtitlesStructure.Subtitle): string {
+/*function subtitleToString(subtitle: PopulatedSubtitlesStructure.Subtitle): string {
 	let result = ''
 
 	for (let i = 0; i < subtitle.texts.length; i++) {
@@ -74,9 +74,9 @@ function subtitleToString(subtitle: PopulatedSubtitlesStructure.Subtitle): strin
 	}
 
 	return result
-}
+}*/
 
-function textPartsToString(textParts: PopulatedSubtitlesStructure.TextPart[]): string {
+/*function textPartsToString(textParts: PopulatedSubtitlesStructure.TextPart[]): string {
 	let result = ''
 	for (const part of textParts) {
 		if (part.type === 'space') result += ' '
@@ -84,9 +84,9 @@ function textPartsToString(textParts: PopulatedSubtitlesStructure.TextPart[]): s
 	}
 
 	return result
-}
+}*/
 
-function getSelectedWordsFromTextParts(
+/*function getSelectedWordsFromTextParts(
 	textParts: PopulatedSubtitlesStructure.TextPart[],
 	wordIds: number[],
 ): { wordIds: number[]; wordsTexts: string[] } {
@@ -102,4 +102,4 @@ function getSelectedWordsFromTextParts(
 	}
 
 	return { wordIds: selectedWordIds, wordsTexts }
-}
+}*/

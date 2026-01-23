@@ -1,29 +1,3 @@
-input AnalysePhraseInput {
-  """Book author"""
-  bookAuthor: String
-
-  """Book chapter id"""
-  bookChapterId: Int!
-
-  """Book name"""
-  bookName: String
-
-  """Context"""
-  context: String!
-
-  """Фраза на иностранном языке для заучивания"""
-  phrase: String!
-
-  """Ids of the words in the phrase"""
-  phraseWordsIdx: [Int!]!
-
-  """Предложение где находится фраза"""
-  sentence: String!
-
-  """Порядковый номер предложения где находится фраза"""
-  sentenceId: Float!
-}
-
 type BookChapterLiteOutModel {
   bookId: Int!
   header: String
@@ -39,23 +13,6 @@ type BookChapterOutModel {
   id: Int!
   name: String
   note: String
-  phrases: [BookChapterPhraseOutModel!]!
-}
-
-type BookChapterPhraseOutModel {
-  analysis: String!
-  examples: [PhraseExample!]!
-  id: Int!
-  phrase: String!
-  phraseWordsIdx: [Int!]!
-  sentence: String!
-  sentenceId: Int!
-  transcription: String!
-  translation: String!
-}
-
-type BookChapterTranslateOfSentencesOutModel {
-  translates: [String!]!
 }
 
 type BookLiteOutModel {
@@ -139,39 +96,13 @@ input CreateBookInput {
   note: String
 }
 
-input CreatePrivateVideoInput {
-  """Name"""
-  name: String
-
-  """Text"""
-  text: String
-}
-
-type CreateVideoPrivateOutModel {
-  id: Int!
-  name: String
-  resolvedText: String
-  text: String
-  userId: Int!
-}
-
 input DeleteBookChapterInput {
   """BookChapter id"""
   id: Int!
 }
 
-input DeleteBookChapterPhrasesInput {
-  """Book chapter id"""
-  bookChapterId: Int!
-}
-
 input DeleteBookInput {
   """Book id"""
-  id: Int!
-}
-
-input DeletePrivateVideoInput {
-  """Video id"""
   id: Int!
 }
 
@@ -198,11 +129,6 @@ input GetBookInput {
 
 input GetBookPublicInput {
   """Book id"""
-  id: Int!
-}
-
-input GetPrivateVideoInput {
-  """Video id"""
   id: Int!
 }
 
@@ -260,9 +186,6 @@ type Mutation {
 
   """Resend email confirmation letter"""
   auth_resendConfirmationEmail(input: ResendConfirmationEmailInput!): Boolean!
-  book_chapter_AnalysePhrase(input: AnalysePhraseInput!): BookChapterPhraseOutModel!
-  book_chapter_DeleteBookChapterPhrases(input: DeleteBookChapterPhrasesInput!): Boolean!
-  book_chapter_TranslateSentences(input: TranslateSentencesInput!): BookChapterTranslateOfSentencesOutModel!
 
   """Create book chapter"""
   book_chapter_create(input: CreateBookChapterInput!): BookChapterOutModel!
@@ -286,21 +209,6 @@ type Mutation {
   payment_yookassa_top_up_balance(input: TopUpBalanceWithYooKassaInput!): TopUpBalanceWithYooKassaOutModel!
   translate_translate_phrase(input: TranslatePhraseInput!): EngRusDictionaryItemOutModel!
   translate_translate_sentence(input: TranslateSentenceInput!): TranslateSentenceOutModel!
-
-  """Create a video"""
-  video_private_create(input: CreatePrivateVideoInput!): CreateVideoPrivateOutModel!
-
-  """Delete a video"""
-  video_private_delete(input: DeletePrivateVideoInput!): Boolean!
-
-  """Update a video"""
-  video_private_update(input: UpdatePrivateVideoInput!): UpdateVideoPrivateOutModel!
-}
-
-type PhraseExample {
-  id: Int!
-  sentence: String!
-  translation: String!
 }
 
 type Query {
@@ -324,12 +232,6 @@ type Query {
 
   """Get user books"""
   book_user_books: [BookOutModel!]!
-
-  """Get a video"""
-  video_private_get(input: GetPrivateVideoInput!): VideoPrivateOutModel!
-
-  """Get user videos"""
-  video_private_user_videos: [VideoPrivateOutModel!]!
 }
 
 input RegisterUserInput {
@@ -380,17 +282,6 @@ type TranslateSentenceOutModel {
   translatedText: String!
 }
 
-input TranslateSentencesInput {
-  """Book author"""
-  bookAuthor: String
-
-  """Book name"""
-  bookName: String
-
-  """Array of sentences"""
-  sentences: [String!]!
-}
-
 input UpdateBookChapterInput {
   """BookChapter content"""
   content: String
@@ -422,58 +313,9 @@ input UpdateBookInput {
   note: String
 }
 
-input UpdatePrivateVideoInput {
-  """File mime type"""
-  fileMimeType: String
-
-  """File name"""
-  fileName: String
-
-  """File size"""
-  fileSizeMb: Float
-
-  """Video id"""
-  id: Int!
-
-  """Is file was upload to S3"""
-  isFileUploaded: Boolean
-
-  """Name"""
-  name: String
-
-  """Text"""
-  text: String
-
-  """Text resolved"""
-  textResolved: String
-}
-
-type UpdateVideoPrivateOutModel {
-  fileSizeMb: Float
-  id: Int!
-  name: String
-  resolvedText: String
-  text: String
-  uploadUrl: String
-  userId: Int!
-}
-
 type UserOutModel {
   balance: Int!
   email: String!
   id: Int!
   isUserConfirmed: Boolean!
-}
-
-type VideoPrivateOutModel {
-  fileName: String
-  fileS3Key: String
-  fileSizeMb: Float!
-  fileUrl: String
-  id: Int!
-  isFileUploaded: Boolean!
-  name: String
-  resolvedText: String
-  text: String
-  userId: Int!
 }

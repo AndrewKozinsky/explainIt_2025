@@ -1,8 +1,8 @@
-import { Field, InputType, Int } from '@nestjs/graphql'
-import { bdConfig } from 'db/dbConfig/dbConfig'
-import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
+// import { Field, InputType, Int } from '@nestjs/graphql'
+// import { bdConfig } from 'db/dbConfig/dbConfig'
+// import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
 
-@InputType()
+/*@InputType()
 export class UpdatePrivateVideoInput {
 	@Field(() => Int, { description: 'Video id' })
 	@DtoFieldDecorators('id', bdConfig.VideoPrivate.dbFields.id, { type: 'number', required: true, min: 1 })
@@ -41,4 +41,4 @@ export class UpdatePrivateVideoInput {
 		required: false,
 	})
 	fileSizeMb?: number
-}
+}*/

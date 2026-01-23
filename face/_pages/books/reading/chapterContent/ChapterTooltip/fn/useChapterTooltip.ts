@@ -1,9 +1,9 @@
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
-import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
-import { useReadingStore } from '_pages/books/reading/readingStore'
-import { CHAPTER_TOOLTIP_DELAY_MS } from '../constants'
+// import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
+// import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
+// import { CHAPTER_TOOLTIP_DELAY_MS } from '../constants'
 
-export function useChapterTooltip() {
+/*export function useChapterTooltip() {
 	const hovered = useReadingStore((s) => s.hoveredWord)
 	const getSentenceById = useReadingStore((s) => s.getSentenceById)
 
@@ -98,4 +98,4 @@ export function useChapterTooltip() {
 	const show = Boolean(visible && coords && phrases.length > 0)
 
 	return { tooltipRef, coords, phrases, show }
-}
+}*/

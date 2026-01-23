@@ -8,11 +8,11 @@ type FullBookChapter = Prisma.BookChapterGetPayload<{
 	include: {
 		book: true
 		book_public: true
-		BookChapterPhrase: {
+		/*BookChapterPhrase: {
 			include: {
 				BookChapterPhraseExample: true
 			}
-		}
+		}*/
 	}
 }>
 
@@ -33,7 +33,7 @@ export class BookChapterQueryRepository {
 			include: {
 				book: true,
 				book_public: true,
-				BookChapterPhrase: { include: { BookChapterPhraseExample: true } },
+				// BookChapterPhrase: { include: { BookChapterPhraseExample: true } },
 			},
 		})
 
@@ -44,7 +44,7 @@ export class BookChapterQueryRepository {
 		return this.mapDbBookChapterToOutBookChapter(bookChapter as FullBookChapterPrivate)
 	}
 
-	@CatchDbError()
+	/*@CatchDbError()
 	async getBookChapters(bookId: number) {
 		const bookChapters = await this.prisma.bookChapter.findMany({
 			where: { book_id: bookId },
@@ -53,7 +53,7 @@ export class BookChapterQueryRepository {
 		})
 
 		return bookChapters.map((ch) => this.mapDbBookChapterToOutBookChapter(ch as FullBookChapterPrivate))
-	}
+	}*/
 
 	mapDbBookChapterToOutBookChapter(dbBook: FullBookChapterPrivate): BookChapterOutModel {
 		const book = dbBook.book_public ? dbBook.book_public : dbBook.book
@@ -71,7 +71,7 @@ export class BookChapterQueryRepository {
 				note: book.note,
 				userId: dbBook.book_public ? null : dbBook.book.user_id,
 			},
-			phrases: dbBook.BookChapterPhrase.map((phrase) => ({
+			/*phrases: dbBook.BookChapterPhrase.map((phrase) => ({
 				id: phrase.id,
 				sentenceId: phrase.sentenceId,
 				sentence: phrase.sentence,
@@ -85,7 +85,7 @@ export class BookChapterQueryRepository {
 					sentence: example.sentence,
 					translation: example.translation,
 				})),
-			})),
+			})),*/
 		}
 	}
 }

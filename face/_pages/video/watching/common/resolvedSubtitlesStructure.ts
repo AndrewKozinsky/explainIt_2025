@@ -1,5 +1,5 @@
 // Тип данных для структуры текста приходящий с сервера
-export namespace ResolvedSubtitlesStructure {
+/*export namespace ResolvedSubtitlesStructure {
 	export type Structure = {
 		type: 'subtitles'
 		subtitles: Subtitle[]
@@ -28,4 +28,4 @@ export namespace ResolvedSubtitlesStructure {
 		// Translation
 		t?: string
 	}
-}
+}*/

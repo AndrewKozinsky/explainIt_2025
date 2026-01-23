@@ -1,27 +1,27 @@
-import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { VideoPrivateRepository } from 'repo/videoPrivate.repository'
-import { VideoPrivateFileUrlBase } from 'features/videoPrivate/VideoPrivateFileUrl.base'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
-import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
-import { CreateVideoPrivateOutModel } from 'models/videoPrivate/createVideoPrivate.out.model'
+// import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+// import { VideoPrivateRepository } from 'repo/videoPrivate.repository'
+// import { VideoPrivateFileUrlBase } from 'features/videoPrivate/VideoPrivateFileUrl.base'
+// import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+// import { ErrorCode } from 'infrastructure/exceptions/errorCode'
+// import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+// import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+// import { CreateVideoPrivateOutModel } from 'models/videoPrivate/createVideoPrivate.out.model'
 
-export type CreatePrivateVideoInput = {
+/*export type CreatePrivateVideoInput = {
 	name?: null | string
 	text?: null | string
 	fileSizeMb?: number
-}
+}*/
 
-export class CreatePrivateVideoCommand implements ICommand {
+/*export class CreatePrivateVideoCommand implements ICommand {
 	constructor(
 		public userId: number,
 		public createVideoInput: CreatePrivateVideoInput,
 	) {}
-}
+}*/
 
-@CommandHandler(CreatePrivateVideoCommand)
-export class CreatePrivateVideoHandler
+// @CommandHandler(CreatePrivateVideoCommand)
+/*export class CreatePrivateVideoHandler
 	extends VideoPrivateFileUrlBase
 	implements ICommandHandler<CreatePrivateVideoCommand>
 {
@@ -47,4 +47,4 @@ export class CreatePrivateVideoHandler
 
 		return createdVideo
 	}
-}
+}*/

@@ -1,6 +1,6 @@
-import { getSentenceById } from '_pages/books/reading/lib/getSentenceById'
+// import { getSentenceById } from '_pages/books/reading/lib/getSentenceById'
 
-export function getTextByPhraseId(sentenceId: number, phraseId: number) {
+/*export function getTextByPhraseId(sentenceId: number, phraseId: number) {
 	const sentence = getSentenceById(sentenceId)
 	if (!sentence) return ''
 
@@ -15,9 +15,9 @@ export function getTextByPhraseId(sentenceId: number, phraseId: number) {
 	}, [] as string[])
 
 	return words.join(' ')
-}
+}*/
 
-export function getTextByWordIds(sentenceId: number, wordIds: number[]) {
+/*export function getTextByWordIds(sentenceId: number, wordIds: number[]) {
 	const sentence = getSentenceById(sentenceId)
 	if (!sentence) return ''
 
@@ -29,4 +29,4 @@ export function getTextByWordIds(sentenceId: number, wordIds: number[]) {
 	}, [] as string[])
 
 	return words.join(' ')
-}
+}*/

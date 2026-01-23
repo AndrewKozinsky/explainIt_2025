@@ -1,5 +1,5 @@
-import ChapterLink from '../ChapterLink/ChapterLink'
 import { useBooksStore } from '_pages/books/books/booksStore'
+import ChapterLink from '../ChapterLink/ChapterLink'
 
 function PrivateBookChaptersList() {
 	const privateBook = useBooksStore((s) => s.privateBook)

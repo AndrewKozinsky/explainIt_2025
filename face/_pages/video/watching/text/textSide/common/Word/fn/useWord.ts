@@ -1,8 +1,8 @@
-import { useLongPress } from 'utils/events'
-import { useWatchingStore } from '_pages/video/watching/watchingStore'
-import { EMPTY_WORD_IDS, WordProps } from './types'
+// import { useLongPress } from 'utils/events'
+// import { useWatchingStore } from '_pages/video/watching/watchingStore'
+// import { EMPTY_WORD_IDS, WordProps } from './types'
 
-export function useWord(props: WordProps) {
+/*export function useWord(props: WordProps) {
 	const deviceType = useWatchingStore((state) => state.deviceType)
 	const changeWordsAddingMode = useWatchingStore((state) => state.changeWordsAddingMode)
 
@@ -63,4 +63,4 @@ export function useWord(props: WordProps) {
 			onTouchCancel,
 		},
 	}
-}
+}*/

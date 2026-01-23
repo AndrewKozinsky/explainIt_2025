@@ -328,114 +328,82 @@ export const bdConfig = {
 				minLength: 0,
 				maxLength: 1000,
 			},
-			BookChapterPhrase: {
-				type: 'oneToMany',
-			},
 			created_at: {
 				type: 'createdAt',
 			},
+			Sentence: {
+				type: 'oneToMany',
+			},
 		},
 	},
-	// Переводы одного или нескольких слов (фраза).
-	// Используется для хранения переведённых фраз и для заучивания
-	BookChapterPhrase: {
+	Sentence: {
 		dtoProps: {},
 		dbFields: {
 			id: {
 				type: 'index',
-			},
-			sentenceId: {
-				type: 'number',
-				description: 'id of sentence where the phrase is located',
-				example: 100,
-				required: true,
-			},
-			sentence: {
-				type: 'string',
-				description: 'Предложение где находится фраза',
-				required: true,
-				minLength: 1,
-				maxLength: 1000,
-			},
-			phraseWordsIdx: {
-				type: 'array',
-				arrayItemType: 'number',
-				description: 'Порядковые номера одного или нескольких слов на иностранном языке в предложении',
-				required: true,
-			},
-			phrase: {
-				type: 'string',
-				description: 'Фраза на иностранном языке для заучивания',
-				required: true,
-			},
-			phraseTranslation: {
-				type: 'string',
-				description: 'Перевод фразы на русский язык',
-				required: true,
-				minLength: 1,
-				maxLength: 200,
-			},
-			phraseTranscription: {
-				type: 'string',
-				description: 'Транскрипция фразы',
-				required: true,
-				minLength: 1,
-				maxLength: 250,
-			},
-			phraseAnalysis: {
-				type: 'string',
-				description: 'Анализ что обозначает фраза более подробно',
-				required: true,
-				minLength: 1,
-				maxLength: 1000,
 			},
 			book_chapter_id: {
 				type: 'manyToOne',
 				thisField: 'book_chapter_id', // Name of the column of this table that refers to another table
 				foreignTable: 'BookChapter', // Name of the table that this column refers to
 				foreignField: 'id',
+				required: false,
+			},
+			start_offset: {
+				type: 'number',
+				description:
+					'how many symbols it needs to offset from the beginning of the whole text where this sentence begins',
+				example: 100,
 				required: true,
 			},
-			BookChapterPhraseExample: {
-				type: 'oneToMany',
+			length: {
+				type: 'number',
+				description: 'lenght of the sentence',
+				example: 10,
+				required: true,
 			},
-			created_at: {
-				type: 'createdAt',
+			order_index: {
+				type: 'number',
+				description: 'the serial number of this sentence',
+				example: 10,
+				required: true,
 			},
 		},
 	},
-	// К каждой фразе (BookChapterPhrase) есть массив примеров использования.
-	// Они содержатся в этой таблице.
-	BookChapterPhraseExample: {
+	/*Word: {
 		dtoProps: {},
 		dbFields: {
 			id: {
 				type: 'index',
 			},
-			book_chapter_phrase_id: {
+			sentence_id: {
 				type: 'manyToOne',
-				thisField: 'book_chapter_phrase_id', // Name of the column of this table that refers to another table
-				foreignTable: 'BookChapterPhrase', // Name of the table that this column refers to
+				thisField: 'sentence_id', // Name of the column of this table that refers to another table
+				foreignTable: 'Sentence', // Name of the table that this column refers to
 				foreignField: 'id',
+				required: false,
+			},
+			start_offset: {
+				type: 'number',
+				description:
+					'how many symbols it needs to offset from the beginning of the sentence where this word begins',
+				example: 100,
 				required: true,
 			},
-			sentence: {
-				type: 'string',
-				description: 'A sentence example with this phrase. For example: ',
+			length: {
+				type: 'number',
+				description: 'lenght of this word',
+				example: 10,
 				required: true,
-				maxLength: 500,
 			},
-			translation: {
-				type: 'string',
-				description: 'A translate of sentence example with this phrase. For example: ',
+			order_index: {
+				type: 'number',
+				description: 'the serial number of this sentence',
+				example: 10,
 				required: true,
-				maxLength: 500,
-			},
-			created_at: {
-				type: 'createdAt',
 			},
 		},
-	},
+	},*/
 	VideoPrivate: {
 		dtoProps: {
 			fileName: {
@@ -501,14 +469,9 @@ export const bdConfig = {
 				required: false,
 				maxLength: 255,
 			},
-			text: {
+			content: {
 				type: 'string',
 				description: 'Subtitles or text of the video',
-				required: false,
-			},
-			text_resolved: {
-				type: 'string',
-				description: 'Populated subtitles or text of the video',
 				required: false,
 			},
 			created_at: {

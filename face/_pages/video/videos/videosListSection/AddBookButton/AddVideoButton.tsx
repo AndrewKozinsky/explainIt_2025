@@ -1,8 +1,8 @@
-import Button from '@/ui/formRelated/buttons/Button/Button'
-import { publicFolderFilesUrls } from '@/utils/publicFolderFilesUrls'
-import { useGetOnAddBookClick } from './fn/getOnAddBookClick'
+// import Button from '@/ui/formRelated/buttons/Button/Button'
+// import { publicFolderFilesUrls } from '@/utils/publicFolderFilesUrls'
+// import { useGetOnAddBookClick } from './fn/getOnAddBookClick'
 
-function AddVideoButton() {
+/*function AddVideoButton() {
 	const { onAddBookClick, status } = useGetOnAddBookClick()
 
 	return (
@@ -14,6 +14,6 @@ function AddVideoButton() {
 			Добавить видео
 		</Button>
 	)
-}
+}*/
 
-export default AddVideoButton
+// export default AddVideoButton

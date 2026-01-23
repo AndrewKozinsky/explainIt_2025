@@ -1,6 +1,6 @@
-import { routesUtils } from '@/utils/routes'
-import { pageUrls } from '@/сonsts/pageUrls'
-import { useParams } from 'next/navigation'
+// import { routesUtils } from '@/utils/routes'
+// import { pageUrls } from '@/сonsts/pageUrls'
+// import { useParams } from 'next/navigation'
 
 /**
  * Возвращает статус ссылки для визуальной подсветки:
@@ -10,7 +10,7 @@ import { useParams } from 'next/navigation'
  * @param bookType — type of the book
  * @param bookId — id of book
  */
-export function useGetBookLinkStatus(bookId: number, bookType: 'public' | 'private'): 'idle' | 'current' | 'nested' {
+/*export function useGetBookLinkStatus(bookId: number, bookType: 'public' | 'private'): 'idle' | 'current' | 'nested' {
 	const videoId = useParams().videoId as string
 	const pageUrl = pageUrls.videos.video(videoId).path
 
@@ -25,4 +25,4 @@ export function useGetBookLinkStatus(bookId: number, bookType: 'public' | 'priva
 	}
 
 	return 'nested'
-}
+}*/

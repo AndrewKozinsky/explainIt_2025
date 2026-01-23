@@ -1,8 +1,8 @@
-import React from 'react'
-import { useCanRunTranslation } from '_pages/books/reading/lib/canRunTranslation'
-import { HotKeyButton } from './details'
+// import React from 'react'
+// import { useCanRunTranslation } from '_pages/books/reading/lib/canRunTranslation'
+// import { HotKeyButton } from './details'
 
-export function PressEnterForTranslation() {
+/*export function PressEnterForTranslation() {
 	const isVisible = useCanRunTranslation()
 	if (!isVisible) return null
 
@@ -13,4 +13,4 @@ export function PressEnterForTranslation() {
 			{' для перевода'}
 		</div>
 	)
-}
+}*/

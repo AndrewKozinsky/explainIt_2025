@@ -1,7 +1,7 @@
-import DeleteEntityButtonAndModal from '@/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
-import { useGetDeleteBook } from './fn/getDeleteBook'
+// import DeleteEntityButtonAndModal from '@/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
+// import { useGetDeleteBook } from './fn/getDeleteBook'
 
-function DeleteBookButton() {
+/*function DeleteBookButton() {
 	const { onDeleteBookClick, status } = useGetDeleteBook()
 
 	return (
@@ -16,6 +16,6 @@ function DeleteBookButton() {
 			}}
 		/>
 	)
-}
+}*/
 
-export default DeleteBookButton
+// export default DeleteBookButton

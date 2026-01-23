@@ -1,22 +1,22 @@
-import { PopulatedSubtitlesStructure } from '_pages/video/watching/common/populatedSubtitlesStructure'
-import { PopulatedTextStructure } from '_pages/video/watching/common/populatedTextStructure'
-import { ResolvedSubtitlesStructure } from '_pages/video/watching/common/resolvedSubtitlesStructure'
-import { ResolvedTextStructure } from '_pages/video/watching/common/resolvedTextStructure'
+// import { PopulatedSubtitlesStructure } from '_pages/video/watching/common/populatedSubtitlesStructure'
+// import { PopulatedTextStructure } from '_pages/video/watching/common/populatedTextStructure'
+// import { ResolvedSubtitlesStructure } from '_pages/video/watching/common/resolvedSubtitlesStructure'
+// import { ResolvedTextStructure } from '_pages/video/watching/common/resolvedTextStructure'
 
-type TextPart =
+/*type TextPart =
 	| PopulatedTextStructure.SentencePart
-	| PopulatedSubtitlesStructure.TextPart
+	| PopulatedSubtitlesStructure.TextPart*/
 
-function textPartsToSentence(textParts: TextPart[]): string {
+/*function textPartsToSentence(textParts: TextPart[]): string {
 	return textParts
 		.map((part) => {
 			if (part.type === 'space') return ' '
 			return part.value
 		})
 		.join('')
-}
+}*/
 
-export function populatedPlainTextToResolved(
+/*export function populatedPlainTextToResolved(
 	populatedPlainText: PopulatedTextStructure.Structure,
 ): ResolvedTextStructure.Structure {
 	return {
@@ -28,9 +28,9 @@ export function populatedPlainTextToResolved(
 			}
 		}),
 	}
-}
+}*/
 
-export function populatedSubtitlesToResolved(
+/*export function populatedSubtitlesToResolved(
 	populatedSubtitles: PopulatedSubtitlesStructure.Structure,
 ): ResolvedSubtitlesStructure.Structure {
 	return {
@@ -61,4 +61,4 @@ export function populatedSubtitlesToResolved(
 			}
 		}),
 	}
-}
+}*/

@@ -1,8 +1,8 @@
-import React from 'react'
-import { useGetErrorMessage } from './fn/getPhraseData'
-import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
+// import React from 'react'
+// import { useGetErrorMessage } from './fn/getPhraseData'
+// import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
 
-function ErrorPhraseAnalysis() {
+/*function ErrorPhraseAnalysis() {
 	const errorMessage = useGetErrorMessage()
 
 	return (
@@ -10,6 +10,6 @@ function ErrorPhraseAnalysis() {
 			<ErrorMessage text={errorMessage} />
 		</div>
 	)
-}
+}*/
 
-export default ErrorPhraseAnalysis
+// export default ErrorPhraseAnalysis

@@ -1,6 +1,6 @@
 import React from 'react'
-import './EditDetailsFormHeader.scss'
 import { useGetLabelAndHeader } from './fn/getLabelAndHeader'
+import './EditDetailsFormHeader.scss'
 
 function EditDetailsFormHeader() {
 	const { label, header } = useGetLabelAndHeader()

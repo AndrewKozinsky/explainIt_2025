@@ -1,5 +1,5 @@
 // Тип данных для структуры текста приходящий с сервера
-export namespace ChapterTextStructure {
+/*export namespace ChapterTextStructure {
 	export type Chapter = Sentence[]
 
 	export type Sentence = {
@@ -48,4 +48,4 @@ export namespace ChapterTextStructure {
 		sentence: string
 		translation: string
 	}
-}
+}*/

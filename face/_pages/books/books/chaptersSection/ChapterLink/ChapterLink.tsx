@@ -1,8 +1,8 @@
 import Paragraph from '@/ui/Paragraph/Paragraph'
 import { useGetChapterLinkStatus } from '_pages/books/books/chaptersSection/ChapterLink/fn/isPageCurrent'
 import { createBookIdUrl, pageUrls } from 'сonsts/pageUrls'
-import ContentLinkWrapper from '../../common/ContentLinkWrapper/ContentLinkWrapper'
 import { bookConfig } from '../../common/bookConfig'
+import ContentLinkWrapper from '../../common/ContentLinkWrapper/ContentLinkWrapper'
 import './ChapterLink.scss'
 
 type BookLinkProps = {

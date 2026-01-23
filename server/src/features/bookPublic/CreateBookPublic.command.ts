@@ -1,9 +1,9 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { BookPublicQueryRepository } from 'repo/bookPublic.queryRepository'
 import { BookPublicRepository } from 'repo/bookPublic.repository'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
-import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+// import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+// import { ErrorCode } from 'infrastructure/exceptions/errorCode'
+// import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 
 export type CreateBookPublicInput = {
 	author: string
@@ -26,11 +26,11 @@ export class CreateBookPublicHandler implements ICommandHandler<CreateBookPublic
 	async execute(command: CreateBookPublicCommand) {
 		const { createBookInput } = command
 
-		const newBook = await this.bookPublicRepository.createBookPublic(createBookInput)
+		/*const newBook = await this.bookPublicRepository.createBookPublic(createBookInput)
 		if (!newBook) {
 			throw new CustomGraphQLError(errorMessage.book.notCreated, ErrorCode.InternalServerError_500)
 		}
 
-		return await this.bookPublicQueryRepository.getPublicBookById(newBook.id)
+		return await this.bookPublicQueryRepository.getPublicBookById(newBook.id)*/
 	}
 }

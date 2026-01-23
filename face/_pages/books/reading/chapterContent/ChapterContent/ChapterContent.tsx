@@ -1,9 +1,9 @@
-import { useReadingStore } from '_pages/books/reading/readingStore'
-import ChapterTooltip from '../ChapterTooltip/ChapterTooltip'
-import SentenceBlock from '../SentenceBlock/SentenceBlock'
-import './ChapterContent.scss'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
+// import ChapterTooltip from '../ChapterTooltip/ChapterTooltip'
+// import SentenceBlock from '../SentenceBlock/SentenceBlock'
+// import './ChapterContent.scss'
 
-function ChapterContent() {
+/*function ChapterContent() {
 	const populatedChapter = useReadingStore((state) => state.populatedChapter)
 
 	return (
@@ -14,6 +14,6 @@ function ChapterContent() {
 			<ChapterTooltip />
 		</div>
 	)
-}
+}*/
 
-export default ChapterContent
+// export default ChapterContent

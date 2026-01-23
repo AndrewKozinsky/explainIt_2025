@@ -1,13 +1,13 @@
-@use '@/styles/variables' as vars;
+//@use '@/styles/variables' as vars;
 
-.phrases-switch {
+/*.phrases-switch {
 	display: flex;
 	flex-wrap: wrap;
 	gap: .8rem;
 	margin-bottom: -0.8rem;
-}
+}*/
 
-.phrases-switch__item {
+/*.phrases-switch__item {
 	font-size: 1.6rem;
 	line-height: 2rem;
 	cursor: pointer;
@@ -18,10 +18,10 @@
 	&:hover:not(.phrases-switch__item--selected) {
 		background-color: vars.$grayColor-2;
 	}
-}
+}*/
 
-.phrases-switch__item--selected {
+/*.phrases-switch__item--selected {
 	color: white;
 	background-color: vars.$linkColor-2;
 	cursor: default;
-}
+}*/

@@ -1,4 +1,4 @@
-export namespace PopulatedTextStructure {
+/*export namespace PopulatedTextStructure {
 	export type Structure = {
 		sentences: Sentence[]
 		selected: Selected
@@ -35,4 +35,4 @@ export namespace PopulatedTextStructure {
 		sentenceId: null | number
 		wordIds: number[]
 	}
-}
+}*/

@@ -1,7 +1,7 @@
-import { useChapterTooltip } from './fn/useChapterTooltip'
-import './ChapterTooltip.scss'
+// import { useChapterTooltip } from './fn/useChapterTooltip'
+// import './ChapterTooltip.scss'
 
-function ChapterTooltip() {
+/*function ChapterTooltip() {
 	const { tooltipRef, coords, phrases, show } = useChapterTooltip()
 
 	if (!show || !coords) return null
@@ -16,6 +16,6 @@ function ChapterTooltip() {
 			))}
 		</div>
 	)
-}
+}*/
 
-export default ChapterTooltip
+// export default ChapterTooltip

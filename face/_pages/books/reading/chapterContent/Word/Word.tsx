@@ -1,19 +1,19 @@
-import { useRef } from 'react'
-import cn from 'classnames'
-import { useLongPress } from 'utils/events'
-import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
-import { useReadingStore } from '_pages/books/reading/readingStore'
-import { getWordPrimaryType } from './fn/getWordPrimaryType'
-import { useGetOnWordClick, useGetOnWordLongTap } from './fn/selectSentenceAndWord'
-import { useWordHoverHandlers } from './fn/useWordHoverHandlers'
-import './Word.scss'
+// import { useRef } from 'react'
+// import cn from 'classnames'
+// import { useLongPress } from 'utils/events'
+// import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
+// import { getWordPrimaryType } from './fn/getWordPrimaryType'
+// import { useGetOnWordClick, useGetOnWordLongTap } from './fn/selectSentenceAndWord'
+// import { useWordHoverHandlers } from './fn/useWordHoverHandlers'
+// import './Word.scss'
 
-type WordProps = {
+/*type WordProps = {
 	sentence: ChapterTextStructurePopulated.Sentence
 	wordData: ChapterTextStructurePopulated.Word
-}
+}*/
 
-function Word(props: WordProps) {
+/*function Word(props: WordProps) {
 	const { sentence, wordData } = props
 	const selectedSentence = useReadingStore((state) => state.selection)
 	const deviceType = useReadingStore((state) => state.deviceType)
@@ -66,6 +66,6 @@ function Word(props: WordProps) {
 			</span>
 		</span>
 	)
-}
+}*/
 
-export default Word
+// export default Word

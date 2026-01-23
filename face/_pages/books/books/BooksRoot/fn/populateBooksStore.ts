@@ -1,8 +1,8 @@
-import { useBooksStore } from '_pages/books/books/booksStore'
+import { useEffect } from 'react'
+import { useParams, usePathname } from 'next/navigation'
 import { useBook_GetBooksPublic, useBook_GetUserBooks } from '@/graphql'
 import { useBookChapter_Get } from '@/graphql'
-import { useParams, usePathname } from 'next/navigation'
-import { useEffect } from 'react'
+import { useBooksStore } from '_pages/books/books/booksStore'
 import { extractBookIdFromUrlBookId, getBookTypeByUrlBookId, pageUrls } from 'сonsts/pageUrls'
 
 /** Наполняет Хранилище данными для начала работы */

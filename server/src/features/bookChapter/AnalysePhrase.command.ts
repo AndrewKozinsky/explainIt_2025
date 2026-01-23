@@ -1,24 +1,22 @@
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import OpenAI from 'openai'
-import { z } from 'zod'
-import { BookChapterPhraseQueryRepository } from 'repo/bookChapterPhrase.queryRepository'
-import { BookChapterPhraseRepository } from 'repo/bookChapterPhrase.repository'
-import { BookChapterPhraseExampleRepository } from 'repo/bookChapterPhraseExample.repository'
-import { TokenUsageBalanceChargeCommand } from 'features/payment/TokenUsageBalanceCharge.command'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
-import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+// import OpenAI from 'openai'
+// import { z } from 'zod'
+// import { BookChapterPhraseRepository } from 'repo/bookChapterPhrase.repository'
+// import { TokenUsageBalanceChargeCommand } from 'features/payment/TokenUsageBalanceCharge.command'
+// import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+// import { ErrorCode } from 'infrastructure/exceptions/errorCode'
+// import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { OpenAIModels, OpenAIService } from 'infrastructure/openAI/openAI.service'
 
 type AnalysePhraseInput = {
-	bookChapterId: number
-	bookAuthor: null | string
-	bookName: null | string
-	context: string
-	sentenceId: number
-	sentence: string
-	phrase: string
-	phraseWordsIdx: number[]
+	// bookChapterId: number
+	// bookAuthor: null | string
+	// bookName: null | string
+	// context: string
+	// sentenceId: number
+	// sentence: string
+	// phrase: string
+	// phraseWordsIdx: number[]
 }
 
 export class AnalysePhraseCommand implements ICommand {
@@ -35,14 +33,10 @@ export class AnalysePhraseCommand implements ICommand {
 export class AnalysePhraseHandler implements ICommandHandler<AnalysePhraseCommand> {
 	constructor(
 		private openAIService: OpenAIService,
-		private commandBus: CommandBus,
-		private bookChapterPhraseRepository: BookChapterPhraseRepository,
-		private bookChapterPhraseQueryRepository: BookChapterPhraseQueryRepository,
-		private bookChapterPhraseExampleRepository: BookChapterPhraseExampleRepository,
+		// private commandBus: CommandBus,
 	) {}
-
 	async execute(command: AnalysePhraseCommand) {
-		const { userId, analysePhraseInput } = command
+		/*const { userId, analysePhraseInput } = command
 
 		// Получить перевод предложения и перевод и анализ фразы через OpenAI.
 		const analysis = await this.getAnalysis(userId, analysePhraseInput)
@@ -78,7 +72,7 @@ export class AnalysePhraseHandler implements ICommandHandler<AnalysePhraseComman
 			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
 		}
 
-		return phraseOutRes
+		return phraseOutRes*/
 	}
 
 	/**
@@ -86,7 +80,7 @@ export class AnalysePhraseHandler implements ICommandHandler<AnalysePhraseComman
 	 * @param userId — user id who make a request to OpenAI
 	 * @param analysePhraseInput — данные для анализа предложения и фразы.
 	 */
-	async getAnalysis(userId: number, analysePhraseInput: AnalysePhraseInput) {
+	/*async getAnalysis(userId: number, analysePhraseInput: AnalysePhraseInput) {
 		// Подготовка данных для передачи в OpenAI.
 		const messages = this.getAnalysisTask(analysePhraseInput)
 
@@ -115,13 +109,12 @@ export class AnalysePhraseHandler implements ICommandHandler<AnalysePhraseComman
 
 		// Convert fetched data into expected format
 		return this.getAnalysisParsedData(aiResult.message)
-	}
-
+	}*/
 	/**
 	 * Формирует задачу для передачи в OpenAI.
 	 * @param analysePhraseInput — данные для анализа предложения и фразы.
 	 */
-	getAnalysisTask(analysePhraseInput: AnalysePhraseInput): OpenAI.Chat.Completions.ChatCompletionMessageParam[] {
+	/*getAnalysisTask(analysePhraseInput: AnalysePhraseInput): OpenAI.Chat.Completions.ChatCompletionMessageParam[] {
 		const fieldsMapper = {
 			bookName_bookAuthor: 'BookAuthor, BookName,',
 			bookName_: 'BookName,',
@@ -183,13 +176,12 @@ Field requirements:
 				),
 			},
 		]
-	}
-
+	}*/
 	/**
 	 * Разбирает и проверяет ответ от OpenAI. Возвращает объект с подготовленными полями.
 	 * @param aiResultMessage — ответ от OpenAI
 	 */
-	getAnalysisParsedData(aiResultMessage: null | string) {
+	/*getAnalysisParsedData(aiResultMessage: null | string) {
 		// В aiResult.message должна находится строка в формате JSON.
 		// После преобразования должен быть объект с ожидаемыми полями. Проверю.
 
@@ -224,5 +216,5 @@ Field requirements:
 		}
 
 		return validation.data as z.infer<typeof AnalysisMessageSchema>
-	}
+	}*/
 }

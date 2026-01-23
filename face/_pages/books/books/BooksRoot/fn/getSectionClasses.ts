@@ -1,5 +1,5 @@
-import { BooksStore } from '_pages/books/books/booksStore'
 import cn from 'classnames'
+import { BooksStore } from '_pages/books/books/booksStore'
 
 export function getSectionClasses(
 	mobileContentType: BooksStore.MobileCurrentContentType,

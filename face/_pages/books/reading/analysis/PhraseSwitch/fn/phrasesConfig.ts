@@ -1,9 +1,9 @@
-import { useGetSelectedSentence } from '_pages/books/reading/lib/getSelectedSentence'
-import { useMemo } from 'react'
-import { useReadingStore } from '_pages/books/reading/readingStore'
+// import { useGetSelectedSentence } from '_pages/books/reading/lib/getSelectedSentence'
+// import { useMemo } from 'react'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
 
 /** Возвращает конфигурацию для отрисовки кнопок с фразами, в которые входят выделенные слова чтобы пользователь быстро выбрал нужную фразу. */
-export function useGetSelectedPhrasesConfig() {
+/*export function useGetSelectedPhrasesConfig() {
 	const selection = useReadingStore((s) => s.selection)
 	const selectedSentence = useGetSelectedSentence()
 
@@ -34,4 +34,4 @@ export function useGetSelectedPhrasesConfig() {
 		},
 		[selectedSentence, selection.phraseId, selection.sentenceId, selection.wordIds],
 	)
-}
+}*/

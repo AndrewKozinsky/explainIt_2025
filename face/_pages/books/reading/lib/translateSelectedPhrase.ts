@@ -1,16 +1,16 @@
-import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
-import { getSentenceById } from '_pages/books/reading/lib/getSentenceById'
-import { getTextByPhraseId } from '_pages/books/reading/lib/getTextByWordIds'
-import { useReadingStore } from '_pages/books/reading/readingStore'
-import {
-	Book_Chapter_AnalysePhrase,
-	Book_Chapter_AnalysePhraseDocument,
-	Book_Chapter_AnalysePhraseVariables,
-} from '@/graphql'
-import apolloClient from '@/graphql/apollo'
-import { populatedChapterStructureIntoText } from '_pages/books/commonLogic/populatedChapterStructureIntoText/populatedChapterStructureIntoText'
+// import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
+// import { getSentenceById } from '_pages/books/reading/lib/getSentenceById'
+// import { getTextByPhraseId } from '_pages/books/reading/lib/getTextByWordIds'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
+// import {
+// 	Book_Chapter_AnalysePhrase,
+// 	Book_Chapter_AnalysePhraseDocument,
+// 	Book_Chapter_AnalysePhraseVariables,
+// } from '@/graphql'
+// import apolloClient from '@/graphql/apollo'
+// import { populatedChapterStructureIntoText } from '_pages/books/commonLogic/populatedChapterStructureIntoText/populatedChapterStructureIntoText'
 
-export async function translateSelectedPhrase() {
+/*export async function translateSelectedPhrase() {
 	useReadingStore.getState().createLoadingPhraseInSelectedSentenceFromSelectedWords()
 
 	const { turnPhraseIntoErrorPhrase, setPhraseAnalysisIntoSentence, chapter, populatedChapter, selection, book } =
@@ -62,14 +62,14 @@ export async function translateSelectedPhrase() {
 			turnPhraseIntoErrorPhrase(sentenceId, phraseId, 'Возникла неизвестная ошибка.')
 		}
 	}
-}
+}*/
 
 // Builds textual context around the sentence so that
 // - there are at least `thresholdValue` words BEFORE the selected sentence
 // - and at least `thresholdValue` words AFTER the selected sentence
 // Words from the selected sentence are NOT counted for the thresholds.
 // Only whole sentences can be added; overshooting the threshold is acceptable.
-function buildContext(
+/*function buildContext(
 	chapter: ChapterTextStructurePopulated.Chapter | null,
 	sentenceId: number,
 	thresholdValue = 100,
@@ -109,4 +109,4 @@ function buildContext(
 	// Slice the original content to preserve spaces/punctuation between the chosen sentences
 	const contextSlice = chapter.parts.slice(minSentenceIdx, maxSentenceIdx + 1)
 	return populatedChapterStructureIntoText(contextSlice)
-}
+}*/

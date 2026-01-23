@@ -1,13 +1,13 @@
-import cn from 'classnames'
-import Link from 'next/link'
+// import cn from 'classnames'
+// import Link from 'next/link'
 
-type LinkButtonProps = {
+/*type LinkButtonProps = {
 	href: string
 	extraClass?: string
 	children: React.ReactNode | React.ReactNode[]
-}
+}*/
 
-export function LinkButton(props: LinkButtonProps) {
+/*export function LinkButton(props: LinkButtonProps) {
 	const { href, extraClass, children } = props
 
 	return (
@@ -15,4 +15,4 @@ export function LinkButton(props: LinkButtonProps) {
 			{children}
 		</Link>
 	)
-}
+}*/

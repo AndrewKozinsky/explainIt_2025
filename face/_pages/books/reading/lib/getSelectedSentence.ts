@@ -1,7 +1,7 @@
-import { useReadingStore } from '_pages/books/reading/readingStore'
-import { useMemo } from 'react'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
+// import { useMemo } from 'react'
 
-export function useGetSelectedSentence() {
+/*export function useGetSelectedSentence() {
 	const populatedChapter = useReadingStore((s) => s.populatedChapter)
 	const selection = useReadingStore((s) => s.selection)
 
@@ -16,4 +16,4 @@ export function useGetSelectedSentence() {
 		},
 		[populatedChapter, selection],
 	)
-}
+}*/

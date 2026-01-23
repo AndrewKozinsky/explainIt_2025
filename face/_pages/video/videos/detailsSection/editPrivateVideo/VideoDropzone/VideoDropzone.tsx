@@ -1,24 +1,24 @@
-import React, { useContext, useState } from 'react'
-import { useDropzone } from 'react-dropzone'
-import { NotificationContext } from 'ui/Notification/context'
-import { useVideoPrivate_Update, VideoPrivate_GetUserVideosDocument } from '@/graphql'
-import ContentFileUploading from '_pages/video/videos/detailsSection/editPrivateVideo/VideoDropzone/ContentFileUploading'
-import { useVideosStore } from '_pages/video/videos/videosStore'
-import ContentFileDragging from './ContentFileDragging'
-import ContentFileSelected from './ContentFileSelected'
-import ContentIdle from './ContentIdle'
-import './VideoDropzone.scss'
+// import React, { useContext, useState } from 'react'
+// import { useDropzone } from 'react-dropzone'
+// import { NotificationContext } from 'ui/Notification/context'
+// import { useVideoPrivate_Update, VideoPrivate_GetUserVideosDocument } from '@/graphql'
+// import ContentFileUploading from '_pages/video/videos/detailsSection/editPrivateVideo/VideoDropzone/ContentFileUploading'
+// import { useVideosStore } from '_pages/video/videos/videosStore'
+// import ContentFileDragging from './ContentFileDragging'
+// import ContentFileSelected from './ContentFileSelected'
+// import ContentIdle from './ContentIdle'
+// import './VideoDropzone.scss'
 
-enum VideoDropzoneStatus {
+/*enum VideoDropzoneStatus {
 	IDLE,
 	FILE_DRAGGING,
 	FILE_SELECTED,
 	FILE_UPLOADING,
-}
+}*/
 
-const supportedVideoFormatsStr = 'MP4, WebM, OGG'
+// const supportedVideoFormatsStr = 'MP4, WebM, OGG'
 
-function VideoDropzone() {
+/*function VideoDropzone() {
 	const video = useVideosStore.getState().privateVideo
 
 	const { notify } = useContext(NotificationContext)
@@ -136,6 +136,6 @@ function VideoDropzone() {
 			)}
 		</div>
 	)
-}
+}*/
 
-export default VideoDropzone
+// export default VideoDropzone

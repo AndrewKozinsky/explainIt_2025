@@ -1,8 +1,8 @@
-import { getHotKeyName, useIsHoldToSelectRelatedWordsVisible } from './fn/isHoldToSelectRelatedWordsVisible'
-import React from 'react'
-import { HotKeyButton } from './details'
+// import { getHotKeyName, useIsHoldToSelectRelatedWordsVisible } from './fn/isHoldToSelectRelatedWordsVisible'
+// import React from 'react'
+// import { HotKeyButton } from './details'
 
-export function HoldToSelectRelatedWords() {
+/*export function HoldToSelectRelatedWords() {
 	const isVisible = useIsHoldToSelectRelatedWordsVisible()
 	if (!isVisible) return null
 
@@ -13,4 +13,4 @@ export function HoldToSelectRelatedWords() {
 			{' для выделения связанных слов'}
 		</div>
 	)
-}
+}*/

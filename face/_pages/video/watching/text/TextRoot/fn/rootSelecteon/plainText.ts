@@ -1,7 +1,7 @@
-import { PopulatedTextStructure } from '_pages/video/watching/common/populatedTextStructure'
-import { WatchingStoreI } from '_pages/video/watching/watchingStore'
+// import { PopulatedTextStructure } from '_pages/video/watching/common/populatedTextStructure'
+// import { WatchingStoreI } from '_pages/video/watching/watchingStore'
 
-export function updateFromPlainTextSelected(
+/*export function updateFromPlainTextSelected(
 	populatedPlainText: PopulatedTextStructure.Structure | null,
 	updateSelectedText: (selectedText: WatchingStoreI.SelectedText) => void,
 ) {
@@ -39,9 +39,9 @@ export function updateFromPlainTextSelected(
 		},
 		subtitle: null,
 	})
-}
+}*/
 
-function sentencePartsToString(parts: PopulatedTextStructure.SentencePart[]): string {
+/*function sentencePartsToString(parts: PopulatedTextStructure.SentencePart[]): string {
 	let result = ''
 	for (const part of parts) {
 		if (part.type === 'space') result += ' '
@@ -49,9 +49,9 @@ function sentencePartsToString(parts: PopulatedTextStructure.SentencePart[]): st
 	}
 
 	return result
-}
+}*/
 
-function getSelectedWordsFromSentenceParts(
+/*function getSelectedWordsFromSentenceParts(
 	parts: PopulatedTextStructure.SentencePart[],
 	wordIds: number[],
 ): { wordIds: number[]; wordsTexts: string[] } {
@@ -67,4 +67,4 @@ function getSelectedWordsFromSentenceParts(
 	}
 
 	return { wordIds: selectedWordIds, wordsTexts }
-}
+}*/

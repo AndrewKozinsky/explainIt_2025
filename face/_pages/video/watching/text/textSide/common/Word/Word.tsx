@@ -1,9 +1,9 @@
-import cn from 'classnames'
-import { WordProps } from './fn/types'
-import { useWord } from './fn/useWord'
-import './Word.scss'
+// import cn from 'classnames'
+// import { WordProps } from './fn/types'
+// import { useWord } from './fn/useWord'
+// import './Word.scss'
 
-function Word(props: WordProps) {
+/*function Word(props: WordProps) {
 	const { deviceType, isSelected, handlers } = useWord(props)
 
 	return (
@@ -26,6 +26,6 @@ function Word(props: WordProps) {
 			</span>
 		</span>
 	)
-}
+}*/
 
-export default Word
+// export default Word

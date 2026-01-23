@@ -1,6 +1,6 @@
-import { useWatchingStore, WatchingStoreI } from '_pages/video/watching/watchingStore'
+// import { useWatchingStore, WatchingStoreI } from '_pages/video/watching/watchingStore'
 
-export const tabsConfig = [
+/*export const tabsConfig = [
 	{
 		id: 'keyboard',
 		label: 'Клавиши',
@@ -11,12 +11,12 @@ export const tabsConfig = [
 		label: 'Мышь',
 		onClick: getChangeCurrentMobileContentType('mouse'),
 	},
-]
+]*/
 
-function getChangeCurrentMobileContentType(contentType: WatchingStoreI.HelpCurrentContentType) {
+/*function getChangeCurrentMobileContentType(contentType: WatchingStoreI.HelpCurrentContentType) {
 	const { updateHelpCurrentContentType } = useWatchingStore.getState()
 
 	return () => {
 		updateHelpCurrentContentType(contentType)
 	}
-}
+}*/

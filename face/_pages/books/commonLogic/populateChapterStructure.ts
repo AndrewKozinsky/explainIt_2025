@@ -1,11 +1,11 @@
-import { ChapterTextStructure, ChapterTextStructurePopulated } from './chapterStructureTypes'
+// import { ChapterTextStructure, ChapterTextStructurePopulated } from './chapterStructureTypes'
 
 /**
  * Получает структуру главы с сервера и наполняет её полезными данными чтобы из
  * ChapterTextStructure.Chapter получить ChapterTextStructurePopulated.Chapter
  * @param chapter — данные главы
  */
-export function populateChapterStructure(chapter: {
+/*export function populateChapterStructure(chapter: {
 	id: number
 	header: undefined | null | string
 	name: undefined | null | string
@@ -26,9 +26,9 @@ export function populateChapterStructure(chapter: {
 		name: chapter.name || null,
 		parts,
 	}
-}
+}*/
 
-function populateSentenceStructure(
+/*function populateSentenceStructure(
 	currentId: number,
 	sentenceStructure: ChapterTextStructure.Sentence,
 	phrases: ChapterTextStructure.Phrase[],
@@ -41,9 +41,9 @@ function populateSentenceStructure(
 		parts: populateSentencePartsStructure(sentenceStructure.p),
 		phrases: populateSentencePhrases(phrases, currentId),
 	}
-}
+}*/
 
-function populateSentencePartsStructure(
+/*function populateSentencePartsStructure(
 	sentenceParts: ChapterTextStructure.SentencePart[],
 ): ChapterTextStructurePopulated.SentencePart[] {
 	let partId = 1
@@ -58,9 +58,9 @@ function populateSentencePartsStructure(
 		}
 		return { id: partId, type: 'punctuation', value: part.v } as const
 	})
-}
+}*/
 
-function populateSentencePhrases(
+/*function populateSentencePhrases(
 	allPhrases: ChapterTextStructure.Phrase[],
 	sentenceId: number,
 ): ChapterTextStructurePopulated.Phrase[] {
@@ -91,4 +91,4 @@ function populateSentencePhrases(
 			},
 		}
 	})
-}
+}*/

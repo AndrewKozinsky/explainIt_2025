@@ -1,11 +1,10 @@
-import { getSectionClasses } from '_pages/books/books/BooksRoot/fn/getSectionClasses'
 import { useBooksStore } from '_pages/books/books/booksStore'
-import MobileNavigation from '../MobileNavigation/MobileNavigation'
-import { usePopulateBooksStore } from './fn/populateBooksStore'
-import { BooksTest } from '_pages/books/books/booksTest'
-import BooksSection from '../booksListSection/BooksSection/BooksSection'
 import ChaptersSection from '_pages/books/books/chaptersSection/ChaptersSection/ChaptersSection'
 import DetailsSection from '_pages/books/books/detailsSection/DetailsSection/DetailsSection'
+import BooksSection from '../booksListSection/BooksSection/BooksSection'
+import MobileNavigation from '../MobileNavigation/MobileNavigation'
+import { getSectionClasses } from './fn/getSectionClasses'
+import { usePopulateBooksStore } from './fn/populateBooksStore'
 import './BooksRoot.scss'
 
 function BooksRoot() {
@@ -17,22 +16,13 @@ function BooksRoot() {
 		<main className='books-page-content'>
 			<MobileNavigation />
 			<div className='books-page-content__blocks'>
-				<div
-					className={getSectionClasses('books', currentMobileContentType)}
-					data-testid={BooksTest.booksRoot.booksSection}
-				>
+				<div className={getSectionClasses('books', currentMobileContentType)}>
 					<BooksSection />
 				</div>
-				<div
-					className={getSectionClasses('book', currentMobileContentType)}
-					data-testid={BooksTest.booksRoot.bookSection}
-				>
+				<div className={getSectionClasses('book', currentMobileContentType)}>
 					<ChaptersSection />
 				</div>
-				<div
-					className={getSectionClasses('chapter', currentMobileContentType)}
-					data-testid={BooksTest.booksRoot.editSection}
-				>
+				<div className={getSectionClasses('chapter', currentMobileContentType)}>
 					<DetailsSection />
 				</div>
 			</div>

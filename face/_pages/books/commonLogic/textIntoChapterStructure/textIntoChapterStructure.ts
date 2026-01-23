@@ -1,11 +1,11 @@
-import { ChapterTextStructure } from '../chapterStructureTypes'
+// import { ChapterTextStructure } from '../chapterStructureTypes'
 
 /**
  * Converts raw chapter text into a structured representation of sentences, carriage return.
  * @param chapterText Raw chapter text consisting of one or more paragraphs
  * @returns ChapterTextStructure.Chapter Structured paragraphs -> sentences -> parts
  */
-export function textIntoChapterStructure(chapterText: string): ChapterTextStructure.Chapter {
+/*export function textIntoChapterStructure(chapterText: string): ChapterTextStructure.Chapter {
 	const sentences: ChapterTextStructure.Chapter = []
 
 	let i = 0
@@ -99,4 +99,4 @@ export function textIntoChapterStructure(chapterText: string): ChapterTextStruct
 	}
 
 	return sentences
-}
+}*/

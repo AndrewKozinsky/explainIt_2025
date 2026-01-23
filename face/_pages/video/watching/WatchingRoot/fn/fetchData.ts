@@ -1,17 +1,17 @@
-import { useEffect } from 'react'
-import { useParams } from 'next/navigation'
-import { useVideoPrivate_Get, VideoPrivateOutModel } from '@/graphql'
-import { ResolvedSubtitlesStructure } from '_pages/video/watching/common/resolvedSubtitlesStructure'
-import { ResolvedTextStructure } from '_pages/video/watching/common/resolvedTextStructure'
-import { useWatchingStore } from '../../watchingStore'
-import { createPopulatedPlainText, createPopulatedSubtitles } from './createPopulatedText'
+// import { useEffect } from 'react'
+// import { useParams } from 'next/navigation'
+// import { useVideoPrivate_Get, VideoPrivateOutModel } from '@/graphql'
+// import { ResolvedSubtitlesStructure } from '_pages/video/watching/common/resolvedSubtitlesStructure'
+// import { ResolvedTextStructure } from '_pages/video/watching/common/resolvedTextStructure'
+// import { useWatchingStore } from '../../watchingStore'
+// import { createPopulatedPlainText, createPopulatedSubtitles } from './createPopulatedText'
 
-export function usePopulateWatchingStore() {
+/*export function usePopulateWatchingStore() {
 	useFetchVideoAndSetToStore()
 	usePopulatedTextAndSetToStore()
-}
+}*/
 
-function useFetchVideoAndSetToStore() {
+/*function useFetchVideoAndSetToStore() {
 	const videoIdStr = useParams().videoId as string
 	const videoId = parseInt(videoIdStr)
 
@@ -49,9 +49,9 @@ function useFetchVideoAndSetToStore() {
 		},
 		[data, error, loading],
 	)
-}
+}*/
 
-function usePopulatedTextAndSetToStore() {
+/*function usePopulatedTextAndSetToStore() {
 	const video = useWatchingStore((s) => s.video)
 
 	useEffect(
@@ -75,4 +75,4 @@ function usePopulatedTextAndSetToStore() {
 		},
 		[video],
 	)
-}
+}*/

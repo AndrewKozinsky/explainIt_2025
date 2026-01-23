@@ -57,8 +57,7 @@ export const ModelName = {
   BookPrivate: 'BookPrivate',
   BookPublic: 'BookPublic',
   BookChapter: 'BookChapter',
-  BookChapterPhrase: 'BookChapterPhrase',
-  BookChapterPhraseExample: 'BookChapterPhraseExample',
+  Sentence: 'Sentence',
   VideoPrivate: 'VideoPrivate',
   EngRusDictionary: 'EngRusDictionary'
 } as const
@@ -69,12 +68,12 @@ export type ModelName = (typeof ModelName)[keyof typeof ModelName]
  * Enums
  */
 
-export const TransactionIsolationLevel = {
+export const TransactionIsolationLevel = runtime.makeStrictEnum({
   ReadUncommitted: 'ReadUncommitted',
   ReadCommitted: 'ReadCommitted',
   RepeatableRead: 'RepeatableRead',
   Serializable: 'Serializable'
-} as const
+} as const)
 
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
@@ -158,31 +157,15 @@ export const BookChapterScalarFieldEnum = {
 export type BookChapterScalarFieldEnum = (typeof BookChapterScalarFieldEnum)[keyof typeof BookChapterScalarFieldEnum]
 
 
-export const BookChapterPhraseScalarFieldEnum = {
+export const SentenceScalarFieldEnum = {
   id: 'id',
-  sentenceId: 'sentenceId',
-  sentence: 'sentence',
-  phraseWordsIdx: 'phraseWordsIdx',
-  phrase: 'phrase',
-  phraseTranslation: 'phraseTranslation',
-  phraseTranscription: 'phraseTranscription',
-  phraseAnalysis: 'phraseAnalysis',
   book_chapter_id: 'book_chapter_id',
-  created_at: 'created_at'
+  start_offset: 'start_offset',
+  length: 'length',
+  order_index: 'order_index'
 } as const
 
-export type BookChapterPhraseScalarFieldEnum = (typeof BookChapterPhraseScalarFieldEnum)[keyof typeof BookChapterPhraseScalarFieldEnum]
-
-
-export const BookChapterPhraseExampleScalarFieldEnum = {
-  id: 'id',
-  book_chapter_phrase_id: 'book_chapter_phrase_id',
-  sentence: 'sentence',
-  translation: 'translation',
-  created_at: 'created_at'
-} as const
-
-export type BookChapterPhraseExampleScalarFieldEnum = (typeof BookChapterPhraseExampleScalarFieldEnum)[keyof typeof BookChapterPhraseExampleScalarFieldEnum]
+export type SentenceScalarFieldEnum = (typeof SentenceScalarFieldEnum)[keyof typeof SentenceScalarFieldEnum]
 
 
 export const VideoPrivateScalarFieldEnum = {
@@ -194,8 +177,7 @@ export const VideoPrivateScalarFieldEnum = {
   is_file_uploaded: 'is_file_uploaded',
   file_size_mb: 'file_size_mb',
   name: 'name',
-  text: 'text',
-  text_resolved: 'text_resolved',
+  content: 'content',
   created_at: 'created_at',
   updated_at: 'updated_at'
 } as const

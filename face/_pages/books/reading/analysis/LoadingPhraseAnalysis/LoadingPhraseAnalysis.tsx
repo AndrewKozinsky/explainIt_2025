@@ -1,8 +1,8 @@
-import React from 'react'
-import { useGetText } from './fn/getText'
-import './LoadingPhraseAnalysis.scss'
+// import React from 'react'
+// import { useGetText } from './fn/getText'
+// import './LoadingPhraseAnalysis.scss'
 
-function LoadingPhraseAnalysis() {
+/*function LoadingPhraseAnalysis() {
 	const phraseText = useGetText()
 
 	return (
@@ -12,6 +12,6 @@ function LoadingPhraseAnalysis() {
 			</p>
 		</div>
 	)
-}
+}*/
 
-export default LoadingPhraseAnalysis
+// export default LoadingPhraseAnalysis

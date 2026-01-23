@@ -1,17 +1,17 @@
-import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { VideoPrivateQueryRepository } from 'repo/videoPrivate.queryRepository'
-import { VideoPrivateRepository } from 'repo/videoPrivate.repository'
-import { textToResolved } from 'features/videoPrivate/resolvedText/textToResolved'
-import { VideoPrivateFileUrlBase } from 'features/videoPrivate/VideoPrivateFileUrl.base'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
-import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
-import { YandexCloudS3Service } from 'infrastructure/yandexCloudS3/yandexCloudS3.service'
-import { UpdateVideoPrivateOutModel } from 'models/videoPrivate/updateVideoPrivate.out.model'
-import { VideoPrivateOutModel } from 'models/videoPrivate/videoPrivate.out.model'
+// import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+// import { VideoPrivateQueryRepository } from 'repo/videoPrivate.queryRepository'
+// import { VideoPrivateRepository } from 'repo/videoPrivate.repository'
+// import { textToResolved } from 'features/videoPrivate/resolvedText/textToResolved'
+// import { VideoPrivateFileUrlBase } from 'features/videoPrivate/VideoPrivateFileUrl.base'
+// import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+// import { ErrorCode } from 'infrastructure/exceptions/errorCode'
+// import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+// import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+// import { YandexCloudS3Service } from 'infrastructure/yandexCloudS3/yandexCloudS3.service'
+// import { UpdateVideoPrivateOutModel } from 'models/videoPrivate/updateVideoPrivate.out.model'
+// import { VideoPrivateOutModel } from 'models/videoPrivate/videoPrivate.out.model'
 
-export type UpdatePrivateVideoInput = {
+/*export type UpdatePrivateVideoInput = {
 	id: number
 	name?: null | string
 	text?: null | string
@@ -20,16 +20,16 @@ export type UpdatePrivateVideoInput = {
 	fileMimeType?: null | string
 	isFileUploaded?: boolean
 	fileSizeMb?: number
-}
+}*/
 
-export class UpdatePrivateVideoCommand implements ICommand {
+/*export class UpdatePrivateVideoCommand implements ICommand {
 	constructor(
 		public userId: number,
 		public updateVideoInput: UpdatePrivateVideoInput,
 	) {}
-}
+}*/
 
-@CommandHandler(UpdatePrivateVideoCommand)
+/*@CommandHandler(UpdatePrivateVideoCommand)
 export class UpdatePrivateVideoHandler
 	extends VideoPrivateFileUrlBase
 	implements ICommandHandler<UpdatePrivateVideoCommand>
@@ -144,4 +144,4 @@ export class UpdatePrivateVideoHandler
 			uploadUrl: null,
 		}
 	}
-}
+}*/

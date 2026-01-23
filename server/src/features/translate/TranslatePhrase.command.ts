@@ -1,23 +1,23 @@
-import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { EngRusDictionaryRepository } from 'repo/engRusDictionary.repository'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
-import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { YandexDictionaryService } from 'infrastructure/yandexDictionary/yandexDictionary.service'
-import { YandexTranslateService } from 'infrastructure/yandexTranslate/yandexTranslate.service'
-import { EngRusDictionaryItemOutModel } from 'models/dictionary/dictionary.out.model'
+// import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+// import { EngRusDictionaryRepository } from 'repo/engRusDictionary.repository'
+// import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+// import { ErrorCode } from 'infrastructure/exceptions/errorCode'
+// import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+// import { YandexDictionaryService } from 'infrastructure/yandexDictionary/yandexDictionary.service'
+// import { YandexTranslateService } from 'infrastructure/yandexTranslate/yandexTranslate.service'
+// import { EngRusDictionaryItemOutModel } from 'models/dictionary/dictionary.out.model'
 
-export type TranslateTextInput = {
+/*export type TranslateTextInput = {
 	text: string
 	targetLanguageCode?: null | string
 	sourceLanguageCode?: null | string
-}
+}*/
 
-export class TranslatePhraseCommand implements ICommand {
+/*export class TranslatePhraseCommand implements ICommand {
 	constructor(public input: TranslateTextInput) {}
-}
+}*/
 
-@CommandHandler(TranslatePhraseCommand)
+/*@CommandHandler(TranslatePhraseCommand)
 export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCommand> {
 	constructor(
 		private yandexTranslateService: YandexTranslateService,
@@ -99,71 +99,4 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 
 		return JSON.stringify(lexemes.def)
 	}
-}
-
-const dd = {
-	head: {},
-	def: [
-		{
-			text: 'savings',
-			pos: 'существительное',
-			ts: 'ˈseɪvɪŋz',
-			tr: [
-				{ text: 'сбережения', pos: 'существительное', gen: 'ср', fr: 1, mean: [{ text: 'saving' }] },
-				{ text: 'экономия средств', pos: 'существительное', fr: 10, mean: [{ text: 'cost savings' }] },
-				{ text: 'сбережение населения', pos: 'существительное', fr: 5 },
-				{ text: 'сберкасса', pos: 'существительное', gen: 'ж', fr: 5, mean: [{ text: 'savings bank' }] },
-			],
-		},
-		{
-			text: 'savings',
-			pos: 'прилагательное',
-			ts: 'ˈseɪvɪŋz',
-			tr: [{ text: 'сберегательный', pos: 'прилагательное', fr: 10, mean: [{ text: 'saving' }] }],
-		},
-	],
-	nmt_code: 200,
-	code: 200,
-}
-
-const dd2 = {
-	head: {},
-	def: [
-		{
-			text: 'and',
-			pos: 'союз',
-			ts: 'ænd',
-			tr: [
-				{
-					text: 'и',
-					pos: 'союз',
-					fr: 10,
-					syn: [{ text: 'а', pos: 'союз', fr: 5 }],
-					mean: [{ text: 'or' }, { text: 'as' }],
-				},
-				{ text: 'а также', pos: 'союз', fr: 1, mean: [{ text: 'as well as' }] },
-				{
-					text: 'причем',
-					pos: 'союз',
-					fr: 1,
-					syn: [{ text: 'но', pos: 'союз', fr: 1 }],
-					mean: [{ text: 'while' }, { text: 'but' }],
-				},
-			],
-		},
-		{
-			text: 'and',
-			pos: 'наречие',
-			ts: 'ænd',
-			tr: [{ text: 'так и', pos: 'наречие', fr: 1, mean: [{ text: 'as well as' }] }],
-		},
-		{
-			text: 'and',
-			pos: 'предлог',
-			ts: 'ænd',
-			tr: [{ text: 'с', pos: 'предлог', fr: 1, mean: [{ text: 'with' }] }],
-		},
-	],
-	nmt_code: 200,
-	code: 200,
-}
+}*/

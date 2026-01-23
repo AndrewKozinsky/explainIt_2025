@@ -1,7 +1,7 @@
-import React, { useMemo, useRef } from 'react'
-import { useWatchingStore } from '../../watchingStore'
+// import React, { useMemo, useRef } from 'react'
+// import { useWatchingStore } from '../../watchingStore'
 
-function VideoProgress() {
+/*function VideoProgress() {
 	const progressRef = useRef<HTMLDivElement>(null)
 	const dragPointerIdRef = useRef<null | number>(null)
 
@@ -90,6 +90,6 @@ function VideoProgress() {
 			<div className='video-root__progress-bar' style={{ width: `${progressPercent * 100}%` }} />
 		</div>
 	)
-}
+}*/
 
-export default VideoProgress
+// export default VideoProgress

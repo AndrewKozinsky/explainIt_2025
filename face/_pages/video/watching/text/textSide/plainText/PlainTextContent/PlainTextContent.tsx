@@ -1,9 +1,9 @@
-import React from 'react'
-import { useWatchingStore } from '_pages/video/watching/watchingStore'
-import SentenceBlock from '../SentenceBlock/SentenceBlock'
-import './PlainTextContent.scss'
+// import React from 'react'
+// import { useWatchingStore } from '_pages/video/watching/watchingStore'
+// import SentenceBlock from '../SentenceBlock/SentenceBlock'
+// import './PlainTextContent.scss'
 
-function PlainTextContent() {
+/*function PlainTextContent() {
 	const populatedPlainText = useWatchingStore((s) => s.populatedPlainText)
 
 	return (
@@ -13,6 +13,6 @@ function PlainTextContent() {
 			})}
 		</div>
 	)
-}
+}*/
 
-export default PlainTextContent
+// export default PlainTextContent

@@ -1,9 +1,9 @@
-import NoteText from '_pages/books/books/common/NoteText/NoteText'
-import AddChapterButton from '../AddChapterButton/AddChapterButton'
-import { useBooksStore } from '_pages/books/books/booksStore'
-import PublicBookChaptersList from '../PublicBookChaptersList/PublicBookChaptersList'
 import Paragraph from 'ui/Paragraph/Paragraph'
+import { useBooksStore } from '_pages/books/books/booksStore'
+import NoteText from '_pages/books/books/common/NoteText/NoteText'
 import { SectionWithHeader } from '../../common/SectionWithHeader/SectionWithHeader'
+import AddChapterButton from '../AddChapterButton/AddChapterButton'
+// import PublicBookChaptersList from '../PublicBookChaptersList/PublicBookChaptersList'
 import PrivateBookChaptersList from '../PrivateBookChaptersList/PrivateBookChaptersList'
 
 function ChaptersSection() {
@@ -30,7 +30,7 @@ function Content() {
 	}
 
 	if (publicBook) {
-		return <PublicBookChaptersList />
+		// return <PublicBookChaptersList />
 	}
 
 	return (

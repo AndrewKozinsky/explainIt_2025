@@ -1,17 +1,17 @@
-import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { VideoPrivateQueryRepository } from 'repo/videoPrivate.queryRepository'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
-import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+// import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+// import { VideoPrivateQueryRepository } from 'repo/videoPrivate.queryRepository'
+// import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+// import { ErrorCode } from 'infrastructure/exceptions/errorCode'
+// import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 
-export class GetVideoPrivateCommand implements ICommand {
+/*export class GetVideoPrivateCommand implements ICommand {
 	constructor(
 		public userId: number,
 		public videoId: number,
 	) {}
-}
+}*/
 
-@CommandHandler(GetVideoPrivateCommand)
+/*@CommandHandler(GetVideoPrivateCommand)
 export class GetVideoPrivateHandler implements ICommandHandler<GetVideoPrivateCommand> {
 	constructor(private videoQueryRepository: VideoPrivateQueryRepository) {}
 
@@ -29,4 +29,4 @@ export class GetVideoPrivateHandler implements ICommandHandler<GetVideoPrivateCo
 
 		return video
 	}
-}
+}*/

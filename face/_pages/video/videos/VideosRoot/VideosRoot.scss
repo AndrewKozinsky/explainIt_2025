@@ -1,5 +1,5 @@
-@use '@/styles/variables' as vars;
-@use '@/styles/mixins' as mix;
+//@use '@/styles/variables' as vars;
+//@use '@/styles/mixins' as mix;
 
 .videos-page-content {
 	flex-grow: 1;
@@ -8,7 +8,7 @@
 	gap: 2rem;
 }
 
-.videos-page-content__blocks {
+/*.videos-page-content__blocks {
 	position: relative;
 	display: block;
 
@@ -17,9 +17,9 @@
 		display: flex;
 		gap: 3rem;
 	}
-}
+}*/
 
-.videos-page-content__item {
+/*.videos-page-content__item {
 	flex-grow: 1;
 	display: none;
 
@@ -30,22 +30,22 @@
 		display: block;
 		width: 33%;
 	}
-}
+}*/
 
-.videos-page-content__item--always-visible {
+/*.videos-page-content__item--always-visible {
 	display: block;
-}
+}*/
 
-.videos-page-content__item--videos {
+/*.videos-page-content__item--videos {
 	@include mix.page-width(vars.$videos-desktop-width) {
 		max-width: 280px;
 	}
-}
+}*/
 
-.videos-page-content__item--video {
+/*.videos-page-content__item--video {
 	@include mix.page-width(vars.$videos-desktop-width) {
 		max-width: 600px;
 	}
-}
+}*/
 
 

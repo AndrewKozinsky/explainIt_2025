@@ -1,7 +1,7 @@
-import Link from 'next/link'
-import { pageUrls } from 'сonsts/pageUrls'
+// import Link from 'next/link'
+// import { pageUrls } from 'сonsts/pageUrls'
 
-function LogInToSeeOurBooks() {
+/*function LogInToSeeOurBooks() {
 	return (
 		<p>
 			<Link href={pageUrls.auth.login.path} className='link'>
@@ -10,6 +10,6 @@ function LogInToSeeOurBooks() {
 			чтобы посмотреть список своих видео и загрузить новые.
 		</p>
 	)
-}
+}*/
 
-export default LogInToSeeOurBooks
+// export default LogInToSeeOurBooks

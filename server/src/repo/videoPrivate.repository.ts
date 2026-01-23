@@ -1,11 +1,11 @@
-import { Injectable } from '@nestjs/common'
-import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
-import { VideoPrivate } from 'prisma/generated/client'
-import { PrismaService } from '../db/prisma.service'
-import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
-import { VideoPrivateServiceModel } from '../models/videoPrivate/videoPrivate.service.model'
+// import { Injectable } from '@nestjs/common'
+// import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+// import { VideoPrivate } from 'prisma/generated/client'
+// import { PrismaService } from '../db/prisma.service'
+// import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
+// import { VideoPrivateServiceModel } from '../models/videoPrivate/videoPrivate.service.model'
 
-@Injectable()
+/*@Injectable()
 export class VideoPrivateRepository {
 	constructor(private prisma: PrismaService) {}
 
@@ -96,4 +96,4 @@ export class VideoPrivateRepository {
 			fileSizeMb: dbVideo.file_size_mb,
 		}
 	}
-}
+}*/

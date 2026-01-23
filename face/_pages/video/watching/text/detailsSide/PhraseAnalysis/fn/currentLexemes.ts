@@ -1,6 +1,6 @@
-import { useWatchingStore } from '_pages/video/watching/watchingStore'
+// import { useWatchingStore } from '_pages/video/watching/watchingStore'
 
-export function useGetCurrentLexemes() {
+/*export function useGetCurrentLexemes() {
 	const lexemTabId = useWatchingStore((s) => s.lexemTabId)
 	const analysis = useWatchingStore((s) => s.analysis)
 
@@ -17,4 +17,4 @@ export function useGetCurrentLexemes() {
 	}
 
 	return lexem
-}
+}*/

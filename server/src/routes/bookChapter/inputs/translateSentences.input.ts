@@ -1,8 +1,8 @@
-import { Field, InputType, Int } from '@nestjs/graphql'
-import { IsArray, IsString } from 'class-validator'
-import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
+// import { Field, InputType, Int } from '@nestjs/graphql'
+// import { IsArray, IsString } from 'class-validator'
+// import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
 
-@InputType()
+/*@InputType()
 export class TranslateSentencesInput {
 	@Field(() => String, { description: 'Book author', nullable: true })
 	@DtoFieldDecorators('bookAuthor', {
@@ -24,4 +24,4 @@ export class TranslateSentencesInput {
 	@IsArray()
 	@IsString({ each: true })
 	sentences: string[]
-}
+}*/

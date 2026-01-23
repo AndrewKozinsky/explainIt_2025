@@ -1,12 +1,12 @@
-import React from 'react'
-import cn from 'classnames'
-import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
-import { useGetParsedAnalysis } from '_pages/books/reading/analysis/TranslatedPhraseAnalysis/fn/parceAnalysis'
-import { useGetSelectedPhrase } from '_pages/books/reading/lib/getSelectedPhraseType'
-import { useIsLongTopText } from './fn/isLargeTopText'
-import './TranslatedPhraseAnalysis.scss'
+// import React from 'react'
+// import cn from 'classnames'
+// import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
+// import { useGetParsedAnalysis } from '_pages/books/reading/analysis/TranslatedPhraseAnalysis/fn/parceAnalysis'
+// import { useGetSelectedPhrase } from '_pages/books/reading/lib/getSelectedPhraseType'
+// import { useIsLongTopText } from './fn/isLargeTopText'
+// import './TranslatedPhraseAnalysis.scss'
 
-function TranslatedPhraseAnalysis() {
+/*function TranslatedPhraseAnalysis() {
 	const selectedPhrase = useGetSelectedPhrase<ChapterTextStructurePopulated.SuccessPhrase>()
 	const isLongTopText = useIsLongTopText(selectedPhrase)
 
@@ -56,16 +56,16 @@ function TranslatedPhraseAnalysis() {
 			</div>
 		</div>
 	)
-}
+}*/
 
-export default TranslatedPhraseAnalysis
+// export default TranslatedPhraseAnalysis
 
-type ContentAndHeaderProps = {
+/*type ContentAndHeaderProps = {
 	header: string
 	children: React.ReactNode
-}
+}*/
 
-function ContentAndHeader(props: ContentAndHeaderProps) {
+/*function ContentAndHeader(props: ContentAndHeaderProps) {
 	const { header, children } = props
 
 	return (
@@ -74,4 +74,4 @@ function ContentAndHeader(props: ContentAndHeaderProps) {
 			{children}
 		</div>
 	)
-}
+}*/
