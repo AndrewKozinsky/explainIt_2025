@@ -1,11 +1,11 @@
-// import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-// import { VideoPrivateQueryRepository } from 'repo/videoPrivate.queryRepository'
+import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+import { VideoPrivateQueryRepository } from 'repo/videoPrivate.queryRepository'
 
-/*export class GetUserVideosPrivateCommand implements ICommand {
+export class GetUserVideosPrivateCommand implements ICommand {
 	constructor(public userId: number) {}
-}*/
+}
 
-/*@CommandHandler(GetUserVideosPrivateCommand)
+@CommandHandler(GetUserVideosPrivateCommand)
 export class GetUserVideosPrivateHandler implements ICommandHandler<GetUserVideosPrivateCommand> {
 	constructor(private videoQueryRepository: VideoPrivateQueryRepository) {}
 
@@ -13,4 +13,4 @@ export class GetUserVideosPrivateHandler implements ICommandHandler<GetUserVideo
 		const { userId } = command
 		return await this.videoQueryRepository.getUserVideos(userId)
 	}
-}*/
+}

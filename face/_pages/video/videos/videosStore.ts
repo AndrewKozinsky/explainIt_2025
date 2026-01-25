@@ -4,12 +4,12 @@ import { VideoPrivateOutModel } from '@/graphql'
 export const videosStoreValues: VideosStoreValues = {
 	pageUrlType: 'videos',
 	mobileCurrentContentType: 'videos',
-	/*privateVideos: {
+	privateVideos: {
 		loading: true,
 		errorMessage: null,
 		data: null as any as VideoPrivateOutModel[],
-	},*/
-	// privateVideo: null,
+	},
+	privateVideo: null,
 }
 
 export const useVideosStore = create<VideosStoreFull>()((set) => {
@@ -22,7 +22,7 @@ export const useVideosStore = create<VideosStoreFull>()((set) => {
 				}
 			})
 		},
-		/*updatePrivateVideos: (books: VideosStore.PrivateVideosData) => {
+		updatePrivateVideos: (books: VideosStore.PrivateVideosData) => {
 			set((state) => {
 				return {
 					privateVideos: {
@@ -30,7 +30,7 @@ export const useVideosStore = create<VideosStoreFull>()((set) => {
 					},
 				}
 			})
-		},*/
+		},
 	}
 })
 
@@ -39,8 +39,8 @@ export type VideosStoreFull = VideosStoreValues & VideosStoreMethods
 export type VideosStoreValues = {
 	pageUrlType: VideosStore.PageUrlType
 	mobileCurrentContentType: VideosStore.MobileCurrentContentType
-	// privateVideos: VideosStore.PrivateVideosData
-	// privateVideo: null | VideoPrivateOutModel
+	privateVideos: VideosStore.PrivateVideosData
+	privateVideo: null | VideoPrivateOutModel
 }
 
 export namespace VideosStore {
@@ -49,14 +49,14 @@ export namespace VideosStore {
 	// В зависимости от нажатой кнопки показывается одна из трёх колонок
 	export type MobileCurrentContentType = 'videos' | 'video'
 
-	/*export type PrivateVideosData = {
+	export type PrivateVideosData = {
 		loading: boolean
 		errorMessage: null | string
 		data: VideoPrivateOutModel[]
-	}*/
+	}
 }
 
 type VideosStoreMethods = {
 	updateMobileCurrentContentType: (contentType: VideosStore.MobileCurrentContentType) => void
-	// updatePrivateVideos: (videos: VideosStore.PrivateVideosData) => void
+	updatePrivateVideos: (videos: VideosStore.PrivateVideosData) => void
 }

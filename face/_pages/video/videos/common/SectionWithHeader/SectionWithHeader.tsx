@@ -1,11 +1,11 @@
-// import './SectionWithHeader.scss'
+import './SectionWithHeader.scss'
 
-/*type SectionWithHeaderProps = {
+type SectionWithHeaderProps = {
 	title: string
 	children: React.ReactNode
-}*/
+}
 
-/*export function SectionWithHeader(props: SectionWithHeaderProps) {
+export function SectionWithHeader(props: SectionWithHeaderProps) {
 	const { title, children } = props
 
 	return (
@@ -14,4 +14,4 @@
 			{children}
 		</div>
 	)
-}*/
+}

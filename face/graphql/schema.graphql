@@ -96,6 +96,24 @@ input CreateBookInput {
   note: String
 }
 
+input CreatePrivateVideoInput {
+  """Text"""
+  content: String
+
+  """File size in MB"""
+  fileSizeMb: Int
+
+  """Name"""
+  name: String
+}
+
+type CreateVideoPrivateOutModel {
+  content: String
+  id: Int!
+  name: String
+  userId: Int!
+}
+
 input DeleteBookChapterInput {
   """BookChapter id"""
   id: Int!
@@ -103,6 +121,11 @@ input DeleteBookChapterInput {
 
 input DeleteBookInput {
   """Book id"""
+  id: Int!
+}
+
+input DeletePrivateVideoInput {
+  """Video id"""
   id: Int!
 }
 
@@ -209,6 +232,15 @@ type Mutation {
   payment_yookassa_top_up_balance(input: TopUpBalanceWithYooKassaInput!): TopUpBalanceWithYooKassaOutModel!
   translate_translate_phrase(input: TranslatePhraseInput!): EngRusDictionaryItemOutModel!
   translate_translate_sentence(input: TranslateSentenceInput!): TranslateSentenceOutModel!
+
+  """Create a video"""
+  video_private_create(input: CreatePrivateVideoInput!): CreateVideoPrivateOutModel!
+
+  """Delete a video"""
+  video_private_delete(input: DeletePrivateVideoInput!): Boolean!
+
+  """Update a video"""
+  video_private_update(input: UpdatePrivateVideoInput!): UpdateVideoPrivateOutModel!
 }
 
 type Query {
@@ -232,6 +264,9 @@ type Query {
 
   """Get user books"""
   book_user_books: [BookOutModel!]!
+
+  """Get user videos"""
+  video_private_user_videos: [VideoPrivateOutModel!]!
 }
 
 input RegisterUserInput {
@@ -313,9 +348,53 @@ input UpdateBookInput {
   note: String
 }
 
+input UpdatePrivateVideoInput {
+  """Content"""
+  content: String
+
+  """File mime type"""
+  fileMimeType: String
+
+  """File name"""
+  fileName: String
+
+  """File size"""
+  fileSizeMb: Float
+
+  """Video id"""
+  id: Int!
+
+  """Is file was upload to S3"""
+  isFileUploaded: Boolean
+
+  """Name"""
+  name: String
+}
+
+type UpdateVideoPrivateOutModel {
+  content: String
+  fileSizeMb: Int
+  id: Int!
+  name: String
+  uploadUrl: String
+  userId: Int!
+}
+
 type UserOutModel {
   balance: Int!
   email: String!
   id: Int!
   isUserConfirmed: Boolean!
+}
+
+type VideoPrivateOutModel {
+  content: String
+  fileName: String
+  fileS3Key: String
+  fileSizeMb: Int!
+  fileUrl: String
+  id: Int!
+  isFileUploaded: Boolean!
+  name: String
+  userId: Int!
 }

@@ -39,7 +39,4 @@ export class BookChapterOutModel {
 
 	@Field(() => BookLiteOutModel)
 	book: BookLiteOutModel
-
-	// @Field(() => [BookChapterPhraseOutModel])
-	// phrases: BookChapterPhraseOutModel[]
 }

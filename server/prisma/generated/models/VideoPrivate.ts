@@ -349,7 +349,7 @@ export type VideoPrivateCreateInput = {
   file_s3_key?: string | null
   file_url?: string | null
   is_file_uploaded?: boolean
-  file_size_mb: number
+  file_size_mb?: number
   name?: string | null
   content?: string | null
   created_at?: Date | string
@@ -364,7 +364,7 @@ export type VideoPrivateUncheckedCreateInput = {
   file_s3_key?: string | null
   file_url?: string | null
   is_file_uploaded?: boolean
-  file_size_mb: number
+  file_size_mb?: number
   name?: string | null
   content?: string | null
   created_at?: Date | string
@@ -405,7 +405,7 @@ export type VideoPrivateCreateManyInput = {
   file_s3_key?: string | null
   file_url?: string | null
   is_file_uploaded?: boolean
-  file_size_mb: number
+  file_size_mb?: number
   name?: string | null
   content?: string | null
   created_at?: Date | string
@@ -549,7 +549,7 @@ export type VideoPrivateCreateWithoutUserInput = {
   file_s3_key?: string | null
   file_url?: string | null
   is_file_uploaded?: boolean
-  file_size_mb: number
+  file_size_mb?: number
   name?: string | null
   content?: string | null
   created_at?: Date | string
@@ -562,7 +562,7 @@ export type VideoPrivateUncheckedCreateWithoutUserInput = {
   file_s3_key?: string | null
   file_url?: string | null
   is_file_uploaded?: boolean
-  file_size_mb: number
+  file_size_mb?: number
   name?: string | null
   content?: string | null
   created_at?: Date | string
@@ -618,7 +618,7 @@ export type VideoPrivateCreateManyUserInput = {
   file_s3_key?: string | null
   file_url?: string | null
   is_file_uploaded?: boolean
-  file_size_mb: number
+  file_size_mb?: number
   name?: string | null
   content?: string | null
   created_at?: Date | string

@@ -7,7 +7,7 @@ import { GraphQLModule } from '@nestjs/graphql'
 import { Request, Response } from 'express'
 import { BookPublicModule } from 'routes/bookPublic/bookPublic.module'
 import { TranslateRouteModule } from 'routes/translate/translate.module'
-// import { VideoPrivateModule } from 'routes/videoPrivate/videoPrivate.module'
+import { VideoPrivateModule } from 'routes/videoPrivate/videoPrivate.module'
 import { StartServerTasksRunner } from 'infrastructure/StartServerTasksRunner'
 import { YandexCloudS3Module } from 'infrastructure/yandexCloudS3/yandexCloudS3.module'
 import { YandexDictionaryModule } from 'infrastructure/yandexDictionary/yandexDictionary.module'
@@ -72,7 +72,7 @@ import { WebhookModule } from './routes/webhook/webhook.module'
 		BookModule,
 		BookPublicModule,
 		BookChapterModule,
-		// VideoPrivateModule,
+		VideoPrivateModule,
 		TranslateRouteModule,
 	],
 	providers: [StartServerTasksRunner],

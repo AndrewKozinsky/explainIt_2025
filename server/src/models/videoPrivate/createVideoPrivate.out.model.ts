@@ -7,13 +7,10 @@ export class CreateVideoPrivateOutModel {
 	id: number
 
 	@Field(() => String, { nullable: true })
-	name: string | null
+	name: null | string
 
 	@Field(() => String, { nullable: true })
-	text: string | null
-
-	@Field(() => String, { nullable: true })
-	resolvedText: string | null
+	content: null | string
 
 	@Field(() => Int)
 	userId: number

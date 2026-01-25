@@ -95,6 +95,26 @@ export interface DeleteBookChapterInput {
     id: number;
 }
 
+export interface CreatePrivateVideoInput {
+    name?: Nullable<string>;
+    content?: Nullable<string>;
+    fileSizeMb?: Nullable<number>;
+}
+
+export interface UpdatePrivateVideoInput {
+    id: number;
+    name?: Nullable<string>;
+    content?: Nullable<string>;
+    fileName?: Nullable<string>;
+    fileMimeType?: Nullable<string>;
+    isFileUploaded?: Nullable<boolean>;
+    fileSizeMb?: Nullable<number>;
+}
+
+export interface DeletePrivateVideoInput {
+    id: number;
+}
+
 export interface TranslatePhraseInput {
     text: string;
     sourceLanguageCode?: Nullable<string>;
@@ -162,6 +182,34 @@ export interface TranslateSentenceOutModel {
     translatedText: string;
 }
 
+export interface CreateVideoPrivateOutModel {
+    id: number;
+    name?: Nullable<string>;
+    content?: Nullable<string>;
+    userId: number;
+}
+
+export interface UpdateVideoPrivateOutModel {
+    id: number;
+    name?: Nullable<string>;
+    content?: Nullable<string>;
+    userId: number;
+    uploadUrl?: Nullable<string>;
+    fileSizeMb?: Nullable<number>;
+}
+
+export interface VideoPrivateOutModel {
+    id: number;
+    userId: number;
+    name?: Nullable<string>;
+    content?: Nullable<string>;
+    fileName?: Nullable<string>;
+    fileS3Key?: Nullable<string>;
+    fileUrl?: Nullable<string>;
+    isFileUploaded: boolean;
+    fileSizeMb: number;
+}
+
 export interface UserOutModel {
     id: number;
     email: string;
@@ -182,6 +230,7 @@ export interface IQuery {
     book_public_get_books(): BookPublicOutModel[] | Promise<BookPublicOutModel[]>;
     book_public_get_book(input: GetBookPublicInput): BookPublicOutModel | Promise<BookPublicOutModel>;
     book_chapter_get(input: GetBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
+    video_private_user_videos(): VideoPrivateOutModel[] | Promise<VideoPrivateOutModel[]>;
 }
 
 export interface CheckTranslationOutSuccessModel {
@@ -215,6 +264,9 @@ export interface IMutation {
     book_chapter_create(input: CreateBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
     book_chapter_update(input: UpdateBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
     book_chapter_delete(input: DeleteBookChapterInput): boolean | Promise<boolean>;
+    video_private_create(input: CreatePrivateVideoInput): CreateVideoPrivateOutModel | Promise<CreateVideoPrivateOutModel>;
+    video_private_update(input: UpdatePrivateVideoInput): UpdateVideoPrivateOutModel | Promise<UpdateVideoPrivateOutModel>;
+    video_private_delete(input: DeletePrivateVideoInput): boolean | Promise<boolean>;
     translate_translate_phrase(input: TranslatePhraseInput): EngRusDictionaryItemOutModel | Promise<EngRusDictionaryItemOutModel>;
     translate_translate_sentence(input: TranslateSentenceInput): TranslateSentenceOutModel | Promise<TranslateSentenceOutModel>;
 }

@@ -1,22 +1,22 @@
-// import AddVideoButton from '../AddBookButton/AddVideoButton'
-// import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
-// import LoadingMessage from 'ui/LoadingMessage/LoadingMessage'
-// import Paragraph from 'ui/Paragraph/Paragraph'
-// import { useVideosStore } from '../../videosStore'
-// import VideoLink from '_pages/video/videos/videosListSection/BookLink/VideoLink'
+import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
+import LoadingMessage from 'ui/LoadingMessage/LoadingMessage'
+import Paragraph from 'ui/Paragraph/Paragraph'
+import VideoLink from '_pages/video/videos/videosListSection/VideoLink/VideoLink'
+import { useVideosStore } from '../../videosStore'
+import AddVideoButton from '../AddBookButton/AddVideoButton'
 
-/*function PrivateVideosList() {
+function PrivateVideosList() {
 	return (
 		<>
 			<PrivateVideosListContent />
 			<AddVideoButton />
 		</>
 	)
-}*/
+}
 
-// export default PrivateVideosList
+export default PrivateVideosList
 
-/*function PrivateVideosListContent() {
+function PrivateVideosListContent() {
 	const privateVideos = useVideosStore((state) => state.privateVideos)
 
 	if (privateVideos.loading) {
@@ -36,4 +36,4 @@
 			})}
 		</>
 	)
-}*/
+}

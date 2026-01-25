@@ -1,35 +1,34 @@
-// import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-// import { VideoPrivateQueryRepository } from 'repo/videoPrivate.queryRepository'
-// import { VideoPrivateRepository } from 'repo/videoPrivate.repository'
+import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+import { VideoPrivateQueryRepository } from 'repo/videoPrivate.queryRepository'
+import { VideoPrivateRepository } from 'repo/videoPrivate.repository'
 // import { textToResolved } from 'features/videoPrivate/resolvedText/textToResolved'
-// import { VideoPrivateFileUrlBase } from 'features/videoPrivate/VideoPrivateFileUrl.base'
-// import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
-// import { ErrorCode } from 'infrastructure/exceptions/errorCode'
-// import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-// import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
-// import { YandexCloudS3Service } from 'infrastructure/yandexCloudS3/yandexCloudS3.service'
-// import { UpdateVideoPrivateOutModel } from 'models/videoPrivate/updateVideoPrivate.out.model'
-// import { VideoPrivateOutModel } from 'models/videoPrivate/videoPrivate.out.model'
+import { VideoPrivateFileUrlBase } from 'features/videoPrivate/VideoPrivateFileUrl.base'
+import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+import { ErrorCode } from 'infrastructure/exceptions/errorCode'
+import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+import { YandexCloudS3Service } from 'infrastructure/yandexCloudS3/yandexCloudS3.service'
+import { UpdateVideoPrivateOutModel } from 'models/videoPrivate/updateVideoPrivate.out.model'
+import { VideoPrivateOutModel } from 'models/videoPrivate/videoPrivate.out.model'
 
-/*export type UpdatePrivateVideoInput = {
+export type UpdatePrivateVideoInput = {
 	id: number
 	name?: null | string
-	text?: null | string
-	textResolved?: null | string
+	content?: null | string
 	fileName?: null | string
 	fileMimeType?: null | string
 	isFileUploaded?: boolean
 	fileSizeMb?: number
-}*/
+}
 
-/*export class UpdatePrivateVideoCommand implements ICommand {
+export class UpdatePrivateVideoCommand implements ICommand {
 	constructor(
 		public userId: number,
 		public updateVideoInput: UpdatePrivateVideoInput,
 	) {}
-}*/
+}
 
-/*@CommandHandler(UpdatePrivateVideoCommand)
+@CommandHandler(UpdatePrivateVideoCommand)
 export class UpdatePrivateVideoHandler
 	extends VideoPrivateFileUrlBase
 	implements ICommandHandler<UpdatePrivateVideoCommand>
@@ -58,15 +57,9 @@ export class UpdatePrivateVideoHandler
 		const { fileName, fileS3Key, fileUrl, isFileUploaded, uploadUrl } =
 			await this.getUploadFileUrlAndFileUrlAndUploadUrl(videoForUpdating, updateVideoInput)
 
-		let textResolved: undefined | string = updateVideoInput.textResolved ?? undefined
-		if (!updateVideoInput.textResolved && updateVideoInput.text) {
-			textResolved = await textToResolved(this.mainConfig, updateVideoInput.text)
-		}
-
 		const updatedVideo = await this.videoRepository.updateVideoById(updateVideoInput.id, {
 			name: updateVideoInput.name,
-			text: updateVideoInput.text,
-			textResolved,
+			content: updateVideoInput.content,
 			fileName,
 			fileS3Key,
 			fileUrl,
@@ -94,7 +87,7 @@ export class UpdatePrivateVideoHandler
 		isFileUploaded: boolean
 		uploadUrl: null | string
 	}> {
-		// If try to delete a file then delete it
+		// If tries to delete the file, so delete it
 		if (updateVideoInput.fileName === null || updateVideoInput.isFileUploaded === false) {
 			if (videoForUpdating.isFileUploaded && videoForUpdating.fileS3Key) {
 				await this.yandexCloudS3Service.deleteFile(videoForUpdating.fileS3Key)
@@ -109,7 +102,7 @@ export class UpdatePrivateVideoHandler
 			}
 		}
 
-		// They report that the file has been downloaded.
+		// If report that the file has been downloaded.
 		if (updateVideoInput.isFileUploaded) {
 			return {
 				fileName: videoForUpdating.fileName,
@@ -144,4 +137,4 @@ export class UpdatePrivateVideoHandler
 			uploadUrl: null,
 		}
 	}
-}*/
+}

@@ -1,7 +1,7 @@
-// import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
-// import { YandexCloudS3Service } from 'infrastructure/yandexCloudS3/yandexCloudS3.service'
+import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+import { YandexCloudS3Service } from 'infrastructure/yandexCloudS3/yandexCloudS3.service'
 
-/*export class VideoPrivateFileUrlBase {
+export class VideoPrivateFileUrlBase {
 	constructor(protected mainConfig: MainConfigService) {}
 
 	protected async prepareFileKeyAndUploadUrl(
@@ -27,4 +27,4 @@
 		const rootFolderName = isDevMode ? 'videoDev' : 'video'
 		return `${rootFolderName}/${crypto.randomUUID()}-${fileName}`
 	}
-}*/
+}

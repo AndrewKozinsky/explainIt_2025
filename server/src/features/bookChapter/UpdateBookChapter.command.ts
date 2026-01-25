@@ -6,8 +6,9 @@ import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+import { BookChapterServiceModel } from 'models/bookChapter/bookChapter.service.model'
 
-type UpdateBookChapterInput = {
+type UpdateChapterInput = {
 	id: number
 	name?: null | string
 	header?: null | string
@@ -18,7 +19,7 @@ type UpdateBookChapterInput = {
 export class UpdateBookChapterCommand implements ICommand {
 	constructor(
 		public userId: number,
-		public updateBookChapterInput: UpdateBookChapterInput,
+		public updateBookChapterInput: UpdateChapterInput,
 	) {}
 }
 
@@ -46,33 +47,30 @@ export class UpdateBookChapterHandler implements ICommandHandler<UpdateBookChapt
 			throw new CustomGraphQLError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
 		}
 
-		// Prepare content: make text flat (remove newlines) before saving and sentence generation
-		const processedContent = updateBookChapterInput.content
-			? this.dryText(updateBookChapterInput.content)
-			: updateBookChapterInput.content
+		// Prepare update payload: include only explicitly provided fields; flatten content text
+		const preparedUpdateChapterInput = this.prepareUpdateChapterInput(bookChapter, updateBookChapterInput)
 
-		const updatePayload: UpdateBookChapterInput = {
-			...updateBookChapterInput,
-			content: processedContent,
+		if (preparedUpdateChapterInput.content === null || preparedUpdateChapterInput.content === '') {
+			await this.sentenceRepository.deleteByBookChapterId(bookChapter.id)
+		}
+
+		if (preparedUpdateChapterInput.content) {
+			await this.generateSentencesAndSaveToDB(preparedUpdateChapterInput.id, preparedUpdateChapterInput.content)
 		}
 
 		const updatedBookChapter = await this.bookChapterRepository.updateBookChapterById(
 			updateBookChapterInput.id,
-			updatePayload,
+			preparedUpdateChapterInput,
 		)
 		if (!updatedBookChapter) {
 			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
 		}
-
-		// Generate sentences
-		// await this.generateSentences(updatedBookChapter.id, processedContent)
 
 		return this.bookChapterQueryRepository.getBookChapterById(updatedBookChapter.id)
 	}
 
 	// Make text flat: remove line breaks and collapse excessive whitespace
 	dryText(text: string) {
-		return text
 		// Replace CRLF/CR/LF with spaces, collapse multiple spaces/tabs, and trim
 		return text
 			.replace(/[\r\n]+/g, ' ')
@@ -80,8 +78,30 @@ export class UpdateBookChapterHandler implements ICommandHandler<UpdateBookChapt
 			.trim()
 	}
 
-	async generateSentences(bookChapterId: number, content: undefined | null | string) {
-		console.log(333)
+	/**
+	 * Build minimal payload for DB update from the provided input.
+	 * - Includes ONLY fields explicitly provided in `updateBookChapterInput` (omits undefined).
+	 * - Preserves `null` values as-is so fields can be cleared.
+	 * - Normalizes `content` via `dryText` when it is a string (may become an empty string).
+	 */
+	private prepareUpdateChapterInput(
+		bookChapter: BookChapterServiceModel,
+		updateBookChapterInput: UpdateChapterInput,
+	): UpdateChapterInput {
+		const updateBookChapterInputCopy = { ...updateBookChapterInput }
+
+		if (updateBookChapterInputCopy.content) {
+			if (this.dryText(updateBookChapterInputCopy.content) === bookChapter.content) {
+				delete updateBookChapterInputCopy.content
+			} else {
+				updateBookChapterInputCopy.content = this.dryText(updateBookChapterInputCopy.content)
+			}
+		}
+
+		return updateBookChapterInputCopy
+	}
+
+	async generateSentencesAndSaveToDB(bookChapterId: number, content: undefined | null | string) {
 		if (!content) return
 
 		try {
@@ -109,15 +129,16 @@ export class UpdateBookChapterHandler implements ICommandHandler<UpdateBookChapt
 					throw new Error('Sentence offset not found')
 				}
 
-				const length = sentence.length
+				const sentenceLength = sentence.length
 
 				await this.sentenceRepository.createSentence({
 					startOffset,
-					length,
+					length: sentenceLength,
 					bookChapterId,
 					orderIndex: i, // zero-based
 				})
-				cursor = startOffset + length
+
+				cursor = startOffset + sentenceLength
 			}
 		} catch (error) {
 			throw new CustomGraphQLError(

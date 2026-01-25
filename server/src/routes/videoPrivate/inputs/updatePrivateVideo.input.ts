@@ -1,8 +1,8 @@
-// import { Field, InputType, Int } from '@nestjs/graphql'
-// import { bdConfig } from 'db/dbConfig/dbConfig'
-// import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
+import { Field, InputType, Int } from '@nestjs/graphql'
+import { bdConfig } from 'db/dbConfig/dbConfig'
+import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
 
-/*@InputType()
+@InputType()
 export class UpdatePrivateVideoInput {
 	@Field(() => Int, { description: 'Video id' })
 	@DtoFieldDecorators('id', bdConfig.VideoPrivate.dbFields.id, { type: 'number', required: true, min: 1 })
@@ -12,13 +12,9 @@ export class UpdatePrivateVideoInput {
 	@DtoFieldDecorators('name', bdConfig.VideoPrivate.dbFields.name)
 	name?: null | string
 
-	@Field(() => String, { description: 'Text', nullable: true })
-	@DtoFieldDecorators('text', bdConfig.VideoPrivate.dbFields.text)
-	text?: null | string
-
-	@Field(() => String, { description: 'Text resolved', nullable: true })
-	@DtoFieldDecorators('textResolved', bdConfig.VideoPrivate.dbFields.text_resolved)
-	textResolved?: null | string
+	@Field(() => String, { description: 'Content', nullable: true })
+	@DtoFieldDecorators('text', bdConfig.VideoPrivate.dbFields.content)
+	content?: null | string
 
 	@Field(() => String, { description: 'File name', nullable: true })
 	@DtoFieldDecorators('fileName', bdConfig.VideoPrivate.dtoProps.fileName)
@@ -36,9 +32,6 @@ export class UpdatePrivateVideoInput {
 	isFileUploaded?: boolean
 
 	@Field(() => Number, { description: 'File size', nullable: true })
-	@DtoFieldDecorators('isFileUploaded', bdConfig.VideoPrivate.dbFields.file_size_mb, {
-		type: 'number',
-		required: false,
-	})
+	@DtoFieldDecorators('fileSizeMb', bdConfig.VideoPrivate.dbFields.file_size_mb)
 	fileSizeMb?: number
-}*/
+}

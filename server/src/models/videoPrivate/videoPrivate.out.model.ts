@@ -1,5 +1,4 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql'
-import { BookChapterLiteOutModel } from '../bookChapter/bookChapter.out.model'
 
 @ObjectType()
 export class VideoPrivateOutModel {
@@ -13,10 +12,7 @@ export class VideoPrivateOutModel {
 	name: string | null
 
 	@Field(() => String, { nullable: true })
-	text: string | null
-
-	@Field(() => String, { nullable: true })
-	resolvedText: string | null
+	content: string | null
 
 	@Field(() => String, { nullable: true })
 	fileName: string | null
@@ -30,6 +26,6 @@ export class VideoPrivateOutModel {
 	@Field(() => Boolean)
 	isFileUploaded: boolean
 
-	@Field(() => Number)
+	@Field(() => Int)
 	fileSizeMb: number
 }

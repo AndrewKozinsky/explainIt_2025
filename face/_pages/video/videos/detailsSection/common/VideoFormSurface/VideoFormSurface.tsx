@@ -1,13 +1,13 @@
-// import React from 'react'
-// import './BookFormSurface.scss'
+import React from 'react'
+import './BookFormSurface.scss'
 
-/*type BookFormSurfaceProps = {
+type BookFormSurfaceProps = {
 	children: React.ReactNode
 	leftBottomButtons: React.ReactNode[]
 	rightBottomButtons: React.ReactNode[]
-}*/
+}
 
-/*function VideoFormSurface(props: BookFormSurfaceProps) {
+function VideoFormSurface(props: BookFormSurfaceProps) {
 	const { children, leftBottomButtons, rightBottomButtons } = props
 
 	return (
@@ -19,6 +19,6 @@
 			</div>
 		</div>
 	)
-}*/
+}
 
-// export default VideoFormSurface
+export default VideoFormSurface

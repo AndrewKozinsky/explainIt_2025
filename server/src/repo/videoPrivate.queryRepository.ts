@@ -1,10 +1,10 @@
-// import { Injectable } from '@nestjs/common'
-// import { VideoPrivateOutModel } from 'models/videoPrivate/videoPrivate.out.model'
-// import { VideoPrivate } from 'prisma/generated/client'
-// import { PrismaService } from '../db/prisma.service'
-// import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
+import { Injectable } from '@nestjs/common'
+import { VideoPrivateOutModel } from 'models/videoPrivate/videoPrivate.out.model'
+import { VideoPrivate } from 'prisma/generated/client'
+import { PrismaService } from '../db/prisma.service'
+import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 
-/*@Injectable()
+@Injectable()
 export class VideoPrivateQueryRepository {
 	constructor(private prisma: PrismaService) {}
 
@@ -39,10 +39,9 @@ export class VideoPrivateQueryRepository {
 			fileS3Key: dbVideo.file_s3_key,
 			fileUrl: dbVideo.file_url,
 			isFileUploaded: dbVideo.is_file_uploaded,
-			text: dbVideo.text,
-			resolvedText: dbVideo.text_resolved,
+			content: dbVideo.content,
 			userId: dbVideo.user_id,
 			fileSizeMb: dbVideo.file_size_mb,
 		}
 	}
-}*/
+}

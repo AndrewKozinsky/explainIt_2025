@@ -6,13 +6,10 @@ export class UpdateVideoPrivateOutModel {
 	id: number
 
 	@Field(() => String, { nullable: true })
-	name: string | null
+	name: null | string
 
 	@Field(() => String, { nullable: true })
-	text: string | null
-
-	@Field(() => String, { nullable: true })
-	resolvedText: string | null
+	content: null | string
 
 	@Field(() => Int)
 	userId: number
@@ -20,6 +17,6 @@ export class UpdateVideoPrivateOutModel {
 	@Field(() => String, { nullable: true })
 	uploadUrl: string | null
 
-	@Field(() => Number, { nullable: true })
-	fileSizeMb: number
+	@Field(() => Int, { nullable: true })
+	fileSizeMb: null | number
 }

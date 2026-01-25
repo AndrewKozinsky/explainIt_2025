@@ -100,7 +100,7 @@ model VideoPrivate {
     file_s3_key      String?
     file_url         String?
     is_file_uploaded Boolean  @default(false)
-    file_size_mb     Int
+    file_size_mb     Int      @default(0)
     name             String?
     content          String?
     created_at       DateTime @default(now())

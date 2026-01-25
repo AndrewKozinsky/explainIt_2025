@@ -1,10 +1,10 @@
-// import { useVideoPrivate_Create, VideoPrivate_GetUserVideosDocument } from '@/graphql'
-// import { useCallback, useContext, useState } from 'react'
-// import { NotificationContext } from '@/ui/Notification/context'
-// import { pageUrls } from 'сonsts/pageUrls'
-// import { redirect } from 'next/navigation'
+import { useCallback, useContext, useState } from 'react'
+import { redirect } from 'next/navigation'
+import { useVideoPrivate_Create, VideoPrivate_GetUserVideosDocument } from '@/graphql'
+import { NotificationContext } from '@/ui/Notification/context'
+import { pageUrls } from 'сonsts/pageUrls'
 
-/*export function useGetOnAddBookClick() {
+export function useGetOnAddBookClick() {
 	const { notify } = useContext(NotificationContext)
 
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
@@ -21,7 +21,7 @@
 
 			try {
 				const { errors, data } = await createVideo({
-					variables: { input: { name: null, text: null } },
+					variables: { input: { name: null, content: null } },
 				})
 
 				if (errors) {
@@ -52,4 +52,4 @@
 		status,
 		onAddBookClick,
 	}
-}*/
+}

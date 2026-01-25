@@ -1,12 +1,12 @@
-// import PrivateVideosListSection from '../PrivateVideosSection/PrivateVideosListSection'
-// import './VideosSection.scss'
+import PrivateVideosListSection from '../PrivateVideosSection/PrivateVideosListSection'
+import './VideosSection.scss'
 
-/*function VideosSection() {
+function VideosSection() {
 	return (
 		<div className='videos-section'>
 			<PrivateVideosListSection />
 		</div>
 	)
-}*/
+}
 
-// export default VideosSection
+export default VideosSection

@@ -1,10 +1,10 @@
-//@use "@/styles/variables" as vars;
+@use "@/styles/variables" as vars;
 
-/*.video-dropzone__wrapper {
+.video-dropzone__wrapper {
 	width: 100%;
-}*/
+}
 
-/*.video-dropzone {
+.video-dropzone {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -16,67 +16,67 @@
 	border: 1px dashed transparent;
 	border-radius: vars.$radius-1;
 	transition: all .2s ease-in-out;
-}*/
+}
 
-/*.video-dropzone--idle {
+.video-dropzone--idle {
 	background-color: vars.$grayColor-2;
 	border-color: vars.$grayColor-4;
-}*/
+}
 
-/*.video-dropzone--file-dragging {
+.video-dropzone--file-dragging {
 	background-color: vars.$linkColor-1;
 	border-color: vars.$linkColor-2;
-}*/
+}
 
-/*.video-dropzone--file-selected {
+.video-dropzone--file-selected {
 	background-color: vars.$grayColor-2;
-}*/
+}
 
-/*.video-dropzone--file-uploading {
+.video-dropzone--file-uploading {
 	font-size: 1.6rem;
 	line-height: 2rem;
 	overflow-wrap: anywhere;
 	background-color: white;
-}*/
+}
 
-/*.video-dropzone--file-uploaded {
+.video-dropzone--file-uploaded {
 	background-color: white;
-}*/
+}
 
-/*.video-dropzone--error {
+.video-dropzone--error {
 	background-color: white;
-}*/
+}
 
-/*.video-dropzone__header {
+.video-dropzone__header {
 	font-size: 2.4rem;
 	line-height: 2.8rem;
-}*/
-/*.video-dropzone__header--idle {
+}
+.video-dropzone__header--idle {
 	color: vars.$grayColor-4;
-}*/
-/*.video-dropzone__header--dragging {
+}
+.video-dropzone__header--dragging {
 	color: rgba(vars.$linkColor-2, .5);
-}*/
+}
 
-/*.video-dropzone__description {
+.video-dropzone__description {
 	font-size: 1.6rem;
 	line-height: 1.8rem;
 	color: vars.$grayColor-4;
-}*/
+}
 
-/*.video-dropzone__file-uploading-top {
+.video-dropzone__file-uploading-top {
 	display: flex;
 	justify-content: space-between;
 	gap: 1rem;
-}*/
-/*.video-dropzone__file-uploading-bar {
+}
+.video-dropzone__file-uploading-bar {
 	width: 100%;
 	height: 10px;
 	background-color: vars.$linkColor-1;
 	overflow: hidden;
 	border-radius: vars.$radius-1;
-}*/
-/*.video-dropzone__file-uploading-progress {
+}
+.video-dropzone__file-uploading-progress {
 	height: 100%;
 	background-color: vars.$linkColor-2;
-}*/
+}

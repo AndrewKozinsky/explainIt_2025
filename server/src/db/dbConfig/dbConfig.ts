@@ -461,7 +461,8 @@ export const bdConfig = {
 				type: 'number',
 				description: 'size of the file in megabytes',
 				example: 100,
-				required: true,
+				required: false,
+				default: 0,
 			},
 			name: {
 				type: 'string',
