@@ -57,8 +57,10 @@ export const ModelName = {
   BookPrivate: 'BookPrivate',
   BookPublic: 'BookPublic',
   BookChapter: 'BookChapter',
-  Sentence: 'Sentence',
   VideoPrivate: 'VideoPrivate',
+  Sentence: 'Sentence',
+  Subtitle: 'Subtitle',
+  SubtitleSentenceInit: 'SubtitleSentenceInit',
   EngRusDictionary: 'EngRusDictionary'
 } as const
 
@@ -157,17 +159,6 @@ export const BookChapterScalarFieldEnum = {
 export type BookChapterScalarFieldEnum = (typeof BookChapterScalarFieldEnum)[keyof typeof BookChapterScalarFieldEnum]
 
 
-export const SentenceScalarFieldEnum = {
-  id: 'id',
-  book_chapter_id: 'book_chapter_id',
-  start_offset: 'start_offset',
-  length: 'length',
-  order_index: 'order_index'
-} as const
-
-export type SentenceScalarFieldEnum = (typeof SentenceScalarFieldEnum)[keyof typeof SentenceScalarFieldEnum]
-
-
 export const VideoPrivateScalarFieldEnum = {
   id: 'id',
   user_id: 'user_id',
@@ -183,6 +174,40 @@ export const VideoPrivateScalarFieldEnum = {
 } as const
 
 export type VideoPrivateScalarFieldEnum = (typeof VideoPrivateScalarFieldEnum)[keyof typeof VideoPrivateScalarFieldEnum]
+
+
+export const SentenceScalarFieldEnum = {
+  id: 'id',
+  book_chapter_id: 'book_chapter_id',
+  video_private_id: 'video_private_id',
+  start_offset: 'start_offset',
+  length: 'length',
+  order_index: 'order_index'
+} as const
+
+export type SentenceScalarFieldEnum = (typeof SentenceScalarFieldEnum)[keyof typeof SentenceScalarFieldEnum]
+
+
+export const SubtitleScalarFieldEnum = {
+  id: 'id',
+  video_private_id: 'video_private_id',
+  start_time_ms: 'start_time_ms',
+  end_time_ms: 'end_time_ms',
+  order_index: 'order_index'
+} as const
+
+export type SubtitleScalarFieldEnum = (typeof SubtitleScalarFieldEnum)[keyof typeof SubtitleScalarFieldEnum]
+
+
+export const SubtitleSentenceInitScalarFieldEnum = {
+  id: 'id',
+  subtitle_id: 'subtitle_id',
+  sentence_id: 'sentence_id',
+  start_offset: 'start_offset',
+  length: 'length'
+} as const
+
+export type SubtitleSentenceInitScalarFieldEnum = (typeof SubtitleSentenceInitScalarFieldEnum)[keyof typeof SubtitleSentenceInitScalarFieldEnum]
 
 
 export const EngRusDictionaryScalarFieldEnum = {

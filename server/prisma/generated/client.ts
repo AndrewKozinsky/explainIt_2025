@@ -68,15 +68,25 @@ export type BookPublic = Prisma.BookPublicModel
  */
 export type BookChapter = Prisma.BookChapterModel
 /**
+ * Model VideoPrivate
+ * 
+ */
+export type VideoPrivate = Prisma.VideoPrivateModel
+/**
  * Model Sentence
  * 
  */
 export type Sentence = Prisma.SentenceModel
 /**
- * Model VideoPrivate
+ * Model Subtitle
  * 
  */
-export type VideoPrivate = Prisma.VideoPrivateModel
+export type Subtitle = Prisma.SubtitleModel
+/**
+ * Model SubtitleSentenceInit
+ * 
+ */
+export type SubtitleSentenceInit = Prisma.SubtitleSentenceInitModel
 /**
  * Model EngRusDictionary
  * 

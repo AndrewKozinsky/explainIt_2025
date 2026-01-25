@@ -273,6 +273,8 @@ export type VideoPrivateWhereInput = {
   created_at?: Prisma.DateTimeFilter<"VideoPrivate"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"VideoPrivate"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  Subtitle?: Prisma.SubtitleListRelationFilter
+  Sentence?: Prisma.SentenceListRelationFilter
 }
 
 export type VideoPrivateOrderByWithRelationInput = {
@@ -288,6 +290,8 @@ export type VideoPrivateOrderByWithRelationInput = {
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
+  Subtitle?: Prisma.SubtitleOrderByRelationAggregateInput
+  Sentence?: Prisma.SentenceOrderByRelationAggregateInput
 }
 
 export type VideoPrivateWhereUniqueInput = Prisma.AtLeast<{
@@ -306,6 +310,8 @@ export type VideoPrivateWhereUniqueInput = Prisma.AtLeast<{
   created_at?: Prisma.DateTimeFilter<"VideoPrivate"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"VideoPrivate"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  Subtitle?: Prisma.SubtitleListRelationFilter
+  Sentence?: Prisma.SentenceListRelationFilter
 }, "id">
 
 export type VideoPrivateOrderByWithAggregationInput = {
@@ -355,6 +361,8 @@ export type VideoPrivateCreateInput = {
   created_at?: Date | string
   updated_at?: Date | string
   user: Prisma.UserCreateNestedOneWithoutVideoPrivateInput
+  Subtitle?: Prisma.SubtitleCreateNestedManyWithoutVideo_privateInput
+  Sentence?: Prisma.SentenceCreateNestedManyWithoutVideo_privateInput
 }
 
 export type VideoPrivateUncheckedCreateInput = {
@@ -369,6 +377,8 @@ export type VideoPrivateUncheckedCreateInput = {
   content?: string | null
   created_at?: Date | string
   updated_at?: Date | string
+  Subtitle?: Prisma.SubtitleUncheckedCreateNestedManyWithoutVideo_privateInput
+  Sentence?: Prisma.SentenceUncheckedCreateNestedManyWithoutVideo_privateInput
 }
 
 export type VideoPrivateUpdateInput = {
@@ -382,6 +392,8 @@ export type VideoPrivateUpdateInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutVideoPrivateNestedInput
+  Subtitle?: Prisma.SubtitleUpdateManyWithoutVideo_privateNestedInput
+  Sentence?: Prisma.SentenceUpdateManyWithoutVideo_privateNestedInput
 }
 
 export type VideoPrivateUncheckedUpdateInput = {
@@ -396,6 +408,8 @@ export type VideoPrivateUncheckedUpdateInput = {
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Subtitle?: Prisma.SubtitleUncheckedUpdateManyWithoutVideo_privateNestedInput
+  Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutVideo_privateNestedInput
 }
 
 export type VideoPrivateCreateManyInput = {
@@ -502,6 +516,11 @@ export type VideoPrivateSumOrderByAggregateInput = {
   file_size_mb?: Prisma.SortOrder
 }
 
+export type VideoPrivateNullableScalarRelationFilter = {
+  is?: Prisma.VideoPrivateWhereInput | null
+  isNot?: Prisma.VideoPrivateWhereInput | null
+}
+
 export type VideoPrivateCreateNestedManyWithoutUserInput = {
   create?: Prisma.XOR<Prisma.VideoPrivateCreateWithoutUserInput, Prisma.VideoPrivateUncheckedCreateWithoutUserInput> | Prisma.VideoPrivateCreateWithoutUserInput[] | Prisma.VideoPrivateUncheckedCreateWithoutUserInput[]
   connectOrCreate?: Prisma.VideoPrivateCreateOrConnectWithoutUserInput | Prisma.VideoPrivateCreateOrConnectWithoutUserInput[]
@@ -544,6 +563,38 @@ export type VideoPrivateUncheckedUpdateManyWithoutUserNestedInput = {
   deleteMany?: Prisma.VideoPrivateScalarWhereInput | Prisma.VideoPrivateScalarWhereInput[]
 }
 
+export type VideoPrivateCreateNestedOneWithoutSentenceInput = {
+  create?: Prisma.XOR<Prisma.VideoPrivateCreateWithoutSentenceInput, Prisma.VideoPrivateUncheckedCreateWithoutSentenceInput>
+  connectOrCreate?: Prisma.VideoPrivateCreateOrConnectWithoutSentenceInput
+  connect?: Prisma.VideoPrivateWhereUniqueInput
+}
+
+export type VideoPrivateUpdateOneWithoutSentenceNestedInput = {
+  create?: Prisma.XOR<Prisma.VideoPrivateCreateWithoutSentenceInput, Prisma.VideoPrivateUncheckedCreateWithoutSentenceInput>
+  connectOrCreate?: Prisma.VideoPrivateCreateOrConnectWithoutSentenceInput
+  upsert?: Prisma.VideoPrivateUpsertWithoutSentenceInput
+  disconnect?: Prisma.VideoPrivateWhereInput | boolean
+  delete?: Prisma.VideoPrivateWhereInput | boolean
+  connect?: Prisma.VideoPrivateWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.VideoPrivateUpdateToOneWithWhereWithoutSentenceInput, Prisma.VideoPrivateUpdateWithoutSentenceInput>, Prisma.VideoPrivateUncheckedUpdateWithoutSentenceInput>
+}
+
+export type VideoPrivateCreateNestedOneWithoutSubtitleInput = {
+  create?: Prisma.XOR<Prisma.VideoPrivateCreateWithoutSubtitleInput, Prisma.VideoPrivateUncheckedCreateWithoutSubtitleInput>
+  connectOrCreate?: Prisma.VideoPrivateCreateOrConnectWithoutSubtitleInput
+  connect?: Prisma.VideoPrivateWhereUniqueInput
+}
+
+export type VideoPrivateUpdateOneWithoutSubtitleNestedInput = {
+  create?: Prisma.XOR<Prisma.VideoPrivateCreateWithoutSubtitleInput, Prisma.VideoPrivateUncheckedCreateWithoutSubtitleInput>
+  connectOrCreate?: Prisma.VideoPrivateCreateOrConnectWithoutSubtitleInput
+  upsert?: Prisma.VideoPrivateUpsertWithoutSubtitleInput
+  disconnect?: Prisma.VideoPrivateWhereInput | boolean
+  delete?: Prisma.VideoPrivateWhereInput | boolean
+  connect?: Prisma.VideoPrivateWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.VideoPrivateUpdateToOneWithWhereWithoutSubtitleInput, Prisma.VideoPrivateUpdateWithoutSubtitleInput>, Prisma.VideoPrivateUncheckedUpdateWithoutSubtitleInput>
+}
+
 export type VideoPrivateCreateWithoutUserInput = {
   file_name?: string | null
   file_s3_key?: string | null
@@ -554,6 +605,8 @@ export type VideoPrivateCreateWithoutUserInput = {
   content?: string | null
   created_at?: Date | string
   updated_at?: Date | string
+  Subtitle?: Prisma.SubtitleCreateNestedManyWithoutVideo_privateInput
+  Sentence?: Prisma.SentenceCreateNestedManyWithoutVideo_privateInput
 }
 
 export type VideoPrivateUncheckedCreateWithoutUserInput = {
@@ -567,6 +620,8 @@ export type VideoPrivateUncheckedCreateWithoutUserInput = {
   content?: string | null
   created_at?: Date | string
   updated_at?: Date | string
+  Subtitle?: Prisma.SubtitleUncheckedCreateNestedManyWithoutVideo_privateInput
+  Sentence?: Prisma.SentenceUncheckedCreateNestedManyWithoutVideo_privateInput
 }
 
 export type VideoPrivateCreateOrConnectWithoutUserInput = {
@@ -612,6 +667,154 @@ export type VideoPrivateScalarWhereInput = {
   updated_at?: Prisma.DateTimeFilter<"VideoPrivate"> | Date | string
 }
 
+export type VideoPrivateCreateWithoutSentenceInput = {
+  file_name?: string | null
+  file_s3_key?: string | null
+  file_url?: string | null
+  is_file_uploaded?: boolean
+  file_size_mb?: number
+  name?: string | null
+  content?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  user: Prisma.UserCreateNestedOneWithoutVideoPrivateInput
+  Subtitle?: Prisma.SubtitleCreateNestedManyWithoutVideo_privateInput
+}
+
+export type VideoPrivateUncheckedCreateWithoutSentenceInput = {
+  id?: number
+  user_id: number
+  file_name?: string | null
+  file_s3_key?: string | null
+  file_url?: string | null
+  is_file_uploaded?: boolean
+  file_size_mb?: number
+  name?: string | null
+  content?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  Subtitle?: Prisma.SubtitleUncheckedCreateNestedManyWithoutVideo_privateInput
+}
+
+export type VideoPrivateCreateOrConnectWithoutSentenceInput = {
+  where: Prisma.VideoPrivateWhereUniqueInput
+  create: Prisma.XOR<Prisma.VideoPrivateCreateWithoutSentenceInput, Prisma.VideoPrivateUncheckedCreateWithoutSentenceInput>
+}
+
+export type VideoPrivateUpsertWithoutSentenceInput = {
+  update: Prisma.XOR<Prisma.VideoPrivateUpdateWithoutSentenceInput, Prisma.VideoPrivateUncheckedUpdateWithoutSentenceInput>
+  create: Prisma.XOR<Prisma.VideoPrivateCreateWithoutSentenceInput, Prisma.VideoPrivateUncheckedCreateWithoutSentenceInput>
+  where?: Prisma.VideoPrivateWhereInput
+}
+
+export type VideoPrivateUpdateToOneWithWhereWithoutSentenceInput = {
+  where?: Prisma.VideoPrivateWhereInput
+  data: Prisma.XOR<Prisma.VideoPrivateUpdateWithoutSentenceInput, Prisma.VideoPrivateUncheckedUpdateWithoutSentenceInput>
+}
+
+export type VideoPrivateUpdateWithoutSentenceInput = {
+  file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  user?: Prisma.UserUpdateOneRequiredWithoutVideoPrivateNestedInput
+  Subtitle?: Prisma.SubtitleUpdateManyWithoutVideo_privateNestedInput
+}
+
+export type VideoPrivateUncheckedUpdateWithoutSentenceInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Subtitle?: Prisma.SubtitleUncheckedUpdateManyWithoutVideo_privateNestedInput
+}
+
+export type VideoPrivateCreateWithoutSubtitleInput = {
+  file_name?: string | null
+  file_s3_key?: string | null
+  file_url?: string | null
+  is_file_uploaded?: boolean
+  file_size_mb?: number
+  name?: string | null
+  content?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  user: Prisma.UserCreateNestedOneWithoutVideoPrivateInput
+  Sentence?: Prisma.SentenceCreateNestedManyWithoutVideo_privateInput
+}
+
+export type VideoPrivateUncheckedCreateWithoutSubtitleInput = {
+  id?: number
+  user_id: number
+  file_name?: string | null
+  file_s3_key?: string | null
+  file_url?: string | null
+  is_file_uploaded?: boolean
+  file_size_mb?: number
+  name?: string | null
+  content?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  Sentence?: Prisma.SentenceUncheckedCreateNestedManyWithoutVideo_privateInput
+}
+
+export type VideoPrivateCreateOrConnectWithoutSubtitleInput = {
+  where: Prisma.VideoPrivateWhereUniqueInput
+  create: Prisma.XOR<Prisma.VideoPrivateCreateWithoutSubtitleInput, Prisma.VideoPrivateUncheckedCreateWithoutSubtitleInput>
+}
+
+export type VideoPrivateUpsertWithoutSubtitleInput = {
+  update: Prisma.XOR<Prisma.VideoPrivateUpdateWithoutSubtitleInput, Prisma.VideoPrivateUncheckedUpdateWithoutSubtitleInput>
+  create: Prisma.XOR<Prisma.VideoPrivateCreateWithoutSubtitleInput, Prisma.VideoPrivateUncheckedCreateWithoutSubtitleInput>
+  where?: Prisma.VideoPrivateWhereInput
+}
+
+export type VideoPrivateUpdateToOneWithWhereWithoutSubtitleInput = {
+  where?: Prisma.VideoPrivateWhereInput
+  data: Prisma.XOR<Prisma.VideoPrivateUpdateWithoutSubtitleInput, Prisma.VideoPrivateUncheckedUpdateWithoutSubtitleInput>
+}
+
+export type VideoPrivateUpdateWithoutSubtitleInput = {
+  file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  user?: Prisma.UserUpdateOneRequiredWithoutVideoPrivateNestedInput
+  Sentence?: Prisma.SentenceUpdateManyWithoutVideo_privateNestedInput
+}
+
+export type VideoPrivateUncheckedUpdateWithoutSubtitleInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutVideo_privateNestedInput
+}
+
 export type VideoPrivateCreateManyUserInput = {
   id?: number
   file_name?: string | null
@@ -635,6 +838,8 @@ export type VideoPrivateUpdateWithoutUserInput = {
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Subtitle?: Prisma.SubtitleUpdateManyWithoutVideo_privateNestedInput
+  Sentence?: Prisma.SentenceUpdateManyWithoutVideo_privateNestedInput
 }
 
 export type VideoPrivateUncheckedUpdateWithoutUserInput = {
@@ -648,6 +853,8 @@ export type VideoPrivateUncheckedUpdateWithoutUserInput = {
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Subtitle?: Prisma.SubtitleUncheckedUpdateManyWithoutVideo_privateNestedInput
+  Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutVideo_privateNestedInput
 }
 
 export type VideoPrivateUncheckedUpdateManyWithoutUserInput = {
@@ -664,6 +871,44 @@ export type VideoPrivateUncheckedUpdateManyWithoutUserInput = {
 }
 
 
+/**
+ * Count Type VideoPrivateCountOutputType
+ */
+
+export type VideoPrivateCountOutputType = {
+  Subtitle: number
+  Sentence: number
+}
+
+export type VideoPrivateCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  Subtitle?: boolean | VideoPrivateCountOutputTypeCountSubtitleArgs
+  Sentence?: boolean | VideoPrivateCountOutputTypeCountSentenceArgs
+}
+
+/**
+ * VideoPrivateCountOutputType without action
+ */
+export type VideoPrivateCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the VideoPrivateCountOutputType
+   */
+  select?: Prisma.VideoPrivateCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * VideoPrivateCountOutputType without action
+ */
+export type VideoPrivateCountOutputTypeCountSubtitleArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.SubtitleWhereInput
+}
+
+/**
+ * VideoPrivateCountOutputType without action
+ */
+export type VideoPrivateCountOutputTypeCountSentenceArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.SentenceWhereInput
+}
+
 
 export type VideoPrivateSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -678,6 +923,9 @@ export type VideoPrivateSelect<ExtArgs extends runtime.Types.Extensions.Internal
   created_at?: boolean
   updated_at?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  Subtitle?: boolean | Prisma.VideoPrivate$SubtitleArgs<ExtArgs>
+  Sentence?: boolean | Prisma.VideoPrivate$SentenceArgs<ExtArgs>
+  _count?: boolean | Prisma.VideoPrivateCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["videoPrivate"]>
 
 export type VideoPrivateSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -727,6 +975,9 @@ export type VideoPrivateSelectScalar = {
 export type VideoPrivateOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "file_name" | "file_s3_key" | "file_url" | "is_file_uploaded" | "file_size_mb" | "name" | "content" | "created_at" | "updated_at", ExtArgs["result"]["videoPrivate"]>
 export type VideoPrivateInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  Subtitle?: boolean | Prisma.VideoPrivate$SubtitleArgs<ExtArgs>
+  Sentence?: boolean | Prisma.VideoPrivate$SentenceArgs<ExtArgs>
+  _count?: boolean | Prisma.VideoPrivateCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type VideoPrivateIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -739,6 +990,8 @@ export type $VideoPrivatePayload<ExtArgs extends runtime.Types.Extensions.Intern
   name: "VideoPrivate"
   objects: {
     user: Prisma.$UserPayload<ExtArgs>
+    Subtitle: Prisma.$SubtitlePayload<ExtArgs>[]
+    Sentence: Prisma.$SentencePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1147,6 +1400,8 @@ readonly fields: VideoPrivateFieldRefs;
 export interface Prisma__VideoPrivateClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  Subtitle<T extends Prisma.VideoPrivate$SubtitleArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.VideoPrivate$SubtitleArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SubtitlePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  Sentence<T extends Prisma.VideoPrivate$SentenceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.VideoPrivate$SentenceArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SentencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1580,6 +1835,54 @@ export type VideoPrivateDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.
    * Limit how many VideoPrivates to delete.
    */
   limit?: number
+}
+
+/**
+ * VideoPrivate.Subtitle
+ */
+export type VideoPrivate$SubtitleArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Subtitle
+   */
+  select?: Prisma.SubtitleSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Subtitle
+   */
+  omit?: Prisma.SubtitleOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SubtitleInclude<ExtArgs> | null
+  where?: Prisma.SubtitleWhereInput
+  orderBy?: Prisma.SubtitleOrderByWithRelationInput | Prisma.SubtitleOrderByWithRelationInput[]
+  cursor?: Prisma.SubtitleWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.SubtitleScalarFieldEnum | Prisma.SubtitleScalarFieldEnum[]
+}
+
+/**
+ * VideoPrivate.Sentence
+ */
+export type VideoPrivate$SentenceArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Sentence
+   */
+  select?: Prisma.SentenceSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Sentence
+   */
+  omit?: Prisma.SentenceOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SentenceInclude<ExtArgs> | null
+  where?: Prisma.SentenceWhereInput
+  orderBy?: Prisma.SentenceOrderByWithRelationInput | Prisma.SentenceOrderByWithRelationInput[]
+  cursor?: Prisma.SentenceWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.SentenceScalarFieldEnum | Prisma.SentenceScalarFieldEnum[]
 }
 
 /**

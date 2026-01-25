@@ -390,8 +390,10 @@ export const ModelName = {
   BookPrivate: 'BookPrivate',
   BookPublic: 'BookPublic',
   BookChapter: 'BookChapter',
-  Sentence: 'Sentence',
   VideoPrivate: 'VideoPrivate',
+  Sentence: 'Sentence',
+  Subtitle: 'Subtitle',
+  SubtitleSentenceInit: 'SubtitleSentenceInit',
   EngRusDictionary: 'EngRusDictionary'
 } as const
 
@@ -408,7 +410,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "balanceTransaction" | "payment" | "bookPrivate" | "bookPublic" | "bookChapter" | "sentence" | "videoPrivate" | "engRusDictionary"
+    modelProps: "user" | "balanceTransaction" | "payment" | "bookPrivate" | "bookPublic" | "bookChapter" | "videoPrivate" | "sentence" | "subtitle" | "subtitleSentenceInit" | "engRusDictionary"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -856,6 +858,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    VideoPrivate: {
+      payload: Prisma.$VideoPrivatePayload<ExtArgs>
+      fields: Prisma.VideoPrivateFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.VideoPrivateFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.VideoPrivateFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>
+        }
+        findFirst: {
+          args: Prisma.VideoPrivateFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.VideoPrivateFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>
+        }
+        findMany: {
+          args: Prisma.VideoPrivateFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>[]
+        }
+        create: {
+          args: Prisma.VideoPrivateCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>
+        }
+        createMany: {
+          args: Prisma.VideoPrivateCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.VideoPrivateCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>[]
+        }
+        delete: {
+          args: Prisma.VideoPrivateDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>
+        }
+        update: {
+          args: Prisma.VideoPrivateUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>
+        }
+        deleteMany: {
+          args: Prisma.VideoPrivateDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.VideoPrivateUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.VideoPrivateUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>[]
+        }
+        upsert: {
+          args: Prisma.VideoPrivateUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>
+        }
+        aggregate: {
+          args: Prisma.VideoPrivateAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateVideoPrivate>
+        }
+        groupBy: {
+          args: Prisma.VideoPrivateGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.VideoPrivateGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.VideoPrivateCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.VideoPrivateCountAggregateOutputType> | number
+        }
+      }
+    }
     Sentence: {
       payload: Prisma.$SentencePayload<ExtArgs>
       fields: Prisma.SentenceFieldRefs
@@ -930,77 +1006,151 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    VideoPrivate: {
-      payload: Prisma.$VideoPrivatePayload<ExtArgs>
-      fields: Prisma.VideoPrivateFieldRefs
+    Subtitle: {
+      payload: Prisma.$SubtitlePayload<ExtArgs>
+      fields: Prisma.SubtitleFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.VideoPrivateFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload> | null
+          args: Prisma.SubtitleFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubtitlePayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.VideoPrivateFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>
+          args: Prisma.SubtitleFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubtitlePayload>
         }
         findFirst: {
-          args: Prisma.VideoPrivateFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload> | null
+          args: Prisma.SubtitleFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubtitlePayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.VideoPrivateFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>
+          args: Prisma.SubtitleFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubtitlePayload>
         }
         findMany: {
-          args: Prisma.VideoPrivateFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>[]
+          args: Prisma.SubtitleFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubtitlePayload>[]
         }
         create: {
-          args: Prisma.VideoPrivateCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>
+          args: Prisma.SubtitleCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubtitlePayload>
         }
         createMany: {
-          args: Prisma.VideoPrivateCreateManyArgs<ExtArgs>
+          args: Prisma.SubtitleCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.VideoPrivateCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>[]
+          args: Prisma.SubtitleCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubtitlePayload>[]
         }
         delete: {
-          args: Prisma.VideoPrivateDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>
+          args: Prisma.SubtitleDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubtitlePayload>
         }
         update: {
-          args: Prisma.VideoPrivateUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>
+          args: Prisma.SubtitleUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubtitlePayload>
         }
         deleteMany: {
-          args: Prisma.VideoPrivateDeleteManyArgs<ExtArgs>
+          args: Prisma.SubtitleDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.VideoPrivateUpdateManyArgs<ExtArgs>
+          args: Prisma.SubtitleUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.VideoPrivateUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>[]
+          args: Prisma.SubtitleUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubtitlePayload>[]
         }
         upsert: {
-          args: Prisma.VideoPrivateUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>
+          args: Prisma.SubtitleUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubtitlePayload>
         }
         aggregate: {
-          args: Prisma.VideoPrivateAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateVideoPrivate>
+          args: Prisma.SubtitleAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSubtitle>
         }
         groupBy: {
-          args: Prisma.VideoPrivateGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.VideoPrivateGroupByOutputType>[]
+          args: Prisma.SubtitleGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SubtitleGroupByOutputType>[]
         }
         count: {
-          args: Prisma.VideoPrivateCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.VideoPrivateCountAggregateOutputType> | number
+          args: Prisma.SubtitleCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SubtitleCountAggregateOutputType> | number
+        }
+      }
+    }
+    SubtitleSentenceInit: {
+      payload: Prisma.$SubtitleSentenceInitPayload<ExtArgs>
+      fields: Prisma.SubtitleSentenceInitFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SubtitleSentenceInitFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubtitleSentenceInitPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SubtitleSentenceInitFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubtitleSentenceInitPayload>
+        }
+        findFirst: {
+          args: Prisma.SubtitleSentenceInitFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubtitleSentenceInitPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SubtitleSentenceInitFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubtitleSentenceInitPayload>
+        }
+        findMany: {
+          args: Prisma.SubtitleSentenceInitFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubtitleSentenceInitPayload>[]
+        }
+        create: {
+          args: Prisma.SubtitleSentenceInitCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubtitleSentenceInitPayload>
+        }
+        createMany: {
+          args: Prisma.SubtitleSentenceInitCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SubtitleSentenceInitCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubtitleSentenceInitPayload>[]
+        }
+        delete: {
+          args: Prisma.SubtitleSentenceInitDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubtitleSentenceInitPayload>
+        }
+        update: {
+          args: Prisma.SubtitleSentenceInitUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubtitleSentenceInitPayload>
+        }
+        deleteMany: {
+          args: Prisma.SubtitleSentenceInitDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SubtitleSentenceInitUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SubtitleSentenceInitUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubtitleSentenceInitPayload>[]
+        }
+        upsert: {
+          args: Prisma.SubtitleSentenceInitUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubtitleSentenceInitPayload>
+        }
+        aggregate: {
+          args: Prisma.SubtitleSentenceInitAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSubtitleSentenceInit>
+        }
+        groupBy: {
+          args: Prisma.SubtitleSentenceInitGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SubtitleSentenceInitGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SubtitleSentenceInitCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SubtitleSentenceInitCountAggregateOutputType> | number
         }
       }
     }
@@ -1196,17 +1346,6 @@ export const BookChapterScalarFieldEnum = {
 export type BookChapterScalarFieldEnum = (typeof BookChapterScalarFieldEnum)[keyof typeof BookChapterScalarFieldEnum]
 
 
-export const SentenceScalarFieldEnum = {
-  id: 'id',
-  book_chapter_id: 'book_chapter_id',
-  start_offset: 'start_offset',
-  length: 'length',
-  order_index: 'order_index'
-} as const
-
-export type SentenceScalarFieldEnum = (typeof SentenceScalarFieldEnum)[keyof typeof SentenceScalarFieldEnum]
-
-
 export const VideoPrivateScalarFieldEnum = {
   id: 'id',
   user_id: 'user_id',
@@ -1222,6 +1361,40 @@ export const VideoPrivateScalarFieldEnum = {
 } as const
 
 export type VideoPrivateScalarFieldEnum = (typeof VideoPrivateScalarFieldEnum)[keyof typeof VideoPrivateScalarFieldEnum]
+
+
+export const SentenceScalarFieldEnum = {
+  id: 'id',
+  book_chapter_id: 'book_chapter_id',
+  video_private_id: 'video_private_id',
+  start_offset: 'start_offset',
+  length: 'length',
+  order_index: 'order_index'
+} as const
+
+export type SentenceScalarFieldEnum = (typeof SentenceScalarFieldEnum)[keyof typeof SentenceScalarFieldEnum]
+
+
+export const SubtitleScalarFieldEnum = {
+  id: 'id',
+  video_private_id: 'video_private_id',
+  start_time_ms: 'start_time_ms',
+  end_time_ms: 'end_time_ms',
+  order_index: 'order_index'
+} as const
+
+export type SubtitleScalarFieldEnum = (typeof SubtitleScalarFieldEnum)[keyof typeof SubtitleScalarFieldEnum]
+
+
+export const SubtitleSentenceInitScalarFieldEnum = {
+  id: 'id',
+  subtitle_id: 'subtitle_id',
+  sentence_id: 'sentence_id',
+  start_offset: 'start_offset',
+  length: 'length'
+} as const
+
+export type SubtitleSentenceInitScalarFieldEnum = (typeof SubtitleSentenceInitScalarFieldEnum)[keyof typeof SubtitleSentenceInitScalarFieldEnum]
 
 
 export const EngRusDictionaryScalarFieldEnum = {
@@ -1472,8 +1645,10 @@ export type GlobalOmitConfig = {
   bookPrivate?: Prisma.BookPrivateOmit
   bookPublic?: Prisma.BookPublicOmit
   bookChapter?: Prisma.BookChapterOmit
-  sentence?: Prisma.SentenceOmit
   videoPrivate?: Prisma.VideoPrivateOmit
+  sentence?: Prisma.SentenceOmit
+  subtitle?: Prisma.SubtitleOmit
+  subtitleSentenceInit?: Prisma.SubtitleSentenceInitOmit
   engRusDictionary?: Prisma.EngRusDictionaryOmit
 }
 

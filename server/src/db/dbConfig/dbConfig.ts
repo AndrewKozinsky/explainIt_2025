@@ -485,10 +485,11 @@ export const bdConfig = {
 				example: 100,
 				required: true,
 			},
-			length: {
+			end_time_ms: {
 				type: 'number',
-				description: 'lenght of the subtitle',
-				example: 10,
+				description:
+					'how many symbols it needs to offset from the beginning of the whole text where this subtitle ends',
+				example: 110,
 				required: true,
 			},
 			order_index: {

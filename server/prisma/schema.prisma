@@ -117,7 +117,7 @@ model Subtitle {
     video_private        VideoPrivate?          @relation(fields: [video_private_id], references: [id], onDelete: Cascade)
     video_private_id     Int?
     start_time_ms        Int
-    length               Int
+    end_time_ms          Int
     order_index          Int
     SubtitleSentenceInit SubtitleSentenceInit[]
 }
