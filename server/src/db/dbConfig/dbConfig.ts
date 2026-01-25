@@ -336,74 +336,6 @@ export const bdConfig = {
 			},
 		},
 	},
-	Sentence: {
-		dtoProps: {},
-		dbFields: {
-			id: {
-				type: 'index',
-			},
-			book_chapter_id: {
-				type: 'manyToOne',
-				thisField: 'book_chapter_id', // Name of the column of this table that refers to another table
-				foreignTable: 'BookChapter', // Name of the table that this column refers to
-				foreignField: 'id',
-				required: false,
-			},
-			start_offset: {
-				type: 'number',
-				description:
-					'how many symbols it needs to offset from the beginning of the whole text where this sentence begins',
-				example: 100,
-				required: true,
-			},
-			length: {
-				type: 'number',
-				description: 'lenght of the sentence',
-				example: 10,
-				required: true,
-			},
-			order_index: {
-				type: 'number',
-				description: 'the serial number of this sentence',
-				example: 10,
-				required: true,
-			},
-		},
-	},
-	/*Word: {
-		dtoProps: {},
-		dbFields: {
-			id: {
-				type: 'index',
-			},
-			sentence_id: {
-				type: 'manyToOne',
-				thisField: 'sentence_id', // Name of the column of this table that refers to another table
-				foreignTable: 'Sentence', // Name of the table that this column refers to
-				foreignField: 'id',
-				required: false,
-			},
-			start_offset: {
-				type: 'number',
-				description:
-					'how many symbols it needs to offset from the beginning of the sentence where this word begins',
-				example: 100,
-				required: true,
-			},
-			length: {
-				type: 'number',
-				description: 'lenght of this word',
-				example: 10,
-				required: true,
-			},
-			order_index: {
-				type: 'number',
-				description: 'the serial number of this sentence',
-				example: 10,
-				required: true,
-			},
-		},
-	},*/
 	VideoPrivate: {
 		dtoProps: {
 			fileName: {
@@ -481,8 +413,162 @@ export const bdConfig = {
 			updated_at: {
 				type: 'updatedAt',
 			},
+			Subtitle: {
+				type: 'oneToMany',
+			},
 		},
 	},
+	Sentence: {
+		dtoProps: {},
+		dbFields: {
+			id: {
+				type: 'index',
+			},
+			book_chapter_id: {
+				type: 'manyToOne',
+				thisField: 'book_chapter_id', // Name of the column of this table that refers to another table
+				foreignTable: 'BookChapter', // Name of the table that this column refers to
+				foreignField: 'id',
+				required: false,
+			},
+			subtitle_id: {
+				type: 'manyToOne',
+				thisField: 'subtitle_id', // Name of the column of this table that refers to another table
+				foreignTable: 'Subtitle', // Name of the table that this column refers to
+				foreignField: 'id',
+				required: false,
+			},
+			video_private_id: {
+				type: 'manyToOne',
+				thisField: 'video_private_id', // Name of the column of this table that refers to another table
+				foreignTable: 'VideoPrivate', // Name of the table that this column refers to
+				foreignField: 'id',
+				required: false,
+			},
+			start_offset: {
+				type: 'number',
+				description:
+					'how many symbols it needs to offset from the beginning of the whole text where this sentence begins',
+				example: 100,
+				required: true,
+			},
+			length: {
+				type: 'number',
+				description: 'lenght of the sentence',
+				example: 10,
+				required: true,
+			},
+			order_index: {
+				type: 'number',
+				description: 'the serial number of this sentence',
+				example: 10,
+				required: true,
+			},
+		},
+	},
+	Subtitle: {
+		dtoProps: {},
+		dbFields: {
+			id: {
+				type: 'index',
+			},
+			video_private_id: {
+				type: 'manyToOne',
+				thisField: 'video_private_id', // Name of the column of this table that refers to another table
+				foreignTable: 'VideoPrivate', // Name of the table that this column refers to
+				foreignField: 'id',
+				required: false,
+			},
+			start_time_ms: {
+				type: 'number',
+				description:
+					'how many symbols it needs to offset from the beginning of the whole text where this subtitle begins',
+				example: 100,
+				required: true,
+			},
+			length: {
+				type: 'number',
+				description: 'lenght of the subtitle',
+				example: 10,
+				required: true,
+			},
+			order_index: {
+				type: 'number',
+				description: 'the serial number of this subtitle',
+				example: 10,
+				required: true,
+			},
+		},
+	},
+	SubtitleSentenceInit: {
+		dtoProps: {},
+		dbFields: {
+			id: {
+				type: 'index',
+			},
+			subtitle_id: {
+				type: 'manyToOne',
+				thisField: 'subtitle_id', // Name of the column of this table that refers to another table
+				foreignTable: 'Subtitle', // Name of the table that this column refers to
+				foreignField: 'id',
+				required: false,
+			},
+			sentence_id: {
+				type: 'manyToOne',
+				thisField: 'sentence_id', // Name of the column of this table that refers to another table
+				foreignTable: 'Sentence', // Name of the table that this column refers to
+				foreignField: 'id',
+				required: false,
+			},
+			start_offset: {
+				type: 'number',
+				description:
+					'how many symbols it needs to offset from the beginning of this subtitle where this sentence begins',
+				example: 100,
+				required: true,
+			},
+			length: {
+				type: 'number',
+				description: 'lenght of this sentence in subtitle',
+				example: 10,
+				required: true,
+			},
+		},
+	},
+	/*Word: {
+		dtoProps: {},
+		dbFields: {
+			id: {
+				type: 'index',
+			},
+			sentence_id: {
+				type: 'manyToOne',
+				thisField: 'sentence_id', // Name of the column of this table that refers to another table
+				foreignTable: 'Sentence', // Name of the table that this column refers to
+				foreignField: 'id',
+				required: false,
+			},
+			start_offset: {
+				type: 'number',
+				description:
+					'how many symbols it needs to offset from the beginning of the sentence where this word begins',
+				example: 100,
+				required: true,
+			},
+			length: {
+				type: 'number',
+				description: 'lenght of this word',
+				example: 10,
+				required: true,
+			},
+			order_index: {
+				type: 'number',
+				description: 'the serial number of this sentence',
+				example: 10,
+				required: true,
+			},
+		},
+	},*/
 	EngRusDictionary: {
 		dtoProps: {
 			sourceLanguageCode: {

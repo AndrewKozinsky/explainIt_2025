@@ -26,7 +26,6 @@ export function useGetOnUpdateVideoFormSubmit(
 							id: video.id,
 							name: formData.name,
 							content: formData.content,
-							fileSizeMb: 5000,
 						},
 					},
 				})

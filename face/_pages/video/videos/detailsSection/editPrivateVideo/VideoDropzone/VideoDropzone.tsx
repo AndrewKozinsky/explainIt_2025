@@ -44,7 +44,7 @@ function VideoDropzone() {
 			setFileName(fileName)
 			const fileMimeType = file.type
 
-			const fileSizeMb = Math.round(file.size / 1024 / 1024) // 896945634 / 1024 / 1024
+			const fileSizeMb = Math.ceil(file.size / 1024 / 1024) // 896945634 / 1024 / 1024
 
 			updateVideo({
 				variables: {

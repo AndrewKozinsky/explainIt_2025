@@ -83,28 +83,56 @@ model BookChapter {
     Sentence       Sentence[]
 }
 
-model Sentence {
-    id              Int          @id @default(autoincrement())
-    book_chapter    BookChapter? @relation(fields: [book_chapter_id], references: [id], onDelete: Cascade)
-    book_chapter_id Int?
-    start_offset    Int
-    length          Int
-    order_index     Int
-}
-
 model VideoPrivate {
-    id               Int      @id @default(autoincrement())
-    user             User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    id               Int        @id @default(autoincrement())
+    user             User       @relation(fields: [user_id], references: [id], onDelete: Cascade)
     user_id          Int
     file_name        String?
     file_s3_key      String?
     file_url         String?
-    is_file_uploaded Boolean  @default(false)
-    file_size_mb     Int      @default(0)
+    is_file_uploaded Boolean    @default(false)
+    file_size_mb     Int?       @default(0)
     name             String?
     content          String?
-    created_at       DateTime @default(now())
-    updated_at       DateTime @default(now())
+    created_at       DateTime   @default(now())
+    updated_at       DateTime   @default(now())
+    Subtitle         Subtitle[]
+    Sentence         Sentence[]
+}
+
+model Sentence {
+    id                   Int                    @id @default(autoincrement())
+    book_chapter         BookChapter?           @relation(fields: [book_chapter_id], references: [id], onDelete: Cascade)
+    book_chapter_id      Int?
+    subtitle             Subtitle?              @relation(fields: [subtitle_id], references: [id], onDelete: Cascade)
+    subtitle_id          Int?
+    video_private        VideoPrivate?          @relation(fields: [video_private_id], references: [id], onDelete: Cascade)
+    video_private_id     Int?
+    start_offset         Int
+    length               Int
+    order_index          Int
+    SubtitleSentenceInit SubtitleSentenceInit[]
+}
+
+model Subtitle {
+    id                   Int                    @id @default(autoincrement())
+    video_private        VideoPrivate?          @relation(fields: [video_private_id], references: [id], onDelete: Cascade)
+    video_private_id     Int?
+    start_time_ms        Int
+    length               Int
+    order_index          Int
+    Sentence             Sentence[]
+    SubtitleSentenceInit SubtitleSentenceInit[]
+}
+
+model SubtitleSentenceInit {
+    id           Int       @id @default(autoincrement())
+    subtitle     Subtitle? @relation(fields: [subtitle_id], references: [id], onDelete: Cascade)
+    subtitle_id  Int?
+    sentence     Sentence? @relation(fields: [sentence_id], references: [id], onDelete: Cascade)
+    sentence_id  Int?
+    start_offset Int
+    length       Int
 }
 
 model EngRusDictionary {
