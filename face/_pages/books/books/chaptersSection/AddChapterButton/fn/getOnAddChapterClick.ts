@@ -32,7 +32,7 @@ export function useGetOnAddChapterClick(notify: (data: NotifyArg) => void) {
 							bookType: 'private',
 							header: null,
 							name: null,
-							content: null,
+							originalContent: null,
 							note: null,
 						},
 					},

@@ -39,7 +39,8 @@ export class VideoPrivateQueryRepository {
 			fileS3Key: dbVideo.file_s3_key,
 			fileUrl: dbVideo.file_url,
 			isFileUploaded: dbVideo.is_file_uploaded,
-			content: dbVideo.content,
+			originalContent: dbVideo.original_content,
+			processedContent: dbVideo.processed_content,
 			userId: dbVideo.user_id,
 			fileSizeMb: dbVideo.file_size_mb,
 		}

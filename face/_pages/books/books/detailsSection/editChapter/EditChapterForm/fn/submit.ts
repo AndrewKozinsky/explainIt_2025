@@ -29,7 +29,7 @@ export function useGetOnUpdateChapterFormSubmit(
 							id: chapter.data.id,
 							name: formData.name,
 							header: formData.header,
-							content: formData.content ?? null,
+							originalContent: formData.content ?? null,
 							note: formData.note,
 						},
 					},

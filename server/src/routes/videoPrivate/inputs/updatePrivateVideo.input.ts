@@ -13,8 +13,8 @@ export class UpdatePrivateVideoInput {
 	name?: null | string
 
 	@Field(() => String, { description: 'Content', nullable: true })
-	@DtoFieldDecorators('text', bdConfig.VideoPrivate.dbFields.content)
-	content?: null | string
+	@DtoFieldDecorators('content', bdConfig.VideoPrivate.dbFields.original_content)
+	originalContent?: null | string
 
 	@Field(() => String, { description: 'File name', nullable: true })
 	@DtoFieldDecorators('fileName', bdConfig.VideoPrivate.dtoProps.fileName)

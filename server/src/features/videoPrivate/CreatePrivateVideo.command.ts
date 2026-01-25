@@ -1,15 +1,13 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { VideoPrivateRepository } from 'repo/videoPrivate.repository'
-import { VideoPrivateFileUrlBase } from 'features/videoPrivate/VideoPrivateFileUrl.base'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { CreateVideoPrivateOutModel } from 'models/videoPrivate/createVideoPrivate.out.model'
 
 export type CreatePrivateVideoInput = {
 	name?: null | string
-	content?: null | string
+	originalContent?: null | string
 	fileSizeMb?: number
 }
 
@@ -21,16 +19,8 @@ export class CreatePrivateVideoCommand implements ICommand {
 }
 
 @CommandHandler(CreatePrivateVideoCommand)
-export class CreatePrivateVideoHandler
-	extends VideoPrivateFileUrlBase
-	implements ICommandHandler<CreatePrivateVideoCommand>
-{
-	constructor(
-		private videoRepository: VideoPrivateRepository,
-		mainConfig: MainConfigService,
-	) {
-		super(mainConfig)
-	}
+export class CreatePrivateVideoHandler implements ICommandHandler<CreatePrivateVideoCommand> {
+	constructor(private videoRepository: VideoPrivateRepository) {}
 
 	async execute(command: CreatePrivateVideoCommand): Promise<CreateVideoPrivateOutModel> {
 		const { userId, createVideoInput } = command
@@ -38,7 +28,8 @@ export class CreatePrivateVideoHandler
 		const createdVideo = await this.videoRepository.createVideo({
 			userId,
 			name: createVideoInput.name,
-			content: createVideoInput.content,
+			originalContent: null,
+			processedContent: null,
 			fileSizeMb: createVideoInput.fileSizeMb,
 		})
 		if (!createdVideo) {

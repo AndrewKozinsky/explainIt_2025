@@ -72,9 +72,6 @@ input CreateBookChapterInput {
   """Book type: public or private"""
   bookType: String!
 
-  """Content of the chapter"""
-  content: String
-
   """Header on the chapter"""
   header: String
 
@@ -83,6 +80,9 @@ input CreateBookChapterInput {
 
   """Note about this chapter"""
   note: String
+
+  """Content of the chapter"""
+  originalContent: String
 }
 
 input CreateBookInput {
@@ -97,20 +97,21 @@ input CreateBookInput {
 }
 
 input CreatePrivateVideoInput {
-  """Text"""
-  content: String
-
   """File size in MB"""
   fileSizeMb: Int
 
   """Name"""
   name: String
+
+  """Text"""
+  originalContent: String
 }
 
 type CreateVideoPrivateOutModel {
-  content: String
   id: Int!
   name: String
+  originalContent: String
+  processedContent: String
   userId: Int!
 }
 
@@ -318,9 +319,6 @@ type TranslateSentenceOutModel {
 }
 
 input UpdateBookChapterInput {
-  """BookChapter content"""
-  content: String
-
   """BookChapter header"""
   header: String
 
@@ -332,6 +330,9 @@ input UpdateBookChapterInput {
 
   """BookChapter note"""
   note: String
+
+  """BookChapter content"""
+  originalContent: String
 }
 
 input UpdateBookInput {
@@ -349,9 +350,6 @@ input UpdateBookInput {
 }
 
 input UpdatePrivateVideoInput {
-  """Content"""
-  content: String
-
   """File mime type"""
   fileMimeType: String
 
@@ -369,13 +367,17 @@ input UpdatePrivateVideoInput {
 
   """Name"""
   name: String
+
+  """Content"""
+  originalContent: String
 }
 
 type UpdateVideoPrivateOutModel {
-  content: String
   fileSizeMb: Int
   id: Int!
   name: String
+  originalContent: String
+  processedContent: String
   uploadUrl: String
   userId: Int!
 }
@@ -388,7 +390,6 @@ type UserOutModel {
 }
 
 type VideoPrivateOutModel {
-  content: String
   fileName: String
   fileS3Key: String
   fileSizeMb: Int!
@@ -396,5 +397,7 @@ type VideoPrivateOutModel {
   id: Int!
   isFileUploaded: Boolean!
   name: String
+  originalContent: String
+  processedContent: String
   userId: Int!
 }

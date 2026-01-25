@@ -2,6 +2,7 @@ import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { BookChapterQueryRepository } from 'repo/bookChapter.queryRepository'
 import { BookChapterRepository } from 'repo/bookChapter.repository'
 import { SentenceRepository } from 'repo/sentence.repository'
+import { generateSentencesAndSaveToDB } from 'features/common/generateSentencesAndSaveToDB'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
@@ -55,7 +56,12 @@ export class UpdateBookChapterHandler implements ICommandHandler<UpdateBookChapt
 		}
 
 		if (preparedUpdateChapterInput.content) {
-			await this.generateSentencesAndSaveToDB(preparedUpdateChapterInput.id, preparedUpdateChapterInput.content)
+			await generateSentencesAndSaveToDB({
+				mainConfigService: this.mainConfigService,
+				sentenceRepository: this.sentenceRepository,
+				content: preparedUpdateChapterInput.content,
+				bookChapterId: preparedUpdateChapterInput.id,
+			})
 		}
 
 		const updatedBookChapter = await this.bookChapterRepository.updateBookChapterById(
@@ -101,50 +107,4 @@ export class UpdateBookChapterHandler implements ICommandHandler<UpdateBookChapt
 		return updateBookChapterInputCopy
 	}
 
-	async generateSentencesAndSaveToDB(bookChapterId: number, content: undefined | null | string) {
-		if (!content) return
-
-		try {
-			// Clear previously saved sentences for this chapter to avoid duplicates
-			await this.sentenceRepository.deleteByBookChapterId(bookChapterId)
-
-			// Ask NLP service to split text into sentences
-			const divideIntoSentencesRes = await fetch(this.mainConfigService.get().nlp.containerUrl + '/sentences', {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ text: content }),
-			})
-			const resJson: { sentences: string[] } = await divideIntoSentencesRes.json()
-			const sentences = resJson.sentences || []
-
-			// Walk through the content and locate each sentence from the current cursor forward
-			let cursor = 0
-			for (let i = 0; i < sentences.length; i++) {
-				const sentence = sentences[i]
-
-				const startOffset = content.indexOf(sentence, cursor)
-				if (startOffset === -1) {
-					// If we cannot find the sentence as returned by NLP in the original content moving forward,
-					// treat it as an NLP mismatch and fail, so the error handler will report it properly.
-					throw new Error('Sentence offset not found')
-				}
-
-				const sentenceLength = sentence.length
-
-				await this.sentenceRepository.createSentence({
-					startOffset,
-					length: sentenceLength,
-					bookChapterId,
-					orderIndex: i, // zero-based
-				})
-
-				cursor = startOffset + sentenceLength
-			}
-		} catch (error) {
-			throw new CustomGraphQLError(
-				errorMessage.nlp.cantDivideTextIntoSentences,
-				ErrorCode.InternalServerError_500,
-			)
-		}
-	}
 }

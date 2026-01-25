@@ -17,8 +17,8 @@ export class UpdateBookChapterInput {
 	header?: null | string
 
 	@Field(() => String, { description: 'BookChapter content', nullable: true })
-	@DtoFieldDecorators('content', bdConfig.BookChapter.dbFields.content)
-	content?: null | string
+	@DtoFieldDecorators('content', bdConfig.BookChapter.dbFields.originalContent)
+	originalContent?: null | string
 
 	@Field(() => String, { description: 'BookChapter note', nullable: true })
 	@DtoFieldDecorators('note', bdConfig.BookChapter.dbFields.note)

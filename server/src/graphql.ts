@@ -79,7 +79,7 @@ export interface CreateBookChapterInput {
     bookId: number;
     name?: Nullable<string>;
     header?: Nullable<string>;
-    content?: Nullable<string>;
+    originalContent?: Nullable<string>;
     note?: Nullable<string>;
 }
 
@@ -87,7 +87,7 @@ export interface UpdateBookChapterInput {
     id: number;
     name?: Nullable<string>;
     header?: Nullable<string>;
-    content?: Nullable<string>;
+    originalContent?: Nullable<string>;
     note?: Nullable<string>;
 }
 
@@ -97,14 +97,14 @@ export interface DeleteBookChapterInput {
 
 export interface CreatePrivateVideoInput {
     name?: Nullable<string>;
-    content?: Nullable<string>;
+    originalContent?: Nullable<string>;
     fileSizeMb?: Nullable<number>;
 }
 
 export interface UpdatePrivateVideoInput {
     id: number;
     name?: Nullable<string>;
-    content?: Nullable<string>;
+    originalContent?: Nullable<string>;
     fileName?: Nullable<string>;
     fileMimeType?: Nullable<string>;
     isFileUploaded?: Nullable<boolean>;
@@ -185,14 +185,16 @@ export interface TranslateSentenceOutModel {
 export interface CreateVideoPrivateOutModel {
     id: number;
     name?: Nullable<string>;
-    content?: Nullable<string>;
+    originalContent?: Nullable<string>;
+    processedContent?: Nullable<string>;
     userId: number;
 }
 
 export interface UpdateVideoPrivateOutModel {
     id: number;
     name?: Nullable<string>;
-    content?: Nullable<string>;
+    originalContent?: Nullable<string>;
+    processedContent?: Nullable<string>;
     userId: number;
     uploadUrl?: Nullable<string>;
     fileSizeMb?: Nullable<number>;
@@ -202,7 +204,8 @@ export interface VideoPrivateOutModel {
     id: number;
     userId: number;
     name?: Nullable<string>;
-    content?: Nullable<string>;
+    originalContent?: Nullable<string>;
+    processedContent?: Nullable<string>;
     fileName?: Nullable<string>;
     fileS3Key?: Nullable<string>;
     fileUrl?: Nullable<string>;

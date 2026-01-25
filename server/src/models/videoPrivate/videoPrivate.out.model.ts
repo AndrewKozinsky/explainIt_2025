@@ -12,7 +12,10 @@ export class VideoPrivateOutModel {
 	name: string | null
 
 	@Field(() => String, { nullable: true })
-	content: string | null
+	originalContent: string | null
+
+	@Field(() => String, { nullable: true })
+	processedContent: string | null
 
 	@Field(() => String, { nullable: true })
 	fileName: string | null

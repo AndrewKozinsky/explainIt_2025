@@ -84,20 +84,21 @@ model BookChapter {
 }
 
 model VideoPrivate {
-    id               Int        @id @default(autoincrement())
-    user             User       @relation(fields: [user_id], references: [id], onDelete: Cascade)
-    user_id          Int
-    file_name        String?
-    file_s3_key      String?
-    file_url         String?
-    is_file_uploaded Boolean    @default(false)
-    file_size_mb     Int        @default(0)
-    name             String?
-    content          String?
-    created_at       DateTime   @default(now())
-    updated_at       DateTime   @default(now())
-    Subtitle         Subtitle[]
-    Sentence         Sentence[]
+    id                Int        @id @default(autoincrement())
+    user              User       @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    user_id           Int
+    file_name         String?
+    file_s3_key       String?
+    file_url          String?
+    is_file_uploaded  Boolean    @default(false)
+    file_size_mb      Int        @default(0)
+    name              String?
+    original_content  String?
+    processed_content String?
+    created_at        DateTime   @default(now())
+    updated_at        DateTime   @default(now())
+    Subtitle          Subtitle[]
+    Sentence          Sentence[]
 }
 
 model Sentence {
@@ -118,6 +119,8 @@ model Subtitle {
     video_private_id     Int?
     start_time_ms        Int
     end_time_ms          Int
+    start_offset         Int
+    length               Int
     order_index          Int
     SubtitleSentenceInit SubtitleSentenceInit[]
 }

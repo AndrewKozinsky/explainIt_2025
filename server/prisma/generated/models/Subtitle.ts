@@ -31,6 +31,8 @@ export type SubtitleAvgAggregateOutputType = {
   video_private_id: number | null
   start_time_ms: number | null
   end_time_ms: number | null
+  start_offset: number | null
+  length: number | null
   order_index: number | null
 }
 
@@ -39,6 +41,8 @@ export type SubtitleSumAggregateOutputType = {
   video_private_id: number | null
   start_time_ms: number | null
   end_time_ms: number | null
+  start_offset: number | null
+  length: number | null
   order_index: number | null
 }
 
@@ -47,6 +51,8 @@ export type SubtitleMinAggregateOutputType = {
   video_private_id: number | null
   start_time_ms: number | null
   end_time_ms: number | null
+  start_offset: number | null
+  length: number | null
   order_index: number | null
 }
 
@@ -55,6 +61,8 @@ export type SubtitleMaxAggregateOutputType = {
   video_private_id: number | null
   start_time_ms: number | null
   end_time_ms: number | null
+  start_offset: number | null
+  length: number | null
   order_index: number | null
 }
 
@@ -63,6 +71,8 @@ export type SubtitleCountAggregateOutputType = {
   video_private_id: number
   start_time_ms: number
   end_time_ms: number
+  start_offset: number
+  length: number
   order_index: number
   _all: number
 }
@@ -73,6 +83,8 @@ export type SubtitleAvgAggregateInputType = {
   video_private_id?: true
   start_time_ms?: true
   end_time_ms?: true
+  start_offset?: true
+  length?: true
   order_index?: true
 }
 
@@ -81,6 +93,8 @@ export type SubtitleSumAggregateInputType = {
   video_private_id?: true
   start_time_ms?: true
   end_time_ms?: true
+  start_offset?: true
+  length?: true
   order_index?: true
 }
 
@@ -89,6 +103,8 @@ export type SubtitleMinAggregateInputType = {
   video_private_id?: true
   start_time_ms?: true
   end_time_ms?: true
+  start_offset?: true
+  length?: true
   order_index?: true
 }
 
@@ -97,6 +113,8 @@ export type SubtitleMaxAggregateInputType = {
   video_private_id?: true
   start_time_ms?: true
   end_time_ms?: true
+  start_offset?: true
+  length?: true
   order_index?: true
 }
 
@@ -105,6 +123,8 @@ export type SubtitleCountAggregateInputType = {
   video_private_id?: true
   start_time_ms?: true
   end_time_ms?: true
+  start_offset?: true
+  length?: true
   order_index?: true
   _all?: true
 }
@@ -200,6 +220,8 @@ export type SubtitleGroupByOutputType = {
   video_private_id: number | null
   start_time_ms: number
   end_time_ms: number
+  start_offset: number
+  length: number
   order_index: number
   _count: SubtitleCountAggregateOutputType | null
   _avg: SubtitleAvgAggregateOutputType | null
@@ -231,6 +253,8 @@ export type SubtitleWhereInput = {
   video_private_id?: Prisma.IntNullableFilter<"Subtitle"> | number | null
   start_time_ms?: Prisma.IntFilter<"Subtitle"> | number
   end_time_ms?: Prisma.IntFilter<"Subtitle"> | number
+  start_offset?: Prisma.IntFilter<"Subtitle"> | number
+  length?: Prisma.IntFilter<"Subtitle"> | number
   order_index?: Prisma.IntFilter<"Subtitle"> | number
   video_private?: Prisma.XOR<Prisma.VideoPrivateNullableScalarRelationFilter, Prisma.VideoPrivateWhereInput> | null
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitListRelationFilter
@@ -241,6 +265,8 @@ export type SubtitleOrderByWithRelationInput = {
   video_private_id?: Prisma.SortOrderInput | Prisma.SortOrder
   start_time_ms?: Prisma.SortOrder
   end_time_ms?: Prisma.SortOrder
+  start_offset?: Prisma.SortOrder
+  length?: Prisma.SortOrder
   order_index?: Prisma.SortOrder
   video_private?: Prisma.VideoPrivateOrderByWithRelationInput
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitOrderByRelationAggregateInput
@@ -254,6 +280,8 @@ export type SubtitleWhereUniqueInput = Prisma.AtLeast<{
   video_private_id?: Prisma.IntNullableFilter<"Subtitle"> | number | null
   start_time_ms?: Prisma.IntFilter<"Subtitle"> | number
   end_time_ms?: Prisma.IntFilter<"Subtitle"> | number
+  start_offset?: Prisma.IntFilter<"Subtitle"> | number
+  length?: Prisma.IntFilter<"Subtitle"> | number
   order_index?: Prisma.IntFilter<"Subtitle"> | number
   video_private?: Prisma.XOR<Prisma.VideoPrivateNullableScalarRelationFilter, Prisma.VideoPrivateWhereInput> | null
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitListRelationFilter
@@ -264,6 +292,8 @@ export type SubtitleOrderByWithAggregationInput = {
   video_private_id?: Prisma.SortOrderInput | Prisma.SortOrder
   start_time_ms?: Prisma.SortOrder
   end_time_ms?: Prisma.SortOrder
+  start_offset?: Prisma.SortOrder
+  length?: Prisma.SortOrder
   order_index?: Prisma.SortOrder
   _count?: Prisma.SubtitleCountOrderByAggregateInput
   _avg?: Prisma.SubtitleAvgOrderByAggregateInput
@@ -280,12 +310,16 @@ export type SubtitleScalarWhereWithAggregatesInput = {
   video_private_id?: Prisma.IntNullableWithAggregatesFilter<"Subtitle"> | number | null
   start_time_ms?: Prisma.IntWithAggregatesFilter<"Subtitle"> | number
   end_time_ms?: Prisma.IntWithAggregatesFilter<"Subtitle"> | number
+  start_offset?: Prisma.IntWithAggregatesFilter<"Subtitle"> | number
+  length?: Prisma.IntWithAggregatesFilter<"Subtitle"> | number
   order_index?: Prisma.IntWithAggregatesFilter<"Subtitle"> | number
 }
 
 export type SubtitleCreateInput = {
   start_time_ms: number
   end_time_ms: number
+  start_offset: number
+  length: number
   order_index: number
   video_private?: Prisma.VideoPrivateCreateNestedOneWithoutSubtitleInput
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitCreateNestedManyWithoutSubtitleInput
@@ -296,6 +330,8 @@ export type SubtitleUncheckedCreateInput = {
   video_private_id?: number | null
   start_time_ms: number
   end_time_ms: number
+  start_offset: number
+  length: number
   order_index: number
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUncheckedCreateNestedManyWithoutSubtitleInput
 }
@@ -303,6 +339,8 @@ export type SubtitleUncheckedCreateInput = {
 export type SubtitleUpdateInput = {
   start_time_ms?: Prisma.IntFieldUpdateOperationsInput | number
   end_time_ms?: Prisma.IntFieldUpdateOperationsInput | number
+  start_offset?: Prisma.IntFieldUpdateOperationsInput | number
+  length?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
   video_private?: Prisma.VideoPrivateUpdateOneWithoutSubtitleNestedInput
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUpdateManyWithoutSubtitleNestedInput
@@ -313,6 +351,8 @@ export type SubtitleUncheckedUpdateInput = {
   video_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   start_time_ms?: Prisma.IntFieldUpdateOperationsInput | number
   end_time_ms?: Prisma.IntFieldUpdateOperationsInput | number
+  start_offset?: Prisma.IntFieldUpdateOperationsInput | number
+  length?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUncheckedUpdateManyWithoutSubtitleNestedInput
 }
@@ -322,12 +362,16 @@ export type SubtitleCreateManyInput = {
   video_private_id?: number | null
   start_time_ms: number
   end_time_ms: number
+  start_offset: number
+  length: number
   order_index: number
 }
 
 export type SubtitleUpdateManyMutationInput = {
   start_time_ms?: Prisma.IntFieldUpdateOperationsInput | number
   end_time_ms?: Prisma.IntFieldUpdateOperationsInput | number
+  start_offset?: Prisma.IntFieldUpdateOperationsInput | number
+  length?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -336,6 +380,8 @@ export type SubtitleUncheckedUpdateManyInput = {
   video_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   start_time_ms?: Prisma.IntFieldUpdateOperationsInput | number
   end_time_ms?: Prisma.IntFieldUpdateOperationsInput | number
+  start_offset?: Prisma.IntFieldUpdateOperationsInput | number
+  length?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -354,6 +400,8 @@ export type SubtitleCountOrderByAggregateInput = {
   video_private_id?: Prisma.SortOrder
   start_time_ms?: Prisma.SortOrder
   end_time_ms?: Prisma.SortOrder
+  start_offset?: Prisma.SortOrder
+  length?: Prisma.SortOrder
   order_index?: Prisma.SortOrder
 }
 
@@ -362,6 +410,8 @@ export type SubtitleAvgOrderByAggregateInput = {
   video_private_id?: Prisma.SortOrder
   start_time_ms?: Prisma.SortOrder
   end_time_ms?: Prisma.SortOrder
+  start_offset?: Prisma.SortOrder
+  length?: Prisma.SortOrder
   order_index?: Prisma.SortOrder
 }
 
@@ -370,6 +420,8 @@ export type SubtitleMaxOrderByAggregateInput = {
   video_private_id?: Prisma.SortOrder
   start_time_ms?: Prisma.SortOrder
   end_time_ms?: Prisma.SortOrder
+  start_offset?: Prisma.SortOrder
+  length?: Prisma.SortOrder
   order_index?: Prisma.SortOrder
 }
 
@@ -378,6 +430,8 @@ export type SubtitleMinOrderByAggregateInput = {
   video_private_id?: Prisma.SortOrder
   start_time_ms?: Prisma.SortOrder
   end_time_ms?: Prisma.SortOrder
+  start_offset?: Prisma.SortOrder
+  length?: Prisma.SortOrder
   order_index?: Prisma.SortOrder
 }
 
@@ -386,6 +440,8 @@ export type SubtitleSumOrderByAggregateInput = {
   video_private_id?: Prisma.SortOrder
   start_time_ms?: Prisma.SortOrder
   end_time_ms?: Prisma.SortOrder
+  start_offset?: Prisma.SortOrder
+  length?: Prisma.SortOrder
   order_index?: Prisma.SortOrder
 }
 
@@ -453,6 +509,8 @@ export type SubtitleUpdateOneRequiredWithoutSubtitleSentenceInitNestedInput = {
 export type SubtitleCreateWithoutVideo_privateInput = {
   start_time_ms: number
   end_time_ms: number
+  start_offset: number
+  length: number
   order_index: number
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitCreateNestedManyWithoutSubtitleInput
 }
@@ -461,6 +519,8 @@ export type SubtitleUncheckedCreateWithoutVideo_privateInput = {
   id?: number
   start_time_ms: number
   end_time_ms: number
+  start_offset: number
+  length: number
   order_index: number
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUncheckedCreateNestedManyWithoutSubtitleInput
 }
@@ -499,12 +559,16 @@ export type SubtitleScalarWhereInput = {
   video_private_id?: Prisma.IntNullableFilter<"Subtitle"> | number | null
   start_time_ms?: Prisma.IntFilter<"Subtitle"> | number
   end_time_ms?: Prisma.IntFilter<"Subtitle"> | number
+  start_offset?: Prisma.IntFilter<"Subtitle"> | number
+  length?: Prisma.IntFilter<"Subtitle"> | number
   order_index?: Prisma.IntFilter<"Subtitle"> | number
 }
 
 export type SubtitleCreateWithoutSubtitleSentenceInitInput = {
   start_time_ms: number
   end_time_ms: number
+  start_offset: number
+  length: number
   order_index: number
   video_private?: Prisma.VideoPrivateCreateNestedOneWithoutSubtitleInput
 }
@@ -514,6 +578,8 @@ export type SubtitleUncheckedCreateWithoutSubtitleSentenceInitInput = {
   video_private_id?: number | null
   start_time_ms: number
   end_time_ms: number
+  start_offset: number
+  length: number
   order_index: number
 }
 
@@ -536,6 +602,8 @@ export type SubtitleUpdateToOneWithWhereWithoutSubtitleSentenceInitInput = {
 export type SubtitleUpdateWithoutSubtitleSentenceInitInput = {
   start_time_ms?: Prisma.IntFieldUpdateOperationsInput | number
   end_time_ms?: Prisma.IntFieldUpdateOperationsInput | number
+  start_offset?: Prisma.IntFieldUpdateOperationsInput | number
+  length?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
   video_private?: Prisma.VideoPrivateUpdateOneWithoutSubtitleNestedInput
 }
@@ -545,6 +613,8 @@ export type SubtitleUncheckedUpdateWithoutSubtitleSentenceInitInput = {
   video_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   start_time_ms?: Prisma.IntFieldUpdateOperationsInput | number
   end_time_ms?: Prisma.IntFieldUpdateOperationsInput | number
+  start_offset?: Prisma.IntFieldUpdateOperationsInput | number
+  length?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -552,12 +622,16 @@ export type SubtitleCreateManyVideo_privateInput = {
   id?: number
   start_time_ms: number
   end_time_ms: number
+  start_offset: number
+  length: number
   order_index: number
 }
 
 export type SubtitleUpdateWithoutVideo_privateInput = {
   start_time_ms?: Prisma.IntFieldUpdateOperationsInput | number
   end_time_ms?: Prisma.IntFieldUpdateOperationsInput | number
+  start_offset?: Prisma.IntFieldUpdateOperationsInput | number
+  length?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUpdateManyWithoutSubtitleNestedInput
 }
@@ -566,6 +640,8 @@ export type SubtitleUncheckedUpdateWithoutVideo_privateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   start_time_ms?: Prisma.IntFieldUpdateOperationsInput | number
   end_time_ms?: Prisma.IntFieldUpdateOperationsInput | number
+  start_offset?: Prisma.IntFieldUpdateOperationsInput | number
+  length?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUncheckedUpdateManyWithoutSubtitleNestedInput
 }
@@ -574,6 +650,8 @@ export type SubtitleUncheckedUpdateManyWithoutVideo_privateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   start_time_ms?: Prisma.IntFieldUpdateOperationsInput | number
   end_time_ms?: Prisma.IntFieldUpdateOperationsInput | number
+  start_offset?: Prisma.IntFieldUpdateOperationsInput | number
+  length?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -613,6 +691,8 @@ export type SubtitleSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   video_private_id?: boolean
   start_time_ms?: boolean
   end_time_ms?: boolean
+  start_offset?: boolean
+  length?: boolean
   order_index?: boolean
   video_private?: boolean | Prisma.Subtitle$video_privateArgs<ExtArgs>
   SubtitleSentenceInit?: boolean | Prisma.Subtitle$SubtitleSentenceInitArgs<ExtArgs>
@@ -624,6 +704,8 @@ export type SubtitleSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exte
   video_private_id?: boolean
   start_time_ms?: boolean
   end_time_ms?: boolean
+  start_offset?: boolean
+  length?: boolean
   order_index?: boolean
   video_private?: boolean | Prisma.Subtitle$video_privateArgs<ExtArgs>
 }, ExtArgs["result"]["subtitle"]>
@@ -633,6 +715,8 @@ export type SubtitleSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
   video_private_id?: boolean
   start_time_ms?: boolean
   end_time_ms?: boolean
+  start_offset?: boolean
+  length?: boolean
   order_index?: boolean
   video_private?: boolean | Prisma.Subtitle$video_privateArgs<ExtArgs>
 }, ExtArgs["result"]["subtitle"]>
@@ -642,10 +726,12 @@ export type SubtitleSelectScalar = {
   video_private_id?: boolean
   start_time_ms?: boolean
   end_time_ms?: boolean
+  start_offset?: boolean
+  length?: boolean
   order_index?: boolean
 }
 
-export type SubtitleOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "video_private_id" | "start_time_ms" | "end_time_ms" | "order_index", ExtArgs["result"]["subtitle"]>
+export type SubtitleOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "video_private_id" | "start_time_ms" | "end_time_ms" | "start_offset" | "length" | "order_index", ExtArgs["result"]["subtitle"]>
 export type SubtitleInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   video_private?: boolean | Prisma.Subtitle$video_privateArgs<ExtArgs>
   SubtitleSentenceInit?: boolean | Prisma.Subtitle$SubtitleSentenceInitArgs<ExtArgs>
@@ -669,6 +755,8 @@ export type $SubtitlePayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     video_private_id: number | null
     start_time_ms: number
     end_time_ms: number
+    start_offset: number
+    length: number
     order_index: number
   }, ExtArgs["result"]["subtitle"]>
   composites: {}
@@ -1099,6 +1187,8 @@ export interface SubtitleFieldRefs {
   readonly video_private_id: Prisma.FieldRef<"Subtitle", 'Int'>
   readonly start_time_ms: Prisma.FieldRef<"Subtitle", 'Int'>
   readonly end_time_ms: Prisma.FieldRef<"Subtitle", 'Int'>
+  readonly start_offset: Prisma.FieldRef<"Subtitle", 'Int'>
+  readonly length: Prisma.FieldRef<"Subtitle", 'Int'>
   readonly order_index: Prisma.FieldRef<"Subtitle", 'Int'>
 }
     

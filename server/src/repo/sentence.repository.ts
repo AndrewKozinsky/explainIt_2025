@@ -11,8 +11,8 @@ export class SentenceRepository {
 	async createSentence(dto: {
 		startOffset: number
 		length: number
-		bookId?: number
 		bookChapterId?: number
+		videoPrivateId?: number
 		orderIndex: number
 	}) {
 		const newSentence = await this.prisma.sentence.create({
@@ -20,6 +20,7 @@ export class SentenceRepository {
 				start_offset: dto.startOffset,
 				length: dto.length,
 				book_chapter_id: dto.bookChapterId,
+				video_private_id: dto.videoPrivateId,
 				order_index: dto.orderIndex,
 			},
 		})
@@ -31,6 +32,14 @@ export class SentenceRepository {
 	async deleteByBookChapterId(bookChapterId: number): Promise<number> {
 		const res = await this.prisma.sentence.deleteMany({
 			where: { book_chapter_id: bookChapterId },
+		})
+		return res.count
+	}
+
+	@CatchDbError()
+	async deleteByVideoPrivateId(videoPrivateId: number): Promise<number> {
+		const res = await this.prisma.sentence.deleteMany({
+			where: { video_private_id: videoPrivateId },
 		})
 		return res.count
 	}

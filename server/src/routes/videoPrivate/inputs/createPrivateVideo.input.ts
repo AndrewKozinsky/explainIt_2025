@@ -9,8 +9,8 @@ export class CreatePrivateVideoInput {
 	name?: null | string
 
 	@Field(() => String, { description: 'Text', nullable: true })
-	@DtoFieldDecorators('subtitles', bdConfig.VideoPrivate.dbFields.content)
-	content?: null | string
+	@DtoFieldDecorators('originalContent', bdConfig.VideoPrivate.dbFields.original_content)
+	originalContent?: null | string
 
 	@Field(() => Int, { description: 'File size in MB', nullable: true })
 	@DtoFieldDecorators('fileSizeMb', bdConfig.VideoPrivate.dbFields.file_size_mb, {

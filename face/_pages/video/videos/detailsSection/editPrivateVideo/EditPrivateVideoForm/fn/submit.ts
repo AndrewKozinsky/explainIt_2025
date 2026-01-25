@@ -25,7 +25,7 @@ export function useGetOnUpdateVideoFormSubmit(
 						input: {
 							id: video.id,
 							name: formData.name,
-							content: formData.content,
+							originalContent: formData.content,
 						},
 					},
 				})

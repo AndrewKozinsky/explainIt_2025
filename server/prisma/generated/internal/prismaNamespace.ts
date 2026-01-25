@@ -1355,7 +1355,8 @@ export const VideoPrivateScalarFieldEnum = {
   is_file_uploaded: 'is_file_uploaded',
   file_size_mb: 'file_size_mb',
   name: 'name',
-  content: 'content',
+  original_content: 'original_content',
+  processed_content: 'processed_content',
   created_at: 'created_at',
   updated_at: 'updated_at'
 } as const
@@ -1380,6 +1381,8 @@ export const SubtitleScalarFieldEnum = {
   video_private_id: 'video_private_id',
   start_time_ms: 'start_time_ms',
   end_time_ms: 'end_time_ms',
+  start_offset: 'start_offset',
+  length: 'length',
   order_index: 'order_index'
 } as const
 

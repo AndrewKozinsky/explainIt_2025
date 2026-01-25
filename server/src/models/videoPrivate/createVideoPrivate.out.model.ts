@@ -1,5 +1,4 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql'
-import { BookChapterLiteOutModel } from '../bookChapter/bookChapter.out.model'
 
 @ObjectType()
 export class CreateVideoPrivateOutModel {
@@ -10,7 +9,10 @@ export class CreateVideoPrivateOutModel {
 	name: null | string
 
 	@Field(() => String, { nullable: true })
-	content: null | string
+	originalContent: null | string
+
+	@Field(() => String, { nullable: true })
+	processedContent: null | string
 
 	@Field(() => Int)
 	userId: number

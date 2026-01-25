@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common'
-// import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { VideoPrivate } from 'prisma/generated/client'
 import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
@@ -10,11 +9,18 @@ export class VideoPrivateRepository {
 	constructor(private prisma: PrismaService) {}
 
 	@CatchDbError()
-	async createVideo(dto: { userId: number; name?: null | string; content?: null | string; fileSizeMb?: number }) {
+	async createVideo(dto: {
+		userId: number
+		name?: null | string
+		originalContent?: null | string
+		processedContent?: null | string
+		fileSizeMb?: number
+	}) {
 		const newVideo = await this.prisma.videoPrivate.create({
 			data: {
 				name: dto.name,
-				content: dto.content,
+				original_content: dto.originalContent,
+				processed_content: dto.processedContent,
 				user_id: dto.userId,
 				file_size_mb: dto.fileSizeMb,
 			},
@@ -32,7 +38,8 @@ export class VideoPrivateRepository {
 			fileUrl?: null | string
 			isFileUploaded?: boolean
 			name?: null | string
-			content?: null | string
+			originalContent?: null | string
+			processedContent?: null | string
 			fileSizeMb?: number
 		},
 	) {
@@ -44,7 +51,8 @@ export class VideoPrivateRepository {
 				file_url: dto.fileUrl,
 				is_file_uploaded: dto.isFileUploaded,
 				name: dto.name,
-				content: dto.content,
+				original_content: dto.originalContent,
+				processed_content: dto.processedContent,
 				file_size_mb: dto.fileSizeMb,
 			},
 		})
@@ -88,7 +96,8 @@ export class VideoPrivateRepository {
 			id: dbVideo.id,
 			name: dbVideo.name,
 			fileUrl: dbVideo.file_url,
-			content: dbVideo.content,
+			originalContent: dbVideo.original_content,
+			processedContent: dbVideo.processed_content,
 			userId: dbVideo.user_id,
 			fileSizeMb: dbVideo.file_size_mb,
 		}

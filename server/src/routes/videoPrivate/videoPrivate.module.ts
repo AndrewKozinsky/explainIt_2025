@@ -1,5 +1,9 @@
 import { Module } from '@nestjs/common'
 import { CqrsModule } from '@nestjs/cqrs'
+import { DBRepository } from 'repo/db.repository'
+import { SentenceRepository } from 'repo/sentence.repository'
+import { SubtitleRepository } from 'repo/subtitle.repository'
+import { SubtitleSentenceInitRepository } from 'repo/subtitleSentenceInit.repository'
 import { UserRepository } from 'repo/user.repository'
 import { VideoPrivateQueryRepository } from 'repo/videoPrivate.queryRepository'
 import { VideoPrivateRepository } from 'repo/videoPrivate.repository'
@@ -20,7 +24,15 @@ const commandHandlers = [
 	// GetVideoPrivateHandler,
 ]
 const resolvers = [VideoPrivateResolver]
-const repositories = [VideoPrivateRepository, VideoPrivateQueryRepository, UserRepository]
+const repositories = [
+	VideoPrivateRepository,
+	VideoPrivateQueryRepository,
+	UserRepository,
+	SentenceRepository,
+	SubtitleRepository,
+	SubtitleSentenceInitRepository,
+	DBRepository,
+]
 
 @Module({
 	imports: [CqrsModule],

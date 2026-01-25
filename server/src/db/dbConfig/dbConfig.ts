@@ -315,7 +315,7 @@ export const bdConfig = {
 				required: false,
 				maxLength: 255,
 			},
-			content: {
+			originalContent: {
 				type: 'string',
 				description: 'Content of the chapter',
 				required: false,
@@ -402,9 +402,14 @@ export const bdConfig = {
 				required: false,
 				maxLength: 255,
 			},
-			content: {
+			original_content: {
 				type: 'string',
-				description: 'Subtitles or text of the video',
+				description: 'Original subtitles or text of the video provided by user',
+				required: false,
+			},
+			processed_content: {
+				type: 'string',
+				description: 'Processed subtitles or text of the video (flattened)',
 				required: false,
 			},
 			created_at: {
@@ -480,16 +485,27 @@ export const bdConfig = {
 			},
 			start_time_ms: {
 				type: 'number',
-				description:
-					'how many symbols it needs to offset from the beginning of the whole text where this subtitle begins',
+				description: 'time when subtitle begins',
 				example: 100,
 				required: true,
 			},
 			end_time_ms: {
 				type: 'number',
+				description: 'time when subtitle ends',
+				example: 110,
+				required: true,
+			},
+			start_offset: {
+				type: 'number',
 				description:
 					'how many symbols it needs to offset from the beginning of the whole text where this subtitle ends',
 				example: 110,
+				required: true,
+			},
+			length: {
+				type: 'number',
+				description: 'how many symbols subtitle has',
+				example: 9,
 				required: true,
 			},
 			order_index: {

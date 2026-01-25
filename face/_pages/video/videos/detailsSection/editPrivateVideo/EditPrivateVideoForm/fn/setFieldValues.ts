@@ -9,7 +9,7 @@ export function useSetFieldValues(reset: (data: any) => void) {
 
 		reset({
 			name: video.name ?? '',
-			content: video.content ?? '',
+			content: video.originalContent ?? '',
 		})
 	}, [video, reset])
 }

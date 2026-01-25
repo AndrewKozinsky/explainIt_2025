@@ -9,7 +9,10 @@ export class UpdateVideoPrivateOutModel {
 	name: null | string
 
 	@Field(() => String, { nullable: true })
-	content: null | string
+	originalContent: null | string
+
+	@Field(() => String, { nullable: true })
+	processedContent: null | string
 
 	@Field(() => Int)
 	userId: number
