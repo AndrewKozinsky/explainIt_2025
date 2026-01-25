@@ -393,7 +393,7 @@ export const bdConfig = {
 				type: 'number',
 				description: 'size of the file in megabytes',
 				example: 100,
-				required: false,
+				required: true,
 				default: 0,
 			},
 			name: {
@@ -416,6 +416,9 @@ export const bdConfig = {
 			Subtitle: {
 				type: 'oneToMany',
 			},
+			Sentence: {
+				type: 'oneToMany',
+			},
 		},
 	},
 	Sentence: {
@@ -428,13 +431,6 @@ export const bdConfig = {
 				type: 'manyToOne',
 				thisField: 'book_chapter_id', // Name of the column of this table that refers to another table
 				foreignTable: 'BookChapter', // Name of the table that this column refers to
-				foreignField: 'id',
-				required: false,
-			},
-			subtitle_id: {
-				type: 'manyToOne',
-				thisField: 'subtitle_id', // Name of the column of this table that refers to another table
-				foreignTable: 'Subtitle', // Name of the table that this column refers to
 				foreignField: 'id',
 				required: false,
 			},
@@ -463,6 +459,9 @@ export const bdConfig = {
 				description: 'the serial number of this sentence',
 				example: 10,
 				required: true,
+			},
+			SubtitleSentenceInit: {
+				type: 'oneToMany',
 			},
 		},
 	},
@@ -498,10 +497,14 @@ export const bdConfig = {
 				example: 10,
 				required: true,
 			},
+			SubtitleSentenceInit: {
+				type: 'oneToMany',
+			},
 		},
 	},
 	SubtitleSentenceInit: {
 		dtoProps: {},
+		indexes: [{ fields: ['subtitle_id'] }, { fields: ['sentence_id'] }],
 		dbFields: {
 			id: {
 				type: 'index',
@@ -511,14 +514,14 @@ export const bdConfig = {
 				thisField: 'subtitle_id', // Name of the column of this table that refers to another table
 				foreignTable: 'Subtitle', // Name of the table that this column refers to
 				foreignField: 'id',
-				required: false,
+				required: true,
 			},
 			sentence_id: {
 				type: 'manyToOne',
 				thisField: 'sentence_id', // Name of the column of this table that refers to another table
 				foreignTable: 'Sentence', // Name of the table that this column refers to
 				foreignField: 'id',
-				required: false,
+				required: true,
 			},
 			start_offset: {
 				type: 'number',

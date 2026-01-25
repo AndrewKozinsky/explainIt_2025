@@ -13,6 +13,8 @@ export class CreatePrivateVideoInput {
 	content?: null | string
 
 	@Field(() => Int, { description: 'File size in MB', nullable: true })
-	@DtoFieldDecorators('fileSizeMb', bdConfig.VideoPrivate.dbFields.file_size_mb)
+	@DtoFieldDecorators('fileSizeMb', bdConfig.VideoPrivate.dbFields.file_size_mb, {
+		required: false,
+	})
 	fileSizeMb?: number
 }

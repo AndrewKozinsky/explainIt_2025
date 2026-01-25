@@ -70,6 +70,20 @@ export function createTable(tableName: string, tableConfig: BdConfig.Table) {
 		}
 	}
 
+	if (tableConfig.indexes?.length) {
+		for (const indexConfig of tableConfig.indexes) {
+			const fields = indexConfig.fields.join(', ')
+			const attrs: string[] = []
+			if (indexConfig.name) {
+				attrs.push(`name: "${indexConfig.name}"`)
+			}
+
+			const attrsStr = attrs.length ? `, ${attrs.join(', ')}` : ''
+			const indexType = indexConfig.unique ? '@@unique' : '@@index'
+			columnsArr.push(`\t${indexType}([${fields}]${attrsStr})`)
+		}
+	}
+
 	modelContent += columnsArr.join('\n')
 	modelContent += '\n}'
 

@@ -5,6 +5,13 @@ export namespace BdConfig {
 	export type Table = {
 		dtoProps: Record<string, Field>
 		dbFields: Record<string, Field>
+		indexes?: ModelIndex[]
+	}
+
+	export type ModelIndex = {
+		fields: string[]
+		name?: string
+		unique?: boolean
 	}
 
 	export type Field =
