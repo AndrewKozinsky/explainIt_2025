@@ -1,45 +1,45 @@
-// import { produce } from 'immer'
-// import { create } from 'zustand'
-// import { VideoPrivateOutModel } from '@/graphql'
-// import { PopulatedSubtitlesStructure } from '_pages/video/watching/common/populatedSubtitlesStructure'
-// import { PopulatedTextStructure } from '_pages/video/watching/common/populatedTextStructure'
+import { produce } from 'immer'
+import { create } from 'zustand'
+import { VideoPrivateOutModel } from '@/graphql'
+import { PopulatedSubtitlesStructure } from '_pages/video/watching/common/populatedSubtitlesStructure'
+import { PopulatedTextStructure } from '_pages/video/watching/common/populatedTextStructure'
 
-/*export const watchingStoreValues: WatchingStoreValues = {
+export const watchingStoreValues: WatchingStoreValues = {
 	video: null as any as WatchingStoreI.VideoData,
-	player: {
+	/*player: {
 		currentTime: 0,
 		duration: 0,
 		paused: true,
 		command: null,
-	},
-	deviceType: 'mouse',
-	mobileCurrentContentType: 'text',
-	helpCurrentContentType: 'keyboard',
-	fullScreen: false,
+	},*/
+	// deviceType: 'mouse',
+	// mobileCurrentContentType: 'text',
+	// helpCurrentContentType: 'keyboard',
+	// fullScreen: false,
 	populatedPlainText: null as any as PopulatedTextStructure.Structure,
 	populatedSubtitles: null as any as PopulatedSubtitlesStructure.Structure,
-	isWordsAddingModeEnabled: false,
-	selectedText: {
+	// isWordsAddingModeEnabled: false,
+	/*selectedText: {
 		plainText: null,
 		subtitle: null,
-	},
-	analysis: {
+	},*/
+	/*analysis: {
 		engText: '',
 		analysis: {
 			type: 'loading',
 		},
-	},
+	},*/
 	// Идентификатор текущей вкладки лексемов
-	lexemTabId: '0',
-}*/
+	// lexemTabId: '0',
+}
 
-/*export const useWatchingStore = create<WatchingStore>()((set, get) => {
+export const useWatchingStore = create<WatchingStore>()((set, get) => {
 	return {
 		...watchingStoreValues,
-		updateStore: (storePart: Partial<WatchingStoreValues>) => {
+		/*updateStore: (storePart: Partial<WatchingStoreValues>) => {
 			set(storePart)
-		},
-		updatePlainTextSentenceTranslation(sentenceId: number, translation: string) {
+		},*/
+		/*updatePlainTextSentenceTranslation(sentenceId: number, translation: string) {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
 					const sentence = draftState.populatedPlainText.sentences.find(
@@ -53,8 +53,8 @@
 					}
 				})
 			})
-		},
-		updateSubtitlesSentenceTranslation(sentenceId: number, translation: string) {
+		},*/
+		/*updateSubtitlesSentenceTranslation(sentenceId: number, translation: string) {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
 					const sentence = draftState.populatedSubtitles.sentences.find(
@@ -68,21 +68,21 @@
 					}
 				})
 			})
-		},
-		updateMobileCurrentContentType: (mobileCurrentContentType) => {
+		},*/
+		/*updateMobileCurrentContentType: (mobileCurrentContentType) => {
 			set((state) => {
 				return {
 					mobileCurrentContentType,
 				}
 			})
-		},
-		updateHelpCurrentContentType: (helpCurrentContentType) => {
+		},*/
+		/*updateHelpCurrentContentType: (helpCurrentContentType) => {
 			set((state) => {
 				return {
 					helpCurrentContentType,
 				}
 			})
-		},
+		},*/
 		updateVideo: (video) => {
 			set((state) => {
 				return {
@@ -90,14 +90,14 @@
 				}
 			})
 		},
-		changeDeviceType(deviceType) {
+		/*changeDeviceType(deviceType) {
 			set((state) => {
 				return {
 					deviceType,
 				}
 			})
-		},
-		setPlayerState(playerState) {
+		},*/
+		/*setPlayerState(playerState) {
 			set((state) => {
 				return {
 					player: {
@@ -106,8 +106,8 @@
 					},
 				}
 			})
-		},
-		sendPlayerCommand(command) {
+		},*/
+		/*sendPlayerCommand(command) {
 			set((state) => {
 				return {
 					player: {
@@ -116,22 +116,22 @@
 					},
 				}
 			})
-		},
-		toggleFullScreen() {
+		},*/
+		/*toggleFullScreen() {
 			set((state) => {
 				return {
 					fullScreen: !state.fullScreen,
 				}
 			})
-		},
-		changeWordsAddingMode(isEnabled: boolean) {
+		},*/
+		/*changeWordsAddingMode(isEnabled: boolean) {
 			set((state) => {
 				return {
 					isWordsAddingModeEnabled: isEnabled,
 				}
 			})
-		},
-		updateSelectedPlainText(selectedSentenceId: number, selectedWordId: number) {
+		},*/
+		/*updateSelectedPlainText(selectedSentenceId: number, selectedWordId: number) {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
 					const selectedObj = { ...draftState.populatedPlainText.selected }
@@ -178,8 +178,8 @@
 					draftState.populatedPlainText.selected = selectedObj
 				})
 			})
-		},
-		updateSelectedSubtitle(selectedSentenceId: number, selectedWordId: number) {
+		},*/
+		/*updateSelectedSubtitle(selectedSentenceId: number, selectedWordId: number) {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
 					const selectedObj = { ...draftState.populatedSubtitles.selected }
@@ -224,13 +224,13 @@
 					draftState.populatedSubtitles.selected = selectedObj
 				})
 			})
-		},
-		updateSelectedText(selectedText: WatchingStoreI.SelectedText) {
+		},*/
+		/*updateSelectedText(selectedText: WatchingStoreI.SelectedText) {
 			set((state) => {
 				return { selectedText }
 			})
-		},
-		updateAnalysis(analysis: WatchingStoreI.Analysis) {
+		},*/
+		/*updateAnalysis(analysis: WatchingStoreI.Analysis) {
 			set((state) => {
 				if (analysis.analysis.type !== 'data' || !analysis.analysis.lexemes?.length) {
 					return { analysis }
@@ -238,54 +238,54 @@
 
 				return { analysis, lexemTabId: analysis.analysis.lexemes[0].pos }
 			})
-		},
-		updateLexemTabId(tabId: string) {
+		},*/
+		/*updateLexemTabId(tabId: string) {
 			set((state) => {
 				return { lexemTabId: tabId }
 			})
-		},
+		},*/
 	}
-})*/
+})
 
-/*export namespace WatchingStoreI {
+export namespace WatchingStoreI {
 	export type VideoData = {
 		loading: boolean
 		errorMessage: null | string
 		data: VideoPrivateOutModel
 	}
-	export type Player = {
+	/*export type Player = {
 		currentTime: number
 		duration: number
 		paused: boolean
 		command: null | PlayerCommand
-	}
+	}*/
 	// На телефоне показываются 2 кнопки: Текст и Детали.
 	// В зависимости от нажатой кнопки показывается одна из двух колонок
-	export type MobileCurrentContentType = 'text' | 'details'
+	// export type MobileCurrentContentType = 'text' | 'details'
 	// Если не выбрано ни одно слово, то показывается справка
 	// В зависимости от нажатой кнопки показывается одна из двух колонок
-	export type HelpCurrentContentType = 'keyboard' | 'mouse'
+	// export type HelpCurrentContentType = 'keyboard' | 'mouse'
 
-	export type SelectedText = {
+	/*export type SelectedText = {
 		plainText: null | SelectedPlainText
 		subtitle: null | SelectedSubtitle
-	}
+	}*/
 
-	export type SelectedSentencePart =
+	/*export type SelectedSentencePart =
 		| { id: number; type: 'word'; value: string }
 		| { id: number; type: 'punctuation'; value: string }
-		| { id: number; type: 'space' }
+		| { id: number; type: 'space' }*/
 
-	export type SelectedPlainText = {
+	/*export type SelectedPlainText = {
 		sentenceId: number
 		sentenceText: string
 		translation?: null | string
 		sentenceParts: SelectedSentencePart[]
 		wordIds: number[]
 		wordsTexts: string[]
-	}
+	}*/
 
-	export type SelectedSubtitle = {
+	/*export type SelectedSubtitle = {
 		subtitleText: string
 		sentenceId: number
 		sentenceText: string
@@ -293,33 +293,33 @@
 		sentenceParts: SelectedSentencePart[]
 		wordIds: number[]
 		wordsTexts: string[]
-	}
+	}*/
 
-	export type Analysis = {
+	/*export type Analysis = {
 		engText: string
 		analysis: AnalysisLoading | AnalysisError | AnalysisData
-	}
+	}*/
 
-	type AnalysisLoading = {
+	/*type AnalysisLoading = {
 		type: 'loading'
-	}
-	type AnalysisError = {
+	}*/
+	/*type AnalysisError = {
 		type: 'error'
 		message: string
-	}
-	type AnalysisData = {
+	}*/
+	/*type AnalysisData = {
 		type: 'data'
 		rusText: string
 		transcription?: string
 		lexemes?: Lexeme[]
-	}
-	type Lexeme = {
+	}*/
+	/*type Lexeme = {
 		text: string
 		pos?: string
 		ts?: string
 		tr?: LexemeTranslation[]
-	}
-	export type LexemeTranslation = {
+	}*/
+	/*export type LexemeTranslation = {
 		text: string
 		pos?: string
 		gen?: string
@@ -329,37 +329,37 @@
 			text: string
 			tr?: Array<{ text: string }>
 		}>
-	}
-}*/
+	}*/
+}
 
-// export type WatchingStore = WatchingStoreValues & WatchingStoreMethods
+export type WatchingStore = WatchingStoreValues & WatchingStoreMethods
 
 // type DeviceType = 'mouse' | 'touch'
 
-/*export type WatchingStoreValues = {
+export type WatchingStoreValues = {
 	video: WatchingStoreI.VideoData
-	player: {
+	/*player: {
 		currentTime: number
 		duration: number
 		paused: boolean
 		command: null | PlayerCommand
-	}
-	deviceType: DeviceType
-	mobileCurrentContentType: WatchingStoreI.MobileCurrentContentType
-	helpCurrentContentType: WatchingStoreI.HelpCurrentContentType
-	fullScreen: boolean
+	}*/
+	// deviceType: DeviceType
+	// mobileCurrentContentType: WatchingStoreI.MobileCurrentContentType
+	// helpCurrentContentType: WatchingStoreI.HelpCurrentContentType
+	// fullScreen: boolean
 	populatedPlainText: PopulatedTextStructure.Structure
 	populatedSubtitles: PopulatedSubtitlesStructure.Structure
 	// Если этот режим включен, то при нажатии на слово оно будет добавляться во фразу типа idle.
 	// Если выключен, то заменит все слова поставленные во фразу типа idle.
-	isWordsAddingModeEnabled: boolean
-	selectedText: {
+	// isWordsAddingModeEnabled: boolean
+	/*selectedText: {
 		plainText: null | WatchingStoreI.SelectedPlainText
 		subtitle: null | WatchingStoreI.SelectedSubtitle
-	}
-	analysis: WatchingStoreI.Analysis
-	lexemTabId: string
-}*/
+	}*/
+	// analysis: WatchingStoreI.Analysis
+	// lexemTabId: string
+}
 
 /*export type PlayerCommand =
 	| { type: 'PLAY' }
@@ -373,21 +373,21 @@
 	| { type: 'STOP_REVERSE_SEEK' }
 	| { type: 'SET_VOLUME'; volume: number }*/
 
-/*export type WatchingStoreMethods = {
+export type WatchingStoreMethods = {
 	updateStore: (store: Partial<WatchingStoreValues>) => void
-	updatePlainTextSentenceTranslation: (sentenceId: number, translation: string) => void
-	updateSubtitlesSentenceTranslation: (sentenceId: number, translation: string) => void
-	updateMobileCurrentContentType: (contentType: WatchingStoreI.MobileCurrentContentType) => void
-	updateHelpCurrentContentType: (contentType: WatchingStoreI.HelpCurrentContentType) => void
+	// updatePlainTextSentenceTranslation: (sentenceId: number, translation: string) => void
+	// updateSubtitlesSentenceTranslation: (sentenceId: number, translation: string) => void
+	// updateMobileCurrentContentType: (contentType: WatchingStoreI.MobileCurrentContentType) => void
+	// updateHelpCurrentContentType: (contentType: WatchingStoreI.HelpCurrentContentType) => void
 	updateVideo: (book: WatchingStoreI.VideoData) => void
-	changeDeviceType: (deviceType: DeviceType) => void
-	setPlayerState: (state: Partial<WatchingStoreI.Player>) => void
-	sendPlayerCommand: (command: PlayerCommand) => void
-	toggleFullScreen: () => void
-	changeWordsAddingMode: (isEnabled: boolean) => void
-	updateSelectedPlainText: (sentenceId: number, wordId: number) => void
-	updateSelectedSubtitle: (sentenceId: number, wordId: number) => void
-	updateSelectedText: (selectedText: WatchingStoreI.SelectedText) => void
-	updateAnalysis: (analysis: WatchingStoreI.Analysis) => void
-	updateLexemTabId: (tabId: string) => void
-}*/
+	// changeDeviceType: (deviceType: DeviceType) => void
+	// setPlayerState: (state: Partial<WatchingStoreI.Player>) => void
+	// sendPlayerCommand: (command: PlayerCommand) => void
+	// toggleFullScreen: () => void
+	// changeWordsAddingMode: (isEnabled: boolean) => void
+	// updateSelectedPlainText: (sentenceId: number, wordId: number) => void
+	// updateSelectedSubtitle: (sentenceId: number, wordId: number) => void
+	// updateSelectedText: (selectedText: WatchingStoreI.SelectedText) => void
+	// updateAnalysis: (analysis: WatchingStoreI.Analysis) => void
+	// updateLexemTabId: (tabId: string) => void
+}

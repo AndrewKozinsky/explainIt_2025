@@ -4,7 +4,6 @@ query VideoPrivate_getUserVideos {
 		name
 		contentType
 		originalContent
-		processedContent
 		userId
 		fileName
 		fileS3Key

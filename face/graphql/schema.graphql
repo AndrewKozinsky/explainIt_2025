@@ -158,6 +158,11 @@ input GetBookPublicInput {
   id: Int!
 }
 
+input GetPrivateVideoInput {
+  """Video id"""
+  id: Int!
+}
+
 input GetTranscriptionInput {
   """Sentence in English"""
   engSentence: String!
@@ -268,8 +273,11 @@ type Query {
   """Get user books"""
   book_user_books: [BookOutModel!]!
 
+  """Get a video"""
+  video_private_get(input: GetPrivateVideoInput!): VideoPrivateOutModel!
+
   """Get user videos"""
-  video_private_user_videos: [VideoPrivateOutModel!]!
+  video_private_user_videos: [VideoPrivateLiteOutModel!]!
 }
 
 input RegisterUserInput {
@@ -289,6 +297,14 @@ type SentenceOutModel {
   id: Int!
   length: Int!
   startOffset: Int!
+}
+
+type SubtitleSentenceInitOutModel {
+  id: Int!
+  length: Int!
+  sentenceId: Int!
+  startOffset: Int!
+  subtitleId: Int!
 }
 
 input TopUpBalanceWithYooKassaInput {
@@ -398,7 +414,7 @@ type UserOutModel {
   isUserConfirmed: Boolean!
 }
 
-type VideoPrivateOutModel {
+type VideoPrivateLiteOutModel {
   contentType: String!
   fileName: String
   fileS3Key: String
@@ -410,4 +426,37 @@ type VideoPrivateOutModel {
   originalContent: String
   processedContent: String
   userId: Int!
+}
+
+type VideoPrivateOutModel {
+  contentType: String!
+  fileName: String
+  fileS3Key: String
+  fileSizeMb: Int!
+  fileUrl: String
+  id: Int!
+  isFileUploaded: Boolean!
+  name: String
+  originalContent: String
+  processedContent: String
+  sentences: [VideoPrivateSentenceOutModel!]
+  subtitleSentenceInit: [SubtitleSentenceInitOutModel!]
+  subtitles: [VideoPrivateSubtitleOutModel!]
+  userId: Int!
+}
+
+type VideoPrivateSentenceOutModel {
+  id: Int!
+  length: Int!
+  orderIndex: Int!
+  startOffset: Int!
+}
+
+type VideoPrivateSubtitleOutModel {
+  endTimeMs: Int!
+  id: Int!
+  length: Int!
+  orderIndex: Int!
+  startOffset: Int!
+  startTimeMs: Int!
 }

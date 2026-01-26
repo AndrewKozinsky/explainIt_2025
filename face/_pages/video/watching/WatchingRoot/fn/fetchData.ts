@@ -2,13 +2,13 @@ import { useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import { useVideoPrivate_Get, VideoPrivateOutModel } from '@/graphql'
 // import { ResolvedSubtitlesStructure } from '_pages/video/watching/common/resolvedSubtitlesStructure'
-// import { ResolvedTextStructure } from '_pages/video/watching/common/resolvedTextStructure'
-// import { useWatchingStore } from '../../watchingStore'
-// import { createPopulatedPlainText, createPopulatedSubtitles } from './createPopulatedText'
+import { ResolvedTextStructure } from '_pages/video/watching/common/resolvedTextStructure'
+import { useWatchingStore } from '../../watchingStore'
+import { createPopulatedPlainText, createPopulatedSubtitles } from './createPopulatedText'
 
 export function usePopulateWatchingStore() {
 	useFetchVideoAndSetToStore()
-	// usePopulatedTextAndSetToStore()
+	usePopulatedTextAndSetToStore()
 }
 
 function useFetchVideoAndSetToStore() {
@@ -51,28 +51,24 @@ function useFetchVideoAndSetToStore() {
 	)
 }
 
-/*function usePopulatedTextAndSetToStore() {
+function usePopulatedTextAndSetToStore() {
 	const video = useWatchingStore((s) => s.video)
 
 	useEffect(
 		function () {
 			const videoData = video?.data
-			if (!videoData || !videoData.resolvedText) return
+			if (!videoData || !videoData.processedContent) return
 
-			const resolvedTextStructure = JSON.parse(videoData.resolvedText) as
-				| ResolvedTextStructure.Structure
-				| ResolvedSubtitlesStructure.Structure
-
-			if (resolvedTextStructure.type === 'plainText') {
-				const populatedPlainText = createPopulatedPlainText(resolvedTextStructure)
+			if (videoData.contentType === 'text') {
+				const populatedPlainText = createPopulatedPlainText(videoData)
 				useWatchingStore.getState().updateStore({ populatedPlainText })
 			}
 
-			if (resolvedTextStructure.type === 'subtitles') {
-				const populatedSubtitles = createPopulatedSubtitles(resolvedTextStructure)
+			if (videoData.contentType === 'subtitles') {
+				const populatedSubtitles = createPopulatedSubtitles(videoData)
 				useWatchingStore.getState().updateStore({ populatedSubtitles })
 			}
 		},
 		[video],
 	)
-}*/
+}

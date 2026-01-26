@@ -30,6 +30,10 @@ export interface GetBookChapterInput {
     id: number;
 }
 
+export interface GetPrivateVideoInput {
+    id: number;
+}
+
 export interface RegisterUserInput {
     email: string;
     password: string;
@@ -189,6 +193,61 @@ export interface TranslateSentenceOutModel {
     translatedText: string;
 }
 
+export interface VideoPrivateLiteOutModel {
+    id: number;
+    userId: number;
+    name?: Nullable<string>;
+    originalContent?: Nullable<string>;
+    processedContent?: Nullable<string>;
+    contentType: string;
+    fileName?: Nullable<string>;
+    fileS3Key?: Nullable<string>;
+    fileUrl?: Nullable<string>;
+    isFileUploaded: boolean;
+    fileSizeMb: number;
+}
+
+export interface VideoPrivateSentenceOutModel {
+    id: number;
+    startOffset: number;
+    length: number;
+    orderIndex: number;
+}
+
+export interface VideoPrivateSubtitleOutModel {
+    id: number;
+    startTimeMs: number;
+    endTimeMs: number;
+    startOffset: number;
+    length: number;
+    orderIndex: number;
+}
+
+export interface SubtitleSentenceInitOutModel {
+    id: number;
+    subtitleId: number;
+    sentenceId: number;
+    startOffset: number;
+    length: number;
+}
+
+export interface VideoPrivateOutModel {
+    id: number;
+    userId: number;
+    name?: Nullable<string>;
+    originalContent?: Nullable<string>;
+    processedContent?: Nullable<string>;
+    contentType: string;
+    fileName?: Nullable<string>;
+    fileS3Key?: Nullable<string>;
+    fileUrl?: Nullable<string>;
+    isFileUploaded: boolean;
+    fileSizeMb: number;
+    sentences?: Nullable<VideoPrivateSentenceOutModel[]>;
+    subtitles?: Nullable<VideoPrivateSubtitleOutModel[]>;
+    subtitleSentenceInit?: Nullable<SubtitleSentenceInitOutModel[]>;
+}
+
 export interface CreateVideoPrivateOutModel {
     id: number;
     name?: Nullable<string>;
@@ -207,20 +266,6 @@ export interface UpdateVideoPrivateOutModel {
     userId: number;
     uploadUrl?: Nullable<string>;
     fileSizeMb?: Nullable<number>;
-}
-
-export interface VideoPrivateOutModel {
-    id: number;
-    userId: number;
-    name?: Nullable<string>;
-    originalContent?: Nullable<string>;
-    processedContent?: Nullable<string>;
-    contentType: string;
-    fileName?: Nullable<string>;
-    fileS3Key?: Nullable<string>;
-    fileUrl?: Nullable<string>;
-    isFileUploaded: boolean;
-    fileSizeMb: number;
 }
 
 export interface UserOutModel {
@@ -243,7 +288,8 @@ export interface IQuery {
     book_public_get_books(): BookPublicOutModel[] | Promise<BookPublicOutModel[]>;
     book_public_get_book(input: GetBookPublicInput): BookPublicOutModel | Promise<BookPublicOutModel>;
     book_chapter_get(input: GetBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
-    video_private_user_videos(): VideoPrivateOutModel[] | Promise<VideoPrivateOutModel[]>;
+    video_private_user_videos(): VideoPrivateLiteOutModel[] | Promise<VideoPrivateLiteOutModel[]>;
+    video_private_get(input: GetPrivateVideoInput): VideoPrivateOutModel | Promise<VideoPrivateOutModel>;
 }
 
 export interface CheckTranslationOutSuccessModel {

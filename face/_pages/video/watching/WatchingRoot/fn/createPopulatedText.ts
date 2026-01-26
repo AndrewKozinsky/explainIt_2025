@@ -1,30 +1,11 @@
-// import { PopulatedSubtitlesStructure } from '_pages/video/watching/common/populatedSubtitlesStructure'
+import { VideoPrivateOutModel } from '@/graphql'
+import { PopulatedSubtitlesStructure } from '_pages/video/watching/common/populatedSubtitlesStructure'
 // import { PopulatedTextStructure } from '_pages/video/watching/common/populatedTextStructure'
 // import { ResolvedSubtitlesStructure } from '_pages/video/watching/common/resolvedSubtitlesStructure'
 // import { ResolvedTextStructure } from '_pages/video/watching/common/resolvedTextStructure'
 // import { sentenceToParts } from './sentenceToParts'
 
-/*export function createPopulatedPlainText(
-	resolvedTextStructure: ResolvedTextStructure.Structure,
-): PopulatedTextStructure.Structure {
-	return {
-		sentences: resolvedTextStructure.sentences.map((resolvedSentence, i) => {
-			return {
-				id: i,
-				parts: sentenceToParts(resolvedSentence.s),
-				translation: resolvedSentence.t,
-			}
-		}),
-		selected: {
-			sentenceId: null,
-			wordIds: [],
-		},
-	}
-}*/
-
-/*export function createPopulatedSubtitles(
-	resolvedSubtitlesStructure: ResolvedSubtitlesStructure.Structure,
-): PopulatedSubtitlesStructure.Structure {
+export function createPopulatedSubtitles(videoData: VideoPrivateOutModel): PopulatedSubtitlesStructure.Structure {
 	const subtitles = createSubtitlesWithSpeechlessBars(resolvedSubtitlesStructure)
 
 	return {
@@ -48,9 +29,9 @@
 		},
 		playingSubtitleOrSpeechlessBarId: 0,
 	}
-}*/
+}
 
-/*function createSubtitlesWithSpeechlessBars(
+function createSubtitlesWithSpeechlessBars(
 	resolvedSubtitlesStructure: ResolvedSubtitlesStructure.Structure,
 ): PopulatedSubtitlesStructure.Structure['subtitles'] {
 	const subtitles: PopulatedSubtitlesStructure.Structure['subtitles'] = []
@@ -108,7 +89,7 @@
 	}
 
 	return subtitles
-}*/
+}
 
 /**
  * Converts a subtitle text fragment (`text`) into `TextPart[]` with `id`s that match the
@@ -128,7 +109,7 @@
  * - Subtitles come in time order, so `startSearchPos` can advance monotonically for a given sentence.
  * - `text` is usually an exact substring of `fullSentence`.
  */
-/*function createTextPartsWithSentenceIds(
+function createTextPartsWithSentenceIds(
 	resolvedSubtitlesStructure: ResolvedSubtitlesStructure.Structure,
 	partsWithRangesBySentenceId: Map<
 		number,
@@ -188,7 +169,7 @@
 	}
 
 	return { textParts: result, nextCursor: endPos }
-}*/
+}
 
 /**
  * Returns cached full-sentence parts and their `[start, end)` character ranges.
@@ -199,7 +180,7 @@
  *
  * The result is used to map subtitle fragments to exact part ids from the full sentence.
  */
-/*function getOrCreatePartsWithRanges(
+function getOrCreatePartsWithRanges(
 	partsWithRangesBySentenceId: Map<
 		number,
 		{ parts: PopulatedSubtitlesStructure.TextPart[]; ranges: { start: number; end: number }[] }
@@ -235,9 +216,9 @@
 
 	partsWithRangesBySentenceId.set(sentenceId, { parts, ranges })
 	return partsWithRangesBySentenceId.get(sentenceId)!
-}*/
+}
 
-/*function timeCodeToMs(timeCode: string): number {
+function timeCodeToMs(timeCode: string): number {
 	const trimmed = timeCode.trim()
 	const match = trimmed.match(/^(\d+):(\d{2}):(\d{2})(?:[,.](\d{1,3}))?$/)
 	if (!match) return 0
@@ -249,4 +230,4 @@
 	const millis = parseInt(msStr.padEnd(3, '0'))
 
 	return hours * 3_600_000 + minutes * 60_000 + seconds * 1_000 + millis
-}*/
+}

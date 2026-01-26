@@ -6,7 +6,8 @@ import { CreatePrivateVideoInput } from 'routes/videoPrivate/inputs/createPrivat
 import { DeletePrivateVideoInput } from 'routes/videoPrivate/inputs/deletePrivateVideo.input'
 import { GetPrivateVideoInput } from 'routes/videoPrivate/inputs/getPrivateVideo.input'
 import { UpdatePrivateVideoInput } from 'routes/videoPrivate/inputs/updatePrivateVideo.input'
-import { VideoPrivateLiteOutModel } from 'src/models/videoPrivate/videoPrivateLiteOut.model'
+import { VideoPrivateLiteOutModel } from 'models/videoPrivate/videoPrivateLiteOut.model'
+import { VideoPrivateOutModel } from 'models/videoPrivate/videoPrivateOut.model'
 import { CreatePrivateVideoCommand } from 'features/videoPrivate/CreatePrivateVideo.command'
 import { DeletePrivateVideoCommand } from 'features/videoPrivate/DeletePrivateVideo.command'
 import { GetUserVideosPrivateCommand } from 'features/videoPrivate/GetUserVideosPrivate.command'
@@ -63,7 +64,7 @@ export class VideoPrivateResolver {
 	}
 
 	@UseGuards(CheckSessionCookieGuard)
-	@Query(() => VideoPrivateLiteOutModel, {
+	@Query(() => VideoPrivateOutModel, {
 		name: RouteNames.VIDEO_PRIVATE.GET,
 		description: videoPrivateResolversDesc.getVideoPrivate,
 	})

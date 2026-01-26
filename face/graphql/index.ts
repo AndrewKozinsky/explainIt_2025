@@ -175,6 +175,11 @@ export type GetBookPublicInput = {
   id: Scalars['Int']['input'];
 };
 
+export type GetPrivateVideoInput = {
+  /** Video id */
+  id: Scalars['Int']['input'];
+};
+
 export type GetTranscriptionInput = {
   /** Sentence in English */
   engSentence: Scalars['String']['input'];
@@ -350,8 +355,10 @@ export type Query = {
   book_public_get_books: Array<BookPublicOutModel>;
   /** Get user books */
   book_user_books: Array<BookOutModel>;
+  /** Get a video */
+  video_private_get: VideoPrivateOutModel;
   /** Get user videos */
-  video_private_user_videos: Array<VideoPrivateOutModel>;
+  video_private_user_videos: Array<VideoPrivateLiteOutModel>;
 };
 
 
@@ -379,6 +386,11 @@ export type QueryBook_Public_Get_BookArgs = {
   input: GetBookPublicInput;
 };
 
+
+export type QueryVideo_Private_GetArgs = {
+  input: GetPrivateVideoInput;
+};
+
 export type RegisterUserInput = {
   /** User email */
   email: Scalars['String']['input'];
@@ -396,6 +408,15 @@ export type SentenceOutModel = {
   id: Scalars['Int']['output'];
   length: Scalars['Int']['output'];
   startOffset: Scalars['Int']['output'];
+};
+
+export type SubtitleSentenceInitOutModel = {
+  __typename?: 'SubtitleSentenceInitOutModel';
+  id: Scalars['Int']['output'];
+  length: Scalars['Int']['output'];
+  sentenceId: Scalars['Int']['output'];
+  startOffset: Scalars['Int']['output'];
+  subtitleId: Scalars['Int']['output'];
 };
 
 export type TopUpBalanceWithYooKassaInput = {
@@ -492,6 +513,21 @@ export type UserOutModel = {
   isUserConfirmed: Scalars['Boolean']['output'];
 };
 
+export type VideoPrivateLiteOutModel = {
+  __typename?: 'VideoPrivateLiteOutModel';
+  contentType: Scalars['String']['output'];
+  fileName?: Maybe<Scalars['String']['output']>;
+  fileS3Key?: Maybe<Scalars['String']['output']>;
+  fileSizeMb: Scalars['Int']['output'];
+  fileUrl?: Maybe<Scalars['String']['output']>;
+  id: Scalars['Int']['output'];
+  isFileUploaded: Scalars['Boolean']['output'];
+  name?: Maybe<Scalars['String']['output']>;
+  originalContent?: Maybe<Scalars['String']['output']>;
+  processedContent?: Maybe<Scalars['String']['output']>;
+  userId: Scalars['Int']['output'];
+};
+
 export type VideoPrivateOutModel = {
   __typename?: 'VideoPrivateOutModel';
   contentType: Scalars['String']['output'];
@@ -504,7 +540,28 @@ export type VideoPrivateOutModel = {
   name?: Maybe<Scalars['String']['output']>;
   originalContent?: Maybe<Scalars['String']['output']>;
   processedContent?: Maybe<Scalars['String']['output']>;
+  sentences?: Maybe<Array<VideoPrivateSentenceOutModel>>;
+  subtitleSentenceInit?: Maybe<Array<SubtitleSentenceInitOutModel>>;
+  subtitles?: Maybe<Array<VideoPrivateSubtitleOutModel>>;
   userId: Scalars['Int']['output'];
+};
+
+export type VideoPrivateSentenceOutModel = {
+  __typename?: 'VideoPrivateSentenceOutModel';
+  id: Scalars['Int']['output'];
+  length: Scalars['Int']['output'];
+  orderIndex: Scalars['Int']['output'];
+  startOffset: Scalars['Int']['output'];
+};
+
+export type VideoPrivateSubtitleOutModel = {
+  __typename?: 'VideoPrivateSubtitleOutModel';
+  endTimeMs: Scalars['Int']['output'];
+  id: Scalars['Int']['output'];
+  length: Scalars['Int']['output'];
+  orderIndex: Scalars['Int']['output'];
+  startOffset: Scalars['Int']['output'];
+  startTimeMs: Scalars['Int']['output'];
 };
 
 export type AiCheckTranslationVariables = Exact<{
@@ -654,10 +711,17 @@ export type VideoPrivate_DeleteVariables = Exact<{
 
 export type VideoPrivate_Delete = { __typename?: 'Mutation', video_private_delete: boolean };
 
+export type VideoPrivate_GetVariables = Exact<{
+  input: GetPrivateVideoInput;
+}>;
+
+
+export type VideoPrivate_Get = { __typename?: 'Query', video_private_get: { __typename?: 'VideoPrivateOutModel', id: number, name?: string | null, originalContent?: string | null, processedContent?: string | null, contentType: string, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean, fileSizeMb: number, sentences?: Array<{ __typename?: 'VideoPrivateSentenceOutModel', id: number, startOffset: number, length: number, orderIndex: number }> | null, subtitles?: Array<{ __typename?: 'VideoPrivateSubtitleOutModel', id: number, startTimeMs: number, endTimeMs: number, startOffset: number, length: number, orderIndex: number }> | null, subtitleSentenceInit?: Array<{ __typename?: 'SubtitleSentenceInitOutModel', id: number, subtitleId: number, sentenceId: number, startOffset: number, length: number }> | null } };
+
 export type VideoPrivate_GetUserVideosVariables = Exact<{ [key: string]: never; }>;
 
 
-export type VideoPrivate_GetUserVideos = { __typename?: 'Query', video_private_user_videos: Array<{ __typename?: 'VideoPrivateOutModel', id: number, name?: string | null, contentType: string, originalContent?: string | null, processedContent?: string | null, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean, fileSizeMb: number }> };
+export type VideoPrivate_GetUserVideos = { __typename?: 'Query', video_private_user_videos: Array<{ __typename?: 'VideoPrivateLiteOutModel', id: number, name?: string | null, contentType: string, originalContent?: string | null, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean, fileSizeMb: number }> };
 
 export type VideoPrivate_UpdateVariables = Exact<{
   input: UpdatePrivateVideoInput;
@@ -1566,6 +1630,77 @@ export function useVideoPrivate_Delete(baseOptions?: Apollo.MutationHookOptions<
 export type VideoPrivate_DeleteHookResult = ReturnType<typeof useVideoPrivate_Delete>;
 export type VideoPrivate_DeleteMutationResult = Apollo.MutationResult<VideoPrivate_Delete>;
 export type VideoPrivate_DeleteMutationOptions = Apollo.BaseMutationOptions<VideoPrivate_Delete, VideoPrivate_DeleteVariables>;
+export const VideoPrivate_GetDocument = gql`
+    query VideoPrivate_get($input: GetPrivateVideoInput!) {
+  video_private_get(input: $input) {
+    id
+    name
+    originalContent
+    processedContent
+    contentType
+    userId
+    fileName
+    fileS3Key
+    fileUrl
+    isFileUploaded
+    fileSizeMb
+    sentences {
+      id
+      startOffset
+      length
+      orderIndex
+    }
+    subtitles {
+      id
+      startTimeMs
+      endTimeMs
+      startOffset
+      length
+      orderIndex
+    }
+    subtitleSentenceInit {
+      id
+      subtitleId
+      sentenceId
+      startOffset
+      length
+    }
+  }
+}
+    `;
+
+/**
+ * __useVideoPrivate_Get__
+ *
+ * To run a query within a React component, call `useVideoPrivate_Get` and pass it any options that fit your needs.
+ * When your component renders, `useVideoPrivate_Get` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useVideoPrivate_Get({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useVideoPrivate_Get(baseOptions: Apollo.QueryHookOptions<VideoPrivate_Get, VideoPrivate_GetVariables> & ({ variables: VideoPrivate_GetVariables; skip?: boolean; } | { skip: boolean; }) ) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<VideoPrivate_Get, VideoPrivate_GetVariables>(VideoPrivate_GetDocument, options);
+      }
+export function useVideoPrivate_GetLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<VideoPrivate_Get, VideoPrivate_GetVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<VideoPrivate_Get, VideoPrivate_GetVariables>(VideoPrivate_GetDocument, options);
+        }
+export function useVideoPrivate_GetSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<VideoPrivate_Get, VideoPrivate_GetVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<VideoPrivate_Get, VideoPrivate_GetVariables>(VideoPrivate_GetDocument, options);
+        }
+export type VideoPrivate_GetHookResult = ReturnType<typeof useVideoPrivate_Get>;
+export type VideoPrivate_GetLazyQueryHookResult = ReturnType<typeof useVideoPrivate_GetLazyQuery>;
+export type VideoPrivate_GetSuspenseQueryHookResult = ReturnType<typeof useVideoPrivate_GetSuspenseQuery>;
+export type VideoPrivate_GetQueryResult = Apollo.QueryResult<VideoPrivate_Get, VideoPrivate_GetVariables>;
 export const VideoPrivate_GetUserVideosDocument = gql`
     query VideoPrivate_getUserVideos {
   video_private_user_videos {
@@ -1573,7 +1708,6 @@ export const VideoPrivate_GetUserVideosDocument = gql`
     name
     contentType
     originalContent
-    processedContent
     userId
     fileName
     fileS3Key

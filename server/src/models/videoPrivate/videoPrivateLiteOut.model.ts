@@ -35,9 +35,3 @@ export class VideoPrivateLiteOutModel {
 	@Field(() => Int)
 	fileSizeMb: number
 }
-
-@ObjectType()
-export class VideoPrivateOutModel {
-	@Field(() => Int)
-	id: number
-}
