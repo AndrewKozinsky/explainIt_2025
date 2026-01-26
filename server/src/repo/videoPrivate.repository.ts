@@ -14,6 +14,7 @@ export class VideoPrivateRepository {
 		name?: null | string
 		originalContent?: null | string
 		processedContent?: null | string
+		contentType?: 'text' | 'subtitles'
 		fileSizeMb?: number
 	}) {
 		const newVideo = await this.prisma.videoPrivate.create({
@@ -21,6 +22,7 @@ export class VideoPrivateRepository {
 				name: dto.name,
 				original_content: dto.originalContent,
 				processed_content: dto.processedContent,
+				content_type: dto.contentType,
 				user_id: dto.userId,
 				file_size_mb: dto.fileSizeMb,
 			},
@@ -40,6 +42,7 @@ export class VideoPrivateRepository {
 			name?: null | string
 			originalContent?: null | string
 			processedContent?: null | string
+			contentType?: 'text' | 'subtitles'
 			fileSizeMb?: number
 		},
 	) {
@@ -53,6 +56,7 @@ export class VideoPrivateRepository {
 				name: dto.name,
 				original_content: dto.originalContent,
 				processed_content: dto.processedContent,
+				content_type: dto.contentType,
 				file_size_mb: dto.fileSizeMb,
 			},
 		})
@@ -98,6 +102,7 @@ export class VideoPrivateRepository {
 			fileUrl: dbVideo.file_url,
 			originalContent: dbVideo.original_content,
 			processedContent: dbVideo.processed_content,
+			contentType: dbVideo.content_type,
 			userId: dbVideo.user_id,
 			fileSizeMb: dbVideo.file_size_mb,
 		}

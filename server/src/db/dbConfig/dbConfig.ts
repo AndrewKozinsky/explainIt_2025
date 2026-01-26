@@ -315,7 +315,7 @@ export const bdConfig = {
 				required: false,
 				maxLength: 255,
 			},
-			originalContent: {
+			content: {
 				type: 'string',
 				description: 'Content of the chapter',
 				required: false,
@@ -411,6 +411,14 @@ export const bdConfig = {
 				type: 'string',
 				description: 'Processed subtitles or text of the video (flattened)',
 				required: false,
+			},
+			content_type: {
+				type: 'enum',
+				description: 'Type of content in the video: plain text or subtitles (SRT)',
+				required: true,
+				variants: ['text', 'subtitles'],
+				default: 'text',
+				enumName: 'VideoPrivateContentType',
 			},
 			created_at: {
 				type: 'createdAt',

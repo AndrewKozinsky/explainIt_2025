@@ -13,6 +13,7 @@ type BookChapterOutModel {
   id: Int!
   name: String
   note: String
+  sentences: [SentenceOutModel!]
 }
 
 type BookLiteOutModel {
@@ -72,6 +73,9 @@ input CreateBookChapterInput {
   """Book type: public or private"""
   bookType: String!
 
+  """Content of the chapter"""
+  content: String
+
   """Header on the chapter"""
   header: String
 
@@ -80,9 +84,6 @@ input CreateBookChapterInput {
 
   """Note about this chapter"""
   note: String
-
-  """Content of the chapter"""
-  originalContent: String
 }
 
 input CreateBookInput {
@@ -108,6 +109,7 @@ input CreatePrivateVideoInput {
 }
 
 type CreateVideoPrivateOutModel {
+  contentType: String!
   id: Int!
   name: String
   originalContent: String
@@ -283,6 +285,12 @@ input ResendConfirmationEmailInput {
   email: String!
 }
 
+type SentenceOutModel {
+  id: Int!
+  length: Int!
+  startOffset: Int!
+}
+
 input TopUpBalanceWithYooKassaInput {
   """Money amount in kopecks"""
   amount: Float!
@@ -319,6 +327,9 @@ type TranslateSentenceOutModel {
 }
 
 input UpdateBookChapterInput {
+  """BookChapter content"""
+  content: String
+
   """BookChapter header"""
   header: String
 
@@ -330,9 +341,6 @@ input UpdateBookChapterInput {
 
   """BookChapter note"""
   note: String
-
-  """BookChapter content"""
-  originalContent: String
 }
 
 input UpdateBookInput {
@@ -368,11 +376,12 @@ input UpdatePrivateVideoInput {
   """Name"""
   name: String
 
-  """Content"""
+  """Original content"""
   originalContent: String
 }
 
 type UpdateVideoPrivateOutModel {
+  contentType: String!
   fileSizeMb: Int
   id: Int!
   name: String
@@ -390,6 +399,7 @@ type UserOutModel {
 }
 
 type VideoPrivateOutModel {
+  contentType: String!
   fileName: String
   fileS3Key: String
   fileSizeMb: Int!

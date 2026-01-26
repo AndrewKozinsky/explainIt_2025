@@ -33,3 +33,11 @@ export const PaymentProviderName = {
 } as const
 
 export type PaymentProviderName = (typeof PaymentProviderName)[keyof typeof PaymentProviderName]
+
+
+export const VideoPrivateContentType = {
+  text: 'text',
+  subtitles: 'subtitles'
+} as const
+
+export type VideoPrivateContentType = (typeof VideoPrivateContentType)[keyof typeof VideoPrivateContentType]

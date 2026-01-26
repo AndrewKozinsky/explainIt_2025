@@ -3,8 +3,13 @@ query BookChapter_get($input: GetBookChapterInput!) {
 		id
 		name
 		header
-		content
 		note
+		content
+		sentences {
+			id
+			startOffset
+			length
+		}
 		book {
 			id
 			name

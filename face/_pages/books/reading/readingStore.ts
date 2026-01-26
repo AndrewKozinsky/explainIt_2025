@@ -1,29 +1,29 @@
-// import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
-// import { BookChapterOutModel, BookChapterPhraseOutModel, BookOutModel, BookPublicOutModel } from '@/graphql'
+import { create } from 'zustand'
+import { BookChapterOutModel, BookOutModel, BookPublicOutModel } from '@/graphql'
+import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
 // import { areArraysEqualIgnoringOrder } from 'utils/arrays'
-// import { create } from 'zustand'
 // import { produce } from 'immer'
 
-/*export const readingStoreValues: ReadingStoreValues = {
+export const readingStoreValues: ReadingStoreValues = {
 	book: null as any as ReadingStore.BookData,
 	chapter: null as any as ReadingStore.ChapterData,
 	populatedChapter: null as any as ChapterTextStructurePopulated.Chapter,
-	selection: {
+	/*selection: {
 		sentenceId: null,
 		wordIds: [],
 		phraseId: null,
-	},
-	isWordsAddingModeEnabled: false,
-	deviceType: 'mouse',
-	hoveredWord: {
+	},*/
+	// isWordsAddingModeEnabled: false,
+	// deviceType: 'mouse',
+	/*hoveredWord: {
 		sentenceId: null,
 		wordId: null,
 		pos: null,
 		container: null,
-	},
-}*/
+	},*/
+}
 
-/*export const useReadingStore = create<ReadingStoreNext>()((set, get) => {
+export const useReadingStore = create<ReadingStoreNext>()((set, get) => {
 	return {
 		...readingStoreValues,
 		updateBook: (book: ReadingStore.BookData) => {
@@ -47,22 +47,22 @@
 				}
 			})
 		},
-		changeSelectedSentenceId(id: number) {
+		/*changeSelectedSentenceId(id: number) {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
 					draftState.selection.sentenceId = id
 					draftState.selection.wordIds = []
 				})
 			})
-		},
-		changeSelectedPhraseId(id: null | number) {
+		},*/
+		/*changeSelectedPhraseId(id: null | number) {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
 					draftState.selection.phraseId = id
 				})
 			})
-		},
-		clearSelectedSentence() {
+		},*/
+		/*clearSelectedSentence() {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
 					draftState.selection = {
@@ -72,8 +72,8 @@
 					}
 				})
 			})
-		},
-		getSelectedSentence() {
+		},*/
+		/*getSelectedSentence() {
 			const { populatedChapter, selection } = get()
 			if (selection.sentenceId == null) return null
 
@@ -81,23 +81,23 @@
 			if (!sentence || sentence.type !== 'sentence') return null
 
 			return sentence
-		},
-		getSentenceById(sentenceId: number) {
+		},*/
+		/*getSentenceById(sentenceId: number) {
 			const { populatedChapter } = get()
 
 			const sentence = populatedChapter.parts.find((part) => part.id === sentenceId)
 			if (!sentence || sentence.type !== 'sentence') return null
 
 			return sentence
-		},
-		/!**
+		},*/
+		/**
 		 * Добавляет в выделенное предложение идентификатор выделенного слова.
 		 * @param wordId — id слова, которое нужно поставить во фразу
 		 * @param insertType — тип вставки:
 		 * add — добавить id слова с сохранением других идентификаторов в массиве выделенных слов,
 		 * replaceAll — убрать все остальные идентификаторы слов заменив этим
-		 *!/
-		addWordToSelectedSentence(wordId: number, insertType: 'add' | 'replaceAll') {
+		 */
+		/*addWordToSelectedSentence(wordId: number, insertType: 'add' | 'replaceAll') {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
 					if (insertType === 'replaceAll') {
@@ -107,22 +107,22 @@
 					}
 				})
 			})
-		},
-		changeWordsAddingMode(isEnabled: boolean) {
+		},*/
+		/*changeWordsAddingMode(isEnabled: boolean) {
 			set((state) => {
 				return {
 					isWordsAddingModeEnabled: isEnabled,
 				}
 			})
-		},
-		changeDeviceType(deviceType: DeviceType) {
+		},*/
+		/*changeDeviceType(deviceType: DeviceType) {
 			set((state) => {
 				return {
 					deviceType,
 				}
 			})
-		},
-		setHoveredWord(
+		},*/
+		/*setHoveredWord(
 			sentenceId: number,
 			wordId: number,
 			pos: { left: number; top: number },
@@ -138,8 +138,8 @@
 					}
 				})
 			})
-		},
-		clearHoveredWord() {
+		},*/
+		/*clearHoveredWord() {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
 					draftState.hoveredWord = {
@@ -150,9 +150,9 @@
 					}
 				})
 			})
-		},
-		/!** Ищет фразу с типом idle у выделенного предложения и ставит ей тип loading.*!/
-		createLoadingPhraseInSelectedSentenceFromSelectedWords() {
+		},*/
+		/** Ищет фразу с типом idle у выделенного предложения и ставит ей тип loading.*/
+		/*createLoadingPhraseInSelectedSentenceFromSelectedWords() {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
 					const { sentenceId } = draftState.selection
@@ -178,9 +178,9 @@
 					draftState.selection.phraseId = newPhraseId
 				})
 			})
-		},
-		/!** В предложени ищет фразу с указанным id и ставит ей тип error*!/
-		turnPhraseIntoErrorPhrase(sentenceId: number, phraseId: number, errorMessage: string) {
+		},*/
+		/** В предложени ищет фразу с указанным id и ставит ей тип error*/
+		/*turnPhraseIntoErrorPhrase(sentenceId: number, phraseId: number, errorMessage: string) {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
 					const sentence = draftState.populatedChapter.parts.find((part) => part.id === sentenceId)
@@ -197,8 +197,8 @@
 					}
 				})
 			})
-		},
-		setPhraseAnalysisIntoSentence(analysis: BookChapterPhraseOutModel) {
+		},*/
+		/*setPhraseAnalysisIntoSentence(analysis: BookChapterPhraseOutModel) {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
 					const sentence = draftState.populatedChapter.parts.find((sentence) => {
@@ -243,8 +243,8 @@
 					}
 				})
 			})
-		},
-		putTranslatedSentencesIntoChapter(translatedSentences: string[]) {
+		},*/
+		/*putTranslatedSentencesIntoChapter(translatedSentences: string[]) {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
 					let sentenceCounter = 0
@@ -258,11 +258,11 @@
 					})
 				})
 			})
-		},
+		},*/
 	}
-})*/
+})
 
-/*export namespace ReadingStore {
+export namespace ReadingStore {
 	export type BookData = {
 		loading: boolean
 		errorMessage: null | string
@@ -274,30 +274,30 @@
 		errorMessage: null | string
 		data: BookChapterOutModel
 	}
-}*/
+}
 
-// export type ReadingStoreNext = ReadingStoreValues & ReadingStoreMethods
+export type ReadingStoreNext = ReadingStoreValues & ReadingStoreMethods
 
 // type DeviceType = 'mouse' | 'touch'
 
-/*export type ReadingStoreValues = {
+export type ReadingStoreValues = {
 	book: ReadingStore.BookData
 	chapter: ReadingStore.ChapterData
 	populatedChapter: ChapterTextStructurePopulated.Chapter
 	// Данные выделенного предложения
-	selection: SelectedSentence
+	// selection: SelectedSentence
 	// Если этот режим включен, то при нажатии на слово оно будет добавляться во фразу типа idle.
 	// Если выключен, то заменит все слова поставленные во фразу типа idle.
-	isWordsAddingModeEnabled: boolean
-	deviceType: DeviceType
+	// isWordsAddingModeEnabled: boolean
+	// deviceType: DeviceType
 	// Данные наведённого слова для отображения всплывающей подсказки
-	hoveredWord: {
+	/*hoveredWord: {
 		sentenceId: number | null
 		wordId: number | null
 		pos: { left: number; top: number } | null
 		container: { width: number; height: number } | null
-	}
-}*/
+	}*/
+}
 
 /*export type SelectedSentence = {
 	sentenceId: null | number
@@ -307,27 +307,27 @@
 	phraseId: number | null
 }*/
 
-/*export type ReadingStoreMethods = {
+export type ReadingStoreMethods = {
 	updateBook: (book: ReadingStore.BookData) => void
 	updateChapter: (chapter: ReadingStore.ChapterData) => void
 	updatePopulatedChapter: (populatedChapter: ChapterTextStructurePopulated.Chapter) => void
-	changeSelectedSentenceId: (id: number) => void
-	changeSelectedPhraseId: (id: null | number) => void
-	clearSelectedSentence: () => void
-	getSelectedSentence: () => ChapterTextStructurePopulated.Sentence | null
-	getSentenceById: (id: number) => ChapterTextStructurePopulated.Sentence | null
-	addWordToSelectedSentence: (wordId: number, insertType: 'add' | 'replaceAll') => void
-	changeWordsAddingMode: (isEnabled: boolean) => void
-	changeDeviceType: (deviceType: DeviceType) => void
-	createLoadingPhraseInSelectedSentenceFromSelectedWords: () => void
-	turnPhraseIntoErrorPhrase: (sentenceId: number, phraseId: number, errorMessage: string) => void
-	setPhraseAnalysisIntoSentence: (analysis: BookChapterPhraseOutModel) => void
-	setHoveredWord: (
+	// changeSelectedSentenceId: (id: number) => void
+	// changeSelectedPhraseId: (id: null | number) => void
+	// clearSelectedSentence: () => void
+	// getSelectedSentence: () => ChapterTextStructurePopulated.Sentence | null
+	// getSentenceById: (id: number) => ChapterTextStructurePopulated.Sentence | null
+	// addWordToSelectedSentence: (wordId: number, insertType: 'add' | 'replaceAll') => void
+	// changeWordsAddingMode: (isEnabled: boolean) => void
+	// changeDeviceType: (deviceType: DeviceType) => void
+	// createLoadingPhraseInSelectedSentenceFromSelectedWords: () => void
+	// turnPhraseIntoErrorPhrase: (sentenceId: number, phraseId: number, errorMessage: string) => void
+	// setPhraseAnalysisIntoSentence: (analysis: BookChapterPhraseOutModel) => void
+	/*setHoveredWord: (
 		sentenceId: number,
 		wordId: number,
 		pos: { left: number; top: number },
 		container: { width: number; height: number },
-	) => void
-	clearHoveredWord: () => void
-	putTranslatedSentencesIntoChapter: (translatedSentences: string[]) => void
-}*/
+	) => void*/
+	// clearHoveredWord: () => void
+	// putTranslatedSentencesIntoChapter: (translatedSentences: string[]) => void
+}

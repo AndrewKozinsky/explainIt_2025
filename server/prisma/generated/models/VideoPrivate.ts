@@ -49,6 +49,7 @@ export type VideoPrivateMinAggregateOutputType = {
   name: string | null
   original_content: string | null
   processed_content: string | null
+  content_type: $Enums.VideoPrivateContentType | null
   created_at: Date | null
   updated_at: Date | null
 }
@@ -64,6 +65,7 @@ export type VideoPrivateMaxAggregateOutputType = {
   name: string | null
   original_content: string | null
   processed_content: string | null
+  content_type: $Enums.VideoPrivateContentType | null
   created_at: Date | null
   updated_at: Date | null
 }
@@ -79,6 +81,7 @@ export type VideoPrivateCountAggregateOutputType = {
   name: number
   original_content: number
   processed_content: number
+  content_type: number
   created_at: number
   updated_at: number
   _all: number
@@ -108,6 +111,7 @@ export type VideoPrivateMinAggregateInputType = {
   name?: true
   original_content?: true
   processed_content?: true
+  content_type?: true
   created_at?: true
   updated_at?: true
 }
@@ -123,6 +127,7 @@ export type VideoPrivateMaxAggregateInputType = {
   name?: true
   original_content?: true
   processed_content?: true
+  content_type?: true
   created_at?: true
   updated_at?: true
 }
@@ -138,6 +143,7 @@ export type VideoPrivateCountAggregateInputType = {
   name?: true
   original_content?: true
   processed_content?: true
+  content_type?: true
   created_at?: true
   updated_at?: true
   _all?: true
@@ -240,6 +246,7 @@ export type VideoPrivateGroupByOutputType = {
   name: string | null
   original_content: string | null
   processed_content: string | null
+  content_type: $Enums.VideoPrivateContentType
   created_at: Date
   updated_at: Date
   _count: VideoPrivateCountAggregateOutputType | null
@@ -278,6 +285,7 @@ export type VideoPrivateWhereInput = {
   name?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   original_content?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   processed_content?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
+  content_type?: Prisma.EnumVideoPrivateContentTypeFilter<"VideoPrivate"> | $Enums.VideoPrivateContentType
   created_at?: Prisma.DateTimeFilter<"VideoPrivate"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"VideoPrivate"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -296,6 +304,7 @@ export type VideoPrivateOrderByWithRelationInput = {
   name?: Prisma.SortOrderInput | Prisma.SortOrder
   original_content?: Prisma.SortOrderInput | Prisma.SortOrder
   processed_content?: Prisma.SortOrderInput | Prisma.SortOrder
+  content_type?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
@@ -317,6 +326,7 @@ export type VideoPrivateWhereUniqueInput = Prisma.AtLeast<{
   name?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   original_content?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   processed_content?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
+  content_type?: Prisma.EnumVideoPrivateContentTypeFilter<"VideoPrivate"> | $Enums.VideoPrivateContentType
   created_at?: Prisma.DateTimeFilter<"VideoPrivate"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"VideoPrivate"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -335,6 +345,7 @@ export type VideoPrivateOrderByWithAggregationInput = {
   name?: Prisma.SortOrderInput | Prisma.SortOrder
   original_content?: Prisma.SortOrderInput | Prisma.SortOrder
   processed_content?: Prisma.SortOrderInput | Prisma.SortOrder
+  content_type?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   _count?: Prisma.VideoPrivateCountOrderByAggregateInput
@@ -358,6 +369,7 @@ export type VideoPrivateScalarWhereWithAggregatesInput = {
   name?: Prisma.StringNullableWithAggregatesFilter<"VideoPrivate"> | string | null
   original_content?: Prisma.StringNullableWithAggregatesFilter<"VideoPrivate"> | string | null
   processed_content?: Prisma.StringNullableWithAggregatesFilter<"VideoPrivate"> | string | null
+  content_type?: Prisma.EnumVideoPrivateContentTypeWithAggregatesFilter<"VideoPrivate"> | $Enums.VideoPrivateContentType
   created_at?: Prisma.DateTimeWithAggregatesFilter<"VideoPrivate"> | Date | string
   updated_at?: Prisma.DateTimeWithAggregatesFilter<"VideoPrivate"> | Date | string
 }
@@ -371,6 +383,7 @@ export type VideoPrivateCreateInput = {
   name?: string | null
   original_content?: string | null
   processed_content?: string | null
+  content_type?: $Enums.VideoPrivateContentType
   created_at?: Date | string
   updated_at?: Date | string
   user: Prisma.UserCreateNestedOneWithoutVideoPrivateInput
@@ -389,6 +402,7 @@ export type VideoPrivateUncheckedCreateInput = {
   name?: string | null
   original_content?: string | null
   processed_content?: string | null
+  content_type?: $Enums.VideoPrivateContentType
   created_at?: Date | string
   updated_at?: Date | string
   Subtitle?: Prisma.SubtitleUncheckedCreateNestedManyWithoutVideo_privateInput
@@ -404,6 +418,7 @@ export type VideoPrivateUpdateInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  content_type?: Prisma.EnumVideoPrivateContentTypeFieldUpdateOperationsInput | $Enums.VideoPrivateContentType
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutVideoPrivateNestedInput
@@ -422,6 +437,7 @@ export type VideoPrivateUncheckedUpdateInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  content_type?: Prisma.EnumVideoPrivateContentTypeFieldUpdateOperationsInput | $Enums.VideoPrivateContentType
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Subtitle?: Prisma.SubtitleUncheckedUpdateManyWithoutVideo_privateNestedInput
@@ -439,6 +455,7 @@ export type VideoPrivateCreateManyInput = {
   name?: string | null
   original_content?: string | null
   processed_content?: string | null
+  content_type?: $Enums.VideoPrivateContentType
   created_at?: Date | string
   updated_at?: Date | string
 }
@@ -452,6 +469,7 @@ export type VideoPrivateUpdateManyMutationInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  content_type?: Prisma.EnumVideoPrivateContentTypeFieldUpdateOperationsInput | $Enums.VideoPrivateContentType
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -467,6 +485,7 @@ export type VideoPrivateUncheckedUpdateManyInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  content_type?: Prisma.EnumVideoPrivateContentTypeFieldUpdateOperationsInput | $Enums.VideoPrivateContentType
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -492,6 +511,7 @@ export type VideoPrivateCountOrderByAggregateInput = {
   name?: Prisma.SortOrder
   original_content?: Prisma.SortOrder
   processed_content?: Prisma.SortOrder
+  content_type?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -513,6 +533,7 @@ export type VideoPrivateMaxOrderByAggregateInput = {
   name?: Prisma.SortOrder
   original_content?: Prisma.SortOrder
   processed_content?: Prisma.SortOrder
+  content_type?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -528,6 +549,7 @@ export type VideoPrivateMinOrderByAggregateInput = {
   name?: Prisma.SortOrder
   original_content?: Prisma.SortOrder
   processed_content?: Prisma.SortOrder
+  content_type?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -585,6 +607,10 @@ export type VideoPrivateUncheckedUpdateManyWithoutUserNestedInput = {
   deleteMany?: Prisma.VideoPrivateScalarWhereInput | Prisma.VideoPrivateScalarWhereInput[]
 }
 
+export type EnumVideoPrivateContentTypeFieldUpdateOperationsInput = {
+  set?: $Enums.VideoPrivateContentType
+}
+
 export type VideoPrivateCreateNestedOneWithoutSentenceInput = {
   create?: Prisma.XOR<Prisma.VideoPrivateCreateWithoutSentenceInput, Prisma.VideoPrivateUncheckedCreateWithoutSentenceInput>
   connectOrCreate?: Prisma.VideoPrivateCreateOrConnectWithoutSentenceInput
@@ -626,6 +652,7 @@ export type VideoPrivateCreateWithoutUserInput = {
   name?: string | null
   original_content?: string | null
   processed_content?: string | null
+  content_type?: $Enums.VideoPrivateContentType
   created_at?: Date | string
   updated_at?: Date | string
   Subtitle?: Prisma.SubtitleCreateNestedManyWithoutVideo_privateInput
@@ -642,6 +669,7 @@ export type VideoPrivateUncheckedCreateWithoutUserInput = {
   name?: string | null
   original_content?: string | null
   processed_content?: string | null
+  content_type?: $Enums.VideoPrivateContentType
   created_at?: Date | string
   updated_at?: Date | string
   Subtitle?: Prisma.SubtitleUncheckedCreateNestedManyWithoutVideo_privateInput
@@ -688,6 +716,7 @@ export type VideoPrivateScalarWhereInput = {
   name?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   original_content?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   processed_content?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
+  content_type?: Prisma.EnumVideoPrivateContentTypeFilter<"VideoPrivate"> | $Enums.VideoPrivateContentType
   created_at?: Prisma.DateTimeFilter<"VideoPrivate"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"VideoPrivate"> | Date | string
 }
@@ -701,6 +730,7 @@ export type VideoPrivateCreateWithoutSentenceInput = {
   name?: string | null
   original_content?: string | null
   processed_content?: string | null
+  content_type?: $Enums.VideoPrivateContentType
   created_at?: Date | string
   updated_at?: Date | string
   user: Prisma.UserCreateNestedOneWithoutVideoPrivateInput
@@ -718,6 +748,7 @@ export type VideoPrivateUncheckedCreateWithoutSentenceInput = {
   name?: string | null
   original_content?: string | null
   processed_content?: string | null
+  content_type?: $Enums.VideoPrivateContentType
   created_at?: Date | string
   updated_at?: Date | string
   Subtitle?: Prisma.SubtitleUncheckedCreateNestedManyWithoutVideo_privateInput
@@ -748,6 +779,7 @@ export type VideoPrivateUpdateWithoutSentenceInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  content_type?: Prisma.EnumVideoPrivateContentTypeFieldUpdateOperationsInput | $Enums.VideoPrivateContentType
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutVideoPrivateNestedInput
@@ -765,6 +797,7 @@ export type VideoPrivateUncheckedUpdateWithoutSentenceInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  content_type?: Prisma.EnumVideoPrivateContentTypeFieldUpdateOperationsInput | $Enums.VideoPrivateContentType
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Subtitle?: Prisma.SubtitleUncheckedUpdateManyWithoutVideo_privateNestedInput
@@ -779,6 +812,7 @@ export type VideoPrivateCreateWithoutSubtitleInput = {
   name?: string | null
   original_content?: string | null
   processed_content?: string | null
+  content_type?: $Enums.VideoPrivateContentType
   created_at?: Date | string
   updated_at?: Date | string
   user: Prisma.UserCreateNestedOneWithoutVideoPrivateInput
@@ -796,6 +830,7 @@ export type VideoPrivateUncheckedCreateWithoutSubtitleInput = {
   name?: string | null
   original_content?: string | null
   processed_content?: string | null
+  content_type?: $Enums.VideoPrivateContentType
   created_at?: Date | string
   updated_at?: Date | string
   Sentence?: Prisma.SentenceUncheckedCreateNestedManyWithoutVideo_privateInput
@@ -826,6 +861,7 @@ export type VideoPrivateUpdateWithoutSubtitleInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  content_type?: Prisma.EnumVideoPrivateContentTypeFieldUpdateOperationsInput | $Enums.VideoPrivateContentType
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutVideoPrivateNestedInput
@@ -843,6 +879,7 @@ export type VideoPrivateUncheckedUpdateWithoutSubtitleInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  content_type?: Prisma.EnumVideoPrivateContentTypeFieldUpdateOperationsInput | $Enums.VideoPrivateContentType
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutVideo_privateNestedInput
@@ -858,6 +895,7 @@ export type VideoPrivateCreateManyUserInput = {
   name?: string | null
   original_content?: string | null
   processed_content?: string | null
+  content_type?: $Enums.VideoPrivateContentType
   created_at?: Date | string
   updated_at?: Date | string
 }
@@ -871,6 +909,7 @@ export type VideoPrivateUpdateWithoutUserInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  content_type?: Prisma.EnumVideoPrivateContentTypeFieldUpdateOperationsInput | $Enums.VideoPrivateContentType
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Subtitle?: Prisma.SubtitleUpdateManyWithoutVideo_privateNestedInput
@@ -887,6 +926,7 @@ export type VideoPrivateUncheckedUpdateWithoutUserInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  content_type?: Prisma.EnumVideoPrivateContentTypeFieldUpdateOperationsInput | $Enums.VideoPrivateContentType
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Subtitle?: Prisma.SubtitleUncheckedUpdateManyWithoutVideo_privateNestedInput
@@ -903,6 +943,7 @@ export type VideoPrivateUncheckedUpdateManyWithoutUserInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  content_type?: Prisma.EnumVideoPrivateContentTypeFieldUpdateOperationsInput | $Enums.VideoPrivateContentType
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -958,6 +999,7 @@ export type VideoPrivateSelect<ExtArgs extends runtime.Types.Extensions.Internal
   name?: boolean
   original_content?: boolean
   processed_content?: boolean
+  content_type?: boolean
   created_at?: boolean
   updated_at?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -977,6 +1019,7 @@ export type VideoPrivateSelectCreateManyAndReturn<ExtArgs extends runtime.Types.
   name?: boolean
   original_content?: boolean
   processed_content?: boolean
+  content_type?: boolean
   created_at?: boolean
   updated_at?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -993,6 +1036,7 @@ export type VideoPrivateSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.
   name?: boolean
   original_content?: boolean
   processed_content?: boolean
+  content_type?: boolean
   created_at?: boolean
   updated_at?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -1009,11 +1053,12 @@ export type VideoPrivateSelectScalar = {
   name?: boolean
   original_content?: boolean
   processed_content?: boolean
+  content_type?: boolean
   created_at?: boolean
   updated_at?: boolean
 }
 
-export type VideoPrivateOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "file_name" | "file_s3_key" | "file_url" | "is_file_uploaded" | "file_size_mb" | "name" | "original_content" | "processed_content" | "created_at" | "updated_at", ExtArgs["result"]["videoPrivate"]>
+export type VideoPrivateOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "file_name" | "file_s3_key" | "file_url" | "is_file_uploaded" | "file_size_mb" | "name" | "original_content" | "processed_content" | "content_type" | "created_at" | "updated_at", ExtArgs["result"]["videoPrivate"]>
 export type VideoPrivateInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   Subtitle?: boolean | Prisma.VideoPrivate$SubtitleArgs<ExtArgs>
@@ -1045,6 +1090,7 @@ export type $VideoPrivatePayload<ExtArgs extends runtime.Types.Extensions.Intern
     name: string | null
     original_content: string | null
     processed_content: string | null
+    content_type: $Enums.VideoPrivateContentType
     created_at: Date
     updated_at: Date
   }, ExtArgs["result"]["videoPrivate"]>
@@ -1483,6 +1529,7 @@ export interface VideoPrivateFieldRefs {
   readonly name: Prisma.FieldRef<"VideoPrivate", 'String'>
   readonly original_content: Prisma.FieldRef<"VideoPrivate", 'String'>
   readonly processed_content: Prisma.FieldRef<"VideoPrivate", 'String'>
+  readonly content_type: Prisma.FieldRef<"VideoPrivate", 'VideoPrivateContentType'>
   readonly created_at: Prisma.FieldRef<"VideoPrivate", 'DateTime'>
   readonly updated_at: Prisma.FieldRef<"VideoPrivate", 'DateTime'>
 }

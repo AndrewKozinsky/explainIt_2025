@@ -8,11 +8,7 @@ type FullBookChapter = Prisma.BookChapterGetPayload<{
 	include: {
 		book: true
 		book_public: true
-		/*BookChapterPhrase: {
-			include: {
-				BookChapterPhraseExample: true
-			}
-		}*/
+		Sentence: true
 	}
 }>
 
@@ -33,7 +29,7 @@ export class BookChapterQueryRepository {
 			include: {
 				book: true,
 				book_public: true,
-				// BookChapterPhrase: { include: { BookChapterPhraseExample: true } },
+				Sentence: true,
 			},
 		})
 
@@ -55,37 +51,27 @@ export class BookChapterQueryRepository {
 		return bookChapters.map((ch) => this.mapDbBookChapterToOutBookChapter(ch as FullBookChapterPrivate))
 	}*/
 
-	mapDbBookChapterToOutBookChapter(dbBook: FullBookChapterPrivate): BookChapterOutModel {
-		const book = dbBook.book_public ? dbBook.book_public : dbBook.book
+	mapDbBookChapterToOutBookChapter(dbChapter: FullBookChapterPrivate): BookChapterOutModel {
+		const book = dbChapter.book_public ? dbChapter.book_public : dbChapter.book
 
 		return {
-			id: dbBook.id,
-			name: dbBook.name,
-			header: dbBook.header,
-			content: dbBook.content,
-			note: dbBook.note,
+			id: dbChapter.id,
+			name: dbChapter.name,
+			header: dbChapter.header,
+			content: dbChapter.content,
+			sentences: dbChapter.Sentence.map((s) => ({
+				id: s.id,
+				startOffset: s.start_offset,
+				length: s.length,
+			})),
+			note: dbChapter.note,
 			book: {
 				id: book.id,
 				name: book.name,
 				author: book.author,
 				note: book.note,
-				userId: dbBook.book_public ? null : dbBook.book.user_id,
+				userId: dbChapter.book_public ? null : dbChapter.book.user_id,
 			},
-			/*phrases: dbBook.BookChapterPhrase.map((phrase) => ({
-				id: phrase.id,
-				sentenceId: phrase.sentenceId,
-				sentence: phrase.sentence,
-				phrase: phrase.phrase,
-				transcription: phrase.phraseTranscription,
-				phraseWordsIdx: phrase.phraseWordsIdx,
-				translation: phrase.phraseTranslation,
-				analysis: phrase.phraseAnalysis,
-				examples: phrase.BookChapterPhraseExample.map((example) => ({
-					id: example.id,
-					sentence: example.sentence,
-					translation: example.translation,
-				})),
-			})),*/
 		}
 	}
 }

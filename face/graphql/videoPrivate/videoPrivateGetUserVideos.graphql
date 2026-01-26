@@ -2,6 +2,7 @@ query VideoPrivate_getUserVideos {
 	video_private_user_videos {
 		id
 		name
+		contentType
 		originalContent
 		processedContent
 		userId

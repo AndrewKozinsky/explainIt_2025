@@ -11,6 +11,7 @@ export class GetUserVideosPrivateHandler implements ICommandHandler<GetUserVideo
 
 	async execute(command: GetUserVideosPrivateCommand) {
 		const { userId } = command
-		return await this.videoQueryRepository.getUserVideos(userId)
+
+		return this.videoQueryRepository.getUserVideos(userId)
 	}
 }

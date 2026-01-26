@@ -79,7 +79,7 @@ export interface CreateBookChapterInput {
     bookId: number;
     name?: Nullable<string>;
     header?: Nullable<string>;
-    originalContent?: Nullable<string>;
+    content?: Nullable<string>;
     note?: Nullable<string>;
 }
 
@@ -87,7 +87,7 @@ export interface UpdateBookChapterInput {
     id: number;
     name?: Nullable<string>;
     header?: Nullable<string>;
-    originalContent?: Nullable<string>;
+    content?: Nullable<string>;
     note?: Nullable<string>;
 }
 
@@ -156,9 +156,16 @@ export interface BookChapterOutModel {
     id: number;
     name?: Nullable<string>;
     header?: Nullable<string>;
-    content?: Nullable<string>;
     note?: Nullable<string>;
+    content?: Nullable<string>;
+    sentences?: Nullable<SentenceOutModel[]>;
     book: BookLiteOutModel;
+}
+
+export interface SentenceOutModel {
+    id: number;
+    startOffset: number;
+    length: number;
 }
 
 export interface BookPublicOutModel {
@@ -187,6 +194,7 @@ export interface CreateVideoPrivateOutModel {
     name?: Nullable<string>;
     originalContent?: Nullable<string>;
     processedContent?: Nullable<string>;
+    contentType: string;
     userId: number;
 }
 
@@ -195,6 +203,7 @@ export interface UpdateVideoPrivateOutModel {
     name?: Nullable<string>;
     originalContent?: Nullable<string>;
     processedContent?: Nullable<string>;
+    contentType: string;
     userId: number;
     uploadUrl?: Nullable<string>;
     fileSizeMb?: Nullable<number>;
@@ -206,6 +215,7 @@ export interface VideoPrivateOutModel {
     name?: Nullable<string>;
     originalContent?: Nullable<string>;
     processedContent?: Nullable<string>;
+    contentType: string;
     fileName?: Nullable<string>;
     fileS3Key?: Nullable<string>;
     fileUrl?: Nullable<string>;

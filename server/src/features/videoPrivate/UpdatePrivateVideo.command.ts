@@ -109,6 +109,7 @@ export class UpdatePrivateVideoHandler
 			name: updateVideoInput.name,
 			originalContent: preparedContentResult.originalContentForVideoUpdate,
 			processedContent: preparedContentResult.processedContentForVideoUpdate,
+			contentType: preparedContentResult.contentTypeForVideoUpdate,
 			fileName,
 			fileS3Key,
 			fileUrl,
@@ -149,6 +150,7 @@ export class UpdatePrivateVideoHandler
 		shouldUpdateRelatedTextData: boolean
 		originalContentForVideoUpdate: undefined | null | string
 		processedContentForVideoUpdate: undefined | null | string
+		contentTypeForVideoUpdate: undefined | 'text' | 'subtitles'
 		preparedContent: null | string
 		subtitles?: Array<{
 			startTimeMs: number
@@ -163,6 +165,7 @@ export class UpdatePrivateVideoHandler
 				shouldUpdateRelatedTextData: false,
 				originalContentForVideoUpdate: undefined,
 				processedContentForVideoUpdate: undefined,
+				contentTypeForVideoUpdate: undefined,
 				preparedContent: null,
 			}
 		}
@@ -172,6 +175,7 @@ export class UpdatePrivateVideoHandler
 				shouldUpdateRelatedTextData: true,
 				originalContentForVideoUpdate: null,
 				processedContentForVideoUpdate: null,
+				contentTypeForVideoUpdate: 'text',
 				preparedContent: null,
 			}
 		}
@@ -184,6 +188,7 @@ export class UpdatePrivateVideoHandler
 				shouldUpdateRelatedTextData: true,
 				originalContentForVideoUpdate: '',
 				processedContentForVideoUpdate: '',
+				contentTypeForVideoUpdate: 'text',
 				preparedContent: '',
 			}
 		}
@@ -196,6 +201,7 @@ export class UpdatePrivateVideoHandler
 					shouldUpdateRelatedTextData: false,
 					originalContentForVideoUpdate: undefined,
 					processedContentForVideoUpdate: undefined,
+					contentTypeForVideoUpdate: undefined,
 					preparedContent: null,
 				}
 			}
@@ -204,6 +210,7 @@ export class UpdatePrivateVideoHandler
 				shouldUpdateRelatedTextData: true,
 				originalContentForVideoUpdate: trimmed,
 				processedContentForVideoUpdate: preparedContent,
+				contentTypeForVideoUpdate: 'subtitles',
 				preparedContent,
 				subtitles,
 			}
@@ -216,6 +223,7 @@ export class UpdatePrivateVideoHandler
 				shouldUpdateRelatedTextData: false,
 				originalContentForVideoUpdate: undefined,
 				processedContentForVideoUpdate: undefined,
+				contentTypeForVideoUpdate: undefined,
 				preparedContent: null,
 			}
 		}
@@ -224,6 +232,7 @@ export class UpdatePrivateVideoHandler
 			shouldUpdateRelatedTextData: true,
 			originalContentForVideoUpdate: trimmed,
 			processedContentForVideoUpdate: preparedContent,
+			contentTypeForVideoUpdate: 'text',
 			preparedContent,
 		}
 	}

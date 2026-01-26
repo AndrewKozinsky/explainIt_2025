@@ -14,6 +14,9 @@ export class UpdateVideoPrivateOutModel {
 	@Field(() => String, { nullable: true })
 	processedContent: null | string
 
+	@Field(() => String)
+	contentType: 'text' | 'subtitles'
+
 	@Field(() => Int)
 	userId: number
 

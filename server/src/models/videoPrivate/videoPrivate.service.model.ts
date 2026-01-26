@@ -4,6 +4,7 @@ export type VideoPrivateServiceModel = {
 	fileUrl: string | null
 	originalContent: null | string
 	processedContent: null | string
+	contentType: 'text' | 'subtitles'
 	userId: number
 	fileSizeMb: number
 }

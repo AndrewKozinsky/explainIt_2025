@@ -41,6 +41,7 @@ export class VideoPrivateQueryRepository {
 			isFileUploaded: dbVideo.is_file_uploaded,
 			originalContent: dbVideo.original_content,
 			processedContent: dbVideo.processed_content,
+			contentType: dbVideo.content_type,
 			userId: dbVideo.user_id,
 			fileSizeMb: dbVideo.file_size_mb,
 		}

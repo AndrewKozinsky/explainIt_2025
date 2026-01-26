@@ -1,94 +1,40 @@
-// import { ChapterTextStructure, ChapterTextStructurePopulated } from './chapterStructureTypes'
+import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
 
 /**
  * Получает структуру главы с сервера и наполняет её полезными данными чтобы из
  * ChapterTextStructure.Chapter получить ChapterTextStructurePopulated.Chapter
  * @param chapter — данные главы
  */
-/*export function populateChapterStructure(chapter: {
+export function populateChapterStructure(chapter: {
 	id: number
 	header: undefined | null | string
 	name: undefined | null | string
-	content: ChapterTextStructure.Chapter
-	phrases: ChapterTextStructure.Phrase[]
+	content: undefined | null | string
+	sentences?:
+		| null
+		| {
+				id: number
+				startOffset: number
+				length: number
+		  }[]
 }): ChapterTextStructurePopulated.Chapter {
-	let elementId = 1
+	const content = chapter.content ?? ''
+	const sentencesCoords = chapter.sentences ?? []
 
-	const parts: ChapterTextStructurePopulated.Sentence[] = chapter.content.map((item) => {
-		const currentId = elementId++
+	const sentences: { id: number; sentence: string }[] = sentencesCoords.map((sentence) => {
+		const startOffset = Math.max(0, sentence.startOffset)
+		const endOffset = Math.min(content.length, startOffset + Math.max(0, sentence.length))
 
-		return populateSentenceStructure(currentId, item, chapter.phrases)
+		return {
+			id: sentence.id,
+			sentence: content.slice(startOffset, endOffset),
+		}
 	})
 
 	return {
 		id: chapter.id,
 		header: chapter.header || null,
 		name: chapter.name || null,
-		parts,
+		sentences,
 	}
-}*/
-
-/*function populateSentenceStructure(
-	currentId: number,
-	sentenceStructure: ChapterTextStructure.Sentence,
-	phrases: ChapterTextStructure.Phrase[],
-): ChapterTextStructurePopulated.Sentence {
-	return {
-		id: currentId,
-		type: 'sentence',
-		context: '', // TODO Put correct context later!!!
-		translation: sentenceStructure.tr ?? null,
-		parts: populateSentencePartsStructure(sentenceStructure.p),
-		phrases: populateSentencePhrases(phrases, currentId),
-	}
-}*/
-
-/*function populateSentencePartsStructure(
-	sentenceParts: ChapterTextStructure.SentencePart[],
-): ChapterTextStructurePopulated.SentencePart[] {
-	let partId = 1
-
-	return sentenceParts.map((part: any) => {
-		partId++
-
-		if (part.t === 'w') {
-			return { id: partId, type: 'word', value: part.v } as const
-		} else if (part.t === 's') {
-			return { id: partId, type: 'space' } as const
-		}
-		return { id: partId, type: 'punctuation', value: part.v } as const
-	})
-}*/
-
-/*function populateSentencePhrases(
-	allPhrases: ChapterTextStructure.Phrase[],
-	sentenceId: number,
-): ChapterTextStructurePopulated.Phrase[] {
-	const thisSentencePhrases = allPhrases.filter((phrase) => phrase.sentenceId === sentenceId)
-
-	return thisSentencePhrases.map((phrase, idx) => {
-		return {
-			id: idx + 1,
-			type: 'success',
-			phraseIdInDb: phrase.id,
-			phrase: phrase.phrase,
-			// Идентификаторы выделенных слов этой фразы
-			wordIds: phrase.phraseWordsIdx,
-			analysis: {
-				transcription: phrase.transcription,
-				// Краткий перевод фразы
-				translation: phrase.translation,
-				// Анализ фразы
-				analysis: phrase.analysis,
-				// Примеры использования фразы (предложение на иностранном языке и родном)
-				examples: phrase.examples.map((example) => {
-					return {
-						id: example.id,
-						foreignLang: example.sentence,
-						nativeLang: example.translation,
-					}
-				}),
-			},
-		}
-	})
-}*/
+}

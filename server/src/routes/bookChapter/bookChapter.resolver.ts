@@ -15,7 +15,6 @@ import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCooki
 // import { UserWithPositiveBalanceGuard } from 'infrastructure/guards/userWithPositiveBalanceGuard.guard'
 import RouteNames from 'infrastructure/routeNames'
 import { BookChapterOutModel } from 'models/bookChapter/bookChapter.out.model'
-// import { BookChapterPhraseOutModel } from 'models/bookChapterPhrase/bookChapterPhrase.out.model'
 // import { BookChapterTranslateOfSentencesOutModel } from 'models/bookChapterPhrase/bookChapterTranslateOfSentences.out.model'
 import { CreateBookChapterInput } from './inputs/createBookChapter.input'
 import { DeleteBookChapterInput } from './inputs/deleteBookChapter.input'

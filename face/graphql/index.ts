@@ -34,6 +34,7 @@ export type BookChapterOutModel = {
   id: Scalars['Int']['output'];
   name?: Maybe<Scalars['String']['output']>;
   note?: Maybe<Scalars['String']['output']>;
+  sentences?: Maybe<Array<SentenceOutModel>>;
 };
 
 export type BookLiteOutModel = {
@@ -95,14 +96,14 @@ export type CreateBookChapterInput = {
   bookId: Scalars['Int']['input'];
   /** Book type: public or private */
   bookType: Scalars['String']['input'];
+  /** Content of the chapter */
+  content?: InputMaybe<Scalars['String']['input']>;
   /** Header on the chapter */
   header?: InputMaybe<Scalars['String']['input']>;
   /** Name on the chapter (chapter 1) */
   name?: InputMaybe<Scalars['String']['input']>;
   /** Note about this chapter */
   note?: InputMaybe<Scalars['String']['input']>;
-  /** Content of the chapter */
-  originalContent?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type CreateBookInput = {
@@ -125,6 +126,7 @@ export type CreatePrivateVideoInput = {
 
 export type CreateVideoPrivateOutModel = {
   __typename?: 'CreateVideoPrivateOutModel';
+  contentType: Scalars['String']['output'];
   id: Scalars['Int']['output'];
   name?: Maybe<Scalars['String']['output']>;
   originalContent?: Maybe<Scalars['String']['output']>;
@@ -389,6 +391,13 @@ export type ResendConfirmationEmailInput = {
   email: Scalars['String']['input'];
 };
 
+export type SentenceOutModel = {
+  __typename?: 'SentenceOutModel';
+  id: Scalars['Int']['output'];
+  length: Scalars['Int']['output'];
+  startOffset: Scalars['Int']['output'];
+};
+
 export type TopUpBalanceWithYooKassaInput = {
   /** Money amount in kopecks */
   amount: Scalars['Float']['input'];
@@ -423,6 +432,8 @@ export type TranslateSentenceOutModel = {
 };
 
 export type UpdateBookChapterInput = {
+  /** BookChapter content */
+  content?: InputMaybe<Scalars['String']['input']>;
   /** BookChapter header */
   header?: InputMaybe<Scalars['String']['input']>;
   /** BookChapter id */
@@ -431,8 +442,6 @@ export type UpdateBookChapterInput = {
   name?: InputMaybe<Scalars['String']['input']>;
   /** BookChapter note */
   note?: InputMaybe<Scalars['String']['input']>;
-  /** BookChapter content */
-  originalContent?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type UpdateBookInput = {
@@ -459,12 +468,13 @@ export type UpdatePrivateVideoInput = {
   isFileUploaded?: InputMaybe<Scalars['Boolean']['input']>;
   /** Name */
   name?: InputMaybe<Scalars['String']['input']>;
-  /** Content */
+  /** Original content */
   originalContent?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type UpdateVideoPrivateOutModel = {
   __typename?: 'UpdateVideoPrivateOutModel';
+  contentType: Scalars['String']['output'];
   fileSizeMb?: Maybe<Scalars['Int']['output']>;
   id: Scalars['Int']['output'];
   name?: Maybe<Scalars['String']['output']>;
@@ -484,6 +494,7 @@ export type UserOutModel = {
 
 export type VideoPrivateOutModel = {
   __typename?: 'VideoPrivateOutModel';
+  contentType: Scalars['String']['output'];
   fileName?: Maybe<Scalars['String']['output']>;
   fileS3Key?: Maybe<Scalars['String']['output']>;
   fileSizeMb: Scalars['Int']['output'];
@@ -568,7 +579,7 @@ export type BookChapter_GetVariables = Exact<{
 }>;
 
 
-export type BookChapter_Get = { __typename?: 'Query', book_chapter_get: { __typename?: 'BookChapterOutModel', id: number, name?: string | null, header?: string | null, content?: string | null, note?: string | null, book: { __typename?: 'BookLiteOutModel', id: number, name?: string | null, author?: string | null, note?: string | null, userId?: number | null } } };
+export type BookChapter_Get = { __typename?: 'Query', book_chapter_get: { __typename?: 'BookChapterOutModel', id: number, name?: string | null, header?: string | null, note?: string | null, content?: string | null, sentences?: Array<{ __typename?: 'SentenceOutModel', id: number, startOffset: number, length: number }> | null, book: { __typename?: 'BookLiteOutModel', id: number, name?: string | null, author?: string | null, note?: string | null, userId?: number | null } } };
 
 export type BookChapter_UpdateVariables = Exact<{
   input: UpdateBookChapterInput;
@@ -634,7 +645,7 @@ export type VideoPrivate_CreateVariables = Exact<{
 }>;
 
 
-export type VideoPrivate_Create = { __typename?: 'Mutation', video_private_create: { __typename?: 'CreateVideoPrivateOutModel', id: number, name?: string | null, originalContent?: string | null, processedContent?: string | null, userId: number } };
+export type VideoPrivate_Create = { __typename?: 'Mutation', video_private_create: { __typename?: 'CreateVideoPrivateOutModel', id: number, name?: string | null, contentType: string, originalContent?: string | null, processedContent?: string | null, userId: number } };
 
 export type VideoPrivate_DeleteVariables = Exact<{
   input: DeletePrivateVideoInput;
@@ -646,14 +657,14 @@ export type VideoPrivate_Delete = { __typename?: 'Mutation', video_private_delet
 export type VideoPrivate_GetUserVideosVariables = Exact<{ [key: string]: never; }>;
 
 
-export type VideoPrivate_GetUserVideos = { __typename?: 'Query', video_private_user_videos: Array<{ __typename?: 'VideoPrivateOutModel', id: number, name?: string | null, originalContent?: string | null, processedContent?: string | null, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean, fileSizeMb: number }> };
+export type VideoPrivate_GetUserVideos = { __typename?: 'Query', video_private_user_videos: Array<{ __typename?: 'VideoPrivateOutModel', id: number, name?: string | null, contentType: string, originalContent?: string | null, processedContent?: string | null, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean, fileSizeMb: number }> };
 
 export type VideoPrivate_UpdateVariables = Exact<{
   input: UpdatePrivateVideoInput;
 }>;
 
 
-export type VideoPrivate_Update = { __typename?: 'Mutation', video_private_update: { __typename?: 'UpdateVideoPrivateOutModel', id: number, name?: string | null, originalContent?: string | null, processedContent?: string | null, userId: number, uploadUrl?: string | null, fileSizeMb?: number | null } };
+export type VideoPrivate_Update = { __typename?: 'Mutation', video_private_update: { __typename?: 'UpdateVideoPrivateOutModel', id: number, name?: string | null, contentType: string, originalContent?: string | null, processedContent?: string | null, userId: number, uploadUrl?: string | null, fileSizeMb?: number | null } };
 
 
 export const AiCheckTranslationDocument = gql`
@@ -1038,8 +1049,13 @@ export const BookChapter_GetDocument = gql`
     id
     name
     header
-    content
     note
+    content
+    sentences {
+      id
+      startOffset
+      length
+    }
     book {
       id
       name
@@ -1486,6 +1502,7 @@ export const VideoPrivate_CreateDocument = gql`
   video_private_create(input: $input) {
     id
     name
+    contentType
     originalContent
     processedContent
     userId
@@ -1554,6 +1571,7 @@ export const VideoPrivate_GetUserVideosDocument = gql`
   video_private_user_videos {
     id
     name
+    contentType
     originalContent
     processedContent
     userId
@@ -1602,6 +1620,7 @@ export const VideoPrivate_UpdateDocument = gql`
   video_private_update(input: $input) {
     id
     name
+    contentType
     originalContent
     processedContent
     userId

@@ -1,26 +1,24 @@
-// import { useEffect } from 'react'
-// import {
-// 	BookChapterOutModel,
-// 	BookOutModel,
-// 	useBook_Get,
-// 	useBook_GetBookPublic,
-// 	useBook_GetBooksPublic,
-// 	useBookChapter_Get,
-// } from '@/graphql'
-// import { ChapterTextStructure } from '_pages/books/commonLogic/chapterStructureTypes'
-// import { populateChapterStructure } from '_pages/books/commonLogic/populateChapterStructure'
-// import { useParams } from 'next/navigation'
-// import { useReadingStore } from '_pages/books/reading/readingStore'
-// import invariant from 'ts-invariant'
-// import { extractBookIdFromUrlBookId, getBookTypeByUrlBookId } from 'сonsts/pageUrls'
+import { useEffect } from 'react'
+import { useParams } from 'next/navigation'
+import {
+	BookChapterOutModel,
+	BookOutModel,
+	useBook_Get,
+	useBook_GetBookPublic,
+	// 	useBook_GetBooksPublic,
+	useBookChapter_Get,
+} from '@/graphql'
+import { populateChapterStructure } from '_pages/books/commonLogic/populateChapterStructure'
+import { useReadingStore } from '_pages/books/reading/readingStore'
+import { extractBookIdFromUrlBookId, getBookTypeByUrlBookId } from 'сonsts/pageUrls'
 
-/*export function usePopulateReadingStore() {
+export function usePopulateReadingStore() {
 	useFetchBookAndSetToStore()
 	useFetchChapterAndSetToStore()
 	useCreatePopulatedChapterAndSetToStore()
-}*/
+}
 
-/*function useFetchBookAndSetToStore() {
+function useFetchBookAndSetToStore() {
 	const bookIdInUrl = useParams().bookId as string
 	const bookType = getBookTypeByUrlBookId(bookIdInUrl)
 	const bookId = extractBookIdFromUrlBookId(bookIdInUrl)
@@ -86,9 +84,9 @@
 			publicBookLoading,
 		],
 	)
-}*/
+}
 
-/*function useFetchChapterAndSetToStore() {
+function useFetchChapterAndSetToStore() {
 	const bookIdInUrl = useParams().bookId as string
 	const bookType = getBookTypeByUrlBookId(bookIdInUrl)
 	const chapterId = useParams().chapterId as string
@@ -130,9 +128,9 @@
 		},
 		[data, error, loading, chapterId],
 	)
-}*/
+}
 
-/*function useCreatePopulatedChapterAndSetToStore() {
+function useCreatePopulatedChapterAndSetToStore() {
 	const chapter = useReadingStore((s) => s.chapter)
 
 	useEffect(
@@ -140,17 +138,16 @@
 			const chapterData = chapter?.data
 			if (!chapterData || !chapterData.content) return
 
-			const chapterStructure = JSON.parse(chapterData.content) as ChapterTextStructure.Chapter
 			const populatedChapter = populateChapterStructure({
 				id: chapterData.id,
 				header: chapterData.header,
 				name: chapterData.name,
-				content: chapterStructure,
-				phrases: chapterData.phrases,
+				content: chapterData.content,
+				sentences: chapterData.sentences,
 			})
 
 			useReadingStore.getState().updatePopulatedChapter(populatedChapter)
 		},
 		[chapter],
 	)
-}*/
+}

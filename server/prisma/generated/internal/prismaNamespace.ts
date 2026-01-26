@@ -1357,6 +1357,7 @@ export const VideoPrivateScalarFieldEnum = {
   name: 'name',
   original_content: 'original_content',
   processed_content: 'processed_content',
+  content_type: 'content_type',
   created_at: 'created_at',
   updated_at: 'updated_at'
 } as const
@@ -1531,6 +1532,20 @@ export type EnumPaymentProviderNameFieldRefInput<$PrismaModel> = FieldRefInputTy
  * Reference to a field of type 'PaymentProviderName[]'
  */
 export type ListEnumPaymentProviderNameFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PaymentProviderName[]'>
+    
+
+
+/**
+ * Reference to a field of type 'VideoPrivateContentType'
+ */
+export type EnumVideoPrivateContentTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'VideoPrivateContentType'>
+    
+
+
+/**
+ * Reference to a field of type 'VideoPrivateContentType[]'
+ */
+export type ListEnumVideoPrivateContentTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'VideoPrivateContentType[]'>
     
 
 

@@ -30,6 +30,7 @@ export class CreatePrivateVideoHandler implements ICommandHandler<CreatePrivateV
 			name: createVideoInput.name,
 			originalContent: null,
 			processedContent: null,
+			contentType: 'text',
 			fileSizeMb: createVideoInput.fileSizeMb,
 		})
 		if (!createdVideo) {

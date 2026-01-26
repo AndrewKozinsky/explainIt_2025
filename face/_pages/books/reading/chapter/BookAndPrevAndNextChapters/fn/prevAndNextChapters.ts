@@ -1,8 +1,8 @@
-// import { BookChapterLiteOutModel } from '@/graphql'
-// import { useMemo } from 'react'
-// import { useReadingStore } from '_pages/books/reading/readingStore'
+import { useMemo } from 'react'
+import { BookChapterLiteOutModel } from '@/graphql'
+import { useReadingStore } from '_pages/books/reading/readingStore'
 
-/*export function useGetPrevAndNextChapters() {
+export function useGetPrevAndNextChapters() {
 	const book = useReadingStore((s) => s.book.data)
 	const currentChapterId = useReadingStore((s) => s.populatedChapter.id)
 
@@ -36,4 +36,4 @@
 		},
 		[book, currentChapterId],
 	)
-}*/
+}
