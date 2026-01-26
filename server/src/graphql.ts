@@ -193,6 +193,26 @@ export interface TranslateSentenceOutModel {
     translatedText: string;
 }
 
+export interface CreateVideoPrivateOutModel {
+    id: number;
+    name?: Nullable<string>;
+    originalContent?: Nullable<string>;
+    processedContent?: Nullable<string>;
+    contentType: string;
+    userId: number;
+}
+
+export interface UpdateVideoPrivateOutModel {
+    id: number;
+    name?: Nullable<string>;
+    originalContent?: Nullable<string>;
+    processedContent?: Nullable<string>;
+    contentType: string;
+    userId: number;
+    uploadUrl?: Nullable<string>;
+    fileSizeMb?: Nullable<number>;
+}
+
 export interface VideoPrivateLiteOutModel {
     id: number;
     userId: number;
@@ -246,26 +266,6 @@ export interface VideoPrivateOutModel {
     sentences?: Nullable<VideoPrivateSentenceOutModel[]>;
     subtitles?: Nullable<VideoPrivateSubtitleOutModel[]>;
     subtitleSentenceInit?: Nullable<SubtitleSentenceInitOutModel[]>;
-}
-
-export interface CreateVideoPrivateOutModel {
-    id: number;
-    name?: Nullable<string>;
-    originalContent?: Nullable<string>;
-    processedContent?: Nullable<string>;
-    contentType: string;
-    userId: number;
-}
-
-export interface UpdateVideoPrivateOutModel {
-    id: number;
-    name?: Nullable<string>;
-    originalContent?: Nullable<string>;
-    processedContent?: Nullable<string>;
-    contentType: string;
-    userId: number;
-    uploadUrl?: Nullable<string>;
-    fileSizeMb?: Nullable<number>;
 }
 
 export interface UserOutModel {

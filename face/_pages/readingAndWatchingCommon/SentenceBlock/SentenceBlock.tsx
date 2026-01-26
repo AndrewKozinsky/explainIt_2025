@@ -1,5 +1,5 @@
+import { getSentenceStructure } from '_pages/readingAndWatchingCommon/common/getSentenceStructure'
 import Word from '../Word/Word'
-import { getSentenceStructure } from './fn/getSentenceStructure'
 
 type SentenceBlockProps = {
 	sentenceText: string

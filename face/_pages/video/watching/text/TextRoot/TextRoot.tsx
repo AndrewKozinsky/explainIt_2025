@@ -1,15 +1,14 @@
-// import React from 'react'
-// import MobileNavigation from '_pages/video/watching/text/MobileNavigation/MobileNavigation'
-// import { useWatchingStore } from '_pages/video/watching/watchingStore'
+import { useWatchingStore } from '_pages/video/watching/watchingStore'
+import MobileNavigation from '../MobileNavigation/MobileNavigation'
 // import DetailsSide from '../detailsSide/DetailsSide/DetailsSide'
-// import TextSide from '../textSide/TextSide/TextSide'
-// import { getSectionClasses } from './fn/getSectionClasses'
+import TextSide from '../textSide/TextSide/TextSide'
+import { getSectionClasses } from './fn/getSectionClasses'
 // import { useUpdateRootSelectedText } from './fn/rootSelecteon/useUpdateRootSelectedText'
-// import './TextRoot.scss'
+import './TextRoot.scss'
 
-/*function TextRoot() {
+function TextRoot() {
 	const currentMobileContentType = useWatchingStore((s) => s.mobileCurrentContentType)
-	useUpdateRootSelectedText()
+	// useUpdateRootSelectedText()
 
 	return (
 		<div className='watching-text-root'>
@@ -18,12 +17,10 @@
 				<div className={getSectionClasses('text', currentMobileContentType)}>
 					<TextSide />
 				</div>
-				<div className={getSectionClasses('details', currentMobileContentType)}>
-					<DetailsSide />
-				</div>
+				<div className={getSectionClasses('details', currentMobileContentType)}>{/*<DetailsSide />*/}</div>
 			</div>
 		</div>
 	)
-}*/
+}
 
-// export default TextRoot
+export default TextRoot

@@ -1,9 +1,9 @@
-// import { useWatchingStore } from '_pages/video/watching/watchingStore'
-// import { useGetHotKeysHandler } from 'utils/hotKeysHandler'
-// import { useEffect, useRef } from 'react'
-// import { PlayerControlConfig } from './config'
+import { useEffect, useRef } from 'react'
+import { useGetHotKeysHandler } from 'utils/hotKeysHandler'
+import { useWatchingStore } from '_pages/video/watching/watchingStore'
+import { PlayerControlConfig } from './config'
 
-/*export function useRewind(
+export function useRewind(
 	playerWrapperRef: React.RefObject<HTMLDivElement | null>,
 	getPlayerWrapperPressArea: (wrapper: HTMLDivElement, clientX: number) => 'left' | 'center' | 'right',
 	playerControlConfig: PlayerControlConfig,
@@ -162,4 +162,4 @@
 			resetState()
 		}
 	}, [playerWrapperRef, sendPlayerCommand, getPlayerWrapperPressArea, playerControlConfig])
-}*/
+}

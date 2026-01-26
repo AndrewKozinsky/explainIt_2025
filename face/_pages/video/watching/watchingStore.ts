@@ -6,16 +6,16 @@ import { PopulatedTextStructure } from '_pages/video/watching/common/populatedTe
 
 export const watchingStoreValues: WatchingStoreValues = {
 	video: null as any as WatchingStoreI.VideoData,
-	/*player: {
+	player: {
 		currentTime: 0,
 		duration: 0,
 		paused: true,
 		command: null,
-	},*/
+	},
 	// deviceType: 'mouse',
-	// mobileCurrentContentType: 'text',
+	mobileCurrentContentType: 'text',
 	// helpCurrentContentType: 'keyboard',
-	// fullScreen: false,
+	fullScreen: false,
 	populatedPlainText: null as any as PopulatedTextStructure.Structure,
 	populatedSubtitles: null as any as PopulatedSubtitlesStructure.Structure,
 	// isWordsAddingModeEnabled: false,
@@ -36,9 +36,9 @@ export const watchingStoreValues: WatchingStoreValues = {
 export const useWatchingStore = create<WatchingStore>()((set, get) => {
 	return {
 		...watchingStoreValues,
-		/*updateStore: (storePart: Partial<WatchingStoreValues>) => {
+		updateStore: (storePart: Partial<WatchingStoreValues>) => {
 			set(storePart)
-		},*/
+		},
 		/*updatePlainTextSentenceTranslation(sentenceId: number, translation: string) {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
@@ -69,13 +69,13 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 				})
 			})
 		},*/
-		/*updateMobileCurrentContentType: (mobileCurrentContentType) => {
+		updateMobileCurrentContentType: (mobileCurrentContentType) => {
 			set((state) => {
 				return {
 					mobileCurrentContentType,
 				}
 			})
-		},*/
+		},
 		/*updateHelpCurrentContentType: (helpCurrentContentType) => {
 			set((state) => {
 				return {
@@ -97,7 +97,7 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 				}
 			})
 		},*/
-		/*setPlayerState(playerState) {
+		setPlayerState(playerState) {
 			set((state) => {
 				return {
 					player: {
@@ -106,8 +106,8 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 					},
 				}
 			})
-		},*/
-		/*sendPlayerCommand(command) {
+		},
+		sendPlayerCommand(command) {
 			set((state) => {
 				return {
 					player: {
@@ -116,14 +116,14 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 					},
 				}
 			})
-		},*/
-		/*toggleFullScreen() {
+		},
+		toggleFullScreen() {
 			set((state) => {
 				return {
 					fullScreen: !state.fullScreen,
 				}
 			})
-		},*/
+		},
 		/*changeWordsAddingMode(isEnabled: boolean) {
 			set((state) => {
 				return {
@@ -253,15 +253,15 @@ export namespace WatchingStoreI {
 		errorMessage: null | string
 		data: VideoPrivateOutModel
 	}
-	/*export type Player = {
+	export type Player = {
 		currentTime: number
 		duration: number
 		paused: boolean
 		command: null | PlayerCommand
-	}*/
+	}
 	// На телефоне показываются 2 кнопки: Текст и Детали.
 	// В зависимости от нажатой кнопки показывается одна из двух колонок
-	// export type MobileCurrentContentType = 'text' | 'details'
+	export type MobileCurrentContentType = 'text' | 'details'
 	// Если не выбрано ни одно слово, то показывается справка
 	// В зависимости от нажатой кнопки показывается одна из двух колонок
 	// export type HelpCurrentContentType = 'keyboard' | 'mouse'
@@ -338,16 +338,16 @@ export type WatchingStore = WatchingStoreValues & WatchingStoreMethods
 
 export type WatchingStoreValues = {
 	video: WatchingStoreI.VideoData
-	/*player: {
+	player: {
 		currentTime: number
 		duration: number
 		paused: boolean
 		command: null | PlayerCommand
-	}*/
+	}
 	// deviceType: DeviceType
-	// mobileCurrentContentType: WatchingStoreI.MobileCurrentContentType
+	mobileCurrentContentType: WatchingStoreI.MobileCurrentContentType
 	// helpCurrentContentType: WatchingStoreI.HelpCurrentContentType
-	// fullScreen: boolean
+	fullScreen: boolean
 	populatedPlainText: PopulatedTextStructure.Structure
 	populatedSubtitles: PopulatedSubtitlesStructure.Structure
 	// Если этот режим включен, то при нажатии на слово оно будет добавляться во фразу типа idle.
@@ -361,7 +361,7 @@ export type WatchingStoreValues = {
 	// lexemTabId: string
 }
 
-/*export type PlayerCommand =
+export type PlayerCommand =
 	| { type: 'PLAY' }
 	| { type: 'PAUSE' }
 	| { type: 'SET_TIME'; time: number }
@@ -371,19 +371,19 @@ export type WatchingStoreValues = {
 	| { type: 'STOP_FORWARD_HOLD' }
 	| { type: 'START_REVERSE_SEEK'; rate: number }
 	| { type: 'STOP_REVERSE_SEEK' }
-	| { type: 'SET_VOLUME'; volume: number }*/
+	| { type: 'SET_VOLUME'; volume: number }
 
 export type WatchingStoreMethods = {
 	updateStore: (store: Partial<WatchingStoreValues>) => void
 	// updatePlainTextSentenceTranslation: (sentenceId: number, translation: string) => void
 	// updateSubtitlesSentenceTranslation: (sentenceId: number, translation: string) => void
-	// updateMobileCurrentContentType: (contentType: WatchingStoreI.MobileCurrentContentType) => void
+	updateMobileCurrentContentType: (contentType: WatchingStoreI.MobileCurrentContentType) => void
 	// updateHelpCurrentContentType: (contentType: WatchingStoreI.HelpCurrentContentType) => void
 	updateVideo: (book: WatchingStoreI.VideoData) => void
 	// changeDeviceType: (deviceType: DeviceType) => void
-	// setPlayerState: (state: Partial<WatchingStoreI.Player>) => void
-	// sendPlayerCommand: (command: PlayerCommand) => void
-	// toggleFullScreen: () => void
+	setPlayerState: (state: Partial<WatchingStoreI.Player>) => void
+	sendPlayerCommand: (command: PlayerCommand) => void
+	toggleFullScreen: () => void
 	// changeWordsAddingMode: (isEnabled: boolean) => void
 	// updateSelectedPlainText: (sentenceId: number, wordId: number) => void
 	// updateSelectedSubtitle: (sentenceId: number, wordId: number) => void

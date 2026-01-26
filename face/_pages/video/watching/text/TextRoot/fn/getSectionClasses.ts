@@ -1,7 +1,7 @@
-// import { WatchingStoreI } from '_pages/video/watching/watchingStore'
-// import cn from 'classnames'
+import cn from 'classnames'
+import { WatchingStoreI } from '_pages/video/watching/watchingStore'
 
-/*export function getSectionClasses(
+export function getSectionClasses(
 	mobileContentType: WatchingStoreI.MobileCurrentContentType,
 	currentMobileContentType: WatchingStoreI.MobileCurrentContentType,
 ) {
@@ -14,4 +14,4 @@
 	}
 
 	return cn(classes)
-}*/
+}

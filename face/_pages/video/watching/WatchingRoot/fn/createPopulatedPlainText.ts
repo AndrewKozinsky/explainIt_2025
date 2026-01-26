@@ -1,22 +1,24 @@
 import { VideoPrivateOutModel } from '@/graphql'
-import { PopulatedSubtitlesStructure } from '_pages/video/watching/common/populatedSubtitlesStructure'
 import { PopulatedTextStructure } from '_pages/video/watching/common/populatedTextStructure'
-// import { ResolvedSubtitlesStructure } from '_pages/video/watching/common/resolvedSubtitlesStructure'
-// import { ResolvedTextStructure } from '_pages/video/watching/common/resolvedTextStructure'
-// import { sentenceToParts } from './sentenceToParts'
 
 export function createPopulatedPlainText(videoData: VideoPrivateOutModel): PopulatedTextStructure.Structure {
-	if (!videoData.sentences) {
+	if (!videoData.processedContent || !videoData.sentences) {
 		return {
 			sentences: [],
 		}
 	}
 
+	const text = videoData.processedContent
+	const sortedSentences = [...videoData.sentences].sort((a, b) => a.orderIndex - b.orderIndex)
+
 	return {
-		sentences: videoData.sentences.map((sentence, i) => {
+		sentences: sortedSentences.map((sentence) => {
+			const start = Math.max(0, Math.min(text.length, sentence.startOffset))
+			const end = Math.max(start, Math.min(text.length, sentence.startOffset + sentence.length))
+
 			return {
-				id: i,
-				text: 'text here',
+				id: sentence.id,
+				text: text.slice(start, end),
 				// translation: resolvedSentence.t,
 			}
 		}),

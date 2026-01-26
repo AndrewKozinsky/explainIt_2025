@@ -12,7 +12,7 @@ import { PrismaService } from 'db/prisma.service'
 import { CreatePrivateVideoHandler } from 'features/videoPrivate/CreatePrivateVideo.command'
 import { DeletePrivateVideoHandler } from 'features/videoPrivate/DeletePrivateVideo.command'
 import { GetUserVideosPrivateHandler } from 'features/videoPrivate/GetUserVideosPrivate.command'
-// import { GetVideoPrivateHandler } from 'features/videoPrivate/GetVideoPrivate.command'
+import { GetVideoPrivateHandler } from 'features/videoPrivate/GetVideoPrivate.command'
 import { UpdatePrivateVideoHandler } from 'features/videoPrivate/UpdatePrivateVideo.command'
 
 const services = [PrismaService]
@@ -21,7 +21,7 @@ const commandHandlers = [
 	UpdatePrivateVideoHandler,
 	DeletePrivateVideoHandler,
 	GetUserVideosPrivateHandler,
-	// GetVideoPrivateHandler,
+	GetVideoPrivateHandler,
 ]
 const resolvers = [VideoPrivateResolver]
 const repositories = [

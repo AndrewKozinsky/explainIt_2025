@@ -1,7 +1,7 @@
-// import { useWatchingStore } from '_pages/video/watching/watchingStore'
-// import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
+import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
+import { useWatchingStore } from '_pages/video/watching/watchingStore'
 
-/*function WatchingRootError() {
+function WatchingRootError() {
 	const videoErrorMessage = useWatchingStore((s) => s.video?.errorMessage)
 	if (!videoErrorMessage) return null
 
@@ -10,6 +10,6 @@
 			<ErrorMessage text={videoErrorMessage} />
 		</div>
 	)
-}*/
+}
 
-// export default WatchingRootError
+export default WatchingRootError

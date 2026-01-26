@@ -1,10 +1,9 @@
 import { useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import { useVideoPrivate_Get, VideoPrivateOutModel } from '@/graphql'
-// import { ResolvedSubtitlesStructure } from '_pages/video/watching/common/resolvedSubtitlesStructure'
-import { ResolvedTextStructure } from '_pages/video/watching/common/resolvedTextStructure'
 import { useWatchingStore } from '../../watchingStore'
-import { createPopulatedPlainText, createPopulatedSubtitles } from './createPopulatedText'
+import { createPopulatedPlainText } from './createPopulatedPlainText'
+import { createPopulatedSubtitles } from './createPopulatedText'
 
 export function usePopulateWatchingStore() {
 	useFetchVideoAndSetToStore()

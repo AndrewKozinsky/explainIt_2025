@@ -1,7 +1,7 @@
-// import { useWatchingStore } from '_pages/video/watching/watchingStore'
-// import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useWatchingStore } from '_pages/video/watching/watchingStore'
 
-/*export function useGetCurrentSubtitleId() {
+export function useGetCurrentSubtitleId() {
 	const currentVideoTime = useWatchingStore((s) => s.player.currentTime)
 	const subtitles = useWatchingStore((s) => s.populatedSubtitles.subtitles)
 
@@ -42,4 +42,4 @@
 	)
 
 	return subtitles[currentSubtitleIdx].id
-}*/
+}

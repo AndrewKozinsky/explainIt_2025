@@ -41,8 +41,8 @@ export namespace PopulatedSubtitlesStructure {
 		// translation?: string
 	}
 
-	export type Selected = {
+	/*export type Selected = {
 		sentenceId: null | number
 		wordIds: number[]
-	}
+	}*/
 }

@@ -1,18 +1,17 @@
-// import React from 'react'
-// import { useWatchingStore } from '_pages/video/watching/watchingStore'
-// import SentenceBlock from '../SentenceBlock/SentenceBlock'
-// import './PlainTextContent.scss'
+import SentenceBlock from '_pages/readingAndWatchingCommon/SentenceBlock/SentenceBlock'
+import { useWatchingStore } from '_pages/video/watching/watchingStore'
+import './PlainTextContent.scss'
 
-/*function PlainTextContent() {
+function PlainTextContent() {
 	const populatedPlainText = useWatchingStore((s) => s.populatedPlainText)
 
 	return (
 		<div className='plain-text-content'>
-			{populatedPlainText.sentences.map((sentence, index) => {
-				return <SentenceBlock sentence={sentence} key={index} />
+			{populatedPlainText.sentences.map((sentence) => {
+				return <SentenceBlock sentenceText={sentence.text} key={sentence.id} />
 			})}
 		</div>
 	)
-}*/
+}
 
-// export default PlainTextContent
+export default PlainTextContent
