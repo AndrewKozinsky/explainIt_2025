@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common'
-import { VideoPrivateOutModel } from 'models/videoPrivate/videoPrivate.out.model'
+import { VideoPrivateLiteOutModel, VideoPrivateOutModel } from 'src/models/videoPrivate/videoPrivateLiteOut.model'
 import { VideoPrivate } from 'prisma/generated/client'
 import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
@@ -12,13 +12,23 @@ export class VideoPrivateQueryRepository {
 	async getVideoById(id: number) {
 		const video = await this.prisma.videoPrivate.findUnique({
 			where: { id },
+			include: {
+				Sentence: {
+					orderBy: { order_index: 'asc' },
+					include: { SubtitleSentenceInit: { orderBy: { start_offset: 'asc' } } },
+				},
+				Subtitle: {
+					orderBy: { order_index: 'asc' },
+					include: { SubtitleSentenceInit: { orderBy: { start_offset: 'asc' } } },
+				},
+			},
 		})
 
 		if (!video) {
 			return null
 		}
 
-		return this.mapDbVideoToOutVideo(video)
+		return this.mapDbVideoToLiteOutVideo(video)
 	}
 
 	@CatchDbError()
@@ -28,10 +38,10 @@ export class VideoPrivateQueryRepository {
 			orderBy: { created_at: 'desc' },
 		})
 
-		return videos.map((video) => this.mapDbVideoToOutVideo(video))
+		return videos.map((video) => this.mapDbVideoToLiteOutVideo(video))
 	}
 
-	mapDbVideoToOutVideo(dbVideo: VideoPrivate): VideoPrivateOutModel {
+	mapDbVideoToLiteOutVideo(dbVideo: VideoPrivate): VideoPrivateLiteOutModel {
 		return {
 			id: dbVideo.id,
 			name: dbVideo.name,
@@ -44,6 +54,12 @@ export class VideoPrivateQueryRepository {
 			contentType: dbVideo.content_type,
 			userId: dbVideo.user_id,
 			fileSizeMb: dbVideo.file_size_mb,
+		}
+	}
+
+	mapDbVideoToOutVideo(dbVideo: VideoPrivate): VideoPrivateOutModel {
+		return {
+			id: dbVideo.id,
 		}
 	}
 }

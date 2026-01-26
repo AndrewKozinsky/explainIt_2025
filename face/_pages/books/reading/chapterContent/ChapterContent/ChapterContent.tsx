@@ -1,19 +1,17 @@
-// import { useReadingStore } from '_pages/books/reading/readingStore'
-// import ChapterTooltip from '../ChapterTooltip/ChapterTooltip'
-// import SentenceBlock from '../SentenceBlock/SentenceBlock'
-// import './ChapterContent.scss'
+import { useReadingStore } from '_pages/books/reading/readingStore'
+import SentenceBlock from '_pages/readingAndWatchingCommon/SentenceBlock/SentenceBlock'
+import './ChapterContent.scss'
 
-/*function ChapterContent() {
+function ChapterContent() {
 	const populatedChapter = useReadingStore((state) => state.populatedChapter)
 
 	return (
 		<div className='chapter-content'>
-			{populatedChapter.parts.map((sentence) => {
-				return <SentenceBlock sentence={sentence} key={sentence.id} />
+			{populatedChapter.sentences.map((sentence) => {
+				return <SentenceBlock sentenceText={sentence.sentence} key={sentence.id} />
 			})}
-			<ChapterTooltip />
 		</div>
 	)
-}*/
+}
 
-// export default ChapterContent
+export default ChapterContent

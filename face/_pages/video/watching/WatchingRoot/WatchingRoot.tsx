@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-// import { usePopulateWatchingStore } from '_pages/video/watching/WatchingRoot/fn/fetchData'
+import { usePopulateWatchingStore } from './fn/fetchData'
 // import { useFullScreen } from './fn/fullScreen'
 // import { useRegisterCmdKeyListener } from './fn/registerCmdKeyListener'
 // import { useSetDeviceType } from './fn/setDeviceType'
@@ -12,7 +12,7 @@ function WatchingRoot() {
 	const rootRef = useRef<null | HTMLDivElement>(null)
 	// useFullScreen(rootRef)
 
-	// usePopulateWatchingStore()
+	usePopulateWatchingStore()
 	// useSetDeviceType()
 	// useRegisterCmdKeyListener()
 

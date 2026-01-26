@@ -5,7 +5,7 @@ import BookAndPrevAndNextChapters from '../chapter/BookAndPrevAndNextChapters/Bo
 import BookAuthorAndName from '../chapter/BookAuthorAndName/BookAuthorAndName'
 import ChapterHeader from '../chapter/ChapterHeader/ChapterHeader'
 import ChapterName from '../chapter/ChapterName/ChapterName'
-// import ChapterContent from '../chapterContent/ChapterContent/ChapterContent'
+import ChapterContent from '../chapterContent/ChapterContent/ChapterContent'
 // import { useClearSelectedSentenceAfterChapterWasChanged } from './fn/clearSelectedSenteceAfterChapterWasChanged'
 import { usePopulateReadingStore } from './fn/getContentStructure'
 // import { useRegisterCmdKeyListener } from './fn/registerCmdKeyListener'
@@ -33,7 +33,7 @@ function ReadingRoot() {
 			<div className='reading-root__chapter-content'>
 				<ChapterName />
 				<ChapterHeader />
-				{/*<ChapterContent />*/}
+				<ChapterContent />
 				{/*<div className='reading-root__auto-height-elem' />*/}
 				{/*<Analysis />*/}
 				<BookAndPrevAndNextChapters />

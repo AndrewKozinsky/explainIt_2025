@@ -5,6 +5,7 @@ import { SubtitleRepository } from 'repo/subtitle.repository'
 import { SubtitleSentenceInitRepository } from 'repo/subtitleSentenceInit.repository'
 import { VideoPrivateQueryRepository } from 'repo/videoPrivate.queryRepository'
 import { VideoPrivateRepository } from 'repo/videoPrivate.repository'
+import { VideoPrivateLiteOutModel } from 'src/models/videoPrivate/videoPrivateLiteOut.model'
 import { generateSentencesAndSaveToDB } from 'features/common/generateSentencesAndSaveToDB'
 import { VideoPrivateFileUrlBase } from 'features/videoPrivate/VideoPrivateFileUrl.base'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
@@ -13,7 +14,6 @@ import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { YandexCloudS3Service } from 'infrastructure/yandexCloudS3/yandexCloudS3.service'
 import { UpdateVideoPrivateOutModel } from 'models/videoPrivate/updateVideoPrivate.out.model'
-import { VideoPrivateOutModel } from 'models/videoPrivate/videoPrivate.out.model'
 import { divideTextIntoSentences } from '../common/divideTextIntoSentences'
 
 export type UpdatePrivateVideoInput = {
@@ -144,7 +144,7 @@ export class UpdatePrivateVideoHandler
 	 *   - processedContent: "Hello world"
 	 */
 	private async prepareContentForSaving(
-		videoForUpdating: VideoPrivateOutModel,
+		videoForUpdating: VideoPrivateLiteOutModel,
 		updateVideoInput: UpdatePrivateVideoInput,
 	): Promise<{
 		shouldUpdateRelatedTextData: boolean
@@ -487,7 +487,7 @@ export class UpdatePrivateVideoHandler
 	 * - upload URL generation when a file is being attached for the first time
 	 */
 	async getUploadFileUrlAndFileUrlAndUploadUrl(
-		videoForUpdating: VideoPrivateOutModel,
+		videoForUpdating: VideoPrivateLiteOutModel,
 		updateVideoInput: UpdatePrivateVideoInput,
 	): Promise<{
 		fileName: null | string

@@ -1,7 +1,7 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql'
 
 @ObjectType()
-export class VideoPrivateOutModel {
+export class VideoPrivateLiteOutModel {
 	@Field(() => Int)
 	id: number
 
@@ -34,4 +34,10 @@ export class VideoPrivateOutModel {
 
 	@Field(() => Int)
 	fileSizeMb: number
+}
+
+@ObjectType()
+export class VideoPrivateOutModel {
+	@Field(() => Int)
+	id: number
 }
