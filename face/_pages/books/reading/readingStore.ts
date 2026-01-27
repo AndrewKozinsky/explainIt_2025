@@ -1,8 +1,9 @@
+import { produce } from 'immer'
+import { useSystemStore } from 'stores/systemStore'
 import { create } from 'zustand'
 import { BookChapterOutModel, BookOutModel, BookPublicOutModel } from '@/graphql'
 import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
 // import { areArraysEqualIgnoringOrder } from 'utils/arrays'
-// import { produce } from 'immer'
 
 export const readingStoreValues: ReadingStoreValues = {
 	book: null as any as ReadingStore.BookData,
@@ -12,9 +13,6 @@ export const readingStoreValues: ReadingStoreValues = {
 		sentenceId: null,
 		wordIds: [],
 	},
-	// deviceType: 'mouse',
-	// Если этот режим включен, то слова накапливаются при выделении.
-	isWordsAddingModeEnabled: false,
 }
 
 export const useReadingStore = create<ReadingStoreNext>()((set, get) => {
@@ -163,11 +161,51 @@ export const useReadingStore = create<ReadingStoreNext>()((set, get) => {
 				})
 			})
 		},*/
-		changeWordsAddingMode(isEnabled: boolean) {
-			set((state) => {
-				return {
-					isWordsAddingModeEnabled: isEnabled,
-				}
+		selectWord(input: { sentenceId: number; wordId: number }) {
+			set((baseState) => {
+				return produce(baseState, (draftState) => {
+					const selectedSentenceId = input.sentenceId
+					const selectedWordId = input.wordId
+
+					const selectionObj = { ...draftState.selection }
+
+					// Если ничего не выделяли или выделили слово другого предложения
+					if (selectionObj.sentenceId === null || selectionObj.sentenceId !== selectedSentenceId) {
+						// То выделить это предложение и единственное слово
+						selectionObj.sentenceId = selectedSentenceId
+						selectionObj.wordIds = [selectedWordId]
+					} else {
+						const isAddingMode = useSystemStore.getState().isCmdKeyPressed
+
+						// Если слово уже выделено
+						const isThisWordAlreadySelected = selectionObj.wordIds.includes(selectedWordId)
+
+						// Если слово выделено
+						if (isThisWordAlreadySelected) {
+							if (isAddingMode) {
+								// Убрать идентификатор этого слова из массива выделенных слов
+								selectionObj.wordIds = selectionObj.wordIds.filter(
+									(wordId) => wordId !== selectedWordId,
+								)
+							} else {
+								// Полностью заменить добавленные слова новым
+								selectionObj.wordIds = [selectedWordId]
+							}
+						}
+						// Если слово не выделено
+						else {
+							if (isAddingMode) {
+								// Добавить новое слово к существующим
+								selectionObj.wordIds.push(selectedWordId)
+							} else {
+								// Полностью заменить добавляемое слово существующими
+								selectionObj.wordIds = [selectedWordId]
+							}
+						}
+					}
+
+					draftState.selection = selectionObj
+				})
 			})
 		},
 	}
@@ -197,9 +235,6 @@ export type ReadingStoreValues = {
 	populatedChapter: ChapterTextStructurePopulated.Chapter
 	// Данные выделенного предложения и слов
 	selection: SelectedSentence
-	// Если этот режим включен, то слова накапливаются при выделении.
-	isWordsAddingModeEnabled: boolean
-	// deviceType: DeviceType
 }
 
 export type SelectedSentence = {
@@ -217,10 +252,10 @@ export type ReadingStoreMethods = {
 	// getSelectedSentence: () => ChapterTextStructurePopulated.Sentence | null
 	// getSentenceById: (id: number) => ChapterTextStructurePopulated.Sentence | null
 	// addWordToSelectedSentence: (wordId: number, insertType: 'add' | 'replaceAll') => void
-	changeWordsAddingMode: (isEnabled: boolean) => void
 	// changeDeviceType: (deviceType: DeviceType) => void
 	// createLoadingPhraseInSelectedSentenceFromSelectedWords: () => void
 	// turnPhraseIntoErrorPhrase: (sentenceId: number, phraseId: number, errorMessage: string) => void
 	// setPhraseAnalysisIntoSentence: (analysis: BookChapterPhraseOutModel) => void
 	// putTranslatedSentencesIntoChapter: (translatedSentences: string[]) => void
+	selectWord: (input: { sentenceId: number; wordId: number }) => void
 }

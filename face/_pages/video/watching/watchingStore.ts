@@ -1,4 +1,5 @@
 import { produce } from 'immer'
+import { useSystemStore } from 'stores/systemStore'
 import { create } from 'zustand'
 import { VideoPrivateOutModel } from '@/graphql'
 import { PopulatedSubtitlesStructure } from '_pages/video/watching/common/populatedSubtitlesStructure'
@@ -12,7 +13,6 @@ export const watchingStoreValues: WatchingStoreValues = {
 		paused: true,
 		command: null,
 	},
-	// deviceType: 'mouse',
 	mobileCurrentContentType: 'text',
 	selection: {
 		sentenceId: null,
@@ -90,13 +90,6 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 				}
 			})
 		},
-		/*changeDeviceType(deviceType) {
-			set((state) => {
-				return {
-					deviceType,
-				}
-			})
-		},*/
 		setPlayerState(playerState) {
 			set((state) => {
 				return {
@@ -146,7 +139,7 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 						// Если уже выделили 4 слова, то больше не выделять
 						if (selectedObj.wordIds.length >= 4) return
 
-						const isAddingMode = baseState.isWordsAddingModeEnabled
+						const isAddingMode = useSystemStore.getState().isCmdKeyPressed
 
 						// Если слово уже выделено, то вернёт число больше -1
 						const thisSelectedWordIdx = selectedObj.wordIds.findIndex(
@@ -192,7 +185,7 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 						// Если уже выделили 4 слова, то больше не выделять
 						if (selectedObj.wordIds.length >= 4) return
 
-						const isAddingMode = baseState.isWordsAddingModeEnabled
+						const isAddingMode = useSystemStore.getState().isCmdKeyPressed
 
 						// Если слово уже выделено, то вернёт число больше -1
 						const thisSelectedWordIdx = selectedObj.wordIds.findIndex(
@@ -239,6 +232,53 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 				return { lexemTabId: tabId }
 			})
 		},*/
+		selectWord(input: { sentenceId: number; wordId: number }) {
+			set((baseState) => {
+				return produce(baseState, (draftState) => {
+					const selectedSentenceId = input.sentenceId
+					const selectedWordId = input.wordId
+
+					const selectionObj = { ...draftState.selection }
+
+					// Если ничего не выделяли или выделили слово другого предложения
+					if (selectionObj.sentenceId === null || selectionObj.sentenceId !== selectedSentenceId) {
+						// То выделить это предложение и единственное слово
+						selectionObj.sentenceId = selectedSentenceId
+						selectionObj.wordIds = [selectedWordId]
+					} else {
+						const isAddingMode = useSystemStore.getState().isCmdKeyPressed
+
+						// Если слово уже выделено
+						const isThisWordAlreadySelected = selectionObj.wordIds.includes(selectedWordId)
+
+						// Если слово выделено
+						if (isThisWordAlreadySelected) {
+							if (isAddingMode) {
+								// Убрать идентификатор этого слова из массива выделенных слов
+								selectionObj.wordIds = selectionObj.wordIds.filter(
+									(wordId) => wordId !== selectedWordId,
+								)
+							} else {
+								// Полностью заменить добавленные слова новым
+								selectionObj.wordIds = [selectedWordId]
+							}
+						}
+						// Если слово не выделено
+						else {
+							if (isAddingMode) {
+								// Добавить новое слово к существующим
+								selectionObj.wordIds.push(selectedWordId)
+							} else {
+								// Полностью заменить добавляемое слово существующими
+								selectionObj.wordIds = [selectedWordId]
+							}
+						}
+					}
+
+					draftState.selection = selectionObj
+				})
+			})
+		},
 	}
 })
 
@@ -382,7 +422,6 @@ export type WatchingStoreMethods = {
 	updateMobileCurrentContentType: (contentType: WatchingStoreI.MobileCurrentContentType) => void
 	// updateHelpCurrentContentType: (contentType: WatchingStoreI.HelpCurrentContentType) => void
 	updateVideo: (book: WatchingStoreI.VideoData) => void
-	// changeDeviceType: (deviceType: DeviceType) => void
 	setPlayerState: (state: Partial<WatchingStoreI.Player>) => void
 	sendPlayerCommand: (command: PlayerCommand) => void
 	toggleFullScreen: () => void
@@ -392,4 +431,5 @@ export type WatchingStoreMethods = {
 	// updateSelectedText: (selectedText: WatchingStoreI.SelectedText) => void
 	// updateAnalysis: (analysis: WatchingStoreI.Analysis) => void
 	// updateLexemTabId: (tabId: string) => void
+	selectWord: (input: { sentenceId: number; wordId: number }) => void
 }

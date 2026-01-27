@@ -1,9 +1,9 @@
 import cn from 'classnames'
 import { PopulatedSubtitlesStructure } from '@/_pages/video/watching/common/populatedSubtitlesStructure'
 import { useWatchingStore } from '@/_pages/video/watching/watchingStore'
-import { getSentenceStructure } from '_pages/readingAndWatchingCommon/common/getSentenceStructure'
+import { getSentenceStructure } from '_pages/readingAndWatchingCommon/functions/getSentenceStructure'
+import SentenceBlock from '_pages/readingAndWatchingCommon/SentenceBlock/SentenceBlock'
 import Word from '_pages/readingAndWatchingCommon/Word/Word'
-// import Word from '../../common/Word/Word'
 import './SubtitleBlock.scss'
 
 type SubtitleBlockProps = {
@@ -16,6 +16,9 @@ type SubtitleBlockProps = {
 
 function SubtitleBlock(props: SubtitleBlockProps) {
 	const { subtitle, isCurrent, startingSentenceIds } = props
+
+	const selection = useWatchingStore((s) => s.selection)
+	const selectWord = useWatchingStore((s) => s.selectWord)
 
 	// Достаём предложения с переводами из Хранилища
 	// const sentences = useWatchingStore((s) => s.populatedSubtitles.sentences)
@@ -32,9 +35,19 @@ function SubtitleBlock(props: SubtitleBlockProps) {
 
 	return (
 		<div className='subtitle-block' data-subtitle-id={subtitle.id}>
-			<p className={cn('subtitle-block__subtitle', isCurrent && 'subtitle-block__subtitle--current')}>
-				{subtitle.texts.map((text, textIndex) => {
-					const sentenceStructure = getSentenceStructure(text.text)
+			<div className={cn('subtitle-block__subtitle', isCurrent && 'subtitle-block__subtitle--current')}>
+				{subtitle.texts.map((sentence) => {
+					return (
+						<SentenceBlock
+							sentenceId={sentence.sentenceId}
+							sentenceText={sentence.text}
+							selectedSentenceId={selection.sentenceId}
+							selectedWordIds={selection.wordIds}
+							key={sentence.sentenceId}
+							selectWord={selectWord}
+						/>
+					)
+					/*const sentenceStructure = getSentenceStructure(text.text)
 
 					return sentenceStructure.map((part) => {
 						if (part.isWord) {
@@ -42,9 +55,9 @@ function SubtitleBlock(props: SubtitleBlockProps) {
 						}
 
 						return part.value
-					})
+					})*/
 				})}
-			</p>
+			</div>
 			{/*{translationsToRender.length && (
 				<p className='subtitle-block__translation'>{translationsToRender.join(' ')}</p>
 			)}*/}

@@ -2,7 +2,6 @@ import { useRef } from 'react'
 import { usePopulateWatchingStore } from './fn/fetchData'
 import { useFullScreen } from './fn/fullScreen'
 // import { useRegisterCmdKeyListener } from './fn/registerCmdKeyListener'
-// import { useSetDeviceType } from './fn/setDeviceType'
 import WatchingRootContent from './WatchingRootContent'
 import WatchingRootError from './WatchingRootError'
 import WatchingRootLoading from './WatchingRootLoading'
@@ -13,7 +12,6 @@ function WatchingRoot() {
 	useFullScreen(rootRef)
 
 	usePopulateWatchingStore()
-	// useSetDeviceType()
 	// useRegisterCmdKeyListener()
 
 	return (
