@@ -1,24 +1,19 @@
-// import React from 'react'
-// import { useWatchingStore } from '_pages/video/watching/watchingStore'
-// import DetailsHelp from '../DetailsHelp/DetailsHelp'
+import SelectedSentenceBlock from '_pages/readingAndWatchingCommon/selectedSentenceBlock/SelectedSentenceBlock/SelectedSentenceBlock'
+import { useGetSelectedSentenceData } from '_pages/video/watching/text/detailsSide/DetailsSide/fn/getSelectedSentenceData'
+import { useWatchingStore } from '_pages/video/watching/watchingStore'
+import DetailsHelp from '../DetailsHelp/DetailsHelp'
 // import DetailsSentence from '../DetailsSentence/DetailsSentence'
 // import PhraseAnalysis from '../PhraseAnalysis/PhraseAnalysis'
-// import './DetailsSide.scss'
+import './DetailsSide.scss'
 
-/*function DetailsSide() {
-	const selectedText = useWatchingStore((s) => s.selectedText)
-	const selectedItem = selectedText.subtitle ?? selectedText.plainText
+function DetailsSide() {
+	const { sentenceId, sentenceText, wordIds } = useGetSelectedSentenceData()
 
-	if (!selectedItem || !selectedItem.wordsTexts.length) {
+	if (!sentenceId || !sentenceText || !wordIds.length) {
 		return <DetailsHelp />
 	}
 
-	return (
-		<div className='details-side'>
-			<DetailsSentence />
-			<PhraseAnalysis />
-		</div>
-	)
-}*/
+	return <SelectedSentenceBlock sentenceId={sentenceId} sentenceText={sentenceText} wordIds={wordIds} />
+}
 
-// export default DetailsSide
+export default DetailsSide

@@ -1,25 +1,21 @@
-// import { useAutoScrollToTop } from '_pages/books/reading/ReadingRoot/fn/autoScrollToTop'
 import { useReadingStore } from '_pages/books/reading/readingStore'
-// import Analysis from '../analysis/Analysis/Analysis'
+import Analysis from '../analysis/Analysis/Analysis'
 import BookAndPrevAndNextChapters from '../chapter/BookAndPrevAndNextChapters/BookAndPrevAndNextChapters'
 import BookAuthorAndName from '../chapter/BookAuthorAndName/BookAuthorAndName'
 import ChapterHeader from '../chapter/ChapterHeader/ChapterHeader'
 import ChapterName from '../chapter/ChapterName/ChapterName'
 import ChapterContent from '../chapterContent/ChapterContent/ChapterContent'
+import { useAutoScrollToTop } from './fn/autoScrollToTop'
 // import { useClearSelectedSentenceAfterChapterWasChanged } from './fn/clearSelectedSenteceAfterChapterWasChanged'
 import { usePopulateReadingStore } from './fn/getContentStructure'
-// import { useRegisterCmdKeyListener } from './fn/registerCmdKeyListener'
 // import { useRegisterEnterKeyListener } from './fn/registerEnterKeyListener'
-// import { useSetDeviceType } from './fn/setDeviceType'
 import './ReadingRoot.scss'
 
 function ReadingRoot() {
 	usePopulateReadingStore()
 	// useClearSelectedSentenceAfterChapterWasChanged()
-	// useRegisterCmdKeyListener()
 	// useRegisterEnterKeyListener()
-	// useSetDeviceType()
-	// useAutoScrollToTop()
+	useAutoScrollToTop()
 
 	const bookData = useReadingStore((s) => s.book?.data)
 	const populatedChapter = useReadingStore((s) => s.populatedChapter)
@@ -34,8 +30,8 @@ function ReadingRoot() {
 				<ChapterName />
 				<ChapterHeader />
 				<ChapterContent />
-				{/*<div className='reading-root__auto-height-elem' />*/}
-				{/*<Analysis />*/}
+				<div className='reading-root__auto-height-elem' />
+				<Analysis />
 				<BookAndPrevAndNextChapters />
 			</div>
 		</div>

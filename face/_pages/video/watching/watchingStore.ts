@@ -18,7 +18,7 @@ export const watchingStoreValues: WatchingStoreValues = {
 		sentenceId: null,
 		wordIds: [],
 	},
-	// helpCurrentContentType: 'keyboard',
+	helpCurrentContentType: 'keyboard',
 	fullScreen: false,
 	populatedPlainText: null as any as PopulatedTextStructure.Structure,
 	populatedSubtitles: null as any as PopulatedSubtitlesStructure.Structure,
@@ -76,13 +76,13 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 				}
 			})
 		},
-		/*updateHelpCurrentContentType: (helpCurrentContentType) => {
+		updateHelpCurrentContentType: (helpCurrentContentType) => {
 			set((state) => {
 				return {
 					helpCurrentContentType,
 				}
 			})
-		},*/
+		},
 		updateVideo: (video) => {
 			set((state) => {
 				return {
@@ -299,7 +299,7 @@ export namespace WatchingStoreI {
 	export type MobileCurrentContentType = 'text' | 'details'
 	// Если не выбрано ни одно слово, то показывается справка
 	// В зависимости от нажатой кнопки показывается одна из двух колонок
-	// export type HelpCurrentContentType = 'keyboard' | 'mouse'
+	export type HelpCurrentContentType = 'keyboard' | 'mouse'
 
 	export type SelectedSentence = {
 		sentenceId: null | number
@@ -387,7 +387,7 @@ export type WatchingStoreValues = {
 	}
 	// deviceType: DeviceType
 	mobileCurrentContentType: WatchingStoreI.MobileCurrentContentType
-	// helpCurrentContentType: WatchingStoreI.HelpCurrentContentType
+	helpCurrentContentType: WatchingStoreI.HelpCurrentContentType
 	fullScreen: boolean
 	populatedPlainText: PopulatedTextStructure.Structure
 	populatedSubtitles: PopulatedSubtitlesStructure.Structure
@@ -420,7 +420,7 @@ export type WatchingStoreMethods = {
 	// updatePlainTextSentenceTranslation: (sentenceId: number, translation: string) => void
 	// updateSubtitlesSentenceTranslation: (sentenceId: number, translation: string) => void
 	updateMobileCurrentContentType: (contentType: WatchingStoreI.MobileCurrentContentType) => void
-	// updateHelpCurrentContentType: (contentType: WatchingStoreI.HelpCurrentContentType) => void
+	updateHelpCurrentContentType: (contentType: WatchingStoreI.HelpCurrentContentType) => void
 	updateVideo: (book: WatchingStoreI.VideoData) => void
 	setPlayerState: (state: Partial<WatchingStoreI.Player>) => void
 	sendPlayerCommand: (command: PlayerCommand) => void

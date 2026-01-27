@@ -1,6 +1,6 @@
 import { useWatchingStore } from '_pages/video/watching/watchingStore'
+import DetailsSide from '../detailsSide/DetailsSide/DetailsSide'
 import MobileNavigation from '../MobileNavigation/MobileNavigation'
-// import DetailsSide from '../detailsSide/DetailsSide/DetailsSide'
 import TextSide from '../textSide/TextSide/TextSide'
 import { getSectionClasses } from './fn/getSectionClasses'
 // import { useUpdateRootSelectedText } from './fn/rootSelecteon/useUpdateRootSelectedText'
@@ -17,7 +17,9 @@ function TextRoot() {
 				<div className={getSectionClasses('text', currentMobileContentType)}>
 					<TextSide />
 				</div>
-				<div className={getSectionClasses('details', currentMobileContentType)}>{/*<DetailsSide />*/}</div>
+				<div className={getSectionClasses('details', currentMobileContentType)}>
+					<DetailsSide />
+				</div>
 			</div>
 		</div>
 	)

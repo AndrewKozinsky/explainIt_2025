@@ -1,11 +1,10 @@
-// import React from 'react'
-// import { publicFolderFilesUrls } from 'utils/publicFolderFilesUrls'
-// import { tabsConfig } from './fn/tabsConfig'
-// import { useWatchingStore } from '_pages/video/watching/watchingStore'
-// import Tabs from 'ui/Tabs/Tabs'
-// import './DetailsHelp.scss'
+import Tabs from 'ui/Tabs/Tabs'
+import { publicFolderFilesUrls } from 'utils/publicFolderFilesUrls'
+import { useWatchingStore } from '_pages/video/watching/watchingStore'
+import { tabsConfig } from './fn/tabsConfig'
+import './DetailsHelp.scss'
 
-/*function DetailsHelp() {
+function DetailsHelp() {
 	const helpCurrentContentType = useWatchingStore((s) => s.helpCurrentContentType)
 
 	return (
@@ -23,11 +22,11 @@
 			</div>
 		</div>
 	)
-}*/
+}
 
-// export default DetailsHelp
+export default DetailsHelp
 
-/*function KeyboardPlayer() {
+function KeyboardPlayer() {
 	return (
 		<Content>
 			<p>
@@ -41,9 +40,9 @@
 			</p>
 		</Content>
 	)
-}*/
+}
 
-/*function KeyboardTranslation() {
+function KeyboardTranslation() {
 	return (
 		<Content>
 			<p>Выделите слово или слова для перевода</p>
@@ -52,25 +51,25 @@
 			</p>
 		</Content>
 	)
-}*/
+}
 
-/*function MouseTranslation() {
+function MouseTranslation() {
 	return (
 		<Content>
 			<p>Нажмите на слово или слова для перевода</p>
 			<p>Долгое нажатие для выделения нескольких слов</p>
 		</Content>
 	)
-}*/
+}
 
-/*function MousePlayer() {
+function MousePlayer() {
 	return <img src={publicFolderFilesUrls.video.helpFilmFrame} alt='icon' />
-}*/
+}
 
-/*function Content({ children }: { children: React.ReactNode }) {
+function Content({ children }: { children: React.ReactNode }) {
 	return <div className='details-help__content'>{children}</div>
-}*/
+}
 
-/*function Key({ children }: { children: string }) {
+function Key({ children }: { children: string }) {
 	return <span className='details-help__key'>{children}</span>
-}*/
+}

@@ -1,23 +1,21 @@
-// import { useAutoSetProperPhraseId } from './fn/autoSetProperPhraseId'
-// import { useReadingStore } from '_pages/books/reading/readingStore'
-// import HintBlock from '../HintBlock/HintBlock'
-// import SelectedPhraseAnalyseRouter from '../SelectedPhraseAnalyseRouter/SelectedPhraseAnalyseRouter'
-// import PhrasesSwitch from '../PhraseSwitch/PhrasesSwitch'
-// import './Analysis.scss'
+import SelectedSentenceBlock from '_pages/readingAndWatchingCommon/selectedSentenceBlock/SelectedSentenceBlock/SelectedSentenceBlock'
+import HintBlock from '../HintBlock/HintBlock'
+import { useGetSelectedSentenceData } from './fn/getSelectedSentenceData'
+import './Analysis.scss'
 
-/*function Analysis() {
-	useAutoSetProperPhraseId()
+function Analysis() {
+	const { sentenceId, sentenceText, wordIds } = useGetSelectedSentenceData()
 
-	const selection = useReadingStore((s) => s.selection)
-	if (!selection.sentenceId) return null
+	if (!sentenceId || !sentenceText || !wordIds.length) {
+		return null
+	}
 
 	return (
 		<div className='analysis'>
-			<PhrasesSwitch />
-			<SelectedPhraseAnalyseRouter />
+			<SelectedSentenceBlock sentenceId={sentenceId} sentenceText={sentenceText} wordIds={wordIds} />
 			<HintBlock />
 		</div>
 	)
-}*/
+}
 
-// export default Analysis
+export default Analysis
