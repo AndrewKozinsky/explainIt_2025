@@ -30,8 +30,9 @@ function SubtitleBlock(props: SubtitleBlockProps) {
 							sentenceText={sentence.text}
 							selectedSentenceId={selection.sentenceId}
 							selectedWordIds={selection.wordIds}
-							key={sentence.sentenceId}
+							key={`${subtitle.id}-${sentence.sentenceId}-${sentence.wordOffset}`}
 							selectWord={selectWord}
+							wordIdOffset={sentence.wordOffset}
 						/>
 					)
 				})}

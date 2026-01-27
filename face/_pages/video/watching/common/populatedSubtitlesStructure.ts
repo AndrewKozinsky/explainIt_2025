@@ -32,6 +32,7 @@ export namespace PopulatedSubtitlesStructure {
 		texts: {
 			text: string
 			sentenceId: number
+			wordOffset: number
 		}[]
 	}
 

@@ -7,21 +7,25 @@ type SentenceBlockProps = {
 	selectedSentenceId: null | number
 	selectedWordIds: number[]
 	selectWord: (input: { sentenceId: number; wordId: number }) => void
+	wordIdOffset?: number
 }
 
 function SentenceBlock(props: SentenceBlockProps) {
-	const { sentenceId, sentenceText, selectedSentenceId, selectedWordIds, selectWord } = props
+	const { sentenceId, sentenceText, selectedSentenceId, selectedWordIds, selectWord, wordIdOffset = 0 } = props
 
 	const sentenceStructure = getSentenceStructure(sentenceText)
+	let wordIndex = wordIdOffset
 
 	return (
 		<p>
-			{sentenceStructure.map((part, idx) => {
+			{sentenceStructure.map((part) => {
 				if (part.isWord) {
+					wordIndex += 1
+
 					return (
 						<Word
 							sentenceId={sentenceId}
-							wordId={idx}
+							wordId={wordIndex}
 							text={part.value}
 							key={part.id}
 							selectedSentenceId={selectedSentenceId}

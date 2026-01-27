@@ -1,5 +1,6 @@
 import { VideoPrivateOutModel } from '@/graphql'
 import { PopulatedSubtitlesStructure } from '_pages/video/watching/common/populatedSubtitlesStructure'
+import { getSentenceStructure } from '_pages/readingAndWatchingCommon/functions/getSentenceStructure'
 
 export function createPopulatedSubtitles(videoData: VideoPrivateOutModel): PopulatedSubtitlesStructure.Structure {
 	if (
@@ -41,6 +42,7 @@ export function createPopulatedSubtitles(videoData: VideoPrivateOutModel): Popul
 	const subtitles: PopulatedSubtitlesStructure.Structure['subtitles'] = []
 	let speechlessBarId = 10_000_000
 	let prevEndMs = 0
+	const wordOffsetBySentenceId = new Map<number, number>()
 
 	for (const subtitle of subtitlesSorted) {
 		const fromMs = subtitle.startTimeMs
@@ -63,6 +65,7 @@ export function createPopulatedSubtitles(videoData: VideoPrivateOutModel): Popul
 			const start = Math.max(0, Math.min(text.length, init.startOffset))
 			const end = Math.max(start, Math.min(text.length, init.startOffset + init.length))
 			const fragment = text.slice(start, end)
+			const currentWordOffset = wordOffsetBySentenceId.get(init.sentenceId) ?? 0
 
 			const prev = texts[texts.length - 1]
 			if (prev && prev.sentenceId === init.sentenceId && start <= lastEnd) {
@@ -70,8 +73,10 @@ export function createPopulatedSubtitles(videoData: VideoPrivateOutModel): Popul
 			} else if (prev && prev.sentenceId === init.sentenceId && start === lastEnd) {
 				prev.text += fragment
 			} else {
-				texts.push({ text: fragment, sentenceId: init.sentenceId })
+				texts.push({ text: fragment, sentenceId: init.sentenceId, wordOffset: currentWordOffset })
 			}
+
+			wordOffsetBySentenceId.set(init.sentenceId, currentWordOffset + countWords(fragment))
 
 			lastEnd = Math.max(lastEnd, end)
 		}
@@ -109,4 +114,8 @@ function msToTimeCode(ms: number): string {
 	const mmm = String(millis).padStart(3, '0')
 
 	return `${hh}:${mm}:${ss},${mmm}`
+}
+
+function countWords(text: string): number {
+	return getSentenceStructure(text).filter((p) => p.isWord).length
 }
