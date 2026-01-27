@@ -1,4 +1,4 @@
-import SelectedSentenceBlock from '_pages/readingAndWatchingCommon/selectedSentenceBlock/SelectedSentenceBlock/SelectedSentenceBlock'
+import SelectedSentenceBlock from '_pages/readingAndWatchingCommon/selectedSentence/SelectedSentenceBlock/SelectedSentenceBlock'
 import HintBlock from '../HintBlock/HintBlock'
 import { useGetSelectedSentenceData } from './fn/getSelectedSentenceData'
 import './Analysis.scss'

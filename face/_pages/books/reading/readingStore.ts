@@ -39,14 +39,6 @@ export const useReadingStore = create<ReadingStoreNext>()((set, get) => {
 				}
 			})
 		},
-		/*changeSelectedSentenceId(id: number) {
-			set((baseState) => {
-				return produce(baseState, (draftState) => {
-					draftState.selection.sentenceId = id
-					draftState.selection.wordIds = []
-				})
-			})
-		},*/
 		/*clearSelectedSentence() {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
@@ -54,94 +46,6 @@ export const useReadingStore = create<ReadingStoreNext>()((set, get) => {
 						sentenceId: null,
 						wordIds: [],
 						phraseId: null,
-					}
-				})
-			})
-		},*/
-		/*getSelectedSentence() {
-			const { populatedChapter, selection } = get()
-			if (selection.sentenceId == null) return null
-
-			const sentence = populatedChapter.parts.find((part) => part.id === selection.sentenceId)
-			if (!sentence || sentence.type !== 'sentence') return null
-
-			return sentence
-		},*/
-		/*getSentenceById(sentenceId: number) {
-			const { populatedChapter } = get()
-
-			const sentence = populatedChapter.parts.find((part) => part.id === sentenceId)
-			if (!sentence || sentence.type !== 'sentence') return null
-
-			return sentence
-		},*/
-		/**
-		 * Добавляет в выделенное предложение идентификатор выделенного слова.
-		 * @param wordId — id слова, которое нужно поставить во фразу
-		 * @param insertType — тип вставки:
-		 * add — добавить id слова с сохранением других идентификаторов в массиве выделенных слов,
-		 * replaceAll — убрать все остальные идентификаторы слов заменив этим
-		 */
-		/*addWordToSelectedSentence(wordId: number, insertType: 'add' | 'replaceAll') {
-			set((baseState) => {
-				return produce(baseState, (draftState) => {
-					if (insertType === 'replaceAll') {
-						draftState.selection.wordIds = [wordId]
-					} else {
-						draftState.selection.wordIds.push(wordId)
-					}
-				})
-			})
-		},*/
-		/*changeDeviceType(deviceType: DeviceType) {
-			set((state) => {
-				return {
-					deviceType,
-				}
-			})
-		},*/
-		/*setPhraseAnalysisIntoSentence(analysis: BookChapterPhraseOutModel) {
-			set((baseState) => {
-				return produce(baseState, (draftState) => {
-					const sentence = draftState.populatedChapter.parts.find((sentence) => {
-						const sentenceId = analysis.sentenceId
-						return sentence.id === sentenceId
-					})
-					if (!sentence || sentence.type !== 'sentence') {
-						return draftState
-					}
-
-					const phraseWithTheSameIdx = sentence.phrases.findIndex((phrase) => {
-						return areArraysEqualIgnoringOrder(phrase.wordIds, analysis.phraseWordsIdx)
-					})
-					if (phraseWithTheSameIdx < 0) {
-						return draftState
-					}
-
-					const maxPhraseId = sentence.phrases.reduce((max, phrase) => Math.max(max, phrase.id), 0)
-
-					sentence.phrases[phraseWithTheSameIdx] = {
-						id: maxPhraseId + 1,
-						type: 'success',
-						phraseIdInDb: analysis.id,
-						phrase: analysis.phrase,
-						// Идентификаторы выделенных слов этой фразы
-						wordIds: analysis.phraseWordsIdx,
-						analysis: {
-							transcription: analysis.transcription,
-							// Краткий перевод фразы
-							translation: analysis.translation,
-							// Анализ фразы
-							analysis: analysis.analysis,
-							// Примеры использования фразы (предложение на иностранном языке и родном)
-							examples: analysis.examples.map((example) => {
-								return {
-									id: example.id,
-									foreignLang: example.sentence,
-									nativeLang: example.translation,
-								}
-							}),
-						},
 					}
 				})
 			})
@@ -227,8 +131,6 @@ export namespace ReadingStore {
 
 export type ReadingStoreNext = ReadingStoreValues & ReadingStoreMethods
 
-// type DeviceType = 'mouse' | 'touch'
-
 export type ReadingStoreValues = {
 	book: ReadingStore.BookData
 	chapter: ReadingStore.ChapterData
@@ -247,10 +149,7 @@ export type ReadingStoreMethods = {
 	updateBook: (book: ReadingStore.BookData) => void
 	updateChapter: (chapter: ReadingStore.ChapterData) => void
 	updatePopulatedChapter: (populatedChapter: ChapterTextStructurePopulated.Chapter) => void
-	// changeSelectedSentenceId: (id: number) => void
 	// clearSelectedSentence: () => void
-	// getSelectedSentence: () => ChapterTextStructurePopulated.Sentence | null
-	// getSentenceById: (id: number) => ChapterTextStructurePopulated.Sentence | null
 	// addWordToSelectedSentence: (wordId: number, insertType: 'add' | 'replaceAll') => void
 	// changeDeviceType: (deviceType: DeviceType) => void
 	// createLoadingPhraseInSelectedSentenceFromSelectedWords: () => void

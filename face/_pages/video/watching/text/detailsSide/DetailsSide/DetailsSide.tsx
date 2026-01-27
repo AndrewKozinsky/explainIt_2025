@@ -1,4 +1,4 @@
-import SelectedSentenceBlock from '_pages/readingAndWatchingCommon/selectedSentenceBlock/SelectedSentenceBlock/SelectedSentenceBlock'
+import SelectedSentenceBlock from '_pages/readingAndWatchingCommon/selectedSentence/SelectedSentenceBlock/SelectedSentenceBlock'
 import { useGetSelectedSentenceData } from '_pages/video/watching/text/detailsSide/DetailsSide/fn/getSelectedSentenceData'
 import { useWatchingStore } from '_pages/video/watching/watchingStore'
 import DetailsHelp from '../DetailsHelp/DetailsHelp'
@@ -13,7 +13,7 @@ function DetailsSide() {
 		return <DetailsHelp />
 	}
 
-	return <SelectedSentenceBlock sentenceId={sentenceId} sentenceText={sentenceText} wordIds={wordIds} />
+	return <SelectedSentenceBlock />
 }
 
 export default DetailsSide
