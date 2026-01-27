@@ -3,22 +3,26 @@ import cn from 'classnames'
 // import { useLongPress } from 'utils/events'
 // import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
 // import { useReadingStore } from '_pages/books/reading/readingStore'
-// import { getWordPrimaryType } from './fn/getWordPrimaryType'
+import { useSystemStore } from 'stores/systemStore'
+import { getWordPrimaryType } from './fn/getWordPrimaryType'
 // import { useGetOnWordClick, useGetOnWordLongTap } from './fn/selectSentenceAndWord'
 // import { useWordHoverHandlers } from './fn/useWordHoverHandlers'
 import './Word.scss'
 
 type WordProps = {
-	value: string
+	sentenceId: number
+	wordId: number
+	text: string
+	selectedSentenceId: null | number
+	selectedWordIds: number[]
 }
 
 function Word(props: WordProps) {
-	const { value } = props
+	const { sentenceId, wordId, text, selectedSentenceId, selectedWordIds } = props
 	// const selectedSentence = useReadingStore((state) => state.selection)
-	// const deviceType = useReadingStore((state) => state.deviceType)
-	const deviceType = 'deviceType'
+	const deviceType = useSystemStore((state) => state.deviceType)
 
-	// const wordType = getWordPrimaryType(selectedSentence, sentence, wordData.id)
+	const wordType = getWordPrimaryType({ selectedSentenceId, selectedWordIds, sentenceId, wordId })
 	// const onWordClick = useGetOnWordClick()
 	// const onWordLongTap = useGetOnWordLongTap()
 
@@ -43,7 +47,7 @@ function Word(props: WordProps) {
 
 	return (
 		<span
-			className={cn('word', 'word--' + 'wordType')}
+			className={cn('word', 'word--' + wordType)}
 			// onMouseDown={onMouseDown}
 			// onMouseUp={onMouseUp}
 			// onTouchStart={onTouchStart}
@@ -62,7 +66,7 @@ function Word(props: WordProps) {
 				onContextMenu={(e) => e.preventDefault()}
 				// data-text={wordData.value}
 			>
-				{value}
+				{text}
 			</span>
 		</span>
 	)

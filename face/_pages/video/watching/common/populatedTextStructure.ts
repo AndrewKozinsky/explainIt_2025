@@ -1,7 +1,6 @@
 export namespace PopulatedTextStructure {
 	export type Structure = {
 		sentences: Sentence[]
-		// selected: Selected
 	}
 
 	export type Sentence = {
@@ -11,9 +10,4 @@ export namespace PopulatedTextStructure {
 		// Translation
 		// translation?: string
 	}
-
-	/*export type Selected = {
-		sentenceId: null | number
-		wordIds: number[]
-	}*/
 }

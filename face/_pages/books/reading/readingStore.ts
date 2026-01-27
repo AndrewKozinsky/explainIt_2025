@@ -8,19 +8,13 @@ export const readingStoreValues: ReadingStoreValues = {
 	book: null as any as ReadingStore.BookData,
 	chapter: null as any as ReadingStore.ChapterData,
 	populatedChapter: null as any as ChapterTextStructurePopulated.Chapter,
-	/*selection: {
+	selection: {
 		sentenceId: null,
 		wordIds: [],
-		phraseId: null,
-	},*/
-	// isWordsAddingModeEnabled: false,
+	},
 	// deviceType: 'mouse',
-	/*hoveredWord: {
-		sentenceId: null,
-		wordId: null,
-		pos: null,
-		container: null,
-	},*/
+	// Если этот режим включен, то слова накапливаются при выделении.
+	isWordsAddingModeEnabled: false,
 }
 
 export const useReadingStore = create<ReadingStoreNext>()((set, get) => {
@@ -52,13 +46,6 @@ export const useReadingStore = create<ReadingStoreNext>()((set, get) => {
 				return produce(baseState, (draftState) => {
 					draftState.selection.sentenceId = id
 					draftState.selection.wordIds = []
-				})
-			})
-		},*/
-		/*changeSelectedPhraseId(id: null | number) {
-			set((baseState) => {
-				return produce(baseState, (draftState) => {
-					draftState.selection.phraseId = id
 				})
 			})
 		},*/
@@ -108,94 +95,11 @@ export const useReadingStore = create<ReadingStoreNext>()((set, get) => {
 				})
 			})
 		},*/
-		/*changeWordsAddingMode(isEnabled: boolean) {
-			set((state) => {
-				return {
-					isWordsAddingModeEnabled: isEnabled,
-				}
-			})
-		},*/
 		/*changeDeviceType(deviceType: DeviceType) {
 			set((state) => {
 				return {
 					deviceType,
 				}
-			})
-		},*/
-		/*setHoveredWord(
-			sentenceId: number,
-			wordId: number,
-			pos: { left: number; top: number },
-			container: { width: number; height: number },
-		) {
-			set((baseState) => {
-				return produce(baseState, (draftState) => {
-					draftState.hoveredWord = {
-						sentenceId,
-						wordId,
-						pos,
-						container,
-					}
-				})
-			})
-		},*/
-		/*clearHoveredWord() {
-			set((baseState) => {
-				return produce(baseState, (draftState) => {
-					draftState.hoveredWord = {
-						sentenceId: null,
-						wordId: null,
-						pos: null,
-						container: null,
-					}
-				})
-			})
-		},*/
-		/** Ищет фразу с типом idle у выделенного предложения и ставит ей тип loading.*/
-		/*createLoadingPhraseInSelectedSentenceFromSelectedWords() {
-			set((baseState) => {
-				return produce(baseState, (draftState) => {
-					const { sentenceId } = draftState.selection
-					if (sentenceId == null) return
-
-					const selectedSentence = draftState.populatedChapter.parts.find((part) => part.id === sentenceId)
-					if (!selectedSentence || selectedSentence.type !== 'sentence') return
-
-					const phraseWithTheseWords = selectedSentence.phrases.find((phrase) =>
-						areArraysEqualIgnoringOrder(phrase.wordIds, draftState.selection.wordIds),
-					)
-					if (phraseWithTheseWords) return
-
-					const maxPhraseId = selectedSentence.phrases.reduce((max, phrase) => Math.max(max, phrase.id), 0)
-					const newPhraseId = maxPhraseId + 1
-
-					selectedSentence.phrases.push({
-						id: newPhraseId,
-						type: 'loading',
-						wordIds: [...draftState.selection.wordIds],
-					})
-
-					draftState.selection.phraseId = newPhraseId
-				})
-			})
-		},*/
-		/** В предложени ищет фразу с указанным id и ставит ей тип error*/
-		/*turnPhraseIntoErrorPhrase(sentenceId: number, phraseId: number, errorMessage: string) {
-			set((baseState) => {
-				return produce(baseState, (draftState) => {
-					const sentence = draftState.populatedChapter.parts.find((part) => part.id === sentenceId)
-					if (!sentence || sentence.type !== 'sentence') return
-
-					const phraseIdx = sentence.phrases.findIndex((phrase) => phrase.id === phraseId)
-					if (phraseIdx < 0) return
-
-					sentence.phrases[phraseIdx] = {
-						type: 'error',
-						id: phraseId,
-						errorMessage,
-						wordIds: [...sentence.phrases[phraseIdx].wordIds],
-					}
-				})
 			})
 		},*/
 		/*setPhraseAnalysisIntoSentence(analysis: BookChapterPhraseOutModel) {
@@ -259,6 +163,13 @@ export const useReadingStore = create<ReadingStoreNext>()((set, get) => {
 				})
 			})
 		},*/
+		changeWordsAddingMode(isEnabled: boolean) {
+			set((state) => {
+				return {
+					isWordsAddingModeEnabled: isEnabled,
+				}
+			})
+		},
 	}
 })
 
@@ -284,50 +195,32 @@ export type ReadingStoreValues = {
 	book: ReadingStore.BookData
 	chapter: ReadingStore.ChapterData
 	populatedChapter: ChapterTextStructurePopulated.Chapter
-	// Данные выделенного предложения
-	// selection: SelectedSentence
-	// Если этот режим включен, то при нажатии на слово оно будет добавляться во фразу типа idle.
-	// Если выключен, то заменит все слова поставленные во фразу типа idle.
-	// isWordsAddingModeEnabled: boolean
+	// Данные выделенного предложения и слов
+	selection: SelectedSentence
+	// Если этот режим включен, то слова накапливаются при выделении.
+	isWordsAddingModeEnabled: boolean
 	// deviceType: DeviceType
-	// Данные наведённого слова для отображения всплывающей подсказки
-	/*hoveredWord: {
-		sentenceId: number | null
-		wordId: number | null
-		pos: { left: number; top: number } | null
-		container: { width: number; height: number } | null
-	}*/
 }
 
-/*export type SelectedSentence = {
+export type SelectedSentence = {
 	sentenceId: null | number
 	// Идентификаторы выделенных слов
 	wordIds: number[]
-	// Идентификатор фразы, анализ которой хочет видеть пользователь
-	phraseId: number | null
-}*/
+}
 
 export type ReadingStoreMethods = {
 	updateBook: (book: ReadingStore.BookData) => void
 	updateChapter: (chapter: ReadingStore.ChapterData) => void
 	updatePopulatedChapter: (populatedChapter: ChapterTextStructurePopulated.Chapter) => void
 	// changeSelectedSentenceId: (id: number) => void
-	// changeSelectedPhraseId: (id: null | number) => void
 	// clearSelectedSentence: () => void
 	// getSelectedSentence: () => ChapterTextStructurePopulated.Sentence | null
 	// getSentenceById: (id: number) => ChapterTextStructurePopulated.Sentence | null
 	// addWordToSelectedSentence: (wordId: number, insertType: 'add' | 'replaceAll') => void
-	// changeWordsAddingMode: (isEnabled: boolean) => void
+	changeWordsAddingMode: (isEnabled: boolean) => void
 	// changeDeviceType: (deviceType: DeviceType) => void
 	// createLoadingPhraseInSelectedSentenceFromSelectedWords: () => void
 	// turnPhraseIntoErrorPhrase: (sentenceId: number, phraseId: number, errorMessage: string) => void
 	// setPhraseAnalysisIntoSentence: (analysis: BookChapterPhraseOutModel) => void
-	/*setHoveredWord: (
-		sentenceId: number,
-		wordId: number,
-		pos: { left: number; top: number },
-		container: { width: number; height: number },
-	) => void*/
-	// clearHoveredWord: () => void
 	// putTranslatedSentencesIntoChapter: (translatedSentences: string[]) => void
 }

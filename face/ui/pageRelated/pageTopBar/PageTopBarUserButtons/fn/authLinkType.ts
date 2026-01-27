@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { useUserStore } from '../../../../../stores/userStore'
+import { useUserStore } from '@/stores/userStore'
 
 export function useGetAuthLinkType(): 'login' | 'account' {
 	const user = useUserStore((state) => state.user)

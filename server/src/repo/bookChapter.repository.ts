@@ -39,7 +39,9 @@ export class BookChapterRepository {
 			include: {
 				book: true,
 				book_public: true,
-				Sentence: true,
+				Sentence: {
+					orderBy: { order_index: 'asc' },
+				},
 			},
 		})
 

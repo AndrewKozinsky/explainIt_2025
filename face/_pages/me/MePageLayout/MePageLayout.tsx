@@ -1,7 +1,6 @@
 'use client'
 
 import { redirect } from 'next/navigation'
-import React from 'react'
 import { useUserStore } from '@/stores/userStore'
 import { pageUrls } from '@/сonsts/pageUrls'
 

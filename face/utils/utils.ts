@@ -19,15 +19,15 @@ export function isMacOS(): boolean {
 	return /Mac|Macintosh|Mac OS/.test(ua) || /Mac/.test(platform)
 }
 
-export function getDeviceType(): 'touch' | 'mouse' {
-	if (typeof window === 'undefined' || typeof navigator === 'undefined') return 'mouse'
+export function getDeviceType(): 'touch' | 'desktop' {
+	if (typeof window === 'undefined' || typeof navigator === 'undefined') return 'desktop'
 	try {
 		const hasTouch =
 			'ontouchstart' in window || (navigator as any).maxTouchPoints > 0 || (navigator as any).msMaxTouchPoints > 0
 
 		const isCoarse = typeof window.matchMedia === 'function' && window.matchMedia('(pointer: coarse)').matches
-		return hasTouch || isCoarse ? 'touch' : 'mouse'
+		return hasTouch || isCoarse ? 'touch' : 'desktop'
 	} catch {
-		return 'mouse'
+		return 'desktop'
 	}
 }

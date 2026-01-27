@@ -30,7 +30,7 @@ export class BookChapterQueryRepository {
 				book: true,
 				book_public: true,
 				Sentence: {
-					orderBy: { order_index: 'desc' },
+					orderBy: { order_index: 'asc' },
 				},
 			},
 		})

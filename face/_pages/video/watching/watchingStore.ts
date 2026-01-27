@@ -14,15 +14,15 @@ export const watchingStoreValues: WatchingStoreValues = {
 	},
 	// deviceType: 'mouse',
 	mobileCurrentContentType: 'text',
+	selection: {
+		sentenceId: null,
+		wordIds: [],
+	},
 	// helpCurrentContentType: 'keyboard',
 	fullScreen: false,
 	populatedPlainText: null as any as PopulatedTextStructure.Structure,
 	populatedSubtitles: null as any as PopulatedSubtitlesStructure.Structure,
-	// isWordsAddingModeEnabled: false,
-	/*selectedText: {
-		plainText: null,
-		subtitle: null,
-	},*/
+	isWordsAddingModeEnabled: false,
 	/*analysis: {
 		engText: '',
 		analysis: {
@@ -124,13 +124,13 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 				}
 			})
 		},
-		/*changeWordsAddingMode(isEnabled: boolean) {
+		changeWordsAddingMode(isEnabled: boolean) {
 			set((state) => {
 				return {
 					isWordsAddingModeEnabled: isEnabled,
 				}
 			})
-		},*/
+		},
 		/*updateSelectedPlainText(selectedSentenceId: number, selectedWordId: number) {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
@@ -225,11 +225,6 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 				})
 			})
 		},*/
-		/*updateSelectedText(selectedText: WatchingStoreI.SelectedText) {
-			set((state) => {
-				return { selectedText }
-			})
-		},*/
 		/*updateAnalysis(analysis: WatchingStoreI.Analysis) {
 			set((state) => {
 				if (analysis.analysis.type !== 'data' || !analysis.analysis.lexemes?.length) {
@@ -265,6 +260,12 @@ export namespace WatchingStoreI {
 	// Если не выбрано ни одно слово, то показывается справка
 	// В зависимости от нажатой кнопки показывается одна из двух колонок
 	// export type HelpCurrentContentType = 'keyboard' | 'mouse'
+
+	export type SelectedSentence = {
+		sentenceId: null | number
+		// Идентификаторы выделенных слов
+		wordIds: number[]
+	}
 
 	/*export type SelectedText = {
 		plainText: null | SelectedPlainText
@@ -350,9 +351,10 @@ export type WatchingStoreValues = {
 	fullScreen: boolean
 	populatedPlainText: PopulatedTextStructure.Structure
 	populatedSubtitles: PopulatedSubtitlesStructure.Structure
-	// Если этот режим включен, то при нажатии на слово оно будет добавляться во фразу типа idle.
-	// Если выключен, то заменит все слова поставленные во фразу типа idle.
-	// isWordsAddingModeEnabled: boolean
+	// Данные выделенного предложения и слов
+	selection: WatchingStoreI.SelectedSentence
+	// Если этот режим включен, то слова накапливаются при выделении.
+	isWordsAddingModeEnabled: boolean
 	/*selectedText: {
 		plainText: null | WatchingStoreI.SelectedPlainText
 		subtitle: null | WatchingStoreI.SelectedSubtitle
@@ -384,7 +386,7 @@ export type WatchingStoreMethods = {
 	setPlayerState: (state: Partial<WatchingStoreI.Player>) => void
 	sendPlayerCommand: (command: PlayerCommand) => void
 	toggleFullScreen: () => void
-	// changeWordsAddingMode: (isEnabled: boolean) => void
+	changeWordsAddingMode: (isEnabled: boolean) => void
 	// updateSelectedPlainText: (sentenceId: number, wordId: number) => void
 	// updateSelectedSubtitle: (sentenceId: number, wordId: number) => void
 	// updateSelectedText: (selectedText: WatchingStoreI.SelectedText) => void

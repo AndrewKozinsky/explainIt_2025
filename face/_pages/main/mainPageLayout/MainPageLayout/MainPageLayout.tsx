@@ -3,6 +3,7 @@ import mainConfig from '../../../../сonsts/mainConfig'
 import ApolloProvider from '../ApolloProvider/ApolloProvider'
 import CurrentUserLoader from '../CurrentUserLoader/CurrentUserLoader'
 import Metrika from '../Metrika/Metrika'
+import SystemStoreSetUp from '../SystemStoreSetUp/SystemStoreSetUp'
 import '../style/global.scss'
 
 type MainPageLayoutProps = {
@@ -17,6 +18,7 @@ function MainPageLayout(props: MainPageLayoutProps) {
 			{mainConfig.workingMode === 'servermaster' && <Metrika />}
 			<ApolloProvider>
 				<CurrentUserLoader />
+				<SystemStoreSetUp />
 				{children}
 			</ApolloProvider>
 		</>

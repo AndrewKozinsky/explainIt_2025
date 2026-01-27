@@ -38,7 +38,7 @@ function SubtitleBlock(props: SubtitleBlockProps) {
 
 					return sentenceStructure.map((part) => {
 						if (part.isWord) {
-							return <Word value={part.value} key={part.id} />
+							return <Word text={part.value} key={part.id} />
 						}
 
 						return part.value
