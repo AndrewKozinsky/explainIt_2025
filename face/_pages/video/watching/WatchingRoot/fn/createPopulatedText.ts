@@ -1,6 +1,6 @@
 import { VideoPrivateOutModel } from '@/graphql'
-import { PopulatedSubtitlesStructure } from '_pages/video/watching/common/populatedSubtitlesStructure'
 import { getSentenceStructure } from '_pages/readingAndWatchingCommon/functions/getSentenceStructure'
+import { PopulatedSubtitlesStructure } from '_pages/video/watching/common/populatedSubtitlesStructure'
 
 export function createPopulatedSubtitles(videoData: VideoPrivateOutModel): PopulatedSubtitlesStructure.Structure {
 	if (

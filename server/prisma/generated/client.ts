@@ -78,6 +78,11 @@ export type VideoPrivate = Prisma.VideoPrivateModel
  */
 export type Sentence = Prisma.SentenceModel
 /**
+ * Model SentenceTranslation
+ * 
+ */
+export type SentenceTranslation = Prisma.SentenceTranslationModel
+/**
  * Model Subtitle
  * 
  */

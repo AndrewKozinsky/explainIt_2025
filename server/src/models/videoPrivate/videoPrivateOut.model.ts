@@ -1,9 +1,21 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql'
 
 @ObjectType()
+export class SentenceTranslationOutModel {
+	@Field(() => Int)
+	id: number
+
+	@Field(() => String)
+	translation: string
+}
+
+@ObjectType()
 export class VideoPrivateSentenceOutModel {
 	@Field(() => Int)
 	id: number
+
+	@Field(() => [SentenceTranslationOutModel], { nullable: true })
+	sentenceTranslations: SentenceTranslationOutModel[] | null
 
 	@Field(() => Int)
 	startOffset: number

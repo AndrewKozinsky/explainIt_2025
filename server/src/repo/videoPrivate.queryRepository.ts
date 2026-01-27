@@ -1,11 +1,14 @@
 import { Injectable } from '@nestjs/common'
 import { VideoPrivateLiteOutModel } from 'models/videoPrivate/videoPrivateLiteOut.model'
 import { VideoPrivateOutModel } from 'models/videoPrivate/videoPrivateOut.model'
-import { Sentence, Subtitle, SubtitleSentenceInit, VideoPrivate } from 'prisma/generated/client'
+import { Sentence, SentenceTranslation, Subtitle, SubtitleSentenceInit, VideoPrivate } from 'prisma/generated/client'
 import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 
-type DbSentenceWithInit = Sentence & { SubtitleSentenceInit?: SubtitleSentenceInit[] }
+type DbSentenceWithInit = Sentence & {
+	SubtitleSentenceInit?: SubtitleSentenceInit[]
+	SentenceTranslation?: SentenceTranslation[]
+}
 type DbSubtitleWithInit = Subtitle & { SubtitleSentenceInit?: SubtitleSentenceInit[] }
 type DbVideoWithRelations = VideoPrivate & {
 	Sentence?: DbSentenceWithInit[]
@@ -23,7 +26,10 @@ export class VideoPrivateQueryRepository {
 			include: {
 				Sentence: {
 					orderBy: { order_index: 'asc' },
-					include: { SubtitleSentenceInit: { orderBy: { start_offset: 'asc' } } },
+					include: {
+						SubtitleSentenceInit: { orderBy: { start_offset: 'asc' } },
+						SentenceTranslation: { orderBy: { created_at: 'asc' } },
+					},
 				},
 				Subtitle: {
 					orderBy: { order_index: 'asc' },
@@ -82,6 +88,10 @@ export class VideoPrivateQueryRepository {
 
 		const sentences = (dbVideo.Sentence ?? []).map((s) => ({
 			id: s.id,
+			sentenceTranslations: (s.SentenceTranslation ?? []).map((t) => ({
+				id: t.id,
+				translation: t.translation,
+			})),
 			startOffset: s.start_offset,
 			length: s.length,
 			orderIndex: s.order_index,

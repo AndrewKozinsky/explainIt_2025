@@ -13,6 +13,10 @@ query VideoPrivate_get($input: GetPrivateVideoInput!) {
 		fileSizeMb
 		sentences {
 			id
+			sentenceTranslations {
+				id
+				translation
+			}
 			startOffset
 			length
 			orderIndex

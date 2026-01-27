@@ -410,6 +410,12 @@ export type SentenceOutModel = {
   startOffset: Scalars['Int']['output'];
 };
 
+export type SentenceTranslationOutModel = {
+  __typename?: 'SentenceTranslationOutModel';
+  id: Scalars['Int']['output'];
+  translation: Scalars['String']['output'];
+};
+
 export type SubtitleSentenceInitOutModel = {
   __typename?: 'SubtitleSentenceInitOutModel';
   id: Scalars['Int']['output'];
@@ -551,6 +557,7 @@ export type VideoPrivateSentenceOutModel = {
   id: Scalars['Int']['output'];
   length: Scalars['Int']['output'];
   orderIndex: Scalars['Int']['output'];
+  sentenceTranslations?: Maybe<Array<SentenceTranslationOutModel>>;
   startOffset: Scalars['Int']['output'];
 };
 
@@ -716,7 +723,7 @@ export type VideoPrivate_GetVariables = Exact<{
 }>;
 
 
-export type VideoPrivate_Get = { __typename?: 'Query', video_private_get: { __typename?: 'VideoPrivateOutModel', id: number, name?: string | null, originalContent?: string | null, processedContent?: string | null, contentType: string, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean, fileSizeMb: number, sentences?: Array<{ __typename?: 'VideoPrivateSentenceOutModel', id: number, startOffset: number, length: number, orderIndex: number }> | null, subtitles?: Array<{ __typename?: 'VideoPrivateSubtitleOutModel', id: number, startTimeMs: number, endTimeMs: number, startOffset: number, length: number, orderIndex: number }> | null, subtitleSentenceInit?: Array<{ __typename?: 'SubtitleSentenceInitOutModel', id: number, subtitleId: number, sentenceId: number, startOffset: number, length: number }> | null } };
+export type VideoPrivate_Get = { __typename?: 'Query', video_private_get: { __typename?: 'VideoPrivateOutModel', id: number, name?: string | null, originalContent?: string | null, processedContent?: string | null, contentType: string, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean, fileSizeMb: number, sentences?: Array<{ __typename?: 'VideoPrivateSentenceOutModel', id: number, startOffset: number, length: number, orderIndex: number, sentenceTranslations?: Array<{ __typename?: 'SentenceTranslationOutModel', id: number, translation: string }> | null }> | null, subtitles?: Array<{ __typename?: 'VideoPrivateSubtitleOutModel', id: number, startTimeMs: number, endTimeMs: number, startOffset: number, length: number, orderIndex: number }> | null, subtitleSentenceInit?: Array<{ __typename?: 'SubtitleSentenceInitOutModel', id: number, subtitleId: number, sentenceId: number, startOffset: number, length: number }> | null } };
 
 export type VideoPrivate_GetUserVideosVariables = Exact<{ [key: string]: never; }>;
 
@@ -1646,6 +1653,10 @@ export const VideoPrivate_GetDocument = gql`
     fileSizeMb
     sentences {
       id
+      sentenceTranslations {
+        id
+        translation
+      }
       startOffset
       length
       orderIndex

@@ -392,6 +392,7 @@ export const ModelName = {
   BookChapter: 'BookChapter',
   VideoPrivate: 'VideoPrivate',
   Sentence: 'Sentence',
+  SentenceTranslation: 'SentenceTranslation',
   Subtitle: 'Subtitle',
   SubtitleSentenceInit: 'SubtitleSentenceInit',
   EngRusDictionary: 'EngRusDictionary'
@@ -410,7 +411,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "balanceTransaction" | "payment" | "bookPrivate" | "bookPublic" | "bookChapter" | "videoPrivate" | "sentence" | "subtitle" | "subtitleSentenceInit" | "engRusDictionary"
+    modelProps: "user" | "balanceTransaction" | "payment" | "bookPrivate" | "bookPublic" | "bookChapter" | "videoPrivate" | "sentence" | "sentenceTranslation" | "subtitle" | "subtitleSentenceInit" | "engRusDictionary"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1006,6 +1007,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    SentenceTranslation: {
+      payload: Prisma.$SentenceTranslationPayload<ExtArgs>
+      fields: Prisma.SentenceTranslationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SentenceTranslationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceTranslationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SentenceTranslationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceTranslationPayload>
+        }
+        findFirst: {
+          args: Prisma.SentenceTranslationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceTranslationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SentenceTranslationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceTranslationPayload>
+        }
+        findMany: {
+          args: Prisma.SentenceTranslationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceTranslationPayload>[]
+        }
+        create: {
+          args: Prisma.SentenceTranslationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceTranslationPayload>
+        }
+        createMany: {
+          args: Prisma.SentenceTranslationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SentenceTranslationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceTranslationPayload>[]
+        }
+        delete: {
+          args: Prisma.SentenceTranslationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceTranslationPayload>
+        }
+        update: {
+          args: Prisma.SentenceTranslationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceTranslationPayload>
+        }
+        deleteMany: {
+          args: Prisma.SentenceTranslationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SentenceTranslationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SentenceTranslationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceTranslationPayload>[]
+        }
+        upsert: {
+          args: Prisma.SentenceTranslationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceTranslationPayload>
+        }
+        aggregate: {
+          args: Prisma.SentenceTranslationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSentenceTranslation>
+        }
+        groupBy: {
+          args: Prisma.SentenceTranslationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SentenceTranslationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SentenceTranslationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SentenceTranslationCountAggregateOutputType> | number
+        }
+      }
+    }
     Subtitle: {
       payload: Prisma.$SubtitlePayload<ExtArgs>
       fields: Prisma.SubtitleFieldRefs
@@ -1377,6 +1452,18 @@ export const SentenceScalarFieldEnum = {
 export type SentenceScalarFieldEnum = (typeof SentenceScalarFieldEnum)[keyof typeof SentenceScalarFieldEnum]
 
 
+export const SentenceTranslationScalarFieldEnum = {
+  id: 'id',
+  sentence_id: 'sentence_id',
+  translation: 'translation',
+  provider: 'provider',
+  analysis: 'analysis',
+  created_at: 'created_at'
+} as const
+
+export type SentenceTranslationScalarFieldEnum = (typeof SentenceTranslationScalarFieldEnum)[keyof typeof SentenceTranslationScalarFieldEnum]
+
+
 export const SubtitleScalarFieldEnum = {
   id: 'id',
   video_private_id: 'video_private_id',
@@ -1550,6 +1637,20 @@ export type ListEnumVideoPrivateContentTypeFieldRefInput<$PrismaModel> = FieldRe
 
 
 /**
+ * Reference to a field of type 'SentenceTranslationProvider'
+ */
+export type EnumSentenceTranslationProviderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SentenceTranslationProvider'>
+    
+
+
+/**
+ * Reference to a field of type 'SentenceTranslationProvider[]'
+ */
+export type ListEnumSentenceTranslationProviderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SentenceTranslationProvider[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -1665,6 +1766,7 @@ export type GlobalOmitConfig = {
   bookChapter?: Prisma.BookChapterOmit
   videoPrivate?: Prisma.VideoPrivateOmit
   sentence?: Prisma.SentenceOmit
+  sentenceTranslation?: Prisma.SentenceTranslationOmit
   subtitle?: Prisma.SubtitleOmit
   subtitleSentenceInit?: Prisma.SubtitleSentenceInitOmit
   engRusDictionary?: Prisma.EngRusDictionaryOmit

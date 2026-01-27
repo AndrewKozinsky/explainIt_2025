@@ -476,6 +476,45 @@ export const bdConfig = {
 			SubtitleSentenceInit: {
 				type: 'oneToMany',
 			},
+			SentenceTranslation: {
+				type: 'oneToMany',
+			},
+		},
+	},
+	SentenceTranslation: {
+		dtoProps: {},
+		indexes: [{ fields: ['sentence_id'] }, { fields: ['provider'] }],
+		dbFields: {
+			id: {
+				type: 'index',
+			},
+			sentence_id: {
+				type: 'manyToOne',
+				thisField: 'sentence_id',
+				foreignTable: 'Sentence',
+				foreignField: 'id',
+				required: true,
+			},
+			translation: {
+				type: 'string',
+				description: 'Translation of the sentence',
+				required: true,
+			},
+			provider: {
+				type: 'enum',
+				description: 'Translation provider',
+				required: true,
+				variants: ['yandexTranslate', 'chatGPTNano', 'chatGPTMini', 'chatGPTStandard'],
+				enumName: 'SentenceTranslationProvider',
+			},
+			analysis: {
+				type: 'string',
+				description: 'Optional analysis data from provider',
+				required: false,
+			},
+			created_at: {
+				type: 'createdAt',
+			},
 		},
 	},
 	Subtitle: {

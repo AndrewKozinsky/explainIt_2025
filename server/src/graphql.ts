@@ -227,8 +227,14 @@ export interface VideoPrivateLiteOutModel {
     fileSizeMb: number;
 }
 
+export interface SentenceTranslationOutModel {
+    id: number;
+    translation: string;
+}
+
 export interface VideoPrivateSentenceOutModel {
     id: number;
+    sentenceTranslations?: Nullable<SentenceTranslationOutModel[]>;
     startOffset: number;
     length: number;
     orderIndex: number;

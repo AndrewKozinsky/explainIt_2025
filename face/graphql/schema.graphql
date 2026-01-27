@@ -299,6 +299,11 @@ type SentenceOutModel {
   startOffset: Int!
 }
 
+type SentenceTranslationOutModel {
+  id: Int!
+  translation: String!
+}
+
 type SubtitleSentenceInitOutModel {
   id: Int!
   length: Int!
@@ -449,6 +454,7 @@ type VideoPrivateSentenceOutModel {
   id: Int!
   length: Int!
   orderIndex: Int!
+  sentenceTranslations: [SentenceTranslationOutModel!]
   startOffset: Int!
 }
 

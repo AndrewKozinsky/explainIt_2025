@@ -112,6 +112,20 @@ model Sentence {
     length               Int
     order_index          Int
     SubtitleSentenceInit SubtitleSentenceInit[]
+    SentenceTranslation  SentenceTranslation[]
+}
+
+model SentenceTranslation {
+    id         Int                       @id @default(autoincrement())
+    sentence   Sentence                  @relation(fields: [sentence_id], references: [id], onDelete: Cascade)
+    sentence_id Int
+    translation String
+    provider    SentenceTranslationProvider
+    analysis    String?
+    created_at  DateTime                  @default(now())
+
+    @@index([sentence_id])
+    @@index([provider])
 }
 
 model Subtitle {
@@ -169,4 +183,11 @@ enum PaymentProviderName {
 enum VideoPrivateContentType {
     text
     subtitles
+}
+
+enum SentenceTranslationProvider {
+    yandexTranslate
+    chatGPTNano
+    chatGPTMini
+    chatGPTStandard
 }

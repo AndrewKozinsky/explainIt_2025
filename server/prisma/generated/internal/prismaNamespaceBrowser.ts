@@ -59,6 +59,7 @@ export const ModelName = {
   BookChapter: 'BookChapter',
   VideoPrivate: 'VideoPrivate',
   Sentence: 'Sentence',
+  SentenceTranslation: 'SentenceTranslation',
   Subtitle: 'Subtitle',
   SubtitleSentenceInit: 'SubtitleSentenceInit',
   EngRusDictionary: 'EngRusDictionary'
@@ -188,6 +189,18 @@ export const SentenceScalarFieldEnum = {
 } as const
 
 export type SentenceScalarFieldEnum = (typeof SentenceScalarFieldEnum)[keyof typeof SentenceScalarFieldEnum]
+
+
+export const SentenceTranslationScalarFieldEnum = {
+  id: 'id',
+  sentence_id: 'sentence_id',
+  translation: 'translation',
+  provider: 'provider',
+  analysis: 'analysis',
+  created_at: 'created_at'
+} as const
+
+export type SentenceTranslationScalarFieldEnum = (typeof SentenceTranslationScalarFieldEnum)[keyof typeof SentenceTranslationScalarFieldEnum]
 
 
 export const SubtitleScalarFieldEnum = {

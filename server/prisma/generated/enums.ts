@@ -41,3 +41,13 @@ export const VideoPrivateContentType = {
 } as const
 
 export type VideoPrivateContentType = (typeof VideoPrivateContentType)[keyof typeof VideoPrivateContentType]
+
+
+export const SentenceTranslationProvider = {
+  yandexTranslate: 'yandexTranslate',
+  chatGPTNano: 'chatGPTNano',
+  chatGPTMini: 'chatGPTMini',
+  chatGPTStandard: 'chatGPTStandard'
+} as const
+
+export type SentenceTranslationProvider = (typeof SentenceTranslationProvider)[keyof typeof SentenceTranslationProvider]
