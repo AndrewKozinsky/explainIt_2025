@@ -20,19 +20,6 @@ function SubtitleBlock(props: SubtitleBlockProps) {
 	const selection = useWatchingStore((s) => s.selection)
 	const selectWord = useWatchingStore((s) => s.selectWord)
 
-	// Достаём предложения с переводами из Хранилища
-	// const sentences = useWatchingStore((s) => s.populatedSubtitles.sentences)
-
-	// Готовим переводы для предложений, которые начинаются в этом субтитре
-	/*const translationsToRender = useMemo(() => {
-		if (!startingSentenceIds || startingSentenceIds.length === 0) return [] as string[]
-		const byId = new Map<number, { translation?: string }>(sentences.map((s) => [s.id, s]))
-
-		return startingSentenceIds
-			.map((id) => byId.get(id)?.translation?.trim())
-			.filter((t): t is string => !!t && t.length > 0)
-	}, [sentences, startingSentenceIds])*/
-
 	return (
 		<div className='subtitle-block' data-subtitle-id={subtitle.id}>
 			<div className={cn('subtitle-block__subtitle', isCurrent && 'subtitle-block__subtitle--current')}>
@@ -47,20 +34,8 @@ function SubtitleBlock(props: SubtitleBlockProps) {
 							selectWord={selectWord}
 						/>
 					)
-					/*const sentenceStructure = getSentenceStructure(text.text)
-
-					return sentenceStructure.map((part) => {
-						if (part.isWord) {
-							return <Word text={part.value} key={part.id} />
-						}
-
-						return part.value
-					})*/
 				})}
 			</div>
-			{/*{translationsToRender.length && (
-				<p className='subtitle-block__translation'>{translationsToRender.join(' ')}</p>
-			)}*/}
 		</div>
 	)
 }
