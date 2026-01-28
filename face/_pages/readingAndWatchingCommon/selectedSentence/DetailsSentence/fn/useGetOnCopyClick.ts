@@ -1,10 +1,9 @@
-// import { useCallback } from 'react'
-// import { NotifyArg } from 'ui/Notification/context'
-// import { useWatchingStore } from '_pages/video/watching/watchingStore'
+import { useCallback } from 'react'
+import { NotifyArg } from 'ui/Notification/context'
+import { useSelectedSentenceStore } from '_pages/readingAndWatchingCommon/selectedSentence/selectedSentenceStore'
 
-/*export function useGetOnCopyClick(notify: (arg: NotifyArg) => void) {
-	const selectedText = useWatchingStore((s) => s.selectedText)
-	const sentenceText = selectedText.subtitle?.sentenceText ?? selectedText.plainText?.sentenceText ?? ''
+export function useGetOnCopyClick(notify: (arg: NotifyArg) => void) {
+	const sentenceText = useSelectedSentenceStore((s) => s.sentenceText)
 
 	const onCopy = useCallback(async () => {
 		if (!sentenceText) return
@@ -21,9 +20,9 @@
 		sentenceText,
 		onCopy,
 	}
-}*/
+}
 
-/*async function copyToClipboard(text: string) {
+async function copyToClipboard(text: string) {
 	if (navigator?.clipboard?.writeText) {
 		try {
 			await navigator.clipboard.writeText(text)
@@ -34,9 +33,9 @@
 	}
 
 	copyToClipboardByExecCommand(text)
-}*/
+}
 
-/*function copyToClipboardByExecCommand(text: string) {
+function copyToClipboardByExecCommand(text: string) {
 	if (!document?.body) throw new Error('No document body')
 
 	const textarea = document.createElement('textarea')
@@ -58,4 +57,4 @@
 	} finally {
 		document.body.removeChild(textarea)
 	}
-}*/
+}

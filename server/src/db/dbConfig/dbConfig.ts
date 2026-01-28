@@ -482,7 +482,29 @@ export const bdConfig = {
 		},
 	},
 	SentenceTranslation: {
-		dtoProps: {},
+		dtoProps: {
+			text: {
+				type: 'string',
+				description: 'Sentence for translation',
+				required: true,
+				minLength: 1,
+				maxLength: 500,
+			},
+			sourceLanguageCode: {
+				type: 'string',
+				description: 'Source language code',
+				required: false,
+				minLength: 2,
+				maxLength: 2,
+			},
+			targetLanguageCode: {
+				type: 'string',
+				description: 'Target language code',
+				required: false,
+				minLength: 2,
+				maxLength: 2,
+			},
+		},
 		indexes: [{ fields: ['sentence_id'] }, { fields: ['provider'] }],
 		dbFields: {
 			id: {

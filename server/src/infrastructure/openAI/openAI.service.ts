@@ -23,9 +23,11 @@ export class OpenAIService {
 
 	constructor(private mainConfig: MainConfigService) {
 		this.openai = new OpenAI({
-			apiKey: mainConfig.get().openAI.apiKey,
+			apiKey: this.mainConfig.get().openAI.apiKey,
 		})
 	}
+
+	// TODO: В будущем нужно подумать можно ли объединить generateText и generateTextStreamChunks в один метод
 
 	/**
 	 * Отправляет ИИ запрос
@@ -63,6 +65,35 @@ export class OpenAIService {
 			// Считается по большей стоимости
 			outputTokens: response.usage.completion_tokens,
 			message: response?.choices[0]?.message?.content as null | string,
+		}
+	}
+
+	async *generateTextStreamChunks(input: {
+		messages: OpenAI.Chat.Completions.ChatCompletionMessageParam[]
+		model?: OpenAIModels
+		reasoningEffort?: ReasoningEffort
+		abortSignal?: AbortSignal
+	}): AsyncGenerator<string, void, void> {
+		const stream = await this.openai.chat.completions.create(
+			{
+				model: input.model ?? OpenAIModels.Nano,
+				reasoning_effort: input.reasoningEffort,
+				messages: input.messages,
+				response_format: {
+					type: 'text',
+				},
+				service_tier: 'flex',
+				stream: true,
+			},
+			{
+				signal: input.abortSignal,
+			},
+		)
+
+		for await (const event of stream) {
+			const deltaText = event.choices?.[0]?.delta?.content
+			if (!deltaText) continue
+			yield deltaText
 		}
 	}
 }

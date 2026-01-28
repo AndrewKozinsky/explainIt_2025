@@ -119,18 +119,6 @@ export interface DeletePrivateVideoInput {
     id: number;
 }
 
-export interface TranslatePhraseInput {
-    text: string;
-    sourceLanguageCode?: Nullable<string>;
-    targetLanguageCode?: Nullable<string>;
-}
-
-export interface TranslateSentenceInput {
-    text: string;
-    sourceLanguageCode?: Nullable<string>;
-    targetLanguageCode?: Nullable<string>;
-}
-
 export interface BookOutModel {
     id: number;
     author?: Nullable<string>;
@@ -179,18 +167,6 @@ export interface BookPublicOutModel {
     note: string;
     cover: string;
     chapters: BookChapterLiteOutModel[];
-}
-
-export interface EngRusDictionaryItemOutModel {
-    id: number;
-    engPhrase: string;
-    rusPhrase: string;
-    transcription?: Nullable<string>;
-    lexemes?: Nullable<string>;
-}
-
-export interface TranslateSentenceOutModel {
-    translatedText: string;
 }
 
 export interface CreateVideoPrivateOutModel {
@@ -332,8 +308,6 @@ export interface IMutation {
     video_private_create(input: CreatePrivateVideoInput): CreateVideoPrivateOutModel | Promise<CreateVideoPrivateOutModel>;
     video_private_update(input: UpdatePrivateVideoInput): UpdateVideoPrivateOutModel | Promise<UpdateVideoPrivateOutModel>;
     video_private_delete(input: DeletePrivateVideoInput): boolean | Promise<boolean>;
-    translate_translate_phrase(input: TranslatePhraseInput): EngRusDictionaryItemOutModel | Promise<EngRusDictionaryItemOutModel>;
-    translate_translate_sentence(input: TranslateSentenceInput): TranslateSentenceOutModel | Promise<TranslateSentenceOutModel>;
 }
 
 export type CheckTranslationOutModel = CheckTranslationOutSuccessModel | CheckTranslationOutErrorModel;

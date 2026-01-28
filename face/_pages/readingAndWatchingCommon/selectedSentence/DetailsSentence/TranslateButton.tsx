@@ -1,7 +1,7 @@
 // import React from 'react'
-// import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
-// import Button from 'ui/formRelated/buttons/Button/Button'
-// import { useTranslate_TranslateSentence, useVideoPrivate_Update } from '@/graphql'
+import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
+import Button from 'ui/formRelated/buttons/Button/Button'
+import { useTranslate_TranslateSentence, useVideoPrivate_Update } from '@/graphql'
 // import { extractGraphQLError } from '@/graphql/extractGraphQLError'
 // import {
 // 	populatedPlainTextToResolved,
@@ -10,20 +10,19 @@
 // import { useGetSelectedItem } from '_pages/video/watching/text/detailsSide/DetailsSentence/fn/getSelectedItem'
 // import { useWatchingStore } from '_pages/video/watching/watchingStore'
 
-/*function TranslateButton() {
-	const { selectedItem } = useGetSelectedItem()
-	const video = useWatchingStore((s) => s.video)
+function TranslateButton() {
+	// const { selectedItem } = useGetSelectedItem()
+	// const video = useWatchingStore((s) => s.video)
 
 	const [translateSentence, { loading }] = useTranslate_TranslateSentence()
-	const [updateVideo] = useVideoPrivate_Update()
+	// const [updateVideo] = useVideoPrivate_Update()
 	const [errorText, setErrorText] = React.useState<null | string>(null)
 
-	const hasTranslation = Boolean(selectedItem?.translation)
+	// const hasTranslation = Boolean(selectedItem?.translation)
 
 	async function onTranslateClick() {
-		setErrorText(null)
-
-		try {
+		// setErrorText(null)
+		/*try {
 			const { data } = await translateSentence({
 				variables: {
 					input: {
@@ -61,11 +60,11 @@
 		} catch (error: unknown) {
 			const gqError = extractGraphQLError(error)
 			setErrorText(gqError?.message ?? 'Ошибка при переводе')
-		}
+		}*/
 	}
 
-	if (!selectedItem) return null
-	if (hasTranslation) return null
+	// if (!selectedItem) return null
+	// if (hasTranslation) return null
 
 	return (
 		<>
@@ -75,6 +74,6 @@
 			<ErrorMessage text={errorText} />
 		</>
 	)
-}*/
+}
 
-// export default TranslateButton
+export default TranslateButton

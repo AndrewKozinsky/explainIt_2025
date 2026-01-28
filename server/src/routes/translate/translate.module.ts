@@ -1,18 +1,22 @@
 import { Module } from '@nestjs/common'
 import { CqrsModule } from '@nestjs/cqrs'
 import { EngRusDictionaryRepository } from 'repo/engRusDictionary.repository'
-import { TranslateResolver } from 'routes/translate/translate.resolver'
+import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
+import { TranslateController } from 'routes/translate/translate.controller'
+import { TranslateService } from 'routes/translate/translate.service'
 import { PrismaService } from 'db/prisma.service'
-// import { TranslatePhraseHandler } from 'features/translate/TranslatePhrase.command'
-// import { TranslateSentenceHandler } from 'features/translate/TranslateSentence.command'
+import { StreamTranslateWithChatGPT } from 'features/translate/StreamTranslateWithChatGPT.service'
+import { StreamTranslateWithYandex } from 'features/translate/StreamTranslateWithYandex.service'
+import { TranslateSentenceHandler } from 'features/translate/TranslateSentence.command'
 
-const services = [PrismaService]
-// const commandHandlers = [TranslatePhraseHandler, TranslateSentenceHandler]
-const resolvers = [TranslateResolver]
-const repositories = [EngRusDictionaryRepository]
+const services = [PrismaService, TranslateService]
+const commandHandlers = [TranslateSentenceHandler]
+const translateProviders = [StreamTranslateWithYandex, StreamTranslateWithChatGPT]
+const repositories = [EngRusDictionaryRepository, SentenceTranslationRepository]
 
 @Module({
 	imports: [CqrsModule],
-	providers: [...services, ...resolvers, ...repositories],
+	controllers: [TranslateController],
+	providers: [...commandHandlers, ...translateProviders, ...services, ...repositories],
 })
 export class TranslateRouteModule {}

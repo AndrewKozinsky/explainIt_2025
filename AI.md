@@ -14,6 +14,7 @@
 - Ask questions if something is unclear
 - Follow the existing code style and patterns
 - Write clear, concise, and well-documented code
+- You cannot make more than 5 indents in the code.
 
 ## Root folder structure
 - `face` — frontend part

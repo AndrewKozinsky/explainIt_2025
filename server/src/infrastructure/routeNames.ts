@@ -21,6 +21,7 @@ export const RouteNames = {
 	TRANSLATE: {
 		TRANSLATE_PHRASE: 'translate_translate_phrase',
 		TRANSLATE_SENTENCE: 'translate_translate_sentence',
+		TRANSLATE_SENTENCE_STREAM: 'translate/sentence/stream',
 	},
 	// REST
 	DB: {
