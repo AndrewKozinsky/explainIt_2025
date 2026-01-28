@@ -78,26 +78,29 @@ export class StreamTranslateWithChatGPT {
 					input.sourceLanguageCode +
 					' на язык ' +
 					input.targetLanguageCode +
-					'. Ответ должен быть строго в формате:\nTRANSLATION: <перевод одной строкой>\nANALYSIS: <подробный разбор для изучающего язык: грамматика, ключевые слова, устойчивые выражения, нюансы смысла, альтернативные варианты перевода, типичные ошибки.>',
+					'. Ответ должен быть строго в формате:\n<перевод одной строкой>\n\n<подробный разбор для изучающего язык: ключевые слова, устойчивые выражения, нюансы смысла.>',
 			},
 		] as const
 	}
 
-	private parseChatGPTTranslationAndAnalysis(
-		message: null | string,
-	): null | { translation: string; analysis: null | string } {
+	private parseChatGPTTranslationAndAnalysis(message: null | string): null | {
+		translation: string
+		analysis: null | string
+	} {
 		if (!message) return null
 
-		const translationMatch = message.match(/TRANSLATION:\s*(.*)/i)
-		if (!translationMatch?.[1]) return null
+		const normalized = message.trim()
+		if (!normalized) return null
 
-		const translation = translationMatch[1].trim()
-		const analysisMatch = message.match(/ANALYSIS:\s*([\s\S]*)/i)
-		const analysis = analysisMatch?.[1] ? analysisMatch[1].trim() : null
+		const parts = normalized.split(/\n\s*\n/)
+		const translation = (parts[0] ?? '').trim()
+		if (!translation) return null
+
+		const analysis = parts.length > 1 ? parts.slice(1).join('\n\n').trim() : null
 
 		return {
 			translation,
-			analysis,
+			analysis: analysis ? analysis : null,
 		}
 	}
 }

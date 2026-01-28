@@ -149,15 +149,6 @@ export type DeletePrivateVideoInput = {
   id: Scalars['Int']['input'];
 };
 
-export type EngRusDictionaryItemOutModel = {
-  __typename?: 'EngRusDictionaryItemOutModel';
-  engPhrase: Scalars['String']['output'];
-  id: Scalars['Int']['output'];
-  lexemes?: Maybe<Scalars['String']['output']>;
-  rusPhrase: Scalars['String']['output'];
-  transcription?: Maybe<Scalars['String']['output']>;
-};
-
 export type GetBookChapterInput = {
   /** Book type: public or private */
   bookType: Scalars['String']['input'];
@@ -244,8 +235,6 @@ export type Mutation = {
   book_update: BookOutModel;
   /** Top up a balance with YooKassa */
   payment_yookassa_top_up_balance: TopUpBalanceWithYooKassaOutModel;
-  translate_translate_phrase: EngRusDictionaryItemOutModel;
-  translate_translate_sentence: TranslateSentenceOutModel;
   /** Create a video */
   video_private_create: CreateVideoPrivateOutModel;
   /** Delete a video */
@@ -312,16 +301,6 @@ export type MutationBook_UpdateArgs = {
 
 export type MutationPayment_Yookassa_Top_Up_BalanceArgs = {
   input: TopUpBalanceWithYooKassaInput;
-};
-
-
-export type MutationTranslate_Translate_PhraseArgs = {
-  input: TranslatePhraseInput;
-};
-
-
-export type MutationTranslate_Translate_SentenceArgs = {
-  input: TranslateSentenceInput;
 };
 
 
@@ -433,29 +412,6 @@ export type TopUpBalanceWithYooKassaInput = {
 export type TopUpBalanceWithYooKassaOutModel = {
   __typename?: 'TopUpBalanceWithYooKassaOutModel';
   confirmationUrl: Scalars['String']['output'];
-};
-
-export type TranslatePhraseInput = {
-  /** Source language code */
-  sourceLanguageCode?: InputMaybe<Scalars['String']['input']>;
-  /** Target language code */
-  targetLanguageCode?: InputMaybe<Scalars['String']['input']>;
-  /** Text for translation */
-  text: Scalars['String']['input'];
-};
-
-export type TranslateSentenceInput = {
-  /** Source language code */
-  sourceLanguageCode?: InputMaybe<Scalars['String']['input']>;
-  /** Target language code */
-  targetLanguageCode?: InputMaybe<Scalars['String']['input']>;
-  /** Sentence for translation */
-  text: Scalars['String']['input'];
-};
-
-export type TranslateSentenceOutModel = {
-  __typename?: 'TranslateSentenceOutModel';
-  translatedText: Scalars['String']['output'];
 };
 
 export type UpdateBookChapterInput = {

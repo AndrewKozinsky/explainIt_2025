@@ -1,5 +1,6 @@
 import SentenceButtons from '_pages/readingAndWatchingCommon/selectedSentence/DetailsSentence/SentenceButtons'
 import { SelectedSentence } from '_pages/readingAndWatchingCommon/selectedSentence/SelectedSentence/SelectedSentence'
+import SentenceAnalysis from '_pages/readingAndWatchingCommon/selectedSentence/SelectedSentenceBlock/SentenceAnalysis'
 import { useSelectedSentenceStore } from '_pages/readingAndWatchingCommon/selectedSentence/selectedSentenceStore'
 import { usePopulateStore } from './fn/populateStore'
 
@@ -15,6 +16,7 @@ function SelectedSentenceBlock() {
 		<div className='details-side'>
 			<SelectedSentence />
 			<SentenceButtons />
+			<SentenceAnalysis />
 			{/*<PhraseAnalysis />*/}
 		</div>
 	)

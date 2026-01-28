@@ -4,6 +4,7 @@ import {
 	IsArray,
 	IsDateString,
 	IsEmail,
+	IsIn,
 	IsNumber,
 	IsOptional,
 	IsString,
@@ -39,6 +40,13 @@ export function DtoFieldDecorators(
 		decorators.push(Type(() => Number)) // Converts string to number
 		decorators.push(IsNumber())
 	}
+	if (updatedFieldConf.type === 'manyToOne') {
+		decorators.push(Type(() => Number)) // Converts string to number
+		decorators.push(IsNumber())
+		if (!updatedFieldConf.required) {
+			decorators.push(IsOptional())
+		}
+	}
 	if (updatedFieldConf.type === 'string') {
 		decorators.push(IsString({ message: name + ' must be a string' }))
 		decorators.push(Trim())
@@ -67,6 +75,13 @@ export function DtoFieldDecorators(
 			decorators.push(Matches(updatedFieldConf.match, { message: errMessage }))
 		}
 
+		if (!updatedFieldConf.required) {
+			decorators.push(IsOptional())
+		}
+	}
+	if (updatedFieldConf.type === 'enum') {
+		decorators.push(IsString({ message: name + ' must be a string' }))
+		decorators.push(IsIn(updatedFieldConf.variants, { message: name + ' must be a valid enum value' }))
 		if (!updatedFieldConf.required) {
 			decorators.push(IsOptional())
 		}

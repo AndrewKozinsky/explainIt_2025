@@ -132,14 +132,6 @@ input DeletePrivateVideoInput {
   id: Int!
 }
 
-type EngRusDictionaryItemOutModel {
-  engPhrase: String!
-  id: Int!
-  lexemes: String
-  rusPhrase: String!
-  transcription: String
-}
-
 input GetBookChapterInput {
   """Book type: public or private"""
   bookType: String!
@@ -238,8 +230,6 @@ type Mutation {
 
   """Top up a balance with YooKassa"""
   payment_yookassa_top_up_balance(input: TopUpBalanceWithYooKassaInput!): TopUpBalanceWithYooKassaOutModel!
-  translate_translate_phrase(input: TranslatePhraseInput!): EngRusDictionaryItemOutModel!
-  translate_translate_sentence(input: TranslateSentenceInput!): TranslateSentenceOutModel!
 
   """Create a video"""
   video_private_create(input: CreatePrivateVideoInput!): CreateVideoPrivateOutModel!
@@ -319,32 +309,6 @@ input TopUpBalanceWithYooKassaInput {
 
 type TopUpBalanceWithYooKassaOutModel {
   confirmationUrl: String!
-}
-
-input TranslatePhraseInput {
-  """Source language code"""
-  sourceLanguageCode: String
-
-  """Target language code"""
-  targetLanguageCode: String
-
-  """Text for translation"""
-  text: String!
-}
-
-input TranslateSentenceInput {
-  """Source language code"""
-  sourceLanguageCode: String
-
-  """Target language code"""
-  targetLanguageCode: String
-
-  """Sentence for translation"""
-  text: String!
-}
-
-type TranslateSentenceOutModel {
-  translatedText: String!
 }
 
 input UpdateBookChapterInput {

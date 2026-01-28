@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common'
 import { CqrsModule } from '@nestjs/cqrs'
 import { EngRusDictionaryRepository } from 'repo/engRusDictionary.repository'
 import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
+import { UserRepository } from 'repo/user.repository'
 import { TranslateController } from 'routes/translate/translate.controller'
 import { TranslateService } from 'routes/translate/translate.service'
 import { PrismaService } from 'db/prisma.service'
@@ -12,7 +13,7 @@ import { TranslateSentenceHandler } from 'features/translate/TranslateSentence.c
 const services = [PrismaService, TranslateService]
 const commandHandlers = [TranslateSentenceHandler]
 const translateProviders = [StreamTranslateWithYandex, StreamTranslateWithChatGPT]
-const repositories = [EngRusDictionaryRepository, SentenceTranslationRepository]
+const repositories = [EngRusDictionaryRepository, SentenceTranslationRepository, UserRepository]
 
 @Module({
 	imports: [CqrsModule],
