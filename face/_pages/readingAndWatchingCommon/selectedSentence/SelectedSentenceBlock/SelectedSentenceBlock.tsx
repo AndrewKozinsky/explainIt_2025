@@ -4,6 +4,7 @@ import SentenceAnalysis from '_pages/readingAndWatchingCommon/selectedSentence/S
 import { useSelectedSentenceStore } from '_pages/readingAndWatchingCommon/selectedSentence/selectedSentenceStore'
 import { usePopulateStore } from './fn/populateStore'
 import { useSyncSentenceTranslations } from './fn/useSyncSentenceTranslations'
+import './SelectedSentenceBlock.scss'
 
 function SelectedSentenceBlock() {
 	usePopulateStore()

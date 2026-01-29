@@ -1,3 +1,5 @@
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import { useSelectedSentenceStore } from '_pages/readingAndWatchingCommon/selectedSentence/selectedSentenceStore'
 
 function SentenceAnalysis() {
@@ -9,7 +11,11 @@ function SentenceAnalysis() {
 	return (
 		<div className='sentence-analysis'>
 			{translation ? <div className='sentence-analysis__translation'>{translation}</div> : null}
-			{analysis ? <div className='sentence-analysis__analysis'>{analysis}</div> : null}
+			{analysis ? (
+				<div className='sentence-analysis__analysis markdown'>
+					<ReactMarkdown remarkPlugins={[remarkGfm]}>{analysis}</ReactMarkdown>
+				</div>
+			) : null}
 		</div>
 	)
 }
