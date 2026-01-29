@@ -12,7 +12,7 @@ function Analysis() {
 
 	return (
 		<div className='analysis'>
-			<SelectedSentenceBlock sentenceId={sentenceId} sentenceText={sentenceText} wordIds={wordIds} />
+			<SelectedSentenceBlock />
 			<HintBlock />
 		</div>
 	)

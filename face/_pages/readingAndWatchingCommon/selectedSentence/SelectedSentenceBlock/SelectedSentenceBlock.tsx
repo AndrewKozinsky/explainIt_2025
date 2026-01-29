@@ -3,9 +3,11 @@ import { SelectedSentence } from '_pages/readingAndWatchingCommon/selectedSenten
 import SentenceAnalysis from '_pages/readingAndWatchingCommon/selectedSentence/SelectedSentenceBlock/SentenceAnalysis'
 import { useSelectedSentenceStore } from '_pages/readingAndWatchingCommon/selectedSentence/selectedSentenceStore'
 import { usePopulateStore } from './fn/populateStore'
+import { useSyncSentenceTranslations } from './fn/useSyncSentenceTranslations'
 
 function SelectedSentenceBlock() {
 	usePopulateStore()
+	useSyncSentenceTranslations()
 
 	const sentenceId = useSelectedSentenceStore((s) => s.sentenceId)
 	const wordIds = useSelectedSentenceStore((s) => s.wordIds)

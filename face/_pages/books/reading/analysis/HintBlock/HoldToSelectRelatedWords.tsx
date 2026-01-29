@@ -1,5 +1,5 @@
 import { HotKeyButton } from './details'
-import { getHotKeyName, useIsHoldToSelectRelatedWordsVisible } from './fn/isHoldToSelectRelatedWordsVisible'
+import { getHotKeyName } from './fn/isHoldToSelectRelatedWordsVisible'
 
 export function HoldToSelectRelatedWords() {
 	return (

@@ -1,11 +1,12 @@
 import React from 'react'
 import { useSelectedSentenceStore } from '../../selectedSentenceStore'
-import { readTranslationStream } from './translationStream'
+import { parseTranslationAndAnalysisSoFar, readTranslationStream } from './translationStream'
 
 export function useTranslateSentence() {
 	const sentenceId = useSelectedSentenceStore((s) => s.sentenceId)
 	const sentenceText = useSelectedSentenceStore((s) => s.sentenceText)
 	const updateStore = useSelectedSentenceStore((s) => s.updateStore)
+	const upsertSentenceTranslation = useSelectedSentenceStore((s) => s.upsertSentenceTranslation)
 
 	const [loading, setLoading] = React.useState(false)
 	const [errorText, setErrorText] = React.useState<null | string>(null)
@@ -14,9 +15,11 @@ export function useTranslateSentence() {
 		setLoading(true)
 		setErrorText(null)
 
+		const provider = useSelectedSentenceStore.getState().translationProvider
+
 		const url = buildTranslateSentenceUrl({
 			sentenceId,
-			provider: 'chatGPTNano',
+			provider,
 			text: sentenceText,
 		})
 
@@ -31,6 +34,17 @@ export function useTranslateSentence() {
 			setLoading(false)
 			return
 		}
+
+		const parsed = parseTranslationAndAnalysisSoFar(result.fullText)
+
+		upsertSentenceTranslation({
+			id: 0,
+			sentenceId,
+			provider,
+			translation: parsed.translation,
+			analysis: parsed.analysis,
+			createdAt: new Date().toISOString(),
+		})
 
 		setLoading(false)
 		return

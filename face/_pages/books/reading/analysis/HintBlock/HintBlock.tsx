@@ -1,7 +1,6 @@
 import { useSystemStore } from 'stores/systemStore'
 import LongTapForSelectSeveralWords from '_pages/books/reading/analysis/HintBlock/LongTapForSelectSeveralWords'
 import { HoldToSelectRelatedWords } from './HoldToSelectRelatedWords'
-import TranslateButton from './TranslateButton'
 import './HintBlock.scss'
 
 function HintBlock() {
@@ -24,7 +23,6 @@ function HintBlockMobile() {
 	return (
 		<div className='hint-block hint-block--for-touch'>
 			<LongTapForSelectSeveralWords />
-			<TranslateButton />
 		</div>
 	)
 }
