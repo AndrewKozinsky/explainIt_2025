@@ -58,6 +58,9 @@ export const RouteNames = {
 		GET_USER_VIDEOS: 'video_private_user_videos',
 		GET: 'video_private_get',
 	},
+	SENTENCE_TRANSLATION: {
+		GET: 'sentence_translation_get',
+	},
 }
 
 export default RouteNames

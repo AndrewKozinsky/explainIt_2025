@@ -34,6 +34,10 @@ export interface GetPrivateVideoInput {
     id: number;
 }
 
+export interface GetSentenceTranslationInput {
+    id: number;
+}
+
 export interface RegisterUserInput {
     email: string;
     password: string;
@@ -169,6 +173,15 @@ export interface BookPublicOutModel {
     chapters: BookChapterLiteOutModel[];
 }
 
+export interface SentenceTranslationOutModel {
+    id: number;
+    sentenceId: number;
+    provider: string;
+    translation: string;
+    analysis?: Nullable<string>;
+    createdAt: string;
+}
+
 export interface CreateVideoPrivateOutModel {
     id: number;
     name?: Nullable<string>;
@@ -203,14 +216,9 @@ export interface VideoPrivateLiteOutModel {
     fileSizeMb: number;
 }
 
-export interface SentenceTranslationOutModel {
-    id: number;
-    translation: string;
-}
-
 export interface VideoPrivateSentenceOutModel {
     id: number;
-    sentenceTranslations?: Nullable<SentenceTranslationOutModel[]>;
+    sentenceTranslations?: Nullable<SentenceTranslationLiteOutModel[]>;
     startOffset: number;
     length: number;
     orderIndex: number;
@@ -250,6 +258,11 @@ export interface VideoPrivateOutModel {
     subtitleSentenceInit?: Nullable<SubtitleSentenceInitOutModel[]>;
 }
 
+export interface SentenceTranslationLiteOutModel {
+    id: number;
+    translation: string;
+}
+
 export interface UserOutModel {
     id: number;
     email: string;
@@ -272,6 +285,7 @@ export interface IQuery {
     book_chapter_get(input: GetBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
     video_private_user_videos(): VideoPrivateLiteOutModel[] | Promise<VideoPrivateLiteOutModel[]>;
     video_private_get(input: GetPrivateVideoInput): VideoPrivateOutModel | Promise<VideoPrivateOutModel>;
+    sentence_translation_get(input: GetSentenceTranslationInput): SentenceTranslationOutModel | Promise<SentenceTranslationOutModel>;
 }
 
 export interface CheckTranslationOutSuccessModel {

@@ -6,6 +6,7 @@ import { CqrsModule } from '@nestjs/cqrs'
 import { GraphQLModule } from '@nestjs/graphql'
 import { Request, Response } from 'express'
 import { BookPublicModule } from 'routes/bookPublic/bookPublic.module'
+import { SentenceTranslationModule } from 'routes/sentenceTranslation/sentenceTranslation.module'
 import { TranslateRouteModule } from 'routes/translate/translate.module'
 import { VideoPrivateModule } from 'routes/videoPrivate/videoPrivate.module'
 import { StartServerTasksRunner } from 'infrastructure/StartServerTasksRunner'
@@ -74,6 +75,7 @@ import { WebhookModule } from './routes/webhook/webhook.module'
 		BookChapterModule,
 		VideoPrivateModule,
 		TranslateRouteModule,
+		SentenceTranslationModule,
 	],
 	providers: [StartServerTasksRunner],
 })

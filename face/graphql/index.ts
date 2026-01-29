@@ -1,714 +1,975 @@
-import { gql } from '@apollo/client';
-import * as Apollo from '@apollo/client';
-export type Maybe<T> = T | null;
-export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
-export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = { [_ in K]?: never };
-export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
-const defaultOptions = {} as const;
+import { gql } from '@apollo/client'
+import * as Apollo from '@apollo/client'
+export type Maybe<T> = T | null
+export type InputMaybe<T> = Maybe<T>
+export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] }
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> }
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> }
+export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = { [_ in K]?: never }
+export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never }
+const defaultOptions = {} as const
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: { input: string; output: string; }
-  String: { input: string; output: string; }
-  Boolean: { input: boolean; output: boolean; }
-  Int: { input: number; output: number; }
-  Float: { input: number; output: number; }
-};
+	ID: { input: string; output: string }
+	String: { input: string; output: string }
+	Boolean: { input: boolean; output: boolean }
+	Int: { input: number; output: number }
+	Float: { input: number; output: number }
+}
 
 export type BookChapterLiteOutModel = {
-  __typename?: 'BookChapterLiteOutModel';
-  bookId: Scalars['Int']['output'];
-  header?: Maybe<Scalars['String']['output']>;
-  id: Scalars['Int']['output'];
-  name?: Maybe<Scalars['String']['output']>;
-  note?: Maybe<Scalars['String']['output']>;
-};
+	__typename?: 'BookChapterLiteOutModel'
+	bookId: Scalars['Int']['output']
+	header?: Maybe<Scalars['String']['output']>
+	id: Scalars['Int']['output']
+	name?: Maybe<Scalars['String']['output']>
+	note?: Maybe<Scalars['String']['output']>
+}
 
 export type BookChapterOutModel = {
-  __typename?: 'BookChapterOutModel';
-  book: BookLiteOutModel;
-  content?: Maybe<Scalars['String']['output']>;
-  header?: Maybe<Scalars['String']['output']>;
-  id: Scalars['Int']['output'];
-  name?: Maybe<Scalars['String']['output']>;
-  note?: Maybe<Scalars['String']['output']>;
-  sentences?: Maybe<Array<SentenceOutModel>>;
-};
+	__typename?: 'BookChapterOutModel'
+	book: BookLiteOutModel
+	content?: Maybe<Scalars['String']['output']>
+	header?: Maybe<Scalars['String']['output']>
+	id: Scalars['Int']['output']
+	name?: Maybe<Scalars['String']['output']>
+	note?: Maybe<Scalars['String']['output']>
+	sentences?: Maybe<Array<SentenceOutModel>>
+}
 
 export type BookLiteOutModel = {
-  __typename?: 'BookLiteOutModel';
-  author?: Maybe<Scalars['String']['output']>;
-  id: Scalars['Int']['output'];
-  name?: Maybe<Scalars['String']['output']>;
-  note?: Maybe<Scalars['String']['output']>;
-  userId?: Maybe<Scalars['Int']['output']>;
-};
+	__typename?: 'BookLiteOutModel'
+	author?: Maybe<Scalars['String']['output']>
+	id: Scalars['Int']['output']
+	name?: Maybe<Scalars['String']['output']>
+	note?: Maybe<Scalars['String']['output']>
+	userId?: Maybe<Scalars['Int']['output']>
+}
 
 export type BookOutModel = {
-  __typename?: 'BookOutModel';
-  author?: Maybe<Scalars['String']['output']>;
-  chapters: Array<BookChapterLiteOutModel>;
-  id: Scalars['Int']['output'];
-  name?: Maybe<Scalars['String']['output']>;
-  note?: Maybe<Scalars['String']['output']>;
-  userId: Scalars['Int']['output'];
-};
+	__typename?: 'BookOutModel'
+	author?: Maybe<Scalars['String']['output']>
+	chapters: Array<BookChapterLiteOutModel>
+	id: Scalars['Int']['output']
+	name?: Maybe<Scalars['String']['output']>
+	note?: Maybe<Scalars['String']['output']>
+	userId: Scalars['Int']['output']
+}
 
 export type BookPublicOutModel = {
-  __typename?: 'BookPublicOutModel';
-  author: Scalars['String']['output'];
-  chapters: Array<BookChapterLiteOutModel>;
-  cover: Scalars['String']['output'];
-  id: Scalars['Int']['output'];
-  name: Scalars['String']['output'];
-  note: Scalars['String']['output'];
-};
+	__typename?: 'BookPublicOutModel'
+	author: Scalars['String']['output']
+	chapters: Array<BookChapterLiteOutModel>
+	cover: Scalars['String']['output']
+	id: Scalars['Int']['output']
+	name: Scalars['String']['output']
+	note: Scalars['String']['output']
+}
 
 export type CheckTranslationInput = {
-  /** Sentence in English */
-  engSentence: Scalars['String']['input'];
-  /** Sentence in Russian */
-  rusSentence: Scalars['String']['input'];
-};
+	/** Sentence in English */
+	engSentence: Scalars['String']['input']
+	/** Sentence in Russian */
+	rusSentence: Scalars['String']['input']
+}
 
 export type CheckTranslationOutErrorModel = {
-  __typename?: 'CheckTranslationOutErrorModel';
-  error: Scalars['String']['output'];
-};
+	__typename?: 'CheckTranslationOutErrorModel'
+	error: Scalars['String']['output']
+}
 
-export type CheckTranslationOutModel = CheckTranslationOutErrorModel | CheckTranslationOutSuccessModel;
+export type CheckTranslationOutModel = CheckTranslationOutErrorModel | CheckTranslationOutSuccessModel
 
 export type CheckTranslationOutSuccessModel = {
-  __typename?: 'CheckTranslationOutSuccessModel';
-  analysis: Scalars['String']['output'];
-  correct: Scalars['Boolean']['output'];
-};
+	__typename?: 'CheckTranslationOutSuccessModel'
+	analysis: Scalars['String']['output']
+	correct: Scalars['Boolean']['output']
+}
 
 export type ConfirmEmailInput = {
-  /** User email */
-  code: Scalars['String']['input'];
-};
+	/** User email */
+	code: Scalars['String']['input']
+}
 
 export type CreateBookChapterInput = {
-  /** Book id */
-  bookId: Scalars['Int']['input'];
-  /** Book type: public or private */
-  bookType: Scalars['String']['input'];
-  /** Content of the chapter */
-  content?: InputMaybe<Scalars['String']['input']>;
-  /** Header on the chapter */
-  header?: InputMaybe<Scalars['String']['input']>;
-  /** Name on the chapter (chapter 1) */
-  name?: InputMaybe<Scalars['String']['input']>;
-  /** Note about this chapter */
-  note?: InputMaybe<Scalars['String']['input']>;
-};
+	/** Book id */
+	bookId: Scalars['Int']['input']
+	/** Book type: public or private */
+	bookType: Scalars['String']['input']
+	/** Content of the chapter */
+	content?: InputMaybe<Scalars['String']['input']>
+	/** Header on the chapter */
+	header?: InputMaybe<Scalars['String']['input']>
+	/** Name on the chapter (chapter 1) */
+	name?: InputMaybe<Scalars['String']['input']>
+	/** Note about this chapter */
+	note?: InputMaybe<Scalars['String']['input']>
+}
 
 export type CreateBookInput = {
-  /** Author */
-  author?: InputMaybe<Scalars['String']['input']>;
-  /** Name */
-  name?: InputMaybe<Scalars['String']['input']>;
-  /** Note */
-  note?: InputMaybe<Scalars['String']['input']>;
-};
+	/** Author */
+	author?: InputMaybe<Scalars['String']['input']>
+	/** Name */
+	name?: InputMaybe<Scalars['String']['input']>
+	/** Note */
+	note?: InputMaybe<Scalars['String']['input']>
+}
 
 export type CreatePrivateVideoInput = {
-  /** File size in MB */
-  fileSizeMb?: InputMaybe<Scalars['Int']['input']>;
-  /** Name */
-  name?: InputMaybe<Scalars['String']['input']>;
-  /** Text */
-  originalContent?: InputMaybe<Scalars['String']['input']>;
-};
+	/** File size in MB */
+	fileSizeMb?: InputMaybe<Scalars['Int']['input']>
+	/** Name */
+	name?: InputMaybe<Scalars['String']['input']>
+	/** Text */
+	originalContent?: InputMaybe<Scalars['String']['input']>
+}
 
 export type CreateVideoPrivateOutModel = {
-  __typename?: 'CreateVideoPrivateOutModel';
-  contentType: Scalars['String']['output'];
-  id: Scalars['Int']['output'];
-  name?: Maybe<Scalars['String']['output']>;
-  originalContent?: Maybe<Scalars['String']['output']>;
-  processedContent?: Maybe<Scalars['String']['output']>;
-  userId: Scalars['Int']['output'];
-};
+	__typename?: 'CreateVideoPrivateOutModel'
+	contentType: Scalars['String']['output']
+	id: Scalars['Int']['output']
+	name?: Maybe<Scalars['String']['output']>
+	originalContent?: Maybe<Scalars['String']['output']>
+	processedContent?: Maybe<Scalars['String']['output']>
+	userId: Scalars['Int']['output']
+}
 
 export type DeleteBookChapterInput = {
-  /** BookChapter id */
-  id: Scalars['Int']['input'];
-};
+	/** BookChapter id */
+	id: Scalars['Int']['input']
+}
 
 export type DeleteBookInput = {
-  /** Book id */
-  id: Scalars['Int']['input'];
-};
+	/** Book id */
+	id: Scalars['Int']['input']
+}
 
 export type DeletePrivateVideoInput = {
-  /** Video id */
-  id: Scalars['Int']['input'];
-};
+	/** Video id */
+	id: Scalars['Int']['input']
+}
 
 export type GetBookChapterInput = {
-  /** Book type: public or private */
-  bookType: Scalars['String']['input'];
-  /** BookChapter id */
-  id: Scalars['Int']['input'];
-};
+	/** Book type: public or private */
+	bookType: Scalars['String']['input']
+	/** BookChapter id */
+	id: Scalars['Int']['input']
+}
 
 export type GetBookInput = {
-  /** Book id */
-  id: Scalars['Int']['input'];
-};
+	/** Book id */
+	id: Scalars['Int']['input']
+}
 
 export type GetBookPublicInput = {
-  /** Book id */
-  id: Scalars['Int']['input'];
-};
+	/** Book id */
+	id: Scalars['Int']['input']
+}
 
 export type GetPrivateVideoInput = {
-  /** Video id */
-  id: Scalars['Int']['input'];
-};
+	/** Video id */
+	id: Scalars['Int']['input']
+}
+
+export type GetSentenceTranslationInput = {
+	/** SentenceTranslation id */
+	id: Scalars['Int']['input']
+}
 
 export type GetTranscriptionInput = {
-  /** Sentence in English */
-  engSentence: Scalars['String']['input'];
-};
+	/** Sentence in English */
+	engSentence: Scalars['String']['input']
+}
 
 export type GetTranscriptionOutErrorModel = {
-  __typename?: 'GetTranscriptionOutErrorModel';
-  error: Scalars['String']['output'];
-};
+	__typename?: 'GetTranscriptionOutErrorModel'
+	error: Scalars['String']['output']
+}
 
-export type GetTranscriptionOutModel = GetTranscriptionOutErrorModel | GetTranscriptionOutSuccessModel;
+export type GetTranscriptionOutModel = GetTranscriptionOutErrorModel | GetTranscriptionOutSuccessModel
 
 export type GetTranscriptionOutSuccessModel = {
-  __typename?: 'GetTranscriptionOutSuccessModel';
-  transcription: Scalars['String']['output'];
-};
+	__typename?: 'GetTranscriptionOutSuccessModel'
+	transcription: Scalars['String']['output']
+}
 
 export type LoginInput = {
-  /** User email */
-  email: Scalars['String']['input'];
-  /** User password */
-  password: Scalars['String']['input'];
-};
+	/** User email */
+	email: Scalars['String']['input']
+	/** User password */
+	password: Scalars['String']['input']
+}
 
 export type LoginWithOAuthInput = {
-  /** Code to get user data from OAuth provider */
-  code: Scalars['String']['input'];
-  /** Provider type: github, google, yandex */
-  providerType: Scalars['String']['input'];
-};
+	/** Code to get user data from OAuth provider */
+	code: Scalars['String']['input']
+	/** Provider type: github, google, yandex */
+	providerType: Scalars['String']['input']
+}
 
 export type Mutation = {
-  __typename?: 'Mutation';
-  /** Email confirmation */
-  auth_confirmEmail: Scalars['Boolean']['output'];
-  /** User login */
-  auth_login: UserOutModel;
-  /** User login with OAuth */
-  auth_login_with_OAuth: UserOutModel;
-  /** Current user logout */
-  auth_logout: Scalars['Boolean']['output'];
-  /**
-   * Register a user.
-   * 	Possible errors:
-   * 	**Почта зарегистрирована, но не подтверждена.** — the user is already registered, but doesn't confirm his email.
-   * 	**Почта уже зарегистрирована.** — the user is already registered and confirmed his email.
-   */
-  auth_register: UserOutModel;
-  /** Resend email confirmation letter */
-  auth_resendConfirmationEmail: Scalars['Boolean']['output'];
-  /** Create book chapter */
-  book_chapter_create: BookChapterOutModel;
-  /** Delete book chapter */
-  book_chapter_delete: Scalars['Boolean']['output'];
-  /** Update book chapter */
-  book_chapter_update: BookChapterOutModel;
-  /** Create book */
-  book_create: BookOutModel;
-  /** Delete user book */
-  book_delete: Scalars['Boolean']['output'];
-  /** Update user book */
-  book_update: BookOutModel;
-  /** Top up a balance with YooKassa */
-  payment_yookassa_top_up_balance: TopUpBalanceWithYooKassaOutModel;
-  /** Create a video */
-  video_private_create: CreateVideoPrivateOutModel;
-  /** Delete a video */
-  video_private_delete: Scalars['Boolean']['output'];
-  /** Update a video */
-  video_private_update: UpdateVideoPrivateOutModel;
-};
-
+	__typename?: 'Mutation'
+	/** Email confirmation */
+	auth_confirmEmail: Scalars['Boolean']['output']
+	/** User login */
+	auth_login: UserOutModel
+	/** User login with OAuth */
+	auth_login_with_OAuth: UserOutModel
+	/** Current user logout */
+	auth_logout: Scalars['Boolean']['output']
+	/**
+	 * Register a user.
+	 * 	Possible errors:
+	 * 	**Почта зарегистрирована, но не подтверждена.** — the user is already registered, but doesn't confirm his email.
+	 * 	**Почта уже зарегистрирована.** — the user is already registered and confirmed his email.
+	 */
+	auth_register: UserOutModel
+	/** Resend email confirmation letter */
+	auth_resendConfirmationEmail: Scalars['Boolean']['output']
+	/** Create book chapter */
+	book_chapter_create: BookChapterOutModel
+	/** Delete book chapter */
+	book_chapter_delete: Scalars['Boolean']['output']
+	/** Update book chapter */
+	book_chapter_update: BookChapterOutModel
+	/** Create book */
+	book_create: BookOutModel
+	/** Delete user book */
+	book_delete: Scalars['Boolean']['output']
+	/** Update user book */
+	book_update: BookOutModel
+	/** Top up a balance with YooKassa */
+	payment_yookassa_top_up_balance: TopUpBalanceWithYooKassaOutModel
+	/** Create a video */
+	video_private_create: CreateVideoPrivateOutModel
+	/** Delete a video */
+	video_private_delete: Scalars['Boolean']['output']
+	/** Update a video */
+	video_private_update: UpdateVideoPrivateOutModel
+}
 
 export type MutationAuth_ConfirmEmailArgs = {
-  input: ConfirmEmailInput;
-};
-
+	input: ConfirmEmailInput
+}
 
 export type MutationAuth_LoginArgs = {
-  input: LoginInput;
-};
-
+	input: LoginInput
+}
 
 export type MutationAuth_Login_With_OAuthArgs = {
-  input: LoginWithOAuthInput;
-};
-
+	input: LoginWithOAuthInput
+}
 
 export type MutationAuth_RegisterArgs = {
-  input: RegisterUserInput;
-};
-
+	input: RegisterUserInput
+}
 
 export type MutationAuth_ResendConfirmationEmailArgs = {
-  input: ResendConfirmationEmailInput;
-};
-
+	input: ResendConfirmationEmailInput
+}
 
 export type MutationBook_Chapter_CreateArgs = {
-  input: CreateBookChapterInput;
-};
-
+	input: CreateBookChapterInput
+}
 
 export type MutationBook_Chapter_DeleteArgs = {
-  input: DeleteBookChapterInput;
-};
-
+	input: DeleteBookChapterInput
+}
 
 export type MutationBook_Chapter_UpdateArgs = {
-  input: UpdateBookChapterInput;
-};
-
+	input: UpdateBookChapterInput
+}
 
 export type MutationBook_CreateArgs = {
-  input: CreateBookInput;
-};
-
+	input: CreateBookInput
+}
 
 export type MutationBook_DeleteArgs = {
-  input: DeleteBookInput;
-};
-
+	input: DeleteBookInput
+}
 
 export type MutationBook_UpdateArgs = {
-  input: UpdateBookInput;
-};
-
+	input: UpdateBookInput
+}
 
 export type MutationPayment_Yookassa_Top_Up_BalanceArgs = {
-  input: TopUpBalanceWithYooKassaInput;
-};
-
+	input: TopUpBalanceWithYooKassaInput
+}
 
 export type MutationVideo_Private_CreateArgs = {
-  input: CreatePrivateVideoInput;
-};
-
+	input: CreatePrivateVideoInput
+}
 
 export type MutationVideo_Private_DeleteArgs = {
-  input: DeletePrivateVideoInput;
-};
-
+	input: DeletePrivateVideoInput
+}
 
 export type MutationVideo_Private_UpdateArgs = {
-  input: UpdatePrivateVideoInput;
-};
+	input: UpdatePrivateVideoInput
+}
 
 export type Query = {
-  __typename?: 'Query';
-  ai_checkTranslation: CheckTranslationOutModel;
-  ai_getTranscription: GetTranscriptionOutModel;
-  /** Get current user data */
-  auth_getMe: UserOutModel;
-  /** Get book chapter */
-  book_chapter_get: BookChapterOutModel;
-  /** Get user book */
-  book_get: BookOutModel;
-  /** Get public book */
-  book_public_get_book: BookPublicOutModel;
-  /** Get public books */
-  book_public_get_books: Array<BookPublicOutModel>;
-  /** Get user books */
-  book_user_books: Array<BookOutModel>;
-  /** Get a video */
-  video_private_get: VideoPrivateOutModel;
-  /** Get user videos */
-  video_private_user_videos: Array<VideoPrivateLiteOutModel>;
-};
-
+	__typename?: 'Query'
+	ai_checkTranslation: CheckTranslationOutModel
+	ai_getTranscription: GetTranscriptionOutModel
+	/** Get current user data */
+	auth_getMe: UserOutModel
+	/** Get book chapter */
+	book_chapter_get: BookChapterOutModel
+	/** Get user book */
+	book_get: BookOutModel
+	/** Get public book */
+	book_public_get_book: BookPublicOutModel
+	/** Get public books */
+	book_public_get_books: Array<BookPublicOutModel>
+	/** Get user books */
+	book_user_books: Array<BookOutModel>
+	/** Get sentence translation by id */
+	sentence_translation_get: SentenceTranslationOutModel
+	/** Get a video */
+	video_private_get: VideoPrivateOutModel
+	/** Get user videos */
+	video_private_user_videos: Array<VideoPrivateLiteOutModel>
+}
 
 export type QueryAi_CheckTranslationArgs = {
-  input: CheckTranslationInput;
-};
-
+	input: CheckTranslationInput
+}
 
 export type QueryAi_GetTranscriptionArgs = {
-  input: GetTranscriptionInput;
-};
-
+	input: GetTranscriptionInput
+}
 
 export type QueryBook_Chapter_GetArgs = {
-  input: GetBookChapterInput;
-};
-
+	input: GetBookChapterInput
+}
 
 export type QueryBook_GetArgs = {
-  input: GetBookInput;
-};
-
+	input: GetBookInput
+}
 
 export type QueryBook_Public_Get_BookArgs = {
-  input: GetBookPublicInput;
-};
+	input: GetBookPublicInput
+}
 
+export type QuerySentence_Translation_GetArgs = {
+	input: GetSentenceTranslationInput
+}
 
 export type QueryVideo_Private_GetArgs = {
-  input: GetPrivateVideoInput;
-};
+	input: GetPrivateVideoInput
+}
 
 export type RegisterUserInput = {
-  /** User email */
-  email: Scalars['String']['input'];
-  /** User password */
-  password: Scalars['String']['input'];
-};
+	/** User email */
+	email: Scalars['String']['input']
+	/** User password */
+	password: Scalars['String']['input']
+}
 
 export type ResendConfirmationEmailInput = {
-  /** User email */
-  email: Scalars['String']['input'];
-};
+	/** User email */
+	email: Scalars['String']['input']
+}
 
 export type SentenceOutModel = {
-  __typename?: 'SentenceOutModel';
-  id: Scalars['Int']['output'];
-  length: Scalars['Int']['output'];
-  startOffset: Scalars['Int']['output'];
-};
+	__typename?: 'SentenceOutModel'
+	id: Scalars['Int']['output']
+	length: Scalars['Int']['output']
+	startOffset: Scalars['Int']['output']
+}
+
+export type SentenceTranslationLiteOutModel = {
+	__typename?: 'SentenceTranslationLiteOutModel'
+	id: Scalars['Int']['output']
+	translation: Scalars['String']['output']
+}
 
 export type SentenceTranslationOutModel = {
-  __typename?: 'SentenceTranslationOutModel';
-  id: Scalars['Int']['output'];
-  translation: Scalars['String']['output'];
-};
+	__typename?: 'SentenceTranslationOutModel'
+	analysis?: Maybe<Scalars['String']['output']>
+	createdAt: Scalars['String']['output']
+	id: Scalars['Int']['output']
+	provider: Scalars['String']['output']
+	sentenceId: Scalars['Int']['output']
+	translation: Scalars['String']['output']
+}
 
 export type SubtitleSentenceInitOutModel = {
-  __typename?: 'SubtitleSentenceInitOutModel';
-  id: Scalars['Int']['output'];
-  length: Scalars['Int']['output'];
-  sentenceId: Scalars['Int']['output'];
-  startOffset: Scalars['Int']['output'];
-  subtitleId: Scalars['Int']['output'];
-};
+	__typename?: 'SubtitleSentenceInitOutModel'
+	id: Scalars['Int']['output']
+	length: Scalars['Int']['output']
+	sentenceId: Scalars['Int']['output']
+	startOffset: Scalars['Int']['output']
+	subtitleId: Scalars['Int']['output']
+}
 
 export type TopUpBalanceWithYooKassaInput = {
-  /** Money amount in kopecks */
-  amount: Scalars['Float']['input'];
-};
+	/** Money amount in kopecks */
+	amount: Scalars['Float']['input']
+}
 
 export type TopUpBalanceWithYooKassaOutModel = {
-  __typename?: 'TopUpBalanceWithYooKassaOutModel';
-  confirmationUrl: Scalars['String']['output'];
-};
+	__typename?: 'TopUpBalanceWithYooKassaOutModel'
+	confirmationUrl: Scalars['String']['output']
+}
 
 export type UpdateBookChapterInput = {
-  /** BookChapter content */
-  content?: InputMaybe<Scalars['String']['input']>;
-  /** BookChapter header */
-  header?: InputMaybe<Scalars['String']['input']>;
-  /** BookChapter id */
-  id: Scalars['Int']['input'];
-  /** BookChapter name (chapter 1) */
-  name?: InputMaybe<Scalars['String']['input']>;
-  /** BookChapter note */
-  note?: InputMaybe<Scalars['String']['input']>;
-};
+	/** BookChapter content */
+	content?: InputMaybe<Scalars['String']['input']>
+	/** BookChapter header */
+	header?: InputMaybe<Scalars['String']['input']>
+	/** BookChapter id */
+	id: Scalars['Int']['input']
+	/** BookChapter name (chapter 1) */
+	name?: InputMaybe<Scalars['String']['input']>
+	/** BookChapter note */
+	note?: InputMaybe<Scalars['String']['input']>
+}
 
 export type UpdateBookInput = {
-  /** Author */
-  author?: InputMaybe<Scalars['String']['input']>;
-  /** Book id */
-  id: Scalars['Int']['input'];
-  /** Name */
-  name?: InputMaybe<Scalars['String']['input']>;
-  /** Note */
-  note?: InputMaybe<Scalars['String']['input']>;
-};
+	/** Author */
+	author?: InputMaybe<Scalars['String']['input']>
+	/** Book id */
+	id: Scalars['Int']['input']
+	/** Name */
+	name?: InputMaybe<Scalars['String']['input']>
+	/** Note */
+	note?: InputMaybe<Scalars['String']['input']>
+}
 
 export type UpdatePrivateVideoInput = {
-  /** File mime type */
-  fileMimeType?: InputMaybe<Scalars['String']['input']>;
-  /** File name */
-  fileName?: InputMaybe<Scalars['String']['input']>;
-  /** File size */
-  fileSizeMb?: InputMaybe<Scalars['Float']['input']>;
-  /** Video id */
-  id: Scalars['Int']['input'];
-  /** Is file was upload to S3 */
-  isFileUploaded?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Name */
-  name?: InputMaybe<Scalars['String']['input']>;
-  /** Original content */
-  originalContent?: InputMaybe<Scalars['String']['input']>;
-};
+	/** File mime type */
+	fileMimeType?: InputMaybe<Scalars['String']['input']>
+	/** File name */
+	fileName?: InputMaybe<Scalars['String']['input']>
+	/** File size */
+	fileSizeMb?: InputMaybe<Scalars['Float']['input']>
+	/** Video id */
+	id: Scalars['Int']['input']
+	/** Is file was upload to S3 */
+	isFileUploaded?: InputMaybe<Scalars['Boolean']['input']>
+	/** Name */
+	name?: InputMaybe<Scalars['String']['input']>
+	/** Original content */
+	originalContent?: InputMaybe<Scalars['String']['input']>
+}
 
 export type UpdateVideoPrivateOutModel = {
-  __typename?: 'UpdateVideoPrivateOutModel';
-  contentType: Scalars['String']['output'];
-  fileSizeMb?: Maybe<Scalars['Int']['output']>;
-  id: Scalars['Int']['output'];
-  name?: Maybe<Scalars['String']['output']>;
-  originalContent?: Maybe<Scalars['String']['output']>;
-  processedContent?: Maybe<Scalars['String']['output']>;
-  uploadUrl?: Maybe<Scalars['String']['output']>;
-  userId: Scalars['Int']['output'];
-};
+	__typename?: 'UpdateVideoPrivateOutModel'
+	contentType: Scalars['String']['output']
+	fileSizeMb?: Maybe<Scalars['Int']['output']>
+	id: Scalars['Int']['output']
+	name?: Maybe<Scalars['String']['output']>
+	originalContent?: Maybe<Scalars['String']['output']>
+	processedContent?: Maybe<Scalars['String']['output']>
+	uploadUrl?: Maybe<Scalars['String']['output']>
+	userId: Scalars['Int']['output']
+}
 
 export type UserOutModel = {
-  __typename?: 'UserOutModel';
-  balance: Scalars['Int']['output'];
-  email: Scalars['String']['output'];
-  id: Scalars['Int']['output'];
-  isUserConfirmed: Scalars['Boolean']['output'];
-};
+	__typename?: 'UserOutModel'
+	balance: Scalars['Int']['output']
+	email: Scalars['String']['output']
+	id: Scalars['Int']['output']
+	isUserConfirmed: Scalars['Boolean']['output']
+}
 
 export type VideoPrivateLiteOutModel = {
-  __typename?: 'VideoPrivateLiteOutModel';
-  contentType: Scalars['String']['output'];
-  fileName?: Maybe<Scalars['String']['output']>;
-  fileS3Key?: Maybe<Scalars['String']['output']>;
-  fileSizeMb: Scalars['Int']['output'];
-  fileUrl?: Maybe<Scalars['String']['output']>;
-  id: Scalars['Int']['output'];
-  isFileUploaded: Scalars['Boolean']['output'];
-  name?: Maybe<Scalars['String']['output']>;
-  originalContent?: Maybe<Scalars['String']['output']>;
-  processedContent?: Maybe<Scalars['String']['output']>;
-  userId: Scalars['Int']['output'];
-};
+	__typename?: 'VideoPrivateLiteOutModel'
+	contentType: Scalars['String']['output']
+	fileName?: Maybe<Scalars['String']['output']>
+	fileS3Key?: Maybe<Scalars['String']['output']>
+	fileSizeMb: Scalars['Int']['output']
+	fileUrl?: Maybe<Scalars['String']['output']>
+	id: Scalars['Int']['output']
+	isFileUploaded: Scalars['Boolean']['output']
+	name?: Maybe<Scalars['String']['output']>
+	originalContent?: Maybe<Scalars['String']['output']>
+	processedContent?: Maybe<Scalars['String']['output']>
+	userId: Scalars['Int']['output']
+}
 
 export type VideoPrivateOutModel = {
-  __typename?: 'VideoPrivateOutModel';
-  contentType: Scalars['String']['output'];
-  fileName?: Maybe<Scalars['String']['output']>;
-  fileS3Key?: Maybe<Scalars['String']['output']>;
-  fileSizeMb: Scalars['Int']['output'];
-  fileUrl?: Maybe<Scalars['String']['output']>;
-  id: Scalars['Int']['output'];
-  isFileUploaded: Scalars['Boolean']['output'];
-  name?: Maybe<Scalars['String']['output']>;
-  originalContent?: Maybe<Scalars['String']['output']>;
-  processedContent?: Maybe<Scalars['String']['output']>;
-  sentences?: Maybe<Array<VideoPrivateSentenceOutModel>>;
-  subtitleSentenceInit?: Maybe<Array<SubtitleSentenceInitOutModel>>;
-  subtitles?: Maybe<Array<VideoPrivateSubtitleOutModel>>;
-  userId: Scalars['Int']['output'];
-};
+	__typename?: 'VideoPrivateOutModel'
+	contentType: Scalars['String']['output']
+	fileName?: Maybe<Scalars['String']['output']>
+	fileS3Key?: Maybe<Scalars['String']['output']>
+	fileSizeMb: Scalars['Int']['output']
+	fileUrl?: Maybe<Scalars['String']['output']>
+	id: Scalars['Int']['output']
+	isFileUploaded: Scalars['Boolean']['output']
+	name?: Maybe<Scalars['String']['output']>
+	originalContent?: Maybe<Scalars['String']['output']>
+	processedContent?: Maybe<Scalars['String']['output']>
+	sentences?: Maybe<Array<VideoPrivateSentenceOutModel>>
+	subtitleSentenceInit?: Maybe<Array<SubtitleSentenceInitOutModel>>
+	subtitles?: Maybe<Array<VideoPrivateSubtitleOutModel>>
+	userId: Scalars['Int']['output']
+}
 
 export type VideoPrivateSentenceOutModel = {
-  __typename?: 'VideoPrivateSentenceOutModel';
-  id: Scalars['Int']['output'];
-  length: Scalars['Int']['output'];
-  orderIndex: Scalars['Int']['output'];
-  sentenceTranslations?: Maybe<Array<SentenceTranslationOutModel>>;
-  startOffset: Scalars['Int']['output'];
-};
+	__typename?: 'VideoPrivateSentenceOutModel'
+	id: Scalars['Int']['output']
+	length: Scalars['Int']['output']
+	orderIndex: Scalars['Int']['output']
+	sentenceTranslations?: Maybe<Array<SentenceTranslationLiteOutModel>>
+	startOffset: Scalars['Int']['output']
+}
 
 export type VideoPrivateSubtitleOutModel = {
-  __typename?: 'VideoPrivateSubtitleOutModel';
-  endTimeMs: Scalars['Int']['output'];
-  id: Scalars['Int']['output'];
-  length: Scalars['Int']['output'];
-  orderIndex: Scalars['Int']['output'];
-  startOffset: Scalars['Int']['output'];
-  startTimeMs: Scalars['Int']['output'];
-};
+	__typename?: 'VideoPrivateSubtitleOutModel'
+	endTimeMs: Scalars['Int']['output']
+	id: Scalars['Int']['output']
+	length: Scalars['Int']['output']
+	orderIndex: Scalars['Int']['output']
+	startOffset: Scalars['Int']['output']
+	startTimeMs: Scalars['Int']['output']
+}
 
 export type AiCheckTranslationVariables = Exact<{
-  rusSentence: Scalars['String']['input'];
-  engSentence: Scalars['String']['input'];
-}>;
+	rusSentence: Scalars['String']['input']
+	engSentence: Scalars['String']['input']
+}>
 
-
-export type AiCheckTranslation = { __typename?: 'Query', ai_checkTranslation: { __typename?: 'CheckTranslationOutErrorModel', error: string } | { __typename?: 'CheckTranslationOutSuccessModel', correct: boolean, analysis: string } };
+export type AiCheckTranslation = {
+	__typename?: 'Query'
+	ai_checkTranslation:
+		| { __typename?: 'CheckTranslationOutErrorModel'; error: string }
+		| { __typename?: 'CheckTranslationOutSuccessModel'; correct: boolean; analysis: string }
+}
 
 export type AiGetTranscriptionVariables = Exact<{
-  engSentence: Scalars['String']['input'];
-}>;
+	engSentence: Scalars['String']['input']
+}>
 
-
-export type AiGetTranscription = { __typename?: 'Query', ai_getTranscription: { __typename?: 'GetTranscriptionOutErrorModel', error: string } | { __typename?: 'GetTranscriptionOutSuccessModel', transcription: string } };
+export type AiGetTranscription = {
+	__typename?: 'Query'
+	ai_getTranscription:
+		| { __typename?: 'GetTranscriptionOutErrorModel'; error: string }
+		| { __typename?: 'GetTranscriptionOutSuccessModel'; transcription: string }
+}
 
 export type Auth_ConfirmEmailVariables = Exact<{
-  input: ConfirmEmailInput;
-}>;
+	input: ConfirmEmailInput
+}>
 
+export type Auth_ConfirmEmail = { __typename?: 'Mutation'; auth_confirmEmail: boolean }
 
-export type Auth_ConfirmEmail = { __typename?: 'Mutation', auth_confirmEmail: boolean };
+export type Auth_GetMeVariables = Exact<{ [key: string]: never }>
 
-export type Auth_GetMeVariables = Exact<{ [key: string]: never; }>;
-
-
-export type Auth_GetMe = { __typename?: 'Query', auth_getMe: { __typename?: 'UserOutModel', id: number, email: string, isUserConfirmed: boolean, balance: number } };
+export type Auth_GetMe = {
+	__typename?: 'Query'
+	auth_getMe: { __typename?: 'UserOutModel'; id: number; email: string; isUserConfirmed: boolean; balance: number }
+}
 
 export type Auth_LoginVariables = Exact<{
-  input: LoginInput;
-}>;
+	input: LoginInput
+}>
 
-
-export type Auth_Login = { __typename?: 'Mutation', auth_login: { __typename?: 'UserOutModel', id: number, email: string, isUserConfirmed: boolean } };
+export type Auth_Login = {
+	__typename?: 'Mutation'
+	auth_login: { __typename?: 'UserOutModel'; id: number; email: string; isUserConfirmed: boolean }
+}
 
 export type Auth_Login_With_OAuthVariables = Exact<{
-  input: LoginWithOAuthInput;
-}>;
+	input: LoginWithOAuthInput
+}>
 
+export type Auth_Login_With_OAuth = {
+	__typename?: 'Mutation'
+	auth_login_with_OAuth: { __typename?: 'UserOutModel'; id: number; email: string; isUserConfirmed: boolean }
+}
 
-export type Auth_Login_With_OAuth = { __typename?: 'Mutation', auth_login_with_OAuth: { __typename?: 'UserOutModel', id: number, email: string, isUserConfirmed: boolean } };
+export type Auth_LogoutVariables = Exact<{ [key: string]: never }>
 
-export type Auth_LogoutVariables = Exact<{ [key: string]: never; }>;
-
-
-export type Auth_Logout = { __typename?: 'Mutation', auth_logout: boolean };
+export type Auth_Logout = { __typename?: 'Mutation'; auth_logout: boolean }
 
 export type Auth_RegisterVariables = Exact<{
-  input: RegisterUserInput;
-}>;
+	input: RegisterUserInput
+}>
 
-
-export type Auth_Register = { __typename?: 'Mutation', auth_register: { __typename?: 'UserOutModel', id: number, email: string } };
+export type Auth_Register = {
+	__typename?: 'Mutation'
+	auth_register: { __typename?: 'UserOutModel'; id: number; email: string }
+}
 
 export type BookChapter_CreateVariables = Exact<{
-  input: CreateBookChapterInput;
-}>;
+	input: CreateBookChapterInput
+}>
 
-
-export type BookChapter_Create = { __typename?: 'Mutation', book_chapter_create: { __typename?: 'BookChapterOutModel', id: number, name?: string | null, header?: string | null, content?: string | null, note?: string | null, book: { __typename?: 'BookLiteOutModel', id: number, name?: string | null, author?: string | null, note?: string | null, userId?: number | null } } };
+export type BookChapter_Create = {
+	__typename?: 'Mutation'
+	book_chapter_create: {
+		__typename?: 'BookChapterOutModel'
+		id: number
+		name?: string | null
+		header?: string | null
+		content?: string | null
+		note?: string | null
+		book: {
+			__typename?: 'BookLiteOutModel'
+			id: number
+			name?: string | null
+			author?: string | null
+			note?: string | null
+			userId?: number | null
+		}
+	}
+}
 
 export type BookChapter_DeleteVariables = Exact<{
-  input: DeleteBookChapterInput;
-}>;
+	input: DeleteBookChapterInput
+}>
 
-
-export type BookChapter_Delete = { __typename?: 'Mutation', book_chapter_delete: boolean };
+export type BookChapter_Delete = { __typename?: 'Mutation'; book_chapter_delete: boolean }
 
 export type BookChapter_GetVariables = Exact<{
-  input: GetBookChapterInput;
-}>;
+	input: GetBookChapterInput
+}>
 
-
-export type BookChapter_Get = { __typename?: 'Query', book_chapter_get: { __typename?: 'BookChapterOutModel', id: number, name?: string | null, header?: string | null, note?: string | null, content?: string | null, sentences?: Array<{ __typename?: 'SentenceOutModel', id: number, startOffset: number, length: number }> | null, book: { __typename?: 'BookLiteOutModel', id: number, name?: string | null, author?: string | null, note?: string | null, userId?: number | null } } };
+export type BookChapter_Get = {
+	__typename?: 'Query'
+	book_chapter_get: {
+		__typename?: 'BookChapterOutModel'
+		id: number
+		name?: string | null
+		header?: string | null
+		note?: string | null
+		content?: string | null
+		sentences?: Array<{ __typename?: 'SentenceOutModel'; id: number; startOffset: number; length: number }> | null
+		book: {
+			__typename?: 'BookLiteOutModel'
+			id: number
+			name?: string | null
+			author?: string | null
+			note?: string | null
+			userId?: number | null
+		}
+	}
+}
 
 export type BookChapter_UpdateVariables = Exact<{
-  input: UpdateBookChapterInput;
-}>;
+	input: UpdateBookChapterInput
+}>
 
-
-export type BookChapter_Update = { __typename?: 'Mutation', book_chapter_update: { __typename?: 'BookChapterOutModel', id: number, name?: string | null, header?: string | null, content?: string | null, note?: string | null, book: { __typename?: 'BookLiteOutModel', id: number, name?: string | null, author?: string | null, note?: string | null, userId?: number | null } } };
+export type BookChapter_Update = {
+	__typename?: 'Mutation'
+	book_chapter_update: {
+		__typename?: 'BookChapterOutModel'
+		id: number
+		name?: string | null
+		header?: string | null
+		content?: string | null
+		note?: string | null
+		book: {
+			__typename?: 'BookLiteOutModel'
+			id: number
+			name?: string | null
+			author?: string | null
+			note?: string | null
+			userId?: number | null
+		}
+	}
+}
 
 export type Book_CreateVariables = Exact<{
-  input: CreateBookInput;
-}>;
+	input: CreateBookInput
+}>
 
-
-export type Book_Create = { __typename?: 'Mutation', book_create: { __typename?: 'BookOutModel', id: number, author?: string | null, name?: string | null, note?: string | null, userId: number, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
+export type Book_Create = {
+	__typename?: 'Mutation'
+	book_create: {
+		__typename?: 'BookOutModel'
+		id: number
+		author?: string | null
+		name?: string | null
+		note?: string | null
+		userId: number
+		chapters: Array<{
+			__typename?: 'BookChapterLiteOutModel'
+			id: number
+			bookId: number
+			name?: string | null
+			header?: string | null
+			note?: string | null
+		}>
+	}
+}
 
 export type Book_DeleteVariables = Exact<{
-  input: DeleteBookInput;
-}>;
+	input: DeleteBookInput
+}>
 
-
-export type Book_Delete = { __typename?: 'Mutation', book_delete: boolean };
+export type Book_Delete = { __typename?: 'Mutation'; book_delete: boolean }
 
 export type Book_GetVariables = Exact<{
-  input: GetBookInput;
-}>;
+	input: GetBookInput
+}>
 
+export type Book_Get = {
+	__typename?: 'Query'
+	book_get: {
+		__typename?: 'BookOutModel'
+		id: number
+		author?: string | null
+		name?: string | null
+		note?: string | null
+		userId: number
+		chapters: Array<{
+			__typename?: 'BookChapterLiteOutModel'
+			id: number
+			bookId: number
+			name?: string | null
+			header?: string | null
+			note?: string | null
+		}>
+	}
+}
 
-export type Book_Get = { __typename?: 'Query', book_get: { __typename?: 'BookOutModel', id: number, author?: string | null, name?: string | null, note?: string | null, userId: number, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
+export type Book_GetUserBooksVariables = Exact<{ [key: string]: never }>
 
-export type Book_GetUserBooksVariables = Exact<{ [key: string]: never; }>;
-
-
-export type Book_GetUserBooks = { __typename?: 'Query', book_user_books: Array<{ __typename?: 'BookOutModel', id: number, author?: string | null, name?: string | null, note?: string | null, userId: number, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> }> };
+export type Book_GetUserBooks = {
+	__typename?: 'Query'
+	book_user_books: Array<{
+		__typename?: 'BookOutModel'
+		id: number
+		author?: string | null
+		name?: string | null
+		note?: string | null
+		userId: number
+		chapters: Array<{
+			__typename?: 'BookChapterLiteOutModel'
+			id: number
+			bookId: number
+			name?: string | null
+			header?: string | null
+			note?: string | null
+		}>
+	}>
+}
 
 export type Book_UpdateVariables = Exact<{
-  input: UpdateBookInput;
-}>;
+	input: UpdateBookInput
+}>
 
-
-export type Book_Update = { __typename?: 'Mutation', book_update: { __typename?: 'BookOutModel', id: number, author?: string | null, name?: string | null, note?: string | null, userId: number, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
+export type Book_Update = {
+	__typename?: 'Mutation'
+	book_update: {
+		__typename?: 'BookOutModel'
+		id: number
+		author?: string | null
+		name?: string | null
+		note?: string | null
+		userId: number
+		chapters: Array<{
+			__typename?: 'BookChapterLiteOutModel'
+			id: number
+			bookId: number
+			name?: string | null
+			header?: string | null
+			note?: string | null
+		}>
+	}
+}
 
 export type Book_GetBookPublicVariables = Exact<{
-  input: GetBookPublicInput;
-}>;
+	input: GetBookPublicInput
+}>
 
+export type Book_GetBookPublic = {
+	__typename?: 'Query'
+	book_public_get_book: {
+		__typename?: 'BookPublicOutModel'
+		id: number
+		author: string
+		name: string
+		note: string
+		cover: string
+		chapters: Array<{
+			__typename?: 'BookChapterLiteOutModel'
+			id: number
+			bookId: number
+			name?: string | null
+			header?: string | null
+			note?: string | null
+		}>
+	}
+}
 
-export type Book_GetBookPublic = { __typename?: 'Query', book_public_get_book: { __typename?: 'BookPublicOutModel', id: number, author: string, name: string, note: string, cover: string, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
+export type Book_GetBooksPublicVariables = Exact<{ [key: string]: never }>
 
-export type Book_GetBooksPublicVariables = Exact<{ [key: string]: never; }>;
-
-
-export type Book_GetBooksPublic = { __typename?: 'Query', book_public_get_books: Array<{ __typename?: 'BookPublicOutModel', id: number, author: string, name: string, note: string, cover: string, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> }> };
+export type Book_GetBooksPublic = {
+	__typename?: 'Query'
+	book_public_get_books: Array<{
+		__typename?: 'BookPublicOutModel'
+		id: number
+		author: string
+		name: string
+		note: string
+		cover: string
+		chapters: Array<{
+			__typename?: 'BookChapterLiteOutModel'
+			id: number
+			bookId: number
+			name?: string | null
+			header?: string | null
+			note?: string | null
+		}>
+	}>
+}
 
 export type Payment_YookassaTopUpBalanceVariables = Exact<{
-  input: TopUpBalanceWithYooKassaInput;
-}>;
+	input: TopUpBalanceWithYooKassaInput
+}>
 
+export type Payment_YookassaTopUpBalance = {
+	__typename?: 'Mutation'
+	payment_yookassa_top_up_balance: { __typename?: 'TopUpBalanceWithYooKassaOutModel'; confirmationUrl: string }
+}
 
-export type Payment_YookassaTopUpBalance = { __typename?: 'Mutation', payment_yookassa_top_up_balance: { __typename?: 'TopUpBalanceWithYooKassaOutModel', confirmationUrl: string } };
+export type SentenceTranslation_GetVariables = Exact<{
+	input: GetSentenceTranslationInput
+}>
+
+export type SentenceTranslation_Get = {
+	__typename?: 'Query'
+	sentence_translation_get: {
+		__typename?: 'SentenceTranslationOutModel'
+		id: number
+		sentenceId: number
+		provider: string
+		translation: string
+		analysis?: string | null
+		createdAt: string
+	}
+}
 
 export type VideoPrivate_CreateVariables = Exact<{
-  input: CreatePrivateVideoInput;
-}>;
+	input: CreatePrivateVideoInput
+}>
 
-
-export type VideoPrivate_Create = { __typename?: 'Mutation', video_private_create: { __typename?: 'CreateVideoPrivateOutModel', id: number, name?: string | null, contentType: string, originalContent?: string | null, processedContent?: string | null, userId: number } };
+export type VideoPrivate_Create = {
+	__typename?: 'Mutation'
+	video_private_create: {
+		__typename?: 'CreateVideoPrivateOutModel'
+		id: number
+		name?: string | null
+		contentType: string
+		originalContent?: string | null
+		processedContent?: string | null
+		userId: number
+	}
+}
 
 export type VideoPrivate_DeleteVariables = Exact<{
-  input: DeletePrivateVideoInput;
-}>;
+	input: DeletePrivateVideoInput
+}>
 
-
-export type VideoPrivate_Delete = { __typename?: 'Mutation', video_private_delete: boolean };
+export type VideoPrivate_Delete = { __typename?: 'Mutation'; video_private_delete: boolean }
 
 export type VideoPrivate_GetVariables = Exact<{
-  input: GetPrivateVideoInput;
-}>;
+	input: GetPrivateVideoInput
+}>
 
+export type VideoPrivate_Get = {
+	__typename?: 'Query'
+	video_private_get: {
+		__typename?: 'VideoPrivateOutModel'
+		id: number
+		name?: string | null
+		originalContent?: string | null
+		processedContent?: string | null
+		contentType: string
+		userId: number
+		fileName?: string | null
+		fileS3Key?: string | null
+		fileUrl?: string | null
+		isFileUploaded: boolean
+		fileSizeMb: number
+		sentences?: Array<{
+			__typename?: 'VideoPrivateSentenceOutModel'
+			id: number
+			startOffset: number
+			length: number
+			orderIndex: number
+			sentenceTranslations?: Array<{
+				__typename?: 'SentenceTranslationLiteOutModel'
+				id: number
+				translation: string
+			}> | null
+		}> | null
+		subtitles?: Array<{
+			__typename?: 'VideoPrivateSubtitleOutModel'
+			id: number
+			startTimeMs: number
+			endTimeMs: number
+			startOffset: number
+			length: number
+			orderIndex: number
+		}> | null
+		subtitleSentenceInit?: Array<{
+			__typename?: 'SubtitleSentenceInitOutModel'
+			id: number
+			subtitleId: number
+			sentenceId: number
+			startOffset: number
+			length: number
+		}> | null
+	}
+}
 
-export type VideoPrivate_Get = { __typename?: 'Query', video_private_get: { __typename?: 'VideoPrivateOutModel', id: number, name?: string | null, originalContent?: string | null, processedContent?: string | null, contentType: string, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean, fileSizeMb: number, sentences?: Array<{ __typename?: 'VideoPrivateSentenceOutModel', id: number, startOffset: number, length: number, orderIndex: number, sentenceTranslations?: Array<{ __typename?: 'SentenceTranslationOutModel', id: number, translation: string }> | null }> | null, subtitles?: Array<{ __typename?: 'VideoPrivateSubtitleOutModel', id: number, startTimeMs: number, endTimeMs: number, startOffset: number, length: number, orderIndex: number }> | null, subtitleSentenceInit?: Array<{ __typename?: 'SubtitleSentenceInitOutModel', id: number, subtitleId: number, sentenceId: number, startOffset: number, length: number }> | null } };
+export type VideoPrivate_GetUserVideosVariables = Exact<{ [key: string]: never }>
 
-export type VideoPrivate_GetUserVideosVariables = Exact<{ [key: string]: never; }>;
-
-
-export type VideoPrivate_GetUserVideos = { __typename?: 'Query', video_private_user_videos: Array<{ __typename?: 'VideoPrivateLiteOutModel', id: number, name?: string | null, contentType: string, originalContent?: string | null, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean, fileSizeMb: number }> };
+export type VideoPrivate_GetUserVideos = {
+	__typename?: 'Query'
+	video_private_user_videos: Array<{
+		__typename?: 'VideoPrivateLiteOutModel'
+		id: number
+		name?: string | null
+		contentType: string
+		originalContent?: string | null
+		userId: number
+		fileName?: string | null
+		fileS3Key?: string | null
+		fileUrl?: string | null
+		isFileUploaded: boolean
+		fileSizeMb: number
+	}>
+}
 
 export type VideoPrivate_UpdateVariables = Exact<{
-  input: UpdatePrivateVideoInput;
-}>;
+	input: UpdatePrivateVideoInput
+}>
 
-
-export type VideoPrivate_Update = { __typename?: 'Mutation', video_private_update: { __typename?: 'UpdateVideoPrivateOutModel', id: number, name?: string | null, contentType: string, originalContent?: string | null, processedContent?: string | null, userId: number, uploadUrl?: string | null, fileSizeMb?: number | null } };
-
+export type VideoPrivate_Update = {
+	__typename?: 'Mutation'
+	video_private_update: {
+		__typename?: 'UpdateVideoPrivateOutModel'
+		id: number
+		name?: string | null
+		contentType: string
+		originalContent?: string | null
+		processedContent?: string | null
+		userId: number
+		uploadUrl?: string | null
+		fileSizeMb?: number | null
+	}
+}
 
 export const AiCheckTranslationDocument = gql`
-    query AICheckTranslation($rusSentence: String!, $engSentence: String!) {
-  ai_checkTranslation(
-    input: {rusSentence: $rusSentence, engSentence: $engSentence}
-  ) {
-    ... on CheckTranslationOutSuccessModel {
-      correct
-      analysis
-    }
-    ... on CheckTranslationOutErrorModel {
-      error
-    }
-  }
-}
-    `;
+	query AICheckTranslation($rusSentence: String!, $engSentence: String!) {
+		ai_checkTranslation(input: { rusSentence: $rusSentence, engSentence: $engSentence }) {
+			... on CheckTranslationOutSuccessModel {
+				correct
+				analysis
+			}
+			... on CheckTranslationOutErrorModel {
+				error
+			}
+		}
+	}
+`
 
 /**
  * __useAiCheckTranslation__
@@ -727,34 +988,41 @@ export const AiCheckTranslationDocument = gql`
  *   },
  * });
  */
-export function useAiCheckTranslation(baseOptions: Apollo.QueryHookOptions<AiCheckTranslation, AiCheckTranslationVariables> & ({ variables: AiCheckTranslationVariables; skip?: boolean; } | { skip: boolean; }) ) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<AiCheckTranslation, AiCheckTranslationVariables>(AiCheckTranslationDocument, options);
-      }
-export function useAiCheckTranslationLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AiCheckTranslation, AiCheckTranslationVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<AiCheckTranslation, AiCheckTranslationVariables>(AiCheckTranslationDocument, options);
-        }
-export function useAiCheckTranslationSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<AiCheckTranslation, AiCheckTranslationVariables>) {
-          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<AiCheckTranslation, AiCheckTranslationVariables>(AiCheckTranslationDocument, options);
-        }
-export type AiCheckTranslationHookResult = ReturnType<typeof useAiCheckTranslation>;
-export type AiCheckTranslationLazyQueryHookResult = ReturnType<typeof useAiCheckTranslationLazyQuery>;
-export type AiCheckTranslationSuspenseQueryHookResult = ReturnType<typeof useAiCheckTranslationSuspenseQuery>;
-export type AiCheckTranslationQueryResult = Apollo.QueryResult<AiCheckTranslation, AiCheckTranslationVariables>;
-export const AiGetTranscriptionDocument = gql`
-    query AIGetTranscription($engSentence: String!) {
-  ai_getTranscription(input: {engSentence: $engSentence}) {
-    ... on GetTranscriptionOutSuccessModel {
-      transcription
-    }
-    ... on GetTranscriptionOutErrorModel {
-      error
-    }
-  }
+export function useAiCheckTranslation(
+	baseOptions: Apollo.QueryHookOptions<AiCheckTranslation, AiCheckTranslationVariables> &
+		({ variables: AiCheckTranslationVariables; skip?: boolean } | { skip: boolean }),
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useQuery<AiCheckTranslation, AiCheckTranslationVariables>(AiCheckTranslationDocument, options)
 }
-    `;
+export function useAiCheckTranslationLazyQuery(
+	baseOptions?: Apollo.LazyQueryHookOptions<AiCheckTranslation, AiCheckTranslationVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useLazyQuery<AiCheckTranslation, AiCheckTranslationVariables>(AiCheckTranslationDocument, options)
+}
+export function useAiCheckTranslationSuspenseQuery(
+	baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<AiCheckTranslation, AiCheckTranslationVariables>,
+) {
+	const options = baseOptions === Apollo.skipToken ? baseOptions : { ...defaultOptions, ...baseOptions }
+	return Apollo.useSuspenseQuery<AiCheckTranslation, AiCheckTranslationVariables>(AiCheckTranslationDocument, options)
+}
+export type AiCheckTranslationHookResult = ReturnType<typeof useAiCheckTranslation>
+export type AiCheckTranslationLazyQueryHookResult = ReturnType<typeof useAiCheckTranslationLazyQuery>
+export type AiCheckTranslationSuspenseQueryHookResult = ReturnType<typeof useAiCheckTranslationSuspenseQuery>
+export type AiCheckTranslationQueryResult = Apollo.QueryResult<AiCheckTranslation, AiCheckTranslationVariables>
+export const AiGetTranscriptionDocument = gql`
+	query AIGetTranscription($engSentence: String!) {
+		ai_getTranscription(input: { engSentence: $engSentence }) {
+			... on GetTranscriptionOutSuccessModel {
+				transcription
+			}
+			... on GetTranscriptionOutErrorModel {
+				error
+			}
+		}
+	}
+`
 
 /**
  * __useAiGetTranscription__
@@ -772,28 +1040,35 @@ export const AiGetTranscriptionDocument = gql`
  *   },
  * });
  */
-export function useAiGetTranscription(baseOptions: Apollo.QueryHookOptions<AiGetTranscription, AiGetTranscriptionVariables> & ({ variables: AiGetTranscriptionVariables; skip?: boolean; } | { skip: boolean; }) ) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<AiGetTranscription, AiGetTranscriptionVariables>(AiGetTranscriptionDocument, options);
-      }
-export function useAiGetTranscriptionLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AiGetTranscription, AiGetTranscriptionVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<AiGetTranscription, AiGetTranscriptionVariables>(AiGetTranscriptionDocument, options);
-        }
-export function useAiGetTranscriptionSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<AiGetTranscription, AiGetTranscriptionVariables>) {
-          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<AiGetTranscription, AiGetTranscriptionVariables>(AiGetTranscriptionDocument, options);
-        }
-export type AiGetTranscriptionHookResult = ReturnType<typeof useAiGetTranscription>;
-export type AiGetTranscriptionLazyQueryHookResult = ReturnType<typeof useAiGetTranscriptionLazyQuery>;
-export type AiGetTranscriptionSuspenseQueryHookResult = ReturnType<typeof useAiGetTranscriptionSuspenseQuery>;
-export type AiGetTranscriptionQueryResult = Apollo.QueryResult<AiGetTranscription, AiGetTranscriptionVariables>;
-export const Auth_ConfirmEmailDocument = gql`
-    mutation Auth_confirmEmail($input: ConfirmEmailInput!) {
-  auth_confirmEmail(input: $input)
+export function useAiGetTranscription(
+	baseOptions: Apollo.QueryHookOptions<AiGetTranscription, AiGetTranscriptionVariables> &
+		({ variables: AiGetTranscriptionVariables; skip?: boolean } | { skip: boolean }),
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useQuery<AiGetTranscription, AiGetTranscriptionVariables>(AiGetTranscriptionDocument, options)
 }
-    `;
-export type Auth_ConfirmEmailMutationFn = Apollo.MutationFunction<Auth_ConfirmEmail, Auth_ConfirmEmailVariables>;
+export function useAiGetTranscriptionLazyQuery(
+	baseOptions?: Apollo.LazyQueryHookOptions<AiGetTranscription, AiGetTranscriptionVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useLazyQuery<AiGetTranscription, AiGetTranscriptionVariables>(AiGetTranscriptionDocument, options)
+}
+export function useAiGetTranscriptionSuspenseQuery(
+	baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<AiGetTranscription, AiGetTranscriptionVariables>,
+) {
+	const options = baseOptions === Apollo.skipToken ? baseOptions : { ...defaultOptions, ...baseOptions }
+	return Apollo.useSuspenseQuery<AiGetTranscription, AiGetTranscriptionVariables>(AiGetTranscriptionDocument, options)
+}
+export type AiGetTranscriptionHookResult = ReturnType<typeof useAiGetTranscription>
+export type AiGetTranscriptionLazyQueryHookResult = ReturnType<typeof useAiGetTranscriptionLazyQuery>
+export type AiGetTranscriptionSuspenseQueryHookResult = ReturnType<typeof useAiGetTranscriptionSuspenseQuery>
+export type AiGetTranscriptionQueryResult = Apollo.QueryResult<AiGetTranscription, AiGetTranscriptionVariables>
+export const Auth_ConfirmEmailDocument = gql`
+	mutation Auth_confirmEmail($input: ConfirmEmailInput!) {
+		auth_confirmEmail(input: $input)
+	}
+`
+export type Auth_ConfirmEmailMutationFn = Apollo.MutationFunction<Auth_ConfirmEmail, Auth_ConfirmEmailVariables>
 
 /**
  * __useAuth_ConfirmEmail__
@@ -812,23 +1087,25 @@ export type Auth_ConfirmEmailMutationFn = Apollo.MutationFunction<Auth_ConfirmEm
  *   },
  * });
  */
-export function useAuth_ConfirmEmail(baseOptions?: Apollo.MutationHookOptions<Auth_ConfirmEmail, Auth_ConfirmEmailVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<Auth_ConfirmEmail, Auth_ConfirmEmailVariables>(Auth_ConfirmEmailDocument, options);
-      }
-export type Auth_ConfirmEmailHookResult = ReturnType<typeof useAuth_ConfirmEmail>;
-export type Auth_ConfirmEmailMutationResult = Apollo.MutationResult<Auth_ConfirmEmail>;
-export type Auth_ConfirmEmailMutationOptions = Apollo.BaseMutationOptions<Auth_ConfirmEmail, Auth_ConfirmEmailVariables>;
-export const Auth_GetMeDocument = gql`
-    query Auth_getMe {
-  auth_getMe {
-    id
-    email
-    isUserConfirmed
-    balance
-  }
+export function useAuth_ConfirmEmail(
+	baseOptions?: Apollo.MutationHookOptions<Auth_ConfirmEmail, Auth_ConfirmEmailVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useMutation<Auth_ConfirmEmail, Auth_ConfirmEmailVariables>(Auth_ConfirmEmailDocument, options)
 }
-    `;
+export type Auth_ConfirmEmailHookResult = ReturnType<typeof useAuth_ConfirmEmail>
+export type Auth_ConfirmEmailMutationResult = Apollo.MutationResult<Auth_ConfirmEmail>
+export type Auth_ConfirmEmailMutationOptions = Apollo.BaseMutationOptions<Auth_ConfirmEmail, Auth_ConfirmEmailVariables>
+export const Auth_GetMeDocument = gql`
+	query Auth_getMe {
+		auth_getMe {
+			id
+			email
+			isUserConfirmed
+			balance
+		}
+	}
+`
 
 /**
  * __useAuth_GetMe__
@@ -846,31 +1123,33 @@ export const Auth_GetMeDocument = gql`
  * });
  */
 export function useAuth_GetMe(baseOptions?: Apollo.QueryHookOptions<Auth_GetMe, Auth_GetMeVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<Auth_GetMe, Auth_GetMeVariables>(Auth_GetMeDocument, options);
-      }
-export function useAuth_GetMeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Auth_GetMe, Auth_GetMeVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<Auth_GetMe, Auth_GetMeVariables>(Auth_GetMeDocument, options);
-        }
-export function useAuth_GetMeSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Auth_GetMe, Auth_GetMeVariables>) {
-          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<Auth_GetMe, Auth_GetMeVariables>(Auth_GetMeDocument, options);
-        }
-export type Auth_GetMeHookResult = ReturnType<typeof useAuth_GetMe>;
-export type Auth_GetMeLazyQueryHookResult = ReturnType<typeof useAuth_GetMeLazyQuery>;
-export type Auth_GetMeSuspenseQueryHookResult = ReturnType<typeof useAuth_GetMeSuspenseQuery>;
-export type Auth_GetMeQueryResult = Apollo.QueryResult<Auth_GetMe, Auth_GetMeVariables>;
-export const Auth_LoginDocument = gql`
-    mutation Auth_login($input: LoginInput!) {
-  auth_login(input: $input) {
-    id
-    email
-    isUserConfirmed
-  }
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useQuery<Auth_GetMe, Auth_GetMeVariables>(Auth_GetMeDocument, options)
 }
-    `;
-export type Auth_LoginMutationFn = Apollo.MutationFunction<Auth_Login, Auth_LoginVariables>;
+export function useAuth_GetMeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Auth_GetMe, Auth_GetMeVariables>) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useLazyQuery<Auth_GetMe, Auth_GetMeVariables>(Auth_GetMeDocument, options)
+}
+export function useAuth_GetMeSuspenseQuery(
+	baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Auth_GetMe, Auth_GetMeVariables>,
+) {
+	const options = baseOptions === Apollo.skipToken ? baseOptions : { ...defaultOptions, ...baseOptions }
+	return Apollo.useSuspenseQuery<Auth_GetMe, Auth_GetMeVariables>(Auth_GetMeDocument, options)
+}
+export type Auth_GetMeHookResult = ReturnType<typeof useAuth_GetMe>
+export type Auth_GetMeLazyQueryHookResult = ReturnType<typeof useAuth_GetMeLazyQuery>
+export type Auth_GetMeSuspenseQueryHookResult = ReturnType<typeof useAuth_GetMeSuspenseQuery>
+export type Auth_GetMeQueryResult = Apollo.QueryResult<Auth_GetMe, Auth_GetMeVariables>
+export const Auth_LoginDocument = gql`
+	mutation Auth_login($input: LoginInput!) {
+		auth_login(input: $input) {
+			id
+			email
+			isUserConfirmed
+		}
+	}
+`
+export type Auth_LoginMutationFn = Apollo.MutationFunction<Auth_Login, Auth_LoginVariables>
 
 /**
  * __useAuth_Login__
@@ -890,22 +1169,25 @@ export type Auth_LoginMutationFn = Apollo.MutationFunction<Auth_Login, Auth_Logi
  * });
  */
 export function useAuth_Login(baseOptions?: Apollo.MutationHookOptions<Auth_Login, Auth_LoginVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<Auth_Login, Auth_LoginVariables>(Auth_LoginDocument, options);
-      }
-export type Auth_LoginHookResult = ReturnType<typeof useAuth_Login>;
-export type Auth_LoginMutationResult = Apollo.MutationResult<Auth_Login>;
-export type Auth_LoginMutationOptions = Apollo.BaseMutationOptions<Auth_Login, Auth_LoginVariables>;
-export const Auth_Login_With_OAuthDocument = gql`
-    mutation Auth_login_with_OAuth($input: LoginWithOAuthInput!) {
-  auth_login_with_OAuth(input: $input) {
-    id
-    email
-    isUserConfirmed
-  }
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useMutation<Auth_Login, Auth_LoginVariables>(Auth_LoginDocument, options)
 }
-    `;
-export type Auth_Login_With_OAuthMutationFn = Apollo.MutationFunction<Auth_Login_With_OAuth, Auth_Login_With_OAuthVariables>;
+export type Auth_LoginHookResult = ReturnType<typeof useAuth_Login>
+export type Auth_LoginMutationResult = Apollo.MutationResult<Auth_Login>
+export type Auth_LoginMutationOptions = Apollo.BaseMutationOptions<Auth_Login, Auth_LoginVariables>
+export const Auth_Login_With_OAuthDocument = gql`
+	mutation Auth_login_with_OAuth($input: LoginWithOAuthInput!) {
+		auth_login_with_OAuth(input: $input) {
+			id
+			email
+			isUserConfirmed
+		}
+	}
+`
+export type Auth_Login_With_OAuthMutationFn = Apollo.MutationFunction<
+	Auth_Login_With_OAuth,
+	Auth_Login_With_OAuthVariables
+>
 
 /**
  * __useAuth_Login_With_OAuth__
@@ -924,19 +1206,27 @@ export type Auth_Login_With_OAuthMutationFn = Apollo.MutationFunction<Auth_Login
  *   },
  * });
  */
-export function useAuth_Login_With_OAuth(baseOptions?: Apollo.MutationHookOptions<Auth_Login_With_OAuth, Auth_Login_With_OAuthVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<Auth_Login_With_OAuth, Auth_Login_With_OAuthVariables>(Auth_Login_With_OAuthDocument, options);
-      }
-export type Auth_Login_With_OAuthHookResult = ReturnType<typeof useAuth_Login_With_OAuth>;
-export type Auth_Login_With_OAuthMutationResult = Apollo.MutationResult<Auth_Login_With_OAuth>;
-export type Auth_Login_With_OAuthMutationOptions = Apollo.BaseMutationOptions<Auth_Login_With_OAuth, Auth_Login_With_OAuthVariables>;
-export const Auth_LogoutDocument = gql`
-    mutation Auth_logout {
-  auth_logout
+export function useAuth_Login_With_OAuth(
+	baseOptions?: Apollo.MutationHookOptions<Auth_Login_With_OAuth, Auth_Login_With_OAuthVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useMutation<Auth_Login_With_OAuth, Auth_Login_With_OAuthVariables>(
+		Auth_Login_With_OAuthDocument,
+		options,
+	)
 }
-    `;
-export type Auth_LogoutMutationFn = Apollo.MutationFunction<Auth_Logout, Auth_LogoutVariables>;
+export type Auth_Login_With_OAuthHookResult = ReturnType<typeof useAuth_Login_With_OAuth>
+export type Auth_Login_With_OAuthMutationResult = Apollo.MutationResult<Auth_Login_With_OAuth>
+export type Auth_Login_With_OAuthMutationOptions = Apollo.BaseMutationOptions<
+	Auth_Login_With_OAuth,
+	Auth_Login_With_OAuthVariables
+>
+export const Auth_LogoutDocument = gql`
+	mutation Auth_logout {
+		auth_logout
+	}
+`
+export type Auth_LogoutMutationFn = Apollo.MutationFunction<Auth_Logout, Auth_LogoutVariables>
 
 /**
  * __useAuth_Logout__
@@ -955,21 +1245,21 @@ export type Auth_LogoutMutationFn = Apollo.MutationFunction<Auth_Logout, Auth_Lo
  * });
  */
 export function useAuth_Logout(baseOptions?: Apollo.MutationHookOptions<Auth_Logout, Auth_LogoutVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<Auth_Logout, Auth_LogoutVariables>(Auth_LogoutDocument, options);
-      }
-export type Auth_LogoutHookResult = ReturnType<typeof useAuth_Logout>;
-export type Auth_LogoutMutationResult = Apollo.MutationResult<Auth_Logout>;
-export type Auth_LogoutMutationOptions = Apollo.BaseMutationOptions<Auth_Logout, Auth_LogoutVariables>;
-export const Auth_RegisterDocument = gql`
-    mutation Auth_register($input: RegisterUserInput!) {
-  auth_register(input: $input) {
-    id
-    email
-  }
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useMutation<Auth_Logout, Auth_LogoutVariables>(Auth_LogoutDocument, options)
 }
-    `;
-export type Auth_RegisterMutationFn = Apollo.MutationFunction<Auth_Register, Auth_RegisterVariables>;
+export type Auth_LogoutHookResult = ReturnType<typeof useAuth_Logout>
+export type Auth_LogoutMutationResult = Apollo.MutationResult<Auth_Logout>
+export type Auth_LogoutMutationOptions = Apollo.BaseMutationOptions<Auth_Logout, Auth_LogoutVariables>
+export const Auth_RegisterDocument = gql`
+	mutation Auth_register($input: RegisterUserInput!) {
+		auth_register(input: $input) {
+			id
+			email
+		}
+	}
+`
+export type Auth_RegisterMutationFn = Apollo.MutationFunction<Auth_Register, Auth_RegisterVariables>
 
 /**
  * __useAuth_Register__
@@ -989,31 +1279,31 @@ export type Auth_RegisterMutationFn = Apollo.MutationFunction<Auth_Register, Aut
  * });
  */
 export function useAuth_Register(baseOptions?: Apollo.MutationHookOptions<Auth_Register, Auth_RegisterVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<Auth_Register, Auth_RegisterVariables>(Auth_RegisterDocument, options);
-      }
-export type Auth_RegisterHookResult = ReturnType<typeof useAuth_Register>;
-export type Auth_RegisterMutationResult = Apollo.MutationResult<Auth_Register>;
-export type Auth_RegisterMutationOptions = Apollo.BaseMutationOptions<Auth_Register, Auth_RegisterVariables>;
-export const BookChapter_CreateDocument = gql`
-    mutation BookChapter_create($input: CreateBookChapterInput!) {
-  book_chapter_create(input: $input) {
-    id
-    name
-    header
-    content
-    note
-    book {
-      id
-      name
-      author
-      note
-      userId
-    }
-  }
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useMutation<Auth_Register, Auth_RegisterVariables>(Auth_RegisterDocument, options)
 }
-    `;
-export type BookChapter_CreateMutationFn = Apollo.MutationFunction<BookChapter_Create, BookChapter_CreateVariables>;
+export type Auth_RegisterHookResult = ReturnType<typeof useAuth_Register>
+export type Auth_RegisterMutationResult = Apollo.MutationResult<Auth_Register>
+export type Auth_RegisterMutationOptions = Apollo.BaseMutationOptions<Auth_Register, Auth_RegisterVariables>
+export const BookChapter_CreateDocument = gql`
+	mutation BookChapter_create($input: CreateBookChapterInput!) {
+		book_chapter_create(input: $input) {
+			id
+			name
+			header
+			content
+			note
+			book {
+				id
+				name
+				author
+				note
+				userId
+			}
+		}
+	}
+`
+export type BookChapter_CreateMutationFn = Apollo.MutationFunction<BookChapter_Create, BookChapter_CreateVariables>
 
 /**
  * __useBookChapter_Create__
@@ -1032,19 +1322,24 @@ export type BookChapter_CreateMutationFn = Apollo.MutationFunction<BookChapter_C
  *   },
  * });
  */
-export function useBookChapter_Create(baseOptions?: Apollo.MutationHookOptions<BookChapter_Create, BookChapter_CreateVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<BookChapter_Create, BookChapter_CreateVariables>(BookChapter_CreateDocument, options);
-      }
-export type BookChapter_CreateHookResult = ReturnType<typeof useBookChapter_Create>;
-export type BookChapter_CreateMutationResult = Apollo.MutationResult<BookChapter_Create>;
-export type BookChapter_CreateMutationOptions = Apollo.BaseMutationOptions<BookChapter_Create, BookChapter_CreateVariables>;
-export const BookChapter_DeleteDocument = gql`
-    mutation BookChapter_delete($input: DeleteBookChapterInput!) {
-  book_chapter_delete(input: $input)
+export function useBookChapter_Create(
+	baseOptions?: Apollo.MutationHookOptions<BookChapter_Create, BookChapter_CreateVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useMutation<BookChapter_Create, BookChapter_CreateVariables>(BookChapter_CreateDocument, options)
 }
-    `;
-export type BookChapter_DeleteMutationFn = Apollo.MutationFunction<BookChapter_Delete, BookChapter_DeleteVariables>;
+export type BookChapter_CreateHookResult = ReturnType<typeof useBookChapter_Create>
+export type BookChapter_CreateMutationResult = Apollo.MutationResult<BookChapter_Create>
+export type BookChapter_CreateMutationOptions = Apollo.BaseMutationOptions<
+	BookChapter_Create,
+	BookChapter_CreateVariables
+>
+export const BookChapter_DeleteDocument = gql`
+	mutation BookChapter_delete($input: DeleteBookChapterInput!) {
+		book_chapter_delete(input: $input)
+	}
+`
+export type BookChapter_DeleteMutationFn = Apollo.MutationFunction<BookChapter_Delete, BookChapter_DeleteVariables>
 
 /**
  * __useBookChapter_Delete__
@@ -1063,36 +1358,41 @@ export type BookChapter_DeleteMutationFn = Apollo.MutationFunction<BookChapter_D
  *   },
  * });
  */
-export function useBookChapter_Delete(baseOptions?: Apollo.MutationHookOptions<BookChapter_Delete, BookChapter_DeleteVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<BookChapter_Delete, BookChapter_DeleteVariables>(BookChapter_DeleteDocument, options);
-      }
-export type BookChapter_DeleteHookResult = ReturnType<typeof useBookChapter_Delete>;
-export type BookChapter_DeleteMutationResult = Apollo.MutationResult<BookChapter_Delete>;
-export type BookChapter_DeleteMutationOptions = Apollo.BaseMutationOptions<BookChapter_Delete, BookChapter_DeleteVariables>;
-export const BookChapter_GetDocument = gql`
-    query BookChapter_get($input: GetBookChapterInput!) {
-  book_chapter_get(input: $input) {
-    id
-    name
-    header
-    note
-    content
-    sentences {
-      id
-      startOffset
-      length
-    }
-    book {
-      id
-      name
-      author
-      note
-      userId
-    }
-  }
+export function useBookChapter_Delete(
+	baseOptions?: Apollo.MutationHookOptions<BookChapter_Delete, BookChapter_DeleteVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useMutation<BookChapter_Delete, BookChapter_DeleteVariables>(BookChapter_DeleteDocument, options)
 }
-    `;
+export type BookChapter_DeleteHookResult = ReturnType<typeof useBookChapter_Delete>
+export type BookChapter_DeleteMutationResult = Apollo.MutationResult<BookChapter_Delete>
+export type BookChapter_DeleteMutationOptions = Apollo.BaseMutationOptions<
+	BookChapter_Delete,
+	BookChapter_DeleteVariables
+>
+export const BookChapter_GetDocument = gql`
+	query BookChapter_get($input: GetBookChapterInput!) {
+		book_chapter_get(input: $input) {
+			id
+			name
+			header
+			note
+			content
+			sentences {
+				id
+				startOffset
+				length
+			}
+			book {
+				id
+				name
+				author
+				note
+				userId
+			}
+		}
+	}
+`
 
 /**
  * __useBookChapter_Get__
@@ -1110,41 +1410,48 @@ export const BookChapter_GetDocument = gql`
  *   },
  * });
  */
-export function useBookChapter_Get(baseOptions: Apollo.QueryHookOptions<BookChapter_Get, BookChapter_GetVariables> & ({ variables: BookChapter_GetVariables; skip?: boolean; } | { skip: boolean; }) ) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<BookChapter_Get, BookChapter_GetVariables>(BookChapter_GetDocument, options);
-      }
-export function useBookChapter_GetLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<BookChapter_Get, BookChapter_GetVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<BookChapter_Get, BookChapter_GetVariables>(BookChapter_GetDocument, options);
-        }
-export function useBookChapter_GetSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<BookChapter_Get, BookChapter_GetVariables>) {
-          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<BookChapter_Get, BookChapter_GetVariables>(BookChapter_GetDocument, options);
-        }
-export type BookChapter_GetHookResult = ReturnType<typeof useBookChapter_Get>;
-export type BookChapter_GetLazyQueryHookResult = ReturnType<typeof useBookChapter_GetLazyQuery>;
-export type BookChapter_GetSuspenseQueryHookResult = ReturnType<typeof useBookChapter_GetSuspenseQuery>;
-export type BookChapter_GetQueryResult = Apollo.QueryResult<BookChapter_Get, BookChapter_GetVariables>;
-export const BookChapter_UpdateDocument = gql`
-    mutation BookChapter_update($input: UpdateBookChapterInput!) {
-  book_chapter_update(input: $input) {
-    id
-    name
-    header
-    content
-    note
-    book {
-      id
-      name
-      author
-      note
-      userId
-    }
-  }
+export function useBookChapter_Get(
+	baseOptions: Apollo.QueryHookOptions<BookChapter_Get, BookChapter_GetVariables> &
+		({ variables: BookChapter_GetVariables; skip?: boolean } | { skip: boolean }),
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useQuery<BookChapter_Get, BookChapter_GetVariables>(BookChapter_GetDocument, options)
 }
-    `;
-export type BookChapter_UpdateMutationFn = Apollo.MutationFunction<BookChapter_Update, BookChapter_UpdateVariables>;
+export function useBookChapter_GetLazyQuery(
+	baseOptions?: Apollo.LazyQueryHookOptions<BookChapter_Get, BookChapter_GetVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useLazyQuery<BookChapter_Get, BookChapter_GetVariables>(BookChapter_GetDocument, options)
+}
+export function useBookChapter_GetSuspenseQuery(
+	baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<BookChapter_Get, BookChapter_GetVariables>,
+) {
+	const options = baseOptions === Apollo.skipToken ? baseOptions : { ...defaultOptions, ...baseOptions }
+	return Apollo.useSuspenseQuery<BookChapter_Get, BookChapter_GetVariables>(BookChapter_GetDocument, options)
+}
+export type BookChapter_GetHookResult = ReturnType<typeof useBookChapter_Get>
+export type BookChapter_GetLazyQueryHookResult = ReturnType<typeof useBookChapter_GetLazyQuery>
+export type BookChapter_GetSuspenseQueryHookResult = ReturnType<typeof useBookChapter_GetSuspenseQuery>
+export type BookChapter_GetQueryResult = Apollo.QueryResult<BookChapter_Get, BookChapter_GetVariables>
+export const BookChapter_UpdateDocument = gql`
+	mutation BookChapter_update($input: UpdateBookChapterInput!) {
+		book_chapter_update(input: $input) {
+			id
+			name
+			header
+			content
+			note
+			book {
+				id
+				name
+				author
+				note
+				userId
+			}
+		}
+	}
+`
+export type BookChapter_UpdateMutationFn = Apollo.MutationFunction<BookChapter_Update, BookChapter_UpdateVariables>
 
 /**
  * __useBookChapter_Update__
@@ -1163,32 +1470,37 @@ export type BookChapter_UpdateMutationFn = Apollo.MutationFunction<BookChapter_U
  *   },
  * });
  */
-export function useBookChapter_Update(baseOptions?: Apollo.MutationHookOptions<BookChapter_Update, BookChapter_UpdateVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<BookChapter_Update, BookChapter_UpdateVariables>(BookChapter_UpdateDocument, options);
-      }
-export type BookChapter_UpdateHookResult = ReturnType<typeof useBookChapter_Update>;
-export type BookChapter_UpdateMutationResult = Apollo.MutationResult<BookChapter_Update>;
-export type BookChapter_UpdateMutationOptions = Apollo.BaseMutationOptions<BookChapter_Update, BookChapter_UpdateVariables>;
-export const Book_CreateDocument = gql`
-    mutation Book_create($input: CreateBookInput!) {
-  book_create(input: $input) {
-    id
-    author
-    name
-    note
-    userId
-    chapters {
-      id
-      bookId
-      name
-      header
-      note
-    }
-  }
+export function useBookChapter_Update(
+	baseOptions?: Apollo.MutationHookOptions<BookChapter_Update, BookChapter_UpdateVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useMutation<BookChapter_Update, BookChapter_UpdateVariables>(BookChapter_UpdateDocument, options)
 }
-    `;
-export type Book_CreateMutationFn = Apollo.MutationFunction<Book_Create, Book_CreateVariables>;
+export type BookChapter_UpdateHookResult = ReturnType<typeof useBookChapter_Update>
+export type BookChapter_UpdateMutationResult = Apollo.MutationResult<BookChapter_Update>
+export type BookChapter_UpdateMutationOptions = Apollo.BaseMutationOptions<
+	BookChapter_Update,
+	BookChapter_UpdateVariables
+>
+export const Book_CreateDocument = gql`
+	mutation Book_create($input: CreateBookInput!) {
+		book_create(input: $input) {
+			id
+			author
+			name
+			note
+			userId
+			chapters {
+				id
+				bookId
+				name
+				header
+				note
+			}
+		}
+	}
+`
+export type Book_CreateMutationFn = Apollo.MutationFunction<Book_Create, Book_CreateVariables>
 
 /**
  * __useBook_Create__
@@ -1208,18 +1520,18 @@ export type Book_CreateMutationFn = Apollo.MutationFunction<Book_Create, Book_Cr
  * });
  */
 export function useBook_Create(baseOptions?: Apollo.MutationHookOptions<Book_Create, Book_CreateVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<Book_Create, Book_CreateVariables>(Book_CreateDocument, options);
-      }
-export type Book_CreateHookResult = ReturnType<typeof useBook_Create>;
-export type Book_CreateMutationResult = Apollo.MutationResult<Book_Create>;
-export type Book_CreateMutationOptions = Apollo.BaseMutationOptions<Book_Create, Book_CreateVariables>;
-export const Book_DeleteDocument = gql`
-    mutation Book_delete($input: DeleteBookInput!) {
-  book_delete(input: $input)
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useMutation<Book_Create, Book_CreateVariables>(Book_CreateDocument, options)
 }
-    `;
-export type Book_DeleteMutationFn = Apollo.MutationFunction<Book_Delete, Book_DeleteVariables>;
+export type Book_CreateHookResult = ReturnType<typeof useBook_Create>
+export type Book_CreateMutationResult = Apollo.MutationResult<Book_Create>
+export type Book_CreateMutationOptions = Apollo.BaseMutationOptions<Book_Create, Book_CreateVariables>
+export const Book_DeleteDocument = gql`
+	mutation Book_delete($input: DeleteBookInput!) {
+		book_delete(input: $input)
+	}
+`
+export type Book_DeleteMutationFn = Apollo.MutationFunction<Book_Delete, Book_DeleteVariables>
 
 /**
  * __useBook_Delete__
@@ -1239,30 +1551,30 @@ export type Book_DeleteMutationFn = Apollo.MutationFunction<Book_Delete, Book_De
  * });
  */
 export function useBook_Delete(baseOptions?: Apollo.MutationHookOptions<Book_Delete, Book_DeleteVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<Book_Delete, Book_DeleteVariables>(Book_DeleteDocument, options);
-      }
-export type Book_DeleteHookResult = ReturnType<typeof useBook_Delete>;
-export type Book_DeleteMutationResult = Apollo.MutationResult<Book_Delete>;
-export type Book_DeleteMutationOptions = Apollo.BaseMutationOptions<Book_Delete, Book_DeleteVariables>;
-export const Book_GetDocument = gql`
-    query Book_get($input: GetBookInput!) {
-  book_get(input: $input) {
-    id
-    author
-    name
-    note
-    userId
-    chapters {
-      id
-      bookId
-      name
-      header
-      note
-    }
-  }
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useMutation<Book_Delete, Book_DeleteVariables>(Book_DeleteDocument, options)
 }
-    `;
+export type Book_DeleteHookResult = ReturnType<typeof useBook_Delete>
+export type Book_DeleteMutationResult = Apollo.MutationResult<Book_Delete>
+export type Book_DeleteMutationOptions = Apollo.BaseMutationOptions<Book_Delete, Book_DeleteVariables>
+export const Book_GetDocument = gql`
+	query Book_get($input: GetBookInput!) {
+		book_get(input: $input) {
+			id
+			author
+			name
+			note
+			userId
+			chapters {
+				id
+				bookId
+				name
+				header
+				note
+			}
+		}
+	}
+`
 
 /**
  * __useBook_Get__
@@ -1280,40 +1592,45 @@ export const Book_GetDocument = gql`
  *   },
  * });
  */
-export function useBook_Get(baseOptions: Apollo.QueryHookOptions<Book_Get, Book_GetVariables> & ({ variables: Book_GetVariables; skip?: boolean; } | { skip: boolean; }) ) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<Book_Get, Book_GetVariables>(Book_GetDocument, options);
-      }
-export function useBook_GetLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Book_Get, Book_GetVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<Book_Get, Book_GetVariables>(Book_GetDocument, options);
-        }
-export function useBook_GetSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Book_Get, Book_GetVariables>) {
-          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<Book_Get, Book_GetVariables>(Book_GetDocument, options);
-        }
-export type Book_GetHookResult = ReturnType<typeof useBook_Get>;
-export type Book_GetLazyQueryHookResult = ReturnType<typeof useBook_GetLazyQuery>;
-export type Book_GetSuspenseQueryHookResult = ReturnType<typeof useBook_GetSuspenseQuery>;
-export type Book_GetQueryResult = Apollo.QueryResult<Book_Get, Book_GetVariables>;
-export const Book_GetUserBooksDocument = gql`
-    query Book_getUserBooks {
-  book_user_books {
-    id
-    author
-    name
-    note
-    userId
-    chapters {
-      id
-      bookId
-      name
-      header
-      note
-    }
-  }
+export function useBook_Get(
+	baseOptions: Apollo.QueryHookOptions<Book_Get, Book_GetVariables> &
+		({ variables: Book_GetVariables; skip?: boolean } | { skip: boolean }),
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useQuery<Book_Get, Book_GetVariables>(Book_GetDocument, options)
 }
-    `;
+export function useBook_GetLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Book_Get, Book_GetVariables>) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useLazyQuery<Book_Get, Book_GetVariables>(Book_GetDocument, options)
+}
+export function useBook_GetSuspenseQuery(
+	baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Book_Get, Book_GetVariables>,
+) {
+	const options = baseOptions === Apollo.skipToken ? baseOptions : { ...defaultOptions, ...baseOptions }
+	return Apollo.useSuspenseQuery<Book_Get, Book_GetVariables>(Book_GetDocument, options)
+}
+export type Book_GetHookResult = ReturnType<typeof useBook_Get>
+export type Book_GetLazyQueryHookResult = ReturnType<typeof useBook_GetLazyQuery>
+export type Book_GetSuspenseQueryHookResult = ReturnType<typeof useBook_GetSuspenseQuery>
+export type Book_GetQueryResult = Apollo.QueryResult<Book_Get, Book_GetVariables>
+export const Book_GetUserBooksDocument = gql`
+	query Book_getUserBooks {
+		book_user_books {
+			id
+			author
+			name
+			note
+			userId
+			chapters {
+				id
+				bookId
+				name
+				header
+				note
+			}
+		}
+	}
+`
 
 /**
  * __useBook_GetUserBooks__
@@ -1330,41 +1647,47 @@ export const Book_GetUserBooksDocument = gql`
  *   },
  * });
  */
-export function useBook_GetUserBooks(baseOptions?: Apollo.QueryHookOptions<Book_GetUserBooks, Book_GetUserBooksVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<Book_GetUserBooks, Book_GetUserBooksVariables>(Book_GetUserBooksDocument, options);
-      }
-export function useBook_GetUserBooksLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Book_GetUserBooks, Book_GetUserBooksVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<Book_GetUserBooks, Book_GetUserBooksVariables>(Book_GetUserBooksDocument, options);
-        }
-export function useBook_GetUserBooksSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Book_GetUserBooks, Book_GetUserBooksVariables>) {
-          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<Book_GetUserBooks, Book_GetUserBooksVariables>(Book_GetUserBooksDocument, options);
-        }
-export type Book_GetUserBooksHookResult = ReturnType<typeof useBook_GetUserBooks>;
-export type Book_GetUserBooksLazyQueryHookResult = ReturnType<typeof useBook_GetUserBooksLazyQuery>;
-export type Book_GetUserBooksSuspenseQueryHookResult = ReturnType<typeof useBook_GetUserBooksSuspenseQuery>;
-export type Book_GetUserBooksQueryResult = Apollo.QueryResult<Book_GetUserBooks, Book_GetUserBooksVariables>;
-export const Book_UpdateDocument = gql`
-    mutation Book_update($input: UpdateBookInput!) {
-  book_update(input: $input) {
-    id
-    author
-    name
-    note
-    userId
-    chapters {
-      id
-      bookId
-      name
-      header
-      note
-    }
-  }
+export function useBook_GetUserBooks(
+	baseOptions?: Apollo.QueryHookOptions<Book_GetUserBooks, Book_GetUserBooksVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useQuery<Book_GetUserBooks, Book_GetUserBooksVariables>(Book_GetUserBooksDocument, options)
 }
-    `;
-export type Book_UpdateMutationFn = Apollo.MutationFunction<Book_Update, Book_UpdateVariables>;
+export function useBook_GetUserBooksLazyQuery(
+	baseOptions?: Apollo.LazyQueryHookOptions<Book_GetUserBooks, Book_GetUserBooksVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useLazyQuery<Book_GetUserBooks, Book_GetUserBooksVariables>(Book_GetUserBooksDocument, options)
+}
+export function useBook_GetUserBooksSuspenseQuery(
+	baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Book_GetUserBooks, Book_GetUserBooksVariables>,
+) {
+	const options = baseOptions === Apollo.skipToken ? baseOptions : { ...defaultOptions, ...baseOptions }
+	return Apollo.useSuspenseQuery<Book_GetUserBooks, Book_GetUserBooksVariables>(Book_GetUserBooksDocument, options)
+}
+export type Book_GetUserBooksHookResult = ReturnType<typeof useBook_GetUserBooks>
+export type Book_GetUserBooksLazyQueryHookResult = ReturnType<typeof useBook_GetUserBooksLazyQuery>
+export type Book_GetUserBooksSuspenseQueryHookResult = ReturnType<typeof useBook_GetUserBooksSuspenseQuery>
+export type Book_GetUserBooksQueryResult = Apollo.QueryResult<Book_GetUserBooks, Book_GetUserBooksVariables>
+export const Book_UpdateDocument = gql`
+	mutation Book_update($input: UpdateBookInput!) {
+		book_update(input: $input) {
+			id
+			author
+			name
+			note
+			userId
+			chapters {
+				id
+				bookId
+				name
+				header
+				note
+			}
+		}
+	}
+`
+export type Book_UpdateMutationFn = Apollo.MutationFunction<Book_Update, Book_UpdateVariables>
 
 /**
  * __useBook_Update__
@@ -1384,30 +1707,30 @@ export type Book_UpdateMutationFn = Apollo.MutationFunction<Book_Update, Book_Up
  * });
  */
 export function useBook_Update(baseOptions?: Apollo.MutationHookOptions<Book_Update, Book_UpdateVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<Book_Update, Book_UpdateVariables>(Book_UpdateDocument, options);
-      }
-export type Book_UpdateHookResult = ReturnType<typeof useBook_Update>;
-export type Book_UpdateMutationResult = Apollo.MutationResult<Book_Update>;
-export type Book_UpdateMutationOptions = Apollo.BaseMutationOptions<Book_Update, Book_UpdateVariables>;
-export const Book_GetBookPublicDocument = gql`
-    query Book_getBookPublic($input: GetBookPublicInput!) {
-  book_public_get_book(input: $input) {
-    id
-    author
-    name
-    note
-    cover
-    chapters {
-      id
-      bookId
-      name
-      header
-      note
-    }
-  }
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useMutation<Book_Update, Book_UpdateVariables>(Book_UpdateDocument, options)
 }
-    `;
+export type Book_UpdateHookResult = ReturnType<typeof useBook_Update>
+export type Book_UpdateMutationResult = Apollo.MutationResult<Book_Update>
+export type Book_UpdateMutationOptions = Apollo.BaseMutationOptions<Book_Update, Book_UpdateVariables>
+export const Book_GetBookPublicDocument = gql`
+	query Book_getBookPublic($input: GetBookPublicInput!) {
+		book_public_get_book(input: $input) {
+			id
+			author
+			name
+			note
+			cover
+			chapters {
+				id
+				bookId
+				name
+				header
+				note
+			}
+		}
+	}
+`
 
 /**
  * __useBook_GetBookPublic__
@@ -1425,40 +1748,47 @@ export const Book_GetBookPublicDocument = gql`
  *   },
  * });
  */
-export function useBook_GetBookPublic(baseOptions: Apollo.QueryHookOptions<Book_GetBookPublic, Book_GetBookPublicVariables> & ({ variables: Book_GetBookPublicVariables; skip?: boolean; } | { skip: boolean; }) ) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<Book_GetBookPublic, Book_GetBookPublicVariables>(Book_GetBookPublicDocument, options);
-      }
-export function useBook_GetBookPublicLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Book_GetBookPublic, Book_GetBookPublicVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<Book_GetBookPublic, Book_GetBookPublicVariables>(Book_GetBookPublicDocument, options);
-        }
-export function useBook_GetBookPublicSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Book_GetBookPublic, Book_GetBookPublicVariables>) {
-          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<Book_GetBookPublic, Book_GetBookPublicVariables>(Book_GetBookPublicDocument, options);
-        }
-export type Book_GetBookPublicHookResult = ReturnType<typeof useBook_GetBookPublic>;
-export type Book_GetBookPublicLazyQueryHookResult = ReturnType<typeof useBook_GetBookPublicLazyQuery>;
-export type Book_GetBookPublicSuspenseQueryHookResult = ReturnType<typeof useBook_GetBookPublicSuspenseQuery>;
-export type Book_GetBookPublicQueryResult = Apollo.QueryResult<Book_GetBookPublic, Book_GetBookPublicVariables>;
-export const Book_GetBooksPublicDocument = gql`
-    query Book_getBooksPublic {
-  book_public_get_books {
-    id
-    author
-    name
-    note
-    cover
-    chapters {
-      id
-      bookId
-      name
-      header
-      note
-    }
-  }
+export function useBook_GetBookPublic(
+	baseOptions: Apollo.QueryHookOptions<Book_GetBookPublic, Book_GetBookPublicVariables> &
+		({ variables: Book_GetBookPublicVariables; skip?: boolean } | { skip: boolean }),
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useQuery<Book_GetBookPublic, Book_GetBookPublicVariables>(Book_GetBookPublicDocument, options)
 }
-    `;
+export function useBook_GetBookPublicLazyQuery(
+	baseOptions?: Apollo.LazyQueryHookOptions<Book_GetBookPublic, Book_GetBookPublicVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useLazyQuery<Book_GetBookPublic, Book_GetBookPublicVariables>(Book_GetBookPublicDocument, options)
+}
+export function useBook_GetBookPublicSuspenseQuery(
+	baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Book_GetBookPublic, Book_GetBookPublicVariables>,
+) {
+	const options = baseOptions === Apollo.skipToken ? baseOptions : { ...defaultOptions, ...baseOptions }
+	return Apollo.useSuspenseQuery<Book_GetBookPublic, Book_GetBookPublicVariables>(Book_GetBookPublicDocument, options)
+}
+export type Book_GetBookPublicHookResult = ReturnType<typeof useBook_GetBookPublic>
+export type Book_GetBookPublicLazyQueryHookResult = ReturnType<typeof useBook_GetBookPublicLazyQuery>
+export type Book_GetBookPublicSuspenseQueryHookResult = ReturnType<typeof useBook_GetBookPublicSuspenseQuery>
+export type Book_GetBookPublicQueryResult = Apollo.QueryResult<Book_GetBookPublic, Book_GetBookPublicVariables>
+export const Book_GetBooksPublicDocument = gql`
+	query Book_getBooksPublic {
+		book_public_get_books {
+			id
+			author
+			name
+			note
+			cover
+			chapters {
+				id
+				bookId
+				name
+				header
+				note
+			}
+		}
+	}
+`
 
 /**
  * __useBook_GetBooksPublic__
@@ -1475,30 +1805,42 @@ export const Book_GetBooksPublicDocument = gql`
  *   },
  * });
  */
-export function useBook_GetBooksPublic(baseOptions?: Apollo.QueryHookOptions<Book_GetBooksPublic, Book_GetBooksPublicVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<Book_GetBooksPublic, Book_GetBooksPublicVariables>(Book_GetBooksPublicDocument, options);
-      }
-export function useBook_GetBooksPublicLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Book_GetBooksPublic, Book_GetBooksPublicVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<Book_GetBooksPublic, Book_GetBooksPublicVariables>(Book_GetBooksPublicDocument, options);
-        }
-export function useBook_GetBooksPublicSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Book_GetBooksPublic, Book_GetBooksPublicVariables>) {
-          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<Book_GetBooksPublic, Book_GetBooksPublicVariables>(Book_GetBooksPublicDocument, options);
-        }
-export type Book_GetBooksPublicHookResult = ReturnType<typeof useBook_GetBooksPublic>;
-export type Book_GetBooksPublicLazyQueryHookResult = ReturnType<typeof useBook_GetBooksPublicLazyQuery>;
-export type Book_GetBooksPublicSuspenseQueryHookResult = ReturnType<typeof useBook_GetBooksPublicSuspenseQuery>;
-export type Book_GetBooksPublicQueryResult = Apollo.QueryResult<Book_GetBooksPublic, Book_GetBooksPublicVariables>;
-export const Payment_YookassaTopUpBalanceDocument = gql`
-    mutation Payment_yookassaTopUpBalance($input: TopUpBalanceWithYooKassaInput!) {
-  payment_yookassa_top_up_balance(input: $input) {
-    confirmationUrl
-  }
+export function useBook_GetBooksPublic(
+	baseOptions?: Apollo.QueryHookOptions<Book_GetBooksPublic, Book_GetBooksPublicVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useQuery<Book_GetBooksPublic, Book_GetBooksPublicVariables>(Book_GetBooksPublicDocument, options)
 }
-    `;
-export type Payment_YookassaTopUpBalanceMutationFn = Apollo.MutationFunction<Payment_YookassaTopUpBalance, Payment_YookassaTopUpBalanceVariables>;
+export function useBook_GetBooksPublicLazyQuery(
+	baseOptions?: Apollo.LazyQueryHookOptions<Book_GetBooksPublic, Book_GetBooksPublicVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useLazyQuery<Book_GetBooksPublic, Book_GetBooksPublicVariables>(Book_GetBooksPublicDocument, options)
+}
+export function useBook_GetBooksPublicSuspenseQuery(
+	baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Book_GetBooksPublic, Book_GetBooksPublicVariables>,
+) {
+	const options = baseOptions === Apollo.skipToken ? baseOptions : { ...defaultOptions, ...baseOptions }
+	return Apollo.useSuspenseQuery<Book_GetBooksPublic, Book_GetBooksPublicVariables>(
+		Book_GetBooksPublicDocument,
+		options,
+	)
+}
+export type Book_GetBooksPublicHookResult = ReturnType<typeof useBook_GetBooksPublic>
+export type Book_GetBooksPublicLazyQueryHookResult = ReturnType<typeof useBook_GetBooksPublicLazyQuery>
+export type Book_GetBooksPublicSuspenseQueryHookResult = ReturnType<typeof useBook_GetBooksPublicSuspenseQuery>
+export type Book_GetBooksPublicQueryResult = Apollo.QueryResult<Book_GetBooksPublic, Book_GetBooksPublicVariables>
+export const Payment_YookassaTopUpBalanceDocument = gql`
+	mutation Payment_yookassaTopUpBalance($input: TopUpBalanceWithYooKassaInput!) {
+		payment_yookassa_top_up_balance(input: $input) {
+			confirmationUrl
+		}
+	}
+`
+export type Payment_YookassaTopUpBalanceMutationFn = Apollo.MutationFunction<
+	Payment_YookassaTopUpBalance,
+	Payment_YookassaTopUpBalanceVariables
+>
 
 /**
  * __usePayment_YookassaTopUpBalance__
@@ -1517,26 +1859,100 @@ export type Payment_YookassaTopUpBalanceMutationFn = Apollo.MutationFunction<Pay
  *   },
  * });
  */
-export function usePayment_YookassaTopUpBalance(baseOptions?: Apollo.MutationHookOptions<Payment_YookassaTopUpBalance, Payment_YookassaTopUpBalanceVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<Payment_YookassaTopUpBalance, Payment_YookassaTopUpBalanceVariables>(Payment_YookassaTopUpBalanceDocument, options);
-      }
-export type Payment_YookassaTopUpBalanceHookResult = ReturnType<typeof usePayment_YookassaTopUpBalance>;
-export type Payment_YookassaTopUpBalanceMutationResult = Apollo.MutationResult<Payment_YookassaTopUpBalance>;
-export type Payment_YookassaTopUpBalanceMutationOptions = Apollo.BaseMutationOptions<Payment_YookassaTopUpBalance, Payment_YookassaTopUpBalanceVariables>;
-export const VideoPrivate_CreateDocument = gql`
-    mutation VideoPrivate_create($input: CreatePrivateVideoInput!) {
-  video_private_create(input: $input) {
-    id
-    name
-    contentType
-    originalContent
-    processedContent
-    userId
-  }
+export function usePayment_YookassaTopUpBalance(
+	baseOptions?: Apollo.MutationHookOptions<Payment_YookassaTopUpBalance, Payment_YookassaTopUpBalanceVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useMutation<Payment_YookassaTopUpBalance, Payment_YookassaTopUpBalanceVariables>(
+		Payment_YookassaTopUpBalanceDocument,
+		options,
+	)
 }
-    `;
-export type VideoPrivate_CreateMutationFn = Apollo.MutationFunction<VideoPrivate_Create, VideoPrivate_CreateVariables>;
+export type Payment_YookassaTopUpBalanceHookResult = ReturnType<typeof usePayment_YookassaTopUpBalance>
+export type Payment_YookassaTopUpBalanceMutationResult = Apollo.MutationResult<Payment_YookassaTopUpBalance>
+export type Payment_YookassaTopUpBalanceMutationOptions = Apollo.BaseMutationOptions<
+	Payment_YookassaTopUpBalance,
+	Payment_YookassaTopUpBalanceVariables
+>
+export const SentenceTranslation_GetDocument = gql`
+	query SentenceTranslation_get($input: GetSentenceTranslationInput!) {
+		sentence_translation_get(input: $input) {
+			id
+			sentenceId
+			provider
+			translation
+			analysis
+			createdAt
+		}
+	}
+`
+
+/**
+ * __useSentenceTranslation_Get__
+ *
+ * To run a query within a React component, call `useSentenceTranslation_Get` and pass it any options that fit your needs.
+ * When your component renders, `useSentenceTranslation_Get` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useSentenceTranslation_Get({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useSentenceTranslation_Get(
+	baseOptions: Apollo.QueryHookOptions<SentenceTranslation_Get, SentenceTranslation_GetVariables> &
+		({ variables: SentenceTranslation_GetVariables; skip?: boolean } | { skip: boolean }),
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useQuery<SentenceTranslation_Get, SentenceTranslation_GetVariables>(
+		SentenceTranslation_GetDocument,
+		options,
+	)
+}
+export function useSentenceTranslation_GetLazyQuery(
+	baseOptions?: Apollo.LazyQueryHookOptions<SentenceTranslation_Get, SentenceTranslation_GetVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useLazyQuery<SentenceTranslation_Get, SentenceTranslation_GetVariables>(
+		SentenceTranslation_GetDocument,
+		options,
+	)
+}
+export function useSentenceTranslation_GetSuspenseQuery(
+	baseOptions?:
+		| Apollo.SkipToken
+		| Apollo.SuspenseQueryHookOptions<SentenceTranslation_Get, SentenceTranslation_GetVariables>,
+) {
+	const options = baseOptions === Apollo.skipToken ? baseOptions : { ...defaultOptions, ...baseOptions }
+	return Apollo.useSuspenseQuery<SentenceTranslation_Get, SentenceTranslation_GetVariables>(
+		SentenceTranslation_GetDocument,
+		options,
+	)
+}
+export type SentenceTranslation_GetHookResult = ReturnType<typeof useSentenceTranslation_Get>
+export type SentenceTranslation_GetLazyQueryHookResult = ReturnType<typeof useSentenceTranslation_GetLazyQuery>
+export type SentenceTranslation_GetSuspenseQueryHookResult = ReturnType<typeof useSentenceTranslation_GetSuspenseQuery>
+export type SentenceTranslation_GetQueryResult = Apollo.QueryResult<
+	SentenceTranslation_Get,
+	SentenceTranslation_GetVariables
+>
+export const VideoPrivate_CreateDocument = gql`
+	mutation VideoPrivate_create($input: CreatePrivateVideoInput!) {
+		video_private_create(input: $input) {
+			id
+			name
+			contentType
+			originalContent
+			processedContent
+			userId
+		}
+	}
+`
+export type VideoPrivate_CreateMutationFn = Apollo.MutationFunction<VideoPrivate_Create, VideoPrivate_CreateVariables>
 
 /**
  * __useVideoPrivate_Create__
@@ -1555,19 +1971,24 @@ export type VideoPrivate_CreateMutationFn = Apollo.MutationFunction<VideoPrivate
  *   },
  * });
  */
-export function useVideoPrivate_Create(baseOptions?: Apollo.MutationHookOptions<VideoPrivate_Create, VideoPrivate_CreateVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<VideoPrivate_Create, VideoPrivate_CreateVariables>(VideoPrivate_CreateDocument, options);
-      }
-export type VideoPrivate_CreateHookResult = ReturnType<typeof useVideoPrivate_Create>;
-export type VideoPrivate_CreateMutationResult = Apollo.MutationResult<VideoPrivate_Create>;
-export type VideoPrivate_CreateMutationOptions = Apollo.BaseMutationOptions<VideoPrivate_Create, VideoPrivate_CreateVariables>;
-export const VideoPrivate_DeleteDocument = gql`
-    mutation VideoPrivate_delete($input: DeletePrivateVideoInput!) {
-  video_private_delete(input: $input)
+export function useVideoPrivate_Create(
+	baseOptions?: Apollo.MutationHookOptions<VideoPrivate_Create, VideoPrivate_CreateVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useMutation<VideoPrivate_Create, VideoPrivate_CreateVariables>(VideoPrivate_CreateDocument, options)
 }
-    `;
-export type VideoPrivate_DeleteMutationFn = Apollo.MutationFunction<VideoPrivate_Delete, VideoPrivate_DeleteVariables>;
+export type VideoPrivate_CreateHookResult = ReturnType<typeof useVideoPrivate_Create>
+export type VideoPrivate_CreateMutationResult = Apollo.MutationResult<VideoPrivate_Create>
+export type VideoPrivate_CreateMutationOptions = Apollo.BaseMutationOptions<
+	VideoPrivate_Create,
+	VideoPrivate_CreateVariables
+>
+export const VideoPrivate_DeleteDocument = gql`
+	mutation VideoPrivate_delete($input: DeletePrivateVideoInput!) {
+		video_private_delete(input: $input)
+	}
+`
+export type VideoPrivate_DeleteMutationFn = Apollo.MutationFunction<VideoPrivate_Delete, VideoPrivate_DeleteVariables>
 
 /**
  * __useVideoPrivate_Delete__
@@ -1586,55 +2007,60 @@ export type VideoPrivate_DeleteMutationFn = Apollo.MutationFunction<VideoPrivate
  *   },
  * });
  */
-export function useVideoPrivate_Delete(baseOptions?: Apollo.MutationHookOptions<VideoPrivate_Delete, VideoPrivate_DeleteVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<VideoPrivate_Delete, VideoPrivate_DeleteVariables>(VideoPrivate_DeleteDocument, options);
-      }
-export type VideoPrivate_DeleteHookResult = ReturnType<typeof useVideoPrivate_Delete>;
-export type VideoPrivate_DeleteMutationResult = Apollo.MutationResult<VideoPrivate_Delete>;
-export type VideoPrivate_DeleteMutationOptions = Apollo.BaseMutationOptions<VideoPrivate_Delete, VideoPrivate_DeleteVariables>;
-export const VideoPrivate_GetDocument = gql`
-    query VideoPrivate_get($input: GetPrivateVideoInput!) {
-  video_private_get(input: $input) {
-    id
-    name
-    originalContent
-    processedContent
-    contentType
-    userId
-    fileName
-    fileS3Key
-    fileUrl
-    isFileUploaded
-    fileSizeMb
-    sentences {
-      id
-      sentenceTranslations {
-        id
-        translation
-      }
-      startOffset
-      length
-      orderIndex
-    }
-    subtitles {
-      id
-      startTimeMs
-      endTimeMs
-      startOffset
-      length
-      orderIndex
-    }
-    subtitleSentenceInit {
-      id
-      subtitleId
-      sentenceId
-      startOffset
-      length
-    }
-  }
+export function useVideoPrivate_Delete(
+	baseOptions?: Apollo.MutationHookOptions<VideoPrivate_Delete, VideoPrivate_DeleteVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useMutation<VideoPrivate_Delete, VideoPrivate_DeleteVariables>(VideoPrivate_DeleteDocument, options)
 }
-    `;
+export type VideoPrivate_DeleteHookResult = ReturnType<typeof useVideoPrivate_Delete>
+export type VideoPrivate_DeleteMutationResult = Apollo.MutationResult<VideoPrivate_Delete>
+export type VideoPrivate_DeleteMutationOptions = Apollo.BaseMutationOptions<
+	VideoPrivate_Delete,
+	VideoPrivate_DeleteVariables
+>
+export const VideoPrivate_GetDocument = gql`
+	query VideoPrivate_get($input: GetPrivateVideoInput!) {
+		video_private_get(input: $input) {
+			id
+			name
+			originalContent
+			processedContent
+			contentType
+			userId
+			fileName
+			fileS3Key
+			fileUrl
+			isFileUploaded
+			fileSizeMb
+			sentences {
+				id
+				sentenceTranslations {
+					id
+					translation
+				}
+				startOffset
+				length
+				orderIndex
+			}
+			subtitles {
+				id
+				startTimeMs
+				endTimeMs
+				startOffset
+				length
+				orderIndex
+			}
+			subtitleSentenceInit {
+				id
+				subtitleId
+				sentenceId
+				startOffset
+				length
+			}
+		}
+	}
+`
 
 /**
  * __useVideoPrivate_Get__
@@ -1652,38 +2078,45 @@ export const VideoPrivate_GetDocument = gql`
  *   },
  * });
  */
-export function useVideoPrivate_Get(baseOptions: Apollo.QueryHookOptions<VideoPrivate_Get, VideoPrivate_GetVariables> & ({ variables: VideoPrivate_GetVariables; skip?: boolean; } | { skip: boolean; }) ) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<VideoPrivate_Get, VideoPrivate_GetVariables>(VideoPrivate_GetDocument, options);
-      }
-export function useVideoPrivate_GetLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<VideoPrivate_Get, VideoPrivate_GetVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<VideoPrivate_Get, VideoPrivate_GetVariables>(VideoPrivate_GetDocument, options);
-        }
-export function useVideoPrivate_GetSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<VideoPrivate_Get, VideoPrivate_GetVariables>) {
-          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<VideoPrivate_Get, VideoPrivate_GetVariables>(VideoPrivate_GetDocument, options);
-        }
-export type VideoPrivate_GetHookResult = ReturnType<typeof useVideoPrivate_Get>;
-export type VideoPrivate_GetLazyQueryHookResult = ReturnType<typeof useVideoPrivate_GetLazyQuery>;
-export type VideoPrivate_GetSuspenseQueryHookResult = ReturnType<typeof useVideoPrivate_GetSuspenseQuery>;
-export type VideoPrivate_GetQueryResult = Apollo.QueryResult<VideoPrivate_Get, VideoPrivate_GetVariables>;
-export const VideoPrivate_GetUserVideosDocument = gql`
-    query VideoPrivate_getUserVideos {
-  video_private_user_videos {
-    id
-    name
-    contentType
-    originalContent
-    userId
-    fileName
-    fileS3Key
-    fileUrl
-    isFileUploaded
-    fileSizeMb
-  }
+export function useVideoPrivate_Get(
+	baseOptions: Apollo.QueryHookOptions<VideoPrivate_Get, VideoPrivate_GetVariables> &
+		({ variables: VideoPrivate_GetVariables; skip?: boolean } | { skip: boolean }),
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useQuery<VideoPrivate_Get, VideoPrivate_GetVariables>(VideoPrivate_GetDocument, options)
 }
-    `;
+export function useVideoPrivate_GetLazyQuery(
+	baseOptions?: Apollo.LazyQueryHookOptions<VideoPrivate_Get, VideoPrivate_GetVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useLazyQuery<VideoPrivate_Get, VideoPrivate_GetVariables>(VideoPrivate_GetDocument, options)
+}
+export function useVideoPrivate_GetSuspenseQuery(
+	baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<VideoPrivate_Get, VideoPrivate_GetVariables>,
+) {
+	const options = baseOptions === Apollo.skipToken ? baseOptions : { ...defaultOptions, ...baseOptions }
+	return Apollo.useSuspenseQuery<VideoPrivate_Get, VideoPrivate_GetVariables>(VideoPrivate_GetDocument, options)
+}
+export type VideoPrivate_GetHookResult = ReturnType<typeof useVideoPrivate_Get>
+export type VideoPrivate_GetLazyQueryHookResult = ReturnType<typeof useVideoPrivate_GetLazyQuery>
+export type VideoPrivate_GetSuspenseQueryHookResult = ReturnType<typeof useVideoPrivate_GetSuspenseQuery>
+export type VideoPrivate_GetQueryResult = Apollo.QueryResult<VideoPrivate_Get, VideoPrivate_GetVariables>
+export const VideoPrivate_GetUserVideosDocument = gql`
+	query VideoPrivate_getUserVideos {
+		video_private_user_videos {
+			id
+			name
+			contentType
+			originalContent
+			userId
+			fileName
+			fileS3Key
+			fileUrl
+			isFileUploaded
+			fileSizeMb
+		}
+	}
+`
 
 /**
  * __useVideoPrivate_GetUserVideos__
@@ -1700,37 +2133,59 @@ export const VideoPrivate_GetUserVideosDocument = gql`
  *   },
  * });
  */
-export function useVideoPrivate_GetUserVideos(baseOptions?: Apollo.QueryHookOptions<VideoPrivate_GetUserVideos, VideoPrivate_GetUserVideosVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<VideoPrivate_GetUserVideos, VideoPrivate_GetUserVideosVariables>(VideoPrivate_GetUserVideosDocument, options);
-      }
-export function useVideoPrivate_GetUserVideosLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<VideoPrivate_GetUserVideos, VideoPrivate_GetUserVideosVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<VideoPrivate_GetUserVideos, VideoPrivate_GetUserVideosVariables>(VideoPrivate_GetUserVideosDocument, options);
-        }
-export function useVideoPrivate_GetUserVideosSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<VideoPrivate_GetUserVideos, VideoPrivate_GetUserVideosVariables>) {
-          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<VideoPrivate_GetUserVideos, VideoPrivate_GetUserVideosVariables>(VideoPrivate_GetUserVideosDocument, options);
-        }
-export type VideoPrivate_GetUserVideosHookResult = ReturnType<typeof useVideoPrivate_GetUserVideos>;
-export type VideoPrivate_GetUserVideosLazyQueryHookResult = ReturnType<typeof useVideoPrivate_GetUserVideosLazyQuery>;
-export type VideoPrivate_GetUserVideosSuspenseQueryHookResult = ReturnType<typeof useVideoPrivate_GetUserVideosSuspenseQuery>;
-export type VideoPrivate_GetUserVideosQueryResult = Apollo.QueryResult<VideoPrivate_GetUserVideos, VideoPrivate_GetUserVideosVariables>;
-export const VideoPrivate_UpdateDocument = gql`
-    mutation VideoPrivate_update($input: UpdatePrivateVideoInput!) {
-  video_private_update(input: $input) {
-    id
-    name
-    contentType
-    originalContent
-    processedContent
-    userId
-    uploadUrl
-    fileSizeMb
-  }
+export function useVideoPrivate_GetUserVideos(
+	baseOptions?: Apollo.QueryHookOptions<VideoPrivate_GetUserVideos, VideoPrivate_GetUserVideosVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useQuery<VideoPrivate_GetUserVideos, VideoPrivate_GetUserVideosVariables>(
+		VideoPrivate_GetUserVideosDocument,
+		options,
+	)
 }
-    `;
-export type VideoPrivate_UpdateMutationFn = Apollo.MutationFunction<VideoPrivate_Update, VideoPrivate_UpdateVariables>;
+export function useVideoPrivate_GetUserVideosLazyQuery(
+	baseOptions?: Apollo.LazyQueryHookOptions<VideoPrivate_GetUserVideos, VideoPrivate_GetUserVideosVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useLazyQuery<VideoPrivate_GetUserVideos, VideoPrivate_GetUserVideosVariables>(
+		VideoPrivate_GetUserVideosDocument,
+		options,
+	)
+}
+export function useVideoPrivate_GetUserVideosSuspenseQuery(
+	baseOptions?:
+		| Apollo.SkipToken
+		| Apollo.SuspenseQueryHookOptions<VideoPrivate_GetUserVideos, VideoPrivate_GetUserVideosVariables>,
+) {
+	const options = baseOptions === Apollo.skipToken ? baseOptions : { ...defaultOptions, ...baseOptions }
+	return Apollo.useSuspenseQuery<VideoPrivate_GetUserVideos, VideoPrivate_GetUserVideosVariables>(
+		VideoPrivate_GetUserVideosDocument,
+		options,
+	)
+}
+export type VideoPrivate_GetUserVideosHookResult = ReturnType<typeof useVideoPrivate_GetUserVideos>
+export type VideoPrivate_GetUserVideosLazyQueryHookResult = ReturnType<typeof useVideoPrivate_GetUserVideosLazyQuery>
+export type VideoPrivate_GetUserVideosSuspenseQueryHookResult = ReturnType<
+	typeof useVideoPrivate_GetUserVideosSuspenseQuery
+>
+export type VideoPrivate_GetUserVideosQueryResult = Apollo.QueryResult<
+	VideoPrivate_GetUserVideos,
+	VideoPrivate_GetUserVideosVariables
+>
+export const VideoPrivate_UpdateDocument = gql`
+	mutation VideoPrivate_update($input: UpdatePrivateVideoInput!) {
+		video_private_update(input: $input) {
+			id
+			name
+			contentType
+			originalContent
+			processedContent
+			userId
+			uploadUrl
+			fileSizeMb
+		}
+	}
+`
+export type VideoPrivate_UpdateMutationFn = Apollo.MutationFunction<VideoPrivate_Update, VideoPrivate_UpdateVariables>
 
 /**
  * __useVideoPrivate_Update__
@@ -1749,10 +2204,15 @@ export type VideoPrivate_UpdateMutationFn = Apollo.MutationFunction<VideoPrivate
  *   },
  * });
  */
-export function useVideoPrivate_Update(baseOptions?: Apollo.MutationHookOptions<VideoPrivate_Update, VideoPrivate_UpdateVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<VideoPrivate_Update, VideoPrivate_UpdateVariables>(VideoPrivate_UpdateDocument, options);
-      }
-export type VideoPrivate_UpdateHookResult = ReturnType<typeof useVideoPrivate_Update>;
-export type VideoPrivate_UpdateMutationResult = Apollo.MutationResult<VideoPrivate_Update>;
-export type VideoPrivate_UpdateMutationOptions = Apollo.BaseMutationOptions<VideoPrivate_Update, VideoPrivate_UpdateVariables>;
+export function useVideoPrivate_Update(
+	baseOptions?: Apollo.MutationHookOptions<VideoPrivate_Update, VideoPrivate_UpdateVariables>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useMutation<VideoPrivate_Update, VideoPrivate_UpdateVariables>(VideoPrivate_UpdateDocument, options)
+}
+export type VideoPrivate_UpdateHookResult = ReturnType<typeof useVideoPrivate_Update>
+export type VideoPrivate_UpdateMutationResult = Apollo.MutationResult<VideoPrivate_Update>
+export type VideoPrivate_UpdateMutationOptions = Apollo.BaseMutationOptions<
+	VideoPrivate_Update,
+	VideoPrivate_UpdateVariables
+>

@@ -85,6 +85,9 @@ export const errorMessage = {
 		notCreated: 'Видел не создано.',
 		notFound: 'Видео не найдено.',
 	},
+	sentenceTranslation: {
+		notFound: 'Перевод предложения не найден.',
+	},
 	nlp: {
 		cantDivideTextIntoSentences: 'Не получилось разделить текст на предложения.',
 	},

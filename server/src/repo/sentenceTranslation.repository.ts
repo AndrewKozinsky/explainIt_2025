@@ -1,11 +1,37 @@
 import { Injectable } from '@nestjs/common'
-import { SentenceTranslation, SentenceTranslationProvider } from 'prisma/generated/client'
+import { Prisma, SentenceTranslation, SentenceTranslationProvider } from 'prisma/generated/client'
 import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
+
+type DbSentenceTranslationWithSentence = Prisma.SentenceTranslationGetPayload<{
+	include: {
+		sentence: {
+			include: {
+				book_chapter: { include: { book: true; book_public: true } }
+				video_private: true
+			}
+		}
+	}
+}>
 
 @Injectable()
 export class SentenceTranslationRepository {
 	constructor(private prisma: PrismaService) {}
+
+	@CatchDbError()
+	async getSentenceTranslationDbById(id: number): Promise<DbSentenceTranslationWithSentence | null> {
+		return await this.prisma.sentenceTranslation.findUnique({
+			where: { id },
+			include: {
+				sentence: {
+					include: {
+						book_chapter: { include: { book: true, book_public: true } },
+						video_private: true,
+					},
+				},
+			},
+		})
+	}
 
 	@CatchDbError()
 	async createSentenceTranslation(dto: {
