@@ -81,6 +81,10 @@ export const errorMessage = {
 		cannotAnalyzeSentenceAndPhrase: 'Не удалось проанализировать предложение и фразу.',
 	},
 
+	sentence: {
+		notFound: 'Предложение не найдено.',
+	},
+
 	video: {
 		notCreated: 'Видел не создано.',
 		notFound: 'Видео не найдено.',

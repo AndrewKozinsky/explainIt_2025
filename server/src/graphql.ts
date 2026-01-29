@@ -38,6 +38,10 @@ export interface GetSentenceTranslationInput {
     id: number;
 }
 
+export interface GetSentenceTranslationsBySentenceIdInput {
+    sentenceId: number;
+}
+
 export interface RegisterUserInput {
     email: string;
     password: string;
@@ -286,6 +290,7 @@ export interface IQuery {
     video_private_user_videos(): VideoPrivateLiteOutModel[] | Promise<VideoPrivateLiteOutModel[]>;
     video_private_get(input: GetPrivateVideoInput): VideoPrivateOutModel | Promise<VideoPrivateOutModel>;
     sentence_translation_get(input: GetSentenceTranslationInput): SentenceTranslationOutModel | Promise<SentenceTranslationOutModel>;
+    sentence_translation_get_by_sentence_id(input: GetSentenceTranslationsBySentenceIdInput): SentenceTranslationOutModel[] | Promise<SentenceTranslationOutModel[]>;
 }
 
 export interface CheckTranslationOutSuccessModel {

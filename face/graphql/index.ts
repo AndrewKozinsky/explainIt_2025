@@ -176,6 +176,11 @@ export type GetSentenceTranslationInput = {
 	id: Scalars['Int']['input']
 }
 
+export type GetSentenceTranslationsBySentenceIdInput = {
+	/** Sentence id */
+	sentenceId: Scalars['Int']['input']
+}
+
 export type GetTranscriptionInput = {
 	/** Sentence in English */
 	engSentence: Scalars['String']['input']
@@ -326,6 +331,8 @@ export type Query = {
 	book_user_books: Array<BookOutModel>
 	/** Get sentence translation by id */
 	sentence_translation_get: SentenceTranslationOutModel
+	/** Get all sentence translations by sentence id */
+	sentence_translation_get_by_sentence_id: Array<SentenceTranslationOutModel>
 	/** Get a video */
 	video_private_get: VideoPrivateOutModel
 	/** Get user videos */
@@ -354,6 +361,10 @@ export type QueryBook_Public_Get_BookArgs = {
 
 export type QuerySentence_Translation_GetArgs = {
 	input: GetSentenceTranslationInput
+}
+
+export type QuerySentence_Translation_Get_By_Sentence_IdArgs = {
+	input: GetSentenceTranslationsBySentenceIdInput
 }
 
 export type QueryVideo_Private_GetArgs = {
@@ -843,6 +854,23 @@ export type SentenceTranslation_Get = {
 		analysis?: string | null
 		createdAt: string
 	}
+}
+
+export type SentenceTranslation_GetBySentenceIdVariables = Exact<{
+	input: GetSentenceTranslationsBySentenceIdInput
+}>
+
+export type SentenceTranslation_GetBySentenceId = {
+	__typename?: 'Query'
+	sentence_translation_get_by_sentence_id: Array<{
+		__typename?: 'SentenceTranslationOutModel'
+		id: number
+		sentenceId: number
+		provider: string
+		translation: string
+		analysis?: string | null
+		createdAt: string
+	}>
 }
 
 export type VideoPrivate_CreateVariables = Exact<{
@@ -1939,6 +1967,85 @@ export type SentenceTranslation_GetSuspenseQueryHookResult = ReturnType<typeof u
 export type SentenceTranslation_GetQueryResult = Apollo.QueryResult<
 	SentenceTranslation_Get,
 	SentenceTranslation_GetVariables
+>
+export const SentenceTranslation_GetBySentenceIdDocument = gql`
+	query SentenceTranslation_getBySentenceId($input: GetSentenceTranslationsBySentenceIdInput!) {
+		sentence_translation_get_by_sentence_id(input: $input) {
+			id
+			sentenceId
+			provider
+			translation
+			analysis
+			createdAt
+		}
+	}
+`
+
+/**
+ * __useSentenceTranslation_GetBySentenceId__
+ *
+ * To run a query within a React component, call `useSentenceTranslation_GetBySentenceId` and pass it any options that fit your needs.
+ * When your component renders, `useSentenceTranslation_GetBySentenceId` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useSentenceTranslation_GetBySentenceId({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useSentenceTranslation_GetBySentenceId(
+	baseOptions: Apollo.QueryHookOptions<
+		SentenceTranslation_GetBySentenceId,
+		SentenceTranslation_GetBySentenceIdVariables
+	> &
+		({ variables: SentenceTranslation_GetBySentenceIdVariables; skip?: boolean } | { skip: boolean }),
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useQuery<SentenceTranslation_GetBySentenceId, SentenceTranslation_GetBySentenceIdVariables>(
+		SentenceTranslation_GetBySentenceIdDocument,
+		options,
+	)
+}
+export function useSentenceTranslation_GetBySentenceIdLazyQuery(
+	baseOptions?: Apollo.LazyQueryHookOptions<
+		SentenceTranslation_GetBySentenceId,
+		SentenceTranslation_GetBySentenceIdVariables
+	>,
+) {
+	const options = { ...defaultOptions, ...baseOptions }
+	return Apollo.useLazyQuery<SentenceTranslation_GetBySentenceId, SentenceTranslation_GetBySentenceIdVariables>(
+		SentenceTranslation_GetBySentenceIdDocument,
+		options,
+	)
+}
+export function useSentenceTranslation_GetBySentenceIdSuspenseQuery(
+	baseOptions?:
+		| Apollo.SkipToken
+		| Apollo.SuspenseQueryHookOptions<
+				SentenceTranslation_GetBySentenceId,
+				SentenceTranslation_GetBySentenceIdVariables
+		  >,
+) {
+	const options = baseOptions === Apollo.skipToken ? baseOptions : { ...defaultOptions, ...baseOptions }
+	return Apollo.useSuspenseQuery<SentenceTranslation_GetBySentenceId, SentenceTranslation_GetBySentenceIdVariables>(
+		SentenceTranslation_GetBySentenceIdDocument,
+		options,
+	)
+}
+export type SentenceTranslation_GetBySentenceIdHookResult = ReturnType<typeof useSentenceTranslation_GetBySentenceId>
+export type SentenceTranslation_GetBySentenceIdLazyQueryHookResult = ReturnType<
+	typeof useSentenceTranslation_GetBySentenceIdLazyQuery
+>
+export type SentenceTranslation_GetBySentenceIdSuspenseQueryHookResult = ReturnType<
+	typeof useSentenceTranslation_GetBySentenceIdSuspenseQuery
+>
+export type SentenceTranslation_GetBySentenceIdQueryResult = Apollo.QueryResult<
+	SentenceTranslation_GetBySentenceId,
+	SentenceTranslation_GetBySentenceIdVariables
 >
 export const VideoPrivate_CreateDocument = gql`
 	mutation VideoPrivate_create($input: CreatePrivateVideoInput!) {

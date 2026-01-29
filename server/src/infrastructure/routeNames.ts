@@ -60,6 +60,7 @@ export const RouteNames = {
 	},
 	SENTENCE_TRANSLATION: {
 		GET: 'sentence_translation_get',
+		GET_BY_SENTENCE_ID: 'sentence_translation_get_by_sentence_id',
 	},
 }
 

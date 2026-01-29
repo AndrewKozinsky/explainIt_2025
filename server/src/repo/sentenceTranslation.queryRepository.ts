@@ -19,6 +19,16 @@ export class SentenceTranslationQueryRepository {
 		return this.mapDbSentenceTranslationToOutModel(sentenceTranslation)
 	}
 
+	@CatchDbError()
+	async getSentenceTranslationsBySentenceId(sentenceId: number): Promise<SentenceTranslationOutModel[]> {
+		const sentenceTranslations = await this.prisma.sentenceTranslation.findMany({
+			where: { sentence_id: sentenceId },
+			orderBy: { created_at: 'asc' },
+		})
+
+		return sentenceTranslations.map((t) => this.mapDbSentenceTranslationToOutModel(t))
+	}
+
 	mapDbSentenceTranslationToOutModel(db: SentenceTranslation): SentenceTranslationOutModel {
 		return {
 			id: db.id,

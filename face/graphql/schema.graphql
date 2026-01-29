@@ -160,6 +160,11 @@ input GetSentenceTranslationInput {
   id: Int!
 }
 
+input GetSentenceTranslationsBySentenceIdInput {
+  """Sentence id"""
+  sentenceId: Int!
+}
+
 input GetTranscriptionInput {
   """Sentence in English"""
   engSentence: String!
@@ -270,6 +275,9 @@ type Query {
 
   """Get sentence translation by id"""
   sentence_translation_get(input: GetSentenceTranslationInput!): SentenceTranslationOutModel!
+
+  """Get all sentence translations by sentence id"""
+  sentence_translation_get_by_sentence_id(input: GetSentenceTranslationsBySentenceIdInput!): [SentenceTranslationOutModel!]!
 
   """Get a video"""
   video_private_get(input: GetPrivateVideoInput!): VideoPrivateOutModel!

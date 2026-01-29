@@ -1,12 +1,31 @@
 import { Injectable } from '@nestjs/common'
 import { SentenceServiceModel } from 'models/sentence/sentence.service.model'
-import { Sentence } from 'prisma/generated/client'
+import { Prisma, Sentence } from 'prisma/generated/client'
 import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
+
+type DbSentenceWithRelations = Prisma.SentenceGetPayload<{
+	include: {
+		book_chapter: { include: { book: true; book_public: true } }
+		video_private: true
+	}
+}>
 
 @Injectable()
 export class SentenceRepository {
 	constructor(private prisma: PrismaService) {}
+
+	@CatchDbError()
+	async getSentenceDbById(id: number): Promise<DbSentenceWithRelations | null> {
+		return await this.prisma.sentence.findUnique({
+			where: { id },
+			include: {
+				book_chapter: { include: { book: true, book_public: true } },
+				video_private: true,
+			},
+		})
+	}
+
 	@CatchDbError()
 	async createSentence(dto: {
 		startOffset: number
@@ -33,6 +52,7 @@ export class SentenceRepository {
 		const res = await this.prisma.sentence.deleteMany({
 			where: { book_chapter_id: bookChapterId },
 		})
+
 		return res.count
 	}
 
@@ -41,14 +61,15 @@ export class SentenceRepository {
 		const res = await this.prisma.sentence.deleteMany({
 			where: { video_private_id: videoPrivateId },
 		})
+
 		return res.count
 	}
 
-	mapDbBookToServiceBook(dbBook: Sentence): SentenceServiceModel {
+	mapDbBookToServiceBook(dbSentence: Sentence): SentenceServiceModel {
 		return {
-			id: dbBook.id,
-			startOffset: dbBook.start_offset,
-			length: dbBook.length,
+			id: dbSentence.id,
+			startOffset: dbSentence.start_offset,
+			length: dbSentence.length,
 		}
 	}
 }

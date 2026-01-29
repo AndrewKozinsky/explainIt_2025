@@ -5,4 +5,5 @@ export const sentenceTranslationResolversDesc: Record<
 	string
 > = {
 	getSentenceTranslation: 'Get sentence translation by id',
+	getSentenceTranslationsBySentenceId: 'Get all sentence translations by sentence id',
 }
