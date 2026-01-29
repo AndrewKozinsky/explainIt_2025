@@ -19,6 +19,7 @@ export class TranslateService {
 		response: Response
 	}) {
 		this.setUpSseHeaders(input.response)
+		const userId: number | undefined = input.request.session?.userId ?? input.request.user?.id
 
 		const abortController = new AbortController()
 		input.request.on('close', () => {
@@ -28,6 +29,7 @@ export class TranslateService {
 		try {
 			for await (const event of this.translateSentenceHandler.streamTranslate({
 				...input.query,
+				userId,
 				abortSignal: abortController.signal,
 			})) {
 				this.handleStreamEvent(input.response, event)

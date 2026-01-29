@@ -7,6 +7,7 @@ import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { SentenceTranslationProvider } from 'prisma/generated/client'
 
 export type TranslateSentenceInput = {
+	userId?: number
 	sentenceId: number
 	provider: SentenceTranslationProvider
 	text: string
@@ -73,6 +74,7 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 
 			if (input.provider.startsWith('chatGPT')) {
 				yield* this.streamTranslateWithChatGPT.streamTranslate({
+					userId: input.userId,
 					sentenceId: input.sentenceId,
 					provider: input.provider,
 					text: input.text,

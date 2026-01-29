@@ -27,8 +27,6 @@ export class OpenAIService {
 		})
 	}
 
-	// TODO: В будущем нужно подумать можно ли объединить generateText и generateTextStreamChunks в один метод
-
 	/**
 	 * Отправляет ИИ запрос
 	 * @param input — данные для формирования запроса
@@ -73,6 +71,7 @@ export class OpenAIService {
 		model?: OpenAIModels
 		reasoningEffort?: ReasoningEffort
 		abortSignal?: AbortSignal
+		onUsage?: (usage: null | { inputTokens: number; outputTokens: number }) => void
 	}): AsyncGenerator<string, void, void> {
 		const stream = await this.openai.chat.completions.create(
 			{
@@ -84,16 +83,43 @@ export class OpenAIService {
 				},
 				service_tier: 'flex',
 				stream: true,
+				stream_options: {
+					include_usage: true,
+				},
 			},
 			{
 				signal: input.abortSignal,
 			},
 		)
 
-		for await (const event of stream) {
-			const deltaText = event.choices?.[0]?.delta?.content
-			if (!deltaText) continue
-			yield deltaText
+		let usageSent = false
+
+		function maybeSendUsage(usage: null | { inputTokens: number; outputTokens: number }) {
+			if (usageSent) return
+
+			usageSent = true
+			input.onUsage?.(usage)
+		}
+
+		try {
+			for await (const event of stream) {
+				const usage = event.usage
+
+				if (usage) {
+					maybeSendUsage({
+						inputTokens: usage.prompt_tokens,
+						outputTokens: usage.completion_tokens,
+					})
+				}
+
+				const deltaText = event.choices?.[0]?.delta?.content
+				if (!deltaText) continue
+
+				yield deltaText
+			}
+		} finally {
+			// If the stream ends without usage (e.g. client aborted), report null.
+			maybeSendUsage(null)
 		}
 	}
 }

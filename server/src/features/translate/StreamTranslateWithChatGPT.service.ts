@@ -1,5 +1,7 @@
 import { Injectable } from '@nestjs/common'
+import { CommandBus } from '@nestjs/cqrs'
 import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
+import { TokenUsageBalanceChargeCommand } from 'features/payment/TokenUsageBalanceCharge.command'
 import type { TranslateSentenceStreamEvent } from 'features/translate/TranslateSentence.command'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
@@ -12,9 +14,11 @@ export class StreamTranslateWithChatGPT {
 	constructor(
 		private openAIService: OpenAIService,
 		private sentenceTranslationRepository: SentenceTranslationRepository,
+		private commandBus: CommandBus,
 	) {}
 
 	async *streamTranslate(input: {
+		userId?: number
 		sentenceId: number
 		provider: Exclude<SentenceTranslationProvider, 'yandexTranslate'>
 		text: string
@@ -29,6 +33,9 @@ export class StreamTranslateWithChatGPT {
 			targetLanguageCode: input.targetLanguageCode,
 		})
 
+		type TokenUsage = { inputTokens: number; outputTokens: number }
+		let tokenUsage: TokenUsage | null = null
+
 		let fullText = ''
 
 		for await (const chunk of this.openAIService.generateTextStreamChunks({
@@ -42,6 +49,9 @@ export class StreamTranslateWithChatGPT {
 			],
 			reasoningEffort: 'low',
 			abortSignal: input.abortSignal,
+			onUsage: (usage) => {
+				tokenUsage = usage
+			},
 		})) {
 			fullText += chunk
 			yield { type: 'chunk', text: chunk }
@@ -58,6 +68,19 @@ export class StreamTranslateWithChatGPT {
 			translation: parsedResult.translation,
 			analysis: parsedResult.analysis,
 		})
+
+		if (input.userId && tokenUsage) {
+			const usage: TokenUsage = tokenUsage
+
+			await this.commandBus.execute(
+				new TokenUsageBalanceChargeCommand({
+					userId: input.userId,
+					aiModelName: model,
+					inputTokens: usage.inputTokens,
+					outputTokens: usage.outputTokens,
+				}),
+			)
+		}
 
 		yield { type: 'done' }
 	}
