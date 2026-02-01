@@ -19,11 +19,12 @@ const config: Config = {
 	moduleNameMapper: {
 		'^src/(.*)$': '<rootDir>/../src/$1',
 		'^infrastructure/(.*)$': '<rootDir>/../src/infrastructure/$1',
-		'^features/(.*)$': '<rootDir>/../src/features/$1',
 		'^repo/(.*)$': '<rootDir>/../src/repo/$1',
-		'^models/(.*)$': '<rootDir>/../src/models/$1',
-		'^db/(.*)$': '<rootDir>/../src/db/$1',
+		'^features/(.*)$': '<rootDir>/../src/features/$1',
 		'^routes/(.*)$': '<rootDir>/../src/routes/$1',
+		'^models/(.*)$': '<rootDir>/../src/models/$1',
+		'^types/(.*)$': '<rootDir>/../src/types/$1',
+		'^db/(.*)$': '<rootDir>/../src/db/$1',
 		'^prisma/(.*)$': '<rootDir>/../prisma/$1',
 	},
 	// Configure ts-jest to use Node.js environment

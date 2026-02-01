@@ -26,6 +26,7 @@
 			"routes/*": ["src/routes/*"],
 			"features/*": ["src/features/*"],
 			"models/*": ["src/models/*"],
+			"types/*": ["src/types/*"],
 			"db/*": ["src/db/*"],
 			"prisma/*": ["prisma/*"],
 		},

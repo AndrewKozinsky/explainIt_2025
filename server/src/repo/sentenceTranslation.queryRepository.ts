@@ -33,7 +33,6 @@ export class SentenceTranslationQueryRepository {
 		return {
 			id: db.id,
 			sentenceId: db.sentence_id,
-			provider: db.provider,
 			translation: db.translation,
 			analysis: db.analysis ?? null,
 			createdAt: db.created_at.toISOString(),

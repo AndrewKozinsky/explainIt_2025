@@ -16,7 +16,10 @@ export class TranslateController {
 		@Req() request: Request,
 		@Res() response: Response,
 	) {
+		const userId = request.session.userId!
+
 		await this.translateService.translateSentenceStream({
+			userId,
 			query,
 			request,
 			response,

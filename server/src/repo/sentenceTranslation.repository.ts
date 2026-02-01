@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common'
-import { Prisma, SentenceTranslation, SentenceTranslationProvider } from 'prisma/generated/client'
+import { Prisma, SentenceTranslation } from 'prisma/generated/client'
 import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 
@@ -34,16 +34,10 @@ export class SentenceTranslationRepository {
 	}
 
 	@CatchDbError()
-	async createSentenceTranslation(dto: {
-		sentenceId: number
-		provider: SentenceTranslationProvider
-		translation: string
-		analysis?: null | string
-	}) {
+	async createSentenceTranslation(dto: { sentenceId: number; translation: string; analysis?: null | string }) {
 		const newSentenceTranslation = await this.prisma.sentenceTranslation.create({
 			data: {
 				sentence_id: dto.sentenceId,
-				provider: dto.provider,
 				translation: dto.translation,
 				analysis: dto.analysis ?? null,
 			},
@@ -56,7 +50,6 @@ export class SentenceTranslationRepository {
 		return {
 			id: dbSentenceTranslation.id,
 			sentenceId: dbSentenceTranslation.sentence_id,
-			provider: dbSentenceTranslation.provider,
 			translation: dbSentenceTranslation.translation,
 			analysis: dbSentenceTranslation.analysis,
 			createdAt: dbSentenceTranslation.created_at,

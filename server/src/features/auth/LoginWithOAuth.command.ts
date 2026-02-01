@@ -51,7 +51,6 @@ export class LoginWithOAuthHandler implements ICommandHandler<LoginWithOAuthComm
 
 		const { email } = await this.getUserDataFromOAuthCode(loginWithOAuthInput, overrideDataFromProvider)
 
-		let userId: null | number = null
 		const user = await this.userRepository.getUserByEmail(email)
 
 		if (!user) {
@@ -60,15 +59,9 @@ export class LoginWithOAuthHandler implements ICommandHandler<LoginWithOAuthComm
 			if (!createdUser) {
 				throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
 			}
-
-			userId = createdUser.id
-			await this.addWelcomeBonus(userId)
 		} else {
-			userId = user.id
-
 			if (!user.isUserConfirmed) {
 				await this.userRepository.updateUser(user.id, { is_user_confirmed: true })
-				await this.addWelcomeBonus(userId)
 			}
 		}
 
@@ -255,20 +248,6 @@ export class LoginWithOAuthHandler implements ICommandHandler<LoginWithOAuthComm
 		return {
 			name: real_name,
 			email: emails[0].toLowerCase(),
-		}
-	}
-
-	async addWelcomeBonus(userId: number) {
-		const { welcomeBonusInRub } = this.mainConfigService.get()
-
-		try {
-			await this.balanceTransactionRepository.createTransaction({
-				userId,
-				amount: welcomeBonusInRub * 100,
-				type: BalanceTransactionType.ACCOUNT_CONFIRMATION_WELCOME_BONUS,
-			})
-		} catch (error) {
-			throw new CustomGraphQLError(errorMessage.unknownError, ErrorCode.InternalServerError_500)
 		}
 	}
 

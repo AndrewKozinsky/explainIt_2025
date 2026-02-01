@@ -6,45 +6,35 @@ import {
 	ResponseFormatText,
 	ReasoningEffort,
 } from 'openai/resources'
-import { OpenAIModels } from 'types/openAIModels'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from '../mainConfig/mainConfig.service'
 
 @Injectable()
-export class OpenAIService {
-	openai: OpenAI
+export class DeepSeekService {
+	deepseek: OpenAI
 
 	constructor(private mainConfig: MainConfigService) {
-		this.openai = new OpenAI({
-			apiKey: this.mainConfig.get().openAI.apiKey,
+		this.deepseek = new OpenAI({
+			apiKey: this.mainConfig.get().deepSeek.apiKey,
+			baseURL: 'https://api.deepseek.com',
 		})
 	}
 
-	/**
-	 * Отправляет ИИ запрос
-	 * @param input — данные для формирования запроса
-	 */
 	async generateText(input: {
-		// Сообщения для ИИ
 		messages: OpenAI.Chat.Completions.ChatCompletionMessageParam[]
-		// Формат ответа. По умолчанию JSON
-		// Подробнее: https://platform.openai.com/docs/guides/chat/response-format
 		responseFormat?: ResponseFormatText | ResponseFormatJSONSchema | ResponseFormatJSONObject
-		model?: OpenAIModels
-		// Уровень «обдумывания» ответа. Если не указывать, то ChatGPT будет выбирать его самостоятельно в зависимости от вопроса
+		model?: string
 		reasoningEffort?: ReasoningEffort
 		lowPriority?: boolean
 	}) {
-		const response = await this.openai.chat.completions.create({
-			model: input.model ?? OpenAIModels.Nano,
-			reasoning_effort: input.reasoningEffort,
+		const response = await this.deepseek.chat.completions.create({
+			model: input.model ?? 'deepseek-chat',
 			messages: input.messages,
 			response_format: input.responseFormat ?? {
 				type: 'text',
 			},
-			service_tier: input.lowPriority ? 'flex' : 'default',
 		})
 
 		if (!response.usage) {
@@ -52,11 +42,7 @@ export class OpenAIService {
 		}
 
 		return {
-			// Сколько токенов ушло на запрос.
-			// Считается по меньшей стоимости
-			inputTokens: response.usage.prompt_tokens, // 295
-			// Сколько токенов модель сгенерировала в ответе. // 3968
-			// Считается по большей стоимости
+			inputTokens: response.usage.prompt_tokens,
 			outputTokens: response.usage.completion_tokens,
 			message: response?.choices[0]?.message?.content as null | string,
 		}
@@ -64,21 +50,19 @@ export class OpenAIService {
 
 	async *generateTextStreamChunks(input: {
 		messages: OpenAI.Chat.Completions.ChatCompletionMessageParam[]
-		model?: OpenAIModels
+		model?: string
 		reasoningEffort?: ReasoningEffort
 		abortSignal?: AbortSignal
 		onUsage?: (usage: null | { inputTokens: number; outputTokens: number }) => void
 		lowPriority?: boolean
 	}): AsyncGenerator<string, void, void> {
-		const stream = await this.openai.chat.completions.create(
+		const stream = await this.deepseek.chat.completions.create(
 			{
-				model: input.model ?? OpenAIModels.Nano,
-				reasoning_effort: input.reasoningEffort,
+				model: input.model ?? 'deepseek-chat',
 				messages: input.messages,
 				response_format: {
 					type: 'text',
 				},
-				service_tier: input.lowPriority ? 'flex' : 'default',
 				stream: true,
 				stream_options: {
 					include_usage: true,
@@ -115,25 +99,24 @@ export class OpenAIService {
 				yield deltaText
 			}
 		} finally {
-			// If the stream ends without usage (e.g. client aborted), report null.
 			maybeSendUsage(null)
 		}
 	}
 }
 
-export interface OpenAIServiceI {
+export interface DeepSeekServiceI {
 	generateText(prompt: string): Promise<string>
 }
 
 @Injectable()
-export class OpenAIServiceMock implements OpenAIServiceI {
+export class DeepSeekServiceMock implements DeepSeekServiceI {
 	constructor() {}
 
 	async generateText(prompt: string): Promise<any> {
 		return {
 			inputTokens: 100,
 			outputTokens: 3000,
-			message: 'OpenAI message',
+			message: 'DeepSeek message',
 		}
 	}
 }

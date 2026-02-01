@@ -1,15 +1,12 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { StreamTranslateWithChatGPT } from 'features/translate/StreamTranslateWithChatGPT.service'
-import { StreamTranslateWithYandex } from 'features/translate/StreamTranslateWithYandex.service'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { SentenceTranslationProvider } from 'prisma/generated/client'
+import { StreamTranslateWithDeepSeek } from './StreamTranslateWithDeepSeek.service'
 
 export type TranslateSentenceInput = {
-	userId?: number
+	userId: number
 	sentenceId: number
-	provider: SentenceTranslationProvider
 	text: string
 	sourceLanguageCode?: null | string
 	targetLanguageCode?: null | string
@@ -30,10 +27,7 @@ export class TranslateSentenceCommand implements ICommand {
 
 @CommandHandler(TranslateSentenceCommand)
 export class TranslateSentenceHandler implements ICommandHandler<TranslateSentenceCommand> {
-	constructor(
-		private streamTranslateWithYandex: StreamTranslateWithYandex,
-		private streamTranslateWithChatGPT: StreamTranslateWithChatGPT,
-	) {}
+	constructor(private streamTranslateWithDeepSeek: StreamTranslateWithDeepSeek) {}
 
 	async execute(command: TranslateSentenceCommand): Promise<TranslateSentenceResult> {
 		const events = this.streamTranslate({ ...command.input })
@@ -60,33 +54,17 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 			const sourceLanguageCode = input.sourceLanguageCode ?? 'en'
 			const targetLanguageCode = input.targetLanguageCode ?? 'ru'
 
-			if (input.provider === 'yandexTranslate') {
-				yield* this.streamTranslateWithYandex.streamTranslate({
-					sentenceId: input.sentenceId,
-					provider: input.provider,
-					text: input.text,
-					sourceLanguageCode,
-					targetLanguageCode,
-				})
+			yield* this.streamTranslateWithDeepSeek.streamTranslate({
+				userId: input.userId,
+				sentenceId: input.sentenceId,
+				text: input.text,
+				sourceLanguageCode,
+				targetLanguageCode,
+				abortSignal: input.abortSignal,
+				lowPriority: true,
+			})
 
-				return
-			}
-
-			if (input.provider.startsWith('chatGPT')) {
-				yield* this.streamTranslateWithChatGPT.streamTranslate({
-					userId: input.userId,
-					sentenceId: input.sentenceId,
-					provider: input.provider,
-					text: input.text,
-					sourceLanguageCode,
-					targetLanguageCode,
-					abortSignal: input.abortSignal,
-				})
-
-				return
-			}
-
-			throw new CustomGraphQLError(errorMessage.unknownError, ErrorCode.InternalServerError_500)
+			return
 		} catch (error) {
 			console.log('Error in TranslateSentenceHandler => streamTranslate')
 			console.error(error)

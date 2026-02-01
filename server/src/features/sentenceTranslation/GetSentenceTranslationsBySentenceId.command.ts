@@ -14,7 +14,7 @@ export class GetSentenceTranslationsBySentenceIdCommand implements ICommand {
 
 @CommandHandler(GetSentenceTranslationsBySentenceIdCommand)
 export class GetSentenceTranslationsBySentenceIdHandler
-implements ICommandHandler<GetSentenceTranslationsBySentenceIdCommand>
+	implements ICommandHandler<GetSentenceTranslationsBySentenceIdCommand>
 {
 	constructor(
 		private sentenceRepository: SentenceRepository,

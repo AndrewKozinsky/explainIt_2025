@@ -8,14 +8,13 @@ import { UserRepository } from 'repo/user.repository'
 import { TranslateController } from 'routes/translate/translate.controller'
 import { TranslateService } from 'routes/translate/translate.service'
 import { PrismaService } from 'db/prisma.service'
-import { TokenUsageBalanceChargeHandler } from 'features/payment/TokenUsageBalanceCharge.command'
-import { StreamTranslateWithChatGPT } from 'features/translate/StreamTranslateWithChatGPT.service'
-import { StreamTranslateWithYandex } from 'features/translate/StreamTranslateWithYandex.service'
-import { TranslateSentenceHandler } from 'features/translate/TranslateSentence.command'
+import { OpenAiTokenUsageBalanceChargeHandler } from 'features/payment/OpenAiTokenUsageBalanceCharge.command'
+import { StreamTranslateWithDeepSeek } from 'features/sentenceTranslation/StreamTranslateWithDeepSeek.service'
+import { TranslateSentenceHandler } from 'features/sentenceTranslation/TranslateSentence.command'
 
 const services = [PrismaService, TranslateService]
-const commandHandlers = [TranslateSentenceHandler, TokenUsageBalanceChargeHandler]
-const translateProviders = [StreamTranslateWithYandex, StreamTranslateWithChatGPT]
+const commandHandlers = [TranslateSentenceHandler, OpenAiTokenUsageBalanceChargeHandler]
+const translateProviders = [StreamTranslateWithDeepSeek]
 const repositories = [
 	EngRusDictionaryRepository,
 	SentenceTranslationRepository,

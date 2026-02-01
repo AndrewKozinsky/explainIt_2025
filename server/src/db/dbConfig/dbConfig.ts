@@ -505,7 +505,7 @@ export const bdConfig = {
 				maxLength: 2,
 			},
 		},
-		indexes: [{ fields: ['sentence_id'] }, { fields: ['provider'] }],
+		indexes: [{ fields: ['sentence_id'] }],
 		dbFields: {
 			id: {
 				type: 'index',
@@ -521,13 +521,6 @@ export const bdConfig = {
 				type: 'string',
 				description: 'Translation of the sentence',
 				required: true,
-			},
-			provider: {
-				type: 'enum',
-				description: 'Translation provider',
-				required: true,
-				variants: ['yandexTranslate', 'chatGPTNano', 'chatGPTMini', 'chatGPTStandard'],
-				enumName: 'SentenceTranslationProvider',
 			},
 			analysis: {
 				type: 'string',
@@ -624,40 +617,6 @@ export const bdConfig = {
 			},
 		},
 	},
-	/*Word: {
-		dtoProps: {},
-		dbFields: {
-			id: {
-				type: 'index',
-			},
-			sentence_id: {
-				type: 'manyToOne',
-				thisField: 'sentence_id', // Name of the column of this table that refers to another table
-				foreignTable: 'Sentence', // Name of the table that this column refers to
-				foreignField: 'id',
-				required: false,
-			},
-			start_offset: {
-				type: 'number',
-				description:
-					'how many symbols it needs to offset from the beginning of the sentence where this word begins',
-				example: 100,
-				required: true,
-			},
-			length: {
-				type: 'number',
-				description: 'lenght of this word',
-				example: 10,
-				required: true,
-			},
-			order_index: {
-				type: 'number',
-				description: 'the serial number of this sentence',
-				example: 10,
-				required: true,
-			},
-		},
-	},*/
 	EngRusDictionary: {
 		dtoProps: {
 			sourceLanguageCode: {

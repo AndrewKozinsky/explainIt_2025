@@ -5,7 +5,7 @@ import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/c
 // import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 // import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 // import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { OpenAIModels, OpenAIService } from 'infrastructure/openAI/openAI.service'
+import { OpenAIService } from 'infrastructure/openAI/openAI.service'
 
 type TranslateSentencesInput = {
 	// bookAuthor: null | string
@@ -57,6 +57,7 @@ export class TranslateSentencesHandler implements ICommandHandler<TranslateSente
 			responseFormat: {
 				type: 'json_object',
 			},
+			lowPriority: boolean
 		})
 
 		// Снять с баланса пользователя плату за использованные токены.

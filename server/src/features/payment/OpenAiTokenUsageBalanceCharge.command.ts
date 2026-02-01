@@ -1,33 +1,33 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { BalanceTransactionRepository } from 'repo/balanceTransaction.repository'
+import { OpenAIModels } from 'types/openAIModels'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
-import { OpenAIModels } from 'infrastructure/openAI/openAI.service'
 import { BalanceTransactionType } from 'prisma/generated/enums'
 
-export class TokenUsageBalanceChargeCommand implements ICommand {
+export class OpenAiTokenUsageBalanceChargeCommand implements ICommand {
 	constructor(
 		public dto: {
 			userId: number
 			aiModelName: OpenAIModels
 			inputTokens: number
 			outputTokens: number
+			lowPriority: boolean // Specific for OpenAI
 		},
 	) {}
 }
 
-// Этот командный обработчик будет вызываться при получении ответа от ЮKassa при оплате.
-// При положительном ответе от Юкассы создаёт транзакцию в балансе пользователя вместе с увеличением баланса.
-@CommandHandler(TokenUsageBalanceChargeCommand)
-export class TokenUsageBalanceChargeHandler implements ICommandHandler<TokenUsageBalanceChargeCommand> {
+// Этот командный обработчик получает количество входящих и исходящих токенов, высчитывает стоимость и создает транзакцию
+@CommandHandler(OpenAiTokenUsageBalanceChargeCommand)
+export class OpenAiTokenUsageBalanceChargeHandler implements ICommandHandler<OpenAiTokenUsageBalanceChargeCommand> {
 	constructor(
 		private mainConfig: MainConfigService,
 		private transactionRepository: BalanceTransactionRepository,
 	) {}
 
-	async execute(command: TokenUsageBalanceChargeCommand) {
+	async execute(command: OpenAiTokenUsageBalanceChargeCommand) {
 		const { userId } = command.dto
 
 		const amountInKopecks = this.calculateAmountInKopeckDependsOnTokens(command.dto)
@@ -52,21 +52,21 @@ export class TokenUsageBalanceChargeHandler implements ICommandHandler<TokenUsag
 		aiModelName: OpenAIModels
 		inputTokens: number
 		outputTokens: number
+		lowPriority: boolean
 	}): number {
 		const providerPricesMapper: Record<OpenAIModels, { input: number; output: number }> = {
-			[OpenAIModels.Nano]: this.mainConfig.get().providerTokenPriceInRub.openAi.nano,
-			[OpenAIModels.Mini]: this.mainConfig.get().providerTokenPriceInRub.openAi.mini,
-			[OpenAIModels.Standard]: this.mainConfig.get().providerTokenPriceInRub.openAi.standard,
+			[OpenAIModels.Nano]: this.mainConfig.get().openAI.priceInRub.nano,
+			[OpenAIModels.Mini]: this.mainConfig.get().openAI.priceInRub.mini,
+			[OpenAIModels.Standard]: this.mainConfig.get().openAI.priceInRub.standard,
 		}
 
-		const providerPricesForOneToken = providerPricesMapper[input.aiModelName]
+		let providerPricesForOneToken = providerPricesMapper[input.aiModelName]
 
-		const providerTotalPriceInRub =
+		let totalPriceInRub =
 			input.inputTokens * providerPricesForOneToken.input + input.outputTokens * providerPricesForOneToken.output
-
-		const myPriceInRub = providerTotalPriceInRub * this.mainConfig.get().myPriceMultiplier
+		if (input.lowPriority) totalPriceInRub /= 2
 
 		// Вернуть стоимость в копейках
-		return Math.ceil(myPriceInRub * 100)
+		return Math.ceil(totalPriceInRub * 100)
 	}
 }

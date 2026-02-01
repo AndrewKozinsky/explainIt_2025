@@ -16,6 +16,7 @@ import { YandexTranslateModule } from 'infrastructure/yandexTranslate/yandexTran
 import { EmailAdapterModule } from './infrastructure/emailAdapter/email-adapter.module'
 import { GigaChatModule } from './infrastructure/gigaChat/gigaChat.module'
 import { HashAdapterModule } from './infrastructure/hashAdapter/hash-adapter.module'
+import { DeepSeekModule } from './infrastructure/deepSeek/deepSeek.module'
 import { MainConfigModule } from './infrastructure/mainConfig/mainConfig.module'
 import { MainConfigService } from './infrastructure/mainConfig/mainConfig.service'
 import { OpenAIModule } from './infrastructure/openAI/openAI.module'
@@ -62,6 +63,7 @@ import { WebhookModule } from './routes/webhook/webhook.module'
 		TelegramModule,
 		GigaChatModule,
 		OpenAIModule,
+		DeepSeekModule,
 		YandexCloudS3Module,
 		YandexDictionaryModule,
 		YandexTranslateModule,

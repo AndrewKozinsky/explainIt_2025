@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
-import { TokenUsageBalanceChargeCommand } from 'features/payment/TokenUsageBalanceCharge.command'
-import type { TranslateSentenceStreamEvent } from 'features/translate/TranslateSentence.command'
+import { OpenAIModels } from 'types/openAIModels'
+import { OpenAiTokenUsageBalanceChargeCommand } from 'features/payment/OpenAiTokenUsageBalanceCharge.command'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { OpenAIModels, OpenAIService } from 'infrastructure/openAI/openAI.service'
-import { SentenceTranslationProvider } from 'prisma/generated/client'
+import { OpenAIService } from 'infrastructure/openAI/openAI.service'
+import { TranslateSentenceStreamEvent } from './TranslateSentence.command'
 
 @Injectable()
 export class StreamTranslateWithChatGPT {
@@ -18,15 +18,15 @@ export class StreamTranslateWithChatGPT {
 	) {}
 
 	async *streamTranslate(input: {
-		userId?: number
+		userId: number
 		sentenceId: number
-		provider: Exclude<SentenceTranslationProvider, 'yandexTranslate'>
 		text: string
 		sourceLanguageCode: string
 		targetLanguageCode: string
 		abortSignal?: AbortSignal
+		lowPriority?: boolean
 	}): AsyncGenerator<TranslateSentenceStreamEvent> {
-		const model = this.getOpenAIModelByProvider(input.provider)
+		const model = OpenAIModels.Standard
 
 		const messages = this.getChatGPTTranslationTask({
 			sourceLanguageCode: input.sourceLanguageCode,
@@ -52,6 +52,7 @@ export class StreamTranslateWithChatGPT {
 			onUsage: (usage) => {
 				tokenUsage = usage
 			},
+			lowPriority: input.lowPriority,
 		})) {
 			fullText += chunk
 			yield { type: 'chunk', text: chunk }
@@ -64,32 +65,25 @@ export class StreamTranslateWithChatGPT {
 
 		await this.sentenceTranslationRepository.createSentenceTranslation({
 			sentenceId: input.sentenceId,
-			provider: input.provider,
 			translation: parsedResult.translation,
 			analysis: parsedResult.analysis,
 		})
 
-		if (input.userId && tokenUsage) {
+		if (tokenUsage) {
 			const usage: TokenUsage = tokenUsage
 
 			await this.commandBus.execute(
-				new TokenUsageBalanceChargeCommand({
+				new OpenAiTokenUsageBalanceChargeCommand({
 					userId: input.userId,
 					aiModelName: model,
 					inputTokens: usage.inputTokens,
 					outputTokens: usage.outputTokens,
+					lowPriority: true,
 				}),
 			)
 		}
 
 		yield { type: 'done' }
-	}
-
-	private getOpenAIModelByProvider(provider: SentenceTranslationProvider): OpenAIModels {
-		if (provider === 'chatGPTMini') return OpenAIModels.Mini
-		if (provider === 'chatGPTStandard') return OpenAIModels.Standard
-
-		return OpenAIModels.Nano
 	}
 
 	private getChatGPTTranslationTask(input: { sourceLanguageCode: string; targetLanguageCode: string }) {

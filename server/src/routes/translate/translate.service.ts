@@ -1,16 +1,18 @@
 import { HttpStatus, Injectable } from '@nestjs/common'
 import { Request, Response } from 'express'
-import { TranslateSentenceHandler, TranslateSentenceStreamEvent } from 'features/translate/TranslateSentence.command'
-import { SentenceTranslationProvider } from 'prisma/generated/client'
+import {
+	TranslateSentenceHandler,
+	TranslateSentenceStreamEvent,
+} from 'features/sentenceTranslation/TranslateSentence.command'
 
 @Injectable()
 export class TranslateService {
 	constructor(private translateSentenceHandler: TranslateSentenceHandler) {}
 
 	async translateSentenceStream(input: {
+		userId: number
 		query: {
 			sentenceId: number
-			provider: SentenceTranslationProvider
 			text: string
 			sourceLanguageCode?: null | string
 			targetLanguageCode?: null | string
@@ -19,7 +21,7 @@ export class TranslateService {
 		response: Response
 	}) {
 		this.setUpSseHeaders(input.response)
-		const userId: number | undefined = input.request.session?.userId ?? input.request.user?.id
+		// const userId: number | undefined = input.request.session?.userId ?? input.request.user?.id
 
 		const abortController = new AbortController()
 		input.request.on('close', () => {
@@ -29,7 +31,7 @@ export class TranslateService {
 		try {
 			for await (const event of this.translateSentenceHandler.streamTranslate({
 				...input.query,
-				userId,
+				userId: input.userId,
 				abortSignal: abortController.signal,
 			})) {
 				this.handleStreamEvent(input.response, event)

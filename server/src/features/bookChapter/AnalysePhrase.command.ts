@@ -6,7 +6,7 @@ import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/c
 // import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 // import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 // import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { OpenAIModels, OpenAIService } from 'infrastructure/openAI/openAI.service'
+import { OpenAIService } from 'infrastructure/openAI/openAI.service'
 
 type AnalysePhraseInput = {
 	// bookChapterId: number
@@ -94,6 +94,7 @@ export class AnalysePhraseHandler implements ICommandHandler<AnalysePhraseComman
 			responseFormat: {
 				type: 'json_object',
 			},
+			lowPriority: boolean
 		})
 		console.log(aiResult)
 

@@ -1,18 +1,21 @@
 import { Injectable } from '@nestjs/common'
+import { CommandBus } from '@nestjs/cqrs'
 import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
-import type { TranslateSentenceStreamEvent } from 'features/translate/TranslateSentence.command'
 import { YandexTranslateService } from 'infrastructure/yandexTranslate/yandexTranslate.service'
+import { YandexTranslateUsageBalanceChargeCommand } from '../payment/YandexTranslateUsageBalanceCharge.command'
+import { TranslateSentenceStreamEvent } from './TranslateSentence.command'
 
 @Injectable()
 export class StreamTranslateWithYandex {
 	constructor(
 		private yandexTranslateService: YandexTranslateService,
 		private sentenceTranslationRepository: SentenceTranslationRepository,
+		private commandBus: CommandBus,
 	) {}
 
 	async *streamTranslate(input: {
+		userId: number
 		sentenceId: number
-		provider: 'yandexTranslate'
 		text: string
 		sourceLanguageCode: string
 		targetLanguageCode: string
@@ -25,11 +28,20 @@ export class StreamTranslateWithYandex {
 
 		await this.sentenceTranslationRepository.createSentenceTranslation({
 			sentenceId: input.sentenceId,
-			provider: input.provider,
 			translation: result.translatedText,
 		})
 
 		yield { type: 'chunk', text: result.translatedText }
 		yield { type: 'done' }
+
+		// Списать деньги за перевод
+		const symbolsCount = result.translatedText.length
+
+		await this.commandBus.execute(
+			new YandexTranslateUsageBalanceChargeCommand({
+				userId: input.userId,
+				symbolsCount,
+			}),
+		)
 	}
 }

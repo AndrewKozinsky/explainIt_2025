@@ -195,7 +195,6 @@ export const SentenceTranslationScalarFieldEnum = {
   id: 'id',
   sentence_id: 'sentence_id',
   translation: 'translation',
-  provider: 'provider',
   analysis: 'analysis',
   created_at: 'created_at'
 } as const

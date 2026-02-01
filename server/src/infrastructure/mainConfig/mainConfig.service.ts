@@ -1,6 +1,8 @@
 import { Injectable } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 
+const oneDollarInRub = 110
+
 @Injectable()
 export class MainConfigService {
 	constructor(private configService: ConfigService) {}
@@ -48,6 +50,23 @@ export class MainConfigService {
 			},
 			openAI: {
 				apiKey: enVariables.openAi.apiKey,
+				priceInRub: {
+					nano: {
+						input: ((oneDollarInRub * 0.05) / 1_000_000) * 3, // 110 рублей за доллар * количество долларов / количество токенов * наценка
+						output: ((oneDollarInRub * 0.4) / 1_000_000) * 3,
+					},
+					mini: {
+						input: ((oneDollarInRub * 0.25) / 1_000_000) * 2.5,
+						output: ((oneDollarInRub * 2) / 1_000_000) * 2.5,
+					},
+					standard: {
+						input: ((oneDollarInRub * 1.25) / 1_000_000) * 1.9,
+						output: ((oneDollarInRub * 10) / 1_000_000) * 1.9,
+					},
+				},
+			},
+			deepSeek: {
+				apiKey: enVariables.deepSeek.apiKey,
 			},
 			oauth: {
 				github: {
@@ -66,26 +85,6 @@ export class MainConfigService {
 					clientSecret: enVariables.oauth.yandex.clientSecret,
 				},
 			},
-			welcomeBonusInRub: parseInt(enVariables.welcomeBonusInRub),
-			// Стоимость одного токена в долларах
-			providerTokenPriceInRub: {
-				openAi: {
-					nano: {
-						input: (100 * 0.05) / 1_000_000, // 100 рублей за доллар * количество долларов / количество токенов
-						output: (100 * 0.4) / 1_000_000,
-					},
-					mini: {
-						input: (100 * 0.25) / 1_000_000,
-						output: (100 * 2) / 1_000_000,
-					},
-					standard: {
-						input: (100 * 1.25) / 1_000_000,
-						output: (100 * 10) / 1_000_000,
-					},
-				},
-			},
-			// Моя наценка к стоимости одного токена
-			myPriceMultiplier: 2.3,
 			yandexCloud: {
 				s3: {
 					keyId: enVariables.yandexCloud.s3.keyId,
@@ -97,6 +96,7 @@ export class MainConfigService {
 					keyId: enVariables.yandexCloud.translate.keyId,
 					secretKey: enVariables.yandexCloud.translate.secretKey,
 					folderId: enVariables.yandexCloud.translate.folderId,
+					priceForSymbolInKopecks: 0.05 * 2.3, // 0.5 рублей за тысячу символов * наценка
 				},
 				dictionary: {
 					key: enVariables.yandexCloud.dictionary.key,
@@ -133,6 +133,9 @@ export class MainConfigService {
 			openAi: {
 				apiKey: this.configService.get<string>('OPENAI_API_KEY') as string,
 			},
+			deepSeek: {
+				apiKey: this.configService.get<string>('DEEPSEEK_API_KEY') as string,
+			},
 			oauth: {
 				github: {
 					clientId: this.configService.get<string>('NEXT_PUBLIC_OAUTH_GITHUB_CLIENT_ID'),
@@ -151,7 +154,6 @@ export class MainConfigService {
 				},
 			},
 			// User gets this amount on balance if he confirms his personality with OAuth
-			welcomeBonusInRub: this.configService.get<string>('WELCOME_BONUS') as string,
 			yandexCloud: {
 				s3: {
 					keyId: this.configService.get<string>('YANDEX_CLOUD_S3_KEY_ID') as string,

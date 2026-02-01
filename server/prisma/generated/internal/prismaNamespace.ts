@@ -1456,7 +1456,6 @@ export const SentenceTranslationScalarFieldEnum = {
   id: 'id',
   sentence_id: 'sentence_id',
   translation: 'translation',
-  provider: 'provider',
   analysis: 'analysis',
   created_at: 'created_at'
 } as const
@@ -1633,20 +1632,6 @@ export type EnumVideoPrivateContentTypeFieldRefInput<$PrismaModel> = FieldRefInp
  * Reference to a field of type 'VideoPrivateContentType[]'
  */
 export type ListEnumVideoPrivateContentTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'VideoPrivateContentType[]'>
-    
-
-
-/**
- * Reference to a field of type 'SentenceTranslationProvider'
- */
-export type EnumSentenceTranslationProviderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SentenceTranslationProvider'>
-    
-
-
-/**
- * Reference to a field of type 'SentenceTranslationProvider[]'
- */
-export type ListEnumSentenceTranslationProviderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SentenceTranslationProvider[]'>
     
 
 

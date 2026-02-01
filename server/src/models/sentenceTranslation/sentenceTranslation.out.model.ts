@@ -9,9 +9,6 @@ export class SentenceTranslationOutModel {
 	sentenceId: number
 
 	@Field(() => String)
-	provider: string
-
-	@Field(() => String)
 	translation: string
 
 	@Field(() => String, { nullable: true })

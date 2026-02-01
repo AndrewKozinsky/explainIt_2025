@@ -40,7 +40,6 @@ export type SentenceTranslationMinAggregateOutputType = {
   id: number | null
   sentence_id: number | null
   translation: string | null
-  provider: $Enums.SentenceTranslationProvider | null
   analysis: string | null
   created_at: Date | null
 }
@@ -49,7 +48,6 @@ export type SentenceTranslationMaxAggregateOutputType = {
   id: number | null
   sentence_id: number | null
   translation: string | null
-  provider: $Enums.SentenceTranslationProvider | null
   analysis: string | null
   created_at: Date | null
 }
@@ -58,7 +56,6 @@ export type SentenceTranslationCountAggregateOutputType = {
   id: number
   sentence_id: number
   translation: number
-  provider: number
   analysis: number
   created_at: number
   _all: number
@@ -79,7 +76,6 @@ export type SentenceTranslationMinAggregateInputType = {
   id?: true
   sentence_id?: true
   translation?: true
-  provider?: true
   analysis?: true
   created_at?: true
 }
@@ -88,7 +84,6 @@ export type SentenceTranslationMaxAggregateInputType = {
   id?: true
   sentence_id?: true
   translation?: true
-  provider?: true
   analysis?: true
   created_at?: true
 }
@@ -97,7 +92,6 @@ export type SentenceTranslationCountAggregateInputType = {
   id?: true
   sentence_id?: true
   translation?: true
-  provider?: true
   analysis?: true
   created_at?: true
   _all?: true
@@ -193,7 +187,6 @@ export type SentenceTranslationGroupByOutputType = {
   id: number
   sentence_id: number
   translation: string
-  provider: $Enums.SentenceTranslationProvider
   analysis: string | null
   created_at: Date
   _count: SentenceTranslationCountAggregateOutputType | null
@@ -225,7 +218,6 @@ export type SentenceTranslationWhereInput = {
   id?: Prisma.IntFilter<"SentenceTranslation"> | number
   sentence_id?: Prisma.IntFilter<"SentenceTranslation"> | number
   translation?: Prisma.StringFilter<"SentenceTranslation"> | string
-  provider?: Prisma.EnumSentenceTranslationProviderFilter<"SentenceTranslation"> | $Enums.SentenceTranslationProvider
   analysis?: Prisma.StringNullableFilter<"SentenceTranslation"> | string | null
   created_at?: Prisma.DateTimeFilter<"SentenceTranslation"> | Date | string
   sentence?: Prisma.XOR<Prisma.SentenceScalarRelationFilter, Prisma.SentenceWhereInput>
@@ -235,7 +227,6 @@ export type SentenceTranslationOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   sentence_id?: Prisma.SortOrder
   translation?: Prisma.SortOrder
-  provider?: Prisma.SortOrder
   analysis?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   sentence?: Prisma.SentenceOrderByWithRelationInput
@@ -248,7 +239,6 @@ export type SentenceTranslationWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.SentenceTranslationWhereInput | Prisma.SentenceTranslationWhereInput[]
   sentence_id?: Prisma.IntFilter<"SentenceTranslation"> | number
   translation?: Prisma.StringFilter<"SentenceTranslation"> | string
-  provider?: Prisma.EnumSentenceTranslationProviderFilter<"SentenceTranslation"> | $Enums.SentenceTranslationProvider
   analysis?: Prisma.StringNullableFilter<"SentenceTranslation"> | string | null
   created_at?: Prisma.DateTimeFilter<"SentenceTranslation"> | Date | string
   sentence?: Prisma.XOR<Prisma.SentenceScalarRelationFilter, Prisma.SentenceWhereInput>
@@ -258,7 +248,6 @@ export type SentenceTranslationOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   sentence_id?: Prisma.SortOrder
   translation?: Prisma.SortOrder
-  provider?: Prisma.SortOrder
   analysis?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   _count?: Prisma.SentenceTranslationCountOrderByAggregateInput
@@ -275,14 +264,12 @@ export type SentenceTranslationScalarWhereWithAggregatesInput = {
   id?: Prisma.IntWithAggregatesFilter<"SentenceTranslation"> | number
   sentence_id?: Prisma.IntWithAggregatesFilter<"SentenceTranslation"> | number
   translation?: Prisma.StringWithAggregatesFilter<"SentenceTranslation"> | string
-  provider?: Prisma.EnumSentenceTranslationProviderWithAggregatesFilter<"SentenceTranslation"> | $Enums.SentenceTranslationProvider
   analysis?: Prisma.StringNullableWithAggregatesFilter<"SentenceTranslation"> | string | null
   created_at?: Prisma.DateTimeWithAggregatesFilter<"SentenceTranslation"> | Date | string
 }
 
 export type SentenceTranslationCreateInput = {
   translation: string
-  provider: $Enums.SentenceTranslationProvider
   analysis?: string | null
   created_at?: Date | string
   sentence: Prisma.SentenceCreateNestedOneWithoutSentenceTranslationInput
@@ -292,14 +279,12 @@ export type SentenceTranslationUncheckedCreateInput = {
   id?: number
   sentence_id: number
   translation: string
-  provider: $Enums.SentenceTranslationProvider
   analysis?: string | null
   created_at?: Date | string
 }
 
 export type SentenceTranslationUpdateInput = {
   translation?: Prisma.StringFieldUpdateOperationsInput | string
-  provider?: Prisma.EnumSentenceTranslationProviderFieldUpdateOperationsInput | $Enums.SentenceTranslationProvider
   analysis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sentence?: Prisma.SentenceUpdateOneRequiredWithoutSentenceTranslationNestedInput
@@ -309,7 +294,6 @@ export type SentenceTranslationUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   sentence_id?: Prisma.IntFieldUpdateOperationsInput | number
   translation?: Prisma.StringFieldUpdateOperationsInput | string
-  provider?: Prisma.EnumSentenceTranslationProviderFieldUpdateOperationsInput | $Enums.SentenceTranslationProvider
   analysis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -318,14 +302,12 @@ export type SentenceTranslationCreateManyInput = {
   id?: number
   sentence_id: number
   translation: string
-  provider: $Enums.SentenceTranslationProvider
   analysis?: string | null
   created_at?: Date | string
 }
 
 export type SentenceTranslationUpdateManyMutationInput = {
   translation?: Prisma.StringFieldUpdateOperationsInput | string
-  provider?: Prisma.EnumSentenceTranslationProviderFieldUpdateOperationsInput | $Enums.SentenceTranslationProvider
   analysis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -334,7 +316,6 @@ export type SentenceTranslationUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   sentence_id?: Prisma.IntFieldUpdateOperationsInput | number
   translation?: Prisma.StringFieldUpdateOperationsInput | string
-  provider?: Prisma.EnumSentenceTranslationProviderFieldUpdateOperationsInput | $Enums.SentenceTranslationProvider
   analysis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -353,7 +334,6 @@ export type SentenceTranslationCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   sentence_id?: Prisma.SortOrder
   translation?: Prisma.SortOrder
-  provider?: Prisma.SortOrder
   analysis?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
@@ -367,7 +347,6 @@ export type SentenceTranslationMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   sentence_id?: Prisma.SortOrder
   translation?: Prisma.SortOrder
-  provider?: Prisma.SortOrder
   analysis?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
@@ -376,7 +355,6 @@ export type SentenceTranslationMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   sentence_id?: Prisma.SortOrder
   translation?: Prisma.SortOrder
-  provider?: Prisma.SortOrder
   analysis?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
@@ -428,13 +406,8 @@ export type SentenceTranslationUncheckedUpdateManyWithoutSentenceNestedInput = {
   deleteMany?: Prisma.SentenceTranslationScalarWhereInput | Prisma.SentenceTranslationScalarWhereInput[]
 }
 
-export type EnumSentenceTranslationProviderFieldUpdateOperationsInput = {
-  set?: $Enums.SentenceTranslationProvider
-}
-
 export type SentenceTranslationCreateWithoutSentenceInput = {
   translation: string
-  provider: $Enums.SentenceTranslationProvider
   analysis?: string | null
   created_at?: Date | string
 }
@@ -442,7 +415,6 @@ export type SentenceTranslationCreateWithoutSentenceInput = {
 export type SentenceTranslationUncheckedCreateWithoutSentenceInput = {
   id?: number
   translation: string
-  provider: $Enums.SentenceTranslationProvider
   analysis?: string | null
   created_at?: Date | string
 }
@@ -480,7 +452,6 @@ export type SentenceTranslationScalarWhereInput = {
   id?: Prisma.IntFilter<"SentenceTranslation"> | number
   sentence_id?: Prisma.IntFilter<"SentenceTranslation"> | number
   translation?: Prisma.StringFilter<"SentenceTranslation"> | string
-  provider?: Prisma.EnumSentenceTranslationProviderFilter<"SentenceTranslation"> | $Enums.SentenceTranslationProvider
   analysis?: Prisma.StringNullableFilter<"SentenceTranslation"> | string | null
   created_at?: Prisma.DateTimeFilter<"SentenceTranslation"> | Date | string
 }
@@ -488,14 +459,12 @@ export type SentenceTranslationScalarWhereInput = {
 export type SentenceTranslationCreateManySentenceInput = {
   id?: number
   translation: string
-  provider: $Enums.SentenceTranslationProvider
   analysis?: string | null
   created_at?: Date | string
 }
 
 export type SentenceTranslationUpdateWithoutSentenceInput = {
   translation?: Prisma.StringFieldUpdateOperationsInput | string
-  provider?: Prisma.EnumSentenceTranslationProviderFieldUpdateOperationsInput | $Enums.SentenceTranslationProvider
   analysis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -503,7 +472,6 @@ export type SentenceTranslationUpdateWithoutSentenceInput = {
 export type SentenceTranslationUncheckedUpdateWithoutSentenceInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   translation?: Prisma.StringFieldUpdateOperationsInput | string
-  provider?: Prisma.EnumSentenceTranslationProviderFieldUpdateOperationsInput | $Enums.SentenceTranslationProvider
   analysis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -511,7 +479,6 @@ export type SentenceTranslationUncheckedUpdateWithoutSentenceInput = {
 export type SentenceTranslationUncheckedUpdateManyWithoutSentenceInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   translation?: Prisma.StringFieldUpdateOperationsInput | string
-  provider?: Prisma.EnumSentenceTranslationProviderFieldUpdateOperationsInput | $Enums.SentenceTranslationProvider
   analysis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -522,7 +489,6 @@ export type SentenceTranslationSelect<ExtArgs extends runtime.Types.Extensions.I
   id?: boolean
   sentence_id?: boolean
   translation?: boolean
-  provider?: boolean
   analysis?: boolean
   created_at?: boolean
   sentence?: boolean | Prisma.SentenceDefaultArgs<ExtArgs>
@@ -532,7 +498,6 @@ export type SentenceTranslationSelectCreateManyAndReturn<ExtArgs extends runtime
   id?: boolean
   sentence_id?: boolean
   translation?: boolean
-  provider?: boolean
   analysis?: boolean
   created_at?: boolean
   sentence?: boolean | Prisma.SentenceDefaultArgs<ExtArgs>
@@ -542,7 +507,6 @@ export type SentenceTranslationSelectUpdateManyAndReturn<ExtArgs extends runtime
   id?: boolean
   sentence_id?: boolean
   translation?: boolean
-  provider?: boolean
   analysis?: boolean
   created_at?: boolean
   sentence?: boolean | Prisma.SentenceDefaultArgs<ExtArgs>
@@ -552,12 +516,11 @@ export type SentenceTranslationSelectScalar = {
   id?: boolean
   sentence_id?: boolean
   translation?: boolean
-  provider?: boolean
   analysis?: boolean
   created_at?: boolean
 }
 
-export type SentenceTranslationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "sentence_id" | "translation" | "provider" | "analysis" | "created_at", ExtArgs["result"]["sentenceTranslation"]>
+export type SentenceTranslationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "sentence_id" | "translation" | "analysis" | "created_at", ExtArgs["result"]["sentenceTranslation"]>
 export type SentenceTranslationInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   sentence?: boolean | Prisma.SentenceDefaultArgs<ExtArgs>
 }
@@ -577,7 +540,6 @@ export type $SentenceTranslationPayload<ExtArgs extends runtime.Types.Extensions
     id: number
     sentence_id: number
     translation: string
-    provider: $Enums.SentenceTranslationProvider
     analysis: string | null
     created_at: Date
   }, ExtArgs["result"]["sentenceTranslation"]>
@@ -1007,7 +969,6 @@ export interface SentenceTranslationFieldRefs {
   readonly id: Prisma.FieldRef<"SentenceTranslation", 'Int'>
   readonly sentence_id: Prisma.FieldRef<"SentenceTranslation", 'Int'>
   readonly translation: Prisma.FieldRef<"SentenceTranslation", 'String'>
-  readonly provider: Prisma.FieldRef<"SentenceTranslation", 'SentenceTranslationProvider'>
   readonly analysis: Prisma.FieldRef<"SentenceTranslation", 'String'>
   readonly created_at: Prisma.FieldRef<"SentenceTranslation", 'DateTime'>
 }
