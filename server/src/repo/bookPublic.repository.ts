@@ -10,7 +10,7 @@ type BookPublicWithChapters = Prisma.BookPublicGetPayload<{ include: { BookChapt
 export class BookPublicRepository {
 	constructor(private prisma: PrismaService) {}
 
-	/*@CatchDbError()
+	@CatchDbError()
 	async createBookPublic(dto: { author: string; name: string; note: string; cover: string }) {
 		const newBookPublic = await this.prisma.bookPublic.create({
 			data: {
@@ -23,7 +23,7 @@ export class BookPublicRepository {
 		})
 
 		return this.mapDbBookPublicToServiceBook(newBookPublic)
-	}*/
+	}
 
 	@CatchDbError()
 	async getBook(input: { id?: number; author?: string; name?: string }) {

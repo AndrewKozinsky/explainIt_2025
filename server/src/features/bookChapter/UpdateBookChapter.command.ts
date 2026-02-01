@@ -106,5 +106,4 @@ export class UpdateBookChapterHandler implements ICommandHandler<UpdateBookChapt
 
 		return updateBookChapterInputCopy
 	}
-
 }

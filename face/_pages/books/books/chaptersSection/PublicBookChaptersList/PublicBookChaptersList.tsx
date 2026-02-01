@@ -15,4 +15,4 @@ function PublicBookChaptersList() {
 	)
 }
 
-// export default PublicBookChaptersList
+export default PublicBookChaptersList

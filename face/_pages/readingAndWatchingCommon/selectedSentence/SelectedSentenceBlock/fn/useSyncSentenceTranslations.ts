@@ -8,7 +8,7 @@ import {
 export function useSyncSentenceTranslations() {
 	const sentenceId = useSelectedSentenceStore((s) => s.sentenceId)
 
-	const [fetchTranslations, { data, loading }] = useSentenceTranslation_GetBySentenceIdLazyQuery()
+	const [fetchTranslations, { data, loading, called }] = useSentenceTranslation_GetBySentenceIdLazyQuery()
 
 	useEffect(
 		function () {
@@ -35,6 +35,8 @@ export function useSyncSentenceTranslations() {
 				return
 			}
 
+			if (!called) return
+
 			const translations = data?.sentence_translation_get_by_sentence_id
 			if (!translations) {
 				useSelectedSentenceStore.getState().updateStore({ sentenceTranslationsLoading: false })
@@ -48,7 +50,7 @@ export function useSyncSentenceTranslations() {
 			useSelectedSentenceStore.getState().setSentenceTranslations(mappedTranslations)
 			useSelectedSentenceStore.getState().updateStore({ sentenceTranslationsLoading: false })
 		},
-		[data, loading, sentenceId],
+		[data, loading, called, sentenceId],
 	)
 }
 
