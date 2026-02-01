@@ -15,11 +15,8 @@ export function useTranslateSentence() {
 		setLoading(true)
 		setErrorText(null)
 
-		const provider = useSelectedSentenceStore.getState().translationProvider
-
 		const url = buildTranslateSentenceUrl({
 			sentenceId,
-			provider,
 			text: sentenceText,
 		})
 
@@ -40,7 +37,6 @@ export function useTranslateSentence() {
 		upsertSentenceTranslation({
 			id: 0,
 			sentenceId,
-			provider,
 			translation: parsed.translation,
 			analysis: parsed.analysis,
 			createdAt: new Date().toISOString(),
@@ -57,11 +53,10 @@ export function useTranslateSentence() {
 	}
 }
 
-function buildTranslateSentenceUrl(input: { sentenceId: number; provider: string; text: string }) {
+function buildTranslateSentenceUrl(input: { sentenceId: number; text: string }) {
 	const url = new URL('/api/translate/sentence/stream', window.location.origin)
 
 	url.searchParams.set('sentenceId', String(input.sentenceId))
-	url.searchParams.set('provider', input.provider)
 	url.searchParams.set('text', input.text)
 
 	return url.toString()

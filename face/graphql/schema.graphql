@@ -314,7 +314,6 @@ type SentenceTranslationOutModel {
   analysis: String
   createdAt: String!
   id: Int!
-  provider: String!
   sentenceId: Int!
   translation: String!
 }

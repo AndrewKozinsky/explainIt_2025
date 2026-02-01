@@ -2,7 +2,6 @@ query SentenceTranslation_getBySentenceId($input: GetSentenceTranslationsBySente
 	sentence_translation_get_by_sentence_id(input: $input) {
 		id
 		sentenceId
-		provider
 		translation
 		analysis
 		createdAt

@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { useSentenceTranslation_GetBySentenceIdLazyQuery } from '@/graphql'
 import {
 	SentenceTranslationLite,
-	SentenceTranslationProvider,
 	useSelectedSentenceStore,
 } from '_pages/readingAndWatchingCommon/selectedSentence/selectedSentenceStore'
 
@@ -56,29 +55,15 @@ export function useSyncSentenceTranslations() {
 function mapSentenceTranslation(input: {
 	id: number
 	sentenceId: number
-	provider: string
 	translation: string
 	analysis?: null | string
 	createdAt: string
 }): SentenceTranslationLite | null {
-	const provider = safeReadProvider(input.provider)
-	if (!provider) return null
-
 	return {
 		id: input.id,
 		sentenceId: input.sentenceId,
-		provider,
 		translation: input.translation,
 		analysis: input.analysis ?? null,
 		createdAt: input.createdAt,
 	}
-}
-
-function safeReadProvider(provider: string): SentenceTranslationProvider | null {
-	if (provider === 'yandexTranslate') return provider
-	if (provider === 'chatGPTNano') return provider
-	if (provider === 'chatGPTMini') return provider
-	if (provider === 'chatGPTStandard') return provider
-
-	return null
 }

@@ -180,7 +180,6 @@ export interface BookPublicOutModel {
 export interface SentenceTranslationOutModel {
     id: number;
     sentenceId: number;
-    provider: string;
     translation: string;
     analysis?: Nullable<string>;
     createdAt: string;
