@@ -91,6 +91,7 @@ export const errorMessage = {
 	},
 	sentenceTranslation: {
 		notFound: 'Перевод предложения не найден.',
+		alreadyExists: 'Перевод предложения уже существует.',
 	},
 	nlp: {
 		cantDivideTextIntoSentences: 'Не получилось разделить текст на предложения.',

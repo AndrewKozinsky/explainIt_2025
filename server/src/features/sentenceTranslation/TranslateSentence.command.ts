@@ -1,4 +1,5 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
@@ -27,7 +28,10 @@ export class TranslateSentenceCommand implements ICommand {
 
 @CommandHandler(TranslateSentenceCommand)
 export class TranslateSentenceHandler implements ICommandHandler<TranslateSentenceCommand> {
-	constructor(private streamTranslateWithDeepSeek: StreamTranslateWithDeepSeek) {}
+	constructor(
+		private streamTranslateWithDeepSeek: StreamTranslateWithDeepSeek,
+		private sentenceTranslationRepository: SentenceTranslationRepository,
+	) {}
 
 	async execute(command: TranslateSentenceCommand): Promise<TranslateSentenceResult> {
 		const events = this.streamTranslate({ ...command.input })
@@ -51,6 +55,13 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 		input: TranslateSentenceInput & { abortSignal?: AbortSignal },
 	): AsyncGenerator<TranslateSentenceStreamEvent> {
 		try {
+			const existingTranslation =
+				await this.sentenceTranslationRepository.getFirstSentenceTranslationBySentenceId(input.sentenceId)
+
+			if (existingTranslation) {
+				throw new CustomGraphQLError(errorMessage.sentenceTranslation.alreadyExists, ErrorCode.BadRequest_400)
+			}
+
 			const sourceLanguageCode = input.sourceLanguageCode ?? 'en'
 			const targetLanguageCode = input.targetLanguageCode ?? 'ru'
 
@@ -68,7 +79,9 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 		} catch (error) {
 			console.log('Error in TranslateSentenceHandler => streamTranslate')
 			console.error(error)
-			yield { type: 'error', message: 'Unknown error' }
+
+			const message = error instanceof Error ? error.message : 'Unknown error'
+			yield { type: 'error', message }
 		}
 	}
 }

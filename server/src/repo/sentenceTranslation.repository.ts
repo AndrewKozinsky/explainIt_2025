@@ -34,6 +34,17 @@ export class SentenceTranslationRepository {
 	}
 
 	@CatchDbError()
+	async getFirstSentenceTranslationBySentenceId(sentenceId: number) {
+		const sentenceTranslation = await this.prisma.sentenceTranslation.findFirst({
+			where: { sentence_id: sentenceId },
+			orderBy: { created_at: 'asc' },
+		})
+		if (!sentenceTranslation) return null
+
+		return this.mapDbSentenceTranslationToServiceSentenceTranslation(sentenceTranslation)
+	}
+
+	@CatchDbError()
 	async createSentenceTranslation(dto: { sentenceId: number; translation: string; analysis?: null | string }) {
 		const newSentenceTranslation = await this.prisma.sentenceTranslation.create({
 			data: {

@@ -14,7 +14,7 @@ export class GetSentenceTranslationsBySentenceIdCommand implements ICommand {
 
 @CommandHandler(GetSentenceTranslationsBySentenceIdCommand)
 export class GetSentenceTranslationsBySentenceIdHandler
-	implements ICommandHandler<GetSentenceTranslationsBySentenceIdCommand>
+implements ICommandHandler<GetSentenceTranslationsBySentenceIdCommand>
 {
 	constructor(
 		private sentenceRepository: SentenceRepository,
@@ -25,6 +25,7 @@ export class GetSentenceTranslationsBySentenceIdHandler
 		const { userId, sentenceId } = command
 
 		const sentenceDb = await this.sentenceRepository.getSentenceDbById(sentenceId)
+		console.log({ sentenceDb })
 		if (!sentenceDb) {
 			throw new CustomGraphQLError(errorMessage.sentence.notFound, ErrorCode.NotFound_404)
 		}
@@ -32,10 +33,12 @@ export class GetSentenceTranslationsBySentenceIdHandler
 		const isPublicBookChapter = Boolean(sentenceDb.book_chapter?.book_public_id)
 		const isOwnerOfPrivateBook = sentenceDb.book_chapter?.book?.user_id === userId
 		const isOwnerOfVideo = sentenceDb.video_private?.user_id === userId
+		console.log('----------')
 
 		if (!isPublicBookChapter && !isOwnerOfPrivateBook && !isOwnerOfVideo) {
 			throw new CustomGraphQLError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
 		}
+		console.log('===========')
 
 		return await this.sentenceTranslationQueryRepository.getSentenceTranslationsBySentenceId(sentenceId)
 	}
