@@ -1,4 +1,5 @@
-import SentenceButtons from '_pages/readingAndWatchingCommon/selectedSentence/DetailsSentence/SentenceButtons'
+import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
+import { useAutoTranslateSentence } from '_pages/readingAndWatchingCommon/selectedSentence/DetailsSentence/fn/useAutoTranslateSentence'
 import { SelectedSentence } from '_pages/readingAndWatchingCommon/selectedSentence/SelectedSentence/SelectedSentence'
 import SentenceAnalysis from '_pages/readingAndWatchingCommon/selectedSentence/SelectedSentenceBlock/SentenceAnalysis'
 import { useSelectedSentenceStore } from '_pages/readingAndWatchingCommon/selectedSentence/selectedSentenceStore'
@@ -9,6 +10,7 @@ import './SelectedSentenceBlock.scss'
 function SelectedSentenceBlock() {
 	usePopulateStore()
 	useSyncSentenceTranslations()
+	const { errorText } = useAutoTranslateSentence()
 
 	const sentenceId = useSelectedSentenceStore((s) => s.sentenceId)
 	const wordIds = useSelectedSentenceStore((s) => s.wordIds)
@@ -18,9 +20,8 @@ function SelectedSentenceBlock() {
 	return (
 		<div className='details-side'>
 			<SelectedSentence />
-			<SentenceButtons />
 			<SentenceAnalysis />
-			{/*<PhraseAnalysis />*/}
+			<ErrorMessage text={errorText ?? ''} />
 		</div>
 	)
 }

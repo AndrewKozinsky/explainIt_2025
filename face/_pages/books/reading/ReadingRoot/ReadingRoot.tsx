@@ -6,15 +6,11 @@ import ChapterHeader from '../chapter/ChapterHeader/ChapterHeader'
 import ChapterName from '../chapter/ChapterName/ChapterName'
 import ChapterContent from '../chapterContent/ChapterContent/ChapterContent'
 import { useAutoScrollToTop } from './fn/autoScrollToTop'
-// import { useClearSelectedSentenceAfterChapterWasChanged } from './fn/clearSelectedSenteceAfterChapterWasChanged'
 import { usePopulateReadingStore } from './fn/getContentStructure'
-// import { useRegisterEnterKeyListener } from './fn/registerEnterKeyListener'
 import './ReadingRoot.scss'
 
 function ReadingRoot() {
 	usePopulateReadingStore()
-	// useClearSelectedSentenceAfterChapterWasChanged()
-	// useRegisterEnterKeyListener()
 	useAutoScrollToTop()
 
 	const bookData = useReadingStore((s) => s.book?.data)

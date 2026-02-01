@@ -8,13 +8,13 @@ import { pageUrls } from 'сonsts/pageUrls'
 export function usePopulateStore() {
 	const mediaType = useGetShowingMediaType()
 
-	const bookSentences = useReadingStore((s) => s.populatedChapter.sentences)
+	const bookSentences = useReadingStore((s) => s.populatedChapter?.sentences)
 	const bookSelection = useReadingStore((s) => s.selection)
 	const bookSelectWord = useReadingStore((s) => s.selectWord)
 
 	useEffect(
 		function () {
-			if (mediaType !== 'book') return
+			if (mediaType !== 'book' || !bookSentences) return
 			if (!bookSelection.sentenceId) return
 
 			const sentence = bookSentences.find((s) => s.id === bookSelection.sentenceId)

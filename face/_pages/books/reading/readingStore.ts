@@ -3,7 +3,6 @@ import { useSystemStore } from 'stores/systemStore'
 import { create } from 'zustand'
 import { BookChapterOutModel, BookOutModel, BookPublicOutModel } from '@/graphql'
 import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
-// import { areArraysEqualIgnoringOrder } from 'utils/arrays'
 
 export const readingStoreValues: ReadingStoreValues = {
 	book: null as any as ReadingStore.BookData,
@@ -39,32 +38,6 @@ export const useReadingStore = create<ReadingStoreNext>()((set, get) => {
 				}
 			})
 		},
-		/*clearSelectedSentence() {
-			set((baseState) => {
-				return produce(baseState, (draftState) => {
-					draftState.selection = {
-						sentenceId: null,
-						wordIds: [],
-						phraseId: null,
-					}
-				})
-			})
-		},*/
-		/*putTranslatedSentencesIntoChapter(translatedSentences: string[]) {
-			set((baseState) => {
-				return produce(baseState, (draftState) => {
-					let sentenceCounter = 0
-
-					draftState.populatedChapter.parts.forEach((part) => {
-						if (part.type !== 'sentence') return
-
-						const translation = translatedSentences[sentenceCounter]
-						sentenceCounter++
-						part.translation = translation
-					})
-				})
-			})
-		},*/
 		selectWord(input: { sentenceId: number; wordId: number }) {
 			set((baseState) => {
 				return produce(baseState, (draftState) => {
@@ -149,12 +122,5 @@ export type ReadingStoreMethods = {
 	updateBook: (book: ReadingStore.BookData) => void
 	updateChapter: (chapter: ReadingStore.ChapterData) => void
 	updatePopulatedChapter: (populatedChapter: ChapterTextStructurePopulated.Chapter) => void
-	// clearSelectedSentence: () => void
-	// addWordToSelectedSentence: (wordId: number, insertType: 'add' | 'replaceAll') => void
-	// changeDeviceType: (deviceType: DeviceType) => void
-	// createLoadingPhraseInSelectedSentenceFromSelectedWords: () => void
-	// turnPhraseIntoErrorPhrase: (sentenceId: number, phraseId: number, errorMessage: string) => void
-	// setPhraseAnalysisIntoSentence: (analysis: BookChapterPhraseOutModel) => void
-	// putTranslatedSentencesIntoChapter: (translatedSentences: string[]) => void
 	selectWord: (input: { sentenceId: number; wordId: number }) => void
 }

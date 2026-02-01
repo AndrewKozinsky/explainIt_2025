@@ -11,40 +11,45 @@ export function useTranslateSentence() {
 	const [loading, setLoading] = React.useState(false)
 	const [errorText, setErrorText] = React.useState<null | string>(null)
 
-	async function onTranslateClick() {
-		setLoading(true)
-		setErrorText(null)
+	const onTranslateClick = React.useCallback(
+		async function onTranslateClick() {
+			if (!sentenceId) return
+			if (!sentenceText) return
 
-		const url = buildTranslateSentenceUrl({
-			sentenceId,
-			text: sentenceText,
-		})
+			setLoading(true)
+			setErrorText(null)
 
-		const result = await readTranslationStream(url, {
-			onPartial: (translation, analysis) => {
-				updateStore({ translation, analysis })
-			},
-		})
+			const url = buildTranslateSentenceUrl({
+				sentenceId,
+				text: sentenceText,
+			})
+			const result = await readTranslationStream(url, {
+				onPartial: (translation, analysis) => {
+					updateStore({ translation, analysis })
+				},
+			})
 
-		if (result.type === 'error') {
-			setErrorText(result.message)
+			if (result.type === 'error') {
+				setErrorText(result.message)
+				setLoading(false)
+				return
+			}
+
+			const parsed = parseTranslationAndAnalysisSoFar(result.fullText)
+
+			upsertSentenceTranslation({
+				id: 0,
+				sentenceId,
+				translation: parsed.translation,
+				analysis: parsed.analysis,
+				createdAt: new Date().toISOString(),
+			})
+
 			setLoading(false)
 			return
-		}
-
-		const parsed = parseTranslationAndAnalysisSoFar(result.fullText)
-
-		upsertSentenceTranslation({
-			id: 0,
-			sentenceId,
-			translation: parsed.translation,
-			analysis: parsed.analysis,
-			createdAt: new Date().toISOString(),
-		})
-
-		setLoading(false)
-		return
-	}
+		},
+		[sentenceId, sentenceText, updateStore, upsertSentenceTranslation],
+	)
 
 	return {
 		onTranslateClick,

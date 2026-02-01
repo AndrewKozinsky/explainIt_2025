@@ -1,13 +1,6 @@
 import { useEffect } from 'react'
 import { useParams } from 'next/navigation'
-import {
-	BookChapterOutModel,
-	BookOutModel,
-	useBook_Get,
-	useBook_GetBookPublic,
-	// 	useBook_GetBooksPublic,
-	useBookChapter_Get,
-} from '@/graphql'
+import { BookChapterOutModel, BookOutModel, useBook_Get, useBook_GetBookPublic, useBookChapter_Get } from '@/graphql'
 import { populateChapterStructure } from '_pages/books/commonLogic/populateChapterStructure'
 import { useReadingStore } from '_pages/books/reading/readingStore'
 import { extractBookIdFromUrlBookId, getBookTypeByUrlBookId } from 'сonsts/pageUrls'

@@ -18,13 +18,22 @@ export const useSelectedSentenceStore = create<SelectedSentenceStoreNext>()((set
 			set(storePart)
 		},
 		setSentenceTranslations: (sentenceTranslations: SentenceTranslationLite[]) => {
+			const lastTranslation = sentenceTranslations[sentenceTranslations.length - 1]
+
 			set({
 				sentenceTranslations,
+				translation: lastTranslation?.translation ?? null,
+				analysis: lastTranslation?.analysis ?? null,
 			})
 		},
 		upsertSentenceTranslation: (sentenceTranslation: SentenceTranslationLite) => {
+			const nextSentenceTranslations = upsertSentenceTranslation(get().sentenceTranslations, sentenceTranslation)
+			const lastTranslation = nextSentenceTranslations[nextSentenceTranslations.length - 1]
+
 			set({
-				sentenceTranslations: upsertSentenceTranslation(get().sentenceTranslations, sentenceTranslation),
+				sentenceTranslations: nextSentenceTranslations,
+				translation: lastTranslation?.translation ?? null,
+				analysis: lastTranslation?.analysis ?? null,
 			})
 		},
 	}

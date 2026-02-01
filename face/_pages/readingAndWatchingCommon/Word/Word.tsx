@@ -16,7 +16,6 @@ type WordProps = {
 
 function Word(props: WordProps) {
 	const { sentenceId, wordId, text, selectedSentenceId, selectedWordIds, selectWord } = props
-	// const selectedSentence = useReadingStore((state) => state.selection)
 	const deviceType = useSystemStore((state) => state.deviceType)
 
 	const wordType = getWordPrimaryType({ selectedSentenceId, selectedWordIds, sentenceId, wordId })
