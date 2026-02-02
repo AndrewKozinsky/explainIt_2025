@@ -69,7 +69,7 @@ describe.skip('Get user videos private', () => {
 		expect(userVideosFromDb).toEqual([])
 	})
 
-	it('should return only current user videos', async () => {
+	/*it('should return only current user videos', async () => {
 		const { loginData: firstUserData, sessionToken: firstUserSessionToken } =
 			await userUtils.createUserWithEmailAndPasswordAndLogin({
 				app,
@@ -146,5 +146,5 @@ describe.skip('Get user videos private', () => {
 
 		const secondUserVideosFromDb = await videoPrivateQueryRepository.getUserVideos(secondUserData.id)
 		expect(secondUserVideosFromDb.length).toBe(1)
-	})
+	})*/
 })

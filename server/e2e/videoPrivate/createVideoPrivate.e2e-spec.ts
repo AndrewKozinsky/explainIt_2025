@@ -36,7 +36,7 @@ describe.skip('Create video private', () => {
 		await afterEachTest(app)
 	})
 
-	it('should return 401 if there is not session token cookie', async () => {
+	/*it('should return 401 if there is not session token cookie', async () => {
 		const { query, variables } = queries.videoPrivate.create({
 			name: null,
 			text: null,
@@ -49,9 +49,9 @@ describe.skip('Create video private', () => {
 			queryOrMutationStr: query,
 			queryVariables: variables,
 		})
-	})
+	})*/
 
-	it('should create a video and store uploaded file in mock S3', async () => {
+	/*it('should create a video and store uploaded file in mock S3', async () => {
 		const { sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
 			userRepository,
@@ -87,5 +87,5 @@ describe.skip('Create video private', () => {
 		const storedObject = s3Mock.getObject(storedObjectKey)
 		expect(storedObject?.contentType).toBe('video/mp4')
 		expect(storedObject?.body.equals(fileBuffer)).toBe(true)
-	})
+	})*/
 })

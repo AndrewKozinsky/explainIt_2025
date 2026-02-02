@@ -1,7 +1,9 @@
 import { INestApplication } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { App } from 'supertest/types'
+import { queries } from '../../src/features/db/queries'
 import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
+import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
 import RouteNames from '../../src/infrastructure/routeNames'
 import { UserRepository } from '../../src/repo/user.repository'
 import { makeGraphQLReq } from '../makeGQReq'
@@ -9,8 +11,6 @@ import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
 import { checkErrorResponse } from '../utils/checkErrorResp'
 import { defUserEmail, defUserPassword, welcomeBonusInKop } from '../utils/common'
 import { createApp } from '../utils/createApp'
-import { queries } from '../../src/features/db/queries'
-import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
 import { userUtils } from '../utils/userUtils'
 
 it('1', () => {

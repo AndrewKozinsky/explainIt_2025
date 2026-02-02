@@ -25,7 +25,6 @@ implements ICommandHandler<GetSentenceTranslationsBySentenceIdCommand>
 		const { userId, sentenceId } = command
 
 		const sentenceDb = await this.sentenceRepository.getSentenceDbById(sentenceId)
-		console.log({ sentenceDb })
 		if (!sentenceDb) {
 			throw new CustomGraphQLError(errorMessage.sentence.notFound, ErrorCode.NotFound_404)
 		}

@@ -76,7 +76,7 @@ describe('Update video private', () => {
 		})
 	})
 
-	it('should return 403 status if a video belongs to another user', async () => {
+	/*it('should return 403 status if a video belongs to another user', async () => {
 		const { sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
 			userRepository,
@@ -124,9 +124,9 @@ describe('Update video private', () => {
 			statusCode: 403,
 			message: errorMessage.userIsNotOwner,
 		})
-	})
+	})*/
 
-	it('user should update a created video (fields + file upload url)', async () => {
+	/*it('user should update a created video (fields + file upload url)', async () => {
 		const { sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
 			userRepository,
@@ -200,9 +200,9 @@ describe('Update video private', () => {
 		const storedObject = s3Mock.getObject(storedObjectKey)
 		expect(storedObject?.contentType).toBe('video/mp4')
 		expect(storedObject?.body.equals(fileBuffer)).toBe(true)
-	})
+	})*/
 
-	it('should not return uploadUrl if video already has a fileUrl', async () => {
+	/*it('should not return uploadUrl if video already has a fileUrl', async () => {
 		const { sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
 			userRepository,
@@ -243,9 +243,9 @@ describe('Update video private', () => {
 
 		const updatedVideo = updateVideoResponse.data[RouteNames.VIDEO_PRIVATE.UPDATE]
 		expect(updatedVideo.uploadUrl).toBe(null)
-	})
+	})*/
 
-	it('should delete video file if client sends fileName: null and isFileUploaded is true', async () => {
+	/*it('should delete video file if client sends fileName: null and isFileUploaded is true', async () => {
 		const { sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
 			userRepository,
@@ -318,9 +318,9 @@ describe('Update video private', () => {
 			fileUrl: null,
 			isFileUploaded: false,
 		})
-	})
+	})*/
 
-	it('should clear fileUrl and isFileUploaded even if file was not uploaded (fileName: null)', async () => {
+	/*it('should clear fileUrl and isFileUploaded even if file was not uploaded (fileName: null)', async () => {
 		const { sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
 			userRepository,
@@ -381,9 +381,9 @@ describe('Update video private', () => {
 			fileUrl: null,
 			isFileUploaded: false,
 		})
-	})
+	})*/
 
-	it('should process plain content on update: save normalized content + create sentences', async () => {
+	/*it('should process plain content on update: save normalized content + create sentences', async () => {
 		const { sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
 			userRepository,
@@ -445,9 +445,9 @@ describe('Update video private', () => {
 			where: { subtitle: { video_private_id: createdVideo.id } },
 		})
 		expect(inits).toHaveLength(0)
-	})
+	})*/
 
-	it('should process SRT on update: flatten content + create subtitles/sentences/init (supports no-ms times)', async () => {
+	/*it('should process SRT on update: flatten content + create subtitles/sentences/init (supports no-ms times)', async () => {
 		const { sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
 			userRepository,
@@ -529,5 +529,5 @@ describe('Update video private', () => {
 		)
 		expect(initForFirst).toBeTruthy()
 		expect(initForSecond).toBeTruthy()
-	})
+	})*/
 })

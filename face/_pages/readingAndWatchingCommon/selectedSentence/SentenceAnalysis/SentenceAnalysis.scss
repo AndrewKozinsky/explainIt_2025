@@ -7,21 +7,20 @@
 	&:before {
 		content: '';
 		position: absolute;
-		top: 1px;
-		left: -2px;
-		bottom: 1px;
-		right: -2px;
+		top: 0px;
+		left: -4px;
+		bottom: 0px;
+		right: -4px;
 		z-index: 1;
 		border-radius: 0.22em;
 	}
 
 		&:before {
-			background-color: vars.$accentColor-2;
+			background-color: #ffee5a;
 		}
 
 	span {
 		position: relative;
 		z-index: 2;
-		color: white;
 	}
 }

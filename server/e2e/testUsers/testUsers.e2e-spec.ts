@@ -1,9 +1,7 @@
 import { INestApplication } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
-import { welcomeBonusInKop } from '../utils/common'
+import { App } from 'supertest/types'
 import { bookUtils } from '../../e2e/utils/bookUtils'
-import { BookPrivateQueryRepository } from '../../src/repo/bookPrivate.queryRepository'
-import { UserRepository } from '../../src/repo/user.repository'
 import {
 	UserBookConfig,
 	UserRegisteredWithCredentialsAndOAuthConfig,
@@ -11,9 +9,11 @@ import {
 	UserRegisteredWithOAuthConfig,
 	UserWithUnconfirmedEmailConfig,
 } from '../../src/features/db/serverTestDataConfig'
-import { App } from 'supertest/types'
-import { createApp } from '../utils/createApp'
+import { BookPrivateQueryRepository } from '../../src/repo/bookPrivate.queryRepository'
+import { UserRepository } from '../../src/repo/user.repository'
 import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
+import { welcomeBonusInKop } from '../utils/common'
+import { createApp } from '../utils/createApp'
 
 describe.skip('Check that test user were created correctly (e2e)', () => {
 	let app: INestApplication<App>

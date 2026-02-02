@@ -5,7 +5,7 @@ import { GigaChatService } from '../../src/infrastructure/gigaChat/gigaChat.serv
 import RouteNames from '../../src/infrastructure/routeNames'
 import { makeGraphQLReq } from '../makeGQReq'
 import { createApp } from '../utils/createApp'
-import { queries } from '../../src/features/db/queries'
+// import { queries } from '../../src/features/db/queries'
 import { aiTranslationChecker } from './aiTranslationChecker'
 
 it('1', () => {

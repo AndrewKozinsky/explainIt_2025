@@ -57,6 +57,26 @@ export class SentenceTranslationRepository {
 		return this.mapDbSentenceTranslationToServiceSentenceTranslation(newSentenceTranslation)
 	}
 
+	@CatchDbError()
+	async updateSentenceTranslationById(
+		id: number,
+		dto: {
+			translation?: string
+			analysis?: null | string
+		},
+	) {
+		const data: Prisma.SentenceTranslationUpdateInput = {}
+		if (typeof dto.translation === 'string') data.translation = dto.translation
+		if (dto.analysis !== undefined) data.analysis = dto.analysis
+
+		const updatedSentenceTranslation = await this.prisma.sentenceTranslation.update({
+			where: { id },
+			data,
+		})
+
+		return this.mapDbSentenceTranslationToServiceSentenceTranslation(updatedSentenceTranslation)
+	}
+
 	mapDbSentenceTranslationToServiceSentenceTranslation(dbSentenceTranslation: SentenceTranslation) {
 		return {
 			id: dbSentenceTranslation.id,

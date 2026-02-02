@@ -70,7 +70,7 @@ describe.skip('Get video private', () => {
 		})
 	})
 
-	it('should return 403 status if a video belongs to another user', async () => {
+	/*it('should return 403 status if a video belongs to another user', async () => {
 		const { sessionToken: ownerSessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
 			userRepository,
@@ -114,9 +114,9 @@ describe.skip('Get video private', () => {
 			statusCode: 403,
 			message: errorMessage.userIsNotOwner,
 		})
-	})
+	})*/
 
-	it('user should get own video by id', async () => {
+	/*it('user should get own video by id', async () => {
 		const { loginData: ownerUserData, sessionToken: ownerSessionToken } =
 			await userUtils.createUserWithEmailAndPasswordAndLogin({
 				app,
@@ -155,5 +155,5 @@ describe.skip('Get video private', () => {
 			text: 'My subtitles',
 			userId: ownerUserData.id,
 		})
-	})
+	})*/
 })

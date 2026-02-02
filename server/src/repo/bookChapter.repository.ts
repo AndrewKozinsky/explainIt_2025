@@ -70,7 +70,13 @@ export class BookChapterRepository {
 
 		const bookChapter = await this.prisma.bookChapter.findFirst({
 			where,
-			include: { book: true, book_public: true, Sentence: true },
+			include: {
+				book: true,
+				book_public: true,
+				Sentence: {
+					orderBy: { order_index: 'asc' },
+				},
+			},
 		})
 
 		if (!bookChapter) return null
@@ -123,6 +129,16 @@ export class BookChapterRepository {
 	}
 
 	@CatchDbError()
+	async updateBookChapterContentById(bookChapterId: number, content: null | string) {
+		await this.prisma.bookChapter.update({
+			where: { id: bookChapterId },
+			data: {
+				content,
+			},
+		})
+	}
+
+	@CatchDbError()
 	async deleteBookChapterById(bookChapterId: number) {
 		await this.prisma.bookChapter.delete({
 			where: { id: bookChapterId },
@@ -134,7 +150,6 @@ export class BookChapterRepository {
 		dbBookChapter: BookChapterWithBookNotNull,
 	): BookChapterServiceModel {
 		const book = bookType === 'public' ? dbBookChapter.book_public : dbBookChapter.book
-		console.log(dbBookChapter)
 
 		return {
 			id: dbBookChapter.id,

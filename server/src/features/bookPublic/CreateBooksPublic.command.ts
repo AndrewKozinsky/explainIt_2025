@@ -1,7 +1,6 @@
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { BookChapterRepository } from 'repo/bookChapter.repository'
 import { BookPublicRepository } from 'repo/bookPublic.repository'
-import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter.command'
+import { ImportPublicBookChapterFromSentencesCommand } from 'features/bookPublic/ImportPublicBookChapterFromSentences.command'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
@@ -19,7 +18,6 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreateBooksPubl
 	constructor(
 		private commandBus: CommandBus,
 		public bookPublicRepository: BookPublicRepository,
-		public bookChapterRepository: BookChapterRepository,
 	) {}
 
 	async execute() {
@@ -63,24 +61,12 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreateBooksPubl
 
 	async createBookChaptersOfNotExists(bookId: number, chaptersData: ChapterData[]) {
 		for (const bookChapter of chaptersData) {
-			const existingChapter = await this.bookChapterRepository.getBookChapter({
-				bookType: 'public',
-				bookId,
-				name: bookChapter.name,
-			})
-
-			if (!existingChapter) {
-				await this.commandBus.execute(
-					new CreateBookChapterCommand(null, {
-						bookType: 'public',
-						bookId,
-						name: bookChapter.name,
-						header: bookChapter.header,
-						// content: bookChapter.data,
-						content: '',
-					}),
-				)
-			}
+			await this.commandBus.execute(
+				new ImportPublicBookChapterFromSentencesCommand({
+					bookId,
+					chapter: bookChapter,
+				}),
+			)
 		}
 	}
 }
