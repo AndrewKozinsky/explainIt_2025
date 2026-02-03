@@ -1,6 +1,7 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { BookPublicQueryRepository } from 'repo/bookPublic.queryRepository'
 import { BookPublicRepository } from 'repo/bookPublic.repository'
+import { Language } from 'utils/languages'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
@@ -10,6 +11,7 @@ export type CreateBookPublicInput = {
 	name: string
 	note: string
 	cover: string
+	lang: Language
 }
 
 export class CreateBookPublicCommand implements ICommand {

@@ -16,10 +16,9 @@ import { createStringColumn } from './columns/stringColumn'
  *     emailConfirmationCode               String?
  *     isEmailConfirmed                    Boolean @default(false)
  * }
- * @param tableName — name of a table
  * @param tableConfig — config of a table
  */
-export function createEnum(tableName: string, tableConfig: BdConfig.Table) {
+export function createEnum(tableConfig: BdConfig.Table) {
 	if (Object.keys(tableConfig.dbFields).length === 0) {
 		return
 	}

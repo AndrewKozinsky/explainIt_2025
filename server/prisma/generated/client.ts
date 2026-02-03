@@ -73,6 +73,11 @@ export type BookChapter = Prisma.BookChapterModel
  */
 export type VideoPrivate = Prisma.VideoPrivateModel
 /**
+ * Model VideoPublic
+ * 
+ */
+export type VideoPublic = Prisma.VideoPublicModel
+/**
  * Model Sentence
  * 
  */

@@ -58,6 +58,7 @@ export const ModelName = {
   BookPublic: 'BookPublic',
   BookChapter: 'BookChapter',
   VideoPrivate: 'VideoPrivate',
+  VideoPublic: 'VideoPublic',
   Sentence: 'Sentence',
   SentenceTranslation: 'SentenceTranslation',
   Subtitle: 'Subtitle',
@@ -136,6 +137,7 @@ export type BookPrivateScalarFieldEnum = (typeof BookPrivateScalarFieldEnum)[key
 
 export const BookPublicScalarFieldEnum = {
   id: 'id',
+  language: 'language',
   cover: 'cover',
   author: 'author',
   name: 'name',
@@ -169,6 +171,7 @@ export const VideoPrivateScalarFieldEnum = {
   is_file_uploaded: 'is_file_uploaded',
   file_size_mb: 'file_size_mb',
   name: 'name',
+  year: 'year',
   original_content: 'original_content',
   processed_content: 'processed_content',
   content_type: 'content_type',
@@ -179,13 +182,30 @@ export const VideoPrivateScalarFieldEnum = {
 export type VideoPrivateScalarFieldEnum = (typeof VideoPrivateScalarFieldEnum)[keyof typeof VideoPrivateScalarFieldEnum]
 
 
+export const VideoPublicScalarFieldEnum = {
+  id: 'id',
+  language: 'language',
+  file_s3_key: 'file_s3_key',
+  file_url: 'file_url',
+  name: 'name',
+  original_content: 'original_content',
+  processed_content: 'processed_content',
+  content_type: 'content_type',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type VideoPublicScalarFieldEnum = (typeof VideoPublicScalarFieldEnum)[keyof typeof VideoPublicScalarFieldEnum]
+
+
 export const SentenceScalarFieldEnum = {
   id: 'id',
   book_chapter_id: 'book_chapter_id',
   video_private_id: 'video_private_id',
   start_offset: 'start_offset',
   length: 'length',
-  order_index: 'order_index'
+  order_index: 'order_index',
+  videoPublicId: 'videoPublicId'
 } as const
 
 export type SentenceScalarFieldEnum = (typeof SentenceScalarFieldEnum)[keyof typeof SentenceScalarFieldEnum]
@@ -209,7 +229,8 @@ export const SubtitleScalarFieldEnum = {
   end_time_ms: 'end_time_ms',
   start_offset: 'start_offset',
   length: 'length',
-  order_index: 'order_index'
+  order_index: 'order_index',
+  videoPublicId: 'videoPublicId'
 } as const
 
 export type SubtitleScalarFieldEnum = (typeof SubtitleScalarFieldEnum)[keyof typeof SubtitleScalarFieldEnum]

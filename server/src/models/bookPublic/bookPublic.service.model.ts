@@ -1,3 +1,4 @@
+import { Language } from 'utils/languages'
 import { BookChapterLiteServiceModel } from '../bookChapter/bookChapter.service.model'
 
 export type BookPublicServiceModel = {
@@ -6,12 +7,6 @@ export type BookPublicServiceModel = {
 	name: string
 	note: string
 	cover: string
+	lang: Language
 	chapters: BookChapterLiteServiceModel[]
 }
-
-/*export type BookPublicLiteServiceModel = {
-	id: number
-	author: string | null
-	name: string | null
-	note: string | null
-}*/

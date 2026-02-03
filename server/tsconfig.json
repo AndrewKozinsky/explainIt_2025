@@ -27,6 +27,7 @@
 			"features/*": ["src/features/*"],
 			"models/*": ["src/models/*"],
 			"types/*": ["src/types/*"],
+			"utils/*": ["src/utils/*"],
 			"db/*": ["src/db/*"],
 			"prisma/*": ["prisma/*"],
 		},

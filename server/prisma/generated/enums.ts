@@ -11,8 +11,7 @@
 
 export const BalanceTransactionType = {
   TOP_UP: 'TOP_UP',
-  CHARGE: 'CHARGE',
-  ACCOUNT_CONFIRMATION_WELCOME_BONUS: 'ACCOUNT_CONFIRMATION_WELCOME_BONUS'
+  CHARGE: 'CHARGE'
 } as const
 
 export type BalanceTransactionType = (typeof BalanceTransactionType)[keyof typeof BalanceTransactionType]
@@ -35,9 +34,27 @@ export const PaymentProviderName = {
 export type PaymentProviderName = (typeof PaymentProviderName)[keyof typeof PaymentProviderName]
 
 
-export const VideoPrivateContentType = {
+export const Language = {
+  en: 'en',
+  es: 'es',
+  fr: 'fr',
+  de: 'de',
+  it: 'it',
+  pt: 'pt',
+  ru: 'ru',
+  tr: 'tr',
+  ar: 'ar',
+  zhCMN: 'zhCMN',
+  ko: 'ko',
+  ja: 'ja'
+} as const
+
+export type Language = (typeof Language)[keyof typeof Language]
+
+
+export const VideoContentType = {
   text: 'text',
   subtitles: 'subtitles'
 } as const
 
-export type VideoPrivateContentType = (typeof VideoPrivateContentType)[keyof typeof VideoPrivateContentType]
+export type VideoContentType = (typeof VideoContentType)[keyof typeof VideoContentType]

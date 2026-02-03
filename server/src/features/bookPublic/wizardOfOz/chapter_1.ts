@@ -6,114 +6,51 @@ export const chapter_1 = {
 			sentence:
 				'Dorothy lived in the midst of the great Kansas prairies, with Uncle Henry, who was a farmer, and Aunt Em, who was the farmer’s wife.',
 			translate: 'Дороти жила посреди огромных прерий Канзаса с дядей Генри, фермером, и тётей Эм, его женой.',
-			analysis: `1. \`in the midst of\` — не просто «в»
+			analysis: `## Слова и выражения (с переводом)
 
-Это устойчивое выражение:
-- \`in the midst of\` = **в самой середине / среди**
-- звучит **литературно**
-- подчёркивает **окружённость со всех сторон**
+- \`lived\` — «жила», «проживала»
+- \`in the midst of\` — «посреди», «среди (чего-то вокруг)»
+- \`great\` — «огромных», «больших»
+- \`prairies\` — «прерии» (равнинные степи)
+- \`Uncle\` — «дядя» (родство/обращение)
+- \`a farmer\` — «фермер»
+- \`Aunt\` — «тётя» (родство/обращение)
+- \`the farmer’s wife\` — «жена фермера» (то есть жена Генри)
 
-Сравни:
-- \`in Kansas\` — нейтрально
-- \`in the middle of Kansas\` — разговорнее и прямолинейнее
-- \`in the midst of the great Kansas prairies\` — образно, почти поэтично
+## Разбор по частям (что значит каждый кусок)
 
-Важно: слово \`midst\` само по себе редкое и почти «не живёт» без \`in the\`.
+1) \`Dorothy lived ...\` — «Дороти жила ...»
+- \`lived\` — Past Simple: просто факт из прошлого («жила»), без акцента на длительность.
 
----
+2) \`in the midst of the great Kansas prairies\` — «посреди огромных прерий Канзаса»
+- \`in the midst of\` = устойчивое выражение «посреди / в самой середине (чего-то вокруг)».
+- \`the great Kansas prairies\` — «огромные прерии Канзаса»: \`great\` относится к \`prairies\`, а \`Kansas\` уточняет какие именно прерии.
 
-2. \`the great Kansas prairies\` — почему так «многослойно»
+3) \`, with Uncle Henry, who was a farmer,\` — «… с дядей Генри, который был фермером, …»
+- \`with\` — «вместе с».
+- \`who was a farmer\` — вставное (non-defining) относительное придаточное «который был фермером»: это дополнительная информация, поэтому стоит в запятых.
 
-Здесь сразу несколько смысловых слоёв:
+4) \`and Aunt Em, who was the farmer’s wife\` — «и (с) тётей Эм, которая была женой фермера»
+- \`the farmer’s wife\` — «жена фермера»: притяжательная форма \`farmer’s\` (\`’s\` = «чей?»).
 
-**a) \`prairies\`**
-- не просто \`fields\` или \`plains\`
-- ассоциации: **бескрайность, ветер, пустота**
-- очень «американское» слово с культурным фоном
+## Шаблоны и примеры (с переводом)
 
-**b) \`Kansas\` как определение**
-- \`Kansas\` используется как «прилагательное» перед существительным — это нормально в английском: \`Texas deserts\`, \`Arizona heat\`
+### 1) \`in the midst of ...\` — «посреди ..., среди ...»
+- \`We met in the midst of the crowd.\` — Мы встретились посреди толпы.
+- \`She woke up in the midst of the night.\` — Она проснулась среди ночи.
+- \`He stayed calm in the midst of chaos.\` — Он оставался спокойным посреди хаоса.
 
-**c) \`great\`**
-- здесь не «великие» в пафосном смысле, а **огромные / необъятные**
-- на старте истории это сразу создаёт ощущение **изоляции**
+### 2) \`..., who was ...,\` — «..., который/которая был(а) ...,»
+Запятые показывают, что это “добавочная справка”, а не обязательное уточнение.
+- \`Tom, who was my neighbor, helped me.\` — Том, который был моим соседом, помог мне.
+- \`My sister, who is a doctor, lives in Boston.\` — Моя сестра, которая врач, живёт в Бостоне.
+- \`The house, which was old, looked empty.\` — Дом, который был старым, выглядел пустым.
 
----
-
-3. Запятая и конструкция с \`with\` — это про «добавочную информацию»
-
-\`Dorothy lived ... , with Uncle Henry, ... and Aunt Em, ...\`
-
-\`with\` здесь:
-- не про «вместе сходила», а про **с кем жила**
-- вводит **уточняющую вставку**, не меняя грамматический каркас
-
-Мысленно можно развернуть так:
-- \`Dorothy lived there.\`
-- \`She lived with Uncle Henry and Aunt Em.\`
-
----
-
-4. \`who was a farmer\` / \`who was the farmer’s wife\` — non‑defining relative clauses
-
-Признаки:
-- выделяются **запятыми**
-- дают **необязательное уточнение**
-- используется \`who\`, а не \`that\`
-
-Если убрать эти части, предложение всё равно будет полностью правильным:
-\`Dorothy lived ... with Uncle Henry and Aunt Em.\`
-
----
-
-5. Почему \`the farmer’s wife\`, а не \`a farmer’s wife\`
-
-Потому что \`farmer\` уже «определён» контекстом: это **Uncle Henry**.
-А Aunt Em описывается через связь с ним:
-- X, who was Y
-- Z, who was **Y’s** wife
-
-Это очень английская логика «цепочки определённости».
-
----
-
-6. Повтор \`who was\` — не ошибка, а стиль (и целевая аудитория)
-
-Можно было бы короче:
-- \`Uncle Henry, a farmer, and Aunt Em, his wife\`
-
-Но Баум выбирает:
-- простую, прозрачную структуру
-- «детское» повествование, где связи проговариваются явно
-
----
-
-7. Ритм фразы (редко обсуждают, но он работает)
-
-Предложение читается «волнами»:
-- \`Dorothy lived ...\`
-- \`in the midst of ...\`
-- \`with Uncle Henry, ...\`
-- \`and Aunt Em, ...\`
-
-Это делает начало спокойным, описательным — и на контрасте усиливает драму, когда начинается циклон.
-
----
-
-8. Как бы это могло звучать по‑современному (для сравнения)
-
-Например:
-- \`Dorothy lived in rural Kansas with her Uncle Henry, a farmer, and her Aunt Em.\`
-
-Смысл остаётся, но образность заметно «суше».
-
----
-
-9. Что стоит утащить себе как изучающему язык
-- \`in the midst of\` + noun
-- «география как определение»: \`Kansas prairies\`
-- non‑defining relative clauses с \`who\`
-- \`with\` как способ добавить информацию о совместном проживании`,
+### 3) \`X’s Y\` — «Y X-а / Y, принадлежащий X»
+- \`the farmer’s wife\` — жена фермера
+- \`Dorothy’s dog\` — собака Дороти
+- \`Henry’s hat\` — шляпа Генри
+- \`the child’s room\` — детская комната`,
 		},
 		{
 			sentence: 'Their house was small, for the lumber to build it had to be carried by wagon many miles.',
@@ -1245,7 +1182,36 @@ export const chapter_1 = {
 - \`reach\` = достигать / доходить
 - \`wonder\` = удивление`,
 		},
-		{ sentence: 'Uncle Henry never laughed.', translate: 'Дядя Генри никогда не смеялся.' },
+		{
+			sentence: 'Uncle Henry never laughed.',
+			translate: 'Дядя Генри никогда не смеялся.',
+			analysis: `## Слова и выражения (с переводом)
+
+- \`Uncle\` — «дядя» (как обращение/титул перед именем: \`Uncle Henry\` = «дядя Генри»)
+- \`never\` — «никогда», «ни разу»
+- \`laughed\` — «смеялся»
+
+## Разбор по частям
+
+1) \`Uncle Henry\` — «дядя Генри»
+- В английском часто говорят \`Uncle + имя\` как одно обращение.
+
+2) \`never laughed\` — «никогда не смеялся»
+- \`never\` уже содержит отрицание, поэтому **не нужно** \`didn't\` в этом же простом утверждении: \`never\` = «никогда не».
+
+## Грамматика: \`never\` (наречие частоты) в Past Simple
+
+Позиция такая: **подлежащее + \`never\` + смысловой глагол (V2)**.
+
+- \`Uncle Henry never laughed.\` — Дядя Генри никогда не смеялся.
+- \`She never smiled.\` — Она никогда не улыбалась.
+- \`They never came back.\` — Они так и не вернулись.
+
+### Не делай “двойное отрицание”
+- ❌ \`He didn't never laugh.\` — так не говорят
+- ✅ \`He never laughed.\` — Он никогда не смеялся.
+- ✅ \`He didn't ever laugh.\` — Он вообще ни разу не смеялся.`,
+		},
 		{
 			sentence: 'He worked hard from morning till night and did not know what joy was.',
 			translate: 'Он тяжело работал с утра до ночи и не знал, что такое радость.',
@@ -1313,59 +1279,570 @@ export const chapter_1 = {
 		{
 			sentence: 'One glance told her of the danger close at hand.',
 			translate: 'Одного взгляда ей хватило, чтобы понять — опасность уже рядом.',
+			analysis: `## Слова и выражения (с переводом)
+
+- \`one glance\` — «один взгляд», по смыслу часто: «одного взгляда (хватило)»
+- \`glance\` — «быстрый взгляд», «мельком взглянуть» (как существительное: «взгляд»)
+- \`told\` — «сказал», «сообщил», по смыслу здесь: «подсказал», «дал понять»
+- \`told her\` — «сказал ей / дал ей понять»
+- \`tell someone of something\` — «сообщить кому-то о чём-то»
+- \`danger\` — «опасность»
+- \`close at hand\` — «совсем рядом», «прямо тут», букв.: «близко под рукой/рядом»
+- \`at hand\` — «рядом», «под рукой», «неподалёку»
+
+## Разбор по частям (что значит каждый кусок)
+
+1) \`One glance\` — «один взгляд / одного взгляда (хватило)»
+- Подлежащее — не человек, а \`glance\` (взгляд).
+
+2) \`told her\` — «сказал ей / дал ей понять»
+- \`told\` — Past Simple от \`tell\`: «сказал/сообщил».
+- Здесь естественный перевод по-русски: «ей стало ясно / она поняла», потому что «взгляд» не говорит буквально, а **даёт понять**.
+
+3) \`of the danger\` — «об опасности»
+- Шаблон \`tell someone of something\` = «сообщить кому-то о чём-то».
+
+4) \`close at hand\` — «совсем рядом»
+- Этот кусок относится к \`danger\`: \`the danger (that was) close at hand\` = «опасность, (которая была) совсем рядом».
+
+## Шаблоны и примеры (с переводом)
+
+### 1) \`tell someone of something\` — «сообщить кому-то о чём-то»
+- \`He told me of his plan.\` — Он рассказал мне о своём плане.
+- \`She told us of the accident.\` — Она сообщила нам об аварии.
+- \`They told him of the danger.\` — Они предупредили его об опасности. (букв.: сообщили об опасности)
+
+### 2) \`close at hand\` / \`at hand\` — «совсем рядом / под рукой»
+- \`Help was close at hand.\` — Помощь была совсем рядом.
+- \`The exit is close at hand.\` — Выход совсем рядом.
+- \`Keep your phone at hand.\` — Держи телефон под рукой.
+- \`A doctor was at hand.\` — Рядом был врач.
+
+### 3) \`One glance / one look told ...\` — «одного взгляда хватило, чтобы понять...»
+- \`One look told me he was angry.\` — Одного взгляда было достаточно, чтобы я понял: он злится.
+- \`One glance told her the room was empty.\` — Одного взгляда ей хватило, чтобы понять: комната пуста.
+- \`One glance told us we were late.\` — Одного взгляда хватило, чтобы понять: мы опоздали.`,
 		},
-		{ sentence: '“Quick, Dorothy!” she screamed.', translate: '«Быстро, Дороти!» — закричала она.' },
-		{ sentence: '“Run for the cellar!”', translate: '«Беги в подвал!»' },
+		{
+			sentence: '“Quick, Dorothy!” she screamed.',
+			translate: '«Быстро, Дороти!» — закричала она.',
+			analysis: `## Слова и выражения (с переводом)
+
+- \`quick\` — «быстро», «скорее!» (в реплике как краткое побуждение)
+- \`(she) screamed\` / \`screamed\` — «(она) закричала», «вскрикнула»
+
+## Разбор по частям (что значит каждый кусок)
+
+1) \`“Quick, Dorothy!”\` — «Быстро, Дороти! / Скорее, Дороти!»
+- \`Quick!\` здесь не «быстрый» (прилагательное), а короткое побуждение: **«быстро!» / «скорее!»**.
+- \`Dorothy\` — обращение (кого зовут/кому говорят): «Дороти!».
+
+2) \`she screamed\` — «она закричала / она вскрикнула»
+- \`screamed\` — Past Simple (прошедшее): «закричала».
+- В английском часто используют глагол речи после прямой речи: \`"...," she screamed.\`
+
+## Шаблоны и примеры (с переводом)
+
+### 1) \`Quick!\` как побуждение — «Быстро! / Скорее!»
+- \`Quick! Hide!\` — Быстро! Прячься!
+- \`Quick! This way!\` — Скорее! Сюда!
+- \`Quick! Don’t look back!\` — Быстро! Не оглядывайся!
+
+### 2) \`Quick, + name!\` — «Скорее, + имя!»
+- \`Quick, Tom!\` — Скорее, Том!
+- \`Quick, Mary! Help me!\` — Скорее, Мэри! Помоги мне!
+- \`Quick, kids! Inside!\` — Скорее, дети! Внутрь!
+
+### 3) \`"..." + she/he + past verb\` — прямая речь + «она/он сказал(а)»
+- \`"Stop!" he shouted.\` — «Стой!» — закричал он.
+- \`"Come here," she whispered.\` — «Иди сюда», — прошептала она.
+- \`"Run!" he yelled.\` — «Беги!» — крикнул он.`,
+		},
+		{
+			sentence: '“Run for the cellar!”',
+			translate: '«Беги в подвал!»',
+			analysis: `## Слова и выражения (с переводом)
+
+- \`run\` — «беги», «бегом!»
+- \`run for + место/укрытие\` — «бежать в/к (спасаясь)», «броситься в (укрытие)»
+- \`cellar\` — «подвал», «погреб»
+
+## Разбор по частям (что значит каждый кусок)
+
+1) \`Run!\` — «Беги!»
+- Это **повелительное наклонение** (imperative): говорящий даёт команду/указание.
+
+2) \`for the cellar\` — «в подвал / к подвалу (как к укрытию)»
+- Здесь \`for\` = «в сторону / к / за», смысл: **бежать туда, чтобы укрыться**.
+
+Итого: \`Run for the cellar!\` — «Беги в подвал! / Скорее в подвал!»
+
+## Шаблоны и примеры (с переводом)
+
+### 1) Повелительное наклонение: \`Run!\` / \`Don’t + verb\`
+- \`Run!\` — Беги!
+- \`Run faster!\` — Беги быстрее!
+- \`Don’t run!\` — Не беги! (не бегай)
+- \`Don’t stop!\` — Не останавливайся!
+
+### 2) \`run for + noun\` — «бежать за/в (в поисках спасения/помощи/чего-то срочного)»
+- \`Run for the door!\` — Беги к двери!
+- \`Run for cover!\` — Беги в укрытие!
+- \`Run for help!\` — Беги за помощью!
+- \`Run for your life!\` — Спасайся! (букв.: беги ради своей жизни)`,
+		},
 		{
 			sentence: 'Toto jumped out of Dorothy’s arms and hid under the bed, and the girl started to get him.',
 			translate: 'Тото спрыгнул с рук Дороти и спрятался под кровать, и девочка бросилась его вытащить.',
+			analysis: `## Слова и выражения (с переводом)
+
+- \`jumped\` — «прыгнул», «выпрыгнул»
+- \`jump out of\` — «выпрыгнуть из/с (чего-то)»
+- \`arms\` — «руки», «объятия» (здесь: «с рук»)
+- \`hid\` — «спрятался» (Past Simple от \`hide\` — «прятаться»)
+- \`under\` — «под»
+- \`bed\` — «кровать»
+- \`girl\` — «девочка»
+- \`start to + verb\` — «начать/приняться делать»
+- \`get\` (здесь) — «достать», «вытащить», «забрать (обратно)»
+
+## Разбор по частям (что значит каждый кусок)
+
+1) \`Toto jumped out of Dorothy’s arms\` — «Тото выпрыгнул с рук Дороти»
+- \`Dorothy’s\` — притяжательная форма: «Дороти + ’s» = «Дороти(ны)».
+- Смысл по-русски: «выпрыгнул **из её рук / с рук**».
+
+2) \`and hid under the bed\` — «и спрятался под кровать»
+- \`hid\` — прошедшее время: «спрятался».
+
+3) \`and the girl started to get him\` — «и девочка начала доставать/вытаскивать его»
+- \`get him\` здесь не «понять» и не «получить», а **«достать/вытащить (его)»**.
+- \`him\` — «его» (про Тото).
+
+## Шаблоны и примеры (с переводом)
+
+### 1) \`jump out (of ...)\` — «выпрыгнуть (из/с ...)»
+- \`The cat jumped out of the box.\` — Кошка выпрыгнула из коробки.
+- \`He jumped out of the car.\` — Он выпрыгнул из машины.
+- \`She jumped out of bed.\` — Она вскочила с кровати.
+- \`Something jumped out at me.\` — Что-то бросилось мне в глаза. (другое значение \`jump out\`: «резко выделяться»)
+
+### 2) \`start to + verb\` — «начать/приняться делать»
+- \`I started to understand.\` — Я начал понимать.
+- \`She started to look for her keys.\` — Она начала искать свои ключи.
+- \`They started to run.\` — Они начали бежать.
+- \`He started to laugh.\` — Он начал смеяться.`,
 		},
 		{
 			sentence:
 				'Aunt Em, badly frightened, threw open the trap door in the floor and climbed down the ladder into the small, dark hole.',
 			translate:
 				'Сильно напуганная тётя Эм распахнула люк в полу и спустилась по лестнице в маленькую тёмную яму.',
+			analysis: `## Слова и выражения (с переводом)
+
+- \`badly\` — «сильно», «очень» (в смысле степени)
+- \`frightened\` — «испуганная», «напуганная»
+- \`badly frightened\` — «сильно напуганная»
+- \`threw open\` — «распахнула» (букв.: «швырнула/раскрыла настежь»)
+- \`trap door\` — «люк», «лаз/дверца в полу» (часто скрытая)
+- \`floor\` — «пол»
+- \`climbed down\` — «спустилась», «слезла вниз»
+- \`ladder\` — «лестница» (обычно приставная/вертикальная)
+- \`small\` — «маленький»
+- \`dark\` — «тёмный»
+- \`hole\` — «дыра», «яма», «отверстие»
+
+## Разбор по частям (что значит каждый кусок)
+
+1) \`Aunt Em, badly frightened,\` — «тётя Эм, сильно напуганная, ...»
+- Это **вставная характеристика** (описание состояния) между запятыми.
+- По смыслу: «Тётя Эм, будучи сильно напуганной, ...» / «Сильно напуганная тётя Эм ...».
+
+2) \`threw open the trap door in the floor\` — «распахнула люк в полу»
+- \`throw open + object\` = «распахнуть/раскрыть настежь (дверь, окно и т. п.)».
+- \`in the floor\` относится к \`trap door\`: это люк, **который находится в полу**.
+
+3) \`and climbed down the ladder into the small, dark hole\` — «и спустилась по лестнице в маленькую тёмную яму»
+- \`climb down\` = «спускаться/слезать вниз».
+- \`into\` подчёркивает движение **внутрь**: она оказалась «в яме/отверстии».
+- \`the small, dark hole\` — два прилагательных перед существительным: «маленькая, тёмная яма».
+
+## Шаблоны и примеры (с переводом)
+
+### 1) \`throw open + object\` — «распахнуть/раскрыть настежь»
+- \`She threw open the window.\` — Она распахнула окно.
+- \`He threw open the door.\` — Он распахнул дверь.
+- \`They threw open the gates.\` — Они распахнули ворота.
+- \`She threw open her coat.\` — Она распахнула пальто/плащ. (раскрыла на груди)
+
+### 2) \`climb down\` — «спускаться/слезать вниз»
+- \`Climb down the ladder.\` — Спускайся по лестнице.
+- \`He climbed down from the tree.\` — Он слез с дерева.
+- \`She climbed down carefully.\` — Она осторожно спустилась.
+- \`The child climbed down the stairs.\` — Ребёнок спустился по ступенькам.`,
 		},
 		{
 			sentence: 'Dorothy caught Toto at last and started to follow her aunt.',
 			translate: 'Дороти, наконец, схватила Тото и уже было направилась вслед за тётей.',
+				analysis: `Перевод слов и устойчивых сочетаний
+
+Составные и устойчивые элементы
+	•	at last — наконец, в конце концов
+	•	start to + verb — начать что-то делать
+	•	follow someone — следовать за кем-то
+
+Отдельные слова
+	•	caught — поймала
+(форма Past Simple от catch — ловить)
+	•	started — начала
+	•	aunt — тётя
+
+(Имена собственные и самые распространённые слова не разбираются отдельно.)
+
+⸻
+
+Полезные конструкции и шаблоны
+
+1. catch в значении «поймать»
+
+Используется, когда кто-то или что-то двигалось или убегало, и его удалось схватить.
+
+Примеры:
+	•	She caught the ball. — Она поймала мяч.
+	•	He ran fast but couldn’t catch the dog. — Он бежал быстро, но не смог поймать собаку.
+	•	I finally caught him. — Я наконец его догнал / поймал.
+
+⸻
+
+2. at last
+
+Означает, что действие произошло после ожидания или усилий.
+
+Примеры:
+	•	The rain stopped at last. — Дождь наконец прекратился.
+	•	She understood the rule at last. — Она наконец поняла правило.
+	•	They arrived at last. — Они в конце концов приехали.
+
+⸻
+
+3. start to + verb
+
+Обозначает начало действия. Часто используется, когда речь идёт о переходе к новому действию.
+
+Примеры:
+	•	He started to laugh. — Он начал смеяться.
+	•	It started to rain. — Начался дождь.
+	•	She started to walk faster. — Она начала идти быстрее.
+
+⸻
+
+4. follow + person
+
+Значение: идти за кем-то, двигаться в том же направлении.
+
+Примеры:
+	•	The child followed his mother. — Ребёнок пошёл за матерью.
+	•	Follow me, please. — Следуйте за мной, пожалуйста.
+	•	The dog followed the boy. — Собака пошла за мальчиком.`
 		},
 		{
 			sentence:
 				'When she was halfway across the room there came a great shriek from the wind, and the house shook so hard that she lost her footing and sat down suddenly upon the floor.',
 			translate:
 				'Когда она была на середине комнаты, раздался пронзительный вопль ветра, и дом так затрясся, что она потеряла равновесие и со стуком села на пол.',
+				analysis: `Перевод слов и устойчивых сочетаний
+
+Составные и устойчивые элементы
+	•	when she was halfway across the room — когда она была на середине комнаты, когда она уже наполовину пересекла комнату
+	•	there came — раздался, послышался
+	•	a great shriek — громкий визг / резкий крик
+	•	from the wind — со стороны ветра, из-за ветра
+	•	so hard that — так сильно, что
+	•	lose one’s footing — потерять опору, поскользнуться
+	•	sit down suddenly — внезапно сесть
+	•	upon the floor — на пол
+
+Отдельные слова
+	•	halfway — на полпути, наполовину
+	•	across — через
+	•	room — комната
+	•	house — дом
+	•	shook — затрясся
+(Past Simple от shake — трясти)
+	•	lost — потеряла
+	•	footing — опора, устойчивость
+	•	floor — пол
+
+⸻
+
+Полезные конструкции и шаблоны
+
+1. when + Past Simple
+
+Используется для указания момента в прошлом, что происходило в тот момент, когда случилось другое событие.
+
+Примеры:
+	•	When I opened the door, the dog ran out. — Когда я открыл дверь, собака выбежала.
+	•	When she turned around, he was gone. — Когда она обернулась, его уже не было.
+	•	When we arrived, it was dark. — Когда мы приехали, было темно.
+
+⸻
+
+2. there came + noun
+
+Инверсия: сначала идёт there, затем глагол, потом подлежащее. Часто используется с появлением звуков или событий.
+
+Примеры:
+	•	There came a loud noise. — Раздался громкий шум.
+	•	There came a knock at the door. — Раздался стук в дверь.
+	•	There came a cry from outside. — Снаружи послышался крик.
+
+⸻
+
+3. so + adjective/adverb + that
+
+Конструкция выражает причину и результат.
+
+Примеры:
+	•	It was so cold that we stayed inside. — Было так холодно, что мы остались дома.
+	•	She ran so fast that she got tired. — Она бежала так быстро, что устала.
+	•	The wind blew so hard that the trees bent. — Ветер дул так сильно, что деревья гнулись.
+
+⸻
+
+4. lose one’s footing
+
+Устойчивое выражение: потерять устойчивость, обычно из-за движения или тряски.
+
+Примеры:
+	•	He lost his footing on the stairs. — Он потерял опору на лестнице.
+	•	She slipped and lost her footing. — Она поскользнулась и потеряла равновесие.
+	•	The ground moved and they lost their footing. — Земля сдвинулась, и они потеряли устойчивость.`
 		},
-		{ sentence: 'Then a strange thing happened.', translate: 'Тут случилось странное.' },
+		{ sentence: 'Then a strange thing happened.', translate: 'Тут случилось странное.', analysis: `` },
 		{
 			sentence: 'The house whirled around two or three times and rose slowly through the air.',
 			translate: 'Дом завертелся два-три раза и медленно поднялся в воздух.',
+				analysis: `**Перевод слов и устойчивых сочетаний**
+---------------------------------------
+
+### **Составные и устойчивые элементы**
+
+-   whirl around --- **кружиться**, **резко вращаться**
+
+-   two or three times --- **два или три раза**
+
+-   through the air --- **по воздуху**, **сквозь воздух**
+
+### **Отдельные слова**
+
+-   whirled --- **закружился, завертелся**
+
+    (Past Simple от whirl)
+
+-   around --- **вокруг**
+
+-   rose --- **поднялся**
+
+    (Past Simple от rise --- подниматься)
+
+-   slowly --- **медленно**
+
+-   air --- **воздух**
+
+(Самые распространённые слова и очевидные служебные элементы отдельно не разбираются.)
+
+* * * * *
+
+**Полезные конструкции и шаблоны**
+----------------------------------
+
+### **1. **
+
+### **whirl around**
+
+Описывает быстрое вращательное движение, часто внезапное.
+
+**Примеры:**
+
+-   The leaves whirled around in the wind. --- Листья кружились на ветру.
+
+-   He whirled around to look behind him. --- Он резко обернулся, чтобы посмотреть назад.
+
+-   The dancer whirled around the room. --- Танцор закружился по комнате.
+
+* * * * *
+
+### **2. **
+
+### **two or three + plural noun**
+
+Неточное количество, используется когда точное число неважно.
+
+**Примеры:**
+
+-   Wait two or three minutes. --- Подожди две-три минуты.
+
+-   She asked two or three questions. --- Она задала две-три вопроса.
+
+-   He tried two or three times. --- Он попробовал два-три раза.
+
+* * * * *
+
+### **3. **
+
+### **rise**
+
+### ** (Past Simple **
+
+### **rose**
+
+### **)**
+
+Глагол **без прямого объекта**: что-то поднимается само.
+
+**Примеры:**
+
+-   The sun rose early. --- Солнце взошло рано.
+
+-   Smoke rose into the sky. --- Дым поднялся в небо.
+
+-   The balloon rose slowly. --- Воздушный шар медленно поднялся.`
 		},
 		{
 			sentence: 'Dorothy felt as if she were going up in a balloon.',
 			translate: 'Дороти показалось, будто её поднимает воздушный шар.',
+				analysis: ``
 		},
 		{
 			sentence:
 				'The north and south winds met where the house stood, and made it the exact center of the cyclone.',
 			translate: 'Северный и южный ветры встретились там, где стоял дом, и сделали его точным центром циклона.',
+				analysis: ``
 		},
 		{
 			sentence:
 				'In the middle of a cyclone the air is generally still, but the great pressure of the wind on every side of the house raised it up higher and higher, until it was at the very top of the cyclone; and there it remained and was carried miles and miles away as easily as you could carry a feather.',
 			translate:
 				'Посреди циклона воздух обычно неподвижен, но сильное давление ветра со всех сторон поднимало дом всё выше и выше, пока он не оказался на самой вершине циклона; и там он удерживался и нёсся на многие и многие мили так же легко, как нести пёрышко.',
+				analysis: ``
 		},
 		{
 			sentence:
 				'It was very dark, and the wind howled horribly around her, but Dorothy found she was riding quite easily.',
 			translate: 'Было очень темно, ветер ужасно выл вокруг, но Дороти поняла, что несётся довольно спокойно.',
+				analysis: ``
 		},
 		{
 			sentence:
 				'After the first few whirls around, and one other time when the house tipped badly, she felt as if she were being rocked gently, like a baby in a cradle.',
 			translate:
 				'После первых нескольких оборотов и ещё одного момента, когда дом сильно накренился, ей стало казаться, что её мягко укачивают, как младенца в колыбели.',
+				analysis: `Перевод слов и устойчивых сочетаний
+
+Составные и устойчивые элементы
+
+- after the first few --- после первых нескольких
+
+- whirls around --- кружений, резких вращений
+
+- one other time --- ещё один раз
+
+- tip badly --- сильно накрениться, опасно наклониться
+
+- as if --- как будто, словно
+
+- be rocked gently --- быть мягко покачиваемой
+
+- like a baby in a cradle --- как младенца в колыбели
+
+Отдельные слова
+
+- first --- первый
+
+- few --- несколько
+
+- around --- вокруг
+
+- house --- дом
+
+- tipped --- накренился, наклонился
+
+(Past Simple от tip)
+
+- badly --- сильно, серьёзно
+
+- felt --- чувствовала
+
+- being --- быть (в процессе)
+
+- rocked --- качали, укачивали
+
+- gently --- мягко, нежно
+
+- baby --- младенец
+
+- cradle --- колыбель
+
+(Имена собственные и самые базовые слова отдельно не разбираются.)
+
+⸻
+
+Полезные конструкции и шаблоны
+
+1\. after + noun / clause
+
+Обозначает, что действие происходит после другого события.
+
+Примеры:
+
+- After dinner, we went outside. --- После ужина мы вышли.
+
+- After the storm ended, the sun appeared. --- После окончания бури выглянуло солнце.
+
+- After she spoke, everyone was silent. --- После того как она заговорила, все замолчали.
+
+⸻
+
+2\. as if + Past / were + being
+
+Используется для описания нереального или субъективного ощущения; форма were употребляется для всех лиц.
+
+Примеры:
+
+- He felt as if he were being watched. --- Ему казалось, будто за ним наблюдают.
+
+- She felt as if she were floating. --- Ей казалось, будто она плывёт.
+
+- I felt as if I were being pushed. --- Мне казалось, будто меня толкают.
+
+⸻
+
+3\. be rocked
+
+Пассивная форма от rock --- качать, укачивать.
+
+Примеры:
+
+- The baby was rocked to sleep. --- Младенца укачали, чтобы он уснул.
+
+- The boat was rocked by the waves. --- Лодку качало волнами.
+
+- She was gently rocked. --- Её мягко покачивали.
+
+⸻
+
+4\. like + noun
+
+Используется для прямого сравнения.
+
+Примеры:
+
+- He slept like a child. --- Он спал как ребёнок.
+
+- The house shook like a toy. --- Дом трясся как игрушка.
+
+- She smiled like a baby. --- Она улыбалась как младенец.`
 		},
 		{ sentence: 'Toto did not like it.', translate: 'Тото это не нравилось.' },
 		{
@@ -1373,47 +1850,365 @@ export const chapter_1 = {
 				'He ran about the room, now here, now there, barking loudly; but Dorothy sat quite still on the floor and waited to see what would happen.',
 			translate:
 				'Он бегал по комнате то тут, то там, громко лая; а Дороти сидела на полу совершенно спокойно и ждала, что будет дальше.',
+				analysis: `Перевод слов и устойчивых сочетаний
+
+Составные и устойчивые элементы
+
+- run about --- бегать туда-сюда
+
+- now here, now there --- то здесь, то там
+
+- bark loudly --- громко лаять
+
+- sit quite still --- сидеть совершенно неподвижно
+
+- wait to see --- ждать, чтобы увидеть / узнать
+
+- what would happen --- что произойдёт
+
+Отдельные слова
+
+- ran --- бегал
+
+(Past Simple от run)
+
+- room --- комната
+
+- barking --- лая
+
+- loudly --- громко
+
+- sat --- сидела
+
+(Past Simple от sit)
+
+- floor --- пол
+
+- waited --- ждала
+
+- happen --- произойти
+
+(Самые распространённые служебные слова и имена собственные отдельно не разбираются.)
+
+⸻
+
+Полезные конструкции и шаблоны
+
+1\. run about
+
+Фразовый глагол: движение без чёткого направления, часто беспокойное.
+
+Примеры:
+
+- The children ran about the yard. --- Дети бегали по двору.
+
+- He was running about looking for his keys. --- Он бегал туда-сюда в поисках ключей.
+
+- The dog ran about happily. --- Собака радостно носилась.
+
+⸻
+
+2\. now ..., now ...
+
+Шаблон для чередования действий или мест.
+
+Примеры:
+
+- Now laughing, now crying, she told the story. --- То смеясь, то плача, она рассказывала историю.
+
+- The light flashed now bright, now dim. --- Свет мигал то ярко, то тускло.
+
+- He looked now left, now right. --- Он смотрел то влево, то вправо.
+
+⸻
+
+3\. Причастный оборот (barking loudly)
+
+Форма -ing добавляет одновременное действие.
+
+Примеры:
+
+- She sat by the window, reading a book. --- Она сидела у окна, читая книгу.
+
+- He walked down the street, whistling. --- Он шёл по улице, насвистывая.
+
+- The dog ran ahead, barking happily. --- Собака бежала впереди, радостно лая.
+
+⸻
+
+4\. wait to see + wh-clause
+
+Ожидание результата или развития событий.
+
+Примеры:
+
+- Wait to see what he says. --- Подожди, посмотрим, что он скажет.
+
+- She waited to see if it would work. --- Она ждала, получится ли.
+
+- We waited to see how the story would end. --- Мы ждали, чем закончится история.`
 		},
 		{
 			sentence:
 				'Once Toto got too near the open trap door, and fell in; and at first the little girl thought she had lost him.',
 			translate:
 				'Однажды Тото подошёл слишком близко к открытому люку и провалился; сперва девочка решила, что потеряла его.',
+				analysis: `**Перевод слов и устойчивых сочетаний**
+---------------------------------------
+
+### **Составные и устойчивые элементы**
+
+-   once --- **однажды**
+
+-   get too near --- **подойти слишком близко**
+
+-   open trap door --- **открытый люк**
+
+-   fall in --- **провалиться (внутрь)**
+
+-   at first --- **сначала, поначалу**
+
+-   think (that) + clause --- **думать, полагать, что**
+
+-   lose someone --- **потерять кого-то**
+
+### **Отдельные слова**
+
+-   got --- **подошёл, оказался**
+
+    (Past Simple от get)
+
+-   near --- **близко**
+
+-   open --- **открытый**
+
+-   trap door --- **люк**
+
+-   fell --- **упал, провалился**
+
+    (Past Simple от fall)
+
+-   little --- **маленькая**
+
+-   girl --- **девочка**
+
+-   thought --- **подумала**
+
+-   lost --- **потеряла**
+
+-   him --- **его**
+
+(Имена собственные и самые распространённые слова отдельно не разбираются.)
+
+* * * * *
+
+**Полезные конструкции и шаблоны**
+----------------------------------
+
+### **1. **
+
+### **once**
+
+### ** в значении «однажды»**
+
+Используется для обозначения **одного конкретного случая в прошлом**.
+
+**Примеры:**
+
+-   Once I saw him in the city. --- Однажды я видел его в городе.
+
+-   Once there lived a king. --- Однажды жил король.
+
+-   Once she forgot her keys. --- Однажды она забыла ключи.
+
+* * * * *
+
+### **2. **
+
+### **get + adverb / adjective**
+
+get часто обозначает **изменение положения или состояния**.
+
+**Примеры:**
+
+-   He got close to the fire. --- Он подошёл близко к огню.
+
+-   She got tired. --- Она устала.
+
+-   The dog got lost. --- Собака потерялась.
+
+* * * * *
+
+### **3. **
+
+### **fall in**
+
+Фразовый глагол со значением **провалиться внутрь чего-то**.
+
+**Примеры:**
+
+-   He fell in the water. --- Он упал в воду.
+
+-   The toy fell in the box. --- Игрушка упала в коробку.
+
+-   She slipped and fell in. --- Она поскользнулась и провалилась.
+
+* * * * *
+
+### **4. **
+
+### **Past Perfect**
+
+### ** --- **
+
+### **had lost**
+
+Используется, чтобы показать, что действие **произошло раньше другого действия в прошлом**.
+
+**Примеры:**
+
+-   She thought she had missed the train. --- Она подумала, что пропустила поезд.
+
+-   He realized he had left the door open. --- Он понял, что оставил дверь открытой.
+
+-   They feared they had lost their way. --- Они боялись, что заблудились.`
 		},
 		{
 			sentence:
 				'But soon she saw one of his ears sticking up through the hole, for the strong pressure of the air was keeping him up so that he could not fall.',
 			translate:
 				'Но вскоре она увидела, как одно его ухо торчит из отверстия: сильное давление воздуха удерживало его и не давало упасть.',
+				analysis: ``
 		},
 		{
 			sentence:
 				'She crept to the hole, caught Toto by the ear, and dragged him into the room again, afterward closing the trap door so that no more accidents could happen.',
 			translate:
 				'Она подползла к отверстию, схватила Тото за ухо и снова втащила его в комнату, после чего закрыла люк, чтобы больше не случилось никаких неприятностей.',
+				analysis: ``
 		},
 		{
 			sentence:
 				'Hour after hour passed away, and slowly Dorothy got over her fright; but she felt quite lonely, and the wind shrieked so loudly all about her that she nearly became deaf.',
 			translate:
 				'Час за часом проходил, и постепенно Дороти отошла от испуга; но ей было очень одиноко, а ветер так громко завывал вокруг, что она почти оглохла.',
+				analysis: ``
 		},
 		{
 			sentence:
 				'At first she had wondered if she would be dashed to pieces when the house fell again; but as the hours passed and nothing terrible happened, she stopped worrying and resolved to wait calmly and see what the future would bring.',
 			translate:
 				'Сначала она думала, не разобьётся ли вдребезги, когда дом снова упадёт; но по мере того как шли часы и ничего страшного не происходило, она перестала тревожиться и решила спокойно подождать и посмотреть, что принесёт будущее.',
+				analysis: ``
 		},
 		{
 			sentence:
 				'At last she crawled over the swaying floor to her bed, and lay down upon it; and Toto followed and lay down beside her.',
 			translate:
 				'Наконец она переползла по качающемуся полу к своей кровати и легла; Тото последовал за ней и улёгся рядом.',
+				analysis: ``
 		},
 		{
 			sentence:
 				'In spite of the swaying of the house and the wailing of the wind, Dorothy soon closed her eyes and fell fast asleep.',
 			translate: 'Несмотря на раскачивание дома и вой ветра, Дороти вскоре закрыла глаза и крепко уснула.',
+			analysis: `**Перевод слов и устойчивых сочетаний**
+---------------------------------------
+
+### **Составные и устойчивые элементы**
+
+*   in spite of — **несмотря на**
+    
+*   the swaying of the house — **качание дома**, **то, как дом раскачивался**
+    
+*   the wailing of the wind — **вой ветра**
+    
+*   fell fast asleep — **крепко заснула**, **быстро погрузилась в сон**
+    
+
+### **Отдельные слова**
+
+*   swaying — **качание, раскачивание**
+    
+*   wailing — **протяжный вой, завывание**
+    
+*   wind — **ветер**
+    
+*   soon — **скоро, вскоре**
+    
+*   closed — **закрыла**
+    
+*   eyes — **глаза**
+    
+
+**Полезные конструкции и шаблоны**
+----------------------------------
+
+### **1.** 
+
+### **in spite of + noun / -ing**
+
+Значение: действие происходит **вопреки** какому-то обстоятельству.
+
+После in spite of используется существительное или форма -ing, а не целое предложение.
+
+**Примеры:**
+
+*   In spite of the rain, we went out. — Несмотря на дождь, мы вышли.
+    
+*   In spite of being tired, he kept working. — Несмотря на усталость, он продолжал работать.
+    
+*   In spite of her fear, she opened the door. — Несмотря на страх, она открыла дверь.
+    
+
+### **2.** 
+
+### **the + noun + of + noun**
+
+###  **(отглагольное существительное)**
+
+the swaying of the house, the wailing of the wind
+
+Глагольное действие выражено существительным и описывает **сам процесс**.
+
+**Примеры:**
+
+*   the sound of the rain — звук дождя
+    
+*   the movement of the train — движение поезда
+    
+*   the shaking of the ground — тряска земли
+    
+
+### **3.** 
+
+### **close one’s eyes**
+
+Устойчивое сочетание: **закрыть глаза** (буквально и в значении «заснуть»).
+
+**Примеры:**
+
+*   She closed her eyes for a moment. — Она закрыла глаза на мгновение.
+    
+*   He closed his eyes and relaxed. — Он закрыл глаза и расслабился.
+    
+
+### **4.** 
+
+### **fall asleep / fall fast asleep**
+
+*   fall asleep — **заснуть**
+    
+*   fast asleep — **крепко спящий**
+    
+
+**Примеры:**
+
+*   The child fell asleep quickly. — Ребёнок быстро заснул.
+    
+*   She was fast asleep when I called. — Она крепко спала, когда я позвонил.
+    
+*   He fell asleep on the sofa. — Он уснул на диване.`
 		},
 	],
 }

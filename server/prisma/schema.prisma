@@ -61,6 +61,7 @@ model BookPrivate {
 
 model BookPublic {
     id          Int           @id @default(autoincrement())
+    language    Language
     cover       String
     author      String
     name        String
@@ -84,20 +85,36 @@ model BookChapter {
 }
 
 model VideoPrivate {
-    id                Int                     @id @default(autoincrement())
-    user              User                    @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    id                Int              @id @default(autoincrement())
+    user              User             @relation(fields: [user_id], references: [id], onDelete: Cascade)
     user_id           Int
     file_name         String?
     file_s3_key       String?
     file_url          String?
-    is_file_uploaded  Boolean                 @default(false)
-    file_size_mb      Int                     @default(0)
+    is_file_uploaded  Boolean          @default(false)
+    file_size_mb      Int              @default(0)
+    name              String?
+    year              Int?
+    original_content  String?
+    processed_content String?
+    content_type      VideoContentType @default(text)
+    created_at        DateTime         @default(now())
+    updated_at        DateTime         @default(now())
+    Subtitle          Subtitle[]
+    Sentence          Sentence[]
+}
+
+model VideoPublic {
+    id                Int              @id @default(autoincrement())
+    language          Language
+    file_s3_key       String?
+    file_url          String?
     name              String?
     original_content  String?
     processed_content String?
-    content_type      VideoPrivateContentType @default(text)
-    created_at        DateTime                @default(now())
-    updated_at        DateTime                @default(now())
+    content_type      VideoContentType @default(text)
+    created_at        DateTime         @default(now())
+    updated_at        DateTime         @default(now())
     Subtitle          Subtitle[]
     Sentence          Sentence[]
 }
@@ -113,6 +130,8 @@ model Sentence {
     order_index          Int
     SubtitleSentenceInit SubtitleSentenceInit[]
     SentenceTranslation  SentenceTranslation[]
+    videoPublic          VideoPublic?           @relation(fields: [videoPublicId], references: [id])
+    videoPublicId        Int?
 }
 
 model SentenceTranslation {
@@ -136,6 +155,8 @@ model Subtitle {
     length               Int
     order_index          Int
     SubtitleSentenceInit SubtitleSentenceInit[]
+    videoPublic          VideoPublic?           @relation(fields: [videoPublicId], references: [id])
+    videoPublicId        Int?
 }
 
 model SubtitleSentenceInit {
@@ -164,7 +185,6 @@ model EngRusDictionary {
 enum BalanceTransactionType {
     TOP_UP
     CHARGE
-    ACCOUNT_CONFIRMATION_WELCOME_BONUS
 }
 
 enum PaymentStatus {
@@ -178,7 +198,22 @@ enum PaymentProviderName {
     YOOKASSA
 }
 
-enum VideoPrivateContentType {
+enum Language {
+    en
+    es
+    fr
+    de
+    it
+    pt
+    ru
+    tr
+    ar
+    zhCMN
+    ko
+    ja
+}
+
+enum VideoContentType {
     text
     subtitles
 }

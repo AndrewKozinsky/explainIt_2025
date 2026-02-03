@@ -32,12 +32,10 @@ implements ICommandHandler<GetSentenceTranslationsBySentenceIdCommand>
 		const isPublicBookChapter = Boolean(sentenceDb.book_chapter?.book_public_id)
 		const isOwnerOfPrivateBook = sentenceDb.book_chapter?.book?.user_id === userId
 		const isOwnerOfVideo = sentenceDb.video_private?.user_id === userId
-		console.log('----------')
 
 		if (!isPublicBookChapter && !isOwnerOfPrivateBook && !isOwnerOfVideo) {
 			throw new CustomGraphQLError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
 		}
-		console.log('===========')
 
 		return await this.sentenceTranslationQueryRepository.getSentenceTranslationsBySentenceId(sentenceId)
 	}

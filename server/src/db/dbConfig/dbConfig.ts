@@ -1,4 +1,7 @@
+import { languages } from '../../utils/languages'
 import { BdConfig } from './dbConfigType'
+
+const languagesArr: string[] = Object.keys(languages)
 
 /**
  * Database structure.
@@ -131,7 +134,7 @@ export const bdConfig = {
 				// TOP_UP — пополнение баланса
 				// CHARGE — списание с баланса
 				// ACCOUNT_CONFIRMATION_WELCOME_BONUS — приветственный бонус за регистрацию
-				variants: ['TOP_UP', 'CHARGE', 'ACCOUNT_CONFIRMATION_WELCOME_BONUS'],
+				variants: ['TOP_UP', 'CHARGE'],
 				enumName: 'BalanceTransactionType',
 			},
 			amount: {
@@ -250,6 +253,12 @@ export const bdConfig = {
 		dbFields: {
 			id: {
 				type: 'index',
+			},
+			language: {
+				type: 'enum',
+				enumName: 'Language',
+				variants: languagesArr,
+				required: true,
 			},
 			cover: {
 				type: 'string',
@@ -402,6 +411,13 @@ export const bdConfig = {
 				required: false,
 				maxLength: 255,
 			},
+			year: {
+				type: 'number',
+				description: 'Year of video release',
+				required: false,
+				max: 2030,
+				min: 1900,
+			},
 			original_content: {
 				type: 'string',
 				description: 'Original subtitles or text of the video provided by user',
@@ -418,7 +434,70 @@ export const bdConfig = {
 				required: true,
 				variants: ['text', 'subtitles'],
 				default: 'text',
-				enumName: 'VideoPrivateContentType',
+				enumName: 'VideoContentType',
+			},
+			created_at: {
+				type: 'createdAt',
+			},
+			updated_at: {
+				type: 'updatedAt',
+			},
+			Subtitle: {
+				type: 'oneToMany',
+			},
+			Sentence: {
+				type: 'oneToMany',
+			},
+		},
+	},
+	VideoPublic: {
+		dtoProps: {},
+		dbFields: {
+			id: {
+				type: 'index',
+			},
+			language: {
+				type: 'enum',
+				enumName: 'Language',
+				variants: languagesArr,
+				required: true,
+			},
+			file_s3_key: {
+				type: 'string',
+				description: 'S3 key',
+				required: false,
+				maxLength: 1000,
+				example: 'video_dev/Zootopia-2016.mp4',
+			},
+			file_url: {
+				type: 'string',
+				description: 'URL of the video',
+				required: false,
+				maxLength: 1000,
+			},
+			name: {
+				type: 'string',
+				description: 'Name of the video',
+				required: false,
+				maxLength: 255,
+			},
+			original_content: {
+				type: 'string',
+				description: 'Original subtitles or text of the video provided by user',
+				required: false,
+			},
+			processed_content: {
+				type: 'string',
+				description: 'Processed subtitles or text of the video (flattened)',
+				required: false,
+			},
+			content_type: {
+				type: 'enum',
+				description: 'Type of content in the video: plain text or subtitles (SRT)',
+				required: true,
+				variants: ['text', 'subtitles'],
+				default: 'text',
+				enumName: 'VideoContentType',
 			},
 			created_at: {
 				type: 'createdAt',

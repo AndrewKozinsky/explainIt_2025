@@ -228,21 +228,38 @@ export type EnumPaymentProviderNameWithAggregatesFilter<$PrismaModel = never> = 
   _max?: Prisma.NestedEnumPaymentProviderNameFilter<$PrismaModel>
 }
 
-export type EnumVideoPrivateContentTypeFilter<$PrismaModel = never> = {
-  equals?: $Enums.VideoPrivateContentType | Prisma.EnumVideoPrivateContentTypeFieldRefInput<$PrismaModel>
-  in?: $Enums.VideoPrivateContentType[] | Prisma.ListEnumVideoPrivateContentTypeFieldRefInput<$PrismaModel>
-  notIn?: $Enums.VideoPrivateContentType[] | Prisma.ListEnumVideoPrivateContentTypeFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumVideoPrivateContentTypeFilter<$PrismaModel> | $Enums.VideoPrivateContentType
+export type EnumLanguageFilter<$PrismaModel = never> = {
+  equals?: $Enums.Language | Prisma.EnumLanguageFieldRefInput<$PrismaModel>
+  in?: $Enums.Language[] | Prisma.ListEnumLanguageFieldRefInput<$PrismaModel>
+  notIn?: $Enums.Language[] | Prisma.ListEnumLanguageFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumLanguageFilter<$PrismaModel> | $Enums.Language
 }
 
-export type EnumVideoPrivateContentTypeWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.VideoPrivateContentType | Prisma.EnumVideoPrivateContentTypeFieldRefInput<$PrismaModel>
-  in?: $Enums.VideoPrivateContentType[] | Prisma.ListEnumVideoPrivateContentTypeFieldRefInput<$PrismaModel>
-  notIn?: $Enums.VideoPrivateContentType[] | Prisma.ListEnumVideoPrivateContentTypeFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumVideoPrivateContentTypeWithAggregatesFilter<$PrismaModel> | $Enums.VideoPrivateContentType
+export type EnumLanguageWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Language | Prisma.EnumLanguageFieldRefInput<$PrismaModel>
+  in?: $Enums.Language[] | Prisma.ListEnumLanguageFieldRefInput<$PrismaModel>
+  notIn?: $Enums.Language[] | Prisma.ListEnumLanguageFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumLanguageWithAggregatesFilter<$PrismaModel> | $Enums.Language
   _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumVideoPrivateContentTypeFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumVideoPrivateContentTypeFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumLanguageFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumLanguageFilter<$PrismaModel>
+}
+
+export type EnumVideoContentTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.VideoContentType | Prisma.EnumVideoContentTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.VideoContentType[] | Prisma.ListEnumVideoContentTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.VideoContentType[] | Prisma.ListEnumVideoContentTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumVideoContentTypeFilter<$PrismaModel> | $Enums.VideoContentType
+}
+
+export type EnumVideoContentTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.VideoContentType | Prisma.EnumVideoContentTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.VideoContentType[] | Prisma.ListEnumVideoContentTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.VideoContentType[] | Prisma.ListEnumVideoContentTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumVideoContentTypeWithAggregatesFilter<$PrismaModel> | $Enums.VideoContentType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumVideoContentTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumVideoContentTypeFilter<$PrismaModel>
 }
 
 export type NestedIntFilter<$PrismaModel = never> = {
@@ -472,21 +489,38 @@ export type NestedEnumPaymentProviderNameWithAggregatesFilter<$PrismaModel = nev
   _max?: Prisma.NestedEnumPaymentProviderNameFilter<$PrismaModel>
 }
 
-export type NestedEnumVideoPrivateContentTypeFilter<$PrismaModel = never> = {
-  equals?: $Enums.VideoPrivateContentType | Prisma.EnumVideoPrivateContentTypeFieldRefInput<$PrismaModel>
-  in?: $Enums.VideoPrivateContentType[] | Prisma.ListEnumVideoPrivateContentTypeFieldRefInput<$PrismaModel>
-  notIn?: $Enums.VideoPrivateContentType[] | Prisma.ListEnumVideoPrivateContentTypeFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumVideoPrivateContentTypeFilter<$PrismaModel> | $Enums.VideoPrivateContentType
+export type NestedEnumLanguageFilter<$PrismaModel = never> = {
+  equals?: $Enums.Language | Prisma.EnumLanguageFieldRefInput<$PrismaModel>
+  in?: $Enums.Language[] | Prisma.ListEnumLanguageFieldRefInput<$PrismaModel>
+  notIn?: $Enums.Language[] | Prisma.ListEnumLanguageFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumLanguageFilter<$PrismaModel> | $Enums.Language
 }
 
-export type NestedEnumVideoPrivateContentTypeWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.VideoPrivateContentType | Prisma.EnumVideoPrivateContentTypeFieldRefInput<$PrismaModel>
-  in?: $Enums.VideoPrivateContentType[] | Prisma.ListEnumVideoPrivateContentTypeFieldRefInput<$PrismaModel>
-  notIn?: $Enums.VideoPrivateContentType[] | Prisma.ListEnumVideoPrivateContentTypeFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumVideoPrivateContentTypeWithAggregatesFilter<$PrismaModel> | $Enums.VideoPrivateContentType
+export type NestedEnumLanguageWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Language | Prisma.EnumLanguageFieldRefInput<$PrismaModel>
+  in?: $Enums.Language[] | Prisma.ListEnumLanguageFieldRefInput<$PrismaModel>
+  notIn?: $Enums.Language[] | Prisma.ListEnumLanguageFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumLanguageWithAggregatesFilter<$PrismaModel> | $Enums.Language
   _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumVideoPrivateContentTypeFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumVideoPrivateContentTypeFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumLanguageFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumLanguageFilter<$PrismaModel>
+}
+
+export type NestedEnumVideoContentTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.VideoContentType | Prisma.EnumVideoContentTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.VideoContentType[] | Prisma.ListEnumVideoContentTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.VideoContentType[] | Prisma.ListEnumVideoContentTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumVideoContentTypeFilter<$PrismaModel> | $Enums.VideoContentType
+}
+
+export type NestedEnumVideoContentTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.VideoContentType | Prisma.EnumVideoContentTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.VideoContentType[] | Prisma.ListEnumVideoContentTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.VideoContentType[] | Prisma.ListEnumVideoContentTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumVideoContentTypeWithAggregatesFilter<$PrismaModel> | $Enums.VideoContentType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumVideoContentTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumVideoContentTypeFilter<$PrismaModel>
 }
 
 
