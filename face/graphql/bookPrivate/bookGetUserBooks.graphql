@@ -3,6 +3,7 @@ query Book_getUserBooks {
 		id
 		author
 		name
+		languageCode
 		note
 		userId
 		chapters {

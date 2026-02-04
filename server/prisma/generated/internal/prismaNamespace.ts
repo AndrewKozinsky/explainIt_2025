@@ -1463,6 +1463,7 @@ export const BookPrivateScalarFieldEnum = {
   user_id: 'user_id',
   author: 'author',
   name: 'name',
+  languageCode: 'languageCode',
   note: 'note',
   created_at: 'created_at'
 } as const
@@ -1472,7 +1473,7 @@ export type BookPrivateScalarFieldEnum = (typeof BookPrivateScalarFieldEnum)[key
 
 export const BookPublicScalarFieldEnum = {
   id: 'id',
-  language: 'language',
+  languageCode: 'languageCode',
   cover: 'cover',
   author: 'author',
   name: 'name',
@@ -1506,6 +1507,7 @@ export const VideoPrivateScalarFieldEnum = {
   is_file_uploaded: 'is_file_uploaded',
   file_size_mb: 'file_size_mb',
   name: 'name',
+  languageCode: 'languageCode',
   year: 'year',
   original_content: 'original_content',
   processed_content: 'processed_content',
@@ -1519,7 +1521,7 @@ export type VideoPrivateScalarFieldEnum = (typeof VideoPrivateScalarFieldEnum)[k
 
 export const VideoPublicScalarFieldEnum = {
   id: 'id',
-  language: 'language',
+  languageCode: 'languageCode',
   file_s3_key: 'file_s3_key',
   file_url: 'file_url',
   name: 'name',
@@ -1717,30 +1719,30 @@ export type ListEnumPaymentProviderNameFieldRefInput<$PrismaModel> = FieldRefInp
 
 
 /**
- * Reference to a field of type 'Language'
+ * Reference to a field of type 'LanguageCode'
  */
-export type EnumLanguageFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Language'>
+export type EnumLanguageCodeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'LanguageCode'>
     
 
 
 /**
- * Reference to a field of type 'Language[]'
+ * Reference to a field of type 'LanguageCode[]'
  */
-export type ListEnumLanguageFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Language[]'>
+export type ListEnumLanguageCodeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'LanguageCode[]'>
     
 
 
 /**
- * Reference to a field of type 'VideoContentType'
+ * Reference to a field of type 'VideoTextType'
  */
-export type EnumVideoContentTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'VideoContentType'>
+export type EnumVideoTextTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'VideoTextType'>
     
 
 
 /**
- * Reference to a field of type 'VideoContentType[]'
+ * Reference to a field of type 'VideoTextType[]'
  */
-export type ListEnumVideoContentTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'VideoContentType[]'>
+export type ListEnumVideoTextTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'VideoTextType[]'>
     
 
 

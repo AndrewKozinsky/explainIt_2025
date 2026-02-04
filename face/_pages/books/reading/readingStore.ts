@@ -39,50 +39,13 @@ export const useReadingStore = create<ReadingStoreNext>()((set, get) => {
 			})
 		},
 		selectWord(input: { sentenceId: number; wordId: number }) {
-			set((baseState) => {
-				return produce(baseState, (draftState) => {
-					const selectedSentenceId = input.sentenceId
-					const selectedWordId = input.wordId
-
-					const selectionObj = { ...draftState.selection }
-
-					// Если ничего не выделяли или выделили слово другого предложения
-					if (selectionObj.sentenceId === null || selectionObj.sentenceId !== selectedSentenceId) {
-						// То выделить это предложение и единственное слово
-						selectionObj.sentenceId = selectedSentenceId
-						selectionObj.wordIds = [selectedWordId]
-					} else {
-						const isAddingMode = useSystemStore.getState().isCmdKeyPressed
-
-						// Если слово уже выделено
-						const isThisWordAlreadySelected = selectionObj.wordIds.includes(selectedWordId)
-
-						// Если слово выделено
-						if (isThisWordAlreadySelected) {
-							if (isAddingMode) {
-								// Убрать идентификатор этого слова из массива выделенных слов
-								selectionObj.wordIds = selectionObj.wordIds.filter(
-									(wordId) => wordId !== selectedWordId,
-								)
-							} else {
-								// Полностью заменить добавленные слова новым
-								selectionObj.wordIds = [selectedWordId]
-							}
-						}
-						// Если слово не выделено
-						else {
-							if (isAddingMode) {
-								// Добавить новое слово к существующим
-								selectionObj.wordIds.push(selectedWordId)
-							} else {
-								// Полностью заменить добавляемое слово существующими
-								selectionObj.wordIds = [selectedWordId]
-							}
-						}
-					}
-
-					draftState.selection = selectionObj
-				})
+			set((state) => {
+				return {
+					selection: {
+						sentenceId: input.sentenceId,
+						wordIds: [input.wordId],
+					},
+				}
 			})
 		},
 	}

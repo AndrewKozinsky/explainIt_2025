@@ -19,6 +19,7 @@ type BookChapterOutModel {
 type BookLiteOutModel {
   author: String
   id: Int!
+  languageCode: String!
   name: String
   note: String
   userId: Int
@@ -28,6 +29,7 @@ type BookOutModel {
   author: String
   chapters: [BookChapterLiteOutModel!]!
   id: Int!
+  languageCode: String!
   name: String
   note: String
   userId: Int!
@@ -38,6 +40,7 @@ type BookPublicOutModel {
   chapters: [BookChapterLiteOutModel!]!
   cover: String!
   id: Int!
+  languageCode: String!
   name: String!
   note: String!
 }
@@ -111,10 +114,12 @@ input CreatePrivateVideoInput {
 type CreateVideoPrivateOutModel {
   contentType: String!
   id: Int!
+  languageCode: String!
   name: String
   originalContent: String
   processedContent: String
   userId: Int!
+  year: Int
 }
 
 input DeleteBookChapterInput {
@@ -393,11 +398,13 @@ type UpdateVideoPrivateOutModel {
   contentType: String!
   fileSizeMb: Int
   id: Int!
+  languageCode: String!
   name: String
   originalContent: String
   processedContent: String
   uploadUrl: String
   userId: Int!
+  year: Int
 }
 
 type UserOutModel {
@@ -415,10 +422,12 @@ type VideoPrivateLiteOutModel {
   fileUrl: String
   id: Int!
   isFileUploaded: Boolean!
+  languageCode: String!
   name: String
   originalContent: String
   processedContent: String
   userId: Int!
+  year: Int
 }
 
 type VideoPrivateOutModel {
@@ -429,6 +438,7 @@ type VideoPrivateOutModel {
   fileUrl: String
   id: Int!
   isFileUploaded: Boolean!
+  languageCode: String!
   name: String
   originalContent: String
   processedContent: String
@@ -436,6 +446,7 @@ type VideoPrivateOutModel {
   subtitleSentenceInit: [SubtitleSentenceInitOutModel!]
   subtitles: [VideoPrivateSubtitleOutModel!]
   userId: Int!
+  year: Int
 }
 
 type VideoPrivateSentenceOutModel {

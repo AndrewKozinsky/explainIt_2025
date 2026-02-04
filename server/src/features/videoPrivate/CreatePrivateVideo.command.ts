@@ -28,6 +28,7 @@ export class CreatePrivateVideoHandler implements ICommandHandler<CreatePrivateV
 		const createdVideo = await this.videoRepository.createVideo({
 			userId,
 			name: createVideoInput.name,
+			languageCode: 'en',
 			originalContent: null,
 			processedContent: null,
 			contentType: 'text',

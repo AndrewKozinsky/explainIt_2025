@@ -5,6 +5,10 @@ import { parseTranslationAndAnalysisSoFar, readTranslationStream } from './trans
 export function useTranslateSentence() {
 	const sentenceId = useSelectedSentenceStore((s) => s.sentenceId)
 	const sentenceText = useSelectedSentenceStore((s) => s.sentenceText)
+	const bookName = useSelectedSentenceStore((s) => s.bookName)
+	const bookAuthor = useSelectedSentenceStore((s) => s.bookAuthor)
+	const videoName = useSelectedSentenceStore((s) => s.videoName)
+	const videoYear = useSelectedSentenceStore((s) => s.videoYear)
 	const updateStore = useSelectedSentenceStore((s) => s.updateStore)
 	const upsertSentenceTranslation = useSelectedSentenceStore((s) => s.upsertSentenceTranslation)
 
@@ -22,6 +26,10 @@ export function useTranslateSentence() {
 			const url = buildTranslateSentenceUrl({
 				sentenceId,
 				text: sentenceText,
+				bookName,
+				bookAuthor,
+				videoName,
+				videoYear,
 			})
 			const result = await readTranslationStream(url, {
 				onPartial: (translation, analysis) => {
@@ -48,7 +56,7 @@ export function useTranslateSentence() {
 			setLoading(false)
 			return
 		},
-		[sentenceId, sentenceText, updateStore, upsertSentenceTranslation],
+		[bookAuthor, bookName, sentenceId, sentenceText, updateStore, upsertSentenceTranslation, videoName, videoYear],
 	)
 
 	return {
@@ -58,11 +66,25 @@ export function useTranslateSentence() {
 	}
 }
 
-function buildTranslateSentenceUrl(input: { sentenceId: number; text: string }) {
+function buildTranslateSentenceUrl(input: {
+	sentenceId: number
+	text: string
+	bookName: null | string
+	bookAuthor: null | string
+	videoName: null | string
+	videoYear: null | string | number
+}) {
 	const url = new URL('/api/translate/sentence/stream', window.location.origin)
 
 	url.searchParams.set('sentenceId', String(input.sentenceId))
 	url.searchParams.set('text', input.text)
+
+	if (input.bookName) url.searchParams.set('bookName', input.bookName)
+	if (input.bookAuthor) url.searchParams.set('bookAuthor', input.bookAuthor)
+	if (input.videoName) url.searchParams.set('videoName', input.videoName)
+	if (input.videoYear !== null && input.videoYear !== undefined) {
+		url.searchParams.set('videoYear', String(input.videoYear))
+	}
 
 	return url.toString()
 }

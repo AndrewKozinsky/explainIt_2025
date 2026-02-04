@@ -34,7 +34,7 @@ export const PaymentProviderName = {
 export type PaymentProviderName = (typeof PaymentProviderName)[keyof typeof PaymentProviderName]
 
 
-export const Language = {
+export const LanguageCode = {
   en: 'en',
   es: 'es',
   fr: 'fr',
@@ -49,12 +49,12 @@ export const Language = {
   ja: 'ja'
 } as const
 
-export type Language = (typeof Language)[keyof typeof Language]
+export type LanguageCode = (typeof LanguageCode)[keyof typeof LanguageCode]
 
 
-export const VideoContentType = {
+export const VideoTextType = {
   text: 'text',
   subtitles: 'subtitles'
 } as const
 
-export type VideoContentType = (typeof VideoContentType)[keyof typeof VideoContentType]
+export type VideoTextType = (typeof VideoTextType)[keyof typeof VideoTextType]

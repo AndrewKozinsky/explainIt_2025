@@ -41,6 +41,7 @@ export type BookLiteOutModel = {
   __typename?: 'BookLiteOutModel';
   author?: Maybe<Scalars['String']['output']>;
   id: Scalars['Int']['output'];
+  languageCode: Scalars['String']['output'];
   name?: Maybe<Scalars['String']['output']>;
   note?: Maybe<Scalars['String']['output']>;
   userId?: Maybe<Scalars['Int']['output']>;
@@ -51,6 +52,7 @@ export type BookOutModel = {
   author?: Maybe<Scalars['String']['output']>;
   chapters: Array<BookChapterLiteOutModel>;
   id: Scalars['Int']['output'];
+  languageCode: Scalars['String']['output'];
   name?: Maybe<Scalars['String']['output']>;
   note?: Maybe<Scalars['String']['output']>;
   userId: Scalars['Int']['output'];
@@ -62,6 +64,7 @@ export type BookPublicOutModel = {
   chapters: Array<BookChapterLiteOutModel>;
   cover: Scalars['String']['output'];
   id: Scalars['Int']['output'];
+  languageCode: Scalars['String']['output'];
   name: Scalars['String']['output'];
   note: Scalars['String']['output'];
 };
@@ -128,10 +131,12 @@ export type CreateVideoPrivateOutModel = {
   __typename?: 'CreateVideoPrivateOutModel';
   contentType: Scalars['String']['output'];
   id: Scalars['Int']['output'];
+  languageCode: Scalars['String']['output'];
   name?: Maybe<Scalars['String']['output']>;
   originalContent?: Maybe<Scalars['String']['output']>;
   processedContent?: Maybe<Scalars['String']['output']>;
   userId: Scalars['Int']['output'];
+  year?: Maybe<Scalars['Int']['output']>;
 };
 
 export type DeleteBookChapterInput = {
@@ -493,11 +498,13 @@ export type UpdateVideoPrivateOutModel = {
   contentType: Scalars['String']['output'];
   fileSizeMb?: Maybe<Scalars['Int']['output']>;
   id: Scalars['Int']['output'];
+  languageCode: Scalars['String']['output'];
   name?: Maybe<Scalars['String']['output']>;
   originalContent?: Maybe<Scalars['String']['output']>;
   processedContent?: Maybe<Scalars['String']['output']>;
   uploadUrl?: Maybe<Scalars['String']['output']>;
   userId: Scalars['Int']['output'];
+  year?: Maybe<Scalars['Int']['output']>;
 };
 
 export type UserOutModel = {
@@ -517,10 +524,12 @@ export type VideoPrivateLiteOutModel = {
   fileUrl?: Maybe<Scalars['String']['output']>;
   id: Scalars['Int']['output'];
   isFileUploaded: Scalars['Boolean']['output'];
+  languageCode: Scalars['String']['output'];
   name?: Maybe<Scalars['String']['output']>;
   originalContent?: Maybe<Scalars['String']['output']>;
   processedContent?: Maybe<Scalars['String']['output']>;
   userId: Scalars['Int']['output'];
+  year?: Maybe<Scalars['Int']['output']>;
 };
 
 export type VideoPrivateOutModel = {
@@ -532,6 +541,7 @@ export type VideoPrivateOutModel = {
   fileUrl?: Maybe<Scalars['String']['output']>;
   id: Scalars['Int']['output'];
   isFileUploaded: Scalars['Boolean']['output'];
+  languageCode: Scalars['String']['output'];
   name?: Maybe<Scalars['String']['output']>;
   originalContent?: Maybe<Scalars['String']['output']>;
   processedContent?: Maybe<Scalars['String']['output']>;
@@ -539,6 +549,7 @@ export type VideoPrivateOutModel = {
   subtitleSentenceInit?: Maybe<Array<SubtitleSentenceInitOutModel>>;
   subtitles?: Maybe<Array<VideoPrivateSubtitleOutModel>>;
   userId: Scalars['Int']['output'];
+  year?: Maybe<Scalars['Int']['output']>;
 };
 
 export type VideoPrivateSentenceOutModel = {
@@ -618,7 +629,7 @@ export type BookChapter_CreateVariables = Exact<{
 }>;
 
 
-export type BookChapter_Create = { __typename?: 'Mutation', book_chapter_create: { __typename?: 'BookChapterOutModel', id: number, name?: string | null, header?: string | null, content?: string | null, note?: string | null, book: { __typename?: 'BookLiteOutModel', id: number, name?: string | null, author?: string | null, note?: string | null, userId?: number | null } } };
+export type BookChapter_Create = { __typename?: 'Mutation', book_chapter_create: { __typename?: 'BookChapterOutModel', id: number, name?: string | null, header?: string | null, content?: string | null, note?: string | null, book: { __typename?: 'BookLiteOutModel', id: number, name?: string | null, languageCode: string, author?: string | null, note?: string | null, userId?: number | null } } };
 
 export type BookChapter_DeleteVariables = Exact<{
   input: DeleteBookChapterInput;
@@ -632,21 +643,21 @@ export type BookChapter_GetVariables = Exact<{
 }>;
 
 
-export type BookChapter_Get = { __typename?: 'Query', book_chapter_get: { __typename?: 'BookChapterOutModel', id: number, name?: string | null, header?: string | null, note?: string | null, content?: string | null, sentences?: Array<{ __typename?: 'SentenceOutModel', id: number, startOffset: number, length: number }> | null, book: { __typename?: 'BookLiteOutModel', id: number, name?: string | null, author?: string | null, note?: string | null, userId?: number | null } } };
+export type BookChapter_Get = { __typename?: 'Query', book_chapter_get: { __typename?: 'BookChapterOutModel', id: number, name?: string | null, header?: string | null, note?: string | null, content?: string | null, sentences?: Array<{ __typename?: 'SentenceOutModel', id: number, startOffset: number, length: number }> | null, book: { __typename?: 'BookLiteOutModel', id: number, name?: string | null, languageCode: string, author?: string | null, note?: string | null, userId?: number | null } } };
 
 export type BookChapter_UpdateVariables = Exact<{
   input: UpdateBookChapterInput;
 }>;
 
 
-export type BookChapter_Update = { __typename?: 'Mutation', book_chapter_update: { __typename?: 'BookChapterOutModel', id: number, name?: string | null, header?: string | null, content?: string | null, note?: string | null, book: { __typename?: 'BookLiteOutModel', id: number, name?: string | null, author?: string | null, note?: string | null, userId?: number | null } } };
+export type BookChapter_Update = { __typename?: 'Mutation', book_chapter_update: { __typename?: 'BookChapterOutModel', id: number, name?: string | null, header?: string | null, content?: string | null, note?: string | null, book: { __typename?: 'BookLiteOutModel', id: number, name?: string | null, languageCode: string, author?: string | null, note?: string | null, userId?: number | null } } };
 
 export type Book_CreateVariables = Exact<{
   input: CreateBookInput;
 }>;
 
 
-export type Book_Create = { __typename?: 'Mutation', book_create: { __typename?: 'BookOutModel', id: number, author?: string | null, name?: string | null, note?: string | null, userId: number, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
+export type Book_Create = { __typename?: 'Mutation', book_create: { __typename?: 'BookOutModel', id: number, author?: string | null, name?: string | null, languageCode: string, note?: string | null, userId: number, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
 
 export type Book_DeleteVariables = Exact<{
   input: DeleteBookInput;
@@ -660,31 +671,31 @@ export type Book_GetVariables = Exact<{
 }>;
 
 
-export type Book_Get = { __typename?: 'Query', book_get: { __typename?: 'BookOutModel', id: number, author?: string | null, name?: string | null, note?: string | null, userId: number, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
+export type Book_Get = { __typename?: 'Query', book_get: { __typename?: 'BookOutModel', id: number, author?: string | null, name?: string | null, languageCode: string, note?: string | null, userId: number, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
 
 export type Book_GetUserBooksVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Book_GetUserBooks = { __typename?: 'Query', book_user_books: Array<{ __typename?: 'BookOutModel', id: number, author?: string | null, name?: string | null, note?: string | null, userId: number, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> }> };
+export type Book_GetUserBooks = { __typename?: 'Query', book_user_books: Array<{ __typename?: 'BookOutModel', id: number, author?: string | null, name?: string | null, languageCode: string, note?: string | null, userId: number, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> }> };
 
 export type Book_UpdateVariables = Exact<{
   input: UpdateBookInput;
 }>;
 
 
-export type Book_Update = { __typename?: 'Mutation', book_update: { __typename?: 'BookOutModel', id: number, author?: string | null, name?: string | null, note?: string | null, userId: number, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
+export type Book_Update = { __typename?: 'Mutation', book_update: { __typename?: 'BookOutModel', id: number, author?: string | null, name?: string | null, languageCode: string, note?: string | null, userId: number, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
 
 export type Book_GetBookPublicVariables = Exact<{
   input: GetBookPublicInput;
 }>;
 
 
-export type Book_GetBookPublic = { __typename?: 'Query', book_public_get_book: { __typename?: 'BookPublicOutModel', id: number, author: string, name: string, note: string, cover: string, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
+export type Book_GetBookPublic = { __typename?: 'Query', book_public_get_book: { __typename?: 'BookPublicOutModel', id: number, author: string, name: string, languageCode: string, note: string, cover: string, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
 
 export type Book_GetBooksPublicVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Book_GetBooksPublic = { __typename?: 'Query', book_public_get_books: Array<{ __typename?: 'BookPublicOutModel', id: number, author: string, name: string, note: string, cover: string, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> }> };
+export type Book_GetBooksPublic = { __typename?: 'Query', book_public_get_books: Array<{ __typename?: 'BookPublicOutModel', id: number, author: string, name: string, languageCode: string, note: string, cover: string, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> }> };
 
 export type Payment_YookassaTopUpBalanceVariables = Exact<{
   input: TopUpBalanceWithYooKassaInput;
@@ -712,7 +723,7 @@ export type VideoPrivate_CreateVariables = Exact<{
 }>;
 
 
-export type VideoPrivate_Create = { __typename?: 'Mutation', video_private_create: { __typename?: 'CreateVideoPrivateOutModel', id: number, name?: string | null, contentType: string, originalContent?: string | null, processedContent?: string | null, userId: number } };
+export type VideoPrivate_Create = { __typename?: 'Mutation', video_private_create: { __typename?: 'CreateVideoPrivateOutModel', id: number, name?: string | null, year?: number | null, languageCode: string, contentType: string, originalContent?: string | null, processedContent?: string | null, userId: number } };
 
 export type VideoPrivate_DeleteVariables = Exact<{
   input: DeletePrivateVideoInput;
@@ -726,19 +737,19 @@ export type VideoPrivate_GetVariables = Exact<{
 }>;
 
 
-export type VideoPrivate_Get = { __typename?: 'Query', video_private_get: { __typename?: 'VideoPrivateOutModel', id: number, name?: string | null, originalContent?: string | null, processedContent?: string | null, contentType: string, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean, fileSizeMb: number, sentences?: Array<{ __typename?: 'VideoPrivateSentenceOutModel', id: number, startOffset: number, length: number, orderIndex: number, sentenceTranslations?: Array<{ __typename?: 'SentenceTranslationLiteOutModel', id: number, translation: string }> | null }> | null, subtitles?: Array<{ __typename?: 'VideoPrivateSubtitleOutModel', id: number, startTimeMs: number, endTimeMs: number, startOffset: number, length: number, orderIndex: number }> | null, subtitleSentenceInit?: Array<{ __typename?: 'SubtitleSentenceInitOutModel', id: number, subtitleId: number, sentenceId: number, startOffset: number, length: number }> | null } };
+export type VideoPrivate_Get = { __typename?: 'Query', video_private_get: { __typename?: 'VideoPrivateOutModel', id: number, name?: string | null, year?: number | null, languageCode: string, originalContent?: string | null, processedContent?: string | null, contentType: string, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean, fileSizeMb: number, sentences?: Array<{ __typename?: 'VideoPrivateSentenceOutModel', id: number, startOffset: number, length: number, orderIndex: number, sentenceTranslations?: Array<{ __typename?: 'SentenceTranslationLiteOutModel', id: number, translation: string }> | null }> | null, subtitles?: Array<{ __typename?: 'VideoPrivateSubtitleOutModel', id: number, startTimeMs: number, endTimeMs: number, startOffset: number, length: number, orderIndex: number }> | null, subtitleSentenceInit?: Array<{ __typename?: 'SubtitleSentenceInitOutModel', id: number, subtitleId: number, sentenceId: number, startOffset: number, length: number }> | null } };
 
 export type VideoPrivate_GetUserVideosVariables = Exact<{ [key: string]: never; }>;
 
 
-export type VideoPrivate_GetUserVideos = { __typename?: 'Query', video_private_user_videos: Array<{ __typename?: 'VideoPrivateLiteOutModel', id: number, name?: string | null, contentType: string, originalContent?: string | null, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean, fileSizeMb: number }> };
+export type VideoPrivate_GetUserVideos = { __typename?: 'Query', video_private_user_videos: Array<{ __typename?: 'VideoPrivateLiteOutModel', id: number, name?: string | null, year?: number | null, languageCode: string, contentType: string, originalContent?: string | null, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean, fileSizeMb: number }> };
 
 export type VideoPrivate_UpdateVariables = Exact<{
   input: UpdatePrivateVideoInput;
 }>;
 
 
-export type VideoPrivate_Update = { __typename?: 'Mutation', video_private_update: { __typename?: 'UpdateVideoPrivateOutModel', id: number, name?: string | null, contentType: string, originalContent?: string | null, processedContent?: string | null, userId: number, uploadUrl?: string | null, fileSizeMb?: number | null } };
+export type VideoPrivate_Update = { __typename?: 'Mutation', video_private_update: { __typename?: 'UpdateVideoPrivateOutModel', id: number, name?: string | null, year?: number | null, languageCode: string, contentType: string, originalContent?: string | null, processedContent?: string | null, userId: number, uploadUrl?: string | null, fileSizeMb?: number | null } };
 
 
 export const AiCheckTranslationDocument = gql`
@@ -1053,6 +1064,7 @@ export const BookChapter_CreateDocument = gql`
     book {
       id
       name
+      languageCode
       author
       note
       userId
@@ -1133,6 +1145,7 @@ export const BookChapter_GetDocument = gql`
     book {
       id
       name
+      languageCode
       author
       note
       userId
@@ -1184,6 +1197,7 @@ export const BookChapter_UpdateDocument = gql`
     book {
       id
       name
+      languageCode
       author
       note
       userId
@@ -1223,6 +1237,7 @@ export const Book_CreateDocument = gql`
     id
     author
     name
+    languageCode
     note
     userId
     chapters {
@@ -1298,6 +1313,7 @@ export const Book_GetDocument = gql`
     id
     author
     name
+    languageCode
     note
     userId
     chapters {
@@ -1349,6 +1365,7 @@ export const Book_GetUserBooksDocument = gql`
     id
     author
     name
+    languageCode
     note
     userId
     chapters {
@@ -1399,6 +1416,7 @@ export const Book_UpdateDocument = gql`
     id
     author
     name
+    languageCode
     note
     userId
     chapters {
@@ -1443,6 +1461,7 @@ export const Book_GetBookPublicDocument = gql`
     id
     author
     name
+    languageCode
     note
     cover
     chapters {
@@ -1494,6 +1513,7 @@ export const Book_GetBooksPublicDocument = gql`
     id
     author
     name
+    languageCode
     note
     cover
     chapters {
@@ -1664,6 +1684,8 @@ export const VideoPrivate_CreateDocument = gql`
   video_private_create(input: $input) {
     id
     name
+    year
+    languageCode
     contentType
     originalContent
     processedContent
@@ -1733,6 +1755,8 @@ export const VideoPrivate_GetDocument = gql`
   video_private_get(input: $input) {
     id
     name
+    year
+    languageCode
     originalContent
     processedContent
     contentType
@@ -1808,6 +1832,8 @@ export const VideoPrivate_GetUserVideosDocument = gql`
   video_private_user_videos {
     id
     name
+    year
+    languageCode
     contentType
     originalContent
     userId
@@ -1856,6 +1882,8 @@ export const VideoPrivate_UpdateDocument = gql`
   video_private_update(input: $input) {
     id
     name
+    year
+    languageCode
     contentType
     originalContent
     processedContent

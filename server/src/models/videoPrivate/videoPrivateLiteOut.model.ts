@@ -11,6 +11,12 @@ export class VideoPrivateLiteOutModel {
 	@Field(() => String, { nullable: true })
 	name: string | null
 
+	@Field(() => Int, { nullable: true })
+	year: number | null
+
+	@Field(() => String)
+	languageCode: string
+
 	@Field(() => String, { nullable: true })
 	originalContent: string | null
 

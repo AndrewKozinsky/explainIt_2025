@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common'
+import { Language } from 'utils/languages'
 import { VideoPrivate } from 'prisma/generated/client'
 import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
@@ -12,6 +13,7 @@ export class VideoPrivateRepository {
 	async createVideo(dto: {
 		userId: number
 		name?: null | string
+		languageCode: Language
 		originalContent?: null | string
 		processedContent?: null | string
 		contentType?: 'text' | 'subtitles'
@@ -24,6 +26,7 @@ export class VideoPrivateRepository {
 				processed_content: dto.processedContent,
 				content_type: dto.contentType,
 				user_id: dto.userId,
+				languageCode: dto.languageCode,
 				file_size_mb: dto.fileSizeMb,
 			},
 		})
@@ -99,6 +102,8 @@ export class VideoPrivateRepository {
 		return {
 			id: dbVideo.id,
 			name: dbVideo.name,
+			year: dbVideo.year,
+			languageCode: dbVideo.languageCode,
 			fileUrl: dbVideo.file_url,
 			originalContent: dbVideo.original_content,
 			processedContent: dbVideo.processed_content,

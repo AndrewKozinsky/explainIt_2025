@@ -234,6 +234,12 @@ export const bdConfig = {
 				required: false,
 				maxLength: 255,
 			},
+			language_code: {
+				type: 'enum',
+				enumName: 'LanguageCode',
+				variants: languagesArr,
+				required: true,
+			},
 			note: {
 				type: 'string',
 				description: 'Note about the book',
@@ -254,9 +260,9 @@ export const bdConfig = {
 			id: {
 				type: 'index',
 			},
-			language: {
+			language_code: {
 				type: 'enum',
-				enumName: 'Language',
+				enumName: 'LanguageCode',
 				variants: languagesArr,
 				required: true,
 			},
@@ -411,6 +417,12 @@ export const bdConfig = {
 				required: false,
 				maxLength: 255,
 			},
+			language_code: {
+				type: 'enum',
+				enumName: 'LanguageCode',
+				variants: languagesArr,
+				required: true,
+			},
 			year: {
 				type: 'number',
 				description: 'Year of video release',
@@ -434,7 +446,7 @@ export const bdConfig = {
 				required: true,
 				variants: ['text', 'subtitles'],
 				default: 'text',
-				enumName: 'VideoContentType',
+				enumName: 'VideoTextType',
 			},
 			created_at: {
 				type: 'createdAt',
@@ -456,9 +468,9 @@ export const bdConfig = {
 			id: {
 				type: 'index',
 			},
-			language: {
+			language_code: {
 				type: 'enum',
-				enumName: 'Language',
+				enumName: 'LanguageCode',
 				variants: languagesArr,
 				required: true,
 			},
@@ -497,7 +509,7 @@ export const bdConfig = {
 				required: true,
 				variants: ['text', 'subtitles'],
 				default: 'text',
-				enumName: 'VideoContentType',
+				enumName: 'VideoTextType',
 			},
 			created_at: {
 				type: 'createdAt',
@@ -582,6 +594,26 @@ export const bdConfig = {
 				required: false,
 				minLength: 2,
 				maxLength: 2,
+			},
+			bookName: {
+				type: 'string',
+				description: 'Name of the book',
+				required: false,
+			},
+			bookAuthor: {
+				type: 'string',
+				description: 'Author of the book',
+				required: false,
+			},
+			videoName: {
+				type: 'string',
+				description: 'Name of the video',
+				required: false,
+			},
+			videoYear: {
+				type: 'number',
+				description: 'Year of video release',
+				required: false,
 			},
 		},
 		indexes: [{ fields: ['sentence_id'] }],

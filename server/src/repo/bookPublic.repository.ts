@@ -19,7 +19,7 @@ export class BookPublicRepository {
 				name: dto.name,
 				note: dto.note,
 				cover: dto.cover,
-				language: dto.lang,
+				languageCode: dto.lang,
 			},
 			include: { BookChapter: true },
 		})
@@ -61,7 +61,7 @@ export class BookPublicRepository {
 			name: dbBook.name,
 			note: dbBook.note,
 			cover: dbBook.cover,
-			lang: dbBook.language,
+			lang: dbBook.languageCode,
 			chapters: dbBook.BookChapter.map((chapter) => ({
 				id: chapter.id,
 				bookId: dbBook.id,

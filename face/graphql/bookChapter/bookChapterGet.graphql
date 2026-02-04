@@ -13,6 +13,7 @@ query BookChapter_get($input: GetBookChapterInput!) {
 		book {
 			id
 			name
+			languageCode
 			author
 			note
 			userId

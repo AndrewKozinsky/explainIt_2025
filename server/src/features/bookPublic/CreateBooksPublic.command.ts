@@ -1,12 +1,13 @@
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+import { BookChapterRepository } from 'repo/bookChapter.repository'
 import { BookPublicRepository } from 'repo/bookPublic.repository'
-import { ImportPublicBookChapterFromSentencesCommand } from 'features/bookPublic/ImportPublicBookChapterFromSentences.command'
+import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter.command'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ChapterData } from './common/common'
 import { CreateBookPublicCommand, CreateBookPublicInput } from './CreateBookPublic.command'
-// import { solomonMinesBookData, solomonMinesChapters } from './solomonMines/solomonMinesBook'
+import { solomonMinesBookData, solomonMinesChapters } from './solomonMines/solomonMinesBook'
 import { wizardOfOzBookData, wizardOfOzChapters } from './wizardOfOz/wizardOfOzBook'
 
 export class CreateBooksPublicCommand implements ICommand {
@@ -18,6 +19,7 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreateBooksPubl
 	constructor(
 		private commandBus: CommandBus,
 		public bookPublicRepository: BookPublicRepository,
+		private bookChapterRepository: BookChapterRepository,
 	) {}
 
 	async execute() {
@@ -33,10 +35,10 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreateBooksPubl
 				book: wizardOfOzBookData,
 				chapters: wizardOfOzChapters,
 			},
-			/*{
+			{
 				book: solomonMinesBookData,
 				chapters: solomonMinesChapters,
-			},*/
+			},
 		]
 	}
 
@@ -47,9 +49,7 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreateBooksPubl
 
 	async createBookOfNotExists(bookData: CreateBookPublicInput) {
 		const existingBook = await this.bookPublicRepository.getBook({ name: bookData.name, author: bookData.author })
-		if (existingBook) {
-			return existingBook.id
-		}
+		if (existingBook) return existingBook.id
 
 		const book = await this.commandBus.execute(new CreateBookPublicCommand(bookData))
 		if (!book) {
@@ -61,10 +61,23 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreateBooksPubl
 
 	async createBookChaptersOfNotExists(bookId: number, chaptersData: ChapterData[]) {
 		for (const bookChapter of chaptersData) {
+			const existingBookChapter = await this.bookChapterRepository.getBookChapter({
+				bookType: 'public',
+				bookId,
+				name: bookChapter.name,
+			})
+			if (existingBookChapter) {
+				continue
+			}
+
 			await this.commandBus.execute(
-				new ImportPublicBookChapterFromSentencesCommand({
+				new CreateBookChapterCommand(null, {
+					bookType: 'public',
 					bookId,
-					chapter: bookChapter,
+					name: bookChapter.name,
+					header: bookChapter.header,
+					content: bookChapter.text,
+					note: null,
 				}),
 			)
 		}

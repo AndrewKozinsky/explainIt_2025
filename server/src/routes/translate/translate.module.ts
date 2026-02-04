@@ -9,8 +9,8 @@ import { TranslateController } from 'routes/translate/translate.controller'
 import { TranslateService } from 'routes/translate/translate.service'
 import { PrismaService } from 'db/prisma.service'
 import { OpenAiTokenUsageBalanceChargeHandler } from 'features/payment/OpenAiTokenUsageBalanceCharge.command'
-import { StreamTranslateWithDeepSeek } from 'features/sentenceTranslation/StreamTranslateWithDeepSeek.service'
-import { TranslateSentenceHandler } from 'features/sentenceTranslation/TranslateSentence.command'
+import { StreamTranslateWithDeepSeek } from 'features/sentenceTranslation/translateSentence/StreamTranslateWithDeepSeek.service'
+import { TranslateSentenceHandler } from 'features/sentenceTranslation/translateSentence/TranslateSentence.command'
 
 const services = [PrismaService, TranslateService]
 const commandHandlers = [TranslateSentenceHandler, OpenAiTokenUsageBalanceChargeHandler]

@@ -128,6 +128,7 @@ export const BookPrivateScalarFieldEnum = {
   user_id: 'user_id',
   author: 'author',
   name: 'name',
+  languageCode: 'languageCode',
   note: 'note',
   created_at: 'created_at'
 } as const
@@ -137,7 +138,7 @@ export type BookPrivateScalarFieldEnum = (typeof BookPrivateScalarFieldEnum)[key
 
 export const BookPublicScalarFieldEnum = {
   id: 'id',
-  language: 'language',
+  languageCode: 'languageCode',
   cover: 'cover',
   author: 'author',
   name: 'name',
@@ -171,6 +172,7 @@ export const VideoPrivateScalarFieldEnum = {
   is_file_uploaded: 'is_file_uploaded',
   file_size_mb: 'file_size_mb',
   name: 'name',
+  languageCode: 'languageCode',
   year: 'year',
   original_content: 'original_content',
   processed_content: 'processed_content',
@@ -184,7 +186,7 @@ export type VideoPrivateScalarFieldEnum = (typeof VideoPrivateScalarFieldEnum)[k
 
 export const VideoPublicScalarFieldEnum = {
   id: 'id',
-  language: 'language',
+  languageCode: 'languageCode',
   file_s3_key: 'file_s3_key',
   file_url: 'file_url',
   name: 'name',

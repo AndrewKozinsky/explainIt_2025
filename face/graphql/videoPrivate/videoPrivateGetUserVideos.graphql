@@ -2,6 +2,8 @@ query VideoPrivate_getUserVideos {
 	video_private_user_videos {
 		id
 		name
+		year
+		languageCode
 		contentType
 		originalContent
 		userId

@@ -3,6 +3,10 @@ import { create } from 'zustand'
 export const selectedSentenceStoreValues: SelectedSentenceStoreValues = {
 	sentenceId: 0,
 	sentenceText: '',
+	bookName: null,
+	bookAuthor: null,
+	videoName: null,
+	videoYear: null,
 	translation: null,
 	analysis: null,
 	sentenceTranslations: [],
@@ -52,6 +56,10 @@ export type SentenceTranslationLite = {
 export type SelectedSentenceStoreValues = {
 	sentenceId: number
 	sentenceText: string
+	bookName: null | string
+	bookAuthor: null | string
+	videoName: null | string
+	videoYear: null | string | number
 	translation: null | string
 	analysis: null | string
 	sentenceTranslations: SentenceTranslationLite[]

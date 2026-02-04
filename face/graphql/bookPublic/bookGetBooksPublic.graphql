@@ -3,6 +3,7 @@ query Book_getBooksPublic {
 		id
 		author
 		name
+		languageCode
 		note
 		cover
 		chapters {

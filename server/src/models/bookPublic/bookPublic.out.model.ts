@@ -18,6 +18,9 @@ export class BookPublicOutModel {
 	@Field(() => String)
 	cover: string
 
+	@Field(() => String)
+	languageCode: string
+
 	@Field(() => [BookChapterLiteOutModel])
 	chapters: BookChapterLiteOutModel[]
 }

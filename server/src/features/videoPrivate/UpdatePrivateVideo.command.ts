@@ -123,6 +123,7 @@ export class UpdatePrivateVideoHandler
 
 		return {
 			...updatedVideo,
+			languageCode: updatedVideo.languageCode,
 			uploadUrl,
 		}
 	}

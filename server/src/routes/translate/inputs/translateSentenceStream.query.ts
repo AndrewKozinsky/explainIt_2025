@@ -13,4 +13,16 @@ export class TranslateSentenceStreamQuery {
 
 	@DtoFieldDecorators('targetLanguageCode', bdConfig.SentenceTranslation.dtoProps.targetLanguageCode)
 	targetLanguageCode?: null | string
+
+	@DtoFieldDecorators('bookName', bdConfig.SentenceTranslation.dtoProps.bookName)
+	bookName?: string
+
+	@DtoFieldDecorators('bookAuthor', bdConfig.SentenceTranslation.dtoProps.bookAuthor)
+	bookAuthor?: string
+
+	@DtoFieldDecorators('videoName', bdConfig.SentenceTranslation.dtoProps.videoName)
+	videoName?: string
+
+	@DtoFieldDecorators('videoYear', bdConfig.SentenceTranslation.dtoProps.videoYear)
+	videoYear?: string | number
 }

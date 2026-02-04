@@ -12,6 +12,9 @@ export class BookOutModel {
 	@Field(() => String, { nullable: true })
 	name: string | null
 
+	@Field(() => String)
+	languageCode: string
+
 	@Field(() => String, { nullable: true })
 	note: string | null
 
@@ -32,6 +35,9 @@ export class BookLiteOutModel {
 
 	@Field(() => String, { nullable: true })
 	name: string | null
+
+	@Field(() => String)
+	languageCode: string
 
 	@Field(() => String, { nullable: true })
 	note: string | null

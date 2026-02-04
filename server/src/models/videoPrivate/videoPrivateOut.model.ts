@@ -1,63 +1,6 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql'
 
 @ObjectType()
-export class VideoPrivateSentenceOutModel {
-	@Field(() => Int)
-	id: number
-
-	@Field(() => [SentenceTranslationLiteOutModel], { nullable: true })
-	sentenceTranslations: SentenceTranslationLiteOutModel[] | null
-
-	@Field(() => Int)
-	startOffset: number
-
-	@Field(() => Int)
-	length: number
-
-	@Field(() => Int)
-	orderIndex: number
-}
-
-@ObjectType()
-export class VideoPrivateSubtitleOutModel {
-	@Field(() => Int)
-	id: number
-
-	@Field(() => Int)
-	startTimeMs: number
-
-	@Field(() => Int)
-	endTimeMs: number
-
-	@Field(() => Int)
-	startOffset: number
-
-	@Field(() => Int)
-	length: number
-
-	@Field(() => Int)
-	orderIndex: number
-}
-
-@ObjectType()
-export class SubtitleSentenceInitOutModel {
-	@Field(() => Int)
-	id: number
-
-	@Field(() => Int)
-	subtitleId: number
-
-	@Field(() => Int)
-	sentenceId: number
-
-	@Field(() => Int)
-	startOffset: number
-
-	@Field(() => Int)
-	length: number
-}
-
-@ObjectType()
 export class VideoPrivateOutModel {
 	@Field(() => Int)
 	id: number
@@ -67,6 +10,12 @@ export class VideoPrivateOutModel {
 
 	@Field(() => String, { nullable: true })
 	name: string | null
+
+	@Field(() => Int, { nullable: true })
+	year: number | null
+
+	@Field(() => String)
+	languageCode: string
 
 	@Field(() => String, { nullable: true })
 	originalContent: string | null
@@ -103,10 +52,67 @@ export class VideoPrivateOutModel {
 }
 
 @ObjectType()
+export class VideoPrivateSentenceOutModel {
+	@Field(() => Int)
+		id: number
+
+	@Field(() => [SentenceTranslationLiteOutModel], { nullable: true })
+		sentenceTranslations: SentenceTranslationLiteOutModel[] | null
+
+	@Field(() => Int)
+		startOffset: number
+
+	@Field(() => Int)
+		length: number
+
+	@Field(() => Int)
+		orderIndex: number
+}
+
+@ObjectType()
+export class VideoPrivateSubtitleOutModel {
+	@Field(() => Int)
+		id: number
+
+	@Field(() => Int)
+		startTimeMs: number
+
+	@Field(() => Int)
+		endTimeMs: number
+
+	@Field(() => Int)
+		startOffset: number
+
+	@Field(() => Int)
+		length: number
+
+	@Field(() => Int)
+		orderIndex: number
+}
+
+@ObjectType()
+export class SubtitleSentenceInitOutModel {
+	@Field(() => Int)
+		id: number
+
+	@Field(() => Int)
+		subtitleId: number
+
+	@Field(() => Int)
+		sentenceId: number
+
+	@Field(() => Int)
+		startOffset: number
+
+	@Field(() => Int)
+		length: number
+}
+
+@ObjectType()
 export class SentenceTranslationLiteOutModel {
 	@Field(() => Int)
-	id: number
+		id: number
 
 	@Field(() => String)
-	translation: string
+		translation: string
 }

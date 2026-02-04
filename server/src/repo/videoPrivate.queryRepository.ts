@@ -59,6 +59,8 @@ export class VideoPrivateQueryRepository {
 		return {
 			id: dbVideo.id,
 			name: dbVideo.name,
+			year: dbVideo.year,
+			languageCode: dbVideo.languageCode,
 			fileName: dbVideo.file_name,
 			fileS3Key: dbVideo.file_s3_key,
 			fileUrl: dbVideo.file_url,
@@ -75,6 +77,8 @@ export class VideoPrivateQueryRepository {
 		const base: Omit<VideoPrivateOutModel, 'sentences' | 'subtitles' | 'subtitleSentenceInit'> = {
 			id: dbVideo.id,
 			name: dbVideo.name,
+			year: dbVideo.year,
+			languageCode: dbVideo.languageCode,
 			fileName: dbVideo.file_name,
 			fileS3Key: dbVideo.file_s3_key,
 			fileUrl: dbVideo.file_url,

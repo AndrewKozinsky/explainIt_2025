@@ -2,6 +2,8 @@ query VideoPrivate_get($input: GetPrivateVideoInput!) {
 	video_private_get(input: $input) {
 		id
 		name
+		year
+		languageCode
 		originalContent
 		processedContent
 		contentType

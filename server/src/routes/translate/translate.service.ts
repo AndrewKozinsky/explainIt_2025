@@ -3,7 +3,7 @@ import { Request, Response } from 'express'
 import {
 	TranslateSentenceHandler,
 	TranslateSentenceStreamEvent,
-} from 'features/sentenceTranslation/TranslateSentence.command'
+} from 'features/sentenceTranslation/translateSentence/TranslateSentence.command'
 
 @Injectable()
 export class TranslateService {
@@ -16,12 +16,15 @@ export class TranslateService {
 			text: string
 			sourceLanguageCode?: null | string
 			targetLanguageCode?: null | string
+			bookName?: string
+			bookAuthor?: string
+			videoName?: string
+			videoYear?: string | number
 		}
 		request: Request
 		response: Response
 	}) {
 		this.setUpSseHeaders(input.response)
-		// const userId: number | undefined = input.request.session?.userId ?? input.request.user?.id
 
 		const abortController = new AbortController()
 		input.request.on('close', () => {

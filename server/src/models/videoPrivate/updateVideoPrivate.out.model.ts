@@ -1,4 +1,5 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql'
+import { Language } from 'utils/languages'
 
 @ObjectType()
 export class UpdateVideoPrivateOutModel {
@@ -7,6 +8,12 @@ export class UpdateVideoPrivateOutModel {
 
 	@Field(() => String, { nullable: true })
 	name: null | string
+
+	@Field(() => Int, { nullable: true })
+	year: null | number
+
+	@Field(() => String)
+	languageCode: Language
 
 	@Field(() => String, { nullable: true })
 	originalContent: null | string

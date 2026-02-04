@@ -131,6 +131,7 @@ export interface BookOutModel {
     id: number;
     author?: Nullable<string>;
     name?: Nullable<string>;
+    languageCode: string;
     note?: Nullable<string>;
     userId: number;
     chapters: BookChapterLiteOutModel[];
@@ -140,6 +141,7 @@ export interface BookLiteOutModel {
     id: number;
     author?: Nullable<string>;
     name?: Nullable<string>;
+    languageCode: string;
     note?: Nullable<string>;
     userId?: Nullable<number>;
 }
@@ -174,6 +176,7 @@ export interface BookPublicOutModel {
     name: string;
     note: string;
     cover: string;
+    languageCode: string;
     chapters: BookChapterLiteOutModel[];
 }
 
@@ -188,6 +191,8 @@ export interface SentenceTranslationOutModel {
 export interface CreateVideoPrivateOutModel {
     id: number;
     name?: Nullable<string>;
+    year?: Nullable<number>;
+    languageCode: string;
     originalContent?: Nullable<string>;
     processedContent?: Nullable<string>;
     contentType: string;
@@ -197,6 +202,8 @@ export interface CreateVideoPrivateOutModel {
 export interface UpdateVideoPrivateOutModel {
     id: number;
     name?: Nullable<string>;
+    year?: Nullable<number>;
+    languageCode: string;
     originalContent?: Nullable<string>;
     processedContent?: Nullable<string>;
     contentType: string;
@@ -209,6 +216,8 @@ export interface VideoPrivateLiteOutModel {
     id: number;
     userId: number;
     name?: Nullable<string>;
+    year?: Nullable<number>;
+    languageCode: string;
     originalContent?: Nullable<string>;
     processedContent?: Nullable<string>;
     contentType: string;
@@ -217,6 +226,25 @@ export interface VideoPrivateLiteOutModel {
     fileUrl?: Nullable<string>;
     isFileUploaded: boolean;
     fileSizeMb: number;
+}
+
+export interface VideoPrivateOutModel {
+    id: number;
+    userId: number;
+    name?: Nullable<string>;
+    year?: Nullable<number>;
+    languageCode: string;
+    originalContent?: Nullable<string>;
+    processedContent?: Nullable<string>;
+    contentType: string;
+    fileName?: Nullable<string>;
+    fileS3Key?: Nullable<string>;
+    fileUrl?: Nullable<string>;
+    isFileUploaded: boolean;
+    fileSizeMb: number;
+    sentences?: Nullable<VideoPrivateSentenceOutModel[]>;
+    subtitles?: Nullable<VideoPrivateSubtitleOutModel[]>;
+    subtitleSentenceInit?: Nullable<SubtitleSentenceInitOutModel[]>;
 }
 
 export interface VideoPrivateSentenceOutModel {
@@ -242,23 +270,6 @@ export interface SubtitleSentenceInitOutModel {
     sentenceId: number;
     startOffset: number;
     length: number;
-}
-
-export interface VideoPrivateOutModel {
-    id: number;
-    userId: number;
-    name?: Nullable<string>;
-    originalContent?: Nullable<string>;
-    processedContent?: Nullable<string>;
-    contentType: string;
-    fileName?: Nullable<string>;
-    fileS3Key?: Nullable<string>;
-    fileUrl?: Nullable<string>;
-    isFileUploaded: boolean;
-    fileSizeMb: number;
-    sentences?: Nullable<VideoPrivateSentenceOutModel[]>;
-    subtitles?: Nullable<VideoPrivateSubtitleOutModel[]>;
-    subtitleSentenceInit?: Nullable<SubtitleSentenceInitOutModel[]>;
 }
 
 export interface SentenceTranslationLiteOutModel {

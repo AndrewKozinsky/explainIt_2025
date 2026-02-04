@@ -64,7 +64,14 @@ export class CreateBookChapterHandler implements ICommandHandler<CreateBookChapt
 			throw new CustomGraphQLError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
 		}
 
-		const newBookChapter = await this.bookChapterRepository.createBookChapter(createBookChapterInput)
+		const newBookChapter = await this.bookChapterRepository.createBookChapter({
+			bookType: createBookChapterInput.bookType,
+			bookId: createBookChapterInput.bookId,
+			name: createBookChapterInput.name,
+			header: createBookChapterInput.header,
+			originalContent: createBookChapterInput.content,
+			note: createBookChapterInput.note,
+		})
 		if (!newBookChapter) {
 			throw new CustomGraphQLError(errorMessage.bookChapter.notCreated, ErrorCode.InternalServerError_500)
 		}

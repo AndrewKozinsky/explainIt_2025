@@ -36,33 +36,33 @@ export type VideoPublicSumAggregateOutputType = {
 
 export type VideoPublicMinAggregateOutputType = {
   id: number | null
-  language: $Enums.Language | null
+  languageCode: $Enums.LanguageCode | null
   file_s3_key: string | null
   file_url: string | null
   name: string | null
   original_content: string | null
   processed_content: string | null
-  content_type: $Enums.VideoContentType | null
+  content_type: $Enums.VideoTextType | null
   created_at: Date | null
   updated_at: Date | null
 }
 
 export type VideoPublicMaxAggregateOutputType = {
   id: number | null
-  language: $Enums.Language | null
+  languageCode: $Enums.LanguageCode | null
   file_s3_key: string | null
   file_url: string | null
   name: string | null
   original_content: string | null
   processed_content: string | null
-  content_type: $Enums.VideoContentType | null
+  content_type: $Enums.VideoTextType | null
   created_at: Date | null
   updated_at: Date | null
 }
 
 export type VideoPublicCountAggregateOutputType = {
   id: number
-  language: number
+  languageCode: number
   file_s3_key: number
   file_url: number
   name: number
@@ -85,7 +85,7 @@ export type VideoPublicSumAggregateInputType = {
 
 export type VideoPublicMinAggregateInputType = {
   id?: true
-  language?: true
+  languageCode?: true
   file_s3_key?: true
   file_url?: true
   name?: true
@@ -98,7 +98,7 @@ export type VideoPublicMinAggregateInputType = {
 
 export type VideoPublicMaxAggregateInputType = {
   id?: true
-  language?: true
+  languageCode?: true
   file_s3_key?: true
   file_url?: true
   name?: true
@@ -111,7 +111,7 @@ export type VideoPublicMaxAggregateInputType = {
 
 export type VideoPublicCountAggregateInputType = {
   id?: true
-  language?: true
+  languageCode?: true
   file_s3_key?: true
   file_url?: true
   name?: true
@@ -211,13 +211,13 @@ export type VideoPublicGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inte
 
 export type VideoPublicGroupByOutputType = {
   id: number
-  language: $Enums.Language
+  languageCode: $Enums.LanguageCode
   file_s3_key: string | null
   file_url: string | null
   name: string | null
   original_content: string | null
   processed_content: string | null
-  content_type: $Enums.VideoContentType
+  content_type: $Enums.VideoTextType
   created_at: Date
   updated_at: Date
   _count: VideoPublicCountAggregateOutputType | null
@@ -247,13 +247,13 @@ export type VideoPublicWhereInput = {
   OR?: Prisma.VideoPublicWhereInput[]
   NOT?: Prisma.VideoPublicWhereInput | Prisma.VideoPublicWhereInput[]
   id?: Prisma.IntFilter<"VideoPublic"> | number
-  language?: Prisma.EnumLanguageFilter<"VideoPublic"> | $Enums.Language
+  languageCode?: Prisma.EnumLanguageCodeFilter<"VideoPublic"> | $Enums.LanguageCode
   file_s3_key?: Prisma.StringNullableFilter<"VideoPublic"> | string | null
   file_url?: Prisma.StringNullableFilter<"VideoPublic"> | string | null
   name?: Prisma.StringNullableFilter<"VideoPublic"> | string | null
   original_content?: Prisma.StringNullableFilter<"VideoPublic"> | string | null
   processed_content?: Prisma.StringNullableFilter<"VideoPublic"> | string | null
-  content_type?: Prisma.EnumVideoContentTypeFilter<"VideoPublic"> | $Enums.VideoContentType
+  content_type?: Prisma.EnumVideoTextTypeFilter<"VideoPublic"> | $Enums.VideoTextType
   created_at?: Prisma.DateTimeFilter<"VideoPublic"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"VideoPublic"> | Date | string
   Subtitle?: Prisma.SubtitleListRelationFilter
@@ -262,7 +262,7 @@ export type VideoPublicWhereInput = {
 
 export type VideoPublicOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  language?: Prisma.SortOrder
+  languageCode?: Prisma.SortOrder
   file_s3_key?: Prisma.SortOrderInput | Prisma.SortOrder
   file_url?: Prisma.SortOrderInput | Prisma.SortOrder
   name?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -280,13 +280,13 @@ export type VideoPublicWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.VideoPublicWhereInput | Prisma.VideoPublicWhereInput[]
   OR?: Prisma.VideoPublicWhereInput[]
   NOT?: Prisma.VideoPublicWhereInput | Prisma.VideoPublicWhereInput[]
-  language?: Prisma.EnumLanguageFilter<"VideoPublic"> | $Enums.Language
+  languageCode?: Prisma.EnumLanguageCodeFilter<"VideoPublic"> | $Enums.LanguageCode
   file_s3_key?: Prisma.StringNullableFilter<"VideoPublic"> | string | null
   file_url?: Prisma.StringNullableFilter<"VideoPublic"> | string | null
   name?: Prisma.StringNullableFilter<"VideoPublic"> | string | null
   original_content?: Prisma.StringNullableFilter<"VideoPublic"> | string | null
   processed_content?: Prisma.StringNullableFilter<"VideoPublic"> | string | null
-  content_type?: Prisma.EnumVideoContentTypeFilter<"VideoPublic"> | $Enums.VideoContentType
+  content_type?: Prisma.EnumVideoTextTypeFilter<"VideoPublic"> | $Enums.VideoTextType
   created_at?: Prisma.DateTimeFilter<"VideoPublic"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"VideoPublic"> | Date | string
   Subtitle?: Prisma.SubtitleListRelationFilter
@@ -295,7 +295,7 @@ export type VideoPublicWhereUniqueInput = Prisma.AtLeast<{
 
 export type VideoPublicOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  language?: Prisma.SortOrder
+  languageCode?: Prisma.SortOrder
   file_s3_key?: Prisma.SortOrderInput | Prisma.SortOrder
   file_url?: Prisma.SortOrderInput | Prisma.SortOrder
   name?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -316,25 +316,25 @@ export type VideoPublicScalarWhereWithAggregatesInput = {
   OR?: Prisma.VideoPublicScalarWhereWithAggregatesInput[]
   NOT?: Prisma.VideoPublicScalarWhereWithAggregatesInput | Prisma.VideoPublicScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"VideoPublic"> | number
-  language?: Prisma.EnumLanguageWithAggregatesFilter<"VideoPublic"> | $Enums.Language
+  languageCode?: Prisma.EnumLanguageCodeWithAggregatesFilter<"VideoPublic"> | $Enums.LanguageCode
   file_s3_key?: Prisma.StringNullableWithAggregatesFilter<"VideoPublic"> | string | null
   file_url?: Prisma.StringNullableWithAggregatesFilter<"VideoPublic"> | string | null
   name?: Prisma.StringNullableWithAggregatesFilter<"VideoPublic"> | string | null
   original_content?: Prisma.StringNullableWithAggregatesFilter<"VideoPublic"> | string | null
   processed_content?: Prisma.StringNullableWithAggregatesFilter<"VideoPublic"> | string | null
-  content_type?: Prisma.EnumVideoContentTypeWithAggregatesFilter<"VideoPublic"> | $Enums.VideoContentType
+  content_type?: Prisma.EnumVideoTextTypeWithAggregatesFilter<"VideoPublic"> | $Enums.VideoTextType
   created_at?: Prisma.DateTimeWithAggregatesFilter<"VideoPublic"> | Date | string
   updated_at?: Prisma.DateTimeWithAggregatesFilter<"VideoPublic"> | Date | string
 }
 
 export type VideoPublicCreateInput = {
-  language: $Enums.Language
+  languageCode: $Enums.LanguageCode
   file_s3_key?: string | null
   file_url?: string | null
   name?: string | null
   original_content?: string | null
   processed_content?: string | null
-  content_type?: $Enums.VideoContentType
+  content_type?: $Enums.VideoTextType
   created_at?: Date | string
   updated_at?: Date | string
   Subtitle?: Prisma.SubtitleCreateNestedManyWithoutVideoPublicInput
@@ -343,13 +343,13 @@ export type VideoPublicCreateInput = {
 
 export type VideoPublicUncheckedCreateInput = {
   id?: number
-  language: $Enums.Language
+  languageCode: $Enums.LanguageCode
   file_s3_key?: string | null
   file_url?: string | null
   name?: string | null
   original_content?: string | null
   processed_content?: string | null
-  content_type?: $Enums.VideoContentType
+  content_type?: $Enums.VideoTextType
   created_at?: Date | string
   updated_at?: Date | string
   Subtitle?: Prisma.SubtitleUncheckedCreateNestedManyWithoutVideoPublicInput
@@ -357,13 +357,13 @@ export type VideoPublicUncheckedCreateInput = {
 }
 
 export type VideoPublicUpdateInput = {
-  language?: Prisma.EnumLanguageFieldUpdateOperationsInput | $Enums.Language
+  languageCode?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  content_type?: Prisma.EnumVideoContentTypeFieldUpdateOperationsInput | $Enums.VideoContentType
+  content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Subtitle?: Prisma.SubtitleUpdateManyWithoutVideoPublicNestedInput
@@ -372,13 +372,13 @@ export type VideoPublicUpdateInput = {
 
 export type VideoPublicUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  language?: Prisma.EnumLanguageFieldUpdateOperationsInput | $Enums.Language
+  languageCode?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  content_type?: Prisma.EnumVideoContentTypeFieldUpdateOperationsInput | $Enums.VideoContentType
+  content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Subtitle?: Prisma.SubtitleUncheckedUpdateManyWithoutVideoPublicNestedInput
@@ -387,45 +387,45 @@ export type VideoPublicUncheckedUpdateInput = {
 
 export type VideoPublicCreateManyInput = {
   id?: number
-  language: $Enums.Language
+  languageCode: $Enums.LanguageCode
   file_s3_key?: string | null
   file_url?: string | null
   name?: string | null
   original_content?: string | null
   processed_content?: string | null
-  content_type?: $Enums.VideoContentType
+  content_type?: $Enums.VideoTextType
   created_at?: Date | string
   updated_at?: Date | string
 }
 
 export type VideoPublicUpdateManyMutationInput = {
-  language?: Prisma.EnumLanguageFieldUpdateOperationsInput | $Enums.Language
+  languageCode?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  content_type?: Prisma.EnumVideoContentTypeFieldUpdateOperationsInput | $Enums.VideoContentType
+  content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type VideoPublicUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  language?: Prisma.EnumLanguageFieldUpdateOperationsInput | $Enums.Language
+  languageCode?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  content_type?: Prisma.EnumVideoContentTypeFieldUpdateOperationsInput | $Enums.VideoContentType
+  content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type VideoPublicCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  language?: Prisma.SortOrder
+  languageCode?: Prisma.SortOrder
   file_s3_key?: Prisma.SortOrder
   file_url?: Prisma.SortOrder
   name?: Prisma.SortOrder
@@ -442,7 +442,7 @@ export type VideoPublicAvgOrderByAggregateInput = {
 
 export type VideoPublicMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  language?: Prisma.SortOrder
+  languageCode?: Prisma.SortOrder
   file_s3_key?: Prisma.SortOrder
   file_url?: Prisma.SortOrder
   name?: Prisma.SortOrder
@@ -455,7 +455,7 @@ export type VideoPublicMaxOrderByAggregateInput = {
 
 export type VideoPublicMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  language?: Prisma.SortOrder
+  languageCode?: Prisma.SortOrder
   file_s3_key?: Prisma.SortOrder
   file_url?: Prisma.SortOrder
   name?: Prisma.SortOrder
@@ -508,13 +508,13 @@ export type VideoPublicUpdateOneWithoutSubtitleNestedInput = {
 }
 
 export type VideoPublicCreateWithoutSentenceInput = {
-  language: $Enums.Language
+  languageCode: $Enums.LanguageCode
   file_s3_key?: string | null
   file_url?: string | null
   name?: string | null
   original_content?: string | null
   processed_content?: string | null
-  content_type?: $Enums.VideoContentType
+  content_type?: $Enums.VideoTextType
   created_at?: Date | string
   updated_at?: Date | string
   Subtitle?: Prisma.SubtitleCreateNestedManyWithoutVideoPublicInput
@@ -522,13 +522,13 @@ export type VideoPublicCreateWithoutSentenceInput = {
 
 export type VideoPublicUncheckedCreateWithoutSentenceInput = {
   id?: number
-  language: $Enums.Language
+  languageCode: $Enums.LanguageCode
   file_s3_key?: string | null
   file_url?: string | null
   name?: string | null
   original_content?: string | null
   processed_content?: string | null
-  content_type?: $Enums.VideoContentType
+  content_type?: $Enums.VideoTextType
   created_at?: Date | string
   updated_at?: Date | string
   Subtitle?: Prisma.SubtitleUncheckedCreateNestedManyWithoutVideoPublicInput
@@ -551,13 +551,13 @@ export type VideoPublicUpdateToOneWithWhereWithoutSentenceInput = {
 }
 
 export type VideoPublicUpdateWithoutSentenceInput = {
-  language?: Prisma.EnumLanguageFieldUpdateOperationsInput | $Enums.Language
+  languageCode?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  content_type?: Prisma.EnumVideoContentTypeFieldUpdateOperationsInput | $Enums.VideoContentType
+  content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Subtitle?: Prisma.SubtitleUpdateManyWithoutVideoPublicNestedInput
@@ -565,26 +565,26 @@ export type VideoPublicUpdateWithoutSentenceInput = {
 
 export type VideoPublicUncheckedUpdateWithoutSentenceInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  language?: Prisma.EnumLanguageFieldUpdateOperationsInput | $Enums.Language
+  languageCode?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  content_type?: Prisma.EnumVideoContentTypeFieldUpdateOperationsInput | $Enums.VideoContentType
+  content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Subtitle?: Prisma.SubtitleUncheckedUpdateManyWithoutVideoPublicNestedInput
 }
 
 export type VideoPublicCreateWithoutSubtitleInput = {
-  language: $Enums.Language
+  languageCode: $Enums.LanguageCode
   file_s3_key?: string | null
   file_url?: string | null
   name?: string | null
   original_content?: string | null
   processed_content?: string | null
-  content_type?: $Enums.VideoContentType
+  content_type?: $Enums.VideoTextType
   created_at?: Date | string
   updated_at?: Date | string
   Sentence?: Prisma.SentenceCreateNestedManyWithoutVideoPublicInput
@@ -592,13 +592,13 @@ export type VideoPublicCreateWithoutSubtitleInput = {
 
 export type VideoPublicUncheckedCreateWithoutSubtitleInput = {
   id?: number
-  language: $Enums.Language
+  languageCode: $Enums.LanguageCode
   file_s3_key?: string | null
   file_url?: string | null
   name?: string | null
   original_content?: string | null
   processed_content?: string | null
-  content_type?: $Enums.VideoContentType
+  content_type?: $Enums.VideoTextType
   created_at?: Date | string
   updated_at?: Date | string
   Sentence?: Prisma.SentenceUncheckedCreateNestedManyWithoutVideoPublicInput
@@ -621,13 +621,13 @@ export type VideoPublicUpdateToOneWithWhereWithoutSubtitleInput = {
 }
 
 export type VideoPublicUpdateWithoutSubtitleInput = {
-  language?: Prisma.EnumLanguageFieldUpdateOperationsInput | $Enums.Language
+  languageCode?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  content_type?: Prisma.EnumVideoContentTypeFieldUpdateOperationsInput | $Enums.VideoContentType
+  content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Sentence?: Prisma.SentenceUpdateManyWithoutVideoPublicNestedInput
@@ -635,13 +635,13 @@ export type VideoPublicUpdateWithoutSubtitleInput = {
 
 export type VideoPublicUncheckedUpdateWithoutSubtitleInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  language?: Prisma.EnumLanguageFieldUpdateOperationsInput | $Enums.Language
+  languageCode?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  content_type?: Prisma.EnumVideoContentTypeFieldUpdateOperationsInput | $Enums.VideoContentType
+  content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutVideoPublicNestedInput
@@ -689,7 +689,7 @@ export type VideoPublicCountOutputTypeCountSentenceArgs<ExtArgs extends runtime.
 
 export type VideoPublicSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  language?: boolean
+  languageCode?: boolean
   file_s3_key?: boolean
   file_url?: boolean
   name?: boolean
@@ -705,7 +705,7 @@ export type VideoPublicSelect<ExtArgs extends runtime.Types.Extensions.InternalA
 
 export type VideoPublicSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  language?: boolean
+  languageCode?: boolean
   file_s3_key?: boolean
   file_url?: boolean
   name?: boolean
@@ -718,7 +718,7 @@ export type VideoPublicSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
 
 export type VideoPublicSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  language?: boolean
+  languageCode?: boolean
   file_s3_key?: boolean
   file_url?: boolean
   name?: boolean
@@ -731,7 +731,7 @@ export type VideoPublicSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
 
 export type VideoPublicSelectScalar = {
   id?: boolean
-  language?: boolean
+  languageCode?: boolean
   file_s3_key?: boolean
   file_url?: boolean
   name?: boolean
@@ -742,7 +742,7 @@ export type VideoPublicSelectScalar = {
   updated_at?: boolean
 }
 
-export type VideoPublicOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "language" | "file_s3_key" | "file_url" | "name" | "original_content" | "processed_content" | "content_type" | "created_at" | "updated_at", ExtArgs["result"]["videoPublic"]>
+export type VideoPublicOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "languageCode" | "file_s3_key" | "file_url" | "name" | "original_content" | "processed_content" | "content_type" | "created_at" | "updated_at", ExtArgs["result"]["videoPublic"]>
 export type VideoPublicInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   Subtitle?: boolean | Prisma.VideoPublic$SubtitleArgs<ExtArgs>
   Sentence?: boolean | Prisma.VideoPublic$SentenceArgs<ExtArgs>
@@ -759,13 +759,13 @@ export type $VideoPublicPayload<ExtArgs extends runtime.Types.Extensions.Interna
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
-    language: $Enums.Language
+    languageCode: $Enums.LanguageCode
     file_s3_key: string | null
     file_url: string | null
     name: string | null
     original_content: string | null
     processed_content: string | null
-    content_type: $Enums.VideoContentType
+    content_type: $Enums.VideoTextType
     created_at: Date
     updated_at: Date
   }, ExtArgs["result"]["videoPublic"]>
@@ -1194,13 +1194,13 @@ export interface Prisma__VideoPublicClient<T, Null = never, ExtArgs extends runt
  */
 export interface VideoPublicFieldRefs {
   readonly id: Prisma.FieldRef<"VideoPublic", 'Int'>
-  readonly language: Prisma.FieldRef<"VideoPublic", 'Language'>
+  readonly languageCode: Prisma.FieldRef<"VideoPublic", 'LanguageCode'>
   readonly file_s3_key: Prisma.FieldRef<"VideoPublic", 'String'>
   readonly file_url: Prisma.FieldRef<"VideoPublic", 'String'>
   readonly name: Prisma.FieldRef<"VideoPublic", 'String'>
   readonly original_content: Prisma.FieldRef<"VideoPublic", 'String'>
   readonly processed_content: Prisma.FieldRef<"VideoPublic", 'String'>
-  readonly content_type: Prisma.FieldRef<"VideoPublic", 'VideoContentType'>
+  readonly content_type: Prisma.FieldRef<"VideoPublic", 'VideoTextType'>
   readonly created_at: Prisma.FieldRef<"VideoPublic", 'DateTime'>
   readonly updated_at: Prisma.FieldRef<"VideoPublic", 'DateTime'>
 }
