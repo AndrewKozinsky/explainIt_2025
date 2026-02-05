@@ -102,6 +102,15 @@ export class MainConfigService {
 					key: enVariables.yandexCloud.dictionary.key,
 				},
 			},
+			cloudRu: {
+				s3: {
+					keyId: enVariables.cloudRu.keyId,
+					secretKey: enVariables.cloudRu.secretKey,
+					bucketName: 'explain',
+					bucketUrl: 'https://s3.cloud.ru/explain',
+					tenantId: enVariables.cloudRu.s3.tenantId,
+				},
+			},
 			// Python container with NLP service
 			nlp: {
 				containerUrl: `http://explainnlp${enVariables.mode}:8000`,
@@ -166,6 +175,13 @@ export class MainConfigService {
 				},
 				dictionary: {
 					key: this.configService.get<string>('YANDEX_DICTIONARY_KEY') as string,
+				},
+			},
+			cloudRu: {
+				keyId: this.configService.get<string>('CLOUD_RU_KEY_ID') as string,
+				secretKey: this.configService.get<string>('CLOUD_RU_SECRET_KEY') as string,
+				s3: {
+					tenantId: this.configService.get<string>('CLOUD_RU_S3_TENANT_ID') as string,
 				},
 			},
 		}

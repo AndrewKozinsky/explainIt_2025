@@ -9,6 +9,8 @@ import { BookPublicModule } from 'routes/bookPublic/bookPublic.module'
 import { SentenceTranslationModule } from 'routes/sentenceTranslation/sentenceTranslation.module'
 import { TranslateRouteModule } from 'routes/translate/translate.module'
 import { VideoPrivateModule } from 'routes/videoPrivate/videoPrivate.module'
+import { CloudRuS3Module } from 'infrastructure/cloudRuS3/cloudRuS3.module'
+import { DeepSeekModule } from 'infrastructure/deepSeek/deepSeek.module'
 import { StartServerTasksRunner } from 'infrastructure/StartServerTasksRunner'
 import { YandexCloudS3Module } from 'infrastructure/yandexCloudS3/yandexCloudS3.module'
 import { YandexDictionaryModule } from 'infrastructure/yandexDictionary/yandexDictionary.module'
@@ -16,7 +18,6 @@ import { YandexTranslateModule } from 'infrastructure/yandexTranslate/yandexTran
 import { EmailAdapterModule } from './infrastructure/emailAdapter/email-adapter.module'
 import { GigaChatModule } from './infrastructure/gigaChat/gigaChat.module'
 import { HashAdapterModule } from './infrastructure/hashAdapter/hash-adapter.module'
-import { DeepSeekModule } from './infrastructure/deepSeek/deepSeek.module'
 import { MainConfigModule } from './infrastructure/mainConfig/mainConfig.module'
 import { MainConfigService } from './infrastructure/mainConfig/mainConfig.service'
 import { OpenAIModule } from './infrastructure/openAI/openAI.module'
@@ -64,6 +65,7 @@ import { WebhookModule } from './routes/webhook/webhook.module'
 		GigaChatModule,
 		OpenAIModule,
 		DeepSeekModule,
+		CloudRuS3Module,
 		YandexCloudS3Module,
 		YandexDictionaryModule,
 		YandexTranslateModule,
