@@ -1,0 +1,14 @@
+query VideoPublic_getVideos {
+	video_public_get_videos {
+		id
+		name
+		year
+		languageCode
+		originalContent
+		processedContent
+		contentType
+		fileName
+		fileS3Key
+		fileUrl
+	}
+}

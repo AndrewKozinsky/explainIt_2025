@@ -160,6 +160,11 @@ input GetPrivateVideoInput {
   id: Int!
 }
 
+input GetPublicVideoInput {
+  """Video id"""
+  id: Int!
+}
+
 input GetSentenceTranslationInput {
   """SentenceTranslation id"""
   id: Int!
@@ -289,6 +294,12 @@ type Query {
 
   """Get user videos"""
   video_private_user_videos: [VideoPrivateLiteOutModel!]!
+
+  """Get public video"""
+  video_public_get(input: GetPublicVideoInput!): VideoPublicOutModel!
+
+  """Get public videos"""
+  video_public_get_videos: [VideoPublicLiteOutModel!]!
 }
 
 input RegisterUserInput {
@@ -458,6 +469,52 @@ type VideoPrivateSentenceOutModel {
 }
 
 type VideoPrivateSubtitleOutModel {
+  endTimeMs: Int!
+  id: Int!
+  length: Int!
+  orderIndex: Int!
+  startOffset: Int!
+  startTimeMs: Int!
+}
+
+type VideoPublicLiteOutModel {
+  contentType: String!
+  fileName: String!
+  fileS3Key: String!
+  fileUrl: String!
+  id: Int!
+  languageCode: String!
+  name: String!
+  originalContent: String!
+  processedContent: String!
+  year: Int
+}
+
+type VideoPublicOutModel {
+  contentType: String!
+  fileName: String!
+  fileS3Key: String!
+  fileUrl: String!
+  id: Int!
+  languageCode: String!
+  name: String!
+  originalContent: String!
+  processedContent: String!
+  sentences: [VideoPublicSentenceOutModel!]
+  subtitleSentenceInit: [SubtitleSentenceInitOutModel!]
+  subtitles: [VideoPublicSubtitleOutModel!]
+  year: Int
+}
+
+type VideoPublicSentenceOutModel {
+  id: Int!
+  length: Int!
+  orderIndex: Int!
+  sentenceTranslations: [SentenceTranslationLiteOutModel!]
+  startOffset: Int!
+}
+
+type VideoPublicSubtitleOutModel {
   endTimeMs: Int!
   id: Int!
   length: Int!

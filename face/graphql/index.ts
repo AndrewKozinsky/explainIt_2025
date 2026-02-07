@@ -176,6 +176,11 @@ export type GetPrivateVideoInput = {
   id: Scalars['Int']['input'];
 };
 
+export type GetPublicVideoInput = {
+  /** Video id */
+  id: Scalars['Int']['input'];
+};
+
 export type GetSentenceTranslationInput = {
   /** SentenceTranslation id */
   id: Scalars['Int']['input'];
@@ -357,6 +362,10 @@ export type Query = {
   video_private_get: VideoPrivateOutModel;
   /** Get user videos */
   video_private_user_videos: Array<VideoPrivateLiteOutModel>;
+  /** Get public video */
+  video_public_get: VideoPublicOutModel;
+  /** Get public videos */
+  video_public_get_videos: Array<VideoPublicLiteOutModel>;
 };
 
 
@@ -397,6 +406,11 @@ export type QuerySentence_Translation_Get_By_Sentence_IdArgs = {
 
 export type QueryVideo_Private_GetArgs = {
   input: GetPrivateVideoInput;
+};
+
+
+export type QueryVideo_Public_GetArgs = {
+  input: GetPublicVideoInput;
 };
 
 export type RegisterUserInput = {
@@ -563,6 +577,56 @@ export type VideoPrivateSentenceOutModel = {
 
 export type VideoPrivateSubtitleOutModel = {
   __typename?: 'VideoPrivateSubtitleOutModel';
+  endTimeMs: Scalars['Int']['output'];
+  id: Scalars['Int']['output'];
+  length: Scalars['Int']['output'];
+  orderIndex: Scalars['Int']['output'];
+  startOffset: Scalars['Int']['output'];
+  startTimeMs: Scalars['Int']['output'];
+};
+
+export type VideoPublicLiteOutModel = {
+  __typename?: 'VideoPublicLiteOutModel';
+  contentType: Scalars['String']['output'];
+  fileName: Scalars['String']['output'];
+  fileS3Key: Scalars['String']['output'];
+  fileUrl: Scalars['String']['output'];
+  id: Scalars['Int']['output'];
+  languageCode: Scalars['String']['output'];
+  name: Scalars['String']['output'];
+  originalContent: Scalars['String']['output'];
+  processedContent: Scalars['String']['output'];
+  year?: Maybe<Scalars['Int']['output']>;
+};
+
+export type VideoPublicOutModel = {
+  __typename?: 'VideoPublicOutModel';
+  contentType: Scalars['String']['output'];
+  fileName: Scalars['String']['output'];
+  fileS3Key: Scalars['String']['output'];
+  fileUrl: Scalars['String']['output'];
+  id: Scalars['Int']['output'];
+  languageCode: Scalars['String']['output'];
+  name: Scalars['String']['output'];
+  originalContent: Scalars['String']['output'];
+  processedContent: Scalars['String']['output'];
+  sentences?: Maybe<Array<VideoPublicSentenceOutModel>>;
+  subtitleSentenceInit?: Maybe<Array<SubtitleSentenceInitOutModel>>;
+  subtitles?: Maybe<Array<VideoPublicSubtitleOutModel>>;
+  year?: Maybe<Scalars['Int']['output']>;
+};
+
+export type VideoPublicSentenceOutModel = {
+  __typename?: 'VideoPublicSentenceOutModel';
+  id: Scalars['Int']['output'];
+  length: Scalars['Int']['output'];
+  orderIndex: Scalars['Int']['output'];
+  sentenceTranslations?: Maybe<Array<SentenceTranslationLiteOutModel>>;
+  startOffset: Scalars['Int']['output'];
+};
+
+export type VideoPublicSubtitleOutModel = {
+  __typename?: 'VideoPublicSubtitleOutModel';
   endTimeMs: Scalars['Int']['output'];
   id: Scalars['Int']['output'];
   length: Scalars['Int']['output'];
@@ -750,6 +814,18 @@ export type VideoPrivate_UpdateVariables = Exact<{
 
 
 export type VideoPrivate_Update = { __typename?: 'Mutation', video_private_update: { __typename?: 'UpdateVideoPrivateOutModel', id: number, name?: string | null, year?: number | null, languageCode: string, contentType: string, originalContent?: string | null, processedContent?: string | null, userId: number, uploadUrl?: string | null, fileSizeMb?: number | null } };
+
+export type VideoPublic_GetVariables = Exact<{
+  input: GetPublicVideoInput;
+}>;
+
+
+export type VideoPublic_Get = { __typename?: 'Query', video_public_get: { __typename?: 'VideoPublicOutModel', id: number, name: string, year?: number | null, languageCode: string, originalContent: string, processedContent: string, contentType: string, fileName: string, fileS3Key: string, fileUrl: string, sentences?: Array<{ __typename?: 'VideoPublicSentenceOutModel', id: number, startOffset: number, length: number, orderIndex: number, sentenceTranslations?: Array<{ __typename?: 'SentenceTranslationLiteOutModel', id: number, translation: string }> | null }> | null, subtitles?: Array<{ __typename?: 'VideoPublicSubtitleOutModel', id: number, startTimeMs: number, endTimeMs: number, startOffset: number, length: number, orderIndex: number }> | null, subtitleSentenceInit?: Array<{ __typename?: 'SubtitleSentenceInitOutModel', id: number, subtitleId: number, sentenceId: number, startOffset: number, length: number }> | null } };
+
+export type VideoPublic_GetVideosVariables = Exact<{ [key: string]: never; }>;
+
+
+export type VideoPublic_GetVideos = { __typename?: 'Query', video_public_get_videos: Array<{ __typename?: 'VideoPublicLiteOutModel', id: number, name: string, year?: number | null, languageCode: string, originalContent: string, processedContent: string, contentType: string, fileName: string, fileS3Key: string, fileUrl: string }> };
 
 
 export const AiCheckTranslationDocument = gql`
@@ -1919,3 +1995,125 @@ export function useVideoPrivate_Update(baseOptions?: Apollo.MutationHookOptions<
 export type VideoPrivate_UpdateHookResult = ReturnType<typeof useVideoPrivate_Update>;
 export type VideoPrivate_UpdateMutationResult = Apollo.MutationResult<VideoPrivate_Update>;
 export type VideoPrivate_UpdateMutationOptions = Apollo.BaseMutationOptions<VideoPrivate_Update, VideoPrivate_UpdateVariables>;
+export const VideoPublic_GetDocument = gql`
+    query VideoPublic_get($input: GetPublicVideoInput!) {
+  video_public_get(input: $input) {
+    id
+    name
+    year
+    languageCode
+    originalContent
+    processedContent
+    contentType
+    fileName
+    fileS3Key
+    fileUrl
+    sentences {
+      id
+      startOffset
+      length
+      orderIndex
+      sentenceTranslations {
+        id
+        translation
+      }
+    }
+    subtitles {
+      id
+      startTimeMs
+      endTimeMs
+      startOffset
+      length
+      orderIndex
+    }
+    subtitleSentenceInit {
+      id
+      subtitleId
+      sentenceId
+      startOffset
+      length
+    }
+  }
+}
+    `;
+
+/**
+ * __useVideoPublic_Get__
+ *
+ * To run a query within a React component, call `useVideoPublic_Get` and pass it any options that fit your needs.
+ * When your component renders, `useVideoPublic_Get` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useVideoPublic_Get({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useVideoPublic_Get(baseOptions: Apollo.QueryHookOptions<VideoPublic_Get, VideoPublic_GetVariables> & ({ variables: VideoPublic_GetVariables; skip?: boolean; } | { skip: boolean; }) ) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<VideoPublic_Get, VideoPublic_GetVariables>(VideoPublic_GetDocument, options);
+      }
+export function useVideoPublic_GetLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<VideoPublic_Get, VideoPublic_GetVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<VideoPublic_Get, VideoPublic_GetVariables>(VideoPublic_GetDocument, options);
+        }
+export function useVideoPublic_GetSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<VideoPublic_Get, VideoPublic_GetVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<VideoPublic_Get, VideoPublic_GetVariables>(VideoPublic_GetDocument, options);
+        }
+export type VideoPublic_GetHookResult = ReturnType<typeof useVideoPublic_Get>;
+export type VideoPublic_GetLazyQueryHookResult = ReturnType<typeof useVideoPublic_GetLazyQuery>;
+export type VideoPublic_GetSuspenseQueryHookResult = ReturnType<typeof useVideoPublic_GetSuspenseQuery>;
+export type VideoPublic_GetQueryResult = Apollo.QueryResult<VideoPublic_Get, VideoPublic_GetVariables>;
+export const VideoPublic_GetVideosDocument = gql`
+    query VideoPublic_getVideos {
+  video_public_get_videos {
+    id
+    name
+    year
+    languageCode
+    originalContent
+    processedContent
+    contentType
+    fileName
+    fileS3Key
+    fileUrl
+  }
+}
+    `;
+
+/**
+ * __useVideoPublic_GetVideos__
+ *
+ * To run a query within a React component, call `useVideoPublic_GetVideos` and pass it any options that fit your needs.
+ * When your component renders, `useVideoPublic_GetVideos` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useVideoPublic_GetVideos({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useVideoPublic_GetVideos(baseOptions?: Apollo.QueryHookOptions<VideoPublic_GetVideos, VideoPublic_GetVideosVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<VideoPublic_GetVideos, VideoPublic_GetVideosVariables>(VideoPublic_GetVideosDocument, options);
+      }
+export function useVideoPublic_GetVideosLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<VideoPublic_GetVideos, VideoPublic_GetVideosVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<VideoPublic_GetVideos, VideoPublic_GetVideosVariables>(VideoPublic_GetVideosDocument, options);
+        }
+export function useVideoPublic_GetVideosSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<VideoPublic_GetVideos, VideoPublic_GetVideosVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<VideoPublic_GetVideos, VideoPublic_GetVideosVariables>(VideoPublic_GetVideosDocument, options);
+        }
+export type VideoPublic_GetVideosHookResult = ReturnType<typeof useVideoPublic_GetVideos>;
+export type VideoPublic_GetVideosLazyQueryHookResult = ReturnType<typeof useVideoPublic_GetVideosLazyQuery>;
+export type VideoPublic_GetVideosSuspenseQueryHookResult = ReturnType<typeof useVideoPublic_GetVideosSuspenseQuery>;
+export type VideoPublic_GetVideosQueryResult = Apollo.QueryResult<VideoPublic_GetVideos, VideoPublic_GetVideosVariables>;
