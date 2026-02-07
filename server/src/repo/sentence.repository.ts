@@ -32,6 +32,7 @@ export class SentenceRepository {
 		length: number
 		bookChapterId?: number
 		videoPrivateId?: number
+		videoPublicId?: number
 		orderIndex: number
 	}) {
 		const newSentence = await this.prisma.sentence.create({
@@ -40,6 +41,7 @@ export class SentenceRepository {
 				length: dto.length,
 				book_chapter_id: dto.bookChapterId,
 				video_private_id: dto.videoPrivateId,
+				videoPublicId: dto.videoPublicId,
 				order_index: dto.orderIndex,
 			},
 		})
@@ -60,6 +62,15 @@ export class SentenceRepository {
 	async deleteByVideoPrivateId(videoPrivateId: number): Promise<number> {
 		const res = await this.prisma.sentence.deleteMany({
 			where: { video_private_id: videoPrivateId },
+		})
+
+		return res.count
+	}
+
+	@CatchDbError()
+	async deleteByVideoPublicId(videoPublicId: number): Promise<number> {
+		const res = await this.prisma.sentence.deleteMany({
+			where: { videoPublicId },
 		})
 
 		return res.count

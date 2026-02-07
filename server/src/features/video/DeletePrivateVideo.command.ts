@@ -1,5 +1,5 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { VideoPrivateRepository } from 'repo/videoPrivate.repository'
+import { VideoPrivateRepository } from 'repo/video/videoPrivate.repository'
 import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'

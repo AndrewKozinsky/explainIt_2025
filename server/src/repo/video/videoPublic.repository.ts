@@ -1,111 +1,92 @@
 import { Injectable } from '@nestjs/common'
 import { Language } from 'utils/languages'
+import { PrismaService } from 'db/prisma.service'
 import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
-import { VideoPrivate, S3ProviderName } from 'prisma/generated/client'
-import { PrismaService } from '../db/prisma.service'
-import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
-import { VideoPrivateServiceModel } from '../models/videoPrivate/videoPrivate.service.model'
+import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
+import { VideoPublicServiceModel } from 'models/videoPublic/videoPublic.service.model'
+import { S3ProviderName, VideoPublic } from 'prisma/generated/client'
 
 @Injectable()
-export class VideoPrivateRepository {
+export class VideoPublicRepository {
 	constructor(
 		private prisma: PrismaService,
 		private cloudRuS3Service: CloudRuS3Service,
 	) {}
 
+	// TODO: fileName, fileS3Key, fileUrl, originalContent, processedContent are always have value!
 	@CatchDbError()
 	async createVideo(dto: {
-		userId: number
 		name?: null | string
 		languageCode: Language
+		year?: null | number
 		originalContent?: null | string
 		processedContent?: null | string
 		contentType?: 'text' | 'subtitles'
+		fileName?: null | string
+		fileS3Key?: null | string
 		s3ProviderName?: null | S3ProviderName
-		fileSizeMb?: number
 	}) {
-		const newVideo = await this.prisma.videoPrivate.create({
+		const newVideo = await this.prisma.videoPublic.create({
 			data: {
 				name: dto.name,
+				language_code: dto.languageCode,
+				year: dto.year ?? null,
 				original_content: dto.originalContent,
 				processed_content: dto.processedContent,
 				content_type: dto.contentType,
-				user_id: dto.userId,
+				file_name: dto.fileName,
+				file_s3_key: dto.fileS3Key,
 				s3_provider_name: dto.s3ProviderName,
-				language_code: dto.languageCode,
-				file_size_mb: dto.fileSizeMb,
 			},
 		})
 
 		return this.mapDbVideoToServiceVideo(newVideo)
 	}
 
+	// TODO: fileName, fileS3Key, fileUrl, originalContent, processedContent are always have value!
 	@CatchDbError()
 	async updateVideoById(
 		videoId: number,
 		dto: {
-			fileName?: null | string
-			fileS3Key?: null | string
-			s3ProviderName?: null | S3ProviderName
-			isFileUploaded?: boolean
 			name?: null | string
+			languageCode?: Language
+			year?: null | number
 			originalContent?: null | string
 			processedContent?: null | string
 			contentType?: 'text' | 'subtitles'
-			fileSizeMb?: number
+			fileName?: null | string
+			fileS3Key?: null | string
+			s3ProviderName?: null | S3ProviderName
 		},
 	) {
-		const updatedVideo = await this.prisma.videoPrivate.update({
+		const updatedVideo = await this.prisma.videoPublic.update({
 			where: { id: videoId },
 			data: {
-				file_name: dto.fileName,
-				file_s3_key: dto.fileS3Key,
-				s3_provider_name: dto.s3ProviderName,
-				is_file_uploaded: dto.isFileUploaded,
 				name: dto.name,
+				language_code: dto.languageCode,
+				year: dto.year,
 				original_content: dto.originalContent,
 				processed_content: dto.processedContent,
 				content_type: dto.contentType,
-				file_size_mb: dto.fileSizeMb,
+				file_name: dto.fileName,
+				file_s3_key: dto.fileS3Key,
+				s3_provider_name: dto.s3ProviderName,
 			},
 		})
 
-		if (!updatedVideo) {
-			return null
-		}
+		if (!updatedVideo) return null
 
 		return this.mapDbVideoToServiceVideo(updatedVideo)
 	}
 
 	@CatchDbError()
 	async deleteVideoById(videoId: number) {
-		await this.prisma.videoPrivate.delete({
+		await this.prisma.videoPublic.delete({
 			where: { id: videoId },
 		})
 	}
 
-	@CatchDbError()
-	async getVideoOwnerAndUrlByVideoId(id: number) {
-		const video = await this.prisma.videoPrivate.findUnique({
-			where: { id },
-			select: {
-				user_id: true,
-				file_s3_key: true,
-			},
-		})
-
-		if (!video) {
-			return null
-		}
-
-		return {
-			userId: video.user_id,
-			// url: video.file_url,
-			fileS3Key: video.file_s3_key,
-		}
-	}
-
-	async mapDbVideoToServiceVideo(dbVideo: VideoPrivate): Promise<VideoPrivateServiceModel> {
+	async mapDbVideoToServiceVideo(dbVideo: VideoPublic): Promise<VideoPublicServiceModel> {
 		const fileUrl = dbVideo.file_s3_key ? await this.cloudRuS3Service.getFileUrl(dbVideo.file_s3_key) : null
 
 		return {
@@ -113,12 +94,12 @@ export class VideoPrivateRepository {
 			name: dbVideo.name,
 			year: dbVideo.year,
 			languageCode: dbVideo.language_code,
+			fileName: dbVideo.file_name,
+			fileS3Key: dbVideo.file_s3_key,
 			fileUrl,
 			originalContent: dbVideo.original_content,
 			processedContent: dbVideo.processed_content,
 			contentType: dbVideo.content_type,
-			userId: dbVideo.user_id,
-			fileSizeMb: dbVideo.file_size_mb,
 		}
 	}
 }

@@ -9,11 +9,11 @@ import { VideoPrivateQueryRepository } from 'repo/videoPrivate.queryRepository'
 import { VideoPrivateRepository } from 'repo/videoPrivate.repository'
 import { VideoPrivateResolver } from 'routes/videoPrivate/videoPrivate.resolver'
 import { PrismaService } from 'db/prisma.service'
-import { CreatePrivateVideoHandler } from 'features/videoPrivate/CreatePrivateVideo.command'
-import { DeletePrivateVideoHandler } from 'features/videoPrivate/DeletePrivateVideo.command'
-import { GetUserVideosPrivateHandler } from 'features/videoPrivate/GetUserVideosPrivate.command'
-import { GetVideoPrivateHandler } from 'features/videoPrivate/GetVideoPrivate.command'
-import { UpdatePrivateVideoHandler } from 'features/videoPrivate/UpdatePrivateVideo.command'
+import { CreatePrivateVideoHandler } from 'features/video/CreatePrivateVideo.command'
+import { DeletePrivateVideoHandler } from 'features/video/DeletePrivateVideo.command'
+import { GetUserVideosPrivateHandler } from 'features/video/GetUserVideosPrivate.command'
+import { GetVideoPrivateHandler } from 'features/video/GetVideoPrivate.command'
+import { UpdatePrivateVideoHandler } from 'features/video/UpdatePrivateVideo.command'
 
 const services = [PrismaService]
 const commandHandlers = [

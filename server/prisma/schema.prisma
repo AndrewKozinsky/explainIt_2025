@@ -89,14 +89,14 @@ model VideoPrivate {
     id                Int             @id @default(autoincrement())
     user              User            @relation(fields: [user_id], references: [id], onDelete: Cascade)
     user_id           Int
+    language_code     LanguageCode
+    year              Int?
     file_name         String?
     file_s3_key       String?
     s3_provider_name  S3ProviderName?
     is_file_uploaded  Boolean         @default(false)
     file_size_mb      Int             @default(0)
     name              String?
-    language_code     LanguageCode
-    year              Int?
     original_content  String?
     processed_content String?
     content_type      VideoTextType   @default(text)
@@ -109,6 +109,8 @@ model VideoPrivate {
 model VideoPublic {
     id                Int             @id @default(autoincrement())
     language_code     LanguageCode
+    year              Int?
+    file_name         String?
     file_s3_key       String?
     s3_provider_name  S3ProviderName?
     name              String?

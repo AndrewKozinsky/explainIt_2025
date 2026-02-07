@@ -37,4 +37,13 @@ export class SubtitleSentenceInitRepository {
 
 		return res.count
 	}
+
+	@CatchDbError()
+	async deleteByVideoPublicId(videoPublicId: number): Promise<number> {
+		const res = await this.prisma.subtitleSentenceInit.deleteMany({
+			where: { subtitle: { videoPublicId } },
+		})
+
+		return res.count
+	}
 }

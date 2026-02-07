@@ -378,6 +378,19 @@ export const bdConfig = {
 				foreignField: 'id',
 				required: true,
 			},
+			language_code: {
+				type: 'enum',
+				enumName: 'LanguageCode',
+				variants: languagesArr,
+				required: true,
+			},
+			year: {
+				type: 'number',
+				description: 'Year of video release',
+				required: false,
+				max: 2030,
+				min: 1900,
+			},
 			file_name: {
 				type: 'string',
 				description: 'Name of the video',
@@ -418,19 +431,6 @@ export const bdConfig = {
 				description: 'Name of the video',
 				required: false,
 				maxLength: 255,
-			},
-			language_code: {
-				type: 'enum',
-				enumName: 'LanguageCode',
-				variants: languagesArr,
-				required: true,
-			},
-			year: {
-				type: 'number',
-				description: 'Year of video release',
-				required: false,
-				max: 2030,
-				min: 1900,
 			},
 			original_content: {
 				type: 'string',
@@ -475,6 +475,20 @@ export const bdConfig = {
 				enumName: 'LanguageCode',
 				variants: languagesArr,
 				required: true,
+			},
+			year: {
+				type: 'number',
+				description: 'Year of video release',
+				required: false,
+				max: 2030,
+				min: 1900,
+			},
+			file_name: {
+				type: 'string',
+				description: 'Name of the video',
+				required: false,
+				maxLength: 200,
+				example: 'Zootopia-2016.mp4',
 			},
 			file_s3_key: {
 				type: 'string',

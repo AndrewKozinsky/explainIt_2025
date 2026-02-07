@@ -11,11 +11,14 @@ export async function generateSentencesAndSaveToDB(params: {
 	content: string
 	bookChapterId?: number
 	videoPrivateId?: number
+	videoPublicId?: number
 }) {
 	const hasBookChapterId = typeof params.bookChapterId === 'number'
 	const hasVideoPrivateId = typeof params.videoPrivateId === 'number'
+	const hasVideoPublicId = typeof params.videoPublicId === 'number'
 
-	if (hasBookChapterId === hasVideoPrivateId) {
+	const targetsCount = [hasBookChapterId, hasVideoPrivateId, hasVideoPublicId].filter(Boolean).length
+	if (targetsCount !== 1) {
 		throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
 	}
 
@@ -39,6 +42,7 @@ export async function generateSentencesAndSaveToDB(params: {
 				length: sentence.length,
 				bookChapterId: params.bookChapterId,
 				videoPrivateId: params.videoPrivateId,
+				videoPublicId: params.videoPublicId,
 				orderIndex: i,
 			})
 
