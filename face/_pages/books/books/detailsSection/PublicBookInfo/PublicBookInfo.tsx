@@ -1,8 +1,8 @@
-// import { useBooksStore } from '_pages/books/books/booksStore'
-// import { publicFolderFilesUrls } from 'utils/publicFolderFilesUrls'
-// import './PublicBookInfo.scss'
+import { publicFolderFilesUrls } from 'utils/publicFolderFilesUrls'
+import { useBooksStore } from '_pages/books/books/booksStore'
+import './PublicBookInfo.scss'
 
-/*export default function PublicBookInfo() {
+export default function PublicBookInfo() {
 	const publicBook = useBooksStore((s) => s.publicBook)
 
 	if (!publicBook) {
@@ -23,4 +23,4 @@
 			</p>
 		</div>
 	)
-}*/
+}
