@@ -29,7 +29,7 @@ export const wizardOfOzBookData = {
 	name: 'The Wonderful Wizard of Oz',
 	note: 'Девочка Дороти и её пёсик Тотошка уносятся ураганом в волшебную страну. Чтобы вернуться домой, ей нужно дойти до великого Гудвина в Изумрудном городе. По дороге она находит верных друзей — Страшилу, Железного Дровосека и Трусливого Льва — у каждого своя заветная мечта. Это путешествие, полное опасностей и чудес, где дружба и смелость важнее любых чар. Классика, которая покоряет сердца и детей, и взрослых. Уровень A2-B1',
 	cover: 'wizardOfOz.webp',
-	lang: languages.en.code as Language,
+	languageCode: languages.en.code as Language,
 }
 
 export const wizardOfOzChapters = [

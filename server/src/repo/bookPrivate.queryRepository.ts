@@ -45,7 +45,7 @@ export class BookPrivateQueryRepository {
 			name: dbBook.name,
 			note: dbBook.note,
 			userId: dbBook.user_id,
-			languageCode: dbBook.languageCode,
+			languageCode: dbBook.language_code,
 			chapters: dbBook.BookChapter.map((chapter) => {
 				return {
 					id: chapter.id,

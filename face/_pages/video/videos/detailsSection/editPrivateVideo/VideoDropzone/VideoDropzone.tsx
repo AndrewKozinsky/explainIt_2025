@@ -50,13 +50,13 @@ function VideoDropzone() {
 				variables: {
 					input: { id: video!.id, fileMimeType, fileName, fileSizeMb },
 				},
-			}).then((data) => {
-				if (!data.data) {
+			}).then((res) => {
+				if (!res.data) {
 					console.log('error')
 					return
 				}
 
-				const uploadUrl = data.data.video_private_update.uploadUrl
+				const uploadUrl = res.data.video_private_update.uploadUrl
 				if (!uploadUrl) {
 					notify({
 						type: 'error',

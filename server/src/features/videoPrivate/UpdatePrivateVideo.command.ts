@@ -7,11 +7,11 @@ import { VideoPrivateQueryRepository } from 'repo/videoPrivate.queryRepository'
 import { VideoPrivateRepository } from 'repo/videoPrivate.repository'
 import { generateSentencesAndSaveToDB } from 'features/common/generateSentencesAndSaveToDB'
 import { VideoPrivateFileUrlBase } from 'features/videoPrivate/VideoPrivateFileUrl.base'
+import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
-import { YandexCloudS3Service } from 'infrastructure/yandexCloudS3/yandexCloudS3.service'
 import { UpdateVideoPrivateOutModel } from 'models/videoPrivate/updateVideoPrivate.out.model'
 import { VideoPrivateLiteOutModel } from 'models/videoPrivate/videoPrivateLiteOut.model'
 import { divideTextIntoSentences } from '../common/divideTextIntoSentences'
@@ -45,7 +45,7 @@ export class UpdatePrivateVideoHandler
 		private subtitleRepository: SubtitleRepository,
 		private subtitleSentenceInitRepository: SubtitleSentenceInitRepository,
 		private dbRepository: DBRepository,
-		private yandexCloudS3Service: YandexCloudS3Service,
+		private cloudRuS3Service: CloudRuS3Service,
 		mainConfig: MainConfigService,
 	) {
 		super(mainConfig)
@@ -73,8 +73,10 @@ export class UpdatePrivateVideoHandler
 			throw new CustomGraphQLError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
 		}
 
-		const { fileName, fileS3Key, fileUrl, isFileUploaded, uploadUrl } =
-			await this.getUploadFileUrlAndFileUrlAndUploadUrl(videoForUpdating, updateVideoInput)
+		const { fileName, fileS3Key, isFileUploaded, uploadUrl } = await this.getUploadFileUrlAndFileDetails(
+			videoForUpdating,
+			updateVideoInput,
+		)
 
 		const preparedContentResult = await this.prepareContentForSaving(videoForUpdating, updateVideoInput)
 
@@ -112,7 +114,7 @@ export class UpdatePrivateVideoHandler
 			contentType: preparedContentResult.contentTypeForVideoUpdate,
 			fileName,
 			fileS3Key,
-			fileUrl,
+			s3ProviderName: 'cloudRu',
 			isFileUploaded,
 			fileSizeMb: updateVideoInput.fileSizeMb,
 		})
@@ -184,6 +186,7 @@ export class UpdatePrivateVideoHandler
 		const raw = updateVideoInput.originalContent
 		const normalizedRaw = raw.replace(/^\uFEFF/, '')
 		const trimmed = normalizedRaw.trim()
+
 		if (trimmed === '') {
 			return {
 				shouldUpdateRelatedTextData: true,
@@ -436,6 +439,7 @@ export class UpdatePrivateVideoHandler
 		}
 
 		let sentencePointer = 0
+
 		for (const subtitle of dto.subtitles) {
 			const createdSubtitle = await this.subtitleRepository.createSubtitle({
 				videoPrivateId: dto.videoPrivateId,
@@ -458,9 +462,10 @@ export class UpdatePrivateVideoHandler
 
 			const initItems: Array<{ subtitleId: number; sentenceId: number; startOffset: number; length: number }> = []
 
-			let p = sentencePointer
-			while (p < sentenceRanges.length) {
-				const range = sentenceRanges[p]
+			let sentPointer = sentencePointer
+
+			while (sentPointer < sentenceRanges.length) {
+				const range = sentenceRanges[sentPointer]
 				if (range.start >= subtitleEnd) break
 				const start = Math.max(subtitleStart, range.start)
 				const end = Math.min(subtitleEnd, range.end)
@@ -472,7 +477,7 @@ export class UpdatePrivateVideoHandler
 						length: end - start,
 					})
 				}
-				p++
+				sentPointer++
 			}
 
 			await this.subtitleSentenceInitRepository.createMany({ items: initItems })
@@ -487,26 +492,24 @@ export class UpdatePrivateVideoHandler
 	 * - file marked as uploaded (`isFileUploaded === true`)
 	 * - upload URL generation when a file is being attached for the first time
 	 */
-	async getUploadFileUrlAndFileUrlAndUploadUrl(
+	async getUploadFileUrlAndFileDetails(
 		videoForUpdating: VideoPrivateLiteOutModel,
 		updateVideoInput: UpdatePrivateVideoInput,
 	): Promise<{
 		fileName: null | string
 		fileS3Key: null | string
-		fileUrl: null | string
 		isFileUploaded: boolean
 		uploadUrl: null | string
 	}> {
 		// If tries to delete the file, so delete it
 		if (updateVideoInput.fileName === null || updateVideoInput.isFileUploaded === false) {
 			if (videoForUpdating.isFileUploaded && videoForUpdating.fileS3Key) {
-				await this.yandexCloudS3Service.deleteFile(videoForUpdating.fileS3Key)
+				await this.cloudRuS3Service.deleteFile(videoForUpdating.fileS3Key)
 			}
 
 			return {
 				fileName: null,
 				fileS3Key: null,
-				fileUrl: null,
 				isFileUploaded: false,
 				uploadUrl: null,
 			}
@@ -517,7 +520,6 @@ export class UpdatePrivateVideoHandler
 			return {
 				fileName: videoForUpdating.fileName,
 				fileS3Key: videoForUpdating.fileS3Key,
-				fileUrl: videoForUpdating.fileUrl,
 				isFileUploaded: true,
 				uploadUrl: null,
 			}
@@ -526,14 +528,17 @@ export class UpdatePrivateVideoHandler
 		// Put file name and mime type
 		if (updateVideoInput.fileName && updateVideoInput.fileMimeType && !videoForUpdating.isFileUploaded) {
 			const { s3FileKey, uploadUrl } = await this.prepareFileKeyAndUploadUrl(
-				{ fileName: updateVideoInput.fileName, fileMimeType: updateVideoInput.fileMimeType },
-				this.yandexCloudS3Service,
+				{
+					fileName: updateVideoInput.fileName,
+					fileMimeType: updateVideoInput.fileMimeType,
+					fileDestinationType: 'privateVideo',
+				},
+				this.cloudRuS3Service,
 			)
 
 			return {
 				fileName: updateVideoInput.fileName,
 				fileS3Key: s3FileKey,
-				fileUrl: this.mainConfig.get().yandexCloud.s3.bucketUrl + '/' + s3FileKey,
 				isFileUploaded: false,
 				uploadUrl,
 			}
@@ -542,7 +547,6 @@ export class UpdatePrivateVideoHandler
 		return {
 			fileName: videoForUpdating.fileName,
 			fileS3Key: videoForUpdating.fileS3Key,
-			fileUrl: videoForUpdating.fileUrl,
 			isFileUploaded: videoForUpdating.isFileUploaded,
 			uploadUrl: null,
 		}

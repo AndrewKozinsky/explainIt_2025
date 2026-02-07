@@ -70,7 +70,7 @@ export class BookChapterQueryRepository {
 			book: {
 				id: book.id,
 				name: book.name,
-				languageCode: book.languageCode,
+				languageCode: book.language_code,
 				author: book.author,
 				note: book.note,
 				userId: dbChapter.book_public ? null : dbChapter.book.user_id,

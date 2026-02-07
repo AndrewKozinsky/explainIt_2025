@@ -23,7 +23,7 @@ export class BookPrivateRepository {
 			data: {
 				author: dto.author,
 				name: dto.name,
-				languageCode: dto.languageCode,
+				language_code: dto.languageCode,
 				note: dto.note,
 				user_id: dto.userId,
 			},

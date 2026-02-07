@@ -2,6 +2,7 @@ import { languages } from '../../utils/languages'
 import { BdConfig } from './dbConfigType'
 
 const languagesArr: string[] = Object.keys(languages)
+const s3ProviderName = ['cloudRu'] // https://s3.cloud.ru/explain/videoDev/c8b0aead-b6c3-4621-89fe-8be460185b3f-2025-11-03 18-56-49.mp4
 
 /**
  * Database structure.
@@ -391,11 +392,12 @@ export const bdConfig = {
 				maxLength: 1000,
 				example: 'video_dev/Zootopia-2016.mp4',
 			},
-			file_url: {
-				type: 'string',
-				description: 'URL of the video',
+			s3_provider_name: {
+				type: 'enum',
+				enumName: 'S3ProviderName',
+				variants: s3ProviderName,
+				description: 'S3 provider name',
 				required: false,
-				maxLength: 1000,
 			},
 			is_file_uploaded: {
 				type: 'boolean',
@@ -481,11 +483,12 @@ export const bdConfig = {
 				maxLength: 1000,
 				example: 'video_dev/Zootopia-2016.mp4',
 			},
-			file_url: {
-				type: 'string',
-				description: 'URL of the video',
+			s3_provider_name: {
+				type: 'enum',
+				enumName: 'S3ProviderName',
+				variants: s3ProviderName,
+				description: 'S3 provider name',
 				required: false,
-				maxLength: 1000,
 			},
 			name: {
 				type: 'string',

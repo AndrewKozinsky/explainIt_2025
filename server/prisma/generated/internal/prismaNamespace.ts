@@ -1463,7 +1463,7 @@ export const BookPrivateScalarFieldEnum = {
   user_id: 'user_id',
   author: 'author',
   name: 'name',
-  languageCode: 'languageCode',
+  language_code: 'language_code',
   note: 'note',
   created_at: 'created_at'
 } as const
@@ -1473,7 +1473,7 @@ export type BookPrivateScalarFieldEnum = (typeof BookPrivateScalarFieldEnum)[key
 
 export const BookPublicScalarFieldEnum = {
   id: 'id',
-  languageCode: 'languageCode',
+  language_code: 'language_code',
   cover: 'cover',
   author: 'author',
   name: 'name',
@@ -1503,11 +1503,11 @@ export const VideoPrivateScalarFieldEnum = {
   user_id: 'user_id',
   file_name: 'file_name',
   file_s3_key: 'file_s3_key',
-  file_url: 'file_url',
+  s3_provider_name: 's3_provider_name',
   is_file_uploaded: 'is_file_uploaded',
   file_size_mb: 'file_size_mb',
   name: 'name',
-  languageCode: 'languageCode',
+  language_code: 'language_code',
   year: 'year',
   original_content: 'original_content',
   processed_content: 'processed_content',
@@ -1521,9 +1521,9 @@ export type VideoPrivateScalarFieldEnum = (typeof VideoPrivateScalarFieldEnum)[k
 
 export const VideoPublicScalarFieldEnum = {
   id: 'id',
-  languageCode: 'languageCode',
+  language_code: 'language_code',
   file_s3_key: 'file_s3_key',
-  file_url: 'file_url',
+  s3_provider_name: 's3_provider_name',
   name: 'name',
   original_content: 'original_content',
   processed_content: 'processed_content',
@@ -1729,6 +1729,20 @@ export type EnumLanguageCodeFieldRefInput<$PrismaModel> = FieldRefInputType<$Pri
  * Reference to a field of type 'LanguageCode[]'
  */
 export type ListEnumLanguageCodeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'LanguageCode[]'>
+    
+
+
+/**
+ * Reference to a field of type 'S3ProviderName'
+ */
+export type EnumS3ProviderNameFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'S3ProviderName'>
+    
+
+
+/**
+ * Reference to a field of type 'S3ProviderName[]'
+ */
+export type ListEnumS3ProviderNameFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'S3ProviderName[]'>
     
 
 

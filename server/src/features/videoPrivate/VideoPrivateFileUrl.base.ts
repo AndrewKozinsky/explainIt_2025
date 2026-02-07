@@ -1,30 +1,34 @@
+import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
-import { YandexCloudS3Service } from 'infrastructure/yandexCloudS3/yandexCloudS3.service'
+
+type FileDestinationType = 'privateVideo' | 'publicVideo'
 
 export class VideoPrivateFileUrlBase {
 	constructor(protected mainConfig: MainConfigService) {}
 
 	protected async prepareFileKeyAndUploadUrl(
 		params: {
-			fileName?: null | string
-			fileMimeType?: null | string
+			fileName: string
+			fileMimeType: string
+			fileDestinationType: FileDestinationType
 		},
-		yandexCloudS3Service: YandexCloudS3Service,
+		cloudRuS3Service: CloudRuS3Service,
 	) {
-		let s3FileKey: null | string = null
-		let uploadUrl: null | string = null
-
-		if (params.fileName && params.fileMimeType) {
-			s3FileKey = this.createVideoFileUrl(params.fileName)
-			uploadUrl = await yandexCloudS3Service.createUploadUrl(s3FileKey, params.fileMimeType)
-		}
+		const s3FileKey = this.createVideoFileUrl({
+			fileName: params.fileName,
+			fileDestinationType: params.fileDestinationType,
+		})
+		const uploadUrl = await cloudRuS3Service.createUploadUrl(s3FileKey, params.fileMimeType)
 
 		return { s3FileKey, uploadUrl }
 	}
 
-	protected createVideoFileUrl(fileName: string) {
+	protected createVideoFileUrl(input: { fileName: string; fileDestinationType: FileDestinationType }) {
+		let folderName = input.fileDestinationType
+
 		const isDevMode = ['localtest', 'localdev'].includes(this.mainConfig.get().mode!)
-		const rootFolderName = isDevMode ? 'videoDev' : 'video'
-		return `${rootFolderName}/${crypto.randomUUID()}-${fileName}`
+		if (isDevMode) folderName += 'Dev'
+
+		return `${folderName}/${crypto.randomUUID()}-${input.fileName}`
 	}
 }

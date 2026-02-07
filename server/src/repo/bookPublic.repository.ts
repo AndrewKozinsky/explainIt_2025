@@ -12,14 +12,14 @@ export class BookPublicRepository {
 	constructor(private prisma: PrismaService) {}
 
 	@CatchDbError()
-	async createBookPublic(dto: { author: string; name: string; note: string; cover: string; lang: Language }) {
+	async createBookPublic(dto: { author: string; name: string; note: string; cover: string; languageCode: Language }) {
 		const newBookPublic = await this.prisma.bookPublic.create({
 			data: {
 				author: dto.author,
 				name: dto.name,
 				note: dto.note,
 				cover: dto.cover,
-				languageCode: dto.lang,
+				language_code: dto.languageCode,
 			},
 			include: { BookChapter: true },
 		})
@@ -61,7 +61,7 @@ export class BookPublicRepository {
 			name: dbBook.name,
 			note: dbBook.note,
 			cover: dbBook.cover,
-			lang: dbBook.languageCode,
+			languageCode: dbBook.language_code,
 			chapters: dbBook.BookChapter.map((chapter) => ({
 				id: chapter.id,
 				bookId: dbBook.id,

@@ -7,6 +7,6 @@ export type BookPublicServiceModel = {
 	name: string
 	note: string
 	cover: string
-	lang: Language
+	languageCode: Language
 	chapters: BookChapterLiteServiceModel[]
 }

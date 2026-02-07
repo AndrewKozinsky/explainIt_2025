@@ -38,7 +38,7 @@ export class BookPublicQueryRepository {
 			name: dbBook.name,
 			note: dbBook.note,
 			cover: dbBook.cover,
-			languageCode: dbBook.languageCode,
+			languageCode: dbBook.language_code,
 			chapters: dbBook.BookChapter.map((chapter) => ({
 				id: chapter.id,
 				bookId: dbBook.id,

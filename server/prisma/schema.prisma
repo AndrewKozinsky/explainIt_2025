@@ -49,26 +49,26 @@ model Payment {
 }
 
 model BookPrivate {
-    id           Int           @id @default(autoincrement())
-    user         User          @relation(fields: [user_id], references: [id], onDelete: Cascade)
-    user_id      Int
-    author       String?
-    name         String?
-    languageCode LanguageCode
-    note         String?
-    created_at   DateTime      @default(now())
-    BookChapter  BookChapter[]
+    id            Int           @id @default(autoincrement())
+    user          User          @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    user_id       Int
+    author        String?
+    name          String?
+    language_code LanguageCode
+    note          String?
+    created_at    DateTime      @default(now())
+    BookChapter   BookChapter[]
 }
 
 model BookPublic {
-    id           Int           @id @default(autoincrement())
-    languageCode LanguageCode
-    cover        String
-    author       String
-    name         String
-    note         String
-    created_at   DateTime      @default(now())
-    BookChapter  BookChapter[]
+    id            Int           @id @default(autoincrement())
+    language_code LanguageCode
+    cover         String
+    author        String
+    name          String
+    note          String
+    created_at    DateTime      @default(now())
+    BookChapter   BookChapter[]
 }
 
 model BookChapter {
@@ -86,37 +86,37 @@ model BookChapter {
 }
 
 model VideoPrivate {
-    id                Int           @id @default(autoincrement())
-    user              User          @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    id                Int             @id @default(autoincrement())
+    user              User            @relation(fields: [user_id], references: [id], onDelete: Cascade)
     user_id           Int
     file_name         String?
     file_s3_key       String?
-    file_url          String?
-    is_file_uploaded  Boolean       @default(false)
-    file_size_mb      Int           @default(0)
+    s3_provider_name  S3ProviderName?
+    is_file_uploaded  Boolean         @default(false)
+    file_size_mb      Int             @default(0)
     name              String?
-    languageCode      LanguageCode
+    language_code     LanguageCode
     year              Int?
     original_content  String?
     processed_content String?
-    content_type      VideoTextType @default(text)
-    created_at        DateTime      @default(now())
-    updated_at        DateTime      @default(now())
+    content_type      VideoTextType   @default(text)
+    created_at        DateTime        @default(now())
+    updated_at        DateTime        @default(now())
     Subtitle          Subtitle[]
     Sentence          Sentence[]
 }
 
 model VideoPublic {
-    id                Int           @id @default(autoincrement())
-    languageCode      LanguageCode
+    id                Int             @id @default(autoincrement())
+    language_code     LanguageCode
     file_s3_key       String?
-    file_url          String?
+    s3_provider_name  S3ProviderName?
     name              String?
     original_content  String?
     processed_content String?
-    content_type      VideoTextType @default(text)
-    created_at        DateTime      @default(now())
-    updated_at        DateTime      @default(now())
+    content_type      VideoTextType   @default(text)
+    created_at        DateTime        @default(now())
+    updated_at        DateTime        @default(now())
     Subtitle          Subtitle[]
     Sentence          Sentence[]
 }
@@ -213,6 +213,10 @@ enum LanguageCode {
     zhCMN
     ko
     ja
+}
+
+enum S3ProviderName {
+    cloudRu
 }
 
 enum VideoTextType {

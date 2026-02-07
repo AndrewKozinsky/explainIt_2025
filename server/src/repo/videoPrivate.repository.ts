@@ -1,13 +1,17 @@
 import { Injectable } from '@nestjs/common'
 import { Language } from 'utils/languages'
-import { VideoPrivate } from 'prisma/generated/client'
+import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
+import { VideoPrivate, S3ProviderName } from 'prisma/generated/client'
 import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 import { VideoPrivateServiceModel } from '../models/videoPrivate/videoPrivate.service.model'
 
 @Injectable()
 export class VideoPrivateRepository {
-	constructor(private prisma: PrismaService) {}
+	constructor(
+		private prisma: PrismaService,
+		private cloudRuS3Service: CloudRuS3Service,
+	) {}
 
 	@CatchDbError()
 	async createVideo(dto: {
@@ -17,6 +21,7 @@ export class VideoPrivateRepository {
 		originalContent?: null | string
 		processedContent?: null | string
 		contentType?: 'text' | 'subtitles'
+		s3ProviderName?: null | S3ProviderName
 		fileSizeMb?: number
 	}) {
 		const newVideo = await this.prisma.videoPrivate.create({
@@ -26,7 +31,8 @@ export class VideoPrivateRepository {
 				processed_content: dto.processedContent,
 				content_type: dto.contentType,
 				user_id: dto.userId,
-				languageCode: dto.languageCode,
+				s3_provider_name: dto.s3ProviderName,
+				language_code: dto.languageCode,
 				file_size_mb: dto.fileSizeMb,
 			},
 		})
@@ -40,7 +46,7 @@ export class VideoPrivateRepository {
 		dto: {
 			fileName?: null | string
 			fileS3Key?: null | string
-			fileUrl?: null | string
+			s3ProviderName?: null | S3ProviderName
 			isFileUploaded?: boolean
 			name?: null | string
 			originalContent?: null | string
@@ -54,7 +60,7 @@ export class VideoPrivateRepository {
 			data: {
 				file_name: dto.fileName,
 				file_s3_key: dto.fileS3Key,
-				file_url: dto.fileUrl,
+				s3_provider_name: dto.s3ProviderName,
 				is_file_uploaded: dto.isFileUploaded,
 				name: dto.name,
 				original_content: dto.originalContent,
@@ -84,7 +90,7 @@ export class VideoPrivateRepository {
 			where: { id },
 			select: {
 				user_id: true,
-				file_url: true,
+				file_s3_key: true,
 			},
 		})
 
@@ -94,17 +100,20 @@ export class VideoPrivateRepository {
 
 		return {
 			userId: video.user_id,
-			url: video.file_url,
+			// url: video.file_url,
+			fileS3Key: video.file_s3_key,
 		}
 	}
 
-	mapDbVideoToServiceVideo(dbVideo: VideoPrivate): VideoPrivateServiceModel {
+	async mapDbVideoToServiceVideo(dbVideo: VideoPrivate): Promise<VideoPrivateServiceModel> {
+		const fileUrl = dbVideo.file_s3_key ? await this.cloudRuS3Service.getFileUrl(dbVideo.file_s3_key) : null
+
 		return {
 			id: dbVideo.id,
 			name: dbVideo.name,
 			year: dbVideo.year,
-			languageCode: dbVideo.languageCode,
-			fileUrl: dbVideo.file_url,
+			languageCode: dbVideo.language_code,
+			fileUrl,
 			originalContent: dbVideo.original_content,
 			processedContent: dbVideo.processed_content,
 			contentType: dbVideo.content_type,

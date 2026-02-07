@@ -1,4 +1,4 @@
-import { DeleteObjectCommand, PutObjectCommand, S3Client } from '@aws-sdk/client-s3'
+import { DeleteObjectCommand, GetObjectCommand, PutObjectCommand, S3Client } from '@aws-sdk/client-s3'
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner'
 import { Injectable } from '@nestjs/common'
 import { MainConfigService } from '../mainConfig/mainConfig.service'
@@ -9,7 +9,7 @@ export class CloudRuS3Service {
 
 	constructor(private mainConfig: MainConfigService) {
 		const s3Config = mainConfig.get().cloudRu.s3
-		const accessKeyId = `${s3Config.tenantId}:${s3Config.keyId}`
+		const accessKeyId = s3Config.tenantId + ':' + s3Config.keyId
 
 		this.s3 = new S3Client({
 			endpoint: 'https://s3.cloud.ru',
@@ -18,6 +18,7 @@ export class CloudRuS3Service {
 				accessKeyId,
 				secretAccessKey: s3Config.secretKey,
 			},
+			forcePathStyle: true, // Необходимо для некоторых S3-совместимых сервисов
 		})
 	}
 
@@ -37,6 +38,17 @@ export class CloudRuS3Service {
 		return getSignedUrl(this.s3, command, {
 			expiresIn: 60 * 5, // 5 minutes
 		})
+	}
+
+	async getFileUrl(key: string) {
+		return await getSignedUrl(
+			this.s3,
+			new GetObjectCommand({
+				Bucket: 'explain',
+				Key: key,
+			}),
+			{ expiresIn: 60 * 60 * 6 }, // 6 часов
+		)
 	}
 
 	async deleteFile(fileKey: string): Promise<void> {

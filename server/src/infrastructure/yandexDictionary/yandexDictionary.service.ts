@@ -33,7 +33,7 @@ export class YandexDictionaryService {
 					params: {
 						key,
 						text: input.text,
-						lang: input.directionOfTranslation ?? 'en-ru',
+						languageCode: input.directionOfTranslation ?? 'en-ru',
 						ui: input.ui ?? 'ru',
 					},
 				},

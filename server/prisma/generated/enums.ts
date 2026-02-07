@@ -52,6 +52,13 @@ export const LanguageCode = {
 export type LanguageCode = (typeof LanguageCode)[keyof typeof LanguageCode]
 
 
+export const S3ProviderName = {
+  cloudRu: 'cloudRu'
+} as const
+
+export type S3ProviderName = (typeof S3ProviderName)[keyof typeof S3ProviderName]
+
+
 export const VideoTextType = {
   text: 'text',
   subtitles: 'subtitles'

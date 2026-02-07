@@ -11,7 +11,7 @@ export type CreateBookPublicInput = {
 	name: string
 	note: string
 	cover: string
-	lang: Language
+	languageCode: Language
 }
 
 export class CreateBookPublicCommand implements ICommand {
