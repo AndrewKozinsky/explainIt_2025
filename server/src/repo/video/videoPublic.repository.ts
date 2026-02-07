@@ -13,18 +13,17 @@ export class VideoPublicRepository {
 		private cloudRuS3Service: CloudRuS3Service,
 	) {}
 
-	// TODO: fileName, fileS3Key, fileUrl, originalContent, processedContent are always have value!
 	@CatchDbError()
 	async createVideo(dto: {
-		name?: null | string
+		name: string
 		languageCode: Language
 		year?: null | number
-		originalContent?: null | string
-		processedContent?: null | string
+		originalContent: string
+		processedContent: string
 		contentType?: 'text' | 'subtitles'
-		fileName?: null | string
-		fileS3Key?: null | string
-		s3ProviderName?: null | S3ProviderName
+		fileName: string
+		fileS3Key: string
+		s3ProviderName: S3ProviderName
 	}) {
 		const newVideo = await this.prisma.videoPublic.create({
 			data: {
@@ -43,20 +42,19 @@ export class VideoPublicRepository {
 		return this.mapDbVideoToServiceVideo(newVideo)
 	}
 
-	// TODO: fileName, fileS3Key, fileUrl, originalContent, processedContent are always have value!
 	@CatchDbError()
 	async updateVideoById(
 		videoId: number,
 		dto: {
-			name?: null | string
+			name?: string
 			languageCode?: Language
 			year?: null | number
-			originalContent?: null | string
-			processedContent?: null | string
+			originalContent?: string
+			processedContent?: string
 			contentType?: 'text' | 'subtitles'
-			fileName?: null | string
-			fileS3Key?: null | string
-			s3ProviderName?: null | S3ProviderName
+			fileName?: string
+			fileS3Key?: string
+			s3ProviderName?: S3ProviderName
 		},
 	) {
 		const updatedVideo = await this.prisma.videoPublic.update({
@@ -87,7 +85,7 @@ export class VideoPublicRepository {
 	}
 
 	async mapDbVideoToServiceVideo(dbVideo: VideoPublic): Promise<VideoPublicServiceModel> {
-		const fileUrl = dbVideo.file_s3_key ? await this.cloudRuS3Service.getFileUrl(dbVideo.file_s3_key) : null
+		const fileUrl = await this.cloudRuS3Service.getFileUrl(dbVideo.file_s3_key)
 
 		return {
 			id: dbVideo.id,

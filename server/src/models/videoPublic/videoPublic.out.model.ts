@@ -4,14 +4,13 @@ import {
 	SubtitleSentenceInitOutModel,
 } from 'models/videoPrivate/videoPrivateOut.model'
 
-// TODO: fileName, fileS3Key, fileUrl, originalContent, processedContent are always have value!
 @ObjectType()
 export class VideoPublicOutModel {
 	@Field(() => Int)
 	id: number
 
-	@Field(() => String, { nullable: true })
-	name: string | null
+	@Field(() => String)
+	name: string
 
 	@Field(() => Int, { nullable: true })
 	year: number | null
@@ -19,23 +18,23 @@ export class VideoPublicOutModel {
 	@Field(() => String)
 	languageCode: string
 
-	@Field(() => String, { nullable: true })
-	originalContent: string | null
+	@Field(() => String)
+	originalContent: string
 
-	@Field(() => String, { nullable: true })
-	processedContent: string | null
+	@Field(() => String)
+	processedContent: string
 
 	@Field(() => String)
 	contentType: 'text' | 'subtitles'
 
-	@Field(() => String, { nullable: true })
-	fileName: string | null
+	@Field(() => String)
+	fileName: string
 
-	@Field(() => String, { nullable: true })
-	fileS3Key: string | null
+	@Field(() => String)
+	fileS3Key: string
 
-	@Field(() => String, { nullable: true })
-	fileUrl: string | null
+	@Field(() => String)
+	fileUrl: string
 
 	@Field(() => [VideoPublicSentenceOutModel], { nullable: true })
 	sentences: VideoPublicSentenceOutModel[] | null

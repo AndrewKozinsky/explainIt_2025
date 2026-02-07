@@ -1,15 +1,14 @@
 import { Language } from 'utils/languages'
 
-// TODO: fileName, fileS3Key, fileUrl, originalContent, processedContent are always have value!
 export type VideoPublicServiceModel = {
 	id: number
-	name: string | null
+	name: string
 	year: number | null
 	languageCode: Language
-	fileUrl: string | null
-	fileName: string | null
-	fileS3Key: string | null
-	originalContent: null | string
-	processedContent: null | string
+	fileUrl: string
+	fileName: string
+	fileS3Key: string
+	originalContent: string
+	processedContent: string
 	contentType: 'text' | 'subtitles'
 }

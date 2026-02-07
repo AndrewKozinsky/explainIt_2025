@@ -107,18 +107,18 @@ model VideoPrivate {
 }
 
 model VideoPublic {
-    id                Int             @id @default(autoincrement())
+    id                Int            @id @default(autoincrement())
     language_code     LanguageCode
     year              Int?
-    file_name         String?
-    file_s3_key       String?
-    s3_provider_name  S3ProviderName?
-    name              String?
-    original_content  String?
-    processed_content String?
-    content_type      VideoTextType   @default(text)
-    created_at        DateTime        @default(now())
-    updated_at        DateTime        @default(now())
+    file_name         String
+    file_s3_key       String
+    s3_provider_name  S3ProviderName
+    name              String
+    original_content  String
+    processed_content String
+    content_type      VideoTextType  @default(text)
+    created_at        DateTime       @default(now())
+    updated_at        DateTime       @default(now())
     Subtitle          Subtitle[]
     Sentence          Sentence[]
 }

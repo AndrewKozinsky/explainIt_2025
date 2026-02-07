@@ -60,7 +60,7 @@ export class VideoPublicQueryRepository {
 	}
 
 	async mapDbVideoToLiteOutVideo(dbVideo: VideoPublic): Promise<VideoPublicLiteOutModel> {
-		const fileUrl = dbVideo.file_s3_key ? await this.cloudRuS3Service.getFileUrl(dbVideo.file_s3_key) : null
+		const fileUrl = await this.cloudRuS3Service.getFileUrl(dbVideo.file_s3_key)
 
 		return {
 			id: dbVideo.id,
@@ -76,9 +76,8 @@ export class VideoPublicQueryRepository {
 		}
 	}
 
-	// TODO: fileName, fileS3Key, fileUrl, originalContent, processedContent are always have value!
 	async mapDbVideoToOutVideo(dbVideo: DbVideoWithRelations): Promise<VideoPublicOutModel> {
-		const fileUrl = dbVideo.file_s3_key ? await this.cloudRuS3Service.getFileUrl(dbVideo.file_s3_key) : null
+		const fileUrl = await this.cloudRuS3Service.getFileUrl(dbVideo.file_s3_key)
 
 		const base: Omit<VideoPublicOutModel, 'sentences' | 'subtitles' | 'subtitleSentenceInit'> = {
 			id: dbVideo.id,

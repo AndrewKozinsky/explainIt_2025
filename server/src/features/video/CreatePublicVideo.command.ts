@@ -14,14 +14,13 @@ import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { VideoPublicOutModel } from 'models/videoPublic/videoPublic.out.model'
 
-// TODO: fileName, fileS3Key, fileUrl, originalContent, processedContent are always have value!
 export type CreatePublicVideoInput = {
-	name?: null | string
-	originalContent?: null | string
+	name: string
+	originalContent: string
 	languageCode: Language
 	year?: null | number
-	fileName?: null | string
-	fileS3Key?: null | string
+	fileName: string
+	fileS3Key: string
 }
 
 export class CreatePublicVideoCommand implements ICommand {
@@ -50,18 +49,28 @@ export class CreatePublicVideoHandler extends VideoBase implements ICommandHandl
 			previousProcessedContent: null,
 		})
 
+		if (
+			preparedContentResult.originalContentForVideoUpdate === undefined ||
+			preparedContentResult.originalContentForVideoUpdate === null ||
+			preparedContentResult.processedContentForVideoUpdate === undefined ||
+			preparedContentResult.processedContentForVideoUpdate === null ||
+			preparedContentResult.contentTypeForVideoUpdate === undefined
+		) {
+			throw new CustomGraphQLError(errorMessage.video.notCreated, ErrorCode.BadRequest_400)
+		}
+
 		const createdVideo = await this.dbRepository.wrapIntoPrismaTransaction({
 			executableCode: async () => {
 				const newVideo = await this.videoRepository.createVideo({
 					name: createVideoInput.name,
 					languageCode: createVideoInput.languageCode,
 					year: createVideoInput.year,
-					originalContent: preparedContentResult.originalContentForVideoUpdate,
-					processedContent: preparedContentResult.processedContentForVideoUpdate,
+					originalContent: preparedContentResult.originalContentForVideoUpdate!,
+					processedContent: preparedContentResult.processedContentForVideoUpdate!,
 					contentType: preparedContentResult.contentTypeForVideoUpdate,
 					fileName: createVideoInput.fileName,
 					fileS3Key: createVideoInput.fileS3Key,
-					s3ProviderName: createVideoInput.fileS3Key ? 'cloudRu' : null,
+					s3ProviderName: 'cloudRu',
 				})
 
 				if (!newVideo) {

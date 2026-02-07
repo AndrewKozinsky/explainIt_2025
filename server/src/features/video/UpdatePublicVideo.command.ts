@@ -13,14 +13,13 @@ import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { UpdateVideoPublicOutModel } from 'models/videoPublic/updateVideoPublic.out.model'
 
-// TODO: fileName, fileS3Key, fileUrl, originalContent, processedContent are always have value!
 export type UpdatePublicVideoInput = {
 	id: number
-	name?: null | string
+	name?: string
 	year?: null | number
-	originalContent?: null | string
-	fileName?: null | string
-	fileS3Key?: null | string
+	originalContent?: string
+	fileName?: string
+	fileS3Key?: string
 }
 
 export class UpdatePublicVideoCommand implements ICommand {
@@ -54,6 +53,31 @@ export class UpdatePublicVideoHandler extends VideoBase implements ICommandHandl
 			previousProcessedContent: videoForUpdating.processedContent,
 		})
 
+		const nameForUpdate = updateVideoInput.name ?? videoForUpdating.name
+		const fileNameForUpdate = updateVideoInput.fileName ?? videoForUpdating.fileName
+		const fileS3KeyForUpdate = updateVideoInput.fileS3Key ?? videoForUpdating.fileS3Key
+		const s3ProviderNameForUpdate = 'cloudRu'
+
+		const originalContentForUpdate =
+			preparedContentResult.originalContentForVideoUpdate === undefined
+				? videoForUpdating.originalContent
+				: preparedContentResult.originalContentForVideoUpdate
+		const processedContentForUpdate =
+			preparedContentResult.processedContentForVideoUpdate === undefined
+				? videoForUpdating.processedContent
+				: preparedContentResult.processedContentForVideoUpdate
+		const contentTypeForUpdate =
+			preparedContentResult.contentTypeForVideoUpdate === undefined
+				? videoForUpdating.contentType
+				: preparedContentResult.contentTypeForVideoUpdate
+
+		if (nameForUpdate === null || fileNameForUpdate === null || fileS3KeyForUpdate === null) {
+			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
+		}
+		if (originalContentForUpdate === null || processedContentForUpdate === null) {
+			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
+		}
+
 		if (preparedContentResult.shouldUpdateRelatedTextData) {
 			await this.dbRepository.wrapIntoPrismaTransaction({
 				executableCode: async () => {
@@ -86,14 +110,14 @@ export class UpdatePublicVideoHandler extends VideoBase implements ICommandHandl
 		}
 
 		const updatedVideo = await this.videoRepository.updateVideoById(updateVideoInput.id, {
-			name: updateVideoInput.name,
+			name: nameForUpdate,
 			year: updateVideoInput.year,
-			originalContent: preparedContentResult.originalContentForVideoUpdate,
-			processedContent: preparedContentResult.processedContentForVideoUpdate,
-			contentType: preparedContentResult.contentTypeForVideoUpdate,
-			fileName: updateVideoInput.fileName,
-			fileS3Key: updateVideoInput.fileS3Key,
-			s3ProviderName: updateVideoInput.fileS3Key ? 'cloudRu' : null,
+			originalContent: originalContentForUpdate,
+			processedContent: processedContentForUpdate,
+			contentType: contentTypeForUpdate,
+			fileName: fileNameForUpdate,
+			fileS3Key: fileS3KeyForUpdate,
+			s3ProviderName: s3ProviderNameForUpdate,
 		})
 
 		if (!updatedVideo) {

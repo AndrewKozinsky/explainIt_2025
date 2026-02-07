@@ -9,6 +9,7 @@ import { BookPublicModule } from 'routes/bookPublic/bookPublic.module'
 import { SentenceTranslationModule } from 'routes/sentenceTranslation/sentenceTranslation.module'
 import { TranslateRouteModule } from 'routes/translate/translate.module'
 import { VideoPrivateModule } from 'routes/videoPrivate/videoPrivate.module'
+import { VideoPublicModule } from 'routes/videoPublic/videoPublic.module'
 import { CloudRuS3Module } from 'infrastructure/cloudRuS3/cloudRuS3.module'
 import { DeepSeekModule } from 'infrastructure/deepSeek/deepSeek.module'
 import { StartServerTasksRunner } from 'infrastructure/StartServerTasksRunner'
@@ -78,6 +79,7 @@ import { WebhookModule } from './routes/webhook/webhook.module'
 		BookPublicModule,
 		BookChapterModule,
 		VideoPrivateModule,
+		VideoPublicModule,
 		TranslateRouteModule,
 		SentenceTranslationModule,
 	],
