@@ -34,6 +34,10 @@ export interface GetPrivateVideoInput {
     id: number;
 }
 
+export interface GetPublicVideoInput {
+    id: number;
+}
+
 export interface GetSentenceTranslationInput {
     id: number;
 }
@@ -277,6 +281,52 @@ export interface SentenceTranslationLiteOutModel {
     translation: string;
 }
 
+export interface VideoPublicOutModel {
+    id: number;
+    name: string;
+    year?: Nullable<number>;
+    languageCode: string;
+    originalContent: string;
+    processedContent: string;
+    contentType: string;
+    fileName: string;
+    fileS3Key: string;
+    fileUrl: string;
+    sentences?: Nullable<VideoPublicSentenceOutModel[]>;
+    subtitles?: Nullable<VideoPublicSubtitleOutModel[]>;
+    subtitleSentenceInit?: Nullable<SubtitleSentenceInitOutModel[]>;
+}
+
+export interface VideoPublicSentenceOutModel {
+    id: number;
+    sentenceTranslations?: Nullable<SentenceTranslationLiteOutModel[]>;
+    startOffset: number;
+    length: number;
+    orderIndex: number;
+}
+
+export interface VideoPublicSubtitleOutModel {
+    id: number;
+    startTimeMs: number;
+    endTimeMs: number;
+    startOffset: number;
+    length: number;
+    orderIndex: number;
+}
+
+export interface VideoPublicLiteOutModel {
+    id: number;
+    name: string;
+    year?: Nullable<number>;
+    languageCode: string;
+    originalContent: string;
+    processedContent: string;
+    contentType: string;
+    fileName: string;
+    fileS3Key: string;
+    fileUrl: string;
+}
+
 export interface UserOutModel {
     id: number;
     email: string;
@@ -299,6 +349,8 @@ export interface IQuery {
     book_chapter_get(input: GetBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
     video_private_user_videos(): VideoPrivateLiteOutModel[] | Promise<VideoPrivateLiteOutModel[]>;
     video_private_get(input: GetPrivateVideoInput): VideoPrivateOutModel | Promise<VideoPrivateOutModel>;
+    video_public_get_videos(): VideoPublicLiteOutModel[] | Promise<VideoPublicLiteOutModel[]>;
+    video_public_get(input: GetPublicVideoInput): VideoPublicOutModel | Promise<VideoPublicOutModel>;
     sentence_translation_get(input: GetSentenceTranslationInput): SentenceTranslationOutModel | Promise<SentenceTranslationOutModel>;
     sentence_translation_get_by_sentence_id(input: GetSentenceTranslationsBySentenceIdInput): SentenceTranslationOutModel[] | Promise<SentenceTranslationOutModel[]>;
 }
