@@ -2,9 +2,9 @@ import { useCallback, useContext, useState } from 'react'
 import { redirect } from 'next/navigation'
 import { useVideoPrivate_Create, VideoPrivate_GetUserVideosDocument } from '@/graphql'
 import { NotificationContext } from '@/ui/Notification/context'
-import { pageUrls } from 'сonsts/pageUrls'
+import { createVideoIdUrl, pageUrls } from 'сonsts/pageUrls'
 
-export function useGetOnAddBookClick() {
+export function useGetOnAddVideoClick() {
 	const { notify } = useContext(NotificationContext)
 
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
@@ -13,11 +13,11 @@ export function useGetOnAddBookClick() {
 		awaitRefetchQueries: true,
 	})
 
-	const onAddBookClick = useCallback(
+	const onAddVideoClick = useCallback(
 		async function () {
 			setStatus('loading')
 
-			let createdBookId: string | number | null = null
+			let createdVideoId: string | number | null = null
 
 			try {
 				const { errors, data } = await createVideo({
@@ -33,16 +33,17 @@ export function useGetOnAddBookClick() {
 					throw new Error('Не удалось создать книгу.')
 				}
 
-				createdBookId = videoId
+				createdVideoId = videoId
 			} catch (error) {
 				notify({ type: 'error', message: 'Не удалось получить список видео.' })
 			} finally {
 				setStatus('idle')
 			}
 
-			if (createdBookId) {
-				// Open a page with created book
-				redirect(pageUrls.videos.video(createdBookId).path)
+			if (createdVideoId) {
+				// Open a page with the created video
+				const videoIdInUrl = createVideoIdUrl(createdVideoId, 'private')
+				redirect(pageUrls.videos.video(videoIdInUrl).path)
 			}
 		},
 		[createVideo, notify],
@@ -50,6 +51,6 @@ export function useGetOnAddBookClick() {
 
 	return {
 		status,
-		onAddBookClick,
+		onAddBookClick: onAddVideoClick,
 	}
 }

@@ -1,9 +1,9 @@
 import Button from '@/ui/formRelated/buttons/Button/Button'
 import { publicFolderFilesUrls } from '@/utils/publicFolderFilesUrls'
-import { useGetOnAddBookClick } from './fn/getOnAddBookClick'
+import { useGetOnAddVideoClick } from './fn/getOnAddBookClick'
 
 function AddVideoButton() {
-	const { onAddBookClick, status } = useGetOnAddBookClick()
+	const { onAddBookClick, status } = useGetOnAddVideoClick()
 
 	return (
 		<Button

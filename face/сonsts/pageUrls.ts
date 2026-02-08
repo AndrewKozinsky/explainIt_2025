@@ -142,3 +142,26 @@ export function extractBookIdFromUrlBookId(urlBookId: ParamValue | undefined | n
 	const bookIdStr = urlBookId.slice(1)
 	return parseInt(bookIdStr)
 }
+
+export function getVideoTypePrefixInUrl(videoType: 'public' | 'private') {
+	return videoType === 'public' ? 'p' : 'u'
+}
+
+export function createVideoIdUrl(videoId: string | number, videoType: 'public' | 'private') {
+	return getVideoTypePrefixInUrl(videoType) + videoId
+}
+
+export function getVideoTypeByUrlVideoId(
+	urlVideoId: ParamValue | undefined | null | string,
+): null | 'public' | 'private' {
+	if (!urlVideoId || typeof urlVideoId !== 'string') return null
+
+	return urlVideoId.startsWith('p') ? 'public' : 'private'
+}
+
+export function extractVideoIdFromUrlVideoId(urlVideoId: ParamValue | undefined | null | string): null | number {
+	if (!urlVideoId || typeof urlVideoId !== 'string') return null
+
+	const videoIdStr = urlVideoId.slice(1)
+	return parseInt(videoIdStr)
+}

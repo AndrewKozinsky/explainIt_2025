@@ -29,10 +29,10 @@ function PrivateVideosListContent() {
 
 	return (
 		<>
-			{privateVideos.data.map((book) => {
-				const bookWithType = { ...book, bookType: 'private' as const }
+			{privateVideos.data.map((video) => {
+				const videoWithType = { ...video, videoType: 'private' as const }
 
-				return <VideoLink bookData={bookWithType} key={book.id} />
+				return <VideoLink videoData={videoWithType} key={video.id} />
 			})}
 		</>
 	)
