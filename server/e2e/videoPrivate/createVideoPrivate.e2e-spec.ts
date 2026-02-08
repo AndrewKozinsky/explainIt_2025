@@ -12,6 +12,10 @@ import { defUserEmail, defUserPassword } from '../utils/common'
 import { createApp } from '../utils/createApp'
 import { userUtils } from '../utils/userUtils'
 
+it('1', () => {
+	expect(2).toBe(2)
+})
+
 describe.skip('Create video private', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
@@ -34,6 +38,10 @@ describe.skip('Create video private', () => {
 
 	afterEach(async () => {
 		await afterEachTest(app)
+	})
+
+	it('1', () => {
+		expect(2).toBe(2)
 	})
 
 	/*it('should return 401 if there is not session token cookie', async () => {

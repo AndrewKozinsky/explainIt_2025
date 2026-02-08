@@ -30,7 +30,7 @@ model BalanceTransaction {
     user_id    Int
     type       BalanceTransactionType
     amount     Int
-    payment    Payment?               @relation(fields: [payment_id], references: [id])
+    payment    Payment?               @relation(fields: [payment_id], references: [id], onDelete: Cascade)
     payment_id Int?                   @unique
     created_at DateTime               @default(now())
 }
@@ -129,13 +129,13 @@ model Sentence {
     book_chapter_id      Int?
     video_private        VideoPrivate?          @relation(fields: [video_private_id], references: [id], onDelete: Cascade)
     video_private_id     Int?
+    videoPublic          VideoPublic?           @relation(fields: [videoPublicId], references: [id], onDelete: Cascade)
+    videoPublicId        Int?
     start_offset         Int
     length               Int
     order_index          Int
     SubtitleSentenceInit SubtitleSentenceInit[]
     SentenceTranslation  SentenceTranslation[]
-    videoPublic          VideoPublic?           @relation(fields: [videoPublicId], references: [id])
-    videoPublicId        Int?
 }
 
 model SentenceTranslation {
@@ -153,14 +153,14 @@ model Subtitle {
     id                   Int                    @id @default(autoincrement())
     video_private        VideoPrivate?          @relation(fields: [video_private_id], references: [id], onDelete: Cascade)
     video_private_id     Int?
+    videoPublic          VideoPublic?           @relation(fields: [videoPublicId], references: [id], onDelete: Cascade)
+    videoPublicId        Int?
     start_time_ms        Int
     end_time_ms          Int
     start_offset         Int
     length               Int
     order_index          Int
     SubtitleSentenceInit SubtitleSentenceInit[]
-    videoPublic          VideoPublic?           @relation(fields: [videoPublicId], references: [id])
-    videoPublicId        Int?
 }
 
 model SubtitleSentenceInit {
@@ -184,6 +184,16 @@ model EngRusDictionary {
     lexemes       String?
     created_at    DateTime @default(now())
     updated_at    DateTime @default(now())
+}
+
+model Tariff {
+    id                       Int      @id @default(autoincrement())
+    code                     String   @unique
+    name                     String
+    price                    Int
+    included_balance         Int
+    included_file_storage_mb Int
+    created_at               DateTime @default(now())
 }
 
 enum BalanceTransactionType {

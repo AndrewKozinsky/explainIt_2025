@@ -49,9 +49,6 @@ export async function generateSentencesAndSaveToDB(params: {
 			cursor = startOffset + sentence.length
 		}
 	} catch (error) {
-		throw new CustomGraphQLError(
-			errorMessage.nlp.cantDivideTextIntoSentences,
-			ErrorCode.InternalServerError_500,
-		)
+		throw new CustomGraphQLError(errorMessage.nlp.cantDivideTextIntoSentences, ErrorCode.InternalServerError_500)
 	}
 }

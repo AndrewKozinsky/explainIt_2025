@@ -19,6 +19,7 @@ const config: Config = {
 	moduleNameMapper: {
 		'^src/(.*)$': '<rootDir>/../src/$1',
 		'^infrastructure/(.*)$': '<rootDir>/../src/infrastructure/$1',
+		'^utils/(.*)$': '<rootDir>/../src/utils/$1',
 		'^repo/(.*)$': '<rootDir>/../src/repo/$1',
 		'^features/(.*)$': '<rootDir>/../src/features/$1',
 		'^routes/(.*)$': '<rootDir>/../src/routes/$1',

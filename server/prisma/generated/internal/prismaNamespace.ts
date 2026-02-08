@@ -396,7 +396,8 @@ export const ModelName = {
   SentenceTranslation: 'SentenceTranslation',
   Subtitle: 'Subtitle',
   SubtitleSentenceInit: 'SubtitleSentenceInit',
-  EngRusDictionary: 'EngRusDictionary'
+  EngRusDictionary: 'EngRusDictionary',
+  Tariff: 'Tariff'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -412,7 +413,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "balanceTransaction" | "payment" | "bookPrivate" | "bookPublic" | "bookChapter" | "videoPrivate" | "videoPublic" | "sentence" | "sentenceTranslation" | "subtitle" | "subtitleSentenceInit" | "engRusDictionary"
+    modelProps: "user" | "balanceTransaction" | "payment" | "bookPrivate" | "bookPublic" | "bookChapter" | "videoPrivate" | "videoPublic" | "sentence" | "sentenceTranslation" | "subtitle" | "subtitleSentenceInit" | "engRusDictionary" | "tariff"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1378,6 +1379,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    Tariff: {
+      payload: Prisma.$TariffPayload<ExtArgs>
+      fields: Prisma.TariffFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.TariffFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TariffPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.TariffFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TariffPayload>
+        }
+        findFirst: {
+          args: Prisma.TariffFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TariffPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.TariffFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TariffPayload>
+        }
+        findMany: {
+          args: Prisma.TariffFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TariffPayload>[]
+        }
+        create: {
+          args: Prisma.TariffCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TariffPayload>
+        }
+        createMany: {
+          args: Prisma.TariffCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.TariffCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TariffPayload>[]
+        }
+        delete: {
+          args: Prisma.TariffDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TariffPayload>
+        }
+        update: {
+          args: Prisma.TariffUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TariffPayload>
+        }
+        deleteMany: {
+          args: Prisma.TariffDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.TariffUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.TariffUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TariffPayload>[]
+        }
+        upsert: {
+          args: Prisma.TariffUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TariffPayload>
+        }
+        aggregate: {
+          args: Prisma.TariffAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTariff>
+        }
+        groupBy: {
+          args: Prisma.TariffGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TariffGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.TariffCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TariffCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1541,10 +1616,10 @@ export const SentenceScalarFieldEnum = {
   id: 'id',
   book_chapter_id: 'book_chapter_id',
   video_private_id: 'video_private_id',
+  videoPublicId: 'videoPublicId',
   start_offset: 'start_offset',
   length: 'length',
-  order_index: 'order_index',
-  videoPublicId: 'videoPublicId'
+  order_index: 'order_index'
 } as const
 
 export type SentenceScalarFieldEnum = (typeof SentenceScalarFieldEnum)[keyof typeof SentenceScalarFieldEnum]
@@ -1564,12 +1639,12 @@ export type SentenceTranslationScalarFieldEnum = (typeof SentenceTranslationScal
 export const SubtitleScalarFieldEnum = {
   id: 'id',
   video_private_id: 'video_private_id',
+  videoPublicId: 'videoPublicId',
   start_time_ms: 'start_time_ms',
   end_time_ms: 'end_time_ms',
   start_offset: 'start_offset',
   length: 'length',
-  order_index: 'order_index',
-  videoPublicId: 'videoPublicId'
+  order_index: 'order_index'
 } as const
 
 export type SubtitleScalarFieldEnum = (typeof SubtitleScalarFieldEnum)[keyof typeof SubtitleScalarFieldEnum]
@@ -1597,6 +1672,19 @@ export const EngRusDictionaryScalarFieldEnum = {
 } as const
 
 export type EngRusDictionaryScalarFieldEnum = (typeof EngRusDictionaryScalarFieldEnum)[keyof typeof EngRusDictionaryScalarFieldEnum]
+
+
+export const TariffScalarFieldEnum = {
+  id: 'id',
+  code: 'code',
+  name: 'name',
+  price: 'price',
+  included_balance: 'included_balance',
+  included_file_storage_mb: 'included_file_storage_mb',
+  created_at: 'created_at'
+} as const
+
+export type TariffScalarFieldEnum = (typeof TariffScalarFieldEnum)[keyof typeof TariffScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1883,6 +1971,7 @@ export type GlobalOmitConfig = {
   subtitle?: Prisma.SubtitleOmit
   subtitleSentenceInit?: Prisma.SubtitleSentenceInitOmit
   engRusDictionary?: Prisma.EngRusDictionaryOmit
+  tariff?: Prisma.TariffOmit
 }
 
 /* Types for Logging */

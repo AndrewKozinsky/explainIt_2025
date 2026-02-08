@@ -2,6 +2,7 @@ import { promisify } from 'util'
 import { Injectable, OnApplicationBootstrap } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { CreateBooksPublicCommand } from 'features/bookPublic/CreateBooksPublic.command'
+import { CreateTariffsCommand } from 'features/tariff/CreateTariffs.command'
 import { CreateVideosPublicCommand } from 'features/video/CreateVideosPublic.command'
 
 @Injectable()
@@ -12,6 +13,7 @@ export class StartServerTasksRunner implements OnApplicationBootstrap {
 		await this.runMigrations()
 		await this.commandBus.execute(new CreateBooksPublicCommand())
 		await this.commandBus.execute(new CreateVideosPublicCommand())
+		await this.commandBus.execute(new CreateTariffsCommand())
 	}
 
 	private async runMigrations() {

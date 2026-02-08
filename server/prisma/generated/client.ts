@@ -102,3 +102,8 @@ export type SubtitleSentenceInit = Prisma.SubtitleSentenceInitModel
  * 
  */
 export type EngRusDictionary = Prisma.EngRusDictionaryModel
+/**
+ * Model Tariff
+ * 
+ */
+export type Tariff = Prisma.TariffModel

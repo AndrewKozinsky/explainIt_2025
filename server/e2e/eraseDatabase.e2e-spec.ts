@@ -23,7 +23,7 @@ describe('Erase database', () => {
 		await afterEachTest(app)
 	})
 
-	it('when a user registered with email and password he should get default book Alice in Wonderland', async () => {
+	it('empty e2e test', async () => {
 		expect(2).toBe(2)
 	})
 })

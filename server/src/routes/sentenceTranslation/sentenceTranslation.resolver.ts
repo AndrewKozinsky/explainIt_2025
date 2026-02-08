@@ -21,25 +21,15 @@ export class SentenceTranslationResolver {
 		description: sentenceTranslationResolversDesc.getSentenceTranslation,
 	})
 	async getSentenceTranslation(@Args('input') input: GetSentenceTranslationInput, @Context('req') request: Request) {
-		console.log('------')
-		console.log(input.id)
 		const userId = request.session.userId!
 		return await this.commandBus.execute(new GetSentenceTranslationCommand(userId, input.id))
 	}
 
-	@UseGuards(CheckSessionCookieGuard)
 	@Query(() => [SentenceTranslationOutModel], {
 		name: RouteNames.SENTENCE_TRANSLATION.GET_BY_SENTENCE_ID,
 		description: sentenceTranslationResolversDesc.getSentenceTranslationsBySentenceId,
 	})
-	async getSentenceTranslationsBySentenceId(
-		@Args('input') input: GetSentenceTranslationsBySentenceIdInput,
-		@Context('req') request: Request,
-	) {
-		console.log('=====')
-		console.log(input.sentenceId)
-
-		const userId = request.session.userId!
-		return await this.commandBus.execute(new GetSentenceTranslationsBySentenceIdCommand(userId, input.sentenceId))
+	async getSentenceTranslationsBySentenceId(@Args('input') input: GetSentenceTranslationsBySentenceIdInput) {
+		return await this.commandBus.execute(new GetSentenceTranslationsBySentenceIdCommand(input.sentenceId))
 	}
 }

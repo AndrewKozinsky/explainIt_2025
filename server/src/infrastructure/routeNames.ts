@@ -66,6 +66,9 @@ export const RouteNames = {
 		GET: 'sentence_translation_get',
 		GET_BY_SENTENCE_ID: 'sentence_translation_get_by_sentence_id',
 	},
+	TARIFF: {
+		GET_ALL: 'tariff_get_tariffs',
+	},
 }
 
 export default RouteNames

@@ -192,6 +192,19 @@ export interface SentenceTranslationOutModel {
     createdAt: string;
 }
 
+export interface VideoPublicLiteOutModel {
+    id: number;
+    name: string;
+    year?: Nullable<number>;
+    languageCode: string;
+    originalContent: string;
+    processedContent: string;
+    contentType: string;
+    fileName: string;
+    fileS3Key: string;
+    fileUrl: string;
+}
+
 export interface CreateVideoPrivateOutModel {
     id: number;
     name?: Nullable<string>;
@@ -314,19 +327,6 @@ export interface VideoPublicSubtitleOutModel {
     orderIndex: number;
 }
 
-export interface VideoPublicLiteOutModel {
-    id: number;
-    name: string;
-    year?: Nullable<number>;
-    languageCode: string;
-    originalContent: string;
-    processedContent: string;
-    contentType: string;
-    fileName: string;
-    fileS3Key: string;
-    fileUrl: string;
-}
-
 export interface UserOutModel {
     id: number;
     email: string;
@@ -353,6 +353,7 @@ export interface IQuery {
     video_public_get(input: GetPublicVideoInput): VideoPublicOutModel | Promise<VideoPublicOutModel>;
     sentence_translation_get(input: GetSentenceTranslationInput): SentenceTranslationOutModel | Promise<SentenceTranslationOutModel>;
     sentence_translation_get_by_sentence_id(input: GetSentenceTranslationsBySentenceIdInput): SentenceTranslationOutModel[] | Promise<SentenceTranslationOutModel[]>;
+    tariff_get_tariffs(): VideoPublicLiteOutModel[] | Promise<VideoPublicLiteOutModel[]>;
 }
 
 export interface CheckTranslationOutSuccessModel {

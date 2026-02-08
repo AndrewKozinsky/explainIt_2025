@@ -254,6 +254,7 @@ export class VideoBase {
 		subtitleSentenceInitRepository: SubtitleSentenceInitRepository
 	}) {
 		type SentenceRange = { id: number; start: number; end: number }
+
 		const sentences = await divideTextIntoSentences({
 			mainConfigService: this.mainConfig,
 			text: dto.preparedContent,
@@ -265,6 +266,7 @@ export class VideoBase {
 		for (let i = 0; i < sentences.length; i++) {
 			const sentenceText = sentences[i]
 			const startOffset = dto.preparedContent.indexOf(sentenceText, cursor)
+
 			if (startOffset === -1) {
 				throw new CustomGraphQLError(
 					errorMessage.nlp.cantDivideTextIntoSentences,

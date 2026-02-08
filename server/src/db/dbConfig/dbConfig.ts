@@ -562,6 +562,13 @@ export const bdConfig = {
 				foreignField: 'id',
 				required: false,
 			},
+			videoPublicId: {
+				type: 'manyToOne',
+				thisField: 'videoPublicId',
+				foreignTable: 'VideoPublic',
+				foreignField: 'id',
+				required: false,
+			},
 			start_offset: {
 				type: 'number',
 				description:
@@ -673,6 +680,13 @@ export const bdConfig = {
 				foreignField: 'id',
 				required: false,
 			},
+			videoPublicId: {
+				type: 'manyToOne',
+				thisField: 'videoPublicId',
+				foreignTable: 'VideoPublic',
+				foreignField: 'id',
+				required: false,
+			},
 			start_time_ms: {
 				type: 'number',
 				description: 'time when subtitle begins',
@@ -739,7 +753,7 @@ export const bdConfig = {
 			},
 			length: {
 				type: 'number',
-				description: 'lenght of this sentence in subtitle',
+				description: 'length of this sentence in subtitle',
 				example: 10,
 				required: true,
 			},
@@ -798,6 +812,48 @@ export const bdConfig = {
 			},
 			updated_at: {
 				type: 'updatedAt',
+			},
+		},
+	},
+	// Таблица тарифов (справочник), редактируется редко
+	Tariff: {
+		dtoProps: {},
+		dbFields: {
+			id: {
+				type: 'index',
+			},
+			code: {
+				type: 'string',
+				description: 'Unique code of the tariff',
+				required: true,
+				unique: true,
+			},
+			name: {
+				type: 'string',
+				description: 'Name of the tariff',
+				required: true,
+				maxLength: 100,
+			},
+			price: {
+				type: 'number',
+				description: 'Price for 30 days',
+				example: 10,
+				required: true,
+			},
+			included_balance: {
+				type: 'number',
+				description: 'How many kopecks are given to the user to analyze sentences',
+				example: 10,
+				required: true,
+			},
+			included_file_storage_mb: {
+				type: 'number',
+				description: 'How many megabytes of file storage are included',
+				example: 5000,
+				required: true,
+			},
+			created_at: {
+				type: 'createdAt',
 			},
 		},
 	},

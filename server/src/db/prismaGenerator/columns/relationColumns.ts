@@ -63,11 +63,11 @@ export function createChildOneToOneColumn(fieldConfig: BdConfig.ChildOneToOneFie
 
 	// Creates such string:
 	// 'user User @relation(fields: [user_id], references: [id])'
-	const str1 = `${firstColumnName} ${fieldConfig.foreignTable}${unnecessaryFieldSign} @relation(fields: [${fieldConfig.thisField}], references: [${fieldConfig.foreignField}])`
+	const str1 = `${firstColumnName} ${fieldConfig.foreignTable}${unnecessaryFieldSign} @relation(fields: [${fieldConfig.thisField}], references: [${fieldConfig.foreignField}], onDelete: Cascade)`
 
 	// Creates such string:
 	// 'user_id Int	@unique'
-	const str2 = `${fieldConfig.thisField} Int${unnecessaryFieldSign}	@unique`
+	const str2 = `${fieldConfig.thisField} Int${unnecessaryFieldSign}\t@unique`
 
 	return ['\t' + str1, '\t' + str2]
 }

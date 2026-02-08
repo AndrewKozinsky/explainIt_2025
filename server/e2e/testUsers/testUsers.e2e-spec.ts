@@ -15,6 +15,10 @@ import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
 import { welcomeBonusInKop } from '../utils/common'
 import { createApp } from '../utils/createApp'
 
+it('1', () => {
+	expect(2).toBe(2)
+})
+
 describe.skip('Check that test user were created correctly (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
