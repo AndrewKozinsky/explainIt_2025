@@ -1,8 +1,10 @@
-import { VideoPrivateOutModel } from '@/graphql'
+import { VideoPrivateOutModel, VideoPublicOutModel } from '@/graphql'
 import { getSentenceStructure } from '_pages/readingAndWatchingCommon/functions/getSentenceStructure'
 import { PopulatedSubtitlesStructure } from '_pages/video/watching/common/populatedSubtitlesStructure'
 
-export function createPopulatedSubtitles(videoData: VideoPrivateOutModel): PopulatedSubtitlesStructure.Structure {
+export function createPopulatedSubtitles(
+	videoData: VideoPrivateOutModel | VideoPublicOutModel,
+): PopulatedSubtitlesStructure.Structure {
 	if (
 		!videoData.processedContent ||
 		!videoData.sentences ||
@@ -30,7 +32,7 @@ export function createPopulatedSubtitles(videoData: VideoPrivateOutModel): Popul
 		}
 	})
 
-	type InitItem = NonNullable<VideoPrivateOutModel['subtitleSentenceInit']>[number]
+	type InitItem = NonNullable<(VideoPrivateOutModel | VideoPublicOutModel)['subtitleSentenceInit']>[number]
 
 	const initBySubtitleId = new Map<number, InitItem[]>()
 	for (const init of videoData.subtitleSentenceInit) {

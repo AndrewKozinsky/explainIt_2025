@@ -1,10 +1,15 @@
 import { create } from 'zustand'
-import { VideoPrivateOutModel } from '@/graphql'
+import { VideoPrivateOutModel, VideoPublicOutModel } from '@/graphql'
 import { PopulatedSubtitlesStructure } from '_pages/video/watching/common/populatedSubtitlesStructure'
 import { PopulatedTextStructure } from '_pages/video/watching/common/populatedTextStructure'
 
 export const watchingStoreValues: WatchingStoreValues = {
-	video: null as any as WatchingStoreI.VideoData,
+	video: {
+		loading: true,
+		errorMessage: null,
+		data: null as any as VideoPrivateOutModel,
+		type: 'private',
+	},
 	player: {
 		currentTime: 0,
 		duration: 0,
@@ -93,7 +98,8 @@ export namespace WatchingStoreI {
 	export type VideoData = {
 		loading: boolean
 		errorMessage: null | string
-		data: VideoPrivateOutModel
+		data: VideoPrivateOutModel | VideoPublicOutModel
+		type: 'public' | 'private'
 	}
 	export type Player = {
 		currentTime: number
@@ -150,7 +156,7 @@ export type WatchingStoreMethods = {
 	updateStore: (store: Partial<WatchingStoreValues>) => void
 	updateMobileCurrentContentType: (contentType: WatchingStoreI.MobileCurrentContentType) => void
 	updateHelpCurrentContentType: (contentType: WatchingStoreI.HelpCurrentContentType) => void
-	updateVideo: (book: WatchingStoreI.VideoData) => void
+	updateVideo: (video: WatchingStoreI.VideoData) => void
 	setPlayerState: (state: Partial<WatchingStoreI.Player>) => void
 	sendPlayerCommand: (command: PlayerCommand) => void
 	toggleFullScreen: () => void

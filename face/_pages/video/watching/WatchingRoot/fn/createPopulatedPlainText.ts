@@ -1,7 +1,9 @@
-import { VideoPrivateOutModel } from '@/graphql'
+import { VideoPrivateOutModel, VideoPublicOutModel } from '@/graphql'
 import { PopulatedTextStructure } from '_pages/video/watching/common/populatedTextStructure'
 
-export function createPopulatedPlainText(videoData: VideoPrivateOutModel): PopulatedTextStructure.Structure {
+export function createPopulatedPlainText(
+	videoData: VideoPrivateOutModel | VideoPublicOutModel,
+): PopulatedTextStructure.Structure {
 	if (!videoData.processedContent || !videoData.sentences) {
 		return {
 			sentences: [],

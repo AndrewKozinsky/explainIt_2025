@@ -17,9 +17,9 @@ function WatchingRootContent() {
 export default WatchingRootContent
 
 function VideoContainer() {
-	const video = useWatchingStore((s) => s.video!.data)
+	const videoData = useWatchingStore((s) => s.video!.data)
 
-	if (!video.fileUrl || !video.isFileUploaded) {
+	if (!videoData.fileUrl) {
 		return (
 			<div className='watching-root__no-video'>
 				<p>no video</p>
