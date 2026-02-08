@@ -73,6 +73,7 @@ export class VideoPublicQueryRepository {
 			originalContent: dbVideo.original_content,
 			processedContent: dbVideo.processed_content,
 			contentType: dbVideo.content_type,
+			freeToUse: dbVideo.free_to_use ?? false,
 		}
 	}
 
@@ -90,6 +91,7 @@ export class VideoPublicQueryRepository {
 			originalContent: dbVideo.original_content,
 			processedContent: dbVideo.processed_content,
 			contentType: dbVideo.content_type,
+			freeToUse: dbVideo.free_to_use ?? false,
 		}
 
 		return attachVideoTextRelations({

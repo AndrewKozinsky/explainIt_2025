@@ -64,6 +64,7 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 			let newVideo: Awaited<ReturnType<VideoPublicRepository['createVideo']>>
 			try {
 				newVideo = await this.videoPublicRepository.createVideo({
+					freeToUse: videoData.freeToUse,
 					name: videoData.name,
 					languageCode: videoData.languageCode as Language,
 					year: videoData.year,
@@ -107,6 +108,7 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 	getVideosData() {
 		return [
 			{
+				freeToUse: true,
 				name: 'Charade', // Charade (1963).mp4
 				languageCode: 'en',
 				year: 1963,
@@ -115,6 +117,7 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 				originalContent: charadeSubs,
 			},
 			{
+				freeToUse: false,
 				name: 'His Girl Friday', // His Girl Friday (1940).mp4
 				languageCode: 'en',
 				year: 1940,

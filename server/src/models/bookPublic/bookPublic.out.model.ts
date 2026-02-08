@@ -21,6 +21,9 @@ export class BookPublicOutModel {
 	@Field(() => String)
 	languageCode: string
 
+	@Field(() => Boolean)
+	freeToUse: boolean
+
 	@Field(() => [BookChapterLiteOutModel])
 	chapters: BookChapterLiteOutModel[]
 }

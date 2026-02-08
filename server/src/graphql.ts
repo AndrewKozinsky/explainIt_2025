@@ -181,6 +181,7 @@ export interface BookPublicOutModel {
     note: string;
     cover: string;
     languageCode: string;
+    freeToUse: boolean;
     chapters: BookChapterLiteOutModel[];
 }
 
@@ -203,6 +204,7 @@ export interface VideoPublicLiteOutModel {
     fileName: string;
     fileS3Key: string;
     fileUrl: string;
+    freeToUse: boolean;
 }
 
 export interface CreateVideoPrivateOutModel {
@@ -305,6 +307,7 @@ export interface VideoPublicOutModel {
     fileName: string;
     fileS3Key: string;
     fileUrl: string;
+    freeToUse: boolean;
     sentences?: Nullable<VideoPublicSentenceOutModel[]>;
     subtitles?: Nullable<VideoPublicSubtitleOutModel[]>;
     subtitleSentenceInit?: Nullable<SubtitleSentenceInitOutModel[]>;

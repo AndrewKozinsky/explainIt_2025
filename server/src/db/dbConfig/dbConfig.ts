@@ -261,6 +261,13 @@ export const bdConfig = {
 			id: {
 				type: 'index',
 			},
+			free_to_use: {
+				type: 'boolean',
+				default: false,
+				description: 'Can user see this book without subscription',
+				example: true,
+				required: false,
+			},
 			language_code: {
 				type: 'enum',
 				enumName: 'LanguageCode',
@@ -469,6 +476,13 @@ export const bdConfig = {
 		dbFields: {
 			id: {
 				type: 'index',
+			},
+			free_to_use: {
+				type: 'boolean',
+				default: false,
+				description: 'Can user see this video without subscription',
+				example: true,
+				required: false,
 			},
 			language_code: {
 				type: 'enum',

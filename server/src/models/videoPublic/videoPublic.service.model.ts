@@ -11,4 +11,5 @@ export type VideoPublicServiceModel = {
 	originalContent: string
 	processedContent: string
 	contentType: 'text' | 'subtitles'
+	freeToUse: boolean
 }

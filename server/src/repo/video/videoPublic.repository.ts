@@ -24,6 +24,7 @@ export class VideoPublicRepository {
 		fileName: string
 		fileS3Key: string
 		s3ProviderName: S3ProviderName
+		freeToUse?: boolean
 	}) {
 		const newVideo = await this.prisma.videoPublic.create({
 			data: {
@@ -36,6 +37,7 @@ export class VideoPublicRepository {
 				file_name: dto.fileName,
 				file_s3_key: dto.fileS3Key,
 				s3_provider_name: dto.s3ProviderName,
+				free_to_use: dto.freeToUse,
 			},
 		})
 
@@ -98,6 +100,7 @@ export class VideoPublicRepository {
 			originalContent: dbVideo.original_content,
 			processedContent: dbVideo.processed_content,
 			contentType: dbVideo.content_type,
+			freeToUse: dbVideo.free_to_use ?? false,
 		}
 	}
 }

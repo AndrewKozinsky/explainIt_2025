@@ -39,6 +39,7 @@ type BookPublicOutModel {
   author: String!
   chapters: [BookChapterLiteOutModel!]!
   cover: String!
+  freeToUse: Boolean!
   id: Int!
   languageCode: String!
   name: String!
@@ -289,6 +290,9 @@ type Query {
   """Get all sentence translations by sentence id"""
   sentence_translation_get_by_sentence_id(input: GetSentenceTranslationsBySentenceIdInput!): [SentenceTranslationOutModel!]!
 
+  """Get all tariffs"""
+  tariff_get_tariffs: [VideoPublicLiteOutModel!]!
+
   """Get a video"""
   video_private_get(input: GetPrivateVideoInput!): VideoPrivateOutModel!
 
@@ -482,6 +486,7 @@ type VideoPublicLiteOutModel {
   fileName: String!
   fileS3Key: String!
   fileUrl: String!
+  freeToUse: Boolean!
   id: Int!
   languageCode: String!
   name: String!
@@ -495,6 +500,7 @@ type VideoPublicOutModel {
   fileName: String!
   fileS3Key: String!
   fileUrl: String!
+  freeToUse: Boolean!
   id: Int!
   languageCode: String!
   name: String!

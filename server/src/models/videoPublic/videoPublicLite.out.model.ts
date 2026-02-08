@@ -31,4 +31,7 @@ export class VideoPublicLiteOutModel {
 
 	@Field(() => String)
 	fileUrl: string
+
+	@Field(() => Boolean)
+	freeToUse: boolean
 }

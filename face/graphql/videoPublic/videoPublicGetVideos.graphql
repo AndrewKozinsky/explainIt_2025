@@ -10,5 +10,6 @@ query VideoPublic_getVideos {
 		fileName
 		fileS3Key
 		fileUrl
+		freeToUse
 	}
 }

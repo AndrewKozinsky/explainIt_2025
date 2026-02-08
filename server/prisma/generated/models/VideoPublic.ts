@@ -38,6 +38,7 @@ export type VideoPublicSumAggregateOutputType = {
 
 export type VideoPublicMinAggregateOutputType = {
   id: number | null
+  free_to_use: boolean | null
   language_code: $Enums.LanguageCode | null
   year: number | null
   file_name: string | null
@@ -53,6 +54,7 @@ export type VideoPublicMinAggregateOutputType = {
 
 export type VideoPublicMaxAggregateOutputType = {
   id: number | null
+  free_to_use: boolean | null
   language_code: $Enums.LanguageCode | null
   year: number | null
   file_name: string | null
@@ -68,6 +70,7 @@ export type VideoPublicMaxAggregateOutputType = {
 
 export type VideoPublicCountAggregateOutputType = {
   id: number
+  free_to_use: number
   language_code: number
   year: number
   file_name: number
@@ -95,6 +98,7 @@ export type VideoPublicSumAggregateInputType = {
 
 export type VideoPublicMinAggregateInputType = {
   id?: true
+  free_to_use?: true
   language_code?: true
   year?: true
   file_name?: true
@@ -110,6 +114,7 @@ export type VideoPublicMinAggregateInputType = {
 
 export type VideoPublicMaxAggregateInputType = {
   id?: true
+  free_to_use?: true
   language_code?: true
   year?: true
   file_name?: true
@@ -125,6 +130,7 @@ export type VideoPublicMaxAggregateInputType = {
 
 export type VideoPublicCountAggregateInputType = {
   id?: true
+  free_to_use?: true
   language_code?: true
   year?: true
   file_name?: true
@@ -227,6 +233,7 @@ export type VideoPublicGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inte
 
 export type VideoPublicGroupByOutputType = {
   id: number
+  free_to_use: boolean | null
   language_code: $Enums.LanguageCode
   year: number | null
   file_name: string
@@ -265,6 +272,7 @@ export type VideoPublicWhereInput = {
   OR?: Prisma.VideoPublicWhereInput[]
   NOT?: Prisma.VideoPublicWhereInput | Prisma.VideoPublicWhereInput[]
   id?: Prisma.IntFilter<"VideoPublic"> | number
+  free_to_use?: Prisma.BoolNullableFilter<"VideoPublic"> | boolean | null
   language_code?: Prisma.EnumLanguageCodeFilter<"VideoPublic"> | $Enums.LanguageCode
   year?: Prisma.IntNullableFilter<"VideoPublic"> | number | null
   file_name?: Prisma.StringFilter<"VideoPublic"> | string
@@ -282,6 +290,7 @@ export type VideoPublicWhereInput = {
 
 export type VideoPublicOrderByWithRelationInput = {
   id?: Prisma.SortOrder
+  free_to_use?: Prisma.SortOrderInput | Prisma.SortOrder
   language_code?: Prisma.SortOrder
   year?: Prisma.SortOrderInput | Prisma.SortOrder
   file_name?: Prisma.SortOrder
@@ -302,6 +311,7 @@ export type VideoPublicWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.VideoPublicWhereInput | Prisma.VideoPublicWhereInput[]
   OR?: Prisma.VideoPublicWhereInput[]
   NOT?: Prisma.VideoPublicWhereInput | Prisma.VideoPublicWhereInput[]
+  free_to_use?: Prisma.BoolNullableFilter<"VideoPublic"> | boolean | null
   language_code?: Prisma.EnumLanguageCodeFilter<"VideoPublic"> | $Enums.LanguageCode
   year?: Prisma.IntNullableFilter<"VideoPublic"> | number | null
   file_name?: Prisma.StringFilter<"VideoPublic"> | string
@@ -319,6 +329,7 @@ export type VideoPublicWhereUniqueInput = Prisma.AtLeast<{
 
 export type VideoPublicOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
+  free_to_use?: Prisma.SortOrderInput | Prisma.SortOrder
   language_code?: Prisma.SortOrder
   year?: Prisma.SortOrderInput | Prisma.SortOrder
   file_name?: Prisma.SortOrder
@@ -342,6 +353,7 @@ export type VideoPublicScalarWhereWithAggregatesInput = {
   OR?: Prisma.VideoPublicScalarWhereWithAggregatesInput[]
   NOT?: Prisma.VideoPublicScalarWhereWithAggregatesInput | Prisma.VideoPublicScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"VideoPublic"> | number
+  free_to_use?: Prisma.BoolNullableWithAggregatesFilter<"VideoPublic"> | boolean | null
   language_code?: Prisma.EnumLanguageCodeWithAggregatesFilter<"VideoPublic"> | $Enums.LanguageCode
   year?: Prisma.IntNullableWithAggregatesFilter<"VideoPublic"> | number | null
   file_name?: Prisma.StringWithAggregatesFilter<"VideoPublic"> | string
@@ -356,6 +368,7 @@ export type VideoPublicScalarWhereWithAggregatesInput = {
 }
 
 export type VideoPublicCreateInput = {
+  free_to_use?: boolean | null
   language_code: $Enums.LanguageCode
   year?: number | null
   file_name: string
@@ -373,6 +386,7 @@ export type VideoPublicCreateInput = {
 
 export type VideoPublicUncheckedCreateInput = {
   id?: number
+  free_to_use?: boolean | null
   language_code: $Enums.LanguageCode
   year?: number | null
   file_name: string
@@ -389,6 +403,7 @@ export type VideoPublicUncheckedCreateInput = {
 }
 
 export type VideoPublicUpdateInput = {
+  free_to_use?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   year?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   file_name?: Prisma.StringFieldUpdateOperationsInput | string
@@ -406,6 +421,7 @@ export type VideoPublicUpdateInput = {
 
 export type VideoPublicUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
+  free_to_use?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   year?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   file_name?: Prisma.StringFieldUpdateOperationsInput | string
@@ -423,6 +439,7 @@ export type VideoPublicUncheckedUpdateInput = {
 
 export type VideoPublicCreateManyInput = {
   id?: number
+  free_to_use?: boolean | null
   language_code: $Enums.LanguageCode
   year?: number | null
   file_name: string
@@ -437,6 +454,7 @@ export type VideoPublicCreateManyInput = {
 }
 
 export type VideoPublicUpdateManyMutationInput = {
+  free_to_use?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   year?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   file_name?: Prisma.StringFieldUpdateOperationsInput | string
@@ -452,6 +470,7 @@ export type VideoPublicUpdateManyMutationInput = {
 
 export type VideoPublicUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
+  free_to_use?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   year?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   file_name?: Prisma.StringFieldUpdateOperationsInput | string
@@ -467,6 +486,7 @@ export type VideoPublicUncheckedUpdateManyInput = {
 
 export type VideoPublicCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  free_to_use?: Prisma.SortOrder
   language_code?: Prisma.SortOrder
   year?: Prisma.SortOrder
   file_name?: Prisma.SortOrder
@@ -487,6 +507,7 @@ export type VideoPublicAvgOrderByAggregateInput = {
 
 export type VideoPublicMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  free_to_use?: Prisma.SortOrder
   language_code?: Prisma.SortOrder
   year?: Prisma.SortOrder
   file_name?: Prisma.SortOrder
@@ -502,6 +523,7 @@ export type VideoPublicMaxOrderByAggregateInput = {
 
 export type VideoPublicMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  free_to_use?: Prisma.SortOrder
   language_code?: Prisma.SortOrder
   year?: Prisma.SortOrder
   file_name?: Prisma.SortOrder
@@ -562,6 +584,7 @@ export type VideoPublicUpdateOneWithoutSubtitleNestedInput = {
 }
 
 export type VideoPublicCreateWithoutSentenceInput = {
+  free_to_use?: boolean | null
   language_code: $Enums.LanguageCode
   year?: number | null
   file_name: string
@@ -578,6 +601,7 @@ export type VideoPublicCreateWithoutSentenceInput = {
 
 export type VideoPublicUncheckedCreateWithoutSentenceInput = {
   id?: number
+  free_to_use?: boolean | null
   language_code: $Enums.LanguageCode
   year?: number | null
   file_name: string
@@ -609,6 +633,7 @@ export type VideoPublicUpdateToOneWithWhereWithoutSentenceInput = {
 }
 
 export type VideoPublicUpdateWithoutSentenceInput = {
+  free_to_use?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   year?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   file_name?: Prisma.StringFieldUpdateOperationsInput | string
@@ -625,6 +650,7 @@ export type VideoPublicUpdateWithoutSentenceInput = {
 
 export type VideoPublicUncheckedUpdateWithoutSentenceInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
+  free_to_use?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   year?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   file_name?: Prisma.StringFieldUpdateOperationsInput | string
@@ -640,6 +666,7 @@ export type VideoPublicUncheckedUpdateWithoutSentenceInput = {
 }
 
 export type VideoPublicCreateWithoutSubtitleInput = {
+  free_to_use?: boolean | null
   language_code: $Enums.LanguageCode
   year?: number | null
   file_name: string
@@ -656,6 +683,7 @@ export type VideoPublicCreateWithoutSubtitleInput = {
 
 export type VideoPublicUncheckedCreateWithoutSubtitleInput = {
   id?: number
+  free_to_use?: boolean | null
   language_code: $Enums.LanguageCode
   year?: number | null
   file_name: string
@@ -687,6 +715,7 @@ export type VideoPublicUpdateToOneWithWhereWithoutSubtitleInput = {
 }
 
 export type VideoPublicUpdateWithoutSubtitleInput = {
+  free_to_use?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   year?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   file_name?: Prisma.StringFieldUpdateOperationsInput | string
@@ -703,6 +732,7 @@ export type VideoPublicUpdateWithoutSubtitleInput = {
 
 export type VideoPublicUncheckedUpdateWithoutSubtitleInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
+  free_to_use?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   year?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   file_name?: Prisma.StringFieldUpdateOperationsInput | string
@@ -759,6 +789,7 @@ export type VideoPublicCountOutputTypeCountSentenceArgs<ExtArgs extends runtime.
 
 export type VideoPublicSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  free_to_use?: boolean
   language_code?: boolean
   year?: boolean
   file_name?: boolean
@@ -777,6 +808,7 @@ export type VideoPublicSelect<ExtArgs extends runtime.Types.Extensions.InternalA
 
 export type VideoPublicSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  free_to_use?: boolean
   language_code?: boolean
   year?: boolean
   file_name?: boolean
@@ -792,6 +824,7 @@ export type VideoPublicSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
 
 export type VideoPublicSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  free_to_use?: boolean
   language_code?: boolean
   year?: boolean
   file_name?: boolean
@@ -807,6 +840,7 @@ export type VideoPublicSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
 
 export type VideoPublicSelectScalar = {
   id?: boolean
+  free_to_use?: boolean
   language_code?: boolean
   year?: boolean
   file_name?: boolean
@@ -820,7 +854,7 @@ export type VideoPublicSelectScalar = {
   updated_at?: boolean
 }
 
-export type VideoPublicOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "language_code" | "year" | "file_name" | "file_s3_key" | "s3_provider_name" | "name" | "original_content" | "processed_content" | "content_type" | "created_at" | "updated_at", ExtArgs["result"]["videoPublic"]>
+export type VideoPublicOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "free_to_use" | "language_code" | "year" | "file_name" | "file_s3_key" | "s3_provider_name" | "name" | "original_content" | "processed_content" | "content_type" | "created_at" | "updated_at", ExtArgs["result"]["videoPublic"]>
 export type VideoPublicInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   Subtitle?: boolean | Prisma.VideoPublic$SubtitleArgs<ExtArgs>
   Sentence?: boolean | Prisma.VideoPublic$SentenceArgs<ExtArgs>
@@ -837,6 +871,7 @@ export type $VideoPublicPayload<ExtArgs extends runtime.Types.Extensions.Interna
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
+    free_to_use: boolean | null
     language_code: $Enums.LanguageCode
     year: number | null
     file_name: string
@@ -1274,6 +1309,7 @@ export interface Prisma__VideoPublicClient<T, Null = never, ExtArgs extends runt
  */
 export interface VideoPublicFieldRefs {
   readonly id: Prisma.FieldRef<"VideoPublic", 'Int'>
+  readonly free_to_use: Prisma.FieldRef<"VideoPublic", 'Boolean'>
   readonly language_code: Prisma.FieldRef<"VideoPublic", 'LanguageCode'>
   readonly year: Prisma.FieldRef<"VideoPublic", 'Int'>
   readonly file_name: Prisma.FieldRef<"VideoPublic", 'String'>

@@ -45,10 +45,7 @@ function KeyboardPlayer() {
 function KeyboardTranslation() {
 	return (
 		<Content>
-			<p>Выделите слово или слова для перевода</p>
-			<p>
-				Зажмите <Key>Cmd ⌘</Key> для выделения нескольких слов
-			</p>
+			<p>Выделите слово для перевода</p>
 		</Content>
 	)
 }
@@ -56,8 +53,7 @@ function KeyboardTranslation() {
 function MouseTranslation() {
 	return (
 		<Content>
-			<p>Нажмите на слово или слова для перевода</p>
-			<p>Долгое нажатие для выделения нескольких слов</p>
+			<p>Нажмите на слово для перевода</p>
 		</Content>
 	)
 }

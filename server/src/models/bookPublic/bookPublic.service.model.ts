@@ -9,4 +9,5 @@ export type BookPublicServiceModel = {
 	cover: string
 	languageCode: Language
 	chapters: BookChapterLiteServiceModel[]
+	freeToUse: boolean
 }

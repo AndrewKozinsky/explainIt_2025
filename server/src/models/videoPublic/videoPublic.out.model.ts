@@ -36,6 +36,9 @@ export class VideoPublicOutModel {
 	@Field(() => String)
 	fileUrl: string
 
+	@Field(() => Boolean)
+	freeToUse: boolean
+
 	@Field(() => [VideoPublicSentenceOutModel], { nullable: true })
 	sentences: VideoPublicSentenceOutModel[] | null
 

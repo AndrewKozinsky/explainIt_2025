@@ -39,6 +39,7 @@ export class BookPublicQueryRepository {
 			note: dbBook.note,
 			cover: dbBook.cover,
 			languageCode: dbBook.language_code,
+			freeToUse: dbBook.free_to_use ?? false,
 			chapters: dbBook.BookChapter.map((chapter) => ({
 				id: chapter.id,
 				bookId: dbBook.id,

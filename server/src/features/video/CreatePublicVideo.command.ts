@@ -21,6 +21,7 @@ export type CreatePublicVideoInput = {
 	year?: null | number
 	fileName: string
 	fileS3Key: string
+	freeToUse?: boolean
 }
 
 export class CreatePublicVideoCommand implements ICommand {

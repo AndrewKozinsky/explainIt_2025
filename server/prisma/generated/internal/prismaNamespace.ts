@@ -1548,6 +1548,7 @@ export type BookPrivateScalarFieldEnum = (typeof BookPrivateScalarFieldEnum)[key
 
 export const BookPublicScalarFieldEnum = {
   id: 'id',
+  free_to_use: 'free_to_use',
   language_code: 'language_code',
   cover: 'cover',
   author: 'author',
@@ -1596,6 +1597,7 @@ export type VideoPrivateScalarFieldEnum = (typeof VideoPrivateScalarFieldEnum)[k
 
 export const VideoPublicScalarFieldEnum = {
   id: 'id',
+  free_to_use: 'free_to_use',
   language_code: 'language_code',
   year: 'year',
   file_name: 'file_name',
