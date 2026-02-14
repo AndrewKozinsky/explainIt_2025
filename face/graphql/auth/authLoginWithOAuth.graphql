@@ -3,5 +3,16 @@ mutation Auth_login_with_OAuth($input: LoginWithOAuthInput!) {
 		id
 		email
 		isUserConfirmed
+		balance
+		currentSubscription {
+			tariffId
+			tariffCode
+			tariffName
+			pricePaid
+			balance
+			includedFileStorageMb
+			startsAt
+			endsAt
+		}
 	}
 }

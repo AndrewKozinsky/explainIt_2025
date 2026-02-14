@@ -19,6 +19,8 @@ A Next.js project with Apollo GraphQl and SCSS in the folder "face".
 — users work with this web-site on touch devices like tablets and smartphones and desktop computers
 — ensure responsive design for various screen sizes
 
+Адреса страниц находятся в переменной pageUrls в файле face/сonsts/pageUrls.ts. Не нужно писать адрес обычной строкой.
+
 ## SSE streaming (translation) — project rules and architecture
 
 This project uses **SSE (Server-Sent Events)** to stream translation results progressively to the UI.

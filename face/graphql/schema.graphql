@@ -139,6 +139,11 @@ type CurrentSubscriptionOutModel {
   tariffName: String!
 }
 
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
 input DeleteBookChapterInput {
   """BookChapter id"""
   id: Int!
@@ -310,7 +315,7 @@ type Query {
   sentence_translation_get_by_sentence_id(input: GetSentenceTranslationsBySentenceIdInput!): [SentenceTranslationOutModel!]!
 
   """Get all tariffs"""
-  tariff_get_tariffs: [VideoPublicLiteOutModel!]!
+  tariff_get_tariffs: [TariffOutModel!]!
 
   """Get a video"""
   video_private_get(input: GetPrivateVideoInput!): VideoPrivateOutModel!
@@ -363,6 +368,17 @@ type SubtitleSentenceInitOutModel {
   sentenceId: Int!
   startOffset: Int!
   subtitleId: Int!
+}
+
+type TariffOutModel {
+  code: String!
+  createdAt: DateTime!
+  durationDays: Int!
+  id: Int!
+  includedBalance: Int!
+  includedFileStorageMb: Int!
+  name: String!
+  price: Int!
 }
 
 input TopUpBalanceWithYooKassaInput {

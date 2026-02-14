@@ -15,6 +15,7 @@ export type Scalars = {
   Boolean: { input: boolean; output: boolean; }
   Int: { input: number; output: number; }
   Float: { input: number; output: number; }
+  DateTime: { input: any; output: any; }
 };
 
 export type BookChapterLiteOutModel = {
@@ -384,7 +385,7 @@ export type Query = {
   /** Get all sentence translations by sentence id */
   sentence_translation_get_by_sentence_id: Array<SentenceTranslationOutModel>;
   /** Get all tariffs */
-  tariff_get_tariffs: Array<VideoPublicLiteOutModel>;
+  tariff_get_tariffs: Array<TariffOutModel>;
   /** Get a video */
   video_private_get: VideoPrivateOutModel;
   /** Get user videos */
@@ -481,6 +482,18 @@ export type SubtitleSentenceInitOutModel = {
   sentenceId: Scalars['Int']['output'];
   startOffset: Scalars['Int']['output'];
   subtitleId: Scalars['Int']['output'];
+};
+
+export type TariffOutModel = {
+  __typename?: 'TariffOutModel';
+  code: Scalars['String']['output'];
+  createdAt: Scalars['DateTime']['output'];
+  durationDays: Scalars['Int']['output'];
+  id: Scalars['Int']['output'];
+  includedBalance: Scalars['Int']['output'];
+  includedFileStorageMb: Scalars['Int']['output'];
+  name: Scalars['String']['output'];
+  price: Scalars['Int']['output'];
 };
 
 export type TopUpBalanceWithYooKassaInput = {
@@ -697,14 +710,14 @@ export type Auth_LoginVariables = Exact<{
 }>;
 
 
-export type Auth_Login = { __typename?: 'Mutation', auth_login: { __typename?: 'UserOutModel', id: number, email: string, isUserConfirmed: boolean } };
+export type Auth_Login = { __typename?: 'Mutation', auth_login: { __typename?: 'UserOutModel', id: number, email: string, isUserConfirmed: boolean, balance: number, currentSubscription?: { __typename?: 'CurrentSubscriptionOutModel', tariffId: number, tariffCode: string, tariffName: string, pricePaid: number, balance: number, includedFileStorageMb: number, startsAt: string, endsAt: string } | null } };
 
 export type Auth_Login_With_OAuthVariables = Exact<{
   input: LoginWithOAuthInput;
 }>;
 
 
-export type Auth_Login_With_OAuth = { __typename?: 'Mutation', auth_login_with_OAuth: { __typename?: 'UserOutModel', id: number, email: string, isUserConfirmed: boolean } };
+export type Auth_Login_With_OAuth = { __typename?: 'Mutation', auth_login_with_OAuth: { __typename?: 'UserOutModel', id: number, email: string, isUserConfirmed: boolean, balance: number, currentSubscription?: { __typename?: 'CurrentSubscriptionOutModel', tariffId: number, tariffCode: string, tariffName: string, pricePaid: number, balance: number, includedFileStorageMb: number, startsAt: string, endsAt: string } | null } };
 
 export type Auth_LogoutVariables = Exact<{ [key: string]: never; }>;
 
@@ -818,6 +831,11 @@ export type SentenceTranslation_GetBySentenceIdVariables = Exact<{
 
 
 export type SentenceTranslation_GetBySentenceId = { __typename?: 'Query', sentence_translation_get_by_sentence_id: Array<{ __typename?: 'SentenceTranslationOutModel', id: number, sentenceId: number, translation: string, analysis?: string | null, createdAt: string }> };
+
+export type Tariff_Get_TariffsVariables = Exact<{ [key: string]: never; }>;
+
+
+export type Tariff_Get_Tariffs = { __typename?: 'Query', tariff_get_tariffs: Array<{ __typename?: 'TariffOutModel', id: number, code: string, name: string, price: number, durationDays: number, includedBalance: number, includedFileStorageMb: number, createdAt: any }> };
 
 export type VideoPrivate_CreateVariables = Exact<{
   input: CreatePrivateVideoInput;
@@ -1048,6 +1066,17 @@ export const Auth_LoginDocument = gql`
     id
     email
     isUserConfirmed
+    balance
+    currentSubscription {
+      tariffId
+      tariffCode
+      tariffName
+      pricePaid
+      balance
+      includedFileStorageMb
+      startsAt
+      endsAt
+    }
   }
 }
     `;
@@ -1083,6 +1112,17 @@ export const Auth_Login_With_OAuthDocument = gql`
     id
     email
     isUserConfirmed
+    balance
+    currentSubscription {
+      tariffId
+      tariffCode
+      tariffName
+      pricePaid
+      balance
+      includedFileStorageMb
+      startsAt
+      endsAt
+    }
   }
 }
     `;
@@ -1837,6 +1877,52 @@ export type SentenceTranslation_GetBySentenceIdHookResult = ReturnType<typeof us
 export type SentenceTranslation_GetBySentenceIdLazyQueryHookResult = ReturnType<typeof useSentenceTranslation_GetBySentenceIdLazyQuery>;
 export type SentenceTranslation_GetBySentenceIdSuspenseQueryHookResult = ReturnType<typeof useSentenceTranslation_GetBySentenceIdSuspenseQuery>;
 export type SentenceTranslation_GetBySentenceIdQueryResult = Apollo.QueryResult<SentenceTranslation_GetBySentenceId, SentenceTranslation_GetBySentenceIdVariables>;
+export const Tariff_Get_TariffsDocument = gql`
+    query Tariff_get_tariffs {
+  tariff_get_tariffs {
+    id
+    code
+    name
+    price
+    durationDays
+    includedBalance
+    includedFileStorageMb
+    createdAt
+  }
+}
+    `;
+
+/**
+ * __useTariff_Get_Tariffs__
+ *
+ * To run a query within a React component, call `useTariff_Get_Tariffs` and pass it any options that fit your needs.
+ * When your component renders, `useTariff_Get_Tariffs` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useTariff_Get_Tariffs({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useTariff_Get_Tariffs(baseOptions?: Apollo.QueryHookOptions<Tariff_Get_Tariffs, Tariff_Get_TariffsVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<Tariff_Get_Tariffs, Tariff_Get_TariffsVariables>(Tariff_Get_TariffsDocument, options);
+      }
+export function useTariff_Get_TariffsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Tariff_Get_Tariffs, Tariff_Get_TariffsVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<Tariff_Get_Tariffs, Tariff_Get_TariffsVariables>(Tariff_Get_TariffsDocument, options);
+        }
+export function useTariff_Get_TariffsSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Tariff_Get_Tariffs, Tariff_Get_TariffsVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<Tariff_Get_Tariffs, Tariff_Get_TariffsVariables>(Tariff_Get_TariffsDocument, options);
+        }
+export type Tariff_Get_TariffsHookResult = ReturnType<typeof useTariff_Get_Tariffs>;
+export type Tariff_Get_TariffsLazyQueryHookResult = ReturnType<typeof useTariff_Get_TariffsLazyQuery>;
+export type Tariff_Get_TariffsSuspenseQueryHookResult = ReturnType<typeof useTariff_Get_TariffsSuspenseQuery>;
+export type Tariff_Get_TariffsQueryResult = Apollo.QueryResult<Tariff_Get_Tariffs, Tariff_Get_TariffsVariables>;
 export const VideoPrivate_CreateDocument = gql`
     mutation VideoPrivate_create($input: CreatePrivateVideoInput!) {
   video_private_create(input: $input) {

@@ -1,6 +1,6 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { TariffOutModel } from 'models/tariff/tariff.out.model'
 import { TariffQueryRepository } from 'repo/tariff.queryRepository'
+import { TariffOutModel } from 'models/tariff/tariff.out.model'
 
 export class GetTariffsCommand implements ICommand {
 	constructor() {}

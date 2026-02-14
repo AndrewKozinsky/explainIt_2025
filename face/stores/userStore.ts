@@ -1,10 +1,7 @@
 import { create } from 'zustand'
+import { UserOutModel } from '@/graphql'
 
-type User = {
-	id: number
-	email: string
-	isUserConfirmed: boolean
-}
+type User = UserOutModel
 
 export type UserStoreValues = {
 	isLoading: boolean

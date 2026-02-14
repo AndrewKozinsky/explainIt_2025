@@ -1,0 +1,12 @@
+query Tariff_get_tariffs {
+	tariff_get_tariffs {
+		id
+		code
+		name
+		price
+		durationDays
+		includedBalance
+		includedFileStorageMb
+		createdAt
+	}
+}
