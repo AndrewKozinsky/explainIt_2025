@@ -102,6 +102,8 @@ Client-side streaming is intentionally split into 3 layers (separation of concer
 ## Server-side
 A Nest.js project with GraphQl, Prisma ORM and Postgres in the folder "server".
 — use clear and descriptive variable names
+Если требуется изменить таблицы в базе данных, то не нужно делать это в файле schema.prisma. Файл со схемой призмы генерируется из конфигурации в файле schema.prisma. Поэтому нужно изменить файл конфигурации и затем запустить команду генерирования файла schema.prisma.
+```npm run generatePrismaFile```
 
 ### Repositories and CQRS (project conventions)
 

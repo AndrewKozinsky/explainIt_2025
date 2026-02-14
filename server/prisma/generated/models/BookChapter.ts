@@ -322,7 +322,7 @@ export type BookChapterCreateInput = {
   created_at?: Date | string
   book?: Prisma.BookPrivateCreateNestedOneWithoutBookChapterInput
   book_public?: Prisma.BookPublicCreateNestedOneWithoutBookChapterInput
-  Sentence?: Prisma.SentenceCreateNestedManyWithoutBook_chapterInput
+  Sentence?: Prisma.SentenceCreateNestedManyWithoutBookChapterInput
 }
 
 export type BookChapterUncheckedCreateInput = {
@@ -334,7 +334,7 @@ export type BookChapterUncheckedCreateInput = {
   content?: string | null
   note?: string | null
   created_at?: Date | string
-  Sentence?: Prisma.SentenceUncheckedCreateNestedManyWithoutBook_chapterInput
+  Sentence?: Prisma.SentenceUncheckedCreateNestedManyWithoutBookChapterInput
 }
 
 export type BookChapterUpdateInput = {
@@ -345,7 +345,7 @@ export type BookChapterUpdateInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   book?: Prisma.BookPrivateUpdateOneWithoutBookChapterNestedInput
   book_public?: Prisma.BookPublicUpdateOneWithoutBookChapterNestedInput
-  Sentence?: Prisma.SentenceUpdateManyWithoutBook_chapterNestedInput
+  Sentence?: Prisma.SentenceUpdateManyWithoutBookChapterNestedInput
 }
 
 export type BookChapterUncheckedUpdateInput = {
@@ -357,7 +357,7 @@ export type BookChapterUncheckedUpdateInput = {
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutBook_chapterNestedInput
+  Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutBookChapterNestedInput
 }
 
 export type BookChapterCreateManyInput = {
@@ -557,7 +557,7 @@ export type BookChapterCreateWithoutBookInput = {
   note?: string | null
   created_at?: Date | string
   book_public?: Prisma.BookPublicCreateNestedOneWithoutBookChapterInput
-  Sentence?: Prisma.SentenceCreateNestedManyWithoutBook_chapterInput
+  Sentence?: Prisma.SentenceCreateNestedManyWithoutBookChapterInput
 }
 
 export type BookChapterUncheckedCreateWithoutBookInput = {
@@ -568,7 +568,7 @@ export type BookChapterUncheckedCreateWithoutBookInput = {
   content?: string | null
   note?: string | null
   created_at?: Date | string
-  Sentence?: Prisma.SentenceUncheckedCreateNestedManyWithoutBook_chapterInput
+  Sentence?: Prisma.SentenceUncheckedCreateNestedManyWithoutBookChapterInput
 }
 
 export type BookChapterCreateOrConnectWithoutBookInput = {
@@ -618,7 +618,7 @@ export type BookChapterCreateWithoutBook_publicInput = {
   note?: string | null
   created_at?: Date | string
   book?: Prisma.BookPrivateCreateNestedOneWithoutBookChapterInput
-  Sentence?: Prisma.SentenceCreateNestedManyWithoutBook_chapterInput
+  Sentence?: Prisma.SentenceCreateNestedManyWithoutBookChapterInput
 }
 
 export type BookChapterUncheckedCreateWithoutBook_publicInput = {
@@ -629,7 +629,7 @@ export type BookChapterUncheckedCreateWithoutBook_publicInput = {
   content?: string | null
   note?: string | null
   created_at?: Date | string
-  Sentence?: Prisma.SentenceUncheckedCreateNestedManyWithoutBook_chapterInput
+  Sentence?: Prisma.SentenceUncheckedCreateNestedManyWithoutBookChapterInput
 }
 
 export type BookChapterCreateOrConnectWithoutBook_publicInput = {
@@ -733,7 +733,7 @@ export type BookChapterUpdateWithoutBookInput = {
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   book_public?: Prisma.BookPublicUpdateOneWithoutBookChapterNestedInput
-  Sentence?: Prisma.SentenceUpdateManyWithoutBook_chapterNestedInput
+  Sentence?: Prisma.SentenceUpdateManyWithoutBookChapterNestedInput
 }
 
 export type BookChapterUncheckedUpdateWithoutBookInput = {
@@ -744,7 +744,7 @@ export type BookChapterUncheckedUpdateWithoutBookInput = {
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutBook_chapterNestedInput
+  Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutBookChapterNestedInput
 }
 
 export type BookChapterUncheckedUpdateManyWithoutBookInput = {
@@ -774,7 +774,7 @@ export type BookChapterUpdateWithoutBook_publicInput = {
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   book?: Prisma.BookPrivateUpdateOneWithoutBookChapterNestedInput
-  Sentence?: Prisma.SentenceUpdateManyWithoutBook_chapterNestedInput
+  Sentence?: Prisma.SentenceUpdateManyWithoutBookChapterNestedInput
 }
 
 export type BookChapterUncheckedUpdateWithoutBook_publicInput = {
@@ -785,7 +785,7 @@ export type BookChapterUncheckedUpdateWithoutBook_publicInput = {
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutBook_chapterNestedInput
+  Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutBookChapterNestedInput
 }
 
 export type BookChapterUncheckedUpdateManyWithoutBook_publicInput = {

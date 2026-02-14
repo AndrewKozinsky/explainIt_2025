@@ -417,8 +417,8 @@ export type VideoPrivateCreateInput = {
   created_at?: Date | string
   updated_at?: Date | string
   user: Prisma.UserCreateNestedOneWithoutVideoPrivateInput
-  Subtitle?: Prisma.SubtitleCreateNestedManyWithoutVideo_privateInput
-  Sentence?: Prisma.SentenceCreateNestedManyWithoutVideo_privateInput
+  Subtitle?: Prisma.SubtitleCreateNestedManyWithoutVideoPrivateInput
+  Sentence?: Prisma.SentenceCreateNestedManyWithoutVideoPrivateInput
 }
 
 export type VideoPrivateUncheckedCreateInput = {
@@ -437,8 +437,8 @@ export type VideoPrivateUncheckedCreateInput = {
   content_type?: $Enums.VideoTextType
   created_at?: Date | string
   updated_at?: Date | string
-  Subtitle?: Prisma.SubtitleUncheckedCreateNestedManyWithoutVideo_privateInput
-  Sentence?: Prisma.SentenceUncheckedCreateNestedManyWithoutVideo_privateInput
+  Subtitle?: Prisma.SubtitleUncheckedCreateNestedManyWithoutVideoPrivateInput
+  Sentence?: Prisma.SentenceUncheckedCreateNestedManyWithoutVideoPrivateInput
 }
 
 export type VideoPrivateUpdateInput = {
@@ -456,8 +456,8 @@ export type VideoPrivateUpdateInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutVideoPrivateNestedInput
-  Subtitle?: Prisma.SubtitleUpdateManyWithoutVideo_privateNestedInput
-  Sentence?: Prisma.SentenceUpdateManyWithoutVideo_privateNestedInput
+  Subtitle?: Prisma.SubtitleUpdateManyWithoutVideoPrivateNestedInput
+  Sentence?: Prisma.SentenceUpdateManyWithoutVideoPrivateNestedInput
 }
 
 export type VideoPrivateUncheckedUpdateInput = {
@@ -476,8 +476,8 @@ export type VideoPrivateUncheckedUpdateInput = {
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Subtitle?: Prisma.SubtitleUncheckedUpdateManyWithoutVideo_privateNestedInput
-  Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutVideo_privateNestedInput
+  Subtitle?: Prisma.SubtitleUncheckedUpdateManyWithoutVideoPrivateNestedInput
+  Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutVideoPrivateNestedInput
 }
 
 export type VideoPrivateCreateManyInput = {
@@ -711,8 +711,8 @@ export type VideoPrivateCreateWithoutUserInput = {
   content_type?: $Enums.VideoTextType
   created_at?: Date | string
   updated_at?: Date | string
-  Subtitle?: Prisma.SubtitleCreateNestedManyWithoutVideo_privateInput
-  Sentence?: Prisma.SentenceCreateNestedManyWithoutVideo_privateInput
+  Subtitle?: Prisma.SubtitleCreateNestedManyWithoutVideoPrivateInput
+  Sentence?: Prisma.SentenceCreateNestedManyWithoutVideoPrivateInput
 }
 
 export type VideoPrivateUncheckedCreateWithoutUserInput = {
@@ -730,8 +730,8 @@ export type VideoPrivateUncheckedCreateWithoutUserInput = {
   content_type?: $Enums.VideoTextType
   created_at?: Date | string
   updated_at?: Date | string
-  Subtitle?: Prisma.SubtitleUncheckedCreateNestedManyWithoutVideo_privateInput
-  Sentence?: Prisma.SentenceUncheckedCreateNestedManyWithoutVideo_privateInput
+  Subtitle?: Prisma.SubtitleUncheckedCreateNestedManyWithoutVideoPrivateInput
+  Sentence?: Prisma.SentenceUncheckedCreateNestedManyWithoutVideoPrivateInput
 }
 
 export type VideoPrivateCreateOrConnectWithoutUserInput = {
@@ -796,7 +796,7 @@ export type VideoPrivateCreateWithoutSentenceInput = {
   created_at?: Date | string
   updated_at?: Date | string
   user: Prisma.UserCreateNestedOneWithoutVideoPrivateInput
-  Subtitle?: Prisma.SubtitleCreateNestedManyWithoutVideo_privateInput
+  Subtitle?: Prisma.SubtitleCreateNestedManyWithoutVideoPrivateInput
 }
 
 export type VideoPrivateUncheckedCreateWithoutSentenceInput = {
@@ -815,7 +815,7 @@ export type VideoPrivateUncheckedCreateWithoutSentenceInput = {
   content_type?: $Enums.VideoTextType
   created_at?: Date | string
   updated_at?: Date | string
-  Subtitle?: Prisma.SubtitleUncheckedCreateNestedManyWithoutVideo_privateInput
+  Subtitle?: Prisma.SubtitleUncheckedCreateNestedManyWithoutVideoPrivateInput
 }
 
 export type VideoPrivateCreateOrConnectWithoutSentenceInput = {
@@ -849,7 +849,7 @@ export type VideoPrivateUpdateWithoutSentenceInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutVideoPrivateNestedInput
-  Subtitle?: Prisma.SubtitleUpdateManyWithoutVideo_privateNestedInput
+  Subtitle?: Prisma.SubtitleUpdateManyWithoutVideoPrivateNestedInput
 }
 
 export type VideoPrivateUncheckedUpdateWithoutSentenceInput = {
@@ -868,7 +868,7 @@ export type VideoPrivateUncheckedUpdateWithoutSentenceInput = {
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Subtitle?: Prisma.SubtitleUncheckedUpdateManyWithoutVideo_privateNestedInput
+  Subtitle?: Prisma.SubtitleUncheckedUpdateManyWithoutVideoPrivateNestedInput
 }
 
 export type VideoPrivateCreateWithoutSubtitleInput = {
@@ -886,7 +886,7 @@ export type VideoPrivateCreateWithoutSubtitleInput = {
   created_at?: Date | string
   updated_at?: Date | string
   user: Prisma.UserCreateNestedOneWithoutVideoPrivateInput
-  Sentence?: Prisma.SentenceCreateNestedManyWithoutVideo_privateInput
+  Sentence?: Prisma.SentenceCreateNestedManyWithoutVideoPrivateInput
 }
 
 export type VideoPrivateUncheckedCreateWithoutSubtitleInput = {
@@ -905,7 +905,7 @@ export type VideoPrivateUncheckedCreateWithoutSubtitleInput = {
   content_type?: $Enums.VideoTextType
   created_at?: Date | string
   updated_at?: Date | string
-  Sentence?: Prisma.SentenceUncheckedCreateNestedManyWithoutVideo_privateInput
+  Sentence?: Prisma.SentenceUncheckedCreateNestedManyWithoutVideoPrivateInput
 }
 
 export type VideoPrivateCreateOrConnectWithoutSubtitleInput = {
@@ -939,7 +939,7 @@ export type VideoPrivateUpdateWithoutSubtitleInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutVideoPrivateNestedInput
-  Sentence?: Prisma.SentenceUpdateManyWithoutVideo_privateNestedInput
+  Sentence?: Prisma.SentenceUpdateManyWithoutVideoPrivateNestedInput
 }
 
 export type VideoPrivateUncheckedUpdateWithoutSubtitleInput = {
@@ -958,7 +958,7 @@ export type VideoPrivateUncheckedUpdateWithoutSubtitleInput = {
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutVideo_privateNestedInput
+  Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutVideoPrivateNestedInput
 }
 
 export type VideoPrivateCreateManyUserInput = {
@@ -992,8 +992,8 @@ export type VideoPrivateUpdateWithoutUserInput = {
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Subtitle?: Prisma.SubtitleUpdateManyWithoutVideo_privateNestedInput
-  Sentence?: Prisma.SentenceUpdateManyWithoutVideo_privateNestedInput
+  Subtitle?: Prisma.SubtitleUpdateManyWithoutVideoPrivateNestedInput
+  Sentence?: Prisma.SentenceUpdateManyWithoutVideoPrivateNestedInput
 }
 
 export type VideoPrivateUncheckedUpdateWithoutUserInput = {
@@ -1011,8 +1011,8 @@ export type VideoPrivateUncheckedUpdateWithoutUserInput = {
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Subtitle?: Prisma.SubtitleUncheckedUpdateManyWithoutVideo_privateNestedInput
-  Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutVideo_privateNestedInput
+  Subtitle?: Prisma.SubtitleUncheckedUpdateManyWithoutVideoPrivateNestedInput
+  Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutVideoPrivateNestedInput
 }
 
 export type VideoPrivateUncheckedUpdateManyWithoutUserInput = {

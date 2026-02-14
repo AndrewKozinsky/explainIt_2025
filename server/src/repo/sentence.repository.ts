@@ -6,8 +6,8 @@ import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 
 type DbSentenceWithRelations = Prisma.SentenceGetPayload<{
 	include: {
-		book_chapter: { include: { book: true; book_public: true } }
-		video_private: true
+		bookChapter: { include: { book: true, book_public: true } }
+		videoPrivate: true
 	}
 }>
 
@@ -20,8 +20,8 @@ export class SentenceRepository {
 		return await this.prisma.sentence.findUnique({
 			where: { id },
 			include: {
-				book_chapter: { include: { book: true, book_public: true } },
-				video_private: true,
+				bookChapter: { include: { book: true, book_public: true } },
+				videoPrivate: true,
 			},
 		})
 	}
@@ -41,7 +41,7 @@ export class SentenceRepository {
 				length: dto.length,
 				book_chapter_id: dto.bookChapterId,
 				video_private_id: dto.videoPrivateId,
-				videoPublicId: dto.videoPublicId,
+				video_public_id: dto.videoPublicId,
 				order_index: dto.orderIndex,
 			},
 		})
@@ -70,7 +70,7 @@ export class SentenceRepository {
 	@CatchDbError()
 	async deleteByVideoPublicId(videoPublicId: number): Promise<number> {
 		const res = await this.prisma.sentence.deleteMany({
-			where: { videoPublicId },
+			where: { video_public_id: videoPublicId },
 		})
 
 		return res.count

@@ -87,3 +87,8 @@ export type EngRusDictionary = Prisma.EngRusDictionaryModel
  * 
  */
 export type Tariff = Prisma.TariffModel
+/**
+ * Model UserSubscription
+ * 
+ */
+export type UserSubscription = Prisma.UserSubscriptionModel

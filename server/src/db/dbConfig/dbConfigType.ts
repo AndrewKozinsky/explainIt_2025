@@ -1,5 +1,7 @@
 /** Database structure type. */
 export namespace BdConfig {
+	export type OnDeleteAction = 'Cascade' | 'Restrict' | 'NoAction' | 'SetNull'
+
 	export type Root = Record<string, Table>
 
 	export type Table = {
@@ -18,6 +20,7 @@ export namespace BdConfig {
 		| IndexField
 		| StringField
 		| DateStringField
+		| DateTimeField
 		| TimeStringField
 		| BooleanField
 		| EmailField
@@ -56,6 +59,21 @@ export namespace BdConfig {
 
 	export type DateStringField = {
 		type: 'dateString'
+
+		// Default value
+		default?: string
+		// Is the field required?
+		required: boolean
+		// Is the field value must be unique?
+		unique?: boolean
+		// Field description
+		description?: string
+		// Field example value
+		example?: string
+	}
+
+	export type DateTimeField = {
+		type: 'dateTime'
 
 		// Default value
 		default?: string
@@ -164,8 +182,10 @@ export namespace BdConfig {
 	export type ManyToOneField = {
 		type: 'manyToOne'
 		thisField: string // Name of the column of this table that refers to another table
+		relationField?: string // Optional name of relation field in Prisma model
 		foreignTable: string // Name of the table that this column refers to
 		foreignField: string // Name of the column of foreign table that this column refers to
+		onDelete?: OnDeleteAction
 		// Is the field required?
 		required: boolean
 	}
@@ -184,6 +204,7 @@ export namespace BdConfig {
 		thisField: string // Name of the column of this table that refers to another table
 		foreignTable: string // Name of the table that this column refers to
 		foreignField: string // Name of the column of foreign table that this column refers to
+		onDelete?: OnDeleteAction
 		required: boolean
 	}
 }

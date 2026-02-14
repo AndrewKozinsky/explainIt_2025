@@ -19,7 +19,6 @@ export class CreateTariffsHandler implements ICommandHandler<CreateTariffsComman
 
 	async execute() {
 		const tariffsData = this.getTariffsData()
-		console.log(888)
 
 		const existingTariffs = await this.tariffRepository.getAllTariffs()
 
@@ -39,15 +38,15 @@ export class CreateTariffsHandler implements ICommandHandler<CreateTariffsComman
 			{
 				code: 'base',
 				name: 'Базовый',
-				price: 50,
+				price: 150,
 				includedBalance: 0,
 				includedFileStorageMb: 0,
 			},
 			{
 				code: 'standard',
 				name: 'Стандартный',
-				price: 350,
-				includedBalance: 100,
+				price: 450,
+				includedBalance: 150,
 				includedFileStorageMb: 5000,
 			},
 		]

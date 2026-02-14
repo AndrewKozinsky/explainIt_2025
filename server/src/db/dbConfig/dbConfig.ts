@@ -98,9 +98,6 @@ export const bdConfig = {
 				required: true,
 				default: 0,
 			},
-			created_at: {
-				type: 'createdAt',
-			},
 			BalanceTransaction: {
 				type: 'oneToMany',
 			},
@@ -112,6 +109,12 @@ export const bdConfig = {
 			},
 			VideoPrivate: {
 				type: 'oneToMany',
+			},
+			UserSubscription: {
+				type: 'oneToMany',
+			},
+			created_at: {
+				type: 'createdAt',
 			},
 		},
 	},
@@ -138,15 +141,17 @@ export const bdConfig = {
 				variants: ['TOP_UP', 'CHARGE'],
 				enumName: 'BalanceTransactionType',
 			},
+			// Это значение необходимо чтобы фиксировать списание.
 			amount: {
 				type: 'number',
 				description: 'Amount of money: negative or positive number',
 				required: true,
 			},
-			Payment: {
-				type: 'childOneToOne',
+			payment_id: {
+				type: 'manyToOne',
 				thisField: 'payment_id', // Name of the column of this table that refers to another table
-				foreignTable: 'Payment', // Name of the table that this column refers to
+				relationField: 'payment',
+				foreignTable: 'Payment', // Name of the table that this column refers to another table
 				foreignField: 'id',
 				required: false,
 			},
@@ -198,9 +203,12 @@ export const bdConfig = {
 				required: true,
 				unique: true,
 			},
-			BalanceTransaction: {
+			UserSubscription: {
 				type: 'parentOneToOne',
 				required: false,
+			},
+			BalanceTransaction: {
+				type: 'oneToMany',
 			},
 			created_at: {
 				type: 'createdAt',
@@ -247,11 +255,11 @@ export const bdConfig = {
 				required: false,
 				maxLength: 1000,
 			},
-			created_at: {
-				type: 'createdAt',
-			},
 			BookChapter: {
 				type: 'oneToMany',
+			},
+			created_at: {
+				type: 'createdAt',
 			},
 		},
 	},
@@ -298,11 +306,11 @@ export const bdConfig = {
 				required: true,
 				maxLength: 2000,
 			},
-			created_at: {
-				type: 'createdAt',
-			},
 			BookChapter: {
 				type: 'oneToMany',
+			},
+			created_at: {
+				type: 'createdAt',
 			},
 		},
 	},
@@ -351,11 +359,11 @@ export const bdConfig = {
 				minLength: 0,
 				maxLength: 1000,
 			},
-			created_at: {
-				type: 'createdAt',
-			},
 			Sentence: {
 				type: 'oneToMany',
+			},
+			created_at: {
+				type: 'createdAt',
 			},
 		},
 	},
@@ -457,17 +465,17 @@ export const bdConfig = {
 				default: 'text',
 				enumName: 'VideoTextType',
 			},
-			created_at: {
-				type: 'createdAt',
-			},
-			updated_at: {
-				type: 'updatedAt',
-			},
 			Subtitle: {
 				type: 'oneToMany',
 			},
 			Sentence: {
 				type: 'oneToMany',
+			},
+			created_at: {
+				type: 'createdAt',
+			},
+			updated_at: {
+				type: 'updatedAt',
 			},
 		},
 	},
@@ -542,17 +550,17 @@ export const bdConfig = {
 				default: 'text',
 				enumName: 'VideoTextType',
 			},
-			created_at: {
-				type: 'createdAt',
-			},
-			updated_at: {
-				type: 'updatedAt',
-			},
 			Subtitle: {
 				type: 'oneToMany',
 			},
 			Sentence: {
 				type: 'oneToMany',
+			},
+			created_at: {
+				type: 'createdAt',
+			},
+			updated_at: {
+				type: 'updatedAt',
 			},
 		},
 	},
@@ -565,6 +573,7 @@ export const bdConfig = {
 			book_chapter_id: {
 				type: 'manyToOne',
 				thisField: 'book_chapter_id', // Name of the column of this table that refers to another table
+				relationField: 'bookChapter',
 				foreignTable: 'BookChapter', // Name of the table that this column refers to
 				foreignField: 'id',
 				required: false,
@@ -572,13 +581,15 @@ export const bdConfig = {
 			video_private_id: {
 				type: 'manyToOne',
 				thisField: 'video_private_id', // Name of the column of this table that refers to another table
+				relationField: 'videoPrivate',
 				foreignTable: 'VideoPrivate', // Name of the table that this column refers to
 				foreignField: 'id',
 				required: false,
 			},
-			videoPublicId: {
+			video_public_id: {
 				type: 'manyToOne',
-				thisField: 'videoPublicId',
+				thisField: 'video_public_id',
+				relationField: 'videoPublic',
 				foreignTable: 'VideoPublic',
 				foreignField: 'id',
 				required: false,
@@ -687,24 +698,10 @@ export const bdConfig = {
 			id: {
 				type: 'index',
 			},
-			video_private_id: {
-				type: 'manyToOne',
-				thisField: 'video_private_id', // Name of the column of this table that refers to another table
-				foreignTable: 'VideoPrivate', // Name of the table that this column refers to
-				foreignField: 'id',
-				required: false,
-			},
-			videoPublicId: {
-				type: 'manyToOne',
-				thisField: 'videoPublicId',
-				foreignTable: 'VideoPublic',
-				foreignField: 'id',
-				required: false,
-			},
 			start_time_ms: {
 				type: 'number',
-				description: 'time when subtitle begins',
-				example: 100,
+				description: 'Start time of subtitle in milliseconds',
+				example: 10,
 				required: true,
 			},
 			end_time_ms: {
@@ -731,6 +728,22 @@ export const bdConfig = {
 				description: 'the serial number of this subtitle',
 				example: 10,
 				required: true,
+			},
+			video_private_id: {
+				type: 'manyToOne',
+				thisField: 'video_private_id', // Name of the column of this table that refers to another table
+				relationField: 'videoPrivate',
+				foreignTable: 'VideoPrivate', // Name of the table that this column refers to
+				foreignField: 'id',
+				required: false,
+			},
+			video_public_id: {
+				type: 'manyToOne',
+				thisField: 'video_public_id',
+				relationField: 'videoPublic',
+				foreignTable: 'VideoPublic',
+				foreignField: 'id',
+				required: false,
 			},
 			SubtitleSentenceInit: {
 				type: 'oneToMany',
@@ -865,6 +878,62 @@ export const bdConfig = {
 				description: 'How many megabytes of file storage are included',
 				example: 5000,
 				required: true,
+			},
+			created_at: {
+				type: 'createdAt',
+			},
+		},
+	},
+	UserSubscription: {
+		dtoProps: {},
+		dbFields: {
+			id: {
+				type: 'index',
+			},
+			user_id: {
+				type: 'manyToOne',
+				thisField: 'user_id', // Name of the column of this table that refers to another table
+				foreignTable: 'User', // Name of the table that this column refers to
+				foreignField: 'id',
+				required: true,
+			},
+			tariff_id: {
+				type: 'manyToOne',
+				thisField: 'tariff_id', // Name of the column of this table that refers to another table
+				foreignTable: 'Tariff', // Name of the table that this column refers to
+				foreignField: 'id',
+				onDelete: 'Restrict',
+				required: true,
+			},
+			price_paid: {
+				type: 'number',
+				description: 'The price paid for this subscription',
+				required: true,
+			},
+			included_balance: {
+				type: 'number',
+				description: 'How many kopecks are given to the user to analyze sentences',
+				required: true,
+			},
+			included_file_storage_mb: {
+				type: 'number',
+				description: 'How many megabytes of file storage are included',
+				required: true,
+			},
+			starts_at: {
+				type: 'dateTime',
+				required: true,
+			},
+			ends_at: {
+				type: 'dateTime',
+				required: true,
+			},
+			Payment: {
+				type: 'childOneToOne',
+				thisField: 'payment_id', // Name of the column of this table that refers to another table
+				foreignTable: 'Payment', // Name of the table that this column refers to
+				foreignField: 'id',
+				required: false,
 			},
 			created_at: {
 				type: 'createdAt',

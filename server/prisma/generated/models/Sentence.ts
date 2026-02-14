@@ -30,7 +30,7 @@ export type SentenceAvgAggregateOutputType = {
   id: number | null
   book_chapter_id: number | null
   video_private_id: number | null
-  videoPublicId: number | null
+  video_public_id: number | null
   start_offset: number | null
   length: number | null
   order_index: number | null
@@ -40,7 +40,7 @@ export type SentenceSumAggregateOutputType = {
   id: number | null
   book_chapter_id: number | null
   video_private_id: number | null
-  videoPublicId: number | null
+  video_public_id: number | null
   start_offset: number | null
   length: number | null
   order_index: number | null
@@ -50,7 +50,7 @@ export type SentenceMinAggregateOutputType = {
   id: number | null
   book_chapter_id: number | null
   video_private_id: number | null
-  videoPublicId: number | null
+  video_public_id: number | null
   start_offset: number | null
   length: number | null
   order_index: number | null
@@ -60,7 +60,7 @@ export type SentenceMaxAggregateOutputType = {
   id: number | null
   book_chapter_id: number | null
   video_private_id: number | null
-  videoPublicId: number | null
+  video_public_id: number | null
   start_offset: number | null
   length: number | null
   order_index: number | null
@@ -70,7 +70,7 @@ export type SentenceCountAggregateOutputType = {
   id: number
   book_chapter_id: number
   video_private_id: number
-  videoPublicId: number
+  video_public_id: number
   start_offset: number
   length: number
   order_index: number
@@ -82,7 +82,7 @@ export type SentenceAvgAggregateInputType = {
   id?: true
   book_chapter_id?: true
   video_private_id?: true
-  videoPublicId?: true
+  video_public_id?: true
   start_offset?: true
   length?: true
   order_index?: true
@@ -92,7 +92,7 @@ export type SentenceSumAggregateInputType = {
   id?: true
   book_chapter_id?: true
   video_private_id?: true
-  videoPublicId?: true
+  video_public_id?: true
   start_offset?: true
   length?: true
   order_index?: true
@@ -102,7 +102,7 @@ export type SentenceMinAggregateInputType = {
   id?: true
   book_chapter_id?: true
   video_private_id?: true
-  videoPublicId?: true
+  video_public_id?: true
   start_offset?: true
   length?: true
   order_index?: true
@@ -112,7 +112,7 @@ export type SentenceMaxAggregateInputType = {
   id?: true
   book_chapter_id?: true
   video_private_id?: true
-  videoPublicId?: true
+  video_public_id?: true
   start_offset?: true
   length?: true
   order_index?: true
@@ -122,7 +122,7 @@ export type SentenceCountAggregateInputType = {
   id?: true
   book_chapter_id?: true
   video_private_id?: true
-  videoPublicId?: true
+  video_public_id?: true
   start_offset?: true
   length?: true
   order_index?: true
@@ -219,7 +219,7 @@ export type SentenceGroupByOutputType = {
   id: number
   book_chapter_id: number | null
   video_private_id: number | null
-  videoPublicId: number | null
+  video_public_id: number | null
   start_offset: number
   length: number
   order_index: number
@@ -252,12 +252,12 @@ export type SentenceWhereInput = {
   id?: Prisma.IntFilter<"Sentence"> | number
   book_chapter_id?: Prisma.IntNullableFilter<"Sentence"> | number | null
   video_private_id?: Prisma.IntNullableFilter<"Sentence"> | number | null
-  videoPublicId?: Prisma.IntNullableFilter<"Sentence"> | number | null
+  video_public_id?: Prisma.IntNullableFilter<"Sentence"> | number | null
   start_offset?: Prisma.IntFilter<"Sentence"> | number
   length?: Prisma.IntFilter<"Sentence"> | number
   order_index?: Prisma.IntFilter<"Sentence"> | number
-  book_chapter?: Prisma.XOR<Prisma.BookChapterNullableScalarRelationFilter, Prisma.BookChapterWhereInput> | null
-  video_private?: Prisma.XOR<Prisma.VideoPrivateNullableScalarRelationFilter, Prisma.VideoPrivateWhereInput> | null
+  bookChapter?: Prisma.XOR<Prisma.BookChapterNullableScalarRelationFilter, Prisma.BookChapterWhereInput> | null
+  videoPrivate?: Prisma.XOR<Prisma.VideoPrivateNullableScalarRelationFilter, Prisma.VideoPrivateWhereInput> | null
   videoPublic?: Prisma.XOR<Prisma.VideoPublicNullableScalarRelationFilter, Prisma.VideoPublicWhereInput> | null
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitListRelationFilter
   SentenceTranslation?: Prisma.SentenceTranslationListRelationFilter
@@ -267,12 +267,12 @@ export type SentenceOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   book_chapter_id?: Prisma.SortOrderInput | Prisma.SortOrder
   video_private_id?: Prisma.SortOrderInput | Prisma.SortOrder
-  videoPublicId?: Prisma.SortOrderInput | Prisma.SortOrder
+  video_public_id?: Prisma.SortOrderInput | Prisma.SortOrder
   start_offset?: Prisma.SortOrder
   length?: Prisma.SortOrder
   order_index?: Prisma.SortOrder
-  book_chapter?: Prisma.BookChapterOrderByWithRelationInput
-  video_private?: Prisma.VideoPrivateOrderByWithRelationInput
+  bookChapter?: Prisma.BookChapterOrderByWithRelationInput
+  videoPrivate?: Prisma.VideoPrivateOrderByWithRelationInput
   videoPublic?: Prisma.VideoPublicOrderByWithRelationInput
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitOrderByRelationAggregateInput
   SentenceTranslation?: Prisma.SentenceTranslationOrderByRelationAggregateInput
@@ -285,12 +285,12 @@ export type SentenceWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.SentenceWhereInput | Prisma.SentenceWhereInput[]
   book_chapter_id?: Prisma.IntNullableFilter<"Sentence"> | number | null
   video_private_id?: Prisma.IntNullableFilter<"Sentence"> | number | null
-  videoPublicId?: Prisma.IntNullableFilter<"Sentence"> | number | null
+  video_public_id?: Prisma.IntNullableFilter<"Sentence"> | number | null
   start_offset?: Prisma.IntFilter<"Sentence"> | number
   length?: Prisma.IntFilter<"Sentence"> | number
   order_index?: Prisma.IntFilter<"Sentence"> | number
-  book_chapter?: Prisma.XOR<Prisma.BookChapterNullableScalarRelationFilter, Prisma.BookChapterWhereInput> | null
-  video_private?: Prisma.XOR<Prisma.VideoPrivateNullableScalarRelationFilter, Prisma.VideoPrivateWhereInput> | null
+  bookChapter?: Prisma.XOR<Prisma.BookChapterNullableScalarRelationFilter, Prisma.BookChapterWhereInput> | null
+  videoPrivate?: Prisma.XOR<Prisma.VideoPrivateNullableScalarRelationFilter, Prisma.VideoPrivateWhereInput> | null
   videoPublic?: Prisma.XOR<Prisma.VideoPublicNullableScalarRelationFilter, Prisma.VideoPublicWhereInput> | null
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitListRelationFilter
   SentenceTranslation?: Prisma.SentenceTranslationListRelationFilter
@@ -300,7 +300,7 @@ export type SentenceOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   book_chapter_id?: Prisma.SortOrderInput | Prisma.SortOrder
   video_private_id?: Prisma.SortOrderInput | Prisma.SortOrder
-  videoPublicId?: Prisma.SortOrderInput | Prisma.SortOrder
+  video_public_id?: Prisma.SortOrderInput | Prisma.SortOrder
   start_offset?: Prisma.SortOrder
   length?: Prisma.SortOrder
   order_index?: Prisma.SortOrder
@@ -318,7 +318,7 @@ export type SentenceScalarWhereWithAggregatesInput = {
   id?: Prisma.IntWithAggregatesFilter<"Sentence"> | number
   book_chapter_id?: Prisma.IntNullableWithAggregatesFilter<"Sentence"> | number | null
   video_private_id?: Prisma.IntNullableWithAggregatesFilter<"Sentence"> | number | null
-  videoPublicId?: Prisma.IntNullableWithAggregatesFilter<"Sentence"> | number | null
+  video_public_id?: Prisma.IntNullableWithAggregatesFilter<"Sentence"> | number | null
   start_offset?: Prisma.IntWithAggregatesFilter<"Sentence"> | number
   length?: Prisma.IntWithAggregatesFilter<"Sentence"> | number
   order_index?: Prisma.IntWithAggregatesFilter<"Sentence"> | number
@@ -328,8 +328,8 @@ export type SentenceCreateInput = {
   start_offset: number
   length: number
   order_index: number
-  book_chapter?: Prisma.BookChapterCreateNestedOneWithoutSentenceInput
-  video_private?: Prisma.VideoPrivateCreateNestedOneWithoutSentenceInput
+  bookChapter?: Prisma.BookChapterCreateNestedOneWithoutSentenceInput
+  videoPrivate?: Prisma.VideoPrivateCreateNestedOneWithoutSentenceInput
   videoPublic?: Prisma.VideoPublicCreateNestedOneWithoutSentenceInput
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitCreateNestedManyWithoutSentenceInput
   SentenceTranslation?: Prisma.SentenceTranslationCreateNestedManyWithoutSentenceInput
@@ -339,7 +339,7 @@ export type SentenceUncheckedCreateInput = {
   id?: number
   book_chapter_id?: number | null
   video_private_id?: number | null
-  videoPublicId?: number | null
+  video_public_id?: number | null
   start_offset: number
   length: number
   order_index: number
@@ -351,8 +351,8 @@ export type SentenceUpdateInput = {
   start_offset?: Prisma.IntFieldUpdateOperationsInput | number
   length?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
-  book_chapter?: Prisma.BookChapterUpdateOneWithoutSentenceNestedInput
-  video_private?: Prisma.VideoPrivateUpdateOneWithoutSentenceNestedInput
+  bookChapter?: Prisma.BookChapterUpdateOneWithoutSentenceNestedInput
+  videoPrivate?: Prisma.VideoPrivateUpdateOneWithoutSentenceNestedInput
   videoPublic?: Prisma.VideoPublicUpdateOneWithoutSentenceNestedInput
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUpdateManyWithoutSentenceNestedInput
   SentenceTranslation?: Prisma.SentenceTranslationUpdateManyWithoutSentenceNestedInput
@@ -362,7 +362,7 @@ export type SentenceUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   book_chapter_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   video_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  videoPublicId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  video_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   start_offset?: Prisma.IntFieldUpdateOperationsInput | number
   length?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
@@ -374,7 +374,7 @@ export type SentenceCreateManyInput = {
   id?: number
   book_chapter_id?: number | null
   video_private_id?: number | null
-  videoPublicId?: number | null
+  video_public_id?: number | null
   start_offset: number
   length: number
   order_index: number
@@ -390,7 +390,7 @@ export type SentenceUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   book_chapter_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   video_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  videoPublicId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  video_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   start_offset?: Prisma.IntFieldUpdateOperationsInput | number
   length?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
@@ -410,7 +410,7 @@ export type SentenceCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   book_chapter_id?: Prisma.SortOrder
   video_private_id?: Prisma.SortOrder
-  videoPublicId?: Prisma.SortOrder
+  video_public_id?: Prisma.SortOrder
   start_offset?: Prisma.SortOrder
   length?: Prisma.SortOrder
   order_index?: Prisma.SortOrder
@@ -420,7 +420,7 @@ export type SentenceAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
   book_chapter_id?: Prisma.SortOrder
   video_private_id?: Prisma.SortOrder
-  videoPublicId?: Prisma.SortOrder
+  video_public_id?: Prisma.SortOrder
   start_offset?: Prisma.SortOrder
   length?: Prisma.SortOrder
   order_index?: Prisma.SortOrder
@@ -430,7 +430,7 @@ export type SentenceMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   book_chapter_id?: Prisma.SortOrder
   video_private_id?: Prisma.SortOrder
-  videoPublicId?: Prisma.SortOrder
+  video_public_id?: Prisma.SortOrder
   start_offset?: Prisma.SortOrder
   length?: Prisma.SortOrder
   order_index?: Prisma.SortOrder
@@ -440,7 +440,7 @@ export type SentenceMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   book_chapter_id?: Prisma.SortOrder
   video_private_id?: Prisma.SortOrder
-  videoPublicId?: Prisma.SortOrder
+  video_public_id?: Prisma.SortOrder
   start_offset?: Prisma.SortOrder
   length?: Prisma.SortOrder
   order_index?: Prisma.SortOrder
@@ -450,7 +450,7 @@ export type SentenceSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
   book_chapter_id?: Prisma.SortOrder
   video_private_id?: Prisma.SortOrder
-  videoPublicId?: Prisma.SortOrder
+  video_public_id?: Prisma.SortOrder
   start_offset?: Prisma.SortOrder
   length?: Prisma.SortOrder
   order_index?: Prisma.SortOrder
@@ -461,87 +461,87 @@ export type SentenceScalarRelationFilter = {
   isNot?: Prisma.SentenceWhereInput
 }
 
-export type SentenceCreateNestedManyWithoutBook_chapterInput = {
-  create?: Prisma.XOR<Prisma.SentenceCreateWithoutBook_chapterInput, Prisma.SentenceUncheckedCreateWithoutBook_chapterInput> | Prisma.SentenceCreateWithoutBook_chapterInput[] | Prisma.SentenceUncheckedCreateWithoutBook_chapterInput[]
-  connectOrCreate?: Prisma.SentenceCreateOrConnectWithoutBook_chapterInput | Prisma.SentenceCreateOrConnectWithoutBook_chapterInput[]
-  createMany?: Prisma.SentenceCreateManyBook_chapterInputEnvelope
+export type SentenceCreateNestedManyWithoutBookChapterInput = {
+  create?: Prisma.XOR<Prisma.SentenceCreateWithoutBookChapterInput, Prisma.SentenceUncheckedCreateWithoutBookChapterInput> | Prisma.SentenceCreateWithoutBookChapterInput[] | Prisma.SentenceUncheckedCreateWithoutBookChapterInput[]
+  connectOrCreate?: Prisma.SentenceCreateOrConnectWithoutBookChapterInput | Prisma.SentenceCreateOrConnectWithoutBookChapterInput[]
+  createMany?: Prisma.SentenceCreateManyBookChapterInputEnvelope
   connect?: Prisma.SentenceWhereUniqueInput | Prisma.SentenceWhereUniqueInput[]
 }
 
-export type SentenceUncheckedCreateNestedManyWithoutBook_chapterInput = {
-  create?: Prisma.XOR<Prisma.SentenceCreateWithoutBook_chapterInput, Prisma.SentenceUncheckedCreateWithoutBook_chapterInput> | Prisma.SentenceCreateWithoutBook_chapterInput[] | Prisma.SentenceUncheckedCreateWithoutBook_chapterInput[]
-  connectOrCreate?: Prisma.SentenceCreateOrConnectWithoutBook_chapterInput | Prisma.SentenceCreateOrConnectWithoutBook_chapterInput[]
-  createMany?: Prisma.SentenceCreateManyBook_chapterInputEnvelope
+export type SentenceUncheckedCreateNestedManyWithoutBookChapterInput = {
+  create?: Prisma.XOR<Prisma.SentenceCreateWithoutBookChapterInput, Prisma.SentenceUncheckedCreateWithoutBookChapterInput> | Prisma.SentenceCreateWithoutBookChapterInput[] | Prisma.SentenceUncheckedCreateWithoutBookChapterInput[]
+  connectOrCreate?: Prisma.SentenceCreateOrConnectWithoutBookChapterInput | Prisma.SentenceCreateOrConnectWithoutBookChapterInput[]
+  createMany?: Prisma.SentenceCreateManyBookChapterInputEnvelope
   connect?: Prisma.SentenceWhereUniqueInput | Prisma.SentenceWhereUniqueInput[]
 }
 
-export type SentenceUpdateManyWithoutBook_chapterNestedInput = {
-  create?: Prisma.XOR<Prisma.SentenceCreateWithoutBook_chapterInput, Prisma.SentenceUncheckedCreateWithoutBook_chapterInput> | Prisma.SentenceCreateWithoutBook_chapterInput[] | Prisma.SentenceUncheckedCreateWithoutBook_chapterInput[]
-  connectOrCreate?: Prisma.SentenceCreateOrConnectWithoutBook_chapterInput | Prisma.SentenceCreateOrConnectWithoutBook_chapterInput[]
-  upsert?: Prisma.SentenceUpsertWithWhereUniqueWithoutBook_chapterInput | Prisma.SentenceUpsertWithWhereUniqueWithoutBook_chapterInput[]
-  createMany?: Prisma.SentenceCreateManyBook_chapterInputEnvelope
+export type SentenceUpdateManyWithoutBookChapterNestedInput = {
+  create?: Prisma.XOR<Prisma.SentenceCreateWithoutBookChapterInput, Prisma.SentenceUncheckedCreateWithoutBookChapterInput> | Prisma.SentenceCreateWithoutBookChapterInput[] | Prisma.SentenceUncheckedCreateWithoutBookChapterInput[]
+  connectOrCreate?: Prisma.SentenceCreateOrConnectWithoutBookChapterInput | Prisma.SentenceCreateOrConnectWithoutBookChapterInput[]
+  upsert?: Prisma.SentenceUpsertWithWhereUniqueWithoutBookChapterInput | Prisma.SentenceUpsertWithWhereUniqueWithoutBookChapterInput[]
+  createMany?: Prisma.SentenceCreateManyBookChapterInputEnvelope
   set?: Prisma.SentenceWhereUniqueInput | Prisma.SentenceWhereUniqueInput[]
   disconnect?: Prisma.SentenceWhereUniqueInput | Prisma.SentenceWhereUniqueInput[]
   delete?: Prisma.SentenceWhereUniqueInput | Prisma.SentenceWhereUniqueInput[]
   connect?: Prisma.SentenceWhereUniqueInput | Prisma.SentenceWhereUniqueInput[]
-  update?: Prisma.SentenceUpdateWithWhereUniqueWithoutBook_chapterInput | Prisma.SentenceUpdateWithWhereUniqueWithoutBook_chapterInput[]
-  updateMany?: Prisma.SentenceUpdateManyWithWhereWithoutBook_chapterInput | Prisma.SentenceUpdateManyWithWhereWithoutBook_chapterInput[]
+  update?: Prisma.SentenceUpdateWithWhereUniqueWithoutBookChapterInput | Prisma.SentenceUpdateWithWhereUniqueWithoutBookChapterInput[]
+  updateMany?: Prisma.SentenceUpdateManyWithWhereWithoutBookChapterInput | Prisma.SentenceUpdateManyWithWhereWithoutBookChapterInput[]
   deleteMany?: Prisma.SentenceScalarWhereInput | Prisma.SentenceScalarWhereInput[]
 }
 
-export type SentenceUncheckedUpdateManyWithoutBook_chapterNestedInput = {
-  create?: Prisma.XOR<Prisma.SentenceCreateWithoutBook_chapterInput, Prisma.SentenceUncheckedCreateWithoutBook_chapterInput> | Prisma.SentenceCreateWithoutBook_chapterInput[] | Prisma.SentenceUncheckedCreateWithoutBook_chapterInput[]
-  connectOrCreate?: Prisma.SentenceCreateOrConnectWithoutBook_chapterInput | Prisma.SentenceCreateOrConnectWithoutBook_chapterInput[]
-  upsert?: Prisma.SentenceUpsertWithWhereUniqueWithoutBook_chapterInput | Prisma.SentenceUpsertWithWhereUniqueWithoutBook_chapterInput[]
-  createMany?: Prisma.SentenceCreateManyBook_chapterInputEnvelope
+export type SentenceUncheckedUpdateManyWithoutBookChapterNestedInput = {
+  create?: Prisma.XOR<Prisma.SentenceCreateWithoutBookChapterInput, Prisma.SentenceUncheckedCreateWithoutBookChapterInput> | Prisma.SentenceCreateWithoutBookChapterInput[] | Prisma.SentenceUncheckedCreateWithoutBookChapterInput[]
+  connectOrCreate?: Prisma.SentenceCreateOrConnectWithoutBookChapterInput | Prisma.SentenceCreateOrConnectWithoutBookChapterInput[]
+  upsert?: Prisma.SentenceUpsertWithWhereUniqueWithoutBookChapterInput | Prisma.SentenceUpsertWithWhereUniqueWithoutBookChapterInput[]
+  createMany?: Prisma.SentenceCreateManyBookChapterInputEnvelope
   set?: Prisma.SentenceWhereUniqueInput | Prisma.SentenceWhereUniqueInput[]
   disconnect?: Prisma.SentenceWhereUniqueInput | Prisma.SentenceWhereUniqueInput[]
   delete?: Prisma.SentenceWhereUniqueInput | Prisma.SentenceWhereUniqueInput[]
   connect?: Prisma.SentenceWhereUniqueInput | Prisma.SentenceWhereUniqueInput[]
-  update?: Prisma.SentenceUpdateWithWhereUniqueWithoutBook_chapterInput | Prisma.SentenceUpdateWithWhereUniqueWithoutBook_chapterInput[]
-  updateMany?: Prisma.SentenceUpdateManyWithWhereWithoutBook_chapterInput | Prisma.SentenceUpdateManyWithWhereWithoutBook_chapterInput[]
+  update?: Prisma.SentenceUpdateWithWhereUniqueWithoutBookChapterInput | Prisma.SentenceUpdateWithWhereUniqueWithoutBookChapterInput[]
+  updateMany?: Prisma.SentenceUpdateManyWithWhereWithoutBookChapterInput | Prisma.SentenceUpdateManyWithWhereWithoutBookChapterInput[]
   deleteMany?: Prisma.SentenceScalarWhereInput | Prisma.SentenceScalarWhereInput[]
 }
 
-export type SentenceCreateNestedManyWithoutVideo_privateInput = {
-  create?: Prisma.XOR<Prisma.SentenceCreateWithoutVideo_privateInput, Prisma.SentenceUncheckedCreateWithoutVideo_privateInput> | Prisma.SentenceCreateWithoutVideo_privateInput[] | Prisma.SentenceUncheckedCreateWithoutVideo_privateInput[]
-  connectOrCreate?: Prisma.SentenceCreateOrConnectWithoutVideo_privateInput | Prisma.SentenceCreateOrConnectWithoutVideo_privateInput[]
-  createMany?: Prisma.SentenceCreateManyVideo_privateInputEnvelope
+export type SentenceCreateNestedManyWithoutVideoPrivateInput = {
+  create?: Prisma.XOR<Prisma.SentenceCreateWithoutVideoPrivateInput, Prisma.SentenceUncheckedCreateWithoutVideoPrivateInput> | Prisma.SentenceCreateWithoutVideoPrivateInput[] | Prisma.SentenceUncheckedCreateWithoutVideoPrivateInput[]
+  connectOrCreate?: Prisma.SentenceCreateOrConnectWithoutVideoPrivateInput | Prisma.SentenceCreateOrConnectWithoutVideoPrivateInput[]
+  createMany?: Prisma.SentenceCreateManyVideoPrivateInputEnvelope
   connect?: Prisma.SentenceWhereUniqueInput | Prisma.SentenceWhereUniqueInput[]
 }
 
-export type SentenceUncheckedCreateNestedManyWithoutVideo_privateInput = {
-  create?: Prisma.XOR<Prisma.SentenceCreateWithoutVideo_privateInput, Prisma.SentenceUncheckedCreateWithoutVideo_privateInput> | Prisma.SentenceCreateWithoutVideo_privateInput[] | Prisma.SentenceUncheckedCreateWithoutVideo_privateInput[]
-  connectOrCreate?: Prisma.SentenceCreateOrConnectWithoutVideo_privateInput | Prisma.SentenceCreateOrConnectWithoutVideo_privateInput[]
-  createMany?: Prisma.SentenceCreateManyVideo_privateInputEnvelope
+export type SentenceUncheckedCreateNestedManyWithoutVideoPrivateInput = {
+  create?: Prisma.XOR<Prisma.SentenceCreateWithoutVideoPrivateInput, Prisma.SentenceUncheckedCreateWithoutVideoPrivateInput> | Prisma.SentenceCreateWithoutVideoPrivateInput[] | Prisma.SentenceUncheckedCreateWithoutVideoPrivateInput[]
+  connectOrCreate?: Prisma.SentenceCreateOrConnectWithoutVideoPrivateInput | Prisma.SentenceCreateOrConnectWithoutVideoPrivateInput[]
+  createMany?: Prisma.SentenceCreateManyVideoPrivateInputEnvelope
   connect?: Prisma.SentenceWhereUniqueInput | Prisma.SentenceWhereUniqueInput[]
 }
 
-export type SentenceUpdateManyWithoutVideo_privateNestedInput = {
-  create?: Prisma.XOR<Prisma.SentenceCreateWithoutVideo_privateInput, Prisma.SentenceUncheckedCreateWithoutVideo_privateInput> | Prisma.SentenceCreateWithoutVideo_privateInput[] | Prisma.SentenceUncheckedCreateWithoutVideo_privateInput[]
-  connectOrCreate?: Prisma.SentenceCreateOrConnectWithoutVideo_privateInput | Prisma.SentenceCreateOrConnectWithoutVideo_privateInput[]
-  upsert?: Prisma.SentenceUpsertWithWhereUniqueWithoutVideo_privateInput | Prisma.SentenceUpsertWithWhereUniqueWithoutVideo_privateInput[]
-  createMany?: Prisma.SentenceCreateManyVideo_privateInputEnvelope
+export type SentenceUpdateManyWithoutVideoPrivateNestedInput = {
+  create?: Prisma.XOR<Prisma.SentenceCreateWithoutVideoPrivateInput, Prisma.SentenceUncheckedCreateWithoutVideoPrivateInput> | Prisma.SentenceCreateWithoutVideoPrivateInput[] | Prisma.SentenceUncheckedCreateWithoutVideoPrivateInput[]
+  connectOrCreate?: Prisma.SentenceCreateOrConnectWithoutVideoPrivateInput | Prisma.SentenceCreateOrConnectWithoutVideoPrivateInput[]
+  upsert?: Prisma.SentenceUpsertWithWhereUniqueWithoutVideoPrivateInput | Prisma.SentenceUpsertWithWhereUniqueWithoutVideoPrivateInput[]
+  createMany?: Prisma.SentenceCreateManyVideoPrivateInputEnvelope
   set?: Prisma.SentenceWhereUniqueInput | Prisma.SentenceWhereUniqueInput[]
   disconnect?: Prisma.SentenceWhereUniqueInput | Prisma.SentenceWhereUniqueInput[]
   delete?: Prisma.SentenceWhereUniqueInput | Prisma.SentenceWhereUniqueInput[]
   connect?: Prisma.SentenceWhereUniqueInput | Prisma.SentenceWhereUniqueInput[]
-  update?: Prisma.SentenceUpdateWithWhereUniqueWithoutVideo_privateInput | Prisma.SentenceUpdateWithWhereUniqueWithoutVideo_privateInput[]
-  updateMany?: Prisma.SentenceUpdateManyWithWhereWithoutVideo_privateInput | Prisma.SentenceUpdateManyWithWhereWithoutVideo_privateInput[]
+  update?: Prisma.SentenceUpdateWithWhereUniqueWithoutVideoPrivateInput | Prisma.SentenceUpdateWithWhereUniqueWithoutVideoPrivateInput[]
+  updateMany?: Prisma.SentenceUpdateManyWithWhereWithoutVideoPrivateInput | Prisma.SentenceUpdateManyWithWhereWithoutVideoPrivateInput[]
   deleteMany?: Prisma.SentenceScalarWhereInput | Prisma.SentenceScalarWhereInput[]
 }
 
-export type SentenceUncheckedUpdateManyWithoutVideo_privateNestedInput = {
-  create?: Prisma.XOR<Prisma.SentenceCreateWithoutVideo_privateInput, Prisma.SentenceUncheckedCreateWithoutVideo_privateInput> | Prisma.SentenceCreateWithoutVideo_privateInput[] | Prisma.SentenceUncheckedCreateWithoutVideo_privateInput[]
-  connectOrCreate?: Prisma.SentenceCreateOrConnectWithoutVideo_privateInput | Prisma.SentenceCreateOrConnectWithoutVideo_privateInput[]
-  upsert?: Prisma.SentenceUpsertWithWhereUniqueWithoutVideo_privateInput | Prisma.SentenceUpsertWithWhereUniqueWithoutVideo_privateInput[]
-  createMany?: Prisma.SentenceCreateManyVideo_privateInputEnvelope
+export type SentenceUncheckedUpdateManyWithoutVideoPrivateNestedInput = {
+  create?: Prisma.XOR<Prisma.SentenceCreateWithoutVideoPrivateInput, Prisma.SentenceUncheckedCreateWithoutVideoPrivateInput> | Prisma.SentenceCreateWithoutVideoPrivateInput[] | Prisma.SentenceUncheckedCreateWithoutVideoPrivateInput[]
+  connectOrCreate?: Prisma.SentenceCreateOrConnectWithoutVideoPrivateInput | Prisma.SentenceCreateOrConnectWithoutVideoPrivateInput[]
+  upsert?: Prisma.SentenceUpsertWithWhereUniqueWithoutVideoPrivateInput | Prisma.SentenceUpsertWithWhereUniqueWithoutVideoPrivateInput[]
+  createMany?: Prisma.SentenceCreateManyVideoPrivateInputEnvelope
   set?: Prisma.SentenceWhereUniqueInput | Prisma.SentenceWhereUniqueInput[]
   disconnect?: Prisma.SentenceWhereUniqueInput | Prisma.SentenceWhereUniqueInput[]
   delete?: Prisma.SentenceWhereUniqueInput | Prisma.SentenceWhereUniqueInput[]
   connect?: Prisma.SentenceWhereUniqueInput | Prisma.SentenceWhereUniqueInput[]
-  update?: Prisma.SentenceUpdateWithWhereUniqueWithoutVideo_privateInput | Prisma.SentenceUpdateWithWhereUniqueWithoutVideo_privateInput[]
-  updateMany?: Prisma.SentenceUpdateManyWithWhereWithoutVideo_privateInput | Prisma.SentenceUpdateManyWithWhereWithoutVideo_privateInput[]
+  update?: Prisma.SentenceUpdateWithWhereUniqueWithoutVideoPrivateInput | Prisma.SentenceUpdateWithWhereUniqueWithoutVideoPrivateInput[]
+  updateMany?: Prisma.SentenceUpdateManyWithWhereWithoutVideoPrivateInput | Prisma.SentenceUpdateManyWithWhereWithoutVideoPrivateInput[]
   deleteMany?: Prisma.SentenceScalarWhereInput | Prisma.SentenceScalarWhereInput[]
 }
 
@@ -615,20 +615,20 @@ export type SentenceUpdateOneRequiredWithoutSubtitleSentenceInitNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.SentenceUpdateToOneWithWhereWithoutSubtitleSentenceInitInput, Prisma.SentenceUpdateWithoutSubtitleSentenceInitInput>, Prisma.SentenceUncheckedUpdateWithoutSubtitleSentenceInitInput>
 }
 
-export type SentenceCreateWithoutBook_chapterInput = {
+export type SentenceCreateWithoutBookChapterInput = {
   start_offset: number
   length: number
   order_index: number
-  video_private?: Prisma.VideoPrivateCreateNestedOneWithoutSentenceInput
+  videoPrivate?: Prisma.VideoPrivateCreateNestedOneWithoutSentenceInput
   videoPublic?: Prisma.VideoPublicCreateNestedOneWithoutSentenceInput
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitCreateNestedManyWithoutSentenceInput
   SentenceTranslation?: Prisma.SentenceTranslationCreateNestedManyWithoutSentenceInput
 }
 
-export type SentenceUncheckedCreateWithoutBook_chapterInput = {
+export type SentenceUncheckedCreateWithoutBookChapterInput = {
   id?: number
   video_private_id?: number | null
-  videoPublicId?: number | null
+  video_public_id?: number | null
   start_offset: number
   length: number
   order_index: number
@@ -636,30 +636,30 @@ export type SentenceUncheckedCreateWithoutBook_chapterInput = {
   SentenceTranslation?: Prisma.SentenceTranslationUncheckedCreateNestedManyWithoutSentenceInput
 }
 
-export type SentenceCreateOrConnectWithoutBook_chapterInput = {
+export type SentenceCreateOrConnectWithoutBookChapterInput = {
   where: Prisma.SentenceWhereUniqueInput
-  create: Prisma.XOR<Prisma.SentenceCreateWithoutBook_chapterInput, Prisma.SentenceUncheckedCreateWithoutBook_chapterInput>
+  create: Prisma.XOR<Prisma.SentenceCreateWithoutBookChapterInput, Prisma.SentenceUncheckedCreateWithoutBookChapterInput>
 }
 
-export type SentenceCreateManyBook_chapterInputEnvelope = {
-  data: Prisma.SentenceCreateManyBook_chapterInput | Prisma.SentenceCreateManyBook_chapterInput[]
+export type SentenceCreateManyBookChapterInputEnvelope = {
+  data: Prisma.SentenceCreateManyBookChapterInput | Prisma.SentenceCreateManyBookChapterInput[]
   skipDuplicates?: boolean
 }
 
-export type SentenceUpsertWithWhereUniqueWithoutBook_chapterInput = {
+export type SentenceUpsertWithWhereUniqueWithoutBookChapterInput = {
   where: Prisma.SentenceWhereUniqueInput
-  update: Prisma.XOR<Prisma.SentenceUpdateWithoutBook_chapterInput, Prisma.SentenceUncheckedUpdateWithoutBook_chapterInput>
-  create: Prisma.XOR<Prisma.SentenceCreateWithoutBook_chapterInput, Prisma.SentenceUncheckedCreateWithoutBook_chapterInput>
+  update: Prisma.XOR<Prisma.SentenceUpdateWithoutBookChapterInput, Prisma.SentenceUncheckedUpdateWithoutBookChapterInput>
+  create: Prisma.XOR<Prisma.SentenceCreateWithoutBookChapterInput, Prisma.SentenceUncheckedCreateWithoutBookChapterInput>
 }
 
-export type SentenceUpdateWithWhereUniqueWithoutBook_chapterInput = {
+export type SentenceUpdateWithWhereUniqueWithoutBookChapterInput = {
   where: Prisma.SentenceWhereUniqueInput
-  data: Prisma.XOR<Prisma.SentenceUpdateWithoutBook_chapterInput, Prisma.SentenceUncheckedUpdateWithoutBook_chapterInput>
+  data: Prisma.XOR<Prisma.SentenceUpdateWithoutBookChapterInput, Prisma.SentenceUncheckedUpdateWithoutBookChapterInput>
 }
 
-export type SentenceUpdateManyWithWhereWithoutBook_chapterInput = {
+export type SentenceUpdateManyWithWhereWithoutBookChapterInput = {
   where: Prisma.SentenceScalarWhereInput
-  data: Prisma.XOR<Prisma.SentenceUpdateManyMutationInput, Prisma.SentenceUncheckedUpdateManyWithoutBook_chapterInput>
+  data: Prisma.XOR<Prisma.SentenceUpdateManyMutationInput, Prisma.SentenceUncheckedUpdateManyWithoutBookChapterInput>
 }
 
 export type SentenceScalarWhereInput = {
@@ -669,26 +669,26 @@ export type SentenceScalarWhereInput = {
   id?: Prisma.IntFilter<"Sentence"> | number
   book_chapter_id?: Prisma.IntNullableFilter<"Sentence"> | number | null
   video_private_id?: Prisma.IntNullableFilter<"Sentence"> | number | null
-  videoPublicId?: Prisma.IntNullableFilter<"Sentence"> | number | null
+  video_public_id?: Prisma.IntNullableFilter<"Sentence"> | number | null
   start_offset?: Prisma.IntFilter<"Sentence"> | number
   length?: Prisma.IntFilter<"Sentence"> | number
   order_index?: Prisma.IntFilter<"Sentence"> | number
 }
 
-export type SentenceCreateWithoutVideo_privateInput = {
+export type SentenceCreateWithoutVideoPrivateInput = {
   start_offset: number
   length: number
   order_index: number
-  book_chapter?: Prisma.BookChapterCreateNestedOneWithoutSentenceInput
+  bookChapter?: Prisma.BookChapterCreateNestedOneWithoutSentenceInput
   videoPublic?: Prisma.VideoPublicCreateNestedOneWithoutSentenceInput
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitCreateNestedManyWithoutSentenceInput
   SentenceTranslation?: Prisma.SentenceTranslationCreateNestedManyWithoutSentenceInput
 }
 
-export type SentenceUncheckedCreateWithoutVideo_privateInput = {
+export type SentenceUncheckedCreateWithoutVideoPrivateInput = {
   id?: number
   book_chapter_id?: number | null
-  videoPublicId?: number | null
+  video_public_id?: number | null
   start_offset: number
   length: number
   order_index: number
@@ -696,38 +696,38 @@ export type SentenceUncheckedCreateWithoutVideo_privateInput = {
   SentenceTranslation?: Prisma.SentenceTranslationUncheckedCreateNestedManyWithoutSentenceInput
 }
 
-export type SentenceCreateOrConnectWithoutVideo_privateInput = {
+export type SentenceCreateOrConnectWithoutVideoPrivateInput = {
   where: Prisma.SentenceWhereUniqueInput
-  create: Prisma.XOR<Prisma.SentenceCreateWithoutVideo_privateInput, Prisma.SentenceUncheckedCreateWithoutVideo_privateInput>
+  create: Prisma.XOR<Prisma.SentenceCreateWithoutVideoPrivateInput, Prisma.SentenceUncheckedCreateWithoutVideoPrivateInput>
 }
 
-export type SentenceCreateManyVideo_privateInputEnvelope = {
-  data: Prisma.SentenceCreateManyVideo_privateInput | Prisma.SentenceCreateManyVideo_privateInput[]
+export type SentenceCreateManyVideoPrivateInputEnvelope = {
+  data: Prisma.SentenceCreateManyVideoPrivateInput | Prisma.SentenceCreateManyVideoPrivateInput[]
   skipDuplicates?: boolean
 }
 
-export type SentenceUpsertWithWhereUniqueWithoutVideo_privateInput = {
+export type SentenceUpsertWithWhereUniqueWithoutVideoPrivateInput = {
   where: Prisma.SentenceWhereUniqueInput
-  update: Prisma.XOR<Prisma.SentenceUpdateWithoutVideo_privateInput, Prisma.SentenceUncheckedUpdateWithoutVideo_privateInput>
-  create: Prisma.XOR<Prisma.SentenceCreateWithoutVideo_privateInput, Prisma.SentenceUncheckedCreateWithoutVideo_privateInput>
+  update: Prisma.XOR<Prisma.SentenceUpdateWithoutVideoPrivateInput, Prisma.SentenceUncheckedUpdateWithoutVideoPrivateInput>
+  create: Prisma.XOR<Prisma.SentenceCreateWithoutVideoPrivateInput, Prisma.SentenceUncheckedCreateWithoutVideoPrivateInput>
 }
 
-export type SentenceUpdateWithWhereUniqueWithoutVideo_privateInput = {
+export type SentenceUpdateWithWhereUniqueWithoutVideoPrivateInput = {
   where: Prisma.SentenceWhereUniqueInput
-  data: Prisma.XOR<Prisma.SentenceUpdateWithoutVideo_privateInput, Prisma.SentenceUncheckedUpdateWithoutVideo_privateInput>
+  data: Prisma.XOR<Prisma.SentenceUpdateWithoutVideoPrivateInput, Prisma.SentenceUncheckedUpdateWithoutVideoPrivateInput>
 }
 
-export type SentenceUpdateManyWithWhereWithoutVideo_privateInput = {
+export type SentenceUpdateManyWithWhereWithoutVideoPrivateInput = {
   where: Prisma.SentenceScalarWhereInput
-  data: Prisma.XOR<Prisma.SentenceUpdateManyMutationInput, Prisma.SentenceUncheckedUpdateManyWithoutVideo_privateInput>
+  data: Prisma.XOR<Prisma.SentenceUpdateManyMutationInput, Prisma.SentenceUncheckedUpdateManyWithoutVideoPrivateInput>
 }
 
 export type SentenceCreateWithoutVideoPublicInput = {
   start_offset: number
   length: number
   order_index: number
-  book_chapter?: Prisma.BookChapterCreateNestedOneWithoutSentenceInput
-  video_private?: Prisma.VideoPrivateCreateNestedOneWithoutSentenceInput
+  bookChapter?: Prisma.BookChapterCreateNestedOneWithoutSentenceInput
+  videoPrivate?: Prisma.VideoPrivateCreateNestedOneWithoutSentenceInput
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitCreateNestedManyWithoutSentenceInput
   SentenceTranslation?: Prisma.SentenceTranslationCreateNestedManyWithoutSentenceInput
 }
@@ -773,8 +773,8 @@ export type SentenceCreateWithoutSentenceTranslationInput = {
   start_offset: number
   length: number
   order_index: number
-  book_chapter?: Prisma.BookChapterCreateNestedOneWithoutSentenceInput
-  video_private?: Prisma.VideoPrivateCreateNestedOneWithoutSentenceInput
+  bookChapter?: Prisma.BookChapterCreateNestedOneWithoutSentenceInput
+  videoPrivate?: Prisma.VideoPrivateCreateNestedOneWithoutSentenceInput
   videoPublic?: Prisma.VideoPublicCreateNestedOneWithoutSentenceInput
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitCreateNestedManyWithoutSentenceInput
 }
@@ -783,7 +783,7 @@ export type SentenceUncheckedCreateWithoutSentenceTranslationInput = {
   id?: number
   book_chapter_id?: number | null
   video_private_id?: number | null
-  videoPublicId?: number | null
+  video_public_id?: number | null
   start_offset: number
   length: number
   order_index: number
@@ -810,8 +810,8 @@ export type SentenceUpdateWithoutSentenceTranslationInput = {
   start_offset?: Prisma.IntFieldUpdateOperationsInput | number
   length?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
-  book_chapter?: Prisma.BookChapterUpdateOneWithoutSentenceNestedInput
-  video_private?: Prisma.VideoPrivateUpdateOneWithoutSentenceNestedInput
+  bookChapter?: Prisma.BookChapterUpdateOneWithoutSentenceNestedInput
+  videoPrivate?: Prisma.VideoPrivateUpdateOneWithoutSentenceNestedInput
   videoPublic?: Prisma.VideoPublicUpdateOneWithoutSentenceNestedInput
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUpdateManyWithoutSentenceNestedInput
 }
@@ -820,7 +820,7 @@ export type SentenceUncheckedUpdateWithoutSentenceTranslationInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   book_chapter_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   video_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  videoPublicId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  video_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   start_offset?: Prisma.IntFieldUpdateOperationsInput | number
   length?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
@@ -831,8 +831,8 @@ export type SentenceCreateWithoutSubtitleSentenceInitInput = {
   start_offset: number
   length: number
   order_index: number
-  book_chapter?: Prisma.BookChapterCreateNestedOneWithoutSentenceInput
-  video_private?: Prisma.VideoPrivateCreateNestedOneWithoutSentenceInput
+  bookChapter?: Prisma.BookChapterCreateNestedOneWithoutSentenceInput
+  videoPrivate?: Prisma.VideoPrivateCreateNestedOneWithoutSentenceInput
   videoPublic?: Prisma.VideoPublicCreateNestedOneWithoutSentenceInput
   SentenceTranslation?: Prisma.SentenceTranslationCreateNestedManyWithoutSentenceInput
 }
@@ -841,7 +841,7 @@ export type SentenceUncheckedCreateWithoutSubtitleSentenceInitInput = {
   id?: number
   book_chapter_id?: number | null
   video_private_id?: number | null
-  videoPublicId?: number | null
+  video_public_id?: number | null
   start_offset: number
   length: number
   order_index: number
@@ -868,8 +868,8 @@ export type SentenceUpdateWithoutSubtitleSentenceInitInput = {
   start_offset?: Prisma.IntFieldUpdateOperationsInput | number
   length?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
-  book_chapter?: Prisma.BookChapterUpdateOneWithoutSentenceNestedInput
-  video_private?: Prisma.VideoPrivateUpdateOneWithoutSentenceNestedInput
+  bookChapter?: Prisma.BookChapterUpdateOneWithoutSentenceNestedInput
+  videoPrivate?: Prisma.VideoPrivateUpdateOneWithoutSentenceNestedInput
   videoPublic?: Prisma.VideoPublicUpdateOneWithoutSentenceNestedInput
   SentenceTranslation?: Prisma.SentenceTranslationUpdateManyWithoutSentenceNestedInput
 }
@@ -878,36 +878,36 @@ export type SentenceUncheckedUpdateWithoutSubtitleSentenceInitInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   book_chapter_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   video_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  videoPublicId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  video_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   start_offset?: Prisma.IntFieldUpdateOperationsInput | number
   length?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
   SentenceTranslation?: Prisma.SentenceTranslationUncheckedUpdateManyWithoutSentenceNestedInput
 }
 
-export type SentenceCreateManyBook_chapterInput = {
+export type SentenceCreateManyBookChapterInput = {
   id?: number
   video_private_id?: number | null
-  videoPublicId?: number | null
+  video_public_id?: number | null
   start_offset: number
   length: number
   order_index: number
 }
 
-export type SentenceUpdateWithoutBook_chapterInput = {
+export type SentenceUpdateWithoutBookChapterInput = {
   start_offset?: Prisma.IntFieldUpdateOperationsInput | number
   length?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
-  video_private?: Prisma.VideoPrivateUpdateOneWithoutSentenceNestedInput
+  videoPrivate?: Prisma.VideoPrivateUpdateOneWithoutSentenceNestedInput
   videoPublic?: Prisma.VideoPublicUpdateOneWithoutSentenceNestedInput
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUpdateManyWithoutSentenceNestedInput
   SentenceTranslation?: Prisma.SentenceTranslationUpdateManyWithoutSentenceNestedInput
 }
 
-export type SentenceUncheckedUpdateWithoutBook_chapterInput = {
+export type SentenceUncheckedUpdateWithoutBookChapterInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   video_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  videoPublicId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  video_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   start_offset?: Prisma.IntFieldUpdateOperationsInput | number
   length?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
@@ -915,38 +915,38 @@ export type SentenceUncheckedUpdateWithoutBook_chapterInput = {
   SentenceTranslation?: Prisma.SentenceTranslationUncheckedUpdateManyWithoutSentenceNestedInput
 }
 
-export type SentenceUncheckedUpdateManyWithoutBook_chapterInput = {
+export type SentenceUncheckedUpdateManyWithoutBookChapterInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   video_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  videoPublicId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  video_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   start_offset?: Prisma.IntFieldUpdateOperationsInput | number
   length?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
-export type SentenceCreateManyVideo_privateInput = {
+export type SentenceCreateManyVideoPrivateInput = {
   id?: number
   book_chapter_id?: number | null
-  videoPublicId?: number | null
+  video_public_id?: number | null
   start_offset: number
   length: number
   order_index: number
 }
 
-export type SentenceUpdateWithoutVideo_privateInput = {
+export type SentenceUpdateWithoutVideoPrivateInput = {
   start_offset?: Prisma.IntFieldUpdateOperationsInput | number
   length?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
-  book_chapter?: Prisma.BookChapterUpdateOneWithoutSentenceNestedInput
+  bookChapter?: Prisma.BookChapterUpdateOneWithoutSentenceNestedInput
   videoPublic?: Prisma.VideoPublicUpdateOneWithoutSentenceNestedInput
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUpdateManyWithoutSentenceNestedInput
   SentenceTranslation?: Prisma.SentenceTranslationUpdateManyWithoutSentenceNestedInput
 }
 
-export type SentenceUncheckedUpdateWithoutVideo_privateInput = {
+export type SentenceUncheckedUpdateWithoutVideoPrivateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   book_chapter_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  videoPublicId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  video_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   start_offset?: Prisma.IntFieldUpdateOperationsInput | number
   length?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
@@ -954,10 +954,10 @@ export type SentenceUncheckedUpdateWithoutVideo_privateInput = {
   SentenceTranslation?: Prisma.SentenceTranslationUncheckedUpdateManyWithoutSentenceNestedInput
 }
 
-export type SentenceUncheckedUpdateManyWithoutVideo_privateInput = {
+export type SentenceUncheckedUpdateManyWithoutVideoPrivateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   book_chapter_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  videoPublicId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  video_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   start_offset?: Prisma.IntFieldUpdateOperationsInput | number
   length?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
@@ -976,8 +976,8 @@ export type SentenceUpdateWithoutVideoPublicInput = {
   start_offset?: Prisma.IntFieldUpdateOperationsInput | number
   length?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
-  book_chapter?: Prisma.BookChapterUpdateOneWithoutSentenceNestedInput
-  video_private?: Prisma.VideoPrivateUpdateOneWithoutSentenceNestedInput
+  bookChapter?: Prisma.BookChapterUpdateOneWithoutSentenceNestedInput
+  videoPrivate?: Prisma.VideoPrivateUpdateOneWithoutSentenceNestedInput
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUpdateManyWithoutSentenceNestedInput
   SentenceTranslation?: Prisma.SentenceTranslationUpdateManyWithoutSentenceNestedInput
 }
@@ -1046,12 +1046,12 @@ export type SentenceSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   id?: boolean
   book_chapter_id?: boolean
   video_private_id?: boolean
-  videoPublicId?: boolean
+  video_public_id?: boolean
   start_offset?: boolean
   length?: boolean
   order_index?: boolean
-  book_chapter?: boolean | Prisma.Sentence$book_chapterArgs<ExtArgs>
-  video_private?: boolean | Prisma.Sentence$video_privateArgs<ExtArgs>
+  bookChapter?: boolean | Prisma.Sentence$bookChapterArgs<ExtArgs>
+  videoPrivate?: boolean | Prisma.Sentence$videoPrivateArgs<ExtArgs>
   videoPublic?: boolean | Prisma.Sentence$videoPublicArgs<ExtArgs>
   SubtitleSentenceInit?: boolean | Prisma.Sentence$SubtitleSentenceInitArgs<ExtArgs>
   SentenceTranslation?: boolean | Prisma.Sentence$SentenceTranslationArgs<ExtArgs>
@@ -1062,12 +1062,12 @@ export type SentenceSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exte
   id?: boolean
   book_chapter_id?: boolean
   video_private_id?: boolean
-  videoPublicId?: boolean
+  video_public_id?: boolean
   start_offset?: boolean
   length?: boolean
   order_index?: boolean
-  book_chapter?: boolean | Prisma.Sentence$book_chapterArgs<ExtArgs>
-  video_private?: boolean | Prisma.Sentence$video_privateArgs<ExtArgs>
+  bookChapter?: boolean | Prisma.Sentence$bookChapterArgs<ExtArgs>
+  videoPrivate?: boolean | Prisma.Sentence$videoPrivateArgs<ExtArgs>
   videoPublic?: boolean | Prisma.Sentence$videoPublicArgs<ExtArgs>
 }, ExtArgs["result"]["sentence"]>
 
@@ -1075,12 +1075,12 @@ export type SentenceSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
   id?: boolean
   book_chapter_id?: boolean
   video_private_id?: boolean
-  videoPublicId?: boolean
+  video_public_id?: boolean
   start_offset?: boolean
   length?: boolean
   order_index?: boolean
-  book_chapter?: boolean | Prisma.Sentence$book_chapterArgs<ExtArgs>
-  video_private?: boolean | Prisma.Sentence$video_privateArgs<ExtArgs>
+  bookChapter?: boolean | Prisma.Sentence$bookChapterArgs<ExtArgs>
+  videoPrivate?: boolean | Prisma.Sentence$videoPrivateArgs<ExtArgs>
   videoPublic?: boolean | Prisma.Sentence$videoPublicArgs<ExtArgs>
 }, ExtArgs["result"]["sentence"]>
 
@@ -1088,37 +1088,37 @@ export type SentenceSelectScalar = {
   id?: boolean
   book_chapter_id?: boolean
   video_private_id?: boolean
-  videoPublicId?: boolean
+  video_public_id?: boolean
   start_offset?: boolean
   length?: boolean
   order_index?: boolean
 }
 
-export type SentenceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "book_chapter_id" | "video_private_id" | "videoPublicId" | "start_offset" | "length" | "order_index", ExtArgs["result"]["sentence"]>
+export type SentenceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "book_chapter_id" | "video_private_id" | "video_public_id" | "start_offset" | "length" | "order_index", ExtArgs["result"]["sentence"]>
 export type SentenceInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  book_chapter?: boolean | Prisma.Sentence$book_chapterArgs<ExtArgs>
-  video_private?: boolean | Prisma.Sentence$video_privateArgs<ExtArgs>
+  bookChapter?: boolean | Prisma.Sentence$bookChapterArgs<ExtArgs>
+  videoPrivate?: boolean | Prisma.Sentence$videoPrivateArgs<ExtArgs>
   videoPublic?: boolean | Prisma.Sentence$videoPublicArgs<ExtArgs>
   SubtitleSentenceInit?: boolean | Prisma.Sentence$SubtitleSentenceInitArgs<ExtArgs>
   SentenceTranslation?: boolean | Prisma.Sentence$SentenceTranslationArgs<ExtArgs>
   _count?: boolean | Prisma.SentenceCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type SentenceIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  book_chapter?: boolean | Prisma.Sentence$book_chapterArgs<ExtArgs>
-  video_private?: boolean | Prisma.Sentence$video_privateArgs<ExtArgs>
+  bookChapter?: boolean | Prisma.Sentence$bookChapterArgs<ExtArgs>
+  videoPrivate?: boolean | Prisma.Sentence$videoPrivateArgs<ExtArgs>
   videoPublic?: boolean | Prisma.Sentence$videoPublicArgs<ExtArgs>
 }
 export type SentenceIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  book_chapter?: boolean | Prisma.Sentence$book_chapterArgs<ExtArgs>
-  video_private?: boolean | Prisma.Sentence$video_privateArgs<ExtArgs>
+  bookChapter?: boolean | Prisma.Sentence$bookChapterArgs<ExtArgs>
+  videoPrivate?: boolean | Prisma.Sentence$videoPrivateArgs<ExtArgs>
   videoPublic?: boolean | Prisma.Sentence$videoPublicArgs<ExtArgs>
 }
 
 export type $SentencePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Sentence"
   objects: {
-    book_chapter: Prisma.$BookChapterPayload<ExtArgs> | null
-    video_private: Prisma.$VideoPrivatePayload<ExtArgs> | null
+    bookChapter: Prisma.$BookChapterPayload<ExtArgs> | null
+    videoPrivate: Prisma.$VideoPrivatePayload<ExtArgs> | null
     videoPublic: Prisma.$VideoPublicPayload<ExtArgs> | null
     SubtitleSentenceInit: Prisma.$SubtitleSentenceInitPayload<ExtArgs>[]
     SentenceTranslation: Prisma.$SentenceTranslationPayload<ExtArgs>[]
@@ -1127,7 +1127,7 @@ export type $SentencePayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     id: number
     book_chapter_id: number | null
     video_private_id: number | null
-    videoPublicId: number | null
+    video_public_id: number | null
     start_offset: number
     length: number
     order_index: number
@@ -1525,8 +1525,8 @@ readonly fields: SentenceFieldRefs;
  */
 export interface Prisma__SentenceClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  book_chapter<T extends Prisma.Sentence$book_chapterArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Sentence$book_chapterArgs<ExtArgs>>): Prisma.Prisma__BookChapterClient<runtime.Types.Result.GetResult<Prisma.$BookChapterPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  video_private<T extends Prisma.Sentence$video_privateArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Sentence$video_privateArgs<ExtArgs>>): Prisma.Prisma__VideoPrivateClient<runtime.Types.Result.GetResult<Prisma.$VideoPrivatePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  bookChapter<T extends Prisma.Sentence$bookChapterArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Sentence$bookChapterArgs<ExtArgs>>): Prisma.Prisma__BookChapterClient<runtime.Types.Result.GetResult<Prisma.$BookChapterPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  videoPrivate<T extends Prisma.Sentence$videoPrivateArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Sentence$videoPrivateArgs<ExtArgs>>): Prisma.Prisma__VideoPrivateClient<runtime.Types.Result.GetResult<Prisma.$VideoPrivatePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   videoPublic<T extends Prisma.Sentence$videoPublicArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Sentence$videoPublicArgs<ExtArgs>>): Prisma.Prisma__VideoPublicClient<runtime.Types.Result.GetResult<Prisma.$VideoPublicPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   SubtitleSentenceInit<T extends Prisma.Sentence$SubtitleSentenceInitArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Sentence$SubtitleSentenceInitArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SubtitleSentenceInitPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   SentenceTranslation<T extends Prisma.Sentence$SentenceTranslationArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Sentence$SentenceTranslationArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SentenceTranslationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -1562,7 +1562,7 @@ export interface SentenceFieldRefs {
   readonly id: Prisma.FieldRef<"Sentence", 'Int'>
   readonly book_chapter_id: Prisma.FieldRef<"Sentence", 'Int'>
   readonly video_private_id: Prisma.FieldRef<"Sentence", 'Int'>
-  readonly videoPublicId: Prisma.FieldRef<"Sentence", 'Int'>
+  readonly video_public_id: Prisma.FieldRef<"Sentence", 'Int'>
   readonly start_offset: Prisma.FieldRef<"Sentence", 'Int'>
   readonly length: Prisma.FieldRef<"Sentence", 'Int'>
   readonly order_index: Prisma.FieldRef<"Sentence", 'Int'>
@@ -1962,9 +1962,9 @@ export type SentenceDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Inte
 }
 
 /**
- * Sentence.book_chapter
+ * Sentence.bookChapter
  */
-export type Sentence$book_chapterArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Sentence$bookChapterArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
    * Select specific fields to fetch from the BookChapter
    */
@@ -1981,9 +1981,9 @@ export type Sentence$book_chapterArgs<ExtArgs extends runtime.Types.Extensions.I
 }
 
 /**
- * Sentence.video_private
+ * Sentence.videoPrivate
  */
-export type Sentence$video_privateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Sentence$videoPrivateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
    * Select specific fields to fetch from the VideoPrivate
    */

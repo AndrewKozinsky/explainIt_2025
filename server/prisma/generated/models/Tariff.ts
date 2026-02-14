@@ -244,6 +244,7 @@ export type TariffWhereInput = {
   included_balance?: Prisma.IntFilter<"Tariff"> | number
   included_file_storage_mb?: Prisma.IntFilter<"Tariff"> | number
   created_at?: Prisma.DateTimeFilter<"Tariff"> | Date | string
+  userSubscriptions?: Prisma.UserSubscriptionListRelationFilter
 }
 
 export type TariffOrderByWithRelationInput = {
@@ -254,6 +255,7 @@ export type TariffOrderByWithRelationInput = {
   included_balance?: Prisma.SortOrder
   included_file_storage_mb?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
+  userSubscriptions?: Prisma.UserSubscriptionOrderByRelationAggregateInput
 }
 
 export type TariffWhereUniqueInput = Prisma.AtLeast<{
@@ -267,6 +269,7 @@ export type TariffWhereUniqueInput = Prisma.AtLeast<{
   included_balance?: Prisma.IntFilter<"Tariff"> | number
   included_file_storage_mb?: Prisma.IntFilter<"Tariff"> | number
   created_at?: Prisma.DateTimeFilter<"Tariff"> | Date | string
+  userSubscriptions?: Prisma.UserSubscriptionListRelationFilter
 }, "id" | "code">
 
 export type TariffOrderByWithAggregationInput = {
@@ -304,6 +307,7 @@ export type TariffCreateInput = {
   included_balance: number
   included_file_storage_mb: number
   created_at?: Date | string
+  userSubscriptions?: Prisma.UserSubscriptionCreateNestedManyWithoutTariffInput
 }
 
 export type TariffUncheckedCreateInput = {
@@ -314,6 +318,7 @@ export type TariffUncheckedCreateInput = {
   included_balance: number
   included_file_storage_mb: number
   created_at?: Date | string
+  userSubscriptions?: Prisma.UserSubscriptionUncheckedCreateNestedManyWithoutTariffInput
 }
 
 export type TariffUpdateInput = {
@@ -323,6 +328,7 @@ export type TariffUpdateInput = {
   included_balance?: Prisma.IntFieldUpdateOperationsInput | number
   included_file_storage_mb?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  userSubscriptions?: Prisma.UserSubscriptionUpdateManyWithoutTariffNestedInput
 }
 
 export type TariffUncheckedUpdateInput = {
@@ -333,6 +339,7 @@ export type TariffUncheckedUpdateInput = {
   included_balance?: Prisma.IntFieldUpdateOperationsInput | number
   included_file_storage_mb?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  userSubscriptions?: Prisma.UserSubscriptionUncheckedUpdateManyWithoutTariffNestedInput
 }
 
 export type TariffCreateManyInput = {
@@ -408,6 +415,108 @@ export type TariffSumOrderByAggregateInput = {
   included_file_storage_mb?: Prisma.SortOrder
 }
 
+export type TariffScalarRelationFilter = {
+  is?: Prisma.TariffWhereInput
+  isNot?: Prisma.TariffWhereInput
+}
+
+export type TariffCreateNestedOneWithoutUserSubscriptionsInput = {
+  create?: Prisma.XOR<Prisma.TariffCreateWithoutUserSubscriptionsInput, Prisma.TariffUncheckedCreateWithoutUserSubscriptionsInput>
+  connectOrCreate?: Prisma.TariffCreateOrConnectWithoutUserSubscriptionsInput
+  connect?: Prisma.TariffWhereUniqueInput
+}
+
+export type TariffUpdateOneRequiredWithoutUserSubscriptionsNestedInput = {
+  create?: Prisma.XOR<Prisma.TariffCreateWithoutUserSubscriptionsInput, Prisma.TariffUncheckedCreateWithoutUserSubscriptionsInput>
+  connectOrCreate?: Prisma.TariffCreateOrConnectWithoutUserSubscriptionsInput
+  upsert?: Prisma.TariffUpsertWithoutUserSubscriptionsInput
+  connect?: Prisma.TariffWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.TariffUpdateToOneWithWhereWithoutUserSubscriptionsInput, Prisma.TariffUpdateWithoutUserSubscriptionsInput>, Prisma.TariffUncheckedUpdateWithoutUserSubscriptionsInput>
+}
+
+export type TariffCreateWithoutUserSubscriptionsInput = {
+  code: string
+  name: string
+  price: number
+  included_balance: number
+  included_file_storage_mb: number
+  created_at?: Date | string
+}
+
+export type TariffUncheckedCreateWithoutUserSubscriptionsInput = {
+  id?: number
+  code: string
+  name: string
+  price: number
+  included_balance: number
+  included_file_storage_mb: number
+  created_at?: Date | string
+}
+
+export type TariffCreateOrConnectWithoutUserSubscriptionsInput = {
+  where: Prisma.TariffWhereUniqueInput
+  create: Prisma.XOR<Prisma.TariffCreateWithoutUserSubscriptionsInput, Prisma.TariffUncheckedCreateWithoutUserSubscriptionsInput>
+}
+
+export type TariffUpsertWithoutUserSubscriptionsInput = {
+  update: Prisma.XOR<Prisma.TariffUpdateWithoutUserSubscriptionsInput, Prisma.TariffUncheckedUpdateWithoutUserSubscriptionsInput>
+  create: Prisma.XOR<Prisma.TariffCreateWithoutUserSubscriptionsInput, Prisma.TariffUncheckedCreateWithoutUserSubscriptionsInput>
+  where?: Prisma.TariffWhereInput
+}
+
+export type TariffUpdateToOneWithWhereWithoutUserSubscriptionsInput = {
+  where?: Prisma.TariffWhereInput
+  data: Prisma.XOR<Prisma.TariffUpdateWithoutUserSubscriptionsInput, Prisma.TariffUncheckedUpdateWithoutUserSubscriptionsInput>
+}
+
+export type TariffUpdateWithoutUserSubscriptionsInput = {
+  code?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  price?: Prisma.IntFieldUpdateOperationsInput | number
+  included_balance?: Prisma.IntFieldUpdateOperationsInput | number
+  included_file_storage_mb?: Prisma.IntFieldUpdateOperationsInput | number
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type TariffUncheckedUpdateWithoutUserSubscriptionsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  code?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  price?: Prisma.IntFieldUpdateOperationsInput | number
+  included_balance?: Prisma.IntFieldUpdateOperationsInput | number
+  included_file_storage_mb?: Prisma.IntFieldUpdateOperationsInput | number
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+
+/**
+ * Count Type TariffCountOutputType
+ */
+
+export type TariffCountOutputType = {
+  userSubscriptions: number
+}
+
+export type TariffCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  userSubscriptions?: boolean | TariffCountOutputTypeCountUserSubscriptionsArgs
+}
+
+/**
+ * TariffCountOutputType without action
+ */
+export type TariffCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the TariffCountOutputType
+   */
+  select?: Prisma.TariffCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * TariffCountOutputType without action
+ */
+export type TariffCountOutputTypeCountUserSubscriptionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.UserSubscriptionWhereInput
+}
 
 
 export type TariffSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -418,6 +527,8 @@ export type TariffSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   included_balance?: boolean
   included_file_storage_mb?: boolean
   created_at?: boolean
+  userSubscriptions?: boolean | Prisma.Tariff$userSubscriptionsArgs<ExtArgs>
+  _count?: boolean | Prisma.TariffCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["tariff"]>
 
 export type TariffSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -451,10 +562,18 @@ export type TariffSelectScalar = {
 }
 
 export type TariffOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "code" | "name" | "price" | "included_balance" | "included_file_storage_mb" | "created_at", ExtArgs["result"]["tariff"]>
+export type TariffInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  userSubscriptions?: boolean | Prisma.Tariff$userSubscriptionsArgs<ExtArgs>
+  _count?: boolean | Prisma.TariffCountOutputTypeDefaultArgs<ExtArgs>
+}
+export type TariffIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
+export type TariffIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
 
 export type $TariffPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Tariff"
-  objects: {}
+  objects: {
+    userSubscriptions: Prisma.$UserSubscriptionPayload<ExtArgs>[]
+  }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     code: string
@@ -857,6 +976,7 @@ readonly fields: TariffFieldRefs;
  */
 export interface Prisma__TariffClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  userSubscriptions<T extends Prisma.Tariff$userSubscriptionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tariff$userSubscriptionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$UserSubscriptionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -910,6 +1030,10 @@ export type TariffFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.Intern
    */
   omit?: Prisma.TariffOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TariffInclude<ExtArgs> | null
+  /**
    * Filter, which Tariff to fetch.
    */
   where: Prisma.TariffWhereUniqueInput
@@ -928,6 +1052,10 @@ export type TariffFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions
    */
   omit?: Prisma.TariffOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TariffInclude<ExtArgs> | null
+  /**
    * Filter, which Tariff to fetch.
    */
   where: Prisma.TariffWhereUniqueInput
@@ -945,6 +1073,10 @@ export type TariffFindFirstArgs<ExtArgs extends runtime.Types.Extensions.Interna
    * Omit specific fields from the Tariff
    */
   omit?: Prisma.TariffOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TariffInclude<ExtArgs> | null
   /**
    * Filter, which Tariff to fetch.
    */
@@ -994,6 +1126,10 @@ export type TariffFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.
    */
   omit?: Prisma.TariffOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TariffInclude<ExtArgs> | null
+  /**
    * Filter, which Tariff to fetch.
    */
   where?: Prisma.TariffWhereInput
@@ -1042,6 +1178,10 @@ export type TariffFindManyArgs<ExtArgs extends runtime.Types.Extensions.Internal
    */
   omit?: Prisma.TariffOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TariffInclude<ExtArgs> | null
+  /**
    * Filter, which Tariffs to fetch.
    */
   where?: Prisma.TariffWhereInput
@@ -1084,6 +1224,10 @@ export type TariffCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
    * Omit specific fields from the Tariff
    */
   omit?: Prisma.TariffOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TariffInclude<ExtArgs> | null
   /**
    * The data needed to create a Tariff.
    */
@@ -1132,6 +1276,10 @@ export type TariffUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
    * Omit specific fields from the Tariff
    */
   omit?: Prisma.TariffOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TariffInclude<ExtArgs> | null
   /**
    * The data needed to update a Tariff.
    */
@@ -1199,6 +1347,10 @@ export type TariffUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
    */
   omit?: Prisma.TariffOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TariffInclude<ExtArgs> | null
+  /**
    * The filter to search for the Tariff to update in case it exists.
    */
   where: Prisma.TariffWhereUniqueInput
@@ -1225,6 +1377,10 @@ export type TariffDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
    */
   omit?: Prisma.TariffOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TariffInclude<ExtArgs> | null
+  /**
    * Filter which Tariff to delete.
    */
   where: Prisma.TariffWhereUniqueInput
@@ -1245,6 +1401,30 @@ export type TariffDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Intern
 }
 
 /**
+ * Tariff.userSubscriptions
+ */
+export type Tariff$userSubscriptionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the UserSubscription
+   */
+  select?: Prisma.UserSubscriptionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the UserSubscription
+   */
+  omit?: Prisma.UserSubscriptionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserSubscriptionInclude<ExtArgs> | null
+  where?: Prisma.UserSubscriptionWhereInput
+  orderBy?: Prisma.UserSubscriptionOrderByWithRelationInput | Prisma.UserSubscriptionOrderByWithRelationInput[]
+  cursor?: Prisma.UserSubscriptionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.UserSubscriptionScalarFieldEnum | Prisma.UserSubscriptionScalarFieldEnum[]
+}
+
+/**
  * Tariff without action
  */
 export type TariffDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1256,4 +1436,8 @@ export type TariffDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    * Omit specific fields from the Tariff
    */
   omit?: Prisma.TariffOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TariffInclude<ExtArgs> | null
 }

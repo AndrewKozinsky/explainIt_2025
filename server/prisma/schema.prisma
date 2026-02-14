@@ -17,11 +17,12 @@ model User {
     is_email_confirmed                      Boolean              @default(false)
     is_user_confirmed                       Boolean              @default(false)
     balance                                 Int                  @default(0)
-    created_at                              DateTime             @default(now())
     BalanceTransaction                      BalanceTransaction[]
     Payment                                 Payment[]
     BookPrivate                             BookPrivate[]
     VideoPrivate                            VideoPrivate[]
+    UserSubscription                        UserSubscription[]
+    created_at                              DateTime             @default(now())
 }
 
 model BalanceTransaction {
@@ -31,21 +32,22 @@ model BalanceTransaction {
     type       BalanceTransactionType
     amount     Int
     payment    Payment?               @relation(fields: [payment_id], references: [id], onDelete: Cascade)
-    payment_id Int?                   @unique
+    payment_id Int?
     created_at DateTime               @default(now())
 }
 
 model Payment {
-    id                 Int                 @id @default(autoincrement())
-    user               User                @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    id                 Int                  @id @default(autoincrement())
+    user               User                 @relation(fields: [user_id], references: [id], onDelete: Cascade)
     user_id            Int
     amount             Int
-    status             PaymentStatus       @default(PENDING)
-    provider_name      PaymentProviderName @default(YOOKASSA)
-    external_id        String              @unique
-    BalanceTransaction BalanceTransaction?
-    created_at         DateTime            @default(now())
-    updated_at         DateTime            @default(now())
+    status             PaymentStatus        @default(PENDING)
+    provider_name      PaymentProviderName  @default(YOOKASSA)
+    external_id        String               @unique
+    UserSubscription   UserSubscription?
+    BalanceTransaction BalanceTransaction[]
+    created_at         DateTime             @default(now())
+    updated_at         DateTime             @default(now())
 }
 
 model BookPrivate {
@@ -56,8 +58,8 @@ model BookPrivate {
     name          String?
     language_code LanguageCode
     note          String?
-    created_at    DateTime      @default(now())
     BookChapter   BookChapter[]
+    created_at    DateTime      @default(now())
 }
 
 model BookPublic {
@@ -68,8 +70,8 @@ model BookPublic {
     author        String
     name          String
     note          String
-    created_at    DateTime      @default(now())
     BookChapter   BookChapter[]
+    created_at    DateTime      @default(now())
 }
 
 model BookChapter {
@@ -82,8 +84,8 @@ model BookChapter {
     header         String?
     content        String?
     note           String?
-    created_at     DateTime     @default(now())
     Sentence       Sentence[]
+    created_at     DateTime     @default(now())
 }
 
 model VideoPrivate {
@@ -101,10 +103,10 @@ model VideoPrivate {
     original_content  String?
     processed_content String?
     content_type      VideoTextType   @default(text)
-    created_at        DateTime        @default(now())
-    updated_at        DateTime        @default(now())
     Subtitle          Subtitle[]
     Sentence          Sentence[]
+    created_at        DateTime        @default(now())
+    updated_at        DateTime        @default(now())
 }
 
 model VideoPublic {
@@ -119,20 +121,20 @@ model VideoPublic {
     original_content  String
     processed_content String
     content_type      VideoTextType  @default(text)
-    created_at        DateTime       @default(now())
-    updated_at        DateTime       @default(now())
     Subtitle          Subtitle[]
     Sentence          Sentence[]
+    created_at        DateTime       @default(now())
+    updated_at        DateTime       @default(now())
 }
 
 model Sentence {
     id                   Int                    @id @default(autoincrement())
-    book_chapter         BookChapter?           @relation(fields: [book_chapter_id], references: [id], onDelete: Cascade)
+    bookChapter          BookChapter?           @relation(fields: [book_chapter_id], references: [id], onDelete: Cascade)
     book_chapter_id      Int?
-    video_private        VideoPrivate?          @relation(fields: [video_private_id], references: [id], onDelete: Cascade)
+    videoPrivate         VideoPrivate?          @relation(fields: [video_private_id], references: [id], onDelete: Cascade)
     video_private_id     Int?
-    videoPublic          VideoPublic?           @relation(fields: [videoPublicId], references: [id], onDelete: Cascade)
-    videoPublicId        Int?
+    videoPublic          VideoPublic?           @relation(fields: [video_public_id], references: [id], onDelete: Cascade)
+    video_public_id      Int?
     start_offset         Int
     length               Int
     order_index          Int
@@ -153,15 +155,15 @@ model SentenceTranslation {
 
 model Subtitle {
     id                   Int                    @id @default(autoincrement())
-    video_private        VideoPrivate?          @relation(fields: [video_private_id], references: [id], onDelete: Cascade)
-    video_private_id     Int?
-    videoPublic          VideoPublic?           @relation(fields: [videoPublicId], references: [id], onDelete: Cascade)
-    videoPublicId        Int?
     start_time_ms        Int
     end_time_ms          Int
     start_offset         Int
     length               Int
     order_index          Int
+    videoPrivate         VideoPrivate?          @relation(fields: [video_private_id], references: [id], onDelete: Cascade)
+    video_private_id     Int?
+    videoPublic          VideoPublic?           @relation(fields: [video_public_id], references: [id], onDelete: Cascade)
+    video_public_id      Int?
     SubtitleSentenceInit SubtitleSentenceInit[]
 }
 
@@ -189,12 +191,29 @@ model EngRusDictionary {
 }
 
 model Tariff {
-    id                       Int      @id @default(autoincrement())
-    code                     String   @unique
+    id                       Int                @id @default(autoincrement())
+    code                     String             @unique
     name                     String
     price                    Int
     included_balance         Int
     included_file_storage_mb Int
+    created_at               DateTime           @default(now())
+    userSubscriptions        UserSubscription[]
+}
+
+model UserSubscription {
+    id                       Int      @id @default(autoincrement())
+    user                     User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    user_id                  Int
+    tariff                   Tariff   @relation(fields: [tariff_id], references: [id], onDelete: Restrict)
+    tariff_id                Int
+    price_paid               Int
+    included_balance         Int
+    included_file_storage_mb Int
+    starts_at                DateTime
+    ends_at                  DateTime
+    payment                  Payment? @relation(fields: [payment_id], references: [id], onDelete: Cascade)
+    payment_id               Int?     @unique
     created_at               DateTime @default(now())
 }
 

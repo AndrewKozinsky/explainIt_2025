@@ -64,7 +64,8 @@ export const ModelName = {
   Subtitle: 'Subtitle',
   SubtitleSentenceInit: 'SubtitleSentenceInit',
   EngRusDictionary: 'EngRusDictionary',
-  Tariff: 'Tariff'
+  Tariff: 'Tariff',
+  UserSubscription: 'UserSubscription'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -209,7 +210,7 @@ export const SentenceScalarFieldEnum = {
   id: 'id',
   book_chapter_id: 'book_chapter_id',
   video_private_id: 'video_private_id',
-  videoPublicId: 'videoPublicId',
+  video_public_id: 'video_public_id',
   start_offset: 'start_offset',
   length: 'length',
   order_index: 'order_index'
@@ -231,13 +232,13 @@ export type SentenceTranslationScalarFieldEnum = (typeof SentenceTranslationScal
 
 export const SubtitleScalarFieldEnum = {
   id: 'id',
-  video_private_id: 'video_private_id',
-  videoPublicId: 'videoPublicId',
   start_time_ms: 'start_time_ms',
   end_time_ms: 'end_time_ms',
   start_offset: 'start_offset',
   length: 'length',
-  order_index: 'order_index'
+  order_index: 'order_index',
+  video_private_id: 'video_private_id',
+  video_public_id: 'video_public_id'
 } as const
 
 export type SubtitleScalarFieldEnum = (typeof SubtitleScalarFieldEnum)[keyof typeof SubtitleScalarFieldEnum]
@@ -278,6 +279,22 @@ export const TariffScalarFieldEnum = {
 } as const
 
 export type TariffScalarFieldEnum = (typeof TariffScalarFieldEnum)[keyof typeof TariffScalarFieldEnum]
+
+
+export const UserSubscriptionScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  tariff_id: 'tariff_id',
+  price_paid: 'price_paid',
+  included_balance: 'included_balance',
+  included_file_storage_mb: 'included_file_storage_mb',
+  starts_at: 'starts_at',
+  ends_at: 'ends_at',
+  payment_id: 'payment_id',
+  created_at: 'created_at'
+} as const
+
+export type UserSubscriptionScalarFieldEnum = (typeof UserSubscriptionScalarFieldEnum)[keyof typeof UserSubscriptionScalarFieldEnum]
 
 
 export const SortOrder = {

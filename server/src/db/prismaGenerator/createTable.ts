@@ -2,6 +2,7 @@ import { BdConfig } from '../dbConfig/dbConfigType'
 import { createArrayOfItemsColumn } from './columns/arrayColumn'
 import { createBooleanColumn } from './columns/booleanColumn'
 import { createCreatedOrUpdatedAtColum } from './columns/createdAndUpdatedAtColumn'
+import { createDateTimeColumn } from './columns/dateTimeColumn'
 import { createEnumColumn } from './columns/enumColumn'
 import { createIndexColumn } from './columns/indexColumn'
 import { createNumberColumn } from './columns/numberColumn'
@@ -46,6 +47,8 @@ export function createTable(tableName: string, tableConfig: BdConfig.Table) {
 			columnsArr.push(createStringColumn(dbFieldName, field))
 		} else if (field.type === 'timeString') {
 			columnsArr.push(createStringColumn(dbFieldName, field))
+		} else if (field.type === 'dateTime') {
+			columnsArr.push(createDateTimeColumn(dbFieldName, field))
 		} else if (field.type === 'boolean') {
 			columnsArr.push(createBooleanColumn(dbFieldName, field))
 		} else if (field.type === 'number') {

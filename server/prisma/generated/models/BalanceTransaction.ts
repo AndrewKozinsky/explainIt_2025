@@ -253,17 +253,17 @@ export type BalanceTransactionOrderByWithRelationInput = {
 
 export type BalanceTransactionWhereUniqueInput = Prisma.AtLeast<{
   id?: number
-  payment_id?: number
   AND?: Prisma.BalanceTransactionWhereInput | Prisma.BalanceTransactionWhereInput[]
   OR?: Prisma.BalanceTransactionWhereInput[]
   NOT?: Prisma.BalanceTransactionWhereInput | Prisma.BalanceTransactionWhereInput[]
   user_id?: Prisma.IntFilter<"BalanceTransaction"> | number
   type?: Prisma.EnumBalanceTransactionTypeFilter<"BalanceTransaction"> | $Enums.BalanceTransactionType
   amount?: Prisma.IntFilter<"BalanceTransaction"> | number
+  payment_id?: Prisma.IntNullableFilter<"BalanceTransaction"> | number | null
   created_at?: Prisma.DateTimeFilter<"BalanceTransaction"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   payment?: Prisma.XOR<Prisma.PaymentNullableScalarRelationFilter, Prisma.PaymentWhereInput> | null
-}, "id" | "payment_id">
+}, "id">
 
 export type BalanceTransactionOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
@@ -400,11 +400,6 @@ export type BalanceTransactionSumOrderByAggregateInput = {
   payment_id?: Prisma.SortOrder
 }
 
-export type BalanceTransactionNullableScalarRelationFilter = {
-  is?: Prisma.BalanceTransactionWhereInput | null
-  isNot?: Prisma.BalanceTransactionWhereInput | null
-}
-
 export type BalanceTransactionCreateNestedManyWithoutUserInput = {
   create?: Prisma.XOR<Prisma.BalanceTransactionCreateWithoutUserInput, Prisma.BalanceTransactionUncheckedCreateWithoutUserInput> | Prisma.BalanceTransactionCreateWithoutUserInput[] | Prisma.BalanceTransactionUncheckedCreateWithoutUserInput[]
   connectOrCreate?: Prisma.BalanceTransactionCreateOrConnectWithoutUserInput | Prisma.BalanceTransactionCreateOrConnectWithoutUserInput[]
@@ -459,36 +454,46 @@ export type NullableIntFieldUpdateOperationsInput = {
   divide?: number
 }
 
-export type BalanceTransactionCreateNestedOneWithoutPaymentInput = {
-  create?: Prisma.XOR<Prisma.BalanceTransactionCreateWithoutPaymentInput, Prisma.BalanceTransactionUncheckedCreateWithoutPaymentInput>
-  connectOrCreate?: Prisma.BalanceTransactionCreateOrConnectWithoutPaymentInput
-  connect?: Prisma.BalanceTransactionWhereUniqueInput
+export type BalanceTransactionCreateNestedManyWithoutPaymentInput = {
+  create?: Prisma.XOR<Prisma.BalanceTransactionCreateWithoutPaymentInput, Prisma.BalanceTransactionUncheckedCreateWithoutPaymentInput> | Prisma.BalanceTransactionCreateWithoutPaymentInput[] | Prisma.BalanceTransactionUncheckedCreateWithoutPaymentInput[]
+  connectOrCreate?: Prisma.BalanceTransactionCreateOrConnectWithoutPaymentInput | Prisma.BalanceTransactionCreateOrConnectWithoutPaymentInput[]
+  createMany?: Prisma.BalanceTransactionCreateManyPaymentInputEnvelope
+  connect?: Prisma.BalanceTransactionWhereUniqueInput | Prisma.BalanceTransactionWhereUniqueInput[]
 }
 
-export type BalanceTransactionUncheckedCreateNestedOneWithoutPaymentInput = {
-  create?: Prisma.XOR<Prisma.BalanceTransactionCreateWithoutPaymentInput, Prisma.BalanceTransactionUncheckedCreateWithoutPaymentInput>
-  connectOrCreate?: Prisma.BalanceTransactionCreateOrConnectWithoutPaymentInput
-  connect?: Prisma.BalanceTransactionWhereUniqueInput
+export type BalanceTransactionUncheckedCreateNestedManyWithoutPaymentInput = {
+  create?: Prisma.XOR<Prisma.BalanceTransactionCreateWithoutPaymentInput, Prisma.BalanceTransactionUncheckedCreateWithoutPaymentInput> | Prisma.BalanceTransactionCreateWithoutPaymentInput[] | Prisma.BalanceTransactionUncheckedCreateWithoutPaymentInput[]
+  connectOrCreate?: Prisma.BalanceTransactionCreateOrConnectWithoutPaymentInput | Prisma.BalanceTransactionCreateOrConnectWithoutPaymentInput[]
+  createMany?: Prisma.BalanceTransactionCreateManyPaymentInputEnvelope
+  connect?: Prisma.BalanceTransactionWhereUniqueInput | Prisma.BalanceTransactionWhereUniqueInput[]
 }
 
-export type BalanceTransactionUpdateOneWithoutPaymentNestedInput = {
-  create?: Prisma.XOR<Prisma.BalanceTransactionCreateWithoutPaymentInput, Prisma.BalanceTransactionUncheckedCreateWithoutPaymentInput>
-  connectOrCreate?: Prisma.BalanceTransactionCreateOrConnectWithoutPaymentInput
-  upsert?: Prisma.BalanceTransactionUpsertWithoutPaymentInput
-  disconnect?: Prisma.BalanceTransactionWhereInput | boolean
-  delete?: Prisma.BalanceTransactionWhereInput | boolean
-  connect?: Prisma.BalanceTransactionWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.BalanceTransactionUpdateToOneWithWhereWithoutPaymentInput, Prisma.BalanceTransactionUpdateWithoutPaymentInput>, Prisma.BalanceTransactionUncheckedUpdateWithoutPaymentInput>
+export type BalanceTransactionUpdateManyWithoutPaymentNestedInput = {
+  create?: Prisma.XOR<Prisma.BalanceTransactionCreateWithoutPaymentInput, Prisma.BalanceTransactionUncheckedCreateWithoutPaymentInput> | Prisma.BalanceTransactionCreateWithoutPaymentInput[] | Prisma.BalanceTransactionUncheckedCreateWithoutPaymentInput[]
+  connectOrCreate?: Prisma.BalanceTransactionCreateOrConnectWithoutPaymentInput | Prisma.BalanceTransactionCreateOrConnectWithoutPaymentInput[]
+  upsert?: Prisma.BalanceTransactionUpsertWithWhereUniqueWithoutPaymentInput | Prisma.BalanceTransactionUpsertWithWhereUniqueWithoutPaymentInput[]
+  createMany?: Prisma.BalanceTransactionCreateManyPaymentInputEnvelope
+  set?: Prisma.BalanceTransactionWhereUniqueInput | Prisma.BalanceTransactionWhereUniqueInput[]
+  disconnect?: Prisma.BalanceTransactionWhereUniqueInput | Prisma.BalanceTransactionWhereUniqueInput[]
+  delete?: Prisma.BalanceTransactionWhereUniqueInput | Prisma.BalanceTransactionWhereUniqueInput[]
+  connect?: Prisma.BalanceTransactionWhereUniqueInput | Prisma.BalanceTransactionWhereUniqueInput[]
+  update?: Prisma.BalanceTransactionUpdateWithWhereUniqueWithoutPaymentInput | Prisma.BalanceTransactionUpdateWithWhereUniqueWithoutPaymentInput[]
+  updateMany?: Prisma.BalanceTransactionUpdateManyWithWhereWithoutPaymentInput | Prisma.BalanceTransactionUpdateManyWithWhereWithoutPaymentInput[]
+  deleteMany?: Prisma.BalanceTransactionScalarWhereInput | Prisma.BalanceTransactionScalarWhereInput[]
 }
 
-export type BalanceTransactionUncheckedUpdateOneWithoutPaymentNestedInput = {
-  create?: Prisma.XOR<Prisma.BalanceTransactionCreateWithoutPaymentInput, Prisma.BalanceTransactionUncheckedCreateWithoutPaymentInput>
-  connectOrCreate?: Prisma.BalanceTransactionCreateOrConnectWithoutPaymentInput
-  upsert?: Prisma.BalanceTransactionUpsertWithoutPaymentInput
-  disconnect?: Prisma.BalanceTransactionWhereInput | boolean
-  delete?: Prisma.BalanceTransactionWhereInput | boolean
-  connect?: Prisma.BalanceTransactionWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.BalanceTransactionUpdateToOneWithWhereWithoutPaymentInput, Prisma.BalanceTransactionUpdateWithoutPaymentInput>, Prisma.BalanceTransactionUncheckedUpdateWithoutPaymentInput>
+export type BalanceTransactionUncheckedUpdateManyWithoutPaymentNestedInput = {
+  create?: Prisma.XOR<Prisma.BalanceTransactionCreateWithoutPaymentInput, Prisma.BalanceTransactionUncheckedCreateWithoutPaymentInput> | Prisma.BalanceTransactionCreateWithoutPaymentInput[] | Prisma.BalanceTransactionUncheckedCreateWithoutPaymentInput[]
+  connectOrCreate?: Prisma.BalanceTransactionCreateOrConnectWithoutPaymentInput | Prisma.BalanceTransactionCreateOrConnectWithoutPaymentInput[]
+  upsert?: Prisma.BalanceTransactionUpsertWithWhereUniqueWithoutPaymentInput | Prisma.BalanceTransactionUpsertWithWhereUniqueWithoutPaymentInput[]
+  createMany?: Prisma.BalanceTransactionCreateManyPaymentInputEnvelope
+  set?: Prisma.BalanceTransactionWhereUniqueInput | Prisma.BalanceTransactionWhereUniqueInput[]
+  disconnect?: Prisma.BalanceTransactionWhereUniqueInput | Prisma.BalanceTransactionWhereUniqueInput[]
+  delete?: Prisma.BalanceTransactionWhereUniqueInput | Prisma.BalanceTransactionWhereUniqueInput[]
+  connect?: Prisma.BalanceTransactionWhereUniqueInput | Prisma.BalanceTransactionWhereUniqueInput[]
+  update?: Prisma.BalanceTransactionUpdateWithWhereUniqueWithoutPaymentInput | Prisma.BalanceTransactionUpdateWithWhereUniqueWithoutPaymentInput[]
+  updateMany?: Prisma.BalanceTransactionUpdateManyWithWhereWithoutPaymentInput | Prisma.BalanceTransactionUpdateManyWithWhereWithoutPaymentInput[]
+  deleteMany?: Prisma.BalanceTransactionScalarWhereInput | Prisma.BalanceTransactionScalarWhereInput[]
 }
 
 export type BalanceTransactionCreateWithoutUserInput = {
@@ -564,30 +569,25 @@ export type BalanceTransactionCreateOrConnectWithoutPaymentInput = {
   create: Prisma.XOR<Prisma.BalanceTransactionCreateWithoutPaymentInput, Prisma.BalanceTransactionUncheckedCreateWithoutPaymentInput>
 }
 
-export type BalanceTransactionUpsertWithoutPaymentInput = {
-  update: Prisma.XOR<Prisma.BalanceTransactionUpdateWithoutPaymentInput, Prisma.BalanceTransactionUncheckedUpdateWithoutPaymentInput>
-  create: Prisma.XOR<Prisma.BalanceTransactionCreateWithoutPaymentInput, Prisma.BalanceTransactionUncheckedCreateWithoutPaymentInput>
-  where?: Prisma.BalanceTransactionWhereInput
+export type BalanceTransactionCreateManyPaymentInputEnvelope = {
+  data: Prisma.BalanceTransactionCreateManyPaymentInput | Prisma.BalanceTransactionCreateManyPaymentInput[]
+  skipDuplicates?: boolean
 }
 
-export type BalanceTransactionUpdateToOneWithWhereWithoutPaymentInput = {
-  where?: Prisma.BalanceTransactionWhereInput
+export type BalanceTransactionUpsertWithWhereUniqueWithoutPaymentInput = {
+  where: Prisma.BalanceTransactionWhereUniqueInput
+  update: Prisma.XOR<Prisma.BalanceTransactionUpdateWithoutPaymentInput, Prisma.BalanceTransactionUncheckedUpdateWithoutPaymentInput>
+  create: Prisma.XOR<Prisma.BalanceTransactionCreateWithoutPaymentInput, Prisma.BalanceTransactionUncheckedCreateWithoutPaymentInput>
+}
+
+export type BalanceTransactionUpdateWithWhereUniqueWithoutPaymentInput = {
+  where: Prisma.BalanceTransactionWhereUniqueInput
   data: Prisma.XOR<Prisma.BalanceTransactionUpdateWithoutPaymentInput, Prisma.BalanceTransactionUncheckedUpdateWithoutPaymentInput>
 }
 
-export type BalanceTransactionUpdateWithoutPaymentInput = {
-  type?: Prisma.EnumBalanceTransactionTypeFieldUpdateOperationsInput | $Enums.BalanceTransactionType
-  amount?: Prisma.IntFieldUpdateOperationsInput | number
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  user?: Prisma.UserUpdateOneRequiredWithoutBalanceTransactionNestedInput
-}
-
-export type BalanceTransactionUncheckedUpdateWithoutPaymentInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  type?: Prisma.EnumBalanceTransactionTypeFieldUpdateOperationsInput | $Enums.BalanceTransactionType
-  amount?: Prisma.IntFieldUpdateOperationsInput | number
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+export type BalanceTransactionUpdateManyWithWhereWithoutPaymentInput = {
+  where: Prisma.BalanceTransactionScalarWhereInput
+  data: Prisma.XOR<Prisma.BalanceTransactionUpdateManyMutationInput, Prisma.BalanceTransactionUncheckedUpdateManyWithoutPaymentInput>
 }
 
 export type BalanceTransactionCreateManyUserInput = {
@@ -618,6 +618,37 @@ export type BalanceTransactionUncheckedUpdateManyWithoutUserInput = {
   type?: Prisma.EnumBalanceTransactionTypeFieldUpdateOperationsInput | $Enums.BalanceTransactionType
   amount?: Prisma.IntFieldUpdateOperationsInput | number
   payment_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type BalanceTransactionCreateManyPaymentInput = {
+  id?: number
+  user_id: number
+  type: $Enums.BalanceTransactionType
+  amount: number
+  created_at?: Date | string
+}
+
+export type BalanceTransactionUpdateWithoutPaymentInput = {
+  type?: Prisma.EnumBalanceTransactionTypeFieldUpdateOperationsInput | $Enums.BalanceTransactionType
+  amount?: Prisma.IntFieldUpdateOperationsInput | number
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  user?: Prisma.UserUpdateOneRequiredWithoutBalanceTransactionNestedInput
+}
+
+export type BalanceTransactionUncheckedUpdateWithoutPaymentInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  type?: Prisma.EnumBalanceTransactionTypeFieldUpdateOperationsInput | $Enums.BalanceTransactionType
+  amount?: Prisma.IntFieldUpdateOperationsInput | number
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type BalanceTransactionUncheckedUpdateManyWithoutPaymentInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  type?: Prisma.EnumBalanceTransactionTypeFieldUpdateOperationsInput | $Enums.BalanceTransactionType
+  amount?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 

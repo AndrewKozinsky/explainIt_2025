@@ -13,6 +13,7 @@ export function createColumnAttrs(
 		| BdConfig.EmailField
 		| BdConfig.BooleanField
 		| BdConfig.DateStringField
+		| BdConfig.DateTimeField
 		| BdConfig.TimeStringField,
 ) {
 	const attrStrings: string[] = []
