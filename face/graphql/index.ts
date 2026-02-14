@@ -70,6 +70,11 @@ export type BookPublicOutModel = {
   note: Scalars['String']['output'];
 };
 
+export type BuySubscriptionWithYooKassaInput = {
+  /** Tariff id */
+  tariffId: Scalars['Float']['input'];
+};
+
 export type CheckTranslationInput = {
   /** Sentence in English */
   engSentence: Scalars['String']['input'];
@@ -138,6 +143,18 @@ export type CreateVideoPrivateOutModel = {
   processedContent?: Maybe<Scalars['String']['output']>;
   userId: Scalars['Int']['output'];
   year?: Maybe<Scalars['Int']['output']>;
+};
+
+export type CurrentSubscriptionOutModel = {
+  __typename?: 'CurrentSubscriptionOutModel';
+  balance: Scalars['Int']['output'];
+  endsAt: Scalars['String']['output'];
+  includedFileStorageMb: Scalars['Int']['output'];
+  pricePaid: Scalars['Int']['output'];
+  startsAt: Scalars['String']['output'];
+  tariffCode: Scalars['String']['output'];
+  tariffId: Scalars['Int']['output'];
+  tariffName: Scalars['String']['output'];
 };
 
 export type DeleteBookChapterInput = {
@@ -254,6 +271,8 @@ export type Mutation = {
   book_delete: Scalars['Boolean']['output'];
   /** Update user book */
   book_update: BookOutModel;
+  /** Buy a subscription with YooKassa */
+  payment_yookassa_buy_subscription: TopUpBalanceWithYooKassaOutModel;
   /** Top up a balance with YooKassa */
   payment_yookassa_top_up_balance: TopUpBalanceWithYooKassaOutModel;
   /** Create a video */
@@ -317,6 +336,11 @@ export type MutationBook_DeleteArgs = {
 
 export type MutationBook_UpdateArgs = {
   input: UpdateBookInput;
+};
+
+
+export type MutationPayment_Yookassa_Buy_SubscriptionArgs = {
+  input: BuySubscriptionWithYooKassaInput;
 };
 
 
@@ -527,6 +551,7 @@ export type UpdateVideoPrivateOutModel = {
 export type UserOutModel = {
   __typename?: 'UserOutModel';
   balance: Scalars['Int']['output'];
+  currentSubscription?: Maybe<CurrentSubscriptionOutModel>;
   email: Scalars['String']['output'];
   id: Scalars['Int']['output'];
   isUserConfirmed: Scalars['Boolean']['output'];
@@ -665,7 +690,7 @@ export type Auth_ConfirmEmail = { __typename?: 'Mutation', auth_confirmEmail: bo
 export type Auth_GetMeVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Auth_GetMe = { __typename?: 'Query', auth_getMe: { __typename?: 'UserOutModel', id: number, email: string, isUserConfirmed: boolean, balance: number } };
+export type Auth_GetMe = { __typename?: 'Query', auth_getMe: { __typename?: 'UserOutModel', id: number, email: string, isUserConfirmed: boolean, balance: number, currentSubscription?: { __typename?: 'CurrentSubscriptionOutModel', tariffId: number, tariffCode: string, tariffName: string, pricePaid: number, balance: number, includedFileStorageMb: number, startsAt: string, endsAt: string } | null } };
 
 export type Auth_LoginVariables = Exact<{
   input: LoginInput;
@@ -765,6 +790,13 @@ export type Book_GetBooksPublicVariables = Exact<{ [key: string]: never; }>;
 
 
 export type Book_GetBooksPublic = { __typename?: 'Query', book_public_get_books: Array<{ __typename?: 'BookPublicOutModel', id: number, author: string, name: string, languageCode: string, note: string, cover: string, freeToUse: boolean, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> }> };
+
+export type Payment_YookassaBuySubscriptionVariables = Exact<{
+  input: BuySubscriptionWithYooKassaInput;
+}>;
+
+
+export type Payment_YookassaBuySubscription = { __typename?: 'Mutation', payment_yookassa_buy_subscription: { __typename?: 'TopUpBalanceWithYooKassaOutModel', confirmationUrl: string } };
 
 export type Payment_YookassaTopUpBalanceVariables = Exact<{
   input: TopUpBalanceWithYooKassaInput;
@@ -965,6 +997,16 @@ export const Auth_GetMeDocument = gql`
     email
     isUserConfirmed
     balance
+    currentSubscription {
+      tariffId
+      tariffCode
+      tariffName
+      pricePaid
+      balance
+      includedFileStorageMb
+      startsAt
+      endsAt
+    }
   }
 }
     `;
@@ -1641,6 +1683,39 @@ export type Book_GetBooksPublicHookResult = ReturnType<typeof useBook_GetBooksPu
 export type Book_GetBooksPublicLazyQueryHookResult = ReturnType<typeof useBook_GetBooksPublicLazyQuery>;
 export type Book_GetBooksPublicSuspenseQueryHookResult = ReturnType<typeof useBook_GetBooksPublicSuspenseQuery>;
 export type Book_GetBooksPublicQueryResult = Apollo.QueryResult<Book_GetBooksPublic, Book_GetBooksPublicVariables>;
+export const Payment_YookassaBuySubscriptionDocument = gql`
+    mutation Payment_yookassaBuySubscription($input: BuySubscriptionWithYooKassaInput!) {
+  payment_yookassa_buy_subscription(input: $input) {
+    confirmationUrl
+  }
+}
+    `;
+export type Payment_YookassaBuySubscriptionMutationFn = Apollo.MutationFunction<Payment_YookassaBuySubscription, Payment_YookassaBuySubscriptionVariables>;
+
+/**
+ * __usePayment_YookassaBuySubscription__
+ *
+ * To run a mutation, you first call `usePayment_YookassaBuySubscription` within a React component and pass it any options that fit your needs.
+ * When your component renders, `usePayment_YookassaBuySubscription` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [paymentYookassaBuySubscription, { data, loading, error }] = usePayment_YookassaBuySubscription({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function usePayment_YookassaBuySubscription(baseOptions?: Apollo.MutationHookOptions<Payment_YookassaBuySubscription, Payment_YookassaBuySubscriptionVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<Payment_YookassaBuySubscription, Payment_YookassaBuySubscriptionVariables>(Payment_YookassaBuySubscriptionDocument, options);
+      }
+export type Payment_YookassaBuySubscriptionHookResult = ReturnType<typeof usePayment_YookassaBuySubscription>;
+export type Payment_YookassaBuySubscriptionMutationResult = Apollo.MutationResult<Payment_YookassaBuySubscription>;
+export type Payment_YookassaBuySubscriptionMutationOptions = Apollo.BaseMutationOptions<Payment_YookassaBuySubscription, Payment_YookassaBuySubscriptionVariables>;
 export const Payment_YookassaTopUpBalanceDocument = gql`
     mutation Payment_yookassaTopUpBalance($input: TopUpBalanceWithYooKassaInput!) {
   payment_yookassa_top_up_balance(input: $input) {

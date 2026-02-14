@@ -197,18 +197,15 @@ export interface SentenceTranslationOutModel {
     createdAt: string;
 }
 
-export interface VideoPublicLiteOutModel {
+export interface TariffOutModel {
     id: number;
+    code: string;
     name: string;
-    year?: Nullable<number>;
-    languageCode: string;
-    originalContent: string;
-    processedContent: string;
-    contentType: string;
-    fileName: string;
-    fileS3Key: string;
-    fileUrl: string;
-    freeToUse: boolean;
+    price: number;
+    durationDays: number;
+    includedBalance: number;
+    includedFileStorageMb: number;
+    createdAt: DateTime;
 }
 
 export interface CreateVideoPrivateOutModel {
@@ -334,12 +331,26 @@ export interface VideoPublicSubtitleOutModel {
     orderIndex: number;
 }
 
+export interface VideoPublicLiteOutModel {
+    id: number;
+    name: string;
+    year?: Nullable<number>;
+    languageCode: string;
+    originalContent: string;
+    processedContent: string;
+    contentType: string;
+    fileName: string;
+    fileS3Key: string;
+    fileUrl: string;
+    freeToUse: boolean;
+}
+
 export interface CurrentSubscriptionOutModel {
     tariffId: number;
     tariffCode: string;
     tariffName: string;
     pricePaid: number;
-    includedBalance: number;
+    balance: number;
     includedFileStorageMb: number;
     startsAt: string;
     endsAt: string;
@@ -372,7 +383,7 @@ export interface IQuery {
     video_public_get(input: GetPublicVideoInput): VideoPublicOutModel | Promise<VideoPublicOutModel>;
     sentence_translation_get(input: GetSentenceTranslationInput): SentenceTranslationOutModel | Promise<SentenceTranslationOutModel>;
     sentence_translation_get_by_sentence_id(input: GetSentenceTranslationsBySentenceIdInput): SentenceTranslationOutModel[] | Promise<SentenceTranslationOutModel[]>;
-    tariff_get_tariffs(): VideoPublicLiteOutModel[] | Promise<VideoPublicLiteOutModel[]>;
+    tariff_get_tariffs(): TariffOutModel[] | Promise<TariffOutModel[]>;
 }
 
 export interface CheckTranslationOutSuccessModel {
@@ -412,6 +423,7 @@ export interface IMutation {
     video_private_delete(input: DeletePrivateVideoInput): boolean | Promise<boolean>;
 }
 
+export type DateTime = any;
 export type CheckTranslationOutModel = CheckTranslationOutSuccessModel | CheckTranslationOutErrorModel;
 export type GetTranscriptionOutModel = GetTranscriptionOutSuccessModel | GetTranscriptionOutErrorModel;
 type Nullable<T> = T | null;

@@ -46,6 +46,11 @@ type BookPublicOutModel {
   note: String!
 }
 
+input BuySubscriptionWithYooKassaInput {
+  """Tariff id"""
+  tariffId: Float!
+}
+
 input CheckTranslationInput {
   """Sentence in English"""
   engSentence: String!
@@ -121,6 +126,17 @@ type CreateVideoPrivateOutModel {
   processedContent: String
   userId: Int!
   year: Int
+}
+
+type CurrentSubscriptionOutModel {
+  balance: Int!
+  endsAt: String!
+  includedFileStorageMb: Int!
+  pricePaid: Int!
+  startsAt: String!
+  tariffCode: String!
+  tariffId: Int!
+  tariffName: String!
 }
 
 input DeleteBookChapterInput {
@@ -248,6 +264,9 @@ type Mutation {
 
   """Update user book"""
   book_update(input: UpdateBookInput!): BookOutModel!
+
+  """Buy a subscription with YooKassa"""
+  payment_yookassa_buy_subscription(input: BuySubscriptionWithYooKassaInput!): TopUpBalanceWithYooKassaOutModel!
 
   """Top up a balance with YooKassa"""
   payment_yookassa_top_up_balance(input: TopUpBalanceWithYooKassaInput!): TopUpBalanceWithYooKassaOutModel!
@@ -424,6 +443,7 @@ type UpdateVideoPrivateOutModel {
 
 type UserOutModel {
   balance: Int!
+  currentSubscription: CurrentSubscriptionOutModel
   email: String!
   id: Int!
   isUserConfirmed: Boolean!

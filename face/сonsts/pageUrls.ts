@@ -102,6 +102,10 @@ export const pageUrls = {
 		name: 'Контакты',
 		path: '/contacts',
 	},
+	tariffs: {
+		name: 'Тарифы',
+		path: '/tariffs',
+	},
 	me: {
 		name: 'Моя учётная запись',
 		path: '/me',

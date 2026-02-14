@@ -4,5 +4,15 @@ query Auth_getMe {
 		email
 		isUserConfirmed
 		balance
+		currentSubscription {
+			tariffId
+			tariffCode
+			tariffName
+			pricePaid
+			balance
+			includedFileStorageMb
+			startsAt
+			endsAt
+		}
 	}
 }
