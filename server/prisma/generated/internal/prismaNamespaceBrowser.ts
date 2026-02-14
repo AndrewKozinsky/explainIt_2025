@@ -275,6 +275,7 @@ export const TariffScalarFieldEnum = {
   price: 'price',
   included_balance: 'included_balance',
   included_file_storage_mb: 'included_file_storage_mb',
+  duration_days: 'duration_days',
   created_at: 'created_at'
 } as const
 
@@ -286,7 +287,7 @@ export const UserSubscriptionScalarFieldEnum = {
   user_id: 'user_id',
   tariff_id: 'tariff_id',
   price_paid: 'price_paid',
-  included_balance: 'included_balance',
+  balance: 'balance',
   included_file_storage_mb: 'included_file_storage_mb',
   starts_at: 'starts_at',
   ends_at: 'ends_at',

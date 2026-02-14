@@ -31,6 +31,7 @@ export type TariffAvgAggregateOutputType = {
   price: number | null
   included_balance: number | null
   included_file_storage_mb: number | null
+  duration_days: number | null
 }
 
 export type TariffSumAggregateOutputType = {
@@ -38,6 +39,7 @@ export type TariffSumAggregateOutputType = {
   price: number | null
   included_balance: number | null
   included_file_storage_mb: number | null
+  duration_days: number | null
 }
 
 export type TariffMinAggregateOutputType = {
@@ -47,6 +49,7 @@ export type TariffMinAggregateOutputType = {
   price: number | null
   included_balance: number | null
   included_file_storage_mb: number | null
+  duration_days: number | null
   created_at: Date | null
 }
 
@@ -57,6 +60,7 @@ export type TariffMaxAggregateOutputType = {
   price: number | null
   included_balance: number | null
   included_file_storage_mb: number | null
+  duration_days: number | null
   created_at: Date | null
 }
 
@@ -67,6 +71,7 @@ export type TariffCountAggregateOutputType = {
   price: number
   included_balance: number
   included_file_storage_mb: number
+  duration_days: number
   created_at: number
   _all: number
 }
@@ -77,6 +82,7 @@ export type TariffAvgAggregateInputType = {
   price?: true
   included_balance?: true
   included_file_storage_mb?: true
+  duration_days?: true
 }
 
 export type TariffSumAggregateInputType = {
@@ -84,6 +90,7 @@ export type TariffSumAggregateInputType = {
   price?: true
   included_balance?: true
   included_file_storage_mb?: true
+  duration_days?: true
 }
 
 export type TariffMinAggregateInputType = {
@@ -93,6 +100,7 @@ export type TariffMinAggregateInputType = {
   price?: true
   included_balance?: true
   included_file_storage_mb?: true
+  duration_days?: true
   created_at?: true
 }
 
@@ -103,6 +111,7 @@ export type TariffMaxAggregateInputType = {
   price?: true
   included_balance?: true
   included_file_storage_mb?: true
+  duration_days?: true
   created_at?: true
 }
 
@@ -113,6 +122,7 @@ export type TariffCountAggregateInputType = {
   price?: true
   included_balance?: true
   included_file_storage_mb?: true
+  duration_days?: true
   created_at?: true
   _all?: true
 }
@@ -210,6 +220,7 @@ export type TariffGroupByOutputType = {
   price: number
   included_balance: number
   included_file_storage_mb: number
+  duration_days: number
   created_at: Date
   _count: TariffCountAggregateOutputType | null
   _avg: TariffAvgAggregateOutputType | null
@@ -243,6 +254,7 @@ export type TariffWhereInput = {
   price?: Prisma.IntFilter<"Tariff"> | number
   included_balance?: Prisma.IntFilter<"Tariff"> | number
   included_file_storage_mb?: Prisma.IntFilter<"Tariff"> | number
+  duration_days?: Prisma.IntFilter<"Tariff"> | number
   created_at?: Prisma.DateTimeFilter<"Tariff"> | Date | string
   userSubscriptions?: Prisma.UserSubscriptionListRelationFilter
 }
@@ -254,6 +266,7 @@ export type TariffOrderByWithRelationInput = {
   price?: Prisma.SortOrder
   included_balance?: Prisma.SortOrder
   included_file_storage_mb?: Prisma.SortOrder
+  duration_days?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   userSubscriptions?: Prisma.UserSubscriptionOrderByRelationAggregateInput
 }
@@ -268,6 +281,7 @@ export type TariffWhereUniqueInput = Prisma.AtLeast<{
   price?: Prisma.IntFilter<"Tariff"> | number
   included_balance?: Prisma.IntFilter<"Tariff"> | number
   included_file_storage_mb?: Prisma.IntFilter<"Tariff"> | number
+  duration_days?: Prisma.IntFilter<"Tariff"> | number
   created_at?: Prisma.DateTimeFilter<"Tariff"> | Date | string
   userSubscriptions?: Prisma.UserSubscriptionListRelationFilter
 }, "id" | "code">
@@ -279,6 +293,7 @@ export type TariffOrderByWithAggregationInput = {
   price?: Prisma.SortOrder
   included_balance?: Prisma.SortOrder
   included_file_storage_mb?: Prisma.SortOrder
+  duration_days?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   _count?: Prisma.TariffCountOrderByAggregateInput
   _avg?: Prisma.TariffAvgOrderByAggregateInput
@@ -297,6 +312,7 @@ export type TariffScalarWhereWithAggregatesInput = {
   price?: Prisma.IntWithAggregatesFilter<"Tariff"> | number
   included_balance?: Prisma.IntWithAggregatesFilter<"Tariff"> | number
   included_file_storage_mb?: Prisma.IntWithAggregatesFilter<"Tariff"> | number
+  duration_days?: Prisma.IntWithAggregatesFilter<"Tariff"> | number
   created_at?: Prisma.DateTimeWithAggregatesFilter<"Tariff"> | Date | string
 }
 
@@ -306,6 +322,7 @@ export type TariffCreateInput = {
   price: number
   included_balance: number
   included_file_storage_mb: number
+  duration_days: number
   created_at?: Date | string
   userSubscriptions?: Prisma.UserSubscriptionCreateNestedManyWithoutTariffInput
 }
@@ -317,6 +334,7 @@ export type TariffUncheckedCreateInput = {
   price: number
   included_balance: number
   included_file_storage_mb: number
+  duration_days: number
   created_at?: Date | string
   userSubscriptions?: Prisma.UserSubscriptionUncheckedCreateNestedManyWithoutTariffInput
 }
@@ -327,6 +345,7 @@ export type TariffUpdateInput = {
   price?: Prisma.IntFieldUpdateOperationsInput | number
   included_balance?: Prisma.IntFieldUpdateOperationsInput | number
   included_file_storage_mb?: Prisma.IntFieldUpdateOperationsInput | number
+  duration_days?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   userSubscriptions?: Prisma.UserSubscriptionUpdateManyWithoutTariffNestedInput
 }
@@ -338,6 +357,7 @@ export type TariffUncheckedUpdateInput = {
   price?: Prisma.IntFieldUpdateOperationsInput | number
   included_balance?: Prisma.IntFieldUpdateOperationsInput | number
   included_file_storage_mb?: Prisma.IntFieldUpdateOperationsInput | number
+  duration_days?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   userSubscriptions?: Prisma.UserSubscriptionUncheckedUpdateManyWithoutTariffNestedInput
 }
@@ -349,6 +369,7 @@ export type TariffCreateManyInput = {
   price: number
   included_balance: number
   included_file_storage_mb: number
+  duration_days: number
   created_at?: Date | string
 }
 
@@ -358,6 +379,7 @@ export type TariffUpdateManyMutationInput = {
   price?: Prisma.IntFieldUpdateOperationsInput | number
   included_balance?: Prisma.IntFieldUpdateOperationsInput | number
   included_file_storage_mb?: Prisma.IntFieldUpdateOperationsInput | number
+  duration_days?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -368,6 +390,7 @@ export type TariffUncheckedUpdateManyInput = {
   price?: Prisma.IntFieldUpdateOperationsInput | number
   included_balance?: Prisma.IntFieldUpdateOperationsInput | number
   included_file_storage_mb?: Prisma.IntFieldUpdateOperationsInput | number
+  duration_days?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -378,6 +401,7 @@ export type TariffCountOrderByAggregateInput = {
   price?: Prisma.SortOrder
   included_balance?: Prisma.SortOrder
   included_file_storage_mb?: Prisma.SortOrder
+  duration_days?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
@@ -386,6 +410,7 @@ export type TariffAvgOrderByAggregateInput = {
   price?: Prisma.SortOrder
   included_balance?: Prisma.SortOrder
   included_file_storage_mb?: Prisma.SortOrder
+  duration_days?: Prisma.SortOrder
 }
 
 export type TariffMaxOrderByAggregateInput = {
@@ -395,6 +420,7 @@ export type TariffMaxOrderByAggregateInput = {
   price?: Prisma.SortOrder
   included_balance?: Prisma.SortOrder
   included_file_storage_mb?: Prisma.SortOrder
+  duration_days?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
@@ -405,6 +431,7 @@ export type TariffMinOrderByAggregateInput = {
   price?: Prisma.SortOrder
   included_balance?: Prisma.SortOrder
   included_file_storage_mb?: Prisma.SortOrder
+  duration_days?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
@@ -413,6 +440,7 @@ export type TariffSumOrderByAggregateInput = {
   price?: Prisma.SortOrder
   included_balance?: Prisma.SortOrder
   included_file_storage_mb?: Prisma.SortOrder
+  duration_days?: Prisma.SortOrder
 }
 
 export type TariffScalarRelationFilter = {
@@ -440,6 +468,7 @@ export type TariffCreateWithoutUserSubscriptionsInput = {
   price: number
   included_balance: number
   included_file_storage_mb: number
+  duration_days: number
   created_at?: Date | string
 }
 
@@ -450,6 +479,7 @@ export type TariffUncheckedCreateWithoutUserSubscriptionsInput = {
   price: number
   included_balance: number
   included_file_storage_mb: number
+  duration_days: number
   created_at?: Date | string
 }
 
@@ -475,6 +505,7 @@ export type TariffUpdateWithoutUserSubscriptionsInput = {
   price?: Prisma.IntFieldUpdateOperationsInput | number
   included_balance?: Prisma.IntFieldUpdateOperationsInput | number
   included_file_storage_mb?: Prisma.IntFieldUpdateOperationsInput | number
+  duration_days?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -485,6 +516,7 @@ export type TariffUncheckedUpdateWithoutUserSubscriptionsInput = {
   price?: Prisma.IntFieldUpdateOperationsInput | number
   included_balance?: Prisma.IntFieldUpdateOperationsInput | number
   included_file_storage_mb?: Prisma.IntFieldUpdateOperationsInput | number
+  duration_days?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -526,6 +558,7 @@ export type TariffSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   price?: boolean
   included_balance?: boolean
   included_file_storage_mb?: boolean
+  duration_days?: boolean
   created_at?: boolean
   userSubscriptions?: boolean | Prisma.Tariff$userSubscriptionsArgs<ExtArgs>
   _count?: boolean | Prisma.TariffCountOutputTypeDefaultArgs<ExtArgs>
@@ -538,6 +571,7 @@ export type TariffSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extens
   price?: boolean
   included_balance?: boolean
   included_file_storage_mb?: boolean
+  duration_days?: boolean
   created_at?: boolean
 }, ExtArgs["result"]["tariff"]>
 
@@ -548,6 +582,7 @@ export type TariffSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
   price?: boolean
   included_balance?: boolean
   included_file_storage_mb?: boolean
+  duration_days?: boolean
   created_at?: boolean
 }, ExtArgs["result"]["tariff"]>
 
@@ -558,10 +593,11 @@ export type TariffSelectScalar = {
   price?: boolean
   included_balance?: boolean
   included_file_storage_mb?: boolean
+  duration_days?: boolean
   created_at?: boolean
 }
 
-export type TariffOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "code" | "name" | "price" | "included_balance" | "included_file_storage_mb" | "created_at", ExtArgs["result"]["tariff"]>
+export type TariffOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "code" | "name" | "price" | "included_balance" | "included_file_storage_mb" | "duration_days" | "created_at", ExtArgs["result"]["tariff"]>
 export type TariffInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   userSubscriptions?: boolean | Prisma.Tariff$userSubscriptionsArgs<ExtArgs>
   _count?: boolean | Prisma.TariffCountOutputTypeDefaultArgs<ExtArgs>
@@ -581,6 +617,7 @@ export type $TariffPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     price: number
     included_balance: number
     included_file_storage_mb: number
+    duration_days: number
     created_at: Date
   }, ExtArgs["result"]["tariff"]>
   composites: {}
@@ -1012,6 +1049,7 @@ export interface TariffFieldRefs {
   readonly price: Prisma.FieldRef<"Tariff", 'Int'>
   readonly included_balance: Prisma.FieldRef<"Tariff", 'Int'>
   readonly included_file_storage_mb: Prisma.FieldRef<"Tariff", 'Int'>
+  readonly duration_days: Prisma.FieldRef<"Tariff", 'Int'>
   readonly created_at: Prisma.FieldRef<"Tariff", 'DateTime'>
 }
     

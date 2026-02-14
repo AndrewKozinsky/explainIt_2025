@@ -1,57 +1,64 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { PaymentRepository } from 'repo/payment.repository'
+import { TariffRepository } from 'repo/tariff.repository'
 import { UserRepository } from 'repo/user.repository'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { YooKassaService } from 'infrastructure/yooKassa/yooKassa.service'
 
-type TopUpBalanceWithYooKassaInput = {
-	// Amount in kopecks
-	amount: number
+type BuySubscriptionWithYooKassaInput = {
+	tariffId: number
 }
 
-export class TopUpBalanceWithYooKassaCommand implements ICommand {
+export class BuySubscriptionWithYooKassaCommand implements ICommand {
 	constructor(
 		public userId: number,
-		public createPaymentWithYooKassaInput: TopUpBalanceWithYooKassaInput,
+		public input: BuySubscriptionWithYooKassaInput,
 	) {}
 }
 
-// Пополнение баланса через ЮКассу. Создаётся оплата в БД, затем идёт обращение в Юкассу для получения ссылки на оплату.
-// Возвращает ссылку на оплату.
-@CommandHandler(TopUpBalanceWithYooKassaCommand)
-export class TopUpBalanceWithYooKassaHandler implements ICommandHandler<TopUpBalanceWithYooKassaCommand> {
+@CommandHandler(BuySubscriptionWithYooKassaCommand)
+export class BuySubscriptionWithYooKassaHandler implements ICommandHandler<BuySubscriptionWithYooKassaCommand> {
 	constructor(
 		private paymentRepository: PaymentRepository,
 		private yooKassaService: YooKassaService,
 		private userRepository: UserRepository,
+		private tariffRepository: TariffRepository,
 	) {}
 
-	async execute(command: TopUpBalanceWithYooKassaCommand) {
-		const { userId, createPaymentWithYooKassaInput } = command
+	async execute(command: BuySubscriptionWithYooKassaCommand) {
+		const { userId, input } = command
 
 		const user = await this.userRepository.getUserById(userId)
 		if (!user) {
 			throw new CustomGraphQLError(errorMessage.userNotFound, ErrorCode.BadRequest_400)
 		}
 
+		const tariff = await this.tariffRepository.getTariffById(input.tariffId)
+		if (!tariff) {
+			throw new CustomGraphQLError(errorMessage.tariffNotFound, ErrorCode.BadRequest_400)
+		}
+
+		const amountInKopecks = tariff.price
+
 		const { yooKassaPaymentId, confirmationUrl } = await this.yooKassaService.createPayment(
-			createPaymentWithYooKassaInput.amount,
+			amountInKopecks,
 			user.email,
 			{
+				description: `Подписка: ${tariff.name}`,
+				receiptItemDescription: `Подписка: ${tariff.name}`,
 				metadata: {
-					purpose: 'TOP_UP',
+					purpose: 'SUBSCRIPTION',
 					userId,
+					tariffId: tariff.id,
 				},
 			},
 		)
 
-		// Create a payment in database
 		await this.paymentRepository.createPayment({
 			userId,
-			// Amount in rubles, but the DB store amount in kopecks
-			amount: createPaymentWithYooKassaInput.amount,
+			amount: amountInKopecks,
 			externalPaymentId: yooKassaPaymentId,
 		})
 

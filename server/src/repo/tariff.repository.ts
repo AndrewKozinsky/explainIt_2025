@@ -16,10 +16,21 @@ export class TariffRepository {
 	}
 
 	@CatchDbError()
+	async getTariffById(tariffId: number): Promise<null | TariffServiceModel> {
+		const tariff = await this.prisma.tariff.findUnique({
+			where: { id: tariffId },
+		})
+		if (!tariff) return null
+
+		return this.mapDbTariffToServiceTariff(tariff)
+	}
+
+	@CatchDbError()
 	async createTariff(dto: {
 		code: string
 		name: string
 		price: number
+		durationDays: number
 		includedBalance: number
 		includedFileStorageMb: number
 	}) {
@@ -28,6 +39,7 @@ export class TariffRepository {
 				code: dto.code,
 				name: dto.name,
 				price: dto.price,
+				duration_days: dto.durationDays,
 				included_balance: dto.includedBalance,
 				included_file_storage_mb: dto.includedFileStorageMb,
 			},
@@ -42,6 +54,7 @@ export class TariffRepository {
 			code: dbTariff.code,
 			name: dbTariff.name,
 			price: dbTariff.price,
+			durationDays: dbTariff.duration_days,
 			includedBalance: dbTariff.included_balance,
 			includedFileStorageMb: dbTariff.included_file_storage_mb,
 			createdAt: dbTariff.created_at,

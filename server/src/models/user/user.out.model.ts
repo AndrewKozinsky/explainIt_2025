@@ -1,4 +1,5 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql'
+import { CurrentSubscriptionOutModel } from '../subscription/currentSubscription.out.model'
 
 @ObjectType()
 export class UserOutModel {
@@ -13,4 +14,7 @@ export class UserOutModel {
 
 	@Field(() => Int)
 	balance: number
+
+	@Field(() => CurrentSubscriptionOutModel, { nullable: true })
+	currentSubscription?: CurrentSubscriptionOutModel | null
 }

@@ -73,6 +73,10 @@ export interface TopUpBalanceWithYooKassaInput {
     amount: number;
 }
 
+export interface BuySubscriptionWithYooKassaInput {
+    tariffId: number;
+}
+
 export interface CreateBookInput {
     author?: Nullable<string>;
     name?: Nullable<string>;
@@ -330,11 +334,23 @@ export interface VideoPublicSubtitleOutModel {
     orderIndex: number;
 }
 
+export interface CurrentSubscriptionOutModel {
+    tariffId: number;
+    tariffCode: string;
+    tariffName: string;
+    pricePaid: number;
+    includedBalance: number;
+    includedFileStorageMb: number;
+    startsAt: string;
+    endsAt: string;
+}
+
 export interface UserOutModel {
     id: number;
     email: string;
     isUserConfirmed: boolean;
     balance: number;
+    currentSubscription?: Nullable<CurrentSubscriptionOutModel>;
 }
 
 export interface TopUpBalanceWithYooKassaOutModel {
@@ -384,6 +400,7 @@ export interface IMutation {
     auth_resendConfirmationEmail(input: ResendConfirmationEmailInput): boolean | Promise<boolean>;
     auth_logout(): boolean | Promise<boolean>;
     payment_yookassa_top_up_balance(input: TopUpBalanceWithYooKassaInput): TopUpBalanceWithYooKassaOutModel | Promise<TopUpBalanceWithYooKassaOutModel>;
+    payment_yookassa_buy_subscription(input: BuySubscriptionWithYooKassaInput): TopUpBalanceWithYooKassaOutModel | Promise<TopUpBalanceWithYooKassaOutModel>;
     book_create(input: CreateBookInput): BookOutModel | Promise<BookOutModel>;
     book_update(input: UpdateBookInput): BookOutModel | Promise<BookOutModel>;
     book_delete(input: DeleteBookInput): boolean | Promise<boolean>;

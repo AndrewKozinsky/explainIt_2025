@@ -31,7 +31,7 @@ export type UserSubscriptionAvgAggregateOutputType = {
   user_id: number | null
   tariff_id: number | null
   price_paid: number | null
-  included_balance: number | null
+  balance: number | null
   included_file_storage_mb: number | null
   payment_id: number | null
 }
@@ -41,7 +41,7 @@ export type UserSubscriptionSumAggregateOutputType = {
   user_id: number | null
   tariff_id: number | null
   price_paid: number | null
-  included_balance: number | null
+  balance: number | null
   included_file_storage_mb: number | null
   payment_id: number | null
 }
@@ -51,7 +51,7 @@ export type UserSubscriptionMinAggregateOutputType = {
   user_id: number | null
   tariff_id: number | null
   price_paid: number | null
-  included_balance: number | null
+  balance: number | null
   included_file_storage_mb: number | null
   starts_at: Date | null
   ends_at: Date | null
@@ -64,7 +64,7 @@ export type UserSubscriptionMaxAggregateOutputType = {
   user_id: number | null
   tariff_id: number | null
   price_paid: number | null
-  included_balance: number | null
+  balance: number | null
   included_file_storage_mb: number | null
   starts_at: Date | null
   ends_at: Date | null
@@ -77,7 +77,7 @@ export type UserSubscriptionCountAggregateOutputType = {
   user_id: number
   tariff_id: number
   price_paid: number
-  included_balance: number
+  balance: number
   included_file_storage_mb: number
   starts_at: number
   ends_at: number
@@ -92,7 +92,7 @@ export type UserSubscriptionAvgAggregateInputType = {
   user_id?: true
   tariff_id?: true
   price_paid?: true
-  included_balance?: true
+  balance?: true
   included_file_storage_mb?: true
   payment_id?: true
 }
@@ -102,7 +102,7 @@ export type UserSubscriptionSumAggregateInputType = {
   user_id?: true
   tariff_id?: true
   price_paid?: true
-  included_balance?: true
+  balance?: true
   included_file_storage_mb?: true
   payment_id?: true
 }
@@ -112,7 +112,7 @@ export type UserSubscriptionMinAggregateInputType = {
   user_id?: true
   tariff_id?: true
   price_paid?: true
-  included_balance?: true
+  balance?: true
   included_file_storage_mb?: true
   starts_at?: true
   ends_at?: true
@@ -125,7 +125,7 @@ export type UserSubscriptionMaxAggregateInputType = {
   user_id?: true
   tariff_id?: true
   price_paid?: true
-  included_balance?: true
+  balance?: true
   included_file_storage_mb?: true
   starts_at?: true
   ends_at?: true
@@ -138,7 +138,7 @@ export type UserSubscriptionCountAggregateInputType = {
   user_id?: true
   tariff_id?: true
   price_paid?: true
-  included_balance?: true
+  balance?: true
   included_file_storage_mb?: true
   starts_at?: true
   ends_at?: true
@@ -238,7 +238,7 @@ export type UserSubscriptionGroupByOutputType = {
   user_id: number
   tariff_id: number
   price_paid: number
-  included_balance: number
+  balance: number
   included_file_storage_mb: number
   starts_at: Date
   ends_at: Date
@@ -274,7 +274,7 @@ export type UserSubscriptionWhereInput = {
   user_id?: Prisma.IntFilter<"UserSubscription"> | number
   tariff_id?: Prisma.IntFilter<"UserSubscription"> | number
   price_paid?: Prisma.IntFilter<"UserSubscription"> | number
-  included_balance?: Prisma.IntFilter<"UserSubscription"> | number
+  balance?: Prisma.IntFilter<"UserSubscription"> | number
   included_file_storage_mb?: Prisma.IntFilter<"UserSubscription"> | number
   starts_at?: Prisma.DateTimeFilter<"UserSubscription"> | Date | string
   ends_at?: Prisma.DateTimeFilter<"UserSubscription"> | Date | string
@@ -290,7 +290,7 @@ export type UserSubscriptionOrderByWithRelationInput = {
   user_id?: Prisma.SortOrder
   tariff_id?: Prisma.SortOrder
   price_paid?: Prisma.SortOrder
-  included_balance?: Prisma.SortOrder
+  balance?: Prisma.SortOrder
   included_file_storage_mb?: Prisma.SortOrder
   starts_at?: Prisma.SortOrder
   ends_at?: Prisma.SortOrder
@@ -310,7 +310,7 @@ export type UserSubscriptionWhereUniqueInput = Prisma.AtLeast<{
   user_id?: Prisma.IntFilter<"UserSubscription"> | number
   tariff_id?: Prisma.IntFilter<"UserSubscription"> | number
   price_paid?: Prisma.IntFilter<"UserSubscription"> | number
-  included_balance?: Prisma.IntFilter<"UserSubscription"> | number
+  balance?: Prisma.IntFilter<"UserSubscription"> | number
   included_file_storage_mb?: Prisma.IntFilter<"UserSubscription"> | number
   starts_at?: Prisma.DateTimeFilter<"UserSubscription"> | Date | string
   ends_at?: Prisma.DateTimeFilter<"UserSubscription"> | Date | string
@@ -325,7 +325,7 @@ export type UserSubscriptionOrderByWithAggregationInput = {
   user_id?: Prisma.SortOrder
   tariff_id?: Prisma.SortOrder
   price_paid?: Prisma.SortOrder
-  included_balance?: Prisma.SortOrder
+  balance?: Prisma.SortOrder
   included_file_storage_mb?: Prisma.SortOrder
   starts_at?: Prisma.SortOrder
   ends_at?: Prisma.SortOrder
@@ -346,7 +346,7 @@ export type UserSubscriptionScalarWhereWithAggregatesInput = {
   user_id?: Prisma.IntWithAggregatesFilter<"UserSubscription"> | number
   tariff_id?: Prisma.IntWithAggregatesFilter<"UserSubscription"> | number
   price_paid?: Prisma.IntWithAggregatesFilter<"UserSubscription"> | number
-  included_balance?: Prisma.IntWithAggregatesFilter<"UserSubscription"> | number
+  balance?: Prisma.IntWithAggregatesFilter<"UserSubscription"> | number
   included_file_storage_mb?: Prisma.IntWithAggregatesFilter<"UserSubscription"> | number
   starts_at?: Prisma.DateTimeWithAggregatesFilter<"UserSubscription"> | Date | string
   ends_at?: Prisma.DateTimeWithAggregatesFilter<"UserSubscription"> | Date | string
@@ -356,7 +356,7 @@ export type UserSubscriptionScalarWhereWithAggregatesInput = {
 
 export type UserSubscriptionCreateInput = {
   price_paid: number
-  included_balance: number
+  balance: number
   included_file_storage_mb: number
   starts_at: Date | string
   ends_at: Date | string
@@ -371,7 +371,7 @@ export type UserSubscriptionUncheckedCreateInput = {
   user_id: number
   tariff_id: number
   price_paid: number
-  included_balance: number
+  balance: number
   included_file_storage_mb: number
   starts_at: Date | string
   ends_at: Date | string
@@ -381,7 +381,7 @@ export type UserSubscriptionUncheckedCreateInput = {
 
 export type UserSubscriptionUpdateInput = {
   price_paid?: Prisma.IntFieldUpdateOperationsInput | number
-  included_balance?: Prisma.IntFieldUpdateOperationsInput | number
+  balance?: Prisma.IntFieldUpdateOperationsInput | number
   included_file_storage_mb?: Prisma.IntFieldUpdateOperationsInput | number
   starts_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ends_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -396,7 +396,7 @@ export type UserSubscriptionUncheckedUpdateInput = {
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   tariff_id?: Prisma.IntFieldUpdateOperationsInput | number
   price_paid?: Prisma.IntFieldUpdateOperationsInput | number
-  included_balance?: Prisma.IntFieldUpdateOperationsInput | number
+  balance?: Prisma.IntFieldUpdateOperationsInput | number
   included_file_storage_mb?: Prisma.IntFieldUpdateOperationsInput | number
   starts_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ends_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -409,7 +409,7 @@ export type UserSubscriptionCreateManyInput = {
   user_id: number
   tariff_id: number
   price_paid: number
-  included_balance: number
+  balance: number
   included_file_storage_mb: number
   starts_at: Date | string
   ends_at: Date | string
@@ -419,7 +419,7 @@ export type UserSubscriptionCreateManyInput = {
 
 export type UserSubscriptionUpdateManyMutationInput = {
   price_paid?: Prisma.IntFieldUpdateOperationsInput | number
-  included_balance?: Prisma.IntFieldUpdateOperationsInput | number
+  balance?: Prisma.IntFieldUpdateOperationsInput | number
   included_file_storage_mb?: Prisma.IntFieldUpdateOperationsInput | number
   starts_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ends_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -431,7 +431,7 @@ export type UserSubscriptionUncheckedUpdateManyInput = {
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   tariff_id?: Prisma.IntFieldUpdateOperationsInput | number
   price_paid?: Prisma.IntFieldUpdateOperationsInput | number
-  included_balance?: Prisma.IntFieldUpdateOperationsInput | number
+  balance?: Prisma.IntFieldUpdateOperationsInput | number
   included_file_storage_mb?: Prisma.IntFieldUpdateOperationsInput | number
   starts_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ends_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -459,7 +459,7 @@ export type UserSubscriptionCountOrderByAggregateInput = {
   user_id?: Prisma.SortOrder
   tariff_id?: Prisma.SortOrder
   price_paid?: Prisma.SortOrder
-  included_balance?: Prisma.SortOrder
+  balance?: Prisma.SortOrder
   included_file_storage_mb?: Prisma.SortOrder
   starts_at?: Prisma.SortOrder
   ends_at?: Prisma.SortOrder
@@ -472,7 +472,7 @@ export type UserSubscriptionAvgOrderByAggregateInput = {
   user_id?: Prisma.SortOrder
   tariff_id?: Prisma.SortOrder
   price_paid?: Prisma.SortOrder
-  included_balance?: Prisma.SortOrder
+  balance?: Prisma.SortOrder
   included_file_storage_mb?: Prisma.SortOrder
   payment_id?: Prisma.SortOrder
 }
@@ -482,7 +482,7 @@ export type UserSubscriptionMaxOrderByAggregateInput = {
   user_id?: Prisma.SortOrder
   tariff_id?: Prisma.SortOrder
   price_paid?: Prisma.SortOrder
-  included_balance?: Prisma.SortOrder
+  balance?: Prisma.SortOrder
   included_file_storage_mb?: Prisma.SortOrder
   starts_at?: Prisma.SortOrder
   ends_at?: Prisma.SortOrder
@@ -495,7 +495,7 @@ export type UserSubscriptionMinOrderByAggregateInput = {
   user_id?: Prisma.SortOrder
   tariff_id?: Prisma.SortOrder
   price_paid?: Prisma.SortOrder
-  included_balance?: Prisma.SortOrder
+  balance?: Prisma.SortOrder
   included_file_storage_mb?: Prisma.SortOrder
   starts_at?: Prisma.SortOrder
   ends_at?: Prisma.SortOrder
@@ -508,7 +508,7 @@ export type UserSubscriptionSumOrderByAggregateInput = {
   user_id?: Prisma.SortOrder
   tariff_id?: Prisma.SortOrder
   price_paid?: Prisma.SortOrder
-  included_balance?: Prisma.SortOrder
+  balance?: Prisma.SortOrder
   included_file_storage_mb?: Prisma.SortOrder
   payment_id?: Prisma.SortOrder
 }
@@ -631,7 +631,7 @@ export type UserSubscriptionUncheckedUpdateManyWithoutTariffNestedInput = {
 
 export type UserSubscriptionCreateWithoutUserInput = {
   price_paid: number
-  included_balance: number
+  balance: number
   included_file_storage_mb: number
   starts_at: Date | string
   ends_at: Date | string
@@ -644,7 +644,7 @@ export type UserSubscriptionUncheckedCreateWithoutUserInput = {
   id?: number
   tariff_id: number
   price_paid: number
-  included_balance: number
+  balance: number
   included_file_storage_mb: number
   starts_at: Date | string
   ends_at: Date | string
@@ -686,7 +686,7 @@ export type UserSubscriptionScalarWhereInput = {
   user_id?: Prisma.IntFilter<"UserSubscription"> | number
   tariff_id?: Prisma.IntFilter<"UserSubscription"> | number
   price_paid?: Prisma.IntFilter<"UserSubscription"> | number
-  included_balance?: Prisma.IntFilter<"UserSubscription"> | number
+  balance?: Prisma.IntFilter<"UserSubscription"> | number
   included_file_storage_mb?: Prisma.IntFilter<"UserSubscription"> | number
   starts_at?: Prisma.DateTimeFilter<"UserSubscription"> | Date | string
   ends_at?: Prisma.DateTimeFilter<"UserSubscription"> | Date | string
@@ -696,7 +696,7 @@ export type UserSubscriptionScalarWhereInput = {
 
 export type UserSubscriptionCreateWithoutPaymentInput = {
   price_paid: number
-  included_balance: number
+  balance: number
   included_file_storage_mb: number
   starts_at: Date | string
   ends_at: Date | string
@@ -710,7 +710,7 @@ export type UserSubscriptionUncheckedCreateWithoutPaymentInput = {
   user_id: number
   tariff_id: number
   price_paid: number
-  included_balance: number
+  balance: number
   included_file_storage_mb: number
   starts_at: Date | string
   ends_at: Date | string
@@ -735,7 +735,7 @@ export type UserSubscriptionUpdateToOneWithWhereWithoutPaymentInput = {
 
 export type UserSubscriptionUpdateWithoutPaymentInput = {
   price_paid?: Prisma.IntFieldUpdateOperationsInput | number
-  included_balance?: Prisma.IntFieldUpdateOperationsInput | number
+  balance?: Prisma.IntFieldUpdateOperationsInput | number
   included_file_storage_mb?: Prisma.IntFieldUpdateOperationsInput | number
   starts_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ends_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -749,7 +749,7 @@ export type UserSubscriptionUncheckedUpdateWithoutPaymentInput = {
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   tariff_id?: Prisma.IntFieldUpdateOperationsInput | number
   price_paid?: Prisma.IntFieldUpdateOperationsInput | number
-  included_balance?: Prisma.IntFieldUpdateOperationsInput | number
+  balance?: Prisma.IntFieldUpdateOperationsInput | number
   included_file_storage_mb?: Prisma.IntFieldUpdateOperationsInput | number
   starts_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ends_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -758,7 +758,7 @@ export type UserSubscriptionUncheckedUpdateWithoutPaymentInput = {
 
 export type UserSubscriptionCreateWithoutTariffInput = {
   price_paid: number
-  included_balance: number
+  balance: number
   included_file_storage_mb: number
   starts_at: Date | string
   ends_at: Date | string
@@ -771,7 +771,7 @@ export type UserSubscriptionUncheckedCreateWithoutTariffInput = {
   id?: number
   user_id: number
   price_paid: number
-  included_balance: number
+  balance: number
   included_file_storage_mb: number
   starts_at: Date | string
   ends_at: Date | string
@@ -809,7 +809,7 @@ export type UserSubscriptionCreateManyUserInput = {
   id?: number
   tariff_id: number
   price_paid: number
-  included_balance: number
+  balance: number
   included_file_storage_mb: number
   starts_at: Date | string
   ends_at: Date | string
@@ -819,7 +819,7 @@ export type UserSubscriptionCreateManyUserInput = {
 
 export type UserSubscriptionUpdateWithoutUserInput = {
   price_paid?: Prisma.IntFieldUpdateOperationsInput | number
-  included_balance?: Prisma.IntFieldUpdateOperationsInput | number
+  balance?: Prisma.IntFieldUpdateOperationsInput | number
   included_file_storage_mb?: Prisma.IntFieldUpdateOperationsInput | number
   starts_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ends_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -832,7 +832,7 @@ export type UserSubscriptionUncheckedUpdateWithoutUserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   tariff_id?: Prisma.IntFieldUpdateOperationsInput | number
   price_paid?: Prisma.IntFieldUpdateOperationsInput | number
-  included_balance?: Prisma.IntFieldUpdateOperationsInput | number
+  balance?: Prisma.IntFieldUpdateOperationsInput | number
   included_file_storage_mb?: Prisma.IntFieldUpdateOperationsInput | number
   starts_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ends_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -844,7 +844,7 @@ export type UserSubscriptionUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   tariff_id?: Prisma.IntFieldUpdateOperationsInput | number
   price_paid?: Prisma.IntFieldUpdateOperationsInput | number
-  included_balance?: Prisma.IntFieldUpdateOperationsInput | number
+  balance?: Prisma.IntFieldUpdateOperationsInput | number
   included_file_storage_mb?: Prisma.IntFieldUpdateOperationsInput | number
   starts_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ends_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -856,7 +856,7 @@ export type UserSubscriptionCreateManyTariffInput = {
   id?: number
   user_id: number
   price_paid: number
-  included_balance: number
+  balance: number
   included_file_storage_mb: number
   starts_at: Date | string
   ends_at: Date | string
@@ -866,7 +866,7 @@ export type UserSubscriptionCreateManyTariffInput = {
 
 export type UserSubscriptionUpdateWithoutTariffInput = {
   price_paid?: Prisma.IntFieldUpdateOperationsInput | number
-  included_balance?: Prisma.IntFieldUpdateOperationsInput | number
+  balance?: Prisma.IntFieldUpdateOperationsInput | number
   included_file_storage_mb?: Prisma.IntFieldUpdateOperationsInput | number
   starts_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ends_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -879,7 +879,7 @@ export type UserSubscriptionUncheckedUpdateWithoutTariffInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   price_paid?: Prisma.IntFieldUpdateOperationsInput | number
-  included_balance?: Prisma.IntFieldUpdateOperationsInput | number
+  balance?: Prisma.IntFieldUpdateOperationsInput | number
   included_file_storage_mb?: Prisma.IntFieldUpdateOperationsInput | number
   starts_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ends_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -891,7 +891,7 @@ export type UserSubscriptionUncheckedUpdateManyWithoutTariffInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   price_paid?: Prisma.IntFieldUpdateOperationsInput | number
-  included_balance?: Prisma.IntFieldUpdateOperationsInput | number
+  balance?: Prisma.IntFieldUpdateOperationsInput | number
   included_file_storage_mb?: Prisma.IntFieldUpdateOperationsInput | number
   starts_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ends_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -906,7 +906,7 @@ export type UserSubscriptionSelect<ExtArgs extends runtime.Types.Extensions.Inte
   user_id?: boolean
   tariff_id?: boolean
   price_paid?: boolean
-  included_balance?: boolean
+  balance?: boolean
   included_file_storage_mb?: boolean
   starts_at?: boolean
   ends_at?: boolean
@@ -922,7 +922,7 @@ export type UserSubscriptionSelectCreateManyAndReturn<ExtArgs extends runtime.Ty
   user_id?: boolean
   tariff_id?: boolean
   price_paid?: boolean
-  included_balance?: boolean
+  balance?: boolean
   included_file_storage_mb?: boolean
   starts_at?: boolean
   ends_at?: boolean
@@ -938,7 +938,7 @@ export type UserSubscriptionSelectUpdateManyAndReturn<ExtArgs extends runtime.Ty
   user_id?: boolean
   tariff_id?: boolean
   price_paid?: boolean
-  included_balance?: boolean
+  balance?: boolean
   included_file_storage_mb?: boolean
   starts_at?: boolean
   ends_at?: boolean
@@ -954,7 +954,7 @@ export type UserSubscriptionSelectScalar = {
   user_id?: boolean
   tariff_id?: boolean
   price_paid?: boolean
-  included_balance?: boolean
+  balance?: boolean
   included_file_storage_mb?: boolean
   starts_at?: boolean
   ends_at?: boolean
@@ -962,7 +962,7 @@ export type UserSubscriptionSelectScalar = {
   created_at?: boolean
 }
 
-export type UserSubscriptionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "tariff_id" | "price_paid" | "included_balance" | "included_file_storage_mb" | "starts_at" | "ends_at" | "payment_id" | "created_at", ExtArgs["result"]["userSubscription"]>
+export type UserSubscriptionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "tariff_id" | "price_paid" | "balance" | "included_file_storage_mb" | "starts_at" | "ends_at" | "payment_id" | "created_at", ExtArgs["result"]["userSubscription"]>
 export type UserSubscriptionInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   tariff?: boolean | Prisma.TariffDefaultArgs<ExtArgs>
@@ -991,7 +991,7 @@ export type $UserSubscriptionPayload<ExtArgs extends runtime.Types.Extensions.In
     user_id: number
     tariff_id: number
     price_paid: number
-    included_balance: number
+    balance: number
     included_file_storage_mb: number
     starts_at: Date
     ends_at: Date
@@ -1427,7 +1427,7 @@ export interface UserSubscriptionFieldRefs {
   readonly user_id: Prisma.FieldRef<"UserSubscription", 'Int'>
   readonly tariff_id: Prisma.FieldRef<"UserSubscription", 'Int'>
   readonly price_paid: Prisma.FieldRef<"UserSubscription", 'Int'>
-  readonly included_balance: Prisma.FieldRef<"UserSubscription", 'Int'>
+  readonly balance: Prisma.FieldRef<"UserSubscription", 'Int'>
   readonly included_file_storage_mb: Prisma.FieldRef<"UserSubscription", 'Int'>
   readonly starts_at: Prisma.FieldRef<"UserSubscription", 'DateTime'>
   readonly ends_at: Prisma.FieldRef<"UserSubscription", 'DateTime'>

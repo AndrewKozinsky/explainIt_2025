@@ -84,6 +84,16 @@ export class BalanceTransactionRepository {
 		return transactions.map(this.mapDbTransactionToServiceTransaction)
 	}
 
+	@CatchDbError()
+	async getTopUpByPaymentId(paymentId: number) {
+		return await this.prisma.balanceTransaction.findFirst({
+			where: {
+				payment_id: paymentId,
+				type: BalanceTransactionType.TOP_UP,
+			},
+		})
+	}
+
 	mapDbTransactionToServiceTransaction(dbTransaction: BalanceTransaction): TransactionServiceModel {
 		return {
 			id: dbTransaction.id,

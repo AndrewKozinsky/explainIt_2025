@@ -13,6 +13,7 @@ export const errorMessage = {
 	userUnauthorized: 'Пользователь не авторизован.',
 	userBalanceIsNegative: 'Отрицательный баланс.',
 	userIsNotOwner: 'Пользователь не является владельцем этой сущности.',
+	tariffNotFound: 'Тариф не найден.',
 
 	// AUTH
 	sessionTokenIsNotValid: 'Токен сессии недействителен.',

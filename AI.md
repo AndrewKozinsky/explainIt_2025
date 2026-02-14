@@ -105,6 +105,17 @@ A Nest.js project with GraphQl, Prisma ORM and Postgres in the folder "server".
 Если требуется изменить таблицы в базе данных, то не нужно делать это в файле schema.prisma. Файл со схемой призмы генерируется из конфигурации в файле schema.prisma. Поэтому нужно изменить файл конфигурации и затем запустить команду генерирования файла schema.prisma.
 ```npm run generatePrismaFile```
 
+### Оплата
+Оплата описана в резолвере server/src/routes/payment/payment.resolver.ts.
+
+#### Оплата для поднятия баланса
+
+Сейчас есть только 1 способ оплаты — это поднятия баланса через поставщика YooKassa. Для этого обращаются по адресу payment_yookassa_top_up_balance. В резолвере вызывается класс TopUpBalanceWithYooKassaCommand. Там посредством сервиса YooKassaService создаётся платёж и ссылка на оплату. Эта ссылка возвращается пользователя для оплаты на YooKassa.
+
+Как только пользователь совершил оплату во внешнем сервисе YooKassa, то YooKassa вызывает маршрут webhook/yookassa в контроллере server/src/routes/webhook/webhook.controller.ts. Внутри вызывается класс SetPaymentResultWithYooKassaCommand где платёж отмечается успешным и создаётся транзакция для поднятия баланса пользователя.
+
+Если пользователь отказался платить, то снова вызывается этот маршрут webhook/yookassa где в классе SetPaymentResultWithYooKassaCommand где платёж отмечается неудачным.
+
 ### Repositories and CQRS (project conventions)
 
 #### Repository vs QueryRepository

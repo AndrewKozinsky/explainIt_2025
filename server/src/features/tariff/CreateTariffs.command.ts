@@ -5,6 +5,7 @@ type CreateTariffDto = {
 	code: string
 	name: string
 	price: number
+	durationDays: number
 	includedBalance: number
 	includedFileStorageMb: number
 }
@@ -38,14 +39,16 @@ export class CreateTariffsHandler implements ICommandHandler<CreateTariffsComman
 			{
 				code: 'base',
 				name: 'Базовый',
-				price: 150,
+				price: 15000, // 150 rub
+				durationDays: 30,
 				includedBalance: 0,
 				includedFileStorageMb: 0,
 			},
 			{
 				code: 'standard',
 				name: 'Стандартный',
-				price: 450,
+				price: 45000, // 450 rub
+				durationDays: 30,
 				includedBalance: 150,
 				includedFileStorageMb: 5000,
 			},

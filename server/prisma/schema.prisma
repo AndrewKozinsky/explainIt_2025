@@ -197,6 +197,7 @@ model Tariff {
     price                    Int
     included_balance         Int
     included_file_storage_mb Int
+    duration_days            Int
     created_at               DateTime           @default(now())
     userSubscriptions        UserSubscription[]
 }
@@ -208,7 +209,7 @@ model UserSubscription {
     tariff                   Tariff   @relation(fields: [tariff_id], references: [id], onDelete: Restrict)
     tariff_id                Int
     price_paid               Int
-    included_balance         Int
+    balance                  Int
     included_file_storage_mb Int
     starts_at                DateTime
     ends_at                  DateTime

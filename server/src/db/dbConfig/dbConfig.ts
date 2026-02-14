@@ -879,6 +879,12 @@ export const bdConfig = {
 				example: 5000,
 				required: true,
 			},
+			duration_days: {
+				type: 'number',
+				description: 'How many days user can use this subscription',
+				example: 30,
+				required: true,
+			},
 			created_at: {
 				type: 'createdAt',
 			},
@@ -910,9 +916,9 @@ export const bdConfig = {
 				description: 'The price paid for this subscription',
 				required: true,
 			},
-			included_balance: {
+			balance: {
 				type: 'number',
-				description: 'How many kopecks are given to the user to analyze sentences',
+				description: 'How many kopecks are available inside this subscription',
 				required: true,
 			},
 			included_file_storage_mb: {
