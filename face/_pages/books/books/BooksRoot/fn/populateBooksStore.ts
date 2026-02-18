@@ -11,7 +11,7 @@ export function usePopulateBooksStore() {
 	useFetchPublicBooksAndSetToStore()
 	useFetchPrivateBooksAndSetToStore()
 	useSetBookToStore()
-	useFetchChapterAndSetToStore()
+	// useFetchChapterAndSetToStore()
 }
 
 // Определяет тип текущей страницы и возвращает в виде типа
@@ -19,9 +19,6 @@ export function useDefineCurrentPageType() {
 	const urlBookId = useParams().bookId as string
 	const pathname = usePathname()
 
-	// Важно: не обновляем Zustand-хранилище синхронно во время рендера,
-	// чтобы избежать ошибки "Cannot update a component while rendering a different component".
-	// Обновляем pageType внутри useEffect при изменении входных данных.
 	useEffect(() => {
 		const bookType = getBookTypeByUrlBookId(urlBookId)
 
@@ -150,7 +147,7 @@ function useSetBookToStore() {
 	)
 }
 
-function useFetchChapterAndSetToStore() {
+/*function useFetchChapterAndSetToStore() {
 	const chapterId = useParams().chapterId as string
 
 	const { data, error, loading } = useBookChapter_Get({
@@ -188,4 +185,4 @@ function useFetchChapterAndSetToStore() {
 		},
 		[data, error, loading],
 	)
-}
+}*/

@@ -1,7 +1,7 @@
-@use '@/styles/mixins' as mix;
-@use '@/styles/variables' as vars;
+//@use '@/styles/mixins' as mix;
+//@use '@/styles/variables' as vars;
 
-.watching-text-root {
+/*.watching-text-root {
 	flex-grow: 1;
 	display: flex;
 	flex-direction: column;
@@ -9,26 +9,26 @@
 	@include mix.page-width(vars.$watching-desktop-width) {
 		flex-direction: row;
 	}
-}
+}*/
 
-.watching-text-root__blocks {
+/*.watching-text-root__blocks {
 	display: flex;
 	flex-grow: 1;
-}
+}*/
 
-.watching-text-root__item {
+/*.watching-text-root__item {
 	display: none;
 
 	@include mix.page-width(vars.$watching-desktop-width) {
 		display: flex;
 	}
-}
+}*/
 
-.watching-text-root__item--visible {
+/*.watching-text-root__item--visible {
 	display: flex;
-}
+}*/
 
-.watching-text-root__item--text {
+/*.watching-text-root__item--text {
 	flex-grow: 1;
 
 	@include mix.page-width(vars.$watching-desktop-width) {
@@ -37,9 +37,9 @@
 		max-width: 450px;
 		width: 50%;
 	}
-}
+}*/
 
-.watching-text-root__item--details {
+/*.watching-text-root__item--details {
 	container-type: inline-size;
 	min-width: 0;
 	width: 100%;
@@ -50,4 +50,4 @@
 		padding: 2rem;
 		flex: 1 1 0;
 	}
-}
+}*/

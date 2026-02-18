@@ -43,9 +43,7 @@
 }
 
 .videos-page-content__item--video {
-	@include mix.page-width(vars.$videos-desktop-width) {
-		max-width: 600px;
-	}
+
 }
 
 

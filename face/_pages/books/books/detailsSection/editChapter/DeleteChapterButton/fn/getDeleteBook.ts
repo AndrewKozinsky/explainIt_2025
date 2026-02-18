@@ -1,11 +1,11 @@
-import { useCallback, useContext, useState } from 'react'
-import { redirect } from 'next/navigation'
-import { Book_GetUserBooksDocument, useBookChapter_Delete } from '@/graphql'
-import { NotificationContext } from '@/ui//Notification/context'
-import { createBookIdUrl, pageUrls } from '@/сonsts/pageUrls'
-import { useBooksStore } from '_pages/books/books/booksStore'
+// import { useCallback, useContext, useState } from 'react'
+// import { redirect } from 'next/navigation'
+// import { Book_GetUserBooksDocument, useBookChapter_Delete } from '@/graphql'
+// import { NotificationContext } from '@/ui//Notification/context'
+// import { createBookIdUrl, pageUrls } from '@/сonsts/pageUrls'
+// import { useBooksStore } from '_pages/books/books/booksStore'
 
-export function useGetDeleteBook() {
+/*export function useGetDeleteBook() {
 	// Subscribe to store to trigger re-renders if needed
 	useBooksStore((s) => s.chapter)
 	useBooksStore((s) => s.privateBook)
@@ -49,4 +49,4 @@ export function useGetDeleteBook() {
 		status,
 		onDeleteChapterClick,
 	}
-}
+}*/

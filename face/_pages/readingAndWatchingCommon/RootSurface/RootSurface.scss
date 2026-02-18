@@ -1,9 +1,0 @@
-@use '@/styles/variables' as vars;
-@use '@/styles/mixins' as mix;
-
-.root-surface {
-	background: white;
-	overflow: hidden;
-	border-radius: vars.$radius-1;
-	box-shadow: vars.$shadow-1;
-}

@@ -1,8 +1,8 @@
-import { useReadingStore } from '_pages/books/reading/readingStore'
-import SentenceBlock from '_pages/readingAndWatchingCommon/SentenceBlock/SentenceBlock'
-import './ChapterContent.scss'
+// import SentenceBlock from '_pages/bookAndVideoCommon/SentenceBlock/SentenceBlock'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
+// import './ChapterContent.scss'
 
-function ChapterContent() {
+/*function ChapterContent() {
 	const populatedChapter = useReadingStore((state) => state.populatedChapter)
 	const selection = useReadingStore((state) => state.selection)
 	const selectWord = useReadingStore((state) => state.selectWord)
@@ -23,6 +23,6 @@ function ChapterContent() {
 			})}
 		</div>
 	)
-}
+}*/
 
-export default ChapterContent
+// export default ChapterContent

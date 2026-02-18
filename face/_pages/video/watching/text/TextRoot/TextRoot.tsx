@@ -1,14 +1,12 @@
-import { useWatchingStore } from '_pages/video/watching/watchingStore'
-import DetailsSide from '../detailsSide/DetailsSide/DetailsSide'
-import MobileNavigation from '../MobileNavigation/MobileNavigation'
-import TextSide from '../textSide/TextSide/TextSide'
-import { getSectionClasses } from './fn/getSectionClasses'
-// import { useUpdateRootSelectedText } from './fn/rootSelecteon/useUpdateRootSelectedText'
-import './TextRoot.scss'
+// import { useWatchingStore } from '_pages/video/watching/watchingStore'
+// import DetailsSide from '../detailsSide/DetailsSide/DetailsSide'
+// import MobileNavigation from '../MobileNavigation/MobileNavigation'
+// import TextSide from '../textSide/TextSide/TextSide'
+// import { getSectionClasses } from './fn/getSectionClasses'
+// import './TextRoot.scss'
 
-function TextRoot() {
+/*function TextRoot() {
 	const currentMobileContentType = useWatchingStore((s) => s.mobileCurrentContentType)
-	// useUpdateRootSelectedText()
 
 	return (
 		<div className='watching-text-root'>
@@ -23,6 +21,6 @@ function TextRoot() {
 			</div>
 		</div>
 	)
-}
+}*/
 
-export default TextRoot
+// export default TextRoot

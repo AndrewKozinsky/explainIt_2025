@@ -1,9 +1,9 @@
-import { useCallback, useEffect, useState } from 'react'
-import { redirect } from 'next/navigation'
-import { createVideoIdUrl, pageUrls } from '@/сonsts/pageUrls'
-import { useVideosStore } from '_pages/video/videos/videosStore'
+// import { useCallback, useEffect, useState } from 'react'
+// import { redirect } from 'next/navigation'
+// import { createVideoIdUrl, pageUrls } from '@/сonsts/pageUrls'
+// import { useVideosStore } from '_pages/video/videos/videosStore'
 
-export function useIsWatchButtonDisabled() {
+/*export function useIsWatchButtonDisabled() {
 	const video = useVideosStore((s) => s.privateVideo)
 	const [isReadButtonDisabled, setIsReadButtonDisabled] = useState(true)
 
@@ -17,9 +17,9 @@ export function useIsWatchButtonDisabled() {
 	)
 
 	return isReadButtonDisabled
-}
+}*/
 
-export function useGetOnWatchButtonClick() {
+/*export function useGetOnWatchButtonClick() {
 	const privateVideo = useVideosStore((s) => s.privateVideo)
 
 	return useCallback(
@@ -31,4 +31,4 @@ export function useGetOnWatchButtonClick() {
 		},
 		[privateVideo],
 	)
-}
+}*/

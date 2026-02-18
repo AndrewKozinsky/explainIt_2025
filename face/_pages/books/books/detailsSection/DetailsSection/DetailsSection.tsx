@@ -1,10 +1,10 @@
-import { useBooksStore } from '_pages/books/books/booksStore'
-import NoteText from '_pages/books/books/common/NoteText/NoteText'
-import PublicBookInfo from '_pages/books/books/detailsSection/PublicBookInfo/PublicBookInfo'
-import EditChapterForm from '../editChapter/EditChapterForm/EditChapterForm'
-import EditBookForm from '../editPrivateBook/EditPrivateBookForm/EditPrivateBookForm'
+// import { useBooksStore } from '_pages/books/books/booksStore'
+// import NoteText from '_pages/books/books/common/NoteText/NoteText'
+// import PublicBookInfo from '_pages/books/books/detailsSection/PublicBookInfo/PublicBookInfo'
+// import EditChapterForm from '../editChapter/EditChapterForm/EditChapterForm'
+// import EditBookForm from '../editPrivateBook/EditPrivateBookForm/EditPrivateBookForm'
 
-function DetailsSection() {
+/*function DetailsSection() {
 	const pageUrlType = useBooksStore((s) => s.pageUrlType)
 	const publicBook = useBooksStore((s) => s.publicBook)
 	const privateBook = useBooksStore((s) => s.privateBook)
@@ -20,6 +20,6 @@ function DetailsSection() {
 			{pageUrlType === 'chapter' && <EditChapterForm />}
 		</div>
 	)
-}
+}*/
 
-export default DetailsSection
+// export default DetailsSection

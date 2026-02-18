@@ -1,12 +1,12 @@
-import React from 'react'
-import Paragraph from 'ui/Paragraph/Paragraph'
-import './NoteText.scss'
+// import React from 'react'
+// import Paragraph from 'ui/Paragraph/Paragraph'
+// import './NoteText.scss'
 
-type NoteTextProps = {
+/*type NoteTextProps = {
 	children: React.ReactNode
-}
+}*/
 
-function NoteText(props: NoteTextProps) {
+/*function NoteText(props: NoteTextProps) {
 	const { children } = props
 
 	return (
@@ -14,6 +14,6 @@ function NoteText(props: NoteTextProps) {
 			{children}
 		</Paragraph>
 	)
-}
+}*/
 
-export default NoteText
+// export default NoteText

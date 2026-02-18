@@ -1,11 +1,8 @@
-import cn from 'classnames'
-import Paragraph from '@/ui/Paragraph/Paragraph'
 import { createBookIdUrl, pageUrls } from '@/сonsts/pageUrls'
+import MediaLink from '_pages/bookAndVideoCommon/MediaLink/MediaLink'
 import { bookConfig } from '../../common/bookConfig'
-import ContentLinkWrapper from '../../common/ContentLinkWrapper/ContentLinkWrapper'
 import { useGetBookLinkStatus } from './fn/isPageCurrent'
 import { useGetOnBookLinkClick } from './fn/onClick'
-import './BookLink.scss'
 
 type BookLinkProps = {
 	bookData: {
@@ -24,23 +21,13 @@ function BookLink(props: BookLinkProps) {
 	const bookIdInUrl = createBookIdUrl(id, bookType)
 
 	return (
-		<ContentLinkWrapper
+		<MediaLink
 			href={pageUrls.books.book(bookIdInUrl).path}
-			status={bookLinkStatus}
+			info={author}
+			name={name ? name : bookConfig.emptyBookName}
 			onClick={onBookLinkClick}
-		>
-			<div className='book-link'>
-				{author && (
-					<Paragraph
-						fontSize='15'
-						extraClass={cn('book-link__author', 'book-link__author--' + bookLinkStatus)}
-					>
-						{author}
-					</Paragraph>
-				)}
-				<Paragraph fontSize='18'>{name ? name : bookConfig.emptyBookName}</Paragraph>
-			</div>
-		</ContentLinkWrapper>
+			linkStatus={bookLinkStatus}
+		/>
 	)
 }
 

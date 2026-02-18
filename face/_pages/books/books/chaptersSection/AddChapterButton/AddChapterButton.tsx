@@ -4,9 +4,13 @@ import { NotificationContext } from '@/ui/Notification/context'
 import { publicFolderFilesUrls } from '@/utils/publicFolderFilesUrls'
 import { useGetOnAddChapterClick } from './fn/getOnAddChapterClick'
 
-function AddChapterButton() {
+function AddChapterButton({ bookType }: { bookType: 'private' | 'public' }) {
 	const { notify } = useContext(NotificationContext)
 	const { onAddChapterClick, status } = useGetOnAddChapterClick(notify)
+
+	if (bookType !== 'private') {
+		return null
+	}
 
 	return (
 		<Button

@@ -1,8 +1,8 @@
-import VideoRoot from '_pages/video/watching/video/VideoRoot/VideoRoot'
-import { useWatchingStore } from '_pages/video/watching/watchingStore'
-import TextRoot from '../text/TextRoot/TextRoot'
+// import VideoRoot from '_pages/video/watching/video/VideoRoot/VideoRoot'
+// import { useWatchingStore } from '_pages/video/watching/watchingStore'
+// import TextRoot from '../text/TextRoot/TextRoot'
 
-function WatchingRootContent() {
+/*function WatchingRootContent() {
 	const video = useWatchingStore((s) => s.video?.data)
 	if (!video) return null
 
@@ -12,11 +12,11 @@ function WatchingRootContent() {
 			<TextContainer />
 		</div>
 	)
-}
+}*/
 
-export default WatchingRootContent
+// export default WatchingRootContent
 
-function VideoContainer() {
+/*function VideoContainer() {
 	const videoData = useWatchingStore((s) => s.video!.data)
 
 	if (!videoData.fileUrl) {
@@ -32,9 +32,9 @@ function VideoContainer() {
 			<VideoRoot />
 		</div>
 	)
-}
+}*/
 
-function TextContainer() {
+/*function TextContainer() {
 	const video = useWatchingStore((s) => s.video!.data)
 
 	if (!video.processedContent) {
@@ -50,4 +50,4 @@ function TextContainer() {
 			<TextRoot />
 		</div>
 	)
-}
+}*/

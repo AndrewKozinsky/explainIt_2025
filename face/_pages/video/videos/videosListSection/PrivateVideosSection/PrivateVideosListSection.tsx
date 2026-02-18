@@ -1,18 +1,12 @@
-import { useUserStore } from 'stores/userStore'
-import { SectionWithHeader } from '../../common/SectionWithHeader/SectionWithHeader'
-import LogInToSeeOurBooks from '../LogInToSeeOurBooks/LogInToSeeOurBooks'
+import { SectionWithHeader } from '_pages/bookAndVideoCommon/SectionWithHeader/SectionWithHeader'
+import UnauthorizedUserGuardInMediaList from '_pages/bookAndVideoCommon/UnauthorizedUserGuardInMediaList/UnauthorizedUserGuardInMediaList'
 import PrivateVideosList from '../PrivateVideosList/PrivateVideosList'
 
 function PrivateBooksListSection() {
-	const user = useUserStore((state) => state.user)
-	const isUserLoading = useUserStore((state) => state.isLoading)
-
-	if (isUserLoading) {
-		return null
-	}
 	return (
 		<SectionWithHeader title='Загруженные видео'>
-			{user ? <PrivateVideosList /> : <LogInToSeeOurBooks />}
+			<UnauthorizedUserGuardInMediaList contentType='videos' />
+			<PrivateVideosList />
 		</SectionWithHeader>
 	)
 }

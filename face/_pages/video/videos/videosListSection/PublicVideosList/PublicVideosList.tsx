@@ -1,7 +1,7 @@
 import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
 import LoadingMessage from 'ui/LoadingMessage/LoadingMessage'
 import Paragraph from 'ui/Paragraph/Paragraph'
-import { SectionWithHeader } from '_pages/video/videos/common/SectionWithHeader/SectionWithHeader'
+import { SectionWithHeader } from '_pages/bookAndVideoCommon/SectionWithHeader/SectionWithHeader'
 import { useVideosStore } from '_pages/video/videos/videosStore'
 import VideoLink from '../VideoLink/VideoLink'
 

@@ -1,8 +1,8 @@
-import { useVideosStore } from '_pages/video/videos/videosStore'
-import NoteText from '../../common/NoteText/NoteText'
-import EditPrivateVideoForm from '../editPrivateVideo/EditPrivateVideoForm/EditPrivateBookForm'
+// import { useVideosStore } from '_pages/video/videos/videosStore'
+// import NoteText from '../../common/NoteText/NoteText'
+// import EditPrivateVideoForm from '../editPrivateVideo/EditPrivateVideoForm/EditPrivateBookForm'
 
-function DetailsSection() {
+/*function DetailsSection() {
 	const pageUrlType = useVideosStore((s) => s.pageUrlType)
 	const privateVideo = useVideosStore((s) => s.privateVideo)
 
@@ -15,6 +15,6 @@ function DetailsSection() {
 			{pageUrlType === 'video' && privateVideo && <EditPrivateVideoForm />}
 		</div>
 	)
-}
+}*/
 
-export default DetailsSection
+// export default DetailsSection

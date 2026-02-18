@@ -1,37 +1,36 @@
-import Paragraph from '@/ui/Paragraph/Paragraph'
 import { createVideoIdUrl, pageUrls } from '@/сonsts/pageUrls'
+import MediaLink from '_pages/bookAndVideoCommon/MediaLink/MediaLink'
 import { videoConfig } from '_pages/video/videos/common/videoConfig'
-import ContentLinkWrapper from '../../common/ContentLinkWrapper/ContentLinkWrapper'
 import { useGetVideoLinkStatus } from './fn/isPageCurrent'
 import { useGetOnBookLinkClick } from './fn/onClick'
-import './VideoLink.scss'
 
 type VideoLinkProps = {
 	videoData: {
 		id: number
 		videoType: 'public' | 'private'
+		year?: null | number
 		name?: null | string
 	}
 }
 
 function VideoLink(props: VideoLinkProps) {
-	const { id, videoType, name } = props.videoData
+	const { id, videoType, year, name } = props.videoData
 
-	const bookLinkStatus = useGetVideoLinkStatus(id, videoType)
-	const onBookLinkClick = useGetOnBookLinkClick()
+	const videoLinkStatus = useGetVideoLinkStatus(id, videoType)
+	const onVideoLinkClick = useGetOnBookLinkClick()
 	const videoIdInUrl = createVideoIdUrl(id, videoType)
 
 	const href =
-		videoType === 'public'
-			? pageUrls.videos.video(videoIdInUrl).watching.path
-			: pageUrls.videos.video(videoIdInUrl).path
+		videoType === 'public' ? pageUrls.videos.video(videoIdInUrl).path : pageUrls.videos.video(videoIdInUrl).path
 
 	return (
-		<ContentLinkWrapper href={href} status={bookLinkStatus} onClick={onBookLinkClick}>
-			<div className='book-link'>
-				<Paragraph fontSize='18'>{name ? name : videoConfig.emptyVideoName}</Paragraph>
-			</div>
-		</ContentLinkWrapper>
+		<MediaLink
+			href={href}
+			info={year?.toString()}
+			name={name ? name : videoConfig.emptyVideoName}
+			linkStatus={videoLinkStatus}
+			onClick={onVideoLinkClick}
+		/>
 	)
 }
 

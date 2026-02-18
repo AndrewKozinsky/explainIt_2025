@@ -1,10 +1,14 @@
 import { useBooksStore } from '_pages/books/books/booksStore'
 import ChapterLink from '../ChapterLink/ChapterLink'
 
-function PublicBookChaptersList() {
+function PublicBookChaptersList({ bookId, bookType }: { bookId: number; bookType: 'private' | 'public' }) {
 	const publicBook = useBooksStore((s) => s.publicBook)
 
 	if (!publicBook || !publicBook.chapters.length) return null
+
+	if (publicBook.id !== bookId || bookType !== 'public') {
+		return null
+	}
 
 	return (
 		<>

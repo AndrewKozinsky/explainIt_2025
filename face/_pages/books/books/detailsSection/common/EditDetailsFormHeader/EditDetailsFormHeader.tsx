@@ -1,8 +1,8 @@
-import React from 'react'
-import { useGetLabelAndHeader } from './fn/getLabelAndHeader'
-import './EditDetailsFormHeader.scss'
+// import React from 'react'
+// import { useGetLabelAndHeader } from './fn/getLabelAndHeader'
+// import './EditDetailsFormHeader.scss'
 
-function EditDetailsFormHeader() {
+/*function EditDetailsFormHeader() {
 	const { label, header } = useGetLabelAndHeader()
 
 	return (
@@ -11,6 +11,6 @@ function EditDetailsFormHeader() {
 			<h1 className='edit-details-form-header__header'>{header}</h1>
 		</div>
 	)
-}
+}*/
 
-export default EditDetailsFormHeader
+// export default EditDetailsFormHeader

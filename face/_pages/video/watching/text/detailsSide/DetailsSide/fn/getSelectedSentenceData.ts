@@ -1,6 +1,6 @@
-import { useWatchingStore } from '_pages/video/watching/watchingStore'
+// import { useWatchingStore } from '_pages/video/watching/watchingStore'
 
-export function useGetSelectedSentenceData() {
+/*export function useGetSelectedSentenceData() {
 	const selection = useWatchingStore((s) => s.selection)
 	const populatedPlainText = useWatchingStore((s) => s.populatedPlainText)
 	const populatedSubtitles = useWatchingStore((s) => s.populatedSubtitles)
@@ -21,4 +21,4 @@ export function useGetSelectedSentenceData() {
 		sentenceText: plainTextSentence?.text ?? subtitleSentence?.text,
 		wordIds: selection.wordIds,
 	}
-}
+}*/

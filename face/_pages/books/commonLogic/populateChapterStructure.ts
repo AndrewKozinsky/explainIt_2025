@@ -1,11 +1,11 @@
-import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
+// import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
 
 /**
  * Получает структуру главы с сервера и наполняет её полезными данными чтобы из
  * ChapterTextStructure.Chapter получить ChapterTextStructurePopulated.Chapter
  * @param chapter — данные главы
  */
-export function populateChapterStructure(chapter: {
+/*export function populateChapterStructure(chapter: {
 	id: number
 	header: undefined | null | string
 	name: undefined | null | string
@@ -37,4 +37,4 @@ export function populateChapterStructure(chapter: {
 		name: chapter.name || null,
 		sentences,
 	}
-}
+}*/

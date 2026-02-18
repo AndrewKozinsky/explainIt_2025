@@ -11,7 +11,7 @@ function AddBookButton() {
 			onClick={onAddBookClick}
 			loading={status === 'loading'}
 		>
-			Добавить книгу
+			Книгу
 		</Button>
 	)
 }

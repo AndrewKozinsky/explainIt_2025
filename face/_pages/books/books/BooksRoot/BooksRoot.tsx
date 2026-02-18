@@ -1,8 +1,7 @@
+import BooksMobileNavigation from '_pages/books/books/BooksMobileNavigation/BooksMobileNavigation'
 import { useBooksStore } from '_pages/books/books/booksStore'
-import ChaptersSection from '_pages/books/books/chaptersSection/ChaptersSection/ChaptersSection'
-import DetailsSection from '_pages/books/books/detailsSection/DetailsSection/DetailsSection'
+// import DetailsSection from '_pages/books/books/detailsSection/DetailsSection/DetailsSection'
 import BooksSection from '../booksListSection/BooksSection/BooksSection'
-import MobileNavigation from '../MobileNavigation/MobileNavigation'
 import { getSectionClasses } from './fn/getSectionClasses'
 import { usePopulateBooksStore } from './fn/populateBooksStore'
 import './BooksRoot.scss'
@@ -14,17 +13,12 @@ function BooksRoot() {
 
 	return (
 		<main className='books-page-content'>
-			<MobileNavigation />
+			<BooksMobileNavigation />
 			<div className='books-page-content__blocks'>
 				<div className={getSectionClasses('books', currentMobileContentType)}>
 					<BooksSection />
 				</div>
-				<div className={getSectionClasses('book', currentMobileContentType)}>
-					<ChaptersSection />
-				</div>
-				<div className={getSectionClasses('chapter', currentMobileContentType)}>
-					<DetailsSection />
-				</div>
+				<div className={getSectionClasses('chapter', currentMobileContentType)}>{/*<DetailsSection />*/}</div>
 			</div>
 		</main>
 	)

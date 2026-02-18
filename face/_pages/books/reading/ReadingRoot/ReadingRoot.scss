@@ -1,6 +1,7 @@
-@use '@/styles/variables' as vars;
-@use '@/styles/mixins' as mix;
+//@use '@/styles/variables' as vars;
+//@use '@/styles/mixins' as mix;
 
+/*
 .reading-root {
 	display: grid;
 	grid-template-rows: 1fr 1fr;
@@ -16,17 +17,18 @@
 		grid-template-columns: 1fr 1fr;
 	}
 }
+*/
 
-.reading-root__content {
+/*.reading-root__content {
 	overflow: auto;
-}
+}*/
 
 
-.reading-root__content-inner {
+/*.reading-root__content-inner {
 	padding: 16px var(--reading-page-chapter-horizontal-padding);
-}
+}*/
 
-.reading-root__analysis {
+/*.reading-root__analysis {
 	overflow: auto;
 	padding: 16px var(--reading-page-chapter-horizontal-padding);
-}
+}*/

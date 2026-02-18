@@ -1,7 +1,15 @@
-import AddBookButton from '_pages/books/books/booksListSection/AddBookButton/AddBookButton'
+import { useUserStore } from 'stores/userStore'
+import AddBookButton from '../AddBookButton/AddBookButton'
 import { PrivateBooksListContent } from './PrivateBooksListContent'
 
 function PrivateBooksList() {
+	const user = useUserStore((state) => state.user)
+
+	const tariffCode = user?.currentSubscription?.tariffCode
+	if (tariffCode !== 'standard') {
+		return null
+	}
+
 	return (
 		<>
 			<PrivateBooksListContent />

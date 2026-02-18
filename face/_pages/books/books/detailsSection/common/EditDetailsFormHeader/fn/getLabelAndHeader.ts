@@ -1,7 +1,7 @@
-import { useBooksStore } from '_pages/books/books/booksStore'
-import { bookConfig } from '_pages/books/books/common/bookConfig'
+// import { useBooksStore } from '_pages/books/books/booksStore'
+// import { bookConfig } from '_pages/books/books/common/bookConfig'
 
-export function useGetLabelAndHeader() {
+/*export function useGetLabelAndHeader() {
 	const pageUrlType = useBooksStore((s) => s.pageUrlType)
 	const privateBook = useBooksStore((s) => s.privateBook)
 	const chapter = useBooksStore((s) => s.chapter)
@@ -13,4 +13,4 @@ export function useGetLabelAndHeader() {
 		label: pageUrlType === 'book' ? 'Книга' : 'Глава',
 		header: pageUrlType === 'book' ? bookName : chapterName,
 	}
-}
+}*/

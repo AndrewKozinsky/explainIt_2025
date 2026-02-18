@@ -1,9 +1,9 @@
 import Paragraph from '@/ui/Paragraph/Paragraph'
-import { useGetChapterLinkStatus } from '_pages/books/books/chaptersSection/ChapterLink/fn/isPageCurrent'
-import { createBookIdUrl, pageUrls } from 'сonsts/pageUrls'
+import ContentLinkWrapper from '_pages/bookAndVideoCommon/ContentLinkWrapper/ContentLinkWrapper'
 import { bookConfig } from '../../common/bookConfig'
-import ContentLinkWrapper from '../../common/ContentLinkWrapper/ContentLinkWrapper'
+import { useGetChapterLinkStatus } from './fn/isPageCurrent'
 import './ChapterLink.scss'
+import { createBookIdUrl, pageUrls } from 'сonsts/pageUrls'
 
 type BookLinkProps = {
 	bookId: number | string
@@ -37,7 +37,7 @@ function ChapterLink(props: BookLinkProps) {
 						{name}
 					</Paragraph>
 				)}
-				{chapterName && <Paragraph fontSize='15'>{chapterName}</Paragraph>}
+				{chapterName && <Paragraph fontSize='16'>{chapterName}</Paragraph>}
 			</div>
 		</ContentLinkWrapper>
 	)

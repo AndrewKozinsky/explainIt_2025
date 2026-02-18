@@ -42,12 +42,6 @@
 	}
 }
 
-.books-page-content__item--book {
-	@include mix.page-width(vars.$books-desktop-width) {
-		max-width: 280px;
-	}
-}
-
 .books-page-content__item--chapter {
 
 }

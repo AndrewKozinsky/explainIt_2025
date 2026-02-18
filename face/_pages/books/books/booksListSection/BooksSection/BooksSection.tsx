@@ -1,11 +1,11 @@
-import PrivateBooksListSection from '_pages/books/books/booksListSection/PrivateBooksSection/PrivateBooksListSection'
-import PublicBooksList from '../PublicBooksList/PublicBooksList'
+import PublicBooksListSection from '_pages/books/books/booksListSection/PublicBooksListSection/PublicBooksListSection'
+import PrivateBooksListSection from '../PrivateBooksSection/PrivateBooksListSection'
 import './BooksSection.scss'
 
 function BooksSection() {
 	return (
 		<div className='books-section'>
-			<PublicBooksList />
+			<PublicBooksListSection />
 			<PrivateBooksListSection />
 		</div>
 	)

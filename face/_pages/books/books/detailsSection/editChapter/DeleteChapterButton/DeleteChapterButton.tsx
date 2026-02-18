@@ -1,8 +1,8 @@
-import React from 'react'
-import DeleteEntityButtonAndModal from '@/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
-import { useGetDeleteBook } from './fn/getDeleteBook'
+// import React from 'react'
+// import DeleteEntityButtonAndModal from '@/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
+// import { useGetDeleteBook } from './fn/getDeleteBook'
 
-function DeleteChapterButton() {
+/*function DeleteChapterButton() {
 	const { onDeleteChapterClick, status } = useGetDeleteBook()
 
 	return (
@@ -17,6 +17,6 @@ function DeleteChapterButton() {
 			}}
 		/>
 	)
-}
+}*/
 
-export default DeleteChapterButton
+// export default DeleteChapterButton

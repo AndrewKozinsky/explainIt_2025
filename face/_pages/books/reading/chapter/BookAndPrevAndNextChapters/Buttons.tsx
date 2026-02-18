@@ -1,12 +1,12 @@
-import { useParams } from 'next/navigation'
-import { useReadingStore } from '_pages/books/reading/readingStore'
-import { useGetPrevAndNextChapters } from './fn/prevAndNextChapters'
-import LinkArrow from './LinkArrow'
-import { LinkButton } from './LinkButton'
-import { RegularText, SmallGrayText } from './Texts'
-import { pageUrls } from 'сonsts/pageUrls'
+// import { useParams } from 'next/navigation'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
+// import { useGetPrevAndNextChapters } from './fn/prevAndNextChapters'
+// import LinkArrow from './LinkArrow'
+// import { LinkButton } from './LinkButton'
+// import { RegularText, SmallGrayText } from './Texts'
+// import { pageUrls } from 'сonsts/pageUrls'
 
-export function BookLink() {
+/*export function BookLink() {
 	const bookIdInUrl = useParams().bookId as string
 	const book = useReadingStore((s) => s.book.data)
 
@@ -18,9 +18,9 @@ export function BookLink() {
 			</div>
 		</LinkButton>
 	)
-}
+}*/
 
-export function PrevChapterLink() {
+/*export function PrevChapterLink() {
 	const bookIdInUrl = useParams().bookId as string
 	const prevChapter = useGetPrevAndNextChapters().prev
 	if (!prevChapter) {
@@ -36,9 +36,9 @@ export function PrevChapterLink() {
 			</div>
 		</LinkButton>
 	)
-}
+}*/
 
-export function NextChapterLink() {
+/*export function NextChapterLink() {
 	const bookIdInUrl = useParams().bookId as string
 	const nextChapter = useGetPrevAndNextChapters().next
 	if (!nextChapter) {
@@ -54,4 +54,4 @@ export function NextChapterLink() {
 			<LinkArrow direction='right' />
 		</LinkButton>
 	)
-}
+}*/

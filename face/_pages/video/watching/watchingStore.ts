@@ -1,9 +1,9 @@
-import { create } from 'zustand'
-import { VideoPrivateOutModel, VideoPublicOutModel } from '@/graphql'
-import { PopulatedSubtitlesStructure } from '_pages/video/watching/common/populatedSubtitlesStructure'
-import { PopulatedTextStructure } from '_pages/video/watching/common/populatedTextStructure'
+// import { create } from 'zustand'
+// import { VideoPrivateOutModel, VideoPublicOutModel } from '@/graphql'
+// import { PopulatedSubtitlesStructure } from '_pages/video/watching/common/populatedSubtitlesStructure'
+// import { PopulatedTextStructure } from '_pages/video/watching/common/populatedTextStructure'
 
-export const watchingStoreValues: WatchingStoreValues = {
+/*export const watchingStoreValues: WatchingStoreValues = {
 	video: {
 		loading: true,
 		errorMessage: null,
@@ -25,9 +25,9 @@ export const watchingStoreValues: WatchingStoreValues = {
 	fullScreen: false,
 	populatedPlainText: null as any as PopulatedTextStructure.Structure,
 	populatedSubtitles: null as any as PopulatedSubtitlesStructure.Structure,
-}
+}*/
 
-export const useWatchingStore = create<WatchingStore>()((set, get) => {
+/*export const useWatchingStore = create<WatchingStore>()((set, get) => {
 	return {
 		...watchingStoreValues,
 		updateStore: (storePart: Partial<WatchingStoreValues>) => {
@@ -92,9 +92,9 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 			})
 		},
 	}
-})
+})*/
 
-export namespace WatchingStoreI {
+/*export namespace WatchingStoreI {
 	export type VideoData = {
 		loading: boolean
 		errorMessage: null | string
@@ -119,11 +119,11 @@ export namespace WatchingStoreI {
 		// Идентификаторы выделенных слов
 		wordIds: number[]
 	}
-}
+}*/
 
-export type WatchingStore = WatchingStoreValues & WatchingStoreMethods
+// export type WatchingStore = WatchingStoreValues & WatchingStoreMethods
 
-export type WatchingStoreValues = {
+/*export type WatchingStoreValues = {
 	video: WatchingStoreI.VideoData
 	player: {
 		currentTime: number
@@ -138,9 +138,9 @@ export type WatchingStoreValues = {
 	populatedSubtitles: PopulatedSubtitlesStructure.Structure
 	// Данные выделенного предложения и слов
 	selection: WatchingStoreI.SelectedSentence
-}
+}*/
 
-export type PlayerCommand =
+/*export type PlayerCommand =
 	| { type: 'PLAY' }
 	| { type: 'PAUSE' }
 	| { type: 'SET_TIME'; time: number }
@@ -150,9 +150,9 @@ export type PlayerCommand =
 	| { type: 'STOP_FORWARD_HOLD' }
 	| { type: 'START_REVERSE_SEEK'; rate: number }
 	| { type: 'STOP_REVERSE_SEEK' }
-	| { type: 'SET_VOLUME'; volume: number }
+	| { type: 'SET_VOLUME'; volume: number }*/
 
-export type WatchingStoreMethods = {
+/*export type WatchingStoreMethods = {
 	updateStore: (store: Partial<WatchingStoreValues>) => void
 	updateMobileCurrentContentType: (contentType: WatchingStoreI.MobileCurrentContentType) => void
 	updateHelpCurrentContentType: (contentType: WatchingStoreI.HelpCurrentContentType) => void
@@ -161,4 +161,4 @@ export type WatchingStoreMethods = {
 	sendPlayerCommand: (command: PlayerCommand) => void
 	toggleFullScreen: () => void
 	selectWord: (input: { sentenceId: number; wordId: number }) => void
-}
+}*/
