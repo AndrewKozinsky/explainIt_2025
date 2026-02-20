@@ -1,6 +1,6 @@
 import VideosMobileNavigation from '_pages/video/videos/VideosMobileNavigation/VideosMobileNavigation'
 import { useVideosStore } from '_pages/video/videos/videosStore'
-// import DetailsSection from '../detailsSection/DetailsSection/DetailsSection'
+import DetailsSection from '../detailsSection/DetailsSection/DetailsSection'
 import VideosSection from '../videosListSection/VideosSection/VideosSection'
 import { getSectionClasses } from './fn/getSectionClasses'
 import { usePopulateVideosStore } from './fn/populateVideosStore'
@@ -18,7 +18,9 @@ function VideosRoot() {
 				<div className={getSectionClasses('videos', currentMobileContentType)}>
 					<VideosSection />
 				</div>
-				<div className={getSectionClasses('video', currentMobileContentType)}>{/*<DetailsSection />*/}</div>
+				<div className={getSectionClasses('video', currentMobileContentType)}>
+					<DetailsSection />
+				</div>
 			</div>
 		</main>
 	)

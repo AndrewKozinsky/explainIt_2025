@@ -53,7 +53,7 @@ export class VideoPublicQueryRepository {
 	@CatchDbError()
 	async getVideos() {
 		const videos = await this.prisma.videoPublic.findMany({
-			orderBy: { created_at: 'desc' },
+			orderBy: { id: 'asc' },
 		})
 
 		return await Promise.all(videos.map((video) => this.mapDbVideoToLiteOutVideo(video)))

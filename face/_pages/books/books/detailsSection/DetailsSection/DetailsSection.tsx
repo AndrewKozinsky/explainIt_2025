@@ -1,10 +1,10 @@
-// import { useBooksStore } from '_pages/books/books/booksStore'
-// import NoteText from '_pages/books/books/common/NoteText/NoteText'
-// import PublicBookInfo from '_pages/books/books/detailsSection/PublicBookInfo/PublicBookInfo'
+import NoteText from '_pages/bookAndVideoCommon/NoteText/NoteText'
+import { useBooksStore } from '_pages/books/books/booksStore'
+import PublicBookInfo from '_pages/books/books/detailsSection/PublicBookInfo/PublicBookInfo'
 // import EditChapterForm from '../editChapter/EditChapterForm/EditChapterForm'
 // import EditBookForm from '../editPrivateBook/EditPrivateBookForm/EditPrivateBookForm'
 
-/*function DetailsSection() {
+function DetailsSection() {
 	const pageUrlType = useBooksStore((s) => s.pageUrlType)
 	const publicBook = useBooksStore((s) => s.publicBook)
 	const privateBook = useBooksStore((s) => s.privateBook)
@@ -16,10 +16,10 @@
 	return (
 		<div className='editable-form-section'>
 			{pageUrlType === 'book' && publicBook && <PublicBookInfo />}
-			{pageUrlType === 'book' && privateBook && <EditBookForm />}
-			{pageUrlType === 'chapter' && <EditChapterForm />}
+			{/*{pageUrlType === 'book' && privateBook && <EditBookForm />}*/}
+			{/*{pageUrlType === 'chapter' && <EditChapterForm />}*/}
 		</div>
 	)
-}*/
+}
 
-// export default DetailsSection
+export default DetailsSection

@@ -16,8 +16,8 @@ import { UpdateVideoPublicOutModel } from 'models/videoPublic/updateVideoPublic.
 export type UpdatePublicVideoInput = {
 	id: number
 	name?: string
-	note?: string | null
-	year?: null | number
+	note?: string
+	year: number
 	covers?: string[]
 	originalContent?: string
 	fileName?: string

@@ -22,7 +22,7 @@ import { chapter_9 } from 'features/bookPublic/solomonMines/chapter_9'
 import { intro } from './intro'
 
 export function solomonMinesBookData(publicBookUrl: string) {
-	const covers = ['king_solomon_mines_cover_1.jpg', 'king_solomon_mines_cover_2.jpg']
+	const covers = ['king_solomon_mines_cover_2.jpg', 'king_solomon_mines_cover_1.jpg']
 
 	return {
 		author: 'Henry Rider Haggard',

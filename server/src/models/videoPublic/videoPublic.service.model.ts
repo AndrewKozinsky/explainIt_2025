@@ -3,9 +3,9 @@ import { Language } from 'utils/languages'
 export type VideoPublicServiceModel = {
 	id: number
 	name: string
-	year: number | null
+	year: number
 	languageCode: Language
-	note: string | null
+	note: string
 	covers: string[]
 	fileUrl: string
 	fileName: string

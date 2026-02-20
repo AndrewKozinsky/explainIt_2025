@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useParams, usePathname } from 'next/navigation'
 import { useVideoPrivate_GetUserVideos, useVideoPublic_GetVideos } from '@/graphql'
-// import { extractVideoIdFromUrlVideoId, getVideoTypeByUrlVideoId } from '@/сonsts/pageUrls'
+import { extractVideoIdFromUrlVideoId, getVideoTypeByUrlVideoId } from '@/сonsts/pageUrls'
 import { useVideosStore } from '_pages/video/videos/videosStore'
 
 /** Наполняет Хранилище данными для начала работы */
@@ -9,7 +9,7 @@ export function usePopulateVideosStore() {
 	useDefineCurrentPageType()
 	useFetchPublicVideosAndSetToStore()
 	useFetchPrivateVideosAndSetToStore()
-	// useSetVideoToStore()
+	useSetVideoToStore()
 }
 
 // Определяет тип текущей страницы и возвращает в виде типа
@@ -94,7 +94,7 @@ function useFetchPrivateVideosAndSetToStore() {
 	)
 }
 
-/*function useSetVideoToStore() {
+function useSetVideoToStore() {
 	const publicVideos = useVideosStore((s) => s.publicVideos.data)
 	const privateVideos = useVideosStore((s) => s.privateVideos.data)
 
@@ -128,4 +128,4 @@ function useFetchPrivateVideosAndSetToStore() {
 		},
 		[publicVideos, privateVideos, urlVideoId, videoType],
 	)
-}*/
+}

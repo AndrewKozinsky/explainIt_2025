@@ -13,7 +13,7 @@ export class BookPublicQueryRepository {
 	@CatchDbError()
 	async getPublicBooks() {
 		const booksPublic = await this.prisma.bookPublic.findMany({
-			include: { BookChapter: { orderBy: { created_at: 'asc' } } },
+			include: { BookChapter: { orderBy: { id: 'asc' } } },
 		})
 
 		return booksPublic.map(this.mapDbBookPublicToOutBook)

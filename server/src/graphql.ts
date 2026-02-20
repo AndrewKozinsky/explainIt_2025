@@ -300,9 +300,9 @@ export interface SentenceTranslationLiteOutModel {
 export interface VideoPublicOutModel {
     id: number;
     name: string;
-    year?: Nullable<number>;
+    year: number;
     languageCode: string;
-    note?: Nullable<string>;
+    note: string;
     covers: string[];
     originalContent: string;
     processedContent: string;
@@ -336,9 +336,9 @@ export interface VideoPublicSubtitleOutModel {
 export interface VideoPublicLiteOutModel {
     id: number;
     name: string;
-    year?: Nullable<number>;
+    year: number;
     languageCode: string;
-    note?: Nullable<string>;
+    note: string;
     covers: string[];
     originalContent: string;
     processedContent: string;

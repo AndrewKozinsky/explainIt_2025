@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { VideoPrivateLiteOutModel, VideoPublicLiteOutModel, VideoPublicOutModel } from '@/graphql'
+import { VideoPrivateLiteOutModel, VideoPublicLiteOutModel } from '@/graphql'
 
 export const videosStoreValues: VideosStoreValues = {
 	pageUrlType: 'videos',
@@ -14,8 +14,8 @@ export const videosStoreValues: VideosStoreValues = {
 		errorMessage: null,
 		data: null as any as VideoPrivateLiteOutModel[],
 	},
-	// publicVideo: null,
-	// privateVideo: null,
+	publicVideo: null,
+	privateVideo: null,
 }
 
 export const useVideosStore = create<VideosStoreFull>()((set) => {
@@ -56,8 +56,8 @@ export type VideosStoreValues = {
 	mobileCurrentContentType: VideosStore.MobileCurrentContentType
 	publicVideos: VideosStore.PublicVideosData
 	privateVideos: VideosStore.PrivateVideosData
-	// publicVideo: null | VideoPublicLiteOutModel
-	// privateVideo: null | VideoPrivateLiteOutModel
+	publicVideo: null | VideoPublicLiteOutModel
+	privateVideo: null | VideoPrivateLiteOutModel
 }
 
 export namespace VideosStore {

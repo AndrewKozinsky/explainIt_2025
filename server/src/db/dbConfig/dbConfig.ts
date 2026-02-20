@@ -501,9 +501,15 @@ export const bdConfig = {
 			year: {
 				type: 'number',
 				description: 'Year of video release',
-				required: false,
+				required: true,
 				max: 2030,
 				min: 1900,
+			},
+			name: {
+				type: 'string',
+				description: 'Name of the video',
+				required: true,
+				maxLength: 255,
 			},
 			file_name: {
 				type: 'string',
@@ -526,16 +532,10 @@ export const bdConfig = {
 				description: 'S3 provider name',
 				required: true,
 			},
-			name: {
-				type: 'string',
-				description: 'Name of the video',
-				required: true,
-				maxLength: 255,
-			},
 			note: {
 				type: 'string',
 				description: 'Note about the video',
-				required: false,
+				required: true,
 				maxLength: 4000,
 			},
 			covers: {

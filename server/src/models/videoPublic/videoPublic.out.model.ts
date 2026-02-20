@@ -12,14 +12,14 @@ export class VideoPublicOutModel {
 	@Field(() => String)
 	name: string
 
-	@Field(() => Int, { nullable: true })
-	year: number | null
+	@Field(() => Int)
+	year: number
 
 	@Field(() => String)
 	languageCode: string
 
-	@Field(() => String, { nullable: true })
-	note: string | null
+	@Field(() => String)
+	note: string
 
 	@Field(() => [String])
 	covers: string[]

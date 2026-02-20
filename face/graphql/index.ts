@@ -637,10 +637,10 @@ export type VideoPublicLiteOutModel = {
   id: Scalars['Int']['output'];
   languageCode: Scalars['String']['output'];
   name: Scalars['String']['output'];
-  note?: Maybe<Scalars['String']['output']>;
+  note: Scalars['String']['output'];
   originalContent: Scalars['String']['output'];
   processedContent: Scalars['String']['output'];
-  year?: Maybe<Scalars['Int']['output']>;
+  year: Scalars['Int']['output'];
 };
 
 export type VideoPublicOutModel = {
@@ -654,13 +654,13 @@ export type VideoPublicOutModel = {
   id: Scalars['Int']['output'];
   languageCode: Scalars['String']['output'];
   name: Scalars['String']['output'];
-  note?: Maybe<Scalars['String']['output']>;
+  note: Scalars['String']['output'];
   originalContent: Scalars['String']['output'];
   processedContent: Scalars['String']['output'];
   sentences?: Maybe<Array<VideoPublicSentenceOutModel>>;
   subtitleSentenceInit?: Maybe<Array<SubtitleSentenceInitOutModel>>;
   subtitles?: Maybe<Array<VideoPublicSubtitleOutModel>>;
-  year?: Maybe<Scalars['Int']['output']>;
+  year: Scalars['Int']['output'];
 };
 
 export type VideoPublicSentenceOutModel = {
@@ -879,12 +879,12 @@ export type VideoPublic_GetVariables = Exact<{
 }>;
 
 
-export type VideoPublic_Get = { __typename?: 'Query', video_public_get: { __typename?: 'VideoPublicOutModel', id: number, name: string, year?: number | null, languageCode: string, note?: string | null, covers: Array<string>, originalContent: string, processedContent: string, contentType: string, fileName: string, fileS3Key: string, fileUrl: string, freeToUse: boolean, sentences?: Array<{ __typename?: 'VideoPublicSentenceOutModel', id: number, startOffset: number, length: number, orderIndex: number, sentenceTranslations?: Array<{ __typename?: 'SentenceTranslationLiteOutModel', id: number, translation: string }> | null }> | null, subtitles?: Array<{ __typename?: 'VideoPublicSubtitleOutModel', id: number, startTimeMs: number, endTimeMs: number, startOffset: number, length: number, orderIndex: number }> | null, subtitleSentenceInit?: Array<{ __typename?: 'SubtitleSentenceInitOutModel', id: number, subtitleId: number, sentenceId: number, startOffset: number, length: number }> | null } };
+export type VideoPublic_Get = { __typename?: 'Query', video_public_get: { __typename?: 'VideoPublicOutModel', id: number, name: string, year: number, languageCode: string, note: string, covers: Array<string>, originalContent: string, processedContent: string, contentType: string, fileName: string, fileS3Key: string, fileUrl: string, freeToUse: boolean, sentences?: Array<{ __typename?: 'VideoPublicSentenceOutModel', id: number, startOffset: number, length: number, orderIndex: number, sentenceTranslations?: Array<{ __typename?: 'SentenceTranslationLiteOutModel', id: number, translation: string }> | null }> | null, subtitles?: Array<{ __typename?: 'VideoPublicSubtitleOutModel', id: number, startTimeMs: number, endTimeMs: number, startOffset: number, length: number, orderIndex: number }> | null, subtitleSentenceInit?: Array<{ __typename?: 'SubtitleSentenceInitOutModel', id: number, subtitleId: number, sentenceId: number, startOffset: number, length: number }> | null } };
 
 export type VideoPublic_GetVideosVariables = Exact<{ [key: string]: never; }>;
 
 
-export type VideoPublic_GetVideos = { __typename?: 'Query', video_public_get_videos: Array<{ __typename?: 'VideoPublicLiteOutModel', id: number, name: string, year?: number | null, languageCode: string, note?: string | null, covers: Array<string>, originalContent: string, processedContent: string, contentType: string, fileName: string, fileS3Key: string, fileUrl: string, freeToUse: boolean }> };
+export type VideoPublic_GetVideos = { __typename?: 'Query', video_public_get_videos: Array<{ __typename?: 'VideoPublicLiteOutModel', id: number, name: string, year: number, languageCode: string, note: string, covers: Array<string>, originalContent: string, processedContent: string, contentType: string, fileName: string, fileS3Key: string, fileUrl: string, freeToUse: boolean }> };
 
 
 export const AiCheckTranslationDocument = gql`

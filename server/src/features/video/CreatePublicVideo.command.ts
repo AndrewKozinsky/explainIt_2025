@@ -16,11 +16,11 @@ import { VideoPublicOutModel } from 'models/videoPublic/videoPublic.out.model'
 
 export type CreatePublicVideoInput = {
 	name: string
-	note?: string | null
+	note: string
 	originalContent: string
 	languageCode: Language
 	covers: string[]
-	year?: null | number
+	year: number
 	fileName: string
 	fileS3Key: string
 	freeToUse?: boolean

@@ -10,6 +10,7 @@ export const publicFolderFilesUrls = {
 		fullScreenButtonIcon: '/icons/fullScreenButtonIcon.svg',
 		warningTriangle: '/icons/warningTriangle.svg',
 		copyButtonIcon: '/icons/copyButtonIcon.svg',
+		actionButtonIcon: '/icons/actionButtonIcon.svg',
 	},
 	images: {
 		common: {
@@ -18,9 +19,6 @@ export const publicFolderFilesUrls = {
 			navArrowLeft: 'navArrowLeft.svg',
 			navArrowRight: 'navArrowRight.svg',
 		},
-	},
-	books: {
-		covers: '/books/covers/',
 	},
 	video: {
 		helpFilmFrame: '/video/help-film-frame.svg',

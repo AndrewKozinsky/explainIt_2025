@@ -113,12 +113,12 @@ model VideoPublic {
     id                Int            @id @default(autoincrement())
     free_to_use       Boolean?       @default(false)
     language_code     LanguageCode
-    year              Int?
+    year              Int
+    name              String
     file_name         String
     file_s3_key       String
     s3_provider_name  S3ProviderName
-    name              String
-    note              String?
+    note              String
     covers            String[]
     original_content  String
     processed_content String

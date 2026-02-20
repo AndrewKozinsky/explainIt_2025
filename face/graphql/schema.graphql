@@ -527,10 +527,10 @@ type VideoPublicLiteOutModel {
   id: Int!
   languageCode: String!
   name: String!
-  note: String
+  note: String!
   originalContent: String!
   processedContent: String!
-  year: Int
+  year: Int!
 }
 
 type VideoPublicOutModel {
@@ -543,13 +543,13 @@ type VideoPublicOutModel {
   id: Int!
   languageCode: String!
   name: String!
-  note: String
+  note: String!
   originalContent: String!
   processedContent: String!
   sentences: [VideoPublicSentenceOutModel!]
   subtitleSentenceInit: [SubtitleSentenceInitOutModel!]
   subtitles: [VideoPublicSubtitleOutModel!]
-  year: Int
+  year: Int!
 }
 
 type VideoPublicSentenceOutModel {
