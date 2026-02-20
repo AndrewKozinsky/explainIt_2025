@@ -1,11 +1,11 @@
-// import { useCallback } from 'react'
-// import { useBookChapter_Update } from '@/graphql'
-// import { Book_GetUserBooksDocument } from '@/graphql'
-// import { FormStatus, setErrorsToForm } from '@/utils/forms'
-// import { useBooksStore } from '_pages/books/books/booksStore'
-// import { ChangeChapterFormData } from './form'
+import { useCallback } from 'react'
+import { useBookChapter_Update } from '@/graphql'
+import { Book_GetUserBooksDocument } from '@/graphql'
+import { FormStatus, setErrorsToForm } from '@/utils/forms'
+import { useBooksStore } from '_pages/books/books/booksStore'
+import { ChangeChapterFormData } from './form'
 
-/*export function useGetOnUpdateChapterFormSubmit(
+export function useGetOnUpdateChapterFormSubmit(
 	setFieldError: (field: keyof ChangeChapterFormData, params: any) => void,
 	setFormStatus: React.Dispatch<React.SetStateAction<FormStatus>>,
 	setFormError: React.Dispatch<React.SetStateAction<string | null>>,
@@ -48,4 +48,4 @@
 		},
 		[chapter.data, setFieldError, setFormError, setFormStatus, updateChapter],
 	)
-}*/
+}

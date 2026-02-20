@@ -1,7 +1,7 @@
-// import DeleteEntityButtonAndModal from '@/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
-// import { useGetDeleteVideoFile } from './fn/getDeleteBook'
+import DeleteEntityButtonAndModal from '@/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
+import { useGetDeleteVideoFile } from './fn/getDeleteBook'
 
-/*function DeleteVideoFileButton() {
+function DeleteVideoFileButton() {
 	const { onDeleteFileClick, status } = useGetDeleteVideoFile()
 
 	return (
@@ -16,6 +16,6 @@
 			}}
 		/>
 	)
-}*/
+}
 
-// export default DeleteVideoFileButton
+export default DeleteVideoFileButton

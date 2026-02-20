@@ -20,7 +20,7 @@ function UnauthorizedUserGuardInMediaList({ contentType }: { contentType: Conten
 
 	const tariffCode = user?.currentSubscription?.tariffCode
 
-	if (tariffCode === 'base') {
+	if (!tariffCode || tariffCode === 'base') {
 		return <UserWithBasicTariff contentType={contentType} />
 	}
 
@@ -51,7 +51,14 @@ function UserWithBasicTariff({ contentType }: { contentType: ContentType }) {
 			? 'Смотреть и загружать книги могут только пользователи со стандартной подпиской.'
 			: 'Смотреть и загружать фильмы могут только пользователи со стандартной подпиской.'
 
-	return <Text>{text}</Text>
+	return (
+		<Wrapper>
+			<Text>{text}</Text>
+			<Link href={pageUrls.tariffs.path}>
+				<Button>Тарифы</Button>
+			</Link>
+		</Wrapper>
+	)
 }
 
 function Wrapper({ children }: { children: React.ReactNode }) {

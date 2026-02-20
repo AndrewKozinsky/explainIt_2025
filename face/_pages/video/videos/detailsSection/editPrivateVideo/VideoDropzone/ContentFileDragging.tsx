@@ -1,11 +1,11 @@
-// import React from 'react'
+import React from 'react'
 
-/*function ContentFileDragging() {
+function ContentFileDragging() {
 	return (
 		<div className='video-dropzone video-dropzone--file-dragging'>
 			<p className='video-dropzone__header video-dropzone__header--dragging'>Бросьте файл</p>
 		</div>
 	)
-}*/
+}
 
-// export default ContentFileDragging
+export default ContentFileDragging

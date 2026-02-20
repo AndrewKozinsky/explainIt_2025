@@ -19,6 +19,7 @@
 .text-input__input {
 	background-color: white;
 	padding: 0.7rem 1rem;
+	border: 1px solid vars.$grayColor-2;
 	border-radius: vars.$radius-1;
 
 	&::placeholder {

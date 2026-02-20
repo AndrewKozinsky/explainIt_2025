@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-// import { BookChapterOutModel } from '@/graphql'
+import { BookChapterOutModel } from '@/graphql'
 import { BookPublicOutModel, BookOutModel } from '@/graphql'
 
 export const booksStoreValues: BooksStoreValues = {
@@ -17,11 +17,11 @@ export const booksStoreValues: BooksStoreValues = {
 	},
 	publicBook: null,
 	privateBook: null,
-	/*chapter: {
+	chapter: {
 		loading: true,
 		errorMessage: null,
 		data: null as any as BookChapterOutModel,
-	},*/
+	},
 }
 
 export const useBooksStore = create<ReadingStore>()((set) => {
@@ -52,7 +52,7 @@ export const useBooksStore = create<ReadingStore>()((set) => {
 				}
 			})
 		},
-		/*updateChapter: (chapter: BooksStore.ChapterData) => {
+		updateChapter: (chapter: BooksStore.ChapterData) => {
 			set((state) => {
 				return {
 					chapter: {
@@ -60,7 +60,7 @@ export const useBooksStore = create<ReadingStore>()((set) => {
 					},
 				}
 			})
-		},*/
+		},
 	}
 })
 
@@ -73,7 +73,7 @@ export type BooksStoreValues = {
 	privateBooks: BooksStore.PrivateBooksData
 	publicBook: null | BookPublicOutModel
 	privateBook: null | BookOutModel
-	// chapter: BooksStore.ChapterData
+	chapter: BooksStore.ChapterData
 }
 
 export namespace BooksStore {
@@ -94,16 +94,16 @@ export namespace BooksStore {
 		data: BookOutModel[]
 	}
 
-	/*export type ChapterData = {
+	export type ChapterData = {
 		loading: boolean
 		errorMessage: null | string
 		data: null | BookChapterOutModel
-	}*/
+	}
 }
 
 type BooksStoreMethods = {
 	updateMobileCurrentContentType: (contentType: BooksStore.MobileCurrentContentType) => void
 	updatePublicBooks: (books: BooksStore.PublicBooksData) => void
 	updatePrivateBooks: (books: BooksStore.PrivateBooksData) => void
-	// updateChapter: (books: BooksStore.ChapterData) => void
+	updateChapter: (books: BooksStore.ChapterData) => void
 }

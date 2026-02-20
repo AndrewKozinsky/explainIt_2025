@@ -1,7 +1,7 @@
 import NoteText from '_pages/bookAndVideoCommon/NoteText/NoteText'
 import PublicVideoInfo from '_pages/video/videos/detailsSection/PublicVideoInfo/PublicVideoInfo'
 import { useVideosStore } from '_pages/video/videos/videosStore'
-// import EditPrivateVideoForm from '../editPrivateVideo/EditPrivateVideoForm/EditPrivateBookForm'
+import EditPrivateVideoForm from '../editPrivateVideo/EditPrivateVideoForm/EditPrivateBookForm'
 
 function DetailsSection() {
 	const pageUrlType = useVideosStore((s) => s.pageUrlType)
@@ -15,7 +15,7 @@ function DetailsSection() {
 	return (
 		<div className='editable-form-section'>
 			{pageUrlType === 'video' && publicVideo && <PublicVideoInfo />}
-			{/*{pageUrlType === 'video' && privateVideo && <EditPrivateVideoForm />}*/}
+			{pageUrlType === 'video' && privateVideo && <EditPrivateVideoForm />}
 		</div>
 	)
 }

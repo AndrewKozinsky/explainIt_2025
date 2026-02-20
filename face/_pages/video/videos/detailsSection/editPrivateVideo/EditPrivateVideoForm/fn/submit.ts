@@ -1,10 +1,10 @@
-// import React, { useCallback } from 'react'
-// import { useVideosStore } from '@/_pages/video/videos/videosStore'
-// import { useVideoPrivate_Update, VideoPrivate_GetUserVideosDocument } from '@/graphql'
-// import { FormStatus, setErrorsToForm } from '@/utils/forms'
-// import { ChangeVideoFormData } from './form'
+import React, { useCallback } from 'react'
+import { useVideosStore } from '@/_pages/video/videos/videosStore'
+import { useVideoPrivate_Update, VideoPrivate_GetUserVideosDocument } from '@/graphql'
+import { FormStatus, setErrorsToForm } from '@/utils/forms'
+import { ChangeVideoFormData } from './form'
 
-/*export function useGetOnUpdateVideoFormSubmit(
+export function useGetOnUpdateVideoFormSubmit(
 	setFieldError: (field: keyof ChangeVideoFormData, params: any) => void,
 	setFormStatus: React.Dispatch<React.SetStateAction<FormStatus>>,
 	setFormError: React.Dispatch<React.SetStateAction<string | null>>,
@@ -43,4 +43,4 @@
 		},
 		[video, setFieldError, setFormError, setFormStatus, updateBook],
 	)
-}*/
+}

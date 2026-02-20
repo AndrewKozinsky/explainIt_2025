@@ -11,7 +11,7 @@ export function usePopulateBooksStore() {
 	useFetchPublicBooksAndSetToStore()
 	useFetchPrivateBooksAndSetToStore()
 	useSetBookToStore()
-	// useFetchChapterAndSetToStore()
+	useFetchChapterAndSetToStore()
 }
 
 // Определяет тип текущей страницы и возвращает в виде типа
@@ -147,7 +147,7 @@ function useSetBookToStore() {
 	)
 }
 
-/*function useFetchChapterAndSetToStore() {
+function useFetchChapterAndSetToStore() {
 	const chapterId = useParams().chapterId as string
 
 	const { data, error, loading } = useBookChapter_Get({
@@ -185,4 +185,4 @@ function useSetBookToStore() {
 		},
 		[data, error, loading],
 	)
-}*/
+}

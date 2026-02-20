@@ -1,7 +1,7 @@
-// import Button from '@/ui/formRelated/buttons/Button/Button'
-// import { useGetOnReadButtonClick, useIsReadButtonDisabled } from './fn/buttonLogic'
+import Button from '@/ui/formRelated/buttons/Button/Button'
+import { useGetOnReadButtonClick, useIsReadButtonDisabled } from './fn/buttonLogic'
 
-/*function ReadChapterButton() {
+function ReadChapterButton() {
 	const isButtonDisabled = useIsReadButtonDisabled()
 	const onButtonClick = useGetOnReadButtonClick()
 
@@ -10,6 +10,6 @@
 			Читать
 		</Button>
 	)
-}*/
+}
 
-// export default ReadChapterButton
+export default ReadChapterButton

@@ -1,22 +1,22 @@
-// import React, { useState } from 'react'
-// import { yupResolver } from '@hookform/resolvers/yup'
-// import { useForm } from 'react-hook-form'
-// import * as yup from 'yup'
-// import Button from '@/ui/formRelated/buttons/Button/Button'
-// import FormError from '@/ui/formRelated/FormError/FormError'
-// import FormFieldsWrapper from '@/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
-// import TextInput from '@/ui/formRelated/TextInput/TextInput'
-// import { FormStatus } from '@/utils/forms'
-// import VideoFormSurface from '_pages/video/videos/detailsSection/common/VideoFormSurface/VideoFormSurface'
-// import VideoDropzone from '_pages/video/videos/detailsSection/editPrivateVideo/VideoDropzone/VideoDropzone'
-// import WatchMovieButton from '_pages/video/videos/detailsSection/editPrivateVideo/WatchMovieButton/WatchMovieButton'
-// import DeleteVideoButton from '../DeleteVideoButton/DeleteVideoButton'
-// import FileNameAndDeleteFileButton from '../FileNameAndDeleteFileButton/FileNameAndDeleteFileButton'
-// import { ChangeVideoFormData, changeVideoFormSchema } from './fn/form'
-// import { useSetFieldValues } from './fn/setFieldValues'
-// import { useGetOnUpdateVideoFormSubmit } from './fn/submit'
+import React, { useState } from 'react'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { useForm } from 'react-hook-form'
+import * as yup from 'yup'
+import Button from '@/ui/formRelated/buttons/Button/Button'
+import FormError from '@/ui/formRelated/FormError/FormError'
+import FormFieldsWrapper from '@/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
+import TextInput from '@/ui/formRelated/TextInput/TextInput'
+import { FormStatus } from '@/utils/forms'
+import MediaFormSurface from '_pages/bookAndVideoCommon/BookFormSurface/MediaFormSurface'
+import DeleteVideoButton from '../DeleteVideoButton/DeleteVideoButton'
+import FileNameAndDeleteFileButton from '../FileNameAndDeleteFileButton/FileNameAndDeleteFileButton'
+import VideoDropzone from '../VideoDropzone/VideoDropzone'
+import WatchMovieButton from '../WatchMovieButton/WatchMovieButton'
+import { ChangeVideoFormData, changeVideoFormSchema } from './fn/form'
+import { useSetFieldValues } from './fn/setFieldValues'
+import { useGetOnUpdateVideoFormSubmit } from './fn/submit'
 
-/*export default function EditPrivateVideoForm() {
+export default function EditPrivateVideoForm() {
 	const [formStatus, setFormStatus] = useState<FormStatus>('idle')
 	const [formError, setFormError] = useState<null | string>(null)
 
@@ -36,7 +36,7 @@
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>
-			<VideoFormSurface
+			<MediaFormSurface
 				leftBottomButtons={[<DeleteVideoButton key='delete' />]}
 				rightBottomButtons={[
 					<Button
@@ -74,7 +74,7 @@
 					/>
 					<FormError text={formError} />
 				</FormFieldsWrapper>
-			</VideoFormSurface>
+			</MediaFormSurface>
 		</form>
 	)
-}*/
+}

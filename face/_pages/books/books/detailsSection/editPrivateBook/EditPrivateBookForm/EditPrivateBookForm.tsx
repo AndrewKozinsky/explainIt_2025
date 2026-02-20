@@ -1,20 +1,19 @@
-// import React, { useState } from 'react'
-// import { yupResolver } from '@hookform/resolvers/yup'
-// import { useForm } from 'react-hook-form'
-// import * as yup from 'yup'
-// import Button from '@/ui/formRelated/buttons/Button/Button'
-// import FormError from '@/ui/formRelated/FormError/FormError'
-// import FormFieldsWrapper from '@/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
-// import TextInput from '@/ui/formRelated/TextInput/TextInput'
-// import { FormStatus } from '@/utils/forms'
-// import BookFormSurface from '../../common/BookFormSurface/BookFormSurface'
-// import EditDetailsFormHeader from '../../common/EditDetailsFormHeader/EditDetailsFormHeader'
-// import DeleteBookButton from '../DeleteBookButton/DeleteBookButton'
-// import { ChangeBookFormData, changeBookFormSchema, ChangeBookFormTest } from './fn/form'
-// import { useSetFieldValues } from './fn/setFieldValues'
-// import { useGetOnUpdateBookFormSubmit } from './fn/submit'
+import React, { useState } from 'react'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { useForm } from 'react-hook-form'
+import * as yup from 'yup'
+import Button from '@/ui/formRelated/buttons/Button/Button'
+import FormError from '@/ui/formRelated/FormError/FormError'
+import FormFieldsWrapper from '@/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
+import TextInput from '@/ui/formRelated/TextInput/TextInput'
+import { FormStatus } from '@/utils/forms'
+import MediaFormSurface from '_pages/bookAndVideoCommon/BookFormSurface/MediaFormSurface'
+import DeleteBookButton from '../DeleteBookButton/DeleteBookButton'
+import { ChangeBookFormData, changeBookFormSchema, ChangeBookFormTest } from './fn/form'
+import { useSetFieldValues } from './fn/setFieldValues'
+import { useGetOnUpdateBookFormSubmit } from './fn/submit'
 
-/*export default function EditBookForm() {
+export default function EditBookForm() {
 	const [formStatus, setFormStatus] = useState<FormStatus>('idle')
 	const [formError, setFormError] = useState<null | string>(null)
 
@@ -34,9 +33,8 @@
 
 	return (
 		<>
-			<EditDetailsFormHeader />
 			<form onSubmit={handleSubmit(onSubmit)} data-testid={ChangeBookFormTest.form.id}>
-				<BookFormSurface
+				<MediaFormSurface
 					leftBottomButtons={[<DeleteBookButton key='delete' />]}
 					rightBottomButtons={[
 						<Button
@@ -83,8 +81,8 @@
 						/>
 						<FormError text={formError} dataTestId={ChangeBookFormTest.failMessage.id} />
 					</FormFieldsWrapper>
-				</BookFormSurface>
+				</MediaFormSurface>
 			</form>
 		</>
 	)
-}*/
+}
