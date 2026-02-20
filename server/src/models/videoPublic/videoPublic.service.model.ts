@@ -5,6 +5,8 @@ export type VideoPublicServiceModel = {
 	name: string
 	year: number | null
 	languageCode: Language
+	note: string | null
+	covers: string[]
 	fileUrl: string
 	fileName: string
 	fileS3Key: string

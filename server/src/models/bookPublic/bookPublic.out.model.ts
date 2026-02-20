@@ -15,8 +15,8 @@ export class BookPublicOutModel {
 	@Field(() => String)
 	note: string
 
-	@Field(() => String)
-	cover: string
+	@Field(() => [String])
+	covers: string[]
 
 	@Field(() => String)
 	languageCode: string

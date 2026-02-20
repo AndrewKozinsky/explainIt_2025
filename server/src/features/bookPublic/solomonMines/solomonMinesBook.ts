@@ -21,13 +21,19 @@ import { chapter_8 } from 'features/bookPublic/solomonMines/chapter_8'
 import { chapter_9 } from 'features/bookPublic/solomonMines/chapter_9'
 import { intro } from './intro'
 
-export const solomonMinesBookData = {
-	author: 'Henry Rider Haggard',
-	name: 'King Solomon\'s mines',
-	note: 'Погоня за легендарными алмазами в самом сердце неисследованной Африки. Охотник Аллан Квотермейн ведёт двух джентльменов через смертоносные пустыни, заснеженные горы и земли воинственных племён, чтобы найти потерянные сокровища и пропавшего брата. Это эталон приключенческого романа: закрученный сюжет, экзотические опасности, предательства и кодекс чести, где богатство — не главная цель. Хаггард создал мир, который вдохновил «Индиану Джонса». Читается на одном дыхании. Уровень B2-C1.',
-	cover: 'solomonMines.webp',
-	languageCode: languages.en.code as Language,
-	freeToUse: false,
+export function solomonMinesBookData(publicBookUrl: string) {
+	const covers = ['king_solomon_mines_cover_1.jpg', 'king_solomon_mines_cover_2.jpg']
+
+	return {
+		author: 'Henry Rider Haggard',
+		name: 'King Solomon\'s mines',
+		note: `Погоня за легендарными алмазами в самом сердце неисследованной Африки. Охотник Аллан Квотермейн ведёт двух джентльменов через смертоносные пустыни, заснеженные горы и земли воинственных племён, чтобы найти потерянные сокровища и пропавшего брата. Это эталон приключенческого романа: закрученный сюжет, экзотические опасности, предательства и кодекс чести, где богатство — не главная цель. Хаггард создал мир, который вдохновил «Индиану Джонса».
+Книга читается сложнее, чем другие приключенческие истории. Предложения нередко длинные, с описаниями природы и быта. Встречается устаревшая лексика XIX века и слова, связанные с путешествиями и военным делом. Диалоги есть, но повествование часто подробное и описательное.
+Уровень B2-C1 (Upper-Intermediate / Advanced).`,
+		languageCode: languages.en.code as Language,
+		freeToUse: false,
+		covers: covers.map((cover) => publicBookUrl + cover),
+	}
 }
 
 export const solomonMinesChapters = [

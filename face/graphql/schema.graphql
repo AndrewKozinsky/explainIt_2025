@@ -38,7 +38,7 @@ type BookOutModel {
 type BookPublicOutModel {
   author: String!
   chapters: [BookChapterLiteOutModel!]!
-  cover: String!
+  covers: [String!]!
   freeToUse: Boolean!
   id: Int!
   languageCode: String!
@@ -519,6 +519,7 @@ type VideoPrivateSubtitleOutModel {
 
 type VideoPublicLiteOutModel {
   contentType: String!
+  covers: [String!]!
   fileName: String!
   fileS3Key: String!
   fileUrl: String!
@@ -526,6 +527,7 @@ type VideoPublicLiteOutModel {
   id: Int!
   languageCode: String!
   name: String!
+  note: String
   originalContent: String!
   processedContent: String!
   year: Int
@@ -533,6 +535,7 @@ type VideoPublicLiteOutModel {
 
 type VideoPublicOutModel {
   contentType: String!
+  covers: [String!]!
   fileName: String!
   fileS3Key: String!
   fileUrl: String!
@@ -540,6 +543,7 @@ type VideoPublicOutModel {
   id: Int!
   languageCode: String!
   name: String!
+  note: String
   originalContent: String!
   processedContent: String!
   sentences: [VideoPublicSentenceOutModel!]

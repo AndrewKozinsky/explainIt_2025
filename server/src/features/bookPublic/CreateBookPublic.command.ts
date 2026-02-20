@@ -10,7 +10,7 @@ export type CreateBookPublicInput = {
 	author: string
 	name: string
 	note: string
-	cover: string
+	covers: string[]
 	languageCode: Language
 	freeToUse?: boolean
 }

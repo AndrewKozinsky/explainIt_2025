@@ -183,7 +183,7 @@ export interface BookPublicOutModel {
     author: string;
     name: string;
     note: string;
-    cover: string;
+    covers: string[];
     languageCode: string;
     freeToUse: boolean;
     chapters: BookChapterLiteOutModel[];
@@ -302,6 +302,8 @@ export interface VideoPublicOutModel {
     name: string;
     year?: Nullable<number>;
     languageCode: string;
+    note?: Nullable<string>;
+    covers: string[];
     originalContent: string;
     processedContent: string;
     contentType: string;
@@ -336,6 +338,8 @@ export interface VideoPublicLiteOutModel {
     name: string;
     year?: Nullable<number>;
     languageCode: string;
+    note?: Nullable<string>;
+    covers: string[];
     originalContent: string;
     processedContent: string;
     contentType: string;

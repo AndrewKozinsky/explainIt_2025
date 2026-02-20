@@ -16,8 +16,10 @@ import { VideoPublicOutModel } from 'models/videoPublic/videoPublic.out.model'
 
 export type CreatePublicVideoInput = {
 	name: string
+	note?: string | null
 	originalContent: string
 	languageCode: Language
+	covers: string[]
 	year?: null | number
 	fileName: string
 	fileS3Key: string
@@ -65,6 +67,8 @@ export class CreatePublicVideoHandler extends VideoBase implements ICommandHandl
 				const newVideo = await this.videoRepository.createVideo({
 					name: createVideoInput.name,
 					languageCode: createVideoInput.languageCode,
+					note: createVideoInput.note,
+					covers: createVideoInput.covers,
 					year: createVideoInput.year,
 					originalContent: preparedContentResult.originalContentForVideoUpdate!,
 					processedContent: preparedContentResult.processedContentForVideoUpdate!,

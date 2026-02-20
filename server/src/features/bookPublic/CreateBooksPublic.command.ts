@@ -5,6 +5,7 @@ import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { ChapterData } from './common/common'
 import { CreateBookPublicCommand, CreateBookPublicInput } from './CreateBookPublic.command'
 import { solomonMinesBookData, solomonMinesChapters } from './solomonMines/solomonMinesBook'
@@ -20,6 +21,7 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreateBooksPubl
 		private commandBus: CommandBus,
 		public bookPublicRepository: BookPublicRepository,
 		private bookChapterRepository: BookChapterRepository,
+		private mainConfig: MainConfigService,
 	) {}
 
 	async execute() {
@@ -30,13 +32,15 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreateBooksPubl
 	}
 
 	getBooksData() {
+		const publicBookUrl = this.mainConfig.get().yandexCloud.s3.bucketUrl + '/publicBooks/'
+
 		return [
 			{
-				book: wizardOfOzBookData,
+				book: wizardOfOzBookData(publicBookUrl),
 				chapters: wizardOfOzChapters,
 			},
 			{
-				book: solomonMinesBookData,
+				book: solomonMinesBookData(publicBookUrl),
 				chapters: solomonMinesChapters,
 			},
 		]

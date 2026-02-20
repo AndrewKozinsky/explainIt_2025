@@ -5,7 +5,7 @@ query Book_getBooksPublic {
 		name
 		languageCode
 		note
-		cover
+		covers
 		freeToUse
 		chapters {
 			id

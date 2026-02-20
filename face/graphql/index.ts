@@ -63,7 +63,7 @@ export type BookPublicOutModel = {
   __typename?: 'BookPublicOutModel';
   author: Scalars['String']['output'];
   chapters: Array<BookChapterLiteOutModel>;
-  cover: Scalars['String']['output'];
+  covers: Array<Scalars['String']['output']>;
   freeToUse: Scalars['Boolean']['output'];
   id: Scalars['Int']['output'];
   languageCode: Scalars['String']['output'];
@@ -629,6 +629,7 @@ export type VideoPrivateSubtitleOutModel = {
 export type VideoPublicLiteOutModel = {
   __typename?: 'VideoPublicLiteOutModel';
   contentType: Scalars['String']['output'];
+  covers: Array<Scalars['String']['output']>;
   fileName: Scalars['String']['output'];
   fileS3Key: Scalars['String']['output'];
   fileUrl: Scalars['String']['output'];
@@ -636,6 +637,7 @@ export type VideoPublicLiteOutModel = {
   id: Scalars['Int']['output'];
   languageCode: Scalars['String']['output'];
   name: Scalars['String']['output'];
+  note?: Maybe<Scalars['String']['output']>;
   originalContent: Scalars['String']['output'];
   processedContent: Scalars['String']['output'];
   year?: Maybe<Scalars['Int']['output']>;
@@ -644,6 +646,7 @@ export type VideoPublicLiteOutModel = {
 export type VideoPublicOutModel = {
   __typename?: 'VideoPublicOutModel';
   contentType: Scalars['String']['output'];
+  covers: Array<Scalars['String']['output']>;
   fileName: Scalars['String']['output'];
   fileS3Key: Scalars['String']['output'];
   fileUrl: Scalars['String']['output'];
@@ -651,6 +654,7 @@ export type VideoPublicOutModel = {
   id: Scalars['Int']['output'];
   languageCode: Scalars['String']['output'];
   name: Scalars['String']['output'];
+  note?: Maybe<Scalars['String']['output']>;
   originalContent: Scalars['String']['output'];
   processedContent: Scalars['String']['output'];
   sentences?: Maybe<Array<VideoPublicSentenceOutModel>>;
@@ -797,12 +801,12 @@ export type Book_GetBookPublicVariables = Exact<{
 }>;
 
 
-export type Book_GetBookPublic = { __typename?: 'Query', book_public_get_book: { __typename?: 'BookPublicOutModel', id: number, author: string, name: string, languageCode: string, note: string, cover: string, freeToUse: boolean, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
+export type Book_GetBookPublic = { __typename?: 'Query', book_public_get_book: { __typename?: 'BookPublicOutModel', id: number, author: string, name: string, languageCode: string, note: string, covers: Array<string>, freeToUse: boolean, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
 
 export type Book_GetBooksPublicVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Book_GetBooksPublic = { __typename?: 'Query', book_public_get_books: Array<{ __typename?: 'BookPublicOutModel', id: number, author: string, name: string, languageCode: string, note: string, cover: string, freeToUse: boolean, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> }> };
+export type Book_GetBooksPublic = { __typename?: 'Query', book_public_get_books: Array<{ __typename?: 'BookPublicOutModel', id: number, author: string, name: string, languageCode: string, note: string, covers: Array<string>, freeToUse: boolean, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> }> };
 
 export type Payment_YookassaBuySubscriptionVariables = Exact<{
   input: BuySubscriptionWithYooKassaInput;
@@ -875,12 +879,12 @@ export type VideoPublic_GetVariables = Exact<{
 }>;
 
 
-export type VideoPublic_Get = { __typename?: 'Query', video_public_get: { __typename?: 'VideoPublicOutModel', id: number, name: string, year?: number | null, languageCode: string, originalContent: string, processedContent: string, contentType: string, fileName: string, fileS3Key: string, fileUrl: string, freeToUse: boolean, sentences?: Array<{ __typename?: 'VideoPublicSentenceOutModel', id: number, startOffset: number, length: number, orderIndex: number, sentenceTranslations?: Array<{ __typename?: 'SentenceTranslationLiteOutModel', id: number, translation: string }> | null }> | null, subtitles?: Array<{ __typename?: 'VideoPublicSubtitleOutModel', id: number, startTimeMs: number, endTimeMs: number, startOffset: number, length: number, orderIndex: number }> | null, subtitleSentenceInit?: Array<{ __typename?: 'SubtitleSentenceInitOutModel', id: number, subtitleId: number, sentenceId: number, startOffset: number, length: number }> | null } };
+export type VideoPublic_Get = { __typename?: 'Query', video_public_get: { __typename?: 'VideoPublicOutModel', id: number, name: string, year?: number | null, languageCode: string, note?: string | null, covers: Array<string>, originalContent: string, processedContent: string, contentType: string, fileName: string, fileS3Key: string, fileUrl: string, freeToUse: boolean, sentences?: Array<{ __typename?: 'VideoPublicSentenceOutModel', id: number, startOffset: number, length: number, orderIndex: number, sentenceTranslations?: Array<{ __typename?: 'SentenceTranslationLiteOutModel', id: number, translation: string }> | null }> | null, subtitles?: Array<{ __typename?: 'VideoPublicSubtitleOutModel', id: number, startTimeMs: number, endTimeMs: number, startOffset: number, length: number, orderIndex: number }> | null, subtitleSentenceInit?: Array<{ __typename?: 'SubtitleSentenceInitOutModel', id: number, subtitleId: number, sentenceId: number, startOffset: number, length: number }> | null } };
 
 export type VideoPublic_GetVideosVariables = Exact<{ [key: string]: never; }>;
 
 
-export type VideoPublic_GetVideos = { __typename?: 'Query', video_public_get_videos: Array<{ __typename?: 'VideoPublicLiteOutModel', id: number, name: string, year?: number | null, languageCode: string, originalContent: string, processedContent: string, contentType: string, fileName: string, fileS3Key: string, fileUrl: string, freeToUse: boolean }> };
+export type VideoPublic_GetVideos = { __typename?: 'Query', video_public_get_videos: Array<{ __typename?: 'VideoPublicLiteOutModel', id: number, name: string, year?: number | null, languageCode: string, note?: string | null, covers: Array<string>, originalContent: string, processedContent: string, contentType: string, fileName: string, fileS3Key: string, fileUrl: string, freeToUse: boolean }> };
 
 
 export const AiCheckTranslationDocument = gql`
@@ -1626,7 +1630,7 @@ export const Book_GetBookPublicDocument = gql`
     name
     languageCode
     note
-    cover
+    covers
     freeToUse
     chapters {
       id
@@ -1679,7 +1683,7 @@ export const Book_GetBooksPublicDocument = gql`
     name
     languageCode
     note
-    cover
+    covers
     freeToUse
     chapters {
       id
@@ -2170,6 +2174,8 @@ export const VideoPublic_GetDocument = gql`
     name
     year
     languageCode
+    note
+    covers
     originalContent
     processedContent
     contentType
@@ -2245,6 +2251,8 @@ export const VideoPublic_GetVideosDocument = gql`
     name
     year
     languageCode
+    note
+    covers
     originalContent
     processedContent
     contentType

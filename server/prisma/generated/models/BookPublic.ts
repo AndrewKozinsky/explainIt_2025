@@ -38,7 +38,6 @@ export type BookPublicMinAggregateOutputType = {
   id: number | null
   free_to_use: boolean | null
   language_code: $Enums.LanguageCode | null
-  cover: string | null
   author: string | null
   name: string | null
   note: string | null
@@ -49,7 +48,6 @@ export type BookPublicMaxAggregateOutputType = {
   id: number | null
   free_to_use: boolean | null
   language_code: $Enums.LanguageCode | null
-  cover: string | null
   author: string | null
   name: string | null
   note: string | null
@@ -60,7 +58,7 @@ export type BookPublicCountAggregateOutputType = {
   id: number
   free_to_use: number
   language_code: number
-  cover: number
+  covers: number
   author: number
   name: number
   note: number
@@ -81,7 +79,6 @@ export type BookPublicMinAggregateInputType = {
   id?: true
   free_to_use?: true
   language_code?: true
-  cover?: true
   author?: true
   name?: true
   note?: true
@@ -92,7 +89,6 @@ export type BookPublicMaxAggregateInputType = {
   id?: true
   free_to_use?: true
   language_code?: true
-  cover?: true
   author?: true
   name?: true
   note?: true
@@ -103,7 +99,7 @@ export type BookPublicCountAggregateInputType = {
   id?: true
   free_to_use?: true
   language_code?: true
-  cover?: true
+  covers?: true
   author?: true
   name?: true
   note?: true
@@ -201,7 +197,7 @@ export type BookPublicGroupByOutputType = {
   id: number
   free_to_use: boolean | null
   language_code: $Enums.LanguageCode
-  cover: string
+  covers: string[]
   author: string
   name: string
   note: string
@@ -235,7 +231,7 @@ export type BookPublicWhereInput = {
   id?: Prisma.IntFilter<"BookPublic"> | number
   free_to_use?: Prisma.BoolNullableFilter<"BookPublic"> | boolean | null
   language_code?: Prisma.EnumLanguageCodeFilter<"BookPublic"> | $Enums.LanguageCode
-  cover?: Prisma.StringFilter<"BookPublic"> | string
+  covers?: Prisma.StringNullableListFilter<"BookPublic">
   author?: Prisma.StringFilter<"BookPublic"> | string
   name?: Prisma.StringFilter<"BookPublic"> | string
   note?: Prisma.StringFilter<"BookPublic"> | string
@@ -247,7 +243,7 @@ export type BookPublicOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   free_to_use?: Prisma.SortOrderInput | Prisma.SortOrder
   language_code?: Prisma.SortOrder
-  cover?: Prisma.SortOrder
+  covers?: Prisma.SortOrder
   author?: Prisma.SortOrder
   name?: Prisma.SortOrder
   note?: Prisma.SortOrder
@@ -262,7 +258,7 @@ export type BookPublicWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.BookPublicWhereInput | Prisma.BookPublicWhereInput[]
   free_to_use?: Prisma.BoolNullableFilter<"BookPublic"> | boolean | null
   language_code?: Prisma.EnumLanguageCodeFilter<"BookPublic"> | $Enums.LanguageCode
-  cover?: Prisma.StringFilter<"BookPublic"> | string
+  covers?: Prisma.StringNullableListFilter<"BookPublic">
   author?: Prisma.StringFilter<"BookPublic"> | string
   name?: Prisma.StringFilter<"BookPublic"> | string
   note?: Prisma.StringFilter<"BookPublic"> | string
@@ -274,7 +270,7 @@ export type BookPublicOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   free_to_use?: Prisma.SortOrderInput | Prisma.SortOrder
   language_code?: Prisma.SortOrder
-  cover?: Prisma.SortOrder
+  covers?: Prisma.SortOrder
   author?: Prisma.SortOrder
   name?: Prisma.SortOrder
   note?: Prisma.SortOrder
@@ -293,7 +289,7 @@ export type BookPublicScalarWhereWithAggregatesInput = {
   id?: Prisma.IntWithAggregatesFilter<"BookPublic"> | number
   free_to_use?: Prisma.BoolNullableWithAggregatesFilter<"BookPublic"> | boolean | null
   language_code?: Prisma.EnumLanguageCodeWithAggregatesFilter<"BookPublic"> | $Enums.LanguageCode
-  cover?: Prisma.StringWithAggregatesFilter<"BookPublic"> | string
+  covers?: Prisma.StringNullableListFilter<"BookPublic">
   author?: Prisma.StringWithAggregatesFilter<"BookPublic"> | string
   name?: Prisma.StringWithAggregatesFilter<"BookPublic"> | string
   note?: Prisma.StringWithAggregatesFilter<"BookPublic"> | string
@@ -303,7 +299,7 @@ export type BookPublicScalarWhereWithAggregatesInput = {
 export type BookPublicCreateInput = {
   free_to_use?: boolean | null
   language_code: $Enums.LanguageCode
-  cover: string
+  covers?: Prisma.BookPublicCreatecoversInput | string[]
   author: string
   name: string
   note: string
@@ -315,7 +311,7 @@ export type BookPublicUncheckedCreateInput = {
   id?: number
   free_to_use?: boolean | null
   language_code: $Enums.LanguageCode
-  cover: string
+  covers?: Prisma.BookPublicCreatecoversInput | string[]
   author: string
   name: string
   note: string
@@ -326,7 +322,7 @@ export type BookPublicUncheckedCreateInput = {
 export type BookPublicUpdateInput = {
   free_to_use?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
-  cover?: Prisma.StringFieldUpdateOperationsInput | string
+  covers?: Prisma.BookPublicUpdatecoversInput | string[]
   author?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   note?: Prisma.StringFieldUpdateOperationsInput | string
@@ -338,7 +334,7 @@ export type BookPublicUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   free_to_use?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
-  cover?: Prisma.StringFieldUpdateOperationsInput | string
+  covers?: Prisma.BookPublicUpdatecoversInput | string[]
   author?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   note?: Prisma.StringFieldUpdateOperationsInput | string
@@ -350,7 +346,7 @@ export type BookPublicCreateManyInput = {
   id?: number
   free_to_use?: boolean | null
   language_code: $Enums.LanguageCode
-  cover: string
+  covers?: Prisma.BookPublicCreatecoversInput | string[]
   author: string
   name: string
   note: string
@@ -360,7 +356,7 @@ export type BookPublicCreateManyInput = {
 export type BookPublicUpdateManyMutationInput = {
   free_to_use?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
-  cover?: Prisma.StringFieldUpdateOperationsInput | string
+  covers?: Prisma.BookPublicUpdatecoversInput | string[]
   author?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   note?: Prisma.StringFieldUpdateOperationsInput | string
@@ -371,18 +367,26 @@ export type BookPublicUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   free_to_use?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
-  cover?: Prisma.StringFieldUpdateOperationsInput | string
+  covers?: Prisma.BookPublicUpdatecoversInput | string[]
   author?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   note?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
+export type StringNullableListFilter<$PrismaModel = never> = {
+  equals?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel> | null
+  has?: string | Prisma.StringFieldRefInput<$PrismaModel> | null
+  hasEvery?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
+  hasSome?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
+  isEmpty?: boolean
+}
+
 export type BookPublicCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   free_to_use?: Prisma.SortOrder
   language_code?: Prisma.SortOrder
-  cover?: Prisma.SortOrder
+  covers?: Prisma.SortOrder
   author?: Prisma.SortOrder
   name?: Prisma.SortOrder
   note?: Prisma.SortOrder
@@ -397,7 +401,6 @@ export type BookPublicMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   free_to_use?: Prisma.SortOrder
   language_code?: Prisma.SortOrder
-  cover?: Prisma.SortOrder
   author?: Prisma.SortOrder
   name?: Prisma.SortOrder
   note?: Prisma.SortOrder
@@ -408,7 +411,6 @@ export type BookPublicMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   free_to_use?: Prisma.SortOrder
   language_code?: Prisma.SortOrder
-  cover?: Prisma.SortOrder
   author?: Prisma.SortOrder
   name?: Prisma.SortOrder
   note?: Prisma.SortOrder
@@ -424,8 +426,17 @@ export type BookPublicNullableScalarRelationFilter = {
   isNot?: Prisma.BookPublicWhereInput | null
 }
 
+export type BookPublicCreatecoversInput = {
+  set: string[]
+}
+
 export type NullableBoolFieldUpdateOperationsInput = {
   set?: boolean | null
+}
+
+export type BookPublicUpdatecoversInput = {
+  set?: string[]
+  push?: string | string[]
 }
 
 export type BookPublicCreateNestedOneWithoutBookChapterInput = {
@@ -447,7 +458,7 @@ export type BookPublicUpdateOneWithoutBookChapterNestedInput = {
 export type BookPublicCreateWithoutBookChapterInput = {
   free_to_use?: boolean | null
   language_code: $Enums.LanguageCode
-  cover: string
+  covers?: Prisma.BookPublicCreatecoversInput | string[]
   author: string
   name: string
   note: string
@@ -458,7 +469,7 @@ export type BookPublicUncheckedCreateWithoutBookChapterInput = {
   id?: number
   free_to_use?: boolean | null
   language_code: $Enums.LanguageCode
-  cover: string
+  covers?: Prisma.BookPublicCreatecoversInput | string[]
   author: string
   name: string
   note: string
@@ -484,7 +495,7 @@ export type BookPublicUpdateToOneWithWhereWithoutBookChapterInput = {
 export type BookPublicUpdateWithoutBookChapterInput = {
   free_to_use?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
-  cover?: Prisma.StringFieldUpdateOperationsInput | string
+  covers?: Prisma.BookPublicUpdatecoversInput | string[]
   author?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   note?: Prisma.StringFieldUpdateOperationsInput | string
@@ -495,7 +506,7 @@ export type BookPublicUncheckedUpdateWithoutBookChapterInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   free_to_use?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
-  cover?: Prisma.StringFieldUpdateOperationsInput | string
+  covers?: Prisma.BookPublicUpdatecoversInput | string[]
   author?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   note?: Prisma.StringFieldUpdateOperationsInput | string
@@ -537,7 +548,7 @@ export type BookPublicSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   id?: boolean
   free_to_use?: boolean
   language_code?: boolean
-  cover?: boolean
+  covers?: boolean
   author?: boolean
   name?: boolean
   note?: boolean
@@ -550,7 +561,7 @@ export type BookPublicSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
   id?: boolean
   free_to_use?: boolean
   language_code?: boolean
-  cover?: boolean
+  covers?: boolean
   author?: boolean
   name?: boolean
   note?: boolean
@@ -561,7 +572,7 @@ export type BookPublicSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
   id?: boolean
   free_to_use?: boolean
   language_code?: boolean
-  cover?: boolean
+  covers?: boolean
   author?: boolean
   name?: boolean
   note?: boolean
@@ -572,14 +583,14 @@ export type BookPublicSelectScalar = {
   id?: boolean
   free_to_use?: boolean
   language_code?: boolean
-  cover?: boolean
+  covers?: boolean
   author?: boolean
   name?: boolean
   note?: boolean
   created_at?: boolean
 }
 
-export type BookPublicOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "free_to_use" | "language_code" | "cover" | "author" | "name" | "note" | "created_at", ExtArgs["result"]["bookPublic"]>
+export type BookPublicOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "free_to_use" | "language_code" | "covers" | "author" | "name" | "note" | "created_at", ExtArgs["result"]["bookPublic"]>
 export type BookPublicInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   BookChapter?: boolean | Prisma.BookPublic$BookChapterArgs<ExtArgs>
   _count?: boolean | Prisma.BookPublicCountOutputTypeDefaultArgs<ExtArgs>
@@ -596,7 +607,7 @@ export type $BookPublicPayload<ExtArgs extends runtime.Types.Extensions.Internal
     id: number
     free_to_use: boolean | null
     language_code: $Enums.LanguageCode
-    cover: string
+    covers: string[]
     author: string
     name: string
     note: string
@@ -1028,7 +1039,7 @@ export interface BookPublicFieldRefs {
   readonly id: Prisma.FieldRef<"BookPublic", 'Int'>
   readonly free_to_use: Prisma.FieldRef<"BookPublic", 'Boolean'>
   readonly language_code: Prisma.FieldRef<"BookPublic", 'LanguageCode'>
-  readonly cover: Prisma.FieldRef<"BookPublic", 'String'>
+  readonly covers: Prisma.FieldRef<"BookPublic", 'String[]'>
   readonly author: Prisma.FieldRef<"BookPublic", 'String'>
   readonly name: Prisma.FieldRef<"BookPublic", 'String'>
   readonly note: Prisma.FieldRef<"BookPublic", 'String'>

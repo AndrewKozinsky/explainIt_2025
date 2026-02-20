@@ -18,6 +18,12 @@ export class VideoPublicOutModel {
 	@Field(() => String)
 	languageCode: string
 
+	@Field(() => String, { nullable: true })
+	note: string | null
+
+	@Field(() => [String])
+	covers: string[]
+
 	@Field(() => String)
 	originalContent: string
 

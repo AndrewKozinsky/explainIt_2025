@@ -6,7 +6,7 @@ export type BookPublicServiceModel = {
 	author: string
 	name: string
 	note: string
-	cover: string
+	covers: string[]
 	languageCode: Language
 	chapters: BookChapterLiteServiceModel[]
 	freeToUse: boolean

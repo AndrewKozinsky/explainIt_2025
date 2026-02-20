@@ -66,7 +66,7 @@ model BookPublic {
     id            Int           @id @default(autoincrement())
     free_to_use   Boolean?      @default(false)
     language_code LanguageCode
-    cover         String
+    covers        String[]
     author        String
     name          String
     note          String
@@ -118,6 +118,8 @@ model VideoPublic {
     file_s3_key       String
     s3_provider_name  S3ProviderName
     name              String
+    note              String?
+    covers            String[]
     original_content  String
     processed_content String
     content_type      VideoTextType  @default(text)

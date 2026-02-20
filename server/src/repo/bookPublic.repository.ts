@@ -16,7 +16,7 @@ export class BookPublicRepository {
 		author: string
 		name: string
 		note: string
-		cover: string
+		covers: string[]
 		languageCode: Language
 		freeToUse?: boolean
 	}) {
@@ -25,7 +25,7 @@ export class BookPublicRepository {
 				author: dto.author,
 				name: dto.name,
 				note: dto.note,
-				cover: dto.cover,
+				covers: dto.covers,
 				language_code: dto.languageCode,
 				free_to_use: dto.freeToUse,
 			},
@@ -68,7 +68,7 @@ export class BookPublicRepository {
 			author: dbBook.author,
 			name: dbBook.name,
 			note: dbBook.note,
-			cover: dbBook.cover,
+			covers: dbBook.covers,
 			languageCode: dbBook.language_code,
 			freeToUse: dbBook.free_to_use ?? false,
 			chapters: dbBook.BookChapter.map((chapter) => ({

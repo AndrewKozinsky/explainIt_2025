@@ -282,11 +282,11 @@ export const bdConfig = {
 				variants: languagesArr,
 				required: true,
 			},
-			cover: {
-				type: 'string',
-				description: 'Cover of the book',
+			covers: {
+				type: 'array',
+				arrayItemType: 'string',
+				description: 'Covers of the book',
 				required: true,
-				maxLength: 255,
 			},
 			author: {
 				type: 'string',
@@ -531,6 +531,18 @@ export const bdConfig = {
 				description: 'Name of the video',
 				required: true,
 				maxLength: 255,
+			},
+			note: {
+				type: 'string',
+				description: 'Note about the video',
+				required: false,
+				maxLength: 4000,
+			},
+			covers: {
+				type: 'array',
+				arrayItemType: 'string',
+				description: 'Covers of the video',
+				required: true,
 			},
 			original_content: {
 				type: 'string',

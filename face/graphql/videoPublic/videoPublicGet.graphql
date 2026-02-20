@@ -4,6 +4,8 @@ query VideoPublic_get($input: GetPublicVideoInput!) {
 		name
 		year
 		languageCode
+		note
+		covers
 		originalContent
 		processedContent
 		contentType

@@ -15,7 +15,7 @@
 			<h3 className='public-book-info__header'>{publicBook.name}</h3>
 			<p className='public-book-info__description'>
 				<img
-					src={publicFolderFilesUrls.books.covers + publicBook.cover}
+					src={publicFolderFilesUrls.books.covers + (publicBook.covers?.[0] ?? '')}
 					className='public-book-info__cover'
 					alt={publicBook.name}
 				/>

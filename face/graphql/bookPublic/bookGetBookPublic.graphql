@@ -5,7 +5,7 @@ query Book_getBookPublic($input: GetBookPublicInput!) {
 		name
 		languageCode
 		note
-		cover
+		covers
 		freeToUse
 		chapters {
 			id

@@ -17,6 +17,8 @@ export class VideoPublicRepository {
 	async createVideo(dto: {
 		name: string
 		languageCode: Language
+		note?: string | null
+		covers: string[]
 		year?: null | number
 		originalContent: string
 		processedContent: string
@@ -30,6 +32,8 @@ export class VideoPublicRepository {
 			data: {
 				name: dto.name,
 				language_code: dto.languageCode,
+				note: dto.note ?? null,
+				covers: dto.covers,
 				year: dto.year ?? null,
 				original_content: dto.originalContent,
 				processed_content: dto.processedContent,
@@ -50,6 +54,8 @@ export class VideoPublicRepository {
 		dto: {
 			name?: string
 			languageCode?: Language
+			note?: string | null
+			covers?: string[]
 			year?: null | number
 			originalContent?: string
 			processedContent?: string
@@ -64,6 +70,8 @@ export class VideoPublicRepository {
 			data: {
 				name: dto.name,
 				language_code: dto.languageCode,
+				note: dto.note,
+				covers: dto.covers,
 				year: dto.year,
 				original_content: dto.originalContent,
 				processed_content: dto.processedContent,
@@ -94,6 +102,8 @@ export class VideoPublicRepository {
 			name: dbVideo.name,
 			year: dbVideo.year,
 			languageCode: dbVideo.language_code,
+			note: dbVideo.note,
+			covers: dbVideo.covers,
 			fileName: dbVideo.file_name,
 			fileS3Key: dbVideo.file_s3_key,
 			fileUrl,

@@ -4,6 +4,8 @@ query VideoPublic_getVideos {
 		name
 		year
 		languageCode
+		note
+		covers
 		originalContent
 		processedContent
 		contentType

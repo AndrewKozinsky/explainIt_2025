@@ -16,7 +16,9 @@ import { UpdateVideoPublicOutModel } from 'models/videoPublic/updateVideoPublic.
 export type UpdatePublicVideoInput = {
 	id: number
 	name?: string
+	note?: string | null
 	year?: null | number
+	covers?: string[]
 	originalContent?: string
 	fileName?: string
 	fileS3Key?: string
@@ -111,7 +113,9 @@ export class UpdatePublicVideoHandler extends VideoBase implements ICommandHandl
 
 		const updatedVideo = await this.videoRepository.updateVideoById(updateVideoInput.id, {
 			name: nameForUpdate,
+			note: updateVideoInput.note,
 			year: updateVideoInput.year,
+			covers: updateVideoInput.covers,
 			originalContent: originalContentForUpdate,
 			processedContent: processedContentForUpdate,
 			contentType: contentTypeForUpdate,
