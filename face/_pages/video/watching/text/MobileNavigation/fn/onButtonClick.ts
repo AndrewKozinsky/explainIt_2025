@@ -1,6 +1,6 @@
-// import { useWatchingStore, WatchingStoreI } from '_pages/video/watching/watchingStore'
+import { useWatchingStore, WatchingStoreI } from '_pages/video/watching/watchingStore'
 
-/*export const tabsConfig = [
+export const tabsConfig = [
 	{
 		id: 'text',
 		label: 'Текст',
@@ -11,12 +11,12 @@
 		label: 'Детали',
 		onClick: getChangeCurrentMobileContentType('details'),
 	},
-]*/
+]
 
-/*function getChangeCurrentMobileContentType(contentType: WatchingStoreI.MobileCurrentContentType) {
+function getChangeCurrentMobileContentType(contentType: WatchingStoreI.MobileCurrentContentType) {
 	const { updateMobileCurrentContentType } = useWatchingStore.getState()
 
 	return () => {
 		updateMobileCurrentContentType(contentType)
 	}
-}*/
+}

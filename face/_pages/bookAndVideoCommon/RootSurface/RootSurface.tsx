@@ -1,8 +1,25 @@
-// import React from 'react'
-// import './RootSurface.scss'
+import React, { RefObject } from 'react'
+import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
+import Spinner from 'ui/Spinner/Spinner'
+import './RootSurface.scss'
 
-/*function RootSurface() {
-	return <div className='root-surface'></div>
-}*/
+type RootSurfaceProps = {
+	loading: boolean
+	error: null | string
+	children: React.ReactNode
+	rootRef?: RefObject<HTMLDivElement | null>
+}
 
-// export default RootSurface
+function RootSurface(props: RootSurfaceProps) {
+	const { loading, error, children, rootRef } = props
+
+	return (
+		<div className='root-surface' ref={rootRef}>
+			{loading && !error && <Spinner />}
+			{error && <ErrorMessage text={error} />}
+			{!loading && !error && children}
+		</div>
+	)
+}
+
+export default RootSurface

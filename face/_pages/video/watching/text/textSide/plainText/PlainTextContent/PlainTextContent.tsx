@@ -1,8 +1,8 @@
-// import SentenceBlock from '_pages/bookAndVideoCommon/SentenceBlock/SentenceBlock'
-// import { useWatchingStore } from '_pages/video/watching/watchingStore'
-// import './PlainTextContent.scss'
+import SentenceBlock from '_pages/bookAndVideoCommon/SentenceBlock/SentenceBlock'
+import { useWatchingStore } from '_pages/video/watching/watchingStore'
+import './PlainTextContent.scss'
 
-/*function PlainTextContent() {
+function PlainTextContent() {
 	const populatedPlainText = useWatchingStore((s) => s.populatedPlainText)
 	const selection = useWatchingStore((s) => s.selection)
 	const selectWord = useWatchingStore((s) => s.selectWord)
@@ -23,6 +23,6 @@
 			})}
 		</div>
 	)
-}*/
+}
 
-// export default PlainTextContent
+export default PlainTextContent

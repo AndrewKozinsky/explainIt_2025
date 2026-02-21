@@ -1,15 +1,12 @@
-// import React, { useRef } from 'react'
-// import { usePlayerControl } from '_pages/video/watching/video/VideoRoot/fn/playerControl'
-// import {
-// 	createVideoProgressSaver,
-// 	loadVideoProgressSeconds,
-// } from '_pages/video/watching/video/VideoRoot/fn/videoProgressStorage'
-// import { useWatchingStore } from '../../watchingStore'
-// import { usePlayerController } from './fn/controller'
-// import VideoProgress from './VideoProgress'
-// import './VideoRoot.scss'
-//
-/*function VideoRoot() {
+import React, { useRef } from 'react'
+import { useWatchingStore } from '../../watchingStore'
+import { usePlayerController } from './fn/controller'
+import { usePlayerControl } from './fn/playerControl'
+import { createVideoProgressSaver, loadVideoProgressSeconds } from './fn/videoProgressStorage'
+import VideoProgress from './VideoProgress'
+import './VideoRoot.scss'
+
+function VideoRoot() {
 	const video = useWatchingStore((s) => s.video?.data)
 	const fileUrl = video!.fileUrl as string
 	const videoId = video!.id
@@ -58,6 +55,6 @@
 			<VideoProgress />
 		</div>
 	)
-}*/
+}
 
-// export default VideoRoot
+export default VideoRoot

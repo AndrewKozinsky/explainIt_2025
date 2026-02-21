@@ -1,12 +1,12 @@
-// import React, { useRef } from 'react'
-// import { useWatchingStore } from '_pages/video/watching/watchingStore'
-// import SpeechlessBar from '../SpeechlessBar/SpeechlessBar'
-// import SubtitleBlock from '../SubtitleBlock/SubtitleBlock'
-// import { useGetCurrentSubtitleId } from './fn/getCurrentSubtitleId'
-// import { useAutoScrollCurrentSubtitle } from './fn/useAutoScrollCurrentSubtitle'
-// import './SubtitlesContent.scss'
+import React, { useRef } from 'react'
+import { useWatchingStore } from '_pages/video/watching/watchingStore'
+import SpeechlessBar from '../SpeechlessBar/SpeechlessBar'
+import SubtitleBlock from '../SubtitleBlock/SubtitleBlock'
+import { useGetCurrentSubtitleId } from './fn/getCurrentSubtitleId'
+import { useAutoScrollCurrentSubtitle } from './fn/useAutoScrollCurrentSubtitle'
+import './SubtitlesContent.scss'
 
-/*function SubtitlesContent() {
+function SubtitlesContent() {
 	const populatedSubtitles = useWatchingStore((s) => s.populatedSubtitles)
 	const currentSubtitleId = useGetCurrentSubtitleId()
 	const containerRef = useRef<HTMLDivElement | null>(null)
@@ -28,24 +28,13 @@
 		<div className='subtitles-content' ref={containerRef}>
 			{populatedSubtitles.subtitles.map((item, index) => {
 				if (item.type === 'subtitle') {
-					const startingSentenceIds = item.texts
-						.map((t) => t.sentenceId)
-						.filter((sid, idx, arr) => arr.indexOf(sid) === idx)
-						.filter((sid) => firstSentenceStartSubtitleId.get(sid) === item.id)
-
-					return (
-						<SubtitleBlock
-							subtitle={item}
-							startingSentenceIds={startingSentenceIds}
-							key={index}
-							isCurrent={currentSubtitleId === item.id}
-						/>
-					)
+					return <SubtitleBlock subtitle={item} key={index} isCurrent={currentSubtitleId === item.id} />
 				}
+
 				return <SpeechlessBar key={index} subtitleId={item.id} isCurrent={currentSubtitleId === item.id} />
 			})}
 		</div>
 	)
-}*/
+}
 
-// export default SubtitlesContent
+export default SubtitlesContent

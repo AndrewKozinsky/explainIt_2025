@@ -1,7 +1,7 @@
-// import { getSentenceStructure } from '_pages/bookAndVideoCommon/functions/getSentenceStructure'
-// import Word from '../Word/Word'
+import { getSentenceStructure } from '_pages/bookAndVideoCommon/functions/getSentenceStructure'
+import Word from '../Word/Word'
 
-/*type SentenceBlockProps = {
+type SentenceBlockProps = {
 	sentenceId: number
 	sentenceText: string
 	selectedSentenceId: null | number
@@ -9,9 +9,9 @@
 	selectWord: (input: { sentenceId: number; wordId: number }) => void
 	wordIdOffset?: number
 	className?: string
-}*/
+}
 
-/*function SentenceBlock(props: SentenceBlockProps) {
+function SentenceBlock(props: SentenceBlockProps) {
 	const {
 		sentenceId,
 		sentenceText,
@@ -48,6 +48,6 @@
 			})}
 		</p>
 	)
-}*/
+}
 
-// export default SentenceBlock
+export default SentenceBlock

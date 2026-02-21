@@ -1,10 +1,9 @@
 // import { produce } from 'immer'
 // import { useSystemStore } from 'stores/systemStore'
-// import { create } from 'zustand'
-// import { BookChapterOutModel, BookOutModel, BookPublicOutModel } from '@/graphql'
-// import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
+import { create } from 'zustand'
+import { BookChapterOutModel, BookOutModel, BookPublicOutModel } from '@/graphql'
 
-/*export const readingStoreValues: ReadingStoreValues = {
+export const readingStoreValues: ReadingStoreValues = {
 	book: null as any as ReadingStore.BookData,
 	chapter: null as any as ReadingStore.ChapterData,
 	populatedChapter: null as any as ChapterTextStructurePopulated.Chapter,
@@ -12,9 +11,9 @@
 		sentenceId: null,
 		wordIds: [],
 	},
-}*/
+}
 
-/*export const useReadingStore = create<ReadingStoreNext>()((set, get) => {
+export const useReadingStore = create<ReadingStoreNext>()((set, get) => {
 	return {
 		...readingStoreValues,
 		updateBook: (book: ReadingStore.BookData) => {
@@ -49,9 +48,9 @@
 			})
 		},
 	}
-})*/
+})
 
-/*export namespace ReadingStore {
+export namespace ReadingStore {
 	export type BookData = {
 		loading: boolean
 		errorMessage: null | string
@@ -63,27 +62,43 @@
 		errorMessage: null | string
 		data: BookChapterOutModel
 	}
-}*/
+}
 
-// export type ReadingStoreNext = ReadingStoreValues & ReadingStoreMethods
+export type ReadingStoreNext = ReadingStoreValues & ReadingStoreMethods
 
-/*export type ReadingStoreValues = {
+export type ReadingStoreValues = {
 	book: ReadingStore.BookData
 	chapter: ReadingStore.ChapterData
 	populatedChapter: ChapterTextStructurePopulated.Chapter
 	// Данные выделенного предложения и слов
 	selection: SelectedSentence
-}*/
+}
 
-/*export type SelectedSentence = {
+export type SelectedSentence = {
 	sentenceId: null | number
 	// Идентификаторы выделенных слов
 	wordIds: number[]
-}*/
+}
 
-/*export type ReadingStoreMethods = {
+export type ReadingStoreMethods = {
 	updateBook: (book: ReadingStore.BookData) => void
 	updateChapter: (chapter: ReadingStore.ChapterData) => void
 	updatePopulatedChapter: (populatedChapter: ChapterTextStructurePopulated.Chapter) => void
 	selectWord: (input: { sentenceId: number; wordId: number }) => void
-}*/
+}
+
+// Тип данных для структуры текста наполненный дополнительными сведениями (используется на клиенте)
+export namespace ChapterTextStructurePopulated {
+	// Надо бы добавить сюда идентификатор статьи. Требуется при запросах на анализ.
+	export type Chapter = {
+		id: number
+		header: null | string
+		name: null | string
+		sentences: Sentence[]
+	}
+
+	export type Sentence = {
+		id: number
+		sentence: string
+	}
+}

@@ -1,23 +1,25 @@
 import { useRef } from 'react'
-// import { usePopulateWatchingStore } from './fn/fetchData'
-// import { useFullScreen } from './fn/fullScreen'
-// import WatchingRootContent from './WatchingRootContent'
-// import WatchingRootError from './WatchingRootError'
-// import WatchingRootLoading from './WatchingRootLoading'
-// import './WatchingRoot.scss'
+import RootSurface from '_pages/bookAndVideoCommon/RootSurface/RootSurface'
+import { usePopulateWatchingStore } from './fn/fetchData'
+import { useFullScreen } from './fn/fullScreen'
+import { useGetFetchedDataStatuses } from './fn/getFetchedDataStatuses'
+import { TextContainer, VideoContainer } from './WatchingRootContent'
+import './WatchingRoot.scss'
 
 function WatchingRoot() {
-	const rootRef = useRef<null | HTMLDivElement>(null)
-	// useFullScreen(rootRef)
+	usePopulateWatchingStore()
+	const { fetchedDataLoading, fetchedDataErrorMessage } = useGetFetchedDataStatuses()
 
-	// usePopulateWatchingStore()
+	const rootRef = useRef<null | HTMLDivElement>(null)
+	useFullScreen(rootRef)
 
 	return (
-		<div className='watching-root' ref={rootRef}>
-			{/*<WatchingRootLoading />*/}
-			{/*<WatchingRootError />*/}
-			{/*<WatchingRootContent />*/}
-		</div>
+		<RootSurface loading={fetchedDataLoading} error={fetchedDataErrorMessage} rootRef={rootRef}>
+			<div className='watching-root'>
+				<VideoContainer />
+				<TextContainer />
+			</div>
+		</RootSurface>
 	)
 }
 

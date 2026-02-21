@@ -1,11 +1,11 @@
-// import { useWatchingStore } from '_pages/video/watching/watchingStore'
+import { useWatchingStore } from '_pages/video/watching/watchingStore'
 // import DetailsSide from '../detailsSide/DetailsSide/DetailsSide'
-// import MobileNavigation from '../MobileNavigation/MobileNavigation'
-// import TextSide from '../textSide/TextSide/TextSide'
-// import { getSectionClasses } from './fn/getSectionClasses'
-// import './TextRoot.scss'
+import MobileNavigation from '../MobileNavigation/MobileNavigation'
+import TextSide from '../textSide/TextSide/TextSide'
+import { getSectionClasses } from './fn/getSectionClasses'
+import './TextRoot.scss'
 
-/*function TextRoot() {
+function TextRoot() {
 	const currentMobileContentType = useWatchingStore((s) => s.mobileCurrentContentType)
 
 	return (
@@ -15,12 +15,10 @@
 				<div className={getSectionClasses('text', currentMobileContentType)}>
 					<TextSide />
 				</div>
-				<div className={getSectionClasses('details', currentMobileContentType)}>
-					<DetailsSide />
-				</div>
+				<div className={getSectionClasses('details', currentMobileContentType)}>{/*<DetailsSide />*/}</div>
 			</div>
 		</div>
 	)
-}*/
+}
 
-// export default TextRoot
+export default TextRoot

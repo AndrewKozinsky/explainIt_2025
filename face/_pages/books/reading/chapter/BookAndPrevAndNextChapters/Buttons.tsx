@@ -1,57 +1,46 @@
-// import { useParams } from 'next/navigation'
-// import { useReadingStore } from '_pages/books/reading/readingStore'
-// import { useGetPrevAndNextChapters } from './fn/prevAndNextChapters'
-// import LinkArrow from './LinkArrow'
-// import { LinkButton } from './LinkButton'
-// import { RegularText, SmallGrayText } from './Texts'
-// import { pageUrls } from 'сonsts/pageUrls'
+import { useParams } from 'next/navigation'
+import { useReadingStore } from '_pages/books/reading/readingStore'
+import { useGetPrevAndNextChapters } from './fn/prevAndNextChapters'
+import { LinkButton } from './LinkButton'
+import { pageUrls } from 'сonsts/pageUrls'
 
-/*export function BookLink() {
+export function BookLink() {
 	const bookIdInUrl = useParams().bookId as string
 	const book = useReadingStore((s) => s.book.data)
 
-	return (
-		<LinkButton href={pageUrls.books.book(bookIdInUrl).path}>
-			<div className='book-and-prev-and-next-chapters__container'>
-				{book.author && <SmallGrayText>{book.author}</SmallGrayText>}
-				{book.name && <RegularText>{book.name}</RegularText>}
-			</div>
-		</LinkButton>
-	)
-}*/
+	return <LinkButton href={pageUrls.books.book(bookIdInUrl).path} smallText={book.author} text={book.name} />
+}
 
-/*export function PrevChapterLink() {
+export function PrevChapterLink() {
 	const bookIdInUrl = useParams().bookId as string
 	const prevChapter = useGetPrevAndNextChapters().prev
+
 	if (!prevChapter) {
 		return <span />
 	}
 
 	return (
-		<LinkButton href={pageUrls.books.book(bookIdInUrl).chapter(prevChapter.id).reading.path}>
-			<LinkArrow direction='left' />
-			<div className='book-and-prev-and-next-chapters__container'>
-				{prevChapter.name && <SmallGrayText>{prevChapter.name}</SmallGrayText>}
-				{prevChapter.header && <RegularText>{prevChapter.header}</RegularText>}
-			</div>
-		</LinkButton>
+		<LinkButton
+			href={pageUrls.books.book(bookIdInUrl).chapter(prevChapter.id).reading.path}
+			smallText={prevChapter.name}
+			text={prevChapter.header}
+		/>
 	)
-}*/
+}
 
-/*export function NextChapterLink() {
+export function NextChapterLink() {
 	const bookIdInUrl = useParams().bookId as string
 	const nextChapter = useGetPrevAndNextChapters().next
+
 	if (!nextChapter) {
 		return <span />
 	}
 
 	return (
-		<LinkButton href={pageUrls.books.book(bookIdInUrl).chapter(nextChapter.id).reading.path}>
-			<div className='book-and-prev-and-next-chapters__container'>
-				{nextChapter.name && <SmallGrayText>{nextChapter.name}</SmallGrayText>}
-				{nextChapter.header && <RegularText>{nextChapter.header}</RegularText>}
-			</div>
-			<LinkArrow direction='right' />
-		</LinkButton>
+		<LinkButton
+			href={pageUrls.books.book(bookIdInUrl).chapter(nextChapter.id).reading.path}
+			smallText={nextChapter.name}
+			text={nextChapter.header}
+		/>
 	)
-}*/
+}

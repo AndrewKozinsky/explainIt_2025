@@ -1,13 +1,13 @@
-// import { create } from 'zustand'
-// import { VideoPrivateOutModel, VideoPublicOutModel } from '@/graphql'
-// import { PopulatedSubtitlesStructure } from '_pages/video/watching/common/populatedSubtitlesStructure'
-// import { PopulatedTextStructure } from '_pages/video/watching/common/populatedTextStructure'
+import { create } from 'zustand'
+import { VideoPrivateOutModel, VideoPublicOutModel } from '@/graphql'
+import { PopulatedSubtitlesStructure } from '_pages/video/watching/common/populatedSubtitlesStructure'
+import { PopulatedTextStructure } from '_pages/video/watching/common/populatedTextStructure'
 
-/*export const watchingStoreValues: WatchingStoreValues = {
+export const watchingStoreValues: WatchingStoreValues = {
 	video: {
 		loading: true,
 		errorMessage: null,
-		data: null as any as VideoPrivateOutModel,
+		data: null as any as VideoPrivateOutModel | VideoPublicOutModel,
 		type: 'private',
 	},
 	player: {
@@ -21,13 +21,13 @@
 		sentenceId: null,
 		wordIds: [],
 	},
-	helpCurrentContentType: 'keyboard',
+	// helpCurrentContentType: 'keyboard',
 	fullScreen: false,
 	populatedPlainText: null as any as PopulatedTextStructure.Structure,
 	populatedSubtitles: null as any as PopulatedSubtitlesStructure.Structure,
-}*/
+}
 
-/*export const useWatchingStore = create<WatchingStore>()((set, get) => {
+export const useWatchingStore = create<WatchingStore>()((set, get) => {
 	return {
 		...watchingStoreValues,
 		updateStore: (storePart: Partial<WatchingStoreValues>) => {
@@ -40,13 +40,13 @@
 				}
 			})
 		},
-		updateHelpCurrentContentType: (helpCurrentContentType) => {
+		/*updateHelpCurrentContentType: (helpCurrentContentType) => {
 			set((state) => {
 				return {
 					helpCurrentContentType,
 				}
 			})
-		},
+		},*/
 		updateVideo: (video) => {
 			set((state) => {
 				return {
@@ -92,9 +92,9 @@
 			})
 		},
 	}
-})*/
+})
 
-/*export namespace WatchingStoreI {
+export namespace WatchingStoreI {
 	export type VideoData = {
 		loading: boolean
 		errorMessage: null | string
@@ -112,18 +112,18 @@
 	export type MobileCurrentContentType = 'text' | 'details'
 	// Если не выбрано ни одно слово, то показывается справка
 	// В зависимости от нажатой кнопки показывается одна из двух колонок
-	export type HelpCurrentContentType = 'keyboard' | 'mouse'
+	// export type HelpCurrentContentType = 'keyboard' | 'mouse'
 
 	export type SelectedSentence = {
 		sentenceId: null | number
 		// Идентификаторы выделенных слов
 		wordIds: number[]
 	}
-}*/
+}
 
-// export type WatchingStore = WatchingStoreValues & WatchingStoreMethods
+export type WatchingStore = WatchingStoreValues & WatchingStoreMethods
 
-/*export type WatchingStoreValues = {
+export type WatchingStoreValues = {
 	video: WatchingStoreI.VideoData
 	player: {
 		currentTime: number
@@ -132,15 +132,15 @@
 		command: null | PlayerCommand
 	}
 	mobileCurrentContentType: WatchingStoreI.MobileCurrentContentType
-	helpCurrentContentType: WatchingStoreI.HelpCurrentContentType
+	// helpCurrentContentType: WatchingStoreI.HelpCurrentContentType
 	fullScreen: boolean
 	populatedPlainText: PopulatedTextStructure.Structure
 	populatedSubtitles: PopulatedSubtitlesStructure.Structure
 	// Данные выделенного предложения и слов
 	selection: WatchingStoreI.SelectedSentence
-}*/
+}
 
-/*export type PlayerCommand =
+export type PlayerCommand =
 	| { type: 'PLAY' }
 	| { type: 'PAUSE' }
 	| { type: 'SET_TIME'; time: number }
@@ -150,15 +150,15 @@
 	| { type: 'STOP_FORWARD_HOLD' }
 	| { type: 'START_REVERSE_SEEK'; rate: number }
 	| { type: 'STOP_REVERSE_SEEK' }
-	| { type: 'SET_VOLUME'; volume: number }*/
+	| { type: 'SET_VOLUME'; volume: number }
 
-/*export type WatchingStoreMethods = {
+export type WatchingStoreMethods = {
 	updateStore: (store: Partial<WatchingStoreValues>) => void
 	updateMobileCurrentContentType: (contentType: WatchingStoreI.MobileCurrentContentType) => void
-	updateHelpCurrentContentType: (contentType: WatchingStoreI.HelpCurrentContentType) => void
+	// updateHelpCurrentContentType: (contentType: WatchingStoreI.HelpCurrentContentType) => void
 	updateVideo: (video: WatchingStoreI.VideoData) => void
 	setPlayerState: (state: Partial<WatchingStoreI.Player>) => void
 	sendPlayerCommand: (command: PlayerCommand) => void
 	toggleFullScreen: () => void
 	selectWord: (input: { sentenceId: number; wordId: number }) => void
-}*/
+}

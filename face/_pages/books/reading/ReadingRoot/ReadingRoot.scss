@@ -1,15 +1,11 @@
-//@use '@/styles/variables' as vars;
-//@use '@/styles/mixins' as mix;
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
 
-/*
 .reading-root {
+	flex-grow: 1;
 	display: grid;
 	grid-template-rows: 1fr 1fr;
-	background: white;
-	max-height: 95vh;
 	overflow: hidden;
-	border-radius: vars.$radius-1;
-	box-shadow: vars.$shadow-1;
 
 	@include mix.page-width(700px) {
 		display: grid;
@@ -17,18 +13,15 @@
 		grid-template-columns: 1fr 1fr;
 	}
 }
-*/
 
-/*.reading-root__content {
+.reading-root__content {
+	display: flex;
+	flex-direction: column;
 	overflow: auto;
-}*/
+	padding: 0 var(--reading-page-chapter-horizontal-padding) 0 0;
+}
 
-
-/*.reading-root__content-inner {
-	padding: 16px var(--reading-page-chapter-horizontal-padding);
-}*/
-
-/*.reading-root__analysis {
+.reading-root__analysis {
 	overflow: auto;
 	padding: 16px var(--reading-page-chapter-horizontal-padding);
-}*/
+}

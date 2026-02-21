@@ -1,21 +1,16 @@
-// import cn from 'classnames'
-// import { PopulatedSubtitlesStructure } from '@/_pages/video/watching/common/populatedSubtitlesStructure'
-// import { useWatchingStore } from '@/_pages/video/watching/watchingStore'
-// import { getSentenceStructure } from '_pages/bookAndVideoCommon/functions/getSentenceStructure'
-// import SentenceBlock from '_pages/bookAndVideoCommon/SentenceBlock/SentenceBlock'
-// import Word from '_pages/bookAndVideoCommon/Word/Word'
-// import './SubtitleBlock.scss'
+import cn from 'classnames'
+import { PopulatedSubtitlesStructure } from '@/_pages/video/watching/common/populatedSubtitlesStructure'
+import { useWatchingStore } from '@/_pages/video/watching/watchingStore'
+import SentenceBlock from '_pages/bookAndVideoCommon/SentenceBlock/SentenceBlock'
+import './SubtitleBlock.scss'
 
-/*type SubtitleBlockProps = {
+type SubtitleBlockProps = {
 	subtitle: PopulatedSubtitlesStructure.Subtitle
 	isCurrent: boolean
-	// Идентификаторы предложений, которые начинаются в данном субтитре.
-	// Если не переданы, компонент отрисует все тексты субтитра; переводы ниже появятся только если есть такие идентификаторы.
-	startingSentenceIds?: number[]
-}*/
+}
 
-/*function SubtitleBlock(props: SubtitleBlockProps) {
-	const { subtitle, isCurrent, startingSentenceIds } = props
+function SubtitleBlock(props: SubtitleBlockProps) {
+	const { subtitle, isCurrent } = props
 
 	const selection = useWatchingStore((s) => s.selection)
 	const selectWord = useWatchingStore((s) => s.selectWord)
@@ -39,6 +34,6 @@
 			</div>
 		</div>
 	)
-}*/
+}
 
-// export default SubtitleBlock
+export default SubtitleBlock

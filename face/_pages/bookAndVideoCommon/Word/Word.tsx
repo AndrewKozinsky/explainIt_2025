@@ -1,20 +1,20 @@
-// import { useRef } from 'react'
-// import cn from 'classnames'
-// import { useSystemStore } from 'stores/systemStore'
-// import { useLongPress } from 'utils/events'
-// import { getWordPrimaryType } from './fn/getWordPrimaryType'
-// import './Word.scss'
+import { useRef } from 'react'
+import cn from 'classnames'
+import { useSystemStore } from 'stores/systemStore'
+import { useLongPress } from 'utils/events'
+import { getWordPrimaryType } from './fn/getWordPrimaryType'
+import './Word.scss'
 
-/*type WordProps = {
+type WordProps = {
 	sentenceId: number
 	wordId: number
 	text: string
 	selectedSentenceId: null | number
 	selectedWordIds: number[]
 	selectWord: (input: { sentenceId: number; wordId: number }) => void
-}*/
+}
 
-/*function Word(props: WordProps) {
+function Word(props: WordProps) {
 	const { sentenceId, wordId, text, selectedSentenceId, selectedWordIds, selectWord } = props
 	const deviceType = useSystemStore((state) => state.deviceType)
 
@@ -53,12 +53,11 @@
 			<span
 				className={cn('word__text', deviceType === 'touch' && 'no-select')}
 				onContextMenu={(e) => e.preventDefault()}
-				// data-text={wordData.value}
 			>
 				{text}
 			</span>
 		</span>
 	)
-}*/
+}
 
-// export default Word
+export default Word
