@@ -5,6 +5,7 @@
 	flex-grow: 1;
 	display: grid;
 	grid-template-rows: 1fr 1fr;
+	gap: 2rem;
 	overflow: hidden;
 
 	@include mix.page-width(700px) {

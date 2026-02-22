@@ -22,15 +22,15 @@ export function usePopulateStore() {
 			const sentence = bookSentences.find((s) => s.id === bookSelection.sentenceId)
 
 			useDetailsStore.getState().updateStore({
-				isMediaFreeToUse: isBookFreeToUse,
-				sentenceId: bookSelection.sentenceId,
-				sentenceText: sentence?.sentence ?? undefined,
 				bookName: bookName ?? null,
 				bookAuthor: bookAuthor ?? null,
 				videoName: null,
 				videoYear: null,
-				// wordIds: bookSelection.wordIds,
-				// selectWord: bookSelectWord,
+				isMediaFreeToUse: isBookFreeToUse,
+				sentenceId: bookSelection.sentenceId,
+				wordIds: bookSelection.wordIds,
+				sentenceText: sentence?.sentence ?? undefined,
+				selectWord: bookSelectWord,
 			})
 		},
 		[
@@ -65,15 +65,15 @@ export function usePopulateStore() {
 			const sentence = plainTextSentence ?? subtitleSentence
 
 			useDetailsStore.getState().updateStore({
-				isMediaFreeToUse: isVideoFreeToUse,
-				sentenceId: videoSelection.sentenceId,
-				sentenceText: sentence?.text || null,
 				bookName: null,
 				bookAuthor: null,
 				videoName: videoName ?? null,
 				videoYear: videoYear ?? null,
-				// wordIds: videoSelection.wordIds,
-				// selectWord: videoSelectWord,
+				isMediaFreeToUse: isVideoFreeToUse,
+				sentenceId: videoSelection.sentenceId,
+				wordIds: videoSelection.wordIds,
+				sentenceText: sentence?.text || null,
+				selectWord: videoSelectWord,
 			})
 		},
 		[

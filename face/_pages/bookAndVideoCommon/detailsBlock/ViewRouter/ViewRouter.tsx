@@ -1,7 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
 import Button from 'ui/formRelated/buttons/Button/Button'
-import { useDetailsStore } from '_pages/bookAndVideoCommon/detailsBlock/detailsStore'
+import { AnalysisBlock } from '../AnalysisBlock/AnalysisBlock'
+import { useDetailsStore } from '../detailsStore'
 import { pageUrls } from 'сonsts/pageUrls'
 import './ViewRouter.scss'
 
@@ -10,17 +11,20 @@ function ViewRouter() {
 
 	if (viewType === 'CAN_CREATE') {
 		return <CanCreateView />
-	} else if (viewType === 'LOGIN_REQUIRED') {
+	}
+	if (viewType === 'LOGIN_REQUIRED') {
 		return <LoginRequiredView />
-	} else if (viewType === 'SUBSCRIPTION_REQUIRED') {
+	}
+	if (viewType === 'LOGIN_AND_SUBSCRIPTION_REQUIRED') {
+		return <LoginAndSubscriptionRequiredView />
+	}
+	if (viewType === 'SUBSCRIPTION_REQUIRED') {
 		return <SubscriptionRequiredView />
 	} else if (viewType === 'BALANCE_REQUIRED') {
 		return <BalanceRequiredView />
-	} else if (viewType === 'VIEW_FULL') {
-		return <FullView withLoginButton={false} />
 	}
 
-	return <FullView withLoginButton />
+	return <AnalysisBlock />
 }
 
 export default ViewRouter
@@ -60,6 +64,20 @@ function SubscriptionRequiredView() {
 	)
 }
 
+function LoginAndSubscriptionRequiredView() {
+	return (
+		<InfoWrapper>
+			<InfoText>
+				Перевод и анализ этого текста могут делать только авторизованные пользователи с базовой или стандартной
+				подпиской.
+			</InfoText>
+			<Link href={pageUrls.auth.login.path}>
+				<Button>Войти</Button>
+			</Link>
+		</InfoWrapper>
+	)
+}
+
 function BalanceRequiredView() {
 	return (
 		<InfoWrapper>
@@ -67,16 +85,6 @@ function BalanceRequiredView() {
 				Вы исчерпали лимит на переводы. После окончания срока подписки вы сможете приобрести новую.
 			</InfoText>
 		</InfoWrapper>
-	)
-}
-
-function FullView({ withLoginButton }: { withLoginButton: boolean }) {
-	return (
-		<div>
-			{/*<SelectedSentence />*/}
-			{/*<SentenceAnalysis />*/}
-			{/*<ErrorMessage text={errorText ?? ''} />*/}
-		</div>
 	)
 }
 

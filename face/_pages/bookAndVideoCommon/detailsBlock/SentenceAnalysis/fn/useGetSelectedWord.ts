@@ -1,11 +1,11 @@
-// import React from 'react'
-// import { useSelectedSentenceStore } from '_pages/bookAndVideoCommon/selectedSentence/selectedSentenceStore'
+import React from 'react'
+import { useDetailsStore } from '../../detailsStore'
 
-/*export function useGetSelectedWord(): null | string {
-	const sentenceText = useSelectedSentenceStore((s) => s.sentenceText)
-	const wordIds = useSelectedSentenceStore((s) => s.wordIds)
+export function useGetSelectedWord(): null | string {
+	const sentenceText = useDetailsStore((s) => s.sentenceText)
+	const wordIds = useDetailsStore((s) => s.wordIds)
 
-	const selectedWord = React.useMemo(
+	return React.useMemo(
 		function () {
 			const wordId = wordIds[0]
 			if (!wordId) return null
@@ -17,6 +17,4 @@
 		},
 		[sentenceText, wordIds],
 	)
-
-	return selectedWord
-}*/
+}

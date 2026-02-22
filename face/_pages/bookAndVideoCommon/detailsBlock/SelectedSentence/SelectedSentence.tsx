@@ -1,12 +1,16 @@
-// import { useSelectedSentenceStore } from '_pages/bookAndVideoCommon/selectedSentence/selectedSentenceStore'
-// import SentenceBlock from '_pages/bookAndVideoCommon/SentenceBlock/SentenceBlock'
-// import './SelectedSentence.scss'
+import SentenceBlock from '_pages/bookAndVideoCommon/SentenceBlock/SentenceBlock'
+import { useDetailsStore } from '../detailsStore'
+import './SelectedSentence.scss'
 
-/*export function SelectedSentence() {
-	const sentenceId = useSelectedSentenceStore((s) => s.sentenceId)
-	const sentenceText = useSelectedSentenceStore((s) => s.sentenceText)
-	const wordIds = useSelectedSentenceStore((s) => s.wordIds)
-	const selectWord = useSelectedSentenceStore((s) => s.selectWord)
+export function SelectedSentence() {
+	const sentenceId = useDetailsStore((s) => s.sentenceId)
+	const sentenceText = useDetailsStore((s) => s.sentenceText)
+	const wordIds = useDetailsStore((s) => s.wordIds)
+	const selectWord = useDetailsStore((s) => s.selectWord)
+
+	if (!sentenceId || !sentenceText) {
+		return null
+	}
 
 	return (
 		<SentenceBlock
@@ -18,4 +22,4 @@
 			className='selected-sentence'
 		/>
 	)
-}*/
+}

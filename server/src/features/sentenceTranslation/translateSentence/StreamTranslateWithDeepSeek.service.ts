@@ -163,13 +163,7 @@ export class StreamTranslateWithDeepSeek {
 2.  Примеры должны быть короткими, релевантными и иллюстрировать именно то значение/конструкцию, которая разбирается.
 3.  Английские слова и фразы в тексте ответа оформляй в backticks: \`like this\`.`
 	}
-
-	getTaskIntro(media?: {
-		bookName?: string
-		bookAuthor?: string
-		videoName?: string
-		videoYear?: string | number
-	}) {
+	getTaskIntro(media?: { bookName?: string; bookAuthor?: string; videoName?: string; videoYear?: string | number }) {
 		if (media?.bookName || media?.bookAuthor) {
 			const bookName = media.bookName ?? ''
 			const author = media.bookAuthor ?? ''

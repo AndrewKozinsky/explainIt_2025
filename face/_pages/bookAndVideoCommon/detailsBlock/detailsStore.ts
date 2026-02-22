@@ -1,20 +1,22 @@
 import { create } from 'zustand'
 
 export const detailsStoreValues: DetailsStoreValues = {
-	viewType: 'CAN_CREATE',
-	isMediaFreeToUse: false,
-	sentenceId: null,
-	sentenceText: null,
 	bookName: null,
 	bookAuthor: null,
 	videoName: null,
 	videoYear: null,
-	translation: undefined,
-	analysis: undefined,
-	// sentenceTranslations: [],
-	// sentenceTranslationsLoading: false,
-	// wordIds: [],
-	// selectWord: () => {},
+	viewType: 'CAN_CREATE',
+	isMediaFreeToUse: false,
+	sentenceId: null,
+	wordIds: [],
+	sentenceText: null,
+	sentenceAnalysisReqType: 'FIND_EXISTING',
+	sentenceAnalysisLoading: false,
+	sentenceAnalysisError: null,
+	analysisExistStatus: 'UNKNOWN',
+	sentenceTranslation: null,
+	sentenceAnalysis: null,
+	selectWord: () => {},
 }
 
 export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
@@ -23,25 +25,12 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 		updateStore: (storePart: Partial<DetailsStoreValues>) => {
 			set(storePart)
 		},
-		/*setSentenceTranslations: (sentenceTranslations: SentenceTranslationLite[]) => {
-			const lastTranslation = sentenceTranslations[sentenceTranslations.length - 1]
-
+		upsertSentenceTranslation: (sentenceTranslation: SentenceTranslationLite) => {
 			set({
-				sentenceTranslations,
-				translation: lastTranslation?.translation ?? null,
-				analysis: lastTranslation?.analysis ?? null,
+				sentenceTranslation: sentenceTranslation?.translation ?? null,
+				sentenceAnalysis: sentenceTranslation?.analysis ?? null,
 			})
-		},*/
-		/*upsertSentenceTranslation: (sentenceTranslation: SentenceTranslationLite) => {
-			const nextSentenceTranslations = upsertSentenceTranslation(get().sentenceTranslations, sentenceTranslation)
-			const lastTranslation = nextSentenceTranslations[nextSentenceTranslations.length - 1]
-
-			set({
-				sentenceTranslations: nextSentenceTranslations,
-				translation: lastTranslation?.translation ?? null,
-				analysis: lastTranslation?.analysis ?? null,
-			})
-		},*/
+		},
 	}
 })
 
@@ -50,50 +39,50 @@ export type DetailsStoreNext = DetailsStoreValues & DetailsStoreMethods
 export type DetailsStoreViewType =
 	| 'CAN_CREATE'
 	| 'LOGIN_REQUIRED'
+	| 'VIEW_FULL'
+	| 'LOGIN_AND_SUBSCRIPTION_REQUIRED'
 	| 'SUBSCRIPTION_REQUIRED'
 	| 'BALANCE_REQUIRED'
-	| 'VIEW_FULL'
-	| 'VIEW_PREVIEW'
 
-/*export type SentenceTranslationLite = {
-	id: number
-	sentenceId: number
+export type SentenceTranslationLite = {
 	translation: string
 	analysis: null | string
-	createdAt: string
-}*/
+}
 
 export type DetailsStoreValues = {
-	viewType: DetailsStoreViewType
-	isMediaFreeToUse: boolean
-	sentenceId: null | number
-	sentenceText: null | string
 	bookName: null | string
 	bookAuthor: null | string
 	videoName: null | string
 	videoYear: null | string | number
-	translation: undefined | null | string // undefined — неизвестно, null — нет перевода, string — есть перевод
-	analysis: undefined | null | string
-	// sentenceTranslations: SentenceTranslationLite[]
-	// sentenceTranslationsLoading: boolean
-	// wordIds: number[]
-	// selectWord: (input: { sentenceId: number; wordId: number }) => void
+	// Какой экран показывать на панели деталей
+	viewType: DetailsStoreViewType
+	// Может ли пользователь без подписки переводить текст
+	isMediaFreeToUse: boolean
+	// Идентификатор выбранного предложения
+	sentenceId: null | number
+	// Идентификаторы выбранных слов
+	wordIds: number[]
+	// Текст выбранного предложения
+	sentenceText: null | string
+	// При помощи какого запроса получить анализ предложения:
+	// FIND_EXISTING — найти анализ в базе данных
+	// TRANSLATE — перевести предложение
+	sentenceAnalysisReqType: 'FIND_EXISTING' | 'TRANSLATE'
+	// Идёт ли загрузка анализа предложения
+	sentenceAnalysisLoading: boolean
+	// Ошибка при загрузке анализа предложения
+	sentenceAnalysisError: null | string
+	// Статус существования перевода
+	analysisExistStatus: 'EXISTS' | 'NOT_EXISTS' | 'UNKNOWN'
+	// Полученные варианты анализа предложения
+	sentenceTranslation: string | null
+	sentenceAnalysis: string | null
+	// translation: undefined | null | string // undefined — неизвестно, null — нет перевода, string — есть перевод
+	// analysis: undefined | null | string
+	selectWord: (input: { sentenceId: number; wordId: number }) => void
 }
 
 export type DetailsStoreMethods = {
 	updateStore: (store: Partial<DetailsStoreValues>) => void
-	// setSentenceTranslations: (sentenceTranslations: SentenceTranslationLite[]) => void
-	// upsertSentenceTranslation: (sentenceTranslation: SentenceTranslationLite) => void
+	upsertSentenceTranslation: (sentenceTranslation: SentenceTranslationLite) => void
 }
-
-/*function upsertSentenceTranslation(
-	translations: SentenceTranslationLite[],
-	sentenceTranslation: SentenceTranslationLite,
-): SentenceTranslationLite[] {
-	const index = translations.findIndex((t) => t.id === sentenceTranslation.id)
-	if (index === -1) return [...translations, sentenceTranslation]
-
-	const next = [...translations]
-	next[index] = sentenceTranslation
-	return next
-}*/

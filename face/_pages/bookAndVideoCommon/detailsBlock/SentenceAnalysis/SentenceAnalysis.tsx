@@ -1,13 +1,13 @@
-// import ReactMarkdown from 'react-markdown'
-// import remarkGfm from 'remark-gfm'
-// import { useSelectedSentenceStore } from '_pages/bookAndVideoCommon/selectedSentence/selectedSentenceStore'
-// import { useGetHighlightedMarkdownComponents } from './fn/useGetHighlightedMarkdownComponents'
-// import { useGetSelectedWord } from './fn/useGetSelectedWord'
-// import './SentenceAnalysis.scss'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+import { useDetailsStore } from '../detailsStore'
+import { useGetHighlightedMarkdownComponents } from './fn/useGetHighlightedMarkdownComponents'
+import { useGetSelectedWord } from './fn/useGetSelectedWord'
+import './SentenceAnalysis.scss'
 
-/*function SentenceAnalysis() {
-	const translation = useSelectedSentenceStore((s) => s.translation)
-	const analysis = useSelectedSentenceStore((s) => s.analysis)
+function SentenceAnalysis() {
+	const translation = useDetailsStore((s) => s.sentenceTranslation)
+	const analysis = useDetailsStore((s) => s.sentenceAnalysis)
 	const selectedWord = useGetSelectedWord()
 	const markdownComponents = useGetHighlightedMarkdownComponents(selectedWord)
 
@@ -25,6 +25,6 @@
 			)}
 		</div>
 	)
-}*/
+}
 
-// export default SentenceAnalysis
+export default SentenceAnalysis
