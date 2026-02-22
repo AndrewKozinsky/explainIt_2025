@@ -17,6 +17,7 @@ export class StreamTranslateWithDeepSeek {
 		userId: number
 		sentenceId: number
 		text: string
+		isPublicMedia: boolean
 		sourceLanguageCode: string
 		targetLanguageCode: string
 		abortSignal?: AbortSignal

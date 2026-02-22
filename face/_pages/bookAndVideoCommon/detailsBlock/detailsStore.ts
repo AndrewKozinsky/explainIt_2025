@@ -6,6 +6,7 @@ export const detailsStoreValues: DetailsStoreValues = {
 	videoName: null,
 	videoYear: null,
 	viewType: 'CAN_CREATE',
+	isPublicMedia: false,
 	isMediaFreeToUse: false,
 	sentenceId: null,
 	wordIds: [],
@@ -56,6 +57,8 @@ export type DetailsStoreValues = {
 	videoYear: null | string | number
 	// Какой экран показывать на панели деталей
 	viewType: DetailsStoreViewType
+	// Является ли медиа публичным (public book/video)
+	isPublicMedia: boolean
 	// Может ли пользователь без подписки переводить текст
 	isMediaFreeToUse: boolean
 	// Идентификатор выбранного предложения

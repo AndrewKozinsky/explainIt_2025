@@ -14,6 +14,7 @@ export class TranslateService {
 		query: {
 			sentenceId: number
 			text: string
+			isPublicMedia: boolean
 			sourceLanguageCode?: null | string
 			targetLanguageCode?: null | string
 			bookName?: string
@@ -27,6 +28,7 @@ export class TranslateService {
 		this.setUpSseHeaders(input.response)
 
 		const abortController = new AbortController()
+
 		input.request.on('close', () => {
 			abortController.abort()
 		})

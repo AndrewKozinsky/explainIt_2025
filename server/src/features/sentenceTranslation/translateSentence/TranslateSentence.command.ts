@@ -9,6 +9,7 @@ export type TranslateSentenceInput = {
 	userId: number
 	sentenceId: number
 	text: string
+	isPublicMedia: boolean
 	sourceLanguageCode?: null | string
 	targetLanguageCode?: null | string
 	bookName?: string
@@ -73,6 +74,7 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 				userId: input.userId,
 				sentenceId: input.sentenceId,
 				text: input.text,
+				isPublicMedia: input.isPublicMedia,
 				sourceLanguageCode,
 				targetLanguageCode,
 				abortSignal: input.abortSignal,

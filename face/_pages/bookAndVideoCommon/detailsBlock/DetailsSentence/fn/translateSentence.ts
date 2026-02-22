@@ -9,6 +9,7 @@ export function useTranslateSentence() {
 	const bookAuthor = useDetailsStore((s) => s.bookAuthor)
 	const videoName = useDetailsStore((s) => s.videoName)
 	const videoYear = useDetailsStore((s) => s.videoYear)
+	const isPublicMedia = useDetailsStore((s) => s.isPublicMedia)
 	const sentenceAnalysisReqType = useDetailsStore((s) => s.sentenceAnalysisReqType)
 
 	const lastAutoTranslateSentenceIdRef = React.useRef<null | number>(null)
@@ -23,19 +24,21 @@ export function useTranslateSentence() {
 			void translateSelectedSentence({
 				sentenceId,
 				sentenceText,
+				isPublicMedia,
 				bookName,
 				bookAuthor,
 				videoName,
 				videoYear,
 			})
 		},
-		[bookAuthor, bookName, sentenceAnalysisReqType, sentenceId, sentenceText, videoName, videoYear],
+		[bookAuthor, bookName, isPublicMedia, sentenceAnalysisReqType, sentenceId, sentenceText, videoName, videoYear],
 	)
 }
 
 async function translateSelectedSentence(input: {
 	sentenceId: number
 	sentenceText: string
+	isPublicMedia: boolean
 	bookName: null | string
 	bookAuthor: null | string
 	videoName: null | string
@@ -44,6 +47,7 @@ async function translateSelectedSentence(input: {
 	const url = buildTranslateSentenceUrl({
 		sentenceId: input.sentenceId,
 		text: input.sentenceText,
+		isPublicMedia: input.isPublicMedia,
 		bookName: input.bookName,
 		bookAuthor: input.bookAuthor,
 		videoName: input.videoName,
@@ -70,6 +74,7 @@ async function translateSelectedSentence(input: {
 function buildTranslateSentenceUrl(input: {
 	sentenceId: number
 	text: string
+	isPublicMedia: boolean
 	bookName: null | string
 	bookAuthor: null | string
 	videoName: null | string
@@ -79,6 +84,7 @@ function buildTranslateSentenceUrl(input: {
 
 	url.searchParams.set('sentenceId', String(input.sentenceId))
 	url.searchParams.set('text', input.text)
+	url.searchParams.set('isPublicMedia', String(input.isPublicMedia))
 
 	if (input.bookName) url.searchParams.set('bookName', input.bookName)
 	if (input.bookAuthor) url.searchParams.set('bookAuthor', input.bookAuthor)

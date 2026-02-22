@@ -14,6 +14,7 @@ export function usePopulateStore() {
 	const bookName = useReadingStore((s) => s.book?.data?.name)
 	const isBookFreeToUse = useReadingStore((s) => s.book?.data?.freeToUse)
 	const bookAuthor = useReadingStore((s) => s.book?.data?.author)
+	const bookType = useReadingStore((s) => s.book?.type)
 
 	useEffect(
 		function () {
@@ -26,6 +27,7 @@ export function usePopulateStore() {
 				bookAuthor: bookAuthor ?? null,
 				videoName: null,
 				videoYear: null,
+				isPublicMedia: bookType === 'public',
 				isMediaFreeToUse: isBookFreeToUse,
 				sentenceId: bookSelection.sentenceId,
 				wordIds: bookSelection.wordIds,
@@ -36,6 +38,7 @@ export function usePopulateStore() {
 		[
 			bookAuthor,
 			bookName,
+			bookType,
 			isBookFreeToUse,
 			bookSelectWord,
 			bookSelection.sentenceId,
@@ -54,6 +57,7 @@ export function usePopulateStore() {
 	const videoName = useWatchingStore((s) => s.video?.data?.name)
 	const isVideoFreeToUse = useWatchingStore((s) => s.video?.data?.freeToUse)
 	const videoYear = useWatchingStore((s) => s.video?.data?.year)
+	const videoType = useWatchingStore((s) => s.video?.type)
 
 	useEffect(
 		function () {
@@ -69,6 +73,7 @@ export function usePopulateStore() {
 				bookAuthor: null,
 				videoName: videoName ?? null,
 				videoYear: videoYear ?? null,
+				isPublicMedia: videoType === 'public',
 				isMediaFreeToUse: isVideoFreeToUse,
 				sentenceId: videoSelection.sentenceId,
 				wordIds: videoSelection.wordIds,
@@ -77,6 +82,7 @@ export function usePopulateStore() {
 			})
 		},
 		[
+			videoType,
 			isVideoFreeToUse,
 			mediaType,
 			videoName,

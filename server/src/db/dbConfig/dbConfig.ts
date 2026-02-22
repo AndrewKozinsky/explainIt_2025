@@ -642,6 +642,11 @@ export const bdConfig = {
 				minLength: 1,
 				maxLength: 500,
 			},
+			isPublicMedia: {
+				type: 'boolean',
+				description: 'Is sentence related to public media (public book/video)',
+				required: true,
+			},
 			sourceLanguageCode: {
 				type: 'string',
 				description: 'Source language code',

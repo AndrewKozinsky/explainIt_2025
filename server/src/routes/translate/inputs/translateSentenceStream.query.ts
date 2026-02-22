@@ -8,6 +8,9 @@ export class TranslateSentenceStreamQuery {
 	@DtoFieldDecorators('text', bdConfig.SentenceTranslation.dtoProps.text)
 	text: string
 
+	@DtoFieldDecorators('isPublicMedia', bdConfig.SentenceTranslation.dtoProps.isPublicMedia)
+	isPublicMedia: boolean
+
 	@DtoFieldDecorators('sourceLanguageCode', bdConfig.SentenceTranslation.dtoProps.sourceLanguageCode)
 	sourceLanguageCode?: null | string
 

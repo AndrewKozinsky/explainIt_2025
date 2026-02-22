@@ -1,7 +1,8 @@
 import { applyDecorators } from '@nestjs/common'
-import { Type } from 'class-transformer'
+import { Transform, Type } from 'class-transformer'
 import {
 	IsArray,
+	IsBoolean,
 	IsDateString,
 	IsEmail,
 	IsIn,
@@ -122,10 +123,23 @@ export function DtoFieldDecorators(
 		}
 	}
 	if (updatedFieldConf.type === 'boolean') {
-		decorators.push(Type(() => Boolean))
 		if (!updatedFieldConf.required) {
 			decorators.push(IsOptional())
 		}
+		decorators.push(
+			Transform(({ value }) => {
+				if (value === true || value === false) return value
+				if (value === 1 || value === '1') return true
+				if (value === 0 || value === '0') return false
+				if (typeof value === 'string') {
+					const v = value.trim().toLowerCase()
+					if (v === 'true') return true
+					if (v === 'false') return false
+				}
+				return value
+			}),
+		)
+		decorators.push(IsBoolean({ message: name + ' must be a boolean' }))
 	}
 	if (updatedFieldConf.type === 'array') {
 		let errMessage = errorMessage.mustBeArray(name)
