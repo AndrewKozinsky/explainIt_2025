@@ -1,4 +1,4 @@
-// import SelectedSentenceBlock from '_pages/bookAndVideoCommon/selectedSentence/SelectedSentenceBlock/SelectedSentenceBlock'
+import DetailsBlock from '_pages/bookAndVideoCommon/detailsBlock/DetailsBlock/DetailsBlock'
 import RootSurface from '_pages/bookAndVideoCommon/RootSurface/RootSurface'
 import BookAndPrevAndNextChapters from '../chapter/BookAndPrevAndNextChapters/BookAndPrevAndNextChapters'
 import BookAuthorAndName from '../chapter/BookAuthorAndName/BookAuthorAndName'
@@ -26,7 +26,9 @@ function ReadingRoot() {
 					<ChapterContent />
 					<BookAndPrevAndNextChapters />
 				</div>
-				<div className='reading-root__analysis'>{/*<SelectedSentenceBlock />*/}</div>
+				<div className='reading-root__analysis'>
+					<DetailsBlock />
+				</div>
 			</div>
 		</RootSurface>
 	)

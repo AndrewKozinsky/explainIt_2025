@@ -21,6 +21,9 @@ export class BookOutModel {
 	@Field(() => Int)
 	userId: number
 
+	@Field(() => Boolean)
+	freeToUse: boolean
+
 	@Field(() => [BookChapterLiteOutModel])
 	chapters: BookChapterLiteOutModel[]
 }

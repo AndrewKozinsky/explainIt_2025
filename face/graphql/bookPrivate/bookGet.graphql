@@ -6,6 +6,7 @@ query Book_get($input: GetBookInput!) {
 		languageCode
 		note
 		userId
+		freeToUse
 		chapters {
 			id
 			bookId

@@ -1,41 +1,42 @@
-// import { useEffect } from 'react'
-// import { usePathname } from 'next/navigation'
-// import { useSelectedSentenceStore } from '_pages/bookAndVideoCommon/selectedSentence/selectedSentenceStore'
-// import { useReadingStore } from '_pages/books/reading/readingStore'
-// import { useWatchingStore } from '_pages/video/watching/watchingStore'
-// import { pageUrls } from 'сonsts/pageUrls'
+import { useEffect } from 'react'
+import { usePathname } from 'next/navigation'
+import { useDetailsStore } from '_pages/bookAndVideoCommon/detailsBlock/detailsStore'
+import { useReadingStore } from '_pages/books/reading/readingStore'
+import { useWatchingStore } from '_pages/video/watching/watchingStore'
+import { pageUrls } from 'сonsts/pageUrls'
 
-/*export function usePopulateStore() {
+export function usePopulateStore() {
 	const mediaType = useGetShowingMediaType()
 
 	const bookSentences = useReadingStore((s) => s.populatedChapter?.sentences)
 	const bookSelection = useReadingStore((s) => s.selection)
 	const bookSelectWord = useReadingStore((s) => s.selectWord)
 	const bookName = useReadingStore((s) => s.book?.data?.name)
+	const isBookFreeToUse = useReadingStore((s) => s.book?.data?.freeToUse)
 	const bookAuthor = useReadingStore((s) => s.book?.data?.author)
 
 	useEffect(
 		function () {
 			if (mediaType !== 'book' || !bookSentences) return
-			if (!bookSelection.sentenceId) return
 
 			const sentence = bookSentences.find((s) => s.id === bookSelection.sentenceId)
-			if (!sentence) return
 
-			useSelectedSentenceStore.getState().updateStore({
+			useDetailsStore.getState().updateStore({
+				isMediaFreeToUse: isBookFreeToUse,
 				sentenceId: bookSelection.sentenceId,
-				sentenceText: sentence.sentence,
+				sentenceText: sentence?.sentence ?? undefined,
 				bookName: bookName ?? null,
 				bookAuthor: bookAuthor ?? null,
 				videoName: null,
 				videoYear: null,
-				wordIds: bookSelection.wordIds,
-				selectWord: bookSelectWord,
+				// wordIds: bookSelection.wordIds,
+				// selectWord: bookSelectWord,
 			})
 		},
 		[
 			bookAuthor,
 			bookName,
+			isBookFreeToUse,
 			bookSelectWord,
 			bookSelection.sentenceId,
 			bookSelection.wordIds,
@@ -51,31 +52,32 @@
 	const videoSelection = useWatchingStore((s) => s.selection)
 	const videoSelectWord = useWatchingStore((s) => s.selectWord)
 	const videoName = useWatchingStore((s) => s.video?.data?.name)
+	const isVideoFreeToUse = useWatchingStore((s) => s.video?.data?.freeToUse)
 	const videoYear = useWatchingStore((s) => s.video?.data?.year)
 
 	useEffect(
 		function () {
 			if (mediaType !== 'video') return
-			if (!videoSelection.sentenceId) return
 
 			const plainTextSentence = videoSubSentences?.find((s) => s.id === videoSelection.sentenceId)
 			const subtitleSentence = videoTextSentences?.find((s) => s.id === videoSelection.sentenceId)
 
 			const sentence = plainTextSentence ?? subtitleSentence
-			if (!sentence) return
 
-			useSelectedSentenceStore.getState().updateStore({
+			useDetailsStore.getState().updateStore({
+				isMediaFreeToUse: isVideoFreeToUse,
 				sentenceId: videoSelection.sentenceId,
-				sentenceText: sentence.text,
+				sentenceText: sentence?.text || null,
 				bookName: null,
 				bookAuthor: null,
 				videoName: videoName ?? null,
 				videoYear: videoYear ?? null,
-				wordIds: videoSelection.wordIds,
-				selectWord: videoSelectWord,
+				// wordIds: videoSelection.wordIds,
+				// selectWord: videoSelectWord,
 			})
 		},
 		[
+			isVideoFreeToUse,
 			mediaType,
 			videoName,
 			videoSelectWord,
@@ -86,9 +88,9 @@
 			videoYear,
 		],
 	)
-}*/
+}
 
-/*export function useGetShowingMediaType() {
+export function useGetShowingMediaType() {
 	const pathname = usePathname()
 	return pathname.startsWith(pageUrls.books.path) ? 'book' : 'video'
-}*/
+}

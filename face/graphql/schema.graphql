@@ -28,6 +28,7 @@ type BookLiteOutModel {
 type BookOutModel {
   author: String
   chapters: [BookChapterLiteOutModel!]!
+  freeToUse: Boolean!
   id: Int!
   languageCode: String!
   name: String
@@ -487,6 +488,7 @@ type VideoPrivateOutModel {
   fileS3Key: String
   fileSizeMb: Int!
   fileUrl: String
+  freeToUse: Boolean!
   id: Int!
   isFileUploaded: Boolean!
   languageCode: String!

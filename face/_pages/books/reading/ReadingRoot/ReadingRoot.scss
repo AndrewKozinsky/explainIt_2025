@@ -22,6 +22,6 @@
 }
 
 .reading-root__analysis {
+	display: flex;
 	overflow: auto;
-	padding: 16px var(--reading-page-chapter-horizontal-padding);
 }

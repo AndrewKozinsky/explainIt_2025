@@ -3,27 +3,29 @@
 // import { SelectedSentence } from '_pages/bookAndVideoCommon/selectedSentence/SelectedSentence/SelectedSentence'
 // import SentenceAnalysis from '_pages/bookAndVideoCommon/selectedSentence/SentenceAnalysis/SentenceAnalysis'
 // import { useSelectedSentenceStore } from '../selectedSentenceStore'
-// import { usePopulateStore } from './fn/populateStore'
+import ViewRouter from '../ViewRouter/ViewRouter'
+import { usePopulateStore } from './fn/populateStore'
+import { useSetCorrectView } from './fn/setCorrectView'
 // import { useSyncSentenceTranslations } from './fn/useSyncSentenceTranslations'
-// import './SelectedSentenceBlock.scss'
+import './SelectedSentenceBlock.scss'
 
-/*function SelectedSentenceBlock() {
+function DetailsBlock() {
 	usePopulateStore()
-	useSyncSentenceTranslations()
-	const { errorText } = useAutoTranslateSentence()
+	useSetCorrectView()
 
-	const sentenceId = useSelectedSentenceStore((s) => s.sentenceId)
-	const wordIds = useSelectedSentenceStore((s) => s.wordIds)
+	// useSyncSentenceTranslations()
+	// const { errorText } = useAutoTranslateSentence()
 
-	if (!sentenceId || !wordIds.length) return null
+	// const sentenceId = useSelectedSentenceStore((s) => s.sentenceId)
+	// const wordIds = useSelectedSentenceStore((s) => s.wordIds)
+
+	// if (!sentenceId || !wordIds.length) return null
 
 	return (
 		<div className='details-side'>
-			<SelectedSentence />
-			<SentenceAnalysis />
-			<ErrorMessage text={errorText ?? ''} />
+			<ViewRouter />
 		</div>
 	)
-}*/
+}
 
-// export default SelectedSentenceBlock
+export default DetailsBlock

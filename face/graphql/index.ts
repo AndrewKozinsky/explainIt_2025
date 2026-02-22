@@ -52,6 +52,7 @@ export type BookOutModel = {
   __typename?: 'BookOutModel';
   author?: Maybe<Scalars['String']['output']>;
   chapters: Array<BookChapterLiteOutModel>;
+  freeToUse: Scalars['Boolean']['output'];
   id: Scalars['Int']['output'];
   languageCode: Scalars['String']['output'];
   name?: Maybe<Scalars['String']['output']>;
@@ -594,6 +595,7 @@ export type VideoPrivateOutModel = {
   fileS3Key?: Maybe<Scalars['String']['output']>;
   fileSizeMb: Scalars['Int']['output'];
   fileUrl?: Maybe<Scalars['String']['output']>;
+  freeToUse: Scalars['Boolean']['output'];
   id: Scalars['Int']['output'];
   isFileUploaded: Scalars['Boolean']['output'];
   languageCode: Scalars['String']['output'];
@@ -782,12 +784,12 @@ export type Book_GetVariables = Exact<{
 }>;
 
 
-export type Book_Get = { __typename?: 'Query', book_get: { __typename?: 'BookOutModel', id: number, author?: string | null, name?: string | null, languageCode: string, note?: string | null, userId: number, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
+export type Book_Get = { __typename?: 'Query', book_get: { __typename?: 'BookOutModel', id: number, author?: string | null, name?: string | null, languageCode: string, note?: string | null, userId: number, freeToUse: boolean, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
 
 export type Book_GetUserBooksVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Book_GetUserBooks = { __typename?: 'Query', book_user_books: Array<{ __typename?: 'BookOutModel', id: number, author?: string | null, name?: string | null, languageCode: string, note?: string | null, userId: number, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> }> };
+export type Book_GetUserBooks = { __typename?: 'Query', book_user_books: Array<{ __typename?: 'BookOutModel', id: number, author?: string | null, name?: string | null, languageCode: string, note?: string | null, userId: number, freeToUse: boolean, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> }> };
 
 export type Book_UpdateVariables = Exact<{
   input: UpdateBookInput;
@@ -860,7 +862,7 @@ export type VideoPrivate_GetVariables = Exact<{
 }>;
 
 
-export type VideoPrivate_Get = { __typename?: 'Query', video_private_get: { __typename?: 'VideoPrivateOutModel', id: number, name?: string | null, year?: number | null, languageCode: string, originalContent?: string | null, processedContent?: string | null, contentType: string, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean, fileSizeMb: number, sentences?: Array<{ __typename?: 'VideoPrivateSentenceOutModel', id: number, startOffset: number, length: number, orderIndex: number, sentenceTranslations?: Array<{ __typename?: 'SentenceTranslationLiteOutModel', id: number, translation: string }> | null }> | null, subtitles?: Array<{ __typename?: 'VideoPrivateSubtitleOutModel', id: number, startTimeMs: number, endTimeMs: number, startOffset: number, length: number, orderIndex: number }> | null, subtitleSentenceInit?: Array<{ __typename?: 'SubtitleSentenceInitOutModel', id: number, subtitleId: number, sentenceId: number, startOffset: number, length: number }> | null } };
+export type VideoPrivate_Get = { __typename?: 'Query', video_private_get: { __typename?: 'VideoPrivateOutModel', id: number, name?: string | null, year?: number | null, languageCode: string, originalContent?: string | null, processedContent?: string | null, contentType: string, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean, fileSizeMb: number, freeToUse: boolean, sentences?: Array<{ __typename?: 'VideoPrivateSentenceOutModel', id: number, startOffset: number, length: number, orderIndex: number, sentenceTranslations?: Array<{ __typename?: 'SentenceTranslationLiteOutModel', id: number, translation: string }> | null }> | null, subtitles?: Array<{ __typename?: 'VideoPrivateSubtitleOutModel', id: number, startTimeMs: number, endTimeMs: number, startOffset: number, length: number, orderIndex: number }> | null, subtitleSentenceInit?: Array<{ __typename?: 'SubtitleSentenceInitOutModel', id: number, subtitleId: number, sentenceId: number, startOffset: number, length: number }> | null } };
 
 export type VideoPrivate_GetUserVideosVariables = Exact<{ [key: string]: never; }>;
 
@@ -1483,6 +1485,7 @@ export const Book_GetDocument = gql`
     languageCode
     note
     userId
+    freeToUse
     chapters {
       id
       bookId
@@ -1535,6 +1538,7 @@ export const Book_GetUserBooksDocument = gql`
     languageCode
     note
     userId
+    freeToUse
     chapters {
       id
       bookId
@@ -2014,6 +2018,7 @@ export const VideoPrivate_GetDocument = gql`
     fileUrl
     isFileUploaded
     fileSizeMb
+    freeToUse
     sentences {
       id
       sentenceTranslations {

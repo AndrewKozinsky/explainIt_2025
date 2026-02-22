@@ -142,6 +142,7 @@ export interface BookOutModel {
     languageCode: string;
     note?: Nullable<string>;
     userId: number;
+    freeToUse: boolean;
     chapters: BookChapterLiteOutModel[];
 }
 
@@ -262,6 +263,7 @@ export interface VideoPrivateOutModel {
     fileUrl?: Nullable<string>;
     isFileUploaded: boolean;
     fileSizeMb: number;
+    freeToUse: boolean;
     sentences?: Nullable<VideoPrivateSentenceOutModel[]>;
     subtitles?: Nullable<VideoPrivateSubtitleOutModel[]>;
     subtitleSentenceInit?: Nullable<SubtitleSentenceInitOutModel[]>;

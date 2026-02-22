@@ -97,6 +97,7 @@ export class VideoPrivateQueryRepository {
 			contentType: dbVideo.content_type,
 			userId: dbVideo.user_id,
 			fileSizeMb: dbVideo.file_size_mb,
+			freeToUse: false,
 		}
 
 		return attachVideoTextRelations({

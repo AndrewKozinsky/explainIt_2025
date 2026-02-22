@@ -26,7 +26,7 @@ export function TextContainer() {
 	if (!video.processedContent) {
 		return (
 			<div className='watching-root__no-text'>
-				<p>no text</p>
+				<p />
 			</div>
 		)
 	}

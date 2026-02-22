@@ -13,6 +13,7 @@ query VideoPrivate_get($input: GetPrivateVideoInput!) {
 		fileUrl
 		isFileUploaded
 		fileSizeMb
+		freeToUse
 		sentences {
 			id
 			sentenceTranslations {

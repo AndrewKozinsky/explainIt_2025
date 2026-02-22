@@ -1,3 +1,4 @@
+import DetailsBlock from '_pages/bookAndVideoCommon/detailsBlock/DetailsBlock/DetailsBlock'
 import { useWatchingStore } from '_pages/video/watching/watchingStore'
 // import DetailsSide from '../detailsSide/DetailsSide/DetailsSide'
 import MobileNavigation from '../MobileNavigation/MobileNavigation'
@@ -15,7 +16,9 @@ function TextRoot() {
 				<div className={getSectionClasses('text', currentMobileContentType)}>
 					<TextSide />
 				</div>
-				<div className={getSectionClasses('details', currentMobileContentType)}>{/*<DetailsSide />*/}</div>
+				<div className={getSectionClasses('details', currentMobileContentType)}>
+					<DetailsBlock />
+				</div>
 			</div>
 		</div>
 	)

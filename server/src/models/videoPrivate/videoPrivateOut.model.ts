@@ -41,6 +41,9 @@ export class VideoPrivateOutModel {
 	@Field(() => Int)
 	fileSizeMb: number
 
+	@Field(() => Boolean)
+	freeToUse: boolean
+
 	@Field(() => [VideoPrivateSentenceOutModel], { nullable: true })
 	sentences: VideoPrivateSentenceOutModel[] | null
 
@@ -54,65 +57,65 @@ export class VideoPrivateOutModel {
 @ObjectType()
 export class VideoPrivateSentenceOutModel {
 	@Field(() => Int)
-		id: number
+	id: number
 
 	@Field(() => [SentenceTranslationLiteOutModel], { nullable: true })
-		sentenceTranslations: SentenceTranslationLiteOutModel[] | null
+	sentenceTranslations: SentenceTranslationLiteOutModel[] | null
 
 	@Field(() => Int)
-		startOffset: number
+	startOffset: number
 
 	@Field(() => Int)
-		length: number
+	length: number
 
 	@Field(() => Int)
-		orderIndex: number
+	orderIndex: number
 }
 
 @ObjectType()
 export class VideoPrivateSubtitleOutModel {
 	@Field(() => Int)
-		id: number
+	id: number
 
 	@Field(() => Int)
-		startTimeMs: number
+	startTimeMs: number
 
 	@Field(() => Int)
-		endTimeMs: number
+	endTimeMs: number
 
 	@Field(() => Int)
-		startOffset: number
+	startOffset: number
 
 	@Field(() => Int)
-		length: number
+	length: number
 
 	@Field(() => Int)
-		orderIndex: number
+	orderIndex: number
 }
 
 @ObjectType()
 export class SubtitleSentenceInitOutModel {
 	@Field(() => Int)
-		id: number
+	id: number
 
 	@Field(() => Int)
-		subtitleId: number
+	subtitleId: number
 
 	@Field(() => Int)
-		sentenceId: number
+	sentenceId: number
 
 	@Field(() => Int)
-		startOffset: number
+	startOffset: number
 
 	@Field(() => Int)
-		length: number
+	length: number
 }
 
 @ObjectType()
 export class SentenceTranslationLiteOutModel {
 	@Field(() => Int)
-		id: number
+	id: number
 
 	@Field(() => String)
-		translation: string
+	translation: string
 }
