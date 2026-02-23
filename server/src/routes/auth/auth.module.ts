@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common'
 import { CqrsModule } from '@nestjs/cqrs'
-import { BalanceTransactionRepository } from 'repo/balanceTransaction.repository'
 import { DBRepository } from 'repo/db.repository'
 import { UserQueryRepository } from 'repo/user.queryRepository'
 import { UserRepository } from 'repo/user.repository'
@@ -27,7 +26,7 @@ const commandHandlers = [
 	LoginWithOAuthHandler,
 ]
 const resolvers = [AuthResolver]
-const repositories = [UserRepository, UserQueryRepository, BalanceTransactionRepository, DBRepository]
+const repositories = [UserRepository, UserQueryRepository, DBRepository]
 
 @Module({
 	imports: [CqrsModule],

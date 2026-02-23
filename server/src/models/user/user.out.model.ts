@@ -12,9 +12,6 @@ export class UserOutModel {
 	@Field(() => Boolean)
 	isUserConfirmed: boolean
 
-	@Field(() => Int)
-	balance: number
-
 	@Field(() => CurrentSubscriptionOutModel, { nullable: true })
 	currentSubscription?: CurrentSubscriptionOutModel | null
 }

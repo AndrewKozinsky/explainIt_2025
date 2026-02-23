@@ -385,7 +385,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 export const ModelName = {
   User: 'User',
-  BalanceTransaction: 'BalanceTransaction',
+  SubscriptionBalanceTransaction: 'SubscriptionBalanceTransaction',
   Payment: 'Payment',
   BookPrivate: 'BookPrivate',
   BookPublic: 'BookPublic',
@@ -414,7 +414,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "balanceTransaction" | "payment" | "bookPrivate" | "bookPublic" | "bookChapter" | "videoPrivate" | "videoPublic" | "sentence" | "sentenceTranslation" | "subtitle" | "subtitleSentenceInit" | "engRusDictionary" | "tariff" | "userSubscription"
+    modelProps: "user" | "subscriptionBalanceTransaction" | "payment" | "bookPrivate" | "bookPublic" | "bookChapter" | "videoPrivate" | "videoPublic" | "sentence" | "sentenceTranslation" | "subtitle" | "subtitleSentenceInit" | "engRusDictionary" | "tariff" | "userSubscription"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -492,77 +492,77 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    BalanceTransaction: {
-      payload: Prisma.$BalanceTransactionPayload<ExtArgs>
-      fields: Prisma.BalanceTransactionFieldRefs
+    SubscriptionBalanceTransaction: {
+      payload: Prisma.$SubscriptionBalanceTransactionPayload<ExtArgs>
+      fields: Prisma.SubscriptionBalanceTransactionFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.BalanceTransactionFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BalanceTransactionPayload> | null
+          args: Prisma.SubscriptionBalanceTransactionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionBalanceTransactionPayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.BalanceTransactionFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BalanceTransactionPayload>
+          args: Prisma.SubscriptionBalanceTransactionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionBalanceTransactionPayload>
         }
         findFirst: {
-          args: Prisma.BalanceTransactionFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BalanceTransactionPayload> | null
+          args: Prisma.SubscriptionBalanceTransactionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionBalanceTransactionPayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.BalanceTransactionFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BalanceTransactionPayload>
+          args: Prisma.SubscriptionBalanceTransactionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionBalanceTransactionPayload>
         }
         findMany: {
-          args: Prisma.BalanceTransactionFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BalanceTransactionPayload>[]
+          args: Prisma.SubscriptionBalanceTransactionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionBalanceTransactionPayload>[]
         }
         create: {
-          args: Prisma.BalanceTransactionCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BalanceTransactionPayload>
+          args: Prisma.SubscriptionBalanceTransactionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionBalanceTransactionPayload>
         }
         createMany: {
-          args: Prisma.BalanceTransactionCreateManyArgs<ExtArgs>
+          args: Prisma.SubscriptionBalanceTransactionCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.BalanceTransactionCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BalanceTransactionPayload>[]
+          args: Prisma.SubscriptionBalanceTransactionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionBalanceTransactionPayload>[]
         }
         delete: {
-          args: Prisma.BalanceTransactionDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BalanceTransactionPayload>
+          args: Prisma.SubscriptionBalanceTransactionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionBalanceTransactionPayload>
         }
         update: {
-          args: Prisma.BalanceTransactionUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BalanceTransactionPayload>
+          args: Prisma.SubscriptionBalanceTransactionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionBalanceTransactionPayload>
         }
         deleteMany: {
-          args: Prisma.BalanceTransactionDeleteManyArgs<ExtArgs>
+          args: Prisma.SubscriptionBalanceTransactionDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.BalanceTransactionUpdateManyArgs<ExtArgs>
+          args: Prisma.SubscriptionBalanceTransactionUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.BalanceTransactionUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BalanceTransactionPayload>[]
+          args: Prisma.SubscriptionBalanceTransactionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionBalanceTransactionPayload>[]
         }
         upsert: {
-          args: Prisma.BalanceTransactionUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BalanceTransactionPayload>
+          args: Prisma.SubscriptionBalanceTransactionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionBalanceTransactionPayload>
         }
         aggregate: {
-          args: Prisma.BalanceTransactionAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateBalanceTransaction>
+          args: Prisma.SubscriptionBalanceTransactionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSubscriptionBalanceTransaction>
         }
         groupBy: {
-          args: Prisma.BalanceTransactionGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.BalanceTransactionGroupByOutputType>[]
+          args: Prisma.SubscriptionBalanceTransactionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SubscriptionBalanceTransactionGroupByOutputType>[]
         }
         count: {
-          args: Prisma.BalanceTransactionCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.BalanceTransactionCountAggregateOutputType> | number
+          args: Prisma.SubscriptionBalanceTransactionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SubscriptionBalanceTransactionCountAggregateOutputType> | number
         }
       }
     }
@@ -1575,23 +1575,22 @@ export const UserScalarFieldEnum = {
   email_confirmation_code_expiration_date: 'email_confirmation_code_expiration_date',
   is_email_confirmed: 'is_email_confirmed',
   is_user_confirmed: 'is_user_confirmed',
-  balance: 'balance',
   created_at: 'created_at'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-export const BalanceTransactionScalarFieldEnum = {
+export const SubscriptionBalanceTransactionScalarFieldEnum = {
   id: 'id',
-  user_id: 'user_id',
+  user_subscription_id: 'user_subscription_id',
   type: 'type',
   amount: 'amount',
   payment_id: 'payment_id',
   created_at: 'created_at'
 } as const
 
-export type BalanceTransactionScalarFieldEnum = (typeof BalanceTransactionScalarFieldEnum)[keyof typeof BalanceTransactionScalarFieldEnum]
+export type SubscriptionBalanceTransactionScalarFieldEnum = (typeof SubscriptionBalanceTransactionScalarFieldEnum)[keyof typeof SubscriptionBalanceTransactionScalarFieldEnum]
 
 
 export const PaymentScalarFieldEnum = {
@@ -1756,7 +1755,11 @@ export type EngRusDictionaryScalarFieldEnum = (typeof EngRusDictionaryScalarFiel
 export const TariffScalarFieldEnum = {
   id: 'id',
   code: 'code',
+  slogan: 'slogan',
   name: 'name',
+  description: 'description',
+  is_public_media_included: 'is_public_media_included',
+  is_private_media_included: 'is_private_media_included',
   price: 'price',
   included_balance: 'included_balance',
   included_file_storage_mb: 'included_file_storage_mb',
@@ -2055,7 +2058,7 @@ export type PrismaClientOptions = ({
 }
 export type GlobalOmitConfig = {
   user?: Prisma.UserOmit
-  balanceTransaction?: Prisma.BalanceTransactionOmit
+  subscriptionBalanceTransaction?: Prisma.SubscriptionBalanceTransactionOmit
   payment?: Prisma.PaymentOmit
   bookPrivate?: Prisma.BookPrivateOmit
   bookPublic?: Prisma.BookPublicOmit

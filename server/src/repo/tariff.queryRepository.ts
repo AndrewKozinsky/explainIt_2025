@@ -19,7 +19,11 @@ export class TariffQueryRepository {
 		return {
 			id: dbTariff.id,
 			code: dbTariff.code,
+			slogan: dbTariff.slogan,
 			name: dbTariff.name,
+			description: dbTariff.description,
+			isPublicMediaIncluded: dbTariff.is_public_media_included,
+			isPrivateMediaIncluded: dbTariff.is_private_media_included,
 			price: dbTariff.price,
 			durationDays: dbTariff.duration_days,
 			includedBalance: dbTariff.included_balance,

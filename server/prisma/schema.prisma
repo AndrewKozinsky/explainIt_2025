@@ -9,45 +9,43 @@ datasource db {
 }
 
 model User {
-    id                                      Int                  @id @default(autoincrement())
-    email                                   String               @unique
+    id                                      Int                @id @default(autoincrement())
+    email                                   String             @unique
     password                                String?
     email_confirmation_code                 String?
     email_confirmation_code_expiration_date String?
-    is_email_confirmed                      Boolean              @default(false)
-    is_user_confirmed                       Boolean              @default(false)
-    balance                                 Int                  @default(0)
-    BalanceTransaction                      BalanceTransaction[]
+    is_email_confirmed                      Boolean            @default(false)
+    is_user_confirmed                       Boolean            @default(false)
     Payment                                 Payment[]
     BookPrivate                             BookPrivate[]
     VideoPrivate                            VideoPrivate[]
     UserSubscription                        UserSubscription[]
-    created_at                              DateTime             @default(now())
+    created_at                              DateTime           @default(now())
 }
 
-model BalanceTransaction {
-    id         Int                    @id @default(autoincrement())
-    user       User                   @relation(fields: [user_id], references: [id], onDelete: Cascade)
-    user_id    Int
-    type       BalanceTransactionType
-    amount     Int
-    payment    Payment?               @relation(fields: [payment_id], references: [id], onDelete: Cascade)
-    payment_id Int?
-    created_at DateTime               @default(now())
+model SubscriptionBalanceTransaction {
+    id                   Int                    @id @default(autoincrement())
+    userSubscription     UserSubscription       @relation(fields: [user_subscription_id], references: [id], onDelete: Cascade)
+    user_subscription_id Int
+    type                 BalanceTransactionType
+    amount               Int
+    payment              Payment?               @relation(fields: [payment_id], references: [id], onDelete: Cascade)
+    payment_id           Int?
+    created_at           DateTime               @default(now())
 }
 
 model Payment {
-    id                 Int                  @id @default(autoincrement())
-    user               User                 @relation(fields: [user_id], references: [id], onDelete: Cascade)
-    user_id            Int
-    amount             Int
-    status             PaymentStatus        @default(PENDING)
-    provider_name      PaymentProviderName  @default(YOOKASSA)
-    external_id        String               @unique
-    UserSubscription   UserSubscription?
-    BalanceTransaction BalanceTransaction[]
-    created_at         DateTime             @default(now())
-    updated_at         DateTime             @default(now())
+    id                             Int                              @id @default(autoincrement())
+    user                           User                             @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    user_id                        Int
+    amount                         Int
+    status                         PaymentStatus                    @default(PENDING)
+    provider_name                  PaymentProviderName              @default(YOOKASSA)
+    external_id                    String                           @unique
+    UserSubscription               UserSubscription?
+    SubscriptionBalanceTransaction SubscriptionBalanceTransaction[]
+    created_at                     DateTime                         @default(now())
+    updated_at                     DateTime                         @default(now())
 }
 
 model BookPrivate {
@@ -193,35 +191,39 @@ model EngRusDictionary {
 }
 
 model Tariff {
-    id                       Int                @id @default(autoincrement())
-    code                     String             @unique
-    name                     String
-    price                    Int
-    included_balance         Int
-    included_file_storage_mb Int
-    duration_days            Int
-    created_at               DateTime           @default(now())
-    userSubscriptions        UserSubscription[]
+    id                        Int                @id @default(autoincrement())
+    code                      String             @unique
+    slogan                    String
+    name                      String
+    description               String
+    is_public_media_included  Boolean            @default(false)
+    is_private_media_included Boolean            @default(false)
+    price                     Int
+    included_balance          Int
+    included_file_storage_mb  Int
+    duration_days             Int
+    created_at                DateTime           @default(now())
+    userSubscriptions         UserSubscription[]
 }
 
 model UserSubscription {
-    id                       Int      @id @default(autoincrement())
-    user                     User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
-    user_id                  Int
-    tariff                   Tariff   @relation(fields: [tariff_id], references: [id], onDelete: Restrict)
-    tariff_id                Int
-    price_paid               Int
-    balance                  Int
-    included_file_storage_mb Int
-    starts_at                DateTime
-    ends_at                  DateTime
-    payment                  Payment? @relation(fields: [payment_id], references: [id], onDelete: Cascade)
-    payment_id               Int?     @unique
-    created_at               DateTime @default(now())
+    id                             Int                              @id @default(autoincrement())
+    user                           User                             @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    user_id                        Int
+    tariff                         Tariff                           @relation(fields: [tariff_id], references: [id], onDelete: Restrict)
+    tariff_id                      Int
+    price_paid                     Int
+    balance                        Int
+    included_file_storage_mb       Int
+    starts_at                      DateTime
+    ends_at                        DateTime
+    payment                        Payment?                         @relation(fields: [payment_id], references: [id], onDelete: Cascade)
+    payment_id                     Int?                             @unique
+    SubscriptionBalanceTransaction SubscriptionBalanceTransaction[]
+    created_at                     DateTime                         @default(now())
 }
 
 enum BalanceTransactionType {
-    TOP_UP
     CHARGE
 }
 

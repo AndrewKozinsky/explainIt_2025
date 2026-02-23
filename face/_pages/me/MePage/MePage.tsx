@@ -1,7 +1,6 @@
 import React from 'react'
 import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'
 import Balance from '../Balance/Balance'
-import IncreaseBalanceForm from '../IncreaseBalanceForm/IncreaseBalanceForm'
 import LogoutButton from '../LogoutButton/LogoutButton'
 import './MePage.scss'
 
@@ -11,7 +10,6 @@ function MePage() {
 			<main className='me-page'>
 				{/* Do not forget to use STATE MACHINE FOR COMPONENTS !!! https://zagjs.com/ */}
 				<Balance />
-				<IncreaseBalanceForm />
 				<LogoutButton />
 			</main>
 		</PageWrapper>

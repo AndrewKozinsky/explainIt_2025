@@ -10,7 +10,6 @@
 */
 
 export const BalanceTransactionType = {
-  TOP_UP: 'TOP_UP',
   CHARGE: 'CHARGE'
 } as const
 

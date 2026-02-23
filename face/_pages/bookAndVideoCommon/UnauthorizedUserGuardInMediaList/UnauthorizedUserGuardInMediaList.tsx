@@ -20,7 +20,7 @@ function UnauthorizedUserGuardInMediaList({ contentType }: { contentType: Conten
 
 	const tariffCode = user?.currentSubscription?.tariffCode
 
-	if (!tariffCode || tariffCode === 'base') {
+	if (!tariffCode || tariffCode.startsWith('base')) {
 		return <UserWithBasicTariff contentType={contentType} />
 	}
 
@@ -32,8 +32,8 @@ export default UnauthorizedUserGuardInMediaList
 function UnauthorizedUser({ contentType }: { contentType: ContentType }) {
 	const text =
 		contentType === 'books'
-			? 'Смотреть и загружать книги могут только авторизованные пользователи со стандартной подпиской.'
-			: 'Смотреть и загружать фильмы могут только авторизованные пользователи со стандартной подпиской.'
+			? 'Смотреть и загружать книги могут только авторизованные пользователи со стандартным тарифом.'
+			: 'Смотреть и загружать фильмы могут только авторизованные пользователи со стандартным тарифом.'
 
 	return (
 		<Wrapper>
@@ -48,8 +48,8 @@ function UnauthorizedUser({ contentType }: { contentType: ContentType }) {
 function UserWithBasicTariff({ contentType }: { contentType: ContentType }) {
 	const text =
 		contentType === 'books'
-			? 'Смотреть и загружать книги могут только пользователи со стандартной подпиской.'
-			: 'Смотреть и загружать фильмы могут только пользователи со стандартной подпиской.'
+			? 'Смотреть и загружать книги могут только пользователи со стандартным тарифом.'
+			: 'Смотреть и загружать фильмы могут только пользователи со стандартным тарифом.'
 
 	return (
 		<Wrapper>

@@ -9,7 +9,7 @@
  * 🟢 You can import this file directly.
  */
 export type * from './models/User'
-export type * from './models/BalanceTransaction'
+export type * from './models/SubscriptionBalanceTransaction'
 export type * from './models/Payment'
 export type * from './models/BookPrivate'
 export type * from './models/BookPublic'

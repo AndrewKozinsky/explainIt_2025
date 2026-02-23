@@ -68,7 +68,7 @@ describe.skip('Check that test user were created correctly (e2e)', () => {
 	})*/
 })
 
-async function checkUserWithUnconfirmedEmail(props: {
+/*async function checkUserWithUnconfirmedEmail(props: {
 	userConfig: UserWithUnconfirmedEmailConfig
 	userRepository: UserRepository
 	bookQueryRepository: BookPrivateQueryRepository
@@ -88,9 +88,9 @@ async function checkUserWithUnconfirmedEmail(props: {
 	// Check books
 	const books = await bookQueryRepository.getUserBooks(userConfig.id)
 	expect(books.length).toBe(1)
-}
+}*/
 
-async function checkUserWithConfirmedEmail(props: {
+/*async function checkUserWithConfirmedEmail(props: {
 	userConfig: UserRegisteredWithCredentialsConfig
 	userRepository: UserRepository
 	bookQueryRepository: BookPrivateQueryRepository
@@ -107,9 +107,9 @@ async function checkUserWithConfirmedEmail(props: {
 	expect(userFromDB.balance).toBe(0)
 
 	await checkUserBooks({ userId: userConfig.id, booksConfig: userConfig.books, bookQueryRepository })
-}
+}*/
 
-async function checkUserWithOAuth(props: {
+/*async function checkUserWithOAuth(props: {
 	userConfig: UserRegisteredWithOAuthConfig
 	userRepository: UserRepository
 	bookQueryRepository: BookPrivateQueryRepository
@@ -126,9 +126,9 @@ async function checkUserWithOAuth(props: {
 	expect(userFromDB.balance).toBe(welcomeBonusInKop * 100)
 
 	await checkUserBooks({ userId: userConfig.id, booksConfig: userConfig.books, bookQueryRepository })
-}
+}*/
 
-async function checkUserWithCredentialsAndOAuth(props: {
+/*async function checkUserWithCredentialsAndOAuth(props: {
 	userConfig: UserRegisteredWithCredentialsAndOAuthConfig
 	userRepository: UserRepository
 	bookQueryRepository: BookPrivateQueryRepository
@@ -145,7 +145,7 @@ async function checkUserWithCredentialsAndOAuth(props: {
 	expect(userFromDB.balance).toBe(welcomeBonusInKop * 100)
 
 	await checkUserBooks({ userId: userConfig.id, booksConfig: userConfig.books, bookQueryRepository })
-}
+}*/
 
 async function checkUserBooks(props: {
 	userId: number

@@ -131,19 +131,6 @@ export class UserRepository {
 		})
 	}
 
-	@CatchDbError()
-	async updateBalance(userId: number, amount: number) {
-		// Если число отрицательное, то при записи в БД сделать положительным иначе не сработает правильным образом
-		const balanceChangeObj = amount > 0 ? { increment: amount } : { decrement: -amount }
-
-		await this.prisma.user.update({
-			where: { id: userId },
-			data: {
-				balance: balanceChangeObj,
-			},
-		})
-	}
-
 	newConfirmationCodeData() {
 		return {
 			email_confirmation_code: createUniqString(),
@@ -167,7 +154,6 @@ export class UserRepository {
 			confirmationCodeExpirationDate: dbUser.email_confirmation_code_expiration_date,
 			isEmailConfirmed: dbUser.is_email_confirmed,
 			isUserConfirmed: dbUser.is_user_confirmed,
-			balance: dbUser.balance,
 		}
 	}
 }

@@ -3,7 +3,11 @@ import { TariffRepository } from 'repo/tariff.repository'
 
 type CreateTariffDto = {
 	code: string
+	slogan: string
 	name: string
+	description: string
+	isPublicMediaIncluded: boolean
+	isPrivateMediaIncluded: boolean
 	price: number
 	durationDays: number
 	includedBalance: number
@@ -37,16 +41,24 @@ export class CreateTariffsHandler implements ICommandHandler<CreateTariffsComman
 	getTariffsData(): CreateTariffDto[] {
 		return [
 			{
-				code: 'base',
+				code: 'base-30',
+				slogan: 'Регулярная практика',
 				name: 'Базовый',
+				description: 'Продолжить чтение и просмотр когда бесплатные материалы уже пройдены.',
+				isPublicMediaIncluded: true,
+				isPrivateMediaIncluded: true,
 				price: 15000, // 150 rub
 				durationDays: 30,
 				includedBalance: 0,
 				includedFileStorageMb: 0,
 			},
 			{
-				code: 'standard',
+				code: 'standard-30',
+				slogan: 'Полная свобода',
 				name: 'Стандартный',
+				description: 'Учиться на том, что интересно именно вам.',
+				isPublicMediaIncluded: false,
+				isPrivateMediaIncluded: true,
 				price: 45000, // 450 rub
 				durationDays: 30,
 				includedBalance: 150,

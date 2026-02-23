@@ -1,32 +1,22 @@
 import { Injectable } from '@nestjs/common'
+import { CommandBus } from '@nestjs/cqrs'
 import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
+import { DeepSeekTokenUsageBalanceChargeCommand } from 'features/payment/DeepSeekTokenUsageBalanceCharge.command'
 import { DeepSeekService } from 'infrastructure/deepSeek/deepSeek.service'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { TranslateSentenceStreamEvent } from './TranslateSentence.command'
+import { StreamTranslateProviderInput, TranslateSentenceStreamEvent } from './TranslateSentence.command'
 
 @Injectable()
 export class StreamTranslateWithDeepSeek {
 	constructor(
 		private deepSeekService: DeepSeekService,
 		private sentenceTranslationRepository: SentenceTranslationRepository,
+		private commandBus: CommandBus,
 	) {}
 
-	async *streamTranslate(input: {
-		userId: number
-		sentenceId: number
-		text: string
-		isPublicMedia: boolean
-		sourceLanguageCode: string
-		targetLanguageCode: string
-		abortSignal?: AbortSignal
-		lowPriority?: boolean
-		bookName?: string
-		bookAuthor?: string
-		videoName?: string
-		videoYear?: string | number
-	}): AsyncGenerator<TranslateSentenceStreamEvent> {
+	async *streamTranslate(input: StreamTranslateProviderInput): AsyncGenerator<TranslateSentenceStreamEvent> {
 		const messages = this.getDeepSeekTranslationTask({
 			sourceLanguageCode: input.sourceLanguageCode,
 			targetLanguageCode: input.targetLanguageCode,
@@ -36,6 +26,8 @@ export class StreamTranslateWithDeepSeek {
 			videoYear: input.videoYear,
 		})
 
+		type TokenUsage = { inputTokens: number; outputTokens: number }
+		let tokenUsage: TokenUsage | null = null
 		let fullText = ''
 
 		for await (const chunk of this.deepSeekService.generateTextStreamChunks({
@@ -47,8 +39,8 @@ export class StreamTranslateWithDeepSeek {
 				},
 			],
 			abortSignal: input.abortSignal,
-			onUsage: () => {
-				// Пока не используем usage/биллинг для DeepSeek
+			onUsage: (usage) => {
+				tokenUsage = usage ?? null
 			},
 			lowPriority: input.lowPriority,
 		})) {
@@ -66,6 +58,17 @@ export class StreamTranslateWithDeepSeek {
 			translation: parsedResult.translation,
 			analysis: parsedResult.analysis,
 		})
+
+		if (input.chargeAfterTranslation && tokenUsage !== null) {
+			const usage: TokenUsage = tokenUsage
+			await this.commandBus.execute(
+				new DeepSeekTokenUsageBalanceChargeCommand({
+					userId: input.userId,
+					inputTokens: usage.inputTokens,
+					outputTokens: usage.outputTokens,
+				}),
+			)
+		}
 
 		yield { type: 'done' }
 	}

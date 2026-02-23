@@ -52,7 +52,7 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   User: 'User',
-  BalanceTransaction: 'BalanceTransaction',
+  SubscriptionBalanceTransaction: 'SubscriptionBalanceTransaction',
   Payment: 'Payment',
   BookPrivate: 'BookPrivate',
   BookPublic: 'BookPublic',
@@ -92,23 +92,22 @@ export const UserScalarFieldEnum = {
   email_confirmation_code_expiration_date: 'email_confirmation_code_expiration_date',
   is_email_confirmed: 'is_email_confirmed',
   is_user_confirmed: 'is_user_confirmed',
-  balance: 'balance',
   created_at: 'created_at'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-export const BalanceTransactionScalarFieldEnum = {
+export const SubscriptionBalanceTransactionScalarFieldEnum = {
   id: 'id',
-  user_id: 'user_id',
+  user_subscription_id: 'user_subscription_id',
   type: 'type',
   amount: 'amount',
   payment_id: 'payment_id',
   created_at: 'created_at'
 } as const
 
-export type BalanceTransactionScalarFieldEnum = (typeof BalanceTransactionScalarFieldEnum)[keyof typeof BalanceTransactionScalarFieldEnum]
+export type SubscriptionBalanceTransactionScalarFieldEnum = (typeof SubscriptionBalanceTransactionScalarFieldEnum)[keyof typeof SubscriptionBalanceTransactionScalarFieldEnum]
 
 
 export const PaymentScalarFieldEnum = {
@@ -273,7 +272,11 @@ export type EngRusDictionaryScalarFieldEnum = (typeof EngRusDictionaryScalarFiel
 export const TariffScalarFieldEnum = {
   id: 'id',
   code: 'code',
+  slogan: 'slogan',
   name: 'name',
+  description: 'description',
+  is_public_media_included: 'is_public_media_included',
+  is_private_media_included: 'is_private_media_included',
   price: 'price',
   included_balance: 'included_balance',
   included_file_storage_mb: 'included_file_storage_mb',

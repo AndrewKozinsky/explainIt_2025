@@ -272,10 +272,7 @@ type Mutation {
   book_update(input: UpdateBookInput!): BookOutModel!
 
   """Buy a subscription with YooKassa"""
-  payment_yookassa_buy_subscription(input: BuySubscriptionWithYooKassaInput!): TopUpBalanceWithYooKassaOutModel!
-
-  """Top up a balance with YooKassa"""
-  payment_yookassa_top_up_balance(input: TopUpBalanceWithYooKassaInput!): TopUpBalanceWithYooKassaOutModel!
+  payment_yookassa_buy_subscription(input: BuySubscriptionWithYooKassaInput!): BuySubscriptionWithYooKassaOutModel!
 
   """Create a video"""
   video_private_create(input: CreatePrivateVideoInput!): CreateVideoPrivateOutModel!
@@ -376,18 +373,17 @@ type TariffOutModel {
   createdAt: DateTime!
   durationDays: Int!
   id: Int!
+  isPrivateMediaIncluded: Boolean!
+  isPublicMediaIncluded: Boolean!
   includedBalance: Int!
   includedFileStorageMb: Int!
+  description: String!
   name: String!
   price: Int!
+  slogan: String!
 }
 
-input TopUpBalanceWithYooKassaInput {
-  """Money amount in kopecks"""
-  amount: Float!
-}
-
-type TopUpBalanceWithYooKassaOutModel {
+type BuySubscriptionWithYooKassaOutModel {
   confirmationUrl: String!
 }
 

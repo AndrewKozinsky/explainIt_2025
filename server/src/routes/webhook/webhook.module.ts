@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common'
 import { CqrsModule } from '@nestjs/cqrs'
-import { BalanceTransactionRepository } from 'repo/balanceTransaction.repository'
 import { DBRepository } from 'repo/db.repository'
 import { PaymentRepository } from 'repo/payment.repository'
 import { TariffRepository } from 'repo/tariff.repository'
@@ -14,7 +13,6 @@ import { WebhookService } from './webhook.service'
 const services = [WebhookService, PrismaService]
 const repositories = [
 	PaymentRepository,
-	BalanceTransactionRepository,
 	DBRepository,
 	UserRepository,
 	UserSubscriptionRepository,

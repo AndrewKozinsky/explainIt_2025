@@ -29,6 +29,18 @@ export function TariffCard(props: TariffCardProps) {
 				<div className='tariffs__days'>{tariff.durationDays} дней</div>
 			</div>
 
+			<div className='tariffs__slogan'>{tariff.slogan}</div>
+			<div className='tariffs__description'>{tariff.description}</div>
+
+			<ul className='tariffs__features'>
+				{tariff.isPublicMediaIncluded ? (
+					<li className='tariffs__feature'>✓ Все публичные книги и фильмы</li>
+				) : null}
+				{tariff.isPrivateMediaIncluded ? (
+					<li className='tariffs__feature'>✓ Загрузка собственных книг и фильмов</li>
+				) : null}
+			</ul>
+
 			<div className='tariffs__price'>{priceRub} ₽</div>
 
 			<Button disabled={isAnySubscriptionAlreadyBought} loading={isLoading} onClick={onBuy}>

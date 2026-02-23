@@ -6,12 +6,11 @@ import { UserQueryRepository } from 'repo/user.queryRepository'
 import { UserRepository } from 'repo/user.repository'
 import { UserSubscriptionRepository } from 'repo/userSubscription.repository'
 import { BuySubscriptionWithYooKassaHandler } from 'features/payment/BuySubscriptionWithYooKassa.command'
-import { TopUpBalanceWithYooKassaHandler } from 'features/payment/TopUpBalanceWithYooKassa.command'
 import { PrismaService } from '../../db/prisma.service'
 import { PaymentResolver } from './payment.resolver'
 
 const services = [PrismaService]
-const commandHandlers = [TopUpBalanceWithYooKassaHandler, BuySubscriptionWithYooKassaHandler]
+const commandHandlers = [BuySubscriptionWithYooKassaHandler]
 const resolvers = [PaymentResolver]
 const repositories = [
 	UserRepository,

@@ -1,7 +1,6 @@
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import axios from 'axios'
 import { Request } from 'express'
-import { BalanceTransactionRepository } from 'repo/balanceTransaction.repository'
 import { UserQueryRepository } from 'repo/user.queryRepository'
 import { UserRepository } from 'repo/user.repository'
 import { OAuthProviderType } from 'routes/auth/inputs/loginWithOAuth.input'
@@ -9,7 +8,6 @@ import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
-import { BalanceTransactionType } from 'prisma/generated/enums'
 import { UserOutModel } from '../../models/user/user.out.model'
 const qs = require('qs')
 
@@ -42,7 +40,6 @@ export class LoginWithOAuthHandler implements ICommandHandler<LoginWithOAuthComm
 		private userRepository: UserRepository,
 		private userQueryRepository: UserQueryRepository,
 		private mainConfigService: MainConfigService,
-		private balanceTransactionRepository: BalanceTransactionRepository,
 		private commandBus: CommandBus,
 	) {}
 

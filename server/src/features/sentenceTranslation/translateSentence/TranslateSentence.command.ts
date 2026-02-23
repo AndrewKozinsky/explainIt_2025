@@ -1,5 +1,7 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+import { SentenceRepository } from 'repo/sentence.repository'
 import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
+import { SubscriptionBalanceTransactionRepository } from 'repo/subscriptionBalanceTransaction.repository'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
@@ -9,7 +11,6 @@ export type TranslateSentenceInput = {
 	userId: number
 	sentenceId: number
 	text: string
-	isPublicMedia: boolean
 	sourceLanguageCode?: null | string
 	targetLanguageCode?: null | string
 	bookName?: string
@@ -20,6 +21,21 @@ export type TranslateSentenceInput = {
 
 export type TranslateSentenceResult = {
 	translatedText: string
+}
+
+export type StreamTranslateProviderInput = {
+	userId: number
+	sentenceId: number
+	text: string
+	chargeAfterTranslation: boolean
+	sourceLanguageCode: string
+	targetLanguageCode: string
+	abortSignal?: AbortSignal
+	lowPriority?: boolean
+	bookName?: string
+	bookAuthor?: string
+	videoName?: string
+	videoYear?: string | number
 }
 
 export type TranslateSentenceStreamEvent =
@@ -35,7 +51,9 @@ export class TranslateSentenceCommand implements ICommand {
 export class TranslateSentenceHandler implements ICommandHandler<TranslateSentenceCommand> {
 	constructor(
 		private streamTranslateWithDeepSeek: StreamTranslateWithDeepSeek,
+		private sentenceRepository: SentenceRepository,
 		private sentenceTranslationRepository: SentenceTranslationRepository,
+		private subscriptionBalanceTransactionRepository: SubscriptionBalanceTransactionRepository,
 	) {}
 
 	async execute(command: TranslateSentenceCommand): Promise<TranslateSentenceResult> {
@@ -60,6 +78,17 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 		input: TranslateSentenceInput & { abortSignal?: AbortSignal },
 	): AsyncGenerator<TranslateSentenceStreamEvent> {
 		try {
+			const chargeAfterTranslation = await this.shouldChargeAfterTranslationOrThrow({
+				sentenceId: input.sentenceId,
+			})
+
+			if (chargeAfterTranslation) {
+				await this.subscriptionBalanceTransactionRepository.ensureCanTranslatePrivateMediaOrThrow({
+					userId: input.userId,
+					minBalanceInKopecks: 10,
+				})
+			}
+
 			const existingTranslation =
 				await this.sentenceTranslationRepository.getFirstSentenceTranslationBySentenceId(input.sentenceId)
 
@@ -74,7 +103,7 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 				userId: input.userId,
 				sentenceId: input.sentenceId,
 				text: input.text,
-				isPublicMedia: input.isPublicMedia,
+				chargeAfterTranslation,
 				sourceLanguageCode,
 				targetLanguageCode,
 				abortSignal: input.abortSignal,
@@ -93,5 +122,18 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 			const message = error instanceof Error ? error.message : 'Unknown error'
 			yield { type: 'error', message }
 		}
+	}
+
+	private async shouldChargeAfterTranslationOrThrow(input: { sentenceId: number }): Promise<boolean> {
+		const sentenceDb = await this.sentenceRepository.getSentenceDbById(input.sentenceId)
+		if (!sentenceDb) {
+			throw new CustomGraphQLError(errorMessage.sentence.notFound, ErrorCode.NotFound_404)
+		}
+
+		const isPublicBook = Boolean(sentenceDb.bookChapter?.book_public_id)
+		const isPublicVideo = Boolean(sentenceDb.video_public_id)
+		const isPublicMedia = isPublicBook || isPublicVideo
+
+		return !isPublicMedia
 	}
 }

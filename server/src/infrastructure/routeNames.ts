@@ -11,7 +11,6 @@ export const RouteNames = {
 	},
 	PAYMENT: {
 		YOOKASSA: {
-			TOP_UP_BALANCE: 'payment_yookassa_top_up_balance',
 			BUY_SUBSCRIPTION: 'payment_yookassa_buy_subscription',
 		},
 	},

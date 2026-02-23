@@ -9,7 +9,19 @@ export class TariffOutModel {
 	code: string
 
 	@Field(() => String)
+	slogan: string
+
+	@Field(() => String)
 	name: string
+
+	@Field(() => String)
+	description: string
+
+	@Field(() => Boolean)
+	isPublicMediaIncluded: boolean
+
+	@Field(() => Boolean)
+	isPrivateMediaIncluded: boolean
 
 	@Field(() => Int)
 	price: number

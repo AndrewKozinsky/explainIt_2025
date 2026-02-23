@@ -52,21 +52,25 @@ export class MainConfigService {
 				apiKey: enVariables.openAi.apiKey,
 				priceInRub: {
 					nano: {
-						input: ((oneDollarInRub * 0.05) / 1_000_000) * 3, // 110 рублей за доллар * количество долларов / количество токенов * наценка
-						output: ((oneDollarInRub * 0.4) / 1_000_000) * 3,
+						input: (oneDollarInRub * 0.05) / 1_000_000, // 110 рублей за доллар * количество долларов на вход / количество токенов
+						output: (oneDollarInRub * 0.4) / 1_000_000, // 110 рублей за доллар * количество долларов на выход / количество токенов
 					},
 					mini: {
-						input: ((oneDollarInRub * 0.25) / 1_000_000) * 2.5,
-						output: ((oneDollarInRub * 2) / 1_000_000) * 2.5,
+						input: (oneDollarInRub * 0.25) / 1_000_000,
+						output: (oneDollarInRub * 2) / 1_000_000,
 					},
 					standard: {
-						input: ((oneDollarInRub * 1.25) / 1_000_000) * 1.9,
-						output: ((oneDollarInRub * 10) / 1_000_000) * 1.9,
+						input: (oneDollarInRub * 1.25) / 1_000_000,
+						output: (oneDollarInRub * 10) / 1_000_000,
 					},
 				},
 			},
 			deepSeek: {
 				apiKey: enVariables.deepSeek.apiKey,
+				priceInRub: {
+					input: (oneDollarInRub * 0.28) / 1_000_000, // 110 рублей за доллар * количество долларов на вход / количество токенов
+					output: (oneDollarInRub * 0.42) / 1_000_000, // 110 рублей за доллар * количество долларов на выход / количество токенов
+				},
 			},
 			oauth: {
 				github: {

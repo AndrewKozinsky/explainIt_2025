@@ -91,16 +91,6 @@ export const bdConfig = {
 				description: 'Is user account confirmed with a social network',
 				required: true,
 			},
-			balance: {
-				type: 'number',
-				description: 'User-s balance',
-				example: 100,
-				required: true,
-				default: 0,
-			},
-			BalanceTransaction: {
-				type: 'oneToMany',
-			},
 			Payment: {
 				type: 'oneToMany',
 			},
@@ -118,16 +108,17 @@ export const bdConfig = {
 			},
 		},
 	},
-	BalanceTransaction: {
+	SubscriptionBalanceTransaction: {
 		dtoProps: {},
 		dbFields: {
 			id: {
 				type: 'index',
 			},
-			user_id: {
+			user_subscription_id: {
 				type: 'manyToOne',
-				thisField: 'user_id', // Name of the column of this table that refers to another table
-				foreignTable: 'User', // Name of the table that this column refers to
+				thisField: 'user_subscription_id', // Name of the column of this table that refers to another table
+				relationField: 'userSubscription',
+				foreignTable: 'UserSubscription', // Name of the table that this column refers to
 				foreignField: 'id',
 				required: true,
 			},
@@ -135,10 +126,8 @@ export const bdConfig = {
 				type: 'enum',
 				description: 'Status of balance changing ',
 				required: true,
-				// TOP_UP — пополнение баланса
 				// CHARGE — списание с баланса
-				// ACCOUNT_CONFIRMATION_WELCOME_BONUS — приветственный бонус за регистрацию
-				variants: ['TOP_UP', 'CHARGE'],
+				variants: ['CHARGE'],
 				enumName: 'BalanceTransactionType',
 			},
 			// Это значение необходимо чтобы фиксировать списание.
@@ -207,7 +196,7 @@ export const bdConfig = {
 				type: 'parentOneToOne',
 				required: false,
 			},
-			BalanceTransaction: {
+			SubscriptionBalanceTransaction: {
 				type: 'oneToMany',
 			},
 			created_at: {
@@ -872,11 +861,35 @@ export const bdConfig = {
 				required: true,
 				unique: true,
 			},
+			slogan: {
+				type: 'string',
+				description: 'Slogan of the tariff',
+				required: true,
+				maxLength: 100,
+			},
 			name: {
 				type: 'string',
 				description: 'Name of the tariff',
 				required: true,
 				maxLength: 100,
+			},
+			description: {
+				type: 'string',
+				description: 'Description of the tariff',
+				required: true,
+				maxLength: 100,
+			},
+			is_public_media_included: {
+				type: 'boolean',
+				description: 'Is public media included',
+				example: true,
+				required: true,
+			},
+			is_private_media_included: {
+				type: 'boolean',
+				description: 'Is private media included',
+				example: true,
+				required: true,
 			},
 			price: {
 				type: 'number',
@@ -957,6 +970,9 @@ export const bdConfig = {
 				foreignTable: 'Payment', // Name of the table that this column refers to
 				foreignField: 'id',
 				required: false,
+			},
+			SubscriptionBalanceTransaction: {
+				type: 'oneToMany',
 			},
 			created_at: {
 				type: 'createdAt',

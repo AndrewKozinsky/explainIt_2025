@@ -1,5 +1,4 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { BalanceTransactionRepository } from 'repo/balanceTransaction.repository'
 import { DBRepository } from 'repo/db.repository'
 import { PaymentRepository } from 'repo/payment.repository'
 import { TariffRepository } from 'repo/tariff.repository'
@@ -8,7 +7,6 @@ import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { YooKassaPaymentMetadata } from 'infrastructure/yooKassa/yooKassa.service'
-import { BalanceTransactionType } from 'prisma/generated/enums'
 
 export class SetPaymentResultWithYooKassaCommand implements ICommand {
 	constructor(
@@ -26,7 +24,6 @@ export class SetPaymentResultWithYooKassaCommand implements ICommand {
 export class SetPaymentResultWithYooKassaHandler implements ICommandHandler<SetPaymentResultWithYooKassaCommand> {
 	constructor(
 		private paymentRepository: PaymentRepository,
-		private transactionRepository: BalanceTransactionRepository,
 		private dbRepository: DBRepository,
 		private userSubscriptionRepository: UserSubscriptionRepository,
 		private tariffRepository: TariffRepository,
@@ -51,11 +48,6 @@ export class SetPaymentResultWithYooKassaHandler implements ICommandHandler<SetP
 							await this.handleSubscriptionPayment({ amount, userId, paymentId, metadata })
 							return
 						}
-
-						if (purpose === 'TOP_UP') {
-							await this.handleTopUpPayment({ amount, userId, paymentId })
-							return
-						}
 					},
 				})
 			} catch (error) {
@@ -66,18 +58,6 @@ export class SetPaymentResultWithYooKassaHandler implements ICommandHandler<SetP
 		}
 	}
 
-	private async handleTopUpPayment(dto: { amount: number; userId: number; paymentId: number }) {
-		const existingTopUp = await this.transactionRepository.getTopUpByPaymentId(dto.paymentId)
-		if (existingTopUp) return
-
-		await this.transactionRepository.createTransaction({
-			paymentId: dto.paymentId,
-			amount: dto.amount,
-			userId: dto.userId,
-			type: BalanceTransactionType.TOP_UP,
-		})
-	}
-
 	private async handleSubscriptionPayment(dto: {
 		amount: number
 		userId: number
@@ -86,7 +66,7 @@ export class SetPaymentResultWithYooKassaHandler implements ICommandHandler<SetP
 	}) {
 		const tariffId = Number(dto.metadata?.tariffId)
 		if (!tariffId) {
-			throw new CustomGraphQLError('Tariff id is required', ErrorCode.BadRequest_400)
+			throw new CustomGraphQLError(errorMessage.tariffIdIsRequired, ErrorCode.BadRequest_400)
 		}
 
 		const tariff = await this.tariffRepository.getTariffById(tariffId)

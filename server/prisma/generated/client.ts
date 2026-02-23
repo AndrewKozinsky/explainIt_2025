@@ -43,10 +43,10 @@ export { Prisma }
  */
 export type User = Prisma.UserModel
 /**
- * Model BalanceTransaction
+ * Model SubscriptionBalanceTransaction
  * 
  */
-export type BalanceTransaction = Prisma.BalanceTransactionModel
+export type SubscriptionBalanceTransaction = Prisma.SubscriptionBalanceTransactionModel
 /**
  * Model Payment
  * 

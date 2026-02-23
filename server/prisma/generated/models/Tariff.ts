@@ -45,7 +45,11 @@ export type TariffSumAggregateOutputType = {
 export type TariffMinAggregateOutputType = {
   id: number | null
   code: string | null
+  slogan: string | null
   name: string | null
+  description: string | null
+  is_public_media_included: boolean | null
+  is_private_media_included: boolean | null
   price: number | null
   included_balance: number | null
   included_file_storage_mb: number | null
@@ -56,7 +60,11 @@ export type TariffMinAggregateOutputType = {
 export type TariffMaxAggregateOutputType = {
   id: number | null
   code: string | null
+  slogan: string | null
   name: string | null
+  description: string | null
+  is_public_media_included: boolean | null
+  is_private_media_included: boolean | null
   price: number | null
   included_balance: number | null
   included_file_storage_mb: number | null
@@ -67,7 +75,11 @@ export type TariffMaxAggregateOutputType = {
 export type TariffCountAggregateOutputType = {
   id: number
   code: number
+  slogan: number
   name: number
+  description: number
+  is_public_media_included: number
+  is_private_media_included: number
   price: number
   included_balance: number
   included_file_storage_mb: number
@@ -96,7 +108,11 @@ export type TariffSumAggregateInputType = {
 export type TariffMinAggregateInputType = {
   id?: true
   code?: true
+  slogan?: true
   name?: true
+  description?: true
+  is_public_media_included?: true
+  is_private_media_included?: true
   price?: true
   included_balance?: true
   included_file_storage_mb?: true
@@ -107,7 +123,11 @@ export type TariffMinAggregateInputType = {
 export type TariffMaxAggregateInputType = {
   id?: true
   code?: true
+  slogan?: true
   name?: true
+  description?: true
+  is_public_media_included?: true
+  is_private_media_included?: true
   price?: true
   included_balance?: true
   included_file_storage_mb?: true
@@ -118,7 +138,11 @@ export type TariffMaxAggregateInputType = {
 export type TariffCountAggregateInputType = {
   id?: true
   code?: true
+  slogan?: true
   name?: true
+  description?: true
+  is_public_media_included?: true
+  is_private_media_included?: true
   price?: true
   included_balance?: true
   included_file_storage_mb?: true
@@ -216,7 +240,11 @@ export type TariffGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalA
 export type TariffGroupByOutputType = {
   id: number
   code: string
+  slogan: string
   name: string
+  description: string
+  is_public_media_included: boolean
+  is_private_media_included: boolean
   price: number
   included_balance: number
   included_file_storage_mb: number
@@ -250,7 +278,11 @@ export type TariffWhereInput = {
   NOT?: Prisma.TariffWhereInput | Prisma.TariffWhereInput[]
   id?: Prisma.IntFilter<"Tariff"> | number
   code?: Prisma.StringFilter<"Tariff"> | string
+  slogan?: Prisma.StringFilter<"Tariff"> | string
   name?: Prisma.StringFilter<"Tariff"> | string
+  description?: Prisma.StringFilter<"Tariff"> | string
+  is_public_media_included?: Prisma.BoolFilter<"Tariff"> | boolean
+  is_private_media_included?: Prisma.BoolFilter<"Tariff"> | boolean
   price?: Prisma.IntFilter<"Tariff"> | number
   included_balance?: Prisma.IntFilter<"Tariff"> | number
   included_file_storage_mb?: Prisma.IntFilter<"Tariff"> | number
@@ -262,7 +294,11 @@ export type TariffWhereInput = {
 export type TariffOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   code?: Prisma.SortOrder
+  slogan?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  description?: Prisma.SortOrder
+  is_public_media_included?: Prisma.SortOrder
+  is_private_media_included?: Prisma.SortOrder
   price?: Prisma.SortOrder
   included_balance?: Prisma.SortOrder
   included_file_storage_mb?: Prisma.SortOrder
@@ -277,7 +313,11 @@ export type TariffWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.TariffWhereInput | Prisma.TariffWhereInput[]
   OR?: Prisma.TariffWhereInput[]
   NOT?: Prisma.TariffWhereInput | Prisma.TariffWhereInput[]
+  slogan?: Prisma.StringFilter<"Tariff"> | string
   name?: Prisma.StringFilter<"Tariff"> | string
+  description?: Prisma.StringFilter<"Tariff"> | string
+  is_public_media_included?: Prisma.BoolFilter<"Tariff"> | boolean
+  is_private_media_included?: Prisma.BoolFilter<"Tariff"> | boolean
   price?: Prisma.IntFilter<"Tariff"> | number
   included_balance?: Prisma.IntFilter<"Tariff"> | number
   included_file_storage_mb?: Prisma.IntFilter<"Tariff"> | number
@@ -289,7 +329,11 @@ export type TariffWhereUniqueInput = Prisma.AtLeast<{
 export type TariffOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   code?: Prisma.SortOrder
+  slogan?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  description?: Prisma.SortOrder
+  is_public_media_included?: Prisma.SortOrder
+  is_private_media_included?: Prisma.SortOrder
   price?: Prisma.SortOrder
   included_balance?: Prisma.SortOrder
   included_file_storage_mb?: Prisma.SortOrder
@@ -308,7 +352,11 @@ export type TariffScalarWhereWithAggregatesInput = {
   NOT?: Prisma.TariffScalarWhereWithAggregatesInput | Prisma.TariffScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"Tariff"> | number
   code?: Prisma.StringWithAggregatesFilter<"Tariff"> | string
+  slogan?: Prisma.StringWithAggregatesFilter<"Tariff"> | string
   name?: Prisma.StringWithAggregatesFilter<"Tariff"> | string
+  description?: Prisma.StringWithAggregatesFilter<"Tariff"> | string
+  is_public_media_included?: Prisma.BoolWithAggregatesFilter<"Tariff"> | boolean
+  is_private_media_included?: Prisma.BoolWithAggregatesFilter<"Tariff"> | boolean
   price?: Prisma.IntWithAggregatesFilter<"Tariff"> | number
   included_balance?: Prisma.IntWithAggregatesFilter<"Tariff"> | number
   included_file_storage_mb?: Prisma.IntWithAggregatesFilter<"Tariff"> | number
@@ -318,7 +366,11 @@ export type TariffScalarWhereWithAggregatesInput = {
 
 export type TariffCreateInput = {
   code: string
+  slogan: string
   name: string
+  description: string
+  is_public_media_included?: boolean
+  is_private_media_included?: boolean
   price: number
   included_balance: number
   included_file_storage_mb: number
@@ -330,7 +382,11 @@ export type TariffCreateInput = {
 export type TariffUncheckedCreateInput = {
   id?: number
   code: string
+  slogan: string
   name: string
+  description: string
+  is_public_media_included?: boolean
+  is_private_media_included?: boolean
   price: number
   included_balance: number
   included_file_storage_mb: number
@@ -341,7 +397,11 @@ export type TariffUncheckedCreateInput = {
 
 export type TariffUpdateInput = {
   code?: Prisma.StringFieldUpdateOperationsInput | string
+  slogan?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  is_public_media_included?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  is_private_media_included?: Prisma.BoolFieldUpdateOperationsInput | boolean
   price?: Prisma.IntFieldUpdateOperationsInput | number
   included_balance?: Prisma.IntFieldUpdateOperationsInput | number
   included_file_storage_mb?: Prisma.IntFieldUpdateOperationsInput | number
@@ -353,7 +413,11 @@ export type TariffUpdateInput = {
 export type TariffUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   code?: Prisma.StringFieldUpdateOperationsInput | string
+  slogan?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  is_public_media_included?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  is_private_media_included?: Prisma.BoolFieldUpdateOperationsInput | boolean
   price?: Prisma.IntFieldUpdateOperationsInput | number
   included_balance?: Prisma.IntFieldUpdateOperationsInput | number
   included_file_storage_mb?: Prisma.IntFieldUpdateOperationsInput | number
@@ -365,7 +429,11 @@ export type TariffUncheckedUpdateInput = {
 export type TariffCreateManyInput = {
   id?: number
   code: string
+  slogan: string
   name: string
+  description: string
+  is_public_media_included?: boolean
+  is_private_media_included?: boolean
   price: number
   included_balance: number
   included_file_storage_mb: number
@@ -375,7 +443,11 @@ export type TariffCreateManyInput = {
 
 export type TariffUpdateManyMutationInput = {
   code?: Prisma.StringFieldUpdateOperationsInput | string
+  slogan?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  is_public_media_included?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  is_private_media_included?: Prisma.BoolFieldUpdateOperationsInput | boolean
   price?: Prisma.IntFieldUpdateOperationsInput | number
   included_balance?: Prisma.IntFieldUpdateOperationsInput | number
   included_file_storage_mb?: Prisma.IntFieldUpdateOperationsInput | number
@@ -386,7 +458,11 @@ export type TariffUpdateManyMutationInput = {
 export type TariffUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   code?: Prisma.StringFieldUpdateOperationsInput | string
+  slogan?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  is_public_media_included?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  is_private_media_included?: Prisma.BoolFieldUpdateOperationsInput | boolean
   price?: Prisma.IntFieldUpdateOperationsInput | number
   included_balance?: Prisma.IntFieldUpdateOperationsInput | number
   included_file_storage_mb?: Prisma.IntFieldUpdateOperationsInput | number
@@ -397,7 +473,11 @@ export type TariffUncheckedUpdateManyInput = {
 export type TariffCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   code?: Prisma.SortOrder
+  slogan?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  description?: Prisma.SortOrder
+  is_public_media_included?: Prisma.SortOrder
+  is_private_media_included?: Prisma.SortOrder
   price?: Prisma.SortOrder
   included_balance?: Prisma.SortOrder
   included_file_storage_mb?: Prisma.SortOrder
@@ -416,7 +496,11 @@ export type TariffAvgOrderByAggregateInput = {
 export type TariffMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   code?: Prisma.SortOrder
+  slogan?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  description?: Prisma.SortOrder
+  is_public_media_included?: Prisma.SortOrder
+  is_private_media_included?: Prisma.SortOrder
   price?: Prisma.SortOrder
   included_balance?: Prisma.SortOrder
   included_file_storage_mb?: Prisma.SortOrder
@@ -427,7 +511,11 @@ export type TariffMaxOrderByAggregateInput = {
 export type TariffMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   code?: Prisma.SortOrder
+  slogan?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  description?: Prisma.SortOrder
+  is_public_media_included?: Prisma.SortOrder
+  is_private_media_included?: Prisma.SortOrder
   price?: Prisma.SortOrder
   included_balance?: Prisma.SortOrder
   included_file_storage_mb?: Prisma.SortOrder
@@ -464,7 +552,11 @@ export type TariffUpdateOneRequiredWithoutUserSubscriptionsNestedInput = {
 
 export type TariffCreateWithoutUserSubscriptionsInput = {
   code: string
+  slogan: string
   name: string
+  description: string
+  is_public_media_included?: boolean
+  is_private_media_included?: boolean
   price: number
   included_balance: number
   included_file_storage_mb: number
@@ -475,7 +567,11 @@ export type TariffCreateWithoutUserSubscriptionsInput = {
 export type TariffUncheckedCreateWithoutUserSubscriptionsInput = {
   id?: number
   code: string
+  slogan: string
   name: string
+  description: string
+  is_public_media_included?: boolean
+  is_private_media_included?: boolean
   price: number
   included_balance: number
   included_file_storage_mb: number
@@ -501,7 +597,11 @@ export type TariffUpdateToOneWithWhereWithoutUserSubscriptionsInput = {
 
 export type TariffUpdateWithoutUserSubscriptionsInput = {
   code?: Prisma.StringFieldUpdateOperationsInput | string
+  slogan?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  is_public_media_included?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  is_private_media_included?: Prisma.BoolFieldUpdateOperationsInput | boolean
   price?: Prisma.IntFieldUpdateOperationsInput | number
   included_balance?: Prisma.IntFieldUpdateOperationsInput | number
   included_file_storage_mb?: Prisma.IntFieldUpdateOperationsInput | number
@@ -512,7 +612,11 @@ export type TariffUpdateWithoutUserSubscriptionsInput = {
 export type TariffUncheckedUpdateWithoutUserSubscriptionsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   code?: Prisma.StringFieldUpdateOperationsInput | string
+  slogan?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  is_public_media_included?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  is_private_media_included?: Prisma.BoolFieldUpdateOperationsInput | boolean
   price?: Prisma.IntFieldUpdateOperationsInput | number
   included_balance?: Prisma.IntFieldUpdateOperationsInput | number
   included_file_storage_mb?: Prisma.IntFieldUpdateOperationsInput | number
@@ -554,7 +658,11 @@ export type TariffCountOutputTypeCountUserSubscriptionsArgs<ExtArgs extends runt
 export type TariffSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   code?: boolean
+  slogan?: boolean
   name?: boolean
+  description?: boolean
+  is_public_media_included?: boolean
+  is_private_media_included?: boolean
   price?: boolean
   included_balance?: boolean
   included_file_storage_mb?: boolean
@@ -567,7 +675,11 @@ export type TariffSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
 export type TariffSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   code?: boolean
+  slogan?: boolean
   name?: boolean
+  description?: boolean
+  is_public_media_included?: boolean
+  is_private_media_included?: boolean
   price?: boolean
   included_balance?: boolean
   included_file_storage_mb?: boolean
@@ -578,7 +690,11 @@ export type TariffSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extens
 export type TariffSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   code?: boolean
+  slogan?: boolean
   name?: boolean
+  description?: boolean
+  is_public_media_included?: boolean
+  is_private_media_included?: boolean
   price?: boolean
   included_balance?: boolean
   included_file_storage_mb?: boolean
@@ -589,7 +705,11 @@ export type TariffSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
 export type TariffSelectScalar = {
   id?: boolean
   code?: boolean
+  slogan?: boolean
   name?: boolean
+  description?: boolean
+  is_public_media_included?: boolean
+  is_private_media_included?: boolean
   price?: boolean
   included_balance?: boolean
   included_file_storage_mb?: boolean
@@ -597,7 +717,7 @@ export type TariffSelectScalar = {
   created_at?: boolean
 }
 
-export type TariffOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "code" | "name" | "price" | "included_balance" | "included_file_storage_mb" | "duration_days" | "created_at", ExtArgs["result"]["tariff"]>
+export type TariffOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "code" | "slogan" | "name" | "description" | "is_public_media_included" | "is_private_media_included" | "price" | "included_balance" | "included_file_storage_mb" | "duration_days" | "created_at", ExtArgs["result"]["tariff"]>
 export type TariffInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   userSubscriptions?: boolean | Prisma.Tariff$userSubscriptionsArgs<ExtArgs>
   _count?: boolean | Prisma.TariffCountOutputTypeDefaultArgs<ExtArgs>
@@ -613,7 +733,11 @@ export type $TariffPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     code: string
+    slogan: string
     name: string
+    description: string
+    is_public_media_included: boolean
+    is_private_media_included: boolean
     price: number
     included_balance: number
     included_file_storage_mb: number
@@ -1045,7 +1169,11 @@ export interface Prisma__TariffClient<T, Null = never, ExtArgs extends runtime.T
 export interface TariffFieldRefs {
   readonly id: Prisma.FieldRef<"Tariff", 'Int'>
   readonly code: Prisma.FieldRef<"Tariff", 'String'>
+  readonly slogan: Prisma.FieldRef<"Tariff", 'String'>
   readonly name: Prisma.FieldRef<"Tariff", 'String'>
+  readonly description: Prisma.FieldRef<"Tariff", 'String'>
+  readonly is_public_media_included: Prisma.FieldRef<"Tariff", 'Boolean'>
+  readonly is_private_media_included: Prisma.FieldRef<"Tariff", 'Boolean'>
   readonly price: Prisma.FieldRef<"Tariff", 'Int'>
   readonly included_balance: Prisma.FieldRef<"Tariff", 'Int'>
   readonly included_file_storage_mb: Prisma.FieldRef<"Tariff", 'Int'>

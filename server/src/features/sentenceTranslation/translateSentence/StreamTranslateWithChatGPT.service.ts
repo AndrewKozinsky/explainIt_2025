@@ -7,7 +7,7 @@ import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { OpenAIService } from 'infrastructure/openAI/openAI.service'
-import { TranslateSentenceStreamEvent } from './TranslateSentence.command'
+import { StreamTranslateProviderInput, TranslateSentenceStreamEvent } from './TranslateSentence.command'
 
 @Injectable()
 export class StreamTranslateWithChatGPT {
@@ -17,15 +17,7 @@ export class StreamTranslateWithChatGPT {
 		private commandBus: CommandBus,
 	) {}
 
-	async *streamTranslate(input: {
-		userId: number
-		sentenceId: number
-		text: string
-		sourceLanguageCode: string
-		targetLanguageCode: string
-		abortSignal?: AbortSignal
-		lowPriority?: boolean
-	}): AsyncGenerator<TranslateSentenceStreamEvent> {
+	async *streamTranslate(input: StreamTranslateProviderInput): AsyncGenerator<TranslateSentenceStreamEvent> {
 		const model = OpenAIModels.Standard
 
 		const messages = this.getChatGPTTranslationTask({
@@ -69,7 +61,7 @@ export class StreamTranslateWithChatGPT {
 			analysis: parsedResult.analysis,
 		})
 
-		if (tokenUsage) {
+		if (input.chargeAfterTranslation && tokenUsage) {
 			const usage: TokenUsage = tokenUsage
 
 			await this.commandBus.execute(

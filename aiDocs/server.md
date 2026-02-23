@@ -21,7 +21,7 @@ Flow overview:
 2) Server creates a YooKassa payment and returns `confirmationUrl` (redirect URL).
    - Provider integration: `server/src/infrastructure/yooKassa/yooKassa.service.ts`
    - Payment must include `metadata` to distinguish the purpose:
-     - `purpose: 'SUBSCRIPTION' | 'TOP_UP'`
+     - `purpose: 'SUBSCRIPTION'`
      - `userId: number`
      - `tariffId: number` (for subscription)
    - Important: `Tariff.price` is stored in **kopecks**, so do NOT multiply by 100.
@@ -34,7 +34,6 @@ Flow overview:
 4) Webhook processing is handled by `SetPaymentResultWithYooKassaCommand`.
    - Handler: `server/src/features/payment/SetPaymentResultWithYooKassa.command.ts`
    - The handler routes logic by `metadata.purpose`:
-     - `TOP_UP` keeps the old behavior (creates `BalanceTransaction` and updates `User.balance`).
      - `SUBSCRIPTION` creates a `UserSubscription` record.
 
 Subscription-specific rules:
@@ -47,7 +46,6 @@ Subscription-specific rules:
     - `ends_at = now + tariff.duration_days`
   - Store included balance on the subscription itself:
     - `UserSubscription.balance = tariff.included_balance`
-  - Do NOT update `User.balance` and do NOT create `BalanceTransaction` TOP_UP from the subscription included balance.
 
 - Idempotency:
   - Webhooks can be delivered multiple times.
@@ -57,14 +55,6 @@ Subscription-specific rules:
 - Current subscription in user data:
   - `UserOutModel` includes `currentSubscription`.
   - Query layer should return only an active (non-expired) subscription.
-
-### Top-up balance via YooKassa
-
-Сейчас есть только 1 способ оплаты — это поднятия баланса через поставщика YooKassa. Для этого обращаются по адресу payment_yookassa_top_up_balance. В резолвере вызывается класс TopUpBalanceWithYooKassaCommand. Там посредством сервиса YooKassaService создаётся платёж и ссылка на оплату. Эта ссылка возвращается пользователя для оплаты на YooKassa.
-
-Как только пользователь совершил оплату во внешнем сервисе YooKassa, то YooKassa вызывает маршрут webhook/yookassa в контроллере server/src/routes/webhook/webhook.controller.ts. Внутри вызывается класс SetPaymentResultWithYooKassaCommand где платёж отмечается успешным и создаётся транзакция для поднятия баланса пользователя.
-
-Если пользователь отказался платить, то снова вызывается этот маршрут webhook/yookassa где в классе SetPaymentResultWithYooKassaCommand где платёж отмечается неудачным.
 
 ## Repositories and CQRS (project conventions)
 

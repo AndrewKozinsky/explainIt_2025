@@ -6,7 +6,7 @@ function PrivateVideosList() {
 	const user = useUserStore((state) => state.user)
 
 	const tariffCode = user?.currentSubscription?.tariffCode
-	if (tariffCode !== 'standard') {
+	if (!tariffCode?.startsWith('standard')) {
 		return null
 	}
 

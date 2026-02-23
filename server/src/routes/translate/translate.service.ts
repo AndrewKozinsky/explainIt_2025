@@ -14,7 +14,6 @@ export class TranslateService {
 		query: {
 			sentenceId: number
 			text: string
-			isPublicMedia: boolean
 			sourceLanguageCode?: null | string
 			targetLanguageCode?: null | string
 			bookName?: string

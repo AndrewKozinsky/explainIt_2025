@@ -69,10 +69,6 @@ export interface ResendConfirmationEmailInput {
     email: string;
 }
 
-export interface TopUpBalanceWithYooKassaInput {
-    amount: number;
-}
-
 export interface BuySubscriptionWithYooKassaInput {
     tariffId: number;
 }
@@ -201,7 +197,11 @@ export interface SentenceTranslationOutModel {
 export interface TariffOutModel {
     id: number;
     code: string;
+    slogan: string;
     name: string;
+    description: string;
+    isPublicMediaIncluded: boolean;
+    isPrivateMediaIncluded: boolean;
     price: number;
     durationDays: number;
     includedBalance: number;
@@ -366,11 +366,10 @@ export interface UserOutModel {
     id: number;
     email: string;
     isUserConfirmed: boolean;
-    balance: number;
     currentSubscription?: Nullable<CurrentSubscriptionOutModel>;
 }
 
-export interface TopUpBalanceWithYooKassaOutModel {
+export interface BuySubscriptionWithYooKassaOutModel {
     confirmationUrl: string;
 }
 
@@ -416,8 +415,7 @@ export interface IMutation {
     auth_confirmEmail(input: ConfirmEmailInput): boolean | Promise<boolean>;
     auth_resendConfirmationEmail(input: ResendConfirmationEmailInput): boolean | Promise<boolean>;
     auth_logout(): boolean | Promise<boolean>;
-    payment_yookassa_top_up_balance(input: TopUpBalanceWithYooKassaInput): TopUpBalanceWithYooKassaOutModel | Promise<TopUpBalanceWithYooKassaOutModel>;
-    payment_yookassa_buy_subscription(input: BuySubscriptionWithYooKassaInput): TopUpBalanceWithYooKassaOutModel | Promise<TopUpBalanceWithYooKassaOutModel>;
+    payment_yookassa_buy_subscription(input: BuySubscriptionWithYooKassaInput): BuySubscriptionWithYooKassaOutModel | Promise<BuySubscriptionWithYooKassaOutModel>;
     book_create(input: CreateBookInput): BookOutModel | Promise<BookOutModel>;
     book_update(input: UpdateBookInput): BookOutModel | Promise<BookOutModel>;
     book_delete(input: DeleteBookInput): boolean | Promise<boolean>;

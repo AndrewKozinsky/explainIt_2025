@@ -1,5 +1,5 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { BalanceTransactionRepository } from 'repo/balanceTransaction.repository'
+import { SubscriptionBalanceTransactionRepository } from 'repo/subscriptionBalanceTransaction.repository'
 import { OpenAIModels } from 'types/openAIModels'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
@@ -24,7 +24,7 @@ export class OpenAiTokenUsageBalanceChargeCommand implements ICommand {
 export class OpenAiTokenUsageBalanceChargeHandler implements ICommandHandler<OpenAiTokenUsageBalanceChargeCommand> {
 	constructor(
 		private mainConfig: MainConfigService,
-		private transactionRepository: BalanceTransactionRepository,
+		private subscriptionBalanceTransactionRepository: SubscriptionBalanceTransactionRepository,
 	) {}
 
 	async execute(command: OpenAiTokenUsageBalanceChargeCommand) {
@@ -33,9 +33,9 @@ export class OpenAiTokenUsageBalanceChargeHandler implements ICommandHandler<Ope
 		const amountInKopecks = this.calculateAmountInKopeckDependsOnTokens(command.dto)
 
 		try {
-			await this.transactionRepository.createTransaction({
-				amount: -amountInKopecks,
+			await this.subscriptionBalanceTransactionRepository.createChargeForActiveSubscription({
 				userId,
+				amountInKopecks: -amountInKopecks,
 				type: BalanceTransactionType.CHARGE,
 			})
 		} catch (error) {

@@ -274,9 +274,7 @@ export type Mutation = {
   /** Update user book */
   book_update: BookOutModel;
   /** Buy a subscription with YooKassa */
-  payment_yookassa_buy_subscription: TopUpBalanceWithYooKassaOutModel;
-  /** Top up a balance with YooKassa */
-  payment_yookassa_top_up_balance: TopUpBalanceWithYooKassaOutModel;
+  payment_yookassa_buy_subscription: BuySubscriptionWithYooKassaOutModel;
   /** Create a video */
   video_private_create: CreateVideoPrivateOutModel;
   /** Delete a video */
@@ -343,11 +341,6 @@ export type MutationBook_UpdateArgs = {
 
 export type MutationPayment_Yookassa_Buy_SubscriptionArgs = {
   input: BuySubscriptionWithYooKassaInput;
-};
-
-
-export type MutationPayment_Yookassa_Top_Up_BalanceArgs = {
-  input: TopUpBalanceWithYooKassaInput;
 };
 
 
@@ -491,19 +484,18 @@ export type TariffOutModel = {
   createdAt: Scalars['DateTime']['output'];
   durationDays: Scalars['Int']['output'];
   id: Scalars['Int']['output'];
+  isPrivateMediaIncluded: Scalars['Boolean']['output'];
+  isPublicMediaIncluded: Scalars['Boolean']['output'];
   includedBalance: Scalars['Int']['output'];
   includedFileStorageMb: Scalars['Int']['output'];
+  description: Scalars['String']['output'];
   name: Scalars['String']['output'];
   price: Scalars['Int']['output'];
+  slogan: Scalars['String']['output'];
 };
 
-export type TopUpBalanceWithYooKassaInput = {
-  /** Money amount in kopecks */
-  amount: Scalars['Float']['input'];
-};
-
-export type TopUpBalanceWithYooKassaOutModel = {
-  __typename?: 'TopUpBalanceWithYooKassaOutModel';
+export type BuySubscriptionWithYooKassaOutModel = {
+  __typename?: 'BuySubscriptionWithYooKassaOutModel';
   confirmationUrl: Scalars['String']['output'];
 };
 
@@ -815,14 +807,7 @@ export type Payment_YookassaBuySubscriptionVariables = Exact<{
 }>;
 
 
-export type Payment_YookassaBuySubscription = { __typename?: 'Mutation', payment_yookassa_buy_subscription: { __typename?: 'TopUpBalanceWithYooKassaOutModel', confirmationUrl: string } };
-
-export type Payment_YookassaTopUpBalanceVariables = Exact<{
-  input: TopUpBalanceWithYooKassaInput;
-}>;
-
-
-export type Payment_YookassaTopUpBalance = { __typename?: 'Mutation', payment_yookassa_top_up_balance: { __typename?: 'TopUpBalanceWithYooKassaOutModel', confirmationUrl: string } };
+export type Payment_YookassaBuySubscription = { __typename?: 'Mutation', payment_yookassa_buy_subscription: { __typename?: 'BuySubscriptionWithYooKassaOutModel', confirmationUrl: string } };
 
 export type SentenceTranslation_GetVariables = Exact<{
   input: GetSentenceTranslationInput;
@@ -841,7 +826,7 @@ export type SentenceTranslation_GetBySentenceId = { __typename?: 'Query', senten
 export type Tariff_Get_TariffsVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Tariff_Get_Tariffs = { __typename?: 'Query', tariff_get_tariffs: Array<{ __typename?: 'TariffOutModel', id: number, code: string, name: string, price: number, durationDays: number, includedBalance: number, includedFileStorageMb: number, createdAt: any }> };
+export type Tariff_Get_Tariffs = { __typename?: 'Query', tariff_get_tariffs: Array<{ __typename?: 'TariffOutModel', id: number, code: string, slogan: string, name: string, description: string, isPublicMediaIncluded: boolean, isPrivateMediaIncluded: boolean, price: number, durationDays: number, includedBalance: number, includedFileStorageMb: number, createdAt: any }> };
 
 export type VideoPrivate_CreateVariables = Exact<{
   input: CreatePrivateVideoInput;
@@ -1764,39 +1749,6 @@ export function usePayment_YookassaBuySubscription(baseOptions?: Apollo.Mutation
 export type Payment_YookassaBuySubscriptionHookResult = ReturnType<typeof usePayment_YookassaBuySubscription>;
 export type Payment_YookassaBuySubscriptionMutationResult = Apollo.MutationResult<Payment_YookassaBuySubscription>;
 export type Payment_YookassaBuySubscriptionMutationOptions = Apollo.BaseMutationOptions<Payment_YookassaBuySubscription, Payment_YookassaBuySubscriptionVariables>;
-export const Payment_YookassaTopUpBalanceDocument = gql`
-    mutation Payment_yookassaTopUpBalance($input: TopUpBalanceWithYooKassaInput!) {
-  payment_yookassa_top_up_balance(input: $input) {
-    confirmationUrl
-  }
-}
-    `;
-export type Payment_YookassaTopUpBalanceMutationFn = Apollo.MutationFunction<Payment_YookassaTopUpBalance, Payment_YookassaTopUpBalanceVariables>;
-
-/**
- * __usePayment_YookassaTopUpBalance__
- *
- * To run a mutation, you first call `usePayment_YookassaTopUpBalance` within a React component and pass it any options that fit your needs.
- * When your component renders, `usePayment_YookassaTopUpBalance` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [paymentYookassaTopUpBalance, { data, loading, error }] = usePayment_YookassaTopUpBalance({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function usePayment_YookassaTopUpBalance(baseOptions?: Apollo.MutationHookOptions<Payment_YookassaTopUpBalance, Payment_YookassaTopUpBalanceVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<Payment_YookassaTopUpBalance, Payment_YookassaTopUpBalanceVariables>(Payment_YookassaTopUpBalanceDocument, options);
-      }
-export type Payment_YookassaTopUpBalanceHookResult = ReturnType<typeof usePayment_YookassaTopUpBalance>;
-export type Payment_YookassaTopUpBalanceMutationResult = Apollo.MutationResult<Payment_YookassaTopUpBalance>;
-export type Payment_YookassaTopUpBalanceMutationOptions = Apollo.BaseMutationOptions<Payment_YookassaTopUpBalance, Payment_YookassaTopUpBalanceVariables>;
 export const SentenceTranslation_GetDocument = gql`
     query SentenceTranslation_get($input: GetSentenceTranslationInput!) {
   sentence_translation_get(input: $input) {
@@ -1890,7 +1842,11 @@ export const Tariff_Get_TariffsDocument = gql`
   tariff_get_tariffs {
     id
     code
+    slogan
     name
+    description
+    isPublicMediaIncluded
+    isPrivateMediaIncluded
     price
     durationDays
     includedBalance

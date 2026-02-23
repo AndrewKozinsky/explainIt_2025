@@ -122,17 +122,17 @@ export class VideoBase {
 		}
 
 		if (subtitles.length === 0) {
-			throw new CustomGraphQLError('Invalid SRT format', ErrorCode.BadRequest_400)
+			throw new CustomGraphQLError(errorMessage.invalidSrtFormat, ErrorCode.BadRequest_400)
 		}
 
 		return { preparedContent: preparedContent.trim(), subtitles }
 	}
 
-	protected parseSrtTimeToMs(time: string): number {
+	private parseSrtTimeToMs(time: string): number {
 		const t = time.replace(',', '.')
 		const match = t.match(/^(\d{2}):(\d{2}):(\d{2})(?:\.(\d{1,3}))?$/)
 		if (!match) {
-			throw new CustomGraphQLError('Invalid SRT time format', ErrorCode.BadRequest_400)
+			throw new CustomGraphQLError(errorMessage.invalidSrtTimeFormat, ErrorCode.BadRequest_400)
 		}
 
 		const hours = Number(match[1])
