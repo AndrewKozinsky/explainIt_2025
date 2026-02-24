@@ -82,6 +82,8 @@ export class UserQueryRepository {
 						tariffId: currentSubscription.tariff_id,
 						tariffCode: currentSubscription.tariff.code,
 						tariffName: currentSubscription.tariff.name,
+						isPublicMediaIncluded: currentSubscription.tariff.is_public_media_included,
+						isPrivateMediaIncluded: currentSubscription.tariff.is_private_media_included,
 						pricePaid: currentSubscription.price_paid,
 						balance: currentSubscription.balance,
 						includedFileStorageMb: currentSubscription.included_file_storage_mb,

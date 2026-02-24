@@ -4,6 +4,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo'
 import { Module } from '@nestjs/common'
 import { CqrsModule } from '@nestjs/cqrs'
 import { GraphQLModule } from '@nestjs/graphql'
+import { ScheduleModule } from '@nestjs/schedule'
 import { Request, Response } from 'express'
 import { BookPublicModule } from 'routes/bookPublic/bookPublic.module'
 import { SentenceTranslationModule } from 'routes/sentenceTranslation/sentenceTranslation.module'
@@ -36,6 +37,7 @@ import { WebhookModule } from './routes/webhook/webhook.module'
 
 @Module({
 	imports: [
+		ScheduleModule.forRoot(),
 		GraphQLModule.forRootAsync<ApolloDriverConfig>({
 			driver: ApolloDriver,
 			imports: [MainConfigModule],

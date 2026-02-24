@@ -39,4 +39,27 @@ export class UserSubscriptionRepository {
 			},
 		})
 	}
+
+	@CatchDbError()
+	async getUserIdsWhoseLastPrivateMediaSubscriptionEndedBefore(cutOffDate: Date): Promise<number[]> {
+		const latestPrivateSubscriptionByUser = await this.prisma.userSubscription.groupBy({
+			by: ['user_id'],
+			where: {
+				tariff: {
+					is_private_media_included: true,
+				},
+			},
+			_max: {
+				ends_at: true,
+			},
+		})
+
+		return latestPrivateSubscriptionByUser
+			.filter((s) => {
+				const endsAt = s._max.ends_at
+				if (!endsAt) return false
+				return endsAt <= cutOffDate
+			})
+			.map((s) => s.user_id)
+	}
 }

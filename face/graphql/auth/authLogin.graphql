@@ -3,11 +3,12 @@ mutation Auth_login($input: LoginInput!) {
 		id
 		email
 		isUserConfirmed
-		balance
 		currentSubscription {
 			tariffId
 			tariffCode
 			tariffName
+			isPublicMediaIncluded
+			isPrivateMediaIncluded
 			pricePaid
 			balance
 			includedFileStorageMb

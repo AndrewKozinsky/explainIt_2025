@@ -77,6 +77,11 @@ export type BuySubscriptionWithYooKassaInput = {
   tariffId: Scalars['Float']['input'];
 };
 
+export type BuySubscriptionWithYooKassaOutModel = {
+  __typename?: 'BuySubscriptionWithYooKassaOutModel';
+  confirmationUrl: Scalars['String']['output'];
+};
+
 export type CheckTranslationInput = {
   /** Sentence in English */
   engSentence: Scalars['String']['input'];
@@ -152,6 +157,8 @@ export type CurrentSubscriptionOutModel = {
   balance: Scalars['Int']['output'];
   endsAt: Scalars['String']['output'];
   includedFileStorageMb: Scalars['Int']['output'];
+  isPrivateMediaIncluded: Scalars['Boolean']['output'];
+  isPublicMediaIncluded: Scalars['Boolean']['output'];
   pricePaid: Scalars['Int']['output'];
   startsAt: Scalars['String']['output'];
   tariffCode: Scalars['String']['output'];
@@ -482,21 +489,16 @@ export type TariffOutModel = {
   __typename?: 'TariffOutModel';
   code: Scalars['String']['output'];
   createdAt: Scalars['DateTime']['output'];
+  description: Scalars['String']['output'];
   durationDays: Scalars['Int']['output'];
   id: Scalars['Int']['output'];
-  isPrivateMediaIncluded: Scalars['Boolean']['output'];
-  isPublicMediaIncluded: Scalars['Boolean']['output'];
   includedBalance: Scalars['Int']['output'];
   includedFileStorageMb: Scalars['Int']['output'];
-  description: Scalars['String']['output'];
+  isPrivateMediaIncluded: Scalars['Boolean']['output'];
+  isPublicMediaIncluded: Scalars['Boolean']['output'];
   name: Scalars['String']['output'];
   price: Scalars['Int']['output'];
   slogan: Scalars['String']['output'];
-};
-
-export type BuySubscriptionWithYooKassaOutModel = {
-  __typename?: 'BuySubscriptionWithYooKassaOutModel';
-  confirmationUrl: Scalars['String']['output'];
 };
 
 export type UpdateBookChapterInput = {
@@ -556,7 +558,6 @@ export type UpdateVideoPrivateOutModel = {
 
 export type UserOutModel = {
   __typename?: 'UserOutModel';
-  balance: Scalars['Int']['output'];
   currentSubscription?: Maybe<CurrentSubscriptionOutModel>;
   email: Scalars['String']['output'];
   id: Scalars['Int']['output'];
@@ -701,21 +702,21 @@ export type Auth_ConfirmEmail = { __typename?: 'Mutation', auth_confirmEmail: bo
 export type Auth_GetMeVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Auth_GetMe = { __typename?: 'Query', auth_getMe: { __typename?: 'UserOutModel', id: number, email: string, isUserConfirmed: boolean, balance: number, currentSubscription?: { __typename?: 'CurrentSubscriptionOutModel', tariffId: number, tariffCode: string, tariffName: string, pricePaid: number, balance: number, includedFileStorageMb: number, startsAt: string, endsAt: string } | null } };
+export type Auth_GetMe = { __typename?: 'Query', auth_getMe: { __typename?: 'UserOutModel', id: number, email: string, isUserConfirmed: boolean, currentSubscription?: { __typename?: 'CurrentSubscriptionOutModel', tariffId: number, tariffCode: string, tariffName: string, isPublicMediaIncluded: boolean, isPrivateMediaIncluded: boolean, pricePaid: number, balance: number, includedFileStorageMb: number, startsAt: string, endsAt: string } | null } };
 
 export type Auth_LoginVariables = Exact<{
   input: LoginInput;
 }>;
 
 
-export type Auth_Login = { __typename?: 'Mutation', auth_login: { __typename?: 'UserOutModel', id: number, email: string, isUserConfirmed: boolean, balance: number, currentSubscription?: { __typename?: 'CurrentSubscriptionOutModel', tariffId: number, tariffCode: string, tariffName: string, pricePaid: number, balance: number, includedFileStorageMb: number, startsAt: string, endsAt: string } | null } };
+export type Auth_Login = { __typename?: 'Mutation', auth_login: { __typename?: 'UserOutModel', id: number, email: string, isUserConfirmed: boolean, currentSubscription?: { __typename?: 'CurrentSubscriptionOutModel', tariffId: number, tariffCode: string, tariffName: string, isPublicMediaIncluded: boolean, isPrivateMediaIncluded: boolean, pricePaid: number, balance: number, includedFileStorageMb: number, startsAt: string, endsAt: string } | null } };
 
 export type Auth_Login_With_OAuthVariables = Exact<{
   input: LoginWithOAuthInput;
 }>;
 
 
-export type Auth_Login_With_OAuth = { __typename?: 'Mutation', auth_login_with_OAuth: { __typename?: 'UserOutModel', id: number, email: string, isUserConfirmed: boolean, balance: number, currentSubscription?: { __typename?: 'CurrentSubscriptionOutModel', tariffId: number, tariffCode: string, tariffName: string, pricePaid: number, balance: number, includedFileStorageMb: number, startsAt: string, endsAt: string } | null } };
+export type Auth_Login_With_OAuth = { __typename?: 'Mutation', auth_login_with_OAuth: { __typename?: 'UserOutModel', id: number, email: string, isUserConfirmed: boolean, currentSubscription?: { __typename?: 'CurrentSubscriptionOutModel', tariffId: number, tariffCode: string, tariffName: string, isPublicMediaIncluded: boolean, isPrivateMediaIncluded: boolean, pricePaid: number, balance: number, includedFileStorageMb: number, startsAt: string, endsAt: string } | null } };
 
 export type Auth_LogoutVariables = Exact<{ [key: string]: never; }>;
 
@@ -1005,11 +1006,12 @@ export const Auth_GetMeDocument = gql`
     id
     email
     isUserConfirmed
-    balance
     currentSubscription {
       tariffId
       tariffCode
       tariffName
+      isPublicMediaIncluded
+      isPrivateMediaIncluded
       pricePaid
       balance
       includedFileStorageMb
@@ -1057,11 +1059,12 @@ export const Auth_LoginDocument = gql`
     id
     email
     isUserConfirmed
-    balance
     currentSubscription {
       tariffId
       tariffCode
       tariffName
+      isPublicMediaIncluded
+      isPrivateMediaIncluded
       pricePaid
       balance
       includedFileStorageMb
@@ -1103,11 +1106,12 @@ export const Auth_Login_With_OAuthDocument = gql`
     id
     email
     isUserConfirmed
-    balance
     currentSubscription {
       tariffId
       tariffCode
       tariffName
+      isPublicMediaIncluded
+      isPrivateMediaIncluded
       pricePaid
       balance
       includedFileStorageMb

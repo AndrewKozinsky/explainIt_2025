@@ -5,10 +5,12 @@ import { SentenceRepository } from 'repo/sentence.repository'
 import { SubtitleRepository } from 'repo/subtitle.repository'
 import { SubtitleSentenceInitRepository } from 'repo/subtitleSentenceInit.repository'
 import { UserRepository } from 'repo/user.repository'
+import { UserSubscriptionRepository } from 'repo/userSubscription.repository'
 import { VideoPrivateQueryRepository } from 'repo/video/videoPrivate.queryRepository'
 import { VideoPrivateRepository } from 'repo/video/videoPrivate.repository'
 import { VideoPrivateResolver } from 'routes/videoPrivate/videoPrivate.resolver'
 import { PrismaService } from 'db/prisma.service'
+import { CleanupExpiredPrivateMediaHandler } from 'features/video/CleanupExpiredPrivateMedia.command'
 import { CreatePrivateVideoHandler } from 'features/video/CreatePrivateVideo.command'
 import { DeletePrivateVideoHandler } from 'features/video/DeletePrivateVideo.command'
 import { GetUserVideosPrivateHandler } from 'features/video/GetUserVideosPrivate.command'
@@ -18,6 +20,7 @@ import { UpdatePrivateVideoHandler } from 'features/video/UpdatePrivateVideo.com
 const services = [PrismaService]
 const commandHandlers = [
 	CreatePrivateVideoHandler,
+	CleanupExpiredPrivateMediaHandler,
 	UpdatePrivateVideoHandler,
 	DeletePrivateVideoHandler,
 	GetUserVideosPrivateHandler,
@@ -28,6 +31,7 @@ const repositories = [
 	VideoPrivateRepository,
 	VideoPrivateQueryRepository,
 	UserRepository,
+	UserSubscriptionRepository,
 	SentenceRepository,
 	SubtitleRepository,
 	SubtitleSentenceInitRepository,

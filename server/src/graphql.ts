@@ -355,6 +355,8 @@ export interface CurrentSubscriptionOutModel {
     tariffId: number;
     tariffCode: string;
     tariffName: string;
+    isPublicMediaIncluded: boolean;
+    isPrivateMediaIncluded: boolean;
     pricePaid: number;
     balance: number;
     includedFileStorageMb: number;

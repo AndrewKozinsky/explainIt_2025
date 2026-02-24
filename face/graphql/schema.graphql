@@ -52,6 +52,10 @@ input BuySubscriptionWithYooKassaInput {
   tariffId: Float!
 }
 
+type BuySubscriptionWithYooKassaOutModel {
+  confirmationUrl: String!
+}
+
 input CheckTranslationInput {
   """Sentence in English"""
   engSentence: String!
@@ -133,6 +137,8 @@ type CurrentSubscriptionOutModel {
   balance: Int!
   endsAt: String!
   includedFileStorageMb: Int!
+  isPrivateMediaIncluded: Boolean!
+  isPublicMediaIncluded: Boolean!
   pricePaid: Int!
   startsAt: String!
   tariffCode: String!
@@ -371,20 +377,16 @@ type SubtitleSentenceInitOutModel {
 type TariffOutModel {
   code: String!
   createdAt: DateTime!
+  description: String!
   durationDays: Int!
   id: Int!
-  isPrivateMediaIncluded: Boolean!
-  isPublicMediaIncluded: Boolean!
   includedBalance: Int!
   includedFileStorageMb: Int!
-  description: String!
+  isPrivateMediaIncluded: Boolean!
+  isPublicMediaIncluded: Boolean!
   name: String!
   price: Int!
   slogan: String!
-}
-
-type BuySubscriptionWithYooKassaOutModel {
-  confirmationUrl: String!
 }
 
 input UpdateBookChapterInput {
@@ -455,7 +457,6 @@ type UpdateVideoPrivateOutModel {
 }
 
 type UserOutModel {
-  balance: Int!
   currentSubscription: CurrentSubscriptionOutModel
   email: String!
   id: Int!

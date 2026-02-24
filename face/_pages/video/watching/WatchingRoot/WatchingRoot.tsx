@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import RootSurface from '_pages/bookAndVideoCommon/RootSurface/RootSurface'
+import { useClearWatchingStoreOnUnmount } from '_pages/video/watching/WatchingRoot/fn/clearStoreOnUnmount'
 import { usePopulateWatchingStore } from './fn/fetchData'
 import { useFullScreen } from './fn/fullScreen'
 import { useGetFetchedDataStatuses } from './fn/getFetchedDataStatuses'
@@ -8,6 +9,7 @@ import './WatchingRoot.scss'
 
 function WatchingRoot() {
 	usePopulateWatchingStore()
+	useClearWatchingStoreOnUnmount()
 	const { fetchedDataLoading, fetchedDataErrorMessage } = useGetFetchedDataStatuses()
 
 	const rootRef = useRef<null | HTMLDivElement>(null)

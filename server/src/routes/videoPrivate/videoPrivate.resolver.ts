@@ -1,11 +1,13 @@
 import { UseGuards } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql'
+import { Cron, CronExpression } from '@nestjs/schedule'
 import { Request } from 'express'
 import { CreatePrivateVideoInput } from 'routes/videoPrivate/inputs/createPrivateVideo.input'
 import { DeletePrivateVideoInput } from 'routes/videoPrivate/inputs/deletePrivateVideo.input'
 import { GetPrivateVideoInput } from 'routes/videoPrivate/inputs/getPrivateVideo.input'
 import { UpdatePrivateVideoInput } from 'routes/videoPrivate/inputs/updatePrivateVideo.input'
+import { CleanupExpiredPrivateMediaCommand } from 'features/video/CleanupExpiredPrivateMedia.command'
 import { CreatePrivateVideoCommand } from 'features/video/CreatePrivateVideo.command'
 import { DeletePrivateVideoCommand } from 'features/video/DeletePrivateVideo.command'
 import { GetUserVideosPrivateCommand } from 'features/video/GetUserVideosPrivate.command'
@@ -71,5 +73,18 @@ export class VideoPrivateResolver {
 	async getVideoPrivate(@Args('input') input: GetPrivateVideoInput, @Context('req') request: Request) {
 		const userId = request.session.userId!
 		return await this.commandBus.execute(new GetVideoPrivateCommand(userId, input.id))
+	}
+
+	private isCleanupRunning = false
+
+	@Cron(CronExpression.EVERY_DAY_AT_MIDNIGHT)
+	async cleanupExpiredPrivateMediaFilesByCron() {
+		if (this.isCleanupRunning) return
+		this.isCleanupRunning = true
+		try {
+			await this.commandBus.execute(new CleanupExpiredPrivateMediaCommand())
+		} finally {
+			this.isCleanupRunning = false
+		}
 	}
 }

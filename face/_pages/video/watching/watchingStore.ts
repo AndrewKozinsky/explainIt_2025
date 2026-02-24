@@ -30,6 +30,9 @@ export const watchingStoreValues: WatchingStoreValues = {
 export const useWatchingStore = create<WatchingStore>()((set, get) => {
 	return {
 		...watchingStoreValues,
+		clearStoreData: () => {
+			set(watchingStoreValues)
+		},
 		updateStore: (storePart: Partial<WatchingStoreValues>) => {
 			set(storePart)
 		},
@@ -153,6 +156,7 @@ export type PlayerCommand =
 	| { type: 'SET_VOLUME'; volume: number }
 
 export type WatchingStoreMethods = {
+	clearStoreData: () => void
 	updateStore: (store: Partial<WatchingStoreValues>) => void
 	updateMobileCurrentContentType: (contentType: WatchingStoreI.MobileCurrentContentType) => void
 	// updateHelpCurrentContentType: (contentType: WatchingStoreI.HelpCurrentContentType) => void

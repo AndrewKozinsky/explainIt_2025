@@ -1,5 +1,3 @@
-// import { produce } from 'immer'
-// import { useSystemStore } from 'stores/systemStore'
 import { create } from 'zustand'
 import { BookChapterOutModel, BookOutModel, BookPublicOutModel } from '@/graphql'
 
@@ -16,6 +14,9 @@ export const readingStoreValues: ReadingStoreValues = {
 export const useReadingStore = create<ReadingStoreNext>()((set, get) => {
 	return {
 		...readingStoreValues,
+		clearStoreData: () => {
+			set(readingStoreValues)
+		},
 		updateBook: (book: ReadingStore.BookData) => {
 			set((state) => {
 				return {
@@ -81,6 +82,7 @@ export type SelectedSentence = {
 }
 
 export type ReadingStoreMethods = {
+	clearStoreData: () => void
 	updateBook: (book: ReadingStore.BookData) => void
 	updateChapter: (chapter: ReadingStore.ChapterData) => void
 	updatePopulatedChapter: (populatedChapter: ChapterTextStructurePopulated.Chapter) => void
