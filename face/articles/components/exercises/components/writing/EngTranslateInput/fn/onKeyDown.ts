@@ -5,8 +5,8 @@ import { exercisesLogic } from '../../../../logic/exercisesLogic'
 export function useGetOnInput() {
 	const changeCurrentExercise = exercisesLogic.useGetChangeCurrentExercise()
 
-	return function (e: React.KeyboardEvent<HTMLTextAreaElement>) {
-		const $textInput = e.target as HTMLTextAreaElement
+	return function (e: React.FormEvent<HTMLTextAreaElement>) {
+		const $textInput = e.currentTarget
 
 		changeCurrentExercise({ userTranslate: $textInput.value })
 	}
