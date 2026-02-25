@@ -1,8 +1,8 @@
-import React from 'react'
-import Header from 'ui/Header/Header'
-import './MainPageHeader.scss'
+// import React from 'react'
+// import Header from 'ui/Header/Header'
+// import './MainPageHeader.scss'
 
-function MainPageHeader() {
+/*function MainPageHeader() {
 	return (
 		<div className='main-page-header'>
 			<Header hStyle={1}>Читайте книги на английском языке — с умным переводом и объяснением от ИИ</Header>
@@ -13,6 +13,6 @@ function MainPageHeader() {
 			</div>
 		</div>
 	)
-}
+}*/
 
-export default MainPageHeader
+// export default MainPageHeader

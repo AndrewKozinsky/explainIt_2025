@@ -1,8 +1,8 @@
-import React from 'react'
-import './MainPageHeroImage.scss'
+// import React from 'react'
+// import './MainPageHeroImage.scss'
 
-function MainPageHeroImage() {
+/*function MainPageHeroImage() {
 	return <img src='/mainPage/app.png' alt='Hero image' className='main-page-hero-image' />
-}
+}*/
 
-export default MainPageHeroImage
+// export default MainPageHeroImage

@@ -1,13 +1,13 @@
-import React from 'react'
-import Header from 'ui/Header/Header'
-import './MainPageBlockWrapper.scss'
+// import React from 'react'
+// import Header from 'ui/Header/Header'
+// import './MainPageBlockWrapper.scss'
 
-type MainPageBlockWrapperProps = {
+/*type MainPageBlockWrapperProps = {
 	header: string
 	children: React.ReactNode | React.ReactNode[]
-}
+}*/
 
-function MainPageBlockWrapper(props: MainPageBlockWrapperProps) {
+/*function MainPageBlockWrapper(props: MainPageBlockWrapperProps) {
 	const { header, children } = props
 
 	return (
@@ -16,6 +16,6 @@ function MainPageBlockWrapper(props: MainPageBlockWrapperProps) {
 			<div className='main-page-block-wrapper__content'>{children}</div>
 		</div>
 	)
-}
+}*/
 
-export default MainPageBlockWrapper
+// export default MainPageBlockWrapper
