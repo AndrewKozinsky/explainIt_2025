@@ -106,6 +106,10 @@ export const pageUrls = {
 		name: 'Тарифы',
 		path: '/tariffs',
 	},
+	help: {
+		name: 'Справка',
+		path: '/help',
+	},
 	me: {
 		name: 'Моя учётная запись',
 		path: '/me',

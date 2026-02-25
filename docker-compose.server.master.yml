@@ -6,6 +6,7 @@ services:
       - explainpostgresservermaster
       - explainserverservermaster
       - explainfaceservermaster
+      - explainhelpservermaster
     volumes:
       - ./nginx/nginx.conf.servermaster:/etc/nginx/nginx.conf
     environment:
@@ -60,6 +61,15 @@ services:
     depends_on:
       - explainpostgresservermaster
       - explainserverservermaster
+    environment:
+      MODE: servermaster
+  explainhelpservermaster:
+    build:
+      context: help/
+      dockerfile: Dockerfile.server
+    restart: unless-stopped
+    command: npm run start
+    container_name: explainhelpservermaster
     environment:
       MODE: servermaster
   explainnlpservermaster:

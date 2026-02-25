@@ -20,6 +20,7 @@ export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
 	const redisServiceName = 'explainredis' + mode
 	const serverServiceName = 'explainserver' + mode
 	const faceServiceName = 'explainface' + mode
+	const helpServiceName = 'explainhelp' + mode
 	const nlpServiceName = 'explainnlp' + mode
 
 	return {
@@ -27,7 +28,7 @@ export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
 			[nginxServiceName]: {
 				image: 'nginx:1.19.7-alpine',
 				container_name: 'explainnginx' + mode,
-				depends_on: [postgresServiceName, serverServiceName, faceServiceName],
+				depends_on: [postgresServiceName, serverServiceName, faceServiceName, helpServiceName],
 				ports: [Mode.localTest, Mode.localDev, Mode.localCheckServer].includes(mode) ? ['80:80'] : undefined,
 				volumes: [`./nginx/nginx.conf.${mode}:/etc/nginx/nginx.conf`],
 				environment: getNginxEnvs(mode),
@@ -74,6 +75,18 @@ export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
 				container_name: 'explainface' + mode,
 				depends_on: [postgresServiceName, serverServiceName],
 				environment: getFaceEnvs(mode),
+			},
+			[helpServiceName]: {
+				build: {
+					context: 'help/',
+					dockerfile: isDev ? 'Dockerfile.dev' : 'Dockerfile.server',
+				},
+				restart: 'unless-stopped',
+				volumes: isDev ? ['./help:/app'] : undefined,
+				command: isDev ? 'npm run dev' : 'npm run start',
+				container_name: 'explainhelp' + mode,
+				environment: { MODE: mode },
+				ports: isDev ? ['3002:3000'] : undefined,
 			},
 			[nlpServiceName]: {
 				build: {
