@@ -1,37 +1,24 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import { useWatchingStore } from '_pages/video/watching/watchingStore'
 import SpeechlessBar from '../SpeechlessBar/SpeechlessBar'
 import SubtitleBlock from '../SubtitleBlock/SubtitleBlock'
-import { useGetCurrentSubtitleId } from './fn/getCurrentSubtitleId'
-import { useAutoScrollCurrentSubtitle } from './fn/useAutoScrollCurrentSubtitle'
+import { useSubtitlesPlaybackDomSync } from './fn/useSubtitlesPlaybackDomSync'
 import './SubtitlesContent.scss'
 
 function SubtitlesContent() {
-	const populatedSubtitles = useWatchingStore((s) => s.populatedSubtitles)
-	const currentSubtitleId = useGetCurrentSubtitleId()
+	const subtitles = useWatchingStore((s) => s.populatedSubtitles.subtitles)
 	const containerRef = useRef<HTMLDivElement | null>(null)
 
-	useAutoScrollCurrentSubtitle({ containerRef, currentSubtitleId })
-
-	// Определяем, в каком субтитре начинается каждое предложение
-	const firstSentenceStartSubtitleId = new Map<number, number>()
-	for (const item of populatedSubtitles.subtitles) {
-		if (item.type !== 'subtitle') continue
-		for (const text of item.texts) {
-			if (!firstSentenceStartSubtitleId.has(text.sentenceId)) {
-				firstSentenceStartSubtitleId.set(text.sentenceId, item.id)
-			}
-		}
-	}
+	useSubtitlesPlaybackDomSync({ containerRef, subtitles })
 
 	return (
 		<div className='subtitles-content' ref={containerRef}>
-			{populatedSubtitles.subtitles.map((item, index) => {
+			{subtitles.map((item) => {
 				if (item.type === 'subtitle') {
-					return <SubtitleBlock subtitle={item} key={index} isCurrent={currentSubtitleId === item.id} />
+					return <SubtitleBlock subtitle={item} key={item.id} />
 				}
 
-				return <SpeechlessBar key={index} subtitleId={item.id} isCurrent={currentSubtitleId === item.id} />
+				return <SpeechlessBar key={item.id} subtitleId={item.id} />
 			})}
 		</div>
 	)

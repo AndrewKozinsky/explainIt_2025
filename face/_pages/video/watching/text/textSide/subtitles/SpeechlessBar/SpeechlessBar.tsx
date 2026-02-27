@@ -1,15 +1,13 @@
-import cn from 'classnames'
 import './SpeechlessBar.scss'
 
 type SpeechlessBarProps = {
-	isCurrent: boolean
 	subtitleId: number
 }
 
 function SpeechlessBar(props: SpeechlessBarProps) {
-	const { isCurrent, subtitleId } = props
+	const { subtitleId } = props
 
-	return <div className={cn('speechless-bar', isCurrent && 'speechless-bar--active')} data-subtitle-id={subtitleId} />
+	return <div className='speechless-bar' data-subtitle-id={subtitleId} id={`subtitle-${subtitleId}`} />
 }
 
 export default SpeechlessBar
