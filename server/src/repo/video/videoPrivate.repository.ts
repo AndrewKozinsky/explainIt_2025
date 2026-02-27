@@ -100,7 +100,6 @@ export class VideoPrivateRepository {
 
 		return {
 			userId: video.user_id,
-			// url: video.file_url,
 			fileS3Key: video.file_s3_key,
 		}
 	}

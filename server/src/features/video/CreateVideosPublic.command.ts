@@ -140,8 +140,8 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 Главная героиня, Хилди Джонсон, — талантливая репортёрша, собирается уйти с работы и выйти замуж. Но её бывший муж и редактор газеты, Уолтер Бёрнс, пытается удержать её в профессии. В это время появляется срочная новость: человека собираются казнить, и дело может быть несправедливым. Хилди начинает расследование, и события развиваются очень быстро.
 Живые диалоги, быстрая разговорная речь, много юмора и сарказма, журналистская и повседневная лексика. Это фильм о работе, амбициях, любви и о том, как трудно выбрать между карьерой и личной жизнью.
 Рекомендуемый уровень: B2–C1 (Upper-Intermediate / Advanced).`,
-				fileName: 'His Girl Friday (1940).mp4',
-				file_s3_key: 'publicVideoDev/His Girl Friday (1940).mp4',
+				fileName: 'His Girl Friday (1940).webm',
+				file_s3_key: 'publicVideoDev/His Girl Friday (1940).webm',
 				originalContent: hisGirlFridaySubs,
 				covers: [
 					publicVideoUrl + 'his_girl_friday_1.jpg',

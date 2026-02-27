@@ -1,6 +1,6 @@
 import { Field, InputType } from '@nestjs/graphql'
-import { bdConfig } from '../../../db/dbConfig/dbConfig'
-import { DtoFieldDecorators } from '../../../db/dtoFieldDecorators'
+import { bdConfig } from 'db/dbConfig/dbConfig'
+import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
 
 @InputType()
 export class ConfirmEmailInput {

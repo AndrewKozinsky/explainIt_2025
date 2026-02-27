@@ -4,7 +4,7 @@ import BookAndPrevAndNextChapters from '../chapter/BookAndPrevAndNextChapters/Bo
 import BookAuthorAndName from '../chapter/BookAuthorAndName/BookAuthorAndName'
 import ChapterHeader from '../chapter/ChapterHeader/ChapterHeader'
 import ChapterName from '../chapter/ChapterName/ChapterName'
-import ChapterContent from '../chapterContent/ChapterContent/ChapterContent'
+import ChapterContent from '../ChapterContent/ChapterContent'
 import { useAutoScrollToTop } from './fn/autoScrollToTop'
 import { useClearReadingStoreOnUnmount } from './fn/clearStoreOnUnmount'
 import { usePopulateReadingStore } from './fn/getContentStructure'

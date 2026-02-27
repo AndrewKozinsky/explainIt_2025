@@ -113,41 +113,6 @@ export const queriesBookChapter = {
 			},
 		}
 	},
-	analysePhrase(dto: {
-		bookChapterId: number
-		bookAuthor: null | string
-		bookName: null | string
-		context: string
-		sentenceId: number
-		sentence: string
-		phrase: string
-		phraseWordsIdx: number[]
-	}) {
-		return {
-			mutation: `
-      mutation AnalysePhrase($input: AnalysePhraseInput!) {
-        ${RouteNames.BOOK_CHAPTER.ANALYSE_PHRASE}(input: $input) {
-			id
-			sentenceId
-			sentence
-			transcription
-			phrase
-			phraseWordsIdx
-			translation
-			analysis
-			examples {
-				id
-				sentence
-				translation
-			}
-        }
-      }
-    `,
-			variables: {
-				input: dto,
-			},
-		}
-	},
 	translateSentences(dto: { bookAuthor: null | string; bookName: null | string; sentences: string[] }) {
 		return {
 			mutation: `
@@ -155,18 +120,6 @@ export const queriesBookChapter = {
         ${RouteNames.BOOK_CHAPTER.TRANSLATE_SENTENCES}(input: $input) {
 			translates
         }
-      }
-    `,
-			variables: {
-				input: dto,
-			},
-		}
-	},
-	deleteChapterPhrases(dto: { bookChapterId: number }) {
-		return {
-			query: `
-      mutation DeleteBookChapterPhrases($input: DeleteBookChapterPhrasesInput!) {
-        ${RouteNames.BOOK_CHAPTER.DELETE_BOOK_CHAPTER_PHRASES}(input: $input)
       }
     `,
 			variables: {

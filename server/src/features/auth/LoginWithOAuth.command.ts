@@ -8,7 +8,7 @@ import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
-import { UserOutModel } from '../../models/user/user.out.model'
+import { UserOutModel } from 'models/user/user.out.model'
 const qs = require('qs')
 
 type LoginWithOAuthInput = {

@@ -19,7 +19,7 @@ export default function PublicVideoInfo() {
 			subHeader={publicVideo.year.toString()}
 			coverUrls={publicVideo.covers}
 			text={publicVideo.note}
-			contentType='book'
+			contentType='video'
 			mediaUrl={watchUrl}
 		/>
 	)

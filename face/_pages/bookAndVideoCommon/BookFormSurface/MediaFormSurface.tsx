@@ -1,5 +1,5 @@
 import React from 'react'
-import '_pages/bookAndVideoCommon/BookFormSurface/MediaFormSurface.scss'
+import './MediaFormSurface.scss'
 
 type BookFormSurfaceProps = {
 	children: React.ReactNode

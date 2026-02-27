@@ -90,7 +90,7 @@ export class BookChapterRepository {
 		return this.mapDbBookChapterToServiceBook(input.bookType, bookChapter as BookChapterWithBookNotNull)
 	}
 
-	/*@CatchDbError()
+	@CatchDbError()
 	async getBookChapterByBookId(bookId: number) {
 		const bookChapters = await this.prisma.bookChapter.findMany({
 			where: { book_id: bookId },
@@ -98,7 +98,7 @@ export class BookChapterRepository {
 		})
 
 		return bookChapters.map((ch) => this.mapDbBookChapterToServiceBook('private', ch as BookChapterWithBookNotNull))
-	}*/
+	}
 
 	@CatchDbError()
 	async updateBookChapterById(

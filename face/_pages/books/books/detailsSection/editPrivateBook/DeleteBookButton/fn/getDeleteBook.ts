@@ -1,7 +1,7 @@
 import { useCallback, useContext, useState } from 'react'
 import { redirect } from 'next/navigation'
 import { Book_GetUserBooksDocument, useBook_Delete } from '@/graphql'
-import { NotificationContext } from '@/ui//Notification/context'
+import { NotificationContext } from '@/ui/Notification/context'
 import { pageUrls } from '@/сonsts/pageUrls'
 import { useBooksStore } from '_pages/books/books/booksStore'
 

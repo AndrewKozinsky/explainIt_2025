@@ -1,8 +1,8 @@
 import NoteText from '_pages/bookAndVideoCommon/NoteText/NoteText'
 import { useBooksStore } from '_pages/books/books/booksStore'
-import PublicBookInfo from '_pages/books/books/detailsSection/PublicBookInfo/PublicBookInfo'
 import EditChapterForm from '../editChapter/EditChapterForm/EditChapterForm'
 import EditBookForm from '../editPrivateBook/EditPrivateBookForm/EditPrivateBookForm'
+import PublicBookInfo from '../PublicBookInfo/PublicBookInfo'
 
 function DetailsSection() {
 	const pageUrlType = useBooksStore((s) => s.pageUrlType)

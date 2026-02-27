@@ -9,10 +9,6 @@ import { MainConfigService } from './mainConfig/mainConfig.service'
 import { RedisService } from './redis/redis.service'
 
 export async function applyAppSettings(app: INestApplication) {
-	// Trust proxy to correctly handle X-Forwarded-* headers from Nginx
-	// const expressApp = app.getHttpAdapter().getInstance()
-	// expressApp.set('trust proxy', 1)
-
 	app.use(cookieParser())
 
 	app.setGlobalPrefix('api')
@@ -41,7 +37,6 @@ async function setUpSession(app: INestApplication) {
 
 	// For same-site requests (nginx proxies everything to one domain), 'lax' is sufficient
 	const isProduction = ['serverdevelop', 'servermaster'].includes(mainConfig.get().mode!)
-	const secure = isProduction
 
 	// Extract domain from config for production environments
 	const cookieConfig: any = {

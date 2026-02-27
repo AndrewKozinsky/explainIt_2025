@@ -1,6 +1,5 @@
 import DetailsBlock from '_pages/bookAndVideoCommon/detailsBlock/DetailsBlock/DetailsBlock'
 import { useWatchingStore } from '_pages/video/watching/watchingStore'
-// import DetailsSide from '../detailsSide/DetailsSide/DetailsSide'
 import MobileNavigation from '../MobileNavigation/MobileNavigation'
 import TextSide from '../textSide/TextSide/TextSide'
 import { getSectionClasses } from './fn/getSectionClasses'

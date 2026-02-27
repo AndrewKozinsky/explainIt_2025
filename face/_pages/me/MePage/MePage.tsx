@@ -1,6 +1,5 @@
 import React from 'react'
 import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'
-import Balance from '../Balance/Balance'
 import LogoutButton from '../LogoutButton/LogoutButton'
 import './MePage.scss'
 
@@ -9,7 +8,6 @@ function MePage() {
 		<PageWrapper top bottom>
 			<main className='me-page'>
 				{/* Do not forget to use STATE MACHINE FOR COMPONENTS !!! https://zagjs.com/ */}
-				<Balance />
 				<LogoutButton />
 			</main>
 		</PageWrapper>

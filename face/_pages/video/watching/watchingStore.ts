@@ -21,7 +21,6 @@ export const watchingStoreValues: WatchingStoreValues = {
 		sentenceId: null,
 		wordIds: [],
 	},
-	// helpCurrentContentType: 'keyboard',
 	fullScreen: false,
 	populatedPlainText: null as any as PopulatedTextStructure.Structure,
 	populatedSubtitles: null as any as PopulatedSubtitlesStructure.Structure,
@@ -43,13 +42,6 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 				}
 			})
 		},
-		/*updateHelpCurrentContentType: (helpCurrentContentType) => {
-			set((state) => {
-				return {
-					helpCurrentContentType,
-				}
-			})
-		},*/
 		updateVideo: (video) => {
 			set((state) => {
 				return {
@@ -113,9 +105,6 @@ export namespace WatchingStoreI {
 	// На телефоне показываются 2 кнопки: Текст и Детали.
 	// В зависимости от нажатой кнопки показывается одна из двух колонок
 	export type MobileCurrentContentType = 'text' | 'details'
-	// Если не выбрано ни одно слово, то показывается справка
-	// В зависимости от нажатой кнопки показывается одна из двух колонок
-	// export type HelpCurrentContentType = 'keyboard' | 'mouse'
 
 	export type SelectedSentence = {
 		sentenceId: null | number
@@ -135,7 +124,6 @@ export type WatchingStoreValues = {
 		command: null | PlayerCommand
 	}
 	mobileCurrentContentType: WatchingStoreI.MobileCurrentContentType
-	// helpCurrentContentType: WatchingStoreI.HelpCurrentContentType
 	fullScreen: boolean
 	populatedPlainText: PopulatedTextStructure.Structure
 	populatedSubtitles: PopulatedSubtitlesStructure.Structure
@@ -159,7 +147,6 @@ export type WatchingStoreMethods = {
 	clearStoreData: () => void
 	updateStore: (store: Partial<WatchingStoreValues>) => void
 	updateMobileCurrentContentType: (contentType: WatchingStoreI.MobileCurrentContentType) => void
-	// updateHelpCurrentContentType: (contentType: WatchingStoreI.HelpCurrentContentType) => void
 	updateVideo: (video: WatchingStoreI.VideoData) => void
 	setPlayerState: (state: Partial<WatchingStoreI.Player>) => void
 	sendPlayerCommand: (command: PlayerCommand) => void

@@ -25,7 +25,6 @@ export class SentenceTranslationQueryRepository {
 			where: { sentence_id: sentenceId },
 			orderBy: { created_at: 'asc' },
 		})
-		console.log(sentenceTranslations)
 
 		return sentenceTranslations.map((t) => this.mapDbSentenceTranslationToOutModel(t))
 	}

@@ -2,9 +2,7 @@ import { UseGuards } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql'
 import { Request } from 'express'
-// import { AnalysePhraseInput } from 'routes/bookChapter/inputs/analysePhrase.input'
 import { DeleteBookChapterPhrasesInput } from 'routes/bookChapter/inputs/deleteBookChapterPhrasesInput'
-// import { TranslateSentencesInput } from 'routes/bookChapter/inputs/translateSentences.input'
 // import { AnalysePhraseCommand } from 'features/bookChapter/AnalysePhrase.command'
 import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter.command'
 import { DeleteBookChapterCommand } from 'features/bookChapter/DeleteBookChapter.command'
@@ -64,22 +62,4 @@ export class BookChapterResolver {
 		const userId = request.session.userId
 		return await this.commandBus.execute(new GetBookChapterCommand(input, userId))
 	}
-
-	/*@UseGuards(CheckSessionCookieGuard, UserWithPositiveBalanceGuard)
-	@Mutation(() => BookChapterPhraseOutModel, {
-		name: RouteNames.BOOK_CHAPTER.ANALYSE_PHRASE,
-	})
-	async analysePhrase(@Args('input') input: AnalysePhraseInput, @Context('req') request: Request) {
-		const userId = request.session.userId!
-		return await this.commandBus.execute(new AnalysePhraseCommand(userId, input))
-	}*/
-
-	/*@UseGuards(CheckSessionCookieGuard, UserWithPositiveBalanceGuard)
-	@Mutation(() => BookChapterTranslateOfSentencesOutModel, {
-		name: RouteNames.BOOK_CHAPTER.TRANSLATE_SENTENCES,
-	})
-	async translateSentences(@Args('input') input: TranslateSentencesInput, @Context('req') request: Request) {
-		const userId = request.session.userId!
-		return await this.commandBus.execute(new TranslateSentencesCommand(userId, input))
-	}*/
 }

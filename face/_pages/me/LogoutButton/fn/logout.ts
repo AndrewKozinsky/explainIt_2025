@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
 import { useAuth_Logout } from '@/graphql'
-import { useUserStore } from 'stores/userStore'
+import { useUserStore } from '@/stores/userStore'
 
 export function useGetLogout() {
 	const [logout] = useAuth_Logout()
