@@ -2,6 +2,15 @@
 	/* change color here */
 	color: #000000;
 }
+.lds-spinner--small {
+	width: 20px;
+	height: 20px;
+}
+.lds-spinner--full {
+	width: 100%; // 80px
+	height: 100%; // 80px
+}
+
 .lds-spinner,
 .lds-spinner span,
 .lds-spinner span:after {
@@ -11,8 +20,7 @@
 	color: currentColor;
 	display: block;
 	position: relative;
-	width: 100%; // 80px
-	height: 100%; // 80px
+
 }
 .lds-spinner span {
 	display: block;
@@ -30,7 +38,7 @@
 	position: absolute;
 	top: 4%; // 3.2px
 	left: 46%; // 36.8px
-	width: 8%; // 6.4
+	width: 7%; // 6.4
 	height: 22%; // 17.6
 	border-radius: 20%;
 	background: currentColor;

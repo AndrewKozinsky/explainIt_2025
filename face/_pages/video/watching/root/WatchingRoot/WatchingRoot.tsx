@@ -6,6 +6,7 @@ import VideoHeader from '../VideoHeader/VideoHeader'
 import { usePopulateWatchingStore } from './fn/fetchData'
 import { useFullScreen } from './fn/fullScreen'
 import { useGetFetchedDataStatuses } from './fn/getFetchedDataStatuses'
+import { useDetailsStickyTopBelowVideo } from './fn/useDetailsStickyTopBelowVideo'
 import { TextContainer, VideoContainer } from './WatchingRootContent'
 import './WatchingRoot.scss'
 
@@ -16,6 +17,7 @@ function WatchingRoot() {
 
 	const rootRef = useRef<null | HTMLDivElement>(null)
 	useFullScreen(rootRef)
+	useDetailsStickyTopBelowVideo(rootRef)
 
 	return (
 		<RootSurface loading={fetchedDataLoading} error={fetchedDataErrorMessage} rootRef={rootRef}>

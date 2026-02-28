@@ -15,7 +15,7 @@ function RootSurface(props: RootSurfaceProps) {
 
 	return (
 		<div className='root-surface' ref={rootRef}>
-			{loading && !error && <Spinner />}
+			{loading && !error && <Spinner size='small' />}
 			{error && <ErrorMessage text={error} />}
 			{!loading && !error && children}
 		</div>
