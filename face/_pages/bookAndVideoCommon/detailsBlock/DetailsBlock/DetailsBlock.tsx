@@ -1,3 +1,4 @@
+import ViewportSyncedHeight from 'ui/ViewportSyncedHeight/ViewportSyncedHeight'
 import { useTranslateSentence } from '../DetailsSentence/fn/translateSentence'
 import ViewRouter from '../ViewRouter/ViewRouter'
 import { usePopulateStore } from './fn/populateStore'
@@ -13,9 +14,9 @@ function DetailsBlock() {
 	useTranslateSentence()
 
 	return (
-		<div className='details-side'>
+		<ViewportSyncedHeight extraClass='details-side'>
 			<ViewRouter />
-		</div>
+		</ViewportSyncedHeight>
 	)
 }
 

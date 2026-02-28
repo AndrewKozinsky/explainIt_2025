@@ -21,7 +21,6 @@
 	display: grid;
 	grid-template-rows: 1fr 1fr;
 	gap: 2rem;
-	overflow: hidden;
 
 	@include mix.page-width(700px) {
 		display: grid;
@@ -33,11 +32,12 @@
 .reading-root__text {
 	display: flex;
 	flex-direction: column;
+	min-width: 0;
 	overflow: auto;
 	padding: 0 var(--reading-page-chapter-horizontal-padding) 0 0;
 }
 
 .reading-root__analysis {
-	display: flex;
-	overflow: auto;
+	position: relative;
+	min-width: 0;
 }
