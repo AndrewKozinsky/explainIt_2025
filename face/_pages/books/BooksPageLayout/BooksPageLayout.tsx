@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react'
 import { PageWrapper } from 'ui/pageRelated/PageWrapper/PageWrapper'
 
 type LLMPageLayoutProps = {

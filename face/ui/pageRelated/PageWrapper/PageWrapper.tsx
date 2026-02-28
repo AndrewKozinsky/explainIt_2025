@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
-import { pageUrls } from 'сonsts/pageUrls'
 import Bar from '../pageTopBar/PageTopBar/Bar'
+import { pageUrls } from 'сonsts/pageUrls'
 import './PageWrapper.scss'
 
 type PageWrapperProps = {

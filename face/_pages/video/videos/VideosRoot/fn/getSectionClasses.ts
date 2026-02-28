@@ -5,12 +5,12 @@ export function getSectionClasses(
 	mobileContentType: VideosStore.MobileCurrentContentType,
 	currentMobileContentType: VideosStore.MobileCurrentContentType,
 ) {
-	const classes = ['videos-page-content__item', `videos-page-content__item--${mobileContentType}`]
+	const classes = ['videos-root__content-item', `videos-root__content-item--${mobileContentType}`]
 
 	const isThisBlockVisible = currentMobileContentType === mobileContentType
 
 	if (isThisBlockVisible) {
-		classes.push('videos-page-content__item--always-visible')
+		classes.push('videos-root__content-item--always-visible')
 	}
 
 	return cn(classes)
