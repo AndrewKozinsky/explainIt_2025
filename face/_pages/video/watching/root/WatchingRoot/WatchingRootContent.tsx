@@ -1,6 +1,6 @@
 import { useWatchingStore } from '_pages/video/watching/watchingStore'
-import TextRoot from '../text/TextRoot/TextRoot'
-import VideoRoot from '../video/VideoRoot/VideoRoot'
+import TextRoot from '../../text/TextRoot/TextRoot'
+import VideoRoot from '../../video/VideoRoot/VideoRoot'
 
 export function VideoContainer() {
 	const videoData = useWatchingStore((s) => s.video!.data)

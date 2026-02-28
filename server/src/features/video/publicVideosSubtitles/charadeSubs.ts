@@ -1,6 +1,6 @@
 export const charadeSubs = `1
 00:03:51,774 --> 00:03:53,901
-<i>Hello</i>
+Hello
 
 2
 00:03:53,809 --> 00:03:57,768
@@ -19,7 +19,7 @@ like start an avalanche or something?
 
 5
 00:04:04,720 --> 00:04:06,779
-<i>Va jouer, mon ch�ri.</i>
+Va jouer, mon ch�ri.
 
 6
 00:04:08,757 --> 00:04:11,385
@@ -97,8 +97,8 @@ been honest with me.
 
 21
 00:05:03,012 --> 00:05:05,242
-<i>That's all I ask of anybody:
-the simple truth.</i>
+That's all I ask of anybody:
+the simple truth.
 
 22
 00:05:05,347 --> 00:05:10,011
@@ -117,7 +117,7 @@ and it frightens me.
 
 25
 00:05:17,459 --> 00:05:19,359
-<i>Does he belong to you?</i>
+Does he belong to you?
 
 26
 00:05:19,461 --> 00:05:22,123
@@ -165,8 +165,8 @@ You give up awfully easily, don't you?
 
 35
 00:05:45,921 --> 00:05:49,652
-<i>Viens, Jean-Louis. Let us make a walk.
-I've never seen a Rothschild before.</i>
+Viens, Jean-Louis. Let us make a walk.
+I've never seen a Rothschild before.
 
 36
 00:05:55,464 --> 00:05:59,093
@@ -318,7 +318,7 @@ I'll get you some here, okay?
 
 67
 00:07:42,738 --> 00:07:44,638
-<i>Merci.</i>
+Merci.
 
 68
 00:07:59,321 --> 00:08:01,221
@@ -335,8 +335,8 @@ Honorine.
 
 71
 00:08:53,375 --> 00:08:56,970
-<i>I'm Inspector Edouard Grandpierre
-of the policejudiciaire.</i>
+I'm Inspector Edouard Grandpierre
+of the policejudiciaire.
 
 72
 00:08:57,079 --> 00:08:59,604
@@ -361,12 +361,12 @@ I'm very cold.
 
 77
 00:09:48,964 --> 00:09:51,125
-<i>We discovered your husband's body...</i>
+We discovered your husband's body...
 
 78
 00:09:51,233 --> 00:09:54,794
-<i>lying next to the tracks
-of the Paris-Bordeaux railroad line.</i>
+lying next to the tracks
+of the Paris-Bordeaux railroad line.
 
 79
 00:09:56,104 --> 00:09:58,163
@@ -384,13 +384,13 @@ Leave? No.
 
 82
 00:10:05,380 --> 00:10:10,215
-<i>Your husband possessed
-a ticket of passage on the Maranguape.</i>
+Your husband possessed
+a ticket of passage on the Maranguape.
 
 83
 00:10:10,319 --> 00:10:13,413
-<i>It sailed for Venezuela
-this morning at 7:00.</i>
+It sailed for Venezuela
+this morning at 7:00.
 
 84
 00:10:13,522 --> 00:10:15,422
@@ -437,8 +437,8 @@ who is his nearest relative?
 
 93
 00:10:38,013 --> 00:10:42,712
-<i>- I don't know.
-- That's absurd, madame. Totalement absurde.</i>
+- I don't know.
+- That's absurd, madame. Totalement absurde.
 
 94
 00:10:42,818 --> 00:10:45,013
@@ -452,8 +452,8 @@ I'm sorry.
 
 96
 00:10:53,362 --> 00:10:55,762
-<i>- Les effets de Lampert.
-- D'accord.</i>
+- Les effets de Lampert.
+- D'accord.
 
 97
 00:10:57,165 --> 00:11:01,659
@@ -576,13 +576,13 @@ we would learn something.
 
 122
 00:12:22,651 --> 00:12:24,983
-<i>- Did you?
-- Yes.</i>
+- Did you?
+- Yes.
 
 123
 00:12:25,087 --> 00:12:27,385
-<i>Your appointment has
-been changed.</i>
+Your appointment has
+been changed.
 
 124
 00:12:34,963 --> 00:12:37,659
@@ -649,8 +649,8 @@ Oh, I telephoned but nobody answered.
 
 139
 00:13:56,511 --> 00:14:00,242
-<i>- Hello.
-- Hello.</i>
+- Hello.
+- Hello.
 
 140
 00:14:00,348 --> 00:14:04,614
@@ -663,7 +663,7 @@ How did you find out?
 
 142
 00:14:06,788 --> 00:14:09,120
-<i>It's in the afternoon papers.</i>
+It's in the afternoon papers.
 
 143
 00:14:09,224 --> 00:14:13,058
@@ -793,8 +793,8 @@ I'm only the widow.
 
 170
 00:15:51,393 --> 00:15:54,988
-<i>If Charles had died in bed,
-we wouldn't even have him.</i>
+If Charles had died in bed,
+we wouldn't even have him.
 
 171
 00:15:58,400 --> 00:16:00,891
@@ -836,7 +836,7 @@ Bless you.
 
 179
 00:17:32,394 --> 00:17:34,294
-<i>Arrivederci, Charlie.</i>
+Arrivederci, Charlie.
 
 180
 00:17:40,802 --> 00:17:43,202
@@ -861,16 +861,16 @@ What next?
 
 185
 00:18:36,424 --> 00:18:38,688
-<i>Mille pardons, madame.</i>
+Mille pardons, madame.
 
 186
 00:18:38,793 --> 00:18:43,821
-<i>- Merci.
-- Pardon. Pardon.</i>
+- Merci.
+- Pardon. Pardon.
 
 187
 00:18:43,932 --> 00:18:47,265
-<i>Pardon. Pardon.</i>
+Pardon. Pardon.
 
 188
 00:18:47,402 --> 00:18:50,462
@@ -901,7 +901,7 @@ Hello?
 
 194
 00:19:26,641 --> 00:19:29,405
-<i>Is there anything wrong, Miss Tompkins?</i>
+Is there anything wrong, Miss Tompkins?
 
 195
 00:19:29,511 --> 00:19:32,173
@@ -938,13 +938,13 @@ things are all fouled up.
 
 202
 00:19:58,807 --> 00:20:04,143
-<i>I had a good man-
-a really excellent man on the Rue Ponthieu...</i>
+I had a good man-
+a really excellent man on the Rue Ponthieu...
 
 203
 00:20:04,245 --> 00:20:09,444
-<i>but H.Q. asked us to use the plant here
-in the building to ease the gold outflow.</i>
+but H.Q. asked us to use the plant here
+in the building to ease the gold outflow.
 
 204
 00:20:09,551 --> 00:20:12,179
@@ -966,7 +966,7 @@ only the spot came back.
 
 208
 00:20:22,997 --> 00:20:25,932
-<i>Voil�, as they say.</i>
+Voil�, as they say.
 
 209
 00:20:26,067 --> 00:20:28,126
@@ -1037,8 +1037,8 @@ funds.
 
 223
 00:21:13,481 --> 00:21:15,813
-<i>Congress seems to think
-that all a spy needs-</i>
+Congress seems to think
+that all a spy needs-
 
 224
 00:21:15,917 --> 00:21:19,614
@@ -1138,8 +1138,8 @@ Have a good look.
 
 244
 00:22:31,225 --> 00:22:33,819
-<i>- It's Charles.
-- Very good.</i>
+- It's Charles.
+- Very good.
 
 245
 00:22:33,928 --> 00:22:39,195
@@ -1148,8 +1148,8 @@ Have a good look.
 
 246
 00:22:39,300 --> 00:22:42,497
-<i>The man who was
-at the funeral yesterday.</i>
+The man who was
+at the funeral yesterday.
 
 247
 00:22:42,637 --> 00:22:44,798
@@ -1171,18 +1171,18 @@ Next, please.
 
 251
 00:22:54,082 --> 00:22:57,848
-<i>He was there, too.
-A little less hair, but it's the same one.</i>
+He was there, too.
+A little less hair, but it's the same one.
 
 252
 00:22:57,952 --> 00:23:00,978
-<i>Do you know him, Mrs. Lampert?
-Leopold W. Gideon?</i>
+Do you know him, Mrs. Lampert?
+Leopold W. Gideon?
 
 253
 00:23:01,089 --> 00:23:03,319
-<i>- No.
-- The last one, please.</i>
+- No.
+- The last one, please.
 
 254
 00:23:03,424 --> 00:23:07,155
@@ -1252,8 +1252,8 @@ received from the auction.
 
 268
 00:23:51,272 --> 00:23:54,070
-<i>Those three men want it, too.
-They want it very badly.</i>
+Those three men want it, too.
+They want it very badly.
 
 269
 00:23:54,175 --> 00:23:56,837
@@ -1285,8 +1285,8 @@ from the United States government.
 
 275
 00:24:13,327 --> 00:24:17,161
-<i>- I'm afraid we want it back.
-- But I don't have it.</i>
+- I'm afraid we want it back.
+- But I don't have it.
 
 276
 00:24:18,266 --> 00:24:20,996
@@ -1349,7 +1349,7 @@ the money's in our hands.
 
 288
 00:24:55,036 --> 00:24:57,095
-<i>Is that clear?</i>
+Is that clear?
 
 289
 00:24:57,238 --> 00:25:01,174
@@ -1382,8 +1382,8 @@ I'm afraid you're in a great deal of danger.
 
 295
 00:25:13,921 --> 00:25:16,389
-<i>I regret very much
-having to say this, but...</i>
+I regret very much
+having to say this, but...
 
 296
 00:25:16,491 --> 00:25:19,722
@@ -1416,20 +1416,20 @@ I'm still having trouble with English.
 
 302
 00:25:52,160 --> 00:25:54,560
-<i>The man and the woman are married.</i>
+The man and the woman are married.
 
 303
 00:25:54,662 --> 00:25:57,654
-<i>Oh, I can see that.
-They're batting each other over the head.</i>
+Oh, I can see that.
+They're batting each other over the head.
 
 304
 00:25:57,765 --> 00:25:59,756
-<i>Ay, ay, ay!</i>
+Ay, ay, ay!
 
 305
 00:25:59,901 --> 00:26:03,701
-<i>Oh I� I� I�! Qu'est-ce qui se passe?</i>
+Oh I� I� I�! Qu'est-ce qui se passe?
 
 306
 00:26:03,804 --> 00:26:07,001
@@ -1504,8 +1504,8 @@ Starting tonight?
 
 321
 00:27:07,835 --> 00:27:10,895
-<i>Bonsoir, messieurs, dames.
-Good evening, ladies and gentlemen.</i>
+Bonsoir, messieurs, dames.
+Good evening, ladies and gentlemen.
 
 322
 00:27:11,038 --> 00:27:12,903
@@ -1513,22 +1513,22 @@ Buona sera, signore e signori.
 
 323
 00:27:13,007 --> 00:27:17,205
-<i>Ce soir, comme tous les autres soirs
-d'ailleurs, vous savez tr�s bien...</i>
+Ce soir, comme tous les autres soirs
+d'ailleurs, vous savez tr�s bien...
 
 324
 00:27:17,311 --> 00:27:21,179
-<i>qui ici au Black Sheep Club,
-I'attraction, c'est vous!</i>
+qui ici au Black Sheep Club,
+I'attraction, c'est vous!
 
 325
 00:27:21,282 --> 00:27:24,843
-<i>Alors, approchez-vous, messieurs, dames.</i>
+Alors, approchez-vous, messieurs, dames.
 
 326
 00:27:24,952 --> 00:27:27,079
-<i>Venez ici, step right up,
-ladies and gentlemen.</i>
+Venez ici, step right up,
+ladies and gentlemen.
 
 327
 00:27:27,188 --> 00:27:29,884
@@ -1551,28 +1551,28 @@ signore e signori.
 
 331
 00:27:37,465 --> 00:27:39,797
-<i>Ecoutez-moi bien.
-Les r�gles du jeu sont tr�s simple.</i>
+Ecoutez-moi bien.
+Les r�gles du jeu sont tr�s simple.
 
 332
 00:27:39,934 --> 00:27:42,266
-<i>Ah, ecoutez-moi.
-Alors, il y a deux �quipes.</i>
+Ah, ecoutez-moi.
+Alors, il y a deux �quipes.
 
 333
 00:27:42,403 --> 00:27:45,998
-<i>There are two teams,
-et pour chaque �quipe, il y a une orange.</i>
+There are two teams,
+et pour chaque �quipe, il y a une orange.
 
 334
 00:27:46,140 --> 00:27:49,974
-<i>For every team, there is one orange.
-Una arancia.</i>
+For every team, there is one orange.
+Una arancia.
 
 335
 00:27:50,077 --> 00:27:53,308
-<i>Eine Apfelsine. Vous mettez I'orange
-sur le menton comme �a-</i>
+Eine Apfelsine. Vous mettez I'orange
+sur le menton comme �a-
 
 336
 00:27:53,414 --> 00:27:54,972
@@ -1580,8 +1580,8 @@ put the orange in like so.
 
 337
 00:27:55,082 --> 00:27:56,811
-<i>Vous passez cette orange
-a la personne derri�re vous-</i>
+Vous passez cette orange
+a la personne derri�re vous-
 
 338
 00:27:56,917 --> 00:27:58,851
@@ -1590,7 +1590,7 @@ to the person behind you...
 
 339
 00:27:58,953 --> 00:28:01,046
-<i>mais sans servir les mains.</i>
+mais sans servir les mains.
 
 340
 00:28:01,155 --> 00:28:04,090
@@ -1599,7 +1599,7 @@ Are you ready?
 
 341
 00:28:04,191 --> 00:28:07,490
-<i>Uno, due, tre-</i>
+Uno, due, tre-
 
 342
 00:29:08,689 --> 00:29:10,589
@@ -1740,7 +1740,7 @@ What are you doing in here?
 
 371
 00:31:56,390 --> 00:31:58,790
-<i>I'm having a nervous breakdown.</i>
+I'm having a nervous breakdown.
 
 372
 00:32:11,038 --> 00:32:14,405
@@ -1975,17 +1975,17 @@ Alistair!
 
 422
 00:36:02,336 --> 00:36:05,897
-<i>- What is it now, Pamela?
-- It happened again.</i>
+- What is it now, Pamela?
+- It happened again.
 
 423
 00:36:06,039 --> 00:36:10,476
-<i>Another strange man peered
-in the window at me but then went away.</i>
+Another strange man peered
+in the window at me but then went away.
 
 424
 00:36:10,577 --> 00:36:12,636
-<i>Bad luck, Pamela.</i>
+Bad luck, Pamela.
 
 425
 00:36:33,000 --> 00:36:36,231
@@ -2004,12 +2004,12 @@ to keep him busy.
 
 428
 00:36:40,808 --> 00:36:44,244
-<i>But sneakin'up
-thataway by yourself.</i>
+But sneakin'up
+thataway by yourself.
 
 429
 00:36:44,344 --> 00:36:46,710
-<i>What did you expect him to do?</i>
+What did you expect him to do?
 
 430
 00:36:46,814 --> 00:36:51,717
@@ -2046,8 +2046,8 @@ But you just leave me alone.
 
 437
 00:37:13,707 --> 00:37:18,804
-<i>We took all the chances.
-The money belongs to us, not to him.</i>
+We took all the chances.
+The money belongs to us, not to him.
 
 438
 00:37:18,912 --> 00:37:22,109
@@ -2135,8 +2135,8 @@ than I am.
 
 456
 00:38:42,129 --> 00:38:45,098
-<i>- Who is it?
-- It's me, Peter.</i>
+- Who is it?
+- It's me, Peter.
 
 457
 00:39:02,749 --> 00:39:04,842
@@ -2234,7 +2234,7 @@ They're afraid the truth won't get it.
 
 477
 00:40:16,523 --> 00:40:19,720
-<i>Do you tell lies?</i>
+Do you tell lies?
 
 478
 00:40:28,301 --> 00:40:30,792
@@ -2337,7 +2337,7 @@ ust bang on the wall.
 
 499
 00:41:49,716 --> 00:41:52,207
-<i>Better lock the door after me.</i>
+Better lock the door after me.
 
 500
 00:41:52,319 --> 00:41:55,049
@@ -2379,8 +2379,8 @@ about who killed your husband.
 
 508
 00:42:46,973 --> 00:42:50,101
-<i>You mean...
-he might have?</i>
+You mean...
+he might have?
 
 509
 00:42:51,244 --> 00:42:53,610
@@ -2414,12 +2414,12 @@ Can you meet me at the market?
 
 515
 00:43:57,244 --> 00:44:00,213
-<i>Allez vite, n'importe o�.
-N'importe o�! Vite!</i>
+Allez vite, n'importe o�.
+N'importe o�! Vite!
 
 516
 00:44:09,155 --> 00:44:11,055
-<i>Suivez ce taxi.</i>
+Suivez ce taxi.
 
 517
 00:44:16,229 --> 00:44:20,632
@@ -2500,8 +2500,8 @@ behind the German lines...
 
 533
 00:45:08,748 --> 00:45:14,152
-<i>for the purpose of delivering
-$250,000 in gold...</i>
+for the purpose of delivering
+$250,000 in gold...
 
 534
 00:45:14,254 --> 00:45:16,688
@@ -2609,8 +2609,8 @@ but Scobie was able to travel. So -
 
 556
 00:46:29,963 --> 00:46:32,830
-<i>- La soupe, c'est pour qui?
-- Pour moi.</i>
+- La soupe, c'est pour qui?
+- Pour moi.
 
 557
 00:46:42,475 --> 00:46:44,375
@@ -2742,8 +2742,8 @@ Why me?
 
 584
 00:48:10,129 --> 00:48:12,791
-<i>You're in an ideal position.
-He trusts you.</i>
+You're in an ideal position.
+He trusts you.
 
 585
 00:48:12,899 --> 00:48:18,360
@@ -2756,12 +2756,12 @@ Agents.
 
 587
 00:48:32,886 --> 00:48:34,854
-<i>Oh, pardon.</i>
+Oh, pardon.
 
 588
 00:48:58,111 --> 00:49:01,569
-<i>- Fr�ulein. Fr�ulein.
-- What are you doing following me?</i>
+- Fr�ulein. Fr�ulein.
+- What are you doing following me?
 
 589
 00:49:01,681 --> 00:49:05,674
@@ -2780,11 +2780,11 @@ So many things to see.
 
 592
 00:49:23,803 --> 00:49:25,395
-<i>Fr�ulein.</i>
+Fr�ulein.
 
 593
 00:49:25,538 --> 00:49:27,438
-<i>Fr�ulein!</i>
+Fr�ulein!
 
 594
 00:49:27,540 --> 00:49:30,236
@@ -2797,7 +2797,7 @@ Taxi!
 
 596
 00:49:57,370 --> 00:49:59,395
-<i>Dyle, please. D-Y-L-E.</i>
+Dyle, please. D-Y-L-E.
 
 597
 00:49:59,539 --> 00:50:01,507
@@ -2810,17 +2810,17 @@ Yes, Mr. Dyle. I remember.
 
 599
 00:50:10,516 --> 00:50:13,713
-<i>Mr. Dyle, please.
-You're wanted on the telephone.</i>
+Mr. Dyle, please.
+You're wanted on the telephone.
 
 600
 00:50:13,820 --> 00:50:15,845
-<i>Mr. Dyle. Cabin four.</i>
+Mr. Dyle. Cabin four.
 
 601
 00:50:15,955 --> 00:50:18,287
-<i>Mr. Dyle.
-Cabin four, please.</i>
+Mr. Dyle.
+Cabin four, please.
 
 602
 00:50:25,898 --> 00:50:29,732
@@ -2954,7 +2954,7 @@ All right, turn around.
 
 630
 00:52:41,834 --> 00:52:44,302
-<i>Now sit down.</i>
+Now sit down.
 
 631
 00:52:55,148 --> 00:52:59,084
@@ -3063,13 +3063,13 @@ use the keyhole, hmm?
 
 654
 00:57:21,814 --> 00:57:23,714
-<i>- Is that you?
-- Yeah.</i>
+- Is that you?
+- Yeah.
 
 655
 00:57:25,051 --> 00:57:28,509
-<i>- You gonna open up?
-- Sure. Wait a minute.</i>
+- You gonna open up?
+- Sure. Wait a minute.
 
 656
 00:57:28,621 --> 00:57:32,853
@@ -3115,8 +3115,8 @@ Uh, w-w-wait a minute.
 
 665
 00:57:55,381 --> 00:57:57,281
-<i>- W-W-What is that stuff?
-- Marvelous stuff.</i>
+- W-W-What is that stuff?
+- Marvelous stuff.
 
 666
 00:57:57,383 --> 00:58:00,284
@@ -3224,8 +3224,8 @@ couldn't tell you the truth...
 
 688
 00:59:00,079 --> 00:59:03,515
-<i>but I had to find out
-your part in all this.</i>
+but I had to find out
+your part in all this.
 
 689
 00:59:03,616 --> 00:59:05,516
@@ -3233,11 +3233,11 @@ Is there a Mrs. Dyle?
 
 690
 00:59:05,618 --> 00:59:07,518
-<i>Yes.</i>
+Yes.
 
 691
 00:59:07,620 --> 00:59:09,986
-<i>But we're divorced.</i>
+But we're divorced.
 
 692
 00:59:10,089 --> 00:59:12,216
@@ -3246,8 +3246,8 @@ Peter Joshua.
 
 693
 00:59:12,324 --> 00:59:15,157
-<i>I'm just as difficult
-to live with as he was.</i>
+I'm just as difficult
+to live with as he was.
 
 694
 00:59:16,462 --> 00:59:19,363
@@ -3522,8 +3522,8 @@ unless you answer some questions.
 
 753
 01:02:22,147 --> 01:02:25,173
-<i>- This ain't no game, Miz Lampert.
-- We want that money now.</i>
+- This ain't no game, Miz Lampert.
+- We want that money now.
 
 754
 01:02:25,284 --> 01:02:28,617
@@ -3565,8 +3565,8 @@ Me?
 
 762
 01:02:47,973 --> 01:02:52,569
-<i>Now hold it. Suppose one of you
-found Charles here in Paris.</i>
+Now hold it. Suppose one of you
+found Charles here in Paris.
 
 763
 01:02:52,678 --> 01:02:54,578
@@ -3595,13 +3595,13 @@ waiting for the other two to figure it out.
 
 768
 01:03:06,859 --> 01:03:10,693
-<i>But he'd have to. Don't you see?
-Ifhe left, he'd be admitting his guilt.</i>
+But he'd have to. Don't you see?
+Ifhe left, he'd be admitting his guilt.
 
 769
 01:03:10,796 --> 01:03:13,765
-<i>Whoever it is has to wait here pretending
-to look for the money...</i>
+Whoever it is has to wait here pretending
+to look for the money...
 
 770
 01:03:13,866 --> 01:03:16,960
@@ -3615,7 +3615,7 @@ They got it, I tell ya.
 
 772
 01:03:20,439 --> 01:03:22,839
-<i>Why don't we search their rooms?</i>
+Why don't we search their rooms?
 
 773
 01:03:23,942 --> 01:03:25,842
@@ -3833,8 +3833,8 @@ where would you put it?
 
 819
 01:05:56,528 --> 01:05:59,258
-<i>- Up there.
-- On top of that cupboard?</i>
+- Up there.
+- On top of that cupboard?
 
 820
 01:05:59,364 --> 01:06:02,822
@@ -3853,8 +3853,8 @@ And it's heavy.
 
 823
 01:06:14,479 --> 01:06:16,811
-<i>I found it!
-I found it! I found it!</i>
+I found it!
+I found it! I found it!
 
 824
 01:06:16,915 --> 01:06:20,146
@@ -3906,7 +3906,7 @@ Oh!
 
 834
 01:06:58,056 --> 01:07:00,547
-<i>Oh! Jumpin'frijoles.</i>
+Oh! Jumpin'frijoles.
 
 835
 01:07:00,659 --> 01:07:02,388
@@ -3924,8 +3924,8 @@ out in the hall.
 
 838
 01:07:36,762 --> 01:07:41,199
-<i>Oh, now, who would've done
-a mean thing like that?</i>
+Oh, now, who would've done
+a mean thing like that?
 
 839
 01:07:42,834 --> 01:07:44,734
@@ -3933,7 +3933,7 @@ I'm not quite sure.
 
 840
 01:07:44,836 --> 01:07:46,929
-<i>Well, this ain't my room.</i>
+Well, this ain't my room.
 
 841
 01:07:47,072 --> 01:07:48,972
@@ -3970,7 +3970,7 @@ his other hand someplace.
 
 848
 01:08:17,636 --> 01:08:20,002
-<i>A man drowned in his bed?</i>
+A man drowned in his bed?
 
 849
 01:08:20,105 --> 01:08:22,039
@@ -3983,7 +3983,7 @@ the second one in his pajamas.
 
 851
 01:08:24,776 --> 01:08:26,676
-<i>C'est trop stupide.</i>
+C'est trop stupide.
 
 852
 01:08:26,778 --> 01:08:28,678
@@ -4001,13 +4001,13 @@ not in 23 years.
 
 855
 01:08:35,087 --> 01:08:38,113
-<i>This nose will make me
-commissaire of police.</i>
+This nose will make me
+commissaire of police.
 
 856
 01:08:38,223 --> 01:08:42,250
-<i>Mr. Dyle, or Mr. Joshua-
-Which is it?</i>
+Mr. Dyle, or Mr. Joshua-
+Which is it?
 
 857
 01:08:42,360 --> 01:08:44,260
@@ -4103,8 +4103,8 @@ Who do you think did it?
 
 876
 01:09:44,656 --> 01:09:47,557
-<i>- Vanille et chocolat, s'il vous plait.
-- Why do you think Tex did it?</i>
+- Vanille et chocolat, s'il vous plait.
+- Why do you think Tex did it?
 
 877
 01:09:47,659 --> 01:09:49,559
@@ -4113,8 +4113,8 @@ suspect Gideon...
 
 878
 01:09:49,661 --> 01:09:52,095
-<i>and it's always the person
-you don't suspect.</i>
+and it's always the person
+you don't suspect.
 
 879
 01:09:52,197 --> 01:09:55,633
@@ -4171,8 +4171,8 @@ if we were like that?
 
 890
 01:10:21,960 --> 01:10:24,861
-<i>Remember when he danced down here
-by the river in An American in Paris...</i>
+Remember when he danced down here
+by the river in An American in Paris...
 
 891
 01:10:24,963 --> 01:10:26,863
@@ -4198,11 +4198,11 @@ I guess you don't either. Here, give me that.
 
 896
 01:10:38,577 --> 01:10:40,602
-<i>I'm sorry.</i>
+I'm sorry.
 
 897
 01:10:40,712 --> 01:10:43,545
-<i>Alex, I'm scared.</i>
+Alex, I'm scared.
 
 898
 01:10:43,648 --> 01:10:45,673
@@ -4235,7 +4235,7 @@ any minute now we could be assassinated.
 
 904
 01:11:04,870 --> 01:11:06,770
-<i>Would you do anything like that?</i>
+Would you do anything like that?
 
 905
 01:11:06,872 --> 01:11:09,466
@@ -4257,12 +4257,12 @@ Uh - Huh?
 
 909
 01:11:16,448 --> 01:11:19,349
-<i>Who put that there?</i>
+Who put that there?
 
 910
 01:11:22,954 --> 01:11:26,617
-<i>- Hurry up and change. I'm starved.
-- Let me know what you want to eat...</i>
+- Hurry up and change. I'm starved.
+- Let me know what you want to eat...
 
 911
 01:11:26,725 --> 01:11:28,693
@@ -4274,7 +4274,7 @@ Ha, ha, ha, ha.
 
 913
 01:11:38,937 --> 01:11:40,905
-<i>Uh-uh.</i>
+Uh-uh.
 
 914
 01:11:41,006 --> 01:11:42,371
@@ -4291,8 +4291,8 @@ God, you're a pest.
 
 917
 01:11:47,746 --> 01:11:51,011
-<i>- Can I come in?
-- No. I'm going to take a bath.</i>
+- Can I come in?
+- No. I'm going to take a bath.
 
 918
 01:11:51,116 --> 01:11:54,017
@@ -4301,8 +4301,8 @@ if you did it in here?
 
 919
 01:11:54,119 --> 01:11:57,520
-<i>- What for?
-- Well, I wouldn't want to use that tub.</i>
+- What for?
+- Well, I wouldn't want to use that tub.
 
 920
 01:11:57,622 --> 01:12:00,557
@@ -4377,8 +4377,8 @@ Well -
 
 935
 01:12:54,946 --> 01:12:56,937
-<i>- Shut the door.
-- Why?</i>
+- Shut the door.
+- Why?
 
 936
 01:12:57,048 --> 01:12:58,982
@@ -4409,7 +4409,7 @@ Wait a minute.
 
 942
 01:13:25,176 --> 01:13:27,576
-<i>Here's the label.</i>
+Here's the label.
 
 943
 01:13:27,679 --> 01:13:29,579
@@ -4443,7 +4443,7 @@ Fibrous resistant.
 
 950
 01:13:54,272 --> 01:13:58,174
-<i>Plastic. Rustproof. Fireproof. Proof-proof.</i>
+Plastic. Rustproof. Fireproof. Proof-proof.
 
 951
 01:13:58,276 --> 01:14:00,176
@@ -4703,8 +4703,8 @@ blame you now.
 
 1004
 01:17:08,066 --> 01:17:10,967
-<i>But I do believe it.
-That's what I don't believe.</i>
+But I do believe it.
+That's what I don't believe.
 
 1005
 01:17:11,102 --> 01:17:14,299
@@ -4733,13 +4733,13 @@ who I'm talking to anymore.
 
 1010
 01:17:28,219 --> 01:17:31,382
-<i>- Well, the man's the same, even if the name isn't.
-- No, he isn't.</i>
+- Well, the man's the same, even if the name isn't.
+- No, he isn't.
 
 1011
 01:17:31,489 --> 01:17:34,720
-<i>- Adam Canfield is a crook, and I want to know why.
-- Well, it's simple.</i>
+- Adam Canfield is a crook, and I want to know why.
+- Well, it's simple.
 
 1012
 01:17:34,826 --> 01:17:37,260
@@ -4781,8 +4781,8 @@ after leading me on like this.
 
 1020
 01:17:57,949 --> 01:18:01,350
-<i>- How did I lead you on?
-- Oh, all that marvelous rejection.</i>
+- How did I lead you on?
+- Oh, all that marvelous rejection.
 
 1021
 01:18:01,452 --> 01:18:03,352
@@ -4855,23 +4855,23 @@ Isn't it glorious?
 
 1036
 01:18:49,400 --> 01:18:55,361
-<i>For her Romeo came</i>
+For her Romeo came
 
 1037
 01:18:55,506 --> 01:18:58,703
-<i>And</i>
+And
 
 1038
 01:18:58,810 --> 01:19:03,509
-<i>It was closing night</i>
+It was closing night
 
 1039
 01:19:03,614 --> 01:19:07,141
-<i>The ending of</i>
+The ending of
 
 1040
 01:19:07,251 --> 01:19:10,152
-<i>You don't look so bad in this light.</i>
+You don't look so bad in this light.
 
 1041
 01:19:10,254 --> 01:19:12,654
@@ -4909,11 +4909,11 @@ I got here?
 
 1048
 01:19:29,507 --> 01:19:32,601
-<i>I hear it still</i>
+I hear it still
 
 1049
 01:19:32,710 --> 01:19:35,201
-<i>I always will</i>
+I always will
 
 1050
 01:19:35,313 --> 01:19:37,611
@@ -4927,7 +4927,7 @@ for my thermostat. Mm-hmm.
 
 1052
 01:19:45,356 --> 01:19:50,259
-<i>Charade</i>
+Charade
 
 1053
 01:19:54,966 --> 01:19:58,094
@@ -4976,8 +4976,8 @@ stop this thing?
 
 1063
 01:21:52,049 --> 01:21:54,950
-<i>Three of them, all in their pajamas?
-C'est ridicule.</i>
+Three of them, all in their pajamas?
+C'est ridicule.
 
 1064
 01:21:55,052 --> 01:21:57,452
@@ -4996,8 +4996,8 @@ into thin air.
 
 1067
 01:22:03,528 --> 01:22:06,326
-<i>- Where is he?
-- I wish I knew.</i>
+- Where is he?
+- I wish I knew.
 
 1068
 01:22:06,430 --> 01:22:08,489
@@ -5182,13 +5182,13 @@ We're looking at it right now.
 
 1107
 01:24:27,705 --> 01:24:30,230
-<i>Something on that bed is worth
-a quarter of a million dollars.</i>
+Something on that bed is worth
+a quarter of a million dollars.
 
 1108
 01:24:30,374 --> 01:24:33,810
-<i>- But what?
-- I don't know. I don't know.</i>
+- But what?
+- I don't know. I don't know.
 
 1109
 01:24:33,944 --> 01:24:36,310
@@ -5200,8 +5200,8 @@ Steamship ticket.
 
 1111
 01:24:42,286 --> 01:24:44,186
-<i>- Anything in there?
-- Nothing.</i>
+- Anything in there?
+- Nothing.
 
 1112
 01:24:44,288 --> 01:24:46,085
@@ -5209,7 +5209,7 @@ Wallet.
 
 1113
 01:24:47,692 --> 01:24:49,592
-<i>Comb? No.</i>
+Comb? No.
 
 1114
 01:24:50,628 --> 01:24:52,528
@@ -5249,8 +5249,8 @@ a quarter of a million dollars either.
 
 1122
 01:25:21,092 --> 01:25:23,253
-<i>- The tooth powder.
-- What about it?</i>
+- The tooth powder.
+- What about it?
 
 1123
 01:25:23,360 --> 01:25:26,090
@@ -5263,8 +5263,8 @@ Heroin.
 
 1125
 01:25:34,004 --> 01:25:36,097
-<i>- Peppermint-flavored heroin.
-- Hmm.</i>
+- Peppermint-flavored heroin.
+- Hmm.
 
 1126
 01:25:37,742 --> 01:25:39,676
@@ -5307,8 +5307,8 @@ Oh.
 
 1135
 01:26:12,810 --> 01:26:15,540
-<i>- Hold it. They're recognizing Great Britain.
-- Oh, la vache.</i>
+- Hold it. They're recognizing Great Britain.
+- Oh, la vache.
 
 1136
 01:26:15,646 --> 01:26:17,773
@@ -5317,13 +5317,13 @@ fellow delegates...
 
 1137
 01:26:17,882 --> 01:26:20,442
-<i>and my distinguished
-colleague from Italy.</i>
+and my distinguished
+colleague from Italy.
 
 1138
 01:26:20,551 --> 01:26:24,715
-<i>Her Majesty's delegation has listened with
-great patience to the Southern European-</i>
+Her Majesty's delegation has listened with
+great patience to the Southern European-
 
 1139
 01:26:24,822 --> 01:26:27,222
@@ -5356,8 +5356,8 @@ for Charles's things.
 
 1145
 01:26:39,370 --> 01:26:42,862
-<i>When we went through the airlines bag,
-something was missing - "un agenda. "</i>
+When we went through the airlines bag,
+something was missing - "un agenda. "
 
 1146
 01:26:43,007 --> 01:26:46,738
@@ -5578,8 +5578,8 @@ half-witted greenhorn.
 
 1192
 01:31:13,243 --> 01:31:16,076
-<i>And they was both
-too smart for us.</i>
+And they was both
+too smart for us.
 
 1193
 01:31:16,180 --> 01:31:19,877
@@ -5612,15 +5612,15 @@ of'em for nothin'!
 
 1199
 01:31:41,205 --> 01:31:43,105
-<i>You greenhorn!</i>
+You greenhorn!
 
 1200
 01:31:43,207 --> 01:31:46,176
-<i>You block-headedjackass!</i>
+You block-headedjackass!
 
 1201
 01:31:46,276 --> 01:31:48,608
-<i>You nincompoop!</i>
+You nincompoop!
 
 1202
 01:31:51,782 --> 01:31:53,682
@@ -5662,8 +5662,8 @@ trades his stamps.
 
 1210
 01:32:12,202 --> 01:32:14,693
-<i>- Good Lord, where is he?
-- What's the matter, ch�rie?</i>
+- Good Lord, where is he?
+- What's the matter, ch�rie?
 
 1211
 01:32:14,838 --> 01:32:17,068
@@ -5695,7 +5695,7 @@ Jean-Louis.
 
 1217
 01:32:42,332 --> 01:32:44,732
-<i>Jean-Louis!</i>
+Jean-Louis!
 
 1218
 01:32:52,142 --> 01:32:54,042
@@ -5707,7 +5707,7 @@ Jean-Louis.
 
 1220
 01:32:56,146 --> 01:32:59,047
-<i>Reggie. Reggie.</i>
+Reggie. Reggie.
 
 1221
 01:33:01,985 --> 01:33:04,886
@@ -5726,12 +5726,12 @@ Who? Where?
 
 1224
 01:33:16,400 --> 01:33:18,800
-<i>Vite, mon ch�ri. Vite.</i>
+Vite, mon ch�ri. Vite.
 
 1225
 01:33:20,103 --> 01:33:21,661
-<i>- L�-bas.
-- Come on.</i>
+- L�-bas.
+- Come on.
 
 1226
 01:33:25,776 --> 01:33:28,677
@@ -5740,7 +5740,7 @@ Who? Where?
 
 1227
 01:33:28,779 --> 01:33:31,145
-<i>Entrez.</i>
+Entrez.
 
 1228
 01:33:32,749 --> 01:33:34,979
@@ -5758,8 +5758,8 @@ Look at them, madame.
 
 1231
 01:33:42,326 --> 01:33:46,023
-<i>Have you ever, in your entire life,
-seen anything so beautiful?</i>
+Have you ever, in your entire life,
+seen anything so beautiful?
 
 1232
 01:33:46,129 --> 01:33:49,030
@@ -5778,8 +5778,8 @@ a Swedish four shilling...
 
 1235
 01:33:55,872 --> 01:33:57,897
-<i>called
-Den Gula Fyraskillingen...</i>
+called
+Den Gula Fyraskillingen...
 
 1236
 01:33:58,041 --> 01:33:59,941
@@ -5801,8 +5801,8 @@ perhaps $85,000.
 
 1240
 01:34:10,020 --> 01:34:11,920
-<i>- May I sit down?
-- Yes.</i>
+- May I sit down?
+- Yes.
 
 1241
 01:34:12,022 --> 01:34:15,150
@@ -5833,28 +5833,28 @@ And what is its value today?
 
 1247
 01:34:28,839 --> 01:34:32,275
-<i>Le chef-d'�uvre de la collection.
-The masterpiece.</i>
+Le chef-d'�uvre de la collection.
+The masterpiece.
 
 1248
 01:34:32,376 --> 01:34:35,106
-<i>The most valuable stamp
-in the world.</i>
+The most valuable stamp
+in the world.
 
 1249
 01:34:35,212 --> 01:34:37,146
-<i>It's called
-the Gazette Maldave.</i>
+It's called
+the Gazette Maldave.
 
 1250
 01:34:37,247 --> 01:34:42,116
-<i>It was printed by hand on colored paper
-and marked with the initials of the printer.</i>
+It was printed by hand on colored paper
+and marked with the initials of the printer.
 
 1251
 01:34:42,219 --> 01:34:46,849
-<i>Today it has a value
-of $ 100,000.</i>
+Today it has a value
+of $ 100,000.
 
 1252
 01:34:46,957 --> 01:34:49,425
@@ -5901,8 +5901,8 @@ Thank you.
 
 1262
 01:35:17,954 --> 01:35:19,854
-<i>- I'm sorry.
-- Oh, no.</i>
+- I'm sorry.
+- Oh, no.
 
 1263
 01:35:19,956 --> 01:35:24,086
@@ -5999,22 +5999,22 @@ He wrote "Dyle" on the carpet.
 
 1282
 01:37:28,351 --> 01:37:30,251
-<i>Reggie, I want those stamps!</i>
+Reggie, I want those stamps!
 
 1283
 01:37:30,353 --> 01:37:33,288
-<i>- Palais Royale, vite.
-- Je suis occup�.</i>
+- Palais Royale, vite.
+- Je suis occup�.
 
 1284
 01:37:33,390 --> 01:37:35,517
-<i>- Mais c'est tr�s urgent.
-- Occup�.</i>
+- Mais c'est tr�s urgent.
+- Occup�.
 
 1285
 01:38:11,595 --> 01:38:13,495
-<i>Whoa!
-Billet, monsieur.</i>
+Whoa!
+Billet, monsieur.
 
 1286
 01:40:15,585 --> 01:40:17,485
@@ -6130,8 +6130,8 @@ is dead, Mrs. Lampert.
 
 1310
 01:43:27,977 --> 01:43:31,071
-<i>- I tell you, he's Carson Dyle.
-- Now,you're not gonna believe him.</i>
+- I tell you, he's Carson Dyle.
+- Now,you're not gonna believe him.
 
 1311
 01:43:31,181 --> 01:43:33,979
@@ -6140,12 +6140,12 @@ He's trying to trick you again.
 
 1312
 01:43:34,083 --> 01:43:37,985
-<i>Tex recognized him. That's why he wrote Dyle.</i>
+Tex recognized him. That's why he wrote Dyle.
 
 1313
 01:43:38,087 --> 01:43:41,386
-<i>- If you take him those stamps, he'll kill you, too.
-- Mrs. Lampert...</i>
+- If you take him those stamps, he'll kill you, too.
+- Mrs. Lampert...
 
 1314
 01:43:41,491 --> 01:43:45,484
@@ -6159,8 +6159,8 @@ and he knows he'd never make it.
 
 1316
 01:43:49,365 --> 01:43:52,198
-<i>Mrs. Lampert,
-he wants the money for himself.</i>
+Mrs. Lampert,
+he wants the money for himself.
 
 1317
 01:43:52,335 --> 01:43:54,303
@@ -6187,7 +6187,7 @@ Oh, I don't know who anybody is.
 
 1322
 01:44:08,785 --> 01:44:11,083
-<i>Reggie, I beg you.</i>
+Reggie, I beg you.
 
 1323
 01:44:11,187 --> 01:44:13,087
@@ -6204,8 +6204,8 @@ a reason in the world why you should.
 
 1326
 01:44:24,968 --> 01:44:27,163
-<i>Stop right now, Mrs. Lampert,
-or I'll kill you.</i>
+Stop right now, Mrs. Lampert,
+or I'll kill you.
 
 1327
 01:44:27,303 --> 01:44:30,431
@@ -6233,13 +6233,13 @@ but they left me there.
 
 1332
 01:44:41,584 --> 01:44:44,451
-<i>I spent 10 months in a German prison camp
-with nothing to stop the pain.</i>
+I spent 10 months in a German prison camp
+with nothing to stop the pain.
 
 1333
 01:44:44,554 --> 01:44:47,148
-<i>They left me there, Mrs. Lampert.
-They deserved to die.</i>
+They left me there, Mrs. Lampert.
+They deserved to die.
 
 1334
 01:44:47,257 --> 01:44:50,920
@@ -6248,28 +6248,28 @@ They deserved to die.</i>
 
 1335
 01:44:51,027 --> 01:44:54,690
-<i>Mrs. Lampert, they knew I was still alive,
-but they left me there.</i>
+Mrs. Lampert, they knew I was still alive,
+but they left me there.
 
 1336
 01:44:54,797 --> 01:44:58,028
-<i>That's why I had to kill them,
-all four of them.</i>
+That's why I had to kill them,
+all four of them.
 
 1337
 01:44:58,167 --> 01:45:01,534
-<i>Please believe me. I'll kill you, too.
-It won't make any difference.</i>
+Please believe me. I'll kill you, too.
+It won't make any difference.
 
 1338
 01:45:03,306 --> 01:45:06,469
-<i>It's no use.
-You're running out of time.</i>
+It's no use.
+You're running out of time.
 
 1339
 01:45:06,576 --> 01:45:10,012
-<i>I've come too far to turn back.
-I swear, I'll kill you.</i>
+I've come too far to turn back.
+I swear, I'll kill you.
 
 1340
 01:45:12,448 --> 01:45:14,973
@@ -6282,7 +6282,7 @@ Adam!
 
 1342
 01:47:37,460 --> 01:47:40,520
-<i>All right.</i>
+All right.
 
 1343
 01:47:40,630 --> 01:47:43,690
@@ -6291,8 +6291,8 @@ Come on out.
 
 1344
 01:48:00,850 --> 01:48:03,250
-<i>Do you hear me?
-Come on out.</i>
+Do you hear me?
+Come on out.
 
 1345
 01:48:15,598 --> 01:48:19,056
@@ -6454,8 +6454,8 @@ contemptible, crooked -
 
 1379
 01:51:30,259 --> 01:51:33,592
-<i>Crooked? I should think you'd be glad
-to find out I'm not crooked.</i>
+Crooked? I should think you'd be glad
+to find out I'm not crooked.
 
 1380
 01:51:33,696 --> 01:51:36,062
@@ -6493,8 +6493,8 @@ and moved in for the time you were here.
 
 1387
 01:51:57,219 --> 01:52:00,814
-<i>Then how do I know
-this is your office?</i>
+Then how do I know
+this is your office?
 
 1388
 01:52:00,923 --> 01:52:05,587
@@ -6526,8 +6526,8 @@ Mmm. Starting with his own.
 
 1394
 01:52:18,908 --> 01:52:21,376
-<i>Serves me right
-if I get stuck with that one.</i>
+Serves me right
+if I get stuck with that one.
 
 1395
 01:52:21,477 --> 01:52:24,344

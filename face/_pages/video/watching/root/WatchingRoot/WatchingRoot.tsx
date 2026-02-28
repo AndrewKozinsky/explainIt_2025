@@ -1,6 +1,8 @@
 import { useRef } from 'react'
 import RootSurface from '_pages/bookAndVideoCommon/RootSurface/RootSurface'
-import { useClearWatchingStoreOnUnmount } from '_pages/video/watching/WatchingRoot/fn/clearStoreOnUnmount'
+import VideoBreadCrumbs from '_pages/video/watching/root/VideoBreadCrumbs/VideoBreadCrumbs'
+import { useClearWatchingStoreOnUnmount } from '_pages/video/watching/root/WatchingRoot/fn/clearStoreOnUnmount'
+import VideoHeader from '../VideoHeader/VideoHeader'
 import { usePopulateWatchingStore } from './fn/fetchData'
 import { useFullScreen } from './fn/fullScreen'
 import { useGetFetchedDataStatuses } from './fn/getFetchedDataStatuses'
@@ -17,10 +19,16 @@ function WatchingRoot() {
 
 	return (
 		<RootSurface loading={fetchedDataLoading} error={fetchedDataErrorMessage} rootRef={rootRef}>
-			<div className='watching-root'>
-				<VideoContainer />
-				<TextContainer />
-			</div>
+			<main className='watching-root'>
+				<div className='watching-root__top'>
+					<VideoBreadCrumbs />
+					<VideoHeader />
+				</div>
+				<div className='watching-root__content'>
+					<VideoContainer />
+					<TextContainer />
+				</div>
+			</main>
 		</RootSurface>
 	)
 }

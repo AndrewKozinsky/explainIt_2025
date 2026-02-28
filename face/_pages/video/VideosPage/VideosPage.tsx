@@ -1,6 +1,6 @@
 'use client'
 
-import WatchingRoot from '_pages/video/watching/WatchingRoot/WatchingRoot'
+import WatchingRoot from '_pages/video/watching/root/WatchingRoot/WatchingRoot'
 import VideosRoot from '../videos/root/VideosRoot/VideosRoot'
 import { useGetShowingPageType } from './fn/showingPageType'
 

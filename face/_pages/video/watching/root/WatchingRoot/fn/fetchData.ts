@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import { useVideoPrivate_Get, useVideoPublic_Get, VideoPrivateOutModel, VideoPublicOutModel } from '@/graphql'
-import { useWatchingStore } from '../../watchingStore'
+import { useWatchingStore } from '../../../watchingStore'
 import { createPopulatedPlainText } from './createPopulatedPlainText'
 import { createPopulatedSubtitles } from './createPopulatedText'
 import { extractVideoIdFromUrlVideoId, getVideoTypeByUrlVideoId } from 'сonsts/pageUrls'

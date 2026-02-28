@@ -1,4 +1,4 @@
-import { ChapterTextStructurePopulated } from '../../readingStore'
+import { ChapterTextStructurePopulated } from '../../../readingStore'
 
 /**
  * Получает структуру главы с сервера и наполняет её полезными данными чтобы из
