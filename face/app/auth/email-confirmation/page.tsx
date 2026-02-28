@@ -4,7 +4,7 @@ import AuthConfirmEmailPage from '../../../_pages/auth/AuthConfirmEmailPage/Auth
 
 export default async function Page() {
 	return (
-		<Suspense fallback={<Spinner />}>
+		<Suspense fallback={<Spinner size='small' />}>
 			<AuthConfirmEmailPage />
 		</Suspense>
 	)

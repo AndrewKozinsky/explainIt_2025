@@ -38,6 +38,7 @@ export function useFetchReadySentenceAnalysis() {
 				useDetailsStore
 					.getState()
 					.updateStore({ sentenceAnalysisLoading: false, sentenceAnalysisError: error.message })
+
 				return
 			}
 

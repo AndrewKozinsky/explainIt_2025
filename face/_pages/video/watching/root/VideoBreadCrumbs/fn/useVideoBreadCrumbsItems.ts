@@ -12,18 +12,11 @@ export function useVideoBreadCrumbsItems(): BreadCrumbItem[] {
 	const params = useParams() as { videoId?: string }
 	const urlVideoId = params.videoId!
 
-	/*return React.useMemo(() => {
-		// /videos
-		if (!urlVideoId) return []
-
-		return [pageUrls.videos]
-	}, [urlVideoId])*/
-
 	const videoName = useWatchingStore((s) => s.video?.data?.name ?? undefined)
 
 	return React.useMemo(() => {
 		const videoUrl = pageUrls.videos.video(urlVideoId)
 
-		return [pageUrls.books, { name: videoName ?? videoUrl.name, path: videoUrl.path }]
+		return [pageUrls.videos, { name: videoName ?? videoUrl.name, path: videoUrl.path }]
 	}, [urlVideoId, videoName])
 }

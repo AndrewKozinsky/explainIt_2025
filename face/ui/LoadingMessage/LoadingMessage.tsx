@@ -12,7 +12,7 @@ function LoadingMessage(props: LoadingMessageProps) {
 	return (
 		<div className='loading-message' data-testid='exercise-loading-analysis-block'>
 			{text}
-			<Spinner />
+			<Spinner size='small' />
 		</div>
 	)
 }

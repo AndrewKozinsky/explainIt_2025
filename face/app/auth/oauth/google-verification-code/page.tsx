@@ -4,7 +4,7 @@ import OAuthPage from '../../../../_pages/auth/OAuthPage/OAuthPage'
 
 export default async function Page() {
 	return (
-		<Suspense fallback={<Spinner />}>
+		<Suspense fallback={<Spinner size='small' />}>
 			<OAuthPage providerType='google' />
 		</Suspense>
 	)

@@ -24,22 +24,27 @@ export function useAutoScrollCurrentSubtitle(params: UseAutoScrollCurrentSubtitl
 
 			const scrollContainer = getScrollableParent(container) ?? getScrollableParent(currentEl)
 			if (!scrollContainer) {
-				currentEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+				scrollWindowToReveal({ currentEl, bottomThresholdPx, topPaddingPx })
 				return
 			}
 
 			const containerRect = scrollContainer.getBoundingClientRect()
 			const elRect = currentEl.getBoundingClientRect()
 
-			const isAbove = elRect.top < containerRect.top
-			const isBelow = elRect.bottom > containerRect.bottom - bottomThresholdPx
+			const videoBottom = getStickyVideoBottomPx(container)
+			const safeTop = Math.max(containerRect.top, videoBottom) + topPaddingPx
+			const safeBottom = containerRect.bottom - bottomThresholdPx
 
-			if (!isAbove && !isBelow) {
+			const isAboveSafe = elRect.top < safeTop
+			const isBelowSafe = elRect.bottom > safeBottom
+
+			if (!isAboveSafe && !isBelowSafe) {
 				return
 			}
 
-			const top = scrollContainer.scrollTop + (elRect.top - containerRect.top) - topPaddingPx
-			scrollContainer.scrollTo({ top, behavior: 'smooth' })
+			// Align the current subtitle just below the sticky video (safeTop).
+			const delta = elRect.top - safeTop
+			scrollContainer.scrollTo({ top: scrollContainer.scrollTop + delta, behavior: 'smooth' })
 		},
 		[bottomThresholdPx, containerRef, currentSubtitleId, topPaddingPx],
 	)
@@ -62,4 +67,39 @@ function getScrollableParent(element: HTMLElement | null) {
 	}
 
 	return null
+}
+
+function scrollWindowToReveal(params: { currentEl: HTMLElement; bottomThresholdPx: number; topPaddingPx: number }) {
+	const { currentEl, bottomThresholdPx, topPaddingPx } = params
+
+	const elRect = currentEl.getBoundingClientRect()
+
+	const videoBottom = getStickyVideoBottomPx(currentEl)
+	const safeTop = videoBottom + topPaddingPx
+	const safeBottom = (window.innerHeight || 0) - bottomThresholdPx
+
+	const isAboveSafe = elRect.top < safeTop
+	const isBelowSafe = elRect.bottom > safeBottom
+
+	if (!isAboveSafe && !isBelowSafe) return
+
+	// Align element top to safeTop (just below video) instead of "nearest" reveal.
+	const delta = elRect.top - safeTop
+	window.scrollBy({ top: delta, behavior: 'smooth' })
+}
+
+function getStickyVideoBottomPx(fromEl: HTMLElement): number {
+	const doc = fromEl.ownerDocument ?? document
+	const root = (fromEl.closest('.root-surface') as HTMLElement | null) ?? doc.documentElement
+	const videoEl =
+		(root.querySelector('.watching-root__video-container') as HTMLElement | null) ??
+		(doc.querySelector('.watching-root__video-container') as HTMLElement | null)
+	if (!videoEl) return 0
+
+	const rect = videoEl.getBoundingClientRect()
+	if (!Number.isFinite(rect.bottom)) return 0
+
+	if (rect.bottom <= 0 || rect.top >= (window.innerHeight || 0)) return 0
+
+	return Math.max(0, Math.min(window.innerHeight || 0, rect.bottom))
 }

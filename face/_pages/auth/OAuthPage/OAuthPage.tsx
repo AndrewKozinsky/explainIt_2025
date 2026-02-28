@@ -19,7 +19,7 @@ function OAuthPage(props: OAuthPageProps) {
 	const { authorizationStatus, error } = useAuthorizeUser(providerType)
 
 	if (authorizationStatus === 'loading') {
-		return <Spinner />
+		return <Spinner size='small' />
 	} else if (authorizationStatus === 'error') {
 		return <ErrorMessage text={error} />
 	}

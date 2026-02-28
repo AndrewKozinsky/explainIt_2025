@@ -11,7 +11,7 @@ function AuthConfirmEmailPage() {
 	const confirmationStatus = useConfirmEmail()
 
 	const contentMapper: Record<Exclude<ConfirmationStatus, 'success'>, React.ReactNode> = {
-		loading: <Spinner />,
+		loading: <Spinner size='small' />,
 		error: <ErrorMessage text='Код подтверждения или не найден или истёк.' />,
 	}
 

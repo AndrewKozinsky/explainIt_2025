@@ -107,7 +107,17 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 		}
 	}
 
-	getVideosData() {
+	getVideosData(): {
+		freeToUse: boolean
+		name: string
+		languageCode: string
+		year: number
+		note: string
+		fileName: string
+		file_s3_key: string
+		originalContent: string
+		covers: string[]
+	}[] {
 		const publicVideoUrl = this.mainConfig.get().yandexCloud.s3.bucketUrl + '/publicVideos/'
 
 		return [

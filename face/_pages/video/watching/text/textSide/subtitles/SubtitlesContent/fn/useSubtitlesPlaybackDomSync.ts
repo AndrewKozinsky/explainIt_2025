@@ -29,6 +29,7 @@ export function useSubtitlesPlaybackDomSync(params: UseSubtitlesPlaybackDomSyncP
 
 	const currentSubtitleIdxRef = useRef(0)
 	const currentSubtitleIdRef = useRef<number | null>(null)
+	const didInitialAutoScrollRef = useRef(false)
 
 	useEffect(() => {
 		if (!subtitles?.length) {
@@ -37,6 +38,7 @@ export function useSubtitlesPlaybackDomSync(params: UseSubtitlesPlaybackDomSyncP
 
 		currentSubtitleIdxRef.current = Math.min(Math.max(0, currentSubtitleIdxRef.current), subtitles.length - 1)
 		currentSubtitleIdRef.current = null
+		didInitialAutoScrollRef.current = false
 
 		const applyCurrent = (nextId: number) => {
 			const container = containerRef.current
@@ -69,7 +71,10 @@ export function useSubtitlesPlaybackDomSync(params: UseSubtitlesPlaybackDomSyncP
 				currentSubtitleId: nextId,
 				bottomThresholdPx,
 				topPaddingPx,
+				forceAlignBelowVideo: !didInitialAutoScrollRef.current,
 			})
+
+			didInitialAutoScrollRef.current = true
 		}
 
 		const sync = (timeSeconds: number) => {
@@ -164,30 +169,41 @@ function autoScrollToCurrent(params: {
 	currentSubtitleId: number
 	bottomThresholdPx: number
 	topPaddingPx: number
+	forceAlignBelowVideo: boolean
 }) {
-	const { container, currentSubtitleId, bottomThresholdPx, topPaddingPx } = params
+	const { container, currentSubtitleId, bottomThresholdPx, topPaddingPx, forceAlignBelowVideo } = params
 
 	const currentEl = container.querySelector(`#subtitle-${currentSubtitleId}`) as HTMLElement | null
 	if (!currentEl) return
 
 	const scrollContainer = getScrollableParent(container) ?? getScrollableParent(currentEl)
 	if (!scrollContainer) {
-		currentEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+		scrollWindowToReveal({
+			currentEl,
+			bottomThresholdPx,
+			topPaddingPx,
+			forceAlignBelowVideo,
+		})
 		return
 	}
 
 	const containerRect = scrollContainer.getBoundingClientRect()
 	const elRect = currentEl.getBoundingClientRect()
 
-	const isAbove = elRect.top < containerRect.top
-	const isBelow = elRect.bottom > containerRect.bottom - bottomThresholdPx
+	const videoBottom = getStickyVideoBottomPx(container)
+	const safeTop = Math.max(containerRect.top, videoBottom) + topPaddingPx
+	const safeBottom = containerRect.bottom - bottomThresholdPx
 
-	if (!isAbove && !isBelow) {
+	const isAboveSafe = elRect.top < safeTop
+	const isBelowSafe = elRect.bottom > safeBottom
+
+	if (!forceAlignBelowVideo && !isAboveSafe && !isBelowSafe) {
 		return
 	}
 
-	const top = scrollContainer.scrollTop + (elRect.top - containerRect.top) - topPaddingPx
-	scrollContainer.scrollTo({ top, behavior: 'smooth' })
+	// Align the current subtitle just below the sticky video (safeTop).
+	const delta = elRect.top - safeTop
+	scrollContainer.scrollTo({ top: scrollContainer.scrollTop + delta, behavior: 'smooth' })
 }
 
 /**
@@ -211,4 +227,45 @@ function getScrollableParent(element: HTMLElement | null) {
 	}
 
 	return null
+}
+
+function scrollWindowToReveal(params: {
+	currentEl: HTMLElement
+	bottomThresholdPx: number
+	topPaddingPx: number
+	forceAlignBelowVideo: boolean
+}) {
+	const { currentEl, bottomThresholdPx, topPaddingPx, forceAlignBelowVideo } = params
+
+	const elRect = currentEl.getBoundingClientRect()
+
+	const videoBottom = getStickyVideoBottomPx(currentEl)
+	const safeTop = videoBottom + topPaddingPx
+	const safeBottom = (window.innerHeight || 0) - bottomThresholdPx
+
+	const isAboveSafe = elRect.top < safeTop
+	const isBelowSafe = elRect.bottom > safeBottom
+
+	if (!forceAlignBelowVideo && !isAboveSafe && !isBelowSafe) return
+
+	// Align element top to safeTop (just below video) instead of "nearest" reveal.
+	const delta = elRect.top - safeTop
+	window.scrollBy({ top: delta, behavior: 'smooth' })
+}
+
+function getStickyVideoBottomPx(fromEl: HTMLElement): number {
+	const doc = fromEl.ownerDocument ?? document
+	const root = (fromEl.closest('.root-surface') as HTMLElement | null) ?? doc.documentElement
+	const videoEl =
+		(root.querySelector('.watching-root__video-container') as HTMLElement | null) ??
+		(doc.querySelector('.watching-root__video-container') as HTMLElement | null)
+	if (!videoEl) return 0
+
+	const rect = videoEl.getBoundingClientRect()
+	if (!Number.isFinite(rect.bottom)) return 0
+
+	// If video is offscreen (e.g. scrolled far away), don't apply offset.
+	if (rect.bottom <= 0 || rect.top >= (window.innerHeight || 0)) return 0
+
+	return Math.max(0, Math.min(window.innerHeight || 0, rect.bottom))
 }

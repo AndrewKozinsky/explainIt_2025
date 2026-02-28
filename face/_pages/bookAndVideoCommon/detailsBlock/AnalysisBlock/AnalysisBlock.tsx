@@ -20,7 +20,7 @@ export function AnalysisBlock() {
 }
 
 function AnalysisBlockLoading() {
-	return <div>AnalysisBlockLoading</div>
+	return <div>Загрузка...</div>
 }
 
 function AnalysisBlockError() {

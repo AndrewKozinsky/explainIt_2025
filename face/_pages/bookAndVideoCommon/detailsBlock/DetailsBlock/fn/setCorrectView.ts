@@ -10,7 +10,7 @@ export function useSetCorrectView() {
 	const isMediaFreeToUse = useDetailsStore((s) => s.isMediaFreeToUse)
 	const isAuthenticated = !!user
 	const hasBasicSubscription = !!user?.currentSubscription
-	const hasBalance = !!user?.currentSubscription?.balance
+	const hasSubscriptionToTranslatePrivateMedia = !!user?.currentSubscription?.isPrivateMediaIncluded
 	const selectedSentenceId = useDetailsStore((s) => s.sentenceId)
 	const translationStatus = useDetailsStore((s) => s.analysisExistStatus)
 
@@ -27,6 +27,9 @@ export function useSetCorrectView() {
 					detailsViewType = 'VIEW_FULL'
 				}
 				if (isMediaFreeToUse && !isAuthenticated) {
+					detailsViewType = 'VIEW_FULL'
+				}
+				if (!isMediaFreeToUse && isAuthenticated && hasSubscriptionToTranslatePrivateMedia) {
 					detailsViewType = 'VIEW_FULL'
 				}
 			}
@@ -46,7 +49,6 @@ export function useSetCorrectView() {
 			}
 		},
 		[
-			hasBalance,
 			hasBasicSubscription,
 			isAuthenticated,
 			isMediaFreeToUse,
@@ -54,6 +56,7 @@ export function useSetCorrectView() {
 			analysisExistStatus,
 			translationStatus,
 			selectedSentenceId,
+			hasSubscriptionToTranslatePrivateMedia,
 		],
 	)
 }

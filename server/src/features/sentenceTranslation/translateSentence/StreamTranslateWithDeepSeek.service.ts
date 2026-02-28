@@ -84,7 +84,7 @@ export class StreamTranslateWithDeepSeek {
 		return [
 			{
 				role: 'system',
-				content: this.getFirstTranslationTask(input),
+				content: this.getSecondTranslationTask(input),
 			},
 		] as const
 	}
