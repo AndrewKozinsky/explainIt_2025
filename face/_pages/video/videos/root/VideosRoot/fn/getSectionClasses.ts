@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { VideosStore } from '../../videosStore'
+import { VideosStore } from '../../../videosStore'
 
 export function getSectionClasses(
 	mobileContentType: VideosStore.MobileCurrentContentType,

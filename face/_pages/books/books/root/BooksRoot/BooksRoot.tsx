@@ -1,10 +1,10 @@
 import React from 'react'
-import Header from 'ui/Header/Header'
-import BooksBreadCrumbs from '_pages/books/books/BooksBreadCrumbs/BooksBreadCrumbs'
 import BooksMobileNavigation from '_pages/books/books/BooksMobileNavigation/BooksMobileNavigation'
 import { useBooksStore } from '_pages/books/books/booksStore'
 import DetailsSection from '_pages/books/books/detailsSection/DetailsSection/DetailsSection'
-import BooksSection from '../booksListSection/BooksSection/BooksSection'
+import BooksSection from '../../booksListSection/BooksSection/BooksSection'
+import BooksBreadCrumbs from '../BooksBreadCrumbs/BooksBreadCrumbs'
+import BooksHeader from '../BooksHeader/BooksHeader'
 import { getSectionClasses } from './fn/getSectionClasses'
 import { usePopulateBooksStore } from './fn/populateBooksStore'
 import './BooksRoot.scss'
@@ -18,7 +18,7 @@ function BooksRoot() {
 		<article className='books-root'>
 			<div className='books-root__top'>
 				<BooksBreadCrumbs />
-				<Header>Контакты</Header>
+				<BooksHeader />
 			</div>
 			<div className='books-root__content'>
 				<BooksMobileNavigation />

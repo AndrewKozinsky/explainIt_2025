@@ -1,6 +1,6 @@
 import React from 'react'
 import { BreadCrumbs } from 'ui/pageRelated/BreadCrumbs/BreadCrumbs'
-import { useVideosBreadCrumbsItems } from '_pages/video/videos/VideosBreadCrumbs/fn/useVideosBreadCrumbsItems'
+import { useVideosBreadCrumbsItems } from './fn/useVideosBreadCrumbsItems'
 
 function VideosBreadCrumbs() {
 	return <BreadCrumbs items={useVideosBreadCrumbsItems()} />

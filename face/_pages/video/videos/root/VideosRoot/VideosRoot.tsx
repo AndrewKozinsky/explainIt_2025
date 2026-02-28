@@ -1,10 +1,12 @@
 import React from 'react'
 import Header from 'ui/Header/Header'
+import BooksHeader from '_pages/books/books/root/BooksHeader/BooksHeader'
 import VideosMobileNavigation from '_pages/video/videos/VideosMobileNavigation/VideosMobileNavigation'
 import { useVideosStore } from '_pages/video/videos/videosStore'
-import DetailsSection from '../detailsSection/DetailsSection/DetailsSection'
+import DetailsSection from '../../detailsSection/DetailsSection/DetailsSection'
+import VideosSection from '../../videosListSection/VideosSection/VideosSection'
 import VideosBreadCrumbs from '../VideosBreadCrumbs/VideosBreadCrumbs'
-import VideosSection from '../videosListSection/VideosSection/VideosSection'
+import VideosHeader from '../VideosHeader/VideosHeader'
 import { getSectionClasses } from './fn/getSectionClasses'
 import { usePopulateVideosStore } from './fn/populateVideosStore'
 import './VideosRoot.scss'
@@ -18,7 +20,7 @@ function VideosRoot() {
 		<div className='videos-root'>
 			<div className='videos-root__top'>
 				<VideosBreadCrumbs />
-				<Header>Контакты</Header>
+				<VideosHeader />
 			</div>
 			<div className='videos-root__content'>
 				<VideosMobileNavigation />
