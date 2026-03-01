@@ -20,7 +20,13 @@ export const publicFolderFilesUrls = {
 			navArrowRight: 'navArrowRight.svg',
 		},
 	},
-	video: {
-		helpFilmFrame: '/video/help-film-frame.svg',
+	mainPage: {
+		headVideo: 'mainPage/headVideo.mp4',
+		girlOnArmchair: 'mainPage/girlOnArmchair.webp',
+		anyDevices: 'mainPage/anyDevices.svg',
+		bookCover_1: 'mainPage/book-1.webp',
+		bookCover_2: 'mainPage/book-2.webp',
+		videoCover_1: 'mainPage/video-3.webp',
+		videoCover_2: 'mainPage/video-4.webp',
 	},
 }

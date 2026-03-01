@@ -61,7 +61,7 @@ export class CreateTariffsHandler implements ICommandHandler<CreateTariffsComman
 				isPrivateMediaIncluded: true,
 				price: 45000, // 450 rub
 				durationDays: 30,
-				includedBalance: 150,
+				includedBalance: 15000, // 150 rub
 				includedFileStorageMb: 5000,
 			},
 		]

@@ -1,22 +1,8 @@
-//@use "@/styles/variables" as vars;
-//@use '@/styles/mixins' as mix;
-
 .go-to-reading-button {
-	//position: sticky;
-	//bottom: 30px;
-	//left: 0;
-	//font-size: 2.2rem;
-	//line-height: 2.8rem;
-	//color: white;
-	//text-align: center;
-	//background-color: vars.$accentColor-2;
-	//width: fit-content;
-	//cursor: pointer;
-	//padding: 1.4rem 4rem;
-	//border-radius: 3rem;
-
-	/*@include mix.page-width(700px) {
-		left: 50%;
-		transform: translateX(-50%);
-	}*/
+	position: sticky;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	bottom: 30px;
+	left: 0;
 }

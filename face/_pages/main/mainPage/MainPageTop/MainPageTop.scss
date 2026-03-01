@@ -1,0 +1,30 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+
+.main-page-top {
+	text-align: center;
+	margin-top: 5rem;
+}
+
+.main-page-top__header {
+	font-size: 7.4rem;
+	line-height: 8rem;
+	font-weight: 700;
+	color: vars.$accentColor-2;
+}
+
+.main-page-top__subheader {
+	font-size: 3.4rem;
+	line-height: 4rem;
+	margin-top: 1rem;
+}
+
+.main-page-top__video {
+	width: 100%;
+	max-width: max-content;
+	overflow: hidden;
+	box-sizing: border-box;
+	border: 2rem solid vars.$grayColor-1;
+	border-radius: 3rem;
+	margin-top: 3rem;
+}

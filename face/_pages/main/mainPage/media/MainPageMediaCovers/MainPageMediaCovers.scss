@@ -1,0 +1,49 @@
+@use '@/styles/variables' as vars;
+
+.main-page-media-covers {
+	display: flex;
+	justify-content: flex-start;
+	gap: 1.5rem;
+}
+
+.main-page-media-covers__item {
+
+}
+
+.main-page-media-covers__cover-wrap {
+	position: relative;
+	border-radius: vars.$radius-1;
+	z-index: 0;
+}
+
+.main-page-media-covers__cover-wrap::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background-image: var(--bg-url);
+	background-size: cover;
+	background-position: center;
+	filter: blur(40px);
+	transform: scale(1.1);
+	z-index: 0;
+}
+
+.main-page-media-covers__cover {
+	display: block;
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
+	border-radius: vars.$radius-1;
+}
+
+
+
+.main-page-media-covers__level {
+	display: inline-block;
+	font-size: 1.8rem;
+	line-height: 2.2rem;
+	color: vars.$grayColor-5;
+	padding: 0.2rem .8rem;
+	margin-top: 1rem;
+	border-radius: vars.$radius-1;
+}

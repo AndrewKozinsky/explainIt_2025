@@ -1,0 +1,27 @@
+@use '@/styles/variables' as vars;
+
+.main-page-media-layout {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	gap: 6rem;
+}
+
+.main-page-media-layout--reverse {
+	flex-direction: row-reverse;
+}
+
+.main-page-media-layout__video {
+	flex-shrink: 0;
+	width: 66%;
+	overflow: hidden;
+	box-sizing: border-box;
+	border: 1rem solid vars.$grayColor-1;
+	border-radius: 2rem;
+}
+
+.main-page-media-layout__content {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
