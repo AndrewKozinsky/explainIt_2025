@@ -1,6 +1,6 @@
 import React from 'react'
 import { NotificationProvider } from 'ui/Notification/Notification'
-import MainPageLayout from '../_pages/main/mainPageLayout/MainPageLayout/MainPageLayout'
+import MainPageLayout from '_pages/main/mainPageLayout/MainPageLayout/MainPageLayout'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {

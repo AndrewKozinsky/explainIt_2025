@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { redirect } from 'next/navigation'
-import ErrorMessage from '../../../ui/ErrorMessage/ErrorMessage'
+import ErrorMessage from '@/ui/ErrorMessage/ErrorMessage'
 import Spinner from '../../../ui/Spinner/Spinner'
 import { useAuthorizeUser } from './fn/authorizeUser'
 import { pageUrls } from 'сonsts/pageUrls'

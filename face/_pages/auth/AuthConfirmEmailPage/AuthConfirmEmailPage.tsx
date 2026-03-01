@@ -2,9 +2,9 @@
 
 import React from 'react'
 import { redirect } from 'next/navigation'
+import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
 import Spinner from '@/ui/Spinner/Spinner'
 import { pageUrls } from '@/сonsts/pageUrls'
-import ErrorMessage from '../../../ui/ErrorMessage/ErrorMessage'
 import { ConfirmationStatus, useConfirmEmail } from './fn/confirmEmail'
 
 function AuthConfirmEmailPage() {
