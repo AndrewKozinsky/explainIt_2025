@@ -22,7 +22,7 @@ jobs:
           ssh -o StrictHostKeyChecking=no root@85.198.87.86 << 'EOF'
             cd ~/sites/explain_dev
 
-            git checkout improve-main-page
+            git checkout new-media-structure
             git reset --hard
             git pull
           
