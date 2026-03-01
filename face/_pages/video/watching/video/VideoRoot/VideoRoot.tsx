@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import { useWatchingStore } from '../../watchingStore'
 import { usePlayerController } from './fn/controller'
 import { usePlayerControl } from './fn/playerControl'

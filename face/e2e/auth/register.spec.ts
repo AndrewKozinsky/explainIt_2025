@@ -2,9 +2,9 @@ import { test, expect } from '@playwright/test'
 import { RegisterFormTest } from '../../_pages/auth/authRegister/AuthRegisterForm/fn/form'
 import { errorMessages } from '../../utils/errorMessages'
 import { getTextInputElems } from '../utils/common'
-import testPagesUrls from '../utils/testPagesUrls'
 import { server } from '../utils/server'
 import { serverTestDataConfig } from '../utils/serverTestDataConfig'
+import testPagesUrls from '../utils/testPagesUrls'
 
 test.beforeEach(async ({ page }) => {
 	await server.clearDB()

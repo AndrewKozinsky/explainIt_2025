@@ -1,4 +1,3 @@
-import React from 'react'
 import './MainPageFeatures.scss'
 import { publicFolderFilesUrls } from 'utils/publicFolderFilesUrls'
 

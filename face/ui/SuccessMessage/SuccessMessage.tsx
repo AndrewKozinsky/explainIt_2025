@@ -1,4 +1,3 @@
-import React from 'react'
 import { SuccessIcon } from 'ui/icons/SuccessIcon/ErrorIcon'
 import './SuccessMessage.scss'
 

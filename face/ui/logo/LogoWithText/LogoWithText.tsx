@@ -1,4 +1,3 @@
-import React from 'react'
 import LogoSign from '../LogoSign/LogoSign'
 import './LogoWithText.scss'
 

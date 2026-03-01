@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
 import { NotificationContext } from 'ui/Notification/context'
 import { useVideoPrivate_Update, VideoPrivate_GetUserVideosDocument } from '@/graphql'

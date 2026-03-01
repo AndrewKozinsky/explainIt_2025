@@ -1,4 +1,3 @@
-import React from 'react'
 import Header from 'ui/Header/Header'
 import { PageContentWrapper } from 'ui/pageRelated/PageContentWrapper/PageContentWrapper'
 import { BreadCrumbs } from '@/ui/pageRelated/BreadCrumbs/BreadCrumbs'

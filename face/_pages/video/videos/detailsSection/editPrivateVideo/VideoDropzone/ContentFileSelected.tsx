@@ -1,4 +1,3 @@
-import React from 'react'
 import Spinner from 'ui/Spinner/Spinner'
 
 function ContentFileSelected() {

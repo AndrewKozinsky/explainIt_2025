@@ -1,4 +1,3 @@
-import React from 'react'
 import { publicFolderFilesUrls } from '../../utils/publicFolderFilesUrls'
 import Button from '../formRelated/buttons/Button/Button'
 import Modal from '../Modal/Modal'

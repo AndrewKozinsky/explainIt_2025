@@ -1,6 +1,3 @@
-import React from 'react'
-import Header from 'ui/Header/Header'
-import BooksHeader from '_pages/books/books/root/BooksHeader/BooksHeader'
 import VideosMobileNavigation from '_pages/video/videos/VideosMobileNavigation/VideosMobileNavigation'
 import { useVideosStore } from '_pages/video/videos/videosStore'
 import DetailsSection from '../../detailsSection/DetailsSection/DetailsSection'

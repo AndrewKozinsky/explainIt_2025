@@ -1,5 +1,3 @@
-import React from 'react'
-
 function ContentIdle() {
 	return (
 		<div className='video-dropzone video-dropzone--idle'>

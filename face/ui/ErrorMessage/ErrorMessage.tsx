@@ -1,4 +1,3 @@
-import React from 'react'
 import { ErrorIcon } from '../icons/ErrorIcon/ErrorIcon'
 import './ErrorMessage.scss'
 

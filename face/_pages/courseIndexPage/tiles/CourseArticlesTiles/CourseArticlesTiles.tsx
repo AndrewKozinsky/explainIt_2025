@@ -1,5 +1,5 @@
-import ArticleTile from '../ArticleTile/ArticleTile'
 import { TilesWrapper } from '../../TilesWrapper/TilesWrapper'
+import ArticleTile from '../ArticleTile/ArticleTile'
 import { getTilesData } from './fn/getTilesData'
 
 export function CourseArticlesTiles() {

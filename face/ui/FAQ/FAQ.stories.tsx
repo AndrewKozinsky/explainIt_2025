@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import FAQ from './FAQ'
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 
 const meta = {
 	title: 'UI/FAQ',

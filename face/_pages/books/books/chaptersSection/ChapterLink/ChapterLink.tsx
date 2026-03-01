@@ -2,8 +2,8 @@ import Paragraph from '@/ui/Paragraph/Paragraph'
 import ContentLinkWrapper from '_pages/bookAndVideoCommon/ContentLinkWrapper/ContentLinkWrapper'
 import { bookConfig } from '../../common/bookConfig'
 import { useGetChapterLinkStatus } from './fn/isPageCurrent'
-import './ChapterLink.scss'
 import { createBookIdUrl, pageUrls } from 'сonsts/pageUrls'
+import './ChapterLink.scss'
 
 type BookLinkProps = {
 	bookId: number | string

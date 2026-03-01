@@ -1,6 +1,5 @@
 'use client'
 
-import React from 'react'
 import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
 import { useTariffs } from './fn/useTariffs'
 import { TariffCard } from './TariffCard'

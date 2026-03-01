@@ -1,4 +1,3 @@
-import React from 'react'
 import { pageUrls } from '@/сonsts/pageUrls'
 import { MainMenuLink } from '../MainMenuLink'
 import './MainMenu.scss'

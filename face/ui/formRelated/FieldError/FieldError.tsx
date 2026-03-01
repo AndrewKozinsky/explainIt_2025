@@ -1,4 +1,3 @@
-import React from 'react'
 import './FieldError.scss'
 
 type FieldErrorProps = {

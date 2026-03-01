@@ -1,4 +1,3 @@
-import React from 'react'
 import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'
 import LogoutButton from '../LogoutButton/LogoutButton'
 import './MePage.scss'

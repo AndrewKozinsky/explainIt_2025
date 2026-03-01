@@ -1,5 +1,4 @@
 import { usePathname } from 'next/navigation'
-import { routesUtils } from '@/utils/routes'
 import { createVideoIdUrl, pageUrls } from '@/сonsts/pageUrls'
 
 /**

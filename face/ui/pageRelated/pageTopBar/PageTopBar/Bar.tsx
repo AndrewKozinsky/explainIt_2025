@@ -1,4 +1,3 @@
-import React from 'react'
 import cn from 'classnames'
 import { LinkLogoWithText } from '@/ui/logo/LinkLogoWithText/LinkLogoWithText'
 import { MainMenu } from '../../MainMenu/MainMenu'

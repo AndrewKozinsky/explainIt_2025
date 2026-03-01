@@ -1,6 +1,5 @@
 'use client'
 
-import React from 'react'
 import { getAnalytics, getMetrika } from './fn/code'
 
 // Счётчик Метрики

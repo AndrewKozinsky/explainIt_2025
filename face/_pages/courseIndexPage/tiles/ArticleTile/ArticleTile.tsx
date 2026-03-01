@@ -1,4 +1,3 @@
-import React from 'react'
 import Link from 'next/link'
 import { ArticleTileType } from './fn/types'
 import './ArticleTile.scss'

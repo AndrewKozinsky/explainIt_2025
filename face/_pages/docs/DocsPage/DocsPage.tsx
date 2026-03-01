@@ -1,4 +1,3 @@
-import React from 'react'
 import Link from 'next/link'
 import { pageUrls } from 'сonsts/pageUrls'
 import './DocsPage.scss'

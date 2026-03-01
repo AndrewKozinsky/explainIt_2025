@@ -1,5 +1,3 @@
-import React from 'react'
-
 function ContentFileDragging() {
 	return (
 		<div className='video-dropzone video-dropzone--file-dragging'>

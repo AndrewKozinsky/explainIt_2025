@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import Switcher from 'ui/Switcher/Switcher'
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 
 const meta = {
 	title: 'UI/Switcher',

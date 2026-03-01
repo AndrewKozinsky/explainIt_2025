@@ -1,6 +1,6 @@
 'use client'
 
-import React, { ButtonHTMLAttributes } from 'react'
+import { ButtonHTMLAttributes } from 'react'
 import cn from 'classnames'
 import '../Button/Button.scss'
 import './ExerciseButton.scss'

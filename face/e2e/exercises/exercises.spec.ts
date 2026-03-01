@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
-import testPagesUrls from '../utils/testPagesUrls'
 import { graphQLRequestsData, mockGraphQLRequest } from '../utils/routeMocks'
+import testPagesUrls from '../utils/testPagesUrls'
 import { exercisesTestIds } from './exercisesTestIds'
 
 test.beforeEach(async ({ page }) => {

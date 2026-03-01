@@ -1,4 +1,3 @@
-import React from 'react'
 import Paragraph from 'ui/Paragraph/Paragraph'
 import { publicFolderFilesUrls } from 'utils/publicFolderFilesUrls'
 import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'

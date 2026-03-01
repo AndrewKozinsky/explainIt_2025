@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import { ReactNode } from 'react'
 import ArticleType from '../articleTypes/articleType'
 import { Exercises } from '../components/exercises/components/Exercises/Exercises'
 import FaqInArticle from '../components/FaqInArticle/FaqInArticle'
