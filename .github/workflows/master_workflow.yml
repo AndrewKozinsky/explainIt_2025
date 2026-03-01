@@ -19,7 +19,7 @@ jobs:
 
       - name: Pull changes on server
         run: |
-          ssh -o StrictHostKeyChecking=no root@45.144.178.155 << 'EOF'
+          ssh -o StrictHostKeyChecking=no root@85.198.87.86 << 'EOF'
             cd ~/sites/explain
 
             git checkout master
