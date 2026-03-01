@@ -2,7 +2,7 @@ export namespace PopulatedSubtitlesStructure {
 	export type Structure = {
 		subtitles: (Subtitle | SpeechlessBar)[]
 		sentences: Sentence[]
-		selected: Selected
+		// selected: Selected
 		// Идентификатор проигрываемого субтитра или паузы (speechlessBar)
 		playingSubtitleOrSpeechlessBarId: number
 	}
@@ -30,38 +30,15 @@ export namespace PopulatedSubtitlesStructure {
 		toSeconds: number
 		// Texts
 		texts: {
-			textParts: TextPart[]
+			text: string
 			sentenceId: number
+			wordOffset: number
 		}[]
-	}
-
-	export type TextPart = Word | Space | Punctuation
-
-	export type Word = {
-		id: number
-		type: 'word'
-		value: string
-	}
-
-	type Space = {
-		id: number
-		type: 'space'
-	}
-
-	type Punctuation = {
-		id: number
-		type: 'punctuation'
-		value: string
 	}
 
 	type Sentence = {
 		id: number
-		text: TextPart[]
-		translation?: string
-	}
-
-	export type Selected = {
-		sentenceId: null | number
-		wordIds: number[]
+		text: string
+		// translation?: string
 	}
 }

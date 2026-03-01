@@ -2,14 +2,14 @@ import { useEffect } from 'react'
 import { useVideosStore } from '_pages/video/videos/videosStore'
 
 export function useSetFieldValues(reset: (data: any) => void) {
-	const book = useVideosStore((s) => s.privateVideo)
+	const video = useVideosStore((s) => s.privateVideo)
 
 	useEffect(() => {
-		if (!book) return
+		if (!video) return
 
 		reset({
-			name: book.name ?? '',
-			text: book.text ?? '',
+			name: video.name ?? '',
+			content: video.originalContent ?? '',
 		})
-	}, [book, reset])
+	}, [video, reset])
 }

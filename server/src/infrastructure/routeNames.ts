@@ -11,7 +11,7 @@ export const RouteNames = {
 	},
 	PAYMENT: {
 		YOOKASSA: {
-			TOP_UP_BALANCE: 'payment_yookassa_top_up_balance',
+			BUY_SUBSCRIPTION: 'payment_yookassa_buy_subscription',
 		},
 	},
 	AI: {
@@ -21,6 +21,7 @@ export const RouteNames = {
 	TRANSLATE: {
 		TRANSLATE_PHRASE: 'translate_translate_phrase',
 		TRANSLATE_SENTENCE: 'translate_translate_sentence',
+		TRANSLATE_SENTENCE_STREAM: 'translate/sentence/stream',
 	},
 	// REST
 	DB: {
@@ -56,6 +57,17 @@ export const RouteNames = {
 		DELETE: 'video_private_delete',
 		GET_USER_VIDEOS: 'video_private_user_videos',
 		GET: 'video_private_get',
+	},
+	VIDEO_PUBLIC: {
+		GET_VIDEOS: 'video_public_get_videos',
+		GET: 'video_public_get',
+	},
+	SENTENCE_TRANSLATION: {
+		GET: 'sentence_translation_get',
+		GET_BY_SENTENCE_ID: 'sentence_translation_get_by_sentence_id',
+	},
+	TARIFF: {
+		GET_ALL: 'tariff_get_tariffs',
 	},
 }
 

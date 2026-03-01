@@ -1,5 +1,5 @@
-import { WatchingStoreI } from '_pages/video/watching/watchingStore'
 import cn from 'classnames'
+import { WatchingStoreI } from '_pages/video/watching/watchingStore'
 
 export function getSectionClasses(
 	mobileContentType: WatchingStoreI.MobileCurrentContentType,

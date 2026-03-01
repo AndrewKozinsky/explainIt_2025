@@ -1,18 +1,18 @@
-import cn from 'classnames'
 import Link from 'next/link'
 
 type LinkButtonProps = {
 	href: string
-	extraClass?: string
-	children: React.ReactNode | React.ReactNode[]
+	smallText?: null | string
+	text?: null | string
 }
 
 export function LinkButton(props: LinkButtonProps) {
-	const { href, extraClass, children } = props
+	const { href, smallText, text } = props
 
 	return (
-		<Link href={href} className={cn('book-and-prev-and-next-chapters__link', extraClass)}>
-			{children}
+		<Link href={href} className='book-and-prev-and-next-chapters__link'>
+			<p className='book-and-prev-and-next-chapters__small-text'>{smallText}</p>
+			<p className='book-and-prev-and-next-chapters__text'>{text}</p>
 		</Link>
 	)
 }

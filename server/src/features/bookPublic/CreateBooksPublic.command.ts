@@ -5,7 +5,8 @@ import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { ChapterData, getBookChapters } from './common/common'
+import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+import { ChapterData } from './common/common'
 import { CreateBookPublicCommand, CreateBookPublicInput } from './CreateBookPublic.command'
 import { solomonMinesBookData, solomonMinesChapters } from './solomonMines/solomonMinesBook'
 import { wizardOfOzBookData, wizardOfOzChapters } from './wizardOfOz/wizardOfOzBook'
@@ -19,7 +20,8 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreateBooksPubl
 	constructor(
 		private commandBus: CommandBus,
 		public bookPublicRepository: BookPublicRepository,
-		public bookChapterRepository: BookChapterRepository,
+		private bookChapterRepository: BookChapterRepository,
+		private mainConfig: MainConfigService,
 	) {}
 
 	async execute() {
@@ -30,13 +32,15 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreateBooksPubl
 	}
 
 	getBooksData() {
+		const publicBookUrl = this.mainConfig.get().yandexCloud.s3.bucketUrl + '/publicBooks/'
+
 		return [
 			{
-				book: wizardOfOzBookData,
+				book: wizardOfOzBookData(publicBookUrl),
 				chapters: wizardOfOzChapters,
 			},
 			{
-				book: solomonMinesBookData,
+				book: solomonMinesBookData(publicBookUrl),
 				chapters: solomonMinesChapters,
 			},
 		]
@@ -49,9 +53,7 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreateBooksPubl
 
 	async createBookOfNotExists(bookData: CreateBookPublicInput) {
 		const existingBook = await this.bookPublicRepository.getBook({ name: bookData.name, author: bookData.author })
-		if (existingBook) {
-			return existingBook.id
-		}
+		if (existingBook) return existingBook.id
 
 		const book = await this.commandBus.execute(new CreateBookPublicCommand(bookData))
 		if (!book) {
@@ -62,18 +64,26 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreateBooksPubl
 	}
 
 	async createBookChaptersOfNotExists(bookId: number, chaptersData: ChapterData[]) {
-		const bookChaptersData = getBookChapters(bookId, chaptersData)
-
-		for (const bookChapter of bookChaptersData) {
-			const existingChapter = await this.bookChapterRepository.getBookChapter({
+		for (const bookChapter of chaptersData) {
+			const existingBookChapter = await this.bookChapterRepository.getBookChapter({
 				bookType: 'public',
 				bookId,
 				name: bookChapter.name,
 			})
-
-			if (!existingChapter) {
-				await this.commandBus.execute(new CreateBookChapterCommand(null, bookChapter))
+			if (existingBookChapter) {
+				continue
 			}
+
+			await this.commandBus.execute(
+				new CreateBookChapterCommand(null, {
+					bookType: 'public',
+					bookId,
+					name: bookChapter.name,
+					header: bookChapter.header,
+					content: bookChapter.text,
+					note: null,
+				}),
+			)
 		}
 	}
 }

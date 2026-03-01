@@ -1,4 +1,3 @@
-import React from 'react'
 import { useVideosStore } from '_pages/video/videos/videosStore'
 import DeleteVideoFileButton from '../DeleteVideoFileButton/DeleteVideoFileButton'
 import './FileNameAndDeleteFileButton.scss'

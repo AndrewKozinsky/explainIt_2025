@@ -2,6 +2,7 @@ import { BdConfig } from '../dbConfig/dbConfigType'
 import { createArrayOfItemsColumn } from './columns/arrayColumn'
 import { createBooleanColumn } from './columns/booleanColumn'
 import { createCreatedOrUpdatedAtColum } from './columns/createdAndUpdatedAtColumn'
+import { createDateTimeColumn } from './columns/dateTimeColumn'
 import { createEnumColumn } from './columns/enumColumn'
 import { createIndexColumn } from './columns/indexColumn'
 import { createNumberColumn } from './columns/numberColumn'
@@ -46,6 +47,8 @@ export function createTable(tableName: string, tableConfig: BdConfig.Table) {
 			columnsArr.push(createStringColumn(dbFieldName, field))
 		} else if (field.type === 'timeString') {
 			columnsArr.push(createStringColumn(dbFieldName, field))
+		} else if (field.type === 'dateTime') {
+			columnsArr.push(createDateTimeColumn(dbFieldName, field))
 		} else if (field.type === 'boolean') {
 			columnsArr.push(createBooleanColumn(dbFieldName, field))
 		} else if (field.type === 'number') {
@@ -67,6 +70,20 @@ export function createTable(tableName: string, tableConfig: BdConfig.Table) {
 			columnsArr.push(createParentOneToOne(dbFieldName, field))
 		} else if (field.type === 'childOneToOne') {
 			columnsArr.push(...createChildOneToOneColumn(field))
+		}
+	}
+
+	if (tableConfig.indexes?.length) {
+		for (const indexConfig of tableConfig.indexes) {
+			const fields = indexConfig.fields.join(', ')
+			const attrs: string[] = []
+			if (indexConfig.name) {
+				attrs.push(`name: "${indexConfig.name}"`)
+			}
+
+			const attrsStr = attrs.length ? `, ${attrs.join(', ')}` : ''
+			const indexType = indexConfig.unique ? '@@unique' : '@@index'
+			columnsArr.push(`\t${indexType}([${fields}]${attrsStr})`)
 		}
 	}
 

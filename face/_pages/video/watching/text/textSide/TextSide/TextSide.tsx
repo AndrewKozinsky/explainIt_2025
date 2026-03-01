@@ -1,4 +1,3 @@
-import React from 'react'
 import { useWatchingStore } from '_pages/video/watching/watchingStore'
 import FullScreenButton from '../FullScreenButton/FullScreenButton'
 import PlainTextContent from '../plainText/PlainTextContent/PlainTextContent'
@@ -16,7 +15,7 @@ function TextSide() {
 				{populatedSubtitles && <SubtitlesContent />}
 			</div>
 			<div className='watching-text-side__bottom'>
-				<div className='watching-text-side__bottom-buttons'>Left</div>
+				<div className='watching-text-side__bottom-buttons' />
 				<div className='watching-text-side__bottom-info'>
 					<FullScreenButton />
 				</div>

@@ -1,21 +1,24 @@
 import { UseGuards } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql'
+import { Cron, CronExpression } from '@nestjs/schedule'
 import { Request } from 'express'
 import { CreatePrivateVideoInput } from 'routes/videoPrivate/inputs/createPrivateVideo.input'
 import { DeletePrivateVideoInput } from 'routes/videoPrivate/inputs/deletePrivateVideo.input'
 import { GetPrivateVideoInput } from 'routes/videoPrivate/inputs/getPrivateVideo.input'
 import { UpdatePrivateVideoInput } from 'routes/videoPrivate/inputs/updatePrivateVideo.input'
-import { CreatePrivateVideoCommand } from 'features/videoPrivate/CreatePrivateVideo.command'
-import { DeletePrivateVideoCommand } from 'features/videoPrivate/DeletePrivateVideo.command'
-import { GetUserVideosPrivateCommand } from 'features/videoPrivate/GetUserVideosPrivate.command'
-import { GetVideoPrivateCommand } from 'features/videoPrivate/GetVideoPrivate.command'
-import { UpdatePrivateVideoCommand } from 'features/videoPrivate/UpdatePrivateVideo.command'
+import { CleanupExpiredPrivateMediaCommand } from 'features/video/CleanupExpiredPrivateMedia.command'
+import { CreatePrivateVideoCommand } from 'features/video/CreatePrivateVideo.command'
+import { DeletePrivateVideoCommand } from 'features/video/DeletePrivateVideo.command'
+import { GetUserVideosPrivateCommand } from 'features/video/GetUserVideosPrivate.command'
+import { GetVideoPrivateCommand } from 'features/video/GetVideoPrivate.command'
+import { UpdatePrivateVideoCommand } from 'features/video/UpdatePrivateVideo.command'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
 import RouteNames from 'infrastructure/routeNames'
 import { CreateVideoPrivateOutModel } from 'models/videoPrivate/createVideoPrivate.out.model'
 import { UpdateVideoPrivateOutModel } from 'models/videoPrivate/updateVideoPrivate.out.model'
-import { VideoPrivateOutModel } from 'models/videoPrivate/videoPrivate.out.model'
+import { VideoPrivateLiteOutModel } from 'models/videoPrivate/videoPrivateLiteOut.model'
+import { VideoPrivateOutModel } from 'models/videoPrivate/videoPrivateOut.model'
 import { videoPrivateResolversDesc } from './resolverDescriptions'
 
 @Resolver()
@@ -53,7 +56,7 @@ export class VideoPrivateResolver {
 	}
 
 	@UseGuards(CheckSessionCookieGuard)
-	@Query(() => [VideoPrivateOutModel], {
+	@Query(() => [VideoPrivateLiteOutModel], {
 		name: RouteNames.VIDEO_PRIVATE.GET_USER_VIDEOS,
 		description: videoPrivateResolversDesc.getUserVideosPrivate,
 	})
@@ -70,5 +73,18 @@ export class VideoPrivateResolver {
 	async getVideoPrivate(@Args('input') input: GetPrivateVideoInput, @Context('req') request: Request) {
 		const userId = request.session.userId!
 		return await this.commandBus.execute(new GetVideoPrivateCommand(userId, input.id))
+	}
+
+	private isCleanupRunning = false
+
+	@Cron(CronExpression.EVERY_DAY_AT_MIDNIGHT)
+	async cleanupExpiredPrivateMediaFilesByCron() {
+		if (this.isCleanupRunning) return
+		this.isCleanupRunning = true
+		try {
+			await this.commandBus.execute(new CleanupExpiredPrivateMediaCommand())
+		} finally {
+			this.isCleanupRunning = false
+		}
 	}
 }

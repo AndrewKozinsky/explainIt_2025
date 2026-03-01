@@ -6,6 +6,7 @@ services:
       - explainpostgreslocaltest
       - explainserverlocaltest
       - explainfacelocaltest
+      - explainhelplocaltest
     ports:
       - 80:80
     volumes:
@@ -69,6 +70,19 @@ services:
       - explainserverlocaltest
     environment:
       MODE: localtest
+  explainhelplocaltest:
+    build:
+      context: help/
+      dockerfile: Dockerfile.dev
+    restart: unless-stopped
+    volumes:
+      - ./help:/app
+    command: npm run dev
+    container_name: explainhelplocaltest
+    environment:
+      MODE: localtest
+    ports:
+      - 3002:3000
   explainnlplocaltest:
     build:
       context: nlp/

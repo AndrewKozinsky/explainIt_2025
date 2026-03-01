@@ -3,7 +3,7 @@ import RouteNames from 'infrastructure/routeNames'
 export const queriesVideoPrivate = {
 	create(dto: {
 		name?: null | string
-		text?: null | string
+		originalContent?: null | string
 		fileName?: null | string
 		fileMimeType?: null | string
 	}) {
@@ -13,7 +13,8 @@ export const queriesVideoPrivate = {
 					${RouteNames.VIDEO_PRIVATE.CREATE}(input: $input) {
 						id
 						name
-						text
+						originalContent
+						processedContent
 						userId
 						uploadUrl
 					}
@@ -26,7 +27,7 @@ export const queriesVideoPrivate = {
 	update(dto: {
 		id: number
 		name?: null | string
-		text?: null | string
+		originalContent?: null | string
 		fileName?: null | string
 		fileMimeType?: null | string
 	}) {
@@ -36,7 +37,8 @@ export const queriesVideoPrivate = {
 					${RouteNames.VIDEO_PRIVATE.UPDATE}(input: $input) {
 						id
 						name
-						text
+						originalContent
+						processedContent
 						userId
 						uploadUrl
 						fileSizeMb
@@ -63,7 +65,8 @@ export const queriesVideoPrivate = {
 			${RouteNames.VIDEO_PRIVATE.GET_USER_VIDEOS} {
 				id
 				name
-				text
+				originalContent
+				processedContent
 				userId
 			}
 		}`
@@ -76,7 +79,8 @@ export const queriesVideoPrivate = {
 						id
 						name
 						isFileUploaded
-						text
+						originalContent
+						processedContent
 						userId
 					}
 				}`,

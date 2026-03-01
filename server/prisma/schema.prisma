@@ -9,118 +9,175 @@ datasource db {
 }
 
 model User {
-    id                                      Int                  @id @default(autoincrement())
-    email                                   String               @unique
+    id                                      Int                @id @default(autoincrement())
+    email                                   String             @unique
     password                                String?
     email_confirmation_code                 String?
     email_confirmation_code_expiration_date String?
-    is_email_confirmed                      Boolean              @default(false)
-    is_user_confirmed                       Boolean              @default(false)
-    balance                                 Int                  @default(0)
-    created_at                              DateTime             @default(now())
-    BalanceTransaction                      BalanceTransaction[]
+    is_email_confirmed                      Boolean            @default(false)
+    is_user_confirmed                       Boolean            @default(false)
     Payment                                 Payment[]
     BookPrivate                             BookPrivate[]
     VideoPrivate                            VideoPrivate[]
+    UserSubscription                        UserSubscription[]
+    created_at                              DateTime           @default(now())
 }
 
-model BalanceTransaction {
-    id         Int                    @id @default(autoincrement())
-    user       User                   @relation(fields: [user_id], references: [id], onDelete: Cascade)
-    user_id    Int
-    type       BalanceTransactionType
-    amount     Int
-    payment    Payment?               @relation(fields: [payment_id], references: [id])
-    payment_id Int?                   @unique
-    created_at DateTime               @default(now())
+model SubscriptionBalanceTransaction {
+    id                   Int                    @id @default(autoincrement())
+    userSubscription     UserSubscription       @relation(fields: [user_subscription_id], references: [id], onDelete: Cascade)
+    user_subscription_id Int
+    type                 BalanceTransactionType
+    amount               Int
+    payment              Payment?               @relation(fields: [payment_id], references: [id], onDelete: Cascade)
+    payment_id           Int?
+    created_at           DateTime               @default(now())
 }
 
 model Payment {
-    id                 Int                 @id @default(autoincrement())
-    user               User                @relation(fields: [user_id], references: [id], onDelete: Cascade)
-    user_id            Int
-    amount             Int
-    status             PaymentStatus       @default(PENDING)
-    provider_name      PaymentProviderName @default(YOOKASSA)
-    external_id        String              @unique
-    BalanceTransaction BalanceTransaction?
-    created_at         DateTime            @default(now())
-    updated_at         DateTime            @default(now())
+    id                             Int                              @id @default(autoincrement())
+    user                           User                             @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    user_id                        Int
+    amount                         Int
+    status                         PaymentStatus                    @default(PENDING)
+    provider_name                  PaymentProviderName              @default(YOOKASSA)
+    external_id                    String                           @unique
+    UserSubscription               UserSubscription?
+    SubscriptionBalanceTransaction SubscriptionBalanceTransaction[]
+    created_at                     DateTime                         @default(now())
+    updated_at                     DateTime                         @default(now())
 }
 
 model BookPrivate {
-    id          Int           @id @default(autoincrement())
-    user        User          @relation(fields: [user_id], references: [id], onDelete: Cascade)
-    user_id     Int
-    author      String?
-    name        String?
-    note        String?
-    created_at  DateTime      @default(now())
-    BookChapter BookChapter[]
+    id            Int           @id @default(autoincrement())
+    user          User          @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    user_id       Int
+    author        String?
+    name          String?
+    language_code LanguageCode
+    note          String?
+    BookChapter   BookChapter[]
+    created_at    DateTime      @default(now())
 }
 
 model BookPublic {
-    id          Int           @id @default(autoincrement())
-    cover       String
-    author      String
-    name        String
-    note        String
-    created_at  DateTime      @default(now())
-    BookChapter BookChapter[]
+    id            Int           @id @default(autoincrement())
+    free_to_use   Boolean?      @default(false)
+    language_code LanguageCode
+    covers        String[]
+    author        String
+    name          String
+    note          String
+    BookChapter   BookChapter[]
+    created_at    DateTime      @default(now())
 }
 
 model BookChapter {
-    id                Int                 @id @default(autoincrement())
-    book              BookPrivate?        @relation(fields: [book_id], references: [id], onDelete: Cascade)
-    book_id           Int?
-    book_public       BookPublic?         @relation(fields: [book_public_id], references: [id], onDelete: Cascade)
-    book_public_id    Int?
-    name              String?
-    header            String?
-    content           String?
-    note              String?
-    BookChapterPhrase BookChapterPhrase[]
-    created_at        DateTime            @default(now())
-}
-
-model BookChapterPhrase {
-    id                       Int                        @id @default(autoincrement())
-    sentenceId               Int
-    sentence                 String
-    phraseWordsIdx           Int[]
-    phrase                   String
-    phraseTranslation        String
-    phraseTranscription      String
-    phraseAnalysis           String
-    book_chapter             BookChapter                @relation(fields: [book_chapter_id], references: [id], onDelete: Cascade)
-    book_chapter_id          Int
-    BookChapterPhraseExample BookChapterPhraseExample[]
-    created_at               DateTime                   @default(now())
-}
-
-model BookChapterPhraseExample {
-    id                     Int               @id @default(autoincrement())
-    book_chapter_phrase    BookChapterPhrase @relation(fields: [book_chapter_phrase_id], references: [id], onDelete: Cascade)
-    book_chapter_phrase_id Int
-    sentence               String
-    translation            String
-    created_at             DateTime          @default(now())
+    id             Int          @id @default(autoincrement())
+    book           BookPrivate? @relation(fields: [book_id], references: [id], onDelete: Cascade)
+    book_id        Int?
+    book_public    BookPublic?  @relation(fields: [book_public_id], references: [id], onDelete: Cascade)
+    book_public_id Int?
+    name           String?
+    header         String?
+    content        String?
+    note           String?
+    Sentence       Sentence[]
+    created_at     DateTime     @default(now())
 }
 
 model VideoPrivate {
-    id               Int      @id @default(autoincrement())
-    user             User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
-    user_id          Int
-    file_name        String?
-    file_s3_key      String?
-    file_url         String?
-    is_file_uploaded Boolean  @default(false)
-    file_size_mb     Int
-    name             String?
-    text             String?
-    text_resolved    String?
-    created_at       DateTime @default(now())
-    updated_at       DateTime @default(now())
+    id                Int             @id @default(autoincrement())
+    user              User            @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    user_id           Int
+    language_code     LanguageCode
+    year              Int?
+    file_name         String?
+    file_s3_key       String?
+    s3_provider_name  S3ProviderName?
+    is_file_uploaded  Boolean         @default(false)
+    file_size_mb      Int             @default(0)
+    name              String?
+    original_content  String?
+    processed_content String?
+    content_type      VideoTextType   @default(text)
+    Subtitle          Subtitle[]
+    Sentence          Sentence[]
+    created_at        DateTime        @default(now())
+    updated_at        DateTime        @default(now())
+}
+
+model VideoPublic {
+    id                Int            @id @default(autoincrement())
+    free_to_use       Boolean?       @default(false)
+    language_code     LanguageCode
+    year              Int
+    name              String
+    file_name         String
+    file_s3_key       String
+    s3_provider_name  S3ProviderName
+    note              String
+    covers            String[]
+    original_content  String
+    processed_content String
+    content_type      VideoTextType  @default(text)
+    Subtitle          Subtitle[]
+    Sentence          Sentence[]
+    created_at        DateTime       @default(now())
+    updated_at        DateTime       @default(now())
+}
+
+model Sentence {
+    id                   Int                    @id @default(autoincrement())
+    bookChapter          BookChapter?           @relation(fields: [book_chapter_id], references: [id], onDelete: Cascade)
+    book_chapter_id      Int?
+    videoPrivate         VideoPrivate?          @relation(fields: [video_private_id], references: [id], onDelete: Cascade)
+    video_private_id     Int?
+    videoPublic          VideoPublic?           @relation(fields: [video_public_id], references: [id], onDelete: Cascade)
+    video_public_id      Int?
+    start_offset         Int
+    length               Int
+    order_index          Int
+    SubtitleSentenceInit SubtitleSentenceInit[]
+    SentenceTranslation  SentenceTranslation[]
+}
+
+model SentenceTranslation {
+    id          Int      @id @default(autoincrement())
+    sentence    Sentence @relation(fields: [sentence_id], references: [id], onDelete: Cascade)
+    sentence_id Int
+    translation String
+    analysis    String?
+    created_at  DateTime @default(now())
+
+    @@index([sentence_id])
+}
+
+model Subtitle {
+    id                   Int                    @id @default(autoincrement())
+    start_time_ms        Int
+    end_time_ms          Int
+    start_offset         Int
+    length               Int
+    order_index          Int
+    videoPrivate         VideoPrivate?          @relation(fields: [video_private_id], references: [id], onDelete: Cascade)
+    video_private_id     Int?
+    videoPublic          VideoPublic?           @relation(fields: [video_public_id], references: [id], onDelete: Cascade)
+    video_public_id      Int?
+    SubtitleSentenceInit SubtitleSentenceInit[]
+}
+
+model SubtitleSentenceInit {
+    id           Int      @id @default(autoincrement())
+    subtitle     Subtitle @relation(fields: [subtitle_id], references: [id], onDelete: Cascade)
+    subtitle_id  Int
+    sentence     Sentence @relation(fields: [sentence_id], references: [id], onDelete: Cascade)
+    sentence_id  Int
+    start_offset Int
+    length       Int
+
+    @@index([subtitle_id])
+    @@index([sentence_id])
 }
 
 model EngRusDictionary {
@@ -133,10 +190,41 @@ model EngRusDictionary {
     updated_at    DateTime @default(now())
 }
 
+model Tariff {
+    id                        Int                @id @default(autoincrement())
+    code                      String             @unique
+    slogan                    String
+    name                      String
+    description               String
+    is_public_media_included  Boolean            @default(false)
+    is_private_media_included Boolean            @default(false)
+    price                     Int
+    included_balance          Int
+    included_file_storage_mb  Int
+    duration_days             Int
+    created_at                DateTime           @default(now())
+    userSubscriptions         UserSubscription[]
+}
+
+model UserSubscription {
+    id                             Int                              @id @default(autoincrement())
+    user                           User                             @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    user_id                        Int
+    tariff                         Tariff                           @relation(fields: [tariff_id], references: [id], onDelete: Restrict)
+    tariff_id                      Int
+    price_paid                     Int
+    balance                        Int
+    included_file_storage_mb       Int
+    starts_at                      DateTime
+    ends_at                        DateTime
+    payment                        Payment?                         @relation(fields: [payment_id], references: [id], onDelete: Cascade)
+    payment_id                     Int?                             @unique
+    SubscriptionBalanceTransaction SubscriptionBalanceTransaction[]
+    created_at                     DateTime                         @default(now())
+}
+
 enum BalanceTransactionType {
-    TOP_UP
     CHARGE
-    ACCOUNT_CONFIRMATION_WELCOME_BONUS
 }
 
 enum PaymentStatus {
@@ -148,4 +236,28 @@ enum PaymentStatus {
 
 enum PaymentProviderName {
     YOOKASSA
+}
+
+enum LanguageCode {
+    en
+    es
+    fr
+    de
+    it
+    pt
+    ru
+    tr
+    ar
+    zhCMN
+    ko
+    ja
+}
+
+enum S3ProviderName {
+    cloudRu
+}
+
+enum VideoTextType {
+    text
+    subtitles
 }

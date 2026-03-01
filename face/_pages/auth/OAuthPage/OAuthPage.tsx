@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { redirect } from 'next/navigation'
-import ErrorMessage from '../../../ui/ErrorMessage/ErrorMessage'
+import ErrorMessage from '@/ui/ErrorMessage/ErrorMessage'
 import Spinner from '../../../ui/Spinner/Spinner'
 import { useAuthorizeUser } from './fn/authorizeUser'
 import { pageUrls } from 'сonsts/pageUrls'
@@ -19,7 +19,7 @@ function OAuthPage(props: OAuthPageProps) {
 	const { authorizationStatus, error } = useAuthorizeUser(providerType)
 
 	if (authorizationStatus === 'loading') {
-		return <Spinner />
+		return <Spinner size='small' />
 	} else if (authorizationStatus === 'error') {
 		return <ErrorMessage text={error} />
 	}

@@ -12,13 +12,9 @@ export class UpdatePrivateVideoInput {
 	@DtoFieldDecorators('name', bdConfig.VideoPrivate.dbFields.name)
 	name?: null | string
 
-	@Field(() => String, { description: 'Text', nullable: true })
-	@DtoFieldDecorators('text', bdConfig.VideoPrivate.dbFields.text)
-	text?: null | string
-
-	@Field(() => String, { description: 'Text resolved', nullable: true })
-	@DtoFieldDecorators('textResolved', bdConfig.VideoPrivate.dbFields.text_resolved)
-	textResolved?: null | string
+	@Field(() => String, { description: 'Original content', nullable: true })
+	@DtoFieldDecorators('originalContent', bdConfig.VideoPrivate.dbFields.original_content)
+	originalContent?: null | string
 
 	@Field(() => String, { description: 'File name', nullable: true })
 	@DtoFieldDecorators('fileName', bdConfig.VideoPrivate.dtoProps.fileName)
@@ -36,8 +32,7 @@ export class UpdatePrivateVideoInput {
 	isFileUploaded?: boolean
 
 	@Field(() => Number, { description: 'File size', nullable: true })
-	@DtoFieldDecorators('isFileUploaded', bdConfig.VideoPrivate.dbFields.file_size_mb, {
-		type: 'number',
+	@DtoFieldDecorators('fileSizeMb', bdConfig.VideoPrivate.dbFields.file_size_mb, {
 		required: false,
 	})
 	fileSizeMb?: number

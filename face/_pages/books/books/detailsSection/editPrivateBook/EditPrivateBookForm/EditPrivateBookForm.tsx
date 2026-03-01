@@ -7,8 +7,7 @@ import FormError from '@/ui/formRelated/FormError/FormError'
 import FormFieldsWrapper from '@/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
 import TextInput from '@/ui/formRelated/TextInput/TextInput'
 import { FormStatus } from '@/utils/forms'
-import BookFormSurface from '../../common/BookFormSurface/BookFormSurface'
-import EditDetailsFormHeader from '../../common/EditDetailsFormHeader/EditDetailsFormHeader'
+import MediaFormSurface from '_pages/bookAndVideoCommon/BookFormSurface/MediaFormSurface'
 import DeleteBookButton from '../DeleteBookButton/DeleteBookButton'
 import { ChangeBookFormData, changeBookFormSchema, ChangeBookFormTest } from './fn/form'
 import { useSetFieldValues } from './fn/setFieldValues'
@@ -34,9 +33,8 @@ export default function EditBookForm() {
 
 	return (
 		<>
-			<EditDetailsFormHeader />
 			<form onSubmit={handleSubmit(onSubmit)} data-testid={ChangeBookFormTest.form.id}>
-				<BookFormSurface
+				<MediaFormSurface
 					leftBottomButtons={[<DeleteBookButton key='delete' />]}
 					rightBottomButtons={[
 						<Button
@@ -83,7 +81,7 @@ export default function EditBookForm() {
 						/>
 						<FormError text={formError} dataTestId={ChangeBookFormTest.failMessage.id} />
 					</FormFieldsWrapper>
-				</BookFormSurface>
+				</MediaFormSurface>
 			</form>
 		</>
 	)

@@ -1,15 +1,9 @@
 import * as yup from 'yup'
 
-export const MaxContentLength = 4000
-
 export const changeChapterFormSchema = yup.object({
 	name: yup.string().nullable().notRequired(),
 	header: yup.string().nullable().notRequired(),
-	content: yup
-		.string()
-		.nullable()
-		.notRequired()
-		.max(MaxContentLength, `Максимальная длина текста — ${MaxContentLength} символов`),
+	content: yup.string().nullable().notRequired(),
 	note: yup.string().nullable().notRequired(),
 })
 

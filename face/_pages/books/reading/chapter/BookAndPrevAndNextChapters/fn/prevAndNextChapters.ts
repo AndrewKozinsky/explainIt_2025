@@ -1,5 +1,5 @@
-import { BookChapterLiteOutModel } from '@/graphql'
 import { useMemo } from 'react'
+import { BookChapterLiteOutModel } from '@/graphql'
 import { useReadingStore } from '_pages/books/reading/readingStore'
 
 export function useGetPrevAndNextChapters() {

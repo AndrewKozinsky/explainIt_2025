@@ -2,7 +2,11 @@ mutation VideoPrivate_create($input: CreatePrivateVideoInput!) {
 	video_private_create(input: $input) {
 		id
 		name
-		text
+		year
+		languageCode
+		contentType
+		originalContent
+		processedContent
 		userId
 	}
 }

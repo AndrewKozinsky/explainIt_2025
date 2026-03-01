@@ -15,8 +15,14 @@ export class BookPublicOutModel {
 	@Field(() => String)
 	note: string
 
+	@Field(() => [String])
+	covers: string[]
+
 	@Field(() => String)
-	cover: string
+	languageCode: string
+
+	@Field(() => Boolean)
+	freeToUse: boolean
 
 	@Field(() => [BookChapterLiteOutModel])
 	chapters: BookChapterLiteOutModel[]

@@ -1,9 +1,7 @@
 import { INestApplication } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
-import { welcomeBonusInKop } from '../utils/common'
+import { App } from 'supertest/types'
 import { bookUtils } from '../../e2e/utils/bookUtils'
-import { BookPrivateQueryRepository } from '../../src/repo/bookPrivate.queryRepository'
-import { UserRepository } from '../../src/repo/user.repository'
 import {
 	UserBookConfig,
 	UserRegisteredWithCredentialsAndOAuthConfig,
@@ -11,9 +9,15 @@ import {
 	UserRegisteredWithOAuthConfig,
 	UserWithUnconfirmedEmailConfig,
 } from '../../src/features/db/serverTestDataConfig'
-import { App } from 'supertest/types'
-import { createApp } from '../utils/createApp'
+import { BookPrivateQueryRepository } from '../../src/repo/bookPrivate.queryRepository'
+import { UserRepository } from '../../src/repo/user.repository'
 import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
+import { welcomeBonusInKop } from '../utils/common'
+import { createApp } from '../utils/createApp'
+
+it('1', () => {
+	expect(2).toBe(2)
+})
 
 describe.skip('Check that test user were created correctly (e2e)', () => {
 	let app: INestApplication<App>
@@ -64,7 +68,7 @@ describe.skip('Check that test user were created correctly (e2e)', () => {
 	})*/
 })
 
-async function checkUserWithUnconfirmedEmail(props: {
+/*async function checkUserWithUnconfirmedEmail(props: {
 	userConfig: UserWithUnconfirmedEmailConfig
 	userRepository: UserRepository
 	bookQueryRepository: BookPrivateQueryRepository
@@ -84,9 +88,9 @@ async function checkUserWithUnconfirmedEmail(props: {
 	// Check books
 	const books = await bookQueryRepository.getUserBooks(userConfig.id)
 	expect(books.length).toBe(1)
-}
+}*/
 
-async function checkUserWithConfirmedEmail(props: {
+/*async function checkUserWithConfirmedEmail(props: {
 	userConfig: UserRegisteredWithCredentialsConfig
 	userRepository: UserRepository
 	bookQueryRepository: BookPrivateQueryRepository
@@ -103,9 +107,9 @@ async function checkUserWithConfirmedEmail(props: {
 	expect(userFromDB.balance).toBe(0)
 
 	await checkUserBooks({ userId: userConfig.id, booksConfig: userConfig.books, bookQueryRepository })
-}
+}*/
 
-async function checkUserWithOAuth(props: {
+/*async function checkUserWithOAuth(props: {
 	userConfig: UserRegisteredWithOAuthConfig
 	userRepository: UserRepository
 	bookQueryRepository: BookPrivateQueryRepository
@@ -122,9 +126,9 @@ async function checkUserWithOAuth(props: {
 	expect(userFromDB.balance).toBe(welcomeBonusInKop * 100)
 
 	await checkUserBooks({ userId: userConfig.id, booksConfig: userConfig.books, bookQueryRepository })
-}
+}*/
 
-async function checkUserWithCredentialsAndOAuth(props: {
+/*async function checkUserWithCredentialsAndOAuth(props: {
 	userConfig: UserRegisteredWithCredentialsAndOAuthConfig
 	userRepository: UserRepository
 	bookQueryRepository: BookPrivateQueryRepository
@@ -141,7 +145,7 @@ async function checkUserWithCredentialsAndOAuth(props: {
 	expect(userFromDB.balance).toBe(welcomeBonusInKop * 100)
 
 	await checkUserBooks({ userId: userConfig.id, booksConfig: userConfig.books, bookQueryRepository })
-}
+}*/
 
 async function checkUserBooks(props: {
 	userId: number

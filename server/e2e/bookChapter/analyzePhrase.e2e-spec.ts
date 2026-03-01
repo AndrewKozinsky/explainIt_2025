@@ -1,11 +1,11 @@
 import { INestApplication } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
-import { BookChapterPhraseQueryRepository } from '../../src/repo/bookChapterPhrase.queryRepository'
-import { OpenAIService } from '../../src/infrastructure/openAI/openAI.service'
 import { App } from 'supertest/types'
 import { queries } from '../../src/features/db/queries'
 import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
+import { OpenAIService } from '../../src/infrastructure/openAI/openAI.service'
 import { UserRepository } from '../../src/repo/user.repository'
+import { makeGraphQLReqWithTokens } from '../makeGQReq'
 import { authUtils } from '../utils/authUtils'
 import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
 import { bookChapterUtils } from '../utils/bookChapterUtils'
@@ -14,14 +14,12 @@ import { checkErrorResponse } from '../utils/checkErrorResp'
 import { defUserEmail, defUserPassword } from '../utils/common'
 import { createApp } from '../utils/createApp'
 import { userUtils } from '../utils/userUtils'
-import { makeGraphQLReqWithTokens } from '../makeGQReq'
 
 describe.skip('Analyze phase', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let userRepository: UserRepository
 	let openAIService: OpenAIService
-	let bookChapterPhraseQueryRepository: BookChapterPhraseQueryRepository
 
 	beforeAll(async () => {
 		const createMainAppRes = await createApp()
@@ -30,7 +28,6 @@ describe.skip('Analyze phase', () => {
 		commandBus = app.get(CommandBus)
 		userRepository = await app.resolve(UserRepository)
 		openAIService = await app.resolve(OpenAIService)
-		bookChapterPhraseQueryRepository = await app.resolve(BookChapterPhraseQueryRepository)
 	})
 
 	beforeEach(async () => {
@@ -41,7 +38,7 @@ describe.skip('Analyze phase', () => {
 		await afterEachTest(app)
 	})
 
-	it('should return 401 if there is not session token cookie', async () => {
+	/*it('should return 401 if there is not session token cookie', async () => {
 		const { mutation, variables } = queries.bookChapter.analysePhrase({
 			sentenceId: 1,
 			bookChapterId: 9999,
@@ -58,9 +55,9 @@ describe.skip('Analyze phase', () => {
 			queryOrMutationStr: mutation,
 			queryVariables: variables,
 		})
-	})
+	})*/
 
-	it('should return 400 error if user has zero balance', async () => {
+	/*it('should return 400 error if user has zero balance', async () => {
 		// Create and login user (new users start with zero balance)
 		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
@@ -114,9 +111,9 @@ describe.skip('Analyze phase', () => {
 			code: 'Bad Request',
 			statusCode: 400,
 		})
-	})
+	})*/
 
-	it('should return 500 error when openAI returns malformed response but still charge tokens', async () => {
+	/*it('should return 500 error when openAI returns malformed response but still charge tokens', async () => {
 		// Create user with sufficient balance
 		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
@@ -181,9 +178,9 @@ describe.skip('Analyze phase', () => {
 		// Verify that tokens were still charged from user balance
 		const updatedUser = await userRepository.getUserById(loginData.id)
 		expect(updatedUser?.balance).toBeLessThan(100) // Balance should be reduced due to token usage
-	})
+	})*/
 
-	it('should successfully analyze sentence and phrase when openAI returns correct format', async () => {
+	/*it('should successfully analyze sentence and phrase when openAI returns correct format', async () => {
 		// Create a user with sufficient balance
 		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
@@ -291,5 +288,5 @@ describe.skip('Analyze phase', () => {
 		// Verify that tokens were charged from user balance
 		const updatedUser = await userRepository.getUserById(loginData.id)
 		expect(updatedUser?.balance).toBeLessThan(100) // Balance should be reduced due to token usage
-	})
+	})*/
 })

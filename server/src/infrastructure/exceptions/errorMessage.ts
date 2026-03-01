@@ -12,7 +12,17 @@ export const errorMessage = {
 	userNotFound: 'Пользователь не найден.',
 	userUnauthorized: 'Пользователь не авторизован.',
 	userBalanceIsNegative: 'Отрицательный баланс.',
+	userHasNoActiveSubscription: 'У пользователя нет активной подписки.',
+	privateMediaIsNotIncludedInSubscriptionTariff: 'Тариф подписки не включает перевод приватного медиа.',
+	insufficientSubscriptionBalanceForPrivateMediaTranslation: 'Недостаточно средств на балансе подписки для перевода приватного медиа.',
 	userIsNotOwner: 'Пользователь не является владельцем этой сущности.',
+	tariffNotFound: 'Тариф не найден.',
+	tariffIdIsRequired: 'Tariff id is required',
+	paymentIdIsRequiredForPaymentTransactions: 'Payment ID is required for payment transactions',
+	cannotDepositAmountLessThanZero: 'You cannot deposit an amount less than zero into your balance.',
+	cannotWriteOffAmountGreaterThanZero: 'You cannot write off an amount greater than zero from your balance.',
+	invalidSrtFormat: 'Invalid SRT format',
+	invalidSrtTimeFormat: 'Invalid SRT time format',
 
 	// AUTH
 	sessionTokenIsNotValid: 'Токен сессии недействителен.',
@@ -81,8 +91,19 @@ export const errorMessage = {
 		cannotAnalyzeSentenceAndPhrase: 'Не удалось проанализировать предложение и фразу.',
 	},
 
+	sentence: {
+		notFound: 'Предложение не найдено.',
+	},
+
 	video: {
 		notCreated: 'Видел не создано.',
 		notFound: 'Видео не найдено.',
+	},
+	sentenceTranslation: {
+		notFound: 'Перевод предложения не найден.',
+		alreadyExists: 'Перевод предложения уже существует.',
+	},
+	nlp: {
+		cantDivideTextIntoSentences: 'Не получилось разделить текст на предложения.',
 	},
 }

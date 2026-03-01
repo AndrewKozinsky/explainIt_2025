@@ -2,7 +2,7 @@ name: Deploy to the develop server
 on:
   push:
     branches:
-      - improve-main-page
+      - new-media-structure
 
 jobs:
   deploy:
@@ -19,10 +19,10 @@ jobs:
 
       - name: Pull changes on server
         run: |
-          ssh -o StrictHostKeyChecking=no root@45.144.178.155 << 'EOF'
+          ssh -o StrictHostKeyChecking=no root@85.198.87.86 << 'EOF'
             cd ~/sites/explain_dev
 
-            git checkout improve-main-page
+            git checkout develop
             git reset --hard
             git pull
           

@@ -1,6 +1,6 @@
+import { create } from 'zustand'
 import { BookChapterOutModel } from '@/graphql'
 import { BookPublicOutModel, BookOutModel } from '@/graphql'
-import { create } from 'zustand'
 
 export const booksStoreValues: BooksStoreValues = {
 	pageUrlType: 'books',

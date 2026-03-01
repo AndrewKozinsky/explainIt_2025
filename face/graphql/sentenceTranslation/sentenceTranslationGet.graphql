@@ -1,0 +1,9 @@
+query SentenceTranslation_get($input: GetSentenceTranslationInput!) {
+	sentence_translation_get(input: $input) {
+		id
+		sentenceId
+		translation
+		analysis
+		createdAt
+	}
+}

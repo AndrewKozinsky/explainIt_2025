@@ -228,6 +228,87 @@ export type EnumPaymentProviderNameWithAggregatesFilter<$PrismaModel = never> = 
   _max?: Prisma.NestedEnumPaymentProviderNameFilter<$PrismaModel>
 }
 
+export type EnumLanguageCodeFilter<$PrismaModel = never> = {
+  equals?: $Enums.LanguageCode | Prisma.EnumLanguageCodeFieldRefInput<$PrismaModel>
+  in?: $Enums.LanguageCode[] | Prisma.ListEnumLanguageCodeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.LanguageCode[] | Prisma.ListEnumLanguageCodeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumLanguageCodeFilter<$PrismaModel> | $Enums.LanguageCode
+}
+
+export type EnumLanguageCodeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.LanguageCode | Prisma.EnumLanguageCodeFieldRefInput<$PrismaModel>
+  in?: $Enums.LanguageCode[] | Prisma.ListEnumLanguageCodeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.LanguageCode[] | Prisma.ListEnumLanguageCodeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumLanguageCodeWithAggregatesFilter<$PrismaModel> | $Enums.LanguageCode
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumLanguageCodeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumLanguageCodeFilter<$PrismaModel>
+}
+
+export type BoolNullableFilter<$PrismaModel = never> = {
+  equals?: boolean | Prisma.BooleanFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedBoolNullableFilter<$PrismaModel> | boolean | null
+}
+
+export type BoolNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: boolean | Prisma.BooleanFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedBoolNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedBoolNullableFilter<$PrismaModel>
+}
+
+export type EnumS3ProviderNameNullableFilter<$PrismaModel = never> = {
+  equals?: $Enums.S3ProviderName | Prisma.EnumS3ProviderNameFieldRefInput<$PrismaModel> | null
+  in?: $Enums.S3ProviderName[] | Prisma.ListEnumS3ProviderNameFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.S3ProviderName[] | Prisma.ListEnumS3ProviderNameFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumS3ProviderNameNullableFilter<$PrismaModel> | $Enums.S3ProviderName | null
+}
+
+export type EnumVideoTextTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.VideoTextType | Prisma.EnumVideoTextTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.VideoTextType[] | Prisma.ListEnumVideoTextTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.VideoTextType[] | Prisma.ListEnumVideoTextTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumVideoTextTypeFilter<$PrismaModel> | $Enums.VideoTextType
+}
+
+export type EnumS3ProviderNameNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.S3ProviderName | Prisma.EnumS3ProviderNameFieldRefInput<$PrismaModel> | null
+  in?: $Enums.S3ProviderName[] | Prisma.ListEnumS3ProviderNameFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.S3ProviderName[] | Prisma.ListEnumS3ProviderNameFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumS3ProviderNameNullableWithAggregatesFilter<$PrismaModel> | $Enums.S3ProviderName | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumS3ProviderNameNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumS3ProviderNameNullableFilter<$PrismaModel>
+}
+
+export type EnumVideoTextTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.VideoTextType | Prisma.EnumVideoTextTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.VideoTextType[] | Prisma.ListEnumVideoTextTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.VideoTextType[] | Prisma.ListEnumVideoTextTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumVideoTextTypeWithAggregatesFilter<$PrismaModel> | $Enums.VideoTextType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumVideoTextTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumVideoTextTypeFilter<$PrismaModel>
+}
+
+export type EnumS3ProviderNameFilter<$PrismaModel = never> = {
+  equals?: $Enums.S3ProviderName | Prisma.EnumS3ProviderNameFieldRefInput<$PrismaModel>
+  in?: $Enums.S3ProviderName[] | Prisma.ListEnumS3ProviderNameFieldRefInput<$PrismaModel>
+  notIn?: $Enums.S3ProviderName[] | Prisma.ListEnumS3ProviderNameFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumS3ProviderNameFilter<$PrismaModel> | $Enums.S3ProviderName
+}
+
+export type EnumS3ProviderNameWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.S3ProviderName | Prisma.EnumS3ProviderNameFieldRefInput<$PrismaModel>
+  in?: $Enums.S3ProviderName[] | Prisma.ListEnumS3ProviderNameFieldRefInput<$PrismaModel>
+  notIn?: $Enums.S3ProviderName[] | Prisma.ListEnumS3ProviderNameFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumS3ProviderNameWithAggregatesFilter<$PrismaModel> | $Enums.S3ProviderName
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumS3ProviderNameFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumS3ProviderNameFilter<$PrismaModel>
+}
+
 export type NestedIntFilter<$PrismaModel = never> = {
   equals?: number | Prisma.IntFieldRefInput<$PrismaModel>
   in?: number[] | Prisma.ListIntFieldRefInput<$PrismaModel>
@@ -453,6 +534,87 @@ export type NestedEnumPaymentProviderNameWithAggregatesFilter<$PrismaModel = nev
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumPaymentProviderNameFilter<$PrismaModel>
   _max?: Prisma.NestedEnumPaymentProviderNameFilter<$PrismaModel>
+}
+
+export type NestedEnumLanguageCodeFilter<$PrismaModel = never> = {
+  equals?: $Enums.LanguageCode | Prisma.EnumLanguageCodeFieldRefInput<$PrismaModel>
+  in?: $Enums.LanguageCode[] | Prisma.ListEnumLanguageCodeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.LanguageCode[] | Prisma.ListEnumLanguageCodeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumLanguageCodeFilter<$PrismaModel> | $Enums.LanguageCode
+}
+
+export type NestedEnumLanguageCodeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.LanguageCode | Prisma.EnumLanguageCodeFieldRefInput<$PrismaModel>
+  in?: $Enums.LanguageCode[] | Prisma.ListEnumLanguageCodeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.LanguageCode[] | Prisma.ListEnumLanguageCodeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumLanguageCodeWithAggregatesFilter<$PrismaModel> | $Enums.LanguageCode
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumLanguageCodeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumLanguageCodeFilter<$PrismaModel>
+}
+
+export type NestedBoolNullableFilter<$PrismaModel = never> = {
+  equals?: boolean | Prisma.BooleanFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedBoolNullableFilter<$PrismaModel> | boolean | null
+}
+
+export type NestedBoolNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: boolean | Prisma.BooleanFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedBoolNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedBoolNullableFilter<$PrismaModel>
+}
+
+export type NestedEnumS3ProviderNameNullableFilter<$PrismaModel = never> = {
+  equals?: $Enums.S3ProviderName | Prisma.EnumS3ProviderNameFieldRefInput<$PrismaModel> | null
+  in?: $Enums.S3ProviderName[] | Prisma.ListEnumS3ProviderNameFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.S3ProviderName[] | Prisma.ListEnumS3ProviderNameFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumS3ProviderNameNullableFilter<$PrismaModel> | $Enums.S3ProviderName | null
+}
+
+export type NestedEnumVideoTextTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.VideoTextType | Prisma.EnumVideoTextTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.VideoTextType[] | Prisma.ListEnumVideoTextTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.VideoTextType[] | Prisma.ListEnumVideoTextTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumVideoTextTypeFilter<$PrismaModel> | $Enums.VideoTextType
+}
+
+export type NestedEnumS3ProviderNameNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.S3ProviderName | Prisma.EnumS3ProviderNameFieldRefInput<$PrismaModel> | null
+  in?: $Enums.S3ProviderName[] | Prisma.ListEnumS3ProviderNameFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.S3ProviderName[] | Prisma.ListEnumS3ProviderNameFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumS3ProviderNameNullableWithAggregatesFilter<$PrismaModel> | $Enums.S3ProviderName | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumS3ProviderNameNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumS3ProviderNameNullableFilter<$PrismaModel>
+}
+
+export type NestedEnumVideoTextTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.VideoTextType | Prisma.EnumVideoTextTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.VideoTextType[] | Prisma.ListEnumVideoTextTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.VideoTextType[] | Prisma.ListEnumVideoTextTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumVideoTextTypeWithAggregatesFilter<$PrismaModel> | $Enums.VideoTextType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumVideoTextTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumVideoTextTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumS3ProviderNameFilter<$PrismaModel = never> = {
+  equals?: $Enums.S3ProviderName | Prisma.EnumS3ProviderNameFieldRefInput<$PrismaModel>
+  in?: $Enums.S3ProviderName[] | Prisma.ListEnumS3ProviderNameFieldRefInput<$PrismaModel>
+  notIn?: $Enums.S3ProviderName[] | Prisma.ListEnumS3ProviderNameFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumS3ProviderNameFilter<$PrismaModel> | $Enums.S3ProviderName
+}
+
+export type NestedEnumS3ProviderNameWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.S3ProviderName | Prisma.EnumS3ProviderNameFieldRefInput<$PrismaModel>
+  in?: $Enums.S3ProviderName[] | Prisma.ListEnumS3ProviderNameFieldRefInput<$PrismaModel>
+  notIn?: $Enums.S3ProviderName[] | Prisma.ListEnumS3ProviderNameFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumS3ProviderNameWithAggregatesFilter<$PrismaModel> | $Enums.S3ProviderName
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumS3ProviderNameFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumS3ProviderNameFilter<$PrismaModel>
 }
 
 

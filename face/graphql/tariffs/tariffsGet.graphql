@@ -1,0 +1,16 @@
+query Tariff_get_tariffs {
+	tariff_get_tariffs {
+		id
+		code
+		slogan
+		name
+		description
+		isPublicMediaIncluded
+		isPrivateMediaIncluded
+		price
+		durationDays
+		includedBalance
+		includedFileStorageMb
+		createdAt
+	}
+}

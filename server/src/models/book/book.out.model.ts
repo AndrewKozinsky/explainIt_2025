@@ -12,11 +12,17 @@ export class BookOutModel {
 	@Field(() => String, { nullable: true })
 	name: string | null
 
+	@Field(() => String)
+	languageCode: string
+
 	@Field(() => String, { nullable: true })
 	note: string | null
 
 	@Field(() => Int)
 	userId: number
+
+	@Field(() => Boolean)
+	freeToUse: boolean
 
 	@Field(() => [BookChapterLiteOutModel])
 	chapters: BookChapterLiteOutModel[]
@@ -32,6 +38,9 @@ export class BookLiteOutModel {
 
 	@Field(() => String, { nullable: true })
 	name: string | null
+
+	@Field(() => String)
+	languageCode: string
 
 	@Field(() => String, { nullable: true })
 	note: string | null

@@ -1,0 +1,25 @@
+import SentenceBlock from '_pages/bookAndVideoCommon/SentenceBlock/SentenceBlock'
+import { useDetailsStore } from '../detailsStore'
+import './SelectedSentence.scss'
+
+export function SelectedSentence() {
+	const sentenceId = useDetailsStore((s) => s.sentenceId)
+	const sentenceText = useDetailsStore((s) => s.sentenceText)
+	const wordIds = useDetailsStore((s) => s.wordIds)
+	const selectWord = useDetailsStore((s) => s.selectWord)
+
+	if (!sentenceId || !sentenceText) {
+		return null
+	}
+
+	return (
+		<SentenceBlock
+			sentenceId={sentenceId}
+			sentenceText={sentenceText}
+			selectedSentenceId={sentenceId}
+			selectedWordIds={wordIds}
+			selectWord={selectWord}
+			className='selected-sentence'
+		/>
+	)
+}

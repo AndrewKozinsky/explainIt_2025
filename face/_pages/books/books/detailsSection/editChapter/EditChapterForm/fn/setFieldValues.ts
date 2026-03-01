@@ -1,7 +1,5 @@
-import { chapterStructureIntoText } from '_pages/books/commonLogic/chapterStructureIntoText/chapterStructureIntoText'
-import { useBooksStore } from '_pages/books/books/booksStore'
-import { ChapterTextStructure } from '_pages/books/commonLogic/chapterStructureTypes'
 import { useEffect } from 'react'
+import { useBooksStore } from '_pages/books/books/booksStore'
 
 export function useSetFieldValues(reset: (data: any) => void) {
 	const chapter = useBooksStore((s) => s.chapter.data)
@@ -12,21 +10,8 @@ export function useSetFieldValues(reset: (data: any) => void) {
 		reset({
 			name: chapter.name ?? '',
 			header: chapter.header ?? '',
-			content: getCorrectContent(chapter.content),
+			content: chapter.content,
 			note: chapter.note ?? '',
 		})
 	}, [chapter, reset])
-}
-
-function getCorrectContent(content: string | null | undefined) {
-	if (!content) {
-		return ''
-	}
-
-	try {
-		const parsedContent: ChapterTextStructure.Chapter = JSON.parse(content)
-		return chapterStructureIntoText(parsedContent)
-	} catch (e) {
-		return ''
-	}
 }

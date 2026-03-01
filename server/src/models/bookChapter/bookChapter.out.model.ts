@@ -1,5 +1,4 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql'
-import { BookChapterPhraseOutModel } from 'models/bookChapterPhrase/bookChapterPhrase.out.model'
 import { BookLiteOutModel } from '../book/book.out.model'
 
 @ObjectType()
@@ -32,14 +31,26 @@ export class BookChapterOutModel {
 	header: string | null
 
 	@Field(() => String, { nullable: true })
-	content: string | null
+	note: string | null
 
 	@Field(() => String, { nullable: true })
-	note: string | null
+	content: string | null
+
+	@Field(() => [SentenceOutModel], { nullable: true })
+	sentences: SentenceOutModel[]
 
 	@Field(() => BookLiteOutModel)
 	book: BookLiteOutModel
+}
 
-	@Field(() => [BookChapterPhraseOutModel])
-	phrases: BookChapterPhraseOutModel[]
+@ObjectType()
+export class SentenceOutModel {
+	@Field(() => Int)
+	id: number
+
+	@Field(() => Int)
+	startOffset: number
+
+	@Field(() => Int)
+	length: number
 }

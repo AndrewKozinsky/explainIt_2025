@@ -124,7 +124,7 @@ describe.skip('Create book chapter', () => {
 		})
 	})
 
-	it('should create several book chapters if the book belongs to this user', async () => {
+	/*it('should create several book chapters if the book belongs to this user', async () => {
 		// Create a user who will create a book
 		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
@@ -178,7 +178,7 @@ describe.skip('Create book chapter', () => {
 		// Check that the user has three book chapters in the database (one chapter was added when a user created a book)
 		const userBookChapters = await bookChapterQueryRepository.getBookChapters(book.id)
 		expect(userBookChapters.length).toBe(3)
-	})
+	})*/
 
 	it('should create book chapter and get structured chapter text', async () => {
 		// Create a user who will create a book

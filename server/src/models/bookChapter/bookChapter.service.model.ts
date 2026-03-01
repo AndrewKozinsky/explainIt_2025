@@ -4,8 +4,13 @@ export type BookChapterServiceModel = {
 	id: number
 	name: string | null
 	header: string | null
-	content: string | null
 	note: string | null
+	content: string | null
+	sentences: {
+		id: number
+		startOffset: number
+		length: number
+	}[]
 	book: BookLiteServiceModel
 }
 

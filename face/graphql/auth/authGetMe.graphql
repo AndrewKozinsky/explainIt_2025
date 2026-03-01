@@ -3,6 +3,17 @@ query Auth_getMe {
 		id
 		email
 		isUserConfirmed
-		balance
+		currentSubscription {
+			tariffId
+			tariffCode
+			tariffName
+			isPublicMediaIncluded
+			isPrivateMediaIncluded
+			pricePaid
+			balance
+			includedFileStorageMb
+			startsAt
+			endsAt
+		}
 	}
 }

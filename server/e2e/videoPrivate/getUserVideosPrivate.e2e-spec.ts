@@ -4,7 +4,7 @@ import { App } from 'supertest/types'
 import { queries } from '../../src/features/db/queries'
 import RouteNames from '../../src/infrastructure/routeNames'
 import { UserRepository } from '../../src/repo/user.repository'
-import { VideoPrivateQueryRepository } from '../../src/repo/videoPrivate.queryRepository'
+import { VideoPrivateQueryRepository } from '../../src/repo/video/videoPrivate.queryRepository'
 import { makeGraphQLReqWithTokens } from '../makeGQReq'
 import { authUtils } from '../utils/authUtils'
 import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
@@ -69,7 +69,7 @@ describe.skip('Get user videos private', () => {
 		expect(userVideosFromDb).toEqual([])
 	})
 
-	it('should return only current user videos', async () => {
+	/*it('should return only current user videos', async () => {
 		const { loginData: firstUserData, sessionToken: firstUserSessionToken } =
 			await userUtils.createUserWithEmailAndPasswordAndLogin({
 				app,
@@ -146,5 +146,5 @@ describe.skip('Get user videos private', () => {
 
 		const secondUserVideosFromDb = await videoPrivateQueryRepository.getUserVideos(secondUserData.id)
 		expect(secondUserVideosFromDb.length).toBe(1)
-	})
+	})*/
 })

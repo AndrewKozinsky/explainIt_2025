@@ -18,19 +18,24 @@ import { BdConfig } from '../../dbConfig/dbConfigType'
  */
 export function createManyToOneColumn(fieldConfig: BdConfig.ManyToOneField) {
 	// Get first column name from thisField name: userId -> user
-	let firstColumnName = fieldConfig.thisField.slice(0, -2)
-	if (firstColumnName.endsWith('_')) {
-		firstColumnName = firstColumnName.slice(0, -1)
+	// Or use relationField if it was explicitly set.
+	let firstColumnName = fieldConfig.relationField
+	if (!firstColumnName) {
+		firstColumnName = fieldConfig.thisField.slice(0, -2)
+		if (firstColumnName.endsWith('_')) {
+			firstColumnName = firstColumnName.slice(0, -1)
+		}
 	}
 
 	// User, userId, id
 	const { foreignTable, thisField, foreignField } = fieldConfig
+	const onDelete = fieldConfig.onDelete ?? 'Cascade'
 
 	const requiredMark = fieldConfig.required ? '' : '?'
 
 	// For example: 'user User @relation(fields: [userId], references: [id])'
 	// Or: 'user User? @relation(fields: [userId], references: [id])'
-	const firstColumn = `${firstColumnName} ${foreignTable}${requiredMark} @relation(fields: [${thisField}], references: [${foreignField}], onDelete: Cascade)`
+	const firstColumn = `${firstColumnName} ${foreignTable}${requiredMark} @relation(fields: [${thisField}], references: [${foreignField}], onDelete: ${onDelete})`
 
 	// For example: 'userId Int'
 	// Or: 'userId Int?'
@@ -54,6 +59,7 @@ export function createManyToOneColumn(fieldConfig: BdConfig.ManyToOneField) {
  */
 export function createChildOneToOneColumn(fieldConfig: BdConfig.ChildOneToOneField) {
 	const unnecessaryFieldSign = fieldConfig.required ? '' : '?'
+	const onDelete = fieldConfig.onDelete ?? 'Cascade'
 
 	// Get first column name from thisField name: userId -> user OR user_id -> user
 	let firstColumnName = fieldConfig.thisField.slice(0, -2)
@@ -63,11 +69,11 @@ export function createChildOneToOneColumn(fieldConfig: BdConfig.ChildOneToOneFie
 
 	// Creates such string:
 	// 'user User @relation(fields: [user_id], references: [id])'
-	const str1 = `${firstColumnName} ${fieldConfig.foreignTable}${unnecessaryFieldSign} @relation(fields: [${fieldConfig.thisField}], references: [${fieldConfig.foreignField}])`
+	const str1 = `${firstColumnName} ${fieldConfig.foreignTable}${unnecessaryFieldSign} @relation(fields: [${fieldConfig.thisField}], references: [${fieldConfig.foreignField}], onDelete: ${onDelete})`
 
 	// Creates such string:
 	// 'user_id Int	@unique'
-	const str2 = `${fieldConfig.thisField} Int${unnecessaryFieldSign}	@unique`
+	const str2 = `${fieldConfig.thisField} Int${unnecessaryFieldSign}\t@unique`
 
 	return ['\t' + str1, '\t' + str2]
 }

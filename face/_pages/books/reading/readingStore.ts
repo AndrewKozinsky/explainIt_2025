@@ -1,8 +1,5 @@
-import { ChapterTextStructurePopulated } from '_pages/books/commonLogic/chapterStructureTypes'
-import { BookChapterOutModel, BookChapterPhraseOutModel, BookOutModel, BookPublicOutModel } from '@/graphql'
-import { areArraysEqualIgnoringOrder } from 'utils/arrays'
 import { create } from 'zustand'
-import { produce } from 'immer'
+import { BookChapterOutModel, BookOutModel, BookPublicOutModel } from '@/graphql'
 
 export const readingStoreValues: ReadingStoreValues = {
 	book: null as any as ReadingStore.BookData,
@@ -11,21 +8,15 @@ export const readingStoreValues: ReadingStoreValues = {
 	selection: {
 		sentenceId: null,
 		wordIds: [],
-		phraseId: null,
-	},
-	isWordsAddingModeEnabled: false,
-	deviceType: 'mouse',
-	hoveredWord: {
-		sentenceId: null,
-		wordId: null,
-		pos: null,
-		container: null,
 	},
 }
 
 export const useReadingStore = create<ReadingStoreNext>()((set, get) => {
 	return {
 		...readingStoreValues,
+		clearStoreData: () => {
+			set(readingStoreValues)
+		},
 		updateBook: (book: ReadingStore.BookData) => {
 			set((state) => {
 				return {
@@ -47,216 +38,14 @@ export const useReadingStore = create<ReadingStoreNext>()((set, get) => {
 				}
 			})
 		},
-		changeSelectedSentenceId(id: number) {
-			set((baseState) => {
-				return produce(baseState, (draftState) => {
-					draftState.selection.sentenceId = id
-					draftState.selection.wordIds = []
-				})
-			})
-		},
-		changeSelectedPhraseId(id: null | number) {
-			set((baseState) => {
-				return produce(baseState, (draftState) => {
-					draftState.selection.phraseId = id
-				})
-			})
-		},
-		clearSelectedSentence() {
-			set((baseState) => {
-				return produce(baseState, (draftState) => {
-					draftState.selection = {
-						sentenceId: null,
-						wordIds: [],
-						phraseId: null,
-					}
-				})
-			})
-		},
-		getSelectedSentence() {
-			const { populatedChapter, selection } = get()
-			if (selection.sentenceId == null) return null
-
-			const sentence = populatedChapter.parts.find((part) => part.id === selection.sentenceId)
-			if (!sentence || sentence.type !== 'sentence') return null
-
-			return sentence
-		},
-		getSentenceById(sentenceId: number) {
-			const { populatedChapter } = get()
-
-			const sentence = populatedChapter.parts.find((part) => part.id === sentenceId)
-			if (!sentence || sentence.type !== 'sentence') return null
-
-			return sentence
-		},
-		/**
-		 * Добавляет в выделенное предложение идентификатор выделенного слова.
-		 * @param wordId — id слова, которое нужно поставить во фразу
-		 * @param insertType — тип вставки:
-		 * add — добавить id слова с сохранением других идентификаторов в массиве выделенных слов,
-		 * replaceAll — убрать все остальные идентификаторы слов заменив этим
-		 */
-		addWordToSelectedSentence(wordId: number, insertType: 'add' | 'replaceAll') {
-			set((baseState) => {
-				return produce(baseState, (draftState) => {
-					if (insertType === 'replaceAll') {
-						draftState.selection.wordIds = [wordId]
-					} else {
-						draftState.selection.wordIds.push(wordId)
-					}
-				})
-			})
-		},
-		changeWordsAddingMode(isEnabled: boolean) {
+		selectWord(input: { sentenceId: number; wordId: number }) {
 			set((state) => {
 				return {
-					isWordsAddingModeEnabled: isEnabled,
+					selection: {
+						sentenceId: input.sentenceId,
+						wordIds: [input.wordId],
+					},
 				}
-			})
-		},
-		changeDeviceType(deviceType: DeviceType) {
-			set((state) => {
-				return {
-					deviceType,
-				}
-			})
-		},
-		setHoveredWord(
-			sentenceId: number,
-			wordId: number,
-			pos: { left: number; top: number },
-			container: { width: number; height: number },
-		) {
-			set((baseState) => {
-				return produce(baseState, (draftState) => {
-					draftState.hoveredWord = {
-						sentenceId,
-						wordId,
-						pos,
-						container,
-					}
-				})
-			})
-		},
-		clearHoveredWord() {
-			set((baseState) => {
-				return produce(baseState, (draftState) => {
-					draftState.hoveredWord = {
-						sentenceId: null,
-						wordId: null,
-						pos: null,
-						container: null,
-					}
-				})
-			})
-		},
-		/** Ищет фразу с типом idle у выделенного предложения и ставит ей тип loading.*/
-		createLoadingPhraseInSelectedSentenceFromSelectedWords() {
-			set((baseState) => {
-				return produce(baseState, (draftState) => {
-					const { sentenceId } = draftState.selection
-					if (sentenceId == null) return
-
-					const selectedSentence = draftState.populatedChapter.parts.find((part) => part.id === sentenceId)
-					if (!selectedSentence || selectedSentence.type !== 'sentence') return
-
-					const phraseWithTheseWords = selectedSentence.phrases.find((phrase) =>
-						areArraysEqualIgnoringOrder(phrase.wordIds, draftState.selection.wordIds),
-					)
-					if (phraseWithTheseWords) return
-
-					const maxPhraseId = selectedSentence.phrases.reduce((max, phrase) => Math.max(max, phrase.id), 0)
-					const newPhraseId = maxPhraseId + 1
-
-					selectedSentence.phrases.push({
-						id: newPhraseId,
-						type: 'loading',
-						wordIds: [...draftState.selection.wordIds],
-					})
-
-					draftState.selection.phraseId = newPhraseId
-				})
-			})
-		},
-		/** В предложени ищет фразу с указанным id и ставит ей тип error*/
-		turnPhraseIntoErrorPhrase(sentenceId: number, phraseId: number, errorMessage: string) {
-			set((baseState) => {
-				return produce(baseState, (draftState) => {
-					const sentence = draftState.populatedChapter.parts.find((part) => part.id === sentenceId)
-					if (!sentence || sentence.type !== 'sentence') return
-
-					const phraseIdx = sentence.phrases.findIndex((phrase) => phrase.id === phraseId)
-					if (phraseIdx < 0) return
-
-					sentence.phrases[phraseIdx] = {
-						type: 'error',
-						id: phraseId,
-						errorMessage,
-						wordIds: [...sentence.phrases[phraseIdx].wordIds],
-					}
-				})
-			})
-		},
-		setPhraseAnalysisIntoSentence(analysis: BookChapterPhraseOutModel) {
-			set((baseState) => {
-				return produce(baseState, (draftState) => {
-					const sentence = draftState.populatedChapter.parts.find((sentence) => {
-						const sentenceId = analysis.sentenceId
-						return sentence.id === sentenceId
-					})
-					if (!sentence || sentence.type !== 'sentence') {
-						return draftState
-					}
-
-					const phraseWithTheSameIdx = sentence.phrases.findIndex((phrase) => {
-						return areArraysEqualIgnoringOrder(phrase.wordIds, analysis.phraseWordsIdx)
-					})
-					if (phraseWithTheSameIdx < 0) {
-						return draftState
-					}
-
-					const maxPhraseId = sentence.phrases.reduce((max, phrase) => Math.max(max, phrase.id), 0)
-
-					sentence.phrases[phraseWithTheSameIdx] = {
-						id: maxPhraseId + 1,
-						type: 'success',
-						phraseIdInDb: analysis.id,
-						phrase: analysis.phrase,
-						// Идентификаторы выделенных слов этой фразы
-						wordIds: analysis.phraseWordsIdx,
-						analysis: {
-							transcription: analysis.transcription,
-							// Краткий перевод фразы
-							translation: analysis.translation,
-							// Анализ фразы
-							analysis: analysis.analysis,
-							// Примеры использования фразы (предложение на иностранном языке и родном)
-							examples: analysis.examples.map((example) => {
-								return {
-									id: example.id,
-									foreignLang: example.sentence,
-									nativeLang: example.translation,
-								}
-							}),
-						},
-					}
-				})
-			})
-		},
-		putTranslatedSentencesIntoChapter(translatedSentences: string[]) {
-			set((baseState) => {
-				return produce(baseState, (draftState) => {
-					let sentenceCounter = 0
-
-					draftState.populatedChapter.parts.forEach((part) => {
-						if (part.type !== 'sentence') return
-
-						const translation = translatedSentences[sentenceCounter]
-						sentenceCounter++
-						part.translation = translation
-					})
-				})
 			})
 		},
 	}
@@ -278,56 +67,40 @@ export namespace ReadingStore {
 
 export type ReadingStoreNext = ReadingStoreValues & ReadingStoreMethods
 
-type DeviceType = 'mouse' | 'touch'
-
 export type ReadingStoreValues = {
 	book: ReadingStore.BookData
 	chapter: ReadingStore.ChapterData
 	populatedChapter: ChapterTextStructurePopulated.Chapter
-	// Данные выделенного предложения
+	// Данные выделенного предложения и слов
 	selection: SelectedSentence
-	// Если этот режим включен, то при нажатии на слово оно будет добавляться во фразу типа idle.
-	// Если выключен, то заменит все слова поставленные во фразу типа idle.
-	isWordsAddingModeEnabled: boolean
-	deviceType: DeviceType
-	// Данные наведённого слова для отображения всплывающей подсказки
-	hoveredWord: {
-		sentenceId: number | null
-		wordId: number | null
-		pos: { left: number; top: number } | null
-		container: { width: number; height: number } | null
-	}
 }
 
 export type SelectedSentence = {
 	sentenceId: null | number
 	// Идентификаторы выделенных слов
 	wordIds: number[]
-	// Идентификатор фразы, анализ которой хочет видеть пользователь
-	phraseId: number | null
 }
 
 export type ReadingStoreMethods = {
+	clearStoreData: () => void
 	updateBook: (book: ReadingStore.BookData) => void
 	updateChapter: (chapter: ReadingStore.ChapterData) => void
 	updatePopulatedChapter: (populatedChapter: ChapterTextStructurePopulated.Chapter) => void
-	changeSelectedSentenceId: (id: number) => void
-	changeSelectedPhraseId: (id: null | number) => void
-	clearSelectedSentence: () => void
-	getSelectedSentence: () => ChapterTextStructurePopulated.Sentence | null
-	getSentenceById: (id: number) => ChapterTextStructurePopulated.Sentence | null
-	addWordToSelectedSentence: (wordId: number, insertType: 'add' | 'replaceAll') => void
-	changeWordsAddingMode: (isEnabled: boolean) => void
-	changeDeviceType: (deviceType: DeviceType) => void
-	createLoadingPhraseInSelectedSentenceFromSelectedWords: () => void
-	turnPhraseIntoErrorPhrase: (sentenceId: number, phraseId: number, errorMessage: string) => void
-	setPhraseAnalysisIntoSentence: (analysis: BookChapterPhraseOutModel) => void
-	setHoveredWord: (
-		sentenceId: number,
-		wordId: number,
-		pos: { left: number; top: number },
-		container: { width: number; height: number },
-	) => void
-	clearHoveredWord: () => void
-	putTranslatedSentencesIntoChapter: (translatedSentences: string[]) => void
+	selectWord: (input: { sentenceId: number; wordId: number }) => void
+}
+
+// Тип данных для структуры текста наполненный дополнительными сведениями (используется на клиенте)
+export namespace ChapterTextStructurePopulated {
+	// Надо бы добавить сюда идентификатор статьи. Требуется при запросах на анализ.
+	export type Chapter = {
+		id: number
+		header: null | string
+		name: null | string
+		sentences: Sentence[]
+	}
+
+	export type Sentence = {
+		id: number
+		sentence: string
+	}
 }

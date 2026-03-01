@@ -3,5 +3,17 @@ mutation Auth_login($input: LoginInput!) {
 		id
 		email
 		isUserConfirmed
+		currentSubscription {
+			tariffId
+			tariffCode
+			tariffName
+			isPublicMediaIncluded
+			isPrivateMediaIncluded
+			pricePaid
+			balance
+			includedFileStorageMb
+			startsAt
+			endsAt
+		}
 	}
 }

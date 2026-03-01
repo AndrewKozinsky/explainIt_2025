@@ -1,7 +1,7 @@
-import articleService from '../../../../../articles/articleService/articleService'
-import ArticleType from '../../../../../articles/articleTypes/articleType'
-import { ArticleTileType } from '../../ArticleTile/fn/types'
+import ArticleType from '@/articles/articleTypes/articleType'
 import { pageUrls } from '@/сonsts/pageUrls'
+import articleService from '../../../../../articles/articleService/articleService'
+import { ArticleTileType } from '../../ArticleTile/fn/types'
 
 /** Возвращает массив объектов конфигурации для отрисовки плиток-ссылок на статьи курса */
 export function getTilesData(): ArticleTileType.Tile[] {

@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
 import { NotificationContext } from 'ui/Notification/context'
 import { useVideoPrivate_Update, VideoPrivate_GetUserVideosDocument } from '@/graphql'
-import ContentFileUploading from '_pages/video/videos/detailsSection/editPrivateVideo/VideoDropzone/ContentFileUploading'
 import { useVideosStore } from '_pages/video/videos/videosStore'
 import ContentFileDragging from './ContentFileDragging'
 import ContentFileSelected from './ContentFileSelected'
+import ContentFileUploading from './ContentFileUploading'
 import ContentIdle from './ContentIdle'
 import './VideoDropzone.scss'
 
@@ -44,17 +44,19 @@ function VideoDropzone() {
 			setFileName(fileName)
 			const fileMimeType = file.type
 
+			const fileSizeMb = Math.ceil(file.size / 1024 / 1024) // 896945634 / 1024 / 1024
+
 			updateVideo({
 				variables: {
-					input: { id: video!.id, fileMimeType, fileName },
+					input: { id: video!.id, fileMimeType, fileName, fileSizeMb },
 				},
-			}).then((data) => {
-				if (!data.data) {
+			}).then((res) => {
+				if (!res.data) {
 					console.log('error')
 					return
 				}
 
-				const uploadUrl = data.data.video_private_update.uploadUrl
+				const uploadUrl = res.data.video_private_update.uploadUrl
 				if (!uploadUrl) {
 					notify({
 						type: 'error',

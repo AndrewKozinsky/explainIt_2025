@@ -1,0 +1,44 @@
+@use '@/styles/variables' as vars;
+
+.main-page-features {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 5rem;
+}
+
+.main-page-features__cell {
+
+}
+
+.main-page-features__cell-header {
+	font-size: 2.4rem;
+	line-height: 3.4rem;
+	font-weight: 400;
+	margin-bottom: 1rem;
+}
+
+.main-page-features__cell-text {
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+}
+
+.main-page-features__big-text {
+	font-size: 2.4rem;
+	line-height: 3.4rem;
+}
+
+.main-page-features__illustration {
+	grid-column: span 2;
+	overflow: hidden;
+	border-radius: vars.$radius-1;
+	width: 100%;
+}
+
+.main-page-features__any-devices-cell {
+	display: flex;
+	align-items: flex-end;
+	flex-direction: column;
+	gap: 1.5rem;
+	text-align: right;
+	color: vars.$grayColor-5;
+}

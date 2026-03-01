@@ -8,6 +8,7 @@ mutation BookChapter_update($input: UpdateBookChapterInput!) {
 		book {
 			id
 			name
+			languageCode
 			author
 			note
 			userId

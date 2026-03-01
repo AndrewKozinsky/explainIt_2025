@@ -1,3 +1,0 @@
-mutation BookChapter_DeleteBookChapterPhrases($input: DeleteBookChapterPhrasesInput!) {
-	book_chapter_DeleteBookChapterPhrases(input: $input)
-}

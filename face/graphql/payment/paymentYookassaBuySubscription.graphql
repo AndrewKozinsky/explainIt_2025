@@ -1,0 +1,5 @@
+mutation Payment_yookassaBuySubscription($input: BuySubscriptionWithYooKassaInput!) {
+	payment_yookassa_buy_subscription(input: $input) {
+		confirmationUrl
+	}
+}

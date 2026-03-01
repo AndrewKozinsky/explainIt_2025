@@ -1,6 +1,6 @@
-import { PlayerCommand, useWatchingStore } from '_pages/video/watching/watchingStore'
-import { useGetHotKeysHandler } from 'utils/hotKeysHandler'
 import { useEffect, useMemo } from 'react'
+import { useGetHotKeysHandler } from 'utils/hotKeysHandler'
+import { PlayerCommand, useWatchingStore } from '_pages/video/watching/watchingStore'
 
 export function usePlayPause(
 	playerWrapperRef: React.RefObject<HTMLDivElement | null>,

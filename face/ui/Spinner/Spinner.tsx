@@ -1,9 +1,15 @@
-import React from 'react'
+import cn from 'classnames'
 import './Spinner.scss'
 
-function Spinner() {
+type SpinnerProps = {
+	size?: 'full' | 'small'
+}
+
+function Spinner(props: SpinnerProps) {
+	const { size = 'full' } = props
+
 	return (
-		<span className='lds-spinner'>
+		<span className={cn('lds-spinner', 'lds-spinner--' + size)}>
 			<span />
 			<span />
 			<span />

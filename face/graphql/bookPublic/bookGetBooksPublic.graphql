@@ -3,8 +3,10 @@ query Book_getBooksPublic {
 		id
 		author
 		name
+		languageCode
 		note
-		cover
+		covers
+		freeToUse
 		chapters {
 			id
 			bookId

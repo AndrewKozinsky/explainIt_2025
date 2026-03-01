@@ -1,29 +1,3 @@
-input AnalysePhraseInput {
-  """Book author"""
-  bookAuthor: String
-
-  """Book chapter id"""
-  bookChapterId: Int!
-
-  """Book name"""
-  bookName: String
-
-  """Context"""
-  context: String!
-
-  """Фраза на иностранном языке для заучивания"""
-  phrase: String!
-
-  """Ids of the words in the phrase"""
-  phraseWordsIdx: [Int!]!
-
-  """Предложение где находится фраза"""
-  sentence: String!
-
-  """Порядковый номер предложения где находится фраза"""
-  sentenceId: Float!
-}
-
 type BookChapterLiteOutModel {
   bookId: Int!
   header: String
@@ -39,28 +13,13 @@ type BookChapterOutModel {
   id: Int!
   name: String
   note: String
-  phrases: [BookChapterPhraseOutModel!]!
-}
-
-type BookChapterPhraseOutModel {
-  analysis: String!
-  examples: [PhraseExample!]!
-  id: Int!
-  phrase: String!
-  phraseWordsIdx: [Int!]!
-  sentence: String!
-  sentenceId: Int!
-  transcription: String!
-  translation: String!
-}
-
-type BookChapterTranslateOfSentencesOutModel {
-  translates: [String!]!
+  sentences: [SentenceOutModel!]
 }
 
 type BookLiteOutModel {
   author: String
   id: Int!
+  languageCode: String!
   name: String
   note: String
   userId: Int
@@ -69,7 +28,9 @@ type BookLiteOutModel {
 type BookOutModel {
   author: String
   chapters: [BookChapterLiteOutModel!]!
+  freeToUse: Boolean!
   id: Int!
+  languageCode: String!
   name: String
   note: String
   userId: Int!
@@ -78,10 +39,21 @@ type BookOutModel {
 type BookPublicOutModel {
   author: String!
   chapters: [BookChapterLiteOutModel!]!
-  cover: String!
+  covers: [String!]!
+  freeToUse: Boolean!
   id: Int!
+  languageCode: String!
   name: String!
   note: String!
+}
+
+input BuySubscriptionWithYooKassaInput {
+  """Tariff id"""
+  tariffId: Float!
+}
+
+type BuySubscriptionWithYooKassaOutModel {
+  confirmationUrl: String!
 }
 
 input CheckTranslationInput {
@@ -140,29 +112,48 @@ input CreateBookInput {
 }
 
 input CreatePrivateVideoInput {
+  """File size in MB"""
+  fileSizeMb: Int
+
   """Name"""
   name: String
 
   """Text"""
-  text: String
+  originalContent: String
 }
 
 type CreateVideoPrivateOutModel {
+  contentType: String!
   id: Int!
+  languageCode: String!
   name: String
-  resolvedText: String
-  text: String
+  originalContent: String
+  processedContent: String
   userId: Int!
+  year: Int
 }
+
+type CurrentSubscriptionOutModel {
+  balance: Int!
+  endsAt: String!
+  includedFileStorageMb: Int!
+  isPrivateMediaIncluded: Boolean!
+  isPublicMediaIncluded: Boolean!
+  pricePaid: Int!
+  startsAt: String!
+  tariffCode: String!
+  tariffId: Int!
+  tariffName: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
 
 input DeleteBookChapterInput {
   """BookChapter id"""
   id: Int!
-}
-
-input DeleteBookChapterPhrasesInput {
-  """Book chapter id"""
-  bookChapterId: Int!
 }
 
 input DeleteBookInput {
@@ -173,14 +164,6 @@ input DeleteBookInput {
 input DeletePrivateVideoInput {
   """Video id"""
   id: Int!
-}
-
-type EngRusDictionaryItemOutModel {
-  engPhrase: String!
-  id: Int!
-  lexemes: String
-  rusPhrase: String!
-  transcription: String
 }
 
 input GetBookChapterInput {
@@ -204,6 +187,21 @@ input GetBookPublicInput {
 input GetPrivateVideoInput {
   """Video id"""
   id: Int!
+}
+
+input GetPublicVideoInput {
+  """Video id"""
+  id: Int!
+}
+
+input GetSentenceTranslationInput {
+  """SentenceTranslation id"""
+  id: Int!
+}
+
+input GetSentenceTranslationsBySentenceIdInput {
+  """Sentence id"""
+  sentenceId: Int!
 }
 
 input GetTranscriptionInput {
@@ -260,9 +258,6 @@ type Mutation {
 
   """Resend email confirmation letter"""
   auth_resendConfirmationEmail(input: ResendConfirmationEmailInput!): Boolean!
-  book_chapter_AnalysePhrase(input: AnalysePhraseInput!): BookChapterPhraseOutModel!
-  book_chapter_DeleteBookChapterPhrases(input: DeleteBookChapterPhrasesInput!): Boolean!
-  book_chapter_TranslateSentences(input: TranslateSentencesInput!): BookChapterTranslateOfSentencesOutModel!
 
   """Create book chapter"""
   book_chapter_create(input: CreateBookChapterInput!): BookChapterOutModel!
@@ -282,10 +277,8 @@ type Mutation {
   """Update user book"""
   book_update(input: UpdateBookInput!): BookOutModel!
 
-  """Top up a balance with YooKassa"""
-  payment_yookassa_top_up_balance(input: TopUpBalanceWithYooKassaInput!): TopUpBalanceWithYooKassaOutModel!
-  translate_translate_phrase(input: TranslatePhraseInput!): EngRusDictionaryItemOutModel!
-  translate_translate_sentence(input: TranslateSentenceInput!): TranslateSentenceOutModel!
+  """Buy a subscription with YooKassa"""
+  payment_yookassa_buy_subscription(input: BuySubscriptionWithYooKassaInput!): BuySubscriptionWithYooKassaOutModel!
 
   """Create a video"""
   video_private_create(input: CreatePrivateVideoInput!): CreateVideoPrivateOutModel!
@@ -295,12 +288,6 @@ type Mutation {
 
   """Update a video"""
   video_private_update(input: UpdatePrivateVideoInput!): UpdateVideoPrivateOutModel!
-}
-
-type PhraseExample {
-  id: Int!
-  sentence: String!
-  translation: String!
 }
 
 type Query {
@@ -325,11 +312,26 @@ type Query {
   """Get user books"""
   book_user_books: [BookOutModel!]!
 
+  """Get sentence translation by id"""
+  sentence_translation_get(input: GetSentenceTranslationInput!): SentenceTranslationOutModel!
+
+  """Get all sentence translations by sentence id"""
+  sentence_translation_get_by_sentence_id(input: GetSentenceTranslationsBySentenceIdInput!): [SentenceTranslationOutModel!]!
+
+  """Get all tariffs"""
+  tariff_get_tariffs: [TariffOutModel!]!
+
   """Get a video"""
   video_private_get(input: GetPrivateVideoInput!): VideoPrivateOutModel!
 
   """Get user videos"""
-  video_private_user_videos: [VideoPrivateOutModel!]!
+  video_private_user_videos: [VideoPrivateLiteOutModel!]!
+
+  """Get public video"""
+  video_public_get(input: GetPublicVideoInput!): VideoPublicOutModel!
+
+  """Get public videos"""
+  video_public_get_videos: [VideoPublicLiteOutModel!]!
 }
 
 input RegisterUserInput {
@@ -345,50 +347,46 @@ input ResendConfirmationEmailInput {
   email: String!
 }
 
-input TopUpBalanceWithYooKassaInput {
-  """Money amount in kopecks"""
-  amount: Float!
+type SentenceOutModel {
+  id: Int!
+  length: Int!
+  startOffset: Int!
 }
 
-type TopUpBalanceWithYooKassaOutModel {
-  confirmationUrl: String!
+type SentenceTranslationLiteOutModel {
+  id: Int!
+  translation: String!
 }
 
-input TranslatePhraseInput {
-  """Source language code"""
-  sourceLanguageCode: String
-
-  """Target language code"""
-  targetLanguageCode: String
-
-  """Text for translation"""
-  text: String!
+type SentenceTranslationOutModel {
+  analysis: String
+  createdAt: String!
+  id: Int!
+  sentenceId: Int!
+  translation: String!
 }
 
-input TranslateSentenceInput {
-  """Source language code"""
-  sourceLanguageCode: String
-
-  """Target language code"""
-  targetLanguageCode: String
-
-  """Sentence for translation"""
-  text: String!
+type SubtitleSentenceInitOutModel {
+  id: Int!
+  length: Int!
+  sentenceId: Int!
+  startOffset: Int!
+  subtitleId: Int!
 }
 
-type TranslateSentenceOutModel {
-  translatedText: String!
-}
-
-input TranslateSentencesInput {
-  """Book author"""
-  bookAuthor: String
-
-  """Book name"""
-  bookName: String
-
-  """Array of sentences"""
-  sentences: [String!]!
+type TariffOutModel {
+  code: String!
+  createdAt: DateTime!
+  description: String!
+  durationDays: Int!
+  id: Int!
+  includedBalance: Int!
+  includedFileStorageMb: Int!
+  isPrivateMediaIncluded: Boolean!
+  isPublicMediaIncluded: Boolean!
+  name: String!
+  price: Int!
+  slogan: String!
 }
 
 input UpdateBookChapterInput {
@@ -441,39 +439,131 @@ input UpdatePrivateVideoInput {
   """Name"""
   name: String
 
-  """Text"""
-  text: String
-
-  """Text resolved"""
-  textResolved: String
+  """Original content"""
+  originalContent: String
 }
 
 type UpdateVideoPrivateOutModel {
-  fileSizeMb: Float
+  contentType: String!
+  fileSizeMb: Int
   id: Int!
+  languageCode: String!
   name: String
-  resolvedText: String
-  text: String
+  originalContent: String
+  processedContent: String
   uploadUrl: String
   userId: Int!
+  year: Int
 }
 
 type UserOutModel {
-  balance: Int!
+  currentSubscription: CurrentSubscriptionOutModel
   email: String!
   id: Int!
   isUserConfirmed: Boolean!
 }
 
-type VideoPrivateOutModel {
+type VideoPrivateLiteOutModel {
+  contentType: String!
   fileName: String
   fileS3Key: String
-  fileSizeMb: Float!
+  fileSizeMb: Int!
   fileUrl: String
   id: Int!
   isFileUploaded: Boolean!
+  languageCode: String!
   name: String
-  resolvedText: String
-  text: String
+  originalContent: String
+  processedContent: String
   userId: Int!
+  year: Int
+}
+
+type VideoPrivateOutModel {
+  contentType: String!
+  fileName: String
+  fileS3Key: String
+  fileSizeMb: Int!
+  fileUrl: String
+  freeToUse: Boolean!
+  id: Int!
+  isFileUploaded: Boolean!
+  languageCode: String!
+  name: String
+  originalContent: String
+  processedContent: String
+  sentences: [VideoPrivateSentenceOutModel!]
+  subtitleSentenceInit: [SubtitleSentenceInitOutModel!]
+  subtitles: [VideoPrivateSubtitleOutModel!]
+  userId: Int!
+  year: Int
+}
+
+type VideoPrivateSentenceOutModel {
+  id: Int!
+  length: Int!
+  orderIndex: Int!
+  sentenceTranslations: [SentenceTranslationLiteOutModel!]
+  startOffset: Int!
+}
+
+type VideoPrivateSubtitleOutModel {
+  endTimeMs: Int!
+  id: Int!
+  length: Int!
+  orderIndex: Int!
+  startOffset: Int!
+  startTimeMs: Int!
+}
+
+type VideoPublicLiteOutModel {
+  contentType: String!
+  covers: [String!]!
+  fileName: String!
+  fileS3Key: String!
+  fileUrl: String!
+  freeToUse: Boolean!
+  id: Int!
+  languageCode: String!
+  name: String!
+  note: String!
+  originalContent: String!
+  processedContent: String!
+  year: Int!
+}
+
+type VideoPublicOutModel {
+  contentType: String!
+  covers: [String!]!
+  fileName: String!
+  fileS3Key: String!
+  fileUrl: String!
+  freeToUse: Boolean!
+  id: Int!
+  languageCode: String!
+  name: String!
+  note: String!
+  originalContent: String!
+  processedContent: String!
+  sentences: [VideoPublicSentenceOutModel!]
+  subtitleSentenceInit: [SubtitleSentenceInitOutModel!]
+  subtitles: [VideoPublicSubtitleOutModel!]
+  year: Int!
+}
+
+type VideoPublicSentenceOutModel {
+  id: Int!
+  length: Int!
+  orderIndex: Int!
+  sentenceTranslations: [SentenceTranslationLiteOutModel!]
+  startOffset: Int!
+}
+
+type VideoPublicSubtitleOutModel {
+  endTimeMs: Int!
+  id: Int!
+  length: Int!
+  orderIndex: Int!
+  startOffset: Int!
+  startTimeMs: Int!
 }

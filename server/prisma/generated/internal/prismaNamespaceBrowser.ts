@@ -52,15 +52,20 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   User: 'User',
-  BalanceTransaction: 'BalanceTransaction',
+  SubscriptionBalanceTransaction: 'SubscriptionBalanceTransaction',
   Payment: 'Payment',
   BookPrivate: 'BookPrivate',
   BookPublic: 'BookPublic',
   BookChapter: 'BookChapter',
-  BookChapterPhrase: 'BookChapterPhrase',
-  BookChapterPhraseExample: 'BookChapterPhraseExample',
   VideoPrivate: 'VideoPrivate',
-  EngRusDictionary: 'EngRusDictionary'
+  VideoPublic: 'VideoPublic',
+  Sentence: 'Sentence',
+  SentenceTranslation: 'SentenceTranslation',
+  Subtitle: 'Subtitle',
+  SubtitleSentenceInit: 'SubtitleSentenceInit',
+  EngRusDictionary: 'EngRusDictionary',
+  Tariff: 'Tariff',
+  UserSubscription: 'UserSubscription'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -69,12 +74,12 @@ export type ModelName = (typeof ModelName)[keyof typeof ModelName]
  * Enums
  */
 
-export const TransactionIsolationLevel = {
+export const TransactionIsolationLevel = runtime.makeStrictEnum({
   ReadUncommitted: 'ReadUncommitted',
   ReadCommitted: 'ReadCommitted',
   RepeatableRead: 'RepeatableRead',
   Serializable: 'Serializable'
-} as const
+} as const)
 
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
@@ -87,23 +92,22 @@ export const UserScalarFieldEnum = {
   email_confirmation_code_expiration_date: 'email_confirmation_code_expiration_date',
   is_email_confirmed: 'is_email_confirmed',
   is_user_confirmed: 'is_user_confirmed',
-  balance: 'balance',
   created_at: 'created_at'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-export const BalanceTransactionScalarFieldEnum = {
+export const SubscriptionBalanceTransactionScalarFieldEnum = {
   id: 'id',
-  user_id: 'user_id',
+  user_subscription_id: 'user_subscription_id',
   type: 'type',
   amount: 'amount',
   payment_id: 'payment_id',
   created_at: 'created_at'
 } as const
 
-export type BalanceTransactionScalarFieldEnum = (typeof BalanceTransactionScalarFieldEnum)[keyof typeof BalanceTransactionScalarFieldEnum]
+export type SubscriptionBalanceTransactionScalarFieldEnum = (typeof SubscriptionBalanceTransactionScalarFieldEnum)[keyof typeof SubscriptionBalanceTransactionScalarFieldEnum]
 
 
 export const PaymentScalarFieldEnum = {
@@ -125,6 +129,7 @@ export const BookPrivateScalarFieldEnum = {
   user_id: 'user_id',
   author: 'author',
   name: 'name',
+  language_code: 'language_code',
   note: 'note',
   created_at: 'created_at'
 } as const
@@ -134,7 +139,9 @@ export type BookPrivateScalarFieldEnum = (typeof BookPrivateScalarFieldEnum)[key
 
 export const BookPublicScalarFieldEnum = {
   id: 'id',
-  cover: 'cover',
+  free_to_use: 'free_to_use',
+  language_code: 'language_code',
+  covers: 'covers',
   author: 'author',
   name: 'name',
   note: 'note',
@@ -158,49 +165,95 @@ export const BookChapterScalarFieldEnum = {
 export type BookChapterScalarFieldEnum = (typeof BookChapterScalarFieldEnum)[keyof typeof BookChapterScalarFieldEnum]
 
 
-export const BookChapterPhraseScalarFieldEnum = {
-  id: 'id',
-  sentenceId: 'sentenceId',
-  sentence: 'sentence',
-  phraseWordsIdx: 'phraseWordsIdx',
-  phrase: 'phrase',
-  phraseTranslation: 'phraseTranslation',
-  phraseTranscription: 'phraseTranscription',
-  phraseAnalysis: 'phraseAnalysis',
-  book_chapter_id: 'book_chapter_id',
-  created_at: 'created_at'
-} as const
-
-export type BookChapterPhraseScalarFieldEnum = (typeof BookChapterPhraseScalarFieldEnum)[keyof typeof BookChapterPhraseScalarFieldEnum]
-
-
-export const BookChapterPhraseExampleScalarFieldEnum = {
-  id: 'id',
-  book_chapter_phrase_id: 'book_chapter_phrase_id',
-  sentence: 'sentence',
-  translation: 'translation',
-  created_at: 'created_at'
-} as const
-
-export type BookChapterPhraseExampleScalarFieldEnum = (typeof BookChapterPhraseExampleScalarFieldEnum)[keyof typeof BookChapterPhraseExampleScalarFieldEnum]
-
-
 export const VideoPrivateScalarFieldEnum = {
   id: 'id',
   user_id: 'user_id',
+  language_code: 'language_code',
+  year: 'year',
   file_name: 'file_name',
   file_s3_key: 'file_s3_key',
-  file_url: 'file_url',
+  s3_provider_name: 's3_provider_name',
   is_file_uploaded: 'is_file_uploaded',
   file_size_mb: 'file_size_mb',
   name: 'name',
-  text: 'text',
-  text_resolved: 'text_resolved',
+  original_content: 'original_content',
+  processed_content: 'processed_content',
+  content_type: 'content_type',
   created_at: 'created_at',
   updated_at: 'updated_at'
 } as const
 
 export type VideoPrivateScalarFieldEnum = (typeof VideoPrivateScalarFieldEnum)[keyof typeof VideoPrivateScalarFieldEnum]
+
+
+export const VideoPublicScalarFieldEnum = {
+  id: 'id',
+  free_to_use: 'free_to_use',
+  language_code: 'language_code',
+  year: 'year',
+  name: 'name',
+  file_name: 'file_name',
+  file_s3_key: 'file_s3_key',
+  s3_provider_name: 's3_provider_name',
+  note: 'note',
+  covers: 'covers',
+  original_content: 'original_content',
+  processed_content: 'processed_content',
+  content_type: 'content_type',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type VideoPublicScalarFieldEnum = (typeof VideoPublicScalarFieldEnum)[keyof typeof VideoPublicScalarFieldEnum]
+
+
+export const SentenceScalarFieldEnum = {
+  id: 'id',
+  book_chapter_id: 'book_chapter_id',
+  video_private_id: 'video_private_id',
+  video_public_id: 'video_public_id',
+  start_offset: 'start_offset',
+  length: 'length',
+  order_index: 'order_index'
+} as const
+
+export type SentenceScalarFieldEnum = (typeof SentenceScalarFieldEnum)[keyof typeof SentenceScalarFieldEnum]
+
+
+export const SentenceTranslationScalarFieldEnum = {
+  id: 'id',
+  sentence_id: 'sentence_id',
+  translation: 'translation',
+  analysis: 'analysis',
+  created_at: 'created_at'
+} as const
+
+export type SentenceTranslationScalarFieldEnum = (typeof SentenceTranslationScalarFieldEnum)[keyof typeof SentenceTranslationScalarFieldEnum]
+
+
+export const SubtitleScalarFieldEnum = {
+  id: 'id',
+  start_time_ms: 'start_time_ms',
+  end_time_ms: 'end_time_ms',
+  start_offset: 'start_offset',
+  length: 'length',
+  order_index: 'order_index',
+  video_private_id: 'video_private_id',
+  video_public_id: 'video_public_id'
+} as const
+
+export type SubtitleScalarFieldEnum = (typeof SubtitleScalarFieldEnum)[keyof typeof SubtitleScalarFieldEnum]
+
+
+export const SubtitleSentenceInitScalarFieldEnum = {
+  id: 'id',
+  subtitle_id: 'subtitle_id',
+  sentence_id: 'sentence_id',
+  start_offset: 'start_offset',
+  length: 'length'
+} as const
+
+export type SubtitleSentenceInitScalarFieldEnum = (typeof SubtitleSentenceInitScalarFieldEnum)[keyof typeof SubtitleSentenceInitScalarFieldEnum]
 
 
 export const EngRusDictionaryScalarFieldEnum = {
@@ -214,6 +267,40 @@ export const EngRusDictionaryScalarFieldEnum = {
 } as const
 
 export type EngRusDictionaryScalarFieldEnum = (typeof EngRusDictionaryScalarFieldEnum)[keyof typeof EngRusDictionaryScalarFieldEnum]
+
+
+export const TariffScalarFieldEnum = {
+  id: 'id',
+  code: 'code',
+  slogan: 'slogan',
+  name: 'name',
+  description: 'description',
+  is_public_media_included: 'is_public_media_included',
+  is_private_media_included: 'is_private_media_included',
+  price: 'price',
+  included_balance: 'included_balance',
+  included_file_storage_mb: 'included_file_storage_mb',
+  duration_days: 'duration_days',
+  created_at: 'created_at'
+} as const
+
+export type TariffScalarFieldEnum = (typeof TariffScalarFieldEnum)[keyof typeof TariffScalarFieldEnum]
+
+
+export const UserSubscriptionScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  tariff_id: 'tariff_id',
+  price_paid: 'price_paid',
+  balance: 'balance',
+  included_file_storage_mb: 'included_file_storage_mb',
+  starts_at: 'starts_at',
+  ends_at: 'ends_at',
+  payment_id: 'payment_id',
+  created_at: 'created_at'
+} as const
+
+export type UserSubscriptionScalarFieldEnum = (typeof UserSubscriptionScalarFieldEnum)[keyof typeof UserSubscriptionScalarFieldEnum]
 
 
 export const SortOrder = {

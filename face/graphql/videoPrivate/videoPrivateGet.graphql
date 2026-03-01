@@ -2,13 +2,42 @@ query VideoPrivate_get($input: GetPrivateVideoInput!) {
 	video_private_get(input: $input) {
 		id
 		name
-		text
-		resolvedText
+		year
+		languageCode
+		originalContent
+		processedContent
+		contentType
 		userId
 		fileName
 		fileS3Key
 		fileUrl
 		isFileUploaded
 		fileSizeMb
+		freeToUse
+		sentences {
+			id
+			sentenceTranslations {
+				id
+				translation
+			}
+			startOffset
+			length
+			orderIndex
+		}
+		subtitles {
+			id
+			startTimeMs
+			endTimeMs
+			startOffset
+			length
+			orderIndex
+		}
+		subtitleSentenceInit {
+			id
+			subtitleId
+			sentenceId
+			startOffset
+			length
+		}
 	}
 }

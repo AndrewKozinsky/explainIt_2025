@@ -1,26 +1,26 @@
+import { useParams } from 'next/navigation'
+import PublicMediaInfo from '_pages/bookAndVideoCommon/PublicMediaInfo/PublicMediaInfo'
 import { useBooksStore } from '_pages/books/books/booksStore'
-import { publicFolderFilesUrls } from 'utils/publicFolderFilesUrls'
-import './PublicBookInfo.scss'
+import { pageUrls } from 'сonsts/pageUrls'
 
 export default function PublicBookInfo() {
+	const urlBookId = useParams().bookId as string
 	const publicBook = useBooksStore((s) => s.publicBook)
 
 	if (!publicBook) {
 		return null
 	}
 
+	const firstChapterUrl = pageUrls.books.book(urlBookId).chapter(publicBook.chapters[0].id).reading.path
+
 	return (
-		<div className='public-book-info'>
-			<p className='public-book-info__author'>{publicBook.author}</p>
-			<h3 className='public-book-info__header'>{publicBook.name}</h3>
-			<p className='public-book-info__description'>
-				<img
-					src={publicFolderFilesUrls.books.covers + publicBook.cover}
-					className='public-book-info__cover'
-					alt={publicBook.name}
-				/>
-				{publicBook.note}
-			</p>
-		</div>
+		<PublicMediaInfo
+			header={publicBook.name}
+			subHeader={publicBook.author}
+			coverUrls={publicBook.covers}
+			text={publicBook.note}
+			contentType='book'
+			mediaUrl={firstChapterUrl}
+		/>
 	)
 }

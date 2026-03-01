@@ -4,7 +4,7 @@ import { App } from 'supertest/types'
 import { afterEachTest, beforeEachTest } from './utils/beforAndAfterTests'
 import { createApp } from './utils/createApp'
 
-describe.skip('Erase database', () => {
+describe('Erase database', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 
@@ -23,7 +23,7 @@ describe.skip('Erase database', () => {
 		await afterEachTest(app)
 	})
 
-	it('when a user registered with email and password he should get default book Alice in Wonderland', async () => {
+	it('empty e2e test', async () => {
 		expect(2).toBe(2)
 	})
 })

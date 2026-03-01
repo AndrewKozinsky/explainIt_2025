@@ -5,6 +5,7 @@ import * as ipaddr from 'ipaddr.js'
 import { z } from 'zod'
 import { SetPaymentResultWithYooKassaCommand } from 'features/payment/SetPaymentResultWithYooKassa.command'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+import { YooKassaPaymentMetadata } from 'infrastructure/yooKassa/yooKassa.service'
 
 @Injectable()
 export class WebhookService {
@@ -33,6 +34,7 @@ export class WebhookService {
 			new SetPaymentResultWithYooKassaCommand({
 				paymentResult: dataFromYooKassa.event,
 				yooKassaPaymentId: dataFromYooKassa.object.id,
+				metadata: dataFromYooKassa.object.metadata as YooKassaPaymentMetadata,
 			}),
 		)
 	}

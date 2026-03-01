@@ -6,6 +6,7 @@ services:
       - explainpostgresserverdevelop
       - explainserverserverdevelop
       - explainfaceserverdevelop
+      - explainhelpserverdevelop
     volumes:
       - ./nginx/nginx.conf.serverdevelop:/etc/nginx/nginx.conf
     environment:
@@ -60,6 +61,15 @@ services:
     depends_on:
       - explainpostgresserverdevelop
       - explainserverserverdevelop
+    environment:
+      MODE: serverdevelop
+  explainhelpserverdevelop:
+    build:
+      context: help/
+      dockerfile: Dockerfile.server
+    restart: unless-stopped
+    command: npm run start
+    container_name: explainhelpserverdevelop
     environment:
       MODE: serverdevelop
   explainnlpserverdevelop:

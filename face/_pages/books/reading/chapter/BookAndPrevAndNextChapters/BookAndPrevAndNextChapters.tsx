@@ -5,9 +5,12 @@ import './BookAndPrevAndNextChapters.scss'
 function BookAndPrevAndNextChapters() {
 	return (
 		<div className='book-and-prev-and-next-chapters'>
-			<BookLink />
-			<PrevChapterLink />
-			<NextChapterLink />
+			<div className='book-and-prev-and-next-chapters__auto-height' />
+			<div className='book-and-prev-and-next-chapters__inner'>
+				<BookLink />
+				<PrevChapterLink />
+				<NextChapterLink />
+			</div>
 		</div>
 	)
 }

@@ -1,6 +1,6 @@
-import { useWatchingStore } from '_pages/video/watching/watchingStore'
-import { useGetHotKeysHandler } from 'utils/hotKeysHandler'
 import { useEffect, useRef } from 'react'
+import { useGetHotKeysHandler } from 'utils/hotKeysHandler'
+import { useWatchingStore } from '_pages/video/watching/watchingStore'
 import { PlayerControlConfig } from './config'
 
 export function useRewind(

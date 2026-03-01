@@ -1,5 +1,3 @@
-import React from 'react'
-
 type ArrowProps = {
 	extraClass?: string
 }

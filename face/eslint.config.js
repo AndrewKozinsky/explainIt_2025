@@ -20,7 +20,7 @@ export default tseslint.config([{
     'import/order': ['error', {
       groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'object', 'type', 'index'],
       'newlines-between': 'never',
-      warnOnUnassignedImports: true,
+      warnOnUnassignedImports: false,
       alphabetize: {
         order: 'asc',
         caseInsensitive: true,
@@ -43,32 +43,32 @@ export default tseslint.config([{
         },
         {
           pattern: '**/*.scss',
-          group: 'index',
+          group: 'sibling',
           position: 'after',
         },
         {
           pattern: '*.scss',
-          group: 'index',
+          group: 'sibling',
           position: 'after',
         },
         {
           pattern: './*.scss',
-          group: 'index',
+          group: 'sibling',
           position: 'after',
         },
         {
           pattern: './**/*.scss',
-          group: 'index',
+          group: 'sibling',
           position: 'after',
         },
         {
           pattern: '../*.scss',
-          group: 'index',
+          group: 'sibling',
           position: 'after',
         },
         {
           pattern: '../**/*.scss',
-          group: 'index',
+          group: 'sibling',
           position: 'after',
         },
       ],

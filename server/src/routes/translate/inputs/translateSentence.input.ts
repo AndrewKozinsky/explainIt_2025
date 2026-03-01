@@ -1,32 +1,22 @@
 import { Field, InputType } from '@nestjs/graphql'
+import { bdConfig } from 'db/dbConfig/dbConfig'
 import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
 
 @InputType()
 export class TranslateSentenceInput {
+	@Field(() => Number, { description: 'Sentence id' })
+	@DtoFieldDecorators('sentenceId', bdConfig.SentenceTranslation.dbFields.sentence_id)
+	sentenceId: number
+
 	@Field(() => String, { description: 'Sentence for translation' })
-	@DtoFieldDecorators('text', {
-		type: 'string',
-		required: true,
-		minLength: 1,
-		maxLength: 500,
-	})
+	@DtoFieldDecorators('text', bdConfig.SentenceTranslation.dtoProps.text)
 	text: string
 
 	@Field(() => String, { description: 'Source language code', nullable: true })
-	@DtoFieldDecorators('sourceLanguageCode', {
-		type: 'string',
-		required: false,
-		minLength: 2,
-		maxLength: 2,
-	})
+	@DtoFieldDecorators('sourceLanguageCode', bdConfig.SentenceTranslation.dtoProps.sourceLanguageCode)
 	sourceLanguageCode?: null | string
 
 	@Field(() => String, { description: 'Target language code', nullable: true })
-	@DtoFieldDecorators('targetLanguageCode', {
-		type: 'string',
-		required: false,
-		minLength: 2,
-		maxLength: 2,
-	})
+	@DtoFieldDecorators('targetLanguageCode', bdConfig.SentenceTranslation.dtoProps.targetLanguageCode)
 	targetLanguageCode?: null | string
 }

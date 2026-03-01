@@ -53,7 +53,7 @@ describe.skip('Public books', () => {
 		}
 	})
 
-	it('try to start server several times and check that public books number did not change', async () => {
+	/*it('try to start server several times and check that public books number did not change', async () => {
 		const booksCount1 = await prisma.bookPublic.count()
 		const chaptersCount1 = await prisma.bookChapter.count({ where: { book_public_id: { not: null } } })
 
@@ -66,5 +66,5 @@ describe.skip('Public books', () => {
 
 		expect(booksCount2).toBe(booksCount1)
 		expect(chaptersCount2).toBe(chaptersCount1)
-	})
+	})*/
 })

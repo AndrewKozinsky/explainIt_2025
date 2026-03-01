@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common'
+import { Language } from 'utils/languages'
 import { Prisma } from 'prisma/generated/client'
 import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
@@ -11,11 +12,18 @@ export class BookPrivateRepository {
 	constructor(private prisma: PrismaService) {}
 
 	@CatchDbError()
-	async createBook(dto: { userId: number; author?: null | string; name?: null | string; note?: null | string }) {
+	async createBook(dto: {
+		userId: number
+		author?: null | string
+		name?: null | string
+		note?: null | string
+		languageCode: Language
+	}) {
 		const newBook = await this.prisma.bookPrivate.create({
 			data: {
 				author: dto.author,
 				name: dto.name,
+				language_code: dto.languageCode,
 				note: dto.note,
 				user_id: dto.userId,
 			},
@@ -25,7 +33,7 @@ export class BookPrivateRepository {
 		return this.mapDbBookToServiceBook(newBook)
 	}
 
-	@CatchDbError()
+	/*@CatchDbError()
 	async getBookById(bookId: number) {
 		const book = await this.prisma.bookPrivate.findUnique({
 			where: { id: bookId },
@@ -37,7 +45,7 @@ export class BookPrivateRepository {
 		}
 
 		return this.mapDbBookToServiceBook(book)
-	}
+	}*/
 
 	@CatchDbError()
 	async updateBookById(

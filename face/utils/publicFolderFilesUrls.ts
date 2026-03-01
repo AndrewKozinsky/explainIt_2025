@@ -10,6 +10,7 @@ export const publicFolderFilesUrls = {
 		fullScreenButtonIcon: '/icons/fullScreenButtonIcon.svg',
 		warningTriangle: '/icons/warningTriangle.svg',
 		copyButtonIcon: '/icons/copyButtonIcon.svg',
+		actionButtonIcon: '/icons/actionButtonIcon.svg',
 	},
 	images: {
 		common: {
@@ -19,10 +20,21 @@ export const publicFolderFilesUrls = {
 			navArrowRight: 'navArrowRight.svg',
 		},
 	},
-	books: {
-		covers: '/books/covers/',
-	},
-	video: {
-		helpFilmFrame: '/video/help-film-frame.svg',
+	mainPage: {
+		headVideo: 'mainPage/headVideo.mp4',
+		aboutBooksVideo: 'mainPage/aboutBooks.mp4',
+		aboutVideosVideo: 'mainPage/aboutVideos.mp4',
+		girlOnArmchair: 'mainPage/girlOnArmchair.webp',
+		anyDevices: 'mainPage/anyDevices.svg',
+		bookCover_1: 'mainPage/book-1.webp',
+		bookCover_2: 'mainPage/book-2.webp',
+		videoCover_1: 'mainPage/video-3.webp',
+		videoCover_2: 'mainPage/video-4.webp',
+		sign_1: 'mainPage/sign-1.svg',
+		sign_2: 'mainPage/sign-2.svg',
+		sign_3: 'mainPage/sign-3.svg',
+		sign_4: 'mainPage/sign-4.svg',
+		sign_5: 'mainPage/sign-5.svg',
+		sign_6: 'mainPage/sign-6.svg',
 	},
 }

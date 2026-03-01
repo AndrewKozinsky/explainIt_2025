@@ -1,15 +1,12 @@
-import React from 'react'
-import MobileNavigation from '_pages/video/watching/text/MobileNavigation/MobileNavigation'
+import DetailsBlock from '_pages/bookAndVideoCommon/detailsBlock/DetailsBlock/DetailsBlock'
 import { useWatchingStore } from '_pages/video/watching/watchingStore'
-import DetailsSide from '../detailsSide/DetailsSide/DetailsSide'
+import MobileNavigation from '../MobileNavigation/MobileNavigation'
 import TextSide from '../textSide/TextSide/TextSide'
 import { getSectionClasses } from './fn/getSectionClasses'
-import { useUpdateRootSelectedText } from './fn/rootSelecteon/useUpdateRootSelectedText'
 import './TextRoot.scss'
 
 function TextRoot() {
 	const currentMobileContentType = useWatchingStore((s) => s.mobileCurrentContentType)
-	useUpdateRootSelectedText()
 
 	return (
 		<div className='watching-text-root'>
@@ -19,7 +16,7 @@ function TextRoot() {
 					<TextSide />
 				</div>
 				<div className={getSectionClasses('details', currentMobileContentType)}>
-					<DetailsSide />
+					<DetailsBlock />
 				</div>
 			</div>
 		</div>

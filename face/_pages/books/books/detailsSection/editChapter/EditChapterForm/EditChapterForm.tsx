@@ -1,17 +1,16 @@
 import React, { useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useForm, useFormState } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import Button from '@/ui/formRelated/buttons/Button/Button'
 import FormError from '@/ui/formRelated/FormError/FormError'
 import FormFieldsWrapper from '@/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
 import TextInput from '@/ui/formRelated/TextInput/TextInput'
 import { FormStatus } from '@/utils/forms'
-import EditDetailsFormHeader from '_pages/books/books/detailsSection/common/EditDetailsFormHeader/EditDetailsFormHeader'
-import BookFormSurface from '../../common/BookFormSurface/BookFormSurface'
+import MediaFormSurface from '_pages/bookAndVideoCommon/BookFormSurface/MediaFormSurface'
 import DeleteChapterButton from '../DeleteChapterButton/DeleteChapterButton'
 import ReadChapterButton from '../ReadChapterButton/ReadChapterButton'
-import { ChangeChapterFormData, changeChapterFormSchema, ChangeChapterFormTest, MaxContentLength } from './fn/form'
+import { ChangeChapterFormData, changeChapterFormSchema, ChangeChapterFormTest } from './fn/form'
 import { useSetFieldValues } from './fn/setFieldValues'
 import { useGetOnUpdateChapterFormSubmit } from './fn/submit'
 import YouWillLosePhrasesWarning from './YouWillLosePhrasesWarning'
@@ -38,9 +37,8 @@ export default function EditChapterForm() {
 
 	return (
 		<>
-			<EditDetailsFormHeader />
 			<form onSubmit={handleSubmit(onSubmit)} data-testid={ChangeChapterFormTest.form.id}>
-				<BookFormSurface
+				<MediaFormSurface
 					leftBottomButtons={[<DeleteChapterButton key='delete' />]}
 					rightBottomButtons={[
 						<Button
@@ -86,7 +84,6 @@ export default function EditChapterForm() {
 									'Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do',
 								rows: 10,
 							}}
-							maxCharacters={MaxContentLength}
 							currentText={contentText}
 						/>
 						<YouWillLosePhrasesWarning />
@@ -102,7 +99,7 @@ export default function EditChapterForm() {
 						/>
 						<FormError text={formError} dataTestId={ChangeChapterFormTest.failMessage.id} />
 					</FormFieldsWrapper>
-				</BookFormSurface>
+				</MediaFormSurface>
 			</form>
 		</>
 	)

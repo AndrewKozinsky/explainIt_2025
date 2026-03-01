@@ -1,0 +1,42 @@
+query VideoPublic_get($input: GetPublicVideoInput!) {
+	video_public_get(input: $input) {
+		id
+		name
+		year
+		languageCode
+		note
+		covers
+		originalContent
+		processedContent
+		contentType
+		fileName
+		fileS3Key
+		fileUrl
+		freeToUse
+		sentences {
+			id
+			startOffset
+			length
+			orderIndex
+			sentenceTranslations {
+				id
+				translation
+			}
+		}
+		subtitles {
+			id
+			startTimeMs
+			endTimeMs
+			startOffset
+			length
+			orderIndex
+		}
+		subtitleSentenceInit {
+			id
+			subtitleId
+			sentenceId
+			startOffset
+			length
+		}
+	}
+}

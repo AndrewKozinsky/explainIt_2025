@@ -28,12 +28,10 @@ export type AggregateUser = {
 
 export type UserAvgAggregateOutputType = {
   id: number | null
-  balance: number | null
 }
 
 export type UserSumAggregateOutputType = {
   id: number | null
-  balance: number | null
 }
 
 export type UserMinAggregateOutputType = {
@@ -44,7 +42,6 @@ export type UserMinAggregateOutputType = {
   email_confirmation_code_expiration_date: string | null
   is_email_confirmed: boolean | null
   is_user_confirmed: boolean | null
-  balance: number | null
   created_at: Date | null
 }
 
@@ -56,7 +53,6 @@ export type UserMaxAggregateOutputType = {
   email_confirmation_code_expiration_date: string | null
   is_email_confirmed: boolean | null
   is_user_confirmed: boolean | null
-  balance: number | null
   created_at: Date | null
 }
 
@@ -68,7 +64,6 @@ export type UserCountAggregateOutputType = {
   email_confirmation_code_expiration_date: number
   is_email_confirmed: number
   is_user_confirmed: number
-  balance: number
   created_at: number
   _all: number
 }
@@ -76,12 +71,10 @@ export type UserCountAggregateOutputType = {
 
 export type UserAvgAggregateInputType = {
   id?: true
-  balance?: true
 }
 
 export type UserSumAggregateInputType = {
   id?: true
-  balance?: true
 }
 
 export type UserMinAggregateInputType = {
@@ -92,7 +85,6 @@ export type UserMinAggregateInputType = {
   email_confirmation_code_expiration_date?: true
   is_email_confirmed?: true
   is_user_confirmed?: true
-  balance?: true
   created_at?: true
 }
 
@@ -104,7 +96,6 @@ export type UserMaxAggregateInputType = {
   email_confirmation_code_expiration_date?: true
   is_email_confirmed?: true
   is_user_confirmed?: true
-  balance?: true
   created_at?: true
 }
 
@@ -116,7 +107,6 @@ export type UserCountAggregateInputType = {
   email_confirmation_code_expiration_date?: true
   is_email_confirmed?: true
   is_user_confirmed?: true
-  balance?: true
   created_at?: true
   _all?: true
 }
@@ -215,7 +205,6 @@ export type UserGroupByOutputType = {
   email_confirmation_code_expiration_date: string | null
   is_email_confirmed: boolean
   is_user_confirmed: boolean
-  balance: number
   created_at: Date
   _count: UserCountAggregateOutputType | null
   _avg: UserAvgAggregateOutputType | null
@@ -250,12 +239,11 @@ export type UserWhereInput = {
   email_confirmation_code_expiration_date?: Prisma.StringNullableFilter<"User"> | string | null
   is_email_confirmed?: Prisma.BoolFilter<"User"> | boolean
   is_user_confirmed?: Prisma.BoolFilter<"User"> | boolean
-  balance?: Prisma.IntFilter<"User"> | number
   created_at?: Prisma.DateTimeFilter<"User"> | Date | string
-  BalanceTransaction?: Prisma.BalanceTransactionListRelationFilter
   Payment?: Prisma.PaymentListRelationFilter
   BookPrivate?: Prisma.BookPrivateListRelationFilter
   VideoPrivate?: Prisma.VideoPrivateListRelationFilter
+  UserSubscription?: Prisma.UserSubscriptionListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -266,12 +254,11 @@ export type UserOrderByWithRelationInput = {
   email_confirmation_code_expiration_date?: Prisma.SortOrderInput | Prisma.SortOrder
   is_email_confirmed?: Prisma.SortOrder
   is_user_confirmed?: Prisma.SortOrder
-  balance?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
-  BalanceTransaction?: Prisma.BalanceTransactionOrderByRelationAggregateInput
   Payment?: Prisma.PaymentOrderByRelationAggregateInput
   BookPrivate?: Prisma.BookPrivateOrderByRelationAggregateInput
   VideoPrivate?: Prisma.VideoPrivateOrderByRelationAggregateInput
+  UserSubscription?: Prisma.UserSubscriptionOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -285,12 +272,11 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   email_confirmation_code_expiration_date?: Prisma.StringNullableFilter<"User"> | string | null
   is_email_confirmed?: Prisma.BoolFilter<"User"> | boolean
   is_user_confirmed?: Prisma.BoolFilter<"User"> | boolean
-  balance?: Prisma.IntFilter<"User"> | number
   created_at?: Prisma.DateTimeFilter<"User"> | Date | string
-  BalanceTransaction?: Prisma.BalanceTransactionListRelationFilter
   Payment?: Prisma.PaymentListRelationFilter
   BookPrivate?: Prisma.BookPrivateListRelationFilter
   VideoPrivate?: Prisma.VideoPrivateListRelationFilter
+  UserSubscription?: Prisma.UserSubscriptionListRelationFilter
 }, "id" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -301,7 +287,6 @@ export type UserOrderByWithAggregationInput = {
   email_confirmation_code_expiration_date?: Prisma.SortOrderInput | Prisma.SortOrder
   is_email_confirmed?: Prisma.SortOrder
   is_user_confirmed?: Prisma.SortOrder
-  balance?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   _count?: Prisma.UserCountOrderByAggregateInput
   _avg?: Prisma.UserAvgOrderByAggregateInput
@@ -321,7 +306,6 @@ export type UserScalarWhereWithAggregatesInput = {
   email_confirmation_code_expiration_date?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   is_email_confirmed?: Prisma.BoolWithAggregatesFilter<"User"> | boolean
   is_user_confirmed?: Prisma.BoolWithAggregatesFilter<"User"> | boolean
-  balance?: Prisma.IntWithAggregatesFilter<"User"> | number
   created_at?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
 }
 
@@ -332,12 +316,11 @@ export type UserCreateInput = {
   email_confirmation_code_expiration_date?: string | null
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
-  balance?: number
   created_at?: Date | string
-  BalanceTransaction?: Prisma.BalanceTransactionCreateNestedManyWithoutUserInput
   Payment?: Prisma.PaymentCreateNestedManyWithoutUserInput
   BookPrivate?: Prisma.BookPrivateCreateNestedManyWithoutUserInput
   VideoPrivate?: Prisma.VideoPrivateCreateNestedManyWithoutUserInput
+  UserSubscription?: Prisma.UserSubscriptionCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -348,12 +331,11 @@ export type UserUncheckedCreateInput = {
   email_confirmation_code_expiration_date?: string | null
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
-  balance?: number
   created_at?: Date | string
-  BalanceTransaction?: Prisma.BalanceTransactionUncheckedCreateNestedManyWithoutUserInput
   Payment?: Prisma.PaymentUncheckedCreateNestedManyWithoutUserInput
   BookPrivate?: Prisma.BookPrivateUncheckedCreateNestedManyWithoutUserInput
   VideoPrivate?: Prisma.VideoPrivateUncheckedCreateNestedManyWithoutUserInput
+  UserSubscription?: Prisma.UserSubscriptionUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserUpdateInput = {
@@ -363,12 +345,11 @@ export type UserUpdateInput = {
   email_confirmation_code_expiration_date?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  balance?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  BalanceTransaction?: Prisma.BalanceTransactionUpdateManyWithoutUserNestedInput
   Payment?: Prisma.PaymentUpdateManyWithoutUserNestedInput
   BookPrivate?: Prisma.BookPrivateUpdateManyWithoutUserNestedInput
   VideoPrivate?: Prisma.VideoPrivateUpdateManyWithoutUserNestedInput
+  UserSubscription?: Prisma.UserSubscriptionUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -379,12 +360,11 @@ export type UserUncheckedUpdateInput = {
   email_confirmation_code_expiration_date?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  balance?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  BalanceTransaction?: Prisma.BalanceTransactionUncheckedUpdateManyWithoutUserNestedInput
   Payment?: Prisma.PaymentUncheckedUpdateManyWithoutUserNestedInput
   BookPrivate?: Prisma.BookPrivateUncheckedUpdateManyWithoutUserNestedInput
   VideoPrivate?: Prisma.VideoPrivateUncheckedUpdateManyWithoutUserNestedInput
+  UserSubscription?: Prisma.UserSubscriptionUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -395,7 +375,6 @@ export type UserCreateManyInput = {
   email_confirmation_code_expiration_date?: string | null
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
-  balance?: number
   created_at?: Date | string
 }
 
@@ -406,7 +385,6 @@ export type UserUpdateManyMutationInput = {
   email_confirmation_code_expiration_date?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  balance?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -418,7 +396,6 @@ export type UserUncheckedUpdateManyInput = {
   email_confirmation_code_expiration_date?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  balance?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -430,13 +407,11 @@ export type UserCountOrderByAggregateInput = {
   email_confirmation_code_expiration_date?: Prisma.SortOrder
   is_email_confirmed?: Prisma.SortOrder
   is_user_confirmed?: Prisma.SortOrder
-  balance?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
 export type UserAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  balance?: Prisma.SortOrder
 }
 
 export type UserMaxOrderByAggregateInput = {
@@ -447,7 +422,6 @@ export type UserMaxOrderByAggregateInput = {
   email_confirmation_code_expiration_date?: Prisma.SortOrder
   is_email_confirmed?: Prisma.SortOrder
   is_user_confirmed?: Prisma.SortOrder
-  balance?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
@@ -459,13 +433,11 @@ export type UserMinOrderByAggregateInput = {
   email_confirmation_code_expiration_date?: Prisma.SortOrder
   is_email_confirmed?: Prisma.SortOrder
   is_user_confirmed?: Prisma.SortOrder
-  balance?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
 export type UserSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  balance?: Prisma.SortOrder
 }
 
 export type UserScalarRelationFilter = {
@@ -485,30 +457,16 @@ export type BoolFieldUpdateOperationsInput = {
   set?: boolean
 }
 
+export type DateTimeFieldUpdateOperationsInput = {
+  set?: Date | string
+}
+
 export type IntFieldUpdateOperationsInput = {
   set?: number
   increment?: number
   decrement?: number
   multiply?: number
   divide?: number
-}
-
-export type DateTimeFieldUpdateOperationsInput = {
-  set?: Date | string
-}
-
-export type UserCreateNestedOneWithoutBalanceTransactionInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutBalanceTransactionInput, Prisma.UserUncheckedCreateWithoutBalanceTransactionInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutBalanceTransactionInput
-  connect?: Prisma.UserWhereUniqueInput
-}
-
-export type UserUpdateOneRequiredWithoutBalanceTransactionNestedInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutBalanceTransactionInput, Prisma.UserUncheckedCreateWithoutBalanceTransactionInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutBalanceTransactionInput
-  upsert?: Prisma.UserUpsertWithoutBalanceTransactionInput
-  connect?: Prisma.UserWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutBalanceTransactionInput, Prisma.UserUpdateWithoutBalanceTransactionInput>, Prisma.UserUncheckedUpdateWithoutBalanceTransactionInput>
 }
 
 export type UserCreateNestedOneWithoutPaymentInput = {
@@ -553,78 +511,18 @@ export type UserUpdateOneRequiredWithoutVideoPrivateNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutVideoPrivateInput, Prisma.UserUpdateWithoutVideoPrivateInput>, Prisma.UserUncheckedUpdateWithoutVideoPrivateInput>
 }
 
-export type UserCreateWithoutBalanceTransactionInput = {
-  email: string
-  password?: string | null
-  email_confirmation_code?: string | null
-  email_confirmation_code_expiration_date?: string | null
-  is_email_confirmed?: boolean
-  is_user_confirmed?: boolean
-  balance?: number
-  created_at?: Date | string
-  Payment?: Prisma.PaymentCreateNestedManyWithoutUserInput
-  BookPrivate?: Prisma.BookPrivateCreateNestedManyWithoutUserInput
-  VideoPrivate?: Prisma.VideoPrivateCreateNestedManyWithoutUserInput
+export type UserCreateNestedOneWithoutUserSubscriptionInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutUserSubscriptionInput, Prisma.UserUncheckedCreateWithoutUserSubscriptionInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutUserSubscriptionInput
+  connect?: Prisma.UserWhereUniqueInput
 }
 
-export type UserUncheckedCreateWithoutBalanceTransactionInput = {
-  id?: number
-  email: string
-  password?: string | null
-  email_confirmation_code?: string | null
-  email_confirmation_code_expiration_date?: string | null
-  is_email_confirmed?: boolean
-  is_user_confirmed?: boolean
-  balance?: number
-  created_at?: Date | string
-  Payment?: Prisma.PaymentUncheckedCreateNestedManyWithoutUserInput
-  BookPrivate?: Prisma.BookPrivateUncheckedCreateNestedManyWithoutUserInput
-  VideoPrivate?: Prisma.VideoPrivateUncheckedCreateNestedManyWithoutUserInput
-}
-
-export type UserCreateOrConnectWithoutBalanceTransactionInput = {
-  where: Prisma.UserWhereUniqueInput
-  create: Prisma.XOR<Prisma.UserCreateWithoutBalanceTransactionInput, Prisma.UserUncheckedCreateWithoutBalanceTransactionInput>
-}
-
-export type UserUpsertWithoutBalanceTransactionInput = {
-  update: Prisma.XOR<Prisma.UserUpdateWithoutBalanceTransactionInput, Prisma.UserUncheckedUpdateWithoutBalanceTransactionInput>
-  create: Prisma.XOR<Prisma.UserCreateWithoutBalanceTransactionInput, Prisma.UserUncheckedCreateWithoutBalanceTransactionInput>
-  where?: Prisma.UserWhereInput
-}
-
-export type UserUpdateToOneWithWhereWithoutBalanceTransactionInput = {
-  where?: Prisma.UserWhereInput
-  data: Prisma.XOR<Prisma.UserUpdateWithoutBalanceTransactionInput, Prisma.UserUncheckedUpdateWithoutBalanceTransactionInput>
-}
-
-export type UserUpdateWithoutBalanceTransactionInput = {
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  email_confirmation_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  email_confirmation_code_expiration_date?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  balance?: Prisma.IntFieldUpdateOperationsInput | number
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Payment?: Prisma.PaymentUpdateManyWithoutUserNestedInput
-  BookPrivate?: Prisma.BookPrivateUpdateManyWithoutUserNestedInput
-  VideoPrivate?: Prisma.VideoPrivateUpdateManyWithoutUserNestedInput
-}
-
-export type UserUncheckedUpdateWithoutBalanceTransactionInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  email_confirmation_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  email_confirmation_code_expiration_date?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  balance?: Prisma.IntFieldUpdateOperationsInput | number
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Payment?: Prisma.PaymentUncheckedUpdateManyWithoutUserNestedInput
-  BookPrivate?: Prisma.BookPrivateUncheckedUpdateManyWithoutUserNestedInput
-  VideoPrivate?: Prisma.VideoPrivateUncheckedUpdateManyWithoutUserNestedInput
+export type UserUpdateOneRequiredWithoutUserSubscriptionNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutUserSubscriptionInput, Prisma.UserUncheckedCreateWithoutUserSubscriptionInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutUserSubscriptionInput
+  upsert?: Prisma.UserUpsertWithoutUserSubscriptionInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutUserSubscriptionInput, Prisma.UserUpdateWithoutUserSubscriptionInput>, Prisma.UserUncheckedUpdateWithoutUserSubscriptionInput>
 }
 
 export type UserCreateWithoutPaymentInput = {
@@ -634,11 +532,10 @@ export type UserCreateWithoutPaymentInput = {
   email_confirmation_code_expiration_date?: string | null
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
-  balance?: number
   created_at?: Date | string
-  BalanceTransaction?: Prisma.BalanceTransactionCreateNestedManyWithoutUserInput
   BookPrivate?: Prisma.BookPrivateCreateNestedManyWithoutUserInput
   VideoPrivate?: Prisma.VideoPrivateCreateNestedManyWithoutUserInput
+  UserSubscription?: Prisma.UserSubscriptionCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutPaymentInput = {
@@ -649,11 +546,10 @@ export type UserUncheckedCreateWithoutPaymentInput = {
   email_confirmation_code_expiration_date?: string | null
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
-  balance?: number
   created_at?: Date | string
-  BalanceTransaction?: Prisma.BalanceTransactionUncheckedCreateNestedManyWithoutUserInput
   BookPrivate?: Prisma.BookPrivateUncheckedCreateNestedManyWithoutUserInput
   VideoPrivate?: Prisma.VideoPrivateUncheckedCreateNestedManyWithoutUserInput
+  UserSubscription?: Prisma.UserSubscriptionUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutPaymentInput = {
@@ -679,11 +575,10 @@ export type UserUpdateWithoutPaymentInput = {
   email_confirmation_code_expiration_date?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  balance?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  BalanceTransaction?: Prisma.BalanceTransactionUpdateManyWithoutUserNestedInput
   BookPrivate?: Prisma.BookPrivateUpdateManyWithoutUserNestedInput
   VideoPrivate?: Prisma.VideoPrivateUpdateManyWithoutUserNestedInput
+  UserSubscription?: Prisma.UserSubscriptionUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutPaymentInput = {
@@ -694,11 +589,10 @@ export type UserUncheckedUpdateWithoutPaymentInput = {
   email_confirmation_code_expiration_date?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  balance?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  BalanceTransaction?: Prisma.BalanceTransactionUncheckedUpdateManyWithoutUserNestedInput
   BookPrivate?: Prisma.BookPrivateUncheckedUpdateManyWithoutUserNestedInput
   VideoPrivate?: Prisma.VideoPrivateUncheckedUpdateManyWithoutUserNestedInput
+  UserSubscription?: Prisma.UserSubscriptionUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutBookPrivateInput = {
@@ -708,11 +602,10 @@ export type UserCreateWithoutBookPrivateInput = {
   email_confirmation_code_expiration_date?: string | null
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
-  balance?: number
   created_at?: Date | string
-  BalanceTransaction?: Prisma.BalanceTransactionCreateNestedManyWithoutUserInput
   Payment?: Prisma.PaymentCreateNestedManyWithoutUserInput
   VideoPrivate?: Prisma.VideoPrivateCreateNestedManyWithoutUserInput
+  UserSubscription?: Prisma.UserSubscriptionCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutBookPrivateInput = {
@@ -723,11 +616,10 @@ export type UserUncheckedCreateWithoutBookPrivateInput = {
   email_confirmation_code_expiration_date?: string | null
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
-  balance?: number
   created_at?: Date | string
-  BalanceTransaction?: Prisma.BalanceTransactionUncheckedCreateNestedManyWithoutUserInput
   Payment?: Prisma.PaymentUncheckedCreateNestedManyWithoutUserInput
   VideoPrivate?: Prisma.VideoPrivateUncheckedCreateNestedManyWithoutUserInput
+  UserSubscription?: Prisma.UserSubscriptionUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutBookPrivateInput = {
@@ -753,11 +645,10 @@ export type UserUpdateWithoutBookPrivateInput = {
   email_confirmation_code_expiration_date?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  balance?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  BalanceTransaction?: Prisma.BalanceTransactionUpdateManyWithoutUserNestedInput
   Payment?: Prisma.PaymentUpdateManyWithoutUserNestedInput
   VideoPrivate?: Prisma.VideoPrivateUpdateManyWithoutUserNestedInput
+  UserSubscription?: Prisma.UserSubscriptionUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutBookPrivateInput = {
@@ -768,11 +659,10 @@ export type UserUncheckedUpdateWithoutBookPrivateInput = {
   email_confirmation_code_expiration_date?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  balance?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  BalanceTransaction?: Prisma.BalanceTransactionUncheckedUpdateManyWithoutUserNestedInput
   Payment?: Prisma.PaymentUncheckedUpdateManyWithoutUserNestedInput
   VideoPrivate?: Prisma.VideoPrivateUncheckedUpdateManyWithoutUserNestedInput
+  UserSubscription?: Prisma.UserSubscriptionUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutVideoPrivateInput = {
@@ -782,11 +672,10 @@ export type UserCreateWithoutVideoPrivateInput = {
   email_confirmation_code_expiration_date?: string | null
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
-  balance?: number
   created_at?: Date | string
-  BalanceTransaction?: Prisma.BalanceTransactionCreateNestedManyWithoutUserInput
   Payment?: Prisma.PaymentCreateNestedManyWithoutUserInput
   BookPrivate?: Prisma.BookPrivateCreateNestedManyWithoutUserInput
+  UserSubscription?: Prisma.UserSubscriptionCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutVideoPrivateInput = {
@@ -797,11 +686,10 @@ export type UserUncheckedCreateWithoutVideoPrivateInput = {
   email_confirmation_code_expiration_date?: string | null
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
-  balance?: number
   created_at?: Date | string
-  BalanceTransaction?: Prisma.BalanceTransactionUncheckedCreateNestedManyWithoutUserInput
   Payment?: Prisma.PaymentUncheckedCreateNestedManyWithoutUserInput
   BookPrivate?: Prisma.BookPrivateUncheckedCreateNestedManyWithoutUserInput
+  UserSubscription?: Prisma.UserSubscriptionUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutVideoPrivateInput = {
@@ -827,11 +715,10 @@ export type UserUpdateWithoutVideoPrivateInput = {
   email_confirmation_code_expiration_date?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  balance?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  BalanceTransaction?: Prisma.BalanceTransactionUpdateManyWithoutUserNestedInput
   Payment?: Prisma.PaymentUpdateManyWithoutUserNestedInput
   BookPrivate?: Prisma.BookPrivateUpdateManyWithoutUserNestedInput
+  UserSubscription?: Prisma.UserSubscriptionUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutVideoPrivateInput = {
@@ -842,11 +729,80 @@ export type UserUncheckedUpdateWithoutVideoPrivateInput = {
   email_confirmation_code_expiration_date?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  balance?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  BalanceTransaction?: Prisma.BalanceTransactionUncheckedUpdateManyWithoutUserNestedInput
   Payment?: Prisma.PaymentUncheckedUpdateManyWithoutUserNestedInput
   BookPrivate?: Prisma.BookPrivateUncheckedUpdateManyWithoutUserNestedInput
+  UserSubscription?: Prisma.UserSubscriptionUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutUserSubscriptionInput = {
+  email: string
+  password?: string | null
+  email_confirmation_code?: string | null
+  email_confirmation_code_expiration_date?: string | null
+  is_email_confirmed?: boolean
+  is_user_confirmed?: boolean
+  created_at?: Date | string
+  Payment?: Prisma.PaymentCreateNestedManyWithoutUserInput
+  BookPrivate?: Prisma.BookPrivateCreateNestedManyWithoutUserInput
+  VideoPrivate?: Prisma.VideoPrivateCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutUserSubscriptionInput = {
+  id?: number
+  email: string
+  password?: string | null
+  email_confirmation_code?: string | null
+  email_confirmation_code_expiration_date?: string | null
+  is_email_confirmed?: boolean
+  is_user_confirmed?: boolean
+  created_at?: Date | string
+  Payment?: Prisma.PaymentUncheckedCreateNestedManyWithoutUserInput
+  BookPrivate?: Prisma.BookPrivateUncheckedCreateNestedManyWithoutUserInput
+  VideoPrivate?: Prisma.VideoPrivateUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutUserSubscriptionInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutUserSubscriptionInput, Prisma.UserUncheckedCreateWithoutUserSubscriptionInput>
+}
+
+export type UserUpsertWithoutUserSubscriptionInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutUserSubscriptionInput, Prisma.UserUncheckedUpdateWithoutUserSubscriptionInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutUserSubscriptionInput, Prisma.UserUncheckedCreateWithoutUserSubscriptionInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutUserSubscriptionInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutUserSubscriptionInput, Prisma.UserUncheckedUpdateWithoutUserSubscriptionInput>
+}
+
+export type UserUpdateWithoutUserSubscriptionInput = {
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email_confirmation_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email_confirmation_code_expiration_date?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Payment?: Prisma.PaymentUpdateManyWithoutUserNestedInput
+  BookPrivate?: Prisma.BookPrivateUpdateManyWithoutUserNestedInput
+  VideoPrivate?: Prisma.VideoPrivateUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutUserSubscriptionInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email_confirmation_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email_confirmation_code_expiration_date?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Payment?: Prisma.PaymentUncheckedUpdateManyWithoutUserNestedInput
+  BookPrivate?: Prisma.BookPrivateUncheckedUpdateManyWithoutUserNestedInput
+  VideoPrivate?: Prisma.VideoPrivateUncheckedUpdateManyWithoutUserNestedInput
 }
 
 
@@ -855,17 +811,17 @@ export type UserUncheckedUpdateWithoutVideoPrivateInput = {
  */
 
 export type UserCountOutputType = {
-  BalanceTransaction: number
   Payment: number
   BookPrivate: number
   VideoPrivate: number
+  UserSubscription: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  BalanceTransaction?: boolean | UserCountOutputTypeCountBalanceTransactionArgs
   Payment?: boolean | UserCountOutputTypeCountPaymentArgs
   BookPrivate?: boolean | UserCountOutputTypeCountBookPrivateArgs
   VideoPrivate?: boolean | UserCountOutputTypeCountVideoPrivateArgs
+  UserSubscription?: boolean | UserCountOutputTypeCountUserSubscriptionArgs
 }
 
 /**
@@ -876,13 +832,6 @@ export type UserCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensi
    * Select specific fields to fetch from the UserCountOutputType
    */
   select?: Prisma.UserCountOutputTypeSelect<ExtArgs> | null
-}
-
-/**
- * UserCountOutputType without action
- */
-export type UserCountOutputTypeCountBalanceTransactionArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.BalanceTransactionWhereInput
 }
 
 /**
@@ -906,6 +855,13 @@ export type UserCountOutputTypeCountVideoPrivateArgs<ExtArgs extends runtime.Typ
   where?: Prisma.VideoPrivateWhereInput
 }
 
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountUserSubscriptionArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.UserSubscriptionWhereInput
+}
+
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -915,12 +871,11 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   email_confirmation_code_expiration_date?: boolean
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
-  balance?: boolean
   created_at?: boolean
-  BalanceTransaction?: boolean | Prisma.User$BalanceTransactionArgs<ExtArgs>
   Payment?: boolean | Prisma.User$PaymentArgs<ExtArgs>
   BookPrivate?: boolean | Prisma.User$BookPrivateArgs<ExtArgs>
   VideoPrivate?: boolean | Prisma.User$VideoPrivateArgs<ExtArgs>
+  UserSubscription?: boolean | Prisma.User$UserSubscriptionArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -932,7 +887,6 @@ export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   email_confirmation_code_expiration_date?: boolean
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
-  balance?: boolean
   created_at?: boolean
 }, ExtArgs["result"]["user"]>
 
@@ -944,7 +898,6 @@ export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   email_confirmation_code_expiration_date?: boolean
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
-  balance?: boolean
   created_at?: boolean
 }, ExtArgs["result"]["user"]>
 
@@ -956,16 +909,15 @@ export type UserSelectScalar = {
   email_confirmation_code_expiration_date?: boolean
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
-  balance?: boolean
   created_at?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "password" | "email_confirmation_code" | "email_confirmation_code_expiration_date" | "is_email_confirmed" | "is_user_confirmed" | "balance" | "created_at", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "password" | "email_confirmation_code" | "email_confirmation_code_expiration_date" | "is_email_confirmed" | "is_user_confirmed" | "created_at", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  BalanceTransaction?: boolean | Prisma.User$BalanceTransactionArgs<ExtArgs>
   Payment?: boolean | Prisma.User$PaymentArgs<ExtArgs>
   BookPrivate?: boolean | Prisma.User$BookPrivateArgs<ExtArgs>
   VideoPrivate?: boolean | Prisma.User$VideoPrivateArgs<ExtArgs>
+  UserSubscription?: boolean | Prisma.User$UserSubscriptionArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -974,10 +926,10 @@ export type UserIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
 export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "User"
   objects: {
-    BalanceTransaction: Prisma.$BalanceTransactionPayload<ExtArgs>[]
     Payment: Prisma.$PaymentPayload<ExtArgs>[]
     BookPrivate: Prisma.$BookPrivatePayload<ExtArgs>[]
     VideoPrivate: Prisma.$VideoPrivatePayload<ExtArgs>[]
+    UserSubscription: Prisma.$UserSubscriptionPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -987,7 +939,6 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     email_confirmation_code_expiration_date: string | null
     is_email_confirmed: boolean
     is_user_confirmed: boolean
-    balance: number
     created_at: Date
   }, ExtArgs["result"]["user"]>
   composites: {}
@@ -1383,10 +1334,10 @@ readonly fields: UserFieldRefs;
  */
 export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  BalanceTransaction<T extends Prisma.User$BalanceTransactionArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$BalanceTransactionArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BalanceTransactionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   Payment<T extends Prisma.User$PaymentArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$PaymentArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   BookPrivate<T extends Prisma.User$BookPrivateArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$BookPrivateArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BookPrivatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   VideoPrivate<T extends Prisma.User$VideoPrivateArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$VideoPrivateArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$VideoPrivatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  UserSubscription<T extends Prisma.User$UserSubscriptionArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$UserSubscriptionArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$UserSubscriptionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1423,7 +1374,6 @@ export interface UserFieldRefs {
   readonly email_confirmation_code_expiration_date: Prisma.FieldRef<"User", 'String'>
   readonly is_email_confirmed: Prisma.FieldRef<"User", 'Boolean'>
   readonly is_user_confirmed: Prisma.FieldRef<"User", 'Boolean'>
-  readonly balance: Prisma.FieldRef<"User", 'Int'>
   readonly created_at: Prisma.FieldRef<"User", 'DateTime'>
 }
     
@@ -1813,30 +1763,6 @@ export type UserDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Internal
 }
 
 /**
- * User.BalanceTransaction
- */
-export type User$BalanceTransactionArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the BalanceTransaction
-   */
-  select?: Prisma.BalanceTransactionSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the BalanceTransaction
-   */
-  omit?: Prisma.BalanceTransactionOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.BalanceTransactionInclude<ExtArgs> | null
-  where?: Prisma.BalanceTransactionWhereInput
-  orderBy?: Prisma.BalanceTransactionOrderByWithRelationInput | Prisma.BalanceTransactionOrderByWithRelationInput[]
-  cursor?: Prisma.BalanceTransactionWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.BalanceTransactionScalarFieldEnum | Prisma.BalanceTransactionScalarFieldEnum[]
-}
-
-/**
  * User.Payment
  */
 export type User$PaymentArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1906,6 +1832,30 @@ export type User$VideoPrivateArgs<ExtArgs extends runtime.Types.Extensions.Inter
   take?: number
   skip?: number
   distinct?: Prisma.VideoPrivateScalarFieldEnum | Prisma.VideoPrivateScalarFieldEnum[]
+}
+
+/**
+ * User.UserSubscription
+ */
+export type User$UserSubscriptionArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the UserSubscription
+   */
+  select?: Prisma.UserSubscriptionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the UserSubscription
+   */
+  omit?: Prisma.UserSubscriptionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserSubscriptionInclude<ExtArgs> | null
+  where?: Prisma.UserSubscriptionWhereInput
+  orderBy?: Prisma.UserSubscriptionOrderByWithRelationInput | Prisma.UserSubscriptionOrderByWithRelationInput[]
+  cursor?: Prisma.UserSubscriptionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.UserSubscriptionScalarFieldEnum | Prisma.UserSubscriptionScalarFieldEnum[]
 }
 
 /**

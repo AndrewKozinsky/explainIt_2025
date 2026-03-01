@@ -1,8 +1,8 @@
 'use client'
 
+import WatchingRoot from '_pages/video/watching/root/WatchingRoot/WatchingRoot'
+import VideosRoot from '../videos/root/VideosRoot/VideosRoot'
 import { useGetShowingPageType } from './fn/showingPageType'
-import VideosRoot from '_pages/video/videos/VideosRoot/VideosRoot'
-import WatchingRoot from '_pages/video/watching/WatchingRoot/WatchingRoot'
 
 function VideosPage() {
 	const showingPageType = useGetShowingPageType()

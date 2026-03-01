@@ -22,12 +22,16 @@ export function useGetOnUpdateVideoFormSubmit(
 			try {
 				const { data, errors } = await updateBook({
 					variables: {
-						input: { id: video.id, name: formData.name, text: formData.text },
+						input: {
+							id: video.id,
+							name: formData.name,
+							originalContent: formData.content,
+						},
 					},
 				})
 
 				if (errors) {
-					setFormError('Не удалось сохранить книгу')
+					setFormError('Не удалось сохранить видео')
 					return
 				}
 

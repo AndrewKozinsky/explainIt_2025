@@ -13,7 +13,7 @@ export class BookPublicQueryRepository {
 	@CatchDbError()
 	async getPublicBooks() {
 		const booksPublic = await this.prisma.bookPublic.findMany({
-			include: { BookChapter: { orderBy: { created_at: 'asc' } } },
+			include: { BookChapter: { orderBy: { id: 'asc' } } },
 		})
 
 		return booksPublic.map(this.mapDbBookPublicToOutBook)
@@ -37,7 +37,9 @@ export class BookPublicQueryRepository {
 			author: dbBook.author,
 			name: dbBook.name,
 			note: dbBook.note,
-			cover: dbBook.cover,
+			covers: dbBook.covers,
+			languageCode: dbBook.language_code,
+			freeToUse: dbBook.free_to_use ?? false,
 			chapters: dbBook.BookChapter.map((chapter) => ({
 				id: chapter.id,
 				bookId: dbBook.id,

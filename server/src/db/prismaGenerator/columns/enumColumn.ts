@@ -1,7 +1,9 @@
 import { BdConfig } from '../../dbConfig/dbConfigType'
 
 export function createEnumColumn(dbFieldName: string, columnConfig: BdConfig.EnumField) {
-	let column = `\t${dbFieldName}	${columnConfig.enumName}`
+	const optionalParamSign = columnConfig.required ? '' : '?'
+
+	let column = `\t${dbFieldName}	${columnConfig.enumName}` + optionalParamSign
 
 	if (columnConfig.default) {
 		column += `	@default(${columnConfig.default})`

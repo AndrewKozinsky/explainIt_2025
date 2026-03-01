@@ -23,10 +23,10 @@ export * from './enums';
  */
 export type User = Prisma.UserModel
 /**
- * Model BalanceTransaction
+ * Model SubscriptionBalanceTransaction
  * 
  */
-export type BalanceTransaction = Prisma.BalanceTransactionModel
+export type SubscriptionBalanceTransaction = Prisma.SubscriptionBalanceTransactionModel
 /**
  * Model Payment
  * 
@@ -48,22 +48,47 @@ export type BookPublic = Prisma.BookPublicModel
  */
 export type BookChapter = Prisma.BookChapterModel
 /**
- * Model BookChapterPhrase
- * 
- */
-export type BookChapterPhrase = Prisma.BookChapterPhraseModel
-/**
- * Model BookChapterPhraseExample
- * 
- */
-export type BookChapterPhraseExample = Prisma.BookChapterPhraseExampleModel
-/**
  * Model VideoPrivate
  * 
  */
 export type VideoPrivate = Prisma.VideoPrivateModel
 /**
+ * Model VideoPublic
+ * 
+ */
+export type VideoPublic = Prisma.VideoPublicModel
+/**
+ * Model Sentence
+ * 
+ */
+export type Sentence = Prisma.SentenceModel
+/**
+ * Model SentenceTranslation
+ * 
+ */
+export type SentenceTranslation = Prisma.SentenceTranslationModel
+/**
+ * Model Subtitle
+ * 
+ */
+export type Subtitle = Prisma.SubtitleModel
+/**
+ * Model SubtitleSentenceInit
+ * 
+ */
+export type SubtitleSentenceInit = Prisma.SubtitleSentenceInitModel
+/**
  * Model EngRusDictionary
  * 
  */
 export type EngRusDictionary = Prisma.EngRusDictionaryModel
+/**
+ * Model Tariff
+ * 
+ */
+export type Tariff = Prisma.TariffModel
+/**
+ * Model UserSubscription
+ * 
+ */
+export type UserSubscription = Prisma.UserSubscriptionModel

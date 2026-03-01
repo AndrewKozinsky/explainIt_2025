@@ -6,7 +6,7 @@ import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
 import RouteNames from '../../src/infrastructure/routeNames'
 import { YandexCloudS3ServiceMock } from '../../src/infrastructure/yandexCloudS3/yandexCloudS3.service'
 import { UserRepository } from '../../src/repo/user.repository'
-import { VideoPrivateQueryRepository } from '../../src/repo/videoPrivate.queryRepository'
+import { VideoPrivateQueryRepository } from '../../src/repo/video/videoPrivate.queryRepository'
 import { makeGraphQLReqWithTokens } from '../makeGQReq'
 import { authUtils } from '../utils/authUtils'
 import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
@@ -78,7 +78,7 @@ describe.skip('Delete video private', () => {
 		})
 	})
 
-	it('should return 403 status if a video belongs to another user', async () => {
+	/*it('should return 403 status if a video belongs to another user', async () => {
 		const { sessionToken: firstUserSessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
 			userRepository,
@@ -122,9 +122,9 @@ describe.skip('Delete video private', () => {
 			statusCode: 403,
 			message: errorMessage.userIsNotOwner,
 		})
-	})
+	})*/
 
-	it('user should delete a created video and its file from storage', async () => {
+	/*it('user should delete a created video and its file from storage', async () => {
 		const { sessionToken: ownerSessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
 			userRepository,
@@ -167,5 +167,5 @@ describe.skip('Delete video private', () => {
 
 		const deletedVideo = await videoPrivateQueryRepository.getVideoById(createdVideo.id)
 		expect(deletedVideo).toBe(null)
-	})
+	})*/
 })

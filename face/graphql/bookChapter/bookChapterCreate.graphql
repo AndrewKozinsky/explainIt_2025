@@ -8,6 +8,7 @@ mutation BookChapter_create($input: CreateBookChapterInput!) {
 		book {
 			id
 			name
+			languageCode
 			author
 			note
 			userId

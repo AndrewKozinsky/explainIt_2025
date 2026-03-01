@@ -29,26 +29,31 @@ export type AggregateVideoPrivate = {
 export type VideoPrivateAvgAggregateOutputType = {
   id: number | null
   user_id: number | null
+  year: number | null
   file_size_mb: number | null
 }
 
 export type VideoPrivateSumAggregateOutputType = {
   id: number | null
   user_id: number | null
+  year: number | null
   file_size_mb: number | null
 }
 
 export type VideoPrivateMinAggregateOutputType = {
   id: number | null
   user_id: number | null
+  language_code: $Enums.LanguageCode | null
+  year: number | null
   file_name: string | null
   file_s3_key: string | null
-  file_url: string | null
+  s3_provider_name: $Enums.S3ProviderName | null
   is_file_uploaded: boolean | null
   file_size_mb: number | null
   name: string | null
-  text: string | null
-  text_resolved: string | null
+  original_content: string | null
+  processed_content: string | null
+  content_type: $Enums.VideoTextType | null
   created_at: Date | null
   updated_at: Date | null
 }
@@ -56,14 +61,17 @@ export type VideoPrivateMinAggregateOutputType = {
 export type VideoPrivateMaxAggregateOutputType = {
   id: number | null
   user_id: number | null
+  language_code: $Enums.LanguageCode | null
+  year: number | null
   file_name: string | null
   file_s3_key: string | null
-  file_url: string | null
+  s3_provider_name: $Enums.S3ProviderName | null
   is_file_uploaded: boolean | null
   file_size_mb: number | null
   name: string | null
-  text: string | null
-  text_resolved: string | null
+  original_content: string | null
+  processed_content: string | null
+  content_type: $Enums.VideoTextType | null
   created_at: Date | null
   updated_at: Date | null
 }
@@ -71,14 +79,17 @@ export type VideoPrivateMaxAggregateOutputType = {
 export type VideoPrivateCountAggregateOutputType = {
   id: number
   user_id: number
+  language_code: number
+  year: number
   file_name: number
   file_s3_key: number
-  file_url: number
+  s3_provider_name: number
   is_file_uploaded: number
   file_size_mb: number
   name: number
-  text: number
-  text_resolved: number
+  original_content: number
+  processed_content: number
+  content_type: number
   created_at: number
   updated_at: number
   _all: number
@@ -88,26 +99,31 @@ export type VideoPrivateCountAggregateOutputType = {
 export type VideoPrivateAvgAggregateInputType = {
   id?: true
   user_id?: true
+  year?: true
   file_size_mb?: true
 }
 
 export type VideoPrivateSumAggregateInputType = {
   id?: true
   user_id?: true
+  year?: true
   file_size_mb?: true
 }
 
 export type VideoPrivateMinAggregateInputType = {
   id?: true
   user_id?: true
+  language_code?: true
+  year?: true
   file_name?: true
   file_s3_key?: true
-  file_url?: true
+  s3_provider_name?: true
   is_file_uploaded?: true
   file_size_mb?: true
   name?: true
-  text?: true
-  text_resolved?: true
+  original_content?: true
+  processed_content?: true
+  content_type?: true
   created_at?: true
   updated_at?: true
 }
@@ -115,14 +131,17 @@ export type VideoPrivateMinAggregateInputType = {
 export type VideoPrivateMaxAggregateInputType = {
   id?: true
   user_id?: true
+  language_code?: true
+  year?: true
   file_name?: true
   file_s3_key?: true
-  file_url?: true
+  s3_provider_name?: true
   is_file_uploaded?: true
   file_size_mb?: true
   name?: true
-  text?: true
-  text_resolved?: true
+  original_content?: true
+  processed_content?: true
+  content_type?: true
   created_at?: true
   updated_at?: true
 }
@@ -130,14 +149,17 @@ export type VideoPrivateMaxAggregateInputType = {
 export type VideoPrivateCountAggregateInputType = {
   id?: true
   user_id?: true
+  language_code?: true
+  year?: true
   file_name?: true
   file_s3_key?: true
-  file_url?: true
+  s3_provider_name?: true
   is_file_uploaded?: true
   file_size_mb?: true
   name?: true
-  text?: true
-  text_resolved?: true
+  original_content?: true
+  processed_content?: true
+  content_type?: true
   created_at?: true
   updated_at?: true
   _all?: true
@@ -232,14 +254,17 @@ export type VideoPrivateGroupByArgs<ExtArgs extends runtime.Types.Extensions.Int
 export type VideoPrivateGroupByOutputType = {
   id: number
   user_id: number
+  language_code: $Enums.LanguageCode
+  year: number | null
   file_name: string | null
   file_s3_key: string | null
-  file_url: string | null
+  s3_provider_name: $Enums.S3ProviderName | null
   is_file_uploaded: boolean
   file_size_mb: number
   name: string | null
-  text: string | null
-  text_resolved: string | null
+  original_content: string | null
+  processed_content: string | null
+  content_type: $Enums.VideoTextType
   created_at: Date
   updated_at: Date
   _count: VideoPrivateCountAggregateOutputType | null
@@ -270,33 +295,43 @@ export type VideoPrivateWhereInput = {
   NOT?: Prisma.VideoPrivateWhereInput | Prisma.VideoPrivateWhereInput[]
   id?: Prisma.IntFilter<"VideoPrivate"> | number
   user_id?: Prisma.IntFilter<"VideoPrivate"> | number
+  language_code?: Prisma.EnumLanguageCodeFilter<"VideoPrivate"> | $Enums.LanguageCode
+  year?: Prisma.IntNullableFilter<"VideoPrivate"> | number | null
   file_name?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   file_s3_key?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
-  file_url?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
+  s3_provider_name?: Prisma.EnumS3ProviderNameNullableFilter<"VideoPrivate"> | $Enums.S3ProviderName | null
   is_file_uploaded?: Prisma.BoolFilter<"VideoPrivate"> | boolean
   file_size_mb?: Prisma.IntFilter<"VideoPrivate"> | number
   name?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
-  text?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
-  text_resolved?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
+  original_content?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
+  processed_content?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
+  content_type?: Prisma.EnumVideoTextTypeFilter<"VideoPrivate"> | $Enums.VideoTextType
   created_at?: Prisma.DateTimeFilter<"VideoPrivate"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"VideoPrivate"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  Subtitle?: Prisma.SubtitleListRelationFilter
+  Sentence?: Prisma.SentenceListRelationFilter
 }
 
 export type VideoPrivateOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
+  language_code?: Prisma.SortOrder
+  year?: Prisma.SortOrderInput | Prisma.SortOrder
   file_name?: Prisma.SortOrderInput | Prisma.SortOrder
   file_s3_key?: Prisma.SortOrderInput | Prisma.SortOrder
-  file_url?: Prisma.SortOrderInput | Prisma.SortOrder
+  s3_provider_name?: Prisma.SortOrderInput | Prisma.SortOrder
   is_file_uploaded?: Prisma.SortOrder
   file_size_mb?: Prisma.SortOrder
   name?: Prisma.SortOrderInput | Prisma.SortOrder
-  text?: Prisma.SortOrderInput | Prisma.SortOrder
-  text_resolved?: Prisma.SortOrderInput | Prisma.SortOrder
+  original_content?: Prisma.SortOrderInput | Prisma.SortOrder
+  processed_content?: Prisma.SortOrderInput | Prisma.SortOrder
+  content_type?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
+  Subtitle?: Prisma.SubtitleOrderByRelationAggregateInput
+  Sentence?: Prisma.SentenceOrderByRelationAggregateInput
 }
 
 export type VideoPrivateWhereUniqueInput = Prisma.AtLeast<{
@@ -305,30 +340,38 @@ export type VideoPrivateWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.VideoPrivateWhereInput[]
   NOT?: Prisma.VideoPrivateWhereInput | Prisma.VideoPrivateWhereInput[]
   user_id?: Prisma.IntFilter<"VideoPrivate"> | number
+  language_code?: Prisma.EnumLanguageCodeFilter<"VideoPrivate"> | $Enums.LanguageCode
+  year?: Prisma.IntNullableFilter<"VideoPrivate"> | number | null
   file_name?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   file_s3_key?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
-  file_url?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
+  s3_provider_name?: Prisma.EnumS3ProviderNameNullableFilter<"VideoPrivate"> | $Enums.S3ProviderName | null
   is_file_uploaded?: Prisma.BoolFilter<"VideoPrivate"> | boolean
   file_size_mb?: Prisma.IntFilter<"VideoPrivate"> | number
   name?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
-  text?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
-  text_resolved?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
+  original_content?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
+  processed_content?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
+  content_type?: Prisma.EnumVideoTextTypeFilter<"VideoPrivate"> | $Enums.VideoTextType
   created_at?: Prisma.DateTimeFilter<"VideoPrivate"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"VideoPrivate"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  Subtitle?: Prisma.SubtitleListRelationFilter
+  Sentence?: Prisma.SentenceListRelationFilter
 }, "id">
 
 export type VideoPrivateOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
+  language_code?: Prisma.SortOrder
+  year?: Prisma.SortOrderInput | Prisma.SortOrder
   file_name?: Prisma.SortOrderInput | Prisma.SortOrder
   file_s3_key?: Prisma.SortOrderInput | Prisma.SortOrder
-  file_url?: Prisma.SortOrderInput | Prisma.SortOrder
+  s3_provider_name?: Prisma.SortOrderInput | Prisma.SortOrder
   is_file_uploaded?: Prisma.SortOrder
   file_size_mb?: Prisma.SortOrder
   name?: Prisma.SortOrderInput | Prisma.SortOrder
-  text?: Prisma.SortOrderInput | Prisma.SortOrder
-  text_resolved?: Prisma.SortOrderInput | Prisma.SortOrder
+  original_content?: Prisma.SortOrderInput | Prisma.SortOrder
+  processed_content?: Prisma.SortOrderInput | Prisma.SortOrder
+  content_type?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   _count?: Prisma.VideoPrivateCountOrderByAggregateInput
@@ -344,100 +387,129 @@ export type VideoPrivateScalarWhereWithAggregatesInput = {
   NOT?: Prisma.VideoPrivateScalarWhereWithAggregatesInput | Prisma.VideoPrivateScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"VideoPrivate"> | number
   user_id?: Prisma.IntWithAggregatesFilter<"VideoPrivate"> | number
+  language_code?: Prisma.EnumLanguageCodeWithAggregatesFilter<"VideoPrivate"> | $Enums.LanguageCode
+  year?: Prisma.IntNullableWithAggregatesFilter<"VideoPrivate"> | number | null
   file_name?: Prisma.StringNullableWithAggregatesFilter<"VideoPrivate"> | string | null
   file_s3_key?: Prisma.StringNullableWithAggregatesFilter<"VideoPrivate"> | string | null
-  file_url?: Prisma.StringNullableWithAggregatesFilter<"VideoPrivate"> | string | null
+  s3_provider_name?: Prisma.EnumS3ProviderNameNullableWithAggregatesFilter<"VideoPrivate"> | $Enums.S3ProviderName | null
   is_file_uploaded?: Prisma.BoolWithAggregatesFilter<"VideoPrivate"> | boolean
   file_size_mb?: Prisma.IntWithAggregatesFilter<"VideoPrivate"> | number
   name?: Prisma.StringNullableWithAggregatesFilter<"VideoPrivate"> | string | null
-  text?: Prisma.StringNullableWithAggregatesFilter<"VideoPrivate"> | string | null
-  text_resolved?: Prisma.StringNullableWithAggregatesFilter<"VideoPrivate"> | string | null
+  original_content?: Prisma.StringNullableWithAggregatesFilter<"VideoPrivate"> | string | null
+  processed_content?: Prisma.StringNullableWithAggregatesFilter<"VideoPrivate"> | string | null
+  content_type?: Prisma.EnumVideoTextTypeWithAggregatesFilter<"VideoPrivate"> | $Enums.VideoTextType
   created_at?: Prisma.DateTimeWithAggregatesFilter<"VideoPrivate"> | Date | string
   updated_at?: Prisma.DateTimeWithAggregatesFilter<"VideoPrivate"> | Date | string
 }
 
 export type VideoPrivateCreateInput = {
+  language_code: $Enums.LanguageCode
+  year?: number | null
   file_name?: string | null
   file_s3_key?: string | null
-  file_url?: string | null
+  s3_provider_name?: $Enums.S3ProviderName | null
   is_file_uploaded?: boolean
-  file_size_mb: number
+  file_size_mb?: number
   name?: string | null
-  text?: string | null
-  text_resolved?: string | null
+  original_content?: string | null
+  processed_content?: string | null
+  content_type?: $Enums.VideoTextType
   created_at?: Date | string
   updated_at?: Date | string
   user: Prisma.UserCreateNestedOneWithoutVideoPrivateInput
+  Subtitle?: Prisma.SubtitleCreateNestedManyWithoutVideoPrivateInput
+  Sentence?: Prisma.SentenceCreateNestedManyWithoutVideoPrivateInput
 }
 
 export type VideoPrivateUncheckedCreateInput = {
   id?: number
   user_id: number
+  language_code: $Enums.LanguageCode
+  year?: number | null
   file_name?: string | null
   file_s3_key?: string | null
-  file_url?: string | null
+  s3_provider_name?: $Enums.S3ProviderName | null
   is_file_uploaded?: boolean
-  file_size_mb: number
+  file_size_mb?: number
   name?: string | null
-  text?: string | null
-  text_resolved?: string | null
+  original_content?: string | null
+  processed_content?: string | null
+  content_type?: $Enums.VideoTextType
   created_at?: Date | string
   updated_at?: Date | string
+  Subtitle?: Prisma.SubtitleUncheckedCreateNestedManyWithoutVideoPrivateInput
+  Sentence?: Prisma.SentenceUncheckedCreateNestedManyWithoutVideoPrivateInput
 }
 
 export type VideoPrivateUpdateInput = {
+  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  year?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  file_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
   is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  text_resolved?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutVideoPrivateNestedInput
+  Subtitle?: Prisma.SubtitleUpdateManyWithoutVideoPrivateNestedInput
+  Sentence?: Prisma.SentenceUpdateManyWithoutVideoPrivateNestedInput
 }
 
 export type VideoPrivateUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  year?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  file_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
   is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  text_resolved?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Subtitle?: Prisma.SubtitleUncheckedUpdateManyWithoutVideoPrivateNestedInput
+  Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutVideoPrivateNestedInput
 }
 
 export type VideoPrivateCreateManyInput = {
   id?: number
   user_id: number
+  language_code: $Enums.LanguageCode
+  year?: number | null
   file_name?: string | null
   file_s3_key?: string | null
-  file_url?: string | null
+  s3_provider_name?: $Enums.S3ProviderName | null
   is_file_uploaded?: boolean
-  file_size_mb: number
+  file_size_mb?: number
   name?: string | null
-  text?: string | null
-  text_resolved?: string | null
+  original_content?: string | null
+  processed_content?: string | null
+  content_type?: $Enums.VideoTextType
   created_at?: Date | string
   updated_at?: Date | string
 }
 
 export type VideoPrivateUpdateManyMutationInput = {
+  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  year?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  file_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
   is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  text_resolved?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -445,14 +517,17 @@ export type VideoPrivateUpdateManyMutationInput = {
 export type VideoPrivateUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  year?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  file_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
   is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  text_resolved?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -470,14 +545,17 @@ export type VideoPrivateOrderByRelationAggregateInput = {
 export type VideoPrivateCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
+  language_code?: Prisma.SortOrder
+  year?: Prisma.SortOrder
   file_name?: Prisma.SortOrder
   file_s3_key?: Prisma.SortOrder
-  file_url?: Prisma.SortOrder
+  s3_provider_name?: Prisma.SortOrder
   is_file_uploaded?: Prisma.SortOrder
   file_size_mb?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  text?: Prisma.SortOrder
-  text_resolved?: Prisma.SortOrder
+  original_content?: Prisma.SortOrder
+  processed_content?: Prisma.SortOrder
+  content_type?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -485,20 +563,24 @@ export type VideoPrivateCountOrderByAggregateInput = {
 export type VideoPrivateAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
+  year?: Prisma.SortOrder
   file_size_mb?: Prisma.SortOrder
 }
 
 export type VideoPrivateMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
+  language_code?: Prisma.SortOrder
+  year?: Prisma.SortOrder
   file_name?: Prisma.SortOrder
   file_s3_key?: Prisma.SortOrder
-  file_url?: Prisma.SortOrder
+  s3_provider_name?: Prisma.SortOrder
   is_file_uploaded?: Prisma.SortOrder
   file_size_mb?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  text?: Prisma.SortOrder
-  text_resolved?: Prisma.SortOrder
+  original_content?: Prisma.SortOrder
+  processed_content?: Prisma.SortOrder
+  content_type?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -506,14 +588,17 @@ export type VideoPrivateMaxOrderByAggregateInput = {
 export type VideoPrivateMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
+  language_code?: Prisma.SortOrder
+  year?: Prisma.SortOrder
   file_name?: Prisma.SortOrder
   file_s3_key?: Prisma.SortOrder
-  file_url?: Prisma.SortOrder
+  s3_provider_name?: Prisma.SortOrder
   is_file_uploaded?: Prisma.SortOrder
   file_size_mb?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  text?: Prisma.SortOrder
-  text_resolved?: Prisma.SortOrder
+  original_content?: Prisma.SortOrder
+  processed_content?: Prisma.SortOrder
+  content_type?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -521,7 +606,13 @@ export type VideoPrivateMinOrderByAggregateInput = {
 export type VideoPrivateSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
+  year?: Prisma.SortOrder
   file_size_mb?: Prisma.SortOrder
+}
+
+export type VideoPrivateNullableScalarRelationFilter = {
+  is?: Prisma.VideoPrivateWhereInput | null
+  isNot?: Prisma.VideoPrivateWhereInput | null
 }
 
 export type VideoPrivateCreateNestedManyWithoutUserInput = {
@@ -566,31 +657,81 @@ export type VideoPrivateUncheckedUpdateManyWithoutUserNestedInput = {
   deleteMany?: Prisma.VideoPrivateScalarWhereInput | Prisma.VideoPrivateScalarWhereInput[]
 }
 
+export type NullableEnumS3ProviderNameFieldUpdateOperationsInput = {
+  set?: $Enums.S3ProviderName | null
+}
+
+export type EnumVideoTextTypeFieldUpdateOperationsInput = {
+  set?: $Enums.VideoTextType
+}
+
+export type VideoPrivateCreateNestedOneWithoutSentenceInput = {
+  create?: Prisma.XOR<Prisma.VideoPrivateCreateWithoutSentenceInput, Prisma.VideoPrivateUncheckedCreateWithoutSentenceInput>
+  connectOrCreate?: Prisma.VideoPrivateCreateOrConnectWithoutSentenceInput
+  connect?: Prisma.VideoPrivateWhereUniqueInput
+}
+
+export type VideoPrivateUpdateOneWithoutSentenceNestedInput = {
+  create?: Prisma.XOR<Prisma.VideoPrivateCreateWithoutSentenceInput, Prisma.VideoPrivateUncheckedCreateWithoutSentenceInput>
+  connectOrCreate?: Prisma.VideoPrivateCreateOrConnectWithoutSentenceInput
+  upsert?: Prisma.VideoPrivateUpsertWithoutSentenceInput
+  disconnect?: Prisma.VideoPrivateWhereInput | boolean
+  delete?: Prisma.VideoPrivateWhereInput | boolean
+  connect?: Prisma.VideoPrivateWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.VideoPrivateUpdateToOneWithWhereWithoutSentenceInput, Prisma.VideoPrivateUpdateWithoutSentenceInput>, Prisma.VideoPrivateUncheckedUpdateWithoutSentenceInput>
+}
+
+export type VideoPrivateCreateNestedOneWithoutSubtitleInput = {
+  create?: Prisma.XOR<Prisma.VideoPrivateCreateWithoutSubtitleInput, Prisma.VideoPrivateUncheckedCreateWithoutSubtitleInput>
+  connectOrCreate?: Prisma.VideoPrivateCreateOrConnectWithoutSubtitleInput
+  connect?: Prisma.VideoPrivateWhereUniqueInput
+}
+
+export type VideoPrivateUpdateOneWithoutSubtitleNestedInput = {
+  create?: Prisma.XOR<Prisma.VideoPrivateCreateWithoutSubtitleInput, Prisma.VideoPrivateUncheckedCreateWithoutSubtitleInput>
+  connectOrCreate?: Prisma.VideoPrivateCreateOrConnectWithoutSubtitleInput
+  upsert?: Prisma.VideoPrivateUpsertWithoutSubtitleInput
+  disconnect?: Prisma.VideoPrivateWhereInput | boolean
+  delete?: Prisma.VideoPrivateWhereInput | boolean
+  connect?: Prisma.VideoPrivateWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.VideoPrivateUpdateToOneWithWhereWithoutSubtitleInput, Prisma.VideoPrivateUpdateWithoutSubtitleInput>, Prisma.VideoPrivateUncheckedUpdateWithoutSubtitleInput>
+}
+
 export type VideoPrivateCreateWithoutUserInput = {
+  language_code: $Enums.LanguageCode
+  year?: number | null
   file_name?: string | null
   file_s3_key?: string | null
-  file_url?: string | null
+  s3_provider_name?: $Enums.S3ProviderName | null
   is_file_uploaded?: boolean
-  file_size_mb: number
+  file_size_mb?: number
   name?: string | null
-  text?: string | null
-  text_resolved?: string | null
+  original_content?: string | null
+  processed_content?: string | null
+  content_type?: $Enums.VideoTextType
   created_at?: Date | string
   updated_at?: Date | string
+  Subtitle?: Prisma.SubtitleCreateNestedManyWithoutVideoPrivateInput
+  Sentence?: Prisma.SentenceCreateNestedManyWithoutVideoPrivateInput
 }
 
 export type VideoPrivateUncheckedCreateWithoutUserInput = {
   id?: number
+  language_code: $Enums.LanguageCode
+  year?: number | null
   file_name?: string | null
   file_s3_key?: string | null
-  file_url?: string | null
+  s3_provider_name?: $Enums.S3ProviderName | null
   is_file_uploaded?: boolean
-  file_size_mb: number
+  file_size_mb?: number
   name?: string | null
-  text?: string | null
-  text_resolved?: string | null
+  original_content?: string | null
+  processed_content?: string | null
+  content_type?: $Enums.VideoTextType
   created_at?: Date | string
   updated_at?: Date | string
+  Subtitle?: Prisma.SubtitleUncheckedCreateNestedManyWithoutVideoPrivateInput
+  Sentence?: Prisma.SentenceUncheckedCreateNestedManyWithoutVideoPrivateInput
 }
 
 export type VideoPrivateCreateOrConnectWithoutUserInput = {
@@ -625,102 +766,348 @@ export type VideoPrivateScalarWhereInput = {
   NOT?: Prisma.VideoPrivateScalarWhereInput | Prisma.VideoPrivateScalarWhereInput[]
   id?: Prisma.IntFilter<"VideoPrivate"> | number
   user_id?: Prisma.IntFilter<"VideoPrivate"> | number
+  language_code?: Prisma.EnumLanguageCodeFilter<"VideoPrivate"> | $Enums.LanguageCode
+  year?: Prisma.IntNullableFilter<"VideoPrivate"> | number | null
   file_name?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   file_s3_key?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
-  file_url?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
+  s3_provider_name?: Prisma.EnumS3ProviderNameNullableFilter<"VideoPrivate"> | $Enums.S3ProviderName | null
   is_file_uploaded?: Prisma.BoolFilter<"VideoPrivate"> | boolean
   file_size_mb?: Prisma.IntFilter<"VideoPrivate"> | number
   name?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
-  text?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
-  text_resolved?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
+  original_content?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
+  processed_content?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
+  content_type?: Prisma.EnumVideoTextTypeFilter<"VideoPrivate"> | $Enums.VideoTextType
   created_at?: Prisma.DateTimeFilter<"VideoPrivate"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"VideoPrivate"> | Date | string
 }
 
-export type VideoPrivateCreateManyUserInput = {
-  id?: number
+export type VideoPrivateCreateWithoutSentenceInput = {
+  language_code: $Enums.LanguageCode
+  year?: number | null
   file_name?: string | null
   file_s3_key?: string | null
-  file_url?: string | null
+  s3_provider_name?: $Enums.S3ProviderName | null
   is_file_uploaded?: boolean
-  file_size_mb: number
+  file_size_mb?: number
   name?: string | null
-  text?: string | null
-  text_resolved?: string | null
+  original_content?: string | null
+  processed_content?: string | null
+  content_type?: $Enums.VideoTextType
+  created_at?: Date | string
+  updated_at?: Date | string
+  user: Prisma.UserCreateNestedOneWithoutVideoPrivateInput
+  Subtitle?: Prisma.SubtitleCreateNestedManyWithoutVideoPrivateInput
+}
+
+export type VideoPrivateUncheckedCreateWithoutSentenceInput = {
+  id?: number
+  user_id: number
+  language_code: $Enums.LanguageCode
+  year?: number | null
+  file_name?: string | null
+  file_s3_key?: string | null
+  s3_provider_name?: $Enums.S3ProviderName | null
+  is_file_uploaded?: boolean
+  file_size_mb?: number
+  name?: string | null
+  original_content?: string | null
+  processed_content?: string | null
+  content_type?: $Enums.VideoTextType
+  created_at?: Date | string
+  updated_at?: Date | string
+  Subtitle?: Prisma.SubtitleUncheckedCreateNestedManyWithoutVideoPrivateInput
+}
+
+export type VideoPrivateCreateOrConnectWithoutSentenceInput = {
+  where: Prisma.VideoPrivateWhereUniqueInput
+  create: Prisma.XOR<Prisma.VideoPrivateCreateWithoutSentenceInput, Prisma.VideoPrivateUncheckedCreateWithoutSentenceInput>
+}
+
+export type VideoPrivateUpsertWithoutSentenceInput = {
+  update: Prisma.XOR<Prisma.VideoPrivateUpdateWithoutSentenceInput, Prisma.VideoPrivateUncheckedUpdateWithoutSentenceInput>
+  create: Prisma.XOR<Prisma.VideoPrivateCreateWithoutSentenceInput, Prisma.VideoPrivateUncheckedCreateWithoutSentenceInput>
+  where?: Prisma.VideoPrivateWhereInput
+}
+
+export type VideoPrivateUpdateToOneWithWhereWithoutSentenceInput = {
+  where?: Prisma.VideoPrivateWhereInput
+  data: Prisma.XOR<Prisma.VideoPrivateUpdateWithoutSentenceInput, Prisma.VideoPrivateUncheckedUpdateWithoutSentenceInput>
+}
+
+export type VideoPrivateUpdateWithoutSentenceInput = {
+  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  year?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
+  is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  user?: Prisma.UserUpdateOneRequiredWithoutVideoPrivateNestedInput
+  Subtitle?: Prisma.SubtitleUpdateManyWithoutVideoPrivateNestedInput
+}
+
+export type VideoPrivateUncheckedUpdateWithoutSentenceInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  year?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
+  is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Subtitle?: Prisma.SubtitleUncheckedUpdateManyWithoutVideoPrivateNestedInput
+}
+
+export type VideoPrivateCreateWithoutSubtitleInput = {
+  language_code: $Enums.LanguageCode
+  year?: number | null
+  file_name?: string | null
+  file_s3_key?: string | null
+  s3_provider_name?: $Enums.S3ProviderName | null
+  is_file_uploaded?: boolean
+  file_size_mb?: number
+  name?: string | null
+  original_content?: string | null
+  processed_content?: string | null
+  content_type?: $Enums.VideoTextType
+  created_at?: Date | string
+  updated_at?: Date | string
+  user: Prisma.UserCreateNestedOneWithoutVideoPrivateInput
+  Sentence?: Prisma.SentenceCreateNestedManyWithoutVideoPrivateInput
+}
+
+export type VideoPrivateUncheckedCreateWithoutSubtitleInput = {
+  id?: number
+  user_id: number
+  language_code: $Enums.LanguageCode
+  year?: number | null
+  file_name?: string | null
+  file_s3_key?: string | null
+  s3_provider_name?: $Enums.S3ProviderName | null
+  is_file_uploaded?: boolean
+  file_size_mb?: number
+  name?: string | null
+  original_content?: string | null
+  processed_content?: string | null
+  content_type?: $Enums.VideoTextType
+  created_at?: Date | string
+  updated_at?: Date | string
+  Sentence?: Prisma.SentenceUncheckedCreateNestedManyWithoutVideoPrivateInput
+}
+
+export type VideoPrivateCreateOrConnectWithoutSubtitleInput = {
+  where: Prisma.VideoPrivateWhereUniqueInput
+  create: Prisma.XOR<Prisma.VideoPrivateCreateWithoutSubtitleInput, Prisma.VideoPrivateUncheckedCreateWithoutSubtitleInput>
+}
+
+export type VideoPrivateUpsertWithoutSubtitleInput = {
+  update: Prisma.XOR<Prisma.VideoPrivateUpdateWithoutSubtitleInput, Prisma.VideoPrivateUncheckedUpdateWithoutSubtitleInput>
+  create: Prisma.XOR<Prisma.VideoPrivateCreateWithoutSubtitleInput, Prisma.VideoPrivateUncheckedCreateWithoutSubtitleInput>
+  where?: Prisma.VideoPrivateWhereInput
+}
+
+export type VideoPrivateUpdateToOneWithWhereWithoutSubtitleInput = {
+  where?: Prisma.VideoPrivateWhereInput
+  data: Prisma.XOR<Prisma.VideoPrivateUpdateWithoutSubtitleInput, Prisma.VideoPrivateUncheckedUpdateWithoutSubtitleInput>
+}
+
+export type VideoPrivateUpdateWithoutSubtitleInput = {
+  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  year?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
+  is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  user?: Prisma.UserUpdateOneRequiredWithoutVideoPrivateNestedInput
+  Sentence?: Prisma.SentenceUpdateManyWithoutVideoPrivateNestedInput
+}
+
+export type VideoPrivateUncheckedUpdateWithoutSubtitleInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  year?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
+  is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutVideoPrivateNestedInput
+}
+
+export type VideoPrivateCreateManyUserInput = {
+  id?: number
+  language_code: $Enums.LanguageCode
+  year?: number | null
+  file_name?: string | null
+  file_s3_key?: string | null
+  s3_provider_name?: $Enums.S3ProviderName | null
+  is_file_uploaded?: boolean
+  file_size_mb?: number
+  name?: string | null
+  original_content?: string | null
+  processed_content?: string | null
+  content_type?: $Enums.VideoTextType
   created_at?: Date | string
   updated_at?: Date | string
 }
 
 export type VideoPrivateUpdateWithoutUserInput = {
+  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  year?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  file_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
   is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  text_resolved?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Subtitle?: Prisma.SubtitleUpdateManyWithoutVideoPrivateNestedInput
+  Sentence?: Prisma.SentenceUpdateManyWithoutVideoPrivateNestedInput
 }
 
 export type VideoPrivateUncheckedUpdateWithoutUserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
+  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  year?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  file_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
   is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  text_resolved?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Subtitle?: Prisma.SubtitleUncheckedUpdateManyWithoutVideoPrivateNestedInput
+  Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutVideoPrivateNestedInput
 }
 
 export type VideoPrivateUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
+  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  year?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  file_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
   is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  text_resolved?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
+
+/**
+ * Count Type VideoPrivateCountOutputType
+ */
+
+export type VideoPrivateCountOutputType = {
+  Subtitle: number
+  Sentence: number
+}
+
+export type VideoPrivateCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  Subtitle?: boolean | VideoPrivateCountOutputTypeCountSubtitleArgs
+  Sentence?: boolean | VideoPrivateCountOutputTypeCountSentenceArgs
+}
+
+/**
+ * VideoPrivateCountOutputType without action
+ */
+export type VideoPrivateCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the VideoPrivateCountOutputType
+   */
+  select?: Prisma.VideoPrivateCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * VideoPrivateCountOutputType without action
+ */
+export type VideoPrivateCountOutputTypeCountSubtitleArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.SubtitleWhereInput
+}
+
+/**
+ * VideoPrivateCountOutputType without action
+ */
+export type VideoPrivateCountOutputTypeCountSentenceArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.SentenceWhereInput
+}
 
 
 export type VideoPrivateSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   user_id?: boolean
+  language_code?: boolean
+  year?: boolean
   file_name?: boolean
   file_s3_key?: boolean
-  file_url?: boolean
+  s3_provider_name?: boolean
   is_file_uploaded?: boolean
   file_size_mb?: boolean
   name?: boolean
-  text?: boolean
-  text_resolved?: boolean
+  original_content?: boolean
+  processed_content?: boolean
+  content_type?: boolean
   created_at?: boolean
   updated_at?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  Subtitle?: boolean | Prisma.VideoPrivate$SubtitleArgs<ExtArgs>
+  Sentence?: boolean | Prisma.VideoPrivate$SentenceArgs<ExtArgs>
+  _count?: boolean | Prisma.VideoPrivateCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["videoPrivate"]>
 
 export type VideoPrivateSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   user_id?: boolean
+  language_code?: boolean
+  year?: boolean
   file_name?: boolean
   file_s3_key?: boolean
-  file_url?: boolean
+  s3_provider_name?: boolean
   is_file_uploaded?: boolean
   file_size_mb?: boolean
   name?: boolean
-  text?: boolean
-  text_resolved?: boolean
+  original_content?: boolean
+  processed_content?: boolean
+  content_type?: boolean
   created_at?: boolean
   updated_at?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -729,14 +1116,17 @@ export type VideoPrivateSelectCreateManyAndReturn<ExtArgs extends runtime.Types.
 export type VideoPrivateSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   user_id?: boolean
+  language_code?: boolean
+  year?: boolean
   file_name?: boolean
   file_s3_key?: boolean
-  file_url?: boolean
+  s3_provider_name?: boolean
   is_file_uploaded?: boolean
   file_size_mb?: boolean
   name?: boolean
-  text?: boolean
-  text_resolved?: boolean
+  original_content?: boolean
+  processed_content?: boolean
+  content_type?: boolean
   created_at?: boolean
   updated_at?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -745,21 +1135,27 @@ export type VideoPrivateSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.
 export type VideoPrivateSelectScalar = {
   id?: boolean
   user_id?: boolean
+  language_code?: boolean
+  year?: boolean
   file_name?: boolean
   file_s3_key?: boolean
-  file_url?: boolean
+  s3_provider_name?: boolean
   is_file_uploaded?: boolean
   file_size_mb?: boolean
   name?: boolean
-  text?: boolean
-  text_resolved?: boolean
+  original_content?: boolean
+  processed_content?: boolean
+  content_type?: boolean
   created_at?: boolean
   updated_at?: boolean
 }
 
-export type VideoPrivateOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "file_name" | "file_s3_key" | "file_url" | "is_file_uploaded" | "file_size_mb" | "name" | "text" | "text_resolved" | "created_at" | "updated_at", ExtArgs["result"]["videoPrivate"]>
+export type VideoPrivateOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "language_code" | "year" | "file_name" | "file_s3_key" | "s3_provider_name" | "is_file_uploaded" | "file_size_mb" | "name" | "original_content" | "processed_content" | "content_type" | "created_at" | "updated_at", ExtArgs["result"]["videoPrivate"]>
 export type VideoPrivateInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  Subtitle?: boolean | Prisma.VideoPrivate$SubtitleArgs<ExtArgs>
+  Sentence?: boolean | Prisma.VideoPrivate$SentenceArgs<ExtArgs>
+  _count?: boolean | Prisma.VideoPrivateCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type VideoPrivateIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -772,18 +1168,23 @@ export type $VideoPrivatePayload<ExtArgs extends runtime.Types.Extensions.Intern
   name: "VideoPrivate"
   objects: {
     user: Prisma.$UserPayload<ExtArgs>
+    Subtitle: Prisma.$SubtitlePayload<ExtArgs>[]
+    Sentence: Prisma.$SentencePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     user_id: number
+    language_code: $Enums.LanguageCode
+    year: number | null
     file_name: string | null
     file_s3_key: string | null
-    file_url: string | null
+    s3_provider_name: $Enums.S3ProviderName | null
     is_file_uploaded: boolean
     file_size_mb: number
     name: string | null
-    text: string | null
-    text_resolved: string | null
+    original_content: string | null
+    processed_content: string | null
+    content_type: $Enums.VideoTextType
     created_at: Date
     updated_at: Date
   }, ExtArgs["result"]["videoPrivate"]>
@@ -1181,6 +1582,8 @@ readonly fields: VideoPrivateFieldRefs;
 export interface Prisma__VideoPrivateClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  Subtitle<T extends Prisma.VideoPrivate$SubtitleArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.VideoPrivate$SubtitleArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SubtitlePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  Sentence<T extends Prisma.VideoPrivate$SentenceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.VideoPrivate$SentenceArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SentencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1212,14 +1615,17 @@ export interface Prisma__VideoPrivateClient<T, Null = never, ExtArgs extends run
 export interface VideoPrivateFieldRefs {
   readonly id: Prisma.FieldRef<"VideoPrivate", 'Int'>
   readonly user_id: Prisma.FieldRef<"VideoPrivate", 'Int'>
+  readonly language_code: Prisma.FieldRef<"VideoPrivate", 'LanguageCode'>
+  readonly year: Prisma.FieldRef<"VideoPrivate", 'Int'>
   readonly file_name: Prisma.FieldRef<"VideoPrivate", 'String'>
   readonly file_s3_key: Prisma.FieldRef<"VideoPrivate", 'String'>
-  readonly file_url: Prisma.FieldRef<"VideoPrivate", 'String'>
+  readonly s3_provider_name: Prisma.FieldRef<"VideoPrivate", 'S3ProviderName'>
   readonly is_file_uploaded: Prisma.FieldRef<"VideoPrivate", 'Boolean'>
   readonly file_size_mb: Prisma.FieldRef<"VideoPrivate", 'Int'>
   readonly name: Prisma.FieldRef<"VideoPrivate", 'String'>
-  readonly text: Prisma.FieldRef<"VideoPrivate", 'String'>
-  readonly text_resolved: Prisma.FieldRef<"VideoPrivate", 'String'>
+  readonly original_content: Prisma.FieldRef<"VideoPrivate", 'String'>
+  readonly processed_content: Prisma.FieldRef<"VideoPrivate", 'String'>
+  readonly content_type: Prisma.FieldRef<"VideoPrivate", 'VideoTextType'>
   readonly created_at: Prisma.FieldRef<"VideoPrivate", 'DateTime'>
   readonly updated_at: Prisma.FieldRef<"VideoPrivate", 'DateTime'>
 }
@@ -1615,6 +2021,54 @@ export type VideoPrivateDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.
    * Limit how many VideoPrivates to delete.
    */
   limit?: number
+}
+
+/**
+ * VideoPrivate.Subtitle
+ */
+export type VideoPrivate$SubtitleArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Subtitle
+   */
+  select?: Prisma.SubtitleSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Subtitle
+   */
+  omit?: Prisma.SubtitleOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SubtitleInclude<ExtArgs> | null
+  where?: Prisma.SubtitleWhereInput
+  orderBy?: Prisma.SubtitleOrderByWithRelationInput | Prisma.SubtitleOrderByWithRelationInput[]
+  cursor?: Prisma.SubtitleWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.SubtitleScalarFieldEnum | Prisma.SubtitleScalarFieldEnum[]
+}
+
+/**
+ * VideoPrivate.Sentence
+ */
+export type VideoPrivate$SentenceArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Sentence
+   */
+  select?: Prisma.SentenceSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Sentence
+   */
+  omit?: Prisma.SentenceOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SentenceInclude<ExtArgs> | null
+  where?: Prisma.SentenceWhereInput
+  orderBy?: Prisma.SentenceOrderByWithRelationInput | Prisma.SentenceOrderByWithRelationInput[]
+  cursor?: Prisma.SentenceWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.SentenceScalarFieldEnum | Prisma.SentenceScalarFieldEnum[]
 }
 
 /**

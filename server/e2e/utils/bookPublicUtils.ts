@@ -1,6 +1,6 @@
 import { INestApplication } from '@nestjs/common'
-import { BookPublicOutModel } from '../../src/models/bookPublic/bookPublic.out.model'
 import { queries } from '../../src/features/db/queries'
+import { BookPublicOutModel } from '../../src/models/bookPublic/bookPublic.out.model'
 import { makeGraphQLReq } from '../makeGQReq'
 
 type BookConfig = {
@@ -8,7 +8,7 @@ type BookConfig = {
 		author: string
 		name: string
 		note: string
-		cover: string
+		covers: string[]
 	}
 	chapters: {
 		name: string
@@ -25,7 +25,7 @@ export const bookPublicUtils = {
 		expect(bookConfig.book.author).toBe(bookOut.author)
 		expect(bookConfig.book.name).toBe(bookOut.name)
 		expect(bookConfig.book.note).toBe(bookOut.note)
-		expect(bookConfig.book.cover).toBe(bookOut.cover)
+		expect(bookConfig.book.covers).toEqual(bookOut.covers)
 		expect(bookConfig.chapters.length).toBe(bookOut.chapters.length)
 	},
 

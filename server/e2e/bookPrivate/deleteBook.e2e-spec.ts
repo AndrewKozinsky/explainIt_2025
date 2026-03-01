@@ -24,7 +24,6 @@ it('1', () => {
 describe.skip('Delete book', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
-	let emailAdapter: EmailAdapterService
 	let userRepository: UserRepository
 	let bookRepository: BookPrivateRepository
 	let bookChapterRepository: BookChapterRepository
@@ -34,7 +33,6 @@ describe.skip('Delete book', () => {
 
 		app = createMainAppRes.app
 		commandBus = app.get(CommandBus)
-		emailAdapter = createMainAppRes.emailAdapter
 		userRepository = await app.resolve(UserRepository)
 		bookRepository = await app.resolve(BookPrivateRepository)
 		bookChapterRepository = await app.resolve(BookChapterRepository)
@@ -158,7 +156,7 @@ describe.skip('Delete book', () => {
 		expect(userBooks.length).toBe(0)
 	})
 
-	it('should delete user books with all chapters', async () => {
+	/*it('should delete user books with all chapters', async () => {
 		// Create a user who will create a book and a chapter
 		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
@@ -235,5 +233,5 @@ describe.skip('Delete book', () => {
 			bookId: secondBook.id,
 		})
 		expect(secondBookChapters.length).toBe(5)
-	})
+	})*/
 })

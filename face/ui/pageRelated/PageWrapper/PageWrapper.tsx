@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
-import { pageUrls } from 'сonsts/pageUrls'
 import Bar from '../pageTopBar/PageTopBar/Bar'
+import { pageUrls } from 'сonsts/pageUrls'
 import './PageWrapper.scss'
 
 type PageWrapperProps = {
@@ -37,14 +37,7 @@ export function PageWrapper(props: PageWrapperProps) {
 						<span>ИНН: 560912925372</span>
 						<span>Россия, Оренбург</span>
 						<span>andkozinskiy@yandex.ru</span>
-						<span>
-							Переводы выполняются автоматически с использованием LLM и переводчиков. Возможны неточности.
-						</span>
-						{/*TODO Сделай чтобы эта надпись появлялась только на странице где действительно используется Словарь, а не на всех*/}
-						<span>
-							Реализовано с помощью сервиса{' '}
-							<a href='https://tech.yandex.ru/dictionary'>«Яндекс.Словарь»</a>
-						</span>
+						<span>Переводы выполняются автоматически с использованием LLM. Возможны неточности.</span>
 					</p>
 				</footer>
 			)}

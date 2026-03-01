@@ -38,15 +38,20 @@ export function createSchema(bdConfig: BdConfig.Root) {
 	}
 
 	// Creates enums
-	for (const enumName in bdConfig) {
-		const enumContent = createEnum(enumName, bdConfig[enumName])
-		if (!enumContent) continue
+	const createdEnums: string[] = []
+	for (const tableName in bdConfig) {
+		const createdEnumArr = createEnum(bdConfig[tableName])
+		if (!createdEnumArr?.length) continue
 
-		schemaPartsArr.push(...enumContent)
+		createdEnumArr.forEach((createdEnum) => {
+			if (!createdEnums.includes(createdEnum)) {
+				createdEnums.push(createdEnum)
+				schemaPartsArr.push(createdEnum)
+			}
+		})
 	}
 
 	const schema = schemaPartsArr.join('\n\n')
-	// console.log(schema)
 
 	return schema
 }

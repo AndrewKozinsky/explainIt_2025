@@ -6,6 +6,7 @@ services:
       - explainpostgreslocalcheckserver
       - explainserverlocalcheckserver
       - explainfacelocalcheckserver
+      - explainhelplocalcheckserver
     ports:
       - 80:80
     volumes:
@@ -59,6 +60,15 @@ services:
     depends_on:
       - explainpostgreslocalcheckserver
       - explainserverlocalcheckserver
+    environment:
+      MODE: localcheckserver
+  explainhelplocalcheckserver:
+    build:
+      context: help/
+      dockerfile: Dockerfile.server
+    restart: unless-stopped
+    command: npm run start
+    container_name: explainhelplocalcheckserver
     environment:
       MODE: localcheckserver
   explainnlplocalcheckserver:

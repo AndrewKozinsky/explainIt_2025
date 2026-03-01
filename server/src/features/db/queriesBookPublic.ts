@@ -8,7 +8,7 @@ export const queriesBookPublic = {
 				author
 				name
 				note
-				cover
+				covers
 				chapters {
 					id
 					bookId
@@ -28,7 +28,7 @@ export const queriesBookPublic = {
 						author
 						name
 						note
-						cover
+						covers
 						chapters {
 							id
 							bookId

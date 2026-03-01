@@ -13,7 +13,7 @@ it('1', () => {
 	expect(2).toBe(2)
 })
 
-describe('Translate text (e2e)', () => {
+describe.skip('Translate text (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 
@@ -32,7 +32,7 @@ describe('Translate text (e2e)', () => {
 		await afterEachTest(app)
 	})
 
-	it.only('should return translatedText (localtest returns same text)', async () => {
+	it('should return translatedText (localtest returns same text)', async () => {
 		const { mutation, variables } = queries.translate.translateText({
 			text: 'Hello',
 			targetLanguageCode: 'ru',

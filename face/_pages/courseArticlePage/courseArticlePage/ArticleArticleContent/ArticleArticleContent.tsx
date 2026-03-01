@@ -1,4 +1,3 @@
-import React from 'react'
 import ArticleBuilder from '../../../../articles/ArticleBuilder/ArticleBuilder'
 // import LearnByHeartButton from '../../../../articleBuilder/components/learnByHeart/LearnByHeartButton/LearnByHeartButton'
 import ArticleType from '../../../../articles/articleTypes/articleType'

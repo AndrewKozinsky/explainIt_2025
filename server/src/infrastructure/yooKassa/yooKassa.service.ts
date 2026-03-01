@@ -6,6 +6,14 @@ import { ErrorCode } from '../exceptions/errorCode'
 import { errorMessage } from '../exceptions/errorMessage'
 import { MainConfigService } from '../mainConfig/mainConfig.service'
 
+export type YooKassaPaymentPurpose = 'SUBSCRIPTION'
+
+export type YooKassaPaymentMetadata = {
+	purpose: YooKassaPaymentPurpose
+	userId: number
+	tariffId?: number
+}
+
 @Injectable()
 export class YooKassaService {
 	constructor(private mainConfig: MainConfigService) {}
@@ -14,9 +22,20 @@ export class YooKassaService {
 	 * Отправляет запрос на ЮКассу для оплаты
 	 * @param amount — текст вопроса
 	 * @param userEmail — адрес почты пользователя
+	 * @param dto
 	 */
-	async createPayment(amount: number, userEmail: string) {
+	async createPayment(
+		amount: number,
+		userEmail: string,
+		dto?: {
+			description?: string
+			receiptItemDescription?: string
+			metadata?: YooKassaPaymentMetadata
+		},
+	) {
 		const fixedAmount = amount / 100
+		const description = dto?.description ?? 'Покупка подписки'
+		const receiptItemDescription = dto?.receiptItemDescription ?? description
 
 		const paymentData = {
 			amount: {
@@ -28,14 +47,14 @@ export class YooKassaService {
 				type: 'redirect',
 				return_url: this.mainConfig.get().site.domainRootWithProtocol,
 			},
-			description: 'Пополнение баланса',
+			description,
 			receipt: {
 				customer: {
 					email: userEmail,
 				},
 				items: [
 					{
-						description: 'Пополнение баланса',
+						description: receiptItemDescription,
 						quantity: '1.00',
 						amount: {
 							value: fixedAmount,
@@ -45,6 +64,7 @@ export class YooKassaService {
 					},
 				],
 			},
+			metadata: dto?.metadata ?? {},
 		}
 
 		const createPaymentResponse = await this.makeRequest<CreatePaymentResponse>({

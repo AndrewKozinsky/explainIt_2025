@@ -1,7 +1,7 @@
 'use client'
 
-import ReadingRoot from '_pages/books/reading/ReadingRoot/ReadingRoot'
-import BooksRoot from '../books/BooksRoot/BooksRoot'
+import BooksRoot from '../books/root/BooksRoot/BooksRoot'
+import ReadingRoot from '../reading/root/ReadingRoot/ReadingRoot'
 import { useGetShowingPageType } from './fn/showingPageType'
 
 function BooksPage() {

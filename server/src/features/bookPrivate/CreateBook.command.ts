@@ -28,7 +28,7 @@ export class CreateBookHandler implements ICommandHandler<CreateBookCommand> {
 	async execute(command: CreateBookCommand) {
 		const { userId, createBookInput } = command
 
-		const newBook = await this.bookRepository.createBook({ userId, ...createBookInput })
+		const newBook = await this.bookRepository.createBook({ userId, languageCode: 'en', ...createBookInput })
 		if (!newBook) {
 			throw new CustomGraphQLError(errorMessage.book.notCreated, ErrorCode.InternalServerError_500)
 		}

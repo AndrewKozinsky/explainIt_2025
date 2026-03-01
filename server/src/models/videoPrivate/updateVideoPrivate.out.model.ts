@@ -1,4 +1,5 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql'
+import { Language } from 'utils/languages'
 
 @ObjectType()
 export class UpdateVideoPrivateOutModel {
@@ -6,13 +7,22 @@ export class UpdateVideoPrivateOutModel {
 	id: number
 
 	@Field(() => String, { nullable: true })
-	name: string | null
+	name: null | string
+
+	@Field(() => Int, { nullable: true })
+	year: null | number
+
+	@Field(() => String)
+	languageCode: Language
 
 	@Field(() => String, { nullable: true })
-	text: string | null
+	originalContent: null | string
 
 	@Field(() => String, { nullable: true })
-	resolvedText: string | null
+	processedContent: null | string
+
+	@Field(() => String)
+	contentType: 'text' | 'subtitles'
 
 	@Field(() => Int)
 	userId: number
@@ -20,6 +30,6 @@ export class UpdateVideoPrivateOutModel {
 	@Field(() => String, { nullable: true })
 	uploadUrl: string | null
 
-	@Field(() => Number, { nullable: true })
-	fileSizeMb: number
+	@Field(() => Int, { nullable: true })
+	fileSizeMb: null | number
 }

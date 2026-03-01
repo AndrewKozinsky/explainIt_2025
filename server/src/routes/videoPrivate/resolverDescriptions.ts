@@ -6,4 +6,5 @@ export const videoPrivateResolversDesc: Record<keyof typeof VideoPrivateResolver
 	deleteVideoPrivate: 'Delete a video',
 	getUserVideosPrivate: 'Get user videos',
 	getVideoPrivate: 'Get a video',
+	cleanupExpiredPrivateMediaFilesByCron: 'Cleanup expired private media files by cron',
 }

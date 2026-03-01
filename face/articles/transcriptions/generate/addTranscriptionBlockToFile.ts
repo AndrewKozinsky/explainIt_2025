@@ -1,7 +1,7 @@
-import { parse, visit, print } from 'recast'
 import * as fs from 'fs'
-import * as tsParser from 'recast/parsers/typescript'
 import { builders as b } from 'ast-types'
+import { parse, visit, print } from 'recast'
+import * as tsParser from 'recast/parsers/typescript'
 
 /**
  * Adds a new transcription entry to the transcriptions.ts file.

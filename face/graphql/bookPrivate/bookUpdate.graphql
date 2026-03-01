@@ -3,6 +3,7 @@ mutation Book_update($input: UpdateBookInput!) {
 		id
 		author
 		name
+		languageCode
 		note
 		userId
 		chapters {

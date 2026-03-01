@@ -34,6 +34,18 @@ export interface GetPrivateVideoInput {
     id: number;
 }
 
+export interface GetPublicVideoInput {
+    id: number;
+}
+
+export interface GetSentenceTranslationInput {
+    id: number;
+}
+
+export interface GetSentenceTranslationsBySentenceIdInput {
+    sentenceId: number;
+}
+
 export interface RegisterUserInput {
     email: string;
     password: string;
@@ -57,8 +69,8 @@ export interface ResendConfirmationEmailInput {
     email: string;
 }
 
-export interface TopUpBalanceWithYooKassaInput {
-    amount: number;
+export interface BuySubscriptionWithYooKassaInput {
+    tariffId: number;
 }
 
 export interface CreateBookInput {
@@ -99,37 +111,16 @@ export interface DeleteBookChapterInput {
     id: number;
 }
 
-export interface AnalysePhraseInput {
-    bookChapterId: number;
-    bookAuthor?: Nullable<string>;
-    bookName?: Nullable<string>;
-    context: string;
-    sentenceId: number;
-    sentence: string;
-    phrase: string;
-    phraseWordsIdx: number[];
-}
-
-export interface TranslateSentencesInput {
-    bookAuthor?: Nullable<string>;
-    bookName?: Nullable<string>;
-    sentences: string[];
-}
-
-export interface DeleteBookChapterPhrasesInput {
-    bookChapterId: number;
-}
-
 export interface CreatePrivateVideoInput {
     name?: Nullable<string>;
-    text?: Nullable<string>;
+    originalContent?: Nullable<string>;
+    fileSizeMb?: Nullable<number>;
 }
 
 export interface UpdatePrivateVideoInput {
     id: number;
     name?: Nullable<string>;
-    text?: Nullable<string>;
-    textResolved?: Nullable<string>;
+    originalContent?: Nullable<string>;
     fileName?: Nullable<string>;
     fileMimeType?: Nullable<string>;
     isFileUploaded?: Nullable<boolean>;
@@ -140,42 +131,14 @@ export interface DeletePrivateVideoInput {
     id: number;
 }
 
-export interface TranslatePhraseInput {
-    text: string;
-    sourceLanguageCode?: Nullable<string>;
-    targetLanguageCode?: Nullable<string>;
-}
-
-export interface TranslateSentenceInput {
-    text: string;
-    sourceLanguageCode?: Nullable<string>;
-    targetLanguageCode?: Nullable<string>;
-}
-
-export interface BookChapterPhraseOutModel {
-    id: number;
-    sentenceId: number;
-    sentence: string;
-    transcription: string;
-    phrase: string;
-    phraseWordsIdx: number[];
-    translation: string;
-    analysis: string;
-    examples: PhraseExample[];
-}
-
-export interface PhraseExample {
-    id: number;
-    sentence: string;
-    translation: string;
-}
-
 export interface BookOutModel {
     id: number;
     author?: Nullable<string>;
     name?: Nullable<string>;
+    languageCode: string;
     note?: Nullable<string>;
     userId: number;
+    freeToUse: boolean;
     chapters: BookChapterLiteOutModel[];
 }
 
@@ -183,6 +146,7 @@ export interface BookLiteOutModel {
     id: number;
     author?: Nullable<string>;
     name?: Nullable<string>;
+    languageCode: string;
     note?: Nullable<string>;
     userId?: Nullable<number>;
 }
@@ -199,10 +163,16 @@ export interface BookChapterOutModel {
     id: number;
     name?: Nullable<string>;
     header?: Nullable<string>;
-    content?: Nullable<string>;
     note?: Nullable<string>;
+    content?: Nullable<string>;
+    sentences?: Nullable<SentenceOutModel[]>;
     book: BookLiteOutModel;
-    phrases: BookChapterPhraseOutModel[];
+}
+
+export interface SentenceOutModel {
+    id: number;
+    startOffset: number;
+    length: number;
 }
 
 export interface BookPublicOutModel {
@@ -210,46 +180,68 @@ export interface BookPublicOutModel {
     author: string;
     name: string;
     note: string;
-    cover: string;
+    covers: string[];
+    languageCode: string;
+    freeToUse: boolean;
     chapters: BookChapterLiteOutModel[];
 }
 
-export interface EngRusDictionaryItemOutModel {
+export interface SentenceTranslationOutModel {
     id: number;
-    engPhrase: string;
-    rusPhrase: string;
-    transcription?: Nullable<string>;
-    lexemes?: Nullable<string>;
+    sentenceId: number;
+    translation: string;
+    analysis?: Nullable<string>;
+    createdAt: string;
 }
 
-export interface TranslateSentenceOutModel {
-    translatedText: string;
+export interface TariffOutModel {
+    id: number;
+    code: string;
+    slogan: string;
+    name: string;
+    description: string;
+    isPublicMediaIncluded: boolean;
+    isPrivateMediaIncluded: boolean;
+    price: number;
+    durationDays: number;
+    includedBalance: number;
+    includedFileStorageMb: number;
+    createdAt: DateTime;
 }
 
 export interface CreateVideoPrivateOutModel {
     id: number;
     name?: Nullable<string>;
-    text?: Nullable<string>;
-    resolvedText?: Nullable<string>;
+    year?: Nullable<number>;
+    languageCode: string;
+    originalContent?: Nullable<string>;
+    processedContent?: Nullable<string>;
+    contentType: string;
     userId: number;
 }
 
 export interface UpdateVideoPrivateOutModel {
     id: number;
     name?: Nullable<string>;
-    text?: Nullable<string>;
-    resolvedText?: Nullable<string>;
+    year?: Nullable<number>;
+    languageCode: string;
+    originalContent?: Nullable<string>;
+    processedContent?: Nullable<string>;
+    contentType: string;
     userId: number;
     uploadUrl?: Nullable<string>;
     fileSizeMb?: Nullable<number>;
 }
 
-export interface VideoPrivateOutModel {
+export interface VideoPrivateLiteOutModel {
     id: number;
     userId: number;
     name?: Nullable<string>;
-    text?: Nullable<string>;
-    resolvedText?: Nullable<string>;
+    year?: Nullable<number>;
+    languageCode: string;
+    originalContent?: Nullable<string>;
+    processedContent?: Nullable<string>;
+    contentType: string;
     fileName?: Nullable<string>;
     fileS3Key?: Nullable<string>;
     fileUrl?: Nullable<string>;
@@ -257,18 +249,129 @@ export interface VideoPrivateOutModel {
     fileSizeMb: number;
 }
 
+export interface VideoPrivateOutModel {
+    id: number;
+    userId: number;
+    name?: Nullable<string>;
+    year?: Nullable<number>;
+    languageCode: string;
+    originalContent?: Nullable<string>;
+    processedContent?: Nullable<string>;
+    contentType: string;
+    fileName?: Nullable<string>;
+    fileS3Key?: Nullable<string>;
+    fileUrl?: Nullable<string>;
+    isFileUploaded: boolean;
+    fileSizeMb: number;
+    freeToUse: boolean;
+    sentences?: Nullable<VideoPrivateSentenceOutModel[]>;
+    subtitles?: Nullable<VideoPrivateSubtitleOutModel[]>;
+    subtitleSentenceInit?: Nullable<SubtitleSentenceInitOutModel[]>;
+}
+
+export interface VideoPrivateSentenceOutModel {
+    id: number;
+    sentenceTranslations?: Nullable<SentenceTranslationLiteOutModel[]>;
+    startOffset: number;
+    length: number;
+    orderIndex: number;
+}
+
+export interface VideoPrivateSubtitleOutModel {
+    id: number;
+    startTimeMs: number;
+    endTimeMs: number;
+    startOffset: number;
+    length: number;
+    orderIndex: number;
+}
+
+export interface SubtitleSentenceInitOutModel {
+    id: number;
+    subtitleId: number;
+    sentenceId: number;
+    startOffset: number;
+    length: number;
+}
+
+export interface SentenceTranslationLiteOutModel {
+    id: number;
+    translation: string;
+}
+
+export interface VideoPublicOutModel {
+    id: number;
+    name: string;
+    year: number;
+    languageCode: string;
+    note: string;
+    covers: string[];
+    originalContent: string;
+    processedContent: string;
+    contentType: string;
+    fileName: string;
+    fileS3Key: string;
+    fileUrl: string;
+    freeToUse: boolean;
+    sentences?: Nullable<VideoPublicSentenceOutModel[]>;
+    subtitles?: Nullable<VideoPublicSubtitleOutModel[]>;
+    subtitleSentenceInit?: Nullable<SubtitleSentenceInitOutModel[]>;
+}
+
+export interface VideoPublicSentenceOutModel {
+    id: number;
+    sentenceTranslations?: Nullable<SentenceTranslationLiteOutModel[]>;
+    startOffset: number;
+    length: number;
+    orderIndex: number;
+}
+
+export interface VideoPublicSubtitleOutModel {
+    id: number;
+    startTimeMs: number;
+    endTimeMs: number;
+    startOffset: number;
+    length: number;
+    orderIndex: number;
+}
+
+export interface VideoPublicLiteOutModel {
+    id: number;
+    name: string;
+    year: number;
+    languageCode: string;
+    note: string;
+    covers: string[];
+    originalContent: string;
+    processedContent: string;
+    contentType: string;
+    fileName: string;
+    fileS3Key: string;
+    fileUrl: string;
+    freeToUse: boolean;
+}
+
+export interface CurrentSubscriptionOutModel {
+    tariffId: number;
+    tariffCode: string;
+    tariffName: string;
+    isPublicMediaIncluded: boolean;
+    isPrivateMediaIncluded: boolean;
+    pricePaid: number;
+    balance: number;
+    includedFileStorageMb: number;
+    startsAt: string;
+    endsAt: string;
+}
+
 export interface UserOutModel {
     id: number;
     email: string;
     isUserConfirmed: boolean;
-    balance: number;
+    currentSubscription?: Nullable<CurrentSubscriptionOutModel>;
 }
 
-export interface BookChapterTranslateOfSentencesOutModel {
-    translates: string[];
-}
-
-export interface TopUpBalanceWithYooKassaOutModel {
+export interface BuySubscriptionWithYooKassaOutModel {
     confirmationUrl: string;
 }
 
@@ -281,8 +384,13 @@ export interface IQuery {
     book_public_get_books(): BookPublicOutModel[] | Promise<BookPublicOutModel[]>;
     book_public_get_book(input: GetBookPublicInput): BookPublicOutModel | Promise<BookPublicOutModel>;
     book_chapter_get(input: GetBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
-    video_private_user_videos(): VideoPrivateOutModel[] | Promise<VideoPrivateOutModel[]>;
+    video_private_user_videos(): VideoPrivateLiteOutModel[] | Promise<VideoPrivateLiteOutModel[]>;
     video_private_get(input: GetPrivateVideoInput): VideoPrivateOutModel | Promise<VideoPrivateOutModel>;
+    video_public_get_videos(): VideoPublicLiteOutModel[] | Promise<VideoPublicLiteOutModel[]>;
+    video_public_get(input: GetPublicVideoInput): VideoPublicOutModel | Promise<VideoPublicOutModel>;
+    sentence_translation_get(input: GetSentenceTranslationInput): SentenceTranslationOutModel | Promise<SentenceTranslationOutModel>;
+    sentence_translation_get_by_sentence_id(input: GetSentenceTranslationsBySentenceIdInput): SentenceTranslationOutModel[] | Promise<SentenceTranslationOutModel[]>;
+    tariff_get_tariffs(): TariffOutModel[] | Promise<TariffOutModel[]>;
 }
 
 export interface CheckTranslationOutSuccessModel {
@@ -309,23 +417,19 @@ export interface IMutation {
     auth_confirmEmail(input: ConfirmEmailInput): boolean | Promise<boolean>;
     auth_resendConfirmationEmail(input: ResendConfirmationEmailInput): boolean | Promise<boolean>;
     auth_logout(): boolean | Promise<boolean>;
-    payment_yookassa_top_up_balance(input: TopUpBalanceWithYooKassaInput): TopUpBalanceWithYooKassaOutModel | Promise<TopUpBalanceWithYooKassaOutModel>;
+    payment_yookassa_buy_subscription(input: BuySubscriptionWithYooKassaInput): BuySubscriptionWithYooKassaOutModel | Promise<BuySubscriptionWithYooKassaOutModel>;
     book_create(input: CreateBookInput): BookOutModel | Promise<BookOutModel>;
     book_update(input: UpdateBookInput): BookOutModel | Promise<BookOutModel>;
     book_delete(input: DeleteBookInput): boolean | Promise<boolean>;
     book_chapter_create(input: CreateBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
     book_chapter_update(input: UpdateBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
     book_chapter_delete(input: DeleteBookChapterInput): boolean | Promise<boolean>;
-    book_chapter_AnalysePhrase(input: AnalysePhraseInput): BookChapterPhraseOutModel | Promise<BookChapterPhraseOutModel>;
-    book_chapter_TranslateSentences(input: TranslateSentencesInput): BookChapterTranslateOfSentencesOutModel | Promise<BookChapterTranslateOfSentencesOutModel>;
-    book_chapter_DeleteBookChapterPhrases(input: DeleteBookChapterPhrasesInput): boolean | Promise<boolean>;
     video_private_create(input: CreatePrivateVideoInput): CreateVideoPrivateOutModel | Promise<CreateVideoPrivateOutModel>;
     video_private_update(input: UpdatePrivateVideoInput): UpdateVideoPrivateOutModel | Promise<UpdateVideoPrivateOutModel>;
     video_private_delete(input: DeletePrivateVideoInput): boolean | Promise<boolean>;
-    translate_translate_phrase(input: TranslatePhraseInput): EngRusDictionaryItemOutModel | Promise<EngRusDictionaryItemOutModel>;
-    translate_translate_sentence(input: TranslateSentenceInput): TranslateSentenceOutModel | Promise<TranslateSentenceOutModel>;
 }
 
+export type DateTime = any;
 export type CheckTranslationOutModel = CheckTranslationOutSuccessModel | CheckTranslationOutErrorModel;
 export type GetTranscriptionOutModel = GetTranscriptionOutSuccessModel | GetTranscriptionOutErrorModel;
 type Nullable<T> = T | null;

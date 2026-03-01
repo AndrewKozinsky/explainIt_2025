@@ -1,6 +1,5 @@
-import { useWatchingStore } from '_pages/video/watching/watchingStore'
-import React from 'react'
 import Tabs from 'ui/Tabs/Tabs'
+import { useWatchingStore } from '_pages/video/watching/watchingStore'
 import { tabsConfig } from './fn/onButtonClick'
 import './MobileNavigation.scss'
 

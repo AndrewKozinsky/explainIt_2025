@@ -1,9 +1,11 @@
 import { applyDecorators } from '@nestjs/common'
-import { Type } from 'class-transformer'
+import { Transform, Type } from 'class-transformer'
 import {
 	IsArray,
+	IsBoolean,
 	IsDateString,
 	IsEmail,
+	IsIn,
 	IsNumber,
 	IsOptional,
 	IsString,
@@ -39,6 +41,13 @@ export function DtoFieldDecorators(
 		decorators.push(Type(() => Number)) // Converts string to number
 		decorators.push(IsNumber())
 	}
+	if (updatedFieldConf.type === 'manyToOne') {
+		decorators.push(Type(() => Number)) // Converts string to number
+		decorators.push(IsNumber())
+		if (!updatedFieldConf.required) {
+			decorators.push(IsOptional())
+		}
+	}
 	if (updatedFieldConf.type === 'string') {
 		decorators.push(IsString({ message: name + ' must be a string' }))
 		decorators.push(Trim())
@@ -67,6 +76,13 @@ export function DtoFieldDecorators(
 			decorators.push(Matches(updatedFieldConf.match, { message: errMessage }))
 		}
 
+		if (!updatedFieldConf.required) {
+			decorators.push(IsOptional())
+		}
+	}
+	if (updatedFieldConf.type === 'enum') {
+		decorators.push(IsString({ message: name + ' must be a string' }))
+		decorators.push(IsIn(updatedFieldConf.variants, { message: name + ' must be a valid enum value' }))
 		if (!updatedFieldConf.required) {
 			decorators.push(IsOptional())
 		}
@@ -107,10 +123,23 @@ export function DtoFieldDecorators(
 		}
 	}
 	if (updatedFieldConf.type === 'boolean') {
-		decorators.push(Type(() => Boolean))
 		if (!updatedFieldConf.required) {
 			decorators.push(IsOptional())
 		}
+		decorators.push(
+			Transform(({ value }) => {
+				if (value === true || value === false) return value
+				if (value === 1 || value === '1') return true
+				if (value === 0 || value === '0') return false
+				if (typeof value === 'string') {
+					const v = value.trim().toLowerCase()
+					if (v === 'true') return true
+					if (v === 'false') return false
+				}
+				return value
+			}),
+		)
+		decorators.push(IsBoolean({ message: name + ' must be a boolean' }))
 	}
 	if (updatedFieldConf.type === 'array') {
 		let errMessage = errorMessage.mustBeArray(name)

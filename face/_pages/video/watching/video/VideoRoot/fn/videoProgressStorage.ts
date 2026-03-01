@@ -1,7 +1,3 @@
-export function getVideoProgressStorageKey(videoId: number) {
-	return `video_progress_seconds:${videoId}`
-}
-
 export function loadVideoProgressSeconds(videoId: number): number {
 	if (typeof window === 'undefined') return 0
 
@@ -34,4 +30,8 @@ export function createVideoProgressSaver(videoId: number, options?: { throttleMs
 
 		saveVideoProgressSeconds(videoId, seconds)
 	}
+}
+
+export function getVideoProgressStorageKey(videoId: number) {
+	return `video_progress_seconds:${videoId}`
 }

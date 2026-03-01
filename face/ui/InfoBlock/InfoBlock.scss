@@ -17,8 +17,9 @@
 	background-color: #FFF7E1;
 }
 .info-block--info {
-	color: #ff00c3;
+	color: vars.$successColor-3;
 }
 .info-block--success {
-	color: #ff00c3;
+	color: vars.$successColor-3;
+	background-color: vars.$successColor-1;
 }

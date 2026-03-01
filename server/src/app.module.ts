@@ -4,10 +4,16 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo'
 import { Module } from '@nestjs/common'
 import { CqrsModule } from '@nestjs/cqrs'
 import { GraphQLModule } from '@nestjs/graphql'
+import { ScheduleModule } from '@nestjs/schedule'
 import { Request, Response } from 'express'
 import { BookPublicModule } from 'routes/bookPublic/bookPublic.module'
-import { YandexTranslateRouteModule } from 'routes/translate/translate.module'
+import { SentenceTranslationModule } from 'routes/sentenceTranslation/sentenceTranslation.module'
+import { TariffModule } from 'routes/tariff/tariff.module'
+import { TranslateRouteModule } from 'routes/translate/translate.module'
 import { VideoPrivateModule } from 'routes/videoPrivate/videoPrivate.module'
+import { VideoPublicModule } from 'routes/videoPublic/videoPublic.module'
+import { CloudRuS3Module } from 'infrastructure/cloudRuS3/cloudRuS3.module'
+import { DeepSeekModule } from 'infrastructure/deepSeek/deepSeek.module'
 import { StartServerTasksRunner } from 'infrastructure/StartServerTasksRunner'
 import { YandexCloudS3Module } from 'infrastructure/yandexCloudS3/yandexCloudS3.module'
 import { YandexDictionaryModule } from 'infrastructure/yandexDictionary/yandexDictionary.module'
@@ -31,6 +37,7 @@ import { WebhookModule } from './routes/webhook/webhook.module'
 
 @Module({
 	imports: [
+		ScheduleModule.forRoot(),
 		GraphQLModule.forRootAsync<ApolloDriverConfig>({
 			driver: ApolloDriver,
 			imports: [MainConfigModule],
@@ -61,6 +68,8 @@ import { WebhookModule } from './routes/webhook/webhook.module'
 		TelegramModule,
 		GigaChatModule,
 		OpenAIModule,
+		DeepSeekModule,
+		CloudRuS3Module,
 		YandexCloudS3Module,
 		YandexDictionaryModule,
 		YandexTranslateModule,
@@ -73,7 +82,10 @@ import { WebhookModule } from './routes/webhook/webhook.module'
 		BookPublicModule,
 		BookChapterModule,
 		VideoPrivateModule,
-		YandexTranslateRouteModule,
+		VideoPublicModule,
+		TranslateRouteModule,
+		SentenceTranslationModule,
+		TariffModule,
 	],
 	providers: [StartServerTasksRunner],
 })

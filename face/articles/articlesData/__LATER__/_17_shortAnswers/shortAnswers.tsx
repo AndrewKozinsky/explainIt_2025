@@ -12,11 +12,9 @@
 	content: [
 		{
 			type: 'paragraph',
-
 			children: [
 				{
 					type: 'text',
-
 					text: 'В английском на закрытый вопрос не принято отвечать голым ',
 				},
 				{ type: 'text',  weight: 'bold', text: 'yes' },

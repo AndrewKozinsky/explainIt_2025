@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common'
+import { Language } from 'utils/languages'
 import { BookPublicServiceModel } from 'models/bookPublic/bookPublic.service.model'
 import { Prisma } from 'prisma/generated/client'
 import { PrismaService } from '../db/prisma.service'
@@ -11,13 +12,22 @@ export class BookPublicRepository {
 	constructor(private prisma: PrismaService) {}
 
 	@CatchDbError()
-	async createBookPublic(dto: { author: string; name: string; note: string; cover: string }) {
+	async createBookPublic(dto: {
+		author: string
+		name: string
+		note: string
+		covers: string[]
+		languageCode: Language
+		freeToUse?: boolean
+	}) {
 		const newBookPublic = await this.prisma.bookPublic.create({
 			data: {
 				author: dto.author,
 				name: dto.name,
 				note: dto.note,
-				cover: dto.cover,
+				covers: dto.covers,
+				language_code: dto.languageCode,
+				free_to_use: dto.freeToUse,
 			},
 			include: { BookChapter: true },
 		})
@@ -58,7 +68,9 @@ export class BookPublicRepository {
 			author: dbBook.author,
 			name: dbBook.name,
 			note: dbBook.note,
-			cover: dbBook.cover,
+			covers: dbBook.covers,
+			languageCode: dbBook.language_code,
+			freeToUse: dbBook.free_to_use ?? false,
 			chapters: dbBook.BookChapter.map((chapter) => ({
 				id: chapter.id,
 				bookId: dbBook.id,

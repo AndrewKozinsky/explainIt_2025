@@ -10,9 +10,7 @@
 */
 
 export const BalanceTransactionType = {
-  TOP_UP: 'TOP_UP',
-  CHARGE: 'CHARGE',
-  ACCOUNT_CONFIRMATION_WELCOME_BONUS: 'ACCOUNT_CONFIRMATION_WELCOME_BONUS'
+  CHARGE: 'CHARGE'
 } as const
 
 export type BalanceTransactionType = (typeof BalanceTransactionType)[keyof typeof BalanceTransactionType]
@@ -33,3 +31,36 @@ export const PaymentProviderName = {
 } as const
 
 export type PaymentProviderName = (typeof PaymentProviderName)[keyof typeof PaymentProviderName]
+
+
+export const LanguageCode = {
+  en: 'en',
+  es: 'es',
+  fr: 'fr',
+  de: 'de',
+  it: 'it',
+  pt: 'pt',
+  ru: 'ru',
+  tr: 'tr',
+  ar: 'ar',
+  zhCMN: 'zhCMN',
+  ko: 'ko',
+  ja: 'ja'
+} as const
+
+export type LanguageCode = (typeof LanguageCode)[keyof typeof LanguageCode]
+
+
+export const S3ProviderName = {
+  cloudRu: 'cloudRu'
+} as const
+
+export type S3ProviderName = (typeof S3ProviderName)[keyof typeof S3ProviderName]
+
+
+export const VideoTextType = {
+  text: 'text',
+  subtitles: 'subtitles'
+} as const
+
+export type VideoTextType = (typeof VideoTextType)[keyof typeof VideoTextType]

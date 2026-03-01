@@ -1,0 +1,17 @@
+@use '@/styles/variables' as vars;
+
+.unauthorized-user-guard-in-media-list {
+
+}
+
+.unauthorized-user-guard-in-media-list__wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.unauthorized-user-guard-in-media-list__text {
+	font-size: 15px;
+	line-height: 21px;
+	color: vars.$grayColor-5;
+}
