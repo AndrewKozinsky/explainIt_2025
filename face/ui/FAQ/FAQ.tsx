@@ -9,7 +9,7 @@ import { useGetOpenCloseAnswer } from './fn/openCloseAnswer'
 import { usePrepareStore } from './fn/prepareStore'
 import './FAQ.scss'
 
-type FaqProps = {
+export type FaqProps = {
 	extraClass?: string
 	config: FaqTypes.Config
 }

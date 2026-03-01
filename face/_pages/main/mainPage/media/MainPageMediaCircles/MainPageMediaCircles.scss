@@ -1,0 +1,60 @@
+@use '@/styles/variables' as vars;
+
+.main-page-media-circles {
+	display: flex;
+}
+
+.main-page-media-circles__item {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 12.7rem;
+	height: 12.7rem;
+	font-size: 1.8rem;
+	line-height: 2rem;
+	text-align: center;
+	color: vars.$grayColor-5;
+	font-weight: 500;
+	background-color: vars.$grayColor-1;
+	overflow: hidden;
+	box-sizing: content-box;
+	padding: 1rem;
+	margin-right: -3rem;
+	border: .5rem solid white;
+	border-radius: 50%;
+
+	&:nth-child(1) {
+		z-index: 3;
+	}
+	&:nth-child(2) {
+		z-index: 2;
+	}
+	&:nth-child(3) {
+		z-index: 1;
+	}
+}
+.main-page-media-circles__item--accent {
+	color: vars.$accentColor-2;
+	background-color: vars.$accentColor-1;
+}
+
+.main-page-media-circles__star {
+	position: absolute;
+	top: 2rem;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 2rem;
+	line-height: 2rem;
+}
+
+.main-page-media-circles__text {
+
+}
+
+.main-page-media-circles__icon {
+	position: absolute;
+	bottom: -50px;
+	left: 50%;
+	transform: translateX(-50%);
+}
