@@ -1,5 +1,15 @@
+@use '@/styles/mixins' as mix;
+
 .main-page {
 	display: flex;
 	flex-direction: column;
-	gap: 8rem;
+	gap: 3.5rem;
+
+	@include mix.page-width(500px) {
+		gap: 5.5rem;
+	}
+
+	@include mix.page-width(1000px) {
+		gap: 8rem;
+	}
 }

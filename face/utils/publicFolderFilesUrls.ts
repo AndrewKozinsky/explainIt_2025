@@ -11,6 +11,7 @@ export const publicFolderFilesUrls = {
 		warningTriangle: '/icons/warningTriangle.svg',
 		copyButtonIcon: '/icons/copyButtonIcon.svg',
 		actionButtonIcon: '/icons/actionButtonIcon.svg',
+		checkMark: '/icons/checkMark.svg',
 	},
 	images: {
 		common: {
@@ -22,8 +23,11 @@ export const publicFolderFilesUrls = {
 	},
 	mainPage: {
 		headVideo: 'mainPage/headVideo.mp4',
+		headVideoPoster: 'mainPage/headVideoPoster.jpg',
 		aboutBooksVideo: 'mainPage/aboutBooks.mp4',
+		aboutBooksVideoPoster: 'mainPage/aboutBooksPoster.jpg',
 		aboutVideosVideo: 'mainPage/aboutVideos.mp4',
+		aboutVideosVideoPoster: 'mainPage/aboutVideosPoster.jpg',
 		girlOnArmchair: 'mainPage/girlOnArmchair.webp',
 		anyDevices: 'mainPage/anyDevices.svg',
 		bookCover_1: 'mainPage/book-1.webp',

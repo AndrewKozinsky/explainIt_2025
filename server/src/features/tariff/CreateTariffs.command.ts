@@ -46,7 +46,7 @@ export class CreateTariffsHandler implements ICommandHandler<CreateTariffsComman
 				name: 'Базовый',
 				description: 'Продолжить чтение и просмотр когда бесплатные материалы уже пройдены.',
 				isPublicMediaIncluded: true,
-				isPrivateMediaIncluded: true,
+				isPrivateMediaIncluded: false,
 				price: 15000, // 150 rub
 				durationDays: 30,
 				includedBalance: 0,
@@ -57,7 +57,7 @@ export class CreateTariffsHandler implements ICommandHandler<CreateTariffsComman
 				slogan: 'Полная свобода',
 				name: 'Стандартный',
 				description: 'Учиться на том, что интересно именно вам.',
-				isPublicMediaIncluded: false,
+				isPublicMediaIncluded: true,
 				isPrivateMediaIncluded: true,
 				price: 45000, // 450 rub
 				durationDays: 30,

@@ -4,6 +4,7 @@ import './MainPageMediaLayout.scss'
 type MediaLayoutProps = {
 	reverseDirection?: boolean
 	videoUrl: string
+	videoCoverUrl: string
 	children: React.ReactNode[]
 }
 

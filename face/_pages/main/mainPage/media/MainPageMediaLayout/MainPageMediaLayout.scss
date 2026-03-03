@@ -1,23 +1,55 @@
 @use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
 
 .main-page-media-layout {
 	display: flex;
-	flex-direction: row;
-	align-items: flex-start;
-	gap: 6rem;
+	flex-direction: column;
+	gap: 2rem;
+
+	@include mix.page-width(900px) {
+		flex-direction: row;
+		align-items: flex-start;
+		gap: 3rem;
+	}
+
+	@include mix.page-width(1100px) {
+		flex-direction: row;
+		align-items: flex-start;
+		gap: 4rem;
+	}
+
+	@include mix.page-width(1300px) {
+		gap: 6rem;
+	}
 }
 
 .main-page-media-layout--reverse {
-	flex-direction: row-reverse;
+	@include mix.page-width(900px) {
+		flex-direction: row-reverse;
+	}
 }
 
 .main-page-media-layout__video {
-	flex-shrink: 0;
-	width: 66%;
+	width: 100%;
 	overflow: hidden;
 	box-sizing: border-box;
-	border: 1rem solid vars.$grayColor-1;
-	border-radius: 2rem;
+	border: .5rem solid vars.$grayColor-1;
+	border-radius: 1rem;
+
+	@include mix.page-width(600px) {
+		border-width: 1rem;
+		border-radius: 2rem;
+	}
+
+	@include mix.page-width(900px) {
+		flex-shrink: 0;
+		width: 50%;
+	}
+
+	@include mix.page-width(1300px) {
+		flex-shrink: 0;
+		width: 60%;
+	}
 }
 
 .main-page-media-layout__content {

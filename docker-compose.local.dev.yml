@@ -63,6 +63,7 @@ services:
     volumes:
       - ./face:/app
       - ./face:/public
+      - ./face:/_pages
     command: npm run dev
     container_name: explainfacelocaldev
     depends_on:

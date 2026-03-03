@@ -1,9 +1,22 @@
 @use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
 
 .main-page-features {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	gap: 5rem;
+	gap: 2.5rem;
+
+	@include mix.page-width(570px) {
+		grid-template-columns: 1fr 1fr;
+		gap: 3rem;
+	}
+
+	@include mix.page-width(900px) {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+
+	@include mix.page-width(1200px) {
+		gap: 5rem;
+	}
 }
 
 .main-page-features__cell {
@@ -12,9 +25,13 @@
 
 .main-page-features__cell-header {
 	font-size: 2.4rem;
-	line-height: 3.4rem;
+	line-height: 3rem;
 	font-weight: 400;
-	margin-bottom: 1rem;
+	margin-bottom: .6rem;
+
+	@include mix.page-width(800px) {
+		margin-bottom: .8rem;
+	}
 }
 
 .main-page-features__cell-text {
@@ -23,22 +40,35 @@
 }
 
 .main-page-features__big-text {
-	font-size: 2.4rem;
-	line-height: 3.4rem;
+	font-size: 2rem;
+	line-height: 2.8rem;
+
+	@include mix.page-width(800px) {
+		font-size: 2.4rem;
+		line-height: 3.4rem;
+	}
 }
 
 .main-page-features__illustration {
-	grid-column: span 2;
 	overflow: hidden;
 	border-radius: vars.$radius-1;
 	width: 100%;
+
+	@include mix.page-width(900px) {
+		grid-column: span 2;
+	}
 }
 
 .main-page-features__any-devices-cell {
 	display: flex;
-	align-items: flex-end;
+	align-items: flex-start;
 	flex-direction: column;
 	gap: 1.5rem;
-	text-align: right;
+	text-align: left;
 	color: vars.$grayColor-5;
+
+	@include mix.page-width(900px) {
+		align-items: flex-end;
+		text-align: right;
+	}
 }

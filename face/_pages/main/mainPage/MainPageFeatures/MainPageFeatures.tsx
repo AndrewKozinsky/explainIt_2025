@@ -1,5 +1,5 @@
-import './MainPageFeatures.scss'
 import { publicFolderFilesUrls } from 'utils/publicFolderFilesUrls'
+import './MainPageFeatures.scss'
 
 function MainPageFeatures() {
 	return (

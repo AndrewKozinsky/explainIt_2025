@@ -1,0 +1,17 @@
+@use '@/styles/variables' as vars;
+
+.tariffs-table {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-auto-rows: auto;
+	max-width: 97rem;
+
+	border: 1px solid vars.$grayColor-1;
+	border-radius: vars.$radius-1;
+}
+
+@media (max-width: 650px) {
+	.tariffs-table {
+		grid-template-columns: 1fr;
+	}
+}

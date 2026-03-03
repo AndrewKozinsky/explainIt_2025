@@ -4,7 +4,7 @@ import './Paragraph.scss'
 type ParagraphProps = {
 	children: React.ReactNode
 	fontSize: 14 | 15 | 16 | 18 | 20 | '14' | '15' | '16' | '18' | '20'
-	lineHeight?: 14 | 15 | 16 | 18 | 20 | '14' | '15' | '16' | '18' | '20' | '24'
+	lineHeight?: 14 | 15 | 16 | 18 | 20 | 22 | 24 | '14' | '15' | '16' | '18' | '20' | '22' | '24'
 	extraClass?: string | string[]
 }
 

@@ -11,6 +11,7 @@ export function useSetCorrectView() {
 	const isAuthenticated = !!user
 	const hasBasicSubscription = !!user?.currentSubscription
 	const hasSubscriptionToTranslatePrivateMedia = !!user?.currentSubscription?.isPrivateMediaIncluded
+	const hasSubscriptionToTranslatePublicMedia = !!user?.currentSubscription?.isPublicMediaIncluded
 	const selectedSentenceId = useDetailsStore((s) => s.sentenceId)
 	const translationStatus = useDetailsStore((s) => s.analysisExistStatus)
 
@@ -27,6 +28,9 @@ export function useSetCorrectView() {
 					detailsViewType = 'VIEW_FULL'
 				}
 				if (isMediaFreeToUse && !isAuthenticated) {
+					detailsViewType = 'VIEW_FULL'
+				}
+				if (!isMediaFreeToUse && isAuthenticated && hasSubscriptionToTranslatePublicMedia) {
 					detailsViewType = 'VIEW_FULL'
 				}
 				if (!isMediaFreeToUse && isAuthenticated && hasSubscriptionToTranslatePrivateMedia) {

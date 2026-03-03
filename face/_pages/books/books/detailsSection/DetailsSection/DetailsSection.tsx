@@ -10,7 +10,7 @@ function DetailsSection() {
 	const privateBook = useBooksStore((s) => s.privateBook)
 
 	if (pageUrlType === 'books') {
-		return <NoteText>Выберите книгу или главу для просмотра детальной информации.</NoteText>
+		return <NoteText>Выберите книгу для просмотра детальной информации.</NoteText>
 	}
 
 	return (

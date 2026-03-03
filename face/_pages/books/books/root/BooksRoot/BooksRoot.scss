@@ -41,9 +41,6 @@
 	display: none;
 
 	@include mix.page-width(vars.$books-desktop-width) {
-		position: sticky;
-		top: 1rem;
-		left: 0;
 		display: block;
 		width: 33%;
 	}

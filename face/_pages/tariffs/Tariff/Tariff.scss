@@ -1,0 +1,95 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+
+.tariff {
+	padding: 1.4rem;
+	border-bottom: 1px solid vars.$grayColor-1;
+
+	@include mix.page-width(650px) {
+		padding: 2rem;
+		border-right: 1px solid vars.$grayColor-1;
+
+		&:last-child {
+			border-right: none;
+		}
+	}
+}
+
+.tariff__slogan {
+	font-size: 1.4rem;
+	line-height: 2.2rem;
+	font-weight: 500;
+	color: vars.$grayColor-5;
+	min-height: var(--tariff-slogan-h, auto);
+}
+
+.tariff__name {
+	font-size: 2.8rem;
+	line-height: 3.4rem;
+	font-weight: 500;
+	min-height: var(--tariff-name-h, auto);
+	margin-top: .1rem;
+
+	&--accent {
+		color: vars.$accentColor-2;
+	}
+}
+
+.tariff__features {
+	min-height: var(--tariff-features-h, auto);
+	padding: 0 0 0 .5rem;
+	margin: .1rem 0 0 0;
+}
+.tariff__feature {
+	position: relative;
+	padding-left: 2.1rem;
+	margin-top: 0.8rem;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 6px;
+		left: 0;
+		width: 1.3rem;
+		height: 1rem;
+		background-image: url('/icons/checkMark.svg');
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
+}
+
+.tariff__small-text {
+	font-size: 1.4rem;
+	line-height: 2.2rem;
+	color: vars.$grayColor-5;
+}
+
+.tariff__description {
+	min-height: var(--tariff-description-h, auto);
+	margin-top: 1rem;
+}
+
+.tariff__spacer {
+	min-height: 0;
+}
+
+.tariff__price {
+	font-size: 2.8rem;
+	line-height: 3.4rem;
+	font-weight: 500;
+	margin-top: 3rem;
+}
+
+.tariff__days {
+	font-size: 1.4rem;
+	line-height: 2.2rem;
+	margin-top: .2rem;
+}
+
+.tariff__button {
+	margin-top: 3rem;
+}
+
+.tariff__footer-text {
+	margin-top: 1rem;
+}

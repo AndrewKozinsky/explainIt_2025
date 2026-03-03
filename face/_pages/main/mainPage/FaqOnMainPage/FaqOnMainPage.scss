@@ -3,4 +3,24 @@
 @use '@/styles/inherit' as inh;
 
 .main-page-faq {
+	display: flex;
+	flex-direction: column;
+	gap: 1.8rem;
+
+	@include mix.page-width(900px) {
+		flex-direction: row;
+		gap: 5rem;
+	}
+}
+
+.main-page-faq__header {
+	font-size: 3.4rem;
+	line-height: 3.8rem;
+	font-weight: 600;
+
+	@include mix.page-width(900px) {
+		flex-shrink: 10;
+		font-size: 5rem;
+		line-height: 5.6rem;
+	}
 }

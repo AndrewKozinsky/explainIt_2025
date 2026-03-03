@@ -3,19 +3,31 @@
 
 .main-page-top {
 	text-align: center;
-	margin-top: 5rem;
+	margin-top: 0;
+
+	@include mix.page-width(400px) {
+		margin-top: 1rem;
+	}
+
+	@include mix.page-width(700px) {
+		margin-top: 4rem;
+	}
+	@include mix.page-width(1000px) {
+		margin-top: 5rem;
+	}
 }
 
 .main-page-top__header {
-	font-size: 7.4rem;
-	line-height: 8rem;
+	font-size: clamp(4rem, 6.6vw, 7.4rem);
+	line-height: clamp(4.4rem, 7.2vw, 8rem);
 	font-weight: 700;
 	color: vars.$accentColor-2;
 }
 
 .main-page-top__subheader {
-	font-size: 3.4rem;
-	line-height: 4rem;
+	font-size: clamp(2rem, 8vw, 3.4rem);
+	line-height: clamp(2.6rem, 8.6vw, 4rem);
+
 	margin-top: 1rem;
 }
 
@@ -24,7 +36,19 @@
 	max-width: max-content;
 	overflow: hidden;
 	box-sizing: border-box;
-	border: 2rem solid vars.$grayColor-1;
-	border-radius: 3rem;
-	margin-top: 3rem;
+	margin-top: 1.5rem;
+
+	border-style: solid;
+	border-color: vars.$grayColor-1;
+	border-width: clamp(.7rem, 2.3vw, 2rem);
+
+	border-radius: clamp(1.3rem, 2.3vw, 3rem);
+
+	@include mix.page-width(600px) {
+		margin-top: 2rem;
+	}
+
+	@include mix.page-width(900px) {
+		margin-top: 3rem;
+	}
 }

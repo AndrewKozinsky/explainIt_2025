@@ -5,7 +5,7 @@ type Cover = {
 	url: string
 	level: string
 }
-//
+
 type MainPageMediaCoversProps = {
 	covers: Cover[]
 }

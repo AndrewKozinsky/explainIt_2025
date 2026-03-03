@@ -37,6 +37,16 @@
 	}
 }
 
+.button--size-big {
+	font-size: 1.6rem;
+	line-height: 2rem;
+	padding: .8rem 1.6rem;
+
+	&.button--icon-only {
+		padding: .5rem;
+	}
+}
+
 .button--theme-regular {
 	color: vars.$textColor;
 	border-color: vars.$grayColor-3;
@@ -61,6 +71,21 @@
 	&:focus {
 		border-color: vars.$dangerColor-1;
 		outline: 4px solid rgba(vars.$dangerColor-1, .3);
+	}
+}
+
+.button--theme-accent {
+	color: white;
+	background: vars.$accentColor-2;
+	border-color: vars.$accentColor-3;
+
+	&:hover {
+		border-color: vars.$accentColor-3;
+	}
+
+	&:focus {
+		//border-color: vars.$accentColor-2;
+		outline: 4px solid rgba(vars.$accentColor-2, .3);
 	}
 }
 

@@ -8,5 +8,7 @@
 	align-items: center;
 	width: 3.1rem;
 	height: 3.1rem;
+	cursor: pointer;
+	border: 2px solid vars.$textColor;
 	border-radius: 50%;
 }

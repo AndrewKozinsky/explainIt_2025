@@ -13,7 +13,7 @@ function CloseButton(props: CloseButtonProps) {
 	const { extraClass, onClick } = props
 
 	return (
-		<button onClick={onClick} className={cn('button', 'close-button', extraClass)}>
+		<button onClick={onClick} className={cn('close-button', extraClass)}>
 			<CloseIcon />
 		</button>
 	)

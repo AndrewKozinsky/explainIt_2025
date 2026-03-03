@@ -15,14 +15,11 @@ function SentenceAnalysis() {
 
 	return (
 		<div className='sentence-analysis'>
-			{translation && <div className='sentence-analysis__translation'>{translation}</div>}
-			{analysis && (
-				<div className='sentence-analysis__analysis markdown'>
-					<ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
-						{analysis}
-					</ReactMarkdown>
-				</div>
-			)}
+			<div className='sentence-analysis__analysis markdown'>
+				<ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+					{analysis}
+				</ReactMarkdown>
+			</div>
 		</div>
 	)
 }

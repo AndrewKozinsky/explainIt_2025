@@ -1,0 +1,42 @@
+@use '@/styles/mixins' as mix;
+
+.tariff-rules {
+	margin-top: 4rem;
+}
+
+.tariff-rules__header {
+	font-size: 2.2rem;
+	line-height: 2.8rem;
+	font-weight: 600;
+}
+
+.tariff-rules__content {
+	margin-top: 1rem;
+
+	@include mix.page-width(700px) {
+		display: flex;
+		gap: 4rem;
+	}
+}
+
+.tariff-rules__text-block {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+.tariff-rules__text-block--left {
+	@include mix.page-width(700px) {
+		min-width: 30%;
+	}
+	@include mix.page-width(1080px) {
+		min-width: 30.5rem;
+	}
+}
+.tariff-rules__text-block--right {
+	flex-grow: 1;
+}
+
+.tariff-rules__paragraph {
+	font-size: 1.5rem;
+	line-height: 2.3rem;
+}
