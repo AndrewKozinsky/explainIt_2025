@@ -1,16 +1,12 @@
-import { useDetailsStore } from '_pages/bookAndVideoCommon/detailsBlock/detailsStore'
+import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
+import { useDetailsStore } from '../detailsStore'
 import { SelectedSentence } from '../SelectedSentence/SelectedSentence'
 import SentenceAnalysis from '../SentenceAnalysis/SentenceAnalysis'
 import { SentenceTranslation } from '../SentenceTranslation/SentenceTranslation'
 import './AnalysisBlock.scss'
 
 export function AnalysisBlock() {
-	const sentenceAnalysisLoading = useDetailsStore((store) => store.sentenceAnalysisLoading)
 	const sentenceAnalysisError = useDetailsStore((store) => store.sentenceAnalysisError)
-
-	if (sentenceAnalysisLoading) {
-		return <AnalysisBlockLoading />
-	}
 
 	if (sentenceAnalysisError) {
 		return <AnalysisBlockError />
@@ -19,12 +15,10 @@ export function AnalysisBlock() {
 	return <AnalysisBlockSuccess />
 }
 
-function AnalysisBlockLoading() {
-	return <div>Загрузка...</div>
-}
-
 function AnalysisBlockError() {
-	return <div>AnalysisBlockError</div>
+	const sentenceAnalysisError = useDetailsStore((store) => store.sentenceAnalysisError)
+
+	return <ErrorMessage text={sentenceAnalysisError} />
 }
 
 function AnalysisBlockSuccess() {

@@ -61,6 +61,7 @@ export function useSetCorrectView() {
 			translationStatus,
 			selectedSentenceId,
 			hasSubscriptionToTranslatePrivateMedia,
+			hasSubscriptionToTranslatePublicMedia,
 		],
 	)
 }

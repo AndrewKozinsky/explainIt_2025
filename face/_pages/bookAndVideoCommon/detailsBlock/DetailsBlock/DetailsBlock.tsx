@@ -1,17 +1,14 @@
 import ViewportSyncedHeight from 'ui/ViewportSyncedHeight/ViewportSyncedHeight'
-import { useTranslateSentence } from '../DetailsSentence/fn/translateSentence'
 import ViewRouter from '../ViewRouter/ViewRouter'
+import { useGetAnalysis } from './fn/getAnalysis'
 import { usePopulateStore } from './fn/populateStore'
 import { useSetCorrectView } from './fn/setCorrectView'
-import { useFetchReadySentenceAnalysis } from './fn/useFetchReadySentenceAnalysis'
 import './DetailsBlock.scss'
 
 function DetailsBlock() {
 	usePopulateStore()
 	useSetCorrectView()
-
-	useFetchReadySentenceAnalysis()
-	useTranslateSentence()
+	useGetAnalysis()
 
 	return (
 		<ViewportSyncedHeight extraClass='details-side'>

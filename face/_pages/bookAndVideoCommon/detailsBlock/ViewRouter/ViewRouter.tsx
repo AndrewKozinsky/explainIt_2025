@@ -1,4 +1,3 @@
-import React from 'react'
 import Link from 'next/link'
 import Button from 'ui/formRelated/buttons/Button/Button'
 import { AnalysisBlock } from '../AnalysisBlock/AnalysisBlock'
@@ -51,19 +50,6 @@ function LoginRequiredView() {
 	)
 }
 
-function SubscriptionRequiredView() {
-	return (
-		<InfoWrapper>
-			<InfoText>
-				Перевод и анализ этого текста могут делать пользователи с базовой или стандартной подпиской.
-			</InfoText>
-			<Link href={pageUrls.tariffs.path}>
-				<Button>Тарифы</Button>
-			</Link>
-		</InfoWrapper>
-	)
-}
-
 function LoginAndSubscriptionRequiredView() {
 	return (
 		<InfoWrapper>
@@ -73,6 +59,19 @@ function LoginAndSubscriptionRequiredView() {
 			</InfoText>
 			<Link href={pageUrls.auth.login.path}>
 				<Button>Войти</Button>
+			</Link>
+		</InfoWrapper>
+	)
+}
+
+function SubscriptionRequiredView() {
+	return (
+		<InfoWrapper>
+			<InfoText>
+				Перевод и анализ этого текста могут делать пользователи с базовой или стандартной подпиской.
+			</InfoText>
+			<Link href={pageUrls.tariffs.path}>
+				<Button>Тарифы</Button>
 			</Link>
 		</InfoWrapper>
 	)

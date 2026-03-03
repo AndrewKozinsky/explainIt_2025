@@ -1,5 +1,7 @@
+import cn from 'classnames'
 import { getSentenceStructure } from '_pages/bookAndVideoCommon/functions/getSentenceStructure'
 import Word from '../Word/Word'
+import './SentenceBlock.scss'
 
 type SentenceBlockProps = {
 	sentenceId: number
@@ -8,7 +10,8 @@ type SentenceBlockProps = {
 	selectedWordIds: number[]
 	selectWord: (input: { sentenceId: number; wordId: number }) => void
 	wordIdOffset?: number
-	className?: string
+	extraClass?: string
+	loading?: boolean
 }
 
 function SentenceBlock(props: SentenceBlockProps) {
@@ -19,14 +22,15 @@ function SentenceBlock(props: SentenceBlockProps) {
 		selectedWordIds,
 		selectWord,
 		wordIdOffset = 0,
-		className,
+		extraClass,
+		loading,
 	} = props
 
 	const sentenceStructure = getSentenceStructure(sentenceText)
 	let wordIndex = wordIdOffset
 
 	return (
-		<p className={className}>
+		<p className={cn(extraClass, loading && 'sentence-block__loading')} data-text={sentenceText}>
 			{sentenceStructure.map((part) => {
 				if (part.isWord) {
 					wordIndex += 1
