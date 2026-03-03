@@ -2,7 +2,7 @@ name: Deploy to the develop server
 on:
   push:
     branches:
-      - new-media-structure
+      - develop
 
 jobs:
   deploy:

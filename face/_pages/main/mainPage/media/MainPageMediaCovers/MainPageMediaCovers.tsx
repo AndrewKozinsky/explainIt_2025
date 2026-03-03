@@ -20,7 +20,7 @@ function MainPageMediaCovers(props: MainPageMediaCoversProps) {
 					<div className='main-page-media-covers__item' key={i}>
 						<div
 							className='main-page-media-covers__cover-wrap'
-							style={{ '--bg-url': `url("${'/' + cover.url}")` } as React.CSSProperties}
+							style={{ '--bg-url': `url("${cover.url}")` } as React.CSSProperties}
 						>
 							<img
 								srcSet={cover.url + ' 2x'}
