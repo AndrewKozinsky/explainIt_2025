@@ -11,7 +11,6 @@ export const detailsStoreValues: DetailsStoreValues = {
 	sentenceId: null,
 	wordIds: [],
 	sentenceText: null,
-	sentenceAnalysisReqType: 'FIND_EXISTING',
 	sentenceAnalysisLoading: false,
 	sentenceAnalysisError: null,
 	analysisExistStatus: 'UNKNOWN',
@@ -67,10 +66,6 @@ export type DetailsStoreValues = {
 	wordIds: number[]
 	// Текст выбранного предложения
 	sentenceText: null | string
-	// При помощи какого запроса получить анализ предложения:
-	// FIND_EXISTING — найти анализ в базе данных
-	// TRANSLATE — перевести предложение
-	sentenceAnalysisReqType: 'FIND_EXISTING' | 'TRANSLATE'
 	// Идёт ли загрузка анализа предложения
 	sentenceAnalysisLoading: boolean
 	// Ошибка при загрузке анализа предложения
@@ -80,8 +75,6 @@ export type DetailsStoreValues = {
 	// Полученные варианты анализа предложения
 	sentenceTranslation: string | null
 	sentenceAnalysis: string | null
-	// translation: undefined | null | string // undefined — неизвестно, null — нет перевода, string — есть перевод
-	// analysis: undefined | null | string
 	selectWord: (input: { sentenceId: number; wordId: number }) => void
 }
 

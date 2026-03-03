@@ -1,41 +1,57 @@
-import React, { useEffect } from 'react'
-import { useDetailsStore } from '../../detailsStore'
+import { useEffect } from 'react'
+import { useSentenceTranslation_GetBySentenceIdLazyQuery } from 'graphql'
+import { useDetailsStore } from '_pages/bookAndVideoCommon/detailsBlock/detailsStore'
 import { readTranslationStream } from './translationStream'
 
-export function useTranslateSentence() {
+export function useGetAnalysis() {
 	const sentenceId = useDetailsStore((s) => s.sentenceId)
 	const sentenceText = useDetailsStore((s) => s.sentenceText)
 	const bookName = useDetailsStore((s) => s.bookName)
 	const bookAuthor = useDetailsStore((s) => s.bookAuthor)
 	const videoName = useDetailsStore((s) => s.videoName)
 	const videoYear = useDetailsStore((s) => s.videoYear)
-	const sentenceAnalysisReqType = useDetailsStore((s) => s.sentenceAnalysisReqType)
-	console.log(sentenceAnalysisReqType)
 
-	const lastAutoTranslateSentenceIdRef = React.useRef<null | number>(null)
+	const [fetchTranslations] = useSentenceTranslation_GetBySentenceIdLazyQuery({ fetchPolicy: 'no-cache' })
 
 	useEffect(
 		function () {
 			if (!sentenceId || !sentenceText) return
-			if (sentenceAnalysisReqType !== 'TRANSLATE') return
-			if (lastAutoTranslateSentenceIdRef.current === sentenceId) return
 
-			lastAutoTranslateSentenceIdRef.current = sentenceId
-
-			useDetailsStore.setState({
-				sentenceAnalysisReqType: 'FIND_EXISTING',
+			useDetailsStore.getState().updateStore({
+				sentenceTranslation: null,
+				sentenceAnalysis: null,
+				sentenceAnalysisLoading: true,
 			})
 
-			void translateSelectedSentence({
-				sentenceId,
-				sentenceText,
-				bookName,
-				bookAuthor,
-				videoName,
-				videoYear,
-			})
+			fetchTranslations({ variables: { input: { sentenceId } } })
+				.then((data) => {
+					const translations = data.data?.sentence_translation_get_by_sentence_id
+					// debugger
+					if (translations?.length) {
+						useDetailsStore.setState({
+							sentenceTranslation: translations[0].translation,
+							sentenceAnalysis: translations[0].analysis,
+							sentenceAnalysisLoading: false,
+						})
+						return
+					}
+
+					void translateSelectedSentence({
+						sentenceId,
+						sentenceText,
+						bookName,
+						bookAuthor,
+						videoName,
+						videoYear,
+					})
+				})
+				.catch((error) => {
+					useDetailsStore
+						.getState()
+						.updateStore({ sentenceAnalysisLoading: false, sentenceAnalysisError: error.message })
+				})
 		},
-		[bookAuthor, bookName, sentenceAnalysisReqType, sentenceId, sentenceText, videoName, videoYear],
+		[bookAuthor, bookName, fetchTranslations, sentenceId, sentenceText, videoName, videoYear],
 	)
 }
 
