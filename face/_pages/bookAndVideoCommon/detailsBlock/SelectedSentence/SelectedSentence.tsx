@@ -7,6 +7,7 @@ export function SelectedSentence() {
 	const sentenceText = useDetailsStore((s) => s.sentenceText)
 	const wordIds = useDetailsStore((s) => s.wordIds)
 	const selectWord = useDetailsStore((s) => s.selectWord)
+	const sentenceAnalysisLoading = useDetailsStore((s) => s.sentenceAnalysisLoading)
 
 	if (!sentenceId || !sentenceText) {
 		return null
@@ -19,7 +20,8 @@ export function SelectedSentence() {
 			selectedSentenceId={sentenceId}
 			selectedWordIds={wordIds}
 			selectWord={selectWord}
-			className='selected-sentence'
+			extraClass='selected-sentence'
+			loading={sentenceAnalysisLoading}
 		/>
 	)
 }

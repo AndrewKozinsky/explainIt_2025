@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import { usePathname } from 'next/navigation'
-import { useDetailsStore } from '_pages/bookAndVideoCommon/detailsBlock/detailsStore'
 import { useReadingStore } from '_pages/books/reading/readingStore'
 import { useWatchingStore } from '_pages/video/watching/watchingStore'
+import { useDetailsStore } from '../../detailsStore'
 import { pageUrls } from 'сonsts/pageUrls'
 
 export function usePopulateStore() {

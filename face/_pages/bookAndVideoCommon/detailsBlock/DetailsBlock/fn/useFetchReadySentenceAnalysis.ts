@@ -1,18 +1,19 @@
 import { useEffect } from 'react'
 import { useUserStore } from 'stores/userStore'
 import { useSentenceTranslation_GetBySentenceIdLazyQuery } from '@/graphql'
-import { useDetailsStore } from '_pages/bookAndVideoCommon/detailsBlock/detailsStore'
+import { useDetailsStore } from '../../detailsStore'
 
 export function useFetchReadySentenceAnalysis() {
 	const user = useUserStore((state) => state.user)
 	const sentenceId = useDetailsStore((s) => s.sentenceId)
 	const viewType = useDetailsStore((s) => s.viewType)
+	const sentenceAnalysisReqType = useDetailsStore((s) => s.sentenceAnalysisReqType)
 
 	const [fetchTranslations, { called, data, loading, error }] = useSentenceTranslation_GetBySentenceIdLazyQuery()
 
 	useEffect(
 		function () {
-			if (!sentenceId || viewType !== 'VIEW_FULL') return
+			if (!sentenceId || viewType !== 'VIEW_FULL' || sentenceAnalysisReqType !== 'FIND_EXISTING') return
 
 			useDetailsStore.getState().updateStore({
 				sentenceTranslation: null,
@@ -22,12 +23,13 @@ export function useFetchReadySentenceAnalysis() {
 
 			fetchTranslations({ variables: { input: { sentenceId } } })
 		},
-		[fetchTranslations, sentenceId, viewType],
+		[fetchTranslations, sentenceAnalysisReqType, sentenceId, viewType],
 	)
 
 	useEffect(
 		function () {
-			if (!called) return
+			// Ничего не делать если запрос ещё не был вызван
+			if (!called || sentenceAnalysisReqType !== 'FIND_EXISTING') return
 
 			if (loading) {
 				useDetailsStore.getState().updateStore({ sentenceAnalysisLoading: true, sentenceAnalysisError: null })
@@ -59,6 +61,6 @@ export function useFetchReadySentenceAnalysis() {
 				})
 			}
 		},
-		[called, data, error, loading, user],
+		[called, data, error, loading, sentenceAnalysisReqType, user],
 	)
 }

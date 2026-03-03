@@ -10,6 +10,7 @@ export function useTranslateSentence() {
 	const videoName = useDetailsStore((s) => s.videoName)
 	const videoYear = useDetailsStore((s) => s.videoYear)
 	const sentenceAnalysisReqType = useDetailsStore((s) => s.sentenceAnalysisReqType)
+	console.log(sentenceAnalysisReqType)
 
 	const lastAutoTranslateSentenceIdRef = React.useRef<null | number>(null)
 
@@ -20,6 +21,11 @@ export function useTranslateSentence() {
 			if (lastAutoTranslateSentenceIdRef.current === sentenceId) return
 
 			lastAutoTranslateSentenceIdRef.current = sentenceId
+
+			useDetailsStore.setState({
+				sentenceAnalysisReqType: 'FIND_EXISTING',
+			})
+
 			void translateSelectedSentence({
 				sentenceId,
 				sentenceText,
@@ -53,8 +59,6 @@ async function translateSelectedSentence(input: {
 	const result = await readTranslationStream(url, {
 		onPartial: (translation, analysis) => {
 			useDetailsStore.setState({
-				sentenceAnalysisLoading: false,
-				sentenceAnalysisReqType: 'FIND_EXISTING',
 				sentenceTranslation: translation,
 				sentenceAnalysis: analysis,
 			})
@@ -62,8 +66,17 @@ async function translateSelectedSentence(input: {
 	})
 
 	if (result.type === 'error') {
-		useDetailsStore.setState({ sentenceAnalysisError: result.message, sentenceAnalysisLoading: false })
+		useDetailsStore.setState({
+			sentenceAnalysisError: result.message,
+			sentenceAnalysisLoading: false,
+		})
 		return
+	}
+
+	if (result.type === 'ok') {
+		useDetailsStore.setState({
+			sentenceAnalysisLoading: false,
+		})
 	}
 }
 

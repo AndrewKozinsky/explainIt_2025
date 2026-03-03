@@ -1,3 +1,4 @@
+import cn from 'classnames'
 import { useDetailsStore } from '../detailsStore'
 import './SentenceTranslation.scss'
 
@@ -8,5 +9,9 @@ export function SentenceTranslation() {
 		return null
 	}
 
-	return <p className='sentence-translation'>{sentenceTranslation}</p>
+	const isLongText = sentenceTranslation.length > 100
+
+	return (
+		<p className={cn('sentence-translation', isLongText && 'sentence-translation--small')}>{sentenceTranslation}</p>
+	)
 }

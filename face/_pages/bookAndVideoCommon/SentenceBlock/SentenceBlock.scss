@@ -1,0 +1,5 @@
+@use '@/styles/inherit' as inh;
+
+.sentence-block__loading {
+	@include inh.ai-shimmer-text();
+}
