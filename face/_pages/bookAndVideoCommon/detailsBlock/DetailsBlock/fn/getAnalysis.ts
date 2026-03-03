@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { useSentenceTranslation_GetBySentenceIdLazyQuery } from 'graphql'
 import { useDetailsStore } from '_pages/bookAndVideoCommon/detailsBlock/detailsStore'
 import { readTranslationStream } from './translationStream'
@@ -11,11 +11,17 @@ export function useGetAnalysis() {
 	const videoName = useDetailsStore((s) => s.videoName)
 	const videoYear = useDetailsStore((s) => s.videoYear)
 
+	const activeRequestIdRef = useRef(0)
+
 	const [fetchTranslations] = useSentenceTranslation_GetBySentenceIdLazyQuery({ fetchPolicy: 'no-cache' })
 
 	useEffect(
 		function () {
 			if (!sentenceId || !sentenceText) return
+
+			activeRequestIdRef.current += 1
+			const requestId = activeRequestIdRef.current
+			const isActiveRequestId = () => activeRequestIdRef.current === requestId
 
 			useDetailsStore.getState().updateStore({
 				sentenceTranslation: null,
@@ -25,8 +31,10 @@ export function useGetAnalysis() {
 
 			fetchTranslations({ variables: { input: { sentenceId } } })
 				.then((data) => {
+					if (!isActiveRequestId()) return
+
 					const translations = data.data?.sentence_translation_get_by_sentence_id
-					// debugger
+
 					if (translations?.length) {
 						useDetailsStore.setState({
 							sentenceTranslation: translations[0].translation,
@@ -43,13 +51,20 @@ export function useGetAnalysis() {
 						bookAuthor,
 						videoName,
 						videoYear,
+						isActive: isActiveRequestId,
 					})
 				})
 				.catch((error) => {
+					if (!isActiveRequestId()) return
+
 					useDetailsStore
 						.getState()
 						.updateStore({ sentenceAnalysisLoading: false, sentenceAnalysisError: error.message })
 				})
+
+			return () => {
+				activeRequestIdRef.current += 1
+			}
 		},
 		[bookAuthor, bookName, fetchTranslations, sentenceId, sentenceText, videoName, videoYear],
 	)
@@ -62,6 +77,7 @@ async function translateSelectedSentence(input: {
 	bookAuthor: null | string
 	videoName: null | string
 	videoYear: null | string | number
+	isActive: () => boolean
 }) {
 	const url = buildTranslateSentenceUrl({
 		sentenceId: input.sentenceId,
@@ -74,12 +90,16 @@ async function translateSelectedSentence(input: {
 
 	const result = await readTranslationStream(url, {
 		onPartial: (translation, analysis) => {
+			if (!input.isActive()) return
+
 			useDetailsStore.setState({
 				sentenceTranslation: translation,
 				sentenceAnalysis: analysis,
 			})
 		},
 	})
+
+	if (!input.isActive()) return
 
 	if (result.type === 'error') {
 		useDetailsStore.setState({

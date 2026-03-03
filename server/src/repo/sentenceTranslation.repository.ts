@@ -77,6 +77,13 @@ export class SentenceTranslationRepository {
 		return this.mapDbSentenceTranslationToServiceSentenceTranslation(updatedSentenceTranslation)
 	}
 
+	@CatchDbError()
+	async deleteSentenceTranslationById(id: number) {
+		await this.prisma.sentenceTranslation.delete({
+			where: { id },
+		})
+	}
+
 	mapDbSentenceTranslationToServiceSentenceTranslation(dbSentenceTranslation: SentenceTranslation) {
 		return {
 			id: dbSentenceTranslation.id,

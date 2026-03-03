@@ -29,35 +29,61 @@ export class StreamTranslateWithDeepSeek {
 		type TokenUsage = { inputTokens: number; outputTokens: number }
 		let tokenUsage: TokenUsage | null = null
 		let fullText = ''
+		let lastPersistAtMs = 0
 
-		for await (const chunk of this.deepSeekService.generateTextStreamChunks({
-			messages: [
-				...messages,
-				{
-					role: 'user',
-					content: input.text,
-				},
-			],
-			abortSignal: input.abortSignal,
-			onUsage: (usage) => {
-				tokenUsage = usage ?? null
-			},
-			lowPriority: input.lowPriority,
-		})) {
-			fullText += chunk
-			yield { type: 'chunk', text: chunk }
-		}
-
-		const parsedResult = this.parseTranslationAndAnalysis(fullText)
-		if (!parsedResult) {
-			throw new CustomGraphQLError(errorMessage.unknownOpenAIError, ErrorCode.InternalServerError_500)
-		}
-
-		await this.sentenceTranslationRepository.createSentenceTranslation({
+		const draftSentenceTranslation = await this.sentenceTranslationRepository.createSentenceTranslation({
 			sentenceId: input.sentenceId,
-			translation: parsedResult.translation,
-			analysis: parsedResult.analysis,
+			translation: '',
+			analysis: null,
 		})
+
+		try {
+			for await (const chunk of this.deepSeekService.generateTextStreamChunks({
+				messages: [
+					...messages,
+					{
+						role: 'user',
+						content: input.text,
+					},
+				],
+				abortSignal: input.abortSignal,
+				onUsage: (usage) => {
+					tokenUsage = usage ?? null
+				},
+				lowPriority: input.lowPriority,
+			})) {
+				fullText += chunk
+				yield { type: 'chunk', text: chunk }
+
+				const nowMs = Date.now()
+				if (nowMs - lastPersistAtMs >= 750) {
+					const partialResult = this.parsePartialTranslationAndAnalysis(fullText)
+					if (partialResult) {
+						await this.sentenceTranslationRepository.updateSentenceTranslationById(
+							draftSentenceTranslation.id,
+							{
+								translation: partialResult.translation,
+								analysis: partialResult.analysis,
+							},
+						)
+						lastPersistAtMs = nowMs
+					}
+				}
+			}
+
+			const parsedResult = this.parseTranslationAndAnalysis(fullText)
+			if (!parsedResult) {
+				throw new CustomGraphQLError(errorMessage.unknownOpenAIError, ErrorCode.InternalServerError_500)
+			}
+
+			await this.sentenceTranslationRepository.updateSentenceTranslationById(draftSentenceTranslation.id, {
+				translation: parsedResult.translation,
+				analysis: parsedResult.analysis,
+			})
+		} catch (error) {
+			await this.sentenceTranslationRepository.deleteSentenceTranslationById(draftSentenceTranslation.id)
+			throw error
+		}
 
 		if (input.chargeAfterTranslation && tokenUsage !== null) {
 			const usage: TokenUsage = tokenUsage
@@ -102,6 +128,25 @@ export class StreamTranslateWithDeepSeek {
 		const translation = (parts[0] ?? '').trim()
 		if (!translation) return null
 
+		const analysis = parts.length > 1 ? parts.slice(1).join('\n\n').trim() : null
+
+		return {
+			translation,
+			analysis: analysis ? analysis : null,
+		}
+	}
+
+	private parsePartialTranslationAndAnalysis(message: null | string): null | {
+		translation: string
+		analysis: null | string
+	} {
+		if (!message) return null
+
+		const normalized = message.trim()
+		if (!normalized) return null
+
+		const parts = normalized.split(/\n\s*\n/)
+		const translation = (parts[0] ?? '').trim()
 		const analysis = parts.length > 1 ? parts.slice(1).join('\n\n').trim() : null
 
 		return {
