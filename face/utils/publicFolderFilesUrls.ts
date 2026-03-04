@@ -23,7 +23,7 @@ export const publicFolderFilesUrls = {
 	},
 	mainPage: {
 		headVideo: '/mainPage/headVideo.mp4',
-		headVideoPoster: '/mainPage/headVideoPoster.jpg',
+		headVideoPoster: '/mainPage/headVideoPoster.png',
 		aboutBooksVideo: '/mainPage/aboutBooks.mp4',
 		aboutBooksVideoPoster: '/mainPage/aboutBooksPoster.jpg',
 		aboutVideosVideo: '/mainPage/aboutVideos.mp4',

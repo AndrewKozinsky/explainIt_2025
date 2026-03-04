@@ -1,8 +1,7 @@
-import { useRef } from 'react'
 import cn from 'classnames'
 import { useSystemStore } from 'stores/systemStore'
-import { useLongPress } from 'utils/events'
 import { getWordPrimaryType } from './fn/getWordPrimaryType'
+import { useWordSelectHandlers } from './fn/useWordSelectHandlers'
 import './Word.scss'
 
 type WordProps = {
@@ -19,36 +18,21 @@ function Word(props: WordProps) {
 	const deviceType = useSystemStore((state) => state.deviceType)
 
 	const wordType = getWordPrimaryType({ selectedSentenceId, selectedWordIds, sentenceId, wordId })
-	const onWordClick = () => selectWord({ sentenceId, wordId })
-	const onWordLongTap = () => selectWord({ sentenceId, wordId })
 
-	const {
-		onMouseDown,
-		onMouseUp,
-		onTouchStart,
-		onTouchEnd,
-		onTouchMove,
-		onTouchCancel,
-		onMouseLeave: onLongPressMouseLeave,
-	} = useLongPress({
-		onLongPress: onWordLongTap,
-		onClick: onWordClick,
-		delay: 400,
-		vibrate: 50,
+	const { onClick, onTouchStart, onTouchMove, onTouchEnd, onTouchCancel } = useWordSelectHandlers({
+		deviceType,
+		thresholdPx: 5,
+		onSelect: () => selectWord({ sentenceId, wordId }),
 	})
-
-	const wrapperRef = useRef<HTMLSpanElement | null>(null)
 
 	return (
 		<span
 			className={cn('word', 'word--' + wordType)}
-			onMouseDown={onMouseDown}
-			onMouseUp={onMouseUp}
+			onClick={onClick}
 			onTouchStart={onTouchStart}
 			onTouchMove={onTouchMove}
 			onTouchEnd={onTouchEnd}
 			onTouchCancel={onTouchCancel}
-			ref={wrapperRef}
 		>
 			<span
 				className={cn('word__text', deviceType === 'touch' && 'no-select')}
