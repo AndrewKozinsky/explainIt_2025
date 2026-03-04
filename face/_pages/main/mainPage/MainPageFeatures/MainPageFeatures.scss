@@ -36,7 +36,7 @@
 
 .main-page-features__cell-text {
 	font-size: 1.6rem;
-	line-height: 2.4rem;
+	line-height: 2.6rem;
 }
 
 .main-page-features__big-text {
@@ -45,7 +45,7 @@
 
 	@include mix.page-width(800px) {
 		font-size: 2.4rem;
-		line-height: 3.4rem;
+		line-height: 3.6rem;
 	}
 }
 

@@ -63,7 +63,6 @@ services:
     volumes:
       - ./face:/app
       - ./face:/public
-      - ./face:/_pages
     command: npm run dev
     container_name: explainfacelocaldev
     depends_on:
@@ -89,7 +88,7 @@ services:
       context: nlp/
       dockerfile: Dockerfile
     ports:
-      - 8000:8000
+      - 8001:8000
 volumes:
   pgdata: {}
   redis_data: {}

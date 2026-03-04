@@ -93,7 +93,7 @@ export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
 					context: 'nlp/',
 					dockerfile: 'Dockerfile',
 				},
-				ports: ["8000:8000"]
+				ports: getNLPPort(mode)
 			},
 		},
 		networks: mode === Mode.serverDevelop || mode === Mode.serverMaster
@@ -182,6 +182,18 @@ function getRedisPort(mode: Mode) {
 		[Mode.localCheckServer]: ['6382:6379'],
 		[Mode.serverDevelop]: ['6383:6379'],
 		[Mode.serverMaster]: ['6384:6379'],
+	}
+
+	return portMapper[mode]
+}
+
+function getNLPPort(mode: Mode) {
+	const portMapper: Record<Mode, [string]> = {
+		[Mode.localTest]: ['8000:8000'],
+		[Mode.localDev]: ['8001:8000'],
+		[Mode.localCheckServer]: ['8002:8000'],
+		[Mode.serverDevelop]: ['8003:8000'],
+		[Mode.serverMaster]: ['8004:8000'],
 	}
 
 	return portMapper[mode]

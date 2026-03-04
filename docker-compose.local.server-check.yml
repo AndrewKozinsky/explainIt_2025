@@ -76,7 +76,7 @@ services:
       context: nlp/
       dockerfile: Dockerfile
     ports:
-      - 8000:8000
+      - 8002:8000
 volumes:
   pgdata: {}
   redis_data: {}

@@ -37,11 +37,17 @@
 		z-index: 1;
 	}
 
+
+
 	@include mix.page-width(1000px) {
 		font-size: 1.8rem;
 		line-height: 2rem;
 		width: 12.7rem;
 		height: 12.7rem;
+
+		.main-page-media-circles__icon {
+			bottom: -38px;
+		}
 	}
 }
 .main-page-media-circles__item--accent {
