@@ -54,7 +54,7 @@ export class VideoPrivateQueryRepository {
 	async getUserVideos(userId: number) {
 		const videos = await this.prisma.videoPrivate.findMany({
 			where: { user_id: userId },
-			orderBy: { created_at: 'desc' },
+			orderBy: { created_at: 'asc' },
 		})
 
 		return videos.map((video) => this.mapDbVideoToLiteOutVideo(video))

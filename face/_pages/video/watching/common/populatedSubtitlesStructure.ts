@@ -2,7 +2,6 @@ export namespace PopulatedSubtitlesStructure {
 	export type Structure = {
 		subtitles: (Subtitle | SpeechlessBar)[]
 		sentences: Sentence[]
-		// selected: Selected
 		// Идентификатор проигрываемого субтитра или паузы (speechlessBar)
 		playingSubtitleOrSpeechlessBarId: number
 	}

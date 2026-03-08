@@ -73,6 +73,25 @@ function useFetchVideoAndSetToStore() {
 					type: videoType,
 				})
 			} else {
+				let errorMessage: null | string = null
+				if (!video.fileUrl) {
+					errorMessage = 'Видео не загружено'
+				}
+				if (!video.originalContent) {
+					errorMessage = 'Текст не загружен'
+				}
+
+				if (errorMessage) {
+					useWatchingStore.getState().updateVideo({
+						loading: false,
+						errorMessage,
+						data: null as any as VideoPrivateOutModel,
+						type: videoType,
+					})
+
+					return
+				}
+
 				useWatchingStore.getState().updateVideo({
 					loading: false,
 					errorMessage: null,

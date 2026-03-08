@@ -24,12 +24,18 @@ export function useGetPageHeader() {
 		const videoType = getVideoTypeByUrlVideoId(urlVideoId)
 		const videoId = extractVideoIdFromUrlVideoId(urlVideoId)
 
-		if (videoType === 'public' && videoId != null) {
-			return publicVideos.find((v) => v.id === videoId)?.name ?? pageUrls.videos.video(urlVideoId).name
+		if (videoType === 'public' && videoId != null && publicVideos) {
+			const publicVideo = publicVideos.find((v) => v.id === videoId)
+			if (publicVideo?.name) {
+				return publicVideo.name
+			}
 		}
 
-		if (videoType === 'private' && videoId != null) {
-			return privateVideos.find((v) => v.id === videoId)?.name ?? pageUrls.videos.video(urlVideoId).name
+		if (videoType === 'private' && videoId != null && privateVideos) {
+			const privateVideo = privateVideos.find((v) => v.id === videoId)
+			if (privateVideo?.name) {
+				return privateVideo.name
+			}
 		}
 
 		return pageUrls.videos.video(urlVideoId).name

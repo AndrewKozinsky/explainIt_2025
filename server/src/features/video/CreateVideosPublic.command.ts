@@ -118,7 +118,12 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 		originalContent: string
 		covers: string[]
 	}[] {
-		const publicVideoUrl = this.mainConfig.get().yandexCloud.s3.bucketUrl + '/publicVideos/'
+		const workingMode = this.mainConfig.get().mode!
+		const folderName = ['localdev', 'localtest', 'localcheckserver'].includes(workingMode)
+			? 'publicVideoDev'
+			: 'publicVideo'
+
+		const publicVideoUrl = this.mainConfig.get().yandexCloud.s3.bucketUrl + '/' + folderName + '/'
 
 		return [
 			{
@@ -132,7 +137,7 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 Речь чёткая и спокойная, актёры говорят естественно и без постоянных перебиваний. Стандартный разговорный английский. Много повседневной лексики (отношения, деньги, доверие, опасность). У Audrey Hepburn и Cary Grant очень ясная, «учебная» речь.
 Уровень B1-B2 (Intermediate / Upper-Intermediate).`,
 				fileName: 'Charade (1963).mp4',
-				file_s3_key: 'publicVideoDev/Charade (1963).mp4', // privateVideoDev/4adf6f8e-d299-49f5-b144-7171402e6c8a-test.mp4
+				file_s3_key: folderName + '/Charade (1963).mp4', // privateVideoDev/4adf6f8e-d299-49f5-b144-7171402e6c8a-test.mp4
 				originalContent: charadeSubs,
 				covers: [
 					publicVideoUrl + 'charade_1.jpg',
@@ -151,7 +156,7 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 Живые диалоги, быстрая разговорная речь, много юмора и сарказма, журналистская и повседневная лексика. Это фильм о работе, амбициях, любви и о том, как трудно выбрать между карьерой и личной жизнью.
 Рекомендуемый уровень: B2–C1 (Upper-Intermediate / Advanced).`,
 				fileName: 'His Girl Friday (1940).webm',
-				file_s3_key: 'publicVideoDev/His Girl Friday (1940).webm',
+				file_s3_key: folderName + '/His Girl Friday (1940).webm',
 				originalContent: hisGirlFridaySubs,
 				covers: [
 					publicVideoUrl + 'his_girl_friday_1.jpg',

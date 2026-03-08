@@ -18,7 +18,7 @@ function MainPageFeatures() {
 				</p>
 			</div>
 			<div className='main-page-features__cell'>
-				<h3 className='main-page-features__cell-header'>Грамматика без зубрёжки</h3>
+				<h3 className='main-page-features__cell-header'>Грамматика без заучивания</h3>
 				<p className='main-page-features__cell-text'>
 					Грамматика усваивается через примеры. Так же, как вы когда-то освоили родной язык.
 				</p>

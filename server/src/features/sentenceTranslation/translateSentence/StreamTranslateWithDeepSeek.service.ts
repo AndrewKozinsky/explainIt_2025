@@ -28,6 +28,7 @@ export class StreamTranslateWithDeepSeek {
 
 		type TokenUsage = { inputTokens: number; outputTokens: number }
 		let tokenUsage: TokenUsage | null = null
+
 		let fullText = ''
 		let lastPersistAtMs = 0
 
@@ -58,6 +59,7 @@ export class StreamTranslateWithDeepSeek {
 				const nowMs = Date.now()
 				if (nowMs - lastPersistAtMs >= 750) {
 					const partialResult = this.parsePartialTranslationAndAnalysis(fullText)
+
 					if (partialResult) {
 						await this.sentenceTranslationRepository.updateSentenceTranslationById(
 							draftSentenceTranslation.id,
@@ -66,6 +68,7 @@ export class StreamTranslateWithDeepSeek {
 								analysis: partialResult.analysis,
 							},
 						)
+
 						lastPersistAtMs = nowMs
 					}
 				}

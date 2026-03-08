@@ -5,7 +5,6 @@ export namespace PopulatedTextStructure {
 
 	export type Sentence = {
 		id: number
-		// Sentence
 		text: string
 		// Translation
 		// translation?: string

@@ -19,7 +19,7 @@ export function Tariff(props: TariffProps) {
 	const { tariff, isAuthorized, isAnySubscriptionAlreadyBought, isLoading, isPaidTariff, onBuy } = props
 
 	const priceRub = (tariff.price / 100).toFixed(0)
-	const translationsCount = Math.round((tariff.includedBalance * 100) / 6)
+	const translationsCount = Math.round(tariff.includedBalance / 6)
 
 	return (
 		<div className='tariff'>

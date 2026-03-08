@@ -10,8 +10,9 @@ export function useIsWatchButtonDisabled() {
 	useEffect(
 		function () {
 			const isFileUploaded = !!video?.isFileUploaded
+			const hasText = !!video?.originalContent
 
-			setIsReadButtonDisabled(!isFileUploaded)
+			setIsReadButtonDisabled(!isFileUploaded || !hasText)
 		},
 		[video],
 	)
