@@ -15,18 +15,18 @@ export type CreateBookPublicInput = {
 	freeToUse?: boolean
 }
 
-export class CreateBookPublicCommand implements ICommand {
+export class CreatePublicBookCommand implements ICommand {
 	constructor(public createBookInput: CreateBookPublicInput) {}
 }
 
-@CommandHandler(CreateBookPublicCommand)
-export class CreateBookPublicHandler implements ICommandHandler<CreateBookPublicCommand> {
+@CommandHandler(CreatePublicBookCommand)
+export class CreateBookPublicHandler implements ICommandHandler<CreatePublicBookCommand> {
 	constructor(
 		private bookPublicRepository: BookPublicRepository,
 		private bookPublicQueryRepository: BookPublicQueryRepository,
 	) {}
 
-	async execute(command: CreateBookPublicCommand) {
+	async execute(command: CreatePublicBookCommand) {
 		const { createBookInput } = command
 
 		const newBook = await this.bookPublicRepository.createBookPublic(createBookInput)

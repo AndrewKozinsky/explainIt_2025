@@ -12,12 +12,12 @@ import { Prisma } from 'prisma/generated/client'
 import { charadeSubs } from './publicVideosSubtitles/charadeSubs'
 import { hisGirlFridaySubs } from './publicVideosSubtitles/hisGirlFridaySubs'
 
-export class CreateVideosPublicCommand implements ICommand {
+export class CreatePublicVideosCommand implements ICommand {
 	constructor() {}
 }
 
-@CommandHandler(CreateVideosPublicCommand)
-export class CreatePublicVideosHandler extends VideoBase implements ICommandHandler<CreateVideosPublicCommand> {
+@CommandHandler(CreatePublicVideosCommand)
+export class CreatePublicVideosHandler extends VideoBase implements ICommandHandler<CreatePublicVideosCommand> {
 	constructor(
 		private prisma: PrismaService,
 		private videoPublicRepository: VideoPublicRepository,
@@ -120,10 +120,10 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 	}[] {
 		const workingMode = this.mainConfig.get().mode!
 		const folderName = ['localdev', 'localtest', 'localcheckserver'].includes(workingMode)
-			? 'publicVideoDev'
-			: 'publicVideo'
+			? 'publicVideosDev'
+			: 'publicVideos'
 
-		const publicVideoUrl = this.mainConfig.get().yandexCloud.s3.bucketUrl + '/' + folderName + '/'
+		const coversFolderName = this.mainConfig.get().yandexCloud.s3.bucketUrl + '/' + folderName + '/'
 
 		return [
 			{
@@ -140,10 +140,10 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 				file_s3_key: folderName + '/Charade (1963).mp4', // privateVideoDev/4adf6f8e-d299-49f5-b144-7171402e6c8a-test.mp4
 				originalContent: charadeSubs,
 				covers: [
-					publicVideoUrl + 'charade_1.jpg',
-					publicVideoUrl + 'charade_2.jpg',
-					publicVideoUrl + 'charade_3.jpg',
-					publicVideoUrl + 'charade_4.jpg',
+					coversFolderName + 'charade_1.jpg',
+					coversFolderName + 'charade_2.jpg',
+					coversFolderName + 'charade_3.jpg',
+					coversFolderName + 'charade_4.jpg',
 				],
 			},
 			{
@@ -159,10 +159,10 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 				file_s3_key: folderName + '/His Girl Friday (1940).webm',
 				originalContent: hisGirlFridaySubs,
 				covers: [
-					publicVideoUrl + 'his_girl_friday_1.jpg',
-					publicVideoUrl + 'his_girl_friday_2.jpg',
-					publicVideoUrl + 'his_girl_friday_3.jpg',
-					publicVideoUrl + 'his_girl_friday_4.jpg',
+					coversFolderName + 'his_girl_friday_1.jpg',
+					coversFolderName + 'his_girl_friday_2.jpg',
+					coversFolderName + 'his_girl_friday_3.jpg',
+					coversFolderName + 'his_girl_friday_4.jpg',
 				],
 			},
 		]

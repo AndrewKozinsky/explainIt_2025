@@ -1,22 +1,22 @@
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { BookChapterRepository } from 'repo/bookChapter.repository'
 import { BookPublicRepository } from 'repo/bookPublic.repository'
+import { CreatePublicBookCommand, CreateBookPublicInput } from 'src/features/bookPublic/CreatePublicBook.command'
 import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter.command'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { ChapterData } from './common/common'
-import { CreateBookPublicCommand, CreateBookPublicInput } from './CreateBookPublic.command'
 import { solomonMinesBookData, solomonMinesChapters } from './solomonMines/solomonMinesBook'
 import { wizardOfOzBookData, wizardOfOzChapters } from './wizardOfOz/wizardOfOzBook'
 
-export class CreateBooksPublicCommand implements ICommand {
+export class CreatePublicBooksCommand implements ICommand {
 	constructor() {}
 }
 
-@CommandHandler(CreateBooksPublicCommand)
-export class CreatePublicBooksHandler implements ICommandHandler<CreateBooksPublicCommand> {
+@CommandHandler(CreatePublicBooksCommand)
+export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBooksCommand> {
 	constructor(
 		private commandBus: CommandBus,
 		public bookPublicRepository: BookPublicRepository,
@@ -32,15 +32,20 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreateBooksPubl
 	}
 
 	getBooksData() {
-		const publicBookUrl = this.mainConfig.get().yandexCloud.s3.bucketUrl + '/publicBooks/'
+		const workingMode = this.mainConfig.get().mode!
+		const folderName = ['localdev', 'localtest', 'localcheckserver'].includes(workingMode)
+			? 'publicBooksDev'
+			: 'publicBooks'
+
+		const coversFolderName = this.mainConfig.get().yandexCloud.s3.bucketUrl + '/' + folderName + '/'
 
 		return [
 			{
-				book: wizardOfOzBookData(publicBookUrl),
+				book: wizardOfOzBookData(coversFolderName),
 				chapters: wizardOfOzChapters,
 			},
 			{
-				book: solomonMinesBookData(publicBookUrl),
+				book: solomonMinesBookData(coversFolderName),
 				chapters: solomonMinesChapters,
 			},
 		]
@@ -55,7 +60,7 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreateBooksPubl
 		const existingBook = await this.bookPublicRepository.getBook({ name: bookData.name, author: bookData.author })
 		if (existingBook) return existingBook.id
 
-		const book = await this.commandBus.execute(new CreateBookPublicCommand(bookData))
+		const book = await this.commandBus.execute(new CreatePublicBookCommand(bookData))
 		if (!book) {
 			throw new CustomGraphQLError(errorMessage.book.notCreated, ErrorCode.InternalServerError_500)
 		}

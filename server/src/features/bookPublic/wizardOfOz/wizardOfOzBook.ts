@@ -24,7 +24,7 @@ import { chapter_7 } from './chapter_7'
 import { chapter_8 } from './chapter_8'
 import { chapter_9 } from './chapter_9'
 
-export function wizardOfOzBookData(publicBookUrl: string) {
+export function wizardOfOzBookData(bookCoverUrl: string) {
 	const covers = ['wizard_of_oz_cover_1.jpg']
 
 	return {
@@ -36,7 +36,7 @@ export function wizardOfOzBookData(publicBookUrl: string) {
 Рекомендуемый уровень английского B1 (Intermediate)`,
 		languageCode: languages.en.code as Language,
 		freeToUse: true,
-		covers: covers.map((cover) => publicBookUrl + cover),
+		covers: covers.map((cover) => bookCoverUrl + cover),
 	}
 }
 

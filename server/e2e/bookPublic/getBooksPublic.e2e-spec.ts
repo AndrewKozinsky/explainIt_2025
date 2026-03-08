@@ -1,7 +1,7 @@
 import { INestApplication } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
+import { CreatePublicBooksHandler } from 'server/src/features/bookPublic/CreatePublicBooks.command'
 import { App } from 'supertest/types'
-import { CreatePublicBooksHandler } from '../../src/features/bookPublic/CreateBooksPublic.command'
 import RouteNames from '../../src/infrastructure/routeNames'
 import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
 import { bookPublicUtils } from '../utils/bookPublicUtils'
