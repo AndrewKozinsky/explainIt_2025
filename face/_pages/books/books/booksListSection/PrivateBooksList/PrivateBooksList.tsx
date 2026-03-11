@@ -1,8 +1,8 @@
-import { useUserStore } from 'stores/userStore'
-import AddBookButton from '../AddBookButton/AddBookButton'
-import { PrivateBooksListContent } from './PrivateBooksListContent'
+// import { useUserStore } from 'stores/userStore'
+// import AddBookButton from '../AddBookButton/AddBookButton'
+// import { PrivateBooksListContent } from './PrivateBooksListContent'
 
-function PrivateBooksList() {
+/*function PrivateBooksList() {
 	const user = useUserStore((state) => state.user)
 
 	const tariffCode = user?.currentSubscription?.tariffCode
@@ -16,6 +16,6 @@ function PrivateBooksList() {
 			<AddBookButton />
 		</>
 	)
-}
+}*/
 
-export default PrivateBooksList
+// export default PrivateBooksList

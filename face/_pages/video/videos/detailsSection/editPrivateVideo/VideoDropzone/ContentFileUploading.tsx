@@ -1,10 +1,10 @@
-type ContentFileUploadingProps = {
+/*type ContentFileUploadingProps = {
 	uploadedBytes: number
 	totalBytes: number
 	fileName: string
-}
+}*/
 
-function ContentFileUploading(props: ContentFileUploadingProps) {
+/*function ContentFileUploading(props: ContentFileUploadingProps) {
 	const { uploadedBytes, totalBytes, fileName } = props
 
 	const uploadedMb = Math.round(uploadedBytes / 1024 / 1024)
@@ -26,6 +26,6 @@ function ContentFileUploading(props: ContentFileUploadingProps) {
 			<p>Не закрывайте окно до полной загрузку файла</p>
 		</div>
 	)
-}
+}*/
 
-export default ContentFileUploading
+// export default ContentFileUploading

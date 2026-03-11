@@ -1,0 +1,26 @@
+.media-page-content-wrapper {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+	width: 100%;
+}
+
+.media-page-content-wrapper__top {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.media-page-content-wrapper__header {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.media-page-content-wrapper__content {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}

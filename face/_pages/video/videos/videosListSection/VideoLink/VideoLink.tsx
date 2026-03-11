@@ -1,19 +1,19 @@
-import { createVideoIdUrl, pageUrls } from '@/сonsts/pageUrls'
-import MediaLink from '_pages/bookAndVideoCommon/MediaLink/MediaLink'
-import { videoConfig } from '_pages/video/videos/common/videoConfig'
-import { useGetVideoLinkStatus } from './fn/isPageCurrent'
-import { useGetOnBookLinkClick } from './fn/onClick'
+// import { createVideoIdUrl, pageUrls } from '@/сonsts/pageUrls'
+// import MediaLink from '_pages/bookAndVideoCommon/MediaLink/MediaLink'
+// import { videoConfig } from '_pages/video/videos/common/videoConfig'
+// import { useGetVideoLinkStatus } from './fn/isPageCurrent'
+// import { useGetOnBookLinkClick } from './fn/onClick'
 
-type VideoLinkProps = {
+/*type VideoLinkProps = {
 	videoData: {
 		id: number
 		videoType: 'public' | 'private'
 		year?: null | number
 		name?: null | string
 	}
-}
+}*/
 
-function VideoLink(props: VideoLinkProps) {
+/*function VideoLink(props: VideoLinkProps) {
 	const { id, videoType, year, name } = props.videoData
 
 	const videoLinkStatus = useGetVideoLinkStatus(id, videoType)
@@ -32,6 +32,6 @@ function VideoLink(props: VideoLinkProps) {
 			onClick={onVideoLinkClick}
 		/>
 	)
-}
+}*/
 
-export default VideoLink
+// export default VideoLink

@@ -1,7 +1,7 @@
-@use '@/styles/variables' as vars;
-@use '@/styles/inherit' as inh;
+//@use '@/styles/variables' as vars;
+//@use '@/styles/inherit' as inh;
 
-.word {
+/*.word {
 	position: relative;
 	display: inline-block;
 	cursor: pointer;
@@ -24,18 +24,18 @@
 			border-color: vars.$grayColor-3;
 		}
 	}
-}
+}*/
 
-.word__text {
+/*.word__text {
 	position: relative;
 	z-index: 2;
-}
+}*/
 
-.word--selected {
+/*.word--selected {
 	color: white;
 
 	&:before {
 		background-color: vars.$accentColor-2;
 		border: none;
 	}
-}
+}*/

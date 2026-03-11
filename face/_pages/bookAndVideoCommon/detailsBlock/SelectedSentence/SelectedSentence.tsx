@@ -1,8 +1,8 @@
-import SentenceBlock from '_pages/bookAndVideoCommon/SentenceBlock/SentenceBlock'
-import { useDetailsStore } from '../detailsStore'
-import './SelectedSentence.scss'
+// import SentenceBlock from '_pages/bookAndVideoCommon/SentenceBlock/SentenceBlock'
+// import { useDetailsStore } from '../detailsStore'
+// import './SelectedSentence.scss'
 
-export function SelectedSentence() {
+/*export function SelectedSentence() {
 	const sentenceId = useDetailsStore((s) => s.sentenceId)
 	const sentenceText = useDetailsStore((s) => s.sentenceText)
 	const wordIds = useDetailsStore((s) => s.wordIds)
@@ -24,4 +24,4 @@ export function SelectedSentence() {
 			loading={sentenceAnalysisLoading}
 		/>
 	)
-}
+}*/

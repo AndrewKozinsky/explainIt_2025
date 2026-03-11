@@ -1,21 +1,21 @@
-'use client'
+// 'use client'
 
-import { useRouter } from 'next/navigation'
-import { publicFolderFilesUrls } from 'utils/publicFolderFilesUrls'
-import Button from '@/ui/formRelated/buttons/Button/Button'
-import { useGetCoverOnClick } from '_pages/bookAndVideoCommon/PublicMediaInfo/fn/useGetCoverOnClick'
-import './PublicMediaInfo.scss'
+// import { useRouter } from 'next/navigation'
+// import { publicFolderFilesUrls } from 'utils/publicFolderFilesUrls'
+// import Button from '@/ui/formRelated/buttons/Button/Button'
+// import { useGetCoverOnClick } from '_pages/bookAndVideoCommon/PublicMediaInfo/fn/useGetCoverOnClick'
+// import './PublicMediaInfo.scss'
 
-type PublicMediaInfoProps = {
+/*type PublicMediaInfoProps = {
 	header: string
 	subHeader: string
 	coverUrls: string[]
 	text: string
 	contentType: 'book' | 'video'
 	mediaUrl: string
-}
+}*/
 
-export default function PublicMediaInfo(props: PublicMediaInfoProps) {
+/*export default function PublicMediaInfo(props: PublicMediaInfoProps) {
 	const { header, subHeader, coverUrls, text, contentType, mediaUrl } = props
 	const { activeCoverIndex, handleCoverClick } = useGetCoverOnClick(coverUrls)
 
@@ -40,13 +40,13 @@ export default function PublicMediaInfo(props: PublicMediaInfoProps) {
 			<PublicMediaInfoActions contentType={contentType} mediaUrl={mediaUrl} />
 		</div>
 	)
-}
+}*/
 
-type PublicMediaInfoTextProps = {
+/*type PublicMediaInfoTextProps = {
 	text: string
-}
+}*/
 
-function PublicMediaInfoText(props: PublicMediaInfoTextProps) {
+/*function PublicMediaInfoText(props: PublicMediaInfoTextProps) {
 	const { text } = props
 	const paragraphs = text.split(/\r?\n+/).filter((paragraph) => paragraph.trim().length)
 
@@ -57,14 +57,14 @@ function PublicMediaInfoText(props: PublicMediaInfoTextProps) {
 			))}
 		</div>
 	)
-}
+}*/
 
-type PublicMediaInfoActionsProps = {
+/*type PublicMediaInfoActionsProps = {
 	contentType: 'book' | 'video'
 	mediaUrl: string
-}
+}*/
 
-function PublicMediaInfoActions(props: PublicMediaInfoActionsProps) {
+/*function PublicMediaInfoActions(props: PublicMediaInfoActionsProps) {
 	const { contentType, mediaUrl } = props
 
 	const router = useRouter()
@@ -81,4 +81,4 @@ function PublicMediaInfoActions(props: PublicMediaInfoActionsProps) {
 			</Button>
 		</div>
 	)
-}
+}*/

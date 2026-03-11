@@ -1,3 +1,5 @@
+import VideosPage from '_pages/video/videos/VideosPage/VideosPage'
+
 export default function Home() {
-	return null
+	return <VideosPage />
 }

@@ -1,16 +1,16 @@
-@use '@/styles/variables' as vars;
-@use '@/styles/mixins' as mix;
+//@use '@/styles/variables' as vars;
+//@use '@/styles/mixins' as mix;
 
-.book-and-prev-and-next-chapters {
+/*.book-and-prev-and-next-chapters {
 	container-type: inline-size;
 	margin-top: auto;
-}
+}*/
 
-.book-and-prev-and-next-chapters__auto-height {
+/*.book-and-prev-and-next-chapters__auto-height {
 	margin-top: 3rem;
-}
+}*/
 
-.book-and-prev-and-next-chapters__inner {
+/*.book-and-prev-and-next-chapters__inner {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
@@ -27,9 +27,9 @@
 			width: 200px;
 		}
 	}
-}
+}*/
 
-.book-and-prev-and-next-chapters__link {
+/*.book-and-prev-and-next-chapters__link {
 	display: flex;
 	flex-direction: column;
 	gap: 0.4rem;
@@ -44,15 +44,15 @@
 	&:focus {
 		border-color: vars.$linkColor-2;
 	}
-}
+}*/
 
-.book-and-prev-and-next-chapters__small-text {
+/*.book-and-prev-and-next-chapters__small-text {
 	font-size: 1.3rem;
 	line-height: 1.9rem;
 	color: vars.$grayColor-5;
-}
+}*/
 
-.book-and-prev-and-next-chapters__text {
+/*.book-and-prev-and-next-chapters__text {
 	font-size: 1.5rem;
 	line-height: 2.1rem;
-}
+}*/

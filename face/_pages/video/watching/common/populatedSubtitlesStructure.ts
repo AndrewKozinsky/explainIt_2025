@@ -1,4 +1,4 @@
-export namespace PopulatedSubtitlesStructure {
+/*export namespace PopulatedSubtitlesStructure {
 	export type Structure = {
 		subtitles: (Subtitle | SpeechlessBar)[]
 		sentences: Sentence[]
@@ -40,4 +40,4 @@ export namespace PopulatedSubtitlesStructure {
 		text: string
 		// translation?: string
 	}
-}
+}*/

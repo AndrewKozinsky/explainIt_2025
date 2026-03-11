@@ -1,10 +1,10 @@
-import { useBooksStore } from '_pages/books/books/booksStore'
-import AddChapterButton from '../AddChapterButton/AddChapterButton'
-import PrivateBookChaptersList from '../PrivateBookChaptersList/PrivateBookChaptersList'
-import PublicBookChaptersList from '../PublicBookChaptersList/PublicBookChaptersList'
-import './ChaptersSection.scss'
+// import { useBooksStore } from '_pages/books/books/booksStore'
+// import AddChapterButton from '../AddChapterButton/AddChapterButton'
+// import PrivateBookChaptersList from '../PrivateBookChaptersList/PrivateBookChaptersList'
+// import PublicBookChaptersList from '../PublicBookChaptersList/PublicBookChaptersList'
+// import './ChaptersSection.scss'
 
-function ChaptersSection({ bookId, bookType }: { bookId: number; bookType: 'private' | 'public' }) {
+/*function ChaptersSection({ bookId, bookType }: { bookId: number; bookType: 'private' | 'public' }) {
 	const pageUrlType = useBooksStore((s) => s.pageUrlType)
 	const publicBook = useBooksStore((s) => s.publicBook)
 	const privateBook = useBooksStore((s) => s.privateBook)
@@ -35,6 +35,6 @@ function ChaptersSection({ bookId, bookType }: { bookId: number; bookType: 'priv
 			)}
 		</div>
 	)
-}
+}*/
 
-export default ChaptersSection
+// export default ChaptersSection

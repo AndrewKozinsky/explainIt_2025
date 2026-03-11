@@ -1,8 +1,8 @@
-import cn from 'classnames'
-import { useDetailsStore } from '../detailsStore'
-import './SentenceTranslation.scss'
+// import cn from 'classnames'
+// import { useDetailsStore } from '../detailsStore'
+// import './SentenceTranslation.scss'
 
-export function SentenceTranslation() {
+/*export function SentenceTranslation() {
 	const sentenceTranslation = useDetailsStore((s) => s.sentenceTranslation)
 
 	if (!sentenceTranslation) {
@@ -14,4 +14,4 @@ export function SentenceTranslation() {
 	return (
 		<p className={cn('sentence-translation', isLongText && 'sentence-translation--small')}>{sentenceTranslation}</p>
 	)
-}
+}*/

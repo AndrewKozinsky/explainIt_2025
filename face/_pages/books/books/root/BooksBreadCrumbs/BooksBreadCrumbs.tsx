@@ -1,9 +1,8 @@
-import React from 'react'
 import { BreadCrumbs } from 'ui/pageRelated/BreadCrumbs/BreadCrumbs'
-import { useBooksBreadCrumbsItems } from './fn/useBooksBreadCrumbsItems'
+import { pageUrls } from 'сonsts/pageUrls'
 
 function BooksBreadCrumbs() {
-	return <BreadCrumbs items={useBooksBreadCrumbsItems()} />
+	return <BreadCrumbs items={[pageUrls.books]} />
 }
 
 export default BooksBreadCrumbs

@@ -1,13 +1,13 @@
-import './SpeechlessBar.scss'
+// import './SpeechlessBar.scss'
 
-type SpeechlessBarProps = {
+/*type SpeechlessBarProps = {
 	subtitleId: number
-}
+}*/
 
-function SpeechlessBar(props: SpeechlessBarProps) {
+/*function SpeechlessBar(props: SpeechlessBarProps) {
 	const { subtitleId } = props
 
 	return <div className='speechless-bar' data-subtitle-id={subtitleId} id={`subtitle-${subtitleId}`} />
-}
+}*/
 
-export default SpeechlessBar
+// export default SpeechlessBar

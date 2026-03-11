@@ -1,13 +1,13 @@
-import { RefObject, useEffect } from 'react'
+// import { RefObject, useEffect } from 'react'
 
-type UseAutoScrollCurrentSubtitleParams = {
+/*type UseAutoScrollCurrentSubtitleParams = {
 	containerRef: RefObject<HTMLElement | null>
 	currentSubtitleId: number
 	bottomThresholdPx?: number
 	topPaddingPx?: number
-}
+}*/
 
-export function useAutoScrollCurrentSubtitle(params: UseAutoScrollCurrentSubtitleParams) {
+/*export function useAutoScrollCurrentSubtitle(params: UseAutoScrollCurrentSubtitleParams) {
 	const { containerRef, currentSubtitleId, bottomThresholdPx = 40, topPaddingPx = 20 } = params
 
 	useEffect(
@@ -48,9 +48,9 @@ export function useAutoScrollCurrentSubtitle(params: UseAutoScrollCurrentSubtitl
 		},
 		[bottomThresholdPx, containerRef, currentSubtitleId, topPaddingPx],
 	)
-}
+}*/
 
-function getScrollableParent(element: HTMLElement | null) {
+/*function getScrollableParent(element: HTMLElement | null) {
 	let el: HTMLElement | null = element
 
 	while (el) {
@@ -67,9 +67,9 @@ function getScrollableParent(element: HTMLElement | null) {
 	}
 
 	return null
-}
+}*/
 
-function scrollWindowToReveal(params: { currentEl: HTMLElement; bottomThresholdPx: number; topPaddingPx: number }) {
+/*function scrollWindowToReveal(params: { currentEl: HTMLElement; bottomThresholdPx: number; topPaddingPx: number }) {
 	const { currentEl, bottomThresholdPx, topPaddingPx } = params
 
 	const elRect = currentEl.getBoundingClientRect()
@@ -86,9 +86,9 @@ function scrollWindowToReveal(params: { currentEl: HTMLElement; bottomThresholdP
 	// Align element top to safeTop (just below video) instead of "nearest" reveal.
 	const delta = elRect.top - safeTop
 	window.scrollBy({ top: delta, behavior: 'smooth' })
-}
+}*/
 
-function getStickyVideoBottomPx(fromEl: HTMLElement): number {
+/*function getStickyVideoBottomPx(fromEl: HTMLElement): number {
 	const doc = fromEl.ownerDocument ?? document
 	const root = (fromEl.closest('.root-surface') as HTMLElement | null) ?? doc.documentElement
 	const videoEl =
@@ -102,4 +102,4 @@ function getStickyVideoBottomPx(fromEl: HTMLElement): number {
 	if (rect.bottom <= 0 || rect.top >= (window.innerHeight || 0)) return 0
 
 	return Math.max(0, Math.min(window.innerHeight || 0, rect.bottom))
-}
+}*/

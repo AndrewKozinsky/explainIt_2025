@@ -1,15 +1,15 @@
-import ContentLinkWrapper from '../ContentLinkWrapper/ContentLinkWrapper'
-import './MediaLink.scss'
+// import ContentLinkWrapper from '../ContentLinkWrapper/ContentLinkWrapper'
+// import './MediaLink.scss'
 
-type MediaLinkProps = {
+/*type MediaLinkProps = {
 	href: string
 	info?: null | string
 	name?: null | string
 	onClick: () => void
 	linkStatus: 'idle' | 'current' | 'nested'
-}
+}*/
 
-function MediaLink(props: MediaLinkProps) {
+/*function MediaLink(props: MediaLinkProps) {
 	const { href, info, name, onClick, linkStatus } = props
 
 	return (
@@ -20,6 +20,6 @@ function MediaLink(props: MediaLinkProps) {
 			</div>
 		</ContentLinkWrapper>
 	)
-}
+}*/
 
-export default MediaLink
+// export default MediaLink

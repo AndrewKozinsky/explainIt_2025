@@ -1,8 +1,8 @@
-import { useUserStore } from 'stores/userStore'
-import AddVideoButton from '../AddBookButton/AddVideoButton'
-import PrivateVideosListContent from './PrivateVideosListContent'
+// import { useUserStore } from 'stores/userStore'
+// import AddVideoButton from '../AddBookButton/AddVideoButton'
+// import PrivateVideosListContent from './PrivateVideosListContent'
 
-function PrivateVideosList() {
+/*function PrivateVideosList() {
 	const user = useUserStore((state) => state.user)
 
 	const tariffCode = user?.currentSubscription?.tariffCode
@@ -16,6 +16,6 @@ function PrivateVideosList() {
 			<AddVideoButton />
 		</>
 	)
-}
+}*/
 
-export default PrivateVideosList
+// export default PrivateVideosList

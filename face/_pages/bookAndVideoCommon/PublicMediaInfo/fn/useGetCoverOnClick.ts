@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react'
+// import { useEffect, useState } from 'react'
 
-type UseRotateCoverOnClickResult = {
+/*type UseRotateCoverOnClickResult = {
 	activeCoverIndex: number
 	handleCoverClick: () => void
-}
+}*/
 
-export function useGetCoverOnClick(coverUrls: string[]): UseRotateCoverOnClickResult {
+/*export function useGetCoverOnClick(coverUrls: string[]): UseRotateCoverOnClickResult {
 	const [activeCoverIndex, setActiveCoverIndex] = useState(0)
 
 	useEffect(() => {
@@ -25,4 +25,4 @@ export function useGetCoverOnClick(coverUrls: string[]): UseRotateCoverOnClickRe
 	}
 
 	return { activeCoverIndex, handleCoverClick }
-}
+}*/

@@ -1,10 +1,10 @@
-import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
-import LoadingMessage from 'ui/LoadingMessage/LoadingMessage'
-import Paragraph from 'ui/Paragraph/Paragraph'
-import VideoLink from '_pages/video/videos/videosListSection/VideoLink/VideoLink'
-import { useVideosStore } from '../../videosStore'
+// import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
+// import LoadingMessage from 'ui/LoadingMessage/LoadingMessage'
+// import Paragraph from 'ui/Paragraph/Paragraph'
+// import VideoLink from '_pages/video/videos/videosListSection/VideoLink/VideoLink'
+// import { useVideosStore } from '../../videosStore'
 
-function PrivateVideosListContent() {
+/*function PrivateVideosListContent() {
 	const privateVideos = useVideosStore((state) => state.privateVideos)
 
 	if (privateVideos.loading) {
@@ -24,6 +24,6 @@ function PrivateVideosListContent() {
 			})}
 		</>
 	)
-}
+}*/
 
-export default PrivateVideosListContent
+// export default PrivateVideosListContent

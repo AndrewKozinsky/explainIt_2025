@@ -1,8 +1,8 @@
-import Header from 'ui/Header/Header'
-import { useGetPageHeader } from './fn/useGetPageHeader'
+// import Header from 'ui/Header/Header'
+// import { useGetPageHeader } from './fn/useGetPageHeader'
 
-function VideoHeader() {
+/*function VideoHeader() {
 	return <Header>{useGetPageHeader()}</Header>
-}
+}*/
 
-export default VideoHeader
+// export default VideoHeader

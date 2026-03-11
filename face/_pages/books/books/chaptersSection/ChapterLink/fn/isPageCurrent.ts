@@ -1,5 +1,5 @@
-import { routesUtils } from '@/utils/routes'
-import { createBookIdUrl, pageUrls } from '@/сonsts/pageUrls'
+// import { routesUtils } from '@/utils/routes'
+// import { createBookIdUrl, pageUrls } from '@/сonsts/pageUrls'
 
 /**
  * Возвращает статус ссылки для визуальной подсветки:
@@ -9,7 +9,7 @@ import { createBookIdUrl, pageUrls } from '@/сonsts/pageUrls'
  * @param bookId — id of a book
  * @param chapterId — id of a chapter
  */
-export function useGetChapterLinkStatus(
+/*export function useGetChapterLinkStatus(
 	bookId: number | string,
 	bookType: 'public' | 'private',
 	chapterId: number,
@@ -18,4 +18,4 @@ export function useGetChapterLinkStatus(
 	const pageUrl = pageUrls.books.book(bookIdInUrl).chapter(chapterId).path
 
 	return routesUtils.useIsCurrentPage(pageUrl) ? 'current' : 'idle'
-}
+}*/

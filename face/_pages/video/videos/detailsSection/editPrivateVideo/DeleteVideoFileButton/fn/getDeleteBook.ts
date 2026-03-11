@@ -1,9 +1,9 @@
-import { useCallback, useContext, useState } from 'react'
-import { useVideosStore } from '@/_pages/video/videos/videosStore'
-import { useVideoPrivate_Update, VideoPrivate_GetUserVideosDocument } from '@/graphql'
-import { NotificationContext } from '@/ui//Notification/context'
+// import { useCallback, useContext, useState } from 'react'
+// import { useVideosStore } from '@/_pages/video/videos/videosStore'
+// import { useVideoPrivate_Update, VideoPrivate_GetUserVideosDocument } from '@/graphql'
+// import { NotificationContext } from '@/ui//Notification/context'
 
-export function useGetDeleteVideoFile() {
+/*export function useGetDeleteVideoFile() {
 	const { notify } = useContext(NotificationContext)
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
 
@@ -36,4 +36,4 @@ export function useGetDeleteVideoFile() {
 		status,
 		onDeleteFileClick,
 	}
-}
+}*/

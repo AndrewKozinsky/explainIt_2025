@@ -1,21 +1,21 @@
-import React, { useState } from 'react'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { useForm } from 'react-hook-form'
-import * as yup from 'yup'
-import Button from '@/ui/formRelated/buttons/Button/Button'
-import FormError from '@/ui/formRelated/FormError/FormError'
-import FormFieldsWrapper from '@/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
-import TextInput from '@/ui/formRelated/TextInput/TextInput'
-import { FormStatus } from '@/utils/forms'
-import MediaFormSurface from '_pages/bookAndVideoCommon/BookFormSurface/MediaFormSurface'
-import DeleteChapterButton from '../DeleteChapterButton/DeleteChapterButton'
-import ReadChapterButton from '../ReadChapterButton/ReadChapterButton'
-import { ChangeChapterFormData, changeChapterFormSchema, ChangeChapterFormTest } from './fn/form'
-import { useSetFieldValues } from './fn/setFieldValues'
-import { useGetOnUpdateChapterFormSubmit } from './fn/submit'
-import YouWillLosePhrasesWarning from './YouWillLosePhrasesWarning'
+// import React, { useState } from 'react'
+// import { yupResolver } from '@hookform/resolvers/yup'
+// import { useForm } from 'react-hook-form'
+// import * as yup from 'yup'
+// import Button from '@/ui/formRelated/buttons/Button/Button'
+// import FormError from '@/ui/formRelated/FormError/FormError'
+// import FormFieldsWrapper from '@/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
+// import TextInput from '@/ui/formRelated/TextInput/TextInput'
+// import { FormStatus } from '@/utils/forms'
+// import MediaFormSurface from '_pages/bookAndVideoCommon/BookFormSurface/MediaFormSurface'
+// import DeleteChapterButton from '../DeleteChapterButton/DeleteChapterButton'
+// import ReadChapterButton from '../ReadChapterButton/ReadChapterButton'
+// import { ChangeChapterFormData, changeChapterFormSchema, ChangeChapterFormTest } from './fn/form'
+// import { useSetFieldValues } from './fn/setFieldValues'
+// import { useGetOnUpdateChapterFormSubmit } from './fn/submit'
+// import YouWillLosePhrasesWarning from './YouWillLosePhrasesWarning'
 
-export default function EditChapterForm() {
+/*export default function EditChapterForm() {
 	const [formStatus, setFormStatus] = useState<FormStatus>('idle')
 	const [formError, setFormError] = useState<null | string>(null)
 
@@ -103,4 +103,4 @@ export default function EditChapterForm() {
 			</form>
 		</>
 	)
-}
+}*/

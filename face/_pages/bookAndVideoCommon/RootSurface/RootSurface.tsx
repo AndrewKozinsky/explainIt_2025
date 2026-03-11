@@ -1,16 +1,16 @@
-import React, { RefObject } from 'react'
-import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
-import Spinner from 'ui/Spinner/Spinner'
-import './RootSurface.scss'
+// import React, { RefObject } from 'react'
+// import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
+// import Spinner from 'ui/Spinner/Spinner'
+// import './RootSurface.scss'
 
-type RootSurfaceProps = {
+/*type RootSurfaceProps = {
 	loading: boolean
 	error: null | string
 	children: React.ReactNode
 	rootRef?: RefObject<HTMLDivElement | null>
-}
+}*/
 
-function RootSurface(props: RootSurfaceProps) {
+/*function RootSurface(props: RootSurfaceProps) {
 	const { loading, error, children, rootRef } = props
 
 	return (
@@ -20,6 +20,6 @@ function RootSurface(props: RootSurfaceProps) {
 			{!loading && !error && children}
 		</div>
 	)
-}
+}*/
 
-export default RootSurface
+// export default RootSurface

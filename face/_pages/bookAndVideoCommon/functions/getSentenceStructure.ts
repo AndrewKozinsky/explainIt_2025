@@ -3,7 +3,7 @@
  * @param sentenceText — sentence to get structure from
  * @returns
  */
-export function getSentenceStructure(sentenceText: string) {
+/*export function getSentenceStructure(sentenceText: string) {
 	const segmenter = new Intl.Segmenter('en', { granularity: 'word' })
 	const sentenceParts = [...segmenter.segment(sentenceText)]
 
@@ -14,4 +14,4 @@ export function getSentenceStructure(sentenceText: string) {
 			value: part.segment,
 		}
 	})
-}
+}*/

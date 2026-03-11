@@ -1,11 +1,11 @@
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
-import { useDetailsStore } from '../detailsStore'
-import { useGetHighlightedMarkdownComponents } from './fn/useGetHighlightedMarkdownComponents'
-import { useGetSelectedWord } from './fn/useGetSelectedWord'
-import './SentenceAnalysis.scss'
+// import ReactMarkdown from 'react-markdown'
+// import remarkGfm from 'remark-gfm'
+// import { useDetailsStore } from '../detailsStore'
+// import { useGetHighlightedMarkdownComponents } from './fn/useGetHighlightedMarkdownComponents'
+// import { useGetSelectedWord } from './fn/useGetSelectedWord'
+// import './SentenceAnalysis.scss'
 
-function SentenceAnalysis() {
+/*function SentenceAnalysis() {
 	const translation = useDetailsStore((s) => s.sentenceTranslation)
 	const analysis = useDetailsStore((s) => s.sentenceAnalysis)
 	const selectedWord = useGetSelectedWord()
@@ -22,6 +22,6 @@ function SentenceAnalysis() {
 			</div>
 		</div>
 	)
-}
+}*/
 
-export default SentenceAnalysis
+// export default SentenceAnalysis

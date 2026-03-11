@@ -113,7 +113,7 @@ export class StreamTranslateWithDeepSeek {
 		return [
 			{
 				role: 'system',
-				content: this.getSecondTranslationTask(input),
+				content: this.getThirdTranslationTask(input),
 			},
 		] as const
 	}
@@ -214,6 +214,28 @@ export class StreamTranslateWithDeepSeek {
 1.  Не пиши вводных или заключительных фраз, оценок ("это важное слово", "красивая метафора"), литературного анализа. Только факты, помогающие понять язык.
 2.  Примеры должны быть короткими, релевантными и иллюстрировать именно то значение/конструкцию, которая разбирается.
 3.  Английские слова и фразы в тексте ответа оформляй в backticks: \`like this\`.`
+	}
+	private getThirdTranslationTask(media: {
+		bookName?: string
+		bookAuthor?: string
+		videoName?: string
+		videoYear?: string | number
+	}) {
+		return `${this.getTaskIntro(media)}
+
+Первой строкой пиши перевод всего текста.
+Вторая строка пустая.
+
+Далее пиши следующую структуру ответа в формате Markdown:
+
+*   **слово/фраза** — перевод.
+    *   Короткий пример 1 с переводом.
+    *   Короткий пример 2 с переводом.
+[Разбирай все слова. Группируй фразовые глаголы и идиомы.]
+
+Правила:
+1.  Примеры должны быть короткими, релевантными и иллюстрировать именно то значение/конструкцию, которая разбирается.
+2.  Английские слова и фразы в тексте ответа оформляй в backticks: \`like this\`.`
 	}
 	getTaskIntro(media?: { bookName?: string; bookAuthor?: string; videoName?: string; videoYear?: string | number }) {
 		if (media?.bookName || media?.bookAuthor) {

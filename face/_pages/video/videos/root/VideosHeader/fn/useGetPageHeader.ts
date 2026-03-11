@@ -1,10 +1,10 @@
-import { useMemo } from 'react'
-import { useParams } from 'next/navigation'
-import { extractVideoIdFromUrlVideoId, getVideoTypeByUrlVideoId } from '@/сonsts/pageUrls'
-import { useVideosStore } from '_pages/video/videos/videosStore'
-import { pageUrls } from 'сonsts/pageUrls'
+// import { useMemo } from 'react'
+// import { useParams } from 'next/navigation'
+// import { extractVideoIdFromUrlVideoId, getVideoTypeByUrlVideoId } from '@/сonsts/pageUrls'
+// import { useVideosStore } from '_pages/video/videos/videosStore'
+// import { pageUrls } from 'сonsts/pageUrls'
 
-export function useGetPageHeader() {
+/*export function useGetPageHeader() {
 	const params = useParams() as { videoId?: string }
 	const urlVideoId = params.videoId
 
@@ -40,4 +40,4 @@ export function useGetPageHeader() {
 
 		return pageUrls.videos.video(urlVideoId).name
 	}, [urlVideoId, publicVideo, privateVideo, publicVideos, privateVideos])
-}
+}*/

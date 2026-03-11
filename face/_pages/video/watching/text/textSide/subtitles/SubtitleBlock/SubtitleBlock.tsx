@@ -1,13 +1,13 @@
-import { PopulatedSubtitlesStructure } from '@/_pages/video/watching/common/populatedSubtitlesStructure'
-import { useWatchingStore } from '@/_pages/video/watching/watchingStore'
-import SentenceBlock from '_pages/bookAndVideoCommon/SentenceBlock/SentenceBlock'
-import './SubtitleBlock.scss'
+// import { PopulatedSubtitlesStructure } from '@/_pages/video/watching/common/populatedSubtitlesStructure'
+// import { useWatchingStore } from '@/_pages/video/watching/watchingStore'
+// import SentenceBlock from '_pages/bookAndVideoCommon/SentenceBlock/SentenceBlock'
+// import './SubtitleBlock.scss'
 
-type SubtitleBlockProps = {
+/*type SubtitleBlockProps = {
 	subtitle: PopulatedSubtitlesStructure.Subtitle
-}
+}*/
 
-function SubtitleBlock(props: SubtitleBlockProps) {
+/*function SubtitleBlock(props: SubtitleBlockProps) {
 	const { subtitle } = props
 
 	const selection = useWatchingStore((s) => s.selection)
@@ -32,6 +32,6 @@ function SubtitleBlock(props: SubtitleBlockProps) {
 			</div>
 		</div>
 	)
-}
+}*/
 
-export default SubtitleBlock
+// export default SubtitleBlock

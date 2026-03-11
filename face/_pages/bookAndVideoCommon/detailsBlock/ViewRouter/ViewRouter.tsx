@@ -1,11 +1,11 @@
-import Link from 'next/link'
-import Button from 'ui/formRelated/buttons/Button/Button'
-import { AnalysisBlock } from '../AnalysisBlock/AnalysisBlock'
-import { useDetailsStore } from '../detailsStore'
-import { pageUrls } from 'сonsts/pageUrls'
-import './ViewRouter.scss'
+// import Link from 'next/link'
+// import Button from 'ui/formRelated/buttons/Button/Button'
+// import { AnalysisBlock } from '../AnalysisBlock/AnalysisBlock'
+// import { useDetailsStore } from '../detailsStore'
+// import { pageUrls } from 'сonsts/pageUrls'
+// import './ViewRouter.scss'
 
-function ViewRouter() {
+/*function ViewRouter() {
 	const viewType = useDetailsStore((store) => store.viewType)
 
 	if (viewType === 'CAN_CREATE') {
@@ -24,19 +24,19 @@ function ViewRouter() {
 	}
 
 	return <AnalysisBlock />
-}
+}*/
 
-export default ViewRouter
+// export default ViewRouter
 
-function CanCreateView() {
+/*function CanCreateView() {
 	return (
 		<InfoWrapper>
 			<InfoText>Нажмите на слово для перевода и анализа предложения.</InfoText>
 		</InfoWrapper>
 	)
-}
+}*/
 
-function LoginRequiredView() {
+/*function LoginRequiredView() {
 	return (
 		<InfoWrapper>
 			<InfoText>
@@ -48,9 +48,9 @@ function LoginRequiredView() {
 			</Link>
 		</InfoWrapper>
 	)
-}
+}*/
 
-function LoginAndSubscriptionRequiredView() {
+/*function LoginAndSubscriptionRequiredView() {
 	return (
 		<InfoWrapper>
 			<InfoText>
@@ -62,9 +62,9 @@ function LoginAndSubscriptionRequiredView() {
 			</Link>
 		</InfoWrapper>
 	)
-}
+}*/
 
-function SubscriptionRequiredView() {
+/*function SubscriptionRequiredView() {
 	return (
 		<InfoWrapper>
 			<InfoText>
@@ -75,9 +75,9 @@ function SubscriptionRequiredView() {
 			</Link>
 		</InfoWrapper>
 	)
-}
+}*/
 
-function BalanceRequiredView() {
+/*function BalanceRequiredView() {
 	return (
 		<InfoWrapper>
 			<InfoText>
@@ -85,12 +85,12 @@ function BalanceRequiredView() {
 			</InfoText>
 		</InfoWrapper>
 	)
-}
+}*/
 
-function InfoWrapper({ children }: { children: React.ReactNode }) {
+/*function InfoWrapper({ children }: { children: React.ReactNode }) {
 	return <div className='view-router__wrapper'>{children}</div>
-}
+}*/
 
-function InfoText({ children }: { children: string }) {
+/*function InfoText({ children }: { children: string }) {
 	return <p className='view-router__text'>{children}</p>
-}
+}*/

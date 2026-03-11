@@ -1,8 +1,8 @@
-import { useVideosStore } from '_pages/video/videos/videosStore'
-import DeleteVideoFileButton from '../DeleteVideoFileButton/DeleteVideoFileButton'
-import './FileNameAndDeleteFileButton.scss'
+// import { useVideosStore } from '_pages/video/videos/videosStore'
+// import DeleteVideoFileButton from '../DeleteVideoFileButton/DeleteVideoFileButton'
+// import './FileNameAndDeleteFileButton.scss'
 
-function FileNameAndDeleteFileButton() {
+/*function FileNameAndDeleteFileButton() {
 	const video = useVideosStore.getState().privateVideo
 
 	if (!video || !video.isFileUploaded || !video.fileUrl) {
@@ -20,6 +20,6 @@ function FileNameAndDeleteFileButton() {
 			<DeleteVideoFileButton />
 		</div>
 	)
-}
+}*/
 
-export default FileNameAndDeleteFileButton
+// export default FileNameAndDeleteFileButton

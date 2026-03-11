@@ -1,10 +1,10 @@
-import { useWatchingStore } from '_pages/video/watching/watchingStore'
-import FullScreenButton from '../FullScreenButton/FullScreenButton'
-import PlainTextContent from '../plainText/PlainTextContent/PlainTextContent'
-import SubtitlesContent from '../subtitles/SubtitlesContent/SubtitlesContent'
-import './TextSide.scss'
+// import { useWatchingStore } from '_pages/video/watching/watchingStore'
+// import FullScreenButton from '../FullScreenButton/FullScreenButton'
+// import PlainTextContent from '../plainText/PlainTextContent/PlainTextContent'
+// import SubtitlesContent from '../subtitles/SubtitlesContent/SubtitlesContent'
+// import './TextSide.scss'
 
-function TextSide() {
+/*function TextSide() {
 	const populatedPlainText = useWatchingStore((s) => s.populatedPlainText)
 	const populatedSubtitles = useWatchingStore((s) => s.populatedSubtitles)
 
@@ -22,6 +22,6 @@ function TextSide() {
 			</div>
 		</div>
 	)
-}
+}*/
 
-export default TextSide
+// export default TextSide

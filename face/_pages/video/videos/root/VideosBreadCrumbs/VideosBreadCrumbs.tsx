@@ -1,8 +1,8 @@
 import { BreadCrumbs } from 'ui/pageRelated/BreadCrumbs/BreadCrumbs'
-import { useVideosBreadCrumbsItems } from './fn/useVideosBreadCrumbsItems'
+import { pageUrls } from 'сonsts/pageUrls'
 
 function VideosBreadCrumbs() {
-	return <BreadCrumbs items={useVideosBreadCrumbsItems()} />
+	return <BreadCrumbs items={[pageUrls.videos]} />
 }
 
 export default VideosBreadCrumbs

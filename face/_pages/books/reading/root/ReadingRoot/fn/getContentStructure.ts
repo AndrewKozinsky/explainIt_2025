@@ -1,17 +1,17 @@
-import { useEffect } from 'react'
-import { useParams } from 'next/navigation'
-import { BookChapterOutModel, BookOutModel, useBook_Get, useBook_GetBookPublic, useBookChapter_Get } from '@/graphql'
-import { useReadingStore } from '_pages/books/reading/readingStore'
-import { populateChapterStructure } from './populateChapterStructure'
-import { extractBookIdFromUrlBookId, getBookTypeByUrlBookId } from 'сonsts/pageUrls'
+// import { useEffect } from 'react'
+// import { useParams } from 'next/navigation'
+// import { BookChapterOutModel, BookOutModel, useBook_Get, useBook_GetBookPublic, useBookChapter_Get } from '@/graphql'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
+// import { populateChapterStructure } from './populateChapterStructure'
+// import { extractBookIdFromUrlBookId, getBookTypeByUrlBookId } from 'сonsts/pageUrls'
 
-export function usePopulateReadingStore() {
+/*export function usePopulateReadingStore() {
 	useFetchBookAndSetToStore()
 	useFetchChapterAndSetToStore()
 	useCreatePopulatedChapterAndSetToStore()
-}
+}*/
 
-function useFetchBookAndSetToStore() {
+/*function useFetchBookAndSetToStore() {
 	const bookIdInUrl = useParams().bookId as string
 	const bookType = getBookTypeByUrlBookId(bookIdInUrl)
 	const bookId = extractBookIdFromUrlBookId(bookIdInUrl)
@@ -77,9 +77,9 @@ function useFetchBookAndSetToStore() {
 			publicBookLoading,
 		],
 	)
-}
+}*/
 
-function useFetchChapterAndSetToStore() {
+/*function useFetchChapterAndSetToStore() {
 	const bookIdInUrl = useParams().bookId as string
 	const bookType = getBookTypeByUrlBookId(bookIdInUrl)
 	const chapterId = useParams().chapterId as string
@@ -121,9 +121,9 @@ function useFetchChapterAndSetToStore() {
 		},
 		[data, error, loading, chapterId],
 	)
-}
+}*/
 
-function useCreatePopulatedChapterAndSetToStore() {
+/*function useCreatePopulatedChapterAndSetToStore() {
 	const chapter = useReadingStore((s) => s.chapter)
 
 	useEffect(
@@ -143,4 +143,4 @@ function useCreatePopulatedChapterAndSetToStore() {
 		},
 		[chapter],
 	)
-}
+}*/

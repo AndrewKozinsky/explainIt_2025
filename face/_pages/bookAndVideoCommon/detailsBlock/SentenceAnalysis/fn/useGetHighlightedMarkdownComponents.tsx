@@ -1,6 +1,6 @@
-import React from 'react'
+// import React from 'react'
 
-export function useGetHighlightedMarkdownComponents(selectedWord: null | string) {
+/*export function useGetHighlightedMarkdownComponents(selectedWord: null | string) {
 	const selectedWordLower = React.useMemo(
 		function () {
 			return selectedWord?.toLowerCase() ?? null
@@ -57,4 +57,4 @@ export function useGetHighlightedMarkdownComponents(selectedWord: null | string)
 		},
 		[selectedWordLower],
 	)
-}
+}*/

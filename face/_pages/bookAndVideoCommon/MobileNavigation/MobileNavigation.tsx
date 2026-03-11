@@ -1,12 +1,12 @@
-import Tabs, { TabConfig } from 'ui/Tabs/Tabs'
-import './MobileNavigation.scss'
+// import Tabs, { TabConfig } from 'ui/Tabs/Tabs'
+// import './MobileNavigation.scss'
 
-type MobileNavigationProps = {
+/*type MobileNavigationProps = {
 	currentTabId: string
 	tabsConfig: TabConfig[]
-}
+}*/
 
-function MobileNavigation(props: MobileNavigationProps) {
+/*function MobileNavigation(props: MobileNavigationProps) {
 	const { currentTabId, tabsConfig } = props
 
 	return (
@@ -14,6 +14,6 @@ function MobileNavigation(props: MobileNavigationProps) {
 			<Tabs currentTabId={currentTabId} tabsConfig={tabsConfig} />
 		</div>
 	)
-}
+}*/
 
-export default MobileNavigation
+// export default MobileNavigation

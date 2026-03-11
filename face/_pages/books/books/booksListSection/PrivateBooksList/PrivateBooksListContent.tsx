@@ -1,12 +1,12 @@
-import React from 'react'
-import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
-import LoadingMessage from 'ui/LoadingMessage/LoadingMessage'
-import Paragraph from 'ui/Paragraph/Paragraph'
-import BookLink from '_pages/books/books/booksListSection/BookLink/BookLink'
-import { useBooksStore } from '_pages/books/books/booksStore'
-import ChaptersSection from '_pages/books/books/chaptersSection/ChaptersSection/ChaptersSection'
+// import React from 'react'
+// import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
+// import LoadingMessage from 'ui/LoadingMessage/LoadingMessage'
+// import Paragraph from 'ui/Paragraph/Paragraph'
+// import BookLink from '_pages/books/books/booksListSection/BookLink/BookLink'
+// import { useBooksStore } from '_pages/books/books/booksStore'
+// import ChaptersSection from '_pages/books/books/chaptersSection/ChaptersSection/ChaptersSection'
 
-export function PrivateBooksListContent() {
+/*export function PrivateBooksListContent() {
 	const privateBooks = useBooksStore((state) => state.privateBooks)
 
 	if (privateBooks.loading) {
@@ -31,4 +31,4 @@ export function PrivateBooksListContent() {
 			})}
 		</>
 	)
-}
+}*/

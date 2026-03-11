@@ -1,17 +1,17 @@
-import { useEffect } from 'react'
-import { useParams } from 'next/navigation'
-import { useVideoPrivate_Get, useVideoPublic_Get, VideoPrivateOutModel, VideoPublicOutModel } from '@/graphql'
-import { useWatchingStore } from '../../../watchingStore'
-import { createPopulatedPlainText } from './createPopulatedPlainText'
-import { createPopulatedSubtitles } from './createPopulatedText'
-import { extractVideoIdFromUrlVideoId, getVideoTypeByUrlVideoId } from 'сonsts/pageUrls'
+// import { useEffect } from 'react'
+// import { useParams } from 'next/navigation'
+// import { useVideoPrivate_Get, useVideoPublic_Get, VideoPrivateOutModel, VideoPublicOutModel } from '@/graphql'
+// import { useWatchingStore } from '../../../watchingStore'
+// import { createPopulatedPlainText } from './createPopulatedPlainText'
+// import { createPopulatedSubtitles } from './createPopulatedText'
+// import { extractVideoIdFromUrlVideoId, getVideoTypeByUrlVideoId } from 'сonsts/pageUrls'
 
-export function usePopulateWatchingStore() {
+/*export function usePopulateWatchingStore() {
 	useFetchVideoAndSetToStore()
 	usePopulatedTextAndSetToStore()
-}
+}*/
 
-function useFetchVideoAndSetToStore() {
+/*function useFetchVideoAndSetToStore() {
 	const urlVideoId = useParams().videoId as string
 	const videoType = getVideoTypeByUrlVideoId(urlVideoId)
 	const videoId = extractVideoIdFromUrlVideoId(urlVideoId)
@@ -111,9 +111,9 @@ function useFetchVideoAndSetToStore() {
 			publicVideoLoading,
 		],
 	)
-}
+}*/
 
-function usePopulatedTextAndSetToStore() {
+/*function usePopulatedTextAndSetToStore() {
 	const video = useWatchingStore((s) => s.video)
 
 	useEffect(
@@ -133,4 +133,4 @@ function usePopulatedTextAndSetToStore() {
 		},
 		[video],
 	)
-}
+}*/

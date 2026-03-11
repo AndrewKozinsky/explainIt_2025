@@ -1,11 +1,11 @@
-import { useCallback, useState } from 'react'
-import { redirect } from 'next/navigation'
-import { Book_GetUserBooksDocument, useBookChapter_Create } from '@/graphql'
-import { NotifyArg } from '@/ui/Notification/context'
-import { useBooksStore } from '_pages/books/books/booksStore'
-import { createBookIdUrl, pageUrls } from 'сonsts/pageUrls'
+// import { useCallback, useState } from 'react'
+// import { redirect } from 'next/navigation'
+// import { Book_GetUserBooksDocument, useBookChapter_Create } from '@/graphql'
+// import { NotifyArg } from '@/ui/Notification/context'
+// import { useBooksStore } from '_pages/books/books/booksStore'
+// import { createBookIdUrl, pageUrls } from 'сonsts/pageUrls'
 
-export function useGetOnAddChapterClick(notify: (data: NotifyArg) => void) {
+/*export function useGetOnAddChapterClick(notify: (data: NotifyArg) => void) {
 	const privateBook = useBooksStore((s) => s.privateBook)
 
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
@@ -67,4 +67,4 @@ export function useGetOnAddChapterClick(notify: (data: NotifyArg) => void) {
 		status,
 		onAddChapterClick,
 	}
-}
+}*/

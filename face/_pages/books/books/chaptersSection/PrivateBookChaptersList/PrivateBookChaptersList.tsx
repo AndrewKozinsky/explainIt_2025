@@ -1,7 +1,7 @@
-import { useBooksStore } from '_pages/books/books/booksStore'
-import ChapterLink from '../ChapterLink/ChapterLink'
+// import { useBooksStore } from '_pages/books/books/booksStore'
+// import ChapterLink from '../ChapterLink/ChapterLink'
 
-function PrivateBookChaptersList({ bookId, bookType }: { bookId: number; bookType: 'private' | 'public' }) {
+/*function PrivateBookChaptersList({ bookId, bookType }: { bookId: number; bookType: 'private' | 'public' }) {
 	const privateBook = useBooksStore((s) => s.privateBook)
 
 	if (!privateBook || !privateBook.chapters.length) return null
@@ -17,6 +17,6 @@ function PrivateBookChaptersList({ bookId, bookType }: { bookId: number; bookTyp
 			})}
 		</>
 	)
-}
+}*/
 
-export default PrivateBookChaptersList
+// export default PrivateBookChaptersList

@@ -1,11 +1,11 @@
-import DetailsBlock from '_pages/bookAndVideoCommon/detailsBlock/DetailsBlock/DetailsBlock'
-import { useWatchingStore } from '_pages/video/watching/watchingStore'
-import MobileNavigation from '../MobileNavigation/MobileNavigation'
-import TextSide from '../textSide/TextSide/TextSide'
-import { getSectionClasses } from './fn/getSectionClasses'
-import './TextRoot.scss'
+// import DetailsBlock from '_pages/bookAndVideoCommon/detailsBlock/DetailsBlock/DetailsBlock'
+// import { useWatchingStore } from '_pages/video/watching/watchingStore'
+// import MobileNavigation from '../MobileNavigation/MobileNavigation'
+// import TextSide from '../textSide/TextSide/TextSide'
+// import { getSectionClasses } from './fn/getSectionClasses'
+// import './TextRoot.scss'
 
-function TextRoot() {
+/*function TextRoot() {
 	const currentMobileContentType = useWatchingStore((s) => s.mobileCurrentContentType)
 
 	return (
@@ -21,6 +21,6 @@ function TextRoot() {
 			</div>
 		</div>
 	)
-}
+}*/
 
-export default TextRoot
+// export default TextRoot

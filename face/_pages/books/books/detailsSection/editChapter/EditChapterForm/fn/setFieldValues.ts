@@ -1,7 +1,7 @@
-import { useEffect } from 'react'
-import { useBooksStore } from '_pages/books/books/booksStore'
+// import { useEffect } from 'react'
+// import { useBooksStore } from '_pages/books/books/booksStore'
 
-export function useSetFieldValues(reset: (data: any) => void) {
+/*export function useSetFieldValues(reset: (data: any) => void) {
 	const chapter = useBooksStore((s) => s.chapter.data)
 
 	useEffect(() => {
@@ -14,4 +14,4 @@ export function useSetFieldValues(reset: (data: any) => void) {
 			note: chapter.note ?? '',
 		})
 	}, [chapter, reset])
-}
+}*/

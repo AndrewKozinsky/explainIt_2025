@@ -1,16 +1,16 @@
-import { useRef } from 'react'
-import RootSurface from '_pages/bookAndVideoCommon/RootSurface/RootSurface'
-import VideoBreadCrumbs from '_pages/video/watching/root/VideoBreadCrumbs/VideoBreadCrumbs'
-import { useClearWatchingStoreOnUnmount } from '_pages/video/watching/root/WatchingRoot/fn/clearStoreOnUnmount'
-import VideoHeader from '../VideoHeader/VideoHeader'
-import { usePopulateWatchingStore } from './fn/fetchData'
-import { useFullScreen } from './fn/fullScreen'
-import { useGetFetchedDataStatuses } from './fn/getFetchedDataStatuses'
-import { useDetailsStickyTopBelowVideo } from './fn/useDetailsStickyTopBelowVideo'
-import { TextContainer, VideoContainer } from './WatchingRootContent'
-import './WatchingRoot.scss'
+// import { useRef } from 'react'
+// import RootSurface from '_pages/bookAndVideoCommon/RootSurface/RootSurface'
+// import VideoBreadCrumbs from '_pages/video/watching/root/VideoBreadCrumbs/VideoBreadCrumbs'
+// import { useClearWatchingStoreOnUnmount } from '_pages/video/watching/root/WatchingRoot/fn/clearStoreOnUnmount'
+// import VideoHeader from '../VideoHeader/VideoHeader'
+// import { usePopulateWatchingStore } from './fn/fetchData'
+// import { useFullScreen } from './fn/fullScreen'
+// import { useGetFetchedDataStatuses } from './fn/getFetchedDataStatuses'
+// import { useDetailsStickyTopBelowVideo } from './fn/useDetailsStickyTopBelowVideo'
+// import { TextContainer, VideoContainer } from './WatchingRootContent'
+// import './WatchingRoot.scss'
 
-function WatchingRoot() {
+/*function WatchingRoot() {
 	usePopulateWatchingStore()
 	useClearWatchingStoreOnUnmount()
 	const { fetchedDataLoading, fetchedDataErrorMessage } = useGetFetchedDataStatuses()
@@ -33,6 +33,6 @@ function WatchingRoot() {
 			</main>
 		</RootSurface>
 	)
-}
+}*/
 
-export default WatchingRoot
+// export default WatchingRoot

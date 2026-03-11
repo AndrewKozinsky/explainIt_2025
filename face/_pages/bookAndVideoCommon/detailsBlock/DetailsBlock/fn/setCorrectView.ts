@@ -1,8 +1,8 @@
-import { useEffect } from 'react'
-import { useUserStore } from 'stores/userStore'
-import { DetailsStoreViewType, useDetailsStore } from '_pages/bookAndVideoCommon/detailsBlock/detailsStore'
+// import { useEffect } from 'react'
+// import { useUserStore } from 'stores/userStore'
+// import { DetailsStoreViewType, useDetailsStore } from '_pages/bookAndVideoCommon/detailsBlock/detailsStore'
 
-export function useSetCorrectView() {
+/*export function useSetCorrectView() {
 	const user = useUserStore((s) => s.user)
 	const sentenceTranslation = useDetailsStore((s) => s.sentenceTranslation)
 	const analysisExistStatus = useDetailsStore((s) => s.analysisExistStatus)
@@ -64,4 +64,4 @@ export function useSetCorrectView() {
 			hasSubscriptionToTranslatePublicMedia,
 		],
 	)
-}
+}*/

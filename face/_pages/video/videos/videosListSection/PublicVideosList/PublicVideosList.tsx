@@ -1,21 +1,21 @@
-import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
-import LoadingMessage from 'ui/LoadingMessage/LoadingMessage'
-import Paragraph from 'ui/Paragraph/Paragraph'
-import { SectionWithHeader } from '_pages/bookAndVideoCommon/SectionWithHeader/SectionWithHeader'
-import { useVideosStore } from '_pages/video/videos/videosStore'
-import VideoLink from '../VideoLink/VideoLink'
+// import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
+// import LoadingMessage from 'ui/LoadingMessage/LoadingMessage'
+// import Paragraph from 'ui/Paragraph/Paragraph'
+// import { SectionWithHeader } from '_pages/bookAndVideoCommon/SectionWithHeader/SectionWithHeader'
+// import { useVideosStore } from '_pages/video/videos/videosStore'
+// import VideoLink from '../VideoLink/VideoLink'
 
-function PublicVideosList() {
+/*function PublicVideosList() {
 	return (
 		<SectionWithHeader title='Публичные видео'>
 			<PublicVideosListContent />
 		</SectionWithHeader>
 	)
-}
+}*/
 
-export default PublicVideosList
+// export default PublicVideosList
 
-function PublicVideosListContent() {
+/*function PublicVideosListContent() {
 	const publicVideos = useVideosStore((state) => state.publicVideos)
 
 	if (publicVideos.loading) {
@@ -35,4 +35,4 @@ function PublicVideosListContent() {
 			})}
 		</>
 	)
-}
+}*/

@@ -1,16 +1,16 @@
-import DetailsBlock from '_pages/bookAndVideoCommon/detailsBlock/DetailsBlock/DetailsBlock'
-import RootSurface from '_pages/bookAndVideoCommon/RootSurface/RootSurface'
-import ChapterBreadCrumbs from '_pages/books/reading/root/ChapterBreadCrumbs/ChapterBreadCrumbs'
-import BookAndPrevAndNextChapters from '../../chapter/BookAndPrevAndNextChapters/BookAndPrevAndNextChapters'
-import ChapterContent from '../../ChapterContent/ChapterContent'
-import ChapterHeader from '../ChapterHeader/ChapterHeader'
-import { useAutoScrollToTop } from './fn/autoScrollToTop'
-import { useClearReadingStoreOnUnmount } from './fn/clearStoreOnUnmount'
-import { usePopulateReadingStore } from './fn/getContentStructure'
-import { useGetFetchedDataStatuses } from './fn/getFetchedDataStatuses'
-import './ReadingRoot.scss'
+// import DetailsBlock from '_pages/bookAndVideoCommon/detailsBlock/DetailsBlock/DetailsBlock'
+// import RootSurface from '_pages/bookAndVideoCommon/RootSurface/RootSurface'
+// import ChapterBreadCrumbs from '_pages/books/reading/root/ChapterBreadCrumbs/ChapterBreadCrumbs'
+// import BookAndPrevAndNextChapters from '../../chapter/BookAndPrevAndNextChapters/BookAndPrevAndNextChapters'
+// import ChapterContent from '../../ChapterContent/ChapterContent'
+// import ChapterHeader from '../ChapterHeader/ChapterHeader'
+// import { useAutoScrollToTop } from './fn/autoScrollToTop'
+// import { useClearReadingStoreOnUnmount } from './fn/clearStoreOnUnmount'
+// import { usePopulateReadingStore } from './fn/getContentStructure'
+// import { useGetFetchedDataStatuses } from './fn/getFetchedDataStatuses'
+// import './ReadingRoot.scss'
 
-function ReadingRoot() {
+/*function ReadingRoot() {
 	usePopulateReadingStore()
 	useClearReadingStoreOnUnmount()
 	const { fetchedDataLoading, fetchedDataErrorMessage } = useGetFetchedDataStatuses()
@@ -36,6 +36,6 @@ function ReadingRoot() {
 			</main>
 		</RootSurface>
 	)
-}
+}*/
 
-export default ReadingRoot
+// export default ReadingRoot

@@ -1,11 +1,11 @@
-import Paragraph from '@/ui/Paragraph/Paragraph'
-import ContentLinkWrapper from '_pages/bookAndVideoCommon/ContentLinkWrapper/ContentLinkWrapper'
-import { bookConfig } from '../../common/bookConfig'
-import { useGetChapterLinkStatus } from './fn/isPageCurrent'
-import { createBookIdUrl, pageUrls } from 'сonsts/pageUrls'
-import './ChapterLink.scss'
+// import Paragraph from '@/ui/Paragraph/Paragraph'
+// import ContentLinkWrapper from '_pages/bookAndVideoCommon/ContentLinkWrapper/ContentLinkWrapper'
+// import { bookConfig } from '../../common/bookConfig'
+// import { useGetChapterLinkStatus } from './fn/isPageCurrent'
+// import { createBookIdUrl, pageUrls } from 'сonsts/pageUrls'
+// import './ChapterLink.scss'
 
-type BookLinkProps = {
+/*type BookLinkProps = {
 	bookId: number | string
 	bookType: 'public' | 'private'
 	chapterData: {
@@ -13,9 +13,9 @@ type BookLinkProps = {
 		name?: null | string
 		header?: null | string
 	}
-}
+}*/
 
-function ChapterLink(props: BookLinkProps) {
+/*function ChapterLink(props: BookLinkProps) {
 	const { bookId, bookType, chapterData } = props
 	const { id, header, name } = chapterData
 
@@ -41,6 +41,6 @@ function ChapterLink(props: BookLinkProps) {
 			</div>
 		</ContentLinkWrapper>
 	)
-}
+}*/
 
-export default ChapterLink
+// export default ChapterLink

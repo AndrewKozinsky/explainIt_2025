@@ -1,11 +1,11 @@
-import { useEffect } from 'react'
-import { usePathname } from 'next/navigation'
-import { useReadingStore } from '_pages/books/reading/readingStore'
-import { useWatchingStore } from '_pages/video/watching/watchingStore'
-import { useDetailsStore } from '../../detailsStore'
-import { pageUrls } from 'сonsts/pageUrls'
+// import { useEffect } from 'react'
+// import { usePathname } from 'next/navigation'
+// import { useReadingStore } from '_pages/books/reading/readingStore'
+// import { useWatchingStore } from '_pages/video/watching/watchingStore'
+// import { useDetailsStore } from '../../detailsStore'
+// import { pageUrls } from 'сonsts/pageUrls'
 
-export function usePopulateStore() {
+/*export function usePopulateStore() {
 	const mediaType = useGetShowingMediaType()
 
 	const bookSentences = useReadingStore((s) => s.populatedChapter?.sentences)
@@ -94,9 +94,9 @@ export function usePopulateStore() {
 			videoYear,
 		],
 	)
-}
+}*/
 
-export function useGetShowingMediaType() {
+/*export function useGetShowingMediaType() {
 	const pathname = usePathname()
 	return pathname.startsWith(pageUrls.books.path) ? 'book' : 'video'
-}
+}*/

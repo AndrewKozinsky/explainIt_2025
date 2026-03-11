@@ -1,6 +1,6 @@
-import { RefObject, useEffect } from 'react'
+// import { RefObject, useEffect } from 'react'
 
-export function useDetailsStickyTopBelowVideo(rootRef: RefObject<HTMLDivElement | null>) {
+/*export function useDetailsStickyTopBelowVideo(rootRef: RefObject<HTMLDivElement | null>) {
 	useEffect(() => {
 		const root = rootRef.current
 		if (!root) return
@@ -55,5 +55,4 @@ export function useDetailsStickyTopBelowVideo(rootRef: RefObject<HTMLDivElement 
 			cleanupResize?.()
 		}
 	}, [rootRef])
-}
-
+}*/

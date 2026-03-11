@@ -1,7 +1,7 @@
-import { RefObject, useEffect } from 'react'
-import { useWatchingStore } from '_pages/video/watching/watchingStore'
+// import { RefObject, useEffect } from 'react'
+// import { useWatchingStore } from '_pages/video/watching/watchingStore'
 
-export function useFullScreen(rootRef: RefObject<HTMLDivElement | null>) {
+/*export function useFullScreen(rootRef: RefObject<HTMLDivElement | null>) {
 	const isFullScreen = useWatchingStore((s) => s.fullScreen)
 
 	useEffect(
@@ -20,4 +20,4 @@ export function useFullScreen(rootRef: RefObject<HTMLDivElement | null>) {
 		},
 		[rootRef, isFullScreen],
 	)
-}
+}*/

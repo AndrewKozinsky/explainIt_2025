@@ -1,5 +1,5 @@
-import { routesUtils } from '@/utils/routes'
-import { createBookIdUrl, pageUrls } from '@/сonsts/pageUrls'
+// import { routesUtils } from '@/utils/routes'
+// import { createBookIdUrl, pageUrls } from '@/сonsts/pageUrls'
 
 /**
  * Возвращает статус ссылки для визуальной подсветки:
@@ -9,7 +9,7 @@ import { createBookIdUrl, pageUrls } from '@/сonsts/pageUrls'
  * @param bookType — type of the book
  * @param bookId — id of book
  */
-export function useGetBookLinkStatus(bookId: number, bookType: 'public' | 'private'): 'idle' | 'current' | 'nested' {
+/*export function useGetBookLinkStatus(bookId: number, bookType: 'public' | 'private'): 'idle' | 'current' | 'nested' {
 	const bookIdInUrl = createBookIdUrl(bookId, bookType)
 	const pageUrl = pageUrls.books.book(bookIdInUrl).path
 
@@ -24,4 +24,4 @@ export function useGetBookLinkStatus(bookId: number, bookType: 'public' | 'priva
 	}
 
 	return 'nested'
-}
+}*/

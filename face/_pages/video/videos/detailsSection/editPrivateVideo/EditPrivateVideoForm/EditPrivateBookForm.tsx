@@ -1,22 +1,22 @@
-import React, { useState } from 'react'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { useForm } from 'react-hook-form'
-import * as yup from 'yup'
-import Button from '@/ui/formRelated/buttons/Button/Button'
-import FormError from '@/ui/formRelated/FormError/FormError'
-import FormFieldsWrapper from '@/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
-import TextInput from '@/ui/formRelated/TextInput/TextInput'
-import { FormStatus } from '@/utils/forms'
-import MediaFormSurface from '_pages/bookAndVideoCommon/BookFormSurface/MediaFormSurface'
-import DeleteVideoButton from '../DeleteVideoButton/DeleteVideoButton'
-import FileNameAndDeleteFileButton from '../FileNameAndDeleteFileButton/FileNameAndDeleteFileButton'
-import VideoDropzone from '../VideoDropzone/VideoDropzone'
-import WatchMovieButton from '../WatchMovieButton/WatchMovieButton'
-import { ChangeVideoFormData, changeVideoFormSchema } from './fn/form'
-import { useSetFieldValues } from './fn/setFieldValues'
-import { useGetOnUpdateVideoFormSubmit } from './fn/submit'
+// import React, { useState } from 'react'
+// import { yupResolver } from '@hookform/resolvers/yup'
+// import { useForm } from 'react-hook-form'
+// import * as yup from 'yup'
+// import Button from '@/ui/formRelated/buttons/Button/Button'
+// import FormError from '@/ui/formRelated/FormError/FormError'
+// import FormFieldsWrapper from '@/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
+// import TextInput from '@/ui/formRelated/TextInput/TextInput'
+// import { FormStatus } from '@/utils/forms'
+// import MediaFormSurface from '_pages/bookAndVideoCommon/BookFormSurface/MediaFormSurface'
+// import DeleteVideoButton from '../DeleteVideoButton/DeleteVideoButton'
+// import FileNameAndDeleteFileButton from '../FileNameAndDeleteFileButton/FileNameAndDeleteFileButton'
+// import VideoDropzone from '../VideoDropzone/VideoDropzone'
+// import WatchMovieButton from '../WatchMovieButton/WatchMovieButton'
+// import { ChangeVideoFormData, changeVideoFormSchema } from './fn/form'
+// import { useSetFieldValues } from './fn/setFieldValues'
+// import { useGetOnUpdateVideoFormSubmit } from './fn/submit'
 
-export default function EditPrivateVideoForm() {
+/*export default function EditPrivateVideoForm() {
 	const [formStatus, setFormStatus] = useState<FormStatus>('idle')
 	const [formError, setFormError] = useState<null | string>(null)
 
@@ -77,4 +77,4 @@ export default function EditPrivateVideoForm() {
 			</MediaFormSurface>
 		</form>
 	)
-}
+}*/

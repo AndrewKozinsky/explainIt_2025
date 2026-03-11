@@ -1,14 +1,14 @@
-import PrivateVideosListSection from '../PrivateVideosSection/PrivateVideosListSection'
-import PublicVideosList from '../PublicVideosList/PublicVideosList'
-import './VideosSection.scss'
+// import PrivateVideosListSection from '../PrivateVideosSection/PrivateVideosListSection'
+// import PublicVideosList from '../PublicVideosList/PublicVideosList'
+// import './VideosSection.scss'
 
-function VideosSection() {
+/*function VideosSection() {
 	return (
 		<div className='videos-section'>
 			<PublicVideosList />
 			<PrivateVideosListSection />
 		</div>
 	)
-}
+}*/
 
-export default VideosSection
+// export default VideosSection

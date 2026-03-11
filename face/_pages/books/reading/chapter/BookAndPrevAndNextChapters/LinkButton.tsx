@@ -1,12 +1,12 @@
-import Link from 'next/link'
+// import Link from 'next/link'
 
-type LinkButtonProps = {
+/*type LinkButtonProps = {
 	href: string
 	smallText?: null | string
 	text?: null | string
-}
+}*/
 
-export function LinkButton(props: LinkButtonProps) {
+/*export function LinkButton(props: LinkButtonProps) {
 	const { href, smallText, text } = props
 
 	return (
@@ -15,4 +15,4 @@ export function LinkButton(props: LinkButtonProps) {
 			<p className='book-and-prev-and-next-chapters__text'>{text}</p>
 		</Link>
 	)
-}
+}*/

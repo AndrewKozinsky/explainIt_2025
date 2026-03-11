@@ -1,11 +1,11 @@
-import { useRef } from 'react'
-import { useWatchingStore } from '_pages/video/watching/watchingStore'
-import SpeechlessBar from '../SpeechlessBar/SpeechlessBar'
-import SubtitleBlock from '../SubtitleBlock/SubtitleBlock'
-import { useSubtitlesPlaybackDomSync } from './fn/useSubtitlesPlaybackDomSync'
-import './SubtitlesContent.scss'
+// import { useRef } from 'react'
+// import { useWatchingStore } from '_pages/video/watching/watchingStore'
+// import SpeechlessBar from '../SpeechlessBar/SpeechlessBar'
+// import SubtitleBlock from '../SubtitleBlock/SubtitleBlock'
+// import { useSubtitlesPlaybackDomSync } from './fn/useSubtitlesPlaybackDomSync'
+// import './SubtitlesContent.scss'
 
-function SubtitlesContent() {
+/*function SubtitlesContent() {
 	const subtitles = useWatchingStore((s) => s.populatedSubtitles.subtitles)
 	const containerRef = useRef<HTMLDivElement | null>(null)
 
@@ -22,6 +22,6 @@ function SubtitlesContent() {
 			})}
 		</div>
 	)
-}
+}*/
 
-export default SubtitlesContent
+// export default SubtitlesContent

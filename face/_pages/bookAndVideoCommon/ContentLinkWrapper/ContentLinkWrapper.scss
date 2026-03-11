@@ -1,6 +1,6 @@
-@use '@/styles/variables' as vars;
+//@use '@/styles/variables' as vars;
 
-.content-link-wrapper {
+/*.content-link-wrapper {
 	display: block;
 	width: 100%;
 	box-sizing: border-box;
@@ -10,12 +10,12 @@
 	&:hover {
 		background-color: vars.$grayColor-1;
 	}
-}
+}*/
 
-.content-link-wrapper--idle {
-}
+/*.content-link-wrapper--idle {
+}*/
 
-.content-link-wrapper--current {
+/*.content-link-wrapper--current {
 	color: white;
 	background-color: vars.$accentColor-2;
 
@@ -23,8 +23,8 @@
 		border-color: vars.$accentColor-2;
 		background-color: vars.$accentColor-2;
 	}
-}
+}*/
 
-.content-link-wrapper--nested {
+/*.content-link-wrapper--nested {
 	border-color: vars.$accentColor-2;
-}
+}*/

@@ -1,7 +1,7 @@
-import { useEffect } from 'react'
-import { useReadingStore } from '../../../readingStore'
+// import { useEffect } from 'react'
+// import { useReadingStore } from '../../../readingStore'
 
-export function useClearReadingStoreOnUnmount() {
+/*export function useClearReadingStoreOnUnmount() {
 	const clearStoreData = useReadingStore((s) => s.clearStoreData)
 
 	useEffect(() => {
@@ -9,4 +9,4 @@ export function useClearReadingStoreOnUnmount() {
 			clearStoreData()
 		}
 	}, [clearStoreData])
-}
+}*/

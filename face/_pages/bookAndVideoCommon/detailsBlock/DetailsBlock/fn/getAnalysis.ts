@@ -1,9 +1,9 @@
-import { useEffect, useRef } from 'react'
-import { useSentenceTranslation_GetBySentenceIdLazyQuery } from 'graphql'
-import { useDetailsStore } from '_pages/bookAndVideoCommon/detailsBlock/detailsStore'
-import { readTranslationStream } from './translationStream'
+// import { useEffect, useRef } from 'react'
+// import { useSentenceTranslation_GetBySentenceIdLazyQuery } from 'graphql'
+// import { useDetailsStore } from '_pages/bookAndVideoCommon/detailsBlock/detailsStore'
+// import { readTranslationStream } from './translationStream'
 
-export function useGetAnalysis() {
+/*export function useGetAnalysis() {
 	const sentenceId = useDetailsStore((s) => s.sentenceId)
 	const sentenceText = useDetailsStore((s) => s.sentenceText)
 	const bookName = useDetailsStore((s) => s.bookName)
@@ -68,9 +68,9 @@ export function useGetAnalysis() {
 		},
 		[bookAuthor, bookName, fetchTranslations, sentenceId, sentenceText, videoName, videoYear],
 	)
-}
+}*/
 
-async function translateSelectedSentence(input: {
+/*async function translateSelectedSentence(input: {
 	sentenceId: number
 	sentenceText: string
 	bookName: null | string
@@ -114,9 +114,9 @@ async function translateSelectedSentence(input: {
 			sentenceAnalysisLoading: false,
 		})
 	}
-}
+}*/
 
-function buildTranslateSentenceUrl(input: {
+/*function buildTranslateSentenceUrl(input: {
 	sentenceId: number
 	text: string
 	bookName: null | string
@@ -135,4 +135,4 @@ function buildTranslateSentenceUrl(input: {
 	if (input.videoYear) url.searchParams.set('videoYear', String(input.videoYear))
 
 	return url.toString()
-}
+}*/

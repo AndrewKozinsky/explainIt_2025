@@ -1,23 +1,23 @@
-import React from 'react'
-import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
-import LoadingMessage from 'ui/LoadingMessage/LoadingMessage'
-import Paragraph from 'ui/Paragraph/Paragraph'
-import { SectionWithHeader } from '_pages/bookAndVideoCommon/SectionWithHeader/SectionWithHeader'
-import { useBooksStore } from '_pages/books/books/booksStore'
-import ChaptersSection from '../../chaptersSection/ChaptersSection/ChaptersSection'
-import BookLink from '../BookLink/BookLink'
+// import React from 'react'
+// import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
+// import LoadingMessage from 'ui/LoadingMessage/LoadingMessage'
+// import Paragraph from 'ui/Paragraph/Paragraph'
+// import { SectionWithHeader } from '_pages/bookAndVideoCommon/SectionWithHeader/SectionWithHeader'
+// import { useBooksStore } from '_pages/books/books/booksStore'
+// import ChaptersSection from '../../chaptersSection/ChaptersSection/ChaptersSection'
+// import BookLink from '../BookLink/BookLink'
 
-function PublicBooksListSection() {
+/*function PublicBooksListSection() {
 	return (
 		<SectionWithHeader title='Публичные книги'>
 			<PublicBooksListContent />
 		</SectionWithHeader>
 	)
-}
+}*/
 
-export default PublicBooksListSection
+// export default PublicBooksListSection
 
-function PublicBooksListContent() {
+/*function PublicBooksListContent() {
 	const publicBooks = useBooksStore((state) => state.publicBooks)
 
 	if (publicBooks.loading) {
@@ -42,4 +42,4 @@ function PublicBooksListContent() {
 			})}
 		</>
 	)
-}
+}*/

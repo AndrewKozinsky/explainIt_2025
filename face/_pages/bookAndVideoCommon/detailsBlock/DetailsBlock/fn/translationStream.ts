@@ -1,6 +1,6 @@
-import { readStream } from 'utils/sse/readStream'
+// import { readStream } from 'utils/sse/readStream'
 
-export async function readTranslationStream(
+/*export async function readTranslationStream(
 	url: string,
 	options?: {
 		onPartial?: (translation: string, analysis: null | string) => void
@@ -12,9 +12,9 @@ export async function readTranslationStream(
 			options?.onPartial?.(parsed.translation, parsed.analysis)
 		},
 	})
-}
+}*/
 
-export function parseTranslationAndAnalysisSoFar(fullText: string): { translation: string; analysis: null | string } {
+/*export function parseTranslationAndAnalysisSoFar(fullText: string): { translation: string; analysis: null | string } {
 	const trimmed = fullText.trimStart()
 	const dividerIndex = trimmed.search(/\n\s*\n/)
 
@@ -35,4 +35,4 @@ export function parseTranslationAndAnalysisSoFar(fullText: string): { translatio
 		translation,
 		analysis: analysis ? analysis : null,
 	}
-}
+}*/

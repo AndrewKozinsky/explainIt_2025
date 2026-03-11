@@ -1,9 +1,9 @@
-import { useMemo } from 'react'
-import { useParams } from 'next/navigation'
-import { useBooksStore } from '_pages/books/books/booksStore'
-import { pageUrls } from 'сonsts/pageUrls'
+// import { useMemo } from 'react'
+// import { useParams } from 'next/navigation'
+// import { useBooksStore } from '_pages/books/books/booksStore'
+// import { pageUrls } from 'сonsts/pageUrls'
 
-export function useGetPageHeader() {
+/*export function useGetPageHeader() {
 	const params = useParams() as { bookId?: string; chapterId?: string }
 	const urlBookId = params.bookId
 	const chapterId = params.chapterId
@@ -39,4 +39,4 @@ export function useGetPageHeader() {
 			pageUrls.books.book(urlBookId).name
 		)
 	}, [urlBookId, chapterId, publicBook, privateBook, loadedChapter])
-}
+}*/

@@ -1,13 +1,13 @@
-import { RefObject, useEffect, useRef } from 'react'
-import { PopulatedSubtitlesStructure } from '_pages/video/watching/common/populatedSubtitlesStructure'
-import { useWatchingStore } from '_pages/video/watching/watchingStore'
+// import { RefObject, useEffect, useRef } from 'react'
+// import { PopulatedSubtitlesStructure } from '_pages/video/watching/common/populatedSubtitlesStructure'
+// import { useWatchingStore } from '_pages/video/watching/watchingStore'
 
-type UseSubtitlesPlaybackDomSyncParams = {
+/*type UseSubtitlesPlaybackDomSyncParams = {
 	containerRef: RefObject<HTMLElement | null>
 	subtitles: PopulatedSubtitlesStructure.Structure['subtitles']
 	bottomThresholdPx?: number
 	topPaddingPx?: number
-}
+}*/
 
 /**
  * Синхронизирует UI списка субтитров с текущим временем плеера, не вызывая
@@ -24,7 +24,7 @@ type UseSubtitlesPlaybackDomSyncParams = {
  * @param params.bottomThresholdPx - насколько близко к низу считать "не видно"
  * @param params.topPaddingPx - отступ сверху при автоскролле
  */
-export function useSubtitlesPlaybackDomSync(params: UseSubtitlesPlaybackDomSyncParams) {
+/*export function useSubtitlesPlaybackDomSync(params: UseSubtitlesPlaybackDomSyncParams) {
 	const { containerRef, subtitles, bottomThresholdPx = 40, topPaddingPx = 20 } = params
 
 	const currentSubtitleIdxRef = useRef(0)
@@ -118,14 +118,14 @@ export function useSubtitlesPlaybackDomSync(params: UseSubtitlesPlaybackDomSyncP
 			prevEl.classList.remove('speechless-bar--active')
 		}
 	}, [bottomThresholdPx, containerRef, subtitles, topPaddingPx])
-}
+}*/
 
 /**
  * Быстро находит индекс блока (subtitle/speechlessBar), соответствующего времени.
  * Оптимизировано под типичный кейс воспроизведения (время растёт постепенно),
  * при этом корректно обрабатывает перемотку назад.
  */
-function findCurrentSubtitleIdx(params: {
+/*function findCurrentSubtitleIdx(params: {
 	subtitles: PopulatedSubtitlesStructure.Structure['subtitles']
 	timeSeconds: number
 	currentIdx: number
@@ -157,14 +157,15 @@ function findCurrentSubtitleIdx(params: {
 
 	// Fallback: move forward until the first block that ends after timeSeconds.
 	while (idx < n - 1 && subtitles[idx].toSeconds < timeSeconds) idx += 1
+
 	return idx
-}
+}*/
 
 /**
  * Скроллит контейнер так, чтобы текущий элемент был видим, но без "дёрганий":
  * если элемент уже в пределах видимой области — ничего не делает.
  */
-function autoScrollToCurrent(params: {
+/*function autoScrollToCurrent(params: {
 	container: HTMLElement
 	currentSubtitleId: number
 	bottomThresholdPx: number
@@ -204,13 +205,13 @@ function autoScrollToCurrent(params: {
 	// Align the current subtitle just below the sticky video (safeTop).
 	const delta = elRect.top - safeTop
 	scrollContainer.scrollTo({ top: scrollContainer.scrollTop + delta, behavior: 'smooth' })
-}
+}*/
 
 /**
  * Ищет ближайшего родителя со скроллом по оси Y.
  * Возвращает `null`, если подходящего контейнера нет.
  */
-function getScrollableParent(element: HTMLElement | null) {
+/*function getScrollableParent(element: HTMLElement | null) {
 	let el: HTMLElement | null = element
 
 	while (el) {
@@ -227,9 +228,9 @@ function getScrollableParent(element: HTMLElement | null) {
 	}
 
 	return null
-}
+}*/
 
-function scrollWindowToReveal(params: {
+/*function scrollWindowToReveal(params: {
 	currentEl: HTMLElement
 	bottomThresholdPx: number
 	topPaddingPx: number
@@ -251,9 +252,9 @@ function scrollWindowToReveal(params: {
 	// Align element top to safeTop (just below video) instead of "nearest" reveal.
 	const delta = elRect.top - safeTop
 	window.scrollBy({ top: delta, behavior: 'smooth' })
-}
+}*/
 
-function getStickyVideoBottomPx(fromEl: HTMLElement): number {
+/*function getStickyVideoBottomPx(fromEl: HTMLElement): number {
 	const doc = fromEl.ownerDocument ?? document
 	const root = (fromEl.closest('.root-surface') as HTMLElement | null) ?? doc.documentElement
 	const videoEl =
@@ -268,4 +269,4 @@ function getStickyVideoBottomPx(fromEl: HTMLElement): number {
 	if (rect.bottom <= 0 || rect.top >= (window.innerHeight || 0)) return 0
 
 	return Math.max(0, Math.min(window.innerHeight || 0, rect.bottom))
-}
+}*/
