@@ -4,7 +4,7 @@ import './MediaPageContentWrapper.scss'
 
 type MediaPageContentWrapperProps = {
 	breadCrumbs: ReactNode
-	header: string
+	header?: null | string
 	subHeader?: null | string
 	children: ReactNode
 }
@@ -18,7 +18,7 @@ function MediaPageContentWrapper(props: MediaPageContentWrapperProps) {
 				{breadCrumbs}
 				<div className='media-page-content-wrapper__header'>
 					{subHeader && <p className='media-page-content-wrapper__sub-header'>{subHeader}</p>}
-					<Header>{header}</Header>
+					{header && <Header>{header}</Header>}
 				</div>
 			</div>
 			<div className='media-page-content-wrapper__content'>{children}</div>

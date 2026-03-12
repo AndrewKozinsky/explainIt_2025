@@ -9,6 +9,7 @@ export const queriesBook = {
 					id
 					author
 					name
+					languageCode
 					note
 					userId
 					chapters {
@@ -33,6 +34,7 @@ export const queriesBook = {
           id
           author
           name
+          languageCode
           note
           userId
           chapters {
@@ -68,6 +70,7 @@ export const queriesBook = {
 				id
 				author
 				name
+				languageCode
 				note
 				userId
 				chapters {

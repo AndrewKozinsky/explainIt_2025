@@ -8,25 +8,99 @@
 }
 
 .radio-group__label {
-
+	display: block;
+	font-size: 1.6rem;
+	line-height: 2.2rem;
 }
 
 .radio-group__radios {
 	display: flex;
-	gap: 1rem;
+	gap: 2rem;
+	flex-wrap: wrap;
 }
 .radio-group__radios--horizontal {
 	flex-direction: row;
+	align-items: center;
 }
 .radio-group__radios--vertical {
 	flex-direction: column;
+	align-items: flex-start;
 }
 
 .radio-group__radio-label {
-
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.8rem;
+	cursor: pointer;
+	font-size: 1.6rem;
+	line-height: 2.2rem;
+	color: vars.$textColor;
+}
+.radio-group__radio-label--disabled {
+	cursor: not-allowed;
 }
 
 .radio-group__radio {
 	appearance: none;
+	position: absolute;
+	inset: 0;
+	opacity: 0;
+	margin: 0;
+}
 
+.radio-group__control {
+	position: relative;
+	flex-shrink: 0;
+	width: 2rem;
+	height: 2rem;
+	border: 1px solid vars.$grayColor-3;
+	border-radius: 50%;
+	background-color: white;
+	transition:
+		border-color .15s ease,
+		box-shadow .15s ease,
+		background-color .15s ease;
+}
+
+.radio-group__control-dot {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 0.8rem;
+	height: 0.8rem;
+	border-radius: 50%;
+	background-color: vars.$textColor;
+	transform: translate(-50%, -50%) scale(0);
+	transition: transform .15s ease;
+}
+
+.radio-group__radio-text {
+	transition: color .15s ease;
+}
+
+.radio-group__radio:checked + .radio-group__control {
+	border-color: vars.$linkColor-2;
+}
+
+.radio-group__radio:checked + .radio-group__control .radio-group__control-dot {
+	transform: translate(-50%, -50%) scale(1);
+}
+
+.radio-group__radio:focus-visible + .radio-group__control {
+	box-shadow: 0 0 0 0.5rem rgba(vars.$linkColor-2, .18);
+	border-color: vars.$linkColor-2;
+}
+
+.radio-group__radio:disabled + .radio-group__control {
+	background-color: white;
+	border-color: vars.$grayColor-2;
+}
+
+.radio-group__radio:disabled ~ .radio-group__radio-text {
+	color: vars.$grayColor-4;
+}
+
+.radio-group__radio:disabled:checked + .radio-group__control .radio-group__control-dot {
+	background-color: vars.$grayColor-4;
 }

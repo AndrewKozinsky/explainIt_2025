@@ -22,7 +22,13 @@ export function useGetOnUpdateBookFormSubmit(
 			try {
 				const { data, errors } = await updateBook({
 					variables: {
-						input: { id: book.id, author: formData.author, name: formData.name, note: formData.note },
+						input: {
+							id: book.id,
+							author: formData.author,
+							name: formData.name,
+							languageCode: formData.languageCode,
+							note: formData.note,
+						},
 					},
 				})
 

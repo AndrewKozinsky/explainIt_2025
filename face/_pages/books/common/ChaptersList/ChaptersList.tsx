@@ -1,6 +1,6 @@
 import React from 'react'
 import Paragraph from 'ui/Paragraph/Paragraph'
-import ChapterLink from '_pages/books/books/chaptersSection/ChapterLink/ChapterLink'
+import ChapterLink from '../ChapterLink/ChapterLink'
 import './ChaptersList.scss'
 
 type ChaptersListProps = {

@@ -519,6 +519,8 @@ export type UpdateBookInput = {
   author?: InputMaybe<Scalars['String']['input']>;
   /** Book id */
   id: Scalars['Int']['input'];
+  /** Language code */
+  languageCode?: InputMaybe<Scalars['String']['input']>;
   /** Name */
   name?: InputMaybe<Scalars['String']['input']>;
   /** Note */

@@ -151,6 +151,7 @@ describe.skip('Update book', () => {
 			id: createdBook.id,
 			author: 'Gerald Durrell',
 			name: 'My Family and Other Animals',
+			languageCode: 'en',
 			note: null,
 		})
 
@@ -161,6 +162,7 @@ describe.skip('Update book', () => {
 			book: {
 				id: createdBook.id,
 				author: 'Jack London',
+				languageCode: 'de',
 				note: 'My note',
 			},
 		})
@@ -170,6 +172,7 @@ describe.skip('Update book', () => {
 			id: createdBook.id,
 			author: 'Jack London',
 			name: 'My Family and Other Animals',
+			languageCode: 'de',
 			note: 'My note',
 		})
 	})

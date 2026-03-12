@@ -43,7 +43,7 @@ function PrivateBookChapters() {
 		return {
 			name: chapter.header ?? bookConfig.emptyChapterName,
 			subName: chapter.name,
-			href: pageUrls.books.book(bookIdInUrl).chapter(chapter.id).reading.path,
+			href: pageUrls.books.book(bookIdInUrl).chapter(chapter.id).path,
 		}
 	})
 

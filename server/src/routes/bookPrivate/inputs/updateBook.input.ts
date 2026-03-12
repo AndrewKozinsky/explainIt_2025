@@ -1,6 +1,7 @@
 import { Field, InputType, Int } from '@nestjs/graphql'
 import { bdConfig } from 'db/dbConfig/dbConfig'
 import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
+import { Language } from 'utils/languages'
 
 @InputType()
 export class UpdateBookInput {
@@ -15,6 +16,10 @@ export class UpdateBookInput {
 	@Field(() => String, { description: 'Name', nullable: true })
 	@DtoFieldDecorators('name', bdConfig.BookPrivate.dbFields.name)
 	name?: null | string
+
+	@Field(() => String, { description: 'Language code', nullable: true })
+	@DtoFieldDecorators('languageCode', bdConfig.BookPrivate.dbFields.language_code)
+	languageCode?: null | Language
 
 	@Field(() => String, { description: 'Note', nullable: true })
 	@DtoFieldDecorators('note', bdConfig.BookPrivate.dbFields.note)

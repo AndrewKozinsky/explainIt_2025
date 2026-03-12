@@ -8,6 +8,7 @@ export function useSetFieldValues(reset: (data: any) => void) {
 		if (!book) return
 
 		reset({
+			languageCode: book.languageCode ?? '',
 			author: book.author ?? '',
 			name: book.name ?? '',
 			note: book.note ?? '',

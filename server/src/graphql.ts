@@ -83,6 +83,7 @@ export interface UpdateBookInput {
     id: number;
     author?: Nullable<string>;
     name?: Nullable<string>;
+    languageCode?: Nullable<string>;
     note?: Nullable<string>;
 }
 

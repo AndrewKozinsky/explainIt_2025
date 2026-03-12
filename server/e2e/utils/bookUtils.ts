@@ -11,6 +11,7 @@ export const bookUtils = {
 			id?: number
 			author?: string
 			name?: string
+			languageCode?: string
 			note?: string
 			userId?: number
 			chapters?: { id?: number; bookId?: number; name?: string; header?: string; note?: string }[]
@@ -21,6 +22,7 @@ export const bookUtils = {
 				id: z.number(),
 				author: z.string().nullable(),
 				name: z.string().nullable(),
+				languageCode: z.string(),
 				note: z.string().nullable(),
 				userId: z.number().nullable(),
 				chapters: z.array(
@@ -50,6 +52,9 @@ export const bookUtils = {
 		if (checks?.name !== undefined) {
 			expect(book.name).toBe(checks.name)
 		}
+		if (checks?.languageCode !== undefined) {
+			expect(book.languageCode).toBe(checks.languageCode)
+		}
 		if (checks?.note !== undefined) {
 			expect(book.note).toBe(checks.note)
 		}
@@ -74,6 +79,7 @@ export const bookUtils = {
 		book: {
 			author?: null | string
 			name?: null | string
+			languageCode?: null | string
 			note?: null | string
 		}
 	}) {
@@ -98,6 +104,7 @@ export const bookUtils = {
 			id: number
 			author?: null | string
 			name?: null | string
+			languageCode?: null | string
 			note?: null | string
 		}
 	}) {
@@ -154,6 +161,7 @@ export const bookUtils = {
 		book: {
 			author?: null | string
 			name?: null | string
+			languageCode?: null | string
 			note?: null | string
 		}
 		chapters: Array<{

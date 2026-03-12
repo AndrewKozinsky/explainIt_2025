@@ -22,6 +22,7 @@ export default function EditBookForm() {
 		register,
 		handleSubmit,
 		reset,
+		watch,
 		formState: { errors, isDirty },
 		setError,
 	} = useForm<ChangeBookFormData>({
@@ -31,6 +32,8 @@ export default function EditBookForm() {
 	useSetFieldValues(reset)
 
 	const onSubmit = useGetOnUpdateBookFormSubmit(setError, setFormStatus, setFormError)
+	const currentLanguageCode = watch('languageCode')
+	const isFormDisabled = ['success', 'submitting'].includes(formStatus)
 
 	return (
 		<>
@@ -50,14 +53,18 @@ export default function EditBookForm() {
 					]}
 				>
 					<FormFieldsWrapper gap='big'>
-						<LanguagesRadioGroup />
+						<LanguagesRadioGroup
+							value={currentLanguageCode ?? undefined}
+							disabled={isFormDisabled}
+							inputProps={register('languageCode')}
+						/>
 						<TextInput
 							label='Автор'
 							error={errors.author?.message}
 							dataTestId={ChangeBookFormTest.authorField.id}
 							inputProps={{
 								...register('author'),
-								disabled: ['success', 'submitting'].includes(formStatus),
+								disabled: isFormDisabled,
 								placeholder: 'Lewis Carroll',
 							}}
 						/>
@@ -67,7 +74,7 @@ export default function EditBookForm() {
 							dataTestId={ChangeBookFormTest.nameField.id}
 							inputProps={{
 								...register('name'),
-								disabled: ['success', 'submitting'].includes(formStatus),
+								disabled: isFormDisabled,
 								placeholder: 'Adventures in Wonderland',
 							}}
 						/>
@@ -77,7 +84,7 @@ export default function EditBookForm() {
 							dataTestId={ChangeBookFormTest.noteField.id}
 							inputProps={{
 								...register('note'),
-								disabled: ['success', 'submitting'].includes(formStatus),
+								disabled: isFormDisabled,
 								placeholder: 'It tells the story of Alice, a young girl who falls down a rabbit hole…',
 							}}
 						/>

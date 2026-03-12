@@ -413,6 +413,9 @@ input UpdateBookInput {
   """Book id"""
   id: Int!
 
+  """Language code"""
+  languageCode: String
+
   """Name"""
   name: String
 
