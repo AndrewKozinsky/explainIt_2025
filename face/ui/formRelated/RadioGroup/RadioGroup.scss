@@ -1,0 +1,32 @@
+@use '@/styles/variables' as vars;
+
+.radio-group {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	width: 100%;
+}
+
+.radio-group__label {
+
+}
+
+.radio-group__radios {
+	display: flex;
+	gap: 1rem;
+}
+.radio-group__radios--horizontal {
+	flex-direction: row;
+}
+.radio-group__radios--vertical {
+	flex-direction: column;
+}
+
+.radio-group__radio-label {
+
+}
+
+.radio-group__radio {
+	appearance: none;
+
+}

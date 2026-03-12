@@ -1,15 +1,15 @@
-// import React, { useCallback } from 'react'
-// import { useBooksStore } from '@/_pages/books/books/booksStore'
-// import { Book_GetUserBooksDocument, useBook_Update } from '@/graphql'
-// import { FormStatus, setErrorsToForm } from '@/utils/forms'
-// import { ChangeBookFormData } from './form'
+import React, { useCallback } from 'react'
+import { Book_GetUserBooksDocument, useBook_Update } from '@/graphql'
+import { FormStatus, setErrorsToForm } from '@/utils/forms'
+import { useBookStore } from '_pages/books/book/bookStore'
+import { ChangeBookFormData } from './form'
 
-/*export function useGetOnUpdateBookFormSubmit(
+export function useGetOnUpdateBookFormSubmit(
 	setFieldError: (field: keyof ChangeBookFormData, params: any) => void,
 	setFormStatus: React.Dispatch<React.SetStateAction<FormStatus>>,
 	setFormError: React.Dispatch<React.SetStateAction<string | null>>,
 ) {
-	const book = useBooksStore((s) => s.privateBook)
+	const book = useBookStore((s) => s.privateBook.data)
 	const [updateBook] = useBook_Update({ refetchQueries: [Book_GetUserBooksDocument] })
 
 	return useCallback(
@@ -39,4 +39,4 @@
 		},
 		[book, setFieldError, setFormError, setFormStatus, updateBook],
 	)
-}*/
+}

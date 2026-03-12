@@ -4,8 +4,8 @@ import MainPageLayout from '_pages/main/mainPageLayout/MainPageLayout/MainPageLa
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-	title: 'Чтение книг на иностранном языке',
-	description: 'Приложение для чтения книг на иностранном языка',
+	title: 'Чтение книг на английском языке',
+	description: 'Чтение книг и просмотр фильмов на английском и других языках',
 	verification: {
 		yandex: '1611c5fab3b46857',
 	},
@@ -13,7 +13,8 @@ export const metadata: Metadata = {
 		'чтение на английском',
 		'адаптированная литература на английском',
 		'адаптированные тексты на немецком',
-		'для начинающих',
+		'чтение английских книг',
+		'книги в оригинале',
 	],
 	icons: {
 		icon: '/favicon.svg',

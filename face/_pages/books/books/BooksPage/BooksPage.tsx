@@ -4,7 +4,7 @@ import MediaItemsGrid from '_pages/bookAndVideoCommon/MediaItemsGrid/MediaItemsG
 import MediaPageContentWrapper from '_pages/bookAndVideoCommon/MediaPageContentWrapper/MediaPageContentWrapper'
 import { useGetContentConfig } from '_pages/books/books/BooksPage/fn/getContentConfig'
 import { useGetAddBookConfig } from '_pages/books/books/BooksPage/fn/getOnAddBookClick'
-import { bookConfig } from '_pages/books/books/common/bookConfig'
+import { bookConfig } from '../../common/bookConfig'
 import BooksBreadCrumbs from '../root/BooksBreadCrumbs/BooksBreadCrumbs'
 import { usePopulateBooksStore } from './fn/populateBooksStore'
 import { pageUrls } from 'сonsts/pageUrls'

@@ -1,0 +1,29 @@
+@use "@/styles/mixins" as mix;
+
+.menu-and-content-container {
+	display: flex;
+	flex-direction: column-reverse;
+	gap: 2rem;
+
+	@include mix.page-width(700px) {
+		flex-direction: row;
+		gap: 4rem;
+	}
+}
+
+.menu-and-content-container__menu {
+	@include mix.page-width(700px) {
+		min-width: 40%;
+		width: 50%;
+	}
+
+	@include mix.page-width(900px) {
+		min-width: 32rem;
+		width: 32rem;
+		max-width: 32rem;
+	}
+}
+
+.menu-and-content-container__content {
+	flex-grow: 1;
+}
