@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import { BookPrivateOutModel, BookPublicOutModel, useBook_Get, useBook_GetBookPublic } from '@/graphql'
 import { useBookStore } from '_pages/media/book/bookStore'
+import { useVideoStore } from '_pages/media/video/videoStore'
 import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId, pageUrls } from 'сonsts/pageUrls'
 
 /** Наполняет Хранилище данными для начала работы */
@@ -103,6 +104,8 @@ function useSetBookToStore() {
 
 function useClearDataOnUnmount() {
 	useEffect(function () {
-		useBookStore.getState().clearStore()
+		return () => {
+			useBookStore.getState().clearStore()
+		}
 	}, [])
 }

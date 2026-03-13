@@ -1,38 +1,40 @@
+'use client'
+
+import RootSurface from '_pages/media/commonComponents/RootSurface/RootSurface'
+import VideoBreadCrumbs from '_pages/media/video/VideoBreadCrumbs/VideoBreadCrumbs'
+import WatchingHeader from '_pages/media/watching/root/WatchingHeader/WatchingHeader'
+import WatchingBreadCrumbs from '../WatchingBreadCrumbs/WatchingBreadCrumbs'
 // import { useRef } from 'react'
-// import RootSurface from '_pages/bookAndVideoCommon/RootSurface/RootSurface'
 // import VideoBreadCrumbs from '_pages/video/watching/root/VideoBreadCrumbs/VideoBreadCrumbs'
-// import { useClearWatchingStoreOnUnmount } from '_pages/video/watching/root/WatchingRoot/fn/clearStoreOnUnmount'
-// import VideoHeader from '../VideoHeader/VideoHeader'
-// import { usePopulateWatchingStore } from './fn/fetchData'
-// import { useFullScreen } from './fn/fullScreen'
-// import { useGetFetchedDataStatuses } from './fn/getFetchedDataStatuses'
+import { useClearWatchingStoreOnUnmount } from './fn/clearStoreOnUnmount'
+import { useGetFetchedDataStatuses } from './fn/getFetchedDataStatuses'
+import { usePopulateWatchingStore } from './fn/populateStore'
 // import { useDetailsStickyTopBelowVideo } from './fn/useDetailsStickyTopBelowVideo'
 // import { TextContainer, VideoContainer } from './WatchingRootContent'
-// import './WatchingRoot.scss'
+import './WatchingRoot.scss'
 
-/*function WatchingRoot() {
+function WatchingRoot() {
 	usePopulateWatchingStore()
 	useClearWatchingStoreOnUnmount()
 	const { fetchedDataLoading, fetchedDataErrorMessage } = useGetFetchedDataStatuses()
 
-	const rootRef = useRef<null | HTMLDivElement>(null)
-	useFullScreen(rootRef)
-	useDetailsStickyTopBelowVideo(rootRef)
+	// const rootRef = useRef<null | HTMLDivElement>(null)
+	// useDetailsStickyTopBelowVideo(rootRef)
 
 	return (
-		<RootSurface loading={fetchedDataLoading} error={fetchedDataErrorMessage} rootRef={rootRef}>
+		<RootSurface loading={fetchedDataLoading} error={fetchedDataErrorMessage}>
 			<main className='watching-root'>
 				<div className='watching-root__top'>
-					<VideoBreadCrumbs />
-					<VideoHeader />
+					<WatchingBreadCrumbs />
+					<WatchingHeader />
 				</div>
 				<div className='watching-root__content'>
-					<VideoContainer />
-					<TextContainer />
+					{/*<VideoContainer />*/}
+					{/*<TextContainer />*/}
 				</div>
 			</main>
 		</RootSurface>
 	)
-}*/
+}
 
-// export default WatchingRoot
+export default WatchingRoot

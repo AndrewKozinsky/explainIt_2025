@@ -1,10 +1,10 @@
 import { Field, InputType, Int } from '@nestjs/graphql'
+import { Language } from 'utils/languages'
 import { bdConfig } from 'db/dbConfig/dbConfig'
 import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
-import { Language } from 'utils/languages'
 
 @InputType()
-export class UpdateBookInput {
+export class UpdatePrivateBookInput {
 	@Field(() => Int, { description: 'Book id' })
 	@DtoFieldDecorators('id', bdConfig.BookPrivate.dbFields.id, { type: 'number', required: true, min: 1 })
 	id: number

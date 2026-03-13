@@ -1,4 +1,4 @@
-import ChapterPage from '_pages/books/chapter/ChapterPage/ChapterPage'
+import ChapterPage from '_pages/media/chapter/ChapterPage/ChapterPage'
 
 export default async function Page() {
 	return <ChapterPage />

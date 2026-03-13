@@ -1,20 +1,26 @@
-// import { useEffect } from 'react'
-// import { useParams } from 'next/navigation'
-// import { BookChapterOutModel, BookPrivateOutModel, useBook_Get, useBook_GetBookPublic, useBookChapter_Get } from '@/graphql'
-// import { useReadingStore } from '_pages/books/reading/readingStore'
+import { useEffect } from 'react'
+import { useParams } from 'next/navigation'
+import {
+	BookChapterOutModel,
+	BookPrivateOutModel,
+	useBook_Get,
+	useBook_GetBookPublic,
+	useBookChapter_Get,
+} from '@/graphql'
+import { useReadingStore } from '_pages/media/reading/readingStore'
 // import { populateChapterStructure } from './populateChapterStructure'
-// import { extractBookIdFromUrlBookId, getBookTypeByUrlBookId } from 'сonsts/pageUrls'
+import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId } from 'сonsts/pageUrls'
 
-/*export function usePopulateReadingStore() {
+export function usePopulateReadingStore() {
 	useFetchBookAndSetToStore()
 	useFetchChapterAndSetToStore()
-	useCreatePopulatedChapterAndSetToStore()
-}*/
+	// useCreatePopulatedChapterAndSetToStore()
+}
 
-/*function useFetchBookAndSetToStore() {
+function useFetchBookAndSetToStore() {
 	const bookIdInUrl = useParams().bookId as string
-	const bookType = getBookTypeByUrlBookId(bookIdInUrl)
-	const bookId = extractBookIdFromUrlBookId(bookIdInUrl)
+	const bookType = getMediaTypeByUrlMediaId(bookIdInUrl)
+	const bookId = extractMediaIdFromUrlBookId(bookIdInUrl)
 
 	const {
 		data: privateBookData,
@@ -77,11 +83,11 @@
 			publicBookLoading,
 		],
 	)
-}*/
+}
 
-/*function useFetchChapterAndSetToStore() {
+function useFetchChapterAndSetToStore() {
 	const bookIdInUrl = useParams().bookId as string
-	const bookType = getBookTypeByUrlBookId(bookIdInUrl)
+	const bookType = getMediaTypeByUrlMediaId(bookIdInUrl)
 	const chapterId = useParams().chapterId as string
 
 	const { data, error, loading } = useBookChapter_Get({
@@ -121,7 +127,7 @@
 		},
 		[data, error, loading, chapterId],
 	)
-}*/
+}
 
 /*function useCreatePopulatedChapterAndSetToStore() {
 	const chapter = useReadingStore((s) => s.chapter)

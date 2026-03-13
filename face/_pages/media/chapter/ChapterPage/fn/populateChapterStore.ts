@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import { BookPrivateOutModel, useBook_Get, useBookChapter_Get } from '@/graphql'
-import { useChapterStore } from '_pages/books/chapter/chapterStore'
+import { useVideoStore } from '_pages/media/video/videoStore'
+import { useChapterStore } from '../../chapterStore'
 import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId, pageUrls } from 'сonsts/pageUrls'
 
 /** Наполняет Хранилище данными для начала работы */
@@ -100,6 +101,8 @@ function useFetchChapterAndSetToStore() {
 
 function useClearDataOnUnmount() {
 	useEffect(function () {
-		useChapterStore.getState().clearStore()
+		return () => {
+			useChapterStore.getState().clearStore()
+		}
 	}, [])
 }

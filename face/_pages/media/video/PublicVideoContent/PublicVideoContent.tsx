@@ -2,9 +2,9 @@ import { useRouter } from 'next/navigation'
 import { publicFolderFilesUrls } from 'utils/publicFolderFilesUrls'
 import Button from '@/ui/formRelated/buttons/Button/Button'
 import { SummaryOfTheMedia } from '_pages/media/commonComponents/SummaryOfTheMedia/SummaryOfTheMedia'
+import { useVideoStore } from '../videoStore'
 import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
 import './PublicVideoContent.scss'
-import { useVideoStore } from '../videoStore'
 
 export default function PublicVideoContent() {
 	const publicVideo = useVideoStore((s) => s.publicVideo)
@@ -16,7 +16,7 @@ export default function PublicVideoContent() {
 	const coverImgUrls = publicVideo.data?.covers
 
 	const videoId = createMediaIdUrl(publicVideo.data.id, 'public')
-	const videoUrl = pageUrls.videos.video(videoId).path
+	const videoUrl = pageUrls.videos.video(videoId).watching.path
 
 	return (
 		<div className='public-video-info'>

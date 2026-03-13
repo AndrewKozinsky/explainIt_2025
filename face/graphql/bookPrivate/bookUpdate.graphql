@@ -1,4 +1,4 @@
-mutation Book_update($input: UpdateBookInput!) {
+mutation Book_update($input: UpdatePrivateBookInput!) {
 	book_update(input: $input) {
 		id
 		author

@@ -87,7 +87,7 @@ describe.skip('Get book chapter', () => {
 				note: null,
 			},
 		})
-		const createdBook = createdBookResp.data[RouteNames.BOOK.CREATE]
+		const createdBook = createdBookResp.data[RouteNames.BOOK_PRIVATE.CREATE]
 
 		// Create a book chapter for this book
 		const createdBookChapterResp = await bookChapterUtils.createBookChapter({
@@ -148,7 +148,7 @@ describe.skip('Get book chapter', () => {
 				note: null,
 			},
 		})
-		const createdBook = createdBookResp.data[RouteNames.BOOK.CREATE]
+		const createdBook = createdBookResp.data[RouteNames.BOOK_PRIVATE.CREATE]
 
 		// Create a book chapter for this book
 		const createdBookChapterResp = await bookChapterUtils.createBookChapter({

@@ -101,7 +101,7 @@ input CreateBookChapterInput {
   note: String
 }
 
-input CreateBookInput {
+input CreatePrivateBookInput {
   """Author"""
   author: String
 
@@ -157,7 +157,7 @@ input DeleteBookChapterInput {
   id: Int!
 }
 
-input DeleteBookInput {
+input DeletePrivateBookInput {
   """Book id"""
   id: Int!
 }
@@ -175,12 +175,12 @@ input GetBookChapterInput {
   id: Int!
 }
 
-input GetBookInput {
+input GetBookPublicInput {
   """Book id"""
   id: Int!
 }
 
-input GetBookPublicInput {
+input GetPrivateBookInput {
   """Book id"""
   id: Int!
 }
@@ -270,13 +270,13 @@ type Mutation {
   book_chapter_update(input: UpdateBookChapterInput!): BookChapterOutModel!
 
   """Create book"""
-  book_create(input: CreateBookInput!): BookPrivateOutModel!
+  book_create(input: CreatePrivateBookInput!): BookPrivateOutModel!
 
   """Delete user book"""
-  book_delete(input: DeleteBookInput!): Boolean!
+  book_delete(input: DeletePrivateBookInput!): Boolean!
 
   """Update user book"""
-  book_update(input: UpdateBookInput!): BookPrivateOutModel!
+  book_update(input: UpdatePrivateBookInput!): BookPrivateOutModel!
 
   """Buy a subscription with YooKassa"""
   payment_yookassa_buy_subscription(input: BuySubscriptionWithYooKassaInput!): BuySubscriptionWithYooKassaOutModel!
@@ -302,7 +302,7 @@ type Query {
   book_chapter_get(input: GetBookChapterInput!): BookChapterOutModel!
 
   """Get user book"""
-  book_get(input: GetBookInput!): BookPrivateOutModel!
+  book_get(input: GetPrivateBookInput!): BookPrivateOutModel!
 
   """Get public book"""
   book_public_get_book(input: GetBookPublicInput!): BookPublicOutModel!
@@ -407,7 +407,7 @@ input UpdateBookChapterInput {
   note: String
 }
 
-input UpdateBookInput {
+input UpdatePrivateBookInput {
   """Author"""
   author: String
 
@@ -441,7 +441,7 @@ input UpdatePrivateVideoInput {
   isFileUploaded: Boolean
 
   """Language code"""
-  languageCode: String!
+  languageCode: String
 
   """Name"""
   name: String

@@ -123,7 +123,7 @@ export type CreateBookChapterInput = {
   note?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type CreateBookInput = {
+export type CreatePrivateBookInput = {
   /** Author */
   author?: InputMaybe<Scalars['String']['input']>;
   /** Name */
@@ -172,7 +172,7 @@ export type DeleteBookChapterInput = {
   id: Scalars['Int']['input'];
 };
 
-export type DeleteBookInput = {
+export type DeletePrivateBookInput = {
   /** Book id */
   id: Scalars['Int']['input'];
 };
@@ -189,12 +189,12 @@ export type GetBookChapterInput = {
   id: Scalars['Int']['input'];
 };
 
-export type GetBookInput = {
+export type GetBookPublicInput = {
   /** Book id */
   id: Scalars['Int']['input'];
 };
 
-export type GetBookPublicInput = {
+export type GetPrivateBookInput = {
   /** Book id */
   id: Scalars['Int']['input'];
 };
@@ -333,17 +333,17 @@ export type MutationBook_Chapter_UpdateArgs = {
 
 
 export type MutationBook_CreateArgs = {
-  input: CreateBookInput;
+  input: CreatePrivateBookInput;
 };
 
 
 export type MutationBook_DeleteArgs = {
-  input: DeleteBookInput;
+  input: DeletePrivateBookInput;
 };
 
 
 export type MutationBook_UpdateArgs = {
-  input: UpdateBookInput;
+  input: UpdatePrivateBookInput;
 };
 
 
@@ -415,7 +415,7 @@ export type QueryBook_Chapter_GetArgs = {
 
 
 export type QueryBook_GetArgs = {
-  input: GetBookInput;
+  input: GetPrivateBookInput;
 };
 
 
@@ -515,7 +515,7 @@ export type UpdateBookChapterInput = {
   note?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type UpdateBookInput = {
+export type UpdatePrivateBookInput = {
   /** Author */
   author?: InputMaybe<Scalars['String']['input']>;
   /** Book id */
@@ -540,7 +540,7 @@ export type UpdatePrivateVideoInput = {
   /** Is file was upload to S3 */
   isFileUploaded?: InputMaybe<Scalars['Boolean']['input']>;
   /** Language code */
-  languageCode: Scalars['String']['input'];
+  languageCode?: InputMaybe<Scalars['String']['input']>;
   /** Name */
   name?: InputMaybe<Scalars['String']['input']>;
   /** Original content */
@@ -772,21 +772,21 @@ export type BookChapter_UpdateVariables = Exact<{
 export type BookChapter_Update = { __typename?: 'Mutation', book_chapter_update: { __typename?: 'BookChapterOutModel', id: number, name?: string | null, header?: string | null, content?: string | null, note?: string | null, book: { __typename?: 'BookLiteOutModel', id: number, name?: string | null, languageCode: string, author?: string | null, note?: string | null, userId?: number | null } } };
 
 export type Book_CreateVariables = Exact<{
-  input: CreateBookInput;
+  input: CreatePrivateBookInput;
 }>;
 
 
 export type Book_Create = { __typename?: 'Mutation', book_create: { __typename?: 'BookPrivateOutModel', id: number, author?: string | null, name?: string | null, languageCode: string, note?: string | null, userId: number, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
 
 export type Book_DeleteVariables = Exact<{
-  input: DeleteBookInput;
+  input: DeletePrivateBookInput;
 }>;
 
 
 export type Book_Delete = { __typename?: 'Mutation', book_delete: boolean };
 
 export type Book_GetVariables = Exact<{
-  input: GetBookInput;
+  input: GetPrivateBookInput;
 }>;
 
 
@@ -798,7 +798,7 @@ export type Book_GetUserBooksVariables = Exact<{ [key: string]: never; }>;
 export type Book_GetUserBooks = { __typename?: 'Query', book_user_books: Array<{ __typename?: 'BookPrivateOutModel', id: number, author?: string | null, name?: string | null, languageCode: string, note?: string | null, userId: number, freeToUse: boolean, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> }> };
 
 export type Book_UpdateVariables = Exact<{
-  input: UpdateBookInput;
+  input: UpdatePrivateBookInput;
 }>;
 
 
@@ -1415,7 +1415,7 @@ export type BookChapter_UpdateHookResult = ReturnType<typeof useBookChapter_Upda
 export type BookChapter_UpdateMutationResult = Apollo.MutationResult<BookChapter_Update>;
 export type BookChapter_UpdateMutationOptions = Apollo.BaseMutationOptions<BookChapter_Update, BookChapter_UpdateVariables>;
 export const Book_CreateDocument = gql`
-    mutation Book_create($input: CreateBookInput!) {
+    mutation Book_create($input: CreatePrivateBookInput!) {
   book_create(input: $input) {
     id
     author
@@ -1460,7 +1460,7 @@ export type Book_CreateHookResult = ReturnType<typeof useBook_Create>;
 export type Book_CreateMutationResult = Apollo.MutationResult<Book_Create>;
 export type Book_CreateMutationOptions = Apollo.BaseMutationOptions<Book_Create, Book_CreateVariables>;
 export const Book_DeleteDocument = gql`
-    mutation Book_delete($input: DeleteBookInput!) {
+    mutation Book_delete($input: DeletePrivateBookInput!) {
   book_delete(input: $input)
 }
     `;
@@ -1491,7 +1491,7 @@ export type Book_DeleteHookResult = ReturnType<typeof useBook_Delete>;
 export type Book_DeleteMutationResult = Apollo.MutationResult<Book_Delete>;
 export type Book_DeleteMutationOptions = Apollo.BaseMutationOptions<Book_Delete, Book_DeleteVariables>;
 export const Book_GetDocument = gql`
-    query Book_get($input: GetBookInput!) {
+    query Book_get($input: GetPrivateBookInput!) {
   book_get(input: $input) {
     id
     author
@@ -1602,7 +1602,7 @@ export type Book_GetUserBooksLazyQueryHookResult = ReturnType<typeof useBook_Get
 export type Book_GetUserBooksSuspenseQueryHookResult = ReturnType<typeof useBook_GetUserBooksSuspenseQuery>;
 export type Book_GetUserBooksQueryResult = Apollo.QueryResult<Book_GetUserBooks, Book_GetUserBooksVariables>;
 export const Book_UpdateDocument = gql`
-    mutation Book_update($input: UpdateBookInput!) {
+    mutation Book_update($input: UpdatePrivateBookInput!) {
   book_update(input: $input) {
     id
     author

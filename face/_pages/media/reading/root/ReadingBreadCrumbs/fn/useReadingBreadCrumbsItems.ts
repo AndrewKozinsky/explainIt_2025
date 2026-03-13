@@ -1,14 +1,14 @@
-// import React from 'react'
-// import { useParams } from 'next/navigation'
-// import { useReadingStore } from '_pages/books/reading/readingStore'
-// import { pageUrls } from 'сonsts/pageUrls'
+import React from 'react'
+import { useParams } from 'next/navigation'
+import { useReadingStore } from '../../../readingStore'
+import { pageUrls } from 'сonsts/pageUrls'
 
-/*type BreadCrumbItem = {
+type BreadCrumbItem = {
 	name: string
 	path: string
-}*/
+}
 
-/*export function useChapterBreadCrumbsItems(): BreadCrumbItem[] {
+export function useReadingBreadCrumbsItems(): BreadCrumbItem[] {
 	const params = useParams() as { bookId: string; chapterId: string }
 	const urlBookId = params.bookId
 
@@ -19,4 +19,4 @@
 
 		return [pageUrls.books, { name: bookName ?? bookUrl.name, path: bookUrl.path }]
 	}, [urlBookId, bookName])
-}*/
+}

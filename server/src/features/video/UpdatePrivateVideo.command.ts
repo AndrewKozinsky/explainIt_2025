@@ -19,7 +19,7 @@ import { VideoPrivateLiteOutModel } from 'models/videoPrivate/videoPrivateLiteOu
 export type UpdatePrivateVideoInput = {
 	id: number
 	name?: null | string
-	languageCode: Language
+	languageCode?: null | Language
 	originalContent?: null | string
 	fileName?: null | string
 	fileMimeType?: null | string

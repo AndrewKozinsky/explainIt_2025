@@ -6,7 +6,7 @@ import { SummaryOfTheMedia } from '_pages/media/commonComponents/SummaryOfTheMed
 import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
 import './PublicBookContentInfo.scss'
 
-export default function PublicBookInfo() {
+export default function PublicBookContentInfo() {
 	const publicBook = useBookStore((s) => s.publicBook)
 
 	if (!publicBook.data) {

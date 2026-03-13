@@ -89,7 +89,7 @@ describe.skip('Update book', () => {
 				note: null,
 			},
 		})
-		const createdBook = createdBookResp.data[RouteNames.BOOK.CREATE]
+		const createdBook = createdBookResp.data[RouteNames.BOOK_PRIVATE.CREATE]
 
 		// Create a second user who will try to update this book
 		const { loginData: secondUser, sessionToken: secondUserSeccionData } =
@@ -135,7 +135,7 @@ describe.skip('Update book', () => {
 				note: null,
 			},
 		})
-		const createdBook = createdBookResp.data[RouteNames.BOOK.CREATE]
+		const createdBook = createdBookResp.data[RouteNames.BOOK_PRIVATE.CREATE]
 
 		// Try to update this book with no data
 		const updatedBookResp = await bookUtils.updateBook({
@@ -147,7 +147,7 @@ describe.skip('Update book', () => {
 		})
 
 		// Check that the book was not changed
-		bookUtils.checkBookOutResp(updatedBookResp.data[RouteNames.BOOK.UPDATE], {
+		bookUtils.checkBookOutResp(updatedBookResp.data[RouteNames.BOOK_PRIVATE.UPDATE], {
 			id: createdBook.id,
 			author: 'Gerald Durrell',
 			name: 'My Family and Other Animals',
@@ -168,7 +168,7 @@ describe.skip('Update book', () => {
 		})
 
 		// Check that only these fields were changed
-		bookUtils.checkBookOutResp(updatedBookResp_2.data[RouteNames.BOOK.UPDATE], {
+		bookUtils.checkBookOutResp(updatedBookResp_2.data[RouteNames.BOOK_PRIVATE.UPDATE], {
 			id: createdBook.id,
 			author: 'Jack London',
 			name: 'My Family and Other Animals',

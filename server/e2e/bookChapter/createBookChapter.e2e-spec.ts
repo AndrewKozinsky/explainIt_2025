@@ -96,7 +96,7 @@ describe.skip('Create book chapter', () => {
 			},
 		})
 
-		const createdBook = createdBookResp.data[RouteNames.BOOK.CREATE]
+		const createdBook = createdBookResp.data[RouteNames.BOOK_PRIVATE.CREATE]
 
 		// Create a second user who will try to create a chapter for this book
 		const { loginData: secondUser, sessionToken: secondUserSeccionData } =
@@ -143,7 +143,7 @@ describe.skip('Create book chapter', () => {
 			},
 		})
 
-		const book = createdBookResp.data[RouteNames.BOOK.CREATE]
+		const book = createdBookResp.data[RouteNames.BOOK_PRIVATE.CREATE]
 
 		// Create a chapter for this book
 		const createdFirstBookChapterResp = await bookChapterUtils.createBookChapter({
@@ -199,7 +199,7 @@ describe.skip('Create book chapter', () => {
 			},
 		})
 
-		const book = createdBookResp.data[RouteNames.BOOK.CREATE]
+		const book = createdBookResp.data[RouteNames.BOOK_PRIVATE.CREATE]
 
 		// Create a chapter for this book
 		const createdFirstBookChapterResp = await bookChapterUtils.createBookChapter({

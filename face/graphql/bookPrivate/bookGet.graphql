@@ -1,4 +1,4 @@
-query Book_get($input: GetBookInput!) {
+query Book_get($input: GetPrivateBookInput!) {
 	book_get(input: $input) {
 		id
 		author

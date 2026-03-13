@@ -1,8 +1,10 @@
-// import { VideoPrivateOutModel, VideoPublicOutModel } from '@/graphql'
+import { VideoPrivateOutModel, VideoPublicOutModel } from '@/graphql'
+import { getSentenceStructure } from '_pages/media/commonComponents/functions/getSentenceStructure'
+import { PopulatedSubtitlesStructure } from '_pages/media/watching/common/populatedSubtitlesStructure'
 // import { getSentenceStructure } from '_pages/bookAndVideoCommon/functions/getSentenceStructure'
 // import { PopulatedSubtitlesStructure } from '_pages/video/watching/common/populatedSubtitlesStructure'
 
-/*export function createPopulatedSubtitles(
+export function createPopulatedSubtitles(
 	videoData: VideoPrivateOutModel | VideoPublicOutModel,
 ): PopulatedSubtitlesStructure.Structure {
 	if (
@@ -101,9 +103,9 @@
 		sentences,
 		playingSubtitleOrSpeechlessBarId: 0,
 	}
-}*/
+}
 
-/*function msToTimeCode(ms: number): string {
+function msToTimeCode(ms: number): string {
 	const total = Math.max(0, Math.floor(ms))
 	const hours = Math.floor(total / 3_600_000)
 	const minutes = Math.floor((total % 3_600_000) / 60_000)
@@ -116,8 +118,8 @@
 	const mmm = String(millis).padStart(3, '0')
 
 	return `${hh}:${mm}:${ss},${mmm}`
-}*/
+}
 
-/*function countWords(text: string): number {
+function countWords(text: string): number {
 	return getSentenceStructure(text).filter((p) => p.isWord).length
-}*/
+}

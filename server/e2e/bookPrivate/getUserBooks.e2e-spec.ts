@@ -84,7 +84,7 @@ describe.skip('Get user books', () => {
 
 		// Get user's books
 		let userBooksResp = await bookUtils.getUserBooks({ app, sessionToken })
-		let userBooks = userBooksResp.data[RouteNames.BOOK.GET_USER_BOOKS]
+		let userBooks = userBooksResp.data[RouteNames.BOOK_PRIVATE.GET_USER_BOOKS]
 
 		// Check the returning object
 		expect(userBooks.length).toBe(1)
@@ -103,7 +103,7 @@ describe.skip('Get user books', () => {
 
 		// Get user's books
 		userBooksResp = await bookUtils.getUserBooks({ app, sessionToken })
-		userBooks = userBooksResp.data[RouteNames.BOOK.GET_USER_BOOKS]
+		userBooks = userBooksResp.data[RouteNames.BOOK_PRIVATE.GET_USER_BOOKS]
 
 		// Check the returning object
 		expect(userBooks.length).toBe(2)

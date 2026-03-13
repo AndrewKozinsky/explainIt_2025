@@ -103,6 +103,8 @@ function useSetVideoToStore() {
 
 function useClearDataOnUnmount() {
 	useEffect(function () {
-		useVideoStore.getState().clearStore()
+		return () => {
+			useVideoStore.getState().clearStore()
+		}
 	}, [])
 }

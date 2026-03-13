@@ -3,7 +3,7 @@ import { bdConfig } from 'db/dbConfig/dbConfig'
 import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
 
 @InputType()
-export class CreateBookInput {
+export class CreatePrivateBookInput {
 	@Field(() => String, { description: 'Author', nullable: true })
 	@DtoFieldDecorators('author', bdConfig.BookPrivate.dbFields.author)
 	author: null | string

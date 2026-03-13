@@ -90,7 +90,7 @@ describe.skip('Delete book chapter', () => {
 				note: null,
 			},
 		})
-		const createdBook = createdBookResp.data[RouteNames.BOOK.CREATE]
+		const createdBook = createdBookResp.data[RouteNames.BOOK_PRIVATE.CREATE]
 
 		// Create a book chapter for this book
 		const createdBookChapterResp = await bookChapterUtils.createBookChapter({
@@ -150,7 +150,7 @@ describe.skip('Delete book chapter', () => {
 				note: null,
 			},
 		})
-		const createdBook = createdBookResp.data[RouteNames.BOOK.CREATE]
+		const createdBook = createdBookResp.data[RouteNames.BOOK_PRIVATE.CREATE]
 
 		// Create a book chapter for this book
 		const createdBookChapterResp = await bookChapterUtils.createBookChapter({
@@ -210,8 +210,8 @@ describe.skip('Delete book chapter', () => {
 			},
 		})
 
-		const firstBook = firstBookResp.data[RouteNames.BOOK.CREATE]
-		const secondBook = secondBookResp.data[RouteNames.BOOK.CREATE]
+		const firstBook = firstBookResp.data[RouteNames.BOOK_PRIVATE.CREATE]
+		const secondBook = secondBookResp.data[RouteNames.BOOK_PRIVATE.CREATE]
 
 		// Add 3 chapters to the first book and 4 to the second book
 		const firstBookChaptersIds: number[] = []

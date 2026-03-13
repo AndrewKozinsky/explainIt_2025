@@ -4,24 +4,24 @@
 // import { usePlayerControl } from './fn/playerControl'
 // import { createVideoProgressSaver, loadVideoProgressSeconds } from './fn/videoProgressStorage'
 // import VideoProgress from './VideoProgress'
-// import './VideoRoot.scss'
+import '_pages/media/watching/Video/Video.scss'
 
-/*function VideoRoot() {
-	const video = useWatchingStore((s) => s.video?.data)
-	const fileUrl = video!.fileUrl as string
-	const videoId = video!.id
+function Video() {
+	// const video = useWatchingStore((s) => s.video?.data)
+	// const fileUrl = video!.fileUrl as string
+	// const videoId = video!.id
 
-	const saveProgress = createVideoProgressSaver(videoId)
+	// const saveProgress = createVideoProgressSaver(videoId)
 
-	const playerWrapperRef = useRef<HTMLDivElement>(null)
-	const playerRef = useRef<HTMLVideoElement>(null)
+	// const playerWrapperRef = useRef<HTMLDivElement>(null)
+	// const playerRef = useRef<HTMLVideoElement>(null)
 
-	const { setPlayerState } = useWatchingStore()
+	// const { setPlayerState } = useWatchingStore()
 
-	usePlayerControl(playerWrapperRef)
-	usePlayerController(playerRef)
+	// usePlayerControl(playerWrapperRef)
+	// usePlayerController(playerRef)
 
-	return (
+	/*return (
 		<div className='video-root' ref={playerWrapperRef}>
 			<video
 				src={fileUrl}
@@ -54,7 +54,8 @@
 			/>
 			<VideoProgress />
 		</div>
-	)
-}*/
+	)*/
+	return <p>VideoRoot</p>
+}
 
-// export default VideoRoot
+export default Video

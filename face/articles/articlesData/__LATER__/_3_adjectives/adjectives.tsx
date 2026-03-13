@@ -2022,12 +2022,10 @@
 									{
 										type: 'text',
 										color: 'gray',
-
 										text: 'Что делать?',
 									},
 									{
 										type: 'text',
-
 										text: ' Смотреть.',
 									},
 								],
@@ -2040,12 +2038,10 @@
 									{
 										type: 'text',
 										color: 'gray',
-
 										text: 'Что делать?',
 									},
 									{
 										type: 'text',
-
 										text: ' Отдыхать.',
 									},
 								],
@@ -2053,7 +2049,6 @@
 							{
 								type: 'paragraph',
 								offset: true,
-
 								children: [
 									{
 										type: 'text',

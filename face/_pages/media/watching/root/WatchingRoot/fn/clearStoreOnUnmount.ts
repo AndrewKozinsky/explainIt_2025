@@ -1,7 +1,7 @@
-// import { useEffect } from 'react'
-// import { useWatchingStore } from '../../../watchingStore'
+import { useEffect } from 'react'
+import { useWatchingStore } from '../../../watchingStore'
 
-/*export function useClearWatchingStoreOnUnmount() {
+export function useClearWatchingStoreOnUnmount() {
 	const clearStoreData = useWatchingStore((s) => s.clearStoreData)
 
 	useEffect(() => {
@@ -9,4 +9,4 @@
 			clearStoreData()
 		}
 	}, [clearStoreData])
-}*/
+}

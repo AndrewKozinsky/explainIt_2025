@@ -3,7 +3,7 @@
 import MediaPageContentWrapper from '_pages/media/commonComponents/MediaPageContentWrapper/MediaPageContentWrapper'
 import BooksBreadCrumbs from '../BooksBreadCrumbs/BooksBreadCrumbs'
 import PrivateBookInfo from '../PrivateBookInfo/PrivateBookInfo'
-import PublicBookInfo from '../PublicBookContentInfo/PublicBookContentInfo'
+import PublicBookInfo from '../PublicBookInfo/PublicBookInfo'
 import { useGetHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
 import { usePopulateBookStore } from './fn/populateBooksStore'
 
