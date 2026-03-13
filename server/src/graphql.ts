@@ -121,6 +121,7 @@ export interface CreatePrivateVideoInput {
 export interface UpdatePrivateVideoInput {
     id: number;
     name?: Nullable<string>;
+    languageCode: string;
     originalContent?: Nullable<string>;
     fileName?: Nullable<string>;
     fileMimeType?: Nullable<string>;

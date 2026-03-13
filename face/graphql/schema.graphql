@@ -440,6 +440,9 @@ input UpdatePrivateVideoInput {
   """Is file was upload to S3"""
   isFileUploaded: Boolean
 
+  """Language code"""
+  languageCode: String!
+
   """Name"""
   name: String
 

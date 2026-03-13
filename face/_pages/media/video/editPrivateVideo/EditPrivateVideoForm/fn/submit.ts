@@ -24,6 +24,7 @@ export function useGetOnUpdateVideoFormSubmit(
 					variables: {
 						input: {
 							id: video.id,
+							languageCode: formData.languageCode,
 							name: formData.name,
 							originalContent: formData.content,
 						},

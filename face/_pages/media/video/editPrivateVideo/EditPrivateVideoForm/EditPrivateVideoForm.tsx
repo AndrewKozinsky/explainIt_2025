@@ -9,7 +9,8 @@ import FormError from '@/ui/formRelated/FormError/FormError'
 import FormFieldsWrapper from '@/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
 import TextInput from '@/ui/formRelated/TextInput/TextInput'
 import { FormStatus } from '@/utils/forms'
-import MediaFormSurface from '_pages/media/commonComponents/BookFormSurface/MediaFormSurface'
+import LanguagesRadioGroup from '_pages/media/commonComponents/LanguagesRadioGroup/LanguagesRadioGroup'
+import MediaFormSurface from '_pages/media/commonComponents/MediaFormSurface/MediaFormSurface'
 import DeleteVideoButton from '../DeleteVideoButton/DeleteVideoButton'
 import FileNameAndDeleteFileButton from '../FileNameAndDeleteFileButton/FileNameAndDeleteFileButton'
 import VideoDropzone from '../VideoDropzone/VideoDropzone'
@@ -27,6 +28,7 @@ export default function EditPrivateVideoForm() {
 		register,
 		handleSubmit,
 		reset,
+		watch,
 		formState: { errors, isDirty },
 		setError,
 	} = useForm<ChangeVideoFormData>({
@@ -36,6 +38,8 @@ export default function EditPrivateVideoForm() {
 	useSetFieldValues(reset)
 
 	const onSubmit = useGetOnUpdateVideoFormSubmit(setError, setFormStatus, setFormError)
+	const currentLanguageCode = watch('languageCode' as never) as unknown as string | null | undefined
+	const isFormDisabled = ['success', 'submitting'].includes(formStatus)
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>
@@ -54,12 +58,17 @@ export default function EditPrivateVideoForm() {
 				]}
 			>
 				<FormFieldsWrapper gap='big'>
+					<LanguagesRadioGroup
+						value={currentLanguageCode ?? undefined}
+						disabled={isFormDisabled}
+						inputProps={register('languageCode' as never) as never}
+					/>
 					<TextInput
 						label='Название'
 						error={errors.name?.message}
 						inputProps={{
 							...register('name'),
-							disabled: ['success', 'submitting'].includes(formStatus),
+							disabled: isFormDisabled,
 							placeholder: 'Adventures in Wonderland',
 						}}
 					/>
@@ -70,7 +79,7 @@ export default function EditPrivateVideoForm() {
 						error={errors.content?.message}
 						textareaProps={{
 							...register('content'),
-							disabled: ['success', 'submitting'].includes(formStatus),
+							disabled: isFormDisabled,
 							placeholder: 'It tells the story of Alice, a young girl who falls down a rabbit hole…',
 							rows: 10,
 						}}

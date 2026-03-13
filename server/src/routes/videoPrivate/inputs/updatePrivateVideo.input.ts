@@ -1,4 +1,5 @@
 import { Field, InputType, Int } from '@nestjs/graphql'
+import { Language } from 'utils/languages'
 import { bdConfig } from 'db/dbConfig/dbConfig'
 import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
 
@@ -11,6 +12,10 @@ export class UpdatePrivateVideoInput {
 	@Field(() => String, { description: 'Name', nullable: true })
 	@DtoFieldDecorators('name', bdConfig.VideoPrivate.dbFields.name)
 	name?: null | string
+
+	@Field(() => String, { description: 'Language code' })
+	@DtoFieldDecorators('languageCode', bdConfig.VideoPrivate.dbFields.language_code)
+	languageCode: Language
 
 	@Field(() => String, { description: 'Original content', nullable: true })
 	@DtoFieldDecorators('originalContent', bdConfig.VideoPrivate.dbFields.original_content)

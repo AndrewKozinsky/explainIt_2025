@@ -1,7 +1,7 @@
 'use client'
 
 import MediaPageContentWrapper from '_pages/media/commonComponents/MediaPageContentWrapper/MediaPageContentWrapper'
-import EditPrivateVideoForm from '../editPrivateVideo/EditPrivateVideoForm/EditPrivateBookForm'
+import EditPrivateVideoForm from '../editPrivateVideo/EditPrivateVideoForm/EditPrivateVideoForm'
 import PublicVideoContent from '../PublicVideoContent/PublicVideoContent'
 import VideoBreadCrumbs from '../VideoBreadCrumbs/VideoBreadCrumbs'
 import { useGetHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'

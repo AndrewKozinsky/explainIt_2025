@@ -5,6 +5,7 @@ import { SubtitleRepository } from 'repo/subtitle.repository'
 import { SubtitleSentenceInitRepository } from 'repo/subtitleSentenceInit.repository'
 import { VideoPrivateQueryRepository } from 'repo/video/videoPrivate.queryRepository'
 import { VideoPrivateRepository } from 'repo/video/videoPrivate.repository'
+import { Language } from 'utils/languages'
 import { generateSentencesAndSaveToDB } from 'features/common/generateSentencesAndSaveToDB'
 import { VideoBase } from 'features/video/VideoBase'
 import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
@@ -18,6 +19,7 @@ import { VideoPrivateLiteOutModel } from 'models/videoPrivate/videoPrivateLiteOu
 export type UpdatePrivateVideoInput = {
 	id: number
 	name?: null | string
+	languageCode: Language
 	originalContent?: null | string
 	fileName?: null | string
 	fileMimeType?: null | string
@@ -90,6 +92,7 @@ export class UpdatePrivateVideoHandler extends VideoBase implements ICommandHand
 
 		const updatedVideo = await this.videoRepository.updateVideoById(updateVideoInput.id, {
 			name: updateVideoInput.name,
+			languageCode: updateVideoInput.languageCode,
 			originalContent: preparedContentResult.originalContentForVideoUpdate,
 			processedContent: preparedContentResult.processedContentForVideoUpdate,
 			contentType: preparedContentResult.contentTypeForVideoUpdate,

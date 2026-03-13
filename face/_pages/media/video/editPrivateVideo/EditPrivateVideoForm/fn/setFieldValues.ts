@@ -8,6 +8,7 @@ export function useSetFieldValues(reset: (data: any) => void) {
 		if (!video) return
 
 		reset({
+			languageCode: video.languageCode ?? '',
 			name: video.name ?? '',
 			content: video.originalContent ?? '',
 		})

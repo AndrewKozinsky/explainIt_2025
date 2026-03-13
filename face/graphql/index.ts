@@ -539,6 +539,8 @@ export type UpdatePrivateVideoInput = {
   id: Scalars['Int']['input'];
   /** Is file was upload to S3 */
   isFileUploaded?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Language code */
+  languageCode: Scalars['String']['input'];
   /** Name */
   name?: InputMaybe<Scalars['String']['input']>;
   /** Original content */

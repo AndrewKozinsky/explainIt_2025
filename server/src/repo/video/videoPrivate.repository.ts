@@ -49,6 +49,7 @@ export class VideoPrivateRepository {
 			s3ProviderName?: null | S3ProviderName
 			isFileUploaded?: boolean
 			name?: null | string
+			languageCode: Language
 			originalContent?: null | string
 			processedContent?: null | string
 			contentType?: 'text' | 'subtitles'
@@ -63,6 +64,7 @@ export class VideoPrivateRepository {
 				s3_provider_name: dto.s3ProviderName,
 				is_file_uploaded: dto.isFileUploaded,
 				name: dto.name,
+				language_code: dto.languageCode,
 				original_content: dto.originalContent,
 				processed_content: dto.processedContent,
 				content_type: dto.contentType,
