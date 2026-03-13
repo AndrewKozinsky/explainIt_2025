@@ -1,107 +1,183 @@
 export const chapter_5 = {
 	name: 'Chapter V',
 	header: 'The Rescue of the Tin Woodman',
-	text: `When Dorothy awoke the sun was shining through the trees and Toto had long been out chasing birds around him and squirrels. She sat up and looked around her. There was the Scarecrow, still standing patiently in his corner, waiting for her.
+	text: `When Dorothy woke up, the sun was shining through the trees. Toto had already been up for a long time, running around and chasing birds and squirrels. She sat up and looked around. The Scarecrow was still standing patiently in his corner, waiting for her.
 
-“We must go and search for water,” she said to him.
+“We need to find some water,” she said to him.
 
 “Why do you want water?” he asked.
 
-“To wash my face clean after the dust of the road, and to drink, so the dry bread will not stick in my throat.”
+“To wash the dust of the road from my face and to drink, so the dry bread won’t stick in my throat.”
 
-“It must be inconvenient to be made of flesh,” said the Scarecrow thoughtfully, “for you must sleep, and eat and drink. However, you have brains, and it is worth a lot of bother to be able to think properly.”
+“It must be inconvenient to be made of flesh,” the Scarecrow said thoughtfully, “because you have to sleep and eat and drink. Still, you have brains, and that is worth a great deal of trouble.”
 
-They left the cottage and walked through the trees until they found a little spring of clear water, where Dorothy drank and bathed and ate her breakfast. She saw there was not much bread left in the basket, and the girl was thankful the Scarecrow did not have to eat anything, for there was scarcely enough for herself and Toto for the day.
+They left the cottage and walked through the trees until they found a small spring of clear water. Dorothy drank, washed her face, and ate her breakfast.
 
-When she had finished her meal, and was about to go back to the road of yellow brick, she was startled to hear a deep groan near by.
+She noticed there was not much bread left in the basket, and she was grateful that the Scarecrow did not need to eat, because there was hardly enough food left for herself and Toto for the day.
 
-“What was that?” she asked timidly.
+When she had finished eating and was about to return to the yellow brick road, she suddenly heard a deep groan nearby.
 
-“I cannot imagine,” replied the Scarecrow; “but we can go and see.”
+“What was that?” she asked nervously.
 
-Just then another groan reached their ears, and the sound seemed to come from behind them. They turned and walked through the forest a few steps, when Dorothy discovered something shining in a ray of sunshine that fell between the trees. She ran to the place and then stopped short, with a little cry of surprise.
+“I can’t imagine,” said the Scarecrow. “But we can go and find out.”
 
-One of the big trees had been partly chopped through, and standing beside it, with an uplifted axe in his hands, was a man made entirely of tin. His head and arms and legs were jointed upon his body, but he stood perfectly motionless, as if he could not stir at all.
+Just then they heard another groan, and it seemed to come from behind them. They turned and walked a few steps into the forest.
 
-Dorothy looked at him in amazement, and so did the Scarecrow, while Toto barked sharply and made a snap at the tin legs, which hurt his teeth.
+Soon Dorothy noticed something shining in a ray of sunlight that fell between the trees. She ran toward it but stopped suddenly with a small cry of surprise.
 
-“Did you groan?” asked Dorothy.
+One of the large trees had been partly chopped down, and standing beside it, with an axe raised in his hands, was a man made entirely of tin.
 
-“Yes,” answered the tin man, “I did. I’ve been groaning for more than a year, and no one has ever heard me before or come to help me.”
+His head, arms, and legs were attached to his body with joints, but he stood perfectly still, as if he could not move at all.
 
-“What can I do for you?” she inquired softly, for she was moved by the sad voice in which the man spoke.
+Dorothy looked at him in amazement, and the Scarecrow did the same. Toto barked loudly and snapped at the tin legs, which only hurt his teeth.
 
-“Get an oil-can and oil my joints,” he answered. “They are rusted so badly that I cannot move them at all; if I am well oiled I shall soon be all right again. You will find an oil-can on a shelf in my cottage.”
+“Did you groan?” Dorothy asked.
 
-Dorothy at once ran back to the cottage and found the oil-can, and then she returned and asked anxiously, “Where are your joints?”
+“Yes,” said the Tin Man. “I did. I’ve been groaning for more than a year, but no one ever heard me or came to help.”
 
-“Oil my neck, first,” replied the Tin Woodman. So she oiled it, and as it was quite badly rusted the Scarecrow took hold of the tin head and moved it gently from side to side until it worked freely, and then the man could turn it himself.
+“What can I do for you?” she asked gently, feeling sorry for him when she heard the sadness in his voice.
 
-“Now oil the joints in my arms,” he said. And Dorothy oiled them and the Scarecrow bent them carefully until they were quite free from rust and as good as new.
+“Bring me an oil can and oil my joints,” he said. “They have rusted so badly that I cannot move at all. If I am properly oiled, I will soon be able to move again. You will find an oil can on a shelf in my cottage.”
 
-The Tin Woodman gave a sigh of satisfaction and lowered his axe, which he leaned against the tree.
+Dorothy ran back to the cottage at once and found the oil can. Then she hurried back and asked anxiously, “Where should I start?”
 
-“This is a great comfort,” he said. “I have been holding that axe in the air ever since I rusted, and I’m glad to be able to put it down at last. Now, if you will oil the joints of my legs, I shall be all right once more.”
+“Oil my neck first,” said the Tin Woodman.
 
-So they oiled his legs until he could move them freely; and he thanked them again and again for his release, for he seemed a very polite creature, and very grateful.
+She oiled it, and because it was badly rusted, the Scarecrow gently moved the tin head from side to side until it loosened. Soon the Tin Man could turn his head by himself.
 
-“I might have stood there always if you had not come along,” he said; “so you have certainly saved my life. How did you happen to be here?”
+“Now oil the joints in my arms,” he said.
 
-“We are on our way to the Emerald City to see the Great Oz,” she answered, “and we stopped at your cottage to pass the night.”
+Dorothy oiled them, and the Scarecrow carefully bent the arms until they moved freely again.
 
-“Why do you wish to see Oz?” he asked.
+The Tin Woodman gave a sigh of relief and lowered his axe, leaning it against the tree.
 
-“I want him to send me back to Kansas, and the Scarecrow wants him to put a few brains into his head,” she replied.
+“This is a great comfort,” he said. “I have been holding that axe up ever since I rusted, and I am glad to finally put it down. Now if you will oil the joints in my legs, I shall be completely free again.”
 
-The Tin Woodman appeared to think deeply for a moment. Then he said:
+So they oiled his legs until he could move them easily. He thanked them again and again for rescuing him, because he seemed very polite and deeply grateful.
 
-“Do you suppose Oz could give me a heart?”
+“I might have stood there forever if you had not come along,” he said. “So you have certainly saved my life. How did you happen to come here?”
 
-“Why, I guess so,” Dorothy answered. “It would be as easy as to give the Scarecrow brains.”
+“We are on our way to the Emerald City to see the Great Oz,” Dorothy answered. “We stopped at your cottage to spend the night.”
 
-“True,” the Tin Woodman returned. “So, if you will allow me to join your party, I will also go to the Emerald City and ask Oz to help me.”
+“Why do you want to see Oz?” he asked.
 
-“Come along,” said the Scarecrow heartily, and Dorothy added that she would be pleased to have his company. So the Tin Woodman shouldered his axe and they all passed through the forest until they came to the road that was paved with yellow brick.
+“I want him to send me back to Kansas, and the Scarecrow wants him to put some brains into his head.”
 
-The Tin Woodman had asked Dorothy to put the oil-can in her basket. “For,” he said, “if I should get caught in the rain, and rust again, I would need the oil-can badly.”
+The Tin Woodman thought quietly for a moment.
 
-It was a bit of good luck to have their new comrade join the party, for soon after they had begun their journey again they came to a place where the trees and branches grew so thick over the road that the travelers could not pass. But the Tin Woodman set to work with his axe and chopped so well that soon he cleared a passage for the entire party.
+“Do you think Oz could give me a heart?” he asked.
 
-Dorothy was thinking so earnestly as they walked along that she did not notice when the Scarecrow stumbled into a hole and rolled over to the side of the road. Indeed he was obliged to call to her to help him up again.
+“I suppose so,” said Dorothy. “It should be just as easy as giving the Scarecrow brains.”
+
+“That seems reasonable,” said the Tin Woodman. “If you will allow me to join you, I will go to the Emerald City and ask Oz to help me too.”
+
+“Come along!” said the Scarecrow warmly, and Dorothy said she would be happy to have him travel with them.
+
+So the Tin Woodman picked up his axe, and together they walked through the forest until they reached the yellow brick road again.
+
+The Tin Woodman asked Dorothy to place the oil can in her basket.
+
+“If I get caught in the rain again and begin to rust,” he said, “I will badly need that oil can.”
+
+It was lucky that the Tin Woodman had joined them. Soon after they continued their journey, they came to a place where the branches and trees grew so thick over the road that they could not pass through.
+
+But the Tin Woodman began chopping with his axe and worked so well that he soon cleared a path for all of them.
+
+Dorothy was thinking so deeply while they walked that she did not notice when the Scarecrow fell into a hole and rolled to the side of the road. He had to call out before she realized what had happened.
 
 “Why didn’t you walk around the hole?” asked the Tin Woodman.
 
-“I don’t know enough,” replied the Scarecrow cheerfully. “My head is stuffed with straw, you know, and that is why I am going to Oz to ask him for some brains.”
+“I don’t know enough,” said the Scarecrow cheerfully. “My head is filled with straw, you know. That’s why I’m going to Oz to ask for brains.”
 
-“Oh, I see,” said the Tin Woodman. “But, after all, brains are not the best things in the world.”
+“Oh, I see,” said the Tin Woodman. “But after all, brains are not the most important thing in the world.”
 
-“Have you any?” inquired the Scarecrow.
+“Do you have any?” asked the Scarecrow.
 
-“No, my head is quite empty,” answered the Woodman. “But once I had brains, and a heart also; so, having tried them both, I should much rather have a heart.”
+“No, my head is quite empty,” the Tin Woodman replied. “But I once had both brains and a heart. And after experiencing both, I would much rather have a heart.”
 
-“And why is that?” asked the Scarecrow.
+“Why is that?” asked the Scarecrow.
 
-“I will tell you my story, and then you will know.”
+“I will tell you my story,” said the Tin Woodman. “Then you will understand.”
 
-So, while they were walking through the forest, the Tin Woodman told the following story:
+And as they walked through the forest, the Tin Woodman told them his story.
 
-“I was born the son of a woodman who chopped down trees in the forest and sold the wood for a living. When I grew up, I too became a wood-chopper, and after my father died I took care of my old mother as long as she lived. Then I made up my mind that instead of living alone I would marry, so that I might not become lonely.
+“I was born the son of a woodcutter who made his living by chopping trees and selling the wood. When I grew up, I also became a woodcutter. After my father died, I took care of my old mother as long as she lived.
 
-“There was one of the Munchkin girls who was so beautiful that I soon grew to love her with all my heart. She, on her part, promised to marry me as soon as I could earn enough money to build a better house for her; so I set to work harder than ever. But the girl lived with an old woman who did not want her to marry anyone, for she was so lazy she wished the girl to remain with her and do the cooking and the housework. So the old woman went to the Wicked Witch of the East, and promised her two sheep and a cow if she would prevent the marriage. Thereupon the Wicked Witch enchanted my axe, and when I was chopping away at my best one day, for I was anxious to get the new house and my wife as soon as possible, the axe slipped all at once and cut off my left leg.
+When she passed away, I decided that instead of living alone I would get married, so that I would not feel lonely.
 
-“This at first seemed a great misfortune, for I knew a one-legged man could not do very well as a wood-chopper. So I went to a tinsmith and had him make me a new leg out of tin. The leg worked very well, once I was used to it. But my action angered the Wicked Witch of the East, for she had promised the old woman I should not marry the pretty Munchkin girl. When I began chopping again, my axe slipped and cut off my right leg. Again I went to the tinsmith, and again he made me a leg out of tin. After this the enchanted axe cut off my arms, one after the other; but, nothing daunted, I had them replaced with tin ones. The Wicked Witch then made the axe slip and cut off my head, and at first I thought that was the end of me. But the tinsmith happened to come along, and he made me a new head out of tin.
+There was a Munchkin girl who was so beautiful that I soon fell deeply in love with her. She promised to marry me as soon as I earned enough money to build a better house for her.
 
-“I thought I had beaten the Wicked Witch then, and I worked harder than ever; but I little knew how cruel my enemy could be. She thought of a new way to kill my love for the beautiful Munchkin maiden, and made my axe slip again, so that it cut right through my body, splitting me into two halves. Once more the tinsmith came to my help and made me a body of tin, fastening my tin arms and legs and head to it, by means of joints, so that I could move around as well as ever. But, alas! I had now no heart, so that I lost all my love for the Munchkin girl, and did not care whether I married her or not. I suppose she is still living with the old woman, waiting for me to come after her.
+So I worked harder than ever.
 
-“My body shone so brightly in the sun that I felt very proud of it and it did not matter now if my axe slipped, for it could not cut me. There was only one danger—that my joints would rust; but I kept an oil-can in my cottage and took care to oil myself whenever I needed it. However, there came a day when I forgot to do this, and, being caught in a rainstorm, before I thought of the danger my joints had rusted, and I was left to stand in the woods until you came to help me. It was a terrible thing to undergo, but during the year I stood there I had time to think that the greatest loss I had known was the loss of my heart. While I was in love I was the happiest man on earth; but no one can love who has not a heart, and so I am resolved to ask Oz to give me one. If he does, I will go back to the Munchkin maiden and marry her.”
+But the girl lived with an old woman who did not want her to marry anyone. The woman was lazy and wanted the girl to stay and do all the cooking and housework.
 
-Both Dorothy and the Scarecrow had been greatly interested in the story of the Tin Woodman, and now they knew why he was so anxious to get a new heart.
+So the old woman went to the Wicked Witch of the East and promised her two sheep and a cow if she would prevent the marriage.
 
-“All the same,” said the Scarecrow, “I shall ask for brains instead of a heart; for a fool would not know what to do with a heart if he had one.”
+The Wicked Witch enchanted my axe.
 
-“I shall take the heart,” returned the Tin Woodman; “for brains do not make one happy, and happiness is the best thing in the world.”
+One day, when I was working especially hard because I wanted to finish the new house quickly, the axe suddenly slipped and cut off my left leg.
 
-Dorothy did not say anything, for she was puzzled to know which of her two friends was right, and she decided if she could only get back to Kansas and Aunt Em, it did not matter so much whether the Woodman had no brains and the Scarecrow no heart, or each got what he wanted.
+At first I thought this was a terrible misfortune, because a one-legged man cannot work well as a woodcutter. So I went to a tinsmith and had him make me a new leg out of tin.
 
-What worried her most was that the bread was nearly gone, and another meal for herself and Toto would empty the basket. To be sure, neither the Woodman nor the Scarecrow ever ate anything, but she was not made of tin nor straw, and could not live unless she was fed.`,
+The leg worked very well once I got used to it.
+
+But this made the Wicked Witch angry, because she had promised the old woman I would never marry the girl.
+
+So when I began chopping again, the axe slipped and cut off my right leg.
+
+Again I went to the tinsmith, and he made another tin leg for me.
+
+After that the enchanted axe cut off my arms, one after the other. But I was not discouraged, and I had them replaced with tin arms.
+
+Then the Witch made the axe slip again and cut off my head.
+
+At first I thought that was the end of me. But the tinsmith happened to come by and made me a new head out of tin.
+
+I believed then that I had defeated the Wicked Witch, so I worked harder than ever.
+
+But I did not realize how cruel she could be.
+
+She thought of a new way to destroy my love for the beautiful Munchkin girl. She made my axe slip once more, and it cut straight through my body, splitting me in two.
+
+Once again the tinsmith helped me. He made a tin body for me and attached my arms, legs, and head to it with joints so that I could move as before.
+
+But unfortunately I now had no heart.
+
+Because of that I lost all my love for the Munchkin girl and no longer cared whether I married her or not.
+
+I suppose she is still living with the old woman, waiting for me to return.
+
+My tin body shone brightly in the sun, and I felt very proud of it. It did not matter if my axe slipped anymore, because it could not cut me.
+
+There was only one danger: my joints could rust.
+
+So I kept an oil can in my cottage and always remembered to oil myself.
+
+But one day I forgot. I was caught in a rainstorm, and before I realized the danger my joints rusted completely. I had to stand in the forest until you came and helped me.
+
+It was a terrible experience.
+
+But during the year I stood there, I had plenty of time to think.
+
+And I realized that the greatest loss I had ever suffered was losing my heart.
+
+When I was in love, I was the happiest man in the world.
+
+But no one can love without a heart.
+
+So I have decided to ask Oz to give me one. If he does, I will return to the Munchkin girl and marry her.”
+
+Dorothy and the Scarecrow had listened to the story with great interest, and now they understood why the Tin Woodman wanted a heart so badly.
+
+“Still,” said the Scarecrow, “I would rather have brains than a heart. A fool would not know what to do with a heart.”
+
+“I will take the heart,” replied the Tin Woodman. “Brains do not make a person happy, and happiness is the best thing in the world.”
+
+Dorothy said nothing, because she could not decide which of her two friends was right.
+
+She thought that if she could only return to Kansas and Aunt Em, it did not matter very much whether the Woodman had no brains or the Scarecrow had no heart, or whether they each received what they wanted.
+
+What worried her most was that the bread was almost gone. One more meal for herself and Toto would empty the basket.
+
+The Scarecrow and the Tin Woodman did not need food, but Dorothy was not made of straw or tin, and she could not live without eating.`,
 }

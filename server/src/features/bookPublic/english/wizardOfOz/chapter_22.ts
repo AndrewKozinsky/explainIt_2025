@@ -1,3 +1,4 @@
+// Это неадаптированная версия !
 export const chapter_22 = {
 	name: 'Chapter XXII',
 	header: 'The Country of the Quadlings',

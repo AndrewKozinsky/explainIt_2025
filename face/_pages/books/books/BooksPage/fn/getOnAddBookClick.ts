@@ -2,7 +2,7 @@ import { useCallback, useContext, useState } from 'react'
 import { redirect } from 'next/navigation'
 import { Book_GetUserBooksDocument, useBook_Create } from '@/graphql'
 import { NotificationContext } from '@/ui/Notification/context'
-import { createBookIdUrl, pageUrls } from 'сonsts/pageUrls'
+import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
 
 export function useGetAddBookConfig() {
 	const { notify } = useContext(NotificationContext)
@@ -43,7 +43,7 @@ export function useGetAddBookConfig() {
 
 			if (createdBookId) {
 				// Open a page with created book
-				const bookIdInUrl = createBookIdUrl(createdBookId, 'private')
+				const bookIdInUrl = createMediaIdUrl(createdBookId, 'private')
 				redirect(pageUrls.books.book(bookIdInUrl).path)
 			}
 		},

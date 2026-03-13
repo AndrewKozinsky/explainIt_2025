@@ -1,3 +1,4 @@
+// Это неадаптированная версия !
 export const chapter_9 = {
 	name: 'Chapter IX',
 	header: 'Twala the king',

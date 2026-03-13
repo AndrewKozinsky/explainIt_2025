@@ -1,3 +1,4 @@
+// Это неадаптированная версия !
 export const chapter_12 = {
 	name: 'Chapter XII',
 	header: 'Before the battle',

@@ -1,85 +1,125 @@
 export const chapter_9 = {
 	name: 'Chapter IX',
 	header: 'The Queen of the Field Mice',
-	text: `“We cannot be far from the road of yellow brick, now,” remarked the Scarecrow, as he stood beside the girl, “for we have come nearly as far as the river carried us away.”
+	text: `“We cannot be far from the yellow brick road now,” said the Scarecrow as he stood beside Dorothy. “We have already come almost as far as the river carried us away.”
 
-The Tin Woodman was about to reply when he heard a low growl, and turning his head (which worked beautifully on hinges) he saw a strange beast come bounding over the grass toward them. It was, indeed, a great yellow Wildcat, and the Woodman thought it must be chasing something, for its ears were lying close to its head and its mouth was wide open, showing two rows of ugly teeth, while its red eyes glowed like balls of fire. As it came nearer the Tin Woodman saw that running before the beast was a little gray field mouse, and although he had no heart he knew it was wrong for the Wildcat to try to kill such a pretty, harmless creature.
+The Tin Woodman was about to answer when he heard a low growl. Turning his head—which moved smoothly on its hinges—he saw a strange animal running quickly across the grass toward them.
 
-So the Woodman raised his axe, and as the Wildcat ran by he gave it a quick blow that cut the beast’s head clean off from its body, and it rolled over at his feet in two pieces.
+It was a large yellow wildcat. The Woodman thought it must be chasing something. Its ears were flat against its head and its mouth was wide open, showing two rows of sharp teeth. Its red eyes shone like flames.
 
-The field mouse, now that it was freed from its enemy, stopped short; and coming slowly up to the Woodman it said, in a squeaky little voice:
+As the wildcat came closer, the Tin Woodman saw a small gray field mouse running desperately ahead of it. Although he had no heart, he knew it was wrong for the wildcat to kill such a tiny and harmless creature.
 
-“Oh, thank you! Thank you ever so much for saving my life.”
+So the Woodman raised his axe. As the wildcat ran past him, he struck it with a quick blow that cut its head clean off. The body fell at his feet in two pieces.
 
-“Don’t speak of it, I beg of you,” replied the Woodman. “I have no heart, you know, so I am careful to help all those who may need a friend, even if it happens to be only a mouse.”
+The little field mouse stopped running now that it was safe. Slowly it approached the Tin Woodman and said in a tiny squeaky voice:
 
-“Only a mouse!” cried the little animal, indignantly. “Why, I am a Queen—the Queen of all the Field Mice!”
+“Oh, thank you! Thank you so much for saving my life.”
 
-“Oh, indeed,” said the Woodman, making a bow.
+“Please don’t mention it,” replied the Woodman. “You see, I have no heart, so I try to help anyone who needs a friend—even if it is only a mouse.”
 
-“Therefore you have done a great deed, as well as a brave one, in saving my life,” added the Queen.
+“Only a mouse!” cried the little creature, offended. “Why, I am a Queen—the Queen of all the Field Mice!”
 
-At that moment several mice were seen running up as fast as their little legs could carry them, and when they saw their Queen they exclaimed:
+“Oh! I see,” said the Woodman politely, bowing.
 
-“Oh, your Majesty, we thought you would be killed! How did you manage to escape the great Wildcat?” They all bowed so low to the little Queen that they almost stood upon their heads.
+“So you have done not only a brave deed, but a very important one,” added the Queen.
 
-“This funny tin man,” she answered, “killed the Wildcat and saved my life. So hereafter you must all serve him, and obey his slightest wish.”
+Just then several mice came running toward them as fast as their little legs could carry them. When they saw their Queen they cried:
 
-“We will!” cried all the mice, in a shrill chorus. And then they scampered in all directions, for Toto had awakened from his sleep, and seeing all these mice around him he gave one bark of delight and jumped right into the middle of the group. Toto had always loved to chase mice when he lived in Kansas, and he saw no harm in it.
+“Your Majesty! We thought you had been killed! How did you escape the great wildcat?”
 
-But the Tin Woodman caught the dog in his arms and held him tight, while he called to the mice, “Come back! Come back! Toto shall not hurt you.”
+They bowed so deeply that their noses nearly touched the ground.
 
-At this the Queen of the Mice stuck her head out from underneath a clump of grass and asked, in a timid voice, “Are you sure he will not bite us?”
+“This funny tin man,” said the Queen, “killed the wildcat and saved my life. From now on you must all serve him and obey his smallest wish.”
 
-“I will not let him,” said the Woodman; “so do not be afraid.”
+“We will!” cried all the mice together in high voices.
 
-One by one the mice came creeping back, and Toto did not bark again, although he tried to get out of the Woodman’s arms, and would have bitten him had he not known very well he was made of tin. Finally one of the biggest mice spoke.
+Then they scattered in every direction, because Toto had woken up. Seeing all the mice around him, he barked with excitement and jumped straight into the middle of them.
 
-“Is there anything we can do,” it asked, “to repay you for saving the life of our Queen?”
+Back in Kansas, Toto had always loved chasing mice, and he saw nothing wrong with it.
 
-“Nothing that I know of,” answered the Woodman; but the Scarecrow, who had been trying to think, but could not because his head was stuffed with straw, said, quickly, “Oh, yes; you can save our friend, the Cowardly Lion, who is asleep in the poppy bed.”
+But the Tin Woodman quickly picked up the dog and held him tightly while he called to the mice:
 
-“A Lion!” cried the little Queen. “Why, he would eat us all up.”
+“Come back! Come back! Toto will not hurt you!”
 
-“Oh, no,” declared the Scarecrow; “this Lion is a coward.”
+The Queen of the Mice cautiously poked her head out from beneath a clump of grass.
 
-“Really?” asked the Mouse.
+“Are you sure he will not bite us?” she asked nervously.
 
-“He says so himself,” answered the Scarecrow, “and he would never hurt anyone who is our friend. If you will help us to save him I promise that he shall treat you all with kindness.”
+“I will not allow him to,” said the Woodman. “So please do not be afraid.”
 
-“Very well,” said the Queen, “we trust you. But what shall we do?”
+Slowly the mice began to return. Toto did not bark again, although he tried to jump out of the Woodman’s arms. He would even have bitten him if he had not realized the Woodman was made of hard tin.
 
-“Are there many of these mice which call you Queen and are willing to obey you?”
+At last one of the largest mice spoke.
 
-“Oh, yes; there are thousands,” she replied.
+“Is there anything we can do,” he asked, “to repay you for saving our Queen?”
 
-“Then send for them all to come here as soon as possible, and let each one bring a long piece of string.”
+“Nothing that I can think of,” said the Woodman.
 
-The Queen turned to the mice that attended her and told them to go at once and get all her people. As soon as they heard her orders they ran away in every direction as fast as possible.
+But the Scarecrow, who had been trying to think (which was difficult since his head was filled with straw), suddenly said:
 
-“Now,” said the Scarecrow to the Tin Woodman, “you must go to those trees by the riverside and make a truck that will carry the Lion.”
+“Oh yes! You can help us save our friend, the Cowardly Lion. He is asleep in the poppy field.”
 
-So the Woodman went at once to the trees and began to work; and he soon made a truck out of the limbs of trees, from which he chopped away all the leaves and branches. He fastened it together with wooden pegs and made the four wheels out of short pieces of a big tree trunk. So fast and so well did he work that by the time the mice began to arrive the truck was all ready for them.
+“A lion!” cried the little Queen. “He would eat us all!”
 
-They came from all directions, and there were thousands of them: big mice and little mice and middle-sized mice; and each one brought a piece of string in his mouth. It was about this time that Dorothy woke from her long sleep and opened her eyes. She was greatly astonished to find herself lying upon the grass, with thousands of mice standing around and looking at her timidly. But the Scarecrow told her about everything, and turning to the dignified little Mouse, he said:
+“Oh no,” said the Scarecrow. “This lion is a coward.”
 
-“Permit me to introduce to you her Majesty, the Queen.”
+“Really?” asked the Queen.
 
-Dorothy nodded gravely and the Queen made a curtsy, after which she became quite friendly with the little girl.
+“He says so himself,” replied the Scarecrow. “And he would never hurt anyone who is our friend. If you help us save him, I promise he will treat you kindly.”
 
-The Scarecrow and the Woodman now began to fasten the mice to the truck, using the strings they had brought. One end of a string was tied around the neck of each mouse and the other end to the truck. Of course the truck was a thousand times bigger than any of the mice who were to draw it; but when all the mice had been harnessed, they were able to pull it quite easily. Even the Scarecrow and the Tin Woodman could sit on it, and were drawn swiftly by their queer little horses to the place where the Lion lay asleep.
+“Well,” said the Queen, “we trust you. But what can we do?”
 
-After a great deal of hard work, for the Lion was heavy, they managed to get him up on the truck. Then the Queen hurriedly gave her people the order to start, for she feared if the mice stayed among the poppies too long they also would fall asleep.
+“Do many mice obey you as their Queen?” asked the Scarecrow.
 
-At first the little creatures, many though they were, could hardly stir the heavily loaded truck; but the Woodman and the Scarecrow both pushed from behind, and they got along better. Soon they rolled the Lion out of the poppy bed to the green fields, where he could breathe the sweet, fresh air again, instead of the poisonous scent of the flowers.
+“Oh yes,” she replied. “There are thousands.”
 
-Dorothy came to meet them and thanked the little mice warmly for saving her companion from death. She had grown so fond of the big Lion she was glad he had been rescued.
+“Then please send for all of them,” said the Scarecrow, “and tell each one to bring a long piece of string.”
 
-Then the mice were unharnessed from the truck and scampered away through the grass to their homes. The Queen of the Mice was the last to leave.
+The Queen immediately gave the order. The mice ran off in every direction to gather her people.
 
-“If ever you need us again,” she said, “come out into the field and call, and we shall hear you and come to your assistance. Good-bye!”
+“Now,” said the Scarecrow to the Tin Woodman, “you must go to the trees by the river and build a cart to carry the Lion.”
 
-“Good-bye!” they all answered, and away the Queen ran, while Dorothy held Toto tightly lest he should run after her and frighten her.
+The Tin Woodman went at once and began his work. He cut branches from the trees and quickly built a strong cart. He removed the leaves and smaller branches, joined the pieces together with wooden pegs, and made four wheels from thick pieces of tree trunk.
 
-After this they sat down beside the Lion until he should awaken; and the Scarecrow brought Dorothy some fruit from a tree near by, which she ate for her dinner.`,
+He worked so skillfully that by the time the mice began arriving, the cart was finished.
+
+They came from every direction—thousands of them: big mice, small mice, and medium-sized mice. Each mouse carried a piece of string in its mouth.
+
+Around this time Dorothy finally woke from her long sleep and opened her eyes. She was very surprised to see thousands of mice gathered around her, looking at her shyly.
+
+The Scarecrow explained everything that had happened.
+
+Then he turned to the small dignified mouse and said:
+
+“Dorothy, allow me to introduce Her Majesty, the Queen of the Field Mice.”
+
+Dorothy nodded respectfully, and the Queen made a graceful curtsy. Soon the little Queen and Dorothy became quite friendly.
+
+Meanwhile the Scarecrow and the Tin Woodman began tying the mice to the cart using the strings they had brought.
+
+One end of each string was tied around a mouse’s neck and the other end to the cart. The cart was of course much larger than any of the mice, but when thousands of them were harnessed together they were able to pull it easily.
+
+Even the Scarecrow and the Tin Woodman could sit on the cart while the tiny creatures pulled it quickly across the field to where the Lion lay sleeping.
+
+After a great deal of effort—because the Lion was extremely heavy—they managed to lift him onto the cart.
+
+The Queen quickly gave the order to start moving again. She feared that if the mice stayed too long among the poppies they might fall asleep as well.
+
+At first the little animals could barely move the heavily loaded cart. But the Scarecrow and the Tin Woodman pushed from behind, and soon they began to make progress.
+
+Slowly they pulled the Lion out of the poppy field and onto the green grass, where he could breathe fresh air again instead of the poisonous scent of the flowers.
+
+Dorothy ran to meet them and warmly thanked the mice for saving her friend. She had grown very fond of the Lion and was glad he had been rescued.
+
+The mice were then freed from the cart and quickly ran back to their homes in the grass.
+
+The Queen of the Mice was the last to leave.
+
+“If you ever need us again,” she said, “come into the field and call us. We will hear you and come to help. Goodbye!”
+
+“Goodbye!” they all answered.
+
+The Queen ran away, while Dorothy held Toto tightly so he would not chase after her.
+
+After that they sat down beside the Lion and waited for him to wake up. Meanwhile the Scarecrow brought Dorothy some fruit from a nearby tree, which she ate for her dinner.`,
 }

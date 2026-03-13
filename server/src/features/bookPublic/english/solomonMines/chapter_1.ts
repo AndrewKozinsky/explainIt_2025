@@ -1,3 +1,4 @@
+// Это неадаптированная версия !
 export const chapter_1 = {
 	name: 'Chapter I',
 	header: 'I meet sir Henry Curtis',

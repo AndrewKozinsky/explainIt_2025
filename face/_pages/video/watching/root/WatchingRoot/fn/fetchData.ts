@@ -4,7 +4,7 @@
 // import { useWatchingStore } from '../../../watchingStore'
 // import { createPopulatedPlainText } from './createPopulatedPlainText'
 // import { createPopulatedSubtitles } from './createPopulatedText'
-// import { extractVideoIdFromUrlVideoId, getVideoTypeByUrlVideoId } from 'сonsts/pageUrls'
+// import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId } from 'сonsts/pageUrls'
 
 /*export function usePopulateWatchingStore() {
 	useFetchVideoAndSetToStore()
@@ -13,8 +13,8 @@
 
 /*function useFetchVideoAndSetToStore() {
 	const urlVideoId = useParams().videoId as string
-	const videoType = getVideoTypeByUrlVideoId(urlVideoId)
-	const videoId = extractVideoIdFromUrlVideoId(urlVideoId)
+	const videoType = getMediaTypeByUrlMediaId(urlVideoId)
+	const videoId = extractMediaIdFromUrlBookId(urlVideoId)
 
 	const {
 		data: privateVideoData,

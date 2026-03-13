@@ -1,3 +1,4 @@
+// Это неадаптированная версия !
 export const chapter_3 = {
 	name: 'Chapter III',
 	header: 'Umbora enters our service',

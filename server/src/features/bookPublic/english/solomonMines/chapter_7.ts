@@ -1,3 +1,4 @@
+// Это неадаптированная версия !
 export const chapter_7 = {
 	name: 'Chapter VII',
 	header: 'Solomon’s road',

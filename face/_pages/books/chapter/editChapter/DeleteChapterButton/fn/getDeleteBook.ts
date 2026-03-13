@@ -2,7 +2,7 @@ import { useCallback, useContext, useState } from 'react'
 import { redirect } from 'next/navigation'
 import { Book_GetUserBooksDocument, useBookChapter_Delete } from '@/graphql'
 import { NotificationContext } from '@/ui//Notification/context'
-import { createBookIdUrl, pageUrls } from '@/сonsts/pageUrls'
+import { createMediaIdUrl, pageUrls } from '@/сonsts/pageUrls'
 import { useChapterStore } from '_pages/books/chapter/chapterStore'
 
 export function useGetDeleteBook() {
@@ -39,7 +39,7 @@ export function useGetDeleteBook() {
 
 			setStatus('idle')
 
-			const bookIdInUrl = createBookIdUrl(bookId, 'private')
+			const bookIdInUrl = createMediaIdUrl(bookId, 'private')
 			redirect(pageUrls.books.book(bookIdInUrl).path)
 		},
 		[deleteChapter, notify],

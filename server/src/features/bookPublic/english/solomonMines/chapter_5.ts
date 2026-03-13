@@ -1,3 +1,4 @@
+// Это неадаптированная версия !
 export const chapter_5 = {
 	name: 'Chapter V',
 	header: 'Our march into the desert',

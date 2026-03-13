@@ -1,3 +1,4 @@
+// Это неадаптированная версия !
 export const chapter_10 = {
 	name: 'Chapter X',
 	header: 'The witch-hunt',

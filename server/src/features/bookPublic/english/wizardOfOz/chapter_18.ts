@@ -1,3 +1,4 @@
+// Это неадаптированная версия !
 export const chapter_18 = {
 	name: 'Chapter XVIII',
 	header: 'Away to the South',

@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 // import { useParams, usePathname } from 'next/navigation'
 import { useUserStore } from 'stores/userStore'
 import { useVideoPrivate_GetUserVideos, useVideoPublic_GetVideos } from '@/graphql'
-// import { extractVideoIdFromUrlVideoId, getVideoTypeByUrlVideoId } from '@/сonsts/pageUrls'
+// import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId } from '@/сonsts/pageUrls'
 import { useVideosStore } from '_pages/video/videos/videosStore'
 
 /** Наполняет Хранилище данными для начала работы */
@@ -91,11 +91,11 @@ function useFetchPrivateVideosAndSetToStore() {
 	const privateVideos = useVideosStore((s) => s.privateVideos.data)
 
 	const urlVideoId = useParams().videoId
-	const videoType = getVideoTypeByUrlVideoId(urlVideoId)
+	const videoType = getMediaTypeByUrlMediaId(urlVideoId)
 
 	useEffect(
 		function () {
-			const videoId = extractVideoIdFromUrlVideoId(urlVideoId)
+			const videoId = extractMediaIdFromUrlBookId(urlVideoId)
 
 			if (videoType === 'public' && publicVideos) {
 				const publicVideo = publicVideos.find((video) => video.id === videoId) ?? null

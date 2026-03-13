@@ -2,7 +2,7 @@ import { useRouter } from 'next/navigation'
 import { publicFolderFilesUrls } from 'utils/publicFolderFilesUrls'
 import Button from '@/ui/formRelated/buttons/Button/Button'
 import { useBookStore } from '_pages/books/book/bookStore'
-import { createBookIdUrl, pageUrls } from 'сonsts/pageUrls'
+import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
 import './PublicBookContentInfo.scss'
 
 export default function PublicBookInfo() {
@@ -14,7 +14,7 @@ export default function PublicBookInfo() {
 
 	const firstCoverImgUrl = publicBook.data?.covers?.[0]
 
-	const bookId = createBookIdUrl(publicBook.data.id, 'public')
+	const bookId = createMediaIdUrl(publicBook.data.id, 'public')
 	const firstChapterUrl = pageUrls.books.book(bookId).chapter(publicBook.data.chapters[0].id).reading.path
 
 	return (

@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { MediaItemsGridConfig } from '_pages/bookAndVideoCommon/MediaItemsGrid/types'
 import { useVideosStore } from '../../videosStore'
-import { createBookIdUrl, pageUrls } from 'сonsts/pageUrls'
+import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
 
 export function useGetContentConfig() {
 	const privateVideos = useVideosStore((s) => s.privateVideos)
@@ -34,26 +34,26 @@ export function useGetContentConfig() {
 				loading: false,
 				error: null,
 				config: {
-					privateItems: privateVideos.data.map((book) => {
-						const bookId = createBookIdUrl(book.id, 'private')
+					privateItems: privateVideos.data.map((video) => {
+						const videoId = createMediaIdUrl(video.id, 'private')
 
 						return {
-							name: book.name,
-							subName: book.year,
-							url: pageUrls.books.book(bookId).path,
+							name: video.name,
+							subName: video.year,
+							url: pageUrls.videos.video(videoId).path,
 						}
 					}),
-					publicItems: publicVideos.data.map((book) => {
-						const bookId = createBookIdUrl(book.id, 'public')
+					publicItems: publicVideos.data.map((video) => {
+						const videoId = createMediaIdUrl(video.id, 'public')
 
 						return {
-							name: book.name,
-							subName: book.year,
-							url: pageUrls.books.book(bookId).path,
-							// backgroundColor: book.backgroundColor,
+							name: video.name,
+							subName: video.year,
+							url: pageUrls.videos.video(videoId).path,
+							// backgroundColor: video.backgroundColor,
 							backgroundColor: '#313B3C',
-							languageCode: book.languageCode,
-							coverUrl: book.covers[0],
+							languageCode: video.languageCode,
+							coverUrl: video.covers[0],
 						}
 					}),
 				},

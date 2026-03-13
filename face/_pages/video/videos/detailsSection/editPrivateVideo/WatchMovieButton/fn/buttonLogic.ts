@@ -1,6 +1,6 @@
 // import { useCallback, useEffect, useState } from 'react'
 // import { redirect } from 'next/navigation'
-// import { createVideoIdUrl, pageUrls } from '@/сonsts/pageUrls'
+// import { createMediaIdUrl, pageUrls } from '@/сonsts/pageUrls'
 // import { useVideosStore } from '_pages/video/videos/videosStore'
 
 /*export function useIsWatchButtonDisabled() {
@@ -27,7 +27,7 @@
 		function () {
 			if (!privateVideo) return
 
-			const videoIdInUrl = createVideoIdUrl(privateVideo.id, 'private')
+			const videoIdInUrl = createMediaIdUrl(privateVideo.id, 'private')
 			redirect(pageUrls.videos.video(videoIdInUrl).watching.path)
 		},
 		[privateVideo],

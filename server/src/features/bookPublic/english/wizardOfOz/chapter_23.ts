@@ -1,3 +1,4 @@
+// Это неадаптированная версия !
 export const chapter_23 = {
 	name: 'Chapter XXIII',
 	header: 'Glinda The Good Witch Grants Dorothy’s Wish',

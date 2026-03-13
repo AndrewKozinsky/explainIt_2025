@@ -1,205 +1,233 @@
 export const chapter_11 = {
 	name: 'Chapter XI',
 	header: 'The Emerald City of Oz',
-	text: `Even with eyes protected by the green spectacles, Dorothy and her friends were at first dazzled by the brilliancy of the wonderful City. The streets were lined with beautiful houses all built of green marble and studded everywhere with sparkling emeralds. They walked over a pavement of the same green marble, and where the blocks were joined together were rows of emeralds, set closely, and glittering in the brightness of the sun. The window panes were of green glass; even the sky above the City had a green tint, and the rays of the sun were green.
+	text: `Even with their green glasses, Dorothy and her friends were amazed by the bright Emerald City. The streets were full of beautiful houses made of green stone. Shiny emeralds were everywhere. The roads were also made of green stone, and emeralds glittered in the sunlight. The windows were green, and even the sky above the city looked a little green.
 
-There were many people—men, women, and children—walking about, and these were all dressed in green clothes and had greenish skins. They looked at Dorothy and her strangely assorted company with wondering eyes, and the children all ran away and hid behind their mothers when they saw the Lion; but no one spoke to them. Many shops stood in the street, and Dorothy saw that everything in them was green. Green candy and green pop-corn were offered for sale, as well as green shoes, green hats, and green clothes of all sorts. At one place a man was selling green lemonade, and when the children bought it Dorothy could see that they paid for it with green pennies.
+Many people were walking in the streets: men, women, and children. All of them wore green clothes, and their skin looked a little green too. They looked at Dorothy and her unusual group with curiosity. When the children saw the Lion, they ran to their mothers because they were afraid. But nobody spoke to them.
 
-There seemed to be no horses nor animals of any kind; the men carried things around in little green carts, which they pushed before them. Everyone seemed happy and contented and prosperous.
+There were many shops. Everything in the shops was green: green candy, green popcorn, green shoes, green hats, and green clothes. One man was selling green lemonade. The children paid for it with green coins.
 
-The Guardian of the Gates led them through the streets until they came to a big building, exactly in the middle of the City, which was the Palace of Oz, the Great Wizard. There was a soldier before the door, dressed in a green uniform and wearing a long green beard.
+There were no horses or animals in the streets. Instead, men pushed small green carts with goods inside them. Everyone looked happy and comfortable.
 
-“Here are strangers,” said the Guardian of the Gates to him, “and they demand to see the Great Oz.”
+The Guardian of the Gates led Dorothy and her friends through the streets to a large building in the middle of the city. This was the Palace of Oz, the Great Wizard. A soldier stood at the door. He wore a green uniform and had a long green beard.
 
-“Step inside,” answered the soldier, “and I will carry your message to him.”
+“These are strangers,” said the Guardian. “They want to see the Great Oz.”
 
-So they passed through the Palace Gates and were led into a big room with a green carpet and lovely green furniture set with emeralds. The soldier made them all wipe their feet upon a green mat before entering this room, and when they were seated he said politely:
+“Go inside,” said the soldier. “I will tell Oz that you are here.”
 
-“Please make yourselves comfortable while I go to the door of the Throne Room and tell Oz you are here.”
+They entered the palace and came into a large room with a green carpet and green furniture decorated with emeralds. The soldier asked them to wipe their feet on a green mat before they sat down.
 
-They had to wait a long time before the soldier returned. When, at last, he came back, Dorothy asked:
+“Please sit here,” he said politely. “I will go to the Throne Room and tell Oz about you.”
 
-“Have you seen Oz?”
+They waited for a long time. At last the soldier returned.
 
-“Oh, no,” returned the soldier; “I have never seen him. But I spoke to him as he sat behind his screen and gave him your message. He said he will grant you an audience, if you so desire; but each one of you must enter his presence alone, and he will admit but one each day. Therefore, as you must remain in the Palace for several days, I will have you shown to rooms where you may rest in comfort after your journey.”
+“Did you see Oz?” Dorothy asked.
 
-“Thank you,” replied the girl; “that is very kind of Oz.”
+“No,” said the soldier. “I have never seen him. He sits behind a screen. But I gave him your message. He says he will see you. However, he will see only one person each day, and each of you must go to him alone.”
 
-The soldier now blew upon a green whistle, and at once a young girl, dressed in a pretty green silk gown, entered the room. She had lovely green hair and green eyes, and she bowed low before Dorothy as she said, “Follow me and I will show you your room.”
+Then a young girl in a beautiful green dress came into the room. She had green hair and green eyes.
 
-So Dorothy said good-bye to all her friends except Toto, and taking the dog in her arms followed the green girl through seven passages and up three flights of stairs until they came to a room at the front of the Palace. It was the sweetest little room in the world, with a soft comfortable bed that had sheets of green silk and a green velvet counterpane. There was a tiny fountain in the middle of the room, that shot a spray of green perfume into the air, to fall back into a beautifully carved green marble basin. Beautiful green flowers stood in the windows, and there was a shelf with a row of little green books. When Dorothy had time to open these books she found them full of queer green pictures that made her laugh, they were so funny.
+“Follow me,” she said kindly to Dorothy. “I will show you your room.”
 
-In a wardrobe were many green dresses, made of silk and satin and velvet; and all of them fitted Dorothy exactly.
+Dorothy took Toto in her arms and followed the girl through many corridors and up several stairs. At last they came to a lovely little room in the palace.
 
-“Make yourself perfectly at home,” said the green girl, “and if you wish for anything ring the bell. Oz will send for you tomorrow morning.”
+The room was very comfortable. There was a soft bed with green silk sheets. In the middle of the room there was a small fountain that sprayed sweet perfume into the air. Green flowers stood by the windows, and there was a shelf with small green books full of funny pictures.
 
-She left Dorothy alone and went back to the others. These she also led to rooms, and each one of them found himself lodged in a very pleasant part of the Palace. Of course this politeness was wasted on the Scarecrow; for when he found himself alone in his room he stood stupidly in one spot, just within the doorway, to wait till morning. It would not rest him to lie down, and he could not close his eyes; so he remained all night staring at a little spider which was weaving its web in a corner of the room, just as if it were not one of the most wonderful rooms in the world. The Tin Woodman lay down on his bed from force of habit, for he remembered when he was made of flesh; but not being able to sleep, he passed the night moving his joints up and down to make sure they kept in good working order. The Lion would have preferred a bed of dried leaves in the forest, and did not like being shut up in a room; but he had too much sense to let this worry him, so he sprang upon the bed and rolled himself up like a cat and purred himself asleep in a minute.
+In a wardrobe Dorothy found many beautiful dresses made of silk and velvet, and they all fit her perfectly.
 
-The next morning, after breakfast, the green maiden came to fetch Dorothy, and she dressed her in one of the prettiest gowns, made of green brocaded satin. Dorothy put on a green silk apron and tied a green ribbon around Toto’s neck, and they started for the Throne Room of the Great Oz.
+“Make yourself comfortable,” said the green girl. “Oz will send for you tomorrow morning.”
 
-First they came to a great hall in which were many ladies and gentlemen of the court, all dressed in rich costumes. These people had nothing to do but talk to each other, but they always came to wait outside the Throne Room every morning, although they were never permitted to see Oz. As Dorothy entered they looked at her curiously, and one of them whispered:
+The next morning the green girl dressed Dorothy in a beautiful green dress. Dorothy tied a green ribbon around Toto’s neck, and they went to the Throne Room.
 
-“Are you really going to look upon the face of Oz the Terrible?”
+Inside was a huge round hall. The walls, floor, and ceiling were covered with shining emeralds. In the middle of the room stood a great green throne.
 
-“Of course,” answered the girl, “if he will see me.”
+But on the throne Dorothy saw something very strange.
 
-“Oh, he will see you,” said the soldier who had taken her message to the Wizard, “although he does not like to have people ask to see him. Indeed, at first he was angry and said I should send you back where you came from. Then he asked me what you looked like, and when I mentioned your silver shoes he was very much interested. At last I told him about the mark upon your forehead, and he decided he would admit you to his presence.”
+There was a huge head sitting on the chair. It had no body, no arms, and no legs. It had large eyes, a nose, and a mouth. The head was much bigger than the head of any giant.
 
-Just then a bell rang, and the green girl said to Dorothy, “That is the signal. You must go into the Throne Room alone.”
+The eyes slowly turned and looked at Dorothy.
 
-She opened a little door and Dorothy walked boldly through and found herself in a wonderful place. It was a big, round room with a high arched roof, and the walls and ceiling and floor were covered with large emeralds set closely together. In the center of the roof was a great light, as bright as the sun, which made the emeralds sparkle in a wonderful manner.
+Then the mouth moved and a voice said:
 
-But what interested Dorothy most was the big throne of green marble that stood in the middle of the room. It was shaped like a chair and sparkled with gems, as did everything else. In the center of the chair was an enormous Head, without a body to support it or any arms or legs whatever. There was no hair upon this head, but it had eyes and a nose and mouth, and was much bigger than the head of the biggest giant.
+“I am Oz, the Great and Terrible. Who are you, and why have you come here?”
 
-As Dorothy gazed upon this in wonder and fear, the eyes turned slowly and looked at her sharply and steadily. Then the mouth moved, and Dorothy heard a voice say:
+Dorothy was surprised, but she was brave enough to answer.
 
-“I am Oz, the Great and Terrible. Who are you, and why do you seek me?”
+“I am Dorothy, small and humble. I came to ask you for help.”
 
-It was not such an awful voice as she had expected to come from the big Head; so she took courage and answered:
-
-“I am Dorothy, the Small and Meek. I have come to you for help.”
-
-The eyes looked at her thoughtfully for a full minute. Then said the voice:
+The great eyes looked at Dorothy carefully for a whole minute. Then the voice spoke.
 
 “Where did you get the silver shoes?”
 
-“I got them from the Wicked Witch of the East, when my house fell on her and killed her,” she replied.
+“I got them from the Wicked Witch of the East,” Dorothy said. “My house fell on her and killed her.”
 
-“Where did you get the mark upon your forehead?” continued the voice.
+“And the mark on your forehead?” asked the voice.
 
-“That is where the Good Witch of the North kissed me when she bade me good-bye and sent me to you,” said the girl.
+“The Good Witch of the North kissed me there when she said goodbye,” Dorothy answered.
 
-Again the eyes looked at her sharply, and they saw she was telling the truth. Then Oz asked, “What do you wish me to do?”
+The eyes looked at her again and saw that she was telling the truth.
 
-“Send me back to Kansas, where my Aunt Em and Uncle Henry are,” she answered earnestly. “I don’t like your country, although it is so beautiful. And I am sure Aunt Em will be dreadfully worried over my being away so long.”
+“What do you want me to do?” asked Oz.
 
-The eyes winked three times, and then they turned up to the ceiling and down to the floor and rolled around so queerly that they seemed to see every part of the room. And at last they looked at Dorothy again.
+“Please send me back to Kansas,” Dorothy said. “My Aunt Em and Uncle Henry live there. Your country is beautiful, but it is not my home. I am sure my aunt is very worried about me.”
+
+The eyes blinked and looked around the room, as if they could see everything. Then they looked back at Dorothy.
 
 “Why should I do this for you?” asked Oz.
 
-“Because you are strong and I am weak; because you are a Great Wizard and I am only a little girl.”
+“Because you are strong and powerful,” Dorothy said. “And I am only a little girl.”
 
 “But you were strong enough to kill the Wicked Witch of the East,” said Oz.
 
-“That just happened,” returned Dorothy simply; “I could not help it.”
+“That was an accident,” Dorothy replied simply. “I did not mean to kill her.”
 
-“Well,” said the Head, “I will give you my answer. You have no right to expect me to send you back to Kansas unless you do something for me in return. In this country everyone must pay for everything he gets. If you wish me to use my magic power to send you home again you must do something for me first. Help me and I will help you.”
+Oz was silent for a moment. Then he spoke again.
 
-“What must I do?” asked the girl.
+“I will help you,” he said, “but first you must help me. In this country everyone must pay for what they get.”
 
-“Kill the Wicked Witch of the West,” answered Oz.
+“What must I do?” Dorothy asked.
 
-“But I cannot!” exclaimed Dorothy, greatly surprised.
+“You must kill the Wicked Witch of the West,” said Oz.
 
-“You killed the Witch of the East and you wear the silver shoes, which bear a powerful charm. There is now but one Wicked Witch left in all this land, and when you can tell me she is dead I will send you back to Kansas—but not before.”
+“I cannot do that!” Dorothy cried in surprise.
 
-The little girl began to weep, she was so much disappointed; and the eyes winked again and looked upon her anxiously, as if the Great Oz felt that she could help him if she would.
+“You killed the Witch of the East,” Oz replied. “And you wear the silver shoes, which have strong magic. When the Wicked Witch of the West is dead, I will send you back to Kansas.”
 
-“I never killed anything, willingly,” she sobbed. “Even if I wanted to, how could I kill the Wicked Witch? If you, who are Great and Terrible, cannot kill her yourself, how do you expect me to do it?”
+Dorothy began to cry. She felt very sad and disappointed.
 
-“I do not know,” said the Head; “but that is my answer, and until the Wicked Witch dies you will not see your uncle and aunt again. Remember that the Witch is Wicked—tremendously Wicked—and ought to be killed. Now go, and do not ask to see me again until you have done your task.”
+“I have never killed anyone,” she sobbed. “Even if I wanted to, how could I kill a wicked witch? If you are so powerful, why don’t you kill her yourself?”
 
-Sorrowfully Dorothy left the Throne Room and went back where the Lion and the Scarecrow and the Tin Woodman were waiting to hear what Oz had said to her. “There is no hope for me,” she said sadly, “for Oz will not send me home until I have killed the Wicked Witch of the West; and that I can never do.”
+“I do not know how,” said Oz. “But that is my answer. When the Wicked Witch is dead, you may return home.”
 
-Her friends were sorry, but could do nothing to help her; so Dorothy went to her own room and lay down on the bed and cried herself to sleep.
+Dorothy sadly left the Throne Room. Her friends were waiting for her.
 
-The next morning the soldier with the green whiskers came to the Scarecrow and said:
+“There is no hope,” she told them. “Oz will not send me home until I kill the Wicked Witch of the West. And I cannot do that.”
 
-“Come with me, for Oz has sent for you.”
+Her friends felt sorry for her, but they did not know how to help. Dorothy went to her room, lay down on the bed, and cried until she fell asleep.
 
-So the Scarecrow followed him and was admitted into the great Throne Room, where he saw, sitting in the emerald throne, a most lovely Lady. She was dressed in green silk gauze and wore upon her flowing green locks a crown of jewels. Growing from her shoulders were wings, gorgeous in color and so light that they fluttered if the slightest breath of air reached them.
+The next morning a soldier with green whiskers came to the Scarecrow.
 
-When the Scarecrow had bowed, as prettily as his straw stuffing would let him, before this beautiful creature, she looked upon him sweetly, and said:
+“Oz wants to see you,” he said.
 
-“I am Oz, the Great and Terrible. Who are you, and why do you seek me?”
+The Scarecrow followed him into the Throne Room. There he saw a beautiful Lady sitting on the emerald throne. She wore a green dress and a crown of jewels. She had shining wings on her shoulders.
 
-Now the Scarecrow, who had expected to see the great Head Dorothy had told him of, was much astonished; but he answered her bravely.
+“I am Oz, the Great and Terrible,” she said. “Who are you, and why are you here?”
 
-“I am only a Scarecrow, stuffed with straw. Therefore I have no brains, and I come to you praying that you will put brains in my head instead of straw, so that I may become as much a man as any other in your dominions.”
+The Scarecrow was surprised, because Dorothy had told him that Oz was a great Head. But he answered bravely.
 
-“Why should I do this for you?” asked the Lady.
+“I am a Scarecrow filled with straw,” he said. “I have no brains. Please give me brains so I can become like other men.”
 
-“Because you are wise and powerful, and no one else can help me,” answered the Scarecrow.
+“Why should I help you?” asked the Lady.
 
-“I never grant favors without some return,” said Oz; “but this much I will promise. If you will kill for me the Wicked Witch of the West, I will bestow upon you a great many brains, and such good brains that you will be the wisest man in all the Land of Oz.”
+“Because you are wise and powerful,” said the Scarecrow. “Only you can help me.”
 
-“I thought you asked Dorothy to kill the Witch,” said the Scarecrow, in surprise.
+“I never give favors for nothing,” Oz said. “But if you kill the Wicked Witch of the West, I will give you many brains. You will become the wisest man in the Land of Oz.”
 
-“So I did. I don’t care who kills her. But until she is dead I will not grant your wish. Now go, and do not seek me again until you have earned the brains you so greatly desire.”
+“But you asked Dorothy to kill the witch,” said the Scarecrow.
 
-The Scarecrow went sorrowfully back to his friends and told them what Oz had said; and Dorothy was surprised to find that the Great Wizard was not a Head, as she had seen him, but a lovely Lady.
+“I don’t care who kills her,” Oz replied. “When she is dead, I will grant your wish.”
 
-“All the same,” said the Scarecrow, “she needs a heart as much as the Tin Woodman.”
+The Scarecrow sadly returned to his friends and told them what had happened. Dorothy was surprised.
 
-On the next morning the soldier with the green whiskers came to the Tin Woodman and said:
+“For me Oz was a giant Head,” she said.
 
-“Oz has sent for you. Follow me.”
+“Well,” said the Scarecrow, “the Lady needs a heart as much as the Tin Woodman.”
 
-So the Tin Woodman followed him and came to the great Throne Room. He did not know whether he would find Oz a lovely Lady or a Head, but he hoped it would be the lovely Lady. “For,” he said to himself, “if it is the head, I am sure I shall not be given a heart, since a head has no heart of its own and therefore cannot feel for me. But if it is the lovely Lady I shall beg hard for a heart, for all ladies are themselves said to be kindly hearted.”
+The next morning the soldier came for the Tin Woodman.
 
-But when the Woodman entered the great Throne Room he saw neither the Head nor the Lady, for Oz had taken the shape of a most terrible Beast. It was nearly as big as an elephant, and the green throne seemed hardly strong enough to hold its weight. The Beast had a head like that of a rhinoceros, only there were five eyes in its face. There were five long arms growing out of its body, and it also had five long, slim legs. Thick, woolly hair covered every part of it, and a more dreadful-looking monster could not be imagined. It was fortunate the Tin Woodman had no heart at that moment, for it would have beat loud and fast from terror. But being only tin, the Woodman was not at all afraid, although he was much disappointed.
+“Oz will see you now,” he said.
 
-“I am Oz, the Great and Terrible,” spoke the Beast, in a voice that was one great roar. “Who are you, and why do you seek me?”
+The Tin Woodman wondered what Oz would look like. He hoped it would be the beautiful Lady.
 
-“I am a Woodman, and made of tin. Therefore I have no heart, and cannot love. I pray you to give me a heart that I may be as other men are.”
+“If Oz is the Head,” he thought, “he will not understand my wish for a heart. But if Oz is a kind Lady, she may feel sorry for me.”
 
-“Why should I do this?” demanded the Beast.
+But when the Tin Woodman entered the Throne Room, he saw something terrible.
 
-“Because I ask it, and you alone can grant my request,” answered the Woodman.
+Oz had changed into a huge Beast.
 
-Oz gave a low growl at this, but said, gruffly: “If you indeed desire a heart, you must earn it.”
+The monster was almost as big as an elephant. It had five eyes, five long arms, and five long legs. Thick hair covered its body, and it looked very frightening.
 
-“How?” asked the Woodman.
+“I am Oz, the Great and Terrible,” the Beast roared. “Who are you, and why are you here?”
 
-“Help Dorothy to kill the Wicked Witch of the West,” replied the Beast. “When the Witch is dead, come to me, and I will then give you the biggest and kindest and most loving heart in all the Land of Oz.”
+“I am a Tin Woodman,” he said. “I have no heart, so I cannot love. Please give me a heart.”
 
-So the Tin Woodman was forced to return sorrowfully to his friends and tell them of the terrible Beast he had seen. They all wondered greatly at the many forms the Great Wizard could take upon himself, and the Lion said:
+“Why should I do that?” growled Oz.
 
-“If he is a Beast when I go to see him, I shall roar my loudest, and so frighten him that he will grant all I ask. And if he is the lovely Lady, I shall pretend to spring upon her, and so compel her to do my bidding. And if he is the great Head, he will be at my mercy; for I will roll this head all about the room until he promises to give us what we desire. So be of good cheer, my friends, for all will yet be well.”
+“Because only you can help me,” said the Woodman.
 
-The next morning the soldier with the green whiskers led the Lion to the great Throne Room and bade him enter the presence of Oz.
+Oz made a low growling sound.
 
-The Lion at once passed through the door, and glancing around saw, to his surprise, that before the throne was a Ball of Fire, so fierce and glowing he could scarcely bear to gaze upon it. His first thought was that Oz had by accident caught on fire and was burning up; but when he tried to go nearer, the heat was so intense that it singed his whiskers, and he crept back tremblingly to a spot nearer the door.
+“If you truly want a heart,” he said, “you must earn it.”
 
-Then a low, quiet voice came from the Ball of Fire, and these were the words it spoke:
+“How?” asked the Tin Woodman.
 
-“I am Oz, the Great and Terrible. Who are you, and why do you seek me?”
+“Help Dorothy kill the Wicked Witch of the West,” said the Beast. “When the Witch is dead, come back to me. Then I will give you the biggest and kindest heart in the Land of Oz.”
 
-And the Lion answered, “I am a Cowardly Lion, afraid of everything. I came to you to beg that you give me courage, so that in reality I may become the King of Beasts, as men call me.”
+The Tin Woodman sadly returned to his friends and told them about the terrible Beast he had seen. They were very surprised that Oz could appear in so many different forms.
 
-“Why should I give you courage?” demanded Oz.
+The Lion said bravely:
 
-“Because of all Wizards you are the greatest, and alone have power to grant my request,” answered the Lion.
+“If Oz is a Beast when I see him, I will roar loudly and frighten him. Then he will give us what we want. If he is the beautiful Lady, I will pretend to jump on her and scare her. If he is the big Head, I will roll the head around the room until he promises to help us. So do not worry, my friends. Everything will be fine.”
 
-The Ball of Fire burned fiercely for a time, and the voice said, “Bring me proof that the Wicked Witch is dead, and that moment I will give you courage. But as long as the Witch lives, you must remain a coward.”
+The next morning the soldier with the green whiskers came and took the Lion to the Throne Room.
 
-The Lion was angry at this speech, but could say nothing in reply, and while he stood silently gazing at the Ball of Fire it became so furiously hot that he turned tail and rushed from the room. He was glad to find his friends waiting for him, and told them of his terrible interview with the Wizard.
+The Lion entered the room and looked around. To his surprise he saw a great Ball of Fire in front of the throne. It burned so brightly that he could hardly look at it.
 
-“What shall we do now?” asked Dorothy sadly.
+At first the Lion thought Oz had caught on fire by accident. But when he tried to go closer, the heat was so strong that it burned his whiskers. The Lion quickly moved back toward the door.
 
-“There is only one thing we can do,” returned the Lion, “and that is to go to the land of the Winkies, seek out the Wicked Witch, and destroy her.”
+Then a quiet voice came from the Ball of Fire.
 
-“But suppose we cannot?” said the girl.
+“I am Oz, the Great and Terrible. Who are you, and why are you here?”
 
-“Then I shall never have courage,” declared the Lion.
+“I am the Cowardly Lion,” he answered. “I am afraid of everything. I came to ask you to give me courage so I can truly become the King of Beasts.”
 
-“And I shall never have brains,” added the Scarecrow.
+“Why should I give you courage?” asked Oz.
 
-“And I shall never have a heart,” spoke the Tin Woodman.
+“Because you are the greatest wizard,” said the Lion. “Only you have the power to help me.”
 
-“And I shall never see Aunt Em and Uncle Henry,” said Dorothy, beginning to cry.
+The Ball of Fire burned even more strongly. Then the voice said:
 
-“Be careful!” cried the green girl. “The tears will fall on your green silk gown and spot it.”
+“When you bring me proof that the Wicked Witch of the West is dead, I will give you courage. But while she lives, you must remain a coward.”
 
-So Dorothy dried her eyes and said, “I suppose we must try it; but I am sure I do not want to kill anybody, even to see Aunt Em again.”
+The Lion was angry, but he did not know what to say. The fire became hotter and hotter, so he quickly ran out of the room.
 
-“I will go with you; but I’m too much of a coward to kill the Witch,” said the Lion.
+Outside his friends were waiting. The Lion told them everything that had happened.
 
-“I will go too,” declared the Scarecrow; “but I shall not be of much help to you, I am such a fool.”
+“What should we do now?” Dorothy asked sadly.
 
-“I haven’t the heart to harm even a Witch,” remarked the Tin Woodman; “but if you go I certainly shall go with you.”
+“There is only one thing to do,” said the Lion. “We must go to the land of the Winkies, find the Wicked Witch, and destroy her.”
 
-Therefore it was decided to start upon their journey the next morning, and the Woodman sharpened his axe on a green grindstone and had all his joints properly oiled. The Scarecrow stuffed himself with fresh straw and Dorothy put new paint on his eyes that he might see better. The green girl, who was very kind to them, filled Dorothy’s basket with good things to eat, and fastened a little bell around Toto’s neck with a green ribbon.
+“But what if we cannot?” Dorothy asked.
 
-They went to bed quite early and slept soundly until daylight, when they were awakened by the crowing of a green cock that lived in the back yard of the Palace, and the cackling of a hen that had laid a green egg.`,
+“Then I will never have courage,” said the Lion.
+
+“And I will never have brains,” said the Scarecrow.
+
+“And I will never have a heart,” said the Tin Woodman.
+
+“And I will never see Aunt Em and Uncle Henry again,” Dorothy said, beginning to cry.
+
+“Be careful!” said the green girl quickly. “Your tears will fall on your green silk dress and leave marks on it.”
+
+Dorothy wiped her eyes.
+
+“I suppose we must try,” she said. “But I really do not want to kill anyone, even to go home.”
+
+“I will go with you,” said the Lion. “But I am too afraid to kill the Witch.”
+
+“I will go too,” said the Scarecrow. “But I am not very clever.”
+
+“And I will go,” said the Tin Woodman. “But I do not want to hurt anyone, even a Witch.”
+
+So they decided to start their journey the next morning.
+
+The Tin Woodman sharpened his axe and oiled his joints.
+The Scarecrow filled himself with fresh straw.
+Dorothy painted the Scarecrow’s eyes again so he could see better.
+
+The kind green girl filled Dorothy’s basket with food and tied a small bell around Toto’s neck with a green ribbon.
+
+That night they went to bed early and slept well.
+
+In the morning they woke up when a green rooster crowed in the palace yard and a hen clucked after laying a green egg.`,
 }

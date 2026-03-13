@@ -1,3 +1,4 @@
+// Это неадаптированная версия !
 export const chapter_11 = {
 	name: 'Chapter XI',
 	header: 'We give a sign',

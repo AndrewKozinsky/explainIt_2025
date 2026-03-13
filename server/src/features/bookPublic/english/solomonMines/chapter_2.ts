@@ -1,3 +1,4 @@
+// Это неадаптированная версия !
 export const chapter_2 = {
 	name: 'Chapter II',
 	header: 'The legend of Solomon’s mines',

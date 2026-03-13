@@ -1,3 +1,4 @@
+// Это неадаптированная версия !
 export const chapter_17 = {
 	name: 'Chapter XVII',
 	header: 'How the Balloon Was Launched',

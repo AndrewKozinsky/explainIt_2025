@@ -1,3 +1,4 @@
+// Это неадаптированная версия !
 export const chapter_21 = {
 	name: 'Chapter XXI',
 	header: 'The Lion Becomes the King of Beasts',

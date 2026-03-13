@@ -1,4 +1,4 @@
-// import { createVideoIdUrl, pageUrls } from '@/сonsts/pageUrls'
+// import { createMediaIdUrl, pageUrls } from '@/сonsts/pageUrls'
 // import MediaLink from '_pages/bookAndVideoCommon/MediaLink/MediaLink'
 // import { videoConfig } from '_pages/video/videos/common/videoConfig'
 // import { useGetVideoLinkStatus } from './fn/isPageCurrent'
@@ -18,7 +18,7 @@
 
 	const videoLinkStatus = useGetVideoLinkStatus(id, videoType)
 	const onVideoLinkClick = useGetOnBookLinkClick()
-	const videoIdInUrl = createVideoIdUrl(id, videoType)
+	const videoIdInUrl = createMediaIdUrl(id, videoType)
 
 	const href =
 		videoType === 'public' ? pageUrls.videos.video(videoIdInUrl).path : pageUrls.videos.video(videoIdInUrl).path

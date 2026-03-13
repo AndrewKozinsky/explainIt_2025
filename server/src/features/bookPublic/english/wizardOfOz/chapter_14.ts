@@ -1,3 +1,4 @@
+// Это неадаптированная версия !
 export const chapter_14 = {
 	name: 'Chapter XIV',
 	header: 'The Winged Monkeys',

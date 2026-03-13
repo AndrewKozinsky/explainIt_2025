@@ -1,3 +1,4 @@
+// Это неадаптированная версия !
 export const chapter_8 = {
 	name: 'Chapter VIII',
 	header: 'We enter Kukuanaland',

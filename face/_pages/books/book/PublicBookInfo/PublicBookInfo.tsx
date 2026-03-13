@@ -4,7 +4,7 @@ import ChaptersList from '_pages/books/books/chaptersSection/ChaptersList/Chapte
 import { bookConfig } from '_pages/books/common/bookConfig'
 import { useBookStore } from '../bookStore'
 import PublicBookContentInfo from '../PublicBookContentInfo/PublicBookContentInfo'
-import { createBookIdUrl, pageUrls } from 'сonsts/pageUrls'
+import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
 import './PublicBookInfo.scss'
 
 export default function PublicBookInfo() {
@@ -39,7 +39,7 @@ function PublicBookChapters() {
 	}
 
 	const chaptersConfig = chapters.map((chapter) => {
-		const bookIdInUrl = createBookIdUrl(bookId, 'public')
+		const bookIdInUrl = createMediaIdUrl(bookId, 'public')
 
 		return {
 			name: chapter.header ?? bookConfig.emptyChapterName,

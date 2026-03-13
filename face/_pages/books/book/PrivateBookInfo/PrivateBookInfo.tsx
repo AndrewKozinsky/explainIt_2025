@@ -4,7 +4,7 @@ import ChaptersList from '_pages/books/books/chaptersSection/ChaptersList/Chapte
 import EditBookForm from '_pages/books/books/detailsSection/editPrivateBook/EditPrivateBookForm/EditPrivateBookForm'
 import { bookConfig } from '_pages/books/common/bookConfig'
 import { useBookStore } from '../bookStore'
-import { createBookIdUrl, pageUrls } from 'сonsts/pageUrls'
+import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
 import '_pages/books/book/PrivateBookInfo/PrivateBookInfo.scss'
 
 export default function PrivateBookInfo() {
@@ -38,7 +38,7 @@ function PrivateBookChapters() {
 	}
 
 	const chaptersConfig = chapters.map((chapter) => {
-		const bookIdInUrl = createBookIdUrl(bookId, 'private')
+		const bookIdInUrl = createMediaIdUrl(bookId, 'private')
 
 		return {
 			name: chapter.header ?? bookConfig.emptyChapterName,

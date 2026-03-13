@@ -1,3 +1,4 @@
+// Это неадаптированная версия !
 export const chapter_19 = {
 	name: 'Chapter XIX',
 	header: 'Ignosi’s farewell',

@@ -1,3 +1,4 @@
+// Это неадаптированная версия !
 export const chapter_20 = {
 	name: 'Chapter XX',
 	header: 'Found',

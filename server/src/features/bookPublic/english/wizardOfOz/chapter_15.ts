@@ -1,3 +1,4 @@
+// Это неадаптированная версия !
 export const chapter_15 = {
 	name: 'Chapter XV',
 	header: 'The Discovery of Oz, the Terrible',

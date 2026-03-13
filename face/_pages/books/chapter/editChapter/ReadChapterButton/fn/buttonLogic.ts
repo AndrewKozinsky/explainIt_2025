@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { redirect } from 'next/navigation'
-import { createBookIdUrl, pageUrls } from '@/сonsts/pageUrls'
+import { createMediaIdUrl, pageUrls } from '@/сonsts/pageUrls'
 import { useChapterStore } from '_pages/books/chapter/chapterStore'
 
 export function useIsReadButtonDisabled() {
@@ -28,7 +28,7 @@ export function useGetOnReadButtonClick() {
 			if (!book) return
 			if (!chapter.data) return
 
-			const bookIdInUrl = createBookIdUrl(book.id, 'private')
+			const bookIdInUrl = createMediaIdUrl(book.id, 'private')
 			redirect(pageUrls.books.book(bookIdInUrl).chapter(chapter.data.id).reading.path)
 		},
 		[book, chapter],

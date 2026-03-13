@@ -1,3 +1,4 @@
+// Это неадаптированная версия !
 export const chapter_16 = {
 	name: 'Chapter XVI',
 	header: 'The place of death',

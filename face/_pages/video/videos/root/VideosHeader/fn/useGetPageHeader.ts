@@ -1,6 +1,6 @@
 // import { useMemo } from 'react'
 // import { useParams } from 'next/navigation'
-// import { extractVideoIdFromUrlVideoId, getVideoTypeByUrlVideoId } from '@/сonsts/pageUrls'
+// import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId } from '@/сonsts/pageUrls'
 // import { useVideosStore } from '_pages/video/videos/videosStore'
 // import { pageUrls } from 'сonsts/pageUrls'
 
@@ -21,8 +21,8 @@
 		const directName = publicVideo?.name ?? privateVideo?.name ?? null
 		if (directName) return directName
 
-		const videoType = getVideoTypeByUrlVideoId(urlVideoId)
-		const videoId = extractVideoIdFromUrlVideoId(urlVideoId)
+		const videoType = getMediaTypeByUrlMediaId(urlVideoId)
+		const videoId = extractMediaIdFromUrlBookId(urlVideoId)
 
 		if (videoType === 'public' && videoId != null && publicVideos) {
 			const publicVideo = publicVideos.find((v) => v.id === videoId)

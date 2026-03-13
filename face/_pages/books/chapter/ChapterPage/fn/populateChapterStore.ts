@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import { BookOutModel, useBook_Get, useBookChapter_Get } from '@/graphql'
 import { useChapterStore } from '_pages/books/chapter/chapterStore'
-import { extractBookIdFromUrlBookId, getBookTypeByUrlBookId, pageUrls } from 'сonsts/pageUrls'
+import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId, pageUrls } from 'сonsts/pageUrls'
 
 /** Наполняет Хранилище данными для начала работы */
 export function usePopulateChapterStore() {
@@ -13,8 +13,8 @@ export function usePopulateChapterStore() {
 
 function useSetBookToStore() {
 	const bookIdInUrl = useParams().bookId as string
-	const bookType = getBookTypeByUrlBookId(bookIdInUrl)
-	const bookId = extractBookIdFromUrlBookId(bookIdInUrl)
+	const bookType = getMediaTypeByUrlMediaId(bookIdInUrl)
+	const bookId = extractMediaIdFromUrlBookId(bookIdInUrl)
 
 	const {
 		data: privateBookData,

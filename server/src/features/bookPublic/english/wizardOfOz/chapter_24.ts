@@ -1,3 +1,4 @@
+// Это неадаптированная версия !
 export const chapter_24 = {
 	name: 'Chapter XXIV',
 	header: 'Home Again',

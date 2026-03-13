@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import { BookOutModel, BookPublicOutModel, useBook_Get, useBook_GetBookPublic } from '@/graphql'
 import { useBookStore } from '_pages/books/book/bookStore'
-import { extractBookIdFromUrlBookId, getBookTypeByUrlBookId, pageUrls } from 'сonsts/pageUrls'
+import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId, pageUrls } from 'сonsts/pageUrls'
 
 /** Наполняет Хранилище данными для начала работы */
 export function usePopulateBookStore() {
@@ -12,8 +12,8 @@ export function usePopulateBookStore() {
 
 function useSetBookToStore() {
 	const bookIdInUrl = useParams().bookId as string
-	const bookType = getBookTypeByUrlBookId(bookIdInUrl)
-	const bookId = extractBookIdFromUrlBookId(bookIdInUrl)
+	const bookType = getMediaTypeByUrlMediaId(bookIdInUrl)
+	const bookId = extractMediaIdFromUrlBookId(bookIdInUrl)
 
 	const {
 		data: privateBookData,
@@ -99,53 +99,6 @@ function useSetBookToStore() {
 		},
 		[bookType, publicBookData, publicBookError, publicBookLoading],
 	)
-
-	/*useEffect(
-		function () {
-			const book = bookType === 'private' ? privateBookData?.book_get : publicBookData?.book_public_get_book
-			const error = bookType === 'private' ? privateBookError : publicBookError
-			const loading = bookType === 'private' ? privateBookLoading : publicBookLoading
-
-			if (loading) {
-				useBookStore.getState().updateBook({
-					loading: true,
-					errorMessage: null,
-					data: null as any as BookPublicOutModel,
-					type: 'public',
-				})
-			} else if (error) {
-				useBookStore.getState().updateBook({
-					loading: false,
-					errorMessage: error.message,
-					data: null as any as BookPublicOutModel,
-					type: 'public',
-				})
-			} else if (!book) {
-				useBookStore.getState().updateBook({
-					loading: false,
-					errorMessage: null,
-					data: null as any as BookPublicOutModel,
-					type: 'public',
-				})
-			} else {
-				useBookStore.getState().updateBook({
-					loading: false,
-					errorMessage: null,
-					data: book,
-					type: bookType || 'public',
-				})
-			}
-		},
-		[
-			bookType,
-			privateBookData,
-			privateBookError,
-			privateBookLoading,
-			publicBookData,
-			publicBookError,
-			publicBookLoading,
-		],
-	)*/
 }
 
 function useClearDataOnUnmount() {

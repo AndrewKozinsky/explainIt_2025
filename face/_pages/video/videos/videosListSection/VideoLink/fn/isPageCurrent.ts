@@ -1,5 +1,5 @@
 // import { usePathname } from 'next/navigation'
-// import { createVideoIdUrl, pageUrls } from '@/сonsts/pageUrls'
+// import { createMediaIdUrl, pageUrls } from '@/сonsts/pageUrls'
 
 /**
  * Возвращает статус ссылки для визуальной подсветки:
@@ -7,7 +7,7 @@
  * — current — это текущая страница
  */
 /*export function useGetVideoLinkStatus(videoId: number, videoType: 'public' | 'private'): 'idle' | 'current' | 'nested' {
-	const videoIdInUrl = createVideoIdUrl(videoId, videoType)
+	const videoIdInUrl = createMediaIdUrl(videoId, videoType)
 	const videoUrl = pageUrls.videos.video(videoIdInUrl).path
 
 	const pathname = usePathname()

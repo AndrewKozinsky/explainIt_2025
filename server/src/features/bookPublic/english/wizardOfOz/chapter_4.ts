@@ -1,77 +1,117 @@
 export const chapter_4 = {
 	name: 'Chapter IV',
 	header: 'The Road Through the Forest',
-	text: `After a few hours the road began to be rough, and the walking grew so difficult that the Scarecrow often stumbled over the yellow bricks, which were here very uneven. Sometimes, indeed, they were broken or missing altogether, leaving holes that Toto jumped across and Dorothy walked around. As for the Scarecrow, having no brains, he walked straight ahead, and so stepped into the holes and fell at full length on the hard bricks. It never hurt him, however, and Dorothy would pick him up and set him upon his feet again, while he joined her in laughing merrily at his own mishap.
+	text: `After a few hours the road became rough, and walking grew more difficult. The Scarecrow often stumbled over the yellow bricks, which were very uneven in this place. Sometimes the bricks were broken or even missing, leaving holes in the road. Toto jumped over them easily, and Dorothy walked around them.
 
-The farms were not nearly so well cared for here as they were farther back. There were fewer houses and fewer fruit trees, and the farther they went the more dismal and lonesome the country became.
+But the Scarecrow, having no brains, walked straight ahead without noticing the holes. He often stepped into them and fell full length onto the hard bricks. It never hurt him, though, and Dorothy would help him up and set him on his feet again. Then he would laugh merrily at his own accident.
 
-At noon they sat down by the roadside, near a little brook, and Dorothy opened her basket and got out some bread. She offered a piece to the Scarecrow, but he refused.
+The farms here were not nearly as well cared for as those they had seen earlier. There were fewer houses and fewer fruit trees, and the farther they traveled, the more gloomy and lonely the country became.
 
-“I am never hungry,” he said, “and it is a lucky thing I am not, for my mouth is only painted, and if I should cut a hole in it so I could eat, the straw I am stuffed with would come out, and that would spoil the shape of my head.”
+At noon they sat down beside the road near a small brook. Dorothy opened her basket and took out some bread. She offered a piece to the Scarecrow, but he refused.
 
-Dorothy saw at once that this was true, so she only nodded and went on eating her bread.
+“I am never hungry,” he said. “And that is lucky, because my mouth is only painted on. If I cut a hole in it so I could eat, the straw inside my head would fall out, and that would ruin the shape of it.”
 
-“Tell me something about yourself and the country you came from,” said the Scarecrow, when she had finished her dinner. So she told him all about Kansas, and how gray everything was there, and how the cyclone had carried her to this queer Land of Oz.
+Dorothy immediately saw that this was true, so she simply nodded and continued eating her bread.
 
-The Scarecrow listened carefully, and said, “I cannot understand why you should wish to leave this beautiful country and go back to the dry, gray place you call Kansas.”
+“Tell me something about yourself and the country you came from,” said the Scarecrow after she finished eating.
 
-“That is because you have no brains” answered the girl. “No matter how dreary and gray our homes are, we people of flesh and blood would rather live there than in any other country, be it ever so beautiful. There is no place like home.”
+So Dorothy told him all about Kansas: how gray everything looked there, and how the cyclone had carried her away to the strange Land of Oz.
+
+The Scarecrow listened carefully and then said, “I cannot understand why you would want to leave this beautiful country and go back to the dry gray place you call Kansas.”
+
+“That is because you have no brains,” said the girl. “No matter how dull and gray our homes are, we people of flesh and blood would rather live there than anywhere else, even if another country is much more beautiful. There is no place like home.”
 
 The Scarecrow sighed.
 
-“Of course I cannot understand it,” he said. “If your heads were stuffed with straw, like mine, you would probably all live in the beautiful places, and then Kansas would have no people at all. It is fortunate for Kansas that you have brains.”
+“Of course I cannot understand that,” he said. “If your heads were filled with straw like mine, you would probably all live in beautiful places, and Kansas would have no people at all. It is lucky for Kansas that you have brains.”
 
-“Won’t you tell me a story, while we are resting?” asked the child.
+“Won’t you tell me a story while we are resting?” Dorothy asked.
 
-The Scarecrow looked at her reproachfully, and answered:
+The Scarecrow looked at her sadly.
 
-“My life has been so short that I really know nothing whatever. I was only made day before yesterday. What happened in the world before that time is all unknown to me. Luckily, when the farmer made my head, one of the first things he did was to paint my ears, so that I heard what was going on. There was another Munchkin with him, and the first thing I heard was the farmer saying, ‘How do you like those ears?’
+“My life has been so short that I really know nothing,” he replied. “I was only made the day before yesterday. Everything that happened before that time is unknown to me.
 
-“‘They aren’t straight,’” answered the other.
+Fortunately, when the farmer made my head, one of the first things he did was paint my ears. That allowed me to hear what was going on. Another Munchkin was standing nearby, and the first thing I heard was the farmer saying, ‘How do you like these ears?’
 
-“‘Never mind,’” said the farmer. “‘They are ears just the same,’” which was true enough.
+“‘They are not straight,’ said the other man.
 
-“‘Now I’ll make the eyes,’” said the farmer. So he painted my right eye, and as soon as it was finished I found myself looking at him and at everything around me with a great deal of curiosity, for this was my first glimpse of the world.
+“‘That doesn’t matter,’ said the farmer. ‘They are ears just the same,’ and that was certainly true.
 
-“‘That’s a rather pretty eye,’” remarked the Munchkin who was watching the farmer. “‘Blue paint is just the color for eyes.’
+“‘Now I will make the eyes,’ said the farmer.
 
-“‘I think I’ll make the other a little bigger,’” said the farmer. And when the second eye was done I could see much better than before. Then he made my nose and my mouth. But I did not speak, because at that time I didn’t know what a mouth was for. I had the fun of watching them make my body and my arms and legs; and when they fastened on my head, at last, I felt very proud, for I thought I was just as good a man as anyone.
+He painted my right eye first, and as soon as it was finished I found myself looking at him and at everything around me with great curiosity, because it was the first time I had ever seen the world.
 
-“‘This fellow will scare the crows fast enough,’ said the farmer. ‘He looks just like a man.’
+“‘That is a very nice eye,’ said the Munchkin who was watching. ‘Blue paint is the perfect color for eyes.’
 
-“‘Why, he is a man,’ said the other, and I quite agreed with him. The farmer carried me under his arm to the cornfield, and set me up on a tall stick, where you found me. He and his friend soon after walked away and left me alone.
+“‘I think I will make the other one a little bigger,’ said the farmer.
 
-“I did not like to be deserted this way. So I tried to walk after them. But my feet would not touch the ground, and I was forced to stay on that pole. It was a lonely life to lead, for I had nothing to think of, having been made such a little while before. Many crows and other birds flew into the cornfield, but as soon as they saw me they flew away again, thinking I was a Munchkin; and this pleased me and made me feel that I was quite an important person. By and by an old crow flew near me, and after looking at me carefully he perched upon my shoulder and said:
+When the second eye was finished, I could see much better than before. Then he painted my nose and my mouth. But I did not speak, because at that time I did not know what a mouth was for.
 
-“‘I wonder if that farmer thought to fool me in this clumsy manner. Any crow of sense could see that you are only stuffed with straw.’ Then he hopped down at my feet and ate all the corn he wanted. The other birds, seeing he was not harmed by me, came to eat the corn too, so in a short time there was a great flock of them about me.
+I enjoyed watching them make my body and my arms and legs. And when they finally attached my head, I felt very proud. I thought I was just as good a man as anyone.
 
-“I felt sad at this, for it showed I was not such a good Scarecrow after all; but the old crow comforted me, saying, ‘If you only had brains in your head you would be as good a man as any of them, and a better man than some of them. Brains are the only things worth having in this world, no matter whether one is a crow or a man.’
+“‘This fellow will scare the crows well enough,’ said the farmer. ‘He looks just like a man.’
 
-“After the crows had gone I thought this over, and decided I would try hard to get some brains. By good luck you came along and pulled me off the stake, and from what you say I am sure the Great Oz will give me brains as soon as we get to the Emerald City.”
+“‘Why, he is a man,’ said the other Munchkin, and I quite agreed with him.
 
-“I hope so,” said Dorothy earnestly, “since you seem anxious to have them.”
+The farmer carried me under his arm to the cornfield and placed me on a tall pole, where you found me. Soon afterward he and his friend walked away and left me there.
 
-“Oh, yes; I am anxious,” returned the Scarecrow. “It is such an uncomfortable feeling to know one is a fool.”
+I did not like being left alone like that. I tried to walk after them, but my feet could not reach the ground, so I was forced to stay on the pole.
 
-“Well,” said the girl, “let us go.” And she handed the basket to the Scarecrow.
+It was a lonely life, because I had nothing to think about, having only just been made.
 
-There were no fences at all by the roadside now, and the land was rough and untilled. Toward evening they came to a great forest, where the trees grew so big and close together that their branches met over the road of yellow brick. It was almost dark under the trees, for the branches shut out the daylight; but the travelers did not stop, and went on into the forest.
+Many crows and other birds flew into the cornfield. But as soon as they saw me, they flew away again because they thought I was a real Munchkin. That pleased me and made me feel quite important.
 
-“If this road goes in, it must come out,” said the Scarecrow, “and as the Emerald City is at the other end of the road, we must go wherever it leads us.”
+After a while an old crow flew close to me. He looked at me carefully and then landed on my shoulder.
 
-“Anyone would know that,” said Dorothy.
+“‘I wonder if that farmer really thought he could fool me like this,’ said the crow. ‘Any crow with common sense can see that you are only stuffed with straw.’
 
-“Certainly; that is why I know it,” returned the Scarecrow. “If it required brains to figure it out, I never should have said it.”
+Then he hopped down to the ground and ate as much corn as he liked.
 
-After an hour or so the light faded away, and they found themselves stumbling along in the darkness. Dorothy could not see at all, but Toto could, for some dogs see very well in the dark; and the Scarecrow declared he could see as well as by day. So she took hold of his arm and managed to get along fairly well.
+The other birds saw that I did not harm him, so they also came down to eat the corn. Soon a large flock had gathered around me.
 
-“If you see any house, or any place where we can pass the night,” she said, “you must tell me; for it is very uncomfortable walking in the dark.”
+I felt very sad, because it showed that I was not a very good Scarecrow after all.
 
-Soon after the Scarecrow stopped.
+But the old crow comforted me. He said, ‘If you only had brains in your head, you would be as good a man as any of them, and even better than some of them. Brains are the most important thing in the world, whether you are a crow or a man.’
 
-“I see a little cottage at the right of us,” he said, “built of logs and branches. Shall we go there?”
+After the crows left, I thought about what he had said and decided that I would try to get some brains.
 
-“Yes, indeed,” answered the child. “I am all tired out.”
+Luckily you came along and took me down from the pole. And from what you have told me, I am sure the Great Oz will give me brains when we reach the Emerald City.”
 
-So the Scarecrow led her through the trees until they reached the cottage, and Dorothy entered and found a bed of dried leaves in one corner. She lay down at once, and with Toto beside her soon fell into a sound sleep. The Scarecrow, who was never tired, stood up in another corner and waited patiently until morning came.`,
+“I hope so,” Dorothy said sincerely, “because you seem to want them very much.”
+
+“Oh yes, I do,” replied the Scarecrow. “It is a very unpleasant feeling to know that one is a fool.”
+
+“Well then,” said the girl, “let’s continue our journey.”
+
+She handed the basket to the Scarecrow.
+
+Now there were no fences beside the road, and the land looked rough and uncultivated. Toward evening they reached a great forest. The trees were so large and grew so close together that their branches met above the yellow brick road.
+
+It was almost dark beneath the trees because the branches blocked the daylight. But the travelers did not stop and continued into the forest.
+
+“If the road goes in, it must come out somewhere,” said the Scarecrow. “And since the Emerald City is at the end of the road, we must follow it wherever it leads.”
+
+“Anyone could figure that out,” said Dorothy.
+
+“Of course,” replied the Scarecrow. “That is why I know it. If it required brains to understand, I would never have said it.”
+
+After about an hour the light disappeared completely, and they found themselves stumbling through the darkness.
+
+Dorothy could see nothing at all, but Toto could see well enough because some dogs see very well in the dark. The Scarecrow also said he could see just as well as in daylight.
+
+So Dorothy took hold of his arm and managed to walk along without too much trouble.
+
+“If you see a house or some place where we can spend the night,” she said, “you must tell me. Walking in the dark is very uncomfortable.”
+
+Soon the Scarecrow stopped.
+
+“I see a small cottage to the right,” he said. “It is built from logs and branches. Shall we go there?”
+
+“Yes, please,” Dorothy answered. “I am very tired.”
+
+So the Scarecrow led her through the trees until they reached the cottage.
+
+Dorothy went inside and found a bed of dried leaves in one corner. She lay down immediately, and with Toto beside her she soon fell fast asleep.
+
+The Scarecrow, who never grew tired, stood quietly in another corner and patiently waited for morning.`,
 }

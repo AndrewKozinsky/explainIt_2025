@@ -1,3 +1,4 @@
+// Это неадаптированная версия !
 export const chapter_6 = {
 	name: 'Chapter VI',
 	header: 'Water! Water!',

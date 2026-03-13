@@ -1,117 +1,165 @@
 export const chapter_10 = {
 	name: 'Chapter X',
 	header: 'The Guardian of the Gates',
-	text: `It was some time before the Cowardly Lion awakened, for he had lain among the poppies a long while, breathing in their deadly fragrance; but when he did open his eyes and roll off the truck he was very glad to find himself still alive.
+	text: `It took some time before the Cowardly Lion woke up. He had lain among the poppies for a long time, breathing their dangerous scent. But when he finally opened his eyes and rolled off the cart, he was very happy to discover he was still alive.
 
-“I ran as fast as I could,” he said, sitting down and yawning, “but the flowers were too strong for me. How did you get me out?”
+“I ran as fast as I could,” he said, sitting down and yawning, “but the flowers were too strong for me. How did you manage to get me out?”
 
-Then they told him of the field mice, and how they had generously saved him from death; and the Cowardly Lion laughed, and said:
+So they told him about the field mice and how they had bravely saved him.
 
-“I have always thought myself very big and terrible; yet such little things as flowers came near to killing me, and such small animals as mice have saved my life. How strange it all is! But, comrades, what shall we do now?”
+The Cowardly Lion laughed and said:
 
-“We must journey on until we find the road of yellow brick again,” said Dorothy, “and then we can keep on to the Emerald City.”
+“I always thought I was big and frightening. Yet flowers nearly killed me, and tiny mice saved my life. How strange the world is! But friends, what shall we do now?”
 
-So, the Lion being fully refreshed, and feeling quite himself again, they all started upon the journey, greatly enjoying the walk through the soft, fresh grass; and it was not long before they reached the road of yellow brick and turned again toward the Emerald City where the Great Oz dwelt.
+“We must keep traveling until we find the yellow brick road again,” said Dorothy. “Then we can continue to the Emerald City.”
 
-The road was smooth and well paved, now, and the country about was beautiful, so that the travelers rejoiced in leaving the forest far behind, and with it the many dangers they had met in its gloomy shades. Once more they could see fences built beside the road; but these were painted green, and when they came to a small house, in which a farmer evidently lived, that also was painted green. They passed by several of these houses during the afternoon, and sometimes people came to the doors and looked at them as if they would like to ask questions; but no one came near them nor spoke to them because of the great Lion, of which they were very much afraid. The people were all dressed in clothing of a lovely emerald-green color and wore peaked hats like those of the Munchkins.
+The Lion now felt much better, so they all continued their journey. They enjoyed walking through the soft, fresh grass, and before long they reached the yellow brick road again. Turning onto it, they once more headed toward the Emerald City, where the Great Oz lived.
 
-“This must be the Land of Oz,” said Dorothy, “and we are surely getting near the Emerald City.”
+The road was now smooth and well built, and the country around them was very beautiful. The travelers were glad to leave the dark forest far behind, along with all the dangers they had faced there.
 
-“Yes,” answered the Scarecrow. “Everything is green here, while in the country of the Munchkins blue was the favorite color. But the people do not seem to be as friendly as the Munchkins, and I’m afraid we shall be unable to find a place to pass the night.”
+Soon they began to see fences along the road again. But these fences were painted green. When they passed a small farmhouse, it too was painted green.
 
-“I should like something to eat besides fruit,” said the girl, “and I’m sure Toto is nearly starved. Let us stop at the next house and talk to the people.”
+During the afternoon they passed several houses like this. Sometimes people came to their doors and looked at the travelers with curiosity, as if they wanted to ask questions. But no one came close or spoke to them because they were afraid of the great Lion.
 
-So, when they came to a good-sized farmhouse, Dorothy walked boldly up to the door and knocked.
+The people all wore beautiful emerald-green clothes and pointed hats like the Munchkins.
 
-A woman opened it just far enough to look out, and said, “What do you want, child, and why is that great Lion with you?”
+“This must be the Land of Oz,” said Dorothy. “We must be getting close to the Emerald City.”
 
-“We wish to pass the night with you, if you will allow us,” answered Dorothy; “and the Lion is my friend and comrade, and would not hurt you for the world.”
+“Yes,” said the Scarecrow. “Everything here is green, while in the country of the Munchkins blue was the favorite color. But the people here do not seem as friendly. I’m afraid we may not find a place to stay tonight.”
 
-“Is he tame?” asked the woman, opening the door a little wider.
+“I would like something to eat besides fruit,” said Dorothy. “And I’m sure Toto is nearly starving. Let’s stop at the next house and speak with the people.”
 
-“Oh, yes,” said the girl, “and he is a great coward, too. He will be more afraid of you than you are of him.”
+When they came to a large farmhouse, Dorothy walked bravely up to the door and knocked.
 
-“Well,” said the woman, after thinking it over and taking another peep at the Lion, “if that is the case you may come in, and I will give you some supper and a place to sleep.”
+A woman opened the door just a little and looked out.
 
-So they all entered the house, where there were, besides the woman, two children and a man. The man had hurt his leg, and was lying on the couch in a corner. They seemed greatly surprised to see so strange a company, and while the woman was busy laying the table the man asked:
+“What do you want, child?” she asked. “And why is that huge Lion with you?”
+
+“We would like to stay here for the night, if you allow us,” Dorothy replied. “The Lion is my friend and would never hurt you.”
+
+“Is he tame?” the woman asked, opening the door a little wider.
+
+“Oh yes,” said Dorothy. “And he is actually a great coward. He will be more afraid of you than you are of him.”
+
+“Well,” said the woman after thinking for a moment and looking again at the Lion, “if that is true, you may come in. I will give you supper and a place to sleep.”
+
+So they all entered the house. Inside were the woman, two children, and a man. The man had injured his leg and was lying on a couch in the corner.
+
+They were very surprised to see such unusual visitors.
+
+While the woman prepared the table, the man asked:
 
 “Where are you all going?”
 
 “To the Emerald City,” said Dorothy, “to see the Great Oz.”
 
-“Oh, indeed!” exclaimed the man. “Are you sure that Oz will see you?”
+“Oh!” said the man in surprise. “Are you sure Oz will see you?”
 
-“Why not?” she replied.
+“Why wouldn’t he?” Dorothy asked.
 
-“Why, it is said that he never lets anyone come into his presence. I have been to the Emerald City many times, and it is a beautiful and wonderful place; but I have never been permitted to see the Great Oz, nor do I know of any living person who has seen him.”
+“It is said that he never allows anyone to come before him,” said the man. “I have visited the Emerald City many times. It is a wonderful place. But I have never seen the Great Oz, and I do not know anyone who has.”
 
-“Does he never go out?” asked the Scarecrow.
+“Does he never leave his palace?” asked the Scarecrow.
 
-“Never. He sits day after day in the great Throne Room of his Palace, and even those who wait upon him do not see him face to face.”
+“Never,” said the man. “He sits day after day in the great Throne Room. Even the servants who work for him never see him face to face.”
 
-“What is he like?” asked the girl.
+“What does he look like?” asked Dorothy.
 
-“That is hard to tell,” said the man thoughtfully. “You see, Oz is a Great Wizard, and can take on any form he wishes. So that some say he looks like a bird; and some say he looks like an elephant; and some say he looks like a cat. To others he appears as a beautiful fairy, or a brownie, or in any other form that pleases him. But who the real Oz is, when he is in his own form, no living person can tell.”
+“That is difficult to say,” said the man thoughtfully. “Oz is a powerful Wizard and can appear in any form he wishes. Some say he looks like a bird. Others say he looks like an elephant or a cat. Some say he appears as a beautiful fairy or a small magical creature. But what he truly looks like—no one knows.”
 
-“That is very strange,” said Dorothy, “but we must try, in some way, to see him, or we shall have made our journey for nothing.”
+“That is very strange,” said Dorothy. “But we must try to see him, or our long journey will have been useless.”
 
-“Why do you wish to see the terrible Oz?” asked the man.
+“Why do you want to see the terrible Oz?” asked the man.
 
-“I want him to give me some brains,” said the Scarecrow eagerly.
+“I want him to give me brains,” said the Scarecrow eagerly.
 
-“Oh, Oz could do that easily enough,” declared the man. “He has more brains than he needs.”
+“Oh, that would be easy for Oz,” said the man. “He has more brains than he needs.”
 
-“And I want him to give me a heart,” said the Tin Woodman.
+“And I want a heart,” said the Tin Woodman.
 
-“That will not trouble him,” continued the man, “for Oz has a large collection of hearts, of all sizes and shapes.”
+“That is no problem either,” said the man. “Oz has many hearts in all shapes and sizes.”
 
-“And I want him to give me courage,” said the Cowardly Lion.
+“And I want courage,” said the Cowardly Lion.
 
-“Oz keeps a great pot of courage in his Throne Room,” said the man, “which he has covered with a golden plate, to keep it from running over. He will be glad to give you some.”
+“Oz keeps a great pot of courage in his Throne Room,” said the man. “It is covered with a golden lid so it does not spill over. I am sure he will give you some.”
 
 “And I want him to send me back to Kansas,” said Dorothy.
 
-“Where is Kansas?” asked the man, with surprise.
+“Where is Kansas?” the man asked in surprise.
 
-“I don’t know,” replied Dorothy sorrowfully, “but it is my home, and I’m sure it’s somewhere.”
+“I don’t know,” said Dorothy sadly. “But it is my home, and I’m sure it must be somewhere.”
 
-“Very likely. Well, Oz can do anything; so I suppose he will find Kansas for you. But first you must get to see him, and that will be a hard task; for the Great Wizard does not like to see anyone, and he usually has his own way. But what do YOU want?” he continued, speaking to Toto. Toto only wagged his tail; for, strange to say, he could not speak.
+“Very likely,” said the man. “Oz can do anything, so perhaps he will find Kansas for you. But first you must manage to see him, and that may be difficult. The Great Wizard does not like visitors.”
 
-The woman now called to them that supper was ready, so they gathered around the table and Dorothy ate some delicious porridge and a dish of scrambled eggs and a plate of nice white bread, and enjoyed her meal. The Lion ate some of the porridge, but did not care for it, saying it was made from oats and oats were food for horses, not for lions. The Scarecrow and the Tin Woodman ate nothing at all. Toto ate a little of everything, and was glad to get a good supper again.
+Then he looked at Toto and asked, “And what do YOU want?”
 
-The woman now gave Dorothy a bed to sleep in, and Toto lay down beside her, while the Lion guarded the door of her room so she might not be disturbed. The Scarecrow and the Tin Woodman stood up in a corner and kept quiet all night, although of course they could not sleep.
+Toto only wagged his tail, because of course he could not speak.
 
-The next morning, as soon as the sun was up, they started on their way, and soon saw a beautiful green glow in the sky just before them.
+Just then the woman called them to supper.
+
+They gathered around the table. Dorothy ate a bowl of delicious porridge, scrambled eggs, and fresh white bread, and enjoyed the meal very much.
+
+The Lion tasted the porridge but did not like it.
+
+“This is made from oats,” he said. “Oats are food for horses, not lions.”
+
+The Scarecrow and the Tin Woodman ate nothing at all.
+
+Toto ate a little of everything and was very happy to have a proper supper again.
+
+Later the woman gave Dorothy a bed to sleep in, with Toto beside her. The Lion guarded the door to make sure no one disturbed her.
+
+The Scarecrow and the Tin Woodman stood quietly in a corner all night, since they did not need sleep.
+
+Early the next morning, when the sun rose, they continued their journey.
+
+Soon they saw a beautiful green glow shining in the sky ahead of them.
 
 “That must be the Emerald City,” said Dorothy.
 
-As they walked on, the green glow became brighter and brighter, and it seemed that at last they were nearing the end of their travels. Yet it was afternoon before they came to the great wall that surrounded the City. It was high and thick and of a bright green color.
+As they walked, the green light became brighter and brighter, and it seemed that they were finally reaching the end of their journey.
 
-In front of them, and at the end of the road of yellow brick, was a big gate, all studded with emeralds that glittered so in the sun that even the painted eyes of the Scarecrow were dazzled by their brilliancy.
+But it was afternoon before they arrived at a great wall surrounding the city. It was tall, thick, and bright green.
 
-There was a bell beside the gate, and Dorothy pushed the button and heard a silvery tinkle sound within. Then the big gate swung slowly open, and they all passed through and found themselves in a high arched room, the walls of which glistened with countless emeralds.
+At the end of the yellow brick road stood a large gate covered with shining emeralds that glittered so brightly in the sun that even the Scarecrow’s painted eyes were dazzled.
 
-Before them stood a little man about the same size as the Munchkins. He was clothed all in green, from his head to his feet, and even his skin was of a greenish tint. At his side was a large green box.
+Beside the gate was a bell. Dorothy pressed the button and heard a delicate ringing sound inside.
 
-When he saw Dorothy and her companions the man asked, “What do you wish in the Emerald City?”
+Slowly the great gate opened.
 
-“We came here to see the Great Oz,” said Dorothy.
+They entered a large arched hall whose walls sparkled with countless emeralds.
 
-The man was so surprised at this answer that he sat down to think it over.
+Before them stood a small man about the size of a Munchkin. He was dressed entirely in green—from head to foot—and even his skin had a greenish color. Beside him stood a large green box.
 
-“It has been many years since anyone asked me to see Oz,” he said, shaking his head in perplexity. “He is powerful and terrible, and if you come on an idle or foolish errand to bother the wise reflections of the Great Wizard, he might be angry and destroy you all in an instant.”
+When he saw them he asked:
 
-“But it is not a foolish errand, nor an idle one,” replied the Scarecrow; “it is important. And we have been told that Oz is a good Wizard.”
+“What do you want in the Emerald City?”
 
-“So he is,” said the green man, “and he rules the Emerald City wisely and well. But to those who are not honest, or who approach him from curiosity, he is most terrible, and few have ever dared ask to see his face. I am the Guardian of the Gates, and since you demand to see the Great Oz I must take you to his Palace. But first you must put on the spectacles.”
+“We have come to see the Great Oz,” said Dorothy.
+
+The man looked extremely surprised and sat down to think.
+
+“It has been many years since anyone asked to see Oz,” he said slowly. “He is powerful and terrible. If you disturb him with a foolish request he might become angry and destroy you all.”
+
+“But our request is not foolish,” said the Scarecrow. “It is very important. And we have heard that Oz is a good Wizard.”
+
+“So he is,” said the man. “He rules the Emerald City wisely. But he is terrible to those who are dishonest or come only out of curiosity. I am the Guardian of the Gates. Since you insist on seeing Oz, I must take you to his Palace. But first you must put on these spectacles.”
 
 “Why?” asked Dorothy.
 
-“Because if you did not wear spectacles the brightness and glory of the Emerald City would blind you. Even those who live in the City must wear spectacles night and day. They are all locked on, for Oz so ordered it when the City was first built, and I have the only key that will unlock them.”
+“Because the brightness of the Emerald City would blind you otherwise. Even the people who live here must wear these glasses day and night. Oz ordered it when the city was built.”
 
-He opened the big box, and Dorothy saw that it was filled with spectacles of every size and shape. All of them had green glasses in them. The Guardian of the Gates found a pair that would just fit Dorothy and put them over her eyes. There were two golden bands fastened to them that passed around the back of her head, where they were locked together by a little key that was at the end of a chain the Guardian of the Gates wore around his neck. When they were on, Dorothy could not take them off had she wished, but of course she did not wish to be blinded by the glare of the Emerald City, so she said nothing.
+He opened the green box, which was full of spectacles of many sizes.
 
-Then the green man fitted spectacles for the Scarecrow and the Tin Woodman and the Lion, and even on little Toto; and all were locked fast with the key.
+All had green lenses.
 
-Then the Guardian of the Gates put on his own glasses and told them he was ready to show them to the Palace. Taking a big golden key from a peg on the wall, he opened another gate, and they all followed him through the portal into the streets of the Emerald City.`,
+The Guardian found a pair that fit Dorothy and placed them on her face. A golden band went around the back of her head and was locked with a tiny key that hung on a chain around his neck.
+
+Once locked, Dorothy could not remove the glasses—but she did not wish to be blinded by the bright green light anyway.
+
+Then the Guardian fitted glasses on the Scarecrow, the Tin Woodman, the Lion, and even little Toto. All were locked in place.
+
+Finally the Guardian put on his own spectacles.
+
+He took a large golden key from the wall, opened another gate, and led them through into the streets of the Emerald City.`,
 }

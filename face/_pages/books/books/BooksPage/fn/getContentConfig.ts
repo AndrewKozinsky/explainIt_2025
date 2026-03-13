@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { MediaItemsGridConfig } from '_pages/bookAndVideoCommon/MediaItemsGrid/types'
 import { useBooksStore } from '_pages/books/books/booksStore'
-import { createBookIdUrl, pageUrls } from 'сonsts/pageUrls'
+import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
 
 export function useGetContentConfig() {
 	const privateBooks = useBooksStore((s) => s.privateBooks)
@@ -35,7 +35,7 @@ export function useGetContentConfig() {
 				error: null,
 				config: {
 					privateItems: privateBooks.data.map((book) => {
-						const bookId = createBookIdUrl(book.id, 'private')
+						const bookId = createMediaIdUrl(book.id, 'private')
 
 						return {
 							name: book.name,
@@ -44,7 +44,7 @@ export function useGetContentConfig() {
 						}
 					}),
 					publicItems: publicBooks.data.map((book) => {
-						const bookId = createBookIdUrl(book.id, 'public')
+						const bookId = createMediaIdUrl(book.id, 'public')
 
 						return {
 							name: book.name,
