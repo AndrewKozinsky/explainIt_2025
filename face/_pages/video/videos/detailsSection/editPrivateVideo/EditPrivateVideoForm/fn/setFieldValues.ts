@@ -1,8 +1,8 @@
-// import { useEffect } from 'react'
-// import { useVideosStore } from '_pages/video/videos/videosStore'
+import { useEffect } from 'react'
+import { useVideoStore } from '_pages/video/video/videoStore'
 
-/*export function useSetFieldValues(reset: (data: any) => void) {
-	const video = useVideosStore((s) => s.privateVideo)
+export function useSetFieldValues(reset: (data: any) => void) {
+	const video = useVideoStore((s) => s.privateVideo.data)
 
 	useEffect(() => {
 		if (!video) return
@@ -12,4 +12,4 @@
 			content: video.originalContent ?? '',
 		})
 	}, [video, reset])
-}*/
+}

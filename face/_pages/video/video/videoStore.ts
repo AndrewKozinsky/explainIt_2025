@@ -48,9 +48,6 @@ export type ReadingStore = VideoStoreValues & VideoStoreMethods
 export type VideoStoreValues = {
 	publicVideo: VideoStore.PublicVideoData
 	privateVideo: VideoStore.PrivateVideoData
-	// privateBooks: BooksStore.PrivateBooksData
-	// publicBook: null | VideoPublicOutModel
-	// privateBook: null | BookPrivateOutModel
 }
 
 export namespace VideoStore {
@@ -70,6 +67,4 @@ type VideoStoreMethods = {
 	updatePublicVideo: (video: VideoStore.PublicVideoData) => void
 	updatePrivateVideo: (video: VideoStore.PrivateVideoData) => void
 	clearStore: () => void
-	// updatePrivateBooks: (books: BooksStore.PrivateBooksData) => void
-	// updateChapter: (books: BooksStore.ChapterData) => void
 }

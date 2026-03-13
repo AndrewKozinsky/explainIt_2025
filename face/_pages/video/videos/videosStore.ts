@@ -12,8 +12,6 @@ export const videosStoreValues: VideosStoreValues = {
 		errorMessage: null,
 		data: null as any as VideoPrivateLiteOutModel[],
 	},
-	// publicVideo: null,
-	// privateVideo: null,
 }
 
 export const useVideosStore = create<VideosStoreFull>()((set) => {
@@ -45,8 +43,6 @@ export type VideosStoreFull = VideosStoreValues & VideosStoreMethods
 export type VideosStoreValues = {
 	publicVideos: VideosStore.PublicVideosData
 	privateVideos: VideosStore.PrivateVideosData
-	// publicVideo: null | VideoPublicLiteOutModel
-	// privateVideo: null | VideoPrivateLiteOutModel
 }
 
 export namespace VideosStore {
@@ -64,7 +60,6 @@ export namespace VideosStore {
 }
 
 type VideosStoreMethods = {
-	// updateMobileCurrentContentType: (contentType: VideosStore.MobileCurrentContentType) => void
 	updatePublicVideos: (videos: VideosStore.PublicVideosData) => void
 	updatePrivateVideos: (videos: VideosStore.PrivateVideosData) => void
 }
