@@ -38,6 +38,7 @@ export class BookPublicQueryRepository {
 			name: dbBook.name,
 			note: dbBook.note,
 			covers: dbBook.covers,
+			coverBackgroundColor: dbBook.coverBackgroundColor,
 			languageCode: dbBook.language_code,
 			freeToUse: dbBook.free_to_use ?? false,
 			chapters: dbBook.BookChapter.map((chapter) => ({

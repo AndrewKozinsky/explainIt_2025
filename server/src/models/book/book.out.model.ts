@@ -2,7 +2,7 @@ import { Field, Int, ObjectType } from '@nestjs/graphql'
 import { BookChapterLiteOutModel } from '../bookChapter/bookChapter.out.model'
 
 @ObjectType()
-export class BookOutModel {
+export class BookPrivateOutModel {
 	@Field(() => Int)
 	id: number
 

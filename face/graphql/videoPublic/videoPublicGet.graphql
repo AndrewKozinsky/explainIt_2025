@@ -6,6 +6,7 @@ query VideoPublic_get($input: GetPublicVideoInput!) {
 		languageCode
 		note
 		covers
+		coverBackgroundColor
 		originalContent
 		processedContent
 		contentType

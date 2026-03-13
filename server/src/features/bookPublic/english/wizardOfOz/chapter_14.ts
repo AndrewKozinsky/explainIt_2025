@@ -1,90 +1,139 @@
-// Это неадаптированная версия !
 export const chapter_14 = {
 	name: 'Chapter XIV',
 	header: 'The Winged Monkeys',
-	text: `You will remember there was no road—not even a pathway—between the castle of the Wicked Witch and the Emerald City. When the four travelers went in search of the Witch she had seen them coming, and so sent the Winged Monkeys to bring them to her. It was much harder to find their way back through the big fields of buttercups and yellow daisies than it was being carried. They knew, of course, they must go straight east, toward the rising sun; and they started off in the right way. But at noon, when the sun was over their heads, they did not know which was east and which was west, and that was the reason they were lost in the great fields. They kept on walking, however, and at night the moon came out and shone brightly. So they lay down among the sweet smelling yellow flowers and slept soundly until morning—all but the Scarecrow and the Tin Woodman.
+	text: `You may remember that there was no road or even a path between the castle of the Wicked Witch and the Emerald City. When the four travelers went to find the Witch, she saw them coming and sent the Winged Monkeys to bring them to her. It was much harder to find their way back across the wide fields of buttercups and yellow daisies than it had been to fly through the air.
 
-The next morning the sun was behind a cloud, but they started on, as if they were quite sure which way they were going.
+They knew they needed to go east, toward the rising sun, and they started walking in that direction. But at noon the sun was directly above them, and they could no longer tell which way was east or west. That was how they became lost in the huge fields.
 
-“If we walk far enough,” said Dorothy, “I am sure we shall sometime come to some place.”
+Still, they kept walking. At night the moon appeared and shone brightly. So they lay down among the sweet-smelling yellow flowers and slept peacefully until morning. Only the Scarecrow and the Tin Woodman stayed awake, because they did not need sleep.
 
-But day by day passed away, and they still saw nothing before them but the scarlet fields. The Scarecrow began to grumble a bit.
+The next morning the sun was hidden behind clouds, but they continued walking as if they knew the right direction.
 
-“We have surely lost our way,” he said, “and unless we find it again in time to reach the Emerald City, I shall never get my brains.”
+“If we walk far enough,” said Dorothy, “I’m sure we will eventually reach some place.”
 
-“Nor I my heart,” declared the Tin Woodman. “It seems to me I can scarcely wait till I get to Oz, and you must admit this is a very long journey.”
+But day after day passed, and they saw nothing around them except endless fields of red flowers. The Scarecrow began to complain.
 
-“You see,” said the Cowardly Lion, with a whimper, “I haven’t the courage to keep tramping forever, without getting anywhere at all.”
+“We must have lost our way,” he said. “If we do not find the Emerald City soon, I will never get my brains.”
 
-Then Dorothy lost heart. She sat down on the grass and looked at her companions, and they sat down and looked at her, and Toto found that for the first time in his life he was too tired to chase a butterfly that flew past his head. So he put out his tongue and panted and looked at Dorothy as if to ask what they should do next.
+“And I will never get my heart,” said the Tin Woodman. “I feel very impatient to reach Oz. This journey is extremely long.”
 
-“Suppose we call the field mice,” she suggested. “They could probably tell us the way to the Emerald City.”
+“You see,” said the Cowardly Lion sadly, “I do not have enough courage to keep walking forever without knowing where we are going.”
 
-“To be sure they could,” cried the Scarecrow. “Why didn’t we think of that before?”
+Then Dorothy began to feel hopeless. She sat down on the grass and looked at her friends. They sat down and looked at her too. Toto was so tired that, for the first time in his life, he did not chase a butterfly that flew past him. Instead he lay down, stuck out his tongue, and looked at Dorothy as if asking what they should do.
 
-Dorothy blew the little whistle she had always carried about her neck since the Queen of the Mice had given it to her. In a few minutes they heard the pattering of tiny feet, and many of the small gray mice came running up to her. Among them was the Queen herself, who asked, in her squeaky little voice:
+“Maybe we should call the field mice,” Dorothy suggested. “They might know the way to the Emerald City.”
 
-“What can I do for my friends?”
+“Of course!” cried the Scarecrow. “Why didn’t we think of that earlier?”
+
+Dorothy took the small whistle she always wore around her neck—the one the Queen of the Mice had given her—and blew it.
+
+Soon they heard the sound of many tiny feet, and several small gray mice ran toward her. Among them was the Queen of the Mice. In her tiny squeaky voice she asked:
+
+“How can I help my friends?”
 
 “We have lost our way,” said Dorothy. “Can you tell us where the Emerald City is?”
 
-“Certainly,” answered the Queen; “but it is a great way off, for you have had it at your backs all this time.” Then she noticed Dorothy’s Golden Cap, and said, “Why don’t you use the charm of the Cap, and call the Winged Monkeys to you? They will carry you to the City of Oz in less than an hour.”
+“Certainly,” replied the Queen. “But it is very far away from here, because you have been walking in the opposite direction this whole time.”
 
-“I didn’t know there was a charm,” answered Dorothy, in surprise. “What is it?”
+Then she noticed the Golden Cap on Dorothy’s head.
 
-“It is written inside the Golden Cap,” replied the Queen of the Mice. “But if you are going to call the Winged Monkeys we must run away, for they are full of mischief and think it great fun to plague us.”
+“Why don’t you use the magic of the Cap?” she asked. “Call the Winged Monkeys. They can carry you to the City of Oz in less than an hour.”
 
-“Won’t they hurt me?” asked the girl anxiously.
+“I didn’t know the cap had magic,” Dorothy said in surprise. “How does it work?”
 
-“Oh, no. They must obey the wearer of the Cap. Good-bye!” And she scampered out of sight, with all the mice hurrying after her.
+“The magic words are written inside the Golden Cap,” said the Queen of the Mice. “But if you are going to call the Winged Monkeys, we must leave quickly. They love playing tricks on us.”
 
-Dorothy looked inside the Golden Cap and saw some words written upon the lining. These, she thought, must be the charm, so she read the directions carefully and put the Cap upon her head.
+“They won’t hurt me, will they?” Dorothy asked nervously.
+
+“Oh no,” said the Queen. “They must obey the person who wears the Cap. Goodbye!”
+
+Then she ran away, and all the mice hurried after her.
+
+Dorothy looked inside the Golden Cap and saw several words written on the lining. She understood that these must be the magic words. She read the instructions carefully and placed the Cap on her head.
 
 “Ep-pe, pep-pe, kak-ke!” she said, standing on her left foot.
 
-“What did you say?” asked the Scarecrow, who did not know what she was doing.
+“What did you say?” asked the Scarecrow, who had no idea what she was doing.
 
-“Hil-lo, hol-lo, hel-lo!” Dorothy went on, standing this time on her right foot.
+“Hil-lo, hol-lo, hel-lo!” Dorothy continued, now standing on her right foot.
 
 “Hello!” replied the Tin Woodman calmly.
 
-“Ziz-zy, zuz-zy, zik!” said Dorothy, who was now standing on both feet. This ended the saying of the charm, and they heard a great chattering and flapping of wings, as the band of Winged Monkeys flew up to them.
+“Ziz-zy, zuz-zy, zik!” said Dorothy, standing on both feet.
 
-The King bowed low before Dorothy, and asked, “What is your command?”
+As soon as she finished the magic words, they heard loud chattering and the beating of wings. A moment later the Winged Monkeys flew down and landed beside them.
 
-“We wish to go to the Emerald City,” said the child, “and we have lost our way.”
+The King of the Winged Monkeys bowed deeply to Dorothy and asked, “What is your command?”
 
-“We will carry you,” replied the King, and no sooner had he spoken than two of the Monkeys caught Dorothy in their arms and flew away with her. Others took the Scarecrow and the Woodman and the Lion, and one little Monkey seized Toto and flew after them, although the dog tried hard to bite him.
+“We want to go to the Emerald City,” said the girl, “but we have lost our way.”
 
-The Scarecrow and the Tin Woodman were rather frightened at first, for they remembered how badly the Winged Monkeys had treated them before; but they saw that no harm was intended, so they rode through the air quite cheerfully, and had a fine time looking at the pretty gardens and woods far below them.
+“We will carry you there,” replied the King.
 
-Dorothy found herself riding easily between two of the biggest Monkeys, one of them the King himself. They had made a chair of their hands and were careful not to hurt her.
+------------
 
-“Why do you have to obey the charm of the Golden Cap?” she asked.
+Immediately two monkeys lifted Dorothy in their arms and flew into the air with her. Other monkeys carried the Scarecrow, the Tin Woodman, and the Lion. One small monkey grabbed Toto and followed them, although the little dog tried hard to bite him.
 
-“That is a long story,” answered the King, with a winged laugh; “but as we have a long journey before us, I will pass the time by telling you about it, if you wish.”
+At first the Scarecrow and the Tin Woodman felt a little afraid, because they remembered how badly the Winged Monkeys had treated them before. But they soon saw that the monkeys did not mean to harm them, and they began to enjoy the flight. They looked down and admired the beautiful forests and gardens far below.
 
-“I shall be glad to hear it,” she replied.
+Dorothy sat comfortably between two large monkeys, one of them the King himself. They held their hands together to make a kind of chair and were careful not to hurt her.
 
-“Once,” began the leader, “we were a free people, living happily in the great forest, flying from tree to tree, eating nuts and fruit, and doing just as we pleased without calling anybody master. Perhaps some of us were rather too full of mischief at times, flying down to pull the tails of the animals that had no wings, chasing birds, and throwing nuts at the people who walked in the forest. But we were careless and happy and full of fun, and enjoyed every minute of the day. This was many years ago, long before Oz came out of the clouds to rule over this land.
+“Why do you have to obey the magic of the Golden Cap?” Dorothy asked.
 
-“There lived here then, away at the North, a beautiful princess, who was also a powerful sorceress. All her magic was used to help the people, and she was never known to hurt anyone who was good. Her name was Gayelette, and she lived in a handsome palace built from great blocks of ruby. Everyone loved her, but her greatest sorrow was that she could find no one to love in return, since all the men were much too stupid and ugly to mate with one so beautiful and wise. At last, however, she found a boy who was handsome and manly and wise beyond his years. Gayelette made up her mind that when he grew to be a man she would make him her husband, so she took him to her ruby palace and used all her magic powers to make him as strong and good and lovely as any woman could wish. When he grew to manhood, Quelala, as he was called, was said to be the best and wisest man in all the land, while his manly beauty was so great that Gayelette loved him dearly, and hastened to make everything ready for the wedding.
+“That is a long story,” said the King with a laugh. “But since we have a long journey ahead, I can tell it to you if you would like.”
 
-“My grandfather was at that time the King of the Winged Monkeys which lived in the forest near Gayelette’s palace, and the old fellow loved a joke better than a good dinner. One day, just before the wedding, my grandfather was flying out with his band when he saw Quelala walking beside the river. He was dressed in a rich costume of pink silk and purple velvet, and my grandfather thought he would see what he could do. At his word the band flew down and seized Quelala, carried him in their arms until they were over the middle of the river, and then dropped him into the water.
+“I would like to hear it,” Dorothy replied.
 
-“‘Swim out, my fine fellow,’ cried my grandfather, ‘and see if the water has spotted your clothes.’ Quelala was much too wise not to swim, and he was not in the least spoiled by all his good fortune. He laughed, when he came to the top of the water, and swam in to shore. But when Gayelette came running out to him she found his silks and velvet all ruined by the river.
+“Long ago,” began the Monkey King, “we were a free people. We lived happily in a great forest. We flew from tree to tree, ate nuts and fruit, and did whatever we wanted. No one ruled us.
 
-“The princess was angry, and she knew, of course, who did it. She had all the Winged Monkeys brought before her, and she said at first that their wings should be tied and they should be treated as they had treated Quelala, and dropped in the river. But my grandfather pleaded hard, for he knew the Monkeys would drown in the river with their wings tied, and Quelala said a kind word for them also; so that Gayelette finally spared them, on condition that the Winged Monkeys should ever after do three times the bidding of the owner of the Golden Cap. This Cap had been made for a wedding present to Quelala, and it is said to have cost the princess half her kingdom. Of course my grandfather and all the other Monkeys at once agreed to the condition, and that is how it happens that we are three times the slaves of the owner of the Golden Cap, whosoever he may be.”
+“Sometimes we were a little too playful. We liked to pull the tails of animals that could not fly, chase birds, and throw nuts at people walking in the forest. But we were happy and full of fun, and we enjoyed every day of our lives.
 
-“And what became of them?” asked Dorothy, who had been greatly interested in the story.
+“This was many years ago, long before Oz came from the clouds to rule this land.
 
-“Quelala being the first owner of the Golden Cap,” replied the Monkey, “he was the first to lay his wishes upon us. As his bride could not bear the sight of us, he called us all to him in the forest after he had married her and ordered us always to keep where she could never again set eyes on a Winged Monkey, which we were glad to do, for we were all afraid of her.
+“At that time there lived in the north a beautiful princess who was also a powerful sorceress. Her name was Gayelette. She always used her magic to help people and never harmed anyone who was good. She lived in a magnificent palace built from great red rubies.
 
-“This was all we ever had to do until the Golden Cap fell into the hands of the Wicked Witch of the West, who made us enslave the Winkies, and afterward drive Oz himself out of the Land of the West. Now the Golden Cap is yours, and three times you have the right to lay your wishes upon us.”
+“Everyone loved her. But she was sad because she could not find anyone she truly loved. The men she met seemed too foolish and unworthy for someone so wise and beautiful.
 
-As the Monkey King finished his story Dorothy looked down and saw the green, shining walls of the Emerald City before them. She wondered at the rapid flight of the Monkeys, but was glad the journey was over. The strange creatures set the travelers down carefully before the gate of the City, the King bowed low to Dorothy, and then flew swiftly away, followed by all his band.
+“At last she met a young boy who was handsome, brave, and wise beyond his years. Gayelette decided that when he grew into a man she would marry him. She brought him to her ruby palace and used her magic to make him strong, noble, and admirable.
 
-“That was a good ride,” said the little girl.
+“When he became a man, Quelala—as he was called—was known as the wisest and best man in the land. He was also very handsome, and Gayelette loved him deeply. Soon they prepared for their wedding.
 
-“Yes, and a quick way out of our troubles,” replied the Lion. “How lucky it was you brought away that wonderful Cap!”`,
+“At that time my grandfather was the King of the Winged Monkeys who lived in the forest near Gayelette’s palace. He loved jokes more than anything else.
+
+“One day, shortly before the wedding, my grandfather and his monkeys saw Quelala walking beside a river. He was wearing beautiful clothes made of pink silk and purple velvet. My grandfather decided to play a trick.
+
+“At his command the monkeys flew down, grabbed Quelala, carried him high above the river, and dropped him into the water.
+
+------------
+
+“‘Swim out, my friend!’ my grandfather shouted. ‘Let us see if the water ruins your fine clothes!’
+
+“But Quelala was wise and calm. When he reached the surface he laughed and swam safely to the shore.
+
+“Soon Gayelette ran to him. But when she saw that his beautiful clothes were ruined by the water, she became very angry.
+
+“She knew immediately who had done it. The Winged Monkeys were brought before her. At first she said their wings should be tied and that they should be thrown into the river just as they had thrown Quelala.
+
+“But my grandfather begged for mercy. He knew the monkeys would drown if their wings were tied. Quelala also spoke kindly for them.
+
+“So finally Gayelette forgave the monkeys, but she placed a condition on them. From that moment on, the Winged Monkeys would have to obey the owner of the Golden Cap three times whenever the magic words were spoken.
+
+“The Golden Cap had been made as a wedding gift for Quelala, and it was said to be worth half the princess’s kingdom. My grandfather and all the monkeys quickly agreed to this condition. That is why we must obey the owner of the Golden Cap three times, whoever that person may be.”
+
+“And what happened after that?” asked Dorothy, who had listened to the story with great interest.
+
+“Quelala became the first owner of the Golden Cap,” the Monkey King replied. “His first command was simple. After he married Gayelette, he ordered us to stay far away from her palace so that she would never see a Winged Monkey again. We were glad to do this, because we were all afraid of her.”
+
+“For a long time we had nothing else to do. But later the Golden Cap came into the hands of the Wicked Witch of the West. She forced us to make the Winkies her slaves and later to drive Oz himself out of the western lands.
+
+“Now the Golden Cap belongs to you. That means you have the right to command us three times.”
+
+Just as the Monkey King finished his story, Dorothy looked down and saw the shining green walls of the Emerald City below them.
+
+She was amazed by how quickly the monkeys had flown, but she was glad the journey was over.
+
+The Winged Monkeys gently set the travelers down before the gates of the city. The King bowed deeply to Dorothy and then flew away with his entire band.
+
+“That was a wonderful ride,” said Dorothy.
+
+“Yes,” said the Lion. “And it helped us out of our trouble very quickly. How lucky you took that amazing cap with you!”`,
 }

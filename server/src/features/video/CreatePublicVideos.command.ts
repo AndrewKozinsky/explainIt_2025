@@ -69,6 +69,7 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 					languageCode: videoData.languageCode as Language,
 					note: videoData.note,
 					covers: videoData.covers,
+					coverBackgroundColor: videoData.coverBackgroundColor,
 					year: videoData.year,
 					originalContent: preparedContentResult.originalContentForVideoUpdate,
 					processedContent: preparedContentResult.processedContentForVideoUpdate,
@@ -117,6 +118,7 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 		file_s3_key: string
 		originalContent: string
 		covers: string[]
+		coverBackgroundColor: string
 	}[] {
 		const workingMode = this.mainConfig.get().mode!
 		const folderName = ['localdev', 'localtest', 'localcheckserver'].includes(workingMode)
@@ -145,6 +147,7 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 					coversFolderName + 'charade_3.jpg',
 					coversFolderName + 'charade_4.jpg',
 				],
+				coverBackgroundColor: '#444A21',
 			},
 			{
 				freeToUse: false,
@@ -164,6 +167,7 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 					coversFolderName + 'his_girl_friday_3.jpg',
 					coversFolderName + 'his_girl_friday_4.jpg',
 				],
+				coverBackgroundColor: '#24181A',
 			},
 		]
 	}

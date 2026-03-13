@@ -1,62 +1,73 @@
-// Это неадаптированная версия !
 export const chapter_13 = {
 	name: 'Chapter XIII',
 	header: 'The Rescue',
-	text: `The Cowardly Lion was much pleased to hear that the Wicked Witch had been melted by a bucket of water, and Dorothy at once unlocked the gate of his prison and set him free. They went in together to the castle, where Dorothy’s first act was to call all the Winkies together and tell them that they were no longer slaves.
+	text: `The Cowardly Lion was very happy to hear that the Wicked Witch had melted because of a bucket of water. Dorothy quickly unlocked the gate of his prison and set him free. Then they went into the castle together. Dorothy’s first action was to gather all the Winkies and tell them that they were no longer slaves.
 
-There was great rejoicing among the yellow Winkies, for they had been made to work hard during many years for the Wicked Witch, who had always treated them with great cruelty. They kept this day as a holiday, then and ever after, and spent the time in feasting and dancing.
+The yellow Winkies were filled with joy, because they had worked hard for many years for the Wicked Witch, who had treated them very cruelly. They celebrated that day with feasting and dancing, and from that time on they always remembered it as a holiday.
 
-“If our friends, the Scarecrow and the Tin Woodman, were only with us,” said the Lion, “I should be quite happy.”
+“If only our friends, the Scarecrow and the Tin Woodman, were here with us,” said the Lion, “I would be completely happy.”
 
-“Don’t you suppose we could rescue them?” asked the girl anxiously.
+“Do you think we could rescue them?” asked Dorothy anxiously.
 
 “We can try,” answered the Lion.
 
-So they called the yellow Winkies and asked them if they would help to rescue their friends, and the Winkies said that they would be delighted to do all in their power for Dorothy, who had set them free from bondage. So she chose a number of the Winkies who looked as if they knew the most, and they all started away. They traveled that day and part of the next until they came to the rocky plain where the Tin Woodman lay, all battered and bent. His axe was near him, but the blade was rusted and the handle broken off short.
+So they called the Winkies and asked if they would help rescue their friends. The Winkies gladly agreed, because Dorothy had freed them from slavery. She chose several Winkies who seemed the most knowledgeable, and they all set out together.
 
-The Winkies lifted him tenderly in their arms, and carried him back to the Yellow Castle again, Dorothy shedding a few tears by the way at the sad plight of her old friend, and the Lion looking sober and sorry. When they reached the castle Dorothy said to the Winkies:
+They traveled for the rest of that day and part of the next until they reached the rocky plain where the Tin Woodman lay, battered and bent. His axe was nearby, but the blade was rusty and the handle was broken.
 
-“Are any of your people tinsmiths?”
+The Winkies carefully lifted him and carried him back to the Yellow Castle. Dorothy shed a few tears on the way when she saw the sad condition of her old friend, and the Lion walked beside them looking serious and sorry.
 
-“Oh, yes. Some of us are very good tinsmiths,” they told her.
+When they reached the castle Dorothy asked the Winkies, “Are any of your people metal workers?”
 
-“Then bring them to me,” she said. And when the tinsmiths came, bringing with them all their tools in baskets, she inquired, “Can you straighten out those dents in the Tin Woodman, and bend him back into shape again, and solder him together where he is broken?”
+“Oh yes,” they replied. “Some of us are very skilled metal workers.”
 
-The tinsmiths looked the Woodman over carefully and then answered that they thought they could mend him so he would be as good as ever. So they set to work in one of the big yellow rooms of the castle and worked for three days and four nights, hammering and twisting and bending and soldering and polishing and pounding at the legs and body and head of the Tin Woodman, until at last he was straightened out into his old form, and his joints worked as well as ever. To be sure, there were several patches on him, but the tinsmiths did a good job, and as the Woodman was not a vain man he did not mind the patches at all.
+“Then please bring them to me,” she said.
 
-When, at last, he walked into Dorothy’s room and thanked her for rescuing him, he was so pleased that he wept tears of joy, and Dorothy had to wipe every tear carefully from his face with her apron, so his joints would not be rusted. At the same time her own tears fell thick and fast at the joy of meeting her old friend again, and these tears did not need to be wiped away. As for the Lion, he wiped his eyes so often with the tip of his tail that it became quite wet, and he was obliged to go out into the courtyard and hold it in the sun till it dried.
+When the metal workers arrived with their tools, Dorothy asked, “Can you straighten the Tin Woodman’s dents, fix his shape, and repair the places where he is broken?”
 
-“If we only had the Scarecrow with us again,” said the Tin Woodman, when Dorothy had finished telling him everything that had happened, “I should be quite happy.”
+The workers examined him carefully and said they believed they could repair him so that he would be as good as before. So they began their work in one of the large yellow rooms of the castle. For three days and four nights they hammered, twisted, bent, repaired, and polished the Tin Woodman’s legs, body, and head.
 
-“We must try to find him,” said the girl.
+At last he stood straight again, just as he had before, and his joints moved perfectly. He had several patches, but the repairs were done well, and since the Woodman was not a vain person, he did not mind them at all.
 
-So she called the Winkies to help her, and they walked all that day and part of the next until they came to the tall tree in the branches of which the Winged Monkeys had tossed the Scarecrow’s clothes.
+When he finally walked into Dorothy’s room and thanked her for rescuing him, he was so happy that he began to cry tears of joy. Dorothy had to wipe each tear carefully from his face with her apron so that his joints would not rust.
 
-It was a very tall tree, and the trunk was so smooth that no one could climb it; but the Woodman said at once, “I’ll chop it down, and then we can get the Scarecrow’s clothes.”
+At the same time Dorothy herself was crying with happiness at seeing her old friend again. As for the Lion, he wiped his eyes so often with the tip of his tail that the tail became quite wet. He finally had to go outside and hold it in the sun until it dried.
 
-Now while the tinsmiths had been at work mending the Woodman himself, another of the Winkies, who was a goldsmith, had made an axe-handle of solid gold and fitted it to the Woodman’s axe, instead of the old broken handle. Others polished the blade until all the rust was removed and it glistened like burnished silver.
+“If only the Scarecrow were here with us again,” said the Tin Woodman after Dorothy finished telling him everything that had happened, “then I would be completely happy.”
 
-As soon as he had spoken, the Tin Woodman began to chop, and in a short time the tree fell over with a crash, whereupon the Scarecrow’s clothes fell out of the branches and rolled off on the ground.
+“We must try to find him,” said Dorothy.
 
-Dorothy picked them up and had the Winkies carry them back to the castle, where they were stuffed with nice, clean straw; and behold! here was the Scarecrow, as good as ever, thanking them over and over again for saving him.
+So she called the Winkies again to help her. They walked for the rest of that day and part of the next until they reached the tall tree where the Winged Monkeys had thrown the Scarecrow’s clothes.
 
-Now that they were reunited, Dorothy and her friends spent a few happy days at the Yellow Castle, where they found everything they needed to make them comfortable.
+The tree was very tall and its trunk was smooth, so no one could climb it. But the Tin Woodman said, “I will chop the tree down, and then we can get the Scarecrow’s clothes.”
 
-But one day the girl thought of Aunt Em, and said, “We must go back to Oz, and claim his promise.”
+While the workers had been repairing the Woodman, another Winkie, who was a goldsmith, had made a new axe handle from solid gold to replace the old broken one. Others polished the blade until all the rust was gone and it shone like bright silver.
 
-“Yes,” said the Woodman, “at last I shall get my heart.”
+As soon as he spoke, the Tin Woodman began chopping. Before long the tree crashed to the ground, and the Scarecrow’s clothes fell from the branches.
 
-“And I shall get my brains,” added the Scarecrow joyfully.
+Dorothy picked them up, and the Winkies carried them back to the castle. There they filled the clothes with fresh, clean straw—and soon the Scarecrow stood before them again, just as good as before. He thanked them again and again for saving him.
 
-“And I shall get my courage,” said the Lion thoughtfully.
+Now that they were together again, Dorothy and her friends spent several happy days at the Yellow Castle, where they had everything they needed to be comfortable.
 
-“And I shall get back to Kansas,” cried Dorothy, clapping her hands. “Oh, let us start for the Emerald City tomorrow!”
+But one day Dorothy thought of Aunt Em and said, “We must go back to Oz and remind him of his promise.”
 
-This they decided to do. The next day they called the Winkies together and bade them good-bye. The Winkies were sorry to have them go, and they had grown so fond of the Tin Woodman that they begged him to stay and rule over them and the Yellow Land of the West. Finding they were determined to go, the Winkies gave Toto and the Lion each a golden collar; and to Dorothy they presented a beautiful bracelet studded with diamonds; and to the Scarecrow they gave a gold-headed walking stick, to keep him from stumbling; and to the Tin Woodman they offered a silver oil-can, inlaid with gold and set with precious jewels.
+“Yes,” said the Tin Woodman, “at last I will receive my heart.”
 
-Every one of the travelers made the Winkies a pretty speech in return, and all shook hands with them until their arms ached.
+“And I will receive my brains,” said the Scarecrow happily.
 
-Dorothy went to the Witch’s cupboard to fill her basket with food for the journey, and there she saw the Golden Cap. She tried it on her own head and found that it fitted her exactly. She did not know anything about the charm of the Golden Cap, but she saw that it was pretty, so she made up her mind to wear it and carry her sunbonnet in the basket.
+“And I will receive my courage,” said the Lion thoughtfully.
 
-Then, being prepared for the journey, they all started for the Emerald City; and the Winkies gave them three cheers and many good wishes to carry with them.`,
+“And I will return to Kansas,” cried Dorothy, clapping her hands. “Oh, let us start for the Emerald City tomorrow!”
+
+So they decided to do that.
+
+The next day they gathered the Winkies and said good-bye. The Winkies were sad to see them leave, and they had grown especially fond of the Tin Woodman. They begged him to stay and rule over them and the Yellow Land of the West.
+
+When they saw that the travelers were determined to leave, the Winkies gave gifts to each of them. Toto and the Lion received golden collars. Dorothy received a beautiful bracelet set with diamonds. The Scarecrow was given a walking stick with a golden handle to help him keep his balance. And the Tin Woodman received a silver oil can decorated with gold and precious jewels.
+
+Each traveler made a short speech to thank the Winkies, and they all shook hands so many times that their arms began to ache.
+
+Dorothy went to the Witch’s cupboard to fill her basket with food for the journey. There she saw the Golden Cap. She tried it on and found that it fit her perfectly. She did not know anything about its magic, but she thought it was beautiful, so she decided to wear it and put her sunbonnet in the basket instead.
+
+When everything was ready, they started on their journey to the Emerald City. The Winkies gave them three cheers and many good wishes as they left.`,
 }

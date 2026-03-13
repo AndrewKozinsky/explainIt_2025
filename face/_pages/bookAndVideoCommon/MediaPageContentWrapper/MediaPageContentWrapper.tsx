@@ -5,7 +5,7 @@ import './MediaPageContentWrapper.scss'
 type MediaPageContentWrapperProps = {
 	breadCrumbs: ReactNode
 	header?: null | string
-	subHeader?: null | string
+	subHeader?: null | number | string
 	children: ReactNode
 }
 

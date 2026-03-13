@@ -1,0 +1,29 @@
+@use '@/styles/variables' as vars;
+
+.public-video-info {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 3rem;
+}
+
+.public-video-info__left-aside {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.public-video-info__right-aside {
+
+}
+
+.public-video-info__cover {
+	width: 100%;
+	overflow: hidden;
+	border-radius: vars.$radius-2;
+}
+
+.public-video-info__actions {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 2.5rem;
+}

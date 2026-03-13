@@ -40,6 +40,8 @@ When she brought it into the Throne Room she spoke the magic words, and soon the
 
 But the Monkey King shook his head.
 
+------------
+
 “That cannot be done,” he said. “We belong to this country alone, and cannot leave it. There has never been a Winged Monkey in Kansas yet, and I suppose there never will be, for they don’t belong there. We shall be glad to serve you in any way in our power, but we cannot cross the desert. Good-bye.”
 
 And with another bow, the Monkey King spread his wings and flew away through the window, followed by all his band.
@@ -73,6 +75,8 @@ So the soldier was summoned and entered the Throne Room timidly, for while Oz wa
 “How can I get to her castle?” asked Dorothy.
 
 “The road is straight to the South,” he answered, “but it is said to be full of dangers to travelers. There are wild beasts in the woods, and a race of queer men who do not like strangers to cross their country. For this reason none of the Quadlings ever come to the Emerald City.”
+
+------------
 
 The soldier then left them and the Scarecrow said:
 

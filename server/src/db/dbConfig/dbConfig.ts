@@ -277,6 +277,12 @@ export const bdConfig = {
 				description: 'Covers of the book',
 				required: true,
 			},
+			coverBackgroundColor: {
+				type: 'string',
+				description: 'Background color for the book card',
+				required: true,
+				maxLength: 255,
+			},
 			author: {
 				type: 'string',
 				description: 'Author of the book',
@@ -532,6 +538,12 @@ export const bdConfig = {
 				arrayItemType: 'string',
 				description: 'Covers of the video',
 				required: true,
+			},
+			coverBackgroundColor: {
+				type: 'string',
+				description: 'Background color for the video card',
+				required: true,
+				maxLength: 255,
 			},
 			original_content: {
 				type: 'string',

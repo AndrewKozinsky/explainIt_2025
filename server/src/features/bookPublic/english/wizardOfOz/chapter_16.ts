@@ -2,39 +2,43 @@
 export const chapter_16 = {
 	name: 'Chapter XVI',
 	header: 'The Magic Art of the Great Humbug',
-	text: `Next morning the Scarecrow said to his friends:
+	text: `The next morning the Scarecrow said to his friends:
 
-“Congratulate me. I am going to Oz to get my brains at last. When I return I shall be as other men are.”
+“Congratulate me! I am going to see Oz to get my brains at last. When I come back, I will be like other men.”
 
-“I have always liked you as you were,” said Dorothy simply.
+“I have always liked you just as you are,” Dorothy said simply.
 
-“It is kind of you to like a Scarecrow,” he replied. “But surely you will think more of me when you hear the splendid thoughts my new brain is going to turn out.” Then he said good-bye to them all in a cheerful voice and went to the Throne Room, where he rapped upon the door.
+“It is kind of you to like a scarecrow,” he replied. “But I am sure you will respect me even more when you hear all the wonderful ideas my new brain will produce.”
+
+Then he said goodbye to everyone in a cheerful voice and went to the Throne Room, where he knocked on the door.
 
 “Come in,” said Oz.
 
-The Scarecrow went in and found the little man sitting down by the window, engaged in deep thought.
+The Scarecrow entered and saw the little man sitting by the window, thinking deeply.
 
-“I have come for my brains,” remarked the Scarecrow, a little uneasily.
+“I have come for my brains,” said the Scarecrow a little nervously.
 
-“Oh, yes; sit down in that chair, please,” replied Oz. “You must excuse me for taking your head off, but I shall have to do it in order to put your brains in their proper place.”
+“Oh yes. Please sit in that chair,” Oz replied. “You must excuse me for removing your head, but I need to do that in order to put your brains in the right place.”
 
-“That’s all right,” said the Scarecrow. “You are quite welcome to take my head off, as long as it will be a better one when you put it on again.”
+“That is fine,” said the Scarecrow. “You may take my head off, as long as it will be better when you put it back again.”
 
-So the Wizard unfastened his head and emptied out the straw. Then he entered the back room and took up a measure of bran, which he mixed with a great many pins and needles. Having shaken them together thoroughly, he filled the top of the Scarecrow’s head with the mixture and stuffed the rest of the space with straw, to hold it in place.
+So the Wizard removed the Scarecrow’s head and took out all the straw. Then he went into another room and brought back a measure of bran. He mixed it with many pins and needles. After shaking the mixture well, he filled the top of the Scarecrow’s head with it and packed the rest of the space with straw so everything would stay in place.
 
-When he had fastened the Scarecrow’s head on his body again he said to him, “Hereafter you will be a great man, for I have given you a lot of bran-new brains.”
+When he had put the Scarecrow’s head back on his body, he said, “From now on you will be a great man, because I have given you many brand-new brains.”
 
-The Scarecrow was both pleased and proud at the fulfillment of his greatest wish, and having thanked Oz warmly he went back to his friends.
+The Scarecrow felt both happy and proud that his greatest wish had come true. After warmly thanking Oz, he returned to his friends.
 
-Dorothy looked at him curiously. His head was quite bulged out at the top with brains.
+Dorothy looked at him with curiosity. The top of his head was now quite large and round with brains.
 
 “How do you feel?” she asked.
 
-“I feel wise indeed,” he answered earnestly. “When I get used to my brains I shall know everything.”
+“I feel very wise,” he answered seriously. “When I get used to my brains, I will know everything.”
 
-“Why are those needles and pins sticking out of your head?” asked the Tin Woodman.
+“Why are there pins and needles sticking out of your head?” asked the Tin Woodman.
 
-“That is proof that he is sharp,” remarked the Lion.
+“That shows he is sharp,” said the Lion.
+
+---
 
 “Well, I must go to Oz and get my heart,” said the Woodman. So he walked to the Throne Room and knocked at the door.
 

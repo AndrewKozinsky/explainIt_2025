@@ -2,7 +2,7 @@
 
 import MediaItemsGrid from '_pages/bookAndVideoCommon/MediaItemsGrid/MediaItemsGrid'
 import MediaPageContentWrapper from '_pages/bookAndVideoCommon/MediaPageContentWrapper/MediaPageContentWrapper'
-import { videoConfig } from '../common/videoConfig'
+import { videoConfig } from '_pages/video/common/videoConfig'
 import VideosBreadCrumbs from '../root/VideosBreadCrumbs/VideosBreadCrumbs'
 import { useGetContentConfig } from './fn/getContentConfig'
 import { useGetAddVideoConfig } from './fn/getOnAddVideoClick'

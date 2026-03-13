@@ -9,7 +9,7 @@ import { GetUserBooksCommand } from 'features/bookPrivate/GetUserBooks.command'
 import { UpdateBookCommand } from 'features/bookPrivate/UpdateBook.command'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
 import RouteNames from 'infrastructure/routeNames'
-import { BookOutModel } from 'models/book/book.out.model'
+import { BookPrivateOutModel } from 'models/book/book.out.model'
 import { CreateBookInput } from './inputs/createBook.input'
 import { DeleteBookInput } from './inputs/deleteBook.input'
 import { GetBookInput } from './inputs/getBook.input'
@@ -21,8 +21,8 @@ export class BookResolver {
 	constructor(private commandBus: CommandBus) {}
 
 	@UseGuards(CheckSessionCookieGuard)
-	@Mutation(() => BookOutModel, {
-		name: RouteNames.BOOK.CREATE,
+	@Mutation(() => BookPrivateOutModel, {
+		name: RouteNames.BOOK_PRIVATE.CREATE,
 		description: bookResolversDesc.createBookPrivate,
 	})
 	async createBookPrivate(@Args('input') input: CreateBookInput, @Context('req') request: Request) {
@@ -31,8 +31,8 @@ export class BookResolver {
 	}
 
 	@UseGuards(CheckSessionCookieGuard)
-	@Query(() => [BookOutModel], {
-		name: RouteNames.BOOK.GET_USER_BOOKS,
+	@Query(() => [BookPrivateOutModel], {
+		name: RouteNames.BOOK_PRIVATE.GET_USER_BOOKS,
 		description: bookResolversDesc.getUserBooks,
 	})
 	async getUserBooks(@Context('req') request: Request) {
@@ -41,8 +41,8 @@ export class BookResolver {
 	}
 
 	@UseGuards(CheckSessionCookieGuard)
-	@Query(() => BookOutModel, {
-		name: RouteNames.BOOK.GET,
+	@Query(() => BookPrivateOutModel, {
+		name: RouteNames.BOOK_PRIVATE.GET,
 		description: bookResolversDesc.getBook,
 	})
 	async getBook(@Args('input') input: GetBookInput, @Context('req') request: Request) {
@@ -51,8 +51,8 @@ export class BookResolver {
 	}
 
 	@UseGuards(CheckSessionCookieGuard)
-	@Mutation(() => BookOutModel, {
-		name: RouteNames.BOOK.UPDATE,
+	@Mutation(() => BookPrivateOutModel, {
+		name: RouteNames.BOOK_PRIVATE.UPDATE,
 		description: bookResolversDesc.updateBook,
 	})
 	async updateBook(@Args('input') input: UpdateBookInput, @Context('req') request: Request) {
@@ -62,7 +62,7 @@ export class BookResolver {
 
 	@UseGuards(CheckSessionCookieGuard)
 	@Mutation(() => Boolean, {
-		name: RouteNames.BOOK.DELETE,
+		name: RouteNames.BOOK_PRIVATE.DELETE,
 		description: bookResolversDesc.deleteBook,
 	})
 	async deleteBook(@Args('input') input: DeleteBookInput, @Context('req') request: Request) {

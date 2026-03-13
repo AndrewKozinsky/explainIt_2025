@@ -80,12 +80,12 @@ export type PrismaVersion = {
 }
 
 /**
- * Prisma Client JS version: 7.4.0
- * Query Engine version: ab56fe763f921d033a6c195e7ddeb3e255bdbb57
+ * Prisma Client JS version: 7.4.1
+ * Query Engine version: 55ae170b1ced7fc6ed07a15f110549408c501bb3
  */
 export const prismaVersion: PrismaVersion = {
-  client: "7.4.0",
-  engine: "ab56fe763f921d033a6c195e7ddeb3e255bdbb57"
+  client: "7.4.1",
+  engine: "55ae170b1ced7fc6ed07a15f110549408c501bb3"
 }
 
 /**
@@ -1625,6 +1625,7 @@ export const BookPublicScalarFieldEnum = {
   free_to_use: 'free_to_use',
   language_code: 'language_code',
   covers: 'covers',
+  coverBackgroundColor: 'coverBackgroundColor',
   author: 'author',
   name: 'name',
   note: 'note',
@@ -1680,6 +1681,7 @@ export const VideoPublicScalarFieldEnum = {
   s3_provider_name: 's3_provider_name',
   note: 'note',
   covers: 'covers',
+  coverBackgroundColor: 'coverBackgroundColor',
   original_content: 'original_content',
   processed_content: 'processed_content',
   content_type: 'content_type',

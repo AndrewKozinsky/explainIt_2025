@@ -369,8 +369,8 @@ export type TariffCreateInput = {
   slogan: string
   name: string
   description: string
-  is_public_media_included?: boolean
-  is_private_media_included?: boolean
+  is_public_media_included: boolean
+  is_private_media_included: boolean
   price: number
   included_balance: number
   included_file_storage_mb: number
@@ -385,8 +385,8 @@ export type TariffUncheckedCreateInput = {
   slogan: string
   name: string
   description: string
-  is_public_media_included?: boolean
-  is_private_media_included?: boolean
+  is_public_media_included: boolean
+  is_private_media_included: boolean
   price: number
   included_balance: number
   included_file_storage_mb: number
@@ -432,8 +432,8 @@ export type TariffCreateManyInput = {
   slogan: string
   name: string
   description: string
-  is_public_media_included?: boolean
-  is_private_media_included?: boolean
+  is_public_media_included: boolean
+  is_private_media_included: boolean
   price: number
   included_balance: number
   included_file_storage_mb: number
@@ -555,8 +555,8 @@ export type TariffCreateWithoutUserSubscriptionsInput = {
   slogan: string
   name: string
   description: string
-  is_public_media_included?: boolean
-  is_private_media_included?: boolean
+  is_public_media_included: boolean
+  is_private_media_included: boolean
   price: number
   included_balance: number
   included_file_storage_mb: number
@@ -570,8 +570,8 @@ export type TariffUncheckedCreateWithoutUserSubscriptionsInput = {
   slogan: string
   name: string
   description: string
-  is_public_media_included?: boolean
-  is_private_media_included?: boolean
+  is_public_media_included: boolean
+  is_private_media_included: boolean
   price: number
   included_balance: number
   included_file_storage_mb: number

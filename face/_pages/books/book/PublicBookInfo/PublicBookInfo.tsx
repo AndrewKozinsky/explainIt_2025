@@ -1,7 +1,7 @@
 import MenuAndContentContainer from '_pages/bookAndVideoCommon/MenuAndContentContainer/MenuAndContentContainer'
 import { SectionWithHeader } from '_pages/bookAndVideoCommon/SectionWithHeader/SectionWithHeader'
-import ChaptersList from '_pages/books/books/chaptersSection/ChaptersList/ChaptersList'
 import { bookConfig } from '_pages/books/common/bookConfig'
+import ChaptersList from '../../common/ChaptersList/ChaptersList'
 import { useBookStore } from '../bookStore'
 import PublicBookContentInfo from '../PublicBookContentInfo/PublicBookContentInfo'
 import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
@@ -9,7 +9,6 @@ import './PublicBookInfo.scss'
 
 export default function PublicBookInfo() {
 	const publicBook = useBookStore((s) => s.publicBook)
-	console.log(publicBook)
 
 	if (!publicBook.data) {
 		return null

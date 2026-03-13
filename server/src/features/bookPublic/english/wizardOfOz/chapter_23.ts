@@ -44,6 +44,8 @@ Then the Witch looked at the big, shaggy Lion and asked, “When Dorothy has ret
 
 “My third command to the Winged Monkeys,” said Glinda, “shall be to carry you to your forest. Then, having used up the powers of the Golden Cap, I shall give it to the King of the Monkeys, that he and his band may thereafter be free for evermore.”
 
+------------
+
 The Scarecrow and the Tin Woodman and the Lion now thanked the Good Witch earnestly for her kindness; and Dorothy exclaimed:
 
 “You are certainly as good as you are beautiful! But you have not yet told me how to get back to Kansas.”

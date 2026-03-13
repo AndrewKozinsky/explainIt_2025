@@ -50,8 +50,7 @@ export function useGetContentConfig() {
 							name: video.name,
 							subName: video.year,
 							url: pageUrls.videos.video(videoId).path,
-							// backgroundColor: video.backgroundColor,
-							backgroundColor: '#313B3C',
+							backgroundColor: video.coverBackgroundColor,
 							languageCode: video.languageCode,
 							coverUrl: video.covers[0],
 						}

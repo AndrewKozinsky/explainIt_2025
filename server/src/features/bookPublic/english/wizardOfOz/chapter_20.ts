@@ -28,6 +28,8 @@ No one did so much as look at the travelers at first, except one little purple c
 
 “How shall we get down?” asked Dorothy.
 
+------------
+
 They found the ladder so heavy they could not pull it up, so the Scarecrow fell off the wall and the others jumped down upon him so that the hard floor would not hurt their feet. Of course they took pains not to light on his head and get the pins in their feet. When all were safely down they picked up the Scarecrow, whose body was quite flattened out, and patted his straw into shape again.
 
 “We must cross this strange place in order to get to the other side,” said Dorothy, “for it would be unwise for us to go any other way except due South.”
@@ -63,6 +65,8 @@ She had such a frightened little voice that Dorothy stopped and said, “Why not
 “I suppose not,” said Dorothy.
 
 “Now there is Mr. Joker, one of our clowns,” continued the china lady, “who is always trying to stand upon his head. He has broken himself so often that he is mended in a hundred places, and doesn’t look at all pretty. Here he comes now, so you can see for yourself.”
+
+------------
 
 Indeed, a jolly little clown came walking toward them, and Dorothy could see that in spite of his pretty clothes of red and yellow and green he was completely covered with cracks, running every which way and showing plainly that he had been mended in many places.
 

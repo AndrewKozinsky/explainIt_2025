@@ -132,7 +132,7 @@ export interface DeletePrivateVideoInput {
     id: number;
 }
 
-export interface BookOutModel {
+export interface BookPrivateOutModel {
     id: number;
     author?: Nullable<string>;
     name?: Nullable<string>;
@@ -182,6 +182,7 @@ export interface BookPublicOutModel {
     name: string;
     note: string;
     covers: string[];
+    coverBackgroundColor: string;
     languageCode: string;
     freeToUse: boolean;
     chapters: BookChapterLiteOutModel[];
@@ -307,6 +308,7 @@ export interface VideoPublicOutModel {
     languageCode: string;
     note: string;
     covers: string[];
+    coverBackgroundColor: string;
     originalContent: string;
     processedContent: string;
     contentType: string;
@@ -343,6 +345,7 @@ export interface VideoPublicLiteOutModel {
     languageCode: string;
     note: string;
     covers: string[];
+    coverBackgroundColor: string;
     originalContent: string;
     processedContent: string;
     contentType: string;
@@ -380,8 +383,8 @@ export interface IQuery {
     ai_checkTranslation(input: CheckTranslationInput): CheckTranslationOutModel | Promise<CheckTranslationOutModel>;
     ai_getTranscription(input: GetTranscriptionInput): GetTranscriptionOutModel | Promise<GetTranscriptionOutModel>;
     auth_getMe(): UserOutModel | Promise<UserOutModel>;
-    book_user_books(): BookOutModel[] | Promise<BookOutModel[]>;
-    book_get(input: GetBookInput): BookOutModel | Promise<BookOutModel>;
+    book_user_books(): BookPrivateOutModel[] | Promise<BookPrivateOutModel[]>;
+    book_get(input: GetBookInput): BookPrivateOutModel | Promise<BookPrivateOutModel>;
     book_public_get_books(): BookPublicOutModel[] | Promise<BookPublicOutModel[]>;
     book_public_get_book(input: GetBookPublicInput): BookPublicOutModel | Promise<BookPublicOutModel>;
     book_chapter_get(input: GetBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
@@ -419,8 +422,8 @@ export interface IMutation {
     auth_resendConfirmationEmail(input: ResendConfirmationEmailInput): boolean | Promise<boolean>;
     auth_logout(): boolean | Promise<boolean>;
     payment_yookassa_buy_subscription(input: BuySubscriptionWithYooKassaInput): BuySubscriptionWithYooKassaOutModel | Promise<BuySubscriptionWithYooKassaOutModel>;
-    book_create(input: CreateBookInput): BookOutModel | Promise<BookOutModel>;
-    book_update(input: UpdateBookInput): BookOutModel | Promise<BookOutModel>;
+    book_create(input: CreateBookInput): BookPrivateOutModel | Promise<BookPrivateOutModel>;
+    book_update(input: UpdateBookInput): BookPrivateOutModel | Promise<BookPrivateOutModel>;
     book_delete(input: DeleteBookInput): boolean | Promise<boolean>;
     book_chapter_create(input: CreateBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
     book_chapter_update(input: UpdateBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;

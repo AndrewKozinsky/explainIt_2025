@@ -1,5 +1,5 @@
 // import { create } from 'zustand'
-// import { BookChapterOutModel, BookOutModel, BookPublicOutModel } from '@/graphql'
+// import { BookChapterOutModel, BookPrivateOutModel, BookPublicOutModel } from '@/graphql'
 
 /*export const readingStoreValues: ReadingStoreValues = {
 	book: null as any as ReadingStore.BookData,
@@ -55,7 +55,7 @@
 	export type BookData = {
 		loading: boolean
 		errorMessage: null | string
-		data: BookOutModel | BookPublicOutModel
+		data: BookPrivateOutModel | BookPublicOutModel
 		type: 'public' | 'private'
 	}
 	export type ChapterData = {

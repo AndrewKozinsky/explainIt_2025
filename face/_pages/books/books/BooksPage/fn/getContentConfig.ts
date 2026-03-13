@@ -50,8 +50,7 @@ export function useGetContentConfig() {
 							name: book.name,
 							subName: book.author,
 							url: pageUrls.books.book(bookId).path,
-							// backgroundColor: book.backgroundColor,
-							backgroundColor: '#313B3C',
+							backgroundColor: book.coverBackgroundColor,
 							languageCode: book.languageCode,
 							coverUrl: book.covers[0],
 						}

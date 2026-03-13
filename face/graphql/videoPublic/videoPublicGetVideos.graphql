@@ -6,6 +6,7 @@ query VideoPublic_getVideos {
 		languageCode
 		note
 		covers
+		coverBackgroundColor
 		originalContent
 		processedContent
 		contentType

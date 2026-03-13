@@ -1,6 +1,6 @@
 // import { useEffect } from 'react'
 // import { useParams } from 'next/navigation'
-// import { BookChapterOutModel, BookOutModel, useBook_Get, useBook_GetBookPublic, useBookChapter_Get } from '@/graphql'
+// import { BookChapterOutModel, BookPrivateOutModel, useBook_Get, useBook_GetBookPublic, useBookChapter_Get } from '@/graphql'
 // import { useReadingStore } from '_pages/books/reading/readingStore'
 // import { populateChapterStructure } from './populateChapterStructure'
 // import { extractBookIdFromUrlBookId, getBookTypeByUrlBookId } from 'сonsts/pageUrls'
@@ -41,21 +41,21 @@
 				useReadingStore.getState().updateBook({
 					loading: true,
 					errorMessage: null,
-					data: null as any as BookOutModel,
+					data: null as any as BookPrivateOutModel,
 					type: 'public',
 				})
 			} else if (error) {
 				useReadingStore.getState().updateBook({
 					loading: false,
 					errorMessage: error.message,
-					data: null as any as BookOutModel,
+					data: null as any as BookPrivateOutModel,
 					type: 'public',
 				})
 			} else if (!book) {
 				useReadingStore.getState().updateBook({
 					loading: false,
 					errorMessage: null,
-					data: null as any as BookOutModel,
+					data: null as any as BookPrivateOutModel,
 					type: 'public',
 				})
 			} else {

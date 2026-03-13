@@ -1,4 +1,3 @@
-// Это неадаптированная версия !
 export const chapter_12 = {
 	name: 'Chapter XII',
 	header: 'The Search for the Wicked Witch',
@@ -122,75 +121,91 @@ But they did not harm Dorothy at all. She stood holding Toto in her arms, watchi
 
 “We must not harm this little girl,” he said. “She is protected by the Power of Good, and that is stronger than the Power of Evil. All we can do is carry her to the castle of the Wicked Witch and leave her there.”
 
+Carefully and gently, the Winged Monkeys lifted Dorothy in their arms and carried her quickly through the air until they reached the castle. There they set her down on the front doorstep. Then the leader said to the Witch:
 
+“We have obeyed you as much as we could. The Tin Woodman and the Scarecrow are destroyed, and the Lion is tied up in your yard. We cannot harm the little girl or the dog she carries in her arms. Your power over us is now finished, and you will never see us again.”
 
+Then all the Winged Monkeys, laughing and chattering loudly, flew up into the air and soon disappeared.
 
+The Wicked Witch was surprised and worried when she saw the mark on Dorothy’s forehead, because she knew that neither she nor the Winged Monkeys could harm the girl. Then she looked at Dorothy’s feet and saw the Silver Shoes. At once she began to tremble, because she knew the powerful magic they held.
 
+At first the Witch thought about running away from Dorothy. But then she looked into the child’s eyes and saw how simple and innocent she was. The little girl clearly did not know about the great power of the Silver Shoes.
 
+So the Wicked Witch laughed quietly to herself and thought, “I can still make her my slave, because she does not know how to use her power.”
 
+Then she said harshly to Dorothy:
 
+“Come with me, and do everything I tell you. If you do not obey, I will destroy you just as I destroyed the Tin Woodman and the Scarecrow.”
 
+Dorothy followed her through many beautiful rooms in the castle until they came to the kitchen. There the Witch ordered her to clean the pots and kettles, sweep the floor, and keep the fire burning with wood.
 
+Dorothy began to work quietly and patiently. She decided to work as hard as she could, because she was glad the Witch had chosen not to kill her.
 
------
+While Dorothy was busy working, the Witch decided to go into the courtyard and harness the Cowardly Lion like a horse. She thought it would amuse her to make him pull her carriage whenever she wanted to ride.
 
-So, carefully and gently, they lifted Dorothy in their arms and carried her swiftly through the air until they came to the castle, where they set her down upon the front doorstep. Then the leader said to the Witch:
+But when she opened the gate, the Lion gave a loud roar and jumped toward her so fiercely that the Witch became frightened. She quickly ran back and shut the gate.
 
-“We have obeyed you as far as we were able. The Tin Woodman and the Scarecrow are destroyed, and the Lion is tied up in your yard. The little girl we dare not harm, nor the dog she carries in her arms. Your power over our band is now ended, and you will never see us again.”
+“If I cannot harness you,” said the Witch to the Lion through the bars of the gate, “then I will starve you. You will have nothing to eat until you do what I want.”
 
-Then all the Winged Monkeys, with much laughing and chattering and noise, flew into the air and were soon out of sight.
+After that she brought no food to the Lion. But every day at noon she came to the gate and asked:
 
-The Wicked Witch was both surprised and worried when she saw the mark on Dorothy’s forehead, for she knew well that neither the Winged Monkeys nor she, herself, dare hurt the girl in any way. She looked down at Dorothy’s feet, and seeing the Silver Shoes, began to tremble with fear, for she knew what a powerful charm belonged to them. At first the Witch was tempted to run away from Dorothy; but she happened to look into the child’s eyes and saw how simple the soul behind them was, and that the little girl did not know of the wonderful power the Silver Shoes gave her. So the Wicked Witch laughed to herself, and thought, “I can still make her my slave, for she does not know how to use her power.” Then she said to Dorothy, harshly and severely:
+“Are you ready to be harnessed like a horse?”
 
-“Come with me; and see that you mind everything I tell you, for if you do not I will make an end of you, as I did of the Tin Woodman and the Scarecrow.”
+And the Lion always answered:
 
-Dorothy followed her through many of the beautiful rooms in her castle until they came to the kitchen, where the Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+“No. If you come into this yard, I will bite you.”
 
-Dorothy went to work meekly, with her mind made up to work as hard as she could; for she was glad the Wicked Witch had decided not to kill her.
+The reason the Lion did not have to obey the Witch was that every night, while she was asleep, Dorothy secretly brought him food from the cupboard. After he ate, he lay down on his bed of straw. Dorothy would lie beside him and rest her head on his soft, shaggy mane while they talked about their troubles and tried to find a way to escape.
 
-With Dorothy hard at work, the Witch thought she would go into the courtyard and harness the Cowardly Lion like a horse; it would amuse her, she was sure, to make him draw her chariot whenever she wished to go to drive. But as she opened the gate the Lion gave a loud roar and bounded at her so fiercely that the Witch was afraid, and ran out and shut the gate again.
+But they could not find any way to leave the castle, because it was always guarded by the yellow Winkies. They were slaves of the Wicked Witch and were too afraid of her to disobey.
 
-“If I cannot harness you,” said the Witch to the Lion, speaking through the bars of the gate, “I can starve you. You shall have nothing to eat until you do as I wish.”
+During the day Dorothy had to work very hard. Often the Witch threatened to beat her with the old umbrella she always carried. But in truth she did not dare strike Dorothy because of the mark on her forehead.
 
-So after that she took no food to the imprisoned Lion; but every day she came to the gate at noon and asked, “Are you ready to be harnessed like a horse?”
+Dorothy did not know this, and she was often very afraid for herself and for Toto. Once the Witch hit Toto with her umbrella, and the brave little dog jumped at her and bit her leg. The Witch did not bleed, because she was so wicked that her blood had dried up many years before.
 
-And the Lion would answer, “No. If you come in this yard, I will bite you.”
+Dorothy’s life became very sad as she began to understand that it might be harder than ever to return to Kansas and Aunt Em. Sometimes she cried for hours. Toto would sit at her feet, looking up at her face and whining sadly to show how sorry he was for his little mistress.
 
-The reason the Lion did not have to do as the Witch wished was that every night, while the woman was asleep, Dorothy carried him food from the cupboard. After he had eaten he would lie down on his bed of straw, and Dorothy would lie beside him and put her head on his soft, shaggy mane, while they talked of their troubles and tried to plan some way to escape. But they could find no way to get out of the castle, for it was constantly guarded by the yellow Winkies, who were the slaves of the Wicked Witch and too afraid of her not to do as she told them.
+Toto did not care whether he was in Kansas or in the Land of Oz, as long as Dorothy was with him. But he knew the little girl was unhappy, and that made him unhappy too.
 
-The girl had to work hard during the day, and often the Witch threatened to beat her with the same old umbrella she always carried in her hand. But, in truth, she did not dare to strike Dorothy, because of the mark upon her forehead. The child did not know this, and was full of fear for herself and Toto. Once the Witch struck Toto a blow with her umbrella and the brave little dog flew at her and bit her leg in return. The Witch did not bleed where she was bitten, for she was so wicked that the blood in her had dried up many years before.
+The Wicked Witch strongly desired the Silver Shoes that Dorothy always wore. Her bees, crows, and wolves were all gone, and she had already used the full power of the Golden Cap. But if she could get the Silver Shoes, they would give her even greater power than everything she had lost.
 
-Dorothy’s life became very sad as she grew to understand that it would be harder than ever to get back to Kansas and Aunt Em again. Sometimes she would cry bitterly for hours, with Toto sitting at her feet and looking into her face, whining dismally to show how sorry he was for his little mistress. Toto did not really care whether he was in Kansas or the Land of Oz so long as Dorothy was with him; but he knew the little girl was unhappy, and that made him unhappy too.
+So she watched Dorothy carefully to see if she ever took off her shoes, hoping to steal them. But Dorothy was very proud of her pretty shoes and took them off only at night and when she bathed.
 
-Now the Wicked Witch had a great longing to have for her own the Silver Shoes which the girl always wore. Her bees and her crows and her wolves were lying in heaps and drying up, and she had used up all the power of the Golden Cap; but if she could only get hold of the Silver Shoes, they would give her more power than all the other things she had lost. She watched Dorothy carefully, to see if she ever took off her shoes, thinking she might steal them. But the child was so proud of her pretty shoes that she never took them off except at night and when she took her bath. The Witch was too much afraid of the dark to dare go in Dorothy’s room at night to take the shoes, and her dread of water was greater than her fear of the dark, so she never came near when Dorothy was bathing. Indeed, the old Witch never touched water, nor ever let water touch her in any way.
+The Witch was too afraid of the dark to enter Dorothy’s room at night, and she feared water even more than darkness. Because of this she never came near when Dorothy was bathing. In fact, the old Witch never touched water and never allowed water to touch her in any way.
 
-But the wicked creature was very cunning, and she finally thought of a trick that would give her what she wanted. She placed a bar of iron in the middle of the kitchen floor, and then by her magic arts made the iron invisible to human eyes. So that when Dorothy walked across the floor she stumbled over the bar, not being able to see it, and fell at full length. She was not much hurt, but in her fall one of the Silver Shoes came off; and before she could reach it, the Witch had snatched it away and put it on her own skinny foot.
+But the wicked woman was very clever, and at last she thought of a trick to get what she wanted. She placed an iron bar in the middle of the kitchen floor and then used magic to make it invisible.
 
-The wicked woman was greatly pleased with the success of her trick, for as long as she had one of the shoes she owned half the power of their charm, and Dorothy could not use it against her, even had she known how to do so.
+When Dorothy walked across the floor she could not see the bar. She tripped over it and fell to the ground. She was not badly hurt, but one of the Silver Shoes slipped off her foot. Before she could reach it, the Witch quickly grabbed it and put it on her own thin foot.
 
------
+The wicked woman was very pleased with her trick. As long as she had one of the shoes, she possessed half of their magical power, and Dorothy could not use that power against her—even if she had known how.
 
-The little girl, seeing she had lost one of her pretty shoes, grew angry, and said to the Witch, “Give me back my shoe!”
+When the little girl saw that she had lost one of her pretty shoes, she became angry and said to the Witch, “Give me back my shoe!”
 
-“I will not,” retorted the Witch, “for it is now my shoe, and not yours.”
+“I will not,” replied the Witch. “It is my shoe now, not yours.”
 
-“You are a wicked creature!” cried Dorothy. “You have no right to take my shoe from me.”
+“You are a wicked woman!” cried Dorothy. “You had no right to take my shoe.”
 
-“I shall keep it, just the same,” said the Witch, laughing at her, “and someday I shall get the other one from you, too.”
+“I will keep it anyway,” said the Witch, laughing. “And one day I will take the other one from you as well.”
 
-This made Dorothy so very angry that she picked up the bucket of water that stood near and dashed it over the Witch, wetting her from head to foot.
+This made Dorothy so angry that she grabbed the bucket of water standing nearby and threw it over the Witch, soaking her from head to foot.
 
-Instantly the wicked woman gave a loud cry of fear, and then, as Dorothy looked at her in wonder, the Witch began to shrink and fall away.
+At once the wicked woman gave a loud cry of fear. Then, as Dorothy watched in surprise, the Witch began to shrink and grow smaller.
 
-“See what you have done!” she screamed. “In a minute I shall melt away.”
+“See what you have done!” she screamed. “In a moment I will melt away!”
 
-“I’m very sorry, indeed,” said Dorothy, who was truly frightened to see the Witch actually melting away like brown sugar before her very eyes.
+“I’m very sorry,” said Dorothy, who was truly frightened to see the Witch actually melting like brown sugar before her eyes.
 
-“Didn’t you know water would be the end of me?” asked the Witch, in a wailing, despairing voice.
+“Didn’t you know water would destroy me?” asked the Witch in a sad, desperate voice.
 
-“Of course not,” answered Dorothy. “How should I?”
+“Of course not,” Dorothy answered. “How could I know that?”
 
-“Well, in a few minutes I shall be all melted, and you will have the castle to yourself. I have been wicked in my day, but I never thought a little girl like you would ever be able to melt me and end my wicked deeds. Look out—here I go!”
+“Well, in a few minutes I will be completely melted, and you will have the castle for yourself. I have been wicked in my life, but I never believed that a little girl like you could melt me and end my evil. Look—here it happens!”
 
-With these words the Witch fell down in a brown, melted, shapeless mass and began to spread over the clean boards of the kitchen floor. Seeing that she had really melted away to nothing, Dorothy drew another bucket of water and threw it over the mess. She then swept it all out the door. After picking out the silver shoe, which was all that was left of the old woman, she cleaned and dried it with a cloth, and put it on her foot again. Then, being at last free to do as she chose, she ran out to the courtyard to tell the Lion that the Wicked Witch of the West had come to an end, and that they were no longer prisoners in a strange land.`,
+With these words the Witch fell down and turned into a brown, melted, shapeless mass that spread across the clean boards of the kitchen floor.
+
+When Dorothy saw that the Witch had completely melted away, she brought another bucket of water and poured it over the mess. Then she swept it all out the door.
+
+Afterward she picked up the silver shoe, which was the only thing left of the old woman. She cleaned and dried it with a cloth and put it back on her foot.
+
+Then, finally free to do as she wished, she ran to the courtyard to tell the Lion that the Wicked Witch of the West was gone, and that they were no longer prisoners in that strange land.`,
 }

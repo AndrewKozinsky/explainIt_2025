@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import { useParams } from 'next/navigation'
-import { useVideoPrivate_Get, VideoPrivateOutModel, VideoPublicOutModel } from '@/graphql'
+import { useVideoPrivate_Get, useVideoPublic_Get, VideoPrivateOutModel, VideoPublicOutModel } from '@/graphql'
 import { useVideoStore } from '_pages/video/video/videoStore'
-import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId, pageUrls } from 'сonsts/pageUrls'
+import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId } from 'сonsts/pageUrls'
 
 /** Наполняет Хранилище данными для начала работы */
 export function usePopulateVideoStore() {
@@ -60,7 +60,7 @@ function useSetVideoToStore() {
 		data: publicVideoData,
 		error: publicVideoError,
 		loading: publicVideoLoading,
-	} = useVideoPrivate_Get({
+	} = useVideoPublic_Get({
 		variables: { input: { id: videoId! } },
 		skip: videoType !== 'public',
 	})
@@ -69,7 +69,7 @@ function useSetVideoToStore() {
 		function () {
 			if (videoType !== 'public') return
 
-			const video = publicVideoData?.video_private_get
+			const video = publicVideoData?.video_public_get
 
 			if (publicVideoLoading) {
 				useVideoStore.getState().updatePublicVideo({

@@ -1,6 +1,7 @@
 import { useRouter } from 'next/navigation'
 import { publicFolderFilesUrls } from 'utils/publicFolderFilesUrls'
 import Button from '@/ui/formRelated/buttons/Button/Button'
+import { SummaryOfTheMedia } from '_pages/bookAndVideoCommon/SummaryOfTheMedia/SummaryOfTheMedia'
 import { useBookStore } from '_pages/books/book/bookStore'
 import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
 import './PublicBookContentInfo.scss'
@@ -20,25 +21,8 @@ export default function PublicBookInfo() {
 	return (
 		<div className='public-book-info'>
 			{firstCoverImgUrl && <img className='public-book-info__cover' src={firstCoverImgUrl} alt='book cover' />}
-			<PublicBookInfoText text={publicBook.data.note} />
+			<SummaryOfTheMedia text={publicBook.data.note} />
 			<PublicBookInfoActions bookUrl={firstChapterUrl} />
-		</div>
-	)
-}
-
-type PublicBookInfoTextProps = {
-	text: string
-}
-
-function PublicBookInfoText(props: PublicBookInfoTextProps) {
-	const { text } = props
-	const paragraphs = text.split(/\r?\n+/).filter((paragraph) => paragraph.trim().length)
-
-	return (
-		<div className='public-book-info__text'>
-			{paragraphs.map((paragraph, index) => (
-				<p key={index}>{paragraph}</p>
-			))}
 		</div>
 	)
 }

@@ -1,52 +1,71 @@
-// Это неадаптированная версия !
 export const chapter_15 = {
 	name: 'Chapter XV',
 	header: 'The Discovery of Oz, the Terrible',
-	text: `The four travelers walked up to the great gate of Emerald City and rang the bell. After ringing several times, it was opened by the same Guardian of the Gates they had met before.
+	text: `The four travelers walked up to the great gate of the Emerald City and rang the bell. After a few rings, the gate was opened by the same Guardian of the Gates they had met before.
 
-“What! are you back again?” he asked, in surprise.
+“What! You are back again?” he asked in surprise.
 
-“Do you not see us?” answered the Scarecrow.
+“Of course,” answered the Scarecrow. “Can’t you see us?”
 
 “But I thought you had gone to visit the Wicked Witch of the West.”
 
-“We did visit her,” said the Scarecrow.
+“We did,” said the Scarecrow.
 
-“And she let you go again?” asked the man, in wonder.
+“And she let you leave?” the man asked in amazement.
 
-“She could not help it, for she is melted,” explained the Scarecrow.
+“She had no choice,” said the Scarecrow. “She has melted.”
 
-“Melted! Well, that is good news, indeed,” said the man. “Who melted her?”
+“Melted? That is wonderful news!” said the man. “Who melted her?”
 
-“It was Dorothy,” said the Lion gravely.
+“Dorothy did,” said the Lion seriously.
 
-“Good gracious!” exclaimed the man, and he bowed very low indeed before her.
+“Good heavens!” exclaimed the man, and he bowed very deeply to Dorothy.
 
-Then he led them into his little room and locked the spectacles from the great box on all their eyes, just as he had done before. Afterward they passed on through the gate into the Emerald City. When the people heard from the Guardian of the Gates that Dorothy had melted the Wicked Witch of the West, they all gathered around the travelers and followed them in a great crowd to the Palace of Oz.
+Then he led them into his small room and locked the green spectacles onto their eyes, just as he had done before. After that they passed through the gate into the Emerald City.
 
-The soldier with the green whiskers was still on guard before the door, but he let them in at once, and they were again met by the beautiful green girl, who showed each of them to their old rooms at once, so they might rest until the Great Oz was ready to receive them.
+When the people heard from the Guardian that Dorothy had melted the Wicked Witch of the West, they gathered around the travelers in a large crowd and followed them to the Palace of Oz.
 
-The soldier had the news carried straight to Oz that Dorothy and the other travelers had come back again, after destroying the Wicked Witch; but Oz made no reply. They thought the Great Wizard would send for them at once, but he did not. They had no word from him the next day, nor the next, nor the next. The waiting was tiresome and wearing, and at last they grew vexed that Oz should treat them in so poor a fashion, after sending them to undergo hardships and slavery. So the Scarecrow at last asked the green girl to take another message to Oz, saying if he did not let them in to see him at once they would call the Winged Monkeys to help them, and find out whether he kept his promises or not. When the Wizard was given this message he was so frightened that he sent word for them to come to the Throne Room at four minutes after nine o’clock the next morning. He had once met the Winged Monkeys in the Land of the West, and he did not wish to meet them again.
+The soldier with the green whiskers was still standing guard at the door, but he immediately let them enter. Inside they met the same beautiful green girl, who showed each of them to the rooms they had used before so they could rest until the Great Oz was ready to see them.
 
-The four travelers passed a sleepless night, each thinking of the gift Oz had promised to bestow on him. Dorothy fell asleep only once, and then she dreamed she was in Kansas, where Aunt Em was telling her how glad she was to have her little girl at home again.
+The soldier quickly sent news to Oz that Dorothy and her friends had returned after destroying the Wicked Witch. But Oz gave no reply.
 
-Promptly at nine o’clock the next morning the green-whiskered soldier came to them, and four minutes later they all went into the Throne Room of the Great Oz.
+The travelers thought the Great Wizard would call them at once, but he did not. The next day passed with no message. Then another day passed, and another.
 
-Of course each one of them expected to see the Wizard in the shape he had taken before, and all were greatly surprised when they looked about and saw no one at all in the room. They kept close to the door and closer to one another, for the stillness of the empty room was more dreadful than any of the forms they had seen Oz take.
+Soon they became tired and annoyed by the waiting. They felt it was unfair that Oz ignored them after sending them through so many dangers and hardships.
 
-Presently they heard a solemn Voice, that seemed to come from somewhere near the top of the great dome, and it said:
+At last the Scarecrow asked the green girl to send Oz another message. He said that if Oz did not receive them immediately, they would call the Winged Monkeys and find out whether Oz intended to keep his promises.
 
-“I am Oz, the Great and Terrible. Why do you seek me?”
+When Oz heard this message he became very frightened. He quickly sent word that the travelers could come to the Throne Room at four minutes after nine the next morning. Oz had once met the Winged Monkeys in the western lands, and he did not want to meet them again.
 
-They looked again in every part of the room, and then, seeing no one, Dorothy asked, “Where are you?”
+That night the four travelers could hardly sleep. Each of them thought about the gift Oz had promised to give them.
 
-“I am everywhere,” answered the Voice, “but to the eyes of common mortals I am invisible. I will now seat myself upon my throne, that you may converse with me.” Indeed, the Voice seemed just then to come straight from the throne itself; so they walked toward it and stood in a row while Dorothy said:
+Dorothy fell asleep for a short time and dreamed that she was back in Kansas. In her dream Aunt Em was telling her how happy she was to see her little girl at home again.
 
-“We have come to claim our promise, O Oz.”
+Exactly at nine o’clock the next morning the soldier with the green whiskers came to them. Four minutes later they entered the Throne Room of the Great Oz.
 
-“What promise?” asked Oz.
+Each of them expected to see Oz in one of the forms he had used before. But when they looked around the room, they were surprised to see no one there at all.
 
-“You promised to send me back to Kansas when the Wicked Witch was destroyed,” said the girl.
+They stayed close to the door and close to each other. The silence of the empty room felt even more frightening than the strange shapes Oz had shown them earlier.
+
+Suddenly they heard a deep and serious voice coming from somewhere near the top of the great dome.
+
+“I am Oz, the Great and Terrible. Why have you come to see me?”
+
+They looked all around the room but saw no one.
+
+“Where are you?” Dorothy asked.
+
+“I am everywhere,” said the Voice. “But ordinary people cannot see me. I will now sit on my throne so that we may speak together.”
+
+At that moment the Voice seemed to come from the throne itself. The travelers walked closer and stood in a line before it.
+
+Dorothy spoke first.
+
+“We have come to ask you to keep your promise, O Oz.”
+
+“What promise?” asked the Voice.
+
+“You promised to send me back to Kansas when the Wicked Witch was destroyed,” said Dorothy.
 
 “And you promised to give me brains,” said the Scarecrow.
 
@@ -54,137 +73,184 @@ They looked again in every part of the room, and then, seeing no one, Dorothy as
 
 “And you promised to give me courage,” said the Cowardly Lion.
 
-“Is the Wicked Witch really destroyed?” asked the Voice, and Dorothy thought it trembled a little.
+“Is the Wicked Witch truly destroyed?” asked the Voice. Dorothy thought it trembled slightly.
 
-“Yes,” she answered, “I melted her with a bucket of water.”
+“Yes,” she answered. “I melted her with a bucket of water.”
 
-“Dear me,” said the Voice, “how sudden! Well, come to me tomorrow, for I must have time to think it over.”
+“Oh dear,” said the Voice. “That is very sudden. Come back tomorrow, because I need time to think.”
 
-“You’ve had plenty of time already,” said the Tin Woodman angrily.
+“You have already had enough time,” said the Tin Woodman angrily.
 
-“We shan’t wait a day longer,” said the Scarecrow.
+“We will not wait another day,” said the Scarecrow.
 
-“You must keep your promises to us!” exclaimed Dorothy.
+“You must keep your promises!” cried Dorothy.
 
-The Lion thought it might be as well to frighten the Wizard, so he gave a large, loud roar, which was so fierce and dreadful that Toto jumped away from him in alarm and tipped over the screen that stood in a corner. As it fell with a crash they looked that way, and the next moment all of them were filled with wonder. For they saw, standing in just the spot the screen had hidden, a little old man, with a bald head and a wrinkled face, who seemed to be as much surprised as they were. The Tin Woodman, raising his axe, rushed toward the little man and cried out, “Who are you?”
+------------
 
-“I am Oz, the Great and Terrible,” said the little man, in a trembling voice. “But don’t strike me—please don’t—and I’ll do anything you want me to.”
+The Lion decided it might help to scare the Wizard, so he gave a huge, loud roar. It was so powerful and frightening that Toto jumped away in fear and knocked over a screen standing in the corner of the room.
 
-Our friends looked at him in surprise and dismay.
+When the screen fell to the floor with a loud crash, they all looked toward it. What they saw made them stare in complete surprise.
+
+Behind the screen stood a small old man with a bald head and a wrinkled face. He looked just as shocked as they were.
+
+The Tin Woodman raised his axe and rushed toward him.
+
+“Who are you?” he shouted.
+
+“I am Oz, the Great and Terrible,” said the little man in a trembling voice. “But please don’t hurt me! If you spare me, I will do anything you ask.”
+
+The travelers looked at him in confusion.
 
 “I thought Oz was a great Head,” said Dorothy.
 
-“And I thought Oz was a lovely Lady,” said the Scarecrow.
+“And I thought Oz was a beautiful Lady,” said the Scarecrow.
 
 “And I thought Oz was a terrible Beast,” said the Tin Woodman.
 
-“And I thought Oz was a Ball of Fire,” exclaimed the Lion.
+“And I thought Oz was a Ball of Fire,” said the Lion.
 
-“No, you are all wrong,” said the little man meekly. “I have been making believe.”
+“No,” said the little man quietly. “You were all mistaken. I was pretending.”
 
-“Making believe!” cried Dorothy. “Are you not a Great Wizard?”
+“Pretending?” Dorothy exclaimed. “You mean you are not a great wizard?”
 
-“Hush, my dear,” he said. “Don’t speak so loud, or you will be overheard—and I should be ruined. I’m supposed to be a Great Wizard.”
+“Please speak more quietly,” the little man said nervously. “If anyone hears you, I will be ruined. Everyone believes that I am a great wizard.”
 
-“And aren’t you?” she asked.
+“So you are not one?” Dorothy asked.
 
-“Not a bit of it, my dear; I’m just a common man.”
+“Not at all,” he said. “I am just an ordinary man.”
 
-“You’re more than that,” said the Scarecrow, in a grieved tone; “you’re a humbug.”
+“You are worse than that,” said the Scarecrow sadly. “You are a fraud.”
 
-“Exactly so!” declared the little man, rubbing his hands together as if it pleased him. “I am a humbug.”
+“That is exactly right,” said the little man, rubbing his hands together. “I am a fraud.”
 
-“But this is terrible,” said the Tin Woodman. “How shall I ever get my heart?”
+“But this is terrible,” said the Tin Woodman. “How will I ever get my heart now?”
 
-“Or I my courage?” asked the Lion.
+“And how will I get my courage?” asked the Lion.
 
-“Or I my brains?” wailed the Scarecrow, wiping the tears from his eyes with his coat sleeve.
+“And what about my brains?” cried the Scarecrow, wiping tears from his eyes with his sleeve.
 
-“My dear friends,” said Oz, “I pray you not to speak of these little things. Think of me, and the terrible trouble I’m in at being found out.”
+“My dear friends,” said Oz, “please do not worry about those things right now. Think about me and the terrible trouble I am in now that you know my secret.”
 
-“Doesn’t anyone else know you’re a humbug?” asked Dorothy.
+“Does anyone else know the truth?” Dorothy asked.
 
-“No one knows it but you four—and myself,” replied Oz. “I have fooled everyone so long that I thought I should never be found out. It was a great mistake my ever letting you into the Throne Room. Usually I will not see even my subjects, and so they believe I am something terrible.”
+“No,” Oz replied. “Only you four and myself. I have fooled everyone for so long that I believed I would never be discovered. It was a mistake to let you into the Throne Room. Usually I never meet my people face to face, so they continue to believe I am powerful and mysterious.”
 
-“But, I don’t understand,” said Dorothy, in bewilderment. “How was it that you appeared to me as a great Head?”
+“But I still don’t understand,” said Dorothy. “How did you appear to me as a giant head?”
 
-“That was one of my tricks,” answered Oz. “Step this way, please, and I will tell you all about it.”
+“That was one of my tricks,” said Oz. “Come with me and I will explain everything.”
 
-He led the way to a small chamber in the rear of the Throne Room, and they all followed him. He pointed to one corner, in which lay the great Head, made out of many thicknesses of paper, and with a carefully painted face.
+------------
 
-“This I hung from the ceiling by a wire,” said Oz. “I stood behind the screen and pulled a thread, to make the eyes move and the mouth open.”
+He led them into a small room behind the Throne Room, and they all followed him.
 
-“But how about the voice?” she inquired.
+In one corner lay the large Head they had seen before. It was made from many layers of paper with a carefully painted face.
 
-“Oh, I am a ventriloquist,” said the little man. “I can throw the sound of my voice wherever I wish, so that you thought it was coming out of the Head. Here are the other things I used to deceive you.” He showed the Scarecrow the dress and the mask he had worn when he seemed to be the lovely Lady. And the Tin Woodman saw that his terrible Beast was nothing but a lot of skins, sewn together, with slats to keep their sides out. As for the Ball of Fire, the false Wizard had hung that also from the ceiling. It was really a ball of cotton, but when oil was poured upon it the ball burned fiercely.
+“I hung this from the ceiling with a wire,” Oz explained. “Then I stood behind a screen and pulled a string to move the eyes and open the mouth.”
 
-“Really,” said the Scarecrow, “you ought to be ashamed of yourself for being such a humbug.”
+“But what about the voice?” Dorothy asked.
 
-“I am—I certainly am,” answered the little man sorrowfully; “but it was the only thing I could do. Sit down, please, there are plenty of chairs; and I will tell you my story.”
+“I am a ventriloquist,” said Oz. “I can make my voice sound as if it is coming from somewhere else. That is why you thought the Head was speaking.”
 
-So they sat down and listened while he told the following tale.
+Then he showed them the other tricks he had used.
 
-“I was born in Omaha—”
+The Scarecrow saw the dress and mask Oz had worn when he appeared as the beautiful Lady. The Tin Woodman saw that the terrible Beast was only a costume made from animal skins and wooden pieces. And the Ball of Fire had also been hanging from the ceiling. It was actually just a ball of cotton that burned brightly when oil was poured on it.
+
+“Honestly,” said the Scarecrow, “you should feel ashamed for tricking everyone like that.”
+
+“I do feel ashamed,” said Oz sadly. “But it was the only thing I could do. Please sit down. There are many chairs here, and I will tell you my whole story.”
+
+So they all sat down and listened carefully while he began his story.
+
+“I was born in Omaha…”
 
 “Why, that isn’t very far from Kansas!” cried Dorothy.
 
-“No, but it’s farther from here,” he said, shaking his head at her sadly. “When I grew up I became a ventriloquist, and at that I was very well trained by a great master. I can imitate any kind of a bird or beast.” Here he mewed so like a kitten that Toto pricked up his ears and looked everywhere to see where she was. “After a time,” continued Oz, “I tired of that, and became a balloonist.”
+“No, but it is very far from here,” he replied, shaking his head sadly. “When I grew up, I became a ventriloquist. I was trained very well by a great teacher. I can imitate many animals and birds.”
+
+He made a sound just like a kitten. Toto immediately lifted his ears and looked around, trying to find the kitten.
+
+------------
+
+“After some time,” Oz continued, “I became tired of that job and decided to work with hot-air balloons.”
 
 “What is that?” asked Dorothy.
 
-“A man who goes up in a balloon on circus day, so as to draw a crowd of people together and get them to pay to see the circus,” he explained.
+“It means going up in a balloon during circus day to attract people and encourage them to buy tickets to the circus,” he explained.
 
-“Oh,” she said, “I know.”
+“Oh,” said Dorothy. “I understand.”
 
-“Well, one day I went up in a balloon and the ropes got twisted, so that I couldn’t come down again. It went way up above the clouds, so far that a current of air struck it and carried it many, many miles away. For a day and a night I traveled through the air, and on the morning of the second day I awoke and found the balloon floating over a strange and beautiful country.
+“One day I went up in a balloon, but the ropes became tangled, and I could not come down again. The balloon rose high above the clouds, and a strong wind carried it far away.
 
-“It came down gradually, and I was not hurt a bit. But I found myself in the midst of a strange people, who, seeing me come from the clouds, thought I was a great Wizard. Of course I let them think so, because they were afraid of me, and promised to do anything I wished them to.
+“For a whole day and night I traveled through the sky. On the morning of the second day I woke up and saw that the balloon was floating over a strange and beautiful land.
 
-“Just to amuse myself, and keep the good people busy, I ordered them to build this City, and my Palace; and they did it all willingly and well. Then I thought, as the country was so green and beautiful, I would call it the Emerald City; and to make the name fit better I put green spectacles on all the people, so that everything they saw was green.”
+“The balloon slowly came down, and I landed safely. But the people who lived there saw me coming down from the clouds and believed I was a powerful wizard.
 
-“But isn’t everything here green?” asked Dorothy.
+“I let them believe it, because they were afraid of me and promised to do whatever I asked.
 
-“No more than in any other city,” replied Oz; “but when you wear green spectacles, why of course everything you see looks green to you. The Emerald City was built a great many years ago, for I was a young man when the balloon brought me here, and I am a very old man now. But my people have worn green glasses on their eyes so long that most of them think it really is an Emerald City, and it certainly is a beautiful place, abounding in jewels and precious metals, and every good thing that is needed to make one happy. I have been good to the people, and they like me; but ever since this Palace was built, I have shut myself up and would not see any of them.
+“To entertain myself and keep the people busy, I ordered them to build this city and my palace. They worked willingly and did a very good job. Because the land was so green and beautiful, I decided to call the city the Emerald City. And to make the name seem more real, I made everyone wear green glasses, so everything they saw looked green.”
 
-“One of my greatest fears was the Witches, for while I had no magical powers at all I soon found out that the Witches were really able to do wonderful things. There were four of them in this country, and they ruled the people who live in the North and South and East and West. Fortunately, the Witches of the North and South were good, and I knew they would do me no harm; but the Witches of the East and West were terribly wicked, and had they not thought I was more powerful than they themselves, they would surely have destroyed me. As it was, I lived in deadly fear of them for many years; so you can imagine how pleased I was when I heard your house had fallen on the Wicked Witch of the East. When you came to me, I was willing to promise anything if you would only do away with the other Witch; but, now that you have melted her, I am ashamed to say that I cannot keep my promises.”
+“But isn’t everything here actually green?” asked Dorothy.
+
+“No more than in any other city,” Oz replied. “But when you wear green glasses, everything naturally looks green.”
+
+“The Emerald City was built many years ago. I was a young man when I arrived here, and now I am a very old man. The people have worn green glasses for so long that most of them truly believe this is a city made of emeralds.
+
+“But it is still a beautiful place. There are many jewels, precious metals, and everything people need to live happily. I have treated the people well, and they like me. However, after the palace was built, I stopped meeting them and stayed inside.”
+
+“One of my greatest fears was the witches. I soon discovered that they really had magical powers, while I had none at all.
+
+“There were four witches in this land. They ruled the people who lived in the North, South, East, and West.
+
+“Fortunately, the witches of the North and South were good, so I was not afraid of them. But the witches of the East and West were very wicked. If they had known I had no real power, they would certainly have destroyed me.
+
+“So I lived in fear of them for many years. That is why I was very happy when I heard that your house had fallen on the Wicked Witch of the East.
+
+“When you came to see me, I promised to help you if you would destroy the other witch. But now that you have melted her, I am ashamed to say that I cannot keep my promises.”
 
 “I think you are a very bad man,” said Dorothy.
 
-“Oh, no, my dear; I’m really a very good man, but I’m a very bad Wizard, I must admit.”
+“Oh no, my dear,” Oz replied. “I am really a good man. But I must admit that I am a very bad wizard.”
 
 “Can’t you give me brains?” asked the Scarecrow.
 
-“You don’t need them. You are learning something every day. A baby has brains, but it doesn’t know much. Experience is the only thing that brings knowledge, and the longer you are on earth the more experience you are sure to get.”
+------------
 
-“That may all be true,” said the Scarecrow, “but I shall be very unhappy unless you give me brains.”
+“You don’t really need them,” Oz answered. “You are learning something new every day. Even a baby has brains, but it knows very little. Experience is what brings knowledge, and the longer you live, the more experience you gain.”
 
-The false Wizard looked at him carefully.
+“That may be true,” said the Scarecrow, “but I will still be very unhappy if you don’t give me brains.”
 
-“Well,” he said with a sigh, “I’m not much of a magician, as I said; but if you will come to me tomorrow morning, I will stuff your head with brains. I cannot tell you how to use them, however; you must find that out for yourself.”
+Oz looked at him carefully.
 
-“Oh, thank you—thank you!” cried the Scarecrow. “I’ll find a way to use them, never fear!”
+“Well,” he said with a sigh, “as I told you, I am not a real magician. But if you come to see me tomorrow morning, I will fill your head with brains. I cannot teach you how to use them, though. You must learn that yourself.”
 
-“But how about my courage?” asked the Lion anxiously.
+“Thank you! Thank you!” cried the Scarecrow happily. “I will find a way to use them!”
 
-“You have plenty of courage, I am sure,” answered Oz. “All you need is confidence in yourself. There is no living thing that is not afraid when it faces danger. The True courage is in facing danger when you are afraid, and that kind of courage you have in plenty.”
+“But what about my courage?” asked the Lion nervously.
 
-“Perhaps I have, but I’m scared just the same,” said the Lion. “I shall really be very unhappy unless you give me the sort of courage that makes one forget he is afraid.”
+“You already have plenty of courage,” Oz said. “All you need is confidence. Every living creature feels afraid when facing danger. True courage means facing danger even when you are afraid. And you already have that kind of courage.”
 
-“Very well, I will give you that sort of courage tomorrow,” replied Oz.
+“Maybe,” said the Lion, “but I still feel afraid. I would be much happier if you could give me the kind of courage that makes someone forget fear.”
 
-“How about my heart?” asked the Tin Woodman.
+“Very well,” said Oz. “Come tomorrow and I will give you that kind of courage.”
 
-“Why, as for that,” answered Oz, “I think you are wrong to want a heart. It makes most people unhappy. If you only knew it, you are in luck not to have a heart.”
+“And what about my heart?” asked the Tin Woodman.
 
-“That must be a matter of opinion,” said the Tin Woodman. “For my part, I will bear all the unhappiness without a murmur, if you will give me the heart.”
+“Well,” Oz replied, “I think you are mistaken to want a heart. Hearts often make people unhappy. In some ways you are lucky not to have one.”
 
-“Very well,” answered Oz meekly. “Come to me tomorrow and you shall have a heart. I have played Wizard for so many years that I may as well continue the part a little longer.”
+“That may be your opinion,” said the Tin Woodman. “But I am willing to accept any unhappiness if you give me a heart.”
 
-“And now,” said Dorothy, “how am I to get back to Kansas?”
+“Very well,” said Oz quietly. “Come tomorrow and I will give you a heart. I have pretended to be a wizard for many years, so I may as well continue a little longer.”
 
-“We shall have to think about that,” replied the little man. “Give me two or three days to consider the matter and I’ll try to find a way to carry you over the desert. In the meantime you shall all be treated as my guests, and while you live in the Palace my people will wait upon you and obey your slightest wish. There is only one thing I ask in return for my help—such as it is. You must keep my secret and tell no one I am a humbug.”
+“And now,” said Dorothy, “how can I return to Kansas?”
 
-They agreed to say nothing of what they had learned, and went back to their rooms in high spirits. Even Dorothy had hope that “The Great and Terrible Humbug,” as she called him, would find a way to send her back to Kansas, and if he did she was willing to forgive him everything.
+“We must think about that,” Oz replied. “Give me two or three days to consider the problem, and I will try to find a way to take you across the desert.
 
+“Until then you will be my guests. While you stay in the palace, my people will serve you and obey your wishes.
+
+“There is only one thing I ask in return. You must keep my secret and tell no one that I am not a real wizard.”
+
+The travelers promised to keep the secret. Then they returned to their rooms feeling hopeful.
+
+Even Dorothy believed that the “Great and Terrible Pretender,” as she called him, might still find a way to send her back to Kansas. And if he succeeded, she was ready to forgive him for everything.
 `,
 }

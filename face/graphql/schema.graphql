@@ -25,7 +25,7 @@ type BookLiteOutModel {
   userId: Int
 }
 
-type BookOutModel {
+type BookPrivateOutModel {
   author: String
   chapters: [BookChapterLiteOutModel!]!
   freeToUse: Boolean!
@@ -39,6 +39,7 @@ type BookOutModel {
 type BookPublicOutModel {
   author: String!
   chapters: [BookChapterLiteOutModel!]!
+  coverBackgroundColor: String!
   covers: [String!]!
   freeToUse: Boolean!
   id: Int!
@@ -269,13 +270,13 @@ type Mutation {
   book_chapter_update(input: UpdateBookChapterInput!): BookChapterOutModel!
 
   """Create book"""
-  book_create(input: CreateBookInput!): BookOutModel!
+  book_create(input: CreateBookInput!): BookPrivateOutModel!
 
   """Delete user book"""
   book_delete(input: DeleteBookInput!): Boolean!
 
   """Update user book"""
-  book_update(input: UpdateBookInput!): BookOutModel!
+  book_update(input: UpdateBookInput!): BookPrivateOutModel!
 
   """Buy a subscription with YooKassa"""
   payment_yookassa_buy_subscription(input: BuySubscriptionWithYooKassaInput!): BuySubscriptionWithYooKassaOutModel!
@@ -301,7 +302,7 @@ type Query {
   book_chapter_get(input: GetBookChapterInput!): BookChapterOutModel!
 
   """Get user book"""
-  book_get(input: GetBookInput!): BookOutModel!
+  book_get(input: GetBookInput!): BookPrivateOutModel!
 
   """Get public book"""
   book_public_get_book(input: GetBookPublicInput!): BookPublicOutModel!
@@ -310,7 +311,7 @@ type Query {
   book_public_get_books: [BookPublicOutModel!]!
 
   """Get user books"""
-  book_user_books: [BookOutModel!]!
+  book_user_books: [BookPrivateOutModel!]!
 
   """Get sentence translation by id"""
   sentence_translation_get(input: GetSentenceTranslationInput!): SentenceTranslationOutModel!
@@ -521,6 +522,7 @@ type VideoPrivateSubtitleOutModel {
 
 type VideoPublicLiteOutModel {
   contentType: String!
+  coverBackgroundColor: String!
   covers: [String!]!
   fileName: String!
   fileS3Key: String!
@@ -537,6 +539,7 @@ type VideoPublicLiteOutModel {
 
 type VideoPublicOutModel {
   contentType: String!
+  coverBackgroundColor: String!
   covers: [String!]!
   fileName: String!
   fileS3Key: String!

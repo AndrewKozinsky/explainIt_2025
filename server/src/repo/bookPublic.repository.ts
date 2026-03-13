@@ -17,6 +17,7 @@ export class BookPublicRepository {
 		name: string
 		note: string
 		covers: string[]
+		coverBackgroundColor: string
 		languageCode: Language
 		freeToUse?: boolean
 	}) {
@@ -26,6 +27,7 @@ export class BookPublicRepository {
 				name: dto.name,
 				note: dto.note,
 				covers: dto.covers,
+				coverBackgroundColor: dto.coverBackgroundColor,
 				language_code: dto.languageCode,
 				free_to_use: dto.freeToUse,
 			},
@@ -69,6 +71,7 @@ export class BookPublicRepository {
 			name: dbBook.name,
 			note: dbBook.note,
 			covers: dbBook.covers,
+			coverBackgroundColor: dbBook.coverBackgroundColor,
 			languageCode: dbBook.language_code,
 			freeToUse: dbBook.free_to_use ?? false,
 			chapters: dbBook.BookChapter.map((chapter) => ({

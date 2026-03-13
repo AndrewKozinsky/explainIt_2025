@@ -5,7 +5,7 @@ export const queriesBook = {
 		return {
 			query: `
 				mutation CreateBook($input: CreateBookInput!) {
-				 ${RouteNames.BOOK.CREATE}(input: $input) {
+				 ${RouteNames.BOOK_PRIVATE.CREATE}(input: $input) {
 					id
 					author
 					name
@@ -30,7 +30,7 @@ export const queriesBook = {
 		return {
 			query: `
       mutation UpdateBook($input: UpdateBookInput!) {
-        ${RouteNames.BOOK.UPDATE}(input: $input) {
+        ${RouteNames.BOOK_PRIVATE.UPDATE}(input: $input) {
           id
           author
           name
@@ -56,7 +56,7 @@ export const queriesBook = {
 		return {
 			query: `
       mutation DeleteBook($input: DeleteBookInput!) {
-        ${RouteNames.BOOK.DELETE}(input: $input)
+        ${RouteNames.BOOK_PRIVATE.DELETE}(input: $input)
       }`,
 			variables: {
 				input: dto,
@@ -66,7 +66,7 @@ export const queriesBook = {
 
 	getUserBooks() {
 		return `query {
-			  ${RouteNames.BOOK.GET_USER_BOOKS} {
+			  ${RouteNames.BOOK_PRIVATE.GET_USER_BOOKS} {
 				id
 				author
 				name

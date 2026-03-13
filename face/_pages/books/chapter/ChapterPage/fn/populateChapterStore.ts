@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useParams } from 'next/navigation'
-import { BookOutModel, useBook_Get, useBookChapter_Get } from '@/graphql'
+import { BookPrivateOutModel, useBook_Get, useBookChapter_Get } from '@/graphql'
 import { useChapterStore } from '_pages/books/chapter/chapterStore'
 import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId, pageUrls } from 'сonsts/pageUrls'
 
@@ -32,19 +32,19 @@ function useSetBookToStore() {
 				useChapterStore.getState().updatePrivateBook({
 					loading: true,
 					errorMessage: null,
-					data: null as any as BookOutModel,
+					data: null as any as BookPrivateOutModel,
 				})
 			} else if (privateBookError) {
 				useChapterStore.getState().updatePrivateBook({
 					loading: false,
 					errorMessage: privateBookError.message,
-					data: null as any as BookOutModel,
+					data: null as any as BookPrivateOutModel,
 				})
 			} else if (!book) {
 				useChapterStore.getState().updatePrivateBook({
 					loading: false,
 					errorMessage: null,
-					data: null as any as BookOutModel,
+					data: null as any as BookPrivateOutModel,
 				})
 			} else {
 				useChapterStore.getState().updatePrivateBook({

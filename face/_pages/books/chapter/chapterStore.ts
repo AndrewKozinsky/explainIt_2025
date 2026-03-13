@@ -1,11 +1,11 @@
 import { create } from 'zustand'
-import { BookChapterOutModel, BookOutModel } from '@/graphql'
+import { BookChapterOutModel, BookPrivateOutModel } from '@/graphql'
 
 export const chapterStoreValues: BooksStoreValues = {
 	privateBook: {
 		loading: true,
 		errorMessage: null,
-		data: null as any as BookOutModel,
+		data: null as any as BookPrivateOutModel,
 	},
 	chapter: {
 		loading: true,
@@ -54,7 +54,7 @@ export namespace BooksStore {
 	export type PrivateBookData = {
 		loading: boolean
 		errorMessage: null | string
-		data: BookOutModel
+		data: BookPrivateOutModel
 	}
 	export type ChapterData = {
 		loading: boolean

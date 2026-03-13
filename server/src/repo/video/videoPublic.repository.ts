@@ -19,6 +19,7 @@ export class VideoPublicRepository {
 		languageCode: Language
 		note: string
 		covers: string[]
+		coverBackgroundColor: string
 		year: number
 		originalContent: string
 		processedContent: string
@@ -34,6 +35,7 @@ export class VideoPublicRepository {
 				language_code: dto.languageCode,
 				note: dto.note ?? null,
 				covers: dto.covers,
+				coverBackgroundColor: dto.coverBackgroundColor,
 				year: dto.year,
 				original_content: dto.originalContent,
 				processed_content: dto.processedContent,

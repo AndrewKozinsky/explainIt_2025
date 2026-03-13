@@ -13,6 +13,7 @@ export function littleRedRidingHoodBookData(coversFolderName: string) {
 		languageCode: languages.de.code as Language,
 		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),
+		coverBackgroundColor: '#313B3C',
 	}
 }
 

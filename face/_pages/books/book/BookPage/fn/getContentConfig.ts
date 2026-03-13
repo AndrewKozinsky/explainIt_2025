@@ -50,8 +50,7 @@
 							name: book.name,
 							subName: book.author,
 							url: pageUrls.books.book(bookId).path,
-							// backgroundColor: book.backgroundColor,
-							backgroundColor: '#313B3C',
+							backgroundColor: book.backgroundColor,
 							languageCode: book.languageCode,
 							coverUrl: book.covers[0],
 						}

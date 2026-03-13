@@ -37,6 +37,7 @@ export function wizardOfOzBookData(coversFolderName: string) {
 		languageCode: languages.en.code as Language,
 		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),
+		coverBackgroundColor: '#937F43',
 	}
 }
 

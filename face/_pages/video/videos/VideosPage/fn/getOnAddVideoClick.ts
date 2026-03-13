@@ -27,13 +27,13 @@ export function useGetAddVideoConfig() {
 				})
 
 				if (errors) {
-					setErrorMessage('Не удалось создать книгу.')
+					setErrorMessage('Не удалось создать видео.')
 					return
 				}
 
 				const videoId = data?.video_private_create.id
 				if (!videoId) {
-					setErrorMessage('Не удалось создать книгу.')
+					setErrorMessage('Не удалось создать видео.')
 					return
 				}
 

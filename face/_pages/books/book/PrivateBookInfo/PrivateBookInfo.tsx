@@ -1,11 +1,11 @@
 import MenuAndContentContainer from '_pages/bookAndVideoCommon/MenuAndContentContainer/MenuAndContentContainer'
 import { SectionWithHeader } from '_pages/bookAndVideoCommon/SectionWithHeader/SectionWithHeader'
-import ChaptersList from '_pages/books/books/chaptersSection/ChaptersList/ChaptersList'
 import EditBookForm from '_pages/books/books/detailsSection/editPrivateBook/EditPrivateBookForm/EditPrivateBookForm'
 import { bookConfig } from '_pages/books/common/bookConfig'
+import ChaptersList from '../../common/ChaptersList/ChaptersList'
 import { useBookStore } from '../bookStore'
 import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
-import '_pages/books/book/PrivateBookInfo/PrivateBookInfo.scss'
+import './PrivateBookInfo.scss'
 
 export default function PrivateBookInfo() {
 	const privateBook = useBookStore((s) => s.privateBook)

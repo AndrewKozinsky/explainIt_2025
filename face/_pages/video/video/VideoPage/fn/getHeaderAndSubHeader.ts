@@ -1,32 +1,32 @@
-// import { useMemo } from 'react'
-// import { useBookStore } from '_pages/books/book/bookStore'
-// import { bookConfig } from '_pages/books/common/bookConfig'
+import { useMemo } from 'react'
+import { videoConfig } from '_pages/video/common/videoConfig'
+import { useVideoStore } from '../../videoStore'
 
-/*export function useGetHeaderAndSubHeader() {
-	const publicBook = useBookStore((s) => s.publicBook)
-	const privateBook = useBookStore((s) => s.privateBook)
+export function useGetHeaderAndSubHeader() {
+	const publicVideo = useVideoStore((s) => s.publicVideo)
+	const privateVideo = useVideoStore((s) => s.privateVideo)
 
 	return useMemo(
 		function () {
-			if (publicBook.data) {
+			if (publicVideo.data) {
 				return {
-					header: publicBook.data.name || bookConfig.emptyBookName,
-					subHeader: publicBook.data.author,
+					header: publicVideo.data.name || videoConfig.emptyVideoName,
+					subHeader: publicVideo.data.year,
 				}
 			}
 
-			if (privateBook.data) {
+			if (privateVideo.data) {
 				return {
-					header: privateBook.data.name || bookConfig.emptyBookName,
-					subHeader: privateBook.data.author,
+					header: privateVideo.data.name || videoConfig.emptyVideoName,
+					subHeader: privateVideo.data.year,
 				}
 			}
 
 			return {
-				header: bookConfig.emptyBookName,
+				header: videoConfig.emptyVideoName,
 				subHeader: null,
 			}
 		},
-		[publicBook, privateBook],
+		[publicVideo, privateVideo],
 	)
-}*/
+}

@@ -61,15 +61,16 @@ model BookPrivate {
 }
 
 model BookPublic {
-    id            Int           @id @default(autoincrement())
-    free_to_use   Boolean?      @default(false)
-    language_code LanguageCode
-    covers        String[]
-    author        String
-    name          String
-    note          String
-    BookChapter   BookChapter[]
-    created_at    DateTime      @default(now())
+    id                   Int           @id @default(autoincrement())
+    free_to_use          Boolean?      @default(false)
+    language_code        LanguageCode
+    covers               String[]
+    coverBackgroundColor String
+    author               String
+    name                 String
+    note                 String
+    BookChapter          BookChapter[]
+    created_at           DateTime      @default(now())
 }
 
 model BookChapter {
@@ -108,23 +109,24 @@ model VideoPrivate {
 }
 
 model VideoPublic {
-    id                Int            @id @default(autoincrement())
-    free_to_use       Boolean?       @default(false)
-    language_code     LanguageCode
-    year              Int
-    name              String
-    file_name         String
-    file_s3_key       String
-    s3_provider_name  S3ProviderName
-    note              String
-    covers            String[]
-    original_content  String
-    processed_content String
-    content_type      VideoTextType  @default(text)
-    Subtitle          Subtitle[]
-    Sentence          Sentence[]
-    created_at        DateTime       @default(now())
-    updated_at        DateTime       @default(now())
+    id                   Int            @id @default(autoincrement())
+    free_to_use          Boolean?       @default(false)
+    language_code        LanguageCode
+    year                 Int
+    name                 String
+    file_name            String
+    file_s3_key          String
+    s3_provider_name     S3ProviderName
+    note                 String
+    covers               String[]
+    coverBackgroundColor String
+    original_content     String
+    processed_content    String
+    content_type         VideoTextType  @default(text)
+    Subtitle             Subtitle[]
+    Sentence             Sentence[]
+    created_at           DateTime       @default(now())
+    updated_at           DateTime       @default(now())
 }
 
 model Sentence {
@@ -196,8 +198,8 @@ model Tariff {
     slogan                    String
     name                      String
     description               String
-    is_public_media_included  Boolean            @default(false)
-    is_private_media_included Boolean            @default(false)
+    is_public_media_included  Boolean
+    is_private_media_included Boolean
     price                     Int
     included_balance          Int
     included_file_storage_mb  Int
