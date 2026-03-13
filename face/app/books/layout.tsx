@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import BooksPageLayout from '../../_pages/books/BooksPageLayout/BooksPageLayout'
+import BooksPageLayout from '_pages/media/BooksPageLayout/BooksPageLayout'
 
 type LayoutProps = {
 	children: ReactNode

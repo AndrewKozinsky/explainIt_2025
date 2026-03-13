@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import VideosPageLayout from '_pages/video/VideosPageLayout/BooksPageLayout'
+import VideosPageLayout from '_pages/media/VideosPageLayout/VideosPageLayout'
 
 type LayoutProps = {
 	children: ReactNode

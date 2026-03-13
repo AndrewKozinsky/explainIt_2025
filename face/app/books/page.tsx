@@ -1,4 +1,4 @@
-import BooksPage from '_pages/books/books/BooksPage/BooksPage'
+import BooksPage from '_pages/media/books/BooksPage/BooksPage'
 
 export default async function Page() {
 	return <BooksPage />

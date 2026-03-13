@@ -1,4 +1,4 @@
-import VideosPage from '_pages/video/videos/VideosPage/VideosPage'
+import VideosPage from '_pages/media/videos/VideosPage/VideosPage'
 
 export default function Home() {
 	return <VideosPage />
