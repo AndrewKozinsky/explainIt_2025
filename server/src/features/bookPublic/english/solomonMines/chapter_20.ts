@@ -3,6 +3,7 @@ export const chapter_20 = {
 	name: 'Chapter XX',
 	header: 'Found',
 	text: `Та же самая задача для этого текста:
+
 And now I come to perhaps the strangest adventure that happened to us in all this strange business, and one which shows how wonderfully things are brought about.
 
 I was walking along quietly, some way in front of the other two, down the banks of the stream which runs from the oasis till it is swallowed up in the hungry desert sands, when suddenly I stopped and rubbed my eyes, as well I might. There, not twenty yards in front of me, placed in a charming situation, under the shade of a species of fig-tree, and facing to the stream, was a cosy hut, built more or less on the Kafir principle with grass and withes, but having a full-length door instead of a bee-hole.

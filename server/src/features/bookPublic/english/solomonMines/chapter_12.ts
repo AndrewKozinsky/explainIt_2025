@@ -3,6 +3,7 @@ export const chapter_12 = {
 	name: 'Chapter XII',
 	header: 'Before the battle',
 	text: `Та же самая задача для этого текста:
+
 Luckily for us, Infadoos and the chiefs knew all the paths of the great town perfectly, so that we passed by side-ways unmolested, and notwithstanding the gloom we made fair progress.
 
 For an hour or more we journeyed on, till at length the eclipse began to pass, and that edge of the moon which had disappeared the first became again visible. Suddenly, as we watched, there burst from it a silver streak of light, accompanied by a wondrous ruddy glow, which hung upon the blackness of the sky like a celestial lamp, and a wild and lovely sight it was. In another five minutes the stars began to fade, and there was sufficient light to see our whereabouts. We then discovered that we were clear of the town of Loo, and approaching a large flat-topped hill, measuring some two miles in circumference. This hill, which is of a formation common in South Africa, is not very high; indeed, its greatest elevation is scarcely more than 200 feet, but it is shaped like a horseshoe, and its sides are rather precipitous and strewn with boulders. On the grass table-land at its summit is ample camping-ground, which had been utilised as a military cantonment of no mean strength. Its ordinary garrison was one regiment of three thousand men, but as we toiled up the steep side of the mountain in the returning moonlight we perceived that there were several of such regiments encamped there.

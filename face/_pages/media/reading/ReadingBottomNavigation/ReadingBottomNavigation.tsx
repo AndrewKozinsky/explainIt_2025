@@ -1,8 +1,8 @@
-// import React from 'react'
-// import { BookLink, PrevChapterLink, NextChapterLink } from './Buttons'
-// import './BookAndPrevAndNextChapters.scss'
+import React from 'react'
+import { BookLink, PrevChapterLink, NextChapterLink } from './Buttons'
+import './ReadingBottomNavigation.scss'
 
-/*function BookAndPrevAndNextChapters() {
+function ReadingBottomNavigation() {
 	return (
 		<div className='book-and-prev-and-next-chapters'>
 			<div className='book-and-prev-and-next-chapters__auto-height' />
@@ -13,6 +13,6 @@
 			</div>
 		</div>
 	)
-}*/
+}
 
-// export default BookAndPrevAndNextChapters
+export default ReadingBottomNavigation

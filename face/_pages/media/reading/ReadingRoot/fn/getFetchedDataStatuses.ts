@@ -1,4 +1,4 @@
-import { useReadingStore } from '../../../readingStore'
+import { useReadingStore } from '_pages/media/reading/readingStore'
 
 export function useGetFetchedDataStatuses() {
 	const book = useReadingStore((s) => s.book)

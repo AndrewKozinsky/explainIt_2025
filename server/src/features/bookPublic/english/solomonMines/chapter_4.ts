@@ -1,101 +1,221 @@
-// Это неадаптированная версия !
 export const chapter_4 = {
 	name: 'Chapter IV',
 	header: 'An elephant hunt',
-	text: `Now I do not propose to narrate at full length all the incidents of our long travel up to Sitanda’s Kraal, near the junction of the Lukanga and Kalukwe Rivers. It was a journey of more than a thousand miles from Durban, the last three hundred or so of which we had to make on foot, owing to the frequent presence of the dreadful “tsetse” fly, whose bite is fatal to all animals except donkeys and men.
+	text: `I will not describe in detail all the events of our long journey to Sitanda’s kraal, near the place where the Lukanga and Kalukwe rivers meet. It was a journey of more than a thousand miles from Durban. During the last three hundred miles we had to travel on foot because of the terrible tsetse fly, whose bite kills most animals except donkeys and men.
 
-We left Durban at the end of January, and it was in the second week of May that we camped near Sitanda’s Kraal. Our adventures on the way were many and various, but as they are of the sort which befall every African hunter—with one exception to be presently detailed—I shall not set them down here, lest I should render this history too wearisome.
+We left Durban at the end of January, and it was the second week of May when we finally camped near Sitanda’s kraal.
 
-At Inyati, the outlying trading station in the Matabele country, of which Lobengula (a great and cruel scoundrel) is king, with many regrets we parted from our comfortable wagon. Only twelve oxen remained to us out of the beautiful span of twenty which I had bought at Durban. One we lost from the bite of a cobra, three had perished from “poverty” and the want of water, one strayed, and the other three died from eating the poisonous herb called “tulip.” Five more sickened from this cause, but we managed to cure them with doses of an infusion made by boiling down the tulip leaves. If administered in time this is a very effective antidote.
+Many different adventures happened to us along the way. But most of them were the kind of things that happen to any African hunter, so I will not describe them here, except for one story that I will tell later. Otherwise this history might become too long and tiresome.
 
-The wagon and the oxen we left in the immediate charge of Goza and Tom, our driver and leader, both trustworthy boys, requesting a worthy Scotch missionary who lived in this distant place to keep an eye on them. Then, accompanied by Umbopa, Khiva, Ventvögel, and half a dozen bearers whom we hired on the spot, we started off on foot upon our wild quest. I remember we were all a little silent on the occasion of this departure, and I think that each of us was wondering if we should ever see our wagon again; for my part I never expected to do so. For a while we tramped on in silence, till Umbopa, who was marching in front, broke into a Zulu chant about how some brave men, tired of life and the tameness of things, started off into a vast wilderness to find new things or die, and how, lo and behold! when they had travelled far into the wilderness they found that it was not a wilderness at all, but a beautiful place full of young wives and fat cattle, of game to hunt and enemies to kill.
+At Inyati, a remote trading station in the country of the Matabele, we said goodbye to our comfortable wagon with great regret. The king of that land was Lobengula, a powerful and very cruel ruler.
 
-Then we all laughed and took it for a good omen. Umbopa was a cheerful savage, in a dignified sort of way, when he was not suffering from one of his fits of brooding, and he had a wonderful knack of keeping up our spirits. We all grew very fond of him.
+By that time only twelve oxen remained from the beautiful team of twenty that I had bought in Durban. One had died from the bite of a cobra. Three died from weakness and lack of water. One wandered away and was lost. Three more died after eating a poisonous plant called the tulip.
 
-And now for the one adventure to which I am going to treat myself, for I do dearly love a hunting yarn.
+Five other oxen became sick from the same plant, but we managed to cure them by giving them a drink made by boiling the leaves of the tulip plant in water. If this treatment is given quickly, it works very well as an antidote.
 
-About a fortnight’s march from Inyati we came across a peculiarly beautiful bit of well-watered woodland country. The kloofs in the hills were covered with dense bush, “idoro” bush as the natives call it, and in some places, with the “wacht-een-beche,” or “wait-a-little thorn,” and there were great quantities of the lovely “machabell” tree, laden with refreshing yellow fruit having enormous stones. This tree is the elephant’s favourite food, and there were not wanting signs that the great brutes had been about, for not only was their spoor frequent, but in many places the trees were broken down and even uprooted. The elephant is a destructive feeder.
+We left the wagon and the oxen under the care of Goza and Tom, our driver and our leader. Both were reliable men. We also asked a good Scottish missionary who lived in that remote place to keep an eye on them.
 
-One evening, after a long day’s march, we came to a spot of great loveliness. At the foot of a bush-clad hill lay a dry river-bed, in which, however, were to be found pools of crystal water all trodden round with the hoof-prints of game. Facing this hill was a park-like plain, where grew clumps of flat-topped mimosa, varied with occasional glossy-leaved machabells, and all round stretched the sea of pathless, silent bush.
+Then, together with Umbopa, Khiva, Ventvögel, and about six bearers that we hired there, we began our journey on foot in search of our goal.
 
------------
-Та же самая задача для этого текста:
+I remember that we were all rather quiet when we started. I think each of us wondered whether we would ever see our wagon again. Personally, I did not expect to see it again at all.
 
-As we emerged into this river-bed path suddenly we started a troop of tall giraffes, who galloped, or rather sailed off, in their strange gait, their tails screwed up over their backs, and their hoofs rattling like castanets. They were about three hundred yards from us, and therefore practically out of shot, but Good, who was walking ahead, and who had an express loaded with solid ball in his hand, could not resist temptation. Lifting his gun, he let drive at the last, a young cow. By some extraordinary chance the ball struck it full on the back of the neck, shattering the spinal column, and that giraffe went rolling head over heels just like a rabbit. I never saw a more curious thing.
+For a while we walked in silence. Then Umbopa, who was walking at the front, began to sing a Zulu chant. The song told about brave men who were tired of ordinary life and decided to travel into a great wilderness in search of new things, even if it meant death. But when they finally travelled far into the wilderness, they discovered that it was not empty at all. Instead it was a beautiful land full of young wives, fat cattle, animals to hunt, and enemies to fight.
 
-“Curse it!” said Good—for I am sorry to say he had a habit of using strong language when excited—contracted, no doubt, in the course of his nautical career; “curse it! I’ve killed him.”
+We all laughed and took this as a good sign.
 
-“Ou, Bougwan,” ejaculated the Kafirs; “ou! ou!”
+Umbopa was a cheerful man in his own dignified way, except when he had one of his quiet and thoughtful moods. He had a special ability to keep our spirits high, and we all grew very fond of him.
 
-They called Good “Bougwan,” or Glass Eye, because of his eye-glass.
+Now I will tell the one adventure from this journey that I especially enjoy remembering, because I truly love a good hunting story.
 
-“Oh, ‘Bougwan!’” re-echoed Sir Henry and I, and from that day Good’s reputation as a marvellous shot was established, at any rate among the Kafirs. Really he was a bad one, but whenever he missed we overlooked it for the sake of that giraffe.
+About two weeks after leaving Inyati we entered a very beautiful region with plenty of water and forest. The valleys in the hills were covered with thick bushes. The natives called one of these plants “idoro” bush. In some places there were also thorn bushes known as “wait-a-little thorns,” which catch your clothes when you try to pass.
 
-Having set some of the “boys” to cut off the best of the giraffe’s meat, we went to work to build a “scherm” near one of the pools and about a hundred yards to its right. This is done by cutting a quantity of thorn bushes and piling them in the shape of a circular hedge. Then the space enclosed is smoothed, and dry tambouki grass, if obtainable, is made into a bed in the centre, and a fire or fires lighted.
+There were also many beautiful machabell trees, full of refreshing yellow fruit with very large stones inside. This tree is a favorite food of elephants, and we saw many signs that elephants had recently been there. Their tracks were everywhere, and in many places the trees had been broken or even pulled out of the ground. Elephants can be very destructive when they feed.
 
-By the time the “scherm” was finished the moon peeped up, and our dinners of giraffe steaks and roasted marrow-bones were ready. How we enjoyed those marrow-bones, though it was rather a job to crack them! I know of no greater luxury than giraffe marrow, unless it is elephant’s heart, and we had that on the morrow. We ate our simple meal by the light of the moon, pausing at times to thank Good for his wonderful shot; then we began to smoke and yarn, and a curious picture we must have made squatting there round the fire. I, with my short grizzled hair sticking up straight, and Sir Henry with his yellow locks, which were getting rather long, were rather a contrast, especially as I am thin, and short, and dark, weighing only nine stone and a half, and Sir Henry is tall, and broad, and fair, and weighs fifteen. But perhaps the most curious-looking of the three, taking all the circumstances of the case into consideration, was Captain John Good, R.N. There he sat upon a leather bag, looking just as though he had come in from a comfortable day’s shooting in a civilised country, absolutely clean, tidy, and well dressed. He wore a shooting suit of brown tweed, with a hat to match, and neat gaiters. As usual, he was beautifully shaved, his eye-glass and his false teeth appeared to be in perfect order, and altogether he looked the neatest man I ever had to do with in the wilderness. He even sported a collar, of which he had a supply, made of white gutta-percha.
+One evening, after a long day of walking, we came to a place of great beauty. At the foot of a hill covered with bushes there was a dry riverbed. However, in several places clear pools of water still remained. Around these pools the ground was covered with the hoofprints of many animals.
 
-“You see, they weigh so little,” he said to me innocently, when I expressed my astonishment at the fact; “and I always like to turn out like a gentleman.” Ah! if he could have foreseen the future and the raiment prepared for him.
+Across from the hill stretched an open plain that looked almost like a park. Small groups of flat-topped mimosa trees grew there, together with occasional machabell trees with shiny leaves.
 
-Well, there we three sat yarning away in the beautiful moonlight, and watching the Kafirs a few yards off sucking their intoxicating “daccha” from a pipe of which the mouthpiece was made of the horn of an eland, till one by one they rolled themselves up in their blankets and went to sleep by the fire, that is, all except Umbopa, who was a little apart, his chin resting on his hand, and thinking deeply. I noticed that he never mixed much with the other Kafirs.
+All around this place spread a vast sea of silent, pathless bush.
 
-Presently, from the depths of the bush behind us, came a loud “woof, woof!” “That’s a lion,” said I, and we all started up to listen. Hardly had we done so, when from the pool, about a hundred yards off, we heard the strident trumpeting of an elephant. “Unkungunklovo! Indlovu!” “Elephant! Elephant!” whispered the Kafirs, and a few minutes afterwards we saw a succession of vast shadowy forms moving slowly from the direction of the water towards the bush.
+As we walked into the dry riverbed, we suddenly frightened a group of tall giraffes. They ran away in their strange way of moving, almost like they were floating. Their tails were curled over their backs, and their hooves made a rattling sound like small drums.
 
------------
-Та же самая задача для этого текста:
+They were about three hundred yards away, which meant they were too far to shoot. But Good, who was walking ahead of us, had an Express rifle loaded with a solid bullet, and he could not resist the temptation. He raised his gun and fired at the last giraffe, a young female.
 
-Up jumped Good, burning for slaughter, and thinking, perhaps, that it was as easy to kill elephant as he had found it to shoot giraffe, but I caught him by the arm and pulled him down.
+By an amazing piece of luck, the bullet hit the back of the giraffe’s neck and broke its spine. The animal fell immediately, rolling over and over like a rabbit. I had never seen anything like it.
 
-“It’s no good,” I whispered, “let them go.”
+“Confound it!” said Good—for I must admit that he sometimes used strong language when he became excited, probably a habit he learned during his years at sea. “Confound it! I’ve killed it.”
 
-“It seems that we are in a paradise of game. I vote we stop here a day or two, and have a go at them,” said Sir Henry, presently.
+“Ou, Bougwan!” cried the Kafirs in surprise.
 
-I was rather surprised, for hitherto Sir Henry had always been for pushing forward as fast as possible, more especially since we ascertained at Inyati that about two years ago an Englishman of the name of Neville had sold his wagon there, and gone on up country. But I suppose his hunter instincts got the better of him for a while.
+They called Good “Bougwan,” which means “Glass Eye,” because he wore an eyeglass.
 
-Good jumped at the idea, for he was longing to have a shot at those elephants; and so, to speak the truth, did I, for it went against my conscience to let such a herd as that escape without a pull at them.
+“Oh, Bougwan!” repeated Sir Henry and I. From that day on, Good became famous among the Kafirs as a wonderful marksman. In truth he was not a very good shot, but whenever he missed we forgave him because of that giraffe.
 
-“All right, my hearties,” said I. “I think we want a little recreation. And now let’s turn in, for we ought to be off by dawn, and then perhaps we may catch them feeding before they move on.”
+After sending some of the men to cut the best meat from the giraffe, we began building a scherm near one of the pools, about a hundred yards away. To build a scherm, you cut many thorn bushes and arrange them in a circle like a hedge. Then you clear the ground inside the circle and make a bed of dry grass in the center. After that you light one or two fires.
 
-The others agreed, and we proceeded to make our preparations. Good took off his clothes, shook them, put his eye-glass and his false teeth into his trousers pocket, and folding each article neatly, placed it out of the dew under a corner of his mackintosh sheet. Sir Henry and I contented ourselves with rougher arrangements, and soon were curled up in our blankets, and dropping off into the dreamless sleep that rewards the traveller.
+By the time the scherm was finished, the moon had risen, and our dinner of giraffe steaks and roasted marrow bones was ready. We greatly enjoyed those marrow bones, although it was quite difficult to break them open. I know no better food than giraffe marrow, except perhaps elephant’s heart—and we would eat that the next day.
 
-Going, going, go—What was that?
+We ate our simple meal in the moonlight, sometimes stopping to praise Good for his wonderful shot. Afterward we sat smoking and talking. We must have made a strange picture sitting around the fire like that.
 
-Suddenly, from the direction of the water came sounds of violent scuffling, and next instant there broke upon our ears a succession of the most awful roars. There was no mistaking their origin; only a lion could make such a noise as that. We all jumped up and looked towards the water, in the direction of which we saw a confused mass, yellow and black in colour, staggering and struggling towards us. We seized our rifles, and slipping on our veldtschoons, that is shoes made of untanned hide, ran out of the scherm. By this time the mass had fallen, and was rolling over and over on the ground, and when we reached the spot it struggled no longer, but lay quite still.
+I, with my short gray hair sticking up straight, looked very different from Sir Henry, whose yellow hair had grown quite long. The difference between us was great. I am thin, short, and dark, weighing only about sixty kilograms, while Sir Henry is tall, broad, fair-haired, and much heavier.
 
-Now we saw what it was. On the grass there lay a sable antelope bull—the most beautiful of all the African antelopes—quite dead, and transfixed by its great curved horns was a magnificent black-maned lion, also dead. Evidently what had happened was this: The sable antelope had come down to drink at the pool where the lion—no doubt the same which we had heard—was lying in wait. While the antelope drank, the lion had sprung upon him, only to be received upon the sharp curved horns and transfixed. Once before I saw a similar thing happen. Then the lion, unable to free himself, had torn and bitten at the back and neck of the bull, which, maddened with fear and pain, had rushed on until it dropped dead.
+But perhaps the most unusual-looking of us all was Captain John Good. He sat on a leather bag looking as if he had just returned from a comfortable day of hunting in a civilized country. He was perfectly clean, tidy, and well dressed.
 
-As soon as we had examined the beasts sufficiently we called the Kafirs, and between us managed to drag their carcases up to the scherm. After that we went in and lay down, to wake no more till dawn.
+He wore a brown tweed hunting suit with a matching hat and neat gaiters. As usual, he was carefully shaved. His eyeglass and his false teeth were in perfect condition, and overall he looked like the neatest man I had ever seen in the wilderness. He even wore a collar. In fact, he carried several collars made of white gutta-percha.
 
-With the first light we were up and making ready for the fray. We took with us the three eight-bore rifles, a good supply of ammunition, and our large water-bottles, filled with weak cold tea, which I have always found the best stuff to shoot on. After swallowing a little breakfast we started, Umbopa, Khiva, and Ventvögel accompanying us. The other Kafirs we left with instructions to skin the lion and the sable antelope, and to cut up the latter.
+“You see, they weigh almost nothing,” he explained to me innocently when I expressed my surprise. “And I always like to look like a gentleman.”
 
-We had no difficulty in finding the broad elephant trail, which Ventvögel, after examination, pronounced to have been made by between twenty and thirty elephants, most of them full-grown bulls. But the herd had moved on some way during the night, and it was nine o’clock, and already very hot, before, by the broken trees, bruised leaves and bark, and smoking droppings, we knew that we could not be far from them.
+Ah, if only he had known what the future had in store for him and the clothes he would later be forced to wear.
 
------------
-Та же самая задача для этого текста:
+So there we sat in the beautiful moonlight, talking together and watching the Kafirs a few yards away smoking their strong daccha from a pipe with a mouthpiece made from an eland horn. One by one they wrapped themselves in their blankets and fell asleep beside the fire.
 
-Presently we caught sight of the herd, which numbered, as Ventvögel had said, between twenty and thirty, standing in a hollow, having finished their morning meal, and flapping their great ears. It was a splendid sight, for they were only about two hundred yards from us. Taking a handful of dry grass, I threw it into the air to see how the wind was; for if once they winded us I knew they would be off before we could get a shot. Finding that, if anything, it blew from the elephants to us, we crept on stealthily, and thanks to the cover managed to get within forty yards or so of the great brutes. Just in front of us, and broadside on, stood three splendid bulls, one of them with enormous tusks. I whispered to the others that I would take the middle one; Sir Henry covering the elephant to the left, and Good the bull with the big tusks.
+All except Umbopa. He sat a little apart from the others with his chin resting on his hand, deep in thought. I noticed that he rarely spent much time with the other Kafirs.
+
+Suddenly, from deep in the bushes behind us, we heard a loud “woof, woof!”
+
+“That’s a lion,” I said, and we all stood up and listened.
+
+Hardly had we done so when we heard the loud trumpet of an elephant coming from the pool about a hundred yards away.
+
+“Elephant! Elephant!” whispered the Kafirs.
+
+A few minutes later we saw several enormous shadowy shapes slowly moving from the water toward the dark bushes.
+
+Good immediately jumped up, eager to shoot something. Perhaps he thought that killing an elephant would be as easy as shooting a giraffe. But I caught him by the arm and pulled him back down.
+
+“It’s no use,” I whispered. “Let them go.”
+
+“It seems we have reached a paradise full of animals,” said Sir Henry after a moment. “I suggest that we stay here for a day or two and try hunting them.”
+
+This surprised me, because until now Sir Henry had always wanted to move forward as quickly as possible. This was especially true after we learned at Inyati that about two years earlier an Englishman named Neville had sold his wagon there and continued his journey farther north. But perhaps Sir Henry’s hunting instincts had taken control for the moment.
+
+Good was very pleased with the idea, because he was eager to try shooting those elephants. To be honest, I also wanted to try. It did not feel right to let such a large herd go without at least trying to hunt them.
+
+“All right, my friends,” I said. “I think we deserve a little recreation. Now let us go to sleep, because we should start at dawn. Perhaps we will find the elephants feeding before they move away.”
+
+The others agreed, and we prepared for the night. Good carefully removed his clothes and shook them out. Then he put his eyeglass and his false teeth into his trousers pocket. After folding his clothes neatly, he placed them under the corner of his waterproof sheet so that the night dew would not reach them.
+
+Sir Henry and I made simpler preparations. Soon we were wrapped in our blankets and falling into the deep, dreamless sleep that tired travelers know so well.
+
+Going… going… gone—what was that?
+
+Suddenly, from the direction of the water, we heard the sound of violent struggling. A moment later terrible roaring filled the air. There was no mistake about it—only a lion could make such a sound.
+
+We all jumped up and looked toward the water. In the moonlight we saw a confused mass of yellow and black shapes moving toward us, struggling and stumbling.
+
+We grabbed our rifles and quickly put on our veldtschoons—shoes made from untanned leather—and ran out of the scherm.
+
+By the time we reached the place, the strange mass had fallen to the ground and stopped moving.
+
+Now we saw what had happened.
+
+On the grass lay a large sable antelope bull—the most beautiful of all African antelopes—dead. Its great curved horns had pierced the body of a magnificent lion with a black mane, which was also dead.
+
+What had happened was probably this: the sable antelope had come to the pool to drink. The lion—likely the same one we had heard earlier—had been hiding there, waiting for prey. When the lion attacked, the antelope defended itself with its sharp horns and pierced the lion’s body.
+
+Unable to free himself, the lion bit and tore at the back and neck of the antelope. Maddened by fear and pain, the antelope ran forward until it finally collapsed and died.
+
+I had seen something like this happen once before.
+
+After examining the animals, we called the Kafirs. Together we managed to drag both bodies back to the scherm.
+
+After that we lay down again and slept until dawn.
+
+At the first light of morning we got up and prepared for the hunt. We took the three eight-bore rifles, plenty of ammunition, and our large water bottles filled with weak cold tea. I have always found cold tea to be the best drink when hunting.
+
+After a quick breakfast we started our journey. Umbopa, Khiva, and Ventvögel came with us. The other Kafirs stayed behind with instructions to skin the lion and the sable antelope and cut the antelope into pieces.
+
+It was easy to find the wide trail left by the elephants. After examining the tracks, Ventvögel said that the herd probably contained between twenty and thirty elephants, most of them large adult males.
+
+However, the elephants had moved a long distance during the night. It was already nine o’clock in the morning, and the heat was growing strong, before we began to see clear signs that we were close to them: broken trees, crushed leaves and bark, and fresh droppings that were still warm.
+
+Soon we saw the herd of elephants. As Ventvögel had said, there were between twenty and thirty of them. They stood in a hollow after finishing their morning meal, slowly flapping their huge ears. It was an impressive sight, and they were only about two hundred yards away.
+
+I picked up a little dry grass and threw it into the air to check the wind. If the elephants smelled us, they would run away before we could shoot. Fortunately, the wind was blowing from the elephants toward us.
+
+So we moved forward quietly. Using bushes for cover, we managed to get within about forty yards of the animals.
+
+Right in front of us stood three magnificent bulls, one of them with enormous tusks. I whispered our plan: I would shoot the middle one, Sir Henry would take the one on the left, and Good would aim at the bull with the big tusks.
 
 “Now,” I whispered.
 
-Boom! boom! boom! went the three heavy rifles, and down came Sir Henry’s elephant dead as a hammer, shot right through the heart. Mine fell on to its knees and I thought that he was going to die, but in another moment he was up and off, tearing along straight past me. As he went I gave him the second barrel in the ribs, and this brought him down in good earnest. Hastily slipping in two fresh cartridges I ran close up to him, and a ball through the brain put an end to the poor brute’s struggles. Then I turned to see how Good had fared with the big bull, which I had heard screaming with rage and pain as I gave mine its quietus. On reaching the captain I found him in a great state of excitement. It appeared that on receiving the bullet the bull had turned and come straight for his assailant, who had barely time to get out of his way, and then charged on blindly past him, in the direction of our encampment. Meanwhile the herd had crashed off in wild alarm in the other direction.
+Boom! Boom! Boom!
 
-For awhile we debated whether to go after the wounded bull or to follow the herd, and finally deciding for the latter alternative, departed, thinking that we had seen the last of those big tusks. I have often wished since that we had. It was easy work to follow the elephants, for they had left a trail like a carriage road behind them, crushing down the thick bush in their furious flight as though it were tambouki grass.
+The three heavy rifles fired together. Sir Henry’s elephant fell immediately, dead with a bullet through the heart. Mine dropped to its knees, and for a moment I thought it would die, but suddenly it jumped up and ran straight past me. As it ran, I fired my second shot into its ribs, and this time it collapsed for good. I quickly loaded two more cartridges, ran up to the animal, and finished it with a shot to the brain.
 
-But to come up with them was another matter, and we had struggled on under the broiling sun for over two hours before we found them. With the exception of one bull, they were standing together, and I could see, from their unquiet way and the manner in which they kept lifting their trunks to test the air, that they were on the look-out for mischief. The solitary bull stood fifty yards or so to this side of the herd, over which he was evidently keeping sentry, and about sixty yards from us. Thinking that he would see or wind us, and that it would probably start them off again if we tried to get nearer, especially as the ground was rather open, we all aimed at this bull, and at my whispered word, we fired. The three shots took effect, and down he went dead. Again the herd started, but unfortunately for them about a hundred yards further on was a nullah, or dried-out water track, with steep banks, a place very much resembling the one where the Prince Imperial was killed in Zululand. Into this the elephants plunged, and when we reached the edge we found them struggling in wild confusion to get up the other bank, filling the air with their screams, and trumpeting as they pushed one another aside in their selfish panic, just like so many human beings. Now was our opportunity, and firing away as quickly as we could load, we killed five of the poor beasts, and no doubt should have bagged the whole herd, had they not suddenly given up their attempts to climb the bank and rushed headlong down the nullah. We were too tired to follow them, and perhaps also a little sick of slaughter, eight elephants being a pretty good bag for one day.
+Then I turned to see how Good had done with the large bull. I had heard it screaming loudly with rage and pain.
 
-So after we were rested a little, and the Kafirs had cut out the hearts of two of the dead elephants for supper, we started homewards, very well pleased with our day’s work, having made up our minds to send the bearers on the morrow to chop away the tusks.
+When I reached Good, I found him very excited. The bull had turned and charged directly at him after being shot. Good had barely managed to jump aside. The elephant then ran blindly past him—straight toward our camp.
 
-Shortly after we re-passed the spot where Good had wounded the patriarchal bull we came across a herd of eland, but did not shoot at them, as we had plenty of meat. They trotted past us, and then stopped behind a little patch of bush about a hundred yards away, wheeling round to look at us. As Good was anxious to get a near view of them, never having seen an eland close, he handed his rifle to Umbopa, and, followed by Khiva, strolled up to the patch of bush. We sat down and waited for him, not sorry of the excuse for a little rest.
+Meanwhile the rest of the herd had run away in panic in the opposite direction.
 
-The sun was just going down in its reddest glory, and Sir Henry and I were admiring the lovely scene, when suddenly we heard an elephant scream, and saw its huge and rushing form with uplifted trunk and tail silhouetted against the great fiery globe of the sun. Next second we saw something else, and that was Good and Khiva tearing back towards us with the wounded bull—for it was he—charging after them. For a moment we did not dare to fire—though at that distance it would have been of little use if we had done so—for fear of hitting one of them, and the next a dreadful thing happened—Good fell a victim to his passion for civilised dress. Had he consented to discard his trousers and gaiters like the rest of us, and to hunt in a flannel shirt and a pair of veldt-schoons, it would have been all right. But as it was, his trousers cumbered him in that desperate race, and presently, when he was about sixty yards from us, his boot, polished by the dry grass, slipped, and down he went on his face right in front of the elephant.
+For a moment we discussed what to do: follow the wounded bull or chase the herd. In the end we decided to follow the herd, believing we would never see those great tusks again.
 
-We gave a gasp, for we knew that he must die, and ran as hard as we could towards him. In three seconds it had ended, but not as we thought. Khiva, the Zulu boy, saw his master fall, and brave lad as he was, turned and flung his assegai straight into the elephant’s face. It stuck in his trunk.
+Later I often wished that had been true.
 
-With a scream of pain, the brute seized the poor Zulu, hurled him to the earth, and placing one huge foot on to his body about the middle, twined its trunk round his upper part and tore him in two.
+Following the elephants was easy. They had left a wide path behind them, crushing the thick bushes as they ran.
 
-We rushed up mad with horror, and fired again and again, till presently the elephant fell upon the fragments of the Zulu.
+But catching up with them was much harder. We walked under the burning sun for more than two hours before we finally found them again.
 
-As for Good, he rose and wrung his hands over the brave man who had given his life to save him, and, though I am an old hand, I felt a lump grow in my throat. Umbopa stood contemplating the huge dead elephant and the mangled remains of poor Khiva.
+All the elephants except one were standing together. They seemed nervous. They kept raising their trunks to smell the air, as if they expected trouble.
 
-“Ah, well,” he said presently, “he is dead, but he died like a man!”`,
+One large bull stood about fifty yards away from the herd, watching over them like a guard. He was about sixty yards from us.
+
+The ground was fairly open, and I thought he might see or smell us if we tried to get closer. So we all aimed at him and fired together when I gave the signal.
+
+All three bullets hit him, and he fell dead.
+
+The herd ran again, but about a hundred yards away there was a dry water channel with steep banks. The elephants ran into it, and when we reached the edge we saw them struggling in confusion to climb the other side.
+
+They screamed and trumpeted loudly as they pushed each other in panic.
+
+This was our chance.
+
+We fired as quickly as we could reload our rifles and killed five more elephants. We might even have killed the entire herd if they had not suddenly stopped trying to climb the bank and instead rushed down the channel and escaped.
+
+We were too tired to chase them any farther—and perhaps also a little tired of killing. After all, eight elephants in one day was already a great success.
+
+After resting for a while, the Kafirs cut the hearts from two of the elephants for our dinner. Then we started walking back toward our camp, very satisfied with our day’s work. We planned to send the bearers the next day to collect the tusks.
+
+Soon after passing the place where Good had wounded the great bull, we saw a herd of eland. We did not shoot them because we already had plenty of meat. The animals ran past us and then stopped about a hundred yards away behind a small group of bushes to look at us.
+
+Good wanted to see them more closely, because he had never seen an eland at such a short distance. He gave his rifle to Umbopa and walked toward the bushes, with Khiva following him.
+
+Sir Henry and I sat down and waited for them, glad to have an excuse to rest.
+
+The sun was setting in a beautiful red glow. Sir Henry and I were admiring the scene when suddenly we heard an elephant scream.
+
+We looked up and saw the huge animal running toward us with its trunk raised high. It stood dark against the bright red sun.
+
+Then we saw something even worse.
+
+Good and Khiva were running toward us as fast as they could—and the wounded bull was charging after them.
+
+For a moment we did not dare to shoot because we might hit one of them.
+
+Then something terrible happened.
+
+Good became a victim of his love for civilized clothing. If he had hunted like the rest of us—in a simple shirt and veldt shoes—everything might have been fine. But his trousers and gaiters slowed him down.
+
+When he was about sixty yards from us, his boot slipped on the dry grass. He fell face down on the ground right in front of the elephant.
+
+We gasped in horror, certain that he would die, and ran toward him as fast as we could.
+
+Three seconds later it was over—but not in the way we expected.
+
+Khiva, the Zulu boy, saw his master fall. Brave as he was, he turned around and threw his assegai spear straight at the elephant’s face. The spear struck the elephant’s trunk.
+
+With a scream of pain, the elephant grabbed the poor boy, threw him to the ground, and placed one huge foot on his body. Then it wrapped its trunk around him and tore him apart.
+
+We rushed forward in horror and fired again and again until the elephant finally collapsed on top of the remains of the brave Zulu.
+
+Good stood up and looked at the man who had given his life to save him. He covered his face with his hands.
+
+Even I, who had seen many terrible things in my life, felt a lump in my throat.
+
+Umbopa stood silently looking at the dead elephant and the broken body of Khiva.
+
+After a moment he spoke quietly.
+
+“Well,” he said, “he is dead—but he died like a man.”`,
 }

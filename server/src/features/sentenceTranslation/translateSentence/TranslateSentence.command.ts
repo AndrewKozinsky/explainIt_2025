@@ -1,13 +1,14 @@
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { SentenceRepository } from 'repo/sentence.repository'
 import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
-import { SubscriptionBalanceTransactionRepository } from 'repo/subscriptionBalanceTransaction.repository'
 import { DeepSeekTokenUsageBalanceChargeCommand } from 'features/payment/DeepSeekTokenUsageBalanceCharge.command'
 import { OpenAiTokenUsageBalanceChargeCommand } from 'features/payment/OpenAiTokenUsageBalanceCharge.command'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { CurrentSubscriptionServiceModel } from 'models/auth/auth.service.model'
+import { DailyTranslationLimitService } from './DailyTranslationLimit.service'
 import { parseSentenceTranslationResult } from './parseSentenceTranslationResult'
+import { SentenceTranslationAccess, SentenceTranslationAccessService } from './SentenceTranslationAccess.service'
 import {
 	SentenceTranslationProvider,
 	SentenceTranslationProviderName,
@@ -17,7 +18,8 @@ import { StreamTranslateWithChatGPT } from './StreamTranslateWithChatGPT.service
 import { StreamTranslateWithDeepSeek } from './StreamTranslateWithDeepSeek.service'
 
 export type TranslateSentenceInput = {
-	userId: number
+	userId: null | number
+	currentSubscription?: null | CurrentSubscriptionServiceModel
 	sentenceId: number
 	text: string
 	sourceLanguageCode?: null | string
@@ -46,9 +48,9 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 	constructor(
 		private streamTranslateWithDeepSeek: StreamTranslateWithDeepSeek,
 		private streamTranslateWithChatGPT: StreamTranslateWithChatGPT,
-		private sentenceRepository: SentenceRepository,
 		private sentenceTranslationRepository: SentenceTranslationRepository,
-		private subscriptionBalanceTransactionRepository: SubscriptionBalanceTransactionRepository,
+		private sentenceTranslationAccessService: SentenceTranslationAccessService,
+		private dailyTranslationLimitService: DailyTranslationLimitService,
 		private commandBus: CommandBus,
 	) {}
 
@@ -76,6 +78,13 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 	): AsyncGenerator<TranslateSentenceStreamEvent> {
 		try {
 			const preparedInput = await this.prepareTranslationOrThrow(input)
+
+			if (preparedInput.existingTranslationText) {
+				yield { type: 'chunk', text: preparedInput.existingTranslationText }
+				yield { type: 'done' }
+				return
+			}
+
 			const draftSentenceTranslation = await this.createDraftSentenceTranslation(input.sentenceId)
 
 			const translationResult = yield* this.streamProviderTextAndPersistDraft({
@@ -99,7 +108,7 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 
 			await this.chargeAfterTranslationIfNeeded({
 				userId: input.userId,
-				chargeAfterTranslation: preparedInput.chargeAfterTranslation,
+				chargeAfterTranslation: preparedInput.createMode === 'subscriptionBalance',
 				usage: translationResult.usage,
 			})
 
@@ -113,32 +122,53 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 		}
 	}
 
-	private async prepareTranslationOrThrow(input: TranslateSentenceInput) {
-		const chargeAfterTranslation = await this.shouldChargeAfterTranslationOrThrow({
+	private async prepareTranslationOrThrow(input: TranslateSentenceInput): Promise<{
+		existingTranslationText: null | string
+		sourceLanguageCode: string
+		targetLanguageCode: string
+		lowPriority: boolean
+		provider: SentenceTranslationProvider
+		createMode: SentenceTranslationAccess['createMode']
+	}> {
+		const access = await this.sentenceTranslationAccessService.resolveAccessOrThrow({
+			userId: input.userId,
+			currentSubscription: input.currentSubscription ?? null,
 			sentenceId: input.sentenceId,
 		})
-
-		if (chargeAfterTranslation) {
-			await this.subscriptionBalanceTransactionRepository.ensureCanTranslatePrivateMediaOrThrow({
-				userId: input.userId,
-				minBalanceInKopecks: 10,
-			})
-		}
-
 		const existingTranslation = await this.sentenceTranslationRepository.getFirstSentenceTranslationBySentenceId(
 			input.sentenceId,
 		)
 
 		if (existingTranslation) {
-			throw new CustomGraphQLError(errorMessage.sentenceTranslation.alreadyExists, ErrorCode.BadRequest_400)
+			await this.ensureCanReadExistingTranslationOrThrow({
+				userId: input.userId,
+				sentenceId: input.sentenceId,
+				access,
+			})
+
+			return {
+				existingTranslationText: this.buildStoredTranslationText(existingTranslation),
+				sourceLanguageCode: input.sourceLanguageCode ?? 'en',
+				targetLanguageCode: input.targetLanguageCode ?? 'ru',
+				lowPriority: true,
+				provider: this.getTranslationProvider(),
+				createMode: access.createMode,
+			}
 		}
 
+		await this.ensureCanCreateNewTranslationOrThrow({
+			userId: input.userId,
+			sentenceId: input.sentenceId,
+			access,
+		})
+
 		return {
-			chargeAfterTranslation,
+			existingTranslationText: null,
 			sourceLanguageCode: input.sourceLanguageCode ?? 'en',
 			targetLanguageCode: input.targetLanguageCode ?? 'ru',
 			lowPriority: true,
 			provider: this.getTranslationProvider(),
+			createMode: access.createMode,
 		}
 	}
 
@@ -263,11 +293,11 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 	}
 
 	private async chargeAfterTranslationIfNeeded(input: {
-		userId: number
+		userId: null | number
 		chargeAfterTranslation: boolean
 		usage: null | SentenceTranslationProviderUsage
 	}) {
-		if (!input.chargeAfterTranslation || input.usage === null) {
+		if (!input.userId || !input.chargeAfterTranslation || input.usage === null) {
 			return
 		}
 
@@ -303,16 +333,93 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 		}
 	}
 
-	private async shouldChargeAfterTranslationOrThrow(input: { sentenceId: number }): Promise<boolean> {
-		const sentenceDb = await this.sentenceRepository.getSentenceDbById(input.sentenceId)
-		if (!sentenceDb) {
-			throw new CustomGraphQLError(errorMessage.sentence.notFound, ErrorCode.NotFound_404)
+	private async ensureCanReadExistingTranslationOrThrow(input: {
+		userId: null | number
+		sentenceId: number
+		access: SentenceTranslationAccess
+	}) {
+		await this.ensureModeIsAllowedOrThrow({
+			mode: input.access.readMode,
+			deniedReason: input.access.readDeniedReason,
+			actionType: 'read',
+		})
+
+		if (input.access.readMode === 'dailyLimit') {
+			await this.consumeDailyLimitOrThrow(input)
+		}
+	}
+
+	private async ensureCanCreateNewTranslationOrThrow(input: {
+		userId: null | number
+		sentenceId: number
+		access: SentenceTranslationAccess
+	}) {
+		await this.ensureModeIsAllowedOrThrow({
+			mode: input.access.createMode,
+			deniedReason: input.access.createDeniedReason,
+			actionType: 'create',
+		})
+
+		if (input.access.createMode === 'dailyLimit') {
+			await this.consumeDailyLimitOrThrow(input)
+		}
+	}
+
+	private async ensureModeIsAllowedOrThrow(input: {
+		mode: SentenceTranslationAccess['createMode']
+		deniedReason?: SentenceTranslationAccess['createDeniedReason']
+		actionType: 'create' | 'read'
+	}) {
+		if (input.mode !== 'forbidden') {
+			return
 		}
 
-		const isPublicBook = Boolean(sentenceDb.bookChapter?.book_public_id)
-		const isPublicVideo = Boolean(sentenceDb.video_public_id)
-		const isPublicMedia = isPublicBook || isPublicVideo
+		if (input.deniedReason === 'userIsNotOwner') {
+			throw new CustomGraphQLError(
+				errorMessage.sentenceTranslation.userCannotAccessForeignPrivateMedia,
+				ErrorCode.Forbidden_403,
+			)
+		}
 
-		return !isPublicMedia
+		if (input.deniedReason === 'privateTranslationRequiresStandardBalance') {
+			throw new CustomGraphQLError(
+				errorMessage.sentenceTranslation.privateTranslationRequiresStandardSubscriptionBalance,
+				ErrorCode.Forbidden_403,
+			)
+		}
+
+		if (input.actionType === 'read') {
+			throw new CustomGraphQLError(
+				errorMessage.sentenceTranslation.anonymousUserCannotTranslate,
+				ErrorCode.Unauthorized_401,
+			)
+		}
+
+		throw new CustomGraphQLError(
+			errorMessage.sentenceTranslation.anonymousUserCannotTranslate,
+			ErrorCode.Unauthorized_401,
+		)
+	}
+
+	private async consumeDailyLimitOrThrow(input: { userId: null | number; sentenceId: number }) {
+		if (!input.userId) {
+			throw new CustomGraphQLError(
+				errorMessage.sentenceTranslation.anonymousUserCannotTranslate,
+				ErrorCode.Unauthorized_401,
+			)
+		}
+
+		const limitResult = await this.dailyTranslationLimitService.tryCountSentenceToday({
+			userId: input.userId,
+			sentenceId: input.sentenceId,
+		})
+
+		if (!limitResult.allowed) {
+			throw new CustomGraphQLError(errorMessage.sentenceTranslation.dailyLimitReached, ErrorCode.Forbidden_403)
+		}
+	}
+
+	private buildStoredTranslationText(input: { translation: string; analysis: null | string }) {
+		return input.analysis ? `${input.translation}\n\n${input.analysis}` : input.translation
 	}
 }

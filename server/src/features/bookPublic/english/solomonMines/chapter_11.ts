@@ -3,6 +3,7 @@ export const chapter_11 = {
 	name: 'Chapter XI',
 	header: 'We give a sign',
 	text: `Та же самая задача для этого текста:
+
 For a long while—two hours, I should think—we sat there in silence, being too much overwhelmed by the recollection of the horrors we had seen to talk. At last, just as we were thinking of turning in—for the night drew nigh to dawn—we heard a sound of steps. Then came the challenge of a sentry posted at the kraal gate, which apparently was answered, though not in an audible tone, for the steps still advanced; and in another second Infadoos had entered the hut, followed by some half-dozen stately-looking chiefs.
 
 “My lords,” he said, “I have come according to my word. My lords and Ignosi, rightful king of the Kukuanas, I have brought with me these men,” pointing to the row of chiefs, “who are great men among us, having each one of them the command of three thousand soldiers, that live but to do their bidding, under the king’s. I have told them of what I have seen, and what my ears have heard. Now let them also behold the sacred snake around thee, and hear thy story, Ignosi, that they may say whether or no they will make cause with thee against Twala the king.”

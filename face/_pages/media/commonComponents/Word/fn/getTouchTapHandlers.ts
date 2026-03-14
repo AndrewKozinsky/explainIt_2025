@@ -1,18 +1,18 @@
-// import type { MutableRefObject, TouchEvent } from 'react'
+import type { MutableRefObject, TouchEvent } from 'react'
 
-/*type TouchStartPos = {
+type TouchStartPos = {
 	x: number
 	y: number
-}*/
+}
 
-/*type GetTouchTapHandlersInput = {
+type GetTouchTapHandlersInput = {
 	thresholdPx: number
 	onTap: () => void
 	touchStartPosRef: MutableRefObject<TouchStartPos | null>
 	touchMovedTooMuchRef: MutableRefObject<boolean>
-}*/
+}
 
-/*function getTouchTapHandlers(input: GetTouchTapHandlersInput) {
+function getTouchTapHandlers(input: GetTouchTapHandlersInput) {
 	const { thresholdPx, onTap, touchStartPosRef, touchMovedTooMuchRef } = input
 
 	function onTouchStart(e: TouchEvent<HTMLSpanElement>) {
@@ -46,6 +46,6 @@
 	}
 
 	return { onTouchStart, onTouchMove, onTouchEnd, onTouchCancel }
-}*/
+}
 
-// export { getTouchTapHandlers }
+export { getTouchTapHandlers }

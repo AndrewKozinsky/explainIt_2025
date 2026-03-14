@@ -3,6 +3,7 @@ export const chapter_10 = {
 	name: 'Chapter X',
 	header: 'The witch-hunt',
 	text: `Та же самая задача для этого текста:
+
 On reaching our hut I motioned to Infadoos to enter with us.
 
 “Now, Infadoos,” I said, “we would speak with thee.”

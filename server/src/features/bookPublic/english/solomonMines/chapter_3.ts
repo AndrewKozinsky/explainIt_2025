@@ -1,129 +1,190 @@
-// Это неадаптированная версия !
 export const chapter_3 = {
 	name: 'Chapter III',
 	header: 'Umbora enters our service',
-	text: `It takes from four to five days, according to the speed of the vessel and the state of the weather, to run up from the Cape to Durban. Sometimes, if the landing is bad at East London, where they have not yet made that wonderful harbour they talk so much of, and sink such a mint of money in, a ship is delayed for twenty-four hours before the cargo boats can get out to take off the goods. But on this occasion we had not to wait at all, for there were no breakers on the Bar to speak of, and the tugs came out at once with the long strings of ugly flat-bottomed boats behind them, into which the packages were bundled with a crash. It did not matter what they might be, over they went slap-bang; whether they contained china or woollen goods they met with the same treatment. I saw one case holding four dozen of champagne smashed all to bits, and there was the champagne fizzing and boiling about in the bottom of the dirty cargo boat. It was a wicked waste, and evidently so the Kafirs in the boat thought, for they found a couple of unbroken bottles, and knocking off the necks drank the contents. But they had not allowed for the expansion caused by the fizz in the wine, and, feeling themselves swelling, rolled about in the bottom of the boat, calling out that the good liquor was “tagati”—that is, bewitched. I spoke to them from the vessel, and told them it was the white man’s strongest medicine, and that they were as good as dead men. Those Kafirs went to the shore in a very great fright, and I do not think that they will touch champagne again.
+	text: `It usually takes four or five days, depending on the speed of the ship and the weather, to sail from the Cape to Durban. Sometimes ships must wait at East London. They still have not built the harbour there that people talk about so much and spend so much money on. When the landing is difficult, a ship may be delayed for a whole day before small cargo boats can come out to take the goods.
 
-Well, all the time that we were steaming up to Natal I was thinking over Sir Henry Curtis’s offer. We did not speak any more on the subject for a day or two, though I told them many hunting yarns, all true ones. There is no need to tell lies about hunting, for so many curious things happen within the knowledge of a man whose business it is to hunt; but this is by the way.
+But this time we did not have to wait at all. The sea on the Bar was calm, and the tugboats came out immediately. Behind them were long lines of ugly flat-bottomed boats. The cargo was thrown into them with loud crashes. It did not matter what the boxes contained—china, cloth, or anything else—they were all treated the same way.
 
-At last, one beautiful evening in January, which is our hottest month, we steamed past the coast of Natal, expecting to make Durban Point by sunset. It is a lovely coast all along from East London, with its red sandhills and wide sweeps of vivid green, dotted here and there with Kafir kraals, and bordered by a ribbon of white surf, which spouts up in pillars of foam where it hits the rocks. But just before you come to Durban there is a peculiar richness about the landscape. There are the sheer kloofs cut in the hills by the rushing rains of centuries, down which the rivers sparkle; there is the deepest green of the bush, growing as God planted it, and the other greens of the mealie gardens and the sugar patches, while now and again a white house, smiling out at the placid sea, puts a finish and gives an air of homeliness to the scene. For to my mind, however beautiful a view may be, it requires the presence of man to make it complete, but perhaps that is because I have lived so much in the wilderness, and therefore know the value of civilisation, though to be sure it drives away the game. The Garden of Eden, no doubt, looked fair before man was, but I always think that it must have been fairer when Eve adorned it.
+I even saw one crate with four dozen bottles of champagne smashed completely. The wine was bubbling and foaming in the bottom of the dirty cargo boat. It was a terrible waste. The African workers in the boat seemed to think the same. They found two bottles that had not broken, knocked off the necks, and drank the wine.
 
-To return, we had miscalculated a little, and the sun was well down before we dropped anchor off the Point, and heard the gun which told the good folks of Durban that the English Mail was in. It was too late to think of getting over the Bar that night, so we went comfortably to dinner, after seeing the Mails carried off in the life-boat.
+However, they did not expect the strong bubbles in the champagne. Soon they felt strange and dizzy and rolled around in the bottom of the boat, shouting that the drink was “tagati,” which means bewitched. I called to them from the ship and told them it was the strongest medicine of the white man and that they would soon be dead. They reached the shore very frightened, and I do not think they will ever drink champagne again.
 
-When we came up again the moon was out, and shining so brightly over sea and shore that she almost paled the quick, large flashes from the lighthouse. From the shore floated sweet spicy odours that always remind me of hymns and missionaries, and in the windows of the houses on the Berea sparkled a hundred lights. From a large brig lying near also came the music of the sailors as they worked at getting the anchor up in order to be ready for the wind. Altogether it was a perfect night, such a night as you sometimes get in Southern Africa, and it threw a garment of peace over everybody as the moon threw a garment of silver over everything. Even the great bulldog, belonging to a sporting passenger, seemed to yield to its gentle influences, and forgetting his yearning to come to close quarters with the baboon in a cage on the foc’sle, snored happily at the door of the cabin, dreaming no doubt that he had finished him, and happy in his dream.
+During the whole journey to Natal I kept thinking about Sir Henry Curtis’s offer. For a day or two we did not speak about it again, although I told them many hunting stories, all of them true. There is no need to invent hunting stories, because so many strange things happen to a man whose job is hunting.
 
-We three—that is, Sir Henry Curtis, Captain Good, and myself—went and sat by the wheel, and were quiet for a while.
+At last, one beautiful evening in January—our hottest month—we sailed along the coast of Natal and expected to reach Durban Point by sunset. It is a very beautiful coast from East London onward. There are red sand hills and wide green fields, with small African villages here and there. Along the shore runs a long line of white surf that breaks on the rocks and throws up tall sprays of foam.
 
-“Well, Mr. Quatermain,” said Sir Henry presently, “have you been thinking about my proposals?”
+But near Durban the land becomes even richer and more beautiful. Deep valleys cut through the hills where rivers shine in the sunlight. There are thick green forests growing as nature planted them. Nearby are green fields of maize and patches of sugar cane. Sometimes you see a white house looking out over the calm sea, and this gives the whole scene a warm and friendly feeling.
 
-“Ay,” echoed Captain Good, “what do you think of them, Mr. Quatermain? I hope that you are going to give us the pleasure of your company so far as Solomon’s Mines, or wherever the gentleman you knew as Neville may have got to.”
+For me, however beautiful a view may be, it always seems more complete when people live there. Perhaps I think this because I have spent so much time in the wilderness and therefore understand the value of civilization—although, of course, civilization also drives away the wild animals. The Garden of Eden must have been beautiful before humans lived there, but I always think it must have been even more beautiful when Eve was there.
 
-I rose and knocked out my pipe before I answered. I had not made up my mind, and wanted an additional moment to decide. Before the burning tobacco had fallen into the sea I had decided; just that little extra second did the trick. It is often the way when you have been bothering a long time over a thing.
+To return to my story, we had miscalculated the time a little. The sun had already set when we dropped anchor near Durban Point. Soon we heard the cannon shot that told the people of Durban that the English mail ship had arrived.
 
------------
-Та же самая задача для этого текста:
+It was too late to cross the Bar that night, so we had a comfortable dinner after watching the mailbags carried away in a lifeboat.
 
-“Yes, gentlemen,” I said, sitting down again, “I will go, and by your leave I will tell you why, and on what conditions. First for the terms which I ask.
+When we came on deck again, the moon was shining brightly over the sea and the land. Its light was so strong that it almost made the flashes from the lighthouse look pale. From the shore came sweet smells of spices and plants, which always remind me of missionaries and church hymns. In the windows of the houses on the Berea hill many lights were shining.
 
-“1. You are to pay all expenses, and any ivory or other valuables we may get is to be divided between Captain Good and myself.
+From a large sailing ship nearby we could hear sailors singing while they worked to raise the anchor and prepare for the wind. It was a perfect night, the kind you sometimes experience in Southern Africa. The moon covered everything with a calm silver light, and it seemed to bring peace to everyone.
 
-“2. That you give me £500 for my services on the trip before we start, I undertaking to serve you faithfully till you choose to abandon the enterprise, or till we succeed, or disaster overtakes us.
+Even a large bulldog belonging to one of the passengers seemed calmer than usual. Earlier he had wanted to fight a baboon kept in a cage on the front of the ship, but now he lay sleeping peacefully outside the cabin door, probably dreaming that he had already defeated his enemy.
 
-“3. That before we trek you execute a deed agreeing, in the event of my death or disablement, to pay my boy Harry, who is studying medicine over there in London, at Guy’s Hospital, a sum of £200 a year for five years, by which time he ought to be able to earn a living for himself if he is worth his salt. That is all, I think, and I daresay you will say quite enough too.”
+The three of us—Sir Henry Curtis, Captain Good, and I—sat quietly near the wheel for a while.
 
-“No,” answered Sir Henry, “I accept them gladly. I am bent upon this project, and would pay more than that for your help, considering the peculiar and exclusive knowledge which you possess.”
+At last Sir Henry spoke.
 
-“Pity I did not ask it, then, but I won’t go back on my word. And now that I have got my terms I will tell you my reasons for making up my mind to go. First of all, gentlemen, I have been observing you both for the last few days, and if you will not think me impertinent I may say that I like you, and believe that we shall come up well to the yoke together. That is something, let me tell you, when one has a long journey like this before one.
+“Well, Mr. Quatermain,” he said, “have you been thinking about my proposal?”
 
-“And now as to the journey itself, I tell you flatly, Sir Henry and Captain Good, that I do not think it probable we can come out of it alive, that is, if we attempt to cross the Suliman Mountains. What was the fate of the old Dom da Silvestra three hundred years ago? What was the fate of his descendant twenty years ago? What has been your brother’s fate? I tell you frankly, gentlemen, that as their fates were so I believe ours will be.”
+“Yes,” added Captain Good. “What do you think about it, Mr. Quatermain? I hope you will join us on the journey to Solomon’s Mines—or wherever the man you knew as Neville may have gone.”
 
-I paused to watch the effect of my words. Captain Good looked a little uncomfortable, but Sir Henry’s face did not change. “We must take our chance,” he said.
+Before answering, I stood up and knocked the ashes from my pipe into the sea. I still had not made my decision and wanted one more moment to think. Before the burning tobacco touched the water, I had already decided. Sometimes that is how decisions are made—you think about something for a long time, and then one small moment is enough to decide everything.
 
-“You may perhaps wonder,” I went on, “why, if I think this, I, who am, as I told you, a timid man, should undertake such a journey. It is for two reasons. First I am a fatalist, and believe that my time is appointed to come quite without reference to my own movements and will, and that if I am to go to Suliman’s Mountains to be killed, I shall go there and shall be killed. God Almighty, no doubt, knows His mind about me, so I need not trouble on that point. Secondly, I am a poor man. For nearly forty years I have hunted and traded, but I have never made more than a living. Well, gentlemen, I don’t know if you are aware that the average life of an elephant hunter from the time he takes to the trade is between four and five years. So you see I have lived through about seven generations of my class, and I should think that my time cannot be far off, anyway. Now, if anything were to happen to me in the ordinary course of business, by the time my debts are paid there would be nothing left to support my son Harry whilst he was getting in the way of earning a living, whereas now he will be set up for five years. There is the whole affair in a nutshell.”
+“Yes, gentlemen,” I said, sitting down again. “I will go with you. With your permission I will explain why, and also tell you my conditions.
 
-“Mr. Quatermain,” said Sir Henry, who had been giving me his most serious attention, “your motives for undertaking an enterprise which you believe can only end in disaster reflect a great deal of credit on you. Whether or not you are right, of course time and the event alone can show. But whether you are right or wrong, I may as well tell you at once that I am going through with it to the end, sweet or bitter. If we are to be knocked on the head, all I have to say is, that I hope we get a little shooting first, eh, Good?”
+First, the conditions.
+1. You will pay all the expenses. Any ivory or other valuable things we find will be divided between Captain Good and me.
+2. Before we start, you will pay me £500 for my services. In return I promise to serve you faithfully until you decide to give up the expedition, until we succeed, or until something terrible happens to us.
+3. Before we begin our journey, you must sign a document. If I die or become unable to work, you will pay my son Harry £200 a year for five years. He is studying medicine in London at Guy’s Hospital. After five years he should be able to earn his own living, if he is capable. That is all I ask, though you may think it is already quite a lot.”
 
-“Yes, yes,” put in the captain. “We have all three of us been accustomed to face danger, and to hold our lives in our hands in various ways, so it is no good turning back now. And now I vote we go down to the saloon and take an observation just for luck, you know.” And we did—through the bottom of a tumbler.
+“No,” said Sir Henry. “I accept your terms gladly. I am determined to carry out this plan, and I would pay even more for your help, considering the special knowledge you have.”
 
------------
-Та же самая задача для этого текста:
+“Pity I didn’t ask for more then,” I said. “But I will keep my word.
 
-Next day we went ashore, and I put up Sir Henry and Captain Good at the little shanty I have built on the Berea, and which I call my home. There are only three rooms and a kitchen in it, and it is constructed of green brick with a galvanised iron roof, but there is a good garden with the best loquot trees in it that I know, and some nice young mangoes, of which I hope great things. The curator of the botanical gardens gave them to me. It is looked after by an old hunter of mine named Jack, whose thigh was so badly broken by a buffalo cow in Sikukunis country that he will never hunt again. But he can potter about and garden, being a Griqua by birth. You will never persuade a Zulu to take much interest in gardening. It is a peaceful art, and peaceful arts are not in his line.
+Now that we have agreed on the terms, I will explain why I decided to go. First of all, gentlemen, I have watched both of you carefully during the last few days. I hope you will not think me rude if I say that I like you both and believe we will work well together. That is important when a long journey lies ahead.”
 
-Sir Henry and Good slept in a tent pitched in my little grove of orange trees at the end of the garden, for there was no room for them in the house, and what with the smell of the bloom, and the sight of the green and golden fruit—in Durban you will see all three on the tree together—I daresay it is a pleasant place enough, for we have few mosquitos here on the Berea, unless there happens to come an unusually heavy rain.
+“Now about the journey itself,” I continued. “To speak honestly, Sir Henry and Captain Good, I do not think it is likely that we will come back alive—at least not if we try to cross the Suliman Mountains.
 
-Well, to get on—for if I do not, Harry, you will be tired of my story before ever we fetch up at Suliman’s Mountains—having once made up my mind to go I set about making the necessary preparations. First I secured the deed from Sir Henry, providing for you, my boy, in case of accidents. There was some difficulty about its legal execution, as Sir Henry was a stranger here, and the property to be charged is over the water; but it was ultimately got over with the help of a lawyer, who charged £20 for the job—a price that I thought outrageous. Then I pocketed my cheque for £500.
+What happened to the old Dom da Silvestra three hundred years ago? What happened to his descendant twenty years ago? And what has happened to your brother? I tell you frankly, gentlemen, that I believe our fate may be the same as theirs.”
 
-Having paid this tribute to my bump of caution, I purchased a wagon and a span of oxen on Sir Henry’s behalf, and beauties they were. It was a twenty-two-foot wagon with iron axles, very strong, very light, and built throughout of stink wood; not quite a new one, having been to the Diamond Fields and back, but, in my opinion, all the better for that, for I could see that the wood was well seasoned. If anything is going to give in a wagon, or if there is green wood in it, it will show out on the first trip. This particular vehicle was what we call a “half-tented” wagon, that is to say, only covered in over the after twelve feet, leaving all the front part free for the necessaries we had to carry with us. In this after part were a hide “cartle,” or bed, on which two people could sleep, also racks for rifles, and many other little conveniences. I gave £125 for it, and think that it was cheap at the price.
+I stopped to see how my words affected them. Captain Good looked a little uneasy, but Sir Henry’s face did not change.
 
-Then I bought a beautiful team of twenty Zulu oxen, which I had kept my eye on for a year or two. Sixteen oxen is the usual number for a team, but I took four extra to allow for casualties. These Zulu cattle are small and light, not more than half the size of the Africander oxen, which are generally used for transport purposes; but they will live where the Africanders would starve, and with a moderate load can make five miles a day better going, being quicker and not so liable to become footsore. What is more, this lot were thoroughly “salted,” that is, they had worked all over South Africa, and so had become proof, comparatively speaking, against red water, which so frequently destroys whole teams of oxen when they get on to strange “veldt” or grass country. As for “lung sick,” which is a dreadful form of pneumonia, very prevalent in this country, they had all been inoculated against it. This is done by cutting a slit in the tail of an ox, and binding in a piece of the diseased lung of an animal which has died of the sickness. The result is that the ox sickens, takes the disease in a mild form, which causes its tail to drop off, as a rule about a foot from the root, and becomes proof against future attacks. It seems cruel to rob the animal of his tail, especially in a country where there are so many flies, but it is better to sacrifice the tail and keep the ox than to lose both tail and ox, for a tail without an ox is not much good, except to dust with. Still it does look odd to trek along behind twenty stumps, where there ought to be tails. It seems as though Nature made a trifling mistake, and stuck the stern ornaments of a lot of prize bull-dogs on to the rumps of the oxen.
+“We must take our chances,” he said calmly.
 
-Next came the question of provisioning and medicines, one which required the most careful consideration, for what we had to do was to avoid lumbering the wagon, and yet to take everything absolutely necessary. Fortunately, it turned out that Good is a bit of a doctor, having at some point in his previous career managed to pass through a course of medical and surgical instruction, which he has more or less kept up. He is not, of course, qualified, but he knows more about it than many a man who can write M.D. after his name, as we found out afterwards, and he had a splendid travelling medicine chest and a set of instruments. Whilst we were at Durban he cut off a Kafir’s big toe in a way which it was a pleasure to see. But he was quite nonplussed when the Kafir, who had sat stolidly watching the operation, asked him to put on another, saying that a “white one” would do at a pinch.
+“You may wonder,” I went on, “why I am willing to go if I believe that. After all, I have already told you that I am a timid man. There are two reasons.
 
-There remained, when these questions were satisfactorily settled, two further important points for consideration, namely, that of arms and that of servants. As to the arms I cannot do better than put down a list of those which we finally decided on from among the ample store that Sir Henry had brought with him from England, and those which I owned. I copy it from my pocket-book, where I made the entry at the time.
+First, I believe in fate. I think that the time of my death is already decided and does not depend on what I do. If it is my destiny to die in the Suliman Mountains, then I will die there. God surely knows what He plans for me, so there is no reason for me to worry about it.
 
------------
-Та же самая задача для этого текста:
+Second, I am a poor man. I have hunted and traded for almost forty years, but I have never earned more than enough to live on. Perhaps you know that the average life of an elephant hunter is only four or five years after he begins the work. So I have already lived through about seven generations of hunters like myself. My time cannot be far away anyway.
 
-“Three heavy breech-loading double-eight elephant guns, weighing about fifteen pounds each, to carry a charge of eleven drachms of black powder.” Two of these were by a well-known London firm, most excellent makers, but I do not know by whom mine, which is not so highly finished, was made. I have used it on several trips, and shot a good many elephants with it, and it has always proved a most superior weapon, thoroughly to be relied on.
+If something happened to me during ordinary work, there would be nothing left for my son after my debts were paid. But now he will at least have money for five years while he learns to earn his living. That is the whole matter in short.”
 
-“Three double-500 Expresses, constructed to stand a charge of six drachms,” sweet weapons, and admirable for medium-sized game, such as eland or sable antelope, or for men, especially in an open country and with the semi-hollow bullet.
+“Mr. Quatermain,” said Sir Henry, who had been listening very seriously, “your reasons for joining an expedition that you believe may end in disaster show great character. Whether you are right or wrong, only time will tell. But I can tell you this—I will carry out this plan to the end, whatever happens. And if we are to die, I only hope that we will at least have some good hunting first. What do you say, Good?”
 
-“One double No. 12 central-fire Keeper’s shot-gun, full choke both barrels.” This gun proved of the greatest service to us afterwards in shooting game for the pot.
+“Yes, yes,” said Captain Good. “All three of us are used to facing danger and risking our lives in different ways. There is no point in turning back now. And now I suggest that we go down to the saloon and have a drink for good luck.”
 
-“Three Winchester repeating rifles (not carbines), spare guns.
+And that is exactly what we did—though we studied our drink through the bottom of a glass.
 
-“Three single-action Colt’s revolvers, with the heavier, or American pattern of cartridge.”
+The next day we went to land, and I arranged for Sir Henry and Captain Good to stay at the small house I built on the Berea, which I call my home. It has only three rooms and a kitchen. The house is made of green bricks and has a roof of galvanized iron. However, there is a good garden with the best loquat trees I know, and some nice young mango trees that I hope will grow well. The curator of the botanical gardens gave them to me.
 
-This was our total armament, and doubtless the reader will observe that the weapons of each class were of the same make and calibre, so that the cartridges were interchangeable, a very important point. I make no apology for detailing it at length, as every experienced hunter will know how vital a proper supply of guns and ammunition is to the success of an expedition.
+The place is looked after by an old hunter of mine named Jack. A buffalo cow once broke his thigh very badly in Sikukuni’s country, and he will never hunt again. Still, he can walk around and work in the garden. He is a Griqua by birth. You will never persuade a Zulu to take much interest in gardening. Gardening is a peaceful activity, and peaceful activities are not really in his nature.
 
-Now as to the men who were to go with us. After much consultation we decided that their number should be limited to five, namely, a driver, a leader, and three servants.
+Sir Henry and Good slept in a tent that we put up in my small grove of orange trees at the end of the garden, because there was no room for them in the house. With the smell of the blossoms and the sight of the green and golden fruit—it is common in Durban to see flowers and fruit on the tree at the same time—it was quite a pleasant place. We also have very few mosquitoes here on the Berea, unless there has been very heavy rain.
 
-The driver and leader I found without much difficulty, two Zulus, named respectively Goza and Tom; but to get the servants proved a more difficult matter. It was necessary that they should be thoroughly trustworthy and brave men, as in a business of this sort our lives might depend upon their conduct. At last I secured two, one a Hottentot named Ventvögel, or “windbird,” and one a little Zulu named Khiva, who had the merit of speaking English perfectly. Ventvögel I had known before; he was one of the most perfect “spoorers,” that is, game trackers, I ever had to do with, and tough as whipcord. He never seemed to tire. But he had one failing, so common with his race, drink. Put him within reach of a bottle of gin and you could not trust him. However, as we were going beyond the region of grog-shops this little weakness of his did not so much matter.
+Now, to continue my story—for if I do not, Harry, you may grow tired of it before we even reach Suliman’s Mountains—once I decided to go on the journey, I started making the necessary preparations.
 
-Having secured these two men I looked in vain for a third to suit my purpose, so we determined to start without one, trusting to luck to find a suitable man on our way up country. But, as it happened, on the evening before the day we had fixed for our departure the Zulu Khiva informed me that a Kafir was waiting to see me. Accordingly, when we had done dinner, for we were at table at the time, I told Khiva to bring him in. Presently a tall, handsome-looking man, somewhere about thirty years of age, and very light-coloured for a Zulu, entered, and lifting his knob-stick by way of salute, squatted himself down in the corner on his haunches, and sat silent. I did not take any notice of him for a while, for it is a great mistake to do so. If you rush into conversation at once, a Zulu is apt to think you a person of little dignity or consequence. I observed, however, that he was a “Keshla” or ringed man; that is, he wore on his head the black ring, made of a species of gum polished with fat and worked up in the hair, which is usually assumed by Zulus on attaining a certain age or dignity. Also it struck me that his face was familiar to me.
+First I arranged the legal document with Sir Henry to provide for you, my boy, in case something happened to me. There were some difficulties because Sir Henry was a stranger here, and the property involved was overseas. But in the end a lawyer helped us complete the document. He charged £20 for the work, which I thought was far too much. After that I put Sir Henry’s cheque for £500 safely in my pocket.
 
------------
-Та же самая задача для этого текста:
+After satisfying my natural caution in this way, I bought a wagon and a team of oxen for Sir Henry, and they were excellent. The wagon was twenty-two feet long with iron axles. It was very strong but also light, and it was built entirely of stinkwood. It was not completely new—it had already been to the Diamond Fields and back—but in my opinion that made it even better, because the wood was already well seasoned. If a wagon has weak parts or green wood, the problems usually appear on the first journey.
 
-“Well,” I said at last, “What is your name?”
+This wagon was what we call a “half-tented” wagon. Only the back twelve feet were covered, while the front part was left open for supplies and equipment. In the covered part there was a hide bed where two people could sleep, racks for rifles, and many other useful features. I paid £125 for it, and I think it was a good price.
 
-“Umbopa,” answered the man in a slow, deep voice.
+Then I bought a beautiful team of twenty Zulu oxen that I had been watching for a year or two. Usually a team has sixteen oxen, but I took four extra in case some were lost or injured. These Zulu cattle are small and light, not more than half the size of the Africander oxen usually used for transport. However, they can survive in places where Africander cattle would starve. With a moderate load they can travel about five miles a day farther, because they move faster and are less likely to injure their feet.
+
+Another advantage was that these oxen were already “salted,” meaning they had worked all over South Africa and had some resistance to the disease called red water. This disease often kills entire teams of oxen when they move to new grasslands.
+
+As for “lung sickness,” which is a terrible form of pneumonia that is very common in this country, all of the oxen had been inoculated against it. The method is simple. A small cut is made in the tail of the ox, and a piece of infected lung from an animal that died of the disease is tied into the wound. The ox becomes sick for a short time, but usually only mildly. After that its tail drops off—generally about a foot from the root—and the animal becomes resistant to the disease.
+
+It seems cruel to take away an ox’s tail, especially in a country with so many flies. But it is better to lose the tail and keep the ox than to lose both the ox and the tail. After all, a tail without an ox is not very useful—except perhaps as a duster. Still, it looks rather strange to travel behind twenty oxen with short tail stumps where their tails should be. It almost seems as if Nature made a small mistake and gave them the short tails of prize bulldogs.
+
+Next came the question of food supplies and medicines. This required very careful planning. We had to avoid overloading the wagon, but at the same time we needed to take everything essential.
+
+Fortunately, Good knows something about medicine. At some point earlier in his life he managed to complete a course in medical and surgical training, and he has kept up his knowledge since then. Of course, he is not officially qualified, but he actually knows more than many men who write “M.D.” after their names, as we later discovered. He also had an excellent travelling medicine chest and a set of surgical instruments.
+
+While we were in Durban he even removed a Kafir’s big toe, and he did it so skillfully that it was impressive to watch. But he was completely surprised when the patient—who had calmly watched the entire operation—asked him to attach another toe, saying that a white one would be acceptable if necessary.
+
+After these matters were settled, two more important questions remained: weapons and servants. As for the weapons, the easiest thing is simply to write down the list we finally chose from the large number that Sir Henry brought from England and those that belonged to me. I copied the list into my pocket notebook at the time.
+
+“Three heavy breech-loading double eight-bore elephant guns, each weighing about fifteen pounds and able to fire a charge of eleven drachms of black powder.” Two of these guns were made by a well-known London company that produces excellent weapons. However, I do not know who made mine. It is not as finely finished as the others, but I have used it on several journeys and have shot many elephants with it. It has always proved to be a very reliable and powerful weapon.
+
+“Three double .500 Express rifles, made to fire a charge of six drachms.” These were beautiful guns and very good for medium-sized game such as eland or sable antelope. They could also be used against men, especially in open country and with semi-hollow bullets.
+
+“One double No. 12 central-fire keeper’s shotgun, with full choke in both barrels.” Later this gun was extremely useful for shooting animals for food.
+
+“Three Winchester repeating rifles (not carbines), to serve as spare guns.”
+
+“Three single-action Colt revolvers with the heavier American-style cartridges.”
+
+This was our complete set of weapons. The reader will probably notice that the guns of each type were made with the same calibre. This meant that the cartridges could be used in any of the guns of that type, which was very important. I do not apologize for describing this in detail, because any experienced hunter knows how important a good supply of guns and ammunition is for the success of an expedition.
+
+Now let us speak about the men who would travel with us. After a long discussion we decided that we should take only five: a driver, a leader, and three servants.
+
+I found the driver and the leader without much difficulty. They were two Zulus named Goza and Tom. Finding the servants was harder. They needed to be brave and completely trustworthy, because in an expedition like this our lives might depend on them.
+
+At last I found two suitable men. One was a Hottentot named Ventvögel, which means “wind bird.” The other was a small Zulu named Khiva, whose great advantage was that he spoke English perfectly.
+
+I had known Ventvögel before. He was one of the best trackers I had ever worked with. He could follow the tracks of animals better than almost anyone, and he was very strong and tough. He never seemed to get tired. However, he had one weakness that is very common among his people: drink. If you put a bottle of gin near him, you could no longer trust him. Still, since we were going far away from any places where alcohol was sold, this weakness did not matter very much.
+
+After finding these two men I tried to find a third servant, but I could not find anyone suitable. So we decided to begin the journey without one and hope that we might find a good man later during our travels inland.
+
+However, something unexpected happened. On the evening before the day we planned to leave, the Zulu Khiva told me that a Kafir wanted to speak with me. At that moment we were finishing our dinner. I told Khiva to bring the man inside.
+
+Soon a tall and handsome man entered. He looked about thirty years old and was unusually light-skinned for a Zulu. He lifted his knob-stick in greeting, then sat down quietly in the corner on his heels without speaking.
+
+For some time I pretended not to notice him, because it is a mistake to begin speaking immediately. If you start a conversation too quickly, a Zulu may think that you are a man of little importance or dignity.
+
+However, I observed several things about him. He was what is called a “Keshla,” or a ringed man. This means that he wore a black ring on his head. The ring is made from a type of gum mixed with fat and shaped into the hair. Zulu men usually wear it when they reach a certain age or social position.
+
+It also seemed to me that I had seen his face before. It looked strangely familiar.
+
+“Well,” I said at last, “what is your name?”
+
+“Umbopa,” the man answered in a slow, deep voice.
 
 “I have seen your face before.”
 
-“Yes; the Inkoosi, the chief, my father, saw my face at the place of the Little Hand”—that is, Isandhlwana—“on the day before the battle.”
+“Yes. The Inkoosi, the chief—my father—saw my face at the place called the Little Hand,” he said. “That is Isandhlwana, on the day before the battle.”
 
-Then I remembered. I was one of Lord Chelmsford’s guides in that unlucky Zulu War, and had the good fortune to leave the camp in charge of some wagons on the day before the battle. While I was waiting for the cattle to be inspanned I fell into conversation with this man, who held some small command among the native auxiliaries, and he had expressed to me his doubts as to the safety of the camp. At the time I told him to hold his tongue, and leave such matters to wiser heads; but afterwards I thought of his words.
+Then I remembered. During that unfortunate Zulu War I was working as one of the guides for Lord Chelmsford. By chance I had left the camp the day before the battle to take charge of some wagons. While I was waiting for the oxen to be harnessed, I started talking with this man. At that time he had a small command among the native helpers, and he told me that he doubted the safety of the camp.
 
-“I remember,” I said; “what is it you want?”
+At the time I told him to be quiet and leave such matters to people who knew better. But later I remembered his words.
 
-“It is this, ‘Macumazahn.’” That is my Kafir name, and means the man who gets up in the middle of the night, or, in vulgar English, he who keeps his eyes open. “I hear that you go on a great expedition far into the North with the white chiefs from over the water. Is it a true word?”
+“Yes, I remember now,” I said. “What do you want?”
 
-“It is.”
+“This is what I want, Macumazahn,” he answered. That is my Kafir name, and it means “the man who gets up in the middle of the night,” or, in simpler English, the man who keeps his eyes open.
 
-“I hear that you go even to the Lukanga River, a moon’s journey beyond the Manica country. Is this so also, ‘Macumazahn?’”
+“I hear that you are going on a great journey far to the north with the white chiefs from across the sea. Is that true?”
 
-“Why do you ask whither we go? What is it to you?” I answered suspiciously, for the objects of our journey had been kept a dead secret.
+“Yes.”
 
-“It is this, O white men, that if indeed you travel so far I would travel with you.”
+“I also hear that you are going as far as the Lukanga River, which is about a month’s journey beyond the country of Manica. Is that also true, Macumazahn?”
 
------------
-Та же самая задача для этого текста:
+“Why do you ask where we are going?” I replied suspiciously. “What does it matter to you?” We had kept the purpose of our journey a complete secret.
 
-There was a certain assumption of dignity in the man’s mode of speech, and especially in his use of the words “O white men,” instead of “O Inkosis,” or chiefs, which struck me.
+“It matters because of this,” he said quietly. “If you are really going so far, I would like to travel with you.”
 
-“You forget yourself a little,” I said. “Your words run out unawares. That is not the way to speak. What is your name, and where is your kraal? Tell us, that we may know with whom we have to deal.”
+There was a certain dignity in the way the man spoke. I especially noticed that he said “O white men” instead of “O Inkosis,” or “chiefs.” That seemed unusual to me.
 
-“My name is Umbopa. I am of the Zulu people, yet not of them. The house of my tribe is in the far North; it was left behind when the Zulus came down here a ‘thousand years ago,’ long before Chaka reigned in Zululand. I have no kraal. I have wandered for many years. I came from the North as a child to Zululand. I was Cetewayo’s man in the Nkomabakosi Regiment, serving there under the great Captain, Umslopogaasi of the Axe, who taught my hands to fight. Afterwards I ran away from Zululand and came to Natal because I wanted to see the white man’s ways. Next I fought against Cetewayo in the war. Since then I have been working in Natal. Now I am tired, and would go North again. Here is not my place. I want no money, but I am a brave man, and am worth my place and meat. I have spoken.”
+“You are forgetting yourself a little,” I said. “Your words come out too freely. That is not the proper way to speak. What is your name, and where is your kraal? Tell us so that we know who you are.”
 
-I was rather puzzled by this man and his way of speech. It was evident to me from his manner that in the main he was telling the truth, but somehow he seemed different from the ordinary run of Zulus, and I rather mistrusted his offer to come without pay. Being in a difficulty, I translated his words to Sir Henry and Good, and asked them their opinion.
+“My name is Umbopa. I belong to the Zulu people, and yet I do not truly belong to them. My tribe originally lived far in the North. It remained there when the Zulus moved south a very long time ago, long before Chaka ruled Zululand. I have no kraal now. I have wandered for many years.
 
-Sir Henry told me to ask him to stand up. Umbopa did so, at the same time slipping off the long military great coat which he wore, and revealing himself naked except for the moocha round his centre and a necklace of lions’ claws. Certainly he was a magnificent-looking man; I never saw a finer native. Standing about six foot three high he was broad in proportion, and very shapely. In that light, too, his skin looked scarcely more than dark, except here and there where deep black scars marked old assegai wounds. Sir Henry walked up to him and looked into his proud, handsome face.
+“When I was a child I came from the North to Zululand. I served King Cetewayo in the Nkomabakosi Regiment under the great captain Umslopogaas of the Axe. He taught me how to fight.
 
-“They make a good pair, don’t they?” said Good; “one as big as the other.”
+“Later I ran away from Zululand and came to Natal because I wanted to see how white men live. Then, during the war, I fought against Cetewayo. Since that time I have been working in Natal.
 
-“I like your looks, Mr. Umbopa, and I will take you as my servant,” said Sir Henry in English.
+“Now I am tired, and I want to go north again. This is not my place. I do not want money, but I am a brave man and I will earn my food and my place among you. I have finished speaking.”
 
-Umbopa evidently understood him, for he answered in Zulu, “It is well”; and then added, with a glance at the white man’s great stature and breadth, “We are men, thou and I.”`,
+I felt rather puzzled by this man and by the way he spoke. From his manner it seemed that he was mostly telling the truth. However, he also seemed different from ordinary Zulus, and I did not completely trust his offer to travel with us without payment.
+
+Since I was uncertain what to do, I translated his words for Sir Henry and Captain Good and asked for their opinion.
+
+Sir Henry told me to ask him to stand up. Umbopa did so. As he stood, he removed the long military coat he was wearing. Under it he was almost naked, except for the moocha cloth around his waist and a necklace made of lions’ claws.
+
+He was certainly a magnificent-looking man. I had never seen a finer native. He was about six feet three inches tall, broad and strongly built. In the light his skin looked only dark brown, except in places where deep black scars showed old wounds from assegai spears.
+
+Sir Henry walked up to him and looked closely into his proud and handsome face.
+
+“They make a fine pair, don’t they?” said Good. “Each of them is as big as the other.”
+
+“I like your appearance, Mr. Umbopa, and I will take you as my servant,” said Sir Henry in English.
+
+Umbopa clearly understood him. He answered in Zulu, “That is good.” Then he looked at the tall and powerful white man and added quietly, “You and I are both men.”`,
 }

@@ -38,14 +38,6 @@ export interface GetPublicVideoInput {
     id: number;
 }
 
-export interface GetSentenceTranslationInput {
-    id: number;
-}
-
-export interface GetSentenceTranslationsBySentenceIdInput {
-    sentenceId: number;
-}
-
 export interface RegisterUserInput {
     email: string;
     password: string;
@@ -189,22 +181,12 @@ export interface BookPublicOutModel {
     chapters: BookChapterLiteOutModel[];
 }
 
-export interface SentenceTranslationOutModel {
-    id: number;
-    sentenceId: number;
-    translation: string;
-    analysis?: Nullable<string>;
-    createdAt: string;
-}
-
 export interface TariffOutModel {
     id: number;
     code: string;
     slogan: string;
     name: string;
     description: string;
-    isPublicMediaIncluded: boolean;
-    isPrivateMediaIncluded: boolean;
     price: number;
     durationDays: number;
     includedBalance: number;
@@ -360,8 +342,6 @@ export interface CurrentSubscriptionOutModel {
     tariffId: number;
     tariffCode: string;
     tariffName: string;
-    isPublicMediaIncluded: boolean;
-    isPrivateMediaIncluded: boolean;
     pricePaid: number;
     balance: number;
     includedFileStorageMb: number;
@@ -393,8 +373,6 @@ export interface IQuery {
     video_private_get(input: GetPrivateVideoInput): VideoPrivateOutModel | Promise<VideoPrivateOutModel>;
     video_public_get_videos(): VideoPublicLiteOutModel[] | Promise<VideoPublicLiteOutModel[]>;
     video_public_get(input: GetPublicVideoInput): VideoPublicOutModel | Promise<VideoPublicOutModel>;
-    sentence_translation_get(input: GetSentenceTranslationInput): SentenceTranslationOutModel | Promise<SentenceTranslationOutModel>;
-    sentence_translation_get_by_sentence_id(input: GetSentenceTranslationsBySentenceIdInput): SentenceTranslationOutModel[] | Promise<SentenceTranslationOutModel[]>;
     tariff_get_tariffs(): TariffOutModel[] | Promise<TariffOutModel[]>;
 }
 

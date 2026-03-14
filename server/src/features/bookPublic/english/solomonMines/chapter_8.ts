@@ -3,6 +3,7 @@ export const chapter_8 = {
 	name: 'Chapter VIII',
 	header: 'We enter Kukuanaland',
 	text: `Та же самая задача для этого текста:
+
 All that afternoon we travelled along the magnificent roadway, which trended steadily in a north-westerly direction. Infadoos and Scragga walked with us, but their followers marched about one hundred paces ahead.
 
 “Infadoos,” I said at length, “who made this road?”

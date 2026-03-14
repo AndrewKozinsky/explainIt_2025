@@ -46,7 +46,9 @@ export class UserSubscriptionRepository {
 			by: ['user_id'],
 			where: {
 				tariff: {
-					is_private_media_included: true,
+					included_balance: {
+						gt: 0,
+					},
 				},
 			},
 			_max: {

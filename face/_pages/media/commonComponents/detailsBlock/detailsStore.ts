@@ -1,6 +1,6 @@
-// import { create } from 'zustand'
+import { create } from 'zustand'
 
-/*export const detailsStoreValues: DetailsStoreValues = {
+export const detailsStoreValues: DetailsStoreValues = {
 	bookName: null,
 	bookAuthor: null,
 	videoName: null,
@@ -17,9 +17,9 @@
 	sentenceTranslation: null,
 	sentenceAnalysis: null,
 	selectWord: () => {},
-}*/
+}
 
-/*export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
+export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 	return {
 		...detailsStoreValues,
 		updateStore: (storePart: Partial<DetailsStoreValues>) => {
@@ -32,24 +32,24 @@
 			})
 		},
 	}
-})*/
+})
 
-// export type DetailsStoreNext = DetailsStoreValues & DetailsStoreMethods
+export type DetailsStoreNext = DetailsStoreValues & DetailsStoreMethods
 
-/*export type DetailsStoreViewType =
+export type DetailsStoreViewType =
 	| 'CAN_CREATE'
 	| 'LOGIN_REQUIRED'
 	| 'VIEW_FULL'
 	| 'LOGIN_AND_SUBSCRIPTION_REQUIRED'
 	| 'SUBSCRIPTION_REQUIRED'
-	| 'BALANCE_REQUIRED'*/
+	| 'BALANCE_REQUIRED'
 
-/*export type SentenceTranslationLite = {
+export type SentenceTranslationLite = {
 	translation: string
 	analysis: null | string
-}*/
+}
 
-/*export type DetailsStoreValues = {
+export type DetailsStoreValues = {
 	bookName: null | string
 	bookAuthor: null | string
 	videoName: null | string
@@ -76,9 +76,9 @@
 	sentenceTranslation: string | null
 	sentenceAnalysis: string | null
 	selectWord: (input: { sentenceId: number; wordId: number }) => void
-}*/
+}
 
-/*export type DetailsStoreMethods = {
+export type DetailsStoreMethods = {
 	updateStore: (store: Partial<DetailsStoreValues>) => void
 	upsertSentenceTranslation: (sentenceTranslation: SentenceTranslationLite) => void
-}*/
+}

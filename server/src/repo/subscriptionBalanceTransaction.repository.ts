@@ -33,7 +33,7 @@ export class SubscriptionBalanceTransactionRepository {
 			throw new CustomGraphQLError(errorMessage.userHasNoActiveSubscription, ErrorCode.BadRequest_400)
 		}
 
-		if (!subscription.tariff?.is_private_media_included) {
+		if (!subscription.tariff || subscription.tariff.included_balance <= 0) {
 			throw new CustomGraphQLError(
 				errorMessage.privateMediaIsNotIncludedInSubscriptionTariff,
 				ErrorCode.BadRequest_400,

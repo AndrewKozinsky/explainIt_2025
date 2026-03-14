@@ -7,7 +7,6 @@ import { GraphQLModule } from '@nestjs/graphql'
 import { ScheduleModule } from '@nestjs/schedule'
 import { Request, Response } from 'express'
 import { BookPublicModule } from 'routes/bookPublic/bookPublic.module'
-import { SentenceTranslationModule } from 'routes/sentenceTranslation/sentenceTranslation.module'
 import { TariffModule } from 'routes/tariff/tariff.module'
 import { TranslateRouteModule } from 'routes/translate/translate.module'
 import { VideoPrivateModule } from 'routes/videoPrivate/videoPrivate.module'
@@ -84,7 +83,6 @@ import { WebhookModule } from './routes/webhook/webhook.module'
 		VideoPrivateModule,
 		VideoPublicModule,
 		TranslateRouteModule,
-		SentenceTranslationModule,
 		TariffModule,
 	],
 	providers: [StartServerTasksRunner],

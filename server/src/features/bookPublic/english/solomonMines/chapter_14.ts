@@ -3,7 +3,8 @@ export const chapter_14 = {
 	name: 'Chapter XIV',
 	header: 'The last stand of the Grays',
 	text: `Та же самая задача для этого текста:
-	In a few more minutes the regiments destined to carry out the flanking movements had tramped off in silence, keeping carefully to the lee of the rising ground in order to conceal their advance from the keen eyes of Twala’s scouts.
+
+In a few more minutes the regiments destined to carry out the flanking movements had tramped off in silence, keeping carefully to the lee of the rising ground in order to conceal their advance from the keen eyes of Twala’s scouts.
 
 Half an hour or more was allowed to elapse between the setting out of the horns or wings of the army before any stir was made by the Greys and their supporting regiment, known as the Buffaloes, which formed its chest, and were destined to bear the brunt of the battle.
 

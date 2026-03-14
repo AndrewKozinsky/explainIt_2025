@@ -18,10 +18,10 @@ export const watchingStoreValues: WatchingStoreValues = {
 		command: null,
 	},*/
 	// mobileCurrentContentType: 'text',
-	/*selection: {
+	selection: {
 		sentenceId: null,
 		wordIds: [],
-	},*/
+	},
 	// fullScreen: false,
 	populatedPlainText: null as any as PopulatedTextStructure.Structure,
 	populatedSubtitles: null as any as PopulatedSubtitlesStructure.Structure,
@@ -77,7 +77,7 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 				}
 			})
 		},*/
-		/*selectWord(input: { sentenceId: number; wordId: number }) {
+		selectWord(input: { sentenceId: number; wordId: number }) {
 			set((state) => {
 				return {
 					selection: {
@@ -86,7 +86,7 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 					},
 				}
 			})
-		},*/
+		},
 	}
 })
 
@@ -107,11 +107,11 @@ export namespace WatchingStoreI {
 	// В зависимости от нажатой кнопки показывается одна из двух колонок
 	// export type MobileCurrentContentType = 'text' | 'details'
 
-	/*export type SelectedSentence = {
+	export type SelectedSentence = {
 		sentenceId: null | number
 		// Идентификаторы выделенных слов
 		wordIds: number[]
-	}*/
+	}
 }
 
 export type WatchingStore = WatchingStoreValues & WatchingStoreMethods
@@ -129,7 +129,7 @@ export type WatchingStoreValues = {
 	populatedPlainText: PopulatedTextStructure.Structure
 	populatedSubtitles: PopulatedSubtitlesStructure.Structure
 	// Данные выделенного предложения и слов
-	// selection: WatchingStoreI.SelectedSentence
+	selection: WatchingStoreI.SelectedSentence
 }
 
 /*export type PlayerCommand =
@@ -152,5 +152,5 @@ export type WatchingStoreMethods = {
 	// setPlayerState: (state: Partial<WatchingStoreI.Player>) => void
 	// sendPlayerCommand: (command: PlayerCommand) => void
 	// toggleFullScreen: () => void
-	// selectWord: (input: { sentenceId: number; wordId: number }) => void
+	selectWord: (input: { sentenceId: number; wordId: number }) => void
 }

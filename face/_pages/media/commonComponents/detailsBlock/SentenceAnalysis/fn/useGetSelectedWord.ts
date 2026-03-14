@@ -1,7 +1,7 @@
-// import React from 'react'
-// import { useDetailsStore } from '../../detailsStore'
+import React from 'react'
+import { useDetailsStore } from '../../detailsStore'
 
-/*export function useGetSelectedWord(): null | string {
+export function useGetSelectedWord(): null | string {
 	const sentenceText = useDetailsStore((s) => s.sentenceText)
 	const wordIds = useDetailsStore((s) => s.wordIds)
 
@@ -17,4 +17,4 @@
 		},
 		[sentenceText, wordIds],
 	)
-}*/
+}

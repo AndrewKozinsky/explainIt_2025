@@ -1,17 +1,17 @@
-// import { useParams } from 'next/navigation'
-// import { useReadingStore } from '_pages/books/reading/readingStore'
-// import { useGetPrevAndNextChapters } from './fn/prevAndNextChapters'
-// import { LinkButton } from './LinkButton'
-// import { pageUrls } from 'сonsts/pageUrls'
+import { useParams } from 'next/navigation'
+import { useReadingStore } from '../readingStore'
+import { useGetPrevAndNextChapters } from './fn/prevAndNextChapters'
+import { LinkButton } from './LinkButton'
+import { pageUrls } from 'сonsts/pageUrls'
 
-/*export function BookLink() {
+export function BookLink() {
 	const bookIdInUrl = useParams().bookId as string
 	const book = useReadingStore((s) => s.book.data)
 
 	return <LinkButton href={pageUrls.books.book(bookIdInUrl).path} smallText={book.author} text={book.name} />
-}*/
+}
 
-/*export function PrevChapterLink() {
+export function PrevChapterLink() {
 	const bookIdInUrl = useParams().bookId as string
 	const prevChapter = useGetPrevAndNextChapters().prev
 
@@ -26,9 +26,9 @@
 			text={prevChapter.header}
 		/>
 	)
-}*/
+}
 
-/*export function NextChapterLink() {
+export function NextChapterLink() {
 	const bookIdInUrl = useParams().bookId as string
 	const nextChapter = useGetPrevAndNextChapters().next
 
@@ -43,4 +43,4 @@
 			text={nextChapter.header}
 		/>
 	)
-}*/
+}

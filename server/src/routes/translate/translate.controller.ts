@@ -1,7 +1,7 @@
 import { Controller, Query, Get, Req, Res, UseGuards } from '@nestjs/common'
 import { Request, Response } from 'express'
 import { TranslateService } from 'routes/translate/translate.service'
-import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
+import { OptionalSessionUserGuard } from 'infrastructure/guards/optionalSessionUser.guard'
 import RouteNames from 'infrastructure/routeNames'
 import { TranslateSentenceStreamQuery } from './inputs/translateSentenceStream.query'
 
@@ -9,17 +9,19 @@ import { TranslateSentenceStreamQuery } from './inputs/translateSentenceStream.q
 export class TranslateController {
 	constructor(private translateService: TranslateService) {}
 
-	@UseGuards(CheckSessionCookieGuard)
+	@UseGuards(OptionalSessionUserGuard)
 	@Get(RouteNames.TRANSLATE.TRANSLATE_SENTENCE_STREAM)
 	async translateSentenceStream(
 		@Query() query: TranslateSentenceStreamQuery,
 		@Req() request: Request,
 		@Res() response: Response,
 	) {
-		const userId = request.session.userId!
+		const userId = request.user?.id ?? null
+		const currentSubscription = request.user?.currentSubscription ?? null
 
 		await this.translateService.translateSentenceStream({
 			userId,
+			currentSubscription,
 			query,
 			request,
 			response,

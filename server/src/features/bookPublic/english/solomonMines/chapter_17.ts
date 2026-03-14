@@ -3,6 +3,7 @@ export const chapter_17 = {
 	name: 'Chapter XVII',
 	header: 'Solomon’s treasure chamber',
 	text: `Та же самая задача для этого текста:
+
 While we were engaged in recovering from our fright, and in examining the grisly wonders of the Place of Death, Gagool had been differently occupied. Somehow or other—for she was marvellously active when she chose—she had scrambled on to the great table, and made her way to where our departed friend Twala was placed, under the drip, to see, suggested Good, how he was “pickling,” or for some dark purpose of her own. Then, after bending down to kiss his icy lips as though in affectionate greeting, she hobbled back, stopping now and again to address the remark, the tenor of which I could not catch, to one or other of the shrouded forms, just as you or I might welcome an old acquaintance. Having gone through this mysterious and horrible ceremony, she squatted herself down on the table immediately under the White Death, and began, so far as I could make out, to offer up prayers. The spectacle of this wicked creature pouring out supplications, evil ones no doubt, to the arch enemy of mankind, was so uncanny that it caused us to hasten our inspection.
 
 “Now, Gagool,” said I, in a low voice—somehow one did not dare to speak above a whisper in that place—“lead us to the chamber.”

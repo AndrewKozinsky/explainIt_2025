@@ -1,11 +1,11 @@
-// import ViewportSyncedHeight from 'ui/ViewportSyncedHeight/ViewportSyncedHeight'
-// import ViewRouter from '../ViewRouter/ViewRouter'
-// import { useGetAnalysis } from './fn/getAnalysis'
-// import { usePopulateStore } from './fn/populateStore'
-// import { useSetCorrectView } from './fn/setCorrectView'
-// import './DetailsBlock.scss'
+import ViewportSyncedHeight from 'ui/ViewportSyncedHeight/ViewportSyncedHeight'
+import ViewRouter from '../ViewRouter/ViewRouter'
+import { useGetAnalysis } from './fn/getAnalysis'
+import { usePopulateStore } from './fn/populateStore'
+import { useSetCorrectView } from './fn/setCorrectView'
+import './DetailsBlock.scss'
 
-/*function DetailsBlock() {
+function DetailsBlock() {
 	usePopulateStore()
 	useSetCorrectView()
 	useGetAnalysis()
@@ -15,6 +15,6 @@
 			<ViewRouter />
 		</ViewportSyncedHeight>
 	)
-}*/
+}
 
-// export default DetailsBlock
+export default DetailsBlock

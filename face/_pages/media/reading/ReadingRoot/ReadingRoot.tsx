@@ -1,15 +1,15 @@
 'use client'
 
-// import DetailsBlock from '_pages/bookAndVideoCommon/detailsBlock/DetailsBlock/DetailsBlock'
-// import BookAndPrevAndNextChapters from '../../chapter/BookAndPrevAndNextChapters/BookAndPrevAndNextChapters'
-// import ChapterContent from '../../ChapterContent/ChapterContent'
+import DetailsBlock from '_pages/media/commonComponents/detailsBlock/DetailsBlock/DetailsBlock'
 import RootSurface from '_pages/media/commonComponents/RootSurface/RootSurface'
-import ReadingHeader from '_pages/media/reading/root/ReadingHeader/ReadingHeader'
-import { usePopulateReadingStore } from '_pages/media/reading/root/ReadingRoot/fn/populateStore'
+import ReadingBottomNavigation from '_pages/media/reading/ReadingBottomNavigation/ReadingBottomNavigation'
+import ChapterContent from '../ChapterContent/ChapterContent'
 import ReadingBreadCrumbs from '../ReadingBreadCrumbs/ReadingBreadCrumbs'
+import ReadingHeader from '../ReadingHeader/ReadingHeader'
 import { useAutoScrollToTop } from './fn/autoScrollToTop'
 import { useClearReadingStoreOnUnmount } from './fn/clearStoreOnUnmount'
 import { useGetFetchedDataStatuses } from './fn/getFetchedDataStatuses'
+import { usePopulateReadingStore } from './fn/populateStore'
 import './ReadingRoot.scss'
 
 function ReadingRoot() {
@@ -28,10 +28,12 @@ function ReadingRoot() {
 				</div>
 				<div className='reading-root__content'>
 					<div className='reading-root__text'>
-						{/*<ChapterContent />*/}
-						{/*<BookAndPrevAndNextChapters />*/}
+						<ChapterContent />
+						<ReadingBottomNavigation />
 					</div>
-					<div className='reading-root__analysis'>{/*<DetailsBlock />*/}</div>
+					<div className='reading-root__analysis'>
+						<DetailsBlock />
+					</div>
 				</div>
 			</main>
 		</RootSurface>

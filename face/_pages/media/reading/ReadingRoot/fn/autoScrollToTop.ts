@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useReadingStore } from '../../../readingStore'
+import { useReadingStore } from '_pages/media/reading/readingStore'
 
 export function useAutoScrollToTop() {
 	const chapter = useReadingStore((s) => s.chapter)

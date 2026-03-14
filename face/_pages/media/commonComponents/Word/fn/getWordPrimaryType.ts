@@ -29,7 +29,7 @@
  * 	wordId: 2,
  * }) // => null
  */
-/*export function getWordPrimaryType(input: {
+export function getWordPrimaryType(input: {
 	selectedSentenceId: null | number
 	selectedWordIds: number[]
 	sentenceId: number
@@ -47,4 +47,4 @@
 	}
 
 	return null
-}*/
+}

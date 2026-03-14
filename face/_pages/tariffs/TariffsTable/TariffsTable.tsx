@@ -26,7 +26,8 @@ function TariffsTable() {
 		function () {
 			const list = tariffs ?? []
 			const next = [...list]
-			next.unshift({
+
+			/*next.unshift({
 				id: 0,
 				code: 'free',
 				slogan: 'Полноценный старт',
@@ -37,7 +38,8 @@ function TariffsTable() {
 				includedBalance: 0,
 				includedFileStorageMb: 0,
 				createdAt: '',
-			})
+			})*/
+
 			return next
 		},
 		[tariffs],

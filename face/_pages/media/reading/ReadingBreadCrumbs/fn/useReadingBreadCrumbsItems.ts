@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams } from 'next/navigation'
-import { useReadingStore } from '../../../readingStore'
+import { useReadingStore } from '_pages/media/reading/readingStore'
 import { pageUrls } from 'сonsts/pageUrls'
 
 type BreadCrumbItem = {
