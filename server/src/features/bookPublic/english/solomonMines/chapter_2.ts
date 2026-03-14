@@ -1,163 +1,228 @@
-// Это неадаптированная версия !
 export const chapter_2 = {
 	name: 'Chapter II',
 	header: 'The legend of Solomon’s mines',
-	text: `Та же самая задача для этого текста:
+	text: `“What was it that you heard about my brother’s journey at Bamangwato?” asked Sir Henry, while I paused to fill my pipe before answering Captain Good.
 
-“What was it that you heard about my brother’s journey at Bamangwato?” asked Sir Henry, as I paused to fill my pipe before replying to Captain Good.
+“I heard this,” I replied. “And I have never told it to anyone until today. I heard that he was going to Solomon’s Mines.”
 
-“I heard this,” I answered, “and I have never mentioned it to a soul till to-day. I heard that he was starting for Solomon’s Mines.”
+“Solomon’s Mines?” both of them exclaimed at once. “Where are they?”
 
-“Solomon’s Mines?” ejaculated both my hearers at once. “Where are they?”
+“I don’t know exactly,” I said. “I only know where they are said to be. Once I saw the mountain peaks that are supposed to stand near them, but there were about a hundred and thirty miles of desert between me and those mountains. As far as I know, only one white man has ever crossed that desert.
 
-“I don’t know,” I said; “I know where they are said to be. Once I saw the peaks of the mountains that border them, but there were a hundred and thirty miles of desert between me and them, and I am not aware that any white man ever got across it save one. But perhaps the best thing I can do is to tell you the legend of Solomon’s Mines as I know it, you passing your word not to reveal anything I tell you without my permission. Do you agree to that? I have my reasons for asking.”
+“But perhaps the best thing I can do is to tell you the story of Solomon’s Mines as I know it. You must promise not to repeat anything I tell you without my permission. I have my reasons for asking.”
 
-Sir Henry nodded, and Captain Good replied, “Certainly, certainly.”
+Sir Henry nodded, and Captain Good said, “Certainly.”
 
-“Well,” I began, “as you may guess, generally speaking, elephant hunters are a rough set of men, who do not trouble themselves with much beyond the facts of life and the ways of Kafirs. But here and there you meet a man who takes the trouble to collect traditions from the natives, and tries to make out a little piece of the history of this dark land. It was such a man as this who first told me the legend of Solomon’s Mines, now a matter of nearly thirty years ago. That was when I was on my first elephant hunt in the Matabele country. His name was Evans, and he was killed the following year, poor fellow, by a wounded buffalo, and lies buried near the Zambesi Falls. I was telling Evans one night, I remember, of some wonderful workings I had found whilst hunting koodoo and eland in what is now the Lydenburg district of the Transvaal. I see they have come across these workings again lately in prospecting for gold, but I knew of them years ago. There is a great wide wagon road cut out of the solid rock, and leading to the mouth of the working or gallery. Inside the mouth of this gallery are stacks of gold quartz piled up ready for roasting, which shows that the workers, whoever they were, must have left in a hurry. Also, about twenty paces in, the gallery is built across, and a beautiful bit of masonry it is.”
+“Well,” I began, “as you may imagine, elephant hunters are usually rough men who do not care much about anything except the practical facts of life and the customs of the natives. But sometimes you meet a man who collects stories from the natives and tries to understand a little of the history of this dark land.
 
-“‘Ay,’ said Evans, ‘but I will spin you a queerer yarn than that’; and he went on to tell me how he had found in the far interior a ruined city, which he believed to be the Ophir of the Bible, and, by the way, other more learned men have said the same long since poor Evans’s time. I was, I remember, listening open-eared to all these wonders, for I was young at the time, and this story of an ancient civilisation and of the treasures which those old Jewish or Phoenician adventurers used to extract from a country long since lapsed into the darkest barbarism took a great hold upon my imagination, when suddenly he said to me, ‘Lad, did you ever hear of the Suliman Mountains up to the north-west of the Mushakulumbwe country?’ I told him I never had. ‘Ah, well,’ he said, ‘that is where Solomon really had his mines, his diamond mines, I mean.’
+“It was such a man who first told me the legend of Solomon’s Mines nearly thirty years ago. That was when I was on my first elephant hunt in Matabele country. His name was Evans. Poor fellow—he was killed the next year by a wounded buffalo and was buried near the Zambesi Falls.
+
+“I remember that one evening I was telling Evans about some strange old workings I had discovered while hunting kudu and eland in what is now the Lydenburg district of the Transvaal. I see that people have found those workings again recently while searching for gold, but I knew about them many years ago.
+
+“There is a wide wagon road cut directly into solid rock that leads to the entrance of the mine. Inside the entrance there are piles of gold quartz stacked up ready to be processed. That shows that the workers, whoever they were, must have left suddenly. Also, about twenty paces inside, the passage is blocked by a wall of very fine stonework.”
+
+“‘Yes,’ Evans said, ‘but I can tell you an even stranger story than that.’ And then he told me that far in the interior he had discovered the ruins of a city which he believed might be the Ophir mentioned in the Bible. In fact, other scholars have suggested the same idea since Evans’s time.
+
+“I remember listening with great interest to all these wonders. I was young then, and the story of an ancient civilization and the treasures that old Jewish or Phoenician explorers once took from a country that had now fallen into deep barbarism captured my imagination.
+
+“Suddenly Evans asked me, ‘My boy, have you ever heard of the Suliman Mountains, to the northwest of the Mushakulumbwe country?’
+
+“I told him that I had not.
+
+“‘Well,’ he said, ‘that is where Solomon really had his mines—his diamond mines.’
 
 “‘How do you know that?’ I asked.
 
-“‘Know it! why, what is “Suliman” but a corruption of Solomon? Besides, an old Isanusi or witch doctoress up in the Manica country told me all about it. She said that the people who lived across those mountains were a “branch” of the Zulus, speaking a dialect of Zulu, but finer and bigger men even; that there lived among them great wizards, who had learnt their art from white men when “all the world was dark,” and who had the secret of a wonderful mine of “bright stones.”’
+“‘Know it?’ he replied. ‘Why, the name “Suliman” is only another form of “Solomon.” Besides, an old witch doctor in the Manica country told me the story. She said that beyond those mountains live a people who are related to the Zulus and speak a similar language, though they are even taller and stronger men. Among them live powerful wizards who learned their magic from white men long ago, when “the whole world was dark.” These wizards know the secret of a wonderful mine full of bright stones.’”
 
-“Well, I laughed at this story at the time, though it interested me, for the Diamond Fields were not discovered then, but poor Evans went off and was killed, and for twenty years I never thought any more of the matter. However, just twenty years afterwards—and that is a long time, gentlemen; an elephant hunter does not often live for twenty years at his business—I heard something more definite about Suliman’s Mountains and the country which lies beyond them. I was up beyond the Manica country, at a place called Sitanda’s Kraal, and a miserable place it was, for a man could get nothing to eat, and there was but little game about. I had an attack of fever, and was in a bad way generally, when one day a Portugee arrived with a single companion—a half-breed. Now I know your low-class Delagoa Portugee well. There is no greater devil unhung in a general way, battening as he does upon human agony and flesh in the shape of slaves. But this was quite a different type of man to the mean fellows whom I had been accustomed to meet; indeed, in appearance he reminded me more of the polite doms I have read about, for he was tall and thin, with large dark eyes and curling grey mustachios. We talked together for a while, for he could speak broken English, and I understood a little Portugee, and he told me that his name was José Silvestre, and that he had a place near Delagoa Bay. When he went on next day with his half-breed companion, he said ‘Good-bye,’ taking off his hat quite in the old style.
+“At the time I laughed at the story, although it interested me. The diamond fields had not yet been discovered then. Poor Evans soon left and was killed, and for twenty years I never thought about the matter again.
 
-“‘Good-bye, señor,’ he said; ‘if ever we meet again I shall be the richest man in the world, and I will remember you.’ I laughed a little—I was too weak to laugh much—and watched him strike out for the great desert to the west, wondering if he was mad, or what he thought he was going to find there.
+“But exactly twenty years later—and that is a long time, gentlemen; an elephant hunter does not often survive twenty years in that profession—I heard something more definite about the Suliman Mountains and the country beyond them.
 
------------
-Та же самая задача для этого текста:
+“I was travelling north of the Manica country at a place called Sitanda’s Kraal. It was a miserable place. A man could hardly find anything to eat there, and there was very little game to hunt. I had also caught a fever and was in poor health.
 
-“A week passed, and I got the better of my fever. One evening I was sitting on the ground in front of the little tent I had with me, chewing the last leg of a miserable fowl I had bought from a native for a bit of cloth worth twenty fowls, and staring at the hot red sun sinking down over the desert, when suddenly I saw a figure, apparently that of a European, for it wore a coat, on the slope of the rising ground opposite to me, about three hundred yards away. The figure crept along on its hands and knees, then it got up and staggered forward a few yards on its legs, only to fall and crawl again. Seeing that it must be somebody in distress, I sent one of my hunters to help him, and presently he arrived, and who do you suppose it turned out to be?”
+“One day a Portuguese man arrived with a single companion, who was of mixed race. Now I know the usual type of Portuguese trader from Delagoa Bay, and generally they are unpleasant men who profit from the suffering of slaves. But this man was very different from the rough fellows I had known before.
+
+“In fact, he reminded me of the polite Portuguese gentlemen I had read about. He was tall and thin, with large dark eyes and curling grey moustaches.
+
+“We talked for a while. He spoke broken English, and I knew a little Portuguese. He told me that his name was José Silvestre and that he owned land near Delagoa Bay.
+
+“When he left the next day with his companion, he said goodbye in a very polite old-fashioned way, taking off his hat.
+
+“‘Goodbye, señor,’ he said. ‘If we ever meet again, I will be the richest man in the world, and I will remember you.’
+
+“I laughed a little—though I was too weak to laugh much—and watched him walk toward the great desert in the west, wondering whether he was mad or what he expected to find there.”
+
+“A week passed, and I recovered from my fever. One evening I was sitting on the ground in front of my small tent, chewing the last leg of a miserable chicken I had bought from a native for a piece of cloth worth twenty chickens. I was staring at the hot red sun sinking over the desert when suddenly I saw a figure on the slope of a hill opposite me, about three hundred yards away.
+
+“At first I thought it must be a European because the figure was wearing a coat. The person crawled forward on hands and knees, then struggled to his feet and staggered a few steps before falling down again and crawling once more.
+
+“Seeing that someone must be in trouble, I sent one of my hunters to help him. Soon the man arrived—and who do you think it was?”
 
 “José Silvestre, of course,” said Captain Good.
 
-“Yes, José Silvestre, or rather his skeleton and a little skin. His face was a bright yellow with bilious fever, and his large dark eyes stood nearly out of his head, for all the flesh had gone. There was nothing but yellow parchment-like skin, white hair, and the gaunt bones sticking up beneath.
+“Yes—José Silvestre. Or rather his skeleton covered with a little skin. His face was bright yellow from fever, and his large dark eyes seemed to stick out of his head because he had become so thin. There was almost nothing left but yellow, parchment-like skin, white hair, and sharp bones under it.
 
-“‘Water! for the sake of Christ, water!’ he moaned and I saw that his lips were cracked, and his tongue, which protruded between them, was swollen and blackish.
+“‘Water! For the sake of Christ—water!’ he groaned. His lips were cracked, and his tongue, which stuck out between them, was swollen and dark.
 
-“I gave him water with a little milk in it, and he drank it in great gulps, two quarts or so, without stopping. I would not let him have any more. Then the fever took him again, and he fell down and began to rave about Suliman’s Mountains, and the diamonds, and the desert. I carried him into the tent and did what I could for him, which was little enough; but I saw how it must end. About eleven o’clock he grew quieter, and I lay down for a little rest and went to sleep. At dawn I woke again, and in the half light saw Silvestre sitting up, a strange, gaunt form, and gazing out towards the desert. Presently the first ray of the sun shot right across the wide plain before us till it reached the faraway crest of one of the tallest of the Suliman Mountains more than a hundred miles away.
+“I gave him water mixed with a little milk, and he drank it greedily—almost two quarts without stopping. I would not allow him to drink any more.
 
-“‘There it is!’ cried the dying man in Portuguese, and pointing with his long, thin arm, ‘but I shall never reach it, never. No one will ever reach it!’
+“Soon the fever returned, and he collapsed again, shouting wildly about the Suliman Mountains, the diamonds, and the desert. I carried him into the tent and did what little I could for him, though I knew how the story would end.
 
-“Suddenly, he paused, and seemed to take a resolution. ‘Friend,’ he said, turning towards me, ‘are you there? My eyes grow dark.’
+“About eleven o’clock he became quieter. I lay down for a short rest and fell asleep. At dawn I woke and, in the dim light, saw Silvestre sitting up. He looked thin and strange, staring toward the desert.
 
-“‘Yes,’ I said; ‘yes, lie down now, and rest.’
+“Soon the first ray of sunlight crossed the wide plain before us and touched the distant peak of one of the tallest Suliman Mountains, more than a hundred miles away.
 
-“‘Ay,’ he answered, ‘I shall rest soon, I have time to rest—all eternity. Listen, I am dying! You have been good to me. I will give you the writing. Perhaps you will get there if you can live to pass the desert, which has killed my poor servant and me.’
+“‘There it is!’ cried the dying man in Portuguese, pointing with his long thin arm. ‘But I shall never reach it—never. No one will ever reach it!’
 
-“Then he groped in his shirt and brought out what I thought was a Boer tobacco pouch made of the skin of the Swart-vet-pens or sable antelope. It was fastened with a little strip of hide, what we call a rimpi, and this he tried to loose, but could not. He handed it to me. ‘Untie it,’ he said. I did so, and extracted a bit of torn yellow linen on which something was written in rusty letters. Inside this rag was a paper.
+“Suddenly he stopped speaking and seemed to make a decision.
 
------------
-Та же самая задача для этого текста:
+“‘Friend,’ he said, turning toward me, ‘are you there? My eyes are growing dark.’
 
-“Then he went on feebly, for he was growing weak: ‘The paper has all that is on the linen. It took me years to read. Listen: my ancestor, a political refugee from Lisbon, and one of the first Portuguese who landed on these shores, wrote that when he was dying on those mountains which no white foot ever pressed before or since. His name was José da Silvestra, and he lived three hundred years ago. His slave, who waited for him on this side of the mountains, found him dead, and brought the writing home to Delagoa. It has been in the family ever since, but none have cared to read it, till at last I did. And I have lost my life over it, but another may succeed, and become the richest man in the world—the richest man in the world. Only give it to no one, señor; go yourself!’
+“‘Yes,’ I answered. ‘Lie down now and rest.’
 
-“Then he began to wander again, and in an hour it was all over.
+“‘Yes,’ he replied. ‘I will rest soon. I will have plenty of time to rest—for all eternity. Listen—I am dying. You have been kind to me. I will give you the document. Perhaps you will reach the place if you can survive the desert, which has already killed my poor servant and nearly killed me.’
 
-“God rest him! he died very quietly, and I buried him deep, with big boulders on his breast; so I do not think that the jackals can have dug him up. And then I came away.”
+“Then he searched inside his shirt and pulled out what looked like a Boer tobacco pouch made from the skin of a sable antelope. It was tied with a small strip of leather. He tried to untie it himself but was too weak.
 
-“Ay, but the document?” said Sir Henry, in a tone of deep interest.
+“He handed it to me.
 
-“Yes, the document; what was in it?” added the captain.
+“‘Open it,’ he said.
 
-“Well, gentlemen, if you like I will tell you. I have never showed it to anybody yet except to a drunken old Portuguese trader who translated it for me, and had forgotten all about it by the next morning. The original rag is at my home in Durban, together with poor Dom José’s translation, but I have the English rendering in my pocket-book, and a facsimile of the map, if it can be called a map. Here it is.”
+“I untied the strip and took out a piece of torn yellow cloth with some writing on it in faded letters. Inside the cloth there was also a sheet of paper.”
 
-“I, José da Silvestra, who am now dying of hunger in the little cave where no snow is on the north side of the nipple of the southernmost of the two mountains I have named Sheba’s Breasts, write this in the year 1590 with a cleft bone upon a remnant of my raiment, my blood being the ink. If my slave should find it when he comes, and should bring it to Delagoa, let my friend (name illegible) bring the matter to the knowledge of the king, that he may send an army which, if they live through the desert and the mountains, and can overcome the brave Kukuanes and their devilish arts, to which end many priests should be brought, will make him the richest king since Solomon. With my own eyes I have seen the countless diamonds stored in Solomon’s treasure chamber behind the white Death; but through the treachery of Gagool the witch-finder I might bring nought away, scarcely my life. Let him who comes follow the map, and climb the snow of Sheba’s left breast till he reaches the nipple, on the north side of which is the great road Solomon made, from whence three days’ journey to the King’s Palace. Let him kill Gagool. Pray for my soul. Farewell.
+“Then he continued weakly, because he was growing very weak:
+
+‘The paper contains the same message as the cloth. It took me many years to understand it. Listen. My ancestor, a political refugee from Lisbon and one of the first Portuguese who came to these shores, wrote it when he was dying in those mountains that no white man had ever reached before or since.
+
+“His name was José da Silvestra, and he lived about three hundred years ago. His slave, who had been waiting for him on this side of the mountains, later found him dead and brought the writing back to Delagoa.
+
+“The document has stayed in our family ever since, but no one cared to read it until I did. And it has cost me my life. But someone else may succeed and become the richest man in the world—the richest man in the world. Only do not give it to anyone else, señor. Go there yourself!’
+
+“After that he began to ramble again, and within an hour he was dead.
+
+“God rest his soul. He died very quietly. I buried him deep and placed large stones over his chest, so that the jackals would not dig up the body. After that I left the place.”
+
+“But the document?” asked Sir Henry with great interest.
+
+“Yes,” said Captain Good. “What did it say?”
+
+“Well, gentlemen,” I replied, “if you wish, I will tell you. I have never shown it to anyone except once to an old Portuguese trader who translated it for me while he was drunk—and by the next morning he had forgotten everything about it.
+
+“The original cloth is in my house in Durban, together with Dom José’s translation. But I keep an English copy in my notebook, along with a drawing of the map—if it can really be called a map. Here it is.”
+
+The message written by José da Silvestra:
+
+“I, José da Silvestra, write this in the year 1590. I am dying of hunger in a small cave where there is no snow, on the northern side of the peak of the southern mountain that I call Sheba’s Breasts.
+
+“I write these words on a piece of my clothing using a broken bone as a pen and my own blood as ink.
+
+“If my slave finds this message and brings it to Delagoa, let my friend (whose name cannot now be read) inform the king. Then the king may send an army. If they survive the desert and the mountains and defeat the brave Kukuanas and their strange magic—with the help of many priests—they will make the king richer than any king since Solomon.
+
+“With my own eyes I have seen the countless diamonds stored in Solomon’s treasure chamber beyond the place called the White Death. But because of the treachery of Gagool, the witch-finder, I was unable to take anything with me and barely escaped with my life.
+
+“Whoever follows this message must follow the map and climb the snowy slopes of the left breast of Sheba until reaching the peak. On the northern side there is a great road built by Solomon. From there it is a journey of three days to the King’s Palace.
+
+“Kill Gagool.
+
+“Pray for my soul.
+
+“Farewell.
 
 JOSÉ DA SILVESTRA.”
 
------------
-Та же самая задача для этого текста:
+When I finished reading the message and showed them the copy of the map—drawn by the dying hand of old Dom José, using his own blood as ink—there was a long silence. Both men looked astonished.
 
-When I had finished reading the above, and shown the copy of the map, drawn by the dying hand of the old Dom with his blood for ink, there followed a silence of astonishment.
+“Well,” said Captain Good at last, “I have travelled around the world twice and visited most ports, but I swear I have never heard a story like this—either in real life or even in a book.”
 
-“Well,” said Captain Good, “I have been round the world twice, and put in at most ports, but may I be hung for a mutineer if ever I heard a yarn like this out of a story book, or in it either, for the matter of that.”
+“It is certainly a strange story, Mr. Quatermain,” said Sir Henry. “I hope you are not joking with us. Sometimes people think it is acceptable to play tricks on newcomers.”
 
-“It’s a queer tale, Mr. Quatermain,” said Sir Henry. “I suppose you are not hoaxing us? It is, I know, sometimes thought allowable to take in a greenhorn.”
+“If you think that, Sir Henry,” I said, rather offended, putting my paper back into my pocket, “then there is no more to say.” I do not like being thought one of those foolish people who tell lies just to sound clever, or who boast to strangers about amazing hunting adventures that never really happened.
 
-“If you think that, Sir Henry,” I said, much put out, and pocketing my paper—for I do not like to be thought one of those silly fellows who consider it witty to tell lies, and who are for ever boasting to newcomers of extraordinary hunting adventures which never happened—“if you think that, why, there is an end to the matter,” and I rose to go.
+So I stood up as if to leave.
 
-Sir Henry laid his large hand upon my shoulder. “Sit down, Mr. Quatermain,” he said, “I beg your pardon; I see very well you do not wish to deceive us, but the story sounded so strange that I could hardly believe it.”
+Sir Henry placed his large hand on my shoulder.
 
-“You shall see the original map and writing when we reach Durban,” I answered, somewhat mollified, for really when I came to consider the question it was scarcely wonderful that he should doubt my good faith.
+“Please sit down, Mr. Quatermain,” he said. “I apologize. I can see that you are not trying to deceive us. The story simply sounded so strange that it was difficult to believe.”
 
-“But,” I went on, “I have not told you about your brother. I knew the man Jim who was with him. He was a Bechuana by birth, a good hunter, and for a native a very clever man. That morning on which Mr. Neville was starting I saw Jim standing by my wagon and cutting up tobacco on the disselboom.
+“You will see the original map and writing when we arrive in Durban,” I replied, feeling calmer. When I thought about it, it was not surprising that he had doubted my story.
 
-“‘Jim,’ said I, ‘where are you off to this trip? It is elephants?’
+“But,” I continued, “I have not yet told you about your brother. I knew the man named Jim who travelled with him. He was a Bechuana by birth—a good hunter and, for a native, a very intelligent man.
 
-“‘No, Baas,’ he answered, ‘we are after something worth much more than ivory.’
+“On the morning when Mr. Neville was preparing to leave, I saw Jim standing beside my wagon cutting tobacco on the wagon pole.
 
-“‘And what might that be?’ I said, for I was curious. ‘Is it gold?’
+“‘Jim,’ I said, ‘where are you going on this journey? Are you hunting elephants?’
 
-“‘No, Baas, something worth more than gold,’ and he grinned.
+“‘No, Baas,’ he answered. ‘We are looking for something worth much more than ivory.’
 
------------
-Та же самая задача для этого текста:
+“‘And what might that be?’ I asked, because I was curious. ‘Gold?’
 
-“I asked no more questions, for I did not like to lower my dignity by seeming inquisitive, but I was puzzled. Presently Jim finished cutting his tobacco.
+“‘No, Baas—something worth even more than gold,’ he replied with a grin.”
 
-“‘Baas,’ said he.
+I asked no more questions because I did not want to seem too curious. Still, I felt puzzled. After a while Jim finished cutting his tobacco.
 
-“I took no notice.
+“Baas,” he said.
 
-“‘Baas,’ said he again.
+I did not answer.
 
-“‘Eh, boy, what is it?’ I asked.
+“Baas,” he said again.
 
-“‘Baas, we are going after diamonds.’
+“Yes, boy, what is it?” I asked.
 
-“‘Diamonds! why, then, you are steering in the wrong direction; you should head for the Fields.’
+“Baas, we are going to look for diamonds.”
 
-“‘Baas, have you ever heard of Suliman’s Berg?’—that is, Solomon’s Mountains, Sir Henry.
+“Diamonds! Then you are travelling in the wrong direction. You should go toward the Diamond Fields.”
 
-“‘Ay!’
+“Baas, have you ever heard of Suliman’s Berg?”—that is, Solomon’s Mountains, Sir Henry.
 
-“‘Have you ever heard of the diamonds there?’
+“Yes.”
 
-“‘I have heard a foolish story, Jim.’
+“Have you ever heard about the diamonds there?”
 
-“‘It is no story, Baas. Once I knew a woman who came from there, and reached Natal with her child, she told me:—she is dead now.’
+“I have heard a foolish story about them, Jim.”
 
-“‘Your master will feed the aasvögels’—that is, vultures—‘Jim, if he tries to reach Suliman’s country, and so will you if they can get any pickings off your worthless old carcass,’ said I.
+“It is not a story, Baas. Once I knew a woman who came from there. She reached Natal with her child and told me about it. She is dead now.”
 
-“He grinned. ‘Mayhap, Baas. Man must die; I’d rather like to try a new country myself; the elephants are getting worked out about here.’
+“If your master tries to reach Suliman’s country, the vultures will eat him,” I said. “And they will eat you too, if there is anything worth taking from your skinny body.”
 
-“‘Ah! my boy,’ I said, ‘you wait till the “pale old man” gets a grip of your yellow throat, and then we shall hear what sort of a tune you sing.’
+Jim only grinned.
 
-“Half an hour after that I saw Neville’s wagon move off. Presently Jim came back running. ‘Good-bye, Baas,’ he said. ‘I didn’t like to start without bidding you good-bye, for I daresay you are right, and that we shall never trek south again.’
+“Perhaps, Baas. A man must die someday. I would like to see a new country. Besides, there are fewer and fewer elephants around here now.”
 
-“‘Is your master really going to Suliman’s Berg, Jim, or are you lying?’
+“Ah, my boy,” I said, “wait until the ‘pale old man’ grabs your throat, and then we shall hear what kind of song you sing.”
 
-“‘No,’ he answered, ‘he is going. He told me he was bound to make his fortune somehow, or try to; so he might as well have a fling for the diamonds.’
+About half an hour later I saw Neville’s wagon start moving away. Soon after that Jim came running back.
 
-“‘Oh!’ I said; ‘wait a bit, Jim; will you take a note to your master, Jim, and promise not to give it to him till you reach Inyati?’ which was some hundred miles off.
+“Goodbye, Baas,” he said. “I did not want to leave without saying goodbye. Perhaps you are right, and we will never travel south again.”
 
-“‘Yes, Baas.’
+“Is your master really going to Suliman’s Mountains, Jim, or are you lying?”
 
------------
-Та же самая задача для этого текста:
+“No,” he answered. “He is going there. He says he must make his fortune somehow, or at least try. So he might as well try his luck with the diamonds.”
 
-“So I took a scrap of paper, and wrote on it, ‘Let him who comes . . . climb the snow of Sheba’s left breast, till he reaches the nipple, on the north side of which is Solomon’s great road.’
+“Oh,” I said. “Wait a moment, Jim. Will you take a note to your master and promise not to give it to him until you reach Inyati?” That place was about a hundred miles away.
 
-“‘Now, Jim,’ I said, ‘when you give this to your master, tell him he had better follow the advice on it implicitly. You are not to give it to him now, because I don’t want him back asking me questions which I won’t answer. Now be off, you idle fellow, the wagon is nearly out of sight.’
+“Yes, Baas,” he replied.
 
-“Jim took the note and went, and that is all I know about your brother, Sir Henry; but I am much afraid—”
+So I took a small piece of paper and wrote on it:
+“Let the man who comes climb the snow of Sheba’s left breast until he reaches the nipple. On the north side of it is Solomon’s great road.”
 
-“Mr. Quatermain,” said Sir Henry, “I am going to look for my brother; I am going to trace him to Suliman’s Mountains, and over them if necessary, till I find him, or until I know that he is dead. Will you come with me?”
+“Now, Jim,” I said, “when you give this to your master, tell him that he should follow the advice written on it exactly. Do not give it to him now, because I do not want him to come back and ask me questions that I will not answer. Now go quickly—the wagon is already almost out of sight.”
 
-I am, as I think I have said, a cautious man, indeed a timid one, and this suggestion frightened me. It seemed to me that to undertake such a journey would be to go to certain death, and putting other considerations aside, as I had a son to support, I could not afford to die just then.
+Jim took the note and left. That is all I know about your brother, Sir Henry, but I am very much afraid that—”
 
-“No, thank you, Sir Henry, I think I had rather not,” I answered. “I am too old for wild-goose chases of that sort, and we should only end up like my poor friend Silvestre. I have a son dependent on me, so I cannot afford to risk my life foolishly.”
+“Mr. Quatermain,” said Sir Henry, “I am going to look for my brother. I will follow his trail to the Suliman Mountains, and even go over them if necessary, until I find him or learn that he is dead. Will you come with me?”
+
+As I think I have already said, I am a careful man—indeed, a rather timid one—and this idea frightened me. To me it seemed that such a journey would almost certainly end in death. Besides, I had a son who depended on me, and I could not afford to die.
+
+“No, thank you, Sir Henry,” I answered. “I think I would rather not go. I am too old for adventures like that, and we would probably end up like my poor friend Silvestre. I have a son who depends on me, so I cannot risk my life foolishly.”
 
 Both Sir Henry and Captain Good looked very disappointed.
 
-“Mr. Quatermain,” said the former, “I am well off, and I am bent upon this business. You may put the remuneration for your services at whatever figure you like in reason, and it shall be paid over to you before we start. Moreover, I will arrange in the event of anything untoward happening to us or to you, that your son shall be suitably provided for. You will see from this offer how necessary I think your presence. Also if by chance we should reach this place, and find diamonds, they shall belong to you and Good equally. I do not want them. But of course that promise is worth nothing at all, though the same thing would apply to any ivory we might get. You may pretty well make your own terms with me, Mr. Quatermain; and of course I shall pay all expenses.”
+“Mr. Quatermain,” said Sir Henry, “I am a wealthy man and I am determined to do this. You may name a reasonable payment for your services, and I will give it to you before we start. Also, if anything bad happens to us—or to you—I will make sure that your son is properly taken care of. You can see from this offer how important your help is to me. And if by chance we reach that place and find diamonds, they will belong to you and Captain Good equally. I do not want them. Of course this promise may turn out to be worthless, but the same is true for any ivory we might find. In short, you may choose your own reasonable terms, Mr. Quatermain, and I will pay all the expenses.”
 
-“Sir Henry,” said I, “this is the most liberal proposal I ever had, and one not to be sneezed at by a poor hunter and trader. But the job is the biggest I have come across, and I must take time to think it over. I will give you my answer before we get to Durban.”
+“Sir Henry,” I said, “this is the most generous offer I have ever received, and it is not something a poor hunter and trader can ignore. But this is the biggest and most dangerous job I have ever faced, and I must think about it carefully. I will give you my answer before we reach Durban.”
 
-“Very good,” answered Sir Henry.
+“Very good,” said Sir Henry.
 
-Then I said good-night and turned in, and dreamt about poor long-dead Silvestre and the diamonds.`,
+Then I said good night, went to bed, and dreamed about poor Silvestre, who had died long ago, and about the diamonds.`,
 }

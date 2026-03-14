@@ -32,8 +32,6 @@ function TariffsTable() {
 				slogan: 'Полноценный старт',
 				name: 'Бесплатный',
 				description: 'Попробовать формат на настоящем материале.',
-				isPublicMediaIncluded: false,
-				isPrivateMediaIncluded: false,
 				price: 0,
 				durationDays: 30,
 				includedBalance: 0,

@@ -193,19 +193,17 @@ model EngRusDictionary {
 }
 
 model Tariff {
-    id                        Int                @id @default(autoincrement())
-    code                      String             @unique
-    slogan                    String
-    name                      String
-    description               String
-    is_public_media_included  Boolean
-    is_private_media_included Boolean
-    price                     Int
-    included_balance          Int
-    included_file_storage_mb  Int
-    duration_days             Int
-    created_at                DateTime           @default(now())
-    userSubscriptions         UserSubscription[]
+    id                       Int                @id @default(autoincrement())
+    code                     String             @unique
+    slogan                   String
+    name                     String
+    description              String
+    price                    Int
+    included_balance         Int
+    included_file_storage_mb Int
+    duration_days            Int
+    created_at               DateTime           @default(now())
+    userSubscriptions        UserSubscription[]
 }
 
 model UserSubscription {

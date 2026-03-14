@@ -31,8 +31,6 @@ export class TariffRepository {
 		slogan: string
 		name: string
 		description: string
-		isPublicMediaIncluded: boolean
-		isPrivateMediaIncluded: boolean
 		price: number
 		durationDays: number
 		includedBalance: number
@@ -44,8 +42,6 @@ export class TariffRepository {
 				slogan: dto.slogan,
 				name: dto.name,
 				description: dto.description,
-				is_public_media_included: dto.isPublicMediaIncluded,
-				is_private_media_included: dto.isPrivateMediaIncluded,
 				price: dto.price,
 				duration_days: dto.durationDays,
 				included_balance: dto.includedBalance,
@@ -63,8 +59,6 @@ export class TariffRepository {
 			slogan: dbTariff.slogan,
 			name: dbTariff.name,
 			description: dbTariff.description,
-			isPublicMediaIncluded: dbTariff.is_public_media_included,
-			isPrivateMediaIncluded: dbTariff.is_private_media_included,
 			price: dbTariff.price,
 			durationDays: dbTariff.duration_days,
 			includedBalance: dbTariff.included_balance,

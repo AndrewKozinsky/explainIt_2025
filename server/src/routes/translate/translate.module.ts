@@ -11,6 +11,7 @@ import { TranslateService } from 'routes/translate/translate.service'
 import { PrismaService } from 'db/prisma.service'
 import { DeepSeekTokenUsageBalanceChargeHandler } from 'features/payment/DeepSeekTokenUsageBalanceCharge.command'
 import { OpenAiTokenUsageBalanceChargeHandler } from 'features/payment/OpenAiTokenUsageBalanceCharge.command'
+import { StreamTranslateWithChatGPT } from 'features/sentenceTranslation/translateSentence/StreamTranslateWithChatGPT.service'
 import { StreamTranslateWithDeepSeek } from 'features/sentenceTranslation/translateSentence/StreamTranslateWithDeepSeek.service'
 import { TranslateSentenceHandler } from 'features/sentenceTranslation/translateSentence/TranslateSentence.command'
 
@@ -20,7 +21,7 @@ const commandHandlers = [
 	OpenAiTokenUsageBalanceChargeHandler,
 	DeepSeekTokenUsageBalanceChargeHandler,
 ]
-const translateProviders = [StreamTranslateWithDeepSeek]
+const translateProviders = [StreamTranslateWithDeepSeek, StreamTranslateWithChatGPT]
 const repositories = [
 	EngRusDictionaryRepository,
 	SentenceRepository,

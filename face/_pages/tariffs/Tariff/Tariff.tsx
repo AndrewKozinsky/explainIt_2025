@@ -27,11 +27,11 @@ export function Tariff(props: TariffProps) {
 			<p className={cn('tariff__name', isPaidTariff && 'tariff__name--accent')}>{tariff.name}</p>
 			<ul className='tariff__features'>
 				{tariff.code === 'free' && <Feature text='Одна публичная книга и фильм' />}
-				{tariff.isPublicMediaIncluded && <Feature text='Все публичные книги и фильмы' />}
-				{tariff.isPublicMediaIncluded && (
+				{/*{tariff.isPublicMediaIncluded && <Feature text='Все публичные книги и фильмы' />}*/}
+				{/*{tariff.isPublicMediaIncluded && (
 					<Feature text='Неограниченное количество переводов публичных книг и фильмов' />
-				)}
-				{tariff.isPrivateMediaIncluded && <Feature text='Загрузка собственных книг и фильмов' />}
+				)}*/}
+				{/*{tariff.isPrivateMediaIncluded && <Feature text='Загрузка собственных книг и фильмов' />}*/}
 				{translationsCount ? (
 					<Feature text={'≈' + translationsCount + ' переводов предложений из собственных книг и фильмов'} />
 				) : null}

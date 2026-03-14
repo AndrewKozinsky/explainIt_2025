@@ -1,4 +1,3 @@
-// Это неадаптированная версия !
 export const chapter_1 = {
 	name: 'Chapter I',
 	header: 'I meet sir Henry Curtis',
@@ -122,57 +121,67 @@ There was a sofa in the cabin and a small table in front of it. Sir Henry asked 
 
 “Yes,” I replied. “I took a wagon full of goods there, set up a camp outside the settlement, and stayed until I had sold everything.”
 
------------
-Та же самая задача для этого текста:
+Sir Henry was sitting opposite me in a Madeira chair, with his arms resting on the table. He looked up and fixed his large grey eyes directly on my face. I thought there was a strange anxiety in them.
 
-Sir Henry was sitting opposite to me in a Madeira chair, his arms leaning on the table. He now looked up, fixing his large grey eyes full upon my face. There was a curious anxiety in them, I thought.
+“Did you happen to meet a man named Neville there?” he asked.
 
-“Did you happen to meet a man called Neville there?”
+“Oh yes. He camped near me for about two weeks while his oxen rested before he continued his journey into the interior. A few months ago I received a letter from a lawyer asking if I knew what had happened to him, and I answered as well as I could.”
 
-“Oh, yes; he outspanned alongside of me for a fortnight to rest his oxen before going on to the interior. I had a letter from a lawyer a few months back, asking me if I knew what had become of him, which I answered to the best of my ability at the time.”
+“Yes,” said Sir Henry. “Your letter was later sent to me. In it you wrote that the gentleman named Neville left Bamangwato at the beginning of May in a wagon with a driver, a voorlooper (a man who walks ahead of the oxen), and a native hunter named Jim. He said he intended to travel as far as Inyati, the furthest trading post in Matabele country. There he planned to sell his wagon and continue on foot.
 
-“Yes,” said Sir Henry, “your letter was forwarded to me. You said in it that the gentleman called Neville left Bamangwato at the beginning of May in a wagon with a driver, a voorlooper, and a Kafir hunter called Jim, announcing his intention of trekking if possible as far as Inyati, the extreme trading post in the Matabele country, where he would sell his wagon and proceed on foot. You also said that he did sell his wagon, for six months afterwards you saw the wagon in the possession of a Portuguese trader, who told you that he had bought it at Inyati from a white man whose name he had forgotten, and that he believed the white man with the native servant had started off for the interior on a shooting trip.”
+“You also wrote that he did sell the wagon. About six months later you saw it owned by a Portuguese trader, who told you he had bought it at Inyati from a white man whose name he had forgotten. The trader believed that the white man and his native servant had then gone further into the interior on a hunting trip.”
 
-“Yes.”
+“Yes,” I said.
 
-Then came a pause.
+After that there was a short silence.
 
-“Mr. Quatermain,” said Sir Henry suddenly, “I suppose you know or can guess nothing more of the reasons of my—of Mr. Neville’s journey to the northward, or as to what point that journey was directed?”
+“Mr. Quatermain,” Sir Henry said suddenly, “do you know—or can you guess—anything more about the reason for Mr. Neville’s journey to the north, or where exactly he planned to go?”
 
-“I heard something,” I answered, and stopped. The subject was one which I did not care to discuss.
+“I heard something,” I replied, and then stopped. It was a subject I did not want to discuss.
 
-Sir Henry and Captain Good looked at each other, and Captain Good nodded.
+Sir Henry and Captain Good looked at each other, and Captain Good gave a small nod.
 
-“Mr. Quatermain,” went on the former, “I am going to tell you a story, and ask your advice, and perhaps your assistance. The agent who forwarded me your letter told me that I might rely on it implicitly, as you were,” he said, “well known and universally respected in Natal, and especially noted for your discretion.”
+“Mr. Quatermain,” Sir Henry continued, “I am going to tell you a story. Then I will ask your advice, and perhaps even your help. The agent who sent me your letter told me that I could trust it completely. He said that you were well known and respected in Natal, and especially known for being discreet.”
 
-I bowed and drank some whisky and water to hide my confusion, for I am a modest man—and Sir Henry went on.
+I bowed and took a sip of whisky and water to hide my embarrassment, because I am a modest man. Then Sir Henry continued.
 
 “Mr. Neville was my brother.”
 
-“Oh,” I said, starting, for now I knew of whom Sir Henry had reminded me when first I saw him. His brother was a much smaller man and had a dark beard, but now that I thought of it, he possessed eyes of the same shade of grey and with the same keen look in them: the features too were not unlike.
+“Oh,” I said, starting in surprise. Now I understood whom Sir Henry had reminded me of when I first saw him. His brother had been a smaller man and had a dark beard, but now that I thought about it, his eyes were the same shade of grey and had the same sharp look. Their faces were also somewhat similar.
 
-“He was,” went on Sir Henry, “my only and younger brother, and till five years ago I do not suppose that we were ever a month away from each other. But just about five years ago a misfortune befell us, as sometimes does happen in families. We quarrelled bitterly, and I behaved unjustly to my brother in my anger.”
+“Yes,” Sir Henry went on. “He was my only brother and younger than me. Until five years ago I do not think we had ever spent more than a month apart. But about five years ago something unfortunate happened, as sometimes occurs in families. We had a bitter quarrel, and in my anger I treated my brother unfairly.”
 
-Here Captain Good nodded his head vigorously to himself. The ship gave a big roll just then, so that the looking-glass, which was fixed opposite us to starboard, was for a moment nearly over our heads, and as I was sitting with my hands in my pockets and staring upwards, I could see him nodding like anything.
+At this point Captain Good nodded strongly to himself. Just then the ship rolled heavily, and the mirror fixed on the wall opposite us tilted so much that for a moment it was almost above our heads. Since I was sitting with my hands in my pockets and looking upward, I could clearly see Captain Good nodding very energetically.
 
------------
-Та же самая задача для этого текста:
+“As you may know,” Sir Henry continued, “when a man dies without a will and owns only land—what in England is called real property—it all goes to the eldest son.
 
-“As I daresay you know,” went on Sir Henry, “if a man dies intestate, and has no property but land, real property it is called in England, it all descends to his eldest son. It so happened that just at the time when we quarrelled our father died intestate. He had put off making his will until it was too late. The result was that my brother, who had not been brought up to any profession, was left without a penny. Of course it would have been my duty to provide for him, but at the time the quarrel between us was so bitter that I did not—to my shame I say it (and he sighed deeply)—offer to do anything. It was not that I grudged him justice, but I waited for him to make advances, and he made none. I am sorry to trouble you with all this, Mr. Quatermain, but I must to make things clear, eh, Good?”
+It so happened that just when my brother and I quarrelled, our father died without leaving a will. He had delayed writing it until it was too late. The result was that my brother, who had never been trained for any profession, was left without any money.
 
-“Quite so, quite so,” said the captain. “Mr. Quatermain will, I am sure, keep this history to himself.”
+Of course it should have been my duty to support him, but at that time our quarrel was so bitter that I did nothing. I say this to my shame.” He sighed deeply. “It was not that I wished to treat him unfairly, but I waited for him to come to me first, and he never did.
 
-“Of course,” said I, for I rather pride myself on my discretion, for which, as Sir Henry had heard, I have some repute.
+I am sorry to trouble you with all this, Mr. Quatermain, but I must explain it so that everything is clear. Isn’t that right, Good?”
 
-“Well,” went on Sir Henry, “my brother had a few hundred pounds to his account at the time. Without saying anything to me he drew out this paltry sum, and, having adopted the name of Neville, started off for South Africa in the wild hope of making a fortune. This I learned afterwards. Some three years passed, and I heard nothing of my brother, though I wrote several times. Doubtless the letters never reached him. But as time went on I grew more and more troubled about him. I found out, Mr. Quatermain, that blood is thicker than water.”
+“Quite right,” said the captain. “I am sure Mr. Quatermain will keep this story to himself.”
 
-“That’s true,” said I, thinking of my boy Harry.
+“Of course,” I replied, for I am rather proud of being discreet, and, as Sir Henry had heard, I have a certain reputation for it.
 
-“I found out, Mr. Quatermain, that I would have given half my fortune to know that my brother George, the only relation I possess, was safe and well, and that I should see him again.”
+“Well,” Sir Henry continued, “my brother had a few hundred pounds in his bank account at that time. Without telling me anything, he withdrew the money and, using the name Neville, left for South Africa with the wild hope of making a fortune. I learned this later.
 
-“But you never did, Curtis,” jerked out Captain Good, glancing at the big man’s face.
+Three years passed, and I heard nothing from him, although I wrote several letters. No doubt the letters never reached him. But as time went on I became more and more worried about him.
 
-“Well, Mr. Quatermain, as time went on I became more and more anxious to find out if my brother was alive or dead, and if alive to get him home again. I set enquiries on foot, and your letter was one of the results. So far as it went it was satisfactory, for it showed that till lately George was alive, but it did not go far enough. So, to cut a long story short, I made up my mind to come out and look for him myself, and Captain Good was so kind as to come with me.”
+You see, Mr. Quatermain, I discovered that blood is thicker than water.”
 
-“Yes,” said the captain; “nothing else to do, you see. Turned out by my Lords of the Admiralty to starve on half pay. And now perhaps, sir, you will tell us what you know or have heard of the gentleman called Neville.”`,
+“That is true,” I said, thinking of my son Harry.
+
+“I realized,” Sir Henry continued, “that I would gladly give half my fortune just to know that my brother George—the only close relative I have—was alive and well, and that I might see him again.”
+
+“But you never did, Curtis,” Captain Good suddenly said, glancing at the big man’s face.
+
+“Well, Mr. Quatermain, as time passed I became more and more determined to find out whether my brother was alive or dead, and if he was alive, to bring him home again.
+
+So I began making inquiries, and your letter was one of the results. What it told me was encouraging, because it showed that George had been alive not long ago. But it did not tell me enough.
+
+So, to make a long story short, I decided to come here myself and look for him. Captain Good was kind enough to come with me.”
+
+“Yes,” said the captain. “I had nothing else to do, you see. The Admiralty had dismissed me, leaving me to live on half pay. And now perhaps, sir, you will tell us what you know or have heard about the gentleman called Neville.”`,
 }

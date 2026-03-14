@@ -4,8 +4,6 @@ export type TariffServiceModel = {
 	slogan: string
 	name: string
 	description: string
-	isPublicMediaIncluded: boolean
-	isPrivateMediaIncluded: boolean
 	price: number
 	durationDays: number
 	includedBalance: number

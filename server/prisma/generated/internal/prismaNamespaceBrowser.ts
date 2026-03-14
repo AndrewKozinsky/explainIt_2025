@@ -277,8 +277,6 @@ export const TariffScalarFieldEnum = {
   slogan: 'slogan',
   name: 'name',
   description: 'description',
-  is_public_media_included: 'is_public_media_included',
-  is_private_media_included: 'is_private_media_included',
   price: 'price',
   included_balance: 'included_balance',
   included_file_storage_mb: 'included_file_storage_mb',

@@ -17,12 +17,6 @@ export class TariffOutModel {
 	@Field(() => String)
 	description: string
 
-	@Field(() => Boolean)
-	isPublicMediaIncluded: boolean
-
-	@Field(() => Boolean)
-	isPrivateMediaIncluded: boolean
-
 	@Field(() => Int)
 	price: number
 

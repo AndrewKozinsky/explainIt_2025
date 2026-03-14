@@ -891,18 +891,6 @@ export const bdConfig = {
 				required: true,
 				maxLength: 100,
 			},
-			is_public_media_included: {
-				type: 'boolean',
-				description: 'Is public media included',
-				example: true,
-				required: true,
-			},
-			is_private_media_included: {
-				type: 'boolean',
-				description: 'Is private media included',
-				example: true,
-				required: true,
-			},
 			price: {
 				type: 'number',
 				description: 'Price for 30 days',

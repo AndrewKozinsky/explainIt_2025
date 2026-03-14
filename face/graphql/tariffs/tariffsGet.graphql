@@ -5,8 +5,6 @@ query Tariff_get_tariffs {
 		slogan
 		name
 		description
-		isPublicMediaIncluded
-		isPrivateMediaIncluded
 		price
 		durationDays
 		includedBalance

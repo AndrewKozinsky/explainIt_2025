@@ -7,8 +7,6 @@ mutation Auth_login_with_OAuth($input: LoginWithOAuthInput!) {
 			tariffId
 			tariffCode
 			tariffName
-			isPublicMediaIncluded
-			isPrivateMediaIncluded
 			pricePaid
 			balance
 			includedFileStorageMb
