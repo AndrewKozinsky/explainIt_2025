@@ -2,7 +2,8 @@
 export const chapter_11 = {
 	name: 'Chapter XI',
 	header: 'We give a sign',
-	text: `For a long while—two hours, I should think—we sat there in silence, being too much overwhelmed by the recollection of the horrors we had seen to talk. At last, just as we were thinking of turning in—for the night drew nigh to dawn—we heard a sound of steps. Then came the challenge of a sentry posted at the kraal gate, which apparently was answered, though not in an audible tone, for the steps still advanced; and in another second Infadoos had entered the hut, followed by some half-dozen stately-looking chiefs.
+	text: `Та же самая задача для этого текста:
+For a long while—two hours, I should think—we sat there in silence, being too much overwhelmed by the recollection of the horrors we had seen to talk. At last, just as we were thinking of turning in—for the night drew nigh to dawn—we heard a sound of steps. Then came the challenge of a sentry posted at the kraal gate, which apparently was answered, though not in an audible tone, for the steps still advanced; and in another second Infadoos had entered the hut, followed by some half-dozen stately-looking chiefs.
 
 “My lords,” he said, “I have come according to my word. My lords and Ignosi, rightful king of the Kukuanas, I have brought with me these men,” pointing to the row of chiefs, “who are great men among us, having each one of them the command of three thousand soldiers, that live but to do their bidding, under the king’s. I have told them of what I have seen, and what my ears have heard. Now let them also behold the sacred snake around thee, and hear thy story, Ignosi, that they may say whether or no they will make cause with thee against Twala the king.”
 
@@ -21,6 +22,9 @@ The eldest of the six men, a short, thick-set warrior, with white hair, stepped 
 “My lord, it is not enough. The snake may have been placed there since the man’s childhood. Show us a sign, and it will suffice. But we will not move without a sign.”
 
 The others gave a decided assent, and I turned in perplexity to Sir Henry and Good, and explained the situation.
+
+-----------
+Та же самая задача для этого текста:
 
 “I think that I have it,” said Good exultingly; “ask them to give us a moment to think.”
 
@@ -45,6 +49,9 @@ I acquiesced, though doubtfully, for eclipses are queer cattle to deal with—it
 “We see the sinking moon,” answered the spokesman of the party.
 
 “It is so. Now tell me, can any mortal man put out that moon before her hour of setting, and bring the curtain of black night down upon the land?”
+
+-----------
+Та же самая задача для этого текста:
 
 The chief laughed a little at the question. “No, my lord, that no man can do. The moon is stronger than man who looks on her, nor can she vary in her courses.”
 
@@ -80,6 +87,9 @@ Infadoos rose, and, having saluted us, departed with the chiefs.
 
 “This: that if ever you come to be king of this people you will do away with the smelling out of wizards such as we saw last night; and that the killing of men without trial shall no longer take place in the land.”
 
+-----------
+Та же самая задача для этого текста:
+
 Ignosi thought for a moment after I had translated this request, and then answered—
 
 “The ways of black people are not as the ways of white men, Incubu, nor do we value life so highly. Yet I will promise. If it be in my power to hold them back, the witch-finders shall hunt no more, nor shall any man die the death without trial or judgment.”
@@ -100,6 +110,9 @@ Twala greeted us with much apparent cordiality, though I saw him fix his one eye
 
 “Welcome, white men from the Stars,” he said; “this is another sight from that which your eyes gazed on by the light of last night’s moon, but it is not so good a sight. Girls are pleasant, and were it not for such as these,” and he pointed round him, “we should none of us be here this day; but men are better. Kisses and the tender words of women are sweet, but the sound of the clashing of the spears of warriors, and the smell of men’s blood, are sweeter far! Would ye have wives from among our people, white men? If so, choose the fairest here, and ye shall have them, as many as ye will,” and he paused for an answer.
 
+-----------
+Та же самая задача для этого текста:
+
 As the prospect did not seem to be without attractions for Good, who, like most sailors, is of a susceptible nature,—being elderly and wise, foreseeing the endless complications that anything of the sort would involve, for women bring trouble so surely as the night follows the day, I put in a hasty answer—
 
 “Thanks to thee, O king, but we white men wed only with white women like ourselves. Your maidens are fair, but they are not for us!”
@@ -119,6 +132,9 @@ Twala scowled, and his one eye gleamed fiercely, but he said nothing more.
 When the chosen girls had all danced, the king lifted his hand.
 
 “Which deem ye the fairest, white men?” he asked.
+
+-----------
+Та же самая задача для этого текста:
 
 “The first,” said I unthinkingly. Next second I regretted it, for I remembered that Infadoos had told us that the fairest woman must be offered up as a sacrifice.
 
@@ -148,6 +164,9 @@ At this hint, Scragga, looking more evil than ever, advanced a step and lifted h
 
 “Be comforted,” went on the old woman in her hateful tone of mockery. “Thou must die, indeed, as a sacrifice to the Old Ones who sit yonder,” and she pointed to the peaks; “but it is better to sleep in the night than to toil in the daytime; it is better to die than to live, and thou shalt die by the royal hand of the king’s own son.”
 
+-----------
+Та же самая задача для этого текста:
+
 The girl Foulata wrung her hands in anguish, and cried out aloud, “Oh, cruel! and I so young! What have I done that I should never again see the sun rise out of the night, or the stars come following on his track in the evening, that I may no more gather the flowers when the dew is heavy, or listen to the laughing of the waters? Woe is me, that I shall never see my father’s hut again, nor feel my mother’s kiss, nor tend the lamb that is sick! Woe is me, that no lover shall put his arm around me and look into my eyes, nor shall men children be born of me! Oh, cruel, cruel!”
 
 And again she wrung her hands and turned her tear-stained flower-crowned face to Heaven, looking so lovely in her despair—for she was indeed a beautiful woman—that assuredly the sight of her would have melted the hearts of any less cruel than were the three fiends before us. Prince Arthur’s appeal to the ruffians who came to blind him was not more touching than that of this savage girl.
@@ -168,6 +187,9 @@ Twala turned and motioned to his son, who advanced with his spear lifted.
 
 Recognising the force of the argument, and having cast one more despairing look at the bright face of the moon, for never did the most ardent astronomer with a theory to prove await a celestial event with such anxiety, I stepped with all the dignity that I could command between the prostrate girl and the advancing spear of Scragga.
 
+-----------
+Та же самая задача для этого текста:
+
 “King,” I said, “it shall not be; we will not endure this thing; let the girl go in safety.”
 
 Twala rose from his seat in wrath and astonishment, and from the chiefs and serried ranks of maidens who had closed in slowly upon us in anticipation of the tragedy came a murmur of amazement.
@@ -186,6 +208,9 @@ My threat produced an effect; the men halted, and Scragga stood still before us,
 
 I glanced up at the moon despairingly, and now to my intense joy and relief saw that we—or rather the almanack—had made no mistake. On the edge of the great orb lay a faint rim of shadow, while a smoky hue grew and gathered upon its bright surface. Never shall I forget that supreme, that superb moment of relief.
 
+-----------
+Та же самая задача для этого текста:
+
 Then I lifted my hand solemnly towards the sky, an example which Sir Henry and Good followed, and quoted a line or two from the “Ingoldsby Legends” at it in the most impressive tones that I could command. Sir Henry followed suit with a verse out of the Old Testament, and something about Balbus building a wall, in Latin, whilst Good addressed the Queen of Night in a volume of the most classical bad language which he could think of.
 
 Slowly the penumbra, the shadow of a shadow, crept on over the bright surface, and as it crept I heard deep gasps of fear rising from the multitude around.
@@ -203,6 +228,9 @@ A groan of terror burst from the onlookers. Some stood petrified with dread, oth
 Good responded nobly to this tax upon his inventive faculties. Never before had I the faintest conception of the breadth and depth and height of a naval officer’s objurgatory powers. For ten minutes he went on in several languages without stopping, and he scarcely ever repeated himself.
 
 Meanwhile the dark ring crept on, while all that great assembly fixed their eyes upon the sky and stared and stared in fascinated silence. Strange and unholy shadows encroached upon the moonlight, an ominous quiet filled the place. Everything grew still as death. Slowly and in the midst of this most solemn silence the minutes sped away, and while they sped the full moon passed deeper and deeper into the shadow of the earth, as the inky segment of its circle slid in awful majesty across the lunar craters. The great pale orb seemed to draw near and to grow in size. She turned a coppery hue, then that portion of her surface which was unobscured as yet grew grey and ashen, and at length, as totality approached, her mountains and her plains were to be seen glowing luridly through a crimson gloom.
+
+-----------
+Та же самая задача для этого текста:
 
 On, yet on, crept the ring of darkness; it was now more than half across the blood-red orb. The air grew thick, and still more deeply tinged with dusky crimson. On, yet on, till we could scarcely see the fierce faces of the group before us. No sound rose now from the spectators, and at last Good stopped swearing.
 

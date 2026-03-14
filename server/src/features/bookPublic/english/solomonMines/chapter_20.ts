@@ -2,7 +2,8 @@
 export const chapter_20 = {
 	name: 'Chapter XX',
 	header: 'Found',
-	text: `And now I come to perhaps the strangest adventure that happened to us in all this strange business, and one which shows how wonderfully things are brought about.
+	text: `Та же самая задача для этого текста:
+And now I come to perhaps the strangest adventure that happened to us in all this strange business, and one which shows how wonderfully things are brought about.
 
 I was walking along quietly, some way in front of the other two, down the banks of the stream which runs from the oasis till it is swallowed up in the hungry desert sands, when suddenly I stopped and rubbed my eyes, as well I might. There, not twenty yards in front of me, placed in a charming situation, under the shade of a species of fig-tree, and facing to the stream, was a cosy hut, built more or less on the Kafir principle with grass and withes, but having a full-length door instead of a bee-hole.
 
@@ -18,15 +19,16 @@ With a spring Sir Henry was by his side.
 
 At the sound of this disturbance, another figure, also clad in skins, emerged from the hut, a gun in his hand, and ran towards us. On seeing me he too gave a cry.
 
+-----------
+Та же самая задача для этого текста:
+
 “Macumazahn,” he halloed, “don’t you know me, Baas? I’m Jim the hunter. I lost the note you gave me to give to the Baas, and we have been here nearly two years.” And the fellow fell at my feet, and rolled over and over, weeping for joy.
 
 “You careless scoundrel!” I said; “you ought to be well sjambocked”—that is, hided.
 
 Meanwhile the man with the black beard had recovered and risen, and he and Sir Henry were pump-handling away at each other, apparently without a word to say. But whatever they had quarrelled about in the past—I suspect it was a lady, though I never asked—it was evidently forgotten now.
 
-“My dear old fellow,” burst out Sir Henry at last, “I thought you were dead. I have been over Solomon’s Mountains to find you. I had given up all hope of ever seeing you again, and now I come across you perched in the desert, like an old aasvögel.”[14]
-
-[14] Vulture.
+“My dear old fellow,” burst out Sir Henry at last, “I thought you were dead. I have been over Solomon’s Mountains to find you. I had given up all hope of ever seeing you again, and now I come across you perched in the desert, like an old aasvögel.”
 
 “I tried to cross Solomon’s Mountains nearly two years ago,” was the answer, spoken in the hesitating voice of a man who has had little recent opportunity of using his tongue, “but when I reached here a boulder fell on my leg and crushed it, and I have been able to go neither forward nor back.”
 
@@ -37,6 +39,9 @@ Then I came up. “How do you do, Mr. Neville?” I said; “do you remember me?
 That evening, over the camp fire, George Curtis told us his story, which, in its way, was almost as eventful as our own, and, put shortly, amounted to this. A little less than two years before, he had started from Sitanda’s Kraal, to try to reach Suliman’s Berg. As for the note I had sent him by Jim, that worthy lost it, and he had never heard of it till to-day. But, acting upon information he had received from the natives, he headed not for Sheba’s Breasts, but for the ladder-like descent of the mountains down which we had just come, which is clearly a better route than that marked out in old Dom Silvestra’s plan. In the desert he and Jim had suffered great hardships, but finally they reached this oasis, where a terrible accident befell George Curtis. On the day of their arrival he was sitting by the stream, and Jim was extracting the honey from the nest of a stingless bee which is to be found in the desert, on the top of a bank immediately above him. In so doing he loosened a great boulder of rock, which fell upon George Curtis’s right leg, crushing it frightfully. From that day he had been so lame that he found it impossible to go either forward or back, and had preferred to take the chances of dying in the oasis to the certainty of perishing in the desert.
 
 As for food, however, they got on pretty well, for they had a good supply of ammunition, and the oasis was frequented, especially at night, by large quantities of game, which came thither for water. These they shot, or trapped in pitfalls, using the flesh for food, and, after their clothes wore out, the hides for clothing.
+
+-----------
+Та же самая задача для этого текста:
 
 “And so,” George Curtis ended, “we have lived for nearly two years, like a second Robinson Crusoe and his man Friday, hoping against hope that some natives might come here to help us away, but none have come. Only last night we settled that Jim should leave me, and try to reach Sitanda’s Kraal to get assistance. He was to go to-morrow, but I had little hope of ever seeing him back again. And now you, of all people in the world, you, who, as I fancied, had long ago forgotten all about me, and were living comfortably in old England, turn up in a promiscuous way and find me where you least expected. It is the most wonderful thing that I have ever heard of, and the most merciful too.”
 
@@ -53,6 +58,9 @@ Here, at this point, I think that I shall end my history. Our journey across the
 Six months from the date of our re-arrival at Sitanda’s, where we found our guns and other goods quite safe, though the old rascal in charge was much disgusted at our surviving to claim them, saw us all once more safe and sound at my little place on the Berea, near Durban, where I am now writing. Thence I bid farewell to all who have accompanied me through the strangest trip I ever made in the course of a long and varied experience.
 
 P.S.—Just as I had written the last word, a Kafir came up my avenue of orange trees, carrying a letter in a cleft stick, which he had brought from the post. It turned out to be from Sir Henry, and as it speaks for itself I give it in full.
+
+-----------
+Та же самая задача для этого текста:
 
 October 1, 1884.
 Brayley Hall, Yorkshire.

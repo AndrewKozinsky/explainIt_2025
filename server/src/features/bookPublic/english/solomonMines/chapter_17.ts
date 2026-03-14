@@ -2,7 +2,8 @@
 export const chapter_17 = {
 	name: 'Chapter XVII',
 	header: 'Solomon’s treasure chamber',
-	text: `While we were engaged in recovering from our fright, and in examining the grisly wonders of the Place of Death, Gagool had been differently occupied. Somehow or other—for she was marvellously active when she chose—she had scrambled on to the great table, and made her way to where our departed friend Twala was placed, under the drip, to see, suggested Good, how he was “pickling,” or for some dark purpose of her own. Then, after bending down to kiss his icy lips as though in affectionate greeting, she hobbled back, stopping now and again to address the remark, the tenor of which I could not catch, to one or other of the shrouded forms, just as you or I might welcome an old acquaintance. Having gone through this mysterious and horrible ceremony, she squatted herself down on the table immediately under the White Death, and began, so far as I could make out, to offer up prayers. The spectacle of this wicked creature pouring out supplications, evil ones no doubt, to the arch enemy of mankind, was so uncanny that it caused us to hasten our inspection.
+	text: `Та же самая задача для этого текста:
+While we were engaged in recovering from our fright, and in examining the grisly wonders of the Place of Death, Gagool had been differently occupied. Somehow or other—for she was marvellously active when she chose—she had scrambled on to the great table, and made her way to where our departed friend Twala was placed, under the drip, to see, suggested Good, how he was “pickling,” or for some dark purpose of her own. Then, after bending down to kiss his icy lips as though in affectionate greeting, she hobbled back, stopping now and again to address the remark, the tenor of which I could not catch, to one or other of the shrouded forms, just as you or I might welcome an old acquaintance. Having gone through this mysterious and horrible ceremony, she squatted herself down on the table immediately under the White Death, and began, so far as I could make out, to offer up prayers. The spectacle of this wicked creature pouring out supplications, evil ones no doubt, to the arch enemy of mankind, was so uncanny that it caused us to hasten our inspection.
 
 “Now, Gagool,” said I, in a low voice—somehow one did not dare to speak above a whisper in that place—“lead us to the chamber.”
 
@@ -23,6 +24,9 @@ As she did so, on holding up the lamp we perceived that a mass of stone was risi
 Very slowly and gently the great stone raised itself, till at last it had vanished altogether, and a dark hole presented itself to us in the place which the door had filled.
 
 Our excitement was so intense, as we saw the way to Solomon’s treasure chamber thrown open at last, that I for one began to tremble and shake. Would it prove a hoax after all, I wondered, or was old Da Silvestra right? Were there vast hoards of wealth hidden in that dark place, hoards which would make us the richest men in the whole world? We should know in a minute or two.
+
+-----------
+Та же самая задача для этого текста:
 
 “Enter, white men from the Stars,” said Gagool, advancing into the doorway; “but first hear your servant, Gagool the old. The bright stones that ye will see were dug out of the pit over which the Silent Ones are set, and stored here, I know not by whom, for that was done longer ago than even I remember. But once has this place been entered since the time that those who hid the stones departed in haste, leaving them behind. The report of the treasure went down indeed among the people who lived in the country from age to age, but none knew where the chamber was, nor the secret of the door. But it happened that a white man reached this country from over the mountains—perchance he too came ‘from the Stars’—and was well received by the king of that day. He it is who sits yonder,” and she pointed to the fifth king at the table of the Dead. “And it came to pass that he and a woman of the country who was with him journeyed to this place, and that by chance the woman learnt the secret of the door—a thousand years might ye search, but ye should never find that secret. Then the white man entered with the woman, and found the stones, and filled with stones the skin of a small goat, which the woman had with her to hold food. And as he was going from the chamber he took up one more stone, a large one, and held it in his hand.”
 
@@ -46,6 +50,9 @@ Our eyes met as she said it, and I turned sick and cold. How did the old hag kno
 
 “Oh, confound it all!” said Good; “here goes. I am not going to be frightened by that old devil;” and followed by Foulata, who, however, evidently did not at all like the business, for she was shivering with fear, he plunged into the passage after Gagool—an example which we quickly followed.
 
+-----------
+Та же самая задача для этого текста:
+
 A few yards down the passage, in the narrow way hewn out of the living rock, Gagool had paused, and was waiting for us.
 
 “See, my lords,” she said, holding the light before her, “those who stored the treasure here fled in haste, and bethought them to guard against any who should find the secret of the door, but had not the time,” and she pointed to large square blocks of stone, which, to the height of two courses (about two feet three), had been placed across the passage with a view to walling it up. Along the side of the passage were similar blocks ready for use, and, most curious of all, a heap of mortar and a couple of trowels, which tools, so far as we had time to examine them, appeared to be of a similar shape and make to those used by workmen to this day.
@@ -59,6 +66,9 @@ Across the threshold of this door lay a skin bag, formed of a goat-skin, that ap
 “Hee! hee! white men,” sniggered Gagool, as the light from the lamp fell upon it. “What did I tell you, that the white man who came here fled in haste, and dropped the woman’s bag—behold it! Look within also and ye will find a water-gourd amongst the stones.”
 
 Good stooped down and lifted it. It was heavy and jingled.
+
+-----------
+Та же самая задача для этого текста:
 
 “By Jove! I believe it’s full of diamonds,” he said, in an awed whisper; and, indeed, the idea of a small goat-skin full of diamonds is enough to awe anybody.
 
@@ -80,6 +90,9 @@ Sir Henry did so, holding it close to the top box, of which the lid, rendered ro
 
 “Let my lords look yonder where it is darkest, if they would find the stones,” said Gagool, interpreting our looks. “There my lords will find a nook, and three stone chests in the nook, two sealed and one open.”
 
+-----------
+Та же самая задача для этого текста:
+
 Before translating this to Sir Henry, who carried the light, I could not resist asking how she knew these things, if no one had entered the place since the white man, generations ago.
 
 “Ah, Macumazahn, the watcher by night,” was the mocking answer, “ye who dwell in the stars, do ye not know that some live long, and that some have eyes which can see through rock? Ha! ha! ha!”
@@ -100,6 +113,9 @@ I fairly gasped as I dropped them.
 
 “Got to get them there first,” suggested Sir Henry.
 
+-----------
+Та же самая задача для этого текста:
+
 We stood still with pale faces and stared at each other, the lantern in the middle and the glimmering gems below, as though we were conspirators about to commit a crime, instead of being, as we thought, the most fortunate men on earth.
 
 “Hee! hee! hee!” cackled old Gagool behind us, as she flitted about like a vampire bat. “There are the bright stones ye love, white men, as many as ye will; take them, run them through your fingers, eat of them, hee! hee! drink of them, ha! ha!”
@@ -113,6 +129,9 @@ Suddenly the fit passed off, and we stopped laughing.
 Thus adjured, we set to work to pull up the stone lids on the other two, first—not without a feeling of sacrilege—breaking the seals that fastened them.
 
 Hoorah! they were full too, full to the brim; at least, the second one was; no wretched burglarious Da Silvestra had been filling goat-skins out of that. As for the third chest, it was only about a fourth full, but the stones were all picked ones; none less than twenty carats, and some of them as large as pigeon-eggs. A good many of these bigger ones, however, we could see by holding them up to the light, were a little yellow, “off coloured,” as they call it at Kimberley.
+
+-----------
+Та же самая задача для этого текста:
 
 What we did not see, however, was the look of fearful malevolence that old Gagool favoured us with as she crept, crept like a snake, out of the treasure chamber and down the passage towards the door of solid rock.
 
@@ -140,6 +159,9 @@ Then we turned to Foulata. The poor girl was stabbed in the body, and I saw that
 
 “Macumazahn, be my tongue for a moment, I pray thee, for Bougwan cannot understand me, and before I go into the darkness I would speak to him a word.”
 
+-----------
+Та же самая задача для этого текста:
+
 “Say on, Foulata, I will render it.”
 
 “Say to my lord, Bougwan, that—I love him, and that I am glad to die because I know that he cannot cumber his life with such as I am, for the sun may not mate with the darkness, nor the white with the black.
@@ -160,6 +182,9 @@ For a few minutes we stood horrified, there over the corpse of Foulata. All the 
 
 It would have been just the jest that her evil mind would have rejoiced in, the idea of the three white men, whom, for some reason of her own, she had always hated, slowly perishing of thirst and hunger in the company of the treasure they had coveted. Now I saw the point of that sneer of hers about eating and drinking the diamonds. Probably somebody had tried to serve the poor old Dom in the same way, when he abandoned the skin full of jewels.
 
+-----------
+Та же самая задача для этого текста:
+
 “This will never do,” said Sir Henry hoarsely; “the lamp will soon go out. Let us see if we can’t find the spring that works the rock.”
 
 We sprang forward with desperate energy, and, standing in a bloody ooze, began to feel up and down the door and the sides of the passage. But no knob or spring could we discover.
@@ -177,6 +202,9 @@ Next we seated ourselves, leaning our backs against the three stone chests which
 “Now,” said Sir Henry grimly, “let us eat and drink, for to-morrow we die.”
 
 We each ate a small portion of the “biltong,” and drank a sip of water. Needless to say, we had but little appetite, though we were sadly in need of food, and felt better after swallowing it. Then we got up and made a systematic examination of the walls of our prison-house, in the faint hope of finding some means of exit, sounding them and the floor carefully.
+
+-----------
+Та же самая задача для этого текста:
 
 There was none. It was not probable that there would be any to a treasure chamber.
 

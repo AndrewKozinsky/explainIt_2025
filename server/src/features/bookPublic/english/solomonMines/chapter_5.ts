@@ -2,7 +2,9 @@
 export const chapter_5 = {
 	name: 'Chapter V',
 	header: 'Our march into the desert',
-	text: `We had killed nine elephants, and it took us two days to cut out the tusks, and having brought them into camp, to bury them carefully in the sand under a large tree, which made a conspicuous mark for miles round. It was a wonderfully fine lot of ivory. I never saw a better, averaging as it did between forty and fifty pounds a tusk. The tusks of the great bull that killed poor Khiva scaled one hundred and seventy pounds the pair, so nearly as we could judge.
+	text: `Та же самая задача для этого текста:
+
+We had killed nine elephants, and it took us two days to cut out the tusks, and having brought them into camp, to bury them carefully in the sand under a large tree, which made a conspicuous mark for miles round. It was a wonderfully fine lot of ivory. I never saw a better, averaging as it did between forty and fifty pounds a tusk. The tusks of the great bull that killed poor Khiva scaled one hundred and seventy pounds the pair, so nearly as we could judge.
 
 As for Khiva himself, we buried what remained of him in an ant-bear hole, together with an assegai to protect himself with on his journey to a better world. On the third day we marched again, hoping that we might live to return to dig up our buried ivory, and in due course, after a long and wearisome tramp, and many adventures which I have not space to detail, we reached Sitanda’s Kraal, near the Lukanga River, the real starting-point of our expedition. Very well do I recollect our arrival at that place. To the right was a scattered native settlement with a few stone cattle kraals and some cultivated lands down by the water, where these savages grew their scanty supply of grain, and beyond it stretched great tracts of waving “veld” covered with tall grass, over which herds of the smaller game were wandering. To the left lay the vast desert. This spot appears to be the outpost of the fertile country, and it would be difficult to say to what natural causes such an abrupt change in the character of the soil is due. But so it is.
 
@@ -15,6 +17,9 @@ It was evening when we pitched our camp, and the great ball of the sun was sinki
 “My brother should be there, and if he is, I shall reach him somehow,” said Sir Henry, in that tone of quiet confidence which marked the man.
 
 “I hope so,” I answered, and turned to go back to the camp, when I saw that we were not alone. Behind us, also gazing earnestly towards the far-off mountains, stood the great Kafir Umbopa.
+
+-----------
+Та же самая задача для этого текста:
 
 The Zulu spoke when he saw that I had observed him, addressing Sir Henry, to whom he had attached himself.
 
@@ -31,6 +36,9 @@ I was angry with the man, for I am not accustomed to be talked to in that way by
 “The desert is wide and there is no water in it, the mountains are high and covered with snow, and man cannot say what lies beyond them behind the place where the sun sets; how shalt thou come thither, Incubu, and wherefore dost thou go?”
 
 I translated again.
+
+-----------
+Та же самая задача для этого текста:
 
 “Tell him,” answered Sir Henry, “that I go because I believe that a man of my blood, my brother, has gone there before me, and I journey to seek him.”
 
@@ -52,6 +60,9 @@ Umbopa understood English, though he rarely spoke it.
 
 I translated.
 
+-----------
+Та же самая задача для этого текста:
+
 “Great words, my father,” answered the Zulu—I always called him a Zulu, though he was not really one—“great swelling words fit to fill the mouth of a man. Thou art right, my father Incubu. Listen! what is life? It is a feather, it is the seed of the grass, blown hither and thither, sometimes multiplying itself and dying in the act, sometimes carried away into the heavens. But if that seed be good and heavy it may perchance travel a little way on the road it wills. It is well to try and journey one’s road and to fight with the air. Man must die. At the worst he can but die a little sooner. I will go with thee across the desert and over the mountains, unless perchance I fall to the ground on the way, my father.”
 
 He paused awhile, and then went on with one of those strange bursts of rhetorical eloquence that Zulus sometimes indulge in, which to my mind, full though they are of vain repetitions, show that the race is by no means devoid of poetic instinct and of intellectual power.
@@ -69,6 +80,9 @@ I looked at him suspiciously. “What dost thou mean?” I asked; “what dost t
 “A little; a very little. There is a strange land yonder, a land of witchcraft and beautiful things; a land of brave people, and of trees, and streams, and snowy peaks, and of a great white road. I have heard of it. But what is the good of talking? It grows dark. Those who live to see will see.”
 
 Again I looked at him doubtfully. The man knew too much.
+
+-----------
+Та же самая задача для этого текста:
 
 “You need not fear me, Macumazahn,” he said, interpreting my look. “I dig no holes for you to fall in. I make no plots. If ever we cross those mountains behind the sun I will tell what I know. But Death sits upon them. Be wise and turn back. Go and hunt elephants, my masters. I have spoken.”
 
@@ -90,6 +104,9 @@ Having thus disposed of our superfluous gear we arranged the kit we five—Sir H
 
 The three express rifles and two hundred rounds of ammunition.
 
+-----------
+Та же самая задача для этого текста:
+
 The two Winchester repeating rifles (for Umbopa and Ventvögel), with two hundred rounds of cartridge.
 
 Five Cochrane’s water-bottles, each holding four pints.
@@ -109,6 +126,9 @@ This was our total equipment, a small one indeed for such a venture, but we dare
 With great difficulty, and by the promise of a present of a good hunting-knife each, I succeeded in persuading three wretched natives from the village to come with us for the first stage, twenty miles, and to carry a large gourd holding a gallon of water apiece. My object was to enable us to refill our water-bottles after the first night’s march, for we determined to start in the cool of the evening. I gave out to these natives that we were going to shoot ostriches, with which the desert abounded. They jabbered and shrugged their shoulders, saying that we were mad and should perish of thirst, which I must say seemed probable; but being desirous of obtaining the knives, which were almost unknown treasures up there, they consented to come, having probably reflected that, after all, our subsequent extinction would be no affair of theirs.
 
 All next day we rested and slept, and at sunset ate a hearty meal of fresh beef washed down with tea, the last, as Good remarked sadly, we were likely to drink for many a long day. Then, having made our final preparations, we lay down and waited for the moon to rise. At last, about nine o’clock, up she came in all her glory, flooding the wild country with light, and throwing a silver sheen on the expanse of rolling desert before us, which looked as solemn and quiet and as alien to man as the star-studded firmament above. We rose up, and in a few minutes were ready, and yet we hesitated a little, as human nature is prone to hesitate on the threshold of an irrevocable step. We three white men stood by ourselves. Umbopa, assegai in hand and a rifle across his shoulders, looked out fixedly across the desert a few paces ahead of us; while the hired natives, with the gourds of water, and Ventvögel, were gathered in a little knot behind.
+
+-----------
+Та же самая задача для этого текста:
 
 “Gentlemen,” said Sir Henry presently, in his deep voice, “we are going on about as strange a journey as men can make in this world. It is very doubtful if we can succeed in it. But we are three men who will stand together for good or for evil to the last. Now before we start let us for a moment pray to the Power who shapes the destinies of men, and who ages since has marked out our paths, that it may please Him to direct our steps in accordance with His will.”
 
@@ -134,6 +154,9 @@ On, on we went, till at last the east began to blush like the cheek of a girl. T
 
 Still we did not halt, though by this time we should have been glad enough to do so, for we knew that when once the sun was fully up it would be almost impossible for us to travel. At length, about an hour later, we spied a little pile of boulders rising out of the plain, and to this we dragged ourselves. As luck would have it, here we found an overhanging slab of rock carpeted beneath with smooth sand, which afforded a most grateful shelter from the heat. Underneath this we crept, and each of us having drunk some water and eaten a bit of biltong, we lay down and soon were sound asleep.
 
+-----------
+Та же самая задача для этого текста:
+
 It was three o’clock in the afternoon before we woke, to find our bearers preparing to return. They had seen enough of the desert already, and no number of knives would have tempted them to come a step farther. So we took a hearty drink, and having emptied our water-bottles, filled them up again from the gourds that they had brought with them, and then watched them depart on their twenty miles’ tramp home.
 
 At half-past four we also started. It was lonely and desolate work, for with the exception of a few ostriches there was not a single living creature to be seen on all the vast expanse of sandy plain. Evidently it was too dry for game, and with the exception of a deadly-looking cobra or two we saw no reptiles. One insect, however, we found abundant, and that was the common or house fly. There they came, “not as single spies, but in battalions,” as I think the Old Testament says somewhere. He is an extraordinary insect is the house fly. Go where you will you find him, and so it must have been always. I have seen him enclosed in amber, which is, I was told, quite half a million years old, looking exactly like his descendant of to-day, and I have little doubt but that when the last man lies dying on the earth he will be buzzing round—if this event happens to occur in summer—watching for an opportunity to settle on his nose.
@@ -151,6 +174,9 @@ It was hot, indeed, and there was not a bit of shelter to be found. Look where w
 “What is to be done?” asked Sir Henry; “we can’t stand this for long.”
 
 We looked at each other blankly.
+
+-----------
+Та же самая задача для этого текста:
 
 “I have it,” said Good, “we must dig a hole, get in it, and cover ourselves with the karoo bushes.”
 

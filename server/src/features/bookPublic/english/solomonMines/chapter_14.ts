@@ -2,7 +2,8 @@
 export const chapter_14 = {
 	name: 'Chapter XIV',
 	header: 'The last stand of the Grays',
-	text: `In a few more minutes the regiments destined to carry out the flanking movements had tramped off in silence, keeping carefully to the lee of the rising ground in order to conceal their advance from the keen eyes of Twala’s scouts.
+	text: `Та же самая задача для этого текста:
+	In a few more minutes the regiments destined to carry out the flanking movements had tramped off in silence, keeping carefully to the lee of the rising ground in order to conceal their advance from the keen eyes of Twala’s scouts.
 
 Half an hour or more was allowed to elapse between the setting out of the horns or wings of the army before any stir was made by the Greys and their supporting regiment, known as the Buffaloes, which formed its chest, and were destined to bear the brunt of the battle.
 
@@ -15,6 +16,9 @@ I looked down the long lines of waving black plumes and stern faces beneath them
 “Behold your king!” ended old Infadoos, pointing to Ignosi; “go fight and fall for him, as is the duty of brave men, and cursed and shameful for ever be the name of him who shrinks from death for his king, or who turns his back to the foe. Behold your king, chiefs, captains, and soldiers! Now do your homage to the sacred Snake, and then follow on, that Incubu and I may show you a road to the heart of Twala’s host.”
 
 There was a moment’s pause, then suddenly a murmur arose from the serried phalanxes before us, a sound like the distant whisper of the sea, caused by the gentle tapping of the handles of six thousand spears against their holders’ shields. Slowly it swelled, till its growing volume deepened and widened into a roar of rolling noise, that echoed like thunder against the mountains, and filled the air with heavy waves of sound. Then it decreased, and by faint degrees died away into nothing, and suddenly out crashed the royal salute.
+
+-----------
+Та же самая задача для этого текста:
 
 Ignosi, I thought to myself, might well be a proud man that day, for no Roman emperor ever had such a salutation from gladiators “about to die.”
 
@@ -31,6 +35,9 @@ They hesitated, and finally stopped their advance; there was no eagerness to cro
 Then suddenly with a bound and a roar, they sprang forward with uplifted spears, and the regiment met in deadly strife. Next second the roll of the meeting shields came to our ears like the sound of thunder, and the plain seemed to be alive with flashes of light reflected from the shimmering spears. To and fro swung the surging mass of struggling, stabbing humanity, but not for long. Suddenly the attacking lines began to grow thinner, and then with a slow, long heave the Greys passed over them, just as a great wave heaves up its bulk and passes over a sunken ridge. It was done; that regiment was completely destroyed, but the Greys had but two lines left now; a third of their number were dead.
 
 Closing up shoulder to shoulder, once more they halted in silence and awaited attack; and I was rejoiced to catch sight of Sir Henry’s yellow beard as he moved to and fro arranging the ranks. So he was yet alive!
+
+-----------
+Та же самая задача для этого текста:
 
 Meanwhile we moved on to the ground of the encounter, which was cumbered by about four thousand prostrate human beings, dead, dying, and wounded, and literally stained red with blood. Ignosi issued an order, which was rapidly passed down the ranks, to the effect that none of the enemy’s wounded were to be killed, and so far as we could see this command was scrupulously carried out. It would have been a shocking sight, if we had found time to think of such things.
 
@@ -51,6 +58,9 @@ Only Ignosi’s heart, to judge from his comparative self-possession, seemed, to
 “Are we to stand here till we put out roots, Umbopa—Ignosi, I mean—while Twala swallows our brothers yonder?” I asked.
 
 “Nay, Macumazahn,” was the answer; “see, now is the ripe moment: let us pluck it.”
+
+-----------
+Та же самая задача для этого текста:
 
 As he spoke a fresh regiment rushed past the ring upon the little mound, and wheeling round, attacked it from the hither side.
 
@@ -73,6 +83,9 @@ It was a splendid thing to see those brave battalions come on time after time ov
 
 But suddenly there rose a cry of “Twala, y’ Twala,” and out of the press sprang forward none other than the gigantic one-eyed king himself, also armed with battle-axe and shield, and clad in chain armour.
 
+-----------
+Та же самая задача для этого текста:
+
 “Where art thou, Incubu, thou white man, who slewest Scragga my son—see if thou canst slay me!” he shouted, and at the same time hurled a tolla straight at Sir Henry, who fortunately saw it coming, and caught it on his shield, which it transfixed, remaining wedged in the iron plate behind the hide.
 
 Then, with a cry, Twala sprang forward straight at him, and with his battle-axe struck him such a blow upon the shield that the mere force and shock of it brought Sir Henry, strong man as he is, down upon his knees.
@@ -86,6 +99,9 @@ In five minutes the fate of the battle was decided. Taken on both flanks, and di
 “Men,” said Infadoos calmly, as between the intervals of binding a wound on his arm he surveyed what remained to him of his corps, “ye have kept up the reputation of your regiment, and this day’s fighting will be well spoken of by your children’s children.” Then he turned round and shook Sir Henry Curtis by the hand. “Thou art a great captain, Incubu,” he said simply; “I have lived a long life among warriors, and have known many a brave one, yet have I never seen a man like unto thee.”
 
 At this moment the Buffaloes began to march past our position on the road to Loo, and as they went a message was brought to us from Ignosi requesting Infadoos, Sir Henry, and myself to join them. Accordingly, orders having been issued to the remaining ninety men of the Greys to employ themselves in collecting the wounded, we joined Ignosi, who informed us that he was pressing on to Loo to complete the victory by capturing Twala, if that should be possible. Before we had gone far, suddenly we discovered the figure of Good sitting on an ant-heap about one hundred paces from us. Close beside him was the body of a Kukuana.
+
+-----------
+Та же самая задача для этого текста:
 
 “He must be wounded,” said Sir Henry anxiously. As he made the remark, an untoward thing happened. The dead body of the Kukuana soldier, or rather what had appeared to be his dead body, suddenly sprang up, knocked Good head over heels off the ant-heap, and began to spear him. We rushed forward in terror, and as we drew near we saw the brawny warrior making dig after dig at the prostrate Good, who at each prod jerked all his limbs into the air. Seeing us coming, the Kukuana gave one final and most vicious dig, and with a shout of “Take that, wizard!” bolted away. Good did not move, and we concluded that our poor comrade was done for. Sadly we came towards him, and were astonished to find him pale and faint indeed, but with a serene smile upon his face, and his eyeglass still fixed in his eye.
 
@@ -109,6 +125,9 @@ Filing through the kraal gate, we marched across the open space to where the ex-
 
 Twala’s sombre eye ran up and down our ranks, and I felt, as for a moment it rested on myself, that the position had developed a new horror. What if he chose to begin by fighting me? What chance should I have against a desperate savage six feet five high, and broad in proportion? I might as well commit suicide at once. Hastily I made up my mind to decline the combat, even if I were hooted out of Kukuanaland as a consequence. It is, I think, better to be hooted than to be quartered with a battle-axe.
 
+-----------
+Та же самая задача для этого текста:
+
 Presently Twala spoke.
 
 “Incubu, what sayest thou, shall we end what we began to-day, or shall I call thee coward, white—even to the liver?”
@@ -127,6 +146,7 @@ Unfortunately Sir Henry understood this remark, and the blood flamed up into his
 
 I wrung my hands over this absurd piece of Quixotism; but if he was determined on this deed, of course I could not stop him.
 
+
 “Fight not, my white brother,” said Ignosi, laying his hand affectionately on Sir Henry’s arm; “thou hast fought enough, and if aught befell thee at his hands it would cut my heart in twain.”
 
 “I will fight, Ignosi,” was Sir Henry’s answer.
@@ -134,6 +154,9 @@ I wrung my hands over this absurd piece of Quixotism; but if he was determined o
 “It is well, Incubu; thou art a brave man. It will be a good fray. Behold, Twala, the Elephant is ready for thee.”
 
 The ex-king laughed savagely, and stepping forward faced Curtis. For a moment they stood thus, and the light of the sinking sun caught their stalwart frames and clothed them both in fire. They were a well-matched pair.
+
+-----------
+Та же самая задача для этого текста:
 
 Then they began to circle round each other, their battle-axes raised.
 
@@ -150,6 +173,9 @@ A cry of dismay rose from the Buffaloes as our hero’s broad axe-head fell to t
 It was a mighty struggle, and an awful thing to see.
 
 “Get his axe!” yelled Good; and perhaps our champion heard him.
+
+-----------
+Та же самая задача для этого текста:
 
 At any rate, dropping the tolla, he snatched at the axe, which was fastened to Twala’s wrist by a strip of buffalo hide, and still rolling over and over, they fought for it like wild cats, drawing their breath in heavy gasps. Suddenly the hide string burst, and then, with a great effort, Sir Henry freed himself, the weapon remaining in his hand. Another second and he was upon his feet, the red blood streaming from the wound in his face, and so was Twala. Drawing the heavy tolla from his belt, he reeled straight at Curtis and struck him in the breast. The stab came home true and strong, but whoever it was who made that chain armour, he understood his art, for it withstood the steel. Again Twala struck out with a savage yell, and again the sharp knife rebounded, and Sir Henry went staggering back. Once more Twala came on, and as he came our great Englishman gathered himself together, and swinging the big axe round his head with both hands, hit at him with all his force.
 
@@ -178,6 +204,9 @@ Ignosi bound the diadem upon his brows. Then advancing, he placed his foot upon 
 “They came up against me; their strong ones ran swiftly to slay me; they cried, ‘Ha! ha! he is as one already dead.’
 
 “Then breathed I on them, and my breath was as the breath of a wind, and lo! they were not.
+
+-----------
+Та же самая задача для этого текста:
 
 “My lightnings pierced them; I licked up their strength with the lightning of my spears; I shook them to the ground with the thunder of my shoutings.
 

@@ -2,7 +2,8 @@
 export const chapter_8 = {
 	name: 'Chapter VIII',
 	header: 'We enter Kukuanaland',
-	text: `All that afternoon we travelled along the magnificent roadway, which trended steadily in a north-westerly direction. Infadoos and Scragga walked with us, but their followers marched about one hundred paces ahead.
+	text: `Та же самая задача для этого текста:
+All that afternoon we travelled along the magnificent roadway, which trended steadily in a north-westerly direction. Infadoos and Scragga walked with us, but their followers marched about one hundred paces ahead.
 
 “Infadoos,” I said at length, “who made this road?”
 
@@ -30,6 +31,9 @@ export const chapter_8 = {
 
 “Well?”
 
+-----------
+Та же самая задача для этого текста:
+
 “My lord, Kafa, our father, died when we came to manhood, and my brother Imotu was made king in his place, and for a space reigned and had a son by his favourite wife. When the babe was three years old, just after the great war, during which no man could sow or reap, a famine came upon the land, and the people murmured because of the famine, and looked round like a starved lion for something to rend. Then it was that Gagool, the wise and terrible woman, who does not die, made a proclamation to the people, saying, ‘The king Imotu is no king.’ And at the time Imotu was sick with a wound, and lay in his kraal not able to move.
 
 “Then Gagool went into a hut and led out Twala, my half-brother, and twin brother to the king, whom she had hidden among the caves and rocks since he was born, and stripping the ‘moocha’ (waist-cloth) off his loins, showed the people of the Kukuanas the mark of the sacred snake coiled round his middle, wherewith the eldest son of the king is marked at birth, and cried out loud, ‘Behold your king whom I have saved for you even to this day!’
@@ -52,6 +56,9 @@ export const chapter_8 = {
 
 “When we are among the Kukuanas, my good friend Infadoos, we do as the Kukuanas do,” I said majestically, and turned round quickly to address Good, who was tramping along sullenly behind, his mind fully occupied with unsatisfactory attempts to prevent his flannel shirt from flapping in the evening breeze. To my astonishment I butted into Umbopa, who was walking along immediately behind me, and very evidently had been listening with the greatest interest to my conversation with Infadoos. The expression on his face was most curious, and gave me the idea of a man who was struggling with partial success to bring something long ago forgotten back into his mind.
 
+-----------
+Та же самая задача для этого текста:
+
 All this while we had been pressing on at a good rate towards the undulating plain beneath us. The mountains we had crossed now loomed high above our heads, and Sheba’s Breasts were veiled modestly in diaphanous wreaths of mist. As we went the country grew more and more lovely. The vegetation was luxuriant, without being tropical; the sun was bright and warm, but not burning; and a gracious breeze blew softly along the odorous slopes of the mountains. Indeed, this new land was little less than an earthly paradise; in beauty, in natural wealth, and in climate I have never seen its like. The Transvaal is a fine country, but it is nothing to Kukuanaland.
 
 So soon as we started Infadoos had despatched a runner to warn the people of the kraal, which, by the way, was in his military command, of our arrival. This man had departed at an extraordinary speed, which Infadoos informed me he would keep up all the way, as running was an exercise much practised among his people.
@@ -70,6 +77,9 @@ Presently we came to the first company, and were able to gaze in astonishment on
 
 The weapons that each man bore were simple, but most effective, consisting of a short and very heavy two-edged spear with a wooden shaft, the blade being about six inches across at the widest part. These spears are not used for throwing but like the Zulu “bangwan,” or stabbing assegai, are for close quarters only, when the wound inflicted by them is terrible. In addition to his bangwan every man carried three large and heavy knives, each knife weighing about two pounds. One knife was fixed in the ox-tail girdle, and the other two at the back of the round shield. These knives, which are called “tollas” by the Kukuanas, take the place of the throwing assegai of the Zulus. The Kukuana warriors can cast them with great accuracy to a distance of fifty yards, and it is their custom on charging to hurl a volley of them at the enemy as they come to close quarters.
 
+-----------
+Та же самая задача для этого текста:
+
 Each company remained still as a collection of bronze statues till we were opposite to it, when at a signal given by its commanding officer, who, distinguished by a leopard skin cloak, stood some paces in front, every spear was raised into the air, and from three hundred throats sprang forth with a sudden roar the royal salute of “Koom.” Then, so soon as we had passed, the company formed up behind us and followed us towards the kraal, till at last the whole regiment of the “Greys”—so called from their white shields—the crack corps of the Kukuana people, was marching in our rear with a tread that shook the ground.
 
 At length, branching off from Solomon’s Great Road, we came to the wide fosse surrounding the kraal, which is at least a mile round, and fenced with a strong palisade of piles formed of the trunks of trees. At the gateway this fosse is spanned by a primitive drawbridge, which was let down by the guard to allow us to pass in. The kraal is exceedingly well laid out. Through the centre runs a wide pathway intersected at right angles by other pathways so arranged as to cut the huts into square blocks, each block being the quarters of a company. The huts are dome-shaped, and built, like those of the Zulus, of a framework of wattle, beautifully thatched with grass; but, unlike the Zulu huts, they have doorways through which men could walk. Also they are much larger, and surrounded by a verandah about six feet wide, beautifully paved with powdered lime trodden hard.
@@ -81,6 +91,9 @@ When we reached the centre of the kraal, Infadoos halted at the door of a large 
 “Enter, Sons of the Stars,” he said, in a magniloquent voice, “and deign to rest awhile in our humble habitations. A little food shall be brought to you, so that ye may have no need to draw your belts tight from hunger; some honey and some milk, and an ox or two, and a few sheep; not much, my lords, but still a little food.”
 
 “It is good,” said I. “Infadoos; we are weary with travelling through realms of air; now let us rest.”
+
+-----------
+Та же самая задача для этого текста:
 
 Accordingly we entered the hut, which we found amply prepared for our comfort. Couches of tanned skins were spread for us to lie on, and water was placed for us to wash in.
 

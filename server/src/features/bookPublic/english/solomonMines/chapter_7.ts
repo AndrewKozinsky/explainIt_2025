@@ -2,7 +2,8 @@
 export const chapter_7 = {
 	name: 'Chapter VII',
 	header: 'Solomon’s road',
-	text: `Outside the cavern we halted, feeling rather foolish.
+	text: `Та же самая задача для этого текста:
+Outside the cavern we halted, feeling rather foolish.
 
 “I am going back,” said Sir Henry.
 
@@ -24,6 +25,9 @@ Then I drew near and looked. The body was that of a tall man in middle life with
 
 I shook my head.
 
+-----------
+Та же самая задача для этого текста:
+
 “Why, the old Dom, José da Silvestra, of course—who else?”
 
 “Impossible,” I gasped; “he died three hundred years ago.”
@@ -42,6 +46,9 @@ Then leaving these two, the proud white man of a past age, and the poor Hottento
 
 When we had walked about half a mile we came to the edge of the plateau, for the nipple of the mountain does not rise out of its exact centre, though from the desert side it had seemed to do so. What lay below us we could not see, for the landscape was wreathed in billows of morning fog. Presently, however, the higher layers of mist cleared a little, and revealed, at the end of a long slope of snow, a patch of green grass, some five hundred yards beneath us, through which a stream was running. Nor was this all. By the stream, basking in the bright sun, stood and lay a group of from ten to fifteen large antelopes—at that distance we could not see of what species.
 
+-----------
+Та же самая задача для этого текста:
+
 The sight filled us with an unreasoning joy. If only we could get it, there was food in plenty. But the question was how to do so. The beasts were fully six hundred yards off, a very long shot, and one not to be depended on when our lives hung on the results.
 
 Rapidly we discussed the advisability of trying to stalk the game, but in the end dismissed it reluctantly. To begin with, the wind was not favourable, and further, we must certainly be perceived, however careful we were, against the blinding background of snow, which we should be obliged to traverse.
@@ -58,6 +65,9 @@ Then came a pause, each of us aiming his level best, as indeed a man is likely t
 
 “Starving men should not be fanciful,” said Good; “we must eat raw meat.”
 
+-----------
+Та же самая задача для этого текста:
+
 There was no other way out of the dilemma, and our gnawing hunger made the proposition less distasteful than it would otherwise have been. So we took the heart and liver and buried them for a few minutes in a patch of snow to cool them. Then we washed them in the ice-cold water of the stream, and lastly ate them greedily. It sounds horrible enough, but honestly, I never tasted anything so good as that raw meat. In a quarter of an hour we were changed men. Our life and vigour came back to us, our feeble pulses grew strong again, and the blood went coursing through our veins. But mindful of the results of over-feeding on starved stomachs, we were careful not to eat too much, stopping whilst we were still hungry.
 
 “Thank Heaven!” said Sir Henry; “that brute has saved our lives. What is it, Quatermain?”
@@ -73,6 +83,9 @@ Two curious things struck us as we gazed. First, that the country before us must
 We sat down for a while and gazed in silence at this wonderful view. Presently Sir Henry spoke.
 
 “Isn’t there something on the map about Solomon’s Great Road?” he said.
+
+-----------
+Та же самая задача для этого текста:
 
 I nodded, for I was still gazing out over the far country.
 
@@ -94,6 +107,9 @@ This seemed a good suggestion; at any rate, we accepted it, and proceeded down t
 
 Here we noticed that the sides of the tunnel were covered with quaint sculptures, mostly of mailed figures driving in chariots. One, which was exceedingly beautiful, represented a whole battle scene with a convoy of captives being marched off in the distance.
 
+-----------
+Та же самая задача для этого текста:
+
 “Well,” said Sir Henry, after inspecting this ancient work of art, “it is very well to call this Solomon’s Road, but my humble opinion is that the Egyptians had been here before Solomon’s people ever set a foot on it. If this isn’t Egyptian or Phoenician handiwork, I must say that it is very like it.”
 
 By midday we had advanced sufficiently down the mountain to search the region where wood was to be met with. First we came to scattered bushes which grew more and more frequent, till at last we found the road winding through a vast grove of silver trees similar to those which are to be seen on the slopes of Table Mountain at Cape Town. I had never before met with them in all my wanderings, except at the Cape, and their appearance here astonished me greatly.
@@ -109,6 +125,9 @@ The magic of the place combined with an overwhelming sense of dangers left behin
 Presently I missed Good, and I looked to see what had become of him. Soon I observed him sitting by the bank of the stream, in which he had been bathing. He had nothing on but his flannel shirt, and his natural habits of extreme neatness having reasserted themselves, he was actively employed in making a most elaborate toilet. He had washed his gutta-percha collar, had thoroughly shaken out his trousers, coat and waistcoat, and was now folding them up neatly till he was ready to put them on, shaking his head sadly as he scanned the numerous rents and tears in them, which naturally had resulted from our frightful journey. Then he took his boots, scrubbed them with a handful of fern, and finally rubbed them over with a piece of fat, which he had carefully saved from the inco meat, till they looked, comparatively speaking, respectable. Having inspected them judiciously through his eye-glass, he put the boots on and began a fresh operation. From a little bag that he carried he produced a pocket-comb in which was fixed a tiny looking-glass, and in this he surveyed himself. Apparently he was not satisfied, for he proceeded to do his hair with great care. Then came a pause whilst he again contemplated the effect; still it was not satisfactory. He felt his chin, on which the accumulated scrub of a ten days’ beard was flourishing.
 
 “Surely,” thought I, “he is not going to try to shave.” But so it was. Taking the piece of fat with which he had greased his boots, Good washed it thoroughly in the stream. Then diving again into the bag he brought out a little pocket razor with a guard to it, such as are bought by people who are afraid of cutting themselves, or by those about to undertake a sea voyage. Then he rubbed his face and chin vigorously with the fat and began. Evidently it proved a painful process, for he groaned very much over it, and I was convulsed with inward laughter as I watched him struggling with that stubbly beard. It seemed so very odd that a man should take the trouble to shave himself with a piece of fat in such a place and in our circumstances. At last he succeeded in getting the hair off the right side of his face and chin, when suddenly I, who was watching, became conscious of a flash of light that passed just by his head.
+
+-----------
+Та же самая задача для этого текста:
 
 Good sprang up with a profane exclamation (if it had not been a safety razor he would certainly have cut his throat), and so did I, without the exclamation, and this was what I saw. Standing not more than twenty paces from where I was, and ten from Good, were a group of men. They were very tall and copper-coloured, and some of them wore great plumes of black feathers and short cloaks of leopard skins; this was all I noticed at the moment. In front of them stood a youth of about seventeen, his hand still raised and his body bent forward in the attitude of a Grecian statue of a spear-thrower. Evidently the flash of light had been caused by a weapon which he had hurled.
 
@@ -130,6 +149,9 @@ Sir Henry, Good, and Umbopa by this time had seized their rifles and lifted them
 
 I was slightly staggered at this, more especially as I saw the hands of some of the men steal down to their sides, where hung on each what looked to me like a large and heavy knife.
 
+-----------
+Та же самая задача для этого текста:
+
 “What does that beggar say?” asked Good.
 
 “He says we are going to be killed,” I answered grimly.
@@ -150,6 +172,9 @@ In another second curiosity had overcome fear, and the men advanced slowly. Appa
 
 “Where are his teeth?” they shouted; “with our eyes we saw them.”
 
+-----------
+Та же самая задача для этого текста:
+
 Turning his head slowly and with a gesture of ineffable contempt, Good swept his hand across his mouth. Then he grinned again, and lo, there were two rows of lovely teeth.
 
 Now the young man who had flung the knife threw himself down on the grass and gave vent to a prolonged howl of terror; and as for the old gentleman, his knees knocked together with fear.
@@ -168,6 +193,9 @@ Here was luck indeed, and, needless to say, I jumped at the chance.
 
 “Only, my lord,” put in the old gentleman, “thou hast learnt it very badly.”
 
+-----------
+Та же самая задача для этого текста:
+
 I cast an indignant glance at him, and he quailed.
 
 “Now friends,” I continued, “ye might think that after so long a journey we should find it in our hearts to avenge such a reception, mayhap to strike cold in death the imperious hand that—that, in short—threw a knife at the head of him whose teeth come and go.”
@@ -181,6 +209,9 @@ I cast an indignant glance at him, and he quailed.
 Umbopa rose to the occasion, and with something as nearly resembling a grin as I have ever seen on his dignified face he handed me the gun.
 
 “It is here, O Lord of Lords,” he said with a deep obeisance.
+
+-----------
+Та же самая задача для этого текста:
 
 Now just before I had asked for the rifle I had perceived a little klipspringer antelope standing on a mass of rock about seventy yards away, and determined to risk the shot.
 
@@ -208,6 +239,9 @@ The old man made a sign, and one of his followers departed, and presently return
 
 There was no answer.
 
+-----------
+Та же самая задача для этого текста:
+
 “If ye yet doubt our power,” I went on, “let one of you go stand upon that rock that I may make him as this buck.”
 
 None of them seemed at all inclined to take the hint, till at last the king’s son spoke.
@@ -233,6 +267,9 @@ There was a most general and hasty expression of dissent.
 “It is well, my lords, we will lead you; but the way is long. We are hunting three days’ journey from the place of the king. But let my lords have patience, and we will lead them.”
 
 “So be it,” I said carelessly; “all time is before us, for we do not die. We are ready, lead on. But Infadoos, and thou Scragga, beware! Play us no monkey tricks, set for us no foxes’ snares, for before your brains of mud have thought of them we shall know and avenge. The light of the transparent eye of him with the bare legs and the half-haired face shall destroy you, and go through your land; his vanishing teeth shall affix themselves fast in you and eat you up, you and your wives and children; the magic tubes shall argue with you loudly, and make you as sieves. Beware!”
+
+-----------
+Та же самая задача для этого текста:
 
 This magnificent address did not fail of its effect; indeed, it might almost have been spared, so deeply were our friends already impressed with our powers.
 

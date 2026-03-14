@@ -2,7 +2,8 @@
 export const chapter_6 = {
 	name: 'Chapter VI',
 	header: 'Water! Water!',
-	text: `Two hours later, that is, about four o’clock, I woke up, for so soon as the first heavy demand of bodily fatigue had been satisfied, the torturing thirst from which I was suffering asserted itself. I could sleep no more. I had been dreaming that I was bathing in a running stream, with green banks and trees upon them, and I awoke to find myself in this arid wilderness, and to remember, as Umbopa had said, that if we did not find water this day we must perish miserably. No human creature could live long without water in that heat. I sat up and rubbed my grimy face with my dry and horny hands, as my lips and eyelids were stuck together, and it was only after some friction and with an effort that I was able to open them. It was not far from dawn, but there was none of the bright feel of dawn in the air, which was thick with a hot murkiness that I cannot describe. The others were still sleeping.
+	text: `Та же самая задача для этого текста:
+Two hours later, that is, about four o’clock, I woke up, for so soon as the first heavy demand of bodily fatigue had been satisfied, the torturing thirst from which I was suffering asserted itself. I could sleep no more. I had been dreaming that I was bathing in a running stream, with green banks and trees upon them, and I awoke to find myself in this arid wilderness, and to remember, as Umbopa had said, that if we did not find water this day we must perish miserably. No human creature could live long without water in that heat. I sat up and rubbed my grimy face with my dry and horny hands, as my lips and eyelids were stuck together, and it was only after some friction and with an effort that I was able to open them. It was not far from dawn, but there was none of the bright feel of dawn in the air, which was thick with a hot murkiness that I cannot describe. The others were still sleeping.
 
 Presently it began to grow light enough to read, so I drew out a little pocket copy of the “Ingoldsby Legends” which I had brought with me, and read “The Jackdaw of Rheims.” When I got to where
 
@@ -13,6 +14,9 @@ As any that flows between Rheims and Namur,”
 literally I smacked my cracking lips, or rather tried to smack them. The mere thought of that pure water made me mad. If the Cardinal had been there with his bell, book, and candle, I would have whipped in and drunk his water up; yes, even if he had filled it already with the suds of soap “worthy of washing the hands of the Pope,” and I knew that the whole consecrated curse of the Catholic Church should fall upon me for so doing. I almost think that I must have been a little light-headed with thirst, weariness and the want of food; for I fell to thinking how astonished the Cardinal and his nice little boy and the jackdaw would have looked to see a burnt up, brown-eyed, grizzly-haired little elephant hunter suddenly bound between them, put his dirty face into the basin, and swallow every drop of the precious water. The idea amused me so much that I laughed or rather cackled aloud, which woke the others, and they began to rub their dirty faces and drag their gummed-up lips and eyelids apart.
 
 As soon as we were all well awake we began to discuss the situation, which was serious enough. Not a drop of water was left. We turned the bottles upside down, and licked their tops, but it was a failure; they were dry as a bone. Good, who had charge of the flask of brandy, got it out and looked at it longingly; but Sir Henry promptly took it away from him, for to drink raw spirit would only have been to precipitate the end.
+
+-----------
+Та же самая задача для этого текста:
 
 “If we do not find water we shall die,” he said.
 
@@ -38,6 +42,9 @@ Just at that moment the sun came up gloriously, and revealed so grand a sight to
 
 There, not more than forty or fifty miles from us, glittering like silver in the early rays of the morning sun, soared Sheba’s Breasts; and stretching away for hundreds of miles on either side of them ran the great Suliman Berg. Now that, sitting here, I attempt to describe the extraordinary grandeur and beauty of that sight, language seems to fail me. I am impotent even before its memory. Straight before us, rose two enormous mountains, the like of which are not, I believe, to be seen in Africa, if indeed there are any other such in the world, measuring each of them at least fifteen thousand feet in height, standing not more than a dozen miles apart, linked together by a precipitous cliff of rock, and towering in awful white solemnity straight into the sky. These mountains placed thus, like the pillars of a gigantic gateway, are shaped after the fashion of a woman’s breasts, and at times the mists and shadows beneath them take the form of a recumbent woman, veiled mysteriously in sleep. Their bases swell gently from the plain, looking at that distance perfectly round and smooth; and upon the top of each is a vast hillock covered with snow, exactly corresponding to the nipple on the female breast. The stretch of cliff that connects them appears to be some thousands of feet in height, and perfectly precipitous, and on each flank of them, so far as the eye can reach, extend similar lines of cliff, broken only here and there by flat table-topped mountains, something like the world-famed one at Cape Town; a formation, by the way, that is very common in Africa.
 
+-----------
+Та же самая задача для этого текста:
+
 To describe the comprehensive grandeur of that view is beyond my powers. There was something so inexpressibly solemn and overpowering about those huge volcanoes—for doubtless they are extinct volcanoes—that it quite awed us. For a while the morning lights played upon the snow and the brown and swelling masses beneath, and then, as though to veil the majestic sight from our curious eyes, strange vapours and clouds gathered and increased around the mountains, till presently we could only trace their pure and gigantic outlines, showing ghostlike through the fleecy envelope. Indeed, as we afterwards discovered, usually they were wrapped in this gauze-like mist, which doubtless accounted for our not having seen them more clearly before.
 
 Sheba’s Breasts had scarcely vanished into cloud-clad privacy, before our thirst—literally a burning question—reasserted itself.
@@ -53,6 +60,9 @@ But still he lifted his ugly snub nose and sniffed.
 “Yes,” I said, “no doubt it is in the clouds, and about two months hence it will fall and wash our bones.”
 
 Sir Henry stroked his yellow beard thoughtfully. “Perhaps it is on the top of the hill,” he suggested.
+
+-----------
+Та же самая задача для этого текста:
 
 “Rot,” said Good; “whoever heard of water being found at the top of a hill!”
 
@@ -71,6 +81,9 @@ Having filled both ourselves and our water-bottles as full as possible, in far b
 By eleven o’clock we were utterly exhausted, and, generally speaking, in a very bad state indeed. The lava clinker, over which we must drag ourselves, though smooth compared with some clinker I have heard of, such as that on the Island of Ascension, for instance, was yet rough enough to make our feet very sore, and this, together with our other miseries, had pretty well finished us. A few hundred yards above us were some large lumps of lava, and towards these we steered with the intention of lying down beneath their shade. We reached them, and to our surprise, so far as we had a capacity for surprise left in us, on a little plateau or ridge close by we saw that the clinker was covered with a dense green growth. Evidently soil formed of decomposed lava had rested there, and in due course had become the receptacle of seeds deposited by birds. But we did not take much further interest in the green growth, for one cannot live on grass like Nebuchadnezzar. That requires a special dispensation of Providence and peculiar digestive organs.
 
 So we sat down under the rocks and groaned, and for one I wished heartily that we had never started on this fool’s errand. As we were sitting there I saw Umbopa get up and hobble towards the patch of green, and a few minutes afterwards, to my great astonishment, I perceived that usually very dignified individual dancing and shouting like a maniac, and waving something green. Off we all scrambled towards him as fast as our wearied limbs would carry us, hoping that he had found water.
+
+-----------
+Та же самая задача для этого текста:
 
 “What is it, Umbopa, son of a fool?” I shouted in Zulu.
 
@@ -99,6 +112,9 @@ Now we began to grow very anxious about food. We had escaped death by thirst, bu
 “23rd.—Struggled forward once more as soon as the sun was well up, and had thawed our limbs a little. We are now in a dreadful plight, and I fear that unless we get food this will be our last day’s journey. But little brandy left. Good, Sir Henry, and Umbopa bear up wonderfully, but Ventvögel is in a very bad way. Like most Hottentots, he cannot stand cold. Pangs of hunger not so bad, but have a sort of numb feeling about the stomach. Others say the same. We are now on a level with the precipitous chain, or wall of lava, linking the two Breasts, and the view is glorious. Behind us the glowing desert rolls away to the horizon, and before us lie mile upon mile of smooth hard snow almost level, but swelling gently upwards, out of the centre of which the nipple of the mountain, that appears to be some miles in circumference, rises about four thousand feet into the sky. Not a living thing is to be seen. God help us; I fear that our time has come.”
 
 And now I will drop the journal, partly because it is not very interesting reading; also what follows requires telling rather more fully.
+
+-----------
+Та же самая задача для этого текста:
 
 All that day—the 23rd May—we struggled slowly up the incline of snow, lying down from time to time to rest. A strange gaunt crew we must have looked, while, laden as we were, we dragged our weary feet over the dazzling plain, glaring round us with hungry eyes. Not that there was much use in glaring, for we could see nothing to eat. We did not accomplish more than seven miles that day. Just before sunset we found ourselves exactly under the nipple of Sheba’s left Breast, which towered thousands of feet into the air, a vast smooth hillock of frozen snow. Weak as we were, we could not but appreciate the wonderful scene, made even more splendid by the flying rays of light from the setting sun, which here and there stained the snow blood-red, and crowned the great dome above us with a diadem of glory.
 

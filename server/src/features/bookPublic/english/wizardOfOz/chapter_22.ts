@@ -1,64 +1,69 @@
-// Это неадаптированная версия !
 export const chapter_22 = {
 	name: 'Chapter XXII',
 	header: 'The Country of the Quadlings',
-	text: `The four travelers passed through the rest of the forest in safety, and when they came out from its gloom saw before them a steep hill, covered from top to bottom with great pieces of rock.
+	text: `The four travelers passed safely through the rest of the forest. When they came out of its dark shade, they saw a steep hill in front of them. The hill was covered from top to bottom with large rocks.
 
-“That will be a hard climb,” said the Scarecrow, “but we must get over the hill, nevertheless.”
+“That will be a difficult climb,” said the Scarecrow, “but we must get over the hill anyway.”
 
-So he led the way and the others followed. They had nearly reached the first rock when they heard a rough voice cry out, “Keep back!”
+So he went first, and the others followed him. They had almost reached the first rock when they heard a rough voice shout, “Stay back!”
 
 “Who are you?” asked the Scarecrow.
 
-Then a head showed itself over the rock and the same voice said, “This hill belongs to us, and we don’t allow anyone to cross it.”
+Then a head appeared above the rock, and the same voice said, “This hill belongs to us, and we do not allow anyone to cross it.”
 
-“But we must cross it,” said the Scarecrow. “We’re going to the country of the Quadlings.”
+“But we must cross it,” said the Scarecrow. “We are going to the country of the Quadlings.”
 
-“But you shall not!” replied the voice, and there stepped from behind the rock the strangest man the travelers had ever seen.
+“But you shall not!” replied the voice. Then the strangest man the travelers had ever seen stepped out from behind the rock.
 
-He was quite short and stout and had a big head, which was flat at the top and supported by a thick neck full of wrinkles. But he had no arms at all, and, seeing this, the Scarecrow did not fear that so helpless a creature could prevent them from climbing the hill. So he said, “I’m sorry not to do as you wish, but we must pass over your hill whether you like it or not,” and he walked boldly forward.
+He was short and heavy, with a large head that was flat on top. His thick neck was full of wrinkles. But he had no arms at all. When the Scarecrow saw this, he was not afraid that such a helpless creature could stop them from climbing the hill. So he said, “I’m sorry that we cannot do as you wish, but we must cross your hill whether you like it or not,” and he walked bravely forward.
 
-As quick as lightning the man’s head shot forward and his neck stretched out until the top of the head, where it was flat, struck the Scarecrow in the middle and sent him tumbling, over and over, down the hill. Almost as quickly as it came the head went back to the body, and the man laughed harshly as he said, “It isn’t as easy as you think!”
+Suddenly the man’s head shot forward, and his neck stretched out. The flat top of his head hit the Scarecrow in the middle and sent him rolling down the hill again and again. Just as quickly, the head pulled back to the body, and the man laughed harshly and said, “It is not as easy as you think!”
 
-A chorus of boisterous laughter came from the other rocks, and Dorothy saw hundreds of the armless Hammer-Heads upon the hillside, one behind every rock.
+Loud laughter came from the other rocks, and Dorothy saw hundreds of armless Hammer-Heads on the hillside, each one standing behind a rock.
 
-The Lion became quite angry at the laughter caused by the Scarecrow’s mishap, and giving a loud roar that echoed like thunder, he dashed up the hill.
+The Lion became very angry when he heard the laughter at the Scarecrow’s fall. With a loud roar that echoed like thunder, he rushed up the hill.
 
-Again a head shot swiftly out, and the great Lion went rolling down the hill as if he had been struck by a cannon ball.
+Again a head shot out quickly, and the great Lion went rolling down the hill as if he had been hit by a cannonball.
 
-Dorothy ran down and helped the Scarecrow to his feet, and the Lion came up to her, feeling rather bruised and sore, and said, “It is useless to fight people with shooting heads; no one can withstand them.”
+Dorothy ran down the hill and helped the Scarecrow stand up. The Lion came up to her, looking bruised and sore, and said, “It is useless to fight people whose heads shoot out like that. No one can defeat them.”
 
-“What can we do, then?” she asked.
+“What can we do then?” she asked.
 
-“Call the Winged Monkeys,” suggested the Tin Woodman. “You have still the right to command them once more.”
+“Call the Winged Monkeys,” suggested the Tin Woodman. “You still have the right to command them one more time.”
 
-“Very well,” she answered, and putting on the Golden Cap she uttered the magic words. The Monkeys were as prompt as ever, and in a few moments the entire band stood before her.
+“Very well,” she said. She put on the Golden Cap and spoke the magic words. The Monkeys came as quickly as ever, and in a few moments the whole group stood before her.
 
-“What are your commands?” inquired the King of the Monkeys, bowing low.
+“What are your commands?” asked the King of the Monkeys, bowing low.
 
-“Carry us over the hill to the country of the Quadlings,” answered the girl.
+“Carry us over the hill to the country of the Quadlings,” answered Dorothy.
 
-“It shall be done,” said the King, and at once the Winged Monkeys caught the four travelers and Toto up in their arms and flew away with them. As they passed over the hill the Hammer-Heads yelled with vexation, and shot their heads high in the air, but they could not reach the Winged Monkeys, which carried Dorothy and her comrades safely over the hill and set them down in the beautiful country of the Quadlings.
+“It will be done,” said the King. At once the Winged Monkeys lifted the four travelers and Toto in their arms and flew away with them. As they passed over the hill, the Hammer-Heads shouted angrily and shot their heads high into the air. But they could not reach the Winged Monkeys, who carried Dorothy and her friends safely over the hill and set them down in the beautiful country of the Quadlings.
 
-“This is the last time you can summon us,” said the leader to Dorothy; “so good-bye and good luck to you.”
+“This is the last time you can call us,” said the Monkey King to Dorothy. “So good-bye, and good luck to you.”
 
-“Good-bye, and thank you very much,” returned the girl; and the Monkeys rose into the air and were out of sight in a twinkling.
+“Good-bye, and thank you very much,” said the girl.
 
-------------
+The Monkeys rose into the air and disappeared from sight in a moment.
 
-The country of the Quadlings seemed rich and happy. There was field upon field of ripening grain, with well-paved roads running between, and pretty rippling brooks with strong bridges across them. The fences and houses and bridges were all painted bright red, just as they had been painted yellow in the country of the Winkies and blue in the country of the Munchkins. The Quadlings themselves, who were short and fat and looked chubby and good-natured, were dressed all in red, which showed bright against the green grass and the yellowing grain.
+The country of the Quadlings looked rich and happy. There were many fields of ripening grain, with good roads running between them. Clear little streams flowed through the land, with strong bridges built over them. The fences, houses, and bridges were all painted bright red, just as everything had been painted yellow in the country of the Winkies and blue in the country of the Munchkins.
 
-The Monkeys had set them down near a farmhouse, and the four travelers walked up to it and knocked at the door. It was opened by the farmer’s wife, and when Dorothy asked for something to eat the woman gave them all a good dinner, with three kinds of cake and four kinds of cookies, and a bowl of milk for Toto.
+The Quadlings themselves were short and round, with chubby and friendly faces. They were dressed completely in red, which looked bright against the green grass and the golden grain.
 
-“How far is it to the Castle of Glinda?” asked the child.
+The Monkeys had set the travelers down near a farmhouse. The four friends walked up to it and knocked on the door. A farmer’s wife opened it. When Dorothy asked for something to eat, the woman kindly gave them a good dinner. There were three kinds of cake, four kinds of cookies, and a bowl of milk for Toto.
 
-“It is not a great way,” answered the farmer’s wife. “Take the road to the South and you will soon reach it.”
+“How far is it to Glinda’s Castle?” asked Dorothy.
 
-Thanking the good woman, they started afresh and walked by the fields and across the pretty bridges until they saw before them a very beautiful Castle. Before the gates were three young girls, dressed in handsome red uniforms trimmed with gold braid; and as Dorothy approached, one of them said to her:
+“It is not very far,” answered the farmer’s wife. “Just follow the road to the South, and you will soon reach it.”
+
+After thanking the kind woman, they continued their journey. They walked past the fields and crossed the pretty bridges until they saw a very beautiful castle ahead of them.
+
+In front of the gates stood three young girls wearing fine red uniforms with gold trim. When Dorothy came closer, one of them said:
 
 “Why have you come to the South Country?”
 
-“To see the Good Witch who rules here,” she answered. “Will you take me to her?”
+“To see the Good Witch who rules here,” Dorothy answered. “Will you take me to her?”
 
-“Let me have your name, and I will ask Glinda if she will receive you.” They told who they were, and the girl soldier went into the Castle. After a few moments she came back to say that Dorothy and the others were to be admitted at once.`,
+“Tell me your name, and I will ask Glinda if she will receive you.”
+
+They told her who they were, and the girl soldier went into the castle. After a few minutes she returned and said that Dorothy and her friends could come in at once.`,
 }

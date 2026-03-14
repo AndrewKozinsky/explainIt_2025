@@ -2,7 +2,8 @@
 export const chapter_12 = {
 	name: 'Chapter XII',
 	header: 'Before the battle',
-	text: `Luckily for us, Infadoos and the chiefs knew all the paths of the great town perfectly, so that we passed by side-ways unmolested, and notwithstanding the gloom we made fair progress.
+	text: `Та же самая задача для этого текста:
+Luckily for us, Infadoos and the chiefs knew all the paths of the great town perfectly, so that we passed by side-ways unmolested, and notwithstanding the gloom we made fair progress.
 
 For an hour or more we journeyed on, till at length the eclipse began to pass, and that edge of the moon which had disappeared the first became again visible. Suddenly, as we watched, there burst from it a silver streak of light, accompanied by a wondrous ruddy glow, which hung upon the blackness of the sky like a celestial lamp, and a wild and lovely sight it was. In another five minutes the stars began to fade, and there was sufficient light to see our whereabouts. We then discovered that we were clear of the town of Loo, and approaching a large flat-topped hill, measuring some two miles in circumference. This hill, which is of a formation common in South Africa, is not very high; indeed, its greatest elevation is scarcely more than 200 feet, but it is shaped like a horseshoe, and its sides are rather precipitous and strewn with boulders. On the grass table-land at its summit is ample camping-ground, which had been utilised as a military cantonment of no mean strength. Its ordinary garrison was one regiment of three thousand men, but as we toiled up the steep side of the mountain in the returning moonlight we perceived that there were several of such regiments encamped there.
 
@@ -23,6 +24,9 @@ Accordingly, when the sun was up, the troops—in all some twenty thousand men, 
 These, after silence had been proclaimed, Infadoos proceeded to address. He narrated to them in vigorous and graceful language—for, like most Kukuanas of high rank, he was a born orator—the history of Ignosi’s father, and of how he had been basely murdered by Twala the king, and his wife and child driven out to starve. Then he pointed out that the people suffered and groaned under Twala’s cruel rule, instancing the proceedings of the previous night, when, under pretence of their being evil-doers, many of the noblest in the land had been dragged forth and wickedly done to death. Next he went on to say that the white lords from the Stars, looking down upon their country, had perceived its trouble, and determined, at great personal inconvenience, to alleviate its lot: That they had accordingly taken the real king of the Kukuanas, Ignosi, who was languishing in exile, by the hand, and led him over the mountains: That they had seen the wickedness of Twala’s doings, and for a sign to the wavering, and to save the life of the girl Foulata, actually, by the exercise of their high magic, had put out the moon and slain the young fiend Scragga; and that they were prepared to stand by them, and assist them to overthrow Twala, and set up the rightful king, Ignosi, in his place.
 
 He finished his discourse amidst a murmur of approbation. Then Ignosi stepped forward and began to speak. Having reiterated all that Infadoos his uncle had said, he concluded a powerful speech in these words:—
+
+-----------
+Та же самая задача для этого текста:
 
 “O chiefs, captains, soldiers, and people, ye have heard my words. Now must ye make choice between me and him who sits upon my throne, the uncle who killed his brother, and hunted his brother’s child forth to die in the cold and the night. That I am indeed the king these”—pointing to the chiefs—“can tell you, for they have seen the snake about my middle. If I were not the king, would these white men be on my side with all their magic? Tremble, chiefs, captains, soldiers, and people! Is not the darkness they have brought upon the land to confound Twala and cover our flight, darkness even in the hour of the full moon, yet before your eyes?”
 
@@ -46,6 +50,9 @@ Half an hour afterwards we held a council of war, at which all the commanders of
 
 Infadoos and the chiefs, however, were of opinion that no attack would take place that day, which would be devoted to preparation and to the removal of every available means of the moral effect produced upon the minds of the soldiery by the supposed magical darkening of the moon. The onslaught would be on the morrow, they said, and they proved to be right.
 
+-----------
+Та же самая задача для этого текста:
+
 Meanwhile, we set to work to strengthen the position in all ways possible. Almost every man was turned out, and in the course of the day, which seemed far too short, much was done. The paths up the hill—that was rather a sanatorium than a fortress, being used generally as the camping place of regiments suffering from recent service in unhealthy portions of the country—were carefully blocked with masses of stones, and every other approach was made as impregnable as time would allow. Piles of boulders were collected at various spots to be rolled down upon an advancing enemy, stations were appointed to the different regiments, and all preparation was made which our joint ingenuity could suggest.
 
 Just before sundown, as we rested after our toil, we perceived a small company of men advancing towards us from the direction of Loo, one of whom bore a palm leaf in his hand for a sign that he came as a herald.
@@ -66,6 +73,9 @@ After consulting with the others a little, I answered him in a loud voice, so th
 
 “Go back, thou dog, to Twala, who sent thee, and say that we, Ignosi, veritable king of the Kukuanas, Incubu, Bougwan, and Macumazahn, the wise ones from the Stars, who make dark the moon, Infadoos, of the royal house, and the chiefs, captains, and people here gathered, make answer and say, ‘That we will not surrender; that before the sun has gone down twice, Twala’s corpse shall stiffen at Twala’s gate, and Ignosi, whose father Twala slew, shall reign in his stead.’ Now go, ere we whip thee away, and beware how thou dost lift a hand against such as we are.”
 
+-----------
+Та же самая задача для этого текста:
+
 The herald laughed loudly. “Ye frighten not men with such swelling words,” he cried out. “Show yourselves as bold to-morrow, O ye who darken the moon. Be bold, fight, and be merry, before the crows pick your bones till they are whiter than your faces. Farewell; perhaps we may meet in the fight; fly not to the Stars, but wait for me, I pray, white men.” With this shaft of sarcasm he retired, and almost immediately the sun sank.
 
 That night was a busy one, for weary as we were, so far as was possible by the moonlight all preparations for the morrow’s fight were continued, and messengers were constantly coming and going from the place where we sat in council. At last, about an hour after midnight, everything that could be done was done, and the camp, save for the occasional challenge of a sentry, sank into silence. Sir Henry and I, accompanied by Ignosi and one of the chiefs, descended the hill and made a round of the pickets. As we went, suddenly, from all sorts of unexpected places, spears gleamed out in the moonlight, only to vanish again when we uttered the password. It was clear to us that none were sleeping at their posts. Then we returned, picking our way warily through thousands of sleeping warriors, many of whom were taking their last earthly rest.
@@ -82,6 +92,9 @@ Truly the universe is full of ghosts, not sheeted churchyard spectres, but the i
 
 All sorts of reflections of this nature passed through my mind—for as I grow older I regret to say that a detestable habit of thinking seems to be getting a hold of me—while I stood and stared at those grim yet fantastic lines of warriors, sleeping, as their saying goes, “upon their spears.”
 
+-----------
+Та же самая задача для этого текста:
+
 “Curtis,” I said, “I am in a condition of pitiable fear.”
 
 Sir Henry stroked his yellow beard and laughed, as he answered—
@@ -97,6 +110,9 @@ He made this last remark in a mournful voice, but there was a gleam in his eye w
 After this we went to sleep for a couple of hours or so.
 
 Just about dawn we were awakened by Infadoos, who came to say that great activity was to be observed in Loo, and that parties of the king’s skirmishers were driving in our outposts.
+
+-----------
+Та же самая задача для этого текста:
 
 We rose and dressed ourselves for the fray, each putting on his chain armour shirt, for which garments at the present juncture we felt exceedingly thankful. Sir Henry went the whole length about the matter, and dressed himself like a native warrior. “When you are in Kukuanaland, do as the Kukuanas do,” he remarked, as he drew the shining steel over his broad breast, which it fitted like a glove. Nor did he stop there. At his request Infadoos had provided him with a complete set of native war uniform. Round his throat he fastened the leopard-skin cloak of a commanding officer, on his brows he bound the plume of black ostrich feathers worn only by generals of high rank, and about his middle a magnificent moocha of white ox-tails. A pair of sandals, a leglet of goat’s hair, a heavy battle-axe with a rhinoceros-horn handle, a round iron shield covered with white ox-hide, and the regulation number of tollas, or throwing-knives, made up his equipment, to which, however, he added his revolver. The dress was, no doubt, a savage one, but I am bound to say that I seldom saw a finer sight than Sir Henry Curtis presented in this guise. It showed off his magnificent physique to the greatest advantage, and when Ignosi arrived presently, arrayed in a similar costume, I thought to myself that I had never before seen two such splendid men.
 

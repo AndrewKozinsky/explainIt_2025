@@ -20,6 +20,9 @@ We three—that is, Sir Henry Curtis, Captain Good, and myself—went and sat by
 
 I rose and knocked out my pipe before I answered. I had not made up my mind, and wanted an additional moment to decide. Before the burning tobacco had fallen into the sea I had decided; just that little extra second did the trick. It is often the way when you have been bothering a long time over a thing.
 
+-----------
+Та же самая задача для этого текста:
+
 “Yes, gentlemen,” I said, sitting down again, “I will go, and by your leave I will tell you why, and on what conditions. First for the terms which I ask.
 
 “1. You are to pay all expenses, and any ivory or other valuables we may get is to be divided between Captain Good and myself.
@@ -42,6 +45,9 @@ I paused to watch the effect of my words. Captain Good looked a little uncomfort
 
 “Yes, yes,” put in the captain. “We have all three of us been accustomed to face danger, and to hold our lives in our hands in various ways, so it is no good turning back now. And now I vote we go down to the saloon and take an observation just for luck, you know.” And we did—through the bottom of a tumbler.
 
+-----------
+Та же самая задача для этого текста:
+
 Next day we went ashore, and I put up Sir Henry and Captain Good at the little shanty I have built on the Berea, and which I call my home. There are only three rooms and a kitchen in it, and it is constructed of green brick with a galvanised iron roof, but there is a good garden with the best loquot trees in it that I know, and some nice young mangoes, of which I hope great things. The curator of the botanical gardens gave them to me. It is looked after by an old hunter of mine named Jack, whose thigh was so badly broken by a buffalo cow in Sikukunis country that he will never hunt again. But he can potter about and garden, being a Griqua by birth. You will never persuade a Zulu to take much interest in gardening. It is a peaceful art, and peaceful arts are not in his line.
 
 Sir Henry and Good slept in a tent pitched in my little grove of orange trees at the end of the garden, for there was no room for them in the house, and what with the smell of the bloom, and the sight of the green and golden fruit—in Durban you will see all three on the tree together—I daresay it is a pleasant place enough, for we have few mosquitos here on the Berea, unless there happens to come an unusually heavy rain.
@@ -55,6 +61,9 @@ Then I bought a beautiful team of twenty Zulu oxen, which I had kept my eye on f
 Next came the question of provisioning and medicines, one which required the most careful consideration, for what we had to do was to avoid lumbering the wagon, and yet to take everything absolutely necessary. Fortunately, it turned out that Good is a bit of a doctor, having at some point in his previous career managed to pass through a course of medical and surgical instruction, which he has more or less kept up. He is not, of course, qualified, but he knows more about it than many a man who can write M.D. after his name, as we found out afterwards, and he had a splendid travelling medicine chest and a set of instruments. Whilst we were at Durban he cut off a Kafir’s big toe in a way which it was a pleasure to see. But he was quite nonplussed when the Kafir, who had sat stolidly watching the operation, asked him to put on another, saying that a “white one” would do at a pinch.
 
 There remained, when these questions were satisfactorily settled, two further important points for consideration, namely, that of arms and that of servants. As to the arms I cannot do better than put down a list of those which we finally decided on from among the ample store that Sir Henry had brought with him from England, and those which I owned. I copy it from my pocket-book, where I made the entry at the time.
+
+-----------
+Та же самая задача для этого текста:
 
 “Three heavy breech-loading double-eight elephant guns, weighing about fifteen pounds each, to carry a charge of eleven drachms of black powder.” Two of these were by a well-known London firm, most excellent makers, but I do not know by whom mine, which is not so highly finished, was made. I have used it on several trips, and shot a good many elephants with it, and it has always proved a most superior weapon, thoroughly to be relied on.
 
@@ -73,6 +82,9 @@ Now as to the men who were to go with us. After much consultation we decided tha
 The driver and leader I found without much difficulty, two Zulus, named respectively Goza and Tom; but to get the servants proved a more difficult matter. It was necessary that they should be thoroughly trustworthy and brave men, as in a business of this sort our lives might depend upon their conduct. At last I secured two, one a Hottentot named Ventvögel, or “windbird,” and one a little Zulu named Khiva, who had the merit of speaking English perfectly. Ventvögel I had known before; he was one of the most perfect “spoorers,” that is, game trackers, I ever had to do with, and tough as whipcord. He never seemed to tire. But he had one failing, so common with his race, drink. Put him within reach of a bottle of gin and you could not trust him. However, as we were going beyond the region of grog-shops this little weakness of his did not so much matter.
 
 Having secured these two men I looked in vain for a third to suit my purpose, so we determined to start without one, trusting to luck to find a suitable man on our way up country. But, as it happened, on the evening before the day we had fixed for our departure the Zulu Khiva informed me that a Kafir was waiting to see me. Accordingly, when we had done dinner, for we were at table at the time, I told Khiva to bring him in. Presently a tall, handsome-looking man, somewhere about thirty years of age, and very light-coloured for a Zulu, entered, and lifting his knob-stick by way of salute, squatted himself down in the corner on his haunches, and sat silent. I did not take any notice of him for a while, for it is a great mistake to do so. If you rush into conversation at once, a Zulu is apt to think you a person of little dignity or consequence. I observed, however, that he was a “Keshla” or ringed man; that is, he wore on his head the black ring, made of a species of gum polished with fat and worked up in the hair, which is usually assumed by Zulus on attaining a certain age or dignity. Also it struck me that his face was familiar to me.
+
+-----------
+Та же самая задача для этого текста:
 
 “Well,” I said at last, “What is your name?”
 
@@ -95,6 +107,9 @@ Then I remembered. I was one of Lord Chelmsford’s guides in that unlucky Zulu 
 “Why do you ask whither we go? What is it to you?” I answered suspiciously, for the objects of our journey had been kept a dead secret.
 
 “It is this, O white men, that if indeed you travel so far I would travel with you.”
+
+-----------
+Та же самая задача для этого текста:
 
 There was a certain assumption of dignity in the man’s mode of speech, and especially in his use of the words “O white men,” instead of “O Inkosis,” or chiefs, which struck me.
 

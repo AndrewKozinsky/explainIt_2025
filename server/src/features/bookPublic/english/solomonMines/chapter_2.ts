@@ -2,7 +2,9 @@
 export const chapter_2 = {
 	name: 'Chapter II',
 	header: 'The legend of Solomon’s mines',
-	text: `“What was it that you heard about my brother’s journey at Bamangwato?” asked Sir Henry, as I paused to fill my pipe before replying to Captain Good.
+	text: `Та же самая задача для этого текста:
+
+“What was it that you heard about my brother’s journey at Bamangwato?” asked Sir Henry, as I paused to fill my pipe before replying to Captain Good.
 
 “I heard this,” I answered, “and I have never mentioned it to a soul till to-day. I heard that he was starting for Solomon’s Mines.”
 
@@ -24,6 +26,9 @@ Sir Henry nodded, and Captain Good replied, “Certainly, certainly.”
 
 “‘Good-bye, señor,’ he said; ‘if ever we meet again I shall be the richest man in the world, and I will remember you.’ I laughed a little—I was too weak to laugh much—and watched him strike out for the great desert to the west, wondering if he was mad, or what he thought he was going to find there.
 
+-----------
+Та же самая задача для этого текста:
+
 “A week passed, and I got the better of my fever. One evening I was sitting on the ground in front of the little tent I had with me, chewing the last leg of a miserable fowl I had bought from a native for a bit of cloth worth twenty fowls, and staring at the hot red sun sinking down over the desert, when suddenly I saw a figure, apparently that of a European, for it wore a coat, on the slope of the rising ground opposite to me, about three hundred yards away. The figure crept along on its hands and knees, then it got up and staggered forward a few yards on its legs, only to fall and crawl again. Seeing that it must be somebody in distress, I sent one of my hunters to help him, and presently he arrived, and who do you suppose it turned out to be?”
 
 “José Silvestre, of course,” said Captain Good.
@@ -44,6 +49,9 @@ Sir Henry nodded, and Captain Good replied, “Certainly, certainly.”
 
 “Then he groped in his shirt and brought out what I thought was a Boer tobacco pouch made of the skin of the Swart-vet-pens or sable antelope. It was fastened with a little strip of hide, what we call a rimpi, and this he tried to loose, but could not. He handed it to me. ‘Untie it,’ he said. I did so, and extracted a bit of torn yellow linen on which something was written in rusty letters. Inside this rag was a paper.
 
+-----------
+Та же самая задача для этого текста:
+
 “Then he went on feebly, for he was growing weak: ‘The paper has all that is on the linen. It took me years to read. Listen: my ancestor, a political refugee from Lisbon, and one of the first Portuguese who landed on these shores, wrote that when he was dying on those mountains which no white foot ever pressed before or since. His name was José da Silvestra, and he lived three hundred years ago. His slave, who waited for him on this side of the mountains, found him dead, and brought the writing home to Delagoa. It has been in the family ever since, but none have cared to read it, till at last I did. And I have lost my life over it, but another may succeed, and become the richest man in the world—the richest man in the world. Only give it to no one, señor; go yourself!’
 
 “Then he began to wander again, and in an hour it was all over.
@@ -59,6 +67,9 @@ Sir Henry nodded, and Captain Good replied, “Certainly, certainly.”
 “I, José da Silvestra, who am now dying of hunger in the little cave where no snow is on the north side of the nipple of the southernmost of the two mountains I have named Sheba’s Breasts, write this in the year 1590 with a cleft bone upon a remnant of my raiment, my blood being the ink. If my slave should find it when he comes, and should bring it to Delagoa, let my friend (name illegible) bring the matter to the knowledge of the king, that he may send an army which, if they live through the desert and the mountains, and can overcome the brave Kukuanes and their devilish arts, to which end many priests should be brought, will make him the richest king since Solomon. With my own eyes I have seen the countless diamonds stored in Solomon’s treasure chamber behind the white Death; but through the treachery of Gagool the witch-finder I might bring nought away, scarcely my life. Let him who comes follow the map, and climb the snow of Sheba’s left breast till he reaches the nipple, on the north side of which is the great road Solomon made, from whence three days’ journey to the King’s Palace. Let him kill Gagool. Pray for my soul. Farewell.
 
 JOSÉ DA SILVESTRA.”
+
+-----------
+Та же самая задача для этого текста:
 
 When I had finished reading the above, and shown the copy of the map, drawn by the dying hand of the old Dom with his blood for ink, there followed a silence of astonishment.
 
@@ -81,6 +92,9 @@ Sir Henry laid his large hand upon my shoulder. “Sit down, Mr. Quatermain,” 
 “‘And what might that be?’ I said, for I was curious. ‘Is it gold?’
 
 “‘No, Baas, something worth more than gold,’ and he grinned.
+
+-----------
+Та же самая задача для этого текста:
 
 “I asked no more questions, for I did not like to lower my dignity by seeming inquisitive, but I was puzzled. Presently Jim finished cutting his tobacco.
 
@@ -121,6 +135,9 @@ Sir Henry laid his large hand upon my shoulder. “Sit down, Mr. Quatermain,” 
 “‘Oh!’ I said; ‘wait a bit, Jim; will you take a note to your master, Jim, and promise not to give it to him till you reach Inyati?’ which was some hundred miles off.
 
 “‘Yes, Baas.’
+
+-----------
+Та же самая задача для этого текста:
 
 “So I took a scrap of paper, and wrote on it, ‘Let him who comes . . . climb the snow of Sheba’s left breast, till he reaches the nipple, on the north side of which is Solomon’s great road.’
 

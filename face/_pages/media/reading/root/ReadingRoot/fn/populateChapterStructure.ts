@@ -1,11 +1,11 @@
-// import { ChapterTextStructurePopulated } from '../../../readingStore'
+import { ChapterTextStructurePopulated } from '../../../readingStore'
 
 /**
  * Получает структуру главы с сервера и наполняет её полезными данными чтобы из
  * ChapterTextStructure.Chapter получить ChapterTextStructurePopulated.Chapter
  * @param chapter — данные главы
  */
-/*export function populateChapterStructure(chapter: {
+export function populateChapterStructure(chapter: {
 	id: number
 	header: undefined | null | string
 	name: undefined | null | string
@@ -37,4 +37,4 @@
 		name: chapter.name || null,
 		sentences,
 	}
-}*/
+}

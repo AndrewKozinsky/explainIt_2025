@@ -2,7 +2,8 @@
 export const chapter_13 = {
 	name: 'Chapter XIII',
 	header: 'The attack',
-	text: `Slowly, and without the slightest appearance of haste or excitement, the three columns crept on. When within about five hundred yards of us, the main or centre column halted at the root of a tongue of open plain which ran up into the hill, to give time to the other divisions to circumvent our position, which was shaped more or less in the form of a horse-shoe, with its two points facing towards the town of Loo. The object of this manoeuvre was that the threefold assault should be delivered simultaneously.
+	text: `Та же самая задача для этого текста:
+Slowly, and without the slightest appearance of haste or excitement, the three columns crept on. When within about five hundred yards of us, the main or centre column halted at the root of a tongue of open plain which ran up into the hill, to give time to the other divisions to circumvent our position, which was shaped more or less in the form of a horse-shoe, with its two points facing towards the town of Loo. The object of this manoeuvre was that the threefold assault should be delivered simultaneously.
 
 “Oh, for a gatling!” groaned Good, as he contemplated the serried phalanxes beneath us. “I would clear that plain in twenty minutes.”
 
@@ -20,6 +21,9 @@ Just as we stopped firing there came an ominous roar from our far right, then a 
 
 At the sound, the mass of men before us opened out a little, and advanced towards the hill and up the spit of bare grass land at a slow trot, singing a deep-throated song as they ran. We kept up a steady fire from our rifles as they came, Ignosi joining in occasionally, and accounted for several men, but of course we produced no more effect upon that mighty rush of armed humanity than he who throws pebbles does on the breaking wave.
 
+-----------
+Та же самая задача для этого текста:
+
 On they came, with a shout and the clashing of spears; now they were driving in the pickets we had placed among the rocks at the foot of the hill. After that the advance was a little slower, for though as yet we had offered no serious opposition, the attacking forces must climb up hill, and they came slowly to save their breath. Our first line of defence was about half-way down the side of the slope, our second fifty yards further back, while our third occupied the edge of the plateau.
 
 On they stormed, shouting their war-cry, “Twala! Twala! Chiele! Chiele!” (Twala! Twala! Smite! Smite!) “Ignosi! Ignosi! Chiele! Chiele!” answered our people. They were quite close now, and the tollas, or throwing-knives, began to flash backwards and forwards, and now with an awful yell the battle closed in.
@@ -35,6 +39,9 @@ The soldiers caught sight of his tall form as he plunged into battle, and there 
 From that moment the end was no longer in doubt. Inch by inch, fighting with splendid gallantry, the attacking force was pressed back down the hillside, till at last it retreated upon its reserves in something like confusion. At that instant, too, a messenger arrived to say that the left attack had been repulsed; and I was just beginning to congratulate myself, believing that the affair was over for the present, when, to our horror, we perceived our men who had been engaged in the right defence being driven towards us across the plain, followed by swarms of the enemy, who had evidently succeeded at this point.
 
 Ignosi, who was standing by me, took in the situation at a glance, and issued a rapid order. Instantly the reserve regiment around us, the Greys, extended itself.
+
+-----------
+Та же самая задача для этого текста:
 
 Again Ignosi gave a word of command, which was taken up and repeated by the captains, and in another second, to my intense disgust, I found myself involved in a furious onslaught upon the advancing foe. Getting as much as I could behind Ignosi’s huge frame, I made the best of a bad job, and toddled along to be killed as though I liked it. In a minute or two—we were plunging through the flying groups of our men, who at once began to re-form behind us, and then I am sure I do not know what happened. All I can remember is a dreadful rolling noise of the meeting of shields, and the sudden apparition of a huge ruffian, whose eyes seemed literally to be starting out of his head, making straight at me with a bloody spear. But—I say it with pride—I rose—or rather sank—to the occasion. It was one before which most people would have collapsed once and for all. Seeing that if I stood where I was I must be killed, as the horrid apparition came I flung myself down in front of him so cleverly that, being unable to stop himself, he took a header right over my prostrate form. Before he could rise again, I had risen and settled the matter from behind with my revolver.
 
@@ -68,6 +75,9 @@ Hurrying from this dreadful scene to the further side of the koppie, we found Si
 
 “I hear thee,” I said.
 
+-----------
+Та же самая задача для этого текста:
+
 “So, Macumazahn, thou seest we have no water here, and but a little food, and we must choose between these three things—to languish like a starving lion in his den, or to strive to break away towards the north, or”—and here he rose and pointed towards the dense mass of our foes—“to launch ourselves straight at Twala’s throat. Incubu, the great warrior—for to-day he fought like a buffalo in a net, and Twala’s soldiers went down before his axe like young corn before the hail; with these eyes I saw it—Incubu says ‘Charge’; but the Elephant is ever prone to charge. Now what says Macumazahn, the wily old fox, who has seen much, and loves to bite his enemy from behind? The last word is in Ignosi the king, for it is a king’s right to speak of war; but let us hear thy voice, O Macumazahn, who watchest by night, and the voice too of him of the transparent eye.”
 
 “What sayest thou, Ignosi,” I asked.
@@ -85,6 +95,9 @@ At length, after a pause, during which he appeared to be thinking deeply, he spo
 “We see,” I answered.
 
 “Good; it is now mid-day, and the men eat and rest after the toil of battle. When the sun has turned and travelled a little way towards the darkness, let thy regiment, my uncle, advance with one other down to the green tongue, and it shall be that when Twala sees it he will hurl his force at it to crush it. But the spot is narrow, and the regiments can come against thee one at a time only; so may they be destroyed one by one, and the eyes of all Twala’s army shall be fixed upon a struggle the like of which has not been seen by living man. And with thee, my uncle, shall go Incubu my friend, that when Twala sees his battle-axe flashing in the first rank of the Greys his heart may grow faint. And I will come with the second regiment, that which follows thee, so that if ye are destroyed, as it might happen, there may yet be a king left to fight for; and with me shall come Macumazahn the wise.”
+
+-----------
+Та же самая задача для этого текста:
 
 “It is well, O king,” said Infadoos, apparently contemplating the certainty of the complete annihilation of his regiment with perfect calmness. Truly, these Kukuanas are a wonderful people. Death has no terrors for them when it is incurred in the course of duty.
 

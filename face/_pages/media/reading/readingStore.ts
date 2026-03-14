@@ -85,7 +85,7 @@ export type ReadingStoreMethods = {
 	clearStoreData: () => void
 	updateBook: (book: ReadingStore.BookData) => void
 	updateChapter: (chapter: ReadingStore.ChapterData) => void
-	// updatePopulatedChapter: (populatedChapter: ChapterTextStructurePopulated.Chapter) => void
+	updatePopulatedChapter: (populatedChapter: ChapterTextStructurePopulated.Chapter) => void
 	// selectWord: (input: { sentenceId: number; wordId: number }) => void
 }
 

@@ -8,13 +8,13 @@ import {
 	useBookChapter_Get,
 } from '@/graphql'
 import { useReadingStore } from '_pages/media/reading/readingStore'
-// import { populateChapterStructure } from './populateChapterStructure'
+import { populateChapterStructure } from './populateChapterStructure'
 import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId } from 'сonsts/pageUrls'
 
 export function usePopulateReadingStore() {
 	useFetchBookAndSetToStore()
 	useFetchChapterAndSetToStore()
-	// useCreatePopulatedChapterAndSetToStore()
+	useCreatePopulatedChapterAndSetToStore()
 }
 
 function useFetchBookAndSetToStore() {
@@ -129,7 +129,7 @@ function useFetchChapterAndSetToStore() {
 	)
 }
 
-/*function useCreatePopulatedChapterAndSetToStore() {
+function useCreatePopulatedChapterAndSetToStore() {
 	const chapter = useReadingStore((s) => s.chapter)
 
 	useEffect(
@@ -149,4 +149,4 @@ function useFetchChapterAndSetToStore() {
 		},
 		[chapter],
 	)
-}*/
+}

@@ -1,60 +1,71 @@
-// Это неадаптированная версия !
 export const chapter_19 = {
 	name: 'Chapter XIX',
 	header: 'Attacked by the Fighting Trees',
-	text: `The next morning Dorothy kissed the pretty green girl good-bye, and they all shook hands with the soldier with the green whiskers, who had walked with them as far as the gate. When the Guardian of the Gate saw them again he wondered greatly that they could leave the beautiful City to get into new trouble. But he at once unlocked their spectacles, which he put back into the green box, and gave them many good wishes to carry with them.
+	text: `The next morning Dorothy kissed the pretty green girl goodbye. They also shook hands with the Soldier with the Green Whiskers, who walked with them as far as the gate.
 
-“You are now our ruler,” he said to the Scarecrow; “so you must come back to us as soon as possible.”
+When the Guardian of the Gate saw them again, he was very surprised that they wanted to leave the beautiful city and go on a new and dangerous journey. But he unlocked their green glasses, put them back into the green box, and wished them good luck.
 
-“I certainly shall if I am able,” the Scarecrow replied; “but I must help Dorothy to get home, first.”
+“You are now our ruler,” he said to the Scarecrow. “So you must return to us as soon as you can.”
 
-As Dorothy bade the good-natured Guardian a last farewell she said:
+“I certainly will if I am able,” replied the Scarecrow. “But first I must help Dorothy return home.”
 
-“I have been very kindly treated in your lovely City, and everyone has been good to me. I cannot tell you how grateful I am.”
+As Dorothy said goodbye to the kind Guardian, she said:
 
-“Don’t try, my dear,” he answered. “We should like to keep you with us, but if it is your wish to return to Kansas, I hope you will find a way.” He then opened the gate of the outer wall, and they walked forth and started upon their journey.
+“Everyone in your wonderful city has treated me very kindly. I cannot tell you how grateful I am.”
 
-The sun shone brightly as our friends turned their faces toward the Land of the South. They were all in the best of spirits, and laughed and chatted together. Dorothy was once more filled with the hope of getting home, and the Scarecrow and the Tin Woodman were glad to be of use to her. As for the Lion, he sniffed the fresh air with delight and whisked his tail from side to side in pure joy at being in the country again, while Toto ran around them and chased the moths and butterflies, barking merrily all the time.
+“You do not need to say it,” he replied. “We would be happy if you stayed with us. But if you truly want to return to Kansas, I hope you will find a way.”
 
-“City life does not agree with me at all,” remarked the Lion, as they walked along at a brisk pace. “I have lost much flesh since I lived there, and now I am anxious for a chance to show the other beasts how courageous I have grown.”
+Then he opened the gate in the outer wall. The friends walked out and began their journey.
 
-They now turned and took a last look at the Emerald City. All they could see was a mass of towers and steeples behind the green walls, and high up above everything the spires and dome of the Palace of Oz.
+The sun was shining brightly as they turned toward the Land of the South. Everyone was in a good mood. They laughed and talked as they walked.
 
-“Oz was not such a bad Wizard, after all,” said the Tin Woodman, as he felt his heart rattling around in his breast.
+Dorothy once again felt hopeful about returning home. The Scarecrow and the Tin Woodman were happy that they could help her.
 
-“He knew how to give me brains, and very good brains, too,” said the Scarecrow.
+The Lion breathed in the fresh air with pleasure and moved his tail happily. He was glad to be back in the open country. Toto ran around them, chasing moths and butterflies and barking happily.
 
-“If Oz had taken a dose of the same courage he gave me,” added the Lion, “he would have been a brave man.”
+“City life is not good for me,” said the Lion as they walked quickly along the road. “I lost a lot of weight while living there. Now I want a chance to show the other animals how brave I have become.”
 
-Dorothy said nothing. Oz had not kept the promise he made her, but he had done his best, so she forgave him. As he said, he was a good man, even if he was a bad Wizard.
+Soon they turned around for one last look at the Emerald City. All they could see were many towers rising above the green walls. High above everything stood the tall towers and dome of Oz’s Palace.
 
-------------
+“Oz was not such a bad wizard after all,” said the Tin Woodman, feeling his heart move inside his chest.
 
-The first day’s journey was through the green fields and bright flowers that stretched about the Emerald City on every side. They slept that night on the grass, with nothing but the stars over them; and they rested very well indeed.
+“He knew how to give me brains,” said the Scarecrow, “and they are very good brains too.”
 
-In the morning they traveled on until they came to a thick wood. There was no way of going around it, for it seemed to extend to the right and left as far as they could see; and, besides, they did not dare change the direction of their journey for fear of getting lost. So they looked for the place where it would be easiest to get into the forest.
+“If Oz had taken some of the courage he gave me,” said the Lion, “he would have been a brave man.”
 
-The Scarecrow, who was in the lead, finally discovered a big tree with such wide-spreading branches that there was room for the party to pass underneath. So he walked forward to the tree, but just as he came under the first branches they bent down and twined around him, and the next minute he was raised from the ground and flung headlong among his fellow travelers.
+Dorothy said nothing. Oz had not kept his promise to her, but he had tried his best. So she forgave him. As he had said himself, he was a good man, even if he was not a very good wizard.
 
-This did not hurt the Scarecrow, but it surprised him, and he looked rather dizzy when Dorothy picked him up.
+On the first day they traveled through green fields and bright flowers that grew all around the Emerald City. That night they slept on the grass with only the stars above them, and they rested very well.
+
+In the morning they continued their journey until they reached a thick forest. They could not go around it, because it stretched to the right and left as far as they could see. They were also afraid to change their direction, because they might get lost. So they began looking for the easiest place to enter the forest.
+
+The Scarecrow, who was walking in front, finally found a large tree with wide branches. There was enough space under it for them to pass through. He walked toward the tree, but as soon as he stepped under the branches, they bent down and wrapped around him. In the next moment he was lifted into the air and thrown back to the ground near his friends.
+
+The Scarecrow was not hurt, but he was very surprised. When Dorothy helped him up, he looked a little dizzy.
 
 “Here is another space between the trees,” called the Lion.
 
-“Let me try it first,” said the Scarecrow, “for it doesn’t hurt me to get thrown about.” He walked up to another tree, as he spoke, but its branches immediately seized him and tossed him back again.
+“Let me try first,” said the Scarecrow. “It doesn’t hurt me when I get thrown around.”
 
-“This is strange,” exclaimed Dorothy. “What shall we do?”
+He walked toward another tree, but its branches quickly grabbed him and threw him back again.
 
-“The trees seem to have made up their minds to fight us, and stop our journey,” remarked the Lion.
+“This is very strange,” said Dorothy. “What should we do?”
 
-“I believe I will try it myself,” said the Woodman, and shouldering his axe, he marched up to the first tree that had handled the Scarecrow so roughly. When a big branch bent down to seize him the Woodman chopped at it so fiercely that he cut it in two. At once the tree began shaking all its branches as if in pain, and the Tin Woodman passed safely under it.
+“It seems the trees have decided to fight us and stop our journey,” said the Lion.
 
-“Come on!” he shouted to the others. “Be quick!” They all ran forward and passed under the tree without injury, except Toto, who was caught by a small branch and shaken until he howled. But the Woodman promptly chopped off the branch and set the little dog free.
+“I will try,” said the Tin Woodman.
 
-The other trees of the forest did nothing to keep them back, so they made up their minds that only the first row of trees could bend down their branches, and that probably these were the policemen of the forest, and given this wonderful power in order to keep strangers out of it.
+He picked up his axe and walked to the first tree that had thrown the Scarecrow. When a large branch bent down to grab him, the Woodman swung his axe and cut the branch in two. The tree began shaking all its branches, as if it were in pain, and the Tin Woodman walked safely under it.
 
-The four travelers walked with ease through the trees until they came to the farther edge of the wood. Then, to their surprise, they found before them a high wall which seemed to be made of white china. It was smooth, like the surface of a dish, and higher than their heads.
+“Come quickly!” he shouted to the others.
 
-“What shall we do now?” asked Dorothy.
+They all ran forward and passed under the tree safely. Only Toto was caught by a small branch and shaken until he cried loudly. But the Woodman quickly cut the branch and freed the little dog.
 
-“I will make a ladder,” said the Tin Woodman, “for we certainly must climb over the wall.”`,
+The other trees did not try to stop them. So the travelers decided that only the first row of trees could bend their branches, and perhaps they were like the guards of the forest, given this special power to keep strangers out.
+
+The four friends walked easily through the forest until they reached the other side. There they were surprised to see a tall wall in front of them. It looked like it was made of white china. The wall was smooth like a plate and higher than their heads.
+
+“What should we do now?” asked Dorothy.
+
+“I will make a ladder,” said the Tin Woodman, “because we must climb over the wall.”`,
 }

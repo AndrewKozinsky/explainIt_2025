@@ -15,6 +15,9 @@ I say slept; but after that day’s work, sleep was indeed difficult. To begin w
 “Of farewells to the dying
 And mournings for the dead.”
 
+-----------
+Та же самая задача для этого текста:
+
 From every direction came the sound of the wailing of women whose husbands, sons, and brothers had perished in the battle. No wonder that they wailed, for over twelve thousand men, or nearly a fifth of the Kukuana army, had been destroyed in that awful struggle. It was heart-rending to lie and listen to their cries for those who never would return; and it made me understand the full horror of the work done that day to further man’s ambition. Towards midnight, however, the ceaseless crying of the women grew less frequent, till at length the silence was only broken at intervals of a few minutes by a long piercing howl that came from a hut in our immediate rear, which, as I afterwards discovered, proceeded from Gagool “keening” over the dead king Twala.
 
 After that I got a little fitful sleep, only to wake from time to time with a start, thinking that I was once more an actor in the terrible events of the last twenty-four hours. Now I seemed to see that warrior whom my hand had sent to his last account charging at me on the mountain-top; now I was once more in that glorious ring of Greys, which made its immortal stand against all Twala’s regiments upon the little mound; and now again I saw Twala’s plumed and gory head roll past my feet with gnashing teeth and glaring eye.
@@ -32,6 +35,9 @@ Afterwards, in the course of the morning, we had a short visit from Ignosi, on w
 “Hail, O king!” I said, rising.
 
 “Yes, Macumazahn. King at last, by the might of your three right hands,” was the ready answer.
+
+-----------
+Та же самая задача для этого текста:
 
 All was, he said, going well; and he hoped to arrange a great feast in two weeks’ time in order to show himself to the people.
 
@@ -55,6 +61,9 @@ For two days we thought that he must die, and crept about with heavy hearts.
 
 Only Foulata would not believe it.
 
+-----------
+Та же самая задача для этого текста:
+
 “He will live,” she said.
 
 For three hundred yards or more around Twala’s chief hut, where the sufferer lay, there was silence; for by the king’s order all who lived in the habitations behind it, except Sir Henry and myself, had been removed, lest any noise should come to the sick man’s ears. One night, it was the fifth of Good’s illness, as was my habit, I went across to see how he was doing before turning in for a few hours.
@@ -74,6 +83,9 @@ After the turn had once been taken, Good’s recovery was rapid and complete. It
 I interpreted, and under her dark skin she actually seemed to blush.
 
 Turning to him with one of those swift and graceful motions that in her always reminded me of the flight of a wild bird, Foulata answered softly, glancing at him with her large brown eyes—
+
+-----------
+Та же самая задача для этого текста:
 
 “Nay, my lord; my lord forgets! Did he not save my life, and am I not my lord’s handmaiden?”
 
@@ -103,6 +115,9 @@ When the ceremony was over we waited upon Ignosi, and informed him that we were 
 
 “Then she must die,” said Ignosi sternly. “I have saved her alive but for this. Stay, she shall choose,” and calling to a messenger he ordered Gagool to be brought before him.
 
+-----------
+Та же самая задача для этого текста:
+
 In a few minutes she came, hurried along by two guards, whom she was cursing as she walked.
 
 “Leave her,” said the king to the guards.
@@ -124,6 +139,9 @@ So soon as their support was withdrawn, the withered old bundle—for she looked
 “How, O king?”
 
 “Nay, thus; if thou tellest not thou shalt slowly die.”
+
+-----------
+Та же самая задача для этого текста:
 
 “Die!” she shrieked in terror and fury; “ye dare not touch me—man, ye know not who I am. How old think ye am I? I knew your fathers, and your fathers’ fathers’ fathers. When the country was young I was here; when the country grows old I shall still be here. I cannot die unless I be killed by chance, for none dare slay me.”
 

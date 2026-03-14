@@ -2,7 +2,8 @@
 export const chapter_16 = {
 	name: 'Chapter XVI',
 	header: 'The place of death',
-	text: `It was already dark on the third day after the scene described in the previous chapter when we camped in some huts at the foot of the “Three Witches,” as the triangle of mountains is called to which Solomon’s Great Road runs. Our party consisted of our three selves and Foulata, who waited on us—especially on Good—Infadoos, Gagool, who was borne along in a litter, inside which she could be heard muttering and cursing all day long, and a party of guards and attendants. The mountains, or rather the three peaks of the mountain, for the mass was evidently the result of a solitary upheaval, were, as I have said, in the form of a triangle, of which the base was towards us, one peak being on our right, one on our left, and one straight in front of us. Never shall I forget the sight afforded by those three towering peaks in the early sunlight of the following morning. High, high above us, up into the blue air, soared their twisted snow-wreaths. Beneath the snow-line the peaks were purple with heaths, and so were the wild moors that ran up the slopes towards them. Straight before us the white ribbon of Solomon’s Great Road stretched away uphill to the foot of the centre peak, about five miles from us, and there stopped. It was its terminus.
+	text: `Та же самая задача для этого текста:
+	It was already dark on the third day after the scene described in the previous chapter when we camped in some huts at the foot of the “Three Witches,” as the triangle of mountains is called to which Solomon’s Great Road runs. Our party consisted of our three selves and Foulata, who waited on us—especially on Good—Infadoos, Gagool, who was borne along in a litter, inside which she could be heard muttering and cursing all day long, and a party of guards and attendants. The mountains, or rather the three peaks of the mountain, for the mass was evidently the result of a solitary upheaval, were, as I have said, in the form of a triangle, of which the base was towards us, one peak being on our right, one on our left, and one straight in front of us. Never shall I forget the sight afforded by those three towering peaks in the early sunlight of the following morning. High, high above us, up into the blue air, soared their twisted snow-wreaths. Beneath the snow-line the peaks were purple with heaths, and so were the wild moors that ran up the slopes towards them. Straight before us the white ribbon of Solomon’s Great Road stretched away uphill to the foot of the centre peak, about five miles from us, and there stopped. It was its terminus.
 
 I had better leave the feelings of intense excitement with which we set out on our march that morning to the imagination of those who read this history. At last we were drawing near to the wonderful mines that had been the cause of the miserable death of the old Portuguese Dom three centuries ago, of my poor friend, his ill-starred descendant, and also, as we feared, of George Curtis, Sir Henry’s brother. Were we destined, after all that we had gone through, to fare any better? Evil befell them, as that old fiend Gagool said; would it also befall us? Somehow, as we were marching up that last stretch of beautiful road, I could not help feeling a little superstitious about the matter, and so I think did Good and Sir Henry.
 
@@ -15,6 +16,9 @@ However, on we went, till we saw before us, and between ourselves and the peak, 
 “Can’t you guess what this is?” I said to Sir Henry and Good, who were staring in astonishment at the awful pit before us.
 
 They shook their heads.
+
+-----------
+Та же самая задача для этого текста:
 
 “Then it is clear that you have never seen the diamond diggings at Kimberley. You may depend on it that this is Solomon’s Diamond Mine. Look there,” I said, pointing to the strata of stiff blue clay which were yet to be seen among the grass and bushes that clothed the sides of the pit, “the formation is the same. I’ll be bound that if we went down there we should find ‘pipes’ of soapy brecciated rock. Look, too,” and I pointed to a series of worn flat slabs of stone that were placed on a gentle slope below the level of a watercourse which in some past age had been cut out of the solid rock; “if those are not tables once used to wash the ‘stuff,’ I’m a Dutchman.”
 
@@ -37,6 +41,9 @@ Here Gagool was waiting for us, still with that evil grin upon her horrid face.
 “We are ready,” I said.
 
 “Good, good! Make strong your hearts to bear what ye shall see. Comest thou too, Infadoos, thou who didst betray thy master?”
+
+-----------
+Та же самая задача для этого текста:
 
 Infadoos frowned as he answered—
 
@@ -62,6 +69,9 @@ Without further ado Gagool plunged into the passage, which was wide enough to ad
 
 When, so far as we could judge, we had gone some fifty paces, we perceived that the passage was growing faintly light. Another minute, and we were in perhaps the most wonderful place that the eyes of living man have beheld.
 
+-----------
+Та же самая задача для этого текста:
+
 Let the reader picture to himself the hall of the vastest cathedral he ever stood in, windowless indeed, but dimly lighted from above, presumably by shafts connected with the outer air and driven in the roof, which arched away a hundred feet above our heads, and he will get some idea of the size of the enormous cave in which we found ourselves, with the difference that this cathedral designed by nature was loftier and wider than any built by man. But its stupendous size was the least of the wonders of the place, for running in rows adown its length were gigantic pillars of what looked like ice, but were, in reality, huge stalactites. It is impossible for me to convey any idea of the overpowering beauty and grandeur of these pillars of white spar, some of which were not less than twenty feet in diameter at the base, and sprang up in lofty and yet delicate beauty sheer to the distant roof. Others again were in process of formation. On the rock floor there was in these cases what looked, Sir Henry said, exactly like a broken column in an old Grecian temple, whilst high above, depending from the roof, the point of a huge icicle could be dimly seen.
 
 Even as we gazed we could hear the process going on, for presently with a tiny splash a drop of water would fall from the far-off icicle on to the column below. On some columns the drops only fell once in two or three minutes, and in these cases it would be an interesting calculation to discover how long, at that rate of dripping, it would take to form a pillar, say eighty feet by ten in diameter. That the process, in at least one instance, was incalculably slow, the following example will suffice to show. Cut on one of these pillars we discovered the crude likeness of a mummy, by the head of which sat what appeared to be the figure of an Egyptian god, doubtless the handiwork of some old-world labourer in the mine. This work of art was executed at the natural height at which an idle fellow, be he Phoenician workman or British cad, is in the habit of trying to immortalise himself at the expense of nature’s masterpieces, namely, about five feet from the ground. Yet at the time that we saw it, which must have been nearly three thousand years after the date of the execution of the carving, the column was only eight feet high, and was still in process of formation, which gives a rate of growth of a foot to a thousand years, or an inch and a fraction to a century. This we knew because, as we were standing by it, we heard a drop of water fall.
@@ -79,6 +89,9 @@ On she led us, straight to the top of the vast and silent cave, where we found a
 “Lead on, Macduff,” said Good solemnly, trying to look as though he was not at all alarmed, as indeed we all did except Foulata, who caught Good by the arm for protection.
 
 “This is getting rather ghastly,” said Sir Henry, peeping into the dark passageway. “Come on, Quatermain—seniores priores. We mustn’t keep the old lady waiting!” and he politely made way for me to lead the van, for which inwardly I did not bless him.
+
+-----------
+Та же самая задача для этого текста:
 
 Tap, tap, went old Gagool’s stick down the passage, as she trotted along, chuckling hideously; and still overcome by some unaccountable presentiment of evil, I hung back.
 
@@ -101,6 +114,9 @@ It was a ghastly sight. There at the end of the long stone table, holding in his
 “Hee! hee! hee!” laughed Gagool. “To those who enter the Hall of the Dead, evil comes. Hee! hee! hee! ha! ha!”
 
 “Come, Incubu, brave in battle, come and see him thou slewest;” and the old creature caught Curtis’ coat in her skinny fingers, and led him away towards the table. We followed.
+
+-----------
+Та же самая задача для этого текста:
 
 Presently she stopped and pointed at the brown object seated on the table. Sir Henry looked, and started back with an exclamation; and no wonder, for there, quite naked, the head which Curtis’ battle-axe had shorn from the body resting on its knees, was the gaunt corpse of Twala, the last king of the Kukuanas. Yes, there, the head perched upon the knees, it sat in all its ugliness, the vertebræ projecting a full inch above the level of the shrunken flesh of the neck, for all the world like a black double of Hamilton Tighe. Over the surface of the corpse there was gathered a thin glassy film, that made its appearance yet more appalling, for which we were, at the moment, quite unable to account, till presently we observed that from the roof of the chamber the water fell steadily, drip! drop! drip! on to the neck of the corpse, whence it ran down over the entire surface, and finally escaped into the rock through a tiny hole in the table. Then I guessed what the film was—Twala’s body was being transformed into a stalactite.
 

@@ -2,7 +2,8 @@
 export const chapter_18 = {
 	name: 'Chapter XVIII',
 	header: 'We abandon hope',
-	text: `I can give no adequate description of the horrors of the night which followed. Mercifully they were to some extent mitigated by sleep, for even in such a position as ours wearied nature will sometimes assert itself. But I, at any rate, found it impossible to sleep much. Putting aside the terrifying thought of our impending doom—for the bravest man on earth might well quail from such a fate as awaited us, and I never made any pretensions to be brave—the silence itself was too great to allow of it. Reader, you may have lain awake at night and thought the quiet oppressive, but I say with confidence that you can have no idea what a vivid, tangible thing is perfect stillness. On the surface of the earth there is always some sound or motion, and though it may in itself be imperceptible, yet it deadens the sharp edge of absolute silence. But here there was none. We were buried in the bowels of a huge snow-clad peak. Thousands of feet above us the fresh air rushed over the white snow, but no sound of it reached us. We were separated by a long tunnel and five feet of rock even from the awful chamber of the Dead; and the dead make no noise. Did we not know it who lay by poor Foulata’s side? The crashing of all the artillery of earth and heaven could not have come to our ears in our living tomb. We were cut off from every echo of the world—we were as men already in the grave.
+	text: `Та же самая задача для этого текста:
+I can give no adequate description of the horrors of the night which followed. Mercifully they were to some extent mitigated by sleep, for even in such a position as ours wearied nature will sometimes assert itself. But I, at any rate, found it impossible to sleep much. Putting aside the terrifying thought of our impending doom—for the bravest man on earth might well quail from such a fate as awaited us, and I never made any pretensions to be brave—the silence itself was too great to allow of it. Reader, you may have lain awake at night and thought the quiet oppressive, but I say with confidence that you can have no idea what a vivid, tangible thing is perfect stillness. On the surface of the earth there is always some sound or motion, and though it may in itself be imperceptible, yet it deadens the sharp edge of absolute silence. But here there was none. We were buried in the bowels of a huge snow-clad peak. Thousands of feet above us the fresh air rushed over the white snow, but no sound of it reached us. We were separated by a long tunnel and five feet of rock even from the awful chamber of the Dead; and the dead make no noise. Did we not know it who lay by poor Foulata’s side? The crashing of all the artillery of earth and heaven could not have come to our ears in our living tomb. We were cut off from every echo of the world—we were as men already in the grave.
 
 Then the irony of the situation forced itself upon me. There around us lay treasures enough to pay off a moderate national debt, or to build a fleet of ironclads, and yet we would have bartered them all gladly for the faintest chance of escape. Soon, doubtless, we should be rejoiced to exchange them for a bit of food or a cup of water, and, after that, even for the privilege of a speedy close to our sufferings. Truly wealth, which men spend their lives in acquiring, is a valueless thing at the last.
 
@@ -21,6 +22,9 @@ He did so, and in contrast to the dense darkness the flame nearly blinded us. It
 “What is the good of eating?” answered Good; “the sooner we die and get it over the better.”
 
 “While there is life there is hope,” said Sir Henry.
+
+-----------
+Та же самая задача для этого текста:
 
 Accordingly we ate and sipped some water, and another period of time elapsed. Then Sir Henry suggested that it might be well to get as near the door as possible and halloa, on the faint chance of somebody catching a sound outside. Accordingly Good, who, from long practice at sea, has a fine piercing note, groped his way down the passage and set to work. I must say that he made a most diabolical noise. I never heard such yells; but it might have been a mosquito buzzing for all the effect they produced.
 
@@ -43,6 +47,9 @@ Once more we ate and drank, and as we did so an idea occurred to me.
 It was wonderful what a change this mere spark of hope wrought in us. In a moment we were all three groping about on our hands and knees, feeling for the slightest indication of a draught. Presently my ardour received a check. I put my hand on something cold. It was dead Foulata’s face.
 
 For an hour or more we went on feeling about, till at last Sir Henry and I gave it up in despair, having been considerably hurt by constantly knocking our heads against tusks, chests, and the sides of the chamber. But Good still persevered, saying, with an approach to cheerfulness, that it was better than doing nothing.
+
+-----------
+Та же самая задача для этого текста:
 
 “I say, you fellows,” he said presently, in a constrained sort of voice, “come here.”
 
@@ -70,6 +77,9 @@ Sir Henry put out all his enormous strength, and Good and I did the same, with s
 
 “Light a match, Quatermain,” he said, so soon as we had picked ourselves up and got our breath; “carefully, now.”
 
+-----------
+Та же самая задача для этого текста:
+
 I did so, and there before us, Heaven be praised! was the first step of a stone stair.
 
 “Now what is to be done?” asked Good.
@@ -94,6 +104,9 @@ As for Good, he made no answer. He was, I think, taking his last farewell of all
 
 When he got to “fifteen” he stopped. “Here’s the bottom,” he said. “Thank goodness! I think it’s a passage. Follow me down.”
 
+-----------
+Та же самая задача для этого текста:
+
 Good went next, and I came last, carrying the basket, and on reaching the bottom lit one of the two remaining matches. By its light we could just see that we were standing in a narrow tunnel, which ran right and left at right angles to the staircase we had descended. Before we could make out any more, the match burnt my fingers and went out. Then arose the delicate question of which way to go. Of course, it was impossible to know what the tunnel was, or where it led to, and yet to turn one way might lead us to safety, and the other to destruction. We were utterly perplexed, till suddenly it struck Good that when I had lit the match the draught of the passage blew the flame to the left.
 
 “Let us go against the draught,” he said; “air draws inwards, not outwards.”
@@ -111,6 +124,9 @@ As we stood, once more utterly depressed, I thought that I caught a sound, to wh
 Off we started again in the direction from which the faint murmur seemed to come, groping our way as before along the rocky walls. I remember that I laid down the basket full of diamonds, wishing to be rid of its weight, but on second thoughts took it up again. One might as well die rich as poor, I reflected. As we went the sound became more and more audible, till at last it seemed quite loud in the quiet. On, yet on; now we could distinctly make out the unmistakable swirl of rushing water. And yet how could there be running water in the bowels of the earth? Now we were quite near it, and Good, who was leading, swore that he could smell it.
 
 “Go gently, Good,” said Sir Henry, “we must be close.” Splash! and a cry from Good.
+
+-----------
+Та же самая задача для этого текста:
 
 He had fallen in.
 
@@ -135,6 +151,9 @@ Slowly, for a long, long while, we stumbled, utterly exhausted, along this new t
 Suddenly he stopped, and we bumped up against him.
 
 “Look!” he whispered, “is my brain going, or is that light?”
+
+-----------
+Та же самая задача для этого текста:
 
 We stared with all our eyes, and there, yes, there, far ahead of us, was a faint, glimmering spot, no larger than a cottage window pane. It was so faint that I doubt if any eyes, except those which, like ours, had for days seen nothing but blackness, could have perceived it at all.
 
@@ -162,7 +181,5 @@ He rose; he ran to us, staring wildly, and still shaking with fear.
 
 “Oh, my lords, my lords, it is indeed you come back from the dead!—come back from the dead!”
 
-And the old warrior flung himself down before us, and clasping Sir Henry’s knees, he wept aloud for joy.
-
-`,
+And the old warrior flung himself down before us, and clasping Sir Henry’s knees, he wept aloud for joy.`,
 }

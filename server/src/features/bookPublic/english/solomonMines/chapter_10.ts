@@ -2,7 +2,8 @@
 export const chapter_10 = {
 	name: 'Chapter X',
 	header: 'The witch-hunt',
-	text: `On reaching our hut I motioned to Infadoos to enter with us.
+	text: `Та же самая задача для этого текста:
+On reaching our hut I motioned to Infadoos to enter with us.
 
 “Now, Infadoos,” I said, “we would speak with thee.”
 
@@ -21,6 +22,9 @@ export const chapter_10 = {
 “What meanest thou, boy?” asked Infadoos; “who told thee to speak?”
 
 “Listen, Infadoos,” was the answer, “and I will tell thee a story. Years ago the king Imotu was killed in this country and his wife fled with the boy Ignosi. Is it not so?”
+
+-----------
+Та же самая задача для этого текста:
 
 “It is so.”
 
@@ -48,6 +52,9 @@ Then with a single movement Umbopa slipped off his “moocha” or girdle, and s
 
 “Look,” he said; “what is this?” and he pointed to the picture of a great snake tattooed in blue round his middle, its tail disappearing into its open mouth just above where the thighs are set into the body.
 
+-----------
+Та же самая задача для этого текста:
+
 Infadoos looked, his eyes starting nearly out of his head. Then he fell upon his knees.
 
 “Koom! Koom!” he ejaculated; “it is my brother’s son; it is the king.”
@@ -63,6 +70,9 @@ The old man put his hand to his head and thought. Then he rose, and advancing to
 “And ye, white men, will ye help me? What have I to offer you! The white stones! If I conquer and can find them, ye shall have as many as ye can carry hence. Will that suffice you?”
 
 I translated this remark.
+
+-----------
+Та же самая задача для этого текста:
 
 “Tell him,” answered Sir Henry, “that he mistakes an Englishman. Wealth is good, and if it comes in our way we will take it; but a gentleman does not sell himself for wealth. Still, speaking for myself, I say this. I have always liked Umbopa, and so far as lies in me I will stand by him in this business. It will be very pleasant to me to try to square matters with that cruel devil Twala. What do you say, Good, and you, Quatermain?”
 
@@ -94,6 +104,9 @@ I thought awhile and scratched my head.
 
 “Ignosi, Son of the Lightning,” answered his uncle, “to-night is the great dance and witch-hunt. Many shall be smelt out and perish, and in the hearts of many others there will be grief and anguish and fury against the king Twala. When the dance is over, then I will speak to some of the great chiefs, who in turn, if I can win them over, will speak to their regiments. I shall speak to the chiefs softly at first, and bring them to see that thou art indeed the king, and I think that by to-morrow’s light thou shalt have twenty thousand spears at thy command. And now I must go and think, and hear, and make ready. After the dance is done, if I am yet alive, and we are all alive, I will meet thee here, and we can talk. At the best there must be war.”
 
+-----------
+Та же самая задача для этого текста:
+
 At this moment our conference was interrupted by the cry that messengers had come from the king. Advancing to the door of the hut we ordered that they should be admitted, and presently three men entered, each bearing a shining shirt of chain armour, and a magnificent battle-axe.
 
 “The gifts of my lord the king to the white men from the Stars!” said a herald who came with them.
@@ -119,6 +132,9 @@ On arriving at the great kraal, where we had that morning been received by the k
 “What says Bougwan?” asked Infadoos.
 
 I translated.
+
+-----------
+Та же самая задача для этого текста:
 
 “Those over whom the shadow of Death is hovering are silent,” he answered grimly.
 
@@ -148,6 +164,9 @@ Then for a moment there was intense stillness, made horrible by a presage of wha
 
 The king lifted his spear, and suddenly twenty thousand feet were raised, as though they belonged to one man, and brought down with a stamp upon the earth. This was repeated three times, causing the solid ground to shake and tremble. Then from a far point of the circle a solitary voice began a wailing song, of which the refrain ran something as follows:—
 
+-----------
+Та же самая задача для этого текста:
+
 “What is the lot of man born of woman?”
 
 Back came the answer rolling out from every throat in that vast company—
@@ -174,6 +193,9 @@ Again silence fell upon the place, and again it was broken by the king lifting h
 
 “Then go! Tarry not, ye vultures; see, the slayers”—pointing to the ominous group of executioners behind—“make sharp their spears; the white men from afar are hungry to see. Go!”
 
+-----------
+Та же самая задача для этого текста:
+
 With a wild yell Gagool’s horrid ministers broke away in every direction, like fragments from a shell, the dry bones round their waists rattling as they ran, and headed for various points of the dense human circle. We could not watch them all, so we fixed our eyes upon the Isanusi nearest to us. When she came to within a few paces of the warriors she halted and began to dance wildly, turning round and round with an almost incredible rapidity, and shrieking out sentences such as “I smell him, the evil-doer!” “He is near, he who poisoned his mother!” “I hear the thoughts of him who thought evil of the king!”
 
 Quicker and quicker she danced, till she lashed herself into such a frenzy of excitement that the foam flew in specks from her gnashing jaws, till her eyes seemed to start from her head, and her flesh to quiver visibly. Suddenly she stopped dead and stiffened all over, like a pointer dog when he scents game, and then with outstretched wand she began to creep stealthily towards the soldiers before her. It seemed to us that as she came their stoicism gave way, and that they shrank from her. As for ourselves, we followed her movements with a horrible fascination. Presently, still creeping and crouching like a dog, the Isanusi was before them. Then she halted and pointed, and again crept on a pace or two.
@@ -198,6 +220,9 @@ Hardly was the thing done before another poor wretch was brought up, like an ox 
 
 “Two,” counted the king.
 
+-----------
+Та же самая задача для этого текста:
+
 And so the deadly game went on, till about a hundred bodies were stretched in rows behind us. I have heard of the gladiatorial shows of the Cæsars, and of the Spanish bull-fights, but I take the liberty of doubting if either of them could be half so horrible as this Kukuana witch-hunt. Gladiatorial shows and Spanish bull-fights at any rate contributed to the public amusement, which certainly was not the case here. The most confirmed sensation-monger would fight shy of sensation if he knew that it was well on the cards that he would, in his own proper person, be the subject of the next “event.”
 
 Once we rose and tried to remonstrate, but were sternly repressed by Twala.
@@ -221,6 +246,9 @@ Nearer she came, and yet nearer, every creature in that vast assemblage watching
 “Which is it to be?” asked Sir Henry to himself.
 
 In a moment all doubts were at rest, for the old hag had rushed in and touched Umbopa, alias Ignosi, on the shoulder.
+
+-----------
+Та же самая задача для этого текста:
 
 “I smell him out,” she shrieked. “Kill him, kill him, he is full of evil; kill him, the stranger, before blood flows from him. Slay him, O king.”
 

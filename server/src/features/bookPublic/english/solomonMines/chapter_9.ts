@@ -2,7 +2,8 @@
 export const chapter_9 = {
 	name: 'Chapter IX',
 	header: 'Twala the king',
-	text: `It will not be necessary for me to detail at length the incidents of our journey to Loo. It took two full days’ travelling along Solomon’s Great Road, which pursued its even course right into the heart of Kukuanaland. Suffice it to say that as we went the country seemed to grow richer and richer, and the kraals, with their wide surrounding belts of cultivation, more and more numerous. They were all built upon the same principles as the first camp which we had reached, and were guarded by ample garrisons of troops. Indeed, in Kukuanaland, as among the Germans, the Zulus, and the Masai, every able-bodied man is a soldier, so that the whole force of the nation is available for its wars, offensive or defensive. As we travelled we were overtaken by thousands of warriors hurrying up to Loo to be present at the great annual review and festival, and more splendid troops I never saw.
+	text: `Та же самая задача для этого текста:
+It will not be necessary for me to detail at length the incidents of our journey to Loo. It took two full days’ travelling along Solomon’s Great Road, which pursued its even course right into the heart of Kukuanaland. Suffice it to say that as we went the country seemed to grow richer and richer, and the kraals, with their wide surrounding belts of cultivation, more and more numerous. They were all built upon the same principles as the first camp which we had reached, and were guarded by ample garrisons of troops. Indeed, in Kukuanaland, as among the Germans, the Zulus, and the Masai, every able-bodied man is a soldier, so that the whole force of the nation is available for its wars, offensive or defensive. As we travelled we were overtaken by thousands of warriors hurrying up to Loo to be present at the great annual review and festival, and more splendid troops I never saw.
 
 At sunset on the second day, we stopped to rest awhile upon the summit of some heights over which the road ran, and there on a beautiful and fertile plain before us lay Loo itself. For a native town it is an enormous place, quite five miles round, I should say, with outlying kraals projecting from it, that serve on grand occasions as cantonments for the regiments, and a curious horseshoe-shaped hill, with which we were destined to become better acquainted, about two miles to the north. It is beautifully situated, and through the centre of the kraal, dividing it into two portions, runs a river, which appeared to be bridged in several places, the same indeed that we had seen from the slopes of Sheba’s Breasts. Sixty or seventy miles away three great snow-capped mountains, placed at the points of a triangle, started out of the level plain. The conformation of these mountains is unlike that of Sheba’s Breasts, being sheer and precipitous, instead of smooth and rounded.
 
@@ -21,6 +22,9 @@ Infadoos saw us looking at them, and volunteered a remark.
 “Yes,” I went on, “you are right, in the Stars we learn many things. I have heard, for instance, that the wise men of old came to these mountains to find bright stones, pretty playthings, and yellow iron.”
 
 “My lord is wise,” he answered coldly; “I am but a child and cannot talk with my lord on such matters. My lord must speak with Gagool the old, at the king’s place, who is wise even as my lord,” and he went away.
+
+-----------
+Та же самая задача для этого текста:
 
 So soon as he was gone I turned to the others, and pointed out the mountains. “There are Solomon’s diamond mines,” I said.
 
@@ -46,6 +50,9 @@ We stood and watched the lovely sight, whilst the stars grew pale before this ch
 
 Presently our meditations were broken in upon by our polite friend Infadoos.
 
+-----------
+Та же самая задача для этого текста:
+
 “If my lords are rested we will journey on to Loo, where a hut is made ready for my lords to-night. The moon is now bright, so that we shall not fall by the way.”
 
 We assented, and in an hour’s time were at the outskirts of the town, of which the extent, mapped out as it was by thousands of camp fires, appeared absolutely endless. Indeed, Good, who is always fond of a bad joke, christened it “Unlimited Loo.” Soon we came to a moat with a drawbridge, where we were met by the rattling of arms and the hoarse challenge of a sentry. Infadoos gave some password that I could not catch, which was met with a salute, and we passed on through the central street of the great grass city. After nearly half an hour’s tramp, past endless lines of huts, Infadoos halted at last by the gate of a little group of huts which surrounded a small courtyard of powdered limestone, and informed us that these were to be our “poor” quarters.
@@ -61,6 +68,9 @@ When we woke it was to find the sun high in the heavens, and the female attendan
 I asked accordingly, but was informed that these sacred relics had already been taken to the king, who would see us in the forenoon.
 
 Somewhat to their astonishment and disappointment, having requested the young ladies to step outside, we proceeded to make the best toilet of which the circumstances admitted. Good even went the length of again shaving the right side of his face; the left, on which now appeared a very fair crop of whiskers, we impressed upon him he must on no account touch. As for ourselves, we were contented with a good wash and combing our hair. Sir Henry’s yellow locks were now almost upon his shoulders, and he looked more like an ancient Dane than ever, while my grizzled scrub was fully an inch long, instead of half an inch, which in a general way I considered my maximum length.
+
+-----------
+Та же самая задача для этого текста:
 
 By the time that we had eaten our breakfast, and smoked a pipe, a message was brought to us by no less a personage than Infadoos himself that Twala the king was ready to see us, if we would be pleased to come.
 
@@ -79,6 +89,9 @@ Still there was silence; but not for long. Presently the man, whom we rightly gu
 “Be humble, O people,” piped out a thin voice which seemed to come from the monkey in the shade, “it is the king.”
 
 “It is the king,” boomed out the eight thousand throats in answer. “Be humble, O people, it is the king.”
+
+-----------
+Та же самая задача для этого текста:
 
 Then there was silence again—dead silence. Presently, however, it was broken. A soldier on our left dropped his shield, which fell with a clatter on to the limestone flooring.
 
@@ -112,6 +125,9 @@ Four men stepped out of the ranks, and lifting the body of the murdered man, car
 
 Thereupon a girl came forward from behind the hut, bearing a jar filled with powdered lime, which she scattered over the red mark, blotting it from sight.
 
+-----------
+Та же самая задача для этого текста:
+
 Sir Henry meanwhile was boiling with rage at what had happened; indeed, it was with difficulty that we could keep him still.
 
 “Sit down, for heaven’s sake,” I whispered; “our lives depend on it.”
@@ -135,6 +151,9 @@ Twala sat silent until the traces of the tragedy had been removed, then he addre
 “Ye speak with a loud voice, people of the Stars,” Twala answered in a tone which I scarcely liked. “Remember that the Stars are far off, and ye are here. How if I make you as him whom they bore away?”
 
 I laughed out loud, though there was little laughter in my heart.
+
+-----------
+Та же самая задача для этого текста:
 
 “O king,” I said, “be careful, walk warily over hot stones, lest thou shouldst burn thy feet; hold the spear by the handle, lest thou should cut thy hands. Touch but one hair of our heads, and destruction shall come upon thee. What, have not these”—pointing to Infadoos and Scragga, who, young villain that he was, was employed in cleaning the blood of the soldier off his spear—“told thee what manner of men we are? Hast thou seen the like of us?” and I pointed to Good, feeling quite sure that he had never seen anybody before who looked in the least like him as he then appeared.
 
@@ -161,6 +180,9 @@ Two men at once departed, running swiftly.
 “Now, Sir Henry,” said I, “do you shoot. I want to show this ruffian that I am not the only magician of the party.”
 
 Sir Henry accordingly took his “express,” and made ready.
+
+-----------
+Та же самая задача для этого текста:
 
 “I hope I shall make a good shot,” he groaned.
 
@@ -192,6 +214,9 @@ Again the sigh of astonishment went up.
 
 “Now, Twala, we give this magic tube to thee, and by-and-by I will show thee how to use it; but beware how thou turnest the magic of the Stars against a man of earth,” and I handed him the rifle.
 
+-----------
+Та же самая задача для этого текста:
+
 The king took it very gingerly, and laid it down at his feet. As he did so I observed the wizened monkey-like figure creeping from the shadow of the hut. It crept on all fours, but when it reached the place where the king sat it rose upon its feet, and throwing the furry covering from its face, revealed a most extraordinary and weird countenance. Apparently it was that of a woman of great age so shrunken that in size it seemed no larger than the face of a year-old child, although made up of a number of deep and yellow wrinkles. Set in these wrinkles was a sunken slit, that represented the mouth, beneath which the chin curved outwards to a point. There was no nose to speak of; indeed, the visage might have been taken for that of a sun-dried corpse had it not been for a pair of large black eyes, still full of fire and intelligence, which gleamed and played under the snow-white eyebrows, and the projecting parchment-coloured skull, like jewels in a charnel-house. As for the head itself, it was perfectly bare, and yellow in hue, while its wrinkled scalp moved and contracted like the hood of a cobra.
 
 The figure to which this fearful countenance belonged, a countenance so fearful indeed that it caused a shiver of fear to pass through us as we gazed on it, stood still for a moment. Then suddenly it projected a skinny claw armed with nails nearly an inch long, and laying it on the shoulder of Twala the king, began to speak in a thin and piercing voice—
@@ -211,6 +236,9 @@ The words died away in a faint wail, and dread seemed to seize upon the hearts o
 “Ye know not, but I know. It was a white people who were before ye are, who shall be when ye are not, who shall eat you up and destroy you. Yea! yea! yea!
 
 “And what came they for, the White Ones, the Terrible Ones, the skilled in magic and all learning, the strong, the unswerving? What is that bright stone upon thy forehead, O king? Whose hands made the iron garments upon thy breast, O king? Ye know not, but I know. I the Old One, I the Wise One, I the Isanusi, the witch doctress!”
+
+-----------
+Та же самая задача для этого текста:
 
 Then she turned her bald vulture-head towards us.
 

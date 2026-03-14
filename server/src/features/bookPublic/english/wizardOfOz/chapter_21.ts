@@ -1,54 +1,61 @@
-// Это неадаптированная версия !
 export const chapter_21 = {
 	name: 'Chapter XXI',
 	header: 'The Lion Becomes the King of Beasts',
-	text: `After climbing down from the china wall the travelers found themselves in a disagreeable country, full of bogs and marshes and covered with tall, rank grass. It was difficult to walk without falling into muddy holes, for the grass was so thick that it hid them from sight. However, by carefully picking their way, they got safely along until they reached solid ground. But here the country seemed wilder than ever, and after a long and tiresome walk through the underbrush they entered another forest, where the trees were bigger and older than any they had ever seen.
+	text: `After climbing down from the china wall, the travelers found themselves in an unpleasant country. It was full of bogs and marshes and covered with tall, rough grass. It was difficult to walk without falling into muddy holes, because the grass was so thick that it hid them from view. However, by choosing their steps carefully, they moved forward safely until they reached solid ground.
 
-“This forest is perfectly delightful,” declared the Lion, looking around him with joy. “Never have I seen a more beautiful place.”
+But here the land looked even wilder than before. After a long and tiring walk through the thick bushes, they entered another forest where the trees were bigger and older than any they had ever seen.
 
-“It seems gloomy,” said the Scarecrow.
+“This forest is wonderful,” said the Lion, looking around happily. “I have never seen a more beautiful place.”
 
-“Not a bit of it,” answered the Lion. “I should like to live here all my life. See how soft the dried leaves are under your feet and how rich and green the moss is that clings to these old trees. Surely no wild beast could wish a pleasanter home.”
+“It seems dark and gloomy,” said the Scarecrow.
 
-“Perhaps there are wild beasts in the forest now,” said Dorothy.
+“Not at all,” answered the Lion. “I would gladly live here all my life. Feel how soft the dry leaves are under your feet, and see how thick and green the moss is on these old trees. No wild animal could wish for a better home.”
 
-“I suppose there are,” returned the Lion, “but I do not see any of them about.”
+“Perhaps there are wild animals in the forest now,” said Dorothy.
 
-They walked through the forest until it became too dark to go any farther. Dorothy and Toto and the Lion lay down to sleep, while the Woodman and the Scarecrow kept watch over them as usual.
+“I suppose there are,” replied the Lion, “but I don’t see any nearby.”
 
-When morning came, they started again. Before they had gone far they heard a low rumble, as of the growling of many wild animals. Toto whimpered a little, but none of the others was frightened, and they kept along the well-trodden path until they came to an opening in the wood, in which were gathered hundreds of beasts of every variety. There were tigers and elephants and bears and wolves and foxes and all the others in the natural history, and for a moment Dorothy was afraid. But the Lion explained that the animals were holding a meeting, and he judged by their snarling and growling that they were in great trouble.
+They walked through the forest until it became too dark to go any farther. Dorothy, Toto, and the Lion lay down to sleep, while the Woodman and the Scarecrow kept watch over them as usual.
 
-As he spoke several of the beasts caught sight of him, and at once the great assemblage hushed as if by magic. The biggest of the tigers came up to the Lion and bowed, saying:
+When morning came, they started walking again. Before they had gone very far, they heard a low rumbling sound, like many wild animals growling. Toto whimpered a little, but none of the others were afraid, and they continued along the well-used path until they reached an open space in the forest.
 
-“Welcome, O King of Beasts! You have come in good time to fight our enemy and bring peace to all the animals of the forest once more.”
+There they saw hundreds of animals of all kinds. There were tigers and elephants and bears and wolves and foxes, and many other animals as well. For a moment Dorothy felt frightened. But the Lion explained that the animals were having a meeting, and from their growling and snarling he guessed that they were in serious trouble.
 
-“What is your trouble?” asked the Lion quietly.
+As he spoke, several of the animals noticed him. At once the whole crowd became quiet, as if by magic. The biggest tiger came up to the Lion and bowed, saying:
 
-“We are all threatened,” answered the tiger, “by a fierce enemy which has lately come into this forest. It is a most tremendous monster, like a great spider, with a body as big as an elephant and legs as long as a tree trunk. It has eight of these long legs, and as the monster crawls through the forest he seizes an animal with a leg and drags it to his mouth, where he eats it as a spider does a fly. Not one of us is safe while this fierce creature is alive, and we had called a meeting to decide how to take care of ourselves when you came among us.”
+“Welcome, O King of Beasts! You have arrived at the right moment to fight our enemy and bring peace back to all the animals of the forest.”
+
+“What is your trouble?” asked the Lion calmly.
+
+“We are all in danger,” answered the tiger, “because a fierce enemy has recently come into this forest. It is a terrible monster, like a giant spider. Its body is as big as an elephant, and its legs are as long as tree trunks. It has eight of these long legs. As the monster moves through the forest, it grabs an animal with one of its legs and pulls it to its mouth, where it eats it just as a spider eats a fly. None of us are safe while this terrible creature is alive. So we gathered here to decide how to protect ourselves when you appeared among us.”
 
 The Lion thought for a moment.
 
 “Are there any other lions in this forest?” he asked.
 
-“No; there were some, but the monster has eaten them all. And, besides, they were none of them nearly so large and brave as you.”
+“No. There were some, but the monster has eaten them all. And besides, none of them were as big and brave as you.”
 
-“If I put an end to your enemy, will you bow down to me and obey me as King of the Forest?” inquired the Lion.
+“If I defeat your enemy,” asked the Lion, “will you bow to me and obey me as King of the Forest?”
 
-“We will do that gladly,” returned the tiger; and all the other beasts roared with a mighty roar: “We will!”
+“We will gladly do that,” answered the tiger. And all the other animals roared loudly: “We will!”
 
-“Where is this great spider of yours now?” asked the Lion.
+“Where is this giant spider now?” asked the Lion.
 
-“Yonder, among the oak trees,” said the tiger, pointing with his forefoot.
+“Over there, among the oak trees,” said the tiger, pointing with his paw.
 
-“Take good care of these friends of mine,” said the Lion, “and I will go at once to fight the monster.”
+“Take good care of my friends,” said the Lion, “and I will go at once to fight the monster.”
 
-He bade his comrades good-bye and marched proudly away to do battle with the enemy.
+He said good-bye to his companions and walked proudly away to battle the enemy.
 
-The great spider was lying asleep when the Lion found him, and it looked so ugly that its foe turned up his nose in disgust. Its legs were quite as long as the tiger had said, and its body covered with coarse black hair. It had a great mouth, with a row of sharp teeth a foot long; but its head was joined to the pudgy body by a neck as slender as a wasp’s waist. This gave the Lion a hint of the best way to attack the creature, and as he knew it was easier to fight it asleep than awake, he gave a great spring and landed directly upon the monster’s back. Then, with one blow of his heavy paw, all armed with sharp claws, he knocked the spider’s head from its body. Jumping down, he watched it until the long legs stopped wiggling, when he knew it was quite dead.
+The giant spider was sleeping when the Lion found it. It looked so ugly that the Lion turned up his nose in disgust. Its legs were just as long as the tiger had said, and its body was covered with thick black hair. It had a huge mouth with a row of sharp teeth, each about a foot long. But its head was connected to its round body by a thin neck, as narrow as a wasp’s waist.
 
-The Lion went back to the opening where the beasts of the forest were waiting for him and said proudly:
+This gave the Lion an idea of the best way to attack the creature. Since it is easier to fight an enemy that is asleep, the Lion made a great leap and landed directly on the monster’s back. Then, with one powerful strike of his paw and sharp claws, he knocked the spider’s head off its body.
 
-“You need fear your enemy no longer.”
+Jumping down, he watched until the long legs stopped moving. Then he knew the monster was truly dead.
 
-Then the beasts bowed down to the Lion as their King, and he promised to come back and rule over them as soon as Dorothy was safely on her way to Kansas.`,
+The Lion returned to the clearing where the animals were waiting and said proudly:
+
+“You no longer need to fear your enemy.”
+
+Then all the animals bowed down to the Lion as their King. And he promised to return and rule over them as soon as Dorothy was safely on her way back to Kansas.`,
 }

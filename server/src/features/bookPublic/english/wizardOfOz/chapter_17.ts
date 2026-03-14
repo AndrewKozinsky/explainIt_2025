@@ -1,72 +1,93 @@
-// Это неадаптированная версия !
 export const chapter_17 = {
 	name: 'Chapter XVII',
 	header: 'How the Balloon Was Launched',
-	text: `For three days Dorothy heard nothing from Oz. These were sad days for the little girl, although her friends were all quite happy and contented. The Scarecrow told them there were wonderful thoughts in his head; but he would not say what they were because he knew no one could understand them but himself. When the Tin Woodman walked about he felt his heart rattling around in his breast; and he told Dorothy he had discovered it to be a kinder and more tender heart than the one he had owned when he was made of flesh. The Lion declared he was afraid of nothing on earth, and would gladly face an army or a dozen of the fierce Kalidahs.
+	text: `For three days Dorothy heard nothing from Oz. These were sad days for the little girl, although her friends were happy and satisfied.
 
-Thus each of the little party was satisfied except Dorothy, who longed more than ever to get back to Kansas.
+The Scarecrow said that there were wonderful ideas in his head, but he would not share them because he believed no one else could understand them.
 
-On the fourth day, to her great joy, Oz sent for her, and when she entered the Throne Room he greeted her pleasantly:
+When the Tin Woodman walked, he could feel his heart moving inside his chest. He told Dorothy that it seemed kinder and more gentle than the heart he had when he was made of flesh.
 
-“Sit down, my dear; I think I have found the way to get you out of this country.”
+The Lion said he was no longer afraid of anything in the world. He declared that he would gladly face an army or even several fierce Kalidahs.
 
-“And back to Kansas?” she asked eagerly.
+So everyone in the group felt satisfied—everyone except Dorothy, who wanted more than ever to return to Kansas.
 
-“Well, I’m not sure about Kansas,” said Oz, “for I haven’t the faintest notion which way it lies. But the first thing to do is to cross the desert, and then it should be easy to find your way home.”
+On the fourth day, to her great happiness, Oz sent for her. When she entered the Throne Room, he greeted her kindly.
 
-“How can I cross the desert?” she inquired.
+“Sit down, my dear,” he said. “I think I have found a way to help you leave this country.”
 
-“Well, I’ll tell you what I think,” said the little man. “You see, when I came to this country it was in a balloon. You also came through the air, being carried by a cyclone. So I believe the best way to get across the desert will be through the air. Now, it is quite beyond my powers to make a cyclone; but I’ve been thinking the matter over, and I believe I can make a balloon.”
+“And go back to Kansas?” she asked eagerly.
+
+“Well, I’m not completely sure about Kansas,” Oz replied. “I do not even know in which direction it lies. But first you must cross the desert, and after that it should be easier to find your way home.”
+
+“How can I cross the desert?” she asked.
+
+“I will tell you my idea,” said the little man. “When I came to this country, I arrived in a balloon. You also came through the air, carried by a cyclone. So I believe the best way to cross the desert is also through the air.
+
+“Of course, I cannot create a cyclone. But I have been thinking about the problem, and I believe I can make a balloon.”
 
 “How?” asked Dorothy.
 
-“A balloon,” said Oz, “is made of silk, which is coated with glue to keep the gas in it. I have plenty of silk in the Palace, so it will be no trouble to make the balloon. But in all this country there is no gas to fill the balloon with, to make it float.”
+“A balloon,” Oz explained, “is made from silk that is covered with glue so the gas cannot escape. I have plenty of silk in the Palace, so making the balloon will not be difficult. But in this country there is no gas to fill the balloon and make it rise.”
 
-“If it won’t float,” remarked Dorothy, “it will be of no use to us.”
+“If it cannot rise,” said Dorothy, “then it will not help us.”
 
-“True,” answered Oz. “But there is another way to make it float, which is to fill it with hot air. Hot air isn’t as good as gas, for if the air should get cold the balloon would come down in the desert, and we should be lost.”
+“That is true,” said Oz. “But there is another way to make a balloon rise—we can fill it with hot air. Hot air is not as good as gas, because if the air becomes cold the balloon may come down in the desert, and then we would be lost.”
 
-“We!” exclaimed the girl. “Are you going with me?”
+“We?” said Dorothy with surprise. “Are you going with me?”
 
-“Yes, of course,” replied Oz. “I am tired of being such a humbug. If I should go out of this Palace my people would soon discover I am not a Wizard, and then they would be vexed with me for having deceived them. So I have to stay shut up in these rooms all day, and it gets tiresome. I’d much rather go back to Kansas with you and be in a circus again.”
+“Yes, of course,” Oz replied. “I am tired of pretending to be a wizard. If I leave the Palace, my people will soon discover that I have no magic powers, and they will be angry because I deceived them.
 
-“I shall be glad to have your company,” said Dorothy.
+“So I must stay inside these rooms all day, and it becomes very boring. I would much rather go back to Kansas with you and work in a circus again.”
 
-“Thank you,” he answered. “Now, if you will help me sew the silk together, we will begin to work on our balloon.”
+“I will be happy to have you with me,” said Dorothy.
 
-So Dorothy took a needle and thread, and as fast as Oz cut the strips of silk into proper shape the girl sewed them neatly together. First there was a strip of light green silk, then a strip of dark green and then a strip of emerald green; for Oz had a fancy to make the balloon in different shades of the color about them. It took three days to sew all the strips together, but when it was finished they had a big bag of green silk more than twenty feet long.
+“Thank you,” Oz replied. “Now, if you help me sew the silk pieces together, we can start making our balloon.”
 
-------------
+So Dorothy took a needle and thread. While Oz cut the silk into the right shapes, Dorothy carefully sewed the pieces together.
 
-Then Oz painted it on the inside with a coat of thin glue, to make it airtight, after which he announced that the balloon was ready.
+First there was a strip of light green silk, then a strip of dark green, and then a strip of bright emerald green. Oz liked the idea of making the balloon with different shades of green.
 
-“But we must have a basket to ride in,” he said. So he sent the soldier with the green whiskers for a big clothes basket, which he fastened with many ropes to the bottom of the balloon.
+It took them three days to sew all the pieces together. When they finished, they had a large green silk balloon bag more than twenty feet long.
 
-When it was all ready, Oz sent word to his people that he was going to make a visit to a great brother Wizard who lived in the clouds. The news spread rapidly throughout the city and everyone came to see the wonderful sight.
+Then Oz painted the inside of the balloon with a thin layer of glue to make it airtight. After that he said the balloon was ready.
 
-Oz ordered the balloon carried out in front of the Palace, and the people gazed upon it with much curiosity. The Tin Woodman had chopped a big pile of wood, and now he made a fire of it, and Oz held the bottom of the balloon over the fire so that the hot air that arose from it would be caught in the silken bag. Gradually the balloon swelled out and rose into the air, until finally the basket just touched the ground.
+“But we still need a basket to ride in,” he said.
 
-Then Oz got into the basket and said to all the people in a loud voice:
+So he sent the Soldier with the Green Whiskers to bring a large clothes basket. Oz attached the basket to the bottom of the balloon with many ropes.
 
-“I am now going away to make a visit. While I am gone the Scarecrow will rule over you. I command you to obey him as you would me.”
+When everything was ready, Oz told his people that he was going to visit a great Wizard who lived in the clouds. The news spread quickly through the city, and everyone came to watch the amazing event.
 
-The balloon was by this time tugging hard at the rope that held it to the ground, for the air within it was hot, and this made it so much lighter in weight than the air without that it pulled hard to rise into the sky.
+Oz ordered the balloon to be brought out in front of the Palace, and the people looked at it with great curiosity.
 
-“Come, Dorothy!” cried the Wizard. “Hurry up, or the balloon will fly away.”
+The Tin Woodman had already chopped a large pile of wood. He made a fire, and Oz held the bottom of the balloon over the flames so the hot air rising from the fire would fill the silk bag.
 
-“I can’t find Toto anywhere,” replied Dorothy, who did not wish to leave her little dog behind. Toto had run into the crowd to bark at a kitten, and Dorothy at last found him. She picked him up and ran towards the balloon.
+Slowly the balloon began to fill with air and grow larger. Soon it started to rise, until the basket was only just touching the ground.
 
-She was within a few steps of it, and Oz was holding out his hands to help her into the basket, when, crack! went the ropes, and the balloon rose into the air without her.
+Then Oz climbed into the basket and spoke loudly to the people:
 
-“Come back!” she screamed. “I want to go, too!”
+“I am leaving now to visit another Wizard. While I am gone, the Scarecrow will rule over you. I order you to obey him just as you obey me.”
 
-“I can’t come back, my dear,” called Oz from the basket. “Good-bye!”
+By this time the balloon was pulling strongly on the rope that held it to the ground. The air inside it was hot, which made the balloon much lighter than the air outside, and it tried to rise into the sky.
 
-“Good-bye!” shouted everyone, and all eyes were turned upward to where the Wizard was riding in the basket, rising every moment farther and farther into the sky.
+“Come, Dorothy!” shouted the Wizard. “Hurry, or the balloon will fly away!”
 
-And that was the last any of them ever saw of Oz, the Wonderful Wizard, though he may have reached Omaha safely, and be there now, for all we know. But the people remembered him lovingly, and said to one another:
+“I can’t find Toto anywhere!” Dorothy replied. She did not want to leave her little dog behind. Toto had run into the crowd to bark at a kitten, but at last Dorothy found him. She picked him up and ran toward the balloon.
 
-“Oz was always our friend. When he was here he built for us this beautiful Emerald City, and now he is gone he has left the Wise Scarecrow to rule over us.”
+She was only a few steps away, and Oz was reaching out his hands to help her into the basket.
 
-Still, for many days they grieved over the loss of the Wonderful Wizard, and would not be comforted.`,
+Suddenly—snap!—the ropes broke, and the balloon rose into the air without her.
+
+“Come back!” Dorothy cried. “I want to go too!”
+
+“I cannot come back, my dear!” Oz called down from the basket. “Goodbye!”
+
+“Goodbye!” shouted the people. Everyone looked up as the Wizard in the basket rose higher and higher into the sky.
+
+And that was the last time any of them ever saw Oz, the Wonderful Wizard. Perhaps he reached Omaha safely and may even still be there—we cannot know for sure.
+
+But the people remembered him with kindness and said to each other:
+
+“Oz was always our friend. While he was here, he built our beautiful Emerald City. And before he left, he gave us the Wise Scarecrow to rule over us.”
+
+Even so, for many days the people felt sad about losing the Wonderful Wizard, and nothing could comfort them.`,
 }

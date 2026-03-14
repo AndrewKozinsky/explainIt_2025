@@ -1,88 +1,83 @@
-// Это неадаптированная версия !
 export const chapter_23 = {
 	name: 'Chapter XXIII',
 	header: 'Glinda The Good Witch Grants Dorothy’s Wish',
-	text: `Before they went to see Glinda, however, they were taken to a room of the Castle, where Dorothy washed her face and combed her hair, and the Lion shook the dust out of his mane, and the Scarecrow patted himself into his best shape, and the Woodman polished his tin and oiled his joints.
+	text: `Before they went to see Glinda, they were taken to a room in the castle. There Dorothy washed her face and combed her hair. The Lion shook the dust from his mane, the Scarecrow patted himself into his best shape, and the Tin Woodman polished his tin body and oiled his joints.
 
-When they were all quite presentable they followed the soldier girl into a big room where the Witch Glinda sat upon a throne of rubies.
+When they all looked neat and tidy, they followed the soldier girl into a large hall where the Witch Glinda sat on a throne made of rubies.
 
-She was both beautiful and young to their eyes. Her hair was a rich red in color and fell in flowing ringlets over her shoulders. Her dress was pure white but her eyes were blue, and they looked kindly upon the little girl.
+To them she looked both young and beautiful. Her hair was a rich red color and fell in soft curls over her shoulders. Her dress was pure white, and her blue eyes looked kindly at the little girl.
 
 “What can I do for you, my child?” she asked.
 
-Dorothy told the Witch all her story: how the cyclone had brought her to the Land of Oz, how she had found her companions, and of the wonderful adventures they had met with.
+Dorothy told the Witch her whole story: how the cyclone had brought her to the Land of Oz, how she had met her companions, and about all the wonderful adventures they had shared.
 
-“My greatest wish now,” she added, “is to get back to Kansas, for Aunt Em will surely think something dreadful has happened to me, and that will make her put on mourning; and unless the crops are better this year than they were last, I am sure Uncle Henry cannot afford it.”
+“My greatest wish now,” she added, “is to return to Kansas. Aunt Em will surely think something terrible has happened to me, and she will be very sad. And if the crops are not better this year than they were last year, I am sure Uncle Henry cannot afford it.”
 
 Glinda leaned forward and kissed the sweet, upturned face of the loving little girl.
 
-“Bless your dear heart,” she said, “I am sure I can tell you of a way to get back to Kansas.” Then she added, “But, if I do, you must give me the Golden Cap.”
+“Bless your dear heart,” she said kindly. “I am sure I can tell you how to get back to Kansas.” Then she added, “But if I do, you must give me the Golden Cap.”
 
-“Willingly!” exclaimed Dorothy; “indeed, it is of no use to me now, and when you have it you can command the Winged Monkeys three times.”
+“Gladly!” said Dorothy. “It is of no use to me now. And when you have it, you can command the Winged Monkeys three times.”
 
-“And I think I shall need their service just those three times,” answered Glinda, smiling.
+“And I think I will need their help exactly three times,” said Glinda with a smile.
 
-Dorothy then gave her the Golden Cap, and the Witch said to the Scarecrow, “What will you do when Dorothy has left us?”
+Dorothy gave her the Golden Cap. Then the Witch turned to the Scarecrow and asked, “What will you do when Dorothy leaves us?”
 
-“I will return to the Emerald City,” he replied, “for Oz has made me its ruler and the people like me. The only thing that worries me is how to cross the hill of the Hammer-Heads.”
+“I will return to the Emerald City,” he answered. “Oz has made me its ruler, and the people like me. The only thing that worries me is how I will cross the hill of the Hammer-Heads.”
 
-“By means of the Golden Cap I shall command the Winged Monkeys to carry you to the gates of the Emerald City,” said Glinda, “for it would be a shame to deprive the people of so wonderful a ruler.”
+“With the Golden Cap I will command the Winged Monkeys to carry you to the gates of the Emerald City,” said Glinda. “It would be a shame if the people lost such a good ruler.”
 
-“Am I really wonderful?” asked the Scarecrow.
+“Am I really so good?” asked the Scarecrow.
 
-“You are unusual,” replied Glinda.
+“You are unusual,” said Glinda.
 
-Turning to the Tin Woodman, she asked, “What will become of you when Dorothy leaves this country?”
+Then she turned to the Tin Woodman and asked, “What will you do when Dorothy leaves this country?”
 
-He leaned on his axe and thought a moment. Then he said, “The Winkies were very kind to me, and wanted me to rule over them after the Wicked Witch died. I am fond of the Winkies, and if I could get back again to the Country of the West, I should like nothing better than to rule over them forever.”
+He leaned on his axe and thought for a moment. Then he said, “The Winkies were very kind to me, and after the Wicked Witch died they asked me to rule over them. I like the Winkies very much, and if I could return to the Country of the West, nothing would please me more than to rule over them forever.”
 
-“My second command to the Winged Monkeys,” said Glinda “will be that they carry you safely to the land of the Winkies. Your brain may not be so large to look at as those of the Scarecrow, but you are really brighter than he is—when you are well polished—and I am sure you will rule the Winkies wisely and well.”
+“My second command to the Winged Monkeys,” said Glinda, “will be to carry you safely to the land of the Winkies. Your brain may not look as large as the Scarecrow’s, but you are actually wiser than he is—when you are well polished. I am sure you will rule the Winkies wisely.”
 
-Then the Witch looked at the big, shaggy Lion and asked, “When Dorothy has returned to her own home, what will become of you?”
+Then the Witch looked at the big, shaggy Lion and asked, “When Dorothy returns to her home, what will become of you?”
 
-“Over the hill of the Hammer-Heads,” he answered, “lies a grand old forest, and all the beasts that live there have made me their King. If I could only get back to this forest, I would pass my life very happily there.”
+“Beyond the hill of the Hammer-Heads,” he answered, “there is a great old forest. All the animals who live there have made me their King. If I could return to that forest, I would live there very happily.”
 
-“My third command to the Winged Monkeys,” said Glinda, “shall be to carry you to your forest. Then, having used up the powers of the Golden Cap, I shall give it to the King of the Monkeys, that he and his band may thereafter be free for evermore.”
+“My third command to the Winged Monkeys,” said Glinda, “will be to carry you to your forest. After that, the power of the Golden Cap will be used up. Then I will give it to the King of the Monkeys, so that he and his followers will be free forever.”
 
-------------
+The Scarecrow, the Tin Woodman, and the Lion thanked the Good Witch warmly for her kindness. Then Dorothy said:
 
-The Scarecrow and the Tin Woodman and the Lion now thanked the Good Witch earnestly for her kindness; and Dorothy exclaimed:
+“You are truly as good as you are beautiful! But you still have not told me how I can return to Kansas.”
 
-“You are certainly as good as you are beautiful! But you have not yet told me how to get back to Kansas.”
+“Your Silver Shoes will carry you across the desert,” replied Glinda. “If you had known their power, you could have returned to Aunt Em on the very first day you came to this country.”
 
-“Your Silver Shoes will carry you over the desert,” replied Glinda. “If you had known their power you could have gone back to your Aunt Em the very first day you came to this country.”
+“But then I would not have had my wonderful brains!” cried the Scarecrow. “I might have spent my whole life standing in the farmer’s cornfield.”
 
-“But then I should not have had my wonderful brains!” cried the Scarecrow. “I might have passed my whole life in the farmer’s cornfield.”
+“And I would not have had my lovely heart,” said the Tin Woodman. “I might have stood in the forest and rusted there forever.”
 
-“And I should not have had my lovely heart,” said the Tin Woodman. “I might have stood and rusted in the forest till the end of the world.”
+“And I would have remained a coward all my life,” said the Lion. “No animal in the forest would have had a kind word to say about me.”
 
-“And I should have lived a coward forever,” declared the Lion, “and no beast in all the forest would have had a good word to say to me.”
+“That is all true,” said Dorothy. “And I am glad I was able to help these good friends. But now that each of them has received what he most wished for, and each of them has a kingdom to rule, I think it is time for me to return to Kansas.”
 
-“This is all true,” said Dorothy, “and I am glad I was of use to these good friends. But now that each of them has had what he most desired, and each is happy in having a kingdom to rule besides, I think I should like to go back to Kansas.”
+“The Silver Shoes,” said the Good Witch, “have wonderful powers. One of the most surprising things about them is that they can carry you to any place in the world in three steps. Each step is taken in the blink of an eye. All you need to do is tap the heels together three times and tell the shoes where you want to go.”
 
-“The Silver Shoes,” said the Good Witch, “have wonderful powers. And one of the most curious things about them is that they can carry you to any place in the world in three steps, and each step will be made in the wink of an eye. All you have to do is to knock the heels together three times and command the shoes to carry you wherever you wish to go.”
+“If that is so,” said Dorothy happily, “I will ask them to take me back to Kansas right away.”
 
-“If that is so,” said the child joyfully, “I will ask them to carry me back to Kansas at once.”
+She put her arms around the Lion’s neck and kissed him, gently patting his big head. Then she kissed the Tin Woodman, who was crying in a way that could be dangerous for his joints. Instead of kissing the Scarecrow’s painted face, she hugged his soft, stuffed body, and soon she found that she was crying too, because it was very sad to say good-bye to her dear friends.
 
-She threw her arms around the Lion’s neck and kissed him, patting his big head tenderly. Then she kissed the Tin Woodman, who was weeping in a way most dangerous to his joints. But she hugged the soft, stuffed body of the Scarecrow in her arms instead of kissing his painted face, and found she was crying herself at this sorrowful parting from her loving comrades.
+Glinda the Good stepped down from her ruby throne and gave the little girl a farewell kiss. Dorothy thanked her for all the kindness she had shown to her and her friends.
 
-Glinda the Good stepped down from her ruby throne to give the little girl a good-bye kiss, and Dorothy thanked her for all the kindness she had shown to her friends and herself.
-
-Dorothy now took Toto up solemnly in her arms, and having said one last good-bye she clapped the heels of her shoes together three times, saying:
+Then Dorothy picked up Toto carefully in her arms. After saying one last good-bye, she tapped the heels of her shoes together three times and said:
 
 “Take me home to Aunt Em!”
 
-Instantly she was whirling through the air, so swiftly that all she could see or feel was the wind whistling past her ears.
+At once she began to whirl through the air so quickly that all she could feel was the wind rushing past her ears.
 
-The Silver Shoes took but three steps, and then she stopped so suddenly that she rolled over upon the grass several times before she knew where she was.
+The Silver Shoes took only three steps. Then she stopped so suddenly that she rolled over on the grass several times before she understood where she was.
 
-At length, however, she sat up and looked about her.
+At last she sat up and looked around.
 
-“Good gracious!” she cried.
+“Oh my!” she cried.
 
-For she was sitting on the broad Kansas prairie, and just before her was the new farmhouse Uncle Henry built after the cyclone had carried away the old one. Uncle Henry was milking the cows in the barnyard, and Toto had jumped out of her arms and was running toward the barn, barking furiously.
+She was sitting on the wide Kansas prairie. Right in front of her stood the new farmhouse that Uncle Henry had built after the cyclone had carried away the old one. Uncle Henry was milking the cows in the yard, and Toto had jumped out of her arms and was running toward the barn, barking loudly.
 
-Dorothy stood up and found she was in her stocking-feet. For the Silver Shoes had fallen off in her flight through the air, and were lost forever in the desert.
-
-`,
+Dorothy stood up and noticed that she was wearing only her stockings. The Silver Shoes had fallen off during her flight through the air and were lost forever in the desert.`,
 }

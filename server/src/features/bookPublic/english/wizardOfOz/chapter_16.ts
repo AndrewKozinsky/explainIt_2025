@@ -1,4 +1,3 @@
-// Это неадаптированная версия !
 export const chapter_16 = {
 	name: 'Chapter XVI',
 	header: 'The Magic Art of the Great Humbug',
@@ -40,51 +39,63 @@ Dorothy looked at him with curiosity. The top of his head was now quite large an
 
 ---
 
-“Well, I must go to Oz and get my heart,” said the Woodman. So he walked to the Throne Room and knocked at the door.
+“Well, now it is my turn to go to Oz and get my heart,” said the Woodman.
 
-“Come in,” called Oz, and the Woodman entered and said, “I have come for my heart.”
+So he walked to the Throne Room and knocked on the door.
 
-“Very well,” answered the little man. “But I shall have to cut a hole in your breast, so I can put your heart in the right place. I hope it won’t hurt you.”
+“Come in,” called Oz.
 
-“Oh, no,” answered the Woodman. “I shall not feel it at all.”
+The Woodman entered and said, “I have come to receive my heart.”
 
-So Oz brought a pair of tinsmith’s shears and cut a small, square hole in the left side of the Tin Woodman’s breast. Then, going to a chest of drawers, he took out a pretty heart, made entirely of silk and stuffed with sawdust.
+“Very well,” said the little man. “But I will need to cut a small hole in your chest so I can place the heart in the right position. I hope that will not hurt you.”
 
-“Isn’t it a beauty?” he asked.
+“Oh no,” said the Woodman. “I will not feel anything.”
 
-“It is, indeed!” replied the Woodman, who was greatly pleased. “But is it a kind heart?”
+So Oz took a pair of metal shears and cut a small square hole in the left side of the Tin Woodman’s chest. Then he went to a chest of drawers and took out a beautiful heart made of silk and filled with sawdust.
 
-“Oh, very!” answered Oz. He put the heart in the Woodman’s breast and then replaced the square of tin, soldering it neatly together where it had been cut.
+“Isn’t it lovely?” he asked.
 
-“There,” said he; “now you have a heart that any man might be proud of. I’m sorry I had to put a patch on your breast, but it really couldn’t be helped.”
+“Yes, it is!” said the Woodman, who was very pleased. “But is it a kind heart?”
 
-“Never mind the patch,” exclaimed the happy Woodman. “I am very grateful to you, and shall never forget your kindness.”
+“Oh, very kind,” said Oz.
 
-“Don’t speak of it,” replied Oz.
+He placed the heart inside the Woodman’s chest and then put the square piece of tin back in place, carefully fixing it where he had cut it.
 
-Then the Tin Woodman went back to his friends, who wished him every joy on account of his good fortune.
+“There,” he said. “Now you have a heart that any man would be proud of. I am sorry that I had to put a patch on your chest, but it could not be avoided.”
 
-The Lion now walked to the Throne Room and knocked at the door.
+“Don’t worry about the patch,” said the happy Woodman. “I am very grateful to you and will never forget your kindness.”
+
+“Don’t mention it,” replied Oz.
+
+Then the Tin Woodman returned to his friends, and they congratulated him on his good fortune.
+
+Next, the Lion walked to the Throne Room and knocked on the door.
 
 “Come in,” said Oz.
 
-“I have come for my courage,” announced the Lion, entering the room.
+“I have come to receive my courage,” said the Lion as he entered the room.
 
-“Very well,” answered the little man; “I will get it for you.”
+“Very well,” said the little man. “I will prepare it for you.”
 
-He went to a cupboard and reaching up to a high shelf took down a square green bottle, the contents of which he poured into a green-gold dish, beautifully carved. Placing this before the Cowardly Lion, who sniffed at it as if he did not like it, the Wizard said:
+He went to a cupboard and reached up to a high shelf. From there he took a square green bottle and poured the liquid into a beautifully carved green and gold bowl. He placed it in front of the Cowardly Lion.
 
-“Drink.”
+The Lion smelled it and looked uncertain, as if he did not like it.
+
+“Drink it,” said the Wizard.
 
 “What is it?” asked the Lion.
 
-“Well,” answered Oz, “if it were inside of you, it would be courage. You know, of course, that courage is always inside one; so that this really cannot be called courage until you have swallowed it. Therefore I advise you to drink it as soon as possible.”
+“Well,” Oz explained, “if this liquid were already inside you, it would be courage. You know that courage always exists inside someone. So this cannot really be called courage until you drink it. That is why I advise you to drink it as soon as possible.”
 
-The Lion hesitated no longer, but drank till the dish was empty.
+The Lion no longer hesitated and drank until the bowl was empty.
 
 “How do you feel now?” asked Oz.
 
-“Full of courage,” replied the Lion, who went joyfully back to his friends to tell them of his good fortune.
+“Full of courage,” said the Lion happily.
 
-Oz, left to himself, smiled to think of his success in giving the Scarecrow and the Tin Woodman and the Lion exactly what they thought they wanted. “How can I help being a humbug,” he said, “when all these people make me do things that everybody knows can’t be done? It was easy to make the Scarecrow and the Lion and the Woodman happy, because they imagined I could do anything. But it will take more than imagination to carry Dorothy back to Kansas, and I’m sure I don’t know how it can be done.”`,
+Then he returned joyfully to his friends to tell them about his good fortune.
+
+When Oz was alone again, he smiled.
+
+“How can I avoid being a trickster,” he said to himself, “when all these people ask me to do things that everyone knows are impossible? It was easy to make the Scarecrow, the Tin Woodman, and the Lion happy, because they believed I could do anything. But sending Dorothy back to Kansas will require more than belief, and I truly do not know how it can be done.”`,
 }

@@ -2,7 +2,8 @@
 export const chapter_19 = {
 	name: 'Chapter XIX',
 	header: 'Ignosi’s farewell',
-	text: `Ten days from that eventful morning found us once more in our old quarters at Loo; and, strange to say, but little the worse for our terrible experience, except that my stubbly hair came out of the treasure cave about three shades greyer than it went in, and that Good never was quite the same after Foulata’s death, which seemed to move him very greatly. I am bound to say, looking at the thing from the point of view of an oldish man of the world, that I consider her removal was a fortunate occurrence, since, otherwise, complications would have been sure to ensue. The poor creature was no ordinary native girl, but a person of great, I had almost said stately, beauty, and of considerable refinement of mind. But no amount of beauty or refinement could have made an entanglement between Good and herself a desirable occurrence; for, as she herself put it, “Can the sun mate with the darkness, or the white with the black?”
+	text: `Та же самая задача для этого текста:
+Ten days from that eventful morning found us once more in our old quarters at Loo; and, strange to say, but little the worse for our terrible experience, except that my stubbly hair came out of the treasure cave about three shades greyer than it went in, and that Good never was quite the same after Foulata’s death, which seemed to move him very greatly. I am bound to say, looking at the thing from the point of view of an oldish man of the world, that I consider her removal was a fortunate occurrence, since, otherwise, complications would have been sure to ensue. The poor creature was no ordinary native girl, but a person of great, I had almost said stately, beauty, and of considerable refinement of mind. But no amount of beauty or refinement could have made an entanglement between Good and herself a desirable occurrence; for, as she herself put it, “Can the sun mate with the darkness, or the white with the black?”
 
 I need hardly state that we never again penetrated into Solomon’s treasure chamber. After we had recovered from our fatigues, a process which took us forty-eight hours, we descended into the great pit in the hope of finding the hole by which we had crept out of the mountain, but with no success. To begin with, rain had fallen, and obliterated our spoor; and what is more, the sides of the vast pit were full of ant-bear and other holes. It was impossible to say to which of these we owed our salvation. Also, on the day before we started back to Loo, we made a further examination of the wonders of the stalactite cave, and, drawn by a kind of restless feeling, even penetrated once more into the Chamber of the Dead. Passing beneath the spear of the White Death we gazed, with sensations which it would be quite impossible for me to describe, at the mass of rock that had shut us off from escape, thinking the while of priceless treasures beyond, of the mysterious old hag whose flattened fragments lay crushed beneath it, and of the fair girl of whose tomb it was the portal. I say gazed at the “rock,” for, examine as we could, we could find no traces of the join of the sliding door; nor, indeed, could we hit upon the secret, now utterly lost, that worked it, though we tried for an hour or more. It is certainly a marvellous bit of mechanism, characteristic, in its massive and yet inscrutable simplicity, of the age which produced it; and I doubt if the world has such another to show.
 
@@ -11,6 +12,9 @@ At last we gave it up in disgust; though, if the mass had suddenly risen before 
 So we left it. Perhaps, in some remote unborn century, a more fortunate explorer may hit upon the “Open Sesame,” and flood the world with gems. But, myself, I doubt it. Somehow, I seem to feel that the tens of millions of pounds’ worth of jewels which lie in the three stone coffers will never shine round the neck of an earthly beauty. They and Foulata’s bones will keep cold company till the end of all things.
 
 With a sigh of disappointment we made our way back, and next day started for Loo. And yet it was really very ungrateful of us to be disappointed; for, as the reader will remember, by a lucky thought, I had taken the precaution to fill the wide pockets of my old shooting coat and trousers with gems before we left our prison-house, also Foulata’s basket, which held twice as many more, notwithstanding that the water bottle had occupied some of its space. A good many of these fell out in the course of our roll down the side of the pit, including several of the big ones, which I had crammed in on the top in my coat pockets. But, comparatively speaking, an enormous quantity still remained, including ninety-three large stones ranging from over two hundred to seventy carats in weight. My old shooting coat and the basket still held sufficient treasure to make us all, if not millionaires as the term is understood in America, at least exceedingly wealthy men, and yet to keep enough stones each to make the three finest sets of gems in Europe. So we had not done so badly.
+
+-----------
+Та же самая задача для этого текста:
 
 On arriving at Loo we were most cordially received by Ignosi, whom we found well, and busily engaged in consolidating his power, and reorganising the regiments which had suffered most in the great struggle with Twala.
 
@@ -40,6 +44,9 @@ He listened with intense interest to our wonderful story; but when we told him o
 
 “Ye see, my brothers,” said Ignosi, “this was a strange woman, and I rejoice that she is dead. She would have let you die in the dark place, and mayhap afterwards she had found a way to slay me, as she found a way to slay my father, and set up Twala, whom her black heart loved, in his place. Now go on with the tale; surely there never was its like!”
 
+-----------
+Та же самая задача для этого текста:
+
 After I had narrated all the story of our escape, as we had agreed between ourselves that I should, I took the opportunity to address Ignosi as to our departure from Kukuanaland.
 
 “And now, Ignosi,” I said, “the time has come for us to bid thee farewell, and start to see our own land once more. Behold, Ignosi, thou camest with us a servant, and now we leave thee a mighty king. If thou art grateful to us, remember to do even as thou didst promise: to rule justly, to respect the law, and to put none to death without a cause. So shalt thou prosper. To-morrow, at break of day, Ignosi, thou wilt give us an escort who shall lead us across the mountains. Is it not so, O king?”
@@ -59,6 +66,9 @@ I laid my hand upon his arm. “Ignosi,” I said, “tell us, when thou didst w
 “In like manner, Ignosi, do our hearts turn to our land and to our own place.”
 
 Then came a silence. When Ignosi broke it, it was in a different voice.
+
+-----------
+Та же самая задача для этого текста:
 
 “I do perceive that now as ever thy words are wise and full of reason, Macumazahn; that which flies in the air loves not to run along the ground; the white man loves not to live on the level of the black or to house among his kraals. Well, ye must go, and leave my heart sore, because ye will be as dead to me, since from where ye are no tidings can come to me.
 
@@ -87,6 +97,9 @@ Just before we reached the confines of the town, a pretty young girl, with some 
 “Come, come, my dear fellow,” said Sir Henry, “you can’t refuse to oblige a lady.”
 
 “I won’t,” replied Good obstinately; “it is positively indecent.”
+
+-----------
+Та же самая задача для этого текста:
 
 However, in the end he consented to draw up his trousers to the knee, amidst notes of rapturous admiration from all the women present, especially the gratified young lady, and in this guise he had to walk till we got clear of the town.
 

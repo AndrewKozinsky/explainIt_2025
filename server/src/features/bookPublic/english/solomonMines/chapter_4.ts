@@ -18,6 +18,9 @@ About a fortnight’s march from Inyati we came across a peculiarly beautiful bi
 
 One evening, after a long day’s march, we came to a spot of great loveliness. At the foot of a bush-clad hill lay a dry river-bed, in which, however, were to be found pools of crystal water all trodden round with the hoof-prints of game. Facing this hill was a park-like plain, where grew clumps of flat-topped mimosa, varied with occasional glossy-leaved machabells, and all round stretched the sea of pathless, silent bush.
 
+-----------
+Та же самая задача для этого текста:
+
 As we emerged into this river-bed path suddenly we started a troop of tall giraffes, who galloped, or rather sailed off, in their strange gait, their tails screwed up over their backs, and their hoofs rattling like castanets. They were about three hundred yards from us, and therefore practically out of shot, but Good, who was walking ahead, and who had an express loaded with solid ball in his hand, could not resist temptation. Lifting his gun, he let drive at the last, a young cow. By some extraordinary chance the ball struck it full on the back of the neck, shattering the spinal column, and that giraffe went rolling head over heels just like a rabbit. I never saw a more curious thing.
 
 “Curse it!” said Good—for I am sorry to say he had a habit of using strong language when excited—contracted, no doubt, in the course of his nautical career; “curse it! I’ve killed him.”
@@ -37,6 +40,9 @@ By the time the “scherm” was finished the moon peeped up, and our dinners of
 Well, there we three sat yarning away in the beautiful moonlight, and watching the Kafirs a few yards off sucking their intoxicating “daccha” from a pipe of which the mouthpiece was made of the horn of an eland, till one by one they rolled themselves up in their blankets and went to sleep by the fire, that is, all except Umbopa, who was a little apart, his chin resting on his hand, and thinking deeply. I noticed that he never mixed much with the other Kafirs.
 
 Presently, from the depths of the bush behind us, came a loud “woof, woof!” “That’s a lion,” said I, and we all started up to listen. Hardly had we done so, when from the pool, about a hundred yards off, we heard the strident trumpeting of an elephant. “Unkungunklovo! Indlovu!” “Elephant! Elephant!” whispered the Kafirs, and a few minutes afterwards we saw a succession of vast shadowy forms moving slowly from the direction of the water towards the bush.
+
+-----------
+Та же самая задача для этого текста:
 
 Up jumped Good, burning for slaughter, and thinking, perhaps, that it was as easy to kill elephant as he had found it to shoot giraffe, but I caught him by the arm and pulled him down.
 
@@ -63,6 +69,9 @@ As soon as we had examined the beasts sufficiently we called the Kafirs, and bet
 With the first light we were up and making ready for the fray. We took with us the three eight-bore rifles, a good supply of ammunition, and our large water-bottles, filled with weak cold tea, which I have always found the best stuff to shoot on. After swallowing a little breakfast we started, Umbopa, Khiva, and Ventvögel accompanying us. The other Kafirs we left with instructions to skin the lion and the sable antelope, and to cut up the latter.
 
 We had no difficulty in finding the broad elephant trail, which Ventvögel, after examination, pronounced to have been made by between twenty and thirty elephants, most of them full-grown bulls. But the herd had moved on some way during the night, and it was nine o’clock, and already very hot, before, by the broken trees, bruised leaves and bark, and smoking droppings, we knew that we could not be far from them.
+
+-----------
+Та же самая задача для этого текста:
 
 Presently we caught sight of the herd, which numbered, as Ventvögel had said, between twenty and thirty, standing in a hollow, having finished their morning meal, and flapping their great ears. It was a splendid sight, for they were only about two hundred yards from us. Taking a handful of dry grass, I threw it into the air to see how the wind was; for if once they winded us I knew they would be off before we could get a shot. Finding that, if anything, it blew from the elephants to us, we crept on stealthily, and thanks to the cover managed to get within forty yards or so of the great brutes. Just in front of us, and broadside on, stood three splendid bulls, one of them with enormous tusks. I whispered to the others that I would take the middle one; Sir Henry covering the elephant to the left, and Good the bull with the big tusks.
 
