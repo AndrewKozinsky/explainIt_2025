@@ -23,8 +23,8 @@ jobs:
             cd ~/sites/explain
 
             git checkout master
-            git reset --hard
-            git pull
+            git fetch origin master
+            git reset --hard origin/master
           
             # Generate .env file
             echo "${{ secrets.ENV_FILE_MASTER }}" > .env.servermaster

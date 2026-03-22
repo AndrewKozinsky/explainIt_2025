@@ -23,8 +23,8 @@ jobs:
             cd ~/sites/explain_dev
 
             git checkout develop
-            git reset --hard
-            git pull
+            git fetch origin develop
+            git reset --hard origin/develop
           
             # Generate .env file
             echo "${{ secrets.ENV_FILE_DEV }}" > .env.serverdevelop
