@@ -21,6 +21,9 @@ export class VideoPublicLiteOutModel {
 	covers: string[]
 
 	@Field(() => String)
+	coverBackgroundColor: string
+
+	@Field(() => String)
 	originalContent: string
 
 	@Field(() => String)

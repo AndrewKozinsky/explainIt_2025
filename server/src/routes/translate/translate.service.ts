@@ -4,13 +4,15 @@ import {
 	TranslateSentenceHandler,
 	TranslateSentenceStreamEvent,
 } from 'features/sentenceTranslation/translateSentence/TranslateSentence.command'
+import { CurrentSubscriptionServiceModel } from 'models/auth/auth.service.model'
 
 @Injectable()
 export class TranslateService {
 	constructor(private translateSentenceHandler: TranslateSentenceHandler) {}
 
 	async translateSentenceStream(input: {
-		userId: number
+		userId: null | number
+		currentSubscription: null | CurrentSubscriptionServiceModel
 		query: {
 			sentenceId: number
 			text: string
@@ -36,6 +38,7 @@ export class TranslateService {
 			for await (const event of this.translateSentenceHandler.streamTranslate({
 				...input.query,
 				userId: input.userId,
+				currentSubscription: input.currentSubscription,
 				abortSignal: abortController.signal,
 			})) {
 				this.handleStreamEvent(input.response, event)

@@ -1,0 +1,31 @@
+@use '@/styles/variables' as vars;
+
+.chapter-link {
+	display: flex;
+	flex-direction: column;
+	gap: 0.2rem;
+	width: 100%;
+	padding: 0.6rem 1rem;
+	border-radius: vars.$radius-1;
+
+	&:hover {
+		background-color: vars.$grayColor-1;
+	}
+}
+
+.chapter-link--current {
+	color: white;
+	background-color: vars.$accentColor-2;
+
+	&:hover {
+		background-color: vars.$accentColor-2;
+	}
+}
+
+.chapter-link__author {
+	color: vars.$grayColor-5;
+}
+.chapter-link__name {
+	font-size: 2rem;
+	line-height: 2.6rem;
+}

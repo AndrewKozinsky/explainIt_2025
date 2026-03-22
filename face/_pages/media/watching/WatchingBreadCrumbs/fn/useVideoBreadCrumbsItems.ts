@@ -1,0 +1,22 @@
+import React from 'react'
+import { useParams } from 'next/navigation'
+import { useWatchingStore } from '../../watchingStore'
+import { pageUrls } from 'сonsts/pageUrls'
+
+type BreadCrumbItem = {
+	name: string
+	path: string
+}
+
+export function useVideoBreadCrumbsItems(): BreadCrumbItem[] {
+	const params = useParams() as { videoId?: string }
+	const urlVideoId = params.videoId!
+
+	const videoName = useWatchingStore((s) => s.video?.data?.name ?? undefined)
+
+	return React.useMemo(() => {
+		const videoUrl = pageUrls.videos.video(urlVideoId)
+
+		return [pageUrls.videos, { name: videoName ?? videoUrl.name, path: videoUrl.path }]
+	}, [urlVideoId, videoName])
+}

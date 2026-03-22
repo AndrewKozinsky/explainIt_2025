@@ -277,6 +277,12 @@ export const bdConfig = {
 				description: 'Covers of the book',
 				required: true,
 			},
+			coverBackgroundColor: {
+				type: 'string',
+				description: 'Background color for the book card',
+				required: true,
+				maxLength: 255,
+			},
 			author: {
 				type: 'string',
 				description: 'Author of the book',
@@ -532,6 +538,12 @@ export const bdConfig = {
 				arrayItemType: 'string',
 				description: 'Covers of the video',
 				required: true,
+			},
+			coverBackgroundColor: {
+				type: 'string',
+				description: 'Background color for the video card',
+				required: true,
+				maxLength: 255,
 			},
 			original_content: {
 				type: 'string',
@@ -861,35 +873,11 @@ export const bdConfig = {
 				required: true,
 				unique: true,
 			},
-			slogan: {
-				type: 'string',
-				description: 'Slogan of the tariff',
-				required: true,
-				maxLength: 100,
-			},
 			name: {
 				type: 'string',
 				description: 'Name of the tariff',
 				required: true,
 				maxLength: 100,
-			},
-			description: {
-				type: 'string',
-				description: 'Description of the tariff',
-				required: true,
-				maxLength: 100,
-			},
-			is_public_media_included: {
-				type: 'boolean',
-				description: 'Is public media included',
-				example: true,
-				required: true,
-			},
-			is_private_media_included: {
-				type: 'boolean',
-				description: 'Is private media included',
-				example: true,
-				required: true,
 			},
 			price: {
 				type: 'number',

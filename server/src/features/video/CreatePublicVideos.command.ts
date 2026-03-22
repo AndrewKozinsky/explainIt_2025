@@ -69,6 +69,7 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 					languageCode: videoData.languageCode as Language,
 					note: videoData.note,
 					covers: videoData.covers,
+					coverBackgroundColor: videoData.coverBackgroundColor,
 					year: videoData.year,
 					originalContent: preparedContentResult.originalContentForVideoUpdate,
 					processedContent: preparedContentResult.processedContentForVideoUpdate,
@@ -117,6 +118,7 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 		file_s3_key: string
 		originalContent: string
 		covers: string[]
+		coverBackgroundColor: string
 	}[] {
 		const workingMode = this.mainConfig.get().mode!
 		const folderName = ['localdev', 'localtest', 'localcheckserver'].includes(workingMode)
@@ -137,14 +139,15 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 Речь чёткая и спокойная, актёры говорят естественно и без постоянных перебиваний. Стандартный разговорный английский. Много повседневной лексики (отношения, деньги, доверие, опасность). У Audrey Hepburn и Cary Grant очень ясная, «учебная» речь.
 Уровень B1-B2 (Intermediate / Upper-Intermediate).`,
 				fileName: 'Charade (1963).mp4',
-				file_s3_key: folderName + '/Charade (1963).mp4', // privateVideoDev/4adf6f8e-d299-49f5-b144-7171402e6c8a-test.mp4
+				file_s3_key: folderName + '/english/Charade (1963).mp4', // privateVideoDev/4adf6f8e-d299-49f5-b144-7171402e6c8a-test.mp4
 				originalContent: charadeSubs,
 				covers: [
-					coversFolderName + 'charade_1.jpg',
-					coversFolderName + 'charade_2.jpg',
-					coversFolderName + 'charade_3.jpg',
-					coversFolderName + 'charade_4.jpg',
+					coversFolderName + 'english/charade_1.jpg',
+					coversFolderName + 'english/charade_2.jpg',
+					coversFolderName + 'english/charade_3.jpg',
+					coversFolderName + 'english/charade_4.jpg',
 				],
+				coverBackgroundColor: '#444A21',
 			},
 			{
 				freeToUse: false,
@@ -154,16 +157,17 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 				note: `Остроумная комедия о журналистах.
 Главная героиня, Хилди Джонсон, — талантливая репортёрша, собирается уйти с работы и выйти замуж. Но её бывший муж и редактор газеты, Уолтер Бёрнс, пытается удержать её в профессии. В это время появляется срочная новость: человека собираются казнить, и дело может быть несправедливым. Хилди начинает расследование, и события развиваются очень быстро.
 Живые диалоги, быстрая разговорная речь, много юмора и сарказма, журналистская и повседневная лексика. Это фильм о работе, амбициях, любви и о том, как трудно выбрать между карьерой и личной жизнью.
-Рекомендуемый уровень: B2–C1 (Upper-Intermediate / Advanced).`,
+Рекомендуемый уровень: B2-C1 (Upper-Intermediate / Advanced).`,
 				fileName: 'His Girl Friday (1940).webm',
-				file_s3_key: folderName + '/His Girl Friday (1940).webm',
+				file_s3_key: folderName + '/english/His Girl Friday (1940).webm',
 				originalContent: hisGirlFridaySubs,
 				covers: [
-					coversFolderName + 'his_girl_friday_1.jpg',
-					coversFolderName + 'his_girl_friday_2.jpg',
-					coversFolderName + 'his_girl_friday_3.jpg',
-					coversFolderName + 'his_girl_friday_4.jpg',
+					coversFolderName + 'english/his_girl_friday_1.jpg',
+					coversFolderName + 'english/his_girl_friday_2.jpg',
+					coversFolderName + 'english/his_girl_friday_3.jpg',
+					coversFolderName + 'english/his_girl_friday_4.jpg',
 				],
+				coverBackgroundColor: '#24181A',
 			},
 		]
 	}

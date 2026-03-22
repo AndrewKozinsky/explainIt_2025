@@ -25,6 +25,9 @@ export class VideoPublicOutModel {
 	covers: string[]
 
 	@Field(() => String)
+	coverBackgroundColor: string
+
+	@Field(() => String)
 	originalContent: string
 
 	@Field(() => String)

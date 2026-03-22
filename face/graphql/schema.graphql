@@ -25,7 +25,7 @@ type BookLiteOutModel {
   userId: Int
 }
 
-type BookOutModel {
+type BookPrivateOutModel {
   author: String
   chapters: [BookChapterLiteOutModel!]!
   freeToUse: Boolean!
@@ -39,6 +39,7 @@ type BookOutModel {
 type BookPublicOutModel {
   author: String!
   chapters: [BookChapterLiteOutModel!]!
+  coverBackgroundColor: String!
   covers: [String!]!
   freeToUse: Boolean!
   id: Int!
@@ -100,7 +101,7 @@ input CreateBookChapterInput {
   note: String
 }
 
-input CreateBookInput {
+input CreatePrivateBookInput {
   """Author"""
   author: String
 
@@ -137,8 +138,6 @@ type CurrentSubscriptionOutModel {
   balance: Int!
   endsAt: String!
   includedFileStorageMb: Int!
-  isPrivateMediaIncluded: Boolean!
-  isPublicMediaIncluded: Boolean!
   pricePaid: Int!
   startsAt: String!
   tariffCode: String!
@@ -156,7 +155,7 @@ input DeleteBookChapterInput {
   id: Int!
 }
 
-input DeleteBookInput {
+input DeletePrivateBookInput {
   """Book id"""
   id: Int!
 }
@@ -174,12 +173,12 @@ input GetBookChapterInput {
   id: Int!
 }
 
-input GetBookInput {
+input GetBookPublicInput {
   """Book id"""
   id: Int!
 }
 
-input GetBookPublicInput {
+input GetPrivateBookInput {
   """Book id"""
   id: Int!
 }
@@ -192,16 +191,6 @@ input GetPrivateVideoInput {
 input GetPublicVideoInput {
   """Video id"""
   id: Int!
-}
-
-input GetSentenceTranslationInput {
-  """SentenceTranslation id"""
-  id: Int!
-}
-
-input GetSentenceTranslationsBySentenceIdInput {
-  """Sentence id"""
-  sentenceId: Int!
 }
 
 input GetTranscriptionInput {
@@ -269,13 +258,13 @@ type Mutation {
   book_chapter_update(input: UpdateBookChapterInput!): BookChapterOutModel!
 
   """Create book"""
-  book_create(input: CreateBookInput!): BookOutModel!
+  book_create(input: CreatePrivateBookInput!): BookPrivateOutModel!
 
   """Delete user book"""
-  book_delete(input: DeleteBookInput!): Boolean!
+  book_delete(input: DeletePrivateBookInput!): Boolean!
 
   """Update user book"""
-  book_update(input: UpdateBookInput!): BookOutModel!
+  book_update(input: UpdatePrivateBookInput!): BookPrivateOutModel!
 
   """Buy a subscription with YooKassa"""
   payment_yookassa_buy_subscription(input: BuySubscriptionWithYooKassaInput!): BuySubscriptionWithYooKassaOutModel!
@@ -301,7 +290,7 @@ type Query {
   book_chapter_get(input: GetBookChapterInput!): BookChapterOutModel!
 
   """Get user book"""
-  book_get(input: GetBookInput!): BookOutModel!
+  book_get(input: GetPrivateBookInput!): BookPrivateOutModel!
 
   """Get public book"""
   book_public_get_book(input: GetBookPublicInput!): BookPublicOutModel!
@@ -310,13 +299,7 @@ type Query {
   book_public_get_books: [BookPublicOutModel!]!
 
   """Get user books"""
-  book_user_books: [BookOutModel!]!
-
-  """Get sentence translation by id"""
-  sentence_translation_get(input: GetSentenceTranslationInput!): SentenceTranslationOutModel!
-
-  """Get all sentence translations by sentence id"""
-  sentence_translation_get_by_sentence_id(input: GetSentenceTranslationsBySentenceIdInput!): [SentenceTranslationOutModel!]!
+  book_user_books: [BookPrivateOutModel!]!
 
   """Get all tariffs"""
   tariff_get_tariffs: [TariffOutModel!]!
@@ -358,14 +341,6 @@ type SentenceTranslationLiteOutModel {
   translation: String!
 }
 
-type SentenceTranslationOutModel {
-  analysis: String
-  createdAt: String!
-  id: Int!
-  sentenceId: Int!
-  translation: String!
-}
-
 type SubtitleSentenceInitOutModel {
   id: Int!
   length: Int!
@@ -377,16 +352,12 @@ type SubtitleSentenceInitOutModel {
 type TariffOutModel {
   code: String!
   createdAt: DateTime!
-  description: String!
   durationDays: Int!
   id: Int!
   includedBalance: Int!
   includedFileStorageMb: Int!
-  isPrivateMediaIncluded: Boolean!
-  isPublicMediaIncluded: Boolean!
   name: String!
   price: Int!
-  slogan: String!
 }
 
 input UpdateBookChapterInput {
@@ -406,12 +377,15 @@ input UpdateBookChapterInput {
   note: String
 }
 
-input UpdateBookInput {
+input UpdatePrivateBookInput {
   """Author"""
   author: String
 
   """Book id"""
   id: Int!
+
+  """Language code"""
+  languageCode: String
 
   """Name"""
   name: String
@@ -435,6 +409,9 @@ input UpdatePrivateVideoInput {
 
   """Is file was upload to S3"""
   isFileUploaded: Boolean
+
+  """Language code"""
+  languageCode: String
 
   """Name"""
   name: String
@@ -518,6 +495,7 @@ type VideoPrivateSubtitleOutModel {
 
 type VideoPublicLiteOutModel {
   contentType: String!
+  coverBackgroundColor: String!
   covers: [String!]!
   fileName: String!
   fileS3Key: String!
@@ -534,6 +512,7 @@ type VideoPublicLiteOutModel {
 
 type VideoPublicOutModel {
   contentType: String!
+  coverBackgroundColor: String!
   covers: [String!]!
   fileName: String!
   fileS3Key: String!

@@ -1,0 +1,106 @@
+@use '@/styles/variables' as vars;
+
+.styled-analysis {
+	font-size: 1.8rem;
+	line-height: 2.6rem;
+	word-break: break-word;
+
+	h1,
+	h2,
+	h3,
+	h4 {
+		margin: 0.75rem 0 0.5rem;
+		line-height: 1.2;
+	}
+
+	h1 {
+		font-size: 2rem;
+	}
+
+	h2 {
+		font-size: 1.8rem;
+	}
+
+	h3 {
+		font-size: 1.7rem;
+	}
+
+	p {
+		margin: 0.5rem 0;
+	}
+
+	ul,
+	ol {
+	}
+
+	ul ul {
+		padding-left: 1.25rem;
+	}
+
+	ul {
+		display: grid;
+		gap: .8rem;
+	}
+
+	li {
+	}
+
+	li > ul {
+		margin-top: .4rem;
+	}
+
+	a {
+		text-decoration: underline;
+	}
+
+	strong {
+		font-weight: 600;
+	}
+
+	code {
+		padding: 0.1rem 0.25rem;
+		border-radius: vars.$radius-1;
+		background: white;
+	}
+
+	pre {
+		margin: 0.75rem 0;
+		padding: 0.75rem;
+		overflow: auto;
+		border-radius: 0.5rem;
+		background: rgba(0, 0, 0, 0.06);
+	}
+
+	pre code {
+		padding: 0;
+		background: transparent;
+		font-size: 0.9em;
+	}
+
+	blockquote {
+		margin: 0.75rem 0;
+		padding: 0.25rem 0.75rem;
+		border-left: 3px solid rgba(0, 0, 0, 0.2);
+		background: rgba(0, 0, 0, 0.03);
+	}
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		margin: 0.75rem 0;
+		font-size: 0.95em;
+	}
+
+	th,
+	td {
+		border: 1px solid rgba(0, 0, 0, 0.12);
+		padding: 0.4rem 0.5rem;
+		text-align: left;
+		vertical-align: top;
+	}
+
+	th {
+		font-weight: 600;
+		background: rgba(0, 0, 0, 0.04);
+	}
+}

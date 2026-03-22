@@ -11,6 +11,7 @@ export type CreateBookPublicInput = {
 	name: string
 	note: string
 	covers: string[]
+	coverBackgroundColor: string
 	languageCode: Language
 	freeToUse?: boolean
 }

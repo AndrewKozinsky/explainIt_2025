@@ -11,16 +11,20 @@ import { TranslateService } from 'routes/translate/translate.service'
 import { PrismaService } from 'db/prisma.service'
 import { DeepSeekTokenUsageBalanceChargeHandler } from 'features/payment/DeepSeekTokenUsageBalanceCharge.command'
 import { OpenAiTokenUsageBalanceChargeHandler } from 'features/payment/OpenAiTokenUsageBalanceCharge.command'
+import { DailyTranslationLimitService } from 'features/sentenceTranslation/translateSentence/DailyTranslationLimit.service'
+import { SentenceTranslationAccessService } from 'features/sentenceTranslation/translateSentence/SentenceTranslationAccess.service'
+import { StreamTranslateWithChatGPT } from 'features/sentenceTranslation/translateSentence/StreamTranslateWithChatGPT.service'
 import { StreamTranslateWithDeepSeek } from 'features/sentenceTranslation/translateSentence/StreamTranslateWithDeepSeek.service'
 import { TranslateSentenceHandler } from 'features/sentenceTranslation/translateSentence/TranslateSentence.command'
+import { OptionalSessionUserGuard } from 'infrastructure/guards/optionalSessionUser.guard'
 
-const services = [PrismaService, TranslateService]
+const services = [PrismaService, TranslateService, SentenceTranslationAccessService, DailyTranslationLimitService]
 const commandHandlers = [
 	TranslateSentenceHandler,
 	OpenAiTokenUsageBalanceChargeHandler,
 	DeepSeekTokenUsageBalanceChargeHandler,
 ]
-const translateProviders = [StreamTranslateWithDeepSeek]
+const translateProviders = [StreamTranslateWithDeepSeek, StreamTranslateWithChatGPT]
 const repositories = [
 	EngRusDictionaryRepository,
 	SentenceRepository,
@@ -33,6 +37,6 @@ const repositories = [
 @Module({
 	imports: [CqrsModule],
 	controllers: [TranslateController],
-	providers: [...commandHandlers, ...translateProviders, ...services, ...repositories],
+	providers: [...commandHandlers, ...translateProviders, ...services, ...repositories, OptionalSessionUserGuard],
 })
 export class TranslateRouteModule {}

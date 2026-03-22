@@ -1,0 +1,17 @@
+.details-block {
+	flex-grow: 1;
+	position: sticky;
+	left: 0;
+	display: flex;
+	box-sizing: border-box;
+}
+
+.details-block--reading {
+	top: 1rem;
+	padding-bottom: 1rem;
+}
+
+.details-block--watching {
+	top: var(--details-sticky-top, 0);
+	padding-block: 1rem;
+}

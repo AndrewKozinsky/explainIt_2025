@@ -1,0 +1,12 @@
+.summary-of-the-media {
+	font-size: 1.8rem;
+	line-height: 2.8rem;
+}
+
+.summary-of-the-media p {
+	margin: 0;
+}
+
+.summary-of-the-media p + p {
+	margin-top: 1rem;
+}

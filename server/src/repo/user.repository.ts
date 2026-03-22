@@ -1,11 +1,35 @@
 import { Injectable } from '@nestjs/common'
 import { add } from 'date-fns'
-import { User } from 'prisma/generated/client'
+import { Prisma, User } from 'prisma/generated/client'
 import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
+import { CustomGraphQLError } from '../infrastructure/exceptions/customErrors'
+import { ErrorCode } from '../infrastructure/exceptions/errorCode'
+import { errorMessage } from '../infrastructure/exceptions/errorMessage'
 import { HashAdapterService } from '../infrastructure/hashAdapter/hash-adapter.service'
-import { UserServiceModel } from '../models/auth/auth.service.model'
+import { CurrentSubscriptionServiceModel, UserServiceModel } from '../models/auth/auth.service.model'
 import { createUniqString } from '../utils/stringUtils'
+
+const userWithCurrentSubscriptionInclude = {
+	UserSubscription: {
+		where: {
+			ends_at: {
+				gt: new Date(),
+			},
+		},
+		orderBy: {
+			ends_at: 'desc' as const,
+		},
+		take: 1,
+		include: {
+			tariff: true,
+		},
+	},
+} satisfies Prisma.UserInclude
+
+type DbUserWithCurrentSubscription = Prisma.UserGetPayload<{
+	include: typeof userWithCurrentSubscriptionInclude
+}>
 
 @Injectable()
 export class UserRepository {
@@ -18,6 +42,7 @@ export class UserRepository {
 	async getUserById(id: number) {
 		const user = await this.prisma.user.findUnique({
 			where: { id },
+			include: userWithCurrentSubscriptionInclude,
 		})
 
 		if (!user) {
@@ -32,6 +57,7 @@ export class UserRepository {
 		try {
 			const user = await this.prisma.user.findUnique({
 				where: { email },
+				include: userWithCurrentSubscriptionInclude,
 			})
 
 			if (!user) return null
@@ -46,6 +72,7 @@ export class UserRepository {
 	async getUserByEmailAndPassword(email: string, password: string) {
 		const user = await this.prisma.user.findUnique({
 			where: { email },
+			include: userWithCurrentSubscriptionInclude,
 		})
 		if (!user || !user.password) return null
 
@@ -59,6 +86,7 @@ export class UserRepository {
 	async getUserByConfirmationCode(confirmationCode: string) {
 		const user = await this.prisma.user.findFirst({
 			where: { email_confirmation_code: confirmationCode },
+			include: userWithCurrentSubscriptionInclude,
 		})
 
 		if (!user) return null
@@ -67,7 +95,7 @@ export class UserRepository {
 	}
 
 	@CatchDbError()
-	async createUserByEmailAndPassword(dto: { email: string; password: string }) {
+	async createUserByEmailAndPassword(dto: { email: string; password: string }): Promise<UserServiceModel> {
 		const newUserParams = {
 			email: dto.email,
 			password: await this.makePasswordHash(dto.password),
@@ -78,11 +106,16 @@ export class UserRepository {
 			data: newUserParams,
 		})
 
-		return this.mapDbUserToServiceUser(user)
+		const createdUser = await this.getUserById(user.id)
+		if (!createdUser) {
+			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
+		}
+
+		return createdUser
 	}
 
 	@CatchDbError()
-	async createUserByEmail(email: string) {
+	async createUserByEmail(email: string): Promise<UserServiceModel> {
 		const newUserParams = {
 			email,
 			is_user_confirmed: true,
@@ -92,7 +125,12 @@ export class UserRepository {
 			data: newUserParams,
 		})
 
-		return this.mapDbUserToServiceUser(user)
+		const createdUser = await this.getUserById(user.id)
+		if (!createdUser) {
+			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
+		}
+
+		return createdUser
 	}
 
 	@CatchDbError()
@@ -145,7 +183,7 @@ export class UserRepository {
 		return await this.hashAdapter.hashString(password)
 	}
 
-	mapDbUserToServiceUser(dbUser: User): UserServiceModel {
+	mapDbUserToServiceUser(dbUser: DbUserWithCurrentSubscription): UserServiceModel {
 		return {
 			id: dbUser.id,
 			email: dbUser.email,
@@ -154,6 +192,28 @@ export class UserRepository {
 			confirmationCodeExpirationDate: dbUser.email_confirmation_code_expiration_date,
 			isEmailConfirmed: dbUser.is_email_confirmed,
 			isUserConfirmed: dbUser.is_user_confirmed,
+			currentSubscription: this.mapCurrentSubscription(dbUser),
+		}
+	}
+
+	private mapCurrentSubscription(dbUser: DbUserWithCurrentSubscription): null | CurrentSubscriptionServiceModel {
+		const currentSubscription = dbUser.UserSubscription?.[0]
+		const now = new Date()
+		const isSubscriptionActive = Boolean(currentSubscription?.ends_at && currentSubscription.ends_at > now)
+		if (!isSubscriptionActive) {
+			return null
+		}
+
+		return {
+			tariffId: currentSubscription.tariff_id,
+			tariffCode: currentSubscription.tariff.code,
+			tariffName: currentSubscription.tariff.name,
+			pricePaid: currentSubscription.price_paid,
+			balance: currentSubscription.balance,
+			includedBalance: currentSubscription.tariff.included_balance,
+			includedFileStorageMb: currentSubscription.included_file_storage_mb,
+			startsAt: currentSubscription.starts_at.toISOString(),
+			endsAt: currentSubscription.ends_at.toISOString(),
 		}
 	}
 }

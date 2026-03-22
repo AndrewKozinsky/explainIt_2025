@@ -10,7 +10,7 @@ type ViewportSyncedHeightProps = {
 }
 
 function ViewportSyncedHeight(props: ViewportSyncedHeightProps) {
-	const { minHeight = 300, extraClass, children } = props
+	const { minHeight = 200, extraClass, children } = props
 
 	const { containerRef, height } = useViewportSyncedHeight({ minHeight })
 

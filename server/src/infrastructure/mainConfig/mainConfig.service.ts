@@ -119,6 +119,8 @@ export class MainConfigService {
 			nlp: {
 				containerUrl: `http://explainnlp${enVariables.mode}:8000`,
 			},
+			// Сколько переводов может сделать пользователь в день без тарифа позволяющего переводить любое количество материалов в пределах баланса
+			dailyTranslationsLimit: 3,
 		}
 	}
 

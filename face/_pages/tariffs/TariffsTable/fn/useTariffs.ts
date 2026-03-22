@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { usePayment_YookassaBuySubscription, useTariff_Get_Tariffs } from '@/graphql'
+import { TariffOutModel, usePayment_YookassaBuySubscription, useTariff_Get_Tariffs } from '@/graphql'
 import { useUserStore } from '@/stores/userStore'
 import { pageUrls } from '@/сonsts/pageUrls'
 
@@ -22,7 +22,8 @@ export function useTariffs() {
 
 	const tariffs = useMemo(
 		function () {
-			return tariffsData?.tariff_get_tariffs ?? []
+			const tariffs = tariffsData?.tariff_get_tariffs ?? []
+			return getTariffsConfig(tariffs)
 		},
 		[tariffsData],
 	)
@@ -72,4 +73,75 @@ export function useTariffs() {
 		submitError,
 		handleBuySubscription,
 	}
+}
+
+export type TariffConfig = {
+	id: number
+	slogan: string
+	name: string
+	isPaid: boolean
+	features: string[]
+	description: string
+	prices: {
+		tariffId: number
+		priceRub: number
+		durationDays: number
+	}[]
+}
+
+function getTariffsConfig(tariffsData: TariffOutModel[]): TariffConfig[] {
+	const baseTariffs = tariffsData.filter((t) => t.code.startsWith('base'))
+	const standardTariffs = tariffsData.filter((t) => t.code.startsWith('standard'))
+
+	return [
+		{
+			id: 1,
+			slogan: 'Попробовать в действии',
+			name: 'Бесплатно',
+			isPaid: false,
+			features: [
+				'Неограниченное количество переводов одной книги и одного фильма',
+				'До 5 переводов книг и фильмов ежедневно',
+			],
+			description: 'Попробовать формат на настоящем материале.',
+			prices: [],
+		},
+		{
+			id: 2,
+			slogan: 'Регулярная практика',
+			name: 'База',
+			isPaid: true,
+			features: [
+				'Неограниченное количество переводов публичных книг и  фильмов',
+				'До 5 переводов своих книг и фильмов ежедневно',
+			],
+			description: 'Продолжить изучение когда бесплатные материалы уже пройдены.',
+			prices: baseTariffs.map((tariff) => {
+				return {
+					tariffId: tariff.id,
+					priceRub: tariff.price / 100,
+					durationDays: tariff.durationDays,
+				}
+			}),
+		},
+		{
+			id: 3,
+			slogan: 'Полная свобода',
+			name: 'Стандарт',
+			isPaid: true,
+			features: [
+				'Неограниченное количество переводов публичных книг и  фильмов',
+				'Загрузка собственных книг и фильмов',
+				'≈850 или ≈2500 переводов своих книг и фильмов',
+			],
+			description: 'Учиться на том, что интересно именно вам.',
+			prices: standardTariffs.map((tariff) => {
+				return {
+					tariffId: tariff.id,
+					priceRub: tariff.price / 100,
+					durationDays: tariff.durationDays,
+				}
+			}),
+		},
+	]
 }

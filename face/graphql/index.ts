@@ -48,8 +48,8 @@ export type BookLiteOutModel = {
   userId?: Maybe<Scalars['Int']['output']>;
 };
 
-export type BookOutModel = {
-  __typename?: 'BookOutModel';
+export type BookPrivateOutModel = {
+  __typename?: 'BookPrivateOutModel';
   author?: Maybe<Scalars['String']['output']>;
   chapters: Array<BookChapterLiteOutModel>;
   freeToUse: Scalars['Boolean']['output'];
@@ -64,6 +64,7 @@ export type BookPublicOutModel = {
   __typename?: 'BookPublicOutModel';
   author: Scalars['String']['output'];
   chapters: Array<BookChapterLiteOutModel>;
+  coverBackgroundColor: Scalars['String']['output'];
   covers: Array<Scalars['String']['output']>;
   freeToUse: Scalars['Boolean']['output'];
   id: Scalars['Int']['output'];
@@ -122,7 +123,7 @@ export type CreateBookChapterInput = {
   note?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type CreateBookInput = {
+export type CreatePrivateBookInput = {
   /** Author */
   author?: InputMaybe<Scalars['String']['input']>;
   /** Name */
@@ -157,8 +158,6 @@ export type CurrentSubscriptionOutModel = {
   balance: Scalars['Int']['output'];
   endsAt: Scalars['String']['output'];
   includedFileStorageMb: Scalars['Int']['output'];
-  isPrivateMediaIncluded: Scalars['Boolean']['output'];
-  isPublicMediaIncluded: Scalars['Boolean']['output'];
   pricePaid: Scalars['Int']['output'];
   startsAt: Scalars['String']['output'];
   tariffCode: Scalars['String']['output'];
@@ -171,7 +170,7 @@ export type DeleteBookChapterInput = {
   id: Scalars['Int']['input'];
 };
 
-export type DeleteBookInput = {
+export type DeletePrivateBookInput = {
   /** Book id */
   id: Scalars['Int']['input'];
 };
@@ -188,12 +187,12 @@ export type GetBookChapterInput = {
   id: Scalars['Int']['input'];
 };
 
-export type GetBookInput = {
+export type GetBookPublicInput = {
   /** Book id */
   id: Scalars['Int']['input'];
 };
 
-export type GetBookPublicInput = {
+export type GetPrivateBookInput = {
   /** Book id */
   id: Scalars['Int']['input'];
 };
@@ -206,16 +205,6 @@ export type GetPrivateVideoInput = {
 export type GetPublicVideoInput = {
   /** Video id */
   id: Scalars['Int']['input'];
-};
-
-export type GetSentenceTranslationInput = {
-  /** SentenceTranslation id */
-  id: Scalars['Int']['input'];
-};
-
-export type GetSentenceTranslationsBySentenceIdInput = {
-  /** Sentence id */
-  sentenceId: Scalars['Int']['input'];
 };
 
 export type GetTranscriptionInput = {
@@ -275,11 +264,11 @@ export type Mutation = {
   /** Update book chapter */
   book_chapter_update: BookChapterOutModel;
   /** Create book */
-  book_create: BookOutModel;
+  book_create: BookPrivateOutModel;
   /** Delete user book */
   book_delete: Scalars['Boolean']['output'];
   /** Update user book */
-  book_update: BookOutModel;
+  book_update: BookPrivateOutModel;
   /** Buy a subscription with YooKassa */
   payment_yookassa_buy_subscription: BuySubscriptionWithYooKassaOutModel;
   /** Create a video */
@@ -332,17 +321,17 @@ export type MutationBook_Chapter_UpdateArgs = {
 
 
 export type MutationBook_CreateArgs = {
-  input: CreateBookInput;
+  input: CreatePrivateBookInput;
 };
 
 
 export type MutationBook_DeleteArgs = {
-  input: DeleteBookInput;
+  input: DeletePrivateBookInput;
 };
 
 
 export type MutationBook_UpdateArgs = {
-  input: UpdateBookInput;
+  input: UpdatePrivateBookInput;
 };
 
 
@@ -374,17 +363,13 @@ export type Query = {
   /** Get book chapter */
   book_chapter_get: BookChapterOutModel;
   /** Get user book */
-  book_get: BookOutModel;
+  book_get: BookPrivateOutModel;
   /** Get public book */
   book_public_get_book: BookPublicOutModel;
   /** Get public books */
   book_public_get_books: Array<BookPublicOutModel>;
   /** Get user books */
-  book_user_books: Array<BookOutModel>;
-  /** Get sentence translation by id */
-  sentence_translation_get: SentenceTranslationOutModel;
-  /** Get all sentence translations by sentence id */
-  sentence_translation_get_by_sentence_id: Array<SentenceTranslationOutModel>;
+  book_user_books: Array<BookPrivateOutModel>;
   /** Get all tariffs */
   tariff_get_tariffs: Array<TariffOutModel>;
   /** Get a video */
@@ -414,22 +399,12 @@ export type QueryBook_Chapter_GetArgs = {
 
 
 export type QueryBook_GetArgs = {
-  input: GetBookInput;
+  input: GetPrivateBookInput;
 };
 
 
 export type QueryBook_Public_Get_BookArgs = {
   input: GetBookPublicInput;
-};
-
-
-export type QuerySentence_Translation_GetArgs = {
-  input: GetSentenceTranslationInput;
-};
-
-
-export type QuerySentence_Translation_Get_By_Sentence_IdArgs = {
-  input: GetSentenceTranslationsBySentenceIdInput;
 };
 
 
@@ -467,15 +442,6 @@ export type SentenceTranslationLiteOutModel = {
   translation: Scalars['String']['output'];
 };
 
-export type SentenceTranslationOutModel = {
-  __typename?: 'SentenceTranslationOutModel';
-  analysis?: Maybe<Scalars['String']['output']>;
-  createdAt: Scalars['String']['output'];
-  id: Scalars['Int']['output'];
-  sentenceId: Scalars['Int']['output'];
-  translation: Scalars['String']['output'];
-};
-
 export type SubtitleSentenceInitOutModel = {
   __typename?: 'SubtitleSentenceInitOutModel';
   id: Scalars['Int']['output'];
@@ -489,16 +455,12 @@ export type TariffOutModel = {
   __typename?: 'TariffOutModel';
   code: Scalars['String']['output'];
   createdAt: Scalars['DateTime']['output'];
-  description: Scalars['String']['output'];
   durationDays: Scalars['Int']['output'];
   id: Scalars['Int']['output'];
   includedBalance: Scalars['Int']['output'];
   includedFileStorageMb: Scalars['Int']['output'];
-  isPrivateMediaIncluded: Scalars['Boolean']['output'];
-  isPublicMediaIncluded: Scalars['Boolean']['output'];
   name: Scalars['String']['output'];
   price: Scalars['Int']['output'];
-  slogan: Scalars['String']['output'];
 };
 
 export type UpdateBookChapterInput = {
@@ -514,11 +476,13 @@ export type UpdateBookChapterInput = {
   note?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type UpdateBookInput = {
+export type UpdatePrivateBookInput = {
   /** Author */
   author?: InputMaybe<Scalars['String']['input']>;
   /** Book id */
   id: Scalars['Int']['input'];
+  /** Language code */
+  languageCode?: InputMaybe<Scalars['String']['input']>;
   /** Name */
   name?: InputMaybe<Scalars['String']['input']>;
   /** Note */
@@ -536,6 +500,8 @@ export type UpdatePrivateVideoInput = {
   id: Scalars['Int']['input'];
   /** Is file was upload to S3 */
   isFileUploaded?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Language code */
+  languageCode?: InputMaybe<Scalars['String']['input']>;
   /** Name */
   name?: InputMaybe<Scalars['String']['input']>;
   /** Original content */
@@ -624,6 +590,7 @@ export type VideoPrivateSubtitleOutModel = {
 export type VideoPublicLiteOutModel = {
   __typename?: 'VideoPublicLiteOutModel';
   contentType: Scalars['String']['output'];
+  coverBackgroundColor: Scalars['String']['output'];
   covers: Array<Scalars['String']['output']>;
   fileName: Scalars['String']['output'];
   fileS3Key: Scalars['String']['output'];
@@ -641,6 +608,7 @@ export type VideoPublicLiteOutModel = {
 export type VideoPublicOutModel = {
   __typename?: 'VideoPublicOutModel';
   contentType: Scalars['String']['output'];
+  coverBackgroundColor: Scalars['String']['output'];
   covers: Array<Scalars['String']['output']>;
   fileName: Scalars['String']['output'];
   fileS3Key: Scalars['String']['output'];
@@ -683,14 +651,20 @@ export type AiCheckTranslationVariables = Exact<{
 }>;
 
 
-export type AiCheckTranslation = { __typename?: 'Query', ai_checkTranslation: { __typename?: 'CheckTranslationOutErrorModel', error: string } | { __typename?: 'CheckTranslationOutSuccessModel', correct: boolean, analysis: string } };
+export type AiCheckTranslation = { __typename?: 'Query', ai_checkTranslation:
+    | { __typename?: 'CheckTranslationOutErrorModel', error: string }
+    | { __typename?: 'CheckTranslationOutSuccessModel', correct: boolean, analysis: string }
+   };
 
 export type AiGetTranscriptionVariables = Exact<{
   engSentence: Scalars['String']['input'];
 }>;
 
 
-export type AiGetTranscription = { __typename?: 'Query', ai_getTranscription: { __typename?: 'GetTranscriptionOutErrorModel', error: string } | { __typename?: 'GetTranscriptionOutSuccessModel', transcription: string } };
+export type AiGetTranscription = { __typename?: 'Query', ai_getTranscription:
+    | { __typename?: 'GetTranscriptionOutErrorModel', error: string }
+    | { __typename?: 'GetTranscriptionOutSuccessModel', transcription: string }
+   };
 
 export type Auth_ConfirmEmailVariables = Exact<{
   input: ConfirmEmailInput;
@@ -702,21 +676,21 @@ export type Auth_ConfirmEmail = { __typename?: 'Mutation', auth_confirmEmail: bo
 export type Auth_GetMeVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Auth_GetMe = { __typename?: 'Query', auth_getMe: { __typename?: 'UserOutModel', id: number, email: string, isUserConfirmed: boolean, currentSubscription?: { __typename?: 'CurrentSubscriptionOutModel', tariffId: number, tariffCode: string, tariffName: string, isPublicMediaIncluded: boolean, isPrivateMediaIncluded: boolean, pricePaid: number, balance: number, includedFileStorageMb: number, startsAt: string, endsAt: string } | null } };
+export type Auth_GetMe = { __typename?: 'Query', auth_getMe: { __typename?: 'UserOutModel', id: number, email: string, isUserConfirmed: boolean, currentSubscription?: { __typename?: 'CurrentSubscriptionOutModel', tariffId: number, tariffCode: string, tariffName: string, pricePaid: number, balance: number, includedFileStorageMb: number, startsAt: string, endsAt: string } | null } };
 
 export type Auth_LoginVariables = Exact<{
   input: LoginInput;
 }>;
 
 
-export type Auth_Login = { __typename?: 'Mutation', auth_login: { __typename?: 'UserOutModel', id: number, email: string, isUserConfirmed: boolean, currentSubscription?: { __typename?: 'CurrentSubscriptionOutModel', tariffId: number, tariffCode: string, tariffName: string, isPublicMediaIncluded: boolean, isPrivateMediaIncluded: boolean, pricePaid: number, balance: number, includedFileStorageMb: number, startsAt: string, endsAt: string } | null } };
+export type Auth_Login = { __typename?: 'Mutation', auth_login: { __typename?: 'UserOutModel', id: number, email: string, isUserConfirmed: boolean, currentSubscription?: { __typename?: 'CurrentSubscriptionOutModel', tariffId: number, tariffCode: string, tariffName: string, pricePaid: number, balance: number, includedFileStorageMb: number, startsAt: string, endsAt: string } | null } };
 
 export type Auth_Login_With_OAuthVariables = Exact<{
   input: LoginWithOAuthInput;
 }>;
 
 
-export type Auth_Login_With_OAuth = { __typename?: 'Mutation', auth_login_with_OAuth: { __typename?: 'UserOutModel', id: number, email: string, isUserConfirmed: boolean, currentSubscription?: { __typename?: 'CurrentSubscriptionOutModel', tariffId: number, tariffCode: string, tariffName: string, isPublicMediaIncluded: boolean, isPrivateMediaIncluded: boolean, pricePaid: number, balance: number, includedFileStorageMb: number, startsAt: string, endsAt: string } | null } };
+export type Auth_Login_With_OAuth = { __typename?: 'Mutation', auth_login_with_OAuth: { __typename?: 'UserOutModel', id: number, email: string, isUserConfirmed: boolean, currentSubscription?: { __typename?: 'CurrentSubscriptionOutModel', tariffId: number, tariffCode: string, tariffName: string, pricePaid: number, balance: number, includedFileStorageMb: number, startsAt: string, endsAt: string } | null } };
 
 export type Auth_LogoutVariables = Exact<{ [key: string]: never; }>;
 
@@ -759,49 +733,49 @@ export type BookChapter_UpdateVariables = Exact<{
 export type BookChapter_Update = { __typename?: 'Mutation', book_chapter_update: { __typename?: 'BookChapterOutModel', id: number, name?: string | null, header?: string | null, content?: string | null, note?: string | null, book: { __typename?: 'BookLiteOutModel', id: number, name?: string | null, languageCode: string, author?: string | null, note?: string | null, userId?: number | null } } };
 
 export type Book_CreateVariables = Exact<{
-  input: CreateBookInput;
+  input: CreatePrivateBookInput;
 }>;
 
 
-export type Book_Create = { __typename?: 'Mutation', book_create: { __typename?: 'BookOutModel', id: number, author?: string | null, name?: string | null, languageCode: string, note?: string | null, userId: number, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
+export type Book_Create = { __typename?: 'Mutation', book_create: { __typename?: 'BookPrivateOutModel', id: number, author?: string | null, name?: string | null, languageCode: string, note?: string | null, userId: number, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
 
 export type Book_DeleteVariables = Exact<{
-  input: DeleteBookInput;
+  input: DeletePrivateBookInput;
 }>;
 
 
 export type Book_Delete = { __typename?: 'Mutation', book_delete: boolean };
 
 export type Book_GetVariables = Exact<{
-  input: GetBookInput;
+  input: GetPrivateBookInput;
 }>;
 
 
-export type Book_Get = { __typename?: 'Query', book_get: { __typename?: 'BookOutModel', id: number, author?: string | null, name?: string | null, languageCode: string, note?: string | null, userId: number, freeToUse: boolean, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
+export type Book_Get = { __typename?: 'Query', book_get: { __typename?: 'BookPrivateOutModel', id: number, author?: string | null, name?: string | null, languageCode: string, note?: string | null, userId: number, freeToUse: boolean, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
 
 export type Book_GetUserBooksVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Book_GetUserBooks = { __typename?: 'Query', book_user_books: Array<{ __typename?: 'BookOutModel', id: number, author?: string | null, name?: string | null, languageCode: string, note?: string | null, userId: number, freeToUse: boolean, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> }> };
+export type Book_GetUserBooks = { __typename?: 'Query', book_user_books: Array<{ __typename?: 'BookPrivateOutModel', id: number, author?: string | null, name?: string | null, languageCode: string, note?: string | null, userId: number, freeToUse: boolean, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> }> };
 
 export type Book_UpdateVariables = Exact<{
-  input: UpdateBookInput;
+  input: UpdatePrivateBookInput;
 }>;
 
 
-export type Book_Update = { __typename?: 'Mutation', book_update: { __typename?: 'BookOutModel', id: number, author?: string | null, name?: string | null, languageCode: string, note?: string | null, userId: number, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
+export type Book_Update = { __typename?: 'Mutation', book_update: { __typename?: 'BookPrivateOutModel', id: number, author?: string | null, name?: string | null, languageCode: string, note?: string | null, userId: number, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
 
 export type Book_GetBookPublicVariables = Exact<{
   input: GetBookPublicInput;
 }>;
 
 
-export type Book_GetBookPublic = { __typename?: 'Query', book_public_get_book: { __typename?: 'BookPublicOutModel', id: number, author: string, name: string, languageCode: string, note: string, covers: Array<string>, freeToUse: boolean, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
+export type Book_GetBookPublic = { __typename?: 'Query', book_public_get_book: { __typename?: 'BookPublicOutModel', id: number, author: string, name: string, languageCode: string, note: string, covers: Array<string>, coverBackgroundColor: string, freeToUse: boolean, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
 
 export type Book_GetBooksPublicVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Book_GetBooksPublic = { __typename?: 'Query', book_public_get_books: Array<{ __typename?: 'BookPublicOutModel', id: number, author: string, name: string, languageCode: string, note: string, covers: Array<string>, freeToUse: boolean, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> }> };
+export type Book_GetBooksPublic = { __typename?: 'Query', book_public_get_books: Array<{ __typename?: 'BookPublicOutModel', id: number, author: string, name: string, languageCode: string, note: string, covers: Array<string>, coverBackgroundColor: string, freeToUse: boolean, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> }> };
 
 export type Payment_YookassaBuySubscriptionVariables = Exact<{
   input: BuySubscriptionWithYooKassaInput;
@@ -810,24 +784,10 @@ export type Payment_YookassaBuySubscriptionVariables = Exact<{
 
 export type Payment_YookassaBuySubscription = { __typename?: 'Mutation', payment_yookassa_buy_subscription: { __typename?: 'BuySubscriptionWithYooKassaOutModel', confirmationUrl: string } };
 
-export type SentenceTranslation_GetVariables = Exact<{
-  input: GetSentenceTranslationInput;
-}>;
-
-
-export type SentenceTranslation_Get = { __typename?: 'Query', sentence_translation_get: { __typename?: 'SentenceTranslationOutModel', id: number, sentenceId: number, translation: string, analysis?: string | null, createdAt: string } };
-
-export type SentenceTranslation_GetBySentenceIdVariables = Exact<{
-  input: GetSentenceTranslationsBySentenceIdInput;
-}>;
-
-
-export type SentenceTranslation_GetBySentenceId = { __typename?: 'Query', sentence_translation_get_by_sentence_id: Array<{ __typename?: 'SentenceTranslationOutModel', id: number, sentenceId: number, translation: string, analysis?: string | null, createdAt: string }> };
-
 export type Tariff_Get_TariffsVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Tariff_Get_Tariffs = { __typename?: 'Query', tariff_get_tariffs: Array<{ __typename?: 'TariffOutModel', id: number, code: string, slogan: string, name: string, description: string, isPublicMediaIncluded: boolean, isPrivateMediaIncluded: boolean, price: number, durationDays: number, includedBalance: number, includedFileStorageMb: number, createdAt: any }> };
+export type Tariff_Get_Tariffs = { __typename?: 'Query', tariff_get_tariffs: Array<{ __typename?: 'TariffOutModel', id: number, code: string, name: string, price: number, durationDays: number, includedBalance: number, includedFileStorageMb: number, createdAt: any }> };
 
 export type VideoPrivate_CreateVariables = Exact<{
   input: CreatePrivateVideoInput;
@@ -867,12 +827,12 @@ export type VideoPublic_GetVariables = Exact<{
 }>;
 
 
-export type VideoPublic_Get = { __typename?: 'Query', video_public_get: { __typename?: 'VideoPublicOutModel', id: number, name: string, year: number, languageCode: string, note: string, covers: Array<string>, originalContent: string, processedContent: string, contentType: string, fileName: string, fileS3Key: string, fileUrl: string, freeToUse: boolean, sentences?: Array<{ __typename?: 'VideoPublicSentenceOutModel', id: number, startOffset: number, length: number, orderIndex: number, sentenceTranslations?: Array<{ __typename?: 'SentenceTranslationLiteOutModel', id: number, translation: string }> | null }> | null, subtitles?: Array<{ __typename?: 'VideoPublicSubtitleOutModel', id: number, startTimeMs: number, endTimeMs: number, startOffset: number, length: number, orderIndex: number }> | null, subtitleSentenceInit?: Array<{ __typename?: 'SubtitleSentenceInitOutModel', id: number, subtitleId: number, sentenceId: number, startOffset: number, length: number }> | null } };
+export type VideoPublic_Get = { __typename?: 'Query', video_public_get: { __typename?: 'VideoPublicOutModel', id: number, name: string, year: number, languageCode: string, note: string, covers: Array<string>, coverBackgroundColor: string, originalContent: string, processedContent: string, contentType: string, fileName: string, fileS3Key: string, fileUrl: string, freeToUse: boolean, sentences?: Array<{ __typename?: 'VideoPublicSentenceOutModel', id: number, startOffset: number, length: number, orderIndex: number, sentenceTranslations?: Array<{ __typename?: 'SentenceTranslationLiteOutModel', id: number, translation: string }> | null }> | null, subtitles?: Array<{ __typename?: 'VideoPublicSubtitleOutModel', id: number, startTimeMs: number, endTimeMs: number, startOffset: number, length: number, orderIndex: number }> | null, subtitleSentenceInit?: Array<{ __typename?: 'SubtitleSentenceInitOutModel', id: number, subtitleId: number, sentenceId: number, startOffset: number, length: number }> | null } };
 
 export type VideoPublic_GetVideosVariables = Exact<{ [key: string]: never; }>;
 
 
-export type VideoPublic_GetVideos = { __typename?: 'Query', video_public_get_videos: Array<{ __typename?: 'VideoPublicLiteOutModel', id: number, name: string, year: number, languageCode: string, note: string, covers: Array<string>, originalContent: string, processedContent: string, contentType: string, fileName: string, fileS3Key: string, fileUrl: string, freeToUse: boolean }> };
+export type VideoPublic_GetVideos = { __typename?: 'Query', video_public_get_videos: Array<{ __typename?: 'VideoPublicLiteOutModel', id: number, name: string, year: number, languageCode: string, note: string, covers: Array<string>, coverBackgroundColor: string, originalContent: string, processedContent: string, contentType: string, fileName: string, fileS3Key: string, fileUrl: string, freeToUse: boolean }> };
 
 
 export const AiCheckTranslationDocument = gql`
@@ -916,6 +876,9 @@ export function useAiCheckTranslationLazyQuery(baseOptions?: Apollo.LazyQueryHoo
           const options = {...defaultOptions, ...baseOptions}
           return Apollo.useLazyQuery<AiCheckTranslation, AiCheckTranslationVariables>(AiCheckTranslationDocument, options);
         }
+// @ts-ignore
+export function useAiCheckTranslationSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<AiCheckTranslation, AiCheckTranslationVariables>): Apollo.UseSuspenseQueryResult<AiCheckTranslation, AiCheckTranslationVariables>;
+export function useAiCheckTranslationSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<AiCheckTranslation, AiCheckTranslationVariables>): Apollo.UseSuspenseQueryResult<AiCheckTranslation | undefined, AiCheckTranslationVariables>;
 export function useAiCheckTranslationSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<AiCheckTranslation, AiCheckTranslationVariables>) {
           const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
           return Apollo.useSuspenseQuery<AiCheckTranslation, AiCheckTranslationVariables>(AiCheckTranslationDocument, options);
@@ -961,6 +924,9 @@ export function useAiGetTranscriptionLazyQuery(baseOptions?: Apollo.LazyQueryHoo
           const options = {...defaultOptions, ...baseOptions}
           return Apollo.useLazyQuery<AiGetTranscription, AiGetTranscriptionVariables>(AiGetTranscriptionDocument, options);
         }
+// @ts-ignore
+export function useAiGetTranscriptionSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<AiGetTranscription, AiGetTranscriptionVariables>): Apollo.UseSuspenseQueryResult<AiGetTranscription, AiGetTranscriptionVariables>;
+export function useAiGetTranscriptionSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<AiGetTranscription, AiGetTranscriptionVariables>): Apollo.UseSuspenseQueryResult<AiGetTranscription | undefined, AiGetTranscriptionVariables>;
 export function useAiGetTranscriptionSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<AiGetTranscription, AiGetTranscriptionVariables>) {
           const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
           return Apollo.useSuspenseQuery<AiGetTranscription, AiGetTranscriptionVariables>(AiGetTranscriptionDocument, options);
@@ -1010,8 +976,6 @@ export const Auth_GetMeDocument = gql`
       tariffId
       tariffCode
       tariffName
-      isPublicMediaIncluded
-      isPrivateMediaIncluded
       pricePaid
       balance
       includedFileStorageMb
@@ -1045,6 +1009,9 @@ export function useAuth_GetMeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions
           const options = {...defaultOptions, ...baseOptions}
           return Apollo.useLazyQuery<Auth_GetMe, Auth_GetMeVariables>(Auth_GetMeDocument, options);
         }
+// @ts-ignore
+export function useAuth_GetMeSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<Auth_GetMe, Auth_GetMeVariables>): Apollo.UseSuspenseQueryResult<Auth_GetMe, Auth_GetMeVariables>;
+export function useAuth_GetMeSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Auth_GetMe, Auth_GetMeVariables>): Apollo.UseSuspenseQueryResult<Auth_GetMe | undefined, Auth_GetMeVariables>;
 export function useAuth_GetMeSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Auth_GetMe, Auth_GetMeVariables>) {
           const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
           return Apollo.useSuspenseQuery<Auth_GetMe, Auth_GetMeVariables>(Auth_GetMeDocument, options);
@@ -1063,8 +1030,6 @@ export const Auth_LoginDocument = gql`
       tariffId
       tariffCode
       tariffName
-      isPublicMediaIncluded
-      isPrivateMediaIncluded
       pricePaid
       balance
       includedFileStorageMb
@@ -1110,8 +1075,6 @@ export const Auth_Login_With_OAuthDocument = gql`
       tariffId
       tariffCode
       tariffName
-      isPublicMediaIncluded
-      isPrivateMediaIncluded
       pricePaid
       balance
       includedFileStorageMb
@@ -1336,6 +1299,9 @@ export function useBookChapter_GetLazyQuery(baseOptions?: Apollo.LazyQueryHookOp
           const options = {...defaultOptions, ...baseOptions}
           return Apollo.useLazyQuery<BookChapter_Get, BookChapter_GetVariables>(BookChapter_GetDocument, options);
         }
+// @ts-ignore
+export function useBookChapter_GetSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<BookChapter_Get, BookChapter_GetVariables>): Apollo.UseSuspenseQueryResult<BookChapter_Get, BookChapter_GetVariables>;
+export function useBookChapter_GetSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<BookChapter_Get, BookChapter_GetVariables>): Apollo.UseSuspenseQueryResult<BookChapter_Get | undefined, BookChapter_GetVariables>;
 export function useBookChapter_GetSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<BookChapter_Get, BookChapter_GetVariables>) {
           const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
           return Apollo.useSuspenseQuery<BookChapter_Get, BookChapter_GetVariables>(BookChapter_GetDocument, options);
@@ -1390,7 +1356,7 @@ export type BookChapter_UpdateHookResult = ReturnType<typeof useBookChapter_Upda
 export type BookChapter_UpdateMutationResult = Apollo.MutationResult<BookChapter_Update>;
 export type BookChapter_UpdateMutationOptions = Apollo.BaseMutationOptions<BookChapter_Update, BookChapter_UpdateVariables>;
 export const Book_CreateDocument = gql`
-    mutation Book_create($input: CreateBookInput!) {
+    mutation Book_create($input: CreatePrivateBookInput!) {
   book_create(input: $input) {
     id
     author
@@ -1435,7 +1401,7 @@ export type Book_CreateHookResult = ReturnType<typeof useBook_Create>;
 export type Book_CreateMutationResult = Apollo.MutationResult<Book_Create>;
 export type Book_CreateMutationOptions = Apollo.BaseMutationOptions<Book_Create, Book_CreateVariables>;
 export const Book_DeleteDocument = gql`
-    mutation Book_delete($input: DeleteBookInput!) {
+    mutation Book_delete($input: DeletePrivateBookInput!) {
   book_delete(input: $input)
 }
     `;
@@ -1466,7 +1432,7 @@ export type Book_DeleteHookResult = ReturnType<typeof useBook_Delete>;
 export type Book_DeleteMutationResult = Apollo.MutationResult<Book_Delete>;
 export type Book_DeleteMutationOptions = Apollo.BaseMutationOptions<Book_Delete, Book_DeleteVariables>;
 export const Book_GetDocument = gql`
-    query Book_get($input: GetBookInput!) {
+    query Book_get($input: GetPrivateBookInput!) {
   book_get(input: $input) {
     id
     author
@@ -1510,6 +1476,9 @@ export function useBook_GetLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<B
           const options = {...defaultOptions, ...baseOptions}
           return Apollo.useLazyQuery<Book_Get, Book_GetVariables>(Book_GetDocument, options);
         }
+// @ts-ignore
+export function useBook_GetSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<Book_Get, Book_GetVariables>): Apollo.UseSuspenseQueryResult<Book_Get, Book_GetVariables>;
+export function useBook_GetSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Book_Get, Book_GetVariables>): Apollo.UseSuspenseQueryResult<Book_Get | undefined, Book_GetVariables>;
 export function useBook_GetSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Book_Get, Book_GetVariables>) {
           const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
           return Apollo.useSuspenseQuery<Book_Get, Book_GetVariables>(Book_GetDocument, options);
@@ -1562,6 +1531,9 @@ export function useBook_GetUserBooksLazyQuery(baseOptions?: Apollo.LazyQueryHook
           const options = {...defaultOptions, ...baseOptions}
           return Apollo.useLazyQuery<Book_GetUserBooks, Book_GetUserBooksVariables>(Book_GetUserBooksDocument, options);
         }
+// @ts-ignore
+export function useBook_GetUserBooksSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<Book_GetUserBooks, Book_GetUserBooksVariables>): Apollo.UseSuspenseQueryResult<Book_GetUserBooks, Book_GetUserBooksVariables>;
+export function useBook_GetUserBooksSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Book_GetUserBooks, Book_GetUserBooksVariables>): Apollo.UseSuspenseQueryResult<Book_GetUserBooks | undefined, Book_GetUserBooksVariables>;
 export function useBook_GetUserBooksSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Book_GetUserBooks, Book_GetUserBooksVariables>) {
           const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
           return Apollo.useSuspenseQuery<Book_GetUserBooks, Book_GetUserBooksVariables>(Book_GetUserBooksDocument, options);
@@ -1571,7 +1543,7 @@ export type Book_GetUserBooksLazyQueryHookResult = ReturnType<typeof useBook_Get
 export type Book_GetUserBooksSuspenseQueryHookResult = ReturnType<typeof useBook_GetUserBooksSuspenseQuery>;
 export type Book_GetUserBooksQueryResult = Apollo.QueryResult<Book_GetUserBooks, Book_GetUserBooksVariables>;
 export const Book_UpdateDocument = gql`
-    mutation Book_update($input: UpdateBookInput!) {
+    mutation Book_update($input: UpdatePrivateBookInput!) {
   book_update(input: $input) {
     id
     author
@@ -1624,6 +1596,7 @@ export const Book_GetBookPublicDocument = gql`
     languageCode
     note
     covers
+    coverBackgroundColor
     freeToUse
     chapters {
       id
@@ -1660,6 +1633,9 @@ export function useBook_GetBookPublicLazyQuery(baseOptions?: Apollo.LazyQueryHoo
           const options = {...defaultOptions, ...baseOptions}
           return Apollo.useLazyQuery<Book_GetBookPublic, Book_GetBookPublicVariables>(Book_GetBookPublicDocument, options);
         }
+// @ts-ignore
+export function useBook_GetBookPublicSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<Book_GetBookPublic, Book_GetBookPublicVariables>): Apollo.UseSuspenseQueryResult<Book_GetBookPublic, Book_GetBookPublicVariables>;
+export function useBook_GetBookPublicSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Book_GetBookPublic, Book_GetBookPublicVariables>): Apollo.UseSuspenseQueryResult<Book_GetBookPublic | undefined, Book_GetBookPublicVariables>;
 export function useBook_GetBookPublicSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Book_GetBookPublic, Book_GetBookPublicVariables>) {
           const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
           return Apollo.useSuspenseQuery<Book_GetBookPublic, Book_GetBookPublicVariables>(Book_GetBookPublicDocument, options);
@@ -1677,6 +1653,7 @@ export const Book_GetBooksPublicDocument = gql`
     languageCode
     note
     covers
+    coverBackgroundColor
     freeToUse
     chapters {
       id
@@ -1712,6 +1689,9 @@ export function useBook_GetBooksPublicLazyQuery(baseOptions?: Apollo.LazyQueryHo
           const options = {...defaultOptions, ...baseOptions}
           return Apollo.useLazyQuery<Book_GetBooksPublic, Book_GetBooksPublicVariables>(Book_GetBooksPublicDocument, options);
         }
+// @ts-ignore
+export function useBook_GetBooksPublicSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<Book_GetBooksPublic, Book_GetBooksPublicVariables>): Apollo.UseSuspenseQueryResult<Book_GetBooksPublic, Book_GetBooksPublicVariables>;
+export function useBook_GetBooksPublicSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Book_GetBooksPublic, Book_GetBooksPublicVariables>): Apollo.UseSuspenseQueryResult<Book_GetBooksPublic | undefined, Book_GetBooksPublicVariables>;
 export function useBook_GetBooksPublicSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Book_GetBooksPublic, Book_GetBooksPublicVariables>) {
           const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
           return Apollo.useSuspenseQuery<Book_GetBooksPublic, Book_GetBooksPublicVariables>(Book_GetBooksPublicDocument, options);
@@ -1753,104 +1733,12 @@ export function usePayment_YookassaBuySubscription(baseOptions?: Apollo.Mutation
 export type Payment_YookassaBuySubscriptionHookResult = ReturnType<typeof usePayment_YookassaBuySubscription>;
 export type Payment_YookassaBuySubscriptionMutationResult = Apollo.MutationResult<Payment_YookassaBuySubscription>;
 export type Payment_YookassaBuySubscriptionMutationOptions = Apollo.BaseMutationOptions<Payment_YookassaBuySubscription, Payment_YookassaBuySubscriptionVariables>;
-export const SentenceTranslation_GetDocument = gql`
-    query SentenceTranslation_get($input: GetSentenceTranslationInput!) {
-  sentence_translation_get(input: $input) {
-    id
-    sentenceId
-    translation
-    analysis
-    createdAt
-  }
-}
-    `;
-
-/**
- * __useSentenceTranslation_Get__
- *
- * To run a query within a React component, call `useSentenceTranslation_Get` and pass it any options that fit your needs.
- * When your component renders, `useSentenceTranslation_Get` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useSentenceTranslation_Get({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useSentenceTranslation_Get(baseOptions: Apollo.QueryHookOptions<SentenceTranslation_Get, SentenceTranslation_GetVariables> & ({ variables: SentenceTranslation_GetVariables; skip?: boolean; } | { skip: boolean; }) ) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<SentenceTranslation_Get, SentenceTranslation_GetVariables>(SentenceTranslation_GetDocument, options);
-      }
-export function useSentenceTranslation_GetLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<SentenceTranslation_Get, SentenceTranslation_GetVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<SentenceTranslation_Get, SentenceTranslation_GetVariables>(SentenceTranslation_GetDocument, options);
-        }
-export function useSentenceTranslation_GetSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<SentenceTranslation_Get, SentenceTranslation_GetVariables>) {
-          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<SentenceTranslation_Get, SentenceTranslation_GetVariables>(SentenceTranslation_GetDocument, options);
-        }
-export type SentenceTranslation_GetHookResult = ReturnType<typeof useSentenceTranslation_Get>;
-export type SentenceTranslation_GetLazyQueryHookResult = ReturnType<typeof useSentenceTranslation_GetLazyQuery>;
-export type SentenceTranslation_GetSuspenseQueryHookResult = ReturnType<typeof useSentenceTranslation_GetSuspenseQuery>;
-export type SentenceTranslation_GetQueryResult = Apollo.QueryResult<SentenceTranslation_Get, SentenceTranslation_GetVariables>;
-export const SentenceTranslation_GetBySentenceIdDocument = gql`
-    query SentenceTranslation_getBySentenceId($input: GetSentenceTranslationsBySentenceIdInput!) {
-  sentence_translation_get_by_sentence_id(input: $input) {
-    id
-    sentenceId
-    translation
-    analysis
-    createdAt
-  }
-}
-    `;
-
-/**
- * __useSentenceTranslation_GetBySentenceId__
- *
- * To run a query within a React component, call `useSentenceTranslation_GetBySentenceId` and pass it any options that fit your needs.
- * When your component renders, `useSentenceTranslation_GetBySentenceId` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useSentenceTranslation_GetBySentenceId({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useSentenceTranslation_GetBySentenceId(baseOptions: Apollo.QueryHookOptions<SentenceTranslation_GetBySentenceId, SentenceTranslation_GetBySentenceIdVariables> & ({ variables: SentenceTranslation_GetBySentenceIdVariables; skip?: boolean; } | { skip: boolean; }) ) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<SentenceTranslation_GetBySentenceId, SentenceTranslation_GetBySentenceIdVariables>(SentenceTranslation_GetBySentenceIdDocument, options);
-      }
-export function useSentenceTranslation_GetBySentenceIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<SentenceTranslation_GetBySentenceId, SentenceTranslation_GetBySentenceIdVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<SentenceTranslation_GetBySentenceId, SentenceTranslation_GetBySentenceIdVariables>(SentenceTranslation_GetBySentenceIdDocument, options);
-        }
-export function useSentenceTranslation_GetBySentenceIdSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<SentenceTranslation_GetBySentenceId, SentenceTranslation_GetBySentenceIdVariables>) {
-          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<SentenceTranslation_GetBySentenceId, SentenceTranslation_GetBySentenceIdVariables>(SentenceTranslation_GetBySentenceIdDocument, options);
-        }
-export type SentenceTranslation_GetBySentenceIdHookResult = ReturnType<typeof useSentenceTranslation_GetBySentenceId>;
-export type SentenceTranslation_GetBySentenceIdLazyQueryHookResult = ReturnType<typeof useSentenceTranslation_GetBySentenceIdLazyQuery>;
-export type SentenceTranslation_GetBySentenceIdSuspenseQueryHookResult = ReturnType<typeof useSentenceTranslation_GetBySentenceIdSuspenseQuery>;
-export type SentenceTranslation_GetBySentenceIdQueryResult = Apollo.QueryResult<SentenceTranslation_GetBySentenceId, SentenceTranslation_GetBySentenceIdVariables>;
 export const Tariff_Get_TariffsDocument = gql`
     query Tariff_get_tariffs {
   tariff_get_tariffs {
     id
     code
-    slogan
     name
-    description
-    isPublicMediaIncluded
-    isPrivateMediaIncluded
     price
     durationDays
     includedBalance
@@ -1883,6 +1771,9 @@ export function useTariff_Get_TariffsLazyQuery(baseOptions?: Apollo.LazyQueryHoo
           const options = {...defaultOptions, ...baseOptions}
           return Apollo.useLazyQuery<Tariff_Get_Tariffs, Tariff_Get_TariffsVariables>(Tariff_Get_TariffsDocument, options);
         }
+// @ts-ignore
+export function useTariff_Get_TariffsSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<Tariff_Get_Tariffs, Tariff_Get_TariffsVariables>): Apollo.UseSuspenseQueryResult<Tariff_Get_Tariffs, Tariff_Get_TariffsVariables>;
+export function useTariff_Get_TariffsSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Tariff_Get_Tariffs, Tariff_Get_TariffsVariables>): Apollo.UseSuspenseQueryResult<Tariff_Get_Tariffs | undefined, Tariff_Get_TariffsVariables>;
 export function useTariff_Get_TariffsSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Tariff_Get_Tariffs, Tariff_Get_TariffsVariables>) {
           const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
           return Apollo.useSuspenseQuery<Tariff_Get_Tariffs, Tariff_Get_TariffsVariables>(Tariff_Get_TariffsDocument, options);
@@ -2032,6 +1923,9 @@ export function useVideoPrivate_GetLazyQuery(baseOptions?: Apollo.LazyQueryHookO
           const options = {...defaultOptions, ...baseOptions}
           return Apollo.useLazyQuery<VideoPrivate_Get, VideoPrivate_GetVariables>(VideoPrivate_GetDocument, options);
         }
+// @ts-ignore
+export function useVideoPrivate_GetSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<VideoPrivate_Get, VideoPrivate_GetVariables>): Apollo.UseSuspenseQueryResult<VideoPrivate_Get, VideoPrivate_GetVariables>;
+export function useVideoPrivate_GetSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<VideoPrivate_Get, VideoPrivate_GetVariables>): Apollo.UseSuspenseQueryResult<VideoPrivate_Get | undefined, VideoPrivate_GetVariables>;
 export function useVideoPrivate_GetSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<VideoPrivate_Get, VideoPrivate_GetVariables>) {
           const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
           return Apollo.useSuspenseQuery<VideoPrivate_Get, VideoPrivate_GetVariables>(VideoPrivate_GetDocument, options);
@@ -2082,6 +1976,9 @@ export function useVideoPrivate_GetUserVideosLazyQuery(baseOptions?: Apollo.Lazy
           const options = {...defaultOptions, ...baseOptions}
           return Apollo.useLazyQuery<VideoPrivate_GetUserVideos, VideoPrivate_GetUserVideosVariables>(VideoPrivate_GetUserVideosDocument, options);
         }
+// @ts-ignore
+export function useVideoPrivate_GetUserVideosSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<VideoPrivate_GetUserVideos, VideoPrivate_GetUserVideosVariables>): Apollo.UseSuspenseQueryResult<VideoPrivate_GetUserVideos, VideoPrivate_GetUserVideosVariables>;
+export function useVideoPrivate_GetUserVideosSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<VideoPrivate_GetUserVideos, VideoPrivate_GetUserVideosVariables>): Apollo.UseSuspenseQueryResult<VideoPrivate_GetUserVideos | undefined, VideoPrivate_GetUserVideosVariables>;
 export function useVideoPrivate_GetUserVideosSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<VideoPrivate_GetUserVideos, VideoPrivate_GetUserVideosVariables>) {
           const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
           return Apollo.useSuspenseQuery<VideoPrivate_GetUserVideos, VideoPrivate_GetUserVideosVariables>(VideoPrivate_GetUserVideosDocument, options);
@@ -2141,6 +2038,7 @@ export const VideoPublic_GetDocument = gql`
     languageCode
     note
     covers
+    coverBackgroundColor
     originalContent
     processedContent
     contentType
@@ -2201,6 +2099,9 @@ export function useVideoPublic_GetLazyQuery(baseOptions?: Apollo.LazyQueryHookOp
           const options = {...defaultOptions, ...baseOptions}
           return Apollo.useLazyQuery<VideoPublic_Get, VideoPublic_GetVariables>(VideoPublic_GetDocument, options);
         }
+// @ts-ignore
+export function useVideoPublic_GetSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<VideoPublic_Get, VideoPublic_GetVariables>): Apollo.UseSuspenseQueryResult<VideoPublic_Get, VideoPublic_GetVariables>;
+export function useVideoPublic_GetSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<VideoPublic_Get, VideoPublic_GetVariables>): Apollo.UseSuspenseQueryResult<VideoPublic_Get | undefined, VideoPublic_GetVariables>;
 export function useVideoPublic_GetSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<VideoPublic_Get, VideoPublic_GetVariables>) {
           const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
           return Apollo.useSuspenseQuery<VideoPublic_Get, VideoPublic_GetVariables>(VideoPublic_GetDocument, options);
@@ -2218,6 +2119,7 @@ export const VideoPublic_GetVideosDocument = gql`
     languageCode
     note
     covers
+    coverBackgroundColor
     originalContent
     processedContent
     contentType
@@ -2252,6 +2154,9 @@ export function useVideoPublic_GetVideosLazyQuery(baseOptions?: Apollo.LazyQuery
           const options = {...defaultOptions, ...baseOptions}
           return Apollo.useLazyQuery<VideoPublic_GetVideos, VideoPublic_GetVideosVariables>(VideoPublic_GetVideosDocument, options);
         }
+// @ts-ignore
+export function useVideoPublic_GetVideosSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<VideoPublic_GetVideos, VideoPublic_GetVideosVariables>): Apollo.UseSuspenseQueryResult<VideoPublic_GetVideos, VideoPublic_GetVideosVariables>;
+export function useVideoPublic_GetVideosSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<VideoPublic_GetVideos, VideoPublic_GetVideosVariables>): Apollo.UseSuspenseQueryResult<VideoPublic_GetVideos | undefined, VideoPublic_GetVideosVariables>;
 export function useVideoPublic_GetVideosSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<VideoPublic_GetVideos, VideoPublic_GetVideosVariables>) {
           const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
           return Apollo.useSuspenseQuery<VideoPublic_GetVideos, VideoPublic_GetVideosVariables>(VideoPublic_GetVideosDocument, options);

@@ -2,6 +2,10 @@ import { UseGuards } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql'
 import { Request } from 'express'
+import { CreatePrivateBookInput } from 'src/routes/bookPrivate/inputs/createPrivateBook.input'
+import { DeletePrivateBookInput } from 'src/routes/bookPrivate/inputs/deletePrivateBook.input'
+import { GetPrivateBookInput } from 'src/routes/bookPrivate/inputs/getPrivateBook.input'
+import { UpdatePrivateBookInput } from 'src/routes/bookPrivate/inputs/updatePrivateBook.input'
 import { CreateBookWithEmptyChapterCommand } from 'features/bookPrivate/CreateBookWithEmptyChapter.command'
 import { DeleteBookCommand } from 'features/bookPrivate/DeleteBook.command'
 import { GetBookCommand } from 'features/bookPrivate/GetBook.command'
@@ -9,11 +13,7 @@ import { GetUserBooksCommand } from 'features/bookPrivate/GetUserBooks.command'
 import { UpdateBookCommand } from 'features/bookPrivate/UpdateBook.command'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
 import RouteNames from 'infrastructure/routeNames'
-import { BookOutModel } from 'models/book/book.out.model'
-import { CreateBookInput } from './inputs/createBook.input'
-import { DeleteBookInput } from './inputs/deleteBook.input'
-import { GetBookInput } from './inputs/getBook.input'
-import { UpdateBookInput } from './inputs/updateBook.input'
+import { BookPrivateOutModel } from 'models/book/book.out.model'
 import { bookResolversDesc } from './resolverDescriptions'
 
 @Resolver()
@@ -21,18 +21,18 @@ export class BookResolver {
 	constructor(private commandBus: CommandBus) {}
 
 	@UseGuards(CheckSessionCookieGuard)
-	@Mutation(() => BookOutModel, {
-		name: RouteNames.BOOK.CREATE,
+	@Mutation(() => BookPrivateOutModel, {
+		name: RouteNames.BOOK_PRIVATE.CREATE,
 		description: bookResolversDesc.createBookPrivate,
 	})
-	async createBookPrivate(@Args('input') input: CreateBookInput, @Context('req') request: Request) {
+	async createBookPrivate(@Args('input') input: CreatePrivateBookInput, @Context('req') request: Request) {
 		const userId = request.session.userId!
 		return await this.commandBus.execute(new CreateBookWithEmptyChapterCommand(userId, input))
 	}
 
 	@UseGuards(CheckSessionCookieGuard)
-	@Query(() => [BookOutModel], {
-		name: RouteNames.BOOK.GET_USER_BOOKS,
+	@Query(() => [BookPrivateOutModel], {
+		name: RouteNames.BOOK_PRIVATE.GET_USER_BOOKS,
 		description: bookResolversDesc.getUserBooks,
 	})
 	async getUserBooks(@Context('req') request: Request) {
@@ -41,31 +41,31 @@ export class BookResolver {
 	}
 
 	@UseGuards(CheckSessionCookieGuard)
-	@Query(() => BookOutModel, {
-		name: RouteNames.BOOK.GET,
+	@Query(() => BookPrivateOutModel, {
+		name: RouteNames.BOOK_PRIVATE.GET,
 		description: bookResolversDesc.getBook,
 	})
-	async getBook(@Args('input') input: GetBookInput, @Context('req') request: Request) {
+	async getBook(@Args('input') input: GetPrivateBookInput, @Context('req') request: Request) {
 		const userId = request.session.userId!
 		return await this.commandBus.execute(new GetBookCommand(userId, input.id))
 	}
 
 	@UseGuards(CheckSessionCookieGuard)
-	@Mutation(() => BookOutModel, {
-		name: RouteNames.BOOK.UPDATE,
+	@Mutation(() => BookPrivateOutModel, {
+		name: RouteNames.BOOK_PRIVATE.UPDATE,
 		description: bookResolversDesc.updateBook,
 	})
-	async updateBook(@Args('input') input: UpdateBookInput, @Context('req') request: Request) {
+	async updateBook(@Args('input') input: UpdatePrivateBookInput, @Context('req') request: Request) {
 		const userId = request.session.userId!
 		return await this.commandBus.execute(new UpdateBookCommand(userId, input))
 	}
 
 	@UseGuards(CheckSessionCookieGuard)
 	@Mutation(() => Boolean, {
-		name: RouteNames.BOOK.DELETE,
+		name: RouteNames.BOOK_PRIVATE.DELETE,
 		description: bookResolversDesc.deleteBook,
 	})
-	async deleteBook(@Args('input') input: DeleteBookInput, @Context('req') request: Request) {
+	async deleteBook(@Args('input') input: DeletePrivateBookInput, @Context('req') request: Request) {
 		const userId = request.session.userId!
 		return await this.commandBus.execute(new DeleteBookCommand(userId, input))
 	}

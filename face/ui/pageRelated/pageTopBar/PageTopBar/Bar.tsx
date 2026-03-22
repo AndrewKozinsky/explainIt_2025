@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { LinkLogoWithText } from '@/ui/logo/LinkLogoWithText/LinkLogoWithText'
+import { LinkLogo } from 'ui/logo/LinkLogo/LinkLogo'
 import { MainMenu } from '../../MainMenu/MainMenu'
 import PageTopBarUserButtons from '../PageTopBarUserButtons/PageTopBarUserButtons'
 import './Bar.scss'
@@ -8,7 +8,7 @@ function Bar() {
 	return (
 		<div className={cn('page-bar')}>
 			<div className='page-bar__left'>
-				<LinkLogoWithText />
+				<LinkLogo />
 				<MainMenu />
 			</div>
 			<PageTopBarUserButtons />

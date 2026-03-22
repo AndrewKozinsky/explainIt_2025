@@ -91,7 +91,7 @@ describe.skip('Delete book', () => {
 				author: 'Gerald Durrell',
 			},
 		})
-		const book = createdBookResp.data[RouteNames.BOOK.CREATE]
+		const book = createdBookResp.data[RouteNames.BOOK_PRIVATE.CREATE]
 
 		// Create a second user who will try to delete this book
 		const { loginData: secondUser, sessionToken: secondUserSeccionData } =
@@ -137,7 +137,7 @@ describe.skip('Delete book', () => {
 				note: null,
 			},
 		})
-		const book = createdBookResp.data[RouteNames.BOOK.CREATE]
+		const book = createdBookResp.data[RouteNames.BOOK_PRIVATE.CREATE]
 
 		// Try to delete this book
 		let deletedBookResp = await bookUtils.deleteBook({
@@ -147,12 +147,12 @@ describe.skip('Delete book', () => {
 				id: book.id,
 			},
 		})
-		const deletedBook = deletedBookResp.data[RouteNames.BOOK.DELETE]
+		const deletedBook = deletedBookResp.data[RouteNames.BOOK_PRIVATE.DELETE]
 		expect(deletedBook).toBe(true)
 
 		// Check that user has no book
 		const userBooksResp = await bookUtils.getUserBooks({ app, sessionToken })
-		let userBooks = userBooksResp.data[RouteNames.BOOK.GET_USER_BOOKS]
+		let userBooks = userBooksResp.data[RouteNames.BOOK_PRIVATE.GET_USER_BOOKS]
 		expect(userBooks.length).toBe(0)
 	})
 
@@ -181,8 +181,8 @@ describe.skip('Delete book', () => {
 			},
 		})
 
-		const firstBook = firstBookResp.data[RouteNames.BOOK.CREATE]
-		const secondBook = secondBookResp.data[RouteNames.BOOK.CREATE]
+		const firstBook = firstBookResp.data[RouteNames.BOOK_PRIVATE.CREATE]
+		const secondBook = secondBookResp.data[RouteNames.BOOK_PRIVATE.CREATE]
 
 		for (let i = 0; i < 3; i++) {
 			await bookChapterUtils.createBookChapter({
@@ -214,7 +214,7 @@ describe.skip('Delete book', () => {
 				id: firstBook.id,
 			},
 		})
-		expect(deleteFirstBookRes.data[RouteNames.BOOK.DELETE]).toBe(true)
+		expect(deleteFirstBookRes.data[RouteNames.BOOK_PRIVATE.DELETE]).toBe(true)
 
 		// Check that the first book does not exist
 		const getFirstBook = await bookRepository.getBookById(firstBook.id)

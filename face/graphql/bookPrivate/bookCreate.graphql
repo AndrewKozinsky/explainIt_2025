@@ -1,4 +1,4 @@
-mutation Book_create($input: CreateBookInput!) {
+mutation Book_create($input: CreatePrivateBookInput!) {
 	book_create(input: $input) {
 		id
 		author

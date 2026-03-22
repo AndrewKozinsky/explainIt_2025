@@ -19,6 +19,9 @@ export class BookPublicOutModel {
 	covers: string[]
 
 	@Field(() => String)
+	coverBackgroundColor: string
+
+	@Field(() => String)
 	languageCode: string
 
 	@Field(() => Boolean)

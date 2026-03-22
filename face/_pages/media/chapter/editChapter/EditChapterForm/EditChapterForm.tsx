@@ -1,0 +1,106 @@
+import React, { useState } from 'react'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { useForm } from 'react-hook-form'
+import * as yup from 'yup'
+import Button from '@/ui/formRelated/buttons/Button/Button'
+import FormError from '@/ui/formRelated/FormError/FormError'
+import FormFieldsWrapper from '@/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
+import TextInput from '@/ui/formRelated/TextInput/TextInput'
+import { FormStatus } from '@/utils/forms'
+import MediaFormSurface from '_pages/media/commonComponents/MediaFormSurface/MediaFormSurface'
+import DeleteChapterButton from '../DeleteChapterButton/DeleteChapterButton'
+import ReadChapterButton from '../ReadChapterButton/ReadChapterButton'
+import { ChangeChapterFormData, changeChapterFormSchema, ChangeChapterFormTest } from './fn/form'
+import { useSetFieldValues } from './fn/setFieldValues'
+import { useGetOnUpdateChapterFormSubmit } from './fn/submit'
+import YouWillLosePhrasesWarning from './YouWillLosePhrasesWarning'
+
+export default function EditChapterForm() {
+	const [formStatus, setFormStatus] = useState<FormStatus>('idle')
+	const [formError, setFormError] = useState<null | string>(null)
+
+	const {
+		register,
+		handleSubmit,
+		reset,
+		formState: { errors, isDirty },
+		setError,
+		watch,
+	} = useForm<ChangeChapterFormData>({
+		resolver: yupResolver(changeChapterFormSchema as yup.AnyObjectSchema),
+	})
+
+	useSetFieldValues(reset)
+
+	const onSubmit = useGetOnUpdateChapterFormSubmit(setError, setFormStatus, setFormError)
+	const contentText = watch('content')
+
+	return (
+		<>
+			<form onSubmit={handleSubmit(onSubmit)} data-testid={ChangeChapterFormTest.form.id}>
+				<MediaFormSurface
+					leftBottomButtons={[<DeleteChapterButton key='delete' />]}
+					rightBottomButtons={[
+						<Button
+							type='submit'
+							disabled={['success', 'submitting'].includes(formStatus) || !isDirty}
+							dataTestId={ChangeChapterFormTest.submitButton.id}
+							key='save'
+						>
+							Сохранить
+						</Button>,
+						<ReadChapterButton key='reading' />,
+					]}
+				>
+					<FormFieldsWrapper gap='big'>
+						<TextInput
+							label='Глава'
+							error={errors.name?.message}
+							dataTestId={ChangeChapterFormTest.nameField.id}
+							inputProps={{
+								...register('name'),
+								disabled: ['success', 'submitting'].includes(formStatus),
+								placeholder: 'Chapter 1',
+							}}
+						/>
+						<TextInput
+							label='Заголовок'
+							error={errors.header?.message}
+							dataTestId={ChangeChapterFormTest.headerField.id}
+							inputProps={{
+								...register('header'),
+								disabled: ['success', 'submitting'].includes(formStatus),
+								placeholder: 'Down the rabbit-hole…',
+							}}
+						/>
+						<TextInput
+							label='Текст'
+							error={errors.content?.message}
+							dataTestId={ChangeChapterFormTest.contentField.id}
+							textareaProps={{
+								...register('content'),
+								disabled: ['success', 'submitting'].includes(formStatus),
+								placeholder:
+									'Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do',
+								rows: 10,
+							}}
+							currentText={contentText}
+						/>
+						<YouWillLosePhrasesWarning />
+						<TextInput
+							label='Заметка'
+							error={errors.note?.message}
+							dataTestId={ChangeChapterFormTest.noteField.id}
+							inputProps={{
+								...register('note'),
+								disabled: ['success', 'submitting'].includes(formStatus),
+								placeholder: 'It tells the story of Alice, a young girl who falls down a rabbit hole…',
+							}}
+						/>
+						<FormError text={formError} dataTestId={ChangeChapterFormTest.failMessage.id} />
+					</FormFieldsWrapper>
+				</MediaFormSurface>
+			</form>
+		</>
+	)
+}

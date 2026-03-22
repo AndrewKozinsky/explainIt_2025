@@ -4,6 +4,7 @@ export type BookServiceModel = {
 	id: number
 	author: string | null
 	name: string | null
+	languageCode: string
 	note: string | null
 	userId: number
 	chapters: BookChapterLiteServiceModel[]
@@ -13,6 +14,7 @@ export type BookLiteServiceModel = {
 	id: number
 	author: string | null
 	name: string | null
+	languageCode: string
 	note: string | null
 	userId: null | number
 }

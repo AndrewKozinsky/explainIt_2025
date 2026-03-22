@@ -1,0 +1,15 @@
+@use '@/styles/variables' as vars;
+
+.sentence-translation {
+	font-size: 1.8rem;
+	line-height: 2.6rem;
+	padding: .6rem 1.2rem;
+	border-radius: vars.$radius-2;
+}
+
+.sentence-translation--white {
+	background-color: white;
+}
+.sentence-translation--gray {
+	background-color: vars.$grayColor-1;
+}

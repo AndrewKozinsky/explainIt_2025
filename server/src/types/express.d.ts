@@ -1,4 +1,4 @@
-import { UserServiceModel } from '../models/service/users.service.model'
+import { UserServiceModel } from '../models/auth/auth.service.model'
 
 declare global {
 	namespace Express {

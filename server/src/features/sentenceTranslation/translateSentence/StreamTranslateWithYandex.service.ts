@@ -3,7 +3,16 @@ import { CommandBus } from '@nestjs/cqrs'
 import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
 import { YandexTranslateUsageBalanceChargeCommand } from 'features/payment/YandexTranslateUsageBalanceCharge.command'
 import { YandexTranslateService } from 'infrastructure/yandexTranslate/yandexTranslate.service'
-import { StreamTranslateProviderInput, TranslateSentenceStreamEvent } from './TranslateSentence.command'
+import { TranslateSentenceStreamEvent } from './TranslateSentence.command'
+
+type YandexStreamTranslateInput = {
+	userId: number
+	sentenceId: number
+	text: string
+	chargeAfterTranslation: boolean
+	sourceLanguageCode: string
+	targetLanguageCode: string
+}
 
 @Injectable()
 export class StreamTranslateWithYandex {
@@ -13,7 +22,7 @@ export class StreamTranslateWithYandex {
 		private commandBus: CommandBus,
 	) {}
 
-	async *streamTranslate(input: StreamTranslateProviderInput): AsyncGenerator<TranslateSentenceStreamEvent> {
+	async *streamTranslate(input: YandexStreamTranslateInput): AsyncGenerator<TranslateSentenceStreamEvent> {
 		const result = await this.yandexTranslateService.translateText({
 			text: input.text,
 			targetLanguageCode: input.targetLanguageCode,

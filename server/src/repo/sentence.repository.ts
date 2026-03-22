@@ -8,6 +8,7 @@ type DbSentenceWithRelations = Prisma.SentenceGetPayload<{
 	include: {
 		bookChapter: { include: { book: true, book_public: true } }
 		videoPrivate: true
+		videoPublic: true
 	}
 }>
 
@@ -22,6 +23,7 @@ export class SentenceRepository {
 			include: {
 				bookChapter: { include: { book: true, book_public: true } },
 				videoPrivate: true,
+				videoPublic: true,
 			},
 		})
 	}

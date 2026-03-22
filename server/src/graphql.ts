@@ -17,7 +17,7 @@ export interface GetTranscriptionInput {
     engSentence: string;
 }
 
-export interface GetBookInput {
+export interface GetPrivateBookInput {
     id: number;
 }
 
@@ -36,14 +36,6 @@ export interface GetPrivateVideoInput {
 
 export interface GetPublicVideoInput {
     id: number;
-}
-
-export interface GetSentenceTranslationInput {
-    id: number;
-}
-
-export interface GetSentenceTranslationsBySentenceIdInput {
-    sentenceId: number;
 }
 
 export interface RegisterUserInput {
@@ -73,20 +65,21 @@ export interface BuySubscriptionWithYooKassaInput {
     tariffId: number;
 }
 
-export interface CreateBookInput {
+export interface CreatePrivateBookInput {
     author?: Nullable<string>;
     name?: Nullable<string>;
     note?: Nullable<string>;
 }
 
-export interface UpdateBookInput {
+export interface UpdatePrivateBookInput {
     id: number;
     author?: Nullable<string>;
     name?: Nullable<string>;
+    languageCode?: Nullable<string>;
     note?: Nullable<string>;
 }
 
-export interface DeleteBookInput {
+export interface DeletePrivateBookInput {
     id: number;
 }
 
@@ -120,6 +113,7 @@ export interface CreatePrivateVideoInput {
 export interface UpdatePrivateVideoInput {
     id: number;
     name?: Nullable<string>;
+    languageCode?: Nullable<string>;
     originalContent?: Nullable<string>;
     fileName?: Nullable<string>;
     fileMimeType?: Nullable<string>;
@@ -131,7 +125,7 @@ export interface DeletePrivateVideoInput {
     id: number;
 }
 
-export interface BookOutModel {
+export interface BookPrivateOutModel {
     id: number;
     author?: Nullable<string>;
     name?: Nullable<string>;
@@ -181,27 +175,16 @@ export interface BookPublicOutModel {
     name: string;
     note: string;
     covers: string[];
+    coverBackgroundColor: string;
     languageCode: string;
     freeToUse: boolean;
     chapters: BookChapterLiteOutModel[];
 }
 
-export interface SentenceTranslationOutModel {
-    id: number;
-    sentenceId: number;
-    translation: string;
-    analysis?: Nullable<string>;
-    createdAt: string;
-}
-
 export interface TariffOutModel {
     id: number;
     code: string;
-    slogan: string;
     name: string;
-    description: string;
-    isPublicMediaIncluded: boolean;
-    isPrivateMediaIncluded: boolean;
     price: number;
     durationDays: number;
     includedBalance: number;
@@ -306,6 +289,7 @@ export interface VideoPublicOutModel {
     languageCode: string;
     note: string;
     covers: string[];
+    coverBackgroundColor: string;
     originalContent: string;
     processedContent: string;
     contentType: string;
@@ -342,6 +326,7 @@ export interface VideoPublicLiteOutModel {
     languageCode: string;
     note: string;
     covers: string[];
+    coverBackgroundColor: string;
     originalContent: string;
     processedContent: string;
     contentType: string;
@@ -355,8 +340,6 @@ export interface CurrentSubscriptionOutModel {
     tariffId: number;
     tariffCode: string;
     tariffName: string;
-    isPublicMediaIncluded: boolean;
-    isPrivateMediaIncluded: boolean;
     pricePaid: number;
     balance: number;
     includedFileStorageMb: number;
@@ -379,8 +362,8 @@ export interface IQuery {
     ai_checkTranslation(input: CheckTranslationInput): CheckTranslationOutModel | Promise<CheckTranslationOutModel>;
     ai_getTranscription(input: GetTranscriptionInput): GetTranscriptionOutModel | Promise<GetTranscriptionOutModel>;
     auth_getMe(): UserOutModel | Promise<UserOutModel>;
-    book_user_books(): BookOutModel[] | Promise<BookOutModel[]>;
-    book_get(input: GetBookInput): BookOutModel | Promise<BookOutModel>;
+    book_user_books(): BookPrivateOutModel[] | Promise<BookPrivateOutModel[]>;
+    book_get(input: GetPrivateBookInput): BookPrivateOutModel | Promise<BookPrivateOutModel>;
     book_public_get_books(): BookPublicOutModel[] | Promise<BookPublicOutModel[]>;
     book_public_get_book(input: GetBookPublicInput): BookPublicOutModel | Promise<BookPublicOutModel>;
     book_chapter_get(input: GetBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
@@ -388,8 +371,6 @@ export interface IQuery {
     video_private_get(input: GetPrivateVideoInput): VideoPrivateOutModel | Promise<VideoPrivateOutModel>;
     video_public_get_videos(): VideoPublicLiteOutModel[] | Promise<VideoPublicLiteOutModel[]>;
     video_public_get(input: GetPublicVideoInput): VideoPublicOutModel | Promise<VideoPublicOutModel>;
-    sentence_translation_get(input: GetSentenceTranslationInput): SentenceTranslationOutModel | Promise<SentenceTranslationOutModel>;
-    sentence_translation_get_by_sentence_id(input: GetSentenceTranslationsBySentenceIdInput): SentenceTranslationOutModel[] | Promise<SentenceTranslationOutModel[]>;
     tariff_get_tariffs(): TariffOutModel[] | Promise<TariffOutModel[]>;
 }
 
@@ -418,9 +399,9 @@ export interface IMutation {
     auth_resendConfirmationEmail(input: ResendConfirmationEmailInput): boolean | Promise<boolean>;
     auth_logout(): boolean | Promise<boolean>;
     payment_yookassa_buy_subscription(input: BuySubscriptionWithYooKassaInput): BuySubscriptionWithYooKassaOutModel | Promise<BuySubscriptionWithYooKassaOutModel>;
-    book_create(input: CreateBookInput): BookOutModel | Promise<BookOutModel>;
-    book_update(input: UpdateBookInput): BookOutModel | Promise<BookOutModel>;
-    book_delete(input: DeleteBookInput): boolean | Promise<boolean>;
+    book_create(input: CreatePrivateBookInput): BookPrivateOutModel | Promise<BookPrivateOutModel>;
+    book_update(input: UpdatePrivateBookInput): BookPrivateOutModel | Promise<BookPrivateOutModel>;
+    book_delete(input: DeletePrivateBookInput): boolean | Promise<boolean>;
     book_chapter_create(input: CreateBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
     book_chapter_update(input: UpdateBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
     book_chapter_delete(input: DeleteBookChapterInput): boolean | Promise<boolean>;

@@ -1,6 +1,6 @@
 import { createContext } from 'react'
 
-type NotificationType = 'error' | 'success'
+type NotificationType = 'error' | 'warning' | 'success'
 
 export type Notification = {
 	id: number

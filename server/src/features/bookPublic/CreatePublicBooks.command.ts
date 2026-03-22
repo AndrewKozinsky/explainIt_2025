@@ -1,15 +1,19 @@
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { BookChapterRepository } from 'repo/bookChapter.repository'
 import { BookPublicRepository } from 'repo/bookPublic.repository'
-import { CreatePublicBookCommand, CreateBookPublicInput } from 'src/features/bookPublic/CreatePublicBook.command'
+import {
+	littleRedRidingHoodChapters,
+	littleRedRidingHoodBookData,
+} from 'src/features/bookPublic/german/littleRedRidingHood/littleRedRidingHood'
 import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter.command'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { ChapterData } from './common/common'
-import { solomonMinesBookData, solomonMinesChapters } from './solomonMines/solomonMinesBook'
-import { wizardOfOzBookData, wizardOfOzChapters } from './wizardOfOz/wizardOfOzBook'
+import { CreatePublicBookCommand, CreateBookPublicInput } from './CreatePublicBook.command'
+import { solomonMinesBookData, solomonMinesChapters } from './english/solomonMines/solomonMinesBook'
+import { wizardOfOzBookData, wizardOfOzChapters } from './english/wizardOfOz/wizardOfOzBook'
 
 export class CreatePublicBooksCommand implements ICommand {
 	constructor() {}
@@ -40,13 +44,19 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 		const coversFolderName = this.mainConfig.get().yandexCloud.s3.bucketUrl + '/' + folderName + '/'
 
 		return [
+			// English
 			{
-				book: wizardOfOzBookData(coversFolderName),
+				book: wizardOfOzBookData(coversFolderName + 'english/'),
 				chapters: wizardOfOzChapters,
 			},
 			{
-				book: solomonMinesBookData(coversFolderName),
+				book: solomonMinesBookData(coversFolderName + 'english/'),
 				chapters: solomonMinesChapters,
+			},
+			// German
+			{
+				book: littleRedRidingHoodBookData(coversFolderName + 'german/'),
+				chapters: littleRedRidingHoodChapters,
 			},
 		]
 	}

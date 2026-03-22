@@ -11,12 +11,6 @@ export class CurrentSubscriptionOutModel {
 	@Field(() => String)
 	tariffName: string
 
-	@Field(() => Boolean)
-	isPublicMediaIncluded: boolean
-
-	@Field(() => Boolean)
-	isPrivateMediaIncluded: boolean
-
 	@Field(() => Int)
 	pricePaid: number
 

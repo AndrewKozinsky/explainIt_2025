@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common'
 import { Prisma } from 'prisma/generated/client'
 import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
-import { BookOutModel } from '../models/book/book.out.model'
+import { BookPrivateOutModel } from '../models/book/book.out.model'
 
 type BookWithChapters = Prisma.BookPrivateGetPayload<{ include: { BookChapter: true } }>
 
@@ -38,7 +38,7 @@ export class BookPrivateQueryRepository {
 		return books.map(this.mapDbBookToOutBook)
 	}
 
-	mapDbBookToOutBook(dbBook: BookWithChapters): BookOutModel {
+	mapDbBookToOutBook(dbBook: BookWithChapters): BookPrivateOutModel {
 		return {
 			id: dbBook.id,
 			author: dbBook.author,

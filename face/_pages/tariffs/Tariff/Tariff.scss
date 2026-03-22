@@ -6,8 +6,12 @@
 	border-bottom: 1px solid vars.$grayColor-1;
 
 	@include mix.page-width(650px) {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 		padding: 2rem;
 		border-right: 1px solid vars.$grayColor-1;
+		border-bottom: none;
 
 		&:last-child {
 			border-right: none;
@@ -35,6 +39,13 @@
 	}
 }
 
+.tariff__features-and-description {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
 .tariff__features {
 	min-height: var(--tariff-features-h, auto);
 	padding: 0 0 0 .5rem;
@@ -58,32 +69,26 @@
 	}
 }
 
+.tariff__description {
+	min-height: var(--tariff-description-h, auto);
+	margin-top: 1rem;
+}
+
 .tariff__small-text {
 	font-size: 1.4rem;
 	line-height: 2.2rem;
 	color: vars.$grayColor-5;
 }
 
-.tariff__description {
-	min-height: var(--tariff-description-h, auto);
-	margin-top: 1rem;
-}
-
-.tariff__spacer {
-	min-height: 0;
+.tariff__duration {
+	margin-top: 3rem;
 }
 
 .tariff__price {
 	font-size: 2.8rem;
 	line-height: 3.4rem;
 	font-weight: 500;
-	margin-top: 3rem;
-}
-
-.tariff__days {
-	font-size: 1.4rem;
-	line-height: 2.2rem;
-	margin-top: .2rem;
+	margin-top: 1rem;
 }
 
 .tariff__button {

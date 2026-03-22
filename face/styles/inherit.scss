@@ -91,3 +91,27 @@
   }
 }
 
+@mixin loading-shimmer() {
+	position: relative;
+	overflow: hidden;
+
+	&::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(
+			90deg,
+			rgba(255, 255, 255, 0) 0%,
+			rgba(255, 255, 255, 0.5) 55%,
+			rgba(255, 255, 255, 0) 100%
+		);
+		transform: translateX(-120%);
+		animation: loading-shimmer-sweep 1.6s ease-in-out infinite;
+	}
+}
+
+@keyframes loading-shimmer-sweep {
+	100% {
+		transform: translateX(120%);
+	}
+}

@@ -14,7 +14,7 @@ export const errorMessage = {
 	userBalanceIsNegative: 'Отрицательный баланс.',
 	userHasNoActiveSubscription: 'У пользователя нет активной подписки.',
 	privateMediaIsNotIncludedInSubscriptionTariff: 'Тариф подписки не включает перевод приватного медиа.',
-	insufficientSubscriptionBalanceForPrivateMediaTranslation: 'Недостаточно средств на балансе подписки для перевода приватного медиа.',
+	insufficientSubscriptionBalanceForPrivateMediaTranslation: 'Недостаточно средств на балансе для перевода.',
 	userIsNotOwner: 'Пользователь не является владельцем этой сущности.',
 	tariffNotFound: 'Тариф не найден.',
 	tariffIdIsRequired: 'Tariff id is required',
@@ -102,6 +102,11 @@ export const errorMessage = {
 	sentenceTranslation: {
 		notFound: 'Перевод предложения не найден.',
 		alreadyExists: 'Перевод предложения уже существует.',
+		dailyLimitReached: 'Дневной лимит переводов исчерпан. Попробуйте снова завтра.',
+		userCannotAccessForeignPrivateMedia: 'Нельзя получать переводы материалов другого пользователя.',
+		privateTranslationRequiresStandardSubscriptionBalance:
+			'Создание нового перевода доступно только при активной стандартной подписке и положительном балансе.',
+		anonymousUserCannotTranslate: 'Вы не можете переводить без авторизации.',
 	},
 	nlp: {
 		cantDivideTextIntoSentences: 'Не получилось разделить текст на предложения.',

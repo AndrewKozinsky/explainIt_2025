@@ -17,7 +17,7 @@ export class UserWithPositiveBalanceGuard implements CanActivate {
 			throw new CustomGraphQLError(errorMessage.userUnauthorized, ErrorCode.Unauthorized_401)
 		}
 
-		if (request.user.balance <= 0) {
+		if (!request.user.currentSubscription || request.user.currentSubscription.balance <= 0) {
 			throw new CustomGraphQLError(errorMessage.userBalanceIsNegative, ErrorCode.BadRequest_400)
 		}
 

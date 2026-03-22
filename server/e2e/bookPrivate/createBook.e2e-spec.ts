@@ -84,7 +84,7 @@ describe.skip('Create book', () => {
 				note: null,
 			},
 		})
-		const createdBook_2 = createdBook_2Resp.data[RouteNames.BOOK.CREATE]
+		const createdBook_2 = createdBook_2Resp.data[RouteNames.BOOK_PRIVATE.CREATE]
 
 		// Check the returning object
 		bookUtils.checkBookOutResp(createdBook_2, {

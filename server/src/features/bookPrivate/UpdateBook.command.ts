@@ -4,11 +4,13 @@ import { BookPrivateRepository } from 'repo/bookPrivate.repository'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { Language } from 'utils/languages'
 
 type UpdateBookInput = {
 	id: number
 	author?: null | string
 	name?: null | string
+	languageCode?: null | Language
 	note?: null | string
 }
 

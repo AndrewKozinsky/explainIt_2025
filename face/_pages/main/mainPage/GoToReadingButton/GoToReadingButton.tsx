@@ -7,9 +7,9 @@ import './GoToReadingButton.scss'
 function GoToReadingButton() {
 	return (
 		<div className='go-to-reading-button'>
-			<Link href={pageUrls.books.path}>
+			<Link href={pageUrls.books.book('p1').chapter(1).reading.path}>
 				<Button icon={<ActionIcon />} theme='accent' size='big'>
-					Начать
+					Попробовать
 				</Button>
 			</Link>
 		</div>

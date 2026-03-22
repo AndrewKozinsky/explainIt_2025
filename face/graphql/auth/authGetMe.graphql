@@ -7,8 +7,6 @@ query Auth_getMe {
 			tariffId
 			tariffCode
 			tariffName
-			isPublicMediaIncluded
-			isPrivateMediaIncluded
 			pricePaid
 			balance
 			includedFileStorageMb
