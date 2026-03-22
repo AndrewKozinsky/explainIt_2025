@@ -4,10 +4,11 @@ import './SentenceWordAnalysis.scss'
 
 type SentenceWordProps = {
 	wordAnalysis: null | string
+	extraClass?: string
 }
 
 function SentenceWordAnalysis(props: SentenceWordProps) {
-	const { wordAnalysis } = props
+	const { wordAnalysis, extraClass } = props
 
 	if (!wordAnalysis) {
 		return null
@@ -24,7 +25,7 @@ function SentenceWordAnalysis(props: SentenceWordProps) {
 	}
 
 	return (
-		<div className='sentence-word-analysis'>
+		<div className={cn('sentence-word-analysis', extraClass)}>
 			<TopPart word={word} wordTranslation={wordTranslation} />
 			{examples?.map((example, i) => {
 				return <Example example={example} key={i} />

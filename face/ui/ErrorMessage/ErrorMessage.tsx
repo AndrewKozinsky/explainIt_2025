@@ -14,7 +14,7 @@ function ErrorMessage(props: LoadingMessageProps) {
 
 	return (
 		<div className='error-message' data-testid='exercise-error-analysis-block'>
-			<ErrorIcon />
+			<ErrorIcon extraClass='error-message__icon' />
 			{text}
 		</div>
 	)

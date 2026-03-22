@@ -25,9 +25,10 @@ export type TextInputProps = {
 function RadioGroup(props: TextInputProps) {
 	const { label, error, config, direction = 'vertical', name, extraClass } = props
 	const groupName = name ?? label
+	const isDisabled = config.length > 0 && config.every((item) => (item.inputProps?.disabled ?? item.disabled) === true)
 
 	return (
-		<div className={cn('radio-group', extraClass)}>
+		<div className={cn('radio-group', isDisabled && 'radio-group--disabled', extraClass)}>
 			{label && <label className='radio-group__label'>{label}</label>}
 			<div className={cn('radio-group__radios', 'radio-group__radios--' + direction)}>
 				{config.map((itemData, index) => {

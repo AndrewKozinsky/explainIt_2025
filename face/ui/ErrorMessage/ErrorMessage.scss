@@ -8,3 +8,7 @@
 	gap: .5rem;
 	color: vars.$dangerColor-1;
 }
+
+.error-message__icon {
+	flex-shrink: 0;
+}

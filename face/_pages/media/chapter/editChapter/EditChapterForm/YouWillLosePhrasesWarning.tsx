@@ -7,7 +7,7 @@ function YouWillLosePhrasesWarning() {
 
 	if (!chapter?.content) return null
 
-	return <InfoBlock type='warning'>При обновлении текста главы все переведённые фразы будут потеряны.</InfoBlock>
+	return <InfoBlock type='warning'>При обновлении текста главы все переводы будут потеряны.</InfoBlock>
 }
 
 export default YouWillLosePhrasesWarning

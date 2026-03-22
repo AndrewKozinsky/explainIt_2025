@@ -52,7 +52,7 @@ function SentenceDetails(props: SentenceDetailsProps) {
 			<SentenceTranslationText translation={translation} />
 			<SentenceWordLoading translation={translation} />
 			<SentenceWordNotFound translation={translation} />
-			<SentenceWordAnalysis wordAnalysis={translation.wordAnalysis} />
+			<SentenceWordAnalysis wordAnalysis={translation.wordAnalysis} extraClass='chapter-content__word-analysis' />
 			<div className='chapter-content__separator' />
 		</div>
 	)

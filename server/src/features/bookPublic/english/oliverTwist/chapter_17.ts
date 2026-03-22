@@ -1,4 +1,3 @@
-// ГЛАВА НЕ ГОТОВА
 export const chapter_17 = {
 	name: 'Chapter XVII',
 	header: 'Oliver’s destiny continuing unpropitious, brings a great man to London to injure his reputation',
@@ -102,100 +101,99 @@ Mr. Bumble stared at him in shock.
 
 “They will know the truth,” said Mr. Bumble. “Take him away—I can’t bear to look at him.”
 
-------------------------------
-Та же самая задача для этого текста:
+Dick was taken away at once and locked in the coal cellar. Soon after, Mr. Bumble left to prepare for his journey.
 
-Dick was immediately taken away, and locked up in the coal-cellar. Mr. Bumble shortly afterwards took himself off, to prepare for his journey.
+At six o’clock the next morning, Mr. Bumble put on a round hat instead of his usual one and wrapped himself in a blue coat with a cape. He climbed onto the outside of the coach, together with the two paupers whose case he was dealing with, and in due time they arrived in London.
 
-At six o’clock next morning, Mr. Bumble: having exchanged his cocked hat for a round one, and encased his person in a blue great-coat with a cape to it: took his place on the outside of the coach, accompanied by the criminals whose settlement was disputed; with whom, in due course of time, he arrived in London.
+The only trouble on the road came from the two men, who kept shivering and complaining about the cold. Mr. Bumble declared that their behavior made his own teeth chatter and left him quite uncomfortable—despite his warm coat.
 
-He experienced no other crosses on the way, than those which originated in the perverse behaviour of the two paupers, who persisted in shivering, and complaining of the cold, in a manner which, Mr. Bumble declared, caused his teeth to chatter in his head, and made him feel quite uncomfortable; although he had a great-coat on.
+After arranging for these troublesome fellows to be kept for the night, Mr. Bumble sat down at the inn where the coach had stopped and ate a modest dinner of steak with oyster sauce and a mug of porter. He placed a glass of hot gin and water on the mantelpiece, pulled his chair close to the fire, and, reflecting on the common fault of complaining too much, settled down to read the newspaper.
 
-Having disposed of these evil-minded persons for the night, Mr. Bumble sat himself down in the house at which the coach stopped; and took a temperate dinner of steaks, oyster sauce, and porter. Putting a glass of hot gin-and-water on the chimney-piece, he drew his chair to the fire; and, with sundry moral reflections on the too-prevalent sin of discontent and complaining, composed himself to read the paper.
+The very first thing he saw was an advertisement:
 
-The very first paragraph upon which Mr. Bumble’s eye rested, was the following advertisement.
+FIVE GUINEAS REWARD
 
-“FIVE GUINEAS REWARD
+A young boy named Oliver Twist ran away, or was led away, last Thursday evening from his home in Pentonville and has not been heard from since. The above reward will be paid to anyone who can give information leading to his discovery, or who can provide details about his past, which is of great interest to the advertiser.
 
-“Whereas a young boy, named Oliver Twist, absconded, or was enticed, on Thursday evening last, from his home, at Pentonville; and has not since been heard of. The above reward will be paid to any person who will give such information as will lead to the discovery of the said Oliver Twist, or tend to throw any light upon his previous history, in which the advertiser is, for many reasons, warmly interested.”
+There followed a full description of Oliver’s clothes, appearance, and disappearance, along with the name and address of Mr. Brownlow.
 
-And then followed a full description of Oliver’s dress, person, appearance, and disappearance: with the name and address of Mr. Brownlow at full length.
+Mr. Bumble opened his eyes wide and read the notice slowly and carefully three times. In less than five minutes, he was already on his way to Pentonville—so excited that he even forgot to drink his hot gin and water.
 
-Mr. Bumble opened his eyes; read the advertisement, slowly and carefully, three several times; and in something more than five minutes was on his way to Pentonville: having actually, in his excitement, left the glass of hot gin-and-water, untasted.
+“Is Mr. Brownlow at home?” he asked the girl who opened the door.
 
-“Is Mr. Brownlow at home?” inquired Mr. Bumble of the girl who opened the door.
+“I don’t know. Where do you come from?” she replied, in a rather evasive way.
 
-To this inquiry the girl returned the not uncommon, but rather evasive reply of “I don’t know; where do you come from?”
+But as soon as Mr. Bumble mentioned Oliver’s name, Mrs. Bedwin—who had been listening at the door—hurried into the hallway, out of breath.
 
-Mr. Bumble no sooner uttered Oliver’s name, in explanation of his errand, than Mrs. Bedwin, who had been listening at the parlour door, hastened into the passage in a breathless state.
+“Come in, come in!” she cried. “I knew we would hear of him. Dear boy! I was sure of it—bless him!”
 
-“Come in, come in,” said the old lady: “I knew we should hear of him. Poor dear! I knew we should! I was certain of it. Bless his heart! I said so all along.”
+She hurried back into the room and burst into tears on the sofa. Meanwhile, the girl ran upstairs and soon returned, asking Mr. Bumble to follow her at once. He did so.
 
-Having said this, the worthy old lady hurried back into the parlour again; and seating herself on a sofa, burst into tears. The girl, who was not quite so susceptible, had run upstairs meanwhile; and now returned with a request that Mr. Bumble would follow her immediately: which he did.
+He was shown into a small study, where Mr. Brownlow sat with his friend Mr. Grimwig, with decanters and glasses on the table.
 
-He was shown into the little back study, where sat Mr. Brownlow and his friend Mr. Grimwig, with decanters and glasses before them. The latter gentleman at once burst into the exclamation:
+“A beadle!” cried Mr. Grimwig at once. “A parish beadle, or I’ll eat my head.”
 
-“A beadle. A parish beadle, or I’ll eat my head.”
+“Please don’t interrupt,” said Mr. Brownlow. “Take a seat, sir.”
 
-“Pray don’t interrupt just now,” said Mr. Brownlow. “Take a seat, will you?”
+Mr. Bumble sat down, somewhat confused by Mr. Grimwig’s odd manner. Mr. Brownlow moved the lamp to get a better look at his face and said, a little impatiently,
 
-Mr. Bumble sat himself down; quite confounded by the oddity of Mr. Grimwig’s manner. Mr. Brownlow moved the lamp, so as to obtain an uninterrupted view of the beadle’s countenance; and said, with a little impatience,
-
-“Now, sir, you come in consequence of having seen the advertisement?”
+“You have come because of the advertisement, I suppose?”
 
 “Yes, sir,” said Mr. Bumble.
 
-“And you are a beadle, are you not?” inquired Mr. Grimwig.
+“And you are a beadle?” asked Mr. Grimwig.
 
-“I am a porochial beadle, gentlemen,” rejoined Mr. Bumble proudly.
+“I am a parish beadle, gentlemen,” replied Mr. Bumble proudly.
 
-“Of course,” observed Mr. Grimwig aside to his friend, “I knew he was. A beadle all over!”
+“Of course,” muttered Mr. Grimwig. “A beadle through and through.”
 
-Mr. Brownlow gently shook his head to impose silence on his friend, and resumed:
+Mr. Brownlow gently signaled him to be quiet and continued:
 
-“Do you know where this poor boy is now?”
+“Do you know where the boy is now?”
 
-“No more than nobody,” replied Mr. Bumble.
+“No, sir,” said Mr. Bumble.
 
-“Well, what do you know of him?” inquired the old gentleman. “Speak out, my friend, if you have anything to say. What do you know of him?”
+“Then what do you know about him? Speak freely.”
 
-“You don’t happen to know any good of him, do you?” said Mr. Grimwig, caustically; after an attentive perusal of Mr. Bumble’s features.
+“You don’t happen to know anything good about him, do you?” added Mr. Grimwig sharply, after studying Mr. Bumble’s face.
 
-Mr. Bumble, catching at the inquiry very quickly, shook his head with portentous solemnity.
+Mr. Bumble quickly shook his head with great seriousness.
 
-“You see?” said Mr. Grimwig, looking triumphantly at Mr. Brownlow.
+“You see?” said Mr. Grimwig, triumphantly.
 
-Mr. Brownlow looked apprehensively at Mr. Bumble’s pursed-up countenance; and requested him to communicate what he knew regarding Oliver, in as few words as possible.
+Mr. Brownlow looked uneasy and asked Mr. Bumble to tell his story briefly.
 
-Mr. Bumble put down his hat; unbuttoned his coat; folded his arms; inclined his head in a retrospective manner; and, after a few moments’ reflection, commenced his story.
+Mr. Bumble set down his hat, unbuttoned his coat, folded his arms, and, after a moment’s thought, began.
 
-It would be tedious if given in the beadle’s words: occupying, as it did, some twenty minutes in the telling; but the sum and substance of it was, that Oliver was a foundling, born of low and vicious parents. That he had, from his birth, displayed no better qualities than treachery, ingratitude, and malice. That he had terminated his brief career in the place of his birth, by making a sanguinary and cowardly attack on an unoffending lad, and running away in the night-time from his master’s house. In proof of his really being the person he represented himself, Mr. Bumble laid upon the table the papers he had brought to town. Folding his arms again, he then awaited Mr. Brownlow’s observations.
+It would take too long to repeat his exact words, but the meaning was this: Oliver was a child of unknown parents of low character. From birth, he had shown nothing but dishonesty, ingratitude, and cruelty. He had ended his short time at the workhouse by attacking another boy and running away from his master’s house at night.
 
-“I fear it is all too true,” said the old gentleman sorrowfully, after looking over the papers. “This is not much for your intelligence; but I would gladly have given you treble the money, if it had been favourable to the boy.”
+To prove his story, Mr. Bumble placed his papers on the table and waited for Mr. Brownlow’s response.
 
-It is not improbable that if Mr. Bumble had been possessed of this information at an earlier period of the interview, he might have imparted a very different colouring to his little history. It was too late to do it now, however; so he shook his head gravely, and, pocketing the five guineas, withdrew.
+“I am afraid it is all true,” said Mr. Brownlow sadly after reading them. “This is a small reward, but I would gladly have paid you much more if the news had been in the boy’s favor.”
 
-Mr. Brownlow paced the room to and fro for some minutes; evidently so much disturbed by the beadle’s tale, that even Mr. Grimwig forbore to vex him further.
+If Mr. Bumble had known this earlier, he might have told a very different story. But it was too late now. He shook his head, took the five guineas, and left.
 
-At length he stopped, and rang the bell violently.
+Mr. Brownlow walked up and down the room for several minutes, deeply troubled. Even Mr. Grimwig did not disturb him.
 
-“Mrs. Bedwin,” said Mr. Brownlow, when the housekeeper appeared; “that boy, Oliver, is an imposter.”
+At last, he stopped and rang the bell sharply.
 
-“It can’t be, sir. It cannot be,” said the old lady energetically.
+“Mrs. Bedwin,” he said when she entered, “that boy Oliver is an imposter.”
 
-“I tell you he is,” retorted the old gentleman. “What do you mean by can’t be? We have just heard a full account of him from his birth; and he has been a thorough-paced little villain, all his life.”
+“It cannot be, sir,” she replied firmly.
 
-“I never will believe it, sir,” replied the old lady, firmly. “Never!”
+“I tell you it is,” said Mr. Brownlow. “We have just heard his whole history. He has been a complete little villain all his life.”
 
-“You old women never believe anything but quack-doctors, and lying story-books,” growled Mr. Grimwig. “I knew it all along. Why didn’t you take my advice in the beginning; you would if he hadn’t had a fever, I suppose, eh? He was interesting, wasn’t he? Interesting! Bah!” And Mr. Grimwig poked the fire with a flourish.
+“I will never believe it,” said Mrs. Bedwin. “Never!”
 
-“He was a dear, grateful, gentle child, sir,” retorted Mrs. Bedwin, indignantly. “I know what children are, sir; and have done these forty years; and people who can’t say the same, shouldn’t say anything about them. That’s my opinion!”
+“You old women never believe anything except foolish doctors and silly stories,” grumbled Mr. Grimwig. “I knew it from the start.”
 
-This was a hard hit at Mr. Grimwig, who was a bachelor. As it extorted nothing from that gentleman but a smile, the old lady tossed her head, and smoothed down her apron preparatory to another speech, when she was stopped by Mr. Brownlow.
+“He was a dear, grateful, gentle child,” said Mrs. Bedwin indignantly. “I know children—I have for forty years—and those who don’t should not speak about them!”
 
-“Silence!” said the old gentleman, feigning an anger he was far from feeling. “Never let me hear the boy’s name again. I rang to tell you that. Never. Never, on any pretence, mind! You may leave the room, Mrs. Bedwin. Remember! I am in earnest.”
+Mr. Grimwig, who was a bachelor, could only smile at this. Mrs. Bedwin was about to continue when Mr. Brownlow stopped her.
 
-There were sad hearts at Mr. Brownlow’s that night.
+“Enough!” he said, pretending to be angrier than he felt. “Never mention the boy again. Not under any circumstances. You may leave.”
 
-Oliver’s heart sank within him, when he thought of his good friends; it was well for him that he could not know what they had heard, or it might have broken outright.`,
+That night, there was much sadness in Mr. Brownlow’s house.
+
+And far away, Oliver’s heart grew heavy as he thought of his kind friends. It was a mercy he did not know what they had heard—for it might have broken his heart completely.`,
 }

@@ -1,6 +1,5 @@
 import cn from 'classnames'
 import Link from 'next/link'
-import Paragraph from '@/ui/Paragraph/Paragraph'
 import { routesUtils } from '@/utils/routes'
 import './ChapterLink.scss'
 
@@ -16,11 +15,7 @@ function ChapterLink(props: BookLinkProps) {
 
 	return (
 		<Link href={href} className={cn('chapter-link', isCurrentPage && 'chapter-link--current')}>
-			{subName && (
-				<Paragraph fontSize='14' extraClass='chapter-link__author'>
-					{subName}
-				</Paragraph>
-			)}
+			{subName && <p className='chapter-link__author'>{subName}</p>}
 			<p className='chapter-link__name'>{name}</p>
 		</Link>
 	)

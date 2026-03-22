@@ -13,9 +13,8 @@ export class EmailAdapterService implements EmailAdapterServiceI {
 		const subject = 'Регистрация на ' + siteName
 		const textMessage = 'Регистрация на ' + siteName
 		const htmlMessage = `
-<h1>Thanks for your registration</h1>
-<p>To finish registration please confirm your email by following the link:
-	<a href="${domainRootWithProtocol}/auth/email-confirmation?code=${confirmationCode}">confirm email</a>
+<h1>Спасибо за регистрацию на explainit.ru</h1>
+<p>Чтобы закончить регистрацию <a href="${domainRootWithProtocol}/auth/email-confirmation?code=${confirmationCode}">подтвердите почту</a>
 </p>
 <p>
 	<a href="${domainRootWithProtocol}/unsubscribe">отписаться</a>

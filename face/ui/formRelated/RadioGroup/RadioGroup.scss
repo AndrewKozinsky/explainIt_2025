@@ -7,6 +7,10 @@
 	width: 100%;
 }
 
+.radio-group--disabled {
+	opacity: .3;
+}
+
 .radio-group__label {
 	display: block;
 	font-size: 1.6rem;
@@ -90,16 +94,4 @@
 .radio-group__radio:focus-visible + .radio-group__control {
 	box-shadow: 0 0 0 0.3rem rgba(vars.$linkColor-2, .18);
 	border-color: vars.$linkColor-2;
-}
-
-.radio-group__radio:disabled + .radio-group__control {
-	border-color: vars.$grayColor-2;
-}
-
-.radio-group__radio:disabled ~ .radio-group__radio-text {
-	color: vars.$grayColor-4;
-}
-
-.radio-group__radio:disabled:checked + .radio-group__control .radio-group__control-dot {
-	background-color: vars.$grayColor-4;
 }
