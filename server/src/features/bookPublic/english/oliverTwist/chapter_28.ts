@@ -37,6 +37,9 @@ The dogs, who, in common with their masters, seemed to have no particular relish
 
 “Certainly,” replied the shorter man; “and whatever Mr. Giles says, it isn’t our place to contradict him. No, no, I know my sitiwation! Thank my stars, I know my sitiwation.” To tell the truth, the little man did seem to know his situation, and to know perfectly well that it was by no means a desirable one; for his teeth chattered in his head as he spoke.
 
+----------------
+Та же самая задача для этого текста:
+
 “You are afraid, Brittles,” said Mr. Giles.
 
 “I an’t,” said Brittles.
@@ -71,6 +74,9 @@ As the other two were impressed with a similar presentiment; and as their blood,
 
 By a remarkable coincidence, the other two had been visited with the same unpleasant sensation at that precise moment. It was quite obvious, therefore, that it was the gate; especially as there was no doubt regarding the time at which the change had taken place, because all three remembered that they had come in sight of the robbers at the instant of its occurance.
 
+----------------
+Та же самая задача для этого текста:
+
 This dialogue was held between the two men who had surprised the burglars, and a travelling tinker who had been sleeping in an outhouse, and who had been roused, together with his two mongrel curs, to join in the pursuit. Mr. Giles acted in the double capacity of butler and steward to the old lady of the mansion; Brittles was a lad of all-work: who, having entered her service a mere child, was treated as a promising young boy still, though he was something past thirty.
 
 Encouraging each other with such converse as this; but, keeping very close together, notwithstanding, and looking apprehensively round, whenever a fresh gust rattled through the boughs; the three men hurried back to a tree, behind which they had left their lantern, lest its light should inform the thieves in what direction to fire. Catching up the light, they made the best of their way home, at a good round trot; and long after their dusky forms had ceased to be discernible, the light might have been seen twinkling and dancing in the distance, like some exhalation of the damp and gloomy atmosphere through which it was swiftly borne.
@@ -98,6 +104,9 @@ Oliver felt such fear come over him when he recognised the place, that, for the 
 It happened that about this time, Mr. Giles, Brittles, and the tinker, were recruiting themselves, after the fatigues and terrors of the night, with tea and sundries, in the kitchen. Not that it was Mr. Giles’s habit to admit to too great familiarity the humbler servants: towards whom it was rather his wont to deport himself with a lofty affability, which, while it gratified, could not fail to remind them of his superior position in society. But, death, fires, and burglary, make all men equals; so Mr. Giles sat with his legs stretched out before the kitchen fender, leaning his left arm on the table, while, with his right, he illustrated a circumstantial and minute account of the robbery, to which his hearers (but especially the cook and housemaid, who were of the party) listened with breathless interest.
 
 “It was about half-past two,” said Mr. Giles, “or I wouldn’t swear that it mightn’t have been a little nearer three, when I woke up, and, turning round in my bed, as it might be so, (here Mr. Giles turned round in his chair, and pulled the corner of the table-cloth over him to imitate bed-clothes,) I fancied I heerd a noise.”
+
+----------------
+Та же самая задача для этого текста:
 
 At this point of the narrative the cook turned pale, and asked the housemaid to shut the door: who asked Brittles, who asked the tinker, who pretended not to hear.
 
@@ -133,6 +142,9 @@ Here, all eyes were turned upon Brittles, who fixed his upon the speaker, and st
 
 “I should have died at once, I’m sure, if it had been me,” observed the housemaid.
 
+----------------
+Та же самая задача для этого текста:
+
 “You’re a woman,” retorted Brittles, plucking up a little.
 
 “Brittles is right,” said Mr. Giles, nodding his head, approvingly; “from a woman, nothing else was to be expected. We, being men, took a dark lantern that was standing on Brittle’s hob, and groped our way downstairs in the pitch dark,—as it might be so.”
@@ -164,6 +176,9 @@ Brittles, who had got behind the door to open it, no sooner saw Oliver, than he 
 “—In a lantern, miss,” cried Brittles, applying one hand to the side of his mouth, so that his voice might travel the better.
 
 The two women-servants ran upstairs to carry the intelligence that Mr. Giles had captured a robber; and the tinker busied himself in endeavouring to restore Oliver, lest he should die before he could be hanged. In the midst of all this noise and commotion, there was heard a sweet female voice, which quelled it in an instant.
+
+----------------
+Та же самая задача для этого текста:
 
 “Giles!” whispered the voice from the stair-head.
 

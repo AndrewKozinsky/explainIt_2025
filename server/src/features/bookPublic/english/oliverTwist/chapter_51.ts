@@ -35,6 +35,9 @@ At length, when nine o’clock had come, and they began to think they were to he
 
 “Go on,” said the person addressed, turning away his face. “Quick. I have almost done enough, I think. Don’t keep me here.”
 
+----------------
+Та же самая задача для этого текста:
+
 “This child,” said Mr. Brownlow, drawing Oliver to him, and laying his hand upon his head, “is your half-brother; the illegitimate son of your father, my dear friend Edwin Leeford, by poor young Agnes Fleming, who died in giving him birth.”
 
 “Yes,” said Monks, scowling at the trembling boy: the beating of whose heart he might have heard. “That is the bastard child.”
@@ -71,6 +74,9 @@ As the villain folded his arms tight together, and muttered curses on himself in
 
 “I bought them from the man and woman I told you of, who stole them from the nurse, who stole them from the corpse,” answered Monks without raising his eyes. “You know what became of them.”
 
+----------------
+Та же самая задача для этого текста:
+
 Mr. Brownlow merely nodded to Mr. Grimwig, who disappearing with great alacrity, shortly returned, pushing in Mrs. Bumble, and dragging her unwilling consort after him.
 
 “Do my hi’s deceive me!” cried Mr. Bumble, with ill-feigned enthusiasm, “or is that little Oliver? Oh O-li-ver, if you know’d how I’ve been a-grieving for you—”
@@ -100,6 +106,9 @@ This salutation was addressed to Mr. Brownlow, who had stepped up to within a sh
 “You never had, perhaps, a certain gold locket and ring?” said Mr. Brownlow.
 
 “Certainly not,” replied the matron. “Why are we brought here to answer to such nonsense as this?”
+
+----------------
+Та же самая задача для этого текста:
 
 Again Mr. Brownlow nodded to Mr. Grimwig; and again that gentleman limped away with extraordinary readiness. But not again did he return with a stout man and wife; for this time, he led in two palsied women, who shook and tottered as they walked.
 
@@ -134,6 +143,9 @@ Laying great stress on the repetition of these two words, Mr. Bumble fixed his h
 “Young lady,” said Mr. Brownlow, turning to Rose, “give me your hand. Do not tremble. You need not fear to hear the few remaining words we have to say.”
 
 “If they have—I do not know how they can, but if they have—any reference to me,” said Rose, “pray let me hear them at some other time. I have not strength or spirits now.”
+
+----------------
+Та же самая задача для этого текста:
 
 “Nay,” returned the old gentleman, drawing her arm through his; “you have more fortitude than this, I am sure. Do you know this young lady, sir?”
 
@@ -170,6 +182,9 @@ Laying great stress on the repetition of these two words, Mr. Bumble fixed his h
 Let the tears which fell, and the broken words which were exchanged in the long close embrace between the orphans, be sacred. A father, sister, and mother, were gained, and lost, in that one moment. Joy and grief were mingled in the cup; but there were no bitter tears: for even grief itself arose so softened, and clothed in such sweet and tender recollections, that it became a solemn pleasure, and lost all character of pain.
 
 They were a long, long time alone. A soft tap at the door, at length announced that some one was without. Oliver opened it, glided away, and gave place to Harry Maylie.
+
+----------------
+Та же самая задача для этого текста:
 
 “I know it all,” he said, taking a seat beside the lovely girl. “Dear Rose, I know it all.”
 

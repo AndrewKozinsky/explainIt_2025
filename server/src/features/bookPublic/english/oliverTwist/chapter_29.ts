@@ -33,6 +33,9 @@ Mr. Giles was apparently considering the propriety of indulging in a respectful 
 
 With these expressions of condolence, the fat gentleman shook hands with both ladies, and drawing up a chair, inquired how they found themselves.
 
+----------------
+Та же самая задача для этого текста:
+
 “You ought to be dead; positively dead with the fright,” said the fat gentleman. “Why didn’t you send? Bless me, my man should have come in a minute; and so would I; and my assistant would have been delighted; or anybody, I’m sure, under such circumstances. Dear, dear! So unexpected! In the silence of the night, too!”
 
 The doctor seemed especially troubled by the fact of the robbery having been unexpected, and attempted in the night-time; as if it were the established custom of gentlemen in the housebreaking way to transact business at noon, and to make an appointment, by post, a day or two previous.
@@ -54,6 +57,9 @@ Mr. Giles, who thought this light treatment of the matter an unjust attempt at d
 Talking all the way, he followed Mr. Giles upstairs; and while he is going upstairs, the reader may be informed, that Mr. Losberne, a surgeon in the neighbourhood, known through a circuit of ten miles round as “the doctor,” had grown fat, more from good-humour than from good living: and was as kind and hearty, and withal as eccentric an old bachelor, as will be found in five times that space, by any explorer alive.
 
 The doctor was absent, much longer than either he or the ladies had anticipated. A large flat box was fetched out of the gig; and a bedroom bell was rung very often; and the servants ran up and down stairs perpetually; from which tokens it was justly concluded that something important was going on above. At length he returned; and in reply to an anxious inquiry after his patient; looked very mysterious, and closed the door, carefully.
+
+----------------
+Та же самая задача для этого текста:
 
 “This is a very extraordinary thing, Mrs. Maylie,” said the doctor, standing with his back to the door, as if to keep it shut.
 

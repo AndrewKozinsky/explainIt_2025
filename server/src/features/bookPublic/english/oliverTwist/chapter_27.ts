@@ -37,6 +37,9 @@ Mr. Bumble raised his eyes piously to the ceiling in thankfulness; and, bringing
 
 Mr. Bumble tasted the medicine with a doubtful look; smacked his lips; took another taste; and put the cup down empty.
 
+----------------
+Та же самая задача для этого текста:
+
 “It’s very comforting,” said Mrs. Corney.
 
 “Very much so indeed, ma’am,” said the beadle. As he spoke, he drew a chair beside the matron, and tenderly inquired what had happened to distress her.
@@ -66,6 +69,9 @@ Mrs. Corney sighed.
 “But not for two, ma’am,” rejoined Mr. Bumble, in soft accents. “Eh, Mrs. Corney?”
 
 Mrs. Corney drooped her head, when the beadle said this; the beadle drooped his, to get a view of Mrs. Corney’s face. Mrs. Corney, with great propriety, turned her head away, and released her hand to get at her pocket-handkerchief; but insensibly replaced it in that of Mr. Bumble.
+
+----------------
+Та же самая задача для этого текста:
 
 “The board allows you coals, don’t they, Mrs. Corney?” inquired the beadle, affectionately pressing her hand.
 
@@ -101,6 +107,9 @@ Matters being thus amicably and satisfactorily arranged, the contract was solemn
 
 “Not now,” rejoined the lady; “one of these days. After we’re married, dear.”
 
+----------------
+Та же самая задача для этого текста:
+
 “After we’re married!” exclaimed Mr. Bumble. “It wasn’t any impudence from any of them male paupers as—”
 
 “No, no, love!” interposed the lady, hastily.
@@ -126,6 +135,9 @@ The cloth was laid for supper; the table was covered with bread and butter, plat
 “It’s quite a cruelty,” said Charlotte.
 
 “So it is,” acquiesced Mr. Claypole. “An’t yer fond of oysters?”
+
+----------------
+Та же самая задача для этого текста:
 
 “Not overmuch,” replied Charlotte. “I like to see you eat ’em, Noah dear, better than eating ’em myself.”
 

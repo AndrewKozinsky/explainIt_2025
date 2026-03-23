@@ -37,6 +37,9 @@ There was a short silence, after which Toby Crackit, seeming to abandon as hopel
 
 “Wot’s come of young Bates?” demanded Kags.
 
+----------------
+Та же самая задача для этого текста:
+
 “He hung about, not to come over here afore dark, but he’ll be here soon,” replied Chitling. “There’s nowhere else to go to now, for the people at the Cripples are all in custody, and the bar of the ken—I went up there and see it with my own eyes—is filled with traps.”
 
 “This is a smash,” observed Toby, biting his lips. “There’s more than one will go with this.”
@@ -69,6 +72,9 @@ It being now dark, the shutter was closed, and a candle lighted and placed upon 
 
 They had sat thus, some time, when suddenly was heard a hurried knocking at the door below.
 
+----------------
+Та же самая задача для этого текста:
+
 “Young Bates,” said Kags, looking angrily round, to check the fear he felt himself.
 
 The knocking came again. No, it wasn’t he. He never knocked like that.
@@ -90,6 +96,9 @@ He laid his hand upon a chair which stood in the middle of the room, but shudder
 Not a word had been exchanged. He looked from one to another in silence. If an eye were furtively raised and met his, it was instantly averted. When his hollow voice broke silence, they all three started. They seemed never to have heard its tones before.
 
 “How came that dog here?” he asked.
+
+----------------
+Та же самая задача для этого текста:
 
 “Alone. Three hours ago.”
 
@@ -131,6 +140,9 @@ The man stopped half-way, and they looked at each other; but Sikes’s eyes sunk
 
 Pouring out these cries, and accompanying them with violent gesticulation, the boy actually threw himself, single-handed, upon the strong man, and in the intensity of his energy and the suddenness of his surprise, brought him heavily to the ground.
 
+----------------
+Та же самая задача для этого текста:
+
 The three spectators seemed quite stupefied. They offered no interference, and the boy and man rolled on the ground together; the former, heedless of the blows that showered upon him, wrenching his hands tighter and tighter in the garments about the murderer’s breast, and never ceasing to call for help with all his might.
 
 The contest, however, was too unequal to last long. Sikes had him down, and his knee was on his throat, when Crackit pulled him back with a look of alarm, and pointed to the window. There were lights gleaming below, voices in loud and earnest conversation, the tramp of hurried footsteps—endless they seemed in number—crossing the nearest wooden bridge. One man on horseback seemed to be among the crowd; for there was the noise of hoofs rattling on the uneven pavement. The gleam of lights increased; the footsteps came more thickly and noisily on. Then, came a loud knocking at the door, and then a hoarse murmur from such a multitude of angry voices as would have made the boldest quail.
@@ -162,6 +174,9 @@ Of all the terrific yells that ever fell on mortal ears, none could exceed the c
 The nearest voices took up the cry, and hundreds echoed it. Some called for ladders, some for sledge-hammers; some ran with torches to and fro as if to seek them, and still came back and roared again; some spent their breath in impotent curses and execrations; some pressed forward with the ecstasy of madmen, and thus impeded the progress of those below; some among the boldest attempted to climb up by the water-spout and crevices in the wall; and all waved to and fro, in the darkness beneath, like a field of corn moved by an angry wind: and joined from time to time in one loud furious roar.
 
 “The tide,” cried the murderer, as he staggered back into the room, and shut the faces out, “the tide was in as I came up. Give me a rope, a long rope. They’re all in front. I may drop into the Folly Ditch, and clear off that way. Give me a rope, or I shall do three more murders and kill myself.”
+
+----------------
+Та же самая задача для этого текста:
 
 The panic-stricken men pointed to where such articles were kept; the murderer, hastily selecting the longest and strongest cord, hurried up to the house-top.
 

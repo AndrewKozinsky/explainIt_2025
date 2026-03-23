@@ -39,6 +39,9 @@ Mr. Losberne, who appeared desirous of gaining time, recounted them at great len
 
 “All,” replied the doctor.
 
+----------------
+Та же самая задача для этого текста:
+
 “Now, what is this, about this here boy that the servants are a-talking on?” said Blathers.
 
 “Nothing at all,” replied the doctor. “One of the frightened servants chose to take it into his head, that he had something to do with this attempt to break into the house; but it’s nonsense: sheer absurdity.”
@@ -70,6 +73,9 @@ Meanwhile, the doctor walked up and down the next room in a very uneasy state; a
 “Because, my pretty cross-examiner,” replied the doctor: “because, viewed with their eyes, there are many ugly points about it; he can only prove the parts that look ill, and none of those that look well. Confound the fellows, they will have the why and the wherefore, and will take nothing for granted. On his own showing, you see, he has been the companion of thieves for some time past; he has been carried to a police-officer, on a charge of picking a gentleman’s pocket; he has been taken away, forcibly, from that gentleman’s house, to a place which he cannot describe or point out, and of the situation of which he has not the remotest idea. He is brought down to Chertsey, by men who seem to have taken a violent fancy to him, whether he will or no; and is put through a window to rob a house; and then, just at the very moment when he is going to alarm the inmates, and so do the very thing that would set him all to rights, there rushes into the way, a blundering dog of a half-bred butler, and shoots him! As if on purpose to prevent his doing any good for himself! Don’t you see all this?”
 
 “I see it, of course,” replied Rose, smiling at the doctor’s impetuosity; “but still I do not see anything in it, to criminate the poor child.”
+
+----------------
+Та же самая задача для этого текста:
 
 “No,” replied the doctor; “of course not! Bless the bright eyes of your sex! They never see, whether for good or bad, more than one side of any question; and that is, always, the one which first presents itself to them.”
 
@@ -111,6 +117,9 @@ Having given vent to this result of experience, the doctor put his hands into hi
 
 “A little drop of spirits, master, if it’s all the same,” replied Blathers. “It’s a cold ride from London, ma’am; and I always find that spirits comes home warmer to the feelings.”
 
+----------------
+Та же самая задача для этого текста:
+
 This interesting communication was addressed to Mrs. Maylie, who received it very graciously. While it was being conveyed to her, the doctor slipped out of the room.
 
 “Ah!” said Mr. Blathers: not holding his wine-glass by the stem, but grasping the bottom between the thumb and forefinger of his left hand: and placing it in front of his chest; “I have seen a good many pieces of business like this, in my time, ladies.”
@@ -142,6 +151,9 @@ This interesting communication was addressed to Mrs. Maylie, who received it ver
 Oliver had been dozing; but looked worse, and was more feverish than he had appeared yet. Being assisted by the doctor, he managed to sit up in bed for a minute or so; and looked at the strangers without at all understanding what was going forward—in fact, without seeming to recollect where he was, or what had been passing.
 
 “This,” said Mr. Losberne, speaking softly, but with great vehemence notwithstanding, “this is the lad, who, being accidently wounded by a spring-gun in some boyish trespass on Mr. What-d’ ye-call-him’s grounds, at the back here, comes to the house for assistance this morning, and is immediately laid hold of and maltreated, by that ingenious gentleman with the candle in his hand: who has placed his life in considerable danger, as I can professionally certify.”
+
+----------------
+Та же самая задача для этого текста:
 
 Messrs. Blathers and Duff looked at Mr. Giles, as he was thus recommended to their notice. The bewildered butler gazed from them towards Oliver, and from Oliver towards Mr. Losberne, with a most ludicrous mixture of fear and perplexity.
 

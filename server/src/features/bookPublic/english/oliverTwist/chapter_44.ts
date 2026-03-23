@@ -33,6 +33,9 @@ Fagin sighed, and shook his head despondingly.
 
 “It make you nervous, Bill,—reminds you of being nabbed, does it?” said Fagin, determined not to be offended.
 
+----------------
+Та же самая задача для этого текста:
+
 “Reminds me of being nabbed by the devil,” returned Sikes. “There never was another man with such a face as yours, unless it was your father, and I suppose he is singeing his grizzled red beard by this time, unless you came straight from the old ’un without any father at all betwixt you; which I shouldn’t wonder at, a bit.”
 
 Fagin offered no reply to this compliment: but, pulling Sikes by the sleeve, pointed his finger towards Nancy, who had taken advantage of the foregoing conversation to put on her bonnet, and was now leaving the room.
@@ -63,6 +66,9 @@ Fagin offered no reply to this compliment: but, pulling Sikes by the sleeve, poi
 
 “No!” said Sikes.
 
+----------------
+Та же самая задача для этого текста:
+
 “Tell him to let me go, Fagin. He had better. It’ll be better for him. Do you hear me?” cried Nancy stamping her foot upon the ground.
 
 “Hear you!” repeated Sikes turning round in his chair to confront her. “Aye! And if I hear you for half a minute longer, the dog shall have such a grip on your throat as’ll tear some of that screaming voice out. Wot has come over you, you jade! Wot is it?”
@@ -90,6 +96,9 @@ Fagin offered no reply to this compliment: but, pulling Sikes by the sleeve, poi
 “Like enough.”
 
 “I’ll let her a little blood, without troubling the doctor, if she’s took that way again,” said Sikes.
+
+----------------
+Та же самая задача для этого текста:
 
 Fagin nodded an expressive approval of this mode of treatment.
 
@@ -128,6 +137,9 @@ There was another, and a darker object, to be gained. Sikes knew too much, and h
 “With a little persuasion,” thought Fagin, “what more likely than that she would consent to poison him? Women have done such things, and worse, to secure the same object before now. There would be the dangerous villain: the man I hate: gone; another secured in his place; and my influence over the girl, with a knowledge of this crime to back it, unlimited.”
 
 These things passed through the mind of Fagin, during the short time he sat alone, in the housebreaker’s room; and with them uppermost in his thoughts, he had taken the opportunity afterwards afforded him, of sounding the girl in the broken hints he threw out at parting. There was no expression of surprise, no assumption of an inability to understand his meaning. The girl clearly comprehended it. Her glance at parting showed that.
+
+----------------
+Та же самая задача для этого текста:
 
 But perhaps she would recoil from a plot to take the life of Sikes, and that was one of the chief ends to be attained. “How,” thought Fagin, as he crept homeward, “can I increase my influence with her? What new power can I acquire?”
 

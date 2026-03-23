@@ -35,6 +35,9 @@ The lady modestly hesitated to reply, lest there should be any impropriety in ho
 
 “Hard weather, Mr. Bumble,” said the matron.
 
+----------------
+Та же самая задача для этого текста:
+
 “Hard, indeed, ma’am,” replied the beadle. “Anti-porochial weather this, ma’am. We have given away, Mrs. Corney, we have given away a matter of twenty quartern loaves and a cheese and a half, this very blessed afternoon; and yet them paupers are not contented.”
 
 “Of course not. When would they be, Mr. Bumble?” said the matron, sipping her tea.
@@ -73,6 +76,9 @@ Mrs. Corney rose to get another cup and saucer from the closet. As she sat down,
 
 “Very sweet, indeed, ma’am,” replied Mr. Bumble. He fixed his eyes on Mrs. Corney as he said this; and if ever a beadle looked tender, Mr. Bumble was that beadle at that moment.
 
+----------------
+Та же самая задача для этого текста:
+
 The tea was made, and handed in silence. Mr. Bumble, having spread a handkerchief over his knees to prevent the crumbs from sullying the splendour of his shorts, began to eat and drink; varying these amusements, occasionally, by fetching a deep sigh; which, however, had no injurious effect upon his appetite, but, on the contrary, rather seemed to facilitate his operations in the tea and toast department.
 
 “You have a cat, ma’am, I see,” said Mr. Bumble, glancing at one who, in the centre of her family, was basking before the fire; “and kittens too, I declare!”
@@ -105,6 +111,8 @@ Now, if the matron had moved her chair to the right, she would have been scorche
 
 “Dear me!” exclaimed the matron, “what a very curious question from a single man. What can you want to know for, Mr. Bumble?”
 
+----------------
+Та же самая задача для этого текста:
 The beadle drank his tea to the last drop; finished a piece of toast; whisked the crumbs off his knees; wiped his lips; and deliberately kissed the matron.
 
 “Mr. Bumble!” cried that discreet lady in a whisper; for the fright was so great, that she had quite lost her voice, “Mr. Bumble, I shall scream!” Mr. Bumble made no reply; but in a slow and dignified manner, put his arm round the matron’s waist.

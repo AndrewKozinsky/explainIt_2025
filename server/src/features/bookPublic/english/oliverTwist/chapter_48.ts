@@ -27,6 +27,9 @@ Where could he go, that was near and not too public, to get some meat and drink?
 
 He wandered over miles and miles of ground, and still came back to the old place. Morning and noon had passed, and the day was on the wane, and still he rambled to and fro, and up and down, and round and round, and still lingered about the same spot. At last he got away, and shaped his course for Hatfield.
 
+----------------
+Та же самая задача для этого текста:
+
 It was nine o’clock at night, when the man, quite tired out, and the dog, limping and lame from the unaccustomed exercise, turned down the hill by the church of the quiet village, and plodding along the little street, crept into a small public-house, whose scanty light had guided them to the spot. There was a fire in the tap-room, and some country-labourers were drinking before it.
 
 They made room for the stranger, but he sat down in the furthest corner, and ate and drank alone, or rather with his dog: to whom he cast a morsel of food from time to time.
@@ -59,6 +62,9 @@ The guard was standing at the door, waiting for the letter-bag. A man, dressed l
 
 “Anything new up in town, Ben?” asked the game-keeper, drawing back to the window-shutters, the better to admire the horses.
 
+----------------
+Та же самая задача для этого текста:
+
 “No, nothing that I knows on,” replied the man, pulling on his gloves. “Corn’s up a little. I heerd talk of a murder, too, down Spitalfields way, but I don’t reckon much upon it.”
 
 “Oh, that’s quite true,” said a gentleman inside, who was looking out of the window. “And a dreadful murder it was.”
@@ -90,6 +96,9 @@ There was a shed in a field he passed, that offered shelter for the night. Befor
 For now, a vision came before him, as constant and more terrible than that from which he had escaped. Those widely staring eyes, so lustreless and so glassy, that he had better borne to see them than think upon them, appeared in the midst of the darkness: light in themselves, but giving light to nothing. There were but two, but they were everywhere. If he shut out the sight, there came the room with every well-known object—some, indeed, that he would have forgotten, if he had gone over its contents from memory—each in its accustomed place. The body was in its place, and its eyes were as he saw them when he stole away. He got up, and rushed into the field without. The figure was behind him. He re-entered the shed, and shrunk down once more. The eyes were there, before he had laid himself along.
 
 And here he remained in such terror as none but he can know, trembling in every limb, and the cold sweat starting from every pore, when suddenly there arose upon the night-wind the noise of distant shouting, and the roar of voices mingled in alarm and wonder. Any sound of men in that lonely place, even though it conveyed a real cause of alarm, was something to him. He regained his strength and energy at the prospect of personal danger; and springing to his feet, rushed into the open air.
+
+----------------
+Та же самая задача для этого текста:
 
 The broad sky seemed on fire. Rising into the air with showers of sparks, and rolling one above the other, were sheets of flame, lighting the atmosphere for miles round, and driving clouds of smoke in the direction where he stood. The shouts grew louder as new voices swelled the roar, and he could hear the cry of Fire! mingled with the ringing of an alarm-bell, the fall of heavy bodies, and the crackling of flames as they twined round some new obstacle, and shot aloft as though refreshed by food. The noise increased as he looked. There were people there—men and women—light, bustle. It was like new life to him. He darted onward—straight, headlong—dashing through brier and brake, and leaping gate and fence as madly as his dog, who careered with loud and sounding bark before him.
 

@@ -33,6 +33,9 @@ Fagin affected to laugh very heartily; and Mr. Bolter having had his laugh out, 
 
 “I want you, Bolter,” said Fagin, leaning over the table, “to do a piece of work for me, my dear, that needs great care and caution.”
 
+----------------
+Та же самая задача для этого текста:
+
 “I say,” rejoined Bolter, “don’t yer go shoving me into danger, or sending me any more o’ yer police-offices. That don’t suit me, that don’t; and so I tell yer.”
 
 “That’s not the smallest danger in it—not the very smallest,” said the Jew; “it’s only to dodge a woman.”
@@ -64,6 +67,9 @@ Fagin affected to laugh very heartily; and Mr. Bolter having had his laugh out, 
 “Of course, of course,” replied Noah. “Where is she? Where am I to wait for her? Where am I to go?”
 
 “All that, my dear, you shall hear from me. I’ll point her out at the proper time,” said Fagin. “You keep ready, and leave the rest to me.”
+
+----------------
+Та же самая задача для этого текста:
 
 That night, and the next, and the next again, the spy sat booted and equipped in his carter’s dress: ready to turn out at a word from Fagin. Six nights passed—six long weary nights—and on each, Fagin came home with a disappointed face, and briefly intimated that it was not yet time. On the seventh, he returned earlier, and with an exultation he could not conceal. It was Sunday.
 

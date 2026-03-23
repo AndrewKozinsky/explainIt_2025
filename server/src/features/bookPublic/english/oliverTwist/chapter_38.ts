@@ -29,6 +29,9 @@ Mr. Bumble nodded in the affirmative.
 
 “Then, mind what I told you,” said the matron: “and be careful to say as little as you can, or you’ll betray us at once.”
 
+----------------
+Та же самая задача для этого текста:
+
 Mr. Bumble, who had eyed the building with very rueful looks, was apparently about to express some doubts relative to the advisability of proceeding any further with the enterprise just then, when he was prevented by the appearance of Monks: who opened a small door, near which they stood, and beckoned them inwards.
 
 “Come in!” he cried impatiently, stamping his foot upon the ground. “Don’t keep me here!”
@@ -64,6 +67,9 @@ Bestowing something half-way between a smile and a frown upon his two companions
 “Hear it!” he cried, shrinking back. “Hear it! Rolling and crashing on as if it echoed through a thousand caverns where the devils were hiding from it. I hate the sound!”
 
 He remained silent for a few moments; and then, removing his hands suddenly from his face, showed, to the unspeakable discomposure of Mr. Bumble, that it was much distorted and discoloured.
+
+----------------
+Та же самая задача для этого текста:
 
 “These fits come over me, now and then,” said Monks, observing his alarm; “and thunder sometimes brings them on. Don’t mind me now; it’s all over for this once.”
 
@@ -103,6 +109,9 @@ Mr. Bumble, who had not yet been admitted by his better half into any greater sh
 
 “Five-and-twenty pounds!” exclaimed Monks, drawing back.
 
+----------------
+Та же самая задача для этого текста:
+
 “I spoke as plainly as I could,” replied Mrs. Bumble. “It’s not a large sum, either.”
 
 “Not a large sum for a paltry secret, that may be nothing when it’s told!” cried Monks impatiently; “and which has been lying dead for twelve years past or more!”
@@ -136,6 +145,9 @@ The thunder, which seemed in fact much nearer, and to shiver and break almost ov
 “Was there no one by?” asked Monks, in the same hollow whisper; “No sick wretch or idiot in some other bed? No one who could hear, and might, by possibility, understand?”
 
 “Not a soul,” replied the woman; “we were alone. I stood alone beside the body when death came over it.”
+
+----------------
+Та же самая задача для этого текста:
 
 “Good,” said Monks, regarding her attentively. “Go on.”
 
@@ -179,6 +191,9 @@ The thunder, which seemed in fact much nearer, and to shiver and break almost ov
 
 Mr. Bumble drew a long breath, as if he were glad to find that the story was over, and no mention made of taking the five-and-twenty pounds back again; and now he took courage to wipe the perspiration which had been trickling over his nose, unchecked, during the whole of the previous dialogue.
 
+----------------
+Та же самая задача для этого текста:
+
 “I know nothing of the story, beyond what I can guess at,” said his wife addressing Monks, after a short silence; “and I want to know nothing; for it’s safer not. But I may ask you two questions, may I?”
 
 “You may ask,” said Monks, with some show of surprise; “but whether I answer or not is another question.”
@@ -209,6 +224,9 @@ The three looking into each other’s faces, seemed to breathe more freely.
 
 “There!” said Monks, closing the trap-door, which fell heavily back into its former position. “If the sea ever gives up its dead, as books say it will, it will keep its gold and silver to itself, and that trash among it. We have nothing more to say, and may break up our pleasant party.”
 
+
+----------------
+Та же самая задача для этого текста:
 “By all means,” observed Mr. Bumble, with great alacrity.
 
 “You’ll keep a quiet tongue in your head, will you?” said Monks, with a threatening look. “I am not afraid of your wife.”

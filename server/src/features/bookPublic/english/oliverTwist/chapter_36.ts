@@ -37,6 +37,9 @@ Oliver walked into the window-recess to which Mr. Maylie beckoned him; much surp
 
 “Oh! quite, sir, quite,” replied Oliver.
 
+----------------
+Та же самая задача для этого текста:
+
 “I would rather you did not mention it to them,” said Harry, hurrying over his words; “because it might make my mother anxious to write to me oftener, and it is a trouble and worry to her. Let it be a secret between you and me; and mind you tell me everything! I depend upon you.”
 
 Oliver, quite elated and honoured by a sense of his importance, faithfully promised to be secret and explicit in his communications. Mr. Maylie took leave of him, with many assurances of his regard and protection.

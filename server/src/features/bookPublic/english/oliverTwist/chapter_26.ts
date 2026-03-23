@@ -39,6 +39,9 @@ The Three Cripples, or rather the Cripples; which was the sign by which the esta
 
 The room was illuminated by two gas-lights; the glare of which was prevented by the barred shutters, and closely-drawn curtains of faded red, from being visible outside. The ceiling was blackened, to prevent its colour from being injured by the flaring of the lamps; and the place was so full of dense tobacco smoke, that at first it was scarcely possible to discern anything more. By degrees, however, as some of it cleared away through the open door, an assemblage of heads, as confused as the noises that greeted the ear, might be made out; and as the eye grew more accustomed to the scene, the spectator gradually became aware of the presence of a numerous company, male and female, crowded round a long table: at the upper end of which, sat a chairman with a hammer of office in his hand; while a professional gentleman with a bluish nose, and his face tied up for the benefit of a toothache, presided at a jingling piano in a remote corner.
 
+----------------
+Та же самая задача для этого текста:
+
 As Fagin stepped softly in, the professional gentleman, running over the keys by way of prelude, occasioned a general cry of order for a song; which having subsided, a young lady proceeded to entertain the company with a ballad in four verses, between each of which the accompanyist played the melody all through, as loud as he could. When this was over, the chairman gave a sentiment, after which, the professional gentleman on the chairman’s right and left volunteered a duet, and sang it, with great applause.
 
 It was curious to observe some faces which stood out prominently from among the group. There was the chairman himself, (the landlord of the house,) a coarse, rough, heavy built fellow, who, while the songs were proceeding, rolled his eyes hither and thither, and, seeming to give himself up to joviality, had an eye for everything that was done, and an ear for everything that was said—and sharp ones, too. Near him were the singers: receiving, with professional indifference, the compliments of the company, and applying themselves, in turn, to a dozen proffered glasses of spirits and water, tendered by their more boisterous admirers; whose countenances, expressive of almost every vice in almost every grade, irresistibly attracted the attention, by their very repulsiveness. Cunning, ferocity, and drunkeness in all its stages, were there, in their strongest aspect; and women: some with the last lingering tinge of their early freshness almost fading as you looked: others with every mark and stamp of their sex utterly beaten out, and presenting but one loathsome blank of profligacy and crime; some mere girls, others but young women, and none past the prime of life; formed the darkest and saddest portion of this dreary picture.
@@ -77,6 +80,9 @@ The landlord reciprocated the old man’s laugh; and returned to his guests. The
 
 “Now,” muttered the Jew, as he knocked at the door, “if there is any deep play here, I shall have it out of you, my girl, cunning as you are.”
 
+----------------
+Та же самая задача для этого текста:
+
 She was in her room, the woman said. Fagin crept softly upstairs, and entered it without any previous ceremony. The girl was alone; lying with her head upon the table, and her hair straggling over it.
 
 “She has been drinking,” thought the Jew, cooly, “or perhaps she is only miserable.”
@@ -110,6 +116,9 @@ The girl moaned out some half intelligible reply, that she could not tell; and s
 “What is all this?” cried the girl involuntarily.
 
 “What is it?” pursued Fagin, mad with rage. “When the boy’s worth hundreds of pounds to me, am I to lose what chance threw me in the way of getting safely, through the whims of a drunken gang that I could whistle away the lives of! And me bound, too, to a born devil that only wants the will, and has the power to, to—”
+
+----------------
+Та же самая задача для этого текста:
 
 Panting for breath, the old man stammered for a word; and in that instant checked the torrent of his wrath, and changed his whole demeanour. A moment before, his clenched hands had grasped the air; his eyes had dilated; and his face grown livid with passion; but now, he shrunk into a chair, and, cowering together, trembled with the apprehension of having himself disclosed some hidden villainy. After a short silence, he ventured to look round at his companion. He appeared somewhat reassured, on beholding her in the same listless attitude from which he had first roused her.
 
@@ -151,6 +160,9 @@ The Jew shook his head, and was about to reply, when the stranger, interrupting 
 
 Fagin looked as if he could have willingly excused himself from taking home a visitor at that unseasonable hour; and, indeed, muttered something about having no fire; but his companion repeating his request in a peremptory manner, he unlocked the door, and requested him to close it softly, while he got a light.
 
+----------------
+Та же самая задача для этого текста:
+
 “It’s as dark as the grave,” said the man, groping forward a few steps. “Make haste!”
 
 “Shut the door,” whispered Fagin from the end of the passage. As he spoke, it closed with a loud noise.
@@ -182,6 +194,9 @@ They conversed for some time in whispers. Though nothing of the conversation was
 “I saw it was not easy to train him to the business,” replied the Jew; “he was not like other boys in the same circumstances.”
 
 “Curse him, no!” muttered the man, “or he would have been a thief, long ago.”
+
+----------------
+Та же самая задача для этого текста:
 
 “I had no hold upon him to make him worse,” pursued the Jew, anxiously watching the countenance of his companion. “His hand was not in. I had nothing to frighten him with; which we always must have in the beginning, or we labour in vain. What could I do? Send him out with the Dodger and Charley? We had enough of that, at first, my dear; I trembled for us all.”
 

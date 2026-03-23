@@ -41,6 +41,9 @@ The two gentlemen watched Oliver’s earnest face, as he spoke, and looking from
 
 Notwithstanding the evidently useless nature of their search, they did not desist until the coming on of night rendered its further prosecution hopeless; and even then, they gave it up with reluctance. Giles was dispatched to the different ale-houses in the village, furnished with the best description Oliver could give of the appearance and dress of the strangers. Of these, the Jew was, at all events, sufficiently remarkable to be remembered, supposing he had been seen drinking, or loitering about; but Giles returned without any intelligence, calculated to dispel or lessen the mystery.
 
+----------------
+Та же самая задача для этого текста:
+
 On the next day, fresh search was made, and the inquiries renewed; but with no better success. On the day following, Oliver and Mr. Maylie repaired to the market-town, in the hope of seeing or hearing something of the men there; but this effort was equally fruitless. After a few days, the affair began to be forgotten, as most affairs are, when wonder, having no fresh food to support it, dies away of itself.
 
 Meanwhile, Rose was rapidly recovering. She had left her room: was able to go out; and mixing once more with the family, carried joy into the hearts of all.
@@ -72,6 +75,9 @@ There were tears in the eyes of the gentle girl, as these words were spoken; and
 “It is, that I may endeavour to deserve you; it is, dear Rose?”
 
 “It is,” replied Rose, “that you must endeavour to forget me; not as your old and dearly-attached companion, for that would wound me deeply; but, as the object of your love. Look into the world; think how many hearts you would be proud to gain, are there. Confide some other passion to me, if you will; I will be the truest, warmest, and most faithful friend you have.”
+
+----------------
+Та же самая задача для этого текста:
 
 There was a pause, during which, Rose, who had covered her face with one hand, gave free vent to her tears. Harry still retained the other.
 
@@ -106,6 +112,9 @@ There was a pause, during which, Rose, who had covered her face with one hand, g
 “If your answer be what I almost dare to hope it is,” retorted Harry, “it will shed a gleam of happiness upon my lonely way, and light the path before me. It is not an idle thing to do so much, by the utterance of a few brief words, for one who loves you beyond all else. Oh, Rose: in the name of my ardent and enduring attachment; in the name of all I have suffered for you, and all you doom me to undergo; answer me this one question!”
 
 “Then, if your lot had been differently cast,” rejoined Rose; “if you had been even a little, but not so far, above me; if I could have been a help and comfort to you in any humble scene of peace and retirement, and not a blot and drawback in ambitious and distinguished crowds; I should have been spared this trial. I have every reason to be happy, very happy, now; but then, Harry, I own I should have been happier.”
+
+----------------
+Та же самая задача для этого текста:
 
 Busy recollections of old hopes, cherished as a girl, long ago, crowded into the mind of Rose, while making this avowal; but they brought tears with them, as old hopes will when they come back withered; and they relieved her.
 

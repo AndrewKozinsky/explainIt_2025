@@ -37,6 +37,9 @@ The kind tone of this answer, the sweet voice, the gentle manner, the absence of
 
 “I pity you!” said Rose, in a broken voice. “It wrings my heart to hear you!”
 
+----------------
+Та же самая задача для этого текста:
+
 “Heaven bless you for your goodness!” rejoined the girl. “If you knew what I am sometimes, you would pity me, indeed. But I have stolen away from those who would surely murder me, if they knew I had been here, to tell you what I have overheard. Do you know a man named Monks?”
 
 “No,” said Rose.
@@ -71,6 +74,9 @@ The kind tone of this answer, the sweet voice, the gentle manner, the absence of
 
 “He spoke in hard and angry earnest, if a man ever did,” replied the girl, shaking her head. “He is an earnest man when his hatred is up. I know many who do worse things; but I’d rather listen to them all a dozen times, than to that Monks once. It is growing late, and I have to reach home without suspicion of having been on such an errand as this. I must get back quickly.”
 
+----------------
+Та же самая задача для этого текста:
+
 “But what can I do?” said Rose. “To what use can I turn this communication without you? Back! Why do you wish to return to companions you paint in such terrible colors? If you repeat this information to a gentleman whom I can summon in an instant from the next room, you can be consigned to some place of safety without half an hour’s delay.”
 
 “I wish to go back,” said the girl. “I must go back, because—how can I tell such things to an innocent lady like you?—because among the men I have told you of, there is one: the most desperate among them all; that I can’t leave: no, not even to be saved from the life I am leading now.”
@@ -104,6 +110,9 @@ The kind tone of this answer, the sweet voice, the gentle manner, the absence of
 “Will you promise me that you will have my secret strictly kept, and come alone, or with the only other person that knows it; and that I shall not be watched or followed?” asked the girl.
 
 “I promise you solemnly,” answered Rose.
+
+----------------
+Та же самая задача для этого текста:
 
 “Every Sunday night, from eleven until the clock strikes twelve,” said the girl without hesitation, “I will walk on London Bridge if I am alive.”
 

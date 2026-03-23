@@ -35,6 +35,9 @@ Still the man hesitated.
 
 “None.”
 
+----------------
+Та же самая задача для этого текста:
+
 Monks looked at the old gentleman, with an anxious eye; but, reading in his countenance nothing but severity and determination, walked into the room, and, shrugging his shoulders, sat down.
 
 “Lock the door on the outside,” said Mr. Brownlow to the attendants, “and come when I ring.”
@@ -67,6 +70,9 @@ The men obeyed, and the two were left alone together.
 
 “Not I,” said Monks, turning away his eyes and beating his foot upon the ground, as a man who is determined to deny everything. “Not I.”
 
+----------------
+Та же самая задача для этого текста:
+
 “Your manner, no less than your actions, assures me that you have never forgotten it, or ceased to think of it with bitterness,” returned Mr. Brownlow. “I speak of fifteen years ago, when you were not more than eleven years old, and your father but one-and-thirty—for he was, I repeat, a boy, when his father ordered him to marry. Must I go back to events which cast a shade upon the memory of your parent, or will you spare it, and disclose to me the truth?”
 
 “I have nothing to disclose,” rejoined Monks. “You must talk on if you will.”
@@ -96,6 +102,9 @@ At this part of the recital Monks held his breath, and listened with a face of i
 “I went,” said Mr. Brownlow, after a short pause, “I went, when all was over, to the scene of his—I will use the term the world would freely use, for worldly harshness or favour are now alike to him—of his guilty love, resolved that if my fears were realised that erring child should find one heart and home to shelter and compassionate her. The family had left that part a week before; they had called in such trifling debts as were outstanding, discharged them, and left the place by night. Why, or whither, none can tell.”
 
 Monks drew his breath yet more freely, and looked round with a smile of triumph.
+
+----------------
+Та же самая задача для этого текста:
 
 “When your brother,” said Mr. Brownlow, drawing nearer to the other’s chair, “When your brother: a feeble, ragged, neglected child: was cast in my way by a stronger hand than chance, and rescued by me from a life of vice and infamy—”
 
@@ -129,6 +138,9 @@ Monks drew his breath yet more freely, and looked round with a smile of triumph.
 
 “Yes, I will.”
 
+----------------
+Та же самая задача для этого текста:
+
 “Set your hand to a statement of truth and facts, and repeat it before witnesses?”
 
 “That I promise too.”
@@ -158,6 +170,9 @@ While Monks was pacing up and down, meditating with dark and evil looks on this 
 “Have you made up your mind?” asked Mr. Brownlow, in a low voice, of Monks.
 
 “Yes,” he replied. “You—you—will be secret with me?”
+
+----------------
+Та же самая задача для этого текста:
 
 “I will. Remain here till I return. It is your only hope of safety.”
 

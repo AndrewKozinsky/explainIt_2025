@@ -43,6 +43,9 @@ The old lady motioned to him not to speak; and sitting herself down in a dark co
 
 “The heavy blow,” said the old lady, “of losing the dear girl who has so long been my comfort and happiness.”
 
+----------------
+Та же самая задача для этого текста:
+
 “Oh! God forbid!” exclaimed Oliver, hastily.
 
 “Amen to that, my child!” said the old lady, wringing her hands.
@@ -79,6 +82,9 @@ With these words, she gave Oliver her purse, and he started off, without more de
 
 Swiftly he ran across the fields, and down the little lanes which sometimes divided them: now almost hidden by the high corn on either side, and now emerging on an open field, where the mowers and haymakers were busy at their work: nor did he stop once, save now and then, for a few seconds, to recover breath, until he came, in a great heat, and covered with dust, on the little market-place of the market-town.
 
+----------------
+Та же самая задача для этого текста:
+
 Here he paused, and looked about for the inn. There were a white bank, and a red brewery, and a yellow town-hall; and in one corner there was a large house, with all the wood about it painted green: before which was the sign of “The George.” To this he hastened, as soon as it caught his eye.
 
 He spoke to a postboy who was dozing under the gateway; and who, after hearing what he wanted, referred him to the ostler; who after hearing all he had to say again, referred him to the landlord; who was a tall gentleman in a blue neckcloth, a white hat, drab breeches, and boots with tops to match, leaning against a pump by the stable-door, picking his teeth with a silver toothpick.
@@ -112,6 +118,9 @@ Oh! the suspense, the fearful, acute suspense, of standing idly by while the lif
 Morning came; and the little cottage was lonely and still. People spoke in whispers; anxious faces appeared at the gate, from time to time; women and children went away in tears. All the livelong day, and for hours after it had grown dark, Oliver paced softly up and down the garden, raising his eyes every instant to the sick chamber, and shuddering to see the darkened window, looking as if death lay stretched inside. Late that night, Mr. Losberne arrived. “It is hard,” said the good doctor, turning away as he spoke; “so young; so much beloved; but there is very little hope.”
 
 Another morning. The sun shone brightly; as brightly as if it looked upon no misery or care; and, with every leaf and flower in full bloom about her; with life, and health, and sounds and sights of joy, surrounding her on every side: the fair young creature lay, wasting fast. Oliver crept away to the old churchyard, and sitting down on one of the green mounds, wept and prayed for her, in silence.
+
+----------------
+Та же самая задача для этого текста:
 
 There was such peace and beauty in the scene; so much of brightness and mirth in the sunny landscape; such blithesome music in the songs of the summer birds; such freedom in the rapid flight of the rook, careering overhead; so much of life and joyousness in all; that, when the boy raised his aching eyes, and looked about, the thought instinctively occurred to him, that this was not a time for death; that Rose could surely never die when humbler things were all so glad and gay; that graves were for cold and cheerless winter: not for sunlight and fragrance. He almost thought that shrouds were for the old and shrunken; and that they never wrapped the young and graceful form in their ghastly folds.
 

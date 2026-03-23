@@ -37,6 +37,9 @@ export const chapter_43 = {
 
 “Only think,” said Fagin, shrugging his shoulders, and stretching out his hands; “only consider. You’ve done what’s a very pretty thing, and what I love you for doing; but what at the same time would put the cravat round your throat, that’s so very easily tied and so very difficult to unloose—in plain English, the halter!”
 
+----------------
+Та же самая задача для этого текста:
+
 Mr. Bolter put his hand to his neckerchief, as if he felt it inconveniently tight; and murmured an assent, qualified in tone but not in substance.
 
 “The gallows,” continued Fagin, “the gallows, my dear, is an ugly finger-post, which points out a very short and sharp turning that has stopped many a bold fellow’s career on the broad highway. To keep in the easy road, and keep it at a distance, is object number one with you.”
@@ -68,6 +71,9 @@ Mr. Fagin saw, with delight, that this tribute to his powers was no mere complim
 “I’m doubtful about it,” replied Fagin, with a sigh. “If they don’t get any fresh evidence, it’ll only be a summary conviction, and we shall have him back again after six weeks or so; but, if they do, it’s a case of lagging. They know what a clever lad he is; he’ll be a lifer. They’ll make the Artful nothing less than a lifer.”
 
 “What do you mean by lagging and a lifer?” demanded Mr. Bolter. “What’s the good of talking in that way to me; why don’t yer speak so as I can understand yer?”
+
+----------------
+Та же самая задача для этого текста:
 
 Fagin was about to translate these mysterious expressions into the vulgar tongue; and, being interpreted, Mr. Bolter would have been informed that they represented that combination of words, “transportation for life,” when the dialogue was cut short by the entry of Master Bates, with his hands in his breeches-pockets, and his face twisted into a look of semi-comical woe.
 
@@ -105,6 +111,9 @@ Mr. Bolter nodded assent, and Fagin, after contemplating the grief of Charley Ba
 
 “Would!” cried Fagin. “He shall—he will!”
 
+----------------
+Та же самая задача для этого текста:
+
 “Ah, to be sure, so he will,” repeated Charley, rubbing his hands.
 
 “I think I see him now,” cried the Jew, bending his eyes upon his pupil.
@@ -134,6 +143,9 @@ In fact, Mr. Fagin had so well humoured his young friend’s eccentric dispositi
 “Oh, I dare say about that, yer know,” observed Noah, backing towards the door, and shaking his head with a kind of sober alarm. “No, no—none of that. It’s not in my department, that ain’t.”
 
 “Wot department has he got, Fagin?” inquired Master Bates, surveying Noah’s lank form with much disgust. “The cutting away when there’s anything wrong, and the eating all the wittles when there’s everything right; is that his branch?”
+
+----------------
+Та же самая задача для этого текста:
 
 “Never mind,” retorted Mr. Bolter; “and don’t yer take liberties with yer superiors, little boy, or yer’ll find yerself in the wrong shop.”
 
@@ -170,6 +182,9 @@ At this point, the Dodger, with a show of being very particular with a view to p
 “A pick-pocketing case, your worship.”
 
 “Has the boy ever been here before?”
+
+----------------
+Та же самая задача для этого текста:
 
 “He ought to have been, a many times,” replied the jailer. “He has been pretty well everywhere else. I know him well, your worship.”
 

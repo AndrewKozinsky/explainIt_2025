@@ -37,6 +37,9 @@ Illness had not improved Mr. Sikes’s temper; for, as the girl raised him up an
 
 At any other time, this remonstrance, and the tone in which it was delivered, would have had the desired effect; but the girl being really weak and exhausted, dropped her head over the back of the chair, and fainted, before Mr. Sikes could get out a few of the appropriate oaths with which, on similar occasions, he was accustomed to garnish his threats. Not knowing, very well, what to do, in this uncommon emergency; for Miss Nancy’s hysterics were usually of that violent kind which the patient fights and struggles out of, without much assistance; Mr. Sikes tried a little blasphemy: and finding that mode of treatment wholly ineffectual, called for assistance.
 
+----------------
+Та же самая задача для этого текста:
+
 “What’s the matter here, my dear?” said Fagin, looking in.
 
 “Lend a hand to the girl, can’t you?” replied Sikes impatiently. “Don’t stand chattering and grinning at me!”
@@ -72,6 +75,9 @@ Uttering this last panegyric, Master Bates produced, from one of his extensive p
 “I was away from London, a week and more, my dear, on a plant,” replied the Jew.
 
 “And what about the other fortnight?” demanded Sikes. “What about the other fortnight that you’ve left me lying here, like a sick rat in his hole?”
+
+----------------
+Та же самая задача для этого текста:
 
 “I couldn’t help it, Bill. I can’t go into a long explanation before company; but I couldn’t help it, upon my honour.”
 
@@ -109,6 +115,9 @@ In due course, they arrived at Fagin’s abode, where they found Toby Crackit an
 
 “Not a living leg,” answered Mr. Crackit, pulling up his collar; “it’s been as dull as swipes. You ought to stand something handsome, Fagin, to recompense me for keeping house so long. Damme, I’m as flat as a juryman; and should have gone to sleep, as fast as Newgate, if I hadn’t had the good natur’ to amuse this youngster. Horrid dull, I’m blessed if I an’t!”
 
+----------------
+Та же самая задача для этого текста:
+
 With these and other ejaculations of the same kind, Mr. Toby Crackit swept up his winnings, and crammed them into his waistcoat pocket with a haughty air, as though such small pieces of silver were wholly beneath the consideration of a man of his figure; this done, he swaggered out of the room, with so much elegance and gentility, that Mr. Chitling, bestowing numerous admiring glances on his legs and boots till they were out of sight, assured the company that he considered his acquaintance cheap at fifteen sixpences an interview, and that he didn’t value his losses the snap of his little finger.
 
 “Wot a rum chap you are, Tom!” said Master Bates, highly amused by this declaration.
@@ -140,6 +149,9 @@ The girl, who was sitting at the table with her arms folded, appeared in no way 
 Laying his skinny forefinger upon his lip, the Jew carried a candle to the door, as a man’s step was heard upon the stairs without. He reached it, at the same moment as the visitor, who, coming hastily into the room, was close upon the girl before he observed her.
 
 It was Monks.
+
+----------------
+Та же самая задача для этого текста:
 
 “Only one of my young people,” said Fagin, observing that Monks drew back, on beholding a stranger. “Don’t move, Nancy.”
 
@@ -177,6 +189,9 @@ It might be that her tears relieved her, or that she felt the full hopelessness 
 
 If she betrayed any agitation, when she presented herself to Mr. Sikes, he did not observe it; for merely inquiring if she had brought the money, and receiving a reply in the affirmative, he uttered a growl of satisfaction, and replacing his head upon the pillow, resumed the slumbers which her arrival had interrupted.
 
+----------------
+Та же самая задача для этого текста:
+
 It was fortunate for her that the possession of money occasioned him so much employment next day in the way of eating and drinking; and withal had so beneficial an effect in smoothing down the asperities of his temper; that he had neither time nor inclination to be very critical upon her behaviour and deportment. That she had all the abstracted and nervous manner of one who is on the eve of some bold and hazardous step, which it has required no common struggle to resolve upon, would have been obvious to the lynx-eyed Fagin, who would most probably have taken the alarm at once; but Mr. Sikes lacking the niceties of discrimination, and being troubled with no more subtle misgivings than those which resolve themselves into a dogged roughness of behaviour towards everybody; and being, furthermore, in an unusually amiable condition, as has been already observed; saw nothing unusual in her demeanor, and indeed, troubled himself so little about her, that, had her agitation been far more perceptible than it was, it would have been very unlikely to have awakened his suspicions.
 
 As that day closed in, the girl’s excitement increased; and, when night came on, and she sat by, watching until the housebreaker should drink himself asleep, there was an unusual paleness in her cheek, and a fire in her eye, that even Sikes observed with astonishment.
@@ -200,6 +215,9 @@ The tone of forced gaiety in which the last words were spoken, seemed to produce
 “There ain’t,” said Sikes, fixing his eyes upon her, and muttering the words to himself; “there ain’t a stauncher-hearted gal going, or I’d have cut her throat three months ago. She’s got the fever coming on; that’s it.”
 
 Fortifying himself with this assurance, Sikes drained the glass to the bottom, and then, with many grumbling oaths, called for his physic. The girl jumped up, with great alacrity; poured it quickly out, but with her back towards him; and held the vessel to his lips, while he drank off the contents.
+
+----------------
+Та же самая задача для этого текста:
 
 “Now,” said the robber, “come and sit aside of me, and put on your own face; or I’ll alter it so, that you won’t know it agin when you do want it.”
 
@@ -237,6 +255,9 @@ The young woman, who had by this time, noted her appearance, replied only by a l
 
 “What name am I to say?” asked the waiter.
 
+----------------
+Та же самая задача для этого текста:
+
 “It’s of no use saying any,” replied Nancy.
 
 “Nor business?” said the man.
@@ -260,6 +281,9 @@ This allusion to Nancy’s doubtful character, raised a vast quantity of chaste 
 The soft-hearted cook added his intercession, and the result was that the man who had first appeared undertook its delivery.
 
 “What’s it to be?” said the man, with one foot on the stairs.
+
+----------------
+Та же самая задача для этого текста:
 
 “That a young woman earnestly asks to speak to Miss Maylie alone,” said Nancy; “and that if the lady will only hear the first word she has to say, she will know whether to hear her business, or to have her turned out of doors as an impostor.”
 

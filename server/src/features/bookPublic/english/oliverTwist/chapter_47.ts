@@ -35,6 +35,9 @@ Fagin raised his right hand, and shook his trembling forefinger in the air; but 
 
 “I’ve got that to tell you, Bill,” said Fagin, drawing his chair nearer, “will make you worse than me.”
 
+----------------
+Та же самая задача для этого текста:
+
 “Aye?” returned the robber with an incredulous air. “Tell away! Look sharp, or Nance will think I’m lost.”
 
 “Lost!” cried Fagin. “She has pretty well settled that, in her own mind, already.”
@@ -64,6 +67,9 @@ Sikes turned round to where Noah was sleeping, as if he had not previously obser
 “I don’t care who,” replied Sikes impatiently. “Whoever it was, I’d serve them the same.”
 
 Fagin looked hard at the robber; and, motioning him to be silent, stooped over the bed upon the floor, and shook the sleeper to rouse him. Sikes leant forward in his chair: looking on with his hands upon his knees, as if wondering much what all this questioning and preparation was to end in.
+
+----------------
+Та же самая задача для этого текста:
 
 “Bolter, Bolter! Poor lad!” said Fagin, looking up with an expression of devilish anticipation, and speaking slowly and with marked emphasis. “He’s tired—tired with watching for her so long,—watching for her, Bill.”
 
@@ -101,6 +107,9 @@ Fagin made no answer, but bending over the sleeper again, hauled him into a sitt
 
 “Why—why? Tell him that.”
 
+----------------
+Та же самая задача для этого текста:
+
 “Because she was forcibly kept at home by Bill, the man she had told them of before,” replied Noah.
 
 “What more of him?” cried Fagin. “What more of the man she had told them of before? Tell him that, tell him that.”
@@ -130,6 +139,9 @@ The day was breaking, and there was light enough for the men to see each other�
 Sikes made no reply; but, pulling open the door, of which Fagin had turned the lock, dashed into the silent streets.
 
 Without one pause, or moment’s consideration; without once turning his head to the right or left, or raising his eyes to the sky, or lowering them to the ground, but looking straight before him with savage resolution: his teeth so tightly compressed that the strained jaw seemed starting through his skin; the robber held on his headlong course, nor muttered a word, nor relaxed a muscle, until he reached his own door. He opened it, softly, with a key; strode lightly up the stairs; and entering his own room, double-locked the door, and lifting a heavy table against it, drew back the curtain of the bed.
+
+----------------
+Та же самая задача для этого текста:
 
 The girl was lying, half-dressed, upon it. He had roused her from her sleep, for she raised herself with a hurried and startled look.
 

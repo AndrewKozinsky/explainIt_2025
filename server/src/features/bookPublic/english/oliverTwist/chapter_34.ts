@@ -43,6 +43,9 @@ All this time, Mr. Giles, with the white nightcap on, had been sitting on the st
 
 Mr. Giles, reminded of his unbecoming costume, snatched off and pocketed his nightcap; and substituted a hat, of grave and sober shape, which he took out of the chaise. This done, the postboy drove off; Giles, Mr. Maylie, and Oliver, followed at their leisure.
 
+----------------
+Та же самая задача для этого текста:
+
 As they walked along, Oliver glanced from time to time with much interest and curiosity at the new comer. He seemed about five-and-twenty years of age, and was of the middle height; his countenance was frank and handsome; and his demeanor easy and prepossessing. Notwithstanding the difference between youth and age, he bore so strong a likeness to the old lady, that Oliver would have had no great difficulty in imagining their relationship, if he had not already spoken of her as his mother.
 
 Mrs. Maylie was anxiously waiting to receive her son when he reached the cottage. The meeting did not take place without great emotion on both sides.
@@ -72,6 +75,9 @@ Mrs. Maylie was anxiously waiting to receive her son when he reached the cottage
 “Harry,” said Mrs. Maylie, “it is because I think so much of warm and sensitive hearts, that I would spare them from being wounded. But we have said enough, and more than enough, on this matter, just now.”
 
 “Let it rest with Rose, then,” interposed Harry. “You will not press these overstrained opinions of yours, so far, as to throw any obstacle in my way?”
+
+----------------
+Та же самая задача для этого текста:
 
 “I will not,” rejoined Mrs. Maylie; “but I would have you consider—”
 
@@ -106,6 +112,9 @@ Mrs. Maylie was anxiously waiting to receive her son when he reached the cottage
 Mr. Losberne and Oliver had remained at another end of the apartment while this hurried conversation was proceeding. The former now held out his hand to Harry Maylie; and hearty salutations were exchanged between them. The doctor then communicated, in reply to multifarious questions from his young friend, a precise account of his patient’s situation; which was quite as consolatory and full of promise, as Oliver’s statement had encouraged him to hope; and to the whole of which, Mr. Giles, who affected to be busy about the luggage, listened with greedy ears.
 
 “Have you shot anything particular, lately, Giles?” inquired the doctor, when he had concluded.
+
+----------------
+Та же самая задача для этого текста:
 
 “Nothing particular, sir,” replied Mr. Giles, colouring up to the eyes.
 

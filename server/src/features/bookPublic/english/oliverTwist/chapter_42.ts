@@ -43,6 +43,9 @@ As Noah’s red nose grew redder with anger, and as he crossed the road while sp
 
 “A pretty thing it would be, wouldn’t it to go and stop at the very first public-house outside the town, so that Sowerberry, if he come up after us, might poke in his old nose, and have us taken back in a cart with handcuffs on,” said Mr. Claypole in a jeering tone. “No! I shall go and lose myself among the narrowest streets I can find, and not stop till we come to the very out-of-the-wayest house I can set eyes on. Cod, yer may thanks yer stars I’ve got a head; for if we hadn’t gone, at first, the wrong road a purpose, and come back across country, yer’d have been locked up hard and fast a week ago, my lady. And serve yer right for being a fool.”
 
+----------------
+Та же самая задача для этого текста:
+
 “I know I ain’t as cunning as you are,” replied Charlotte; “but don’t put all the blame on me, and say I should have been locked up. You would have been if I had been, any way.”
 
 “Yer took the money from the till, yer know yer did,” said Mr. Claypole.
@@ -79,6 +82,9 @@ If Noah had been attired in his charity-boy’s dress, there might have been som
 
 “Show us the tap, and give us a bit of cold meat and a drop of beer while yer inquiring, will yer?” said Noah.
 
+----------------
+Та же самая задача для этого текста:
+
 Barney complied by ushering them into a small back-room, and setting the required viands before them; having done which, he informed the travellers that they could be lodged that night, and left the amiable couple to their refreshment.
 
 Now, this back-room was immediately behind the bar, and some steps lower, so that any person connected with the house, undrawing a small curtain which concealed a single pane of glass fixed in the wall of the last-named apartment, about five feet from its flooring, could not only look down upon any guests in the back-room without any great hazard of being observed (the glass being in a dark angle of the wall, between which and a large upright beam the observer had to thrust himself), but could, by applying his ear to the partition, ascertain with tolerable distinctness, their subject of conversation. The landlord of the house had not withdrawn his eye from this place of espial for five minutes, and Barney had only just returned from making the communication above related, when Fagin, in the course of his evening’s business, came into the bar to inquire after some of his young pupils.
@@ -113,6 +119,9 @@ He again applied his eye to the glass, and turning his ear to the partition, lis
 
 “Lor, how nice it is to hear yer say so!” exclaimed Charlotte, imprinting a kiss upon his ugly face.
 
+----------------
+Та же самая задача для этого текста:
+
 “There, that’ll do: don’t yer be too affectionate, in case I’m cross with yer,” said Noah, disengaging himself with great gravity. “I should like to be the captain of some band, and have the whopping of ’em, and follering ’em about, unbeknown to themselves. That would suit me, if there was good profit; and if we could only get in with some gentleman of this sort, I say it would be cheap at that twenty-pound note you’ve got,—especially as we don’t very well know how to get rid of it ourselves.”
 
 After expressing this opinion, Mr. Claypole looked into the porter-pot with an aspect of deep wisdom; and having well shaken its contents, nodded condescendingly to Charlotte, and took a draught, wherewith he appeared greatly refreshed. He was meditating another, when the sudden opening of the door, and the appearance of a stranger, interrupted him.
@@ -144,6 +153,9 @@ Mr. Claypole no sooner heard this extract from his own remarks than he fell back
 “No matter who’s got it, or who did it, my dear,” replied Fagin, glancing, nevertheless, with a hawk’s eye at the girl and the two bundles. “I’m in that way myself, and I like you for it.”
 
 “In what way?” asked Mr. Claypole, a little recovering.
+
+----------------
+Та же самая задача для этого текста:
 
 “In that way of business,” rejoined Fagin; “and so are the people of the house. You’ve hit the right nail upon the head, and are as safe here as you could be. There is not a safer place in all this town than is the Cripples; that is, when I like to make it so. And I have taken a fancy to you and the young woman; so I’ve said the word, and you may make your minds easy.”
 
@@ -177,6 +189,9 @@ This mandate, which had been delivered with great majesty, was obeyed without th
 
 “Should I have to hand over?” said Noah, slapping his breeches-pocket.
 
+----------------
+Та же самая задача для этого текста:
+
 “It couldn’t possibly be done without,” replied Fagin, in a most decided manner.
 
 “Twenty pound, though—it’s a lot of money!”
@@ -206,6 +221,9 @@ Whether Noah Claypole, whose rapacity was none of the least comprehensive, would
 “I heard you talk of something in the spy way upon the others, my dear,” said Fagin. “My friend wants somebody who would do that well, very much.”
 
 “Why, I did mention that, and I shouldn’t mind turning my hand to it sometimes,” rejoined Mr. Claypole slowly; “but it wouldn’t pay by itself, you know.”
+
+----------------
+Та же самая задача для этого текста:
 
 “That’s true!” observed the Jew, ruminating or pretending to ruminate. “No, it might not.”
 

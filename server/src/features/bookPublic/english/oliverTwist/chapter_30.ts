@@ -41,6 +41,9 @@ Mr. Losberne thrust his hands into his pockets, and took several turns up and do
 
 “I think if you give me a full and unlimited commission to bully Giles, and that little boy, Brittles, I can manage it. Giles is a faithful fellow and an old servant, I know; but you can make it up to him in a thousand ways, and reward him for being such a good shot besides. You don’t object to that?”
 
+----------------
+Та же самая задача для этого текста:
+
 “Unless there is some other way of preserving the child,” replied Mrs. Maylie.
 
 “There is no other,” said the doctor. “No other, take my word for it.”
@@ -73,6 +76,9 @@ The momentous interview was no sooner concluded, and Oliver composed to rest aga
 
 There were assembled, in that lower house of the domestic parliament, the women-servants, Mr. Brittles, Mr. Giles, the tinker (who had received a special invitation to regale himself for the remainder of the day, in consideration of his services), and the constable. The latter gentleman had a large staff, a large head, large features, and large half-boots; and he looked as if he had been taking a proportionate allowance of ale—as indeed he had.
 
+----------------
+Та же самая задача для этого текста:
+
 The adventures of the previous night were still under discussion; for Mr. Giles was expatiating upon his presence of mind, when the doctor entered; Mr. Brittles, with a mug of ale in his hand, was corroborating everything, before his superior said it.
 
 “Sit still!” said the doctor, waving his hand.
@@ -104,6 +110,9 @@ The doctor, who was universally considered one of the best-tempered creatures on
 The constable looked as wise as he could, and took up his staff of office: which had been reclining indolently in the chimney-corner.
 
 “It’s a simple question of identity, you will observe,” said the doctor.
+
+----------------
+Та же самая задача для этого текста:
 
 “That’s what it is, sir,” replied the constable, coughing with great violence; for he had finished his ale in a hurry, and some of it had gone the wrong way.
 

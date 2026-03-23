@@ -39,6 +39,9 @@ Thoroughly overpowered with the notion of Mr. Chitling being the victim of the t
 
 “Never mind him, my dear,” said the Jew, winking at Mr. Dawkins, and giving Master Bates a reproving tap with the nozzle of the bellows. “Betsy’s a fine girl. Stick up to her, Tom. Stick up to her.”
 
+----------------
+Та же самая задача для этого текста:
+
 “What I mean to say, Fagin,” replied Mr. Chitling, very red in the face, “is, that that isn’t anything to anybody here.”
 
 “No more it is,” replied the Jew; “Charley will talk. Don’t mind him, my dear; don’t mind him. Betsy’s a fine girl. Do as she bids you, Tom, and you will make your fortune.”
@@ -76,6 +79,9 @@ The Dodger nodded in the affirmative, and, shading the flame of the candle with 
 The old man bit his yellow fingers, and meditated for some seconds; his face working with agitation the while, as if he dreaded something, and feared to know the worst. At length he raised his head.
 
 “Where is he?” he asked.
+
+----------------
+Та же самая задача для этого текста:
 
 The Dodger pointed to the floor above, and made a gesture, as if to leave the room.
 

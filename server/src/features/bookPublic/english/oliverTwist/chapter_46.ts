@@ -35,6 +35,9 @@ He drew himself straight upright against the wall, and, scarcely breathing, list
 
 “Why, for what,” said the gentleman in a kinder tone, “for what purpose can you have brought us to this strange place? Why not have let me speak to you, above there, where it is light, and there is something stirring, instead of bringing us to this dark and dismal hole?”
 
+----------------
+Та же самая задача для этого текста:
+
 “I told you before,” replied Nancy, “that I was afraid to speak to you there. I don’t know why it is,” said the girl, shuddering, “but I have such a fear and dread upon me tonight that I can hardly stand.”
 
 “A fear of what?” asked the gentleman, who seemed to pity her.
@@ -68,6 +71,9 @@ These words appeared to be addressed to the young lady, and were perhaps uttered
 “Him that I told the young lady of before.”
 
 “You were not suspected of holding any communication with anybody on the subject which has brought us here tonight, I hope?” asked the old gentleman.
+
+----------------
+Та же самая задача для этого текста:
 
 “No,” replied the girl, shaking her head. “It’s not very easy for me to leave him unless he knows why; I couldn’t give him a drink of laudanum before I came away.”
 
@@ -105,6 +111,9 @@ These words appeared to be addressed to the young lady, and were perhaps uttered
 
 “I promise you that in that case, if the truth is forced from him, there the matter will rest; there must be circumstances in Oliver’s little history which it would be painful to drag before the public eye, and if the truth is once elicited, they shall go scot free.”
 
+----------------
+Та же самая задача для этого текста:
+
 “And if it is not?” suggested the girl.
 
 “Then,” pursued the gentleman, “this Fagin shall not be brought to justice without your consent. In such a case I could show you reasons, I think, which would induce you to yield it.”
@@ -139,6 +148,9 @@ As he expressed himself to this effect, with assumed carelessness, he took a ste
 
 “Now,” he said, returning: so it seemed by the sound: to the spot where he had stood before, “you have given us most valuable assistance, young woman, and I wish you to be the better for it. What can I do to serve you?”
 
+----------------
+Та же самая задача для этого текста:
+
 “Nothing,” replied Nancy.
 
 “You will not persist in saying that,” rejoined the gentleman, with a voice and emphasis of kindness that might have touched a much harder and more obdurate heart. “Think now. Tell me.”
@@ -172,6 +184,9 @@ As he expressed himself to this effect, with assumed carelessness, he took a ste
 The gentleman turned away.
 
 “This purse,” cried the young lady. “Take it for my sake, that you may have some resource in an hour of need and trouble.”
+
+----------------
+Та же самая задача для этого текста:
 
 “No!” replied the girl. “I have not done this for money. Let me have that to think of. And yet—give me something that you have worn: I should like to have something—no, no, not a ring—your gloves or handkerchief—anything that I can keep, as having belonged to you, sweet lady. There. Bless you! God bless you. Good-night, good-night!”
 

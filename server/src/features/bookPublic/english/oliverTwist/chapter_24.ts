@@ -39,6 +39,9 @@ The apothecary’s apprentice, having completed the manufacture of the toothpick
 
 When they had sat in silence for some time, the two old women rose from the bed, and crouching over the fire, held out their withered hands to catch the heat. The flame threw a ghastly light on their shrivelled faces, and made their ugliness appear terrible, as, in this position, they began to converse in a low voice.
 
+----------------
+Та же самая задача для этого текста:
+
 “Did she say any more, Anny dear, while I was gone?” inquired the messenger.
 
 “Not a word,” replied the other. “She plucked and tore at her arms for a little time; but I held her hands, and she soon dropped off. She hasn’t much strength in her, so I easily kept her quiet. I ain’t so weak for an old woman, although I am on parish allowance; no, no!”
@@ -70,6 +73,9 @@ She was bouncing away, when a cry from the two women, who had turned towards the
 “Who’s that?” she cried, in a hollow voice.
 
 “Hush, hush!” said one of the women, stooping over her. “Lie down, lie down!”
+
+----------------
+Та же самая задача для этого текста:
 
 “I’ll never lie down again alive!” said the woman, struggling. “I will tell her! Come here! Nearer! Let me whisper in your ear.”
 

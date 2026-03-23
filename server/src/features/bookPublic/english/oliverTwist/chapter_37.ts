@@ -45,6 +45,9 @@ On hearing this most unexpected sound, Mr. Bumble looked, first incredulous, and
 
 “And what’s the prerogative of a woman, in the name of Goodness?” cried the relict of Mr. Corney deceased.
 
+----------------
+Та же самая задача для этого текста:
+
 “To obey, ma’am,” thundered Mr. Bumble. “Your late unfortunate husband should have taught it you; and then, perhaps, he might have been alive now. I wish he was, poor man!”
 
 Mrs. Bumble, seeing at a glance, that the decisive moment had now arrived, and that a blow struck for the mastership on one side or other, must necessarily be final and conclusive, no sooner heard this allusion to the dead and gone, than she dropped into a chair, and with a loud scream that Mr. Bumble was a hard-hearted brute, fell into a paroxysm of tears.
@@ -76,6 +79,9 @@ But, the measure of his degradation was not yet full. After making a tour of the
 “Hem!” said Mr. Bumble, summoning up all his native dignity. “These women at least shall continue to respect the prerogative. Hallo! hallo there! What do you mean by this noise, you hussies?”
 
 With these words, Mr. Bumble opened the door, and walked in with a very fierce and angry manner: which was at once exchanged for a most humiliated and cowering air, as his eyes unexpectedly rested on the form of his lady wife.
+
+----------------
+Та же самая задача для этого текста:
 
 “My dear,” said Mr. Bumble, “I didn’t know you were here.”
 
@@ -109,6 +115,9 @@ Mr. Bumble had quite dignity enough for two; supposing even that the stranger ha
 
 It so happened, however: as it will happen very often, when men fall into company under such circumstances: that Mr. Bumble felt, every now and then, a powerful inducement, which he could not resist, to steal a look at the stranger: and that whenever he did so, he withdrew his eyes, in some confusion, to find that the stranger was at that moment stealing a look at him. Mr. Bumble’s awkwardness was enhanced by the very remarkable expression of the stranger’s eye, which was keen and bright, but shadowed by a scowl of distrust and suspicion, unlike anything he had ever observed before, and repulsive to behold.
 
+----------------
+Та же самая задача для этого текста:
+
 When they had encountered each other’s glance several times in this way, the stranger, in a harsh, deep voice, broke silence.
 
 “Were you looking for me,” he said, “when you peered in at the window?”
@@ -136,6 +145,9 @@ Another silence succeeded this short dialogue: which was again broken by the str
 “Don’t scruple to answer freely, man. I know you pretty well, you see.”
 
 “I suppose, a married man,” replied Mr. Bumble, shading his eyes with his hand, and surveying the stranger, from head to foot, in evident perplexity, “is not more averse to turning an honest penny when he can, than a single one. Porochial officers are not so well paid that they can afford to refuse any little extra fee, when it comes to them in a civil and proper manner.”
+
+----------------
+Та же самая задача для этого текста:
 
 The stranger smiled, and nodded his head again: as much to say, he had not mistaken his man; then rang the bell.
 
@@ -176,6 +188,9 @@ As he spoke, he pushed a couple of sovereigns across the table to his companion,
 “Why, you mean Oliver! Young Twist!” said Mr. Bumble; “I remember him, of course. There wasn’t a obstinater young rascal—”
 
 “It’s not of him I want to hear; I’ve heard enough of him,” said the stranger, stopping Mr. Bumble in the outset of a tirade on the subject of poor Oliver’s vices. “It’s of a woman; the hag that nursed his mother. Where is she?”
+
+----------------
+Та же самая задача для этого текста:
 
 “Where is she?” said Mr. Bumble, whom the gin-and-water had rendered facetious. “It would be hard to tell. There’s no midwifery there, whichever place she’s gone to; so I suppose she’s out of employment, anyway.”
 

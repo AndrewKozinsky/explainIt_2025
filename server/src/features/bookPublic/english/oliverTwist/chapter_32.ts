@@ -35,6 +35,9 @@ In a short time Oliver was sufficiently recovered to undergo the fatigue of this
 
 “Yes; well, what of it? Stop coachman. Pull up here,” cried the doctor. “What of the house, my man; eh?”
 
+----------------
+Та же самая задача для этого текста:
+
 “The thieves—the house they took me to!” whispered Oliver.
 
 “The devil it is!” cried the doctor. “Hallo, there! let me out!”
@@ -66,6 +69,9 @@ He looked anxiously round; not an article of furniture; not a vestige of anythin
 “Will you?” sneered the ill-favoured cripple. “If you ever want me, I’m here. I haven’t lived here mad and all alone, for five-and-twenty years, to be scared by you. You shall pay for this; you shall pay for this.” And so saying, the mis-shapen little demon set up a yell, and danced upon the ground, as if wild with rage.
 
 “Stupid enough, this,” muttered the doctor to himself; “the boy must have made a mistake. Here! Put that in your pocket, and shut yourself up again.” With these words he flung the hunchback a piece of money, and returned to the carriage.
+
+----------------
+Та же самая задача для этого текста:
 
 The man followed to the chariot door, uttering the wildest imprecations and curses all the way; but as Mr. Losberne turned to speak to the driver, he looked into the carriage, and eyed Oliver for an instant with a glance so sharp and fierce and at the same time so furious and vindictive, that, waking or sleeping, he could not forget it for months afterwards. He continued to utter the most fearful imprecations, until the driver had resumed his seat; and when they were once more on their way, they could see him some distance behind: beating his feet upon the ground, and tearing his hair, in transports of real or pretended rage.
 
@@ -102,6 +108,9 @@ The servant did not know; but would go and inquire. She presently returned, and 
 “Yes, sir”; replied the servant. “The old gentleman, the housekeeper, and a gentleman who was a friend of Mr. Brownlow’s, all went together.”
 
 “Then turn towards home again,” said Mr. Losberne to the driver; “and don’t stop to bait the horses, till you get out of this confounded London!”
+
+----------------
+Та же самая задача для этого текста:
 
 “The book-stall keeper, sir?” said Oliver. “I know the way there. See him, pray, sir! Do see him!”
 

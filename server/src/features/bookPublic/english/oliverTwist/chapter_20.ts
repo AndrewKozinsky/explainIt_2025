@@ -1,171 +1,169 @@
-// ГЛАВА НЕ ГОТОВА
 export const chapter_20 = {
 	name: 'Chapter XX',
 	header: 'Wherein Oliver is delivered over to Mr. William Sikes',
-	text: `Та же самая задача для этого текста:
+	text: `When Oliver woke up in the morning, he was quite surprised to see a new pair of shoes with thick, strong soles by his bed, and his old shoes were gone. At first, he was pleased, hoping this might mean he would soon be free. But this hope quickly disappeared when he sat down to breakfast with the Jew, who told him—in a tone that made Oliver uneasy—that he would be taken to Bill Sikes’s house that night.
 
-When Oliver awoke in the morning, he was a good deal surprised to find that a new pair of shoes, with strong thick soles, had been placed at his bedside; and that his old shoes had been removed. At first, he was pleased with the discovery: hoping that it might be the forerunner of his release; but such thoughts were quickly dispelled, on his sitting down to breakfast along with the Jew, who told him, in a tone and manner which increased his alarm, that he was to be taken to the residence of Bill Sikes that night.
+“To—to stay there, sir?” asked Oliver nervously.
 
-“To—to—stop there, sir?” asked Oliver, anxiously.
+“No, no, my dear. Not to stay there,” said the Jew. “We wouldn’t want to lose you. Don’t be afraid, Oliver—you’ll come back to us again. Ha! ha! ha! We wouldn’t be so cruel as to send you away. Oh no!”
 
-“No, no, my dear. Not to stop there,” replied the Jew. “We shouldn’t like to lose you. Don’t be afraid, Oliver, you shall come back to us again. Ha! ha! ha! We won’t be so cruel as to send you away, my dear. Oh no, no!”
+The old man, who was bending over the fire to toast some bread, turned and looked at Oliver as he spoke, laughing as if he knew the boy would gladly escape if he could.
 
-The old man, who was stooping over the fire toasting a piece of bread, looked round as he bantered Oliver thus; and chuckled as if to show that he knew he would still be very glad to get away if he could.
+“I suppose,” said the Jew, staring at Oliver, “you want to know why you’re going to Bill’s—eh, my dear?”
 
-“I suppose,” said the Jew, fixing his eyes on Oliver, “you want to know what you’re going to Bill’s for—eh, my dear?”
+Oliver blushed without meaning to, realizing that the old thief had guessed his thoughts; but he bravely answered that yes, he did want to know.
 
-Oliver coloured, involuntarily, to find that the old thief had been reading his thoughts; but boldly said, Yes, he did want to know.
+“Well, what do you think?” asked Fagin, avoiding a direct answer.
 
-“Why, do you think?” inquired Fagin, parrying the question.
+“I really don’t know, sir,” said Oliver.
 
-“Indeed I don’t know, sir,” replied Oliver.
+“Bah!” said the Jew, turning away with a disappointed look after studying the boy’s face closely. “Wait until Bill tells you, then.”
 
-“Bah!” said the Jew, turning away with a disappointed countenance from a close perusal of the boy’s face. “Wait till Bill tells you, then.”
+The Jew seemed annoyed that Oliver didn’t show more curiosity. But the truth was that, although Oliver felt very anxious, he was too confused by Fagin’s intense, cunning look—and by his own thoughts—to ask any more questions just then. He had no other chance, because the Jew stayed silent and in a bad mood until evening, when he got ready to go out.
 
-The Jew seemed much vexed by Oliver’s not expressing any greater curiosity on the subject; but the truth is, that, although Oliver felt very anxious, he was too much confused by the earnest cunning of Fagin’s looks, and his own speculations, to make any further inquiries just then. He had no other opportunity: for the Jew remained very surly and silent till night: when he prepared to go abroad.
+“You can light a candle,” said the Jew, putting one on the table. “And here’s a book to read until they come for you. Good night!”
 
-“You may burn a candle,” said the Jew, putting one upon the table. “And here’s a book for you to read, till they come to fetch you. Good-night!”
+“Good night,” said Oliver softly.
 
-“Good-night!” replied Oliver, softly.
+The Jew walked to the door, looking back at the boy as he went. Suddenly he stopped and called Oliver’s name.
 
-The Jew walked to the door: looking over his shoulder at the boy as he went. Suddenly stopping, he called him by his name.
+Oliver looked up. The Jew pointed to the candle and motioned for him to light it. Oliver did so, and as he set it on the table, he saw the Jew staring at him from the dark corner of the room, his face serious and tense.
 
-Oliver looked up; the Jew, pointing to the candle, motioned him to light it. He did so; and, as he placed the candlestick upon the table, saw that the Jew was gazing fixedly at him, with lowering and contracted brows, from the dark end of the room.
+“Be careful, Oliver—be very careful!” said the old man, shaking his hand in warning. “He’s a rough man, and when he’s angry, he doesn’t care about hurting people. Whatever happens, say nothing, and do what he tells you. Remember!”
 
-“Take heed, Oliver! take heed!” said the old man, shaking his right hand before him in a warning manner. “He’s a rough man, and thinks nothing of blood when his own is up. Whatever falls out, say nothing; and do what he bids you. Mind!” Placing a strong emphasis on the last word, he suffered his features gradually to resolve themselves into a ghastly grin, and, nodding his head, left the room.
+He stressed the last word strongly. Then his face slowly changed into a страшная улыбка, and, nodding his head, he left the room.
 
-------------------------------
-Та же самая задача для этого текста:
+Oliver rested his head on his hand when the old man left, and thought anxiously about what he had just heard. The more he considered the Jew’s warning, the less he understood its real meaning.
 
-Oliver leaned his head upon his hand when the old man disappeared, and pondered, with a trembling heart, on the words he had just heard. The more he thought of the Jew’s admonition, the more he was at a loss to divine its real purpose and meaning.
+He could not imagine any bad purpose in sending him to Sikes that could not just as easily be achieved if he stayed with Fagin. After thinking for a long time, he decided that he had probably been chosen to do simple tasks for the housebreaker until another boy, better suited for the job, could be found. He was too used to suffering, and had suffered too much already, to worry greatly about the change.
 
-He could think of no bad object to be attained by sending him to Sikes, which would not be equally well answered by his remaining with Fagin; and after meditating for a long time, concluded that he had been selected to perform some ordinary menial offices for the housebreaker, until another boy, better suited for his purpose could be engaged. He was too well accustomed to suffering, and had suffered too much where he was, to bewail the prospect of change very severely. He remained lost in thought for some minutes; and then, with a heavy sigh, snuffed the candle, and, taking up the book which the Jew had left with him, began to read.
+He sat lost in thought for a few minutes, then sighed deeply, put out the candle, and picked up the book the Jew had left for him.
 
-He turned over the leaves. Carelessly at first; but, lighting on a passage which attracted his attention, he soon became intent upon the volume. It was a history of the lives and trials of great criminals; and the pages were soiled and thumbed with use. Here, he read of dreadful crimes that made the blood run cold; of secret murders that had been committed by the lonely wayside; of bodies hidden from the eye of man in deep pits and wells: which would not keep them down, deep as they were, but had yielded them up at last, after many years, and so maddened the murderers with the sight, that in their horror they had confessed their guilt, and yelled for the gibbet to end their agony. Here, too, he read of men who, lying in their beds at dead of night, had been tempted (so they said) and led on, by their own bad thoughts, to such dreadful bloodshed as it made the flesh creep, and the limbs quail, to think of. The terrible descriptions were so real and vivid, that the sallow pages seemed to turn red with gore; and the words upon them, to be sounded in his ears, as if they were whispered, in hollow murmurs, by the spirits of the dead.
+At first, he turned the pages carelessly. But soon he came across something that caught his attention, and he began to read more carefully. It was a book about the lives and trials of great criminals, and its pages were worn and dirty from use.
 
-In a paroxysm of fear, the boy closed the book, and thrust it from him. Then, falling upon his knees, he prayed Heaven to spare him from such deeds; and rather to will that he should die at once, than be reserved for crimes, so fearful and appalling. By degrees, he grew more calm, and besought, in a low and broken voice, that he might be rescued from his present dangers; and that if any aid were to be raised up for a poor outcast boy who had never known the love of friends or kindred, it might come to him now, when, desolate and deserted, he stood alone in the midst of wickedness and guilt.
+He read about terrible crimes that made his blood run cold—secret murders committed on lonely roads, bodies hidden in deep pits and wells, only to be discovered years later. The sight of them had driven the murderers mad, forcing them to confess and beg for death to end their suffering.
 
-He had concluded his prayer, but still remained with his head buried in his hands, when a rustling noise aroused him.
+He also read about men who, lying awake in the middle of the night, were tempted by their own dark thoughts into committing terrible acts of violence. The descriptions were so vivid that the yellowed pages seemed almost stained with blood, and the words felt as if they were being whispered in his ears by the spirits of the dead.
 
-“What’s that!” he cried, starting up, and catching sight of a figure standing by the door. “Who’s there?”
+Overcome with fear, Oliver shut the book and pushed it away. Then he fell to his knees and prayed that Heaven would save him from ever committing such crimes. He wished he would rather die at once than live to do something so terrible.
 
-“Me. Only me,” replied a tremulous voice.
+Gradually, he became calmer and, in a quiet, broken voice, prayed that he might be rescued from his present danger—that if help could come to a poor, lonely boy who had never known the love of family or friends, it might come now, when he was alone among wicked people.
 
-Oliver raised the candle above his head: and looked towards the door. It was Nancy.
+He had finished his prayer, but still sat with his face in his hands, when a soft rustling sound made him jump.
 
-“Put down the light,” said the girl, turning away her head. “It hurts my eyes.”
+“What’s that?” he cried, springing up and seeing a figure by the door. “Who’s there?”
 
-Oliver saw that she was very pale, and gently inquired if she were ill. The girl threw herself into a chair, with her back towards him: and wrung her hands; but made no reply.
+“Me. Just me,” said a trembling voice.
 
-“God forgive me!” she cried after a while, “I never thought of this.”
+Oliver raised the candle and looked toward the door. It was Nancy.
 
-“Has anything happened?” asked Oliver. “Can I help you? I will if I can. I will, indeed.”
+“Put the light down,” said the girl, turning her head away. “It hurts my eyes.”
 
-She rocked herself to and fro; caught her throat; and, uttering a gurgling sound, gasped for breath.
+Oliver saw that she was very pale and gently asked if she was ill. The girl threw herself into a chair with her back to him and wrung her hands, but did not answer.
 
-“Nancy!” cried Oliver, “What is it?”
+“God forgive me!” she cried after a moment. “I never thought of this.”
 
-The girl beat her hands upon her knees, and her feet upon the ground; and, suddenly stopping, drew her shawl close round her: and shivered with cold.
+“Has anything happened?” asked Oliver. “Can I help you? I will, if I can.”
 
-Oliver stirred the fire. Drawing her chair close to it, she sat there, for a little time, without speaking; but at length she raised her head, and looked round.
+She rocked back and forth, clutched her throat, and struggled to breathe.
 
-“I don’t know what comes over me sometimes,” said she, affecting to busy herself in arranging her dress; “it’s this damp dirty room, I think. Now, Nolly, dear, are you ready?”
+“Nancy!” cried Oliver. “What is it?”
 
-“Am I to go with you?” asked Oliver.
+The girl struck her knees with her hands and stamped her feet on the floor. Then, suddenly stopping, she wrapped her shawl tightly around herself and began to shiver.
 
-“Yes. I have come from Bill,” replied the girl. “You are to go with me.”
+Oliver stirred the fire. She moved her chair closer and sat silently for a while. At last, she raised her head and looked around.
 
-“What for?” asked Oliver, recoiling.
+“I don’t know what happens to me sometimes,” she said, pretending to fix her clothes. “It must be this damp, dirty room. Now, Nolly dear, are you ready?”
 
-“What for?” echoed the girl, raising her eyes, and averting them again, the moment they encountered the boy’s face. “Oh! For no harm.”
+“Am I going with you?” asked Oliver.
 
-“I don’t believe it,” said Oliver: who had watched her closely.
+“Yes. I’ve come from Bill,” she replied. “You’re to come with me.”
 
-“Have it your own way,” rejoined the girl, affecting to laugh. “For no good, then.”
+“What for?” asked Oliver, drawing back.
 
-------------------------------
-Та же самая задача для этого текста:
+“What for?” she repeated, raising her eyes and then quickly looking away when they met his. “Oh—for no harm.”
 
-Oliver could see that he had some power over the girl’s better feelings, and, for an instant, thought of appealing to her compassion for his helpless state. But, then, the thought darted across his mind that it was barely eleven o’clock; and that many people were still in the streets: of whom surely some might be found to give credence to his tale. As the reflection occured to him, he stepped forward: and said, somewhat hastily, that he was ready.
+“I don’t believe that,” said Oliver, who had been watching her closely.
 
-Neither his brief consideration, nor its purport, was lost on his companion. She eyed him narrowly, while he spoke; and cast upon him a look of intelligence which sufficiently showed that she guessed what had been passing in his thoughts.
+“Think what you like,” said the girl with a forced laugh. “Then—for no good.”
 
-“Hush!” said the girl, stooping over him, and pointing to the door as she looked cautiously round. “You can’t help yourself. I have tried hard for you, but all to no purpose. You are hedged round and round. If ever you are to get loose from here, this is not the time.”
+Oliver saw that he had some influence over the girl’s better feelings, and for a moment he thought of asking for her pity. But then it suddenly occurred to him that it was only eleven o’clock, and many people were still out in the streets. Surely, he thought, someone might believe his story and help him. As this idea came to him, he stepped forward and said quickly that he was ready.
 
-Struck by the energy of her manner, Oliver looked up in her face with great surprise. She seemed to speak the truth; her countenance was white and agitated; and she trembled with very earnestness.
+The girl noticed both his hesitation and what it meant. She watched him closely as he spoke and gave him a sharp, knowing look that showed she understood his thoughts.
 
-“I have saved you from being ill-used once, and I will again, and I do now,” continued the girl aloud; “for those who would have fetched you, if I had not, would have been far more rough than me. I have promised for your being quiet and silent; if you are not, you will only do harm to yourself and me too, and perhaps be my death. See here! I have borne all this for you already, as true as God sees me show it.”
+“Hush!” she whispered, bending down and pointing to the door as she looked around carefully. “You can’t help yourself. I’ve tried hard to help you, but it’s been no use. You’re completely trapped. If you ever get away from here, it won’t be now.”
 
-She pointed, hastily, to some livid bruises on her neck and arms; and continued, with great rapidity:
+Surprised by her intensity, Oliver looked up at her. She seemed sincere; her face was pale and tense, and she was trembling with emotion.
 
-“Remember this! And don’t let me suffer more for you, just now. If I could help you, I would; but I have not the power. They don’t mean to harm you; whatever they make you do, is no fault of yours. Hush! Every word from you is a blow for me. Give me your hand. Make haste! Your hand!”
+“I saved you from being hurt once, and I will do it again—I am doing it now,” she went on aloud. “If someone else had come for you instead of me, they would have treated you much worse. I’ve promised that you’ll stay quiet. If you don’t, you’ll only bring trouble on yourself—and on me too. It might even cost me my life. Look here! I’ve already suffered for you, as God sees.”
 
-She caught the hand which Oliver instinctively placed in hers, and, blowing out the light, drew him after her up the stairs. The door was opened, quickly, by some one shrouded in the darkness, and was as quickly closed, when they had passed out. A hackney-cabriolet was in waiting; with the same vehemence which she had exhibited in addressing Oliver, the girl pulled him in with her, and drew the curtains close. The driver wanted no directions, but lashed his horse into full speed, without the delay of an instant.
+She quickly pointed to dark bruises on her neck and arms, and continued rapidly:
 
-The girl still held Oliver fast by the hand, and continued to pour into his ear, the warnings and assurances she had already imparted. All was so quick and hurried, that he had scarcely time to recollect where he was, or how he came there, when the carriage stopped at the house to which the Jew’s steps had been directed on the previous evening.
+“Remember this! Don’t make me suffer more for you—not now. If I could help you, I would, but I don’t have the power. They don’t mean to hurt you. Whatever they make you do—it won’t be your fault. Quiet! Every word you say is like a blow to me. Give me your hand—quickly!”
 
-For one brief moment, Oliver cast a hurried glance along the empty street, and a cry for help hung upon his lips. But the girl’s voice was in his ear, beseeching him in such tones of agony to remember her, that he had not the heart to utter it. While he hesitated, the opportunity was gone; he was already in the house, and the door was shut.
+She grabbed the hand Oliver instinctively gave her, blew out the candle, and pulled him upstairs. The door was opened quickly by someone hidden in the darkness, and just as quickly shut behind them. A carriage was waiting outside. With the same urgency, the girl pulled Oliver inside and drew the curtains closed. The driver didn’t need directions and immediately drove off at full speed.
 
-“This way,” said the girl, releasing her hold for the first time. “Bill!”
+The girl still held Oliver tightly by the hand and kept whispering the same warnings and reassurances into his ear. Everything happened so fast that he barely had time to understand where he was or how he had got there before the carriage stopped at the house the Jew had visited the night before.
 
-“Hallo!” replied Sikes: appearing at the head of the stairs, with a candle. “Oh! That’s the time of day. Come on!”
+For a brief moment, Oliver looked down the empty street, and a cry for help almost escaped his lips. But the girl’s voice was in his ear, begging him so desperately to remember her, that he couldn’t bring himself to speak. While he hesitated, the moment passed; he was already inside the house, and the door was shut.
 
-------------------------------
-Та же самая задача для этого текста:
+“This way,” said the girl, letting go of his hand for the first time. “Bill!”
 
-This was a very strong expression of approbation, an uncommonly hearty welcome, from a person of Mr. Sikes’ temperament. Nancy, appearing much gratified thereby, saluted him cordially.
+“Hallo!” replied Sikes, appearing at the top of the stairs with a candle. “Ah, there you are. Come on!”
 
-“Bull’s-eye’s gone home with Tom,” observed Sikes, as he lighted them up. “He’d have been in the way.”
+This was a very strong sign of approval—a warm welcome for someone like Mr. Sikes. Nancy seemed pleased and greeted him warmly in return.
 
-“That’s right,” rejoined Nancy.
+“Bull’s-eye went home with Tom,” said Sikes as he led them upstairs. “He would’ve just been in the way.”
 
-“So you’ve got the kid,” said Sikes when they had all reached the room: closing the door as he spoke.
+“That’s right,” replied Nancy.
 
-“Yes, here he is,” replied Nancy.
+“So you’ve got the boy,” said Sikes when they reached the room, closing the door behind them.
 
-“Did he come quiet?” inquired Sikes.
+“Yes, here he is,” said Nancy.
 
-“Like a lamb,” rejoined Nancy.
+“Did he come quietly?” asked Sikes.
 
-“I’m glad to hear it,” said Sikes, looking grimly at Oliver; “for the sake of his young carcase: as would otherways have suffered for it. Come here, young ’un; and let me read you a lectur’, which is as well got over at once.”
+“Like a lamb,” she answered.
 
-Thus addressing his new pupil, Mr. Sikes pulled off Oliver’s cap and threw it into a corner; and then, taking him by the shoulder, sat himself down by the table, and stood the boy in front of him.
+“I’m glad to hear that,” said Sikes, giving Oliver a grim look, “for his own sake. Otherwise, he would’ve suffered for it. Come here, boy, and let me give you a lesson—it’s better to get it over with at once.”
 
-“Now, first: do you know wot this is?” inquired Sikes, taking up a pocket-pistol which lay on the table.
+As he spoke, Sikes pulled off Oliver’s cap and threw it into a corner. Then he grabbed him by the shoulder, sat down at the table, and made the boy stand in front of him.
 
-Oliver replied in the affirmative.
+“Now first—do you know what this is?” he asked, picking up a small pistol from the table.
 
-“Well, then, look here,” continued Sikes. “This is powder; that ’ere’s a bullet; and this is a little bit of a old hat for waddin’.”
+Oliver said yes.
 
-Oliver murmured his comprehension of the different bodies referred to; and Mr. Sikes proceeded to load the pistol, with great nicety and deliberation.
+“Good. This is powder; that’s a bullet; and this bit here is wadding,” Sikes continued.
 
-“Now it’s loaded,” said Mr. Sikes, when he had finished.
+Oliver quietly showed that he understood, and Sikes carefully loaded the pistol, taking his time.
 
-“Yes, I see it is, sir,” replied Oliver.
+“Now it’s loaded,” said Sikes.
 
-“Well,” said the robber, grasping Oliver’s wrist, and putting the barrel so close to his temple that they touched; at which moment the boy could not repress a start; “if you speak a word when you’re out o’doors with me, except when I speak to you, that loading will be in your head without notice. So, if you do make up your mind to speak without leave, say your prayers first.”
+“Yes, I see, sir,” replied Oliver.
 
-Having bestowed a scowl upon the object of this warning, to increase its effect, Mr. Sikes continued.
+“Well then,” said the robber, gripping Oliver’s wrist and pressing the barrel of the pistol against his temple so that it touched his skin. Oliver couldn’t help but flinch. “If you say a single word outside—unless I tell you to—that bullet will be in your head before you know it. So if you decide to speak without permission, say your prayers first.”
 
-“As near as I know, there isn’t anybody as would be asking very partickler arter you, if you was disposed of; so I needn’t take this devil-and-all of trouble to explain matters to you, if it warn’t for your own good. D’ye hear me?”
+After giving him a dark, threatening look, Sikes went on:
 
-“The short and the long of what you mean,” said Nancy: speaking very emphatically, and slightly frowning at Oliver as if to bespeak his serious attention to her words: “is, that if you’re crossed by him in this job you have on hand, you’ll prevent his ever telling tales afterwards, by shooting him through the head, and will take your chance of swinging for it, as you do for a great many other things in the way of business, every month of your life.”
+“As far as I know, no one would care much if you disappeared, so I wouldn’t bother explaining all this—except that it’s for your own good. Do you understand me?”
 
-“That’s it!” observed Mr. Sikes, approvingly; “women can always put things in fewest words.—Except when it’s blowing up; and then they lengthens it out. And now that he’s thoroughly up to it, let’s have some supper, and get a snooze before starting.”
+“What he means,” said Nancy, speaking firmly and frowning slightly at Oliver to make him listen carefully, “is that if you get in his way during this job, he’ll stop you from ever telling anyone—by shooting you. And he’ll take the risk of being hanged, just like he risks his life in his work all the time.”
 
-In pursuance of this request, Nancy quickly laid the cloth; disappearing for a few minutes, she presently returned with a pot of porter and a dish of sheep’s heads: which gave occasion to several pleasant witticisms on the part of Mr. Sikes, founded upon the singular coincidence of “jemmies” being a can name, common to them, and also to an ingenious implement much used in his profession. Indeed, the worthy gentleman, stimulated perhaps by the immediate prospect of being on active service, was in great spirits and good humour; in proof whereof, it may be here remarked, that he humourously drank all the beer at a draught, and did not utter, on a rough calculation, more than four-score oaths during the whole progress of the meal.
+“That’s right!” said Sikes approvingly. “Women always say things in fewer words—except when they’re arguing, then they go on forever. And now that the boy understands, let’s have some supper and get a bit of sleep before we leave.”
 
-Supper being ended—it may be easily conceived that Oliver had no great appetite for it—Mr. Sikes disposed of a couple of glasses of spirits and water, and threw himself on the bed; ordering Nancy, with many imprecations in case of failure, to call him at five precisely. Oliver stretched himself in his clothes, by command of the same authority, on a mattress upon the floor; and the girl, mending the fire, sat before it, in readiness to rouse them at the appointed time.
+Nancy quickly set the table. After disappearing for a few minutes, she came back with a pot of beer and a dish of sheep’s heads. This led to several rough jokes from Sikes, who was in a very good mood—perhaps because he was about to go out on a job. He drank all the beer in one go and, unusually for him, swore only a little during the meal.
 
-For a long time Oliver lay awake, thinking it not impossible that Nancy might seek that opportunity of whispering some further advice; but the girl sat brooding over the fire, without moving, save now and then to trim the light. Weary with watching and anxiety, he at length fell asleep.
+When supper was over—though Oliver had hardly eaten anything—Sikes drank a couple of glasses of spirits and lay down on the bed. He ordered Nancy, with many threats if she failed, to wake him exactly at five. Oliver, following orders, lay down on a mattress on the floor in his clothes, and Nancy sat by the fire, ready to wake them.
 
-When he awoke, the table was covered with tea-things, and Sikes was thrusting various articles into the pockets of his great-coat, which hung over the back of a chair. Nancy was busily engaged in preparing breakfast. It was not yet daylight; for the candle was still burning, and it was quite dark outside. A sharp rain, too, was beating against the window-panes; and the sky looked black and cloudy.
+For a long time, Oliver stayed awake, thinking that Nancy might use the chance to whisper more advice to him. But she sat silently, staring into the fire, only moving now and then to fix the candle. At last, tired and anxious, he fell asleep.
 
-“Now, then!” growled Sikes, as Oliver started up; “half-past five! Look sharp, or you’ll get no breakfast; for it’s late as it is.”
+When he woke, the table was set for tea, and Sikes was putting different things into the pockets of his coat. Nancy was busy preparing breakfast. It was still dark outside; the candle was burning, and rain was beating against the window. The sky looked black and stormy.
 
-Oliver was not long in making his toilet; having taken some breakfast, he replied to a surly inquiry from Sikes, by saying that he was quite ready.
+“Come on!” growled Sikes as Oliver jumped up. “Half past five! Hurry, or you’ll get no breakfast—it’s late already.”
 
-Nancy, scarcely looking at the boy, threw him a handkerchief to tie round his throat; Sikes gave him a large rough cape to button over his shoulders. Thus attired, he gave his hand to the robber, who, merely pausing to show him with a menacing gesture that he had that same pistol in a side-pocket of his great-coat, clasped it firmly in his, and, exchanging a farewell with Nancy, led him away.
+Oliver quickly got dressed. After eating a little, he answered Sikes’s rough question by saying he was ready.
 
-Oliver turned, for an instant, when they reached the door, in the hope of meeting a look from the girl. But she had resumed her old seat in front of the fire, and sat, perfectly motionless before it.`,
+Nancy, hardly looking at him, threw him a handkerchief to tie around his neck. Sikes gave him a large, rough coat to wear. Dressed like this, Oliver took Sikes’s hand. The robber paused only to show him, with a threatening gesture, that the pistol was still in his coat pocket. Then, after a brief farewell to Nancy, he led the boy away.
+
+At the door, Oliver turned for a moment, hoping to catch Nancy’s eye. But she had already gone back to her seat by the fire and sat there completely still.`,
 }

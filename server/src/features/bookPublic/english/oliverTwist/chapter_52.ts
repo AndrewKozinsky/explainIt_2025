@@ -31,6 +31,9 @@ The noise subsided, and he was asked if he had anything to say why sentence of d
 
 The judge assumed the black cap, and the prisoner still stood with the same air and gesture. A woman in the gallery, uttered some exclamation, called forth by this dread solemnity; he looked hastily up as if angry at the interruption, and bent forward yet more attentively. The address was solemn and impressive; the sentence fearful to hear. But he stood, like a marble figure, without the motion of a nerve. His haggard face was still thrust forward, his under-jaw hanging down, and his eyes staring out before him, when the jailer put his hand upon his arm, and beckoned him away. He gazed stupidly about him for an instant, and obeyed.
 
+----------------
+Та же самая задача для этого текста:
+
 They led him through a paved room under the court, where some prisoners were waiting till their turns came, and others were talking to their friends, who crowded round a grate which looked into the open yard. There was nobody there to speak to him; but, as he passed, the prisoners fell back to render him more visible to the people who were clinging to the bars: and they assailed him with opprobrious names, and screeched and hissed. He shook his fist, and would have spat upon them; but his conductors hurried him on, through a gloomy passage lighted by a few dim lamps, into the interior of the prison.
 
 Here, he was searched, that he might not have about him the means of anticipating the law; this ceremony performed, they led him to one of the condemned cells, and left him there—alone.
@@ -56,6 +59,9 @@ He cowered down upon his stone bed, and thought of the past. He had been wounded
 Those dreadful walls of Newgate, which have hidden so much misery and such unspeakable anguish, not only from the eyes, but, too often, and too long, from the thoughts, of men, never held so dread a spectacle as that. The few who lingered as they passed, and wondered what the man was doing who was to be hanged tomorrow, would have slept but ill that night, if they could have seen him.
 
 From early in the evening until nearly midnight, little groups of two and three presented themselves at the lodge-gate, and inquired, with anxious faces, whether any reprieve had been received. These being answered in the negative, communicated the welcome intelligence to clusters in the street, who pointed out to one another the door from which he must come out, and showed where the scaffold would be built, and, walking with unwilling steps away, turned back to conjure up the scene. By degrees they fell off, one by one; and, for an hour, in the dead of night, the street was left to solitude and darkness.
+
+----------------
+Та же самая задача для этого текста:
 
 The space before the prison was cleared, and a few strong barriers, painted black, had been already thrown across the road to break the pressure of the expected crowd, when Mr. Brownlow and Oliver appeared at the wicket, and presented an order of admission to the prisoner, signed by one of the sheriffs. They were immediately admitted into the lodge.
 
@@ -86,6 +92,9 @@ The jailer took the disengaged hand of Oliver; and, whispering him not to be ala
 “Here,” said the turnkey, laying his hand upon his breast to keep him down. “Here’s somebody wants to see you, to ask you some questions, I suppose. Fagin, Fagin! Are you a man?”
 
 “I shan’t be one long,” he replied, looking up with a face retaining no human expression but rage and terror. “Strike them all dead! What right have they to butcher me?”
+
+----------------
+Та же самая задача для этого текста:
 
 As he spoke he caught sight of Oliver and Mr. Brownlow. Shrinking to the furthest corner of the seat, he demanded to know what they wanted there.
 

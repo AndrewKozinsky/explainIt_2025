@@ -31,6 +31,9 @@ She had taken up the same pen, and laid it down again fifty times, and had consi
 
 With her attention not a little distracted by these and a great many other incoherent exclamations of joy, Rose read the address, which was Craven Street, in the Strand. She very soon determined upon turning the discovery to account.
 
+----------------
+Та же самая задача для этого текста:
+
 “Quick!” she said. “Tell them to fetch a hackney-coach, and be ready to go with me. I will take you there directly, without a minute’s loss of time. I will only tell my aunt that we are going out for an hour, and be ready as soon as you are.”
 
 Oliver needed no prompting to despatch, and in little more than five minutes they were on their way to Craven Street. When they arrived there, Rose left Oliver in the coach, under pretence of preparing the old gentleman to receive him; and sending up her card by the servant, requested to see Mr. Brownlow on very pressing business. The servant soon returned, to beg that she would walk upstairs; and following him into an upper room, Miss Maylie was presented to an elderly gentleman of benevolent appearance, in a bottle-green coat. At no great distance from whom, was seated another old gentleman, in nankeen breeches and gaiters; who did not look particularly benevolent, and who was sitting with his hands clasped on the top of a thick stick, and his chin propped thereupon.
@@ -60,6 +63,9 @@ Mr. Browlow was no less surprised, although his astonishment was not expressed i
 “A bad one! I’ll eat my head if he is not a bad one,” growled Mr. Grimwig, speaking by some ventriloquial power, without moving a muscle of his face.
 
 “He is a child of a noble nature and a warm heart,” said Rose, colouring; “and that Power which has thought fit to try him beyond his years, has planted in his breast affections and feelings which would do honour to many who have numbered his days six times over.”
+
+----------------
+Та же самая задача для этого текста:
 
 “I’m only sixty-one,” said Mr. Grimwig, with the same rigid face. “And, as the devil’s in it if this Oliver is not twelve years old at least, I don’t see the application of that remark.”
 
@@ -95,6 +101,9 @@ In fact, as he threw himself at one dexterous dive into his former seat, Mr. Bro
 
 “There is somebody else who should not be forgotten, by the bye,” said Mr. Brownlow, ringing the bell. “Send Mrs. Bedwin here, if you please.”
 
+----------------
+Та же самая задача для этого текста:
+
 The old housekeeper answered the summons with all dispatch; and dropping a curtsey at the door, waited for orders.
 
 “Why, you get blinder every day, Bedwin,” said Mr. Brownlow, rather testily.
@@ -126,6 +135,10 @@ Rose had by no means overrated the measure of the good doctor’s wrath. Nancy�
 “What object?” asked the doctor.
 
 “Simply, the discovery of Oliver’s parentage, and regaining for him the inheritance of which, if this story be true, he has been fraudulently deprived.”
+
+
+----------------
+Та же самая задача для этого текста:
 
 “Ah!” said Mr. Losberne, cooling himself with his pocket-handkerchief; “I almost forgot that.”
 
