@@ -1,208 +1,199 @@
-// ГЛАВА НЕ ГОТОВА
 export const chapter_46 = {
 	name: 'Chapter XLVI',
 	header: 'The appointment kept',
-	text: `
-------------------------------
-Та же самая задача для этого текста:
-The church clocks chimed three quarters past eleven, as two figures emerged on London Bridge. One, which advanced with a swift and rapid step, was that of a woman who looked eagerly about her as though in quest of some expected object; the other figure was that of a man, who slunk along in the deepest shadow he could find, and, at some distance, accommodated his pace to hers: stopping when she stopped: and as she moved again, creeping stealthily on: but never allowing himself, in the ardour of his pursuit, to gain upon her footsteps. Thus, they crossed the bridge, from the Middlesex to the Surrey shore, when the woman, apparently disappointed in her anxious scrutiny of the foot-passengers, turned back. The movement was sudden; but he who watched her, was not thrown off his guard by it; for, shrinking into one of the recesses which surmount the piers of the bridge, and leaning over the parapet the better to conceal his figure, he suffered her to pass on the opposite pavement. When she was about the same distance in advance as she had been before, he slipped quietly down, and followed her again. At nearly the centre of the bridge, she stopped. The man stopped too.
+	text: `The church clocks struck quarter past eleven as two figures appeared on London Bridge. One was a woman, walking quickly and looking around eagerly, as if searching for someone. The other was a man, moving quietly in the darkest shadows, keeping some distance behind her. He matched her pace—stopping when she stopped, moving when she moved—but never getting too close.
 
-It was a very dark night. The day had been unfavourable, and at that hour and place there were few people stirring. Such as there were, hurried quickly past: very possibly without seeing, but certainly without noticing, either the woman, or the man who kept her in view. Their appearance was not calculated to attract the importunate regards of such of London’s destitute population, as chanced to take their way over the bridge that night in search of some cold arch or doorless hovel wherein to lay their heads; they stood there in silence: neither speaking nor spoken to, by any one who passed.
+They crossed the bridge from one side of the river to the other. When the woman, clearly disappointed after looking at the people passing by, suddenly turned back, the man was ready. He quickly hid in a dark space by the side of the bridge, leaning over the railing to stay unseen. She passed him on the other side. When she was far enough ahead again, he quietly followed her once more.
 
-A mist hung over the river, deepening the red glare of the fires that burnt upon the small craft moored off the different wharfs, and rendering darker and more indistinct the murky buildings on the banks. The old smoke-stained storehouses on either side, rose heavy and dull from the dense mass of roofs and gables, and frowned sternly upon water too black to reflect even their lumbering shapes. The tower of old Saint Saviour’s Church, and the spire of Saint Magnus, so long the giant-warders of the ancient bridge, were visible in the gloom; but the forest of shipping below bridge, and the thickly scattered spires of churches above, were nearly all hidden from sight.
+Near the middle of the bridge, she stopped. The man stopped too.
 
-The girl had taken a few restless turns to and fro—closely watched meanwhile by her hidden observer—when the heavy bell of St. Paul’s tolled for the death of another day. Midnight had come upon the crowded city. The palace, the night-cellar, the jail, the madhouse: the chambers of birth and death, of health and sickness, the rigid face of the corpse and the calm sleep of the child: midnight was upon them all.
+It was a very dark night. The day had been bad, and at that late hour there were only a few people around. Those who passed by walked quickly, probably without even noticing the woman or the man watching her. They stood in silence, speaking to no one, and no one spoke to them.
 
-The hour had not struck two minutes, when a young lady, accompanied by a grey-haired gentleman, alighted from a hackney-carriage within a short distance of the bridge, and, having dismissed the vehicle, walked straight towards it. They had scarcely set foot upon its pavement, when the girl started, and immediately made towards them.
+A mist hung over the river, making the red glow of fires on small boats look deeper and darker. The buildings along the river were hard to see, dark and unclear. Old warehouses rose heavily on both sides, their shapes barely visible above the crowded roofs. The tower of St. Saviour’s Church and the spire of St. Magnus could just be seen in the darkness, but most of the ships below the bridge and the many church towers beyond were hidden in the fog.
 
-They walked onward, looking about them with the air of persons who entertained some very slight expectation which had little chance of being realised, when they were suddenly joined by this new associate. They halted with an exclamation of surprise, but suppressed it immediately; for a man in the garments of a countryman came close up—brushed against them, indeed—at that precise moment.
+The girl walked back and forth nervously, watched all the time by the hidden man. Then the heavy bell of St. Paul’s rang, marking the end of the day. Midnight had come to the great city—touching everything: rich homes and poor shelters, prisons and hospitals, places of birth and death, sickness and health, the still face of the dead and the peaceful sleep of a child.
 
-“Not here,” said Nancy hurriedly, “I am afraid to speak to you here. Come away—out of the public road—down the steps yonder!”
+Only two minutes after midnight, a young lady and an older man with grey hair got out of a carriage not far from the bridge. They sent the carriage away and walked toward it. As soon as they stepped onto the bridge, the girl noticed them and quickly went toward them.
 
-As she uttered these words, and indicated, with her hand, the direction in which she wished them to proceed, the countryman looked round, and roughly asking what they took up the whole pavement for, passed on.
+They walked on, looking around, as if they did not expect much to happen. Suddenly, the girl joined them. They stopped in surprise, but said nothing, because at that exact moment a man dressed like a country worker came very close, even brushing past them.
 
-The steps to which the girl had pointed, were those which, on the Surrey bank, and on the same side of the bridge as Saint Saviour’s Church, form a landing-stairs from the river. To this spot, the man bearing the appearance of a countryman, hastened unobserved; and after a moment’s survey of the place, he began to descend.
+“Not here,” said Nancy quickly. “I’m afraid to speak here. Come away—off the road—down those steps over there!”
 
-These stairs are a part of the bridge; they consist of three flights. Just below the end of the second, going down, the stone wall on the left terminates in an ornamental pilaster facing towards the Thames. At this point the lower steps widen: so that a person turning that angle of the wall, is necessarily unseen by any others on the stairs who chance to be above him, if only a step. The countryman looked hastily round, when he reached this point; and as there seemed no better place of concealment, and, the tide being out, there was plenty of room, he slipped aside, with his back to the pilaster, and there waited: pretty certain that they would come no lower, and that even if he could not hear what was said, he could follow them again, with safety.
+As she spoke and pointed the way, the countryman looked at them and roughly complained that they were blocking the path, then walked on.
 
-So tardily stole the time in this lonely place, and so eager was the spy to penetrate the motives of an interview so different from what he had been led to expect, that he more than once gave the matter up for lost, and persuaded himself, either that they had stopped far above, or had resorted to some entirely different spot to hold their mysterious conversation. He was on the point of emerging from his hiding-place, and regaining the road above, when he heard the sound of footsteps, and directly afterwards of voices almost close at his ear.
+The steps she pointed to led down to the river on the Surrey side of the bridge, near St. Saviour’s Church. The man dressed as a country worker hurried there without being noticed and began to go down.
 
-He drew himself straight upright against the wall, and, scarcely breathing, listened attentively.
+The stairs were part of the bridge and had three sections. At a certain point, the wall turned in such a way that a person standing there could not be seen by anyone above. The man looked around quickly and decided it was a good hiding place. Since the tide was low, there was plenty of space. He stood there, hidden, sure that they would not come much lower, and that even if he could not hear them clearly, he could follow them again safely.
 
-“This is far enough,” said a voice, which was evidently that of the gentleman. “I will not suffer the young lady to go any farther. Many people would have distrusted you too much to have come even so far, but you see I am willing to humour you.”
+Time passed slowly in that lonely place. The spy was so eager to learn the reason for this meeting—so different from what he had expected—that he began to think he had lost them. He thought they might have stayed above or gone somewhere else. He was just about to leave his hiding place when he heard footsteps, and then voices very close to him.
 
-“To humour me!” cried the voice of the girl whom he had followed. “You’re considerate, indeed, sir. To humour me! Well, well, it’s no matter.”
+He stood still against the wall, hardly breathing, and listened carefully.
 
-“Why, for what,” said the gentleman in a kinder tone, “for what purpose can you have brought us to this strange place? Why not have let me speak to you, above there, where it is light, and there is something stirring, instead of bringing us to this dark and dismal hole?”
+“This is far enough,” said a man’s voice—it was clearly the older gentleman. “I will not let the young lady go any farther. Many people would not have trusted you enough to come even this far, but you see I have agreed to meet you.”
 
-----------------
-Та же самая задача для этого текста:
+“To please me!” cried the girl’s voice. “You are very kind, sir. To please me! Well, never mind.”
 
-“I told you before,” replied Nancy, “that I was afraid to speak to you there. I don’t know why it is,” said the girl, shuddering, “but I have such a fear and dread upon me tonight that I can hardly stand.”
+“But why,” said the gentleman more gently, “why have you brought us to this strange place? Why not speak up there, where there is light and people around, instead of bringing us to this dark and lonely spot?”
 
-“A fear of what?” asked the gentleman, who seemed to pity her.
+“I told you before,” said Nancy, “I was afraid to speak to you there. I don’t know why,” she added, trembling, “but tonight I feel such fear that I can hardly stand.”
 
-“I scarcely know of what,” replied the girl. “I wish I did. Horrible thoughts of death, and shrouds with blood upon them, and a fear that has made me burn as if I was on fire, have been upon me all day. I was reading a book tonight, to wile the time away, and the same things came into the print.”
+“Afraid of what?” asked the gentleman, kindly.
 
-“Imagination,” said the gentleman, soothing her.
+“I don’t really know,” she replied. “I wish I did. All day I’ve had terrible thoughts—of death, of blood, of coffins—and a fear that made me feel like I was burning. Tonight I tried to read a book to pass the time, but I kept seeing the same страшные вещи in the words.”
 
-“No imagination,” replied the girl in a hoarse voice. “I’ll swear I saw ‘coffin’ written in every page of the book in large black letters,—aye, and they carried one close to me, in the streets tonight.”
+“Just your imagination,” said the gentleman, trying to calm her.
 
-“There is nothing unusual in that,” said the gentleman. “They have passed me often.”
+“No,” said the girl in a rough voice. “I swear I saw the word ‘coffin’ on every page, in big black letters. And tonight, in the street, they carried one right past me.”
 
-“Real ones,” rejoined the girl. “This was not.”
+“That’s nothing unusual,” said the gentleman. “I have seen that many times.”
 
-There was something so uncommon in her manner, that the flesh of the concealed listener crept as he heard the girl utter these words, and the blood chilled within him. He had never experienced a greater relief than in hearing the sweet voice of the young lady as she begged her to be calm, and not allow herself to become the prey of such fearful fancies.
+“Those were real,” said the girl. “This felt different.”
 
-“Speak to her kindly,” said the young lady to her companion. “Poor creature! She seems to need it.”
+There was something so strange in her voice that the man hiding nearby felt a chill run through him. He had never felt such relief as when the young lady spoke gently, asking Nancy to calm down and not let such fearful thoughts take control of her.
 
-“Your haughty religious people would have held their heads up to see me as I am tonight, and preached of flames and vengeance,” cried the girl. “Oh, dear lady, why ar’n’t those who claim to be God’s own folks as gentle and as kind to us poor wretches as you, who, having youth, and beauty, and all that they have lost, might be a little proud instead of so much humbler?”
+“Speak kindly to her,” said the young lady to the gentleman. “Poor girl, she needs it.”
 
-“Ah!” said the gentleman. “A Turk turns his face, after washing it well, to the East, when he says his prayers; these good people, after giving their faces such a rub against the World as to take the smiles off, turn with no less regularity, to the darkest side of Heaven. Between the Mussulman and the Pharisee, commend me to the first!”
+“People who call themselves religious would look at me tonight with pride and judge me,” cried Nancy. “They would speak of fire and punishment. Oh, dear lady, why aren’t they as kind and gentle to poor people like us as you are? You have youth and beauty and everything they have lost, and yet you are humble instead of proud.”
 
-These words appeared to be addressed to the young lady, and were perhaps uttered with the view of affording Nancy time to recover herself. The gentleman, shortly afterwards, addressed himself to her.
+“Ah,” said the gentleman. “A Turk washes his face and turns to the East to pray. These people, after losing all joy in life, turn just as regularly toward the darkest view of Heaven. Between the two, I would choose the first.”
+
+He seemed to say this to the young lady, perhaps to give Nancy time to calm down. After a moment, he spoke to her again.
 
 “You were not here last Sunday night,” he said.
 
-“I couldn’t come,” replied Nancy; “I was kept by force.”
+“I couldn’t come,” Nancy replied. “I was forced to stay.”
 
 “By whom?”
 
-“Him that I told the young lady of before.”
+“By the man I told the young lady about before.”
 
-“You were not suspected of holding any communication with anybody on the subject which has brought us here tonight, I hope?” asked the old gentleman.
+“I hope you were not suspected of speaking to anyone about the matter that has brought us here tonight?” asked the gentleman.
 
-----------------
-Та же самая задача для этого текста:
+“No,” said the girl, shaking her head. “It’s not easy for me to leave him unless he knows why. I couldn’t give him laudanum before I left.”
 
-“No,” replied the girl, shaking her head. “It’s not very easy for me to leave him unless he knows why; I couldn’t give him a drink of laudanum before I came away.”
+“Did he wake up before you came back?” asked the gentleman.
 
-“Did he awake before you returned?” inquired the gentleman.
-
-“No; and neither he nor any of them suspect me.”
+“No. And neither he nor the others suspect me.”
 
 “Good,” said the gentleman. “Now listen to me.”
 
-“I am ready,” replied the girl, as he paused for a moment.
+“I’m ready,” said the girl.
 
-“This young lady,” the gentleman began, “has communicated to me, and to some other friends who can be safely trusted, what you told her nearly a fortnight since. I confess to you that I had doubts, at first, whether you were to be implicitly relied upon, but now I firmly believe you are.”
+“This young lady,” he began, “has told me—and some trusted friends—what you said to her about two weeks ago. I admit, at first I was not sure if I could trust you. But now I believe you.”
 
-“I am,” said the girl earnestly.
+“You can trust me,” said the girl seriously.
 
-“I repeat that I firmly believe it. To prove to you that I am disposed to trust you, I tell you without reserve, that we propose to extort the secret, whatever it may be, from the fear of this man Monks. But if—if—” said the gentleman, “he cannot be secured, or, if secured, cannot be acted upon as we wish, you must deliver up the Jew.”
+“I do believe you,” he repeated. “And to show that, I will speak openly. We plan to get the secret from this man, Monks—by using his fear. But if—if—” he paused, “we cannot catch him, or cannot make him speak, then you must give up the Jew.”
 
-“Fagin,” cried the girl, recoiling.
+“Fagin!” cried the girl, stepping back.
 
-“That man must be delivered up by you,” said the gentleman.
+“Yes,” said the gentleman. “You must give him up.”
 
-“I will not do it! I will never do it!” replied the girl. “Devil that he is, and worse than devil as he has been to me, I will never do that.”
+“I won’t do it! I will never do it!” said the girl. “He is cruel—worse than cruel to me—but I will never betray him.”
 
-“You will not?” said the gentleman, who seemed fully prepared for this answer.
+“You won’t?” said the gentleman calmly, as if he expected this.
 
-“Never!” returned the girl.
+“Never!” she said.
 
-“Tell me why?”
+“Tell me why.”
 
-“For one reason,” rejoined the girl firmly, “for one reason, that the lady knows and will stand by me in, I know she will, for I have her promise: and for this other reason, besides, that, bad life as he has led, I have led a bad life too; there are many of us who have kept the same courses together, and I’ll not turn upon them, who might—any of them—have turned upon me, but didn’t, bad as they are.”
+“For one reason,” said the girl firmly, “a reason the lady knows—and she promised to support me. And for another reason: yes, he has lived a bad life—but so have I. Many of us have lived like that together. I will not betray them. Any of them could have betrayed me—but they didn’t, even though they are bad people.”
 
-“Then,” said the gentleman, quickly, as if this had been the point he had been aiming to attain; “put Monks into my hands, and leave him to me to deal with.”
+“Then,” said the gentleman quickly, as if this was what he wanted to hear, “give me Monks, and let me deal with him.”
 
-“What if he turns against the others?”
+“And what if he betrays the others?” asked the girl.
 
-“I promise you that in that case, if the truth is forced from him, there the matter will rest; there must be circumstances in Oliver’s little history which it would be painful to drag before the public eye, and if the truth is once elicited, they shall go scot free.”
+“I promise you this,” said the gentleman. “If we force the truth from him, it will end there. There are parts of Oliver’s story that should not be made public. Once we know the truth, the others will not be punished.”
 
-----------------
-Та же самая задача для этого текста:
+“And what if it is not?” the girl asked.
 
-“And if it is not?” suggested the girl.
+“Then,” said the gentleman, “this Fagin will not be given to the police without your permission. In that case, I think I could give you reasons that would persuade you to agree.”
 
-“Then,” pursued the gentleman, “this Fagin shall not be brought to justice without your consent. In such a case I could show you reasons, I think, which would induce you to yield it.”
+“Do I have the lady’s promise for that?” asked the girl.
 
-“Have I the lady’s promise for that?” asked the girl.
+“You do,” said Rose. “I give you my true promise.”
 
-“You have,” replied Rose. “My true and faithful pledge.”
+“Monks will never find out how you learned all this?” the girl asked after a short pause.
 
-“Monks would never learn how you knew what you do?” said the girl, after a short pause.
+“Never,” said the gentleman. “The information will be used in a way that he could never guess.”
 
-“Never,” replied the gentleman. “The intelligence should be brought to bear upon him, that he could never even guess.”
+“I have lied all my life, and lived among liars since I was a child,” said the girl quietly, “but I will trust your words.”
 
-“I have been a liar, and among liars from a little child,” said the girl after another interval of silence, “but I will take your words.”
+After both of them promised again that she could trust them, she began to speak in a very low voice. Sometimes it was so quiet that the hidden listener could hardly understand her. She described the pub where she had been followed that night—its location and details. From the pauses she made, it seemed the gentleman was writing down notes.
 
-After receiving an assurance from both, that she might safely do so, she proceeded in a voice so low that it was often difficult for the listener to discover even the purport of what she said, to describe, by name and situation, the public-house whence she had been followed that night. From the manner in which she occasionally paused, it appeared as if the gentleman were making some hasty notes of the information she communicated. When she had thoroughly explained the localities of the place, the best position from which to watch it without exciting observation, and the night and hour on which Monks was most in the habit of frequenting it, she seemed to consider for a few moments, for the purpose of recalling his features and appearances more forcibly to her recollection.
+When she had clearly explained the place, the best spot to watch it without being seen, and the usual time when Monks came there, she stopped for a moment, trying to remember his appearance more clearly.
 
-“He is tall,” said the girl, “and a strongly made man, but not stout; he has a lurking walk; and as he walks, constantly looks over his shoulder, first on one side, and then on the other. Don’t forget that, for his eyes are sunk in his head so much deeper than any other man’s, that you might almost tell him by that alone. His face is dark, like his hair and eyes; and, although he can’t be more than six or eight and twenty, withered and haggard. His lips are often discoloured and disfigured with the marks of teeth; for he has desperate fits, and sometimes even bites his hands and covers them with wounds—why did you start?” said the girl, stopping suddenly.
+“He is tall,” she said, “and strongly built, but not fat. He walks in a secretive way, always looking over his shoulder—first one way, then the other. Don’t forget that. His eyes are set very deep in his face, more than most people’s—you could almost recognize him by that alone. His face is dark, like his hair and eyes. And although he is not more than twenty-six or twenty-eight, he looks worn and tired. His lips are often marked and damaged, because he has violent fits and sometimes even bites his own hands, leaving wounds—why did you start?” she asked suddenly.
 
-The gentleman replied, in a hurried manner, that he was not conscious of having done so, and begged her to proceed.
+The gentleman quickly said he had not reacted, and asked her to continue.
 
-“Part of this,” said the girl, “I have drawn out from other people at the house I tell you of, for I have only seen him twice, and both times he was covered up in a large cloak. I think that’s all I can give you to know him by. Stay though,” she added. “Upon his throat: so high that you can see a part of it below his neckerchief when he turns his face: there is—”
+“Some of this,” she went on, “I heard from other people at the place I told you about. I have only seen him twice, and both times he wore a large cloak. I think that’s all I can tell you to help you recognize him. Wait,” she added. “On his neck—high enough to be seen above his scarf when he turns his head—there is—”
 
-“A broad red mark, like a burn or scald?” cried the gentleman.
+“A wide red mark, like a burn?” said the gentleman suddenly.
 
-“How’s this?” said the girl. “You know him!”
+“What?” said the girl. “You know him!”
 
-The young lady uttered a cry of surprise, and for a few moments they were so still that the listener could distinctly hear them breathe.
+The young lady cried out in surprise. For a few seconds, they were completely silent, and the hidden listener could even hear them breathing.
 
-“I think I do,” said the gentleman, breaking silence. “I should by your description. We shall see. Many people are singularly like each other. It may not be the same.”
+“I think I do,” said the gentleman at last. “From your description, I believe so. But we shall see. Many people look alike. It may not be the same man.”
 
-As he expressed himself to this effect, with assumed carelessness, he took a step or two nearer the concealed spy, as the latter could tell from the distinctness with which he heard him mutter, “It must be he!”
+As he spoke, trying to sound calm, he moved a little closer to the hidden spy. The spy could hear him clearly whisper, “It must be him!”
 
-“Now,” he said, returning: so it seemed by the sound: to the spot where he had stood before, “you have given us most valuable assistance, young woman, and I wish you to be the better for it. What can I do to serve you?”
+“Now,” he said, returning to his place, “you have helped us greatly, young woman. I want you to gain something from this. What can I do for you?”
 
-----------------
-Та же самая задача для этого текста:
+“Nothing,” said Nancy.
 
-“Nothing,” replied Nancy.
+“You won’t keep saying that,” the gentleman replied gently. His voice was kind and warm. “Think again. Tell me.”
 
-“You will not persist in saying that,” rejoined the gentleman, with a voice and emphasis of kindness that might have touched a much harder and more obdurate heart. “Think now. Tell me.”
+“Nothing, sir,” said the girl, crying. “You can’t help me. I am beyond hope.”
 
-“Nothing, sir,” rejoined the girl, weeping. “You can do nothing to help me. I am past all hope, indeed.”
+“You place yourself beyond hope,” said the gentleman. “Your past has been sad. Your youth and strength were wasted. You lost things that can never return. But the future can still be different. You can still hope. I don’t promise peace of mind—that must come from within you. But we can offer you a safe place. You can stay in England, or go to another country if you are afraid to stay here. We truly want to help you. Before morning comes, before the river sees the light of day, we can take you far away from the people you know. You can disappear without a trace, as if you were gone from the world. Come! Do not go back. Do not speak to anyone from your past. Do not even look at those places again. Leave them now, while you still can!”
 
-“You put yourself beyond its pale,” said the gentleman. “The past has been a dreary waste with you, of youthful energies mis-spent, and such priceless treasures lavished, as the Creator bestows but once and never grants again, but, for the future, you may hope. I do not say that it is in our power to offer you peace of heart and mind, for that must come as you seek it; but a quiet asylum, either in England, or, if you fear to remain here, in some foreign country, it is not only within the compass of our ability but our most anxious wish to secure you. Before the dawn of morning, before this river wakes to the first glimpse of day-light, you shall be placed as entirely beyond the reach of your former associates, and leave as utter an absence of all trace behind you, as if you were to disappear from the earth this moment. Come! I would not have you go back to exchange one word with any old companion, or take one look at any old haunt, or breathe the very air which is pestilence and death to you. Quit them all, while there is time and opportunity!”
+“She will agree now,” cried the young lady. “I’m sure she’s thinking about it.”
 
-“She will be persuaded now,” cried the young lady. “She hesitates, I am sure.”
+“I’m afraid not, my dear,” said the gentleman.
 
-“I fear not, my dear,” said the gentleman.
+“No, sir, I won’t,” said the girl after a short pause. “I am tied to my old life. I hate it now, but I cannot leave it. I have gone too far to turn back. And yet… I don’t know. If you had spoken to me like this before, I would have laughed. But now…” She looked around quickly. “The fear is coming back. I must go home.”
 
-“No sir, I do not,” replied the girl, after a short struggle. “I am chained to my old life. I loathe and hate it now, but I cannot leave it. I must have gone too far to turn back,—and yet I don’t know, for if you had spoken to me so, some time ago, I should have laughed it off. But,” she said, looking hastily round, “this fear comes over me again. I must go home.”
+“Home!” repeated the young lady.
 
-“Home!” repeated the young lady, with great stress upon the word.
+“Yes, lady,” said the girl. “To the home I have made for myself with my whole life. Let us say goodbye. Someone may see me here. Go! Please go! If I have helped you in any way, then leave me now and let me go alone.”
 
-“Home, lady,” rejoined the girl. “To such a home as I have raised for myself with the work of my whole life. Let us part. I shall be watched or seen. Go! Go! If I have done you any service all I ask is, that you leave me, and let me go my way alone.”
+“It’s no use,” said the gentleman sadly. “We may be putting her in danger by staying. We have already kept her longer than she expected.”
 
-“It is useless,” said the gentleman, with a sigh. “We compromise her safety, perhaps, by staying here. We may have detained her longer than she expected already.”
+“Yes, yes,” said the girl quickly. “You have.”
 
-“Yes, yes,” urged the girl. “You have.”
+“What will happen to this poor girl?” cried the young lady.
 
-“What,” cried the young lady, “can be the end of this poor creature’s life!”
+“What?” said the girl. “Look at the dark water. You often read about people like me who jump into the river and disappear. No one is left to care or mourn for them. It may take years, or only months—but that will be my end.”
 
-“What!” repeated the girl. “Look before you, lady. Look at that dark water. How many times do you read of such as I who spring into the tide, and leave no living thing, to care for, or bewail them. It may be years hence, or it may be only months, but I shall come to that at last.”
+“Please don’t speak like that,” said the young lady, crying.
 
-“Do not speak thus, pray,” returned the young lady, sobbing.
-
-“It will never reach your ears, dear lady, and God forbid such horrors should!” replied the girl. “Good-night, good-night!”
+“You will never hear of it, dear lady—and I hope you never do,” said the girl. “Good night, good night!”
 
 The gentleman turned away.
 
-“This purse,” cried the young lady. “Take it for my sake, that you may have some resource in an hour of need and trouble.”
+“This purse!” cried the young lady. “Take it, please. You may need it in a difficult time.”
 
-----------------
-Та же самая задача для этого текста:
+“No!” said the girl. “I didn’t do this for money. Let me remember that. But… give me something you have worn. I would like to keep it. Not a ring—no. Your gloves, or a handkerchief—anything that belonged to you, dear lady. There. Thank you. God bless you. Good night, good night!”
 
-“No!” replied the girl. “I have not done this for money. Let me have that to think of. And yet—give me something that you have worn: I should like to have something—no, no, not a ring—your gloves or handkerchief—anything that I can keep, as having belonged to you, sweet lady. There. Bless you! God bless you. Good-night, good-night!”
+The girl was shaking with emotion. She was also afraid someone might see her and hurt her. Because of this, the gentleman decided to leave, as she had asked.
 
-The violent agitation of the girl, and the apprehension of some discovery which would subject her to ill-usage and violence, seemed to determine the gentleman to leave her, as she requested.
+Soon, the sound of their footsteps faded away, and their voices stopped.
 
-The sound of retreating footsteps were audible and the voices ceased.
+A little later, the young lady and her companion appeared on the bridge. They stopped at the top of the stairs.
 
-The two figures of the young lady and her companion soon afterwards appeared upon the bridge. They stopped at the summit of the stairs.
+“Listen!” cried the young lady. “Did she call us? I thought I heard her voice.”
 
-“Hark!” cried the young lady, listening. “Did she call! I thought I heard her voice.”
+“No, my dear,” replied Mr. Brownlow, looking back sadly. “She hasn’t moved. She won’t move until we are gone.”
 
-“No, my love,” replied Mr. Brownlow, looking sadly back. “She has not moved, and will not till we are gone.”
+Rose Maylie hesitated, not wanting to leave. But the old gentleman gently took her arm and led her away.
 
-Rose Maylie lingered, but the old gentleman drew her arm through his, and led her, with gentle force, away. As they disappeared, the girl sunk down nearly at her full length upon one of the stone stairs, and vented the anguish of her heart in bitter tears.
+When they were gone, the girl fell down on the stone steps. She lay there and cried deeply, unable to hold back her pain.
 
-After a time she arose, and with feeble and tottering steps ascended the street. The astonished listener remained motionless on his post for some minutes afterwards, and having ascertained, with many cautious glances round him, that he was again alone, crept slowly from his hiding-place, and returned, stealthily and in the shade of the wall, in the same manner as he had descended.
+After some time, she stood up. She walked slowly up the street, weak and unsteady.
 
-Peeping out, more than once, when he reached the top, to make sure that he was unobserved, Noah Claypole darted away at his utmost speed, and made for the Jew’s house as fast as his legs would carry him.`,
+Someone had been hiding nearby and listening. He stayed still for a few minutes. Then he carefully looked around to make sure no one was watching. When he was sure he was alone, he quietly left his hiding place. He moved slowly, staying close to the wall, just as he had come.
+
+When he reached the top, he looked around again to be safe. Then Noah Claypole suddenly ran off as fast as he could. He hurried toward the Jew’s house with all his speed.`,
 }

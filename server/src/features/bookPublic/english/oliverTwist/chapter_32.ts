@@ -1,138 +1,165 @@
-// ГЛАВА НЕ ГОТОВА
 export const chapter_32 = {
 	name: 'Chapter XXXII',
 	header: 'Of the happy life Oliver began to lead with his kind friends',
-	text: `
-------------------------------
-Та же самая задача для этого текста:
-Oliver’s ailings were neither slight nor few. In addition to the pain and delay attendant on a broken limb, his exposure to the wet and cold had brought on fever and ague: which hung about him for many weeks, and reduced him sadly. But, at length, he began, by slow degrees, to get better, and to be able to say sometimes, in a few tearful words, how deeply he felt the goodness of the two sweet ladies, and how ardently he hoped that when he grew strong and well again, he could do something to show his gratitude; only something, which would let them see the love and duty with which his breast was full; something, however slight, which would prove to them that their gentle kindness had not been cast away; but that the poor boy whom their charity had rescued from misery, or death, was eager to serve them with his whole heart and soul.
+	text: `Oliver’s illness was serious and lasted a long time. Besides the pain and slow healing of his broken arm, his time in the cold and rain had caused fever and chills. This illness stayed with him for many weeks and made him very weak.
 
-“Poor fellow!” said Rose, when Oliver had been one day feebly endeavouring to utter the words of thankfulness that rose to his pale lips; “you shall have many opportunities of serving us, if you will. We are going into the country, and my aunt intends that you shall accompany us. The quiet place, the pure air, and all the pleasure and beauties of spring, will restore you in a few days. We will employ you in a hundred ways, when you can bear the trouble.”
+But little by little, he began to recover. Sometimes he could speak a few words—often with tears in his eyes—about how deeply grateful he was to the two kind ladies. He often said that when he became strong again, he hoped to do something—anything—to show his gratitude. Even the smallest act, he said, would prove how much love and devotion he felt for them, and that their kindness had not been wasted. The poor boy, saved from misery or even death, wanted with all his heart to serve them.
 
-“The trouble!” cried Oliver. “Oh! dear lady, if I could but work for you; if I could only give you pleasure by watering your flowers, or watching your birds, or running up and down the whole day long, to make you happy; what would I give to do it!”
+“Poor boy!” said Rose one day, when Oliver tried weakly to thank her. “You will have many chances to help us, if you wish. We are going to the countryside, and my aunt wants you to come with us. The quiet place, the fresh air, and the beauty of spring will make you well very quickly. And when you are stronger, we will find many ways for you to help us.”
 
-“You shall give nothing at all,” said Miss Maylie, smiling; “for, as I told you before, we shall employ you in a hundred ways; and if you only take half the trouble to please us, that you promise now, you will make me very happy indeed.”
+“Help you!” cried Oliver. “Oh, dear lady, if only I could work for you—if I could bring you even a little happiness by watering your flowers, watching your birds, or running around all day to please you—I would give anything to do it!”
 
-“Happy, ma’am!” cried Oliver; “how kind of you to say so!”
+“You don’t need to give anything,” said Miss Maylie, smiling. “As I told you, we will find many things for you to do. And if you try even half as hard to please us as you say now, you will make me very happy.”
 
-“You will make me happier than I can tell you,” replied the young lady. “To think that my dear good aunt should have been the means of rescuing any one from such sad misery as you have described to us, would be an unspeakable pleasure to me; but to know that the object of her goodness and compassion was sincerely grateful and attached, in consequence, would delight me, more than you can well imagine. Do you understand me?” she inquired, watching Oliver’s thoughtful face.
+“Happy, ma’am!” cried Oliver. “How kind you are to say that!”
 
-“Oh yes, ma’am, yes!” replied Oliver eagerly; “but I was thinking that I am ungrateful now.”
+“You will make me happier than I can explain,” she replied. “To think that my dear aunt has saved someone from such suffering as you have described would already bring me great joy. But to know that the person she helped is truly grateful and cares for us—that would make me even happier. Do you understand me?” she asked, looking at Oliver’s thoughtful face.
 
-“To whom?” inquired the young lady.
+“Oh yes, ma’am!” said Oliver eagerly. “But I was just thinking… that I am ungrateful now.”
 
-“To the kind gentleman, and the dear old nurse, who took so much care of me before,” rejoined Oliver. “If they knew how happy I am, they would be pleased, I am sure.”
+“To whom?” asked the young lady.
 
-“I am sure they would,” rejoined Oliver’s benefactress; “and Mr. Losberne has already been kind enough to promise that when you are well enough to bear the journey, he will carry you to see them.”
+“To the kind gentleman and the dear old nurse who took care of me before,” said Oliver. “If they knew how happy I am now, they would be glad, I’m sure.”
 
-“Has he, ma’am?” cried Oliver, his face brightening with pleasure. “I don’t know what I shall do for joy when I see their kind faces once again!”
+“I’m sure they would,” said his kind friend. “And Mr. Losberne has already promised that when you are strong enough, he will take you to visit them.”
 
-In a short time Oliver was sufficiently recovered to undergo the fatigue of this expedition. One morning he and Mr. Losberne set out, accordingly, in a little carriage which belonged to Mrs. Maylie. When they came to Chertsey Bridge, Oliver turned very pale, and uttered a loud exclamation.
+“Really, ma’am?” cried Oliver, his face lighting up with joy. “I don’t know how I will contain my happiness when I see them again!”
 
-“What’s the matter with the boy?” cried the doctor, as usual, all in a bustle. “Do you see anything—hear anything—feel anything—eh?”
+Soon, Oliver was well enough to make the journey. One morning, he and Mr. Losberne set out in a small carriage that belonged to Mrs. Maylie.
 
-“That, sir,” cried Oliver, pointing out of the carriage window. “That house!”
+When they reached Chertsey Bridge, Oliver suddenly turned very pale and cried out loudly.
 
-“Yes; well, what of it? Stop coachman. Pull up here,” cried the doctor. “What of the house, my man; eh?”
+“What’s wrong with the boy?” said the doctor, immediately worried. “Do you see something? Hear something? Feel something?”
 
-----------------
-Та же самая задача для этого текста:
+“That, sir!” cried Oliver, pointing out of the carriage window. “That house!”
 
-“The thieves—the house they took me to!” whispered Oliver.
+“Yes—well? What about it? Stop the carriage!” said the doctor. “What is it about the house, my boy?”
 
-“The devil it is!” cried the doctor. “Hallo, there! let me out!”
+“The thieves—the house they brought me to!” whispered Oliver.
 
-But, before the coachman could dismount from his box, he had tumbled out of the coach, by some means or other; and, running down to the deserted tenement, began kicking at the door like a madman.
+“What? Impossible!” cried the doctor. “Hey there! Let me out!”
 
-“Halloa?” said a little ugly hump-backed man: opening the door so suddenly, that the doctor, from the very impetus of his last kick, nearly fell forward into the passage. “What’s the matter here?”
+Before the coachman could get down, the doctor had already jumped out of the carriage and rushed to the empty house. He began kicking the door like a madman.
 
-“Matter!” exclaimed the other, collaring him, without a moment’s reflection. “A good deal. Robbery is the matter.”
+“Hello?” said a small, ugly, hunchbacked man, opening the door so suddenly that the doctor almost fell inside. “What’s going on here?”
 
-“There’ll be Murder the matter, too,” replied the hump-backed man, coolly, “if you don’t take your hands off. Do you hear me?”
+“What’s going on?” shouted the doctor, grabbing him by the collar without thinking. “A robbery—that’s what!”
 
-“I hear you,” said the doctor, giving his captive a hearty shake.
+“There’ll be a murder too,” said the hunchback calmly, “if you don’t take your hands off me. Do you hear?”
 
-“Where’s—confound the fellow, what’s his rascally name—Sikes; that’s it. Where’s Sikes, you thief?”
+“I hear you,” said the doctor, giving him a strong shake.
 
-The hump-backed man stared, as if in excess of amazement and indignation; then, twisting himself, dexterously, from the doctor’s grasp, growled forth a volley of horrid oaths, and retired into the house. Before he could shut the door, however, the doctor had passed into the parlour, without a word of parley.
+“Where is—what’s his name—Sikes? That’s it. Where’s Sikes, you thief?”
 
-He looked anxiously round; not an article of furniture; not a vestige of anything, animate or inanimate; not even the position of the cupboards; answered Oliver’s description!
+The hunchback stared, as if shocked and offended. Then he twisted quickly out of the doctor’s grip, shouted a stream of angry curses, and stepped back into the house. Before he could shut the door, however, the doctor pushed past him and entered the room.
 
-“Now!” said the hump-backed man, who had watched him keenly, “what do you mean by coming into my house, in this violent way? Do you want to rob me, or to murder me? Which is it?”
+He looked around anxiously. There was no furniture, nothing at all—not even the cupboards matched what Oliver had described.
 
-“Did you ever know a man come out to do either, in a chariot and pair, you ridiculous old vampire?” said the irritable doctor.
+“Now,” said the hunchback, watching him closely, “what do you mean by coming into my house like this? Are you trying to rob me or kill me?”
 
-“What do you want, then?” demanded the hunchback. “Will you take yourself off, before I do you a mischief? Curse you!”
+“Have you ever seen a man come to do that in a carriage with two horses, you ridiculous old fool?” said the irritated doctor.
 
-“As soon as I think proper,” said Mr. Losberne, looking into the other parlour; which, like the first, bore no resemblance whatever to Oliver’s account of it. “I shall find you out, some day, my friend.”
+“Then what do you want?” demanded the hunchback. “Will you leave before I hurt you? Curse you!”
 
-“Will you?” sneered the ill-favoured cripple. “If you ever want me, I’m here. I haven’t lived here mad and all alone, for five-and-twenty years, to be scared by you. You shall pay for this; you shall pay for this.” And so saying, the mis-shapen little demon set up a yell, and danced upon the ground, as if wild with rage.
+“I’ll leave when I choose,” said Mr. Losberne, looking into the next room—which, like the first, did not match Oliver’s description at all. “I’ll find you out one day.”
 
-“Stupid enough, this,” muttered the doctor to himself; “the boy must have made a mistake. Here! Put that in your pocket, and shut yourself up again.” With these words he flung the hunchback a piece of money, and returned to the carriage.
+“Will you?” sneered the ugly little man. “If you ever want me, I’m here. I’ve lived here alone for twenty-five years, and I’m not afraid of you. You’ll pay for this—you’ll pay for this!”
 
-----------------
-Та же самая задача для этого текста:
+As he said this, the strange little man let out a wild scream and began jumping around in anger.
 
-The man followed to the chariot door, uttering the wildest imprecations and curses all the way; but as Mr. Losberne turned to speak to the driver, he looked into the carriage, and eyed Oliver for an instant with a glance so sharp and fierce and at the same time so furious and vindictive, that, waking or sleeping, he could not forget it for months afterwards. He continued to utter the most fearful imprecations, until the driver had resumed his seat; and when they were once more on their way, they could see him some distance behind: beating his feet upon the ground, and tearing his hair, in transports of real or pretended rage.
+“This is foolish,” muttered the doctor to himself. “The boy must have been mistaken. Here—take this and stay inside.”
 
-“I am an ass!” said the doctor, after a long silence. “Did you know that before, Oliver?”
+With that, he threw the man a coin and went back to the carriage.
+
+The man followed the carriage, shouting the wildest curses the whole way. As Mr. Losberne turned to speak to the driver, the man suddenly looked inside and fixed his eyes on Oliver for a moment. His look was so sharp, so angry, and so full of hatred that Oliver could not forget it for months—whether he was awake or asleep.
+
+He went on shouting terrible curses until the driver climbed back up to his seat. When the carriage started again, they could still see him some distance behind, stamping his feet and tearing his hair, as if mad with rage—real or pretended.
+
+“I am a fool!” said the doctor after a long silence. “Did you know that before, Oliver?”
 
 “No, sir.”
 
-“Then don’t forget it another time.”
+“Then remember it for next time.”
 
-“An ass,” said the doctor again, after a further silence of some minutes. “Even if it had been the right place, and the right fellows had been there, what could I have done, single-handed? And if I had had assistance, I see no good that I should have done, except leading to my own exposure, and an unavoidable statement of the manner in which I have hushed up this business. That would have served me right, though. I am always involving myself in some scrape or other, by acting on impulse. It might have done me good.”
+“A fool,” the doctor repeated after a few more minutes. “Even if it had been the right place, and the right people had been there, what could I have done alone? And if I had help, it would only have caused trouble for me. I would have had to explain everything—how I kept this whole matter quiet. That would have served me right. I always get into trouble by acting too quickly. Perhaps it would have taught me a lesson.”
 
-Now, the fact was that the excellent doctor had never acted upon anything but impulse all through his life, and it was no bad compliment to the nature of the impulses which governed him, that so far from being involved in any peculiar troubles or misfortunes, he had the warmest respect and esteem of all who knew him. If the truth must be told, he was a little out of temper, for a minute or two, at being disappointed in procuring corroborative evidence of Oliver’s story on the very first occasion on which he had a chance of obtaining any. He soon came round again, however; and finding that Oliver’s replies to his questions, were still as straightforward and consistent, and still delivered with as much apparent sincerity and truth, as they had ever been, he made up his mind to attach full credence to them, from that time forth.
+The truth was that the good doctor had always acted on impulse all his life. And it says a great deal about his character that, instead of getting into serious trouble, he was respected and liked by everyone who knew him.
 
-As Oliver knew the name of the street in which Mr. Brownlow resided, they were enabled to drive straight thither. When the coach turned into it, his heart beat so violently, that he could scarcely draw his breath.
+To be honest, he had only been a little annoyed because he had missed a chance to prove Oliver’s story. But he soon calmed down. Seeing that Oliver’s answers were still honest, clear, and consistent, he decided from that moment to believe him completely.
 
-“Now, my boy, which house is it?” inquired Mr. Losberne.
+Since Oliver knew the name of the street where Mr. Brownlow lived, they were able to drive straight there. As soon as the carriage turned into the street, Oliver’s heart beat so fast that he could hardly breathe.
 
-“That! That!” replied Oliver, pointing eagerly out of the window. “The white house. Oh! make haste! Pray make haste! I feel as if I should die: it makes me tremble so.”
+“Now, my boy, which house is it?” asked Mr. Losberne.
 
-“Come, come!” said the good doctor, patting him on the shoulder. “You will see them directly, and they will be overjoyed to find you safe and well.”
+“That one! That one!” cried Oliver, pointing eagerly out of the window. “The white house! Oh, please hurry! Please! I feel as if I might die—it makes me shake so much!”
 
-“Oh! I hope so!” cried Oliver. “They were so good to me; so very, very good to me.”
+“Easy, easy,” said the kind doctor, gently patting his shoulder. “You’ll see them in a moment, and they’ll be very happy to find you safe and well.”
 
-The coach rolled on. It stopped. No; that was the wrong house; the next door. It went on a few paces, and stopped again. Oliver looked up at the windows, with tears of happy expectation coursing down his face.
+“Oh, I hope so!” cried Oliver. “They were so kind to me—so very, very kind!”
 
-Alas! the white house was empty, and there was a bill in the window. “To Let.”
+The carriage rolled on. It stopped.
 
-“Knock at the next door,” cried Mr. Losberne, taking Oliver’s arm in his. “What has become of Mr. Brownlow, who used to live in the adjoining house, do you know?”
+No—that was the wrong house. The next one.
 
-The servant did not know; but would go and inquire. She presently returned, and said, that Mr. Brownlow had sold off his goods, and gone to the West Indies, six weeks before. Oliver clasped his hands, and sank feebly backward.
+It moved forward a little and stopped again. Oliver looked up at the windows, tears of hopeful excitement running down his face.
 
-“Has his housekeeper gone too?” inquired Mr. Losberne, after a moment’s pause.
+But the white house was empty.
 
-“Yes, sir”; replied the servant. “The old gentleman, the housekeeper, and a gentleman who was a friend of Mr. Brownlow’s, all went together.”
+There was a sign in the window: “To Let.”
 
-“Then turn towards home again,” said Mr. Losberne to the driver; “and don’t stop to bait the horses, till you get out of this confounded London!”
+“Knock at the next house,” said Mr. Losberne, taking Oliver’s arm. “Do you know what has happened to Mr. Brownlow, who used to live next door?”
 
-----------------
-Та же самая задача для этого текста:
+The servant did not know, but went to ask. She soon returned and said that Mr. Brownlow had sold everything and gone to the West Indies six weeks earlier.
 
-“The book-stall keeper, sir?” said Oliver. “I know the way there. See him, pray, sir! Do see him!”
+Oliver clasped his hands and fell back weakly.
 
-“My poor boy, this is disappointment enough for one day,” said the doctor. “Quite enough for both of us. If we go to the book-stall keeper’s, we shall certainly find that he is dead, or has set his house on fire, or run away. No; home again straight!” And in obedience to the doctor’s impulse, home they went.
+“Has his housekeeper gone too?” asked Mr. Losberne after a short pause.
 
-This bitter disappointment caused Oliver much sorrow and grief, even in the midst of his happiness; for he had pleased himself, many times during his illness, with thinking of all that Mr. Brownlow and Mrs. Bedwin would say to him: and what delight it would be to tell them how many long days and nights he had passed in reflecting on what they had done for him, and in bewailing his cruel separation from them. The hope of eventually clearing himself with them, too, and explaining how he had been forced away, had buoyed him up, and sustained him, under many of his recent trials; and now, the idea that they should have gone so far, and carried with them the belief that he was an impostor and a robber—a belief which might remain uncontradicted to his dying day—was almost more than he could bear.
+“Yes, sir,” replied the servant. “The old gentleman, the housekeeper, and another gentleman—his friend—all went together.”
 
-The circumstance occasioned no alteration, however, in the behaviour of his benefactors. After another fortnight, when the fine warm weather had fairly begun, and every tree and flower was putting forth its young leaves and rich blossoms, they made preparations for quitting the house at Chertsey, for some months.
+“Then drive back home,” said Mr. Losberne to the driver, “and don’t stop anywhere until you get out of this cursed London!”
 
-Sending the plate, which had so excited Fagin’s cupidity, to the banker’s; and leaving Giles and another servant in care of the house, they departed to a cottage at some distance in the country, and took Oliver with them.
+“The bookseller, sir?” said Oliver. “I know the way. Please, sir—let’s go and see him!”
 
-Who can describe the pleasure and delight, the peace of mind and soft tranquillity, the sickly boy felt in the balmy air, and among the green hills and rich woods, of an inland village! Who can tell how scenes of peace and quietude sink into the minds of pain-worn dwellers in close and noisy places, and carry their own freshness, deep into their jaded hearts! Men who have lived in crowded, pent-up streets, through lives of toil, and who have never wished for change; men, to whom custom has indeed been second nature, and who have come almost to love each brick and stone that formed the narrow boundaries of their daily walks; even they, with the hand of death upon them, have been known to yearn at last for one short glimpse of Nature’s face; and, carried far from the scenes of their old pains and pleasures, have seemed to pass at once into a new state of being. Crawling forth, from day to day, to some green sunny spot, they have had such memories wakened up within them by the sight of the sky, and hill and plain, and glistening water, that a foretaste of heaven itself has soothed their quick decline, and they have sunk into their tombs, as peacefully as the sun whose setting they watched from their lonely chamber window but a few hours before, faded from their dim and feeble sight! The memories which peaceful country scenes call up, are not of this world, nor of its thoughts and hopes. Their gentle influence may teach us how to weave fresh garlands for the graves of those we loved: may purify our thoughts, and bear down before it old enmity and hatred; but beneath all this, there lingers, in the least reflective mind, a vague and half-formed consciousness of having held such feelings long before, in some remote and distant time, which calls up solemn thoughts of distant times to come, and bends down pride and worldliness beneath it.
+“My poor boy, you’ve had enough disappointment for one day,” said the doctor. “More than enough for both of us. If we go to the bookseller, we’ll probably find that he’s dead, or gone away, or something just as bad. No—let’s go straight home.” And, following the doctor’s quick decision, they returned home.
 
-It was a lovely spot to which they repaired. Oliver, whose days had been spent among squalid crowds, and in the midst of noise and brawling, seemed to enter on a new existence there. The rose and honeysuckle clung to the cottage walls; the ivy crept round the trunks of the trees; and the garden-flowers perfumed the air with delicious odours. Hard by, was a little churchyard; not crowded with tall unsightly gravestones, but full of humble mounds, covered with fresh turf and moss: beneath which, the old people of the village lay at rest. Oliver often wandered here; and, thinking of the wretched grave in which his mother lay, would sometimes sit him down and sob unseen; but, when he raised his eyes to the deep sky overhead, he would cease to think of her as lying in the ground, and would weep for her, sadly, but without pain.
+This disappointment caused Oliver great sadness, even though he was otherwise happy. During his illness, he had often imagined what Mr. Brownlow and Mrs. Bedwin would say when they saw him again. He had dreamed of telling them how he had thought about them every day and night, and how much he had suffered from being separated from them.
 
-It was a happy time. The days were peaceful and serene; the nights brought with them neither fear nor care; no languishing in a wretched prison, or associating with wretched men; nothing but pleasant and happy thoughts. Every morning he went to a white-headed old gentleman, who lived near the little church: who taught him to read better, and to write: and who spoke so kindly, and took such pains, that Oliver could never try enough to please him. Then, he would walk with Mrs. Maylie and Rose, and hear them talk of books; or perhaps sit near them, in some shady place, and listen whilst the young lady read: which he could have done, until it grew too dark to see the letters. Then, he had his own lesson for the next day to prepare; and at this, he would work hard, in a little room which looked into the garden, till evening came slowly on, when the ladies would walk out again, and he with them: listening with such pleasure to all they said: and so happy if they wanted a flower that he could climb to reach, or had forgotten anything he could run to fetch: that he could never be quick enough about it. When it became quite dark, and they returned home, the young lady would sit down to the piano, and play some pleasant air, or sing, in a low and gentle voice, some old song which it pleased her aunt to hear. There would be no candles lighted at such times as these; and Oliver would sit by one of the windows, listening to the sweet music, in a perfect rapture.
+The hope of one day explaining everything to them—how he had been taken away against his will—had helped him through many difficult moments. And now, to think that they had gone so far away, believing him to be a liar and a thief—and that this belief might never be corrected—was almost more than he could bear.
 
-And when Sunday came, how differently the day was spent, from any way in which he had ever spent it yet! and how happily too; like all the other days in that most happy time! There was the little church, in the morning, with the green leaves fluttering at the windows: the birds singing without: and the sweet-smelling air stealing in at the low porch, and filling the homely building with its fragrance. The poor people were so neat and clean, and knelt so reverently in prayer, that it seemed a pleasure, not a tedious duty, their assembling there together; and though the singing might be rude, it was real, and sounded more musical (to Oliver’s ears at least) than any he had ever heard in church before. Then, there were the walks as usual, and many calls at the clean houses of the labouring men; and at night, Oliver read a chapter or two from the Bible, which he had been studying all the week, and in the performance of which duty he felt more proud and pleased, than if he had been the clergyman himself.
+However, this made no difference in the kindness of the people who cared for him. After another two weeks, when the warm weather had truly arrived and trees and flowers were full of fresh leaves and blossoms, they prepared to leave their house in Chertsey for a few months.
 
-In the morning, Oliver would be a-foot by six o’clock, roaming the fields, and plundering the hedges, far and wide, for nosegays of wild flowers, with which he would return laden, home; and which it took great care and consideration to arrange, to the best advantage, for the embellishment of the breakfast-table. There was fresh groundsel, too, for Miss Maylie’s birds, with which Oliver, who had been studying the subject under the able tuition of the village clerk, would decorate the cages, in the most approved taste. When the birds were made all spruce and smart for the day, there was usually some little commission of charity to execute in the village; or, failing that, there was rare cricket-playing, sometimes, on the green; or, failing that, there was always something to do in the garden, or about the plants, to which Oliver (who had studied this science also, under the same master, who was a gardener by trade,) applied himself with hearty good-will, until Miss Rose made her appearance: when there were a thousand commendations to be bestowed on all he had done.
+They sent the valuable silver—once desired by Fagin—to the bank for safety, left Giles and another servant to watch the house, and moved to a small cottage in the countryside, taking Oliver with them.
 
-So three months glided away; three months which, in the life of the most blessed and favoured of mortals, might have been unmingled happiness, and which, in Oliver’s were true felicity. With the purest and most amiable generosity on one side; and the truest, warmest, soul-felt gratitude on the other; it is no wonder that, by the end of that short time, Oliver Twist had become completely domesticated with the old lady and her niece, and that the fervent attachment of his young and sensitive heart, was repaid by their pride in, and attachment to, himself.
+It is hard to describe the peace and happiness Oliver felt there. The fresh air, the green hills, and the quiet beauty of the village brought him a deep sense of calm. For someone who had suffered so much, it felt like a new life.
+
+People who spend their lives in crowded, noisy streets often do not realize how much they need peace and nature. But even they, when they are near the end of life, sometimes long to see open fields, the sky, and flowing water just once more. Such sights can awaken deep feelings—memories and emotions that seem almost beyond this world—and bring comfort, even in their final days.
+
+The place they went to was truly beautiful. Oliver, who had grown up among dirt, noise, and fighting, felt as if he had entered a new world. Roses and honeysuckle grew along the cottage walls. Ivy climbed around the trees, and flowers filled the air with sweet smells.
+
+Nearby, there was a small churchyard. It was not crowded with large stone monuments, but filled with simple graves covered in grass and moss, where the old people of the village rested peacefully. Oliver often walked there. Thinking of his mother’s lonely grave, he would sometimes sit and cry quietly. But when he looked up at the wide blue sky, he no longer imagined her lying in the ground, and his sadness became softer and more peaceful.
+
+It was a happy time. The days were calm and bright; the nights brought no fear or worry. There were no prisons, no cruel people—only kind thoughts and gentle living.
+
+Every morning, Oliver went to an old gentleman with white hair who lived near the church. This man taught him to read and write better, and was so kind and patient that Oliver always tried his hardest to please him.
+
+Later, Oliver would walk with Mrs. Maylie and Rose, listening to them talk about books. Sometimes he sat near them in the shade while Rose read aloud—he could listen for hours, until it became too dark to see the words.
+
+Then he would prepare his own lessons for the next day, working hard in a small room that looked out onto the garden. In the evening, they would walk again, and Oliver would listen happily to everything they said. He was always eager to help—bringing flowers, running errands—anything to make them happy.
+
+At night, when it grew dark, they returned home. Rose would sit at the piano and play soft, pleasant music, or sing quietly. No candles were lit at such times, and Oliver would sit by the window, listening with deep joy.
+
+Sundays were especially beautiful. In the morning, they went to the little church, where green leaves moved gently at the windows, birds sang outside, and fresh air filled the room. The people were simple and clean, and they prayed with sincerity. Even if the singing was not perfect, it felt more real and beautiful to Oliver than anything he had heard before.
+
+After church, they walked as usual, sometimes visiting the neat homes of village workers. In the evening, Oliver would read a chapter from the Bible—something he had prepared during the week—and he felt proud and happy to do it.
+
+Oliver often woke early, at six in the morning, and wandered through the fields, gathering wildflowers. He brought them home in large bundles and carefully arranged them to decorate the breakfast table.
+
+He also collected fresh plants for Miss Maylie’s birds and decorated their cages beautifully, using what he had learned from the village clerk. When everything was ready, he might be sent on a small act of kindness in the village—or, if not, he would play cricket on the green, or work in the garden, which he loved.
+
+When Rose came out and saw what he had done, she would praise him warmly, which made him happier than anything else.
+
+So three months passed—three months of pure happiness. With such kindness on one side, and such deep gratitude on the other, it is no wonder that Oliver became like a member of the family. His warm and loving heart was met with equal affection, and he was truly loved in return.
 
 `,
 }

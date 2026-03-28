@@ -18,13 +18,23 @@ let lastSuccessfulWordAnalysis: WordAnalysis | null = null
 
 /**
  * Функция получает текст вида:
- * *   **room** — комната, помещение.
- * *   The `room` is very bright. — `Комната` очень светлая.
+ * *   **room** — комната, `помещение`, *пространство*, **место**.
+ * *   The `room` is bright. — `Комната` светлая.
+ * *   The *room* is bright. — *Комната* светлая.
+ * *   The **room** is bright. — **Комната** светлая.
  *
  * и возвращает данные типа:
  * const wordAnalysis: WordAnalysis = {
  * 	word: 'room',
- * 	translation: 'комната, помещение.',
+ * 	translation: [
+ * 		{text: 'комната'},
+ * 		{text: ', '},
+ * 		{text: 'помещение', flashed: true},
+ * 		{text: ', '},
+ * 		{text: 'пространство', flashed: true},
+ * 		{text: ', '},
+ * 		{text: 'место', flashed: true},
+ * 	]',
  * 	examples: [
  * 		{
  * 			text: [
@@ -36,7 +46,7 @@ let lastSuccessfulWordAnalysis: WordAnalysis | null = null
  * 					flashed: true,
  * 				},
  * 				{
- * 					text: ' is very bright.',
+ * 					text: ' is bright.',
  * 				},
  * 			],
  * 			translate: [
@@ -45,7 +55,53 @@ let lastSuccessfulWordAnalysis: WordAnalysis | null = null
  * 					flashed: true,
  * 				},
  * 				{
- * 					text: ' очень светлая.',
+ * 					text: ' светлая.',
+ * 				},
+ * 			],
+ * 		},
+ * 		{
+ * 			text: [
+ * 				{
+ * 					text: 'The ',
+ * 				},
+ * 				{
+ * 					text: 'room',
+ * 					flashed: true,
+ * 				},
+ * 				{
+ * 					text: ' is bright.',
+ * 				},
+ * 			],
+ * 			translate: [
+ * 				{
+ * 					text: 'Комната',
+ * 					flashed: true,
+ * 				},
+ * 				{
+ * 					text: ' светлая.',
+ * 				},
+ * 			],
+ * 		},
+ * 		{
+ * 			text: [
+ * 				{
+ * 					text: 'The ',
+ * 				},
+ * 				{
+ * 					text: 'room',
+ * 					flashed: true,
+ * 				},
+ * 				{
+ * 					text: ' is bright.',
+ * 				},
+ * 			],
+ * 			translate: [
+ * 				{
+ * 					text: 'Комната',
+ * 					flashed: true,
+ * 				},
+ * 				{
+ * 					text: ' светлая.',
  * 				},
  * 			],
  * 		},
@@ -66,10 +122,7 @@ export default function parseWordAnalysis(source: string): WordAnalysis | null {
 		}
 
 		const header = parseHeader(lines[0])
-		const examples = lines
-			.slice(1)
-			.filter(Boolean)
-			.map(parseExample)
+		const examples = lines.slice(1).filter(Boolean).map(parseExample)
 
 		const result: WordAnalysis = {
 			word: header.word,
@@ -116,7 +169,10 @@ function parseHeader(line: string): Pick<WordAnalysis, 'word' | 'translation'> {
 		}
 	}
 
-	const word = content.slice(0, separatorIndex).replace(/^\*\*|\*\*$/g, '').trim()
+	const word = content
+		.slice(0, separatorIndex)
+		.replace(/^\*\*|\*\*$/g, '')
+		.trim()
 	const translation = content.slice(separatorIndex + 1).trim()
 
 	return {

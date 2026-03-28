@@ -1,89 +1,77 @@
-// ГЛАВА НЕ ГОТОВА
 export const chapter_29 = {
 	name: 'Chapter XXIX',
 	header: 'Has an introductory account of the inmates of the house, to which Oliver resorted',
-	text: `
-------------------------------
-Та же самая задача для этого текста:
-In a handsome room: though its furniture had rather the air of old-fashioned comfort, than of modern elegance: there sat two ladies at a well-spread breakfast-table. Mr. Giles, dressed with scrupulous care in a full suit of black, was in attendance upon them. He had taken his station some half-way between the side-board and the breakfast-table; and, with his body drawn up to its full height, his head thrown back, and inclined the merest trifle on one side, his left leg advanced, and his right hand thrust into his waist-coat, while his left hung down by his side, grasping a waiter, looked like one who laboured under a very agreeable sense of his own merits and importance.
+	text: `In a handsome room, furnished more for old-fashioned comfort than modern style, two ladies sat at a well-laid breakfast table. Mr. Giles, dressed with great care in a full suit of black, stood waiting on them. He had placed himself halfway between the sideboard and the table; and, standing very straight, with his head slightly tilted back, his left leg forward, and his right hand tucked into his waistcoat while his left held a tray, he looked like a man who felt very pleased with his own importance.
 
-Of the two ladies, one was well advanced in years; but the high-backed oaken chair in which she sat, was not more upright than she. Dressed with the utmost nicety and precision, in a quaint mixture of by-gone costume, with some slight concessions to the prevailing taste, which rather served to point the old style pleasantly than to impair its effect, she sat, in a stately manner, with her hands folded on the table before her. Her eyes (and age had dimmed but little of their brightness) were attentively upon her young companion.
+Of the two ladies, one was already advanced in years; but she sat as upright as the high-backed oak chair behind her. She was dressed very neatly, in a curious mix of old-fashioned clothes with a few small touches of modern style, which only made her appearance more distinctive. She sat with dignity, her hands folded on the table, watching her young companion with bright and attentive eyes that age had barely dimmed.
 
-The younger lady was in the lovely bloom and spring-time of womanhood; at that age, when, if ever angels be for God’s good purposes enthroned in mortal forms, they may be, without impiety, supposed to abide in such as hers.
+The younger lady was in the fresh bloom of youth; at that age when, if angels are ever allowed to appear in human form, they might well look like her.
 
-She was not past seventeen. Cast in so slight and exquisite a mould; so mild and gentle; so pure and beautiful; that earth seemed not her element, nor its rough creatures her fit companions. The very intelligence that shone in her deep blue eye, and was stamped upon her noble head, seemed scarcely of her age, or of the world; and yet the changing expression of sweetness and good humour, the thousand lights that played about the face, and left no shadow there; above all, the smile, the cheerful, happy smile, were made for Home, and fireside peace and happiness.
+She was not yet seventeen. She was slight and graceful, gentle and calm, so pure and lovely that she seemed almost out of place in the rough world around her. The intelligence in her deep blue eyes, and the thoughtful expression of her face, seemed beyond her years; and yet her changing expressions of sweetness and good humor, the lively light in her face, and above all her cheerful, happy smile, made her perfectly suited to the warmth and peace of home.
 
-She was busily engaged in the little offices of the table. Chancing to raise her eyes as the elder lady was regarding her, she playfully put back her hair, which was simply braided on her forehead; and threw into her beaming look, such an expression of affection and artless loveliness, that blessed spirits might have smiled to look upon her.
+She was busy attending to small tasks at the table. As she happened to look up and saw the older lady watching her, she playfully pushed back her simply braided hair, and gave such a warm and affectionate look that anyone might have smiled to see her.
 
-“And Brittles has been gone upwards of an hour, has he?” asked the old lady, after a pause.
+“And Brittles has been gone more than an hour, has he?” asked the old lady after a pause.
 
-“An hour and twelve minutes, ma’am,” replied Mr. Giles, referring to a silver watch, which he drew forth by a black ribbon.
+“An hour and twelve minutes, ma’am,” replied Mr. Giles, taking out a silver watch on a black ribbon.
 
-“He is always slow,” remarked the old lady.
+“He is always slow,” said the old lady.
 
-“Brittles always was a slow boy, ma’am,” replied the attendant. And seeing, by the bye, that Brittles had been a slow boy for upwards of thirty years, there appeared no great probability of his ever being a fast one.
+“Brittles has always been a slow boy, ma’am,” replied Mr. Giles. And since he had been a slow boy for more than thirty years, it seemed very unlikely he would ever become a quick one.
 
-“He gets worse instead of better, I think,” said the elder lady.
+“I think he gets worse, not better,” said the older lady.
 
-“It is very inexcusable in him if he stops to play with any other boys,” said the young lady, smiling.
+“It would be very wrong of him if he stopped to play with other boys,” said the young lady with a smile.
 
-Mr. Giles was apparently considering the propriety of indulging in a respectful smile himself, when a gig drove up to the garden-gate: out of which there jumped a fat gentleman, who ran straight up to the door: and who, getting quickly into the house by some mysterious process, burst into the room, and nearly overturned Mr. Giles and the breakfast-table together.
+Mr. Giles seemed to consider whether it would be proper to smile as well, when suddenly a small carriage drove up to the garden gate. A stout gentleman jumped out, ran to the door, and somehow got inside so quickly that he burst into the room, nearly knocking over both Mr. Giles and the breakfast table.
 
-“I never heard of such a thing!” exclaimed the fat gentleman. “My dear Mrs. Maylie—bless my soul—in the silence of the night, too—I never heard of such a thing!”
+“I never heard of such a thing!” cried the stout gentleman. “My dear Mrs. Maylie—bless me—such a thing happening in the middle of the night—I never heard of it!”
 
-With these expressions of condolence, the fat gentleman shook hands with both ladies, and drawing up a chair, inquired how they found themselves.
+With these words of concern, he shook hands with both ladies, pulled up a chair, and asked how they were.
 
-----------------
-Та же самая задача для этого текста:
+“You should be dead—truly dead—from the fright,” said the stout gentleman. “Why didn’t you send for help? Dear me, my servant would have come at once; and so would I; and my assistant would have been glad to come—or anyone, I’m sure, in such a situation. Dear, dear! So unexpected! And in the middle of the night too!”
 
-“You ought to be dead; positively dead with the fright,” said the fat gentleman. “Why didn’t you send? Bless me, my man should have come in a minute; and so would I; and my assistant would have been delighted; or anybody, I’m sure, under such circumstances. Dear, dear! So unexpected! In the silence of the night, too!”
-
-The doctor seemed especially troubled by the fact of the robbery having been unexpected, and attempted in the night-time; as if it were the established custom of gentlemen in the housebreaking way to transact business at noon, and to make an appointment, by post, a day or two previous.
+The doctor seemed especially troubled that the robbery had been both unexpected and done at night, as if it were the usual custom for burglars to work at noon and arrange their visits politely a few days in advance.
 
 “And you, Miss Rose,” said the doctor, turning to the young lady, “I—”
 
-“Oh! very much so, indeed,” said Rose, interrupting him; “but there is a poor creature upstairs, whom aunt wishes you to see.”
+“Oh! yes, very much so,” said Rose, interrupting him; “but there is a poor person upstairs whom my aunt wishes you to see.”
 
-“Ah! to be sure,” replied the doctor, “so there is. That was your handiwork, Giles, I understand.”
+“Ah! of course,” replied the doctor. “So there is. That was your doing, Giles, I hear.”
 
-Mr. Giles, who had been feverishly putting the tea-cups to rights, blushed very red, and said that he had had that honour.
+Mr. Giles, who had been nervously setting the teacups straight, blushed deeply and said that he had had that honor.
 
-“Honour, eh?” said the doctor; “well, I don’t know; perhaps it’s as honourable to hit a thief in a back kitchen, as to hit your man at twelve paces. Fancy that he fired in the air, and you’ve fought a duel, Giles.”
+“Honor, eh?” said the doctor. “Well, I’m not sure. Perhaps it’s as honorable to hit a thief in a back kitchen as to shoot a man in a formal duel. Imagine—he fired into the air, and you’ve fought a duel, Giles.”
 
-Mr. Giles, who thought this light treatment of the matter an unjust attempt at diminishing his glory, answered respectfully, that it was not for the like of him to judge about that; but he rather thought it was no joke to the opposite party.
+Mr. Giles, who felt this made his achievement seem less important, replied politely that it was not for someone like him to judge such matters; but he thought it had been no joke for the other man.
 
-“Gad, that’s true!” said the doctor. “Where is he? Show me the way. I’ll look in again, as I come down, Mrs. Maylie. That’s the little window that he got in at, eh? Well, I couldn’t have believed it!”
+“By Jove, that’s true!” said the doctor. “Where is he? Show me the way. I’ll come back and speak to you again, Mrs. Maylie. That’s the little window he got in through, is it? Well, I would never have believed it!”
 
-Talking all the way, he followed Mr. Giles upstairs; and while he is going upstairs, the reader may be informed, that Mr. Losberne, a surgeon in the neighbourhood, known through a circuit of ten miles round as “the doctor,” had grown fat, more from good-humour than from good living: and was as kind and hearty, and withal as eccentric an old bachelor, as will be found in five times that space, by any explorer alive.
+Talking all the way, he followed Mr. Giles upstairs. And while they go, the reader may be told that Mr. Losberne, a local surgeon, known for miles around simply as “the doctor,” had grown fat more from his good nature than from overeating. He was as kind, warm-hearted, and somewhat eccentric an old bachelor as one could find anywhere.
 
-The doctor was absent, much longer than either he or the ladies had anticipated. A large flat box was fetched out of the gig; and a bedroom bell was rung very often; and the servants ran up and down stairs perpetually; from which tokens it was justly concluded that something important was going on above. At length he returned; and in reply to an anxious inquiry after his patient; looked very mysterious, and closed the door, carefully.
+The doctor stayed upstairs much longer than anyone expected. A large flat box was taken from the carriage; the bedroom bell rang again and again; and the servants kept running up and down the stairs, which clearly showed that something important was happening above. At last he returned; and when anxiously asked about his patient, he looked very serious and mysterious, and carefully shut the door.
 
-----------------
-Та же самая задача для этого текста:
-
-“This is a very extraordinary thing, Mrs. Maylie,” said the doctor, standing with his back to the door, as if to keep it shut.
+“This is a very unusual matter, Mrs. Maylie,” said the doctor, standing with his back to the door, as if he meant to keep it closed.
 
 “He is not in danger, I hope?” said the old lady.
 
-“Why, that would not be an extraordinary thing, under the circumstances,” replied the doctor; “though I don’t think he is. Have you seen the thief?”
+“Well, that would not be surprising, considering the circumstances,” replied the doctor; “though I don’t believe he is. Have you seen the thief?”
 
-“No,” rejoined the old lady.
+“No,” said the old lady.
 
-“Nor heard anything about him?”
+“Or heard anything about him?”
 
 “No.”
 
-“I beg your pardon, ma’am,” interposed Mr. Giles; “but I was going to tell you about him when Doctor Losberne came in.”
+“Excuse me, ma’am,” said Mr. Giles, stepping in; “I was just about to tell you about him when Doctor Losberne arrived.”
 
-The fact was, that Mr. Giles had not, at first, been able to bring his mind to the avowal, that he had only shot a boy. Such commendations had been bestowed upon his bravery, that he could not, for the life of him, help postponing the explanation for a few delicious minutes; during which he had flourished, in the very zenith of a brief reputation for undaunted courage.
+The truth was that Mr. Giles had not at first been able to admit that he had only shot a boy. He had received so many praises for his bravery that he could not resist delaying the explanation for a few pleasant moments, during which he enjoyed the peak of his brief reputation for great courage.
 
-“Rose wished to see the man,” said Mrs. Maylie, “but I wouldn’t hear of it.”
+“Rose wanted to see the man,” said Mrs. Maylie, “but I would not allow it.”
 
-“Humph!” rejoined the doctor. “There is nothing very alarming in his appearance. Have you any objection to see him in my presence?”
+“Hmm!” said the doctor. “There is nothing very frightening about his appearance. Do you object to seeing him, if I am present?”
 
-“If it be necessary,” replied the old lady, “certainly not.”
+“If it is necessary,” replied the old lady, “then certainly not.”
 
-“Then I think it is necessary,” said the doctor; “at all events, I am quite sure that you would deeply regret not having done so, if you postponed it. He is perfectly quiet and comfortable now. Allow me—Miss Rose, will you permit me? Not the slightest fear, I pledge you my honour!”
-
-`,
+“Then I believe it is necessary,” said the doctor. “In any case, I am quite sure you would regret not seeing him if you delayed it. He is perfectly calm and comfortable now. Allow me—Miss Rose, will you permit me? There is absolutely nothing to fear, I give you my word!”`,
 }

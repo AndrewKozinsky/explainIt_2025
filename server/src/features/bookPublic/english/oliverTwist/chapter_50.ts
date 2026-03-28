@@ -1,216 +1,253 @@
-// ГЛАВА НЕ ГОТОВА
 export const chapter_50 = {
 	name: 'Chapter L',
 	header: 'The pursuit and escape',
-	text: `
-------------------------------
-Та же самая задача для этого текста:
-Near to that part of the Thames on which the church at Rotherhithe abuts, where the buildings on the banks are dirtiest and the vessels on the river blackest with the dust of colliers and the smoke of close-built low-roofed houses, there exists the filthiest, the strangest, the most extraordinary of the many localities that are hidden in London, wholly unknown, even by name, to the great mass of its inhabitants.
+	text: `Near the part of the Thames where the church at Rotherhithe stands, the river looks especially dark and dirty. The buildings along the banks are old and black with smoke, and the air is heavy from coal dust. In this area lies one of the filthiest and strangest places in London—so hidden that most people in the city do not even know its name.
 
-To reach this place, the visitor has to penetrate through a maze of close, narrow, and muddy streets, thronged by the roughest and poorest of waterside people, and devoted to the traffic they may be supposed to occasion. The cheapest and least delicate provisions are heaped in the shops; the coarsest and commonest articles of wearing apparel dangle at the salesman’s door, and stream from the house-parapet and windows. Jostling with unemployed labourers of the lowest class, ballast-heavers, coal-whippers, brazen women, ragged children, and the raff and refuse of the river, he makes his way with difficulty along, assailed by offensive sights and smells from the narrow alleys which branch off on the right and left, and deafened by the clash of ponderous waggons that bear great piles of merchandise from the stacks of warehouses that rise from every corner. Arriving, at length, in streets remoter and less-frequented than those through which he has passed, he walks beneath tottering house-fronts projecting over the pavement, dismantled walls that seem to totter as he passes, chimneys half crushed half hesitating to fall, windows guarded by rusty iron bars that time and dirt have almost eaten away, every imaginable sign of desolation and neglect.
+To get there, a visitor must pass through a maze of narrow, muddy streets. These streets are crowded with the poorest people who live and work by the river. Cheap food is piled in shop windows. Rough clothes hang outside doors and from the windows above. As he walks, the visitor pushes past unemployed workers, coal carriers, loud women, and ragged children. Everywhere there are ugly sights and terrible smells from the dark alleys. Heavy wagons rumble past, carrying goods from nearby warehouses.
 
-In such a neighbourhood, beyond Dockhead in the Borough of Southwark, stands Jacob’s Island, surrounded by a muddy ditch, six or eight feet deep and fifteen or twenty wide when the tide is in, once called Mill Pond, but known in the days of this story as Folly Ditch. It is a creek or inlet from the Thames, and can always be filled at high water by opening the sluices at the Lead Mills from which it took its old name. At such times, a stranger, looking from one of the wooden bridges thrown across it at Mill Lane, will see the inhabitants of the houses on either side lowering from their back doors and windows, buckets, pails, domestic utensils of all kinds, in which to haul the water up; and when his eye is turned from these operations to the houses themselves, his utmost astonishment will be excited by the scene before him. Crazy wooden galleries common to the backs of half a dozen houses, with holes from which to look upon the slime beneath; windows, broken and patched, with poles thrust out, on which to dry the linen that is never there; rooms so small, so filthy, so confined, that the air would seem too tainted even for the dirt and squalor which they shelter; wooden chambers thrusting themselves out above the mud, and threatening to fall into it—as some have done; dirt-besmeared walls and decaying foundations; every repulsive lineament of poverty, every loathsome indication of filth, rot, and garbage; all these ornament the banks of Folly Ditch.
+At last, he reaches quieter streets. Here the houses lean forward as if they might fall. The walls are broken, the chimneys cracked, and the windows covered with rusty bars. Everything shows neglect and decay.
 
-In Jacob’s Island, the warehouses are roofless and empty; the walls are crumbling down; the windows are windows no more; the doors are falling into the streets; the chimneys are blackened, but they yield no smoke. Thirty or forty years ago, before losses and chancery suits came upon it, it was a thriving place; but now it is a desolate island indeed. The houses have no owners; they are broken open, and entered upon by those who have the courage; and there they live, and there they die. They must have powerful motives for a secret residence, or be reduced to a destitute condition indeed, who seek a refuge in Jacob’s Island.
+In this area, beyond Dockhead in Southwark, stands Jacob’s Island. It is surrounded by a muddy ditch, filled with water when the tide is high. This ditch, once called Mill Pond, is known here as Folly Ditch. When the water rises, people lower buckets from their windows to pull it up.
 
-In an upper room of one of these houses—a detached house of fair size, ruinous in other respects, but strongly defended at door and window: of which house the back commanded the ditch in manner already described—there were assembled three men, who, regarding each other every now and then with looks expressive of perplexity and expectation, sat for some time in profound and gloomy silence. One of these was Toby Crackit, another Mr. Chitling, and the third a robber of fifty years, whose nose had been almost beaten in, in some old scuffle, and whose face bore a frightful scar which might probably be traced to the same occasion. This man was a returned transport, and his name was Kags.
+If a stranger looks closer, he will be shocked. Wooden walkways hang behind the houses, full of holes. The windows are broken and patched. Poles stick out, though no clean clothes hang on them. The rooms are small, dirty, and crowded, with foul air inside. Some parts of the houses hang over the mud and seem ready to fall—and some already have. Everywhere there are signs of poverty, dirt, and decay.
 
-“I wish,” said Toby turning to Mr. Chitling, “that you had picked out some other crib when the two old ones got too warm, and had not come here, my fine feller.”
+On Jacob’s Island, the warehouses stand empty, without roofs. The walls are falling apart. The windows and doors are broken. The chimneys are black, but no smoke rises from them. Years ago, this place was busy and successful, but now it is completely ruined.
 
-“Why didn’t you, blunder-head!” said Kags.
+The houses have no real owners. Anyone brave or desperate enough can enter and live there. People come here to hide, or because they have nowhere else to go. And many of them die there.
 
-“Well, I thought you’d have been a little more glad to see me than this,” replied Mr. Chitling, with a melancholy air.
+In an upstairs room of one of these houses sat three men. The house was partly ruined, but its doors and windows were strongly secured. The men looked at each other from time to time, anxious and uncertain, but for a while none of them spoke.
 
-“Why, look’e, young gentleman,” said Toby, “when a man keeps himself so very ex-clusive as I have done, and by that means has a snug house over his head with nobody a prying and smelling about it, it’s rather a startling thing to have the honour of a wisit from a young gentleman (however respectable and pleasant a person he may be to play cards with at conweniency) circumstanced as you are.”
+One was Toby Crackit. Another was Mr. Chitling. The third was an older robber named Kags. His nose had been badly broken in a fight long ago, and a deep scar crossed his face. He had once been sent away as a criminal and had only recently returned.
 
-“Especially, when the exclusive young man has got a friend stopping with him, that’s arrived sooner than was expected from foreign parts, and is too modest to want to be presented to the Judges on his return,” added Mr. Kags.
+“I wish,” said Toby, turning to Chitling, “you had chosen some other place when things got dangerous—and not come here.”
 
-There was a short silence, after which Toby Crackit, seeming to abandon as hopeless any further effort to maintain his usual devil-may-care swagger, turned to Chitling and said,
+“Why didn’t you, fool?” said Kags.
 
-“When was Fagin took then?”
+“I thought you’d be glad to see me,” said Chitling sadly.
 
-“Just at dinner-time—two o’clock this afternoon. Charley and I made our lucky up the wash-us chimney, and Bolter got into the empty water-butt, head downwards; but his legs were so precious long that they stuck out at the top, and so they took him too.”
+“Well,” said Toby, “when a man lives quietly, with a safe place and no one watching him, it’s a bit of a shock to get a visit—especially from someone in your situation.”
+
+“Especially,” added Kags, “when that man already has a guest—someone who has just returned from abroad and prefers not to meet the judges again.”
+
+They were silent for a moment. Then Toby spoke again, more seriously.
+
+“When was Fagin taken?”
+
+“This afternoon, around two,” said Chitling. “Charley and I escaped up the chimney. Bolter hid in an empty water barrel, head down—but his legs stuck out, so they caught him.”
 
 “And Bet?”
 
-“Poor Bet! She went to see the Body, to speak to who it was,” replied Chitling, his countenance falling more and more, “and went off mad, screaming and raving, and beating her head against the boards; so they put a strait-weskut on her and took her to the hospital—and there she is.”
+“Poor Bet,” said Chitling, looking more and more upset. “She went to see who had been caught. Then she went mad—screaming, crying, hitting her head. They put her in a straitjacket and took her to the hospital. She’s still there.”
 
-“Wot’s come of young Bates?” demanded Kags.
+“What about young Bates?” asked Kags.
 
-----------------
-Та же самая задача для этого текста:
+“He stayed behind so he wouldn’t come here before dark,” said Chitling. “But he’ll be here soon. There’s nowhere else to go now. Everyone at the Cripples has been arrested. I saw it myself—the place is full of police.”
 
-“He hung about, not to come over here afore dark, but he’ll be here soon,” replied Chitling. “There’s nowhere else to go to now, for the people at the Cripples are all in custody, and the bar of the ken—I went up there and see it with my own eyes—is filled with traps.”
+“This is a disaster,” said Toby, biting his lips. “More than one of us will suffer for this.”
 
-“This is a smash,” observed Toby, biting his lips. “There’s more than one will go with this.”
+“The court is already sitting,” said Kags. “If the inquest is finished, and Bolter gives evidence against us—which he will, from what he’s already said—they can prove that Fagin helped plan the crime. The trial could start on Friday, and he’ll be hanged within a week.”
 
-“The sessions are on,” said Kags: “if they get the inquest over, and Bolter turns King’s evidence: as of course he will, from what he’s said already: they can prove Fagin an accessory before the fact, and get the trial on on Friday, and he’ll swing in six days from this, by G—!”
+“You should have heard the crowd,” said Chitling. “They were groaning and shouting. The officers fought hard to protect him, or the people would have torn him apart. He fell once, but they formed a ring around him and pushed forward.
 
-“You should have heard the people groan,” said Chitling; “the officers fought like devils, or they’d have torn him away. He was down once, but they made a ring round him, and fought their way along. You should have seen how he looked about him, all muddy and bleeding, and clung to them as if they were his dearest friends. I can see ’em now, not able to stand upright with the pressing of the mob, and draggin him along amongst ’em; I can see the people jumping up, one behind another, and snarling with their teeth and making at him; I can see the blood upon his hair and beard, and hear the cries with which the women worked themselves into the centre of the crowd at the street corner, and swore they’d tear his heart out!”
+He looked terrified—covered in mud and blood. He clung to the officers as if they were his best friends. I can still see it. The crowd was pressing so hard they could hardly stand. They dragged him through the streets. People jumped up behind each other, snarling and trying to reach him. I saw blood in his hair and beard. And the women—screaming, pushing forward—swearing they would tear his heart out!”
 
-The horror-stricken witness of this scene pressed his hands upon his ears, and with his eyes closed got up and paced violently to and fro, like one distracted.
+Chitling covered his ears and shut his eyes. He stood up and began to walk quickly back and forth, like a man out of his mind.
 
-While he was thus engaged, and the two men sat by in silence with their eyes fixed upon the floor, a pattering noise was heard upon the stairs, and Sikes’s dog bounded into the room. They ran to the window, downstairs, and into the street. The dog had jumped in at an open window; he made no attempt to follow them, nor was his master to be seen.
+While he did this, the others sat in silence, staring at the floor. Suddenly, they heard quick footsteps on the stairs. A dog rushed into the room—it was Sikes’s dog.
 
-“What’s the meaning of this?” said Toby when they had returned. “He can’t be coming here. I—I—hope not.”
+They ran to the window, then downstairs, and into the street. The dog had jumped in through an open window. But it did not follow them back out, and its master was nowhere to be seen.
 
-“If he was coming here, he’d have come with the dog,” said Kags, stooping down to examine the animal, who lay panting on the floor. “Here! Give us some water for him; he has run himself faint.”
+“What does this mean?” said Toby when they returned. “He can’t be coming here. I—I hope not.”
 
-“He’s drunk it all up, every drop,” said Chitling after watching the dog some time in silence. “Covered with mud—lame—half blind—he must have come a long way.”
+“If he was coming, he’d be with the dog,” said Kags. He bent down to look at the animal, which lay on the floor, breathing heavily. “Give him some water. He’s exhausted.”
 
-“Where can he have come from!” exclaimed Toby. “He’s been to the other kens of course, and finding them filled with strangers come on here, where he’s been many a time and often. But where can he have come from first, and how comes he here alone without the other!”
+“He drank it all,” said Chitling after watching him. “Every drop. He’s covered in mud, he’s limping, and he can hardly see. He must have come a long way.”
 
-“He”—(none of them called the murderer by his old name)—“He can’t have made away with himself. What do you think?” said Chitling.
+“Where could he have come from?” said Toby. “He’s probably been to the other hiding places, found them full of strangers, and came here. He’s been here many times before. But where did he start—and why is he alone?”
+
+“He…”—none of them used the murderer’s name—“he couldn’t have killed himself. What do you think?” asked Chitling.
 
 Toby shook his head.
 
-“If he had,” said Kags, “the dog ’ud want to lead us away to where he did it. No. I think he’s got out of the country, and left the dog behind. He must have given him the slip somehow, or he wouldn’t be so easy.”
+“If he had,” said Kags, “the dog would try to lead us to the place. No. I think he escaped and left the dog behind. He must have slipped away somehow, or the dog wouldn’t be so calm.”
 
-This solution, appearing the most probable one, was adopted as the right; the dog, creeping under a chair, coiled himself up to sleep, without more notice from anybody.
+This seemed the most likely explanation, and they accepted it. The dog crawled under a chair and curled up to sleep. No one paid any more attention to him.
 
-It being now dark, the shutter was closed, and a candle lighted and placed upon the table. The terrible events of the last two days had made a deep impression on all three, increased by the danger and uncertainty of their own position. They drew their chairs closer together, starting at every sound. They spoke little, and that in whispers, and were as silent and awe-stricken as if the remains of the murdered woman lay in the next room.
+It was now dark. They closed the shutters and lit a candle, placing it on the table. The terrible events of the past two days had shaken them deeply. They were afraid, and unsure of what would happen next.
 
-They had sat thus, some time, when suddenly was heard a hurried knocking at the door below.
+They pulled their chairs closer together, jumping at every sound. They spoke little, and only in whispers. They sat there, silent and tense, as if the body of the murdered woman lay in the next room.
 
-----------------
-Та же самая задача для этого текста:
+They had been sitting like this for some time when suddenly there came a hurried knocking at the door below.
 
-“Young Bates,” said Kags, looking angrily round, to check the fear he felt himself.
+“Young Bates,” said Kags, looking around angrily, trying to hide his own fear.
 
-The knocking came again. No, it wasn’t he. He never knocked like that.
+The knocking came again. No—it wasn’t him. He never knocked like that.
 
-Crackit went to the window, and shaking all over, drew in his head. There was no need to tell them who it was; his pale face was enough. The dog too was on the alert in an instant, and ran whining to the door.
+Crackit went to the window and looked out, shaking all over. When he turned back, his face was pale. He didn’t need to speak—the others understood at once. The dog suddenly became alert and ran to the door, whining.
 
-“We must let him in,” he said, taking up the candle.
+“We have to let him in,” said Toby, picking up the candle.
 
-“Isn’t there any help for it?” asked the other man in a hoarse voice.
+“Isn’t there any other way?” asked the other man in a rough, frightened voice.
 
-“None. He must come in.”
+“No. He must come in.”
 
-“Don’t leave us in the dark,” said Kags, taking down a candle from the chimney-piece, and lighting it, with such a trembling hand that the knocking was twice repeated before he had finished.
+“Don’t leave us in the dark,” said Kags. He took a candle from the fireplace and tried to light it. His hands shook so much that the knocking came twice more before he finished.
 
-Crackit went down to the door, and returned followed by a man with the lower part of his face buried in a handkerchief, and another tied over his head under his hat. He drew them slowly off. Blanched face, sunken eyes, hollow cheeks, beard of three days’ growth, wasted flesh, short thick breath; it was the very ghost of Sikes.
+Crackit went downstairs and opened the door. He returned with a man whose face was partly hidden by a handkerchief, and another cloth tied under his hat. Slowly, the man pulled them away.
 
-He laid his hand upon a chair which stood in the middle of the room, but shuddering as he was about to drop into it, and seeming to glance over his shoulder, dragged it back close to the wall—as close as it would go—and ground it against it—and sat down.
+His face was pale. His eyes were sunken. His cheeks were hollow. His beard had not been shaved for days. His body looked weak, and he breathed heavily. He looked like a ghost.
 
-Not a word had been exchanged. He looked from one to another in silence. If an eye were furtively raised and met his, it was instantly averted. When his hollow voice broke silence, they all three started. They seemed never to have heard its tones before.
+It was Sikes.
 
-“How came that dog here?” he asked.
+He put his hand on a chair in the middle of the room. He was about to sit down—but suddenly stopped. He looked over his shoulder, as if afraid. Then he dragged the chair back against the wall, pressing it hard into place, and sat down there.
 
-----------------
-Та же самая задача для этого текста:
+No one spoke.
+
+He looked at each of them in silence. If anyone met his eyes, they quickly looked away. When he finally spoke, they all jumped. His voice sounded strange, as if they had never heard it before.
+
+“How did that dog get here?” he asked.
 
 “Alone. Three hours ago.”
 
-“Tonight’s paper says that Fagin’s took. Is it true, or a lie?”
+“Tonight’s newspaper says Fagin has been caught. Is it true or not?”
 
 “True.”
 
 They were silent again.
 
-“Damn you all!” said Sikes, passing his hand across his forehead. “Have you nothing to say to me?”
+“Damn you all!” said Sikes, wiping his forehead. “Have you nothing to say to me?”
 
-There was an uneasy movement among them, but nobody spoke.
+The men shifted uneasily, but no one answered.
 
-“You that keep this house,” said Sikes, turning his face to Crackit, “do you mean to sell me, or to let me lie here till this hunt is over?”
+“You,” said Sikes, turning to Crackit, “you keep this place. Are you going to betray me, or let me stay here until the search is over?”
 
-“You may stop here, if you think it safe,” returned the person addressed, after some hesitation.
+“You can stay,” said Crackit after a pause, “if you think it’s safe.”
 
-Sikes carried his eyes slowly up the wall behind him: rather trying to turn his head than actually doing it: and said, “Is—it—the body—is it buried?”
+Sikes slowly moved his eyes along the wall behind him, as if he was afraid to turn his head.
+
+“Is… is the body buried?” he asked.
 
 They shook their heads.
 
-“Why isn’t it!” he retorted with the same glance behind him. “Wot do they keep such ugly things above the ground for?—Who’s that knocking?”
+“Why not?” he said sharply, still glancing behind him. “Why keep such a terrible thing above the ground?—Who’s knocking?”
 
-Crackit intimated, by a motion of his hand as he left the room, that there was nothing to fear; and directly came back with Charley Bates behind him. Sikes sat opposite the door, so that the moment the boy entered the room he encountered his figure.
+Crackit made a quick gesture to show there was no danger and left the room. He soon returned with Charley Bates.
 
-“Toby,” said the boy falling back, as Sikes turned his eyes towards him, “why didn’t you tell me this, downstairs?”
+Sikes was sitting opposite the door. The moment the boy entered, he saw him.
 
-There had been something so tremendous in the shrinking off of the three, that the wretched man was willing to propitiate even this lad. Accordingly he nodded, and made as though he would shake hands with him.
+“Toby,” said the boy, stepping back, “why didn’t you tell me he was here?”
 
-“Let me go into some other room,” said the boy, retreating still farther.
+The fear shown by the others made Sikes desperate to seem less dangerous. He nodded and reached out his hand, as if to greet the boy.
 
-“Charley!” said Sikes, stepping forward. “Don’t you—don’t you know me?”
+“Let me go into another room,” said Charley, moving farther away.
 
-“Don’t come nearer me,” answered the boy, still retreating, and looking, with horror in his eyes, upon the murderer’s face. “You monster!”
+“Charley,” said Sikes, stepping forward. “Don’t you… don’t you know me?”
 
-The man stopped half-way, and they looked at each other; but Sikes’s eyes sunk gradually to the ground.
+“Don’t come closer,” said the boy, still backing away. His eyes were full of horror. “You monster!”
 
-“Witness you three,” cried the boy shaking his clenched fist, and becoming more and more excited as he spoke. “Witness you three—I’m not afraid of him—if they come here after him, I’ll give him up; I will. I tell you out at once. He may kill me for it if he likes, or if he dares, but if I am here I’ll give him up. I’d give him up if he was to be boiled alive. Murder! Help! If there’s the pluck of a man among you three, you’ll help me. Murder! Help! Down with him!”
+Sikes stopped. They looked at each other. Then Sikes lowered his eyes to the floor.
 
-Pouring out these cries, and accompanying them with violent gesticulation, the boy actually threw himself, single-handed, upon the strong man, and in the intensity of his energy and the suddenness of his surprise, brought him heavily to the ground.
+“You three—listen!” cried the boy, shaking his fist. He grew more and more excited as he spoke. “I’m not afraid of him! If the police come, I’ll give him up—I will! I’m telling you now. He can kill me if he wants—but I’ll still give him up. Even if they were going to burn him alive, I’d still do it. Murder! Help! If any of you have courage, help me! Murder! Help! Stop him!”
 
-----------------
-Та же самая задача для этого текста:
+Shouting these words and waving his arms wildly, the boy suddenly rushed at the man. Alone, he attacked him with such force and surprise that he knocked him heavily to the ground.
 
-The three spectators seemed quite stupefied. They offered no interference, and the boy and man rolled on the ground together; the former, heedless of the blows that showered upon him, wrenching his hands tighter and tighter in the garments about the murderer’s breast, and never ceasing to call for help with all his might.
+The three men stood as if frozen. They did nothing to stop the fight. The boy and Sikes struggled on the floor. The boy ignored the blows that hit him again and again. He held tightly to the murderer’s clothes and would not let go. All the time, he shouted for help with all his strength.
 
-The contest, however, was too unequal to last long. Sikes had him down, and his knee was on his throat, when Crackit pulled him back with a look of alarm, and pointed to the window. There were lights gleaming below, voices in loud and earnest conversation, the tramp of hurried footsteps—endless they seemed in number—crossing the nearest wooden bridge. One man on horseback seemed to be among the crowd; for there was the noise of hoofs rattling on the uneven pavement. The gleam of lights increased; the footsteps came more thickly and noisily on. Then, came a loud knocking at the door, and then a hoarse murmur from such a multitude of angry voices as would have made the boldest quail.
+But the fight could not last long. Sikes was much stronger. Soon he threw the boy down and pressed his knee on his throat. Just then, Crackit pulled him back in alarm and pointed to the window.
 
-“Help!” shrieked the boy in a voice that rent the air. “He’s here! Break down the door!”
+There were lights outside. Voices could be heard—loud and angry. Many footsteps hurried across the wooden bridge nearby. There seemed to be a huge crowd. Among them was a man on horseback; they could hear the sound of hooves on the street.
 
-“In the King’s name,” cried the voices without; and the hoarse cry arose again, but louder.
+More lights appeared. The noise grew louder. Then came a heavy knock at the door. After that, a deep roar rose from the crowd—so loud and full of anger that it could frighten even the bravest person.
 
-“Break down the door!” screamed the boy. “I tell you they’ll never open it. Run straight to the room where the light is. Break down the door!”
+“Help!” screamed the boy. “He’s here! Break down the door!”
 
-Strokes, thick and heavy, rattled upon the door and lower window-shutters as he ceased to speak, and a loud huzzah burst from the crowd; giving the listener, for the first time, some adequate idea of its immense extent.
+“In the King’s name!” cried voices outside, louder than before.
 
-“Open the door of some place where I can lock this screeching Hell-babe,” cried Sikes fiercely; running to and fro, and dragging the boy, now, as easily as if he were an empty sack. “That door. Quick!” He flung him in, bolted it, and turned the key. “Is the downstairs door fast?”
+“Break down the door!” shouted the boy again. “They won’t open it! Go straight to the room with the light! Break it down!”
 
-“Double-locked and chained,” replied Crackit, who, with the other two men, still remained quite helpless and bewildered.
+Heavy blows struck the door and the shutters. The crowd cheered loudly, and only then could one understand how many people were outside.
 
-“The panels—are they strong?”
+“Open a room where I can lock this screaming brat!” shouted Sikes. He ran back and forth, dragging the boy as if he weighed nothing. “That door—quick!”
 
-“Lined with sheet-iron.”
+He threw the boy inside, locked the door, and turned the key.
 
-“And the windows too?”
+“Is the front door secure?” he asked.
 
-“Yes, and the windows.”
+“Double-locked and chained,” said Crackit. He and the others still looked confused and helpless.
 
-“Damn you!” cried the desperate ruffian, throwing up the sash and menacing the crowd. “Do your worst! I’ll cheat you yet!”
+“The door panels—are they strong?”
 
-Of all the terrific yells that ever fell on mortal ears, none could exceed the cry of the infuriated throng. Some shouted to those who were nearest to set the house on fire; others roared to the officers to shoot him dead. Among them all, none showed such fury as the man on horseback, who, throwing himself out of the saddle, and bursting through the crowd as if he were parting water, cried, beneath the window, in a voice that rose above all others, “Twenty guineas to the man who brings a ladder!”
+“They’re covered with iron.”
 
-The nearest voices took up the cry, and hundreds echoed it. Some called for ladders, some for sledge-hammers; some ran with torches to and fro as if to seek them, and still came back and roared again; some spent their breath in impotent curses and execrations; some pressed forward with the ecstasy of madmen, and thus impeded the progress of those below; some among the boldest attempted to climb up by the water-spout and crevices in the wall; and all waved to and fro, in the darkness beneath, like a field of corn moved by an angry wind: and joined from time to time in one loud furious roar.
+“And the windows?”
 
-“The tide,” cried the murderer, as he staggered back into the room, and shut the faces out, “the tide was in as I came up. Give me a rope, a long rope. They’re all in front. I may drop into the Folly Ditch, and clear off that way. Give me a rope, or I shall do three more murders and kill myself.”
+“Yes, the windows too.”
 
-----------------
-Та же самая задача для этого текста:
+“Damn you all!” cried Sikes. He threw open the window and shouted down at the crowd. “Do your worst! You won’t catch me!”
 
-The panic-stricken men pointed to where such articles were kept; the murderer, hastily selecting the longest and strongest cord, hurried up to the house-top.
+The crowd answered with a terrible roar. Some shouted to burn the house down. Others told the officers to shoot him.
 
-All the windows in the rear of the house had been long ago bricked up, except one small trap in the room where the boy was locked, and that was too small even for the passage of his body. But, from this aperture, he had never ceased to call on those without, to guard the back; and thus, when the murderer emerged at last on the house-top by the door in the roof, a loud shout proclaimed the fact to those in front, who immediately began to pour round, pressing upon each other in an unbroken stream.
+One man was fiercer than the rest. He jumped off his horse, pushed through the crowd, and shouted up at the window, louder than anyone else: “Twenty guineas to anyone who brings a ladder!”
 
-He planted a board, which he had carried up with him for the purpose, so firmly against the door that it must be matter of great difficulty to open it from the inside; and creeping over the tiles, looked over the low parapet.
+The cry spread through the crowd. Hundreds of voices repeated it. Some called for ladders, others for heavy tools. Some ran with torches, looking for something to use. Others just shouted curses. Some tried to climb the walls.
 
-The water was out, and the ditch a bed of mud.
+The crowd moved wildly in the dark, like a field of grain in a strong wind. From time to time, they all joined in one loud, furious roar.
 
-The crowd had been hushed during these few moments, watching his motions and doubtful of his purpose, but the instant they perceived it and knew it was defeated, they raised a cry of triumphant execration to which all their previous shouting had been whispers. Again and again it rose. Those who were at too great a distance to know its meaning, took up the sound; it echoed and re-echoed; it seemed as though the whole city had poured its population out to curse him.
+“The tide,” said Sikes, stepping back into the room and shutting the window. “The tide was high when I came. Give me a rope—a long rope. They’re all in front of the house. I might escape through the ditch at the back. Give me a rope—or I’ll kill three more people and then myself!”
 
-On pressed the people from the front—on, on, on, in a strong struggling current of angry faces, with here and there a glaring torch to lighten them up, and show them out in all their wrath and passion. The houses on the opposite side of the ditch had been entered by the mob; sashes were thrown up, or torn bodily out; there were tiers and tiers of faces in every window; cluster upon cluster of people clinging to every house-top. Each little bridge (and there were three in sight) bent beneath the weight of the crowd upon it. Still the current poured on to find some nook or hole from which to vent their shouts, and only for an instant see the wretch.
+The terrified men pointed to where the ropes were kept. The murderer quickly chose the longest and strongest one and ran up to the roof.
 
-“They have him now,” cried a man on the nearest bridge. “Hurrah!”
+At the back of the house, all the windows had long ago been closed with bricks. Only one small opening remained in the room where the boy was locked, but it was too small for anyone to escape through. From there, the boy had been shouting to the people outside, warning them to watch the back of the house.
 
-The crowd grew light with uncovered heads; and again the shout uprose.
+So when the murderer appeared on the roof, a loud shout rose from the crowd. People at the front rushed around to the back, pushing and pressing forward in a solid mass.
 
-“I will give fifty pounds,” cried an old gentleman from the same quarter, “to the man who takes him alive. I will remain here, till he come to ask me for it.”
+He placed a wooden board against the roof door to block it from being opened. Then he carefully moved across the tiles and looked over the edge.
 
-There was another roar. At this moment the word was passed among the crowd that the door was forced at last, and that he who had first called for the ladder had mounted into the room. The stream abruptly turned, as this intelligence ran from mouth to mouth; and the people at the windows, seeing those upon the bridges pouring back, quitted their stations, and running into the street, joined the concourse that now thronged pell-mell to the spot they had left: each man crushing and striving with his neighbour, and all panting with impatience to get near the door, and look upon the criminal as the officers brought him out. The cries and shrieks of those who were pressed almost to suffocation, or trampled down and trodden under foot in the confusion, were dreadful; the narrow ways were completely blocked up; and at this time, between the rush of some to regain the space in front of the house, and the unavailing struggles of others to extricate themselves from the mass, the immediate attention was distracted from the murderer, although the universal eagerness for his capture was, if possible, increased.
+The water was gone. The ditch below was full of thick mud.
 
-The man had shrunk down, thoroughly quelled by the ferocity of the crowd, and the impossibility of escape; but seeing this sudden change with no less rapidity than it had occurred, he sprang upon his feet, determined to make one last effort for his life by dropping into the ditch, and, at the risk of being stifled, endeavouring to creep away in the darkness and confusion.
+For a moment, the crowd was silent, watching him and trying to understand what he would do. But when they saw there was no escape that way, they burst into a loud cry of anger and triumph—far louder than before. The sound spread, echoing again and again, as if the whole city had gathered to curse him.
 
-Roused into new strength and energy, and stimulated by the noise within the house which announced that an entrance had really been effected, he set his foot against the stack of chimneys, fastened one end of the rope tightly and firmly round it, and with the other made a strong running noose by the aid of his hands and teeth almost in a second. He could let himself down by the cord to within a less distance of the ground than his own height, and had his knife ready in his hand to cut it then and drop.
+More and more people pushed forward. Angry faces filled the streets, lit here and there by torches. The houses on the other side of the ditch were full of people too. Windows were thrown open or broken. Every window showed rows of faces. People crowded onto the rooftops.
 
-At the very instant when he brought the loop over his head previous to slipping it beneath his arm-pits, and when the old gentleman before-mentioned (who had clung so tight to the railing of the bridge as to resist the force of the crowd, and retain his position) earnestly warned those about him that the man was about to lower himself down—at that very instant the murderer, looking behind him on the roof, threw his arms above his head, and uttered a yell of terror.
+The small bridges bent under the weight of the crowd. Still, more people came, trying to get close enough to see him.
 
-“The eyes again!” he cried in an unearthly screech.
+“They’ve got him now!” shouted a man from one of the bridges. “Hurrah!”
 
-Staggering as if struck by lightning, he lost his balance and tumbled over the parapet. The noose was on his neck. It ran up with his weight, tight as a bow-string, and swift as the arrow it speeds. He fell for five-and-thirty feet. There was a sudden jerk, a terrific convulsion of the limbs; and there he hung, with the open knife clenched in his stiffening hand.
+The crowd shouted again.
 
-The old chimney quivered with the shock, but stood it bravely. The murderer swung lifeless against the wall; and the boy, thrusting aside the dangling body which obscured his view, called to the people to come and take him out, for God’s sake.
+“I will give fifty pounds,” cried an old man nearby, “to whoever takes him alive! I will stay here until he comes to claim it!”
 
-A dog, which had lain concealed till now, ran backwards and forwards on the parapet with a dismal howl, and collecting himself for a spring, jumped for the dead man’s shoulders. Missing his aim, he fell into the ditch, turning completely over as he went; and striking his head against a stone, dashed out his brains.
+Another roar followed.
 
-`,
+At that moment, word spread through the crowd that the door of the house had finally been broken open, and that someone had climbed inside. The crowd suddenly changed direction. People pushed away from the back and rushed toward the front of the house.
+
+Those at the windows ran down into the street. Everyone struggled to get closer to the door, wanting to see the criminal as he was brought out. People were crushed and trampled. Some cried out in pain. The narrow streets became completely blocked.
+
+For a short time, the crowd’s attention turned away from the murderer—but their desire to catch him only grew stronger.
+
+The man on the roof had sunk down, overwhelmed by fear and the noise. He saw the sudden change below and quickly understood. This was his last chance.
+
+He jumped to his feet. He decided to try to escape by dropping into the ditch, even if it meant risking his life in the mud and darkness.
+
+With new energy, he moved quickly. He tied one end of the rope tightly around a chimney. With the other end, he made a loop, using his hands and even his teeth to finish it as fast as possible.
+
+He could lower himself almost to the ground. He held a knife, ready to cut the rope at the last moment and drop.
+
+Just as he put the loop over his head, preparing to slip it under his arms, the old man on the bridge shouted to warn the others that he was about to climb down.
+
+At that very moment, the murderer suddenly looked behind him on the roof. He threw his arms into the air and gave a terrible scream.
+
+“The eyes again!” he cried in a wild, unnatural voice.
+
+He staggered, as if struck by lightning. He lost his balance and fell over the edge.
+
+The rope tightened around his neck.
+
+He dropped many feet. Then there was a sudden jerk. His body shook violently—and then became still. He hung there, lifeless, the knife still in his hand.
+
+The old chimney shook but did not fall. The body hung against the wall.
+
+The boy, pushing the body aside to see, called out to the crowd to come and take him down.
+
+A dog, which had been hiding until now, ran along the roof, howling sadly. Then it jumped toward the dead man. It missed, fell into the ditch below, and struck its head on a stone. It died instantly.`,
 }

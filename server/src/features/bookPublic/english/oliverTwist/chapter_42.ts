@@ -1,204 +1,185 @@
-// ГЛАВА НЕ ГОТОВА
 export const chapter_42 = {
 	name: 'Chapter XLII',
 	header: 'An old acquaintance of Oliver’s, exhibiting decided marks of genius, becomes a public character in the metropolis',
-	text: `
-------------------------------
-Та же самая задача для этого текста:
-Upon the night when Nancy, having lulled Mr. Sikes to sleep, hurried on her self-imposed mission to Rose Maylie, there advanced towards London, by the Great North Road, two persons, upon whom it is expedient that this history should bestow some attention.
+	text: `On the same night when Nancy, after putting Mr. Sikes to sleep, hurried out on her secret visit to Rose Maylie, two people were walking towards London along the Great North Road. These two deserve some attention in this story.
 
-They were a man and woman; or perhaps they would be better described as a male and female: for the former was one of those long-limbed, knock-kneed, shambling, bony people, to whom it is difficult to assign any precise age,—looking as they do, when they are yet boys, like undergrown men, and when they are almost men, like overgrown boys. The woman was young, but of a robust and hardy make, as she need have been to bear the weight of the heavy bundle which was strapped to her back. Her companion was not encumbered with much luggage, as there merely dangled from a stick which he carried over his shoulder, a small parcel wrapped in a common handkerchief, and apparently light enough. This circumstance, added to the length of his legs, which were of unusual extent, enabled him with much ease to keep some half-dozen paces in advance of his companion, to whom he occasionally turned with an impatient jerk of the head: as if reproaching her tardiness, and urging her to greater exertion.
+They were a man and a woman—or perhaps it is better to say a male and a female. The man was tall, thin, and awkward, with long legs and a clumsy way of walking. It was hard to guess his age: as a boy, he would have looked like a small man, and now, almost grown, he still looked like a boy who had grown too quickly. The woman was young but strong and tough, which she needed to be, as she carried a heavy bundle on her back. The man carried very little—a small, light package tied in a handkerchief and hanging from a stick over his shoulder. Because his load was so light, and his legs so long, he easily walked several steps ahead of her. From time to time, he turned back with an impatient movement of his head, as if blaming her for being slow and pushing her to walk faster.
 
-Thus, they had toiled along the dusty road, taking little heed of any object within sight, save when they stepped aside to allow a wider passage for the mail-coaches which were whirling out of town, until they passed through Highgate archway; when the foremost traveller stopped and called impatiently to his companion,
+They walked along the dusty road, paying little attention to anything around them, except when they moved aside to let the fast mail coaches pass. At last, after passing through the arch at Highgate, the man stopped and called back impatiently:
 
-“Come on, can’t yer? What a lazybones yer are, Charlotte.”
+“Come on, can’t you? You’re so slow, Charlotte!”
 
-“It’s a heavy load, I can tell you,” said the female, coming up, almost breathless with fatigue.
+“It’s heavy, I tell you,” said the woman, catching up, almost out of breath.
 
-“Heavy! What are yer talking about? What are yer made for?” rejoined the male traveller, changing his own little bundle as he spoke, to the other shoulder. “Oh, there yer are, resting again! Well, if yer ain’t enough to tire anybody’s patience out, I don’t know what is!”
+“Heavy? What are you talking about? What are you made for?” replied the man, moving his small bundle to his other shoulder. “There you go again, stopping! You’d test anyone’s patience!”
 
-“Is it much farther?” asked the woman, resting herself against a bank, and looking up with the perspiration streaming from her face.
+“Is it much farther?” asked the woman, leaning against a small bank, sweat running down her face.
 
-“Much farther! Yer as good as there,” said the long-legged tramper, pointing out before him. “Look there! Those are the lights of London.”
+“Farther? We’re almost there,” said the long-legged traveler, pointing ahead. “Look! Those are the lights of London.”
 
-“They’re a good two mile off, at least,” said the woman despondingly.
+“They’re at least two miles away,” said the woman sadly.
 
-“Never mind whether they’re two mile off, or twenty,” said Noah Claypole; for he it was; “but get up and come on, or I’ll kick yer, and so I give yer notice.”
+“Doesn’t matter if it’s two miles or twenty,” said Noah Claypole—for it was he. “Get up and keep moving, or I’ll kick you. I mean it.”
 
-As Noah’s red nose grew redder with anger, and as he crossed the road while speaking, as if fully prepared to put his threat into execution, the woman rose without any further remark, and trudged onward by his side.
+As Noah’s face grew red with anger, and as he stepped toward her as if ready to act on his threat, the woman got up without another word and continued walking beside him.
 
-“Where do you mean to stop for the night, Noah?” she asked, after they had walked a few hundred yards.
+“Where are we going to stay tonight, Noah?” she asked after a while.
 
-“How should I know?” replied Noah, whose temper had been considerably impaired by walking.
+“How should I know?” said Noah, who had become even more irritable from the long walk.
 
-“Near, I hope,” said Charlotte.
+“Somewhere close, I hope,” said Charlotte.
 
-“No, not near,” replied Mr. Claypole. “There! Not near; so don’t think it.”
+“No, not close,” said Noah. “So don’t expect it.”
 
 “Why not?”
 
-“When I tell yer that I don’t mean to do a thing, that’s enough, without any why or because either,” replied Mr. Claypole with dignity.
+“When I say I won’t do something, that’s enough. No need to ask why,” replied Noah with false importance.
 
-“Well, you needn’t be so cross,” said his companion.
+“You don’t have to be so rude,” said his companion.
 
-“A pretty thing it would be, wouldn’t it to go and stop at the very first public-house outside the town, so that Sowerberry, if he come up after us, might poke in his old nose, and have us taken back in a cart with handcuffs on,” said Mr. Claypole in a jeering tone. “No! I shall go and lose myself among the narrowest streets I can find, and not stop till we come to the very out-of-the-wayest house I can set eyes on. Cod, yer may thanks yer stars I’ve got a head; for if we hadn’t gone, at first, the wrong road a purpose, and come back across country, yer’d have been locked up hard and fast a week ago, my lady. And serve yer right for being a fool.”
+“What a foolish idea it would be to stop at the first inn outside the town,” said Noah mockingly. “Sowerberry might come after us, look inside, and have us taken back in a cart with handcuffs! No—I’ll hide in the narrowest streets I can find, and we won’t stop until we reach the most hidden place possible. You should be thankful I’m clever. If we hadn’t first taken the wrong road on purpose and then crossed the fields, you would have been caught a week ago. And it would have been your own fault for being a fool.”
 
-----------------
-Та же самая задача для этого текста:
+“I know I’m not as clever as you,” said Charlotte. “But don’t blame everything on me and say I would have been caught. If I had been caught, you would have been too.”
 
-“I know I ain’t as cunning as you are,” replied Charlotte; “but don’t put all the blame on me, and say I should have been locked up. You would have been if I had been, any way.”
+“You took the money from the till—you know you did,” said Mr. Claypole.
 
-“Yer took the money from the till, yer know yer did,” said Mr. Claypole.
+“I took it for you, Noah, dear,” said Charlotte.
 
-“I took it for you, Noah, dear,” rejoined Charlotte.
+“Did I keep it?” asked Noah.
 
-“Did I keep it?” asked Mr. Claypole.
+“No, you trusted me and let me carry it, like a dear,” said Charlotte, smiling and putting her arm through his.
 
-“No; you trusted in me, and let me carry it like a dear, and so you are,” said the lady, chucking him under the chin, and drawing her arm through his.
+This was true; but to be fair to Mr. Claypole, he did not really trust Charlotte. He let her carry the money so that if they were caught, it would be found on her, not on him. Then he could say he was innocent and have a better chance of escaping. Of course, he did not explain this, and they continued walking together as if they were very fond of each other.
 
-This was indeed the case; but as it was not Mr. Claypole’s habit to repose a blind and foolish confidence in anybody, it should be observed, in justice to that gentleman, that he had trusted Charlotte to this extent, in order that, if they were pursued, the money might be found on her: which would leave him an opportunity of asserting his innocence of any theft, and would greatly facilitate his chances of escape. Of course, he entered at this juncture, into no explanation of his motives, and they walked on very lovingly together.
+Following this careful plan, Mr. Claypole kept walking until he reached the Angel at Islington. From the large number of people and vehicles, he decided that they had truly reached London. After looking around to see which streets were the busiest—and therefore the ones to avoid—he turned into a quieter road and soon entered a maze of dark, dirty streets. This area, between Gray’s Inn Lane and Smithfield, was one of the poorest and worst parts of the city.
 
-In pursuance of this cautious plan, Mr. Claypole went on, without halting, until he arrived at the Angel at Islington, where he wisely judged, from the crowd of passengers and numbers of vehicles, that London began in earnest. Just pausing to observe which appeared the most crowded streets, and consequently the most to be avoided, he crossed into Saint John’s Road, and was soon deep in the obscurity of the intricate and dirty ways, which, lying between Gray’s Inn Lane and Smithfield, render that part of the town one of the lowest and worst that improvement has left in the midst of London.
+Through these streets, Noah walked, pulling Charlotte along behind him. Sometimes he stepped into the street to quickly look at a small inn, then moved on again if it seemed too busy for his purposes. At last, he stopped in front of a place that looked poorer and dirtier than any they had seen before. After crossing the street to look at it more carefully, he decided they would stay there for the night.
 
-Through these streets, Noah Claypole walked, dragging Charlotte after him; now stepping into the kennel to embrace at a glance the whole external character of some small public-house; now jogging on again, as some fancied appearance induced him to believe it too public for his purpose. At length, he stopped in front of one, more humble in appearance and more dirty than any he had yet seen; and, having crossed over and surveyed it from the opposite pavement, graciously announced his intention of putting up there, for the night.
-
-“So give us the bundle,” said Noah, unstrapping it from the woman’s shoulders, and slinging it over his own; “and don’t yer speak, except when yer spoke to. What’s the name of the house—t-h-r—three what?”
+“Give me the bundle,” said Noah, taking it from Charlotte’s shoulders and putting it over his own. “And don’t speak unless you’re spoken to. What’s the name of this place—t-h-r—three what?”
 
 “Cripples,” said Charlotte.
 
-“Three Cripples,” repeated Noah, “and a very good sign too. Now, then! Keep close at my heels, and come along.” With these injunctions, he pushed the rattling door with his shoulder, and entered the house, followed by his companion.
+“Three Cripples,” repeated Noah. “A fine name indeed. Now stay close behind me and follow.” With these words, he pushed open the noisy door and went inside, with Charlotte behind him.
 
-There was nobody in the bar but a young Jew, who, with his two elbows on the counter, was reading a dirty newspaper. He stared very hard at Noah, and Noah stared very hard at him.
+There was nobody in the bar except a young Jewish man, who was leaning on the counter and reading a dirty newspaper. He looked very closely at Noah, and Noah looked just as closely at him.
 
-If Noah had been attired in his charity-boy’s dress, there might have been some reason for the Jew opening his eyes so wide; but as he had discarded the coat and badge, and wore a short smock-frock over his leathers, there seemed no particular reason for his appearance exciting so much attention in a public-house.
+If Noah had still been wearing his old charity-school clothes, it might have explained the man’s surprise. But he had changed his clothes and now wore a simple work shirt over his other clothes, so there was no clear reason for such attention.
 
 “Is this the Three Cripples?” asked Noah.
 
-“That is the dabe of this ’ouse,” replied the Jew.
+“That is the name of this house,” replied the young man.
 
-“A gentleman we met on the road, coming up from the country, recommended us here,” said Noah, nudging Charlotte, perhaps to call her attention to this most ingenious device for attracting respect, and perhaps to warn her to betray no surprise. “We want to sleep here tonight.”
+“A gentleman we met on the road recommended this place,” said Noah, nudging Charlotte—perhaps to impress the listener, or to warn her not to look surprised. “We want to stay here tonight.”
 
-“I’b dot certaid you cad,” said Barney, who was the attendant sprite; “but I’ll idquire.”
+“I’m not sure you can,” said the young man, whose name was Barney. “But I’ll ask.”
 
-“Show us the tap, and give us a bit of cold meat and a drop of beer while yer inquiring, will yer?” said Noah.
+“Show us a place to sit, and bring us some cold meat and a bit of beer while you ask, will you?” said Noah.
 
-----------------
-Та же самая задача для этого текста:
+Barney showed them into a small room at the back and brought them the food they had asked for. After that, he told them they could stay the night and left the pleasant couple to eat.
 
-Barney complied by ushering them into a small back-room, and setting the required viands before them; having done which, he informed the travellers that they could be lodged that night, and left the amiable couple to their refreshment.
+This back room was just behind the bar and a little lower than it. There was a small hidden window in the wall, covered by a curtain. If someone moved the curtain, they could look down into the room without being seen, because the glass was in a dark corner. By putting an ear to the wall, they could also hear what was being said quite clearly. The owner of the house had already been watching from this hidden place for five minutes. Barney had only just returned when Fagin came into the bar during his evening business to ask about some of his young boys.
 
-Now, this back-room was immediately behind the bar, and some steps lower, so that any person connected with the house, undrawing a small curtain which concealed a single pane of glass fixed in the wall of the last-named apartment, about five feet from its flooring, could not only look down upon any guests in the back-room without any great hazard of being observed (the glass being in a dark angle of the wall, between which and a large upright beam the observer had to thrust himself), but could, by applying his ear to the partition, ascertain with tolerable distinctness, their subject of conversation. The landlord of the house had not withdrawn his eye from this place of espial for five minutes, and Barney had only just returned from making the communication above related, when Fagin, in the course of his evening’s business, came into the bar to inquire after some of his young pupils.
+“Hush!” said Barney. “Strangers are in the next room.”
 
-“Hush!” said Barney: “stradegers id the next roob.”
+“Strangers!” repeated the old man quietly.
 
-“Strangers!” repeated the old man in a whisper.
+“Yes—and they look like your kind,” added Barney. “From the country, but something about them seems familiar—or maybe I’m wrong.”
 
-“Ah! Ad rub uds too,” added Barney. “Frob the cuttry, but subthig in your way, or I’b bistaked.”
+Fagin listened with great interest.
 
-Fagin appeared to receive this communication with great interest.
+He climbed onto a stool and carefully looked through the small window. From there, he could see Mr. Claypole eating cold meat and drinking beer, while giving Charlotte only small amounts, as she sat quietly beside him.
 
-Mounting a stool, he cautiously applied his eye to the pane of glass, from which secret post he could see Mr. Claypole taking cold beef from the dish, and porter from the pot, and administering homeopathic doses of both to Charlotte, who sat patiently by, eating and drinking at his pleasure.
+“Aha!” he whispered, turning to Barney. “I like the look of that fellow. He could be useful to us. He already knows how to control the girl. Be very quiet now, my dear, and let me hear them speak—let me hear them.”
 
-“Aha!” he whispered, looking round to Barney, “I like that fellow’s looks. He’d be of use to us; he knows how to train the girl already. Don’t make as much noise as a mouse, my dear, and let me hear ’em talk—let me hear ’em.”
+He listened closely, watching and pressing his ear to the wall, with a sharp and eager expression on his face.
 
-He again applied his eye to the glass, and turning his ear to the partition, listened attentively: with a subtle and eager look upon his face, that might have appertained to some old goblin.
+“So, I’m going to be a gentleman,” said Mr. Claypole, stretching out his legs and continuing a conversation that Fagin had missed the beginning of. “No more working with coffins, Charlotte. I’ll live like a gentleman. And if you like, you can be a lady.”
 
-“So I mean to be a gentleman,” said Mr. Claypole, kicking out his legs, and continuing a conversation, the commencement of which Fagin had arrived too late to hear. “No more jolly old coffins, Charlotte, but a gentleman’s life for me: and, if yer like, yer shall be a lady.”
+“I would like that,” said Charlotte. “But money boxes aren’t always full, and people don’t always get away after stealing.”
 
-“I should like that well enough, dear,” replied Charlotte; “but tills ain’t to be emptied every day, and people to get clear off after it.”
+“Forget money boxes!” said Mr. Claypole. “There are many other things to steal.”
 
-“Tills be blowed!” said Mr. Claypole; “there’s more things besides tills to be emptied.”
+“What do you mean?” asked Charlotte.
 
-“What do you mean?” asked his companion.
+“Pockets, women’s bags, houses, mail coaches, even banks!” said Mr. Claypole, standing up with his drink.
 
-“Pockets, women’s ridicules, houses, mail-coaches, banks!” said Mr. Claypole, rising with the porter.
+“But you can’t do all that,” said Charlotte.
 
-“But you can’t do all that, dear,” said Charlotte.
+“I’ll find people who can,” said Noah. “They’ll find a way to use us. Why, you’re worth fifty women—I’ve never seen anyone as clever and sneaky as you when I let you be.”
 
-“I shall look out to get into company with them as can,” replied Noah. “They’ll be able to make us useful some way or another. Why, you yourself are worth fifty women; I never see such a precious sly and deceitful creetur as yer can be when I let yer.”
+“Oh, it’s so nice to hear you say that!” cried Charlotte, kissing his ugly face.
 
-“Lor, how nice it is to hear yer say so!” exclaimed Charlotte, imprinting a kiss upon his ugly face.
+“That’s enough—don’t be too affectionate, in case I get angry with you,” said Noah, pulling away with a serious air. “I’d like to be the leader of a gang, giving orders and controlling them, without them even knowing it. That would suit me—if there was good money in it. And if we could join some gentleman of that kind, I’d say it would be worth that twenty-pound note you’ve got—especially since we don’t really know how to use it ourselves.”
 
-----------------
-Та же самая задача для этого текста:
+After saying this, Mr. Claypole looked into his mug of beer as if thinking deeply. He shook it, nodded to Charlotte as if he were very important, and took a long drink, which seemed to please him greatly. He was about to take another when the door suddenly opened, and a stranger came in.
 
-“There, that’ll do: don’t yer be too affectionate, in case I’m cross with yer,” said Noah, disengaging himself with great gravity. “I should like to be the captain of some band, and have the whopping of ’em, and follering ’em about, unbeknown to themselves. That would suit me, if there was good profit; and if we could only get in with some gentleman of this sort, I say it would be cheap at that twenty-pound note you’ve got,—especially as we don’t very well know how to get rid of it ourselves.”
+The stranger was Fagin. He looked very friendly and made a polite bow as he came in. Sitting down at a nearby table, he ordered a drink from Barney.
 
-After expressing this opinion, Mr. Claypole looked into the porter-pot with an aspect of deep wisdom; and having well shaken its contents, nodded condescendingly to Charlotte, and took a draught, wherewith he appeared greatly refreshed. He was meditating another, when the sudden opening of the door, and the appearance of a stranger, interrupted him.
+“A fine night, sir, though a little cool for the season,” said Fagin, rubbing his hands. “You are from the country, I see?”
 
-The stranger was Mr. Fagin. And very amiable he looked, and a very low bow he made, as he advanced, and setting himself down at the nearest table, ordered something to drink of the grinning Barney.
+“How can you tell?” asked Noah Claypole.
 
-“A pleasant night, sir, but cool for the time of year,” said Fagin, rubbing his hands. “From the country, I see, sir?”
+“We don’t have so much dust in London,” said Fagin, pointing at Noah’s shoes, then Charlotte’s, and then their bundles.
 
-“How do yer see that?” asked Noah Claypole.
+“You’re a sharp one,” said Noah. “Ha! ha! did you hear that, Charlotte?”
 
-“We have not so much dust as that in London,” replied Fagin, pointing from Noah’s shoes to those of his companion, and from them to the two bundles.
+“Well, one must be sharp in this city, my dear,” said Fagin, lowering his voice as if sharing a secret. “That is the truth.”
 
-“Yer a sharp feller,” said Noah. “Ha! ha! only hear that, Charlotte!”
+As he said this, Fagin tapped the side of his nose with his finger—a sign of cleverness. Noah tried to copy him, but did not do it very well, as his nose was too small. Still, Fagin seemed to take this as agreement, and he shared his drink in a friendly way.
 
-“Why, one need be sharp in this town, my dear,” replied the Jew, sinking his voice to a confidential whisper; “and that’s the truth.”
+“Good drink,” said Noah, pleased.
 
-Fagin followed up this remark by striking the side of his nose with his right forefinger,—a gesture which Noah attempted to imitate, though not with complete success, in consequence of his own nose not being large enough for the purpose. However, Mr. Fagin seemed to interpret the endeavour as expressing a perfect coincidence with his opinion, and put about the liquor which Barney reappeared with, in a very friendly manner.
+“Expensive,” said Fagin. “A man would need to empty many tills, pockets, ladies’ bags, houses, mail coaches, or even banks, if he drank it often.”
 
-“Good stuff that,” observed Mr. Claypole, smacking his lips.
+As soon as Noah heard this—words very similar to his own—he leaned back in his chair and turned pale with fear, looking from Fagin to Charlotte.
 
-“Dear!” said Fagin. “A man need be always emptying a till, or a pocket, or a woman’s reticule, or a house, or a mail-coach, or a bank, if he drinks it regularly.”
+“Don’t worry, my dear,” said Fagin, moving his chair closer. “Ha! ha! it is lucky that only I heard you. Very lucky indeed.”
 
-Mr. Claypole no sooner heard this extract from his own remarks than he fell back in his chair, and looked from the Jew to Charlotte with a countenance of ashy paleness and excessive terror.
+“I didn’t take it,” said Noah quickly, no longer acting confident, but pulling his legs close under his chair. “It was her—she has it now. Charlotte, you know you do.”
 
-“Don’t mind me, my dear,” said Fagin, drawing his chair closer. “Ha! ha! it was lucky it was only me that heard you by chance. It was very lucky it was only me.”
+“It doesn’t matter who took it, my dear,” said Fagin, though he looked carefully at the girl and their bundles. “I am in the same line of work myself—and I like you for it.”
 
-“I didn’t take it,” stammered Noah, no longer stretching out his legs like an independent gentleman, but coiling them up as well as he could under his chair; “it was all her doing; yer’ve got it now, Charlotte, yer know yer have.”
+“In what way?” asked Mr. Claypole, beginning to feel a little less afraid.
 
-“No matter who’s got it, or who did it, my dear,” replied Fagin, glancing, nevertheless, with a hawk’s eye at the girl and the two bundles. “I’m in that way myself, and I like you for it.”
+“In that line of business,” said Fagin, “and the people in this house are the same. You have chosen exactly the right place, and you are very safe here. There is no safer place in London than the Cripples—at least when I decide it should be so. And I like you and the young woman, so I’ve said a word on your behalf. You can feel easy now.”
 
-“In what way?” asked Mr. Claypole, a little recovering.
+Noah Claypole might have tried to feel calm after this, but his body showed he was not. He kept shifting in his chair, moving awkwardly, and watching Fagin with both fear and suspicion.
 
-----------------
-Та же самая задача для этого текста:
+“I’ll tell you more,” said Fagin, after calming the girl with friendly nods and quiet words. “I have a friend who can give you exactly what you want. He can put you on the right path, where you may choose whatever kind of work you like at first, and later learn all the others.”
 
-“In that way of business,” rejoined Fagin; “and so are the people of the house. You’ve hit the right nail upon the head, and are as safe here as you could be. There is not a safer place in all this town than is the Cripples; that is, when I like to make it so. And I have taken a fancy to you and the young woman; so I’ve said the word, and you may make your minds easy.”
+“You speak as if you really mean it,” said Noah.
 
-Noah Claypole’s mind might have been at ease after this assurance, but his body certainly was not; for he shuffled and writhed about, into various uncouth positions: eyeing his new friend meanwhile with mingled fear and suspicion.
+“Why would I say it if I didn’t?” replied Fagin, shrugging. “Come—let me speak to you outside for a moment.”
 
-“I’ll tell you more,” said Fagin, after he had reassured the girl, by dint of friendly nods and muttered encouragements. “I have got a friend that I think can gratify your darling wish, and put you in the right way, where you can take whatever department of the business you think will suit you best at first, and be taught all the others.”
+“There’s no need to go anywhere,” said Noah, slowly stretching his legs out again. “She can take the luggage upstairs. Charlotte, take the bundles.”
 
-“Yer speak as if yer were in earnest,” replied Noah.
+He gave this order very proudly, and Charlotte obeyed at once without question. She quickly left the room with the packages, while Noah held the door open and watched her go.
 
-“What advantage would it be to me to be anything else?” inquired Fagin, shrugging his shoulders. “Here! Let me have a word with you outside.”
+“She’s well under control, isn’t she?” he said, sitting down again, like someone proud of training an animal.
 
-“There’s no occasion to trouble ourselves to move,” said Noah, getting his legs by gradual degrees abroad again. “She’ll take the luggage upstairs the while. Charlotte, see to them bundles.”
+“Perfectly,” said Fagin, patting him on the shoulder. “You’re very clever, my dear.”
 
-This mandate, which had been delivered with great majesty, was obeyed without the slightest demur; and Charlotte made the best of her way off with the packages while Noah held the door open and watched her out.
+“Well, I suppose if I wasn’t, I wouldn’t be here,” said Noah. “But listen—she’ll be back if you take too long.”
 
-“She’s kept tolerably well under, ain’t she?” he asked as he resumed his seat: in the tone of a keeper who had tamed some wild animal.
+“Now tell me,” said Fagin. “If you liked my friend, could you do better than join him?”
 
-“Quite perfect,” rejoined Fagin, clapping him on the shoulder. “You’re a genius, my dear.”
+“Is he doing good business? That’s what matters,” said Noah, winking.
 
-“Why, I suppose if I wasn’t, I shouldn’t be here,” replied Noah. “But, I say, she’ll be back if yer lose time.”
+“He is at the top of his trade. He employs many people and keeps the best company in this line of work.”
 
-“Now, what do you think?” said Fagin. “If you was to like my friend, could you do better than join him?”
+“Proper London men?” asked Noah.
 
-“Is he in a good way of business; that’s where it is!” responded Noah, winking one of his little eyes.
+“Not a countryman among them. And I don’t think he would accept you, even if I recommend you, unless he happened to need more assistants right now,” said Fagin.
 
-“The top of the tree; employs a power of hands; has the very best society in the profession.”
+“Would I have to give him a share?” asked Noah, tapping his pocket.
 
-“Regular town-maders?” asked Mr. Claypole.
+“It can’t be done without it,” said Fagin firmly.
 
-“Not a countryman among ’em; and I don’t think he’d take you, even on my recommendation, if he didn’t run rather short of assistants just now,” replied Fagin.
+“Twenty pounds is still a lot of money!”
 
-“Should I have to hand over?” said Noah, slapping his breeches-pocket.
+“Not when it’s a note you can’t use,” Fagin replied. “The number and date are recorded, I suppose? Payment stopped at the Bank? Then it’s not worth much to him. It will have to be taken abroad, and even there it won’t sell for much.”
 
-----------------
-Та же самая задача для этого текста:
-
-“It couldn’t possibly be done without,” replied Fagin, in a most decided manner.
-
-“Twenty pound, though—it’s a lot of money!”
-
-“Not when it’s in a note you can’t get rid of,” retorted Fagin. “Number and date taken, I suppose? Payment stopped at the Bank? Ah! It’s not worth much to him. It’ll have to go abroad, and he couldn’t sell it for a great deal in the market.”
-
-“When could I see him?” asked Noah doubtfully.
+“When can I see him?” Noah asked uncertainly.
 
 “Tomorrow morning.”
 
@@ -206,60 +187,57 @@ This mandate, which had been delivered with great majesty, was obeyed without th
 
 “Here.”
 
-“Um!” said Noah. “What’s the wages?”
+“Hmm,” said Noah. “What are the wages?”
 
-“Live like a gentleman—board and lodging, pipes and spirits free—half of all you earn, and half of all the young woman earns,” replied Mr. Fagin.
+“You’ll live like a gentleman—food and a place to stay, pipes and drinks for free—and half of everything you earn, and half of what the young woman earns,” said Fagin.
 
-Whether Noah Claypole, whose rapacity was none of the least comprehensive, would have acceded even to these glowing terms, had he been a perfectly free agent, is very doubtful; but as he recollected that, in the event of his refusal, it was in the power of his new acquaintance to give him up to justice immediately (and more unlikely things had come to pass), he gradually relented, and said he thought that would suit him.
+Noah Claypole was very greedy, so the offer sounded good to him. Still, if he had been completely free to choose, he might have refused. But he remembered that this new acquaintance could hand him over to the police at any moment. And stranger things had happened. So, little by little, he gave in and said the offer would suit him.
 
-“But, yer see,” observed Noah, “as she will be able to do a good deal, I should like to take something very light.”
+“But, you see,” Noah added, “as she can earn quite a lot, I’d prefer something easy for myself.”
 
-“A little fancy work?” suggested Fagin.
+“Some light, clever work?” suggested Fagin.
 
-“Ah! something of that sort,” replied Noah. “What do you think would suit me now? Something not too trying for the strength, and not very dangerous, you know. That’s the sort of thing!”
+“Yes, something like that,” said Noah. “What do you think would suit me? Nothing too tiring, and not too dangerous. That’s what I want.”
 
-“I heard you talk of something in the spy way upon the others, my dear,” said Fagin. “My friend wants somebody who would do that well, very much.”
+“I heard you mention spying on the others,” said Fagin. “My friend is looking for someone who can do that well.”
 
-“Why, I did mention that, and I shouldn’t mind turning my hand to it sometimes,” rejoined Mr. Claypole slowly; “but it wouldn’t pay by itself, you know.”
+“Well, I did say that,” Noah replied slowly. “I wouldn’t mind doing it sometimes. But it wouldn’t pay enough on its own, you know.”
 
-----------------
-Та же самая задача для этого текста:
+“That’s true,” said Fagin, thinking for a moment—or pretending to think. “No, perhaps not.”
 
-“That’s true!” observed the Jew, ruminating or pretending to ruminate. “No, it might not.”
+“So what do you suggest?” asked Noah, watching him nervously. “Something quiet, where the work is safe and not much more dangerous than staying at home.”
 
-“What do you think, then?” asked Noah, anxiously regarding him. “Something in the sneaking way, where it was pretty sure work, and not much more risk than being at home.”
+“What about old ladies?” said Fagin. “There’s good money in grabbing their bags and running around the corner.”
 
-“What do you think of the old ladies?” asked Fagin. “There’s a good deal of money made in snatching their bags and parcels, and running round the corner.”
+“Don’t they shout a lot? And sometimes scratch?” said Noah, shaking his head. “No, that won’t do for me. Isn’t there something else?”
 
-“Don’t they holler out a good deal, and scratch sometimes?” asked Noah, shaking his head. “I don’t think that would answer my purpose. Ain’t there any other line open?”
+“Wait,” said Fagin, putting his hand on Noah’s knee. “The kinchin lay.”
 
-“Stop!” said Fagin, laying his hand on Noah’s knee. “The kinchin lay.”
+“What’s that?” asked Noah.
 
-“What’s that?” demanded Mr. Claypole.
+“The kinchins,” said Fagin, “are small children sent by their mothers to buy things, with coins in their hands. The job is simple: take their money, push them into the gutter, and walk away slowly—as if the child just fell and hurt itself. Ha! ha! ha!”
 
-“The kinchins, my dear,” said Fagin, “is the young children that’s sent on errands by their mothers, with sixpences and shillings; and the lay is just to take their money away—they’ve always got it ready in their hands,—then knock ’em into the kennel, and walk off very slow, as if there were nothing else the matter but a child fallen down and hurt itself. Ha! ha! ha!”
+“Ha! ha!” laughed Noah, kicking his legs with delight. “That’s exactly what I need!”
 
-“Ha! ha!” roared Mr. Claypole, kicking up his legs in an ecstasy. “Lord, that’s the very thing!”
+“Of course it is,” said Fagin. “You can work in places like Camden Town and Battle Bridge—areas where children are always running errands. You can find as many as you like, any time of day. Ha! ha! ha!”
 
-“To be sure it is,” replied Fagin; “and you can have a few good beats chalked out in Camden Town, and Battle Bridge, and neighbourhoods like that, where they’re always going errands; and you can upset as many kinchins as you want, any hour in the day. Ha! ha! ha!”
+Fagin poked Noah in the side, and they both burst into long, loud laughter.
 
-With this, Fagin poked Mr. Claypole in the side, and they joined in a burst of laughter both long and loud.
+“Well, that’s settled!” said Noah, when he calmed down and Charlotte came back. “What time tomorrow?”
 
-“Well, that’s all right!” said Noah, when he had recovered himself, and Charlotte had returned. “What time tomorrow shall we say?”
+“Will ten o’clock do?” asked Fagin. Noah nodded. “And what name shall I give my friend?”
 
-“Will ten do?” asked Fagin, adding, as Mr. Claypole nodded assent, “What name shall I tell my good friend.”
+“Mr. Bolter,” said Noah, ready for the question. “Mr. Morris Bolter. And this is Mrs. Bolter.”
 
-“Mr. Bolter,” replied Noah, who had prepared himself for such emergency. “Mr. Morris Bolter. This is Mrs. Bolter.”
+“Mrs. Bolter, your humble servant,” said Fagin, bowing in a strange, exaggerated way. “I hope to know you better very soon.”
 
-“Mrs. Bolter’s humble servant,” said Fagin, bowing with grotesque politeness. “I hope I shall know her better very shortly.”
+“Did you hear that, Charlotte?” said Noah loudly.
 
-“Do you hear the gentleman, Charlotte?” thundered Mr. Claypole.
+“Yes, Noah, dear,” said Mrs. Bolter, holding out her hand.
 
-“Yes, Noah, dear!” replied Mrs. Bolter, extending her hand.
+“She calls me Noah in a loving way,” said Mr. Morris Bolter (formerly Claypole), turning to Fagin. “You understand?”
 
-“She calls me Noah, as a sort of fond way of talking,” said Mr. Morris Bolter, late Claypole, turning to Fagin. “You understand?”
+“Oh yes, I understand perfectly,” said Fagin—for once telling the truth. “Good night! Good night!”
 
-“Oh yes, I understand—perfectly,” replied Fagin, telling the truth for once. “Good-night! Good-night!”
-
-With many adieus and good wishes, Mr. Fagin went his way. Noah Claypole, bespeaking his good lady’s attention, proceeded to enlighten her relative to the arrangement he had made, with all that haughtiness and air of superiority, becoming, not only a member of the sterner sex, but a gentleman who appreciated the dignity of a special appointment on the kinchin lay, in London and its vicinity.`,
+After many goodbyes and polite wishes, Fagin left. Noah then turned to his “wife” and began to explain his new arrangement. He spoke with great pride and a sense of importance, like a man who believed himself not only superior, but also specially chosen for his new role in this line of work in London and nearby areas.`,
 }
