@@ -36,11 +36,13 @@ function SentenceWordAnalysis(props: SentenceWordProps) {
 
 export default SentenceWordAnalysis
 
-function TopPart({ word, wordTranslation }: { word: string; wordTranslation: string }) {
+function TopPart({ word, wordTranslation }: { word: string; wordTranslation: WordAnalysisExampleWord[] }) {
 	return (
 		<p className='sentence-word-analysis__top'>
 			<span className='sentence-word-analysis__analysis-phrase'>{word}</span> —{' '}
-			<span className='sentence-word-analysis__analysis-phrase-translate'>{wordTranslation}</span>
+			<span className='sentence-word-analysis__analysis-phrase-translate'>
+				<Text text={wordTranslation} />
+			</span>
 		</p>
 	)
 }
