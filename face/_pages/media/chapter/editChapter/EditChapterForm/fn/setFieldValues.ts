@@ -10,7 +10,7 @@ export function useSetFieldValues(reset: (data: any) => void) {
 		reset({
 			name: chapter.name ?? '',
 			header: chapter.header ?? '',
-			content: chapter.content,
+			content: chapter.originalContent,
 			note: chapter.note ?? '',
 		})
 	}, [chapter, reset])

@@ -4,7 +4,7 @@ query BookChapter_get($input: GetBookChapterInput!) {
 		name
 		header
 		note
-		content
+		originalContent
 		sentences {
 			id
 			startOffset

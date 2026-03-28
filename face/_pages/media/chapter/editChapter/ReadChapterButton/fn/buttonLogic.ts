@@ -9,7 +9,7 @@ export function useIsReadButtonDisabled() {
 
 	useEffect(
 		function () {
-			const chapterContent = chapter.data?.content ? chapter.data.content : ''
+			const chapterContent = chapter.data?.originalContent ? chapter.data.originalContent : ''
 
 			setIsReadButtonDisabled(!chapterContent)
 		},

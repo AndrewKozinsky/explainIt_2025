@@ -60,7 +60,7 @@ export class BookChapterQueryRepository {
 			id: dbChapter.id,
 			name: dbChapter.name,
 			header: dbChapter.header,
-			content: dbChapter.content,
+			originalContent: dbChapter.original_content,
 			sentences: dbChapter.Sentence.map((s) => ({
 				id: s.id,
 				startOffset: s.start_offset,

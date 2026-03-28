@@ -341,11 +341,16 @@ export const bdConfig = {
 				required: false,
 				maxLength: 255,
 			},
-			content: {
+			original_content: {
 				type: 'string',
-				description: 'Content of the chapter',
+				description: 'Original content of the chapter',
 				required: false,
 				maxLength: 900000,
+			},
+			processed_content: {
+				type: 'string',
+				description: 'Processed content of the chapter (flattened)',
+				required: false,
 			},
 			note: {
 				type: 'string',

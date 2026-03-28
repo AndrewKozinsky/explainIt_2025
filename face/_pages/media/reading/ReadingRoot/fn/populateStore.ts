@@ -135,13 +135,13 @@ function useCreatePopulatedChapterAndSetToStore() {
 	useEffect(
 		function () {
 			const chapterData = chapter?.data
-			if (!chapterData || !chapterData.content) return
+			if (!chapterData || !chapterData.originalContent) return
 
 			const populatedChapter = populateChapterStructure({
 				id: chapterData.id,
 				header: chapterData.header,
 				name: chapterData.name,
-				content: chapterData.content,
+				content: chapterData.originalContent,
 				sentences: chapterData.sentences,
 			})
 

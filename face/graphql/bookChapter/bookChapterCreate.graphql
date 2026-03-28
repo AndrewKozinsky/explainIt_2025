@@ -3,7 +3,7 @@ mutation BookChapter_create($input: CreateBookChapterInput!) {
 		id
 		name
 		header
-		content
+		originalContent
 		note
 		book {
 			id

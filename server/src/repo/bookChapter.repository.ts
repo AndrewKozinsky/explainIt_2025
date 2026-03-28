@@ -33,7 +33,7 @@ export class BookChapterRepository {
 				book_public_id: dto.bookType === 'public' ? dto.bookId : null,
 				name: dto.name,
 				header: dto.header,
-				content: dto.originalContent,
+				original_content: dto.originalContent,
 				note: dto.note,
 			},
 			include: {
@@ -106,7 +106,7 @@ export class BookChapterRepository {
 		dto: {
 			name?: null | string
 			header?: null | string
-			content?: null | string
+			originalContent?: null | string
 			note?: null | string
 		},
 	) {
@@ -115,7 +115,7 @@ export class BookChapterRepository {
 			data: {
 				name: dto.name,
 				header: dto.header,
-				content: dto.content,
+				original_content: dto.originalContent,
 				note: dto.note,
 			},
 			include: { book: true, book_public: true, Sentence: true },
@@ -129,11 +129,11 @@ export class BookChapterRepository {
 	}
 
 	@CatchDbError()
-	async updateBookChapterContentById(bookChapterId: number, content: null | string) {
+	async updateBookChapterContentById(bookChapterId: number, originalContent: null | string) {
 		await this.prisma.bookChapter.update({
 			where: { id: bookChapterId },
 			data: {
-				content,
+				original_content: originalContent,
 			},
 		})
 	}
@@ -156,7 +156,7 @@ export class BookChapterRepository {
 			header: dbBookChapter.header,
 			name: dbBookChapter.name,
 			note: dbBookChapter.note,
-			content: dbBookChapter.content,
+			originalContent: dbBookChapter.original_content,
 			sentences: dbBookChapter.Sentence.map((s) => {
 				return {
 					id: s.id,

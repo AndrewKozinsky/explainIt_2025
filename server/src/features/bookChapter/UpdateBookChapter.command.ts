@@ -13,7 +13,7 @@ type UpdateChapterInput = {
 	id: number
 	name?: null | string
 	header?: null | string
-	content?: null | string
+	originalContent?: null | string
 	note?: null | string
 }
 
@@ -51,15 +51,15 @@ export class UpdateBookChapterHandler implements ICommandHandler<UpdateBookChapt
 		// Prepare update payload: include only explicitly provided fields; flatten content text
 		const preparedUpdateChapterInput = this.prepareUpdateChapterInput(bookChapter, updateBookChapterInput)
 
-		if (preparedUpdateChapterInput.content === null || preparedUpdateChapterInput.content === '') {
+		if (preparedUpdateChapterInput.originalContent === null || preparedUpdateChapterInput.originalContent === '') {
 			await this.sentenceRepository.deleteByBookChapterId(bookChapter.id)
 		}
 
-		if (preparedUpdateChapterInput.content) {
+		if (preparedUpdateChapterInput.originalContent) {
 			await generateSentencesAndSaveToDB({
 				mainConfigService: this.mainConfigService,
 				sentenceRepository: this.sentenceRepository,
-				content: preparedUpdateChapterInput.content,
+				content: preparedUpdateChapterInput.originalContent,
 				bookChapterId: preparedUpdateChapterInput.id,
 			})
 		}
@@ -96,11 +96,11 @@ export class UpdateBookChapterHandler implements ICommandHandler<UpdateBookChapt
 	): UpdateChapterInput {
 		const updateBookChapterInputCopy = { ...updateBookChapterInput }
 
-		if (updateBookChapterInputCopy.content) {
-			if (this.dryText(updateBookChapterInputCopy.content) === bookChapter.content) {
-				delete updateBookChapterInputCopy.content
+		if (updateBookChapterInputCopy.originalContent) {
+			if (this.dryText(updateBookChapterInputCopy.originalContent) === bookChapter.originalContent) {
+				delete updateBookChapterInputCopy.originalContent
 			} else {
-				updateBookChapterInputCopy.content = this.dryText(updateBookChapterInputCopy.content)
+				updateBookChapterInputCopy.originalContent = this.dryText(updateBookChapterInputCopy.originalContent)
 			}
 		}
 

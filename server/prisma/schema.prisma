@@ -74,17 +74,18 @@ model BookPublic {
 }
 
 model BookChapter {
-    id             Int          @id @default(autoincrement())
-    book           BookPrivate? @relation(fields: [book_id], references: [id], onDelete: Cascade)
-    book_id        Int?
-    book_public    BookPublic?  @relation(fields: [book_public_id], references: [id], onDelete: Cascade)
-    book_public_id Int?
-    name           String?
-    header         String?
-    content        String?
-    note           String?
-    Sentence       Sentence[]
-    created_at     DateTime     @default(now())
+    id                Int          @id @default(autoincrement())
+    book              BookPrivate? @relation(fields: [book_id], references: [id], onDelete: Cascade)
+    book_id           Int?
+    book_public       BookPublic?  @relation(fields: [book_public_id], references: [id], onDelete: Cascade)
+    book_public_id    Int?
+    name              String?
+    header            String?
+    original_content  String?
+    processed_content String?
+    note              String?
+    Sentence          Sentence[]
+    created_at        DateTime     @default(now())
 }
 
 model VideoPrivate {
