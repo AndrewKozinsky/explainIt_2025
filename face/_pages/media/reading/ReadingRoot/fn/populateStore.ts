@@ -141,7 +141,7 @@ function useCreatePopulatedChapterAndSetToStore() {
 				id: chapterData.id,
 				header: chapterData.header,
 				name: chapterData.name,
-				content: chapterData.originalContent,
+				content: chapterData.processedContent,
 				sentences: chapterData.sentences,
 			})
 

@@ -63,7 +63,7 @@ function ContentWrapper(props: ContentWrapperProps) {
 				isLoading && 'details-block-wrapper--loading',
 			)}
 		>
-			{children}
+			<div className='details-block-wrapper__scroll'>{children}</div>
 		</div>
 	)
 }

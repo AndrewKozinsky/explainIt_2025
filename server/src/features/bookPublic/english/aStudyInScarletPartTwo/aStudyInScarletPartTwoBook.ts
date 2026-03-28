@@ -8,17 +8,17 @@ import { chapter_6 } from './chapter_6'
 import { chapter_7 } from './chapter_7'
 
 export function aStudyInScarletPartTwoBookData(coversFolderName: string) {
-	const covers = ['a_study_in_scarlet_part_two_cover_1.jpg']
+	const covers = ['a_study_in_scarlet_part_one_cover_2.jpg']
 
 	return {
 		author: 'Arthur Conan Doyle',
-		name: 'A study on scarlet (part 1)',
+		name: 'A study on scarlet (part 2)',
 		note: `Девочка Дороти и её
 Рекомендуемый уровень B1 (Intermediate)`,
 		languageCode: languages.en.code as Language,
 		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),
-		coverBackgroundColor: '#937F43',
+		coverBackgroundColor: '#6C8084',
 	}
 }
 

@@ -33,7 +33,7 @@ export function solomonMinesBookData(coversFolderName: string) {
 		languageCode: languages.en.code as Language,
 		freeToUse: false,
 		covers: covers.map((cover) => coversFolderName + cover),
-		coverBackgroundColor: '#313B3C',
+		coverBackgroundColor: '#35392b',
 	}
 }
 

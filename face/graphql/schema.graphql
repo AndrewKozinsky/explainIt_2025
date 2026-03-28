@@ -13,6 +13,7 @@ type BookChapterOutModel {
   name: String
   note: String
   originalContent: String
+  processedContent: String
   sentences: [SentenceOutModel!]
 }
 
