@@ -8,6 +8,7 @@ import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { BookChapterServiceModel } from 'models/bookChapter/bookChapter.service.model'
+import { dryText, removeBOM } from '../mediaCommon'
 
 type UpdateChapterInput = {
 	id: number
@@ -48,62 +49,32 @@ export class UpdateBookChapterHandler implements ICommandHandler<UpdateBookChapt
 			throw new CustomGraphQLError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
 		}
 
-		// Prepare update payload: include only explicitly provided fields; flatten content text
-		const preparedUpdateChapterInput = this.prepareUpdateChapterInput(bookChapter, updateBookChapterInput)
+		let processedContent = removeBOM(updateBookChapterInput.originalContent ?? '')
+		processedContent = dryText(processedContent)
 
-		if (preparedUpdateChapterInput.originalContent === null || preparedUpdateChapterInput.originalContent === '') {
+		// Если текущий processedContent и новый отличаются, то удалить все текущие предложения и сгенерировать новые
+		if (bookChapter.processedContent !== processedContent) {
 			await this.sentenceRepository.deleteByBookChapterId(bookChapter.id)
+
+			if (processedContent) {
+				await generateSentencesAndSaveToDB({
+					mainConfigService: this.mainConfigService,
+					sentenceRepository: this.sentenceRepository,
+					processedContent,
+					bookChapterId: bookChapter.id,
+				})
+			}
 		}
 
-		if (preparedUpdateChapterInput.originalContent) {
-			await generateSentencesAndSaveToDB({
-				mainConfigService: this.mainConfigService,
-				sentenceRepository: this.sentenceRepository,
-				content: preparedUpdateChapterInput.originalContent,
-				bookChapterId: preparedUpdateChapterInput.id,
-			})
-		}
+		const updatedBookChapter = await this.bookChapterRepository.updateBookChapterById(updateBookChapterInput.id, {
+			...updateBookChapterInput,
+			processedContent,
+		})
 
-		const updatedBookChapter = await this.bookChapterRepository.updateBookChapterById(
-			updateBookChapterInput.id,
-			preparedUpdateChapterInput,
-		)
 		if (!updatedBookChapter) {
 			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
 		}
 
 		return this.bookChapterQueryRepository.getBookChapterById(updatedBookChapter.id)
-	}
-
-	// Make text flat: remove line breaks and collapse excessive whitespace
-	dryText(text: string) {
-		// Replace CRLF/CR/LF with spaces, collapse multiple spaces/tabs, and trim
-		return text
-			.replace(/[\r\n]+/g, ' ')
-			.replace(/\s+/g, ' ')
-			.trim()
-	}
-
-	/**
-	 * Build minimal payload for DB update from the provided input.
-	 * - Includes ONLY fields explicitly provided in `updateBookChapterInput` (omits undefined).
-	 * - Preserves `null` values as-is so fields can be cleared.
-	 * - Normalizes `content` via `dryText` when it is a string (may become an empty string).
-	 */
-	private prepareUpdateChapterInput(
-		bookChapter: BookChapterServiceModel,
-		updateBookChapterInput: UpdateChapterInput,
-	): UpdateChapterInput {
-		const updateBookChapterInputCopy = { ...updateBookChapterInput }
-
-		if (updateBookChapterInputCopy.originalContent) {
-			if (this.dryText(updateBookChapterInputCopy.originalContent) === bookChapter.originalContent) {
-				delete updateBookChapterInputCopy.originalContent
-			} else {
-				updateBookChapterInputCopy.originalContent = this.dryText(updateBookChapterInputCopy.originalContent)
-			}
-		}
-
-		return updateBookChapterInputCopy
 	}
 }

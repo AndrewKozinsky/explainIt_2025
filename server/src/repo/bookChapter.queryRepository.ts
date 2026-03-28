@@ -61,6 +61,7 @@ export class BookChapterQueryRepository {
 			name: dbChapter.name,
 			header: dbChapter.header,
 			originalContent: dbChapter.original_content,
+			processedContent: dbChapter.processed_content,
 			sentences: dbChapter.Sentence.map((s) => ({
 				id: s.id,
 				startOffset: s.start_offset,

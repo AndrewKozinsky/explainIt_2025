@@ -6,6 +6,7 @@ export type BookChapterServiceModel = {
 	header: string | null
 	note: string | null
 	originalContent: string | null
+	processedContent: string | null
 	sentences: {
 		id: number
 		startOffset: number

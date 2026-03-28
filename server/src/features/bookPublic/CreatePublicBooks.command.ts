@@ -49,15 +49,15 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 				book: wizardOfOzBookData(coversFolderName + 'english/'),
 				chapters: wizardOfOzChapters,
 			},
-			{
+			/*{
 				book: solomonMinesBookData(coversFolderName + 'english/'),
 				chapters: solomonMinesChapters,
-			},
+			},*/
 			// German
-			{
+			/*{
 				book: littleRedRidingHoodBookData(coversFolderName + 'german/'),
 				chapters: littleRedRidingHoodChapters,
-			},
+			},*/
 		]
 	}
 
@@ -95,7 +95,7 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 					bookId,
 					name: bookChapter.name,
 					header: bookChapter.header,
-					content: bookChapter.text,
+					originalContent: bookChapter.text,
 					note: null,
 				}),
 			)

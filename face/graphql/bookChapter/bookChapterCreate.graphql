@@ -4,6 +4,7 @@ mutation BookChapter_create($input: CreateBookChapterInput!) {
 		name
 		header
 		originalContent
+		processedContent
 		note
 		book {
 			id

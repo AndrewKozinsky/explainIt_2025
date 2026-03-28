@@ -36,6 +36,9 @@ export class BookChapterOutModel {
 	@Field(() => String, { nullable: true })
 	originalContent: string | null
 
+	@Field(() => String, { nullable: true })
+	processedContent: string | null
+
 	@Field(() => [SentenceOutModel], { nullable: true })
 	sentences: SentenceOutModel[]
 

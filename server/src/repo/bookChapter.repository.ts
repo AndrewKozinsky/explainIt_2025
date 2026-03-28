@@ -25,6 +25,7 @@ export class BookChapterRepository {
 		name?: null | string
 		header?: null | string
 		originalContent?: null | string
+		processedContent?: null | string
 		note?: null | string
 	}) {
 		const newBookChapter = await this.prisma.bookChapter.create({
@@ -34,6 +35,7 @@ export class BookChapterRepository {
 				name: dto.name,
 				header: dto.header,
 				original_content: dto.originalContent,
+				processed_content: dto.processedContent,
 				note: dto.note,
 			},
 			include: {
@@ -107,6 +109,7 @@ export class BookChapterRepository {
 			name?: null | string
 			header?: null | string
 			originalContent?: null | string
+			processedContent?: null | string
 			note?: null | string
 		},
 	) {
@@ -116,6 +119,7 @@ export class BookChapterRepository {
 				name: dto.name,
 				header: dto.header,
 				original_content: dto.originalContent,
+				processed_content: dto.processedContent,
 				note: dto.note,
 			},
 			include: { book: true, book_public: true, Sentence: true },
@@ -157,6 +161,7 @@ export class BookChapterRepository {
 			name: dbBookChapter.name,
 			note: dbBookChapter.note,
 			originalContent: dbBookChapter.original_content,
+			processedContent: dbBookChapter.original_content,
 			sentences: dbBookChapter.Sentence.map((s) => {
 				return {
 					id: s.id,

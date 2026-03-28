@@ -159,6 +159,7 @@ export interface BookChapterOutModel {
     header?: Nullable<string>;
     note?: Nullable<string>;
     originalContent?: Nullable<string>;
+    processedContent?: Nullable<string>;
     sentences?: Nullable<SentenceOutModel[]>;
     book: BookLiteOutModel;
 }
