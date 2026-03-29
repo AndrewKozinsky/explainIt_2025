@@ -13,12 +13,12 @@ export function winstonUseFactory(mainConfigService: MainConfigService) {
 		}),
 	]
 
-	const { mode, loki } = mainConfigService.getEnVariables()
-	const isServer = mode?.startsWith('server')
+	// const { mode, loki } = mainConfigService.getEnVariables()
+	// const isServer = mode?.startsWith('server')
 
-	const LokiTransport = require('winston-loki')
+	// const LokiTransport = require('winston-loki')
 
-	if (isServer) {
+	/*if (isServer) {
 		transports.push(
 			new LokiTransport({
 				host: loki.url,
@@ -29,7 +29,7 @@ export function winstonUseFactory(mainConfigService: MainConfigService) {
 				interval: 5,
 			}),
 		)
-	}
+	}*/
 
 	return {
 		transports,
