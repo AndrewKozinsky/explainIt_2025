@@ -88,7 +88,7 @@ export interface CreateBookChapterInput {
     bookId: number;
     name?: Nullable<string>;
     header?: Nullable<string>;
-    content?: Nullable<string>;
+    originalContent?: Nullable<string>;
     note?: Nullable<string>;
 }
 
@@ -96,7 +96,7 @@ export interface UpdateBookChapterInput {
     id: number;
     name?: Nullable<string>;
     header?: Nullable<string>;
-    content?: Nullable<string>;
+    originalContent?: Nullable<string>;
     note?: Nullable<string>;
 }
 
@@ -158,7 +158,8 @@ export interface BookChapterOutModel {
     name?: Nullable<string>;
     header?: Nullable<string>;
     note?: Nullable<string>;
-    content?: Nullable<string>;
+    originalContent?: Nullable<string>;
+    processedContent?: Nullable<string>;
     sentences?: Nullable<SentenceOutModel[]>;
     book: BookLiteOutModel;
 }

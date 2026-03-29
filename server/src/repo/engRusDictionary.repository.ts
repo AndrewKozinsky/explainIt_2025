@@ -9,18 +9,11 @@ export class EngRusDictionaryRepository {
 	constructor(private prisma: PrismaService) {}
 
 	@CatchDbError()
-	async saveDictionaryItem(dto: {
-		engPhrase: string
-		rusPhrase: string
-		transcription: string
-		lexemes: null | string
-	}) {
+	async saveDictionaryItem(dto: { engPhrase: string; transcription: string }) {
 		const phrase = await this.prisma.engRusDictionary.create({
 			data: {
 				eng: dto.engPhrase,
-				rus: dto.rusPhrase,
 				transcription: dto.transcription,
-				lexemes: dto.lexemes,
 			},
 		})
 
@@ -46,9 +39,7 @@ export class EngRusDictionaryRepository {
 		return {
 			id: dbBook.id,
 			engPhrase: dbBook.eng,
-			rusPhrase: dbBook.rus,
 			transcription: dbBook.transcription,
-			lexemes: dbBook.lexemes,
 		}
 	}
 }

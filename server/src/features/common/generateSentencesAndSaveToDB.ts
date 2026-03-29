@@ -8,7 +8,7 @@ import { divideTextIntoSentences } from './divideTextIntoSentences'
 export async function generateSentencesAndSaveToDB(params: {
 	mainConfigService: MainConfigService
 	sentenceRepository: SentenceRepository
-	content: string
+	processedContent: string
 	bookChapterId?: number
 	videoPrivateId?: number
 	videoPublicId?: number
@@ -25,14 +25,14 @@ export async function generateSentencesAndSaveToDB(params: {
 	try {
 		const sentences = await divideTextIntoSentences({
 			mainConfigService: params.mainConfigService,
-			text: params.content,
+			text: params.processedContent,
 		})
 
 		let cursor = 0
 
 		for (let i = 0; i < sentences.length; i++) {
 			const sentence = sentences[i]
-			const startOffset = params.content.indexOf(sentence, cursor)
+			const startOffset = params.processedContent.indexOf(sentence, cursor)
 			if (startOffset === -1) {
 				throw new Error('Sentence offset not found')
 			}

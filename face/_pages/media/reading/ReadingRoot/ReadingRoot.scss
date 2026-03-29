@@ -16,16 +16,24 @@
 }
 
 .reading-root__content {
-	display: grid;
-	grid-template-rows: 1fr;
-	grid-template-columns: 1fr 1fr;
+	@include mix.page-width(700px) {
+		display: grid;
+		grid-template-rows: 1fr;
+		grid-template-columns: 1fr 1fr;
+		gap: 2rem;
+	}
 }
 
 .reading-root__text {
-	padding: 0 var(--reading-page-chapter-horizontal-padding) 0 0;
+
 }
 
 .reading-root__analysis {
 	position: relative;
+	display: none;
 	min-width: 0;
+
+	@include mix.page-width(700px) {
+		display: block;
+	}
 }

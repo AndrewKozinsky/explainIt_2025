@@ -7,6 +7,7 @@ import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+import { dryText, removeBOM } from '../mediaCommon'
 
 type FileDestinationType = 'privateVideo' | 'publicVideo'
 type VideoTextContentType = 'text' | 'subtitles'
@@ -38,13 +39,6 @@ export class VideoBase {
 		if (isDevMode) folderName += 'Dev'
 
 		return `${folderName}/${crypto.randomUUID()}-${input.fileName}`
-	}
-
-	protected dryText(text: string) {
-		return text
-			.replace(/[\r\n]+/g, ' ')
-			.replace(/\s+/g, ' ')
-			.trim()
 	}
 
 	protected isLikelySrt(text: string): boolean {
@@ -99,7 +93,7 @@ export class VideoBase {
 			const endTimeMs = this.parseSrtTimeToMs(match[2])
 
 			const textLines = lines.slice(timeLineIndex + 1)
-			const cueText = this.dryText(textLines.join(' '))
+			const cueText = dryText(textLines.join(' '))
 			if (!cueText) continue
 
 			if (preparedContent.length > 0 && !preparedContent.endsWith(' ')) {
@@ -152,7 +146,7 @@ export class VideoBase {
 		originalContentForVideoUpdate: undefined | null | string
 		processedContentForVideoUpdate: undefined | null | string
 		contentTypeForVideoUpdate: undefined | VideoTextContentType
-		preparedContent: null | string
+		processedContent: null | string
 		subtitles?: Array<{
 			startTimeMs: number
 			endTimeMs: number
@@ -167,7 +161,7 @@ export class VideoBase {
 				originalContentForVideoUpdate: undefined,
 				processedContentForVideoUpdate: undefined,
 				contentTypeForVideoUpdate: undefined,
-				preparedContent: null,
+				processedContent: null,
 			}
 		}
 
@@ -177,11 +171,11 @@ export class VideoBase {
 				originalContentForVideoUpdate: null,
 				processedContentForVideoUpdate: null,
 				contentTypeForVideoUpdate: 'text',
-				preparedContent: null,
+				processedContent: null,
 			}
 		}
 
-		const normalizedRaw = dto.originalContent.replace(/^\uFEFF/, '')
+		const normalizedRaw = removeBOM(dto.originalContent)
 		const trimmed = normalizedRaw.trim()
 
 		if (trimmed === '') {
@@ -190,7 +184,7 @@ export class VideoBase {
 				originalContentForVideoUpdate: '',
 				processedContentForVideoUpdate: '',
 				contentTypeForVideoUpdate: 'text',
-				preparedContent: '',
+				processedContent: '',
 			}
 		}
 
@@ -203,7 +197,7 @@ export class VideoBase {
 					originalContentForVideoUpdate: undefined,
 					processedContentForVideoUpdate: undefined,
 					contentTypeForVideoUpdate: undefined,
-					preparedContent: null,
+					processedContent: null,
 				}
 			}
 
@@ -212,12 +206,12 @@ export class VideoBase {
 				originalContentForVideoUpdate: trimmed,
 				processedContentForVideoUpdate: preparedContent,
 				contentTypeForVideoUpdate: 'subtitles',
-				preparedContent,
+				processedContent: preparedContent,
 				subtitles,
 			}
 		}
 
-		const preparedContent = this.dryText(trimmed)
+		const preparedContent = dryText(trimmed)
 
 		if (preparedContent === dto.previousProcessedContent) {
 			return {
@@ -225,7 +219,7 @@ export class VideoBase {
 				originalContentForVideoUpdate: undefined,
 				processedContentForVideoUpdate: undefined,
 				contentTypeForVideoUpdate: undefined,
-				preparedContent: null,
+				processedContent: null,
 			}
 		}
 
@@ -234,7 +228,7 @@ export class VideoBase {
 			originalContentForVideoUpdate: trimmed,
 			processedContentForVideoUpdate: preparedContent,
 			contentTypeForVideoUpdate: 'text',
-			preparedContent,
+			processedContent: preparedContent,
 		}
 	}
 

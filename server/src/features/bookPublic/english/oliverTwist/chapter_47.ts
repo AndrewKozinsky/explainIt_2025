@@ -1,177 +1,167 @@
-// ГЛАВА НЕ ГОТОВА
 export const chapter_47 = {
 	name: 'Chapter XLVII',
 	header: 'Fatal consequences',
-	text: `
-------------------------------
-Та же самая задача для этого текста:
-It was nearly two hours before day-break; that time which in the autumn of the year, may be truly called the dead of night; when the streets are silent and deserted; when even sounds appear to slumber, and profligacy and riot have staggered home to dream; it was at this still and silent hour, that Fagin sat watching in his old lair, with face so distorted and pale, and eyes so red and blood-shot, that he looked less like a man, than like some hideous phantom, moist from the grave, and worried by an evil spirit.
+	text: `It was almost two hours before dawn. In autumn, this is the darkest part of the night. The streets were empty and silent. Even sounds seemed asleep. Drunk and careless people had already gone home. At this quiet hour, Fagin sat awake in his hiding place.
 
-He sat crouching over a cold hearth, wrapped in an old torn coverlet, with his face turned towards a wasting candle that stood upon a table by his side. His right hand was raised to his lips, and as, absorbed in thought, he bit his long black nails, he disclosed among his toothless gums a few such fangs as should have been a dog’s or rat’s.
+His face was pale and twisted. His eyes were red and full of blood. He looked less like a man and more like something страшное—like a ghost from the grave, troubled by evil.
 
-Stretched upon a mattress on the floor, lay Noah Claypole, fast asleep. Towards him the old man sometimes directed his eyes for an instant, and then brought them back again to the candle; which with a long-burnt wick drooping almost double, and hot grease falling down in clots upon the table, plainly showed that his thoughts were busy elsewhere.
+He sat close to a cold fireplace, wrapped in an old torn blanket. A weak candle burned on the table beside him. He stared at it. His right hand was near his mouth. Deep in thought, he bit his long black nails. When he did, you could see his empty gums and a few sharp teeth, like those of a dog or a rat.
 
-Indeed they were. Mortification at the overthrow of his notable scheme; hatred of the girl who had dared to palter with strangers; and utter distrust of the sincerity of her refusal to yield him up; bitter disappointment at the loss of his revenge on Sikes; the fear of detection, and ruin, and death; and a fierce and deadly rage kindled by all; these were the passionate considerations which, following close upon each other with rapid and ceaseless whirl, shot through the brain of Fagin, as every evil thought and blackest purpose lay working at his heart.
+On a mattress on the floor lay Noah Claypole, fast asleep. Sometimes Fagin glanced at him, but only for a moment. Then he looked back at the candle. The candle was almost burned out. The wick bent low, and hot wax dropped onto the table. It showed that Fagin had been sitting there a long time, lost in his thoughts.
 
-He sat without changing his attitude in the least, or appearing to take the smallest heed of time, until his quick ear seemed to be attracted by a footstep in the street.
+And his thoughts were dark. His plan had failed, and he felt ashamed and angry. He hated the girl who had spoken to strangers. He did not trust her silence. He was bitter that he could not take revenge on Bill Sikes. He feared being discovered, ruined, or killed. All these feelings rushed through his mind again and again. They filled his heart with rage.
 
-“At last,” he muttered, wiping his dry and fevered mouth. “At last!”
+He sat without moving for a long time. He did not notice time passing. Then suddenly, he heard a footstep in the street.
 
-The bell rang gently as he spoke. He crept upstairs to the door, and presently returned accompanied by a man muffled to the chin, who carried a bundle under one arm. Sitting down and throwing back his outer coat, the man displayed the burly frame of Sikes.
+“At last,” he whispered, licking his dry lips. “At last!”
 
-“There!” he said, laying the bundle on the table. “Take care of that, and do the most you can with it. It’s been trouble enough to get; I thought I should have been here, three hours ago.”
+At that moment, the bell rang softly. He went upstairs and opened the door. Soon he returned with a man wrapped in a coat up to his chin. The man carried a bundle under his arm. When he sat down and opened his coat, his strong body became visible—it was Bill Sikes.
 
-Fagin laid his hand upon the bundle, and locking it in the cupboard, sat down again without speaking. But he did not take his eyes off the robber, for an instant, during this action; and now that they sat over against each other, face to face, he looked fixedly at him, with his lips quivering so violently, and his face so altered by the emotions which had mastered him, that the housebreaker involuntarily drew back his chair, and surveyed him with a look of real affright.
+“There!” he said, putting the bundle on the table. “Take it and get what you can for it. It wasn’t easy to get. I should have been here three hours ago.”
 
-“Wot now?” cried Sikes. “Wot do you look at a man so for?”
+Fagin put his hand on the bundle, locked it in a cupboard, and sat down again without speaking. But he watched Sikes closely the whole time. Now they sat face to face. Fagin stared at him. His lips were shaking, and his face had changed with strong emotion. Sikes felt uneasy and moved his chair back.
 
-Fagin raised his right hand, and shook his trembling forefinger in the air; but his passion was so great, that the power of speech was for the moment gone.
+“What now?” Sikes said. “Why are you looking at me like that?”
 
-“Damme!” said Sikes, feeling in his breast with a look of alarm. “He’s gone mad. I must look to myself here.”
+Fagin raised his hand and shook his finger, but he was so full of emotion that he could not speak.
 
-“No, no,” rejoined Fagin, finding his voice. “It’s not—you’re not the person, Bill. I’ve no—no fault to find with you.”
+“Damn it!” said Sikes, putting his hand inside his coat nervously. “He’s gone mad. I need to be careful.”
 
-“Oh, you haven’t, haven’t you?” said Sikes, looking sternly at him, and ostentatiously passing a pistol into a more convenient pocket. “That’s lucky—for one of us. Which one that is, don’t matter.”
+“No, no,” said Fagin at last, finding his voice. “It’s not you, Bill. I have nothing against you.”
 
-“I’ve got that to tell you, Bill,” said Fagin, drawing his chair nearer, “will make you worse than me.”
+“Oh, you don’t?” said Sikes coldly. He moved a pistol into an easier place to reach. “That’s good—for one of us. Doesn’t matter which one.”
 
-----------------
-Та же самая задача для этого текста:
+“I have something to tell you, Bill,” said Fagin, moving his chair closer. “Something that will make you feel worse than I do.”
 
-“Aye?” returned the robber with an incredulous air. “Tell away! Look sharp, or Nance will think I’m lost.”
+“Yeah?” said the robber, not believing him. “Go on, then. Be quick, or Nance will think I’m gone.”
 
-“Lost!” cried Fagin. “She has pretty well settled that, in her own mind, already.”
+“Gone!” cried Fagin. “She already thinks that, I’m sure.”
 
-Sikes looked with an aspect of great perplexity into the Jew’s face, and reading no satisfactory explanation of the riddle there, clenched his coat collar in his huge hand and shook him soundly.
+Bill Sikes looked confused. He stared at Fagin but didn’t understand him. Then he grabbed Fagin by the collar and shook him hard.
 
-“Speak, will you!” he said; “or if you don’t, it shall be for want of breath. Open your mouth and say wot you’ve got to say in plain words. Out with it, you thundering old cur, out with it!”
+“Speak!” he said. “Or you won’t be able to breathe. Open your mouth and say it clearly. Out with it, you old dog!”
 
-“Suppose that lad that’s laying there—” Fagin began.
+“Suppose that boy lying there—” Fagin began.
 
-Sikes turned round to where Noah was sleeping, as if he had not previously observed him. “Well!” he said, resuming his former position.
+Sikes turned and looked at Noah Claypole, as if he hadn’t noticed him before. “Well?” he said, turning back.
 
-“Suppose that lad,” pursued Fagin, “was to peach—to blow upon us all—first seeking out the right folks for the purpose, and then having a meeting with ’em in the street to paint our likenesses, describe every mark that they might know us by, and the crib where we might be most easily taken. Suppose he was to do all this, and besides to blow upon a plan we’ve all been in, more or less—of his own fancy; not grabbed, trapped, tried, earwigged by the parson and brought to it on bread and water,—but of his own fancy; to please his own taste; stealing out at nights to find those most interested against us, and peaching to them. Do you hear me?” cried the Jew, his eyes flashing with rage. “Suppose he did all this, what then?”
+“Suppose that boy,” Fagin continued, “went to the police. Suppose he found the right people and met them in the street. Suppose he described us—our faces, our marks—everything they need to recognize us. Suppose he told them where we live, so they could catch us easily. Suppose he told them about one of our plans too—not because he was forced, not because he was caught or punished—but because he wanted to. Because he liked it. Suppose he sneaked out at night to meet our enemies and betray us. Do you hear me?” cried Fagin, his eyes burning with anger. “Suppose he did all that—what then?”
 
-“What then!” replied Sikes; with a tremendous oath. “If he was left alive till I came, I’d grind his skull under the iron heel of my boot into as many grains as there are hairs upon his head.”
+“What then?” said Sikes, swearing loudly. “If he was still alive when I got to him, I’d crush his skull under my boot.”
 
-“What if I did it!” cried Fagin almost in a yell. “I, that knows so much, and could hang so many besides myself!”
+“And what if I did it?” shouted Fagin. “I, who know so much—and could hang many others with me!”
 
-“I don’t know,” replied Sikes, clenching his teeth and turning white at the mere suggestion. “I’d do something in the jail that ’ud get me put in irons; and if I was tried along with you, I’d fall upon you with them in the open court, and beat your brains out afore the people. I should have such strength,” muttered the robber, poising his brawny arm, “that I could smash your head as if a loaded waggon had gone over it.”
+“I don’t know,” said Sikes, his face turning pale with anger. “I’d do something in prison to get chains put on me. And if we were in court together, I’d attack you right there and smash your head in front of everyone. I’d have the strength,” he said, lifting his strong arm, “to crush you like a wagon had run over you.”
 
 “You would?”
 
-“Would I!” said the housebreaker. “Try me.”
+“Would I?” said Sikes. “Try me.”
 
 “If it was Charley, or the Dodger, or Bet, or—”
 
-“I don’t care who,” replied Sikes impatiently. “Whoever it was, I’d serve them the same.”
+“I don’t care who,” Sikes interrupted. “Anyone who did it would get the same.”
 
-Fagin looked hard at the robber; and, motioning him to be silent, stooped over the bed upon the floor, and shook the sleeper to rouse him. Sikes leant forward in his chair: looking on with his hands upon his knees, as if wondering much what all this questioning and preparation was to end in.
+Fagin looked closely at him. Then he raised his hand, telling him to be quiet. He bent over the mattress and shook the sleeping boy to wake him.
 
-----------------
-Та же самая задача для этого текста:
+Sikes leaned forward in his chair. His hands rested on his knees. He watched closely, wondering what would happen next.
 
-“Bolter, Bolter! Poor lad!” said Fagin, looking up with an expression of devilish anticipation, and speaking slowly and with marked emphasis. “He’s tired—tired with watching for her so long,—watching for her, Bill.”
+“Bolter, Bolter! Poor boy!” said Fagin. He looked up with a dark, eager expression and spoke slowly. “He’s tired—tired from watching her for so long. Watching her, Bill.”
 
-“Wot d’ye mean?” asked Sikes, drawing back.
+“What do you mean?” asked Bill Sikes, pulling back.
 
-Fagin made no answer, but bending over the sleeper again, hauled him into a sitting posture. When his assumed name had been repeated several times, Noah rubbed his eyes, and, giving a heavy yawn, looked sleepily about him.
+Fagin did not answer. He bent over the sleeping boy and pulled him up into a sitting position. After hearing his name several times, Noah Claypole rubbed his eyes, yawned, and looked around sleepily.
 
-“Tell me that again—once again, just for him to hear,” said the Jew, pointing to Sikes as he spoke.
+“Tell it again,” said Fagin, pointing at Sikes. “Say it once more, so he can hear.”
 
-“Tell yer what?” asked the sleepy Noah, shaking himself pettishly.
+“Tell what?” Noah asked, annoyed and half asleep.
 
-“That about— Nancy,” said Fagin, clutching Sikes by the wrist, as if to prevent his leaving the house before he had heard enough. “You followed her?”
+“That about Nancy,” said Fagin. He grabbed Sikes by the wrist, as if afraid he might leave before hearing everything. “You followed her?”
 
-“Yes.”
+“Yes,” said Noah.
 
 “To London Bridge?”
 
 “Yes.”
 
-“Where she met two people.”
+“She met two people there.”
 
-“So she did.”
+“Yes.”
 
-“A gentleman and a lady that she had gone to of her own accord before, who asked her to give up all her pals, and Monks first, which she did—and to describe him, which she did—and to tell her what house it was that we meet at, and go to, which she did—and where it could be best watched from, which she did—and what time the people went there, which she did. She did all this. She told it all every word without a threat, without a murmur—she did—did she not?” cried Fagin, half mad with fury.
+“A gentleman and a lady. She had gone to them before, by her own choice. They asked her to give up all her friends—especially Monks. And she did. They asked her to describe him. And she did. They asked where we meet, what house we use—and she told them. They asked where it could be watched from—and she told them. They asked what time people come and go—and she told them. She told them everything. Every word. No threats, no pressure. She did it freely. She did—did she not?” cried Fagin, almost mad with anger.
 
-“All right,” replied Noah, scratching his head. “That’s just what it was!”
+“Yes, that’s right,” said Noah, scratching his head. “That’s exactly what happened.”
 
-“What did they say, about last Sunday?”
+“What did they say about last Sunday?” asked Fagin.
 
-“About last Sunday!” replied Noah, considering. “Why I told yer that before.”
+“Last Sunday?” said Noah, thinking. “I already told you.”
 
-“Again. Tell it again!” cried Fagin, tightening his grasp on Sikes, and brandishing his other hand aloft, as the foam flew from his lips.
+“Say it again!” shouted Fagin. He held Sikes tighter and waved his other hand wildly. Foam gathered at his lips.
 
-“They asked her,” said Noah, who, as he grew more wakeful, seemed to have a dawning perception who Sikes was, “they asked her why she didn’t come, last Sunday, as she promised. She said she couldn’t.”
+“They asked her,” said Noah, now more awake—and beginning to realize who Sikes was—“they asked why she didn’t come last Sunday, like she promised. She said she couldn’t.”
 
-“Why—why? Tell him that.”
+“Why? Why?” cried Fagin. “Tell him that!”
 
-----------------
-Та же самая задача для этого текста:
+“Because Bill forced her to stay at home,” said Noah Claypole. “She had already told them about him.”
 
-“Because she was forcibly kept at home by Bill, the man she had told them of before,” replied Noah.
+“What else did she say about him?” cried Fagin. “Tell him—tell him everything!”
 
-“What more of him?” cried Fagin. “What more of the man she had told them of before? Tell him that, tell him that.”
+“She said she couldn’t leave the house easily unless he knew where she was going,” Noah went on. “So the first time she went to see the lady—ha! it made me laugh—she gave him some laudanum in his drink.”
 
-“Why, that she couldn’t very easily get out of doors unless he knew where she was going to,” said Noah; “and so the first time she went to see the lady, she—ha! ha! ha! it made me laugh when she said it, that it did—she gave him a drink of laudanum.”
+“Hell!” shouted Bill Sikes, pulling himself free from Fagin. “Let me go!”
 
-“Hell’s fire!” cried Sikes, breaking fiercely from the Jew. “Let me go!”
+He threw the old man aside and rushed out of the room. He ran wildly up the stairs.
 
-Flinging the old man from him, he rushed from the room, and darted, wildly and furiously, up the stairs.
+“Bill! Bill!” cried Fagin, hurrying after him. “Wait—a word, just one word!”
 
-“Bill, Bill!” cried Fagin, following him hastily. “A word. Only a word.”
+Sikes might not have stopped, but he couldn’t open the door. He cursed and shook it angrily. At that moment, Fagin came up, breathing hard.
 
-The word would not have been exchanged, but that the housebreaker was unable to open the door: on which he was expending fruitless oaths and violence, when the Jew came panting up.
+“Let me out,” said Sikes. “Don’t talk to me—it’s not safe. Open the door!”
 
-“Let me out,” said Sikes. “Don’t speak to me; it’s not safe. Let me out, I say!”
+“Listen to me,” said Fagin, putting his hand on the lock. “You won’t be—”
 
-“Hear me speak a word,” rejoined Fagin, laying his hand upon the lock. “You won’t be—”
+“Well?” said Sikes.
 
-“Well,” replied the other.
+“You won’t be too violent, Bill?”
 
-“You won’t be—too—violent, Bill?”
+Morning was coming. There was enough light to see each other’s faces. They looked at one another for a moment. Both had a dangerous fire in their eyes.
 
-The day was breaking, and there was light enough for the men to see each other’s faces. They exchanged one brief glance; there was a fire in the eyes of both, which could not be mistaken.
+“I mean,” said Fagin, now speaking openly, “don’t be too violent for your own safety. Be clever, Bill—not reckless.”
 
-“I mean,” said Fagin, showing that he felt all disguise was now useless, “not too violent for safety. Be crafty, Bill, and not too bold.”
+Sikes said nothing. Fagin unlocked the door, and Sikes rushed out into the empty streets.
 
-Sikes made no reply; but, pulling open the door, of which Fagin had turned the lock, dashed into the silent streets.
+He did not stop. He did not look around. He did not look up or down. He stared straight ahead with fierce determination. His teeth were clenched so tightly that his jaw looked stiff and hard. He ran forward without a word, without slowing down, until he reached his own door.
 
-Without one pause, or moment’s consideration; without once turning his head to the right or left, or raising his eyes to the sky, or lowering them to the ground, but looking straight before him with savage resolution: his teeth so tightly compressed that the strained jaw seemed starting through his skin; the robber held on his headlong course, nor muttered a word, nor relaxed a muscle, until he reached his own door. He opened it, softly, with a key; strode lightly up the stairs; and entering his own room, double-locked the door, and lifting a heavy table against it, drew back the curtain of the bed.
+He opened it quietly with a key. Then he went quickly up the stairs. In his room, he locked the door twice and pushed a heavy table against it. Then he pulled back the bed curtain.
 
-----------------
-Та же самая задача для этого текста:
+The girl lay on the bed, half dressed. The man had woken her. She sat up quickly, frightened.
 
-The girl was lying, half-dressed, upon it. He had roused her from her sleep, for she raised herself with a hurried and startled look.
+“Get up,” said the man.
 
-“Get up!” said the man.
+“It’s you, Bill!” said the girl, glad to see him.
 
-“It is you, Bill!” said the girl, with an expression of pleasure at his return.
+“It is,” he replied. “Get up.”
 
-“It is,” was the reply. “Get up.”
+A candle was burning, but the man quickly took it and threw it into the fireplace. Weak morning light came through the window. The girl moved to open the curtain.
 
-There was a candle burning, but the man hastily drew it from the candlestick, and hurled it under the grate. Seeing the faint light of early day without, the girl rose to undraw the curtain.
+“Leave it,” said Bill Sikes, putting his hand in front of her. “There’s enough light.”
 
-“Let it be,” said Sikes, thrusting his hand before her. “There’s enough light for wot I’ve got to do.”
+“Bill,” said the girl quietly, afraid, “why are you looking at me like that?”
 
-“Bill,” said the girl, in the low voice of alarm, “why do you look like that at me!”
+He stared at her for a few seconds. His breathing was heavy. Then suddenly he grabbed her by the head and throat and dragged her into the middle of the room. He looked once at the door and pressed his hand over her mouth.
 
-The robber sat regarding her, for a few seconds, with dilated nostrils and heaving breast; and then, grasping her by the head and throat, dragged her into the middle of the room, and looking once towards the door, placed his heavy hand upon her mouth.
+“Bill! Bill!” the girl gasped, struggling in fear. “I won’t scream—I won’t cry—please listen to me. Tell me what I’ve done!”
 
-“Bill, Bill!” gasped the girl, wrestling with the strength of mortal fear,—“I—I won’t scream or cry—not once—hear me—speak to me—tell me what I have done!”
+“You know,” he said through his teeth. “You were watched tonight. Every word you said was heard.”
 
-“You know, you she devil!” returned the robber, suppressing his breath. “You were watched tonight; every word you said was heard.”
+“Then spare my life,” she cried, holding onto him. “For Heaven’s sake, spare me, as I spared you. Bill, dear Bill, you can’t kill me. Think of what I did for you—just tonight. I gave up everything for you. Give yourself time to think. Don’t do this. I won’t let go—I won’t leave you. Bill, please, for God’s sake—for yours and mine—stop before you kill me! I have been true to you, even with all my sins!”
 
-“Then spare my life for the love of Heaven, as I spared yours,” rejoined the girl, clinging to him. “Bill, dear Bill, you cannot have the heart to kill me. Oh! think of all I have given up, only this one night, for you. You shall have time to think, and save yourself this crime; I will not loose my hold, you cannot throw me off. Bill, Bill, for dear God’s sake, for your own, for mine, stop before you spill my blood! I have been true to you, upon my guilty soul I have!”
+He struggled to free himself, but she held his arms tightly. No matter how hard he tried, he could not break away.
 
-The man struggled violently, to release his arms; but those of the girl were clasped round his, and tear her as he would, he could not tear them away.
+“Bill,” she cried, trying to rest her head on his chest, “tonight a gentleman and a kind lady told me about a home in another country. A quiet place where I could live in peace. Let me see them again. I will beg them to help you too. Let us both leave this place. We can live better lives, far away from each other, and never meet again. It is not too late to change. They told me so—and now I feel it too. But we need time—just a little time!”
 
-“Bill,” cried the girl, striving to lay her head upon his breast, “the gentleman and that dear lady, told me tonight of a home in some foreign country where I could end my days in solitude and peace. Let me see them again, and beg them, on my knees, to show the same mercy and goodness to you; and let us both leave this dreadful place, and far apart lead better lives, and forget how we have lived, except in prayers, and never see each other more. It is never too late to repent. They told me so—I feel it now—but we must have time—a little, little time!”
+The robber pulled one arm free and grabbed his pistol. Even in his anger, he knew the noise would bring danger. Instead, he struck her twice in the face with all his strength.
 
-The housebreaker freed one arm, and grasped his pistol. The certainty of immediate detection if he fired, flashed across his mind even in the midst of his fury; and he beat it twice with all the force he could summon, upon the upturned face that almost touched his own.
+She fell, blood running from a deep wound on her forehead. She could barely see. Slowly, she lifted herself onto her knees. From her dress, she took out a white handkerchief—belonging to Rose Maylie. Holding it up with both hands, as high as she could, she whispered one last prayer for mercy.
 
-She staggered and fell: nearly blinded with the blood that rained down from a deep gash in her forehead; but raising herself, with difficulty, on her knees, drew from her bosom a white handkerchief—Rose Maylie’s own—and holding it up, in her folded hands, as high towards Heaven as her feeble strength would allow, breathed one prayer for mercy to her Maker.
-
-It was a ghastly figure to look upon. The murderer staggering backward to the wall, and shutting out the sight with his hand, seized a heavy club and struck her down.`,
+It was a terrible sight. The murderer stepped back against the wall and covered his eyes for a moment. Then he grabbed a heavy club and struck her down.`,
 }

@@ -5,6 +5,7 @@ import { BookPrivateQueryRepository } from 'repo/bookPrivate.queryRepository'
 import { BookPublicRepository } from 'repo/bookPublic.repository'
 import { SentenceRepository } from 'repo/sentence.repository'
 import { generateSentencesAndSaveToDB } from 'features/common/generateSentencesAndSaveToDB'
+import { dryText, removeBOM } from 'features/mediaCommon'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
@@ -15,7 +16,7 @@ export type CreateBookChapterInput = {
 	bookId: number
 	name?: null | string
 	header?: null | string
-	content?: null | string
+	originalContent?: null | string
 	note?: null | string
 }
 
@@ -64,23 +65,27 @@ export class CreateBookChapterHandler implements ICommandHandler<CreateBookChapt
 			throw new CustomGraphQLError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
 		}
 
+		let processedContent = removeBOM(createBookChapterInput.originalContent ?? '')
+		processedContent = dryText(processedContent)
+
 		const newBookChapter = await this.bookChapterRepository.createBookChapter({
 			bookType: createBookChapterInput.bookType,
 			bookId: createBookChapterInput.bookId,
 			name: createBookChapterInput.name,
 			header: createBookChapterInput.header,
-			originalContent: createBookChapterInput.content,
+			originalContent: createBookChapterInput.originalContent,
+			processedContent: processedContent ?? null,
 			note: createBookChapterInput.note,
 		})
 		if (!newBookChapter) {
 			throw new CustomGraphQLError(errorMessage.bookChapter.notCreated, ErrorCode.InternalServerError_500)
 		}
 
-		if (createBookChapterInput.content) {
+		if (processedContent) {
 			await generateSentencesAndSaveToDB({
 				mainConfigService: this.mainConfigService,
 				sentenceRepository: this.sentenceRepository,
-				content: createBookChapterInput.content,
+				processedContent,
 				bookChapterId: newBookChapter.id,
 			})
 		}

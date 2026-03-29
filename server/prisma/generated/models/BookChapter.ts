@@ -44,7 +44,8 @@ export type BookChapterMinAggregateOutputType = {
   book_public_id: number | null
   name: string | null
   header: string | null
-  content: string | null
+  original_content: string | null
+  processed_content: string | null
   note: string | null
   created_at: Date | null
 }
@@ -55,7 +56,8 @@ export type BookChapterMaxAggregateOutputType = {
   book_public_id: number | null
   name: string | null
   header: string | null
-  content: string | null
+  original_content: string | null
+  processed_content: string | null
   note: string | null
   created_at: Date | null
 }
@@ -66,7 +68,8 @@ export type BookChapterCountAggregateOutputType = {
   book_public_id: number
   name: number
   header: number
-  content: number
+  original_content: number
+  processed_content: number
   note: number
   created_at: number
   _all: number
@@ -91,7 +94,8 @@ export type BookChapterMinAggregateInputType = {
   book_public_id?: true
   name?: true
   header?: true
-  content?: true
+  original_content?: true
+  processed_content?: true
   note?: true
   created_at?: true
 }
@@ -102,7 +106,8 @@ export type BookChapterMaxAggregateInputType = {
   book_public_id?: true
   name?: true
   header?: true
-  content?: true
+  original_content?: true
+  processed_content?: true
   note?: true
   created_at?: true
 }
@@ -113,7 +118,8 @@ export type BookChapterCountAggregateInputType = {
   book_public_id?: true
   name?: true
   header?: true
-  content?: true
+  original_content?: true
+  processed_content?: true
   note?: true
   created_at?: true
   _all?: true
@@ -211,7 +217,8 @@ export type BookChapterGroupByOutputType = {
   book_public_id: number | null
   name: string | null
   header: string | null
-  content: string | null
+  original_content: string | null
+  processed_content: string | null
   note: string | null
   created_at: Date
   _count: BookChapterCountAggregateOutputType | null
@@ -245,7 +252,8 @@ export type BookChapterWhereInput = {
   book_public_id?: Prisma.IntNullableFilter<"BookChapter"> | number | null
   name?: Prisma.StringNullableFilter<"BookChapter"> | string | null
   header?: Prisma.StringNullableFilter<"BookChapter"> | string | null
-  content?: Prisma.StringNullableFilter<"BookChapter"> | string | null
+  original_content?: Prisma.StringNullableFilter<"BookChapter"> | string | null
+  processed_content?: Prisma.StringNullableFilter<"BookChapter"> | string | null
   note?: Prisma.StringNullableFilter<"BookChapter"> | string | null
   created_at?: Prisma.DateTimeFilter<"BookChapter"> | Date | string
   book?: Prisma.XOR<Prisma.BookPrivateNullableScalarRelationFilter, Prisma.BookPrivateWhereInput> | null
@@ -259,7 +267,8 @@ export type BookChapterOrderByWithRelationInput = {
   book_public_id?: Prisma.SortOrderInput | Prisma.SortOrder
   name?: Prisma.SortOrderInput | Prisma.SortOrder
   header?: Prisma.SortOrderInput | Prisma.SortOrder
-  content?: Prisma.SortOrderInput | Prisma.SortOrder
+  original_content?: Prisma.SortOrderInput | Prisma.SortOrder
+  processed_content?: Prisma.SortOrderInput | Prisma.SortOrder
   note?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   book?: Prisma.BookPrivateOrderByWithRelationInput
@@ -276,7 +285,8 @@ export type BookChapterWhereUniqueInput = Prisma.AtLeast<{
   book_public_id?: Prisma.IntNullableFilter<"BookChapter"> | number | null
   name?: Prisma.StringNullableFilter<"BookChapter"> | string | null
   header?: Prisma.StringNullableFilter<"BookChapter"> | string | null
-  content?: Prisma.StringNullableFilter<"BookChapter"> | string | null
+  original_content?: Prisma.StringNullableFilter<"BookChapter"> | string | null
+  processed_content?: Prisma.StringNullableFilter<"BookChapter"> | string | null
   note?: Prisma.StringNullableFilter<"BookChapter"> | string | null
   created_at?: Prisma.DateTimeFilter<"BookChapter"> | Date | string
   book?: Prisma.XOR<Prisma.BookPrivateNullableScalarRelationFilter, Prisma.BookPrivateWhereInput> | null
@@ -290,7 +300,8 @@ export type BookChapterOrderByWithAggregationInput = {
   book_public_id?: Prisma.SortOrderInput | Prisma.SortOrder
   name?: Prisma.SortOrderInput | Prisma.SortOrder
   header?: Prisma.SortOrderInput | Prisma.SortOrder
-  content?: Prisma.SortOrderInput | Prisma.SortOrder
+  original_content?: Prisma.SortOrderInput | Prisma.SortOrder
+  processed_content?: Prisma.SortOrderInput | Prisma.SortOrder
   note?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   _count?: Prisma.BookChapterCountOrderByAggregateInput
@@ -309,7 +320,8 @@ export type BookChapterScalarWhereWithAggregatesInput = {
   book_public_id?: Prisma.IntNullableWithAggregatesFilter<"BookChapter"> | number | null
   name?: Prisma.StringNullableWithAggregatesFilter<"BookChapter"> | string | null
   header?: Prisma.StringNullableWithAggregatesFilter<"BookChapter"> | string | null
-  content?: Prisma.StringNullableWithAggregatesFilter<"BookChapter"> | string | null
+  original_content?: Prisma.StringNullableWithAggregatesFilter<"BookChapter"> | string | null
+  processed_content?: Prisma.StringNullableWithAggregatesFilter<"BookChapter"> | string | null
   note?: Prisma.StringNullableWithAggregatesFilter<"BookChapter"> | string | null
   created_at?: Prisma.DateTimeWithAggregatesFilter<"BookChapter"> | Date | string
 }
@@ -317,7 +329,8 @@ export type BookChapterScalarWhereWithAggregatesInput = {
 export type BookChapterCreateInput = {
   name?: string | null
   header?: string | null
-  content?: string | null
+  original_content?: string | null
+  processed_content?: string | null
   note?: string | null
   created_at?: Date | string
   book?: Prisma.BookPrivateCreateNestedOneWithoutBookChapterInput
@@ -331,7 +344,8 @@ export type BookChapterUncheckedCreateInput = {
   book_public_id?: number | null
   name?: string | null
   header?: string | null
-  content?: string | null
+  original_content?: string | null
+  processed_content?: string | null
   note?: string | null
   created_at?: Date | string
   Sentence?: Prisma.SentenceUncheckedCreateNestedManyWithoutBookChapterInput
@@ -340,7 +354,8 @@ export type BookChapterUncheckedCreateInput = {
 export type BookChapterUpdateInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   header?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   book?: Prisma.BookPrivateUpdateOneWithoutBookChapterNestedInput
@@ -354,7 +369,8 @@ export type BookChapterUncheckedUpdateInput = {
   book_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   header?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutBookChapterNestedInput
@@ -366,7 +382,8 @@ export type BookChapterCreateManyInput = {
   book_public_id?: number | null
   name?: string | null
   header?: string | null
-  content?: string | null
+  original_content?: string | null
+  processed_content?: string | null
   note?: string | null
   created_at?: Date | string
 }
@@ -374,7 +391,8 @@ export type BookChapterCreateManyInput = {
 export type BookChapterUpdateManyMutationInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   header?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -385,7 +403,8 @@ export type BookChapterUncheckedUpdateManyInput = {
   book_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   header?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -406,7 +425,8 @@ export type BookChapterCountOrderByAggregateInput = {
   book_public_id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   header?: Prisma.SortOrder
-  content?: Prisma.SortOrder
+  original_content?: Prisma.SortOrder
+  processed_content?: Prisma.SortOrder
   note?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
@@ -423,7 +443,8 @@ export type BookChapterMaxOrderByAggregateInput = {
   book_public_id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   header?: Prisma.SortOrder
-  content?: Prisma.SortOrder
+  original_content?: Prisma.SortOrder
+  processed_content?: Prisma.SortOrder
   note?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
@@ -434,7 +455,8 @@ export type BookChapterMinOrderByAggregateInput = {
   book_public_id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   header?: Prisma.SortOrder
-  content?: Prisma.SortOrder
+  original_content?: Prisma.SortOrder
+  processed_content?: Prisma.SortOrder
   note?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
@@ -553,7 +575,8 @@ export type BookChapterUpdateOneWithoutSentenceNestedInput = {
 export type BookChapterCreateWithoutBookInput = {
   name?: string | null
   header?: string | null
-  content?: string | null
+  original_content?: string | null
+  processed_content?: string | null
   note?: string | null
   created_at?: Date | string
   book_public?: Prisma.BookPublicCreateNestedOneWithoutBookChapterInput
@@ -565,7 +588,8 @@ export type BookChapterUncheckedCreateWithoutBookInput = {
   book_public_id?: number | null
   name?: string | null
   header?: string | null
-  content?: string | null
+  original_content?: string | null
+  processed_content?: string | null
   note?: string | null
   created_at?: Date | string
   Sentence?: Prisma.SentenceUncheckedCreateNestedManyWithoutBookChapterInput
@@ -606,7 +630,8 @@ export type BookChapterScalarWhereInput = {
   book_public_id?: Prisma.IntNullableFilter<"BookChapter"> | number | null
   name?: Prisma.StringNullableFilter<"BookChapter"> | string | null
   header?: Prisma.StringNullableFilter<"BookChapter"> | string | null
-  content?: Prisma.StringNullableFilter<"BookChapter"> | string | null
+  original_content?: Prisma.StringNullableFilter<"BookChapter"> | string | null
+  processed_content?: Prisma.StringNullableFilter<"BookChapter"> | string | null
   note?: Prisma.StringNullableFilter<"BookChapter"> | string | null
   created_at?: Prisma.DateTimeFilter<"BookChapter"> | Date | string
 }
@@ -614,7 +639,8 @@ export type BookChapterScalarWhereInput = {
 export type BookChapterCreateWithoutBook_publicInput = {
   name?: string | null
   header?: string | null
-  content?: string | null
+  original_content?: string | null
+  processed_content?: string | null
   note?: string | null
   created_at?: Date | string
   book?: Prisma.BookPrivateCreateNestedOneWithoutBookChapterInput
@@ -626,7 +652,8 @@ export type BookChapterUncheckedCreateWithoutBook_publicInput = {
   book_id?: number | null
   name?: string | null
   header?: string | null
-  content?: string | null
+  original_content?: string | null
+  processed_content?: string | null
   note?: string | null
   created_at?: Date | string
   Sentence?: Prisma.SentenceUncheckedCreateNestedManyWithoutBookChapterInput
@@ -661,7 +688,8 @@ export type BookChapterUpdateManyWithWhereWithoutBook_publicInput = {
 export type BookChapterCreateWithoutSentenceInput = {
   name?: string | null
   header?: string | null
-  content?: string | null
+  original_content?: string | null
+  processed_content?: string | null
   note?: string | null
   created_at?: Date | string
   book?: Prisma.BookPrivateCreateNestedOneWithoutBookChapterInput
@@ -674,7 +702,8 @@ export type BookChapterUncheckedCreateWithoutSentenceInput = {
   book_public_id?: number | null
   name?: string | null
   header?: string | null
-  content?: string | null
+  original_content?: string | null
+  processed_content?: string | null
   note?: string | null
   created_at?: Date | string
 }
@@ -698,7 +727,8 @@ export type BookChapterUpdateToOneWithWhereWithoutSentenceInput = {
 export type BookChapterUpdateWithoutSentenceInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   header?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   book?: Prisma.BookPrivateUpdateOneWithoutBookChapterNestedInput
@@ -711,7 +741,8 @@ export type BookChapterUncheckedUpdateWithoutSentenceInput = {
   book_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   header?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -721,7 +752,8 @@ export type BookChapterCreateManyBookInput = {
   book_public_id?: number | null
   name?: string | null
   header?: string | null
-  content?: string | null
+  original_content?: string | null
+  processed_content?: string | null
   note?: string | null
   created_at?: Date | string
 }
@@ -729,7 +761,8 @@ export type BookChapterCreateManyBookInput = {
 export type BookChapterUpdateWithoutBookInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   header?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   book_public?: Prisma.BookPublicUpdateOneWithoutBookChapterNestedInput
@@ -741,7 +774,8 @@ export type BookChapterUncheckedUpdateWithoutBookInput = {
   book_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   header?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutBookChapterNestedInput
@@ -752,7 +786,8 @@ export type BookChapterUncheckedUpdateManyWithoutBookInput = {
   book_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   header?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -762,7 +797,8 @@ export type BookChapterCreateManyBook_publicInput = {
   book_id?: number | null
   name?: string | null
   header?: string | null
-  content?: string | null
+  original_content?: string | null
+  processed_content?: string | null
   note?: string | null
   created_at?: Date | string
 }
@@ -770,7 +806,8 @@ export type BookChapterCreateManyBook_publicInput = {
 export type BookChapterUpdateWithoutBook_publicInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   header?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   book?: Prisma.BookPrivateUpdateOneWithoutBookChapterNestedInput
@@ -782,7 +819,8 @@ export type BookChapterUncheckedUpdateWithoutBook_publicInput = {
   book_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   header?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutBookChapterNestedInput
@@ -793,7 +831,8 @@ export type BookChapterUncheckedUpdateManyWithoutBook_publicInput = {
   book_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   header?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -835,7 +874,8 @@ export type BookChapterSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   book_public_id?: boolean
   name?: boolean
   header?: boolean
-  content?: boolean
+  original_content?: boolean
+  processed_content?: boolean
   note?: boolean
   created_at?: boolean
   book?: boolean | Prisma.BookChapter$bookArgs<ExtArgs>
@@ -850,7 +890,8 @@ export type BookChapterSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   book_public_id?: boolean
   name?: boolean
   header?: boolean
-  content?: boolean
+  original_content?: boolean
+  processed_content?: boolean
   note?: boolean
   created_at?: boolean
   book?: boolean | Prisma.BookChapter$bookArgs<ExtArgs>
@@ -863,7 +904,8 @@ export type BookChapterSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   book_public_id?: boolean
   name?: boolean
   header?: boolean
-  content?: boolean
+  original_content?: boolean
+  processed_content?: boolean
   note?: boolean
   created_at?: boolean
   book?: boolean | Prisma.BookChapter$bookArgs<ExtArgs>
@@ -876,12 +918,13 @@ export type BookChapterSelectScalar = {
   book_public_id?: boolean
   name?: boolean
   header?: boolean
-  content?: boolean
+  original_content?: boolean
+  processed_content?: boolean
   note?: boolean
   created_at?: boolean
 }
 
-export type BookChapterOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "book_id" | "book_public_id" | "name" | "header" | "content" | "note" | "created_at", ExtArgs["result"]["bookChapter"]>
+export type BookChapterOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "book_id" | "book_public_id" | "name" | "header" | "original_content" | "processed_content" | "note" | "created_at", ExtArgs["result"]["bookChapter"]>
 export type BookChapterInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   book?: boolean | Prisma.BookChapter$bookArgs<ExtArgs>
   book_public?: boolean | Prisma.BookChapter$book_publicArgs<ExtArgs>
@@ -910,7 +953,8 @@ export type $BookChapterPayload<ExtArgs extends runtime.Types.Extensions.Interna
     book_public_id: number | null
     name: string | null
     header: string | null
-    content: string | null
+    original_content: string | null
+    processed_content: string | null
     note: string | null
     created_at: Date
   }, ExtArgs["result"]["bookChapter"]>
@@ -1344,7 +1388,8 @@ export interface BookChapterFieldRefs {
   readonly book_public_id: Prisma.FieldRef<"BookChapter", 'Int'>
   readonly name: Prisma.FieldRef<"BookChapter", 'String'>
   readonly header: Prisma.FieldRef<"BookChapter", 'String'>
-  readonly content: Prisma.FieldRef<"BookChapter", 'String'>
+  readonly original_content: Prisma.FieldRef<"BookChapter", 'String'>
+  readonly processed_content: Prisma.FieldRef<"BookChapter", 'String'>
   readonly note: Prisma.FieldRef<"BookChapter", 'String'>
   readonly created_at: Prisma.FieldRef<"BookChapter", 'DateTime'>
 }

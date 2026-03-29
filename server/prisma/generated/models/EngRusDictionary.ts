@@ -37,9 +37,7 @@ export type EngRusDictionarySumAggregateOutputType = {
 export type EngRusDictionaryMinAggregateOutputType = {
   id: number | null
   eng: string | null
-  rus: string | null
   transcription: string | null
-  lexemes: string | null
   created_at: Date | null
   updated_at: Date | null
 }
@@ -47,9 +45,7 @@ export type EngRusDictionaryMinAggregateOutputType = {
 export type EngRusDictionaryMaxAggregateOutputType = {
   id: number | null
   eng: string | null
-  rus: string | null
   transcription: string | null
-  lexemes: string | null
   created_at: Date | null
   updated_at: Date | null
 }
@@ -57,9 +53,7 @@ export type EngRusDictionaryMaxAggregateOutputType = {
 export type EngRusDictionaryCountAggregateOutputType = {
   id: number
   eng: number
-  rus: number
   transcription: number
-  lexemes: number
   created_at: number
   updated_at: number
   _all: number
@@ -77,9 +71,7 @@ export type EngRusDictionarySumAggregateInputType = {
 export type EngRusDictionaryMinAggregateInputType = {
   id?: true
   eng?: true
-  rus?: true
   transcription?: true
-  lexemes?: true
   created_at?: true
   updated_at?: true
 }
@@ -87,9 +79,7 @@ export type EngRusDictionaryMinAggregateInputType = {
 export type EngRusDictionaryMaxAggregateInputType = {
   id?: true
   eng?: true
-  rus?: true
   transcription?: true
-  lexemes?: true
   created_at?: true
   updated_at?: true
 }
@@ -97,9 +87,7 @@ export type EngRusDictionaryMaxAggregateInputType = {
 export type EngRusDictionaryCountAggregateInputType = {
   id?: true
   eng?: true
-  rus?: true
   transcription?: true
-  lexemes?: true
   created_at?: true
   updated_at?: true
   _all?: true
@@ -194,9 +182,7 @@ export type EngRusDictionaryGroupByArgs<ExtArgs extends runtime.Types.Extensions
 export type EngRusDictionaryGroupByOutputType = {
   id: number
   eng: string
-  rus: string
   transcription: string | null
-  lexemes: string | null
   created_at: Date
   updated_at: Date
   _count: EngRusDictionaryCountAggregateOutputType | null
@@ -227,9 +213,7 @@ export type EngRusDictionaryWhereInput = {
   NOT?: Prisma.EngRusDictionaryWhereInput | Prisma.EngRusDictionaryWhereInput[]
   id?: Prisma.IntFilter<"EngRusDictionary"> | number
   eng?: Prisma.StringFilter<"EngRusDictionary"> | string
-  rus?: Prisma.StringFilter<"EngRusDictionary"> | string
   transcription?: Prisma.StringNullableFilter<"EngRusDictionary"> | string | null
-  lexemes?: Prisma.StringNullableFilter<"EngRusDictionary"> | string | null
   created_at?: Prisma.DateTimeFilter<"EngRusDictionary"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"EngRusDictionary"> | Date | string
 }
@@ -237,9 +221,7 @@ export type EngRusDictionaryWhereInput = {
 export type EngRusDictionaryOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   eng?: Prisma.SortOrder
-  rus?: Prisma.SortOrder
   transcription?: Prisma.SortOrderInput | Prisma.SortOrder
-  lexemes?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -250,9 +232,7 @@ export type EngRusDictionaryWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.EngRusDictionaryWhereInput | Prisma.EngRusDictionaryWhereInput[]
   OR?: Prisma.EngRusDictionaryWhereInput[]
   NOT?: Prisma.EngRusDictionaryWhereInput | Prisma.EngRusDictionaryWhereInput[]
-  rus?: Prisma.StringFilter<"EngRusDictionary"> | string
   transcription?: Prisma.StringNullableFilter<"EngRusDictionary"> | string | null
-  lexemes?: Prisma.StringNullableFilter<"EngRusDictionary"> | string | null
   created_at?: Prisma.DateTimeFilter<"EngRusDictionary"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"EngRusDictionary"> | Date | string
 }, "id" | "eng">
@@ -260,9 +240,7 @@ export type EngRusDictionaryWhereUniqueInput = Prisma.AtLeast<{
 export type EngRusDictionaryOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   eng?: Prisma.SortOrder
-  rus?: Prisma.SortOrder
   transcription?: Prisma.SortOrderInput | Prisma.SortOrder
-  lexemes?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   _count?: Prisma.EngRusDictionaryCountOrderByAggregateInput
@@ -278,18 +256,14 @@ export type EngRusDictionaryScalarWhereWithAggregatesInput = {
   NOT?: Prisma.EngRusDictionaryScalarWhereWithAggregatesInput | Prisma.EngRusDictionaryScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"EngRusDictionary"> | number
   eng?: Prisma.StringWithAggregatesFilter<"EngRusDictionary"> | string
-  rus?: Prisma.StringWithAggregatesFilter<"EngRusDictionary"> | string
   transcription?: Prisma.StringNullableWithAggregatesFilter<"EngRusDictionary"> | string | null
-  lexemes?: Prisma.StringNullableWithAggregatesFilter<"EngRusDictionary"> | string | null
   created_at?: Prisma.DateTimeWithAggregatesFilter<"EngRusDictionary"> | Date | string
   updated_at?: Prisma.DateTimeWithAggregatesFilter<"EngRusDictionary"> | Date | string
 }
 
 export type EngRusDictionaryCreateInput = {
   eng: string
-  rus: string
   transcription?: string | null
-  lexemes?: string | null
   created_at?: Date | string
   updated_at?: Date | string
 }
@@ -297,18 +271,14 @@ export type EngRusDictionaryCreateInput = {
 export type EngRusDictionaryUncheckedCreateInput = {
   id?: number
   eng: string
-  rus: string
   transcription?: string | null
-  lexemes?: string | null
   created_at?: Date | string
   updated_at?: Date | string
 }
 
 export type EngRusDictionaryUpdateInput = {
   eng?: Prisma.StringFieldUpdateOperationsInput | string
-  rus?: Prisma.StringFieldUpdateOperationsInput | string
   transcription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  lexemes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -316,9 +286,7 @@ export type EngRusDictionaryUpdateInput = {
 export type EngRusDictionaryUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   eng?: Prisma.StringFieldUpdateOperationsInput | string
-  rus?: Prisma.StringFieldUpdateOperationsInput | string
   transcription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  lexemes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -326,18 +294,14 @@ export type EngRusDictionaryUncheckedUpdateInput = {
 export type EngRusDictionaryCreateManyInput = {
   id?: number
   eng: string
-  rus: string
   transcription?: string | null
-  lexemes?: string | null
   created_at?: Date | string
   updated_at?: Date | string
 }
 
 export type EngRusDictionaryUpdateManyMutationInput = {
   eng?: Prisma.StringFieldUpdateOperationsInput | string
-  rus?: Prisma.StringFieldUpdateOperationsInput | string
   transcription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  lexemes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -345,9 +309,7 @@ export type EngRusDictionaryUpdateManyMutationInput = {
 export type EngRusDictionaryUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   eng?: Prisma.StringFieldUpdateOperationsInput | string
-  rus?: Prisma.StringFieldUpdateOperationsInput | string
   transcription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  lexemes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -355,9 +317,7 @@ export type EngRusDictionaryUncheckedUpdateManyInput = {
 export type EngRusDictionaryCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   eng?: Prisma.SortOrder
-  rus?: Prisma.SortOrder
   transcription?: Prisma.SortOrder
-  lexemes?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -369,9 +329,7 @@ export type EngRusDictionaryAvgOrderByAggregateInput = {
 export type EngRusDictionaryMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   eng?: Prisma.SortOrder
-  rus?: Prisma.SortOrder
   transcription?: Prisma.SortOrder
-  lexemes?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -379,9 +337,7 @@ export type EngRusDictionaryMaxOrderByAggregateInput = {
 export type EngRusDictionaryMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   eng?: Prisma.SortOrder
-  rus?: Prisma.SortOrder
   transcription?: Prisma.SortOrder
-  lexemes?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -395,9 +351,7 @@ export type EngRusDictionarySumOrderByAggregateInput = {
 export type EngRusDictionarySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   eng?: boolean
-  rus?: boolean
   transcription?: boolean
-  lexemes?: boolean
   created_at?: boolean
   updated_at?: boolean
 }, ExtArgs["result"]["engRusDictionary"]>
@@ -405,9 +359,7 @@ export type EngRusDictionarySelect<ExtArgs extends runtime.Types.Extensions.Inte
 export type EngRusDictionarySelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   eng?: boolean
-  rus?: boolean
   transcription?: boolean
-  lexemes?: boolean
   created_at?: boolean
   updated_at?: boolean
 }, ExtArgs["result"]["engRusDictionary"]>
@@ -415,9 +367,7 @@ export type EngRusDictionarySelectCreateManyAndReturn<ExtArgs extends runtime.Ty
 export type EngRusDictionarySelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   eng?: boolean
-  rus?: boolean
   transcription?: boolean
-  lexemes?: boolean
   created_at?: boolean
   updated_at?: boolean
 }, ExtArgs["result"]["engRusDictionary"]>
@@ -425,14 +375,12 @@ export type EngRusDictionarySelectUpdateManyAndReturn<ExtArgs extends runtime.Ty
 export type EngRusDictionarySelectScalar = {
   id?: boolean
   eng?: boolean
-  rus?: boolean
   transcription?: boolean
-  lexemes?: boolean
   created_at?: boolean
   updated_at?: boolean
 }
 
-export type EngRusDictionaryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "eng" | "rus" | "transcription" | "lexemes" | "created_at" | "updated_at", ExtArgs["result"]["engRusDictionary"]>
+export type EngRusDictionaryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "eng" | "transcription" | "created_at" | "updated_at", ExtArgs["result"]["engRusDictionary"]>
 
 export type $EngRusDictionaryPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "EngRusDictionary"
@@ -440,9 +388,7 @@ export type $EngRusDictionaryPayload<ExtArgs extends runtime.Types.Extensions.In
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     eng: string
-    rus: string
     transcription: string | null
-    lexemes: string | null
     created_at: Date
     updated_at: Date
   }, ExtArgs["result"]["engRusDictionary"]>
@@ -870,9 +816,7 @@ export interface Prisma__EngRusDictionaryClient<T, Null = never, ExtArgs extends
 export interface EngRusDictionaryFieldRefs {
   readonly id: Prisma.FieldRef<"EngRusDictionary", 'Int'>
   readonly eng: Prisma.FieldRef<"EngRusDictionary", 'String'>
-  readonly rus: Prisma.FieldRef<"EngRusDictionary", 'String'>
   readonly transcription: Prisma.FieldRef<"EngRusDictionary", 'String'>
-  readonly lexemes: Prisma.FieldRef<"EngRusDictionary", 'String'>
   readonly created_at: Prisma.FieldRef<"EngRusDictionary", 'DateTime'>
   readonly updated_at: Prisma.FieldRef<"EngRusDictionary", 'DateTime'>
 }

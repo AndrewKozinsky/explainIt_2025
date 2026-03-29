@@ -85,12 +85,12 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 				throw e
 			}
 
-			if (preparedContentResult.preparedContent !== null) {
+			if (preparedContentResult.processedContent !== null) {
 				if (preparedContentResult.subtitles) {
 					await this.saveSubtitlesSentencesAndInit({
 						videoType: 'public',
 						videoId: newVideo.id,
-						preparedContent: preparedContentResult.preparedContent,
+						preparedContent: preparedContentResult.processedContent,
 						subtitles: preparedContentResult.subtitles,
 						sentenceRepository: this.sentenceRepository,
 						subtitleRepository: this.subtitleRepository,
@@ -100,7 +100,7 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 					await generateSentencesAndSaveToDB({
 						mainConfigService: this.mainConfig,
 						sentenceRepository: this.sentenceRepository,
-						content: preparedContentResult.preparedContent,
+						processedContent: preparedContentResult.processedContent,
 						videoPublicId: newVideo.id,
 					})
 				}

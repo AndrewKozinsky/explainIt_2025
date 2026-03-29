@@ -270,6 +270,10 @@ systemctl restart xray
 И сгенерируйте типы данных для клиента:
 ```npm run migrate:generate-types```
 
+### Логи
+Логи отправляются в Grafane Loki. Их можно найти на странице
+```https://andkozinskiy.grafana.net/explore```
+
 ### Прочее
 Деньги считаются и хранятся в БД в копейках.
 

@@ -84,12 +84,12 @@ export class CreatePublicVideoHandler extends VideoBase implements ICommandHandl
 					throw new CustomGraphQLError(errorMessage.video.notCreated, ErrorCode.InternalServerError_500)
 				}
 
-				if (preparedContentResult.preparedContent !== null) {
+				if (preparedContentResult.processedContent !== null) {
 					if (preparedContentResult.subtitles) {
 						await this.saveSubtitlesSentencesAndInit({
 							videoType: 'public',
 							videoId: newVideo.id,
-							preparedContent: preparedContentResult.preparedContent,
+							preparedContent: preparedContentResult.processedContent,
 							subtitles: preparedContentResult.subtitles,
 							sentenceRepository: this.sentenceRepository,
 							subtitleRepository: this.subtitleRepository,
@@ -99,7 +99,7 @@ export class CreatePublicVideoHandler extends VideoBase implements ICommandHandl
 						await generateSentencesAndSaveToDB({
 							mainConfigService: this.mainConfig,
 							sentenceRepository: this.sentenceRepository,
-							content: preparedContentResult.preparedContent,
+							processedContent: preparedContentResult.processedContent,
 							videoPublicId: newVideo.id,
 						})
 					}

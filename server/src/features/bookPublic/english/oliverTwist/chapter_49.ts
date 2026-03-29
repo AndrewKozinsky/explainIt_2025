@@ -1,188 +1,297 @@
-// ГЛАВА НЕ ГОТОВА
 export const chapter_49 = {
 	name: 'Chapter XLIX',
 	header: 'Monks and Mr. Brownlow at length meet. Their conversation, and the intelligence that interrupts it',
-	text: `
-------------------------------
-Та же самая задача для этого текста:
-The twilight was beginning to close in, when Mr. Brownlow alighted from a hackney-coach at his own door, and knocked softly. The door being opened, a sturdy man got out of the coach and stationed himself on one side of the steps, while another man, who had been seated on the box, dismounted too, and stood upon the other side. At a sign from Mr. Brownlow, they helped out a third man, and taking him between them, hurried him into the house. This man was Monks.
+	text: `It was getting dark when Mr. Brownlow got out of a carriage at his front door and knocked quietly.
 
-They walked in the same manner up the stairs without speaking, and Mr. Brownlow, preceding them, led the way into a back-room. At the door of this apartment, Monks, who had ascended with evident reluctance, stopped. The two men looked at the old gentleman as if for instructions.
+When the door opened, a strong man stepped out of the carriage and stood on one side of the steps. Another man, who had been sitting outside with the driver, got down and stood on the other side.
 
-“He knows the alternative,” said Mr. Browlow. “If he hesitates or moves a finger but as you bid him, drag him into the street, call for the aid of the police, and impeach him as a felon in my name.”
+At a signal from Mr. Brownlow, they helped a third man out of the carriage. Holding him firmly between them, they quickly led him into the house. This man was Monks.
 
-“How dare you say this of me?” asked Monks.
+They went upstairs in the same way, without speaking. Mr. Brownlow walked in front and led them to a back room.
 
-“How dare you urge me to it, young man?” replied Mr. Brownlow, confronting him with a steady look. “Are you mad enough to leave this house? Unhand him. There, sir. You are free to go, and we to follow. But I warn you, by all I hold most solemn and most sacred, that instant will have you apprehended on a charge of fraud and robbery. I am resolute and immoveable. If you are determined to be the same, your blood be upon your own head!”
+At the door, Monks stopped. He clearly did not want to go in. The two men looked at Mr. Brownlow, waiting for instructions.
 
-“By what authority am I kidnapped in the street, and brought here by these dogs?” asked Monks, looking from one to the other of the men who stood beside him.
+“He knows his choice,” said Mr. Brownlow. “If he hesitates or disobeys you, drag him into the street, call the police, and accuse him in my name.”
 
-“By mine,” replied Mr. Brownlow. “Those persons are indemnified by me. If you complain of being deprived of your liberty—you had power and opportunity to retrieve it as you came along, but you deemed it advisable to remain quiet—I say again, throw yourself for protection on the law. I will appeal to the law too; but when you have gone too far to recede, do not sue to me for leniency, when the power will have passed into other hands; and do not say I plunged you down the gulf into which you rushed, yourself.”
+“How dare you say that about me?” Monks cried.
 
-Monks was plainly disconcerted, and alarmed besides. He hesitated.
+“How dare you force me to say it?” replied Mr. Brownlow, looking at him steadily. “Are you foolish enough to leave this house? Let him go.”
 
-“You will decide quickly,” said Mr. Brownlow, with perfect firmness and composure. “If you wish me to prefer my charges publicly, and consign you to a punishment the extent of which, although I can, with a shudder, foresee, I cannot control, once more, I say, for you know the way. If not, and you appeal to my forbearance, and the mercy of those you have deeply injured, seat yourself, without a word, in that chair. It has waited for you two whole days.”
+Then he stepped back. “There, sir. You are free to leave—and we will follow you. But I warn you: the moment you step outside, you will be arrested for fraud and robbery. I will not change my mind. If you choose to go, the consequences are your own fault.”
 
-Monks muttered some unintelligible words, but wavered still.
+“By what right am I taken in the street and brought here like this?” asked Monks, angrily looking at the two men beside him.
 
-“You will be prompt,” said Mr. Brownlow. “A word from me, and the alternative has gone for ever.”
+“By my authority,” said Mr. Brownlow. “These men act under my orders. If you say you were held against your will—you had chances to escape on the way, but you chose to stay quiet.
 
-Still the man hesitated.
+Go to the law if you wish. I will do the same. But once things go too far, do not ask me for mercy when I can no longer help you. And do not say I pushed you into trouble—you chose it yourself.”
 
-“I have not the inclination to parley,” said Mr. Brownlow, “and, as I advocate the dearest interests of others, I have not the right.”
+Monks was clearly shaken and afraid. He hesitated.
 
-“Is there—” demanded Monks with a faltering tongue,—“is there—no middle course?”
+“You must decide quickly,” said Mr. Brownlow calmly. “If you want me to accuse you publicly, then go now. I cannot control what punishment you may receive. You know the way.
+
+But if you ask for my mercy—and for the mercy of those you have harmed—sit down in that chair, without speaking. It has been waiting for you for two days.”
+
+Monks muttered something unclear, still unsure.
+
+“Decide now,” said Mr. Brownlow. “One word from me, and your chance is gone forever.”
+
+Still Monks did not move.
+
+“I have no wish to argue,” said Mr. Brownlow. “And I have no right to delay, because I am protecting others.”
+
+“Is there…” Monks asked, his voice shaking, “is there no middle way?”
 
 “None.”
 
-----------------
-Та же самая задача для этого текста:
+Monks looked nervously at the old gentleman. He searched his face, but saw only strictness and firm resolve. With a shrug, he walked into the room and sat down.
 
-Monks looked at the old gentleman, with an anxious eye; but, reading in his countenance nothing but severity and determination, walked into the room, and, shrugging his shoulders, sat down.
+“Lock the door from the outside,” Mr. Brownlow said to the men. “Come back when I ring.”
 
-“Lock the door on the outside,” said Mr. Brownlow to the attendants, “and come when I ring.”
+They obeyed, and the two men were left alone.
 
-The men obeyed, and the two were left alone together.
+“This is a fine way to treat me, sir,” said Monks, throwing down his hat and cloak, “especially from my father’s oldest friend.”
 
-“This is pretty treatment, sir,” said Monks, throwing down his hat and cloak, “from my father’s oldest friend.”
+“It is because I was your father’s oldest friend,” said Mr. Brownlow. “Because I shared the hopes of his youth. Because I loved someone from his family—someone who died young and left me alone in this world.
 
-“It is because I was your father’s oldest friend, young man,” returned Mr. Brownlow; “it is because the hopes and wishes of young and happy years were bound up with him, and that fair creature of his blood and kindred who rejoined her God in youth, and left me here a solitary, lonely man: it is because he knelt with me beside his only sisters’s death-bed when he was yet a boy, on the morning that would—but Heaven willed otherwise—have made her my young wife; it is because my seared heart clung to him, from that time forth, through all his trials and errors, till he died; it is because old recollections and associations filled my heart, and even the sight of you brings with it old thoughts of him; it is because of all these things that I am moved to treat you gently now—yes, Edward Leeford, even now—and blush for your unworthiness who bear the name.”
+Because I knelt beside his only sister as she died, when we were both still young—and that very day might have made her my wife, if fate had not decided otherwise.
 
-“What has the name to do with it?” asked the other, after contemplating, half in silence, and half in dogged wonder, the agitation of his companion. “What is the name to me?”
+Because, from that moment on, my broken heart stayed with your father through all his troubles and mistakes, until he died.
 
-“Nothing,” replied Mr. Brownlow, “nothing to you. But it was hers, and even at this distance of time brings back to me, an old man, the glow and thrill which I once felt, only to hear it repeated by a stranger. I am very glad you have changed it—very—very.”
+Because old memories still live in me, and even seeing you reminds me of him.
 
-“This is all mighty fine,” said Monks (to retain his assumed designation) after a long silence, during which he had jerked himself in sullen defiance to and fro, and Mr. Brownlow had sat, shading his face with his hand. “But what do you want with me?”
+It is for all these reasons that I speak to you with patience now—yes, Edward Leeford, even now—and I am ashamed that you carry his name.”
 
-“You have a brother,” said Mr. Brownlow, rousing himself: “a brother, the whisper of whose name in your ear when I came behind you in the street, was, in itself, almost enough to make you accompany me hither, in wonder and alarm.”
+“What does that name matter to me?” said Monks, after watching him in silence, half confused, half stubborn. “What is it to me?”
 
-“I have no brother,” replied Monks. “You know I was an only child. Why do you talk to me of brothers? You know that, as well as I.”
+“Nothing,” said Mr. Brownlow. “Nothing to you. But it was hers. Even now, hearing it brings back strong feelings from my youth.
 
-“Attend to what I do know, and you may not,” said Mr. Brownlow. “I shall interest you by and by. I know that of the wretched marriage, into which family pride, and the most sordid and narrowest of all ambition, forced your unhappy father when a mere boy, you were the sole and most unnatural issue.”
+I am glad you changed it. Very glad.”
 
-“I don’t care for hard names,” interrupted Monks with a jeering laugh. “You know the fact, and that’s enough for me.”
+“This all sounds very grand,” said Monks after a long silence. He shifted in his chair in a restless, defiant way, while Mr. Brownlow sat with his face partly hidden in his hand. “But what do you actually want from me?”
 
-“But I also know,” pursued the old gentleman, “the misery, the slow torture, the protracted anguish of that ill-assorted union. I know how listlessly and wearily each of that wretched pair dragged on their heavy chain through a world that was poisoned to them both. I know how cold formalities were succeeded by open taunts; how indifference gave place to dislike, dislike to hate, and hate to loathing, until at last they wrenched the clanking bond asunder, and retiring a wide space apart, carried each a galling fragment, of which nothing but death could break the rivets, to hide it in new society beneath the gayest looks they could assume. Your mother succeeded; she forgot it soon. But it rusted and cankered at your father’s heart for years.”
+“You have a brother,” said Mr. Brownlow, suddenly looking up. “And when I whispered his name to you in the street, it was enough to make you follow me here in fear and surprise.”
 
-“Well, they were separated,” said Monks, “and what of that?”
+“I have no brother,” said Monks quickly. “You know I was an only child. Why are you saying this? You know it’s not true.”
 
-“When they had been separated for some time,” returned Mr. Brownlow, “and your mother, wholly given up to continental frivolities, had utterly forgotten the young husband ten good years her junior, who, with prospects blighted, lingered on at home, he fell among new friends. This circumstance, at least, you know already.”
+“Listen to what I know,” said Mr. Brownlow. “You will understand soon.
 
-“Not I,” said Monks, turning away his eyes and beating his foot upon the ground, as a man who is determined to deny everything. “Not I.”
+I know that your father was forced into a miserable marriage when he was very young—because of family pride and selfish ambition. And you were the only result of that unhappy union.”
 
-----------------
-Та же самая задача для этого текста:
+“I don’t care what you call it,” said Monks with a mocking laugh. “You know the facts. That’s enough.”
 
-“Your manner, no less than your actions, assures me that you have never forgotten it, or ceased to think of it with bitterness,” returned Mr. Brownlow. “I speak of fifteen years ago, when you were not more than eleven years old, and your father but one-and-thirty—for he was, I repeat, a boy, when his father ordered him to marry. Must I go back to events which cast a shade upon the memory of your parent, or will you spare it, and disclose to me the truth?”
+“But I also know,” Mr. Brownlow continued, “how unhappy that marriage was. I know the long suffering, the quiet misery, the pain that lasted for years.
 
-“I have nothing to disclose,” rejoined Monks. “You must talk on if you will.”
+I know how they lived together without love. First there was politeness without feeling. Then came anger. Then dislike turned into hatred, and hatred into complete disgust.
 
-“These new friends, then,” said Mr. Brownlow, “were a naval officer retired from active service, whose wife had died some half-a-year before, and left him with two children—there had been more, but, of all their family, happily but two survived. They were both daughters; one a beautiful creature of nineteen, and the other a mere child of two or three years old.”
+At last they separated, each going their own way, but still tied together by a bond that only death could break. They tried to hide their past and appear happy in new society.
 
-“What’s this to me?” asked Monks.
+Your mother succeeded. She forgot quickly. But your father never did. The pain stayed with him for years.”
 
-“They resided,” said Mr. Brownlow, without seeming to hear the interruption, “in a part of the country to which your father in his wandering had repaired, and where he had taken up his abode. Acquaintance, intimacy, friendship, fast followed on each other. Your father was gifted as few men are. He had his sister’s soul and person. As the old officer knew him more and more, he grew to love him. I would that it had ended there. His daughter did the same.”
+“Well, they separated,” said Monks. “So what?”
 
-The old gentleman paused; Monks was biting his lips, with his eyes fixed upon the floor; seeing this, he immediately resumed:
+“When they had been apart for some time,” Mr. Brownlow continued, “your mother gave herself up to a careless life abroad and completely forgot your father—who was ten years younger than her, and stayed behind with his hopes destroyed.
 
-“The end of a year found him contracted, solemnly contracted, to that daughter; the object of the first, true, ardent, only passion of a guileless girl.”
+Then he met new friends. At least, you know that much.”
 
-“Your tale is of the longest,” observed Monks, moving restlessly in his chair.
+“I know nothing,” said Monks, turning his eyes away and stamping his foot, like a man determined to deny everything. “Nothing.”
 
-“It is a true tale of grief and trial, and sorrow, young man,” returned Mr. Brownlow, “and such tales usually are; if it were one of unmixed joy and happiness, it would be very brief. At length one of those rich relations to strengthen whose interest and importance your father had been sacrificed, as others are often—it is no uncommon case—died, and to repair the misery he had been instrumental in occasioning, left him his panacea for all griefs—Money. It was necessary that he should immediately repair to Rome, whither this man had sped for health, and where he had died, leaving his affairs in great confusion. He went; was seized with mortal illness there; was followed, the moment the intelligence reached Paris, by your mother who carried you with her; he died the day after her arrival, leaving no will—no will—so that the whole property fell to her and you.”
+“Your behavior, as much as your actions, shows that you have never forgotten this,” said Mr. Brownlow. “You still think about it with bitterness.
 
-At this part of the recital Monks held his breath, and listened with a face of intense eagerness, though his eyes were not directed towards the speaker. As Mr. Brownlow paused, he changed his position with the air of one who has experienced a sudden relief, and wiped his hot face and hands.
+I am speaking of fifteen years ago. You were only eleven then, and your father was just thirty-one. As I said before, he was still very young when he was forced to marry.
 
-“Before he went abroad, and as he passed through London on his way,” said Mr. Brownlow, slowly, and fixing his eyes upon the other’s face, “he came to me.”
+Must I go into details that would dishonor your father’s memory, or will you tell me the truth yourself?”
 
-“I never heard of that,” interrupted Monks in a tone intended to appear incredulous, but savouring more of disagreeable surprise.
+“I have nothing to tell,” said Monks. “Say what you want.”
 
-“He came to me, and left with me, among some other things, a picture—a portrait painted by himself—a likeness of this poor girl—which he did not wish to leave behind, and could not carry forward on his hasty journey. He was worn by anxiety and remorse almost to a shadow; talked in a wild, distracted way, of ruin and dishonour worked by himself; confided to me his intention to convert his whole property, at any loss, into money, and, having settled on his wife and you a portion of his recent acquisition, to fly the country—I guessed too well he would not fly alone—and never see it more. Even from me, his old and early friend, whose strong attachment had taken root in the earth that covered one most dear to both—even from me he withheld any more particular confession, promising to write and tell me all, and after that to see me once again, for the last time on earth. Alas! That was the last time. I had no letter, and I never saw him more.”
+“Very well,” Mr. Brownlow continued. “These new friends of your father were a retired naval officer and his family. His wife had died about six months earlier, leaving him with two children. There had been more, but only two survived.
 
-“I went,” said Mr. Brownlow, after a short pause, “I went, when all was over, to the scene of his—I will use the term the world would freely use, for worldly harshness or favour are now alike to him—of his guilty love, resolved that if my fears were realised that erring child should find one heart and home to shelter and compassionate her. The family had left that part a week before; they had called in such trifling debts as were outstanding, discharged them, and left the place by night. Why, or whither, none can tell.”
+Both were daughters. One was a beautiful young woman of nineteen. The other was just a small child, two or three years old.”
 
-Monks drew his breath yet more freely, and looked round with a smile of triumph.
+“What does that have to do with me?” Monks asked impatiently.
 
-----------------
-Та же самая задача для этого текста:
+“They lived in the countryside,” Mr. Brownlow went on, ignoring the question, “where your father had gone during his travels.
 
-“When your brother,” said Mr. Brownlow, drawing nearer to the other’s chair, “When your brother: a feeble, ragged, neglected child: was cast in my way by a stronger hand than chance, and rescued by me from a life of vice and infamy—”
+They soon became acquainted. Then they grew close. Soon, they were true friends.
+
+Your father was a remarkable man. He had his sister’s spirit and appearance. As the officer came to know him better, he grew to love him like a son. I wish it had ended there—but it did not. His daughter loved him too.”
+
+Mr. Brownlow paused. Monks sat biting his lips, staring at the floor. Seeing this, Mr. Brownlow continued:
+
+“After a year, they were formally engaged. She loved him deeply and honestly—her first and only true love.”
+
+“This is a very long story,” said Monks, shifting impatiently in his chair.
+
+“It is a story of suffering and sorrow,” said Mr. Brownlow. “Such stories are always long. If it were a story of pure happiness, it would be very short.
+
+At last, one of those rich relatives—those very people who forced your father into that unhappy marriage—died. To make up for the harm he had caused, he left your father a great deal of money.
+
+Your father had to go to Rome at once, because this man had gone there for his health and died, leaving his affairs in confusion.”
+
+“He went to Rome,” Mr. Brownlow continued. “There, he became смертельно ill.
+
+As soon as your mother heard the news in Paris, she came to him, bringing you with her.
+
+He died the day after she arrived. He left no will—none at all. So everything he owned passed to her and to you.”
+
+At this point, Monks held his breath. His face showed strong interest, though he did not look directly at Mr. Brownlow.
+
+When Mr. Brownlow paused, Monks shifted slightly, as if feeling sudden relief, and wiped his face and hands.
+
+“Before he left England,” Mr. Brownlow said slowly, watching him closely, “he came to see me in London.”
+
+“I never heard of that,” Monks said quickly. His voice tried to sound doubtful, but he seemed surprised.
+
+“He came to me,” Mr. Brownlow continued, “and left something in my care. Among other things, there was a picture—a portrait he had painted himself—of this young woman. He could not take it with him on his hurried journey.
+
+He was exhausted with worry and guilt. He spoke wildly about the harm he had done.
+
+He told me he planned to sell all his property, even at a loss, and turn it into money. After giving a share to his wife and to you, he planned to leave the country forever.”
+
+Mr. Brownlow paused briefly.
+
+“I believed he would not go alone,” he added quietly.
+
+“He would not even tell me everything—though I was his old and loyal friend. He promised to write and explain all, and then to see me one last time.
+
+But that was the last time I ever saw him. No letter came.”
+
+“When everything was over,” Mr. Brownlow went on after a short silence, “I went to find the young woman he loved. I will call it what the world would call it—his guilty love.
+
+I went there ready to help her, if my fears were true. I wanted her to find kindness and protection with me.
+
+But the family had left a week before. They had paid their debts and disappeared during the night.
+
+No one knew why—or where they had gone.”
+
+Monks breathed more easily now. He looked around—and a faint smile of triumph appeared on his face.
+
+“When your brother,” said Mr. Brownlow, moving closer, “when your brother—a weak, poor, and neglected child—was brought into my path by something more than chance, and I saved him from a life of crime—”
 
 “What?” cried Monks.
 
-“By me,” said Mr. Brownlow. “I told you I should interest you before long. I say by me—I see that your cunning associate suppressed my name, although for aught he knew, it would be quite strange to your ears. When he was rescued by me, then, and lay recovering from sickness in my house, his strong resemblance to this picture I have spoken of, struck me with astonishment. Even when I first saw him in all his dirt and misery, there was a lingering expression in his face that came upon me like a glimpse of some old friend flashing on one in a vivid dream. I need not tell you he was snared away before I knew his history—”
+“By me,” said Mr. Brownlow calmly. “I told you I would interest you. Yes—by me. I see your clever companion never told you my name.
 
-“Why not?” asked Monks hastily.
+When I rescued the boy and cared for him in my house as he recovered from illness, I noticed something remarkable. He looked very much like the portrait I told you about.
 
-“Because you know it well.”
+Even when I first saw him—dirty and miserable—there was something in his face that reminded me of an old friend, like a memory from a dream.
 
-“I!”
+But before I could learn his story, he was taken away.”
 
-“Denial to me is vain,” replied Mr. Brownlow. “I shall show you that I know more than that.”
+“Why not tell me?” asked Monks quickly.
 
-“You—you—can’t prove anything against me,” stammered Monks. “I defy you to do it!”
+“Because you already know,” said Mr. Brownlow.
 
-“We shall see,” returned the old gentleman with a searching glance. “I lost the boy, and no efforts of mine could recover him. Your mother being dead, I knew that you alone could solve the mystery if anybody could, and as when I had last heard of you you were on your own estate in the West Indies—whither, as you well know, you retired upon your mother’s death to escape the consequences of vicious courses here—I made the voyage. You had left it, months before, and were supposed to be in London, but no one could tell where. I returned. Your agents had no clue to your residence. You came and went, they said, as strangely as you had ever done: sometimes for days together and sometimes not for months: keeping to all appearance the same low haunts and mingling with the same infamous herd who had been your associates when a fierce ungovernable boy. I wearied them with new applications. I paced the streets by night and day, but until two hours ago, all my efforts were fruitless, and I never saw you for an instant.”
+“I do not!”
 
-“And now you do see me,” said Monks, rising boldly, “what then? Fraud and robbery are high-sounding words—justified, you think, by a fancied resemblance in some young imp to an idle daub of a dead man’s Brother! You don’t even know that a child was born of this maudlin pair; you don’t even know that.”
+“Denying it is useless,” replied Mr. Brownlow. “And I know more than that.”
 
-“I did not,” replied Mr. Brownlow, rising too; “but within the last fortnight I have learnt it all. You have a brother; you know it, and him. There was a will, which your mother destroyed, leaving the secret and the gain to you at her own death. It contained a reference to some child likely to be the result of this sad connection, which child was born, and accidentally encountered by you, when your suspicions were first awakened by his resemblance to your father. You repaired to the place of his birth. There existed proofs—proofs long suppressed—of his birth and parentage. Those proofs were destroyed by you, and now, in your own words to your accomplice the Jew, ‘the only proofs of the boy’s identity lie at the bottom of the river, and the old hag that received them from the mother is rotting in her coffin.’ Unworthy son, coward, liar,—you, who hold your councils with thieves and murderers in dark rooms at night,—you, whose plots and wiles have brought a violent death upon the head of one worth millions such as you,—you, who from your cradle were gall and bitterness to your own father’s heart, and in whom all evil passions, vice, and profligacy, festered, till they found a vent in a hideous disease which had made your face an index even to your mind—you, Edward Leeford, do you still brave me!”
+“You—you can’t prove anything!” Monks stammered. “I dare you to try!”
 
-“No, no, no!” returned the coward, overwhelmed by these accumulated charges.
+“We shall see,” said Mr. Brownlow, looking at him closely. “I lost the boy, and I could not find him again, no matter what I did.
 
-“Every word!” cried the gentleman, “every word that has passed between you and this detested villain, is known to me. Shadows on the wall have caught your whispers, and brought them to my ear; the sight of the persecuted child has turned vice itself, and given it the courage and almost the attributes of virtue. Murder has been done, to which you were morally if not really a party.”
+Your mother was dead, and I knew only you could explain the mystery. At that time, you were living on your estate in the West Indies. You went there after your mother died, to escape the results of your bad behavior here.
 
-“No, no,” interposed Monks. “I—I knew nothing of that; I was going to inquire the truth of the story when you overtook me. I didn’t know the cause. I thought it was a common quarrel.”
+So I traveled there to find you. But you had already left. People thought you were in London, but no one knew where.
 
-“It was the partial disclosure of your secrets,” replied Mr. Brownlow. “Will you disclose the whole?”
+I came back. Your agents could not tell me anything. They said you appeared and disappeared strangely—sometimes staying for days, sometimes gone for months. You kept visiting the same dark places and mixing with the same criminal people you knew as a wild boy.
 
-“Yes, I will.”
+I searched everywhere. Day and night I walked the streets. But until two hours ago, I could not find you.”
 
-----------------
-Та же самая задача для этого текста:
+“And now you have found me,” said Monks, standing up boldly. “What then?
 
-“Set your hand to a statement of truth and facts, and repeat it before witnesses?”
+You talk about fraud and robbery based on what? A resemblance between some street boy and a bad painting of a dead man’s relative?
 
-“That I promise too.”
+You don’t even know if a child was ever born from that relationship. You know nothing!”
 
-“Remain quietly here, until such a document is drawn up, and proceed with me to such a place as I may deem most advisable, for the purpose of attesting it?”
+“I did not,” said Mr. Brownlow, also rising, “but in the last two weeks, I have learned everything.
 
-“If you insist upon that, I’ll do that also,” replied Monks.
+You have a brother. You know it—and you know him.
 
-“You must do more than that,” said Mr. Brownlow. “Make restitution to an innocent and unoffending child, for such he is, although the offspring of a guilty and most miserable love. You have not forgotten the provisions of the will. Carry them into execution so far as your brother is concerned, and then go where you please. In this world you need meet no more.”
+There was a will, which your mother destroyed. That is why all the money came to you.
 
-While Monks was pacing up and down, meditating with dark and evil looks on this proposal and the possibilities of evading it: torn by his fears on the one hand and his hatred on the other: the door was hurriedly unlocked, and a gentleman (Mr. Losberne) entered the room in violent agitation.
+The will mentioned a child—one who might be born from your father’s relationship with that young woman. That child was born.
 
-“The man will be taken,” he cried. “He will be taken tonight!”
+And you met him by chance. His face reminded you of your father, and it made you suspicious.”
+
+“You went to the place where he was born,” Mr. Brownlow continued. “There, there were proofs—hidden for years—of his birth and identity.
+
+You destroyed those proofs. And as you once said to your partner, ‘the only proof of the boy’s identity lies at the bottom of the river, and the old woman who had it is dead.’”
+
+Mr. Brownlow’s voice grew stronger and sharper:
+
+“You unworthy son! Coward! Liar!
+
+You meet with thieves and murderers in secret. Your schemes have already caused the death of a man far better than you.
+
+From childhood, you brought nothing but pain to your father. All your worst qualities—your cruelty, your greed, your corruption—have grown inside you and now show even on your face.
+
+You—Edward Leeford—do you still dare to deny it?”
+
+“No, no, no!” cried Monks, overwhelmed.
+
+“Every word is true!” said Mr. Brownlow. “Everything you have said to that villain is known to me.
+
+Even the smallest clues have revealed your secrets. The suffering of that poor child has awakened truth itself against you.
+
+A murder has been committed—and you are responsible, if not directly, then morally.”
+
+“No!” cried Monks. “I knew nothing about that! I was going to find out the truth when you stopped me. I thought it was just an ordinary fight!”
+
+“It was part of your secrets being revealed,” said Mr. Brownlow. “Will you now tell the whole truth?”
+
+“Yes,” said Monks. “I will.”
+
+“Will you sign a written statement of the truth,” said Mr. Brownlow, “and repeat it in front of witnesses?”
+
+“I promise,” said Monks.
+
+“And will you stay here quietly while the document is prepared, and then go with me to a place I choose, so it can be properly signed?”
+
+“If you insist, I will do that too,” Monks replied.
+
+“You must do more,” said Mr. Brownlow. “You must repay what is owed to an innocent child. He has done nothing wrong, even if he was born from a sad and guilty past.
+
+You remember what was written in the will. Carry out those wishes for your brother. After that, you may go wherever you like. You and he need never meet again.”
+
+Monks walked up and down the room, thinking. His face was dark and troubled. He was torn between fear and hatred, wondering if he could escape from this situation.
+
+Suddenly, the door was unlocked, and another gentleman, Mr. Losberne, rushed in, clearly very agitated.
+
+“They will catch him!” he cried. “They will catch him tonight!”
 
 “The murderer?” asked Mr. Brownlow.
 
-“Yes, yes,” replied the other. “His dog has been seen lurking about some old haunt, and there seems little doubt that his master either is, or will be, there, under cover of the darkness. Spies are hovering about in every direction. I have spoken to the men who are charged with his capture, and they tell me he cannot escape. A reward of a hundred pounds is proclaimed by Government tonight.”
+“Yes,” said the doctor. “His dog has been seen near one of his old hiding places. It is almost certain that he is there—or will go there tonight under cover of darkness.
 
-“I will give fifty more,” said Mr. Brownlow, “and proclaim it with my own lips upon the spot, if I can reach it. Where is Mr. Maylie?”
+Men are watching everywhere. I have spoken to those who are trying to catch him, and they say he cannot escape. The government has offered a reward of one hundred pounds.”
 
-“Harry? As soon as he had seen your friend here, safe in a coach with you, he hurried off to where he heard this,” replied the doctor, “and mounting his horse sallied forth to join the first party at some place in the outskirts agreed upon between them.”
+“I will add fifty more,” said Mr. Brownlow, “and announce it myself, if I can get there. Where is Mr. Maylie?”
 
-“Fagin,” said Mr. Brownlow; “what of him?”
+“Harry?” said the doctor. “As soon as he saw that your friend here was safely with you, he hurried off. When he heard this news, he got on his horse and rode out to join the others at a meeting place outside the city.”
 
-“When I last heard, he had not been taken, but he will be, or is, by this time. They’re sure of him.”
+“And Fagin?” asked Mr. Brownlow.
 
-“Have you made up your mind?” asked Mr. Brownlow, in a low voice, of Monks.
+“When I last heard, he had not been caught,” replied the doctor. “But he will be soon—if he isn’t already. They are certain to get him.”
 
-“Yes,” he replied. “You—you—will be secret with me?”
+Mr. Brownlow turned to Monks and spoke quietly:
 
-----------------
-Та же самая задача для этого текста:
+“Have you made your decision?”
 
-“I will. Remain here till I return. It is your only hope of safety.”
+“Yes,” said Monks. Then, hesitating, he added, “You—you will keep this secret?”
 
-They left the room, and the door was again locked.
+“I will,” said Mr. Brownlow. “Stay here until I return. It is your only chance to remain safe.”
 
-“What have you done?” asked the doctor in a whisper.
+They left the room, and the door was locked again.
 
-“All that I could hope to do, and even more. Coupling the poor girl’s intelligence with my previous knowledge, and the result of our good friend’s inquiries on the spot, I left him no loophole of escape, and laid bare the whole villainy which by these lights became plain as day. Write and appoint the evening after tomorrow, at seven, for the meeting. We shall be down there, a few hours before, but shall require rest: especially the young lady, who may have greater need of firmness than either you or I can quite foresee just now. But my blood boils to avenge this poor murdered creature. Which way have they taken?”
+“What have you done?” the doctor asked quietly.
 
-“Drive straight to the office and you will be in time,” replied Mr. Losberne. “I will remain here.”
+“Everything I could—and even more,” said Mr. Brownlow. “With the information from that poor girl, what I already knew, and what our friend discovered, I gave him no way to escape. I showed him the whole truth, and his crimes became as clear as daylight.
 
-The two gentlemen hastily separated; each in a fever of excitement wholly uncontrollable.`,
+Write to arrange the meeting for the evening after tomorrow, at seven. We will arrive a few hours earlier, but we will need some rest—especially the young lady. She may need more strength than we can yet imagine.
+
+But my blood burns with anger for that poor murdered woman. Which way have they gone?”
+
+“Go straight to the office, and you will arrive in time,” said Mr. Losberne. “I will stay here.”
+
+The two gentlemen quickly went their separate ways, both filled with strong and uncontrollable excitement.`,
 }

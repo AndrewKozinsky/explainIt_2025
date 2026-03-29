@@ -2,10 +2,12 @@ import { join } from 'path'
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default'
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo'
 import { Module } from '@nestjs/common'
+import { APP_FILTER } from '@nestjs/core'
 import { CqrsModule } from '@nestjs/cqrs'
 import { GraphQLModule } from '@nestjs/graphql'
 import { ScheduleModule } from '@nestjs/schedule'
 import { Request, Response } from 'express'
+import { WinstonModule } from 'nest-winston'
 import { BookPublicModule } from 'routes/bookPublic/bookPublic.module'
 import { TariffModule } from 'routes/tariff/tariff.module'
 import { TranslateRouteModule } from 'routes/translate/translate.module'
@@ -13,11 +15,13 @@ import { VideoPrivateModule } from 'routes/videoPrivate/videoPrivate.module'
 import { VideoPublicModule } from 'routes/videoPublic/videoPublic.module'
 import { CloudRuS3Module } from 'infrastructure/cloudRuS3/cloudRuS3.module'
 import { DeepSeekModule } from 'infrastructure/deepSeek/deepSeek.module'
+import { winstonUseFactory } from 'infrastructure/logger/winstonUseFactory'
 import { StartServerTasksRunner } from 'infrastructure/StartServerTasksRunner'
 import { YandexCloudS3Module } from 'infrastructure/yandexCloudS3/yandexCloudS3.module'
 import { YandexDictionaryModule } from 'infrastructure/yandexDictionary/yandexDictionary.module'
 import { YandexTranslateModule } from 'infrastructure/yandexTranslate/yandexTranslate.module'
 import { EmailAdapterModule } from './infrastructure/emailAdapter/email-adapter.module'
+import { GlobalExceptionFilter } from './infrastructure/exceptions/global-exception.filter'
 import { GigaChatModule } from './infrastructure/gigaChat/gigaChat.module'
 import { HashAdapterModule } from './infrastructure/hashAdapter/hash-adapter.module'
 import { MainConfigModule } from './infrastructure/mainConfig/mainConfig.module'
@@ -58,6 +62,13 @@ import { WebhookModule } from './routes/webhook/webhook.module'
 			},
 			inject: [MainConfigService],
 		}),
+		WinstonModule.forRootAsync({
+			imports: [MainConfigModule],
+			useFactory: (mainConfigService: MainConfigService) => {
+				return winstonUseFactory(mainConfigService)
+			},
+			inject: [MainConfigService],
+		}),
 		CqrsModule,
 		HashAdapterModule,
 		MainConfigModule,
@@ -85,6 +96,6 @@ import { WebhookModule } from './routes/webhook/webhook.module'
 		TranslateRouteModule,
 		TariffModule,
 	],
-	providers: [StartServerTasksRunner],
+	providers: [StartServerTasksRunner, { provide: APP_FILTER, useClass: GlobalExceptionFilter }],
 })
 export class AppModule {}

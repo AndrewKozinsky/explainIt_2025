@@ -22,8 +22,8 @@ export class CreateBookChapterInput {
 	header: null | string
 
 	@Field(() => String, { description: 'Content of the chapter', nullable: true })
-	@DtoFieldDecorators('name', bdConfig.BookChapter.dbFields.content)
-	content: null | string
+	@DtoFieldDecorators('name', bdConfig.BookChapter.dbFields.original_content)
+	originalContent: null | string
 
 	@Field(() => String, { description: 'Note about this chapter', nullable: true })
 	@DtoFieldDecorators('note', bdConfig.BookChapter.dbFields.note)

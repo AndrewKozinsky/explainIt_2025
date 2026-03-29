@@ -53,21 +53,25 @@ import { chapter_8 } from './chapter_8'
 import { chapter_9 } from './chapter_9'
 
 export function oliverTwistBookData(coversFolderName: string) {
-	const covers = ['king_solomon_mines_cover_2.jpg', 'king_solomon_mines_cover_1.jpg']
+	const covers = ['oliver_twist_cover_1.jpg']
 
 	return {
 		author: 'Charles Dickens',
 		name: 'Oliver Twist',
-		note: `Погоня за
-Уровень B2-C1 (Upper-Intermediate / Advanced).`,
+		note: `Роман о судьбе сироты в жестоком мире викторианской Англии. Он растёт в бедности и страданиях. Не выдержав тяжёлой жизни, Оливер убегает в Лондон. В городе он попадает в банду промышляющей карманными кражам. Оливер не хочет становиться преступником, но его пытаются втянуть в преступный мир. В этой части важную роль играет Нэнси — девушка из банды, которая жалеет Оливера и пытается ему помочь. История постепенно раскрывает тайну происхождения Оливера: он оказывается сыном из уважаемой семьи. Злодеи получают наказание, а Оливер находит дом, любовь и спокойную жизнь.
+
+Диккенс использует богатый английский язык и живые диалоги. Это помогает понять, как звучит живой английский. В книге много разговорной речи (просьбы, угрозы и эмоции, бытовые разговоры), повторяющаяся лексика (на тему бедности, преступлений, эмоций), разные стили речи (формальную речь, простую разговорную). Это даёт хорошее понимание регистров языка.
+
+Книга помогает чувствовать ритм английских предложений, понимать, как строятся описания, видеть, как создаётся атмосфера через слова.
+
+Уровень B1-B2 (Intermediate / Upper-Intermediate).`,
 		languageCode: languages.en.code as Language,
 		freeToUse: false,
 		covers: covers.map((cover) => coversFolderName + cover),
-		coverBackgroundColor: '#313B3C',
+		coverBackgroundColor: '#343f3f',
 	}
 }
 
-// @ts-ignore
 export const oliverTwistChapters = [
 	chapter_1,
 	chapter_2,

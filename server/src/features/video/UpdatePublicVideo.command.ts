@@ -87,12 +87,12 @@ export class UpdatePublicVideoHandler extends VideoBase implements ICommandHandl
 					await this.subtitleRepository.deleteByVideoPublicId(updateVideoInput.id)
 					await this.sentenceRepository.deleteByVideoPublicId(updateVideoInput.id)
 
-					if (preparedContentResult.preparedContent !== null) {
+					if (preparedContentResult.processedContent !== null) {
 						if (preparedContentResult.subtitles) {
 							await this.saveSubtitlesSentencesAndInit({
 								videoType: 'public',
 								videoId: updateVideoInput.id,
-								preparedContent: preparedContentResult.preparedContent,
+								preparedContent: preparedContentResult.processedContent,
 								subtitles: preparedContentResult.subtitles,
 								sentenceRepository: this.sentenceRepository,
 								subtitleRepository: this.subtitleRepository,
@@ -102,7 +102,7 @@ export class UpdatePublicVideoHandler extends VideoBase implements ICommandHandl
 							await generateSentencesAndSaveToDB({
 								mainConfigService: this.mainConfig,
 								sentenceRepository: this.sentenceRepository,
-								content: preparedContentResult.preparedContent,
+								processedContent: preparedContentResult.processedContent,
 								videoPublicId: updateVideoInput.id,
 							})
 						}

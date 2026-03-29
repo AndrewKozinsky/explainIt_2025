@@ -1,134 +1,131 @@
-// ГЛАВА НЕ ГОТОВА
 export const chapter_35 = {
 	name: 'Chapter XXXV',
 	header: 'Containing the unsatisfactory result of Oliver’s adventure; and a conversation of some importance between Harry Maylie and Rose',
-	text: `
-------------------------------
-Та же самая задача для этого текста:
-When the inmates of the house, attracted by Oliver’s cries, hurried to the spot from which they proceeded, they found him, pale and agitated, pointing in the direction of the meadows behind the house, and scarcely able to articulate the words, “The Jew! the Jew!”
+	text: `When the people in the house heard Oliver’s cries and rushed outside, they found him pale and shaking. He pointed toward the fields behind the house and could barely say, “The Jew! The Jew!”
 
-Mr. Giles was at a loss to comprehend what this outcry meant; but Harry Maylie, whose perceptions were something quicker, and who had heard Oliver’s history from his mother, understood it at once.
+Mr. Giles didn’t understand what he meant. But Harry Maylie, who was quicker to grasp the situation—and who already knew Oliver’s story—understood at once.
 
-“What direction did he take?” he asked, catching up a heavy stick which was standing in a corner.
+“Which way did he go?” he asked, grabbing a heavy stick from the corner.
 
-“That,” replied Oliver, pointing out the course the man had taken; “I missed them in an instant.”
+“That way!” said Oliver, pointing. “They disappeared in a moment.”
 
-“Then, they are in the ditch!” said Harry. “Follow! And keep as near me, as you can.” So saying, he sprang over the hedge, and darted off with a speed which rendered it matter of exceeding difficulty for the others to keep near him.
+“Then they’re hiding in the ditch!” said Harry. “Follow me—and stay close!” With that, he jumped over the hedge and ran off so fast that the others struggled to keep up.
 
-Giles followed as well as he could; and Oliver followed too; and in the course of a minute or two, Mr. Losberne, who had been out walking, and just then returned, tumbled over the hedge after them, and picking himself up with more agility than he could have been supposed to possess, struck into the same course at no contemptible speed, shouting all the while, most prodigiously, to know what was the matter.
+Giles ran after him as best he could, and Oliver followed too. Within a minute or two, Mr. Losberne—who had just returned from a walk—climbed over the hedge after them. He hurried along surprisingly quickly, shouting loudly the whole time, asking what had happened.
 
-On they all went; nor stopped they once to breathe, until the leader, striking off into an angle of the field indicated by Oliver, began to search, narrowly, the ditch and hedge adjoining; which afforded time for the remainder of the party to come up; and for Oliver to communicate to Mr. Losberne the circumstances that had led to so vigorous a pursuit.
+They ran on without stopping until Harry, reaching the part of the field Oliver had pointed out, began searching carefully along the hedge and the ditch. This gave the others time to catch up, and Oliver quickly explained everything to the doctor.
 
-The search was all in vain. There were not even the traces of recent footsteps, to be seen. They stood now, on the summit of a little hill, commanding the open fields in every direction for three or four miles. There was the village in the hollow on the left; but, in order to gain that, after pursuing the track Oliver had pointed out, the men must have made a circuit of open ground, which it was impossible they could have accomplished in so short a time. A thick wood skirted the meadow-land in another direction; but they could not have gained that covert for the same reason.
+But the search was useless. There were no signs at all—not even footprints.
 
-“It must have been a dream, Oliver,” said Harry Maylie.
+They were now standing on a small hill, from which they could see the fields for miles around. The village lay in a hollow to the left—but to reach it, the men would have had to cross open ground, which was impossible in so short a time. In another direction there was a thick wood—but they could not have reached it either.
 
-“Oh no, indeed, sir,” replied Oliver, shuddering at the very recollection of the old wretch’s countenance; “I saw him too plainly for that. I saw them both, as plainly as I see you now.”
+“It must have been a dream, Oliver,” said Harry.
 
-“Who was the other?” inquired Harry and Mr. Losberne, together.
+“Oh no, sir,” said Oliver, trembling at the memory. “I saw him too clearly. I saw both of them—as clearly as I see you now.”
 
-“The very same man I told you of, who came so suddenly upon me at the inn,” said Oliver. “We had our eyes fixed full upon each other; and I could swear to him.”
+“Who was the other man?” asked Harry and the doctor together.
 
-“They took this way?” demanded Harry: “are you sure?”
+“The same man I told you about—the one I met at the inn,” said Oliver. “We looked straight at each other. I’m sure of it.”
 
-“As I am that the men were at the window,” replied Oliver, pointing down, as he spoke, to the hedge which divided the cottage-garden from the meadow. “The tall man leaped over, just there; and the Jew, running a few paces to the right, crept through that gap.”
+“They went this way?” Harry asked again.
 
-The two gentlemen watched Oliver’s earnest face, as he spoke, and looking from him to each other, seemed to feel satisfied of the accuracy of what he said. Still, in no direction were there any appearances of the trampling of men in hurried flight. The grass was long; but it was trodden down nowhere, save where their own feet had crushed it. The sides and brinks of the ditches were of damp clay; but in no one place could they discern the print of men’s shoes, or the slightest mark which would indicate that any feet had pressed the ground for hours before.
+“Yes,” said Oliver, pointing. “The tall man jumped over the hedge there. And the Jew ran a little to the right and slipped through that gap.”
 
-“This is strange!” said Harry.
+The two gentlemen watched Oliver closely and then looked at each other. They believed he was telling the truth. And yet, there was no sign that anyone had passed that way. The grass was long, but not flattened anywhere except where they themselves had stepped. The ground near the ditch was soft and damp, but there were no footprints—nothing to show that anyone had been there.
 
-“Strange?” echoed the doctor. “Blathers and Duff, themselves, could make nothing of it.”
+“This is very strange,” said Harry.
 
-Notwithstanding the evidently useless nature of their search, they did not desist until the coming on of night rendered its further prosecution hopeless; and even then, they gave it up with reluctance. Giles was dispatched to the different ale-houses in the village, furnished with the best description Oliver could give of the appearance and dress of the strangers. Of these, the Jew was, at all events, sufficiently remarkable to be remembered, supposing he had been seen drinking, or loitering about; but Giles returned without any intelligence, calculated to dispel or lessen the mystery.
+“Strange?” repeated the doctor. “Even the best officers couldn’t explain it.”
 
-----------------
-Та же самая задача для этого текста:
+Even though the search seemed hopeless, they continued until it grew too dark to see. Only then did they stop—and even then, they were reluctant to give up.
 
-On the next day, fresh search was made, and the inquiries renewed; but with no better success. On the day following, Oliver and Mr. Maylie repaired to the market-town, in the hope of seeing or hearing something of the men there; but this effort was equally fruitless. After a few days, the affair began to be forgotten, as most affairs are, when wonder, having no fresh food to support it, dies away of itself.
+Giles was sent to all the village inns, with a description of the strangers based on what Oliver remembered. The Jew, at least, looked unusual enough that someone might have noticed him—if he had been seen.
 
-Meanwhile, Rose was rapidly recovering. She had left her room: was able to go out; and mixing once more with the family, carried joy into the hearts of all.
+But Giles returned with no news at all. The mystery remained unsolved.
 
-But, although this happy change had a visible effect on the little circle; and although cheerful voices and merry laughter were once more heard in the cottage; there was at times, an unwonted restraint upon some there: even upon Rose herself: which Oliver could not fail to remark. Mrs. Maylie and her son were often closeted together for a long time; and more than once Rose appeared with traces of tears upon her face. After Mr. Losberne had fixed a day for his departure to Chertsey, these symptoms increased; and it became evident that something was in progress which affected the peace of the young lady, and of somebody else besides.
+The next day, they searched again and asked more questions, but found nothing. The day after that, Oliver and Mr. Maylie went to the nearby town, hoping to see or hear something about the two men, but again they learned nothing. After a few days, the whole matter began to fade from memory—as such things often do when there is nothing new to keep people interested.
 
-At length, one morning, when Rose was alone in the breakfast-parlour, Harry Maylie entered; and, with some hesitation, begged permission to speak with her for a few moments.
+Meanwhile, Rose was recovering quickly. She had left her room, could go outside, and was once again with the family, bringing happiness to everyone.
 
-“A few—a very few—will suffice, Rose,” said the young man, drawing his chair towards her. “What I shall have to say, has already presented itself to your mind; the most cherished hopes of my heart are not unknown to you, though from my lips you have not heard them stated.”
+But although this joyful change lifted everyone’s spirits, and laughter returned to the cottage, Oliver noticed something unusual. At times, there was a certain quiet tension— even in Rose herself. Mrs. Maylie and her son often spent long periods talking privately. More than once, Rose appeared with traces of tears on her face. After Mr. Losberne had decided on a day to leave for Chertsey, these signs became stronger. It was clear that something was troubling both Rose and someone else.
 
-Rose had been very pale from the moment of his entrance; but that might have been the effect of her recent illness. She merely bowed; and bending over some plants that stood near, waited in silence for him to proceed.
+At last, one morning, when Rose was alone in the breakfast room, Harry Maylie came in. He hesitated for a moment, then asked if he might speak with her.
 
-“I—I—ought to have left here, before,” said Harry.
+“Just a few minutes will be enough, Rose,” he said, sitting down near her. “You already know what I am going to say. The hopes of my heart are not unknown to you, even if I have never spoken them aloud.”
 
-“You should, indeed,” replied Rose. “Forgive me for saying so, but I wish you had.”
+Rose had grown pale when he entered, though that might have been from her recent illness. She only nodded and bent over the flowers beside her, waiting quietly.
 
-“I was brought here, by the most dreadful and agonising of all apprehensions,” said the young man; “the fear of losing the one dear being on whom my every wish and hope are fixed. You had been dying; trembling between earth and heaven. We know that when the young, the beautiful, and good, are visited with sickness, their pure spirits insensibly turn towards their bright home of lasting rest; we know, Heaven help us! that the best and fairest of our kind, too often fade in blooming.”
+“I should have left earlier,” Harry began.
 
-There were tears in the eyes of the gentle girl, as these words were spoken; and when one fell upon the flower over which she bent, and glistened brightly in its cup, making it more beautiful, it seemed as though the outpouring of her fresh young heart, claimed kindred naturally, with the loveliest things in nature.
+“Yes… you should have,” Rose said gently. “Forgive me, but I wish you had.”
 
-“A creature,” continued the young man, passionately, “a creature as fair and innocent of guile as one of God’s own angels, fluttered between life and death. Oh! who could hope, when the distant world to which she was akin, half opened to her view, that she would return to the sorrow and calamity of this! Rose, Rose, to know that you were passing away like some soft shadow, which a light from above, casts upon the earth; to have no hope that you would be spared to those who linger here; hardly to know a reason why you should be; to feel that you belonged to that bright sphere whither so many of the fairest and the best have winged their early flight; and yet to pray, amid all these consolations, that you might be restored to those who loved you—these were distractions almost too great to bear. They were mine, by day and night; and with them, came such a rushing torrent of fears, and apprehensions, and selfish regrets, lest you should die, and never know how devotedly I loved you, as almost bore down sense and reason in its course. You recovered. Day by day, and almost hour by hour, some drop of health came back, and mingling with the spent and feeble stream of life which circulated languidly within you, swelled it again to a high and rushing tide. I have watched you change almost from death, to life, with eyes that turned blind with their eagerness and deep affection. Do not tell me that you wish I had lost this; for it has softened my heart to all mankind.”
+“I came here in terrible fear,” he said. “I thought I might lose the one person who means everything to me. You were so close to death… We know that when someone young, kind, and beautiful falls ill, their spirit seems to turn toward a better world. Too often, the best among us are taken too soon.”
 
-“I did not mean that,” said Rose, weeping; “I only wish you had left here, that you might have turned to high and noble pursuits again; to pursuits well worthy of you.”
+Tears filled Rose’s eyes. One tear fell onto the flower she was holding, shining like a drop of light.
 
-“There is no pursuit more worthy of me: more worthy of the highest nature that exists: than the struggle to win such a heart as yours,” said the young man, taking her hand. “Rose, my own dear Rose! For years—for years—I have loved you; hoping to win my way to fame, and then come proudly home and tell you it had been pursued only for you to share; thinking, in my daydreams, how I would remind you, in that happy moment, of the many silent tokens I had given of a boy’s attachment, and claim your hand, as in redemption of some old mute contract that had been sealed between us! That time has not arrived; but here, with not fame won, and no young vision realised, I offer you the heart so long your own, and stake my all upon the words with which you greet the offer.”
+“A being as pure and innocent as an angel,” Harry continued passionately, “was close to leaving this world. How could anyone hope you would return, when something better seemed ready to claim you? To think of you fading away like a shadow… to feel that you belonged more to that brighter world than to this one—and yet still to pray that you would stay with us—this was almost more than I could bear. Day and night, I was filled with fear, and with the thought that you might die without ever knowing how deeply I love you. It overwhelmed me completely.”
 
-“Your behaviour has ever been kind and noble.” said Rose, mastering the emotions by which she was agitated. “As you believe that I am not insensible or ungrateful, so hear my answer.”
+He paused, then went on more softly:
 
-“It is, that I may endeavour to deserve you; it is, dear Rose?”
+“But you recovered. Slowly, little by little, life returned to you. I watched you come back from the edge of death. Do not say you wish I had not been here—for this has changed me, and made me kinder to everyone.”
 
-“It is,” replied Rose, “that you must endeavour to forget me; not as your old and dearly-attached companion, for that would wound me deeply; but, as the object of your love. Look into the world; think how many hearts you would be proud to gain, are there. Confide some other passion to me, if you will; I will be the truest, warmest, and most faithful friend you have.”
+“I did not mean that,” said Rose, weeping. “I only wish you had left… so that you could return to your ambitions—to the life you deserve.”
 
-----------------
-Та же самая задача для этого текста:
+“There is no greater purpose for me,” said Harry, taking her hand, “than to win a heart like yours. Rose—my dear Rose—I have loved you for years. I hoped to make a name for myself first, and then come back and tell you that everything I had done was for you. I imagined that moment so many times. That day has not come—but still, I offer you my heart, which has long been yours. My future depends on your answer.”
 
-There was a pause, during which, Rose, who had covered her face with one hand, gave free vent to her tears. Harry still retained the other.
+“You have always been kind and noble,” said Rose, controlling her emotions. “And since you believe I am not ungrateful, listen to me now.”
 
-“And your reasons, Rose,” he said, at length, in a low voice; “your reasons for this decision?”
+“You mean… I may try to deserve you?” he asked.
 
-“You have a right to know them,” rejoined Rose. “You can say nothing to alter my resolution. It is a duty that I must perform. I owe it, alike to others, and to myself.”
+“No,” said Rose gently. “You must try to forget me—not as your dear friend, because that would hurt me deeply—but as the one you love. Look out into the world. There are many hearts you could win, and be proud of. If you wish, trust me with your thoughts—I will always be your truest and most faithful friend.”
+
+There was a pause. Rose covered her face with one hand and began to cry freely. Harry still held her other hand.
+
+“And your reasons, Rose,” he said at last, quietly. “Why have you made this decision?”
+
+“You have the right to know,” she replied. “But nothing you say can change my mind. It is something I must do. I owe it—to others, and to myself.”
 
 “To yourself?”
 
-“Yes, Harry. I owe it to myself, that I, a friendless, portionless, girl, with a blight upon my name, should not give your friends reason to suspect that I had sordidly yielded to your first passion, and fastened myself, a clog, on all your hopes and projects. I owe it to you and yours, to prevent you from opposing, in the warmth of your generous nature, this great obstacle to your progress in the world.”
+“Yes, Harry. I must think of myself too. I am alone in the world, with no fortune—and with something in my past that casts a shadow on my name. I cannot let your friends believe that I accepted your love out of selfish reasons, or that I attached myself to you and became a burden on your future. I owe it to you as well—to stop you, in your kindness and generosity, from putting your future at risk for me.”
 
-“If your inclinations chime with your sense of duty—” Harry began.
+“If your feelings agree with this sense of duty—” Harry began.
 
-“They do not,” replied Rose, colouring deeply.
+“They do not,” said Rose, blushing deeply.
 
-“Then you return my love?” said Harry. “Say but that, dear Rose; say but that; and soften the bitterness of this hard disappointment!”
+“Then you do love me?” said Harry. “Just tell me that, dear Rose—say it—and make this pain a little easier to bear.”
 
-“If I could have done so, without doing heavy wrong to him I loved,” rejoined Rose, “I could have—”
+“If I could have said it without doing wrong to the one I love,” she replied softly, “I would have—”
 
-“Have received this declaration very differently?” said Harry. “Do not conceal that from me, at least, Rose.”
+“Would have answered me very differently?” said Harry. “Don’t hide that from me, at least.”
 
-“I could,” said Rose. “Stay!” she added, disengaging her hand, “why should we prolong this painful interview? Most painful to me, and yet productive of lasting happiness, notwithstanding; for it will be happiness to know that I once held the high place in your regard which I now occupy, and every triumph you achieve in life will animate me with new fortitude and firmness. Farewell, Harry! As we have met today, we meet no more; but in other relations than those in which this conversation have placed us, we may be long and happily entwined; and may every blessing that the prayers of a true and earnest heart can call down from the source of all truth and sincerity, cheer and prosper you!”
+“I would have,” said Rose. Then she gently pulled her hand away. “But why should we continue this painful conversation? It hurts me deeply—and yet, it will bring some happiness too. It will always be a comfort to know that I once held such a place in your heart. And every success you have in life will give me strength. Goodbye, Harry. We will not meet like this again. But in another way—as friends—we may still remain close. And may every blessing come to you, from the truest and most sincere wishes of my heart.”
 
-“Another word, Rose,” said Harry. “Your reason in your own words. From your own lips, let me hear it!”
+“One more word, Rose,” said Harry. “Tell me clearly—your reason, in your own words.”
 
-“The prospect before you,” answered Rose, firmly, “is a brilliant one. All the honours to which great talents and powerful connections can help men in public life, are in store for you. But those connections are proud; and I will neither mingle with such as may hold in scorn the mother who gave me life; nor bring disgrace or failure on the son of her who has so well supplied that mother’s place. In a word,” said the young lady, turning away, as her temporary firmness forsook her, “there is a stain upon my name, which the world visits on innocent heads. I will carry it into no blood but my own; and the reproach shall rest alone on me.”
+“Your future,” said Rose firmly, “is bright. You can achieve honor and success, with your talents and your connections. But those people are proud—and I will not join a world that might look down on the mother who gave me life. Nor will I bring shame or difficulty to the son of the woman who has cared for me like a mother. In short,” she added, turning away as her strength began to fail, “there is a shadow on my name, though I am not to blame. I will not pass that burden on to anyone else.”
 
-“One word more, Rose. Dearest Rose! one more!” cried Harry, throwing himself before her. “If I had been less—less fortunate, the world would call it—if some obscure and peaceful life had been my destiny—if I had been poor, sick, helpless—would you have turned from me then? Or has my probable advancement to riches and honour, given this scruple birth?”
+“One more question, Rose—please!” cried Harry, stepping in front of her. “If my life had been different—if I had been poor, unknown, without ambition—would you have turned away from me then? Or is it only because I may become successful that you refuse me?”
 
-“Do not press me to reply,” answered Rose. “The question does not arise, and never will. It is unfair, almost unkind, to urge it.”
+“Please don’t ask me that,” said Rose. “It is not a fair question.”
 
-“If your answer be what I almost dare to hope it is,” retorted Harry, “it will shed a gleam of happiness upon my lonely way, and light the path before me. It is not an idle thing to do so much, by the utterance of a few brief words, for one who loves you beyond all else. Oh, Rose: in the name of my ardent and enduring attachment; in the name of all I have suffered for you, and all you doom me to undergo; answer me this one question!”
+“But if your answer is what I hope,” said Harry, “it would give me some comfort in my loneliness. It is not a small thing—to bring hope to someone who loves you above all else. Rose—by all I have felt and suffered for you—answer me!”
 
-“Then, if your lot had been differently cast,” rejoined Rose; “if you had been even a little, but not so far, above me; if I could have been a help and comfort to you in any humble scene of peace and retirement, and not a blot and drawback in ambitious and distinguished crowds; I should have been spared this trial. I have every reason to be happy, very happy, now; but then, Harry, I own I should have been happier.”
+Rose paused, then spoke quietly:
 
-----------------
-Та же самая задача для этого текста:
+“If your life had been different… if you had been only a little above me—not so far—if I could have been a help and comfort to you in a simple, quiet life, instead of a burden in a world of ambition and society… then I would not have had to refuse you. I have every reason to be happy now—very happy—but, Harry… I would have been happier.”
 
-Busy recollections of old hopes, cherished as a girl, long ago, crowded into the mind of Rose, while making this avowal; but they brought tears with them, as old hopes will when they come back withered; and they relieved her.
+As Rose spoke, memories of her old dreams—those she had cherished as a young girl—filled her mind. But these memories brought tears, as such dreams often do when they return faded and lost. Still, they helped ease her heart.
 
-“I cannot help this weakness, and it makes my purpose stronger,” said Rose, extending her hand. “I must leave you now, indeed.”
+“I cannot hide this weakness,” said Rose, holding out her hand. “But it only makes my decision stronger. I really must leave you now.”
 
-“I ask one promise,” said Harry. “Once, and only once more,—say within a year, but it may be much sooner,—I may speak to you again on this subject, for the last time.”
+“I ask for one promise,” said Harry. “Just once—only once more—perhaps within a year, or maybe sooner—let me speak to you again about this, for the last time.”
 
-“Not to press me to alter my right determination,” replied Rose, with a melancholy smile; “it will be useless.”
+“Not to persuade me to change my decision,” said Rose with a sad smile. “That would be useless.”
 
-“No,” said Harry; “to hear you repeat it, if you will—finally repeat it! I will lay at your feet, whatever of station of fortune I may possess; and if you still adhere to your present resolution, will not seek, by word or act, to change it.”
+“No,” said Harry. “Only to hear you say it again—your final answer. I will place everything I have—my position, my future—at your feet. And if you still feel the same, I will never try again, in any way, to change your mind.”
 
-“Then let it be so,” rejoined Rose; “it is but one pang the more, and by that time I may be enabled to bear it better.”
+“Very well,” said Rose. “It will only bring me a little more pain—but perhaps by then I will be stronger.”
 
-She extended her hand again. But the young man caught her to his bosom; and imprinting one kiss on her beautiful forehead, hurried from the room.
-
-`,
+She held out her hand again. But Harry pulled her into an embrace, kissed her gently on the forehead, and then quickly left the room.`,
 }

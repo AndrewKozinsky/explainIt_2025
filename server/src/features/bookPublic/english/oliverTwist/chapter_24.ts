@@ -1,123 +1,115 @@
-// ГЛАВА НЕ ГОТОВА
 export const chapter_24 = {
 	name: 'Chapter XXIV',
 	header: 'Treats on a very poor subject, but is a short one, and may be found of importance in this history',
-	text: `
-------------------------------
-Та же самая задача для этого текста:
-It was no unfit messenger of death, who had disturbed the quiet of the matron’s room. Her body was bent by age; her limbs trembled with palsy; her face, distorted into a mumbling leer, resembled more the grotesque shaping of some wild pencil, than the work of Nature’s hand.
+	text: `It was a fitting messenger of death who had disturbed the quiet of the matron’s room. Her body was bent with age; her limbs shook; her face, twisted into a constant grim smile, looked less like something natural and more like a strange drawing.
 
-Alas! How few of Nature’s faces are left alone to gladden us with their beauty! The cares, and sorrows, and hungerings, of the world, change them as they change hearts; and it is only when those passions sleep, and have lost their hold for ever, that the troubled clouds pass off, and leave Heaven’s surface clear. It is a common thing for the countenances of the dead, even in that fixed and rigid state, to subside into the long-forgotten expression of sleeping infancy, and settle into the very look of early life; so calm, so peaceful, do they grow again, that those who knew them in their happy childhood, kneel by the coffin’s side in awe, and see the Angel even upon earth.
+Alas! How few faces remain untouched by life. Worry, sorrow, and hunger change them, just as they change the heart. Only when these struggles end forever do the troubled lines disappear, and peace returns. It often happens that the faces of the dead grow calm again, even in their stillness, and take on the look they had in early childhood—so peaceful, so gentle—that those who knew them as children kneel beside them and almost see something angelic.
 
-The old crone tottered along the passages, and up the stairs, muttering some indistinct answers to the chidings of her companion; being at length compelled to pause for breath, she gave the light into her hand, and remained behind to follow as she might: while the more nimble superior made her way to the room where the sick woman lay.
+The old woman slowly made her way along the passage and up the stairs, muttering unclear replies to the sharp words of her companion. At last, too tired to go on, she handed over the candle and stayed behind to catch her breath, while the quicker matron went ahead to the room where the sick woman lay.
 
-It was a bare garret-room, with a dim light burning at the farther end. There was another old woman watching by the bed; the parish apothecary’s apprentice was standing by the fire, making a toothpick out of a quill.
+It was a bare attic room, dimly lit by a weak light at the far end. Another old woman sat by the bed, watching. Near the fire stood the apothecary’s assistant, calmly making a toothpick from a feather.
 
-“Cold night, Mrs. Corney,” said this young gentleman, as the matron entered.
+“Cold night, Mrs. Corney,” said the young man as the matron entered.
 
-“Very cold, indeed, sir,” replied the mistress, in her most civil tones, and dropping a curtsey as she spoke.
+“Very cold indeed, sir,” she replied politely, with a small bow.
 
-“You should get better coals out of your contractors,” said the apothecary’s deputy, breaking a lump on the top of the fire with the rusty poker; “these are not at all the sort of thing for a cold night.”
+“You should get better coal,” he said, breaking a piece over the fire with an old poker. “This is no good for such weather.”
 
-“They’re the board’s choosing, sir,” returned the matron. “The least they could do, would be to keep us pretty warm: for our places are hard enough.”
+“The board chooses it, sir,” replied the matron. “The least they could do is keep us warm—our work is hard enough.”
 
-The conversation was here interrupted by a moan from the sick woman.
+Their conversation was interrupted by a low moan from the sick woman.
 
-“Oh!” said the young man, turning his face towards the bed, as if he had previously quite forgotten the patient, “it’s all U.P. there, Mrs. Corney.”
+“Oh!” said the young man, turning toward the bed as if he had almost forgotten her. “It’s nearly over, Mrs. Corney.”
 
-“It is, is it, sir?” asked the matron.
+“Is it, sir?” asked the matron.
 
-“If she lasts a couple of hours, I shall be surprised,” said the apothecary’s apprentice, intent upon the toothpick’s point. “It’s a break-up of the system altogether. Is she dozing, old lady?”
+“If she lasts another couple of hours, I’ll be surprised,” he said, still focused on sharpening his toothpick. “Her whole body is failing. Is she asleep?”
 
-The attendant stooped over the bed, to ascertain; and nodded in the affirmative.
+The nurse bent over the bed to check and nodded.
 
-“Then perhaps she’ll go off in that way, if you don’t make a row,” said the young man. “Put the light on the floor. She won’t see it there.”
+“Then she may pass quietly, if you don’t make any noise,” said the young man. “Put the light on the floor—she won’t notice it there.”
 
-The attendant did as she was told: shaking her head meanwhile, to intimate that the woman would not die so easily; having done so, she resumed her seat by the side of the other nurse, who had by this time returned. The mistress, with an expression of impatience, wrapped herself in her shawl, and sat at the foot of the bed.
+The nurse did as she was told, though she shook her head, as if she did not believe the woman would die so easily. Then she returned to sit beside the other old nurse, who had now come back. The matron, looking impatient, wrapped herself in her shawl and sat at the foot of the bed.
 
-The apothecary’s apprentice, having completed the manufacture of the toothpick, planted himself in front of the fire and made good use of it for ten minutes or so: when apparently growing rather dull, he wished Mrs. Corney joy of her job, and took himself off on tiptoe.
+The apothecary’s assistant, having finished his toothpick, stood by the fire and used it for a while. After about ten minutes, growing bored, he wished Mrs. Corney luck with her task and quietly left the room.
 
-When they had sat in silence for some time, the two old women rose from the bed, and crouching over the fire, held out their withered hands to catch the heat. The flame threw a ghastly light on their shrivelled faces, and made their ugliness appear terrible, as, in this position, they began to converse in a low voice.
+After sitting in silence for some time, the two old women got up and moved closer to the fire, holding out their thin hands to warm them. The flames cast a harsh, ghostly light on their wrinkled faces, making them look even more frightening as they began to speak to each other in low voices.
 
-----------------
-Та же самая задача для этого текста:
+“Did she say anything more, dear Anny, while I was away?” asked the first woman.
 
-“Did she say any more, Anny dear, while I was gone?” inquired the messenger.
+“Not a word,” replied the other. “She pulled at her arms for a while, but I held her hands, and she soon became still. She doesn’t have much strength, so it was easy to keep her quiet. I’m not so weak for an old woman, even if I live on parish support—no, not at all!”
 
-“Not a word,” replied the other. “She plucked and tore at her arms for a little time; but I held her hands, and she soon dropped off. She hasn’t much strength in her, so I easily kept her quiet. I ain’t so weak for an old woman, although I am on parish allowance; no, no!”
+“Did she drink the hot wine the doctor ordered?” asked the first.
 
-“Did she drink the hot wine the doctor said she was to have?” demanded the first.
+“I tried to make her drink it,” said the other. “But her teeth were tightly shut, and she held the cup so hard I could barely get it back. So I drank it myself—and it did me good!”
 
-“I tried to get it down,” rejoined the other. “But her teeth were tight set, and she clenched the mug so hard that it was as much as I could do to get it back again. So I drank it; and it did me good!”
+They looked around carefully to make sure no one was listening, then moved closer to the fire and laughed quietly.
 
-Looking cautiously round, to ascertain that they were not overheard, the two hags cowered nearer to the fire, and chuckled heartily.
+“I remember the time,” said the first woman, “when she would have done the same—and laughed about it afterwards.”
 
-“I mind the time,” said the first speaker, “when she would have done the same, and made rare fun of it afterwards.”
+“Yes, she would,” said the other. “She had a cheerful spirit. She prepared many, many beautiful dead bodies—laid them out neat and proper, like wax figures. I’ve seen them—and these old hands have touched them too. I’ve helped her many times.”
 
-“Ay, that she would,” rejoined the other; “she had a merry heart. A many, many, beautiful corpses she laid out, as nice and neat as waxwork. My old eyes have seen them—ay, and those old hands touched them too; for I have helped her, scores of times.”
+As she spoke, the old woman stretched out her shaking fingers proudly, then took an old tin snuff box from her pocket. She poured a little into her companion’s hand, and some into her own. While they were doing this, the matron—who had been waiting impatiently for the dying woman to wake—came over to them by the fire and sharply asked how much longer she would have to wait.
 
-Stretching forth her trembling fingers as she spoke, the old creature shook them exultingly before her face, and fumbling in her pocket, brought out an old time-discoloured tin snuff-box, from which she shook a few grains into the outstretched palm of her companion, and a few more into her own. While they were thus employed, the matron, who had been impatiently watching until the dying woman should awaken from her stupor, joined them by the fire, and sharply asked how long she was to wait?
+“Not long, ma’am,” replied the second woman, looking up at her. “None of us has long to wait for death. Be patient—it will come soon enough for all of us.”
 
-“Not long, mistress,” replied the second woman, looking up into her face. “We have none of us long to wait for Death. Patience, patience! He’ll be here soon enough for us all.”
+“Be quiet, you foolish old woman!” said the matron sharply. “You, Martha—tell me, has she been like this before?”
 
-“Hold your tongue, you doting idiot!” said the matron sternly. “You, Martha, tell me; has she been in this way before?”
+“Often,” said the first woman.
 
-“Often,” answered the first woman.
+“But not again,” added the second. “She will wake only once more—and remember, ma’am, it won’t be for long.”
 
-“But will never be again,” added the second one; “that is, she’ll never wake again but once—and mind, mistress, that won’t be for long!”
+“Long or short,” said the matron irritably, “I won’t be here when she wakes. And don’t call me again for nothing. It’s not my job to watch every old woman in this place die—and I won’t do it, that’s final. Remember that! If you trouble me again for no reason, I’ll deal with you, I promise!”
 
-“Long or short,” said the matron, snappishly, “she won’t find me here when she does wake; take care, both of you, how you worry me again for nothing. It’s no part of my duty to see all the old women in the house die, and I won’t—that’s more. Mind that, you impudent old harridans. If you make a fool of me again, I’ll soon cure you, I warrant you!”
+She was just about to leave when a cry from the two women—who had turned toward the bed—made her stop and look back.
 
-She was bouncing away, when a cry from the two women, who had turned towards the bed, caused her to look round. The patient had raised herself upright, and was stretching her arms towards them.
+The sick woman had sat up and was reaching out her arms toward them.
 
-“Who’s that?” she cried, in a hollow voice.
+“Who is that?” she cried in a weak, hollow voice.
 
-“Hush, hush!” said one of the women, stooping over her. “Lie down, lie down!”
+“Hush, hush!” said one of the women, bending over her. “Lie down, lie down!”
 
-----------------
-Та же самая задача для этого текста:
+“I will never lie down alive again!” said the woman, struggling. “I must tell her! Come here—closer. Let me whisper in your ear.”
 
-“I’ll never lie down again alive!” said the woman, struggling. “I will tell her! Come here! Nearer! Let me whisper in your ear.”
+She grabbed the matron’s arm and forced her into a chair beside the bed. She was about to speak, but when she looked around and saw the two old women leaning forward, listening eagerly, she stopped.
 
-She clutched the matron by the arm, and forcing her into a chair by the bedside, was about to speak, when looking round, she caught sight of the two old women bending forward in the attitude of eager listeners.
+“Send them away,” she said weakly. “Quick—quick!”
 
-“Turn them away,” said the woman, drowsily; “make haste! make haste!”
+The two old women immediately began to cry out that the poor dear was too ill to recognize her friends, and insisted they would never leave her. But the matron pushed them out of the room, shut the door, and came back to the bedside. Once outside, the old women changed their tone and shouted through the keyhole that Old Sally was drunk—which was quite possible, since besides the medicine given by the doctor, she had also secretly been given some gin by these same kind-hearted women.
 
-The two old crones, chiming in together, began pouring out many piteous lamentations that the poor dear was too far gone to know her best friends; and were uttering sundry protestations that they would never leave her, when the superior pushed them from the room, closed the door, and returned to the bedside. On being excluded, the old ladies changed their tone, and cried through the keyhole that old Sally was drunk; which, indeed, was not unlikely; since, in addition to a moderate dose of opium prescribed by the apothecary, she was labouring under the effects of a final taste of gin-and-water which had been privily administered, in the openness of their hearts, by the worthy old ladies themselves.
+“Now listen to me,” said the dying woman loudly, gathering her strength. “In this very room—in this very bed—I once cared for a young woman. She had walked a long way—her feet were cut and bruised, and she was covered in dirt and blood. She gave birth to a boy—and then she died. Let me think… what year was it?”
 
-“Now listen to me,” said the dying woman aloud, as if making a great effort to revive one latent spark of energy. “In this very room—in this very bed—I once nursed a pretty young creetur’, that was brought into the house with her feet cut and bruised with walking, and all soiled with dust and blood. She gave birth to a boy, and died. Let me think—what was the year again!”
+“Never mind the year,” said the impatient matron. “What about her?”
 
-“Never mind the year,” said the impatient auditor; “what about her?”
+“Yes…” murmured the woman, drifting again. “What about her?—what about—ah! I remember!” she suddenly cried, sitting up with sudden force, her face flushed and her eyes wide. “I robbed her! I did! She wasn’t even cold yet—I tell you, she wasn’t—when I took it!”
 
-“Ay,” murmured the sick woman, relapsing into her former drowsy state, “what about her?—what about—I know!” she cried, jumping fiercely up: her face flushed, and her eyes starting from her head—“I robbed her, so I did! She wasn’t cold—I tell you she wasn’t cold, when I stole it!”
+“Took what?” cried the matron, alarmed.
 
-“Stole what, for God’s sake?” cried the matron, with a gesture as if she would call for help.
+“It!” said the woman, covering the matron’s mouth with her hand. “The only thing she had. She needed clothes and food—but she kept it safe, close to her chest. It was gold! Real gold! It could have saved her life!”
 
-“It!” replied the woman, laying her hand over the other’s mouth. “The only thing she had. She wanted clothes to keep her warm, and food to eat; but she had kept it safe, and had it in her bosom. It was gold, I tell you! Rich gold, that might have saved her life!”
+“Gold!” repeated the matron, leaning closer. “Go on! What happened? Who was she?”
 
-“Gold!” echoed the matron, bending eagerly over the woman as she fell back. “Go on, go on—yes—what of it? Who was the mother? When was it?”
+“She asked me to keep it safe,” said the woman with a groan. “She trusted me—the only woman near her. I wanted it the moment I saw it hanging around her neck… and maybe the child’s suffering is my fault too! They would have treated him better if they had known!”
 
-“She charged me to keep it safe,” replied the woman with a groan, “and trusted me as the only woman about her. I stole it in my heart when she first showed it me hanging round her neck; and the child’s death, perhaps, is on me besides! They would have treated him better, if they had known it all!”
+“Known what?” asked the matron. “Speak!”
 
-“Known what?” asked the other. “Speak!”
+“The boy grew to look just like his mother,” said the woman, not answering directly. “I could never forget her when I saw his face. Poor girl… she was so young… so gentle… Wait—I haven’t told you everything, have I?”
 
-“The boy grew so like his mother,” said the woman, rambling on, and not heeding the question, “that I could never forget it when I saw his face. Poor girl! poor girl! She was so young, too! Such a gentle lamb! Wait; there’s more to tell. I have not told you all, have I?”
+“No, no,” said the matron, bending closer to catch her fading voice. “Be quick, or it will be too late!”
 
-“No, no,” replied the matron, inclining her head to catch the words, as they came more faintly from the dying woman. “Be quick, or it may be too late!”
+“The mother,” said the woman, making one last effort, “when she felt she was dying, whispered to me: if her child lived and grew up, maybe one day it would not feel ashamed to hear her name. ‘And oh, kind Heaven,’ she said, folding her thin hands, ‘whether it is a boy or a girl, send it some friends in this hard world, and have mercy on a lonely child left all alone.’”
 
-“The mother,” said the woman, making a more violent effort than before; “the mother, when the pains of death first came upon her, whispered in my ear that if her baby was born alive, and thrived, the day might come when it would not feel so much disgraced to hear its poor young mother named. ‘And oh, kind Heaven!’ she said, folding her thin hands together, ‘whether it be boy or girl, raise up some friends for it in this troubled world, and take pity upon a lonely desolate child, abandoned to its mercy!’”
+“The boy’s name?” asked the matron urgently.
 
-“The boy’s name?” demanded the matron.
+“They called him Oliver,” said the woman weakly. “The gold I stole was—”
 
-“They called him Oliver,” replied the woman, feebly. “The gold I stole was—”
+“Yes, yes—what?” cried the matron.
 
-“Yes, yes—what?” cried the other.
+She leaned closer to hear the answer—but suddenly drew back. The woman sat up stiffly, grabbed the bedcover with both hands, made a faint choking sound—and fell back lifeless.
 
-She was bending eagerly over the woman to hear her reply; but drew back, instinctively, as she once again rose, slowly and stiffly, into a sitting posture; then, clutching the coverlid with both hands, muttered some indistinct sounds in her throat, and fell lifeless on the bed.
+“Dead!” said one of the old women, rushing in as soon as the door opened.
 
-“Stone dead!” said one of the old women, hurrying in as soon as the door was opened.
+“And nothing useful told after all,” said the matron carelessly, turning away.
 
-“And nothing to tell, after all,” rejoined the matron, walking carelessly away.
-
-The two crones, to all appearance, too busily occupied in the preparations for their dreadful duties to make any reply, were left alone, hovering about the body.`,
+The two old women, now busy with the grim duties that followed, said nothing, and remained alone beside the body.`,
 }

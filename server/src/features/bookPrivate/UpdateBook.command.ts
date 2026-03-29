@@ -1,10 +1,10 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { BookPrivateQueryRepository } from 'repo/bookPrivate.queryRepository'
 import { BookPrivateRepository } from 'repo/bookPrivate.repository'
+import { Language } from 'utils/languages'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { Language } from 'utils/languages'
 
 type UpdateBookInput = {
 	id: number

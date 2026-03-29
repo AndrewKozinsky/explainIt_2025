@@ -128,37 +128,35 @@ Sikes quickly forced the window open as well.
 
 “Be quiet, will you?” said Sikes sharply, giving him a warning look. “The door inside is open, right?”
 
-----------------
-Та же самая задача для этого текста:
-“Wide,” replied Toby, after peeping in to satisfy himself. “The game of that is, that they always leave it open with a catch, so that the dog, who’s got a bed in here, may walk up and down the passage when he feels wakeful. Ha! ha! Barney ’ticed him away tonight. So neat!”
+“Wide,” replied Toby, after quietly checking. “The trick is, they always leave it open with a latch, so the dog—he sleeps here—can walk along the passage when he wakes up. Ha! Barney led him away tonight. Very neat!”
 
-Although Mr. Crackit spoke in a scarcely audible whisper, and laughed without noise, Sikes imperiously commanded him to be silent, and to get to work. Toby complied, by first producing his lantern, and placing it on the ground; then by planting himself firmly with his head against the wall beneath the window, and his hands upon his knees, so as to make a step of his back. This was no sooner done, than Sikes, mounting upon him, put Oliver gently through the window with his feet first; and, without leaving hold of his collar, planted him safely on the floor inside.
+Although Mr. Crackit spoke in a very soft whisper and laughed silently, Sikes sharply ordered him to be quiet and get to work. Toby obeyed. First, he took out his lantern and set it on the ground. Then he stood firmly, pressing his head against the wall under the window and placing his hands on his knees, making a step out of his back.
 
-“Take this lantern,” said Sikes, looking into the room. “You see the stairs afore you?”
+As soon as he was ready, Sikes climbed onto him and carefully pushed Oliver through the window, feet first. Holding him by the collar, he lowered him safely onto the floor inside.
 
-Oliver, more dead than alive, gasped out, “Yes.” Sikes, pointing to the street-door with the pistol-barrel, briefly advised him to take notice that he was within shot all the way; and that if he faltered, he would fall dead that instant.
+“Take this lantern,” said Sikes, looking into the room. “You see the stairs in front of you?”
 
-“It’s done in a minute,” said Sikes, in the same low whisper. “Directly I leave go of you, do your work. Hark!”
+Oliver, almost fainting with fear, managed to whisper, “Yes.” Sikes pointed toward the front door with his pistol and warned him briefly that he could shoot him at any moment if he hesitated.
+
+“It’ll be done in a minute,” Sikes whispered. “The moment I let you go, do your job. Listen!”
 
 “What’s that?” whispered the other man.
 
-They listened intently.
+They listened carefully.
 
-“Nothing,” said Sikes, releasing his hold of Oliver. “Now!”
+“Nothing,” said Sikes, letting go of Oliver. “Now!”
 
-In the short time he had had to collect his senses, the boy had firmly resolved that, whether he died in the attempt or not, he would make one effort to dart upstairs from the hall, and alarm the family. Filled with this idea, he advanced at once, but stealthily.
+In the short moment he had to think, the boy made a firm decision: whether he died or not, he would try to run upstairs and warn the family. Holding onto this thought, he moved forward at once, but quietly.
 
-“Come back!” suddenly cried Sikes aloud. “Back! back!”
+“Come back!” suddenly shouted Sikes. “Back! Back!”
 
-Scared by the sudden breaking of the dead stillness of the place, and by a loud cry which followed it, Oliver let his lantern fall, and knew not whether to advance or fly.
+Startled by the sudden noise breaking the deep silence, and by a loud cry that followed, Oliver dropped his lantern and didn’t know whether to run forward or escape.
 
-The cry was repeated—a light appeared—a vision of two terrified half-dressed men at the top of the stairs swam before his eyes—a flash—a loud noise—a smoke—a crash somewhere, but where he knew not,—and he staggered back.
+The cry came again—a light appeared—he saw two frightened, half-dressed men at the top of the stairs—a flash—a loud shot—smoke—a crash somewhere—he didn’t know where—and he stumbled back.
 
-Sikes had disappeared for an instant; but he was up again, and had him by the collar before the smoke had cleared away. He fired his own pistol after the men, who were already retreating; and dragged the boy up.
+Sikes had disappeared for a moment, but he quickly returned and grabbed Oliver by the collar before the smoke cleared. He fired his pistol at the men, who were already running away, and pulled the boy up.
 
-“Clasp your arm tighter,” said Sikes, as he drew him through the window. “Give me a shawl here. They’ve hit him. Quick! How the boy bleeds!”
+“Hold on tighter,” said Sikes as he dragged him through the window. “Give me a cloth. They’ve shot him. Quick! The boy is bleeding!”
 
-Then came the loud ringing of a bell, mingled with the noise of fire-arms, and the shouts of men, and the sensation of being carried over uneven ground at a rapid pace. And then, the noises grew confused in the distance; and a cold deadly feeling crept over the boy’s heart; and he saw or heard no more.
-
-`,
+Then came the loud ringing of a bell, mixed with gunshots and the shouts of men, and the feeling of being carried quickly over rough ground. After that, the noises faded into the distance, and a cold, deadly feeling spread through the boy’s heart—and he saw and heard nothing more.`,
 }

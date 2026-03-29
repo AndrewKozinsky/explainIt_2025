@@ -1,62 +1,55 @@
-// ГЛАВА НЕ ГОТОВА
 export const chapter_36 = {
 	name: 'Chapter XXXVI',
 	header: 'Is a very short one, and may appear of no great importance in its place, but it should be read notwithstanding, as a sequel to the last, and a key to one that will follow when its time arrives',
-	text: `
-------------------------------
-Та же самая задача для этого текста:
-“And so you are resolved to be my travelling companion this morning; eh?” said the doctor, as Harry Maylie joined him and Oliver at the breakfast-table. “Why, you are not in the same mind or intention two half-hours together!”
+	text: `“And so you’ve decided to travel with me this morning, have you?” said the doctor, as Harry Maylie joined him and Oliver at the breakfast table. “Why, you change your mind every half hour!”
 
-“You will tell me a different tale one of these days,” said Harry, colouring without any perceptible reason.
+“One day you’ll say something different,” said Harry, blushing slightly for no clear reason.
 
-“I hope I may have good cause to do so,” replied Mr. Losberne; “though I confess I don’t think I shall. But yesterday morning you had made up your mind, in a great hurry, to stay here, and to accompany your mother, like a dutiful son, to the sea-side. Before noon, you announce that you are going to do me the honour of accompanying me as far as I go, on your road to London. And at night, you urge me, with great mystery, to start before the ladies are stirring; the consequence of which is, that young Oliver here is pinned down to his breakfast when he ought to be ranging the meadows after botanical phenomena of all kinds. Too bad, isn’t it, Oliver?”
+“I hope I will have a good reason to,” replied Mr. Losberne, “though I doubt it. Just yesterday morning, you quickly decided to stay here and go with your mother to the seaside, like a good son. Before noon, you announced that you would travel with me on your way to London. And last night, you insisted—very mysteriously—that we should leave before the ladies wake up. Because of that, young Oliver here is stuck at the breakfast table when he should be out in the fields, exploring plants of all kinds. Not very fair, is it, Oliver?”
 
-“I should have been very sorry not to have been at home when you and Mr. Maylie went away, sir,” rejoined Oliver.
+“I would have been very sorry not to be at home when you and Mr. Maylie left, sir,” replied Oliver.
 
-“That’s a fine fellow,” said the doctor; “you shall come and see me when you return. But, to speak seriously, Harry; has any communication from the great nobs produced this sudden anxiety on your part to be gone?”
+“That’s a good boy,” said the doctor. “You must come and visit me when you return. But seriously, Harry—have you received any message from the important people that made you so eager to leave?”
 
-“The great nobs,” replied Harry, “under which designation, I presume, you include my most stately uncle, have not communicated with me at all, since I have been here; nor, at this time of the year, is it likely that anything would occur to render necessary my immediate attendance among them.”
+“By ‘important people,’ I suppose you mean my very dignified uncle,” said Harry. “He hasn’t written to me at all since I’ve been here. And at this time of year, it’s unlikely that anything would happen that needs my immediate presence.”
 
-“Well,” said the doctor, “you are a queer fellow. But of course they will get you into parliament at the election before Christmas, and these sudden shiftings and changes are no bad preparation for political life. There’s something in that. Good training is always desirable, whether the race be for place, cup, or sweepstakes.”
+“Well,” said the doctor, “you are a strange fellow. But of course, they’ll get you into Parliament before Christmas, and these sudden changes are not bad practice for political life. There’s something in that. Good training is always useful, whether you’re racing for a position, a prize, or anything else.”
 
-Harry Maylie looked as if he could have followed up this short dialogue by one or two remarks that would have staggered the doctor not a little; but he contented himself with saying, “We shall see,” and pursued the subject no farther. The post-chaise drove up to the door shortly afterwards; and Giles coming in for the luggage, the good doctor bustled out, to see it packed.
+Harry looked as if he wanted to say something that might have surprised the doctor, but he simply said, “We shall see,” and said no more.
 
-“Oliver,” said Harry Maylie, in a low voice, “let me speak a word with you.”
+Soon after, the carriage arrived at the door, and Giles came in to collect the luggage. The doctor hurried outside to make sure everything was packed.
 
-Oliver walked into the window-recess to which Mr. Maylie beckoned him; much surprised at the mixture of sadness and boisterous spirits, which his whole behaviour displayed.
+“Oliver,” said Harry quietly, “come here, I want to speak with you.”
 
-“You can write well now?” said Harry, laying his hand upon his arm.
+Oliver stepped into the window recess where Harry was standing. He was surprised by the mix of sadness and energy in his manner.
+
+“You can write well now, can’t you?” said Harry, placing a hand on his arm.
 
 “I hope so, sir,” replied Oliver.
 
-“I shall not be at home again, perhaps for some time; I wish you would write to me—say once a fort-night: every alternate Monday: to the General Post Office in London. Will you?”
+“I may not be home again for some time. I would like you to write to me—perhaps once every two weeks: every other Monday—to the General Post Office in London. Will you?”
 
-“Oh! certainly, sir; I shall be proud to do it,” exclaimed Oliver, greatly delighted with the commission.
+“Oh, certainly, sir! I’ll be very glad to do that,” said Oliver, delighted.
 
-“I should like to know how—how my mother and Miss Maylie are,” said the young man; “and you can fill up a sheet by telling me what walks you take, and what you talk about, and whether she—they, I mean—seem happy and quite well. You understand me?”
+“I would like to know how—how my mother and Miss Maylie are,” said Harry. “And you can fill a page by telling me where you walk, what you talk about, and whether she—they, I mean—seem happy and well. Do you understand?”
 
-“Oh! quite, sir, quite,” replied Oliver.
+“Oh, yes, sir, perfectly,” replied Oliver.
 
-----------------
-Та же самая задача для этого текста:
+“I would rather you didn’t mention it to them,” said Harry, speaking quickly. “It might make my mother worry and write to me more often, and that would trouble her. Let it be our secret. And remember—tell me everything! I rely on you.”
 
-“I would rather you did not mention it to them,” said Harry, hurrying over his words; “because it might make my mother anxious to write to me oftener, and it is a trouble and worry to her. Let it be a secret between you and me; and mind you tell me everything! I depend upon you.”
+Oliver, feeling proud and important, gladly promised to keep the secret and to write honestly and fully. Mr. Maylie said goodbye to him, warmly assuring him of his care and protection.
 
-Oliver, quite elated and honoured by a sense of his importance, faithfully promised to be secret and explicit in his communications. Mr. Maylie took leave of him, with many assurances of his regard and protection.
+The doctor was already in the carriage. Giles (who was to stay behind) stood holding the door open, and the maidservants watched from the garden. Harry gave one quick glance at the window with the lattice, then jumped into the carriage.
 
-The doctor was in the chaise; Giles (who, it had been arranged, should be left behind) held the door open in his hand; and the women-servants were in the garden, looking on. Harry cast one slight glance at the latticed window, and jumped into the carriage.
+“Drive on!” he cried. “Fast—very fast! As fast as possible! Nothing but flying will be quick enough for me today!”
 
-“Drive on!” he cried, “hard, fast, full gallop! Nothing short of flying will keep pace with me, today.”
+“Hallo!” shouted the doctor, quickly pulling down the front window and calling to the driver. “No need for flying! Just go at a good speed, do you hear?”
 
-“Halloa!” cried the doctor, letting down the front glass in a great hurry, and shouting to the postillion; “something very short of flying will keep pace with me. Do you hear?”
+With loud jingling and clattering, the carriage moved quickly along the road, raising a cloud of dust. Sometimes it disappeared from view, then appeared again as the road turned and twisted. At last, even the dust was gone, and the people watching began to leave.
 
-Jingling and clattering, till distance rendered its noise inaudible, and its rapid progress only perceptible to the eye, the vehicle wound its way along the road, almost hidden in a cloud of dust: now wholly disappearing, and now becoming visible again, as intervening objects, or the intricacies of the way, permitted. It was not until even the dusty cloud was no longer to be seen, that the gazers dispersed.
+But one person stayed behind, still looking at the place where the carriage had disappeared, long after it was far away. Behind the white curtain that had hidden her from sight when Harry looked toward the window, sat Rose.
 
-And there was one looker-on, who remained with eyes fixed upon the spot where the carriage had disappeared, long after it was many miles away; for, behind the white curtain which had shrouded her from view when Harry raised his eyes towards the window, sat Rose herself.
+“He seems cheerful and happy,” she said at last. “For a while, I feared he might not be. I was mistaken. I am very, very glad.”
 
-“He seems in high spirits and happy,” she said, at length. “I feared for a time he might be otherwise. I was mistaken. I am very, very glad.”
-
-Tears are signs of gladness as well as grief; but those which coursed down Rose’s face, as she sat pensively at the window, still gazing in the same direction, seemed to tell more of sorrow than of joy.
-
-`,
+Tears can come from happiness as well as from sorrow. But the tears that ran down Rose’s face, as she sat quietly by the window and continued to look into the distance, seemed to show more sadness than joy.`,
 }

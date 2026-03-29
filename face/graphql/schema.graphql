@@ -8,11 +8,12 @@ type BookChapterLiteOutModel {
 
 type BookChapterOutModel {
   book: BookLiteOutModel!
-  content: String
   header: String
   id: Int!
   name: String
   note: String
+  originalContent: String
+  processedContent: String
   sentences: [SentenceOutModel!]
 }
 
@@ -88,9 +89,6 @@ input CreateBookChapterInput {
   """Book type: public or private"""
   bookType: String!
 
-  """Content of the chapter"""
-  content: String
-
   """Header on the chapter"""
   header: String
 
@@ -99,6 +97,9 @@ input CreateBookChapterInput {
 
   """Note about this chapter"""
   note: String
+
+  """Content of the chapter"""
+  originalContent: String
 }
 
 input CreatePrivateBookInput {
@@ -361,9 +362,6 @@ type TariffOutModel {
 }
 
 input UpdateBookChapterInput {
-  """BookChapter content"""
-  content: String
-
   """BookChapter header"""
   header: String
 
@@ -375,6 +373,9 @@ input UpdateBookChapterInput {
 
   """BookChapter note"""
   note: String
+
+  """BookChapter content"""
+  originalContent: String
 }
 
 input UpdatePrivateBookInput {

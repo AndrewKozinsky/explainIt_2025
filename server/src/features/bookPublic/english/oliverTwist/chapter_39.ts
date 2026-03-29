@@ -1,303 +1,289 @@
-// ГЛАВА НЕ ГОТОВА
 export const chapter_39 = {
 	name: 'Chapter XXXIX',
 	header: 'Introduces some respectable characters with whom the reader is already acquainted, and shows how Monks and the Jew laid their worthy heads together',
-	text: `
-------------------------------
-Та же самая задача для этого текста:
-On the evening following that upon which the three worthies mentioned in the last chapter, disposed of their little matter of business as therein narrated, Mr. William Sikes, awakening from a nap, drowsily growled forth an inquiry what time of night it was.
+	text: `On the evening after the events described in the last chapter, Mr. William Sikes woke from a nap and lazily asked what time it was.
 
-The room in which Mr. Sikes propounded this question, was not one of those he had tenanted, previous to the Chertsey expedition, although it was in the same quarter of the town, and was situated at no great distance from his former lodgings. It was not, in appearance, so desirable a habitation as his old quarters: being a mean and badly-furnished apartment, of very limited size; lighted only by one small window in the shelving roof, and abutting on a close and dirty lane. Nor were there wanting other indications of the good gentleman’s having gone down in the world of late: for a great scarcity of furniture, and total absence of comfort, together with the disappearance of all such small moveables as spare clothes and linen, bespoke a state of extreme poverty; while the meagre and attenuated condition of Mr. Sikes himself would have fully confirmed these symptoms, if they had stood in any need of corroboration.
+The room he was in was not the same one he had used before the Chertsey job, though it was in the same part of town and not far from his old place. It was worse than his previous lodgings: a small, poorly furnished room, with only one small window in the sloping roof, looking out onto a narrow and dirty lane. Everything about it showed that Sikes had fallen into poverty. There was very little furniture, no comfort at all, and none of his spare clothes or linen remained. Sikes himself looked just as bad—thin, weak, and worn down—confirming how poor his condition had become.
 
-The housebreaker was lying on the bed, wrapped in his white great-coat, by way of dressing-gown, and displaying a set of features in no degree improved by the cadaverous hue of illness, and the addition of a soiled nightcap, and a stiff, black beard of a week’s growth. The dog sat at the bedside: now eyeing his master with a wistful look, and now pricking his ears, and uttering a low growl as some noise in the street, or in the lower part of the house, attracted his attention. Seated by the window, busily engaged in patching an old waistcoat which formed a portion of the robber’s ordinary dress, was a female: so pale and reduced with watching and privation, that there would have been considerable difficulty in recognising her as the same Nancy who has already figured in this tale, but for the voice in which she replied to Mr. Sikes’s question.
+He lay on the bed, wrapped in his coat like a dressing gown. His face looked even worse because of illness, and he wore a dirty nightcap and an unshaven black beard. His dog sat beside the bed, sometimes looking at him with concern, sometimes listening and growling quietly at noises from the street or below.
 
-“Not long gone seven,” said the girl. “How do you feel tonight, Bill?”
+By the window sat a woman, busy mending an old waistcoat that Sikes usually wore. She was pale and thin from lack of sleep and food. It would have been hard to recognize her as Nancy from earlier in the story, if not for her voice when she answered him.
 
-“As weak as water,” replied Mr. Sikes, with an imprecation on his eyes and limbs. “Here; lend us a hand, and let me get off this thundering bed anyhow.”
+“Just after seven,” she said. “How do you feel tonight, Bill?”
 
-Illness had not improved Mr. Sikes’s temper; for, as the girl raised him up and led him to a chair, he muttered various curses on her awkwardness, and struck her.
+“As weak as water,” replied Sikes, cursing his body. “Here—help me up and get me off this cursed bed.”
 
-“Whining are you?” said Sikes. “Come! Don’t stand snivelling there. If you can’t do anything better than that, cut off altogether. D’ye hear me?”
+Illness had not improved his temper. As the girl helped him up and led him to a chair, he muttered curses about her clumsiness and even struck her.
 
-“I hear you,” replied the girl, turning her face aside, and forcing a laugh. “What fancy have you got in your head now?”
+“Crying, are you?” said Sikes. “Come on, don’t stand there snivelling. If that’s all you can do, then get out. Do you hear me?”
 
-“Oh! you’ve thought better of it, have you?” growled Sikes, marking the tear which trembled in her eye. “All the better for you, you have.”
+“I hear you,” said the girl, turning her face away and forcing a laugh. “What’s got into you now?”
 
-“Why, you don’t mean to say, you’d be hard upon me tonight, Bill,” said the girl, laying her hand upon his shoulder.
+“Oh, you’ve changed your mind, have you?” growled Sikes, noticing the tear in her eye. “Good for you.”
 
-“No!” cried Mr. Sikes. “Why not?”
+“You don’t mean you’d treat me badly tonight, Bill,” said the girl, gently placing her hand on his shoulder.
 
-“Such a number of nights,” said the girl, with a touch of woman’s tenderness, which communicated something like sweetness of tone, even to her voice: “such a number of nights as I’ve been patient with you, nursing and caring for you, as if you had been a child: and this the first that I’ve seen you like yourself; you wouldn’t have served me as you did just now, if you’d thought of that, would you? Come, come; say you wouldn’t.”
+“No?” said Sikes. “Why not?”
 
-“Well, then,” rejoined Mr. Sikes, “I wouldn’t. Why, damme, now, the girls’s whining again!”
+“I’ve spent so many nights caring for you,” she said, with a touch of tenderness in her voice. “I looked after you like you were a child. And now, the first night you seem like yourself again—you treat me like that? You wouldn’t have done it if you had thought about it, would you? Come on—say you wouldn’t.”
 
-“It’s nothing,” said the girl, throwing herself into a chair. “Don’t you seem to mind me. It’ll soon be over.”
+“Well then,” said Sikes, “I wouldn’t. But damn it, now you’re crying again!”
 
-“What’ll be over?” demanded Mr. Sikes in a savage voice. “What foolery are you up to, now, again? Get up and bustle about, and don’t come over me with your woman’s nonsense.”
+“It’s nothing,” said the girl, dropping into a chair. “Don’t worry about me. It will pass soon.”
 
-At any other time, this remonstrance, and the tone in which it was delivered, would have had the desired effect; but the girl being really weak and exhausted, dropped her head over the back of the chair, and fainted, before Mr. Sikes could get out a few of the appropriate oaths with which, on similar occasions, he was accustomed to garnish his threats. Not knowing, very well, what to do, in this uncommon emergency; for Miss Nancy’s hysterics were usually of that violent kind which the patient fights and struggles out of, without much assistance; Mr. Sikes tried a little blasphemy: and finding that mode of treatment wholly ineffectual, called for assistance.
+“What will pass?” demanded Sikes angrily. “What nonsense are you talking now? Get up and do something useful, and don’t bring me your woman’s nonsense.”
 
-----------------
-Та же самая задача для этого текста:
+At any other time, his harsh words would have had their usual effect. But the girl was truly weak and exhausted. She leaned her head back over the chair—and fainted before Sikes could finish shouting at her.
 
-“What’s the matter here, my dear?” said Fagin, looking in.
+Not knowing what to do in this unusual situation—for Nancy’s attacks were usually wild and passed without help—Sikes first tried shouting and swearing at her. When that didn’t work, he finally called for help.
 
-“Lend a hand to the girl, can’t you?” replied Sikes impatiently. “Don’t stand chattering and grinning at me!”
+“What’s the matter here, my dear?” said Fagin, looking into the room.
 
-With an exclamation of surprise, Fagin hastened to the girl’s assistance, while Mr. John Dawkins (otherwise the Artful Dodger), who had followed his venerable friend into the room, hastily deposited on the floor a bundle with which he was laden; and snatching a bottle from the grasp of Master Charles Bates who came close at his heels, uncorked it in a twinkling with his teeth, and poured a portion of its contents down the patient’s throat: previously taking a taste, himself, to prevent mistakes.
+“Help the girl, can’t you?” replied Sikes impatiently. “Don’t just stand there talking and grinning!”
 
-“Give her a whiff of fresh air with the bellows, Charley,” said Mr. Dawkins; “and you slap her hands, Fagin, while Bill undoes the petticuts.”
+With a cry of surprise, Fagin hurried to help her. Meanwhile, Mr. John Dawkins—better known as the Artful Dodger—who had followed him in, quickly dropped the bundle he was carrying onto the floor. Snatching a bottle from Charley Bates, who came in right behind him, he pulled out the cork with his teeth and poured some of the liquid into Nancy’s mouth—after first taking a quick sip himself, just in case.
 
-These united restoratives, administered with great energy: especially that department consigned to Master Bates, who appeared to consider his share in the proceedings, a piece of unexampled pleasantry: were not long in producing the desired effect. The girl gradually recovered her senses; and, staggering to a chair by the bedside, hid her face upon the pillow: leaving Mr. Sikes to confront the new comers, in some astonishment at their unlooked-for appearance.
+“Give her some fresh air with the bellows, Charley,” said Dodger. “And you slap her hands, Fagin, while Bill loosens her clothes.”
 
-“Why, what evil wind has blowed you here?” he asked Fagin.
+These efforts—especially Charley’s, who seemed to find the whole thing very amusing—soon had the desired effect. The girl slowly came back to her senses. She staggered to a chair by the bed and hid her face in the pillow, leaving Sikes to face the newcomers, surprised by their sudden arrival.
 
-“No evil wind at all, my dear, for evil winds blow nobody any good; and I’ve brought something good with me, that you’ll be glad to see. Dodger, my dear, open the bundle; and give Bill the little trifles that we spent all our money on, this morning.”
+“Well, what brings you here?” he asked Fagin.
 
-In compliance with Mr. Fagin’s request, the Artful untied this bundle, which was of large size, and formed of an old table-cloth; and handed the articles it contained, one by one, to Charley Bates: who placed them on the table, with various encomiums on their rarity and excellence.
+“Nothing bad, my dear,” said Fagin. “Bad winds never bring good fortune. And I’ve brought something good—something you’ll be glad to see. Dodger, open the bundle and give Bill the little things we spent all our money on this morning.”
 
-“Sitch a rabbit pie, Bill,” exclaimed that young gentleman, disclosing to view a huge pasty; “sitch delicate creeturs, with sitch tender limbs, Bill, that the wery bones melt in your mouth, and there’s no occasion to pick ’em; half a pound of seven and six-penny green, so precious strong that if you mix it with biling water, it’ll go nigh to blow the lid of the tea-pot off; a pound and a half of moist sugar that the niggers didn’t work at all at, afore they got it up to sitch a pitch of goodness,—oh no! Two half-quartern brans; pound of best fresh; piece of double Glo’ster; and, to wind up all, some of the richest sort you ever lushed!”
+The Artful Dodger untied the large bundle, which was wrapped in an old tablecloth, and handed the items one by one to Charley Bates. Charley placed them on the table, praising each one loudly.
 
-Uttering this last panegyric, Master Bates produced, from one of his extensive pockets, a full-sized wine-bottle, carefully corked; while Mr. Dawkins, at the same instant, poured out a wine-glassful of raw spirits from the bottle he carried: which the invalid tossed down his throat without a moment’s hesitation.
+“Such a rabbit pie, Bill!” he cried, showing a large pastry. “Such tender meat, the bones almost melt in your mouth—you don’t even need to chew them! Half a pound of strong tea—so strong it could blow the lid off the teapot! A pound and a half of fine sugar—pure and sweet! Two loaves of bread, fresh and soft! A piece of good cheese! And to finish it all—some of the best drink you’ve ever had!”
 
-“Ah!” said Fagin, rubbing his hands with great satisfaction. “You’ll do, Bill; you’ll do now.”
+With this final proud announcement, Charley pulled out a full wine bottle from his pocket. At the same time, the Dodger poured a glass of strong spirits, which Sikes drank immediately.
 
-“Do!” exclaimed Mr. Sikes; “I might have been done for, twenty times over, afore you’d have done anything to help me. What do you mean by leaving a man in this state, three weeks and more, you false-hearted wagabond?”
+“Ah!” said Fagin, rubbing his hands with satisfaction. “You’ll be fine now, Bill.”
 
-“Only hear him, boys!” said Fagin, shrugging his shoulders. “And us come to bring him all these beau-ti-ful things.”
+“Fine?” said Sikes. “I might have died twenty times before you did anything to help me! What do you mean by leaving me like this for more than three weeks, you heartless scoundrel?”
 
-“The things is well enough in their way,” observed Mr. Sikes: a little soothed as he glanced over the table; “but what have you got to say for yourself, why you should leave me here, down in the mouth, health, blunt, and everything else; and take no more notice of me, all this mortal time, than if I was that ’ere dog.—Drive him down, Charley!”
+“Just listen to him, boys!” said Fagin, shrugging. “And we’ve come bringing him all these beautiful things.”
 
-“I never see such a jolly dog as that,” cried Master Bates, doing as he was desired. “Smelling the grub like a old lady a going to market! He’d make his fortun’ on the stage that dog would, and rewive the drayma besides.”
+“The food’s good enough,” said Sikes, a bit calmer as he looked at the table. “But what have you got to say for yourself? You left me here—sick, poor, and miserable—and didn’t care about me at all, all this time. Like I was nothing—like that dog. Get him away, Charley!”
 
-“Hold your din,” cried Sikes, as the dog retreated under the bed: still growling angrily. “What have you got to say for yourself, you withered old fence, eh?”
+“I’ve never seen such a funny dog!” cried Charley, doing as he was told. “Sniffing the food like an old lady at the market! He could make a fortune on the stage, that dog could!”
 
-“I was away from London, a week and more, my dear, on a plant,” replied the Jew.
+“Be quiet!” shouted Sikes, as the dog crawled under the bed, still growling. “Now—what have you got to say for yourself, you old thief?”
 
-“And what about the other fortnight?” demanded Sikes. “What about the other fortnight that you’ve left me lying here, like a sick rat in his hole?”
+“I was away from London for more than a week, my dear,” said Fagin. “On business.”
 
-----------------
-Та же самая задача для этого текста:
+“And what about the other two weeks?” demanded Sikes. “What about the rest of the time you left me lying here like a sick rat in a hole?”
 
-“I couldn’t help it, Bill. I can’t go into a long explanation before company; but I couldn’t help it, upon my honour.”
+“I couldn’t help it, Bill,” said Fagin. “I can’t explain everything in front of others, but I truly couldn’t help it.”
 
-“Upon your what?” growled Sikes, with excessive disgust. “Here! Cut me off a piece of that pie, one of you boys, to take the taste of that out of my mouth, or it’ll choke me dead.”
+“Your what?” growled Sikes in disgust. “Here—cut me a piece of that pie, one of you boys, to get that taste out of my mouth, or it’ll choke me.”
 
-“Don’t be out of temper, my dear,” urged Fagin, submissively. “I have never forgot you, Bill; never once.”
+“Don’t be angry, my dear,” said Fagin softly. “I’ve never forgotten you, Bill. Not once.”
 
-“No! I’ll pound it that you han’t,” replied Sikes, with a bitter grin. “You’ve been scheming and plotting away, every hour that I have laid shivering and burning here; and Bill was to do this; and Bill was to do that; and Bill was to do it all, dirt cheap, as soon as he got well: and was quite poor enough for your work. If it hadn’t been for the girl, I might have died.”
+“No? I’d say you have,” replied Sikes with a bitter grin. “You’ve been making your plans the whole time I’ve been lying here sick—thinking what Bill should do, and how Bill should do it, and how cheap you could get him to work once he got better. If it hadn’t been for the girl, I might have died.”
 
-“There now, Bill,” remonstrated Fagin, eagerly catching at the word. “If it hadn’t been for the girl! Who but poor ould Fagin was the means of your having such a handy girl about you?”
+“There, you see, Bill!” said Fagin quickly, catching onto his words. “If it hadn’t been for the girl! And who helped you find such a good girl? Poor old Fagin!”
 
-“He says true enough there!” said Nancy, coming hastily forward. “Let him be; let him be.”
+“He’s right about that,” said Nancy, stepping forward quickly. “Leave him alone.”
 
-Nancy’s appearance gave a new turn to the conversation; for the boys, receiving a sly wink from the wary old Jew, began to ply her with liquor: of which, however, she took very sparingly; while Fagin, assuming an unusual flow of spirits, gradually brought Mr. Sikes into a better temper, by affecting to regard his threats as a little pleasant banter; and, moreover, by laughing very heartily at one or two rough jokes, which, after repeated applications to the spirit-bottle, he condescended to make.
+Nancy’s presence changed the mood. The boys, noticing a secret signal from Fagin, began offering her drinks. She drank very little, though. Meanwhile, Fagin acted cheerful and treated Sikes’s threats like jokes, laughing loudly at his rough humor. After a few drinks, Sikes began to calm down.
 
-“It’s all very well,” said Mr. Sikes; “but I must have some blunt from you tonight.”
+“It’s all well and good,” said Sikes, “but I need some money from you tonight.”
 
-“I haven’t a piece of coin about me,” replied the Jew.
+“I don’t have a single coin with me,” said Fagin.
 
-“Then you’ve got lots at home,” retorted Sikes; “and I must have some from there.”
+“Then you’ve got plenty at home,” said Sikes. “And I need some from there.”
 
-“Lots!” cried Fagin, holding up his hands. “I haven’t so much as would—”
+“Plenty!” cried Fagin, raising his hands. “I don’t even have enough to—”
 
-“I don’t know how much you’ve got, and I dare say you hardly know yourself, as it would take a pretty long time to count it,” said Sikes; “but I must have some tonight; and that’s flat.”
+“I don’t know how much you have,” interrupted Sikes, “and I doubt you do either—it would take too long to count it. But I need some tonight, and that’s final.”
 
-“Well, well,” said Fagin, with a sigh, “I’ll send the Artful round presently.”
+“Well, well,” said Fagin with a sigh. “I’ll send the Dodger to fetch it.”
 
-“You won’t do nothing of the kind,” rejoined Mr. Sikes. “The Artful’s a deal too artful, and would forget to come, or lose his way, or get dodged by traps and so be perwented, or anything for an excuse, if you put him up to it. Nancy shall go to the ken and fetch it, to make all sure; and I’ll lie down and have a snooze while she’s gone.”
+“No, you won’t,” said Sikes. “The Dodger is too clever—he’d find some excuse not to come back. Nancy will go and get it, just to be sure. I’ll lie down and sleep while she’s gone.”
 
-After a great deal of haggling and squabbling, Fagin beat down the amount of the required advance from five pounds to three pounds four and sixpence: protesting with many solemn asseverations that that would only leave him eighteen-pence to keep house with; Mr. Sikes sullenly remarking that if he couldn’t get any more he must accompany him home; with the Dodger and Master Bates put the eatables in the cupboard. The Jew then, taking leave of his affectionate friend, returned homeward, attended by Nancy and the boys: Mr. Sikes, meanwhile, flinging himself on the bed, and composing himself to sleep away the time until the young lady’s return.
+After a long argument, Fagin managed to reduce the amount from five pounds to three pounds and a few shillings, complaining that it would leave him almost nothing to live on. Sikes, still annoyed, said that if he couldn’t get more, he would go himself. Meanwhile, the Dodger and Charley put the food away.
 
-In due course, they arrived at Fagin’s abode, where they found Toby Crackit and Mr. Chitling intent upon their fifteenth game at cribbage, which it is scarcely necessary to say the latter gentleman lost, and with it, his fifteenth and last sixpence: much to the amusement of his young friends. Mr. Crackit, apparently somewhat ashamed at being found relaxing himself with a gentleman so much his inferior in station and mental endowments, yawned, and inquiring after Sikes, took up his hat to go.
+At last, Fagin said goodbye to his “dear friend” and left, followed by Nancy and the boys. Sikes threw himself onto the bed and went to sleep while waiting for Nancy to return.
 
-“Has nobody been, Toby?” asked Fagin.
+Soon they arrived at Fagin’s house, where Toby Crackit and Mr. Chitling were deeply involved in yet another game of cards. Chitling, as usual, lost—and with it, his last bit of money—to the amusement of the others.
 
-“Not a living leg,” answered Mr. Crackit, pulling up his collar; “it’s been as dull as swipes. You ought to stand something handsome, Fagin, to recompense me for keeping house so long. Damme, I’m as flat as a juryman; and should have gone to sleep, as fast as Newgate, if I hadn’t had the good natur’ to amuse this youngster. Horrid dull, I’m blessed if I an’t!”
+Mr. Crackit, looking a little embarrassed to be seen playing with someone so far beneath him, yawned and asked about Sikes. Then he picked up his hat, ready to leave.
 
-----------------
-Та же самая задача для этого текста:
+“Has anyone been here, Toby?” asked Fagin.
 
-With these and other ejaculations of the same kind, Mr. Toby Crackit swept up his winnings, and crammed them into his waistcoat pocket with a haughty air, as though such small pieces of silver were wholly beneath the consideration of a man of his figure; this done, he swaggered out of the room, with so much elegance and gentility, that Mr. Chitling, bestowing numerous admiring glances on his legs and boots till they were out of sight, assured the company that he considered his acquaintance cheap at fifteen sixpences an interview, and that he didn’t value his losses the snap of his little finger.
+“Not a soul,” replied Crackit, pulling up his collar. “It’s been terribly dull. You should reward me, Fagin, for staying here so long. I’m completely broke—and I’d have fallen asleep like a guard at Newgate if I hadn’t been kind enough to keep this youngster entertained. It’s been terribly boring, I swear!”
 
-“Wot a rum chap you are, Tom!” said Master Bates, highly amused by this declaration.
+With these and similar exclamations, Toby Crackit gathered up his winnings and stuffed them into his waistcoat pocket with a proud air, as if such small coins were beneath his notice. Then he swaggered out of the room with great style and confidence.
 
-“Not a bit of it,” replied Mr. Chitling. “Am I, Fagin?”
+Mr. Chitling watched him go with admiration, staring at his boots and legs until he disappeared. Then he declared that knowing such a gentleman was well worth losing fifteen sixpences each time, and that he didn’t care about the money at all.
 
-“A very clever fellow, my dear,” said Fagin, patting him on the shoulder, and winking to his other pupils.
+“What a strange fellow you are, Tom!” said Charley Bates, laughing.
 
-“And Mr. Crackit is a heavy swell; an’t he, Fagin?” asked Tom.
+“Not at all,” replied Chitling. “Am I, Fagin?”
 
-“No doubt at all of that, my dear.”
+“A very clever young man, my dear,” said Fagin, patting him on the shoulder and winking at the others.
 
-“And it is a creditable thing to have his acquaintance; an’t it, Fagin?” pursued Tom.
+“And Mr. Crackit is a real gentleman, isn’t he, Fagin?” asked Tom.
 
-“Very much so, indeed, my dear. They’re only jealous, Tom, because he won’t give it to them.”
+“No doubt about that, my dear.”
 
-“Ah!” cried Tom, triumphantly, “that’s where it is! He has cleaned me out. But I can go and earn some more, when I like; can’t I, Fagin?”
+“And it’s an honor to know him, isn’t it?” Tom went on.
 
-“To be sure you can, and the sooner you go the better, Tom; so make up your loss at once, and don’t lose any more time. Dodger! Charley! It’s time you were on the lay. Come! It’s near ten, and nothing done yet.”
+“Very much so indeed,” said Fagin. “The others are only jealous because he doesn’t pay them any attention.”
 
-In obedience to this hint, the boys, nodding to Nancy, took up their hats, and left the room; the Dodger and his vivacious friend indulging, as they went, in many witticisms at the expense of Mr. Chitling; in whose conduct, it is but justice to say, there was nothing very conspicuous or peculiar: inasmuch as there are a great number of spirited young bloods upon town, who pay a much higher price than Mr. Chitling for being seen in good society: and a great number of fine gentlemen (composing the good society aforesaid) who established their reputation upon very much the same footing as flash Toby Crackit.
+“Ah!” cried Tom proudly. “That’s it! He’s taken all my money—but I can earn more whenever I want, can’t I, Fagin?”
 
-“Now,” said Fagin, when they had left the room, “I’ll go and get you that cash, Nancy. This is only the key of a little cupboard where I keep a few odd things the boys get, my dear. I never lock up my money, for I’ve got none to lock up, my dear—ha! ha! ha!—none to lock up. It’s a poor trade, Nancy, and no thanks; but I’m fond of seeing the young people about me; and I bear it all, I bear it all. Hush!” he said, hastily concealing the key in his breast; “who’s that? Listen!”
+“Of course you can,” said Fagin. “And the sooner you go, the better. Earn it back at once and don’t waste time. Dodger! Charley! It’s time to go to work. It’s nearly ten, and nothing done yet.”
 
-The girl, who was sitting at the table with her arms folded, appeared in no way interested in the arrival: or to care whether the person, whoever he was, came or went: until the murmur of a man’s voice reached her ears. The instant she caught the sound, she tore off her bonnet and shawl, with the rapidity of lightning, and thrust them under the table. The Jew, turning round immediately afterwards, she muttered a complaint of the heat: in a tone of languor that contrasted, very remarkably, with the extreme haste and violence of this action: which, however, had been unobserved by Fagin, who had his back towards her at the time.
+At this hint, the boys nodded to Nancy, took their hats, and left the room, joking and laughing at Mr. Chitling as they went. To be fair, there was nothing especially strange about Chitling’s behavior—there are many young men in the city who pay even more money just to be seen with fashionable people; and many “fine gentlemen” who build their reputations in much the same way as Toby Crackit.
 
-“Bah!” he whispered, as though nettled by the interruption; “it’s the man I expected before; he’s coming downstairs. Not a word about the money while he’s here, Nance. He won’t stop long. Not ten minutes, my dear.”
+“Now,” said Fagin, when they were alone, “I’ll go and get that money for you, Nancy. This key is only for a small cupboard where I keep a few things the boys bring me. I never lock up money—I have none to lock up! Ha! Ha! Ha! It’s a poor business, Nancy, and not a thankful one—but I like having the young people around me, so I put up with it. Hush!” he added suddenly, hiding the key in his coat. “Who’s that? Listen!”
 
-Laying his skinny forefinger upon his lip, the Jew carried a candle to the door, as a man’s step was heard upon the stairs without. He reached it, at the same moment as the visitor, who, coming hastily into the room, was close upon the girl before he observed her.
+Nancy sat at the table with her arms folded, showing no interest in who might be coming or going—until she heard a man’s voice. The moment she recognized it, she quickly pulled off her bonnet and shawl and hid them under the table. When Fagin turned back, she quietly complained about the heat, though her calm tone strongly contrasted with the speed of her movement. Fagin, however, had not noticed it.
+
+“Bah!” he whispered, annoyed. “It’s the man I was expecting earlier—he’s coming downstairs. Not a word about the money while he’s here, Nance. He won’t stay long. Not ten minutes.”
+
+Putting his finger to his lips, Fagin took a candle and went to the door as footsteps sounded on the stairs. He reached it at the same moment as the visitor, who entered quickly and came close to Nancy before noticing her.
 
 It was Monks.
 
-----------------
-Та же самая задача для этого текста:
+“Just one of my young people,” said Fagin, noticing that Monks stepped back when he saw a stranger. “Don’t move, Nancy.”
 
-“Only one of my young people,” said Fagin, observing that Monks drew back, on beholding a stranger. “Don’t move, Nancy.”
+The girl moved a little closer to the table. She gave Monks a quick, careless look, then looked away. But when he turned to Fagin, she looked at him again—this time sharply and with clear purpose. Anyone watching would hardly believe these two looks came from the same person.
 
-The girl drew closer to the table, and glancing at Monks with an air of careless levity, withdrew her eyes; but as he turned towards Fagin, she stole another look; so keen and searching, and full of purpose, that if there had been any bystander to observe the change, he could hardly have believed the two looks to have proceeded from the same person.
+“Any news?” asked Fagin.
 
-“Any news?” inquired Fagin.
+“Plenty.”
 
-“Great.”
+“And… good?” Fagin asked, hesitating, as if afraid to sound too hopeful.
 
-“And—and—good?” asked Fagin, hesitating as though he feared to vex the other man by being too sanguine.
+“Not bad, at least,” said Monks with a smile. “I’ve been quick this time. Let me speak with you alone.”
 
-“Not bad, any way,” replied Monks with a smile. “I have been prompt enough this time. Let me have a word with you.”
+The girl stayed where she was and made no move to leave, even though she saw Monks pointing at her. Fagin, perhaps worried she might mention the money out loud if he tried to send her away, pointed upstairs and led Monks out of the room.
 
-The girl drew closer to the table, and made no offer to leave the room, although she could see that Monks was pointing to her. The Jew: perhaps fearing she might say something aloud about the money, if he endeavoured to get rid of her: pointed upward, and took Monks out of the room.
+“Not that horrible place we used before,” she heard Monks say as they went up. Fagin laughed and replied something she couldn’t hear. From the creaking floor, it seemed they went to the second floor.
 
-“Not that infernal hole we were in before,” she could hear the man say as they went upstairs. Fagin laughed; and making some reply which did not reach her, seemed, by the creaking of the boards, to lead his companion to the second story.
+Before their footsteps faded, the girl slipped off her shoes. She pulled her dress loosely over her head and arms, then stood by the door, listening carefully. As soon as all was quiet, she moved silently out of the room, went up the stairs without a sound, and disappeared into the darkness above.
 
-Before the sound of their footsteps had ceased to echo through the house, the girl had slipped off her shoes; and drawing her gown loosely over her head, and muffling her arms in it, stood at the door, listening with breathless interest. The moment the noise ceased, she glided from the room; ascended the stairs with incredible softness and silence; and was lost in the gloom above.
+The room stayed empty for more than fifteen minutes. Then she returned just as quietly. Soon after, the two men came downstairs. Monks went straight out into the street, and Fagin went upstairs again to get the money. When he came back, the girl was fixing her shawl and bonnet, as if ready to leave.
 
-The room remained deserted for a quarter of an hour or more; the girl glided back with the same unearthly tread; and, immediately afterwards, the two men were heard descending. Monks went at once into the street; and the Jew crawled upstairs again for the money. When he returned, the girl was adjusting her shawl and bonnet, as if preparing to be gone.
+“Why, Nance!” cried Fagin, stepping back as he put down the candle. “How pale you look!”
 
-“Why, Nance!” exclaimed the Jew, starting back as he put down the candle, “how pale you are!”
+“Pale?” she repeated, shading her eyes as she looked at him.
 
-“Pale!” echoed the girl, shading her eyes with her hands, as if to look steadily at him.
+“Terribly pale. What have you done to yourself?”
 
-“Quite horrible. What have you been doing to yourself?”
+“Nothing, as far as I know,” she said lightly. “I’ve just been sitting in this stuffy place for I don’t know how long. Come on, let me go back, please.”
 
-“Nothing that I know of, except sitting in this close place for I don’t know how long and all,” replied the girl carelessly. “Come! Let me get back; that’s a dear.”
+With a sigh at every coin, Fagin counted the money into her hand. They said no more, only a quiet “good night,” and parted.
 
-With a sigh for every piece of money, Fagin told the amount into her hand. They parted without more conversation, merely interchanging a “good-night.”
+Out in the street, the girl sat down on a doorstep. For a few moments, she seemed confused and unsure where to go. Suddenly she stood up and hurried off—in the opposite direction from where Sikes was waiting. She walked faster and faster until she was running. At last, exhausted, she stopped to catch her breath. Then, as if remembering something important she could not do, she wrung her hands and burst into tears.
 
-When the girl got into the open street, she sat down upon a doorstep; and seemed, for a few moments, wholly bewildered and unable to pursue her way. Suddenly she arose; and hurrying on, in a direction quite opposite to that in which Sikes was awaiting her return, quickened her pace, until it gradually resolved into a violent run. After completely exhausting herself, she stopped to take breath: and, as if suddenly recollecting herself, and deploring her inability to do something she was bent upon, wrung her hands, and burst into tears.
+Perhaps the tears helped her, or perhaps she felt how hopeless her situation was. She turned back and hurried in the other direction, almost as fast as before—partly to make up for lost time, and partly to match the rush of her thoughts. Soon she reached the house where she had left the housebreaker.
 
-It might be that her tears relieved her, or that she felt the full hopelessness of her condition; but she turned back; and hurrying with nearly as great rapidity in the contrary direction; partly to recover lost time, and partly to keep pace with the violent current of her own thoughts: soon reached the dwelling where she had left the housebreaker.
+If she showed any signs of distress when she appeared before Mr. Sikes, he did not notice. He only asked if she had brought the money. When she said yes, he gave a satisfied grunt, lay back on his pillow, and fell asleep again.
 
-If she betrayed any agitation, when she presented herself to Mr. Sikes, he did not observe it; for merely inquiring if she had brought the money, and receiving a reply in the affirmative, he uttered a growl of satisfaction, and replacing his head upon the pillow, resumed the slumbers which her arrival had interrupted.
+It was lucky for her that having money kept him busy the next day—eating and drinking—and also made him calmer and less harsh. Because of this, he had neither the time nor the desire to look closely at her behavior.
 
-----------------
-Та же самая задача для этого текста:
+She clearly had the tense and distracted manner of someone about to take a bold and dangerous step—one that had cost her great effort to decide on. This would have been obvious to sharp-eyed Fagin, who would likely have become suspicious at once. But Mr. Sikes, who lacked such insight and whose only doubts usually showed themselves as rough behavior toward everyone, noticed nothing unusual. He was also in an unusually good mood, as already mentioned, and paid so little attention to her that even if her anxiety had been much more visible, he would probably still not have suspected anything.
 
-It was fortunate for her that the possession of money occasioned him so much employment next day in the way of eating and drinking; and withal had so beneficial an effect in smoothing down the asperities of his temper; that he had neither time nor inclination to be very critical upon her behaviour and deportment. That she had all the abstracted and nervous manner of one who is on the eve of some bold and hazardous step, which it has required no common struggle to resolve upon, would have been obvious to the lynx-eyed Fagin, who would most probably have taken the alarm at once; but Mr. Sikes lacking the niceties of discrimination, and being troubled with no more subtle misgivings than those which resolve themselves into a dogged roughness of behaviour towards everybody; and being, furthermore, in an unusually amiable condition, as has been already observed; saw nothing unusual in her demeanor, and indeed, troubled himself so little about her, that, had her agitation been far more perceptible than it was, it would have been very unlikely to have awakened his suspicions.
+As the day went on, the girl grew more and more nervous. When night came, she sat watching, waiting for the housebreaker to drink himself to sleep. Her face was unusually pale, and her eyes burned with intensity—so much so that even Sikes noticed it with surprise.
 
-As that day closed in, the girl’s excitement increased; and, when night came on, and she sat by, watching until the housebreaker should drink himself asleep, there was an unusual paleness in her cheek, and a fire in her eye, that even Sikes observed with astonishment.
+Mr. Sikes, still weak from fever, lay in bed. He was drinking hot water mixed with gin to make it less strong, and he had pushed his glass toward Nancy several times for more. It was then that he first noticed her strange appearance.
 
-Mr. Sikes being weak from the fever, was lying in bed, taking hot water with his gin to render it less inflammatory; and had pushed his glass towards Nancy to be replenished for the third or fourth time, when these symptoms first struck him.
+“Why, damn it!” said the man, pushing himself up on his hands and staring at her. “You look like a dead person come back to life. What’s wrong?”
 
-“Why, burn my body!” said the man, raising himself on his hands as he stared the girl in the face. “You look like a corpse come to life again. What’s the matter?”
+“Wrong?” replied the girl. “Nothing. Why are you staring at me like that?”
 
-“Matter!” replied the girl. “Nothing. What do you look at me so hard for?”
+“What nonsense is this?” demanded Sikes, grabbing her arm and shaking her roughly. “What is it? What do you mean? What are you thinking about?”
 
-“What foolery is this?” demanded Sikes, grasping her by the arm, and shaking her roughly. “What is it? What do you mean? What are you thinking of?”
+“About many things, Bill,” said the girl, shivering, and pressing her hands to her eyes. “But what does it matter?”
 
-“Of many things, Bill,” replied the girl, shivering, and as she did so, pressing her hands upon her eyes. “But, Lord! What odds in that?”
+The forced cheerfulness in her voice made a stronger impression on Sikes than her earlier wild and stiff expression.
 
-The tone of forced gaiety in which the last words were spoken, seemed to produce a deeper impression on Sikes than the wild and rigid look which had preceded them.
-
-“I tell you wot it is,” said Sikes; “if you haven’t caught the fever, and got it comin’ on, now, there’s something more than usual in the wind, and something dangerous too. You’re not a-going to—. No, damme! you wouldn’t do that!”
+“I’ll tell you this,” said Sikes. “If you haven’t caught the fever and it’s just starting now, then something unusual is going on—and something dangerous too. You’re not going to—. No, damn me, you wouldn’t do that!”
 
 “Do what?” asked the girl.
 
-“There ain’t,” said Sikes, fixing his eyes upon her, and muttering the words to himself; “there ain’t a stauncher-hearted gal going, or I’d have cut her throat three months ago. She’s got the fever coming on; that’s it.”
+“There isn’t,” said Sikes, staring at her and muttering to himself, “a more loyal girl alive. Otherwise, I’d have killed her three months ago. She’s just getting a fever—that’s it.”
 
-Fortifying himself with this assurance, Sikes drained the glass to the bottom, and then, with many grumbling oaths, called for his physic. The girl jumped up, with great alacrity; poured it quickly out, but with her back towards him; and held the vessel to his lips, while he drank off the contents.
+Comforting himself with this thought, Sikes emptied his glass. Then, grumbling and swearing, he asked for his medicine. The girl quickly stood up, eager to help. She poured it out fast, with her back turned to him, and held the cup to his lips while he drank it.
 
-----------------
-Та же самая задача для этого текста:
+“Now,” said the robber, “come sit next to me and look like yourself—or I’ll change your face so much you won’t recognize it later.”
 
-“Now,” said the robber, “come and sit aside of me, and put on your own face; or I’ll alter it so, that you won’t know it agin when you do want it.”
+The girl obeyed. Sikes held her hand tightly and lay back on the pillow, watching her face. His eyes closed… then opened… then closed again. He moved restlessly, dozing for a few minutes, then suddenly waking in fear and looking around. At last, just as he was about to rise again, he fell into a deep, heavy sleep. His grip loosened, his arm dropped to his side, and he lay still, like someone in a trance.
 
-The girl obeyed. Sikes, locking her hand in his, fell back upon the pillow: turning his eyes upon her face. They closed; opened again; closed once more; again opened. He shifted his position restlessly; and, after dozing again, and again, for two or three minutes, and as often springing up with a look of terror, and gazing vacantly about him, was suddenly stricken, as it were, while in the very attitude of rising, into a deep and heavy sleep. The grasp of his hand relaxed; the upraised arm fell languidly by his side; and he lay like one in a profound trance.
+“The laudanum is finally working,” the girl whispered, standing up. “I may already be too late.”
 
-“The laudanum has taken effect at last,” murmured the girl, as she rose from the bedside. “I may be too late, even now.”
+She quickly put on her bonnet and shawl, looking nervously around as if she expected Sikes to grab her at any moment. Then she bent over the bed and softly kissed him on the lips. After that, she opened and closed the door without a sound and hurried out of the house.
 
-She hastily dressed herself in her bonnet and shawl: looking fearfully round, from time to time, as if, despite the sleeping draught, she expected every moment to feel the pressure of Sikes’s heavy hand upon her shoulder; then, stooping softly over the bed, she kissed the robber’s lips; and then opening and closing the room-door with noiseless touch, hurried from the house.
+A watchman was calling out “half-past nine” in a dark passage she had to cross to reach the main street.
 
-A watchman was crying half-past nine, down a dark passage through which she had to pass, in gaining the main thoroughfare.
+“Did it just pass the half hour?” the girl asked.
 
-“Has it long gone the half-hour?” asked the girl.
+“It’ll be ten in about fifteen minutes,” the man said, lifting his lantern to see her face.
 
-“It’ll strike the hour in another quarter,” said the man: raising his lantern to her face.
+“And I can’t get there in less than an hour,” Nancy murmured, brushing past him and quickly moving down the street.
 
-“And I cannot get there in less than an hour or more,” muttered Nancy: brushing swiftly past him, and gliding rapidly down the street.
+Many shops were already closing in the narrow streets she passed through on her way from Spitalfields toward the West End of London. When the clock struck ten, she grew even more anxious. She rushed along the pavement, pushing past people and nearly running under horses as she crossed busy streets.
 
-Many of the shops were already closing in the back lanes and avenues through which she tracked her way, in making from Spitalfields towards the West-End of London. The clock struck ten, increasing her impatience. She tore along the narrow pavement: elbowing the passengers from side to side; and darting almost under the horses’ heads, crossed crowded streets, where clusters of persons were eagerly watching their opportunity to do the like.
+“She’s mad!” people said, turning to watch her as she hurried away.
 
-“The woman is mad!” said the people, turning to look after her as she rushed away.
+When she reached the richer part of the city, the streets were quieter. Her desperate speed drew even more attention from the few people still outside. Some followed her for a while, curious to see where she was going. Others stepped in front of her and turned to look as she rushed past—but one by one, they stopped following. By the time she neared her destination, she was alone.
 
-When she reached the more wealthy quarter of the town, the streets were comparatively deserted; and here her headlong progress excited a still greater curiosity in the stragglers whom she hurried past. Some quickened their pace behind, as though to see whither she was hastening at such an unusual rate; and a few made head upon her, and looked back, surprised at her undiminished speed; but they fell off one by one; and when she neared her place of destination, she was alone.
+It was a family hotel in a quiet but elegant street near Hyde Park. As she reached it, guided by the bright lamp above the door, the clock struck eleven. She hesitated for a moment, as if unsure, but the sound made her decide, and she stepped inside.
 
-It was a family hotel in a quiet but handsome street near Hyde Park. As the brilliant light of the lamp which burnt before its door, guided her to the spot, the clock struck eleven. She had loitered for a few paces as though irresolute, and making up her mind to advance; but the sound determined her, and she stepped into the hall. The porter’s seat was vacant. She looked round with an air of incertitude, and advanced towards the stairs.
+The porter was not at his post. She looked around uncertainly and moved toward the stairs.
 
-“Now, young woman!” said a smartly-dressed female, looking out from a door behind her, “who do you want here?”
+“Now then, young woman!” said a well-dressed lady, stepping out from a nearby room. “Who are you looking for?”
 
-“A lady who is stopping in this house,” answered the girl.
+“A lady staying here,” Nancy answered.
 
-“A lady!” was the reply, accompanied with a scornful look. “What lady?”
+“A lady?” the woman repeated, looking at her with clear disapproval. “Which lady?”
 
 “Miss Maylie,” said Nancy.
 
-The young woman, who had by this time, noted her appearance, replied only by a look of virtuous disdain; and summoned a man to answer her. To him, Nancy repeated her request.
+The woman looked her up and down with cold judgment, then called a man to deal with her. Nancy repeated her request to him.
 
-“What name am I to say?” asked the waiter.
+“What name should I give?” asked the waiter.
 
-----------------
-Та же самая задача для этого текста:
+“It’s no use giving any name,” Nancy replied.
 
-“It’s of no use saying any,” replied Nancy.
+“And no business either?” said the man.
 
-“Nor business?” said the man.
+“No, not that either,” she said. “I must see the lady.”
 
-“No, nor that neither,” rejoined the girl. “I must see the lady.”
+“Come on,” said the man, pushing her toward the door. “None of this. Go away.”
 
-“Come!” said the man, pushing her towards the door. “None of this. Take yourself off.”
+“If I leave, I’ll be dragged out!” the girl cried angrily. “And that won’t be easy for you, even if there are two of you. Isn’t there anyone here,” she added, looking around, “who will carry a simple message for a poor girl like me?”
 
-“I shall be carried out if I go!” said the girl violently; “and I can make that a job that two of you won’t like to do. Isn’t there anybody here,” she said, looking round, “that will see a simple message carried for a poor wretch like me?”
+Her plea affected a kind-looking cook, who had been watching with the other servants. He stepped forward to help.
 
-This appeal produced an effect on a good-tempered-faced man-cook, who with some of the other servants was looking on, and who stepped forward to interfere.
+“Come on, Joe, do it for her,” he said.
 
-“Take it up for her, Joe; can’t you?” said this person.
+“What’s the point?” the man replied. “You don’t think the young lady will see someone like her, do you?”
 
-“What’s the good?” replied the man. “You don’t suppose the young lady will see such as her; do you?”
+This remark about Nancy’s reputation made four housemaids very angry. They declared loudly that she was a disgrace and said she should be thrown out into the street without mercy.
 
-This allusion to Nancy’s doubtful character, raised a vast quantity of chaste wrath in the bosoms of four housemaids, who remarked, with great fervour, that the creature was a disgrace to her sex; and strongly advocated her being thrown, ruthlessly, into the kennel.
+“Do whatever you want with me,” said the girl, turning back to the men. “But first, do what I ask. I beg you—deliver this message.”
 
-“Do what you like with me,” said the girl, turning to the men again; “but do what I ask you first, and I ask you to give this message for God Almighty’s sake.”
+The kind cook spoke up again for her, and at last the man agreed to take the message.
 
-The soft-hearted cook added his intercession, and the result was that the man who had first appeared undertook its delivery.
+“Well?” he said, standing with one foot on the stairs. “What is it?”
 
-“What’s it to be?” said the man, with one foot on the stairs.
+“Tell her that a young woman urgently wants to speak to Miss Maylie alone,” said Nancy. “And if the lady will only listen to the first word I say, she’ll know whether to hear me out—or to have me thrown out as a liar.”
 
-----------------
-Та же самая задача для этого текста:
+“I say,” said the man, “you’re being very bold!”
 
-“That a young woman earnestly asks to speak to Miss Maylie alone,” said Nancy; “and that if the lady will only hear the first word she has to say, she will know whether to hear her business, or to have her turned out of doors as an impostor.”
+“Just give the message,” the girl said firmly, “and tell me the answer.”
 
-“I say,” said the man, “you’re coming it strong!”
+The man went upstairs. Nancy stayed where she was, pale and almost out of breath. Her lips trembled as she listened to the loud, scornful comments of the housemaids, who were saying many cruel things—and even more when the man returned and said that the young woman was to come upstairs.
 
-“You give the message,” said the girl firmly; “and let me hear the answer.”
+“There’s no point in being respectable in this world,” said the first housemaid.
 
-The man ran upstairs. Nancy remained, pale and almost breathless, listening with quivering lip to the very audible expressions of scorn, of which the chaste housemaids were very prolific; and of which they became still more so, when the man returned, and said the young woman was to walk upstairs.
+“Shameless people do better than honest ones,” said the second.
 
-“It’s no good being proper in this world,” said the first housemaid.
+The third only wondered “what kind of women ladies are,” and the fourth joined the others in loudly repeating, “Shameful! Shameful!”
 
-“Brass can do better than the gold what has stood the fire,” said the second.
-
-The third contented herself with wondering “what ladies was made of”; and the fourth took the first in a quartette of “Shameful!” with which the Dianas concluded.
-
-Regardless of all this: for she had weightier matters at heart: Nancy followed the man, with trembling limbs, to a small ante-chamber, lighted by a lamp from the ceiling. Here he left her, and retired.`,
+But Nancy paid no attention. She had more important things on her mind. With trembling legs, she followed the man upstairs to a small waiting room, lit by a lamp on the ceiling. There he left her alone and went away.`,
 }

@@ -4,8 +4,7 @@
 .details-block-wrapper {
 	flex-grow: 1;
 	background-color: vars.$grayColor-1;
-	overflow: auto;
-	padding: 1.5rem;
+	overflow: hidden;
 	border-radius: vars.$radius-2;
 }
 
@@ -19,6 +18,12 @@
 
 .details-block-wrapper--loading {
 	@include inherit.loading-shimmer();
+}
+
+.details-block-wrapper__scroll {
+	max-height: 100%;
+	overflow: auto;
+	padding: 1.5rem;
 }
 
 .details-block-wrapper__text {

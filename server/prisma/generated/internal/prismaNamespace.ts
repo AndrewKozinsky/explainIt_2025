@@ -1641,7 +1641,8 @@ export const BookChapterScalarFieldEnum = {
   book_public_id: 'book_public_id',
   name: 'name',
   header: 'header',
-  content: 'content',
+  original_content: 'original_content',
+  processed_content: 'processed_content',
   note: 'note',
   created_at: 'created_at'
 } as const
@@ -1744,9 +1745,7 @@ export type SubtitleSentenceInitScalarFieldEnum = (typeof SubtitleSentenceInitSc
 export const EngRusDictionaryScalarFieldEnum = {
   id: 'id',
   eng: 'eng',
-  rus: 'rus',
   transcription: 'transcription',
-  lexemes: 'lexemes',
   created_at: 'created_at',
   updated_at: 'updated_at'
 } as const

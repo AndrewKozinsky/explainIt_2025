@@ -85,7 +85,7 @@ export class UpdatePrivateVideoHandler extends VideoBase implements ICommandHand
 			await this.updateVideoTextData({
 				videoType: 'private',
 				videoId: updateVideoInput.id,
-				preparedContent: preparedContentResult.preparedContent,
+				processedContent: preparedContentResult.processedContent,
 				subtitles: preparedContentResult.subtitles,
 			})
 		}
@@ -117,7 +117,7 @@ export class UpdatePrivateVideoHandler extends VideoBase implements ICommandHand
 	private async updateVideoTextData(dto: {
 		videoType: 'private'
 		videoId: number
-		preparedContent: null | string
+		processedContent: null | string
 		subtitles?: Array<{
 			startTimeMs: number
 			endTimeMs: number
@@ -132,13 +132,13 @@ export class UpdatePrivateVideoHandler extends VideoBase implements ICommandHand
 				await this.subtitleRepository.deleteByVideoPrivateId(dto.videoId)
 				await this.sentenceRepository.deleteByVideoPrivateId(dto.videoId)
 
-				if (dto.preparedContent === null) return
+				if (dto.processedContent === null) return
 
 				if (dto.subtitles) {
 					await this.saveSubtitlesSentencesAndInit({
 						videoType: 'private',
 						videoId: dto.videoId,
-						preparedContent: dto.preparedContent,
+						preparedContent: dto.processedContent,
 						subtitles: dto.subtitles,
 						sentenceRepository: this.sentenceRepository,
 						subtitleRepository: this.subtitleRepository,
@@ -150,7 +150,7 @@ export class UpdatePrivateVideoHandler extends VideoBase implements ICommandHand
 				await generateSentencesAndSaveToDB({
 					mainConfigService: this.mainConfig,
 					sentenceRepository: this.sentenceRepository,
-					content: dto.preparedContent,
+					processedContent: dto.processedContent,
 					videoPrivateId: dto.videoId,
 				})
 			},

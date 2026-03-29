@@ -1,243 +1,227 @@
-// ГЛАВА НЕ ГОТОВА
 export const chapter_38 = {
 	name: 'Chapter XXXVIII',
 	header: 'Containing an account of what passed between Mr. and Mrs. Bumble, and Mr. Monks, at their nocturnal interview',
-	text: `
-------------------------------
-Та же самая задача для этого текста:
-It was a dull, close, overcast summer evening. The clouds, which had been threatening all day, spread out in a dense and sluggish mass of vapour, already yielded large drops of rain, and seemed to presage a violent thunder-storm, when Mr. and Mrs. Bumble, turning out of the main street of the town, directed their course towards a scattered little colony of ruinous houses, distant from it some mile and a-half, or thereabouts, and erected on a low unwholesome swamp, bordering upon the river.
+	text: `It was a dull, heavy summer evening. The clouds, which had been gathering all day, now covered the sky in a thick, slow-moving mass. Large drops of rain had already begun to fall, and it seemed that a violent storm was coming.
 
-They were both wrapped in old and shabby outer garments, which might, perhaps, serve the double purpose of protecting their persons from the rain, and sheltering them from observation. The husband carried a lantern, from which, however, no light yet shone; and trudged on, a few paces in front, as though—the way being dirty—to give his wife the benefit of treading in his heavy footprints. They went on, in profound silence; every now and then, Mr. Bumble relaxed his pace, and turned his head as if to make sure that his helpmate was following; then, discovering that she was close at his heels, he mended his rate of walking, and proceeded, at a considerable increase of speed, towards their place of destination.
+Mr. and Mrs. Bumble left the main street of the town and walked toward a small group of ruined houses about a mile and a half away. These houses stood on low, unhealthy ground near the river.
 
-This was far from being a place of doubtful character; for it had long been known as the residence of none but low ruffians, who, under various pretences of living by their labour, subsisted chiefly on plunder and crime. It was a collection of mere hovels: some, hastily built with loose bricks: others, of old worm-eaten ship-timber: jumbled together without any attempt at order or arrangement, and planted, for the most part, within a few feet of the river’s bank. A few leaky boats drawn up on the mud, and made fast to the dwarf wall which skirted it: and here and there an oar or coil of rope: appeared, at first, to indicate that the inhabitants of these miserable cottages pursued some avocation on the river; but a glance at the shattered and useless condition of the articles thus displayed, would have led a passer-by, without much difficulty, to the conjecture that they were disposed there, rather for the preservation of appearances, than with any view to their being actually employed.
+They were both wearing old, worn-out coats, which helped protect them from the rain and also made them less noticeable. Mr. Bumble carried a lantern, though it was not yet lit, and walked a few steps ahead, as if to let his wife step safely in his footprints along the muddy road. They walked in silence. From time to time, Mr. Bumble slowed down and looked back to check that his wife was following. When he saw that she was close behind, he walked faster again, heading quickly toward their destination.
 
-In the heart of this cluster of huts; and skirting the river, which its upper stories overhung; stood a large building, formerly used as a manufactory of some kind. It had, in its day, probably furnished employment to the inhabitants of the surrounding tenements. But it had long since gone to ruin. The rat, the worm, and the action of the damp, had weakened and rotted the piles on which it stood; and a considerable portion of the building had already sunk down into the water; while the remainder, tottering and bending over the dark stream, seemed to wait a favourable opportunity of following its old companion, and involving itself in the same fate.
+This was not a respectable place. It was well known as a home for rough and dishonest people who claimed to work for a living but mostly survived through crime. The area was made up of small, poor huts: some built quickly from loose bricks, others from old, rotten wood taken from ships. They were crowded together without any order, most of them standing very close to the river.
 
-It was before this ruinous building that the worthy couple paused, as the first peal of distant thunder reverberated in the air, and the rain commenced pouring violently down.
+There were a few broken boats lying in the mud, tied to a low wall by the water. Oars and coils of rope could be seen here and there. At first, these things might suggest that the people living there worked on the river. But a closer look showed that they were damaged and useless, and were probably there only to create a false impression.
 
-“The place should be somewhere here,” said Bumble, consulting a scrap of paper he held in his hand.
+In the middle of this group of huts, right by the river, stood a large building that had once been a factory. It probably had given work to many of the people who lived nearby. But now it was in ruins. Rats, worms, and damp had weakened the wooden supports on which it stood. Part of the building had already fallen into the water, and the rest leaned dangerously over the dark river, as if ready to collapse at any moment.
 
-“Halloa there!” cried a voice from above.
+Mr. and Mrs. Bumble stopped in front of this building just as distant thunder sounded, and the rain began to fall heavily.
 
-Following the sound, Mr. Bumble raised his head and descried a man looking out of a door, breast-high, on the second story.
+“The place should be somewhere here,” said Mr. Bumble, looking at a piece of paper in his hand.
 
-“Stand still, a minute,” cried the voice; “I’ll be with you directly.” With which the head disappeared, and the door closed.
+“Hallo there!” called a voice from above.
 
-“Is that the man?” asked Mr. Bumble’s good lady.
+Mr. Bumble looked up and saw a man leaning out of a door on the second floor.
 
-Mr. Bumble nodded in the affirmative.
+“Wait a moment,” the voice called. “I’ll come down to you.” Then the man disappeared and closed the door.
 
-“Then, mind what I told you,” said the matron: “and be careful to say as little as you can, or you’ll betray us at once.”
+“Is that the man?” asked Mrs. Bumble.
 
-----------------
-Та же самая задача для этого текста:
+Mr. Bumble nodded.
 
-Mr. Bumble, who had eyed the building with very rueful looks, was apparently about to express some doubts relative to the advisability of proceeding any further with the enterprise just then, when he was prevented by the appearance of Monks: who opened a small door, near which they stood, and beckoned them inwards.
+“Then remember what I told you,” said his wife. “And say as little as possible, or you’ll give everything away at once.”
 
-“Come in!” he cried impatiently, stamping his foot upon the ground. “Don’t keep me here!”
+Mr. Bumble looked at the building with clear discomfort. He seemed ready to say that perhaps it was not a good idea to continue—but at that moment Monks appeared. He opened a small door near them and waved them inside.
 
-The woman, who had hesitated at first, walked boldly in, without any other invitation. Mr. Bumble, who was ashamed or afraid to lag behind, followed: obviously very ill at ease and with scarcely any of that remarkable dignity which was usually his chief characteristic.
+“Come in!” he cried impatiently, stamping his foot. “Don’t keep me waiting!”
 
-“What the devil made you stand lingering there, in the wet?” said Monks, turning round, and addressing Bumble, after he had bolted the door behind them.
+The woman, who had hesitated at first, stepped in boldly without another word. Mr. Bumble, either too ashamed or too afraid to stay behind, followed her. He looked very uneasy and had lost most of his usual dignity.
 
-“We—we were only cooling ourselves,” stammered Bumble, looking apprehensively about him.
+“What kept you standing out there in the rain?” said Monks, turning to Bumble after locking the door behind them.
 
-“Cooling yourselves!” retorted Monks. “Not all the rain that ever fell, or ever will fall, will put as much of hell’s fire out, as a man can carry about with him. You won’t cool yourself so easily; don’t think it!”
+“We—we were just cooling ourselves,” stammered Bumble, looking around nervously.
 
-With this agreeable speech, Monks turned short upon the matron, and bent his gaze upon her, till even she, who was not easily cowed, was fain to withdraw her eyes, and turn them towards the ground.
+“Cooling yourselves!” said Monks sharply. “No rain in the world can put out the fire a man carries inside him. You won’t cool yourself so easily—don’t think it!”
 
-“This is the woman, is it?” demanded Monks.
+After this, Monks suddenly turned to the matron and stared at her so intensely that even she, who was not easily frightened, had to look away.
 
-“Hem! That is the woman,” replied Mr. Bumble, mindful of his wife’s caution.
+“This is the woman?” he asked.
 
-“You think women never can keep secrets, I suppose?” said the matron, interposing, and returning, as she spoke, the searching look of Monks.
+“Yes—this is the woman,” replied Mr. Bumble, remembering his wife’s warning to be careful.
 
-“I know they will always keep one till it’s found out,” said Monks.
+“You think women can’t keep secrets, don’t you?” said the matron, interrupting, and meeting Monks’s sharp gaze again.
 
-“And what may that be?” asked the matron.
+“I know they always keep one—until it’s discovered,” said Monks.
 
-“The loss of their own good name,” replied Monks. “So, by the same rule, if a woman’s a party to a secret that might hang or transport her, I’m not afraid of her telling it to anybody; not I! Do you understand, mistress?”
+“And what secret is that?” she asked.
 
-“No,” rejoined the matron, slightly colouring as she spoke.
+“The loss of their good name,” replied Monks. “So, if a woman shares a secret that could get her punished or sent away, I’m not afraid she’ll tell anyone. Not at all. Do you understand me?”
 
-“Of course you don’t!” said Monks. “How should you?”
+“No,” said the matron, blushing slightly.
 
-Bestowing something half-way between a smile and a frown upon his two companions, and again beckoning them to follow him, the man hastened across the apartment, which was of considerable extent, but low in the roof. He was preparing to ascend a steep staircase, or rather ladder, leading to another floor of warehouses above: when a bright flash of lightning streamed down the aperture, and a peal of thunder followed, which shook the crazy building to its centre.
+“Of course you don’t,” said Monks. “How could you?”
 
-“Hear it!” he cried, shrinking back. “Hear it! Rolling and crashing on as if it echoed through a thousand caverns where the devils were hiding from it. I hate the sound!”
+He gave them a strange look—half a smile, half a frown—and signaled them to follow him. He walked quickly across the large but low room. He was about to climb a steep staircase, almost like a ladder, leading to the floor above, when a bright flash of lightning lit up the opening, followed by a loud crash of thunder that shook the whole building.
 
-He remained silent for a few moments; and then, removing his hands suddenly from his face, showed, to the unspeakable discomposure of Mr. Bumble, that it was much distorted and discoloured.
+“Listen to that!” he cried, shrinking back. “Listen! It sounds as if it’s echoing through a thousand caves, where even devils are hiding from it. I hate that sound!”
 
-----------------
-Та же самая задача для этого текста:
+He stood silent for a few moments. Then he suddenly lowered his hands from his face—and Mr. Bumble, to his great alarm, saw that it looked twisted and pale.
 
-“These fits come over me, now and then,” said Monks, observing his alarm; “and thunder sometimes brings them on. Don’t mind me now; it’s all over for this once.”
+“These attacks happen to me from time to time,” said Monks, noticing his fear. “Thunder sometimes brings them on. Don’t worry about me now; it’s over for the moment.”
 
-Thus speaking, he led the way up the ladder; and hastily closing the window-shutter of the room into which it led, lowered a lantern which hung at the end of a rope and pulley passed through one of the heavy beams in the ceiling: and which cast a dim light upon an old table and three chairs that were placed beneath it.
+As he spoke, he climbed the ladder. He quickly shut the window of the room they entered and lowered a lantern that hung from a rope and pulley fixed to a heavy beam in the ceiling. The faint light fell on an old table and three chairs beneath it.
 
-“Now,” said Monks, when they had all three seated themselves, “the sooner we come to our business, the better for all. The woman know what it is, does she?”
+“Now,” said Monks, when all three were seated, “the sooner we get to business, the better. The woman knows what this is about, doesn’t she?”
 
-The question was addressed to Bumble; but his wife anticipated the reply, by intimating that she was perfectly acquainted with it.
+He asked Bumble, but his wife answered before he could speak, saying she understood it perfectly.
 
-“He is right in saying that you were with this hag the night she died; and that she told you something—”
+“He’s right that you were with that old woman the night she died, and that she told you something—”
 
-“About the mother of the boy you named,” replied the matron interrupting him. “Yes.”
+“About the mother of the boy you mentioned,” the matron interrupted. “Yes.”
 
-“The first question is, of what nature was her communication?” said Monks.
+“The first question is: what exactly did she tell you?” said Monks.
 
-“That’s the second,” observed the woman with much deliberation. “The first is, what may the communication be worth?”
+“That’s the second question,” the woman replied calmly. “The first is: what is that information worth?”
 
-“Who the devil can tell that, without knowing of what kind it is?” asked Monks.
+“How can anyone know that without knowing what it is?” asked Monks.
 
-“Nobody better than you, I am persuaded,” answered Mrs. Bumble: who did not want for spirit, as her yoke-fellow could abundantly testify.
+“No one better than you, I’m sure,” said Mrs. Bumble, who was far more confident than her husband could deny.
 
-“Humph!” said Monks significantly, and with a look of eager inquiry; “there may be money’s worth to get, eh?”
+“Hmm,” said Monks, looking at her closely. “So there may be money in it, eh?”
 
-“Perhaps there may,” was the composed reply.
+“Perhaps,” she replied coolly.
 
-“Something that was taken from her,” said Monks. “Something that she wore. Something that—”
+“Something that was taken from her,” said Monks. “Something she wore. Something that—”
 
-“You had better bid,” interrupted Mrs. Bumble. “I have heard enough, already, to assure me that you are the man I ought to talk to.”
+“You’d better make an offer,” Mrs. Bumble interrupted. “I’ve heard enough to know you’re the right person to deal with.”
 
-Mr. Bumble, who had not yet been admitted by his better half into any greater share of the secret than he had originally possessed, listened to this dialogue with outstretched neck and distended eyes: which he directed towards his wife and Monks, by turns, in undisguised astonishment; increased, if possible, when the latter sternly demanded, what sum was required for the disclosure.
+Mr. Bumble, who still knew no more than before, listened with wide eyes and an outstretched neck, looking from his wife to Monks in open surprise. His amazement grew even stronger when Monks sharply asked how much she wanted for the information.
 
-“What’s it worth to you?” asked the woman, as collectedly as before.
+“What is it worth to you?” the woman asked, just as calmly as before.
 
-“It may be nothing; it may be twenty pounds,” replied Monks. “Speak out, and let me know which.”
+“It may be nothing; it may be twenty pounds,” said Monks. “Tell me which.”
 
-“Add five pounds to the sum you have named; give me five-and-twenty pounds in gold,” said the woman; “and I’ll tell you all I know. Not before.”
+“Add five pounds to that,” said the woman. “Give me twenty-five pounds in gold, and I’ll tell you everything I know. Not before.”
 
-“Five-and-twenty pounds!” exclaimed Monks, drawing back.
+“Twenty-five pounds!” cried Monks, stepping back.
 
-----------------
-Та же самая задача для этого текста:
+“I spoke as clearly as I could,” replied Mrs. Bumble. “And it’s not a large sum.”
 
-“I spoke as plainly as I could,” replied Mrs. Bumble. “It’s not a large sum, either.”
+“Not a large sum for a worthless secret that may turn out to be nothing!” cried Monks impatiently. “And it’s been buried for twelve years or more!”
 
-“Not a large sum for a paltry secret, that may be nothing when it’s told!” cried Monks impatiently; “and which has been lying dead for twelve years past or more!”
+“Secrets like that keep well,” said the matron, still calm and firm. “Like good wine, they often become more valuable over time. And as for being buried—there are things that stay hidden for thousands or even millions of years, for all we know, and still reveal strange truths in the end.”
 
-“Such matters keep well, and, like good wine, often double their value in course of time,” answered the matron, still preserving the resolute indifference she had assumed. “As to lying dead, there are those who will lie dead for twelve thousand years to come, or twelve million, for anything you or I know, who will tell strange tales at last!”
+“What if I pay and get nothing?” asked Monks, hesitating.
 
-“What if I pay it for nothing?” asked Monks, hesitating.
+“You can easily take the money back,” she replied. “I am only a woman, alone here, with no protection.”
 
-“You can easily take it away again,” replied the matron. “I am but a woman; alone here; and unprotected.”
+“Not alone, my dear, and not unprotected,” said Mr. Bumble nervously. “I am here, my dear. And besides,” he went on, his teeth shaking, “Mr. Monks is too much of a gentleman to use violence against parish officers. Mr. Monks knows I’m not a young man, and not in my best shape, as I might say; but I’m sure he has heard, my dear, that I am a very determined officer, with great strength—if I’m once provoked. I only need a little provoking, that’s all.”
 
-“Not alone, my dear, nor unprotected, neither,” submitted Mr. Bumble, in a voice tremulous with fear: “I am here, my dear. And besides,” said Mr. Bumble, his teeth chattering as he spoke, “Mr. Monks is too much of a gentleman to attempt any violence on porochial persons. Mr. Monks is aware that I am not a young man, my dear, and also that I am a little run to seed, as I may say; but he has heerd: I say I have no doubt Mr. Monks has heerd, my dear: that I am a very determined officer, with very uncommon strength, if I’m once roused. I only want a little rousing; that’s all.”
+As he spoke, Mr. Bumble made a weak attempt to grab his lantern with a show of courage; but his frightened face clearly showed he would need much more “provoking” before doing anything brave—unless it was against the poor or others weaker than himself.
 
-As Mr. Bumble spoke, he made a melancholy feint of grasping his lantern with fierce determination; and plainly showed, by the alarmed expression of every feature, that he did want a little rousing, and not a little, prior to making any very warlike demonstration: unless, indeed, against paupers, or other person or persons trained down for the purpose.
+“You are a fool,” said Mrs. Bumble. “You had better keep quiet.”
 
-“You are a fool,” said Mrs. Bumble, in reply; “and had better hold your tongue.”
+“He should have cut out his tongue before coming here, if he can’t speak more quietly,” said Monks grimly. “So—he’s your husband?”
 
-“He had better have cut it out, before he came, if he can’t speak in a lower tone,” said Monks, grimly. “So! He’s your husband, eh?”
+“My husband!” said the matron with a short, mocking laugh, avoiding the question.
 
-“He my husband!” tittered the matron, parrying the question.
+“I thought so when you came in,” said Monks, noticing the angry look she gave her husband. “All the better. I prefer dealing with two people when only one of them truly decides. I’m serious. Look here!”
 
-“I thought as much, when you came in,” rejoined Monks, marking the angry glance which the lady darted at her spouse as she spoke. “So much the better; I have less hesitation in dealing with two people, when I find that there’s only one will between them. I’m in earnest. See here!”
+He reached into his pocket, took out a canvas bag, counted out twenty-five gold coins onto the table, and pushed them toward the woman.
 
-He thrust his hand into a side-pocket; and producing a canvas bag, told out twenty-five sovereigns on the table, and pushed them over to the woman.
+“Now,” he said, “take them. And when this thunder—which sounds like it’s about to break over the house—is gone, tell me your story.”
 
-“Now,” he said, “gather them up; and when this cursed peal of thunder, which I feel is coming up to break over the house-top, is gone, let’s hear your story.”
+The thunder, which now seemed very close, crashed loudly above them before slowly fading away. Monks lifted his head and leaned forward to listen. The three faces came very close together as the two men bent over the table, eager to hear, and the woman leaned in to whisper. The weak light of the hanging lantern fell directly on them, making their pale, anxious faces stand out sharply against the deep darkness around them.
 
-The thunder, which seemed in fact much nearer, and to shiver and break almost over their heads, having subsided, Monks, raising his face from the table, bent forward to listen to what the woman should say. The faces of the three nearly touched, as the two men leant over the small table in their eagerness to hear, and the woman also leant forward to render her whisper audible. The sickly rays of the suspended lantern falling directly upon them, aggravated the paleness and anxiety of their countenances: which, encircled by the deepest gloom and darkness, looked ghastly in the extreme.
+“When this woman we called old Sally died,” the matron began, “she and I were alone.”
 
-“When this woman, that we called old Sally, died,” the matron began, “she and I were alone.”
+“Was no one else there?” asked Monks in a low, hollow whisper. “No sick person in another bed? No one who could hear, or possibly understand?”
 
-“Was there no one by?” asked Monks, in the same hollow whisper; “No sick wretch or idiot in some other bed? No one who could hear, and might, by possibility, understand?”
+“Not a soul,” replied the woman. “We were alone. I stood by her side when she died.”
 
-“Not a soul,” replied the woman; “we were alone. I stood alone beside the body when death came over it.”
+“Good,” said Monks, watching her closely. “Go on.”
 
-----------------
-Та же самая задача для этого текста:
+“She spoke of a young woman,” the matron continued, “who had given birth to a child some years earlier—not only in the same room, but in the very bed where she herself was now dying.”
 
-“Good,” said Monks, regarding her attentively. “Go on.”
+“Yes?” said Monks, his lips trembling as he glanced over his shoulder. “Strange how things come together.”
 
-“She spoke of a young creature,” resumed the matron, “who had brought a child into the world some years before; not merely in the same room, but in the same bed, in which she then lay dying.”
+“The child was the one you mentioned to him last night,” said the matron, nodding carelessly at her husband. “And the mother was the one this nurse had robbed.”
 
-“Ay?” said Monks, with quivering lip, and glancing over his shoulder, “Blood! How things come about!”
+“While she was alive?” asked Monks.
 
-“The child was the one you named to him last night,” said the matron, nodding carelessly towards her husband; “the mother this nurse had robbed.”
+“After she died,” replied the woman, with a slight shiver. “She stole from the body, almost immediately after death, something the mother had begged her, with her last breath, to keep safe for the child.”
 
-“In life?” asked Monks.
-
-“In death,” replied the woman, with something like a shudder. “She stole from the corpse, when it had hardly turned to one, that which the dead mother had prayed her, with her last breath, to keep for the infant’s sake.”
-
-“She sold it,” cried Monks, with desperate eagerness; “did she sell it? Where? When? To whom? How long before?”
+“She sold it!” cried Monks eagerly. “Did she sell it? Where? When? To whom? How long after?”
 
 “As she told me, with great difficulty, that she had done this,” said the matron, “she fell back and died.”
 
-“Without saying more?” cried Monks, in a voice which, from its very suppression, seemed only the more furious. “It’s a lie! I’ll not be played with. She said more. I’ll tear the life out of you both, but I’ll know what it was.”
+“Without saying anything more?” cried Monks in a low but furious voice. “That’s a lie! You won’t deceive me. She said more. I’ll force it out of you if I must!”
 
-“She didn’t utter another word,” said the woman, to all appearance unmoved (as Mr. Bumble was very far from being) by the strange man’s violence; “but she clutched my gown, violently, with one hand, which was partly closed; and when I saw that she was dead, and so removed the hand by force, I found it clasped a scrap of dirty paper.”
+“She didn’t say another word,” said the woman, apparently calm, though Mr. Bumble was far from it. “But she grabbed my dress tightly with one hand, which was partly closed. When I saw she was dead and pulled her hand away, I found she was holding a small piece of dirty paper.”
 
-“Which contained—” interposed Monks, stretching forward.
+“Which contained—” said Monks, leaning forward.
 
-“Nothing,” replied the woman; “it was a pawnbroker’s duplicate.”
+“Nothing,” replied the woman. “It was a pawn ticket.”
 
 “For what?” demanded Monks.
 
-“In good time I’ll tell you.” said the woman. “I judge that she had kept the trinket, for some time, in the hope of turning it to better account; and then had pawned it; and had saved or scraped together money to pay the pawnbroker’s interest year by year, and prevent its running out; so that if anything came of it, it could still be redeemed. Nothing had come of it; and, as I tell you, she died with the scrap of paper, all worn and tattered, in her hand. The time was out in two days; I thought something might one day come of it too; and so redeemed the pledge.”
+“I’ll tell you soon enough,” said the woman. “I believe she had kept the item for some time, hoping to get more for it later. Then she pawned it, and each year she managed to pay the interest so it wouldn’t be lost—so that if anything important came of it, it could still be redeemed. But nothing did. And as I said, she died holding that worn-out scrap of paper. The time limit was to expire in two days. I thought it might be valuable one day too, so I went and got it back.”
 
 “Where is it now?” asked Monks quickly.
 
-“There,” replied the woman. And, as if glad to be relieved of it, she hastily threw upon the table a small kid bag scarcely large enough for a French watch, which Monks pouncing upon, tore open with trembling hands. It contained a little gold locket: in which were two locks of hair, and a plain gold wedding-ring.
+“There,” said the woman. And as if eager to be rid of it, she quickly threw a small leather bag onto the table. It was barely large enough to hold a watch. Monks seized it at once and tore it open with trembling hands.
 
-“It has the word ‘Agnes’ engraved on the inside,” said the woman.
+Inside was a small gold locket. It contained two locks of hair and a simple gold wedding ring.
 
-“There is a blank left for the surname; and then follows the date; which is within a year before the child was born. I found out that.”
+“It has the name ‘Agnes’ engraved inside,” said the woman. “There is space left for a surname, and then a date, which is less than a year before the child was born. I found that out.”
 
-“And this is all?” said Monks, after a close and eager scrutiny of the contents of the little packet.
+“And that’s all?” said Monks, after carefully examining the contents.
 
-“All,” replied the woman.
+“That’s all,” replied the woman.
 
-Mr. Bumble drew a long breath, as if he were glad to find that the story was over, and no mention made of taking the five-and-twenty pounds back again; and now he took courage to wipe the perspiration which had been trickling over his nose, unchecked, during the whole of the previous dialogue.
+Mr. Bumble let out a long breath, clearly relieved that the story was over—and that no one had suggested returning the twenty-five pounds. He finally gathered the courage to wipe the sweat that had been running down his face the entire time.
 
-----------------
-Та же самая задача для этого текста:
+“I know nothing about the story, except what I can guess,” said his wife, speaking to Monks after a short silence. “And I don’t want to know more—it’s safer that way. But may I ask you two questions?”
 
-“I know nothing of the story, beyond what I can guess at,” said his wife addressing Monks, after a short silence; “and I want to know nothing; for it’s safer not. But I may ask you two questions, may I?”
+“You may ask,” said Monks, with a hint of surprise. “But whether I answer is another matter.”
 
-“You may ask,” said Monks, with some show of surprise; “but whether I answer or not is another question.”
+“—Which makes three questions,” added Mr. Bumble, trying to be humorous.
 
-“—Which makes three,” observed Mr. Bumble, essaying a stroke of facetiousness.
+“Is that what you expected from me?” the matron asked.
 
-“Is that what you expected to get from me?” demanded the matron.
+“Yes,” replied Monks. “And the other question?”
 
-“It is,” replied Monks. “The other question?”
+“What do you plan to do with it? Can it be used against me?”
 
-“What do you propose to do with it? Can it be used against me?”
+“Never,” said Monks. “Not against you—or me. Look here! But don’t take a step forward, or your life won’t be worth anything.”
 
-“Never,” rejoined Monks; “nor against me either. See here! But don’t move a step forward, or your life is not worth a bulrush.”
+With these words, he suddenly pushed the table aside and pulled up an iron ring in the floor. A large trapdoor opened right at Mr. Bumble’s feet, making him jump back in alarm.
 
-With these words, he suddenly wheeled the table aside, and pulling an iron ring in the boarding, threw back a large trap-door which opened close at Mr. Bumble’s feet, and caused that gentleman to retire several paces backward, with great precipitation.
+“Look down,” said Monks, lowering the lantern into the dark opening. “Don’t be afraid. I could have dropped you in quietly while you were sitting there, if I had wanted to.”
 
-“Look down,” said Monks, lowering the lantern into the gulf. “Don’t fear me. I could have let you down, quietly enough, when you were seated over it, if that had been my game.”
+Encouraged by this, the matron stepped closer to the edge. Even Mr. Bumble, driven by curiosity, carefully came near. Below them, muddy water rushed past, swollen by heavy rain. Its loud splashing and swirling drowned out every other sound as it struck against the slimy wooden posts. There had once been a watermill here; now only a few rotten beams and broken pieces of machinery remained, while the water rushed past them with force.
 
-Thus encouraged, the matron drew near to the brink; and even Mr. Bumble himself, impelled by curiousity, ventured to do the same. The turbid water, swollen by the heavy rain, was rushing rapidly on below; and all other sounds were lost in the noise of its plashing and eddying against the green and slimy piles. There had once been a water-mill beneath; the tide foaming and chafing round the few rotten stakes, and fragments of machinery that yet remained, seemed to dart onward, with a new impulse, when freed from the obstacles which had unavailingly attempted to stem its headlong course.
+“If you threw a man’s body down there, where would it be by tomorrow morning?” said Monks, moving the lantern back and forth over the dark water.
 
-“If you flung a man’s body down there, where would it be tomorrow morning?” said Monks, swinging the lantern to and fro in the dark well.
+“Twelve miles down the river—and torn to pieces,” replied Bumble, stepping back at the thought.
 
-“Twelve miles down the river, and cut to pieces besides,” replied Bumble, recoiling at the thought.
+Monks took the small packet from his coat, where he had hidden it. He tied it to a heavy piece of lead that lay on the floor and dropped it into the water. It fell straight down, made a faint splash, and disappeared.
 
-Monks drew the little packet from his breast, where he had hurriedly thrust it; and tying it to a leaden weight, which had formed a part of some pulley, and was lying on the floor, dropped it into the stream. It fell straight, and true as a die; clove the water with a scarcely audible splash; and was gone.
+The three looked at each other and seemed to breathe more easily.
 
-The three looking into each other’s faces, seemed to breathe more freely.
+“There,” said Monks, closing the trapdoor, which fell heavily back into place. “If the sea ever gives back its dead, as people say it will, it can keep its gold and silver—and that rubbish with it. We have nothing more to discuss. Our pleasant meeting is over.”
 
-“There!” said Monks, closing the trap-door, which fell heavily back into its former position. “If the sea ever gives up its dead, as books say it will, it will keep its gold and silver to itself, and that trash among it. We have nothing more to say, and may break up our pleasant party.”
+“By all means,” said Mr. Bumble quickly.
 
+“You’ll keep your mouth shut, won’t you?” said Monks, giving him a threatening look. “I’m not afraid of your wife.”
 
-----------------
-Та же самая задача для этого текста:
-“By all means,” observed Mr. Bumble, with great alacrity.
+“You can rely on me, sir,” said Mr. Bumble, bowing politely as he slowly moved toward the ladder. “For everyone’s sake, sir—and for my own, of course, Mr. Monks.”
 
-“You’ll keep a quiet tongue in your head, will you?” said Monks, with a threatening look. “I am not afraid of your wife.”
+“I’m glad to hear it—for your own sake,” said Monks. “Light your lantern, and leave this place as fast as you can.”
 
-“You may depend upon me, young man,” answered Mr. Bumble, bowing himself gradually towards the ladder, with excessive politeness. “On everybody’s account, young man; on my own, you know, Mr. Monks.”
+It was lucky the conversation ended there, because Mr. Bumble had bowed so low that he was within inches of the ladder, and might easily have fallen headfirst into the room below. He lit his lantern from the one Monks held and said nothing more. He climbed down in silence, with his wife following him. Monks came last, pausing on the steps to make sure there was no sound except the rain outside and the rushing water.
 
-“I am glad, for your sake, to hear it,” remarked Monks. “Light your lantern! And get away from here as fast as you can.”
+They crossed the lower room slowly and carefully. Monks jumped at every shadow, while Mr. Bumble held his lantern low and walked with great caution—surprisingly light on his feet for a man of his size—constantly looking around for hidden trapdoors.
 
-It was fortunate that the conversation terminated at this point, or Mr. Bumble, who had bowed himself to within six inches of the ladder, would infallibly have pitched headlong into the room below. He lighted his lantern from that which Monks had detached from the rope, and now carried in his hand; and making no effort to prolong the discourse, descended in silence, followed by his wife. Monks brought up the rear, after pausing on the steps to satisfy himself that there were no other sounds to be heard than the beating of the rain without, and the rushing of the water.
+Monks quietly unlocked and opened the gate where they had entered. Without a word, only a nod, the husband and wife stepped out into the wet darkness.
 
-They traversed the lower room, slowly, and with caution; for Monks started at every shadow; and Mr. Bumble, holding his lantern a foot above the ground, walked not only with remarkable care, but with a marvellously light step for a gentleman of his figure: looking nervously about him for hidden trap-doors. The gate at which they had entered, was softly unfastened and opened by Monks; merely exchanging a nod with their mysterious acquaintance, the married couple emerged into the wet and darkness outside.
-
-They were no sooner gone, than Monks, who appeared to entertain an invincible repugnance to being left alone, called to a boy who had been hidden somewhere below. Bidding him go first, and bear the light, he returned to the chamber he had just quitted.`,
+As soon as they were gone, Monks—who clearly hated being left alone—called out to a boy who had been hiding somewhere below. He told the boy to go first and carry the light, then followed him back into the room they had just left.`,
 }

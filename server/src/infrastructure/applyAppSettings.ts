@@ -4,7 +4,6 @@ import { RedisStore } from 'connect-redis'
 import * as cookieParser from 'cookie-parser'
 import * as session from 'express-session'
 import { AppModule } from '../app.module'
-import { ApolloExceptionFilter } from './exceptions/apollo-exception.filter'
 import { MainConfigService } from './mainConfig/mainConfig.service'
 import { RedisService } from './redis/redis.service'
 
@@ -19,8 +18,6 @@ export async function applyAppSettings(app: INestApplication) {
 	await setUpSession(app)
 
 	setUpGlobalPipes(app)
-
-	app.useGlobalFilters(new ApolloExceptionFilter())
 }
 
 async function setUpSession(app: INestApplication) {

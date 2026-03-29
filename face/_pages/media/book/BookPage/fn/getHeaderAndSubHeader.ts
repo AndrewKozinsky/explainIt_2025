@@ -23,7 +23,7 @@ export function useGetHeaderAndSubHeader() {
 			}
 
 			return {
-				header: bookConfig.emptyBookName,
+				header: '',
 				subHeader: null,
 			}
 		},

@@ -23,7 +23,7 @@ export function useGetHeaderAndSubHeader() {
 			}
 
 			return {
-				header: videoConfig.emptyVideoName,
+				header: '',
 				subHeader: null,
 			}
 		},

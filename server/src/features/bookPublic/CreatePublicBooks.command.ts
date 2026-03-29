@@ -1,19 +1,28 @@
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { BookChapterRepository } from 'repo/bookChapter.repository'
 import { BookPublicRepository } from 'repo/bookPublic.repository'
-import {
-	littleRedRidingHoodChapters,
-	littleRedRidingHoodBookData,
-} from 'src/features/bookPublic/german/littleRedRidingHood/littleRedRidingHood'
 import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter.command'
+import { oliverTwistBookData, oliverTwistChapters } from 'features/bookPublic/english/oliverTwist/Oliver Twist'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { ChapterData } from './common/common'
 import { CreatePublicBookCommand, CreateBookPublicInput } from './CreatePublicBook.command'
+import {
+	aStudyInScarletPartOneBookData,
+	aStudyInScarletPartOneChapters,
+} from './english/aStudyInScarletPartOne/aStudyInScarletPartOneBook'
+import {
+	aStudyInScarletPartTwoBookData,
+	aStudyInScarletPartTwoChapters,
+} from './english/aStudyInScarletPartTwo/aStudyInScarletPartTwoBook'
 import { solomonMinesBookData, solomonMinesChapters } from './english/solomonMines/solomonMinesBook'
 import { wizardOfOzBookData, wizardOfOzChapters } from './english/wizardOfOz/wizardOfOzBook'
+import {
+	littleRedRidingHoodChapters,
+	littleRedRidingHoodBookData,
+} from './german/littleRedRidingHood/littleRedRidingHood'
 
 export class CreatePublicBooksCommand implements ICommand {
 	constructor() {}
@@ -52,6 +61,18 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 			{
 				book: solomonMinesBookData(coversFolderName + 'english/'),
 				chapters: solomonMinesChapters,
+			},
+			{
+				book: oliverTwistBookData(coversFolderName + 'english/'),
+				chapters: oliverTwistChapters,
+			},
+			{
+				book: aStudyInScarletPartOneBookData(coversFolderName + 'english/'),
+				chapters: aStudyInScarletPartOneChapters,
+			},
+			{
+				book: aStudyInScarletPartTwoBookData(coversFolderName + 'english/'),
+				chapters: aStudyInScarletPartTwoChapters,
 			},
 			// German
 			{
@@ -95,7 +116,7 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 					bookId,
 					name: bookChapter.name,
 					header: bookChapter.header,
-					content: bookChapter.text,
+					originalContent: bookChapter.text,
 					note: null,
 				}),
 			)

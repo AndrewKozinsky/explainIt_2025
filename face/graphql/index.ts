@@ -30,11 +30,12 @@ export type BookChapterLiteOutModel = {
 export type BookChapterOutModel = {
   __typename?: 'BookChapterOutModel';
   book: BookLiteOutModel;
-  content?: Maybe<Scalars['String']['output']>;
   header?: Maybe<Scalars['String']['output']>;
   id: Scalars['Int']['output'];
   name?: Maybe<Scalars['String']['output']>;
   note?: Maybe<Scalars['String']['output']>;
+  originalContent?: Maybe<Scalars['String']['output']>;
+  processedContent?: Maybe<Scalars['String']['output']>;
   sentences?: Maybe<Array<SentenceOutModel>>;
 };
 
@@ -113,14 +114,14 @@ export type CreateBookChapterInput = {
   bookId: Scalars['Int']['input'];
   /** Book type: public or private */
   bookType: Scalars['String']['input'];
-  /** Content of the chapter */
-  content?: InputMaybe<Scalars['String']['input']>;
   /** Header on the chapter */
   header?: InputMaybe<Scalars['String']['input']>;
   /** Name on the chapter (chapter 1) */
   name?: InputMaybe<Scalars['String']['input']>;
   /** Note about this chapter */
   note?: InputMaybe<Scalars['String']['input']>;
+  /** Content of the chapter */
+  originalContent?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type CreatePrivateBookInput = {
@@ -464,8 +465,6 @@ export type TariffOutModel = {
 };
 
 export type UpdateBookChapterInput = {
-  /** BookChapter content */
-  content?: InputMaybe<Scalars['String']['input']>;
   /** BookChapter header */
   header?: InputMaybe<Scalars['String']['input']>;
   /** BookChapter id */
@@ -474,6 +473,8 @@ export type UpdateBookChapterInput = {
   name?: InputMaybe<Scalars['String']['input']>;
   /** BookChapter note */
   note?: InputMaybe<Scalars['String']['input']>;
+  /** BookChapter content */
+  originalContent?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type UpdatePrivateBookInput = {
@@ -709,7 +710,7 @@ export type BookChapter_CreateVariables = Exact<{
 }>;
 
 
-export type BookChapter_Create = { __typename?: 'Mutation', book_chapter_create: { __typename?: 'BookChapterOutModel', id: number, name?: string | null, header?: string | null, content?: string | null, note?: string | null, book: { __typename?: 'BookLiteOutModel', id: number, name?: string | null, languageCode: string, author?: string | null, note?: string | null, userId?: number | null } } };
+export type BookChapter_Create = { __typename?: 'Mutation', book_chapter_create: { __typename?: 'BookChapterOutModel', id: number, name?: string | null, header?: string | null, originalContent?: string | null, processedContent?: string | null, note?: string | null, book: { __typename?: 'BookLiteOutModel', id: number, name?: string | null, languageCode: string, author?: string | null, note?: string | null, userId?: number | null } } };
 
 export type BookChapter_DeleteVariables = Exact<{
   input: DeleteBookChapterInput;
@@ -723,14 +724,14 @@ export type BookChapter_GetVariables = Exact<{
 }>;
 
 
-export type BookChapter_Get = { __typename?: 'Query', book_chapter_get: { __typename?: 'BookChapterOutModel', id: number, name?: string | null, header?: string | null, note?: string | null, content?: string | null, sentences?: Array<{ __typename?: 'SentenceOutModel', id: number, startOffset: number, length: number }> | null, book: { __typename?: 'BookLiteOutModel', id: number, name?: string | null, languageCode: string, author?: string | null, note?: string | null, userId?: number | null } } };
+export type BookChapter_Get = { __typename?: 'Query', book_chapter_get: { __typename?: 'BookChapterOutModel', id: number, name?: string | null, header?: string | null, note?: string | null, originalContent?: string | null, processedContent?: string | null, sentences?: Array<{ __typename?: 'SentenceOutModel', id: number, startOffset: number, length: number }> | null, book: { __typename?: 'BookLiteOutModel', id: number, name?: string | null, languageCode: string, author?: string | null, note?: string | null, userId?: number | null } } };
 
 export type BookChapter_UpdateVariables = Exact<{
   input: UpdateBookChapterInput;
 }>;
 
 
-export type BookChapter_Update = { __typename?: 'Mutation', book_chapter_update: { __typename?: 'BookChapterOutModel', id: number, name?: string | null, header?: string | null, content?: string | null, note?: string | null, book: { __typename?: 'BookLiteOutModel', id: number, name?: string | null, languageCode: string, author?: string | null, note?: string | null, userId?: number | null } } };
+export type BookChapter_Update = { __typename?: 'Mutation', book_chapter_update: { __typename?: 'BookChapterOutModel', id: number, name?: string | null, header?: string | null, originalContent?: string | null, processedContent?: string | null, note?: string | null, book: { __typename?: 'BookLiteOutModel', id: number, name?: string | null, languageCode: string, author?: string | null, note?: string | null, userId?: number | null } } };
 
 export type Book_CreateVariables = Exact<{
   input: CreatePrivateBookInput;
@@ -1180,7 +1181,8 @@ export const BookChapter_CreateDocument = gql`
     id
     name
     header
-    content
+    originalContent
+    processedContent
     note
     book {
       id
@@ -1257,7 +1259,8 @@ export const BookChapter_GetDocument = gql`
     name
     header
     note
-    content
+    originalContent
+    processedContent
     sentences {
       id
       startOffset
@@ -1316,7 +1319,8 @@ export const BookChapter_UpdateDocument = gql`
     id
     name
     header
-    content
+    originalContent
+    processedContent
     note
     book {
       id

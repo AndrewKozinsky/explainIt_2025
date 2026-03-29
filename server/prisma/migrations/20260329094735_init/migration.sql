@@ -91,7 +91,8 @@ CREATE TABLE "BookChapter" (
     "book_public_id" INTEGER,
     "name" TEXT,
     "header" TEXT,
-    "content" TEXT,
+    "original_content" TEXT,
+    "processed_content" TEXT,
     "note" TEXT,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
@@ -194,9 +195,7 @@ CREATE TABLE "SubtitleSentenceInit" (
 CREATE TABLE "EngRusDictionary" (
     "id" SERIAL NOT NULL,
     "eng" TEXT NOT NULL,
-    "rus" TEXT NOT NULL,
     "transcription" TEXT,
-    "lexemes" TEXT,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 

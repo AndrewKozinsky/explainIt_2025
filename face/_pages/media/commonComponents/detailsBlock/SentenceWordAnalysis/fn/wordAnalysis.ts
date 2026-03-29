@@ -1,6 +1,6 @@
 export type WordAnalysis = {
 	word: string | null
-	translation: string | null
+	translation: WordAnalysisExampleWord[] | null
 	examples: WordAnalysisExample[] | null
 }
 
@@ -18,13 +18,23 @@ let lastSuccessfulWordAnalysis: WordAnalysis | null = null
 
 /**
  * Функция получает текст вида:
- * *   **room** — комната, помещение.
- * *   The `room` is very bright. — `Комната` очень светлая.
+ * *   **room** — комната, `помещение`, *пространство*, **место**.
+ * *   The `room` is bright. — `Комната` светлая.
+ * *   The *room* is bright. — *Комната* светлая.
+ * *   The **room** is bright. — **Комната** светлая.
  *
  * и возвращает данные типа:
  * const wordAnalysis: WordAnalysis = {
  * 	word: 'room',
- * 	translation: 'комната, помещение.',
+ * 	translation: [
+ * 		{text: 'комната'},
+ * 		{text: ', '},
+ * 		{text: 'помещение', flashed: true},
+ * 		{text: ', '},
+ * 		{text: 'пространство', flashed: true},
+ * 		{text: ', '},
+ * 		{text: 'место', flashed: true},
+ * 	]',
  * 	examples: [
  * 		{
  * 			text: [
@@ -36,7 +46,7 @@ let lastSuccessfulWordAnalysis: WordAnalysis | null = null
  * 					flashed: true,
  * 				},
  * 				{
- * 					text: ' is very bright.',
+ * 					text: ' is bright.',
  * 				},
  * 			],
  * 			translate: [
@@ -45,7 +55,53 @@ let lastSuccessfulWordAnalysis: WordAnalysis | null = null
  * 					flashed: true,
  * 				},
  * 				{
- * 					text: ' очень светлая.',
+ * 					text: ' светлая.',
+ * 				},
+ * 			],
+ * 		},
+ * 		{
+ * 			text: [
+ * 				{
+ * 					text: 'The ',
+ * 				},
+ * 				{
+ * 					text: 'room',
+ * 					flashed: true,
+ * 				},
+ * 				{
+ * 					text: ' is bright.',
+ * 				},
+ * 			],
+ * 			translate: [
+ * 				{
+ * 					text: 'Комната',
+ * 					flashed: true,
+ * 				},
+ * 				{
+ * 					text: ' светлая.',
+ * 				},
+ * 			],
+ * 		},
+ * 		{
+ * 			text: [
+ * 				{
+ * 					text: 'The ',
+ * 				},
+ * 				{
+ * 					text: 'room',
+ * 					flashed: true,
+ * 				},
+ * 				{
+ * 					text: ' is bright.',
+ * 				},
+ * 			],
+ * 			translate: [
+ * 				{
+ * 					text: 'Комната',
+ * 					flashed: true,
+ * 				},
+ * 				{
+ * 					text: ' светлая.',
  * 				},
  * 			],
  * 		},
@@ -66,10 +122,7 @@ export default function parseWordAnalysis(source: string): WordAnalysis | null {
 		}
 
 		const header = parseHeader(lines[0])
-		const examples = lines
-			.slice(1)
-			.filter(Boolean)
-			.map(parseExample)
+		const examples = lines.slice(1).filter(Boolean).map(parseExample)
 
 		const result: WordAnalysis = {
 			word: header.word,
@@ -93,7 +146,7 @@ function parseHeader(line: string): Pick<WordAnalysis, 'word' | 'translation'> {
 	if (headerMatch) {
 		return {
 			word: headerMatch[1].trim() || null,
-			translation: headerMatch[2]?.trim() || null,
+			translation: parseSourceText(headerMatch[2]?.trim() ?? ''),
 		}
 	}
 
@@ -111,17 +164,19 @@ function parseHeader(line: string): Pick<WordAnalysis, 'word' | 'translation'> {
 
 	if (separatorIndex === -1) {
 		return {
-			word: content || null,
+			word: unwrapMarkedText(content).trim() || null,
 			translation: null,
 		}
 	}
 
-	const word = content.slice(0, separatorIndex).replace(/^\*\*|\*\*$/g, '').trim()
+	const word = content
+		.slice(0, separatorIndex)
+		.trim()
 	const translation = content.slice(separatorIndex + 1).trim()
 
 	return {
-		word: word || null,
-		translation: translation || null,
+		word: unwrapMarkedText(word).trim() || null,
+		translation: parseSourceText(translation),
 	}
 }
 
@@ -139,34 +194,70 @@ function parseExample(line: string): WordAnalysisExample {
 	const translate = match[2]?.trim()
 
 	return {
-		text: text ? parseInlineBackticks(text) : null,
-		translate: translate ? parseInlineBackticks(translate) : null,
+		text: parseSourceText(text ?? ''),
+		translate: parseSourceText(translate ?? ''),
 	}
 }
 
-function parseInlineBackticks(text: string): WordAnalysisExampleWord[] {
+function parseSourceText(text: string): WordAnalysisExampleWord[] | null {
 	if (!text) {
-		return []
+		return null
 	}
 
-	const parts = text.split(/(`[^`]+`)/g).filter(Boolean)
+	const parts = text
+		.split(/(\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)/g)
+		.filter(Boolean)
 
-	return parts.map((part) => {
-		const isBackticked = part.startsWith('`') && part.endsWith('`')
+	const parsedParts = parts
+		.map((part) => {
+			const normalizedPart = unwrapMarkedText(part)
 
-		if (isBackticked) {
-			return {
-				text: part.slice(1, -1),
-				flashed: true,
+			if (!normalizedPart) {
+				return null
 			}
-		}
 
-		return {
-			text: part,
-		}
-	})
+			const isFlashed = isMarkedText(part)
+
+			if (isFlashed) {
+				return {
+					text: normalizedPart,
+					flashed: true,
+				}
+			}
+
+			return {
+				text: normalizedPart,
+			}
+		})
+		.filter(Boolean) as WordAnalysisExampleWord[]
+
+	return parsedParts.length ? parsedParts : null
+}
+
+function isMarkedText(text: string): boolean {
+	return (
+		(text.startsWith('**') && text.endsWith('**') && text.length > 4) ||
+		(text.startsWith('*') && text.endsWith('*') && text.length > 2) ||
+		(text.startsWith('`') && text.endsWith('`') && text.length > 2)
+	)
+}
+
+function unwrapMarkedText(text: string): string {
+	if (text.startsWith('**') && text.endsWith('**') && text.length > 4) {
+		return text.slice(2, -2)
+	}
+
+	if (text.startsWith('*') && text.endsWith('*') && text.length > 2) {
+		return text.slice(1, -1)
+	}
+
+	if (text.startsWith('`') && text.endsWith('`') && text.length > 2) {
+		return text.slice(1, -1)
+	}
+
+	return text
 }
 
 function isSuccessfulWordAnalysis(wordAnalysis: WordAnalysis): boolean {
-	return Boolean(wordAnalysis.word && wordAnalysis.translation)
+	return Boolean(wordAnalysis.word && wordAnalysis.translation?.length)
 }

@@ -1,107 +1,103 @@
-// ГЛАВА НЕ ГОТОВА
 export const chapter_45 = {
 	name: 'Chapter XLV',
 	header: 'Noah Claypole is employed by Fagin on a secret mission',
-	text: `
-------------------------------
-Та же самая задача для этого текста:
-The old man was up, betimes, next morning, and waited impatiently for the appearance of his new associate, who after a delay that seemed interminable, at length presented himself, and commenced a voracious assault on the breakfast.
+	text: `The old man got up early the next morning and waited impatiently for his new partner. After a delay that felt very long, he finally arrived and immediately began eating breakfast very greedily.
 
-“Bolter,” said Fagin, drawing up a chair and seating himself opposite Morris Bolter.
+“Bolter,” said Fagin, pulling up a chair and sitting opposite Morris Bolter.
 
-“Well, here I am,” returned Noah. “What’s the matter? Don’t yer ask me to do anything till I have done eating. That’s a great fault in this place. Yer never get time enough over yer meals.”
+“Well, here I am,” said Noah. “What’s the problem? And don’t ask me to do anything until I’ve finished eating. That’s a big problem in this place—you never get enough time for your meals.”
 
-“You can talk as you eat, can’t you?” said Fagin, cursing his dear young friend’s greediness from the very bottom of his heart.
+“You can talk while you eat, can’t you?” said Fagin, secretly cursing the young man’s greed.
 
-“Oh yes, I can talk. I get on better when I talk,” said Noah, cutting a monstrous slice of bread. “Where’s Charlotte?”
+“Oh yes, I can talk. I talk better while I eat,” said Noah, cutting a huge piece of bread. “Where’s Charlotte?”
 
-“Out,” said Fagin. “I sent her out this morning with the other young woman, because I wanted us to be alone.”
+“She’s out,” said Fagin. “I sent her out this morning with the other young woman, because I wanted us to be alone.”
 
-“Oh!” said Noah. “I wish yer’d ordered her to make some buttered toast first. Well. Talk away. Yer won’t interrupt me.”
+“Oh!” said Noah. “I wish you had told her to make some buttered toast first. Anyway, go on talking. You won’t disturb me.”
 
-There seemed, indeed, no great fear of anything interrupting him, as he had evidently sat down with a determination to do a great deal of business.
+In fact, nothing seemed likely to disturb him, as he had clearly decided to eat as much as possible.
 
-“You did well yesterday, my dear,” said Fagin. “Beautiful! Six shillings and ninepence halfpenny on the very first day! The kinchin lay will be a fortune to you.”
+“You did very well yesterday, my dear,” said Fagin. “Excellent! Six shillings and ninepence halfpenny on your very first day! This kind of work will make you rich.”
 
-“Don’t you forget to add three pint-pots and a milk-can,” said Mr. Bolter.
+“Don’t forget to add three beer mugs and a milk can,” said Mr. Bolter.
 
-“No, no, my dear. The pint-pots were great strokes of genius: but the milk-can was a perfect masterpiece.”
+“No, no, my dear. The mugs were very clever—but the milk can was a real masterpiece.”
 
-“Pretty well, I think, for a beginner,” remarked Mr. Bolter complacently. “The pots I took off airy railings, and the milk-can was standing by itself outside a public-house. I thought it might get rusty with the rain, or catch cold, yer know. Eh? Ha! ha! ha!”
+“Not bad for a beginner, I think,” said Mr. Bolter proudly. “I took the mugs from some railings, and the milk can was just standing outside a pub. I thought it might get rusty in the rain, you know. Eh? Ha! ha! ha!”
 
-Fagin affected to laugh very heartily; and Mr. Bolter having had his laugh out, took a series of large bites, which finished his first hunk of bread and butter, and assisted himself to a second.
+Fagin pretended to laugh loudly. When Mr. Bolter finished laughing, he took several big bites, finished his first piece of bread and butter, and helped himself to another.
 
-“I want you, Bolter,” said Fagin, leaning over the table, “to do a piece of work for me, my dear, that needs great care and caution.”
+“I need you, Bolter,” said Fagin, leaning across the table, “to do a job for me, my dear—a job that requires great care and caution.”
 
-----------------
-Та же самая задача для этого текста:
+“Listen,” said Bolter, “don’t send me into danger or make me go to police stations again. I don’t like that—not at all.”
 
-“I say,” rejoined Bolter, “don’t yer go shoving me into danger, or sending me any more o’ yer police-offices. That don’t suit me, that don’t; and so I tell yer.”
+“There’s no danger at all—not even a little,” said Fagin. “You only need to follow a woman.”
 
-“That’s not the smallest danger in it—not the very smallest,” said the Jew; “it’s only to dodge a woman.”
+“An old woman?” asked Mr. Bolter.
 
-“An old woman?” demanded Mr. Bolter.
+“A young one,” said Fagin.
 
-“A young one,” replied Fagin.
+“I’m good at that,” said Bolter. “I was very sneaky when I was at school. Why do I need to follow her? Not to—”
 
-“I can do that pretty well, I know,” said Bolter. “I was a regular cunning sneak when I was at school. What am I to dodge her for? Not to—”
+“Not to do anything,” said Fagin, “just to tell me where she goes, who she meets, and, if possible, what she says. Remember the street, if it’s a street, or the house, if it’s a house. Bring me back all the information you can.”
 
-“Not to do anything, but to tell me where she goes, who she sees, and, if possible, what she says; to remember the street, if it is a street, or the house, if it is a house; and to bring me back all the information you can.”
+“What will you pay me?” asked Noah, putting down his cup and looking at him eagerly.
 
-“What’ll yer give me?” asked Noah, setting down his cup, and looking his employer, eagerly, in the face.
+“If you do it well—one pound, my dear. One pound,” said Fagin, trying to make the job sound important. “And I don’t usually pay that much unless there is something valuable to gain.”
 
-“If you do it well, a pound, my dear. One pound,” said Fagin, wishing to interest him in the scent as much as possible. “And that’s what I never gave yet, for any job of work where there wasn’t valuable consideration to be gained.”
-
-“Who is she?” inquired Noah.
+“Who is she?” asked Noah.
 
 “One of us.”
 
-“Oh Lor!” cried Noah, curling up his nose. “Yer doubtful of her, are yer?”
+“Oh!” said Noah, wrinkling his nose. “So you don’t trust her, do you?”
 
-“She has found out some new friends, my dear, and I must know who they are,” replied Fagin.
+“She has made some new friends, my dear, and I want to know who they are,” said Fagin.
 
-“I see,” said Noah. “Just to have the pleasure of knowing them, if they’re respectable people, eh? Ha! ha! ha! I’m your man.”
+“I see,” said Noah. “Just because you want to meet them, if they are respectable people, right? Ha! ha! ha! I’m the right man for the job.”
 
-“I knew you would be,” cried Fagin, elated by the success of his proposal.
+“I knew you would be,” said Fagin, pleased.
 
-“Of course, of course,” replied Noah. “Where is she? Where am I to wait for her? Where am I to go?”
+“Of course, of course,” said Noah. “Where is she? Where should I wait? Where should I go?”
 
-“All that, my dear, you shall hear from me. I’ll point her out at the proper time,” said Fagin. “You keep ready, and leave the rest to me.”
+“You’ll hear all that from me, my dear. I’ll show her to you at the right time,” said Fagin. “Just be ready, and leave the rest to me.”
 
-----------------
-Та же самая задача для этого текста:
+That night, and the next, and the next again, the spy sat fully dressed in his worker’s clothes, ready to leave at a moment’s notice if Fagin called him. Six nights passed—six long and tiring nights. Each time, Fagin came back looking disappointed and only said that it was not the right time yet.
 
-That night, and the next, and the next again, the spy sat booted and equipped in his carter’s dress: ready to turn out at a word from Fagin. Six nights passed—six long weary nights—and on each, Fagin came home with a disappointed face, and briefly intimated that it was not yet time. On the seventh, he returned earlier, and with an exultation he could not conceal. It was Sunday.
+On the seventh night, he returned earlier than usual, clearly excited. It was Sunday.
 
-“She goes abroad tonight,” said Fagin, “and on the right errand, I’m sure; for she has been alone all day, and the man she is afraid of will not be back much before daybreak. Come with me. Quick!”
+“She will go out tonight,” said Fagin, “and for an important reason, I’m sure. She has been alone all day, and the man she fears will not return until nearly morning. Come with me. Quickly!”
 
-Noah started up without saying a word; for the Jew was in a state of such intense excitement that it infected him. They left the house stealthily, and hurrying through a labyrinth of streets, arrived at length before a public-house, which Noah recognised as the same in which he had slept, on the night of his arrival in London.
+Noah jumped up without a word. Fagin was so excited that it affected him too. They left the house quietly and hurried through many narrow streets. At last, they stopped in front of a pub, which Noah recognized as the same one where he had slept on his first night in London.
 
-It was past eleven o’clock, and the door was closed. It opened softly on its hinges as Fagin gave a low whistle. They entered, without noise; and the door was closed behind them.
+It was past eleven, and the door was closed. It opened quietly when Fagin gave a soft whistle. They went inside silently, and the door was shut behind them.
 
-Scarcely venturing to whisper, but substituting dumb show for words, Fagin, and the young Jew who had admitted them, pointed out the pane of glass to Noah, and signed to him to climb up and observe the person in the adjoining room.
+Without speaking, Fagin and the young man who had opened the door pointed to a glass window and signaled to Noah to climb up and look into the next room.
 
-“Is that the woman?” he asked, scarcely above his breath.
+“Is that the woman?” he whispered.
 
-Fagin nodded yes.
+Fagin nodded.
 
-“I can’t see her face well,” whispered Noah. “She is looking down, and the candle is behind her.”
+“I can’t see her face clearly,” Noah whispered. “She’s looking down, and the candle is behind her.”
 
-“Stay there,” whispered Fagin. He signed to Barney, who withdrew. In an instant, the lad entered the room adjoining, and, under pretence of snuffing the candle, moved it in the required position, and, speaking to the girl, caused her to raise her face.
+“Stay there,” whispered Fagin. He signaled to the boy, who left. A moment later, the boy entered the next room and, pretending to fix the candle, moved it so the light fell on the girl’s face. He spoke to her, and she raised her head.
 
-“I see her now,” cried the spy.
+“I can see her now,” whispered the spy.
 
-“Plainly?”
+“Clearly?”
 
-“I should know her among a thousand.”
+“I would recognize her anywhere.”
 
-He hastily descended, as the room-door opened, and the girl came out. Fagin drew him behind a small partition which was curtained off, and they held their breaths as she passed within a few feet of their place of concealment, and emerged by the door at which they had entered.
+He quickly climbed down just as the door opened and the girl came out. Fagin pulled him behind a small curtain, and they held their breath as she passed very close to them and went out through the door.
 
-“Hist!” cried the lad who held the door. “Dow.”
+“Quiet!” whispered the boy at the door. “Down.”
 
-Noah exchanged a look with Fagin, and darted out.
+Noah exchanged a quick look with Fagin and rushed outside.
 
-“To the left,” whispered the lad; “take the left had, and keep od the other side.”
+“To the left,” whispered the boy. “Go left, and stay on the other side of the street.”
 
-He did so; and, by the light of the lamps, saw the girl’s retreating figure, already at some distance before him. He advanced as near as he considered prudent, and kept on the opposite side of the street, the better to observe her motions. She looked nervously round, twice or thrice, and once stopped to let two men who were following close behind her, pass on. She seemed to gather courage as she advanced, and to walk with a steadier and firmer step. The spy preserved the same relative distance between them, and followed: with his eye upon her.`,
+Noah did as he was told. By the light of the street lamps, he saw the girl walking away in the distance. He followed her carefully, staying far enough away and on the opposite side of the street so he could watch her.
+
+She looked around nervously several times. Once, she stopped to let two men walking behind her pass. As she went on, she seemed to become braver and walked more steadily.
+
+The spy kept the same distance and followed her closely, watching her every move.`,
 }

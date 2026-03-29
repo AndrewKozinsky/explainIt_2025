@@ -121,6 +121,8 @@ export class MainConfigService {
 			},
 			// Сколько переводов может сделать пользователь в день без тарифа позволяющего переводить любое количество материалов в пределах баланса
 			dailyTranslationsLimit: 3,
+			// Grafana Loki
+			loki: enVariables.loki,
 		}
 	}
 
@@ -189,6 +191,11 @@ export class MainConfigService {
 				s3: {
 					tenantId: this.configService.get<string>('CLOUD_RU_S3_TENANT_ID') as string,
 				},
+			},
+			loki: {
+				url: this.configService.get<string>('LOKI_URL') as string,
+				userId: this.configService.get<string>('LOKI_USER_ID') as string,
+				apiKey: this.configService.get<string>('LOKI_API_KEY') as string,
 			},
 		}
 	}
