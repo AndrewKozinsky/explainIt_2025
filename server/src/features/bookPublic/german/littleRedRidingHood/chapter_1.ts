@@ -52,7 +52,7 @@ Der Wolf lief direkt zum Haus der Großmutter. Er klopfte an die Tür.
 Der Wolf öffnete die Tür, ging hinein und fraß die Großmutter.
 
 Dann zog er ihre Kleider an, setzte ihre Haube auf, legte sich ins Bett und zog die Vorhänge zu.
------
+
 Rotkäppchen lief im Wald herum und pflückte Blumen. Als sie so viele hatte, dass sie keine mehr tragen konnte, dachte sie wieder an die Großmutter. Dann ging sie weiter zu ihrem Haus.
 
 Die Tür stand offen. Das fand Rotkäppchen seltsam.

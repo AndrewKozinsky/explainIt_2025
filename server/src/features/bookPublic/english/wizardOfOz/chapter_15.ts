@@ -85,8 +85,6 @@ Dorothy spoke first.
 
 “You must keep your promises!” cried Dorothy.
 
-------------
-
 The Lion decided it might help to scare the Wizard, so he gave a huge, loud roar. It was so powerful and frightening that Toto jumped away in fear and knocked over a screen standing in the corner of the room.
 
 When the screen fell to the floor with a loud crash, they all looked toward it. What they saw made them stare in complete surprise.
@@ -139,8 +137,6 @@ The travelers looked at him in confusion.
 
 “That was one of my tricks,” said Oz. “Come with me and I will explain everything.”
 
-------------
-
 He led them into a small room behind the Throne Room, and they all followed him.
 
 In one corner lay the large Head they had seen before. It was made from many layers of paper with a carefully painted face.
@@ -168,8 +164,6 @@ So they all sat down and listened carefully while he began his story.
 “No, but it is very far from here,” he replied, shaking his head sadly. “When I grew up, I became a ventriloquist. I was trained very well by a great teacher. I can imitate many animals and birds.”
 
 He made a sound just like a kitten. Toto immediately lifted his ears and looked around, trying to find the kitten.
-
-------------
 
 “After some time,” Oz continued, “I became tired of that job and decided to work with hot-air balloons.”
 
@@ -212,8 +206,6 @@ He made a sound just like a kitten. Toto immediately lifted his ears and looked 
 “Oh no, my dear,” Oz replied. “I am really a good man. But I must admit that I am a very bad wizard.”
 
 “Can’t you give me brains?” asked the Scarecrow.
-
-------------
 
 “You don’t really need them,” Oz answered. “You are learning something new every day. Even a baby has brains, but it knows very little. Experience is what brings knowledge, and the longer you live, the more experience you gain.”
 

@@ -105,7 +105,6 @@ With that, Sikes snatched the money from Fagin and tied it in his neckcloth.
 
 “They belong to the old gentleman,” cried Oliver Twist, wringing his hands. “He was kind to me and took care of me when I was sick. Please send them back—the books and the money. Keep me here if you want, but please send them back! Otherwise they will think I stole them. Please—have mercy and send them back!”
 
-------------------------------
 With these words, spoken in deep sorrow, Oliver fell on his knees before the Jew and clasped his hands in despair.
 
 “The boy is right,” said Fagin, looking around carefully and frowning. “You’re right, Oliver, you’re right. They will think you stole them. Ha! ha!” he laughed, rubbing his hands. “It couldn’t have happened better if we had planned it!”

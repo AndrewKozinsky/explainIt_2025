@@ -69,8 +69,6 @@ The King of the Winged Monkeys bowed deeply to Dorothy and asked, “What is you
 
 “We will carry you there,” replied the King.
 
-------------
-
 Immediately two monkeys lifted Dorothy in their arms and flew into the air with her. Other monkeys carried the Scarecrow, the Tin Woodman, and the Lion. One small monkey grabbed Toto and followed them, although the little dog tried hard to bite him.
 
 At first the Scarecrow and the Tin Woodman felt a little afraid, because they remembered how badly the Winged Monkeys had treated them before. But they soon saw that the monkeys did not mean to harm them, and they began to enjoy the flight. They looked down and admired the beautiful forests and gardens far below.
@@ -102,8 +100,6 @@ Dorothy sat comfortably between two large monkeys, one of them the King himself.
 “One day, shortly before the wedding, my grandfather and his monkeys saw Quelala walking beside a river. He was wearing beautiful clothes made of pink silk and purple velvet. My grandfather decided to play a trick.
 
 “At his command the monkeys flew down, grabbed Quelala, carried him high above the river, and dropped him into the water.
-
-------------
 
 “‘Swim out, my friend!’ my grandfather shouted. ‘Let us see if the water ruins your fine clothes!’
 
