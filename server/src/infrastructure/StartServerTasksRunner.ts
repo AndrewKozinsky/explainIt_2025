@@ -1,9 +1,9 @@
 import { promisify } from 'util'
 import { Injectable, OnApplicationBootstrap } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
-import { CreatePublicBooksCommand } from 'src/features/bookPublic/CreatePublicBooks.command'
-import { CreatePublicVideosCommand } from 'src/features/video/CreatePublicVideos.command'
+import { CreatePublicBooksCommand } from 'features/bookPublic/CreatePublicBooks.command'
 import { CreateTariffsCommand } from 'features/tariff/CreateTariffs.command'
+import { CreatePublicVideosCommand } from 'features/video/CreatePublicVideos.command'
 
 @Injectable()
 export class StartServerTasksRunner implements OnApplicationBootstrap {

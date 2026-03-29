@@ -1,12 +1,15 @@
 import 'dotenv/config'
 import { NestFactory } from '@nestjs/core'
+import { json, urlencoded } from 'express'
+import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston'
 import { AppModule } from './app.module'
 import { applyAppSettings } from './infrastructure/applyAppSettings'
 import { MainConfigService } from './infrastructure/mainConfig/mainConfig.service'
-import { json, urlencoded } from 'express'
 
 async function bootstrap() {
 	const app = await NestFactory.create(AppModule)
+
+	app.useLogger(app.get(WINSTON_MODULE_NEST_PROVIDER))
 
 	// Increase request body size limits to 10 MB for JSON and URL-encoded payloads
 	app.use(json({ limit: '10mb' }))

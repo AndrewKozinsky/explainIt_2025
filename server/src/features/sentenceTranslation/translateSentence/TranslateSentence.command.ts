@@ -1,4 +1,7 @@
+import { Inject } from '@nestjs/common'
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+import { WINSTON_MODULE_PROVIDER } from 'nest-winston'
+import { Logger } from 'winston'
 import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
 import { DeepSeekTokenUsageBalanceChargeCommand } from 'features/payment/DeepSeekTokenUsageBalanceCharge.command'
 import { OpenAiTokenUsageBalanceChargeCommand } from 'features/payment/OpenAiTokenUsageBalanceCharge.command'
@@ -52,6 +55,7 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 		private sentenceTranslationAccessService: SentenceTranslationAccessService,
 		private dailyTranslationLimitService: DailyTranslationLimitService,
 		private commandBus: CommandBus,
+		@Inject(WINSTON_MODULE_PROVIDER) private readonly logger: Logger,
 	) {}
 
 	async execute(command: TranslateSentenceCommand): Promise<TranslateSentenceResult> {
@@ -64,6 +68,10 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 				translatedText += event.text
 			}
 			if (event.type === 'error') {
+				this.logger.info('Error while translating sentence', {
+					message: event.message,
+				})
+
 				throw new CustomGraphQLError(errorMessage.unknownError, ErrorCode.InternalServerError_500)
 			}
 		}

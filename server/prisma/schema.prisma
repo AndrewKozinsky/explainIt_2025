@@ -186,9 +186,7 @@ model SubtitleSentenceInit {
 model EngRusDictionary {
     id            Int      @id @default(autoincrement())
     eng           String   @unique
-    rus           String
     transcription String?
-    lexemes       String?
     created_at    DateTime @default(now())
     updated_at    DateTime @default(now())
 }

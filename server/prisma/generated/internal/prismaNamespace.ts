@@ -1745,9 +1745,7 @@ export type SubtitleSentenceInitScalarFieldEnum = (typeof SubtitleSentenceInitSc
 export const EngRusDictionaryScalarFieldEnum = {
   id: 'id',
   eng: 'eng',
-  rus: 'rus',
   transcription: 'transcription',
-  lexemes: 'lexemes',
   created_at: 'created_at',
   updated_at: 'updated_at'
 } as const

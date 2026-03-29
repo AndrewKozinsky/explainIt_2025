@@ -25,7 +25,7 @@ export function aStudyInScarletPartOneBookData(coversFolderName: string) {
 
 Уровень B1-B2 (Intermediate / Upper-Intermediate).`,
 		languageCode: languages.en.code as Language,
-		freeToUse: true,
+		freeToUse: false,
 		covers: covers.map((cover) => coversFolderName + cover),
 		coverBackgroundColor: '#6C8084',
 	}

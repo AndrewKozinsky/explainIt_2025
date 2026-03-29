@@ -838,25 +838,25 @@ export const bdConfig = {
 				example: 'life',
 				unique: true,
 			},
-			rus: {
+			/*rus: {
 				type: 'string',
 				description: 'Russian text',
 				required: true,
 				maxLength: 500,
 				example: 'жизнь',
-			},
+			},*/
 			transcription: {
 				type: 'string',
 				description: 'Transcription',
 				required: false,
 				maxLength: 500,
 			},
-			lexemes: {
+			/*lexemes: {
 				type: 'string',
 				description: 'Lexemes',
 				required: false,
 				maxLength: 5000,
-			},
+			},*/
 			created_at: {
 				type: 'createdAt',
 			},
