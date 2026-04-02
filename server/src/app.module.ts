@@ -30,7 +30,7 @@ import { OpenAIModule } from './infrastructure/openAI/openAI.module'
 import { RedisModule } from './infrastructure/redis/redis.module'
 import { TelegramModule } from './infrastructure/telegram/telegram.module'
 import { YooKassaModule } from './infrastructure/yooKassa/yooKassa.module'
-import { AiModule } from './routes/ai/ai.module'
+// import { AiModule } from './routes/ai/ai.module'
 import { AuthModule } from './routes/auth/auth.module'
 import { BookChapterModule } from './routes/bookChapter/bookChapter.module'
 import { BookModule } from './routes/bookPrivate/book.module'
@@ -72,7 +72,7 @@ import { WebhookModule } from './routes/webhook/webhook.module'
 		CqrsModule,
 		HashAdapterModule,
 		MainConfigModule,
-		AiModule,
+		// AiModule,
 		EmailAdapterModule,
 		AuthModule,
 		TelegramModule,

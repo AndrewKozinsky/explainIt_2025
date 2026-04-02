@@ -8,13 +8,16 @@ CREATE TYPE "PaymentStatus" AS ENUM ('PENDING', 'SUCCESS', 'FAILED', 'CANCELED')
 CREATE TYPE "PaymentProviderName" AS ENUM ('YOOKASSA');
 
 -- CreateEnum
-CREATE TYPE "LanguageCode" AS ENUM ('en', 'es', 'fr', 'de', 'it', 'pt', 'ru', 'tr', 'ar', 'zhCMN', 'ko', 'ja');
+CREATE TYPE "LanguageCode" AS ENUM ('en', 'es', 'fr', 'de');
 
 -- CreateEnum
 CREATE TYPE "S3ProviderName" AS ENUM ('cloudRu');
 
 -- CreateEnum
 CREATE TYPE "VideoTextType" AS ENUM ('text', 'subtitles');
+
+-- CreateEnum
+CREATE TYPE "VoiceGender" AS ENUM ('MALE', 'FEMALE');
 
 -- CreateTable
 CREATE TABLE "User" (
@@ -192,14 +195,44 @@ CREATE TABLE "SubtitleSentenceInit" (
 );
 
 -- CreateTable
-CREATE TABLE "EngRusDictionary" (
+CREATE TABLE "Word" (
     "id" SERIAL NOT NULL,
-    "eng" TEXT NOT NULL,
-    "transcription" TEXT,
-    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updated_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "word" TEXT NOT NULL,
+    "language_code" "LanguageCode" NOT NULL,
 
-    CONSTRAINT "EngRusDictionary_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "Word_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "Transcription" (
+    "id" SERIAL NOT NULL,
+    "word_id" INTEGER NOT NULL,
+    "ipa" TEXT,
+    "pinyin" TEXT,
+
+    CONSTRAINT "Transcription_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "Voice" (
+    "id" SERIAL NOT NULL,
+    "name" TEXT NOT NULL,
+    "language_code" "LanguageCode" NOT NULL,
+    "gender" "VoiceGender" NOT NULL,
+
+    CONSTRAINT "Voice_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "AudioPronunciation" (
+    "id" SERIAL NOT NULL,
+    "word_id" INTEGER NOT NULL,
+    "voice_id" INTEGER NOT NULL,
+    "audio_url" TEXT NOT NULL,
+    "duration" INTEGER NOT NULL,
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "AudioPronunciation_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -248,7 +281,10 @@ CREATE INDEX "SubtitleSentenceInit_subtitle_id_idx" ON "SubtitleSentenceInit"("s
 CREATE INDEX "SubtitleSentenceInit_sentence_id_idx" ON "SubtitleSentenceInit"("sentence_id");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "EngRusDictionary_eng_key" ON "EngRusDictionary"("eng");
+CREATE UNIQUE INDEX "Word_word_key" ON "Word"("word");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Transcription_word_id_key" ON "Transcription"("word_id");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Tariff_code_key" ON "Tariff"("code");
@@ -300,6 +336,15 @@ ALTER TABLE "SubtitleSentenceInit" ADD CONSTRAINT "SubtitleSentenceInit_subtitle
 
 -- AddForeignKey
 ALTER TABLE "SubtitleSentenceInit" ADD CONSTRAINT "SubtitleSentenceInit_sentence_id_fkey" FOREIGN KEY ("sentence_id") REFERENCES "Sentence"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Transcription" ADD CONSTRAINT "Transcription_word_id_fkey" FOREIGN KEY ("word_id") REFERENCES "Word"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "AudioPronunciation" ADD CONSTRAINT "AudioPronunciation_word_id_fkey" FOREIGN KEY ("word_id") REFERENCES "Word"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "AudioPronunciation" ADD CONSTRAINT "AudioPronunciation_voice_id_fkey" FOREIGN KEY ("voice_id") REFERENCES "Voice"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "UserSubscription" ADD CONSTRAINT "UserSubscription_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;

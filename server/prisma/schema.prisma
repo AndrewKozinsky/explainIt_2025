@@ -183,12 +183,39 @@ model SubtitleSentenceInit {
     @@index([sentence_id])
 }
 
-model EngRusDictionary {
-    id            Int      @id @default(autoincrement())
-    eng           String   @unique
-    transcription String?
-    created_at    DateTime @default(now())
-    updated_at    DateTime @default(now())
+model Word {
+    id                 Int                  @id @default(autoincrement())
+    word               String               @unique
+    language_code      LanguageCode
+    Transcription      Transcription?
+    AudioPronunciation AudioPronunciation[]
+}
+
+model Transcription {
+    id      Int     @id @default(autoincrement())
+    word    Word    @relation(fields: [word_id], references: [id], onDelete: Cascade)
+    word_id Int     @unique
+    ipa     String?
+    pinyin  String?
+}
+
+model Voice {
+    id                 Int                  @id @default(autoincrement())
+    name               String
+    language_code      LanguageCode
+    gender             VoiceGender
+    AudioPronunciation AudioPronunciation[]
+}
+
+model AudioPronunciation {
+    id         Int      @id @default(autoincrement())
+    word       Word     @relation(fields: [word_id], references: [id], onDelete: Cascade)
+    word_id    Int
+    voice      Voice    @relation(fields: [voice_id], references: [id], onDelete: Cascade)
+    voice_id   Int
+    audio_url  String
+    duration   Int
+    created_at DateTime @default(now())
 }
 
 model Tariff {
@@ -240,14 +267,6 @@ enum LanguageCode {
     es
     fr
     de
-    it
-    pt
-    ru
-    tr
-    ar
-    zhCMN
-    ko
-    ja
 }
 
 enum S3ProviderName {
@@ -257,4 +276,9 @@ enum S3ProviderName {
 enum VideoTextType {
     text
     subtitles
+}
+
+enum VoiceGender {
+    MALE
+    FEMALE
 }

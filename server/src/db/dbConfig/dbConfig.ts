@@ -9,7 +9,8 @@ const s3ProviderName = ['cloudRu'] // https://s3.cloud.ru/explain/videoDev/c8b0a
  * With help of this structure, it is formed schema.prisma and class-validator set of decorators to check fields in DTO.
  */
 export const bdConfig = {
-	AI: {
+	// DELETE LATER
+	/*AI: {
 		dtoProps: {
 			rusSentence: {
 				type: 'string',
@@ -29,7 +30,7 @@ export const bdConfig = {
 			},
 		},
 		dbFields: {},
-	},
+	},*/
 	User: {
 		dtoProps: {
 			password: {
@@ -809,59 +810,130 @@ export const bdConfig = {
 			},
 		},
 	},
-	EngRusDictionary: {
-		dtoProps: {
-			sourceLanguageCode: {
-				type: 'string',
-				description: 'Language code',
-				required: true,
-				maxLength: 2,
-				example: 'en',
-			},
-			targetLanguageCode: {
-				type: 'string',
-				description: 'Language code',
-				required: true,
-				maxLength: 2,
-				example: 'ru',
-			},
-		},
+	// Слово или фраза. Используется в таблице транскрипций и озвучки
+	Word: {
+		dtoProps: {},
 		dbFields: {
 			id: {
 				type: 'index',
 			},
-			eng: {
+			word: {
 				type: 'string',
-				description: 'English text',
+				description: 'Word or phrase in foreign language',
 				required: true,
 				maxLength: 500,
 				example: 'life',
 				unique: true,
 			},
-			/*rus: {
-				type: 'string',
-				description: 'Russian text',
+			language_code: {
+				type: 'enum',
+				enumName: 'LanguageCode',
+				variants: languagesArr,
 				required: true,
-				maxLength: 500,
-				example: 'жизнь',
-			},*/
-			transcription: {
+			},
+			Transcription: {
+				type: 'parentOneToOne',
+				required: false,
+			},
+			AudioPronunciation: {
+				type: 'oneToMany',
+			},
+		},
+	},
+	// Транскрипция слова или фразы
+	Transcription: {
+		dtoProps: {},
+		dbFields: {
+			id: {
+				type: 'index',
+			},
+			word_id: {
+				type: 'childOneToOne',
+				thisField: 'word_id',
+				foreignTable: 'Word',
+				foreignField: 'id',
+				required: true,
+			},
+			ipa: {
 				type: 'string',
-				description: 'Transcription',
+				description: 'IPA transcription',
 				required: false,
 				maxLength: 500,
 			},
-			/*lexemes: {
+			pinyin: {
 				type: 'string',
-				description: 'Lexemes',
+				description: 'Pinyin transcription (for Chinese)',
 				required: false,
-				maxLength: 5000,
-			},*/
+				maxLength: 500,
+			},
+		},
+	},
+	// Данные о голосе для озвучки
+	Voice: {
+		dtoProps: {},
+		dbFields: {
+			id: {
+				type: 'index',
+			},
+			name: {
+				type: 'string',
+				description: 'Voice name',
+				required: true,
+				maxLength: 100,
+				example: 'Alex',
+			},
+			language_code: {
+				type: 'enum',
+				enumName: 'LanguageCode',
+				variants: languagesArr,
+				required: true,
+			},
+			gender: {
+				type: 'enum',
+				enumName: 'VoiceGender',
+				variants: ['MALE', 'FEMALE'],
+				description: 'Gender of the voice',
+				required: true,
+			},
+			AudioPronunciation: {
+				type: 'oneToMany',
+			},
+		},
+	},
+	// Озвучка слова или фразы
+	AudioPronunciation: {
+		dtoProps: {},
+		dbFields: {
+			id: {
+				type: 'index',
+			},
+			word_id: {
+				type: 'manyToOne',
+				thisField: 'word_id',
+				foreignTable: 'Word',
+				foreignField: 'id',
+				required: true,
+			},
+			voice_id: {
+				type: 'manyToOne',
+				thisField: 'voice_id',
+				foreignTable: 'Voice',
+				foreignField: 'id',
+				required: true,
+			},
+			audio_url: {
+				type: 'string',
+				description: 'URL of the audio file',
+				required: true,
+				maxLength: 1000,
+			},
+			duration: {
+				type: 'number',
+				description: 'Duration of the audio in milliseconds',
+				required: true,
+			},
 			created_at: {
 				type: 'createdAt',
-			},
-			updated_at: {
-				type: 'updatedAt',
 			},
 		},
 	},

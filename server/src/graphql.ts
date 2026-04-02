@@ -8,15 +8,6 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export interface CheckTranslationInput {
-    rusSentence: string;
-    engSentence: string;
-}
-
-export interface GetTranscriptionInput {
-    engSentence: string;
-}
-
 export interface GetPrivateBookInput {
     id: number;
 }
@@ -360,8 +351,6 @@ export interface BuySubscriptionWithYooKassaOutModel {
 }
 
 export interface IQuery {
-    ai_checkTranslation(input: CheckTranslationInput): CheckTranslationOutModel | Promise<CheckTranslationOutModel>;
-    ai_getTranscription(input: GetTranscriptionInput): GetTranscriptionOutModel | Promise<GetTranscriptionOutModel>;
     auth_getMe(): UserOutModel | Promise<UserOutModel>;
     book_user_books(): BookPrivateOutModel[] | Promise<BookPrivateOutModel[]>;
     book_get(input: GetPrivateBookInput): BookPrivateOutModel | Promise<BookPrivateOutModel>;
@@ -373,23 +362,6 @@ export interface IQuery {
     video_public_get_videos(): VideoPublicLiteOutModel[] | Promise<VideoPublicLiteOutModel[]>;
     video_public_get(input: GetPublicVideoInput): VideoPublicOutModel | Promise<VideoPublicOutModel>;
     tariff_get_tariffs(): TariffOutModel[] | Promise<TariffOutModel[]>;
-}
-
-export interface CheckTranslationOutSuccessModel {
-    correct: boolean;
-    analysis: string;
-}
-
-export interface CheckTranslationOutErrorModel {
-    error: string;
-}
-
-export interface GetTranscriptionOutSuccessModel {
-    transcription: string;
-}
-
-export interface GetTranscriptionOutErrorModel {
-    error: string;
 }
 
 export interface IMutation {
@@ -412,6 +384,4 @@ export interface IMutation {
 }
 
 export type DateTime = any;
-export type CheckTranslationOutModel = CheckTranslationOutSuccessModel | CheckTranslationOutErrorModel;
-export type GetTranscriptionOutModel = GetTranscriptionOutSuccessModel | GetTranscriptionOutErrorModel;
 type Nullable<T> = T | null;

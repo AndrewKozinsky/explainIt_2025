@@ -5,7 +5,6 @@ export const languages = {
 		name: 'Английский',
 		code: 'en',
 	},
-
 	es: {
 		name: 'Испанский',
 		code: 'es',
@@ -18,37 +17,32 @@ export const languages = {
 		name: 'Немецкий',
 		code: 'de',
 	},
-	it: {
+	/*it: {
 		name: 'Итальянский',
 		code: 'it',
-	},
-	pt: {
+	},*/
+	/*pt: {
 		name: 'Португальский',
 		code: 'pt',
-	},
-	ru: {
-		name: 'Русский',
-		code: 'ru',
-	},
-	tr: {
+	},*/
+	/*tr: {
 		name: 'Турецкий',
 		code: 'ja',
-	},
-	ar: {
+	},*/
+	/*ar: {
 		name: 'Арабский',
 		code: 'ar',
-	},
-	zhCMN: {
+	},*/
+	/*zhCMN: {
 		name: 'Китайский (Мандаринский)',
 		code: 'zhCMN',
-	},
-	ko: {
+	},*/
+	/*ko: {
 		name: 'Корейский',
 		code: 'ko',
-	},
-
-	ja: {
+	},*/
+	/*ja: {
 		name: 'Японский',
 		code: 'ja',
-	},
+	},*/
 }
