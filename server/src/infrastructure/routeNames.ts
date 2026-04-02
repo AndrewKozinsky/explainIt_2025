@@ -69,6 +69,13 @@ export const RouteNames = {
 	TARIFF: {
 		GET_ALL: 'tariff_get_tariffs',
 	},
+	WORD: {
+		GET: 'word_get',
+		CREATE: 'word_create',
+	},
+	TRANSCRIPTION: {
+		CREATE: 'create_transcription',
+	},
 }
 
 export default RouteNames

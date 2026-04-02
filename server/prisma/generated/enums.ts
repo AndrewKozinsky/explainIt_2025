@@ -37,15 +37,7 @@ export const LanguageCode = {
   en: 'en',
   es: 'es',
   fr: 'fr',
-  de: 'de',
-  it: 'it',
-  pt: 'pt',
-  ru: 'ru',
-  tr: 'tr',
-  ar: 'ar',
-  zhCMN: 'zhCMN',
-  ko: 'ko',
-  ja: 'ja'
+  de: 'de'
 } as const
 
 export type LanguageCode = (typeof LanguageCode)[keyof typeof LanguageCode]
@@ -64,3 +56,11 @@ export const VideoTextType = {
 } as const
 
 export type VideoTextType = (typeof VideoTextType)[keyof typeof VideoTextType]
+
+
+export const VoiceGender = {
+  MALE: 'MALE',
+  FEMALE: 'FEMALE'
+} as const
+
+export type VoiceGender = (typeof VoiceGender)[keyof typeof VoiceGender]

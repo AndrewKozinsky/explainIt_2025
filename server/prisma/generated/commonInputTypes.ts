@@ -309,6 +309,23 @@ export type EnumS3ProviderNameWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedEnumS3ProviderNameFilter<$PrismaModel>
 }
 
+export type EnumVoiceGenderFilter<$PrismaModel = never> = {
+  equals?: $Enums.VoiceGender | Prisma.EnumVoiceGenderFieldRefInput<$PrismaModel>
+  in?: $Enums.VoiceGender[] | Prisma.ListEnumVoiceGenderFieldRefInput<$PrismaModel>
+  notIn?: $Enums.VoiceGender[] | Prisma.ListEnumVoiceGenderFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumVoiceGenderFilter<$PrismaModel> | $Enums.VoiceGender
+}
+
+export type EnumVoiceGenderWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.VoiceGender | Prisma.EnumVoiceGenderFieldRefInput<$PrismaModel>
+  in?: $Enums.VoiceGender[] | Prisma.ListEnumVoiceGenderFieldRefInput<$PrismaModel>
+  notIn?: $Enums.VoiceGender[] | Prisma.ListEnumVoiceGenderFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumVoiceGenderWithAggregatesFilter<$PrismaModel> | $Enums.VoiceGender
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumVoiceGenderFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumVoiceGenderFilter<$PrismaModel>
+}
+
 export type NestedIntFilter<$PrismaModel = never> = {
   equals?: number | Prisma.IntFieldRefInput<$PrismaModel>
   in?: number[] | Prisma.ListIntFieldRefInput<$PrismaModel>
@@ -615,6 +632,23 @@ export type NestedEnumS3ProviderNameWithAggregatesFilter<$PrismaModel = never> =
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumS3ProviderNameFilter<$PrismaModel>
   _max?: Prisma.NestedEnumS3ProviderNameFilter<$PrismaModel>
+}
+
+export type NestedEnumVoiceGenderFilter<$PrismaModel = never> = {
+  equals?: $Enums.VoiceGender | Prisma.EnumVoiceGenderFieldRefInput<$PrismaModel>
+  in?: $Enums.VoiceGender[] | Prisma.ListEnumVoiceGenderFieldRefInput<$PrismaModel>
+  notIn?: $Enums.VoiceGender[] | Prisma.ListEnumVoiceGenderFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumVoiceGenderFilter<$PrismaModel> | $Enums.VoiceGender
+}
+
+export type NestedEnumVoiceGenderWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.VoiceGender | Prisma.EnumVoiceGenderFieldRefInput<$PrismaModel>
+  in?: $Enums.VoiceGender[] | Prisma.ListEnumVoiceGenderFieldRefInput<$PrismaModel>
+  notIn?: $Enums.VoiceGender[] | Prisma.ListEnumVoiceGenderFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumVoiceGenderWithAggregatesFilter<$PrismaModel> | $Enums.VoiceGender
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumVoiceGenderFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumVoiceGenderFilter<$PrismaModel>
 }
 
 

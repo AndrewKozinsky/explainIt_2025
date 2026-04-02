@@ -9,28 +9,6 @@ const s3ProviderName = ['cloudRu'] // https://s3.cloud.ru/explain/videoDev/c8b0a
  * With help of this structure, it is formed schema.prisma and class-validator set of decorators to check fields in DTO.
  */
 export const bdConfig = {
-	// DELETE LATER
-	/*AI: {
-		dtoProps: {
-			rusSentence: {
-				type: 'string',
-				minLength: 5,
-				maxLength: 120,
-				description: 'Sentence in Russian',
-				example: 'Он часто бегает',
-				required: true,
-			},
-			engSentence: {
-				type: 'string',
-				minLength: 1,
-				maxLength: 120,
-				description: 'Sentence in English',
-				example: 'He often runs',
-				required: true,
-			},
-		},
-		dbFields: {},
-	},*/
 	User: {
 		dtoProps: {
 			password: {

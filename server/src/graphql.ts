@@ -29,6 +29,10 @@ export interface GetPublicVideoInput {
     id: number;
 }
 
+export interface GetWordInput {
+    word: string;
+}
+
 export interface RegisterUserInput {
     email: string;
     password: string;
@@ -116,6 +120,33 @@ export interface DeletePrivateVideoInput {
     id: number;
 }
 
+export interface CreateWordInput {
+    word: string;
+    languageCode: string;
+}
+
+export interface CreateTranscriptionInput {
+    wordId: number;
+}
+
+export interface CurrentSubscriptionOutModel {
+    tariffId: number;
+    tariffCode: string;
+    tariffName: string;
+    pricePaid: number;
+    balance: number;
+    includedFileStorageMb: number;
+    startsAt: string;
+    endsAt: string;
+}
+
+export interface UserOutModel {
+    id: number;
+    email: string;
+    isUserConfirmed: boolean;
+    currentSubscription?: Nullable<CurrentSubscriptionOutModel>;
+}
+
 export interface BookPrivateOutModel {
     id: number;
     author?: Nullable<string>;
@@ -173,6 +204,10 @@ export interface BookPublicOutModel {
     chapters: BookChapterLiteOutModel[];
 }
 
+export interface BuySubscriptionWithYooKassaOutModel {
+    confirmationUrl: string;
+}
+
 export interface TariffOutModel {
     id: number;
     code: string;
@@ -182,6 +217,13 @@ export interface TariffOutModel {
     includedBalance: number;
     includedFileStorageMb: number;
     createdAt: DateTime;
+}
+
+export interface TranscriptionFullOutModel {
+    id: number;
+    wordId: number;
+    ipa?: Nullable<string>;
+    pinyin?: Nullable<string>;
 }
 
 export interface CreateVideoPrivateOutModel {
@@ -328,26 +370,25 @@ export interface VideoPublicLiteOutModel {
     freeToUse: boolean;
 }
 
-export interface CurrentSubscriptionOutModel {
-    tariffId: number;
-    tariffCode: string;
-    tariffName: string;
-    pricePaid: number;
-    balance: number;
-    includedFileStorageMb: number;
-    startsAt: string;
-    endsAt: string;
-}
-
-export interface UserOutModel {
+export interface WordOutModel {
     id: number;
-    email: string;
-    isUserConfirmed: boolean;
-    currentSubscription?: Nullable<CurrentSubscriptionOutModel>;
+    word: string;
+    languageCode: string;
+    transcription?: Nullable<TranscriptionOutModel>;
+    audioPronunciations: AudioPronunciationOutModel[];
 }
 
-export interface BuySubscriptionWithYooKassaOutModel {
-    confirmationUrl: string;
+export interface TranscriptionOutModel {
+    id: number;
+    ipa?: Nullable<string>;
+    pinyin?: Nullable<string>;
+}
+
+export interface AudioPronunciationOutModel {
+    id: number;
+    voiceId: number;
+    audioUrl: string;
+    duration: number;
 }
 
 export interface IQuery {
@@ -362,6 +403,7 @@ export interface IQuery {
     video_public_get_videos(): VideoPublicLiteOutModel[] | Promise<VideoPublicLiteOutModel[]>;
     video_public_get(input: GetPublicVideoInput): VideoPublicOutModel | Promise<VideoPublicOutModel>;
     tariff_get_tariffs(): TariffOutModel[] | Promise<TariffOutModel[]>;
+    word_get(input: GetWordInput): WordOutModel | Promise<WordOutModel>;
 }
 
 export interface IMutation {
@@ -381,6 +423,8 @@ export interface IMutation {
     video_private_create(input: CreatePrivateVideoInput): CreateVideoPrivateOutModel | Promise<CreateVideoPrivateOutModel>;
     video_private_update(input: UpdatePrivateVideoInput): UpdateVideoPrivateOutModel | Promise<UpdateVideoPrivateOutModel>;
     video_private_delete(input: DeletePrivateVideoInput): boolean | Promise<boolean>;
+    word_create(input: CreateWordInput): WordOutModel | Promise<WordOutModel>;
+    word_create_transcription(input: CreateTranscriptionInput): TranscriptionFullOutModel | Promise<TranscriptionFullOutModel>;
 }
 
 export type DateTime = any;
