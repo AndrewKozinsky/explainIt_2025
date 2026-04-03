@@ -64,6 +64,7 @@ export interface CreatePrivateBookInput {
     author?: Nullable<string>;
     name?: Nullable<string>;
     note?: Nullable<string>;
+    languageCode: string;
 }
 
 export interface UpdatePrivateBookInput {

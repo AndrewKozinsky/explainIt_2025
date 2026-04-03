@@ -78,7 +78,7 @@ describe.skip('Logout (e2e)', () => {
 		// Method getUserDataFromOAuthCode returns email and name
 		jest.spyOn(loginWithOAuthHandler, 'getUserDataFromOAuthCode').mockResolvedValue({
 			email: defUserEmail,
-			nameRus: 'Test User',
+			name: 'Test User',
 		})
 
 		const loginWithOAuthQuery = queries.auth.loginUserWithOAuth({

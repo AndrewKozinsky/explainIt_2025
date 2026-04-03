@@ -1,5 +1,4 @@
 import { useCallback, useContext } from 'react'
-import graphqlAIQueries from '../../../../graphql/ai/graphqlAIQueries'
 import { exerciseChecker } from './exerciseChecker'
 import { ExercisesContext } from './exercisesContext'
 import { ExercisesContextType } from './exercisesContextTypes'
@@ -26,7 +25,7 @@ export function useGetCheckCurrentExercise() {
 
 			changeExercisesBlock({ analysis: { status: ExercisesContextType.AnalysisStatus.loading } })
 
-			const { data } = await graphqlAIQueries.checkTranslation({
+			/*const { data } = await graphqlAIQueries.checkTranslation({
 				rusSentence: exercise.rusSentence,
 				engSentence: exercise.userTranslate,
 			})
@@ -45,7 +44,7 @@ export function useGetCheckCurrentExercise() {
 						{ type: 'paragraph', children: [{ type: 'text', text: data.ai_checkTranslation.analysis }] },
 					],
 				},
-			})
+			})*/
 		},
 		[exercise],
 	)

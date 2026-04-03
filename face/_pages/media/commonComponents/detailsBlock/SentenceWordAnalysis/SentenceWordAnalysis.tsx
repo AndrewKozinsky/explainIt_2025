@@ -1,14 +1,17 @@
 import cn from 'classnames'
+import { LanguageCode } from 'utils/utils'
+import TranscriptionAndAudio from '_pages/media/commonComponents/detailsBlock/TranscriptionAndAudio/TranscriptionAndAudio'
 import parseWordAnalysis, { WordAnalysisExample, WordAnalysisExampleWord } from './fn/wordAnalysis'
 import './SentenceWordAnalysis.scss'
 
 type SentenceWordProps = {
 	wordAnalysis: null | string
 	extraClass?: string
+	languageCode: string
 }
 
 function SentenceWordAnalysis(props: SentenceWordProps) {
-	const { wordAnalysis, extraClass } = props
+	const { wordAnalysis, extraClass, languageCode } = props
 
 	if (!wordAnalysis) {
 		return null
@@ -26,7 +29,7 @@ function SentenceWordAnalysis(props: SentenceWordProps) {
 
 	return (
 		<div className={cn('sentence-word-analysis', extraClass)}>
-			<TopPart word={word} wordTranslation={wordTranslation} />
+			<TopPart word={word} wordTranslation={wordTranslation} languageCode={languageCode} />
 			{examples?.map((example, i) => {
 				return <Example example={example} key={i} />
 			})}
@@ -36,10 +39,19 @@ function SentenceWordAnalysis(props: SentenceWordProps) {
 
 export default SentenceWordAnalysis
 
-function TopPart({ word, wordTranslation }: { word: string; wordTranslation: WordAnalysisExampleWord[] }) {
+type TopPartProps = {
+	word: string
+	wordTranslation: WordAnalysisExampleWord[]
+	languageCode: string
+}
+
+function TopPart(props: TopPartProps) {
+	const { word, wordTranslation, languageCode } = props
+
 	return (
 		<p className='sentence-word-analysis__top'>
-			<span className='sentence-word-analysis__analysis-phrase'>{word}</span> —{' '}
+			<span className='sentence-word-analysis__analysis-phrase'>{word}</span>{' '}
+			<TranscriptionAndAudio word={word} languageCode={languageCode as LanguageCode} /> —{' '}
 			<span className='sentence-word-analysis__analysis-phrase-translate'>
 				<Text text={wordTranslation} />
 			</span>

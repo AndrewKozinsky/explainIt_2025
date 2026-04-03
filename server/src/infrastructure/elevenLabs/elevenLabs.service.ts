@@ -25,6 +25,9 @@ export class ElevenLabsService {
 
 		const url = `https://api.elevenlabs.io/v1/text-to-speech/${voice.eleven_labs_voice_id}`
 
+		console.log('-------------------------')
+		console.log(this.apiKey)
+
 		const response = await fetch(url, {
 			method: 'POST',
 			headers: {
@@ -36,6 +39,7 @@ export class ElevenLabsService {
 				model_id: 'eleven_multilingual_v2',
 			}),
 		})
+		console.log(response)
 
 		if (!response.ok) {
 			throw new CustomGraphQLError(errorMessage.elevenLabs.cannotGenerateAudio, ErrorCode.InternalServerError_500)

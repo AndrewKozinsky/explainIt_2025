@@ -109,7 +109,7 @@ export const userUtils = {
 		// Method getUserDataFromOAuthCode returns email and name
 		jest.spyOn(loginWithOAuthHandler, 'getUserDataFromOAuthCode').mockResolvedValue({
 			email: props.email,
-			nameRus: 'Test User',
+			name: 'Test User',
 		})
 
 		const registerWithOAuthUserMutation = queries.auth.loginUserWithOAuth({

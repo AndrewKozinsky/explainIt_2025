@@ -17,6 +17,6 @@ export function useReadingBreadCrumbsItems(): BreadCrumbItem[] {
 	return React.useMemo(() => {
 		const bookUrl = pageUrls.books.book(urlBookId)
 
-		return [pageUrls.books, { nameRus: bookName ?? bookUrl.name, path: bookUrl.path }]
+		return [pageUrls.books, { name: bookName ?? bookUrl.name, path: bookUrl.path }]
 	}, [urlBookId, bookName])
 }
