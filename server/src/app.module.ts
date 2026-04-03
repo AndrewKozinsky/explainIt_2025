@@ -8,6 +8,7 @@ import { GraphQLModule } from '@nestjs/graphql'
 import { ScheduleModule } from '@nestjs/schedule'
 import { Request, Response } from 'express'
 import { WinstonModule } from 'nest-winston'
+import { AudioPronunciationModule } from 'routes/audioPronunciation/audioPronunciation.module'
 import { AuthModule } from 'routes/auth/auth.module'
 import { BookChapterModule } from 'routes/bookChapter/bookChapter.module'
 import { BookModule } from 'routes/bookPrivate/book.module'
@@ -99,6 +100,7 @@ import { YooKassaModule } from 'infrastructure/yooKassa/yooKassa.module'
 		TariffModule,
 		WordModule,
 		TranscriptionModule,
+		AudioPronunciationModule,
 	],
 	providers: [StartServerTasksRunner, { provide: APP_FILTER, useClass: GlobalExceptionFilter }],
 })

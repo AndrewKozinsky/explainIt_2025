@@ -3,6 +3,7 @@ type AudioPronunciationOutModel {
   duration: Int!
   id: Int!
   voiceId: Int!
+  wordId: Int!
 }
 
 type BookChapterLiteOutModel {
@@ -68,6 +69,11 @@ type BuySubscriptionWithYooKassaOutModel {
 input ConfirmEmailInput {
   """User email"""
   code: String!
+}
+
+input CreateAudioPronunciationInput {
+  """Word id"""
+  wordId: Int!
 }
 
 input CreateBookChapterInput {
@@ -257,6 +263,9 @@ type Mutation {
 
   """Update user book"""
   book_update(input: UpdatePrivateBookInput!): BookPrivateOutModel!
+
+  """Create audio pronunciation for a word using ElevenLabs"""
+  create_audio_pronunciation(input: CreateAudioPronunciationInput!): AudioPronunciationOutModel!
 
   """Create transcription for a word using DeepSeek"""
   create_transcription(input: CreateTranscriptionInput!): TranscriptionOutModel!

@@ -76,6 +76,9 @@ export const RouteNames = {
 	TRANSCRIPTION: {
 		CREATE: 'create_transcription',
 	},
+	AUDIO_PRONUNCIATION: {
+		CREATE: 'create_audio_pronunciation',
+	},
 }
 
 export default RouteNames

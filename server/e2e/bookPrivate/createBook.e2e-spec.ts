@@ -93,7 +93,7 @@ describe.skip('Create book', () => {
 			note: null,
 			chapters: [
 				{
-					name: null,
+					nameRus: null,
 					bookId: createdBook_2.id,
 					header: null,
 					note: null,

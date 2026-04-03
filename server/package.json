@@ -48,6 +48,7 @@
 		"express-useragent": "^2.1.0",
 		"graphql": "^16.13.0",
 		"ioredis": "^5.9.3",
+		"music-metadata": "^11.12.3",
 		"nest-winston": "^1.10.2",
 		"openai": "^6.24.0",
 		"redis": "^5.11.0",

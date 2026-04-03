@@ -129,6 +129,18 @@ export interface CreateTranscriptionInput {
     wordId: number;
 }
 
+export interface CreateAudioPronunciationInput {
+    wordId: number;
+}
+
+export interface AudioPronunciationOutModel {
+    id: number;
+    wordId: number;
+    voiceId: number;
+    audioUrl: string;
+    duration: number;
+}
+
 export interface CurrentSubscriptionOutModel {
     tariffId: number;
     tariffCode: string;
@@ -378,13 +390,6 @@ export interface WordOutModel {
     audioPronunciations: AudioPronunciationOutModel[];
 }
 
-export interface AudioPronunciationOutModel {
-    id: number;
-    voiceId: number;
-    audioUrl: string;
-    duration: number;
-}
-
 export interface IQuery {
     auth_getMe(): UserOutModel | Promise<UserOutModel>;
     book_user_books(): BookPrivateOutModel[] | Promise<BookPrivateOutModel[]>;
@@ -419,6 +424,7 @@ export interface IMutation {
     video_private_delete(input: DeletePrivateVideoInput): boolean | Promise<boolean>;
     word_create(input: CreateWordInput): WordOutModel | Promise<WordOutModel>;
     create_transcription(input: CreateTranscriptionInput): TranscriptionOutModel | Promise<TranscriptionOutModel>;
+    create_audio_pronunciation(input: CreateAudioPronunciationInput): AudioPronunciationOutModel | Promise<AudioPronunciationOutModel>;
 }
 
 export type DateTime = any;

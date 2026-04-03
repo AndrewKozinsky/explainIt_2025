@@ -61,6 +61,7 @@ export class WordQueryRepository {
 				: null,
 			audioPronunciations: dbWord.AudioPronunciation.map((ap) => ({
 				id: ap.id,
+				wordId: ap.word_id,
 				voiceId: ap.voice_id,
 				audioUrl: ap.audio_url,
 				duration: ap.duration,

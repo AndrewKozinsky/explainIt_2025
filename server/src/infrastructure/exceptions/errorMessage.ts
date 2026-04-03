@@ -124,4 +124,8 @@ export const errorMessage = {
 		voiceNotFound: 'Голос для указанного языка не найден.',
 		cannotGenerateAudio: 'Не удалось сгенерировать аудио через ElevenLabs.',
 	},
+	audioPronunciation: {
+		notCreated: 'Не удалось создать озвучку.',
+		cannotUploadToS3: 'Не удалось загрузить аудио файл в хранилище.',
+	},
 }
