@@ -18,6 +18,14 @@ export type Scalars = {
   DateTime: { input: any; output: any; }
 };
 
+export type AudioPronunciationOutModel = {
+  __typename?: 'AudioPronunciationOutModel';
+  audioUrl: Scalars['String']['output'];
+  duration: Scalars['Int']['output'];
+  id: Scalars['Int']['output'];
+  voiceId: Scalars['Int']['output'];
+};
+
 export type BookChapterLiteOutModel = {
   __typename?: 'BookChapterLiteOutModel';
   bookId: Scalars['Int']['output'];
@@ -84,26 +92,6 @@ export type BuySubscriptionWithYooKassaOutModel = {
   confirmationUrl: Scalars['String']['output'];
 };
 
-export type CheckTranslationInput = {
-  /** Sentence in English */
-  engSentence: Scalars['String']['input'];
-  /** Sentence in Russian */
-  rusSentence: Scalars['String']['input'];
-};
-
-export type CheckTranslationOutErrorModel = {
-  __typename?: 'CheckTranslationOutErrorModel';
-  error: Scalars['String']['output'];
-};
-
-export type CheckTranslationOutModel = CheckTranslationOutErrorModel | CheckTranslationOutSuccessModel;
-
-export type CheckTranslationOutSuccessModel = {
-  __typename?: 'CheckTranslationOutSuccessModel';
-  analysis: Scalars['String']['output'];
-  correct: Scalars['Boolean']['output'];
-};
-
 export type ConfirmEmailInput = {
   /** User email */
   code: Scalars['String']['input'];
@@ -142,6 +130,11 @@ export type CreatePrivateVideoInput = {
   originalContent?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type CreateTranscriptionInput = {
+  /** Word id */
+  wordId: Scalars['Int']['input'];
+};
+
 export type CreateVideoPrivateOutModel = {
   __typename?: 'CreateVideoPrivateOutModel';
   contentType: Scalars['String']['output'];
@@ -152,6 +145,13 @@ export type CreateVideoPrivateOutModel = {
   processedContent?: Maybe<Scalars['String']['output']>;
   userId: Scalars['Int']['output'];
   year?: Maybe<Scalars['Int']['output']>;
+};
+
+export type CreateWordInput = {
+  /** Language code */
+  languageCode: Scalars['String']['input'];
+  /** Word text */
+  word: Scalars['String']['input'];
 };
 
 export type CurrentSubscriptionOutModel = {
@@ -208,21 +208,9 @@ export type GetPublicVideoInput = {
   id: Scalars['Int']['input'];
 };
 
-export type GetTranscriptionInput = {
-  /** Sentence in English */
-  engSentence: Scalars['String']['input'];
-};
-
-export type GetTranscriptionOutErrorModel = {
-  __typename?: 'GetTranscriptionOutErrorModel';
-  error: Scalars['String']['output'];
-};
-
-export type GetTranscriptionOutModel = GetTranscriptionOutErrorModel | GetTranscriptionOutSuccessModel;
-
-export type GetTranscriptionOutSuccessModel = {
-  __typename?: 'GetTranscriptionOutSuccessModel';
-  transcription: Scalars['String']['output'];
+export type GetWordInput = {
+  /** Word text */
+  word: Scalars['String']['input'];
 };
 
 export type LoginInput = {
@@ -270,6 +258,8 @@ export type Mutation = {
   book_delete: Scalars['Boolean']['output'];
   /** Update user book */
   book_update: BookPrivateOutModel;
+  /** Create transcription for a word using DeepSeek */
+  create_transcription: TranscriptionOutModel;
   /** Buy a subscription with YooKassa */
   payment_yookassa_buy_subscription: BuySubscriptionWithYooKassaOutModel;
   /** Create a video */
@@ -278,6 +268,8 @@ export type Mutation = {
   video_private_delete: Scalars['Boolean']['output'];
   /** Update a video */
   video_private_update: UpdateVideoPrivateOutModel;
+  /** Create a new word */
+  word_create: WordOutModel;
 };
 
 
@@ -336,6 +328,11 @@ export type MutationBook_UpdateArgs = {
 };
 
 
+export type MutationCreate_TranscriptionArgs = {
+  input: CreateTranscriptionInput;
+};
+
+
 export type MutationPayment_Yookassa_Buy_SubscriptionArgs = {
   input: BuySubscriptionWithYooKassaInput;
 };
@@ -355,10 +352,13 @@ export type MutationVideo_Private_UpdateArgs = {
   input: UpdatePrivateVideoInput;
 };
 
+
+export type MutationWord_CreateArgs = {
+  input: CreateWordInput;
+};
+
 export type Query = {
   __typename?: 'Query';
-  ai_checkTranslation: CheckTranslationOutModel;
-  ai_getTranscription: GetTranscriptionOutModel;
   /** Get current user data */
   auth_getMe: UserOutModel;
   /** Get book chapter */
@@ -381,16 +381,8 @@ export type Query = {
   video_public_get: VideoPublicOutModel;
   /** Get public videos */
   video_public_get_videos: Array<VideoPublicLiteOutModel>;
-};
-
-
-export type QueryAi_CheckTranslationArgs = {
-  input: CheckTranslationInput;
-};
-
-
-export type QueryAi_GetTranscriptionArgs = {
-  input: GetTranscriptionInput;
+  /** Get word with transcription and audio pronunciations */
+  word_get: WordOutModel;
 };
 
 
@@ -416,6 +408,11 @@ export type QueryVideo_Private_GetArgs = {
 
 export type QueryVideo_Public_GetArgs = {
   input: GetPublicVideoInput;
+};
+
+
+export type QueryWord_GetArgs = {
+  input: GetWordInput;
 };
 
 export type RegisterUserInput = {
@@ -462,6 +459,14 @@ export type TariffOutModel = {
   includedFileStorageMb: Scalars['Int']['output'];
   name: Scalars['String']['output'];
   price: Scalars['Int']['output'];
+};
+
+export type TranscriptionOutModel = {
+  __typename?: 'TranscriptionOutModel';
+  id: Scalars['Int']['output'];
+  ipa?: Maybe<Scalars['String']['output']>;
+  pinyin?: Maybe<Scalars['String']['output']>;
+  wordId: Scalars['Int']['output'];
 };
 
 export type UpdateBookChapterInput = {
@@ -646,26 +651,14 @@ export type VideoPublicSubtitleOutModel = {
   startTimeMs: Scalars['Int']['output'];
 };
 
-export type AiCheckTranslationVariables = Exact<{
-  rusSentence: Scalars['String']['input'];
-  engSentence: Scalars['String']['input'];
-}>;
-
-
-export type AiCheckTranslation = { __typename?: 'Query', ai_checkTranslation:
-    | { __typename?: 'CheckTranslationOutErrorModel', error: string }
-    | { __typename?: 'CheckTranslationOutSuccessModel', correct: boolean, analysis: string }
-   };
-
-export type AiGetTranscriptionVariables = Exact<{
-  engSentence: Scalars['String']['input'];
-}>;
-
-
-export type AiGetTranscription = { __typename?: 'Query', ai_getTranscription:
-    | { __typename?: 'GetTranscriptionOutErrorModel', error: string }
-    | { __typename?: 'GetTranscriptionOutSuccessModel', transcription: string }
-   };
+export type WordOutModel = {
+  __typename?: 'WordOutModel';
+  audioPronunciations: Array<AudioPronunciationOutModel>;
+  id: Scalars['Int']['output'];
+  languageCode: Scalars['String']['output'];
+  transcription?: Maybe<TranscriptionOutModel>;
+  word: Scalars['String']['output'];
+};
 
 export type Auth_ConfirmEmailVariables = Exact<{
   input: ConfirmEmailInput;
@@ -790,6 +783,13 @@ export type Tariff_Get_TariffsVariables = Exact<{ [key: string]: never; }>;
 
 export type Tariff_Get_Tariffs = { __typename?: 'Query', tariff_get_tariffs: Array<{ __typename?: 'TariffOutModel', id: number, code: string, name: string, price: number, durationDays: number, includedBalance: number, includedFileStorageMb: number, createdAt: any }> };
 
+export type Transcription_CreateVariables = Exact<{
+  input: CreateTranscriptionInput;
+}>;
+
+
+export type Transcription_Create = { __typename?: 'Mutation', create_transcription: { __typename?: 'TranscriptionOutModel', id: number, wordId: number, ipa?: string | null, pinyin?: string | null } };
+
 export type VideoPrivate_CreateVariables = Exact<{
   input: CreatePrivateVideoInput;
 }>;
@@ -835,107 +835,21 @@ export type VideoPublic_GetVideosVariables = Exact<{ [key: string]: never; }>;
 
 export type VideoPublic_GetVideos = { __typename?: 'Query', video_public_get_videos: Array<{ __typename?: 'VideoPublicLiteOutModel', id: number, name: string, year: number, languageCode: string, note: string, covers: Array<string>, coverBackgroundColor: string, originalContent: string, processedContent: string, contentType: string, fileName: string, fileS3Key: string, fileUrl: string, freeToUse: boolean }> };
 
+export type Word_CreateVariables = Exact<{
+  input: CreateWordInput;
+}>;
 
-export const AiCheckTranslationDocument = gql`
-    query AICheckTranslation($rusSentence: String!, $engSentence: String!) {
-  ai_checkTranslation(
-    input: {rusSentence: $rusSentence, engSentence: $engSentence}
-  ) {
-    ... on CheckTranslationOutSuccessModel {
-      correct
-      analysis
-    }
-    ... on CheckTranslationOutErrorModel {
-      error
-    }
-  }
-}
-    `;
 
-/**
- * __useAiCheckTranslation__
- *
- * To run a query within a React component, call `useAiCheckTranslation` and pass it any options that fit your needs.
- * When your component renders, `useAiCheckTranslation` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useAiCheckTranslation({
- *   variables: {
- *      rusSentence: // value for 'rusSentence'
- *      engSentence: // value for 'engSentence'
- *   },
- * });
- */
-export function useAiCheckTranslation(baseOptions: Apollo.QueryHookOptions<AiCheckTranslation, AiCheckTranslationVariables> & ({ variables: AiCheckTranslationVariables; skip?: boolean; } | { skip: boolean; }) ) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<AiCheckTranslation, AiCheckTranslationVariables>(AiCheckTranslationDocument, options);
-      }
-export function useAiCheckTranslationLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AiCheckTranslation, AiCheckTranslationVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<AiCheckTranslation, AiCheckTranslationVariables>(AiCheckTranslationDocument, options);
-        }
-// @ts-ignore
-export function useAiCheckTranslationSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<AiCheckTranslation, AiCheckTranslationVariables>): Apollo.UseSuspenseQueryResult<AiCheckTranslation, AiCheckTranslationVariables>;
-export function useAiCheckTranslationSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<AiCheckTranslation, AiCheckTranslationVariables>): Apollo.UseSuspenseQueryResult<AiCheckTranslation | undefined, AiCheckTranslationVariables>;
-export function useAiCheckTranslationSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<AiCheckTranslation, AiCheckTranslationVariables>) {
-          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<AiCheckTranslation, AiCheckTranslationVariables>(AiCheckTranslationDocument, options);
-        }
-export type AiCheckTranslationHookResult = ReturnType<typeof useAiCheckTranslation>;
-export type AiCheckTranslationLazyQueryHookResult = ReturnType<typeof useAiCheckTranslationLazyQuery>;
-export type AiCheckTranslationSuspenseQueryHookResult = ReturnType<typeof useAiCheckTranslationSuspenseQuery>;
-export type AiCheckTranslationQueryResult = Apollo.QueryResult<AiCheckTranslation, AiCheckTranslationVariables>;
-export const AiGetTranscriptionDocument = gql`
-    query AIGetTranscription($engSentence: String!) {
-  ai_getTranscription(input: {engSentence: $engSentence}) {
-    ... on GetTranscriptionOutSuccessModel {
-      transcription
-    }
-    ... on GetTranscriptionOutErrorModel {
-      error
-    }
-  }
-}
-    `;
+export type Word_Create = { __typename?: 'Mutation', word_create: { __typename?: 'WordOutModel', id: number, word: string, languageCode: string, transcription?: { __typename?: 'TranscriptionOutModel', id: number, wordId: number, ipa?: string | null, pinyin?: string | null } | null, audioPronunciations: Array<{ __typename?: 'AudioPronunciationOutModel', id: number, voiceId: number, audioUrl: string, duration: number }> } };
 
-/**
- * __useAiGetTranscription__
- *
- * To run a query within a React component, call `useAiGetTranscription` and pass it any options that fit your needs.
- * When your component renders, `useAiGetTranscription` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useAiGetTranscription({
- *   variables: {
- *      engSentence: // value for 'engSentence'
- *   },
- * });
- */
-export function useAiGetTranscription(baseOptions: Apollo.QueryHookOptions<AiGetTranscription, AiGetTranscriptionVariables> & ({ variables: AiGetTranscriptionVariables; skip?: boolean; } | { skip: boolean; }) ) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<AiGetTranscription, AiGetTranscriptionVariables>(AiGetTranscriptionDocument, options);
-      }
-export function useAiGetTranscriptionLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AiGetTranscription, AiGetTranscriptionVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<AiGetTranscription, AiGetTranscriptionVariables>(AiGetTranscriptionDocument, options);
-        }
-// @ts-ignore
-export function useAiGetTranscriptionSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<AiGetTranscription, AiGetTranscriptionVariables>): Apollo.UseSuspenseQueryResult<AiGetTranscription, AiGetTranscriptionVariables>;
-export function useAiGetTranscriptionSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<AiGetTranscription, AiGetTranscriptionVariables>): Apollo.UseSuspenseQueryResult<AiGetTranscription | undefined, AiGetTranscriptionVariables>;
-export function useAiGetTranscriptionSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<AiGetTranscription, AiGetTranscriptionVariables>) {
-          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<AiGetTranscription, AiGetTranscriptionVariables>(AiGetTranscriptionDocument, options);
-        }
-export type AiGetTranscriptionHookResult = ReturnType<typeof useAiGetTranscription>;
-export type AiGetTranscriptionLazyQueryHookResult = ReturnType<typeof useAiGetTranscriptionLazyQuery>;
-export type AiGetTranscriptionSuspenseQueryHookResult = ReturnType<typeof useAiGetTranscriptionSuspenseQuery>;
-export type AiGetTranscriptionQueryResult = Apollo.QueryResult<AiGetTranscription, AiGetTranscriptionVariables>;
+export type Word_GetVariables = Exact<{
+  input: GetWordInput;
+}>;
+
+
+export type Word_Get = { __typename?: 'Query', word_get: { __typename?: 'WordOutModel', id: number, word: string, languageCode: string, transcription?: { __typename?: 'TranscriptionOutModel', id: number, wordId: number, ipa?: string | null, pinyin?: string | null } | null, audioPronunciations: Array<{ __typename?: 'AudioPronunciationOutModel', id: number, voiceId: number, audioUrl: string, duration: number }> } };
+
+
 export const Auth_ConfirmEmailDocument = gql`
     mutation Auth_confirmEmail($input: ConfirmEmailInput!) {
   auth_confirmEmail(input: $input)
@@ -1786,6 +1700,42 @@ export type Tariff_Get_TariffsHookResult = ReturnType<typeof useTariff_Get_Tarif
 export type Tariff_Get_TariffsLazyQueryHookResult = ReturnType<typeof useTariff_Get_TariffsLazyQuery>;
 export type Tariff_Get_TariffsSuspenseQueryHookResult = ReturnType<typeof useTariff_Get_TariffsSuspenseQuery>;
 export type Tariff_Get_TariffsQueryResult = Apollo.QueryResult<Tariff_Get_Tariffs, Tariff_Get_TariffsVariables>;
+export const Transcription_CreateDocument = gql`
+    mutation Transcription_create($input: CreateTranscriptionInput!) {
+  create_transcription(input: $input) {
+    id
+    wordId
+    ipa
+    pinyin
+  }
+}
+    `;
+export type Transcription_CreateMutationFn = Apollo.MutationFunction<Transcription_Create, Transcription_CreateVariables>;
+
+/**
+ * __useTranscription_Create__
+ *
+ * To run a mutation, you first call `useTranscription_Create` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useTranscription_Create` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [transcriptionCreate, { data, loading, error }] = useTranscription_Create({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useTranscription_Create(baseOptions?: Apollo.MutationHookOptions<Transcription_Create, Transcription_CreateVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<Transcription_Create, Transcription_CreateVariables>(Transcription_CreateDocument, options);
+      }
+export type Transcription_CreateHookResult = ReturnType<typeof useTranscription_Create>;
+export type Transcription_CreateMutationResult = Apollo.MutationResult<Transcription_Create>;
+export type Transcription_CreateMutationOptions = Apollo.BaseMutationOptions<Transcription_Create, Transcription_CreateVariables>;
 export const VideoPrivate_CreateDocument = gql`
     mutation VideoPrivate_create($input: CreatePrivateVideoInput!) {
   video_private_create(input: $input) {
@@ -2169,3 +2119,107 @@ export type VideoPublic_GetVideosHookResult = ReturnType<typeof useVideoPublic_G
 export type VideoPublic_GetVideosLazyQueryHookResult = ReturnType<typeof useVideoPublic_GetVideosLazyQuery>;
 export type VideoPublic_GetVideosSuspenseQueryHookResult = ReturnType<typeof useVideoPublic_GetVideosSuspenseQuery>;
 export type VideoPublic_GetVideosQueryResult = Apollo.QueryResult<VideoPublic_GetVideos, VideoPublic_GetVideosVariables>;
+export const Word_CreateDocument = gql`
+    mutation Word_create($input: CreateWordInput!) {
+  word_create(input: $input) {
+    id
+    word
+    languageCode
+    transcription {
+      id
+      wordId
+      ipa
+      pinyin
+    }
+    audioPronunciations {
+      id
+      voiceId
+      audioUrl
+      duration
+    }
+  }
+}
+    `;
+export type Word_CreateMutationFn = Apollo.MutationFunction<Word_Create, Word_CreateVariables>;
+
+/**
+ * __useWord_Create__
+ *
+ * To run a mutation, you first call `useWord_Create` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useWord_Create` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [wordCreate, { data, loading, error }] = useWord_Create({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useWord_Create(baseOptions?: Apollo.MutationHookOptions<Word_Create, Word_CreateVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<Word_Create, Word_CreateVariables>(Word_CreateDocument, options);
+      }
+export type Word_CreateHookResult = ReturnType<typeof useWord_Create>;
+export type Word_CreateMutationResult = Apollo.MutationResult<Word_Create>;
+export type Word_CreateMutationOptions = Apollo.BaseMutationOptions<Word_Create, Word_CreateVariables>;
+export const Word_GetDocument = gql`
+    query Word_get($input: GetWordInput!) {
+  word_get(input: $input) {
+    id
+    word
+    languageCode
+    transcription {
+      id
+      wordId
+      ipa
+      pinyin
+    }
+    audioPronunciations {
+      id
+      voiceId
+      audioUrl
+      duration
+    }
+  }
+}
+    `;
+
+/**
+ * __useWord_Get__
+ *
+ * To run a query within a React component, call `useWord_Get` and pass it any options that fit your needs.
+ * When your component renders, `useWord_Get` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useWord_Get({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useWord_Get(baseOptions: Apollo.QueryHookOptions<Word_Get, Word_GetVariables> & ({ variables: Word_GetVariables; skip?: boolean; } | { skip: boolean; }) ) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<Word_Get, Word_GetVariables>(Word_GetDocument, options);
+      }
+export function useWord_GetLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Word_Get, Word_GetVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<Word_Get, Word_GetVariables>(Word_GetDocument, options);
+        }
+// @ts-ignore
+export function useWord_GetSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<Word_Get, Word_GetVariables>): Apollo.UseSuspenseQueryResult<Word_Get, Word_GetVariables>;
+export function useWord_GetSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Word_Get, Word_GetVariables>): Apollo.UseSuspenseQueryResult<Word_Get | undefined, Word_GetVariables>;
+export function useWord_GetSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Word_Get, Word_GetVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<Word_Get, Word_GetVariables>(Word_GetDocument, options);
+        }
+export type Word_GetHookResult = ReturnType<typeof useWord_Get>;
+export type Word_GetLazyQueryHookResult = ReturnType<typeof useWord_GetLazyQuery>;
+export type Word_GetSuspenseQueryHookResult = ReturnType<typeof useWord_GetSuspenseQuery>;
+export type Word_GetQueryResult = Apollo.QueryResult<Word_Get, Word_GetVariables>;

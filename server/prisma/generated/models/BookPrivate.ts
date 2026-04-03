@@ -210,7 +210,7 @@ export type BookPrivateGroupByOutputType = {
   _max: BookPrivateMaxAggregateOutputType | null
 }
 
-type GetBookPrivateGroupByPayload<T extends BookPrivateGroupByArgs> = Prisma.PrismaPromise<
+export type GetBookPrivateGroupByPayload<T extends BookPrivateGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<BookPrivateGroupByOutputType, T['by']> &
       {
@@ -1362,6 +1362,11 @@ export type BookPrivateFindManyArgs<ExtArgs extends runtime.Types.Extensions.Int
    * Skip the first `n` BookPrivates.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of BookPrivates.
+   */
   distinct?: Prisma.BookPrivateScalarFieldEnum | Prisma.BookPrivateScalarFieldEnum[]
 }
 

@@ -1,3 +1,10 @@
+type AudioPronunciationOutModel {
+  audioUrl: String!
+  duration: Int!
+  id: Int!
+  voiceId: Int!
+}
+
 type BookChapterLiteOutModel {
   bookId: Int!
   header: String
@@ -58,25 +65,6 @@ type BuySubscriptionWithYooKassaOutModel {
   confirmationUrl: String!
 }
 
-input CheckTranslationInput {
-  """Sentence in English"""
-  engSentence: String!
-
-  """Sentence in Russian"""
-  rusSentence: String!
-}
-
-type CheckTranslationOutErrorModel {
-  error: String!
-}
-
-union CheckTranslationOutModel = CheckTranslationOutErrorModel | CheckTranslationOutSuccessModel
-
-type CheckTranslationOutSuccessModel {
-  analysis: String!
-  correct: Boolean!
-}
-
 input ConfirmEmailInput {
   """User email"""
   code: String!
@@ -124,6 +112,11 @@ input CreatePrivateVideoInput {
   originalContent: String
 }
 
+input CreateTranscriptionInput {
+  """Word id"""
+  wordId: Int!
+}
+
 type CreateVideoPrivateOutModel {
   contentType: String!
   id: Int!
@@ -133,6 +126,14 @@ type CreateVideoPrivateOutModel {
   processedContent: String
   userId: Int!
   year: Int
+}
+
+input CreateWordInput {
+  """Language code"""
+  languageCode: String!
+
+  """Word text"""
+  word: String!
 }
 
 type CurrentSubscriptionOutModel {
@@ -194,19 +195,9 @@ input GetPublicVideoInput {
   id: Int!
 }
 
-input GetTranscriptionInput {
-  """Sentence in English"""
-  engSentence: String!
-}
-
-type GetTranscriptionOutErrorModel {
-  error: String!
-}
-
-union GetTranscriptionOutModel = GetTranscriptionOutErrorModel | GetTranscriptionOutSuccessModel
-
-type GetTranscriptionOutSuccessModel {
-  transcription: String!
+input GetWordInput {
+  """Word text"""
+  word: String!
 }
 
 input LoginInput {
@@ -267,6 +258,9 @@ type Mutation {
   """Update user book"""
   book_update(input: UpdatePrivateBookInput!): BookPrivateOutModel!
 
+  """Create transcription for a word using DeepSeek"""
+  create_transcription(input: CreateTranscriptionInput!): TranscriptionOutModel!
+
   """Buy a subscription with YooKassa"""
   payment_yookassa_buy_subscription(input: BuySubscriptionWithYooKassaInput!): BuySubscriptionWithYooKassaOutModel!
 
@@ -278,12 +272,12 @@ type Mutation {
 
   """Update a video"""
   video_private_update(input: UpdatePrivateVideoInput!): UpdateVideoPrivateOutModel!
+
+  """Create a new word"""
+  word_create(input: CreateWordInput!): WordOutModel!
 }
 
 type Query {
-  ai_checkTranslation(input: CheckTranslationInput!): CheckTranslationOutModel!
-  ai_getTranscription(input: GetTranscriptionInput!): GetTranscriptionOutModel!
-
   """Get current user data"""
   auth_getMe: UserOutModel!
 
@@ -316,6 +310,9 @@ type Query {
 
   """Get public videos"""
   video_public_get_videos: [VideoPublicLiteOutModel!]!
+
+  """Get word with transcription and audio pronunciations"""
+  word_get(input: GetWordInput!): WordOutModel!
 }
 
 input RegisterUserInput {
@@ -359,6 +356,13 @@ type TariffOutModel {
   includedFileStorageMb: Int!
   name: String!
   price: Int!
+}
+
+type TranscriptionOutModel {
+  id: Int!
+  ipa: String
+  pinyin: String
+  wordId: Int!
 }
 
 input UpdateBookChapterInput {
@@ -546,4 +550,12 @@ type VideoPublicSubtitleOutModel {
   orderIndex: Int!
   startOffset: Int!
   startTimeMs: Int!
+}
+
+type WordOutModel {
+  audioPronunciations: [AudioPronunciationOutModel!]!
+  id: Int!
+  languageCode: String!
+  transcription: TranscriptionOutModel
+  word: String!
 }

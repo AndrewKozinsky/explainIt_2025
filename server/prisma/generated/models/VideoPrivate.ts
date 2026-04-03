@@ -274,7 +274,7 @@ export type VideoPrivateGroupByOutputType = {
   _max: VideoPrivateMaxAggregateOutputType | null
 }
 
-type GetVideoPrivateGroupByPayload<T extends VideoPrivateGroupByArgs> = Prisma.PrismaPromise<
+export type GetVideoPrivateGroupByPayload<T extends VideoPrivateGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<VideoPrivateGroupByOutputType, T['by']> &
       {
@@ -1824,6 +1824,11 @@ export type VideoPrivateFindManyArgs<ExtArgs extends runtime.Types.Extensions.In
    * Skip the first `n` VideoPrivates.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of VideoPrivates.
+   */
   distinct?: Prisma.VideoPrivateScalarFieldEnum | Prisma.VideoPrivateScalarFieldEnum[]
 }
 

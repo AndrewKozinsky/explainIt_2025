@@ -229,7 +229,7 @@ export type TariffGroupByOutputType = {
   _max: TariffMaxAggregateOutputType | null
 }
 
-type GetTariffGroupByPayload<T extends TariffGroupByArgs> = Prisma.PrismaPromise<
+export type GetTariffGroupByPayload<T extends TariffGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<TariffGroupByOutputType, T['by']> &
       {
@@ -1247,6 +1247,11 @@ export type TariffFindManyArgs<ExtArgs extends runtime.Types.Extensions.Internal
    * Skip the first `n` Tariffs.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of Tariffs.
+   */
   distinct?: Prisma.TariffScalarFieldEnum | Prisma.TariffScalarFieldEnum[]
 }
 

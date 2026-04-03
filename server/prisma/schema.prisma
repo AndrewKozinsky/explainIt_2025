@@ -200,11 +200,12 @@ model Transcription {
 }
 
 model Voice {
-    id                 Int                  @id @default(autoincrement())
-    name               String
-    language_code      LanguageCode
-    gender             VoiceGender
-    AudioPronunciation AudioPronunciation[]
+    id                   Int                  @id @default(autoincrement())
+    name                 String
+    language_code        LanguageCode
+    eleven_labs_voice_id String
+    gender               VoiceGender
+    AudioPronunciation   AudioPronunciation[]
 }
 
 model AudioPronunciation {

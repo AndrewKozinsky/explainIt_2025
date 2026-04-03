@@ -54,6 +54,7 @@ export class WordQueryRepository {
 			transcription: dbWord.Transcription
 				? {
 						id: dbWord.Transcription.id,
+						wordId: dbWord.Transcription.word_id,
 						ipa: dbWord.Transcription.ipa,
 						pinyin: dbWord.Transcription.pinyin,
 					}

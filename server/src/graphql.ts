@@ -219,7 +219,7 @@ export interface TariffOutModel {
     createdAt: DateTime;
 }
 
-export interface TranscriptionFullOutModel {
+export interface TranscriptionOutModel {
     id: number;
     wordId: number;
     ipa?: Nullable<string>;
@@ -378,12 +378,6 @@ export interface WordOutModel {
     audioPronunciations: AudioPronunciationOutModel[];
 }
 
-export interface TranscriptionOutModel {
-    id: number;
-    ipa?: Nullable<string>;
-    pinyin?: Nullable<string>;
-}
-
 export interface AudioPronunciationOutModel {
     id: number;
     voiceId: number;
@@ -424,7 +418,7 @@ export interface IMutation {
     video_private_update(input: UpdatePrivateVideoInput): UpdateVideoPrivateOutModel | Promise<UpdateVideoPrivateOutModel>;
     video_private_delete(input: DeletePrivateVideoInput): boolean | Promise<boolean>;
     word_create(input: CreateWordInput): WordOutModel | Promise<WordOutModel>;
-    word_create_transcription(input: CreateTranscriptionInput): TranscriptionFullOutModel | Promise<TranscriptionFullOutModel>;
+    create_transcription(input: CreateTranscriptionInput): TranscriptionOutModel | Promise<TranscriptionOutModel>;
 }
 
 export type DateTime = any;

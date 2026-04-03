@@ -218,6 +218,7 @@ CREATE TABLE "Voice" (
     "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "language_code" "LanguageCode" NOT NULL,
+    "eleven_labs_voice_id" TEXT NOT NULL,
     "gender" "VoiceGender" NOT NULL,
 
     CONSTRAINT "Voice_pkey" PRIMARY KEY ("id")

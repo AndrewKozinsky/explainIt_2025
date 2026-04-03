@@ -285,6 +285,7 @@ export const VoiceScalarFieldEnum = {
   id: 'id',
   name: 'name',
   language_code: 'language_code',
+  eleven_labs_voice_id: 'eleven_labs_voice_id',
   gender: 'gender'
 } as const
 

@@ -211,7 +211,7 @@ export type AudioPronunciationGroupByOutputType = {
   _max: AudioPronunciationMaxAggregateOutputType | null
 }
 
-type GetAudioPronunciationGroupByPayload<T extends AudioPronunciationGroupByArgs> = Prisma.PrismaPromise<
+export type GetAudioPronunciationGroupByPayload<T extends AudioPronunciationGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<AudioPronunciationGroupByOutputType, T['by']> &
       {
@@ -1338,6 +1338,11 @@ export type AudioPronunciationFindManyArgs<ExtArgs extends runtime.Types.Extensi
    * Skip the first `n` AudioPronunciations.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of AudioPronunciations.
+   */
   distinct?: Prisma.AudioPronunciationScalarFieldEnum | Prisma.AudioPronunciationScalarFieldEnum[]
 }
 

@@ -120,4 +120,8 @@ export const errorMessage = {
 		alreadyExists: 'Транскрипция для этого слова уже существует.',
 		cannotGetTranscriptionFromLLM: 'Не удалось получить транскрипцию от LLM.',
 	},
+	elevenLabs: {
+		voiceNotFound: 'Голос для указанного языка не найден.',
+		cannotGenerateAudio: 'Не удалось сгенерировать аудио через ElevenLabs.',
+	},
 }

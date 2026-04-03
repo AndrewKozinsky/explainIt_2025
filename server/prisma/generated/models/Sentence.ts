@@ -230,7 +230,7 @@ export type SentenceGroupByOutputType = {
   _max: SentenceMaxAggregateOutputType | null
 }
 
-type GetSentenceGroupByPayload<T extends SentenceGroupByArgs> = Prisma.PrismaPromise<
+export type GetSentenceGroupByPayload<T extends SentenceGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<SentenceGroupByOutputType, T['by']> &
       {
@@ -1762,6 +1762,11 @@ export type SentenceFindManyArgs<ExtArgs extends runtime.Types.Extensions.Intern
    * Skip the first `n` Sentences.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of Sentences.
+   */
   distinct?: Prisma.SentenceScalarFieldEnum | Prisma.SentenceScalarFieldEnum[]
 }
 

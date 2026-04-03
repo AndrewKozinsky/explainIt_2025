@@ -123,6 +123,7 @@ export class MainConfigService {
 			dailyTranslationsLimit: 3,
 			// Grafana Loki
 			loki: enVariables.loki,
+			elevenLabs: enVariables.elevenLabs,
 		}
 	}
 
@@ -196,6 +197,9 @@ export class MainConfigService {
 				url: this.configService.get<string>('LOKI_URL') as string,
 				userId: this.configService.get<string>('LOKI_USER_ID') as string,
 				apiKey: this.configService.get<string>('LOKI_API_KEY') as string,
+			},
+			elevenLabs: {
+				apiKey: this.configService.get<string>('ELEVEN_LABS_API_KEY') as string,
 			},
 		}
 	}

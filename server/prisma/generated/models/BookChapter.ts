@@ -228,7 +228,7 @@ export type BookChapterGroupByOutputType = {
   _max: BookChapterMaxAggregateOutputType | null
 }
 
-type GetBookChapterGroupByPayload<T extends BookChapterGroupByArgs> = Prisma.PrismaPromise<
+export type GetBookChapterGroupByPayload<T extends BookChapterGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<BookChapterGroupByOutputType, T['by']> &
       {
@@ -1588,6 +1588,11 @@ export type BookChapterFindManyArgs<ExtArgs extends runtime.Types.Extensions.Int
    * Skip the first `n` BookChapters.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of BookChapters.
+   */
   distinct?: Prisma.BookChapterScalarFieldEnum | Prisma.BookChapterScalarFieldEnum[]
 }
 

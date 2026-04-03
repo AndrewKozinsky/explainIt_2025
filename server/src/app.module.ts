@@ -23,6 +23,7 @@ import { WebhookModule } from 'routes/webhook/webhook.module'
 import { WordModule } from 'routes/word/word.module'
 import { CloudRuS3Module } from 'infrastructure/cloudRuS3/cloudRuS3.module'
 import { DeepSeekModule } from 'infrastructure/deepSeek/deepSeek.module'
+import { ElevenLabsModule } from 'infrastructure/elevenLabs/elevenLabs.module'
 import { EmailAdapterModule } from 'infrastructure/emailAdapter/email-adapter.module'
 import { GlobalExceptionFilter } from 'infrastructure/exceptions/global-exception.filter'
 import { GigaChatModule } from 'infrastructure/gigaChat/gigaChat.module'
@@ -79,6 +80,7 @@ import { YooKassaModule } from 'infrastructure/yooKassa/yooKassa.module'
 		GigaChatModule,
 		OpenAIModule,
 		DeepSeekModule,
+		ElevenLabsModule,
 		CloudRuS3Module,
 		YandexCloudS3Module,
 		YandexDictionaryModule,

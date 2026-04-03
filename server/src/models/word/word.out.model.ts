@@ -1,5 +1,6 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql'
 import { Language } from 'utils/languages'
+import { TranscriptionOutModel } from '../transcription/transcription.out.model'
 
 @ObjectType()
 export class WordOutModel {
@@ -17,18 +18,6 @@ export class WordOutModel {
 
 	@Field(() => [AudioPronunciationOutModel])
 	audioPronunciations: AudioPronunciationOutModel[]
-}
-
-@ObjectType()
-export class TranscriptionOutModel {
-	@Field(() => Int)
-	id: number
-
-	@Field(() => String, { nullable: true })
-	ipa: string | null
-
-	@Field(() => String, { nullable: true })
-	pinyin: string | null
 }
 
 @ObjectType()
