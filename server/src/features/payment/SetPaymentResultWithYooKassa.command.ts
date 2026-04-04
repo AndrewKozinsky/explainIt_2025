@@ -46,7 +46,7 @@ export class SetPaymentResultWithYooKassaHandler implements ICommandHandler<SetP
 						} = await this.paymentRepository.makePaymentSuccessful(yooKassaPaymentId)
 
 						// Написать в Телеграм про успешную оплату
-						const messageToTg = `Была сделана оплата в explainit.ru. Сумма: ${amount} руб.`
+						const messageToTg = `Была сделана оплата в explainit.ru. Сумма: ${amount / 100} руб.`
 						this.telegramService.sendMessageToFromExplainBot(messageToTg)
 
 						if (purpose === 'SUBSCRIPTION') {

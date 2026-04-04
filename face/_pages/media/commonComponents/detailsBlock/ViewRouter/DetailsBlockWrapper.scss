@@ -23,6 +23,7 @@
 .details-block-wrapper__scroll {
 	max-height: 100%;
 	overflow: auto;
+	box-sizing: border-box;
 	padding: 1.5rem;
 }
 
