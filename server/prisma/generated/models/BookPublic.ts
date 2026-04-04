@@ -456,6 +456,10 @@ export type NullableBoolFieldUpdateOperationsInput = {
   set?: boolean | null
 }
 
+export type EnumLanguageCodeFieldUpdateOperationsInput = {
+  set?: $Enums.LanguageCode
+}
+
 export type BookPublicUpdatecoversInput = {
   set?: string[]
   push?: string | string[]

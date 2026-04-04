@@ -14,6 +14,7 @@ import { BookChapterModule } from 'routes/bookChapter/bookChapter.module'
 import { BookModule } from 'routes/bookPrivate/book.module'
 import { BookPublicModule } from 'routes/bookPublic/bookPublic.module'
 import { DbModule } from 'routes/db/db.module'
+import { LanguageModule } from 'routes/language/language.module'
 import { PaymentModule } from 'routes/payment/payment.module'
 import { TariffModule } from 'routes/tariff/tariff.module'
 import { TranscriptionModule } from 'routes/transcription/transcription.module'
@@ -101,6 +102,7 @@ import { YooKassaModule } from 'infrastructure/yooKassa/yooKassa.module'
 		WordModule,
 		TranscriptionModule,
 		AudioPronunciationModule,
+		LanguageModule,
 	],
 	providers: [StartServerTasksRunner, { provide: APP_FILTER, useClass: GlobalExceptionFilter }],
 })

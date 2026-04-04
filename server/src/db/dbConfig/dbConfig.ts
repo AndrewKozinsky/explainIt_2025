@@ -215,7 +215,7 @@ export const bdConfig = {
 				type: 'enum',
 				enumName: 'LanguageCode',
 				variants: languagesArr,
-				required: true,
+				required: false,
 			},
 			note: {
 				type: 'string',
@@ -376,7 +376,7 @@ export const bdConfig = {
 				type: 'enum',
 				enumName: 'LanguageCode',
 				variants: languagesArr,
-				required: true,
+				required: false,
 			},
 			year: {
 				type: 'number',
@@ -871,6 +871,11 @@ export const bdConfig = {
 				enumName: 'VoiceGender',
 				variants: ['MALE', 'FEMALE'],
 				description: 'Gender of the voice',
+				required: true,
+			},
+			eleven_labs_voice_id: {
+				type: 'string',
+				description: 'eleven_labs_voice_id',
 				required: true,
 			},
 			AudioPronunciation: {

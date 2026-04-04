@@ -9,7 +9,10 @@ export function useGetDeleteVideo() {
 	const { notify } = useContext(NotificationContext)
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
 
-	const [deleteVideo] = useVideoPrivate_Delete({ refetchQueries: [VideoPrivate_GetUserVideosDocument] })
+	const [deleteVideo] = useVideoPrivate_Delete({
+		refetchQueries: [VideoPrivate_GetUserVideosDocument],
+		awaitRefetchQueries: true,
+	})
 
 	const onDeleteVideoClick = useCallback(
 		async function () {

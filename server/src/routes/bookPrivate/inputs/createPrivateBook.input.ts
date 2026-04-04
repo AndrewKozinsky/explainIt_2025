@@ -17,7 +17,7 @@ export class CreatePrivateBookInput {
 	@DtoFieldDecorators('note', bdConfig.BookPrivate.dbFields.note)
 	note: null | string
 
-	@Field(() => String, { description: 'Language code', nullable: false })
+	@Field(() => String, { description: 'Language code', nullable: true })
 	@DtoFieldDecorators('languageCode', bdConfig.BookPrivate.dbFields.language_code)
-	languageCode: LanguageCode
+	languageCode: null | LanguageCode
 }

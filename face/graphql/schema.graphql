@@ -39,7 +39,7 @@ type BookPrivateOutModel {
   chapters: [BookChapterLiteOutModel!]!
   freeToUse: Boolean!
   id: Int!
-  languageCode: String!
+  languageCode: String
   name: String
   note: String
   userId: Int!
@@ -100,6 +100,9 @@ input CreatePrivateBookInput {
   """Author"""
   author: String
 
+  """Language code"""
+  languageCode: String
+
   """Name"""
   name: String
 
@@ -110,6 +113,9 @@ input CreatePrivateBookInput {
 input CreatePrivateVideoInput {
   """File size in MB"""
   fileSizeMb: Int
+
+  """Language code"""
+  languageCode: String
 
   """Name"""
   name: String
@@ -204,6 +210,12 @@ input GetPublicVideoInput {
 input GetWordInput {
   """Word text"""
   word: String!
+}
+
+type LanguageOutModel {
+  code: String!
+  nameEng: String!
+  nameRus: String!
 }
 
 input LoginInput {
@@ -304,6 +316,9 @@ type Query {
 
   """Get user books"""
   book_user_books: [BookPrivateOutModel!]!
+
+  """Get all available languages"""
+  language_get_languages: [LanguageOutModel!]!
 
   """Get all tariffs"""
   tariff_get_tariffs: [TariffOutModel!]!
@@ -438,7 +453,7 @@ type UpdateVideoPrivateOutModel {
   contentType: String!
   fileSizeMb: Int
   id: Int!
-  languageCode: String!
+  languageCode: String
   name: String
   originalContent: String
   processedContent: String
@@ -462,7 +477,7 @@ type VideoPrivateLiteOutModel {
   fileUrl: String
   id: Int!
   isFileUploaded: Boolean!
-  languageCode: String!
+  languageCode: String
   name: String
   originalContent: String
   processedContent: String
@@ -479,7 +494,7 @@ type VideoPrivateOutModel {
   freeToUse: Boolean!
   id: Int!
   isFileUploaded: Boolean!
-  languageCode: String!
+  languageCode: String
   name: String
   originalContent: String
   processedContent: String

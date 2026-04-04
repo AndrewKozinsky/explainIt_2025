@@ -64,7 +64,7 @@ export interface CreatePrivateBookInput {
     author?: Nullable<string>;
     name?: Nullable<string>;
     note?: Nullable<string>;
-    languageCode: string;
+    languageCode?: Nullable<string>;
 }
 
 export interface UpdatePrivateBookInput {
@@ -104,6 +104,7 @@ export interface CreatePrivateVideoInput {
     name?: Nullable<string>;
     originalContent?: Nullable<string>;
     fileSizeMb?: Nullable<number>;
+    languageCode?: Nullable<string>;
 }
 
 export interface UpdatePrivateVideoInput {
@@ -164,7 +165,7 @@ export interface BookPrivateOutModel {
     id: number;
     author?: Nullable<string>;
     name?: Nullable<string>;
-    languageCode: string;
+    languageCode?: Nullable<string>;
     note?: Nullable<string>;
     userId: number;
     freeToUse: boolean;
@@ -217,6 +218,12 @@ export interface BookPublicOutModel {
     chapters: BookChapterLiteOutModel[];
 }
 
+export interface LanguageOutModel {
+    code: string;
+    nameRus: string;
+    nameEng: string;
+}
+
 export interface BuySubscriptionWithYooKassaOutModel {
     confirmationUrl: string;
 }
@@ -254,7 +261,7 @@ export interface UpdateVideoPrivateOutModel {
     id: number;
     name?: Nullable<string>;
     year?: Nullable<number>;
-    languageCode: string;
+    languageCode?: Nullable<string>;
     originalContent?: Nullable<string>;
     processedContent?: Nullable<string>;
     contentType: string;
@@ -268,7 +275,7 @@ export interface VideoPrivateLiteOutModel {
     userId: number;
     name?: Nullable<string>;
     year?: Nullable<number>;
-    languageCode: string;
+    languageCode?: Nullable<string>;
     originalContent?: Nullable<string>;
     processedContent?: Nullable<string>;
     contentType: string;
@@ -284,7 +291,7 @@ export interface VideoPrivateOutModel {
     userId: number;
     name?: Nullable<string>;
     year?: Nullable<number>;
-    languageCode: string;
+    languageCode?: Nullable<string>;
     originalContent?: Nullable<string>;
     processedContent?: Nullable<string>;
     contentType: string;
@@ -404,6 +411,7 @@ export interface IQuery {
     video_public_get(input: GetPublicVideoInput): VideoPublicOutModel | Promise<VideoPublicOutModel>;
     tariff_get_tariffs(): TariffOutModel[] | Promise<TariffOutModel[]>;
     word_get(input: GetWordInput): WordOutModel | Promise<WordOutModel>;
+    language_get_languages(): LanguageOutModel[] | Promise<LanguageOutModel[]>;
 }
 
 export interface IMutation {

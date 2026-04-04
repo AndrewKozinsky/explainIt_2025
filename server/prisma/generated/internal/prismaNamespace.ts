@@ -1990,8 +1990,8 @@ export const VoiceScalarFieldEnum = {
   id: 'id',
   name: 'name',
   language_code: 'language_code',
-  eleven_labs_voice_id: 'eleven_labs_voice_id',
-  gender: 'gender'
+  gender: 'gender',
+  eleven_labs_voice_id: 'eleven_labs_voice_id'
 } as const
 
 export type VoiceScalarFieldEnum = (typeof VoiceScalarFieldEnum)[keyof typeof VoiceScalarFieldEnum]

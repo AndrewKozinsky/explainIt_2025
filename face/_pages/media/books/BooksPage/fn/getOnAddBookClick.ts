@@ -2,6 +2,7 @@ import { useCallback, useContext, useState } from 'react'
 import { redirect } from 'next/navigation'
 import { Book_GetUserBooksDocument, useBook_Create } from '@/graphql'
 import { NotificationContext } from '@/ui/Notification/context'
+import { languages } from '@/utils/utils'
 import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
 
 export function useGetAddBookConfig() {
@@ -20,7 +21,7 @@ export function useGetAddBookConfig() {
 
 			try {
 				const { errors, data } = await createBook({
-					variables: { input: { author: null, name: null, note: null } },
+					variables: { input: { author: null, name: null, note: null, languageCode: languages.en.code } },
 				})
 
 				if (errors) {

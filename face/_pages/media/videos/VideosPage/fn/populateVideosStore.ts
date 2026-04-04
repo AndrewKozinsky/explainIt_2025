@@ -49,6 +49,7 @@ function useFetchPrivateVideosAndSetToStore() {
 
 	const { data, error, loading } = useVideoPrivate_GetUserVideos({
 		skip: !user?.id,
+		fetchPolicy: 'cache-and-network',
 	})
 
 	useEffect(

@@ -12,8 +12,8 @@ export class UpdateVideoPrivateOutModel {
 	@Field(() => Int, { nullable: true })
 	year: null | number
 
-	@Field(() => String)
-	languageCode: Language
+	@Field(() => String, { nullable: true })
+	languageCode: null | Language
 
 	@Field(() => String, { nullable: true })
 	originalContent: null | string

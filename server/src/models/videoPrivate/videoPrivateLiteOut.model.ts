@@ -12,28 +12,28 @@ export class VideoPrivateLiteOutModel {
 	name: string | null
 
 	@Field(() => Int, { nullable: true })
-	year: number | null
-
-	@Field(() => String)
-	languageCode: string
+	year: null | number
 
 	@Field(() => String, { nullable: true })
-	originalContent: string | null
+	languageCode: null | string
 
 	@Field(() => String, { nullable: true })
-	processedContent: string | null
+	originalContent: null | string
+
+	@Field(() => String, { nullable: true })
+	processedContent: null | string
 
 	@Field(() => String)
 	contentType: 'text' | 'subtitles'
 
 	@Field(() => String, { nullable: true })
-	fileName: string | null
+	fileName: null | string
 
 	@Field(() => String, { nullable: true })
-	fileS3Key: string | null
+	fileS3Key: null | string
 
 	@Field(() => String, { nullable: true })
-	fileUrl: string | null
+	fileUrl: null | string
 
 	@Field(() => Boolean)
 	isFileUploaded: boolean

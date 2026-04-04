@@ -18,7 +18,7 @@ function ChapterContent() {
 						selectedSentenceId={selection.sentenceId}
 						selectedWordIds={selection.wordIds}
 						selectWord={selectWord}
-						languageCode={book?.languageCode}
+						languageCode={book?.languageCode!}
 					/>
 				)
 			})}

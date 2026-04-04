@@ -65,7 +65,7 @@ CREATE TABLE "BookPrivate" (
     "user_id" INTEGER NOT NULL,
     "author" TEXT,
     "name" TEXT,
-    "language_code" "LanguageCode" NOT NULL,
+    "language_code" "LanguageCode",
     "note" TEXT,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
@@ -106,7 +106,7 @@ CREATE TABLE "BookChapter" (
 CREATE TABLE "VideoPrivate" (
     "id" SERIAL NOT NULL,
     "user_id" INTEGER NOT NULL,
-    "language_code" "LanguageCode" NOT NULL,
+    "language_code" "LanguageCode",
     "year" INTEGER,
     "file_name" TEXT,
     "file_s3_key" TEXT,
@@ -218,8 +218,8 @@ CREATE TABLE "Voice" (
     "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "language_code" "LanguageCode" NOT NULL,
-    "eleven_labs_voice_id" TEXT NOT NULL,
     "gender" "VoiceGender" NOT NULL,
+    "eleven_labs_voice_id" INTEGER NOT NULL,
 
     CONSTRAINT "Voice_pkey" PRIMARY KEY ("id")
 );

@@ -10,7 +10,7 @@ export type CreateBookInput = {
 	author?: null | string
 	name?: null | string
 	note?: null | string
-	languageCode: LanguageCode
+	languageCode?: null | LanguageCode
 }
 
 export class CreateBookCommand implements ICommand {

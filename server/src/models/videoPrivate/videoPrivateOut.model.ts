@@ -14,8 +14,8 @@ export class VideoPrivateOutModel {
 	@Field(() => Int, { nullable: true })
 	year: number | null
 
-	@Field(() => String)
-	languageCode: string
+	@Field(() => String, { nullable: true })
+	languageCode: null | string
 
 	@Field(() => String, { nullable: true })
 	originalContent: string | null

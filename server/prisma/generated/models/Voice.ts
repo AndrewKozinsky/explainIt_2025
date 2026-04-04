@@ -38,24 +38,24 @@ export type VoiceMinAggregateOutputType = {
   id: number | null
   name: string | null
   language_code: $Enums.LanguageCode | null
-  eleven_labs_voice_id: string | null
   gender: $Enums.VoiceGender | null
+  eleven_labs_voice_id: string | null
 }
 
 export type VoiceMaxAggregateOutputType = {
   id: number | null
   name: string | null
   language_code: $Enums.LanguageCode | null
-  eleven_labs_voice_id: string | null
   gender: $Enums.VoiceGender | null
+  eleven_labs_voice_id: string | null
 }
 
 export type VoiceCountAggregateOutputType = {
   id: number
   name: number
   language_code: number
-  eleven_labs_voice_id: number
   gender: number
+  eleven_labs_voice_id: number
   _all: number
 }
 
@@ -72,24 +72,24 @@ export type VoiceMinAggregateInputType = {
   id?: true
   name?: true
   language_code?: true
-  eleven_labs_voice_id?: true
   gender?: true
+  eleven_labs_voice_id?: true
 }
 
 export type VoiceMaxAggregateInputType = {
   id?: true
   name?: true
   language_code?: true
-  eleven_labs_voice_id?: true
   gender?: true
+  eleven_labs_voice_id?: true
 }
 
 export type VoiceCountAggregateInputType = {
   id?: true
   name?: true
   language_code?: true
-  eleven_labs_voice_id?: true
   gender?: true
+  eleven_labs_voice_id?: true
   _all?: true
 }
 
@@ -183,8 +183,8 @@ export type VoiceGroupByOutputType = {
   id: number
   name: string
   language_code: $Enums.LanguageCode
-  eleven_labs_voice_id: string
   gender: $Enums.VoiceGender
+  eleven_labs_voice_id: string
   _count: VoiceCountAggregateOutputType | null
   _avg: VoiceAvgAggregateOutputType | null
   _sum: VoiceSumAggregateOutputType | null
@@ -214,8 +214,8 @@ export type VoiceWhereInput = {
   id?: Prisma.IntFilter<"Voice"> | number
   name?: Prisma.StringFilter<"Voice"> | string
   language_code?: Prisma.EnumLanguageCodeFilter<"Voice"> | $Enums.LanguageCode
-  eleven_labs_voice_id?: Prisma.StringFilter<"Voice"> | string
   gender?: Prisma.EnumVoiceGenderFilter<"Voice"> | $Enums.VoiceGender
+  eleven_labs_voice_id?: Prisma.StringFilter<"Voice"> | string
   AudioPronunciation?: Prisma.AudioPronunciationListRelationFilter
 }
 
@@ -223,8 +223,8 @@ export type VoiceOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   language_code?: Prisma.SortOrder
-  eleven_labs_voice_id?: Prisma.SortOrder
   gender?: Prisma.SortOrder
+  eleven_labs_voice_id?: Prisma.SortOrder
   AudioPronunciation?: Prisma.AudioPronunciationOrderByRelationAggregateInput
 }
 
@@ -235,8 +235,8 @@ export type VoiceWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.VoiceWhereInput | Prisma.VoiceWhereInput[]
   name?: Prisma.StringFilter<"Voice"> | string
   language_code?: Prisma.EnumLanguageCodeFilter<"Voice"> | $Enums.LanguageCode
-  eleven_labs_voice_id?: Prisma.StringFilter<"Voice"> | string
   gender?: Prisma.EnumVoiceGenderFilter<"Voice"> | $Enums.VoiceGender
+  eleven_labs_voice_id?: Prisma.StringFilter<"Voice"> | string
   AudioPronunciation?: Prisma.AudioPronunciationListRelationFilter
 }, "id">
 
@@ -244,8 +244,8 @@ export type VoiceOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   language_code?: Prisma.SortOrder
-  eleven_labs_voice_id?: Prisma.SortOrder
   gender?: Prisma.SortOrder
+  eleven_labs_voice_id?: Prisma.SortOrder
   _count?: Prisma.VoiceCountOrderByAggregateInput
   _avg?: Prisma.VoiceAvgOrderByAggregateInput
   _max?: Prisma.VoiceMaxOrderByAggregateInput
@@ -260,15 +260,15 @@ export type VoiceScalarWhereWithAggregatesInput = {
   id?: Prisma.IntWithAggregatesFilter<"Voice"> | number
   name?: Prisma.StringWithAggregatesFilter<"Voice"> | string
   language_code?: Prisma.EnumLanguageCodeWithAggregatesFilter<"Voice"> | $Enums.LanguageCode
-  eleven_labs_voice_id?: Prisma.StringWithAggregatesFilter<"Voice"> | string
   gender?: Prisma.EnumVoiceGenderWithAggregatesFilter<"Voice"> | $Enums.VoiceGender
+  eleven_labs_voice_id?: Prisma.StringWithAggregatesFilter<"Voice"> | string
 }
 
 export type VoiceCreateInput = {
   name: string
   language_code: $Enums.LanguageCode
-  eleven_labs_voice_id: string
   gender: $Enums.VoiceGender
+  eleven_labs_voice_id: string
   AudioPronunciation?: Prisma.AudioPronunciationCreateNestedManyWithoutVoiceInput
 }
 
@@ -276,16 +276,16 @@ export type VoiceUncheckedCreateInput = {
   id?: number
   name: string
   language_code: $Enums.LanguageCode
-  eleven_labs_voice_id: string
   gender: $Enums.VoiceGender
+  eleven_labs_voice_id: string
   AudioPronunciation?: Prisma.AudioPronunciationUncheckedCreateNestedManyWithoutVoiceInput
 }
 
 export type VoiceUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
-  eleven_labs_voice_id?: Prisma.StringFieldUpdateOperationsInput | string
   gender?: Prisma.EnumVoiceGenderFieldUpdateOperationsInput | $Enums.VoiceGender
+  eleven_labs_voice_id?: Prisma.StringFieldUpdateOperationsInput | string
   AudioPronunciation?: Prisma.AudioPronunciationUpdateManyWithoutVoiceNestedInput
 }
 
@@ -293,8 +293,8 @@ export type VoiceUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
-  eleven_labs_voice_id?: Prisma.StringFieldUpdateOperationsInput | string
   gender?: Prisma.EnumVoiceGenderFieldUpdateOperationsInput | $Enums.VoiceGender
+  eleven_labs_voice_id?: Prisma.StringFieldUpdateOperationsInput | string
   AudioPronunciation?: Prisma.AudioPronunciationUncheckedUpdateManyWithoutVoiceNestedInput
 }
 
@@ -302,31 +302,31 @@ export type VoiceCreateManyInput = {
   id?: number
   name: string
   language_code: $Enums.LanguageCode
-  eleven_labs_voice_id: string
   gender: $Enums.VoiceGender
+  eleven_labs_voice_id: string
 }
 
 export type VoiceUpdateManyMutationInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
-  eleven_labs_voice_id?: Prisma.StringFieldUpdateOperationsInput | string
   gender?: Prisma.EnumVoiceGenderFieldUpdateOperationsInput | $Enums.VoiceGender
+  eleven_labs_voice_id?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type VoiceUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
-  eleven_labs_voice_id?: Prisma.StringFieldUpdateOperationsInput | string
   gender?: Prisma.EnumVoiceGenderFieldUpdateOperationsInput | $Enums.VoiceGender
+  eleven_labs_voice_id?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type VoiceCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   language_code?: Prisma.SortOrder
-  eleven_labs_voice_id?: Prisma.SortOrder
   gender?: Prisma.SortOrder
+  eleven_labs_voice_id?: Prisma.SortOrder
 }
 
 export type VoiceAvgOrderByAggregateInput = {
@@ -337,16 +337,16 @@ export type VoiceMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   language_code?: Prisma.SortOrder
-  eleven_labs_voice_id?: Prisma.SortOrder
   gender?: Prisma.SortOrder
+  eleven_labs_voice_id?: Prisma.SortOrder
 }
 
 export type VoiceMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   language_code?: Prisma.SortOrder
-  eleven_labs_voice_id?: Prisma.SortOrder
   gender?: Prisma.SortOrder
+  eleven_labs_voice_id?: Prisma.SortOrder
 }
 
 export type VoiceSumOrderByAggregateInput = {
@@ -379,16 +379,16 @@ export type VoiceUpdateOneRequiredWithoutAudioPronunciationNestedInput = {
 export type VoiceCreateWithoutAudioPronunciationInput = {
   name: string
   language_code: $Enums.LanguageCode
-  eleven_labs_voice_id: string
   gender: $Enums.VoiceGender
+  eleven_labs_voice_id: string
 }
 
 export type VoiceUncheckedCreateWithoutAudioPronunciationInput = {
   id?: number
   name: string
   language_code: $Enums.LanguageCode
-  eleven_labs_voice_id: string
   gender: $Enums.VoiceGender
+  eleven_labs_voice_id: string
 }
 
 export type VoiceCreateOrConnectWithoutAudioPronunciationInput = {
@@ -410,16 +410,16 @@ export type VoiceUpdateToOneWithWhereWithoutAudioPronunciationInput = {
 export type VoiceUpdateWithoutAudioPronunciationInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
-  eleven_labs_voice_id?: Prisma.StringFieldUpdateOperationsInput | string
   gender?: Prisma.EnumVoiceGenderFieldUpdateOperationsInput | $Enums.VoiceGender
+  eleven_labs_voice_id?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type VoiceUncheckedUpdateWithoutAudioPronunciationInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
-  eleven_labs_voice_id?: Prisma.StringFieldUpdateOperationsInput | string
   gender?: Prisma.EnumVoiceGenderFieldUpdateOperationsInput | $Enums.VoiceGender
+  eleven_labs_voice_id?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 
@@ -457,8 +457,8 @@ export type VoiceSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   id?: boolean
   name?: boolean
   language_code?: boolean
-  eleven_labs_voice_id?: boolean
   gender?: boolean
+  eleven_labs_voice_id?: boolean
   AudioPronunciation?: boolean | Prisma.Voice$AudioPronunciationArgs<ExtArgs>
   _count?: boolean | Prisma.VoiceCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["voice"]>
@@ -467,27 +467,27 @@ export type VoiceSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   id?: boolean
   name?: boolean
   language_code?: boolean
-  eleven_labs_voice_id?: boolean
   gender?: boolean
+  eleven_labs_voice_id?: boolean
 }, ExtArgs["result"]["voice"]>
 
 export type VoiceSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
   language_code?: boolean
-  eleven_labs_voice_id?: boolean
   gender?: boolean
+  eleven_labs_voice_id?: boolean
 }, ExtArgs["result"]["voice"]>
 
 export type VoiceSelectScalar = {
   id?: boolean
   name?: boolean
   language_code?: boolean
-  eleven_labs_voice_id?: boolean
   gender?: boolean
+  eleven_labs_voice_id?: boolean
 }
 
-export type VoiceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "language_code" | "eleven_labs_voice_id" | "gender", ExtArgs["result"]["voice"]>
+export type VoiceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "language_code" | "gender" | "eleven_labs_voice_id", ExtArgs["result"]["voice"]>
 export type VoiceInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   AudioPronunciation?: boolean | Prisma.Voice$AudioPronunciationArgs<ExtArgs>
   _count?: boolean | Prisma.VoiceCountOutputTypeDefaultArgs<ExtArgs>
@@ -504,8 +504,8 @@ export type $VoicePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     id: number
     name: string
     language_code: $Enums.LanguageCode
-    eleven_labs_voice_id: string
     gender: $Enums.VoiceGender
+    eleven_labs_voice_id: string
   }, ExtArgs["result"]["voice"]>
   composites: {}
 }
@@ -933,8 +933,8 @@ export interface VoiceFieldRefs {
   readonly id: Prisma.FieldRef<"Voice", 'Int'>
   readonly name: Prisma.FieldRef<"Voice", 'String'>
   readonly language_code: Prisma.FieldRef<"Voice", 'LanguageCode'>
-  readonly eleven_labs_voice_id: Prisma.FieldRef<"Voice", 'String'>
   readonly gender: Prisma.FieldRef<"Voice", 'VoiceGender'>
+  readonly eleven_labs_voice_id: Prisma.FieldRef<"Voice", 'String'>
 }
     
 

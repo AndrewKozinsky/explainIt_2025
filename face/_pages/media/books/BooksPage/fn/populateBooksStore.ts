@@ -49,6 +49,7 @@ function useFetchPrivateBooksAndSetToStore() {
 
 	const { data, error, loading } = useBook_GetUserBooks({
 		skip: !user?.id,
+		fetchPolicy: 'cache-and-network',
 	})
 
 	useEffect(

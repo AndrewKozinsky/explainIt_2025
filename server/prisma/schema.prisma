@@ -54,7 +54,7 @@ model BookPrivate {
     user_id       Int
     author        String?
     name          String?
-    language_code LanguageCode
+    language_code LanguageCode?
     note          String?
     BookChapter   BookChapter[]
     created_at    DateTime      @default(now())
@@ -92,7 +92,7 @@ model VideoPrivate {
     id                Int             @id @default(autoincrement())
     user              User            @relation(fields: [user_id], references: [id], onDelete: Cascade)
     user_id           Int
-    language_code     LanguageCode
+    language_code     LanguageCode?
     year              Int?
     file_name         String?
     file_s3_key       String?
@@ -203,8 +203,8 @@ model Voice {
     id                   Int                  @id @default(autoincrement())
     name                 String
     language_code        LanguageCode
-    eleven_labs_voice_id String
     gender               VoiceGender
+    eleven_labs_voice_id String
     AudioPronunciation   AudioPronunciation[]
 }
 
