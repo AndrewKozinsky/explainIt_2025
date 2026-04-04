@@ -1,20 +1,24 @@
 import { Injectable } from '@nestjs/common'
+import axios from 'axios'
 import { VoiceRepository } from 'repo/voice.repository'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { LanguageCode } from 'prisma/generated/client'
 import { MainConfigService } from '../mainConfig/mainConfig.service'
+const { HttpsProxyAgent } = require('https-proxy-agent')
 
 @Injectable()
 export class ElevenLabsService {
 	private readonly apiKey: string
+	private readonly httpsAgent: InstanceType<typeof HttpsProxyAgent>
 
 	constructor(
 		private mainConfig: MainConfigService,
 		private voiceRepository: VoiceRepository,
 	) {
 		this.apiKey = this.mainConfig.get().elevenLabs.apiKey
+		this.httpsAgent = new HttpsProxyAgent('http://150.251.155.161:3128')
 	}
 
 	async generateAudio(text: string, languageCode: LanguageCode): Promise<Buffer> {
@@ -25,27 +29,29 @@ export class ElevenLabsService {
 
 		const url = `https://api.elevenlabs.io/v1/text-to-speech/${voice.eleven_labs_voice_id}`
 
-		console.log('-------------------------')
-		console.log(this.apiKey)
-
-		const response = await fetch(url, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-				'xi-api-key': this.apiKey,
-			},
-			body: JSON.stringify({
+		const response = await axios.post(
+			url,
+			{
 				text,
 				model_id: 'eleven_multilingual_v2',
-			}),
-		})
+			},
+			{
+				headers: {
+					'Content-Type': 'application/json',
+					'xi-api-key': this.apiKey,
+				},
+				responseType: 'arraybuffer',
+				httpsAgent: this.httpsAgent,
+				proxy: false,
+				validateStatus: () => true,
+			},
+		)
 		console.log(response)
 
-		if (!response.ok) {
+		if (response.status < 200 || response.status >= 300) {
 			throw new CustomGraphQLError(errorMessage.elevenLabs.cannotGenerateAudio, ErrorCode.InternalServerError_500)
 		}
 
-		const arrayBuffer = await response.arrayBuffer()
-		return Buffer.from(arrayBuffer)
+		return Buffer.from(response.data)
 	}
 }
