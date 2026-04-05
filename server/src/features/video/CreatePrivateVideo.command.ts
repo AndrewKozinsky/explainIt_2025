@@ -11,11 +11,13 @@ import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { CreateVideoPrivateOutModel } from 'models/videoPrivate/createVideoPrivate.out.model'
+import { LanguageCode } from 'prisma/generated/enums'
 
 export type CreatePrivateVideoInput = {
 	name?: null | string
 	originalContent?: null | string
 	fileSizeMb?: number
+	languageCode?: null | LanguageCode
 }
 
 export class CreatePrivateVideoCommand implements ICommand {
@@ -51,7 +53,7 @@ export class CreatePrivateVideoHandler extends VideoBase implements ICommandHand
 				const newVideo = await this.videoRepository.createVideo({
 					userId,
 					name: createVideoInput.name,
-					languageCode: 'en',
+					languageCode: createVideoInput.languageCode,
 					originalContent: preparedContentResult.originalContentForVideoUpdate,
 					processedContent: preparedContentResult.processedContentForVideoUpdate,
 					contentType: preparedContentResult.contentTypeForVideoUpdate,

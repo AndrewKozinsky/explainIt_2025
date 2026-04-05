@@ -1,0 +1,13 @@
+query Word_get($input: GetWordInput!) {
+	word_get(input: $input) {
+		id
+		word
+		languageCode
+		transcription {
+			id
+			wordId
+			ipa
+			pinyin
+		}
+	}
+}

@@ -9,7 +9,7 @@ export function useGetDeleteBook() {
 	const { notify } = useContext(NotificationContext)
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
 
-	const [deleteBook] = useBook_Delete({ refetchQueries: [Book_GetUserBooksDocument] })
+	const [deleteBook] = useBook_Delete({ refetchQueries: [Book_GetUserBooksDocument], awaitRefetchQueries: true })
 
 	const onDeleteBookClick = useCallback(
 		async function () {

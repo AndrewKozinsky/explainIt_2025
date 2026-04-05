@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { DeepSeekService } from 'infrastructure/deepSeek/deepSeek.service'
+import { LanguageCode } from 'prisma/generated/enums'
 import { buildSentenceTranslationPrompt } from './buildSentenceTranslationPrompt'
 import { SentenceTranslationProvider, SentenceTranslationProviderStreamEvent } from './SentenceTranslationProvider'
 
@@ -11,8 +12,8 @@ export class StreamTranslateWithDeepSeek implements SentenceTranslationProvider 
 
 	async *streamTranslate(input: {
 		text: string
-		sourceLanguageCode: string
-		targetLanguageCode: string
+		sourceLanguageCode: LanguageCode
+		targetLanguageCode: LanguageCode
 		abortSignal?: AbortSignal
 		lowPriority?: boolean
 		bookName?: string
@@ -68,8 +69,8 @@ export class StreamTranslateWithDeepSeek implements SentenceTranslationProvider 
 	}
 
 	private getDeepSeekTranslationTask(input: {
-		sourceLanguageCode: string
-		targetLanguageCode: string
+		sourceLanguageCode: LanguageCode
+		targetLanguageCode: LanguageCode
 		bookName?: string
 		bookAuthor?: string
 		videoName?: string

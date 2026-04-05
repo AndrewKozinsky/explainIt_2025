@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useDetailsStore } from '_pages/media/commonComponents/detailsBlock/detailsStore'
+import { useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
 import { useReadingStore } from '_pages/media/reading/readingStore'
 
 export function useSyncDetailsTranslation() {

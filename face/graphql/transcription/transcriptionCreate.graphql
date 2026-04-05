@@ -1,0 +1,8 @@
+mutation Transcription_create($input: CreateTranscriptionInput!) {
+	create_transcription(input: $input) {
+		id
+		wordId
+		ipa
+		pinyin
+	}
+}

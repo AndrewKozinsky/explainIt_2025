@@ -1,54 +1,59 @@
+import { LanguageCode } from 'prisma/generated/enums'
+
 export type Language = keyof typeof languages
 
-export const languages = {
+export const languages: Record<LanguageCode, { nameRus: string; nameEng: string; code: string }> = {
 	en: {
-		name: 'Английский',
+		nameRus: 'Английский',
+		nameEng: 'english',
 		code: 'en',
 	},
-
 	es: {
-		name: 'Испанский',
+		nameRus: 'Испанский',
+		nameEng: 'spanish',
 		code: 'es',
 	},
 	fr: {
-		name: 'Французский',
+		nameRus: 'Французский',
+		nameEng: 'french',
 		code: 'fr',
 	},
 	de: {
-		name: 'Немецкий',
+		nameRus: 'Немецкий',
+		nameEng: 'german',
 		code: 'de',
 	},
-	it: {
-		name: 'Итальянский',
-		code: 'it',
-	},
-	pt: {
-		name: 'Португальский',
-		code: 'pt',
-	},
 	ru: {
-		name: 'Русский',
+		nameRus: 'Русский',
+		nameEng: 'russian',
 		code: 'ru',
 	},
-	tr: {
-		name: 'Турецкий',
+	/*it: {
+		nameRus: 'Итальянский',
+		code: 'it',
+	},*/
+	/*pt: {
+		nameRus: 'Португальский',
+		code: 'pt',
+	},*/
+	/*tr: {
+		nameRus: 'Турецкий',
 		code: 'ja',
-	},
-	ar: {
-		name: 'Арабский',
+	},*/
+	/*ar: {
+		nameRus: 'Арабский',
 		code: 'ar',
-	},
-	zhCMN: {
-		name: 'Китайский (Мандаринский)',
+	},*/
+	/*zhCMN: {
+		nameRus: 'Китайский (Мандаринский)',
 		code: 'zhCMN',
-	},
-	ko: {
-		name: 'Корейский',
+	},*/
+	/*ko: {
+		nameRus: 'Корейский',
 		code: 'ko',
-	},
-
-	ja: {
-		name: 'Японский',
+	},*/
+	/*ja: {
+		nameRus: 'Японский',
 		code: 'ja',
-	},
+	},*/
 }

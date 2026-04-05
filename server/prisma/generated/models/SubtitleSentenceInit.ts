@@ -208,7 +208,7 @@ export type SubtitleSentenceInitGroupByOutputType = {
   _max: SubtitleSentenceInitMaxAggregateOutputType | null
 }
 
-type GetSubtitleSentenceInitGroupByPayload<T extends SubtitleSentenceInitGroupByArgs> = Prisma.PrismaPromise<
+export type GetSubtitleSentenceInitGroupByPayload<T extends SubtitleSentenceInitGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<SubtitleSentenceInitGroupByOutputType, T['by']> &
       {
@@ -1303,6 +1303,11 @@ export type SubtitleSentenceInitFindManyArgs<ExtArgs extends runtime.Types.Exten
    * Skip the first `n` SubtitleSentenceInits.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of SubtitleSentenceInits.
+   */
   distinct?: Prisma.SubtitleSentenceInitScalarFieldEnum | Prisma.SubtitleSentenceInitScalarFieldEnum[]
 }
 

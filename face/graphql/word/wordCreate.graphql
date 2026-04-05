@@ -1,0 +1,13 @@
+mutation Word_create($input: CreateWordInput!) {
+	word_create(input: $input) {
+		id
+		word
+		languageCode
+		transcription {
+			id
+			wordId
+			ipa
+			pinyin
+		}
+	}
+}

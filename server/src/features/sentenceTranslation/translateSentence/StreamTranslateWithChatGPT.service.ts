@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { OpenAIModels } from 'types/openAIModels'
+import { Language } from 'utils/languages'
 import { OpenAIService } from 'infrastructure/openAI/openAI.service'
 import { buildSentenceTranslationPrompt } from './buildSentenceTranslationPrompt'
 import { SentenceTranslationProvider, SentenceTranslationProviderStreamEvent } from './SentenceTranslationProvider'
@@ -12,8 +13,8 @@ export class StreamTranslateWithChatGPT implements SentenceTranslationProvider {
 
 	async *streamTranslate(input: {
 		text: string
-		sourceLanguageCode: string
-		targetLanguageCode: string
+		sourceLanguageCode: Language
+		targetLanguageCode: Language
 		abortSignal?: AbortSignal
 		lowPriority?: boolean
 		bookName?: string
@@ -81,8 +82,8 @@ export class StreamTranslateWithChatGPT implements SentenceTranslationProvider {
 	}
 
 	private getChatGPTTranslationTask(input: {
-		sourceLanguageCode: string
-		targetLanguageCode: string
+		sourceLanguageCode: Language
+		targetLanguageCode: Language
 		bookName?: string
 		bookAuthor?: string
 		videoName?: string

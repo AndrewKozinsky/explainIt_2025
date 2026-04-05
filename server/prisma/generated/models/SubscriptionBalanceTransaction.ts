@@ -211,7 +211,7 @@ export type SubscriptionBalanceTransactionGroupByOutputType = {
   _max: SubscriptionBalanceTransactionMaxAggregateOutputType | null
 }
 
-type GetSubscriptionBalanceTransactionGroupByPayload<T extends SubscriptionBalanceTransactionGroupByArgs> = Prisma.PrismaPromise<
+export type GetSubscriptionBalanceTransactionGroupByPayload<T extends SubscriptionBalanceTransactionGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<SubscriptionBalanceTransactionGroupByOutputType, T['by']> &
       {
@@ -1350,6 +1350,11 @@ export type SubscriptionBalanceTransactionFindManyArgs<ExtArgs extends runtime.T
    * Skip the first `n` SubscriptionBalanceTransactions.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of SubscriptionBalanceTransactions.
+   */
   distinct?: Prisma.SubscriptionBalanceTransactionScalarFieldEnum | Prisma.SubscriptionBalanceTransactionScalarFieldEnum[]
 }
 

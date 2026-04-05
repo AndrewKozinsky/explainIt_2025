@@ -2,10 +2,10 @@ import { Language } from 'utils/languages'
 
 export type VideoPrivateServiceModel = {
 	id: number
-	name: string | null
-	year: number | null
-	languageCode: Language
-	fileUrl: string | null
+	name: null | string
+	year: null | number
+	languageCode: null | Language
+	fileUrl: null | string
 	originalContent: null | string
 	processedContent: null | string
 	contentType: 'text' | 'subtitles'

@@ -1,7 +1,7 @@
 'use client'
 
-import DetailsBlock from '_pages/media/commonComponents/detailsBlock/DetailsBlock/DetailsBlock'
 import RootSurface from '_pages/media/commonComponents/RootSurface/RootSurface'
+import DetailsBlock from '_pages/media/detailsBlock/DetailsBlock/DetailsBlock'
 import ChapterContent from '../ChapterContent/ChapterContent'
 import ReadingBottomNavigation from '../ReadingBottomNavigation/ReadingBottomNavigation'
 import ReadingBreadCrumbs from '../ReadingBreadCrumbs/ReadingBreadCrumbs'

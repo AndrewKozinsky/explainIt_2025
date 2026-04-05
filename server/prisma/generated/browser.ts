@@ -78,10 +78,15 @@ export type Subtitle = Prisma.SubtitleModel
  */
 export type SubtitleSentenceInit = Prisma.SubtitleSentenceInitModel
 /**
- * Model EngRusDictionary
+ * Model Word
  * 
  */
-export type EngRusDictionary = Prisma.EngRusDictionaryModel
+export type Word = Prisma.WordModel
+/**
+ * Model Transcription
+ * 
+ */
+export type Transcription = Prisma.TranscriptionModel
 /**
  * Model Tariff
  * 

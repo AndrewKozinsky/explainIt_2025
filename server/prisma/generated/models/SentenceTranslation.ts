@@ -196,7 +196,7 @@ export type SentenceTranslationGroupByOutputType = {
   _max: SentenceTranslationMaxAggregateOutputType | null
 }
 
-type GetSentenceTranslationGroupByPayload<T extends SentenceTranslationGroupByArgs> = Prisma.PrismaPromise<
+export type GetSentenceTranslationGroupByPayload<T extends SentenceTranslationGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<SentenceTranslationGroupByOutputType, T['by']> &
       {
@@ -1167,6 +1167,11 @@ export type SentenceTranslationFindManyArgs<ExtArgs extends runtime.Types.Extens
    * Skip the first `n` SentenceTranslations.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of SentenceTranslations.
+   */
   distinct?: Prisma.SentenceTranslationScalarFieldEnum | Prisma.SentenceTranslationScalarFieldEnum[]
 }
 

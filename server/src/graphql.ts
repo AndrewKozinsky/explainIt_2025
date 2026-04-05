@@ -8,15 +8,6 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export interface CheckTranslationInput {
-    rusSentence: string;
-    engSentence: string;
-}
-
-export interface GetTranscriptionInput {
-    engSentence: string;
-}
-
 export interface GetPrivateBookInput {
     id: number;
 }
@@ -36,6 +27,11 @@ export interface GetPrivateVideoInput {
 
 export interface GetPublicVideoInput {
     id: number;
+}
+
+export interface GetWordInput {
+    word: string;
+    languageCode: string;
 }
 
 export interface RegisterUserInput {
@@ -69,6 +65,7 @@ export interface CreatePrivateBookInput {
     author?: Nullable<string>;
     name?: Nullable<string>;
     note?: Nullable<string>;
+    languageCode?: Nullable<string>;
 }
 
 export interface UpdatePrivateBookInput {
@@ -108,6 +105,7 @@ export interface CreatePrivateVideoInput {
     name?: Nullable<string>;
     originalContent?: Nullable<string>;
     fileSizeMb?: Nullable<number>;
+    languageCode?: Nullable<string>;
 }
 
 export interface UpdatePrivateVideoInput {
@@ -125,11 +123,38 @@ export interface DeletePrivateVideoInput {
     id: number;
 }
 
+export interface CreateWordInput {
+    word: string;
+    languageCode: string;
+}
+
+export interface CreateTranscriptionInput {
+    wordId: number;
+}
+
+export interface CurrentSubscriptionOutModel {
+    tariffId: number;
+    tariffCode: string;
+    tariffName: string;
+    pricePaid: number;
+    balance: number;
+    includedFileStorageMb: number;
+    startsAt: string;
+    endsAt: string;
+}
+
+export interface UserOutModel {
+    id: number;
+    email: string;
+    isUserConfirmed: boolean;
+    currentSubscription?: Nullable<CurrentSubscriptionOutModel>;
+}
+
 export interface BookPrivateOutModel {
     id: number;
     author?: Nullable<string>;
     name?: Nullable<string>;
-    languageCode: string;
+    languageCode?: Nullable<string>;
     note?: Nullable<string>;
     userId: number;
     freeToUse: boolean;
@@ -182,6 +207,16 @@ export interface BookPublicOutModel {
     chapters: BookChapterLiteOutModel[];
 }
 
+export interface LanguageOutModel {
+    code: string;
+    nameRus: string;
+    nameEng: string;
+}
+
+export interface BuySubscriptionWithYooKassaOutModel {
+    confirmationUrl: string;
+}
+
 export interface TariffOutModel {
     id: number;
     code: string;
@@ -191,6 +226,13 @@ export interface TariffOutModel {
     includedBalance: number;
     includedFileStorageMb: number;
     createdAt: DateTime;
+}
+
+export interface TranscriptionOutModel {
+    id: number;
+    wordId: number;
+    ipa?: Nullable<string>;
+    pinyin?: Nullable<string>;
 }
 
 export interface CreateVideoPrivateOutModel {
@@ -208,7 +250,7 @@ export interface UpdateVideoPrivateOutModel {
     id: number;
     name?: Nullable<string>;
     year?: Nullable<number>;
-    languageCode: string;
+    languageCode?: Nullable<string>;
     originalContent?: Nullable<string>;
     processedContent?: Nullable<string>;
     contentType: string;
@@ -222,7 +264,7 @@ export interface VideoPrivateLiteOutModel {
     userId: number;
     name?: Nullable<string>;
     year?: Nullable<number>;
-    languageCode: string;
+    languageCode?: Nullable<string>;
     originalContent?: Nullable<string>;
     processedContent?: Nullable<string>;
     contentType: string;
@@ -238,7 +280,7 @@ export interface VideoPrivateOutModel {
     userId: number;
     name?: Nullable<string>;
     year?: Nullable<number>;
-    languageCode: string;
+    languageCode?: Nullable<string>;
     originalContent?: Nullable<string>;
     processedContent?: Nullable<string>;
     contentType: string;
@@ -337,31 +379,14 @@ export interface VideoPublicLiteOutModel {
     freeToUse: boolean;
 }
 
-export interface CurrentSubscriptionOutModel {
-    tariffId: number;
-    tariffCode: string;
-    tariffName: string;
-    pricePaid: number;
-    balance: number;
-    includedFileStorageMb: number;
-    startsAt: string;
-    endsAt: string;
-}
-
-export interface UserOutModel {
+export interface WordOutModel {
     id: number;
-    email: string;
-    isUserConfirmed: boolean;
-    currentSubscription?: Nullable<CurrentSubscriptionOutModel>;
-}
-
-export interface BuySubscriptionWithYooKassaOutModel {
-    confirmationUrl: string;
+    word: string;
+    languageCode: string;
+    transcription?: Nullable<TranscriptionOutModel>;
 }
 
 export interface IQuery {
-    ai_checkTranslation(input: CheckTranslationInput): CheckTranslationOutModel | Promise<CheckTranslationOutModel>;
-    ai_getTranscription(input: GetTranscriptionInput): GetTranscriptionOutModel | Promise<GetTranscriptionOutModel>;
     auth_getMe(): UserOutModel | Promise<UserOutModel>;
     book_user_books(): BookPrivateOutModel[] | Promise<BookPrivateOutModel[]>;
     book_get(input: GetPrivateBookInput): BookPrivateOutModel | Promise<BookPrivateOutModel>;
@@ -373,23 +398,8 @@ export interface IQuery {
     video_public_get_videos(): VideoPublicLiteOutModel[] | Promise<VideoPublicLiteOutModel[]>;
     video_public_get(input: GetPublicVideoInput): VideoPublicOutModel | Promise<VideoPublicOutModel>;
     tariff_get_tariffs(): TariffOutModel[] | Promise<TariffOutModel[]>;
-}
-
-export interface CheckTranslationOutSuccessModel {
-    correct: boolean;
-    analysis: string;
-}
-
-export interface CheckTranslationOutErrorModel {
-    error: string;
-}
-
-export interface GetTranscriptionOutSuccessModel {
-    transcription: string;
-}
-
-export interface GetTranscriptionOutErrorModel {
-    error: string;
+    word_get(input: GetWordInput): WordOutModel | Promise<WordOutModel>;
+    language_get_languages(): LanguageOutModel[] | Promise<LanguageOutModel[]>;
 }
 
 export interface IMutation {
@@ -409,9 +419,9 @@ export interface IMutation {
     video_private_create(input: CreatePrivateVideoInput): CreateVideoPrivateOutModel | Promise<CreateVideoPrivateOutModel>;
     video_private_update(input: UpdatePrivateVideoInput): UpdateVideoPrivateOutModel | Promise<UpdateVideoPrivateOutModel>;
     video_private_delete(input: DeletePrivateVideoInput): boolean | Promise<boolean>;
+    word_create(input: CreateWordInput): WordOutModel | Promise<WordOutModel>;
+    create_transcription(input: CreateTranscriptionInput): TranscriptionOutModel | Promise<TranscriptionOutModel>;
 }
 
 export type DateTime = any;
-export type CheckTranslationOutModel = CheckTranslationOutSuccessModel | CheckTranslationOutErrorModel;
-export type GetTranscriptionOutModel = GetTranscriptionOutSuccessModel | GetTranscriptionOutErrorModel;
 type Nullable<T> = T | null;

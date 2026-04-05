@@ -6,6 +6,7 @@ function ChapterContent() {
 	const populatedChapter = useReadingStore((state) => state.populatedChapter)
 	const selection = useReadingStore((state) => state.selection)
 	const selectWord = useReadingStore((state) => state.selectWord)
+	const book = useReadingStore((state) => state.book.data)
 
 	return (
 		<div className='chapter-content'>
@@ -17,6 +18,7 @@ function ChapterContent() {
 						selectedSentenceId={selection.sentenceId}
 						selectedWordIds={selection.wordIds}
 						selectWord={selectWord}
+						languageCode={book?.languageCode!}
 					/>
 				)
 			})}

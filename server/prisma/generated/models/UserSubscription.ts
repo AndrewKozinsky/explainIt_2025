@@ -251,7 +251,7 @@ export type UserSubscriptionGroupByOutputType = {
   _max: UserSubscriptionMaxAggregateOutputType | null
 }
 
-type GetUserSubscriptionGroupByPayload<T extends UserSubscriptionGroupByArgs> = Prisma.PrismaPromise<
+export type GetUserSubscriptionGroupByPayload<T extends UserSubscriptionGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<UserSubscriptionGroupByOutputType, T['by']> &
       {
@@ -1768,6 +1768,11 @@ export type UserSubscriptionFindManyArgs<ExtArgs extends runtime.Types.Extension
    * Skip the first `n` UserSubscriptions.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of UserSubscriptions.
+   */
   distinct?: Prisma.UserSubscriptionScalarFieldEnum | Prisma.UserSubscriptionScalarFieldEnum[]
 }
 

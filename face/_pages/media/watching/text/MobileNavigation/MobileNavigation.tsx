@@ -1,8 +1,9 @@
-// import Tabs from 'ui/Tabs/Tabs'
-// import { tabsConfig } from './fn/onButtonClick'
-// import './MobileNavigation.scss'
+import Tabs from 'ui/Tabs/Tabs'
+import { useWatchingStore } from '../../watchingStore'
+import { tabsConfig } from './fn/onButtonClick'
+import './MobileNavigation.scss'
 
-/*function MobileNavigation() {
+function MobileNavigation() {
 	const mobileCurrentContentType = useWatchingStore((s) => s.mobileCurrentContentType)
 
 	return (
@@ -10,6 +11,6 @@
 			<Tabs currentTabId={mobileCurrentContentType} tabsConfig={tabsConfig} />
 		</div>
 	)
-}*/
+}
 
-// export default MobileNavigation
+export default MobileNavigation

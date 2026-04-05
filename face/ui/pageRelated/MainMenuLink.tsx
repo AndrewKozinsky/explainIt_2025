@@ -18,11 +18,7 @@ export function MainMenuLink(props: MenuLinkProps) {
 	const isCurrentPage = useIsCurrentPage(path)
 
 	return (
-		<Link
-			href={path}
-			className={cn('link', isCurrentPage && 'main-menu__link--current')}
-			data-testid='main-menu-item'
-		>
+		<Link href={path} className={cn('link', isCurrentPage && 'main-menu__link--current')}>
 			{name}
 		</Link>
 	)

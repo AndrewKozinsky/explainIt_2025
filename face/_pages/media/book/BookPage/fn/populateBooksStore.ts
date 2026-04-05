@@ -20,7 +20,10 @@ function useSetBookToStore() {
 		data: privateBookData,
 		error: privateBookError,
 		loading: privateBookLoading,
-	} = useBook_Get({ variables: { input: { id: bookId! } }, skip: bookType !== 'private' })
+	} = useBook_Get({
+		variables: { input: { id: bookId! } },
+		skip: bookType !== 'private',
+	})
 
 	useEffect(
 		function () {

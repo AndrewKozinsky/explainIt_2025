@@ -1,0 +1,25 @@
+@use '@/styles/variables' as vars;
+
+.transcription-audio {
+	display: inline-flex;
+	align-items: center;
+	gap: .5rem;
+	background-color: vars.$grayColor-1;
+	padding: .3rem .3rem;
+	margin: 0 .2rem;
+	border-radius: vars.$radius-1;
+}
+
+.transcription-audio--white-bg {
+	background-color: white;
+}
+
+.transcription-audio__error-icon {
+	height: 1.5rem;
+}
+
+.transcription-audio__ipa {
+	display: inline-flex;
+	font-size: 2rem;
+	line-height: 2rem;
+}

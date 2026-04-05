@@ -1,5 +1,5 @@
 export type ChapterData = {
 	name?: string
-	header: string
+	header?: string
 	text: string
 }

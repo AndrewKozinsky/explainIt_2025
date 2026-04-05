@@ -24,10 +24,4 @@ export class BrowserService {
 		const version = browserInfo?.version || ''
 		return version ? `${browser} ${version}` : browser
 	}
-
-	// Returns client's device name
-	/*isReqFromLocalhost(req: Request): boolean {
-		const header = req.rawHeaders.find((header) => header.includes('localhost'))
-		return Boolean(header)!!
-	}*/
 }

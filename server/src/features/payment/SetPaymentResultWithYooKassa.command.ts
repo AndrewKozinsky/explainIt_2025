@@ -6,6 +6,7 @@ import { UserSubscriptionRepository } from 'repo/userSubscription.repository'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { TelegramService } from 'infrastructure/telegram/telegram.service'
 import { YooKassaPaymentMetadata } from 'infrastructure/yooKassa/yooKassa.service'
 
 export class SetPaymentResultWithYooKassaCommand implements ICommand {
@@ -18,8 +19,7 @@ export class SetPaymentResultWithYooKassaCommand implements ICommand {
 	) {}
 }
 
-// Этот командный обработчик будет вызываться при получении ответа от ЮKassa при оплате.
-// При положительном ответе от Юкассы создаёт транзакцию в балансе пользователя вместе с увеличением баланса.
+// Этот командный обработчик будет вызываться при получении ответа от ЮКассы при оплате.
 @CommandHandler(SetPaymentResultWithYooKassaCommand)
 export class SetPaymentResultWithYooKassaHandler implements ICommandHandler<SetPaymentResultWithYooKassaCommand> {
 	constructor(
@@ -27,6 +27,7 @@ export class SetPaymentResultWithYooKassaHandler implements ICommandHandler<SetP
 		private dbRepository: DBRepository,
 		private userSubscriptionRepository: UserSubscriptionRepository,
 		private tariffRepository: TariffRepository,
+		private telegramService: TelegramService,
 	) {}
 
 	async execute(command: SetPaymentResultWithYooKassaCommand) {
@@ -43,6 +44,10 @@ export class SetPaymentResultWithYooKassaHandler implements ICommandHandler<SetP
 							userId,
 							id: paymentId,
 						} = await this.paymentRepository.makePaymentSuccessful(yooKassaPaymentId)
+
+						// Написать в Телеграм про успешную оплату
+						const messageToTg = `Была сделана оплата в explainit.ru. Сумма: ${amount / 100} руб.`
+						this.telegramService.sendMessageToFromExplainBot(messageToTg)
 
 						if (purpose === 'SUBSCRIPTION') {
 							await this.handleSubscriptionPayment({ amount, userId, paymentId, metadata })

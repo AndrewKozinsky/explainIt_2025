@@ -54,7 +54,7 @@ model BookPrivate {
     user_id       Int
     author        String?
     name          String?
-    language_code LanguageCode
+    language_code LanguageCode?
     note          String?
     BookChapter   BookChapter[]
     created_at    DateTime      @default(now())
@@ -92,7 +92,7 @@ model VideoPrivate {
     id                Int             @id @default(autoincrement())
     user              User            @relation(fields: [user_id], references: [id], onDelete: Cascade)
     user_id           Int
-    language_code     LanguageCode
+    language_code     LanguageCode?
     year              Int?
     file_name         String?
     file_s3_key       String?
@@ -183,12 +183,19 @@ model SubtitleSentenceInit {
     @@index([sentence_id])
 }
 
-model EngRusDictionary {
-    id            Int      @id @default(autoincrement())
-    eng           String   @unique
-    transcription String?
-    created_at    DateTime @default(now())
-    updated_at    DateTime @default(now())
+model Word {
+    id            Int            @id @default(autoincrement())
+    word          String
+    language_code LanguageCode
+    Transcription Transcription?
+}
+
+model Transcription {
+    id      Int     @id @default(autoincrement())
+    word    Word    @relation(fields: [word_id], references: [id], onDelete: Cascade)
+    word_id Int     @unique
+    ipa     String?
+    pinyin  String?
 }
 
 model Tariff {
@@ -240,14 +247,7 @@ enum LanguageCode {
     es
     fr
     de
-    it
-    pt
     ru
-    tr
-    ar
-    zhCMN
-    ko
-    ja
 }
 
 enum S3ProviderName {

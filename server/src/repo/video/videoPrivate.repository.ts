@@ -17,7 +17,7 @@ export class VideoPrivateRepository {
 	async createVideo(dto: {
 		userId: number
 		name?: null | string
-		languageCode: Language
+		languageCode?: null | Language
 		originalContent?: null | string
 		processedContent?: null | string
 		contentType?: 'text' | 'subtitles'

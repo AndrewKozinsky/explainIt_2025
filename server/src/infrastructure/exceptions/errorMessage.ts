@@ -111,4 +111,21 @@ export const errorMessage = {
 	nlp: {
 		cantDivideTextIntoSentences: 'Не получилось разделить текст на предложения.',
 	},
+	word: {
+		notCreated: 'Слово не создано.',
+		notFound: 'Слово не найдено.',
+	},
+	transcription: {
+		notCreated: 'Не удалось создать транскрипцию.',
+		alreadyExists: 'Транскрипция для этого слова уже существует.',
+		cannotGetTranscriptionFromLLM: 'Не удалось получить транскрипцию от LLM.',
+	},
+	elevenLabs: {
+		voiceNotFound: 'Голос для указанного языка не найден.',
+		cannotGenerateAudio: 'Не удалось сгенерировать аудио через ElevenLabs.',
+	},
+	audioPronunciation: {
+		notCreated: 'Не удалось создать озвучку.',
+		cannotUploadToS3: 'Не удалось загрузить аудио файл в хранилище.',
+	},
 }

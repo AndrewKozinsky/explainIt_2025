@@ -5,7 +5,9 @@ import { Prisma } from 'prisma/generated/client'
 import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 
-type BookPublicWithChapters = Prisma.BookPublicGetPayload<{ include: { BookChapter: true } }>
+type BookPublicWithChapters = Prisma.BookPublicGetPayload<{
+	include: { BookChapter: { orderBy: { created_at: 'asc' } } }
+}>
 
 @Injectable()
 export class BookPublicRepository {
@@ -31,7 +33,7 @@ export class BookPublicRepository {
 				language_code: dto.languageCode,
 				free_to_use: dto.freeToUse,
 			},
-			include: { BookChapter: true },
+			include: { BookChapter: { orderBy: { created_at: 'asc' } } },
 		})
 
 		return this.mapDbBookPublicToServiceBook(newBookPublic)
@@ -44,7 +46,7 @@ export class BookPublicRepository {
 		if (typeof input.id === 'number') {
 			book = await this.prisma.bookPublic.findUnique({
 				where: { id: input.id },
-				include: { BookChapter: true },
+				include: { BookChapter: { orderBy: { created_at: 'asc' } } },
 			})
 		} else {
 			const where: Prisma.BookPublicWhereInput = {}
@@ -53,7 +55,7 @@ export class BookPublicRepository {
 
 			book = await this.prisma.bookPublic.findFirst({
 				where,
-				include: { BookChapter: true },
+				include: { BookChapter: { orderBy: { created_at: 'asc' } } },
 			})
 		}
 

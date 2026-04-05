@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import { LinkLogo } from 'ui/logo/LinkLogo/LinkLogo'
+import AuthButtons from 'ui/pageRelated/pageTopBar/AuthButtons/AuthButtons'
 import { MainMenu } from '../../MainMenu/MainMenu'
-import PageTopBarUserButtons from '../PageTopBarUserButtons/PageTopBarUserButtons'
 import './Bar.scss'
 
 function Bar() {
@@ -11,7 +11,7 @@ function Bar() {
 				<LinkLogo />
 				<MainMenu />
 			</div>
-			<PageTopBarUserButtons />
+			<AuthButtons />
 		</div>
 	)
 }

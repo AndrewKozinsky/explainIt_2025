@@ -51,6 +51,17 @@ export class CloudRuS3Service {
 		)
 	}
 
+	async uploadFile(fileKey: string, body: Buffer, contentType: string): Promise<void> {
+		const command = new PutObjectCommand({
+			Bucket: this.mainConfig.get().cloudRu.s3.bucketName,
+			Key: fileKey,
+			Body: body,
+			ContentType: contentType,
+		})
+
+		await this.s3.send(command)
+	}
+
 	async deleteFile(fileKey: string): Promise<void> {
 		const command = new DeleteObjectCommand({
 			Bucket: this.mainConfig.get().cloudRu.s3.bucketName,

@@ -31,7 +31,7 @@ type BookPrivateOutModel {
   chapters: [BookChapterLiteOutModel!]!
   freeToUse: Boolean!
   id: Int!
-  languageCode: String!
+  languageCode: String
   name: String
   note: String
   userId: Int!
@@ -56,25 +56,6 @@ input BuySubscriptionWithYooKassaInput {
 
 type BuySubscriptionWithYooKassaOutModel {
   confirmationUrl: String!
-}
-
-input CheckTranslationInput {
-  """Sentence in English"""
-  engSentence: String!
-
-  """Sentence in Russian"""
-  rusSentence: String!
-}
-
-type CheckTranslationOutErrorModel {
-  error: String!
-}
-
-union CheckTranslationOutModel = CheckTranslationOutErrorModel | CheckTranslationOutSuccessModel
-
-type CheckTranslationOutSuccessModel {
-  analysis: String!
-  correct: Boolean!
 }
 
 input ConfirmEmailInput {
@@ -106,6 +87,9 @@ input CreatePrivateBookInput {
   """Author"""
   author: String
 
+  """Language code"""
+  languageCode: String
+
   """Name"""
   name: String
 
@@ -117,11 +101,19 @@ input CreatePrivateVideoInput {
   """File size in MB"""
   fileSizeMb: Int
 
+  """Language code"""
+  languageCode: String
+
   """Name"""
   name: String
 
   """Text"""
   originalContent: String
+}
+
+input CreateTranscriptionInput {
+  """Word id"""
+  wordId: Int!
 }
 
 type CreateVideoPrivateOutModel {
@@ -133,6 +125,14 @@ type CreateVideoPrivateOutModel {
   processedContent: String
   userId: Int!
   year: Int
+}
+
+input CreateWordInput {
+  """Language code"""
+  languageCode: String!
+
+  """Word text"""
+  word: String!
 }
 
 type CurrentSubscriptionOutModel {
@@ -194,19 +194,18 @@ input GetPublicVideoInput {
   id: Int!
 }
 
-input GetTranscriptionInput {
-  """Sentence in English"""
-  engSentence: String!
+input GetWordInput {
+  """Language code"""
+  languageCode: String!
+
+  """Word text"""
+  word: String!
 }
 
-type GetTranscriptionOutErrorModel {
-  error: String!
-}
-
-union GetTranscriptionOutModel = GetTranscriptionOutErrorModel | GetTranscriptionOutSuccessModel
-
-type GetTranscriptionOutSuccessModel {
-  transcription: String!
+type LanguageOutModel {
+  code: String!
+  nameEng: String!
+  nameRus: String!
 }
 
 input LoginInput {
@@ -267,6 +266,9 @@ type Mutation {
   """Update user book"""
   book_update(input: UpdatePrivateBookInput!): BookPrivateOutModel!
 
+  """Create transcription for a word using DeepSeek"""
+  create_transcription(input: CreateTranscriptionInput!): TranscriptionOutModel!
+
   """Buy a subscription with YooKassa"""
   payment_yookassa_buy_subscription(input: BuySubscriptionWithYooKassaInput!): BuySubscriptionWithYooKassaOutModel!
 
@@ -278,12 +280,12 @@ type Mutation {
 
   """Update a video"""
   video_private_update(input: UpdatePrivateVideoInput!): UpdateVideoPrivateOutModel!
+
+  """Create a new word"""
+  word_create(input: CreateWordInput!): WordOutModel!
 }
 
 type Query {
-  ai_checkTranslation(input: CheckTranslationInput!): CheckTranslationOutModel!
-  ai_getTranscription(input: GetTranscriptionInput!): GetTranscriptionOutModel!
-
   """Get current user data"""
   auth_getMe: UserOutModel!
 
@@ -302,6 +304,9 @@ type Query {
   """Get user books"""
   book_user_books: [BookPrivateOutModel!]!
 
+  """Get all available languages"""
+  language_get_languages: [LanguageOutModel!]!
+
   """Get all tariffs"""
   tariff_get_tariffs: [TariffOutModel!]!
 
@@ -316,6 +321,9 @@ type Query {
 
   """Get public videos"""
   video_public_get_videos: [VideoPublicLiteOutModel!]!
+
+  """Get word with transcription and audio pronunciations"""
+  word_get(input: GetWordInput!): WordOutModel!
 }
 
 input RegisterUserInput {
@@ -359,6 +367,13 @@ type TariffOutModel {
   includedFileStorageMb: Int!
   name: String!
   price: Int!
+}
+
+type TranscriptionOutModel {
+  id: Int!
+  ipa: String
+  pinyin: String
+  wordId: Int!
 }
 
 input UpdateBookChapterInput {
@@ -425,7 +440,7 @@ type UpdateVideoPrivateOutModel {
   contentType: String!
   fileSizeMb: Int
   id: Int!
-  languageCode: String!
+  languageCode: String
   name: String
   originalContent: String
   processedContent: String
@@ -449,7 +464,7 @@ type VideoPrivateLiteOutModel {
   fileUrl: String
   id: Int!
   isFileUploaded: Boolean!
-  languageCode: String!
+  languageCode: String
   name: String
   originalContent: String
   processedContent: String
@@ -466,7 +481,7 @@ type VideoPrivateOutModel {
   freeToUse: Boolean!
   id: Int!
   isFileUploaded: Boolean!
-  languageCode: String!
+  languageCode: String
   name: String
   originalContent: String
   processedContent: String
@@ -546,4 +561,11 @@ type VideoPublicSubtitleOutModel {
   orderIndex: Int!
   startOffset: Int!
   startTimeMs: Int!
+}
+
+type WordOutModel {
+  id: Int!
+  languageCode: String!
+  transcription: TranscriptionOutModel
+  word: String!
 }

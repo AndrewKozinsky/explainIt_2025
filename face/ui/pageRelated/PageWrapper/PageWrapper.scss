@@ -30,7 +30,7 @@
 }
 
 .page-wrapper__bottom {
-	padding-top: 4rem;
+	padding-top: 7rem;
 	padding-bottom: 3rem;
 	@include side-offset;
 }
@@ -40,7 +40,7 @@
 	column-gap: 2rem;
 	row-gap: .6rem;
 	flex-wrap: wrap;
-	font-size: 1.5rem;
-	line-height: 1.9rem;
+	font-size: 1.4rem;
+	line-height: 1.8rem;
 	color: vars.$grayColor-5;
 }

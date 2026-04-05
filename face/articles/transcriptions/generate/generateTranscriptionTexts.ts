@@ -1,4 +1,3 @@
-import graphqlAIQueries from '../../../graphql/ai/graphqlAIQueries'
 import { wait } from '../../../utils/utils'
 import { transcriptions } from '../transcriptions'
 import { updateTranscriptionBlockInFile } from './updateTranscriptionBlockInFile'
@@ -23,7 +22,7 @@ async function generateTranscriptionTexts() {
 }
 
 async function getSentenceTranscriptionFromServer(engSentence: string) {
-	const { data } = await graphqlAIQueries.getTranscription({
+	/*const { data } = await graphqlAIQueries.getTranscription({
 		engSentence,
 	})
 
@@ -31,5 +30,7 @@ async function getSentenceTranscriptionFromServer(engSentence: string) {
 		return 'WRONG TRANSCRIPTION'
 	}
 
-	return data.ai_getTranscription.transcription || 'WRONG TRANSCRIPTION'
+	return data.ai_getTranscription.transcription || 'WRONG TRANSCRIPTION'*/
+
+	return 'WRONG TRANSCRIPTION'
 }

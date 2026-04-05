@@ -10,13 +10,13 @@ export class BookPrivateOutModel {
 	author: string | null
 
 	@Field(() => String, { nullable: true })
-	name: string | null
-
-	@Field(() => String)
-	languageCode: string
+	name: null | string
 
 	@Field(() => String, { nullable: true })
-	note: string | null
+	languageCode: null | string
+
+	@Field(() => String, { nullable: true })
+	note: null | string
 
 	@Field(() => Int)
 	userId: number
@@ -34,16 +34,16 @@ export class BookLiteOutModel {
 	id: number
 
 	@Field(() => String, { nullable: true })
-	author: string | null
+	author: null | string
 
 	@Field(() => String, { nullable: true })
-	name: string | null
+	name: null | string
 
 	@Field(() => String)
-	languageCode: string
+	languageCode: null | string
 
 	@Field(() => String, { nullable: true })
-	note: string | null
+	note: null | string
 
 	@Field(() => Int, { nullable: true })
 	userId: null | number

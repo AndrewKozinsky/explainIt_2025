@@ -4,7 +4,7 @@ import { routesUtils } from '@/utils/routes'
 import './ChapterLink.scss'
 
 type BookLinkProps = {
-	name: string
+	name?: null | string
 	subName?: null | string
 	href: string
 }

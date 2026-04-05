@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common'
 import { CqrsModule } from '@nestjs/cqrs'
 import { DBRepository } from 'repo/db.repository'
-import { EngRusDictionaryRepository } from 'repo/engRusDictionary.repository'
 import { SentenceRepository } from 'repo/sentence.repository'
 import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
 import { SubscriptionBalanceTransactionRepository } from 'repo/subscriptionBalanceTransaction.repository'
@@ -26,7 +25,6 @@ const commandHandlers = [
 ]
 const translateProviders = [StreamTranslateWithDeepSeek, StreamTranslateWithChatGPT]
 const repositories = [
-	EngRusDictionaryRepository,
 	SentenceRepository,
 	SentenceTranslationRepository,
 	UserRepository,

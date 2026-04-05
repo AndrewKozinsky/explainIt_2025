@@ -2,7 +2,7 @@ import cn from 'classnames'
 import './Spinner.scss'
 
 type SpinnerProps = {
-	size?: 'full' | 'small'
+	size?: 'full' | 'extra-small' | 'small'
 }
 
 function Spinner(props: SpinnerProps) {

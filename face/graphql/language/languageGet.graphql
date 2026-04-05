@@ -1,0 +1,7 @@
+query Language_get_languages {
+	language_get_languages {
+		code
+		nameRus
+		nameEng
+	}
+}

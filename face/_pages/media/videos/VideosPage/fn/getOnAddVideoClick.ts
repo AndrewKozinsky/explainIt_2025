@@ -2,6 +2,7 @@ import { useCallback, useContext, useState } from 'react'
 import { redirect } from 'next/navigation'
 import { useVideoPrivate_Create, VideoPrivate_GetUserVideosDocument } from '@/graphql'
 import { NotificationContext } from '@/ui/Notification/context'
+import { languages } from '@/utils/utils'
 import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
 
 export function useGetAddVideoConfig() {
@@ -23,7 +24,7 @@ export function useGetAddVideoConfig() {
 
 			try {
 				const { errors, data } = await createVideo({
-					variables: { input: { name: null, originalContent: null } },
+					variables: { input: { name: null, originalContent: null, languageCode: languages.en.code } },
 				})
 
 				if (errors) {

@@ -216,7 +216,7 @@ export type BookPublicGroupByOutputType = {
   _max: BookPublicMaxAggregateOutputType | null
 }
 
-type GetBookPublicGroupByPayload<T extends BookPublicGroupByArgs> = Prisma.PrismaPromise<
+export type GetBookPublicGroupByPayload<T extends BookPublicGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<BookPublicGroupByOutputType, T['by']> &
       {
@@ -454,6 +454,10 @@ export type BookPublicCreatecoversInput = {
 
 export type NullableBoolFieldUpdateOperationsInput = {
   set?: boolean | null
+}
+
+export type EnumLanguageCodeFieldUpdateOperationsInput = {
+  set?: $Enums.LanguageCode
 }
 
 export type BookPublicUpdatecoversInput = {
@@ -1272,6 +1276,11 @@ export type BookPublicFindManyArgs<ExtArgs extends runtime.Types.Extensions.Inte
    * Skip the first `n` BookPublics.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of BookPublics.
+   */
   distinct?: Prisma.BookPublicScalarFieldEnum | Prisma.BookPublicScalarFieldEnum[]
 }
 

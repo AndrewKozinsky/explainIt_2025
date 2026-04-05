@@ -63,7 +63,8 @@ export const ModelName = {
   SentenceTranslation: 'SentenceTranslation',
   Subtitle: 'Subtitle',
   SubtitleSentenceInit: 'SubtitleSentenceInit',
-  EngRusDictionary: 'EngRusDictionary',
+  Word: 'Word',
+  Transcription: 'Transcription',
   Tariff: 'Tariff',
   UserSubscription: 'UserSubscription'
 } as const
@@ -259,15 +260,23 @@ export const SubtitleSentenceInitScalarFieldEnum = {
 export type SubtitleSentenceInitScalarFieldEnum = (typeof SubtitleSentenceInitScalarFieldEnum)[keyof typeof SubtitleSentenceInitScalarFieldEnum]
 
 
-export const EngRusDictionaryScalarFieldEnum = {
+export const WordScalarFieldEnum = {
   id: 'id',
-  eng: 'eng',
-  transcription: 'transcription',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  word: 'word',
+  language_code: 'language_code'
 } as const
 
-export type EngRusDictionaryScalarFieldEnum = (typeof EngRusDictionaryScalarFieldEnum)[keyof typeof EngRusDictionaryScalarFieldEnum]
+export type WordScalarFieldEnum = (typeof WordScalarFieldEnum)[keyof typeof WordScalarFieldEnum]
+
+
+export const TranscriptionScalarFieldEnum = {
+  id: 'id',
+  word_id: 'word_id',
+  ipa: 'ipa',
+  pinyin: 'pinyin'
+} as const
+
+export type TranscriptionScalarFieldEnum = (typeof TranscriptionScalarFieldEnum)[keyof typeof TranscriptionScalarFieldEnum]
 
 
 export const TariffScalarFieldEnum = {
