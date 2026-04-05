@@ -8,7 +8,7 @@ type ChaptersListProps = {
 }
 
 type ChaptersListItem = {
-	name: string
+	name?: null | string
 	subName?: null | string
 	href: string
 }

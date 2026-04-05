@@ -18,15 +18,6 @@ export type Scalars = {
   DateTime: { input: any; output: any; }
 };
 
-export type AudioPronunciationOutModel = {
-  __typename?: 'AudioPronunciationOutModel';
-  audioUrl: Scalars['String']['output'];
-  duration: Scalars['Int']['output'];
-  id: Scalars['Int']['output'];
-  voiceId: Scalars['Int']['output'];
-  wordId: Scalars['Int']['output'];
-};
-
 export type BookChapterLiteOutModel = {
   __typename?: 'BookChapterLiteOutModel';
   bookId: Scalars['Int']['output'];
@@ -96,11 +87,6 @@ export type BuySubscriptionWithYooKassaOutModel = {
 export type ConfirmEmailInput = {
   /** User email */
   code: Scalars['String']['input'];
-};
-
-export type CreateAudioPronunciationInput = {
-  /** Word id */
-  wordId: Scalars['Int']['input'];
 };
 
 export type CreateBookChapterInput = {
@@ -219,6 +205,8 @@ export type GetPublicVideoInput = {
 };
 
 export type GetWordInput = {
+  /** Language code */
+  languageCode: Scalars['String']['input'];
   /** Word text */
   word: Scalars['String']['input'];
 };
@@ -275,8 +263,6 @@ export type Mutation = {
   book_delete: Scalars['Boolean']['output'];
   /** Update user book */
   book_update: BookPrivateOutModel;
-  /** Create audio pronunciation for a word using ElevenLabs */
-  create_audio_pronunciation: AudioPronunciationOutModel;
   /** Create transcription for a word using DeepSeek */
   create_transcription: TranscriptionOutModel;
   /** Buy a subscription with YooKassa */
@@ -344,11 +330,6 @@ export type MutationBook_DeleteArgs = {
 
 export type MutationBook_UpdateArgs = {
   input: UpdatePrivateBookInput;
-};
-
-
-export type MutationCreate_Audio_PronunciationArgs = {
-  input: CreateAudioPronunciationInput;
 };
 
 
@@ -679,19 +660,11 @@ export type VideoPublicSubtitleOutModel = {
 
 export type WordOutModel = {
   __typename?: 'WordOutModel';
-  audioPronunciations: Array<AudioPronunciationOutModel>;
   id: Scalars['Int']['output'];
   languageCode: Scalars['String']['output'];
   transcription?: Maybe<TranscriptionOutModel>;
   word: Scalars['String']['output'];
 };
-
-export type AudioPronunciation_CreateVariables = Exact<{
-  input: CreateAudioPronunciationInput;
-}>;
-
-
-export type AudioPronunciation_Create = { __typename?: 'Mutation', create_audio_pronunciation: { __typename?: 'AudioPronunciationOutModel', id: number, wordId: number, voiceId: number, audioUrl: string, duration: number } };
 
 export type Auth_ConfirmEmailVariables = Exact<{
   input: ConfirmEmailInput;
@@ -878,53 +851,16 @@ export type Word_CreateVariables = Exact<{
 }>;
 
 
-export type Word_Create = { __typename?: 'Mutation', word_create: { __typename?: 'WordOutModel', id: number, word: string, languageCode: string, transcription?: { __typename?: 'TranscriptionOutModel', id: number, wordId: number, ipa?: string | null, pinyin?: string | null } | null, audioPronunciations: Array<{ __typename?: 'AudioPronunciationOutModel', id: number, voiceId: number, audioUrl: string, duration: number }> } };
+export type Word_Create = { __typename?: 'Mutation', word_create: { __typename?: 'WordOutModel', id: number, word: string, languageCode: string, transcription?: { __typename?: 'TranscriptionOutModel', id: number, wordId: number, ipa?: string | null, pinyin?: string | null } | null } };
 
 export type Word_GetVariables = Exact<{
   input: GetWordInput;
 }>;
 
 
-export type Word_Get = { __typename?: 'Query', word_get: { __typename?: 'WordOutModel', id: number, word: string, languageCode: string, transcription?: { __typename?: 'TranscriptionOutModel', id: number, wordId: number, ipa?: string | null, pinyin?: string | null } | null, audioPronunciations: Array<{ __typename?: 'AudioPronunciationOutModel', id: number, voiceId: number, audioUrl: string, duration: number }> } };
+export type Word_Get = { __typename?: 'Query', word_get: { __typename?: 'WordOutModel', id: number, word: string, languageCode: string, transcription?: { __typename?: 'TranscriptionOutModel', id: number, wordId: number, ipa?: string | null, pinyin?: string | null } | null } };
 
 
-export const AudioPronunciation_CreateDocument = gql`
-    mutation AudioPronunciation_create($input: CreateAudioPronunciationInput!) {
-  create_audio_pronunciation(input: $input) {
-    id
-    wordId
-    voiceId
-    audioUrl
-    duration
-  }
-}
-    `;
-export type AudioPronunciation_CreateMutationFn = Apollo.MutationFunction<AudioPronunciation_Create, AudioPronunciation_CreateVariables>;
-
-/**
- * __useAudioPronunciation_Create__
- *
- * To run a mutation, you first call `useAudioPronunciation_Create` within a React component and pass it any options that fit your needs.
- * When your component renders, `useAudioPronunciation_Create` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [audioPronunciationCreate, { data, loading, error }] = useAudioPronunciation_Create({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useAudioPronunciation_Create(baseOptions?: Apollo.MutationHookOptions<AudioPronunciation_Create, AudioPronunciation_CreateVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<AudioPronunciation_Create, AudioPronunciation_CreateVariables>(AudioPronunciation_CreateDocument, options);
-      }
-export type AudioPronunciation_CreateHookResult = ReturnType<typeof useAudioPronunciation_Create>;
-export type AudioPronunciation_CreateMutationResult = Apollo.MutationResult<AudioPronunciation_Create>;
-export type AudioPronunciation_CreateMutationOptions = Apollo.BaseMutationOptions<AudioPronunciation_Create, AudioPronunciation_CreateVariables>;
 export const Auth_ConfirmEmailDocument = gql`
     mutation Auth_confirmEmail($input: ConfirmEmailInput!) {
   auth_confirmEmail(input: $input)
@@ -2250,12 +2186,6 @@ export const Word_CreateDocument = gql`
       ipa
       pinyin
     }
-    audioPronunciations {
-      id
-      voiceId
-      audioUrl
-      duration
-    }
   }
 }
     `;
@@ -2296,12 +2226,6 @@ export const Word_GetDocument = gql`
       wordId
       ipa
       pinyin
-    }
-    audioPronunciations {
-      id
-      voiceId
-      audioUrl
-      duration
     }
   }
 }

@@ -1,6 +1,6 @@
 import DetailsBlock from '_pages/media/detailsBlock/DetailsBlock/DetailsBlock'
-// import MobileNavigation from '../MobileNavigation/MobileNavigation'
 import { useWatchingStore } from '../../watchingStore'
+import MobileNavigation from '../MobileNavigation/MobileNavigation'
 import TextSide from '../textSide/TextSide/TextSide'
 import { getSectionClasses } from './fn/getSectionClasses'
 import './TextRoot.scss'
@@ -10,7 +10,7 @@ function TextRoot() {
 
 	return (
 		<div className='watching-text-root'>
-			{/*<MobileNavigation />*/}
+			<MobileNavigation />
 			<div className='watching-text-root__blocks'>
 				<div className={getSectionClasses('text', currentMobileContentType)}>
 					<TextSide />

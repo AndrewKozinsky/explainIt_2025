@@ -1,11 +1,3 @@
-type AudioPronunciationOutModel {
-  audioUrl: String!
-  duration: Int!
-  id: Int!
-  voiceId: Int!
-  wordId: Int!
-}
-
 type BookChapterLiteOutModel {
   bookId: Int!
   header: String
@@ -69,11 +61,6 @@ type BuySubscriptionWithYooKassaOutModel {
 input ConfirmEmailInput {
   """User email"""
   code: String!
-}
-
-input CreateAudioPronunciationInput {
-  """Word id"""
-  wordId: Int!
 }
 
 input CreateBookChapterInput {
@@ -208,6 +195,9 @@ input GetPublicVideoInput {
 }
 
 input GetWordInput {
+  """Language code"""
+  languageCode: String!
+
   """Word text"""
   word: String!
 }
@@ -275,9 +265,6 @@ type Mutation {
 
   """Update user book"""
   book_update(input: UpdatePrivateBookInput!): BookPrivateOutModel!
-
-  """Create audio pronunciation for a word using ElevenLabs"""
-  create_audio_pronunciation(input: CreateAudioPronunciationInput!): AudioPronunciationOutModel!
 
   """Create transcription for a word using DeepSeek"""
   create_transcription(input: CreateTranscriptionInput!): TranscriptionOutModel!
@@ -577,7 +564,6 @@ type VideoPublicSubtitleOutModel {
 }
 
 type WordOutModel {
-  audioPronunciations: [AudioPronunciationOutModel!]!
   id: Int!
   languageCode: String!
   transcription: TranscriptionOutModel

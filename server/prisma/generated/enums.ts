@@ -57,11 +57,3 @@ export const VideoTextType = {
 } as const
 
 export type VideoTextType = (typeof VideoTextType)[keyof typeof VideoTextType]
-
-
-export const VoiceGender = {
-  MALE: 'MALE',
-  FEMALE: 'FEMALE'
-} as const
-
-export type VoiceGender = (typeof VoiceGender)[keyof typeof VoiceGender]

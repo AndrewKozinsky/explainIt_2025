@@ -45,7 +45,7 @@ function Button(props: ButtonProps) {
 		<button className={cn(buttonClasses, extraClass)} {...restProps} data-testid={dataTestId} disabled={disabled}>
 			<ButtonIcon icon={icon} disabled={disabled} />
 			{children}
-			{loading && <Spinner />}
+			{loading && <Spinner size='small' />}
 		</button>
 	)
 }

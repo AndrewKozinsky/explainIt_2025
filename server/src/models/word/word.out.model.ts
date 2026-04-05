@@ -17,6 +17,6 @@ export class WordOutModel {
 	@Field(() => TranscriptionOutModel, { nullable: true })
 	transcription: TranscriptionOutModel | null
 
-	@Field(() => [AudioPronunciationOutModel])
-	audioPronunciations: AudioPronunciationOutModel[]
+	// @Field(() => [AudioPronunciationOutModel])
+	// audioPronunciations: AudioPronunciationOutModel[]
 }

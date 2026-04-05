@@ -1,5 +1,5 @@
 export const chapter_1 = {
-	name: 'PREMIER CHAPITRE',
+	name: 'CHAPITRE I',
 	// header: '',
 	text: `Quand j’avais six ans, j’ai vu une fois une très belle image dans un livre sur la forêt tropicale, qui s’appelait Histoires vécues.
 On y voyait un serpent boa qui avalait un animal sauvage.

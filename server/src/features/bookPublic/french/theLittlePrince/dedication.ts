@@ -1,6 +1,6 @@
 export const dedication = {
-	name: 'Chapter I',
-	// header: 'DEDICACE',
+	// name: 'Chapter I',
+	header: 'DEDICACE',
 	text: `Je demande pardon aux enfants d’avoir dédié ce livre à un adulte.
 J’ai une bonne raison : cet adulte est mon meilleur ami au monde.
 

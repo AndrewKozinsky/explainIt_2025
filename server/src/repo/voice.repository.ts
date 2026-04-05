@@ -1,9 +1,9 @@
-import { Injectable } from '@nestjs/common'
-import { LanguageCode, Voice, VoiceGender } from 'prisma/generated/client'
-import { PrismaService } from '../db/prisma.service'
-import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
+// import { Injectable } from '@nestjs/common'
+// import { LanguageCode, Voice, VoiceGender } from 'prisma/generated/client'
+// import { PrismaService } from '../db/prisma.service'
+// import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 
-@Injectable()
+/*@Injectable()
 export class VoiceRepository {
 	constructor(private prisma: PrismaService) {}
 
@@ -35,4 +35,4 @@ export class VoiceRepository {
 			},
 		})
 	}
-}
+}*/

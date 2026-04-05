@@ -201,7 +201,6 @@ export type WordWhereInput = {
   word?: Prisma.StringFilter<"Word"> | string
   language_code?: Prisma.EnumLanguageCodeFilter<"Word"> | $Enums.LanguageCode
   Transcription?: Prisma.XOR<Prisma.TranscriptionNullableScalarRelationFilter, Prisma.TranscriptionWhereInput> | null
-  AudioPronunciation?: Prisma.AudioPronunciationListRelationFilter
 }
 
 export type WordOrderByWithRelationInput = {
@@ -209,19 +208,17 @@ export type WordOrderByWithRelationInput = {
   word?: Prisma.SortOrder
   language_code?: Prisma.SortOrder
   Transcription?: Prisma.TranscriptionOrderByWithRelationInput
-  AudioPronunciation?: Prisma.AudioPronunciationOrderByRelationAggregateInput
 }
 
 export type WordWhereUniqueInput = Prisma.AtLeast<{
   id?: number
-  word?: string
   AND?: Prisma.WordWhereInput | Prisma.WordWhereInput[]
   OR?: Prisma.WordWhereInput[]
   NOT?: Prisma.WordWhereInput | Prisma.WordWhereInput[]
+  word?: Prisma.StringFilter<"Word"> | string
   language_code?: Prisma.EnumLanguageCodeFilter<"Word"> | $Enums.LanguageCode
   Transcription?: Prisma.XOR<Prisma.TranscriptionNullableScalarRelationFilter, Prisma.TranscriptionWhereInput> | null
-  AudioPronunciation?: Prisma.AudioPronunciationListRelationFilter
-}, "id" | "word">
+}, "id">
 
 export type WordOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
@@ -247,7 +244,6 @@ export type WordCreateInput = {
   word: string
   language_code: $Enums.LanguageCode
   Transcription?: Prisma.TranscriptionCreateNestedOneWithoutWordInput
-  AudioPronunciation?: Prisma.AudioPronunciationCreateNestedManyWithoutWordInput
 }
 
 export type WordUncheckedCreateInput = {
@@ -255,14 +251,12 @@ export type WordUncheckedCreateInput = {
   word: string
   language_code: $Enums.LanguageCode
   Transcription?: Prisma.TranscriptionUncheckedCreateNestedOneWithoutWordInput
-  AudioPronunciation?: Prisma.AudioPronunciationUncheckedCreateNestedManyWithoutWordInput
 }
 
 export type WordUpdateInput = {
   word?: Prisma.StringFieldUpdateOperationsInput | string
   language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   Transcription?: Prisma.TranscriptionUpdateOneWithoutWordNestedInput
-  AudioPronunciation?: Prisma.AudioPronunciationUpdateManyWithoutWordNestedInput
 }
 
 export type WordUncheckedUpdateInput = {
@@ -270,7 +264,6 @@ export type WordUncheckedUpdateInput = {
   word?: Prisma.StringFieldUpdateOperationsInput | string
   language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   Transcription?: Prisma.TranscriptionUncheckedUpdateOneWithoutWordNestedInput
-  AudioPronunciation?: Prisma.AudioPronunciationUncheckedUpdateManyWithoutWordNestedInput
 }
 
 export type WordCreateManyInput = {
@@ -335,31 +328,15 @@ export type WordUpdateOneRequiredWithoutTranscriptionNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.WordUpdateToOneWithWhereWithoutTranscriptionInput, Prisma.WordUpdateWithoutTranscriptionInput>, Prisma.WordUncheckedUpdateWithoutTranscriptionInput>
 }
 
-export type WordCreateNestedOneWithoutAudioPronunciationInput = {
-  create?: Prisma.XOR<Prisma.WordCreateWithoutAudioPronunciationInput, Prisma.WordUncheckedCreateWithoutAudioPronunciationInput>
-  connectOrCreate?: Prisma.WordCreateOrConnectWithoutAudioPronunciationInput
-  connect?: Prisma.WordWhereUniqueInput
-}
-
-export type WordUpdateOneRequiredWithoutAudioPronunciationNestedInput = {
-  create?: Prisma.XOR<Prisma.WordCreateWithoutAudioPronunciationInput, Prisma.WordUncheckedCreateWithoutAudioPronunciationInput>
-  connectOrCreate?: Prisma.WordCreateOrConnectWithoutAudioPronunciationInput
-  upsert?: Prisma.WordUpsertWithoutAudioPronunciationInput
-  connect?: Prisma.WordWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.WordUpdateToOneWithWhereWithoutAudioPronunciationInput, Prisma.WordUpdateWithoutAudioPronunciationInput>, Prisma.WordUncheckedUpdateWithoutAudioPronunciationInput>
-}
-
 export type WordCreateWithoutTranscriptionInput = {
   word: string
   language_code: $Enums.LanguageCode
-  AudioPronunciation?: Prisma.AudioPronunciationCreateNestedManyWithoutWordInput
 }
 
 export type WordUncheckedCreateWithoutTranscriptionInput = {
   id?: number
   word: string
   language_code: $Enums.LanguageCode
-  AudioPronunciation?: Prisma.AudioPronunciationUncheckedCreateNestedManyWithoutWordInput
 }
 
 export type WordCreateOrConnectWithoutTranscriptionInput = {
@@ -381,87 +358,14 @@ export type WordUpdateToOneWithWhereWithoutTranscriptionInput = {
 export type WordUpdateWithoutTranscriptionInput = {
   word?: Prisma.StringFieldUpdateOperationsInput | string
   language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
-  AudioPronunciation?: Prisma.AudioPronunciationUpdateManyWithoutWordNestedInput
 }
 
 export type WordUncheckedUpdateWithoutTranscriptionInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   word?: Prisma.StringFieldUpdateOperationsInput | string
   language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
-  AudioPronunciation?: Prisma.AudioPronunciationUncheckedUpdateManyWithoutWordNestedInput
 }
 
-export type WordCreateWithoutAudioPronunciationInput = {
-  word: string
-  language_code: $Enums.LanguageCode
-  Transcription?: Prisma.TranscriptionCreateNestedOneWithoutWordInput
-}
-
-export type WordUncheckedCreateWithoutAudioPronunciationInput = {
-  id?: number
-  word: string
-  language_code: $Enums.LanguageCode
-  Transcription?: Prisma.TranscriptionUncheckedCreateNestedOneWithoutWordInput
-}
-
-export type WordCreateOrConnectWithoutAudioPronunciationInput = {
-  where: Prisma.WordWhereUniqueInput
-  create: Prisma.XOR<Prisma.WordCreateWithoutAudioPronunciationInput, Prisma.WordUncheckedCreateWithoutAudioPronunciationInput>
-}
-
-export type WordUpsertWithoutAudioPronunciationInput = {
-  update: Prisma.XOR<Prisma.WordUpdateWithoutAudioPronunciationInput, Prisma.WordUncheckedUpdateWithoutAudioPronunciationInput>
-  create: Prisma.XOR<Prisma.WordCreateWithoutAudioPronunciationInput, Prisma.WordUncheckedCreateWithoutAudioPronunciationInput>
-  where?: Prisma.WordWhereInput
-}
-
-export type WordUpdateToOneWithWhereWithoutAudioPronunciationInput = {
-  where?: Prisma.WordWhereInput
-  data: Prisma.XOR<Prisma.WordUpdateWithoutAudioPronunciationInput, Prisma.WordUncheckedUpdateWithoutAudioPronunciationInput>
-}
-
-export type WordUpdateWithoutAudioPronunciationInput = {
-  word?: Prisma.StringFieldUpdateOperationsInput | string
-  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
-  Transcription?: Prisma.TranscriptionUpdateOneWithoutWordNestedInput
-}
-
-export type WordUncheckedUpdateWithoutAudioPronunciationInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  word?: Prisma.StringFieldUpdateOperationsInput | string
-  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
-  Transcription?: Prisma.TranscriptionUncheckedUpdateOneWithoutWordNestedInput
-}
-
-
-/**
- * Count Type WordCountOutputType
- */
-
-export type WordCountOutputType = {
-  AudioPronunciation: number
-}
-
-export type WordCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  AudioPronunciation?: boolean | WordCountOutputTypeCountAudioPronunciationArgs
-}
-
-/**
- * WordCountOutputType without action
- */
-export type WordCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the WordCountOutputType
-   */
-  select?: Prisma.WordCountOutputTypeSelect<ExtArgs> | null
-}
-
-/**
- * WordCountOutputType without action
- */
-export type WordCountOutputTypeCountAudioPronunciationArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.AudioPronunciationWhereInput
-}
 
 
 export type WordSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -469,8 +373,6 @@ export type WordSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   word?: boolean
   language_code?: boolean
   Transcription?: boolean | Prisma.Word$TranscriptionArgs<ExtArgs>
-  AudioPronunciation?: boolean | Prisma.Word$AudioPronunciationArgs<ExtArgs>
-  _count?: boolean | Prisma.WordCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["word"]>
 
 export type WordSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -494,8 +396,6 @@ export type WordSelectScalar = {
 export type WordOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "word" | "language_code", ExtArgs["result"]["word"]>
 export type WordInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   Transcription?: boolean | Prisma.Word$TranscriptionArgs<ExtArgs>
-  AudioPronunciation?: boolean | Prisma.Word$AudioPronunciationArgs<ExtArgs>
-  _count?: boolean | Prisma.WordCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type WordIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
 export type WordIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -504,7 +404,6 @@ export type $WordPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   name: "Word"
   objects: {
     Transcription: Prisma.$TranscriptionPayload<ExtArgs> | null
-    AudioPronunciation: Prisma.$AudioPronunciationPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -905,7 +804,6 @@ readonly fields: WordFieldRefs;
 export interface Prisma__WordClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   Transcription<T extends Prisma.Word$TranscriptionArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Word$TranscriptionArgs<ExtArgs>>): Prisma.Prisma__TranscriptionClient<runtime.Types.Result.GetResult<Prisma.$TranscriptionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  AudioPronunciation<T extends Prisma.Word$AudioPronunciationArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Word$AudioPronunciationArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AudioPronunciationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1347,30 +1245,6 @@ export type Word$TranscriptionArgs<ExtArgs extends runtime.Types.Extensions.Inte
    */
   include?: Prisma.TranscriptionInclude<ExtArgs> | null
   where?: Prisma.TranscriptionWhereInput
-}
-
-/**
- * Word.AudioPronunciation
- */
-export type Word$AudioPronunciationArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the AudioPronunciation
-   */
-  select?: Prisma.AudioPronunciationSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the AudioPronunciation
-   */
-  omit?: Prisma.AudioPronunciationOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.AudioPronunciationInclude<ExtArgs> | null
-  where?: Prisma.AudioPronunciationWhereInput
-  orderBy?: Prisma.AudioPronunciationOrderByWithRelationInput | Prisma.AudioPronunciationOrderByWithRelationInput[]
-  cursor?: Prisma.AudioPronunciationWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.AudioPronunciationScalarFieldEnum | Prisma.AudioPronunciationScalarFieldEnum[]
 }
 
 /**

@@ -1,21 +1,19 @@
 export const chapter_18 = {
 	name: 'CHAPITRE XVIII',
 	// header: '',
-	text: `Та же самая задача для этого текста:
+	text: `Le petit prince traversa le désert et ne vit qu’une seule fleur. Une petite fleur avec trois pétales, une fleur toute simple…
 
-	Le petit prince traversa le désert et ne rencontra qu'une fleur. Une fleur à trois pétales, une fleur de rien du tout...
+— Bonjour, dit le petit prince.
 
--Bonjour, dit le petit prince.
+— Bonjour, répondit la fleur.
 
--Bonjour, dit la fleur.
+— Où sont les hommes ? demanda le petit prince.
 
--Où sont les hommes? demanda poliment le petit prince.
+La fleur avait vu, un jour, passer une caravane.
 
-La fleur, un jour, avait vu passer une caravane.
+— Les hommes ? Je crois qu’il y en a six ou sept. Je les ai vus il y a longtemps. Mais on ne sait jamais où ils sont. Le vent les emmène. Ils n’ont pas de racines, et ça leur pose problème.
 
--Les hommes? Il en existe, je crois, six ou sept. Je les ai aperçus il y a des années. Mais on ne sait jamais où les trouver. Le vent les promène. Ils manquent de racines, ça les gêne beaucoup.
+— Au revoir, dit le petit prince.
 
--Adieu, fit le petit prince.
-
--Adieu, dit la fleur.`,
+— Au revoir, répondit la fleur.`,
 }

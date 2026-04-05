@@ -9,11 +9,5 @@ mutation Word_create($input: CreateWordInput!) {
 			ipa
 			pinyin
 		}
-		audioPronunciations {
-			id
-			voiceId
-			audioUrl
-			duration
-		}
 	}
 }

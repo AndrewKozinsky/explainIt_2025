@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react'
-import { useVideoPrivate_Update, VideoPrivate_GetUserVideosDocument } from '@/graphql'
+import { useVideoPrivate_Update, VideoPrivate_GetDocument, VideoPrivate_GetUserVideosDocument } from '@/graphql'
 import { FormStatus, setErrorsToForm } from '@/utils/forms'
 import { useVideoStore } from '_pages/media/video/videoStore'
 import { ChangeVideoFormData } from './form'
@@ -10,7 +10,12 @@ export function useGetOnUpdateVideoFormSubmit(
 	setFormError: React.Dispatch<React.SetStateAction<string | null>>,
 ) {
 	const video = useVideoStore((s) => s.privateVideo.data)
-	const [updateBook] = useVideoPrivate_Update({ refetchQueries: [VideoPrivate_GetUserVideosDocument] })
+	const [updateVideo] = useVideoPrivate_Update({
+		refetchQueries: [
+			VideoPrivate_GetUserVideosDocument,
+			{ query: VideoPrivate_GetDocument, variables: { input: { id: video?.id } } },
+		],
+	})
 
 	return useCallback(
 		async function (formData: ChangeVideoFormData) {
@@ -20,7 +25,7 @@ export function useGetOnUpdateVideoFormSubmit(
 			setFormStatus('submitting')
 
 			try {
-				const { data, errors } = await updateBook({
+				const { data, errors } = await updateVideo({
 					variables: {
 						input: {
 							id: video.id,
@@ -42,6 +47,6 @@ export function useGetOnUpdateVideoFormSubmit(
 				setFormStatus('idle')
 			}
 		},
-		[video, setFieldError, setFormError, setFormStatus, updateBook],
+		[video, setFieldError, setFormError, setFormStatus, updateVideo],
 	)
 }

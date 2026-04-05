@@ -54,15 +54,10 @@ export default function EditPrivateVideoForm() {
 					>
 						Сохранить
 					</Button>,
-					<WatchMovieButton key='watch' />,
+					<WatchMovieButton key='watch' disabled={isFormDisabled} />,
 				]}
 			>
 				<FormFieldsWrapper gap='big'>
-					<LanguagesRadioGroup
-						value={currentLanguageCode ?? undefined}
-						disabled={isFormDisabled}
-						inputProps={register('languageCode' as never) as never}
-					/>
 					<TextInput
 						label='Название'
 						error={errors.name?.message}
@@ -74,6 +69,11 @@ export default function EditPrivateVideoForm() {
 					/>
 					<FileNameAndDeleteFileButton />
 					<FormVideoInput />
+					<LanguagesRadioGroup
+						value={currentLanguageCode ?? undefined}
+						disabled={isFormDisabled}
+						inputProps={register('languageCode' as never) as never}
+					/>
 					<TextInput
 						label='Субтитры или текст'
 						error={errors.content?.message}

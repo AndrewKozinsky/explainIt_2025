@@ -4,7 +4,7 @@ import { CommandBus } from '@nestjs/cqrs'
 import { CreatePublicBooksCommand } from 'features/bookPublic/CreatePublicBooks.command'
 import { CreateTariffsCommand } from 'features/tariff/CreateTariffs.command'
 import { CreatePublicVideosCommand } from 'features/video/CreatePublicVideos.command'
-import { SeedVoicesCommand } from 'features/voice/SeedVoices.command'
+// import { SeedVoicesCommand } from 'features/voice/SeedVoices.command'
 
 @Injectable()
 export class StartServerTasksRunner implements OnApplicationBootstrap {
@@ -15,7 +15,7 @@ export class StartServerTasksRunner implements OnApplicationBootstrap {
 		await this.commandBus.execute(new CreatePublicBooksCommand())
 		await this.commandBus.execute(new CreatePublicVideosCommand())
 		await this.commandBus.execute(new CreateTariffsCommand())
-		await this.commandBus.execute(new SeedVoicesCommand())
+		// await this.commandBus.execute(new SeedVoicesCommand())
 	}
 
 	private async runMigrations() {

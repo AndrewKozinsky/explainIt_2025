@@ -112,7 +112,7 @@ from me, Sylvie -
 
 24
 00:05:13,856 --> 00:05:17,348
-something terrible -
+something terrible —
 and it frightens me.
 
 25

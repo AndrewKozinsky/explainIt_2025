@@ -9,11 +9,5 @@ query Word_get($input: GetWordInput!) {
 			ipa
 			pinyin
 		}
-		audioPronunciations {
-			id
-			voiceId
-			audioUrl
-			duration
-		}
 	}
 }

@@ -17,7 +17,7 @@ export class WordResolver {
 		description: wordResolversDesc.getWord,
 	})
 	async getWord(@Args('input') input: GetWordInput) {
-		return await this.commandBus.execute(new GetWordCommand(input.word))
+		return await this.commandBus.execute(new GetWordCommand(input.word, input.languageCode))
 	}
 
 	@Mutation(() => WordOutModel, {

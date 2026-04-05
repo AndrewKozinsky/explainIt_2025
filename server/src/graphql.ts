@@ -31,6 +31,7 @@ export interface GetPublicVideoInput {
 
 export interface GetWordInput {
     word: string;
+    languageCode: string;
 }
 
 export interface RegisterUserInput {
@@ -129,18 +130,6 @@ export interface CreateWordInput {
 
 export interface CreateTranscriptionInput {
     wordId: number;
-}
-
-export interface CreateAudioPronunciationInput {
-    wordId: number;
-}
-
-export interface AudioPronunciationOutModel {
-    id: number;
-    wordId: number;
-    voiceId: number;
-    audioUrl: string;
-    duration: number;
 }
 
 export interface CurrentSubscriptionOutModel {
@@ -395,7 +384,6 @@ export interface WordOutModel {
     word: string;
     languageCode: string;
     transcription?: Nullable<TranscriptionOutModel>;
-    audioPronunciations: AudioPronunciationOutModel[];
 }
 
 export interface IQuery {
@@ -433,7 +421,6 @@ export interface IMutation {
     video_private_delete(input: DeletePrivateVideoInput): boolean | Promise<boolean>;
     word_create(input: CreateWordInput): WordOutModel | Promise<WordOutModel>;
     create_transcription(input: CreateTranscriptionInput): TranscriptionOutModel | Promise<TranscriptionOutModel>;
-    create_audio_pronunciation(input: CreateAudioPronunciationInput): AudioPronunciationOutModel | Promise<AudioPronunciationOutModel>;
 }
 
 export type DateTime = any;

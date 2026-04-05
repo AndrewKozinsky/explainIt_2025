@@ -8,10 +8,11 @@ type SentenceWordProps = {
 	wordAnalysis: null | string
 	extraClass?: string
 	languageCode: string
+	onWhiteBackground?: boolean
 }
 
 function SentenceWordAnalysis(props: SentenceWordProps) {
-	const { wordAnalysis, extraClass, languageCode } = props
+	const { wordAnalysis, extraClass, languageCode, onWhiteBackground } = props
 
 	if (!wordAnalysis) {
 		return null
@@ -29,7 +30,7 @@ function SentenceWordAnalysis(props: SentenceWordProps) {
 
 	return (
 		<div className={cn('sentence-word-analysis', extraClass)}>
-			<TopPart word={word} wordTranslation={wordTranslation} languageCode={languageCode} />
+			<TopPart word={word} wordTranslation={wordTranslation} languageCode={languageCode} onWhiteBackground={onWhiteBackground} />
 			{examples?.map((example, i) => {
 				return <Example example={example} key={i} />
 			})}
@@ -43,15 +44,16 @@ type TopPartProps = {
 	word: string
 	wordTranslation: WordAnalysisExampleWord[]
 	languageCode: string
+	onWhiteBackground?: boolean
 }
 
 function TopPart(props: TopPartProps) {
-	const { word, wordTranslation, languageCode } = props
+	const { word, wordTranslation, languageCode, onWhiteBackground } = props
 
 	return (
 		<p className='sentence-word-analysis__top'>
 			<span className='sentence-word-analysis__analysis-phrase'>{word}</span>{' '}
-			<TranscriptionAndAudio word={word} languageCode={languageCode as LanguageCode} /> —{' '}
+			<TranscriptionAndAudio word={word} languageCode={languageCode as LanguageCode} onWhiteBackground={onWhiteBackground} /> —{' '}
 			<span className='sentence-word-analysis__analysis-phrase-translate'>
 				<Text text={wordTranslation} />
 			</span>

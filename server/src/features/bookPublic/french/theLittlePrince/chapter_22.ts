@@ -1,39 +1,31 @@
 export const chapter_22 = {
 	name: 'CHAPITRE XXII',
 	// header: '',
-	text: `Та же самая задача для этого текста:
+	text: `— Bonjour, dit le petit prince.
+— Bonjour, dit l’aiguilleur.
 
-	-Bonjour, dit le petit prince.
+— Qu’est-ce que tu fais ici ? dit le petit prince.
+— Je trie les voyageurs par paquets de mille, dit l’aiguilleur. J’envoie les trains qui les emportent, tantôt à droite, tantôt à gauche.
 
--Bonjour, dit l'aiguilleur.
+Un train rapide, tout illuminé, grondant comme le tonnerre, fit trembler la cabine de l’aiguilleur.
 
--Que fais-tu ici? dit le petit prince.
+— Ils sont très pressés, dit le petit prince. Qu’est-ce qu’ils cherchent ?
+— Celui qui conduit la locomotive l’ignore lui-même, dit l’aiguilleur.
 
--Je trie les voyageurs, par paquets de mille, dit l'aiguilleur. J'expédie les trains qui les emportent, tantôt vers la droite, tantôt vers la gauche.
+Et un deuxième train rapide et illuminé gronda en sens inverse.
 
-Et un rapide illuminé, grondant comme le tonnerre, fit trembler la cabine d'aiguillage.
+— Ils reviennent déjà ? demanda le petit prince.
+— Ce ne sont pas les mêmes, dit l’aiguilleur. C’est un échange.
 
--Ils sont bien pressés, dit le petit prince. Que cherchent-ils?
+— Ils n’étaient pas contents là où ils étaient ?
+— On n’est jamais content là où on est, dit l’aiguilleur.
 
--L'homme de la locomotive l'ignore lui-même, dit l'aiguilleur.
+Le tonnerre d’un troisième train rapide et illuminé gronda.
 
-Et gronda, en sens inverse, un second rapide illuminé.
+— Ils poursuivent les premiers voyageurs ? demanda le petit prince.
+— Ils ne poursuivent rien du tout, dit l’aiguilleur. Ils dorment à l’intérieur, ou bien ils bâillent. Les enfants seuls collent leur nez contre les vitres.
 
--Ils reviennent déjà? demanda le petit prince...
+— Les enfants seuls savent ce qu’ils cherchent, dit le petit prince. Ils perdent du temps pour une poupée de chiffon, et elle devient très importante. Et si on la leur enlève, ils pleurent…
 
--Ce ne sont pas les mêmes, dit l'aiguilleur. C'est un échange.
-
--Ils n'étaient pas contents, là où ils étaient?
-
--On n'est jamais content là où on est, dit l'aiguilleur.
-
-Et gronda le tonnerre d'un troisième rapide illuminé.
-
--Ils poursuivent les premiers voyageurs? demanda le petit prince.
-
--Ils ne poursuivent rien du tout, dit l'aiguilleur. Ils dorment là-dedans, ou bien ils bâillent. Les enfants seuls écrasent leur nez contre les vitres.
-
--Les enfants seuls savent ce qu'ils cherchent, fit le petit prince. Ils perdent du temps pour une poupée de chiffons, et elle devient très importante, et si on la leur enlève, ils pleurent...
-
--Ils ont de la chance, dit l'aiguilleur.`,
+— Ils ont de la chance, dit l’aiguilleur.`,
 }

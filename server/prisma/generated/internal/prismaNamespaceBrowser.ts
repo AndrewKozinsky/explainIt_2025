@@ -65,8 +65,6 @@ export const ModelName = {
   SubtitleSentenceInit: 'SubtitleSentenceInit',
   Word: 'Word',
   Transcription: 'Transcription',
-  Voice: 'Voice',
-  AudioPronunciation: 'AudioPronunciation',
   Tariff: 'Tariff',
   UserSubscription: 'UserSubscription'
 } as const
@@ -279,29 +277,6 @@ export const TranscriptionScalarFieldEnum = {
 } as const
 
 export type TranscriptionScalarFieldEnum = (typeof TranscriptionScalarFieldEnum)[keyof typeof TranscriptionScalarFieldEnum]
-
-
-export const VoiceScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  language_code: 'language_code',
-  gender: 'gender',
-  eleven_labs_voice_id: 'eleven_labs_voice_id'
-} as const
-
-export type VoiceScalarFieldEnum = (typeof VoiceScalarFieldEnum)[keyof typeof VoiceScalarFieldEnum]
-
-
-export const AudioPronunciationScalarFieldEnum = {
-  id: 'id',
-  word_id: 'word_id',
-  voice_id: 'voice_id',
-  audio_url: 'audio_url',
-  duration: 'duration',
-  created_at: 'created_at'
-} as const
-
-export type AudioPronunciationScalarFieldEnum = (typeof AudioPronunciationScalarFieldEnum)[keyof typeof AudioPronunciationScalarFieldEnum]
 
 
 export const TariffScalarFieldEnum = {

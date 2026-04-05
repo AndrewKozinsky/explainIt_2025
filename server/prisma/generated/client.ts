@@ -110,16 +110,6 @@ export type Word = Prisma.WordModel
  */
 export type Transcription = Prisma.TranscriptionModel
 /**
- * Model Voice
- * 
- */
-export type Voice = Prisma.VoiceModel
-/**
- * Model AudioPronunciation
- * 
- */
-export type AudioPronunciation = Prisma.AudioPronunciationModel
-/**
  * Model Tariff
  * 
  */

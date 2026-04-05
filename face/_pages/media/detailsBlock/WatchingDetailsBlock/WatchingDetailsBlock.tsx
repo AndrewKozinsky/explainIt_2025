@@ -13,7 +13,7 @@ function WatchingDetailsBlock() {
 		<div className='watching-details-block'>
 			<SelectedSentence />
 			<SentenceTranslation bgColor='white' />
-			<SentenceWordAnalysis wordAnalysis={wordAnalysis} languageCode={video?.languageCode!} />
+			<SentenceWordAnalysis wordAnalysis={wordAnalysis} languageCode={video?.languageCode!} onWhiteBackground />
 		</div>
 	)
 }

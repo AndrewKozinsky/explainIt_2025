@@ -398,8 +398,6 @@ export const ModelName = {
   SubtitleSentenceInit: 'SubtitleSentenceInit',
   Word: 'Word',
   Transcription: 'Transcription',
-  Voice: 'Voice',
-  AudioPronunciation: 'AudioPronunciation',
   Tariff: 'Tariff',
   UserSubscription: 'UserSubscription'
 } as const
@@ -417,7 +415,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "subscriptionBalanceTransaction" | "payment" | "bookPrivate" | "bookPublic" | "bookChapter" | "videoPrivate" | "videoPublic" | "sentence" | "sentenceTranslation" | "subtitle" | "subtitleSentenceInit" | "word" | "transcription" | "voice" | "audioPronunciation" | "tariff" | "userSubscription"
+    modelProps: "user" | "subscriptionBalanceTransaction" | "payment" | "bookPrivate" | "bookPublic" | "bookChapter" | "videoPrivate" | "videoPublic" | "sentence" | "sentenceTranslation" | "subtitle" | "subtitleSentenceInit" | "word" | "transcription" | "tariff" | "userSubscription"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1457,154 +1455,6 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    Voice: {
-      payload: Prisma.$VoicePayload<ExtArgs>
-      fields: Prisma.VoiceFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.VoiceFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VoicePayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.VoiceFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VoicePayload>
-        }
-        findFirst: {
-          args: Prisma.VoiceFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VoicePayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.VoiceFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VoicePayload>
-        }
-        findMany: {
-          args: Prisma.VoiceFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VoicePayload>[]
-        }
-        create: {
-          args: Prisma.VoiceCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VoicePayload>
-        }
-        createMany: {
-          args: Prisma.VoiceCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.VoiceCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VoicePayload>[]
-        }
-        delete: {
-          args: Prisma.VoiceDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VoicePayload>
-        }
-        update: {
-          args: Prisma.VoiceUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VoicePayload>
-        }
-        deleteMany: {
-          args: Prisma.VoiceDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.VoiceUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.VoiceUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VoicePayload>[]
-        }
-        upsert: {
-          args: Prisma.VoiceUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VoicePayload>
-        }
-        aggregate: {
-          args: Prisma.VoiceAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateVoice>
-        }
-        groupBy: {
-          args: Prisma.VoiceGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.VoiceGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.VoiceCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.VoiceCountAggregateOutputType> | number
-        }
-      }
-    }
-    AudioPronunciation: {
-      payload: Prisma.$AudioPronunciationPayload<ExtArgs>
-      fields: Prisma.AudioPronunciationFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.AudioPronunciationFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AudioPronunciationPayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.AudioPronunciationFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AudioPronunciationPayload>
-        }
-        findFirst: {
-          args: Prisma.AudioPronunciationFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AudioPronunciationPayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.AudioPronunciationFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AudioPronunciationPayload>
-        }
-        findMany: {
-          args: Prisma.AudioPronunciationFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AudioPronunciationPayload>[]
-        }
-        create: {
-          args: Prisma.AudioPronunciationCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AudioPronunciationPayload>
-        }
-        createMany: {
-          args: Prisma.AudioPronunciationCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.AudioPronunciationCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AudioPronunciationPayload>[]
-        }
-        delete: {
-          args: Prisma.AudioPronunciationDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AudioPronunciationPayload>
-        }
-        update: {
-          args: Prisma.AudioPronunciationUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AudioPronunciationPayload>
-        }
-        deleteMany: {
-          args: Prisma.AudioPronunciationDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.AudioPronunciationUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.AudioPronunciationUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AudioPronunciationPayload>[]
-        }
-        upsert: {
-          args: Prisma.AudioPronunciationUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AudioPronunciationPayload>
-        }
-        aggregate: {
-          args: Prisma.AudioPronunciationAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateAudioPronunciation>
-        }
-        groupBy: {
-          args: Prisma.AudioPronunciationGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AudioPronunciationGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.AudioPronunciationCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AudioPronunciationCountAggregateOutputType> | number
-        }
-      }
-    }
     Tariff: {
       payload: Prisma.$TariffPayload<ExtArgs>
       fields: Prisma.TariffFieldRefs
@@ -1986,29 +1836,6 @@ export const TranscriptionScalarFieldEnum = {
 export type TranscriptionScalarFieldEnum = (typeof TranscriptionScalarFieldEnum)[keyof typeof TranscriptionScalarFieldEnum]
 
 
-export const VoiceScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  language_code: 'language_code',
-  gender: 'gender',
-  eleven_labs_voice_id: 'eleven_labs_voice_id'
-} as const
-
-export type VoiceScalarFieldEnum = (typeof VoiceScalarFieldEnum)[keyof typeof VoiceScalarFieldEnum]
-
-
-export const AudioPronunciationScalarFieldEnum = {
-  id: 'id',
-  word_id: 'word_id',
-  voice_id: 'voice_id',
-  audio_url: 'audio_url',
-  duration: 'duration',
-  created_at: 'created_at'
-} as const
-
-export type AudioPronunciationScalarFieldEnum = (typeof AudioPronunciationScalarFieldEnum)[keyof typeof AudioPronunciationScalarFieldEnum]
-
-
 export const TariffScalarFieldEnum = {
   id: 'id',
   code: 'code',
@@ -2203,20 +2030,6 @@ export type ListEnumVideoTextTypeFieldRefInput<$PrismaModel> = FieldRefInputType
 
 
 /**
- * Reference to a field of type 'VoiceGender'
- */
-export type EnumVoiceGenderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'VoiceGender'>
-    
-
-
-/**
- * Reference to a field of type 'VoiceGender[]'
- */
-export type ListEnumVoiceGenderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'VoiceGender[]'>
-    
-
-
-/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -2338,8 +2151,6 @@ export type GlobalOmitConfig = {
   subtitleSentenceInit?: Prisma.SubtitleSentenceInitOmit
   word?: Prisma.WordOmit
   transcription?: Prisma.TranscriptionOmit
-  voice?: Prisma.VoiceOmit
-  audioPronunciation?: Prisma.AudioPronunciationOmit
   tariff?: Prisma.TariffOmit
   userSubscription?: Prisma.UserSubscriptionOmit
 }

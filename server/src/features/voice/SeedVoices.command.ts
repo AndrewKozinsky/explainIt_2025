@@ -1,19 +1,19 @@
-import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { VoiceRepository } from 'repo/voice.repository'
-import { LanguageCode, VoiceGender } from 'prisma/generated/client'
+// import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+// import { VoiceRepository } from 'repo/voice.repository'
+// import { LanguageCode, VoiceGender } from 'prisma/generated/client'
 
-type VoiceSeedData = {
+/*type VoiceSeedData = {
 	name: string
 	languageCode: LanguageCode
 	elevenLabsVoiceId: string
 	gender: VoiceGender
-}
+}*/
 
-export class SeedVoicesCommand implements ICommand {
+/*export class SeedVoicesCommand implements ICommand {
 	constructor() {}
-}
+}*/
 
-@CommandHandler(SeedVoicesCommand)
+/*@CommandHandler(SeedVoicesCommand)
 export class SeedVoicesHandler implements ICommandHandler<SeedVoicesCommand> {
 	constructor(private voiceRepository: VoiceRepository) {}
 
@@ -61,4 +61,4 @@ export class SeedVoicesHandler implements ICommandHandler<SeedVoicesCommand> {
 			},
 		]
 	}
-}
+}*/

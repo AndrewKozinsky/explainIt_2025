@@ -1,24 +1,24 @@
-import { randomUUID } from 'crypto'
-import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { parseBuffer } from 'music-metadata'
-import { AudioPronunciationQueryRepository } from 'repo/audioPronunciation.queryRepository'
-import { AudioPronunciationRepository } from 'repo/audioPronunciation.repository'
-import { VoiceRepository } from 'repo/voice.repository'
-import { WordQueryRepository } from 'repo/word.queryRepository'
-import { languages } from 'utils/languages'
-import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
-import { ElevenLabsService } from 'infrastructure/elevenLabs/elevenLabs.service'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
-import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
-import { LanguageCode } from 'prisma/generated/client'
+// import { randomUUID } from 'crypto'
+// import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+// import { parseBuffer } from 'music-metadata'
+// import { AudioPronunciationQueryRepository } from 'repo/audioPronunciation.queryRepository'
+// import { AudioPronunciationRepository } from 'repo/audioPronunciation.repository'
+// import { VoiceRepository } from 'repo/voice.repository'
+// import { WordQueryRepository } from 'repo/word.queryRepository'
+// import { languages } from 'utils/languages'
+// import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
+// import { ElevenLabsService } from 'infrastructure/elevenLabs/elevenLabs.service'
+// import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+// import { ErrorCode } from 'infrastructure/exceptions/errorCode'
+// import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+// import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+// import { LanguageCode } from 'prisma/generated/client'
 
-export class CreateAudioPronunciationCommand implements ICommand {
+/*export class CreateAudioPronunciationCommand implements ICommand {
 	constructor(public wordId: number) {}
-}
+}*/
 
-@CommandHandler(CreateAudioPronunciationCommand)
+/*@CommandHandler(CreateAudioPronunciationCommand)
 export class CreateAudioPronunciationHandler implements ICommandHandler<CreateAudioPronunciationCommand> {
 	constructor(
 		private wordQueryRepository: WordQueryRepository,
@@ -84,4 +84,4 @@ export class CreateAudioPronunciationHandler implements ICommandHandler<CreateAu
 			return 0
 		}
 	}
-}
+}*/

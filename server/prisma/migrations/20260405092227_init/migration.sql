@@ -8,16 +8,13 @@ CREATE TYPE "PaymentStatus" AS ENUM ('PENDING', 'SUCCESS', 'FAILED', 'CANCELED')
 CREATE TYPE "PaymentProviderName" AS ENUM ('YOOKASSA');
 
 -- CreateEnum
-CREATE TYPE "LanguageCode" AS ENUM ('en', 'es', 'fr', 'de');
+CREATE TYPE "LanguageCode" AS ENUM ('en', 'es', 'fr', 'de', 'ru');
 
 -- CreateEnum
 CREATE TYPE "S3ProviderName" AS ENUM ('cloudRu');
 
 -- CreateEnum
 CREATE TYPE "VideoTextType" AS ENUM ('text', 'subtitles');
-
--- CreateEnum
-CREATE TYPE "VoiceGender" AS ENUM ('MALE', 'FEMALE');
 
 -- CreateTable
 CREATE TABLE "User" (
@@ -214,29 +211,6 @@ CREATE TABLE "Transcription" (
 );
 
 -- CreateTable
-CREATE TABLE "Voice" (
-    "id" SERIAL NOT NULL,
-    "name" TEXT NOT NULL,
-    "language_code" "LanguageCode" NOT NULL,
-    "gender" "VoiceGender" NOT NULL,
-    "eleven_labs_voice_id" INTEGER NOT NULL,
-
-    CONSTRAINT "Voice_pkey" PRIMARY KEY ("id")
-);
-
--- CreateTable
-CREATE TABLE "AudioPronunciation" (
-    "id" SERIAL NOT NULL,
-    "word_id" INTEGER NOT NULL,
-    "voice_id" INTEGER NOT NULL,
-    "audio_url" TEXT NOT NULL,
-    "duration" INTEGER NOT NULL,
-    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-
-    CONSTRAINT "AudioPronunciation_pkey" PRIMARY KEY ("id")
-);
-
--- CreateTable
 CREATE TABLE "Tariff" (
     "id" SERIAL NOT NULL,
     "code" TEXT NOT NULL,
@@ -280,9 +254,6 @@ CREATE INDEX "SubtitleSentenceInit_subtitle_id_idx" ON "SubtitleSentenceInit"("s
 
 -- CreateIndex
 CREATE INDEX "SubtitleSentenceInit_sentence_id_idx" ON "SubtitleSentenceInit"("sentence_id");
-
--- CreateIndex
-CREATE UNIQUE INDEX "Word_word_key" ON "Word"("word");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Transcription_word_id_key" ON "Transcription"("word_id");
@@ -340,12 +311,6 @@ ALTER TABLE "SubtitleSentenceInit" ADD CONSTRAINT "SubtitleSentenceInit_sentence
 
 -- AddForeignKey
 ALTER TABLE "Transcription" ADD CONSTRAINT "Transcription_word_id_fkey" FOREIGN KEY ("word_id") REFERENCES "Word"("id") ON DELETE CASCADE ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE "AudioPronunciation" ADD CONSTRAINT "AudioPronunciation_word_id_fkey" FOREIGN KEY ("word_id") REFERENCES "Word"("id") ON DELETE CASCADE ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE "AudioPronunciation" ADD CONSTRAINT "AudioPronunciation_voice_id_fkey" FOREIGN KEY ("voice_id") REFERENCES "Voice"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "UserSubscription" ADD CONSTRAINT "UserSubscription_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;

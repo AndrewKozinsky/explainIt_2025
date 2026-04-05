@@ -4,7 +4,7 @@ import {
 	useWord_GetLazyQuery,
 	useWord_Create,
 	useTranscription_Create,
-	useAudioPronunciation_Create,
+	// useAudioPronunciation_Create,
 	Word_Get,
 } from '@/graphql'
 
@@ -25,7 +25,7 @@ export type TranscriptionData = {
 export type AudioAndTranscriptionResult = {
 	visible: boolean
 	wordStatus: Status
-	audio: AudioData
+	// audio: AudioData
 	transcription: TranscriptionData
 }
 
@@ -33,13 +33,13 @@ export function useGetAudioAndTranscription(word: string, languageCode: Language
 	const visible = SUPPORTED_LANGUAGES.includes(languageCode)
 
 	const [wordStatus, setWordStatus] = useState<Status>('loading')
-	const [audio, setAudio] = useState<AudioData>({ status: 'loading' })
+	// const [audio, setAudio] = useState<AudioData>({ status: 'loading' })
 	const [transcription, setTranscription] = useState<TranscriptionData>({ status: 'loading' })
 
 	const [getWord] = useWord_GetLazyQuery()
 	const [createWord] = useWord_Create()
 	const [createTranscription] = useTranscription_Create()
-	const [createAudioPronunciation] = useAudioPronunciation_Create()
+	// const [createAudioPronunciation] = useAudioPronunciation_Create()
 
 	const activeWordRef = useRef(word)
 
@@ -50,7 +50,7 @@ export function useGetAudioAndTranscription(word: string, languageCode: Language
 			activeWordRef.current = word
 
 			setWordStatus('loading')
-			setAudio({ status: 'loading' })
+			// setAudio({ status: 'loading' })
 			setTranscription({ status: 'loading' })
 
 			fetchData()
@@ -71,10 +71,10 @@ export function useGetAudioAndTranscription(word: string, languageCode: Language
 					setTranscription({ status: 'ready', ipa: existingTranscription.ipa })
 				}
 
-				const existingAudio = wordData.audioPronunciations?.[0]
-				if (existingAudio) {
-					setAudio({ status: 'ready', url: existingAudio.audioUrl })
-				}
+				// const existingAudio = wordData.audioPronunciations?.[0]
+				// if (existingAudio) {
+				// 	setAudio({ status: 'ready', url: existingAudio.audioUrl })
+				// }
 
 				const promises: Promise<void>[] = []
 
@@ -82,9 +82,9 @@ export function useGetAudioAndTranscription(word: string, languageCode: Language
 					promises.push(createTranscriptionForWord(wordData.id))
 				}
 
-				if (!existingAudio) {
-					promises.push(createAudioForWord(wordData.id))
-				}
+				// if (!existingAudio) {
+				// 	promises.push(createAudioForWord(wordData.id))
+				// }
 
 				await Promise.allSettled(promises)
 			}
@@ -92,7 +92,7 @@ export function useGetAudioAndTranscription(word: string, languageCode: Language
 			async function getOrCreateWord(): Promise<Word_Get['word_get'] | null> {
 				try {
 					const result = await getWord({
-						variables: { input: { word } },
+						variables: { input: { word, languageCode } },
 						fetchPolicy: 'network-only',
 					})
 					if (result.data?.word_get) {
@@ -125,18 +125,18 @@ export function useGetAudioAndTranscription(word: string, languageCode: Language
 				}
 			}
 
-			async function createAudioForWord(wordId: number) {
-				try {
-					const result = await createAudioPronunciation({
-						variables: { input: { wordId } },
-					})
-					if (activeWordRef.current !== word) return
-					setAudio({ status: 'ready', url: result.data?.create_audio_pronunciation.audioUrl })
-				} catch {
-					if (activeWordRef.current !== word) return
-					setAudio({ status: 'error' })
-				}
-			}
+			// async function createAudioForWord(wordId: number) {
+			// 	try {
+			// 		const result = await createAudioPronunciation({
+			// 			variables: { input: { wordId } },
+			// 		})
+			// 		if (activeWordRef.current !== word) return
+			// 		setAudio({ status: 'ready', url: result.data?.create_audio_pronunciation.audioUrl })
+			// 	} catch {
+			// 		if (activeWordRef.current !== word) return
+			// 		setAudio({ status: 'error' })
+			// 	}
+			// }
 		},
 		[word, languageCode, visible],
 	)
@@ -145,10 +145,10 @@ export function useGetAudioAndTranscription(word: string, languageCode: Language
 		return {
 			visible: false,
 			wordStatus: 'loading',
-			audio: { status: 'loading' },
+			// audio: { status: 'loading' },
 			transcription: { status: 'loading' },
 		}
 	}
 
-	return { visible, wordStatus, audio, transcription }
+	return { visible, wordStatus, transcription }
 }

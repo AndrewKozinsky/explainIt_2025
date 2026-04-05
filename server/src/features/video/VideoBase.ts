@@ -7,7 +7,7 @@ import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
-import { dryText, removeBOM } from '../mediaCommon'
+import { dryText, removeAlignmentTags, removeBOM, removeItalicTags, removeLeadingDashes } from '../mediaCommon'
 
 type FileDestinationType = 'privateVideo' | 'publicVideo'
 type VideoTextContentType = 'text' | 'subtitles'
@@ -175,7 +175,10 @@ export class VideoBase {
 			}
 		}
 
-		const normalizedRaw = removeBOM(dto.originalContent)
+		let normalizedRaw = removeBOM(dto.originalContent)
+		normalizedRaw = removeAlignmentTags(normalizedRaw)
+		normalizedRaw = removeLeadingDashes(normalizedRaw)
+		normalizedRaw = removeItalicTags(normalizedRaw)
 		const trimmed = normalizedRaw.trim()
 
 		if (trimmed === '') {

@@ -41,7 +41,7 @@ function PublicBookChapters() {
 		const bookIdInUrl = createMediaIdUrl(bookId, 'public')
 
 		return {
-			name: chapter.header ?? bookConfig.emptyChapterName,
+			name: chapter.header,
 			subName: chapter.name,
 			href: pageUrls.books.book(bookIdInUrl).chapter(chapter.id).reading.path,
 		}

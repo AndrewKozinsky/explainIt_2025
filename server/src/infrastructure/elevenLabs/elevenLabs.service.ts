@@ -1,14 +1,14 @@
-import { Injectable } from '@nestjs/common'
-import axios from 'axios'
-import { VoiceRepository } from 'repo/voice.repository'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
-import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { LanguageCode } from 'prisma/generated/client'
-import { MainConfigService } from '../mainConfig/mainConfig.service'
-const { HttpsProxyAgent } = require('https-proxy-agent')
+// import { Injectable } from '@nestjs/common'
+// import axios from 'axios'
+// import { VoiceRepository } from 'repo/voice.repository'
+// import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+// import { ErrorCode } from 'infrastructure/exceptions/errorCode'
+// import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+// import { LanguageCode } from 'prisma/generated/client'
+// import { MainConfigService } from '../mainConfig/mainConfig.service'
+// const { HttpsProxyAgent } = require('https-proxy-agent')
 
-@Injectable()
+/*@Injectable()
 export class ElevenLabsService {
 	private readonly apiKey: string
 	private readonly httpsAgent: InstanceType<typeof HttpsProxyAgent>
@@ -46,7 +46,6 @@ export class ElevenLabsService {
 				validateStatus: () => true,
 			},
 		)
-		console.log(response)
 
 		if (response.status < 200 || response.status >= 300) {
 			throw new CustomGraphQLError(errorMessage.elevenLabs.cannotGenerateAudio, ErrorCode.InternalServerError_500)
@@ -54,4 +53,4 @@ export class ElevenLabsService {
 
 		return Buffer.from(response.data)
 	}
-}
+}*/

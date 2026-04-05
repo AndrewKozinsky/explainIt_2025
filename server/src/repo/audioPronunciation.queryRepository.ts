@@ -1,10 +1,10 @@
-import { Injectable } from '@nestjs/common'
-import { AudioPronunciation } from 'prisma/generated/client'
-import { PrismaService } from '../db/prisma.service'
-import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
-import { AudioPronunciationOutModel } from '../models/audioPronunciation/audioPronunciation.out.model'
+// import { Injectable } from '@nestjs/common'
+// import { AudioPronunciation } from 'prisma/generated/client'
+// import { PrismaService } from '../db/prisma.service'
+// import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
+// import { AudioPronunciationOutModel } from '../models/audioPronunciation/audioPronunciation.out.model'
 
-@Injectable()
+/*@Injectable()
 export class AudioPronunciationQueryRepository {
 	constructor(private prisma: PrismaService) {}
 
@@ -30,4 +30,4 @@ export class AudioPronunciationQueryRepository {
 			duration: db.duration,
 		}
 	}
-}
+}*/

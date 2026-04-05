@@ -801,7 +801,6 @@ export const bdConfig = {
 				required: true,
 				maxLength: 500,
 				example: 'life',
-				unique: true,
 			},
 			language_code: {
 				type: 'enum',
@@ -813,9 +812,9 @@ export const bdConfig = {
 				type: 'parentOneToOne',
 				required: false,
 			},
-			AudioPronunciation: {
+			/*AudioPronunciation: {
 				type: 'oneToMany',
-			},
+			},*/
 		},
 	},
 	// Транскрипция слова или фразы
@@ -847,7 +846,7 @@ export const bdConfig = {
 		},
 	},
 	// Данные о голосе для озвучки
-	Voice: {
+	/*Voice: {
 		dtoProps: {},
 		dbFields: {
 			id: {
@@ -882,9 +881,9 @@ export const bdConfig = {
 				type: 'oneToMany',
 			},
 		},
-	},
+	},*/
 	// Озвучка слова или фразы
-	AudioPronunciation: {
+	/*AudioPronunciation: {
 		dtoProps: {},
 		dbFields: {
 			id: {
@@ -919,7 +918,7 @@ export const bdConfig = {
 				type: 'createdAt',
 			},
 		},
-	},
+	},*/
 	// Таблица тарифов (справочник), редактируется редко
 	Tariff: {
 		dtoProps: {},
