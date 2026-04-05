@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import SentenceWordAnalysis from '_pages/media/commonComponents/detailsBlock/SentenceWordAnalysis/SentenceWordAnalysis'
+import SentenceWordAnalysis from '_pages/media/detailsBlock/SentenceWordAnalysis/SentenceWordAnalysis'
 import SentenceBlock from '../../commonComponents/SentenceBlock/SentenceBlock'
 import { ChapterTextStructurePopulated } from '../readingStore'
 import SentenceTranslationText from './SentenceTranslationText'

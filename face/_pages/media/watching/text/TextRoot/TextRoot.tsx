@@ -1,4 +1,4 @@
-import DetailsBlock from '_pages/media/commonComponents/detailsBlock/DetailsBlock/DetailsBlock'
+import DetailsBlock from '_pages/media/detailsBlock/DetailsBlock/DetailsBlock'
 // import MobileNavigation from '../MobileNavigation/MobileNavigation'
 import { useWatchingStore } from '../../watchingStore'
 import TextSide from '../textSide/TextSide/TextSide'

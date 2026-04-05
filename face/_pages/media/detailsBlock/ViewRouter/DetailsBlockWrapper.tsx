@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
-import WatchingDetailsBlock from '_pages/media/commonComponents/detailsBlock/WatchingDetailsBlock/WatchingDetailsBlock'
+import WatchingDetailsBlock from '_pages/media/detailsBlock/WatchingDetailsBlock/WatchingDetailsBlock'
 import { useDetailsStore } from '../detailsStore'
 import ReadingDetailsBlock from '../ReadingDetailsBlock/ReadingDetailsBlock'
 import './DetailsBlockWrapper.scss'

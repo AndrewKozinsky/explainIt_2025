@@ -1,4 +1,4 @@
-import StyledAnalysis from '_pages/media/commonComponents/detailsBlock/SentenceAnalysis/StyledAnalysis'
+import StyledAnalysis from '_pages/media/detailsBlock/SentenceAnalysis/StyledAnalysis'
 import { useDetailsStore } from '../detailsStore'
 
 function ReadingDetailsBlock() {

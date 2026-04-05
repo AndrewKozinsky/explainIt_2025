@@ -7,13 +7,16 @@ type AnalysisBlockMatch = {
  * Ищет в markdown-анализе блок, который лучше всего соответствует выделенному слову.
  * Сопоставление делается по токенам заголовка блока, чтобы поддерживать многословные
  * элементы вроде `customs inspector` или `cargo plane`.
+ * Если слово встречается в предложении несколько раз, выбирает блок по позиции слова.
  */
 export function getWordAnalysisFromSentenceAnalysis(input: {
 	analysis: null | string
 	selectedWord: null | string
+	sentenceText?: null | string
+	wordId?: null | number
 	locale?: string
 }): null | string {
-	const { analysis, selectedWord, locale } = input
+	const { analysis, selectedWord, sentenceText, wordId, locale } = input
 
 	if (!analysis || !selectedWord) return null
 
@@ -33,6 +36,23 @@ export function getWordAnalysisFromSentenceAnalysis(input: {
 		})
 
 		if (score <= 0) continue
+
+		// Если есть позиция слова и текст предложения, проверяем соответствие позиции
+		if (sentenceText && wordId != null) {
+			const blockRange = findHeadwordPositionInSentence({
+				headword,
+				sentenceText,
+				locale,
+			})
+
+			// Если выделенное слово находится внутри диапазона фразы — совпадение
+			if (blockRange && wordId >= blockRange.start && wordId <= blockRange.end) {
+				return block
+			}
+
+			// Иначе пропускаем блок
+			continue
+		}
 
 		if (!bestMatch || score > bestMatch.score) {
 			bestMatch = {
@@ -222,9 +242,7 @@ function normalizeText(text: string, locale?: string): string {
 		.trim()
 }
 
-/**
- * Проверяет, пересекаются ли два множества строк.
- */
+/** Проверяет, пересекаются ли два множества строк. */
 function hasIntersection(left: Set<string>, right: Set<string>): boolean {
 	for (const item of left) {
 		if (right.has(item)) {
@@ -233,4 +251,64 @@ function hasIntersection(left: Set<string>, right: Set<string>): boolean {
 	}
 
 	return false
+}
+
+type WordRange = {
+	start: number // 1-indexed, inclusive
+	end: number // 1-indexed, inclusive
+}
+
+/**
+ * Находит диапазон слов headword в предложении.
+ * Возвращает {start, end} (1-indexed) или null, если не найдено.
+ * Учитывает, что headword может быть словосочетанием (например, "the happiest").
+ */
+function findHeadwordPositionInSentence(input: {
+	headword: string
+	sentenceText: string
+	locale?: string
+}): null | WordRange {
+	const { headword, sentenceText, locale } = input
+
+	const sentenceTokens = tokenizeWords(sentenceText, locale)
+	const headwordTokens = tokenizeWords(headword, locale)
+
+	if (!headwordTokens.length || !sentenceTokens.length) return null
+
+	// Ищем последовательность токенов headword в предложении
+	const firstHeadwordToken = normalizeText(headwordTokens[0]!, locale)
+
+	for (let i = 0; i < sentenceTokens.length; i++) {
+		const sentenceToken = sentenceTokens[i]
+		if (!sentenceToken) continue
+
+		if (normalizeText(sentenceToken, locale) !== firstHeadwordToken) continue
+
+		// Проверяем, что вся последовательность токенов headword совпадает
+		let allMatch = true
+		for (let j = 0; j < headwordTokens.length; j++) {
+			const headwordToken = headwordTokens[j]
+			const sentenceTokenAt = sentenceTokens[i + j]
+
+			if (!headwordToken || !sentenceTokenAt) {
+				allMatch = false
+				break
+			}
+
+			if (normalizeText(headwordToken, locale) !== normalizeText(sentenceTokenAt, locale)) {
+				allMatch = false
+				break
+			}
+		}
+
+		if (allMatch) {
+			// Возвращаем 1-indexed диапазон
+			return {
+				start: i + 1,
+				end: i + headwordTokens.length,
+			}
+		}
+	}
+
+	return null
 }

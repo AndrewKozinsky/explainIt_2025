@@ -55,6 +55,11 @@ export const languages = {
 		nameEng: 'german',
 		code: 'de',
 	},
+	ru: {
+		nameRus: 'Русский',
+		nameEng: 'russian',
+		code: 'ru',
+	},
 	/*it: {
 		nameRus: 'Итальянский',
 		code: 'it',

@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import ViewportSyncedHeight from 'ui/ViewportSyncedHeight/ViewportSyncedHeight'
-import DetailsBlockWrapper from '_pages/media/commonComponents/detailsBlock/ViewRouter/DetailsBlockWrapper'
+import DetailsBlockWrapper from '_pages/media/detailsBlock/ViewRouter/DetailsBlockWrapper'
 import { useGetAnalysis } from './fn/getAnalysis'
 import { useClearDataOnUnmount, usePopulateStore } from './fn/populateStore'
 import './DetailsBlock.scss'

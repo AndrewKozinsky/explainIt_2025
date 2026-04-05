@@ -31,11 +31,13 @@ export function useGetAnalysis() {
 			const wordAnalysis = getWordAnalysisFromSentenceAnalysis({
 				analysis: sentenceAnalysis,
 				selectedWord,
+				sentenceText,
+				wordId: wordIds[0],
 			})
 
 			useDetailsStore.setState({ wordAnalysis })
 		},
-		[selectedWord, sentenceAnalysis],
+		[selectedWord, sentenceAnalysis, sentenceText, wordIds],
 	)
 
 	useEffect(
@@ -57,6 +59,7 @@ export function useGetAnalysis() {
 			void translateSelectedSentence({
 				sentenceId,
 				sentenceText,
+				wordIds,
 				bookName,
 				bookAuthor,
 				videoName,
@@ -80,6 +83,7 @@ export function useGetAnalysis() {
 async function translateSelectedSentence(input: {
 	sentenceId: number
 	sentenceText: string
+	wordIds: number[]
 	bookName: null | string
 	bookAuthor: null | string
 	videoName: null | string
@@ -103,6 +107,8 @@ async function translateSelectedSentence(input: {
 			const wordAnalysis = getWordAnalysisFromSentenceAnalysis({
 				analysis,
 				selectedWord: input.selectedWord,
+				sentenceText: input.sentenceText,
+				wordId: input.wordIds[0],
 			})
 
 			useDetailsStore.setState({

@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import { LanguageCode } from 'utils/utils'
-import TranscriptionAndAudio from '_pages/media/commonComponents/detailsBlock/TranscriptionAndAudio/TranscriptionAndAudio'
+import TranscriptionAndAudio from '_pages/media/detailsBlock/TranscriptionAndAudio/TranscriptionAndAudio'
 import parseWordAnalysis, { WordAnalysisExample, WordAnalysisExampleWord } from './fn/wordAnalysis'
 import './SentenceWordAnalysis.scss'
 

@@ -16,14 +16,16 @@ function LanguagesRadioGroup(props: LanguagesRadioGroupProps) {
 
 	const languages = data?.language_get_languages ?? []
 
-	const config = languages.map((lang) => ({
-		name: lang.code,
-		label: lang.nameRus,
-		checked: value === lang.code,
-		value: lang.code,
-		disabled,
-		inputProps,
-	}))
+	const config = languages
+		.map((lang) => ({
+			name: lang.code,
+			label: lang.nameRus,
+			checked: value === lang.code,
+			value: lang.code,
+			disabled,
+			inputProps,
+		}))
+		.filter((lang) => lang.name !== 'ru')
 
 	return <RadioGroup label='Язык' direction='horizontal' config={config} name={inputProps.name} />
 }
