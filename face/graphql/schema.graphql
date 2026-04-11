@@ -179,6 +179,17 @@ input GetBookPublicInput {
   id: Int!
 }
 
+input GetPhraseTranslationInput {
+  """Selected word end offset in sentence (end-exclusive)"""
+  selectedWordEndOffset: Float!
+
+  """Selected word start offset in sentence"""
+  selectedWordStartOffset: Float!
+
+  """Sentence id"""
+  sentenceId: Float!
+}
+
 input GetPrivateBookInput {
   """Book id"""
   id: Int!
@@ -192,6 +203,11 @@ input GetPrivateVideoInput {
 input GetPublicVideoInput {
   """Video id"""
   id: Int!
+}
+
+input GetSentenceTranslationInput {
+  """Sentence id"""
+  sentenceId: Float!
 }
 
 input GetWordInput {
@@ -272,6 +288,12 @@ type Mutation {
   """Buy a subscription with YooKassa"""
   payment_yookassa_buy_subscription(input: BuySubscriptionWithYooKassaInput!): BuySubscriptionWithYooKassaOutModel!
 
+  """Translate phrase in sentence by selected offsets"""
+  translate_translate_phrase(input: TranslatePhraseInput!): SentencePhraseTranslationOutModel!
+
+  """Translate sentence"""
+  translate_translate_sentence(input: TranslateSentenceInput!): TranslateSentenceResultOutModel!
+
   """Create a video"""
   video_private_create(input: CreatePrivateVideoInput!): CreateVideoPrivateOutModel!
 
@@ -310,6 +332,12 @@ type Query {
   """Get all tariffs"""
   tariff_get_tariffs: [TariffOutModel!]!
 
+  """Get existing phrase translation by sentence and offsets"""
+  translate_get_phrase_translation(input: GetPhraseTranslationInput!): SentencePhraseTranslationOutModel
+
+  """Get existing sentence translation by sentence id"""
+  translate_get_sentence_translation(input: GetSentenceTranslationInput!): TranslateSentenceResultOutModel
+
   """Get a video"""
   video_private_get(input: GetPrivateVideoInput!): VideoPrivateOutModel!
 
@@ -345,6 +373,25 @@ type SentenceOutModel {
   startOffset: Int!
 }
 
+type SentencePhraseTranslationExampleOutModel {
+  text: String!
+  translate: String!
+}
+
+type SentencePhraseTranslationOutModel {
+  createdAt: String!
+  errorMessage: String
+  examples: [SentencePhraseTranslationExampleOutModel!]!
+  id: Int!
+  phrase: String!
+  phraseEndOffset: Int!
+  phraseStartOffset: Int!
+  sentenceId: Int!
+  status: String!
+  translate: String
+  updatedAt: String!
+}
+
 type SentenceTranslationLiteOutModel {
   id: Int!
   translation: String!
@@ -374,6 +421,65 @@ type TranscriptionOutModel {
   ipa: String
   pinyin: String
   wordId: Int!
+}
+
+input TranslatePhraseInput {
+  bookAuthor: String
+  bookName: String
+
+  """Selected word text"""
+  selectedWord: String!
+
+  """Selected word end offset in sentence (end-exclusive)"""
+  selectedWordEndOffset: Float!
+
+  """Selected word start offset in sentence"""
+  selectedWordStartOffset: Float!
+
+  """Sentence id"""
+  sentenceId: Float!
+
+  """Source language code"""
+  sourceLanguageCode: String
+
+  """Target language code"""
+  targetLanguageCode: String
+
+  """Full sentence text"""
+  text: String!
+  videoName: String
+  videoYear: String
+}
+
+input TranslateSentenceInput {
+  """Book author"""
+  bookAuthor: String
+
+  """Book name"""
+  bookName: String
+
+  """Sentence id"""
+  sentenceId: Float!
+
+  """Source language code"""
+  sourceLanguageCode: String
+
+  """Target language code"""
+  targetLanguageCode: String
+
+  """Sentence for translation"""
+  text: String!
+
+  """Video name"""
+  videoName: String
+
+  """Video release year"""
+  videoYear: String
+}
+
+type TranslateSentenceResultOutModel {
+  sentenceId: Int!
+  translation: String!
 }
 
 input UpdateBookChapterInput {

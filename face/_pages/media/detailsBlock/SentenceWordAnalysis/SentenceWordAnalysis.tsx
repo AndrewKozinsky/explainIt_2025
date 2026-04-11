@@ -30,7 +30,12 @@ function SentenceWordAnalysis(props: SentenceWordProps) {
 
 	return (
 		<div className={cn('sentence-word-analysis', extraClass)}>
-			<TopPart word={word} wordTranslation={wordTranslation} languageCode={languageCode} onWhiteBackground={onWhiteBackground} />
+			<TopPart
+				word={word}
+				wordTranslation={wordTranslation}
+				languageCode={languageCode}
+				onWhiteBackground={onWhiteBackground}
+			/>
 			{examples?.map((example, i) => {
 				return <Example example={example} key={i} />
 			})}
@@ -53,7 +58,12 @@ function TopPart(props: TopPartProps) {
 	return (
 		<p className='sentence-word-analysis__top'>
 			<span className='sentence-word-analysis__analysis-phrase'>{word}</span>{' '}
-			<TranscriptionAndAudio word={word} languageCode={languageCode as LanguageCode} onWhiteBackground={onWhiteBackground} /> —{' '}
+			<TranscriptionAndAudio
+				word={word}
+				languageCode={languageCode as LanguageCode}
+				onWhiteBackground={onWhiteBackground}
+			/>{' '}
+			—{' '}
 			<span className='sentence-word-analysis__analysis-phrase-translate'>
 				<Text text={wordTranslation} />
 			</span>

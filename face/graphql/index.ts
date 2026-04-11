@@ -189,6 +189,15 @@ export type GetBookPublicInput = {
   id: Scalars['Int']['input'];
 };
 
+export type GetPhraseTranslationInput = {
+  /** Selected word end offset in sentence (end-exclusive) */
+  selectedWordEndOffset: Scalars['Float']['input'];
+  /** Selected word start offset in sentence */
+  selectedWordStartOffset: Scalars['Float']['input'];
+  /** Sentence id */
+  sentenceId: Scalars['Float']['input'];
+};
+
 export type GetPrivateBookInput = {
   /** Book id */
   id: Scalars['Int']['input'];
@@ -202,6 +211,11 @@ export type GetPrivateVideoInput = {
 export type GetPublicVideoInput = {
   /** Video id */
   id: Scalars['Int']['input'];
+};
+
+export type GetSentenceTranslationInput = {
+  /** Sentence id */
+  sentenceId: Scalars['Float']['input'];
 };
 
 export type GetWordInput = {
@@ -267,6 +281,10 @@ export type Mutation = {
   create_transcription: TranscriptionOutModel;
   /** Buy a subscription with YooKassa */
   payment_yookassa_buy_subscription: BuySubscriptionWithYooKassaOutModel;
+  /** Translate phrase in sentence by selected offsets */
+  translate_translate_phrase: SentencePhraseTranslationOutModel;
+  /** Translate sentence */
+  translate_translate_sentence: TranslateSentenceResultOutModel;
   /** Create a video */
   video_private_create: CreateVideoPrivateOutModel;
   /** Delete a video */
@@ -343,6 +361,16 @@ export type MutationPayment_Yookassa_Buy_SubscriptionArgs = {
 };
 
 
+export type MutationTranslate_Translate_PhraseArgs = {
+  input: TranslatePhraseInput;
+};
+
+
+export type MutationTranslate_Translate_SentenceArgs = {
+  input: TranslateSentenceInput;
+};
+
+
 export type MutationVideo_Private_CreateArgs = {
   input: CreatePrivateVideoInput;
 };
@@ -380,6 +408,10 @@ export type Query = {
   language_get_languages: Array<LanguageOutModel>;
   /** Get all tariffs */
   tariff_get_tariffs: Array<TariffOutModel>;
+  /** Get existing phrase translation by sentence and offsets */
+  translate_get_phrase_translation?: Maybe<SentencePhraseTranslationOutModel>;
+  /** Get existing sentence translation by sentence id */
+  translate_get_sentence_translation?: Maybe<TranslateSentenceResultOutModel>;
   /** Get a video */
   video_private_get: VideoPrivateOutModel;
   /** Get user videos */
@@ -405,6 +437,16 @@ export type QueryBook_GetArgs = {
 
 export type QueryBook_Public_Get_BookArgs = {
   input: GetBookPublicInput;
+};
+
+
+export type QueryTranslate_Get_Phrase_TranslationArgs = {
+  input: GetPhraseTranslationInput;
+};
+
+
+export type QueryTranslate_Get_Sentence_TranslationArgs = {
+  input: GetSentenceTranslationInput;
 };
 
 
@@ -441,6 +483,27 @@ export type SentenceOutModel = {
   startOffset: Scalars['Int']['output'];
 };
 
+export type SentencePhraseTranslationExampleOutModel = {
+  __typename?: 'SentencePhraseTranslationExampleOutModel';
+  text: Scalars['String']['output'];
+  translate: Scalars['String']['output'];
+};
+
+export type SentencePhraseTranslationOutModel = {
+  __typename?: 'SentencePhraseTranslationOutModel';
+  createdAt: Scalars['String']['output'];
+  errorMessage?: Maybe<Scalars['String']['output']>;
+  examples: Array<SentencePhraseTranslationExampleOutModel>;
+  id: Scalars['Int']['output'];
+  phrase: Scalars['String']['output'];
+  phraseEndOffset: Scalars['Int']['output'];
+  phraseStartOffset: Scalars['Int']['output'];
+  sentenceId: Scalars['Int']['output'];
+  status: Scalars['String']['output'];
+  translate?: Maybe<Scalars['String']['output']>;
+  updatedAt: Scalars['String']['output'];
+};
+
 export type SentenceTranslationLiteOutModel = {
   __typename?: 'SentenceTranslationLiteOutModel';
   id: Scalars['Int']['output'];
@@ -474,6 +537,52 @@ export type TranscriptionOutModel = {
   ipa?: Maybe<Scalars['String']['output']>;
   pinyin?: Maybe<Scalars['String']['output']>;
   wordId: Scalars['Int']['output'];
+};
+
+export type TranslatePhraseInput = {
+  bookAuthor?: InputMaybe<Scalars['String']['input']>;
+  bookName?: InputMaybe<Scalars['String']['input']>;
+  /** Selected word text */
+  selectedWord: Scalars['String']['input'];
+  /** Selected word end offset in sentence (end-exclusive) */
+  selectedWordEndOffset: Scalars['Float']['input'];
+  /** Selected word start offset in sentence */
+  selectedWordStartOffset: Scalars['Float']['input'];
+  /** Sentence id */
+  sentenceId: Scalars['Float']['input'];
+  /** Source language code */
+  sourceLanguageCode?: InputMaybe<Scalars['String']['input']>;
+  /** Target language code */
+  targetLanguageCode?: InputMaybe<Scalars['String']['input']>;
+  /** Full sentence text */
+  text: Scalars['String']['input'];
+  videoName?: InputMaybe<Scalars['String']['input']>;
+  videoYear?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type TranslateSentenceInput = {
+  /** Book author */
+  bookAuthor?: InputMaybe<Scalars['String']['input']>;
+  /** Book name */
+  bookName?: InputMaybe<Scalars['String']['input']>;
+  /** Sentence id */
+  sentenceId: Scalars['Float']['input'];
+  /** Source language code */
+  sourceLanguageCode?: InputMaybe<Scalars['String']['input']>;
+  /** Target language code */
+  targetLanguageCode?: InputMaybe<Scalars['String']['input']>;
+  /** Sentence for translation */
+  text: Scalars['String']['input'];
+  /** Video name */
+  videoName?: InputMaybe<Scalars['String']['input']>;
+  /** Video release year */
+  videoYear?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type TranslateSentenceResultOutModel = {
+  __typename?: 'TranslateSentenceResultOutModel';
+  sentenceId: Scalars['Int']['output'];
+  translation: Scalars['String']['output'];
 };
 
 export type UpdateBookChapterInput = {
@@ -800,6 +909,34 @@ export type Transcription_CreateVariables = Exact<{
 
 
 export type Transcription_Create = { __typename?: 'Mutation', create_transcription: { __typename?: 'TranscriptionOutModel', id: number, wordId: number, ipa?: string | null, pinyin?: string | null } };
+
+export type Translate_Get_Phrase_TranslationVariables = Exact<{
+  input: GetPhraseTranslationInput;
+}>;
+
+
+export type Translate_Get_Phrase_Translation = { __typename?: 'Query', translate_get_phrase_translation?: { __typename?: 'SentencePhraseTranslationOutModel', id: number, sentenceId: number, phrase: string, phraseStartOffset: number, phraseEndOffset: number, translate?: string | null, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> } | null };
+
+export type Translate_Get_Sentence_TranslationVariables = Exact<{
+  input: GetSentenceTranslationInput;
+}>;
+
+
+export type Translate_Get_Sentence_Translation = { __typename?: 'Query', translate_get_sentence_translation?: { __typename?: 'TranslateSentenceResultOutModel', sentenceId: number, translation: string } | null };
+
+export type Translate_Translate_PhraseVariables = Exact<{
+  input: TranslatePhraseInput;
+}>;
+
+
+export type Translate_Translate_Phrase = { __typename?: 'Mutation', translate_translate_phrase: { __typename?: 'SentencePhraseTranslationOutModel', id: number, sentenceId: number, phrase: string, phraseStartOffset: number, phraseEndOffset: number, translate?: string | null, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> } };
+
+export type Translate_Translate_SentenceVariables = Exact<{
+  input: TranslateSentenceInput;
+}>;
+
+
+export type Translate_Translate_Sentence = { __typename?: 'Mutation', translate_translate_sentence: { __typename?: 'TranslateSentenceResultOutModel', sentenceId: number, translation: string } };
 
 export type VideoPrivate_CreateVariables = Exact<{
   input: CreatePrivateVideoInput;
@@ -1791,6 +1928,186 @@ export function useTranscription_Create(baseOptions?: Apollo.MutationHookOptions
 export type Transcription_CreateHookResult = ReturnType<typeof useTranscription_Create>;
 export type Transcription_CreateMutationResult = Apollo.MutationResult<Transcription_Create>;
 export type Transcription_CreateMutationOptions = Apollo.BaseMutationOptions<Transcription_Create, Transcription_CreateVariables>;
+export const Translate_Get_Phrase_TranslationDocument = gql`
+    query Translate_get_phrase_translation($input: GetPhraseTranslationInput!) {
+  translate_get_phrase_translation(input: $input) {
+    id
+    sentenceId
+    phrase
+    phraseStartOffset
+    phraseEndOffset
+    translate
+    examples {
+      text
+      translate
+    }
+    status
+    errorMessage
+    createdAt
+    updatedAt
+  }
+}
+    `;
+
+/**
+ * __useTranslate_Get_Phrase_Translation__
+ *
+ * To run a query within a React component, call `useTranslate_Get_Phrase_Translation` and pass it any options that fit your needs.
+ * When your component renders, `useTranslate_Get_Phrase_Translation` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useTranslate_Get_Phrase_Translation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useTranslate_Get_Phrase_Translation(baseOptions: Apollo.QueryHookOptions<Translate_Get_Phrase_Translation, Translate_Get_Phrase_TranslationVariables> & ({ variables: Translate_Get_Phrase_TranslationVariables; skip?: boolean; } | { skip: boolean; }) ) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<Translate_Get_Phrase_Translation, Translate_Get_Phrase_TranslationVariables>(Translate_Get_Phrase_TranslationDocument, options);
+      }
+export function useTranslate_Get_Phrase_TranslationLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Translate_Get_Phrase_Translation, Translate_Get_Phrase_TranslationVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<Translate_Get_Phrase_Translation, Translate_Get_Phrase_TranslationVariables>(Translate_Get_Phrase_TranslationDocument, options);
+        }
+// @ts-ignore
+export function useTranslate_Get_Phrase_TranslationSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<Translate_Get_Phrase_Translation, Translate_Get_Phrase_TranslationVariables>): Apollo.UseSuspenseQueryResult<Translate_Get_Phrase_Translation, Translate_Get_Phrase_TranslationVariables>;
+export function useTranslate_Get_Phrase_TranslationSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Translate_Get_Phrase_Translation, Translate_Get_Phrase_TranslationVariables>): Apollo.UseSuspenseQueryResult<Translate_Get_Phrase_Translation | undefined, Translate_Get_Phrase_TranslationVariables>;
+export function useTranslate_Get_Phrase_TranslationSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Translate_Get_Phrase_Translation, Translate_Get_Phrase_TranslationVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<Translate_Get_Phrase_Translation, Translate_Get_Phrase_TranslationVariables>(Translate_Get_Phrase_TranslationDocument, options);
+        }
+export type Translate_Get_Phrase_TranslationHookResult = ReturnType<typeof useTranslate_Get_Phrase_Translation>;
+export type Translate_Get_Phrase_TranslationLazyQueryHookResult = ReturnType<typeof useTranslate_Get_Phrase_TranslationLazyQuery>;
+export type Translate_Get_Phrase_TranslationSuspenseQueryHookResult = ReturnType<typeof useTranslate_Get_Phrase_TranslationSuspenseQuery>;
+export type Translate_Get_Phrase_TranslationQueryResult = Apollo.QueryResult<Translate_Get_Phrase_Translation, Translate_Get_Phrase_TranslationVariables>;
+export const Translate_Get_Sentence_TranslationDocument = gql`
+    query Translate_get_sentence_translation($input: GetSentenceTranslationInput!) {
+  translate_get_sentence_translation(input: $input) {
+    sentenceId
+    translation
+  }
+}
+    `;
+
+/**
+ * __useTranslate_Get_Sentence_Translation__
+ *
+ * To run a query within a React component, call `useTranslate_Get_Sentence_Translation` and pass it any options that fit your needs.
+ * When your component renders, `useTranslate_Get_Sentence_Translation` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useTranslate_Get_Sentence_Translation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useTranslate_Get_Sentence_Translation(baseOptions: Apollo.QueryHookOptions<Translate_Get_Sentence_Translation, Translate_Get_Sentence_TranslationVariables> & ({ variables: Translate_Get_Sentence_TranslationVariables; skip?: boolean; } | { skip: boolean; }) ) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<Translate_Get_Sentence_Translation, Translate_Get_Sentence_TranslationVariables>(Translate_Get_Sentence_TranslationDocument, options);
+      }
+export function useTranslate_Get_Sentence_TranslationLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Translate_Get_Sentence_Translation, Translate_Get_Sentence_TranslationVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<Translate_Get_Sentence_Translation, Translate_Get_Sentence_TranslationVariables>(Translate_Get_Sentence_TranslationDocument, options);
+        }
+// @ts-ignore
+export function useTranslate_Get_Sentence_TranslationSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<Translate_Get_Sentence_Translation, Translate_Get_Sentence_TranslationVariables>): Apollo.UseSuspenseQueryResult<Translate_Get_Sentence_Translation, Translate_Get_Sentence_TranslationVariables>;
+export function useTranslate_Get_Sentence_TranslationSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Translate_Get_Sentence_Translation, Translate_Get_Sentence_TranslationVariables>): Apollo.UseSuspenseQueryResult<Translate_Get_Sentence_Translation | undefined, Translate_Get_Sentence_TranslationVariables>;
+export function useTranslate_Get_Sentence_TranslationSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Translate_Get_Sentence_Translation, Translate_Get_Sentence_TranslationVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<Translate_Get_Sentence_Translation, Translate_Get_Sentence_TranslationVariables>(Translate_Get_Sentence_TranslationDocument, options);
+        }
+export type Translate_Get_Sentence_TranslationHookResult = ReturnType<typeof useTranslate_Get_Sentence_Translation>;
+export type Translate_Get_Sentence_TranslationLazyQueryHookResult = ReturnType<typeof useTranslate_Get_Sentence_TranslationLazyQuery>;
+export type Translate_Get_Sentence_TranslationSuspenseQueryHookResult = ReturnType<typeof useTranslate_Get_Sentence_TranslationSuspenseQuery>;
+export type Translate_Get_Sentence_TranslationQueryResult = Apollo.QueryResult<Translate_Get_Sentence_Translation, Translate_Get_Sentence_TranslationVariables>;
+export const Translate_Translate_PhraseDocument = gql`
+    mutation Translate_translate_phrase($input: TranslatePhraseInput!) {
+  translate_translate_phrase(input: $input) {
+    id
+    sentenceId
+    phrase
+    phraseStartOffset
+    phraseEndOffset
+    translate
+    examples {
+      text
+      translate
+    }
+    status
+    errorMessage
+    createdAt
+    updatedAt
+  }
+}
+    `;
+export type Translate_Translate_PhraseMutationFn = Apollo.MutationFunction<Translate_Translate_Phrase, Translate_Translate_PhraseVariables>;
+
+/**
+ * __useTranslate_Translate_Phrase__
+ *
+ * To run a mutation, you first call `useTranslate_Translate_Phrase` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useTranslate_Translate_Phrase` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [translateTranslatePhrase, { data, loading, error }] = useTranslate_Translate_Phrase({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useTranslate_Translate_Phrase(baseOptions?: Apollo.MutationHookOptions<Translate_Translate_Phrase, Translate_Translate_PhraseVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<Translate_Translate_Phrase, Translate_Translate_PhraseVariables>(Translate_Translate_PhraseDocument, options);
+      }
+export type Translate_Translate_PhraseHookResult = ReturnType<typeof useTranslate_Translate_Phrase>;
+export type Translate_Translate_PhraseMutationResult = Apollo.MutationResult<Translate_Translate_Phrase>;
+export type Translate_Translate_PhraseMutationOptions = Apollo.BaseMutationOptions<Translate_Translate_Phrase, Translate_Translate_PhraseVariables>;
+export const Translate_Translate_SentenceDocument = gql`
+    mutation Translate_translate_sentence($input: TranslateSentenceInput!) {
+  translate_translate_sentence(input: $input) {
+    sentenceId
+    translation
+  }
+}
+    `;
+export type Translate_Translate_SentenceMutationFn = Apollo.MutationFunction<Translate_Translate_Sentence, Translate_Translate_SentenceVariables>;
+
+/**
+ * __useTranslate_Translate_Sentence__
+ *
+ * To run a mutation, you first call `useTranslate_Translate_Sentence` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useTranslate_Translate_Sentence` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [translateTranslateSentence, { data, loading, error }] = useTranslate_Translate_Sentence({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useTranslate_Translate_Sentence(baseOptions?: Apollo.MutationHookOptions<Translate_Translate_Sentence, Translate_Translate_SentenceVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<Translate_Translate_Sentence, Translate_Translate_SentenceVariables>(Translate_Translate_SentenceDocument, options);
+      }
+export type Translate_Translate_SentenceHookResult = ReturnType<typeof useTranslate_Translate_Sentence>;
+export type Translate_Translate_SentenceMutationResult = Apollo.MutationResult<Translate_Translate_Sentence>;
+export type Translate_Translate_SentenceMutationOptions = Apollo.BaseMutationOptions<Translate_Translate_Sentence, Translate_Translate_SentenceVariables>;
 export const VideoPrivate_CreateDocument = gql`
     mutation VideoPrivate_create($input: CreatePrivateVideoInput!) {
   video_private_create(input: $input) {
