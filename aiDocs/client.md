@@ -19,8 +19,6 @@ A Next.js project with Apollo GraphQl and SCSS in the folder "face".
 — users work with this web-site on touch devices like tablets and smartphones and desktop computers
 — ensure responsive design for various screen sizes
 
-Адреса страниц находятся в переменной pageUrls в файле face/сonsts/pageUrls.ts. Не нужно писать адрес обычной строкой.
-
 ## SSE streaming (translation) — project rules and architecture
 
 This project uses **SSE (Server-Sent Events)** to stream translation results progressively to the UI.
@@ -54,14 +52,6 @@ Client-side streaming is intentionally split into 3 layers (separation of concer
   - accumulate full text into `fullText`
   - call `onChunk({ chunk, fullText })`
   - resolve when `done` arrives, reject on `error`
-
-3) Domain adapter for translation: `face/_pages/readingAndWatchingCommon/selectedSentence/DetailsSentence/fn/translationStream.ts`
-- Uses `readStream`.
-- Parses the streamed `fullText` into:
-  - `translation`
-  - `analysis`
-- Separator rule: translation and analysis are separated by a **blank line** (`\n\n`).
-- Provides `onPartial({ translation, analysis })` so UI can update progressively.
 
 ### Where it is used
 - `face/_pages/readingAndWatchingCommon/selectedSentence/DetailsSentence/fn/translateSentence.ts` (`useTranslateSentence`)
