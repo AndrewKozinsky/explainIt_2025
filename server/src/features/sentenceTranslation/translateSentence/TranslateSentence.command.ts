@@ -10,7 +10,10 @@ import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { CurrentSubscriptionServiceModel } from 'models/auth/auth.service.model'
 import { DailyTranslationLimitService } from '../translate/DailyTranslationLimit.service'
-import { SentenceTranslationAccess, SentenceTranslationAccessService } from '../translate/SentenceTranslationAccess.service'
+import {
+	SentenceTranslationAccess,
+	SentenceTranslationAccessService,
+} from '../translate/SentenceTranslationAccess.service'
 import {
 	SentenceTranslationProvider,
 	SentenceTranslationProviderName,
@@ -55,12 +58,6 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 	async execute(command: TranslateSentenceCommand): Promise<TranslateSentenceResult> {
 		try {
 			const preparedInput = await this.prepareTranslationOrThrow(command.input)
-
-			if (preparedInput.existingTranslationText) {
-				return {
-					translatedText: preparedInput.existingTranslationText,
-				}
-			}
 
 			const draftSentenceTranslation = await this.createDraftSentenceTranslation(command.input.sentenceId)
 
@@ -114,7 +111,6 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 	}
 
 	private async prepareTranslationOrThrow(input: TranslateSentenceInput): Promise<{
-		existingTranslationText: null | string
 		sourceLanguageCode: string
 		targetLanguageCode: string
 		lowPriority: boolean
@@ -127,27 +123,6 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 			sentenceId: input.sentenceId,
 		})
 
-		const existingTranslation = await this.sentenceTranslationRepository.getFirstSentenceTranslationBySentenceId(
-			input.sentenceId,
-		)
-
-		if (existingTranslation) {
-			await this.ensureCanReadExistingTranslationOrThrow({
-				userId: input.userId,
-				sentenceId: input.sentenceId,
-				access,
-			})
-
-			return {
-				existingTranslationText: this.buildStoredTranslationText(existingTranslation),
-				sourceLanguageCode: input.sourceLanguageCode ?? 'en',
-				targetLanguageCode: input.targetLanguageCode ?? 'ru',
-				lowPriority: true,
-				provider: this.getTranslationProvider(),
-				createMode: access.createMode,
-			}
-		}
-
 		await this.ensureCanCreateNewTranslationOrThrow({
 			userId: input.userId,
 			sentenceId: input.sentenceId,
@@ -155,7 +130,6 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 		})
 
 		return {
-			existingTranslationText: null,
 			sourceLanguageCode: input.sourceLanguageCode ?? 'en',
 			targetLanguageCode: input.targetLanguageCode ?? 'ru',
 			lowPriority: true,
@@ -260,22 +234,6 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 		}
 	}
 
-	private async ensureCanReadExistingTranslationOrThrow(input: {
-		userId: null | number
-		sentenceId: number
-		access: SentenceTranslationAccess
-	}) {
-		await this.ensureModeIsAllowedOrThrow({
-			mode: input.access.readMode,
-			deniedReason: input.access.readDeniedReason,
-			actionType: 'read',
-		})
-
-		if (input.access.readMode === 'dailyLimit') {
-			await this.consumeDailyLimitOrThrow(input)
-		}
-	}
-
 	private async ensureCanCreateNewTranslationOrThrow(input: {
 		userId: null | number
 		sentenceId: number
@@ -344,9 +302,5 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 		if (!limitResult.allowed) {
 			throw new CustomGraphQLError(errorMessage.sentenceTranslation.dailyLimitReached, ErrorCode.Forbidden_403)
 		}
-	}
-
-	private buildStoredTranslationText(input: { translation: string }) {
-		return input.translation
 	}
 }

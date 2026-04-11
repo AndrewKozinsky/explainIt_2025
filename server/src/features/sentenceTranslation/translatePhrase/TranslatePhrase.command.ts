@@ -70,9 +70,6 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 		}
 
 		const pendingPhrase = await this.ensurePendingPhraseRow(command.input)
-		if (pendingPhrase.translate) {
-			return pendingPhrase
-		}
 
 		const sourceLanguageCode = command.input.sourceLanguageCode ?? 'en'
 		const targetLanguageCode = command.input.targetLanguageCode ?? 'ru'
@@ -104,23 +101,7 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 				llmPhrase: parsed.phrase,
 			})
 
-			let targetPhraseId = pendingPhrase.id
-
-			if (
-				resolvedPhrase.phraseStartOffset !== pendingPhrase.phraseStartOffset ||
-				resolvedPhrase.phraseEndOffset !== pendingPhrase.phraseEndOffset
-			) {
-				const existingByNewRange = await this.sentencePhraseTranslationRepository.getPhraseByExactRange({
-					sentenceId: command.input.sentenceId,
-					phraseStartOffset: resolvedPhrase.phraseStartOffset,
-					phraseEndOffset: resolvedPhrase.phraseEndOffset,
-				})
-				if (existingByNewRange && existingByNewRange.id !== pendingPhrase.id) {
-					targetPhraseId = existingByNewRange.id
-				}
-			}
-
-			const savedPhrase = await this.sentencePhraseTranslationRepository.updatePhraseById(targetPhraseId, {
+			const savedPhrase = await this.sentencePhraseTranslationRepository.updatePhraseById(pendingPhrase.id, {
 				phrase: resolvedPhrase.phrase,
 				phraseStartOffset: resolvedPhrase.phraseStartOffset,
 				phraseEndOffset: resolvedPhrase.phraseEndOffset,
@@ -129,10 +110,6 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 				status: 'ready',
 				errorMessage: null,
 			})
-
-			if (targetPhraseId !== pendingPhrase.id) {
-				await this.sentencePhraseTranslationRepository.deletePhraseById(pendingPhrase.id)
-			}
 
 			if (command.input.userId && access.createMode === 'subscriptionBalance') {
 				await this.commandBus.execute(
@@ -174,15 +151,6 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 	private async ensurePendingPhraseRow(input: TranslatePhraseInput): Promise<SentencePhraseTranslationServiceModel> {
 		const selectedPhrase = input.text.slice(input.selectedWordStartOffset, input.selectedWordEndOffset).trim()
 		const phrase = selectedPhrase || input.selectedWord.trim() || '...'
-
-		const exactRange = await this.sentencePhraseTranslationRepository.getPhraseByExactRange({
-			sentenceId: input.sentenceId,
-			phraseStartOffset: input.selectedWordStartOffset,
-			phraseEndOffset: input.selectedWordEndOffset,
-		})
-		if (exactRange) {
-			return exactRange
-		}
 
 		return this.sentencePhraseTranslationRepository.createPendingPhrase({
 			sentenceId: input.sentenceId,

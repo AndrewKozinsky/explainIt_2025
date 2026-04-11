@@ -29,6 +29,16 @@ export interface GetPublicVideoInput {
     id: number;
 }
 
+export interface GetSentenceTranslationInput {
+    sentenceId: number;
+}
+
+export interface GetPhraseTranslationInput {
+    sentenceId: number;
+    selectedWordStartOffset: number;
+    selectedWordEndOffset: number;
+}
+
 export interface GetWordInput {
     word: string;
     languageCode: string;
@@ -446,6 +456,8 @@ export interface IQuery {
     video_private_get(input: GetPrivateVideoInput): VideoPrivateOutModel | Promise<VideoPrivateOutModel>;
     video_public_get_videos(): VideoPublicLiteOutModel[] | Promise<VideoPublicLiteOutModel[]>;
     video_public_get(input: GetPublicVideoInput): VideoPublicOutModel | Promise<VideoPublicOutModel>;
+    translate_get_sentence_translation(input: GetSentenceTranslationInput): Nullable<TranslateSentenceResultOutModel> | Promise<Nullable<TranslateSentenceResultOutModel>>;
+    translate_get_phrase_translation(input: GetPhraseTranslationInput): Nullable<SentencePhraseTranslationOutModel> | Promise<Nullable<SentencePhraseTranslationOutModel>>;
     tariff_get_tariffs(): TariffOutModel[] | Promise<TariffOutModel[]>;
     word_get(input: GetWordInput): WordOutModel | Promise<WordOutModel>;
     language_get_languages(): LanguageOutModel[] | Promise<LanguageOutModel[]>;
