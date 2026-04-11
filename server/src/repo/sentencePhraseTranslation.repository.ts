@@ -17,14 +17,29 @@ export class SentencePhraseTranslationRepository {
 		selectedWordStartOffset: number
 		selectedWordEndOffset: number
 	}) {
-		const phrases = await this.getPhrasesBySentenceId(input.sentenceId)
+		const phrases = await this.prisma.sentencePhraseTranslation.findMany({
+			where: {
+				sentence_id: input.sentenceId,
+				phrase_start_offset: {
+					lte: input.selectedWordStartOffset,
+				},
+				phrase_end_offset: {
+					gte: input.selectedWordEndOffset,
+				},
+				status: 'ready',
+				translate: {
+					not: null,
+				},
+			},
+		})
+
 		const phrase = phrases
-			.filter(
-				(item) =>
-					item.phraseStartOffset <= input.selectedWordStartOffset &&
-					item.phraseEndOffset >= input.selectedWordEndOffset,
-			)
-			.sort((a, b) => a.phraseStartOffset - b.phraseStartOffset || a.phraseEndOffset - b.phraseEndOffset)[0]
+			.map(this.mapDbToService)
+			.sort(
+				(a, b) =>
+					a.phraseEndOffset - a.phraseStartOffset - (b.phraseEndOffset - b.phraseStartOffset) ||
+					b.updatedAt.getTime() - a.updatedAt.getTime(),
+			)[0]
 
 		if (!phrase) return null
 		return phrase
@@ -39,20 +54,6 @@ export class SentencePhraseTranslationRepository {
 		})
 
 		return rows.map(this.mapDbToService)
-	}
-
-	@CatchDbError()
-	async getPhraseByExactRange(input: { sentenceId: number; phraseStartOffset: number; phraseEndOffset: number }) {
-		const phrase = await this.prisma.sentencePhraseTranslation.findFirst({
-			where: {
-				sentence_id: input.sentenceId,
-				phrase_start_offset: input.phraseStartOffset,
-				phrase_end_offset: input.phraseEndOffset,
-			},
-		})
-
-		if (!phrase) return null
-		return this.mapDbToService(phrase)
 	}
 
 	@CatchDbError()

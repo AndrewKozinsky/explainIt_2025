@@ -1,24 +1,34 @@
 import { useEffect, useMemo, useRef } from 'react'
+import {
+	SentencePhraseTranslationOutModel,
+	useTranslate_Get_Phrase_TranslationLazyQuery,
+	useTranslate_Get_Sentence_TranslationLazyQuery,
+	useTranslate_Translate_Phrase,
+	useTranslate_Translate_Sentence,
+} from '@/graphql'
 import { useDetailsStore } from '../../detailsStore'
-import { getSelectedWordFromSentence } from './getSelectedWordFromSentence'
-import { getWordAnalysisFromSentenceAnalysis } from './getWordAnalysisFromSentenceAnalysis'
-import { readTranslationStream } from './translationStream'
 
 export function useGetAnalysis() {
 	const sentenceId = useDetailsStore((s) => s.sentenceId)
 	const sentenceText = useDetailsStore((s) => s.sentenceText)
 	const wordIds = useDetailsStore((s) => s.wordIds)
-	const sentenceAnalysis = useDetailsStore((s) => s.sentenceAnalysis)
 	const bookName = useDetailsStore((s) => s.bookName)
 	const bookAuthor = useDetailsStore((s) => s.bookAuthor)
 	const videoName = useDetailsStore((s) => s.videoName)
 	const videoYear = useDetailsStore((s) => s.videoYear)
 
+	const [getSentenceTranslation] = useTranslate_Get_Sentence_TranslationLazyQuery()
+	const [getPhraseTranslation] = useTranslate_Get_Phrase_TranslationLazyQuery()
+	const [translateSentence] = useTranslate_Translate_Sentence()
+	const [translatePhrase] = useTranslate_Translate_Phrase()
+
 	const activeRequestIdRef = useRef(0)
+	const prevSentenceIdRef = useRef<null | number>(null)
+	const prevWordIdRef = useRef<null | number>(null)
 
 	const selectedWord = useMemo(
 		function () {
-			return getSelectedWordFromSentence({
+			return getSelectedWordWithOffsetsFromSentence({
 				sentenceText,
 				wordIds,
 			})
@@ -28,132 +38,278 @@ export function useGetAnalysis() {
 
 	useEffect(
 		function () {
-			const wordAnalysis = getWordAnalysisFromSentenceAnalysis({
-				analysis: sentenceAnalysis,
-				selectedWord,
-				sentenceText,
-				wordId: wordIds[0],
-			})
-
-			useDetailsStore.setState({ wordAnalysis })
-		},
-		[selectedWord, sentenceAnalysis, sentenceText, wordIds],
-	)
-
-	useEffect(
-		function () {
 			if (!sentenceId || !sentenceText) return
+
+			const selectedWordId = wordIds[0] ?? null
+			const sentenceChanged = prevSentenceIdRef.current !== sentenceId
+			const wordChanged = prevWordIdRef.current !== selectedWordId
+
+			if (!sentenceChanged && !wordChanged) {
+				return
+			}
+
+			prevSentenceIdRef.current = sentenceId
+			prevWordIdRef.current = selectedWordId
 
 			activeRequestIdRef.current += 1
 			const requestId = activeRequestIdRef.current
 			const isActiveRequestId = () => activeRequestIdRef.current === requestId
 
-			useDetailsStore.getState().updateStore({
-				sentenceTranslation: null,
-				sentenceAnalysis: null,
-				wordAnalysis: null,
-				isLoading: true,
-				error: null,
-			})
+			if (sentenceChanged) {
+				useDetailsStore.getState().updateStore({
+					sentenceTranslation: null,
+					sentenceAnalysis: null,
+					wordAnalysis: null,
+					isLoading: true,
+					error: null,
+				})
+			} else {
+				useDetailsStore.getState().updateStore({
+					wordAnalysis: null,
+					isLoading: true,
+					error: null,
+				})
+			}
 
-			void translateSelectedSentence({
-				sentenceId,
-				sentenceText,
-				wordIds,
-				bookName,
-				bookAuthor,
-				videoName,
-				videoYear,
-				selectedWord,
-				isActive: isActiveRequestId,
-			}).catch((error) => {
-				if (!isActiveRequestId()) return
+			void (async () => {
+				try {
+					if (sentenceChanged) {
+						const [nextSentenceTranslation, nextWordAnalysis] = await Promise.all([
+							getOrCreateSentenceTranslation({
+								sentenceId,
+								sentenceText,
+								bookName,
+								bookAuthor,
+								videoName,
+								videoYear,
+								getSentenceTranslation,
+								translateSentence,
+							}),
+							getOrCreateWordAnalysis({
+								sentenceId,
+								sentenceText,
+								selectedWord,
+								bookName,
+								bookAuthor,
+								videoName,
+								videoYear,
+								getPhraseTranslation,
+								translatePhrase,
+							}),
+						])
 
-				useDetailsStore.getState().updateStore({ isLoading: false, error: error.message })
-			})
+						if (!isActiveRequestId()) return
+
+						useDetailsStore.getState().updateStore({
+							sentenceTranslation: nextSentenceTranslation,
+							sentenceAnalysis: null,
+							wordAnalysis: nextWordAnalysis,
+							isLoading: false,
+							error: null,
+						})
+						return
+					}
+
+					const nextWordAnalysis = await getOrCreateWordAnalysis({
+						sentenceId,
+						sentenceText,
+						selectedWord,
+						bookName,
+						bookAuthor,
+						videoName,
+						videoYear,
+						getPhraseTranslation,
+						translatePhrase,
+					})
+
+					if (!isActiveRequestId()) return
+
+					useDetailsStore.getState().updateStore({
+						wordAnalysis: nextWordAnalysis,
+						isLoading: false,
+						error: null,
+					})
+				} catch (error) {
+					if (!isActiveRequestId()) return
+
+					useDetailsStore.getState().updateStore({
+						isLoading: false,
+						error: error instanceof Error ? error.message : 'Unknown error',
+					})
+				}
+			})()
 
 			return () => {
 				activeRequestIdRef.current += 1
 			}
 		},
-		[sentenceId],
+		[
+			sentenceId,
+			sentenceText,
+			wordIds,
+			selectedWord,
+			bookName,
+			bookAuthor,
+			videoName,
+			videoYear,
+			getSentenceTranslation,
+			getPhraseTranslation,
+			translateSentence,
+			translatePhrase,
+		],
 	)
 }
 
-async function translateSelectedSentence(input: {
+type GetOrCreateSentenceTranslationInput = {
 	sentenceId: number
 	sentenceText: string
-	wordIds: number[]
 	bookName: null | string
 	bookAuthor: null | string
 	videoName: null | string
 	videoYear: null | string | number
-	selectedWord: null | string
-	isActive: () => boolean
-}) {
-	const url = buildTranslateSentenceUrl({
-		sentenceId: input.sentenceId,
-		text: input.sentenceText,
-		bookName: input.bookName,
-		bookAuthor: input.bookAuthor,
-		videoName: input.videoName,
-		videoYear: input.videoYear,
+    getSentenceTranslation: ReturnType<typeof useTranslate_Get_Sentence_TranslationLazyQuery>[0]
+    translateSentence: ReturnType<typeof useTranslate_Translate_Sentence>[0]
+}
+
+async function getOrCreateSentenceTranslation(input: GetOrCreateSentenceTranslationInput): Promise<string> {
+	const existing = await input.getSentenceTranslation({
+		variables: {
+			input: {
+				sentenceId: input.sentenceId,
+			},
+		},
+		fetchPolicy: 'network-only',
 	})
 
-	const result = await readTranslationStream(url, {
-		onPartial: (translation, analysis) => {
-			if (!input.isActive()) return
+	const existingTranslation = existing.data?.translate_get_sentence_translation?.translation
+	if (existingTranslation) {
+		return existingTranslation
+	}
 
-			const wordAnalysis = getWordAnalysisFromSentenceAnalysis({
-				analysis,
-				selectedWord: input.selectedWord,
-				sentenceText: input.sentenceText,
-				wordId: input.wordIds[0],
-			})
-
-			useDetailsStore.setState({
-				sentenceTranslation: translation,
-				sentenceAnalysis: analysis,
-				wordAnalysis,
-			})
+	const generated = await input.translateSentence({
+		variables: {
+			input: {
+				sentenceId: input.sentenceId,
+				text: input.sentenceText,
+				bookName: input.bookName ?? undefined,
+				bookAuthor: input.bookAuthor ?? undefined,
+				videoName: input.videoName ?? undefined,
+				videoYear: toNullableString(input.videoYear) ?? undefined,
+			},
 		},
 	})
 
-	if (!input.isActive()) return
-
-	if (result.type === 'error') {
-		useDetailsStore.setState({
-			error: result.message,
-			isLoading: false,
-		})
-		return
+	const generatedTranslation = generated.data?.translate_translate_sentence?.translation
+	if (!generatedTranslation) {
+		throw new Error('Не удалось получить перевод предложения')
 	}
 
-	if (result.type === 'ok') {
-		useDetailsStore.setState({
-			isLoading: false,
-			error: null,
-		})
-	}
+	return generatedTranslation
 }
 
-function buildTranslateSentenceUrl(input: {
+type GetOrCreateWordAnalysisInput = {
 	sentenceId: number
-	text: string
+	sentenceText: string
+	selectedWord: null | { word: string; startOffset: number; endOffset: number }
 	bookName: null | string
 	bookAuthor: null | string
 	videoName: null | string
 	videoYear: null | string | number
-}) {
-	const url = new URL('/api/translate/sentence/stream', window.location.origin)
+    getPhraseTranslation: ReturnType<typeof useTranslate_Get_Phrase_TranslationLazyQuery>[0]
+    translatePhrase: ReturnType<typeof useTranslate_Translate_Phrase>[0]
+}
 
-	url.searchParams.set('sentenceId', String(input.sentenceId))
-	url.searchParams.set('text', input.text)
+async function getOrCreateWordAnalysis(input: GetOrCreateWordAnalysisInput): Promise<null | string> {
+	if (!input.selectedWord) {
+		return null
+	}
 
-	if (input.bookName) url.searchParams.set('bookName', input.bookName)
-	if (input.bookAuthor) url.searchParams.set('bookAuthor', input.bookAuthor)
-	if (input.videoName) url.searchParams.set('videoName', input.videoName)
-	if (input.videoYear) url.searchParams.set('videoYear', String(input.videoYear))
+	const existing = await input.getPhraseTranslation({
+		variables: {
+			input: {
+				sentenceId: input.sentenceId,
+				selectedWordStartOffset: input.selectedWord.startOffset,
+				selectedWordEndOffset: input.selectedWord.endOffset,
+			},
+		},
+		fetchPolicy: 'network-only',
+	})
 
-	return url.toString()
+	const existingPhrase = existing.data?.translate_get_phrase_translation
+	if (existingPhrase?.translate) {
+		return buildWordAnalysisFromPhraseTranslation(existingPhrase)
+	}
+
+	const generated = await input.translatePhrase({
+		variables: {
+			input: {
+				sentenceId: input.sentenceId,
+				text: input.sentenceText,
+				selectedWord: input.selectedWord.word,
+				selectedWordStartOffset: input.selectedWord.startOffset,
+				selectedWordEndOffset: input.selectedWord.endOffset,
+				bookName: input.bookName ?? undefined,
+				bookAuthor: input.bookAuthor ?? undefined,
+				videoName: input.videoName ?? undefined,
+				videoYear: toNullableString(input.videoYear) ?? undefined,
+			},
+		},
+	})
+
+	const generatedPhrase = generated.data?.translate_translate_phrase
+	if (!generatedPhrase?.translate) {
+		throw new Error('Не удалось получить перевод слова')
+	}
+
+	return buildWordAnalysisFromPhraseTranslation(generatedPhrase)
+}
+
+function buildWordAnalysisFromPhraseTranslation(phraseTranslation: SentencePhraseTranslationOutModel): string {
+	const lines = [`* **${phraseTranslation.phrase}** — ${phraseTranslation.translate ?? ''}`]
+
+	for (const example of phraseTranslation.examples ?? []) {
+		if (!example.text || !example.translate) {
+			continue
+		}
+
+		lines.push(`* ${example.text} — ${example.translate}`)
+	}
+
+	return lines.join('\n')
+}
+
+function toNullableString(value: null | string | number): null | string {
+	if (value === null || value === undefined) {
+		return null
+	}
+
+	return String(value)
+}
+
+function getSelectedWordWithOffsetsFromSentence(input: {
+	sentenceText: null | string
+	wordIds: number[]
+	locale?: string
+}): null | { word: string; startOffset: number; endOffset: number } {
+	const { sentenceText, wordIds, locale } = input
+
+	const wordId = wordIds[0]
+	if (!wordId || !sentenceText) return null
+
+	const segmenter = new Intl.Segmenter(locale, { granularity: 'word' })
+	const segments = [...segmenter.segment(sentenceText)].filter((segment) => segment.isWordLike)
+	const selectedSegment = segments[wordId - 1]
+
+	if (!selectedSegment?.segment) {
+		return null
+	}
+
+	const startOffset = selectedSegment.index
+	const endOffset = selectedSegment.index + selectedSegment.segment.length
+
+	return {
+		word: selectedSegment.segment,
+		startOffset,
+		endOffset,
+	}
 }

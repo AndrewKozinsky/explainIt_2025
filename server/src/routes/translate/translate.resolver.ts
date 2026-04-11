@@ -99,10 +99,10 @@ export class TranslateResolver {
 			})
 		}
 
-		return this.sentencePhraseTranslationRepository.getPhraseByExactRange({
+		return this.sentencePhraseTranslationRepository.getPhraseContainingOffset({
 			sentenceId: input.sentenceId,
-			phraseStartOffset: input.selectedWordStartOffset,
-			phraseEndOffset: input.selectedWordEndOffset,
+			selectedWordStartOffset: input.selectedWordStartOffset,
+			selectedWordEndOffset: input.selectedWordEndOffset,
 		})
 	}
 
