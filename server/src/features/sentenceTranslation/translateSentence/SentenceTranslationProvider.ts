@@ -16,21 +16,16 @@ export type SentenceTranslationProviderUsage =
 			lowPriority: boolean
 	  }
 
-export type SentenceTranslationProviderStreamEvent =
-	| { type: 'chunk'; text: string }
-	| { type: 'done'; usage: null | SentenceTranslationProviderUsage }
-
 export interface SentenceTranslationProvider {
 	readonly providerName: SentenceTranslationProviderName
-	streamTranslate(input: {
+	translate(input: {
 		text: string
 		sourceLanguageCode: string
 		targetLanguageCode: string
-		abortSignal?: AbortSignal
 		lowPriority?: boolean
 		bookName?: string
 		bookAuthor?: string
 		videoName?: string
 		videoYear?: string | number
-	}): AsyncGenerator<SentenceTranslationProviderStreamEvent>
+	}): Promise<{ translatedText: string; usage: null | SentenceTranslationProviderUsage }>
 }

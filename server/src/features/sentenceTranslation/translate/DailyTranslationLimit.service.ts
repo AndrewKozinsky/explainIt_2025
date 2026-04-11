@@ -18,8 +18,6 @@ export class DailyTranslationLimitService {
 		const sentenceId = String(input.sentenceId)
 		const dailyLimit = this.mainConfig.get().dailyTranslationsLimit
 
-		// Redis stores a set of sentence ids that were already counted for this user today.
-		// If the same sentence is requested again on the same day, we do not spend the limit twice.
 		const alreadyCounted = await redis.sIsMember(key, sentenceId)
 		const countBeforeCheck = await redis.sCard(key)
 
@@ -39,12 +37,7 @@ export class DailyTranslationLimitService {
 			}
 		}
 
-		// We count the attempt immediately, before the full translation is completed.
-		// This keeps the daily-limit logic simple and prevents repeated parallel requests
-		// from effectively bypassing the limit.
 		await redis.sAdd(key, sentenceId)
-
-		// The key lives only until the end of the current day, then Redis removes it automatically.
 		await redis.expire(key, this.getSecondsUntilEndOfDay())
 
 		return {
@@ -55,7 +48,6 @@ export class DailyTranslationLimitService {
 	}
 
 	private getDailyTranslationsKey(userId: number) {
-		// One Redis key per user per day.
 		return `daily-translations:user:${userId}:date:${this.getCurrentDateKey()}`
 	}
 
@@ -69,7 +61,6 @@ export class DailyTranslationLimitService {
 	}
 
 	private getSecondsUntilEndOfDay() {
-		// TTL is calculated in seconds because Redis expire works with seconds.
 		const tomorrow = new Date()
 		tomorrow.setHours(24, 0, 0, 0)
 

@@ -33,7 +33,6 @@ export class SentenceTranslationAccessService {
 			throw new CustomGraphQLError(errorMessage.sentence.notFound, ErrorCode.NotFound_404)
 		}
 
-		// Access rules differ for public and private materials, so first we classify the sentence.
 		const isPublicBook = Boolean(sentenceDb.bookChapter?.book_public_id)
 		const isPublicVideo = Boolean(sentenceDb.video_public_id)
 		const isPublicMaterial = isPublicBook || isPublicVideo
@@ -42,9 +41,7 @@ export class SentenceTranslationAccessService {
 			return this.resolvePublicMaterialAccess({
 				userId: input.userId,
 				currentSubscription: input.currentSubscription,
-				isFreeToUse: Boolean(
-					sentenceDb.bookChapter?.book_public?.free_to_use || sentenceDb.videoPublic?.free_to_use,
-				),
+				isFreeToUse: Boolean(sentenceDb.bookChapter?.book_public?.free_to_use || sentenceDb.videoPublic?.free_to_use),
 			})
 		}
 
@@ -61,25 +58,21 @@ export class SentenceTranslationAccessService {
 		currentSubscription: null | CurrentSubscriptionServiceModel
 		isFreeToUse: boolean
 	}): Promise<SentenceTranslationAccess> {
-		// Demo public materials are available to everyone, including anonymous users.
 		if (input.isFreeToUse) {
 			return this.createUnlimitedAccess()
 		}
 
-		// Anonymous users cannot access non-demo public materials.
 		if (!input.userId) {
 			return this.createForbiddenAccess('anonymousNonFreeToUse')
 		}
 
 		if (!input.currentSubscription) {
-			// Without a subscription, non-demo public materials are available only through the daily limit.
 			return {
 				readMode: 'dailyLimit',
 				createMode: 'dailyLimit',
 			}
 		}
 
-		// Any active subscription gives unlimited access to public materials.
 		return this.createUnlimitedAccess()
 	}
 
@@ -89,14 +82,12 @@ export class SentenceTranslationAccessService {
 		privateBookOwnerId: null | number
 		privateVideoOwnerId: null | number
 	}): Promise<SentenceTranslationAccess> {
-		// Anonymous users can never access private materials.
 		if (!input.userId) {
 			return this.createForbiddenAccess('anonymousNonFreeToUse')
 		}
 
 		const isOwner = input.privateBookOwnerId === input.userId || input.privateVideoOwnerId === input.userId
 
-		// Private material belongs only to its owner.
 		if (!isOwner) {
 			return this.createForbiddenAccess('userIsNotOwner')
 		}
@@ -106,8 +97,6 @@ export class SentenceTranslationAccessService {
 			!this.isStandardSubscription(input.currentSubscription) ||
 			input.currentSubscription.balance < 10
 		) {
-			// Existing private translations remain readable, but creating a new one requires
-			// an active standard subscription with positive balance.
 			return {
 				readMode: 'unlimited',
 				createMode: 'forbidden',
@@ -115,8 +104,6 @@ export class SentenceTranslationAccessService {
 			}
 		}
 
-		// Standard subscription with balance allows creating new private translations
-		// and charges the balance after the translation is generated.
 		return {
 			readMode: 'unlimited',
 			createMode: 'subscriptionBalance',
@@ -140,7 +127,6 @@ export class SentenceTranslationAccessService {
 	}
 
 	private isStandardSubscription(currentSubscription: CurrentSubscriptionServiceModel) {
-		// Standard tariff is the only one that includes translation balance.
 		return currentSubscription.includedBalance > 0
 	}
 }

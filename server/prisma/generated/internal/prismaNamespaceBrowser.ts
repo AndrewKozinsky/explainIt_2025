@@ -61,6 +61,7 @@ export const ModelName = {
   VideoPublic: 'VideoPublic',
   Sentence: 'Sentence',
   SentenceTranslation: 'SentenceTranslation',
+  SentencePhraseTranslation: 'SentencePhraseTranslation',
   Subtitle: 'Subtitle',
   SubtitleSentenceInit: 'SubtitleSentenceInit',
   Word: 'Word',
@@ -228,11 +229,27 @@ export const SentenceTranslationScalarFieldEnum = {
   id: 'id',
   sentence_id: 'sentence_id',
   translation: 'translation',
-  analysis: 'analysis',
   created_at: 'created_at'
 } as const
 
 export type SentenceTranslationScalarFieldEnum = (typeof SentenceTranslationScalarFieldEnum)[keyof typeof SentenceTranslationScalarFieldEnum]
+
+
+export const SentencePhraseTranslationScalarFieldEnum = {
+  id: 'id',
+  sentence_id: 'sentence_id',
+  phrase: 'phrase',
+  phrase_start_offset: 'phrase_start_offset',
+  phrase_end_offset: 'phrase_end_offset',
+  translate: 'translate',
+  examples: 'examples',
+  status: 'status',
+  error_message: 'error_message',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type SentencePhraseTranslationScalarFieldEnum = (typeof SentencePhraseTranslationScalarFieldEnum)[keyof typeof SentencePhraseTranslationScalarFieldEnum]
 
 
 export const SubtitleScalarFieldEnum = {

@@ -123,6 +123,31 @@ export interface DeletePrivateVideoInput {
     id: number;
 }
 
+export interface TranslateSentenceInput {
+    sentenceId: number;
+    text: string;
+    sourceLanguageCode?: Nullable<string>;
+    targetLanguageCode?: Nullable<string>;
+    bookName?: Nullable<string>;
+    bookAuthor?: Nullable<string>;
+    videoName?: Nullable<string>;
+    videoYear?: Nullable<string>;
+}
+
+export interface TranslatePhraseInput {
+    sentenceId: number;
+    text: string;
+    selectedWord: string;
+    selectedWordStartOffset: number;
+    selectedWordEndOffset: number;
+    sourceLanguageCode?: Nullable<string>;
+    targetLanguageCode?: Nullable<string>;
+    bookName?: Nullable<string>;
+    bookAuthor?: Nullable<string>;
+    videoName?: Nullable<string>;
+    videoYear?: Nullable<string>;
+}
+
 export interface CreateWordInput {
     word: string;
     languageCode: string;
@@ -233,6 +258,30 @@ export interface TranscriptionOutModel {
     wordId: number;
     ipa?: Nullable<string>;
     pinyin?: Nullable<string>;
+}
+
+export interface SentencePhraseTranslationExampleOutModel {
+    text: string;
+    translate: string;
+}
+
+export interface SentencePhraseTranslationOutModel {
+    id: number;
+    sentenceId: number;
+    phrase: string;
+    phraseStartOffset: number;
+    phraseEndOffset: number;
+    translate?: Nullable<string>;
+    examples: SentencePhraseTranslationExampleOutModel[];
+    status: string;
+    errorMessage?: Nullable<string>;
+    createdAt: string;
+    updatedAt: string;
+}
+
+export interface TranslateSentenceResultOutModel {
+    sentenceId: number;
+    translation: string;
 }
 
 export interface CreateVideoPrivateOutModel {
@@ -419,6 +468,8 @@ export interface IMutation {
     video_private_create(input: CreatePrivateVideoInput): CreateVideoPrivateOutModel | Promise<CreateVideoPrivateOutModel>;
     video_private_update(input: UpdatePrivateVideoInput): UpdateVideoPrivateOutModel | Promise<UpdateVideoPrivateOutModel>;
     video_private_delete(input: DeletePrivateVideoInput): boolean | Promise<boolean>;
+    translate_translate_sentence(input: TranslateSentenceInput): TranslateSentenceResultOutModel | Promise<TranslateSentenceResultOutModel>;
+    translate_translate_phrase(input: TranslatePhraseInput): SentencePhraseTranslationOutModel | Promise<SentencePhraseTranslationOutModel>;
     word_create(input: CreateWordInput): WordOutModel | Promise<WordOutModel>;
     create_transcription(input: CreateTranscriptionInput): TranscriptionOutModel | Promise<TranscriptionOutModel>;
 }

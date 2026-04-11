@@ -16,6 +16,9 @@ CREATE TYPE "S3ProviderName" AS ENUM ('cloudRu');
 -- CreateEnum
 CREATE TYPE "VideoTextType" AS ENUM ('text', 'subtitles');
 
+-- CreateEnum
+CREATE TYPE "SentencePhraseTranslationStatus" AS ENUM ('pending', 'ready', 'error');
+
 -- CreateTable
 CREATE TABLE "User" (
     "id" SERIAL NOT NULL,
@@ -160,10 +163,26 @@ CREATE TABLE "SentenceTranslation" (
     "id" SERIAL NOT NULL,
     "sentence_id" INTEGER NOT NULL,
     "translation" TEXT NOT NULL,
-    "analysis" TEXT,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "SentenceTranslation_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "SentencePhraseTranslation" (
+    "id" SERIAL NOT NULL,
+    "sentence_id" INTEGER NOT NULL,
+    "phrase" TEXT NOT NULL,
+    "phrase_start_offset" INTEGER NOT NULL,
+    "phrase_end_offset" INTEGER NOT NULL,
+    "translate" TEXT,
+    "examples" TEXT[],
+    "status" "SentencePhraseTranslationStatus" NOT NULL,
+    "error_message" TEXT,
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "SentencePhraseTranslation_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -250,6 +269,12 @@ CREATE UNIQUE INDEX "Payment_external_id_key" ON "Payment"("external_id");
 CREATE INDEX "SentenceTranslation_sentence_id_idx" ON "SentenceTranslation"("sentence_id");
 
 -- CreateIndex
+CREATE INDEX "SentencePhraseTranslation_sentence_id_idx" ON "SentencePhraseTranslation"("sentence_id");
+
+-- CreateIndex
+CREATE INDEX "SentencePhraseTranslation_sentence_id_phrase_start_offset_p_idx" ON "SentencePhraseTranslation"("sentence_id", "phrase_start_offset", "phrase_end_offset");
+
+-- CreateIndex
 CREATE INDEX "SubtitleSentenceInit_subtitle_id_idx" ON "SubtitleSentenceInit"("subtitle_id");
 
 -- CreateIndex
@@ -296,6 +321,9 @@ ALTER TABLE "Sentence" ADD CONSTRAINT "Sentence_video_public_id_fkey" FOREIGN KE
 
 -- AddForeignKey
 ALTER TABLE "SentenceTranslation" ADD CONSTRAINT "SentenceTranslation_sentence_id_fkey" FOREIGN KEY ("sentence_id") REFERENCES "Sentence"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "SentencePhraseTranslation" ADD CONSTRAINT "SentencePhraseTranslation_sentence_id_fkey" FOREIGN KEY ("sentence_id") REFERENCES "Sentence"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Subtitle" ADD CONSTRAINT "Subtitle_video_private_id_fkey" FOREIGN KEY ("video_private_id") REFERENCES "VideoPrivate"("id") ON DELETE CASCADE ON UPDATE CASCADE;

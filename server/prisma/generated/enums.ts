@@ -57,3 +57,12 @@ export const VideoTextType = {
 } as const
 
 export type VideoTextType = (typeof VideoTextType)[keyof typeof VideoTextType]
+
+
+export const SentencePhraseTranslationStatus = {
+  pending: 'pending',
+  ready: 'ready',
+  error: 'error'
+} as const
+
+export type SentencePhraseTranslationStatus = (typeof SentencePhraseTranslationStatus)[keyof typeof SentencePhraseTranslationStatus]

@@ -3,7 +3,7 @@ import { OpenAIModels } from 'types/openAIModels'
 import { Language } from 'utils/languages'
 import { OpenAIService } from 'infrastructure/openAI/openAI.service'
 import { buildSentenceTranslationPrompt } from './buildSentenceTranslationPrompt'
-import { SentenceTranslationProvider, SentenceTranslationProviderStreamEvent } from './SentenceTranslationProvider'
+import { SentenceTranslationProvider } from './SentenceTranslationProvider'
 
 @Injectable()
 export class StreamTranslateWithChatGPT implements SentenceTranslationProvider {
@@ -11,17 +11,16 @@ export class StreamTranslateWithChatGPT implements SentenceTranslationProvider {
 
 	constructor(private openAIService: OpenAIService) {}
 
-	async *streamTranslate(input: {
+	async translate(input: {
 		text: string
 		sourceLanguageCode: Language
 		targetLanguageCode: Language
-		abortSignal?: AbortSignal
 		lowPriority?: boolean
 		bookName?: string
 		bookAuthor?: string
 		videoName?: string
 		videoYear?: string | number
-	}): AsyncGenerator<SentenceTranslationProviderStreamEvent> {
+	}) {
 		const model = OpenAIModels.Standard
 
 		const messages = this.getChatGPTTranslationTask({
@@ -33,10 +32,7 @@ export class StreamTranslateWithChatGPT implements SentenceTranslationProvider {
 			videoYear: input.videoYear,
 		})
 
-		type TokenUsage = { inputTokens: number; outputTokens: number }
-		let tokenUsage: TokenUsage | null = null
-
-		for await (const chunk of this.openAIService.generateTextStreamChunks({
+		const response = await this.openAIService.generateText({
 			model,
 			messages: [
 				...messages,
@@ -46,38 +42,18 @@ export class StreamTranslateWithChatGPT implements SentenceTranslationProvider {
 				},
 			],
 			reasoningEffort: 'low',
-			abortSignal: input.abortSignal,
-			onUsage: (usage) => {
-				tokenUsage = usage
-			},
 			lowPriority: input.lowPriority,
-		})) {
-			yield { type: 'chunk', text: chunk }
-		}
+		})
 
-		let providerUsage: null | {
-			provider: 'chatgpt'
-			inputTokens: number
-			outputTokens: number
-			model: OpenAIModels
-			lowPriority: boolean
-		} = null
-
-		if (tokenUsage) {
-			const finalizedTokenUsage = tokenUsage as TokenUsage
-
-			providerUsage = {
-				provider: 'chatgpt',
-				inputTokens: finalizedTokenUsage.inputTokens,
-				outputTokens: finalizedTokenUsage.outputTokens,
+		return {
+			translatedText: response.message ?? '',
+			usage: {
+				provider: 'chatgpt' as const,
+				inputTokens: response.inputTokens,
+				outputTokens: response.outputTokens,
 				model,
 				lowPriority: Boolean(input.lowPriority),
-			}
-		}
-
-		yield {
-			type: 'done',
-			usage: providerUsage,
+			},
 		}
 	}
 

@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common'
 import { DeepSeekService } from 'infrastructure/deepSeek/deepSeek.service'
 import { LanguageCode } from 'prisma/generated/enums'
 import { buildSentenceTranslationPrompt } from './buildSentenceTranslationPrompt'
-import { SentenceTranslationProvider, SentenceTranslationProviderStreamEvent } from './SentenceTranslationProvider'
+import { SentenceTranslationProvider } from './SentenceTranslationProvider'
 
 @Injectable()
 export class StreamTranslateWithDeepSeek implements SentenceTranslationProvider {
@@ -10,17 +10,16 @@ export class StreamTranslateWithDeepSeek implements SentenceTranslationProvider 
 
 	constructor(private deepSeekService: DeepSeekService) {}
 
-	async *streamTranslate(input: {
+	async translate(input: {
 		text: string
 		sourceLanguageCode: LanguageCode
 		targetLanguageCode: LanguageCode
-		abortSignal?: AbortSignal
 		lowPriority?: boolean
 		bookName?: string
 		bookAuthor?: string
 		videoName?: string
 		videoYear?: string | number
-	}): AsyncGenerator<SentenceTranslationProviderStreamEvent> {
+	}) {
 		const messages = this.getDeepSeekTranslationTask({
 			sourceLanguageCode: input.sourceLanguageCode,
 			targetLanguageCode: input.targetLanguageCode,
@@ -30,10 +29,7 @@ export class StreamTranslateWithDeepSeek implements SentenceTranslationProvider 
 			videoYear: input.videoYear,
 		})
 
-		type TokenUsage = { inputTokens: number; outputTokens: number }
-		let tokenUsage: TokenUsage | null = null
-
-		for await (const chunk of this.deepSeekService.generateTextStreamChunks({
+		const response = await this.deepSeekService.generateText({
 			messages: [
 				...messages,
 				{
@@ -41,30 +37,16 @@ export class StreamTranslateWithDeepSeek implements SentenceTranslationProvider 
 					content: input.text,
 				},
 			],
-			abortSignal: input.abortSignal,
-			onUsage: (usage) => {
-				tokenUsage = usage ?? null
-			},
 			lowPriority: input.lowPriority,
-		})) {
-			yield { type: 'chunk', text: chunk }
-		}
+		})
 
-		let providerUsage: null | { provider: 'deepseek'; inputTokens: number; outputTokens: number } = null
-
-		if (tokenUsage) {
-			const finalizedTokenUsage = tokenUsage as TokenUsage
-
-			providerUsage = {
-				provider: 'deepseek',
-				inputTokens: finalizedTokenUsage.inputTokens,
-				outputTokens: finalizedTokenUsage.outputTokens,
-			}
-		}
-
-		yield {
-			type: 'done',
-			usage: providerUsage,
+		return {
+			translatedText: response.message ?? '',
+			usage: {
+				provider: 'deepseek' as const,
+				inputTokens: response.inputTokens,
+				outputTokens: response.outputTokens,
+			},
 		}
 	}
 

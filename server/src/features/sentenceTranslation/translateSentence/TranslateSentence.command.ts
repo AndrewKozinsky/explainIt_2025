@@ -9,9 +9,8 @@ import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { CurrentSubscriptionServiceModel } from 'models/auth/auth.service.model'
-import { DailyTranslationLimitService } from './DailyTranslationLimit.service'
-import { parseSentenceTranslationResult } from './parseSentenceTranslationResult'
-import { SentenceTranslationAccess, SentenceTranslationAccessService } from './SentenceTranslationAccess.service'
+import { DailyTranslationLimitService } from '../translate/DailyTranslationLimit.service'
+import { SentenceTranslationAccess, SentenceTranslationAccessService } from '../translate/SentenceTranslationAccess.service'
 import {
 	SentenceTranslationProvider,
 	SentenceTranslationProviderName,
@@ -37,11 +36,6 @@ export type TranslateSentenceResult = {
 	translatedText: string
 }
 
-export type TranslateSentenceStreamEvent =
-	| { type: 'chunk'; text: string }
-	| { type: 'done' }
-	| { type: 'error'; message: string }
-
 export class TranslateSentenceCommand implements ICommand {
 	constructor(public input: TranslateSentenceInput) {}
 }
@@ -59,74 +53,63 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 	) {}
 
 	async execute(command: TranslateSentenceCommand): Promise<TranslateSentenceResult> {
-		const events = this.streamTranslate({ ...command.input })
-
-		let translatedText = ''
-
-		for await (const event of events) {
-			if (event.type === 'chunk') {
-				translatedText += event.text
-			}
-			if (event.type === 'error') {
-				this.logger.info('Error while translating sentence', {
-					message: event.message,
-				})
-
-				throw new CustomGraphQLError(errorMessage.unknownError, ErrorCode.InternalServerError_500)
-			}
-		}
-
-		return {
-			translatedText,
-		}
-	}
-
-	async *streamTranslate(
-		input: TranslateSentenceInput & { abortSignal?: AbortSignal },
-	): AsyncGenerator<TranslateSentenceStreamEvent> {
 		try {
-			const preparedInput = await this.prepareTranslationOrThrow(input)
+			const preparedInput = await this.prepareTranslationOrThrow(command.input)
 
 			if (preparedInput.existingTranslationText) {
-				yield { type: 'chunk', text: preparedInput.existingTranslationText }
-				yield { type: 'done' }
-				return
+				return {
+					translatedText: preparedInput.existingTranslationText,
+				}
 			}
 
-			const draftSentenceTranslation = await this.createDraftSentenceTranslation(input.sentenceId)
+			const draftSentenceTranslation = await this.createDraftSentenceTranslation(command.input.sentenceId)
 
-			const translationResult = yield* this.streamProviderTextAndPersistDraft({
+			const translationResult = await this.generateSentenceTranslation({
 				provider: preparedInput.provider,
-				sentenceTranslationId: draftSentenceTranslation.id,
-				text: input.text,
+				text: command.input.text,
 				sourceLanguageCode: preparedInput.sourceLanguageCode,
 				targetLanguageCode: preparedInput.targetLanguageCode,
-				abortSignal: input.abortSignal,
 				lowPriority: preparedInput.lowPriority,
-				bookName: input.bookName,
-				bookAuthor: input.bookAuthor,
-				videoName: input.videoName,
-				videoYear: input.videoYear,
+				bookName: command.input.bookName,
+				bookAuthor: command.input.bookAuthor,
+				videoName: command.input.videoName,
+				videoYear: command.input.videoYear,
 			})
 
-			await this.saveFinalTranslationOrThrow({
+			const finalizedTranslation = translationResult.fullText.trim()
+
+			if (!finalizedTranslation) {
+				await this.deleteDraftSentenceTranslationIfExists(draftSentenceTranslation.id)
+				throw new CustomGraphQLError(errorMessage.unknownOpenAIError, ErrorCode.InternalServerError_500)
+			}
+
+			await this.saveFinalTranslation({
 				sentenceTranslationId: draftSentenceTranslation.id,
-				fullText: translationResult.fullText,
+				translation: finalizedTranslation,
 			})
 
 			await this.chargeAfterTranslationIfNeeded({
-				userId: input.userId,
+				userId: command.input.userId,
 				chargeAfterTranslation: preparedInput.createMode === 'subscriptionBalance',
 				usage: translationResult.usage,
 			})
 
-			yield { type: 'done' }
+			return {
+				translatedText: finalizedTranslation,
+			}
 		} catch (error) {
-			console.log('Error in TranslateSentenceHandler => streamTranslate')
+			console.log('Error in TranslateSentenceHandler => execute')
 			console.error(error)
 
-			const message = error instanceof Error ? error.message : 'Unknown error'
-			yield { type: 'error', message }
+			if (error instanceof CustomGraphQLError) {
+				throw error
+			}
+
+			this.logger.info('Error while translating sentence', {
+				message: error instanceof Error ? error.message : 'Unknown error',
+			})
+
+			throw new CustomGraphQLError(errorMessage.unknownError, ErrorCode.InternalServerError_500)
 		}
 	}
 
@@ -143,6 +126,7 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 			currentSubscription: input.currentSubscription ?? null,
 			sentenceId: input.sentenceId,
 		})
+
 		const existingTranslation = await this.sentenceTranslationRepository.getFirstSentenceTranslationBySentenceId(
 			input.sentenceId,
 		)
@@ -195,108 +179,43 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 		return this.sentenceTranslationRepository.createSentenceTranslation({
 			sentenceId,
 			translation: '',
-			analysis: null,
 		})
 	}
 
-	private async *streamProviderTextAndPersistDraft(input: {
+	private async generateSentenceTranslation(input: {
 		provider: SentenceTranslationProvider
-		sentenceTranslationId: number
 		text: string
 		sourceLanguageCode: string
 		targetLanguageCode: string
-		abortSignal?: AbortSignal
 		lowPriority: boolean
 		bookName?: string
 		bookAuthor?: string
 		videoName?: string
 		videoYear?: string | number
-	}): AsyncGenerator<
-		TranslateSentenceStreamEvent,
-		{
-			fullText: string
-			usage: null | SentenceTranslationProviderUsage
-		}
-	> {
-		let fullText = ''
-		let lastPersistAtMs = 0
-
-		try {
-			for await (const event of input.provider.streamTranslate({
-				text: input.text,
-				sourceLanguageCode: input.sourceLanguageCode,
-				targetLanguageCode: input.targetLanguageCode,
-				abortSignal: input.abortSignal,
-				lowPriority: input.lowPriority,
-				bookName: input.bookName,
-				bookAuthor: input.bookAuthor,
-				videoName: input.videoName,
-				videoYear: input.videoYear,
-			})) {
-				if (event.type === 'chunk') {
-					fullText += event.text
-					yield { type: 'chunk', text: event.text }
-
-					lastPersistAtMs = await this.persistPartialTranslationIfNeeded({
-						sentenceTranslationId: input.sentenceTranslationId,
-						fullText,
-						lastPersistAtMs,
-					})
-
-					continue
-				}
-
-				return {
-					fullText,
-					usage: event.usage,
-				}
-			}
-
-			return {
-				fullText,
-				usage: null,
-			}
-		} catch (error) {
-			await this.deleteDraftSentenceTranslationIfExists(input.sentenceTranslationId)
-			throw error
-		}
-	}
-
-	private async persistPartialTranslationIfNeeded(input: {
-		sentenceTranslationId: number
+	}): Promise<{
 		fullText: string
-		lastPersistAtMs: number
-	}) {
-		const nowMs = Date.now()
-		if (nowMs - input.lastPersistAtMs < 1000) {
-			return input.lastPersistAtMs
-		}
-
-		const partialResult = parseSentenceTranslationResult(input.fullText, {
-			requireTranslation: false,
-		})
-		if (!partialResult) {
-			return input.lastPersistAtMs
-		}
-
-		await this.sentenceTranslationRepository.updateSentenceTranslationById(input.sentenceTranslationId, {
-			translation: partialResult.translation,
-			analysis: partialResult.analysis,
+		usage: null | SentenceTranslationProviderUsage
+	}> {
+		const result = await input.provider.translate({
+			text: input.text,
+			sourceLanguageCode: input.sourceLanguageCode,
+			targetLanguageCode: input.targetLanguageCode,
+			lowPriority: input.lowPriority,
+			bookName: input.bookName,
+			bookAuthor: input.bookAuthor,
+			videoName: input.videoName,
+			videoYear: input.videoYear,
 		})
 
-		return nowMs
+		return {
+			fullText: result.translatedText,
+			usage: result.usage,
+		}
 	}
 
-	private async saveFinalTranslationOrThrow(input: { sentenceTranslationId: number; fullText: string }) {
-		const parsedResult = parseSentenceTranslationResult(input.fullText)
-		if (!parsedResult) {
-			await this.deleteDraftSentenceTranslationIfExists(input.sentenceTranslationId)
-			throw new CustomGraphQLError(errorMessage.unknownOpenAIError, ErrorCode.InternalServerError_500)
-		}
-
+	private async saveFinalTranslation(input: { sentenceTranslationId: number; translation: string }) {
 		await this.sentenceTranslationRepository.updateSentenceTranslationById(input.sentenceTranslationId, {
-			translation: parsedResult.translation,
-			analysis: parsedResult.analysis,
+			translation: input.translation,
 		})
 	}
 
@@ -427,7 +346,7 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 		}
 	}
 
-	private buildStoredTranslationText(input: { translation: string; analysis: null | string }) {
-		return input.analysis ? `${input.translation}\n\n${input.analysis}` : input.translation
+	private buildStoredTranslationText(input: { translation: string }) {
+		return input.translation
 	}
 }
