@@ -4,13 +4,13 @@ import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql'
 import { Request } from 'express'
 import { SentencePhraseTranslationRepository } from 'repo/sentencePhraseTranslation.repository'
 import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
-import { DailyTranslationLimitService } from 'features/sentenceTranslation/translate/DailyTranslationLimit.service'
+import { DailyTranslationLimitService } from 'features/translation/translate/DailyTranslationLimit.service'
 import {
 	SentenceTranslationAccess,
 	SentenceTranslationAccessService,
-} from 'features/sentenceTranslation/translate/SentenceTranslationAccess.service'
-import { TranslatePhraseCommand } from 'features/sentenceTranslation/translatePhrase/TranslatePhrase.command'
-import { TranslateSentenceCommand } from 'features/sentenceTranslation/translateSentence/TranslateSentence.command'
+} from 'features/translation/translate/SentenceTranslationAccess.service'
+import { TranslatePhraseCommand } from 'features/translation/translatePhrase/TranslatePhrase.command'
+import { TranslateSentenceCommand } from 'features/translation/translateSentence/TranslateSentence.command'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'

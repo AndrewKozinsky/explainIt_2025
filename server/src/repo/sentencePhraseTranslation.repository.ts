@@ -160,34 +160,29 @@ export class SentencePhraseTranslationRepository {
 			updatedAt: db.updated_at,
 		}
 	}
-
 	private encodeExamples(examples: SentencePhraseTranslationExampleServiceModel[]): string[] {
-		return examples.map((item) => JSON.stringify(item))
+		return examples.flatMap((item) => {
+			return [item.text, item.translate]
+		})
 	}
 
 	private decodeExamples(examples: string[]): SentencePhraseTranslationExampleServiceModel[] {
-		return examples
-			.map((item) => {
-				try {
-					const parsed = JSON.parse(item)
+		const nextExamples: SentencePhraseTranslationExampleServiceModel[] = []
 
-					if (
-						parsed &&
-						typeof parsed === 'object' &&
-						typeof parsed.text === 'string' &&
-						typeof parsed.translate === 'string'
-					) {
-						return {
-							text: parsed.text,
-							translate: parsed.translate,
-						}
-					}
-				} catch {
-					return null
-				}
+		for (let index = 0; index + 1 < examples.length; index += 2) {
+			const text = examples[index]
+			const translate = examples[index + 1]
 
-				return null
+			if (!text || !translate) {
+				continue
+			}
+
+			nextExamples.push({
+				text,
+				translate,
 			})
-			.filter(Boolean) as SentencePhraseTranslationExampleServiceModel[]
+		}
+
+		return nextExamples
 	}
 }
