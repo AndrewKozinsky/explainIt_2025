@@ -40,7 +40,6 @@ export type SentenceTranslationMinAggregateOutputType = {
   id: number | null
   sentence_id: number | null
   translation: string | null
-  analysis: string | null
   created_at: Date | null
 }
 
@@ -48,7 +47,6 @@ export type SentenceTranslationMaxAggregateOutputType = {
   id: number | null
   sentence_id: number | null
   translation: string | null
-  analysis: string | null
   created_at: Date | null
 }
 
@@ -56,7 +54,6 @@ export type SentenceTranslationCountAggregateOutputType = {
   id: number
   sentence_id: number
   translation: number
-  analysis: number
   created_at: number
   _all: number
 }
@@ -76,7 +73,6 @@ export type SentenceTranslationMinAggregateInputType = {
   id?: true
   sentence_id?: true
   translation?: true
-  analysis?: true
   created_at?: true
 }
 
@@ -84,7 +80,6 @@ export type SentenceTranslationMaxAggregateInputType = {
   id?: true
   sentence_id?: true
   translation?: true
-  analysis?: true
   created_at?: true
 }
 
@@ -92,7 +87,6 @@ export type SentenceTranslationCountAggregateInputType = {
   id?: true
   sentence_id?: true
   translation?: true
-  analysis?: true
   created_at?: true
   _all?: true
 }
@@ -187,7 +181,6 @@ export type SentenceTranslationGroupByOutputType = {
   id: number
   sentence_id: number
   translation: string
-  analysis: string | null
   created_at: Date
   _count: SentenceTranslationCountAggregateOutputType | null
   _avg: SentenceTranslationAvgAggregateOutputType | null
@@ -218,7 +211,6 @@ export type SentenceTranslationWhereInput = {
   id?: Prisma.IntFilter<"SentenceTranslation"> | number
   sentence_id?: Prisma.IntFilter<"SentenceTranslation"> | number
   translation?: Prisma.StringFilter<"SentenceTranslation"> | string
-  analysis?: Prisma.StringNullableFilter<"SentenceTranslation"> | string | null
   created_at?: Prisma.DateTimeFilter<"SentenceTranslation"> | Date | string
   sentence?: Prisma.XOR<Prisma.SentenceScalarRelationFilter, Prisma.SentenceWhereInput>
 }
@@ -227,7 +219,6 @@ export type SentenceTranslationOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   sentence_id?: Prisma.SortOrder
   translation?: Prisma.SortOrder
-  analysis?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   sentence?: Prisma.SentenceOrderByWithRelationInput
 }
@@ -239,7 +230,6 @@ export type SentenceTranslationWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.SentenceTranslationWhereInput | Prisma.SentenceTranslationWhereInput[]
   sentence_id?: Prisma.IntFilter<"SentenceTranslation"> | number
   translation?: Prisma.StringFilter<"SentenceTranslation"> | string
-  analysis?: Prisma.StringNullableFilter<"SentenceTranslation"> | string | null
   created_at?: Prisma.DateTimeFilter<"SentenceTranslation"> | Date | string
   sentence?: Prisma.XOR<Prisma.SentenceScalarRelationFilter, Prisma.SentenceWhereInput>
 }, "id">
@@ -248,7 +238,6 @@ export type SentenceTranslationOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   sentence_id?: Prisma.SortOrder
   translation?: Prisma.SortOrder
-  analysis?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   _count?: Prisma.SentenceTranslationCountOrderByAggregateInput
   _avg?: Prisma.SentenceTranslationAvgOrderByAggregateInput
@@ -264,13 +253,11 @@ export type SentenceTranslationScalarWhereWithAggregatesInput = {
   id?: Prisma.IntWithAggregatesFilter<"SentenceTranslation"> | number
   sentence_id?: Prisma.IntWithAggregatesFilter<"SentenceTranslation"> | number
   translation?: Prisma.StringWithAggregatesFilter<"SentenceTranslation"> | string
-  analysis?: Prisma.StringNullableWithAggregatesFilter<"SentenceTranslation"> | string | null
   created_at?: Prisma.DateTimeWithAggregatesFilter<"SentenceTranslation"> | Date | string
 }
 
 export type SentenceTranslationCreateInput = {
   translation: string
-  analysis?: string | null
   created_at?: Date | string
   sentence: Prisma.SentenceCreateNestedOneWithoutSentenceTranslationInput
 }
@@ -279,13 +266,11 @@ export type SentenceTranslationUncheckedCreateInput = {
   id?: number
   sentence_id: number
   translation: string
-  analysis?: string | null
   created_at?: Date | string
 }
 
 export type SentenceTranslationUpdateInput = {
   translation?: Prisma.StringFieldUpdateOperationsInput | string
-  analysis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sentence?: Prisma.SentenceUpdateOneRequiredWithoutSentenceTranslationNestedInput
 }
@@ -294,7 +279,6 @@ export type SentenceTranslationUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   sentence_id?: Prisma.IntFieldUpdateOperationsInput | number
   translation?: Prisma.StringFieldUpdateOperationsInput | string
-  analysis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -302,13 +286,11 @@ export type SentenceTranslationCreateManyInput = {
   id?: number
   sentence_id: number
   translation: string
-  analysis?: string | null
   created_at?: Date | string
 }
 
 export type SentenceTranslationUpdateManyMutationInput = {
   translation?: Prisma.StringFieldUpdateOperationsInput | string
-  analysis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -316,7 +298,6 @@ export type SentenceTranslationUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   sentence_id?: Prisma.IntFieldUpdateOperationsInput | number
   translation?: Prisma.StringFieldUpdateOperationsInput | string
-  analysis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -334,7 +315,6 @@ export type SentenceTranslationCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   sentence_id?: Prisma.SortOrder
   translation?: Prisma.SortOrder
-  analysis?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
@@ -347,7 +327,6 @@ export type SentenceTranslationMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   sentence_id?: Prisma.SortOrder
   translation?: Prisma.SortOrder
-  analysis?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
@@ -355,7 +334,6 @@ export type SentenceTranslationMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   sentence_id?: Prisma.SortOrder
   translation?: Prisma.SortOrder
-  analysis?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
@@ -408,14 +386,12 @@ export type SentenceTranslationUncheckedUpdateManyWithoutSentenceNestedInput = {
 
 export type SentenceTranslationCreateWithoutSentenceInput = {
   translation: string
-  analysis?: string | null
   created_at?: Date | string
 }
 
 export type SentenceTranslationUncheckedCreateWithoutSentenceInput = {
   id?: number
   translation: string
-  analysis?: string | null
   created_at?: Date | string
 }
 
@@ -452,34 +428,29 @@ export type SentenceTranslationScalarWhereInput = {
   id?: Prisma.IntFilter<"SentenceTranslation"> | number
   sentence_id?: Prisma.IntFilter<"SentenceTranslation"> | number
   translation?: Prisma.StringFilter<"SentenceTranslation"> | string
-  analysis?: Prisma.StringNullableFilter<"SentenceTranslation"> | string | null
   created_at?: Prisma.DateTimeFilter<"SentenceTranslation"> | Date | string
 }
 
 export type SentenceTranslationCreateManySentenceInput = {
   id?: number
   translation: string
-  analysis?: string | null
   created_at?: Date | string
 }
 
 export type SentenceTranslationUpdateWithoutSentenceInput = {
   translation?: Prisma.StringFieldUpdateOperationsInput | string
-  analysis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type SentenceTranslationUncheckedUpdateWithoutSentenceInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   translation?: Prisma.StringFieldUpdateOperationsInput | string
-  analysis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type SentenceTranslationUncheckedUpdateManyWithoutSentenceInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   translation?: Prisma.StringFieldUpdateOperationsInput | string
-  analysis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -489,7 +460,6 @@ export type SentenceTranslationSelect<ExtArgs extends runtime.Types.Extensions.I
   id?: boolean
   sentence_id?: boolean
   translation?: boolean
-  analysis?: boolean
   created_at?: boolean
   sentence?: boolean | Prisma.SentenceDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["sentenceTranslation"]>
@@ -498,7 +468,6 @@ export type SentenceTranslationSelectCreateManyAndReturn<ExtArgs extends runtime
   id?: boolean
   sentence_id?: boolean
   translation?: boolean
-  analysis?: boolean
   created_at?: boolean
   sentence?: boolean | Prisma.SentenceDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["sentenceTranslation"]>
@@ -507,7 +476,6 @@ export type SentenceTranslationSelectUpdateManyAndReturn<ExtArgs extends runtime
   id?: boolean
   sentence_id?: boolean
   translation?: boolean
-  analysis?: boolean
   created_at?: boolean
   sentence?: boolean | Prisma.SentenceDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["sentenceTranslation"]>
@@ -516,11 +484,10 @@ export type SentenceTranslationSelectScalar = {
   id?: boolean
   sentence_id?: boolean
   translation?: boolean
-  analysis?: boolean
   created_at?: boolean
 }
 
-export type SentenceTranslationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "sentence_id" | "translation" | "analysis" | "created_at", ExtArgs["result"]["sentenceTranslation"]>
+export type SentenceTranslationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "sentence_id" | "translation" | "created_at", ExtArgs["result"]["sentenceTranslation"]>
 export type SentenceTranslationInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   sentence?: boolean | Prisma.SentenceDefaultArgs<ExtArgs>
 }
@@ -540,7 +507,6 @@ export type $SentenceTranslationPayload<ExtArgs extends runtime.Types.Extensions
     id: number
     sentence_id: number
     translation: string
-    analysis: string | null
     created_at: Date
   }, ExtArgs["result"]["sentenceTranslation"]>
   composites: {}
@@ -969,7 +935,6 @@ export interface SentenceTranslationFieldRefs {
   readonly id: Prisma.FieldRef<"SentenceTranslation", 'Int'>
   readonly sentence_id: Prisma.FieldRef<"SentenceTranslation", 'Int'>
   readonly translation: Prisma.FieldRef<"SentenceTranslation", 'String'>
-  readonly analysis: Prisma.FieldRef<"SentenceTranslation", 'String'>
   readonly created_at: Prisma.FieldRef<"SentenceTranslation", 'DateTime'>
 }
     

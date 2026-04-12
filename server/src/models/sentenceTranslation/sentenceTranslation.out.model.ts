@@ -11,9 +11,6 @@ export class SentenceTranslationOutModel {
 	@Field(() => String)
 	translation: string
 
-	@Field(() => String, { nullable: true })
-	analysis: string | null
-
 	@Field(() => String)
 	createdAt: string
 }

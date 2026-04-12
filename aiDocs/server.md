@@ -16,8 +16,6 @@ npm run generatePrismaFile
 ### Main entrypoint
 The main sentence translation flow goes through the SSE route:
 
-- `server/src/routes/translate/translate.controller.ts`
-- `server/src/routes/translate/translate.service.ts`
 - `server/src/features/sentenceTranslation/translateSentence/TranslateSentence.command.ts`
 
 This route is universal:
@@ -55,8 +53,6 @@ If code already has `request.user`, prefer using `request.user.currentSubscripti
 ## Translation access rules
 Access is decided in:
 
-- `server/src/features/sentenceTranslation/translateSentence/SentenceTranslationAccess.service.ts`
-
 This service determines:
 
 - whether material is public or private
@@ -84,8 +80,6 @@ This service determines:
 
 ## Daily limit in Redis
 Daily translation limit is implemented in:
-
-- `server/src/features/sentenceTranslation/translateSentence/DailyTranslationLimit.service.ts`
 
 It uses Redis and stores unique `sentenceId` values per user per day.
 

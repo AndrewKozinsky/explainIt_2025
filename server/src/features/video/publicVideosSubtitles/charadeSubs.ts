@@ -19,7 +19,7 @@ like start an avalanche or something?
 
 5
 00:04:04,720 --> 00:04:06,779
-Va jouer, mon ch�ri.
+Va jouer, mon chéri.
 
 6
 00:04:08,757 --> 00:04:11,385
@@ -510,7 +510,7 @@ made yesterday, Thursday-
 108
 00:11:38,507 --> 00:11:41,271
 5:00 p. m.,
-Jardins des Champs-�lys�es.
+Jardins des Champs-Élysées.
 
 109
 00:11:41,376 --> 00:11:43,344
@@ -543,7 +543,7 @@ I hope you are enjoying your holiday.
 
 115
 00:12:04,933 --> 00:12:07,094
-"Meg�ve can be so lovely
+"Megève can be so lovely
 at this time of year.
 
 116
@@ -966,7 +966,7 @@ only the spot came back.
 
 208
 00:20:22,997 --> 00:20:25,932
-Voil�, as they say.
+Voilà, as they say.
 
 209
 00:20:26,067 --> 00:20:28,126
@@ -1429,7 +1429,7 @@ Ay, ay, ay!
 
 305
 00:25:59,901 --> 00:26:03,701
-Oh I� I� I�! Qu'est-ce qui se passe?
+Oh I—I—I! Qu’est-ce qui se passe ?
 
 306
 00:26:03,804 --> 00:26:07,001
@@ -1513,8 +1513,7 @@ Buona sera, signore e signori.
 
 323
 00:27:13,007 --> 00:27:17,205
-Ce soir, comme tous les autres soirs
-d'ailleurs, vous savez tr�s bien...
+Ce soir, comme tous les autres soirs d’ailleurs, vous savez très bien…
 
 324
 00:27:17,311 --> 00:27:21,179
@@ -1552,17 +1551,17 @@ signore e signori.
 331
 00:27:37,465 --> 00:27:39,797
 Ecoutez-moi bien.
-Les r�gles du jeu sont tr�s simple.
+Les règles du jeu sont très simples.
 
 332
 00:27:39,934 --> 00:27:42,266
 Ah, ecoutez-moi.
-Alors, il y a deux �quipes.
+Alors, il y a deux équipes.
 
 333
 00:27:42,403 --> 00:27:45,998
 There are two teams,
-et pour chaque �quipe, il y a une orange.
+et pour chaque équipe, il y a une orange.
 
 334
 00:27:46,140 --> 00:27:49,974
@@ -1571,8 +1570,7 @@ Una arancia.
 
 335
 00:27:50,077 --> 00:27:53,308
-Eine Apfelsine. Vous mettez I'orange
-sur le menton comme �a-
+Eine Apfelsine. Vous mettez l’orange sur le menton comme ça.
 
 336
 00:27:53,414 --> 00:27:54,972
@@ -1580,8 +1578,7 @@ put the orange in like so.
 
 337
 00:27:55,082 --> 00:27:56,811
-Vous passez cette orange
-a la personne derri�re vous-
+Vous passez cette orange à la personne derrière vous.
 
 338
 00:27:56,917 --> 00:27:58,851
@@ -2414,8 +2411,8 @@ Can you meet me at the market?
 
 515
 00:43:57,244 --> 00:44:00,213
-Allez vite, n'importe o�.
-N'importe o�! Vite!
+Allez vite, n’importe où.
+N’importe où ! Vite !
 
 516
 00:44:09,155 --> 00:44:11,055
@@ -2760,7 +2757,7 @@ Oh, pardon.
 
 588
 00:48:58,111 --> 00:49:01,569
-- Fr�ulein. Fr�ulein.
+- Fräulein. Fräulein.
 - What are you doing following me?
 
 589
@@ -2780,11 +2777,11 @@ So many things to see.
 
 592
 00:49:23,803 --> 00:49:25,395
-Fr�ulein.
+Fräulein.
 
 593
 00:49:25,538 --> 00:49:27,438
-Fr�ulein!
+Fräulein!
 
 594
 00:49:27,540 --> 00:49:30,236
@@ -4016,7 +4013,7 @@ Dyle.
 858
 01:08:44,362 --> 01:08:47,559
 And yet you registered
-in Meg�ve as Mr. Joshua.
+in Megève as Mr. Joshua.
 
 859
 01:08:47,666 --> 01:08:51,466
@@ -5457,7 +5454,7 @@ It was last Thursday, 5:00...
 
 1166
 01:27:50,307 --> 01:27:52,537
-the Jardins des Champs-�lys�es.
+the Jardin des Champs-Élysées.
 
 1167
 01:27:52,643 --> 01:27:54,543
@@ -5663,7 +5660,7 @@ trades his stamps.
 1210
 01:32:12,202 --> 01:32:14,693
 - Good Lord, where is he?
-- What's the matter, ch�rie?
+- What’s the matter, chérie?
 
 1211
 01:32:14,838 --> 01:32:17,068
@@ -5726,11 +5723,11 @@ Who? Where?
 
 1224
 01:33:16,400 --> 01:33:18,800
-Vite, mon ch�ri. Vite.
+Vite, mon chéri. Vite.
 
 1225
 01:33:20,103 --> 01:33:21,661
-- L�-bas.
+– Là-bas.
 - Come on.
 
 1226
@@ -5833,7 +5830,7 @@ And what is its value today?
 
 1247
 01:34:28,839 --> 01:34:32,275
-Le chef-d'�uvre de la collection.
+Le chef-d’œuvre de la collection.
 The masterpiece.
 
 1248
@@ -6004,12 +6001,12 @@ Reggie, I want those stamps!
 1283
 01:37:30,353 --> 01:37:33,288
 - Palais Royale, vite.
-- Je suis occup�.
+– Je suis occupé.
 
 1284
 01:37:33,390 --> 01:37:35,517
-- Mais c'est tr�s urgent.
-- Occup�.
+– Mais c’est très urgent.
+– Occupé.
 
 1285
 01:38:11,595 --> 01:38:13,495

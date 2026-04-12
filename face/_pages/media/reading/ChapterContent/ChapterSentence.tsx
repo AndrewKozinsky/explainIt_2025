@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import SentenceWordAnalysis from '_pages/media/detailsBlock/SentenceWordAnalysis/SentenceWordAnalysis'
+import SentencePhraseAnalysis from '_pages/media/detailsBlock/SentencePhraseAnalysis/SentencePhraseAnalysis'
 import SentenceBlock from '../../commonComponents/SentenceBlock/SentenceBlock'
 import { ChapterTextStructurePopulated } from '../readingStore'
 import SentenceTranslationText from './SentenceTranslationText'
@@ -54,8 +54,8 @@ function SentenceDetails(props: SentenceDetailsProps) {
 			<SentenceTranslationText translation={translation} />
 			<SentenceWordLoading translation={translation} />
 			<SentenceWordNotFound translation={translation} />
-			<SentenceWordAnalysis
-				wordAnalysis={translation.wordAnalysis}
+			<SentencePhraseAnalysis
+				phraseAnalysis={translation.wordAnalysis}
 				extraClass='chapter-content__word-analysis'
 				languageCode={languageCode}
 			/>

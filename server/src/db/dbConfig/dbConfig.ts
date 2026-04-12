@@ -684,13 +684,75 @@ export const bdConfig = {
 				description: 'Translation of the sentence',
 				required: true,
 			},
-			analysis: {
+			created_at: {
+				type: 'createdAt',
+			},
+		},
+	},
+	SentencePhraseTranslation: {
+		dtoProps: {
+			phrase: {
 				type: 'string',
-				description: 'Optional analysis data from provider',
+				description: 'Phrase in source language',
+				required: true,
+				minLength: 1,
+				maxLength: 500,
+			},
+			translate: {
+				type: 'string',
+				description: 'Phrase translation',
+				required: false,
+			},
+		},
+		indexes: [{ fields: ['sentence_id'] }, { fields: ['sentence_id', 'phrase_start_offset', 'phrase_end_offset'] }],
+		dbFields: {
+			id: {
+				type: 'index',
+			},
+			sentence_id: {
+				type: 'manyToOne',
+				thisField: 'sentence_id',
+				foreignTable: 'Sentence',
+				foreignField: 'id',
+				required: true,
+			},
+			phrase: {
+				type: 'string',
+				required: true,
+				maxLength: 500,
+			},
+			phrase_start_offset: {
+				type: 'number',
+				required: true,
+			},
+			phrase_end_offset: {
+				type: 'number',
+				required: true,
+			},
+			translate: {
+				type: 'string',
+				required: false,
+			},
+			examples: {
+				type: 'array',
+				arrayItemType: 'string',
+				required: true,
+			},
+			status: {
+				type: 'enum',
+				required: true,
+				variants: ['pending', 'ready', 'error'],
+				enumName: 'SentencePhraseTranslationStatus',
+			},
+			error_message: {
+				type: 'string',
 				required: false,
 			},
 			created_at: {
 				type: 'createdAt',
+			},
+			updated_at: {
+				type: 'updatedAt',
 			},
 		},
 	},

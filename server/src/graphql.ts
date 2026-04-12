@@ -29,6 +29,20 @@ export interface GetPublicVideoInput {
     id: number;
 }
 
+export interface GetSentenceTranslationInput {
+    sentenceId: number;
+}
+
+export interface GetPhraseTranslationInput {
+    sentenceId: number;
+    selectedWordStartOffset: number;
+    selectedWordEndOffset: number;
+}
+
+export interface GetPhraseTranslationsBySentenceInput {
+    sentenceId: number;
+}
+
 export interface GetWordInput {
     word: string;
     languageCode: string;
@@ -121,6 +135,31 @@ export interface UpdatePrivateVideoInput {
 
 export interface DeletePrivateVideoInput {
     id: number;
+}
+
+export interface TranslateSentenceInput {
+    sentenceId: number;
+    text: string;
+    sourceLanguageCode?: Nullable<string>;
+    targetLanguageCode?: Nullable<string>;
+    bookName?: Nullable<string>;
+    bookAuthor?: Nullable<string>;
+    videoName?: Nullable<string>;
+    videoYear?: Nullable<string>;
+}
+
+export interface TranslatePhraseInput {
+    sentenceId: number;
+    text: string;
+    selectedWord: string;
+    selectedWordStartOffset: number;
+    selectedWordEndOffset: number;
+    sourceLanguageCode?: Nullable<string>;
+    targetLanguageCode?: Nullable<string>;
+    bookName?: Nullable<string>;
+    bookAuthor?: Nullable<string>;
+    videoName?: Nullable<string>;
+    videoYear?: Nullable<string>;
 }
 
 export interface CreateWordInput {
@@ -233,6 +272,30 @@ export interface TranscriptionOutModel {
     wordId: number;
     ipa?: Nullable<string>;
     pinyin?: Nullable<string>;
+}
+
+export interface SentencePhraseTranslationExampleOutModel {
+    text: string;
+    translate: string;
+}
+
+export interface SentencePhraseTranslationOutModel {
+    id: number;
+    sentenceId: number;
+    phrase: string;
+    phraseStartOffset: number;
+    phraseEndOffset: number;
+    translate?: Nullable<string>;
+    examples: SentencePhraseTranslationExampleOutModel[];
+    status: string;
+    errorMessage?: Nullable<string>;
+    createdAt: string;
+    updatedAt: string;
+}
+
+export interface TranslateSentenceResultOutModel {
+    sentenceId: number;
+    translation: string;
 }
 
 export interface CreateVideoPrivateOutModel {
@@ -397,6 +460,9 @@ export interface IQuery {
     video_private_get(input: GetPrivateVideoInput): VideoPrivateOutModel | Promise<VideoPrivateOutModel>;
     video_public_get_videos(): VideoPublicLiteOutModel[] | Promise<VideoPublicLiteOutModel[]>;
     video_public_get(input: GetPublicVideoInput): VideoPublicOutModel | Promise<VideoPublicOutModel>;
+    translate_get_sentence_translation(input: GetSentenceTranslationInput): Nullable<TranslateSentenceResultOutModel> | Promise<Nullable<TranslateSentenceResultOutModel>>;
+    translate_get_phrase_translation(input: GetPhraseTranslationInput): Nullable<SentencePhraseTranslationOutModel> | Promise<Nullable<SentencePhraseTranslationOutModel>>;
+    translate_get_phrase_translations_by_sentence(input: GetPhraseTranslationsBySentenceInput): SentencePhraseTranslationOutModel[] | Promise<SentencePhraseTranslationOutModel[]>;
     tariff_get_tariffs(): TariffOutModel[] | Promise<TariffOutModel[]>;
     word_get(input: GetWordInput): WordOutModel | Promise<WordOutModel>;
     language_get_languages(): LanguageOutModel[] | Promise<LanguageOutModel[]>;
@@ -419,6 +485,8 @@ export interface IMutation {
     video_private_create(input: CreatePrivateVideoInput): CreateVideoPrivateOutModel | Promise<CreateVideoPrivateOutModel>;
     video_private_update(input: UpdatePrivateVideoInput): UpdateVideoPrivateOutModel | Promise<UpdateVideoPrivateOutModel>;
     video_private_delete(input: DeletePrivateVideoInput): boolean | Promise<boolean>;
+    translate_translate_sentence(input: TranslateSentenceInput): TranslateSentenceResultOutModel | Promise<TranslateSentenceResultOutModel>;
+    translate_translate_phrase(input: TranslatePhraseInput): SentencePhraseTranslationOutModel | Promise<SentencePhraseTranslationOutModel>;
     word_create(input: CreateWordInput): WordOutModel | Promise<WordOutModel>;
     create_transcription(input: CreateTranscriptionInput): TranscriptionOutModel | Promise<TranscriptionOutModel>;
 }

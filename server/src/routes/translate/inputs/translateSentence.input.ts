@@ -19,4 +19,20 @@ export class TranslateSentenceInput {
 	@Field(() => String, { description: 'Target language code', nullable: true })
 	@DtoFieldDecorators('targetLanguageCode', bdConfig.SentenceTranslation.dtoProps.targetLanguageCode)
 	targetLanguageCode?: null | string
+
+	@Field(() => String, { description: 'Book name', nullable: true })
+	@DtoFieldDecorators('bookName', bdConfig.SentenceTranslation.dtoProps.bookName)
+	bookName?: string
+
+	@Field(() => String, { description: 'Book author', nullable: true })
+	@DtoFieldDecorators('bookAuthor', bdConfig.SentenceTranslation.dtoProps.bookAuthor)
+	bookAuthor?: string
+
+	@Field(() => String, { description: 'Video name', nullable: true })
+	@DtoFieldDecorators('videoName', bdConfig.SentenceTranslation.dtoProps.videoName)
+	videoName?: string
+
+	@Field(() => String, { description: 'Video release year', nullable: true })
+	@DtoFieldDecorators('videoYear', bdConfig.SentenceTranslation.dtoProps.videoYear)
+	videoYear?: string
 }

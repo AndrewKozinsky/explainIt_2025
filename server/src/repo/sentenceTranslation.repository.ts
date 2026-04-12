@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common'
+import { SentenceTranslationServiceModel } from 'models/sentenceTranslation/translateSentenceResult.service.model'
 import { Prisma, SentenceTranslation } from 'prisma/generated/client'
 import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
@@ -50,7 +51,6 @@ export class SentenceTranslationRepository {
 			data: {
 				sentence_id: dto.sentenceId,
 				translation: dto.translation,
-				analysis: dto.analysis ?? null,
 			},
 		})
 
@@ -67,7 +67,6 @@ export class SentenceTranslationRepository {
 	) {
 		const data: Prisma.SentenceTranslationUpdateInput = {}
 		if (typeof dto.translation === 'string') data.translation = dto.translation
-		if (dto.analysis !== undefined) data.analysis = dto.analysis
 
 		const updatedSentenceTranslation = await this.prisma.sentenceTranslation.update({
 			where: { id },
@@ -84,12 +83,13 @@ export class SentenceTranslationRepository {
 		})
 	}
 
-	mapDbSentenceTranslationToServiceSentenceTranslation(dbSentenceTranslation: SentenceTranslation) {
+	mapDbSentenceTranslationToServiceSentenceTranslation(
+		dbSentenceTranslation: SentenceTranslation,
+	): SentenceTranslationServiceModel {
 		return {
 			id: dbSentenceTranslation.id,
 			sentenceId: dbSentenceTranslation.sentence_id,
 			translation: dbSentenceTranslation.translation,
-			analysis: dbSentenceTranslation.analysis,
 			createdAt: dbSentenceTranslation.created_at,
 		}
 	}

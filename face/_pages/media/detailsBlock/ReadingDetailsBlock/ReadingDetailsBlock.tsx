@@ -1,10 +1,10 @@
-import StyledAnalysis from '_pages/media/detailsBlock/SentenceAnalysis/StyledAnalysis'
-import { useDetailsStore } from '../detailsStore'
+import SentencePhraseAnalyses from '_pages/media/detailsBlock/SentencePhrasesAnalyses/SentencePhraseAnalyses'
+import { useReadingStore } from '_pages/media/reading/readingStore'
 
 function ReadingDetailsBlock() {
-	const sentenceAnalysis = useDetailsStore((s) => s.sentenceAnalysis)
+	const book = useReadingStore((s) => s.book?.data)
 
-	return <StyledAnalysis analysis={sentenceAnalysis || ''} />
+	return <SentencePhraseAnalyses languageCode={book?.languageCode!} />
 }
 
 export default ReadingDetailsBlock

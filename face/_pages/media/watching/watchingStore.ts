@@ -16,7 +16,6 @@ export const watchingStoreValues: WatchingStoreValues = {
 		paused: true,
 		command: null,
 	},
-	mobileCurrentContentType: 'text',
 	selection: {
 		sentenceId: null,
 		wordIds: [],
@@ -33,13 +32,6 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 		},
 		updateStore: (storePart: Partial<WatchingStoreValues>) => {
 			set(storePart)
-		},
-		updateMobileCurrentContentType: (mobileCurrentContentType) => {
-			set((state) => {
-				return {
-					mobileCurrentContentType,
-				}
-			})
 		},
 		updateVideo: (video) => {
 			set((state) => {
@@ -94,10 +86,6 @@ export namespace WatchingStoreI {
 		paused: boolean
 		command: null | PlayerCommand
 	}
-	// На телефоне показываются 2 кнопки: Текст и Детали.
-	// В зависимости от нажатой кнопки показывается одна из двух колонок
-	export type MobileCurrentContentType = 'text' | 'details'
-
 	export type SelectedSentence = {
 		sentenceId: null | number
 		// Идентификаторы выделенных слов
@@ -115,7 +103,6 @@ export type WatchingStoreValues = {
 		paused: boolean
 		command: null | PlayerCommand
 	}
-	mobileCurrentContentType: WatchingStoreI.MobileCurrentContentType
 	// fullScreen: boolean
 	populatedPlainText: PopulatedTextStructure.Structure
 	populatedSubtitles: PopulatedSubtitlesStructure.Structure
@@ -138,7 +125,6 @@ export type PlayerCommand =
 export type WatchingStoreMethods = {
 	clearStoreData: () => void
 	updateStore: (store: Partial<WatchingStoreValues>) => void
-	updateMobileCurrentContentType: (contentType: WatchingStoreI.MobileCurrentContentType) => void
 	updateVideo: (video: WatchingStoreI.VideoData) => void
 	setPlayerState: (state: Partial<WatchingStoreI.Player>) => void
 	sendPlayerCommand: (command: PlayerCommand) => void

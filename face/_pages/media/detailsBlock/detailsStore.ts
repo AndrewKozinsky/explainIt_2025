@@ -11,8 +11,9 @@ export const detailsStoreValues: DetailsStoreValues = {
 	isLoading: false,
 	error: null,
 	sentenceTranslation: null,
-	sentenceAnalysis: null,
 	wordAnalysis: null,
+	wordAnalyses: [],
+	transcriptions: [],
 	selectWord: () => {},
 }
 
@@ -28,8 +29,8 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 		upsertSentenceTranslation: (sentenceTranslation: SentenceTranslationLite) => {
 			set({
 				sentenceTranslation: sentenceTranslation?.translation ?? null,
-				sentenceAnalysis: sentenceTranslation?.analysis ?? null,
 				wordAnalysis: sentenceTranslation?.wordAnalysis ?? null,
+				wordAnalyses: sentenceTranslation?.wordAnalyses ?? [],
 			})
 		},
 	}
@@ -39,8 +40,13 @@ export type DetailsStoreNext = DetailsStoreValues & DetailsStoreMethods
 
 export type SentenceTranslationLite = {
 	translation: string
-	analysis: null | string
 	wordAnalysis?: null | string
+	wordAnalyses?: string[]
+}
+
+export type DetailsTranscription = {
+	phrase: string
+	transcription: string
 }
 
 export type DetailsStoreValues = {
@@ -60,8 +66,9 @@ export type DetailsStoreValues = {
 	error: null | string
 	// Полученные варианты анализа предложения
 	sentenceTranslation: string | null
-	sentenceAnalysis: string | null
 	wordAnalysis: string | null
+	wordAnalyses: string[]
+	transcriptions: DetailsTranscription[]
 	selectWord: (input: { sentenceId: number; wordId: number }) => void
 }
 

@@ -131,18 +131,19 @@ model VideoPublic {
 }
 
 model Sentence {
-    id                   Int                    @id @default(autoincrement())
-    bookChapter          BookChapter?           @relation(fields: [book_chapter_id], references: [id], onDelete: Cascade)
-    book_chapter_id      Int?
-    videoPrivate         VideoPrivate?          @relation(fields: [video_private_id], references: [id], onDelete: Cascade)
-    video_private_id     Int?
-    videoPublic          VideoPublic?           @relation(fields: [video_public_id], references: [id], onDelete: Cascade)
-    video_public_id      Int?
-    start_offset         Int
-    length               Int
-    order_index          Int
-    SubtitleSentenceInit SubtitleSentenceInit[]
-    SentenceTranslation  SentenceTranslation[]
+    id                         Int                         @id @default(autoincrement())
+    bookChapter                BookChapter?                @relation(fields: [book_chapter_id], references: [id], onDelete: Cascade)
+    book_chapter_id            Int?
+    videoPrivate               VideoPrivate?               @relation(fields: [video_private_id], references: [id], onDelete: Cascade)
+    video_private_id           Int?
+    videoPublic                VideoPublic?                @relation(fields: [video_public_id], references: [id], onDelete: Cascade)
+    video_public_id            Int?
+    start_offset               Int
+    length                     Int
+    order_index                Int
+    SubtitleSentenceInit       SubtitleSentenceInit[]
+    SentenceTranslation        SentenceTranslation[]
+    sentencePhraseTranslations SentencePhraseTranslation[]
 }
 
 model SentenceTranslation {
@@ -150,10 +151,27 @@ model SentenceTranslation {
     sentence    Sentence @relation(fields: [sentence_id], references: [id], onDelete: Cascade)
     sentence_id Int
     translation String
-    analysis    String?
     created_at  DateTime @default(now())
 
     @@index([sentence_id])
+}
+
+model SentencePhraseTranslation {
+    id                  Int                             @id @default(autoincrement())
+    sentence            Sentence                        @relation(fields: [sentence_id], references: [id], onDelete: Cascade)
+    sentence_id         Int
+    phrase              String
+    phrase_start_offset Int
+    phrase_end_offset   Int
+    translate           String?
+    examples            String[]
+    status              SentencePhraseTranslationStatus
+    error_message       String?
+    created_at          DateTime                        @default(now())
+    updated_at          DateTime                        @default(now())
+
+    @@index([sentence_id])
+    @@index([sentence_id, phrase_start_offset, phrase_end_offset])
 }
 
 model Subtitle {
@@ -257,4 +275,10 @@ enum S3ProviderName {
 enum VideoTextType {
     text
     subtitles
+}
+
+enum SentencePhraseTranslationStatus {
+    pending
+    ready
+    error
 }

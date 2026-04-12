@@ -1,0 +1,18 @@
+query Translate_get_phrase_translation($input: GetPhraseTranslationInput!) {
+	translate_get_phrase_translation(input: $input) {
+		id
+		sentenceId
+		phrase
+		phraseStartOffset
+		phraseEndOffset
+		translate
+		examples {
+			text
+			translate
+		}
+		status
+		errorMessage
+		createdAt
+		updatedAt
+	}
+}

@@ -394,6 +394,7 @@ export const ModelName = {
   VideoPublic: 'VideoPublic',
   Sentence: 'Sentence',
   SentenceTranslation: 'SentenceTranslation',
+  SentencePhraseTranslation: 'SentencePhraseTranslation',
   Subtitle: 'Subtitle',
   SubtitleSentenceInit: 'SubtitleSentenceInit',
   Word: 'Word',
@@ -415,7 +416,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "subscriptionBalanceTransaction" | "payment" | "bookPrivate" | "bookPublic" | "bookChapter" | "videoPrivate" | "videoPublic" | "sentence" | "sentenceTranslation" | "subtitle" | "subtitleSentenceInit" | "word" | "transcription" | "tariff" | "userSubscription"
+    modelProps: "user" | "subscriptionBalanceTransaction" | "payment" | "bookPrivate" | "bookPublic" | "bookChapter" | "videoPrivate" | "videoPublic" | "sentence" | "sentenceTranslation" | "sentencePhraseTranslation" | "subtitle" | "subtitleSentenceInit" | "word" | "transcription" | "tariff" | "userSubscription"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1159,6 +1160,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    SentencePhraseTranslation: {
+      payload: Prisma.$SentencePhraseTranslationPayload<ExtArgs>
+      fields: Prisma.SentencePhraseTranslationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SentencePhraseTranslationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePhraseTranslationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SentencePhraseTranslationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePhraseTranslationPayload>
+        }
+        findFirst: {
+          args: Prisma.SentencePhraseTranslationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePhraseTranslationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SentencePhraseTranslationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePhraseTranslationPayload>
+        }
+        findMany: {
+          args: Prisma.SentencePhraseTranslationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePhraseTranslationPayload>[]
+        }
+        create: {
+          args: Prisma.SentencePhraseTranslationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePhraseTranslationPayload>
+        }
+        createMany: {
+          args: Prisma.SentencePhraseTranslationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SentencePhraseTranslationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePhraseTranslationPayload>[]
+        }
+        delete: {
+          args: Prisma.SentencePhraseTranslationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePhraseTranslationPayload>
+        }
+        update: {
+          args: Prisma.SentencePhraseTranslationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePhraseTranslationPayload>
+        }
+        deleteMany: {
+          args: Prisma.SentencePhraseTranslationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SentencePhraseTranslationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SentencePhraseTranslationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePhraseTranslationPayload>[]
+        }
+        upsert: {
+          args: Prisma.SentencePhraseTranslationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePhraseTranslationPayload>
+        }
+        aggregate: {
+          args: Prisma.SentencePhraseTranslationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSentencePhraseTranslation>
+        }
+        groupBy: {
+          args: Prisma.SentencePhraseTranslationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SentencePhraseTranslationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SentencePhraseTranslationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SentencePhraseTranslationCountAggregateOutputType> | number
+        }
+      }
+    }
     Subtitle: {
       payload: Prisma.$SubtitlePayload<ExtArgs>
       fields: Prisma.SubtitleFieldRefs
@@ -1785,11 +1860,27 @@ export const SentenceTranslationScalarFieldEnum = {
   id: 'id',
   sentence_id: 'sentence_id',
   translation: 'translation',
-  analysis: 'analysis',
   created_at: 'created_at'
 } as const
 
 export type SentenceTranslationScalarFieldEnum = (typeof SentenceTranslationScalarFieldEnum)[keyof typeof SentenceTranslationScalarFieldEnum]
+
+
+export const SentencePhraseTranslationScalarFieldEnum = {
+  id: 'id',
+  sentence_id: 'sentence_id',
+  phrase: 'phrase',
+  phrase_start_offset: 'phrase_start_offset',
+  phrase_end_offset: 'phrase_end_offset',
+  translate: 'translate',
+  examples: 'examples',
+  status: 'status',
+  error_message: 'error_message',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type SentencePhraseTranslationScalarFieldEnum = (typeof SentencePhraseTranslationScalarFieldEnum)[keyof typeof SentencePhraseTranslationScalarFieldEnum]
 
 
 export const SubtitleScalarFieldEnum = {
@@ -2030,6 +2121,20 @@ export type ListEnumVideoTextTypeFieldRefInput<$PrismaModel> = FieldRefInputType
 
 
 /**
+ * Reference to a field of type 'SentencePhraseTranslationStatus'
+ */
+export type EnumSentencePhraseTranslationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SentencePhraseTranslationStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SentencePhraseTranslationStatus[]'
+ */
+export type ListEnumSentencePhraseTranslationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SentencePhraseTranslationStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -2147,6 +2252,7 @@ export type GlobalOmitConfig = {
   videoPublic?: Prisma.VideoPublicOmit
   sentence?: Prisma.SentenceOmit
   sentenceTranslation?: Prisma.SentenceTranslationOmit
+  sentencePhraseTranslation?: Prisma.SentencePhraseTranslationOmit
   subtitle?: Prisma.SubtitleOmit
   subtitleSentenceInit?: Prisma.SubtitleSentenceInitOmit
   word?: Prisma.WordOmit

@@ -90,6 +90,11 @@ export type Sentence = Prisma.SentenceModel
  */
 export type SentenceTranslation = Prisma.SentenceTranslationModel
 /**
+ * Model SentencePhraseTranslation
+ * 
+ */
+export type SentencePhraseTranslation = Prisma.SentencePhraseTranslationModel
+/**
  * Model Subtitle
  * 
  */

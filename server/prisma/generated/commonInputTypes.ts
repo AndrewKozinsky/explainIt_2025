@@ -326,6 +326,23 @@ export type EnumS3ProviderNameWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedEnumS3ProviderNameFilter<$PrismaModel>
 }
 
+export type EnumSentencePhraseTranslationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SentencePhraseTranslationStatus | Prisma.EnumSentencePhraseTranslationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SentencePhraseTranslationStatus[] | Prisma.ListEnumSentencePhraseTranslationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SentencePhraseTranslationStatus[] | Prisma.ListEnumSentencePhraseTranslationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSentencePhraseTranslationStatusFilter<$PrismaModel> | $Enums.SentencePhraseTranslationStatus
+}
+
+export type EnumSentencePhraseTranslationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SentencePhraseTranslationStatus | Prisma.EnumSentencePhraseTranslationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SentencePhraseTranslationStatus[] | Prisma.ListEnumSentencePhraseTranslationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SentencePhraseTranslationStatus[] | Prisma.ListEnumSentencePhraseTranslationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSentencePhraseTranslationStatusWithAggregatesFilter<$PrismaModel> | $Enums.SentencePhraseTranslationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSentencePhraseTranslationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSentencePhraseTranslationStatusFilter<$PrismaModel>
+}
+
 export type NestedIntFilter<$PrismaModel = never> = {
   equals?: number | Prisma.IntFieldRefInput<$PrismaModel>
   in?: number[] | Prisma.ListIntFieldRefInput<$PrismaModel>
@@ -649,6 +666,23 @@ export type NestedEnumS3ProviderNameWithAggregatesFilter<$PrismaModel = never> =
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumS3ProviderNameFilter<$PrismaModel>
   _max?: Prisma.NestedEnumS3ProviderNameFilter<$PrismaModel>
+}
+
+export type NestedEnumSentencePhraseTranslationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SentencePhraseTranslationStatus | Prisma.EnumSentencePhraseTranslationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SentencePhraseTranslationStatus[] | Prisma.ListEnumSentencePhraseTranslationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SentencePhraseTranslationStatus[] | Prisma.ListEnumSentencePhraseTranslationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSentencePhraseTranslationStatusFilter<$PrismaModel> | $Enums.SentencePhraseTranslationStatus
+}
+
+export type NestedEnumSentencePhraseTranslationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SentencePhraseTranslationStatus | Prisma.EnumSentencePhraseTranslationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SentencePhraseTranslationStatus[] | Prisma.ListEnumSentencePhraseTranslationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SentencePhraseTranslationStatus[] | Prisma.ListEnumSentencePhraseTranslationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSentencePhraseTranslationStatusWithAggregatesFilter<$PrismaModel> | $Enums.SentencePhraseTranslationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSentencePhraseTranslationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSentencePhraseTranslationStatusFilter<$PrismaModel>
 }
 
 

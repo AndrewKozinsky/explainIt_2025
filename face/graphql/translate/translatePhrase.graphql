@@ -1,0 +1,18 @@
+mutation Translate_translate_phrase($input: TranslatePhraseInput!) {
+	translate_translate_phrase(input: $input) {
+		id
+		sentenceId
+		phrase
+		phraseStartOffset
+		phraseEndOffset
+		translate
+		examples {
+			text
+			translate
+		}
+		status
+		errorMessage
+		createdAt
+		updatedAt
+	}
+}

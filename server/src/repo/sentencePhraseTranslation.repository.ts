@@ -1,0 +1,188 @@
+import { Injectable } from '@nestjs/common'
+import { PrismaService } from 'db/prisma.service'
+import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
+import {
+	SentencePhraseTranslationExampleServiceModel,
+	SentencePhraseTranslationServiceModel,
+} from 'models/sentenceTranslation/sentencePhraseTranslation.service.model'
+import { SentencePhraseTranslation, Prisma } from 'prisma/generated/client'
+
+@Injectable()
+export class SentencePhraseTranslationRepository {
+	constructor(private prisma: PrismaService) {}
+
+	@CatchDbError()
+	async getPhraseContainingOffset(input: {
+		sentenceId: number
+		selectedWordStartOffset: number
+		selectedWordEndOffset: number
+	}) {
+		const phrases = await this.prisma.sentencePhraseTranslation.findMany({
+			where: {
+				sentence_id: input.sentenceId,
+				phrase_start_offset: {
+					lte: input.selectedWordStartOffset,
+				},
+				phrase_end_offset: {
+					gte: input.selectedWordEndOffset,
+				},
+			},
+		})
+
+		const phrase = phrases
+			.map(this.mapDbToService)
+			.sort(
+				(a, b) =>
+					a.phraseEndOffset - a.phraseStartOffset - (b.phraseEndOffset - b.phraseStartOffset) ||
+					b.updatedAt.getTime() - a.updatedAt.getTime(),
+			)[0]
+
+		if (!phrase) return null
+		return phrase
+	}
+
+	@CatchDbError()
+	async getPhrasesBySentenceId(sentenceId: number) {
+		const rows = await this.prisma.sentencePhraseTranslation.findMany({
+			where: {
+				sentence_id: sentenceId,
+			},
+		})
+
+		return rows.map(this.mapDbToService)
+	}
+
+	@CatchDbError()
+	async getReadyPhrasesBySentenceId(sentenceId: number) {
+		const rows = await this.prisma.sentencePhraseTranslation.findMany({
+			where: {
+				sentence_id: sentenceId,
+				status: 'ready',
+				translate: {
+					not: null,
+				},
+			},
+			orderBy: {
+				updated_at: 'desc',
+			},
+		})
+
+		return rows.map(this.mapDbToService)
+	}
+
+	@CatchDbError()
+	async createPendingPhrase(input: {
+		sentenceId: number
+		phrase: string
+		phraseStartOffset: number
+		phraseEndOffset: number
+	}) {
+		const db = await this.prisma.sentencePhraseTranslation.create({
+			data: {
+				sentence_id: input.sentenceId,
+				phrase: input.phrase,
+				phrase_start_offset: input.phraseStartOffset,
+				phrase_end_offset: input.phraseEndOffset,
+				translate: null,
+				examples: [],
+				status: 'pending',
+				error_message: null,
+			},
+		})
+
+		return this.mapDbToService(db)
+	}
+
+	@CatchDbError()
+	async updatePhraseById(
+		id: number,
+		dto: {
+			phrase?: string
+			phraseStartOffset?: number
+			phraseEndOffset?: number
+			translate?: null | string
+			examples?: SentencePhraseTranslationExampleServiceModel[]
+			status?: 'pending' | 'ready' | 'error'
+			errorMessage?: null | string
+		},
+	) {
+		const data: Prisma.SentencePhraseTranslationUpdateInput = {
+			updated_at: new Date(),
+		}
+
+		if (typeof dto.phrase === 'string') data.phrase = dto.phrase
+		if (typeof dto.phraseStartOffset === 'number') data.phrase_start_offset = dto.phraseStartOffset
+		if (typeof dto.phraseEndOffset === 'number') data.phrase_end_offset = dto.phraseEndOffset
+		if (dto.translate !== undefined) data.translate = dto.translate
+		if (dto.examples !== undefined) data.examples = this.encodeExamples(dto.examples)
+		if (dto.status !== undefined) data.status = dto.status
+		if (dto.errorMessage !== undefined) data.error_message = dto.errorMessage
+
+		const db = await this.prisma.sentencePhraseTranslation.update({
+			where: { id },
+			data,
+		})
+
+		return this.mapDbToService(db)
+	}
+
+	@CatchDbError()
+	async deletePhraseById(id: number) {
+		await this.prisma.sentencePhraseTranslation.delete({
+			where: { id },
+		})
+	}
+
+	@CatchDbError()
+	async getPhraseById(id: number) {
+		const db = await this.prisma.sentencePhraseTranslation.findUnique({
+			where: { id },
+		})
+		if (!db) return null
+
+		return this.mapDbToService(db)
+	}
+
+	private mapDbToService = (db: SentencePhraseTranslation): SentencePhraseTranslationServiceModel => {
+		const examples = this.decodeExamples(db.examples)
+
+		return {
+			id: db.id,
+			sentenceId: db.sentence_id,
+			phrase: db.phrase,
+			phraseStartOffset: db.phrase_start_offset,
+			phraseEndOffset: db.phrase_end_offset,
+			translate: db.translate,
+			examples,
+			status: db.status,
+			errorMessage: db.error_message,
+			createdAt: db.created_at,
+			updatedAt: db.updated_at,
+		}
+	}
+	private encodeExamples(examples: SentencePhraseTranslationExampleServiceModel[]): string[] {
+		return examples.flatMap((item) => {
+			return [item.text, item.translate]
+		})
+	}
+
+	private decodeExamples(examples: string[]): SentencePhraseTranslationExampleServiceModel[] {
+		const nextExamples: SentencePhraseTranslationExampleServiceModel[] = []
+
+		for (let index = 0; index + 1 < examples.length; index += 2) {
+			const text = examples[index]
+			const translate = examples[index + 1]
+
+			if (!text || !translate) {
+				continue
+			}
+
+			nextExamples.push({
+				text,
+				translate,
+			})
+		}
+
+		return nextExamples
+	}
+}
