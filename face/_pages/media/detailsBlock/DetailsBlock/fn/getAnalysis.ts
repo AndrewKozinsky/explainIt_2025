@@ -1,12 +1,20 @@
 import { useEffect, useMemo, useRef } from 'react'
 import {
 	SentencePhraseTranslationOutModel,
+	useTranslate_Get_Phrase_Translations_By_SentenceLazyQuery,
 	useTranslate_Get_Phrase_TranslationLazyQuery,
 	useTranslate_Get_Sentence_TranslationLazyQuery,
 	useTranslate_Translate_Phrase,
 	useTranslate_Translate_Sentence,
 } from '@/graphql'
 import { useDetailsStore } from '../../detailsStore'
+
+type PhraseTranslationCacheItem = {
+	id: number
+	phraseStartOffset: number
+	phraseEndOffset: number
+	wordAnalysis: string
+}
 
 export function useGetAnalysis() {
 	const sentenceId = useDetailsStore((s) => s.sentenceId)
@@ -18,6 +26,7 @@ export function useGetAnalysis() {
 	const videoYear = useDetailsStore((s) => s.videoYear)
 
 	const [getSentenceTranslation] = useTranslate_Get_Sentence_TranslationLazyQuery()
+	const [getPhraseTranslationsBySentence] = useTranslate_Get_Phrase_Translations_By_SentenceLazyQuery()
 	const [getPhraseTranslation] = useTranslate_Get_Phrase_TranslationLazyQuery()
 	const [translateSentence] = useTranslate_Translate_Sentence()
 	const [translatePhrase] = useTranslate_Translate_Phrase()
@@ -25,6 +34,7 @@ export function useGetAnalysis() {
 	const activeRequestIdRef = useRef(0)
 	const prevSentenceIdRef = useRef<null | number>(null)
 	const prevWordIdRef = useRef<null | number>(null)
+	const phraseTranslationsRef = useRef<PhraseTranslationCacheItem[]>([])
 
 	const selectedWord = useMemo(
 		function () {
@@ -56,10 +66,12 @@ export function useGetAnalysis() {
 			const isActiveRequestId = () => activeRequestIdRef.current === requestId
 
 			if (sentenceChanged) {
+				phraseTranslationsRef.current = []
+
 				useDetailsStore.getState().updateStore({
 					sentenceTranslation: null,
-					sentenceAnalysis: null,
 					wordAnalysis: null,
+					wordAnalyses: [],
 					isLoading: true,
 					error: null,
 				})
@@ -74,7 +86,7 @@ export function useGetAnalysis() {
 			void (async () => {
 				try {
 					if (sentenceChanged) {
-						const [nextSentenceTranslation, nextWordAnalysis] = await Promise.all([
+						const [nextSentenceTranslation, nextPhraseTranslations, nextWordPhraseTranslation] = await Promise.all([
 							getOrCreateSentenceTranslation({
 								sentenceId,
 								sentenceText,
@@ -85,7 +97,11 @@ export function useGetAnalysis() {
 								getSentenceTranslation,
 								translateSentence,
 							}),
-							getOrCreateWordAnalysis({
+							getPhraseTranslationsBySentenceBySentenceId({
+								sentenceId,
+								getPhraseTranslationsBySentence,
+							}),
+							getOrCreateWordPhraseTranslationForNewSentence({
 								sentenceId,
 								sentenceText,
 								selectedWord,
@@ -100,17 +116,25 @@ export function useGetAnalysis() {
 
 						if (!isActiveRequestId()) return
 
+						const mergedPhraseTranslations = upsertPhraseTranslationCacheItem({
+							cacheItems: nextPhraseTranslations,
+							phraseTranslation: nextWordPhraseTranslation,
+						})
+						phraseTranslationsRef.current = mergedPhraseTranslations
+
 						useDetailsStore.getState().updateStore({
 							sentenceTranslation: nextSentenceTranslation,
-							sentenceAnalysis: null,
-							wordAnalysis: nextWordAnalysis,
+							wordAnalysis: nextWordPhraseTranslation
+								? nextWordPhraseTranslation.wordAnalysis
+								: null,
+							wordAnalyses: mergedPhraseTranslations.map((item) => item.wordAnalysis),
 							isLoading: false,
 							error: null,
 						})
 						return
 					}
 
-					const nextWordAnalysis = await getOrCreateWordAnalysis({
+					const nextWordAnalysisResult = await getWordAnalysisByCacheOrCreate({
 						sentenceId,
 						sentenceText,
 						selectedWord,
@@ -118,14 +142,17 @@ export function useGetAnalysis() {
 						bookAuthor,
 						videoName,
 						videoYear,
-						getPhraseTranslation,
 						translatePhrase,
+						phraseTranslations: phraseTranslationsRef.current,
 					})
 
 					if (!isActiveRequestId()) return
 
+					phraseTranslationsRef.current = nextWordAnalysisResult.phraseTranslations
+
 					useDetailsStore.getState().updateStore({
-						wordAnalysis: nextWordAnalysis,
+						wordAnalysis: nextWordAnalysisResult.wordAnalysis,
+						wordAnalyses: nextWordAnalysisResult.phraseTranslations.map((item) => item.wordAnalysis),
 						isLoading: false,
 						error: null,
 					})
@@ -153,11 +180,34 @@ export function useGetAnalysis() {
 			videoName,
 			videoYear,
 			getSentenceTranslation,
+			getPhraseTranslationsBySentence,
 			getPhraseTranslation,
 			translateSentence,
 			translatePhrase,
 		],
 	)
+}
+
+type GetPhraseTranslationsBySentenceBySentenceIdInput = {
+	sentenceId: number
+	getPhraseTranslationsBySentence: ReturnType<typeof useTranslate_Get_Phrase_Translations_By_SentenceLazyQuery>[0]
+}
+
+async function getPhraseTranslationsBySentenceBySentenceId(
+	input: GetPhraseTranslationsBySentenceBySentenceIdInput,
+): Promise<PhraseTranslationCacheItem[]> {
+	const response = await input.getPhraseTranslationsBySentence({
+		variables: {
+			input: {
+				sentenceId: input.sentenceId,
+			},
+		},
+		fetchPolicy: 'network-only',
+	})
+
+	const phraseTranslations = response.data?.translate_get_phrase_translations_by_sentence ?? []
+
+	return phraseTranslations.map(buildPhraseTranslationCacheItem)
 }
 
 type GetOrCreateSentenceTranslationInput = {
@@ -219,7 +269,9 @@ type GetOrCreateWordAnalysisInput = {
 	translatePhrase: ReturnType<typeof useTranslate_Translate_Phrase>[0]
 }
 
-async function getOrCreateWordAnalysis(input: GetOrCreateWordAnalysisInput): Promise<null | string> {
+async function getOrCreateWordPhraseTranslationForNewSentence(
+	input: GetOrCreateWordAnalysisInput,
+): Promise<null | PhraseTranslationCacheItem> {
 	if (!input.selectedWord) {
 		return null
 	}
@@ -237,7 +289,7 @@ async function getOrCreateWordAnalysis(input: GetOrCreateWordAnalysisInput): Pro
 
 	const existingPhrase = existing.data?.translate_get_phrase_translation
 	if (existingPhrase?.translate) {
-		return buildWordAnalysisFromPhraseTranslation(existingPhrase)
+		return buildPhraseTranslationCacheItem(existingPhrase)
 	}
 
 	const generated = await input.translatePhrase({
@@ -261,7 +313,121 @@ async function getOrCreateWordAnalysis(input: GetOrCreateWordAnalysisInput): Pro
 		throw new Error('Не удалось получить перевод слова')
 	}
 
-	return buildWordAnalysisFromPhraseTranslation(generatedPhrase)
+	return buildPhraseTranslationCacheItem(generatedPhrase)
+}
+
+type GetWordAnalysisByCacheOrCreateInput = {
+	sentenceId: number
+	sentenceText: string
+	selectedWord: null | { word: string; startOffset: number; endOffset: number }
+	bookName: null | string
+	bookAuthor: null | string
+	videoName: null | string
+	videoYear: null | string | number
+	translatePhrase: ReturnType<typeof useTranslate_Translate_Phrase>[0]
+	phraseTranslations: PhraseTranslationCacheItem[]
+}
+
+async function getWordAnalysisByCacheOrCreate(input: GetWordAnalysisByCacheOrCreateInput): Promise<{
+	wordAnalysis: null | string
+	phraseTranslations: PhraseTranslationCacheItem[]
+}> {
+	if (!input.selectedWord) {
+		return {
+			wordAnalysis: null,
+			phraseTranslations: input.phraseTranslations,
+		}
+	}
+
+	const cached = findPhraseTranslationBySelectedWord({
+		selectedWord: input.selectedWord,
+		phraseTranslations: input.phraseTranslations,
+	})
+
+	if (cached) {
+		return {
+			wordAnalysis: cached.wordAnalysis,
+			phraseTranslations: input.phraseTranslations,
+		}
+	}
+
+	const generated = await input.translatePhrase({
+		variables: {
+			input: {
+				sentenceId: input.sentenceId,
+				text: input.sentenceText,
+				selectedWord: input.selectedWord.word,
+				selectedWordStartOffset: input.selectedWord.startOffset,
+				selectedWordEndOffset: input.selectedWord.endOffset,
+				bookName: input.bookName ?? undefined,
+				bookAuthor: input.bookAuthor ?? undefined,
+				videoName: input.videoName ?? undefined,
+				videoYear: toNullableString(input.videoYear) ?? undefined,
+			},
+		},
+	})
+
+	const generatedPhrase = generated.data?.translate_translate_phrase
+	if (!generatedPhrase?.translate) {
+		throw new Error('Не удалось получить перевод слова')
+	}
+
+	const generatedItem = buildPhraseTranslationCacheItem(generatedPhrase)
+	const nextPhraseTranslations = upsertPhraseTranslationCacheItem({
+		cacheItems: input.phraseTranslations,
+		phraseTranslation: generatedItem,
+	})
+
+	return {
+		wordAnalysis: generatedItem.wordAnalysis,
+		phraseTranslations: nextPhraseTranslations,
+	}
+}
+
+function findPhraseTranslationBySelectedWord(input: {
+	selectedWord: { startOffset: number; endOffset: number }
+	phraseTranslations: PhraseTranslationCacheItem[]
+}): null | PhraseTranslationCacheItem {
+	const matched = input.phraseTranslations
+		.filter((phraseTranslation) => {
+			return (
+				phraseTranslation.phraseStartOffset <= input.selectedWord.startOffset &&
+				phraseTranslation.phraseEndOffset >= input.selectedWord.endOffset
+			)
+		})
+		.sort((a, b) => {
+			const aLength = a.phraseEndOffset - a.phraseStartOffset
+			const bLength = b.phraseEndOffset - b.phraseStartOffset
+
+			return aLength - bLength
+		})
+
+	return matched[0] ?? null
+}
+
+function upsertPhraseTranslationCacheItem(input: {
+	cacheItems: PhraseTranslationCacheItem[]
+	phraseTranslation: null | PhraseTranslationCacheItem
+}): PhraseTranslationCacheItem[] {
+	if (!input.phraseTranslation) {
+		return input.cacheItems
+	}
+
+	const next = input.cacheItems.filter((item) => item.id !== input.phraseTranslation?.id)
+	next.unshift(input.phraseTranslation)
+
+	return next
+}
+
+function buildPhraseTranslationCacheItem(
+	phraseTranslation: SentencePhraseTranslationOutModel,
+): PhraseTranslationCacheItem {
+	return {
+		id: phraseTranslation.id,
+		phraseStartOffset: phraseTranslation.phraseStartOffset,
+		phraseEndOffset: phraseTranslation.phraseEndOffset,
+		wordAnalysis: buildWordAnalysisFromPhraseTranslation(phraseTranslation),
+	}
 }
 
 function buildWordAnalysisFromPhraseTranslation(phraseTranslation: SentencePhraseTranslationOutModel): string {
