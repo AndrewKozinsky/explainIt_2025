@@ -39,6 +39,10 @@ export interface GetPhraseTranslationInput {
     selectedWordEndOffset: number;
 }
 
+export interface GetPhraseTranslationsBySentenceInput {
+    sentenceId: number;
+}
+
 export interface GetWordInput {
     word: string;
     languageCode: string;
@@ -458,6 +462,7 @@ export interface IQuery {
     video_public_get(input: GetPublicVideoInput): VideoPublicOutModel | Promise<VideoPublicOutModel>;
     translate_get_sentence_translation(input: GetSentenceTranslationInput): Nullable<TranslateSentenceResultOutModel> | Promise<Nullable<TranslateSentenceResultOutModel>>;
     translate_get_phrase_translation(input: GetPhraseTranslationInput): Nullable<SentencePhraseTranslationOutModel> | Promise<Nullable<SentencePhraseTranslationOutModel>>;
+    translate_get_phrase_translations_by_sentence(input: GetPhraseTranslationsBySentenceInput): SentencePhraseTranslationOutModel[] | Promise<SentencePhraseTranslationOutModel[]>;
     tariff_get_tariffs(): TariffOutModel[] | Promise<TariffOutModel[]>;
     word_get(input: GetWordInput): WordOutModel | Promise<WordOutModel>;
     language_get_languages(): LanguageOutModel[] | Promise<LanguageOutModel[]>;

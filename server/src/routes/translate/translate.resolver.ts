@@ -19,6 +19,7 @@ import RouteNames from 'infrastructure/routeNames'
 import { SentencePhraseTranslationOutModel } from 'models/sentenceTranslation/sentencePhraseTranslation.out.model'
 import { TranslateSentenceResultOutModel } from 'models/sentenceTranslation/translateSentenceResult.out.model'
 import { GetPhraseTranslationInput } from './inputs/getPhraseTranslation.input'
+import { GetPhraseTranslationsBySentenceInput } from './inputs/getPhraseTranslationsBySentence.input'
 import { GetSentenceTranslationInput } from './inputs/getSentenceTranslation.input'
 import { TranslatePhraseInput } from './inputs/translatePhrase.input'
 import { TranslateSentenceInput } from './inputs/translateSentence.input'
@@ -104,6 +105,37 @@ export class TranslateResolver {
 			selectedWordStartOffset: input.selectedWordStartOffset,
 			selectedWordEndOffset: input.selectedWordEndOffset,
 		})
+	}
+
+	@UseGuards(OptionalSessionUserGuard)
+	@Query(() => [SentencePhraseTranslationOutModel], {
+		name: RouteNames.TRANSLATE.GET_PHRASE_TRANSLATIONS_BY_SENTENCE,
+		description: translateResolversDesc.getPhraseTranslationsBySentence,
+	})
+	async getPhraseTranslationsBySentence(
+		@Args('input') input: GetPhraseTranslationsBySentenceInput,
+		@Context('req') request: Request,
+	) {
+		const access = await this.sentenceTranslationAccessService.resolveAccessOrThrow({
+			userId: request.user?.id ?? null,
+			currentSubscription: request.user?.currentSubscription ?? null,
+			sentenceId: input.sentenceId,
+		})
+
+		await this.ensureModeIsAllowedOrThrow({
+			mode: access.readMode,
+			deniedReason: access.readDeniedReason,
+			actionType: 'read',
+		})
+
+		if (access.readMode === 'dailyLimit') {
+			await this.consumeDailyLimitOrThrow({
+				userId: request.user?.id ?? null,
+				sentenceId: input.sentenceId,
+			})
+		}
+
+		return this.sentencePhraseTranslationRepository.getReadyPhrasesBySentenceId(input.sentenceId)
 	}
 
 	@UseGuards(OptionalSessionUserGuard)

@@ -167,8 +167,8 @@ type GetOrCreateSentenceTranslationInput = {
 	bookAuthor: null | string
 	videoName: null | string
 	videoYear: null | string | number
-    getSentenceTranslation: ReturnType<typeof useTranslate_Get_Sentence_TranslationLazyQuery>[0]
-    translateSentence: ReturnType<typeof useTranslate_Translate_Sentence>[0]
+	getSentenceTranslation: ReturnType<typeof useTranslate_Get_Sentence_TranslationLazyQuery>[0]
+	translateSentence: ReturnType<typeof useTranslate_Translate_Sentence>[0]
 }
 
 async function getOrCreateSentenceTranslation(input: GetOrCreateSentenceTranslationInput): Promise<string> {
@@ -215,8 +215,8 @@ type GetOrCreateWordAnalysisInput = {
 	bookAuthor: null | string
 	videoName: null | string
 	videoYear: null | string | number
-    getPhraseTranslation: ReturnType<typeof useTranslate_Get_Phrase_TranslationLazyQuery>[0]
-    translatePhrase: ReturnType<typeof useTranslate_Translate_Phrase>[0]
+	getPhraseTranslation: ReturnType<typeof useTranslate_Get_Phrase_TranslationLazyQuery>[0]
+	translatePhrase: ReturnType<typeof useTranslate_Translate_Phrase>[0]
 }
 
 async function getOrCreateWordAnalysis(input: GetOrCreateWordAnalysisInput): Promise<null | string> {

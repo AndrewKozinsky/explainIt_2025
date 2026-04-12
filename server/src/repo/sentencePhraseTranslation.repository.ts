@@ -26,10 +26,6 @@ export class SentencePhraseTranslationRepository {
 				phrase_end_offset: {
 					gte: input.selectedWordEndOffset,
 				},
-				status: 'ready',
-				translate: {
-					not: null,
-				},
 			},
 		})
 
@@ -50,6 +46,24 @@ export class SentencePhraseTranslationRepository {
 		const rows = await this.prisma.sentencePhraseTranslation.findMany({
 			where: {
 				sentence_id: sentenceId,
+			},
+		})
+
+		return rows.map(this.mapDbToService)
+	}
+
+	@CatchDbError()
+	async getReadyPhrasesBySentenceId(sentenceId: number) {
+		const rows = await this.prisma.sentencePhraseTranslation.findMany({
+			where: {
+				sentence_id: sentenceId,
+				status: 'ready',
+				translate: {
+					not: null,
+				},
+			},
+			orderBy: {
+				updated_at: 'desc',
 			},
 		})
 

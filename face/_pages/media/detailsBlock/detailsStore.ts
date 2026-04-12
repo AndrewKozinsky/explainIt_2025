@@ -13,6 +13,7 @@ export const detailsStoreValues: DetailsStoreValues = {
 	sentenceTranslation: null,
 	sentenceAnalysis: null,
 	wordAnalysis: null,
+	wordAnalyses: [],
 	selectWord: () => {},
 }
 
@@ -30,6 +31,7 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 				sentenceTranslation: sentenceTranslation?.translation ?? null,
 				sentenceAnalysis: sentenceTranslation?.analysis ?? null,
 				wordAnalysis: sentenceTranslation?.wordAnalysis ?? null,
+				wordAnalyses: sentenceTranslation?.wordAnalyses ?? [],
 			})
 		},
 	}
@@ -41,6 +43,7 @@ export type SentenceTranslationLite = {
 	translation: string
 	analysis: null | string
 	wordAnalysis?: null | string
+	wordAnalyses?: string[]
 }
 
 export type DetailsStoreValues = {
@@ -62,6 +65,7 @@ export type DetailsStoreValues = {
 	sentenceTranslation: string | null
 	sentenceAnalysis: string | null
 	wordAnalysis: string | null
+	wordAnalyses: string[]
 	selectWord: (input: { sentenceId: number; wordId: number }) => void
 }
 

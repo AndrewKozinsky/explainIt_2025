@@ -198,6 +198,11 @@ export type GetPhraseTranslationInput = {
   sentenceId: Scalars['Float']['input'];
 };
 
+export type GetPhraseTranslationsBySentenceInput = {
+  /** Sentence id */
+  sentenceId: Scalars['Float']['input'];
+};
+
 export type GetPrivateBookInput = {
   /** Book id */
   id: Scalars['Int']['input'];
@@ -410,6 +415,8 @@ export type Query = {
   tariff_get_tariffs: Array<TariffOutModel>;
   /** Get existing phrase translation by sentence and offsets */
   translate_get_phrase_translation?: Maybe<SentencePhraseTranslationOutModel>;
+  /** Get all existing phrase translations by sentence id */
+  translate_get_phrase_translations_by_sentence: Array<SentencePhraseTranslationOutModel>;
   /** Get existing sentence translation by sentence id */
   translate_get_sentence_translation?: Maybe<TranslateSentenceResultOutModel>;
   /** Get a video */
@@ -442,6 +449,11 @@ export type QueryBook_Public_Get_BookArgs = {
 
 export type QueryTranslate_Get_Phrase_TranslationArgs = {
   input: GetPhraseTranslationInput;
+};
+
+
+export type QueryTranslate_Get_Phrase_Translations_By_SentenceArgs = {
+  input: GetPhraseTranslationsBySentenceInput;
 };
 
 
@@ -916,6 +928,13 @@ export type Translate_Get_Phrase_TranslationVariables = Exact<{
 
 
 export type Translate_Get_Phrase_Translation = { __typename?: 'Query', translate_get_phrase_translation?: { __typename?: 'SentencePhraseTranslationOutModel', id: number, sentenceId: number, phrase: string, phraseStartOffset: number, phraseEndOffset: number, translate?: string | null, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> } | null };
+
+export type Translate_Get_Phrase_Translations_By_SentenceVariables = Exact<{
+  input: GetPhraseTranslationsBySentenceInput;
+}>;
+
+
+export type Translate_Get_Phrase_Translations_By_Sentence = { __typename?: 'Query', translate_get_phrase_translations_by_sentence: Array<{ __typename?: 'SentencePhraseTranslationOutModel', id: number, sentenceId: number, phrase: string, phraseStartOffset: number, phraseEndOffset: number, translate?: string | null, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> }> };
 
 export type Translate_Get_Sentence_TranslationVariables = Exact<{
   input: GetSentenceTranslationInput;
@@ -1984,6 +2003,62 @@ export type Translate_Get_Phrase_TranslationHookResult = ReturnType<typeof useTr
 export type Translate_Get_Phrase_TranslationLazyQueryHookResult = ReturnType<typeof useTranslate_Get_Phrase_TranslationLazyQuery>;
 export type Translate_Get_Phrase_TranslationSuspenseQueryHookResult = ReturnType<typeof useTranslate_Get_Phrase_TranslationSuspenseQuery>;
 export type Translate_Get_Phrase_TranslationQueryResult = Apollo.QueryResult<Translate_Get_Phrase_Translation, Translate_Get_Phrase_TranslationVariables>;
+export const Translate_Get_Phrase_Translations_By_SentenceDocument = gql`
+    query Translate_get_phrase_translations_by_sentence($input: GetPhraseTranslationsBySentenceInput!) {
+  translate_get_phrase_translations_by_sentence(input: $input) {
+    id
+    sentenceId
+    phrase
+    phraseStartOffset
+    phraseEndOffset
+    translate
+    examples {
+      text
+      translate
+    }
+    status
+    errorMessage
+    createdAt
+    updatedAt
+  }
+}
+    `;
+
+/**
+ * __useTranslate_Get_Phrase_Translations_By_Sentence__
+ *
+ * To run a query within a React component, call `useTranslate_Get_Phrase_Translations_By_Sentence` and pass it any options that fit your needs.
+ * When your component renders, `useTranslate_Get_Phrase_Translations_By_Sentence` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useTranslate_Get_Phrase_Translations_By_Sentence({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useTranslate_Get_Phrase_Translations_By_Sentence(baseOptions: Apollo.QueryHookOptions<Translate_Get_Phrase_Translations_By_Sentence, Translate_Get_Phrase_Translations_By_SentenceVariables> & ({ variables: Translate_Get_Phrase_Translations_By_SentenceVariables; skip?: boolean; } | { skip: boolean; }) ) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<Translate_Get_Phrase_Translations_By_Sentence, Translate_Get_Phrase_Translations_By_SentenceVariables>(Translate_Get_Phrase_Translations_By_SentenceDocument, options);
+      }
+export function useTranslate_Get_Phrase_Translations_By_SentenceLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Translate_Get_Phrase_Translations_By_Sentence, Translate_Get_Phrase_Translations_By_SentenceVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<Translate_Get_Phrase_Translations_By_Sentence, Translate_Get_Phrase_Translations_By_SentenceVariables>(Translate_Get_Phrase_Translations_By_SentenceDocument, options);
+        }
+// @ts-ignore
+export function useTranslate_Get_Phrase_Translations_By_SentenceSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<Translate_Get_Phrase_Translations_By_Sentence, Translate_Get_Phrase_Translations_By_SentenceVariables>): Apollo.UseSuspenseQueryResult<Translate_Get_Phrase_Translations_By_Sentence, Translate_Get_Phrase_Translations_By_SentenceVariables>;
+export function useTranslate_Get_Phrase_Translations_By_SentenceSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Translate_Get_Phrase_Translations_By_Sentence, Translate_Get_Phrase_Translations_By_SentenceVariables>): Apollo.UseSuspenseQueryResult<Translate_Get_Phrase_Translations_By_Sentence | undefined, Translate_Get_Phrase_Translations_By_SentenceVariables>;
+export function useTranslate_Get_Phrase_Translations_By_SentenceSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Translate_Get_Phrase_Translations_By_Sentence, Translate_Get_Phrase_Translations_By_SentenceVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<Translate_Get_Phrase_Translations_By_Sentence, Translate_Get_Phrase_Translations_By_SentenceVariables>(Translate_Get_Phrase_Translations_By_SentenceDocument, options);
+        }
+export type Translate_Get_Phrase_Translations_By_SentenceHookResult = ReturnType<typeof useTranslate_Get_Phrase_Translations_By_Sentence>;
+export type Translate_Get_Phrase_Translations_By_SentenceLazyQueryHookResult = ReturnType<typeof useTranslate_Get_Phrase_Translations_By_SentenceLazyQuery>;
+export type Translate_Get_Phrase_Translations_By_SentenceSuspenseQueryHookResult = ReturnType<typeof useTranslate_Get_Phrase_Translations_By_SentenceSuspenseQuery>;
+export type Translate_Get_Phrase_Translations_By_SentenceQueryResult = Apollo.QueryResult<Translate_Get_Phrase_Translations_By_Sentence, Translate_Get_Phrase_Translations_By_SentenceVariables>;
 export const Translate_Get_Sentence_TranslationDocument = gql`
     query Translate_get_sentence_translation($input: GetSentenceTranslationInput!) {
   translate_get_sentence_translation(input: $input) {

@@ -190,6 +190,11 @@ input GetPhraseTranslationInput {
   sentenceId: Float!
 }
 
+input GetPhraseTranslationsBySentenceInput {
+  """Sentence id"""
+  sentenceId: Float!
+}
+
 input GetPrivateBookInput {
   """Book id"""
   id: Int!
@@ -334,6 +339,9 @@ type Query {
 
   """Get existing phrase translation by sentence and offsets"""
   translate_get_phrase_translation(input: GetPhraseTranslationInput!): SentencePhraseTranslationOutModel
+
+  """Get all existing phrase translations by sentence id"""
+  translate_get_phrase_translations_by_sentence(input: GetPhraseTranslationsBySentenceInput!): [SentencePhraseTranslationOutModel!]!
 
   """Get existing sentence translation by sentence id"""
   translate_get_sentence_translation(input: GetSentenceTranslationInput!): TranslateSentenceResultOutModel
