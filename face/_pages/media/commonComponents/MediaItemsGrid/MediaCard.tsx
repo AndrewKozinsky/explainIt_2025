@@ -8,13 +8,15 @@ type MediaCardProps = {
 	coverUrl?: string
 	backgroundColor?: string
 	defaultMediaName: string
+	freeToUse?: boolean
 }
 
 function MediaCard(props: MediaCardProps) {
-	const { name, subName, url, coverUrl, backgroundColor, defaultMediaName } = props
+	const { name, subName, url, coverUrl, backgroundColor, defaultMediaName, freeToUse } = props
 
 	return (
 		<Link className='media-items-grid__card' style={{ backgroundColor: backgroundColor }} href={url}>
+			{freeToUse && <p className='media-items-grid__card-label'>Открыто всем</p>}
 			{coverUrl && <img src={coverUrl} className='media-items-grid__card-cover' alt='cover' />}
 			<div
 				className={cn(

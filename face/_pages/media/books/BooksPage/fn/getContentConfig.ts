@@ -12,7 +12,7 @@ export function useGetContentConfig() {
 			loading: boolean
 			error: null | string
 			config: null | MediaItemsGridConfig
-			} {
+		} {
 			const errorMessage = privateBooks.errorMessage || publicBooks.errorMessage
 			const isLoading = privateBooks.loading || publicBooks.loading
 
@@ -41,6 +41,7 @@ export function useGetContentConfig() {
 							name: book.name,
 							subName: book.author,
 							url: pageUrls.books.book(bookId).path,
+							freeToUse: book.freeToUse,
 						}
 					}),
 					publicItems: publicBooks.data.map((book) => {
@@ -53,6 +54,7 @@ export function useGetContentConfig() {
 							backgroundColor: book.coverBackgroundColor,
 							languageCode: book.languageCode,
 							coverUrl: book.covers[0],
+							freeToUse: book.freeToUse,
 						}
 					}),
 				},

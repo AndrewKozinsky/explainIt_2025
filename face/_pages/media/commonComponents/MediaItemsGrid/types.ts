@@ -7,6 +7,7 @@ export type PrivateItem = {
 	name?: null | string
 	subName?: null | number | string
 	url: string
+	freeToUse?: boolean
 }
 
 export type PublicItem = {
@@ -16,6 +17,7 @@ export type PublicItem = {
 	backgroundColor: string
 	coverUrl: string
 	url: string
+	freeToUse?: boolean
 }
 
 export type AddMediaButtonConfig = {

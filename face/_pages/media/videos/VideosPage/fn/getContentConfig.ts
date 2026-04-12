@@ -53,6 +53,7 @@ export function useGetContentConfig() {
 							backgroundColor: video.coverBackgroundColor,
 							languageCode: video.languageCode,
 							coverUrl: video.covers[0],
+							freeToUse: video.freeToUse,
 						}
 					}),
 				},
