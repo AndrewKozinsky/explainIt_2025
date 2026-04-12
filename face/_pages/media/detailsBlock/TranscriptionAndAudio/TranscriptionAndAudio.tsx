@@ -10,14 +10,14 @@ import { TranscriptionBlock } from './TranscriptionBlock'
 import './TranscriptionAndAudio.scss'
 
 type TranscriptionAndAudioProps = {
-	word: string
+	phrase: string
 	languageCode: LanguageCode
 	onWhiteBackground?: boolean
 }
 
 function TranscriptionAndAudio(props: TranscriptionAndAudioProps) {
-	const { word, languageCode, onWhiteBackground } = props
-	const { visible, wordStatus, transcription } = useGetAudioAndTranscription(word, languageCode)
+	const { phrase, languageCode, onWhiteBackground } = props
+	const { visible, wordStatus, transcription } = useGetAudioAndTranscription(phrase, languageCode)
 	// const { isPlaying, togglePlay } = useAudioPlayer(audio.url)
 
 	if (!visible) return null

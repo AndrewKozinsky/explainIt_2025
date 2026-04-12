@@ -1,20 +1,20 @@
-export type WordAnalysis = {
-	word: string | null
-	translation: WordAnalysisExampleWord[] | null
-	examples: WordAnalysisExample[] | null
+export type PhraseAnalysis = {
+	phrase: string | null
+	translation: PhraseAnalysisExamplePhrase[] | null
+	examples: PhraseAnalysisExample[] | null
 }
 
-export type WordAnalysisExample = {
-	text: WordAnalysisExampleWord[] | null
-	translate: WordAnalysisExampleWord[] | null
+export type PhraseAnalysisExample = {
+	text: PhraseAnalysisExamplePhrase[] | null
+	translate: PhraseAnalysisExamplePhrase[] | null
 }
 
-export type WordAnalysisExampleWord = {
+export type PhraseAnalysisExamplePhrase = {
 	text: string
 	flashed?: boolean
 }
 
-let lastSuccessfulWordAnalysis: WordAnalysis | null = null
+let lastSuccessfulPhraseAnalysis: PhraseAnalysis | null = null
 
 /**
  * Функция получает текст вида:
@@ -24,8 +24,8 @@ let lastSuccessfulWordAnalysis: WordAnalysis | null = null
  * *   The **room** is bright. — **Комната** светлая.
  *
  * и возвращает данные типа:
- * const wordAnalysis: WordAnalysis = {
- * 	word: 'room',
+ * const phraseAnalysis: PhraseAnalysis = {
+ * 	phrase: 'room',
  * 	translation: [
  * 		{text: 'комната'},
  * 		{text: ', '},
@@ -109,13 +109,13 @@ let lastSuccessfulWordAnalysis: WordAnalysis | null = null
  * }
  * @param source
  */
-export default function parseWordAnalysis(source: string): WordAnalysis | null {
+export default function parsePhraseAnalysis(source: string): PhraseAnalysis | null {
 	try {
 		const lines = source.split('\n').map((line) => line.trim())
 
 		if (!lines.length || !source.trim()) {
 			return {
-				word: null,
+				phrase: null,
 				translation: null,
 				examples: null,
 			}
@@ -124,28 +124,28 @@ export default function parseWordAnalysis(source: string): WordAnalysis | null {
 		const header = parseHeader(lines[0])
 		const examples = lines.slice(1).filter(Boolean).map(parseExample)
 
-		const result: WordAnalysis = {
-			word: header.word,
+		const result: PhraseAnalysis = {
+			phrase: header.phrase,
 			translation: header.translation,
 			examples: examples.length ? examples : null,
 		}
 
-		if (isSuccessfulWordAnalysis(result)) {
-			lastSuccessfulWordAnalysis = result
+		if (isSuccessfulPhraseAnalysis(result)) {
+			lastSuccessfulPhraseAnalysis = result
 		}
 
 		return result
 	} catch {
-		return lastSuccessfulWordAnalysis
+		return lastSuccessfulPhraseAnalysis
 	}
 }
 
-function parseHeader(line: string): Pick<WordAnalysis, 'word' | 'translation'> {
+function parseHeader(line: string): Pick<PhraseAnalysis, 'phrase' | 'translation'> {
 	const headerMatch = line.match(/^\*\s+\*\*(.+?)\*\*(?:\s+—\s+(.+))?$/)
 
 	if (headerMatch) {
 		return {
-			word: headerMatch[1].trim() || null,
+			phrase: headerMatch[1].trim() || null,
 			translation: parseSourceText(headerMatch[2]?.trim() ?? ''),
 		}
 	}
@@ -154,7 +154,7 @@ function parseHeader(line: string): Pick<WordAnalysis, 'word' | 'translation'> {
 
 	if (!fallbackMatch) {
 		return {
-			word: null,
+			phrase: null,
 			translation: null,
 		}
 	}
@@ -164,23 +164,21 @@ function parseHeader(line: string): Pick<WordAnalysis, 'word' | 'translation'> {
 
 	if (separatorIndex === -1) {
 		return {
-			word: unwrapMarkedText(content).trim() || null,
+			phrase: unwrapMarkedText(content).trim() || null,
 			translation: null,
 		}
 	}
 
-	const word = content
-		.slice(0, separatorIndex)
-		.trim()
+	const word = content.slice(0, separatorIndex).trim()
 	const translation = content.slice(separatorIndex + 1).trim()
 
 	return {
-		word: unwrapMarkedText(word).trim() || null,
+		phrase: unwrapMarkedText(word).trim() || null,
 		translation: parseSourceText(translation),
 	}
 }
 
-function parseExample(line: string): WordAnalysisExample {
+function parseExample(line: string): PhraseAnalysisExample {
 	const match = line.match(/^\*\s+(.+?)(?:\s+—\s+(.+))?$/)
 
 	if (!match) {
@@ -199,14 +197,12 @@ function parseExample(line: string): WordAnalysisExample {
 	}
 }
 
-function parseSourceText(text: string): WordAnalysisExampleWord[] | null {
+function parseSourceText(text: string): PhraseAnalysisExamplePhrase[] | null {
 	if (!text) {
 		return null
 	}
 
-	const parts = text
-		.split(/(\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)/g)
-		.filter(Boolean)
+	const parts = text.split(/(\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)/g).filter(Boolean)
 
 	const parsedParts = parts
 		.map((part) => {
@@ -229,7 +225,7 @@ function parseSourceText(text: string): WordAnalysisExampleWord[] | null {
 				text: normalizedPart,
 			}
 		})
-		.filter(Boolean) as WordAnalysisExampleWord[]
+		.filter(Boolean) as PhraseAnalysisExamplePhrase[]
 
 	return parsedParts.length ? parsedParts : null
 }
@@ -258,6 +254,6 @@ function unwrapMarkedText(text: string): string {
 	return text
 }
 
-function isSuccessfulWordAnalysis(wordAnalysis: WordAnalysis): boolean {
-	return Boolean(wordAnalysis.word && wordAnalysis.translation?.length)
+function isSuccessfulPhraseAnalysis(phraseAnalysis: PhraseAnalysis): boolean {
+	return Boolean(phraseAnalysis.phrase && phraseAnalysis.translation?.length)
 }
