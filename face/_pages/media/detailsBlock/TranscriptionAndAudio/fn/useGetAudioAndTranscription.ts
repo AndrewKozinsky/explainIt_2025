@@ -7,6 +7,7 @@ import {
 	// useAudioPronunciation_Create,
 	Word_Get,
 } from '@/graphql'
+import { useDetailsStore } from '../../detailsStore'
 
 const SUPPORTED_LANGUAGES: LanguageCode[] = ['en', 'fr']
 
@@ -47,6 +48,13 @@ export function useGetAudioAndTranscription(word: string, languageCode: Language
 		function () {
 			if (!visible) return
 
+			const cachedTranscription = getCachedTranscriptionByPhrase(word)
+			if (cachedTranscription) {
+				setWordStatus('ready')
+				setTranscription({ status: 'ready', ipa: cachedTranscription })
+				return
+			}
+
 			activeWordRef.current = word
 
 			setWordStatus('loading')
@@ -69,6 +77,13 @@ export function useGetAudioAndTranscription(word: string, languageCode: Language
 				const existingTranscription = wordData.transcription
 				if (existingTranscription) {
 					setTranscription({ status: 'ready', ipa: existingTranscription.ipa })
+
+					if (existingTranscription.ipa) {
+						upsertTranscriptionToDetailsStore({
+							phrase: word,
+							transcription: existingTranscription.ipa,
+						})
+					}
 				}
 
 				// const existingAudio = wordData.audioPronunciations?.[0]
@@ -118,7 +133,16 @@ export function useGetAudioAndTranscription(word: string, languageCode: Language
 						variables: { input: { wordId } },
 					})
 					if (activeWordRef.current !== word) return
-					setTranscription({ status: 'ready', ipa: result.data?.create_transcription.ipa })
+
+					const generatedTranscription = result.data?.create_transcription.ipa ?? null
+					setTranscription({ status: 'ready', ipa: generatedTranscription })
+
+					if (generatedTranscription) {
+						upsertTranscriptionToDetailsStore({
+							phrase: word,
+							transcription: generatedTranscription,
+						})
+					}
 				} catch {
 					if (activeWordRef.current !== word) return
 					setTranscription({ status: 'error' })
@@ -151,4 +175,43 @@ export function useGetAudioAndTranscription(word: string, languageCode: Language
 	}
 
 	return { visible, wordStatus, transcription }
+}
+
+function getCachedTranscriptionByPhrase(phrase: string): null | string {
+	const normalizedPhrase = normalizePhrase(phrase)
+	if (!normalizedPhrase) {
+		return null
+	}
+
+	const transcriptions = useDetailsStore.getState().transcriptions
+	const cached = transcriptions.find((item) => {
+		return normalizePhrase(item.phrase) === normalizedPhrase
+	})
+
+	return cached?.transcription ?? null
+}
+
+function upsertTranscriptionToDetailsStore(input: { phrase: string; transcription: string }) {
+	const normalizedPhrase = normalizePhrase(input.phrase)
+	if (!normalizedPhrase) {
+		return
+	}
+
+	const state = useDetailsStore.getState()
+	const nextTranscriptions = state.transcriptions.filter((item) => {
+		return normalizePhrase(item.phrase) !== normalizedPhrase
+	})
+
+	nextTranscriptions.push({
+		phrase: input.phrase,
+		transcription: input.transcription,
+	})
+
+	state.updateStore({
+		transcriptions: nextTranscriptions,
+	})
+}
+
+function normalizePhrase(phrase: string): string {
+	return phrase.trim().toLocaleLowerCase()
 }

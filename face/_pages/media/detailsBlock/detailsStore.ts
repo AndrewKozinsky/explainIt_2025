@@ -13,6 +13,7 @@ export const detailsStoreValues: DetailsStoreValues = {
 	sentenceTranslation: null,
 	wordAnalysis: null,
 	wordAnalyses: [],
+	transcriptions: [],
 	selectWord: () => {},
 }
 
@@ -43,6 +44,11 @@ export type SentenceTranslationLite = {
 	wordAnalyses?: string[]
 }
 
+export type DetailsTranscription = {
+	phrase: string
+	transcription: string
+}
+
 export type DetailsStoreValues = {
 	bookName: null | string
 	bookAuthor: null | string
@@ -62,6 +68,7 @@ export type DetailsStoreValues = {
 	sentenceTranslation: string | null
 	wordAnalysis: string | null
 	wordAnalyses: string[]
+	transcriptions: DetailsTranscription[]
 	selectWord: (input: { sentenceId: number; wordId: number }) => void
 }
 

@@ -12,9 +12,11 @@
 }
 
 .watching-text-root__blocks {
-	display: flex;
-	gap: 2rem;
-	flex-grow: 1;
+	@include mix.page-width(vars.$watching-desktop-width) {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2rem;
+	}
 }
 
 .watching-text-root__item {
@@ -35,8 +37,6 @@
 	@include mix.page-width(vars.$watching-desktop-width) {
 		flex-grow: 0;
 		flex-shrink: 0;
-		max-width: 450px;
-		width: 50%;
 	}
 }
 
