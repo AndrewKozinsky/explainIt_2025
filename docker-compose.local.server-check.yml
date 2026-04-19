@@ -45,6 +45,7 @@ services:
     depends_on:
       - explainpostgreslocalcheckserver
       - explainnlplocalcheckserver
+      - explainredislocalcheckserver
     environment:
       MODE: localcheckserver
       PORT: 3001

@@ -59,7 +59,7 @@ export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
 				volumes: isDev ? ['./server/src:/app/src', './server/e2e:/app/e2e'] : undefined,
 				command: isDev ? 'npm run start:dev' : 'npm run start:prod',
 				container_name: 'explainserver' + mode,
-				depends_on: [postgresServiceName, nlpServiceName],
+				depends_on: [postgresServiceName, nlpServiceName, redisServiceName],
 				environment: getServerEnvs(mode),
 				env_file: ['.env.' + mode],
 				ports: isDev ? ['3001:3001'] : undefined,

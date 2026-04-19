@@ -46,6 +46,7 @@ services:
     depends_on:
       - explainpostgresservermaster
       - explainnlpservermaster
+      - explainredisservermaster
     environment:
       MODE: servermaster
       PORT: 3001

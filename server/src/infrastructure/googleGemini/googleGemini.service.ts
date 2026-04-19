@@ -1,4 +1,4 @@
-import { Content, GenerativeModel, VertexAI } from '@google-cloud/vertexai'
+import { Content, GoogleGenAI } from '@google/genai'
 import { Injectable } from '@nestjs/common'
 import { GoogleGeminiModels } from 'types/googleGeminiModels'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
@@ -8,37 +8,33 @@ import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 
 @Injectable()
 export class GoogleGeminiService {
-	private vertexAI: VertexAI
+	private ai: GoogleGenAI
 
 	constructor(private mainConfig: MainConfigService) {
 		const credentials = this.mainConfig.get().googleTts.serviceAccountCredentials
 
-		this.vertexAI = new VertexAI({
+		this.ai = new GoogleGenAI({
+			vertexai: true,
 			project: credentials.project_id,
 			location: 'us-central1',
 			googleAuthOptions: { credentials },
 		})
 	}
 
-	private getModel(modelName?: GoogleGeminiModels): GenerativeModel {
-		return this.vertexAI.getGenerativeModel({ model: modelName ?? GoogleGeminiModels.Flash })
-	}
-
 	async generateText(input: { contents: Content[]; model?: GoogleGeminiModels; systemInstruction?: string }) {
-		const model = this.getModel(input.model)
-
-		const response = await model.generateContent({
+		const response = await this.ai.models.generateContent({
+			model: input.model ?? GoogleGeminiModels.Flash,
 			contents: input.contents,
-			systemInstruction: input.systemInstruction,
+			config: { systemInstruction: input.systemInstruction },
 		})
 
-		const usage = response.response.usageMetadata
+		const usage = response.usageMetadata
 
 		if (!usage) {
 			throw new CustomGraphQLError(errorMessage.unknownOpenAIError, ErrorCode.InternalServerError_500)
 		}
 
-		const message = response.response.candidates?.[0]?.content?.parts?.[0]?.text ?? null
+		const message = response.candidates?.[0]?.content?.parts?.[0]?.text ?? null
 
 		return {
 			inputTokens: usage.promptTokenCount ?? 0,
@@ -53,8 +49,10 @@ export class GoogleGeminiService {
 		abortSignal?: AbortSignal
 		onUsage?: (usage: null | { inputTokens: number; outputTokens: number }) => void
 	}): AsyncGenerator<string, void, void> {
-		const model = this.getModel(input.model)
-		const streamingResult = await model.generateContentStream({ contents: input.contents })
+		const stream = await this.ai.models.generateContentStream({
+			model: input.model ?? GoogleGeminiModels.Flash,
+			contents: input.contents,
+		})
 
 		let usageSent = false
 
@@ -66,7 +64,7 @@ export class GoogleGeminiService {
 		}
 
 		try {
-			for await (const chunk of streamingResult.stream) {
+			for await (const chunk of stream) {
 				if (input.abortSignal?.aborted) break
 
 				const usage = chunk.usageMetadata

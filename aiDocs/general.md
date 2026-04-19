@@ -15,9 +15,3 @@
 - Follow the existing code style and patterns
 - Write clear, concise, and well-documented code
 - You cannot make more than 5 indents in the code.
-
-## Root folder structure
-- `face` — frontend part
-- `server` — backend with Nest.js with PrismaORM (PostgreSQL) and GraphQL (Apollo Server)
-— `nginx` — reverse proxy
-— `infrastructure` — a tool for creating Docker-compose files

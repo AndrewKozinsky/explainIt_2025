@@ -48,6 +48,7 @@ services:
     depends_on:
       - explainpostgreslocaldev
       - explainnlplocaldev
+      - explainredislocaldev
     environment:
       MODE: localdev
       PORT: 3001

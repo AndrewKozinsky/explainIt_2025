@@ -46,6 +46,7 @@ services:
     depends_on:
       - explainpostgresserverdevelop
       - explainnlpserverdevelop
+      - explainredisserverdevelop
     environment:
       MODE: serverdevelop
       PORT: 3001

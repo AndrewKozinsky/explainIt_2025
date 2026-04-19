@@ -26,3 +26,13 @@
 - `server` — backend with Nest.js with PrismaORM (PostgreSQL) and GraphQL (Apollo Server)
 — `nginx` — reverse proxy
 — `infrastructure` — a tool for creating Docker-compose files
+
+## Root folder structure
+- `face` — frontend part
+- `server` — backend with Nest.js with PrismaORM (PostgreSQL) and GraphQL (Apollo Server)
+  — `nginx` — reverse proxy
+  — `infrastructure` — a tool for creating Docker-compose files
+
+## Запуск приложения
+Все части приложения находятся в отдельных контейнерах. Для запуска есть команда:
+```docker compose -f docker-compose.local.dev.yml --env-file .env.localdev up --build```
