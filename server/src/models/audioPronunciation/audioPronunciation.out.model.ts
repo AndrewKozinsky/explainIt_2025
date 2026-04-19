@@ -1,19 +1,16 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql'
 
 @ObjectType()
-export class AudioPronunciationOutModel {
+export class UniversalAudioPronunciationOutModel {
 	@Field(() => Int)
 	id: number
 
 	@Field(() => Int)
-	wordId: number
-
-	@Field(() => Int)
-	voiceId: number
+	universalPhraseId: number
 
 	@Field(() => String)
 	audioUrl: string
 
 	@Field(() => Int)
-	duration: number
+	durationMs: number
 }

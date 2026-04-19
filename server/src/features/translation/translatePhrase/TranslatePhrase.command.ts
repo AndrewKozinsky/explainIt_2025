@@ -1,23 +1,32 @@
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { SentencePhraseTranslationRepository } from 'repo/sentencePhraseTranslation.repository'
-import { DeepSeekTokenUsageBalanceChargeCommand } from 'features/payment/DeepSeekTokenUsageBalanceCharge.command'
+import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
+import { OpenAIModels } from 'types/openAIModels'
+import {
+	PhraseTranslationProvider,
+	TranslationProviderName,
+	TranslationProviderUsage,
+} from 'features/translation/translateCommon/TranslationProvider.types'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { CurrentSubscriptionServiceModel } from 'models/auth/auth.service.model'
+import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { SentencePhraseTranslationServiceModel } from 'models/sentenceTranslation/sentencePhraseTranslation.service.model'
 import { LanguageCode } from 'prisma/generated/enums'
-import { DailyTranslationLimitService } from '../translate/DailyTranslationLimit.service'
+import { SentenceTranslationAccessService } from '../translateCommon/SentenceTranslationAccess.service'
+import { TranslateWithChatGPT } from '../translateCommon/TranslateWithChatGPT.service'
+import { TranslateWithDeepSeek } from '../translateCommon/TranslateWithDeepSeek.service'
+import { TranslateWithGemini } from '../translateCommon/TranslateWithGemini.service'
 import {
-	SentenceTranslationAccess,
-	SentenceTranslationAccessService,
-} from '../translate/SentenceTranslationAccess.service'
+	chargeAfterTranslationIfNeeded,
+	ensureCanChargeBalanceOrThrow,
+	ensureModeIsAllowedOrThrow,
+} from '../translateCommon/TranslationHandler.utils'
+import { buildPhraseTranslationPrompt } from './buildPhraseTranslationPrompt'
 import { parsePhraseTranslationResult } from './parsePhraseTranslationResult'
-import { TranslatePhraseWithDeepSeek } from './TranslatePhraseWithDeepSeek.service'
 
 export type TranslatePhraseInput = {
 	userId: null | number
-	currentSubscription?: null | CurrentSubscriptionServiceModel
 	sentenceId: number
 	text: string
 	selectedWord: string
@@ -41,9 +50,12 @@ export class TranslatePhraseCommand implements ICommand {
 export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCommand> {
 	constructor(
 		private sentenceTranslationAccessService: SentenceTranslationAccessService,
-		private dailyTranslationLimitService: DailyTranslationLimitService,
+		private userBalanceTransactionRepository: UserBalanceTransactionRepository,
+		private mainConfigService: MainConfigService,
 		private sentencePhraseTranslationRepository: SentencePhraseTranslationRepository,
-		private translatePhraseWithDeepSeek: TranslatePhraseWithDeepSeek,
+		private translateWithDeepSeek: TranslateWithDeepSeek,
+		private translateWithChatGPT: TranslateWithChatGPT,
+		private translateWithGemini: TranslateWithGemini,
 		private commandBus: CommandBus,
 	) {}
 
@@ -52,41 +64,45 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 
 		const access = await this.sentenceTranslationAccessService.resolveAccessOrThrow({
 			userId: command.input.userId,
-			currentSubscription: command.input.currentSubscription ?? null,
 			sentenceId: command.input.sentenceId,
 		})
 
-		await this.ensureModeIsAllowedOrThrow({
+		await ensureModeIsAllowedOrThrow({
 			mode: access.createMode,
 			deniedReason: access.createDeniedReason,
 			actionType: 'create',
 		})
 
-		if (access.createMode === 'dailyLimit') {
-			await this.consumeDailyLimitOrThrow({
-				userId: command.input.userId,
-				sentenceId: command.input.sentenceId,
-			})
-		}
+		await ensureCanChargeBalanceOrThrow({
+			access,
+			userId: command.input.userId,
+			userBalanceTransactionRepository: this.userBalanceTransactionRepository,
+			mainConfigService: this.mainConfigService,
+		})
 
 		const pendingPhrase = await this.ensurePendingPhraseRow(command.input)
 
 		const sourceLanguageCode = command.input.sourceLanguageCode ?? 'en'
 		const targetLanguageCode = command.input.targetLanguageCode ?? 'ru'
 
+		const provider = this.getTranslationProvider()
+
 		try {
-			const generated = await this.translatePhraseWithDeepSeek.translatePhrase({
-				text: command.input.text,
-				selectedWord: command.input.selectedWord,
-				selectedWordStartOffset: command.input.selectedWordStartOffset,
-				selectedWordEndOffset: command.input.selectedWordEndOffset,
-				sourceLanguageCode,
-				targetLanguageCode,
-				bookName: command.input.bookName,
-				bookAuthor: command.input.bookAuthor,
-				videoName: command.input.videoName,
-				videoYear: command.input.videoYear,
-			})
+			const generated = await provider.translatePhrase(
+				{
+					text: command.input.text,
+					selectedWord: command.input.selectedWord,
+					selectedWordStartOffset: command.input.selectedWordStartOffset,
+					selectedWordEndOffset: command.input.selectedWordEndOffset,
+					sourceLanguageCode,
+					targetLanguageCode,
+					bookName: command.input.bookName,
+					bookAuthor: command.input.bookAuthor,
+					videoName: command.input.videoName,
+					videoYear: command.input.videoYear,
+				},
+				buildPhraseTranslationPrompt,
+			)
 
 			const parsed = parsePhraseTranslationResult(generated.message)
 			if (!parsed || !parsed.translate) {
@@ -111,15 +127,12 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 				errorMessage: null,
 			})
 
-			if (command.input.userId && access.createMode === 'subscriptionBalance') {
-				await this.commandBus.execute(
-					new DeepSeekTokenUsageBalanceChargeCommand({
-						userId: command.input.userId,
-						inputTokens: generated.inputTokens,
-						outputTokens: generated.outputTokens,
-					}),
-				)
-			}
+			await chargeAfterTranslationIfNeeded({
+				userId: command.input.userId,
+				chargeAfterTranslation: access.createMode === 'chargeBalance',
+				usage: this.buildUsage(provider.providerName, generated.inputTokens, generated.outputTokens),
+				commandBus: this.commandBus,
+			})
 
 			return savedPhrase
 		} catch (error) {
@@ -192,57 +205,43 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 		}
 	}
 
-	private async ensureModeIsAllowedOrThrow(input: {
-		mode: SentenceTranslationAccess['createMode']
-		deniedReason?: SentenceTranslationAccess['createDeniedReason']
-		actionType: 'create' | 'read'
-	}) {
-		if (input.mode !== 'forbidden') {
-			return
+	private getTranslationProvider(): PhraseTranslationProvider {
+		const providerName: TranslationProviderName = 'gemini'
+
+		const providers: Record<TranslationProviderName, PhraseTranslationProvider> = {
+			deepseek: this.translateWithDeepSeek,
+			chatgpt: this.translateWithChatGPT,
+			gemini: this.translateWithGemini,
 		}
 
-		if (input.deniedReason === 'userIsNotOwner') {
-			throw new CustomGraphQLError(
-				errorMessage.sentenceTranslation.userCannotAccessForeignPrivateMedia,
-				ErrorCode.Forbidden_403,
-			)
-		}
-
-		if (input.deniedReason === 'privateTranslationRequiresStandardBalance') {
-			throw new CustomGraphQLError(
-				errorMessage.sentenceTranslation.privateTranslationRequiresStandardSubscriptionBalance,
-				ErrorCode.Forbidden_403,
-			)
-		}
-
-		if (input.actionType === 'read') {
-			throw new CustomGraphQLError(
-				errorMessage.sentenceTranslation.anonymousUserCannotTranslate,
-				ErrorCode.Unauthorized_401,
-			)
-		}
-
-		throw new CustomGraphQLError(
-			errorMessage.sentenceTranslation.anonymousUserCannotTranslate,
-			ErrorCode.Unauthorized_401,
-		)
+		return providers[providerName]
 	}
 
-	private async consumeDailyLimitOrThrow(input: { userId: null | number; sentenceId: number }) {
-		if (!input.userId) {
-			throw new CustomGraphQLError(
-				errorMessage.sentenceTranslation.anonymousUserCannotTranslate,
-				ErrorCode.Unauthorized_401,
-			)
-		}
-
-		const limitResult = await this.dailyTranslationLimitService.tryCountSentenceToday({
-			userId: input.userId,
-			sentenceId: input.sentenceId,
-		})
-
-		if (!limitResult.allowed) {
-			throw new CustomGraphQLError(errorMessage.sentenceTranslation.dailyLimitReached, ErrorCode.Forbidden_403)
+	private buildUsage(
+		providerName: TranslationProviderName,
+		inputTokens: number,
+		outputTokens: number,
+	): TranslationProviderUsage {
+		if (providerName === 'deepseek') {
+			return {
+				provider: 'deepseek',
+				inputTokens,
+				outputTokens,
+			}
+		} else if (providerName === 'chatgpt') {
+			return {
+				provider: 'chatgpt',
+				inputTokens,
+				outputTokens,
+				model: OpenAIModels.Standard,
+				lowPriority: true,
+			}
+		} else {
+			return {
+				provider: 'gemini',
+				inputTokens,
+				outputTokens,
+			}
 		}
 	}
 }

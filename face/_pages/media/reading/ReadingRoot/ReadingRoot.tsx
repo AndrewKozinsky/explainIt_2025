@@ -5,6 +5,7 @@ import DetailsBlock from '_pages/media/detailsBlock/DetailsBlock/DetailsBlock'
 import ChapterContent from '../ChapterContent/ChapterContent'
 import ReadingBottomNavigation from '../ReadingBottomNavigation/ReadingBottomNavigation'
 import ReadingBreadCrumbs from '../ReadingBreadCrumbs/ReadingBreadCrumbs'
+import ReadingChapterNumber from '../ReadingChapterNumber/ReadingChapterNumber'
 import ReadingHeader from '../ReadingHeader/ReadingHeader'
 import { useClearReadingStoreOnUnmount } from './fn/clearStoreOnUnmount'
 import { useGetFetchedDataStatuses } from './fn/getFetchedDataStatuses'
@@ -23,7 +24,10 @@ function ReadingRoot() {
 			<main className='reading-root'>
 				<div className='reading-root__top'>
 					<ReadingBreadCrumbs />
-					<ReadingHeader />
+					<div className='reading-root__header-row'>
+						<ReadingChapterNumber />
+						<ReadingHeader />
+					</div>
 				</div>
 				<div className='reading-root__content'>
 					<div className='reading-root__text'>

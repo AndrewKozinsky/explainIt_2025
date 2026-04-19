@@ -1,7 +1,7 @@
 import { Field, ObjectType } from '@nestjs/graphql'
 
 @ObjectType()
-export class BuySubscriptionWithYooKassaOutModel {
+export class CreateYooKassaPaymentOutModel {
 	@Field(() => String)
 	confirmationUrl: string
 }

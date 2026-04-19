@@ -119,12 +119,18 @@ export class MainConfigService {
 			nlp: {
 				containerUrl: `http://explainnlp${enVariables.mode}:8000`,
 			},
-			// Сколько переводов может сделать пользователь в день без тарифа позволяющего переводить любое количество материалов в пределах баланса
-			dailyTranslationsLimit: 3,
+			billing: {
+				// Наценка за каждый перевод пользователя
+				translationChargeMarkupInKopecks: 2,
+			},
 			// Grafana Loki
 			loki: enVariables.loki,
-			elevenLabs: {
-				apiKey: enVariables.elevenLabs.apiKey,
+			googleTts: {
+				serviceAccountCredentials: JSON.parse(
+					Buffer.from(enVariables.googleTts.serviceAccountJson, 'base64').toString('utf-8'),
+				),
+				// Google TTS Standard: ~$4 per 1M chars = 0.00044 руб/символ = 0.044 копейки/символ
+				pricePerCharInKopecks: 0.044 * 1.3, // стоимость * наценка
 			},
 		}
 	}
@@ -200,8 +206,8 @@ export class MainConfigService {
 				userId: this.configService.get<string>('LOKI_USER_ID') as string,
 				apiKey: this.configService.get<string>('LOKI_API_KEY') as string,
 			},
-			elevenLabs: {
-				apiKey: this.configService.get<string>('ELEVEN_LABS_API_KEY') as string,
+			googleTts: {
+				serviceAccountJson: this.configService.get<string>('GOOGLE_AI_SERVICE_ACCOUNT_JSON') as string,
 			},
 		}
 	}

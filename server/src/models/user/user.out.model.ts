@@ -1,5 +1,4 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql'
-import { CurrentSubscriptionOutModel } from '../subscription/currentSubscription.out.model'
 
 @ObjectType()
 export class UserOutModel {
@@ -12,6 +11,6 @@ export class UserOutModel {
 	@Field(() => Boolean)
 	isUserConfirmed: boolean
 
-	@Field(() => CurrentSubscriptionOutModel, { nullable: true })
-	currentSubscription?: CurrentSubscriptionOutModel | null
+	@Field(() => Int)
+	balance: number
 }

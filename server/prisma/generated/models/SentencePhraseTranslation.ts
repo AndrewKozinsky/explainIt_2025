@@ -354,7 +354,7 @@ export type SentencePhraseTranslationCreateInput = {
   error_message?: string | null
   created_at?: Date | string
   updated_at?: Date | string
-  sentence: Prisma.SentenceCreateNestedOneWithoutSentencePhraseTranslationsInput
+  sentence: Prisma.SentenceCreateNestedOneWithoutSentencePhraseTranslationInput
 }
 
 export type SentencePhraseTranslationUncheckedCreateInput = {
@@ -381,7 +381,7 @@ export type SentencePhraseTranslationUpdateInput = {
   error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  sentence?: Prisma.SentenceUpdateOneRequiredWithoutSentencePhraseTranslationsNestedInput
+  sentence?: Prisma.SentenceUpdateOneRequiredWithoutSentencePhraseTranslationNestedInput
 }
 
 export type SentencePhraseTranslationUncheckedUpdateInput = {

@@ -68,7 +68,7 @@ export default function EditPrivateVideoForm() {
 						}}
 					/>
 					<FileNameAndDeleteFileButton />
-					<FormVideoInput />
+					<VideoDropzone />
 					<LanguagesRadioGroup
 						value={currentLanguageCode ?? undefined}
 						disabled={isFormDisabled}
@@ -88,20 +88,5 @@ export default function EditPrivateVideoForm() {
 				</FormFieldsWrapper>
 			</MediaFormSurface>
 		</form>
-	)
-}
-
-function FormVideoInput() {
-	const user = useUserStore((s) => s.user)
-	const canUploadPrivateVideo = user?.currentSubscription?.tariffCode?.startsWith('standard')
-
-	if (canUploadPrivateVideo) {
-		return <VideoDropzone />
-	}
-
-	return (
-		<p>
-			Перейдите на <Link href={pageUrls.tariffs.path}>Стандартный тариф</Link> чтобы загружать видео.
-		</p>
 	)
 }

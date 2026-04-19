@@ -385,7 +385,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 export const ModelName = {
   User: 'User',
-  SubscriptionBalanceTransaction: 'SubscriptionBalanceTransaction',
+  UserBalanceTransaction: 'UserBalanceTransaction',
   Payment: 'Payment',
   BookPrivate: 'BookPrivate',
   BookPublic: 'BookPublic',
@@ -397,10 +397,9 @@ export const ModelName = {
   SentencePhraseTranslation: 'SentencePhraseTranslation',
   Subtitle: 'Subtitle',
   SubtitleSentenceInit: 'SubtitleSentenceInit',
-  Word: 'Word',
-  Transcription: 'Transcription',
-  Tariff: 'Tariff',
-  UserSubscription: 'UserSubscription'
+  UniversalPhrase: 'UniversalPhrase',
+  UniversalTranscription: 'UniversalTranscription',
+  UniversalAudioPronunciation: 'UniversalAudioPronunciation'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -416,7 +415,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "subscriptionBalanceTransaction" | "payment" | "bookPrivate" | "bookPublic" | "bookChapter" | "videoPrivate" | "videoPublic" | "sentence" | "sentenceTranslation" | "sentencePhraseTranslation" | "subtitle" | "subtitleSentenceInit" | "word" | "transcription" | "tariff" | "userSubscription"
+    modelProps: "user" | "userBalanceTransaction" | "payment" | "bookPrivate" | "bookPublic" | "bookChapter" | "videoPrivate" | "videoPublic" | "sentence" | "sentenceTranslation" | "sentencePhraseTranslation" | "subtitle" | "subtitleSentenceInit" | "universalPhrase" | "universalTranscription" | "universalAudioPronunciation"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -494,77 +493,77 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    SubscriptionBalanceTransaction: {
-      payload: Prisma.$SubscriptionBalanceTransactionPayload<ExtArgs>
-      fields: Prisma.SubscriptionBalanceTransactionFieldRefs
+    UserBalanceTransaction: {
+      payload: Prisma.$UserBalanceTransactionPayload<ExtArgs>
+      fields: Prisma.UserBalanceTransactionFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.SubscriptionBalanceTransactionFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionBalanceTransactionPayload> | null
+          args: Prisma.UserBalanceTransactionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserBalanceTransactionPayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.SubscriptionBalanceTransactionFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionBalanceTransactionPayload>
+          args: Prisma.UserBalanceTransactionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserBalanceTransactionPayload>
         }
         findFirst: {
-          args: Prisma.SubscriptionBalanceTransactionFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionBalanceTransactionPayload> | null
+          args: Prisma.UserBalanceTransactionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserBalanceTransactionPayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.SubscriptionBalanceTransactionFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionBalanceTransactionPayload>
+          args: Prisma.UserBalanceTransactionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserBalanceTransactionPayload>
         }
         findMany: {
-          args: Prisma.SubscriptionBalanceTransactionFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionBalanceTransactionPayload>[]
+          args: Prisma.UserBalanceTransactionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserBalanceTransactionPayload>[]
         }
         create: {
-          args: Prisma.SubscriptionBalanceTransactionCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionBalanceTransactionPayload>
+          args: Prisma.UserBalanceTransactionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserBalanceTransactionPayload>
         }
         createMany: {
-          args: Prisma.SubscriptionBalanceTransactionCreateManyArgs<ExtArgs>
+          args: Prisma.UserBalanceTransactionCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.SubscriptionBalanceTransactionCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionBalanceTransactionPayload>[]
+          args: Prisma.UserBalanceTransactionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserBalanceTransactionPayload>[]
         }
         delete: {
-          args: Prisma.SubscriptionBalanceTransactionDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionBalanceTransactionPayload>
+          args: Prisma.UserBalanceTransactionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserBalanceTransactionPayload>
         }
         update: {
-          args: Prisma.SubscriptionBalanceTransactionUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionBalanceTransactionPayload>
+          args: Prisma.UserBalanceTransactionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserBalanceTransactionPayload>
         }
         deleteMany: {
-          args: Prisma.SubscriptionBalanceTransactionDeleteManyArgs<ExtArgs>
+          args: Prisma.UserBalanceTransactionDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.SubscriptionBalanceTransactionUpdateManyArgs<ExtArgs>
+          args: Prisma.UserBalanceTransactionUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.SubscriptionBalanceTransactionUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionBalanceTransactionPayload>[]
+          args: Prisma.UserBalanceTransactionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserBalanceTransactionPayload>[]
         }
         upsert: {
-          args: Prisma.SubscriptionBalanceTransactionUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionBalanceTransactionPayload>
+          args: Prisma.UserBalanceTransactionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserBalanceTransactionPayload>
         }
         aggregate: {
-          args: Prisma.SubscriptionBalanceTransactionAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateSubscriptionBalanceTransaction>
+          args: Prisma.UserBalanceTransactionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateUserBalanceTransaction>
         }
         groupBy: {
-          args: Prisma.SubscriptionBalanceTransactionGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.SubscriptionBalanceTransactionGroupByOutputType>[]
+          args: Prisma.UserBalanceTransactionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UserBalanceTransactionGroupByOutputType>[]
         }
         count: {
-          args: Prisma.SubscriptionBalanceTransactionCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.SubscriptionBalanceTransactionCountAggregateOutputType> | number
+          args: Prisma.UserBalanceTransactionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UserBalanceTransactionCountAggregateOutputType> | number
         }
       }
     }
@@ -1382,299 +1381,225 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    Word: {
-      payload: Prisma.$WordPayload<ExtArgs>
-      fields: Prisma.WordFieldRefs
+    UniversalPhrase: {
+      payload: Prisma.$UniversalPhrasePayload<ExtArgs>
+      fields: Prisma.UniversalPhraseFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.WordFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$WordPayload> | null
+          args: Prisma.UniversalPhraseFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalPhrasePayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.WordFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$WordPayload>
+          args: Prisma.UniversalPhraseFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalPhrasePayload>
         }
         findFirst: {
-          args: Prisma.WordFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$WordPayload> | null
+          args: Prisma.UniversalPhraseFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalPhrasePayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.WordFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$WordPayload>
+          args: Prisma.UniversalPhraseFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalPhrasePayload>
         }
         findMany: {
-          args: Prisma.WordFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$WordPayload>[]
+          args: Prisma.UniversalPhraseFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalPhrasePayload>[]
         }
         create: {
-          args: Prisma.WordCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$WordPayload>
+          args: Prisma.UniversalPhraseCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalPhrasePayload>
         }
         createMany: {
-          args: Prisma.WordCreateManyArgs<ExtArgs>
+          args: Prisma.UniversalPhraseCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.WordCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$WordPayload>[]
+          args: Prisma.UniversalPhraseCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalPhrasePayload>[]
         }
         delete: {
-          args: Prisma.WordDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$WordPayload>
+          args: Prisma.UniversalPhraseDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalPhrasePayload>
         }
         update: {
-          args: Prisma.WordUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$WordPayload>
+          args: Prisma.UniversalPhraseUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalPhrasePayload>
         }
         deleteMany: {
-          args: Prisma.WordDeleteManyArgs<ExtArgs>
+          args: Prisma.UniversalPhraseDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.WordUpdateManyArgs<ExtArgs>
+          args: Prisma.UniversalPhraseUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.WordUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$WordPayload>[]
+          args: Prisma.UniversalPhraseUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalPhrasePayload>[]
         }
         upsert: {
-          args: Prisma.WordUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$WordPayload>
+          args: Prisma.UniversalPhraseUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalPhrasePayload>
         }
         aggregate: {
-          args: Prisma.WordAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateWord>
+          args: Prisma.UniversalPhraseAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateUniversalPhrase>
         }
         groupBy: {
-          args: Prisma.WordGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.WordGroupByOutputType>[]
+          args: Prisma.UniversalPhraseGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UniversalPhraseGroupByOutputType>[]
         }
         count: {
-          args: Prisma.WordCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.WordCountAggregateOutputType> | number
+          args: Prisma.UniversalPhraseCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UniversalPhraseCountAggregateOutputType> | number
         }
       }
     }
-    Transcription: {
-      payload: Prisma.$TranscriptionPayload<ExtArgs>
-      fields: Prisma.TranscriptionFieldRefs
+    UniversalTranscription: {
+      payload: Prisma.$UniversalTranscriptionPayload<ExtArgs>
+      fields: Prisma.UniversalTranscriptionFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.TranscriptionFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TranscriptionPayload> | null
+          args: Prisma.UniversalTranscriptionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalTranscriptionPayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.TranscriptionFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TranscriptionPayload>
+          args: Prisma.UniversalTranscriptionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalTranscriptionPayload>
         }
         findFirst: {
-          args: Prisma.TranscriptionFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TranscriptionPayload> | null
+          args: Prisma.UniversalTranscriptionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalTranscriptionPayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.TranscriptionFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TranscriptionPayload>
+          args: Prisma.UniversalTranscriptionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalTranscriptionPayload>
         }
         findMany: {
-          args: Prisma.TranscriptionFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TranscriptionPayload>[]
+          args: Prisma.UniversalTranscriptionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalTranscriptionPayload>[]
         }
         create: {
-          args: Prisma.TranscriptionCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TranscriptionPayload>
+          args: Prisma.UniversalTranscriptionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalTranscriptionPayload>
         }
         createMany: {
-          args: Prisma.TranscriptionCreateManyArgs<ExtArgs>
+          args: Prisma.UniversalTranscriptionCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.TranscriptionCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TranscriptionPayload>[]
+          args: Prisma.UniversalTranscriptionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalTranscriptionPayload>[]
         }
         delete: {
-          args: Prisma.TranscriptionDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TranscriptionPayload>
+          args: Prisma.UniversalTranscriptionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalTranscriptionPayload>
         }
         update: {
-          args: Prisma.TranscriptionUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TranscriptionPayload>
+          args: Prisma.UniversalTranscriptionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalTranscriptionPayload>
         }
         deleteMany: {
-          args: Prisma.TranscriptionDeleteManyArgs<ExtArgs>
+          args: Prisma.UniversalTranscriptionDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.TranscriptionUpdateManyArgs<ExtArgs>
+          args: Prisma.UniversalTranscriptionUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.TranscriptionUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TranscriptionPayload>[]
+          args: Prisma.UniversalTranscriptionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalTranscriptionPayload>[]
         }
         upsert: {
-          args: Prisma.TranscriptionUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TranscriptionPayload>
+          args: Prisma.UniversalTranscriptionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalTranscriptionPayload>
         }
         aggregate: {
-          args: Prisma.TranscriptionAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateTranscription>
+          args: Prisma.UniversalTranscriptionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateUniversalTranscription>
         }
         groupBy: {
-          args: Prisma.TranscriptionGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.TranscriptionGroupByOutputType>[]
+          args: Prisma.UniversalTranscriptionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UniversalTranscriptionGroupByOutputType>[]
         }
         count: {
-          args: Prisma.TranscriptionCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.TranscriptionCountAggregateOutputType> | number
+          args: Prisma.UniversalTranscriptionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UniversalTranscriptionCountAggregateOutputType> | number
         }
       }
     }
-    Tariff: {
-      payload: Prisma.$TariffPayload<ExtArgs>
-      fields: Prisma.TariffFieldRefs
+    UniversalAudioPronunciation: {
+      payload: Prisma.$UniversalAudioPronunciationPayload<ExtArgs>
+      fields: Prisma.UniversalAudioPronunciationFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.TariffFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TariffPayload> | null
+          args: Prisma.UniversalAudioPronunciationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalAudioPronunciationPayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.TariffFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TariffPayload>
+          args: Prisma.UniversalAudioPronunciationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalAudioPronunciationPayload>
         }
         findFirst: {
-          args: Prisma.TariffFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TariffPayload> | null
+          args: Prisma.UniversalAudioPronunciationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalAudioPronunciationPayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.TariffFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TariffPayload>
+          args: Prisma.UniversalAudioPronunciationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalAudioPronunciationPayload>
         }
         findMany: {
-          args: Prisma.TariffFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TariffPayload>[]
+          args: Prisma.UniversalAudioPronunciationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalAudioPronunciationPayload>[]
         }
         create: {
-          args: Prisma.TariffCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TariffPayload>
+          args: Prisma.UniversalAudioPronunciationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalAudioPronunciationPayload>
         }
         createMany: {
-          args: Prisma.TariffCreateManyArgs<ExtArgs>
+          args: Prisma.UniversalAudioPronunciationCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.TariffCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TariffPayload>[]
+          args: Prisma.UniversalAudioPronunciationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalAudioPronunciationPayload>[]
         }
         delete: {
-          args: Prisma.TariffDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TariffPayload>
+          args: Prisma.UniversalAudioPronunciationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalAudioPronunciationPayload>
         }
         update: {
-          args: Prisma.TariffUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TariffPayload>
+          args: Prisma.UniversalAudioPronunciationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalAudioPronunciationPayload>
         }
         deleteMany: {
-          args: Prisma.TariffDeleteManyArgs<ExtArgs>
+          args: Prisma.UniversalAudioPronunciationDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.TariffUpdateManyArgs<ExtArgs>
+          args: Prisma.UniversalAudioPronunciationUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.TariffUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TariffPayload>[]
+          args: Prisma.UniversalAudioPronunciationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalAudioPronunciationPayload>[]
         }
         upsert: {
-          args: Prisma.TariffUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TariffPayload>
+          args: Prisma.UniversalAudioPronunciationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalAudioPronunciationPayload>
         }
         aggregate: {
-          args: Prisma.TariffAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateTariff>
+          args: Prisma.UniversalAudioPronunciationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateUniversalAudioPronunciation>
         }
         groupBy: {
-          args: Prisma.TariffGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.TariffGroupByOutputType>[]
+          args: Prisma.UniversalAudioPronunciationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UniversalAudioPronunciationGroupByOutputType>[]
         }
         count: {
-          args: Prisma.TariffCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.TariffCountAggregateOutputType> | number
-        }
-      }
-    }
-    UserSubscription: {
-      payload: Prisma.$UserSubscriptionPayload<ExtArgs>
-      fields: Prisma.UserSubscriptionFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.UserSubscriptionFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserSubscriptionPayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.UserSubscriptionFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserSubscriptionPayload>
-        }
-        findFirst: {
-          args: Prisma.UserSubscriptionFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserSubscriptionPayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.UserSubscriptionFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserSubscriptionPayload>
-        }
-        findMany: {
-          args: Prisma.UserSubscriptionFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserSubscriptionPayload>[]
-        }
-        create: {
-          args: Prisma.UserSubscriptionCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserSubscriptionPayload>
-        }
-        createMany: {
-          args: Prisma.UserSubscriptionCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.UserSubscriptionCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserSubscriptionPayload>[]
-        }
-        delete: {
-          args: Prisma.UserSubscriptionDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserSubscriptionPayload>
-        }
-        update: {
-          args: Prisma.UserSubscriptionUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserSubscriptionPayload>
-        }
-        deleteMany: {
-          args: Prisma.UserSubscriptionDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.UserSubscriptionUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.UserSubscriptionUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserSubscriptionPayload>[]
-        }
-        upsert: {
-          args: Prisma.UserSubscriptionUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserSubscriptionPayload>
-        }
-        aggregate: {
-          args: Prisma.UserSubscriptionAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateUserSubscription>
-        }
-        groupBy: {
-          args: Prisma.UserSubscriptionGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.UserSubscriptionGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.UserSubscriptionCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.UserSubscriptionCountAggregateOutputType> | number
+          args: Prisma.UniversalAudioPronunciationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UniversalAudioPronunciationCountAggregateOutputType> | number
         }
       }
     }
@@ -1725,22 +1650,23 @@ export const UserScalarFieldEnum = {
   email_confirmation_code_expiration_date: 'email_confirmation_code_expiration_date',
   is_email_confirmed: 'is_email_confirmed',
   is_user_confirmed: 'is_user_confirmed',
+  balance: 'balance',
   created_at: 'created_at'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-export const SubscriptionBalanceTransactionScalarFieldEnum = {
+export const UserBalanceTransactionScalarFieldEnum = {
   id: 'id',
-  user_subscription_id: 'user_subscription_id',
+  user_id: 'user_id',
   type: 'type',
   amount: 'amount',
   payment_id: 'payment_id',
   created_at: 'created_at'
 } as const
 
-export type SubscriptionBalanceTransactionScalarFieldEnum = (typeof SubscriptionBalanceTransactionScalarFieldEnum)[keyof typeof SubscriptionBalanceTransactionScalarFieldEnum]
+export type UserBalanceTransactionScalarFieldEnum = (typeof UserBalanceTransactionScalarFieldEnum)[keyof typeof UserBalanceTransactionScalarFieldEnum]
 
 
 export const PaymentScalarFieldEnum = {
@@ -1908,53 +1834,34 @@ export const SubtitleSentenceInitScalarFieldEnum = {
 export type SubtitleSentenceInitScalarFieldEnum = (typeof SubtitleSentenceInitScalarFieldEnum)[keyof typeof SubtitleSentenceInitScalarFieldEnum]
 
 
-export const WordScalarFieldEnum = {
+export const UniversalPhraseScalarFieldEnum = {
   id: 'id',
-  word: 'word',
+  phrase: 'phrase',
   language_code: 'language_code'
 } as const
 
-export type WordScalarFieldEnum = (typeof WordScalarFieldEnum)[keyof typeof WordScalarFieldEnum]
+export type UniversalPhraseScalarFieldEnum = (typeof UniversalPhraseScalarFieldEnum)[keyof typeof UniversalPhraseScalarFieldEnum]
 
 
-export const TranscriptionScalarFieldEnum = {
+export const UniversalTranscriptionScalarFieldEnum = {
   id: 'id',
-  word_id: 'word_id',
+  universal_phrase_id: 'universal_phrase_id',
   ipa: 'ipa',
   pinyin: 'pinyin'
 } as const
 
-export type TranscriptionScalarFieldEnum = (typeof TranscriptionScalarFieldEnum)[keyof typeof TranscriptionScalarFieldEnum]
+export type UniversalTranscriptionScalarFieldEnum = (typeof UniversalTranscriptionScalarFieldEnum)[keyof typeof UniversalTranscriptionScalarFieldEnum]
 
 
-export const TariffScalarFieldEnum = {
+export const UniversalAudioPronunciationScalarFieldEnum = {
   id: 'id',
-  code: 'code',
-  name: 'name',
-  price: 'price',
-  included_balance: 'included_balance',
-  included_file_storage_mb: 'included_file_storage_mb',
-  duration_days: 'duration_days',
+  universal_phrase_id: 'universal_phrase_id',
+  s3_key: 's3_key',
+  duration_ms: 'duration_ms',
   created_at: 'created_at'
 } as const
 
-export type TariffScalarFieldEnum = (typeof TariffScalarFieldEnum)[keyof typeof TariffScalarFieldEnum]
-
-
-export const UserSubscriptionScalarFieldEnum = {
-  id: 'id',
-  user_id: 'user_id',
-  tariff_id: 'tariff_id',
-  price_paid: 'price_paid',
-  balance: 'balance',
-  included_file_storage_mb: 'included_file_storage_mb',
-  starts_at: 'starts_at',
-  ends_at: 'ends_at',
-  payment_id: 'payment_id',
-  created_at: 'created_at'
-} as const
-
-export type UserSubscriptionScalarFieldEnum = (typeof UserSubscriptionScalarFieldEnum)[keyof typeof UserSubscriptionScalarFieldEnum]
+export type UniversalAudioPronunciationScalarFieldEnum = (typeof UniversalAudioPronunciationScalarFieldEnum)[keyof typeof UniversalAudioPronunciationScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -2243,7 +2150,7 @@ export type PrismaClientOptions = ({
 }
 export type GlobalOmitConfig = {
   user?: Prisma.UserOmit
-  subscriptionBalanceTransaction?: Prisma.SubscriptionBalanceTransactionOmit
+  userBalanceTransaction?: Prisma.UserBalanceTransactionOmit
   payment?: Prisma.PaymentOmit
   bookPrivate?: Prisma.BookPrivateOmit
   bookPublic?: Prisma.BookPublicOmit
@@ -2255,10 +2162,9 @@ export type GlobalOmitConfig = {
   sentencePhraseTranslation?: Prisma.SentencePhraseTranslationOmit
   subtitle?: Prisma.SubtitleOmit
   subtitleSentenceInit?: Prisma.SubtitleSentenceInitOmit
-  word?: Prisma.WordOmit
-  transcription?: Prisma.TranscriptionOmit
-  tariff?: Prisma.TariffOmit
-  userSubscription?: Prisma.UserSubscriptionOmit
+  universalPhrase?: Prisma.UniversalPhraseOmit
+  universalTranscription?: Prisma.UniversalTranscriptionOmit
+  universalAudioPronunciation?: Prisma.UniversalAudioPronunciationOmit
 }
 
 /* Types for Logging */

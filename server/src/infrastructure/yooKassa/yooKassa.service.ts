@@ -6,12 +6,11 @@ import { ErrorCode } from '../exceptions/errorCode'
 import { errorMessage } from '../exceptions/errorMessage'
 import { MainConfigService } from '../mainConfig/mainConfig.service'
 
-export type YooKassaPaymentPurpose = 'SUBSCRIPTION'
+export type YooKassaPaymentPurpose = 'TOP_UP_BALANCE'
 
 export type YooKassaPaymentMetadata = {
 	purpose: YooKassaPaymentPurpose
 	userId: number
-	tariffId?: number
 }
 
 @Injectable()
@@ -34,7 +33,7 @@ export class YooKassaService {
 		},
 	) {
 		const fixedAmount = amount / 100
-		const description = dto?.description ?? 'Покупка подписки'
+		const description = dto?.description ?? 'Пополнение баланса'
 		const receiptItemDescription = dto?.receiptItemDescription ?? description
 
 		const paymentData = {

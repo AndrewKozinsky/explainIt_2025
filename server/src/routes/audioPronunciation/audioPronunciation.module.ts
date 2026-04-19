@@ -1,25 +1,20 @@
-// import { Module } from '@nestjs/common'
-// import { CqrsModule } from '@nestjs/cqrs'
-// import { AudioPronunciationQueryRepository } from 'repo/audioPronunciation.queryRepository'
-// import { AudioPronunciationRepository } from 'repo/audioPronunciation.repository'
-// import { VoiceRepository } from 'repo/voice.repository'
-// import { WordQueryRepository } from 'repo/word.queryRepository'
-// import { PrismaService } from 'db/prisma.service'
-// import { CreateAudioPronunciationHandler } from 'features/audioPronunciation/CreateAudioPronunciation.command'
-// import { AudioPronunciationResolver } from './audioPronunciation.resolver'
+import { Module } from '@nestjs/common'
+import { CqrsModule } from '@nestjs/cqrs'
+import { UniversalAudioPronunciationRepository } from 'repo/audioPronunciation.repository'
+import { UniversalPhraseQueryRepository } from 'repo/universalPhrase.queryRepository'
+import { UserRepository } from 'repo/user.repository'
+import { PrismaService } from 'db/prisma.service'
+import { CreateUniversalAudioPronunciationHandler } from 'features/universalAudioPronunciation/CreateAudioPronunciation.command'
+import { OptionalSessionUserGuard } from 'infrastructure/guards/optionalSessionUser.guard'
+import { UniversalAudioPronunciationResolver } from './audioPronunciation.resolver'
 
-/*const services = [PrismaService]
-const commandHandlers = [CreateAudioPronunciationHandler]
-const resolvers = [AudioPronunciationResolver]
-const repositories = [
-	AudioPronunciationRepository,
-	AudioPronunciationQueryRepository,
-	VoiceRepository,
-	WordQueryRepository,
-]*/
+const services = [PrismaService]
+const commandHandlers = [CreateUniversalAudioPronunciationHandler]
+const resolvers = [UniversalAudioPronunciationResolver]
+const repositories = [UniversalAudioPronunciationRepository, UniversalPhraseQueryRepository, UserRepository]
 
-/*@Module({
+@Module({
 	imports: [CqrsModule],
-	providers: [...services, ...commandHandlers, ...resolvers, ...repositories],
+	providers: [...services, ...commandHandlers, ...resolvers, ...repositories, OptionalSessionUserGuard],
 })
-export class AudioPronunciationModule {}*/
+export class AudioPronunciationModule {}

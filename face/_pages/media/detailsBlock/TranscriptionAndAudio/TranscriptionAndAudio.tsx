@@ -1,11 +1,12 @@
-import React from 'react'
 import cn from 'classnames'
 import { ErrorIcon } from 'ui/icons/ErrorIcon/ErrorIcon'
 import Spinner from 'ui/Spinner/Spinner'
 import { LanguageCode } from 'utils/utils'
-// import { AudioBlock } from './AudioBlock'
-// import { useAudioPlayer } from './fn/useAudioPlayer'
-import { useGetAudioAndTranscription } from './fn/useGetAudioAndTranscription'
+import { AudioIcon } from './AudioBlock'
+import { useAudio } from './fn/useAudio'
+import { useAudioPlayer } from './fn/useAudioPlayer'
+import { usePhrase } from './fn/usePhrase'
+import { useTranscription } from './fn/useTranscription'
 import { TranscriptionBlock } from './TranscriptionBlock'
 import './TranscriptionAndAudio.scss'
 
@@ -17,14 +18,19 @@ type TranscriptionAndAudioProps = {
 
 function TranscriptionAndAudio(props: TranscriptionAndAudioProps) {
 	const { phrase, languageCode, onWhiteBackground } = props
-	const { visible, wordStatus, transcription } = useGetAudioAndTranscription(phrase, languageCode)
-	// const { isPlaying, togglePlay } = useAudioPlayer(audio.url)
 
-	if (!visible) return null
+	const isSupported = ['en', 'fr'].includes(languageCode)
 
-	const rootClasses = cn('transcription-audio', onWhiteBackground && ' transcription-audio--white-bg')
+	const { status, phraseId, phraseTranscription, phraseAudioUrl } = usePhrase(phrase, languageCode, !isSupported)
+	const { transcription } = useTranscription({ phraseId, phraseTranscription, phrase })
+	const { audio, loadAudio } = useAudio({ phraseId, phraseAudioUrl })
+	const { isPlaying, togglePlay } = useAudioPlayer(audio, loadAudio)
 
-	if (wordStatus === 'loading') {
+	if (!isSupported) return null
+
+	const rootClasses = cn('transcription-audio', onWhiteBackground && 'transcription-audio--white-bg')
+
+	if (status === 'loading') {
 		return (
 			<span className={rootClasses}>
 				<Spinner size='extra-small' />
@@ -32,7 +38,7 @@ function TranscriptionAndAudio(props: TranscriptionAndAudioProps) {
 		)
 	}
 
-	if (wordStatus === 'error') {
+	if (status === 'error') {
 		return (
 			<span className={rootClasses}>
 				<ErrorIcon extraClass='transcription-audio__error-icon' />
@@ -41,8 +47,8 @@ function TranscriptionAndAudio(props: TranscriptionAndAudioProps) {
 	}
 
 	return (
-		<span className={rootClasses}>
-			{/*<AudioBlock audio={audio} isPlaying={isPlaying} onTogglePlay={togglePlay} />*/}
+		<span className={rootClasses} onClick={togglePlay} role='button' tabIndex={0}>
+			<AudioIcon audio={audio} isPlaying={isPlaying} />
 			<TranscriptionBlock transcription={transcription} />
 		</span>
 	)

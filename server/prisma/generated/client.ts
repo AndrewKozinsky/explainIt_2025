@@ -45,10 +45,10 @@ export { Prisma }
  */
 export type User = Prisma.UserModel
 /**
- * Model SubscriptionBalanceTransaction
+ * Model UserBalanceTransaction
  * 
  */
-export type SubscriptionBalanceTransaction = Prisma.SubscriptionBalanceTransactionModel
+export type UserBalanceTransaction = Prisma.UserBalanceTransactionModel
 /**
  * Model Payment
  * 
@@ -105,22 +105,17 @@ export type Subtitle = Prisma.SubtitleModel
  */
 export type SubtitleSentenceInit = Prisma.SubtitleSentenceInitModel
 /**
- * Model Word
+ * Model UniversalPhrase
  * 
  */
-export type Word = Prisma.WordModel
+export type UniversalPhrase = Prisma.UniversalPhraseModel
 /**
- * Model Transcription
+ * Model UniversalTranscription
  * 
  */
-export type Transcription = Prisma.TranscriptionModel
+export type UniversalTranscription = Prisma.UniversalTranscriptionModel
 /**
- * Model Tariff
+ * Model UniversalAudioPronunciation
  * 
  */
-export type Tariff = Prisma.TariffModel
-/**
- * Model UserSubscription
- * 
- */
-export type UserSubscription = Prisma.UserSubscriptionModel
+export type UniversalAudioPronunciation = Prisma.UniversalAudioPronunciationModel

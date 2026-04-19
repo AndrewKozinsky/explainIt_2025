@@ -43,8 +43,8 @@ export interface GetPhraseTranslationsBySentenceInput {
     sentenceId: number;
 }
 
-export interface GetWordInput {
-    word: string;
+export interface GetUniversalPhraseInput {
+    phrase: string;
     languageCode: string;
 }
 
@@ -71,8 +71,8 @@ export interface ResendConfirmationEmailInput {
     email: string;
 }
 
-export interface BuySubscriptionWithYooKassaInput {
-    tariffId: number;
+export interface TopUpBalanceWithYooKassaInput {
+    amountInKopecks: number;
 }
 
 export interface CreatePrivateBookInput {
@@ -162,31 +162,31 @@ export interface TranslatePhraseInput {
     videoYear?: Nullable<string>;
 }
 
-export interface CreateWordInput {
-    word: string;
+export interface CreateUniversalPhraseInput {
+    phrase: string;
     languageCode: string;
 }
 
-export interface CreateTranscriptionInput {
-    wordId: number;
+export interface CreateUniversalTranscriptionInput {
+    universalPhraseId: number;
 }
 
-export interface CurrentSubscriptionOutModel {
-    tariffId: number;
-    tariffCode: string;
-    tariffName: string;
-    pricePaid: number;
-    balance: number;
-    includedFileStorageMb: number;
-    startsAt: string;
-    endsAt: string;
+export interface CreateUniversalAudioPronunciationInput {
+    universalPhraseId: number;
+}
+
+export interface UniversalAudioPronunciationOutModel {
+    id: number;
+    universalPhraseId: number;
+    audioUrl: string;
+    durationMs: number;
 }
 
 export interface UserOutModel {
     id: number;
     email: string;
     isUserConfirmed: boolean;
-    currentSubscription?: Nullable<CurrentSubscriptionOutModel>;
+    balance: number;
 }
 
 export interface BookPrivateOutModel {
@@ -252,26 +252,8 @@ export interface LanguageOutModel {
     nameEng: string;
 }
 
-export interface BuySubscriptionWithYooKassaOutModel {
+export interface CreateYooKassaPaymentOutModel {
     confirmationUrl: string;
-}
-
-export interface TariffOutModel {
-    id: number;
-    code: string;
-    name: string;
-    price: number;
-    durationDays: number;
-    includedBalance: number;
-    includedFileStorageMb: number;
-    createdAt: DateTime;
-}
-
-export interface TranscriptionOutModel {
-    id: number;
-    wordId: number;
-    ipa?: Nullable<string>;
-    pinyin?: Nullable<string>;
 }
 
 export interface SentencePhraseTranslationExampleOutModel {
@@ -296,6 +278,21 @@ export interface SentencePhraseTranslationOutModel {
 export interface TranslateSentenceResultOutModel {
     sentenceId: number;
     translation: string;
+}
+
+export interface TranscriptionOutModel {
+    id: number;
+    universalPhraseId: number;
+    ipa?: Nullable<string>;
+    pinyin?: Nullable<string>;
+}
+
+export interface UniversalPhraseOutModel {
+    id: number;
+    phrase: string;
+    languageCode: string;
+    transcription?: Nullable<TranscriptionOutModel>;
+    audioPronunciation?: Nullable<UniversalAudioPronunciationOutModel>;
 }
 
 export interface CreateVideoPrivateOutModel {
@@ -442,13 +439,6 @@ export interface VideoPublicLiteOutModel {
     freeToUse: boolean;
 }
 
-export interface WordOutModel {
-    id: number;
-    word: string;
-    languageCode: string;
-    transcription?: Nullable<TranscriptionOutModel>;
-}
-
 export interface IQuery {
     auth_getMe(): UserOutModel | Promise<UserOutModel>;
     book_user_books(): BookPrivateOutModel[] | Promise<BookPrivateOutModel[]>;
@@ -463,8 +453,7 @@ export interface IQuery {
     translate_get_sentence_translation(input: GetSentenceTranslationInput): Nullable<TranslateSentenceResultOutModel> | Promise<Nullable<TranslateSentenceResultOutModel>>;
     translate_get_phrase_translation(input: GetPhraseTranslationInput): Nullable<SentencePhraseTranslationOutModel> | Promise<Nullable<SentencePhraseTranslationOutModel>>;
     translate_get_phrase_translations_by_sentence(input: GetPhraseTranslationsBySentenceInput): SentencePhraseTranslationOutModel[] | Promise<SentencePhraseTranslationOutModel[]>;
-    tariff_get_tariffs(): TariffOutModel[] | Promise<TariffOutModel[]>;
-    word_get(input: GetWordInput): WordOutModel | Promise<WordOutModel>;
+    universal_phrase_get(input: GetUniversalPhraseInput): UniversalPhraseOutModel | Promise<UniversalPhraseOutModel>;
     language_get_languages(): LanguageOutModel[] | Promise<LanguageOutModel[]>;
 }
 
@@ -475,7 +464,7 @@ export interface IMutation {
     auth_confirmEmail(input: ConfirmEmailInput): boolean | Promise<boolean>;
     auth_resendConfirmationEmail(input: ResendConfirmationEmailInput): boolean | Promise<boolean>;
     auth_logout(): boolean | Promise<boolean>;
-    payment_yookassa_buy_subscription(input: BuySubscriptionWithYooKassaInput): BuySubscriptionWithYooKassaOutModel | Promise<BuySubscriptionWithYooKassaOutModel>;
+    payment_yookassa_top_up_balance(input: TopUpBalanceWithYooKassaInput): CreateYooKassaPaymentOutModel | Promise<CreateYooKassaPaymentOutModel>;
     book_create(input: CreatePrivateBookInput): BookPrivateOutModel | Promise<BookPrivateOutModel>;
     book_update(input: UpdatePrivateBookInput): BookPrivateOutModel | Promise<BookPrivateOutModel>;
     book_delete(input: DeletePrivateBookInput): boolean | Promise<boolean>;
@@ -487,9 +476,9 @@ export interface IMutation {
     video_private_delete(input: DeletePrivateVideoInput): boolean | Promise<boolean>;
     translate_translate_sentence(input: TranslateSentenceInput): TranslateSentenceResultOutModel | Promise<TranslateSentenceResultOutModel>;
     translate_translate_phrase(input: TranslatePhraseInput): SentencePhraseTranslationOutModel | Promise<SentencePhraseTranslationOutModel>;
-    word_create(input: CreateWordInput): WordOutModel | Promise<WordOutModel>;
-    create_transcription(input: CreateTranscriptionInput): TranscriptionOutModel | Promise<TranscriptionOutModel>;
+    universal_phrase_create(input: CreateUniversalPhraseInput): UniversalPhraseOutModel | Promise<UniversalPhraseOutModel>;
+    create_transcription(input: CreateUniversalTranscriptionInput): TranscriptionOutModel | Promise<TranscriptionOutModel>;
+    create_audio_pronunciation(input: CreateUniversalAudioPronunciationInput): UniversalAudioPronunciationOutModel | Promise<UniversalAudioPronunciationOutModel>;
 }
 
-export type DateTime = any;
 type Nullable<T> = T | null;

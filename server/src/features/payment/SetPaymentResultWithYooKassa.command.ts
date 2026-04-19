@@ -1,8 +1,7 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { DBRepository } from 'repo/db.repository'
 import { PaymentRepository } from 'repo/payment.repository'
-import { TariffRepository } from 'repo/tariff.repository'
-import { UserSubscriptionRepository } from 'repo/userSubscription.repository'
+import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
@@ -25,8 +24,7 @@ export class SetPaymentResultWithYooKassaHandler implements ICommandHandler<SetP
 	constructor(
 		private paymentRepository: PaymentRepository,
 		private dbRepository: DBRepository,
-		private userSubscriptionRepository: UserSubscriptionRepository,
-		private tariffRepository: TariffRepository,
+		private userBalanceTransactionRepository: UserBalanceTransactionRepository,
 		private telegramService: TelegramService,
 	) {}
 
@@ -49,8 +47,8 @@ export class SetPaymentResultWithYooKassaHandler implements ICommandHandler<SetP
 						const messageToTg = `Была сделана оплата в explainit.ru. Сумма: ${amount / 100} руб.`
 						this.telegramService.sendMessageToFromExplainBot(messageToTg)
 
-						if (purpose === 'SUBSCRIPTION') {
-							await this.handleSubscriptionPayment({ amount, userId, paymentId, metadata })
+						if (purpose === 'TOP_UP_BALANCE') {
+							await this.handleTopUpBalancePayment({ amount, userId, paymentId })
 							return
 						}
 					},
@@ -63,41 +61,15 @@ export class SetPaymentResultWithYooKassaHandler implements ICommandHandler<SetP
 		}
 	}
 
-	private async handleSubscriptionPayment(dto: {
+	private async handleTopUpBalancePayment(dto: {
 		amount: number
 		userId: number
 		paymentId: number
-		metadata?: YooKassaPaymentMetadata
 	}) {
-		const tariffId = Number(dto.metadata?.tariffId)
-		if (!tariffId) {
-			throw new CustomGraphQLError(errorMessage.tariffIdIsRequired, ErrorCode.BadRequest_400)
-		}
-
-		const tariff = await this.tariffRepository.getTariffById(tariffId)
-		if (!tariff) {
-			throw new CustomGraphQLError(errorMessage.tariffNotFound, ErrorCode.BadRequest_400)
-		}
-
-		const existingSubscription = await this.userSubscriptionRepository.getSubscriptionByPaymentId(dto.paymentId)
-
-		if (existingSubscription) {
-			return
-		}
-
-		const startsAt = new Date()
-		const endsAt = new Date(startsAt)
-		endsAt.setDate(endsAt.getDate() + tariff.durationDays)
-
-		await this.userSubscriptionRepository.createSubscription({
+		await this.userBalanceTransactionRepository.createTopUpByPayment({
 			userId: dto.userId,
-			tariffId: tariff.id,
 			paymentId: dto.paymentId,
-			pricePaid: dto.amount,
-			balance: tariff.includedBalance,
-			includedFileStorageMb: tariff.includedFileStorageMb,
-			startsAt,
-			endsAt,
+			amountInKopecks: dto.amount,
 		})
 	}
 }

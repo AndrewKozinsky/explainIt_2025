@@ -1,13 +1,13 @@
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { BookChapterRepository } from 'repo/bookChapter.repository'
 import { BookPublicRepository } from 'repo/bookPublic.repository'
+import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter.command'
+import { oliverTwistBookData, oliverTwistChapters } from 'features/bookPublic/english/oliverTwist/Oliver Twist'
 import {
 	theLittlePrinceBookData,
 	theLittlePrinceChapters,
-} from 'src/features/bookPublic/french/theLittlePrince/theLittlePrinceBook'
-import { jungleTalesBookData, jungleTalesChapters } from 'src/features/bookPublic/spanish/jungleTales/jungleTales'
-import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter.command'
-import { oliverTwistBookData, oliverTwistChapters } from 'features/bookPublic/english/oliverTwist/Oliver Twist'
+} from 'features/bookPublic/french/theLittlePrince/theLittlePrinceBook'
+import { jungleTalesBookData, jungleTalesChapters } from 'features/bookPublic/spanish/jungleTales/jungleTales'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'

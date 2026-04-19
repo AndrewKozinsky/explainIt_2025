@@ -6,7 +6,7 @@ import { throwErrorIfWrongProps } from './fn/wrongPropsError'
 import './TextInput.scss'
 
 export type TextInputProps = {
-	label: string
+	label?: string
 	error?: null | string
 	dataTestId?: string
 	inputProps?: React.InputHTMLAttributes<HTMLInputElement>
@@ -24,7 +24,7 @@ function TextInput(props: TextInputProps) {
 
 	return (
 		<div className={cn('text-input', disabled && 'text-input--disabled')} data-testid={dataTestId}>
-			<label className='text-input__label'>{label}</label>
+			{label && <label className='text-input__label'>{label}</label>}
 			{inputProps && <input className='text-input__input' {...inputProps} />}
 			{textareaProps && <textarea className='text-input__input' {...textareaProps} />}
 			{maxCharacters && <MaxCharactersCounter maxCharacters={maxCharacters} text={currentText} />}

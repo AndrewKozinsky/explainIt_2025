@@ -1,7 +1,7 @@
-mutation Transcription_create($input: CreateTranscriptionInput!) {
+mutation Transcription_create($input: CreateUniversalTranscriptionInput!) {
 	create_transcription(input: $input) {
 		id
-		wordId
+		universalPhraseId
 		ipa
 		pinyin
 	}

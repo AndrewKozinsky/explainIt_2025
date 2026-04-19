@@ -1,25 +1,27 @@
-// import { Injectable } from '@nestjs/common'
-// import { PrismaService } from '../db/prisma.service'
-// import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
+import { Injectable } from '@nestjs/common'
+import { PrismaService } from '../db/prisma.service'
+import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 
-/*@Injectable()
-export class AudioPronunciationRepository {
+@Injectable()
+export class UniversalAudioPronunciationRepository {
 	constructor(private prisma: PrismaService) {}
 
 	@CatchDbError()
-	async createAudioPronunciation(dto: {
-		wordId: number
-		voiceId: number
-		audioUrl: string
-		duration: number
-	}) {
-		return await this.prisma.audioPronunciation.create({
+	async findByUniversalPhraseId(universalPhraseId: number) {
+		return await this.prisma.universalAudioPronunciation.findFirst({
+			where: { universal_phrase_id: universalPhraseId },
+			orderBy: { created_at: 'desc' },
+		})
+	}
+
+	@CatchDbError()
+	async createAudioPronunciation(dto: { universalPhraseId: number; s3Key: string; durationMs: number }) {
+		return await this.prisma.universalAudioPronunciation.create({
 			data: {
-				word_id: dto.wordId,
-				voice_id: dto.voiceId,
-				audio_url: dto.audioUrl,
-				duration: dto.duration,
+				universal_phrase_id: dto.universalPhraseId,
+				s3_key: dto.s3Key,
+				duration_ms: dto.durationMs,
 			},
 		})
 	}
-}*/
+}

@@ -12,12 +12,8 @@ export const errorMessage = {
 	userNotFound: 'Пользователь не найден.',
 	userUnauthorized: 'Пользователь не авторизован.',
 	userBalanceIsNegative: 'Отрицательный баланс.',
-	userHasNoActiveSubscription: 'У пользователя нет активной подписки.',
-	privateMediaIsNotIncludedInSubscriptionTariff: 'Тариф подписки не включает перевод приватного медиа.',
-	insufficientSubscriptionBalanceForPrivateMediaTranslation: 'Недостаточно средств на балансе для перевода.',
+	insufficientBalanceForTranslation: 'Недостаточно средств на балансе для перевода.',
 	userIsNotOwner: 'Пользователь не является владельцем этой сущности.',
-	tariffNotFound: 'Тариф не найден.',
-	tariffIdIsRequired: 'Tariff id is required',
 	paymentIdIsRequiredForPaymentTransactions: 'Payment ID is required for payment transactions',
 	cannotDepositAmountLessThanZero: 'You cannot deposit an amount less than zero into your balance.',
 	cannotWriteOffAmountGreaterThanZero: 'You cannot write off an amount greater than zero from your balance.',
@@ -72,7 +68,7 @@ export const errorMessage = {
 	noSessionObject: 'Нет объект сессии (request.session).',
 	cannotFinishSession: 'Не удалось завершить сессию.',
 	unknownDbError: 'Неизвестная ошибка в базе данных.',
-	unknownOpenAIError: 'Неизвестная ошибка при запросе в OpenAI.',
+	unknownOpenAIError: 'Неизвестная ошибка при запросе в LLM.',
 	unknownError: 'Неизвестная ошибка сервера.',
 	cannotSaveSession: 'Невозможно сохранить сессию',
 	onlyDevMode: 'Работает только в режиме разработки.',
@@ -102,30 +98,26 @@ export const errorMessage = {
 	sentenceTranslation: {
 		notFound: 'Перевод предложения не найден.',
 		alreadyExists: 'Перевод предложения уже существует.',
-		dailyLimitReached: 'Дневной лимит переводов исчерпан. Попробуйте снова завтра.',
 		userCannotAccessForeignPrivateMedia: 'Нельзя получать переводы материалов другого пользователя.',
-		privateTranslationRequiresStandardSubscriptionBalance:
-			'Создание нового перевода доступно только при активной стандартной подписке и положительном балансе.',
 		anonymousUserCannotTranslate: 'Вы не можете переводить без авторизации.',
 	},
 	nlp: {
 		cantDivideTextIntoSentences: 'Не получилось разделить текст на предложения.',
 	},
-	word: {
-		notCreated: 'Слово не создано.',
-		notFound: 'Слово не найдено.',
+	universalPhrase: {
+		notCreated: 'Фраза не создана.',
+		notFound: 'Фраза не найдена.',
 	},
-	transcription: {
+	universalTranscription: {
 		notCreated: 'Не удалось создать транскрипцию.',
-		alreadyExists: 'Транскрипция для этого слова уже существует.',
+		alreadyExists: 'Транскрипция для этой фразы уже существует.',
 		cannotGetTranscriptionFromLLM: 'Не удалось получить транскрипцию от LLM.',
-	},
-	elevenLabs: {
-		voiceNotFound: 'Голос для указанного языка не найден.',
-		cannotGenerateAudio: 'Не удалось сгенерировать аудио через ElevenLabs.',
 	},
 	audioPronunciation: {
 		notCreated: 'Не удалось создать озвучку.',
+		alreadyExists: 'Озвучка для этой фразы уже существует.',
 		cannotUploadToS3: 'Не удалось загрузить аудио файл в хранилище.',
+		cannotGenerateAudio: 'Не удалось сгенерировать аудио.',
+		anonymousUserCannotGenerate: 'Вы не можете создавать озвучку без авторизации.',
 	},
 }

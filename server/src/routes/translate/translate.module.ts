@@ -4,36 +4,35 @@ import { DBRepository } from 'repo/db.repository'
 import { SentenceRepository } from 'repo/sentence.repository'
 import { SentencePhraseTranslationRepository } from 'repo/sentencePhraseTranslation.repository'
 import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
-import { SubscriptionBalanceTransactionRepository } from 'repo/subscriptionBalanceTransaction.repository'
 import { UserRepository } from 'repo/user.repository'
+import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
 import { PrismaService } from 'db/prisma.service'
 import { DeepSeekTokenUsageBalanceChargeHandler } from 'features/payment/DeepSeekTokenUsageBalanceCharge.command'
 import { OpenAiTokenUsageBalanceChargeHandler } from 'features/payment/OpenAiTokenUsageBalanceCharge.command'
-import { DailyTranslationLimitService } from 'features/translation/translate/DailyTranslationLimit.service'
-import { SentenceTranslationAccessService } from 'features/translation/translate/SentenceTranslationAccess.service'
+import { SentenceTranslationAccessService } from 'features/translation/translateCommon/SentenceTranslationAccess.service'
+import { TranslateWithChatGPT } from 'features/translation/translateCommon/TranslateWithChatGPT.service'
+import { TranslateWithDeepSeek } from 'features/translation/translateCommon/TranslateWithDeepSeek.service'
+import { TranslateWithGemini } from 'features/translation/translateCommon/TranslateWithGemini.service'
 import { TranslatePhraseHandler } from 'features/translation/translatePhrase/TranslatePhrase.command'
-import { TranslatePhraseWithDeepSeek } from 'features/translation/translatePhrase/TranslatePhraseWithDeepSeek.service'
-import { StreamTranslateWithChatGPT } from 'features/translation/translateSentence/StreamTranslateWithChatGPT.service'
-import { StreamTranslateWithDeepSeek } from 'features/translation/translateSentence/StreamTranslateWithDeepSeek.service'
 import { TranslateSentenceHandler } from 'features/translation/translateSentence/TranslateSentence.command'
 import { OptionalSessionUserGuard } from 'infrastructure/guards/optionalSessionUser.guard'
 import { TranslateResolver } from './translate.resolver'
 
-const services = [PrismaService, SentenceTranslationAccessService, DailyTranslationLimitService]
+const services = [PrismaService, SentenceTranslationAccessService]
 const commandHandlers = [
 	TranslateSentenceHandler,
 	TranslatePhraseHandler,
 	OpenAiTokenUsageBalanceChargeHandler,
 	DeepSeekTokenUsageBalanceChargeHandler,
 ]
-const translateProviders = [StreamTranslateWithDeepSeek, StreamTranslateWithChatGPT, TranslatePhraseWithDeepSeek]
+const translateProviders = [TranslateWithDeepSeek, TranslateWithChatGPT, TranslateWithGemini]
 const repositories = [
 	SentenceRepository,
 	SentenceTranslationRepository,
 	SentencePhraseTranslationRepository,
 	UserRepository,
 	DBRepository,
-	SubscriptionBalanceTransactionRepository,
+	UserBalanceTransactionRepository,
 ]
 
 @Module({

@@ -1,10 +1,9 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { SubscriptionBalanceTransactionRepository } from 'repo/subscriptionBalanceTransaction.repository'
+import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
-import { BalanceTransactionType } from 'prisma/generated/enums'
 
 export class DeepSeekTokenUsageBalanceChargeCommand implements ICommand {
 	constructor(
@@ -22,7 +21,7 @@ export class DeepSeekTokenUsageBalanceChargeHandler
 {
 	constructor(
 		private mainConfig: MainConfigService,
-		private subscriptionBalanceTransactionRepository: SubscriptionBalanceTransactionRepository,
+		private userBalanceTransactionRepository: UserBalanceTransactionRepository,
 	) {}
 
 	async execute(command: DeepSeekTokenUsageBalanceChargeCommand) {
@@ -31,12 +30,12 @@ export class DeepSeekTokenUsageBalanceChargeHandler
 		const amountInKopecks = this.calculateAmountInKopeckDependsOnTokens({ inputTokens, outputTokens })
 
 		try {
-			await this.subscriptionBalanceTransactionRepository.createChargeForActiveSubscription({
-				userId,
-				amountInKopecks: -amountInKopecks,
-				type: BalanceTransactionType.CHARGE,
-			})
+			await this.userBalanceTransactionRepository.createCharge({ userId, amountInKopecks })
 		} catch (error) {
+			if (error instanceof CustomGraphQLError) {
+				throw error
+			}
+
 			throw new CustomGraphQLError(errorMessage.unknownError, ErrorCode.InternalServerError_500)
 		}
 	}
@@ -45,7 +44,8 @@ export class DeepSeekTokenUsageBalanceChargeHandler
 		const prices = this.mainConfig.get().deepSeek.priceInRub
 
 		const totalPriceInRub = input.inputTokens * prices.input + input.outputTokens * prices.output
+		const markupInKopecks = this.mainConfig.get().billing.translationChargeMarkupInKopecks
 
-		return Math.ceil(totalPriceInRub * 100)
+		return Math.ceil(totalPriceInRub * 100) + markupInKopecks
 	}
 }

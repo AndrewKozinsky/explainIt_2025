@@ -1,11 +1,10 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { SubscriptionBalanceTransactionRepository } from 'repo/subscriptionBalanceTransaction.repository'
+import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
 import { OpenAIModels } from 'types/openAIModels'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
-import { BalanceTransactionType } from 'prisma/generated/enums'
 
 export class OpenAiTokenUsageBalanceChargeCommand implements ICommand {
 	constructor(
@@ -24,7 +23,7 @@ export class OpenAiTokenUsageBalanceChargeCommand implements ICommand {
 export class OpenAiTokenUsageBalanceChargeHandler implements ICommandHandler<OpenAiTokenUsageBalanceChargeCommand> {
 	constructor(
 		private mainConfig: MainConfigService,
-		private subscriptionBalanceTransactionRepository: SubscriptionBalanceTransactionRepository,
+		private userBalanceTransactionRepository: UserBalanceTransactionRepository,
 	) {}
 
 	async execute(command: OpenAiTokenUsageBalanceChargeCommand) {
@@ -33,12 +32,12 @@ export class OpenAiTokenUsageBalanceChargeHandler implements ICommandHandler<Ope
 		const amountInKopecks = this.calculateAmountInKopeckDependsOnTokens(command.dto)
 
 		try {
-			await this.subscriptionBalanceTransactionRepository.createChargeForActiveSubscription({
-				userId,
-				amountInKopecks: -amountInKopecks,
-				type: BalanceTransactionType.CHARGE,
-			})
+			await this.userBalanceTransactionRepository.createCharge({ userId, amountInKopecks })
 		} catch (error) {
+			if (error instanceof CustomGraphQLError) {
+				throw error
+			}
+
 			throw new CustomGraphQLError(errorMessage.unknownError, ErrorCode.InternalServerError_500)
 		}
 	}
@@ -66,7 +65,9 @@ export class OpenAiTokenUsageBalanceChargeHandler implements ICommandHandler<Ope
 			input.inputTokens * providerPricesForOneToken.input + input.outputTokens * providerPricesForOneToken.output
 		if (input.lowPriority) totalPriceInRub /= 2
 
-		// Вернуть стоимость в копейках
-		return Math.ceil(totalPriceInRub * 100)
+		const baseAmountInKopecks = Math.ceil(totalPriceInRub * 100)
+		const markupInKopecks = this.mainConfig.get().billing.translationChargeMarkupInKopecks
+
+		return baseAmountInKopecks + markupInKopecks
 	}
 }

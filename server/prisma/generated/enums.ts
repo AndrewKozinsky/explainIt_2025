@@ -10,7 +10,8 @@
 */
 
 export const BalanceTransactionType = {
-  CHARGE: 'CHARGE'
+  CHARGE: 'CHARGE',
+  TOP_UP: 'TOP_UP'
 } as const
 
 export type BalanceTransactionType = (typeof BalanceTransactionType)[keyof typeof BalanceTransactionType]

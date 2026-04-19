@@ -35,7 +35,7 @@ export function buildPhraseTranslationPrompt(input: BuildPhraseTranslationPrompt
 - endOffset: ${input.selectedWordEndOffset}
 
 Твоя задача:
-1) Определи минимальную неделимую фразу, к которой относится выделение.
+1) Определи смысловую фразу, к которой относится выделение.
 2) Переведи эту фразу на ${targetLanguage} язык.
 3) Дай короткие примеры.
 

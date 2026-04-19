@@ -52,7 +52,7 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   User: 'User',
-  SubscriptionBalanceTransaction: 'SubscriptionBalanceTransaction',
+  UserBalanceTransaction: 'UserBalanceTransaction',
   Payment: 'Payment',
   BookPrivate: 'BookPrivate',
   BookPublic: 'BookPublic',
@@ -64,10 +64,9 @@ export const ModelName = {
   SentencePhraseTranslation: 'SentencePhraseTranslation',
   Subtitle: 'Subtitle',
   SubtitleSentenceInit: 'SubtitleSentenceInit',
-  Word: 'Word',
-  Transcription: 'Transcription',
-  Tariff: 'Tariff',
-  UserSubscription: 'UserSubscription'
+  UniversalPhrase: 'UniversalPhrase',
+  UniversalTranscription: 'UniversalTranscription',
+  UniversalAudioPronunciation: 'UniversalAudioPronunciation'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -94,22 +93,23 @@ export const UserScalarFieldEnum = {
   email_confirmation_code_expiration_date: 'email_confirmation_code_expiration_date',
   is_email_confirmed: 'is_email_confirmed',
   is_user_confirmed: 'is_user_confirmed',
+  balance: 'balance',
   created_at: 'created_at'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-export const SubscriptionBalanceTransactionScalarFieldEnum = {
+export const UserBalanceTransactionScalarFieldEnum = {
   id: 'id',
-  user_subscription_id: 'user_subscription_id',
+  user_id: 'user_id',
   type: 'type',
   amount: 'amount',
   payment_id: 'payment_id',
   created_at: 'created_at'
 } as const
 
-export type SubscriptionBalanceTransactionScalarFieldEnum = (typeof SubscriptionBalanceTransactionScalarFieldEnum)[keyof typeof SubscriptionBalanceTransactionScalarFieldEnum]
+export type UserBalanceTransactionScalarFieldEnum = (typeof UserBalanceTransactionScalarFieldEnum)[keyof typeof UserBalanceTransactionScalarFieldEnum]
 
 
 export const PaymentScalarFieldEnum = {
@@ -277,53 +277,34 @@ export const SubtitleSentenceInitScalarFieldEnum = {
 export type SubtitleSentenceInitScalarFieldEnum = (typeof SubtitleSentenceInitScalarFieldEnum)[keyof typeof SubtitleSentenceInitScalarFieldEnum]
 
 
-export const WordScalarFieldEnum = {
+export const UniversalPhraseScalarFieldEnum = {
   id: 'id',
-  word: 'word',
+  phrase: 'phrase',
   language_code: 'language_code'
 } as const
 
-export type WordScalarFieldEnum = (typeof WordScalarFieldEnum)[keyof typeof WordScalarFieldEnum]
+export type UniversalPhraseScalarFieldEnum = (typeof UniversalPhraseScalarFieldEnum)[keyof typeof UniversalPhraseScalarFieldEnum]
 
 
-export const TranscriptionScalarFieldEnum = {
+export const UniversalTranscriptionScalarFieldEnum = {
   id: 'id',
-  word_id: 'word_id',
+  universal_phrase_id: 'universal_phrase_id',
   ipa: 'ipa',
   pinyin: 'pinyin'
 } as const
 
-export type TranscriptionScalarFieldEnum = (typeof TranscriptionScalarFieldEnum)[keyof typeof TranscriptionScalarFieldEnum]
+export type UniversalTranscriptionScalarFieldEnum = (typeof UniversalTranscriptionScalarFieldEnum)[keyof typeof UniversalTranscriptionScalarFieldEnum]
 
 
-export const TariffScalarFieldEnum = {
+export const UniversalAudioPronunciationScalarFieldEnum = {
   id: 'id',
-  code: 'code',
-  name: 'name',
-  price: 'price',
-  included_balance: 'included_balance',
-  included_file_storage_mb: 'included_file_storage_mb',
-  duration_days: 'duration_days',
+  universal_phrase_id: 'universal_phrase_id',
+  s3_key: 's3_key',
+  duration_ms: 'duration_ms',
   created_at: 'created_at'
 } as const
 
-export type TariffScalarFieldEnum = (typeof TariffScalarFieldEnum)[keyof typeof TariffScalarFieldEnum]
-
-
-export const UserSubscriptionScalarFieldEnum = {
-  id: 'id',
-  user_id: 'user_id',
-  tariff_id: 'tariff_id',
-  price_paid: 'price_paid',
-  balance: 'balance',
-  included_file_storage_mb: 'included_file_storage_mb',
-  starts_at: 'starts_at',
-  ends_at: 'ends_at',
-  payment_id: 'payment_id',
-  created_at: 'created_at'
-} as const
-
-export type UserSubscriptionScalarFieldEnum = (typeof UserSubscriptionScalarFieldEnum)[keyof typeof UserSubscriptionScalarFieldEnum]
+export type UniversalAudioPronunciationScalarFieldEnum = (typeof UniversalAudioPronunciationScalarFieldEnum)[keyof typeof UniversalAudioPronunciationScalarFieldEnum]
 
 
 export const SortOrder = {

@@ -15,7 +15,6 @@ export type Scalars = {
   Boolean: { input: boolean; output: boolean; }
   Int: { input: number; output: number; }
   Float: { input: number; output: number; }
-  DateTime: { input: any; output: any; }
 };
 
 export type BookChapterLiteOutModel = {
@@ -74,16 +73,6 @@ export type BookPublicOutModel = {
   note: Scalars['String']['output'];
 };
 
-export type BuySubscriptionWithYooKassaInput = {
-  /** Tariff id */
-  tariffId: Scalars['Float']['input'];
-};
-
-export type BuySubscriptionWithYooKassaOutModel = {
-  __typename?: 'BuySubscriptionWithYooKassaOutModel';
-  confirmationUrl: Scalars['String']['output'];
-};
-
 export type ConfirmEmailInput = {
   /** User email */
   code: Scalars['String']['input'];
@@ -126,9 +115,21 @@ export type CreatePrivateVideoInput = {
   originalContent?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type CreateTranscriptionInput = {
-  /** Word id */
-  wordId: Scalars['Int']['input'];
+export type CreateUniversalAudioPronunciationInput = {
+  /** Universal phrase id to create audio pronunciation for */
+  universalPhraseId: Scalars['Int']['input'];
+};
+
+export type CreateUniversalPhraseInput = {
+  /** Language code */
+  languageCode: Scalars['String']['input'];
+  /** Phrase text */
+  phrase: Scalars['String']['input'];
+};
+
+export type CreateUniversalTranscriptionInput = {
+  /** Universal phrase id */
+  universalPhraseId: Scalars['Int']['input'];
 };
 
 export type CreateVideoPrivateOutModel = {
@@ -143,23 +144,9 @@ export type CreateVideoPrivateOutModel = {
   year?: Maybe<Scalars['Int']['output']>;
 };
 
-export type CreateWordInput = {
-  /** Language code */
-  languageCode: Scalars['String']['input'];
-  /** Word text */
-  word: Scalars['String']['input'];
-};
-
-export type CurrentSubscriptionOutModel = {
-  __typename?: 'CurrentSubscriptionOutModel';
-  balance: Scalars['Int']['output'];
-  endsAt: Scalars['String']['output'];
-  includedFileStorageMb: Scalars['Int']['output'];
-  pricePaid: Scalars['Int']['output'];
-  startsAt: Scalars['String']['output'];
-  tariffCode: Scalars['String']['output'];
-  tariffId: Scalars['Int']['output'];
-  tariffName: Scalars['String']['output'];
+export type CreateYooKassaPaymentOutModel = {
+  __typename?: 'CreateYooKassaPaymentOutModel';
+  confirmationUrl: Scalars['String']['output'];
 };
 
 export type DeleteBookChapterInput = {
@@ -223,11 +210,11 @@ export type GetSentenceTranslationInput = {
   sentenceId: Scalars['Float']['input'];
 };
 
-export type GetWordInput = {
+export type GetUniversalPhraseInput = {
   /** Language code */
   languageCode: Scalars['String']['input'];
-  /** Word text */
-  word: Scalars['String']['input'];
+  /** Phrase text */
+  phrase: Scalars['String']['input'];
 };
 
 export type LanguageOutModel = {
@@ -282,22 +269,24 @@ export type Mutation = {
   book_delete: Scalars['Boolean']['output'];
   /** Update user book */
   book_update: BookPrivateOutModel;
+  /** Generate audio pronunciation for a word using Google TTS and store it on S3 */
+  create_audio_pronunciation: UniversalAudioPronunciationOutModel;
   /** Create transcription for a word using DeepSeek */
   create_transcription: TranscriptionOutModel;
-  /** Buy a subscription with YooKassa */
-  payment_yookassa_buy_subscription: BuySubscriptionWithYooKassaOutModel;
+  /** Top up balance with YooKassa */
+  payment_yookassa_top_up_balance: CreateYooKassaPaymentOutModel;
   /** Translate phrase in sentence by selected offsets */
   translate_translate_phrase: SentencePhraseTranslationOutModel;
   /** Translate sentence */
   translate_translate_sentence: TranslateSentenceResultOutModel;
+  /** Create a new phrase */
+  universal_phrase_create: UniversalPhraseOutModel;
   /** Create a video */
   video_private_create: CreateVideoPrivateOutModel;
   /** Delete a video */
   video_private_delete: Scalars['Boolean']['output'];
   /** Update a video */
   video_private_update: UpdateVideoPrivateOutModel;
-  /** Create a new word */
-  word_create: WordOutModel;
 };
 
 
@@ -356,13 +345,18 @@ export type MutationBook_UpdateArgs = {
 };
 
 
-export type MutationCreate_TranscriptionArgs = {
-  input: CreateTranscriptionInput;
+export type MutationCreate_Audio_PronunciationArgs = {
+  input: CreateUniversalAudioPronunciationInput;
 };
 
 
-export type MutationPayment_Yookassa_Buy_SubscriptionArgs = {
-  input: BuySubscriptionWithYooKassaInput;
+export type MutationCreate_TranscriptionArgs = {
+  input: CreateUniversalTranscriptionInput;
+};
+
+
+export type MutationPayment_Yookassa_Top_Up_BalanceArgs = {
+  input: TopUpBalanceWithYooKassaInput;
 };
 
 
@@ -373,6 +367,11 @@ export type MutationTranslate_Translate_PhraseArgs = {
 
 export type MutationTranslate_Translate_SentenceArgs = {
   input: TranslateSentenceInput;
+};
+
+
+export type MutationUniversal_Phrase_CreateArgs = {
+  input: CreateUniversalPhraseInput;
 };
 
 
@@ -388,11 +387,6 @@ export type MutationVideo_Private_DeleteArgs = {
 
 export type MutationVideo_Private_UpdateArgs = {
   input: UpdatePrivateVideoInput;
-};
-
-
-export type MutationWord_CreateArgs = {
-  input: CreateWordInput;
 };
 
 export type Query = {
@@ -411,14 +405,14 @@ export type Query = {
   book_user_books: Array<BookPrivateOutModel>;
   /** Get all available languages */
   language_get_languages: Array<LanguageOutModel>;
-  /** Get all tariffs */
-  tariff_get_tariffs: Array<TariffOutModel>;
   /** Get existing phrase translation by sentence and offsets */
   translate_get_phrase_translation?: Maybe<SentencePhraseTranslationOutModel>;
   /** Get all existing phrase translations by sentence id */
   translate_get_phrase_translations_by_sentence: Array<SentencePhraseTranslationOutModel>;
   /** Get existing sentence translation by sentence id */
   translate_get_sentence_translation?: Maybe<TranslateSentenceResultOutModel>;
+  /** Get phrase with transcription and audio pronunciations */
+  universal_phrase_get: UniversalPhraseOutModel;
   /** Get a video */
   video_private_get: VideoPrivateOutModel;
   /** Get user videos */
@@ -427,8 +421,6 @@ export type Query = {
   video_public_get: VideoPublicOutModel;
   /** Get public videos */
   video_public_get_videos: Array<VideoPublicLiteOutModel>;
-  /** Get word with transcription and audio pronunciations */
-  word_get: WordOutModel;
 };
 
 
@@ -462,6 +454,11 @@ export type QueryTranslate_Get_Sentence_TranslationArgs = {
 };
 
 
+export type QueryUniversal_Phrase_GetArgs = {
+  input: GetUniversalPhraseInput;
+};
+
+
 export type QueryVideo_Private_GetArgs = {
   input: GetPrivateVideoInput;
 };
@@ -469,11 +466,6 @@ export type QueryVideo_Private_GetArgs = {
 
 export type QueryVideo_Public_GetArgs = {
   input: GetPublicVideoInput;
-};
-
-
-export type QueryWord_GetArgs = {
-  input: GetWordInput;
 };
 
 export type RegisterUserInput = {
@@ -531,16 +523,9 @@ export type SubtitleSentenceInitOutModel = {
   subtitleId: Scalars['Int']['output'];
 };
 
-export type TariffOutModel = {
-  __typename?: 'TariffOutModel';
-  code: Scalars['String']['output'];
-  createdAt: Scalars['DateTime']['output'];
-  durationDays: Scalars['Int']['output'];
-  id: Scalars['Int']['output'];
-  includedBalance: Scalars['Int']['output'];
-  includedFileStorageMb: Scalars['Int']['output'];
-  name: Scalars['String']['output'];
-  price: Scalars['Int']['output'];
+export type TopUpBalanceWithYooKassaInput = {
+  /** Amount in kopecks */
+  amountInKopecks: Scalars['Int']['input'];
 };
 
 export type TranscriptionOutModel = {
@@ -548,7 +533,7 @@ export type TranscriptionOutModel = {
   id: Scalars['Int']['output'];
   ipa?: Maybe<Scalars['String']['output']>;
   pinyin?: Maybe<Scalars['String']['output']>;
-  wordId: Scalars['Int']['output'];
+  universalPhraseId: Scalars['Int']['output'];
 };
 
 export type TranslatePhraseInput = {
@@ -595,6 +580,23 @@ export type TranslateSentenceResultOutModel = {
   __typename?: 'TranslateSentenceResultOutModel';
   sentenceId: Scalars['Int']['output'];
   translation: Scalars['String']['output'];
+};
+
+export type UniversalAudioPronunciationOutModel = {
+  __typename?: 'UniversalAudioPronunciationOutModel';
+  audioUrl: Scalars['String']['output'];
+  durationMs: Scalars['Int']['output'];
+  id: Scalars['Int']['output'];
+  universalPhraseId: Scalars['Int']['output'];
+};
+
+export type UniversalPhraseOutModel = {
+  __typename?: 'UniversalPhraseOutModel';
+  audioPronunciation?: Maybe<UniversalAudioPronunciationOutModel>;
+  id: Scalars['Int']['output'];
+  languageCode: Scalars['String']['output'];
+  phrase: Scalars['String']['output'];
+  transcription?: Maybe<TranscriptionOutModel>;
 };
 
 export type UpdateBookChapterInput = {
@@ -658,7 +660,7 @@ export type UpdateVideoPrivateOutModel = {
 
 export type UserOutModel = {
   __typename?: 'UserOutModel';
-  currentSubscription?: Maybe<CurrentSubscriptionOutModel>;
+  balance: Scalars['Int']['output'];
   email: Scalars['String']['output'];
   id: Scalars['Int']['output'];
   isUserConfirmed: Scalars['Boolean']['output'];
@@ -779,13 +781,12 @@ export type VideoPublicSubtitleOutModel = {
   startTimeMs: Scalars['Int']['output'];
 };
 
-export type WordOutModel = {
-  __typename?: 'WordOutModel';
-  id: Scalars['Int']['output'];
-  languageCode: Scalars['String']['output'];
-  transcription?: Maybe<TranscriptionOutModel>;
-  word: Scalars['String']['output'];
-};
+export type AudioPronunciation_CreateVariables = Exact<{
+  input: CreateUniversalAudioPronunciationInput;
+}>;
+
+
+export type AudioPronunciation_Create = { __typename?: 'Mutation', create_audio_pronunciation: { __typename?: 'UniversalAudioPronunciationOutModel', id: number, universalPhraseId: number, audioUrl: string, durationMs: number } };
 
 export type Auth_ConfirmEmailVariables = Exact<{
   input: ConfirmEmailInput;
@@ -797,21 +798,21 @@ export type Auth_ConfirmEmail = { __typename?: 'Mutation', auth_confirmEmail: bo
 export type Auth_GetMeVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Auth_GetMe = { __typename?: 'Query', auth_getMe: { __typename?: 'UserOutModel', id: number, email: string, isUserConfirmed: boolean, currentSubscription?: { __typename?: 'CurrentSubscriptionOutModel', tariffId: number, tariffCode: string, tariffName: string, pricePaid: number, balance: number, includedFileStorageMb: number, startsAt: string, endsAt: string } | null } };
+export type Auth_GetMe = { __typename?: 'Query', auth_getMe: { __typename?: 'UserOutModel', id: number, email: string, isUserConfirmed: boolean, balance: number } };
 
 export type Auth_LoginVariables = Exact<{
   input: LoginInput;
 }>;
 
 
-export type Auth_Login = { __typename?: 'Mutation', auth_login: { __typename?: 'UserOutModel', id: number, email: string, isUserConfirmed: boolean, currentSubscription?: { __typename?: 'CurrentSubscriptionOutModel', tariffId: number, tariffCode: string, tariffName: string, pricePaid: number, balance: number, includedFileStorageMb: number, startsAt: string, endsAt: string } | null } };
+export type Auth_Login = { __typename?: 'Mutation', auth_login: { __typename?: 'UserOutModel', id: number, email: string, isUserConfirmed: boolean, balance: number } };
 
 export type Auth_Login_With_OAuthVariables = Exact<{
   input: LoginWithOAuthInput;
 }>;
 
 
-export type Auth_Login_With_OAuth = { __typename?: 'Mutation', auth_login_with_OAuth: { __typename?: 'UserOutModel', id: number, email: string, isUserConfirmed: boolean, currentSubscription?: { __typename?: 'CurrentSubscriptionOutModel', tariffId: number, tariffCode: string, tariffName: string, pricePaid: number, balance: number, includedFileStorageMb: number, startsAt: string, endsAt: string } | null } };
+export type Auth_Login_With_OAuth = { __typename?: 'Mutation', auth_login_with_OAuth: { __typename?: 'UserOutModel', id: number, email: string, isUserConfirmed: boolean, balance: number } };
 
 export type Auth_LogoutVariables = Exact<{ [key: string]: never; }>;
 
@@ -903,24 +904,19 @@ export type Language_Get_LanguagesVariables = Exact<{ [key: string]: never; }>;
 
 export type Language_Get_Languages = { __typename?: 'Query', language_get_languages: Array<{ __typename?: 'LanguageOutModel', code: string, nameRus: string, nameEng: string }> };
 
-export type Payment_YookassaBuySubscriptionVariables = Exact<{
-  input: BuySubscriptionWithYooKassaInput;
+export type Payment_YookassaTopUpBalanceVariables = Exact<{
+  input: TopUpBalanceWithYooKassaInput;
 }>;
 
 
-export type Payment_YookassaBuySubscription = { __typename?: 'Mutation', payment_yookassa_buy_subscription: { __typename?: 'BuySubscriptionWithYooKassaOutModel', confirmationUrl: string } };
-
-export type Tariff_Get_TariffsVariables = Exact<{ [key: string]: never; }>;
-
-
-export type Tariff_Get_Tariffs = { __typename?: 'Query', tariff_get_tariffs: Array<{ __typename?: 'TariffOutModel', id: number, code: string, name: string, price: number, durationDays: number, includedBalance: number, includedFileStorageMb: number, createdAt: any }> };
+export type Payment_YookassaTopUpBalance = { __typename?: 'Mutation', payment_yookassa_top_up_balance: { __typename?: 'CreateYooKassaPaymentOutModel', confirmationUrl: string } };
 
 export type Transcription_CreateVariables = Exact<{
-  input: CreateTranscriptionInput;
+  input: CreateUniversalTranscriptionInput;
 }>;
 
 
-export type Transcription_Create = { __typename?: 'Mutation', create_transcription: { __typename?: 'TranscriptionOutModel', id: number, wordId: number, ipa?: string | null, pinyin?: string | null } };
+export type Transcription_Create = { __typename?: 'Mutation', create_transcription: { __typename?: 'TranscriptionOutModel', id: number, universalPhraseId: number, ipa?: string | null, pinyin?: string | null } };
 
 export type Translate_Get_Phrase_TranslationVariables = Exact<{
   input: GetPhraseTranslationInput;
@@ -956,6 +952,20 @@ export type Translate_Translate_SentenceVariables = Exact<{
 
 
 export type Translate_Translate_Sentence = { __typename?: 'Mutation', translate_translate_sentence: { __typename?: 'TranslateSentenceResultOutModel', sentenceId: number, translation: string } };
+
+export type UniversalPhrase_CreateVariables = Exact<{
+  input: CreateUniversalPhraseInput;
+}>;
+
+
+export type UniversalPhrase_Create = { __typename?: 'Mutation', universal_phrase_create: { __typename?: 'UniversalPhraseOutModel', id: number, phrase: string, languageCode: string, transcription?: { __typename?: 'TranscriptionOutModel', id: number, universalPhraseId: number, ipa?: string | null, pinyin?: string | null } | null, audioPronunciation?: { __typename?: 'UniversalAudioPronunciationOutModel', id: number, universalPhraseId: number, audioUrl: string, durationMs: number } | null } };
+
+export type UniversalPhrase_GetVariables = Exact<{
+  input: GetUniversalPhraseInput;
+}>;
+
+
+export type UniversalPhrase_Get = { __typename?: 'Query', universal_phrase_get: { __typename?: 'UniversalPhraseOutModel', id: number, phrase: string, languageCode: string, transcription?: { __typename?: 'TranscriptionOutModel', id: number, universalPhraseId: number, ipa?: string | null, pinyin?: string | null } | null, audioPronunciation?: { __typename?: 'UniversalAudioPronunciationOutModel', id: number, universalPhraseId: number, audioUrl: string, durationMs: number } | null } };
 
 export type VideoPrivate_CreateVariables = Exact<{
   input: CreatePrivateVideoInput;
@@ -1002,21 +1012,43 @@ export type VideoPublic_GetVideosVariables = Exact<{ [key: string]: never; }>;
 
 export type VideoPublic_GetVideos = { __typename?: 'Query', video_public_get_videos: Array<{ __typename?: 'VideoPublicLiteOutModel', id: number, name: string, year: number, languageCode: string, note: string, covers: Array<string>, coverBackgroundColor: string, originalContent: string, processedContent: string, contentType: string, fileName: string, fileS3Key: string, fileUrl: string, freeToUse: boolean }> };
 
-export type Word_CreateVariables = Exact<{
-  input: CreateWordInput;
-}>;
 
+export const AudioPronunciation_CreateDocument = gql`
+    mutation AudioPronunciation_create($input: CreateUniversalAudioPronunciationInput!) {
+  create_audio_pronunciation(input: $input) {
+    id
+    universalPhraseId
+    audioUrl
+    durationMs
+  }
+}
+    `;
+export type AudioPronunciation_CreateMutationFn = Apollo.MutationFunction<AudioPronunciation_Create, AudioPronunciation_CreateVariables>;
 
-export type Word_Create = { __typename?: 'Mutation', word_create: { __typename?: 'WordOutModel', id: number, word: string, languageCode: string, transcription?: { __typename?: 'TranscriptionOutModel', id: number, wordId: number, ipa?: string | null, pinyin?: string | null } | null } };
-
-export type Word_GetVariables = Exact<{
-  input: GetWordInput;
-}>;
-
-
-export type Word_Get = { __typename?: 'Query', word_get: { __typename?: 'WordOutModel', id: number, word: string, languageCode: string, transcription?: { __typename?: 'TranscriptionOutModel', id: number, wordId: number, ipa?: string | null, pinyin?: string | null } | null } };
-
-
+/**
+ * __useAudioPronunciation_Create__
+ *
+ * To run a mutation, you first call `useAudioPronunciation_Create` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useAudioPronunciation_Create` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [audioPronunciationCreate, { data, loading, error }] = useAudioPronunciation_Create({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useAudioPronunciation_Create(baseOptions?: Apollo.MutationHookOptions<AudioPronunciation_Create, AudioPronunciation_CreateVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<AudioPronunciation_Create, AudioPronunciation_CreateVariables>(AudioPronunciation_CreateDocument, options);
+      }
+export type AudioPronunciation_CreateHookResult = ReturnType<typeof useAudioPronunciation_Create>;
+export type AudioPronunciation_CreateMutationResult = Apollo.MutationResult<AudioPronunciation_Create>;
+export type AudioPronunciation_CreateMutationOptions = Apollo.BaseMutationOptions<AudioPronunciation_Create, AudioPronunciation_CreateVariables>;
 export const Auth_ConfirmEmailDocument = gql`
     mutation Auth_confirmEmail($input: ConfirmEmailInput!) {
   auth_confirmEmail(input: $input)
@@ -1054,16 +1086,7 @@ export const Auth_GetMeDocument = gql`
     id
     email
     isUserConfirmed
-    currentSubscription {
-      tariffId
-      tariffCode
-      tariffName
-      pricePaid
-      balance
-      includedFileStorageMb
-      startsAt
-      endsAt
-    }
+    balance
   }
 }
     `;
@@ -1108,16 +1131,7 @@ export const Auth_LoginDocument = gql`
     id
     email
     isUserConfirmed
-    currentSubscription {
-      tariffId
-      tariffCode
-      tariffName
-      pricePaid
-      balance
-      includedFileStorageMb
-      startsAt
-      endsAt
-    }
+    balance
   }
 }
     `;
@@ -1153,16 +1167,7 @@ export const Auth_Login_With_OAuthDocument = gql`
     id
     email
     isUserConfirmed
-    currentSubscription {
-      tariffId
-      tariffCode
-      tariffName
-      pricePaid
-      balance
-      includedFileStorageMb
-      startsAt
-      endsAt
-    }
+    balance
   }
 }
     `;
@@ -1829,93 +1834,44 @@ export type Language_Get_LanguagesHookResult = ReturnType<typeof useLanguage_Get
 export type Language_Get_LanguagesLazyQueryHookResult = ReturnType<typeof useLanguage_Get_LanguagesLazyQuery>;
 export type Language_Get_LanguagesSuspenseQueryHookResult = ReturnType<typeof useLanguage_Get_LanguagesSuspenseQuery>;
 export type Language_Get_LanguagesQueryResult = Apollo.QueryResult<Language_Get_Languages, Language_Get_LanguagesVariables>;
-export const Payment_YookassaBuySubscriptionDocument = gql`
-    mutation Payment_yookassaBuySubscription($input: BuySubscriptionWithYooKassaInput!) {
-  payment_yookassa_buy_subscription(input: $input) {
+export const Payment_YookassaTopUpBalanceDocument = gql`
+    mutation Payment_yookassaTopUpBalance($input: TopUpBalanceWithYooKassaInput!) {
+  payment_yookassa_top_up_balance(input: $input) {
     confirmationUrl
   }
 }
     `;
-export type Payment_YookassaBuySubscriptionMutationFn = Apollo.MutationFunction<Payment_YookassaBuySubscription, Payment_YookassaBuySubscriptionVariables>;
+export type Payment_YookassaTopUpBalanceMutationFn = Apollo.MutationFunction<Payment_YookassaTopUpBalance, Payment_YookassaTopUpBalanceVariables>;
 
 /**
- * __usePayment_YookassaBuySubscription__
+ * __usePayment_YookassaTopUpBalance__
  *
- * To run a mutation, you first call `usePayment_YookassaBuySubscription` within a React component and pass it any options that fit your needs.
- * When your component renders, `usePayment_YookassaBuySubscription` returns a tuple that includes:
+ * To run a mutation, you first call `usePayment_YookassaTopUpBalance` within a React component and pass it any options that fit your needs.
+ * When your component renders, `usePayment_YookassaTopUpBalance` returns a tuple that includes:
  * - A mutate function that you can call at any time to execute the mutation
  * - An object with fields that represent the current status of the mutation's execution
  *
  * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
  *
  * @example
- * const [paymentYookassaBuySubscription, { data, loading, error }] = usePayment_YookassaBuySubscription({
+ * const [paymentYookassaTopUpBalance, { data, loading, error }] = usePayment_YookassaTopUpBalance({
  *   variables: {
  *      input: // value for 'input'
  *   },
  * });
  */
-export function usePayment_YookassaBuySubscription(baseOptions?: Apollo.MutationHookOptions<Payment_YookassaBuySubscription, Payment_YookassaBuySubscriptionVariables>) {
+export function usePayment_YookassaTopUpBalance(baseOptions?: Apollo.MutationHookOptions<Payment_YookassaTopUpBalance, Payment_YookassaTopUpBalanceVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<Payment_YookassaBuySubscription, Payment_YookassaBuySubscriptionVariables>(Payment_YookassaBuySubscriptionDocument, options);
+        return Apollo.useMutation<Payment_YookassaTopUpBalance, Payment_YookassaTopUpBalanceVariables>(Payment_YookassaTopUpBalanceDocument, options);
       }
-export type Payment_YookassaBuySubscriptionHookResult = ReturnType<typeof usePayment_YookassaBuySubscription>;
-export type Payment_YookassaBuySubscriptionMutationResult = Apollo.MutationResult<Payment_YookassaBuySubscription>;
-export type Payment_YookassaBuySubscriptionMutationOptions = Apollo.BaseMutationOptions<Payment_YookassaBuySubscription, Payment_YookassaBuySubscriptionVariables>;
-export const Tariff_Get_TariffsDocument = gql`
-    query Tariff_get_tariffs {
-  tariff_get_tariffs {
-    id
-    code
-    name
-    price
-    durationDays
-    includedBalance
-    includedFileStorageMb
-    createdAt
-  }
-}
-    `;
-
-/**
- * __useTariff_Get_Tariffs__
- *
- * To run a query within a React component, call `useTariff_Get_Tariffs` and pass it any options that fit your needs.
- * When your component renders, `useTariff_Get_Tariffs` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useTariff_Get_Tariffs({
- *   variables: {
- *   },
- * });
- */
-export function useTariff_Get_Tariffs(baseOptions?: Apollo.QueryHookOptions<Tariff_Get_Tariffs, Tariff_Get_TariffsVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<Tariff_Get_Tariffs, Tariff_Get_TariffsVariables>(Tariff_Get_TariffsDocument, options);
-      }
-export function useTariff_Get_TariffsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Tariff_Get_Tariffs, Tariff_Get_TariffsVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<Tariff_Get_Tariffs, Tariff_Get_TariffsVariables>(Tariff_Get_TariffsDocument, options);
-        }
-// @ts-ignore
-export function useTariff_Get_TariffsSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<Tariff_Get_Tariffs, Tariff_Get_TariffsVariables>): Apollo.UseSuspenseQueryResult<Tariff_Get_Tariffs, Tariff_Get_TariffsVariables>;
-export function useTariff_Get_TariffsSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Tariff_Get_Tariffs, Tariff_Get_TariffsVariables>): Apollo.UseSuspenseQueryResult<Tariff_Get_Tariffs | undefined, Tariff_Get_TariffsVariables>;
-export function useTariff_Get_TariffsSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Tariff_Get_Tariffs, Tariff_Get_TariffsVariables>) {
-          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<Tariff_Get_Tariffs, Tariff_Get_TariffsVariables>(Tariff_Get_TariffsDocument, options);
-        }
-export type Tariff_Get_TariffsHookResult = ReturnType<typeof useTariff_Get_Tariffs>;
-export type Tariff_Get_TariffsLazyQueryHookResult = ReturnType<typeof useTariff_Get_TariffsLazyQuery>;
-export type Tariff_Get_TariffsSuspenseQueryHookResult = ReturnType<typeof useTariff_Get_TariffsSuspenseQuery>;
-export type Tariff_Get_TariffsQueryResult = Apollo.QueryResult<Tariff_Get_Tariffs, Tariff_Get_TariffsVariables>;
+export type Payment_YookassaTopUpBalanceHookResult = ReturnType<typeof usePayment_YookassaTopUpBalance>;
+export type Payment_YookassaTopUpBalanceMutationResult = Apollo.MutationResult<Payment_YookassaTopUpBalance>;
+export type Payment_YookassaTopUpBalanceMutationOptions = Apollo.BaseMutationOptions<Payment_YookassaTopUpBalance, Payment_YookassaTopUpBalanceVariables>;
 export const Transcription_CreateDocument = gql`
-    mutation Transcription_create($input: CreateTranscriptionInput!) {
+    mutation Transcription_create($input: CreateUniversalTranscriptionInput!) {
   create_transcription(input: $input) {
     id
-    wordId
+    universalPhraseId
     ipa
     pinyin
   }
@@ -2183,6 +2139,110 @@ export function useTranslate_Translate_Sentence(baseOptions?: Apollo.MutationHoo
 export type Translate_Translate_SentenceHookResult = ReturnType<typeof useTranslate_Translate_Sentence>;
 export type Translate_Translate_SentenceMutationResult = Apollo.MutationResult<Translate_Translate_Sentence>;
 export type Translate_Translate_SentenceMutationOptions = Apollo.BaseMutationOptions<Translate_Translate_Sentence, Translate_Translate_SentenceVariables>;
+export const UniversalPhrase_CreateDocument = gql`
+    mutation UniversalPhrase_create($input: CreateUniversalPhraseInput!) {
+  universal_phrase_create(input: $input) {
+    id
+    phrase
+    languageCode
+    transcription {
+      id
+      universalPhraseId
+      ipa
+      pinyin
+    }
+    audioPronunciation {
+      id
+      universalPhraseId
+      audioUrl
+      durationMs
+    }
+  }
+}
+    `;
+export type UniversalPhrase_CreateMutationFn = Apollo.MutationFunction<UniversalPhrase_Create, UniversalPhrase_CreateVariables>;
+
+/**
+ * __useUniversalPhrase_Create__
+ *
+ * To run a mutation, you first call `useUniversalPhrase_Create` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUniversalPhrase_Create` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [universalPhraseCreate, { data, loading, error }] = useUniversalPhrase_Create({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useUniversalPhrase_Create(baseOptions?: Apollo.MutationHookOptions<UniversalPhrase_Create, UniversalPhrase_CreateVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<UniversalPhrase_Create, UniversalPhrase_CreateVariables>(UniversalPhrase_CreateDocument, options);
+      }
+export type UniversalPhrase_CreateHookResult = ReturnType<typeof useUniversalPhrase_Create>;
+export type UniversalPhrase_CreateMutationResult = Apollo.MutationResult<UniversalPhrase_Create>;
+export type UniversalPhrase_CreateMutationOptions = Apollo.BaseMutationOptions<UniversalPhrase_Create, UniversalPhrase_CreateVariables>;
+export const UniversalPhrase_GetDocument = gql`
+    query UniversalPhrase_get($input: GetUniversalPhraseInput!) {
+  universal_phrase_get(input: $input) {
+    id
+    phrase
+    languageCode
+    transcription {
+      id
+      universalPhraseId
+      ipa
+      pinyin
+    }
+    audioPronunciation {
+      id
+      universalPhraseId
+      audioUrl
+      durationMs
+    }
+  }
+}
+    `;
+
+/**
+ * __useUniversalPhrase_Get__
+ *
+ * To run a query within a React component, call `useUniversalPhrase_Get` and pass it any options that fit your needs.
+ * When your component renders, `useUniversalPhrase_Get` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useUniversalPhrase_Get({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useUniversalPhrase_Get(baseOptions: Apollo.QueryHookOptions<UniversalPhrase_Get, UniversalPhrase_GetVariables> & ({ variables: UniversalPhrase_GetVariables; skip?: boolean; } | { skip: boolean; }) ) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<UniversalPhrase_Get, UniversalPhrase_GetVariables>(UniversalPhrase_GetDocument, options);
+      }
+export function useUniversalPhrase_GetLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<UniversalPhrase_Get, UniversalPhrase_GetVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<UniversalPhrase_Get, UniversalPhrase_GetVariables>(UniversalPhrase_GetDocument, options);
+        }
+// @ts-ignore
+export function useUniversalPhrase_GetSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<UniversalPhrase_Get, UniversalPhrase_GetVariables>): Apollo.UseSuspenseQueryResult<UniversalPhrase_Get, UniversalPhrase_GetVariables>;
+export function useUniversalPhrase_GetSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<UniversalPhrase_Get, UniversalPhrase_GetVariables>): Apollo.UseSuspenseQueryResult<UniversalPhrase_Get | undefined, UniversalPhrase_GetVariables>;
+export function useUniversalPhrase_GetSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<UniversalPhrase_Get, UniversalPhrase_GetVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<UniversalPhrase_Get, UniversalPhrase_GetVariables>(UniversalPhrase_GetDocument, options);
+        }
+export type UniversalPhrase_GetHookResult = ReturnType<typeof useUniversalPhrase_Get>;
+export type UniversalPhrase_GetLazyQueryHookResult = ReturnType<typeof useUniversalPhrase_GetLazyQuery>;
+export type UniversalPhrase_GetSuspenseQueryHookResult = ReturnType<typeof useUniversalPhrase_GetSuspenseQuery>;
+export type UniversalPhrase_GetQueryResult = Apollo.QueryResult<UniversalPhrase_Get, UniversalPhrase_GetVariables>;
 export const VideoPrivate_CreateDocument = gql`
     mutation VideoPrivate_create($input: CreatePrivateVideoInput!) {
   video_private_create(input: $input) {
@@ -2566,95 +2626,3 @@ export type VideoPublic_GetVideosHookResult = ReturnType<typeof useVideoPublic_G
 export type VideoPublic_GetVideosLazyQueryHookResult = ReturnType<typeof useVideoPublic_GetVideosLazyQuery>;
 export type VideoPublic_GetVideosSuspenseQueryHookResult = ReturnType<typeof useVideoPublic_GetVideosSuspenseQuery>;
 export type VideoPublic_GetVideosQueryResult = Apollo.QueryResult<VideoPublic_GetVideos, VideoPublic_GetVideosVariables>;
-export const Word_CreateDocument = gql`
-    mutation Word_create($input: CreateWordInput!) {
-  word_create(input: $input) {
-    id
-    word
-    languageCode
-    transcription {
-      id
-      wordId
-      ipa
-      pinyin
-    }
-  }
-}
-    `;
-export type Word_CreateMutationFn = Apollo.MutationFunction<Word_Create, Word_CreateVariables>;
-
-/**
- * __useWord_Create__
- *
- * To run a mutation, you first call `useWord_Create` within a React component and pass it any options that fit your needs.
- * When your component renders, `useWord_Create` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [wordCreate, { data, loading, error }] = useWord_Create({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useWord_Create(baseOptions?: Apollo.MutationHookOptions<Word_Create, Word_CreateVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<Word_Create, Word_CreateVariables>(Word_CreateDocument, options);
-      }
-export type Word_CreateHookResult = ReturnType<typeof useWord_Create>;
-export type Word_CreateMutationResult = Apollo.MutationResult<Word_Create>;
-export type Word_CreateMutationOptions = Apollo.BaseMutationOptions<Word_Create, Word_CreateVariables>;
-export const Word_GetDocument = gql`
-    query Word_get($input: GetWordInput!) {
-  word_get(input: $input) {
-    id
-    word
-    languageCode
-    transcription {
-      id
-      wordId
-      ipa
-      pinyin
-    }
-  }
-}
-    `;
-
-/**
- * __useWord_Get__
- *
- * To run a query within a React component, call `useWord_Get` and pass it any options that fit your needs.
- * When your component renders, `useWord_Get` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useWord_Get({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useWord_Get(baseOptions: Apollo.QueryHookOptions<Word_Get, Word_GetVariables> & ({ variables: Word_GetVariables; skip?: boolean; } | { skip: boolean; }) ) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<Word_Get, Word_GetVariables>(Word_GetDocument, options);
-      }
-export function useWord_GetLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Word_Get, Word_GetVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<Word_Get, Word_GetVariables>(Word_GetDocument, options);
-        }
-// @ts-ignore
-export function useWord_GetSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<Word_Get, Word_GetVariables>): Apollo.UseSuspenseQueryResult<Word_Get, Word_GetVariables>;
-export function useWord_GetSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Word_Get, Word_GetVariables>): Apollo.UseSuspenseQueryResult<Word_Get | undefined, Word_GetVariables>;
-export function useWord_GetSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Word_Get, Word_GetVariables>) {
-          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<Word_Get, Word_GetVariables>(Word_GetDocument, options);
-        }
-export type Word_GetHookResult = ReturnType<typeof useWord_Get>;
-export type Word_GetLazyQueryHookResult = ReturnType<typeof useWord_GetLazyQuery>;
-export type Word_GetSuspenseQueryHookResult = ReturnType<typeof useWord_GetSuspenseQuery>;
-export type Word_GetQueryResult = Apollo.QueryResult<Word_Get, Word_GetVariables>;

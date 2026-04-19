@@ -4,11 +4,10 @@ import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql'
 import { Request } from 'express'
 import { SentencePhraseTranslationRepository } from 'repo/sentencePhraseTranslation.repository'
 import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
-import { DailyTranslationLimitService } from 'features/translation/translate/DailyTranslationLimit.service'
 import {
 	SentenceTranslationAccess,
 	SentenceTranslationAccessService,
-} from 'features/translation/translate/SentenceTranslationAccess.service'
+} from 'features/translation/translateCommon/SentenceTranslationAccess.service'
 import { TranslatePhraseCommand } from 'features/translation/translatePhrase/TranslatePhrase.command'
 import { TranslateSentenceCommand } from 'features/translation/translateSentence/TranslateSentence.command'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
@@ -32,7 +31,6 @@ export class TranslateResolver {
 		private sentenceTranslationRepository: SentenceTranslationRepository,
 		private sentencePhraseTranslationRepository: SentencePhraseTranslationRepository,
 		private sentenceTranslationAccessService: SentenceTranslationAccessService,
-		private dailyTranslationLimitService: DailyTranslationLimitService,
 	) {}
 
 	@UseGuards(OptionalSessionUserGuard)
@@ -44,7 +42,6 @@ export class TranslateResolver {
 	async getSentenceTranslation(@Args('input') input: GetSentenceTranslationInput, @Context('req') request: Request) {
 		const access = await this.sentenceTranslationAccessService.resolveAccessOrThrow({
 			userId: request.user?.id ?? null,
-			currentSubscription: request.user?.currentSubscription ?? null,
 			sentenceId: input.sentenceId,
 		})
 
@@ -53,13 +50,6 @@ export class TranslateResolver {
 			deniedReason: access.readDeniedReason,
 			actionType: 'read',
 		})
-
-		if (access.readMode === 'dailyLimit') {
-			await this.consumeDailyLimitOrThrow({
-				userId: request.user?.id ?? null,
-				sentenceId: input.sentenceId,
-			})
-		}
 
 		const translation = await this.sentenceTranslationRepository.getFirstSentenceTranslationBySentenceId(
 			input.sentenceId,
@@ -83,7 +73,6 @@ export class TranslateResolver {
 	async getPhraseTranslation(@Args('input') input: GetPhraseTranslationInput, @Context('req') request: Request) {
 		const access = await this.sentenceTranslationAccessService.resolveAccessOrThrow({
 			userId: request.user?.id ?? null,
-			currentSubscription: request.user?.currentSubscription ?? null,
 			sentenceId: input.sentenceId,
 		})
 
@@ -92,13 +81,6 @@ export class TranslateResolver {
 			deniedReason: access.readDeniedReason,
 			actionType: 'read',
 		})
-
-		if (access.readMode === 'dailyLimit') {
-			await this.consumeDailyLimitOrThrow({
-				userId: request.user?.id ?? null,
-				sentenceId: input.sentenceId,
-			})
-		}
 
 		return this.sentencePhraseTranslationRepository.getPhraseContainingOffset({
 			sentenceId: input.sentenceId,
@@ -118,7 +100,6 @@ export class TranslateResolver {
 	) {
 		const access = await this.sentenceTranslationAccessService.resolveAccessOrThrow({
 			userId: request.user?.id ?? null,
-			currentSubscription: request.user?.currentSubscription ?? null,
 			sentenceId: input.sentenceId,
 		})
 
@@ -127,13 +108,6 @@ export class TranslateResolver {
 			deniedReason: access.readDeniedReason,
 			actionType: 'read',
 		})
-
-		if (access.readMode === 'dailyLimit') {
-			await this.consumeDailyLimitOrThrow({
-				userId: request.user?.id ?? null,
-				sentenceId: input.sentenceId,
-			})
-		}
 
 		return this.sentencePhraseTranslationRepository.getReadyPhrasesBySentenceId(input.sentenceId)
 	}
@@ -148,7 +122,6 @@ export class TranslateResolver {
 			new TranslateSentenceCommand({
 				...input,
 				userId: request.user?.id ?? null,
-				currentSubscription: request.user?.currentSubscription ?? null,
 			}),
 		)
 
@@ -168,7 +141,6 @@ export class TranslateResolver {
 			new TranslatePhraseCommand({
 				...input,
 				userId: request.user?.id ?? null,
-				currentSubscription: request.user?.currentSubscription ?? null,
 			}),
 		)
 	}
@@ -189,13 +161,6 @@ export class TranslateResolver {
 			)
 		}
 
-		if (input.deniedReason === 'privateTranslationRequiresStandardBalance') {
-			throw new CustomGraphQLError(
-				errorMessage.sentenceTranslation.privateTranslationRequiresStandardSubscriptionBalance,
-				ErrorCode.Forbidden_403,
-			)
-		}
-
 		if (input.actionType === 'read') {
 			throw new CustomGraphQLError(
 				errorMessage.sentenceTranslation.anonymousUserCannotTranslate,
@@ -207,23 +172,5 @@ export class TranslateResolver {
 			errorMessage.sentenceTranslation.anonymousUserCannotTranslate,
 			ErrorCode.Unauthorized_401,
 		)
-	}
-
-	private async consumeDailyLimitOrThrow(input: { userId: null | number; sentenceId: number }) {
-		if (!input.userId) {
-			throw new CustomGraphQLError(
-				errorMessage.sentenceTranslation.anonymousUserCannotTranslate,
-				ErrorCode.Unauthorized_401,
-			)
-		}
-
-		const limitResult = await this.dailyTranslationLimitService.tryCountSentenceToday({
-			userId: input.userId,
-			sentenceId: input.sentenceId,
-		})
-
-		if (!limitResult.allowed) {
-			throw new CustomGraphQLError(errorMessage.sentenceTranslation.dailyLimitReached, ErrorCode.Forbidden_403)
-		}
 	}
 }

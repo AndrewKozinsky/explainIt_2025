@@ -1,47 +1,38 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { AudioData } from './types'
 
-export function useAudioPlayer(audioUrl?: string) {
+export function useAudioPlayer(audio: AudioData, loadAudio: () => Promise<string | null>) {
 	const audioRef = useRef<HTMLAudioElement | null>(null)
 	const [isPlaying, setIsPlaying] = useState(false)
 
-	useEffect(
-		function () {
-			if (!audioUrl) return
+	useEffect(() => {
+		return () => {
+			audioRef.current?.pause()
+			audioRef.current = null
+		}
+	}, [])
 
-			const audio = new Audio(audioUrl)
-			audioRef.current = audio
+	const togglePlay = useCallback(async () => {
+		if (isPlaying && audioRef.current) {
+			audioRef.current.pause()
+			setIsPlaying(false)
+			return
+		}
 
-			function handleEnded() {
+		const url = audio.url ?? (await loadAudio())
+		if (!url) return
+
+		if (!audioRef.current || audioRef.current.src !== url) {
+			audioRef.current = new Audio(url)
+			audioRef.current.addEventListener('ended', () => {
 				setIsPlaying(false)
-				audio.currentTime = 0
-			}
+				if (audioRef.current) audioRef.current.currentTime = 0
+			})
+		}
 
-			audio.addEventListener('ended', handleEnded)
-
-			return function () {
-				audio.removeEventListener('ended', handleEnded)
-				audio.pause()
-				audioRef.current = null
-			}
-		},
-		[audioUrl],
-	)
-
-	const togglePlay = useCallback(
-		function () {
-			const audio = audioRef.current
-			if (!audio) return
-
-			if (isPlaying) {
-				audio.pause()
-				setIsPlaying(false)
-			} else {
-				audio.play()
-				setIsPlaying(true)
-			}
-		},
-		[isPlaying],
-	)
+		audioRef.current.play()
+		setIsPlaying(true)
+	}, [audio.url, isPlaying, loadAudio])
 
 	return { isPlaying, togglePlay }
 }

@@ -3,28 +3,28 @@ import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/c
 import { WINSTON_MODULE_PROVIDER } from 'nest-winston'
 import { Logger } from 'winston'
 import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
-import { DeepSeekTokenUsageBalanceChargeCommand } from 'features/payment/DeepSeekTokenUsageBalanceCharge.command'
-import { OpenAiTokenUsageBalanceChargeCommand } from 'features/payment/OpenAiTokenUsageBalanceCharge.command'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
-import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { CurrentSubscriptionServiceModel } from 'models/auth/auth.service.model'
-import { DailyTranslationLimitService } from '../translate/DailyTranslationLimit.service'
+import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
 import {
 	SentenceTranslationAccess,
 	SentenceTranslationAccessService,
-} from '../translate/SentenceTranslationAccess.service'
+} from 'features/translation/translateCommon/SentenceTranslationAccess.service'
+import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+import { ErrorCode } from 'infrastructure/exceptions/errorCode'
+import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+import { TranslateWithChatGPT } from '../translateCommon/TranslateWithChatGPT.service'
+import { TranslateWithDeepSeek } from '../translateCommon/TranslateWithDeepSeek.service'
+import { TranslateWithGemini } from '../translateCommon/TranslateWithGemini.service'
 import {
-	SentenceTranslationProvider,
-	SentenceTranslationProviderName,
-	SentenceTranslationProviderUsage,
-} from './SentenceTranslationProvider'
-import { StreamTranslateWithChatGPT } from './StreamTranslateWithChatGPT.service'
-import { StreamTranslateWithDeepSeek } from './StreamTranslateWithDeepSeek.service'
+	chargeAfterTranslationIfNeeded,
+	ensureCanChargeBalanceOrThrow,
+	ensureModeIsAllowedOrThrow,
+} from '../translateCommon/TranslationHandler.utils'
+import { SentenceTranslationProvider, TranslationProviderName } from '../translateCommon/TranslationProvider.types'
+import { buildSentenceTranslationPrompt } from './buildSentenceTranslationPrompt'
 
 export type TranslateSentenceInput = {
 	userId: null | number
-	currentSubscription?: null | CurrentSubscriptionServiceModel
 	sentenceId: number
 	text: string
 	sourceLanguageCode?: null | string
@@ -46,20 +46,25 @@ export class TranslateSentenceCommand implements ICommand {
 @CommandHandler(TranslateSentenceCommand)
 export class TranslateSentenceHandler implements ICommandHandler<TranslateSentenceCommand> {
 	constructor(
-		private streamTranslateWithDeepSeek: StreamTranslateWithDeepSeek,
-		private streamTranslateWithChatGPT: StreamTranslateWithChatGPT,
+		private translateWithDeepSeek: TranslateWithDeepSeek,
+		private translateWithChatGPT: TranslateWithChatGPT,
+		private translateWithGemini: TranslateWithGemini,
 		private sentenceTranslationRepository: SentenceTranslationRepository,
 		private sentenceTranslationAccessService: SentenceTranslationAccessService,
-		private dailyTranslationLimitService: DailyTranslationLimitService,
+		private userBalanceTransactionRepository: UserBalanceTransactionRepository,
+		private mainConfigService: MainConfigService,
 		private commandBus: CommandBus,
 		@Inject(WINSTON_MODULE_PROVIDER) private readonly logger: Logger,
 	) {}
 
 	async execute(command: TranslateSentenceCommand): Promise<TranslateSentenceResult> {
+		let draftSentenceTranslationId: null | number = null
+
 		try {
 			const preparedInput = await this.prepareTranslationOrThrow(command.input)
 
 			const draftSentenceTranslation = await this.createDraftSentenceTranslation(command.input.sentenceId)
+			draftSentenceTranslationId = draftSentenceTranslation.id
 
 			const translationResult = await this.generateSentenceTranslation({
 				provider: preparedInput.provider,
@@ -80,15 +85,15 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 				throw new CustomGraphQLError(errorMessage.unknownOpenAIError, ErrorCode.InternalServerError_500)
 			}
 
+			await this.chargeAfterTranslationIfNeeded({
+				userId: command.input.userId,
+				chargeAfterTranslation: preparedInput.createMode === 'chargeBalance',
+				usage: translationResult.usage,
+			})
+
 			await this.saveFinalTranslation({
 				sentenceTranslationId: draftSentenceTranslation.id,
 				translation: finalizedTranslation,
-			})
-
-			await this.chargeAfterTranslationIfNeeded({
-				userId: command.input.userId,
-				chargeAfterTranslation: preparedInput.createMode === 'subscriptionBalance',
-				usage: translationResult.usage,
 			})
 
 			return {
@@ -99,7 +104,15 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 			console.error(error)
 
 			if (error instanceof CustomGraphQLError) {
+				if (draftSentenceTranslationId !== null) {
+					await this.deleteDraftSentenceTranslationIfExists(draftSentenceTranslationId)
+				}
+
 				throw error
+			}
+
+			if (draftSentenceTranslationId !== null) {
+				await this.deleteDraftSentenceTranslationIfExists(draftSentenceTranslationId)
 			}
 
 			this.logger.info('Error while translating sentence', {
@@ -119,13 +132,11 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 	}> {
 		const access = await this.sentenceTranslationAccessService.resolveAccessOrThrow({
 			userId: input.userId,
-			currentSubscription: input.currentSubscription ?? null,
 			sentenceId: input.sentenceId,
 		})
 
 		await this.ensureCanCreateNewTranslationOrThrow({
 			userId: input.userId,
-			sentenceId: input.sentenceId,
 			access,
 		})
 
@@ -139,11 +150,12 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 	}
 
 	private getTranslationProvider(): SentenceTranslationProvider {
-		const providerName: SentenceTranslationProviderName = 'deepseek'
+		const providerName: TranslationProviderName = 'gemini'
 
-		const providers: Record<SentenceTranslationProviderName, SentenceTranslationProvider> = {
-			deepseek: this.streamTranslateWithDeepSeek,
-			chatgpt: this.streamTranslateWithChatGPT,
+		const providers: Record<TranslationProviderName, SentenceTranslationProvider> = {
+			deepseek: this.translateWithDeepSeek,
+			chatgpt: this.translateWithChatGPT,
+			gemini: this.translateWithGemini,
 		}
 
 		return providers[providerName]
@@ -168,18 +180,21 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 		videoYear?: string | number
 	}): Promise<{
 		fullText: string
-		usage: null | SentenceTranslationProviderUsage
+		usage: Parameters<typeof chargeAfterTranslationIfNeeded>[0]['usage']
 	}> {
-		const result = await input.provider.translate({
-			text: input.text,
-			sourceLanguageCode: input.sourceLanguageCode,
-			targetLanguageCode: input.targetLanguageCode,
-			lowPriority: input.lowPriority,
-			bookName: input.bookName,
-			bookAuthor: input.bookAuthor,
-			videoName: input.videoName,
-			videoYear: input.videoYear,
-		})
+		const result = await input.provider.translate(
+			{
+				text: input.text,
+				sourceLanguageCode: input.sourceLanguageCode,
+				targetLanguageCode: input.targetLanguageCode,
+				lowPriority: input.lowPriority,
+				bookName: input.bookName,
+				bookAuthor: input.bookAuthor,
+				videoName: input.videoName,
+				videoYear: input.videoYear,
+			},
+			buildSentenceTranslationPrompt,
+		)
 
 		return {
 			fullText: result.translatedText,
@@ -196,33 +211,14 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 	private async chargeAfterTranslationIfNeeded(input: {
 		userId: null | number
 		chargeAfterTranslation: boolean
-		usage: null | SentenceTranslationProviderUsage
+		usage: Parameters<typeof chargeAfterTranslationIfNeeded>[0]['usage']
 	}) {
-		if (!input.userId || !input.chargeAfterTranslation || input.usage === null) {
-			return
-		}
-
-		if (input.usage.provider === 'deepseek') {
-			await this.commandBus.execute(
-				new DeepSeekTokenUsageBalanceChargeCommand({
-					userId: input.userId,
-					inputTokens: input.usage.inputTokens,
-					outputTokens: input.usage.outputTokens,
-				}),
-			)
-
-			return
-		} else if (input.usage.provider === 'chatgpt') {
-			await this.commandBus.execute(
-				new OpenAiTokenUsageBalanceChargeCommand({
-					userId: input.userId,
-					aiModelName: input.usage.model,
-					inputTokens: input.usage.inputTokens,
-					outputTokens: input.usage.outputTokens,
-					lowPriority: input.usage.lowPriority,
-				}),
-			)
-		}
+		return chargeAfterTranslationIfNeeded({
+			userId: input.userId,
+			chargeAfterTranslation: input.chargeAfterTranslation,
+			usage: input.usage,
+			commandBus: this.commandBus,
+		})
 	}
 
 	private async deleteDraftSentenceTranslationIfExists(sentenceTranslationId: number) {
@@ -236,71 +232,19 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 
 	private async ensureCanCreateNewTranslationOrThrow(input: {
 		userId: null | number
-		sentenceId: number
 		access: SentenceTranslationAccess
 	}) {
-		await this.ensureModeIsAllowedOrThrow({
+		await ensureModeIsAllowedOrThrow({
 			mode: input.access.createMode,
 			deniedReason: input.access.createDeniedReason,
 			actionType: 'create',
 		})
 
-		if (input.access.createMode === 'dailyLimit') {
-			await this.consumeDailyLimitOrThrow(input)
-		}
-	}
-
-	private async ensureModeIsAllowedOrThrow(input: {
-		mode: SentenceTranslationAccess['createMode']
-		deniedReason?: SentenceTranslationAccess['createDeniedReason']
-		actionType: 'create' | 'read'
-	}) {
-		if (input.mode !== 'forbidden') {
-			return
-		}
-
-		if (input.deniedReason === 'userIsNotOwner') {
-			throw new CustomGraphQLError(
-				errorMessage.sentenceTranslation.userCannotAccessForeignPrivateMedia,
-				ErrorCode.Forbidden_403,
-			)
-		}
-
-		if (input.deniedReason === 'privateTranslationRequiresStandardBalance') {
-			throw new CustomGraphQLError(
-				errorMessage.sentenceTranslation.privateTranslationRequiresStandardSubscriptionBalance,
-				ErrorCode.Forbidden_403,
-			)
-		}
-
-		if (input.actionType === 'read') {
-			throw new CustomGraphQLError(
-				errorMessage.sentenceTranslation.anonymousUserCannotTranslate,
-				ErrorCode.Unauthorized_401,
-			)
-		}
-
-		throw new CustomGraphQLError(
-			errorMessage.sentenceTranslation.anonymousUserCannotTranslate,
-			ErrorCode.Unauthorized_401,
-		)
-	}
-
-	private async consumeDailyLimitOrThrow(input: { userId: null | number; sentenceId: number }) {
-		if (!input.userId) {
-			throw new CustomGraphQLError(
-				errorMessage.sentenceTranslation.anonymousUserCannotTranslate,
-				ErrorCode.Unauthorized_401,
-			)
-		}
-
-		const limitResult = await this.dailyTranslationLimitService.tryCountSentenceToday({
+		await ensureCanChargeBalanceOrThrow({
+			access: input.access,
 			userId: input.userId,
-			sentenceId: input.sentenceId,
+			userBalanceTransactionRepository: this.userBalanceTransactionRepository,
+			mainConfigService: this.mainConfigService,
 		})
-
-		if (!limitResult.allowed) {
-			throw new CustomGraphQLError(errorMessage.sentenceTranslation.dailyLimitReached, ErrorCode.Forbidden_403)
-		}
 	}
 }

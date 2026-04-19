@@ -16,7 +16,7 @@ export class WebhookService {
 
 	async yookassa(req: Request, unsafeDataFromYooKassa: any) {
 		if (['serverdevelop', 'servermaster'].includes(this.mainConfigService.get().mode ?? '')) {
-			if (this.isRequestFromYooKassaServer(req)) {
+			if (!this.isRequestFromYooKassaServer(req)) {
 				console.log('Request is not from YooKassa server')
 				return
 			}

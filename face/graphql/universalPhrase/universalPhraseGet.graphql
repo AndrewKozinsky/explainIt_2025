@@ -1,0 +1,19 @@
+query UniversalPhrase_get($input: GetUniversalPhraseInput!) {
+	universal_phrase_get(input: $input) {
+		id
+		phrase
+		languageCode
+		transcription {
+			id
+			universalPhraseId
+			ipa
+			pinyin
+		}
+		audioPronunciation {
+			id
+			universalPhraseId
+			audioUrl
+			durationMs
+		}
+	}
+}

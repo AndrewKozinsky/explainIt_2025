@@ -3,15 +3,6 @@ query Auth_getMe {
 		id
 		email
 		isUserConfirmed
-		currentSubscription {
-			tariffId
-			tariffCode
-			tariffName
-			pricePaid
-			balance
-			includedFileStorageMb
-			startsAt
-			endsAt
-		}
+		balance
 	}
 }

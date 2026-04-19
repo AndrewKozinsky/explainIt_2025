@@ -1,0 +1,20 @@
+.balance-display {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 1rem;
+	border: 1px solid var(--border-color);
+	border-radius: 8px;
+	background-color: var(--surface-color);
+
+	&__label {
+		font-size: 1rem;
+		color: var(--text-secondary-color);
+	}
+
+	&__value {
+		font-size: 1.25rem;
+		font-weight: 600;
+		color: var(--text-primary-color);
+	}
+}

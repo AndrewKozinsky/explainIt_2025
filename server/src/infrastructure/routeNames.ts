@@ -11,7 +11,7 @@ export const RouteNames = {
 	},
 	PAYMENT: {
 		YOOKASSA: {
-			BUY_SUBSCRIPTION: 'payment_yookassa_buy_subscription',
+			TOP_UP_BALANCE: 'payment_yookassa_top_up_balance',
 		},
 	},
 	AI: {
@@ -68,14 +68,11 @@ export const RouteNames = {
 		GET: 'sentence_translation_get',
 		GET_BY_SENTENCE_ID: 'sentence_translation_get_by_sentence_id',
 	},
-	TARIFF: {
-		GET_ALL: 'tariff_get_tariffs',
+	UNIVERSAL_PHRASE: {
+		GET: 'universal_phrase_get',
+		CREATE: 'universal_phrase_create',
 	},
-	WORD: {
-		GET: 'word_get',
-		CREATE: 'word_create',
-	},
-	TRANSCRIPTION: {
+	UNIVERSAL_TRANSCRIPTION: {
 		CREATE: 'create_transcription',
 	},
 	AUDIO_PRONUNCIATION: {

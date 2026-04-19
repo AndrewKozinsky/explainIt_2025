@@ -1,6 +1,7 @@
 'use client'
 
 import { redirect } from 'next/navigation'
+import LoadingMessage from 'ui/LoadingMessage/LoadingMessage'
 import { useUserStore } from '@/stores/userStore'
 import { pageUrls } from '@/сonsts/pageUrls'
 
@@ -15,7 +16,7 @@ function MePageLayout(props: LLMPageLayoutProps) {
 	const isLoading = useUserStore((state) => state.isLoading)
 
 	if (isLoading) {
-		return <div>Loading...</div>
+		return <LoadingMessage text='Загрузка...' />
 	}
 
 	if (!user) {

@@ -1,0 +1,19 @@
+mutation UniversalPhrase_create($input: CreateUniversalPhraseInput!) {
+	universal_phrase_create(input: $input) {
+		id
+		phrase
+		languageCode
+		transcription {
+			id
+			universalPhraseId
+			ipa
+			pinyin
+		}
+		audioPronunciation {
+			id
+			universalPhraseId
+			audioUrl
+			durationMs
+		}
+	}
+}

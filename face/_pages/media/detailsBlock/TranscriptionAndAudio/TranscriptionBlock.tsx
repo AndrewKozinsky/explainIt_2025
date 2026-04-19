@@ -1,7 +1,7 @@
 import React from 'react'
 import { ErrorIcon } from 'ui/icons/ErrorIcon/ErrorIcon'
 import Spinner from 'ui/Spinner/Spinner'
-import { TranscriptionData } from '_pages/media/detailsBlock/TranscriptionAndAudio/fn/useGetAudioAndTranscription'
+import { TranscriptionData } from './fn/types'
 
 type TranscriptionBlockProps = {
 	transcription: TranscriptionData

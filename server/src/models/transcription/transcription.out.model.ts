@@ -6,7 +6,7 @@ export class TranscriptionOutModel {
 	id: number
 
 	@Field(() => Int)
-	wordId: number
+	universalPhraseId: number
 
 	@Field(() => String, { nullable: true })
 	ipa: string | null

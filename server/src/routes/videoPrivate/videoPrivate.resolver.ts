@@ -7,7 +7,6 @@ import { CreatePrivateVideoInput } from 'routes/videoPrivate/inputs/createPrivat
 import { DeletePrivateVideoInput } from 'routes/videoPrivate/inputs/deletePrivateVideo.input'
 import { GetPrivateVideoInput } from 'routes/videoPrivate/inputs/getPrivateVideo.input'
 import { UpdatePrivateVideoInput } from 'routes/videoPrivate/inputs/updatePrivateVideo.input'
-import { CleanupExpiredPrivateMediaCommand } from 'features/video/CleanupExpiredPrivateMedia.command'
 import { CreatePrivateVideoCommand } from 'features/video/CreatePrivateVideo.command'
 import { DeletePrivateVideoCommand } from 'features/video/DeletePrivateVideo.command'
 import { GetUserVideosPrivateCommand } from 'features/video/GetUserVideosPrivate.command'
@@ -76,15 +75,4 @@ export class VideoPrivateResolver {
 	}
 
 	private isCleanupRunning = false
-
-	@Cron(CronExpression.EVERY_DAY_AT_MIDNIGHT)
-	async cleanupExpiredPrivateMediaFilesByCron() {
-		if (this.isCleanupRunning) return
-		this.isCleanupRunning = true
-		try {
-			await this.commandBus.execute(new CleanupExpiredPrivateMediaCommand())
-		} finally {
-			this.isCleanupRunning = false
-		}
-	}
 }

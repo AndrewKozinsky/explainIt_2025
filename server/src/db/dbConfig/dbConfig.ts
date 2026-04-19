@@ -70,7 +70,16 @@ export const bdConfig = {
 				description: 'Is user account confirmed with a social network',
 				required: true,
 			},
+			balance: {
+				type: 'number',
+				default: 0,
+				description: 'User balance in kopecks',
+				required: true,
+			},
 			Payment: {
+				type: 'oneToMany',
+			},
+			UserBalanceTransaction: {
 				type: 'oneToMany',
 			},
 			BookPrivate: {
@@ -79,25 +88,22 @@ export const bdConfig = {
 			VideoPrivate: {
 				type: 'oneToMany',
 			},
-			UserSubscription: {
-				type: 'oneToMany',
-			},
 			created_at: {
 				type: 'createdAt',
 			},
 		},
 	},
-	SubscriptionBalanceTransaction: {
+	UserBalanceTransaction: {
 		dtoProps: {},
 		dbFields: {
 			id: {
 				type: 'index',
 			},
-			user_subscription_id: {
+			user_id: {
 				type: 'manyToOne',
-				thisField: 'user_subscription_id', // Name of the column of this table that refers to another table
-				relationField: 'userSubscription',
-				foreignTable: 'UserSubscription', // Name of the table that this column refers to
+				thisField: 'user_id', // Name of the column of this table that refers to another table
+				relationField: 'user',
+				foreignTable: 'User', // Name of the table that this column refers to
 				foreignField: 'id',
 				required: true,
 			},
@@ -105,20 +111,17 @@ export const bdConfig = {
 				type: 'enum',
 				description: 'Status of balance changing ',
 				required: true,
-				// CHARGE — списание с баланса
-				variants: ['CHARGE'],
+				variants: ['CHARGE', 'TOP_UP'],
 				enumName: 'BalanceTransactionType',
 			},
-			// Это значение необходимо чтобы фиксировать списание.
 			amount: {
 				type: 'number',
 				description: 'Amount of money: negative or positive number',
 				required: true,
 			},
 			payment_id: {
-				type: 'manyToOne',
+				type: 'childOneToOne',
 				thisField: 'payment_id', // Name of the column of this table that refers to another table
-				relationField: 'payment',
 				foreignTable: 'Payment', // Name of the table that this column refers to another table
 				foreignField: 'id',
 				required: false,
@@ -171,11 +174,7 @@ export const bdConfig = {
 				required: true,
 				unique: true,
 			},
-			UserSubscription: {
-				type: 'parentOneToOne',
-				required: false,
-			},
-			SubscriptionBalanceTransaction: {
+			UserBalanceTransaction: {
 				type: 'oneToMany',
 			},
 			created_at: {
@@ -616,6 +615,9 @@ export const bdConfig = {
 			SentenceTranslation: {
 				type: 'oneToMany',
 			},
+			SentencePhraseTranslation: {
+				type: 'oneToMany',
+			},
 		},
 	},
 	SentenceTranslation: {
@@ -851,13 +853,13 @@ export const bdConfig = {
 		},
 	},
 	// Слово или фраза. Используется в таблице транскрипций и озвучки
-	Word: {
+	UniversalPhrase: {
 		dtoProps: {},
 		dbFields: {
 			id: {
 				type: 'index',
 			},
-			word: {
+			phrase: {
 				type: 'string',
 				description: 'Word or phrase in foreign language',
 				required: true,
@@ -870,35 +872,38 @@ export const bdConfig = {
 				variants: languagesArr,
 				required: true,
 			},
-			Transcription: {
+			UniversalTranscription: {
 				type: 'parentOneToOne',
 				required: false,
 			},
-			/*AudioPronunciation: {
-				type: 'oneToMany',
-			},*/
+			UniversalAudioPronunciation: {
+				type: 'parentOneToOne',
+				required: false,
+			},
 		},
 	},
 	// Транскрипция слова или фразы
-	Transcription: {
+	UniversalTranscription: {
 		dtoProps: {},
 		dbFields: {
 			id: {
 				type: 'index',
 			},
-			word_id: {
+			universal_phrase_id: {
 				type: 'childOneToOne',
-				thisField: 'word_id',
-				foreignTable: 'Word',
+				thisField: 'universal_phrase_id',
+				foreignTable: 'UniversalPhrase',
 				foreignField: 'id',
 				required: true,
 			},
+			// Транскрипция в формате IPA
 			ipa: {
 				type: 'string',
 				description: 'IPA transcription',
 				required: false,
 				maxLength: 500,
 			},
+			// Транскрипция в формате pinyin (для китайского)
 			pinyin: {
 				type: 'string',
 				description: 'Pinyin transcription (for Chinese)',
@@ -907,181 +912,31 @@ export const bdConfig = {
 			},
 		},
 	},
-	// Данные о голосе для озвучки
-	/*Voice: {
+	// Озвучка слова
+	UniversalAudioPronunciation: {
 		dtoProps: {},
 		dbFields: {
 			id: {
 				type: 'index',
 			},
-			name: {
-				type: 'string',
-				description: 'Voice name',
-				required: true,
-				maxLength: 100,
-				example: 'Alex',
-			},
-			language_code: {
-				type: 'enum',
-				enumName: 'LanguageCode',
-				variants: languagesArr,
-				required: true,
-			},
-			gender: {
-				type: 'enum',
-				enumName: 'VoiceGender',
-				variants: ['MALE', 'FEMALE'],
-				description: 'Gender of the voice',
-				required: true,
-			},
-			eleven_labs_voice_id: {
-				type: 'string',
-				description: 'eleven_labs_voice_id',
-				required: true,
-			},
-			AudioPronunciation: {
-				type: 'oneToMany',
-			},
-		},
-	},*/
-	// Озвучка слова или фразы
-	/*AudioPronunciation: {
-		dtoProps: {},
-		dbFields: {
-			id: {
-				type: 'index',
-			},
-			word_id: {
-				type: 'manyToOne',
-				thisField: 'word_id',
-				foreignTable: 'Word',
+			universal_phrase_id: {
+				type: 'childOneToOne',
+				thisField: 'universal_phrase_id',
+				foreignTable: 'UniversalPhrase',
 				foreignField: 'id',
 				required: true,
 			},
-			voice_id: {
-				type: 'manyToOne',
-				thisField: 'voice_id',
-				foreignTable: 'Voice',
-				foreignField: 'id',
-				required: true,
-			},
-			audio_url: {
+			s3_key: {
 				type: 'string',
-				description: 'URL of the audio file',
+				description: 'S3 object key of the audio file',
 				required: true,
-				maxLength: 1000,
+				maxLength: 500,
 			},
-			duration: {
+			duration_ms: {
 				type: 'number',
 				description: 'Duration of the audio in milliseconds',
 				required: true,
-			},
-			created_at: {
-				type: 'createdAt',
-			},
-		},
-	},*/
-	// Таблица тарифов (справочник), редактируется редко
-	Tariff: {
-		dtoProps: {},
-		dbFields: {
-			id: {
-				type: 'index',
-			},
-			code: {
-				type: 'string',
-				description: 'Unique code of the tariff',
-				required: true,
-				unique: true,
-			},
-			name: {
-				type: 'string',
-				description: 'Name of the tariff',
-				required: true,
-				maxLength: 100,
-			},
-			price: {
-				type: 'number',
-				description: 'Price for 30 days',
-				example: 10,
-				required: true,
-			},
-			included_balance: {
-				type: 'number',
-				description: 'How many kopecks are given to the user to analyze sentences',
-				example: 10,
-				required: true,
-			},
-			included_file_storage_mb: {
-				type: 'number',
-				description: 'How many megabytes of file storage are included',
-				example: 5000,
-				required: true,
-			},
-			duration_days: {
-				type: 'number',
-				description: 'How many days user can use this subscription',
-				example: 30,
-				required: true,
-			},
-			created_at: {
-				type: 'createdAt',
-			},
-		},
-	},
-	UserSubscription: {
-		dtoProps: {},
-		dbFields: {
-			id: {
-				type: 'index',
-			},
-			user_id: {
-				type: 'manyToOne',
-				thisField: 'user_id', // Name of the column of this table that refers to another table
-				foreignTable: 'User', // Name of the table that this column refers to
-				foreignField: 'id',
-				required: true,
-			},
-			tariff_id: {
-				type: 'manyToOne',
-				thisField: 'tariff_id', // Name of the column of this table that refers to another table
-				foreignTable: 'Tariff', // Name of the table that this column refers to
-				foreignField: 'id',
-				onDelete: 'Restrict',
-				required: true,
-			},
-			price_paid: {
-				type: 'number',
-				description: 'The price paid for this subscription',
-				required: true,
-			},
-			balance: {
-				type: 'number',
-				description: 'How many kopecks are available inside this subscription',
-				required: true,
-			},
-			included_file_storage_mb: {
-				type: 'number',
-				description: 'How many megabytes of file storage are included',
-				required: true,
-			},
-			starts_at: {
-				type: 'dateTime',
-				required: true,
-			},
-			ends_at: {
-				type: 'dateTime',
-				required: true,
-			},
-			Payment: {
-				type: 'childOneToOne',
-				thisField: 'payment_id', // Name of the column of this table that refers to another table
-				foreignTable: 'Payment', // Name of the table that this column refers to
-				foreignField: 'id',
-				required: false,
-			},
-			SubscriptionBalanceTransaction: {
-				type: 'oneToMany',
+				default: 0,
 			},
 			created_at: {
 				type: 'createdAt',

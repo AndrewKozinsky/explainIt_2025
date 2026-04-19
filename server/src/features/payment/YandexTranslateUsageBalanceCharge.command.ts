@@ -1,10 +1,9 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { SubscriptionBalanceTransactionRepository } from 'repo/subscriptionBalanceTransaction.repository'
+import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
-import { BalanceTransactionType } from 'prisma/generated/enums'
 
 export class YandexTranslateUsageBalanceChargeCommand implements ICommand {
 	constructor(
@@ -17,12 +16,10 @@ export class YandexTranslateUsageBalanceChargeCommand implements ICommand {
 
 // Этот командный обработчик получает количество входящих и исходящих токенов, высчитывает стоимость и создает транзакцию
 @CommandHandler(YandexTranslateUsageBalanceChargeCommand)
-export class YandexTranslateUsageBalanceChargeHandler
-	implements ICommandHandler<YandexTranslateUsageBalanceChargeCommand>
-{
+export class YandexTranslateUsageBalanceChargeHandler implements ICommandHandler<YandexTranslateUsageBalanceChargeCommand> {
 	constructor(
 		private mainConfig: MainConfigService,
-		private subscriptionBalanceTransactionRepository: SubscriptionBalanceTransactionRepository,
+		private userBalanceTransactionRepository: UserBalanceTransactionRepository,
 	) {}
 
 	async execute(command: YandexTranslateUsageBalanceChargeCommand) {
@@ -31,12 +28,12 @@ export class YandexTranslateUsageBalanceChargeHandler
 		const amountInKopecks = this.calculateAmountInKopeckDependsOnTokens(command.dto.symbolsCount)
 
 		try {
-			await this.subscriptionBalanceTransactionRepository.createChargeForActiveSubscription({
-				userId,
-				amountInKopecks: -amountInKopecks,
-				type: BalanceTransactionType.CHARGE,
-			})
+			await this.userBalanceTransactionRepository.createCharge({ userId, amountInKopecks })
 		} catch (error) {
+			if (error instanceof CustomGraphQLError) {
+				throw error
+			}
+
 			throw new CustomGraphQLError(errorMessage.unknownError, ErrorCode.InternalServerError_500)
 		}
 	}
@@ -46,8 +43,11 @@ export class YandexTranslateUsageBalanceChargeHandler
 	 * В конце умножается на мою наценку.
 	 */
 	calculateAmountInKopeckDependsOnTokens(translatedSymbolsCount: number): number {
-		// Так как Переводчик минимум берёт 1 копейку, то значит я должен брать минимум 2 копейки
-		// Вернуть стоимость в копейках
-		return Math.max(this.mainConfig.get().yandexCloud.translate.priceForSymbolInKopecks * translatedSymbolsCount, 2)
+		const providerAmount =
+			this.mainConfig.get().yandexCloud.translate.priceForSymbolInKopecks * translatedSymbolsCount
+		const baseAmountInKopecks = Math.ceil(providerAmount)
+		const markupInKopecks = this.mainConfig.get().billing.translationChargeMarkupInKopecks
+
+		return baseAmountInKopecks + markupInKopecks
 	}
 }

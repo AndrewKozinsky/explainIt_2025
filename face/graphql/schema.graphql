@@ -49,15 +49,6 @@ type BookPublicOutModel {
   note: String!
 }
 
-input BuySubscriptionWithYooKassaInput {
-  """Tariff id"""
-  tariffId: Float!
-}
-
-type BuySubscriptionWithYooKassaOutModel {
-  confirmationUrl: String!
-}
-
 input ConfirmEmailInput {
   """User email"""
   code: String!
@@ -111,9 +102,22 @@ input CreatePrivateVideoInput {
   originalContent: String
 }
 
-input CreateTranscriptionInput {
-  """Word id"""
-  wordId: Int!
+input CreateUniversalAudioPronunciationInput {
+  """Universal phrase id to create audio pronunciation for"""
+  universalPhraseId: Int!
+}
+
+input CreateUniversalPhraseInput {
+  """Language code"""
+  languageCode: String!
+
+  """Phrase text"""
+  phrase: String!
+}
+
+input CreateUniversalTranscriptionInput {
+  """Universal phrase id"""
+  universalPhraseId: Int!
 }
 
 type CreateVideoPrivateOutModel {
@@ -127,29 +131,9 @@ type CreateVideoPrivateOutModel {
   year: Int
 }
 
-input CreateWordInput {
-  """Language code"""
-  languageCode: String!
-
-  """Word text"""
-  word: String!
+type CreateYooKassaPaymentOutModel {
+  confirmationUrl: String!
 }
-
-type CurrentSubscriptionOutModel {
-  balance: Int!
-  endsAt: String!
-  includedFileStorageMb: Int!
-  pricePaid: Int!
-  startsAt: String!
-  tariffCode: String!
-  tariffId: Int!
-  tariffName: String!
-}
-
-"""
-A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
-"""
-scalar DateTime
 
 input DeleteBookChapterInput {
   """BookChapter id"""
@@ -215,12 +199,12 @@ input GetSentenceTranslationInput {
   sentenceId: Float!
 }
 
-input GetWordInput {
+input GetUniversalPhraseInput {
   """Language code"""
   languageCode: String!
 
-  """Word text"""
-  word: String!
+  """Phrase text"""
+  phrase: String!
 }
 
 type LanguageOutModel {
@@ -287,17 +271,25 @@ type Mutation {
   """Update user book"""
   book_update(input: UpdatePrivateBookInput!): BookPrivateOutModel!
 
-  """Create transcription for a word using DeepSeek"""
-  create_transcription(input: CreateTranscriptionInput!): TranscriptionOutModel!
+  """
+  Generate audio pronunciation for a word using Google TTS and store it on S3
+  """
+  create_audio_pronunciation(input: CreateUniversalAudioPronunciationInput!): UniversalAudioPronunciationOutModel!
 
-  """Buy a subscription with YooKassa"""
-  payment_yookassa_buy_subscription(input: BuySubscriptionWithYooKassaInput!): BuySubscriptionWithYooKassaOutModel!
+  """Create transcription for a word using DeepSeek"""
+  create_transcription(input: CreateUniversalTranscriptionInput!): TranscriptionOutModel!
+
+  """Top up balance with YooKassa"""
+  payment_yookassa_top_up_balance(input: TopUpBalanceWithYooKassaInput!): CreateYooKassaPaymentOutModel!
 
   """Translate phrase in sentence by selected offsets"""
   translate_translate_phrase(input: TranslatePhraseInput!): SentencePhraseTranslationOutModel!
 
   """Translate sentence"""
   translate_translate_sentence(input: TranslateSentenceInput!): TranslateSentenceResultOutModel!
+
+  """Create a new phrase"""
+  universal_phrase_create(input: CreateUniversalPhraseInput!): UniversalPhraseOutModel!
 
   """Create a video"""
   video_private_create(input: CreatePrivateVideoInput!): CreateVideoPrivateOutModel!
@@ -307,9 +299,6 @@ type Mutation {
 
   """Update a video"""
   video_private_update(input: UpdatePrivateVideoInput!): UpdateVideoPrivateOutModel!
-
-  """Create a new word"""
-  word_create(input: CreateWordInput!): WordOutModel!
 }
 
 type Query {
@@ -334,9 +323,6 @@ type Query {
   """Get all available languages"""
   language_get_languages: [LanguageOutModel!]!
 
-  """Get all tariffs"""
-  tariff_get_tariffs: [TariffOutModel!]!
-
   """Get existing phrase translation by sentence and offsets"""
   translate_get_phrase_translation(input: GetPhraseTranslationInput!): SentencePhraseTranslationOutModel
 
@@ -345,6 +331,9 @@ type Query {
 
   """Get existing sentence translation by sentence id"""
   translate_get_sentence_translation(input: GetSentenceTranslationInput!): TranslateSentenceResultOutModel
+
+  """Get phrase with transcription and audio pronunciations"""
+  universal_phrase_get(input: GetUniversalPhraseInput!): UniversalPhraseOutModel!
 
   """Get a video"""
   video_private_get(input: GetPrivateVideoInput!): VideoPrivateOutModel!
@@ -357,9 +346,6 @@ type Query {
 
   """Get public videos"""
   video_public_get_videos: [VideoPublicLiteOutModel!]!
-
-  """Get word with transcription and audio pronunciations"""
-  word_get(input: GetWordInput!): WordOutModel!
 }
 
 input RegisterUserInput {
@@ -413,22 +399,16 @@ type SubtitleSentenceInitOutModel {
   subtitleId: Int!
 }
 
-type TariffOutModel {
-  code: String!
-  createdAt: DateTime!
-  durationDays: Int!
-  id: Int!
-  includedBalance: Int!
-  includedFileStorageMb: Int!
-  name: String!
-  price: Int!
+input TopUpBalanceWithYooKassaInput {
+  """Amount in kopecks"""
+  amountInKopecks: Int!
 }
 
 type TranscriptionOutModel {
   id: Int!
   ipa: String
   pinyin: String
-  wordId: Int!
+  universalPhraseId: Int!
 }
 
 input TranslatePhraseInput {
@@ -488,6 +468,21 @@ input TranslateSentenceInput {
 type TranslateSentenceResultOutModel {
   sentenceId: Int!
   translation: String!
+}
+
+type UniversalAudioPronunciationOutModel {
+  audioUrl: String!
+  durationMs: Int!
+  id: Int!
+  universalPhraseId: Int!
+}
+
+type UniversalPhraseOutModel {
+  audioPronunciation: UniversalAudioPronunciationOutModel
+  id: Int!
+  languageCode: String!
+  phrase: String!
+  transcription: TranscriptionOutModel
 }
 
 input UpdateBookChapterInput {
@@ -564,7 +559,7 @@ type UpdateVideoPrivateOutModel {
 }
 
 type UserOutModel {
-  currentSubscription: CurrentSubscriptionOutModel
+  balance: Int!
   email: String!
   id: Int!
   isUserConfirmed: Boolean!
@@ -675,11 +670,4 @@ type VideoPublicSubtitleOutModel {
   orderIndex: Int!
   startOffset: Int!
   startTimeMs: Int!
-}
-
-type WordOutModel {
-  id: Int!
-  languageCode: String!
-  transcription: TranscriptionOutModel
-  word: String!
 }
