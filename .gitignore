@@ -263,4 +263,23 @@ dist
 .pnp.*
 
 .idea
-.DS_Store/
+.DS_Store
+**/.DS_Store
+
+# Additional rules from face/.gitignore
+/.pnp
+/build
+*.pem
+.vercel
+next-env.d.ts
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/face/playwright/
+
+# Storybook
+*storybook.log
+storybook-static

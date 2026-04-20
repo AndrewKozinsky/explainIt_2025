@@ -20,6 +20,26 @@ nvm use 24
 `server/src/types/**` — вспомогательные типы используемые во всём проекте
 `server/src/utils/**` — вспомогательные функции используемые во всём проекте
 
+## Database tables
+База данных управляется из схемы Prisma (server/prisma/schema.prisma).
+
+Таблица User — данные пользователя
+Таблица UserBalanceTransaction — транзакции баланса пользователя
+Таблица Payment — оплаты пользователя
+Таблица BookPrivate — личные книги
+Таблица BookPublic — публичные книги
+Таблица BookChapter — главы книг
+Таблица VideoPrivate — личные фильмы
+Таблица VideoPublic — публичные фильмы
+Таблица Sentence — предложения из глав книг и субтитров фильмов
+Таблица SentenceTranslation — переводы предложений из глав книг и субтитров фильмов
+Таблица SentencePhraseTranslation — переводы фраз из глав книг и субтитров фильмов
+Таблица Subtitle — субтитры фильмов
+Таблица SubtitleSentenceInit — связь субтитров фильмов с предложениями
+Таблица UniversalPhrase — фразы на иностранном языке
+Таблица UniversalTranscription — транскрипции фраз на иностранном языке (зависит от UniversalPhrase)
+Таблица UniversalAudioPronunciation — озвучка фраз на иностранном языке (зависит от UniversalPhrase)
+
 ## Repositories vs QueryRepositories
 
 ### Repository
