@@ -43,6 +43,10 @@ export interface GetPhraseTranslationsBySentenceInput {
     sentenceId: number;
 }
 
+export interface GetSentenceChatThreadInput {
+    sentenceId: number;
+}
+
 export interface GetUniversalPhraseInput {
     phrase: string;
     languageCode: string;
@@ -162,6 +166,11 @@ export interface TranslatePhraseInput {
     videoYear?: Nullable<string>;
 }
 
+export interface CreateSentenceChatUserMessageInput {
+    sentenceId: number;
+    question: string;
+}
+
 export interface CreateUniversalPhraseInput {
     phrase: string;
     languageCode: string;
@@ -254,6 +263,30 @@ export interface LanguageOutModel {
 
 export interface CreateYooKassaPaymentOutModel {
     confirmationUrl: string;
+}
+
+export interface SentenceChatMessageOutModel {
+    id: number;
+    threadId: number;
+    role: string;
+    content: string;
+    status: string;
+    errorMessage?: Nullable<string>;
+    createdAt: string;
+    updatedAt: string;
+}
+
+export interface SentenceChatThreadOutModel {
+    id: number;
+    sentenceId: number;
+    messages: SentenceChatMessageOutModel[];
+    createdAt: string;
+    updatedAt: string;
+}
+
+export interface CreateSentenceChatUserMessageOutModel {
+    userMessage: SentenceChatMessageOutModel;
+    assistantMessage: SentenceChatMessageOutModel;
 }
 
 export interface SentencePhraseTranslationExampleOutModel {
@@ -453,6 +486,7 @@ export interface IQuery {
     translate_get_sentence_translation(input: GetSentenceTranslationInput): Nullable<TranslateSentenceResultOutModel> | Promise<Nullable<TranslateSentenceResultOutModel>>;
     translate_get_phrase_translation(input: GetPhraseTranslationInput): Nullable<SentencePhraseTranslationOutModel> | Promise<Nullable<SentencePhraseTranslationOutModel>>;
     translate_get_phrase_translations_by_sentence(input: GetPhraseTranslationsBySentenceInput): SentencePhraseTranslationOutModel[] | Promise<SentencePhraseTranslationOutModel[]>;
+    sentence_chat_get_thread(input: GetSentenceChatThreadInput): Nullable<SentenceChatThreadOutModel> | Promise<Nullable<SentenceChatThreadOutModel>>;
     universal_phrase_get(input: GetUniversalPhraseInput): UniversalPhraseOutModel | Promise<UniversalPhraseOutModel>;
     language_get_languages(): LanguageOutModel[] | Promise<LanguageOutModel[]>;
 }
@@ -476,6 +510,7 @@ export interface IMutation {
     video_private_delete(input: DeletePrivateVideoInput): boolean | Promise<boolean>;
     translate_translate_sentence(input: TranslateSentenceInput): TranslateSentenceResultOutModel | Promise<TranslateSentenceResultOutModel>;
     translate_translate_phrase(input: TranslatePhraseInput): SentencePhraseTranslationOutModel | Promise<SentencePhraseTranslationOutModel>;
+    sentence_chat_create_user_message(input: CreateSentenceChatUserMessageInput): CreateSentenceChatUserMessageOutModel | Promise<CreateSentenceChatUserMessageOutModel>;
     universal_phrase_create(input: CreateUniversalPhraseInput): UniversalPhraseOutModel | Promise<UniversalPhraseOutModel>;
     create_transcription(input: CreateUniversalTranscriptionInput): TranscriptionOutModel | Promise<TranscriptionOutModel>;
     create_audio_pronunciation(input: CreateUniversalAudioPronunciationInput): UniversalAudioPronunciationOutModel | Promise<UniversalAudioPronunciationOutModel>;

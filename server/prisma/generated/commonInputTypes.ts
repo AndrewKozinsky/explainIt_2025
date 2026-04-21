@@ -343,6 +343,40 @@ export type EnumSentencePhraseTranslationStatusWithAggregatesFilter<$PrismaModel
   _max?: Prisma.NestedEnumSentencePhraseTranslationStatusFilter<$PrismaModel>
 }
 
+export type EnumSentenceChatMessageRoleFilter<$PrismaModel = never> = {
+  equals?: $Enums.SentenceChatMessageRole | Prisma.EnumSentenceChatMessageRoleFieldRefInput<$PrismaModel>
+  in?: $Enums.SentenceChatMessageRole[] | Prisma.ListEnumSentenceChatMessageRoleFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SentenceChatMessageRole[] | Prisma.ListEnumSentenceChatMessageRoleFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSentenceChatMessageRoleFilter<$PrismaModel> | $Enums.SentenceChatMessageRole
+}
+
+export type EnumSentenceChatMessageStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SentenceChatMessageStatus | Prisma.EnumSentenceChatMessageStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SentenceChatMessageStatus[] | Prisma.ListEnumSentenceChatMessageStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SentenceChatMessageStatus[] | Prisma.ListEnumSentenceChatMessageStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSentenceChatMessageStatusFilter<$PrismaModel> | $Enums.SentenceChatMessageStatus
+}
+
+export type EnumSentenceChatMessageRoleWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SentenceChatMessageRole | Prisma.EnumSentenceChatMessageRoleFieldRefInput<$PrismaModel>
+  in?: $Enums.SentenceChatMessageRole[] | Prisma.ListEnumSentenceChatMessageRoleFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SentenceChatMessageRole[] | Prisma.ListEnumSentenceChatMessageRoleFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSentenceChatMessageRoleWithAggregatesFilter<$PrismaModel> | $Enums.SentenceChatMessageRole
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSentenceChatMessageRoleFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSentenceChatMessageRoleFilter<$PrismaModel>
+}
+
+export type EnumSentenceChatMessageStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SentenceChatMessageStatus | Prisma.EnumSentenceChatMessageStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SentenceChatMessageStatus[] | Prisma.ListEnumSentenceChatMessageStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SentenceChatMessageStatus[] | Prisma.ListEnumSentenceChatMessageStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSentenceChatMessageStatusWithAggregatesFilter<$PrismaModel> | $Enums.SentenceChatMessageStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSentenceChatMessageStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSentenceChatMessageStatusFilter<$PrismaModel>
+}
+
 export type NestedIntFilter<$PrismaModel = never> = {
   equals?: number | Prisma.IntFieldRefInput<$PrismaModel>
   in?: number[] | Prisma.ListIntFieldRefInput<$PrismaModel>
@@ -683,6 +717,40 @@ export type NestedEnumSentencePhraseTranslationStatusWithAggregatesFilter<$Prism
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumSentencePhraseTranslationStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumSentencePhraseTranslationStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumSentenceChatMessageRoleFilter<$PrismaModel = never> = {
+  equals?: $Enums.SentenceChatMessageRole | Prisma.EnumSentenceChatMessageRoleFieldRefInput<$PrismaModel>
+  in?: $Enums.SentenceChatMessageRole[] | Prisma.ListEnumSentenceChatMessageRoleFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SentenceChatMessageRole[] | Prisma.ListEnumSentenceChatMessageRoleFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSentenceChatMessageRoleFilter<$PrismaModel> | $Enums.SentenceChatMessageRole
+}
+
+export type NestedEnumSentenceChatMessageStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SentenceChatMessageStatus | Prisma.EnumSentenceChatMessageStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SentenceChatMessageStatus[] | Prisma.ListEnumSentenceChatMessageStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SentenceChatMessageStatus[] | Prisma.ListEnumSentenceChatMessageStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSentenceChatMessageStatusFilter<$PrismaModel> | $Enums.SentenceChatMessageStatus
+}
+
+export type NestedEnumSentenceChatMessageRoleWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SentenceChatMessageRole | Prisma.EnumSentenceChatMessageRoleFieldRefInput<$PrismaModel>
+  in?: $Enums.SentenceChatMessageRole[] | Prisma.ListEnumSentenceChatMessageRoleFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SentenceChatMessageRole[] | Prisma.ListEnumSentenceChatMessageRoleFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSentenceChatMessageRoleWithAggregatesFilter<$PrismaModel> | $Enums.SentenceChatMessageRole
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSentenceChatMessageRoleFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSentenceChatMessageRoleFilter<$PrismaModel>
+}
+
+export type NestedEnumSentenceChatMessageStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SentenceChatMessageStatus | Prisma.EnumSentenceChatMessageStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SentenceChatMessageStatus[] | Prisma.ListEnumSentenceChatMessageStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SentenceChatMessageStatus[] | Prisma.ListEnumSentenceChatMessageStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSentenceChatMessageStatusWithAggregatesFilter<$PrismaModel> | $Enums.SentenceChatMessageStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSentenceChatMessageStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSentenceChatMessageStatusFilter<$PrismaModel>
 }
 
 

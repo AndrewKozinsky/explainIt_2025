@@ -8,6 +8,6 @@ export function getRequestFromExecutionContext(context: ExecutionContext): Reque
 	}
 
 	const gqlContext = GqlExecutionContext.create(context)
-	
+
 	return gqlContext.getContext().req as Request
 }

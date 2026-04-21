@@ -119,3 +119,13 @@ export type UniversalTranscription = Prisma.UniversalTranscriptionModel
  * 
  */
 export type UniversalAudioPronunciation = Prisma.UniversalAudioPronunciationModel
+/**
+ * Model SentenceChatThread
+ * 
+ */
+export type SentenceChatThread = Prisma.SentenceChatThreadModel
+/**
+ * Model SentenceChatMessage
+ * 
+ */
+export type SentenceChatMessage = Prisma.SentenceChatMessageModel

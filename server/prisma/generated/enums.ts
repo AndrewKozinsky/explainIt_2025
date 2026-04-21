@@ -67,3 +67,21 @@ export const SentencePhraseTranslationStatus = {
 } as const
 
 export type SentencePhraseTranslationStatus = (typeof SentencePhraseTranslationStatus)[keyof typeof SentencePhraseTranslationStatus]
+
+
+export const SentenceChatMessageRole = {
+  user: 'user',
+  assistant: 'assistant'
+} as const
+
+export type SentenceChatMessageRole = (typeof SentenceChatMessageRole)[keyof typeof SentenceChatMessageRole]
+
+
+export const SentenceChatMessageStatus = {
+  streaming: 'streaming',
+  completed: 'completed',
+  canceled: 'canceled',
+  failed: 'failed'
+} as const
+
+export type SentenceChatMessageStatus = (typeof SentenceChatMessageStatus)[keyof typeof SentenceChatMessageStatus]

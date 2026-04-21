@@ -399,7 +399,9 @@ export const ModelName = {
   SubtitleSentenceInit: 'SubtitleSentenceInit',
   UniversalPhrase: 'UniversalPhrase',
   UniversalTranscription: 'UniversalTranscription',
-  UniversalAudioPronunciation: 'UniversalAudioPronunciation'
+  UniversalAudioPronunciation: 'UniversalAudioPronunciation',
+  SentenceChatThread: 'SentenceChatThread',
+  SentenceChatMessage: 'SentenceChatMessage'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -415,7 +417,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "userBalanceTransaction" | "payment" | "bookPrivate" | "bookPublic" | "bookChapter" | "videoPrivate" | "videoPublic" | "sentence" | "sentenceTranslation" | "sentencePhraseTranslation" | "subtitle" | "subtitleSentenceInit" | "universalPhrase" | "universalTranscription" | "universalAudioPronunciation"
+    modelProps: "user" | "userBalanceTransaction" | "payment" | "bookPrivate" | "bookPublic" | "bookChapter" | "videoPrivate" | "videoPublic" | "sentence" | "sentenceTranslation" | "sentencePhraseTranslation" | "subtitle" | "subtitleSentenceInit" | "universalPhrase" | "universalTranscription" | "universalAudioPronunciation" | "sentenceChatThread" | "sentenceChatMessage"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1603,6 +1605,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    SentenceChatThread: {
+      payload: Prisma.$SentenceChatThreadPayload<ExtArgs>
+      fields: Prisma.SentenceChatThreadFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SentenceChatThreadFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceChatThreadPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SentenceChatThreadFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceChatThreadPayload>
+        }
+        findFirst: {
+          args: Prisma.SentenceChatThreadFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceChatThreadPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SentenceChatThreadFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceChatThreadPayload>
+        }
+        findMany: {
+          args: Prisma.SentenceChatThreadFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceChatThreadPayload>[]
+        }
+        create: {
+          args: Prisma.SentenceChatThreadCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceChatThreadPayload>
+        }
+        createMany: {
+          args: Prisma.SentenceChatThreadCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SentenceChatThreadCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceChatThreadPayload>[]
+        }
+        delete: {
+          args: Prisma.SentenceChatThreadDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceChatThreadPayload>
+        }
+        update: {
+          args: Prisma.SentenceChatThreadUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceChatThreadPayload>
+        }
+        deleteMany: {
+          args: Prisma.SentenceChatThreadDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SentenceChatThreadUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SentenceChatThreadUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceChatThreadPayload>[]
+        }
+        upsert: {
+          args: Prisma.SentenceChatThreadUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceChatThreadPayload>
+        }
+        aggregate: {
+          args: Prisma.SentenceChatThreadAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSentenceChatThread>
+        }
+        groupBy: {
+          args: Prisma.SentenceChatThreadGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SentenceChatThreadGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SentenceChatThreadCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SentenceChatThreadCountAggregateOutputType> | number
+        }
+      }
+    }
+    SentenceChatMessage: {
+      payload: Prisma.$SentenceChatMessagePayload<ExtArgs>
+      fields: Prisma.SentenceChatMessageFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SentenceChatMessageFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceChatMessagePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SentenceChatMessageFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceChatMessagePayload>
+        }
+        findFirst: {
+          args: Prisma.SentenceChatMessageFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceChatMessagePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SentenceChatMessageFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceChatMessagePayload>
+        }
+        findMany: {
+          args: Prisma.SentenceChatMessageFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceChatMessagePayload>[]
+        }
+        create: {
+          args: Prisma.SentenceChatMessageCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceChatMessagePayload>
+        }
+        createMany: {
+          args: Prisma.SentenceChatMessageCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SentenceChatMessageCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceChatMessagePayload>[]
+        }
+        delete: {
+          args: Prisma.SentenceChatMessageDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceChatMessagePayload>
+        }
+        update: {
+          args: Prisma.SentenceChatMessageUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceChatMessagePayload>
+        }
+        deleteMany: {
+          args: Prisma.SentenceChatMessageDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SentenceChatMessageUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SentenceChatMessageUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceChatMessagePayload>[]
+        }
+        upsert: {
+          args: Prisma.SentenceChatMessageUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceChatMessagePayload>
+        }
+        aggregate: {
+          args: Prisma.SentenceChatMessageAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSentenceChatMessage>
+        }
+        groupBy: {
+          args: Prisma.SentenceChatMessageGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SentenceChatMessageGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SentenceChatMessageCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SentenceChatMessageCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1864,6 +2014,31 @@ export const UniversalAudioPronunciationScalarFieldEnum = {
 export type UniversalAudioPronunciationScalarFieldEnum = (typeof UniversalAudioPronunciationScalarFieldEnum)[keyof typeof UniversalAudioPronunciationScalarFieldEnum]
 
 
+export const SentenceChatThreadScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  sentence_id: 'sentence_id',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type SentenceChatThreadScalarFieldEnum = (typeof SentenceChatThreadScalarFieldEnum)[keyof typeof SentenceChatThreadScalarFieldEnum]
+
+
+export const SentenceChatMessageScalarFieldEnum = {
+  id: 'id',
+  thread_id: 'thread_id',
+  role: 'role',
+  content: 'content',
+  status: 'status',
+  error_message: 'error_message',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type SentenceChatMessageScalarFieldEnum = (typeof SentenceChatMessageScalarFieldEnum)[keyof typeof SentenceChatMessageScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -2042,6 +2217,34 @@ export type ListEnumSentencePhraseTranslationStatusFieldRefInput<$PrismaModel> =
 
 
 /**
+ * Reference to a field of type 'SentenceChatMessageRole'
+ */
+export type EnumSentenceChatMessageRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SentenceChatMessageRole'>
+    
+
+
+/**
+ * Reference to a field of type 'SentenceChatMessageRole[]'
+ */
+export type ListEnumSentenceChatMessageRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SentenceChatMessageRole[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SentenceChatMessageStatus'
+ */
+export type EnumSentenceChatMessageStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SentenceChatMessageStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SentenceChatMessageStatus[]'
+ */
+export type ListEnumSentenceChatMessageStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SentenceChatMessageStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -2165,6 +2368,8 @@ export type GlobalOmitConfig = {
   universalPhrase?: Prisma.UniversalPhraseOmit
   universalTranscription?: Prisma.UniversalTranscriptionOmit
   universalAudioPronunciation?: Prisma.UniversalAudioPronunciationOmit
+  sentenceChatThread?: Prisma.SentenceChatThreadOmit
+  sentenceChatMessage?: Prisma.SentenceChatMessageOmit
 }
 
 /* Types for Logging */

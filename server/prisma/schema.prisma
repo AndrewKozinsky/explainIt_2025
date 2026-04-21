@@ -21,6 +21,7 @@ model User {
     UserBalanceTransaction                  UserBalanceTransaction[]
     BookPrivate                             BookPrivate[]
     VideoPrivate                            VideoPrivate[]
+    SentenceChatThread                      SentenceChatThread[]
     created_at                              DateTime                 @default(now())
 }
 
@@ -144,6 +145,7 @@ model Sentence {
     SubtitleSentenceInit      SubtitleSentenceInit[]
     SentenceTranslation       SentenceTranslation[]
     SentencePhraseTranslation SentencePhraseTranslation[]
+    SentenceChatThread        SentenceChatThread[]
 }
 
 model SentenceTranslation {
@@ -226,6 +228,34 @@ model UniversalAudioPronunciation {
     created_at          DateTime        @default(now())
 }
 
+model SentenceChatThread {
+    id                  Int                   @id @default(autoincrement())
+    user                User                  @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    user_id             Int
+    sentence            Sentence              @relation(fields: [sentence_id], references: [id], onDelete: Cascade)
+    sentence_id         Int
+    SentenceChatMessage SentenceChatMessage[]
+    created_at          DateTime              @default(now())
+    updated_at          DateTime              @default(now())
+
+    @@unique([user_id, sentence_id])
+    @@index([user_id])
+}
+
+model SentenceChatMessage {
+    id            Int                       @id @default(autoincrement())
+    thread        SentenceChatThread        @relation(fields: [thread_id], references: [id], onDelete: Cascade)
+    thread_id     Int
+    role          SentenceChatMessageRole
+    content       String
+    status        SentenceChatMessageStatus @default(completed)
+    error_message String?
+    created_at    DateTime                  @default(now())
+    updated_at    DateTime                  @default(now())
+
+    @@index([thread_id])
+}
+
 enum BalanceTransactionType {
     CHARGE
     TOP_UP
@@ -263,4 +293,16 @@ enum SentencePhraseTranslationStatus {
     pending
     ready
     error
+}
+
+enum SentenceChatMessageRole {
+    user
+    assistant
+}
+
+enum SentenceChatMessageStatus {
+    streaming
+    completed
+    canceled
+    failed
 }

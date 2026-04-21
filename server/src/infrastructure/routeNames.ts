@@ -81,6 +81,13 @@ export const RouteNames = {
 	LANGUAGE: {
 		GET_ALL: 'language_get_languages',
 	},
+	SENTENCE_CHAT: {
+		GET_THREAD: 'sentence_chat_get_thread',
+		CREATE_THREAD: 'sentence_chat_create_thread',
+		CREATE_USER_MESSAGE: 'sentence_chat_create_user_message',
+		// REST SSE: :threadId идёт параметром пути
+		STREAM_ASSISTANT_REPLY: 'sentence-chat/threads/:threadId/assistant-stream',
+	},
 }
 
 export default RouteNames

@@ -20,8 +20,9 @@ nvm use 24
 `server/src/types/**` — вспомогательные типы используемые во всём проекте
 `server/src/utils/**` — вспомогательные функции используемые во всём проекте
 
+
 ## Database tables
-База данных управляется из схемы Prisma (server/prisma/schema.prisma).
+Взаимодействие с базой данных идёт через Prisma ORM.
 
 Таблица User — данные пользователя
 Таблица UserBalanceTransaction — транзакции баланса пользователя
@@ -39,6 +40,29 @@ nvm use 24
 Таблица UniversalPhrase — фразы на иностранном языке
 Таблица UniversalTranscription — транскрипции фраз на иностранном языке (зависит от UniversalPhrase)
 Таблица UniversalAudioPronunciation — озвучка фраз на иностранном языке (зависит от UniversalPhrase)
+
+
+## Как менять базу данных
+У меня есть функция, генерирующая схему призмы: `server/src/db/prismaGenerator/createSchema.ts`.
+Эта функция принимает конфигурацию базы данных: `server/prisma/schema.prisma`.
+После изменения конфигурации нужно запустить команду
+
+```bash
+npm run generatePrismaFile
+```
+
+и схема Призмы сгенерируется в файл `server/src/db/dbConfig/dbConfig.ts`.
+
+Для генерации миграции запустить команду
+
+```npm run migrate:dev```
+
+И сгенерируйте типы данных:
+```npm run migrate:generate-types```
+
+Если требуется удалить базу данных:
+```npx prisma migrate reset```
+
 
 ## Repositories vs QueryRepositories
 
@@ -66,29 +90,6 @@ Use query repositories for data already prepared for the client, usually mapped 
 
 If code needs internal access checks or workflow decisions, prefer `Repository`, not `QueryRepository`.
 
-## Как менять базу данных
-
-Взаимодействие с базой данных идёт через Prisma ORM.
-У меня есть функция, генерирующая схему призмы: `server/src/db/prismaGenerator/createSchema.ts`.
-Эта функция принимает конфигурацию базы данных: `server/prisma/schema.prisma`.
-После изменения конфигурации нужно запустить команду
-
-```bash
-npm run generatePrismaFile
-```
-
-и схема Призмы сгенерируется в файл `server/src/db/dbConfig/dbConfig.ts`.
-
-Для генерации миграции запустить команду
-
-```npm run migrate:dev```
-
-И сгенерируйте типы данных:
-```npm run migrate:generate-types```
-
-Если требуется удалить базу данных:
-```npx prisma migrate reset```
-
 
 ## Errors
 Domain-specific user-facing errors should be added to:
@@ -96,3 +97,14 @@ Domain-specific user-facing errors should be added to:
 - `server/src/infrastructure/exceptions/errorMessage.ts`
 
 Reuse an existing error message when one text already covers multiple forbidden scenarios.
+
+## Nest.js guards
+Гард получающий userId из запроса с клиента и помещающий в объект запроса данные пользователя. Не блокирует запрос на маршрут.
+Нужен если в маршруте требуются данные пользователя, но они могут быть необязательными.
+```server/src/infrastructure/guards/optionalSessionUser.guard.ts```
+
+Гард получающий userId из запроса с клиента и помещающий в объект запроса данные пользователя. Блокирует запрос авторизационная кука не передана.
+```server/src/infrastructure/guards/checkSessionCookie.guard.ts```
+
+Гард следящий чтобы запросы делал пользователь не с нулевым балансом.
+```server/src/infrastructure/guards/userWithPositiveBalanceGuard.guard.ts```

@@ -113,6 +113,15 @@ export const errorMessage = {
 		alreadyExists: 'Транскрипция для этой фразы уже существует.',
 		cannotGetTranscriptionFromLLM: 'Не удалось получить транскрипцию от LLM.',
 	},
+	sentenceChat: {
+		questionIsEmpty: 'Текст вопроса пустой.',
+		generationAlreadyActive: 'У вас уже есть активная генерация ответа. Дождитесь её завершения или отмените.',
+		threadNotFound: 'Тред чата не найден.',
+		threadAlreadyExists: 'Тред обсуждения для этого предложения уже существует.',
+		lastMessageIsNotUserQuestion:
+			'Невозможно сгенерировать ответ: последнее сообщение в треде не является вопросом пользователя.',
+		previousAnswerNotReady: 'Невозможно отправить новый вопрос: предыдущий ответ ещё не завершён.',
+	},
 	audioPronunciation: {
 		notCreated: 'Не удалось создать озвучку.',
 		alreadyExists: 'Озвучка для этой фразы уже существует.',

@@ -66,7 +66,9 @@ export const ModelName = {
   SubtitleSentenceInit: 'SubtitleSentenceInit',
   UniversalPhrase: 'UniversalPhrase',
   UniversalTranscription: 'UniversalTranscription',
-  UniversalAudioPronunciation: 'UniversalAudioPronunciation'
+  UniversalAudioPronunciation: 'UniversalAudioPronunciation',
+  SentenceChatThread: 'SentenceChatThread',
+  SentenceChatMessage: 'SentenceChatMessage'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -305,6 +307,31 @@ export const UniversalAudioPronunciationScalarFieldEnum = {
 } as const
 
 export type UniversalAudioPronunciationScalarFieldEnum = (typeof UniversalAudioPronunciationScalarFieldEnum)[keyof typeof UniversalAudioPronunciationScalarFieldEnum]
+
+
+export const SentenceChatThreadScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  sentence_id: 'sentence_id',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type SentenceChatThreadScalarFieldEnum = (typeof SentenceChatThreadScalarFieldEnum)[keyof typeof SentenceChatThreadScalarFieldEnum]
+
+
+export const SentenceChatMessageScalarFieldEnum = {
+  id: 'id',
+  thread_id: 'thread_id',
+  role: 'role',
+  content: 'content',
+  status: 'status',
+  error_message: 'error_message',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type SentenceChatMessageScalarFieldEnum = (typeof SentenceChatMessageScalarFieldEnum)[keyof typeof SentenceChatMessageScalarFieldEnum]
 
 
 export const SortOrder = {

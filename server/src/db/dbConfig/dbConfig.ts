@@ -88,6 +88,9 @@ export const bdConfig = {
 			VideoPrivate: {
 				type: 'oneToMany',
 			},
+			SentenceChatThread: {
+				type: 'oneToMany',
+			},
 			created_at: {
 				type: 'createdAt',
 			},
@@ -618,6 +621,9 @@ export const bdConfig = {
 			SentencePhraseTranslation: {
 				type: 'oneToMany',
 			},
+			SentenceChatThread: {
+				type: 'oneToMany',
+			},
 		},
 	},
 	SentenceTranslation: {
@@ -940,6 +946,90 @@ export const bdConfig = {
 			},
 			created_at: {
 				type: 'createdAt',
+			},
+		},
+	},
+	// Тред чата с ИИ по конкретному выделенному предложению. У каждого пользователя не более одного треда на предложение.
+	SentenceChatThread: {
+		dtoProps: {},
+		indexes: [{ fields: ['user_id', 'sentence_id'], unique: true }, { fields: ['user_id'] }],
+		dbFields: {
+			id: {
+				type: 'index',
+			},
+			user_id: {
+				type: 'manyToOne',
+				thisField: 'user_id',
+				relationField: 'user',
+				foreignTable: 'User',
+				foreignField: 'id',
+				required: true,
+			},
+			sentence_id: {
+				type: 'manyToOne',
+				thisField: 'sentence_id',
+				relationField: 'sentence',
+				foreignTable: 'Sentence',
+				foreignField: 'id',
+				required: true,
+			},
+			SentenceChatMessage: {
+				type: 'oneToMany',
+			},
+			created_at: {
+				type: 'createdAt',
+			},
+			updated_at: {
+				type: 'updatedAt',
+			},
+		},
+	},
+	// Отдельное сообщение в треде чата с ИИ.
+	SentenceChatMessage: {
+		dtoProps: {},
+		indexes: [{ fields: ['thread_id'] }],
+		dbFields: {
+			id: {
+				type: 'index',
+			},
+			thread_id: {
+				type: 'manyToOne',
+				thisField: 'thread_id',
+				relationField: 'thread',
+				foreignTable: 'SentenceChatThread',
+				foreignField: 'id',
+				required: true,
+			},
+			role: {
+				type: 'enum',
+				description: 'Who sent this message',
+				required: true,
+				variants: ['user', 'assistant'],
+				enumName: 'SentenceChatMessageRole',
+			},
+			content: {
+				type: 'string',
+				description: 'Markdown-formatted message content',
+				required: true,
+			},
+			status: {
+				type: 'enum',
+				description: 'Lifecycle status of the message (mostly relevant for assistant messages)',
+				required: true,
+				variants: ['streaming', 'completed', 'canceled', 'failed'],
+				default: 'completed',
+				enumName: 'SentenceChatMessageStatus',
+			},
+			error_message: {
+				type: 'string',
+				description: 'Error description if status is failed',
+				required: false,
+			},
+			created_at: {
+				type: 'createdAt',
+			},
+			updated_at: {
+				type: 'updatedAt',
 			},
 		},
 	},

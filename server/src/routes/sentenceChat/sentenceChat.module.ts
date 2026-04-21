@@ -1,0 +1,59 @@
+import { Module } from '@nestjs/common'
+import { CqrsModule } from '@nestjs/cqrs'
+import { DBRepository } from 'repo/db.repository'
+import { SentenceRepository } from 'repo/sentence.repository'
+import { SentenceChatMessageRepository } from 'repo/sentenceChatMessage.repository'
+import { SentenceChatThreadQueryRepository } from 'repo/sentenceChatThread.queryRepository'
+import { SentenceChatThreadRepository } from 'repo/sentenceChatThread.repository'
+import { UserRepository } from 'repo/user.repository'
+import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
+import { PrismaService } from 'db/prisma.service'
+import { GeminiTokenUsageBalanceChargeHandler } from 'features/payment/GeminiTokenUsageBalanceCharge.command'
+import { ActiveSentenceChatGenerationRegistry } from 'features/sentenceChat/ActiveSentenceChatGenerationRegistry.service'
+import { CreateSentenceChatThreadHandler } from 'features/sentenceChat/CreateSentenceChatThread.command'
+import { CreateSentenceChatUserMessageHandler } from 'features/sentenceChat/CreateSentenceChatUserMessage.command'
+import { GetSentenceChatThreadHandler } from 'features/sentenceChat/GetSentenceChatThread.query'
+import { SentenceChatContextBuilder } from 'features/sentenceChat/SentenceChatContextBuilder.service'
+import { StreamSentenceChatAssistantCommand } from 'features/sentenceChat/StreamSentenceChatAssistant.command'
+import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
+import { UserWithPositiveBalanceGuard } from 'infrastructure/guards/userWithPositiveBalanceGuard.guard'
+import { SentenceChatController } from './sentenceChat.controller'
+import { SentenceChatResolver } from './sentenceChat.resolver'
+
+const services = [
+	PrismaService,
+	SentenceChatContextBuilder,
+	ActiveSentenceChatGenerationRegistry,
+	StreamSentenceChatAssistantCommand,
+]
+
+const handlers = [
+	GetSentenceChatThreadHandler,
+	CreateSentenceChatThreadHandler,
+	CreateSentenceChatUserMessageHandler,
+	GeminiTokenUsageBalanceChargeHandler,
+]
+
+const repositories = [
+	SentenceRepository,
+	SentenceChatThreadRepository,
+	SentenceChatThreadQueryRepository,
+	SentenceChatMessageRepository,
+	UserRepository,
+	UserBalanceTransactionRepository,
+	DBRepository,
+]
+
+@Module({
+	imports: [CqrsModule],
+	controllers: [SentenceChatController],
+	providers: [
+		...services,
+		...handlers,
+		...repositories,
+		CheckSessionCookieGuard,
+		UserWithPositiveBalanceGuard,
+		SentenceChatResolver,
+	],
+})
+export class SentenceChatModule {}

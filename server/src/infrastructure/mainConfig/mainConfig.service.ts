@@ -72,6 +72,13 @@ export class MainConfigService {
 					output: (oneDollarInRub * 0.42) / 1_000_000, // 110 рублей за доллар * количество долларов на выход / количество токенов
 				},
 			},
+			gemini: {
+				// Цены Google Gemini 2.5 Flash (public pricing): $0.30 / 1M input, $2.50 / 1M output.
+				priceInRub: {
+					input: (oneDollarInRub * 0.3) / 1_000_000,
+					output: (oneDollarInRub * 2.5) / 1_000_000,
+				},
+			},
 			oauth: {
 				github: {
 					clientId: enVariables.oauth.github.clientId,

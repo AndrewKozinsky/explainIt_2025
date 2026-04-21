@@ -16,6 +16,7 @@ import { BookPublicModule } from 'routes/bookPublic/bookPublic.module'
 import { DbModule } from 'routes/db/db.module'
 import { LanguageModule } from 'routes/language/language.module'
 import { PaymentModule } from 'routes/payment/payment.module'
+import { SentenceChatModule } from 'routes/sentenceChat/sentenceChat.module'
 import { TranslateRouteModule } from 'routes/translate/translate.module'
 import { UniversalPhraseModule } from 'routes/universalPhrase/universalPhrase.module'
 import { UniversalTranscriptionModule } from 'routes/universalTranscription/universalTranscription.module'
@@ -99,6 +100,7 @@ import { YooKassaModule } from 'infrastructure/yooKassa/yooKassa.module'
 		VideoPrivateModule,
 		VideoPublicModule,
 		TranslateRouteModule,
+		SentenceChatModule,
 		UniversalPhraseModule,
 		UniversalTranscriptionModule,
 		AudioPronunciationModule,
