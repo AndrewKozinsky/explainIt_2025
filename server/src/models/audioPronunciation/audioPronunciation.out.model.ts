@@ -10,7 +10,4 @@ export class UniversalAudioPronunciationOutModel {
 
 	@Field(() => String)
 	audioUrl: string
-
-	@Field(() => Int)
-	durationMs: number
 }

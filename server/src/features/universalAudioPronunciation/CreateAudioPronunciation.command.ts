@@ -26,7 +26,7 @@ export class CreateUniversalAudioPronunciationHandler implements ICommandHandler
 
 	async execute(
 		command: CreateUniversalAudioPronunciationCommand,
-	): Promise<{ id: number; universalPhraseId: number; audioUrl: string; durationMs: number }> {
+	): Promise<{ id: number; universalPhraseId: number; audioUrl: string }> {
 		const { universalPhraseId } = command
 
 		const phrase = await this.universalPhraseQueryRepository.getUniversalPhraseById(universalPhraseId)
@@ -49,11 +49,10 @@ export class CreateUniversalAudioPronunciationHandler implements ICommandHandler
 		const created = await this.audioPronunciationRepository.createAudioPronunciation({
 			universalPhraseId,
 			s3Key,
-			durationMs: 0,
 		})
 
 		const audioUrl = await this.cloudRuS3Service.getFileUrl(s3Key)
-		return { id: created.id, universalPhraseId, audioUrl, durationMs: 0 }
+		return { id: created.id, universalPhraseId, audioUrl }
 	}
 
 	private buildS3Key(languageCode: LanguageCode): string {

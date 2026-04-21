@@ -938,12 +938,6 @@ export const bdConfig = {
 				required: true,
 				maxLength: 500,
 			},
-			duration_ms: {
-				type: 'number',
-				description: 'Duration of the audio in milliseconds',
-				required: true,
-				default: 0,
-			},
 			created_at: {
 				type: 'createdAt',
 			},

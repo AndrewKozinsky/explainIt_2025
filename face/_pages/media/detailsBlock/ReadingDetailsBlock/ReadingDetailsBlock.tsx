@@ -8,10 +8,10 @@ function ReadingDetailsBlock() {
 	const sentenceId = useDetailsStore((s) => s.sentenceId)
 
 	return (
-		<div>
+		<>
 			<SentencePhraseAnalyses languageCode={book?.languageCode!} />
 			{sentenceId && <SentenceChat sentenceId={sentenceId} />}
-		</div>
+		</>
 	)
 }
 

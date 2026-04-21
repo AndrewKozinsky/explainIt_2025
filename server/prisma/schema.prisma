@@ -224,7 +224,6 @@ model UniversalAudioPronunciation {
     universal_phrase    UniversalPhrase @relation(fields: [universal_phrase_id], references: [id], onDelete: Cascade)
     universal_phrase_id Int             @unique
     s3_key              String
-    duration_ms         Int             @default(0)
     created_at          DateTime        @default(now())
 }
 

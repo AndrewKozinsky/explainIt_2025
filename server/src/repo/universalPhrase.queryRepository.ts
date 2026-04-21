@@ -70,7 +70,6 @@ export class UniversalPhraseQueryRepository {
 				id: dbAudioPronunciation.id,
 				universalPhraseId: dbAudioPronunciation.universal_phrase_id,
 				audioUrl: await this.cloudRuS3Service.getFileUrl(dbAudioPronunciation.s3_key),
-				durationMs: dbAudioPronunciation.duration_ms,
 			}
 			: null
 

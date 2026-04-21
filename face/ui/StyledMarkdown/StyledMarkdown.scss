@@ -1,6 +1,6 @@
 @use '@/styles/variables' as vars;
 
-.styled-analysis {
+.styled-markdown {
 	font-size: 1.8rem;
 	line-height: 2.6rem;
 	word-break: break-word;
@@ -29,10 +29,6 @@
 		margin: 0.5rem 0;
 	}
 
-	ul,
-	ol {
-	}
-
 	ul ul {
 		padding-left: 1.25rem;
 	}
@@ -40,9 +36,6 @@
 	ul {
 		display: grid;
 		gap: .8rem;
-	}
-
-	li {
 	}
 
 	li > ul {

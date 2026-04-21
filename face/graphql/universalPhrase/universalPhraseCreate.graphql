@@ -13,7 +13,6 @@ mutation UniversalPhrase_create($input: CreateUniversalPhraseInput!) {
 			id
 			universalPhraseId
 			audioUrl
-			durationMs
 		}
 	}
 }

@@ -192,7 +192,6 @@ export interface UniversalAudioPronunciationOutModel {
     id: number;
     universalPhraseId: number;
     audioUrl: string;
-    durationMs: number;
 }
 
 export interface UserOutModel {
