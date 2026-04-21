@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import StyledMarkdown from 'ui/StyledMarkdown/StyledMarkdown'
-import { ChatUiMessage } from '../fn/useSentenceChat'
+import { ChatUiMessage } from '../types/sseTypes'
 import './Message.scss'
 
 type MessageProps = {
@@ -31,9 +31,7 @@ function Message(props: MessageProps) {
 						Ошибка: {message.errorMessage ?? 'не удалось получить ответ'}
 					</p>
 				)}
-				{isAssistant && isCanceled && (
-					<p className='chat-message__status-text'>Генерация остановлена.</p>
-				)}
+				{isAssistant && isCanceled && <p className='chat-message__status-text'>Генерация остановлена.</p>}
 			</div>
 		</div>
 	)

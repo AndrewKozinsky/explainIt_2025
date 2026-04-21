@@ -2,16 +2,17 @@ import SentencePhraseAnalyses from '_pages/media/detailsBlock/SentencePhrasesAna
 import { useReadingStore } from '_pages/media/reading/readingStore'
 import SentenceChat from '_pages/media/sentenceChat/SentenceChat/SentenceChat'
 import { useDetailsStore } from '../detailsStore'
+import './ReadingDetailsBlock.scss'
 
 function ReadingDetailsBlock() {
 	const book = useReadingStore((s) => s.book?.data)
 	const sentenceId = useDetailsStore((s) => s.sentenceId)
 
 	return (
-		<>
+		<div className='reading-details-block'>
 			<SentencePhraseAnalyses languageCode={book?.languageCode!} />
 			{sentenceId && <SentenceChat sentenceId={sentenceId} />}
-		</>
+		</div>
 	)
 }
 

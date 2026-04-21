@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
-import { ChatUiMessage } from '../fn/useSentenceChat'
 import Message from '../Message/Message'
+import { ChatUiMessage } from '../types/sseTypes'
 import './MessageList.scss'
 
 type MessageListProps = {

@@ -1,9 +1,9 @@
 'use client'
 
 import { useUserStore } from '@/stores/userStore'
-import ChatInput from './ChatInput/ChatInput'
+import ChatInput from '../ChatInput/ChatInput'
+import MessageList from '../MessageList/MessageList'
 import { useSentenceChat } from './fn/useSentenceChat'
-import MessageList from './MessageList/MessageList'
 import './SentenceChat.scss'
 
 type SentenceChatProps = {

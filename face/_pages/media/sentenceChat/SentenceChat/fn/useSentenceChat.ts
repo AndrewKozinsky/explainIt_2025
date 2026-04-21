@@ -2,21 +2,11 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react'
 import {
-	SentenceChatMessageOutModel,
 	useSentence_Chat_Create_Thread,
 	useSentence_Chat_Create_User_Message,
 	useSentence_Chat_Get_ThreadLazyQuery,
 } from '@/graphql'
-import { ChatMessageStatus, SseEvent } from './sseTypes'
-
-// Локальное представление сообщения в UI. Расширяем серверную модель, чтобы было удобно
-// хранить promise-placeholder ассистент-сообщения до того, как мы узнали его реальный id.
-export type ChatUiMessage = Omit<SentenceChatMessageOutModel, 'role' | 'status'> & {
-	role: 'user' | 'assistant'
-	status: ChatMessageStatus
-	// true — это локальная streaming-заготовка, ещё не подтверждённая сервером.
-	isLocalPlaceholder?: boolean
-}
+import { ChatMessageStatus, ChatUiMessage, SseEvent } from '../../types/sseTypes'
 
 export type UseSentenceChatReturn = {
 	messages: ChatUiMessage[]
@@ -126,9 +116,7 @@ export function useSentenceChat(sentenceId: number): UseSentenceChatReturn {
 
 				if (parsed.type === 'chunk') {
 					setMessages((prev) =>
-						prev.map((m) =>
-							m.id === placeholderId ? { ...m, content: m.content + parsed.chunk } : m,
-						),
+						prev.map((m) => (m.id === placeholderId ? { ...m, content: m.content + parsed.chunk } : m)),
 					)
 					return
 				}
@@ -216,9 +204,7 @@ export function useSentenceChat(sentenceId: number): UseSentenceChatReturn {
 		if (!isGenerating) return
 		// Закрываем EventSource — сервер через teardown Observable сам запишет canceled в БД.
 		closeStream()
-		setMessages((prev) =>
-			prev.map((m) => (m.status === 'streaming' ? { ...m, status: 'canceled' } : m)),
-		)
+		setMessages((prev) => prev.map((m) => (m.status === 'streaming' ? { ...m, status: 'canceled' } : m)))
 		setIsGenerating(false)
 	}, [closeStream, isGenerating])
 

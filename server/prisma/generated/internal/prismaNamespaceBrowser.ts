@@ -302,7 +302,6 @@ export const UniversalAudioPronunciationScalarFieldEnum = {
   id: 'id',
   universal_phrase_id: 'universal_phrase_id',
   s3_key: 's3_key',
-  duration_ms: 'duration_ms',
   created_at: 'created_at'
 } as const
 

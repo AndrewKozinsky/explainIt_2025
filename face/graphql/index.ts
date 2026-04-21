@@ -644,7 +644,6 @@ export type TranslateSentenceResultOutModel = {
 export type UniversalAudioPronunciationOutModel = {
   __typename?: 'UniversalAudioPronunciationOutModel';
   audioUrl: Scalars['String']['output'];
-  durationMs: Scalars['Int']['output'];
   id: Scalars['Int']['output'];
   universalPhraseId: Scalars['Int']['output'];
 };
@@ -845,7 +844,7 @@ export type AudioPronunciation_CreateVariables = Exact<{
 }>;
 
 
-export type AudioPronunciation_Create = { __typename?: 'Mutation', create_audio_pronunciation: { __typename?: 'UniversalAudioPronunciationOutModel', id: number, universalPhraseId: number, audioUrl: string, durationMs: number } };
+export type AudioPronunciation_Create = { __typename?: 'Mutation', create_audio_pronunciation: { __typename?: 'UniversalAudioPronunciationOutModel', id: number, universalPhraseId: number, audioUrl: string } };
 
 export type Auth_ConfirmEmailVariables = Exact<{
   input: ConfirmEmailInput;
@@ -1038,14 +1037,14 @@ export type UniversalPhrase_CreateVariables = Exact<{
 }>;
 
 
-export type UniversalPhrase_Create = { __typename?: 'Mutation', universal_phrase_create: { __typename?: 'UniversalPhraseOutModel', id: number, phrase: string, languageCode: string, transcription?: { __typename?: 'TranscriptionOutModel', id: number, universalPhraseId: number, ipa?: string | null, pinyin?: string | null } | null, audioPronunciation?: { __typename?: 'UniversalAudioPronunciationOutModel', id: number, universalPhraseId: number, audioUrl: string, durationMs: number } | null } };
+export type UniversalPhrase_Create = { __typename?: 'Mutation', universal_phrase_create: { __typename?: 'UniversalPhraseOutModel', id: number, phrase: string, languageCode: string, transcription?: { __typename?: 'TranscriptionOutModel', id: number, universalPhraseId: number, ipa?: string | null, pinyin?: string | null } | null, audioPronunciation?: { __typename?: 'UniversalAudioPronunciationOutModel', id: number, universalPhraseId: number, audioUrl: string } | null } };
 
 export type UniversalPhrase_GetVariables = Exact<{
   input: GetUniversalPhraseInput;
 }>;
 
 
-export type UniversalPhrase_Get = { __typename?: 'Query', universal_phrase_get: { __typename?: 'UniversalPhraseOutModel', id: number, phrase: string, languageCode: string, transcription?: { __typename?: 'TranscriptionOutModel', id: number, universalPhraseId: number, ipa?: string | null, pinyin?: string | null } | null, audioPronunciation?: { __typename?: 'UniversalAudioPronunciationOutModel', id: number, universalPhraseId: number, audioUrl: string, durationMs: number } | null } };
+export type UniversalPhrase_Get = { __typename?: 'Query', universal_phrase_get: { __typename?: 'UniversalPhraseOutModel', id: number, phrase: string, languageCode: string, transcription?: { __typename?: 'TranscriptionOutModel', id: number, universalPhraseId: number, ipa?: string | null, pinyin?: string | null } | null, audioPronunciation?: { __typename?: 'UniversalAudioPronunciationOutModel', id: number, universalPhraseId: number, audioUrl: string } | null } };
 
 export type VideoPrivate_CreateVariables = Exact<{
   input: CreatePrivateVideoInput;
@@ -1099,7 +1098,6 @@ export const AudioPronunciation_CreateDocument = gql`
     id
     universalPhraseId
     audioUrl
-    durationMs
   }
 }
     `;
@@ -2377,7 +2375,6 @@ export const UniversalPhrase_CreateDocument = gql`
       id
       universalPhraseId
       audioUrl
-      durationMs
     }
   }
 }
@@ -2424,7 +2421,6 @@ export const UniversalPhrase_GetDocument = gql`
       id
       universalPhraseId
       audioUrl
-      durationMs
     }
   }
 }
