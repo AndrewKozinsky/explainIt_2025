@@ -115,6 +115,18 @@ export type CreatePrivateVideoInput = {
   originalContent?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type CreateSentenceChatThreadInput = {
+  /** Sentence id */
+  sentenceId: Scalars['Int']['input'];
+};
+
+export type CreateSentenceChatUserMessageInput = {
+  /** User question in markdown-free plain text */
+  question: Scalars['String']['input'];
+  /** Sentence chat thread id */
+  threadId: Scalars['Int']['input'];
+};
+
 export type CreateUniversalAudioPronunciationInput = {
   /** Universal phrase id to create audio pronunciation for */
   universalPhraseId: Scalars['Int']['input'];
@@ -205,6 +217,11 @@ export type GetPublicVideoInput = {
   id: Scalars['Int']['input'];
 };
 
+export type GetSentenceChatThreadInput = {
+  /** Sentence id */
+  sentenceId: Scalars['Int']['input'];
+};
+
 export type GetSentenceTranslationInput = {
   /** Sentence id */
   sentenceId: Scalars['Float']['input'];
@@ -275,6 +292,10 @@ export type Mutation = {
   create_transcription: TranscriptionOutModel;
   /** Top up balance with YooKassa */
   payment_yookassa_top_up_balance: CreateYooKassaPaymentOutModel;
+  /** Создать новый пустой тред чата с ИИ для выделенного предложения. Вызывается клиентом перед отправкой первого вопроса, если getSentenceChatThread вернул null. Если тред уже существует — отдаёт ошибку. */
+  sentence_chat_create_thread: SentenceChatThreadOutModel;
+  /** Добавить пользовательское сообщение (вопрос) в существующий тред. После этого клиент подключается к SSE-стриму /sentence-chat/threads/:threadId/assistant-stream, чтобы сервер сгенерировал и постримил ответ ассистента. */
+  sentence_chat_create_user_message: SentenceChatMessageOutModel;
   /** Translate phrase in sentence by selected offsets */
   translate_translate_phrase: SentencePhraseTranslationOutModel;
   /** Translate sentence */
@@ -360,6 +381,16 @@ export type MutationPayment_Yookassa_Top_Up_BalanceArgs = {
 };
 
 
+export type MutationSentence_Chat_Create_ThreadArgs = {
+  input: CreateSentenceChatThreadInput;
+};
+
+
+export type MutationSentence_Chat_Create_User_MessageArgs = {
+  input: CreateSentenceChatUserMessageInput;
+};
+
+
 export type MutationTranslate_Translate_PhraseArgs = {
   input: TranslatePhraseInput;
 };
@@ -405,6 +436,8 @@ export type Query = {
   book_user_books: Array<BookPrivateOutModel>;
   /** Get all available languages */
   language_get_languages: Array<LanguageOutModel>;
+  /** Получить тред чата с ИИ для выделенного предложения со всеми сообщениями. Если тред ещё не создавался — возвращает null. */
+  sentence_chat_get_thread?: Maybe<SentenceChatThreadOutModel>;
   /** Get existing phrase translation by sentence and offsets */
   translate_get_phrase_translation?: Maybe<SentencePhraseTranslationOutModel>;
   /** Get all existing phrase translations by sentence id */
@@ -436,6 +469,11 @@ export type QueryBook_GetArgs = {
 
 export type QueryBook_Public_Get_BookArgs = {
   input: GetBookPublicInput;
+};
+
+
+export type QuerySentence_Chat_Get_ThreadArgs = {
+  input: GetSentenceChatThreadInput;
 };
 
 
@@ -478,6 +516,27 @@ export type RegisterUserInput = {
 export type ResendConfirmationEmailInput = {
   /** User email */
   email: Scalars['String']['input'];
+};
+
+export type SentenceChatMessageOutModel = {
+  __typename?: 'SentenceChatMessageOutModel';
+  content: Scalars['String']['output'];
+  createdAt: Scalars['String']['output'];
+  errorMessage?: Maybe<Scalars['String']['output']>;
+  id: Scalars['Int']['output'];
+  role: Scalars['String']['output'];
+  status: Scalars['String']['output'];
+  threadId: Scalars['Int']['output'];
+  updatedAt: Scalars['String']['output'];
+};
+
+export type SentenceChatThreadOutModel = {
+  __typename?: 'SentenceChatThreadOutModel';
+  createdAt: Scalars['String']['output'];
+  id: Scalars['Int']['output'];
+  messages: Array<SentenceChatMessageOutModel>;
+  sentenceId: Scalars['Int']['output'];
+  updatedAt: Scalars['String']['output'];
 };
 
 export type SentenceOutModel = {
@@ -910,6 +969,27 @@ export type Payment_YookassaTopUpBalanceVariables = Exact<{
 
 
 export type Payment_YookassaTopUpBalance = { __typename?: 'Mutation', payment_yookassa_top_up_balance: { __typename?: 'CreateYooKassaPaymentOutModel', confirmationUrl: string } };
+
+export type Sentence_Chat_Create_ThreadVariables = Exact<{
+  input: CreateSentenceChatThreadInput;
+}>;
+
+
+export type Sentence_Chat_Create_Thread = { __typename?: 'Mutation', sentence_chat_create_thread: { __typename?: 'SentenceChatThreadOutModel', id: number, sentenceId: number, createdAt: string, updatedAt: string, messages: Array<{ __typename?: 'SentenceChatMessageOutModel', id: number, threadId: number, role: string, content: string, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string }> } };
+
+export type Sentence_Chat_Create_User_MessageVariables = Exact<{
+  input: CreateSentenceChatUserMessageInput;
+}>;
+
+
+export type Sentence_Chat_Create_User_Message = { __typename?: 'Mutation', sentence_chat_create_user_message: { __typename?: 'SentenceChatMessageOutModel', id: number, threadId: number, role: string, content: string, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string } };
+
+export type Sentence_Chat_Get_ThreadVariables = Exact<{
+  input: GetSentenceChatThreadInput;
+}>;
+
+
+export type Sentence_Chat_Get_Thread = { __typename?: 'Query', sentence_chat_get_thread?: { __typename?: 'SentenceChatThreadOutModel', id: number, sentenceId: number, createdAt: string, updatedAt: string, messages: Array<{ __typename?: 'SentenceChatMessageOutModel', id: number, threadId: number, role: string, content: string, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string }> } | null };
 
 export type Transcription_CreateVariables = Exact<{
   input: CreateUniversalTranscriptionInput;
@@ -1867,6 +1947,148 @@ export function usePayment_YookassaTopUpBalance(baseOptions?: Apollo.MutationHoo
 export type Payment_YookassaTopUpBalanceHookResult = ReturnType<typeof usePayment_YookassaTopUpBalance>;
 export type Payment_YookassaTopUpBalanceMutationResult = Apollo.MutationResult<Payment_YookassaTopUpBalance>;
 export type Payment_YookassaTopUpBalanceMutationOptions = Apollo.BaseMutationOptions<Payment_YookassaTopUpBalance, Payment_YookassaTopUpBalanceVariables>;
+export const Sentence_Chat_Create_ThreadDocument = gql`
+    mutation Sentence_chat_create_thread($input: CreateSentenceChatThreadInput!) {
+  sentence_chat_create_thread(input: $input) {
+    id
+    sentenceId
+    messages {
+      id
+      threadId
+      role
+      content
+      status
+      errorMessage
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+    `;
+export type Sentence_Chat_Create_ThreadMutationFn = Apollo.MutationFunction<Sentence_Chat_Create_Thread, Sentence_Chat_Create_ThreadVariables>;
+
+/**
+ * __useSentence_Chat_Create_Thread__
+ *
+ * To run a mutation, you first call `useSentence_Chat_Create_Thread` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useSentence_Chat_Create_Thread` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [sentenceChatCreateThread, { data, loading, error }] = useSentence_Chat_Create_Thread({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useSentence_Chat_Create_Thread(baseOptions?: Apollo.MutationHookOptions<Sentence_Chat_Create_Thread, Sentence_Chat_Create_ThreadVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<Sentence_Chat_Create_Thread, Sentence_Chat_Create_ThreadVariables>(Sentence_Chat_Create_ThreadDocument, options);
+      }
+export type Sentence_Chat_Create_ThreadHookResult = ReturnType<typeof useSentence_Chat_Create_Thread>;
+export type Sentence_Chat_Create_ThreadMutationResult = Apollo.MutationResult<Sentence_Chat_Create_Thread>;
+export type Sentence_Chat_Create_ThreadMutationOptions = Apollo.BaseMutationOptions<Sentence_Chat_Create_Thread, Sentence_Chat_Create_ThreadVariables>;
+export const Sentence_Chat_Create_User_MessageDocument = gql`
+    mutation Sentence_chat_create_user_message($input: CreateSentenceChatUserMessageInput!) {
+  sentence_chat_create_user_message(input: $input) {
+    id
+    threadId
+    role
+    content
+    status
+    errorMessage
+    createdAt
+    updatedAt
+  }
+}
+    `;
+export type Sentence_Chat_Create_User_MessageMutationFn = Apollo.MutationFunction<Sentence_Chat_Create_User_Message, Sentence_Chat_Create_User_MessageVariables>;
+
+/**
+ * __useSentence_Chat_Create_User_Message__
+ *
+ * To run a mutation, you first call `useSentence_Chat_Create_User_Message` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useSentence_Chat_Create_User_Message` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [sentenceChatCreateUserMessage, { data, loading, error }] = useSentence_Chat_Create_User_Message({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useSentence_Chat_Create_User_Message(baseOptions?: Apollo.MutationHookOptions<Sentence_Chat_Create_User_Message, Sentence_Chat_Create_User_MessageVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<Sentence_Chat_Create_User_Message, Sentence_Chat_Create_User_MessageVariables>(Sentence_Chat_Create_User_MessageDocument, options);
+      }
+export type Sentence_Chat_Create_User_MessageHookResult = ReturnType<typeof useSentence_Chat_Create_User_Message>;
+export type Sentence_Chat_Create_User_MessageMutationResult = Apollo.MutationResult<Sentence_Chat_Create_User_Message>;
+export type Sentence_Chat_Create_User_MessageMutationOptions = Apollo.BaseMutationOptions<Sentence_Chat_Create_User_Message, Sentence_Chat_Create_User_MessageVariables>;
+export const Sentence_Chat_Get_ThreadDocument = gql`
+    query Sentence_chat_get_thread($input: GetSentenceChatThreadInput!) {
+  sentence_chat_get_thread(input: $input) {
+    id
+    sentenceId
+    messages {
+      id
+      threadId
+      role
+      content
+      status
+      errorMessage
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+    `;
+
+/**
+ * __useSentence_Chat_Get_Thread__
+ *
+ * To run a query within a React component, call `useSentence_Chat_Get_Thread` and pass it any options that fit your needs.
+ * When your component renders, `useSentence_Chat_Get_Thread` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useSentence_Chat_Get_Thread({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useSentence_Chat_Get_Thread(baseOptions: Apollo.QueryHookOptions<Sentence_Chat_Get_Thread, Sentence_Chat_Get_ThreadVariables> & ({ variables: Sentence_Chat_Get_ThreadVariables; skip?: boolean; } | { skip: boolean; }) ) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<Sentence_Chat_Get_Thread, Sentence_Chat_Get_ThreadVariables>(Sentence_Chat_Get_ThreadDocument, options);
+      }
+export function useSentence_Chat_Get_ThreadLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Sentence_Chat_Get_Thread, Sentence_Chat_Get_ThreadVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<Sentence_Chat_Get_Thread, Sentence_Chat_Get_ThreadVariables>(Sentence_Chat_Get_ThreadDocument, options);
+        }
+// @ts-ignore
+export function useSentence_Chat_Get_ThreadSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<Sentence_Chat_Get_Thread, Sentence_Chat_Get_ThreadVariables>): Apollo.UseSuspenseQueryResult<Sentence_Chat_Get_Thread, Sentence_Chat_Get_ThreadVariables>;
+export function useSentence_Chat_Get_ThreadSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Sentence_Chat_Get_Thread, Sentence_Chat_Get_ThreadVariables>): Apollo.UseSuspenseQueryResult<Sentence_Chat_Get_Thread | undefined, Sentence_Chat_Get_ThreadVariables>;
+export function useSentence_Chat_Get_ThreadSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Sentence_Chat_Get_Thread, Sentence_Chat_Get_ThreadVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<Sentence_Chat_Get_Thread, Sentence_Chat_Get_ThreadVariables>(Sentence_Chat_Get_ThreadDocument, options);
+        }
+export type Sentence_Chat_Get_ThreadHookResult = ReturnType<typeof useSentence_Chat_Get_Thread>;
+export type Sentence_Chat_Get_ThreadLazyQueryHookResult = ReturnType<typeof useSentence_Chat_Get_ThreadLazyQuery>;
+export type Sentence_Chat_Get_ThreadSuspenseQueryHookResult = ReturnType<typeof useSentence_Chat_Get_ThreadSuspenseQuery>;
+export type Sentence_Chat_Get_ThreadQueryResult = Apollo.QueryResult<Sentence_Chat_Get_Thread, Sentence_Chat_Get_ThreadVariables>;
 export const Transcription_CreateDocument = gql`
     mutation Transcription_create($input: CreateUniversalTranscriptionInput!) {
   create_transcription(input: $input) {

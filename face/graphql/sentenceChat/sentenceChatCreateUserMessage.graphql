@@ -1,0 +1,12 @@
+mutation Sentence_chat_create_user_message($input: CreateSentenceChatUserMessageInput!) {
+	sentence_chat_create_user_message(input: $input) {
+		id
+		threadId
+		role
+		content
+		status
+		errorMessage
+		createdAt
+		updatedAt
+	}
+}

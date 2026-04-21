@@ -166,8 +166,12 @@ export interface TranslatePhraseInput {
     videoYear?: Nullable<string>;
 }
 
-export interface CreateSentenceChatUserMessageInput {
+export interface CreateSentenceChatThreadInput {
     sentenceId: number;
+}
+
+export interface CreateSentenceChatUserMessageInput {
+    threadId: number;
     question: string;
 }
 
@@ -282,11 +286,6 @@ export interface SentenceChatThreadOutModel {
     messages: SentenceChatMessageOutModel[];
     createdAt: string;
     updatedAt: string;
-}
-
-export interface CreateSentenceChatUserMessageOutModel {
-    userMessage: SentenceChatMessageOutModel;
-    assistantMessage: SentenceChatMessageOutModel;
 }
 
 export interface SentencePhraseTranslationExampleOutModel {
@@ -510,7 +509,8 @@ export interface IMutation {
     video_private_delete(input: DeletePrivateVideoInput): boolean | Promise<boolean>;
     translate_translate_sentence(input: TranslateSentenceInput): TranslateSentenceResultOutModel | Promise<TranslateSentenceResultOutModel>;
     translate_translate_phrase(input: TranslatePhraseInput): SentencePhraseTranslationOutModel | Promise<SentencePhraseTranslationOutModel>;
-    sentence_chat_create_user_message(input: CreateSentenceChatUserMessageInput): CreateSentenceChatUserMessageOutModel | Promise<CreateSentenceChatUserMessageOutModel>;
+    sentence_chat_create_thread(input: CreateSentenceChatThreadInput): SentenceChatThreadOutModel | Promise<SentenceChatThreadOutModel>;
+    sentence_chat_create_user_message(input: CreateSentenceChatUserMessageInput): SentenceChatMessageOutModel | Promise<SentenceChatMessageOutModel>;
     universal_phrase_create(input: CreateUniversalPhraseInput): UniversalPhraseOutModel | Promise<UniversalPhraseOutModel>;
     create_transcription(input: CreateUniversalTranscriptionInput): TranscriptionOutModel | Promise<TranscriptionOutModel>;
     create_audio_pronunciation(input: CreateUniversalAudioPronunciationInput): UniversalAudioPronunciationOutModel | Promise<UniversalAudioPronunciationOutModel>;

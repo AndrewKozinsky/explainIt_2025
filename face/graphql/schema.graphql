@@ -102,6 +102,19 @@ input CreatePrivateVideoInput {
   originalContent: String
 }
 
+input CreateSentenceChatThreadInput {
+  """Sentence id"""
+  sentenceId: Int!
+}
+
+input CreateSentenceChatUserMessageInput {
+  """User question in markdown-free plain text"""
+  question: String!
+
+  """Sentence chat thread id"""
+  threadId: Int!
+}
+
 input CreateUniversalAudioPronunciationInput {
   """Universal phrase id to create audio pronunciation for"""
   universalPhraseId: Int!
@@ -194,6 +207,11 @@ input GetPublicVideoInput {
   id: Int!
 }
 
+input GetSentenceChatThreadInput {
+  """Sentence id"""
+  sentenceId: Int!
+}
+
 input GetSentenceTranslationInput {
   """Sentence id"""
   sentenceId: Float!
@@ -282,6 +300,16 @@ type Mutation {
   """Top up balance with YooKassa"""
   payment_yookassa_top_up_balance(input: TopUpBalanceWithYooKassaInput!): CreateYooKassaPaymentOutModel!
 
+  """
+  Создать новый пустой тред чата с ИИ для выделенного предложения. Вызывается клиентом перед отправкой первого вопроса, если getSentenceChatThread вернул null. Если тред уже существует — отдаёт ошибку.
+  """
+  sentence_chat_create_thread(input: CreateSentenceChatThreadInput!): SentenceChatThreadOutModel!
+
+  """
+  Добавить пользовательское сообщение (вопрос) в существующий тред. После этого клиент подключается к SSE-стриму /sentence-chat/threads/:threadId/assistant-stream, чтобы сервер сгенерировал и постримил ответ ассистента.
+  """
+  sentence_chat_create_user_message(input: CreateSentenceChatUserMessageInput!): SentenceChatMessageOutModel!
+
   """Translate phrase in sentence by selected offsets"""
   translate_translate_phrase(input: TranslatePhraseInput!): SentencePhraseTranslationOutModel!
 
@@ -323,6 +351,11 @@ type Query {
   """Get all available languages"""
   language_get_languages: [LanguageOutModel!]!
 
+  """
+  Получить тред чата с ИИ для выделенного предложения со всеми сообщениями. Если тред ещё не создавался — возвращает null.
+  """
+  sentence_chat_get_thread(input: GetSentenceChatThreadInput!): SentenceChatThreadOutModel
+
   """Get existing phrase translation by sentence and offsets"""
   translate_get_phrase_translation(input: GetPhraseTranslationInput!): SentencePhraseTranslationOutModel
 
@@ -359,6 +392,25 @@ input RegisterUserInput {
 input ResendConfirmationEmailInput {
   """User email"""
   email: String!
+}
+
+type SentenceChatMessageOutModel {
+  content: String!
+  createdAt: String!
+  errorMessage: String
+  id: Int!
+  role: String!
+  status: String!
+  threadId: Int!
+  updatedAt: String!
+}
+
+type SentenceChatThreadOutModel {
+  createdAt: String!
+  id: Int!
+  messages: [SentenceChatMessageOutModel!]!
+  sentenceId: Int!
+  updatedAt: String!
 }
 
 type SentenceOutModel {

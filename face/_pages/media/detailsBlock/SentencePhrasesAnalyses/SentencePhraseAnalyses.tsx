@@ -1,4 +1,5 @@
 import SentencePhraseAnalysis from '_pages/media/detailsBlock/SentencePhraseAnalysis/SentencePhraseAnalysis'
+import SentenceChat from '_pages/media/sentenceChat/SentenceChat/SentenceChat'
 import { useDetailsStore } from '../detailsStore'
 import '_pages/media/detailsBlock/SentencePhrasesAnalyses/SentencePhraseAnalyses.scss'
 
