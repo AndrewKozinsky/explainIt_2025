@@ -47,7 +47,7 @@ export async function ensureCanChargeBalanceOrThrow(input: {
 	if (input.access.createMode === 'chargeBalance' && input.userId) {
 		await input.userBalanceTransactionRepository.ensureCanChargeOrThrow({
 			userId: input.userId,
-			minBalanceInKopecks: input.mainConfigService.get().billing.translationChargeMarkupInKopecks,
+			minBalanceInKopecks: 5,
 		})
 	}
 }

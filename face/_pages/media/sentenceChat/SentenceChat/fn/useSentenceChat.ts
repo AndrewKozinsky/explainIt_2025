@@ -12,13 +12,9 @@ export type UseSentenceChatReturn = {
 	messages: ChatUiMessage[]
 	isLoadingThread: boolean
 	isGenerating: boolean
-	error: null | string
+	threadError: null | string
 	sendQuestion: (question: string) => Promise<void>
 	cancelGeneration: () => void
-}
-
-function buildSseUrl(threadId: number) {
-	return `/api/sentence-chat/threads/${threadId}/assistant-stream`
 }
 
 export function useSentenceChat(sentenceId: number): UseSentenceChatReturn {
@@ -26,7 +22,7 @@ export function useSentenceChat(sentenceId: number): UseSentenceChatReturn {
 	const [messages, setMessages] = useState<ChatUiMessage[]>([])
 	const [isLoadingThread, setIsLoadingThread] = useState<boolean>(true)
 	const [isGenerating, setIsGenerating] = useState<boolean>(false)
-	const [error, setError] = useState<null | string>(null)
+	const [threadError, setThreadThreadError] = useState<null | string>(null)
 
 	const eventSourceRef = useRef<null | EventSource>(null)
 	// Локальный id для streaming-плейсхолдера (до получения финального id от сервера).
@@ -45,7 +41,7 @@ export function useSentenceChat(sentenceId: number): UseSentenceChatReturn {
 	useEffect(() => {
 		let cancelled = false
 		setIsLoadingThread(true)
-		setError(null)
+		setThreadThreadError(null)
 		setMessages([])
 		setThreadId(null)
 
@@ -66,7 +62,7 @@ export function useSentenceChat(sentenceId: number): UseSentenceChatReturn {
 			})
 			.catch((err: unknown) => {
 				if (cancelled) return
-				setError(err instanceof Error ? err.message : 'Не удалось загрузить тред')
+				setThreadThreadError(err instanceof Error ? err.message : 'Не удалось загрузить ветку диалога')
 			})
 			.finally(() => {
 				if (!cancelled) setIsLoadingThread(false)
@@ -102,11 +98,11 @@ export function useSentenceChat(sentenceId: number): UseSentenceChatReturn {
 				},
 			])
 
-			const es = new EventSource(buildSseUrl(activeThreadId))
-			eventSourceRef.current = es
+			const eventSource = new EventSource(buildSseUrl(activeThreadId))
+			eventSourceRef.current = eventSource
 			setIsGenerating(true)
 
-			es.onmessage = (event) => {
+			eventSource.onmessage = (event) => {
 				let parsed: SseEvent
 				try {
 					parsed = JSON.parse(event.data) as SseEvent
@@ -123,16 +119,16 @@ export function useSentenceChat(sentenceId: number): UseSentenceChatReturn {
 
 				if (parsed.type === 'done') {
 					setMessages((prev) =>
-						prev.map((m) =>
-							m.id === placeholderId
+						prev.map((message) =>
+							message.id === placeholderId
 								? {
-										...m,
+										...message,
 										content: parsed.content,
 										status: parsed.status,
 										errorMessage: parsed.errorMessage,
 										isLocalPlaceholder: false,
 									}
-								: m,
+								: message,
 						),
 					)
 					setIsGenerating(false)
@@ -140,7 +136,7 @@ export function useSentenceChat(sentenceId: number): UseSentenceChatReturn {
 				}
 			}
 
-			es.onerror = () => {
+			eventSource.onerror = () => {
 				// Сеть оборвалась или сервер закрыл соединение без done.
 				// Оставляем уже полученный текст, помечаем как failed.
 				setMessages((prev) =>
@@ -150,6 +146,7 @@ export function useSentenceChat(sentenceId: number): UseSentenceChatReturn {
 							: m,
 					),
 				)
+
 				setIsGenerating(false)
 				closeStream()
 			}
@@ -164,7 +161,7 @@ export function useSentenceChat(sentenceId: number): UseSentenceChatReturn {
 			const trimmed = question.trim()
 			if (!trimmed || isGenerating) return
 
-			setError(null)
+			setThreadThreadError(null)
 
 			try {
 				let activeThreadId = threadId
@@ -172,7 +169,10 @@ export function useSentenceChat(sentenceId: number): UseSentenceChatReturn {
 				if (activeThreadId === null) {
 					const res = await createThread({ variables: { input: { sentenceId } } })
 					const thread = res.data?.sentence_chat_create_thread
-					if (!thread) throw new Error('Не удалось создать тред')
+					if (!thread) {
+						throw new Error('Не удалось создать тред')
+					}
+
 					activeThreadId = thread.id
 					setThreadId(activeThreadId)
 				}
@@ -181,7 +181,9 @@ export function useSentenceChat(sentenceId: number): UseSentenceChatReturn {
 					variables: { input: { threadId: activeThreadId, question: trimmed } },
 				})
 				const userMessage = userRes.data?.sentence_chat_create_user_message
-				if (!userMessage) throw new Error('Не удалось отправить сообщение')
+				if (!userMessage) {
+					throw new Error('Не удалось отправить сообщение')
+				}
 
 				setMessages((prev) => [
 					...prev,
@@ -194,7 +196,7 @@ export function useSentenceChat(sentenceId: number): UseSentenceChatReturn {
 
 				startAssistantStream(activeThreadId)
 			} catch (err: unknown) {
-				setError(err instanceof Error ? err.message : 'Ошибка отправки вопроса')
+				setThreadThreadError(err instanceof Error ? err.message : 'Ошибка отправки вопроса')
 			}
 		},
 		[createThread, createUserMessage, isGenerating, sentenceId, startAssistantStream, threadId],
@@ -219,8 +221,12 @@ export function useSentenceChat(sentenceId: number): UseSentenceChatReturn {
 		messages,
 		isLoadingThread,
 		isGenerating,
-		error,
+		threadError: threadError,
 		sendQuestion,
 		cancelGeneration,
 	}
+}
+
+function buildSseUrl(threadId: number) {
+	return `/api/sentence-chat/threads/${threadId}/assistant-stream`
 }

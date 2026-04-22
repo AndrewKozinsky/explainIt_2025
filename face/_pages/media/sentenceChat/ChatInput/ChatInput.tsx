@@ -1,17 +1,17 @@
 'use client'
 
-import { KeyboardEvent, useState } from 'react'
-import Button from 'ui/formRelated/buttons/Button/Button'
-import './ChatInput.scss'
+// import { KeyboardEvent, useState } from 'react'
+// import Button from 'ui/formRelated/buttons/Button/Button'
+// import './ChatInput.scss'
 
-type ChatInputProps = {
+/*type ChatInputProps = {
 	isGenerating: boolean
 	hasBalance: boolean
 	onSend: (question: string) => void
 	onCancel: () => void
-}
+}*/
 
-function ChatInput(props: ChatInputProps) {
+/*function ChatInput(props: ChatInputProps) {
 	const { isGenerating, hasBalance, onSend, onCancel } = props
 
 	const [value, setValue] = useState<string>('')
@@ -57,6 +57,6 @@ function ChatInput(props: ChatInputProps) {
 			</div>
 		</div>
 	)
-}
+}*/
 
-export default ChatInput
+// export default ChatInput

@@ -107,7 +107,7 @@ export class MainConfigService {
 					keyId: enVariables.yandexCloud.translate.keyId,
 					secretKey: enVariables.yandexCloud.translate.secretKey,
 					folderId: enVariables.yandexCloud.translate.folderId,
-					priceForSymbolInKopecks: 0.05 * 2.3, // 0.5 рублей за тысячу символов * наценка
+					priceForSymbolInKopecks: 0.05, // 0.5 рублей за тысячу символов * наценка
 				},
 				dictionary: {
 					key: enVariables.yandexCloud.dictionary.key,
@@ -128,7 +128,7 @@ export class MainConfigService {
 			},
 			billing: {
 				// Наценка за каждый перевод пользователя
-				translationChargeMarkupInKopecks: 2,
+				translationMarkupMultiplier: 2,
 			},
 			// Grafana Loki
 			loki: enVariables.loki,

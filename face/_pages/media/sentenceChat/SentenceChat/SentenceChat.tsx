@@ -1,7 +1,9 @@
 'use client'
 
+import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
+import LoadingMessage from 'ui/LoadingMessage/LoadingMessage'
 import { useUserStore } from '@/stores/userStore'
-import ChatInput from '../ChatInput/ChatInput'
+// import ChatInput from '../ChatInput/ChatInput'
 import MessageList from '../MessageList/MessageList'
 import { useSentenceChat } from './fn/useSentenceChat'
 import './SentenceChat.scss'
@@ -16,27 +18,24 @@ function SentenceChat(props: SentenceChatProps) {
 	const user = useUserStore((s) => s.user)
 	const hasBalance = (user?.balance ?? 0) > 0
 
-	const { messages, isLoadingThread, isGenerating, error, sendQuestion, cancelGeneration } =
+	const { messages, isLoadingThread, isGenerating, threadError, sendQuestion, cancelGeneration } =
 		useSentenceChat(sentenceId)
 
 	return (
 		<div className='sentence-chat'>
 			<div className='sentence-chat__messages'>
-				{isLoadingThread ? (
-					<p className='sentence-chat__status'>Загрузка…</p>
-				) : (
-					<MessageList messages={messages} />
-				)}
-				{error && <p className='sentence-chat__error'>{error}</p>}
+				{isLoadingThread && <LoadingMessage text='Загрузка…' />}
+				{!isLoadingThread && <MessageList messages={messages} />}
+				{threadError && <ErrorMessage text={threadError} />}
 			</div>
 
 			<div className='sentence-chat__input'>
-				<ChatInput
+				{/*<ChatInput
 					isGenerating={isGenerating}
 					hasBalance={hasBalance}
 					onSend={sendQuestion}
 					onCancel={cancelGeneration}
-				/>
+				/>*/}
 			</div>
 		</div>
 	)

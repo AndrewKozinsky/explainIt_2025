@@ -2,17 +2,4 @@
 	display: flex;
 	flex-direction: column;
 	gap: 1.4rem;
-	overflow-y: auto;
-	padding: 1rem 0;
-
-	&--empty {
-		justify-content: center;
-		align-items: center;
-		text-align: center;
-	}
-
-	&__placeholder {
-		font-size: 1.5rem;
-		opacity: 0.6;
-	}
 }

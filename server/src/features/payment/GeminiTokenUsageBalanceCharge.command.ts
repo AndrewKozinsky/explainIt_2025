@@ -46,8 +46,8 @@ export class GeminiTokenUsageBalanceChargeHandler implements ICommandHandler<Gem
 		const prices = this.mainConfig.get().gemini.priceInRub
 
 		const totalPriceInRub = input.inputTokens * prices.input + input.outputTokens * prices.output
-		const markupInKopecks = this.mainConfig.get().billing.translationChargeMarkupInKopecks
+		const markupMultiplier = this.mainConfig.get().billing.translationMarkupMultiplier
 
-		return Math.ceil(totalPriceInRub * 100) + markupInKopecks
+		return Math.ceil(totalPriceInRub * 100) * markupMultiplier
 	}
 }
