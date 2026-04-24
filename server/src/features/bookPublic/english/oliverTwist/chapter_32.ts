@@ -159,7 +159,5 @@ He also collected fresh plants for Miss Maylie’s birds and decorated their cag
 
 When Rose came out and saw what he had done, she would praise him warmly, which made him happier than anything else.
 
-So three months passed—three months of pure happiness. With such kindness on one side, and such deep gratitude on the other, it is no wonder that Oliver became like a member of the family. His warm and loving heart was met with equal affection, and he was truly loved in return.
-
-`,
+So three months passed—three months of pure happiness. With such kindness on one side, and such deep gratitude on the other, it is no wonder that Oliver became like a member of the family. His warm and loving heart was met with equal affection, and he was truly loved in return.`,
 }

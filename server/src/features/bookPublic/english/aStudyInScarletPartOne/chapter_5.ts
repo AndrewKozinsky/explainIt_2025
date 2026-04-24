@@ -137,6 +137,5 @@ At Number 13 we found that the house belonged to a respectable paperhanger named
 
 He saw that he was followed, no doubt, and used this trick to slip away. It shows that the man we want is not as alone as I imagined; he has friends who will take risks for him. Now, Doctor, you look done up. Take my advice and turn in.”
 
-
 I was indeed very weary, so I took his advice. I left Holmes seated before the smouldering fire, and long into the night I heard the low, melancholy wail of his violin. I knew that he was still thinking over the strange problem he had set himself to unravel.`,
 }

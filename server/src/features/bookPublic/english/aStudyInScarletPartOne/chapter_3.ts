@@ -210,6 +210,5 @@ Lestrade and Gregson glanced at each other with an incredulous smile.
 
 “Poison,” said Sherlock Holmes curtly, and strode off. “One other thing, Lestrade,” he added, turning at the door: “‘Rache’ is German for ‘revenge’; so don’t waste your time looking for Miss Rachel.”
 
-With that parting shot he walked away, leaving the two rivals staring after him, open-mouthed.
-	`,
+With that parting shot he walked away, leaving the two rivals staring after him, open-mouthed.`,
 }

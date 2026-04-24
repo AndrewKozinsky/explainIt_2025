@@ -101,8 +101,6 @@ Pero una noche muy oscura, con mucho calor y truenos, los coatís salvajes llama
 
 No se rindieron. Entre los tres coatís, hicieron saltar a la serpiente de cascabel de un lado a otro, y en un instante cayeron sobre ella, rompiéndole la cabeza con mordiscos.
 
-
-
 Corrieron dentro de la casa y allí estaba el coaticito, tendido, hinchado, con las patas temblando. Se estaba muriendo.
 
 Los coatís salvajes trataron de moverlo y de lamerlo, pero todo fue en vano durante un cuarto de hora. El coaticito abrió la boca y dejó de respirar: había muerto.

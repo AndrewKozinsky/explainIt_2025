@@ -37,8 +37,6 @@ Dorothy looked at him with curiosity. The top of his head was now quite large an
 
 “That shows he is sharp,” said the Lion.
 
----
-
 “Well, now it is my turn to go to Oz and get my heart,” said the Woodman.
 
 So he walked to the Throne Room and knocked on the door.

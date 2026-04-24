@@ -143,5 +143,5 @@ My companion smiled in his curious way. “That’s his little peculiarity,” h
 
 “Then you must study him,” Stamford said as he said good-bye. “You’ll find him a difficult problem. I’ll wager he learns more about you than you do about him. Good-bye.”
 
-“Good-bye,” I answered, and strolled on to my hotel, greatly interested in my new acquaintance.`
+“Good-bye,” I answered, and strolled on to my hotel, greatly interested in my new acquaintance.`,
 }

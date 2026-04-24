@@ -1,4 +1,3 @@
-// ГЛАВА НЕ ГОТОВА
 export const chapter_22 = {
 	name: 'Chapter XXII',
 	header: 'The burglary',

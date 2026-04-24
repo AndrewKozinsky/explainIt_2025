@@ -8,6 +8,7 @@ import { UserRepository } from 'repo/user.repository'
 import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
 import { PrismaService } from 'db/prisma.service'
 import { DeepSeekTokenUsageBalanceChargeHandler } from 'features/payment/DeepSeekTokenUsageBalanceCharge.command'
+import { GeminiTokenUsageBalanceChargeHandler } from 'features/payment/GeminiTokenUsageBalanceCharge.command'
 import { OpenAiTokenUsageBalanceChargeHandler } from 'features/payment/OpenAiTokenUsageBalanceCharge.command'
 import { SentenceTranslationAccessService } from 'features/translation/translateCommon/SentenceTranslationAccess.service'
 import { TranslateWithChatGPT } from 'features/translation/translateCommon/TranslateWithChatGPT.service'
@@ -24,6 +25,7 @@ const commandHandlers = [
 	TranslatePhraseHandler,
 	OpenAiTokenUsageBalanceChargeHandler,
 	DeepSeekTokenUsageBalanceChargeHandler,
+	GeminiTokenUsageBalanceChargeHandler,
 ]
 const translateProviders = [TranslateWithDeepSeek, TranslateWithChatGPT, TranslateWithGemini]
 const repositories = [

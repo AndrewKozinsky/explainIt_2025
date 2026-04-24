@@ -1,8 +1,7 @@
 export const chapter_9 = {
 	name: 'Chapter IX',
 	header: 'Containing further particulars concerning the pleasant old gentleman, and his hopeful pupils',
-	text: `
-It was late the next morning when Oliver woke from a deep, heavy sleep. The only person in the room was the old Jew, who was making coffee in a saucepan and quietly whistling to himself as he stirred it with an iron spoon. From time to time he stopped, listening carefully to the slightest noise downstairs; then, when he was satisfied, he began whistling and stirring again.
+	text: `It was late the next morning when Oliver woke from a deep, heavy sleep. The only person in the room was the old Jew, who was making coffee in a saucepan and quietly whistling to himself as he stirred it with an iron spoon. From time to time he stopped, listening carefully to the slightest noise downstairs; then, when he was satisfied, he began whistling and stirring again.
 
 Although Oliver had opened his eyes, he was not fully awake. There is a strange state between sleep and waking, when you seem to dream with your eyes half open and are dimly aware of what is happening around you. In such moments, the mind is active in a curious way, moving quickly between thoughts and memories.
 

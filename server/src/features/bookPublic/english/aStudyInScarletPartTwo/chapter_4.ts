@@ -65,7 +65,6 @@ Twenty became fifteen, and fifteen became ten. Still there was no news. The numb
 
 At last, when five became four, and four became three, he lost heart. He gave up hope of escaping. Alone, and with only a limited knowledge of the mountains around the settlement, he knew he was powerless. The main roads were watched closely, and no one could pass without an order from the Council. Turn which way he would, he saw no way to avoid the blow hanging over him. Yet he never wavered in one resolve: he would give up his life before he consented to what he saw as his daughter’s dishonour.
 
-
 One evening he sat alone, thinking over his troubles and searching in vain for a way out. That morning the figure 2 had been written on the wall of his house. The next day would be the last. What would happen then? Dark and terrible thoughts filled his mind. And Lucy—what would become of her after he was gone? Was there no escape from the invisible net drawn around them? He sank his head onto the table and sobbed in helpless despair.
 
 Then he heard something.

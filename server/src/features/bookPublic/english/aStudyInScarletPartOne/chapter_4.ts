@@ -119,7 +119,5 @@ And I must thank you for it all. I might not have gone but for you, and so I wou
 
 And now for lunch—and then for Norman Neruda. Her attack and her bowing are splendid. What is that little thing of Chopin’s she plays so magnificently? Tra-la-la-lira-lira-lay.”
 
-Leaning back in the cab, this amateur bloodhound sang away like a lark, while I reflected on the many-sided nature of the human mind.
-
-`,
+Leaning back in the cab, this amateur bloodhound sang away like a lark, while I reflected on the many-sided nature of the human mind.`,
 }
