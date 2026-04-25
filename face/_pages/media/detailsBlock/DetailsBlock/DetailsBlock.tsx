@@ -1,7 +1,8 @@
 import cn from 'classnames'
 import ViewportSyncedHeight from 'ui/ViewportSyncedHeight/ViewportSyncedHeight'
 import DetailsBlockWrapper from '_pages/media/detailsBlock/ViewRouter/DetailsBlockWrapper'
-import { useGetAnalysis } from './fn/getAnalysis'
+import { useFetchCurrentPhraseTranslation } from './fn/fetchPhraseTranslation'
+import { useFetchCurrentSentenceTranslation } from './fn/fetchSentenceTranslation'
 import { useClearDataOnUnmount, usePopulateStore } from './fn/populateStore'
 import './DetailsBlock.scss'
 
@@ -13,7 +14,8 @@ function DetailsBlock(props: DetailsBlockProps) {
 	const { mediaType } = props
 
 	usePopulateStore()
-	useGetAnalysis()
+	useFetchCurrentSentenceTranslation()
+	useFetchCurrentPhraseTranslation()
 	useClearDataOnUnmount()
 
 	return (

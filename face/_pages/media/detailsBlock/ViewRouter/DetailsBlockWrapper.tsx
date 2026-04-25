@@ -1,5 +1,6 @@
 import cn from 'classnames'
 import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
+import { findSentenceEntry } from '_pages/media/detailsBlock/DetailsBlock/fn/selectors'
 import WatchingDetailsBlock from '_pages/media/detailsBlock/WatchingDetailsBlock/WatchingDetailsBlock'
 import { useDetailsStore } from '../detailsStore'
 import ReadingDetailsBlock from '../ReadingDetailsBlock/ReadingDetailsBlock'
@@ -12,8 +13,14 @@ type ViewRouterProps = {
 function DetailsBlockWrapper(props: ViewRouterProps) {
 	const { mediaType } = props
 
-	const sentenceId = useDetailsStore((store) => store.sentenceId)
-	const error = useDetailsStore((store) => store.error)
+	const sentenceId = useDetailsStore((store) => store.currentSentenceId)
+	const error = useDetailsStore(function (store) {
+		const entry = findSentenceEntry({
+			sentences: store.sentences,
+			sentenceId: store.currentSentenceId,
+		})
+		return entry?.data.sentence.error ?? null
+	})
 
 	if (!sentenceId) {
 		return (
@@ -53,7 +60,13 @@ type ContentWrapperProps = {
 function ContentWrapper(props: ContentWrapperProps) {
 	const { center, children } = props
 
-	const isLoading = useDetailsStore((store) => store.isLoading)
+	const isLoading = useDetailsStore(function (store) {
+		const entry = findSentenceEntry({
+			sentences: store.sentences,
+			sentenceId: store.currentSentenceId,
+		})
+		return entry?.data.sentence.loading ?? false
+	})
 
 	return (
 		<div

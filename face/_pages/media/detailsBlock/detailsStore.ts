@@ -1,3 +1,4 @@
+import { produce } from 'immer'
 import { create } from 'zustand'
 
 export const detailsStoreValues: DetailsStoreValues = {
@@ -5,16 +6,11 @@ export const detailsStoreValues: DetailsStoreValues = {
 	bookAuthor: null,
 	videoName: null,
 	videoYear: null,
-	sentenceId: null,
-	wordIds: [],
-	sentenceText: null,
-	isLoading: false,
-	error: null,
-	sentenceTranslation: null,
-	wordAnalysis: null,
-	wordAnalyses: [],
+	currentSentenceId: null,
+	currentWordStartOffset: null,
+	currentWordEndOffset: null,
+	sentences: [],
 	transcriptions: [],
-	selectWord: () => {},
 }
 
 export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
@@ -26,27 +22,130 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 		updateStore: (storePart: Partial<DetailsStoreValues>) => {
 			set(storePart)
 		},
-		upsertSentenceTranslation: (sentenceTranslation: SentenceTranslationLite) => {
-			set({
-				sentenceTranslation: sentenceTranslation?.translation ?? null,
-				wordAnalysis: sentenceTranslation?.wordAnalysis ?? null,
-				wordAnalyses: sentenceTranslation?.wordAnalyses ?? [],
-			})
+		upsertSentenceEntry: (input: { sentenceId: number; text: string }) => {
+			set(
+				produce((state: DetailsStoreNext) => {
+					const existing = state.sentences.find((entry) => entry.sentenceId === input.sentenceId)
+					if (existing) {
+						if (input.text && existing.data.sentence.text !== input.text) {
+							existing.data.sentence.text = input.text
+						}
+
+						return
+					}
+
+					state.sentences.push({
+						sentenceId: input.sentenceId,
+						data: {
+							sentence: {
+								text: input.text,
+								loading: false,
+								error: null,
+								translation: null,
+							},
+							phrases: [],
+						},
+					})
+				}),
+			)
+		},
+		patchSentenceTranslation: (input: {
+			sentenceId: number
+			patch: Partial<SentenceTranslationStatus>
+		}) => {
+			set(
+				produce((state: DetailsStoreNext) => {
+					const entry = state.sentences.find((item) => item.sentenceId === input.sentenceId)
+					if (!entry) return
+
+					Object.assign(entry.data.sentence, input.patch)
+				}),
+			)
+		},
+		upsertPhraseTranslation: (input: {
+			sentenceId: number
+			locator: { startOffset: number; endOffset: number }
+			phrase: PhraseTranslationStatus
+		}) => {
+			set(
+				produce((state: DetailsStoreNext) => {
+					const entry = state.sentences.find((item) => item.sentenceId === input.sentenceId)
+					if (!entry) return
+
+					const phraseIdx = entry.data.phrases.findIndex(
+						(item) =>
+							item.startOffset === input.locator.startOffset &&
+							item.endOffset === input.locator.endOffset,
+					)
+
+					if (phraseIdx >= 0) {
+						entry.data.phrases[phraseIdx] = input.phrase
+						return
+					}
+
+					entry.data.phrases.push(input.phrase)
+				}),
+			)
+		},
+		patchPhraseTranslation: (input: {
+			sentenceId: number
+			locator: { startOffset: number; endOffset: number }
+			patch: Partial<PhraseTranslationStatus>
+		}) => {
+			set(
+				produce((state: DetailsStoreNext) => {
+					const entry = state.sentences.find((item) => item.sentenceId === input.sentenceId)
+					if (!entry) return
+
+					const phrase = entry.data.phrases.find(
+						(item) =>
+							item.startOffset === input.locator.startOffset &&
+							item.endOffset === input.locator.endOffset,
+					)
+					if (!phrase) return
+
+					Object.assign(phrase, input.patch)
+				}),
+			)
 		},
 	}
 })
 
 export type DetailsStoreNext = DetailsStoreValues & DetailsStoreMethods
 
-export type SentenceTranslationLite = {
-	translation: string
-	wordAnalysis?: null | string
-	wordAnalyses?: string[]
-}
-
 export type DetailsTranscription = {
 	phrase: string
 	transcription: string
+}
+
+export type SentenceTranslationStatus = {
+	text: string
+	loading: boolean
+	error: null | string
+	translation: null | string
+}
+
+export type PhraseExample = {
+	text: string
+	translate: string
+}
+
+export type PhraseTranslationStatus = {
+	startOffset: number
+	endOffset: number
+	phrase: null | string
+	loading: boolean
+	error: null | string
+	translation: null | string
+	examples: PhraseExample[]
+}
+
+export type DetailsSentenceEntry = {
+	sentenceId: number
+	data: {
+		sentence: SentenceTranslationStatus
+		phrases: PhraseTranslationStatus[]
+	}
 }
 
 export type DetailsStoreValues = {
@@ -54,26 +153,29 @@ export type DetailsStoreValues = {
 	bookAuthor: null | string
 	videoName: null | string
 	videoYear: null | string | number
-	// Идентификатор выбранного предложения
-	sentenceId: null | number
-	// Идентификаторы выбранных слов
-	wordIds: number[]
-	// Текст выбранного предложения
-	sentenceText: null | string
-	// Идёт ли загрузка анализа предложения
-	isLoading: boolean
-	// Ошибка при загрузке анализа предложения
-	error: null | string
-	// Полученные варианты анализа предложения
-	sentenceTranslation: string | null
-	wordAnalysis: string | null
-	wordAnalyses: string[]
+	currentSentenceId: null | number
+	currentWordStartOffset: null | number
+	currentWordEndOffset: null | number
+	sentences: DetailsSentenceEntry[]
 	transcriptions: DetailsTranscription[]
-	selectWord: (input: { sentenceId: number; wordId: number }) => void
 }
 
 export type DetailsStoreMethods = {
 	clearStoreData: () => void
 	updateStore: (store: Partial<DetailsStoreValues>) => void
-	upsertSentenceTranslation: (sentenceTranslation: SentenceTranslationLite) => void
+	upsertSentenceEntry: (input: { sentenceId: number; text: string }) => void
+	patchSentenceTranslation: (input: {
+		sentenceId: number
+		patch: Partial<SentenceTranslationStatus>
+	}) => void
+	upsertPhraseTranslation: (input: {
+		sentenceId: number
+		locator: { startOffset: number; endOffset: number }
+		phrase: PhraseTranslationStatus
+	}) => void
+	patchPhraseTranslation: (input: {
+		sentenceId: number
+		locator: { startOffset: number; endOffset: number }
+		patch: Partial<PhraseTranslationStatus>
+	}) => void
 }

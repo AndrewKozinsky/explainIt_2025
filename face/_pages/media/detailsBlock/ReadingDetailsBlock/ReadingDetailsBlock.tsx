@@ -6,7 +6,7 @@ import './ReadingDetailsBlock.scss'
 
 function ReadingDetailsBlock() {
 	const book = useReadingStore((s) => s.book?.data)
-	const sentenceId = useDetailsStore((s) => s.sentenceId)
+	const sentenceId = useDetailsStore((s) => s.currentSentenceId)
 
 	return (
 		<div className='reading-details-block'>

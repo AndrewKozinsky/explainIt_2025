@@ -29,7 +29,7 @@ export function theCountOfMonteCristoBookData(coversFolderName: string) {
 	return {
 		author: 'Alexandre Dumas',
 		name: 'Le Comte de Monte-Cristo',
-		note: `Роман о несправедливом заключении и блестящем мести. Эдмон Дантес, молодой моряк, накануне свадьбы арестован по ложному доносу и брошен в замок Иф. После побега он находит сокровище и начинает мстить тем, кто разрушил его жизнь.
+		note: `Роман о несправедливом заключении и блестящей мести. Эдмон Дантес, молодой моряк, накануне свадьбы арестован по ложному доносу и брошен в замок Иф. После побега он находит сокровище и начинает мстить тем, кто разрушил его жизнь.
 
 Классика французской литературы с богатым языком, живыми диалогами и захватывающим сюжетом. В книге много разговорной речи, юридических и морских терминов, описаний французского общества начала XIX века.
 
@@ -37,7 +37,7 @@ export function theCountOfMonteCristoBookData(coversFolderName: string) {
 		languageCode: languages.fr.code as Language,
 		freeToUse: false,
 		covers: covers.map((cover) => coversFolderName + cover),
-		coverBackgroundColor: '#2c1810',
+		coverBackgroundColor: '#265463',
 	}
 }
 

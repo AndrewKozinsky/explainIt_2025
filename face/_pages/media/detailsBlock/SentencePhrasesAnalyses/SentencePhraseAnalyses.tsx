@@ -1,5 +1,6 @@
+import { useMemo } from 'react'
+import { buildWordAnalysesFromPhrases, findSentenceEntry } from '_pages/media/detailsBlock/DetailsBlock/fn/selectors'
 import SentencePhraseAnalysis from '_pages/media/detailsBlock/SentencePhraseAnalysis/SentencePhraseAnalysis'
-import SentenceChat from '_pages/media/sentenceChat/SentenceChat/SentenceChat'
 import { useDetailsStore } from '../detailsStore'
 import '_pages/media/detailsBlock/SentencePhrasesAnalyses/SentencePhraseAnalyses.scss'
 
@@ -9,7 +10,22 @@ type SentencePhraseAnalysesProps = {
 
 function SentencePhraseAnalyses(props: SentencePhraseAnalysesProps) {
 	const { languageCode } = props
-	const phraseAnalyses = useDetailsStore((s) => s.wordAnalyses)
+	const phrases = useDetailsStore(function (s) {
+		const entry = findSentenceEntry({
+			sentences: s.sentences,
+			sentenceId: s.currentSentenceId,
+		})
+
+		return entry?.data.phrases ?? null
+	})
+
+	const phraseAnalyses = useMemo(
+		function () {
+			if (!phrases) return [] as string[]
+			return buildWordAnalysesFromPhrases(phrases)
+		},
+		[phrases],
+	)
 
 	if (!phraseAnalyses.length) return null
 
