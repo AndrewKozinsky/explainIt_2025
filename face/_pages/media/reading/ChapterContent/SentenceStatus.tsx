@@ -1,8 +1,8 @@
 import Spinner from 'ui/Spinner/Spinner'
 
-export function SentenceWordLoading() {
+export function SentenceLoading() {
 	return (
-		<p className='chapter-content__word-loading'>
+		<p className='chapter-content__sentence-loading'>
 			<Spinner size='small' />
 			Загрузка перевода слова…
 		</p>

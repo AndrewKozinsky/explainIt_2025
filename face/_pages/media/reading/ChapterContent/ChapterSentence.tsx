@@ -1,10 +1,10 @@
 import { findSentenceEntry } from '_pages/media/detailsBlock/DetailsBlock/fn/selectors'
 import { useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
+import { SentenceLoading } from '_pages/media/reading/ChapterContent/SentenceStatus'
 import SentenceBlock from '../../commonComponents/SentenceBlock/SentenceBlock'
 import SentencePhraseAnalysis from '../../detailsBlock/SentencePhraseAnalysis/SentencePhraseAnalysis'
 import SentenceTranslationText from '../../detailsBlock/SentenceTranslationText/SentenceTranslationText'
 import { ChapterTextStructurePopulated } from '../readingStore'
-import { SentenceWordLoading } from './SentenceWordStatus'
 
 type ChapterSentenceProps = {
 	sentence: ChapterTextStructurePopulated.Sentence
@@ -61,7 +61,7 @@ function SentenceDetails(props: SentenceDetailsProps) {
 			{sentenceEntry.data.sentence.translation && (
 				<SentenceTranslationText translation={sentenceEntry.data.sentence.translation} bgColor='gray' />
 			)}
-			{sentenceEntry.data.sentence.loading && <SentenceWordLoading />}
+			{sentenceEntry.data.sentence.loading && <SentenceLoading />}
 			{coveringPhrase && (
 				<SentencePhraseAnalysis
 					phraseAnalysis={coveringPhrase}
