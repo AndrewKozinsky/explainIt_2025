@@ -11,7 +11,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Download spaCy models for all trained languages we support.
-# Keep this list in sync with TRAINED_MODELS in main.py.
+# Keep this list in sync with TRAINED_MODELS in pipelines.py.
 RUN python -m spacy download en_core_web_sm \
     && python -m spacy download es_core_news_sm \
     && python -m spacy download fr_core_news_sm \

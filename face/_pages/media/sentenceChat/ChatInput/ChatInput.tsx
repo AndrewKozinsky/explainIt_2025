@@ -1,18 +1,22 @@
 'use client'
 
-// import { KeyboardEvent, useState } from 'react'
-// import Button from 'ui/formRelated/buttons/Button/Button'
-// import './ChatInput.scss'
+import { KeyboardEvent, useState } from 'react'
+import { useUserStore } from '@/stores/userStore'
+import ChatInputWarningMessage from './ChatInputWarningMessage'
+import SendAndCancelButton from './SendAndCancelButton'
+import './ChatInput.scss'
 
-/*type ChatInputProps = {
+type ChatInputProps = {
 	isGenerating: boolean
-	hasBalance: boolean
 	onSend: (question: string) => void
 	onCancel: () => void
-}*/
+}
 
-/*function ChatInput(props: ChatInputProps) {
-	const { isGenerating, hasBalance, onSend, onCancel } = props
+function ChatInput(props: ChatInputProps) {
+	const { isGenerating, onSend, onCancel } = props
+
+	const user = useUserStore((s) => s.user)
+	const hasBalance = (user?.balance ?? 0) > 0
 
 	const [value, setValue] = useState<string>('')
 
@@ -21,6 +25,7 @@
 
 	function handleSend() {
 		if (!canSend) return
+
 		onSend(trimmed)
 		setValue('')
 	}
@@ -39,24 +44,16 @@
 				value={value}
 				onChange={(e) => setValue(e.target.value)}
 				onKeyDown={handleKeyDown}
-				placeholder={hasBalance ? 'Задайте вопрос про это предложение…' : 'Недостаточно средств на балансе'}
+				placeholder='Любой вопрос про предложение: грамматика, смысл, похожие конструкции…'
 				rows={2}
 				disabled={!hasBalance}
 			/>
-
-			<div className='chat-input__actions'>
-				{isGenerating ? (
-					<Button theme='regular' onClick={onCancel}>
-						Остановить
-					</Button>
-				) : (
-					<Button theme='accent' onClick={handleSend} disabled={!canSend}>
-						Отправить
-					</Button>
-				)}
+			<div className='chat-input__bottom'>
+				<ChatInputWarningMessage />
+				<SendAndCancelButton isGenerating={isGenerating} onSend={handleSend} onCancel={onCancel} />
 			</div>
 		</div>
 	)
-}*/
+}
 
-// export default ChatInput
+export default ChatInput

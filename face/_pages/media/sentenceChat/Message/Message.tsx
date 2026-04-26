@@ -1,7 +1,11 @@
 import cn from 'classnames'
-// import StyledMarkdown from 'ui/StyledMarkdown/StyledMarkdown'
+import StyledMarkdown from 'ui/StyledMarkdown/StyledMarkdown'
+import AssistantMessage from '_pages/media/sentenceChat/Message/AssistantMessage'
+import GenerationIsCancelled from '_pages/media/sentenceChat/Message/GenerationIsCancelled'
+import GenerationIsFailed from '_pages/media/sentenceChat/Message/GenerationIsFailed'
 import { ChatUiMessage } from '../types/sseTypes'
 import './Message.scss'
+import UserMessage from './UserMessage'
 
 type MessageProps = {
 	message: ChatUiMessage
@@ -13,38 +17,27 @@ function Message(props: MessageProps) {
 	const isAssistant = message.role === 'assistant'
 	const isUser = message.role === 'user'
 
+	if (isUser) {
+		return <UserMessage message={message.content} />
+	}
+
 	const isStreaming = message.status === 'streaming'
 	const isFailed = message.status === 'failed'
 	const isCanceled = message.status === 'canceled'
 
-	return (
-		<div className={cn('chat-message', `chat-message--role-${message.role}`)}>
-			{/*<div className='chat-message__bubble'>
-				{isAssistant && renderAssistantContent(message.content, isStreaming)}
-				{isUser && <p>{message.content}</p>}
+	if (isCanceled) {
+		return <GenerationIsCancelled />
+	}
 
-				{isAssistant && isFailed && (
-					<p className='chat-message__status-text chat-message__status-text--error'>
-						Ошибка: {message.errorMessage ?? 'не удалось получить ответ'}
-					</p>
-				)}
-				{isAssistant && isCanceled && <p className='chat-message__status-text'>Генерация остановлена.</p>}
-			</div>*/}
-		</div>
-	)
-}
+	if (isFailed) {
+		return <GenerationIsFailed errorMessage={message.errorMessage} />
+	}
 
-/*function renderAssistantContent(content: string, isStreaming: boolean) {
-	if (!content && isStreaming) {
+	if (!message.content && isStreaming) {
 		return <span className='chat-message__cursor' aria-label='Ассистент печатает' />
 	}
 
-	return (
-		<>
-			<StyledMarkdown content={content} />
-			{isStreaming && <span className='chat-message__cursor' aria-hidden />}
-		</>
-	)
-}*/
+	return <AssistantMessage content={message.content} isStreaming={isStreaming} />
+}
 
 export default Message

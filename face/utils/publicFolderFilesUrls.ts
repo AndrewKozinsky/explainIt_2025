@@ -12,6 +12,8 @@ export const publicFolderFilesUrls = {
 		copyButtonIcon: '/icons/copyButtonIcon.svg',
 		actionButtonIcon: '/icons/actionButtonIcon.svg',
 		checkMark: '/icons/checkMark.svg',
+		sendMessage: '/icons/sendMessage.svg',
+		stopGeneration: '/icons/stopGeneration.svg',
 	},
 	images: {
 		common: {

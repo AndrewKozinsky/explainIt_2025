@@ -22,7 +22,7 @@ export class SentenceChatResolver {
 		private queryBus: QueryBus,
 	) {}
 
-	@UseGuards(CheckSessionCookieGuard, UserWithPositiveBalanceGuard)
+	@UseGuards(CheckSessionCookieGuard)
 	@Query(() => SentenceChatThreadOutModel, {
 		name: RouteNames.SENTENCE_CHAT.GET_THREAD,
 		description: sentenceChatResolversDesc.getSentenceChatThread,

@@ -1,40 +1,55 @@
-//@use '@/styles/variables' as vars;
+@use '@/styles/variables' as vars;
 
-/*.chat-input {
+.chat-input {
 	display: flex;
 	flex-direction: column;
-	gap: 0.8rem;
-}*/
-
-/*.chat-input__textarea {
-	min-height: 6rem;
-	padding: 1rem 1.2rem;
-	border: 1px solid vars.$grayColor-3;
-	border-radius: vars.$radius-1;
-	font: inherit;
-	font-size: 1.6rem;
-	line-height: 2.2rem;
-	resize: vertical;
+	gap: 1rem;
 	background: white;
+	padding: .8rem 1rem;
+	border: 1px solid vars.$grayColor-2;
+	border-radius: vars.$radius-2;
+}
+
+.chat-input__textarea {
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+	resize: none;
+
+	&::placeholder {
+		font-style: italic;
+		color: vars.$grayColor-4;
+	}
 
 	&:focus {
 		outline: none;
-		border-color: vars.$accentColor-2;
 	}
+}
+
+.chat-input__bottom {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
+}
+
+.chat-input__warning-message {
+	font-size: 1.4rem;
+	line-height: 1.8rem;
+}
+
+.chat-input__send-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	width: 2.7rem;
+	height: 2.7rem;
+	background: vars.$textColor;
+	border-radius: 50%;
+	cursor: pointer;
 
 	&:disabled {
-		background: vars.$grayColor-1;
+		background: vars.$grayColor-3;
 		cursor: not-allowed;
 	}
-}*/
-
-/*.chat-input__actions {
-	display: flex;
-	justify-content: flex-end;
-}*/
-
-/*.chat-input__hint {
-	margin: 0;
-	font-size: 1.3rem;
-	color: vars.$dangerColor-1;
-}*/
+}

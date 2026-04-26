@@ -4,13 +4,13 @@ import { BookPublicRepository } from 'repo/bookPublic.repository'
 import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter.command'
 import { oliverTwistBookData, oliverTwistChapters } from 'features/bookPublic/english/oliverTwist/Oliver Twist'
 import {
-	theLittlePrinceBookData,
-	theLittlePrinceChapters,
-} from 'features/bookPublic/french/theLittlePrince/theLittlePrinceBook'
-import {
 	theCountOfMonteCristoBookData,
 	theCountOfMonteCristoChapters,
 } from 'features/bookPublic/french/theCountOfMonteCristo/theCountOfMonteCristoBook'
+import {
+	theLittlePrinceBookData,
+	theLittlePrinceChapters,
+} from 'features/bookPublic/french/theLittlePrince/theLittlePrinceBook'
 import { jungleTalesBookData, jungleTalesChapters } from 'features/bookPublic/spanish/jungleTales/jungleTales'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
@@ -98,10 +98,10 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 				book: theLittlePrinceBookData(coversFolderName + 'french/'),
 				chapters: theLittlePrinceChapters,
 			},
-			{
+			/*{
 				book: theCountOfMonteCristoBookData(coversFolderName + 'french/'),
 				chapters: theCountOfMonteCristoChapters,
-			},
+			},*/
 		]
 	}
 
