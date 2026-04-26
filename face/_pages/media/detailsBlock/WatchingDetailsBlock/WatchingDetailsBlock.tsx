@@ -1,5 +1,5 @@
 import { CurrentSentenceTranslation } from '_pages/media/detailsBlock/CurrentSentenceTranslation/CurrentSentenceTranslation'
-import { findCoveringPhrase, findSentenceEntry } from '_pages/media/detailsBlock/DetailsBlock/fn/selectors'
+import { findSentenceEntry } from '_pages/media/detailsBlock/DetailsBlock/fn/selectors'
 import { CurrentSentence } from '_pages/media/detailsBlock/SelectedSentence/CurrentSentence'
 import SentencePhraseAnalysis from '_pages/media/detailsBlock/SentencePhraseAnalysis/SentencePhraseAnalysis'
 // import SentenceChat from '_pages/media/sentenceChat/SentenceChat/SentenceChat'
@@ -15,13 +15,9 @@ function WatchingDetailsBlock() {
 			sentences: s.sentences,
 			sentenceId: s.currentSentenceId,
 		})
-		if (!entry) return null
+		if (!entry || !entry.selectedPhraseId) return null
 
-		return findCoveringPhrase({
-			phrases: entry.data.phrases,
-			startOffset: s.currentWordStartOffset,
-			endOffset: s.currentWordEndOffset,
-		})
+		return entry.data.phrases.find((p) => p.id === entry.selectedPhraseId) ?? null
 	})
 
 	const video = useWatchingStore((s) => s.video?.data)

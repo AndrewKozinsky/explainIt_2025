@@ -8,8 +8,7 @@ export const detailsStoreValues: DetailsStoreValues = {
 	videoYear: null,
 	currentSentenceId: null,
 	currentSentenceText: null,
-	currentWordStartOffset: null,
-	currentWordEndOffset: null,
+	currentWordId: null,
 	sentences: [],
 	transcriptions: [],
 }
@@ -28,6 +27,7 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 				produce((state: DetailsStoreNext) => {
 					state.sentences.push({
 						sentenceId: input.sentenceId,
+						selectedPhraseId: null,
 						data: {
 							sentence: {
 								text: input.text,
@@ -51,11 +51,7 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 				}),
 			)
 		},
-		upsertPhraseTranslation: (input: {
-			sentenceId: number
-			locator: { startOffset: number; endOffset: number }
-			phrase: PhraseTranslationStatus
-		}) => {
+		upsertPhraseTranslation: (input: { sentenceId: number; phrase: PhraseTranslationStatus }) => {
 			set(
 				produce((state: DetailsStoreNext) => {
 					const entry = state.sentences.find((item) => item.sentenceId === input.sentenceId)
@@ -63,12 +59,13 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 
 					const phraseIdx = entry.data.phrases.findIndex(
 						(item) =>
-							item.startOffset === input.locator.startOffset &&
-							item.endOffset === input.locator.endOffset,
+							item.startOffset === input.phrase.startOffset &&
+							item.endOffset === input.phrase.endOffset,
 					)
 
 					if (phraseIdx >= 0) {
-						entry.data.phrases[phraseIdx] = input.phrase
+						const existingId = entry.data.phrases[phraseIdx].id
+						entry.data.phrases[phraseIdx] = { ...input.phrase, id: existingId }
 						return
 					}
 
@@ -78,7 +75,7 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 		},
 		patchPhraseTranslation: (input: {
 			sentenceId: number
-			locator: { startOffset: number; endOffset: number }
+			phraseId: string
 			patch: Partial<PhraseTranslationStatus>
 		}) => {
 			set(
@@ -86,19 +83,74 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 					const entry = state.sentences.find((item) => item.sentenceId === input.sentenceId)
 					if (!entry) return
 
-					const phrase = entry.data.phrases.find(
-						(item) =>
-							item.startOffset === input.locator.startOffset &&
-							item.endOffset === input.locator.endOffset,
-					)
+					const phrase = entry.data.phrases.find((item) => item.id === input.phraseId)
 					if (!phrase) return
 
 					Object.assign(phrase, input.patch)
 				}),
 			)
 		},
+		finalizePhraseTranslation: (input: {
+			sentenceId: number
+			placeholderPhraseId: string
+			phrase: PhraseTranslationStatus
+		}) => {
+			set(
+				produce((state: DetailsStoreNext) => {
+					const entry = state.sentences.find((item) => item.sentenceId === input.sentenceId)
+					if (!entry) return
+
+					const placeholderIdx = entry.data.phrases.findIndex(
+						(item) => item.id === input.placeholderPhraseId,
+					)
+					const existingIdx = entry.data.phrases.findIndex(
+						(item) =>
+							item.id !== input.placeholderPhraseId &&
+							item.startOffset === input.phrase.startOffset &&
+							item.endOffset === input.phrase.endOffset,
+					)
+
+					if (existingIdx >= 0) {
+						const existingId = entry.data.phrases[existingIdx].id
+						entry.data.phrases[existingIdx] = { ...input.phrase, id: existingId }
+
+						if (placeholderIdx >= 0) {
+							entry.data.phrases.splice(placeholderIdx, 1)
+						}
+						if (entry.selectedPhraseId === input.placeholderPhraseId) {
+							entry.selectedPhraseId = existingId
+						}
+						return
+					}
+
+					if (placeholderIdx >= 0) {
+						entry.data.phrases[placeholderIdx] = {
+							...input.phrase,
+							id: input.placeholderPhraseId,
+						}
+						return
+					}
+
+					entry.data.phrases.push({ ...input.phrase, id: input.placeholderPhraseId })
+				}),
+			)
+		},
+		setSelectedPhraseId: (input: { sentenceId: number; phraseId: string | null }) => {
+			set(
+				produce((state: DetailsStoreNext) => {
+					const entry = state.sentences.find((item) => item.sentenceId === input.sentenceId)
+					if (!entry) return
+
+					entry.selectedPhraseId = input.phraseId
+				}),
+			)
+		},
 	}
 })
+
+export function makePhraseId(): string {
+	return 'p_' + Math.random().toString(36).slice(2) + '_' + Date.now().toString(36)
+}
 
 export type DetailsStoreNext = DetailsStoreValues & DetailsStoreMethods
 
@@ -109,6 +161,7 @@ export type DetailsTranscription = {
 
 export type DetailsSentenceEntry = {
 	sentenceId: number
+	selectedPhraseId: string | null
 	data: {
 		sentence: SentenceTranslationStatus
 		phrases: PhraseTranslationStatus[]
@@ -123,6 +176,7 @@ export type SentenceTranslationStatus = {
 }
 
 export type PhraseTranslationStatus = {
+	id: string
 	startOffset: number
 	endOffset: number
 	phrase: null | string
@@ -144,8 +198,7 @@ export type DetailsStoreValues = {
 	videoYear: null | string | number
 	currentSentenceId: null | number
 	currentSentenceText: null | string
-	currentWordStartOffset: null | number
-	currentWordEndOffset: null | number
+	currentWordId: null | number
 	sentences: DetailsSentenceEntry[]
 	transcriptions: DetailsTranscription[]
 }
@@ -155,14 +208,16 @@ export type DetailsStoreMethods = {
 	updateStore: (store: Partial<DetailsStoreValues>) => void
 	insertLoadingSentence: (input: { sentenceId: number; text: string }) => void
 	patchSentenceTranslation: (input: { sentenceId: number; patch: Partial<SentenceTranslationStatus> }) => void
-	upsertPhraseTranslation: (input: {
-		sentenceId: number
-		locator: { startOffset: number; endOffset: number }
-		phrase: PhraseTranslationStatus
-	}) => void
+	upsertPhraseTranslation: (input: { sentenceId: number; phrase: PhraseTranslationStatus }) => void
 	patchPhraseTranslation: (input: {
 		sentenceId: number
-		locator: { startOffset: number; endOffset: number }
+		phraseId: string
 		patch: Partial<PhraseTranslationStatus>
 	}) => void
+	finalizePhraseTranslation: (input: {
+		sentenceId: number
+		placeholderPhraseId: string
+		phrase: PhraseTranslationStatus
+	}) => void
+	setSelectedPhraseId: (input: { sentenceId: number; phraseId: string | null }) => void
 }

@@ -61,18 +61,10 @@ type ApplySelectionInput = {
 }
 
 function applySelectionToDetailsStore(input: ApplySelectionInput) {
-	const offsets = getSelectedWordOffsets({
-		sentenceText: input.sentenceText,
-		wordId: input.wordId,
-	})
-
-	const store = useDetailsStore.getState()
-
-	store.updateStore({
+	useDetailsStore.getState().updateStore({
 		currentSentenceId: input.sentenceId,
 		currentSentenceText: input.sentenceText,
-		currentWordStartOffset: offsets?.startOffset ?? null,
-		currentWordEndOffset: offsets?.endOffset ?? null,
+		currentWordId: input.wordId,
 	})
 }
 

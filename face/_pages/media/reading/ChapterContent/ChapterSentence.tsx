@@ -1,4 +1,4 @@
-import { findCoveringPhrase, findSentenceEntry } from '_pages/media/detailsBlock/DetailsBlock/fn/selectors'
+import { findSentenceEntry } from '_pages/media/detailsBlock/DetailsBlock/fn/selectors'
 import { useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
 import SentenceBlock from '../../commonComponents/SentenceBlock/SentenceBlock'
 import SentencePhraseAnalysis from '../../detailsBlock/SentencePhraseAnalysis/SentencePhraseAnalysis'
@@ -46,16 +46,10 @@ function SentenceDetails(props: SentenceDetailsProps) {
 	})
 
 	const coveringPhrase = useDetailsStore(function (s) {
-		if (s.currentSentenceId !== sentenceId) return null
-
 		const entry = findSentenceEntry({ sentences: s.sentences, sentenceId })
-		if (!entry) return null
+		if (!entry || !entry.selectedPhraseId) return null
 
-		return findCoveringPhrase({
-			phrases: entry.data.phrases,
-			startOffset: s.currentWordStartOffset,
-			endOffset: s.currentWordEndOffset,
-		})
+		return entry.data.phrases.find((p) => p.id === entry.selectedPhraseId) ?? null
 	})
 
 	if (!sentenceEntry) {

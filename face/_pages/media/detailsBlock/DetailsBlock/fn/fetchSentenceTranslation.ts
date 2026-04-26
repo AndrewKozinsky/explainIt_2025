@@ -1,12 +1,11 @@
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import {
 	SentencePhraseTranslationOutModel,
 	useTranslate_Get_Phrase_Translations_By_SentenceLazyQuery,
 	useTranslate_Get_Sentence_TranslationLazyQuery,
 	useTranslate_Translate_Sentence,
 } from '@/graphql'
-import { useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
-import { PhraseTranslationStatus } from '_pages/media/detailsBlock/detailsStore'
+import { makePhraseId, PhraseTranslationStatus, useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
 import { findSentenceEntry } from './selectors'
 
 export function useFetchCurrentSentenceTranslation() {
@@ -16,8 +15,6 @@ export function useFetchCurrentSentenceTranslation() {
 	const [getSentenceTranslation] = useTranslate_Get_Sentence_TranslationLazyQuery()
 	const [getPhraseTranslationsBySentence] = useTranslate_Get_Phrase_Translations_By_SentenceLazyQuery()
 	const [translateSentence] = useTranslate_Translate_Sentence()
-
-	// const seededSentenceIdsRef = useRef<Set<number>>(new Set())
 
 	useEffect(
 		function () {
@@ -110,12 +107,9 @@ async function seedPhraseTranslationsCache(input: SeedPhraseTranslationsInput): 
 		const store = useDetailsStore.getState()
 
 		for (const phraseTranslation of phraseTranslations) {
-			const phrase = mapPhraseTranslationToStatus(phraseTranslation)
-
 			store.upsertPhraseTranslation({
 				sentenceId: input.sentenceId,
-				locator: { startOffset: phrase.startOffset, endOffset: phrase.endOffset },
-				phrase,
+				phrase: mapPhraseTranslationToStatus(phraseTranslation),
 			})
 		}
 	} catch {
@@ -127,6 +121,7 @@ export function mapPhraseTranslationToStatus(
 	phraseTranslation: SentencePhraseTranslationOutModel,
 ): PhraseTranslationStatus {
 	return {
+		id: makePhraseId(),
 		startOffset: phraseTranslation.phraseStartOffset,
 		endOffset: phraseTranslation.phraseEndOffset,
 		phrase: phraseTranslation.phrase ?? null,
