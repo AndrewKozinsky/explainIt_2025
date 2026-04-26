@@ -4,7 +4,7 @@ import { usePlayerController } from './fn/controller'
 import { usePlayerControl } from './fn/playerControl'
 import { createVideoProgressSaver, loadVideoProgressSeconds } from './fn/videoProgressStorage'
 import VideoProgress from './VideoProgress'
-import '_pages/media/watching/VideoPlayer/VideoPlayer.scss'
+import './VideoPlayer.scss'
 
 function VideoPlayer() {
 	const video = useWatchingStore((s) => s.video?.data)

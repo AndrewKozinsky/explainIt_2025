@@ -31,17 +31,17 @@
  */
 export function getWordPrimaryType(input: {
 	selectedSentenceId: null | number
-	selectedWordIds: number[]
+	selectedWordId: null | number
 	sentenceId: number
 	wordId: number
 }): null | 'selected' {
-	const { selectedSentenceId, selectedWordIds, sentenceId, wordId } = input
+	const { selectedSentenceId, selectedWordId, sentenceId, wordId } = input
 
 	// Если перебираемое предложение является выделенным
 	if (selectedSentenceId === sentenceId) {
 		// то проверить, что в словах выделенного предложения есть идентификатор текущего слова
 		// Из чего можно заключить, что текущее слово является выделенным.
-		if (selectedWordIds.includes(wordId)) {
+		if (selectedWordId === wordId) {
 			return 'selected'
 		}
 	}

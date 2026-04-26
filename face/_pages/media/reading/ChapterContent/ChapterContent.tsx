@@ -16,7 +16,7 @@ function ChapterContent() {
 						key={sentence.id}
 						sentence={sentence}
 						selectedSentenceId={selection.sentenceId}
-						selectedWordIds={selection.wordIds}
+						selectedWordId={selection.wordId}
 						selectWord={selectWord}
 						languageCode={book?.languageCode!}
 					/>

@@ -29,24 +29,3 @@ export function findCoveringPhrase(input: {
 
 	return matched[0] ?? null
 }
-
-export function buildWordAnalysisFromPhrase(phrase: null | PhraseTranslationStatus): null | string {
-	if (!phrase) return null
-	if (!phrase.translation) return null
-
-	const lines = [`* **${phrase.phrase ?? ''}** — ${phrase.translation}`]
-
-	for (const example of phrase.examples ?? []) {
-		if (!example.text || !example.translate) continue
-
-		lines.push(`* ${example.text} — ${example.translate}`)
-	}
-
-	return lines.join('\n')
-}
-
-export function buildWordAnalysesFromPhrases(phrases: PhraseTranslationStatus[]): string[] {
-	return phrases
-		.map((phrase) => buildWordAnalysisFromPhrase(phrase))
-		.filter((analysis): analysis is string => Boolean(analysis))
-}

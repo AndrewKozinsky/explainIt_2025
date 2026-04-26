@@ -18,7 +18,7 @@ export const watchingStoreValues: WatchingStoreValues = {
 	},
 	selection: {
 		sentenceId: null,
-		wordIds: [],
+		wordId: null,
 	},
 	populatedPlainText: null as any as PopulatedTextStructure.Structure,
 	populatedSubtitles: null as any as PopulatedSubtitlesStructure.Structure,
@@ -65,7 +65,7 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 				return {
 					selection: {
 						sentenceId: input.sentenceId,
-						wordIds: [input.wordId],
+						wordId: input.wordId,
 					},
 				}
 			})
@@ -88,8 +88,8 @@ export namespace WatchingStoreI {
 	}
 	export type SelectedSentence = {
 		sentenceId: null | number
-		// Идентификаторы выделенных слов
-		wordIds: number[]
+		// Идентификатор выделенного слова
+		wordId: null | number
 	}
 }
 

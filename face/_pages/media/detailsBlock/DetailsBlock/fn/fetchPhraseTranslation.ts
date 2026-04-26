@@ -18,19 +18,19 @@ export function useFetchCurrentPhraseTranslation() {
 			if (currentWordStartOffset === null || currentWordEndOffset === null) return
 
 			const state = useDetailsStore.getState()
+
 			const entry = findSentenceEntry({
 				sentences: state.sentences,
 				sentenceId: currentSentenceId,
 			})
 			if (!entry) return
 
-			const covering = findCoveringPhrase({
+			const coveringPhrase = findCoveringPhrase({
 				phrases: entry.data.phrases,
 				startOffset: currentWordStartOffset,
 				endOffset: currentWordEndOffset,
 			})
-
-			if (covering) return
+			if (coveringPhrase) return
 
 			void runFetchForPhrase({
 				sentenceId: currentSentenceId,
@@ -45,7 +45,7 @@ export function useFetchCurrentPhraseTranslation() {
 				translatePhrase,
 			})
 		},
-		[currentSentenceId, currentWordStartOffset, currentWordEndOffset, getPhraseTranslation, translatePhrase],
+		[currentSentenceId, currentWordStartOffset, currentWordEndOffset],
 	)
 }
 
@@ -64,6 +64,7 @@ type RunFetchForPhraseInput = {
 
 async function runFetchForPhrase(input: RunFetchForPhraseInput): Promise<void> {
 	const store = useDetailsStore.getState()
+
 	const placeholderLocator = {
 		startOffset: input.wordStartOffset,
 		endOffset: input.wordEndOffset,

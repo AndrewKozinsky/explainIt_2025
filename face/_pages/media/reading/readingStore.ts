@@ -8,7 +8,7 @@ export const readingStoreValues: ReadingStoreValues = {
 	populatedChapter: null as any as ChapterTextStructurePopulated.Chapter,
 	selection: {
 		sentenceId: null,
-		wordIds: [],
+		wordId: null,
 	},
 }
 
@@ -43,22 +43,7 @@ export const useReadingStore = create<ReadingStoreNext>()((set, get) => {
 			set(
 				produce((state: ReadingStoreNext) => {
 					state.selection.sentenceId = input.sentenceId
-					state.selection.wordIds = [input.wordId]
-
-					const sentence = state.populatedChapter?.sentences.find((item) => item.id === input.sentenceId)
-					if (!sentence) return
-
-					sentence.translation.isVisible = true
-				}),
-			)
-		},
-		updateSentenceTranslation: (input: { sentenceId: number; translation: Partial<SentenceTranslationState> }) => {
-			set(
-				produce((state: ReadingStoreNext) => {
-					const sentence = state.populatedChapter?.sentences.find((item) => item.id === input.sentenceId)
-					if (!sentence) return
-
-					Object.assign(sentence.translation, input.translation)
+					state.selection.wordId = input.wordId
 				}),
 			)
 		},
@@ -92,7 +77,7 @@ export type ReadingStoreValues = {
 export type SelectedSentence = {
 	sentenceId: null | number
 	// Идентификаторы выделенных слов
-	wordIds: number[]
+	wordId: null | number
 }
 
 export type ReadingStoreMethods = {
@@ -101,15 +86,6 @@ export type ReadingStoreMethods = {
 	updateChapter: (chapter: ReadingStore.ChapterData) => void
 	updatePopulatedChapter: (populatedChapter: ChapterTextStructurePopulated.Chapter) => void
 	selectWord: (input: { sentenceId: number; wordId: number }) => void
-	updateSentenceTranslation: (input: { sentenceId: number; translation: Partial<SentenceTranslationState> }) => void
-}
-
-export type SentenceTranslationState = {
-	sentenceTranslation: null | string
-	wordAnalysis: null | string
-	isLoading: boolean
-	error: null | string
-	isVisible: boolean
 }
 
 // Тип данных для структуры текста наполненный дополнительными сведениями (используется на клиенте)
@@ -124,6 +100,5 @@ export namespace ChapterTextStructurePopulated {
 	export type Sentence = {
 		id: number
 		sentence: string
-		translation: SentenceTranslationState
 	}
 }

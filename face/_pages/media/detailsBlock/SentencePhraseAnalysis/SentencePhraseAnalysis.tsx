@@ -1,11 +1,11 @@
 import cn from 'classnames'
 import { LanguageCode } from 'utils/utils'
+import { PhraseExample, PhraseTranslationStatus } from '_pages/media/detailsBlock/detailsStore'
 import TranscriptionAndAudio from '_pages/media/detailsBlock/TranscriptionAndAudio/TranscriptionAndAudio'
-import parsePhraseAnalysis, { PhraseAnalysisExample, PhraseAnalysisExamplePhrase } from './fn/phraseAnalysis'
 import './SentencePhraseAnalysis.scss'
 
 type SentencePhraseProps = {
-	phraseAnalysis: null | string
+	phraseAnalysis: PhraseTranslationStatus
 	extraClass?: string
 	languageCode: string
 	onWhiteBackground?: boolean
@@ -18,11 +18,9 @@ function SentencePhraseAnalysis(props: SentencePhraseProps) {
 		return null
 	}
 
-	const parsedAnalysis = parsePhraseAnalysis(phraseAnalysis)
-
-	const phrase = parsedAnalysis?.phrase
-	const phraseTranslation = parsedAnalysis?.translation
-	const examples = parsedAnalysis?.examples
+	const phrase = phraseAnalysis.phrase
+	const phraseTranslation = phraseAnalysis.translation
+	const examples = phraseAnalysis.examples
 
 	if (!phrase || !phraseTranslation) {
 		return null
@@ -47,7 +45,7 @@ export default SentencePhraseAnalysis
 
 type TopPartProps = {
 	phrase: string
-	phraseTranslation: PhraseAnalysisExamplePhrase[]
+	phraseTranslation: string
 	languageCode: string
 	onWhiteBackground?: boolean
 }
@@ -63,28 +61,13 @@ function TopPart(props: TopPartProps) {
 				languageCode={languageCode as LanguageCode}
 				onWhiteBackground={onWhiteBackground}
 			/>{' '}
-			—{' '}
-			<span className='sentence-phrase-analysis__analysis-phrase-translate'>
-				<Text text={phraseTranslation} />
-			</span>
+			— <span className='sentence-phrase-analysis__analysis-phrase-translate'>{phraseTranslation}</span>
 		</p>
 	)
 }
 
-function Example({ example }: { example: PhraseAnalysisExample }) {
+function Example({ example }: { example: PhraseExample }) {
 	return (
-		<p className='sentence-phrase-analysis__example'>
-			{example.text && <Text text={example.text} />} — {example.translate && <Text text={example.translate} />}
-		</p>
+		<p className='sentence-phrase-analysis__example'>{example.text && `${example.text} — ${example.translate}`}</p>
 	)
-}
-
-function Text({ text }: { text: PhraseAnalysisExamplePhrase[] }) {
-	return text.map((phrase, i) => {
-		return (
-			<span className={cn(phrase.flashed && 'sentence-phrase-analysis__phrase-flashed')} key={i}>
-				{phrase.text}
-			</span>
-		)
-	})
 }

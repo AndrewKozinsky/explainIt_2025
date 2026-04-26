@@ -5,13 +5,11 @@ import { useWatchingStore } from '_pages/media/watching/watchingStore'
 import { useDetailsStore } from '../../detailsStore'
 import { pageUrls } from 'сonsts/pageUrls'
 
-export function usePopulateStore() {
+export function usePopulateStoreWithBookData() {
 	const mediaType = useGetShowingMediaType()
 
 	const bookSentences = useReadingStore((s) => s.populatedChapter?.sentences)
 	const bookSelection = useReadingStore((s) => s.selection)
-	const bookName = useReadingStore((s) => s.book?.data?.name)
-	const bookAuthor = useReadingStore((s) => s.book?.data?.author)
 
 	useEffect(
 		function () {
@@ -21,32 +19,21 @@ export function usePopulateStore() {
 			const sentenceText = sentence?.sentence ?? null
 
 			applySelectionToDetailsStore({
-				bookName: bookName ?? null,
-				bookAuthor: bookAuthor ?? null,
-				videoName: null,
-				videoYear: null,
 				sentenceId: bookSelection.sentenceId,
-				wordIds: bookSelection.wordIds,
+				wordId: bookSelection.wordId,
 				sentenceText,
 			})
 		},
-		[
-			bookAuthor,
-			bookName,
-			bookSelection.sentenceId,
-			bookSelection.wordIds,
-			bookSentences,
-			mediaType,
-		],
+		[bookSelection.sentenceId, bookSelection.wordId],
 	)
+}
 
-	// ---
+export function usePopulateStoreWithMovieData() {
+	const mediaType = useGetShowingMediaType()
 
 	const videoSubSentences = useWatchingStore((s) => s.populatedSubtitles?.sentences)
 	const videoTextSentences = useWatchingStore((s) => s.populatedPlainText?.sentences)
 	const videoSelection = useWatchingStore((s) => s.selection)
-	const videoName = useWatchingStore((s) => s.video?.data?.name)
-	const videoYear = useWatchingStore((s) => s.video?.data?.year)
 
 	useEffect(
 		function () {
@@ -58,71 +45,44 @@ export function usePopulateStore() {
 			const sentenceText = sentence?.text || null
 
 			applySelectionToDetailsStore({
-				bookName: null,
-				bookAuthor: null,
-				videoName: videoName ?? null,
-				videoYear: videoYear ?? null,
 				sentenceId: videoSelection.sentenceId,
-				wordIds: videoSelection.wordIds,
+				wordId: videoSelection.wordId,
 				sentenceText,
 			})
 		},
-		[
-			mediaType,
-			videoName,
-			videoSelection.sentenceId,
-			videoSelection.wordIds,
-			videoSubSentences,
-			videoTextSentences,
-			videoYear,
-		],
+		[videoSelection.sentenceId, videoSelection.wordId],
 	)
 }
 
 type ApplySelectionInput = {
-	bookName: null | string
-	bookAuthor: null | string
-	videoName: null | string
-	videoYear: null | string | number
 	sentenceId: null | number
-	wordIds: number[]
 	sentenceText: null | string
+	wordId: null | number
 }
 
 function applySelectionToDetailsStore(input: ApplySelectionInput) {
 	const offsets = getSelectedWordOffsets({
 		sentenceText: input.sentenceText,
-		wordIds: input.wordIds,
+		wordId: input.wordId,
 	})
 
 	const store = useDetailsStore.getState()
 
 	store.updateStore({
-		bookName: input.bookName,
-		bookAuthor: input.bookAuthor,
-		videoName: input.videoName,
-		videoYear: input.videoYear,
 		currentSentenceId: input.sentenceId,
+		currentSentenceText: input.sentenceText,
 		currentWordStartOffset: offsets?.startOffset ?? null,
 		currentWordEndOffset: offsets?.endOffset ?? null,
 	})
-
-	if (input.sentenceId !== null && input.sentenceText) {
-		store.upsertSentenceEntry({
-			sentenceId: input.sentenceId,
-			text: input.sentenceText,
-		})
-	}
 }
 
 export function getSelectedWordOffsets(input: {
 	sentenceText: null | string
-	wordIds: number[]
+	wordId: null | number
 	locale?: string
 }): null | { word: string; startOffset: number; endOffset: number } {
-	const { sentenceText, wordIds, locale } = input
+	const { sentenceText, wordId, locale } = input
 
-	const wordId = wordIds[0]
 	if (!wordId || !sentenceText) return null
 
 	const segmenter = new Intl.Segmenter(locale, { granularity: 'word' })
@@ -141,12 +101,4 @@ export function getSelectedWordOffsets(input: {
 export function useGetShowingMediaType() {
 	const pathname = usePathname()
 	return pathname.startsWith(pageUrls.books.path) ? 'book' : 'video'
-}
-
-export function useClearDataOnUnmount() {
-	useEffect(function () {
-		return () => {
-			useDetailsStore.getState().clearStoreData()
-		}
-	}, [])
 }

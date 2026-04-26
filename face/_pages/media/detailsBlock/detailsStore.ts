@@ -7,6 +7,7 @@ export const detailsStoreValues: DetailsStoreValues = {
 	videoName: null,
 	videoYear: null,
 	currentSentenceId: null,
+	currentSentenceText: null,
 	currentWordStartOffset: null,
 	currentWordEndOffset: null,
 	sentences: [],
@@ -22,24 +23,15 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 		updateStore: (storePart: Partial<DetailsStoreValues>) => {
 			set(storePart)
 		},
-		upsertSentenceEntry: (input: { sentenceId: number; text: string }) => {
+		insertLoadingSentence: (input: { sentenceId: number; text: string }) => {
 			set(
 				produce((state: DetailsStoreNext) => {
-					const existing = state.sentences.find((entry) => entry.sentenceId === input.sentenceId)
-					if (existing) {
-						if (input.text && existing.data.sentence.text !== input.text) {
-							existing.data.sentence.text = input.text
-						}
-
-						return
-					}
-
 					state.sentences.push({
 						sentenceId: input.sentenceId,
 						data: {
 							sentence: {
 								text: input.text,
-								loading: false,
+								loading: true,
 								error: null,
 								translation: null,
 							},
@@ -49,10 +41,7 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 				}),
 			)
 		},
-		patchSentenceTranslation: (input: {
-			sentenceId: number
-			patch: Partial<SentenceTranslationStatus>
-		}) => {
+		patchSentenceTranslation: (input: { sentenceId: number; patch: Partial<SentenceTranslationStatus> }) => {
 			set(
 				produce((state: DetailsStoreNext) => {
 					const entry = state.sentences.find((item) => item.sentenceId === input.sentenceId)
@@ -118,16 +107,19 @@ export type DetailsTranscription = {
 	transcription: string
 }
 
+export type DetailsSentenceEntry = {
+	sentenceId: number
+	data: {
+		sentence: SentenceTranslationStatus
+		phrases: PhraseTranslationStatus[]
+	}
+}
+
 export type SentenceTranslationStatus = {
 	text: string
 	loading: boolean
 	error: null | string
 	translation: null | string
-}
-
-export type PhraseExample = {
-	text: string
-	translate: string
 }
 
 export type PhraseTranslationStatus = {
@@ -140,12 +132,9 @@ export type PhraseTranslationStatus = {
 	examples: PhraseExample[]
 }
 
-export type DetailsSentenceEntry = {
-	sentenceId: number
-	data: {
-		sentence: SentenceTranslationStatus
-		phrases: PhraseTranslationStatus[]
-	}
+export type PhraseExample = {
+	text: string
+	translate: string
 }
 
 export type DetailsStoreValues = {
@@ -154,6 +143,7 @@ export type DetailsStoreValues = {
 	videoName: null | string
 	videoYear: null | string | number
 	currentSentenceId: null | number
+	currentSentenceText: null | string
 	currentWordStartOffset: null | number
 	currentWordEndOffset: null | number
 	sentences: DetailsSentenceEntry[]
@@ -163,11 +153,8 @@ export type DetailsStoreValues = {
 export type DetailsStoreMethods = {
 	clearStoreData: () => void
 	updateStore: (store: Partial<DetailsStoreValues>) => void
-	upsertSentenceEntry: (input: { sentenceId: number; text: string }) => void
-	patchSentenceTranslation: (input: {
-		sentenceId: number
-		patch: Partial<SentenceTranslationStatus>
-	}) => void
+	insertLoadingSentence: (input: { sentenceId: number; text: string }) => void
+	patchSentenceTranslation: (input: { sentenceId: number; patch: Partial<SentenceTranslationStatus> }) => void
 	upsertPhraseTranslation: (input: {
 		sentenceId: number
 		locator: { startOffset: number; endOffset: number }

@@ -6,17 +6,12 @@ import { useWatchingStore } from '_pages/media/watching/watchingStore'
 import { useDetailsStore } from '../detailsStore'
 import './SelectedSentence.scss'
 
-export function SelectedSentence() {
+export function CurrentSentence() {
 	const mediaType = useGetShowingMediaType()
 
 	const sentenceId = useDetailsStore((s) => s.currentSentenceId)
-	const sentenceText = useDetailsStore(function (s) {
-		const entry = findSentenceEntry({
-			sentences: s.sentences,
-			sentenceId: s.currentSentenceId,
-		})
-		return entry?.data.sentence.text ?? null
-	})
+	const currentSentenceText = useDetailsStore((s) => s.currentSentenceText)
+
 	const sentenceAnalysisLoading = useDetailsStore(function (s) {
 		const entry = findSentenceEntry({
 			sentences: s.sentences,
@@ -25,24 +20,24 @@ export function SelectedSentence() {
 		return entry?.data.sentence.loading ?? false
 	})
 
-	const readingWordIds = useReadingStore((s) => s.selection.wordIds)
-	const watchingWordIds = useWatchingStore((s) => s.selection.wordIds)
+	const readingWordId = useReadingStore((s) => s.selection.wordId)
+	const watchingWordId = useWatchingStore((s) => s.selection.wordId)
 	const readingSelectWord = useReadingStore((s) => s.selectWord)
 	const watchingSelectWord = useWatchingStore((s) => s.selectWord)
 
-	const wordIds = mediaType === 'book' ? readingWordIds : watchingWordIds
+	const wordId = mediaType === 'book' ? readingWordId : watchingWordId
 	const selectWord = mediaType === 'book' ? readingSelectWord : watchingSelectWord
 
-	if (!sentenceId || !sentenceText) {
+	if (!sentenceId || !currentSentenceText) {
 		return null
 	}
 
 	return (
 		<SentenceBlock
 			sentenceId={sentenceId}
-			sentenceText={sentenceText}
+			sentenceText={currentSentenceText}
 			selectedSentenceId={sentenceId}
-			selectedWordIds={wordIds}
+			selectedWordId={wordId}
 			selectWord={selectWord}
 			extraClass='selected-sentence'
 			loading={sentenceAnalysisLoading}

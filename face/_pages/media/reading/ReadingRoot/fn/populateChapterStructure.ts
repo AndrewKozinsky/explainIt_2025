@@ -28,7 +28,6 @@ export function populateChapterStructure(chapter: {
 		return {
 			id: sentence.id,
 			sentence: content.slice(startOffset, endOffset),
-			translation: getInitialSentenceTranslation(),
 		}
 	})
 
@@ -37,15 +36,5 @@ export function populateChapterStructure(chapter: {
 		header: chapter.header || null,
 		name: chapter.name || null,
 		sentences,
-	}
-}
-
-function getInitialSentenceTranslation(): ChapterTextStructurePopulated.Sentence['translation'] {
-	return {
-		sentenceTranslation: null,
-		wordAnalysis: null,
-		isLoading: false,
-		error: null,
-		isVisible: false,
 	}
 }

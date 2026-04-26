@@ -2,8 +2,7 @@
 
 import { useRef } from 'react'
 import RootSurface from '_pages/media/commonComponents/RootSurface/RootSurface'
-import WatchingHeader from '_pages/media/watching/WatchingHeader/WatchingHeader'
-import WatchingBreadCrumbs from '../WatchingBreadCrumbs/WatchingBreadCrumbs'
+import WatchingTop from '_pages/media/watching/WatchingTop/WatchingTop'
 import { useClearWatchingStoreOnUnmount } from './fn/clearStoreOnUnmount'
 import { useGetFetchedDataStatuses } from './fn/getFetchedDataStatuses'
 import { usePopulateWatchingStore } from './fn/populateStore'
@@ -22,10 +21,7 @@ function WatchingRoot() {
 	return (
 		<RootSurface loading={fetchedDataLoading} error={fetchedDataErrorMessage} rootRef={rootRef}>
 			<main className='watching-root'>
-				<div className='watching-root__top'>
-					<WatchingBreadCrumbs />
-					<WatchingHeader />
-				</div>
+				<WatchingTop />
 				<div className='watching-root__content'>
 					<VideoContainer />
 					<TextContainer />

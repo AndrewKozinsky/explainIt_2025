@@ -1,13 +1,12 @@
-import cn from 'classnames'
 import { findSentenceEntry } from '_pages/media/detailsBlock/DetailsBlock/fn/selectors'
 import { useDetailsStore } from '../detailsStore'
-import './SentenceTranslation.scss'
+import SentenceTranslationText from '../SentenceTranslationText/SentenceTranslationText'
 
-type SentenceTranslationProps = {
+type CurrentSentenceTranslationProps = {
 	bgColor: 'white' | 'gray'
 }
 
-export function SentenceTranslation(props: SentenceTranslationProps) {
+export function CurrentSentenceTranslation(props: CurrentSentenceTranslationProps) {
 	const { bgColor } = props
 
 	const sentenceTranslation = useDetailsStore(function (s) {
@@ -22,5 +21,5 @@ export function SentenceTranslation(props: SentenceTranslationProps) {
 		return null
 	}
 
-	return <p className={cn('sentence-translation', 'sentence-translation--' + bgColor)}>{sentenceTranslation}</p>
+	return <SentenceTranslationText translation={sentenceTranslation} bgColor={bgColor} />
 }
