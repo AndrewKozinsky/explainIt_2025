@@ -401,7 +401,8 @@ export const ModelName = {
   UniversalTranscription: 'UniversalTranscription',
   UniversalAudioPronunciation: 'UniversalAudioPronunciation',
   SentenceChatThread: 'SentenceChatThread',
-  SentenceChatMessage: 'SentenceChatMessage'
+  SentenceChatMessage: 'SentenceChatMessage',
+  Flashcard: 'Flashcard'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -417,7 +418,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "userBalanceTransaction" | "payment" | "bookPrivate" | "bookPublic" | "bookChapter" | "videoPrivate" | "videoPublic" | "sentence" | "sentenceTranslation" | "sentencePhraseTranslation" | "subtitle" | "subtitleSentenceInit" | "universalPhrase" | "universalTranscription" | "universalAudioPronunciation" | "sentenceChatThread" | "sentenceChatMessage"
+    modelProps: "user" | "userBalanceTransaction" | "payment" | "bookPrivate" | "bookPublic" | "bookChapter" | "videoPrivate" | "videoPublic" | "sentence" | "sentenceTranslation" | "sentencePhraseTranslation" | "subtitle" | "subtitleSentenceInit" | "universalPhrase" | "universalTranscription" | "universalAudioPronunciation" | "sentenceChatThread" | "sentenceChatMessage" | "flashcard"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1753,6 +1754,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    Flashcard: {
+      payload: Prisma.$FlashcardPayload<ExtArgs>
+      fields: Prisma.FlashcardFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.FlashcardFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FlashcardPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.FlashcardFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FlashcardPayload>
+        }
+        findFirst: {
+          args: Prisma.FlashcardFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FlashcardPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.FlashcardFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FlashcardPayload>
+        }
+        findMany: {
+          args: Prisma.FlashcardFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FlashcardPayload>[]
+        }
+        create: {
+          args: Prisma.FlashcardCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FlashcardPayload>
+        }
+        createMany: {
+          args: Prisma.FlashcardCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.FlashcardCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FlashcardPayload>[]
+        }
+        delete: {
+          args: Prisma.FlashcardDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FlashcardPayload>
+        }
+        update: {
+          args: Prisma.FlashcardUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FlashcardPayload>
+        }
+        deleteMany: {
+          args: Prisma.FlashcardDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.FlashcardUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.FlashcardUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FlashcardPayload>[]
+        }
+        upsert: {
+          args: Prisma.FlashcardUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FlashcardPayload>
+        }
+        aggregate: {
+          args: Prisma.FlashcardAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateFlashcard>
+        }
+        groupBy: {
+          args: Prisma.FlashcardGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.FlashcardGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.FlashcardCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.FlashcardCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -2036,6 +2111,27 @@ export const SentenceChatMessageScalarFieldEnum = {
 } as const
 
 export type SentenceChatMessageScalarFieldEnum = (typeof SentenceChatMessageScalarFieldEnum)[keyof typeof SentenceChatMessageScalarFieldEnum]
+
+
+export const FlashcardScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  language_code: 'language_code',
+  sentence_text: 'sentence_text',
+  sentence_translation: 'sentence_translation',
+  phrase: 'phrase',
+  phrase_start_offset: 'phrase_start_offset',
+  phrase_end_offset: 'phrase_end_offset',
+  phrase_translation: 'phrase_translation',
+  examples: 'examples',
+  book_private_id: 'book_private_id',
+  book_public_id: 'book_public_id',
+  video_private_id: 'video_private_id',
+  video_public_id: 'video_public_id',
+  created_at: 'created_at'
+} as const
+
+export type FlashcardScalarFieldEnum = (typeof FlashcardScalarFieldEnum)[keyof typeof FlashcardScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -2369,6 +2465,7 @@ export type GlobalOmitConfig = {
   universalAudioPronunciation?: Prisma.UniversalAudioPronunciationOmit
   sentenceChatThread?: Prisma.SentenceChatThreadOmit
   sentenceChatMessage?: Prisma.SentenceChatMessageOmit
+  flashcard?: Prisma.FlashcardOmit
 }
 
 /* Types for Logging */

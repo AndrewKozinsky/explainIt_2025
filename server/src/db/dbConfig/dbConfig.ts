@@ -91,6 +91,9 @@ export const bdConfig = {
 			SentenceChatThread: {
 				type: 'oneToMany',
 			},
+			Flashcard: {
+				type: 'oneToMany',
+			},
 			created_at: {
 				type: 'createdAt',
 			},
@@ -228,6 +231,9 @@ export const bdConfig = {
 			BookChapter: {
 				type: 'oneToMany',
 			},
+			Flashcard: {
+				type: 'oneToMany',
+			},
 			created_at: {
 				type: 'createdAt',
 			},
@@ -283,6 +289,9 @@ export const bdConfig = {
 				maxLength: 2000,
 			},
 			BookChapter: {
+				type: 'oneToMany',
+			},
+			Flashcard: {
 				type: 'oneToMany',
 			},
 			created_at: {
@@ -452,6 +461,9 @@ export const bdConfig = {
 			Sentence: {
 				type: 'oneToMany',
 			},
+			Flashcard: {
+				type: 'oneToMany',
+			},
 			created_at: {
 				type: 'createdAt',
 			},
@@ -553,6 +565,9 @@ export const bdConfig = {
 				type: 'oneToMany',
 			},
 			Sentence: {
+				type: 'oneToMany',
+			},
+			Flashcard: {
 				type: 'oneToMany',
 			},
 			created_at: {
@@ -1025,6 +1040,108 @@ export const bdConfig = {
 			},
 			updated_at: {
 				type: 'updatedAt',
+			},
+		},
+	},
+	// Карточка для заучивания фразы. Снапшот данных, привязанный к пользователю.
+	// Источник (книга/видео) опциональный: при удалении источника связь обнуляется (SetNull),
+	// а сама карточка остаётся в коллекции пользователя.
+	Flashcard: {
+		dtoProps: {},
+		indexes: [{ fields: ['user_id'] }, { fields: ['user_id', 'language_code'] }],
+		dbFields: {
+			id: {
+				type: 'index',
+			},
+			user_id: {
+				type: 'manyToOne',
+				thisField: 'user_id',
+				relationField: 'user',
+				foreignTable: 'User',
+				foreignField: 'id',
+				required: true,
+			},
+			language_code: {
+				type: 'enum',
+				enumName: 'LanguageCode',
+				variants: languagesArr,
+				required: true,
+			},
+			sentence_text: {
+				type: 'string',
+				description: 'Snapshot of the sentence text',
+				required: true,
+			},
+			sentence_translation: {
+				type: 'string',
+				description: 'Snapshot of the sentence translation',
+				required: false,
+			},
+			phrase: {
+				type: 'string',
+				description: 'Snapshot of the phrase',
+				required: true,
+				maxLength: 500,
+			},
+			phrase_start_offset: {
+				type: 'number',
+				description: 'Phrase start offset within the sentence text snapshot',
+				required: true,
+			},
+			phrase_end_offset: {
+				type: 'number',
+				description: 'Phrase end offset within the sentence text snapshot',
+				required: true,
+			},
+			phrase_translation: {
+				type: 'string',
+				description: 'Snapshot of the phrase translation',
+				required: false,
+			},
+			examples: {
+				type: 'array',
+				arrayItemType: 'string',
+				description: 'Snapshot of phrase usage examples (encoded as flat [text, translate, ...] pairs)',
+				required: true,
+			},
+			book_private_id: {
+				type: 'manyToOne',
+				thisField: 'book_private_id',
+				relationField: 'bookPrivate',
+				foreignTable: 'BookPrivate',
+				foreignField: 'id',
+				onDelete: 'SetNull',
+				required: false,
+			},
+			book_public_id: {
+				type: 'manyToOne',
+				thisField: 'book_public_id',
+				relationField: 'bookPublic',
+				foreignTable: 'BookPublic',
+				foreignField: 'id',
+				onDelete: 'SetNull',
+				required: false,
+			},
+			video_private_id: {
+				type: 'manyToOne',
+				thisField: 'video_private_id',
+				relationField: 'videoPrivate',
+				foreignTable: 'VideoPrivate',
+				foreignField: 'id',
+				onDelete: 'SetNull',
+				required: false,
+			},
+			video_public_id: {
+				type: 'manyToOne',
+				thisField: 'video_public_id',
+				relationField: 'videoPublic',
+				foreignTable: 'VideoPublic',
+				foreignField: 'id',
+				onDelete: 'SetNull',
+				required: false,
+			},
+			created_at: {
+				type: 'createdAt',
 			},
 		},
 	},

@@ -1,3 +1,8 @@
+input AddFlashcardInput {
+  """SentencePhraseTranslation id"""
+  sentencePhraseTranslationId: Int!
+}
+
 type BookChapterLiteOutModel {
   bookId: Int!
   header: String
@@ -163,6 +168,24 @@ input DeletePrivateVideoInput {
   id: Int!
 }
 
+type FlashcardOutModel {
+  bookPrivateId: Int
+  bookPublicId: Int
+  createdAt: String!
+  examples: [SentencePhraseTranslationExampleOutModel!]!
+  id: Int!
+  languageCode: String!
+  phrase: String!
+  phraseEndOffset: Int!
+  phraseStartOffset: Int!
+  phraseTranscription: String
+  phraseTranslation: String
+  sentenceText: String!
+  sentenceTranslation: String
+  videoPrivateId: Int
+  videoPublicId: Int
+}
+
 input GetBookChapterInput {
   """Book type: public or private"""
   bookType: String!
@@ -174,6 +197,11 @@ input GetBookChapterInput {
 input GetBookPublicInput {
   """Book id"""
   id: Int!
+}
+
+input GetMyFlashcardsInput {
+  """Optional language filter"""
+  languageCode: String
 }
 
 input GetPhraseTranslationInput {
@@ -297,6 +325,14 @@ type Mutation {
   """Create transcription for a word using DeepSeek"""
   create_transcription(input: CreateUniversalTranscriptionInput!): TranscriptionOutModel!
 
+  """
+  Добавить фразу из разбора предложения в коллекцию карточек пользователя.
+  """
+  flashcard_add(input: AddFlashcardInput!): FlashcardOutModel!
+
+  """Удалить карточку пользователя."""
+  flashcard_remove(input: RemoveFlashcardInput!): Boolean!
+
   """Top up balance with YooKassa"""
   payment_yookassa_top_up_balance(input: TopUpBalanceWithYooKassaInput!): CreateYooKassaPaymentOutModel!
 
@@ -348,6 +384,9 @@ type Query {
   """Get user books"""
   book_user_books: [BookPrivateOutModel!]!
 
+  """Получить список карточек пользователя. Опционально фильтрует по языку."""
+  flashcard_get_my(input: GetMyFlashcardsInput!): [FlashcardOutModel!]!
+
   """Get all available languages"""
   language_get_languages: [LanguageOutModel!]!
 
@@ -387,6 +426,11 @@ input RegisterUserInput {
 
   """User password"""
   password: String!
+}
+
+input RemoveFlashcardInput {
+  """Flashcard id"""
+  flashcardId: Int!
 }
 
 input ResendConfirmationEmailInput {

@@ -68,7 +68,8 @@ export const ModelName = {
   UniversalTranscription: 'UniversalTranscription',
   UniversalAudioPronunciation: 'UniversalAudioPronunciation',
   SentenceChatThread: 'SentenceChatThread',
-  SentenceChatMessage: 'SentenceChatMessage'
+  SentenceChatMessage: 'SentenceChatMessage',
+  Flashcard: 'Flashcard'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -331,6 +332,27 @@ export const SentenceChatMessageScalarFieldEnum = {
 } as const
 
 export type SentenceChatMessageScalarFieldEnum = (typeof SentenceChatMessageScalarFieldEnum)[keyof typeof SentenceChatMessageScalarFieldEnum]
+
+
+export const FlashcardScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  language_code: 'language_code',
+  sentence_text: 'sentence_text',
+  sentence_translation: 'sentence_translation',
+  phrase: 'phrase',
+  phrase_start_offset: 'phrase_start_offset',
+  phrase_end_offset: 'phrase_end_offset',
+  phrase_translation: 'phrase_translation',
+  examples: 'examples',
+  book_private_id: 'book_private_id',
+  book_public_id: 'book_public_id',
+  video_private_id: 'video_private_id',
+  video_public_id: 'video_public_id',
+  created_at: 'created_at'
+} as const
+
+export type FlashcardScalarFieldEnum = (typeof FlashcardScalarFieldEnum)[keyof typeof FlashcardScalarFieldEnum]
 
 
 export const SortOrder = {

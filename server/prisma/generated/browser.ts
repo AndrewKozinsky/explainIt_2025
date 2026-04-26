@@ -107,3 +107,8 @@ export type SentenceChatThread = Prisma.SentenceChatThreadModel
  * 
  */
 export type SentenceChatMessage = Prisma.SentenceChatMessageModel
+/**
+ * Model Flashcard
+ * 
+ */
+export type Flashcard = Prisma.FlashcardModel

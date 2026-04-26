@@ -238,6 +238,7 @@ export type BookPrivateWhereInput = {
   created_at?: Prisma.DateTimeFilter<"BookPrivate"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   BookChapter?: Prisma.BookChapterListRelationFilter
+  Flashcard?: Prisma.FlashcardListRelationFilter
 }
 
 export type BookPrivateOrderByWithRelationInput = {
@@ -250,6 +251,7 @@ export type BookPrivateOrderByWithRelationInput = {
   created_at?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
   BookChapter?: Prisma.BookChapterOrderByRelationAggregateInput
+  Flashcard?: Prisma.FlashcardOrderByRelationAggregateInput
 }
 
 export type BookPrivateWhereUniqueInput = Prisma.AtLeast<{
@@ -265,6 +267,7 @@ export type BookPrivateWhereUniqueInput = Prisma.AtLeast<{
   created_at?: Prisma.DateTimeFilter<"BookPrivate"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   BookChapter?: Prisma.BookChapterListRelationFilter
+  Flashcard?: Prisma.FlashcardListRelationFilter
 }, "id">
 
 export type BookPrivateOrderByWithAggregationInput = {
@@ -303,6 +306,7 @@ export type BookPrivateCreateInput = {
   created_at?: Date | string
   user: Prisma.UserCreateNestedOneWithoutBookPrivateInput
   BookChapter?: Prisma.BookChapterCreateNestedManyWithoutBookInput
+  Flashcard?: Prisma.FlashcardCreateNestedManyWithoutBookPrivateInput
 }
 
 export type BookPrivateUncheckedCreateInput = {
@@ -314,6 +318,7 @@ export type BookPrivateUncheckedCreateInput = {
   note?: string | null
   created_at?: Date | string
   BookChapter?: Prisma.BookChapterUncheckedCreateNestedManyWithoutBookInput
+  Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutBookPrivateInput
 }
 
 export type BookPrivateUpdateInput = {
@@ -324,6 +329,7 @@ export type BookPrivateUpdateInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutBookPrivateNestedInput
   BookChapter?: Prisma.BookChapterUpdateManyWithoutBookNestedInput
+  Flashcard?: Prisma.FlashcardUpdateManyWithoutBookPrivateNestedInput
 }
 
 export type BookPrivateUncheckedUpdateInput = {
@@ -335,6 +341,7 @@ export type BookPrivateUncheckedUpdateInput = {
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   BookChapter?: Prisma.BookChapterUncheckedUpdateManyWithoutBookNestedInput
+  Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutBookPrivateNestedInput
 }
 
 export type BookPrivateCreateManyInput = {
@@ -482,6 +489,22 @@ export type BookPrivateUpdateOneWithoutBookChapterNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.BookPrivateUpdateToOneWithWhereWithoutBookChapterInput, Prisma.BookPrivateUpdateWithoutBookChapterInput>, Prisma.BookPrivateUncheckedUpdateWithoutBookChapterInput>
 }
 
+export type BookPrivateCreateNestedOneWithoutFlashcardInput = {
+  create?: Prisma.XOR<Prisma.BookPrivateCreateWithoutFlashcardInput, Prisma.BookPrivateUncheckedCreateWithoutFlashcardInput>
+  connectOrCreate?: Prisma.BookPrivateCreateOrConnectWithoutFlashcardInput
+  connect?: Prisma.BookPrivateWhereUniqueInput
+}
+
+export type BookPrivateUpdateOneWithoutFlashcardNestedInput = {
+  create?: Prisma.XOR<Prisma.BookPrivateCreateWithoutFlashcardInput, Prisma.BookPrivateUncheckedCreateWithoutFlashcardInput>
+  connectOrCreate?: Prisma.BookPrivateCreateOrConnectWithoutFlashcardInput
+  upsert?: Prisma.BookPrivateUpsertWithoutFlashcardInput
+  disconnect?: Prisma.BookPrivateWhereInput | boolean
+  delete?: Prisma.BookPrivateWhereInput | boolean
+  connect?: Prisma.BookPrivateWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.BookPrivateUpdateToOneWithWhereWithoutFlashcardInput, Prisma.BookPrivateUpdateWithoutFlashcardInput>, Prisma.BookPrivateUncheckedUpdateWithoutFlashcardInput>
+}
+
 export type BookPrivateCreateWithoutUserInput = {
   author?: string | null
   name?: string | null
@@ -489,6 +512,7 @@ export type BookPrivateCreateWithoutUserInput = {
   note?: string | null
   created_at?: Date | string
   BookChapter?: Prisma.BookChapterCreateNestedManyWithoutBookInput
+  Flashcard?: Prisma.FlashcardCreateNestedManyWithoutBookPrivateInput
 }
 
 export type BookPrivateUncheckedCreateWithoutUserInput = {
@@ -499,6 +523,7 @@ export type BookPrivateUncheckedCreateWithoutUserInput = {
   note?: string | null
   created_at?: Date | string
   BookChapter?: Prisma.BookChapterUncheckedCreateNestedManyWithoutBookInput
+  Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutBookPrivateInput
 }
 
 export type BookPrivateCreateOrConnectWithoutUserInput = {
@@ -547,6 +572,7 @@ export type BookPrivateCreateWithoutBookChapterInput = {
   note?: string | null
   created_at?: Date | string
   user: Prisma.UserCreateNestedOneWithoutBookPrivateInput
+  Flashcard?: Prisma.FlashcardCreateNestedManyWithoutBookPrivateInput
 }
 
 export type BookPrivateUncheckedCreateWithoutBookChapterInput = {
@@ -557,6 +583,7 @@ export type BookPrivateUncheckedCreateWithoutBookChapterInput = {
   language_code: $Enums.LanguageCode
   note?: string | null
   created_at?: Date | string
+  Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutBookPrivateInput
 }
 
 export type BookPrivateCreateOrConnectWithoutBookChapterInput = {
@@ -582,6 +609,7 @@ export type BookPrivateUpdateWithoutBookChapterInput = {
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutBookPrivateNestedInput
+  Flashcard?: Prisma.FlashcardUpdateManyWithoutBookPrivateNestedInput
 }
 
 export type BookPrivateUncheckedUpdateWithoutBookChapterInput = {
@@ -592,6 +620,65 @@ export type BookPrivateUncheckedUpdateWithoutBookChapterInput = {
   language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutBookPrivateNestedInput
+}
+
+export type BookPrivateCreateWithoutFlashcardInput = {
+  author?: string | null
+  name?: string | null
+  language_code: $Enums.LanguageCode
+  note?: string | null
+  created_at?: Date | string
+  user: Prisma.UserCreateNestedOneWithoutBookPrivateInput
+  BookChapter?: Prisma.BookChapterCreateNestedManyWithoutBookInput
+}
+
+export type BookPrivateUncheckedCreateWithoutFlashcardInput = {
+  id?: number
+  user_id: number
+  author?: string | null
+  name?: string | null
+  language_code: $Enums.LanguageCode
+  note?: string | null
+  created_at?: Date | string
+  BookChapter?: Prisma.BookChapterUncheckedCreateNestedManyWithoutBookInput
+}
+
+export type BookPrivateCreateOrConnectWithoutFlashcardInput = {
+  where: Prisma.BookPrivateWhereUniqueInput
+  create: Prisma.XOR<Prisma.BookPrivateCreateWithoutFlashcardInput, Prisma.BookPrivateUncheckedCreateWithoutFlashcardInput>
+}
+
+export type BookPrivateUpsertWithoutFlashcardInput = {
+  update: Prisma.XOR<Prisma.BookPrivateUpdateWithoutFlashcardInput, Prisma.BookPrivateUncheckedUpdateWithoutFlashcardInput>
+  create: Prisma.XOR<Prisma.BookPrivateCreateWithoutFlashcardInput, Prisma.BookPrivateUncheckedCreateWithoutFlashcardInput>
+  where?: Prisma.BookPrivateWhereInput
+}
+
+export type BookPrivateUpdateToOneWithWhereWithoutFlashcardInput = {
+  where?: Prisma.BookPrivateWhereInput
+  data: Prisma.XOR<Prisma.BookPrivateUpdateWithoutFlashcardInput, Prisma.BookPrivateUncheckedUpdateWithoutFlashcardInput>
+}
+
+export type BookPrivateUpdateWithoutFlashcardInput = {
+  author?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  user?: Prisma.UserUpdateOneRequiredWithoutBookPrivateNestedInput
+  BookChapter?: Prisma.BookChapterUpdateManyWithoutBookNestedInput
+}
+
+export type BookPrivateUncheckedUpdateWithoutFlashcardInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  author?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  BookChapter?: Prisma.BookChapterUncheckedUpdateManyWithoutBookNestedInput
 }
 
 export type BookPrivateCreateManyUserInput = {
@@ -610,6 +697,7 @@ export type BookPrivateUpdateWithoutUserInput = {
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   BookChapter?: Prisma.BookChapterUpdateManyWithoutBookNestedInput
+  Flashcard?: Prisma.FlashcardUpdateManyWithoutBookPrivateNestedInput
 }
 
 export type BookPrivateUncheckedUpdateWithoutUserInput = {
@@ -620,6 +708,7 @@ export type BookPrivateUncheckedUpdateWithoutUserInput = {
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   BookChapter?: Prisma.BookChapterUncheckedUpdateManyWithoutBookNestedInput
+  Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutBookPrivateNestedInput
 }
 
 export type BookPrivateUncheckedUpdateManyWithoutUserInput = {
@@ -638,10 +727,12 @@ export type BookPrivateUncheckedUpdateManyWithoutUserInput = {
 
 export type BookPrivateCountOutputType = {
   BookChapter: number
+  Flashcard: number
 }
 
 export type BookPrivateCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   BookChapter?: boolean | BookPrivateCountOutputTypeCountBookChapterArgs
+  Flashcard?: boolean | BookPrivateCountOutputTypeCountFlashcardArgs
 }
 
 /**
@@ -661,6 +752,13 @@ export type BookPrivateCountOutputTypeCountBookChapterArgs<ExtArgs extends runti
   where?: Prisma.BookChapterWhereInput
 }
 
+/**
+ * BookPrivateCountOutputType without action
+ */
+export type BookPrivateCountOutputTypeCountFlashcardArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.FlashcardWhereInput
+}
+
 
 export type BookPrivateSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -672,6 +770,7 @@ export type BookPrivateSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   created_at?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   BookChapter?: boolean | Prisma.BookPrivate$BookChapterArgs<ExtArgs>
+  Flashcard?: boolean | Prisma.BookPrivate$FlashcardArgs<ExtArgs>
   _count?: boolean | Prisma.BookPrivateCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["bookPrivate"]>
 
@@ -711,6 +810,7 @@ export type BookPrivateOmit<ExtArgs extends runtime.Types.Extensions.InternalArg
 export type BookPrivateInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   BookChapter?: boolean | Prisma.BookPrivate$BookChapterArgs<ExtArgs>
+  Flashcard?: boolean | Prisma.BookPrivate$FlashcardArgs<ExtArgs>
   _count?: boolean | Prisma.BookPrivateCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type BookPrivateIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -725,6 +825,7 @@ export type $BookPrivatePayload<ExtArgs extends runtime.Types.Extensions.Interna
   objects: {
     user: Prisma.$UserPayload<ExtArgs>
     BookChapter: Prisma.$BookChapterPayload<ExtArgs>[]
+    Flashcard: Prisma.$FlashcardPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1130,6 +1231,7 @@ export interface Prisma__BookPrivateClient<T, Null = never, ExtArgs extends runt
   readonly [Symbol.toStringTag]: "PrismaPromise"
   user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   BookChapter<T extends Prisma.BookPrivate$BookChapterArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.BookPrivate$BookChapterArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BookChapterPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  Flashcard<T extends Prisma.BookPrivate$FlashcardArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.BookPrivate$FlashcardArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FlashcardPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1588,6 +1690,30 @@ export type BookPrivate$BookChapterArgs<ExtArgs extends runtime.Types.Extensions
   take?: number
   skip?: number
   distinct?: Prisma.BookChapterScalarFieldEnum | Prisma.BookChapterScalarFieldEnum[]
+}
+
+/**
+ * BookPrivate.Flashcard
+ */
+export type BookPrivate$FlashcardArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Flashcard
+   */
+  select?: Prisma.FlashcardSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Flashcard
+   */
+  omit?: Prisma.FlashcardOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.FlashcardInclude<ExtArgs> | null
+  where?: Prisma.FlashcardWhereInput
+  orderBy?: Prisma.FlashcardOrderByWithRelationInput | Prisma.FlashcardOrderByWithRelationInput[]
+  cursor?: Prisma.FlashcardWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.FlashcardScalarFieldEnum | Prisma.FlashcardScalarFieldEnum[]
 }
 
 /**

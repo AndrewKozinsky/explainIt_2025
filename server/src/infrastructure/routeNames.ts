@@ -81,6 +81,11 @@ export const RouteNames = {
 	LANGUAGE: {
 		GET_ALL: 'language_get_languages',
 	},
+	FLASHCARD: {
+		ADD: 'flashcard_add',
+		REMOVE: 'flashcard_remove',
+		GET_MY: 'flashcard_get_my',
+	},
 	SENTENCE_CHAT: {
 		GET_THREAD: 'sentence_chat_get_thread',
 		CREATE_THREAD: 'sentence_chat_create_thread',

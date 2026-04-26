@@ -306,6 +306,7 @@ export type VideoPublicWhereInput = {
   updated_at?: Prisma.DateTimeFilter<"VideoPublic"> | Date | string
   Subtitle?: Prisma.SubtitleListRelationFilter
   Sentence?: Prisma.SentenceListRelationFilter
+  Flashcard?: Prisma.FlashcardListRelationFilter
 }
 
 export type VideoPublicOrderByWithRelationInput = {
@@ -327,6 +328,7 @@ export type VideoPublicOrderByWithRelationInput = {
   updated_at?: Prisma.SortOrder
   Subtitle?: Prisma.SubtitleOrderByRelationAggregateInput
   Sentence?: Prisma.SentenceOrderByRelationAggregateInput
+  Flashcard?: Prisma.FlashcardOrderByRelationAggregateInput
 }
 
 export type VideoPublicWhereUniqueInput = Prisma.AtLeast<{
@@ -351,6 +353,7 @@ export type VideoPublicWhereUniqueInput = Prisma.AtLeast<{
   updated_at?: Prisma.DateTimeFilter<"VideoPublic"> | Date | string
   Subtitle?: Prisma.SubtitleListRelationFilter
   Sentence?: Prisma.SentenceListRelationFilter
+  Flashcard?: Prisma.FlashcardListRelationFilter
 }, "id">
 
 export type VideoPublicOrderByWithAggregationInput = {
@@ -417,6 +420,7 @@ export type VideoPublicCreateInput = {
   updated_at?: Date | string
   Subtitle?: Prisma.SubtitleCreateNestedManyWithoutVideoPublicInput
   Sentence?: Prisma.SentenceCreateNestedManyWithoutVideoPublicInput
+  Flashcard?: Prisma.FlashcardCreateNestedManyWithoutVideoPublicInput
 }
 
 export type VideoPublicUncheckedCreateInput = {
@@ -438,6 +442,7 @@ export type VideoPublicUncheckedCreateInput = {
   updated_at?: Date | string
   Subtitle?: Prisma.SubtitleUncheckedCreateNestedManyWithoutVideoPublicInput
   Sentence?: Prisma.SentenceUncheckedCreateNestedManyWithoutVideoPublicInput
+  Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutVideoPublicInput
 }
 
 export type VideoPublicUpdateInput = {
@@ -458,6 +463,7 @@ export type VideoPublicUpdateInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Subtitle?: Prisma.SubtitleUpdateManyWithoutVideoPublicNestedInput
   Sentence?: Prisma.SentenceUpdateManyWithoutVideoPublicNestedInput
+  Flashcard?: Prisma.FlashcardUpdateManyWithoutVideoPublicNestedInput
 }
 
 export type VideoPublicUncheckedUpdateInput = {
@@ -479,6 +485,7 @@ export type VideoPublicUncheckedUpdateInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Subtitle?: Prisma.SubtitleUncheckedUpdateManyWithoutVideoPublicNestedInput
   Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutVideoPublicNestedInput
+  Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutVideoPublicNestedInput
 }
 
 export type VideoPublicCreateManyInput = {
@@ -652,6 +659,22 @@ export type VideoPublicUpdateOneWithoutSubtitleNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.VideoPublicUpdateToOneWithWhereWithoutSubtitleInput, Prisma.VideoPublicUpdateWithoutSubtitleInput>, Prisma.VideoPublicUncheckedUpdateWithoutSubtitleInput>
 }
 
+export type VideoPublicCreateNestedOneWithoutFlashcardInput = {
+  create?: Prisma.XOR<Prisma.VideoPublicCreateWithoutFlashcardInput, Prisma.VideoPublicUncheckedCreateWithoutFlashcardInput>
+  connectOrCreate?: Prisma.VideoPublicCreateOrConnectWithoutFlashcardInput
+  connect?: Prisma.VideoPublicWhereUniqueInput
+}
+
+export type VideoPublicUpdateOneWithoutFlashcardNestedInput = {
+  create?: Prisma.XOR<Prisma.VideoPublicCreateWithoutFlashcardInput, Prisma.VideoPublicUncheckedCreateWithoutFlashcardInput>
+  connectOrCreate?: Prisma.VideoPublicCreateOrConnectWithoutFlashcardInput
+  upsert?: Prisma.VideoPublicUpsertWithoutFlashcardInput
+  disconnect?: Prisma.VideoPublicWhereInput | boolean
+  delete?: Prisma.VideoPublicWhereInput | boolean
+  connect?: Prisma.VideoPublicWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.VideoPublicUpdateToOneWithWhereWithoutFlashcardInput, Prisma.VideoPublicUpdateWithoutFlashcardInput>, Prisma.VideoPublicUncheckedUpdateWithoutFlashcardInput>
+}
+
 export type VideoPublicCreateWithoutSentenceInput = {
   free_to_use?: boolean | null
   language_code: $Enums.LanguageCode
@@ -669,6 +692,7 @@ export type VideoPublicCreateWithoutSentenceInput = {
   created_at?: Date | string
   updated_at?: Date | string
   Subtitle?: Prisma.SubtitleCreateNestedManyWithoutVideoPublicInput
+  Flashcard?: Prisma.FlashcardCreateNestedManyWithoutVideoPublicInput
 }
 
 export type VideoPublicUncheckedCreateWithoutSentenceInput = {
@@ -689,6 +713,7 @@ export type VideoPublicUncheckedCreateWithoutSentenceInput = {
   created_at?: Date | string
   updated_at?: Date | string
   Subtitle?: Prisma.SubtitleUncheckedCreateNestedManyWithoutVideoPublicInput
+  Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutVideoPublicInput
 }
 
 export type VideoPublicCreateOrConnectWithoutSentenceInput = {
@@ -724,6 +749,7 @@ export type VideoPublicUpdateWithoutSentenceInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Subtitle?: Prisma.SubtitleUpdateManyWithoutVideoPublicNestedInput
+  Flashcard?: Prisma.FlashcardUpdateManyWithoutVideoPublicNestedInput
 }
 
 export type VideoPublicUncheckedUpdateWithoutSentenceInput = {
@@ -744,6 +770,7 @@ export type VideoPublicUncheckedUpdateWithoutSentenceInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Subtitle?: Prisma.SubtitleUncheckedUpdateManyWithoutVideoPublicNestedInput
+  Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutVideoPublicNestedInput
 }
 
 export type VideoPublicCreateWithoutSubtitleInput = {
@@ -763,6 +790,7 @@ export type VideoPublicCreateWithoutSubtitleInput = {
   created_at?: Date | string
   updated_at?: Date | string
   Sentence?: Prisma.SentenceCreateNestedManyWithoutVideoPublicInput
+  Flashcard?: Prisma.FlashcardCreateNestedManyWithoutVideoPublicInput
 }
 
 export type VideoPublicUncheckedCreateWithoutSubtitleInput = {
@@ -783,6 +811,7 @@ export type VideoPublicUncheckedCreateWithoutSubtitleInput = {
   created_at?: Date | string
   updated_at?: Date | string
   Sentence?: Prisma.SentenceUncheckedCreateNestedManyWithoutVideoPublicInput
+  Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutVideoPublicInput
 }
 
 export type VideoPublicCreateOrConnectWithoutSubtitleInput = {
@@ -818,6 +847,7 @@ export type VideoPublicUpdateWithoutSubtitleInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Sentence?: Prisma.SentenceUpdateManyWithoutVideoPublicNestedInput
+  Flashcard?: Prisma.FlashcardUpdateManyWithoutVideoPublicNestedInput
 }
 
 export type VideoPublicUncheckedUpdateWithoutSubtitleInput = {
@@ -838,6 +868,105 @@ export type VideoPublicUncheckedUpdateWithoutSubtitleInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutVideoPublicNestedInput
+  Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutVideoPublicNestedInput
+}
+
+export type VideoPublicCreateWithoutFlashcardInput = {
+  free_to_use?: boolean | null
+  language_code: $Enums.LanguageCode
+  year: number
+  name: string
+  file_name: string
+  file_s3_key: string
+  s3_provider_name: $Enums.S3ProviderName
+  note: string
+  covers?: Prisma.VideoPublicCreatecoversInput | string[]
+  coverBackgroundColor: string
+  original_content: string
+  processed_content: string
+  content_type?: $Enums.VideoTextType
+  created_at?: Date | string
+  updated_at?: Date | string
+  Subtitle?: Prisma.SubtitleCreateNestedManyWithoutVideoPublicInput
+  Sentence?: Prisma.SentenceCreateNestedManyWithoutVideoPublicInput
+}
+
+export type VideoPublicUncheckedCreateWithoutFlashcardInput = {
+  id?: number
+  free_to_use?: boolean | null
+  language_code: $Enums.LanguageCode
+  year: number
+  name: string
+  file_name: string
+  file_s3_key: string
+  s3_provider_name: $Enums.S3ProviderName
+  note: string
+  covers?: Prisma.VideoPublicCreatecoversInput | string[]
+  coverBackgroundColor: string
+  original_content: string
+  processed_content: string
+  content_type?: $Enums.VideoTextType
+  created_at?: Date | string
+  updated_at?: Date | string
+  Subtitle?: Prisma.SubtitleUncheckedCreateNestedManyWithoutVideoPublicInput
+  Sentence?: Prisma.SentenceUncheckedCreateNestedManyWithoutVideoPublicInput
+}
+
+export type VideoPublicCreateOrConnectWithoutFlashcardInput = {
+  where: Prisma.VideoPublicWhereUniqueInput
+  create: Prisma.XOR<Prisma.VideoPublicCreateWithoutFlashcardInput, Prisma.VideoPublicUncheckedCreateWithoutFlashcardInput>
+}
+
+export type VideoPublicUpsertWithoutFlashcardInput = {
+  update: Prisma.XOR<Prisma.VideoPublicUpdateWithoutFlashcardInput, Prisma.VideoPublicUncheckedUpdateWithoutFlashcardInput>
+  create: Prisma.XOR<Prisma.VideoPublicCreateWithoutFlashcardInput, Prisma.VideoPublicUncheckedCreateWithoutFlashcardInput>
+  where?: Prisma.VideoPublicWhereInput
+}
+
+export type VideoPublicUpdateToOneWithWhereWithoutFlashcardInput = {
+  where?: Prisma.VideoPublicWhereInput
+  data: Prisma.XOR<Prisma.VideoPublicUpdateWithoutFlashcardInput, Prisma.VideoPublicUncheckedUpdateWithoutFlashcardInput>
+}
+
+export type VideoPublicUpdateWithoutFlashcardInput = {
+  free_to_use?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  year?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  file_name?: Prisma.StringFieldUpdateOperationsInput | string
+  file_s3_key?: Prisma.StringFieldUpdateOperationsInput | string
+  s3_provider_name?: Prisma.EnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName
+  note?: Prisma.StringFieldUpdateOperationsInput | string
+  covers?: Prisma.VideoPublicUpdatecoversInput | string[]
+  coverBackgroundColor?: Prisma.StringFieldUpdateOperationsInput | string
+  original_content?: Prisma.StringFieldUpdateOperationsInput | string
+  processed_content?: Prisma.StringFieldUpdateOperationsInput | string
+  content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Subtitle?: Prisma.SubtitleUpdateManyWithoutVideoPublicNestedInput
+  Sentence?: Prisma.SentenceUpdateManyWithoutVideoPublicNestedInput
+}
+
+export type VideoPublicUncheckedUpdateWithoutFlashcardInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  free_to_use?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  year?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  file_name?: Prisma.StringFieldUpdateOperationsInput | string
+  file_s3_key?: Prisma.StringFieldUpdateOperationsInput | string
+  s3_provider_name?: Prisma.EnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName
+  note?: Prisma.StringFieldUpdateOperationsInput | string
+  covers?: Prisma.VideoPublicUpdatecoversInput | string[]
+  coverBackgroundColor?: Prisma.StringFieldUpdateOperationsInput | string
+  original_content?: Prisma.StringFieldUpdateOperationsInput | string
+  processed_content?: Prisma.StringFieldUpdateOperationsInput | string
+  content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Subtitle?: Prisma.SubtitleUncheckedUpdateManyWithoutVideoPublicNestedInput
+  Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutVideoPublicNestedInput
 }
 
 
@@ -848,11 +977,13 @@ export type VideoPublicUncheckedUpdateWithoutSubtitleInput = {
 export type VideoPublicCountOutputType = {
   Subtitle: number
   Sentence: number
+  Flashcard: number
 }
 
 export type VideoPublicCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   Subtitle?: boolean | VideoPublicCountOutputTypeCountSubtitleArgs
   Sentence?: boolean | VideoPublicCountOutputTypeCountSentenceArgs
+  Flashcard?: boolean | VideoPublicCountOutputTypeCountFlashcardArgs
 }
 
 /**
@@ -879,6 +1010,13 @@ export type VideoPublicCountOutputTypeCountSentenceArgs<ExtArgs extends runtime.
   where?: Prisma.SentenceWhereInput
 }
 
+/**
+ * VideoPublicCountOutputType without action
+ */
+export type VideoPublicCountOutputTypeCountFlashcardArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.FlashcardWhereInput
+}
+
 
 export type VideoPublicSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -899,6 +1037,7 @@ export type VideoPublicSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   updated_at?: boolean
   Subtitle?: boolean | Prisma.VideoPublic$SubtitleArgs<ExtArgs>
   Sentence?: boolean | Prisma.VideoPublic$SentenceArgs<ExtArgs>
+  Flashcard?: boolean | Prisma.VideoPublic$FlashcardArgs<ExtArgs>
   _count?: boolean | Prisma.VideoPublicCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["videoPublic"]>
 
@@ -963,6 +1102,7 @@ export type VideoPublicOmit<ExtArgs extends runtime.Types.Extensions.InternalArg
 export type VideoPublicInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   Subtitle?: boolean | Prisma.VideoPublic$SubtitleArgs<ExtArgs>
   Sentence?: boolean | Prisma.VideoPublic$SentenceArgs<ExtArgs>
+  Flashcard?: boolean | Prisma.VideoPublic$FlashcardArgs<ExtArgs>
   _count?: boolean | Prisma.VideoPublicCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type VideoPublicIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -973,6 +1113,7 @@ export type $VideoPublicPayload<ExtArgs extends runtime.Types.Extensions.Interna
   objects: {
     Subtitle: Prisma.$SubtitlePayload<ExtArgs>[]
     Sentence: Prisma.$SentencePayload<ExtArgs>[]
+    Flashcard: Prisma.$FlashcardPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1387,6 +1528,7 @@ export interface Prisma__VideoPublicClient<T, Null = never, ExtArgs extends runt
   readonly [Symbol.toStringTag]: "PrismaPromise"
   Subtitle<T extends Prisma.VideoPublic$SubtitleArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.VideoPublic$SubtitleArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SubtitlePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   Sentence<T extends Prisma.VideoPublic$SentenceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.VideoPublic$SentenceArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SentencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  Flashcard<T extends Prisma.VideoPublic$FlashcardArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.VideoPublic$FlashcardArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FlashcardPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1870,6 +2012,30 @@ export type VideoPublic$SentenceArgs<ExtArgs extends runtime.Types.Extensions.In
   take?: number
   skip?: number
   distinct?: Prisma.SentenceScalarFieldEnum | Prisma.SentenceScalarFieldEnum[]
+}
+
+/**
+ * VideoPublic.Flashcard
+ */
+export type VideoPublic$FlashcardArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Flashcard
+   */
+  select?: Prisma.FlashcardSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Flashcard
+   */
+  omit?: Prisma.FlashcardOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.FlashcardInclude<ExtArgs> | null
+  where?: Prisma.FlashcardWhereInput
+  orderBy?: Prisma.FlashcardOrderByWithRelationInput | Prisma.FlashcardOrderByWithRelationInput[]
+  cursor?: Prisma.FlashcardWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.FlashcardScalarFieldEnum | Prisma.FlashcardScalarFieldEnum[]
 }
 
 /**

@@ -17,6 +17,11 @@ export type Scalars = {
   Float: { input: number; output: number; }
 };
 
+export type AddFlashcardInput = {
+  /** SentencePhraseTranslation id */
+  sentencePhraseTranslationId: Scalars['Int']['input'];
+};
+
 export type BookChapterLiteOutModel = {
   __typename?: 'BookChapterLiteOutModel';
   bookId: Scalars['Int']['output'];
@@ -97,7 +102,7 @@ export type CreatePrivateBookInput = {
   /** Author */
   author?: InputMaybe<Scalars['String']['input']>;
   /** Language code */
-  languageCode?: InputMaybe<Scalars['String']['input']>;
+  languageCode: Scalars['String']['input'];
   /** Name */
   name?: InputMaybe<Scalars['String']['input']>;
   /** Note */
@@ -108,7 +113,7 @@ export type CreatePrivateVideoInput = {
   /** File size in MB */
   fileSizeMb?: InputMaybe<Scalars['Int']['input']>;
   /** Language code */
-  languageCode?: InputMaybe<Scalars['String']['input']>;
+  languageCode: Scalars['String']['input'];
   /** Name */
   name?: InputMaybe<Scalars['String']['input']>;
   /** Text */
@@ -176,6 +181,25 @@ export type DeletePrivateVideoInput = {
   id: Scalars['Int']['input'];
 };
 
+export type FlashcardOutModel = {
+  __typename?: 'FlashcardOutModel';
+  bookPrivateId?: Maybe<Scalars['Int']['output']>;
+  bookPublicId?: Maybe<Scalars['Int']['output']>;
+  createdAt: Scalars['String']['output'];
+  examples: Array<SentencePhraseTranslationExampleOutModel>;
+  id: Scalars['Int']['output'];
+  languageCode: Scalars['String']['output'];
+  phrase: Scalars['String']['output'];
+  phraseEndOffset: Scalars['Int']['output'];
+  phraseStartOffset: Scalars['Int']['output'];
+  phraseTranscription?: Maybe<Scalars['String']['output']>;
+  phraseTranslation?: Maybe<Scalars['String']['output']>;
+  sentenceText: Scalars['String']['output'];
+  sentenceTranslation?: Maybe<Scalars['String']['output']>;
+  videoPrivateId?: Maybe<Scalars['Int']['output']>;
+  videoPublicId?: Maybe<Scalars['Int']['output']>;
+};
+
 export type GetBookChapterInput = {
   /** Book type: public or private */
   bookType: Scalars['String']['input'];
@@ -186,6 +210,11 @@ export type GetBookChapterInput = {
 export type GetBookPublicInput = {
   /** Book id */
   id: Scalars['Int']['input'];
+};
+
+export type GetMyFlashcardsInput = {
+  /** Optional language filter */
+  languageCode?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type GetPhraseTranslationInput = {
@@ -290,6 +319,10 @@ export type Mutation = {
   create_audio_pronunciation: UniversalAudioPronunciationOutModel;
   /** Create transcription for a word using DeepSeek */
   create_transcription: TranscriptionOutModel;
+  /** Добавить фразу из разбора предложения в коллекцию карточек пользователя. */
+  flashcard_add: FlashcardOutModel;
+  /** Удалить карточку пользователя. */
+  flashcard_remove: Scalars['Boolean']['output'];
   /** Top up balance with YooKassa */
   payment_yookassa_top_up_balance: CreateYooKassaPaymentOutModel;
   /** Создать новый пустой тред чата с ИИ для выделенного предложения. Вызывается клиентом перед отправкой первого вопроса, если getSentenceChatThread вернул null. Если тред уже существует — отдаёт ошибку. */
@@ -376,6 +409,16 @@ export type MutationCreate_TranscriptionArgs = {
 };
 
 
+export type MutationFlashcard_AddArgs = {
+  input: AddFlashcardInput;
+};
+
+
+export type MutationFlashcard_RemoveArgs = {
+  input: RemoveFlashcardInput;
+};
+
+
 export type MutationPayment_Yookassa_Top_Up_BalanceArgs = {
   input: TopUpBalanceWithYooKassaInput;
 };
@@ -434,6 +477,8 @@ export type Query = {
   book_public_get_books: Array<BookPublicOutModel>;
   /** Get user books */
   book_user_books: Array<BookPrivateOutModel>;
+  /** Получить список карточек пользователя. Опционально фильтрует по языку. */
+  flashcard_get_my: Array<FlashcardOutModel>;
   /** Get all available languages */
   language_get_languages: Array<LanguageOutModel>;
   /** Получить тред чата с ИИ для выделенного предложения со всеми сообщениями. Если тред ещё не создавался — возвращает null. */
@@ -469,6 +514,11 @@ export type QueryBook_GetArgs = {
 
 export type QueryBook_Public_Get_BookArgs = {
   input: GetBookPublicInput;
+};
+
+
+export type QueryFlashcard_Get_MyArgs = {
+  input: GetMyFlashcardsInput;
 };
 
 
@@ -511,6 +561,11 @@ export type RegisterUserInput = {
   email: Scalars['String']['input'];
   /** User password */
   password: Scalars['String']['input'];
+};
+
+export type RemoveFlashcardInput = {
+  /** Flashcard id */
+  flashcardId: Scalars['Int']['input'];
 };
 
 export type ResendConfirmationEmailInput = {
@@ -956,6 +1011,27 @@ export type Book_GetBooksPublicVariables = Exact<{ [key: string]: never; }>;
 
 
 export type Book_GetBooksPublic = { __typename?: 'Query', book_public_get_books: Array<{ __typename?: 'BookPublicOutModel', id: number, author: string, name: string, languageCode: string, note: string, covers: Array<string>, coverBackgroundColor: string, freeToUse: boolean, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> }> };
+
+export type Flashcard_AddVariables = Exact<{
+  input: AddFlashcardInput;
+}>;
+
+
+export type Flashcard_Add = { __typename?: 'Mutation', flashcard_add: { __typename?: 'FlashcardOutModel', id: number, languageCode: string, sentenceText: string, sentenceTranslation?: string | null, phrase: string, phraseStartOffset: number, phraseEndOffset: number, phraseTranslation?: string | null, phraseTranscription?: string | null, bookPrivateId?: number | null, bookPublicId?: number | null, videoPrivateId?: number | null, videoPublicId?: number | null, createdAt: string, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> } };
+
+export type Flashcard_Get_MyVariables = Exact<{
+  input: GetMyFlashcardsInput;
+}>;
+
+
+export type Flashcard_Get_My = { __typename?: 'Query', flashcard_get_my: Array<{ __typename?: 'FlashcardOutModel', id: number, languageCode: string, sentenceText: string, sentenceTranslation?: string | null, phrase: string, phraseStartOffset: number, phraseEndOffset: number, phraseTranslation?: string | null, phraseTranscription?: string | null, bookPrivateId?: number | null, bookPublicId?: number | null, videoPrivateId?: number | null, videoPublicId?: number | null, createdAt: string, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> }> };
+
+export type Flashcard_RemoveVariables = Exact<{
+  input: RemoveFlashcardInput;
+}>;
+
+
+export type Flashcard_Remove = { __typename?: 'Mutation', flashcard_remove: boolean };
 
 export type Language_Get_LanguagesVariables = Exact<{ [key: string]: never; }>;
 
@@ -1868,6 +1944,147 @@ export type Book_GetBooksPublicHookResult = ReturnType<typeof useBook_GetBooksPu
 export type Book_GetBooksPublicLazyQueryHookResult = ReturnType<typeof useBook_GetBooksPublicLazyQuery>;
 export type Book_GetBooksPublicSuspenseQueryHookResult = ReturnType<typeof useBook_GetBooksPublicSuspenseQuery>;
 export type Book_GetBooksPublicQueryResult = Apollo.QueryResult<Book_GetBooksPublic, Book_GetBooksPublicVariables>;
+export const Flashcard_AddDocument = gql`
+    mutation Flashcard_add($input: AddFlashcardInput!) {
+  flashcard_add(input: $input) {
+    id
+    languageCode
+    sentenceText
+    sentenceTranslation
+    phrase
+    phraseStartOffset
+    phraseEndOffset
+    phraseTranslation
+    phraseTranscription
+    examples {
+      text
+      translate
+    }
+    bookPrivateId
+    bookPublicId
+    videoPrivateId
+    videoPublicId
+    createdAt
+  }
+}
+    `;
+export type Flashcard_AddMutationFn = Apollo.MutationFunction<Flashcard_Add, Flashcard_AddVariables>;
+
+/**
+ * __useFlashcard_Add__
+ *
+ * To run a mutation, you first call `useFlashcard_Add` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useFlashcard_Add` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [flashcardAdd, { data, loading, error }] = useFlashcard_Add({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useFlashcard_Add(baseOptions?: Apollo.MutationHookOptions<Flashcard_Add, Flashcard_AddVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<Flashcard_Add, Flashcard_AddVariables>(Flashcard_AddDocument, options);
+      }
+export type Flashcard_AddHookResult = ReturnType<typeof useFlashcard_Add>;
+export type Flashcard_AddMutationResult = Apollo.MutationResult<Flashcard_Add>;
+export type Flashcard_AddMutationOptions = Apollo.BaseMutationOptions<Flashcard_Add, Flashcard_AddVariables>;
+export const Flashcard_Get_MyDocument = gql`
+    query Flashcard_get_my($input: GetMyFlashcardsInput!) {
+  flashcard_get_my(input: $input) {
+    id
+    languageCode
+    sentenceText
+    sentenceTranslation
+    phrase
+    phraseStartOffset
+    phraseEndOffset
+    phraseTranslation
+    phraseTranscription
+    examples {
+      text
+      translate
+    }
+    bookPrivateId
+    bookPublicId
+    videoPrivateId
+    videoPublicId
+    createdAt
+  }
+}
+    `;
+
+/**
+ * __useFlashcard_Get_My__
+ *
+ * To run a query within a React component, call `useFlashcard_Get_My` and pass it any options that fit your needs.
+ * When your component renders, `useFlashcard_Get_My` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useFlashcard_Get_My({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useFlashcard_Get_My(baseOptions: Apollo.QueryHookOptions<Flashcard_Get_My, Flashcard_Get_MyVariables> & ({ variables: Flashcard_Get_MyVariables; skip?: boolean; } | { skip: boolean; }) ) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<Flashcard_Get_My, Flashcard_Get_MyVariables>(Flashcard_Get_MyDocument, options);
+      }
+export function useFlashcard_Get_MyLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Flashcard_Get_My, Flashcard_Get_MyVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<Flashcard_Get_My, Flashcard_Get_MyVariables>(Flashcard_Get_MyDocument, options);
+        }
+// @ts-ignore
+export function useFlashcard_Get_MySuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<Flashcard_Get_My, Flashcard_Get_MyVariables>): Apollo.UseSuspenseQueryResult<Flashcard_Get_My, Flashcard_Get_MyVariables>;
+export function useFlashcard_Get_MySuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Flashcard_Get_My, Flashcard_Get_MyVariables>): Apollo.UseSuspenseQueryResult<Flashcard_Get_My | undefined, Flashcard_Get_MyVariables>;
+export function useFlashcard_Get_MySuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Flashcard_Get_My, Flashcard_Get_MyVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<Flashcard_Get_My, Flashcard_Get_MyVariables>(Flashcard_Get_MyDocument, options);
+        }
+export type Flashcard_Get_MyHookResult = ReturnType<typeof useFlashcard_Get_My>;
+export type Flashcard_Get_MyLazyQueryHookResult = ReturnType<typeof useFlashcard_Get_MyLazyQuery>;
+export type Flashcard_Get_MySuspenseQueryHookResult = ReturnType<typeof useFlashcard_Get_MySuspenseQuery>;
+export type Flashcard_Get_MyQueryResult = Apollo.QueryResult<Flashcard_Get_My, Flashcard_Get_MyVariables>;
+export const Flashcard_RemoveDocument = gql`
+    mutation Flashcard_remove($input: RemoveFlashcardInput!) {
+  flashcard_remove(input: $input)
+}
+    `;
+export type Flashcard_RemoveMutationFn = Apollo.MutationFunction<Flashcard_Remove, Flashcard_RemoveVariables>;
+
+/**
+ * __useFlashcard_Remove__
+ *
+ * To run a mutation, you first call `useFlashcard_Remove` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useFlashcard_Remove` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [flashcardRemove, { data, loading, error }] = useFlashcard_Remove({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useFlashcard_Remove(baseOptions?: Apollo.MutationHookOptions<Flashcard_Remove, Flashcard_RemoveVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<Flashcard_Remove, Flashcard_RemoveVariables>(Flashcard_RemoveDocument, options);
+      }
+export type Flashcard_RemoveHookResult = ReturnType<typeof useFlashcard_Remove>;
+export type Flashcard_RemoveMutationResult = Apollo.MutationResult<Flashcard_Remove>;
+export type Flashcard_RemoveMutationOptions = Apollo.BaseMutationOptions<Flashcard_Remove, Flashcard_RemoveVariables>;
 export const Language_Get_LanguagesDocument = gql`
     query Language_get_languages {
   language_get_languages {

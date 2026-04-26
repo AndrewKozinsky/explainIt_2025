@@ -257,6 +257,7 @@ export type UserWhereInput = {
   BookPrivate?: Prisma.BookPrivateListRelationFilter
   VideoPrivate?: Prisma.VideoPrivateListRelationFilter
   SentenceChatThread?: Prisma.SentenceChatThreadListRelationFilter
+  Flashcard?: Prisma.FlashcardListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -274,6 +275,7 @@ export type UserOrderByWithRelationInput = {
   BookPrivate?: Prisma.BookPrivateOrderByRelationAggregateInput
   VideoPrivate?: Prisma.VideoPrivateOrderByRelationAggregateInput
   SentenceChatThread?: Prisma.SentenceChatThreadOrderByRelationAggregateInput
+  Flashcard?: Prisma.FlashcardOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -294,6 +296,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   BookPrivate?: Prisma.BookPrivateListRelationFilter
   VideoPrivate?: Prisma.VideoPrivateListRelationFilter
   SentenceChatThread?: Prisma.SentenceChatThreadListRelationFilter
+  Flashcard?: Prisma.FlashcardListRelationFilter
 }, "id" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -342,6 +345,7 @@ export type UserCreateInput = {
   BookPrivate?: Prisma.BookPrivateCreateNestedManyWithoutUserInput
   VideoPrivate?: Prisma.VideoPrivateCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadCreateNestedManyWithoutUserInput
+  Flashcard?: Prisma.FlashcardCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -359,6 +363,7 @@ export type UserUncheckedCreateInput = {
   BookPrivate?: Prisma.BookPrivateUncheckedCreateNestedManyWithoutUserInput
   VideoPrivate?: Prisma.VideoPrivateUncheckedCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedCreateNestedManyWithoutUserInput
+  Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserUpdateInput = {
@@ -375,6 +380,7 @@ export type UserUpdateInput = {
   BookPrivate?: Prisma.BookPrivateUpdateManyWithoutUserNestedInput
   VideoPrivate?: Prisma.VideoPrivateUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUpdateManyWithoutUserNestedInput
+  Flashcard?: Prisma.FlashcardUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -392,6 +398,7 @@ export type UserUncheckedUpdateInput = {
   BookPrivate?: Prisma.BookPrivateUncheckedUpdateManyWithoutUserNestedInput
   VideoPrivate?: Prisma.VideoPrivateUncheckedUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedUpdateManyWithoutUserNestedInput
+  Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -574,6 +581,20 @@ export type UserUpdateOneRequiredWithoutSentenceChatThreadNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutSentenceChatThreadInput, Prisma.UserUpdateWithoutSentenceChatThreadInput>, Prisma.UserUncheckedUpdateWithoutSentenceChatThreadInput>
 }
 
+export type UserCreateNestedOneWithoutFlashcardInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutFlashcardInput, Prisma.UserUncheckedCreateWithoutFlashcardInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutFlashcardInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutFlashcardNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutFlashcardInput, Prisma.UserUncheckedCreateWithoutFlashcardInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutFlashcardInput
+  upsert?: Prisma.UserUpsertWithoutFlashcardInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutFlashcardInput, Prisma.UserUpdateWithoutFlashcardInput>, Prisma.UserUncheckedUpdateWithoutFlashcardInput>
+}
+
 export type UserCreateWithoutUserBalanceTransactionInput = {
   email: string
   password?: string | null
@@ -587,6 +608,7 @@ export type UserCreateWithoutUserBalanceTransactionInput = {
   BookPrivate?: Prisma.BookPrivateCreateNestedManyWithoutUserInput
   VideoPrivate?: Prisma.VideoPrivateCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadCreateNestedManyWithoutUserInput
+  Flashcard?: Prisma.FlashcardCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutUserBalanceTransactionInput = {
@@ -603,6 +625,7 @@ export type UserUncheckedCreateWithoutUserBalanceTransactionInput = {
   BookPrivate?: Prisma.BookPrivateUncheckedCreateNestedManyWithoutUserInput
   VideoPrivate?: Prisma.VideoPrivateUncheckedCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedCreateNestedManyWithoutUserInput
+  Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutUserBalanceTransactionInput = {
@@ -634,6 +657,7 @@ export type UserUpdateWithoutUserBalanceTransactionInput = {
   BookPrivate?: Prisma.BookPrivateUpdateManyWithoutUserNestedInput
   VideoPrivate?: Prisma.VideoPrivateUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUpdateManyWithoutUserNestedInput
+  Flashcard?: Prisma.FlashcardUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutUserBalanceTransactionInput = {
@@ -650,6 +674,7 @@ export type UserUncheckedUpdateWithoutUserBalanceTransactionInput = {
   BookPrivate?: Prisma.BookPrivateUncheckedUpdateManyWithoutUserNestedInput
   VideoPrivate?: Prisma.VideoPrivateUncheckedUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedUpdateManyWithoutUserNestedInput
+  Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutPaymentInput = {
@@ -665,6 +690,7 @@ export type UserCreateWithoutPaymentInput = {
   BookPrivate?: Prisma.BookPrivateCreateNestedManyWithoutUserInput
   VideoPrivate?: Prisma.VideoPrivateCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadCreateNestedManyWithoutUserInput
+  Flashcard?: Prisma.FlashcardCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutPaymentInput = {
@@ -681,6 +707,7 @@ export type UserUncheckedCreateWithoutPaymentInput = {
   BookPrivate?: Prisma.BookPrivateUncheckedCreateNestedManyWithoutUserInput
   VideoPrivate?: Prisma.VideoPrivateUncheckedCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedCreateNestedManyWithoutUserInput
+  Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutPaymentInput = {
@@ -712,6 +739,7 @@ export type UserUpdateWithoutPaymentInput = {
   BookPrivate?: Prisma.BookPrivateUpdateManyWithoutUserNestedInput
   VideoPrivate?: Prisma.VideoPrivateUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUpdateManyWithoutUserNestedInput
+  Flashcard?: Prisma.FlashcardUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutPaymentInput = {
@@ -728,6 +756,7 @@ export type UserUncheckedUpdateWithoutPaymentInput = {
   BookPrivate?: Prisma.BookPrivateUncheckedUpdateManyWithoutUserNestedInput
   VideoPrivate?: Prisma.VideoPrivateUncheckedUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedUpdateManyWithoutUserNestedInput
+  Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutBookPrivateInput = {
@@ -743,6 +772,7 @@ export type UserCreateWithoutBookPrivateInput = {
   UserBalanceTransaction?: Prisma.UserBalanceTransactionCreateNestedManyWithoutUserInput
   VideoPrivate?: Prisma.VideoPrivateCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadCreateNestedManyWithoutUserInput
+  Flashcard?: Prisma.FlashcardCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutBookPrivateInput = {
@@ -759,6 +789,7 @@ export type UserUncheckedCreateWithoutBookPrivateInput = {
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedCreateNestedManyWithoutUserInput
   VideoPrivate?: Prisma.VideoPrivateUncheckedCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedCreateNestedManyWithoutUserInput
+  Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutBookPrivateInput = {
@@ -790,6 +821,7 @@ export type UserUpdateWithoutBookPrivateInput = {
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUpdateManyWithoutUserNestedInput
   VideoPrivate?: Prisma.VideoPrivateUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUpdateManyWithoutUserNestedInput
+  Flashcard?: Prisma.FlashcardUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutBookPrivateInput = {
@@ -806,6 +838,7 @@ export type UserUncheckedUpdateWithoutBookPrivateInput = {
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedUpdateManyWithoutUserNestedInput
   VideoPrivate?: Prisma.VideoPrivateUncheckedUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedUpdateManyWithoutUserNestedInput
+  Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutVideoPrivateInput = {
@@ -821,6 +854,7 @@ export type UserCreateWithoutVideoPrivateInput = {
   UserBalanceTransaction?: Prisma.UserBalanceTransactionCreateNestedManyWithoutUserInput
   BookPrivate?: Prisma.BookPrivateCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadCreateNestedManyWithoutUserInput
+  Flashcard?: Prisma.FlashcardCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutVideoPrivateInput = {
@@ -837,6 +871,7 @@ export type UserUncheckedCreateWithoutVideoPrivateInput = {
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedCreateNestedManyWithoutUserInput
   BookPrivate?: Prisma.BookPrivateUncheckedCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedCreateNestedManyWithoutUserInput
+  Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutVideoPrivateInput = {
@@ -868,6 +903,7 @@ export type UserUpdateWithoutVideoPrivateInput = {
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUpdateManyWithoutUserNestedInput
   BookPrivate?: Prisma.BookPrivateUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUpdateManyWithoutUserNestedInput
+  Flashcard?: Prisma.FlashcardUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutVideoPrivateInput = {
@@ -884,6 +920,7 @@ export type UserUncheckedUpdateWithoutVideoPrivateInput = {
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedUpdateManyWithoutUserNestedInput
   BookPrivate?: Prisma.BookPrivateUncheckedUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedUpdateManyWithoutUserNestedInput
+  Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutSentenceChatThreadInput = {
@@ -899,6 +936,7 @@ export type UserCreateWithoutSentenceChatThreadInput = {
   UserBalanceTransaction?: Prisma.UserBalanceTransactionCreateNestedManyWithoutUserInput
   BookPrivate?: Prisma.BookPrivateCreateNestedManyWithoutUserInput
   VideoPrivate?: Prisma.VideoPrivateCreateNestedManyWithoutUserInput
+  Flashcard?: Prisma.FlashcardCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutSentenceChatThreadInput = {
@@ -915,6 +953,7 @@ export type UserUncheckedCreateWithoutSentenceChatThreadInput = {
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedCreateNestedManyWithoutUserInput
   BookPrivate?: Prisma.BookPrivateUncheckedCreateNestedManyWithoutUserInput
   VideoPrivate?: Prisma.VideoPrivateUncheckedCreateNestedManyWithoutUserInput
+  Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutSentenceChatThreadInput = {
@@ -946,6 +985,7 @@ export type UserUpdateWithoutSentenceChatThreadInput = {
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUpdateManyWithoutUserNestedInput
   BookPrivate?: Prisma.BookPrivateUpdateManyWithoutUserNestedInput
   VideoPrivate?: Prisma.VideoPrivateUpdateManyWithoutUserNestedInput
+  Flashcard?: Prisma.FlashcardUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSentenceChatThreadInput = {
@@ -962,6 +1002,89 @@ export type UserUncheckedUpdateWithoutSentenceChatThreadInput = {
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedUpdateManyWithoutUserNestedInput
   BookPrivate?: Prisma.BookPrivateUncheckedUpdateManyWithoutUserNestedInput
   VideoPrivate?: Prisma.VideoPrivateUncheckedUpdateManyWithoutUserNestedInput
+  Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutFlashcardInput = {
+  email: string
+  password?: string | null
+  email_confirmation_code?: string | null
+  email_confirmation_code_expiration_date?: string | null
+  is_email_confirmed?: boolean
+  is_user_confirmed?: boolean
+  balance?: number
+  created_at?: Date | string
+  Payment?: Prisma.PaymentCreateNestedManyWithoutUserInput
+  UserBalanceTransaction?: Prisma.UserBalanceTransactionCreateNestedManyWithoutUserInput
+  BookPrivate?: Prisma.BookPrivateCreateNestedManyWithoutUserInput
+  VideoPrivate?: Prisma.VideoPrivateCreateNestedManyWithoutUserInput
+  SentenceChatThread?: Prisma.SentenceChatThreadCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutFlashcardInput = {
+  id?: number
+  email: string
+  password?: string | null
+  email_confirmation_code?: string | null
+  email_confirmation_code_expiration_date?: string | null
+  is_email_confirmed?: boolean
+  is_user_confirmed?: boolean
+  balance?: number
+  created_at?: Date | string
+  Payment?: Prisma.PaymentUncheckedCreateNestedManyWithoutUserInput
+  UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedCreateNestedManyWithoutUserInput
+  BookPrivate?: Prisma.BookPrivateUncheckedCreateNestedManyWithoutUserInput
+  VideoPrivate?: Prisma.VideoPrivateUncheckedCreateNestedManyWithoutUserInput
+  SentenceChatThread?: Prisma.SentenceChatThreadUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutFlashcardInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutFlashcardInput, Prisma.UserUncheckedCreateWithoutFlashcardInput>
+}
+
+export type UserUpsertWithoutFlashcardInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutFlashcardInput, Prisma.UserUncheckedUpdateWithoutFlashcardInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutFlashcardInput, Prisma.UserUncheckedCreateWithoutFlashcardInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutFlashcardInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutFlashcardInput, Prisma.UserUncheckedUpdateWithoutFlashcardInput>
+}
+
+export type UserUpdateWithoutFlashcardInput = {
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email_confirmation_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email_confirmation_code_expiration_date?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  balance?: Prisma.IntFieldUpdateOperationsInput | number
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Payment?: Prisma.PaymentUpdateManyWithoutUserNestedInput
+  UserBalanceTransaction?: Prisma.UserBalanceTransactionUpdateManyWithoutUserNestedInput
+  BookPrivate?: Prisma.BookPrivateUpdateManyWithoutUserNestedInput
+  VideoPrivate?: Prisma.VideoPrivateUpdateManyWithoutUserNestedInput
+  SentenceChatThread?: Prisma.SentenceChatThreadUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutFlashcardInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email_confirmation_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email_confirmation_code_expiration_date?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  balance?: Prisma.IntFieldUpdateOperationsInput | number
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Payment?: Prisma.PaymentUncheckedUpdateManyWithoutUserNestedInput
+  UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedUpdateManyWithoutUserNestedInput
+  BookPrivate?: Prisma.BookPrivateUncheckedUpdateManyWithoutUserNestedInput
+  VideoPrivate?: Prisma.VideoPrivateUncheckedUpdateManyWithoutUserNestedInput
+  SentenceChatThread?: Prisma.SentenceChatThreadUncheckedUpdateManyWithoutUserNestedInput
 }
 
 
@@ -975,6 +1098,7 @@ export type UserCountOutputType = {
   BookPrivate: number
   VideoPrivate: number
   SentenceChatThread: number
+  Flashcard: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -983,6 +1107,7 @@ export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.I
   BookPrivate?: boolean | UserCountOutputTypeCountBookPrivateArgs
   VideoPrivate?: boolean | UserCountOutputTypeCountVideoPrivateArgs
   SentenceChatThread?: boolean | UserCountOutputTypeCountSentenceChatThreadArgs
+  Flashcard?: boolean | UserCountOutputTypeCountFlashcardArgs
 }
 
 /**
@@ -1030,6 +1155,13 @@ export type UserCountOutputTypeCountSentenceChatThreadArgs<ExtArgs extends runti
   where?: Prisma.SentenceChatThreadWhereInput
 }
 
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountFlashcardArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.FlashcardWhereInput
+}
+
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1046,6 +1178,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   BookPrivate?: boolean | Prisma.User$BookPrivateArgs<ExtArgs>
   VideoPrivate?: boolean | Prisma.User$VideoPrivateArgs<ExtArgs>
   SentenceChatThread?: boolean | Prisma.User$SentenceChatThreadArgs<ExtArgs>
+  Flashcard?: boolean | Prisma.User$FlashcardArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -1092,6 +1225,7 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   BookPrivate?: boolean | Prisma.User$BookPrivateArgs<ExtArgs>
   VideoPrivate?: boolean | Prisma.User$VideoPrivateArgs<ExtArgs>
   SentenceChatThread?: boolean | Prisma.User$SentenceChatThreadArgs<ExtArgs>
+  Flashcard?: boolean | Prisma.User$FlashcardArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -1105,6 +1239,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     BookPrivate: Prisma.$BookPrivatePayload<ExtArgs>[]
     VideoPrivate: Prisma.$VideoPrivatePayload<ExtArgs>[]
     SentenceChatThread: Prisma.$SentenceChatThreadPayload<ExtArgs>[]
+    Flashcard: Prisma.$FlashcardPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1515,6 +1650,7 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   BookPrivate<T extends Prisma.User$BookPrivateArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$BookPrivateArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BookPrivatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   VideoPrivate<T extends Prisma.User$VideoPrivateArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$VideoPrivateArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$VideoPrivatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   SentenceChatThread<T extends Prisma.User$SentenceChatThreadArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$SentenceChatThreadArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SentenceChatThreadPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  Flashcard<T extends Prisma.User$FlashcardArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$FlashcardArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FlashcardPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2063,6 +2199,30 @@ export type User$SentenceChatThreadArgs<ExtArgs extends runtime.Types.Extensions
   take?: number
   skip?: number
   distinct?: Prisma.SentenceChatThreadScalarFieldEnum | Prisma.SentenceChatThreadScalarFieldEnum[]
+}
+
+/**
+ * User.Flashcard
+ */
+export type User$FlashcardArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Flashcard
+   */
+  select?: Prisma.FlashcardSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Flashcard
+   */
+  omit?: Prisma.FlashcardOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.FlashcardInclude<ExtArgs> | null
+  where?: Prisma.FlashcardWhereInput
+  orderBy?: Prisma.FlashcardOrderByWithRelationInput | Prisma.FlashcardOrderByWithRelationInput[]
+  cursor?: Prisma.FlashcardWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.FlashcardScalarFieldEnum | Prisma.FlashcardScalarFieldEnum[]
 }
 
 /**

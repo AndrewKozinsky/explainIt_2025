@@ -72,7 +72,7 @@ CREATE TABLE "BookPrivate" (
     "user_id" INTEGER NOT NULL,
     "author" TEXT,
     "name" TEXT,
-    "language_code" "LanguageCode",
+    "language_code" "LanguageCode" NOT NULL,
     "note" TEXT,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
@@ -113,7 +113,7 @@ CREATE TABLE "BookChapter" (
 CREATE TABLE "VideoPrivate" (
     "id" SERIAL NOT NULL,
     "user_id" INTEGER NOT NULL,
-    "language_code" "LanguageCode",
+    "language_code" "LanguageCode" NOT NULL,
     "year" INTEGER,
     "file_name" TEXT,
     "file_s3_key" TEXT,
@@ -271,6 +271,27 @@ CREATE TABLE "SentenceChatMessage" (
     CONSTRAINT "SentenceChatMessage_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "Flashcard" (
+    "id" SERIAL NOT NULL,
+    "user_id" INTEGER NOT NULL,
+    "language_code" "LanguageCode" NOT NULL,
+    "sentence_text" TEXT NOT NULL,
+    "sentence_translation" TEXT,
+    "phrase" TEXT NOT NULL,
+    "phrase_start_offset" INTEGER NOT NULL,
+    "phrase_end_offset" INTEGER NOT NULL,
+    "phrase_translation" TEXT,
+    "examples" TEXT[],
+    "book_private_id" INTEGER,
+    "book_public_id" INTEGER,
+    "video_private_id" INTEGER,
+    "video_public_id" INTEGER,
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "Flashcard_pkey" PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
@@ -312,6 +333,12 @@ CREATE UNIQUE INDEX "SentenceChatThread_user_id_sentence_id_key" ON "SentenceCha
 
 -- CreateIndex
 CREATE INDEX "SentenceChatMessage_thread_id_idx" ON "SentenceChatMessage"("thread_id");
+
+-- CreateIndex
+CREATE INDEX "Flashcard_user_id_idx" ON "Flashcard"("user_id");
+
+-- CreateIndex
+CREATE INDEX "Flashcard_user_id_language_code_idx" ON "Flashcard"("user_id", "language_code");
 
 -- AddForeignKey
 ALTER TABLE "UserBalanceTransaction" ADD CONSTRAINT "UserBalanceTransaction_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
@@ -375,3 +402,18 @@ ALTER TABLE "SentenceChatThread" ADD CONSTRAINT "SentenceChatThread_sentence_id_
 
 -- AddForeignKey
 ALTER TABLE "SentenceChatMessage" ADD CONSTRAINT "SentenceChatMessage_thread_id_fkey" FOREIGN KEY ("thread_id") REFERENCES "SentenceChatThread"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Flashcard" ADD CONSTRAINT "Flashcard_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Flashcard" ADD CONSTRAINT "Flashcard_book_private_id_fkey" FOREIGN KEY ("book_private_id") REFERENCES "BookPrivate"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Flashcard" ADD CONSTRAINT "Flashcard_book_public_id_fkey" FOREIGN KEY ("book_public_id") REFERENCES "BookPublic"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Flashcard" ADD CONSTRAINT "Flashcard_video_private_id_fkey" FOREIGN KEY ("video_private_id") REFERENCES "VideoPrivate"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Flashcard" ADD CONSTRAINT "Flashcard_video_public_id_fkey" FOREIGN KEY ("video_public_id") REFERENCES "VideoPublic"("id") ON DELETE SET NULL ON UPDATE CASCADE;

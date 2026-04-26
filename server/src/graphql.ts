@@ -52,6 +52,10 @@ export interface GetUniversalPhraseInput {
     languageCode: string;
 }
 
+export interface GetMyFlashcardsInput {
+    languageCode?: Nullable<string>;
+}
+
 export interface RegisterUserInput {
     email: string;
     password: string;
@@ -188,6 +192,14 @@ export interface CreateUniversalAudioPronunciationInput {
     universalPhraseId: number;
 }
 
+export interface AddFlashcardInput {
+    sentencePhraseTranslationId: number;
+}
+
+export interface RemoveFlashcardInput {
+    flashcardId: number;
+}
+
 export interface UniversalAudioPronunciationOutModel {
     id: number;
     universalPhraseId: number;
@@ -258,6 +270,43 @@ export interface BookPublicOutModel {
     chapters: BookChapterLiteOutModel[];
 }
 
+export interface SentencePhraseTranslationExampleOutModel {
+    text: string;
+    translate: string;
+}
+
+export interface SentencePhraseTranslationOutModel {
+    id: number;
+    sentenceId: number;
+    phrase: string;
+    phraseStartOffset: number;
+    phraseEndOffset: number;
+    translate?: Nullable<string>;
+    examples: SentencePhraseTranslationExampleOutModel[];
+    status: string;
+    errorMessage?: Nullable<string>;
+    createdAt: string;
+    updatedAt: string;
+}
+
+export interface FlashcardOutModel {
+    id: number;
+    languageCode: string;
+    sentenceText: string;
+    sentenceTranslation?: Nullable<string>;
+    phrase: string;
+    phraseStartOffset: number;
+    phraseEndOffset: number;
+    phraseTranslation?: Nullable<string>;
+    phraseTranscription?: Nullable<string>;
+    examples: SentencePhraseTranslationExampleOutModel[];
+    bookPrivateId?: Nullable<number>;
+    bookPublicId?: Nullable<number>;
+    videoPrivateId?: Nullable<number>;
+    videoPublicId?: Nullable<number>;
+    createdAt: string;
+}
+
 export interface LanguageOutModel {
     code: string;
     nameRus: string;
@@ -283,25 +332,6 @@ export interface SentenceChatThreadOutModel {
     id: number;
     sentenceId: number;
     messages: SentenceChatMessageOutModel[];
-    createdAt: string;
-    updatedAt: string;
-}
-
-export interface SentencePhraseTranslationExampleOutModel {
-    text: string;
-    translate: string;
-}
-
-export interface SentencePhraseTranslationOutModel {
-    id: number;
-    sentenceId: number;
-    phrase: string;
-    phraseStartOffset: number;
-    phraseEndOffset: number;
-    translate?: Nullable<string>;
-    examples: SentencePhraseTranslationExampleOutModel[];
-    status: string;
-    errorMessage?: Nullable<string>;
     createdAt: string;
     updatedAt: string;
 }
@@ -487,6 +517,7 @@ export interface IQuery {
     sentence_chat_get_thread(input: GetSentenceChatThreadInput): Nullable<SentenceChatThreadOutModel> | Promise<Nullable<SentenceChatThreadOutModel>>;
     universal_phrase_get(input: GetUniversalPhraseInput): UniversalPhraseOutModel | Promise<UniversalPhraseOutModel>;
     language_get_languages(): LanguageOutModel[] | Promise<LanguageOutModel[]>;
+    flashcard_get_my(input: GetMyFlashcardsInput): FlashcardOutModel[] | Promise<FlashcardOutModel[]>;
 }
 
 export interface IMutation {
@@ -513,6 +544,8 @@ export interface IMutation {
     universal_phrase_create(input: CreateUniversalPhraseInput): UniversalPhraseOutModel | Promise<UniversalPhraseOutModel>;
     create_transcription(input: CreateUniversalTranscriptionInput): TranscriptionOutModel | Promise<TranscriptionOutModel>;
     create_audio_pronunciation(input: CreateUniversalAudioPronunciationInput): UniversalAudioPronunciationOutModel | Promise<UniversalAudioPronunciationOutModel>;
+    flashcard_add(input: AddFlashcardInput): FlashcardOutModel | Promise<FlashcardOutModel>;
+    flashcard_remove(input: RemoveFlashcardInput): boolean | Promise<boolean>;
 }
 
 type Nullable<T> = T | null;
