@@ -7,6 +7,7 @@ import {
 } from '@/graphql'
 import { makePhraseId, PhraseTranslationStatus, useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
 import { findSentenceEntry } from './selectors'
+import { wordIdsFromOffsets } from './wordSegmentation'
 
 export function useFetchCurrentSentenceTranslation() {
 	const currentSentenceId = useDetailsStore((s) => s.currentSentenceId)
@@ -36,6 +37,7 @@ export function useFetchCurrentSentenceTranslation() {
 				bookAuthor: state.bookAuthor,
 				videoName: state.videoName,
 				videoYear: state.videoYear,
+				languageCode: state.languageCode,
 				getSentenceTranslation,
 				getPhraseTranslationsBySentence,
 				translateSentence,
@@ -52,6 +54,7 @@ type RunFetchForSentenceInput = {
 	bookAuthor: null | string
 	videoName: null | string
 	videoYear: null | string | number
+	languageCode: null | string
 	getSentenceTranslation: ReturnType<typeof useTranslate_Get_Sentence_TranslationLazyQuery>[0]
 	getPhraseTranslationsBySentence: ReturnType<typeof useTranslate_Get_Phrase_Translations_By_SentenceLazyQuery>[0]
 	translateSentence: ReturnType<typeof useTranslate_Translate_Sentence>[0]
@@ -87,12 +90,7 @@ async function runFetchForSentence(input: RunFetchForSentenceInput): Promise<voi
 	}
 }
 
-type SeedPhraseTranslationsInput = {
-	sentenceId: number
-	getPhraseTranslationsBySentence: ReturnType<typeof useTranslate_Get_Phrase_Translations_By_SentenceLazyQuery>[0]
-}
-
-async function seedPhraseTranslationsCache(input: SeedPhraseTranslationsInput): Promise<void> {
+async function seedPhraseTranslationsCache(input: RunFetchForSentenceInput): Promise<void> {
 	try {
 		const response = await input.getPhraseTranslationsBySentence({
 			variables: {
@@ -109,7 +107,11 @@ async function seedPhraseTranslationsCache(input: SeedPhraseTranslationsInput): 
 		for (const phraseTranslation of phraseTranslations) {
 			store.upsertPhraseTranslation({
 				sentenceId: input.sentenceId,
-				phrase: mapPhraseTranslationToStatus(phraseTranslation),
+				phrase: mapPhraseTranslationToStatus({
+					phraseTranslation,
+					sentenceText: input.sentenceText,
+					languageCode: input.languageCode,
+				}),
 			})
 		}
 	} catch {
@@ -117,13 +119,23 @@ async function seedPhraseTranslationsCache(input: SeedPhraseTranslationsInput): 
 	}
 }
 
-export function mapPhraseTranslationToStatus(
-	phraseTranslation: SentencePhraseTranslationOutModel,
-): PhraseTranslationStatus {
-	return {
-		id: makePhraseId(),
+export function mapPhraseTranslationToStatus(input: {
+	phraseTranslation: SentencePhraseTranslationOutModel
+	sentenceText: string
+	languageCode: null | string
+}): PhraseTranslationStatus {
+	const { phraseTranslation, sentenceText, languageCode } = input
+
+	const wordIds = wordIdsFromOffsets({
+		sentenceText,
+		locale: languageCode,
 		startOffset: phraseTranslation.phraseStartOffset,
 		endOffset: phraseTranslation.phraseEndOffset,
+	})
+
+	return {
+		id: makePhraseId(),
+		wordIds,
 		phrase: phraseTranslation.phrase ?? null,
 		loading: false,
 		error: null,

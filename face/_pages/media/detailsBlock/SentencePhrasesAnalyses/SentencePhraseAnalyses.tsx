@@ -15,17 +15,19 @@ function SentencePhraseAnalyses(props: SentencePhraseAnalysesProps) {
 			sentences: s.sentences,
 			sentenceId: s.currentSentenceId,
 		})
-
 		return entry?.data.phrases ?? null
 	})
 
 	if (!phrases) return null
 
+	// Сортировка чтобы фразы шли в том порядке, в котором они находятся в предложении
+	const sortedPhrases = [...phrases].sort((a, b) => (a.wordIds[0] ?? 0) - (b.wordIds[0] ?? 0))
+
 	return (
 		<div className='sentence-phrase-analyses'>
-			{phrases.map((analysis, index) => {
+			{sortedPhrases.map((analysis) => {
 				return (
-					<div className='sentence-word-analyses__item' key={`${index}-${analysis}`}>
+					<div className='sentence-word-analyses__item' key={analysis.id}>
 						<SentencePhraseAnalysis
 							phraseAnalysis={analysis}
 							languageCode={languageCode}

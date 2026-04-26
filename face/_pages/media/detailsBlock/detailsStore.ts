@@ -6,6 +6,7 @@ export const detailsStoreValues: DetailsStoreValues = {
 	bookAuthor: null,
 	videoName: null,
 	videoYear: null,
+	languageCode: null,
 	currentSentenceId: null,
 	currentSentenceText: null,
 	currentWordId: null,
@@ -57,10 +58,8 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 					const entry = state.sentences.find((item) => item.sentenceId === input.sentenceId)
 					if (!entry) return
 
-					const phraseIdx = entry.data.phrases.findIndex(
-						(item) =>
-							item.startOffset === input.phrase.startOffset &&
-							item.endOffset === input.phrase.endOffset,
+					const phraseIdx = entry.data.phrases.findIndex((item) =>
+						sameWordIds(item.wordIds, input.phrase.wordIds),
 					)
 
 					if (phraseIdx >= 0) {
@@ -106,8 +105,7 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 					const existingIdx = entry.data.phrases.findIndex(
 						(item) =>
 							item.id !== input.placeholderPhraseId &&
-							item.startOffset === input.phrase.startOffset &&
-							item.endOffset === input.phrase.endOffset,
+							sameWordIds(item.wordIds, input.phrase.wordIds),
 					)
 
 					if (existingIdx >= 0) {
@@ -152,6 +150,16 @@ export function makePhraseId(): string {
 	return 'p_' + Math.random().toString(36).slice(2) + '_' + Date.now().toString(36)
 }
 
+function sameWordIds(a: number[], b: number[]): boolean {
+	if (a.length !== b.length) return false
+
+	for (let i = 0; i < a.length; i++) {
+		if (a[i] !== b[i]) return false
+	}
+
+	return true
+}
+
 export type DetailsStoreNext = DetailsStoreValues & DetailsStoreMethods
 
 export type DetailsTranscription = {
@@ -177,8 +185,7 @@ export type SentenceTranslationStatus = {
 
 export type PhraseTranslationStatus = {
 	id: string
-	startOffset: number
-	endOffset: number
+	wordIds: number[]
 	phrase: null | string
 	loading: boolean
 	error: null | string
@@ -196,6 +203,7 @@ export type DetailsStoreValues = {
 	bookAuthor: null | string
 	videoName: null | string
 	videoYear: null | string | number
+	languageCode: null | string
 	currentSentenceId: null | number
 	currentSentenceText: null | string
 	currentWordId: null | number

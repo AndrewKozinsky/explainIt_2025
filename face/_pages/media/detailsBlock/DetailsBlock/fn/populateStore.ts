@@ -68,28 +68,6 @@ function applySelectionToDetailsStore(input: ApplySelectionInput) {
 	})
 }
 
-export function getSelectedWordOffsets(input: {
-	sentenceText: null | string
-	wordId: null | number
-	locale?: string
-}): null | { word: string; startOffset: number; endOffset: number } {
-	const { sentenceText, wordId, locale } = input
-
-	if (!wordId || !sentenceText) return null
-
-	const segmenter = new Intl.Segmenter(locale, { granularity: 'word' })
-	const segments = [...segmenter.segment(sentenceText)].filter((segment) => segment.isWordLike)
-	const selectedSegment = segments[wordId - 1]
-
-	if (!selectedSegment?.segment) return null
-
-	return {
-		word: selectedSegment.segment,
-		startOffset: selectedSegment.index,
-		endOffset: selectedSegment.index + selectedSegment.segment.length,
-	}
-}
-
 export function useGetShowingMediaType() {
 	const pathname = usePathname()
 	return pathname.startsWith(pageUrls.books.path) ? 'book' : 'video'

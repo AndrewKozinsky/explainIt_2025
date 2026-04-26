@@ -10,6 +10,7 @@ export function useInitStore() {
 
 	const bookName = useReadingStore((s) => s.book?.data?.name)
 	const bookAuthor = useReadingStore((s) => s.book?.data?.author)
+	const bookLanguageCode = useReadingStore((s) => s.book?.data?.languageCode)
 
 	useEffect(
 		function () {
@@ -20,13 +21,15 @@ export function useInitStore() {
 				bookAuthor: bookAuthor ?? null,
 				videoName: null,
 				videoYear: null,
+				languageCode: bookLanguageCode ?? null,
 			})
 		},
-		[bookAuthor, bookName, mediaType],
+		[bookAuthor, bookName, bookLanguageCode, mediaType],
 	)
 
 	const videoName = useWatchingStore((s) => s.video?.data?.name)
 	const videoYear = useWatchingStore((s) => s.video?.data?.year)
+	const videoLanguageCode = useWatchingStore((s) => s.video?.data?.languageCode)
 
 	useEffect(
 		function () {
@@ -37,9 +40,10 @@ export function useInitStore() {
 				bookAuthor: null,
 				videoName: videoName ?? null,
 				videoYear: videoYear ?? null,
+				languageCode: videoLanguageCode ?? null,
 			})
 		},
-		[videoName, videoYear, mediaType],
+		[videoName, videoYear, videoLanguageCode, mediaType],
 	)
 }
 
@@ -48,6 +52,7 @@ type ApplySelectionInput = {
 	bookAuthor: null | string
 	videoName: null | string
 	videoYear: null | string | number
+	languageCode: null | string
 }
 
 function applySelectionToDetailsStore(input: ApplySelectionInput) {
@@ -58,6 +63,7 @@ function applySelectionToDetailsStore(input: ApplySelectionInput) {
 		bookAuthor: input.bookAuthor,
 		videoName: input.videoName,
 		videoYear: input.videoYear,
+		languageCode: input.languageCode,
 	})
 }
 

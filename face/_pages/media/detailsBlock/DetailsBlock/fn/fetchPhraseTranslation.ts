@@ -2,8 +2,8 @@ import { useEffect } from 'react'
 import { useTranslate_Get_Phrase_TranslationLazyQuery, useTranslate_Translate_Phrase } from '@/graphql'
 import { makePhraseId, PhraseTranslationStatus, useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
 import { mapPhraseTranslationToStatus, toNullableString } from './fetchSentenceTranslation'
-import { getSelectedWordOffsets } from './populateStore'
 import { findSentenceEntry } from './selectors'
+import { offsetsFromWordIds } from './wordSegmentation'
 
 export function useFetchCurrentPhraseTranslation() {
 	const currentSentenceId = useDetailsStore((s) => s.currentSentenceId)
@@ -17,12 +17,6 @@ export function useFetchCurrentPhraseTranslation() {
 		function () {
 			if (currentSentenceId === null || currentSentenceText === null || currentWordId === null) return
 
-			const offsets = getSelectedWordOffsets({
-				sentenceText: currentSentenceText,
-				wordId: currentWordId,
-			})
-			if (!offsets) return
-
 			const state = useDetailsStore.getState()
 
 			const entry = findSentenceEntry({
@@ -31,11 +25,7 @@ export function useFetchCurrentPhraseTranslation() {
 			})
 			if (!entry) return
 
-			const covering = entry.data.phrases
-				.filter(
-					(p) => p.startOffset <= offsets.startOffset && p.endOffset >= offsets.endOffset,
-				)
-				.sort((a, b) => a.endOffset - a.startOffset - (b.endOffset - b.startOffset))[0]
+			const covering = entry.data.phrases.find((p) => p.wordIds.includes(currentWordId))
 
 			if (covering) {
 				state.setSelectedPhraseId({
@@ -45,15 +35,21 @@ export function useFetchCurrentPhraseTranslation() {
 				return
 			}
 
+			const wordOffsets = offsetsFromWordIds({
+				sentenceText: currentSentenceText,
+				locale: state.languageCode,
+				wordIds: [currentWordId],
+			})
+			if (!wordOffsets) return
+
 			const phraseId = makePhraseId()
 
 			state.upsertPhraseTranslation({
 				sentenceId: currentSentenceId,
 				phrase: {
 					id: phraseId,
-					startOffset: offsets.startOffset,
-					endOffset: offsets.endOffset,
-					phrase: offsets.word || null,
+					wordIds: [currentWordId],
+					phrase: wordOffsets.text || null,
 					loading: true,
 					error: null,
 					translation: null,
@@ -70,12 +66,13 @@ export function useFetchCurrentPhraseTranslation() {
 				sentenceId: currentSentenceId,
 				sentenceText: currentSentenceText,
 				phraseId,
-				wordStartOffset: offsets.startOffset,
-				wordEndOffset: offsets.endOffset,
+				wordStartOffset: wordOffsets.startOffset,
+				wordEndOffset: wordOffsets.endOffset,
 				bookName: state.bookName,
 				bookAuthor: state.bookAuthor,
 				videoName: state.videoName,
 				videoYear: state.videoYear,
+				languageCode: state.languageCode,
 				getPhraseTranslation,
 				translatePhrase,
 			})
@@ -94,6 +91,7 @@ type RunFetchForPhraseInput = {
 	bookAuthor: null | string
 	videoName: null | string
 	videoYear: null | string | number
+	languageCode: null | string
 	getPhraseTranslation: ReturnType<typeof useTranslate_Get_Phrase_TranslationLazyQuery>[0]
 	translatePhrase: ReturnType<typeof useTranslate_Translate_Phrase>[0]
 }
@@ -135,7 +133,11 @@ async function getOrCreatePhraseTranslation(
 
 	const existingPhrase = existing.data?.translate_get_phrase_translation
 	if (existingPhrase?.translate) {
-		return mapPhraseTranslationToStatus(existingPhrase)
+		return mapPhraseTranslationToStatus({
+			phraseTranslation: existingPhrase,
+			sentenceText: input.sentenceText,
+			languageCode: input.languageCode,
+		})
 	}
 
 	const selectedWord = input.sentenceText.slice(input.wordStartOffset, input.wordEndOffset)
@@ -161,5 +163,9 @@ async function getOrCreatePhraseTranslation(
 		throw new Error('Не удалось получить перевод слова')
 	}
 
-	return mapPhraseTranslationToStatus(generatedPhrase)
+	return mapPhraseTranslationToStatus({
+		phraseTranslation: generatedPhrase,
+		sentenceText: input.sentenceText,
+		languageCode: input.languageCode,
+	})
 }
