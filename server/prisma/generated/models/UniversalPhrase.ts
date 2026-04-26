@@ -214,6 +214,7 @@ export type UniversalPhraseOrderByWithRelationInput = {
 
 export type UniversalPhraseWhereUniqueInput = Prisma.AtLeast<{
   id?: number
+  language_code_phrase?: Prisma.UniversalPhraseLanguage_codePhraseCompoundUniqueInput
   AND?: Prisma.UniversalPhraseWhereInput | Prisma.UniversalPhraseWhereInput[]
   OR?: Prisma.UniversalPhraseWhereInput[]
   NOT?: Prisma.UniversalPhraseWhereInput | Prisma.UniversalPhraseWhereInput[]
@@ -221,7 +222,7 @@ export type UniversalPhraseWhereUniqueInput = Prisma.AtLeast<{
   language_code?: Prisma.EnumLanguageCodeFilter<"UniversalPhrase"> | $Enums.LanguageCode
   UniversalTranscription?: Prisma.XOR<Prisma.UniversalTranscriptionNullableScalarRelationFilter, Prisma.UniversalTranscriptionWhereInput> | null
   UniversalAudioPronunciation?: Prisma.XOR<Prisma.UniversalAudioPronunciationNullableScalarRelationFilter, Prisma.UniversalAudioPronunciationWhereInput> | null
-}, "id">
+}, "id" | "language_code_phrase">
 
 export type UniversalPhraseOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
@@ -288,6 +289,11 @@ export type UniversalPhraseUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   phrase?: Prisma.StringFieldUpdateOperationsInput | string
   language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+}
+
+export type UniversalPhraseLanguage_codePhraseCompoundUniqueInput = {
+  language_code: $Enums.LanguageCode
+  phrase: string
 }
 
 export type UniversalPhraseCountOrderByAggregateInput = {

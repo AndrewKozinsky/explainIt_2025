@@ -4,7 +4,7 @@ export function SentenceLoading() {
 	return (
 		<p className='chapter-content__sentence-loading'>
 			<Spinner size='small' />
-			Загрузка перевода слова…
+			Загрузка перевода предложения…
 		</p>
 	)
 }

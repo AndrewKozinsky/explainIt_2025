@@ -217,7 +217,7 @@ export const bdConfig = {
 				type: 'enum',
 				enumName: 'LanguageCode',
 				variants: languagesArr,
-				required: false,
+				required: true,
 			},
 			note: {
 				type: 'string',
@@ -378,7 +378,7 @@ export const bdConfig = {
 				type: 'enum',
 				enumName: 'LanguageCode',
 				variants: languagesArr,
-				required: false,
+				required: true,
 			},
 			year: {
 				type: 'number',
@@ -861,6 +861,7 @@ export const bdConfig = {
 	// Слово или фраза. Используется в таблице транскрипций и озвучки
 	UniversalPhrase: {
 		dtoProps: {},
+		indexes: [{ fields: ['language_code', 'phrase'], unique: true }],
 		dbFields: {
 			id: {
 				type: 'index',

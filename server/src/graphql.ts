@@ -83,7 +83,7 @@ export interface CreatePrivateBookInput {
     author?: Nullable<string>;
     name?: Nullable<string>;
     note?: Nullable<string>;
-    languageCode?: Nullable<string>;
+    languageCode: string;
 }
 
 export interface UpdatePrivateBookInput {
@@ -123,7 +123,7 @@ export interface CreatePrivateVideoInput {
     name?: Nullable<string>;
     originalContent?: Nullable<string>;
     fileSizeMb?: Nullable<number>;
-    languageCode?: Nullable<string>;
+    languageCode: string;
 }
 
 export interface UpdatePrivateVideoInput {

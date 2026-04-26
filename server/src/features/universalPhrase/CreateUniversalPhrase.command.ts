@@ -1,6 +1,6 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { UniversalPhraseRepository } from 'repo/universalPhrase.repository'
 import { UniversalPhraseQueryRepository } from 'repo/universalPhrase.queryRepository'
+import { UniversalPhraseRepository } from 'repo/universalPhrase.repository'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
@@ -24,6 +24,14 @@ export class CreateUniversalPhraseHandler implements ICommandHandler<CreateUnive
 
 	async execute(command: CreateUniversalPhraseCommand) {
 		const { createPhraseInput } = command
+
+		const existingPhrase = await this.universalPhraseQueryRepository.getUniversalPhraseByTextAndLang(
+			createPhraseInput.phrase,
+			createPhraseInput.languageCode,
+		)
+		if (existingPhrase) {
+			throw new CustomGraphQLError(errorMessage.universalPhrase.alreadyExists, ErrorCode.BadRequest_400)
+		}
 
 		const newPhrase = await this.universalPhraseRepository.createUniversalPhrase(createPhraseInput)
 		if (!newPhrase) {

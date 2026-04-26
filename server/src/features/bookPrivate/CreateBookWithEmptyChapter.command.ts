@@ -1,7 +1,7 @@
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { BookPrivateQueryRepository } from 'repo/bookPrivate.queryRepository'
+import { Language } from 'utils/languages'
 import { BookPrivateOutModel } from 'models/book/book.out.model'
-import { LanguageCode } from 'prisma/generated/enums'
 import { CreateBookChapterCommand } from '../bookChapter/CreateBookChapter.command'
 import { CreateBookCommand } from './CreateBook.command'
 
@@ -9,7 +9,7 @@ type CreateBookInput = {
 	author?: null | string
 	name?: null | string
 	note?: null | string
-	languageCode?: null | LanguageCode
+	languageCode: Language
 }
 
 export class CreateBookWithEmptyChapterCommand implements ICommand {

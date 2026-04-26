@@ -2,12 +2,12 @@ import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { BookChapterQueryRepository } from 'repo/bookChapter.queryRepository'
 import { BookChapterRepository } from 'repo/bookChapter.repository'
 import { SentenceRepository } from 'repo/sentence.repository'
+import { Language } from 'utils/languages'
 import { generateSentencesAndSaveToDB } from 'features/common/generateSentencesAndSaveToDB'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
-import { BookChapterServiceModel } from 'models/bookChapter/bookChapter.service.model'
 import { dryText, removeBOM } from '../mediaCommon'
 
 type UpdateChapterInput = {
@@ -57,10 +57,15 @@ export class UpdateBookChapterHandler implements ICommandHandler<UpdateBookChapt
 			await this.sentenceRepository.deleteByBookChapterId(bookChapter.id)
 
 			if (processedContent) {
+				if (!bookChapter.book.languageCode) {
+					throw new CustomGraphQLError(errorMessage.nlp.languageRequired, ErrorCode.BadRequest_400)
+				}
+
 				await generateSentencesAndSaveToDB({
 					mainConfigService: this.mainConfigService,
 					sentenceRepository: this.sentenceRepository,
 					processedContent,
+					languageCode: bookChapter.book.languageCode as Language,
 					bookChapterId: bookChapter.id,
 				})
 			}

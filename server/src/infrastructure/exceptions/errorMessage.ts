@@ -103,10 +103,12 @@ export const errorMessage = {
 	},
 	nlp: {
 		cantDivideTextIntoSentences: 'Не получилось разделить текст на предложения.',
+		languageRequired: 'Для разделения текста на предложения нужно указать язык.',
 	},
 	universalPhrase: {
 		notCreated: 'Фраза не создана.',
 		notFound: 'Фраза не найдена.',
+		alreadyExists: 'Фраза с таким текстом и языком уже существует.',
 	},
 	universalTranscription: {
 		notCreated: 'Не удалось создать транскрипцию.',

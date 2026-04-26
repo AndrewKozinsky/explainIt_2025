@@ -91,6 +91,7 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 						videoType: 'public',
 						videoId: newVideo.id,
 						preparedContent: preparedContentResult.processedContent,
+						languageCode: videoData.languageCode as Language,
 						subtitles: preparedContentResult.subtitles,
 						sentenceRepository: this.sentenceRepository,
 						subtitleRepository: this.subtitleRepository,
@@ -101,6 +102,7 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 						mainConfigService: this.mainConfig,
 						sentenceRepository: this.sentenceRepository,
 						processedContent: preparedContentResult.processedContent,
+						languageCode: videoData.languageCode as Language,
 						videoPublicId: newVideo.id,
 					})
 				}

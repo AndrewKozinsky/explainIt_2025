@@ -5,6 +5,7 @@ import { SubtitleRepository } from 'repo/subtitle.repository'
 import { SubtitleSentenceInitRepository } from 'repo/subtitleSentenceInit.repository'
 import { VideoPublicQueryRepository } from 'repo/video/videoPublic.queryRepository'
 import { VideoPublicRepository } from 'repo/video/videoPublic.repository'
+import { Language } from 'utils/languages'
 import { generateSentencesAndSaveToDB } from 'features/common/generateSentencesAndSaveToDB'
 import { VideoBase } from 'features/video/VideoBase'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
@@ -93,6 +94,7 @@ export class UpdatePublicVideoHandler extends VideoBase implements ICommandHandl
 								videoType: 'public',
 								videoId: updateVideoInput.id,
 								preparedContent: preparedContentResult.processedContent,
+								languageCode: videoForUpdating.languageCode as Language,
 								subtitles: preparedContentResult.subtitles,
 								sentenceRepository: this.sentenceRepository,
 								subtitleRepository: this.subtitleRepository,
@@ -103,6 +105,7 @@ export class UpdatePublicVideoHandler extends VideoBase implements ICommandHandl
 								mainConfigService: this.mainConfig,
 								sentenceRepository: this.sentenceRepository,
 								processedContent: preparedContentResult.processedContent,
+								languageCode: videoForUpdating.languageCode as Language,
 								videoPublicId: updateVideoInput.id,
 							})
 						}

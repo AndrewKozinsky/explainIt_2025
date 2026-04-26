@@ -79,7 +79,7 @@ input CreatePrivateBookInput {
   author: String
 
   """Language code"""
-  languageCode: String
+  languageCode: String!
 
   """Name"""
   name: String
@@ -93,7 +93,7 @@ input CreatePrivateVideoInput {
   fileSizeMb: Int
 
   """Language code"""
-  languageCode: String
+  languageCode: String!
 
   """Name"""
   name: String

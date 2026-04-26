@@ -1,7 +1,7 @@
 import { Field, InputType } from '@nestjs/graphql'
+import { Language } from 'utils/languages'
 import { bdConfig } from 'db/dbConfig/dbConfig'
 import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
-import { LanguageCode } from 'prisma/generated/enums'
 
 @InputType()
 export class CreatePrivateBookInput {
@@ -17,7 +17,7 @@ export class CreatePrivateBookInput {
 	@DtoFieldDecorators('note', bdConfig.BookPrivate.dbFields.note)
 	note: null | string
 
-	@Field(() => String, { description: 'Language code', nullable: true })
-	@DtoFieldDecorators('languageCode', bdConfig.BookPrivate.dbFields.language_code)
-	languageCode: null | LanguageCode
+	@Field(() => String, { description: 'Language code' })
+	@DtoFieldDecorators('languageCode', bdConfig.BookPrivate.dbFields.language_code, { required: true })
+	languageCode: Language
 }

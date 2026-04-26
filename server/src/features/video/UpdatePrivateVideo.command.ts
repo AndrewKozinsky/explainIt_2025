@@ -82,10 +82,17 @@ export class UpdatePrivateVideoHandler extends VideoBase implements ICommandHand
 		})
 
 		if (preparedContentResult.shouldUpdateRelatedTextData) {
+			const effectiveLanguageCode = updateVideoInput.languageCode ?? videoForUpdating.languageCode
+
+			if (preparedContentResult.processedContent !== null && !effectiveLanguageCode) {
+				throw new CustomGraphQLError(errorMessage.nlp.languageRequired, ErrorCode.BadRequest_400)
+			}
+
 			await this.updateVideoTextData({
 				videoType: 'private',
 				videoId: updateVideoInput.id,
 				processedContent: preparedContentResult.processedContent,
+				languageCode: effectiveLanguageCode as null | Language,
 				subtitles: preparedContentResult.subtitles,
 			})
 		}
@@ -118,6 +125,7 @@ export class UpdatePrivateVideoHandler extends VideoBase implements ICommandHand
 		videoType: 'private'
 		videoId: number
 		processedContent: null | string
+		languageCode: null | Language
 		subtitles?: Array<{
 			startTimeMs: number
 			endTimeMs: number
@@ -134,11 +142,16 @@ export class UpdatePrivateVideoHandler extends VideoBase implements ICommandHand
 
 				if (dto.processedContent === null) return
 
+				if (!dto.languageCode) {
+					throw new CustomGraphQLError(errorMessage.nlp.languageRequired, ErrorCode.BadRequest_400)
+				}
+
 				if (dto.subtitles) {
 					await this.saveSubtitlesSentencesAndInit({
 						videoType: 'private',
 						videoId: dto.videoId,
 						preparedContent: dto.processedContent,
+						languageCode: dto.languageCode,
 						subtitles: dto.subtitles,
 						sentenceRepository: this.sentenceRepository,
 						subtitleRepository: this.subtitleRepository,
@@ -151,6 +164,7 @@ export class UpdatePrivateVideoHandler extends VideoBase implements ICommandHand
 					mainConfigService: this.mainConfig,
 					sentenceRepository: this.sentenceRepository,
 					processedContent: dto.processedContent,
+					languageCode: dto.languageCode,
 					videoPrivateId: dto.videoId,
 				})
 			},
