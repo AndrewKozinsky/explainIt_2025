@@ -2,13 +2,13 @@ import { CurrentSentenceTranslation } from '_pages/media/detailsBlock/CurrentSen
 import { findSentenceEntry } from '_pages/media/detailsBlock/DetailsBlock/fn/selectors'
 import { CurrentSentence } from '_pages/media/detailsBlock/SelectedSentence/CurrentSentence'
 import SentencePhraseAnalysis from '_pages/media/detailsBlock/SentencePhraseAnalysis/SentencePhraseAnalysis'
-// import SentenceChat from '_pages/media/sentenceChat/SentenceChat/SentenceChat'
+import SentenceChat from '_pages/media/sentenceChat/SentenceChat/SentenceChat'
 import { useWatchingStore } from '_pages/media/watching/watchingStore'
 import { useDetailsStore } from '../detailsStore'
 import './WatchingDetailsBlock.scss'
 
 function WatchingDetailsBlock() {
-	// const sentenceId = useDetailsStore((s) => s.currentSentenceId)
+	const sentenceId = useDetailsStore((s) => s.currentSentenceId)
 
 	const wordAnalysis = useDetailsStore(function (s) {
 		const entry = findSentenceEntry({
@@ -33,7 +33,7 @@ function WatchingDetailsBlock() {
 					onWhiteBackground
 				/>
 			)}
-			{/*{sentenceId && <SentenceChat sentenceId={sentenceId} />}*/}
+			{sentenceId && <SentenceChat sentenceId={sentenceId} />}
 		</div>
 	)
 }

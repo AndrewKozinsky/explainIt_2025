@@ -10,6 +10,10 @@
 	border-radius: vars.$radius-2;
 }
 
+.chat-input--focus {
+	border-color: vars.$linkColor-2;
+}
+
 .chat-input__textarea {
 	font-size: 1.6rem;
 	line-height: 2.4rem;

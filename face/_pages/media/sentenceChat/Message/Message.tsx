@@ -1,11 +1,8 @@
-import cn from 'classnames'
-import StyledMarkdown from 'ui/StyledMarkdown/StyledMarkdown'
 import AssistantMessage from '_pages/media/sentenceChat/Message/AssistantMessage'
 import GenerationIsCancelled from '_pages/media/sentenceChat/Message/GenerationIsCancelled'
-import GenerationIsFailed from '_pages/media/sentenceChat/Message/GenerationIsFailed'
 import { ChatUiMessage } from '../types/sseTypes'
-import './Message.scss'
 import UserMessage from './UserMessage'
+import './Message.scss'
 
 type MessageProps = {
 	message: ChatUiMessage
@@ -14,30 +11,26 @@ type MessageProps = {
 function Message(props: MessageProps) {
 	const { message } = props
 
-	const isAssistant = message.role === 'assistant'
 	const isUser = message.role === 'user'
 
 	if (isUser) {
 		return <UserMessage message={message.content} />
 	}
 
+	// Assistant message
+
 	const isStreaming = message.status === 'streaming'
-	const isFailed = message.status === 'failed'
 	const isCanceled = message.status === 'canceled'
 
 	if (isCanceled) {
 		return <GenerationIsCancelled />
 	}
 
-	if (isFailed) {
-		return <GenerationIsFailed errorMessage={message.errorMessage} />
-	}
-
 	if (!message.content && isStreaming) {
 		return <span className='chat-message__cursor' aria-label='Ассистент печатает' />
 	}
 
-	return <AssistantMessage content={message.content} isStreaming={isStreaming} />
+	return <AssistantMessage content={message.content} errorMessage={message.errorMessage} isStreaming={isStreaming} />
 }
 
 export default Message

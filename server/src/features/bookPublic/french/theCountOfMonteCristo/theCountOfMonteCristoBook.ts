@@ -35,7 +35,7 @@ export function theCountOfMonteCristoBookData(coversFolderName: string) {
 
 Уровень B2-C1 (Upper-Intermediate / Advanced).`,
 		languageCode: languages.fr.code as Language,
-		freeToUse: false,
+		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),
 		coverBackgroundColor: '#265463',
 	}

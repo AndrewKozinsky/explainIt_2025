@@ -152,7 +152,7 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 				coverBackgroundColor: '#444A21',
 			},
 			{
-				freeToUse: false,
+				freeToUse: true,
 				name: 'His Girl Friday', // His Girl Friday (1940).mp4
 				languageCode: 'en',
 				year: 1940,
