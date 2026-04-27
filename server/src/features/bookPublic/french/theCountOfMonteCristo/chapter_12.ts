@@ -1,98 +1,92 @@
+// Глава адаптирована
 export const chapter_12 = {
 	name: 'CHAPITRE XII',
 	header: 'Le père et le fils',
-	text: `M. Noirtier, car c’était en effet lui-même qui venait d’entrer, suivit des yeux le domestique jusqu’à ce qu’il eût refermé la porte ; puis, craignant sans doute qu’il n’écoutât dans l’antichambre, il alla rouvrir derrière lui : la précaution n’était pas inutile, et la rapidité avec laquelle maître Germain se retira prouva qu’il n’était point exempt du péché qui perdit nos premiers pères. M. Noirtier prit alors la peine d’aller fermer lui-même la porte de l’antichambre, revint fermer celle de la chambre à coucher, poussa les verrous, et revint tendre la main à Villefort, qui avait suivi tous ces mouvements avec une surprise dont il n’était pas encore revenu.
-« Ah çà ! sais-tu bien, mon cher Gérard, dit-il au jeune homme en le regardant avec un sourire dont il était assez difficile de définir l’expression, que tu n’as pas l’air ravi de me voir ?
-– Si fait, mon père, dit Villefort, je suis enchanté ; mais j’étais si loin de m’attendre à votre visite, qu’elle m’a quelque peu étourdi.
-– Mais, mon cher ami, reprit M. Noirtier en s’asseyant, il me semble que je pourrais vous en dire autant. Comment ! vous m’annoncez vos fiançailles à Marseille pour le 28 février, et le 3 mars vous êtes à Paris ?
-– Si j’y suis, mon père, dit Gérard en se rapprochant de M. Noirtier, ne vous en plaignez pas, car c’est pour vous que j’étais venu, et ce voyage vous sauvera peut-être.
-– Ah ! vraiment, dit M. Noirtier en s’allongeant nonchalamment dans le fauteuil où il était assis ; vraiment ! contez-moi donc cela, monsieur le magistrat, ce doit être curieux.
-– Mon père, vous avez entendu parler de certain club bonapartiste qui se tient rue SaintJacques ?
-– N° 53 ? Oui, j’en suis vice-président.
+	text: `M. Noirtier, car c’était bien lui, suivit le domestique du regard jusqu’à ce que la porte soit fermée. Puis, craignant d’être écouté, il alla rouvrir la porte de l’antichambre. La précaution était utile : la rapidité avec laquelle le domestique s’éloigna prouva qu’il était curieux. M. Noirtier ferma lui-même les deux portes à clé, puis revint tendre la main à Villefort, qui l’observait avec une surprise totale.
+« Dis-donc, mon cher Gérard, dit-il au jeune homme avec un sourire difficile à déchiffrer, tu n’as pas l’air ravi de me voir.
+– Si, si, mon père, dit Villefort, je suis enchanté. Mais votre visite est si inattendue qu’elle m’a un peu étourdi.
+– Mon cher ami, je pourrais vous en dire autant, reprit M. Noirtier en s’asseyant. Comment ! Vous m’annoncez vos fiançailles à Marseille pour le 28 février, et le 3 mars, vous êtes à Paris ?
+– Si je suis ici, mon père, ne vous en plaignez pas. C’est pour vous que je suis venu, et ce voyage vous sauvera peut-être.
+– Ah, vraiment ? dit M. Noirtier en s’allongeant nonchalamment dans son fauteuil. Racontez-moi donc ça, monsieur le magistrat, ça doit être intéressant.
+– Mon père, vous avez entendu parler d’un certain club bonapartiste rue Saint-Jacques ?
+– Au numéro 53 ? Oui, j’en suis le vice-président.
 – Mon père, votre sang-froid me fait frémir.
-– Que veux-tu, mon cher ? quand on a été proscrit par les montagnards, qu’on est sorti de Paris dans une charrette de foin, qu’on a été traqué dans les landes de Bordeaux par les limiers de Robespierre, cela vous a aguerri à bien des choses. Continue donc. Eh bien, que s’est-il passé à ce club de la rue Saint-Jacques ?
-– Il s’y est passé qu’on y a fait venir le général Quesnel, et que le général Quesnel, sorti à neuf heures du soir de chez lui, a été retrouvé le surlendemain dans la Seine.
-– Et qui vous a conté cette belle histoire ?
+– Que veux-tu, mon cher ? Quand on a été pourchassé par les révolutionnaires et les espions de Robespierre, on s’habitue à bien des choses. Continue. Que s’est-il passé dans ce club ?
+– Il s’y est passé qu’on y a fait venir le général Quesnel. Il est sorti de chez lui à neuf heures du soir, et on l’a retrouvé deux jours plus tard dans la Seine.
+– Et qui vous a raconté cette belle histoire ?
 – Le roi lui-même, monsieur.
-– Eh bien, moi, en échange de votre histoire, continua Noirtier, je vais vous apprendre une nouvelle.
-– Mon père, je crois savoir déjà ce que vous allez me dire.
-– Ah ! vous savez le débarquement de Sa Majesté l’Empereur ?
-– Silence, mon père, je vous prie, pour vous d’abord, et puis ensuite pour moi. Oui, je savais cette nouvelle, et même je la savais avant vous, car depuis trois jours je brûle le pavé, de Marseille à Paris, avec la rage de ne pouvoir lancer à deux cents lieues en avant de moi la pensée qui me brûle le cerveau.
-– Il y a trois jours ! êtes-vous fou ? Il y a trois jours, l’Empereur n’était pas embarqué.
-– N’importe, je savais le projet.
-– Et comment cela ?
+– Eh bien, moi, en échange, je vais vous apprendre une nouvelle, continua Noirtier.
+– Mon père, je crois savoir ce que vous allez me dire.
+– Ah ! Vous savez pour le débarquement de Sa Majesté l’Empereur ?
+– Silence, mon père, je vous en prie, pour vous d’abord, et pour moi ensuite. Oui, je connaissais cette nouvelle avant vous. Depuis trois jours, je parcours la route de Marseille à Paris, enrageant de ne pas pouvoir aller plus vite.
+– Il y a trois jours ! Êtes-vous fou ? Il y a trois jours, l’Empereur n’était même pas embarqué.
+– N’importe, je connaissais le projet.
+– Et comment ?
 – Par une lettre qui vous était adressée de l’île d’Elbe.
 – À moi ?
-– À vous, et que j’ai surprise dans le portefeuille du messager. Si cette lettre était tombée entre les mains d’un autre, à cette heure, mon père, vous seriez fusillé, peut-être. »
+– À vous. Je l’ai interceptée. Si cette lettre était tombée entre d’autres mains, mon père, à cette heure vous seriez peut-être fusillé. »
 Le père de Villefort se mit à rire.
-« Allons, allons, dit-il, il paraît que la Restauration a appris de l’Empire la façon d’expédier promptement les affaires... Fusillé ! mon cher, comme vous y allez ! et cette lettre, où est-elle ? Je vous connais trop pour craindre que vous l’ayez laissée traîner.
-– Je l’ai brûlée, de peur qu’il n’en restât un seul fragment : car cette lettre, c’était votre condamnation.
-– Et la perte de votre avenir, répondit froidement Noirtier ; oui, je comprends cela ; mais je n’ai rien à craindre puisque vous me protégez.
-– Je fais mieux que cela, monsieur, je vous sauve.
-– Ah ! diable ! ceci devient plus dramatique ; expliquez-vous.
-– Monsieur, j’en reviens à ce club de la rue Saint-Jacques.
-– Il paraît que ce club tient au cœur de messieurs de la police. Pourquoi n’ont-ils pas mieux cherché ? ils l’auraient trouvé.
-– Ils ne l’ont pas trouvé, mais ils sont sur la trace.
-– C’est le mot consacré, je le sais bien : quand la police est en défaut, elle dit qu’elle est sur la trace, et le gouvernement attend tranquillement le jour où elle vient dire, l’oreille basse, que cette trace est perdue.
-– Oui, mais on a trouvé un cadavre : le général Quesnel a été tué, et dans tous les pays du monde cela s’appelle un meurtre.
-– Un meurtre, dites-vous ? mais rien ne prouve que le général ait été victime d’un meurtre : on trouve tous les jours des gens dans la Seine, qui s’y sont jetés de désespoir, qui s’y sont noyés ne sachant pas nager.
-– Mon père, vous savez très bien que le général ne s’est pas noyé par désespoir, et qu’on ne se baigne pas dans la Seine au mois de janvier.
-Non, non, ne vous abusez pas, cette mort est bien qualifiée de meurtre.
+« Allons, allons, dit-il. La Restauration a appris de l’Empire à expédier les affaires… Fusillé ! Vous y allez fort ! Et cette lettre, où est-elle ? Je vous connais trop pour craindre que vous l’ayez laissée traîner.
+– Je l’ai brûlée, de peur qu’il n’en reste le moindre fragment. Cette lettre était votre condamnation.
+– Et la ruine de votre avenir, répondit froidement Noirtier. Oui, je comprends. Mais je n’ai rien à craindre puisque vous me protégez.
+– Je fais mieux que ça, monsieur. Je vous sauve.
+– Ah, diable ! Ça devient plus dramatique. Expliquez-vous.
+– J’en reviens à ce club de la rue Saint-Jacques.
+– Il semble que ce club préoccupe beaucoup la police. Pourquoi ne l’ont-ils pas trouvé ?
+– Ils ne l’ont pas trouvé, mais ils sont sur sa trace.
+– C’est l’expression consacrée. Quand la police échoue, elle dit qu’elle est “sur la trace”, et le gouvernement attend tranquillement qu’elle vienne avouer que la trace est perdue.
+– Oui, mais on a trouvé un cadavre. Le général Quesnel a été tué. Dans tous les pays, cela s’appelle un meurtre.
+– Un meurtre, dites-vous ? Rien ne prouve que le général a été assassiné. On trouve tous les jours dans la Seine des gens qui s’y sont jetés de désespoir.
+– Mon père, vous savez très bien que le général ne s’est pas suicidé, et qu’on ne va pas se baigner dans la Seine en janvier. Non, cette mort est bien un meurtre.
 – Et qui l’a qualifiée ainsi ?
 – Le roi lui-même.
-– Le roi ! Je le croyais assez philosophe pour comprendre qu’il n’y a pas de meurtre en politique. En politique, mon cher, vous le savez comme moi, il n’y a pas d’hommes, mais des idées ; pas de sentiments, mais des intérêts ; en politique, on ne tue pas un homme : on supprime un obstacle, voilà tout. Voulez-vous savoir comment les choses se sont passées ? eh bien, moi, je vais vous le dire. On croyait pouvoir compter sur le général Quesnel : on nous l’avait recommandé de l’île d’Elbe, l’un de nous va chez lui, l’invite à se rendre rue Saint-Jacques à une assemblée où il trouvera des amis ; il y vient, et là on lui déroule tout le plan, le départ de l’île d’Elbe, le débarquement projeté ; puis, quand il a tout écouté, tout entendu, qu’il ne reste plus rien à lui apprendre, il répond qu’il est royaliste : alors chacun se regarde ; on lui fait faire serment, il le fait, mais de si mauvaise grâce vraiment, que c’était tenter Dieu que de jurer ainsi ; eh bien, malgré tout cela, on a laissé le général sortir libre, parfaitement libre. Il n’est pas rentré chez lui, que voulez-vous, mon cher ? Il est sorti de chez nous : il se sera trompé de chemin, voilà tout. Un meurtre ! en vérité vous me surprenez, Villefort, vous, substitut du procureur du roi, de bâtir une accusation sur de si mauvaises preuves. Est-ce que jamais je me suis avisé de vous dire à vous, quand vous exercez votre métier de royaliste, et que vous faites couper la tête à l’un des miens :
-« Mon fils, vous avez commis un meurtre ! »
-Non, j’ai dit : « Très bien, monsieur, vous avez combattu victorieusement ; à demain la revanche. »
+– Le roi ! Je le croyais assez philosophe pour comprendre qu’il n’y a pas de meurtre en politique. En politique, mon cher, il n’y a pas d’hommes, mais des idées ; pas de sentiments, mais des intérêts. En politique, on ne tue pas un homme : on supprime un obstacle, voilà tout. Voulez-vous savoir ce qui s’est passé ? On croyait pouvoir compter sur le général Quesnel. On l’a invité à une réunion. Là, on lui a tout expliqué : le départ de l’île d’Elbe, le débarquement… Après avoir tout écouté, il a répondu qu’il était royaliste. On lui a fait prêter serment de ne rien dire, mais il l’a fait de si mauvaise grâce… Malgré tout, on l’a laissé partir, libre. Il n’est pas rentré chez lui. Que voulez-vous ? Il se sera trompé de chemin. Un meurtre ! Vous me surprenez, Villefort, vous, un magistrat, de bâtir une accusation sur de si mauvaises preuves. Est-ce que je vous ai déjà dit, quand vous faites votre métier de royaliste et que vous faites couper la tête à un de mes amis : “Mon fils, vous avez commis un meurtre” ? Non. J’ai dit : “Très bien, monsieur, vous avez gagné. À demain la revanche.”
 – Mais, mon père, prenez garde, cette revanche sera terrible quand nous la prendrons.
 – Je ne vous comprends pas.
 – Vous comptez sur le retour de l’usurpateur ?
 – Je l’avoue.
-– Vous vous trompez, mon père, il ne fera pas dix lieues dans l’intérieur de la France sans être poursuivi, traqué, pris comme une bête fauve.
-– Mon cher ami, l’Empereur est, en ce moment, sur la route de Grenoble, le 10 ou le 12 il sera à Lyon, et le 20 ou le 25 à Paris.
-– Les populations vont se soulever...
-– Pour aller au-devant de lui.
-– Il n’a avec lui que quelques hommes, et l’on enverra contre lui des armées.
-– Qui lui feront escorte pour rentrer dans la capitale. En vérité, mon cher Gérard, vous n’êtes encore qu’un enfant ; vous vous croyez bien informé parce qu’un télégraphe vous dit, trois jours après le débarquement : « L’usurpateur est débarqué à Cannes avec quelques hommes ; on est à sa poursuite. » Mais où est-il ? que fait-il ? vous n’en savez rien : on le poursuit, voilà tout ce que vous savez. Eh bien, on le poursuivra ainsi jusqu’à Paris, sans brûler une amorce.
-– Grenoble et Lyon sont des villes fidèles, et qui lui opposeront une barrière infranchissable.
-– Grenoble lui ouvrira ses portes avec enthousiasme, Lyon tout entier ira au-devant de lui. Croyez-moi, nous sommes aussi bien informés que vous, et notre police vaut bien la vôtre : en voulez-vous une preuve ? c’est que vous vouliez me cacher votre voyage, et que cependant j’ai su votre arrivée une demi-heure après que vous avez eu passé la barrière ; vous n’avez donné votre adresse à personne qu’à votre postillon, eh bien, je connais votre adresse, et la preuve en est que j’arrive chez vous juste au moment où vous allez vous mettre à table ; sonnez donc, et demandez un second couvert ; nous dînerons ensemble.
-– En effet, répondit Villefort, regardant son père avec étonnement, en effet, vous me paraissez bien instruit.
-– Eh ! mon Dieu, la chose est toute simple ; vous autres, qui tenez le pouvoir, vous n’avez que les moyens que donne l’argent ; nous autres, qui l’attendons, nous avons ceux que donne le dévouement.
+– Vous vous trompez. Il ne fera pas dix lieues en France sans être poursuivi, traqué et pris comme un animal.
+– Mon cher, l’Empereur est en ce moment sur la route de Grenoble. Le 10, il sera à Lyon, et le 20 à Paris.
+– Les populations vont se soulever…
+– Pour aller à sa rencontre.
+– Il n’a que quelques hommes avec lui. On enverra des armées contre lui.
+– Qui lui serviront d’escorte pour rentrer dans la capitale. En vérité, Gérard, vous êtes encore un enfant. Vous croyez être bien informé parce qu’un télégraphe vous dit : “L’usurpateur a débarqué”. Mais où est-il ? Que fait-il ? Vous n’en savez rien. On le poursuit, c’est tout. On le poursuivra ainsi jusqu’à Paris, sans tirer un seul coup de feu.
+– Grenoble et Lyon sont des villes fidèles qui lui barreront la route.
+– Grenoble lui ouvrira ses portes avec enthousiasme. Lyon tout entière ira au-devant de lui. Croyez-moi, nous sommes aussi bien informés que vous. Notre police vaut bien la vôtre. La preuve ? Vous vouliez me cacher votre voyage, et pourtant j’ai su votre arrivée une demi-heure après votre passage à la barrière de la ville. Je connais votre adresse, la preuve, c’est que j’arrive au moment où vous allez dîner. Sonnez, demandez un second couvert.
+– En effet, répondit Villefort, regardant son père avec stupéfaction. Vous semblez très bien instruit.
+– C’est simple. Vous qui avez le pouvoir, vous n’avez que les moyens de l’argent. Nous qui l’attendons, nous avons ceux que donne le dévouement.
 – Le dévouement ? dit Villefort en riant.
-– Oui, le dévouement ; c’est ainsi qu’on appelle en termes honnêtes, l’ambition qui espère. »
-Et le père de Villefort étendit lui-même la main vers le cordon de la sonnette pour appeler le domestique que n’appelait pas son fils.
-Villefort lui arrêta le bras.
-« Attendez, mon père, dit le jeune homme, encore un mot.
+– Oui. C’est le nom poli pour l’ambition qui espère. »
+Et le père de Villefort tendit la main vers la sonnette pour appeler le domestique.
+Villefort lui arrêta le bras. « Attendez, mon père, encore un mot.
 – Dites.
-– Si mal faite que soit la police royaliste, elle sait cependant une chose terrible.
+– Si mauvaise que soit la police royaliste, elle sait une chose terrible.
 – Laquelle ?
-– C’est le signalement de l’homme qui, le matin du jour où a disparu le général Quesnel, s’est présenté chez lui.
-– Ah ! elle sait cela, cette bonne police ? et ce signalement, quel est-il ?
-– Teint brun, cheveux, favoris et yeux noirs, redingote bleue boutonnée jusqu’au menton, rosette d’officier de la Légion d’honneur à la boutonnière, chapeau à larges bords et canne de jonc.
-– Ah ! ah ! elle sait cela ? dit Noirtier, et pourquoi donc, en ce cas, n’a-t-elle pas mis la main sur cet homme ?
-– Parce qu’elle l’a perdu, hier ou avant-hier, au coin de la rue Coq-Héron.
-– Quand je vous disais que votre police était une sotte ?
-– Oui, mais d’un moment à l’autre elle peut le trouver.
-– Oui, dit Noirtier en regardant insoucieusement autour de lui, oui, si cet homme n’est pas averti, mais il l’est ; et, ajouta-t-il en souriant, il va changer de visage et de costume »
-À ces mots, il se leva, mit bas sa redingote et sa cravate, alla vers une table sur laquelle étaient préparées toutes les pièces du nécessaire de toilette de son fils, prit un rasoir, se savonna le visage, et d’une main parfaitement ferme abattit ces favoris compromettants qui donnaient à la police un document si précieux.
-Villefort le regardait faire avec une terreur qui n’était pas exempte d’admiration.
-Ses favoris coupés, Noirtier donna un autre tour à ses cheveux : prit, au lieu de sa cravate noire, une cravate de couleur qui se présentait à la surface d’une malle ouverte ; endossa, au lieu de sa redingote bleue et boutonnante, une redingote de Villefort, de couleur marron et de forme évasée ; essaya devant la glace le chapeau à bords retroussés du jeune homme, parut satisfait de la manière dont il lui allait, et, laissant la canne de jonc dans le coin de la cheminée où il l’avait posée, il fit siffler dans sa main nerveuse une petite badine de bambou avec laquelle l’élégant substitut donnait à sa démarche la désinvolture qui en était une des principales qualités.
-« Eh bien, dit-il, se retournant vers son fils stupéfait, lorsque cette espèce de changement à vue fut opéré, eh bien, crois-tu que ta police me reconnaisse maintenant ?
-– Non, mon père, balbutia Villefort ; je l’espère, du moins.
-– Maintenant, mon cher Gérard, continua Noirtier, je m’en rapporte à ta prudence pour faire disparaître tous les objets que je laisse à ta garde.
-– Oh ! soyez tranquille, mon père, dit Villefort.
-– Oui, oui ! et maintenant je crois que tu as raison, et que tu pourrais bien, en effet, m’avoir sauvé la vie ; mais, sois tranquille, je te rendrai cela prochainement. »
-Villefort hocha la tête.
-« Tu n’es pas convaincu ?
-– J’espère, du moins, que vous vous trompez.
+– Le signalement de l’homme qui s’est présenté chez le général Quesnel le jour de sa disparition.
+– Ah, elle sait ça, cette “bonne” police ? Et quel est ce signalement ?
+– Teint brun, cheveux, favoris et yeux noirs, redingote bleue boutonnée, rosette d’officier de la Légion d’honneur, chapeau à larges bords et canne de jonc.
+– Ah ! ah ! elle sait ça ? dit Noirtier. Et pourquoi ne l’a-t-elle pas arrêté ?
+– Parce qu’elle l’a perdu de vue hier, au coin de la rue Coq-Héron.
+– Quand je vous disais que votre police était stupide !
+– Oui, mais elle peut le retrouver d’un moment à l’autre.
+– Oui, dit Noirtier en regardant autour de lui, si cet homme n’est pas prévenu. Mais il l’est. Et, ajouta-t-il en souriant, il va changer de visage et de costume. »
+À ces mots, il se leva, enleva sa redingote et sa cravate, alla vers la table de toilette de son fils, prit un rasoir, et d’une main parfaitement ferme, rasa ces favoris compromettants.
+Villefort le regardait faire avec une terreur mêlée d’admiration.
+Ses favoris coupés, Noirtier se recoiffa. Il remplaça sa cravate noire par une autre, de couleur, trouvée dans une malle ouverte. Il troqua sa redingote bleue contre une redingote marron de Villefort. Il essaya le chapeau de son fils devant le miroir et, satisfait, il laissa sa canne dans un coin pour prendre une petite canne de bambou avec laquelle le jeune magistrat se donnait un air désinvolte.
+« Eh bien, dit-il en se retournant vers son fils stupéfait. Crois-tu que ta police me reconnaîtra maintenant ?
+– Non, mon père, balbutia Villefort. Je l’espère, du moins.
+– Maintenant, mon cher Gérard, je compte sur ta prudence pour faire disparaître tout ce que je laisse.
+– Oh, soyez tranquille, mon père.
+– Bien. Et maintenant, je crois que tu as raison : tu m’as peut-être sauvé la vie. Mais sois tranquille, je te revaudrai ça bientôt.
+Villefort hocha la tête, peu convaincu. « J’espère que vous vous trompez.
 – Reverras-tu le roi ?
 – Peut-être.
-– Veux-tu passer à ses yeux pour un prophète ?
-– Les prophètes de malheur sont mal venus à la cour, mon père.
-– Oui, mais, un jour ou l’autre, on leur rend justice ; et suppose une seconde Restauration, alors tu passeras pour un grand homme.
+– Veux-tu passer pour un prophète à ses yeux ?
+– Les prophètes de malheur sont mal vus à la cour.
+– Oui, mais un jour, on leur rend justice. Si une seconde Restauration a lieu, tu passeras pour un grand homme.
 – Enfin, que dois-je dire au roi ?
-– Dis-lui ceci : « Sire, on vous trompe sur les dispositions de la France, sur l’opinion des villes, sur l’esprit de l’armée ; celui que vous appelez à Paris l’ogre de Corse, qui s’appelle encore l’usurpateur à Nevers, s’appelle déjà Bonaparte à Lyon, et l’Empereur à Grenoble. Vous le croyez traqué, poursuivi, en fuite ; il marche, rapide comme l’aigle qu’il rapporte. Les soldats, que vous croyez mourants de faim, écrasés de fatigue, prêts à déserter, s’augmentent comme les atomes de neige autour de la boule qui se précipite. Sire, partez ; abandonnez la France à son véritable maître, à celui qui ne l’a pas achetée, mais conquise ; partez, Sire, non pas que vous couriez quelque danger, votre adversaire est assez fort pour faire grâce, mais parce qu’il serait humiliant pour un petit-fils de saint Louis de devoir la vie à l’homme d’Arcole, de Marengo et d’Austerlitz. »
-Dis-lui cela, Gérard ; ou plutôt, va, ne lui dis rien ; dissimule ton voyage ; ne te vante pas de ce que tu es venu faire et de ce que tu as fait à Paris ; reprends la poste ; si tu as brûlé le chemin pour venir, dévore l’espace pour retourner ; rentre à Marseille de nuit ; pénètre chez toi par une porte de derrière, et là reste bien doux, bien humble, bien secret, bien inoffensif surtout, car cette fois, je te le jure, nous agirons en gens vigoureux et qui connaissent leurs ennemis. Allez, mon fils, allez, mon cher Gérard, et moyennant cette obéissance aux ordres paternels, ou, si vous l’aimez mieux, cette déférence pour les conseils d’un ami, nous vous maintiendrons dans votre place. Ce sera, ajouta Noirtier en souriant, un moyen pour vous de me sauver une seconde fois, si la bascule politique vous remet un jour en haut et moi en bas. Adieu, mon cher Gérard ; à votre prochain voyage, descendez chez moi. »
-Et Noirtier sortit à ces mots, avec la tranquillité qui ne l’avait pas quitté un instant pendant la durée de cet entretien si difficile.
-Villefort, pâle et agité, courut à la fenêtre, entrouvrit le rideau, et le vit passer, calme et impassible, au milieu de deux ou trois hommes de mauvaise mine, embusqués au coin des bornes et à l’angle des rues, qui étaient peut-être là pour arrêter l’homme aux favoris noirs, à la redingote bleue et au chapeau à larges bords.
-Villefort demeura ainsi, debout et haletant, jusqu’à ce que son père eût disparu au carrefour Bussy. Alors il s’élança vers les objets abandonnés par lui, mit au plus profond de sa malle la cravate noire et la redingote bleue, tordit le chapeau qu’il fourra dans le bas d’une armoire, brisa la canne de jonc en trois morceaux qu’il jeta au feu, mit une casquette de voyage, appela son valet de chambre, lui interdit d’un regard les mille questions qu’il avait envie de faire, régla son compte avec l’hôtel, sauta dans sa voiture qui l’attendait tout attelée, apprit à Lyon que Bonaparte venait d’entrer à Grenoble, et, au milieu de l’agitation qui régnait tout le long de la route, arriva à Marseille, en proie à toutes les transes qui entrent dans le cœur de l’homme avec l’ambition et les premiers honneurs.`,
+– Dis-lui ceci : “Sire, on vous trompe. Celui que vous appelez à Paris l’ogre de Corse, et à Nevers l’usurpateur, s’appelle déjà Bonaparte à Lyon, et l’Empereur à Grenoble. Vous le croyez traqué, il marche, rapide comme l’aigle qu’il rapporte. Les soldats que vous croyez prêts à déserter le rejoignent en masse. Sire, partez. Abandonnez la France à son véritable maître. Partez, non pas que vous risquiez quelque chose, mais parce qu’il serait humiliant pour un petit-fils de saint Louis de devoir la vie à l’homme d’Austerlitz.” Dis-lui cela, Gérard. Ou plutôt, ne dis rien. Cache ton voyage, ne te vante de rien. Reprends la route, rentre à Marseille de nuit, et là, reste discret et inoffensif. Car cette fois, je te le jure, nous agirons avec force. Allez, mon fils. En échange de cette obéissance, nous te maintiendrons à ton poste. Ce sera une façon pour toi de me sauver une seconde fois, si la politique nous inverse les rôles un jour. Adieu, Gérard. À ton prochain voyage, descends chez moi. »
+Et Noirtier sortit, avec le même calme qu’il avait gardé pendant tout cet entretien.
+Villefort, pâle et agité, courut à la fenêtre. Il le vit passer, calme et impassible, au milieu de quelques hommes à l’air suspect qui traînaient dans la rue, peut-être là pour arrêter l’homme aux favoris noirs.
+Villefort resta là, haletant, jusqu’à ce que son père disparaisse. Alors, il se précipita sur les objets abandonnés, cacha la cravate et la redingote au fond de sa malle, tordit le chapeau, brisa la canne et la jeta au feu. Il mit une casquette de voyage, régla son compte avec l’hôtel, et sauta dans sa voiture qui l’attendait. Il apprit à Lyon que Bonaparte venait d’entrer à Grenoble et arriva à Marseille, en proie à toute l’angoisse que l’ambition et les premiers honneurs peuvent apporter au cœur d’un homme.`,
 }

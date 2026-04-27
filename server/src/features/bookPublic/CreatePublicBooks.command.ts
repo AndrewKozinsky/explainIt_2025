@@ -98,10 +98,10 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 				book: theLittlePrinceBookData(coversFolderName + 'french/'),
 				chapters: theLittlePrinceChapters,
 			},
-			/*{
+			{
 				book: theCountOfMonteCristoBookData(coversFolderName + 'french/'),
 				chapters: theCountOfMonteCristoChapters,
-			},*/
+			},
 		]
 	}
 

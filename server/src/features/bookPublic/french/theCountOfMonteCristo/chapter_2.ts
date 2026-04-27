@@ -1,135 +1,130 @@
 export const chapter_2 = {
 	name: 'CHAPITRE II',
 	header: 'Le père et le fils',
-	text: `Laissons Danglars, aux prises avec le génie de la haine, essayer de souffler contre son camarade quelque maligne supposition à l’oreille de l’armateur, et suivons Dantès, qui, après avoir parcouru la Canebière dans toute sa longueur, prend la rue de Noailles, entre dans une petite maison située du côté gauche des Allées de Meilhan, monte vivement les quatre étages d’un escalier obscur, et, se retenant à la rampe d’une main, comprimant de l’autre les battements de son cœur, s’arrête devant une porte entrebâillée, qui laisse voir jusqu’au fond d’une petite chambre.
-Cette chambre était celle qu’habitait le père de Dantès.
-La nouvelle de l’arrivée du Pharaon n’était pas encore parvenue au vieillard, qui s’occupait, monté sur une chaise, à palissader d’une main tremblante quelques capucines mêlées de clématites, qui montaient en grimpant le long du treillage de sa fenêtre.
-Tout à coup il se sentit prendre à bras-le-corps, et une voix bien connue s’écria derrière lui :
+	text: `Laissons Danglars essayer de nuire à son camarade en murmurant des soupçons à l'oreille de l'armateur. Suivons plutôt Dantès. Après avoir traversé toute la Canebière, il prend la rue de Noailles и entre dans une petite maison à gauche des Allées de Meilhan. Il monte rapidement les quatre étages d'un escalier sombre. D'une main, il se tient à la rampe ; de l'autre, il essaie de calmer les battements de son cœur. Il s'arrête enfin devant une porte entrouverte qui permet de voir le fond d'une petite chambre.
+Cette chambre était celle du père de Dantès.
+Le vieillard n'avait pas encore appris l'arrivée du Pharaon. Debout sur une chaise, il s'occupait avec une main tremblante de ses fleurs qui grimpaient le long de la fenêtre.
+Tout à coup, il sentit qu'on le prenait dans ses bras et une voix familière s'écria derrière lui :
 « Mon père, mon bon père ! »
-Le vieillard jeta un cri et se retourna ; puis, voyant son fils, il se laissa aller dans ses bras, tout tremblant et tout pâle.
-« Qu’as-tu donc, père ? s’écria le jeune homme inquiet ; serais-tu malade ?
-– Non, non, mon cher Edmond, mon fils, mon enfant, non ; mais je ne t’attendais pas, et la joie, le saisissement de te revoir ainsi à l’improviste...
-Ah ! mon Dieu ! il me semble que je vais mourir !
-– Eh bien, remets-toi donc, père ! c’est moi, bien moi ! On dit toujours que la joie ne fait pas de mal, et voilà pourquoi je suis entré ici sans préparation. Voyons, souris-moi, au lieu de me regarder comme tu le fais, avec des yeux égarés.
-Je reviens et nous allons être heureux.
-– Ah ! tant mieux, garçon ! reprit le vieillard, mais comment allons-nous être heureux ? tu ne me quittes donc plus ? Voyons, conte-moi ton bonheur.
-– Que le Seigneur me pardonne, dit le jeune homme, de me réjouir d’un bonheur fait avec le deuil d’une famille ! Mais Dieu sait que je n’eusse pas désiré ce bonheur ; il arrive, et je n’ai pas la force de m’en affliger : le brave capitaine Leclère est mort, mon père, et il est probable que, par la protection de M. Morrel, je vais avoir sa place. Comprenez-vous, mon père ? capitaine à vingt ans ! avec cent louis d’appointements et une part dans les bénéfices ! n’est-ce pas plus que ne pouvait vraiment l’espérer un pauvre matelot comme moi ?
-– Oui, mon fils, oui, en effet, dit le vieillard, c’est heureux.
-– Aussi je veux que du premier argent que je toucherai vous ayez une petite maison, avec un jardin pour planter vos clématites, vos capucines et vos chèvrefeuilles... Mais, qu’as-tu donc, père, on dirait que tu te trouves mal ?
-– Patience, patience ! ce ne sera rien. »
-Et, les forces manquant au vieillard, il se renversa en arrière.
-« Voyons ! voyons ! dit le jeune homme, un verre de vin, mon père ; cela vous ranimera ; où mettez-vous votre vin ?
-– Non, merci, ne cherche pas ; je n’en ai pas besoin, dit le vieillard essayant de retenir son fils.
-– Si fait, si fait, père, indiquez-moi l’endroit. »
-Et il ouvrit deux ou trois armoires.
-« Inutile... dit le vieillard, il n’y a plus de vin.
-– Comment, il n’y a plus de vin ! dit en pâlissant à son tour Dantès, regardant alternativement les joues creuses et blêmes du vieillard et les armoires vides, comment, il n’y a plus de vin ! Auriez-vous manqué d’argent, mon père ?
-– Je n’ai manqué de rien, puisque te voilà, dit le vieillard.
-– Cependant, balbutia Dantès en essuyant la sueur qui coulait de son front, cependant je vous avais laissé deux cents francs, il y a trois mois, en partant.
-– Oui, oui, Edmond, c’est vrai ; mais tu avais oublié en partant une petite dette chez le voisin Caderousse ; il me l’a rappelée, en me disant que si je ne payais pas pour toi il irait se faire payer chez M. Morrel. Alors, tu comprends, de peur que cela te fît du tort...
-– Eh bien ?
-– Eh bien, j’ai payé, moi.
-– Mais, s’écria Dantès, c’était cent quarante francs que je devais à Caderousse !
-– Oui, balbutia le vieillard.
-– Et vous les avez donnés sur les deux cent francs que je vous avais laissés ? »
-Le vieillard fit un signe de tête.
-« De sorte que vous avez vécu trois mois avec soixante francs ! murmura le jeune homme.
-– Tu sais combien il me faut peu de chose, dit le vieillard.
-– Oh ! mon Dieu, mon Dieu, pardonnez-moi ! s’écria Edmond en se jetant à genoux devant le bonhomme.
-– Que fais-tu donc ?
-– Oh ! vous m’avez déchiré le cœur.
-– Bah ! te voilà, dit le vieillard en souriant ; maintenant tout est oublié, car tout est bien.
-– Oui, me voilà, dit le jeune homme, me voilà avec un bel avenir et un peu d’argent. Tenez, père, dit-il, prenez, prenez, et envoyez chercher tout de suite quelque chose. »
-Et il vida sur la table ses poches, qui contenaient une douzaine de pièces d’or, cinq ou six écus de cinq francs et de la menue monnaie.
-Le visage du vieux Dantès s’épanouit.
-« À qui cela ? dit-il.
-– Mais, à moi !... à toi !... à nous !... Prends, achète des provisions, sois heureux, demain il y en aura d’autres.
-– Doucement, doucement, dit le vieillard en souriant ; avec ta permission, j’userai modérément de la bourse : on croirait, si l’on me voyait acheter trop de choses à la fois, que j’ai été obligé d’attendre ton retour pour les acheter.
-– Fais comme tu voudras ; mais, avant toutes choses, prends une servante, père ; je ne veux pas que tu restes seul. J’ai du café de contrebande et d’excellent tabac dans un petit coffre de la cale, tu l’auras dès demain. Mais chut ! voici quelqu’un.
-– C’est Caderousse qui aura appris ton arrivée, et qui vient sans doute te faire son compliment de bon retour.
-– Bon, encore des lèvres qui disent une chose tandis que le cœur en pense une autre, murmura Edmond ; mais, n’importe, c’est un voisin qui nous a rendu service autrefois, qu’il soit le bienvenu. »
-En effet, au moment où Edmond achevait la phrase à voix basse, on vit apparaître, encadrée par la porte du palier, la tête noire et barbue de Caderousse. C’était un homme de vingt-cinq à vingt-six ans ; il tenait à sa main un morceau de drap, qu’en sa qualité de tailleur il s’apprêtait à changer en un revers d’habit.
-« Eh ! te voilà donc revenu, Edmond ? dit-il avec un accent marseillais des plus prononcés et avec un large sourire qui découvrait ses dents blanches comme de l’ivoire.
-– Comme vous voyez, voisin Caderousse, et prêt à vous être agréable en quelque chose que ce soit, répondit Dantès en dissimulant mal sa froideur sous cette offre de service.
-– Merci, merci ; heureusement, je n’ai besoin de rien, et ce sont même quelquefois les autres qui ont besoin de moi. (Dantès fit un mouvement.) Je ne te dis pas cela pour toi, garçon ; je t’ai prêté de l’argent, tu me l’as rendu ; cela se fait entre bons voisins, et nous sommes quittes.
-– On n’est jamais quitte envers ceux qui nous ont obligés, dit Dantès, car lorsqu’on ne leur doit plus l’argent, on leur doit la reconnaissance.
-– À quoi bon parler de cela ! Ce qui est passé est passé. Parlons de ton heureux retour, garçon.
-J’étais donc allé comme cela sur le port pour rassortir du drap marron, lorsque je rencontrai l’ami Danglars.
-« – Toi, à Marseille ?
-« – Eh oui, tout de même, me répondit-il.
+Le vieillard poussa un cri et se retourna. En voyant son fils, il se laissa aller dans ses bras, tout tremblant et très pâle.
+« Qu’as-tu donc, père ? demanda le jeune homme avec inquiétude. Serais-tu malade ?
+– Non, non, mon cher Edmond, mon fils, mon enfant, non. Mais je ne t’attendais pas. C'est la joie и la surprise de te revoir ainsi, tout à coup... Ah ! mon Dieu ! j'ai l'impression que je vais mourir !
+– Eh bien, calme-toi, père ! C’est bien moi ! On dit toujours que la joie ne fait pas de mal, c’est pour ça que je suis entré sans te prévenir. Allez, souris-moi, au lieu de me regarder avec ces yeux perdus. Je suis de retour et nous allons être heureux.
+– Ah ! tant mieux, mon garçon ! répondit le vieillard. Mais comment allons-nous être heureux ? Tu ne me quittes donc plus ? Raconte-moi ce qui t'arrive.
+– Que Dieu me pardonne de me réjouir d'un bonheur qui vient du deuil d'une famille ! dit le jeune homme. Je n’aurais jamais souhaité ce malheur, mais puisqu'il est arrivé, je n'ai pas la force d'être triste. Le brave capitaine Leclère est mort, mon père, et il est probable que, grâce à M. Morrel, je vais prendre sa place. Vous vous rendez compte, mon père ? Capitaine à vingt ans ! Avec un bon salaire et une part des bénéfices ! C’est bien plus que ce qu'un pauvre marin comme moi pouvait espérer, n’est-ce pas ?
+– Oui, mon fils, c’est en effet une grande chance, dit le vieillard.
+– Avec le premier argent que je gagnerai, je veux que vous ayez une petite maison avec un jardin pour vos fleurs. Mais qu’as-tu, père ? On dirait que tu te sens mal.
+– Patience, patience ! Ce ne sera rien. »
+Mais les forces manquèrent au vieillard et il tomba en arrière.
+« Voyons ! dit le jeune homme, un verre de vin, mon père, cela vous fera du bien. Où est le vin ?
+– Non, merci, ne cherche pas, je n’en ai pas besoin, dit le vieillard en essayant d'arrêter son fils.
+– Mais si, père, dites-moi où il est. »
+Edmond ouvrit deux ou trois armoires.
+« C'est inutile... dit le vieillard, il n’y a plus de vin.
+– Comment, il n’y a plus de vin ! s'écria Dantès en devenant pâle à son tour. Il regardait les joues creuses de son père et les armoires vides. Comment, plus de vin ! Est-ce que tu as manqué d’argent, mon père ?
+– Je n’ai manqué de rien, puisque tu es là, dit le vieillard.
+– Pourtant, balbutia Dantès en essuyant la sueur de son front, je t’avais laissé deux cents francs en partant, il y a trois mois.
+– Oui, Edmond, c’est vrai. Mais tu avais oublié une petite dette chez le voisin Caderousse. Il me l’a rappelée en disant que si je ne payais pas pour toi, il irait demander l'argent à M. Morrel. Alors, tu comprends, pour ne pas te causer d'ennuis...
+– Et alors ?
+– Eh bien, j'ai payé.
+– Mais je devais cent quarante francs à Caderousse ! s’écria Dantès.
+– Oui, murmura le vieillard.
+– Et vous les avez payés avec les deux cents francs que je vous avais laissés ? »
+Le vieillard fit signe que oui.
+« Ce qui veut dire que vous avez vécu trois mois avec seulement soixante francs ! murmura le jeune homme.
+– Tu sais qu'il me faut très peu de chose, dit le vieillard.
+– Oh ! mon Dieu, pardonnez-moi ! s’écria Edmond en se jetant à genoux devant son père.
+– Que fais-tu ?
+– Oh ! vous me déchirez le cœur.
+– Mais non ! Tu es là maintenant, dit le vieillard en souriant. Tout est oublié, car tout va bien.
+– Oui, je suis là, dit le jeune homme, avec un bel avenir et un peu d’argent. Tenez, père, prenez ça et envoyez chercher tout de suite quelque chose à manger. »
+Il vida ses poches sur la table : une douzaine de pièces d’or и un peu de monnaie. Le visage du vieux Dantès s'illumina.
+« À qui est tout cet argent ? demanda-t-il.
+– À moi !... à toi !... à nous !... Prends, achète des provisions, sois heureux. Demain, il y en aura d’autres.
+– Doucement, doucement, dit le vieillard en souriant. J'utiliserai cet argent avec modération. Si les gens me voyaient acheter trop de choses à la fois, ils penseraient que j’ai dû attendre ton retour pour pouvoir manger.
+– Faites comme vous voulez. Mais avant tout, prenez une servante, père. Je ne veux plus que vous restiez seul. J'ai du café et du bon tabac dans un coffre sur le navire, je vous les apporterai demain. Mais chut ! Quelqu'un arrive.
+– C’est sûrement Caderousse. Il a dû apprendre ton arrivée et vient te saluer.
+– Encore quelqu'un qui dit une chose alors que son cœur en pense une autre, murmura Edmond. Mais peu importe, c’est un voisin qui nous a aidés autrefois, il est le bienvenu. »
+En effet, on vit apparaître la tête noire et barbue de Caderousse. C’était un homme de vingt-cinq ou vingt-six ans. Il tenait à la main un morceau de tissu, car il était tailleur.
+« Eh ! te voilà de retour, Edmond ? dit-il avec un fort accent marseillais et un large sourire.
+– Comme vous voyez, voisin Caderousse. Je suis prêt à vous aider si vous avez besoin de quelque chose, répondit Dantès, en cachant mal sa froideur.
+– Merci, merci. Heureusement, je n’ai besoin de rien. Ce sont plutôt les autres qui ont parfois besoin de moi. (Dantès fit un geste.) Je ne dis pas ça pour toi, mon garçon. Je t'ai prêté de l'argent и tu me l'as rendu. C’est ce que font les bons voisins, nous sommes quittes.
+– On n'est jamais vraiment quitte envers ceux qui nous ont aidés, dit Dantès. Car quand on ne doit plus d'argent, on doit encore de la reconnaissance.
+– Ne parlons plus de ça ! Ce qui est passé est passé. Parlons plutôt de ton retour. J’étais sur le port pour acheter du tissu quand j’ai rencontré Danglars.
+« – Toi, à Marseille ? lui ai-je demandé.
+« – Eh oui, me répondit-il.
 « – Je te croyais à Smyrne.
-« – J’y pourrais être, car j’en reviens.
-« – Et Edmond, où est-il donc, le petit ?
-« – Mais chez son père, sans doute », répondit Danglars ; et alors je suis venu, continua Caderousse, pour avoir le plaisir de serrer la main à un ami.
+« – J'en reviens juste.
+« – Et où est le petit Edmond ?
+« – Chez son père, sans doute », répondit Danglars. Alors je suis venu pour avoir le plaisir de serrer la main d'un ami, continua Caderousse.
 – Ce bon Caderousse, dit le vieillard, il nous aime tant.
-– Certainement que je vous aime, et que je vous estime encore, attendu que les honnêtes gens sont rares ! Mais il paraît que tu deviens riche, garçon ? » continua le tailleur en jetant un regard oblique sur la poignée d’or et d’argent que Dantès avait déposée sur la table.
-Le jeune homme remarqua l’éclair de convoitise qui illumina les yeux noirs de son voisin.
-« Eh ! mon Dieu ! dit-il négligemment, cet argent n’est point à moi ; je manifestais au père la crainte qu’il n’eût manqué de quelque chose en mon absence, et pour me rassurer, il a vidé sa bourse sur la table. Allons, père, continua Dantès, remettez cet argent dans votre tirelire ; à moins que le voisin Caderousse n’en ait besoin à son tour, auquel cas il est bien à son service.
-– Non pas, garçon, dit Caderousse, je n’ai besoin de rien, et Dieu merci l’état nourrit son homme. Garde ton argent, garde : on n’en a jamais de trop ; ce qui n’empêche pas que je ne te sois obligé de ton offre comme si j’en profitais.
+– Bien sûr que je vous aime ! Et je vous estime, car les gens honnêtes sont rares ! Mais il paraît que tu deviens riche, mon garçon ? continua le tailleur en regardant l'argent sur la table.
+Le jeune homme remarqua l'envie dans les yeux noirs de son voisin.
+« Oh ! cet argent n'est pas à moi, dit-il négligemment. Je craignais que mon père n'ait manqué de rien pendant mon absence et pour me rassurer, il a vidé sa bourse sur la table. Allez, père, range cet argent. Sauf si le voisin Caderousse en a besoin, bien sûr.
+– Pas du tout ! dit Caderousse. Je n'ai besoin de rien, mon travail me suffit pour vivre. Garde ton argent, on n'en a jamais trop. Mais je te remercie quand même pour ton offre.
 – C’était de bon cœur, dit Dantès.
-– Je n’en doute pas. Eh bien, te voilà donc au mieux avec M. Morrel, câlin que tu es ?
-– M. Morrel a toujours eu beaucoup de bonté pour moi, répondit Dantès.
-– En ce cas, tu as tort de refuser son dîner.
-– Comment, refuser son dîner ? reprit le vieux Dantès ; il t’avait donc invité à dîner ?
-– Oui, mon père, reprit Edmond en souriant de l’étonnement que causait à son père l’excès de l’honneur dont il était l’objet.
-– Et pourquoi donc as-tu refusé, fils ? demanda le vieillard.
-– Pour revenir plus tôt près de vous, mon père, répondit le jeune homme ; j’avais hâte de vous voir.
-– Cela l’aura contrarié, ce bon M. Morrel, reprit Caderousse ; et quand on vise à être capitaine, c’est un tort que de contrarier son armateur.
-– Je lui ai expliqué la cause de mon refus, reprit Dantès, et il l’a comprise, je l’espère.
-– Ah ! c’est que, pour être capitaine, il faut un peu flatter ses patrons.
-– J’espère être capitaine sans cela, répondit Dantès.
-– Tant mieux, tant mieux ! cela fera plaisir à tous les anciens amis, et je sais quelqu’un là-bas, derrière la citadelle de Saint-Nicolas, qui n’en sera pas fâché.
-– Mercédès ? dit le vieillard.
-– Oui, mon père, reprit Dantès, et, avec votre permission, maintenant que je vous ai vu, maintenant que je sais que vous vous portez bien et que vous avez tout ce qu’il vous faut, je vous demanderai la permission d’aller faire visite aux Catalans.
-– Va, mon enfant, dit le vieux Dantès, et que Dieu te bénisse dans ta femme comme il m’a béni dans mon fils.
-– Sa femme ! dit Caderousse ; comme vous y allez, père Dantès ! elle ne l’est pas encore, ce me semble !
-– Non ; mais, selon toute probabilité, répondit Edmond, elle ne tardera pas à le devenir.
-– N’importe, n’importe, dit Caderousse, tu as bien fait de te dépêcher, garçon.
-– Pourquoi cela ?
-– Parce que la Mercédès est une belle fille, et que les belles filles ne manquent pas d’amoureux ; celle-là surtout, ils la suivent par douzaines.
-– Vraiment, dit Edmond avec un sourire sous lequel perçait une légère nuance d’inquiétude.
-– Oh ! oui, reprit Caderousse, et de beaux partis même ; mais, tu comprends, tu vas être capitaine, on n’aura garde de te refuser, toi !
-– Ce qui veut dire, reprit Dantès avec un sourire qui dissimulait mal son inquiétude, que si je n’étais pas capitaine...
-– Eh ! eh ! fit Caderousse.
-– Allons, allons, dit le jeune homme, j’ai meilleure opinion que vous des femmes en général, et de Mercédès en particulier, et, j’en suis convaincu, que je sois capitaine ou non, elle me restera fidèle.
-– Tant mieux ! tant mieux ! dit Caderousse, c’est toujours, quand on va se marier, une bonne chose que d’avoir la foi ; mais, n’importe ; croismoi, garçon, ne perds pas de temps à aller lui annoncer ton arrivée et à lui faire part de tes espérances.
+– Je n'en doute pas. Alors, tu es très bien vu par M. Morrel, à ce qu'il paraît ?
+– M. Morrel a toujours été très bon pour moi, répondit Dantès.
+– Dans ce cas, tu as eu tort de refuser son invitation à dîner.
+– Comment, tu as refusé son dîner ? demanda le vieux Dantès avec surprise.
+– Oui, mon père, répondit Edmond en souriant.
+– Et pourquoi as-tu refusé, mon fils ?
+– Pour revenir plus vite auprès de vous, père. J’avais hâte de vous voir.
+– Cela a dû contrarier ce bon M. Morrel, dit Caderousse. Et quand on veut devenir capitaine, il ne faut pas contrarier son patron.
+– Je lui ai expliqué pourquoi je refusais et il a compris, j'espère.
+– Ah ! c'est que pour être capitaine, il faut un peu flatter ses patrons.
+– J’espère devenir capitaine sans avoir besoin de faire ça, répondit Dantès.
+– Tant mieux ! Cela fera plaisir à tes vieux amis. Et je connais quelqu'un, du côté de la citadelle, qui sera très contente aussi.
+– Mercédès ? demanda le vieillard.
+– Oui, mon père, répondit Dantès. Et avec votre permission, maintenant que je sais que vous allez bien, j'aimerais aller lui rendre visite au village des Catalans.
+– Va, mon enfant, dit le vieux Dantès. Que Dieu te bénisse avec ta femme comme il m'a béni avec mon fils.
+– Sa femme ! dit Caderousse. Vous allez vite, père Dantès ! Elle ne l’est pas encore !
+– Non, mais elle le deviendra bientôt, répondit Edmond.
+– C'est vrai, tu as bien fait de te dépêcher, mon garçon.
+– Pourquoi ?
+– Parce que Mercédès est une très belle fille et les belles filles ont beaucoup d'amoureux. Elle en a des dizaines.
+– Vraiment ? dit Edmond avec un sourire, mais aussi une légère inquiétude.
+– Oh oui ! et des hommes riches ! Mais comme tu vas être capitaine, elle ne te refusera pas !
+– Ce qui veut dire, reprit Dantès, que si je n'étais pas capitaine...
+– Eh bien... fit Caderousse.
+– Allons, j'ai une meilleure opinion des femmes, et surtout de Mercédès. Je suis sûr qu'elle me resterait fidèle, que je sois capitaine ou non.
+– Tant mieux pour toi ! dit Caderousse. C’est bien d'avoir confiance quand on va se marier. Mais crois-moi, ne perds pas de temps. Va lui annoncer ton arrivée.
 – J’y vais », dit Edmond.
-Il embrassa son père, salua Caderousse d’un signe et sortit.
-Caderousse resta un instant encore ; puis, prenant congé du vieux Dantès, il descendit à son tour et alla rejoindre Danglars, qui l’attendait au coin de la rue Senac.
-« Eh bien, dit Danglars, l’as-tu vu ?
-– Je le quitte, dit Caderousse.
-– Et t’a-t-il parlé de son espérance d’être capitaine ?
-– Il en parle comme s’il l’était déjà.
-– Patience ! dit Danglars, il se presse un peu trop, ce me semble.
-– Dame ! il paraît que la chose lui est promise par M. Morrel.
-– De sorte qu’il est bien joyeux ?
-– C’est-à-dire qu’il en est insolent ; il m’a déjà fait ses offres de service comme si c’était un grand personnage ; il m’a offert de me prêter de l’argent comme s’il était un banquier.
+Il embrassa son père, salua Caderousse et sortit.
+Caderousse resta encore un moment, puis il dit au revoir au vieux Dantès. Il descendit et alla rejoindre Danglars qui l'attendait au coin de la rue.
+« Alors, dit Danglars, tu l’as vu ?
+– Je viens de le quitter, répondit Caderousse.
+– Est-ce qu'il a parlé de son espoir d'être capitaine ?
+– Il en parle comme s'il l'était déjà !
+– Patience ! dit Danglars. Il va un peu trop vite.
+– Eh bien, il paraît que M. Morrel le lui a promis.
+– Il est donc très joyeux ?
+– Il est même arrogant ! Il m'a proposé son aide comme s'il était un grand personnage. Il m'a même proposé de me prêter de l'argent comme un banquier !
 – Et vous avez refusé ?
-– Parfaitement ; quoique j’eusse bien pu accepter, attendu que c’est moi qui lui ai mis à la main les premières pièces blanches qu’il a maniées. Mais maintenant M. Dantès n’aura plus besoin de personne, il va être capitaine.
-– Bah ! dit Danglars, il ne l’est pas encore.
-– Ma foi, ce serait bien fait qu’il ne le fût pas, dit Caderousse, ou sans cela il n’y aura plus moyen de lui parler.
-– Que si nous le voulons bien, dit Danglars, il restera ce qu’il est, et peut-être même deviendra moins qu’il n’est.
-– Que dis-tu ?
+– Bien sûr ! Même si c'est moi qui l'ai aidé quand il était jeune marin. Mais maintenant, M. Dantès n'a plus besoin de personne, il va être capitaine !
+– Oh ! il ne l'est pas encore, dit Danglars.
+– Ce serait bien s'il ne le devenait pas, dit Caderousse. Sinon, on ne pourra plus lui parler.
+– Si nous le voulons, dit Danglars, il restera ce qu'il est, ou peut-être même moins.
+– Que veux-tu dire ?
 – Rien, je me parle à moi-même. Et il est toujours amoureux de la belle Catalane ?
-– Amoureux fou. Il y est allé ; mais ou je me trompe fort, ou il aura du désagrément de ce côtélà.
+– Fou amoureux. Il est parti la voir. Mais je pense qu'il va avoir des problèmes de ce côté-là.
 – Explique-toi.
 – À quoi bon ?
-– C’est plus important que tu ne crois. Tu n’aimes pas Dantès, hein ?
-– Je n’aime pas les arrogants.
-– Eh bien, alors ! dis-moi ce que tu sais relativement à la Catalane.
-– Je ne sais rien de bien positif ; seulement j’ai vu des choses qui me font croire, comme je te l’ai dit, que le futur capitaine aura du désagrément aux environs du chemin des Vieilles-Infirmeries.
-– Qu’as-tu vu ? allons, dis.
-– Eh bien, j’ai vu que toutes les fois que Mercédès vient en ville, elle y vient accompagnée d’un grand gaillard de Catalan à l’œil noir, à la peau rouge, très brun, très ardent, et qu’elle appelle mon cousin.
-– Ah ! vraiment ! et crois-tu que ce cousin lui fasse la cour ?
-– Je le suppose : que diable peut faire un grand garçon de vingt et un ans à une belle fille de dixsept ?
-– Et tu dis que Dantès est allé aux Catalans ?
-– Il est parti devant moi.
-– Si nous allions du même côté, nous nous arrêterions à la Réserve, et, tout en buvant un verre de vin de La Malgue, nous attendrions des nouvelles.
-– Et qui nous en donnera ?
-– Nous serons sur la route, et nous verrons sur le visage de Dantès ce qui se sera passé.
-– Allons, dit Caderousse ; mais c’est toi qui paies ?
-– Certainement », répondit Danglars.
-Et tous deux s’acheminèrent d’un pas rapide vers l’endroit indiqué. Arrivés là, ils se firent apporter une bouteille et deux verres.
-Le père Pamphile venait de voir passer Dantès il n’y avait pas dix minutes.
-Certains que Dantès était aux Catalans, ils s’assirent sous le feuillage naissant des platanes et des sycomores, dans les branches desquels une bande joyeuse d’oiseaux chantaient un des premiers beaux jours de printemps.`,
+– C’est plus important que tu ne le penses. Tu n’aimes pas Dantès, n'est-ce pas ?
+– Je n’aime pas les gens arrogants.
+– Alors, dis-moi ce que tu sais sur la Catalane.
+– Je ne sais rien de précis. Mais j'ai vu des choses qui me font croire que le futur capitaine aura des ennuis là-bas.
+– Qu'as-tu vu ? Raconte.
+– J'ai vu que chaque fois que Mercédès vient en ville, elle est accompagnée d'un grand Catalan très brun et très vif, qu'elle appelle son cousin.
+– Ah bon ? Et tu penses que ce cousin lui fait la cour ?
+– Je suppose. Que peut faire d'autre un garçon de vingt ans avec une jolie fille de dix-sept ans ?
+– Et tu dis que Dantès est allé là-bas ?
+– Il est parti juste avant moi.
+– Si nous allions par là aussi ? Nous pourrions nous arrêter boire un verre de vin et attendre des nouvelles.
+– Qui nous donnera des nouvelles ?
+– Nous serons sur son chemin. Nous verrons bien sur son visage ce qui s'est passé.
+– D'accord, dit Caderousse. Mais c’est toi qui paies ?
+– Bien sûr », répondit Danglars.
+Ils marchèrent rapidement vers l'endroit indiqué. Arrivés là, ils commandèrent une bouteille и deux verres.
+Le patron venait de voir passer Dantès dix minutes plus tôt. Sûrs que Dantès était au village des Catalans, ils s'assirent à l'ombre des arbres, écoutant les oiseaux chanter en ce beau jour de printemps.`,
 }

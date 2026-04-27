@@ -1,127 +1,75 @@
+// Глава адаптирована
 export const chapter_18 = {
 	name: 'CHAPITRE XVIII',
 	header: 'Le trésor',
-	text: `Lorsque Dantès rentra le lendemain matin dans la chambre de son compagnon de captivité, il trouva Faria assis, le visage calme.
-Sous le rayon qui glissait à travers l’étroite fenêtre de sa cellule, il tenait ouvert dans sa main gauche, la seule, on se le rappelle, dont l’usage lui fût resté, un morceau de papier, auquel l’habitude d’être roulé en un mince volume avait imprimé la forme d’un cylindre rebelle à s’étendre.
-Il montra sans rien dire le papier à Dantès.
-« Qu’est-ce cela ? demanda celui-ci.
-– Regardez bien, dit l’abbé en souriant.
-– Je regarde de tous mes yeux, dit Dantès, et je ne vois rien qu’un papier à demi brûlé, et sur lequel sont tracés des caractères gothiques avec une encre singulière.
-– Ce papier, mon ami, dit Faria, est, je puis vous tout avouer maintenant, puisque je vous ai éprouvé, ce papier, c’est mon trésor, dont à compter d’aujourd’hui la moitié vous appartient. »
-Une sueur froide passa sur le front de Dantès.
-Jusqu’à ce jour, et pendant quel espace de temps ! il avait évité de parler avec Faria de ce trésor, source de l’accusation de folie qui pesait sur le pauvre abbé ; avec sa délicatesse instinctive, Edmond avait préféré ne pas toucher cette corde douloureusement vibrante ; et, de son côté, Faria s’était tu. Il avait pris le silence du vieillard pour un retour à la raison ; aujourd’hui, ces quelques mots, échappés à Faria après une crise si pénible, semblaient annoncer une grave rechute d’aliénation mentale.
+	text: `Le lendemain matin, quand Dantès retourna dans la chambre de son compagnon, il trouva Faria assis et calme.
+Il tenait dans sa seule main valide un morceau de papier, enroulé comme un cylindre. Sans rien dire, il le montra à Dantès.
+« Qu’est-ce que c’est ? demanda celui-ci.
+– Regardez bien », dit l’abbé en souriant.
+« Je regarde, mais je ne vois qu’un papier à moitié brûlé, avec des caractères gothiques tracés avec une encre étrange.
+– Ce papier, mon ami, dit Faria, c’est mon trésor. Et à partir d’aujourd’hui, la moitié vous appartient. »
+Une sueur froide perla sur le front de Dantès. Jusqu’à ce jour, il avait évité de parler de ce trésor, qui était la source de l’accusation de folie contre le pauvre abbé. Il avait cru que le silence de Faria sur ce sujet était un retour à la raison. Ces mots, après une crise si grave, semblaient annoncer une rechute.
 « Votre trésor ? » balbutia Dantès.
-Faria sourit.
-« Oui, dit-il ; en tout point vous êtes un noble cœur, Edmond, et je comprends, à votre pâleur et à votre frisson, ce qui se passe en vous en ce moment. Non, soyez tranquille, je ne suis pas fou.
-Ce trésor existe, Dantès, et s’il ne m’a pas été donné de le posséder, vous le posséderez, vous : personne n’a voulu m’écouter ni me croire parce qu’on me jugeait fou ; mais vous, qui devez savoir que je ne le suis pas, écoutez-moi, et vous me croirez après si vous voulez.
-– Hélas ! murmura Edmond en lui-même, le voilà retombé ! ce malheur me manquait. »
-Puis tout haut :
-« Mon ami, dit-il à Faria, votre accès vous a peut-être fatigué, ne voulez-vous pas prendre un peu de repos ? Demain, si vous le désirez, j’entendrai votre histoire, mais aujourd’hui je veux vous soigner, voilà tout. D’ailleurs, continua-t-il en souriant, un trésor, est-ce bien pressé pour nous ?
-– Fort pressé, Edmond ! répondit le vieillard.
-Qui sait si demain, après-demain peut-être, n’arrivera pas le troisième accès ? Songez que tout serait fini alors ! Oui, c’est vrai, souvent j’ai pensé avec un amer plaisir à ces richesses, qui feraient la fortune de dix familles, perdues pour ces hommes qui me persécutaient : cette idée me servait de vengeance, et je la savourais lentement dans la nuit de mon cachot et dans le désespoir de ma captivité. Mais à présent que j’ai pardonné au monde pour l’amour de vous, maintenant que je vous vois jeune et plein d’avenir, maintenant que je songe à tout ce qui peut résulter pour vous de bonheur à la suite d’une pareille révélation, je frémis du retard, et je tremble de ne pas assurer à un propriétaire si digne que vous l’êtes la possession de tant de richesses enfouies. »
+Faria sourit. « Oui. Vous avez un cœur noble, Edmond, et je comprends votre réaction. Mais non, soyez tranquille, je ne suis pas fou. Ce trésor existe, Dantès. Et si je ne peux pas le posséder, vous le posséderez. Personne ne m’a cru, mais vous, qui savez que je ne suis pas fou, écoutez-moi.
+– Hélas, pensa Edmond, le voilà retombé dans sa folie. » Puis, à voix haute : « Mon ami, votre crise vous a peut-être fatigué. Reposez-vous. Nous parlerons de votre histoire demain. Aujourd’hui, je veux vous soigner.
+– C’est très pressé, Edmond ! répondit le vieil homme. Qui sait si demain n’arrivera pas la troisième crise ? Tout serait fini ! Souvent, j’ai pensé avec un plaisir amer à ces richesses, perdues pour ceux qui me persécutent. C’était ma vengeance. Mais maintenant que j’ai pardonné au monde pour l’amour de vous, que je vous vois jeune et plein d’avenir, je tremble à l’idée de ne pas vous assurer la possession de ce trésor.
 Edmond détourna la tête en soupirant.
-« Vous persistez dans votre incrédulité, Edmond, poursuivit Faria, ma voix ne vous a point convaincu ? Je vois qu’il vous faut des preuves. Eh bien, lisez ce papier que je n’ai montré à personne.
-– Demain, mon ami, dit Edmond répugnant à se prêter à la folie du vieillard ; je croyais qu’il était convenu que nous ne parlerions de cela que demain.
-– Nous n’en parlerons que demain, mais lisez ce papier aujourd’hui.
-– Ne l’irritons point », pensa Edmond.
-Et, prenant ce papier, dont la moitié manquait, consumée qu’elle avait été sans doute par quelque accident, il lut.
-Ce trésor qui peut monter à deux d’écus romains dans l’angle le plus él de la seconde ouverture, lequel déclare lui appartenir en toute pro tier 25 avril 149
-« Eh bien, dit Faria quand le jeune homme eut fini sa lecture.
-– Mais répondit Dantès, je ne vois là que des lignes tronquées, des mots sans suite ; les caractères sont interrompus par l’action du feu et restent inintelligibles.
-– Pour vous, mon ami, qui les lisez pour la première fois, mais pas pour moi qui ai pâli dessus pendant bien des nuits, qui ai reconstruit chaque phrase, complété chaque pensée.
-– Et vous croyez avoir trouvé ce sens suspendu ?
-– J’en suis sûr, vous en jugerez vous-même ; mais d’abord écoutez l’histoire de ce papier.
-– Silence ! s’écria Dantès... Des pas !... On approche... je pars... Adieu ! »
-Et Dantès, heureux d’échapper à l’histoire et à l’explication qui n’eussent pas manqué de lui confirmer le malheur de son ami, se glissa comme une couleuvre par l’étroit couloir, tandis que Faria rendu à une sorte d’activité par la terreur, repoussait du pied la dalle qu’il recouvrait d’une natte afin de cacher aux yeux la solution de continuité qu’il n’avait pas eu le temps de faire disparaître.
-C’était le gouverneur qui, ayant appris par le geôlier l’accident de Faria, venait s’assurer par lui-même de sa gravité.
-Faria le reçut assis, évita tout geste compromettant, et parvint à cacher au gouverneur la paralysie qui avait déjà frappé de mort la moitié de sa personne. Sa crainte était que le gouverneur, touché de pitié pour lui, ne le voulût mettre dans une prison plus saine et ne le séparât ainsi de son jeune compagnon ; mais il n’en fut heureusement pas ainsi, et le gouverneur se retira convaincu que son pauvre fou, pour lequel il ressentait au fond du cœur une certaine affection, n’était atteint que d’une indisposition légère.
-Pendant ce temps, Edmond, assis sur son lit et la tête dans ses mains, essayait de rassembler ses pensées ; tout était si raisonné, si grand et si logique dans Faria depuis qu’il le connaissait, qu’il ne pouvait comprendre cette suprême sagesse sur tous les points alliée à la déraison sur un seul : était-ce Faria qui se trompait sur son trésor, était-ce tout le monde qui se trompait sur Faria ?
-Dantès resta chez lui toute la journée, n’osant retourner chez son ami. Il essayait de reculer ainsi le moment où il acquerrait la certitude que l’abbé était fou. Cette conviction devait être effroyable pour lui.
-Mais vers le soir, après l’heure de la visite ordinaire, Faria, ne voyant pas revenir le jeune homme, essaya de franchir l’espace qui le séparait de lui. Edmond frissonna en entendant les efforts douloureux que faisait le vieillard pour se traîner : sa jambe était inerte, et il ne pouvait plus s’aider de son bras. Edmond fut obligé de l’attirer à lui, car il n’eût jamais pu sortir seul par l’étroite ouverture qui donnait dans la chambre de Dantès.
-« Me voici impitoyablement acharné à votre poursuite, dit-il avec un sourire rayonnant de bienveillance. Vous aviez cru pouvoir échapper à ma magnificence, mais il n’en sera rien. Écoutez donc. »
-Edmond vit qu’il ne pouvait reculer ; il fit asseoir le vieillard sur son lit, et se plaça près de lui sur son escabeau.
-« Vous savez, dit l’abbé, que j’étais le secrétaire, le familier, l’ami du cardinal Spada, le dernier des princes de ce nom. Je dois à ce digne seigneur tout ce que j’ai goûté de bonheur en cette vie. Il n’était pas riche bien que les richesses de sa famille fussent proverbiales et que j’aie entendu dire souvent : Riche comme un Spada.
-Mais lui, comme le bruit public, vivait sur cette réputation d’opulence. Son palais fut mon paradis. J’instruisis ses neveux, qui sont morts, et lorsqu’il fut seul au monde, je lui rendis, par un dévouement absolu à ses volontés, tout ce qu’il avait fait pour moi depuis dix ans.
-« La maison du cardinal n’eut bientôt plus de secrets pour moi ; j’avais vu souvent Monseigneur travailler à compulser des livres antiques et fouiller avidement dans la poussière des manuscrits de famille. Un jour que je lui reprochais ses inutiles veilles et l’espèce d’abattement qui les suivait, il me regarda en souriant amèrement et m’ouvrit un livre qui est l’histoire de la ville de Rome. Là, au vingtième chapitre de la Vie du pape Alexandre VI, il y avait les lignes suivantes, que je n’ai pu jamais oublier :
-« Les grandes guerres de la Romagne étaient terminées. César Borgia, qui avait achevé sa conquête, avait besoin d’argent pour acheter l’Italie tout entière. Le pape avait également besoin d’argent pour en finir avec Louis XII, roi de France, encore terrible malgré ses derniers revers. Il s’agissait donc de faire une bonne spéculation, ce qui devenait difficile dans cette pauvre Italie épuisée.
-« Sa Sainteté eut une idée. Elle résolut de faire deux cardinaux.
-« En choisissant deux des grands personnages de Rome, deux riches surtout, voici ce qui revenait au Saint-Père de la spéculation : d’abord il avait à vendre les grandes charges et les emplois magnifiques dont ces deux cardinaux étaient en possession ; en outre, il pouvait compter sur un prix très brillant de la vente de ces deux chapeaux.
-« Il restait une troisième part de spéculation, qui va apparaître bientôt.
-« Le pape et César Borgia trouvèrent d’abord les deux cardinaux futurs : c’était Jean Rospigliosi, qui tenait à lui seul quatre des plus hautes dignités du Saint-Siège, puis César Spada, l’un des plus nobles et des plus riches Romains.
-L’un et l’autre sentaient le prix d’une pareille faveur du pape. Ils étaient ambitieux. Ceux-là trouvés, César trouva bientôt des acquéreurs pour leurs charges.
-« Il résulta que Rospigliosi et Spada payèrent pour être cardinaux, et que huit autres payèrent pour être ce qu’étaient auparavant les deux cardinaux de création nouvelle. Il entra huit cent mille écus dans les coffres des spéculateurs.
-« Passons à la dernière partie de la spéculation, il est temps. Le pape ayant comblé de caresses Rospigliosi et Spada, leur ayant conféré les insignes du cardinalat, sûr qu’ils avaient dû, pour acquitter la dette non fictive de leur reconnaissance, rapprocher et réaliser leur fortune pour se fixer à Rome, le pape et César Borgia invitèrent à dîner ces deux cardinaux.
-« Ce fut le sujet d’une contestation entre le Saint-Père et son fils : César pensait qu’on pouvait user de l’un de ces moyens qu’il tenait toujours à la disposition de ses amis intimes, savoir : d’abord, de la fameuse clef avec laquelle on priait certaines gens d’aller ouvrir certaine armoire. Cette clef était garnie d’une petite pointe de fer, négligence de l’ouvrier. Lorsqu’on forçait pour ouvrir l’armoire, dont la serrure était difficile, on se piquait avec cette petite pointe, et l’on en mourait le lendemain. Il y avait aussi la bague à tête de lion, que César passait à son doigt lorsqu’il donnait de certaines poignées de main.
-Le lion mordait l’épiderme de ces mains favorisées, et la morsure était mortelle au bout de vingt-quatre heures.
-« César proposa donc à son père, soit d’envoyer les cardinaux ouvrir l’armoire, soit de leur donner à chacun une cordiale poignée de main, mais Alexandre VI lui répondit :
-« – Ne regardons pas à un dîner quand il s’agit de ces excellents cardinaux Spada et Rospigliosi.
-Quelque chose me dit que nous regagnerons cet argent-là. D’ailleurs, vous oubliez, César, qu’une indigestion se déclare tout de suite, tandis qu’une piqûre ou une morsure n’aboutissent qu’après un jour ou deux.
-« César se rendit à ce raisonnement. Voilà pourquoi les cardinaux furent invités à ce dîner.
-« On dressa le couvert dans la vigne que possédait le pape près de Saint-Pierre-ès-Liens, charmante habitation que les cardinaux connaissaient bien de réputation.
-« Rospigliosi, tout étourdi de sa dignité nouvelle, apprêta son estomac et sa meilleure mine. Spada, homme prudent et qui aimait uniquement son neveu, jeune capitaine de la plus belle espérance, prit du papier, une plume, et fit son testament.
-« Il fit dire ensuite à ce neveu de l’attendre aux environs de la vigne, mais il paraît que le serviteur ne le trouva pas.
-« Spada connaissait la coutume des invitations. Depuis que le christianisme, éminemment civilisateur, avait apporté ses progrès dans Rome, ce n’était plus un centurion qui arrivait de la part du tyran vous dire : « César veut que tu meures » ; mais c’était un légat a latere, qui venait, la bouche souriante, vous dire de la part du pape : « Sa Sainteté veut que vous dîniez avec elle. »
-« Spada partit vers les deux heures pour la vigne de Saint-Pierre-ès-Liens ; le pape l’y attendait. La première figure qui frappa les yeux de Spada fut celle de son neveu tout paré, tout gracieux, auquel César Borgia prodiguait les caresses. Spada pâlit ; et César, qui lui décocha un regard plein d’ironie, laissa voir qu’il avait tout prévu, que le piège était bien dressé.
-« On dîna. Spada n’avait pu que demander à son neveu : « Avez-vous reçu mon message ? »
-Le neveu répondit que non et comprit parfaitement la valeur de cette question : il était trop tard, car il venait de boire un verre d’excellent vin mis à part pour lui par le sommelier du pape. Spada vit au même moment approcher une autre bouteille dont on lui offrit libéralement. Une heure après, un médecin les déclarait tous deux empoisonnés par des morilles vénéneuses, Spada mourait sur le seuil de la vigne, le neveu expirait à sa porte en faisant un signe que sa femme ne comprit pas.
-« Aussitôt César et le pape s’empressèrent d’envahir l’héritage, sous prétexte de rechercher les papiers des défunts. Mais l’héritage consistait en ceci : un morceau de papier sur lequel Spada avait écrit :
-« Je lègue à mon neveu bien-aimé mes coffres, mes livres, parmi lesquels mon beau bréviaire à coins d’or, désirant qu’il garde ce souvenir de son oncle affectionné.
-« Les héritiers cherchèrent partout, admirèrent le bréviaire, firent main basse sur les meubles et s’étonnèrent que Spada, l’homme riche, fût effectivement le plus misérable des oncles ; de trésors, aucun : si ce n’est des trésors de science renfermés dans la bibliothèque et les laboratoires.
-« Ce fut tout. César et son père cherchèrent, fouillèrent et espionnèrent, on ne trouva rien, ou du moins très peu de chose : pour un millier d’écus, peut-être, d’orfèvrerie, et pour autant à peu près d’argent monnayé ; mais le neveu avait eu le temps de dire en rentrant à sa femme :
-« Cherchez parmi les papiers de mon oncle, il y a un testament réel. »
-« On chercha plus activement encore peut-être que n’avaient fait les augustes héritiers. Ce fut en vain : il resta deux palais et une vigne derrière le Palatin. Mais à cette époque les biens immobiliers avaient une valeur médiocre ; les deux palais et la vigne restèrent à la famille, comme indignes de la rapacité du pape et de son fils.
-« Les mois et les années s’écoulèrent.
-Alexandre VI mourut empoisonné, vous savez par quelle méprise ; César, empoisonné en même temps que lui, en fut quitte pour changer de peau comme un serpent, et revêtir une nouvelle enveloppe où le poison avait laissé des taches pareilles à celles que l’on voit sur la fourrure du tigre ; enfin, forcé de quitter Rome, il alla se faire tuer obscurément dans une escarmouche nocturne et presque oubliée par l’histoire.
-« Après la mort du pape, après l’exil de son fils, on s’attendait généralement à voir reprendre à la famille le train princier qu’elle menait du temps du cardinal Spada ; mais il n’en fut pas ainsi. Les Spada restèrent dans une aisance douteuse, un mystère éternel pesa sur cette sombre affaire, et le bruit public fut que César, meilleur politique que son père, avait enlevé au pape la fortune des deux cardinaux ; je dis des deux, parce que le cardinal Rospigliosi, qui n’avait pris aucune précaution, fut dépouillé complètement.
-« Jusqu’à présent, interrompit Faria en souriant, cela ne vous semble pas trop insensé, n’est-ce pas ?
-– Ô mon ami, dit Dantès, il me semble que je lis, au contraire, une chronique pleine d’intérêt.
-Continuez, je vous prie.
-– Je continue :
-« La famille s’accoutuma à cette obscurité.
-Les années s’écoulèrent ; parmi les descendants les uns furent soldats, les autres diplomates ; ceux-ci gens d’Église, ceux-là banquiers ; les uns s’enrichirent, les autres achevèrent de se ruiner.
-J’arrive au dernier de la famille, à celui-là dont je fus le secrétaire, au comte de Spada.
-« Je l’avais bien souvent entendu se plaindre de la disproportion de sa fortune avec son rang, aussi lui avais-je donné le conseil de placer le peu de biens qui lui restait en rentes viagères ; il suivit ce conseil, et doubla ainsi son revenu.
-« Le fameux bréviaire était resté dans la famille, et c’était le comte de Spada qui le possédait : on l’avait conservé de père en fils, car la clause bizarre du seul testament qu’on eût retrouvé en avait fait une véritable relique gardée avec une superstitieuse vénération dans la famille ; c’était un livre enluminé des plus belles figures gothiques, et si pesant d’or, qu’un domestique le portait toujours devant le cardinal dans les jours de grande solennité.
-« À la vue des papiers de toutes sortes, titres, contrats, parchemins, qu’on gardait dans les archives de la famille et qui tous venaient du cardinal empoisonné, je me mis à mon tour, comme vingt serviteurs, vingt intendants, vingt secrétaires qui m’avaient précédé, à compulser les liasses formidables : malgré l’activité et la religion de mes recherches, je ne retrouvai absolument rien. Cependant j’avais lu, j’avais même écrit une histoire exacte et presque éphéméridique de la famille des Borgia, dans le seul but de m’assurer si un supplément de fortune était survenu à ces princes à la mort de mon cardinal César Spada, et je n’y avais remarqué que l’addition des biens du cardinal Rospigliosi, son compagnon d’infortune.
-« J’étais donc à peu près sûr que l’héritage n’avait profité ni aux Borgia ni à la famille, mais était resté sans maître, comme ces trésors des contes arabes qui dorment au sein de la terre sous les regards d’un génie. Je fouillai, je comptai, je supputai mille et mille fois les revenus et les dépenses de la famille depuis trois cents ans : tout fut inutile, je restai dans mon ignorance, et le comte de Spada dans sa misère.
-« Mon patron mourut. De sa rente en viager il avait excepté ses papiers de famille, sa bibliothèque, composée de cinq mille volumes, et son fameux bréviaire. Il me légua tout cela, avec un millier d’écus romains qu’il possédait en argent comptant, à la condition que je ferais dire des messes anniversaires et que je dresserais un arbre généalogique et une histoire de sa maison, ce que je fis fort exactement...
-« Tranquillisez-vous, mon cher Edmond, nous approchons de la fin.
-« En 1807, un mois avant mon arrestation et quinze jours après la mort du comte de Spada, le 25 du mois de décembre, vous allez comprendre tout à l’heure comment la date de ce jour mémorable est restée dans mon souvenir, je relisais pour la millième fois ces papiers que je coordonnais, car, le palais appartenant désormais à un étranger, j’allais quitter Rome pour aller m’établir à Florence, en emportant une douzaine de mille livres que je possédais, ma bibliothèque et mon fameux bréviaire, lorsque, fatigué de cette étude assidue, mal disposé par un dîner assez lourd que j’avais fait, je laissai tomber ma tête sur mes deux mains et m’endormis : il était trois heures de l’après-midi.
-« Je me réveillai comme la pendule sonnait six heures.
-« Je levai la tête, j’étais dans l’obscurité la plus profonde. Je sonnai pour qu’on m’apportât de la lumière, personne ne vint ; je résolus alors de me servir moi-même. C’était d’ailleurs une habitude de philosophe qu’il allait me falloir prendre. Je pris d’une main une bougie toute préparée, et de l’autre je cherchai, à défaut des allumettes absentes de leur boîte, un papier que je comptais allumer à un dernier reste de flamme au-dessus du foyer ; mais, craignant dans l’obscurité de prendre un papier précieux à la place d’un papier inutile, j’hésitais, lorsque je me rappelai avoir vu, dans le fameux bréviaire qui était posé sur la table à côté de moi, un vieux papier tout jaune par le haut, qui avait l’air de servir de signet, et qui avait traversé les siècles, maintenu à sa place par la vénération des héritiers. Je cherchai, en tâtonnant, cette feuille inutile, je la trouvai, je la tordis, et, la présentant à la flamme mourante, je l’allumai.
-« Mais, sous mes doigts, comme par magie, à mesure que le feu montait, je vis des caractères jaunâtres sortir du papier blanc et apparaître sur la feuille ; alors la terreur me prit : je serrai dans mes mains le papier, j’étouffai le feu, j’allumai directement la bougie au foyer, je rouvris avec une indicible émotion la lettre froissée, et je reconnus qu’une encre mystérieuse et sympathique avait tracé ces lettres apparentes seulement au contact de la vive chaleur. Un peu plus du tiers du papier avait été consumé par la flamme : c’est ce papier que vous avez lu ce matin ; relisez-le, Dantès ; puis quand vous l’aurez relu, je vous compléterai, moi, les phrases interrompues et le sens incomplet. »
-Et Faria, interrompant, offrit le papier à Dantès qui, cette fois, relut avidement les mots suivants tracés avec une encre rousse, pareille à la rouille :
-Cejourd’hui 25 avril 1498, ay Alexandre VI, et craignant que, non il ne veuille hériter de moi et ne me ré et Bentivoglio, morts empoisonnés, mon légataire universel, que j’ai enf pour l’avoir visité avec moi, c’est-à-dire dans île de Monte-Cristo, tout ce que je pos reries, diamants, bijoux ; que seul peut monter à peu près à deux mil trouvera ayant levé la vingtième roch crique de l’Est en droite ligne. Deux ouvertu dans ces grottes : le trésor est dans l’angle le plus é lequel trésor je lui lègue et cède en tou seul héritier.
-25 avril 1498
-CÉS
-« Maintenant, reprit l’abbé, lisez cet autre papier. »
-Et il présenta à Dantès une seconde feuille avec d’autres fragments de lignes.
-Dantès prit et lut : ant été invité à dîner par Sa Sainteté content de m’avoir fait payer le chapeau, serve le sort des cardinaux Crapara je déclare à mon neveu Guido Spada, oui dans un endroit qu’il connaît les grottes de la petite sédais de lingots, d’or monnayé, de pier je connais l’existence de ce trésor, qui lions d’écus romains, et qu’il e, à partir de la petite res ont été pratiquées loigné de la deuxième, te propriété comme à mon AR † SPADA
-Faria le suivait d’un œil ardent.
-« Et maintenant, dit-il, lorsqu’il eut vu que Dantès en était arrivé à la dernière ligne, rapprochez les deux fragments, et jugez vousmême. »
-Dantès obéit ; les deux fragments rapprochés donnaient l’ensemble suivant :
-Cejourd’hui 25 avril 1498, ay... ant été invité à dîner par Sa Sainteté Alexandre VI, et craignant que, non... content de m’avoir fait payer le chapeau, il ne veuille hériter de moi et ne me ré... serve le sort des cardinaux Crapara et Bentivoglio, morts empoisonnés,... je déclare à mon neveu Guido Spada, mon légataire universel, que j’ai en... foui dans un endroit qu’il connaît pour l’avoir visité avec moi, c’est-à-dire dans... les grottes de la petite île de MonteCristo, tout ce que je pos... sédais de lingots, d’or monnayé, pierreries, diamants, bijoux ; que seul... je connais l’existence de ce trésor qui peut monter à peu près à deux mil... lions d’écus romains, et qu’il trouvera ayant levé la vingtième roch... e à partir de la petite crique de l’Est en droite ligne. Deux ouvertu... res ont été pratiquées dans ces grottes : le trésor est dans l’angle le plus é... loigné de la deuxième, lequel trésor je lui lègue et cède en tou... te propriété, comme à mon seul héritier.
-25 avril 1498.
-CÉS...AR † SPADA.
+« Vous restez incrédule, poursuivit Faria. Il vous faut des preuves. Eh bien, lisez ce papier. »
+« Demain », dit Edmond, qui ne voulait pas encourager la folie du vieil homme.
+« Nous n’en parlerons que demain, mais lisez ce papier aujourd’hui.
+“N’irritons pas un malade”, pensa Edmond. Il prit le papier, dont la moitié manquait, et lut des fragments de phrases incompréhensibles.
+« Eh bien ? dit Faria.
+– Je ne vois que des lignes coupées et des mots sans suite, répondit Dantès.
+– Pour vous, qui les lisez pour la première fois. Mais pas pour moi, qui ai passé des nuits à reconstruire chaque phrase.
+– Et vous croyez avoir trouvé le sens caché ?
+– J’en suis sûr. Mais d’abord, écoutez l’histoire de ce papier.
+– Silence ! s’écria Dantès. Des pas ! On approche ! Je pars, adieu ! »
+Heureux d’échapper à cette histoire, Dantès se glissa dans le couloir. C’était le gouverneur, qui venait s’assurer de la santé de Faria. L’abbé le reçut assis, et réussit à lui cacher sa paralysie. Le gouverneur repartit, convaincu que son “pauvre fou” n’avait qu’une légère indisposition.
+Pendant ce temps, Dantès réfléchissait. Faria était si logique, si brillant sur tous les sujets, comment pouvait-il être fou sur ce seul point ?
+Le soir, Faria, ne voyant pas le jeune homme revenir, se traîna avec difficulté jusqu’à sa cellule. Edmond, en entendant ses efforts douloureux, dut l’aider à passer par l’ouverture.
+« Me voici, je vous poursuis impitoyablement, dit Faria avec un sourire bienveillant. Vous pensiez échapper à ma fortune, mais il n’en sera rien. Écoutez. »
+Edmond comprit qu’il ne pouvait plus reculer. Il fit asseoir le vieil homme sur son lit.
+« Vous savez, commença l’abbé, que j’étais le secrétaire et l’ami du cardinal Spada. Je lui dois tout le bonheur que j’ai connu. Sa famille était proverbiale pour sa richesse, mais lui n’était pas riche. Son palais était mon paradis. Je l’ai vu souvent chercher avidement dans les vieux manuscrits de sa famille.
+Un jour, il me montra un livre sur l’histoire de Rome, au chapitre sur le pape Alexandre VI. Voici ce qui était écrit :
+“Les guerres de Romagne étaient terminées. César Borgia, qui avait conquis la région, avait besoin d’argent. Le pape aussi. Sa Sainteté eut une idée : nommer deux nouveaux cardinaux.
+En choisissant deux hommes très riches, il pouvait d’abord vendre leurs charges prestigieuses, puis leur vendre très cher les chapeaux de cardinaux. Il y avait une troisième partie au plan.
+Le pape et César Borgia choisirent leurs deux futurs cardinaux : Jean Rospigliosi et César Spada, l’un des plus nobles et riches Romains. Ambitieux, ils acceptèrent de payer. Huit autres personnes payèrent pour obtenir les anciennes charges des deux nouveaux cardinaux. Cela rapporta huit cent mille écus dans les coffres des Borgia.
+Passons à la dernière partie du plan. Le pape et César Borgia invitèrent les deux nouveaux cardinaux à dîner. César proposa d’utiliser une de ses méthodes habituelles : une clé avec une pointe de fer empoisonnée, ou sa fameuse bague à tête de lion dont la morsure était mortelle. Mais le pape Alexandre VI répondit :
+‘Ne soyons pas avares pour un dîner. Quelque chose me dit que nous récupérerons cet argent. De plus, une indigestion est immédiate, tandis qu’une piqûre prend un jour ou deux.’
+César accepta. Les cardinaux furent donc invités à dîner dans la vigne du pape.
+Spada, homme prudent qui aimait son neveu, un jeune capitaine prometteur, prit du papier et fit son testament. Il demanda ensuite à son neveu de l’attendre près du lieu du dîner, mais le serviteur ne le trouva apparemment pas.
+Spada connaissait les coutumes de l’époque. Une invitation à dîner du pape était souvent une condamnation à mort déguisée.
+Le pape l’attendait. La première personne que Spada vit fut son neveu, à qui César Borgia prodiguait des caresses. Spada pâlit. César lui lança un regard ironique ; le piège était bien dressé.
+Pendant le dîner, Spada put seulement demander à son neveu : ‘As-tu reçu mon message ?’ Le neveu répondit que non. Il était trop tard : il venait de boire un verre de vin spécial que le sommelier du pape lui avait servi. Spada vit au même moment une autre bouteille arriver, dont on lui offrit généreusement. Une heure plus tard, un médecin les déclarait tous deux empoisonnés. Spada mourut sur le seuil, et son neveu à sa porte.
+César et le pape se précipitèrent pour saisir l’héritage. Mais tout ce qu’ils trouvèrent fut un bout de papier où Spada léguait à son neveu ‘ses coffres, ses livres, et son beau bréviaire à coins d’or’. Les héritiers cherchèrent partout mais ne trouvèrent aucun trésor.
+Les mois et les années passèrent. La famille Spada resta dans une situation modeste. La rumeur disait que César Borgia avait subtilisé la fortune pour lui-même.
+Jusqu’ici, ça ne vous semble pas trop fou, n’est-ce pas ? interrompit Faria.
+– Au contraire, mon ami, dit Dantès. C’est une chronique passionnante. Continuez, je vous prie.
+– Je continue. J’arrive au dernier de la famille, le comte de Spada, dont j’étais le secrétaire. Le fameux bréviaire, transmis de père en fils, lui appartenait. C’était une véritable relique. Comme beaucoup avant moi, j’ai fouillé toutes les archives de la famille, sans rien trouver. J’ai même écrit une histoire des Borgia pour voir si leur fortune avait augmenté à la mort du cardinal, mais rien. J’étais donc sûr que le trésor était resté sans maître, comme dans les contes des Mille et une nuits.
+Mon patron mourut. Il me légua tous ses papiers de famille, sa bibliothèque et son fameux bréviaire, avec mille écus, à condition que je dresse l’arbre généalogique de sa maison.
+Le 25 décembre 1807, un mois avant mon arrestation, je relisais ces papiers une dernière fois avant de quitter Rome. Fatigué, je m’endormis sur mon bureau. Je me réveillai à six heures, dans l’obscurité la plus totale. Je voulus allumer une bougie. N’ayant pas d’allumettes, je cherchai un papier inutile pour prendre une flamme dans la cheminée. Je me souvins d’un vieux papier jauni qui servait de marque-page dans le bréviaire. Je le pris, le tordis et l’approchai de la flamme mourante.
+Mais, comme par magie, à mesure que le feu montait, des caractères jaunâtres apparurent sur le papier. Terrifié, je serrai le papier dans mes mains pour éteindre le feu. J’allumai ma bougie et, avec une émotion immense, je rouvris le papier froissé. Je compris qu’une encre sympathique, invisible, avait tracé ces lettres qui n’apparaissaient qu’à la chaleur. Un peu plus du tiers du papier avait été consumé. C’est ce que vous avez lu ce matin. Relisez-le, Dantès. Ensuite, je compléterai les phrases. »
+Faria tendit le papier à Dantès, qui, cette fois, lut avidement les mots tracés avec une encre rousse.
+Faria lui présenta alors une seconde feuille, sur laquelle il avait recopié ce qu'il avait deviné du texte manquant.
+Dantès obéit. Les deux fragments rapprochés donnaient le texte suivant :
+*‘Cejourd’hui 25 avril 1498, ayant été invité à dîner par Sa Sainteté Alexandre VI, et craignant que, non content de m’avoir fait payer le chapeau, il ne veuille hériter de moi et ne me réserve le sort des cardinaux Crapara et Bentivoglio, morts empoisonnés, je déclare à mon neveu Guido Spada, mon légataire universel, que j’ai enfoui dans un endroit qu’il connaît, c’est-à-dire dans les grottes de la petite île de Monte-Cristo, tout ce que je possédais de lingots, d’or, de pierreries, diamants, bijoux ; que seul je connais l’existence de ce trésor qui peut monter à peu près à deux millions d’écus romains, et qu’il trouvera en levant la vingtième roche à partir de la petite crique de l’Est en droite ligne. Deux ouvertures ont été pratiquées dans ces grottes : le trésor est dans l’angle le plus éloigné de la deuxième, lequel trésor je lui lègue en toute propriété, comme à mon seul héritier.* *25 avril 1498. CÉSAR SPADA.’*
 « Eh bien, comprenez-vous enfin ? dit Faria.
-– C’était la déclaration du cardinal Spada et le testament que l’on cherchait depuis si longtemps ? dit Edmond encore incrédule.
-– Oui, mille fois oui.
-– Qui l’a reconstruite ainsi ?
-– Moi, qui, à l’aide du fragment restant, ai deviné le reste en mesurant la longueur des lignes par celle du papier et en pénétrant dans le sens caché au moyen du sens visible, comme on se guide dans un souterrain par un reste de lumière qui vient d’en haut.
-– Et qu’avez-vous fait quand vous avez cru avoir acquis cette conviction ?
-– J’ai voulu partir et je suis parti à l’instant même, emportant avec moi le commencement de mon grand travail sur l’unité d’un royaume d’Italie ; mais depuis longtemps la police impériale, qui, dans ce temps, au contraire de ce que Napoléon a voulu depuis, quand un fils lui fut né, voulait la division des provinces, avait les yeux sur moi : mon départ précipité, dont elle était loin de deviner la cause, éveilla ses soupçons, et au moment où je m’embarquais à Piombino je fus arrêté.
-« Maintenant, continua Faria en regardant Dantès avec une expression presque paternelle, maintenant, mon ami, vous en savez autant que moi : si nous nous sauvons jamais ensemble, la moitié de mon trésor est à vous ; et si je meurs ici et que vous vous sauviez seul, il vous appartient en totalité.
-– Mais, demanda Dantès hésitant, ce trésor n’a-t-il pas dans ce monde quelque plus légitime possesseur que nous ?
-– Mais non, rassurez-vous, la famille est éteinte complètement ; le dernier comte de Spada, d’ailleurs, m’a fait son héritier ; en me léguant ce bréviaire symbolique il m’a légué ce qu’il contenait ; non, non, tranquillisez-vous : si nous mettons la main sur cette fortune, nous pourrons en jouir sans remords.
-– Et vous dites que ce trésor renferme...
-– Deux millions d’écus romains, treize millions à peu près de notre monnaie.
-– Impossible ! dit Dantès effrayé par l’énormité de la somme.
-– Impossible ! et pourquoi ? reprit le vieillard.
-La famille Spada était une des plus vieilles et des plus puissantes familles du quinzième siècle.
-D’ailleurs, dans ces temps où toute spéculation et toute industrie étaient absentes, ces agglomérations d’or et de bijoux ne sont pas rares, il y a encore aujourd’hui des familles romaines qui meurent de faim près d’un million en diamants et en pierreries transmis par majorat, et auquel elles ne peuvent toucher. »
-Edmond croyait rêver : il flottait entre l’incrédulité et la joie.
-« Je n’ai gardé si longtemps le secret avec vous, continua Faria, d’abord que pour vous éprouver, et ensuite pour vous surprendre ; si nous nous fussions évadés avant mon accès de catalepsie, je vous conduisais à Monte-Cristo ; maintenant, ajouta-t-il avec un soupir, c’est vous qui m’y conduirez. Eh bien, Dantès, vous ne me remerciez pas ?
-– Ce trésor vous appartient, mon ami, dit Dantès, il appartient à vous seul, et je n’y ai aucun droit : je ne suis point votre parent.
-– Vous êtes mon fils, Dantès ! s’écria le vieillard, vous êtes l’enfant de ma captivité ; mon état me condamnait au célibat : Dieu vous a envoyé à moi pour consoler à la fois l’homme qui ne pouvait être père et le prisonnier qui ne pouvait être libre. »
-Et Faria tendit le bras qui lui restait au jeune homme qui se jeta à son cou en pleurant.`,
+– C’était la déclaration du cardinal Spada et le testament qu’on cherchait depuis si longtemps ? dit Edmond, encore incrédule.
+– Oui, mille fois oui !
+– Qui l’a reconstitué ainsi ?
+– Moi. À l’aide du fragment restant, j’ai deviné le reste, en mesurant la longueur des lignes et en pénétrant le sens caché.
+– Et qu’avez-vous fait alors ?
+– J’ai voulu partir sur-le-champ. Mais la police impériale, qui me surveillait depuis longtemps, a trouvé mon départ précipité suspect. J’ai été arrêté au moment de m’embarquer à Piombino.
+Maintenant, mon ami, vous en savez autant que moi. Si nous nous sauvons ensemble, la moitié de mon trésor est à vous. Si je meurs ici et que vous vous sauvez seul, il vous appartient en totalité.
+– Mais, ce trésor n’a-t-il pas de propriétaire plus légitime que nous ?
+– Non, rassurez-vous. La famille est complètement éteinte. Le dernier comte m’a fait son héritier. Si nous mettons la main sur cette fortune, nous pourrons en jouir sans remords.
+– Et vous dites que ce trésor s’élève à…
+– Deux millions d’écus romains, soit environ treize millions de notre monnaie.
+– Impossible ! dit Dantès, effrayé par l’énormité de la somme.
+– Pourquoi impossible ? La famille Spada était l’une des plus riches du XVe siècle. À cette époque, de telles accumulations d’or et de bijoux n’étaient pas rares. »
+Edmond croyait rêver.
+« Je vous ai caché ce secret si longtemps pour vous mettre à l’épreuve, et aussi pour vous surprendre, continua Faria. Si nous nous étions évadés avant ma crise, je vous aurais conduit à Monte-Cristo. Maintenant, ajouta-t-il avec un soupir, c’est vous qui m’y conduirez. Eh bien, Dantès, vous ne me remerciez pas ?
+– Ce trésor vous appartient, mon ami. Je n’y ai aucun droit.
+– Vous êtes mon fils, Dantès ! s’écria le vieil homme. Vous êtes l’enfant de ma captivité. Mon état de prêtre me condamnait au célibat. Dieu vous a envoyé à moi pour consoler l’homme qui ne pouvait être père et le prisonnier qui ne pouvait être libre. »
+Et Faria tendit le bras qui lui restait au jeune homme, qui se jeta à son cou en pleurant.`,
 }

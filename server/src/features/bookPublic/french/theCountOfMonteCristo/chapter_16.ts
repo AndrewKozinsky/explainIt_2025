@@ -1,131 +1,107 @@
+// Глава адаптирована
 export const chapter_16 = {
 	name: 'CHAPITRE XVI',
 	header: 'Un savant italien',
-	text: `Dantès prit dans ses bras ce nouvel ami, si longtemps et si impatiemment attendu, et l’attira vers sa fenêtre, afin que le peu de jour qui pénétrait dans le cachot l’éclairât tout entier.
-C’était un personnage de petite taille, aux cheveux blanchis par la peine plutôt que par l’âge, à l’œil pénétrant caché sous d’épais sourcils qui grisonnaient, à la barbe encore noire et descendant jusque sur sa poitrine : la maigreur de son visage creusé par des rides profondes, la ligne hardie de ses traits caractéristiques, révélaient un homme plus habitué à exercer ses facultés morales que ses forces physiques. Le front du nouveau venu était couvert de sueur.
-Quand à son vêtement, il était impossible d’en distinguer la forme primitive, car il tombait en lambeaux.
-Il paraissait avoir soixante-cinq ans au moins, quoiqu’une certaine vigueur dans les mouvements annonçât qu’il avait moins d’années peut-être que n’en accusait une longue captivité.
-Il accueillit avec une sorte de plaisir les protestations enthousiastes du jeune homme ; son âme glacée sembla, pour un instant, se réchauffer et se fondre au contact de cette âme ardente. Il le remercia de sa cordialité avec une certaine chaleur, quoique sa déception eût été grande de trouver un second cachot où il croyait rencontrer la liberté.
-« Voyons d’abord, dit-il, s’il y a moyen de faire disparaître aux yeux de vos geôliers les traces de mon passage. Toute notre tranquillité à venir est dans leur ignorance de ce qui s’est passé. »
-Alors il se pencha vers l’ouverture, prit la pierre, qu’il souleva facilement malgré son poids, et la fit entrer dans le trou.
-« Cette pierre a été descellée bien négligemment, dit-il en hochant la tête : vous n’avez donc pas d’outils ?
-– Et vous, demanda Dantès avec étonnement, en avez-vous donc ?
-– Je m’en suis fait quelques-uns. Excepté une lime, j’ai tout ce qu’il me faut, ciseau, pince, levier.
-– Oh ! je serais curieux de voir ces produits de votre patience et de votre industrie, dit Dantès.
+	text: `Dantès prit dans ses bras ce nouvel ami, si longtemps attendu, et l’attira vers la lumière de la fenêtre pour mieux le voir.
+C’était un homme de petite taille, aux cheveux blanchis par la souffrance plus que par l’âge. Son regard était perçant, caché sous d’épais sourcils grisonnants, et sa barbe noire descendait sur sa poitrine. Le visage maigre, creusé de rides profondes, révélait un homme habitué à exercer son esprit plus que sa force physique. Son front était couvert de sueur.
+Quant à ses vêtements, ils tombaient en lambeaux.
+Il paraissait avoir au moins soixante-cinq ans, bien qu’une certaine vigueur dans ses mouvements laissait penser qu’il était plus jeune que ne le suggérait sa longue captivité.
+Il accueillit avec plaisir l’enthousiasme du jeune homme. Son âme, glacée par la solitude, sembla se réchauffer au contact de celle, si ardente, de Dantès. Il le remercia chaleureusement, malgré sa grande déception de trouver un autre cachot là où il pensait trouver la liberté.
+« Voyons d’abord, dit-il, s’il y a moyen de cacher les traces de mon passage. Notre tranquillité future dépend de l’ignorance de nos geôliers. »
+Il se pencha, prit la pierre qu’il avait retirée et, malgré son poids, la remit facilement en place dans le trou.
+« Cette pierre a été enlevée sans grand soin, dit-il en hochant la tête. Vous n’avez donc pas d’outils ?
+– Et vous, en avez-vous ? demanda Dantès, étonné.
+– Je m’en suis fabriqué quelques-uns. À part une lime, j’ai tout ce qu’il me faut : ciseau, pince, levier.
+– Oh ! J’aimerais voir ces produits de votre patience et de votre ingéniosité, dit Dantès.
 – Tenez, voici d’abord un ciseau. »
-Et il lui montra une lame forte et aiguë emmanchée dans un morceau de bois de hêtre.
+Et il lui montra une lame solide et pointue, fixée dans un manche en bois.
 « Avec quoi avez-vous fait cela ? dit Dantès.
-– Avec une des fiches de mon lit. C’est avec cet instrument que je me suis creusé tout le chemin qui m’a conduit jusqu’ici ; cinquante pieds à peu près.
-– Cinquante pieds ! s’écria Dantès avec une espèce de terreur.
-– Parlez plus bas, jeune homme, parlez plus bas ; souvent il arrive qu’on écoute aux portes des prisonniers.
+– Avec une des charnières en fer de mon lit. C’est avec cet outil que j’ai creusé tout le chemin jusqu’ici. Environ cinquante pieds.
+– Cinquante pieds ! s’écria Dantès avec une sorte de terreur.
+– Parlez plus bas, jeune homme. On écoute souvent aux portes des prisonniers.
 – On me sait seul.
 – N’importe.
-– Et vous dites que vous avez percé cinquante pieds pour arriver jusqu’ici ?
-– Oui, telle est à peu près la distance qui sépare ma chambre de la vôtre ; seulement j’ai mal calculé ma courbe, faute d’instrument de géométrie pour dresser mon échelle de proportion ; au lieu de quarante pieds d’ellipse, il s’en est rencontré cinquante ; je croyais, ainsi que je vous l’ai dit, arriver jusqu’au mur extérieur, percer ce mur et me jeter à la mer. J’ai longé le corridor, contre lequel donne votre chambre, au lieu de passer dessous ; tout mon travail est perdu, car ce corridor donne sur une cour pleine de gardes.
-– C’est vrai, dit Dantès ; mais ce corridor ne longe qu’une face de ma chambre, et ma chambre en a quatre.
-– Oui, sans doute, mais en voici d’abord une dont le rocher fait la muraille ; il faudrait dix années de travail à dix mineurs munis de tous leurs outils pour percer le rocher ; cette autre doit être adossée aux fondations de l’appartement du gouverneur ; nous tomberions dans les caves qui ferment évidemment à la clef et nous serions pris ; l’autre face donne, attendez donc, où donne l’autre face ?
-Cette face était celle où était percée la meurtrière à travers laquelle venait le jour : cette meurtrière, qui allait toujours en se rétrécissant jusqu’au moment où elle donnait entrée au jour, et par laquelle un enfant n’aurait certes pas pu passer, était en outre garnie par trois rangs de barreaux de fer qui pouvaient rassurer sur la crainte d’une évasion par ce moyen le geôlier le plus soupçonneux.
-Et le nouveau venu, en faisant cette question, traîna la table au-dessous de la fenêtre.
-« Montez sur cette table », dit-il à Dantès.
-Dantès obéit, monta sur la table, et, devinant les intentions de son compagnon, appuya le dos au mur et lui présenta les deux mains.
-Celui qui s’était donné le nom du numéro de sa chambre, et dont Dantès ignorait encore le véritable nom, monta alors plus lestement que n’eût pu le faire présager son âge, avec une habileté de chat ou de lézard, sur la table d’abord, puis de la table sur les mains de Dantès, puis de ses mains sur ses épaules ; ainsi courbé en deux, car la voûte du cachot l’empêchait de se redresser, il glissa sa tête entre le premier rang de barreaux, et put plonger alors de haut en bas.
-Un instant après, il retira vivement la tête.
-« Oh ! oh ! dit-il, je m’en étais douté. »
-Et il se laissa glisser le long du corps de Dantès sur la table, et de la table sauta à terre.
-« De quoi vous étiez-vous douté ? » demanda le jeune homme anxieux, en sautant à son tour auprès de lui.
-Le vieux prisonnier méditait.
-« Oui, dit-il, c’est cela ; la quatrième face de votre cachot donne sur une galerie extérieure, espèce de chemin de ronde où passent les patrouilles et où veillent des sentinelles.
+– Et vous dites que vous avez percé cinquante pieds ?
+– Oui, c’est à peu près la distance entre nos deux cellules. Mais j’ai mal calculé ma trajectoire, faute d’instruments de géométrie. Je pensais arriver au mur extérieur, le percer et me jeter à la mer. Mais j’ai longé le corridor de votre cellule au lieu de passer dessous. Tout mon travail est perdu, car ce corridor donne sur une cour pleine de gardes.
+– C’est vrai. Mais ce corridor ne longe qu’un seul mur de ma chambre.
+– Certes, mais un autre mur est en plein rocher. Dix mineurs mettraient dix ans à le percer. Un autre doit donner sur les caves du gouverneur, qui sont fermées à clé. Et le dernier mur… attendez, où donne-t-il ? »
+Ce mur était celui avec la petite fenêtre par laquelle entrait la lumière. Elle était si étroite qu’un enfant n’aurait pas pu y passer, et de plus, elle était protégée par trois rangées de barreaux.
+Le nouveau venu traîna la table sous la fenêtre. « Montez », dit-il à Dantès.
+Dantès obéit, devinant ses intentions. L’homme, dont Dantès ignorait encore le nom, monta sur la table, puis sur les mains et les épaules de Dantès, avec une agilité surprenante pour son âge. Courbé sous la voûte basse, il passa la tête entre les barreaux et regarda en bas. Un instant après, il retira vivement la tête.
+« Oh, je m’en doutais, dit-il. » Et il sauta à terre.
+« De quoi vous doutiez-vous ? » demanda le jeune homme, anxieux.
+Le vieil homme réfléchissait. « Oui, c’est cela. Le quatrième mur de votre cachot donne sur une galerie extérieure, une sorte de chemin de ronde où passent les sentinelles.
 – Vous en êtes sûr ?
-– J’ai vu le shako du soldat et le bout de son fusil et je ne me suis retiré si vivement que de peur qu’il ne m’aperçût moi-même.
+– J’ai vu le casque du soldat et le bout de son fusil. Je me suis retiré vivement de peur qu’il ne m’aperçoive.
 – Eh bien ? dit Dantès.
 – Vous voyez bien qu’il est impossible de fuir par votre cachot.
-– Alors ? continua le jeune homme avec un accent interrogateur.
-– Alors, dit le vieux prisonnier, que la volonté de Dieu soit faite ! »
-Et une teinte de profonde résignation s’étendit sur les traits du vieillard.
-Dantès regarda cet homme qui renonçait ainsi et avec tant de philosophie à une espérance nourrie depuis si longtemps, avec un étonnement mêlé d’admiration.
+– Alors ? continua le jeune homme.
+– Alors, dit le vieil homme, que la volonté de Dieu soit faite ! » Et une profonde résignation s’étendit sur son visage.
+Dantès regarda avec un mélange d’admiration et d’étonnement cet homme qui renonçait si philosophiquement à un espoir nourri depuis si longtemps.
 « Maintenant, voulez-vous me dire qui vous êtes ? demanda Dantès.
-– Oh ! mon Dieu, oui, si cela peut encore vous intéresser, maintenant que je ne puis plus vous être bon à rien.
-– Vous pouvez être bon à me consoler et à me soutenir, car vous me semblez fort parmi les forts. »
-L’abbé sourit tristement.
-« Je suis l’abbé Faria, dit-il, prisonnier depuis 1811, comme vous le savez, au château d’If ; mais j’étais depuis trois ans renfermé dans la forteresse de Fenestrelle. En 1811, on m’a transféré du Piémont en France. C’est alors que j’ai appris que la destinée, qui, à cette époque, lui semblait soumise, avait donné un fils à Napoléon, et que ce fils au berceau avait été nommé roi de Rome. J’étais loin de me douter alors de ce que vous m’avez dit tout à l’heure : c’est que, quatre ans plus tard, le colosse serait renversé. Qui règne donc en France ? Est-ce Napoléon II ?
+– Mon Dieu, oui, si cela vous intéresse encore.
+– Vous pouvez me consoler et me soutenir, car vous me semblez être un homme fort. »
+L’abbé sourit tristement. « Je suis l’abbé Faria, dit-il. Prisonnier au château d’If depuis 1811, comme vous le savez. J’étais auparavant à la forteresse de Fenestrelle. C’est en 1811 qu’on m’a transféré ici. J’ai alors appris que Napoléon avait eu un fils, nommé roi de Rome. J’étais loin de me douter que quatre ans plus tard, ce colosse serait renversé. Qui règne en France, maintenant ? Napoléon II ?
 – Non, c’est Louis XVIII.
-– Louis XVIII, le frère de Louis XVI, les décrets du ciel sont étranges et mystérieux.
-Quelle a donc été l’intention de la Providence en abaissant l’homme qu’elle avait élevé et en élevant celui qu’elle avait abaissé ? »
-Dantès suivait des yeux cet homme qui oubliait un instant sa propre destinée pour se préoccuper ainsi des destinées du monde.
-« Oui, oui, continua-t-il, c’est comme en Angleterre : après Charles I er, Cromwell, après Cromwell, Charles II, et peut-être après Jacques II, quelque gendre, quelque parent, quelque prince d’Orange ; un stathouder qui se fera roi ; et alors de nouvelles concessions au peuple, alors une constitution, alors la liberté ! Vous verrez cela, jeune homme, dit-il en se retournant vers Dantès, et en le regardant avec des yeux brillants et profonds, comme en devaient avoir les prophètes. Vous êtes encore d’âge à le voir, vous verrez cela.
+– Louis XVIII, le frère de Louis XVI ! Comme les voies du destin sont étranges ! Pourquoi avoir abaissé l’homme qu’elle avait élevé, et élevé celui qu’elle avait abaissé ? »
+Dantès le regardait, fasciné par cet homme qui oubliait son propre sort pour s’interroger sur celui du monde.
+« Oui, oui, continua-t-il. C’est comme en Angleterre : après Charles Ier, Cromwell ; après Cromwell, Charles II. Vous verrez cela, jeune homme, dit-il en fixant Dantès avec ses yeux brillants. Vous êtes assez jeune pour le voir.
 – Oui, si je sors d’ici.
-– Ah c’est juste, dit l’abbé Faria. Nous sommes prisonniers ; il y a des moments où je l’oublie, et où, parce que mes yeux percent les murailles qui m’enferment, je me crois en liberté.
-– Mais pourquoi êtes-vous enfermé, vous ?
-– Moi ? parce que j’ai rêvé en 1807 le projet que Napoléon a voulu réaliser en 1811 ; parce que, comme Machiavel, au milieu de tous ces principicules qui faisaient de l’Italie un nid de petits royaumes tyranniques et faibles, j’ai voulu un grand et seul empire, compact et fort : parce que j’ai cru trouver mon César Borgia dans un niais couronné qui a fait semblant de me comprendre pour me mieux trahir. C’était le projet d’Alexandre VI et de Clément VII ; il échouera toujours, puisqu’ils l’ont entrepris inutilement et que Napoléon n’a pu l’achever ; décidément l’Italie est maudite ! »
-Et le vieillard baissa la tête.
-Dantès ne comprenait pas comment un homme pouvait risquer sa vie pour de pareils intérêts ; il est vrai que s’il connaissait Napoléon pour l’avoir vu et lui avoir parlé, il ignorait complètement, en revanche, ce que c’étaient que Clément VII et Alexandre VI.
-« N’êtes-vous pas, dit Dantès, commençant à partager l’opinion de son geôlier, qui était l’opinion générale au château d’If, le prêtre que l’on croit... malade ?
-– Que l’on croit fou, vous voulez dire, n’est-ce pas ?
-– Je n’osais, dit Dantès en souriant.
-– Oui, oui, continua Faria avec un rire amer ; oui, c’est moi qui passe pour fou ; c’est moi qui divertis depuis si longtemps les hôtes de cette prison, et qui réjouirais les petits enfants, s’il y avait des enfants dans le séjour de la douleur sans espoir. »
-Dantès demeura un instant immobile et muet.
-« Ainsi, vous renoncez à fuir ? lui dit-il.
-– Je vois la fuite impossible ; c’est se révolter contre Dieu que de tenter ce que Dieu ne veut pas qui s’accomplisse.
-– Pourquoi vous décourager ? ce serait trop demander aussi à la Providence que de vouloir réussir du premier coup. Ne pouvez-vous pas recommencer dans un autre sens ce que vous avez fait dans celui-ci ?
-– Mais savez-vous ce que j’ai fait, pour parler ainsi de recommencer ? Savez-vous qu’il m’a fallu quatre ans pour faire les outils que je possède ? Savez-vous que depuis deux ans je gratte et creuse une terre dure comme le granit ?
-Savez-vous qu’il m’a fallu déchausser des pierres qu’autrefois je n’aurais pas cru pouvoir remuer, que des journées tout entières se sont passées dans ce labeur titanique et que parfois, le soir, j’étais heureux quand j’avais enlevé un pouce carré de ce vieux ciment, devenu aussi dur que la pierre elle-même ? Savez-vous, savez-vous que pour loger toute cette terre et toutes ces pierres que j’enterrais, il m’a fallu percer la voûte d’un escalier, dans le tambour duquel tous ces décombres ont été tour à tour ensevelis, si bien qu’aujourd’hui le tambour est plein, et que je ne saurais plus où mettre une poignée de poussière ?
-Savez-vous, enfin, que je croyais toucher au but de tous mes travaux, que je me sentais juste la force d’accomplir cette tâche, et que voilà que Dieu non seulement recule ce but, mais le transporte je ne sais où ? Ah ! je vous le dis, je vous le répète, je ne ferai plus rien désormais pour essayer de reconquérir ma liberté, puisque la volonté de Dieu est qu’elle soit perdue à tout jamais. »
-Edmond baissa la tête pour ne pas avouer à cet homme que la joie d’avoir un compagnon l’empêchait de compatir, comme il eût dû, à la douleur qu’éprouvait le prisonnier de n’avoir pu se sauver.
-L’abbé Faria se laissa aller sur le lit d’Edmond, et Edmond resta debout.
-Le jeune homme n’avait jamais songé à la fuite. Il y a de ces choses qui semblent tellement impossibles qu’on n’a pas même l’idée de les tenter et qu’on les évite d’instinct. Creuser cinquante pieds sous la terre, consacrer à cette opération un travail de trois ans pour arriver, si on réussit, à un précipice donnant à pic sur la mer ; se précipiter de cinquante, de soixante, de cent pieds peut-être, pour s’écraser, en tombant, la tête sur quelque rocher, si la balle des sentinelles ne vous a point déjà tué auparavant ; être obligé, si l’on échappe à tous ces dangers, de faire en nageant une lieue, c’en était trop pour qu’on ne se résignât point, et nous avons vu que Dantès avait failli pousser cette résignation jusqu’à la mort.
-Mais maintenant que le jeune homme avait vu un vieillard se cramponner à la vie avec tant d’énergie et lui donner l’exemple des résolutions désespérées, il se mit à réfléchir et à mesurer son courage. Un autre avait tenté ce qu’il n’avait pas même eu l’idée de faire ; un autre, moins jeune, moins fort, moins adroit que lui, s’était procuré, à force d’adresse et de patience, tous les instruments dont il avait besoin pour cette incroyable opération, qu’une mesure mal prise avait pu seule faire échouer : un autre avait fait tout cela, rien n’était donc impossible à Dantès :
-Faria avait percé cinquante pieds, il en percerait cent, Faria, à cinquante ans, avait mis trois ans à son œuvre ; il n’avait que la moitié de l’âge de Faria, lui, il en mettrait six ; Faria, abbé, savant, homme d’Église, n’avait pas craint de risquer la traversée du château d’If à l’île de Daume, de Ratonneau ou de Lemaire ; lui, Edmond le marin, lui, Dantès le hardi plongeur, qui avait été si souvent chercher une branche de corail au fond de la mer, hésiterait-il donc à faire une lieue en nageant ? que fallait-il pour faire une lieue en nageant ? une heure ? Eh bien, n’était-il donc pas resté des heures entières à la mer sans reprendre pied sur le rivage ! Non, non, Dantès n’avait besoin que d’être encouragé par un exemple.
-Tout ce qu’un autre a fait ou aurait pu faire, Dantès le fera.
-Le jeune homme réfléchit un instant.
-« J’ai trouvé ce que vous cherchiez », dit-il au vieillard.
-Faria tressaillit.
-« Vous ? dit-il, et en relevant la tête d’un air qui indiquait que si Dantès disait la vérité, le découragement de son compagnon ne serait pas de longue durée ; vous, voyons, qu’avez-vous trouvé ?
-– Le corridor que vous avez percé pour venir de chez vous ici s’étend dans le même sens que la galerie extérieure, n’est-ce pas ?
+– Ah, c’est juste, dit l’abbé Faria. Nous sommes prisonniers. Parfois, je l’oublie.
+– Mais pourquoi êtes-vous enfermé ?
+– Parce que j’ai rêvé en 1807 du projet que Napoléon a tenté de réaliser en 1811 : unifier l’Italie en un seul et grand empire, fort et compact. J’ai cru trouver mon leader en un prince couronné qui a fait semblant de me comprendre pour mieux me trahir. Ce projet a toujours échoué. L’Italie est maudite ! »
+Et le vieillard baissa la tête. Dantès ne comprenait pas comment un homme pouvait risquer sa vie pour de tels intérêts.
+« N’êtes-vous pas, dit Dantès, le prêtre que l’on croit… malade ?
+– Que l’on croit fou, vous voulez dire ?
+– Je n’osais pas, dit Dantès en souriant.
+– Oui, c’est moi, continua Faria avec un rire amer. C’est moi qui amuse les gardiens de cette prison.
+– Vous renoncez donc à fuir ?
+– Je vois que la fuite est impossible. C’est se révolter contre Dieu que de tenter ce qu’Il ne veut pas.
+– Pourquoi vous décourager ? Ne pouvez-vous pas recommencer autrement ?
+– Mais savez-vous ce que j’ai fait ? Il m’a fallu quatre ans pour fabriquer mes outils. Deux ans pour creuser la terre. Des journées entières pour enlever à peine quelques centimètres de ciment. J’ai dû cacher tous les débris en remplissant un vieil escalier muré. Et maintenant, Dieu non seulement recule le but, mais le déplace je ne sais où. Non, je ne ferai plus rien pour ma liberté.
+Edmond baissa la tête. La joie d’avoir un compagnon l’empêchait de partager la douleur du vieil homme.
+L’abbé Faria s’allongea sur le lit d’Edmond. Edmond resta debout.
+Il n’avait jamais pensé à la fuite. Creuser un tunnel de cinquante pieds, risquer de se faire tuer par une sentinelle ou de s’écraser sur les rochers en sautant dans la mer, puis de devoir nager une lieue… tout cela lui paraissait impossible. Mais maintenant, il avait vu un vieillard, moins jeune, moins fort, moins adroit, tenter cette chose incroyable. Faria l’avait fait, donc rien n’était impossible pour Dantès. Il était jeune, il était marin, il était un plongeur audacieux. Tout ce qu’un autre a fait, Dantès pouvait le faire.
+« J’ai trouvé ce que vous cherchiez », dit-il soudain au vieillard.
+Faria sursauta. « Vous ? Qu’avez-vous trouvé ?
+– Le corridor que vous avez creusé est parallèle à la galerie extérieure, n’est-ce pas ?
 – Oui.
-– Il doit n’en être éloigné que d’une quinzaine de pas ?
+– Il ne doit en être éloigné que d’une quinzaine de pas ?
 – Tout au plus.
-– Eh bien, vers le milieu du corridor nous perçons un chemin formant comme la branche d’une croix. Cette fois, vous prenez mieux vos mesures. Nous débouchons sur la galerie extérieure. Nous tuons la sentinelle et nous nous évadons. Il ne faut, pour que ce plan réussisse, que du courage, vous en avez ; que de la vigueur, je n’en manque pas. Je ne parle pas de la patience, vous avez fait vos preuves et je ferai les miennes.
-– Un instant, répondit l’abbé ; vous n’avez pas su, mon cher compagnon, de quelle espèce est mon courage, et quel emploi je compte faire de ma force. Quand à la patience, je crois avoir été assez patient en recommençant chaque matin la tâche de la nuit, et chaque nuit la tâche du jour.
-Mais alors écoutez-moi bien, jeune homme, c’est qu’il me semblait que je servais Dieu, en délivrant une de ses créatures qui, étant innocente, n’avait pu être condamnée.
-– Eh bien, demanda Dantès, la chose n’en estelle pas au même point, et vous êtes-vous reconnu coupable depuis que vous m’avez rencontré, dites ?
-– Non, mais je ne veux pas le devenir.
-Jusqu’ici je croyais n’avoir affaire qu’aux choses, voilà que vous me proposez d’avoir affaire aux hommes. J’ai pu percer un mur et détruire un escalier, mais je ne percerai pas une poitrine et ne détruirai pas une existence. »
-Dantès fit un léger mouvement de surprise.
-« Comment, dit-il, pouvant être libre, vous seriez retenu par un semblable scrupule ?
-– Mais, vous-même, dit Faria, pourquoi n’avez-vous pas un soir assommé votre geôlier avec le pied de votre table, revêtu ses habits et essayé de fuir ?
-– C’est que l’idée ne m’en est pas venue, dit Dantès.
-– C’est que vous avez une telle horreur instinctive pour un pareil crime, une telle horreur que vous n’y avez pas même songé, reprit le vieillard ; car dans les choses simples et permises nos appétits naturels nous avertissent que nous ne dévions pas de la ligne de notre droit. Le tigre, qui verse le sang par nature, dont c’est l’état, la destination, n’a besoin que d’une chose, c’est que son odorat l’avertisse qu’il a une proie à sa portée. Aussitôt, il bondit vers cette proie, tombe dessus et la déchire. C’est son instinct, et il y obéit. Mais l’homme, au contraire, répugne au sang ; ce ne sont point les lois sociales qui répugnent au meurtre, ce sont les lois naturelles. »
-Dantès resta confondu : c’était, en effet, l’explication de ce qui s’était passé à son insu dans son esprit ou plutôt dans son âme, car il y a des pensées qui viennent de la tête, et d’autres qui viennent du cœur.
-« Et puis, continua Faria, depuis tantôt douze ans que je suis en prison, j’ai repassé dans mon esprit toutes les évasions célèbres. Je n’ai vu réussir que rarement les évasions. Les évasions heureuses, les évasions couronnées d’un plein succès, sont les évasions méditées avec soin et lentement préparées ; c’est ainsi que le duc de Beaufort s’est échappé du château de Vincennes ; l’abbé Dubuquoi du Fort-l’Évêque, et Latude de la Bastille. Il y a encore celles que le hasard peut offrir : celles-là sont les meilleures ; attendons une occasion, croyez-moi, et si cette occasion se présente, profitons-en.
-– Vous avez pu attendre, vous, dit Dantès en soupirant ; ce long travail vous faisait une occupation de tous les instants, et quand vous n’aviez pas votre travail pour vous distraire, vous aviez vos espérances pour vous consoler.
-– Puis, dit l’abbé, je ne m’occupais point qu’à cela.
+– Eh bien, au milieu de votre corridor, nous percerons un tunnel perpendiculaire. Cette fois, vous prendrez mieux vos mesures. Nous arriverons sur la galerie extérieure. Nous tuerons la sentinelle et nous nous évaderons. Il ne faut que du courage, et nous en avons tous les deux.
+– Un instant, répondit l’abbé. Jeune homme, il me semblait servir Dieu en délivrant une de ses créatures innocentes. Mais je ne veux pas devenir coupable. J’ai pu percer un mur, mais je ne percerai pas une poitrine humaine.
+– Vous seriez retenu par un tel scrupule ? dit Dantès, surpris.
+– Pourquoi n’avez-vous pas, vous-même, assommé votre geôlier pour vous enfuir ?
+– L’idée ne m’en est pas venue.
+– C’est que vous avez une horreur instinctive du crime. Ce ne sont pas les lois sociales qui interdisent le meurtre, ce sont les lois naturelles. »
+Dantès resta confondu. C’était l’explication de ce qu’il avait ressenti sans le comprendre.
+« De plus, continua Faria, les évasions réussies sont celles qui sont longuement préparées. Attendons plutôt une occasion que le hasard pourrait nous offrir.
+– Vous avez pu attendre, vous. Votre travail vous occupait.
+– Je ne faisais pas que cela.
 – Que faisiez-vous donc ?
 – J’écrivais ou j’étudiais.
-– On vous donne donc du papier, des plumes, de l’encre ?
-– Non, dit l’abbé, mais je m’en fais.
-– Vous vous faites du papier, des plumes et de l’encre ? s’écria Dantès.
+– On vous donne du papier, des plumes, de l’encre ?
+– Non, je me les fabrique.
+– Vous vous fabriquez du papier, des plumes et de l’encre ? s’écria Dantès.
 – Oui. »
-Dantès regarda cet homme avec admiration ; seulement, il avait encore peine à croire ce qu’il disait. Faria s’aperçut de ce léger doute.
-« Quand vous viendrez chez moi, lui dit-il, je vous montrerai un ouvrage entier, résultat des pensées, des recherches et des réflexions de toute ma vie, que j’avais médité à l’ombre du Colisée à Rome, au pied de la colonne Saint-Marc à Venise, sur les bords de l’Arno à Florence, et que je ne me doutais guère qu’un jour mes geôliers me laisseraient le loisir d’exécuter entre les quatre murs du château d’If. C’est un Traité sur la possibilité d’une monarchie générale en Italie.
-Ce fera un grand volume in-quarto.
+Dantès le regardait avec admiration. Faria s’en aperçut. « Quand vous viendrez chez moi, je vous montrerai un ouvrage entier, le résultat de toute une vie de réflexions. C’est un “Traité sur la possibilité d’une monarchie générale en Italie”.
 – Et vous l’avez écrit ?
-– Sur deux chemises. J’ai inventé une préparation qui rend le linge lisse et uni comme le parchemin.
-– Vous êtes donc chimiste.
-– Un peu. J’ai connu Lavoisier et je suis lié avec Cabanis.
-– Mais, pour un pareil ouvrage, il vous a fallu faire des recherches historiques. Vous aviez donc des livres ?
-– À Rome, j’avais à peu près cinq mille volumes dans ma bibliothèque. À force de les lire et de les relire, j’ai découvert qu’avec cent cinquante ouvrages bien choisis on a, sinon le résumé complet des connaissances humaines, du moins tout ce qu’il est utile à un homme de savoir. J’ai consacré trois années de ma vie à lire et à relire ces cent cinquante volumes, de sorte que je les savais à peu près par cœur lorsque j’ai été arrêté. Dans ma prison, avec un léger effort de mémoire, je me les suis rappelés tout à fait. Ainsi pourrais-je vous réciter Thucydide, Xénophon, Plutarque, Tite-Live, Tacite, Strada, Jornandès, Dante, Montaigne, Shakespeare, Spinosa, Machiavel et Bossuet. Je ne vous cite que les plus importants.
-– Mais vous savez donc plusieurs langues ?
-– Je parle cinq langues vivantes, l’allemand, le français, l’italien, l’anglais et l’espagnol ; à l’aide du grec ancien je comprends le grec moderne ; seulement je le parle mal, mais je l’étudie en ce moment.
-– Vous l’étudiez ? dit Dantès.
-– Oui, je me suis fait un vocabulaire des mots que je sais, je les ai arrangés, combinés, tournés et retournés, de façon qu’ils puissent me suffire pour exprimer ma pensée. Je sais à peu près mille mots, c’est tout ce qu’il me faut à la rigueur, quoiqu’il y en ait cent mille, je crois, dans les dictionnaires. Seulement, je ne serai pas éloquent, mais je me ferai comprendre à merveille et cela me suffit. »
-De plus en plus émerveillé, Edmond commençait à trouver presque surnaturelles les facultés de cet homme étrange ; il voulut le trouver en défaut sur un point quelconque, il continua :
-« Mais si l’on ne vous a pas donné de plumes, dit-il, avec quoi avez-vous pu écrire ce traité si volumineux ?
-– Je m’en suis fait d’excellentes, et que l’on préférerait aux plumes ordinaires si la matière était connue, avec les cartilages des têtes de ces énormes merlans que l’on nous sert quelquefois pendant les jours maigres. Aussi vois-je toujours arriver les mercredis, les vendredis et les samedis avec grand plaisir, car ils me donnent l’espérance d’augmenter ma provision de plumes, et mes travaux historiques sont, je l’avoue, ma plus douce occupation. En descendant dans le passé, j’oublie le présent ; en marchant libre et indépendant dans l’histoire, je ne me souviens plus que je suis prisonnier.
-– Mais de l’encre ? dit Dantès, avec quoi vous êtes-vous fait de l’encre ?
-– Il y avait autrefois une cheminée dans mon cachot, dit Faria ; cette cheminée a été bouchée quelque temps avant mon arrivée, sans doute, mais pendant de longues années on y avait fait du feu : tout l’intérieur en est donc tapissé de suie. Je fais dissoudre cette suie dans une portion du vin qu’on me donne tous les dimanches, cela me fournit de l’encre excellente. Pour les notes particulières, et qui ont besoin d’attirer les yeux, je me pique les doigts et j’écris avec mon sang.
+– Sur deux de mes chemises. J’ai inventé une préparation qui rend le linge uni comme du parchemin.
+– Vous êtes donc chimiste ?
+– Un peu. J’ai connu Lavoisier.
+– Mais il vous a fallu faire des recherches historiques. Vous aviez des livres ?
+– J’avais cinq mille volumes dans ma bibliothèque à Rome. Je les ai tellement lus que j’ai découvert qu’avec cent cinquante ouvrages bien choisis, on a presque tout le savoir utile. Je les ai lus et relus pendant trois ans, au point de les savoir par cœur. Dans ma prison, je me les suis rappelés. Je pourrais vous réciter Thucydide, Plutarque, Dante, Shakespeare…
+– Vous savez donc plusieurs langues ?
+– Je parle cinq langues vivantes : allemand, français, italien, anglais et espagnol. Je comprends le grec moderne grâce au grec ancien, et je l’étudie en ce moment.
+– Vous l’étudiez ?
+– Oui. Je me suis fait un vocabulaire d’environ mille mots. Ce n’est pas beaucoup, mais cela suffit pour me faire comprendre.
+De plus en plus émerveillé, Edmond continua : « Mais sans plumes, avec quoi avez-vous écrit ?
+– Je m’en suis fabriqué d’excellentes avec les cartilages des têtes de merlans qu’on nous sert parfois.
+– Mais l’encre ? Avec quoi vous êtes-vous fait de l’encre ?
+– Il y avait autrefois une cheminée dans mon cachot. Elle est bouchée, mais l’intérieur est tapissé de suie. Je la fais dissoudre dans un peu du vin qu’on me donne le dimanche, et cela me fait une encre excellente. Pour les notes importantes, je me pique les doigts et j’écris avec mon sang.
 – Et quand pourrai-je voir tout cela ? demanda Dantès.
 – Quand vous voudrez, répondit Faria.
-– Oh ! tout de suite ! s’écria le jeune homme.
-– Suivez-moi donc », dit l’abbé.
+– Oh, tout de suite ! s’écria le jeune homme.
+– Alors suivez-moi », dit l’abbé.
 Et il rentra dans le corridor souterrain où il disparut. Dantès le suivit.`,
 }

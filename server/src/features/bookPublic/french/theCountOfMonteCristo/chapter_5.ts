@@ -1,174 +1,160 @@
 export const chapter_5 = {
 	name: 'CHAPITRE V',
-	header: 'Le repas des fiançailles',
-	text: `Le lendemain fut un beau jour. Le soleil se leva pur et brillant, et les premiers rayons d’un rouge pourpre diaprèrent de leurs rubis les pointes écumeuses des vagues.
-Le repas avait été préparé au premier étage de cette même Réserve, avec la tonnelle de laquelle nous avons déjà fait connaissance. C’était une grande salle éclairée par cinq ou six fenêtres, audessus de chacune desquelles (explique le phénomène qui pourra !) était écrit le nom d’une des grandes villes de France.
-Une balustrade en bois, comme le reste du bâtiment, régnait tout le long de ces fenêtres.
-Quoique le repas ne fût indiqué que pour midi, dès onze heures du matin, cette balustrade était chargée de promeneurs impatients. C’étaient les marins privilégiés du Pharaon et quelques soldats, amis de Dantès. Tous avaient, pour faire honneur aux fiancés, fait voir le jour à leurs plus belles toilettes.
-Le bruit circulait, parmi les futurs convives, que les armateurs du Pharaon devaient honorer de leur présence le repas de noces de leur second ; mais c’était de leur part un si grand honneur accordé à Dantès que personne n’osait encore y croire.
-Cependant Danglars, en arrivant avec Caderousse, confirma à son tour cette nouvelle. Il avait vu le matin M. Morrel lui-même, et M. Morrel lui avait dit qu’il viendrait dîner à la Réserve.
-En effet, un instant après eux, M. Morrel fit à son tour son entrée dans la chambre et fut salué par les matelots du Pharaon d’un hourra unanime d’applaudissements. La présence de l’armateur était pour eux la confirmation du bruit qui courait déjà que Dantès serait nommé capitaine ; et comme Dantès était fort aimé à bord, ces braves gens remerciaient ainsi l’armateur de ce qu’une fois par hasard son choix était en harmonie avec leurs désirs. À peine M. Morrel fut-il entré qu’on dépêcha unanimement Danglars et Caderousse vers le fiancé : ils avaient mission de le prévenir de l’arrivée du personnage important dont la vue avait produit une si vive sensation, et de lui dire de se hâter.
-Danglars et Caderousse partirent tout courant mais ils n’eurent pas fait cent pas, qu’à la hauteur du magasin à poudre ils aperçurent la petite troupe qui venait.
-Cette petite troupe se composait de quatre jeunes filles amies de Mercédès et Catalanes comme elle, et qui accompagnaient la fiancée à laquelle Edmond donnait le bras. Près de la future marchait le père Dantès, et derrière eux venait Fernand avec son mauvais sourire.
-Ni Mercédès ni Edmond ne voyaient ce mauvais sourire de Fernand. Les pauvres enfants étaient si heureux qu’ils ne voyaient qu’eux seuls et ce beau ciel pur qui les bénissait.
-Danglars et Caderousse s’acquittèrent de leur mission d’ambassadeurs ; puis après avoir échangé une poignée de main bien vigoureuse et bien amicale avec Edmond, ils allèrent, Danglars prendre place près de Fernand, Caderousse se ranger aux côtés du père Dantès, centre de l’attention générale.
-Ce vieillard était vêtu de son bel habit de taffetas épinglé, orné de larges boutons d’acier, taillés à facettes. Ses jambes grêles, mais nerveuses, s’épanouissaient dans de magnifiques bas de coton mouchetés, qui sentaient d’une lieue la contrebande anglaise. À son chapeau à trois cornes pendait un flot de rubans blancs et bleus.
-Enfin, il s’appuyait sur un bâton de bois tordu et recourbé par le haut comme un pedum antique.
-On eût dit un de ces muscadins qui paradaient en 1796 dans les jardins nouvellement rouverts du Luxembourg et des Tuileries.
-Près de lui, nous l’avons dit, s’était glissé Caderousse, Caderousse que l’espérance d’un bon repas avait achevé de réconcilier avec les Dantès, Caderousse à qui il restait dans la mémoire un vague souvenir de ce qui s’était passé la veille, comme en se réveillant le matin on trouve dans son esprit l’ombre du rêve qu’on a fait pendant le sommeil.
-Danglars, en s’approchant de Fernand, avait jeté sur l’amant désappointé un regard profond.
-Fernand, marchant derrière les futurs époux, complètement oublié par Mercédès, qui dans cet égoïsme juvénile et charmant de l’amour n’avait d’yeux que pour son Edmond. Fernand était pâle, puis rouge par bouffées subites qui disparaissaient pour faire place chaque fois à une pâleur croissante. De temps en temps, il regardait du côté de Marseille, et alors un tremblement nerveux et involontaire faisait frissonner ses membres. Fernand semblait attendre ou tout au moins prévoir quelque grand événement.
-Dantès était simplement vêtu. Appartenant à la marine marchande, il avait un habit qui tenait le milieu entre l’uniforme militaire et le costume civil ; et sous cet habit, sa bonne mine, que rehaussaient encore la joie et la beauté de sa fiancée, était parfaite.
-Mercédès était belle comme une de ces Grecques de Chypre ou de Céos, aux yeux d’ébène et aux lèvres de corail. Elle marchait de ce pas libre et franc dont marchent les Arlésiennes et les Andalouses. Une fille des villes eût peut-être essayé de cacher sa joie sous un voile ou tout au moins sous le velours de ses paupières, mais Mercédès souriait et regardait tous ceux qui l’entouraient, et son sourire et son regard disaient aussi franchement qu’auraient pu le dire ses paroles : Si vous êtes mes amis, réjouissez-vous avec moi, car, en vérité, je suis bien heureuse !
-Dès que les fiancés et ceux qui les accompagnaient furent en vue de la Réserve, M. Morrel descendit et s’avança à son tour au-devant d’eux, suivi des matelots et des soldats avec lesquels il était resté, et auxquels il avait renouvelé la promesse déjà faite à Dantès qu’il succéderait au capitaine Leclère. En le voyant venir, Edmond quitta le bras de sa fiancée et le passa sous celui de M. Morrel. L’armateur et la jeune fille donnèrent alors l’exemple en montant les premiers l’escalier de bois qui conduisait à la chambre où le dîner était servi, et qui cria pendant cinq minutes sous les pas pesants des convives.
-« Mon père, dit Mercédès en s’arrêtant au milieu de la table, vous à ma droite, je vous prie ; quant à ma gauche, j’y mettrai celui qui m’a servi de frère », fit-elle avec une douceur qui pénétra au plus profond du cœur de Fernand comme un coup de poignard.
-Ses lèvres blêmirent, et sous la teinte bistrée de son mâle visage on put voir encore une fois le sang se retirer peu à peu pour affluer au cœur.
-Pendant ce temps, Dantès avait exécuté la même manœuvre ; à sa droite il avait mis M. Morrel, à sa gauche Danglars ; puis de la main il avait fait signe à chacun de se placer à sa fantaisie.
-Déjà couraient autour de la table les saucissons d’Arles à la chair brune et au fumet accentué, les langoustes à la cuirasse éblouissante, les prayres à la coquille rosée, les oursins, qui semblent des châtaignes entourées de leur enveloppe piquante, les clovisses, qui ont la prétention de remplacer avec supériorité, pour les gourmets du Midi, les huîtres du Nord ; enfin tous ces hors-d’œuvre délicats que la vague roule sur sa rive sablonneuse, et que les pêcheurs reconnaissants désignent sous le nom générique de fruits de mer.
-« Un beau silence ! dit le vieillard en savourant un verre de vin jaune comme la topaze, que le père Pamphile en personne venait d’apporter devant Mercédès. Dirait-on qu’il y a ici trente personnes qui ne demandent qu’à rire.
-– Eh ! un mari n’est pas toujours gai, dit Caderousse.
-– Le fait est, dit Dantès, que je suis trop heureux en ce moment pour être gai. Si c’est comme cela que vous l’entendez, voisin, vous avez raison ! La joie fait quelquefois un effet étrange, elle oppresse comme la douleur. »
-Danglars observa Fernand, dont la nature impressionnable absorbait et renvoyait chaque émotion.
-« Allons donc, dit-il, est-ce que vous craindriez quelque chose ? il me semble, au contraire, que tout va selon vos désirs !
-– Et c’est justement cela qui m’épouvante, dit Dantès, il me semble que l’homme n’est pas fait pour être si facilement heureux ! Le bonheur est comme ces palais des îles enchantées dont les dragons gardent les portes. Il faut combattre pour le conquérir, et moi, en vérité, je ne sais en quoi j’ai mérité le bonheur d’être le mari de Mercédès.
-– Le mari, le mari, dit Caderousse en riant, pas encore, mon capitaine ; essaie un peu de faire le mari, et tu verras comme tu seras reçu ! »
+	header: 'Le repas de fiançailles',
+	text: `Le lendemain, il fit un temps magnifique. Le soleil se leva, pur et brillant, et ses premiers rayons rouges coloraient la pointe des vagues.
+Le repas était préparé au premier étage de cette même auberge de La Réserve, dont nous connaissons déjà la tonnelle. C’était une grande salle éclairée par cinq ou six fenêtres. Au-dessus de chacune, le nom d’une grande ville de France était écrit, sans qu’on sache vraiment pourquoi.
+Une balustrade en bois courait le long de ces fenêtres.
+Dès onze heures du matin, bien que le repas ne soit prévu qu’à midi, cette balustrade était déjà occupée par des promeneurs impatients. C’étaient les marins du Pharaon et quelques soldats, amis de Dantès. Pour honorer les fiancés, tous avaient mis leurs plus beaux habits.
+La rumeur circulait parmi les invités que les armateurs du Pharaon assisteraient au repas de mariage de leur second. Mais c’était un si grand honneur pour Dantès que personne n’osait vraiment y croire.
+Pourtant, Danglars, en arrivant avec Caderousse, confirma la nouvelle. Il avait vu M. Morrel le matin même, et celui-ci lui avait dit qu’il viendrait dîner à La Réserve.
+En effet, un instant après eux, M. Morrel fit son entrée et fut salué par un tonnerre d’applaudissements de la part des marins du Pharaon. La présence de l’armateur confirmait pour eux la rumeur : Dantès serait nommé capitaine. Comme Dantès était très aimé à bord, ces braves gens remerciaient ainsi l’armateur d’avoir, pour une fois, fait un choix qui correspondait à leurs désirs. Dès l’arrivée de M. Morrel, on envoya Danglars et Caderousse chercher le fiancé pour le prévenir de l’arrivée de l’invité important et lui dire de se dépêcher.
+Danglars et Caderousse partirent en courant, mais après à peine cent pas, ils aperçurent le petit groupe qui arrivait.
+Ce groupe était composé de quatre jeunes amies de Mercédès, Catalanes comme elle, qui accompagnaient la fiancée, au bras d’Edmond. Le père Dantès marchait près du couple, et derrière eux, Fernand suivait avec son sourire mauvais.
+Ni Mercédès ni Edmond ne voyaient ce sourire. Les pauvres enfants étaient si heureux qu’ils ne voyaient qu’eux-mêmes et le ciel bleu qui les bénissait.
+Danglars et Caderousse remplirent leur mission. Après une poignée de main vigoureuse et amicale avec Edmond, Danglars alla s’asseoir près de Fernand, et Caderousse près du père Dantès, qui était au centre de l’attention.
+Ce vieil homme portait son bel habit de taffetas, orné de larges boutons d’acier brillants. Ses jambes fines mais musclées étaient mises en valeur par de magnifiques bas de coton qui sentaient la contrebande anglaise. À son chapeau à trois cornes pendaient des rubans blancs et bleus. Il s’appuyait sur un bâton de bois tordu, recourbé comme une houlette de berger antique. On aurait dit un de ces hommes élégants qui se promenaient en 1796 dans les jardins de Paris.
+Près de lui, Caderousse s’était installé. L’espoir d’un bon repas l’avait réconcilié avec les Dantès. Il gardait un vague souvenir des événements de la veille, comme on se souvient d’un rêve au réveil.
+Danglars, en s’approchant de Fernand, lui avait jeté un regard profond. Fernand, marchant derrière les futurs époux, était complètement oublié par Mercédès, qui, dans son égoïsme amoureux, n’avait d’yeux que pour son Edmond. Fernand passait de pâle à rouge, puis devenait de plus en plus blanc. De temps en temps, il regardait vers Marseille, et un tremblement nerveux agitait son corps. Il semblait attendre ou prévoir un événement important.
+Dantès était simplement vêtu d’un habit entre le style militaire et civil, typique de la marine marchande. Sous cet habit, sa belle allure, rehaussée par la joie et la beauté de sa fiancée, était parfaite.
+Mercédès était aussi belle qu’une déesse grecque, avec ses yeux noirs et ses lèvres rouges. Elle marchait avec l’assurance des femmes du sud. Une fille de la ville aurait peut-être caché sa joie, mais Mercédès souriait à tout le monde. Son sourire disait clairement : « Si vous êtes mes amis, réjouissez-vous avec moi, car je suis vraiment très heureuse ! »
+Dès que les fiancés furent en vue, M. Morrel descendit à leur rencontre, suivi des marins et des soldats. Il leur renouvela la promesse déjà faite à Dantès qu’il succéderait au capitaine Leclère. En le voyant, Edmond laissa le bras de sa fiancée pour le donner à M. Morrel. L’armateur et la jeune fille montèrent les premiers l’escalier de bois, qui grinça sous les pas des nombreux invités.
+« Mon père, dit Mercédès au milieu de la table, asseyez-vous à ma droite, je vous prie. À ma gauche, je placerai celui qui a été comme un frère pour moi », ajouta-t-elle avec une douceur qui frappa Fernand en plein cœur comme un coup de poignard.
+Ses lèvres devinrent blanches et son visage hâlé pâlit de nouveau.
+Pendant ce temps, Dantès avait fait de même : il avait placé M. Morrel à sa droite et Danglars à sa gauche, puis avait invité chacun à s’asseoir où il le souhaitait.
+Déjà, on servait sur la table les saucissons d’Arles, les langoustes, les palourdes, les oursins et tous ces délicats fruits de mer que les pêcheurs reconnaissants offrent.
+« Quel silence ! dit le vieil homme en savourant un verre de vin que le père Pamphile venait de servir à Mercédès. On ne dirait pas qu’il y a ici trente personnes prêtes à rire.
+– Eh, un mari n’est pas toujours joyeux, dit Caderousse.
+– C’est vrai, dit Dantès. Je suis trop heureux en ce moment pour être gai. Si vous le voyez comme ça, voisin, vous avez raison. La joie est parfois oppressante, comme la douleur. »
+Danglars observait Fernand, dont le visage reflétait chaque émotion.
+« Allons donc, dit-il. Craignez-vous quelque chose ? Au contraire, il me semble que tout se passe comme vous le souhaitez !
+– Et c’est justement ça qui m’effraie, dit Dantès. J’ai l’impression que l’homme n’est pas fait pour être si facilement heureux. Le bonheur est comme ces palais des îles enchantées dont les portes sont gardées par des dragons. Il faut combattre pour l’obtenir, et moi, vraiment, je ne sais pas comment j’ai mérité d’être le mari de Mercédès.
+– Le mari, le mari, dit Caderousse en riant, pas encore, mon capitaine. Essaie un peu de jouer au mari, et tu verras comment tu seras reçu ! »
 Mercédès rougit.
-Fernand se tourmentait sur sa chaise, tressaillait au moindre bruit, et de temps en temps essuyait de larges plaques de sueur qui perlaient sur son front, comme les premières gouttes d’une pluie d’orage.
-« Ma foi, dit Dantès, voisin Caderousse, ce n’est point la peine de me démentir pour si peu.
-Mercédès n’est point encore ma femme, c’est vrai... (il tira sa montre). Mais, dans une heure et demie elle le sera ! »
-Chacun poussa un cri de surprise, à l’exception du père Dantès, dont le large rire montra les dents encore belles. Mercédès sourit et ne rougit plus. Fernand saisit convulsivement le manche de son couteau.
-« Dans une heure ! dit Danglars pâlissant luimême ; et comment cela ?
-– Oui, mes amis, répondit Dantès, grâce au crédit de M. Morrel, l’homme après mon père auquel je dois le plus au monde, toutes les difficultés sont aplanies. Nous avons acheté les bans, et à deux heures et demie le maire de Marseille nous attend à l’hôtel de ville. Or, comme une heure et un quart viennent de sonner, je ne crois pas me tromper de beaucoup en disant que dans une heure trente minutes Mercédès s’appellera Mme Dantès. »
-Fernand ferma les yeux : un nuage de feu brûla ses paupières ; il s’appuya à la table pour ne pas défaillir, et, malgré tous ses efforts, ne put retenir un gémissement sourd qui se perdit dans le bruit des rires et des félicitations de l’assemblée.
-« C’est bien agir, cela, hein, dit le père Dantès.
-Cela s’appelle-t-il perdre son temps, à votre avis ? Arrivé d’hier au matin, marié aujourd’hui à trois heures ! Parlez-moi des marins pour aller rondement en besogne.
-– Mais les autres formalités, objecta timidement Danglars : le contrat, les écritures ?...
-– Le contrat, dit Dantès en riant, le contrat est tout fait : Mercédès n’a rien, ni moi non plus !
-Nous nous marions sous le régime de la communauté, et voilà ! Ça n’a pas été long à écrire et ce ne sera pas cher à payer. »
-Cette plaisanterie excita une nouvelle explosion de joie et de bravos.
-« Ainsi, ce que nous prenions pour un repas de fiançailles, dit Danglars, est tout bonnement un repas de noces.
-– Non pas, dit Dantès ; vous n’y perdrez rien, soyez tranquilles. Demain matin, je pars pour Paris. Quatre jours pour aller, quatre jours pour revenir, un jour pour faire en conscience la commission dont je suis chargé, et le 1er mars je suis de retour ; au 2 mars donc le véritable repas de noces. »
-Cette perspective d’un nouveau festin redoubla l’hilarité au point que le père Dantès, qui au commencement du dîner se plaignait du silence, faisait maintenant, au milieu de la conversation générale, de vains efforts pour placer son vœu de prospérité en faveur des futurs époux.
-Dantès devina la pensée de son père et y répondit par un sourire plein d’amour. Mercédès commença de regarder l’heure au coucou de la salle et fit un petit signe à Edmond.
-Il y avait autour de la table cette hilarité bruyante et cette liberté individuelle qui accompagnent, chez les gens de condition inférieure, la fin des repas. Ceux qui étaient mécontents de leur place s’étaient levés de table et avaient été chercher d’autres voisins. Tout le monde commençait à parler à la fois, et personne ne s’occupait de répondre à ce que son interlocuteur lui disait, mais seulement à ses propres pensées.
-La pâleur de Fernand était presque passée sur les joues de Danglars ; quant à Fernand luimême, il ne vivait plus et semblait un damné dans le lac de feu. Un des premiers, il s’était levé et se promenait de long en large dans la salle, essayant d’isoler son oreille du bruit des chansons et du choc des verres.
-Caderousse s’approcha de lui au moment où Danglars, qu’il semblait fuir, venait de le rejoindre dans un angle de la salle.
-« En vérité, dit Caderousse, à qui les bonnes façons de Dantès et surtout le bon vin du père Pamphile avaient enlevé tous les restes de la haine dont le bonheur inattendu de Dantès avait jeté les germes dans son âme, en vérité, Dantès est un gentil garçon ; et quand je le vois assis près de sa fiancée, je me dis que ç’eût été dommage de lui faire la mauvaise plaisanterie que vous complotiez hier.
-– Aussi, dit Danglars, tu as vu que la chose n’a pas eu de suite ; ce pauvre M. Fernand était si bouleversé qu’il m’avait fait de la peine d’abord ; mais du moment qu’il en a pris son parti, au point de s’être fait le premier garçon de noces de son rival, il n’y a plus rien à dire. »
-Caderousse regarda Fernand, il était livide.
-« Le sacrifice est d’autant plus grand, continua Danglars, qu’en vérité la fille est belle. Peste ! l’heureux coquin que mon futur capitaine ; je voudrais m’appeler Dantès douze heures seulement.
-– Partons-nous ? demanda la douce voix de Mercédès ; voici deux heures qui sonnent, et l’on nous attend à deux heures un quart.
+Fernand s’agitait sur sa chaise, sursautant au moindre bruit et essuyant la sueur qui perlait sur son front, comme les premières gouttes d’un orage.
+« Ma foi, dit Dantès, voisin Caderousse, ce n’est pas la peine de me contredire pour si peu. Mercédès n’est pas encore ma femme, c’est vrai… (il sortit sa montre). Mais dans une heure et demie, elle le sera ! »
+Un cri de surprise général retentit, sauf chez le père Dantès, dont le large rire montra ses belles dents. Mercédès sourit. Fernand serra convulsivement le manche de son couteau.
+« Dans une heure ! dit Danglars en pâlissant. Comment ça ?
+– Oui, mes amis, répondit Dantès. Grâce à M. Morrel, l’homme à qui je dois le plus après mon père, toutes les difficultés ont été levées. Nous avons obtenu les dispenses, et à deux heures et demie, le maire de Marseille nous attend à la mairie. Comme il est une heure et quart, je pense ne pas me tromper en disant que dans une heure et demie, Mercédès s’appellera Madame Dantès. »
+Fernand ferma les yeux, un voile de feu devant ses paupières. Il s’appuya à la table pour ne pas tomber et ne put retenir un gémissement sourd, couvert par les rires et les félicitations de l’assemblée.
+« Voilà qui est bien mené, hein ? dit le père Dantès. Arrivé hier matin, marié aujourd’hui à trois heures ! Les marins savent être efficaces !
+– Mais les autres formalités ? objecta timidement Danglars. Le contrat, les papiers ?
+– Le contrat, dit Dantès en riant, est tout fait : Mercédès n’a rien, et moi non plus ! Nous nous marions sous le régime de la communauté. Ça n’a pas été long à écrire et ça ne coûtera pas cher. »
+Cette plaisanterie provoqua une nouvelle explosion de joie.
+« Donc, ce que nous pensions être un repas de fiançailles est en fait un repas de noces, dit Danglars.
+– Non, dit Dantès, vous ne perdrez rien. Demain matin, je pars pour Paris. Quatre jours pour y aller, quatre pour revenir, un jour pour faire ma commission, et le 1er mars, je suis de retour. Le 2 mars, nous ferons le véritable repas de noces. »
+La perspective d’une autre fête redoubla la gaieté, à tel point que le père Dantès, qui se plaignait du silence au début, avait maintenant du mal à placer ses vœux de prospérité pour les futurs époux au milieu du bruit.
+Dantès devina la pensée de son père et lui répondit par un sourire plein d’amour. Mercédès regarda l’heure à l’horloge et fit un petit signe à Edmond.
+Autour de la table, la fin du repas amena une ambiance bruyante et désordonnée. Ceux qui étaient mécontents de leur place s’étaient levés pour trouver d’autres voisins. Tout le monde parlait en même temps, plus à ses propres pensées qu’à son interlocuteur.
+La pâleur de Danglars avait presque remplacé celle de Fernand. Fernand, lui, semblait ailleurs, comme un damné. Il s’était levé et marchait dans la salle, essayant d’ignorer le bruit des chansons et des verres.
+Caderousse s’approcha de lui, juste au moment où Danglars, que Fernand semblait fuir, le rejoignait dans un coin.
+« Vraiment, dit Caderousse, que les bonnes manières de Dantès et le bon vin avaient apaisé, Dantès est un gentil garçon. Quand je le vois assis près de sa fiancée, je me dis que ç’aurait été dommage de lui faire la mauvaise blague que vous prépariez hier.
+– Tu as bien vu que ça n’a pas eu de suite, dit Danglars. Ce pauvre M. Fernand était si bouleversé que j’ai eu de la peine pour lui. Mais puisqu’il a accepté la situation, au point d’être le garçon d’honneur de son rival, il n’y a plus rien à dire. »
+Caderousse regarda Fernand : il était livide.
+« Le sacrifice est d’autant plus grand que la fille est vraiment belle, continua Danglars. Quelle chance a mon futur capitaine ! J’aimerais m’appeler Dantès juste pour douze heures.
+– Partons-nous ? demanda la douce voix de Mercédès. Il est deux heures, et on nous attend.
 – Oui, oui, partons ! dit Dantès en se levant vivement.
-– Partons ! » répétèrent en chœur tous les convives.
-Au même instant, Danglars, qui ne perdait pas de vue Fernand assis sur le rebord de la fenêtre, le vit ouvrir des yeux hagards, se lever comme par un mouvement convulsif, et retomber assis sur l’appui de cette croisée ; presque au même instant un bruit sourd retentit dans l’escalier ; le retentissement d’un pas pesant, une rumeur confuse de voix mêlées à un cliquetis d’armes couvrirent les exclamations des convives, si bruyantes qu’elles fussent, et attirèrent l’attention générale, qui se manifesta à l’instant même par un silence inquiet.
-Le bruit s’approcha : trois coups retentirent dans le panneau de la porte ; chacun regarda son voisin d’un air étonné.
-« Au nom de la loi ! » cria une voix vibrante, à laquelle aucune voix ne répondit.
-Aussitôt la porte s’ouvrit, et un commissaire, ceint de son écharpe, entra dans la salle, suivi de quatre soldats armés, conduits par un caporal.
-L’inquiétude fit place à la terreur.
-« Qu’y a-t-il ? demanda l’armateur en s’avançant au-devant du commissaire qu’il connaissait ; bien certainement, monsieur, il y a méprise.
-– S’il y a méprise, monsieur Morrel, répondit le commissaire, croyez que la méprise sera promptement réparée ; en attendant, je suis porteur d’un mandat d’arrêt ; et quoique ce soit avec regret que je remplisse ma mission, il ne faut pas moins que je la remplisse : lequel de vous, messieurs, est Edmond Dantès ? »
-Tous les regards se tournèrent vers le jeune homme qui, fort ému, mais conservant sa dignité, fit un pas en avant et dit :
-« C’est moi, monsieur, que me voulez-vous ?
+– Partons ! » répétèrent tous les invités en chœur.
+Au même instant, Danglars, qui ne quittait pas des yeux Fernand, le vit ouvrir des yeux hagards, se lever convulsivement et retomber assis sur le rebord de la fenêtre. Presque au même moment, un bruit sourd retentit dans l’escalier. Un pas lourd, des voix confuses mêlées à un cliquetis d’armes couvrirent les exclamations des convives et attirèrent l’attention, provoquant un silence inquiet.
+Le bruit s’approcha. Trois coups frappèrent à la porte. Chacun regarda son voisin avec étonnement.
+« Au nom de la loi ! » cria une voix forte. Personne ne répondit.
+La porte s’ouvrit et un commissaire, avec son écharpe tricolore, entra, suivi de quatre soldats armés menés par un caporal.
+L’inquiétude se transforma en terreur.
+« Que se passe-t-il ? demanda l’armateur en s’avançant vers le commissaire qu’il connaissait. Il doit y avoir une erreur, monsieur.
+– S’il y a erreur, monsieur Morrel, elle sera vite réparée, répondit le commissaire. En attendant, je suis porteur d’un mandat d’arrêt. Je regrette de devoir remplir ma mission, mais je dois le faire. Lequel de vous, messieurs, est Edmond Dantès ? »
+Tous les regards se tournèrent vers le jeune homme. Très ému, mais digne, il fit un pas en avant et dit :
+« C’est moi, monsieur. Que me voulez-vous ?
 – Edmond Dantès, reprit le commissaire, au nom de la loi, je vous arrête !
-– Vous m’arrêtez ! dit Edmond avec une légère pâleur, mais pourquoi m’arrêtez-vous ?
-– Je l’ignore, monsieur, mais votre premier interrogatoire vous l’apprendra. »
-M. Morrel comprit qu’il n’y avait rien à faire contre l’inflexibilité de la situation : un commissaire ceint de son écharpe n’est plus un homme, c’est la statue de la loi, froide, sourde, muette.
-Le vieillard, au contraire, se précipita vers l’officier ; il y a des choses que le cœur d’un père ou d’une mère ne comprendra jamais.
-Il pria et supplia : larmes et prières ne pouvaient rien ; cependant son désespoir était si grand, que le commissaire en fut touché.
-« Monsieur, dit-il, tranquillisez-vous ; peutêtre votre fils a-t-il négligé quelque formalité de douane ou de santé, et, selon toute probabilité, lorsqu’on aura reçu de lui les renseignements qu’on désire en tirer, il sera remis en liberté.
-– Ah çà ! qu’est-ce que cela signifie ? demanda en fronçant le sourcil Caderousse à Danglars, qui jouait la surprise.
-– Le sais-je, moi ? dit Danglars ; je suis comme toi : je vois ce qui se passe, je n’y comprends rien, et je reste confondu. »
-Caderousse chercha des yeux Fernand : il avait disparu.
-Toute la scène de la veille se représenta alors à son esprit avec une effrayante lucidité.
-On eût dit que la catastrophe venait de tirer le voile que l’ivresse de la veille avait jeté entre lui et sa mémoire.
-« Oh ! oh ! dit-il d’une voix rauque, serait-ce la suite de la plaisanterie dont vous parliez hier, Danglars ? En ce cas, malheur à celui qui l’aurait faite, car elle est bien triste.
-– Pas du tout ! s’écria Danglars, tu sais bien, au contraire, que j’ai déchiré le papier.
-– Tu ne l’as pas déchiré, dit Caderousse ; tu l’as jeté dans un coin, voilà tout.
+– Vous m’arrêtez ! dit Edmond en pâlissant légèrement. Mais pourquoi ?
+– Je l’ignore, monsieur. Votre premier interrogatoire vous l’apprendra. »
+M. Morrel comprit qu’il n’y avait rien à faire. Un commissaire avec son écharpe n’est plus un homme, mais une représentation de la loi : froide, sourde et muette.
+Le vieil homme, au contraire, se précipita vers l’officier. Le cœur d’un père ne peut comprendre de telles choses. Il pria et supplia, mais les larmes et les prières ne servaient à rien. Son désespoir était si grand que le commissaire en fut touché.
+« Monsieur, dit-il, calmez-vous. Peut-être votre fils a-t-il oublié une formalité de douane. Il sera probablement libéré après avoir donné les renseignements qu’on attend de lui.
+– Qu’est-ce que ça veut dire ? demanda Caderousse à Danglars, qui feignait la surprise.
+– Comment le saurais-je ? dit Danglars. Je suis comme toi : je vois ce qui se passe, mais je n’y comprends rien.
+Caderousse chercha Fernand des yeux : il avait disparu.
+La scène de la veille lui revint alors à l’esprit avec une clarté effrayante, comme si la catastrophe avait levé le voile de l’ivresse.
+« Oh ! oh ! dit-il d’une voix rauque. Serait-ce la suite de la blague d’hier, Danglars ? Si c’est le cas, malheur à celui qui l’a faite, car elle est bien triste.
+– Pas du tout ! s’écria Danglars. Tu sais bien que j’ai déchiré le papier.
+– Tu ne l’as pas déchiré, dit Caderousse. Tu l’as jeté dans un coin, c’est tout.
 – Tais-toi, tu n’as rien vu, tu étais ivre.
 – Où est Fernand ? demanda Caderousse.
-– Le sais-je, moi ! répondit Danglars, à ses affaires probablement : mais, au lieu de nous occuper de cela, allons donc porter du secours à ces pauvres affligés. »
-En effet, pendant cette conversation, Dantès avait en souriant, serré la main à tous ses amis, et s’était constitué prisonnier en disant :
-« Soyez tranquilles, l’erreur va s’expliquer, et probablement que je n’irai même pas jusqu’à la prison.
-– Oh ! bien certainement, j’en répondrais », dit Danglars qui, en ce moment, s’approchait, comme nous l’avons dit, du groupe principal.
-Dantès descendit l’escalier, précédé du commissaire de police et entouré par les soldats.
-Une voiture, dont la portière était tout ouverte, attendait à la porte, il y monta, deux soldats et le commissaire montèrent après lui ; la portière se referma, et la voiture reprit le chemin de Marseille.
-« Adieu, Dantès ! adieu, Edmond ! » s’écria Mercédès en s’élançant sur la balustrade.
-Le prisonnier entendit ce dernier cri, sorti comme un sanglot du cœur déchiré de sa fiancée ; il passa la tête par la portière, cria : « Au revoir, Mercédès ! » et disparut à l’un des angles du fort Saint-Nicolas.
-« Attendez-moi ici, dit l’armateur, je prends la première voiture que je rencontre, je cours à Marseille, et je vous rapporte des nouvelles.
-– Allez ! crièrent toutes les voix, allez ! et revenez bien vite ! »
-Il y eut, après ce double départ, un moment de stupeur terrible parmi tous ceux qui étaient restés.
-Le vieillard et Mercédès restèrent quelque temps isolés, chacun dans sa propre douleur ; mais enfin leurs yeux se rencontrèrent ; ils se reconnurent comme deux victimes frappées du même coup, et se jetèrent dans les bras l’un de l’autre.
-Pendant ce temps, Fernand rentra, se versa un verre d’eau qu’il but, et alla s’asseoir sur une chaise.
-Le hasard fit que ce fut sur une chaise voisine que vint tomber Mercédès en sortant des bras du vieillard.
-Fernand, par un mouvement instinctif, recula sa chaise.
-« C’est lui, dit à Danglars Caderousse, qui n’avait pas perdu de vue le Catalan.
-– Je ne crois pas, répondit Danglars, il était trop bête ; en tout cas, que le coup retombe sur celui qui l’a fait.
-– Tu ne me parles pas de celui qui l’a conseillé, dit Caderousse.
-– Ah ! ma foi, dit Danglars, si l’on était responsable de tout ce que l’on dit en l’air !
-– Oui, lorsque ce que l’on dit en l’air retombe par la pointe. »
-Pendant ce temps, les groupes commentaient l’arrestation de toutes les manières.
-« Et vous, Danglars, dit une voix, que pensezvous de cet événement ?
-– Moi, dit Danglars, je crois qu’il aura rapporté quelques ballots de marchandises prohibées.
-– Mais si c’était cela, vous devriez le savoir, Danglars, vous qui étiez agent comptable.
-– Oui, c’est vrai ; mais l’agent comptable ne connaît que les colis qu’on lui déclare : je sais que nous sommes chargés de coton, voilà tout ; que nous avons pris le chargement à Alexandrie, chez M. Pastret, et à Smyrne, chez M. Pascal ; ne m’en demandez pas davantage.
-– Oh ! je me rappelle maintenant, murmura le pauvre père, se rattachant à ce débris, qu’il m’a dit hier qu’il avait pour moi une caisse de café et une caisse de tabac.
-– Voyez-vous, dit Danglars, c’est cela : en notre absence, la douane aura fait une visite à bord du Pharaon, et elle aura découvert le pot aux roses. »
-Mercédès ne croyait point à tout cela ; car, comprimée jusqu’à ce moment, sa douleur éclata tout à coup en sanglots.
-« Allons, allons, espoir ! dit, sans trop savoir ce qu’il disait, le père Dantès.
+– Je n’en sais rien, répondit Danglars. Sûrement à ses affaires. Mais au lieu de nous occuper de ça, allons aider ces pauvres gens.
+En effet, pendant cette conversation, Dantès avait souri, serré la main de tous ses amis et s’était rendu en disant :
+« Soyez tranquilles, l’erreur va être éclaircie. Je n’irai probablement même pas jusqu’à la prison.
+– Oh ! j’en suis sûr, j’en répondrais », dit Danglars en s’approchant.
+Dantès descendit l’escalier, précédé du commissaire et entouré des soldats. Une voiture l’attendait, porte ouverte. Il y monta, suivi de deux soldats et du commissaire. La portière se referma et la voiture partit vers Marseille.
+« Adieu, Dantès ! Adieu, Edmond ! » s’écria Mercédès en se précipitant sur la balustrade.
+Le prisonnier entendit ce dernier cri, qui sonnait comme un sanglot. Il passa la tête par la portière, cria : « Au revoir, Mercédès ! » et disparut au coin du fort Saint-Nicolas.
+« Attendez-moi ici, dit l’armateur. Je prends la première voiture que je trouve, je cours à Marseille et je vous rapporte des nouvelles.
+– Allez ! crièrent toutes les voix. Et revenez vite ! »
+Après ce double départ, il y eut un moment de stupeur terrible.
+Le vieillard et Mercédès restèrent un moment isolés dans leur douleur. Mais leurs yeux se rencontrèrent. Ils se reconnurent comme deux victimes du même coup et se jetèrent dans les bras l’un de l’autre.
+Pendant ce temps, Fernand rentra, se versa un verre d’eau qu’il but et s’assit. Par hasard, Mercédès, en quittant les bras du vieillard, tomba sur une chaise voisine de la sienne. Par un mouvement instinctif, Fernand recula sa chaise.
+« C’est lui, dit Caderousse à Danglars, qui n’avait pas quitté le Catalan des yeux.
+– Je ne crois pas, répondit Danglars. Il est trop bête. En tout cas, que le coupable paie.
+– Tu ne parles pas de celui qui l’a conseillé, dit Caderousse.
+– Ah ! si on était responsable de tout ce qu’on dit en l’air !
+– Oui, surtout quand ce qu’on dit en l’air retombe durement.
+Les groupes commentaient l’arrestation. « Et vous, Danglars, qu’en pensez-vous ? demanda une voix.
+– Moi, je crois qu’il a rapporté des marchandises de contrebande, dit Danglars.
+– Mais vous devriez le savoir, Danglars, vous le comptable.
+– C’est vrai, mais un comptable ne connaît que les colis déclarés. Je sais que nous transportons du coton, c’est tout. Ne m’en demandez pas plus.
+– Oh ! je me souviens maintenant, murmura le pauvre père, qu’il m’a dit hier avoir pour moi une caisse de café et une caisse de tabac.
+– Vous voyez, dit Danglars. La douane a dû faire une visite à bord et a découvert l’affaire. »
+Mercédès n’y croyait pas. Sa douleur, contenue jusqu’alors, éclata en sanglots.
+« Espoir ! dit le père Dantès, sans trop savoir ce qu’il disait.
 – Espoir ! répéta Danglars.
-– Espoir », essaya de murmurer Fernand.
-Mais ce mot l’étouffait ; ses lèvres s’agitèrent, aucun son ne sortit de sa bouche.
-« Messieurs, cria un des convives resté en vedette sur la balustrade ; messieurs, une voiture ! Ah ! c’est M. Morrel ! courage, courage ! sans doute qu’il nous apporte de bonnes nouvelles. »
-Mercédès et le vieux père coururent au-devant de l’armateur, qu’ils rencontrèrent à la porte. M. Morrel était fort pâle.
+– Espoir… » essaya de murmurer Fernand. Mais le mot l’étouffait.
+« Messieurs ! cria un invité resté sur la balustrade. Une voiture ! Ah ! c’est M. Morrel ! Courage, il apporte sûrement de bonnes nouvelles. »
+Mercédès et le vieux père coururent à sa rencontre. M. Morrel était très pâle.
 « Eh bien ? s’écrièrent-ils d’une même voix.
-– Eh bien, mes amis ! répondit l’armateur en secouant la tête, la chose est plus grave que nous ne le pensions.
+– Eh bien, mes amis, répondit l’armateur en secouant la tête, l’affaire est plus grave que nous ne le pensions.
 – Oh ! monsieur, s’écria Mercédès, il est innocent !
-– Je le crois, répondit M. Morrel, mais on l’accuse...
+– Je le crois, répondit M. Morrel, mais on l’accuse…
 – De quoi donc ? demanda le vieux Dantès.
 – D’être un agent bonapartiste. »
-Ceux de mes lecteurs qui ont vécu dans l’époque où se passe cette histoire se rappelleront quelle terrible accusation c’était alors, que celle que venait de formuler M. Morrel.
-Mercédès poussa un cri ; le vieillard se laissa tomber sur une chaise.
-« Ah ! murmura Caderousse, vous m’avez trompé, Danglars, et la plaisanterie a été faite ; mais je ne veux pas laisser mourir de douleur ce vieillard et cette jeune fille, et je vais tout leur dire.
-– Tais-toi, malheureux ! s’écria Danglars en saisissant la main de Caderousse, ou je ne réponds pas de toi-même ; qui te dit que Dantès n’est pas véritablement coupable ? Le bâtiment a touché à l’île d’Elbe, il y est descendu, il est resté tout un jour à Porto-Ferrajo ; si l’on trouvait sur lui quelque lettre qui le compromette, ceux qui l’auraient soutenu passeraient pour ses complices. »
-Caderousse, avec l’instinct rapide de l’égoïsme, comprit toute la solidité de ce raisonnement ; il regarda Danglars avec des yeux hébétés par la crainte et la douleur, et, pour un pas qu’il avait fait en avant, il en fit deux en arrière.
+Pour les lecteurs qui connaissent cette époque, c’était une accusation terrible.
+Mercédès poussa un cri. Le vieillard se laissa tomber sur une chaise.
+« Ah ! murmura Caderousse. Vous m’avez trompé, Danglars, la blague a été faite. Mais je ne veux pas laisser ce vieillard et cette jeune fille mourir de douleur. Je vais tout leur dire.
+– Tais-toi, malheureux ! s’écria Danglars en lui saisissant la main. Ou je ne réponds plus de toi. Qui te dit que Dantès n’est pas vraiment coupable ? Le navire a fait escale à l’île d’Elbe. S’ils trouvent sur lui une lettre compromettante, ceux qui l’auront soutenu passeront pour ses complices. »
+Avec l’instinct rapide de l’égoïsme, Caderousse comprit la logique de ce raisonnement. Il recula de deux pas.
 « Attendons, alors, murmura-t-il.
-– Oui, attendons, dit Danglars ; s’il est innocent, on le mettra en liberté ; s’il est coupable, il est inutile de se compromettre pour un conspirateur.
-– Alors, partons, je ne puis rester plus longtemps ici.
-– Oui, viens, dit Danglars enchanté de trouver un compagnon de retraite, viens, et laissons-les se retirer de là comme ils pourront. »
-Ils partirent : Fernand, redevenu l’appui de la jeune fille, prit Mercédès par la main et la ramena aux Catalans. Les amis de Dantès ramenèrent, de leur côté, aux allées de Meilhan, ce vieillard presque évanoui.
-Bientôt cette rumeur, que Dantès venait d’être arrêté comme agent bonapartiste, se répandit par toute la ville.
-« Eussiez-vous cru cela, mon cher Danglars ? dit M. Morrel en rejoignant son agent comptable et Caderousse, car il regagnait lui-même la ville en toute hâte pour avoir quelque nouvelle directe d’Edmond par le substitut du procureur du roi, M. de Villefort, qu’il connaissait un peu ; auriezvous cru cela ?
-– Dame, monsieur ! répondit Danglars, je vous avais dit que Dantès, sans aucun motif, avait relâché à l’île d’Elbe, et cette relâche, vous le savez, m’avait paru suspecte.
-– Mais aviez-vous fait part de vos soupçons à d’autres qu’à moi ?
-– Je m’en serais bien gardé, monsieur, ajouta tout bas Danglars ; vous savez bien qu’à cause de votre oncle, M. Policar Morrel, qui a servi sous l’autre et qui ne cache pas sa pensée, on vous soupçonne de regretter Napoléon ; j’aurais eu peur de faire tort à Edmond et ensuite à vous ; il y a de ces choses qu’il est du devoir d’un subordonné de dire à son armateur et de cacher sévèrement aux autres.
-– Bien, Danglars, bien, dit l’armateur, vous êtes un brave garçon ; aussi j’avais d’avance pensé à vous, dans le cas où ce pauvre Dantès fût devenu le capitaine du Pharaon.
-– Comment cela, monsieur ?
-– Oui, j’avais d’avance demandé à Dantès ce qu’il pensait de vous, et s’il aurait quelque répugnance à vous garder à votre poste ; car, je ne sais pourquoi, j’avais cru remarquer qu’il y avait du froid entre vous.
+– Oui, attendons, dit Danglars. S’il est innocent, on le libérera. S’il est coupable, il est inutile de se compromettre pour un conspirateur.
+– Alors partons, je ne peux plus rester ici.
+– Oui, viens, dit Danglars, enchanté de trouver un compagnon. Laissons-les se débrouiller. »
+Ils partirent. Fernand, redevenu le soutien de la jeune fille, la prit par la main et la ramena aux Catalans. Les amis de Dantès ramenèrent le vieillard presque évanoui.
+Bientôt, la rumeur de l’arrestation de Dantès se répandit dans toute la ville.
+« Auriez-vous cru cela, mon cher Danglars ? dit M. Morrel en rejoignant son agent et Caderousse. Il se dépêchait lui-même d’aller chercher des nouvelles auprès de M. de Villefort, l’adjoint du procureur, qu’il connaissait un peu.
+– Eh bien, monsieur, répondit Danglars, je vous avais dit que Dantès avait fait une escale suspecte à l’île d’Elbe.
+– Mais aviez-vous partagé vos soupçons avec d’autres ?
+– Surtout pas, monsieur, ajouta Danglars à voix basse. À cause de votre oncle, M. Policar Morrel, qui a servi sous Napoléon, on vous soupçonne de regretter l’empereur. J’aurais eu peur de vous nuire, ainsi qu’à Edmond.
+– Bien, Danglars, bien, dit l’armateur. Vous êtes un brave garçon. J’avais pensé à vous au cas où ce pauvre Dantès serait devenu capitaine.
+– Comment ça, monsieur ?
+– Oui, j’avais demandé à Dantès ce qu’il pensait de vous, s’il accepterait de vous garder à votre poste. J’avais remarqué une certaine froideur entre vous.
 – Et que vous a-t-il répondu ?
-– Qu’il croyait effectivement avoir eu dans une circonstance qu’il ne m’a pas dite, quelques torts envers vous, mais que toute personne qui avait la confiance de l’armateur avait la sienne.
+– Qu’il pensait avoir eu tort envers vous, et que toute personne ayant la confiance de l’armateur avait aussi la sienne.
 – L’hypocrite ! murmura Danglars.
-– Pauvre Dantès ! dit Caderousse, c’est un fait qu’il était excellent garçon.
-– Oui, mais en attendant, dit M. Morrel, voilà le Pharaon sans capitaine.
-– Oh ! dit Danglars, il faut espérer, puisque nous ne pouvons repartir que dans trois mois, que d’ici à cette époque Dantès sera mis en liberté.
-– Sans doute, mais jusque-là ?
-– Eh bien, jusque-là me voici, monsieur Morrel, dit Danglars ; vous savez que je connais le maniement d’un navire aussi bien que le premier capitaine au long cours venu, cela vous offrira même un avantage, de vous servir de moi, car lorsque Edmond sortira de prison, vous n’aurez personne à remercier : il reprendra sa place et moi la mienne, voilà tout.
-– Merci, Danglars, dit l’armateur ; voilà en effet qui concilie tout. Prenez donc le commandement, je vous y autorise, et surveillez le débarquement : il ne faut jamais, quelque catastrophe qui arrive aux individus, que les affaires souffrent.
-– Soyez tranquille, monsieur ; mais pourra-ton le voir au moins, ce bon Edmond ?
-– Je vous dirai cela tout à l’heure, Danglars ; je vais tâcher de parler à M. de Villefort et d’intercéder près de lui en faveur du prisonnier.
-Je sais bien que c’est un royaliste enragé, mais, que diable ! tout royaliste et procureur du roi qu’il est, il est un homme aussi, et je ne le crois pas méchant.
-– Non, dit Danglars, mais j’ai entendu dire qu’il était ambitieux, et cela se ressemble beaucoup.
-– Enfin, dit M. Morrel avec un soupir, nous verrons ; allez à bord, je vous y rejoins. »
-Et il quitta les deux amis pour prendre le chemin du palais de justice.
-« Tu vois, dit Danglars à Caderousse, la tournure que prend l’affaire. As-tu encore envie d’aller soutenir Dantès maintenant ?
-– Non, sans doute ; mais c’est cependant une terrible chose qu’une plaisanterie qui a de pareilles suites.
-– Dame ! qui l’a faite ? ce n’est ni toi ni moi, n’est-ce pas ? c’est Fernand. Tu sais bien que quant à moi j’ai jeté le papier dans un coin : je croyais même l’avoir déchiré.
-– Non, non, dit Caderousse. Oh ! quant à cela, j’en suis sûr ; je le vois au coin de la tonnelle, tout froissé, tout roulé, et je voudrais même bien qu’il fût encore où je le vois !
-– Que veux-tu ? Fernand l’aura ramassé, Fernand l’aura copié ou fait copier, Fernand n’aura peut-être même pas pris cette peine ; et, j’y pense... mon Dieu ! il aura peut-être envoyé ma propre lettre ! Heureusement que j’avais déguisé mon écriture.
+– Pauvre Dantès ! dit Caderousse. C’était vraiment un excellent garçon.
+– Oui, mais en attendant, le Pharaon est sans capitaine, dit M. Morrel.
+– Oh ! dit Danglars, nous ne repartons que dans trois mois. D’ici là, Dantès sera sûrement libéré.
+– Sans doute, mais en attendant ?
+– Eh bien, en attendant, je suis là, monsieur Morrel, dit Danglars. Je sais manœuvrer un navire. Et quand Edmond sortira de prison, il reprendra sa place et moi la mienne. Vous n’aurez personne à remercier.
+– Merci, Danglars, dit l’armateur. Cela résout tout. Prenez donc le commandement et surveillez le déchargement. Les affaires ne doivent pas souffrir des malheurs personnels.
+– Soyez tranquille, monsieur. Mais pourra-t-on voir ce bon Edmond ?
+– Je vous dirai ça tout à l’heure. Je vais essayer de parler à M. de Villefort pour intercéder en sa faveur. Je sais que c’est un fervent royaliste, mais il est aussi un homme.
+– Oui, mais j’ai entendu dire qu’il était ambitieux, et c’est presque la même chose, dit Danglars.
+– Enfin, nous verrons, dit M. Morrel avec un soupir. Allez à bord, je vous y rejoins. »
+Et il quitta les deux amis pour se diriger vers le palais de justice.
+« Tu vois comment l’affaire tourne, dit Danglars à Caderousse. As-tu encore envie de soutenir Dantès maintenant ?
+– Non, bien sûr. Mais c’est terrible qu’une blague ait de telles conséquences.
+– Qui l’a faite ? Ni toi, ni moi, n’est-ce pas ? C’est Fernand. J’ai jeté le papier dans un coin, je croyais même l’avoir déchiré.
+– Non, non, dit Caderousse. J’en suis sûr. Je le vois encore, froissé, roulé, dans le coin. Je voudrais qu’il y soit encore !
+– Que veux-tu ? Fernand l’aura ramassé, copié, ou peut-être même envoyé ma propre lettre. Heureusement que j’avais déguisé mon écriture.
 – Mais tu savais donc que Dantès conspirait ?
-– Moi, je ne savais rien au monde. Comme je l’ai dit, j’ai cru faire une plaisanterie, pas autre chose. Il paraît que, comme Arlequin, j’ai dit la vérité en riant.
-– C’est égal, reprit Caderousse, je donnerais bien des choses pour que toute cette affaire ne fût pas arrivée, ou du moins pour n’y être mêlé en rien. Tu verras qu’elle nous portera malheur, Danglars !
-– Si elle doit porter malheur à quelqu’un, c’est au vrai coupable, et le vrai coupable c’est Fernand et non pas nous. Quel malheur veux-tu qu’il nous arrive à nous ? Nous n’avons qu’à nous tenir tranquilles, sans souffler le mot de tout cela, et l’orage passera sans que le tonnerre tombe.
-– Amen ! dit Caderousse en faisant un signe d’adieu à Danglars et en se dirigeant vers les allées de Meilhan, tout en secouant la tête et en se parlant à lui-même, comme ont l’habitude de faire les gens fort préoccupés.
-– Bon ! dit Danglars, les choses prennent la tournure que j’avais prévue : me voilà capitaine par intérim, et si cet imbécile de Caderousse peut se taire, capitaine tout de bon. Il n’y a donc que le cas où la justice relâcherait Dantès ? Oh ! mais, ajouta-t-il avec un sourire, la justice est la justice, et je m’en rapporte à elle. »
-Et sur ce, il sauta dans une barque en donnant l’ordre au batelier de le conduire à bord du Pharaon, où l’armateur, on se le rappelle, lui avait donné rendez-vous.`,
+– Je ne savais rien du tout. C’était une plaisanterie, rien de plus. Il semble que j’ai dit la vérité en riant.
+– Peu importe, reprit Caderousse. Je donnerais cher pour que tout ça ne soit pas arrivé, ou pour ne pas y être mêlé. Tu verras, ça nous portera malheur.
+– Si ça doit porter malheur à quelqu’un, ce sera au vrai coupable : Fernand. Que peut-il nous arriver ? Taisons-nous, et l’orage passera.
+– Amen ! dit Caderousse en faisant un signe d’adieu à Danglars et en se dirigeant vers les allées de Meilhan, tout en se parlant à lui-même.
+« Bon ! dit Danglars. Les choses tournent comme prévu. Me voilà capitaine par intérim, et si cet imbécile de Caderousse se tait, je serai capitaine pour de bon. Il reste le cas où la justice libérerait Dantès… Oh, mais, ajouta-t-il avec un sourire, la justice est la justice, et je lui fais confiance. »
+Sur ce, il sauta dans une barque et ordonna au batelier de le conduire à bord du Pharaon, où l’armateur lui avait donné rendez-vous.`,
 }

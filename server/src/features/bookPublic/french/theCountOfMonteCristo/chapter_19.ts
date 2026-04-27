@@ -1,127 +1,69 @@
+// Глава адаптирована
 export const chapter_19 = {
 	name: 'CHAPITRE XIX',
 	header: 'Le troisième accès',
-	text: `Maintenant que ce trésor, qui avait été si longtemps l’objet des méditations de l’abbé, pouvait assurer le bonheur à venir de celui que Faria aimait véritablement comme son fils, il avait encore doublé de valeur à ses yeux ; tous les jours il s’appesantissait sur la quotité de ce trésor, expliquant à Dantès tout ce qu’avec treize ou quatorze millions de fortune un homme dans nos temps modernes pouvait faire de bien à ses amis ; et alors le visage de Dantès se rembrunissait, car le serment de vengeance qu’il avait fait se représentait à sa pensée, et il songeait, lui, combien dans nos temps modernes aussi un homme avec treize ou quatorze millions de fortune pouvait faire de mal à ses ennemis.
-L’abbé ne connaissait pas l’île de Monte454
-Cristo mais Dantès la connaissait : il avait souvent passé devant cette île, située à vingt-cinq milles de la Pianosa, entre la Corse et l’île d’Elbe, et une fois même il y avait relâché. Cette île était, avait toujours été et est encore complètement déserte ; c’est un rocher de forme presque conique, qui semble avoir été poussé par quelque cataclysme volcanique du fond de l’abîme à la surface de la mer.
-Dantès faisait le plan de l’île à Faria, et Faria donnait des conseils à Dantès sur les moyens à employer pour retrouver le trésor.
-Mais Dantès était loin d’être aussi enthousiaste et surtout aussi confiant que le vieillard. Certes, il était bien certain maintenant que Faria n’était pas fou, et la façon dont il était arrivé à la découverte qui avait fait croire à sa folie redoublait encore son admiration pour lui ; mais aussi il ne pouvait croire que ce dépôt, en supposant qu’il eût existé, existât encore, et, quand il ne regardait pas le trésor comme chimérique, il le regardait du moins comme absent.
-Cependant, comme si le destin eût voulu ôter aux prisonniers leur dernière espérance et leur faire comprendre qu’ils étaient condamnés à une prison perpétuelle, un nouveau malheur les atteignit : la galerie du bord de la mer, qui depuis longtemps menaçait ruine, avait été reconstruite ; on avait réparé les assises et bouché avec d’énormes quartiers de roc le trou déjà à demi comblé par Dantès. Sans cette précaution, qui avait été suggérée, on se le rappelle, au jeune homme par l’abbé, leur malheur était bien plus grand encore, car on découvrait leur tentative d’évasion, et on les séparait indubitablement : une nouvelle porte, plus forte, plus inexorable que les autres, s’était donc encore refermée sur eux.
-« Vous voyez bien, disait le jeune homme avec une douce tristesse à Faria, que Dieu veut m’ôter jusqu’au mérite de ce que vous appelez mon dévouement pour vous. Je vous ai promis de rester éternellement avec vous, et je ne suis plus libre maintenant de ne pas tenir ma promesse ; je n’aurai pas plus le trésor que vous, et nous ne sortirons d’ici ni l’un ni l’autre. Au reste, mon véritable trésor, voyez-vous, mon ami, n’est pas celui qui m’attendait sous les sombres roches de Monte-Cristo, c’est votre présence, c’est notre cohabitation de cinq ou six heures par jour, malgré nos geôliers ; ce sont ces rayons d’intelligence que vous avez versés dans mon cerveau, ces langues que vous avez implantées dans ma mémoire et qui y poussent avec toutes leurs ramifications philologiques. Ces sciences diverses que vous m’avez rendues si faciles par la profondeur de la connaissance que vous en avez et la netteté des principes où vous les avez réduites, voilà mon trésor, ami, voilà en quoi vous m’avez fait riche et heureux. Croyez-moi et consolez-vous, cela vaut mieux pour moi que des tonnes d’or et des caisses de diamants, ne fussent-elles pas problématiques, comme ces nuages que l’on voit le matin flotter sur la mer, que l’on prend pour des terres fermes, et qui s’évaporent, se volatilisent et s’évanouissent à mesure qu’on s’en approche. Vous avoir près de moi le plus longtemps possible, écouter votre voix éloquente orner mon esprit, retremper mon âme, faire toute mon organisation capable de grandes et terribles choses si jamais je suis libre, les emplir si bien que le désespoir auquel j’étais prêt à me laisser aller quand je vous ai connu n’y trouve plus de place, voilà ma fortune, à moi : celle-là n’est point chimérique ; je vous la dois bien véritable, et tous les souverains de la terre, fussent-ils des César Borgia, ne viendraient pas à bout de me l’enlever. »
-Ainsi, ce furent pour les deux infortunés, sinon d’heureux jours, du moins des jours assez promptement écoulés que les jours qui suivirent.
-Faria, qui pendant de si longues années avait gardé le silence sur le trésor, en reparlait maintenant à toute occasion. Comme il l’avait prévu, il était resté paralysé du bras droit et de la jambe gauche, et avait à peu près perdu tout espoir d’en jouir lui-même ; mais il rêvait toujours pour son jeune compagnon une délivrance ou une évasion, et il en jouissait pour lui. De peur que la lettre ne fût un jour égarée ou perdue, il avait forcé Dantès de l’apprendre par cœur, et Dantès la savait depuis le premier jusqu’au dernier mot. Alors il avait détruit la seconde partie, certain qu’on pouvait retrouver et saisir la première sans en deviner le véritable sens. Quelquefois, des heures entières se passèrent pour Faria à donner des instructions à Dantès, instructions qui devaient lui servir au jour de sa liberté. Alors, une fois libre, du jour, de l’heure, du moment où il serait libre, il ne devait plus avoir qu’une seule et unique pensée, gagner Monte-Cristo par un moyen quelconque, y rester seul sous un prétexte qui ne donnât point de soupçons, et, une fois là, une fois seul, tâcher de retrouver les grottes merveilleuses et fouiller l’endroit indiqué. L’endroit indiqué, on se le rappelle, c’est l’angle le plus éloigné de la seconde ouverture.
-En attendant, les heures passaient, sinon rapides, du moins supportables. Faria, comme nous l’avons dit, sans avoir retrouvé l’usage de sa main et de son pied, avait reconquis toute la netteté de son intelligence, et avait peu à peu, outre les connaissances morales que nous avons détaillées, appris à son jeune compagnon ce métier patient et sublime du prisonnier, qui de rien sait faire quelque chose. Ils s’occupaient donc éternellement, Faria de peur de se voir vieillir, Dantès de peur de se rappeler son passé presque éteint, et qui ne flottait plus au plus profond de sa mémoire que comme une lumière lointaine égarée dans la nuit ; tout allait ainsi, comme dans ces existences où le malheur n’a rien dérangé et qui s’écoulent machinales et calmes sous l’œil de la Providence.
-Mais, sous ce calme superficiel, il y avait dans le cœur du jeune homme, et dans celui du vieillard peut-être, bien des élans retenus, bien des soupirs étouffés, qui se faisaient jour lorsque Faria était resté seul et qu’Edmond était rentré chez lui.
-Une nuit, Edmond se réveilla en sursaut, croyant s’être entendu appeler.
-Il ouvrit les yeux et essaya de percer les épaisseurs de l’obscurité.
-Son nom, ou plutôt une voix plaintive qui essayait d’articuler son nom, arriva jusqu’à lui.
-Il se leva sur son lit, la sueur de l’angoisse au front, et écouta. Plus de doute, la plainte venait du cachot de son compagnon.
-« Grand Dieu ! murmura Dantès ; seraitce... ? »
-Et il déplaça son lit, tira la pierre, s’élança dans le corridor et parvint à l’extrémité opposée ; la dalle était levée.
-À la lueur de cette lampe informe et vacillante dont nous avons parlé, Edmond vit le vieillard pâle, debout encore et se cramponnant au bois de son lit. Ses traits étaient bouleversés par ces horribles symptômes qu’il connaissait déjà et qui l’avaient tant épouvanté lorsqu’ils étaient apparus pour la première fois.
-« Eh bien, mon ami, dit Faria résigné, vous comprenez, n’est-ce pas ? et je n’ai besoin de vous rien apprendre ! »
-Edmond poussa un cri douloureux, et perdant complètement la tête, il s’élança vers la porte en criant :
-« Au secours ! au secours ! »
-Faria eut encore la force de l’arrêter par le bras.
-« Silence ! dit-il, ou vous êtes perdu. Ne songeons plus qu’à vous mon ami, à vous rendre votre captivité supportable ou votre fuite possible. Il vous faudrait des années pour refaire seul tout ce que j’ai fait ici, et qui serait détruit à l’instant même par la connaissance que nos surveillants auraient de notre intelligence.
-D’ailleurs, soyez tranquille, mon ami, le cachot que je vais quitter ne restera pas longtemps vide : un autre malheureux viendra prendre ma place. À cet autre, vous apparaîtrez comme un ange sauveur. Celui-là sera peut-être jeune, fort et patient comme vous, celui-là pourra vous aider dans votre fuite, tandis que je l’empêchais. Vous n’aurez plus une moitié de cadavre liée à vous pour vous paralyser tous vos mouvements.
-Décidément, Dieu fait enfin quelque chose pour vous : il vous rend plus qu’il ne vous ôte, et il est bien temps que je meure. »
-Edmond ne put que joindre les mains et s’écrier :
-« Oh ! mon ami, mon ami, taisez-vous ! »
-Puis reprenant sa force un instant ébranlée par ce coup imprévu et son courage plié par les paroles du vieillard :
-« Oh ! dit-il, je vous ai déjà sauvé une fois, je vous sauverai bien une seconde ! »
-Et il souleva le pied du lit et en tira le flacon encore au tiers plein de la liqueur rouge.
-« Tenez, dit-il ; il en reste encore, de ce breuvage sauveur. Vite, vite, dites-moi ce qu’il faut que je fasse cette fois ; y a-t-il des instructions nouvelles ? Parlez, mon ami, j’écoute.
-– Il n’y a pas d’espoir, répondit Faria en secouant la tête ; mais n’importe ; Dieu veut que l’homme qu’il a créé, et dans le cœur duquel il a si profondément enraciné l’amour de la vie, fasse tout ce qu’il pourra pour conserver cette existence si pénible parfois, si chère toujours.
-– Oh ! oui, oui, s’écria Dantès, et je vous sauverai, vous dis-je !
-– Eh bien, essayez donc ! le froid me gagne ; je sens le sang qui afflue à mon cerveau ; cet horrible tremblement qui fait claquer mes dents et semble disjoindre mes os commence à secouer tout mon corps ; dans cinq minutes le mal éclatera, dans un quart d’heure il ne restera plus de moi qu’un cadavre.
-– Oh ! s’écria Dantès le cœur navré de douleur.
-– Vous ferez comme la première fois, seulement vous n’attendrez pas si longtemps.
-Tous les ressorts de la vie sont bien usés à cette heure, et la mort, continua-t-il en montrant son bras et sa jambe paralysés, n’aura plus que la moitié de la besogne à faire. Si après m’avoir versé douze gouttes dans la bouche, au lieu de dix, vous voyez que je ne reviens pas, alors vous verserez le reste. Maintenant, portez-moi sur mon lit, car je ne puis plus me tenir debout. »
+	text: `Maintenant que le trésor pouvait assurer le bonheur de celui que Faria aimait comme son fils, il avait encore plus de valeur à ses yeux. Chaque jour, il expliquait à Dantès tout le bien qu’un homme pourrait faire à ses amis avec une telle fortune. Mais alors, le visage de Dantès s’assombrissait, car il songeait au serment de vengeance qu’il avait fait et à tout le mal qu’un homme avec treize millions pourrait faire à ses ennemis.
+L’abbé ne connaissait pas l’île de Monte-Cristo, mais Dantès, si. C’était un rocher désert, de forme conique, situé entre la Corse et l’île d’Elbe. Dantès dessinait le plan de l’île pour Faria, et Faria lui donnait des conseils sur la manière de retrouver le trésor.
+Mais Dantès était loin d’être aussi confiant que le vieillard. Il était certain que Faria n’était pas fou, et la manière dont il avait découvert le secret redoublait son admiration. Mais il ne pouvait croire que ce trésor, en supposant qu’il ait existé, existe encore.
+Comme si le destin voulait leur ôter leur dernier espoir, un nouveau malheur les frappa : la galerie qui menaçait de s’effondrer fut réparée. Le trou que Dantès avait commencé à creuser fut bouché avec d’énormes blocs de pierre. Sans la précaution de l’abbé, qui avait conseillé au jeune homme de le reboucher, leur tentative d’évasion aurait été découverte et ils auraient été séparés. Une nouvelle porte, plus forte, s’était donc refermée sur eux.
+« Vous voyez bien, dit le jeune homme avec tristesse à Faria, que Dieu veut m’ôter jusqu’au mérite de mon dévouement pour vous. Je vous ai promis de rester avec vous pour toujours, et maintenant, je ne suis plus libre de ne pas tenir ma promesse. Nous ne sortirons jamais d’ici. D’ailleurs, mon véritable trésor, ce n’est pas celui de Monte-Cristo, c’est votre présence. Ce sont les connaissances que vous avez versées dans mon esprit, les langues que vous m’avez apprises, les sciences que vous m’avez rendues si faciles. Voilà mon trésor, mon ami, voilà comment vous m’avez rendu riche et heureux. Croyez-moi, cela vaut mieux pour moi que des tonnes d’or et de diamants. »
+Ainsi, les jours passèrent, sinon heureux, du moins supportables pour les deux malheureux prisonniers.
+Faria, paralysé du bras droit et de la jambe gauche, avait perdu l’espoir de jouir lui-même du trésor. Mais il rêvait toujours d’une évasion pour son jeune compagnon. De peur que la lettre ne soit perdue, il fit en sorte que Dantès l’apprenne par cœur. Des heures entières se passaient à donner des instructions à Dantès pour le jour de sa libération. Une fois libre, il ne devait avoir qu’une seule pensée : se rendre à Monte-Cristo, trouver les grottes et chercher le trésor dans l’angle le plus éloigné de la seconde ouverture.
+Faria, malgré sa maladie, avait retrouvé toute sa lucidité. Il continuait d’instruire son jeune compagnon. Dantès, de son côté, travaillait sans cesse pour ne pas penser à son passé douloureux. Mais sous ce calme apparent, il y avait chez les deux hommes bien des élans retenus et des soupirs étouffés.
+Une nuit, Edmond se réveilla en sursaut, croyant avoir entendu son nom. Il ouvrit les yeux et écouta dans le noir. Une voix plaintive l’appelait. C’était la plainte de son compagnon.
+« Grand Dieu ! murmura Dantès, serait-ce… ? »
+Il déplaça son lit, souleva la pierre, et se précipita dans le couloir jusqu’à l’autre extrémité. La dalle était levée.
+À la lueur de sa lampe rudimentaire, Edmond vit le vieillard pâle, debout, se cramponnant à son lit. Son visage était tordu par les horribles symptômes qu’il connaissait déjà.
+« Eh bien, mon ami, dit Faria d’un air résigné, vous comprenez, n’est-ce pas ? Je n’ai pas besoin de vous expliquer. »
+Edmond poussa un cri de douleur et, perdant la tête, se précipita vers la porte en criant : « Au secours ! au secours ! »
+Faria eut encore la force de le retenir par le bras. « Silence ! dit-il, ou vous êtes perdu. Ne songeons plus qu’à vous, mon ami. Il vous faudrait des années pour refaire seul tout ce que j’ai fait ici. Et si on nous découvre, tout sera détruit. D’ailleurs, soyez tranquille, le cachot que je vais quitter ne restera pas vide longtemps. Un autre malheureux prendra ma place. Pour lui, vous apparaîtrez comme un ange sauveur. Peut-être sera-t-il jeune et fort, et pourra-t-il vous aider à fuir, alors que moi, je vous ralentis. Dieu vous rend plus qu’il ne vous ôte. Il est temps que je meure. »
+Edmond ne put que joindre les mains et s’écrier : « Oh ! mon ami, taisez-vous ! »
+Puis, reprenant courage : « Oh ! je vous ai déjà sauvé une fois, je vous sauverai une seconde fois ! »
+Il souleva le pied du lit et en tira le flacon contenant la liqueur rouge.
+« Tenez, dit-il, il en reste encore. Vite, dites-moi ce que je dois faire. Y a-t-il de nouvelles instructions ?
+– Il n’y a plus d’espoir, répondit Faria en secouant la tête. Mais n’importe. Dieu veut que l’homme fasse tout pour conserver cette existence si pénible parfois, mais si chère toujours.
+– Oh, oui, s’écria Dantès, et je vous sauverai, je vous le dis !
+– Eh bien, essayez. Le froid me gagne. Je sens le sang qui monte à mon cerveau. Cet horrible tremblement qui fait claquer mes dents commence. Dans cinq minutes, la crise éclatera. Dans un quart d’heure, je ne serai plus qu’un cadavre.
+– Oh ! » s’écria Dantès, le cœur brisé.
+« Faites comme la première fois, mais n’attendez pas si longtemps. La mort n’aura que la moitié du travail à faire, dit-il en montrant ses membres paralysés. Si, après douze gouttes, je ne reviens pas, versez le reste. Maintenant, portez-moi sur mon lit, car je ne peux plus me tenir debout. »
 Edmond prit le vieillard dans ses bras et le déposa sur le lit.
-« Maintenant, ami, dit Faria, seule consolation de ma vie misérable, vous que le ciel m’a donné un peu tard, mais enfin qu’il m’a donné, présent inappréciable et dont je le remercie ; au moment de me séparer de vous pour jamais, je vous souhaite tout le bonheur, toute la prospérité que vous méritez : mon fils je vous bénis ! »
-Le jeune homme se jeta à genoux, appuyant sa tête contre le lit du vieillard.
-« Mais surtout, écoutez bien ce que je vous dis à ce moment suprême : le trésor des Spada existe ; Dieu permet qu’il n’y ait plus pour moi ni distance ni obstacle. Je le vois au fond de la seconde grotte ; mes yeux percent les profondeurs de la terre et sont éblouis de tant de richesses. Si vous parvenez à fuir, rappelez-vous que le pauvre abbé que tout le monde croyait fou ne l’était pas. Courez à Monte-Cristo, profitez de notre fortune, profitez-en, vous avez assez souffert. »
-Une secousse violente interrompit le vieillard ;
-Dantès releva la tête, il vit les yeux qui s’injectaient de rouge : on eût dit qu’une vague de sang venait de monter de sa poitrine à son front.
-« Adieu ! adieu ! murmura le vieillard en pressant convulsivement la main du jeune homme, adieu !
-– Oh ! pas encore, pas encore ! s’écria celuici ; ne nous abandonnez pas, ô mon Dieu ! secourez-le... à l’aide... à moi...
-– Silence ! silence ! murmura le moribond, qu’on ne nous sépare pas si vous me sauvez !
-– Vous avez raison. Oh ! oui, oui, soyez tranquille, je vous sauverai ! D’ailleurs, quoique vous souffriez beaucoup, vous paraissez souffrir moins que la première fois.
-– Oh ! détrompez-vous ! je souffre moins, parce qu’il y a en moi moins de force pour souffrir. À votre âge on a foi dans la vie, c’est le privilège de la jeunesse de croire et d’espérer, mais les vieillards voient plus clairement la mort.
-Oh ! la voilà... elle vient... c’est fini... ma vue se perd... ma raison s’enfuit... Votre main, Dantès !... adieu !... adieu ! »
-Et se relevant par un dernier effort dans lequel il rassembla toutes ses facultés :
-« Monte-Cristo ! dit-il, n’oubliez pas MonteCristo ! »
-Et il retomba sur son lit.
-La crise fut terrible : des membres tordus, des paupières gonflées, une écume sanglante, un corps sans mouvement, voilà ce qui resta sur ce lit de douleur à la place de l’être intelligent qui s’y était couché un instant auparavant.
-Dantès prit la lampe, la posa au chevet du lit sur une pierre qui faisait saillie et d’où sa lueur tremblante éclairait d’un reflet étrange et fantastique ce visage décomposé et ce corps inerte et raidi.
-Les yeux fixés, il attendit intrépidement le moment d’administrer le remède sauveur.
-Lorsqu’il crut le moment arrivé, il prit le couteau, desserra les dents, qui offrirent moins de résistance que la première fois, compta l’une après l’autre dix gouttes et attendit ; la fiole contenait le double encore à peu près de ce qu’il avait versé.
-Il attendit dix minutes, un quart d’heure, une demi-heure, rien ne bougea. Tremblant, les cheveux roidis, le front glacé de sueur, il comptait les secondes par les battements de son cœur.
-Alors il pensa qu’il était temps d’essayer la dernière épreuve : il approcha la fiole des lèvres violettes de Faria, et, sans avoir besoin de desserrer les mâchoires restées ouvertes, il versa toute la liqueur qu’elle contenait.
-Le remède produisit un effet galvanique, un violent tremblement secoua les membres du vieillard, ses yeux se rouvrirent effrayants à voir, il poussa un soupir qui ressemblait à un cri, puis tout ce corps frissonnant rentra peu à peu dans son immobilité.
-Les yeux seuls restèrent ouverts.
-Une demi-heure, une heure, une heure et demie s’écoulèrent. Pendant cette heure et demie d’angoisse, Edmond, penché sur son ami, la main appliquée à son cœur, sentit successivement ce corps se refroidir et ce cœur éteindre son battement de plus en plus sourd et profond.
-Enfin rien ne survécut ; le dernier frémissement du cœur cessa, la face devint livide, les yeux restèrent ouverts, mais le regard se ternit.
-Il était six heures du matin, le jour commençait à paraître, et son rayon blafard, envahissant le cachot, faisait pâlir la lumière mourante de la lampe. Des reflets étranges passaient sur le visage du cadavre, lui donnant de temps en temps des apparences de vie. Tant que dura cette lutte du jour et de la nuit, Dantès put douter encore ; mais dès que le jour eut vaincu, il comprit qu’il était seul avec un cadavre.
-Alors une terreur profonde et invincible s’empara de lui ; il n’osa plus presser cette main qui pendait hors du lit, il n’osa plus arrêter ses yeux sur ces yeux fixes et blancs qu’il essaya plusieurs fois mais inutilement de fermer, et qui se rouvraient toujours. Il éteignit la lampe, la cacha soigneusement et s’enfuit, replaçant de son mieux la dalle au-dessus de sa tête.
-D’ailleurs, il était temps, le geôlier allait venir.
-Cette fois, il commença sa visite par Dantès ; en sortant de son cachot, il allait passer dans celui de Faria, auquel il portait à déjeuner et du linge.
-Rien d’ailleurs n’indiquait chez cet homme qu’il eût connaissance de l’accident arrivé. Il sortit.
-Dantès fut alors pris d’une indicible impatience de savoir ce qui allait se passer dans le cachot de son malheureux ami ; il rentra donc dans la galerie souterraine et arriva à temps pour entendre les exclamations du porte-clefs, qui appelait à l’aide.
-Bientôt les autres porte-clefs entrèrent ; puis on entendit ce pas lourd et régulier habituel aux soldats, même hors de leur service. Derrière les soldats arriva le gouverneur.
-Edmond entendit le bruit du lit sur lequel on agitait le cadavre ; il entendit la voix du gouverneur, qui ordonnait de lui jeter de l’eau au visage, et qui voyant que, malgré cette immersion, le prisonnier ne revenait pas, envoya chercher le médecin.
-Le gouverneur sortit ; et quelques paroles de compassion parvinrent aux oreilles de Dantès, mêlées à des rires de moquerie.
-« Allons, allons, disait l’un, le fou a été rejoindre ses trésors, bon voyage !
-– Il n’aura pas, avec tous ses millions, de quoi payer son linceul, disait l’autre.
-– Oh ! reprit une troisième voix, les linceuls du château d’If ne coûtent pas cher.
-– Peut-être, dit un des premiers interlocuteurs, comme c’est un homme d’Église, on fera quelques frais en sa faveur.
-– Alors il aura les honneurs du sac. »
-Edmond écoutait, ne perdait pas une parole, mais ne comprenait pas grand-chose à tout cela.
-Bientôt les voix s’éteignirent, et il lui sembla que les assistants quittaient la chambre.
-Cependant il n’osa y rentrer : on pouvait avoir laissé quelque porte-clefs pour garder le mort.
-Il resta donc muet, immobile et retenant sa respiration.
-Au bout d’une heure, à peu près, le silence s’anima d’un faible bruit, qui alla croissant.
-C’était le gouverneur qui revenait, suivi du médecin et de plusieurs officiers.
-Il se fit un moment de silence : il était évident que le médecin s’approchait du lit et examinait le cadavre.
-Bientôt les questions commencèrent.
-Le médecin analysa le mal auquel le prisonnier avait succombé et déclara qu’il était mort.
-Questions et réponses se faisaient avec une nonchalance qui indignait Dantès ; il lui semblait que tout le monde devait ressentir pour le pauvre abbé une partie de l’affection qu’il lui portait.
-« Je suis fâché de ce que vous m’annoncez là, dit le gouverneur, répondant à cette certitude manifestée par le médecin que le vieillard était bien réellement mort ; c’était un prisonnier doux, inoffensif, réjouissant avec sa folie et surtout facile à surveiller.
-– Oh ! reprit le porte-clefs, on aurait pu ne pas le surveiller du tout, il serait bien resté cinquante ans ici, j’en réponds, celui-là, sans essayer de faire une seule tentative d’évasion.
-– Cependant, reprit le gouverneur, je crois qu’il serait urgent, malgré votre conviction, non pas que je doute de votre science, mais pour ma propre responsabilité, de nous assurer si le prisonnier est bien réellement mort. »
-Il se fit un instant de silence absolu pendant lequel Dantès, toujours aux écoutes, estima que le médecin examinait et palpait une seconde fois le cadavre.
-« Vous pouvez être tranquille, dit alors le médecin, il est mort, c’est moi qui vous en réponds.
-– Vous savez, monsieur, reprit le gouverneur en insistant, que nous ne nous contentons pas, dans les cas pareils à celui-ci, d’un simple examen ; malgré toutes les apparences, veuillez donc achever la besogne en remplissant les formalités prescrites par la loi.
-– Que l’on fasse chauffer les fers, dit le médecin ; mais en vérité, c’est une précaution bien inutile. »
-Cet ordre de chauffer les fers fit frissonner Dantès.
-On entendit des pas empressés, le grincement de la porte, quelques allées et venues intérieures, et, quelques instants après, un guichetier rentra en disant :
-« Voici le brasier avec un fer. »
-Il se fit alors un silence d’un instant, puis on entendit le frémissement des chairs qui brûlaient, et dont l’odeur épaisse et nauséabonde perça le mur même derrière lequel Dantès écoutait avec horreur.
-À cette odeur de chair humaine carbonisée, la sueur jaillit du front du jeune homme et il crut qu’il allait s’évanouir.
-« Vous voyez, monsieur, qu’il est bien mort, dit le médecin ; cette brûlure au talon est décisive : le pauvre fou est guéri de sa folie et délivré de sa captivité.
-– Ne s’appelait-il pas Faria ? demanda un des officiers qui accompagnaient le gouverneur.
-– Oui, monsieur, et, à ce qu’il prétendait, c’était un vieux nom ; d’ailleurs, il était fort savant et assez raisonnable même sur tous les points qui ne touchaient pas à son trésor ; mais sur celui-là, il faut l’avouer, il était intraitable.
-– C’est l’affection que nous appelons la monomanie, dit le médecin.
-– Vous n’aviez jamais eu à vous plaindre de lui ? demanda le gouverneur au geôlier chargé d’apporter les vivres de l’abbé.
-– Jamais, monsieur le gouverneur, répondit le geôlier, jamais, au grand jamais ! au contraire : autrefois même il m’amusait fort en me racontant des histoires ; un jour que ma femme était malade il m’a même donné une recette qui l’a guérie.
-– Ah ! ah ! fit le médecin, j’ignorais que j’eusse affaire à un collègue ; j’espère, monsieur le gouverneur, ajouta-t-il en riant, que vous le traiterez en conséquence.
-– Oui, oui, soyez tranquille, il sera décemment enseveli dans le sac le plus neuf qu’on pourra trouver ; êtes-vous content ?
-– Devons-nous accomplir cette dernière formalité devant vous, monsieur ? demanda un guichetier.
-– Sans doute, mais qu’on se hâte, je ne puis rester dans cette chambre toute la journée »
-De nouvelles allées et venues se firent entendre ; un instant après, un bruit de toile froissée parvint aux oreilles de Dantès, le lit cria sur ses ressorts, un pas alourdi comme celui d’un homme qui soulève un fardeau s’appesantit sur la dalle, puis le lit cria de nouveau sous le poids qu’on lui rendait.
-« À ce soir, dit le gouverneur.
-– Y aura-t-il une messe ? demanda un des officiers.
-– Impossible, répondit le gouverneur ; le chapelain du château est venu me demander hier un congé pour faire un petit voyage de huit jours à Hyères, je lui ai répondu de tous mes prisonniers pendant tout ce temps-là ; le pauvre abbé n’avait qu’à ne pas tant se presser, et il aurait eu son requiem.
-– Bah ! bah ! dit le médecin avec l’impiété familière aux gens de sa profession, il est homme d’Église : Dieu aura égard à l’état, et ne donnera pas à l’enfer le méchant plaisir de lui envoyer un prêtre. »
-Un éclat de rire suivit cette mauvaise plaisanterie.
-Pendant ce temps, l’opération de l’ensevelissement se poursuivait.
-« À ce soir ! dit le gouverneur lorsqu’elle fut finie.
-– À quelle heure ? demanda le guichetier.
-– Mais vers dix ou onze heures.
-– Veillera-t-on le mort ?
+« Maintenant, ami, dit Faria, seule consolation de ma misérable vie, vous que le ciel m’a donné un peu tard. Au moment de me séparer de vous pour toujours, je vous souhaite tout le bonheur que vous méritez. Mon fils, je vous bénis ! »
+Le jeune homme se jeta à genoux, la tête contre le lit du vieil homme.
+« Écoutez bien, en ce moment suprême : le trésor des Spada existe. Dieu me permet de le voir. Il est au fond de la seconde grotte. Mes yeux percent les profondeurs de la terre et sont éblouis par tant de richesses. Si vous parvenez à fuir, rappelez-vous que le pauvre abbé que l’on croyait fou ne l’était pas. Allez à Monte-Cristo, profitez de notre fortune. Vous avez assez souffert. »
+Une secousse violente interrompit le vieillard. On aurait dit qu’une vague de sang venait de monter de sa poitrine à son front.
+« Adieu ! adieu ! murmura-t-il en serrant la main de Dantès. Adieu !
+– Oh, pas encore ! Ne nous abandonnez pas ! Au secours !
+– Silence ! murmura le mourant. Pour qu’on ne nous sépare pas si vous me sauvez !
+– Vous avez raison. Oui, soyez tranquille, je vous sauverai ! D’ailleurs, vous semblez souffrir moins que la première fois.
+– Ne vous y trompez pas. Je souffre moins parce qu’il y a en moi moins de force pour souffrir. À votre âge, on a foi en la vie. Mais les vieillards voient la mort plus clairement. Oh, la voilà… elle vient… c’est fini… Ma vue se perd… ma raison s’enfuit… Votre main, Dantès ! Adieu !… adieu ! »
+Et, se relevant dans un dernier effort : « Monte-Cristo ! dit-il, n’oubliez pas Monte-Cristo ! »
+Et il retomba sur son lit. La crise fut terrible. Des membres tordus, des paupières gonflées, une écume sanglante. Il ne restait plus sur ce lit qu’un corps sans mouvement.
+Dantès posa la lampe près du lit, éclairant ce visage décomposé. Les yeux fixés, il attendit le moment d’administrer le remède.
+Quand il crut le moment arrivé, il prit le couteau, desserra les dents, compta dix gouttes et attendit. Dix minutes, un quart d’heure, une demi-heure. Rien. Tremblant, les cheveux hérissés, il pensa qu’il était temps d’essayer la dernière chance. Il versa toute la liqueur restante dans la bouche de Faria.
+Le remède produisit un effet galvanique. Un violent tremblement secoua le vieillard, ses yeux se rouvrirent, effrayants. Il poussa un soupir qui ressemblait à un cri, puis son corps retomba dans l’immobilité. Seuls ses yeux restèrent ouverts.
+Pendant une heure et demie d’angoisse, Edmond, penché sur son ami, la main sur son cœur, sentit le corps se refroidir et le cœur cesser de battre.
+Il était six heures du matin. Le jour commençait à paraître. Dantès comprit qu’il était seul avec un cadavre.
+Alors, une terreur profonde s’empara de lui. Il n’osa plus toucher cette main, ni regarder ces yeux fixes qu’il essayait en vain de fermer. Il éteignit la lampe, la cacha et s’enfuit, replaçant la dalle au-dessus de sa tête.
+Il était temps, le geôlier allait venir. Il commença sa visite par le cachot de Dantès, puis se dirigea vers celui de Faria.
+Dantès, dévoré d’inquiétude, retourna dans le passage pour écouter. Il entendit les exclamations du gardien qui appelait à l’aide. Bientôt, d’autres gardiens arrivèrent, puis des soldats, et enfin le gouverneur.
+Edmond entendit le bruit du lit qu’on agitait, le gouverneur qui ordonnait de jeter de l’eau au visage du mort, puis l’envoi d’un messager pour chercher le médecin. Quelques paroles de compassion parvinrent à Dantès, mêlées à des rires moqueurs.
+« Allons, le fou a rejoint ses trésors. Bon voyage !
+– Avec tous ses millions, il n’aura pas de quoi payer son linceul, dit un autre.
+– Oh, les linceuls du château d’If ne coûtent pas cher.
+Le silence revint. Bientôt, le gouverneur revint avec le médecin.
+Le médecin examina le corps et déclara qu’il était mort. Les questions et les réponses se faisaient avec une nonchalance qui indignait Dantès. Il lui semblait que tout le monde aurait dû ressentir pour l’abbé une partie de l’affection qu’il lui portait.
+« Je suis fâché de ce que vous m’annoncez, dit le gouverneur. C’était un prisonnier doux, inoffensif, et facile à surveiller.
+– C’est vrai, dit le gardien. Il m’amusait en me racontant des histoires.
+– Cependant, dit le gouverneur, je crois qu’il serait urgent, pour ma propre responsabilité, de nous assurer qu’il est bien réellement mort.
+– Que l’on fasse chauffer les fers, dit le médecin. Mais en vérité, c’est une précaution inutile. »
+Cet ordre fit frissonner Dantès. Bientôt, il entendit le sifflement de la chair qui brûlait, et l’odeur nauséabonde traversa le mur.
+« Vous voyez, monsieur, qu’il est bien mort, dit le médecin. Cette brûlure au talon est décisive. Le pauvre fou est guéri de sa folie et délivré de sa captivité.
+– Il sera décemment enseveli dans le sac le plus neuf qu’on pourra trouver, dit le gouverneur. Êtes-vous content ?
+– Devons-nous faire cela devant vous, monsieur ? demanda un gardien.
+– Sans doute, mais hâtez-vous. Je ne peux pas rester ici toute la journée. »
+Un bruit de toile froissée parvint à Dantès. Le lit cria sous le poids d’un homme qui soulève un fardeau, puis cria de nouveau quand on le reposa.
+« À ce soir ! dit le gouverneur. Vers dix ou onze heures.
+– On va veiller le mort ?
 – Pour quoi faire ? On fermera le cachot comme s’il était vivant, voilà tout. »
-Alors les pas s’éloignèrent, les voix allèrent s’affaiblissant, le bruit de la porte avec sa serrure criarde et ses verrous grinçants se fit entendre, un silence plus morne que celui de la solitude, le silence de la mort, envahit tout, jusqu’à l’âme glacée du jeune homme.
-Alors il souleva lentement la dalle avec sa tête, et jeta un regard investigateur dans la chambre.
-La chambre était vide : Dantès sortit de la galerie.`,
+Les pas s’éloignèrent. Un silence de mort envahit tout. Alors, Dantès souleva lentement la dalle. La chambre était vide. Il sortit de la galerie.`,
 }

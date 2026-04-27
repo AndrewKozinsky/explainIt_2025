@@ -1,168 +1,124 @@
+// Глава адаптирована
 export const chapter_14 = {
 	name: 'CHAPITRE XIV',
 	header: 'Le prisonnier furieux et le prisonnier fou',
-	text: `Un an environ après le retour de Louis XVIII, il y eut visite de M. l’inspecteur général des prisons.
-Dantès entendit rouler et grincer du fond de son cachot tous ces préparatifs, qui faisaient en haut beaucoup de fracas, mais qui, en bas, eussent été des bruits inappréciables pour toute autre oreille que pour celle d’un prisonnier, accoutumé à écouter, dans le silence de la nuit, l’araignée qui tisse sa toile, et la chute périodique de la goutte d’eau qui met une heure à se former au plafond de son cachot.
-Il devina qu’il se passait chez les vivants quelque chose d’inaccoutumé : il habitait depuis si longtemps une tombe qu’il pouvait bien se regarder comme mort.
-En effet, l’inspecteur visitait, l’un après l’autre, chambres, cellules et cachots. Plusieurs prisonniers furent interrogés : c’étaient ceux que leur douceur ou leur stupidité recommandait à la bienveillance de l’administration ; l’inspecteur leur demanda comment ils étaient nourris, et quelles étaient les réclamations qu’ils avaient à faire.
-Ils répondirent unanimement que la nourriture était détestable et qu’ils réclamaient leur liberté.
-L’inspecteur leur demanda alors s’ils n’avaient pas autre chose à lui dire.
-Ils secouèrent la tête. Quel autre bien que la liberté peuvent réclamer des prisonniers ?
-L’inspecteur se tourna en souriant, et dit au gouverneur :
-« Je ne sais pas pourquoi on nous fait faire ces tournées inutiles. Qui voit un prisonnier en voit cent ; qui entend un prisonnier en entend mille ; c’est toujours la même chose : mal nourris et innocents. En avez-vous d’autres ?
-– Oui, nous avons les prisonniers dangereux ou fous, que nous gardons au cachot.
-– Voyons, dit l’inspecteur avec un air de profonde lassitude, faisons notre métier jusqu’au bout ; descendons dans les cachots.
-– Attendez, dit le gouverneur, que l’on aille au moins chercher deux hommes ; les prisonniers commettent parfois, ne fût-ce que par dégoût de la vie et pour se faire condamner à mort, des actes de désespoir inutiles : vous pourriez être victime de l’un de ces actes.
-– Prenez donc vos précautions », dit l’inspecteur.
-En effet, on envoya chercher deux soldats et l’on commença de descendre par un escalier si puant, si infect, si moisi, que rien que le passage dans un pareil endroit affectait désagréablement à la fois la vue, l’odorat et la respiration.
-« Oh ! fit l’inspecteur en s’arrêtant à moitié de la descente, qui diable peut loger là ?
-– Un conspirateur des plus dangereux, et qui nous est particulièrement recommandé comme un homme capable de tout.
+	text: `Environ un an après le retour de Louis XVIII, l’inspecteur général des prisons fit une visite.
+Du fond de son cachot, Dantès entendit le bruit des préparatifs. Pour toute autre oreille, cela aurait été un son indistinct, mais pour un prisonnier habitué à écouter le silence, c’était un événement. Il devina qu’il se passait quelque chose d’inhabituel chez les vivants ; lui-même se considérait comme mort depuis longtemps.
+L’inspecteur visitait les cellules les unes après les autres. Il interrogea plusieurs prisonniers, choisis pour leur docilité. Il leur demanda comment ils étaient nourris et ce qu’ils réclamaient.
+Ils répondirent tous que la nourriture était détestable et qu’ils réclamaient leur liberté.
+L’inspecteur leur demanda s’ils avaient autre chose à dire. Ils secouèrent la tête. Que peut réclamer d’autre un prisonnier que la liberté ?
+L’inspecteur se tourna en souriant vers le gouverneur : « Je ne sais pas pourquoi on nous fait faire ces tournées inutiles. Qui voit un prisonnier les voit tous. C’est toujours la même chose : mal nourris et innocents. En avez-vous d’autres ?
+– Oui, nous avons les prisonniers dangereux ou fous, dans les cachots.
+– Allons-y, dit l’inspecteur avec lassitude. Faisons notre métier jusqu’au bout.
+– Attendez, dit le gouverneur, qu’on aille chercher deux hommes. Les prisonniers commettent parfois des actes de désespoir pour se faire condamner à mort.
+– Prenez vos précautions », dit l’inspecteur.
+On envoya chercher deux soldats et ils commencèrent à descendre par un escalier si puant et si moisi que le simple passage affectait la vue, l’odorat et la respiration.
+« Oh ! fit l’inspecteur en s’arrêtant. Qui diable peut vivre là ?
+– Un conspirateur des plus dangereux, capable de tout.
 – Il est seul ?
 – Certainement.
-– Depuis combien de temps est-il là ?
-– Depuis un an à peu près.
-– Et il a été mis dans ce cachot dès son entrée.
-– Non, monsieur, mais après avoir voulu tuer le porte-clefs chargé de lui porter sa nourriture.
-– Il a voulu tuer le porte-clefs ?
-– Oui, monsieur, celui-là même qui nous éclaire, n’est-il pas vrai, Antoine ? demanda le gouverneur.
-– Il a voulu me tuer tout de même, répondit le porte-clefs.
-– Ah çà ! mais c’est donc un fou que cet homme ?
-– C’est pire que cela, dit le porte-clefs, c’est un démon.
-– Voulez-vous qu’on s’en plaigne ? demanda l’inspecteur au gouverneur.
-– Inutile, monsieur, il est assez puni comme cela, d’ailleurs, à présent, il touche presque à la folie, et, selon l’expérience que nous donnent nos observations, avant une autre année d’ici il sera complètement aliéné.
-– Ma foi, tant mieux pour lui, dit l’inspecteur ; une fois fou tout à fait, il souffrira moins. »
-C’était, comme on le voit, un homme plein d’humanité que cet inspecteur, et bien digne des fonctions philanthropiques qu’il remplissait.
-« Vous avez raison, monsieur, dit le gouverneur, et votre réflexion prouve que vous avez profondément étudié la matière. Ainsi, nous avons dans un cachot, qui n’est séparé de celui-ci que par une vingtaine de pieds, et dans lequel on descend par un autre escalier, un vieil abbé, ancien chef de parti en Italie, qui est ici depuis 1811, auquel la tête a tourné vers la fin de 1813, et qui, depuis ce moment, n’est pas physiquement reconnaissable : il pleurait, il rit ; il maigrissait, il engraisse. Voulez-vous le voir plutôt que celuici ? Sa folie est divertissante et ne vous attristera point.
-– Je les verrai l’un et l’autre, répondit l’inspecteur ; il faut faire son état en conscience. »
-L’inspecteur en était à sa première tournée et voulait donner bonne idée de lui à l’autorité.
-« Entrons donc chez celui-ci d’abord, ajouta-til.
-– Volontiers », répondit le gouverneur.
-Et il fit signe au porte-clefs, qui ouvrit la porte.
-Au grincement des massives serrures, au cri des gonds rouillés tournant sur leurs pivots, Dantès, accroupi dans un angle de son cachot, où il recevait avec un bonheur indicible le mince rayon du jour qui filtrait à travers un étroit soupirail grillé, releva la tête. À la vue d’un homme inconnu, éclairé par deux porte-clefs tenant des torches, et auquel le gouverneur parlait le chapeau à la main, accompagné par deux soldats, Dantès devina ce dont il s’agissait, et, voyant enfin se présenter une occasion d’implorer une autorité supérieure, bondit en avant les mains jointes.
-Les soldats croisèrent aussitôt la baïonnette, car ils crurent que le prisonnier s’élançait vers l’inspecteur avec de mauvaises intentions.
-L’inspecteur lui-même fit un pas en arrière.
-Dantès vit qu’on l’avait présenté comme homme à craindre.
-Alors, il réunit dans son regard tout ce que le cœur de l’homme peut contenir de mansuétude et d’humilité, et s’exprimant avec une sorte d’éloquence pieuse qui étonna les assistants, il essaya de toucher l’âme de son visiteur.
-L’inspecteur écouta le discours de Dantès, jusqu’au bout, puis se tournant vers le gouverneur :
-« Il tournera à la dévotion, dit-il à mi-voix ; il est déjà disposé à des sentiments plus doux.
-Voyez, la peur fait son effet sur lui ; il a reculé devant les baïonnettes ; or, un fou ne recule devant rien : j’ai fait sur ce sujet des observations bien curieuses à Charenton. »
-Puis, se retournant vers le prisonnier :
-« En résumé, dit-il, que demandez-vous ?
-– Je demande quel crime j’ai commis ; je demande que l’on me donne des juges ; je demande que mon procès soit instruit ; je demande enfin que l’on me fusille si je suis coupable, mais aussi qu’on me mette en liberté si je suis innocent.
+– Depuis combien de temps ?
+– Environ un an.
+– Il a été mis au cachot dès son arrivée ?
+– Non, mais après avoir voulu tuer le gardien qui lui portait sa nourriture.
+– Il a voulu tuer le gardien ?
+– Oui, celui-là même qui nous éclaire, n’est-ce pas, Antoine ? demanda le gouverneur.
+– Il a bien voulu me tuer, répondit le gardien.
+– Mais alors, cet homme est fou ?
+– C’est pire que ça, dit le gardien, c’est un démon.
+– Inutile de s’en plaindre, dit le gouverneur à l’inspecteur. Il est déjà bien puni. D’ailleurs, il est presque fou, et d’ici un an, il le sera complètement.
+– Tant mieux pour lui, dit l’inspecteur. Une fois complètement fou, il souffrira moins. »
+C’était, comme on le voit, un homme très “humain”.
+« Vous avez raison, monsieur, dit le gouverneur. Dans un cachot voisin, nous avons un vieil abbé, un ancien chef de parti en Italie, ici depuis 1811. Il est devenu fou en 1813. Sa folie est amusante, elle ne vous attristera pas.
+– Je les verrai l’un et l’autre, répondit l’inspecteur, qui voulait faire bonne impression. Commençons par celui-ci. »
+Le gouverneur fit signe au gardien, qui ouvrit la porte.
+Au grincement des serrures, Dantès, accroupi dans un coin de son cachot, releva la tête. Il recevait avec un bonheur immense le mince rayon de jour qui filtrait par un soupirail. En voyant un inconnu éclairé par des torches, accompagné du gouverneur et de soldats, il comprit qu’il s’agissait d’une inspection. Voyant enfin une chance de parler à une autorité supérieure, il bondit en avant, les mains jointes.
+Les soldats croisèrent la baïonnette, croyant qu’il voulait attaquer l’inspecteur. Celui-ci fit un pas en arrière.
+Dantès comprit qu’on l’avait présenté comme un homme dangereux. Alors, il mit dans son regard toute l’humilité possible et, avec une éloquence qui surprit tout le monde, il essaya de toucher l’âme de son visiteur.
+L’inspecteur l’écouta, puis dit à mi-voix au gouverneur : « Il va devenir dévot. La peur a eu son effet sur lui. Il a reculé devant les baïonnettes. Un fou n’a peur de rien. »
+Puis, se tournant vers le prisonnier : « Que demandez-vous ?
+– Je demande quel crime j’ai commis. Je demande des juges et un procès. Qu’on me fusille si je suis coupable, mais qu’on me libère si je suis innocent.
 – Êtes-vous bien nourri ? demanda l’inspecteur.
-– Oui, je le crois, je n’en sais rien. Mais cela importe peu ; ce qui doit importer, non seulement à moi, malheureux prisonnier, mais encore à tous les fonctionnaires rendant la justice, mais encore au roi qui nous gouverne, c’est qu’un innocent ne soit pas victime d’une dénonciation infâme et ne meure pas sous les verrous en maudissant ses bourreaux.
-– Vous êtes bien humble aujourd’hui, dit le gouverneur ; vous n’avez pas toujours été comme cela. Vous parliez tout autrement, mon cher ami, le jour où vous vouliez assommer votre gardien.
-– C’est vrai, monsieur, dit Dantès, et j’en demande bien humblement pardon à cet homme qui a toujours été bon pour moi... Mais, que voulez-vous ? j’étais fou, j’étais furieux.
+– Je crois, je n’en sais rien. Mais cela importe peu. Ce qui importe, c’est qu’un innocent ne meure pas en prison en maudissant ses bourreaux.
+– Vous êtes bien humble aujourd’hui, dit le gouverneur. Ce n’était pas le cas le jour où vous avez voulu assommer votre gardien.
+– C’est vrai, monsieur, dit Dantès. Et je demande pardon à cet homme qui a toujours été bon pour moi. Mais j’étais fou, furieux.
 – Et vous ne l’êtes plus ?
-– Non, monsieur, car la captivité m’a plié, brisé, anéanti... Il y a si longtemps que je suis ici !
-– Si longtemps ?... et à quelle époque avezvous été arrêté ? demanda l’inspecteur.
-– Le 28 février 1815, à deux heures de l’aprèsmidi. »
-L’inspecteur calcula.
-« Nous sommes au 30 juillet 1816 ; que ditesvous donc ? il n’y a que dix-sept mois que vous êtes prisonnier.
-– Que dix-sept mois ! reprit Dantès. Ah ! monsieur, vous ne savez pas ce que c’est que dixsept mois de prison : dix-sept années, dix-sept siècles ; surtout pour un homme qui, comme moi, touchait au bonheur, pour un homme qui, comme moi, allait épouser une femme aimée, pour un homme qui voyait s’ouvrir devant lui une carrière honorable, et à qui tout manque à l’instant ; qui, du milieu du jour le plus beau, tombe dans la nuit la plus profonde, qui voit sa carrière détruite, qui ne sait si celle qui l’aimait l’aime toujours, qui ignore si son vieux père est mort ou vivant. Dixsept mois de prison, pour un homme habitué à l’air de la mer, à l’indépendance du marin, à l’espace, à l’immensité, à l’infini ! Monsieur, dixsept mois de prison, c’est plus que ne le méritent tous les crimes que désigne par les noms les plus odieux la langue humaine. Ayez donc pitié de moi, monsieur, et demandez pour moi, non pas l’indulgence, mais la rigueur ; non pas une grâce, mais un jugement ; des juges, monsieur, je ne demande que des juges ; on ne peut pas refuser des juges à un accusé.
+– Non, monsieur. La captivité m’a brisé. Il y a si longtemps que je suis ici !
+– Si longtemps ? Quand avez-vous été arrêté ? demanda l’inspecteur.
+– Le 28 février 1815, à deux heures de l’après-midi.
+L’inspecteur calcula. « Nous sommes le 30 juillet 1816. Cela ne fait que dix-sept mois.
+– Que dix-sept mois ! Ah, monsieur, vous ne savez pas ce que c’est que dix-sept mois de prison : c’est dix-sept siècles ! Surtout pour un homme qui touchait au bonheur, qui allait épouser la femme qu’il aimait. Dix-sept mois pour un homme habitué à la mer, à l’espace, à l’infini ! C’est plus que ne méritent tous les crimes du monde. Ayez pitié, monsieur. Demandez pour moi non pas l’indulgence, mais la justice. Un jugement, c’est tout ce que je demande.
 – C’est bien, dit l’inspecteur, on verra. »
-Puis, se retournant vers le gouverneur :
-« En vérité, dit-il, le pauvre diable me fait de la peine. En remontant, vous me montrerez son livre d’écrou.
-– Certainement, dit le gouverneur ; mais je crois que vous trouverez contre lui des notes terribles.
-– Monsieur, continua Dantès, je sais que vous ne pouvez pas me faire sortir d’ici de votre propre décision ; mais vous pouvez transmettre ma demande à l’autorité, vous pouvez provoquer une enquête, vous pouvez, enfin, me faire mettre en jugement : un jugement, c’est tout ce que je demande ; que je sache quel crime j’ai commis, et à quelle peine je suis condamné ; car, voyezvous, l’incertitude, c’est le pire de tous les supplices.
-– Éclairez-moi, dit l’inspecteur.
-– Monsieur, s’écria Dantès, je comprends, au son de votre voix, que vous êtes ému. Monsieur, dites-moi d’espérer.
-– Je ne puis vous dire cela, répondit l’inspecteur, je puis seulement vous promettre d’examiner votre dossier.
-– Oh ! alors, monsieur, je suis libre, je suis sauvé.
-– Qui vous a fait arrêter ? demanda l’inspecteur.
-– M. de Villefort, répondit Dantès. Voyez-le et entendez-vous avec lui.
-– M. de Villefort n’est plus à Marseille depuis un an, mais à Toulouse.
-– Ah ! cela ne m’étonne plus, murmura Dantès : mon seul protecteur est éloigné.
-– M. de Villefort avait-il quelque motif de haine contre vous ? demanda l’inspecteur.
-– Aucun, monsieur ; et même il a été bienveillant pour moi.
-– Je pourrai donc me fier aux notes qu’il a laissées sur vous ou qu’il me donnera ?
+Puis, se retournant vers le gouverneur : « En vérité, le pauvre diable me fait de la peine. Montrez-moi son registre d’écrou en remontant.
+– Certainement. Mais je crois que vous trouverez des notes terribles contre lui.
+– Monsieur, continua Dantès, je sais que vous ne pouvez pas me libérer vous-même, mais vous pouvez transmettre ma demande. Un jugement, c’est tout ce que je demande !
+– Éclairez-moi, dit l’inspecteur au gardien.
+– Monsieur, s’écria Dantès, je sens à votre voix que vous êtes ému. Dites-moi d’espérer.
+– Je ne peux pas vous dire cela. Je peux seulement vous promettre d’examiner votre dossier.
+– Oh ! Alors je suis libre, je suis sauvé !
+– Qui vous a fait arrêter ?
+– M. de Villefort. Voyez-le et entendez-vous avec lui.
+– M. de Villefort n’est plus à Marseille, il est à Toulouse.
+– Ah, je comprends, murmura Dantès. Mon seul protecteur est loin.
+– M. de Villefort avait-il une raison de vous détester ?
+– Aucune, monsieur. Au contraire, il a été bienveillant avec moi.
+– Je pourrai donc me fier aux notes qu’il a laissées sur vous ?
 – Entièrement, monsieur.
-– C’est bien, attendez. »
-Dantès tomba à genoux, levant les mains vers le ciel, et murmurant une prière dans laquelle il recommandait à Dieu cet homme qui était descendu dans sa prison, pareil au Sauveur allant délivrer les âmes de l’enfer.
-La porte se referma ; mais l’espoir descendu avec l’inspecteur était resté enfermé dans le cachot de Dantès.
-« Voulez-vous voir le registre d’écrou tout de suite, demanda le gouverneur, ou passer au cachot de l’abbé ?
-– Finissons-en avec les cachots tout d’un coup, répondit l’inspecteur. Si je remontais au jour, je n’aurais peut-être plus le courage de continuer ma triste mission.
-– Ah ! celui-là n’est point un prisonnier comme l’autre, et sa folie, à lui, est moins attristante que la raison de son voisin.
+– C’est bien. Attendez. »
+Dantès tomba à genoux, priant pour cet homme qui lui semblait être un sauveur.
+La porte se referma, mais l’espoir, descendu avec l’inspecteur, resta dans le cachot.
+« Voulez-vous voir le registre d’écrou maintenant, demanda le gouverneur, ou passer au cachot de l’abbé ?
+– Finissons-en avec les cachots. Si je remonte au grand jour, je n’aurai plus le courage de continuer.
+– Ah, celui-là n’est pas comme l’autre. Sa folie est moins triste que la raison de son voisin.
 – Et quelle est sa folie ?
-– Oh ! une folie étrange : il se croit possesseur d’un trésor immense. La première année de sa captivité, il a fait offrir au gouvernement un million, si le gouvernement le voulait mettre en liberté ; la seconde année, deux millions, la troisième, trois millions, et ainsi progressivement.
-Il en est à sa cinquième année de captivité : il va vous demander de vous parler en secret, et vous offrira cinq millions.
-– Ah ! ah ! c’est curieux en effet, dit l’inspecteur ; et comment appelez-vous ce millionnaire ?
+– Il se croit possesseur d’un trésor immense. Chaque année, il augmente la somme qu’il offre au gouvernement pour sa liberté. Il en est à sa cinquième année, il va vous offrir cinq millions.
+– C’est curieux, en effet. Comment s’appelle ce millionnaire ?
 – L’abbé Faria.
-– N° 27 ! dit l’inspecteur.
-– C’est ici. Ouvrez, Antoine. »
-Le porte-clefs obéit, et le regard curieux de l’inspecteur plongea dans le cachot de l’abbé fou.
-C’est ainsi que l’on nommait généralement le prisonnier.
-Au milieu de la chambre, dans un cercle tracé sur la terre avec un morceau de plâtre détaché du mur, était couché un homme presque nu, tant ses vêtements étaient tombés en lambeaux. Il dessinait dans ce cercle des lignes géométriques fort nettes, et paraissait aussi occupé de résoudre son problème qu’Archimède l’était lorsqu’il fut tué par un soldat de Marcellus. Aussi ne bougeat-il pas même au bruit que fit la porte du cachot en s’ouvrant, et ne sembla-t-il se réveiller que lorsque la lumière des torches éclaira d’un éclat inaccoutumé le sol humide sur lequel il travaillait. Alors il se retourna et vit avec étonnement la nombreuse compagnie qui venait de descendre dans son cachot.
-Aussitôt, il se leva vivement, prit une couverture jetée sur le pied de son lit misérable, et se drapa précipitamment pour paraître dans un état plus décent aux yeux des étrangers.
-« Que demandez-vous ? dit l’inspecteur sans varier sa formule.
-– Moi, monsieur ! dit l’abbé d’un air étonné ; je ne demande rien.
-– Vous ne comprenez pas, reprit l’inspecteur : je suis agent du gouvernement, j’ai mission de descendre dans les prisons et d’écouter les réclamations des prisonniers.
-– Oh ! alors, monsieur, c’est autre chose, s’écria vivement l’abbé, et j’espère que nous allons nous entendre.
-– Voyez, dit tout bas le gouverneur, cela ne commence-t-il pas comme je vous l’avais annoncé ?
-– Monsieur, continua le prisonnier, je suis l’abbé Faria, né à Rome, j’ai été vingt ans secrétaire du cardinal Rospigliosi ; j’ai été arrêté, je ne sais trop pourquoi, vers le commencement de l’année 1811, depuis ce moment, je réclame ma liberté des autorités italiennes et françaises.
-– Pourquoi près des autorités françaises ? demanda le gouverneur.
-– Parce que j’ai été arrêté à Piombino et que je présume que, comme Milan et Florence, Piombino est devenu le chef-lieu de quelque département français. »
-L’inspecteur et le gouverneur se regardèrent en riant.
-« Diable, mon cher, dit l’inspecteur, vos nouvelles de l’Italie ne sont pas fraîches.
-– Elles datent du jour où j’ai été arrêté, monsieur, dit l’abbé Faria ; et comme Sa Majesté l’Empereur avait créé la royauté de Rome pour le fils que le ciel venait de lui envoyer, je présume que, poursuivant le cours de ses conquêtes, il a accompli le rêve de Machiavel et de César Borgia, qui était de faire de toute l’Italie un seul et unique royaume.
-– Monsieur, dit l’inspecteur, la Providence a heureusement apporté quelque changement à ce plan gigantesque dont vous me paraissez assez chaud partisan.
-– C’est le seul moyen de faire de l’Italie un État fort, indépendant et heureux, répondit l’abbé.
-– Cela est possible, répondit l’inspecteur, mais je ne suis pas venu ici pour faire avec vous un cours de politique ultramontaine, mais pour vous demander ce que j’ai déjà fait, si vous avez quelques réclamations à faire sur la manière dont vous êtes nourri et logé.
-– La nourriture est ce qu’elle est dans toutes les prisons, répondit l’abbé, c’est-à-dire fort mauvaise ; quant au logement, vous le voyez, il est humide et malsain, mais néanmoins assez convenable pour un cachot. Maintenant, ce n’est pas de cela qu’il s’agit mais bien de révélations de la plus haute importance et du plus haut intérêt que j’ai à faire au gouvernement.
-– Nous y voici, dit tout bas le gouverneur à l’inspecteur.
-– Voilà pourquoi je suis si heureux de vous voir, continua l’abbé, quoique vous m’ayez dérangé dans un calcul fort important, et qui, s’il réussit, changera peut-être le système de Newton.
-Pouvez-vous m’accorder la faveur d’un entretien particulier ?
-– Hein ! que disais-je ! fit le gouverneur à l’inspecteur.
-– Vous connaissez votre personne », répondit ce dernier souriant.
-Puis, se retournant vers Faria :
-« Monsieur, dit-il, ce que vous me demandez est impossible.
-– Cependant, monsieur, reprit l’abbé, s’il s’agissait de faire gagner au gouvernement une somme énorme, une somme de cinq millions, par exemple ?
-– Ma foi, dit l’inspecteur en se retournant à son tour vers le gouverneur, vous aviez prédit jusqu’au chiffre.
-– Voyons, reprit l’abbé, s’apercevant que l’inspecteur faisait un mouvement pour se retirer, il n’est pas nécessaire que nous soyons absolument seuls ; M. le gouverneur pourra assister à notre entretien.
-– Mon cher monsieur, dit le gouverneur, malheureusement nous savons d’avance et par cœur ce que vous direz. Il s’agit de vos trésors, n’est-ce pas ? »
-Faria regarda cet homme railleur avec des yeux où un observateur désintéressé eût vu, certes, luire l’éclair de la raison et de la vérité.
-« Sans doute, dit-il ; de quoi voulez-vous que je parle, sinon de cela ?
-– Monsieur l’inspecteur, continua le gouverneur, je puis vous raconter cette histoire aussi bien que l’abbé, car il y a quatre ou cinq ans que j’en ai les oreilles rebattues.
-– Cela prouve, monsieur le gouverneur, dit l’abbé, que vous êtes comme ces gens dont parle l’Écriture, qui ont des yeux et qui ne voient pas, qui ont des oreilles et qui n’entendent pas.
-– Mon cher monsieur, dit l’inspecteur, le gouvernement est riche et n’a, Dieu merci, pas besoin de votre argent ; gardez-le donc pour le jour où vous sortirez de prison. »
-L’œil de l’abbé se dilata ; il saisit la main de l’inspecteur.
-« Mais si je n’en sors pas de prison, dit-il, si, contre toute justice, on me retient dans ce cachot, si j’y meurs sans avoir légué mon secret à personne, ce trésor sera donc perdu ! Ne vaut-il pas mieux que le gouvernement en profite, et moi aussi ? J’irai jusqu’à six millions, monsieur ; oui, j’abandonnerai six millions, et je me contenterai du reste si l’on veut me rendre la liberté.
-– Sur ma parole, dit l’inspecteur à demi-voix, si l’on ne savait que cet homme est fou, il parle avec un accent si convaincu qu’on croirait qu’il dit la vérité.
-– Je ne suis pas fou, monsieur, et je dis bien la vérité, reprit Faria qui, avec cette finesse d’ouïe particulière aux prisonniers, n’avait pas perdu une seule des paroles de l’inspecteur. Ce trésor dont je vous parle existe bien réellement, et j’offre de signer un traité avec vous, en vertu duquel vous me conduirez à l’endroit désigné par moi ; on fouillera la terre sous nos yeux, et si je mens, si l’on ne trouve rien, si je suis un fou, comme vous le dites, eh bien ! vous me ramènerez dans ce même cachot, où je resterai éternellement, et où je mourrai sans plus rien demander ni à vous ni à personne. »
-Le gouverneur se mit à rire.
-« Est-ce bien loin votre trésor ? demanda-t-il.
-– À cent lieues d’ici à peu près, dit Faria.
-– La chose n’est pas mal imaginée, dit le gouverneur ; si tous les prisonniers voulaient s’amuser à promener leurs gardiens pendant cent lieues, et si les gardiens consentaient à faire une pareille promenade, ce serait une excellente chance que les prisonniers se ménageraient de prendre la clef des champs dès qu’ils en trouveraient l’occasion, et pendant un pareil voyage l’occasion se présenterait certainement.
-– C’est un moyen connu, dit l’inspecteur, et monsieur n’a pas même le mérite de l’invention. »
-Puis, se retournant vers l’abbé :
-« Je vous ai demandé si vous étiez bien nourri ? dit-il.
-– Monsieur, répondit Faria, jurez-moi sur le Christ de me délivrer si je vous ai dit vrai, et je vous indiquerai l’endroit où le trésor est enfoui.
+– Numéro 27 ! C’est ici. Ouvrez, Antoine. »
+Le gardien obéit. L’inspecteur regarda dans le cachot de “l’abbé fou”.
+Au milieu de la pièce, un homme presque nu était couché dans un cercle tracé à la craie. Il dessinait des lignes géométriques, aussi concentré qu’Archimède avant sa mort. Il ne bougea qu’à la lueur des torches. Il se leva vivement et se drapa dans une couverture.
+« Que demandez-vous ? dit l’inspecteur.
+– Moi, monsieur ? Je ne demande rien, dit l’abbé, étonné.
+– Je suis un agent du gouvernement, je viens écouter les réclamations des prisonniers.
+– Oh, alors c’est autre chose ! J’espère que nous allons nous entendre.
+– Monsieur, continua le prisonnier, je suis l’abbé Faria. J’ai été arrêté en 1811 sans savoir pourquoi. Depuis, je réclame ma liberté.
+– Pourquoi aux autorités françaises ?
+– Parce que j’ai été arrêté à Piombino, et je suppose que c’est devenu un département français, comme Milan ou Florence.
+L’inspecteur et le gouverneur se regardèrent en riant. « Mon cher, vos nouvelles de l’Italie ne sont pas fraîches.
+– Elles datent du jour de mon arrestation, dit l’abbé. Je présume que l’Empereur a unifié toute l’Italie en un seul royaume.
+– Monsieur, dit l’inspecteur, la Providence a changé ce plan gigantesque.
+– C’était le seul moyen de rendre l’Italie forte et indépendante.
+– C’est possible. Mais je ne suis pas venu pour un cours de politique, mais pour savoir si vous avez des réclamations sur votre nourriture et votre logement.
+– La nourriture est mauvaise, comme dans toutes les prisons. Le logement est humide et malsain. Mais ce qui compte, ce sont les révélations de la plus haute importance que j’ai à faire.
+– Nous y voilà, murmura le gouverneur.
+– Voilà pourquoi je suis si heureux de vous voir, continua l’abbé, même si vous m’avez dérangé dans un calcul qui pourrait changer le système de Newton. Pouvez-vous m’accorder un entretien privé ?
+– Que vous disais-je ? fit le gouverneur à l’inspecteur.
+– Ce que vous demandez est impossible, dit l’inspecteur à Faria.
+– Mais, monsieur, et s’il s’agissait de faire gagner au gouvernement une somme de cinq millions ?
+– Ma foi, dit l’inspecteur, vous aviez prédit jusqu’au chiffre.
+– Écoutez, dit l’abbé en voyant l’inspecteur prêt à partir. M. le gouverneur peut rester.
+– Mon cher monsieur, nous savons déjà ce que vous allez dire. Il s’agit de vos trésors, n’est-ce pas ? »
+Faria le regarda avec un éclair de raison dans les yeux. « Bien sûr. De quoi d’autre pourrais-je parler ?
+– Monsieur l’inspecteur, dit le gouverneur, je peux vous raconter l’histoire moi-même. Il me la répète depuis cinq ans.
+– Cela prouve, dit l’abbé, que vous êtes comme ceux dont parle l’Écriture : vous avez des yeux et ne voyez pas, des oreilles et n’entendez pas.
+– Mon cher monsieur, dit l’inspecteur, le gouvernement est riche et n’a pas besoin de votre argent. Gardez-le pour votre sortie de prison.
+L’œil de l’abbé s’agrandit. Il saisit la main de l’inspecteur. « Mais si je ne sors pas ? Si je meurs ici ? Ce trésor sera perdu ! Ne vaut-il pas mieux que le gouvernement en profite, et moi aussi ? J’irai jusqu’à six millions si on me rend la liberté !
+– Franchement, dit l’inspecteur à voix basse, si on ne savait pas qu’il est fou, on le croirait.
+– Je ne suis pas fou ! Ce trésor existe, reprit Faria, qui avait tout entendu. Je vous propose un marché : conduisez-moi à l’endroit que j’indiquerai. Si l’on ne trouve rien, si je suis fou, ramenez-moi ici et j’y resterai pour toujours.
+Le gouverneur se mit à rire. « C’est un moyen connu pour s’évader, dit l’inspecteur.
+Puis, se retournant vers l’abbé : « Je vous ai demandé si vous étiez bien nourri.
+– Monsieur, jurez-moi sur le Christ de me délivrer si je dis vrai, et je vous dirai où est le trésor.
 – Êtes-vous bien nourri ? répéta l’inspecteur.
-– Monsieur, vous ne risquez rien ainsi, et vous voyez bien que ce n’est pas pour me ménager une chance pour me sauver, puisque je resterai en prison tandis qu’on fera le voyage.
-– Vous ne répondez pas à ma question, reprit avec impatience l’inspecteur.
-– Ni vous à ma demande ! s’écria l’abbé.
-Soyez donc maudit comme les autres insensés qui n’ont pas voulu me croire ! Vous ne voulez pas de mon or, je le garderai ; vous me refusez la liberté, Dieu me l’enverra. Allez, je n’ai plus rien à dire. »
-Et l’abbé, rejetant sa couverture, ramassa son morceau de plâtre, et alla s’asseoir de nouveau au milieu de son cercle, où il continua ses lignes et ses calculs.
-« Que fait-il là ? dit l’inspecteur en se retirant.
-– Il compte ses trésors », reprit le gouverneur.
-Faria répondit à ce sarcasme par un coup d’œil empreint du plus suprême mépris.
-Ils sortirent. Le geôlier ferma la porte derrière eux.
-« Il aura, en effet, possédé quelques trésors, dit l’inspecteur en remontant l’escalier.
-– Ou il aura rêvé qu’il les possédait, répondit le gouverneur, et le lendemain il se sera réveillé fou.
-– En effet, dit l’inspecteur avec la naïveté de la corruption ; s’il eût été réellement riche, il ne serait pas en prison. »
-Ainsi finit l’aventure pour l’abbé Faria. Il demeura prisonnier, et, à la suite de cette visite, sa réputation de fou réjouissant s’augmenta encore.
-Caligula ou Néron, ces grands chercheurs de trésors, ces désireurs de l’impossible, eussent prêté l’oreille aux paroles de ce pauvre homme et lui eussent accordé l’air qu’il désirait, l’espace qu’il estimait à un si haut prix, et la liberté qu’il offrait de payer si cher. Mais les rois de nos jours, maintenus dans la limite du probable, n’ont plus l’audace de la volonté ; ils craignent l’oreille qui écoute les ordres qu’ils donnent, l’œil qui scrute leurs actions ; ils ne sentent plus la supériorité de leur essence divine ; ils sont des hommes couronnés, voilà tout. Jadis, ils se croyaient, ou du moins se disaient fils de Jupiter, et retenaient quelque chose des façons du dieu leur père : on ne contrôle pas facilement ce qui se passe au-delà des nuages ; aujourd’hui, les rois se laissent aisément rejoindre. Or, comme il a toujours répugné au gouvernement despotique de montrer au grand jour les effets de la prison et de la torture ; comme il y a peu d’exemples qu’une victime des inquisitions ait pu reparaître avec ses os broyés et ses plaies saignantes, de même la folie, cet ulcère né dans la fange des cachots à la suite des tortures morales, se cache presque toujours avec soin dans le lieu où elle est née, ou, si elle en sort, elle va s’ensevelir dans quelque hôpital sombre, où les médecins ne reconnaissent ni l’homme ni la pensée dans le débris informe que leur transmet le geôlier fatigué.
-L’abbé Faria, devenu fou en prison, était condamné, par sa folie même, à une prison perpétuelle.
-Quant à Dantès, l’inspecteur lui tint parole. En remontant chez le gouverneur, il se fit présenter le registre d’écrou. La note concernant le prisonnier était ainsi conçue :
-Bonapartiste enragé : a pris une part active au retour de l’île d’Elbe.
-EDMOND DANTÈS.
-À tenir au plus grand secret et sous la plus stricte surveillance.
-Cette note était d’une autre écriture et d’une encre différente que le reste du registre, ce qui prouvait qu’elle avait été ajoutée depuis l’incarcération de Dantès.
-L’accusation était trop positive pour essayer de la combattre. L’inspecteur écrivit donc audessous de l’accolade :
-« Rien à faire. »
-Cette visite avait, pour ainsi dire, ravivé Dantès depuis qu’il était entré en prison, il avait oublié de compter les jours, mais l’inspecteur lui avait donné une nouvelle date et Dantès ne l’avait pas oubliée. Derrière lui, il écrivit sur le mur, avec un morceau de plâtre détaché de son plafond, 30 juillet 1816, et, à partir de ce moment, il fit un cran chaque jour pour que la mesure du temps ne lui échappât plus.
-Les jours s’écoulèrent, puis les semaines, puis les mois : Dantès attendait toujours, il avait commencé par fixer à sa liberté un terme de quinze jours. En mettant à suivre son affaire la moitié de l’intérêt qu’il avait paru éprouver, l’inspecteur devait avoir assez de quinze jours.
-Ces quinze jours écoulés, il se dit qu’il était absurde à lui de croire que l’inspecteur se serait occupé de lui avant son retour à Paris ; or, son retour à Paris ne pouvait avoir lieu que lorsque sa tournée serait finie, et sa tournée pouvait durer un mois ou deux ; il se donna donc trois mois au lieu de quinze jours. Les trois mois écoulés, un autre raisonnement vint à son aide, qui fit qu’il s’accorda six mois, mais ces six mois écoulés, en mettant les jours au bout les uns des autres, il se trouvait qu’il avait attendu dix mois et demi.
-Pendant ces dix mois, rien n’avait été changé au régime de sa prison ; aucune nouvelle consolante ne lui était parvenue ; le geôlier interrogé était muet, comme d’habitude. Dantès commença à douter de ses sens, à croire que ce qu’il prenait pour un souvenir de sa mémoire n’était rien autre chose qu’une hallucination de son cerveau, et que cet ange consolateur qui était apparu dans sa prison y était descendu sur l’aile d’un rêve.
-Au bout d’un an, le gouverneur fut changé, il avait obtenu la direction du fort de Ham ; il emmena avec lui plusieurs de ses subordonnés et, entre autres, le geôlier de Dantès. Un nouveau gouverneur arriva ; il eût été trop long pour lui d’apprendre les noms de ses prisonniers, il se fit représenter seulement leurs numéros. Cet horrible hôtel garni se composait de cinquante chambres ; leurs habitants furent appelés du numéro de la chambre qu’ils occupaient, et le malheureux jeune homme cessa de s’appeler de son prénom d’Edmond ou de son nom de Dantès, il s’appela le n° 34.`,
+– Ni vous à ma demande ! s’écria l’abbé. Soyez donc maudit ! Vous ne voulez pas de mon or, je le garderai. Vous me refusez la liberté, Dieu me la donnera. Allez, je n’ai plus rien à dire. »
+Et l’abbé, rejetant sa couverture, retourna s’asseoir au milieu de son cercle et continua ses calculs.
+« Il compte ses trésors », dit le gouverneur.
+Ils sortirent. Le geôlier ferma la porte.
+« Il a peut-être vraiment possédé un trésor, dit l’inspecteur.
+– Ou il en a rêvé et s’est réveillé fou, répondit le gouverneur.
+– En effet, dit l’inspecteur avec naïveté. S’il était vraiment riche, il ne serait pas en prison. »
+L’abbé Faria, devenu fou en prison, était condamné par sa folie même à une prison perpétuelle.
+Quant à Dantès, l’inspecteur lui tint parole. Il se fit présenter le registre d’écrou. La note concernant le prisonnier était : “Bonapartiste enragé. A pris une part active au retour de l’île d’Elbe. À tenir au plus grand secret et sous la plus stricte surveillance.”
+Cette note avait été ajoutée après l’incarcération de Dantès. L’accusation était trop directe. L’inspecteur écrivit donc en dessous : “Rien à faire.”
+Cette visite avait ravivé Dantès. Il se remit à compter les jours, gravant la date sur le mur de sa cellule. Les jours passèrent, puis les semaines, puis les mois. Dantès attendait. Il s’était d’abord donné quinze jours. Puis trois mois. Puis six. Au bout d’un an, rien n’avait changé.
+Dantès commença à douter de ses propres souvenirs, croyant que la visite de l’inspecteur n’avait été qu’un rêve. Au bout d’un an, le gouverneur fut changé. Le nouveau gouverneur ne s’intéressait pas aux noms des prisonniers, seulement à leurs numéros. Cet horrible lieu se composait de cinquante chambres. Le malheureux jeune homme cessa de s’appeler Edmond Dantès. Il s’appela le n° 34.`,
 }

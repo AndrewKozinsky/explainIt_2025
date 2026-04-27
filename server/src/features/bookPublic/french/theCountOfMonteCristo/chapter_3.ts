@@ -1,145 +1,124 @@
 export const chapter_3 = {
 	name: 'CHAPITRE III',
 	header: 'Les Catalans',
-	text: `À cent pas de l’endroit où les deux amis, les regards à l’horizon et l’oreille au guet, sablaient le vin pétillant de La Malgue, s’élevait, derrière une butte nue et rongée par le soleil et le mistral, le village des Catalans.
-Un jour, une colonie mystérieuse partit de l’Espagne et vint aborder à la langue de terre où elle est encore aujourd’hui. Elle arrivait on ne savait d’où et parlait une langue inconnue. Un des chefs, qui entendait le provençal, demanda à la commune de Marseille de leur donner ce promontoire nu et aride, sur lequel ils venaient, comme les matelots antiques, de tirer leurs bâtiments. La demande lui fut accordée, et trois mois après, autour des douze ou quinze bâtiments qui avaient amené ces bohémiens de la mer, un petit village s’élevait.
-Ce village construit d’une façon bizarre et pittoresque, moitié maure, moitié espagnol, est celui que l’on voit aujourd’hui habité par des descendants de ces hommes, qui parlent la langue de leurs pères. Depuis trois ou quatre siècles, ils sont encore demeurés fidèles à ce petit promontoire, sur lequel ils s’étaient abattus, pareils à une bande d’oiseaux de mer, sans se mêler en rien à la population marseillaise, se mariant entre eux, et ayant conservé les mœurs et le costume de leur mère patrie, comme ils en ont conservé le langage.
-Il faut que nos lecteurs nous suivent à travers l’unique rue de ce petit village, et entrent avec nous dans une de ces maisons auxquelles le soleil a donné, au-dehors, cette belle couleur feuille morte particulière aux monuments du pays, et, au-dedans, une couche de badigeon, cette teinte blanche qui forme le seul ornement des posadas espagnoles.
-Une belle jeune fille aux cheveux noirs comme le jais, aux yeux veloutés comme ceux de la gazelle, se tenait debout, adossée à une cloison, et froissait entre ses doigts effilés et d’un dessin antique une bruyère innocente dont elle arrachait les fleurs, et dont les débris jonchaient déjà le sol ; en outre, ses bras nus jusqu’au coude, ses bras brunis, mais qui semblaient modelés sur ceux de la Vénus d’Arles, frémissaient d’une sorte d’impatience fébrile, et elle frappait la terre de son pied souple et cambré, de sorte que l’on entrevoyait la forme pure, fière et hardie de sa jambe, emprisonnée dans un bas de coton rouge à coins gris et bleus.
-À trois pas d’elle, assis sur une chaise qu’il balançait d’un mouvement saccadé, appuyant son coude à un vieux meuble vermoulu, un grand garçon de vingt à vingt-deux ans la regardait d’un air où se combattaient l’inquiétude et le dépit ; ses yeux interrogeaient, mais le regard ferme et fixe de la jeune fille dominait son interlocuteur.
-« Voyons, Mercédès, disait le jeune homme, voici Pâques qui va revenir, c’est le moment de faire une noce, répondez-moi !
-– Je vous ai répondu cent fois, Fernand, et il faut en vérité que vous soyez bien ennemi de vous-même pour m’interroger encore !
-– Eh bien, répétez-le encore, je vous en supplie, répétez-le encore pour que j’arrive à le croire. Dites-moi pour la centième fois que vous refusez mon amour, qu’approuvait votre mère ; faites-moi bien comprendre que vous vous jouez de mon bonheur, que ma vie et ma mort ne sont rien pour vous. Ah ! mon Dieu, mon Dieu ! avoir rêvé dix ans d’être votre époux, Mercédès, et perdre cet espoir qui était le seul but de ma vie !
-– Ce n’est pas moi du moins qui vous ai jamais encouragé dans cet espoir, Fernand, répondit Mercédès ; vous n’avez pas une seule coquetterie à me reprocher à votre égard. Je vous ai toujours dit : « Je vous aime comme un frère, mais n’exigez jamais de moi autre chose que cette amitié fraternelle, car mon cœur est à un autre. » Vous ai-je toujours dit cela, Fernand ?
-– Oui, je le sais bien, Mercédès, répondit le jeune homme ; oui, vous vous êtes donné, vis-àvis de moi, le cruel mérite de la franchise ; mais oubliez-vous que c’est parmi les Catalans une loi sacrée de se marier entre eux ?
-– Vous vous trompez, Fernand, ce n’est pas une loi, c’est une habitude, voilà tout ; et, croyezmoi, n’invoquez pas cette habitude en votre faveur. Vous êtes tombé à la conscription, Fernand ; la liberté qu’on vous laisse, c’est une simple tolérance ; d’un moment à l’autre vous pouvez être appelé sous les drapeaux. Une fois soldat, que ferez-vous de moi, c’est-à-dire d’une pauvre fille orpheline, triste, sans fortune, possédant pour tout bien une cabane presque en ruine, où pendent quelques filets usés, misérable héritage laissé par mon père à ma mère et par ma mère à moi ? Depuis un an qu’elle est morte, songez donc, Fernand, que je vis presque de la charité publique ! Quelquefois vous feignez que je vous suis utile, et cela pour avoir le droit de partager votre pêche avec moi ; et j’accepte, Fernand, parce que vous êtes le fils d’un frère de mon père, parce que nous avons été élevés ensemble et plus encore parce que, par-dessus tout, cela vous ferait trop de peine si je vous refusais. Mais je sens bien que ce poisson que je vais vendre et dont je tire l’argent avec lequel j’achète le chanvre que je file, je sens bien, Fernand, que c’est une charité.
-– Et qu’importe, Mercédès, si, pauvre et isolée que vous êtes, vous me convenez ainsi mieux que la fille du plus fier armateur ou du plus riche banquier de Marseille ! À nous autres, que nous faut-il ? Une honnête femme et une bonne ménagère. Où trouverais-je mieux que vous sous ces deux rapports ?
-– Fernand, répondit Mercédès en secouant la tête, on devient mauvaise ménagère et on ne peut répondre de rester honnête femme lorsqu’on aime un autre homme que son mari. Contentez-vous de mon amitié, car, je vous le répète, c’est tout ce que je puis vous promettre, et je ne promets que ce que je suis sûre de pouvoir donner.
-– Oui, je comprends, dit Fernand ; vous supportez patiemment votre misère, mais vous avez peur de la mienne. Eh bien, Mercédès, aimé de vous, je tenterai la fortune ; vous me porterez bonheur, et je deviendrai riche : je puis étendre mon état de pêcheur ; je puis entrer comme commis dans un comptoir ; je puis moi-même devenir marchand !
-– Vous ne pouvez rien tenter de tout cela, Fernand ; vous êtes soldat, et si vous restez aux Catalans, c’est parce qu’il n’y a pas de guerre.
-Demeurez donc pêcheur ; ne faites point de rêves qui vous feraient paraître la réalité plus terrible encore, et contentez-vous de mon amitié, puisque je ne puis vous donner autre chose.
-– Eh bien, vous avez raison, Mercédès, je serai marin ; j’aurai, au lieu du costume de nos pères que vous méprisez, un chapeau verni, une chemise rayée et une veste bleue avec des ancres sur les boutons. N’est-ce point ainsi qu’il faut être habillé pour vous plaire ?
-– Que voulez-vous dire ? demanda Mercédès en lançant un regard impérieux, que voulez-vous dire ? Je ne vous comprends pas.
-– Je veux dire, Mercédès, que vous n’êtes si dure et si cruelle pour moi que parce que vous attendez quelqu’un qui est ainsi vêtu. Mais celui que vous attendez est inconstant peut-être, et, s’il ne l’est pas, la mer l’est pour lui.
-– Fernand, s’écria Mercédès, je vous croyais bon et je me trompais ! Fernand, vous êtes un mauvais cœur d’appeler à l’aide de votre jalousie les colères de Dieu ! Eh bien, oui, je ne m’en cache pas, j’attends et j’aime celui que vous dites, et s’il ne revient pas, au lieu d’accuser cette inconstance que vous invoquez, vous, je dirai qu’il est mort en m’aimant. »
-Le jeune Catalan fit un geste de rage.
-« Je vous comprends, Fernand : vous vous en prendrez à lui de ce que je ne vous aime pas ; vous croiserez votre couteau catalan contre son poignard ! À quoi cela vous avancera-t-il ? À perdre mon amitié si vous êtes vaincu, à voir mon amitié se changer en haine si vous êtes vainqueur.
-Croyez-moi, chercher querelle à un homme est un mauvais moyen de plaire à la femme qui aime cet homme. Non, Fernand, vous ne vous laisserez point aller ainsi à vos mauvaises pensées. Ne pouvant m’avoir pour femme, vous vous contenterez de m’avoir pour amie et pour sœur ; et d’ailleurs, ajouta-t-elle, les yeux troublés et mouillés de larmes, attendez, attendez, Fernand : vous l’avez dit tout à l’heure, la mer est perfide, et il y a déjà quatre mois qu’il est parti ; depuis quatre mois j’ai compté bien des tempêtes ! »
-Fernand demeura impassible ; il ne chercha pas à essuyer les larmes qui roulaient sur les joues de Mercédès ; et cependant, pour chacune de ces larmes, il eût donné un verre de son sang ; mais ces larmes coulaient pour un autre.
-Il se leva, fit un tour dans la cabane et revint, s’arrêta devant Mercédès, l’œil sombre et les poings crispés.
-« Voyons, Mercédès, dit-il, encore une fois répondez : est-ce bien résolu ?
-– J’aime Edmond Dantès, dit froidement la jeune fille, et nul autre qu’Edmond ne sera mon époux.
+	text: `À cent pas de l’endroit où les deux amis buvaient le vin pétillant de La Malgue, se trouvait le village des Catalans. Il s'élevait derrière une butte nue, brûlée par le soleil et le mistral.
+Un jour, une colonie mystérieuse partit d’Espagne et s'installa sur cette langue de terre. Personne ne savait d'où ils venaient, et ils parlaient une langue inconnue. L'un de leurs chefs, qui comprenait le provençal, demanda à la ville de Marseille de leur donner ce promontoire aride. La demande fut acceptée. Trois mois plus tard, un petit village s’élevait autour des quelques navires qui avaient amené ces voyageurs de la mer.
+Ce village, construit de façon pittoresque, entre les styles maure et espagnol, est encore habité aujourd’hui par les descendants de ces hommes. Depuis des siècles, ils sont restés fidèles à ce petit bout de terre. Ils ne se sont jamais mélangés à la population marseillaise. Ils se marient entre eux et ont conservé les coutumes, les vêtements et la langue de leur pays d'origine.
+Entrons maintenant dans l'une de ces maisons à travers l'unique rue du village. Le soleil a donné aux murs extérieurs une belle couleur de terre cuite. À l'intérieur, les murs sont peints à la chaux blanche, comme dans les auberges espagnoles.
+Une belle jeune fille aux cheveux noirs comme l’ébène et aux yeux doux comme ceux d'une gazelle se tenait debout contre une cloison. Ses bras nus, bruns et magnifiques, frémissaient d'impatience. Elle frappait le sol de son pied souple, montrant sa jambe fine dans un bas de coton rouge.
+À trois pas d’elle, un grand garçon de vingt ans était assis sur une chaise. Il la regardait avec un mélange d’inquiétude et de colère. Il semblait l'interroger, mais le regard fixe et ferme de la jeune fille dominait la conversation.
+« Voyons, Mercédès, disait le jeune homme, c’est bientôt Pâques. C’est le moment idéal pour un mariage. Répondez-moi !
+– Je vous ai déjà répondu cent fois, Fernand. Vous êtes vraiment votre propre ennemi de me poser encore cette question !
+– Eh bien, répétez-le encore, je vous en supplie ! Dites-moi pour la centième fois que vous refusez mon amour. Faites-moi comprendre que ma vie et mon bonheur ne comptent pas pour vous. Mon Dieu ! J'ai rêvé pendant dix ans d'être votre époux, Mercédès, et je perds maintenant mon seul but dans la vie !
+– Ce n’est pas moi qui vous ai donné cet espoir, Fernand, répondit Mercédès. Je ne vous ai jamais fait de promesses. Je vous ai toujours dit : « Je vous aime comme un frère, mais n’attendez rien de plus, car mon cœur appartient à un autre. » Ne vous ai-je pas toujours dit cela ?
+– Oui, Mercédès, vous avez été franche avec moi, répondit le jeune homme. Mais oubliez-vous que chez les Catalans, c’est une loi sacrée de se marier entre nous ?
+– Vous vous trompez, Fernand. Ce n’est pas une loi, c’est juste une habitude. Ne comptez pas sur elle pour m'obliger. En plus, vous devez faire votre service militaire. On vous laisse libre pour le moment, mais on peut vous appeler sous les drapeaux d'un jour à l'autre. Une fois soldat, que ferez-vous de moi ? Je suis une pauvre orpheline, sans argent, avec pour seul bien une cabane presque en ruine. Depuis que ma mère est morte, il y a un an, je vis presque de la charité. Parfois, vous prétendez que je vous suis utile pour partager votre pêche avec moi. J’accepte parce que nous sommes cousins et que nous avons été élevés ensemble. Mais je sais bien, Fernand, que cet argent est une aide de votre part.
+– Peu importe, Mercédès ! Pauvre ou riche, je vous préfère à la fille de l’armateur le plus puissant de Marseille ! Qu'est-ce qu'il nous faut ? Une femme honnête et une bonne ménagère. Je ne trouverai personne de mieux que vous.
+– Fernand, répondit Mercédès en secouant la tête, on ne peut pas être une bonne épouse quand on aime un autre homme. Contentez-vous de mon amitié. C’est tout ce que je peux vous promettre, et je ne promets que ce que je peux donner.
+– Je comprends, dit Fernand. Vous n'avez pas peur de votre pauvreté, mais vous avez peur de la mienne. Eh bien, Mercédès, si vous m'aimiez, je deviendrais riche. Je pourrais agrandir mes activités de pêche ou devenir marchand !
+– Vous ne pouvez rien faire de tout cela, Fernand. Vous êtes soldat, et si vous êtes ici, c’est seulement parce qu’il n’y a pas de guerre en ce moment. Restez pêcheur et ne faites pas de rêves qui rendront la réalité encore plus difficile.
+– Eh bien, vous avez raison, Mercédès. Je serai marin. Je porterai un chapeau verni et une veste bleue pour vous plaire. Est-ce l'uniforme qu'il faut pour vous séduire ?
+– Que voulez-vous dire ? demanda Mercédès avec autorité. Je ne vous comprends pas.
+– Je veux dire que vous êtes cruelle avec moi parce que vous attendez quelqu'un qui s'habille ainsi. Mais celui que vous attendez n'est peut-être pas fidèle. Et s'il l'est, la mer, elle, ne l'est pas.
+– Fernand ! s’écria Mercédès. Je vous croyais bon, mais je me trompais. Vous êtes méchant d'utiliser la colère de Dieu pour nourrir votre jalousie ! Eh bien, oui, j’attends et j’aime Edmond Dantès. S’il ne revient pas, je dirai qu’il est mort en m’aimant. »
+Le jeune Fernand fit un geste de rage.
+« Je vous comprends : vous voulez vous venger de lui parce que je ne vous aime pas. Vous voulez vous battre contre lui ! À quoi cela servira-t-il ? Si vous perdez, vous perdrez mon amitié. Si vous gagnez, mon amitié se changera en haine. Chercher querelle à un homme est le pire moyen de plaire à la femme qui l’aime. Non, Fernand, ne laissez pas ces mauvaises pensées vous envahir. Puisque vous ne pouvez pas être mon mari, soyez mon ami et mon frère. Et d'ailleurs, ajouta-t-elle avec des larmes dans les yeux, attendez ! La mer est dangereuse. Cela fait déjà quatre mois qu’il est parti, et j'ai eu peur pendant chaque tempête ! »
+Fernand resta immobile. Il ne sécha pas les larmes de Mercédès, même s'il souffrait de les voir couler pour un autre. Il se leva, fit un tour dans la pièce et revint devant elle, le regard sombre.
+« Alors, Mercédès, est-ce votre décision finale ?
+– J’aime Edmond Dantès, dit froidement la jeune fille, et personne d’autre ne sera mon mari.
 – Et vous l’aimerez toujours ?
 – Tant que je vivrai. »
-Fernand baissa la tête comme un homme découragé, poussa un soupir qui ressemblait à un gémissement ; puis tout à coup relevant le front, les dents serrées et les narines entrouvertes :
+Fernand baissa la tête, découragé. Puis, relevant le front avec colère :
 « Mais s’il est mort ?
-– S’il est mort, je mourrai.
+– S’il est mort, je mourrai aussi.
 – Mais s’il vous oublie ?
-– Mercédès ! cria une voix joyeuse au-dehors de la maison, Mercédès !
-– Ah ! s’écria la jeune fille en rougissant de joie et en bondissant d’amour, tu vois bien qu’il ne m’a pas oubliée, puisque le voilà ! »
-Et elle s’élança vers la porte, qu’elle ouvrit en s’écriant :
-« À moi, Edmond ! me voici. »
-Fernand, pâle et frémissant, recula en arrière comme fait un voyageur à la vue d’un serpent, et rencontrant sa chaise, il y retomba assis.
-Edmond et Mercédès étaient dans les bras l’un de l’autre. Le soleil ardent de Marseille, qui pénétrait à travers l’ouverture de la porte, les inondait d’un flot de lumière. D’abord ils ne virent rien de ce qui les entourait. Un immense bonheur les isolait du monde, et ils ne parlaient que par ces mots entrecoupés qui sont les élans d’une joie si vive qu’ils semblent l’expression de la douleur.
-Tout à coup Edmond aperçut la figure sombre de Fernand, qui se dessinait dans l’ombre, pâle et menaçante ; par un mouvement dont il ne se rendit pas compte lui-même, le jeune Catalan tenait la main sur le couteau passé à sa ceinture.
-« Ah ! pardon, dit Dantès en fronçant le sourcil à son tour, je n’avais pas remarqué que nous étions trois. »
+– Mercédès ! cria une voix joyeuse à l’extérieur. Mercédès !
+– Ah ! s’écria la jeune fille en rougissant de bonheur. Tu vois bien qu’il ne m’a pas oubliée ! Le voilà ! »
+Elle s’élança vers la porte et l’ouvrit en criant :
+« Edmond ! Me voici ! »
+Fernand, pâle et tremblant, recula comme s'il voyait un serpent. Il retomba sur sa chaise.
+Edmond et Mercédès se jetèrent dans les bras l’un de l’autre. Le soleil de Marseille inondait la pièce de lumière. Ils ne voyaient rien d’autre que leur immense bonheur. Ils ne parlaient que par petits mots, incapables d'exprimer une joie si intense.
+Tout à coup, Edmond aperçut la silhouette sombre de Fernand dans l'ombre. Le jeune Catalan avait la main sur le couteau à sa ceinture.
+« Ah ! pardon, dit Dantès en fronçant les sourcils. Je n’avais pas remarqué que nous étions trois. »
 Puis, se tournant vers Mercédès :
 « Qui est ce monsieur ? demanda-t-il.
-– Monsieur sera votre meilleur ami, Dantès, car c’est mon ami à moi, c’est mon cousin, c’est mon frère ; c’est Fernand ; c’est-à-dire l’homme qu’après vous, Edmond, j’aime le plus au monde ; ne le reconnaissez-vous pas ?
-– Ah ! si fait », dit Edmond.
-Et, sans abandonner Mercédès, dont il tenait la main serrée dans une des siennes, il tendit avec un mouvement de cordialité son autre main au Catalan.
-Mais Fernand, loin de répondre à ce geste amical, resta muet et immobile comme une statue.
-Alors Edmond promena son regard investigateur de Mercédès, émue et tremblante, à Fernand, sombre et menaçant.
-Ce seul regard lui apprit tout.
-La colère monta à son front.
-« Je ne savais pas venir avec tant de hâte chez vous, Mercédès, pour y trouver un ennemi.
-– Un ennemi ! s’écria Mercédès avec un regard de courroux à l’adresse de son cousin ; un ennemi chez moi, dis-tu, Edmond ! Si je croyais cela, je te prendrais sous le bras et je m’en irais à Marseille, quittant la maison pour n’y plus jamais rentrer. »
-L’œil de Fernand lança un éclair.
-« Et s’il t’arrivait malheur, mon Edmond, continua-t-elle avec ce même flegme implacable qui prouvait à Fernand que la jeune fille avait lu jusqu’au plus profond de sa sinistre pensée, s’il t’arrivait malheur, je monterais sur le cap de Morgion, et je me jetterais sur les rochers la tête la première. »
-Fernand devint affreusement pâle.
-« Mais tu t’es trompé, Edmond, poursuivitelle, tu n’as point d’ennemi ici ; il n’y a que Fernand, mon frère, qui va te serrer la main comme à un ami dévoué. »
-Et à ces mots, la jeune fille fixa son visage impérieux sur le Catalan, qui, comme s’il eût été fasciné par ce regard, s’approcha lentement d’Edmond et tendit la main.
-Sa haine, pareille à une vague impuissante, quoique furieuse, venait se briser contre l’ascendant que cette femme exerçait sur lui.
-Mais à peine eut-il touché la main d’Edmond, qu’il sentit qu’il avait fait tout ce qu’il pouvait faire, et qu’il s’élança hors de la maison.
-« Oh ! s’écriait-il en courant comme un insensé et en noyant ses mains dans ses cheveux, oh ! qui me délivrera donc de cet homme ?
-Malheur à moi ! malheur à moi !
-– Eh ! le Catalan ! eh ! Fernand ! où courstu ? » dit une voix.
-Le jeune homme s’arrêta tout court, regarda autour de lui, et aperçut Caderousse attablé avec Danglars sous un berceau de feuillage.
-« Eh ! dit Caderousse, pourquoi ne viens-tu pas ? Es-tu donc si pressé que tu n’aies pas le temps de dire bonjour aux amis ?
-– Surtout quand ils ont encore une bouteille presque pleine devant eux », ajouta Danglars.
-Fernand regarda les deux hommes d’un air hébété, et ne répondit rien.
-« Il semble tout penaud, dit Danglars, poussant du genou Caderousse : est-ce que nous nous serions trompés, et qu’au contraire de ce que nous avions prévu, Dantès triompherait ?
-– Dame ! il faut voir », dit Caderousse.
-Et se retournant vers le jeune homme :
-« Eh bien, voyons, le Catalan, te décides-tu ? »
-dit-il.
-Fernand essuya la sueur qui ruisselait de son front et entra lentement sous la tonnelle, dont l’ombrage sembla rendre un peu de calme à ses sens et la fraîcheur un peu de bien-être à son corps épuisé.
-« Bonjour, dit-il, vous m’avez appelé, n’est-ce pas ? »
-Et il tomba plutôt qu’il ne s’assit sur un des sièges qui entouraient la table.
-« Je t’ai appelé parce que tu courais comme un fou, et que j’ai eu peur que tu n’allasses te jeter à la mer, dit en riant Caderousse. Que diable, quand on a des amis, c’est non seulement pour leur offrir un verre de vin, mais encore pour les empêcher de boire trois ou quatre pintes d’eau. »
-Fernand poussa un gémissement qui ressemblait à un sanglot et laissa tomber sa tête sur ses deux poignets, posés en croix sur la table.
-« Eh bien, veux-tu que je te dise, Fernand, reprit Caderousse, entamant l’entretien avec cette brutalité grossière des gens du peuple auxquels la curiosité fait oublier toute diplomatie ; eh bien, tu as l’air d’un amant déconfit ! »
-Et il accompagna cette plaisanterie d’un gros rire.
-« Bah ! répondit Danglars, un garçon taillé comme celui-là n’est pas fait pour être malheureux en amour ; tu te moques, Caderousse.
-– Non pas, reprit celui-ci ; écoute plutôt comme il soupire. Allons, allons, Fernand, dit Caderousse, lève le nez et réponds-nous : ce n’est pas aimable de ne pas répondre aux amis qui nous demandent des nouvelles de notre santé.
-– Ma santé va bien, dit Fernand crispant ses poings, mais sans lever la tête.
-– Ah ! vois-tu Danglars, dit Caderousse en faisant signe de l’œil à son ami, voici la chose :
-Fernand, que tu vois, et qui est un bon et brave Catalan, un des meilleurs pêcheurs de Marseille, est amoureux d’une belle fille qu’on appelle Mercédès ; mais malheureusement il paraît que la belle fille, de son côté, est amoureuse du second du Pharaon ; et, comme le Pharaon est entré aujourd’hui même dans le port, tu comprends ?
+– Ce monsieur sera votre meilleur ami, Edmond. C'est mon ami, mon cousin, mon frère. C’est Fernand. C’est l’homme que j’aime le plus au monde, après vous. Ne le reconnaissez-vous pas ?
+– Ah ! bien sûr », dit Edmond.
+D'une main il tenait celle de Mercédès, de l'autre il tendit la main à Fernand avec cordialité. Mais Fernand resta immobile et muet comme une statue. Edmond regarda alors Mercédès, tremblante d'émotion, puis Fernand, menaçant. Ce seul regard lui fit tout comprendre. La colère monta en lui.
+« Je ne pensais pas trouver un ennemi ici, Mercédès.
+– Un ennemi ! s’écria Mercédès en regardant son cousin avec colère. Un ennemi chez moi ? Si je croyais cela, je partirais tout de suite avec toi à Marseille et je ne reviendrais jamais ici ! »
+Fernand eut un regard de feu.
+« Et s'il t'arrivait malheur, Edmond, continua-t-elle calmement, je me jetterais du haut des rochers dans la mer. »
+Fernand devint extrêmement pâle.
+« Mais tu te trompes, Edmond, ajouta-t-elle. Tu n'as pas d'ennemi ici. Il n'y a que Fernand, mon frère, qui va te serrer la main comme un ami. »
+Elle fixa le Catalan d'un regard autoritaire. Fernand, comme fasciné, s'approcha lentement d'Edmond et lui tendit la main. Sa haine dut s'incliner devant le pouvoir que cette femme avait sur lui. Mais dès qu'il eut touché la main d'Edmond, il s'élança hors de la maison.
+« Oh ! s’écriait-il en courant comme un fou, qui me débarrassera de cet homme ? Malheur à moi ! »
+– Hé ! le Catalan ! Fernand ! Où cours-tu ? cria une voix.
+Le jeune homme s’arrêta et vit Caderousse et Danglars assis à une table sous les arbres.
+« Pourquoi ne viens-tu pas nous dire bonjour ? demanda Caderousse.
+– Surtout quand il reste encore du vin dans la bouteille ! ajouta Danglars.
+Fernand regarda les deux hommes sans rien répondre.
+« Il a l’air tout triste, dit Danglars à voix basse à Caderousse. On dirait que Dantès a gagné.
+– Il faut vérifier », répondit Caderousse.
+Puis il appela Fernand :
+« Alors, tu te décides à venir ? »
+Fernand essuya la sueur de son front et entra sous la tonnelle. L'ombre et la fraîcheur semblèrent le calmer un peu. Il se laissa tomber sur une chaise.
+« Je t’ai appelé parce que tu courais comme un fou, rit Caderousse. J’ai eu peur que tu ne te jettes à la mer ! Les amis sont là pour offrir un verre de vin, mais aussi pour empêcher les bêtises. »
+Fernand gémit et posa sa tête sur la table.
+« Dis-moi, Fernand, reprit Caderousse brutalement, tu as vraiment l'air d'un amoureux rejeté ! »
+Et il éclata de rire.
+« Mais non, répondit Danglars. Un garçon comme lui n'est pas fait pour être malheureux en amour. Tu te moques, Caderousse.
+– Pas du tout ! Écoute-le soupirer. Allez, Fernand, lève la tête et réponds-nous. Ce n’est pas gentil d’ignorer ses amis.
+– Je vais bien, dit Fernand sans lever la tête.
+– Ah ! tu vois, Danglars, dit Caderousse. Voici le problème : Fernand est amoureux d’une belle fille appelée Mercédès. Mais malheureusement, elle est amoureuse du second du Pharaon. Et comme le navire est arrivé aujourd'hui, tu comprends...
 – Non, je ne comprends pas, dit Danglars.
-– Le pauvre Fernand aura reçu son congé, continua Caderousse.
-– Eh bien, après ? dit Fernand relevant la tête et regardant Caderousse, en homme qui cherche quelqu’un sur qui faire tomber sa colère ;
-Mercédès ne dépend de personne ? n’est-ce pas ? et elle est bien libre d’aimer qui elle veut.
-– Ah ! si tu le prends ainsi, dit Caderousse, c’est autre chose ! Moi, je te croyais un Catalan ; et l’on m’avait dit que les Catalans n’étaient pas hommes à se laisser supplanter par un rival ; on avait même ajouté que Fernand surtout était terrible dans sa vengeance. »
-Fernand sourit avec pitié.
-« Un amoureux n’est jamais terrible, dit-il.
-– Le pauvre garçon ! reprit Danglars feignant de plaindre le jeune homme du plus profond de son cœur. Que veux-tu ? il ne s’attendait pas à voir revenir ainsi Dantès tout à coup ; il le croyait peut-être mort, infidèle, qui sait ? Ces choses-là sont d’autant plus sensibles qu’elles nous arrivent tout à coup.
-– Ah ! ma foi, dans tous les cas, dit Caderousse qui buvait tout en parlant et sur lequel le vin fumeux de La Malgue commençait à faire son effet, dans tous les cas, Fernand n’est pas le seul que l’heureuse arrivée de Dantès contrarie, n’est-ce pas, Danglars ?
-– Non, tu dis vrai, et j’oserais presque dire que cela lui portera malheur.
-– Mais n’importe, reprit Caderousse en versant un verre de vin à Fernand, et en remplissant pour la huitième ou dixième fois son propre verre tandis que Danglars avait à peine effleuré le sien ; n’importe, en attendant il épouse Mercédès, la belle Mercédès ; il revient pour cela, du moins. »
-Pendant ce temps, Danglars enveloppait d’un regard perçant le jeune homme, sur le cœur duquel les paroles de Caderousse tombaient comme du plomb fondu.
-« Et à quand la noce ? demanda-t-il.
-– Oh ! elle n’est pas encore faite ! murmura Fernand.
-– Non, mais elle se fera, dit Caderousse, aussi vrai que Dantès sera le capitaine du Pharaon, n’est-ce pas, Danglars ? »
-Danglars tressaillit à cette atteinte inattendue, et se retourna vers Caderousse, dont à son tour il étudia le visage pour voir si le coup était prémédité ; mais il ne lut rien que l’envie sur ce visage déjà presque hébété par l’ivresse.
-« Eh bien, dit-il en remplissant les verres, buvons donc au capitaine Edmond Dantès, mari de la belle Catalane ! »
-Caderousse porta son verre à sa bouche d’une main alourdie et l’avala d’un trait. Fernand prit le sien et le brisa contre terre.
-« Eh ! eh ! eh ! dit Caderousse, qu’aperçois-je donc là-bas, au haut de la butte, dans la direction des Catalans ? Regarde donc, Fernand, tu as meilleure vue que moi ; je crois que je commence à voir trouble, et, tu le sais, le vin est un traître : on dirait deux amants qui marchent côte à côte et la main dans la main. Dieu me pardonne ! ils ne se doutent pas que nous les voyons, et les voilà qui s’embrassent ! »
-Danglars ne perdait pas une des angoisses de Fernand, dont le visage se décomposait à vue d’œil.
-« Les connaissez-vous, monsieur Fernand ? dit-il.
-– Oui, répondit celui-ci d’une voix sourde, c’est M. Edmond et Mlle Mercédès.
-– Ah ! voyez-vous ! dit Caderousse, et moi qui ne les reconnaissais pas ! Ohé ! Dantès ! ohé ! la belle fille ! venez par ici un peu, et dites-nous à quand la noce, car voici M. Fernand qui est si entêté qu’il ne veut pas nous le dire.
-– Veux-tu te taire ! dit Danglars, affectant de retenir Caderousse, qui, avec la ténacité des ivrognes, se penchait hors du berceau ; tâche de te tenir debout et laisse les amoureux s’aimer tranquillement. Tiens, regarde M. Fernand, et prends exemple : il est raisonnable, lui. »
-Peut-être Fernand, poussé à bout, aiguillonné par Danglars comme le taureau par les banderilleros, allait-il enfin s’élancer, car il s’était déjà levé et semblait se ramasser sur lui-même pour bondir sur son rival ; mais Mercédès, riante et droite, leva sa belle tête et fit rayonner son clair regard ; alors Fernand se rappela la menace qu’elle avait faite, de mourir si Edmond mourait, et il retomba tout découragé sur son siège.
-Danglars regarda successivement ces deux hommes : l’un abruti par l’ivresse, l’autre dominé par l’amour.
-« Je ne tirerai rien de ces niais-là, murmura-til, et j’ai grand-peur d’être ici entre un ivrogne et un poltron : voici un envieux qui se grise avec du vin, tandis qu’il devrait s’enivrer de fiel ; voici un grand imbécile à qui on vient de prendre sa maîtresse sous son nez et qui se contente de pleurer et de se plaindre comme un enfant. Et cependant, cela vous a des yeux flamboyants comme ces Espagnols, ces Siciliens et ces Calabrais, qui se vengent si bien ; cela vous a des poings à écraser une tête de bœuf aussi sûrement que le ferait la masse d’un boucher. Décidément, le destin d’Edmond l’emporte ; il épousera la belle fille, il sera capitaine et se moquera de nous ; à moins que... un sourire livide se dessina sur les lèvres de Danglars – à moins que je ne m’en mêle, ajouta-t-il.
-– Holà ! continuait de crier Caderousse à moitié levé et les poings sur la table, holà !
-Edmond ! tu ne vois donc pas les amis, ou est-ce que tu es déjà trop fier pour leur parler ?
-– Non, mon cher Caderousse, répondit Dantès, je ne suis pas fier, mais je suis heureux, et le bonheur aveugle, je crois, encore plus que la fierté.
-– À la bonne heure ! voilà une explication, dit Caderousse. Eh ! bonjour, madame Dantès. »
-Mercédès salua gravement.
-« Ce n’est pas encore mon nom, dit-elle, et dans mon pays cela porte malheur, assure-t-on, d’appeler les filles du nom de leur fiancé avant que ce fiancé soit leur mari ; appelez-moi donc Mercédès, je vous prie.
-– Il faut lui pardonner, à ce bon voisin Caderousse, dit Dantès, il se trompe de si peu de chose !
-– Ainsi, la noce va avoir lieu incessamment, monsieur Dantès ? dit Danglars en saluant les deux jeunes gens.
-– Le plus tôt possible, monsieur Danglars ; aujourd’hui tous les accords chez le papa Dantès, et demain ou après-demain, au plus tard, le dîner des fiançailles, ici, à la Réserve. Les amis y seront, je l’espère ; c’est vous dire que vous êtes invité, monsieur Danglars ; c’est te dire que tu en es, Caderousse.
-– Et Fernand, dit Caderousse en riant d’un rire pâteux, Fernand en est-il aussi ?
-– Le frère de ma femme est mon frère, dit Edmond, et nous le verrions avec un profond regret, Mercédès et moi, s’écarter de nous dans un pareil moment. »
-Fernand ouvrit la bouche pour répondre ; mais la voix expira dans sa gorge, et il ne put articuler un seul mot.
-« Aujourd’hui les accords, demain ou aprèsdemain les fiançailles... diable ! vous êtes bien pressé, capitaine.
-– Danglars, reprit Edmond en souriant, je vous dirai comme Mercédès disait tout à l’heure à Caderousse : ne me donnez pas le titre qui ne me convient pas encore, cela me porterait malheur.
-– Pardon, répondit Danglars ; je disais donc simplement que vous paraissiez bien pressé ; que diable ! nous avons le temps : le Pharaon ne se remettra guère en mer avant trois mois.
-– On est toujours pressé d’être heureux, monsieur Danglars, car lorsqu’on a souffert longtemps on a grand-peine à croire au bonheur.
-Mais ce n’est pas l’égoïsme seul qui me fait agir : il faut que j’aille à Paris.
-– Ah ! vraiment ! à Paris : et c’est la première fois que vous y allez, Dantès ?
-– Oui.
-– Vous y avez affaire ?
-– Pas pour mon compte : une dernière commission de notre pauvre capitaine Leclère à remplir ; vous comprenez, Danglars, c’est sacré.
-D’ailleurs, soyez tranquille, je ne prendrai que le temps d’aller et revenir.
-– Oui, oui, je comprends », dit tout haut Danglars.
-Puis tout bas :
-« À Paris, pour remettre à son adresse sans doute la lettre que le grand maréchal lui a donnée.
-Pardieu ! cette lettre me fait pousser une idée, une excellente idée ! Ah ! Dantès, mon ami, tu n’es pas encore couché au registre du Pharaon sous le numéro 1. »
-Puis se retournant vers Edmond, qui s’éloignait déjà :
-« Bon voyage ! lui cria-t-il.
-– Merci », répondit Edmond en retournant la tête et en accompagnant ce mouvement d’un geste amical.
-Puis les deux amants continuèrent leur route, calmes et joyeux comme deux élus qui montent au ciel.`,
+– Le pauvre Fernand a été rejeté, continua Caderousse.
+– Et alors ? dit Fernand en relevant la tête avec colère. Mercédès est libre d'aimer qui elle veut !
+– Ah ! si tu le prends comme ça, dit Caderousse. Je pensais que les Catalans ne se laissaient pas faire par un rival. On m'avait dit que tu étais terrible dans ta vengeance. »
+Fernand sourit avec mépris.
+« Un homme amoureux n'est jamais terrible, dit-il.
+– Pauvre garçon ! dit Danglars en faisant semblant d'avoir de la peine. C’est dur de voir Dantès revenir si soudainement. On le croyait peut-être mort ou infidèle. C'est un choc terrible.
+– En tout cas, dit Caderousse qui commençait à être ivre, Fernand n'est pas le seul à être mécontent du retour de Dantès, n'est-ce pas, Danglars ?
+– C’est vrai. Et je pense que cela lui portera malheur.
+– Peu importe ! dit Caderousse en versant du vin. En attendant, il va épouser la belle Mercédès. C’est pour ça qu’il est revenu. »
+Danglars regardait attentivement le jeune Fernand, qui souffrait de chaque mot de Caderousse.
+« Et quand est prévu le mariage ? demanda Danglars.
+– Ce n’est pas encore fait ! murmura Fernand.
+– Mais ça se fera, dit Caderousse, aussi sûrement que Dantès sera capitaine. N'est-ce pas, Danglars ? »
+Danglars tressaillit. Il regarda Caderousse pour voir s'il faisait exprès de le piquer, mais il ne vit que l'envie d'un homme ivre.
+« Eh bien, dit-il en remplissant les verres, buvons au capitaine Edmond Dantès и à son mariage avec la belle Catalane ! »
+Caderousse but tout son verre. Fernand brisa le sien contre le sol.
+« Regardez là-bas ! dit Caderousse. Je crois que je vois deux amoureux qui marchent main dans la main. Ils s'embrassent ! »
+Danglars observait la douleur de Fernand.
+« Vous les connaissez, Fernand ? demanda-t-il.
+– Oui, répondit-il d'une voix basse. C’est Edmond и Mercédès.
+– Ah ! s’écria Caderousse. Ohé ! Dantès ! Venez nous dire quand est le mariage ! Fernand refuse de nous répondre !
+– Tais-toi ! dit Danglars en faisant semblant de retenir Caderousse. Laisse-les tranquilles. Regarde Fernand, il est raisonnable, lui. »
+Fernand semblait prêt à bondir sur son rival. Mais il se rappela la menace de Mercédès : elle mourrait si Edmond mourait. Alors il se rassit, découragé.
+Danglars observait les deux hommes : l'un ivre, l'autre désespéré.
+« Je ne tirerai rien de ces imbéciles, murmura-t-il. L'un boit trop, l'autre pleure comme un enfant alors qu'on lui vole sa fiancée. Pourtant, ce Fernand a des poings solides и un regard de feu. Pour l'instant, Dantès gagne tout : il va se marier и devenir capitaine. À moins que... – un sourire méchant apparut sur ses lèvres – à moins que je ne m'en mêle.
+– Hé ! Edmond ! criait Caderousse. Tu ne vois plus tes amis ? Tu es déjà trop fier pour nous parler ?
+– Non, mon cher Caderousse, répondit Dantès. Je ne suis pas fier, je suis juste très heureux. Et le bonheur rend parfois aveugle.
+– Bonjour, madame Dantès ! cria Caderousse.
+Mercédès salua sérieusement.
+« Ce n'est pas encore mon nom, dit-elle. Dans mon pays, cela porte malheur d'appeler une fille par le nom de son fiancé avant le mariage. Appelez-moi Mercédès, je vous prie.
+– Pardonnez à ce bon Caderousse, dit Dantès, il se trompe de peu !
+– Alors, le mariage est pour bientôt ? demanda Danglars.
+– Le plus tôt possible ! répondit Edmond. Demain ou après-demain, nous ferons le dîner de fiançailles ici, à la Réserve. Vous êtes tous les deux invités.
+– Et Fernand ? demanda Caderousse en riant bêtement. Fernand est-il invité aussi ?
+– Le frère de ma femme est mon frère, dit Edmond. Mercédès et moi serions très tristes s'il n'était pas là. »
+Fernand voulut répondre, mais aucun mot ne sortit de sa bouche.
+« Vous êtes bien pressé, capitaine ! dit Danglars.
+– Ne m'appelez pas encore ainsi, répondit Edmond en souriant. Cela porte malheur.
+– Je disais juste que vous semblez pressé. Le navire ne repartira pas avant trois mois.
+– On est toujours pressé d'être heureux quand on a souffert, répondit Edmond. Mais je dois aussi aller à Paris.
+– Ah bon ? À Paris ? C'est pour vos affaires ?
+– Non, c'est pour une mission que m'a confiée le capitaine Leclère avant de mourir. C’est sacré. Je reviendrai très vite.
+– Je comprends », dit Danglars à voix haute.
+Puis il murmura pour lui-même :
+« À Paris, pour remettre la lettre du grand maréchal... J'ai une excellente idée ! Ah ! Dantès, tu n'es pas encore capitaine du Pharaon. »
+Puis, se tournant vers Edmond qui s'éloignait :
+« Bon voyage ! cria-t-il.
+– Merci ! » répondit Edmond avec un geste amical.
+Les deux amoureux continuèrent leur chemin, heureux et calmes.`,
 }

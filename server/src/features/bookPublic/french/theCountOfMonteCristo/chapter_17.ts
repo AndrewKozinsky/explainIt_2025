@@ -1,317 +1,234 @@
+// Глава адаптирована
 export const chapter_17 = {
 	name: 'CHAPITRE XVII',
-	header: 'La chambre de l\'abbé',
-	text: `Après avoir passé en se courbant, mais cependant avec assez de facilité, par le passage souterrain, Dantès arriva à l’extrémité opposée du corridor qui donnait dans la chambre de l’abbé.
-Là, le passage se rétrécissait et offrait à peine l’espace suffisant pour qu’un homme pût se glisser en rampant. La chambre de l’abbé était dallée ; c’était en soulevant une de ces dalles placée dans le coin le plus obscur qu’il avait commencé la laborieuse opération dont Dantès avait vu la fin.
-À peine entré et debout, le jeune homme examina cette chambre avec grande attention. Au premier aspect, elle ne présentait rien de particulier.
-« Bon, dit l’abbé, il n’est que midi un quart, et nous avons encore quelques heures devant nous. »
-Dantès regarda autour de lui, cherchant à quelle horloge l’abbé avait pu lire l’heure d’une façon si précise.
-« Regardez ce rayon du jour qui vient par ma fenêtre, dit l’abbé, et regardez sur le mur les lignes que j’ai tracées. Grâce à ces lignes, qui sont combinées avec le double mouvement de la terre et l’ellipse qu’elle décrit autour du soleil, je sais plus exactement l’heure que si j’avais une montre, car une montre se dérange, tandis que le soleil et la terre ne se dérangent jamais. »
-Dantès n’avait rien compris à cette explication, il avait toujours cru, en voyant le soleil se lever derrière les montagnes et se coucher dans la Méditerranée que c’était lui qui marchait et non la terre. Ce double mouvement du globe qu’il habitait, et dont cependant il ne s’apercevait pas, lui semblait presque impossible ; dans chacune des paroles de son interlocuteur, il voyait des mystères de science aussi admirables à creuser que ces mines d’or et de diamants qu’il avait visitées dans un voyage qu’il avait fait presque enfant encore à Guzarate et à Golconde.
-« Voyons, dit-il à l’abbé, j’ai hâte d’examiner vos trésors. »
-L’abbé alla vers la cheminée, déplaça avec le ciseau qu’il tenait toujours à la main la pierre qui formait autrefois l’âtre et qui cachait une cavité assez profonde ; c’était dans cette cavité qu’étaient renfermés tous les objets dont il avait parlé à Dantès.
-« Que voulez-vous voir d’abord ? lui demanda-t-il.
-– Montrez-moi votre grand ouvrage sur la royauté en Italie. »
-Faria tira de l’armoire précieuse trois ou quatre rouleaux de linge tournés sur eux-mêmes, comme des feuilles de papyrus : c’étaient des bandes de toile, larges de quatre pouces à peu près et longues de dix-huit. Ces bandes, numérotées, étaient couvertes d’une écriture que Dantès put lire, car elles étaient écrites dans la langue maternelle de l’abbé, c’est-à-dire en italien, idiome qu’en sa qualité de Provençal Dantès comprenait parfaitement.
-« Voyez, lui dit-il, tout est là ; il y a huit jours à peu près que j’ai écrit le mot fin au bas de la soixante-huitième bande. Deux de mes chemises et tout ce que j’avais de mouchoirs y sont passé ; si jamais je redeviens libre et qu’il se trouve dans toute l’Italie un imprimeur qui ose m’imprimer, ma réputation est faite.
-– Oui, répondit Dantès, je vois bien. Et maintenant, montrez-moi donc, je vous prie, les plumes avec lesquelles a été écrit cet ouvrage.
-– Voyez », dit Faria.
-Et il montra au jeune homme un petit bâton long de six pouces, gros comme le manche d’un pinceau, au bout et autour duquel était lié par un fil un de ces cartilages, encore taché par l’encre, dont l’abbé avait parlé à Dantès ; il était allongé en bec et fendu comme une plume ordinaire.
-Dantès l’examina, cherchant des yeux l’instrument avec lequel il avait pu être taillé d’une façon si correcte.
-« Ah ! oui, dit Faria, le canif, n’est-ce pas ?
-C’est mon chef-d’œuvre ; je l’ai fait, ainsi que le couteau que voici, avec un vieux chandelier de fer. »
-Le canif coupait comme un rasoir. Quant au couteau, il avait cet avantage qu’il pouvait servir tout à la fois de couteau et de poignard.
-Dantès examina ces différents objets avec la même attention que, dans les boutiques de curiosités de Marseille, il avait examiné parfois ces instruments exécutés par des sauvages et rapportés des mers du Sud par les capitaines au long cours.
-« Quant à l’encre, dit Faria, vous savez comment je procède ; je la fais à mesure que j’en ai besoin.
-– Maintenant, je m’étonne d’une chose, dit Dantès, c’est que les jours vous aient suffi pour toute cette besogne.
+	header: "La chambre de l’abbé",
+	text: `Après avoir traversé le passage souterrain, Dantès arriva dans la chambre de l’abbé.
+Le passage se rétrécissait à la fin, et il fallait ramper pour entrer. La chambre de l’abbé était dallée, et c’est en soulevant une de ces dalles dans le coin le plus sombre qu’il avait commencé son incroyable travail.
+Debout, le jeune homme examina la chambre avec attention. Au premier regard, elle n’avait rien de particulier.
+« Bien, dit l’abbé, il est seulement midi et quart, nous avons encore quelques heures devant nous. »
+Dantès chercha des yeux l’horloge qui permettait à l’abbé de connaître l’heure avec une telle précision.
+« Regardez ce rayon de soleil qui entre par ma fenêtre, dit l’abbé, et regardez les lignes que j’ai tracées sur le mur. Grâce à ces lignes, qui tiennent compte du double mouvement de la Terre, je connais l’heure plus exactement qu’avec une montre, car une montre se dérègle, mais le soleil et la Terre, jamais. »
+Dantès ne comprit rien à cette explication. Il avait toujours cru que c’était le soleil qui bougeait, et non la Terre. Chaque parole de son interlocuteur lui révélait des mystères scientifiques aussi fascinants que les mines d’or et de diamants qu’il avait visitées dans sa jeunesse.
+« Voyons, dit-il à l’abbé, j’ai hâte de voir vos trésors. »
+L’abbé alla vers la cheminée, déplaça la pierre qui formait autrefois l’âtre et qui cachait une cavité profonde. C’est là qu’étaient rangés tous les objets dont il avait parlé.
+« Que voulez-vous voir d’abord ? demanda-t-il.
+– Montrez-moi votre grand ouvrage sur la monarchie en Italie. »
+Faria sortit trois ou quatre rouleaux de linge, comme des parchemins. C’étaient des bandes de toile larges d’environ quatre pouces. Elles étaient couvertes d’une écriture en italien, langue que Dantès, en tant que Provençal, comprenait parfaitement.
+« Voyez, lui dit-il. Il y a environ huit jours, j’ai écrit le mot “fin” sur la soixante-huitième bande. J’y ai utilisé deux de mes chemises et tous mes mouchoirs. Si jamais je sors d’ici et que je trouve un imprimeur qui ose me publier, ma réputation est faite.
+– Je vois, dit Dantès. Et maintenant, montrez-moi les plumes avec lesquelles vous avez écrit.
+– Regardez », dit Faria.
+Il lui montra un petit bâton de six pouces, au bout duquel était attaché, avec du fil, un cartilage de poisson taillé en pointe et fendu comme une plume ordinaire.
+Dantès examina l’objet, cherchant l’instrument qui avait pu le tailler si parfaitement.
+« Ah oui, le canif, dit Faria. C’est mon chef-d’œuvre. Je l’ai fait, ainsi que ce couteau, avec une vieille charnière de mon lit. »
+Le canif coupait comme un rasoir, et le couteau pouvait servir aussi bien de lame que de poignard.
+Dantès examina ces objets avec la même curiosité qu’il avait pour les outils des peuples indigènes dans les boutiques de Marseille.
+« Pour l’encre, vous savez comment je fais, dit Faria. Je la fabrique quand j’en ai besoin.
+– Ce qui m’étonne, c’est que vous ayez eu assez de temps pendant la journée pour tout ce travail.
 – J’avais les nuits, répondit Faria.
-– Les nuits ! êtes-vous donc de la nature des chats et voyez-vous clair pendant la nuit ?
-– Non ; mais Dieu a donné à l’homme l’intelligence pour venir en aide à la pauvreté de ses sens : je me suis procuré de la lumière.
-– Comment cela ?
-– De la viande qu’on m’apporte je sépare la graisse, je la fais fondre et j’en tire une espèce d’huile compacte. Tenez, voilà ma bougie. »
-Et l’abbé montra à Dantès une espèce de lampion, pareil à ceux qui servent dans les illuminations publiques.
-« Mais du feu ?
-– Voici deux cailloux et du linge brûlé.
-– Mais des allumettes ?
-– J’ai feint une maladie de peau, et j’ai demandé du souffre, que l’on m’a accordé. »
-Dantès posa les objets qu’il tenait sur la table et baissa la tête, écrasé sous la persévérance et la force de cet esprit.
-« Ce n’est pas tout, continua Faria ; car il ne faut pas mettre tous ses trésors dans une seule cachette ; refermons celle-ci. »
-Ils posèrent la dalle à sa place ; l’abbé sema un peu de poussière dessus, y passa son pied pour faire disparaître toute trace de solution de continuité, s’avança vers son lit et le déplaça.
-Derrière le chevet, caché par une pierre qui le refermait avec une herméticité presque parfaite, était un trou, et dans ce trou une échelle de corde longue de vingt-cinq à trente pieds.
-Dantès l’examina : elle était d’une solidité à toute épreuve.
-« Qui vous a fourni la corde nécessaire à ce merveilleux ouvrage ? demanda Dantès.
-– D’abord quelques chemises que j’avais, puis les draps de mon lit que, pendant trois ans de captivité à Fenestrelle, j’ai effilés. Quand on m’a transporté au château d’If, j’ai trouvé moyen d’emporter avec moi cet effilé ; ici, j’ai continué la besogne.
-– Mais ne s’apercevait-on pas que les draps de votre lit n’avaient plus d’ourlet ?
+– Les nuits ! Voyez-vous dans le noir, comme les chats ?
+– Non, mais Dieu a donné à l’homme l’intelligence. Je me suis procuré de la lumière.
+– Comment ?
+– Je sépare la graisse de la viande qu’on m’apporte, je la fais fondre et j’en obtiens une sorte d’huile. Tenez, voilà ma lampe. »
+Et l’abbé montra à Dantès une sorte de lampe rudimentaire.
+« Mais le feu ?
+– Voici deux silex et du tissu brûlé pour faire une mèche.
+– Et les allumettes ?
+– J’ai prétendu avoir une maladie de peau et j’ai demandé du soufre, qu’on m’a donné. »
+Dantès posa les objets et baissa la tête, écrasé par la persévérance et la force d’un tel esprit.
+« Ce n’est pas tout, continua Faria. Il ne faut pas mettre tous ses trésors dans une seule cachette. »
+Ils remirent la dalle de la cheminée en place. L’abbé s’approcha de son lit et le déplaça. Derrière, une autre pierre cachait un trou dans lequel était rangée une échelle de corde de vingt-cinq à trente pieds.
+« Qui vous a fourni la corde pour cet ouvrage ? demanda Dantès.
+– Mes chemises, et les draps de mon lit que j’ai effilochés pendant trois ans à Fenestrelle. J’ai emporté les fils avec moi en venant ici, et j’ai continué le travail.
+– Mais ne s’apercevait-on pas que vos draps étaient abîmés ?
 – Je les recousais.
 – Avec quoi ?
 – Avec cette aiguille. »
-Et l’abbé, ouvrant un lambeau de ses vêtements, montra à Dantès une arête longue, aiguë et encore enfilée, qu’il portait sur lui.
-« Oui, continua Faria, j’avais d’abord songé à desceller ces barreaux et à fuir par cette fenêtre, qui est un peu plus large que la vôtre, comme vous voyez, et que j’eusse élargie encore au moment de mon évasion ; mais je me suis aperçu que cette fenêtre donnait sur une cour intérieure, et j’ai renoncé à mon projet comme trop chanceux. Cependant, j’ai conservé l’échelle pour une circonstance imprévue, pour une de ces évasions dont je vous parlais, et que le hasard procure. »
-Dantès tout en ayant l’air d’examiner l’échelle, pensait cette fois à autre chose ; une idée avait traversé son esprit. C’est que cet homme, si intelligent, si ingénieux, si profond, verrait peut-être clair dans l’obscurité de son propre malheur, où jamais lui-même n’avait rien pu distinguer.
-« À quoi songez-vous ? demanda l’abbé en souriant, et prenant l’absorbement de Dantès pour une admiration portée au plus haut degré.
-– Je pense à une chose d’abord, c’est à la somme énorme d’intelligence qu’il vous a fallu dépenser pour arriver au but où vous êtes parvenu ; qu’eussiez-vous donc fait libre ?
-– Rien, peut-être : ce trop-plein de mon cerveau se fût évaporé en futilités. Il faut le malheur pour creuser certaines mines mystérieuses cachées dans l’intelligence humaine ; il faut la pression pour faire éclater la poudre. La captivité a réuni sur un seul point toutes mes facultés flottantes çà et là ; elles se sont heurtées dans un espace étroit ; et, vous le savez, du choc des nuages résulte l’électricité, de l’électricité l’éclair, de l’éclair la lumière.
-– Non, je ne sais rien, dit Dantès, abattu par son ignorance ; une partie des mots que vous prononcez sont pour moi des mots vides de sens ; vous êtes bien heureux d’être si savant, vous ! »
-L’abbé sourit.
-« Vous pensiez à deux choses, disiez-vous tout à l’heure ?
-– Oui.
-– Et vous ne m’avez fait connaître que la première ; quelle est la seconde ?
-– La seconde est que vous m’avez raconté votre vie, et que vous ne connaissez pas la mienne.
-– Votre vie, jeune homme, est bien courte pour renfermer des événements de quelque importance.
-– Elle renferme un immense malheur, dit Dantès ; un malheur que je n’ai pas mérité ; et je voudrais, pour ne plus blasphémer Dieu comme je l’ai fait quelquefois, pouvoir m’en prendre aux hommes de mon malheur.
-– Alors, vous vous prétendez innocent du fait qu’on vous impute ?
-– Complètement innocent, sur la tête des deux seules personnes qui me sont chères, sur la tête de mon père et de Mercédès.
-– Voyons, dit l’abbé en refermant sa cachette et en repoussant son lit à sa place, racontez-moi donc votre histoire. »
-Dantès alors raconta ce qu’il appelait son histoire, et qui se bornait à un voyage dans l’Inde et à deux où trois voyages dans le Levant ; enfin, il en arriva à sa dernière traversée, à la mort du capitaine Leclère, au paquet remis par lui pour le grand maréchal, à l’entrevue du grand maréchal, à la lettre remise par lui et adressée à un M. Noirtier ; enfin à son arrivée à Marseille, à son entrevue avec son père, à ses amours avec Mercédès, au repas de ses fiançailles, à son arrestation, à son interrogatoire, à sa prison provisoire au palais de justice, enfin à sa prison définitive au château d’If. Arrivé là, Dantès ne savait plus rien, pas même le temps qu’il y était resté prisonnier.
-Le récit achevé, l’abbé réfléchit profondément.
-« Il y a, dit-il au bout d’un instant, un axiome de droit d’une grande profondeur, et qui en revient à ce que je vous disais tout à l’heure, c’est qu’à moins que la pensée mauvaise ne naisse avec une organisation faussée, la nature humaine répugne au crime. Cependant, la civilisation nous a donné des besoins, des vices, des appétits factices qui ont parfois l’influence de nous faire étouffer nos bons instincts et qui nous conduisent au mal. De là cette maxime : Si vous voulez découvrir le coupable, cherchez d’abord celui à qui le crime commis peut être utile ! À qui votre disparition pouvait-elle être utile ?
-– À personne, mon Dieu ! j’étais si peu de chose.
-– Ne répondez pas ainsi, car la réponse manque à la fois de logique et de philosophie ; tout est relatif, mon cher ami, depuis le roi qui gêne son futur successeur, jusqu’à l’employé qui gêne le surnuméraire : si le roi meurt, le successeur hérite une couronne ; si l’employé meurt, le surnuméraire hérite douze cents livres d’appointements. Ces douze cents livres d’appointements, c’est sa liste civile à lui ; ils lui sont aussi nécessaires pour vivre que les douze millions d’un roi. Chaque individu, depuis le plus bas jusqu’au plus haut degré de l’échelle sociale, groupe autour de lui tout un petit monde d’intérêts, ayant ses tourbillons et ses atomes crochus, comme les mondes de Descartes.
-Seulement, ces mondes vont toujours s’élargissant à mesure qu’ils montent. C’est une spirale renversée et qui se tient sur la pointe par un jeu d’équilibre. Revenons-en donc à votre monde à vous. Vous alliez être nommé capitaine du Pharaon ?
+Et l’abbé lui montra une arête de poisson, longue et aiguë, qu’il gardait dans un lambeau de ses vêtements.
+« J’avais d’abord pensé à m’enfuir par la fenêtre, qui est un peu plus grande que la vôtre. Mais elle donne sur une cour intérieure, alors j’ai abandonné ce projet. J’ai conservé l’échelle pour une occasion imprévue. »
+Dantès, en examinant l’échelle, pensa à autre chose. Une idée lui était venue : cet homme si intelligent verrait peut-être clair dans son propre malheur.
+« À quoi pensez-vous ? demanda l’abbé en souriant.
+– Je pense d’abord à l’immense intelligence qu’il vous a fallu pour arriver à ce résultat. Qu’auriez-vous fait en liberté ?
+– Rien, peut-être. Mon esprit se serait perdu en futilités. Il faut le malheur pour creuser certaines mines mystérieuses de l’intelligence humaine. Il faut la pression pour faire exploser la poudre. La captivité a concentré toutes mes facultés en un seul point.
+– Je ne sais rien, moi, dit Dantès, abattu par son ignorance. Les mots que vous prononcez sont vides de sens pour moi. Vous êtes bien heureux d’être si savant.
+– Vous pensiez à deux choses, disiez-vous ? Quelle est la seconde ?
+– La seconde, c’est que vous m’avez raconté votre vie, mais vous ne connaissez pas la mienne.
+– Votre vie est bien courte pour contenir des événements importants.
+– Elle contient un immense malheur que je n’ai pas mérité. Je voudrais pouvoir accuser les hommes plutôt que de blasphémer Dieu.
+– Vous vous prétendez donc innocent ?
+– Complètement innocent, je le jure sur la tête de mon père et de Mercédès.
+– Alors, racontez-moi votre histoire », dit l’abbé en remettant son lit en place.
+Dantès raconta alors sa vie, ses voyages, la mort du capitaine Leclère, la lettre pour le grand maréchal, son amour pour Mercédès, son arrestation, son interrogatoire et enfin sa détention au château d’If. Le récit achevé, l’abbé réfléchit profondément.
+« Il y a un principe en droit, dit-il, qui rejoint ce que je vous disais : la nature humaine répugne au crime. Mais la civilisation nous donne des besoins et des vices qui nous poussent parfois au mal. D’où cette maxime : si vous voulez trouver le coupable, cherchez d’abord à qui le crime profite. À qui votre disparition pouvait-elle être utile ?
+– À personne, mon Dieu ! J’étais si insignifiant.
+– Ne répondez pas ainsi. Tout est relatif. Chaque personne, du plus bas au plus haut de l’échelle sociale, a son propre petit monde d’intérêts. Revenons au vôtre. Vous alliez être nommé capitaine du Pharaon ?
 – Oui.
 – Vous alliez épouser une belle jeune fille ?
 – Oui.
-– Quelqu’un avait-il intérêt à ce que vous ne devinssiez pas capitaine du Pharaon ? Quelqu’un avait-il intérêt à ce que vous n’épousassiez pas Mercédès ? Répondez d’abord à la première question, l’ordre est la clef de tous les problèmes.
-Quelqu’un avait-il intérêt à ce que vous ne devinssiez pas capitaine du Pharaon ?
-– Non ; j’étais fort aimé à bord. Si les matelots avaient pu élire un chef, je suis sûr qu’ils m’eussent élu. Un seul homme avait quelque motif de m’en vouloir : j’avais eu, quelque temps auparavant, une querelle avec lui, et je lui avais proposé un duel qu’il avait refusé.
-– Allons donc ? Cet homme, comment se nomma-t-il ?
+– Quelqu’un avait-il intérêt à ce que vous ne deveniez pas capitaine ?
+– Non. J’étais très aimé à bord. Un seul homme avait une raison de m’en vouloir. Je m’étais disputé avec lui et lui avais proposé un duel, qu’il avait refusé.
+– Son nom ?
 – Danglars.
-– Qu’était-il à bord ?
-– Agent comptable.
-– Si vous fussiez devenu capitaine, l’eussiezvous conservé dans son poste ?
-– Non, si la chose eût dépendu de moi, car j’avais cru remarquer quelques infidélités dans ses comptes.
-– Bien. Maintenant quelqu’un a-t-il assisté à votre dernier entretien avec le capitaine Leclère ?
+– Que faisait-il à bord ?
+– Il était comptable.
+– Si vous étiez devenu capitaine, l’auriez-vous gardé ?
+– Non, si cela avait dépendu de moi. J’avais remarqué des irrégularités dans ses comptes.
+– Bien. Quelqu’un a-t-il assisté à votre dernière conversation avec le capitaine Leclère ?
 – Non, nous étions seuls.
-– Quelqu’un a-t-il pu entendre votre conversation ?
-– Oui, car la porte était ouverte ; et même... attendez... oui, oui Danglars est passé juste au moment où le capitaine Leclère me remettait le paquet destiné au grand maréchal.
-– Bon, fit l’abbé, nous sommes sur la voie.
-Avez-vous amené quelqu’un avec vous à terre quand vous avez relâché à l’île d’Elbe ?
-– Personne.
-– On vous a remis une lettre ?
-– Oui, le grand maréchal.
-– Cette lettre, qu’en avez-vous fait ?
-– Je l’ai mise dans mon portefeuille.
-– Vous aviez donc votre portefeuille sur vous ? Comment un portefeuille devant contenir une lettre officielle pouvait-il tenir dans la poche d’un marin ?
-– Vous avez raison, mon portefeuille était à bord.
-– Ce n’est donc qu’à bord que vous avez enfermé la lettre dans le portefeuille ?
-– Oui.
-– De Porto-Ferrajo à bord qu’avez-vous fait de cette lettre ?
-– Je l’ai tenue à la main.
-– Quand vous êtes remonté sur le Pharaon, chacun a donc pu voir que vous teniez une lettre ?
-– Oui.
+– Quelqu’un a-t-il pu entendre ?
+– Oui, la porte était ouverte… Attendez… oui, Danglars est passé juste au moment où le capitaine Leclère me remettait le paquet pour le grand maréchal.
+– Bon, dit l’abbé, nous sommes sur la voie. Quand vous avez accosté à l’île d’Elbe, avez-vous emporté votre portefeuille avec la lettre ?
+– Non, mon portefeuille était à bord. J’ai gardé la lettre à la main jusqu’à mon retour sur le navire. Chacun a donc pu voir que je tenais une lettre.
 – Danglars comme les autres ?
 – Danglars comme les autres.
-– Maintenant, écoutez bien ; réunissez tous vos souvenirs : vous rappelez-vous dans quels termes était rédigée la dénonciation ?
-– Oh ! oui, je l’ai relue trois fois, et chaque parole en est restée dans ma mémoire.
-– Répétez-la-moi. »
-Dantès se recueillit un instant.
-« La voici, dit-il, textuellement :
-« M. le procureur du roi est prévenu par un ami du trône et de la religion que le nommé Edmond Dantès, second du navire le Pharaon, arrivé ce matin de Smyrne, après avoir touché à Naples et à Porto-Ferrajo, a été chargé par Murat d’un paquet pour l’usurpateur, et par l’usurpateur d’une lettre pour le comité bonapartiste de Paris.
-« On aura la preuve de son crime en l’arrêtant, car on retrouvera cette lettre sur lui, ou chez son père, ou dans sa cabine à bord du Pharaon. »
-L’abbé haussa les épaules.
-« C’est clair comme le jour, dit-il, il faut que vous ayez eu le cœur bien naïf et bien bon pour n’avoir pas deviné la chose tout d’abord.
-– Vous croyez ? s’écria Dantès. Ah ! ce serait bien infâme !
-– Quelle était l’écriture ordinaire de Danglars ?
-– Une belle cursive.
-– Quelle était l’écriture de la lettre anonyme ?
-– Une écriture renversée. »
-L’abbé sourit.
-« Contrefaite, n’est-ce pas ?
-– Bien hardie pour être contrefaite.
-– Attendez », dit-il.
-Il prit sa plume, ou plutôt ce qu’il appelait ainsi, la trempa dans l’encre et écrivit de la main gauche, sur un linge préparé à cet effet, les deux ou trois premières lignes de la dénonciation.
-Dantès recula et regarda presque avec terreur l’abbé.
-« Oh ! c’est étonnant, s’écria-t-il, comme cette écriture ressemblait à celle-ci.
-– C’est que la dénonciation avait été écrite de la main gauche. J’ai observé une chose, continua l’abbé.
-– Laquelle ?
-– C’est que toutes les écritures tracées de la main droite sont variées, c’est que toutes les écritures tracées de la main gauche se ressemblent.
+– Maintenant, souvenez-vous. Comment était rédigée la dénonciation ?
+– Oh oui, je l’ai lue trois fois, chaque mot est gravé dans ma mémoire.
+Il la récita mot pour mot.
+L’abbé haussa les épaules. « C’est clair comme le jour. Il faut que vous ayez eu un cœur bien naïf pour ne pas avoir deviné tout de suite.
+– Vous croyez ? Ah, ce serait infâme !
+– Quelle était l’écriture de Danglars ?
+– Une belle écriture cursive.
+– Et celle de la lettre anonyme ?
+– Une écriture penchée, comme inversée.
+L’abbé sourit. « Contrefaite ?
+– Elle semblait trop assurée pour être contrefaite.
+– Attendez. »
+Il prit sa plume, la trempa dans l’encre et écrivit de la main gauche les premières lignes de la dénonciation. Dantès recula, terrifié. « Oh, c’est incroyable, comme cette écriture ressemble à l’autre !
+– C’est que la dénonciation a été écrite de la main gauche. J’ai remarqué que les écritures de la main droite varient, mais celles de la main gauche se ressemblent toutes.
 – Vous avez donc tout vu, tout observé ?
-– Continuons.
-– Oh ! oui, oui.
-– Passons à la seconde question.
-– J’écoute.
-– Quelqu’un avait-il intérêt à ce que vous n’épousassiez pas Mercédès ?
-– Oui ! un jeune homme qui l’aimait.
+– Continuons. Passons à la seconde question. Quelqu’un avait-il intérêt à ce que vous n’épousiez pas Mercédès ?
+– Oui, un jeune homme qui l’aimait.
 – Son nom ?
 – Fernand.
 – C’est un nom espagnol ?
 – Il était Catalan.
-– Croyez-vous que celui-ci était capable d’écrire la lettre ?
-– Non ! celui-ci m’eût donné un coup de couteau, voilà tout.
-– Oui, c’est dans la nature espagnole : un assassinat, oui, une lâcheté, non.
-– D’ailleurs, continua Dantès, il ignorait tous les détails consignés dans la dénonciation.
-– Vous ne les aviez donnés à personne ? Pas même à votre maîtresse ?
-– Pas même à ma fiancée.
-– C’est Danglars.
-– Oh ! maintenant j’en suis sûr.
-– Attendez... Danglars connaissait-il Fernand ?
-– Non... si... Je me rappelle...
-– Quoi ?
-– La surveille de mon mariage je les ai vu attablés ensemble sous la tonnelle du père Pamphile. Danglars était amical et railleur, Fernand était pâle et troublé.
-– Ils étaient seuls ?
-– Non, ils avaient avec eux un troisième compagnon, bien connu de moi, qui sans doute leur avait fait faire connaissance, un tailleur nommé Caderousse ; mais celui-ci était déjà ivre.
-Attendez... attendez... Comment ne me suis-je pas rappelé cela ? Près de la table où ils buvaient étaient un encrier, du papier, des plumes. (Dantès porta la main à son front.) Oh ! les infâmes ! les infâmes !
-– Voulez-vous encore savoir autre chose ? dit l’abbé en riant.
-– Oui, oui, puisque vous approfondissez, tout, puisque vous voyez clair en toutes choses, je veux savoir pourquoi je n’ai été interrogé qu’une fois, pourquoi on ne m’a pas donné des juges, et comment je suis condamné sans arrêt.
-– Oh ! ceci dit l’abbé, c’est un peu plus grave ; la justice a des allures sombres et mystérieuses qu’il est difficile de pénétrer. Ce que nous avons fait jusqu’ici pour vos deux amis était un jeu d’enfant ; il va falloir, sur ce sujet, me donner les indications les plus précises.
-– Voyons, interrogez-moi, car en vérité vous voyez plus clair dans ma vie que moi-même.
-– Qui vous a interrogé ? est-ce le procureur du roi, le substitut, le juge d’instruction ?
-– C’était le substitut.
+– Pensez-vous qu’il était capable d’écrire la lettre ?
+– Non. Il m’aurait donné un coup de couteau, c’est tout. L’assassinat, oui ; la lâcheté, non.
+– D’ailleurs, il ignorait tous les détails de la dénonciation.
+– Vous n’en aviez parlé à personne ? Pas même à votre fiancée ?
+– Non.
+– Alors, c’est Danglars. Oh, maintenant j’en suis sûr.
+– Attendez… Danglars connaissait-il Fernand ?
+– Non… si… je me rappelle… La veille de mon mariage, je les ai vus à table ensemble, sous la tonnelle du père Pamphile. Danglars était moqueur, Fernand était pâle. Ils n’étaient pas seuls, un tailleur nommé Caderousse était avec eux, mais il était déjà ivre. Attendez… près de leur table, il y avait de l’encre, du papier, des plumes… » Dantès porta la main à son front. « Oh, les infâmes ! les infâmes !
+– Voulez-vous savoir autre chose ? dit l’abbé en riant.
+– Oui. Puisque vous voyez si clair, je veux savoir pourquoi je n’ai été interrogé qu’une fois, et pourquoi j’ai été condamné sans procès.
+– Oh, ça, c’est plus grave. La justice est sombre et mystérieuse. Il va falloir me donner des indications très précises.
+– Interrogez-moi, car vous voyez plus clair dans ma vie que moi-même.
+– Qui vous a interrogé ? Le procureur, le substitut ?
+– Le substitut.
 – Jeune, ou vieux ?
-– Jeune : vingt-sept ou vingt-huit ans.
-– Bien ! pas corrompu encore, mais ambitieux déjà, dit l’abbé. Quelles furent ses manières avec vous ?
-– Douces plutôt que sévères.
+– Jeune, vingt-sept ou vingt-huit ans.
+– Bien. Pas encore corrompu, mais déjà ambitieux. Comment s’est-il comporté avec vous ?
+– Doux plutôt que sévère.
 – Lui avez-vous tout raconté ?
 – Tout.
-– Et ses manières ont-elles changé dans le courant de l’interrogatoire ?
-– Un instant, elles ont été altérées, lorsqu’il eut lu la lettre qui me compromettait ; il parut comme accablé de mon malheur.
-– De votre malheur ?
-– Oui.
-– Et vous êtes bien sûr que c’était votre malheur qu’il plaignait ?
+– Et son attitude a-t-elle changé pendant l’interrogatoire ?
+– Oui, un instant, quand il a lu la lettre. Il a paru accablé par mon malheur.
+– Votre malheur ? Vous êtes sûr qu’il plaignait votre malheur ?
 – Il m’a donné une grande preuve de sa sympathie, du moins.
 – Laquelle ?
 – Il a brûlé la seule pièce qui pouvait me compromettre.
-– Laquelle ? la dénonciation ?
-– Non, la lettre.
+– Laquelle ? La dénonciation ?
+– Non, la lettre de l’île d’Elbe.
 – Vous en êtes sûr ?
-– Cela s’est passé devant moi.
-– C’est autre chose ; cet homme pourrait être un plus profond scélérat que vous ne croyez.
-– Vous me faites frissonner, sur mon honneur ! dit Dantès, le monde est-il donc peuplé de tigres et de crocodiles ?
-– Oui ; seulement, les tigres et les crocodiles à deux pieds sont plus dangereux que les autres.
-– Continuons, continuons.
-– Volontiers ; il a brûlé la lettre, dites-vous ?
-– Oui, en me disant : « Vous voyez, il n’existe que cette preuve-là contre vous, et je l’anéantis. »
-– Cette conduite est trop sublime pour être naturelle.
-– Vous croyez ?
-– J’en suis sûr. À qui cette lettre était-elle adressée ?
-– À M. Noirtier, rue Coq-Héron, n° 13, à Paris.
-– Pouvez-vous présumer que votre substitut eût quelque intérêt à ce que cette lettre disparût ?
-– Peut-être ; car il m’a fait promettre deux ou trois fois, dans mon intérêt, disait-il, de ne parler à personne de cette lettre, et il m’a fait jurer de ne pas prononcer le nom qui était inscrit sur l’adresse.
-– Noirtier ? répéta l’abbé... Noirtier ? j’ai connu un Noirtier à la cour de l’ancienne reine d’Étrurie, un Noirtier qui avait été girondin sous la révolution. Comment s’appelait votre substitut, à vous ?
+– Oui, il l’a fait devant moi.
+– C’est autre chose. Cet homme pourrait être un plus grand scélérat que vous ne le croyez.
+– Vous me faites frissonner ! Le monde est-il donc peuplé de tigres ?
+– Oui, mais les tigres à deux pattes sont les plus dangereux. Continuons. Il a brûlé la lettre ?
+– Oui, en me disant : “Vous voyez, c’est la seule preuve, et je la détruis.”
+– Cette conduite est trop parfaite pour être naturelle. À qui cette lettre était-elle adressée ?
+– À M. Noirtier, rue Coq-Héron, à Paris.
+– Le substitut avait-il un intérêt à ce que cette lettre disparaisse ?
+– Peut-être. Il m’a fait jurer de ne jamais prononcer ce nom.
+– Noirtier ? répéta l’abbé… J’ai connu un Noirtier à la cour de la reine d’Étrurie, un ancien Girondin. Comment s’appelait votre substitut ?
 – De Villefort. »
-L’abbé éclata de rire.
-Dantès le regarda avec stupéfaction.
-« Qu’avez-vous ? dit-il.
-– Voyez-vous ce rayon du jour ? demanda l’abbé.
-– Oui.
-– Eh bien, tout est plus clair pour moi maintenant que ce rayon transparent et lumineux.
-Pauvre enfant, pauvre jeune homme ! Et ce magistrat a été bon pour vous ?
-– Oui.
-– Ce digne substitut a brûlé, anéanti la lettre ?
-– Oui.
-– Cet honnête pourvoyeur du bourreau vous a fait jurer de ne jamais prononcer de nom de Noirtier ?
-– Oui.
-– Ce Noirtier, pauvre aveugle que vous êtes, savez-vous ce que c’était que ce Noirtier ?
-« Ce Noirtier, c’était son père ! »
-La foudre, tombée aux pieds de Dantès et lui creusant un abîme au fond duquel s’ouvrait l’enfer, lui eût produit un effet moins prompt, moins électrique, moins écrasant, que ces paroles inattendues ; il se leva, saisissant sa tête à deux mains comme pour l’empêcher d’éclater.
-« Son père ! son père ! s’écria-t-il.
-– Oui, son père, qui s’appelle Noirtier de Villefort », reprit l’abbé.
-Alors une lumière fulgurante traversa le cerveau du prisonnier, tout ce qui lui était demeuré obscur fut à l’instant même éclairé d’un jour éclatant. Ces tergiversations de Villefort pendant l’interrogatoire, cette lettre détruite, ce serment exigé, cette voix presque suppliante du magistrat qui, au lieu de menacer, semblait implorer, tout lui revint à la mémoire ; il jeta un cri, chancela un instant comme un homme ivre ; puis, s’élançant par l’ouverture qui conduisait de la cellule de l’abbé à la sienne :
-« Oh ! dit-il, il faut que je sois seul pour penser à tout cela. »
-Et, en arrivant dans son cachot, il tomba sur son lit, où le porte-clefs le retrouva le soir, assis, les yeux fixes, les traits contractés, mais immobile et muet comme une statue.
-Pendant ces heures de méditation, qui s’étaient écoulées comme des secondes, il avait pris une terrible résolution et fait un formidable serment.
-Une voix tira Dantès de cette rêverie, c’était celle de l’abbé Faria, qui, ayant reçu à son tour la visite de son geôlier, venait inviter Dantès à souper avec lui. Sa qualité de fou reconnu, et surtout de fou divertissant, valait au vieux prisonnier quelques privilèges, comme celui d’avoir du pain un peu plus blanc et un petit flacon de vin le dimanche. Or, on était justement arrivé au dimanche, et l’abbé venait inviter son jeune compagnon à partager son pain et son vin.
-Dantès le suivit : toutes les lignes de son visage s’étaient remises et avaient repris leur place accoutumée, mais avec une raideur et une fermeté, si l’on peut le dire, qui accusaient une résolution prise. L’abbé le regarda fixement.
-« Je suis fâché de vous avoir aidé dans vos recherches et de vous avoir dit ce que je vous ai dit, fit-il.
-– Pourquoi cela ? demanda Dantès.
-– Parce que je vous ai infiltré dans le cœur un sentiment qui n’y était point : la vengeance. »
-Dantès sourit.
-« Parlons d’autre chose », dit-il.
-L’abbé le regarda encore un instant et hocha tristement la tête ; puis, comme l’en avait prié Dantès, il parla d’autre chose.
-Le vieux prisonnier était un de ces hommes dont la conversation, comme celle des gens qui ont beaucoup souffert, contient des enseignements nombreux et renferme un intérêt soutenu ; mais elle n’était pas égoïste, et ce malheureux ne parlait jamais de ses malheurs.
-Dantès écoutait chacune de ses paroles avec admiration : les unes correspondaient à des idées qu’il avait déjà et à des connaissances qui étaient du ressort de son état de marin, les autres touchaient à des choses inconnues, et, comme ces aurores boréales qui éclairent les navigateurs dans les latitudes australes, montraient au jeune homme des paysages et des horizons nouveaux, illuminés de lueurs fantastiques. Dantès comprit le bonheur qu’il y aurait pour une organisation intelligente à suivre cet esprit élevé sur les hauteurs morales, philosophiques ou sociales sur lesquelles il avait l’habitude de se jouer.
-« Vous devriez m’apprendre un peu de ce que vous savez, dit Dantès, ne fût-ce que pour ne pas vous ennuyer avec moi. Il me semble maintenant que vous devez préférer la solitude à un compagnon sans éducation et sans portée comme moi. Si vous consentez à ce que je vous demande, je m’engage à ne plus vous parler de fuir. »
-L’abbé sourit.
-« Hélas ! mon enfant, dit-il, la science humaine est bien bornée, et quand je vous aurai appris les mathématiques, la physique, l’histoire et les trois ou quatre langues vivantes que je parle, vous saurez ce que je sais : or, toute cette science, je serai deux ans à peine à la verser de mon esprit dans le vôtre.
-– Deux ans ! dit Dantès, vous croyez que je pourrais apprendre toutes ces choses en deux ans ?
-– Dans leur application, non ; dans leurs principes, oui : apprendre n’est pas savoir ; il y a les sachants et les savants : c’est la mémoire qui fait les uns, c’est la philosophie qui fait les autres.
+L’abbé éclata de rire. Dantès le regarda, stupéfait. « Qu’avez-vous ?
+– Voyez-vous ce rayon de soleil ? Eh bien, tout est plus clair pour moi maintenant que ce rayon. Pauvre enfant ! Et ce magistrat a été bon avec vous ? Il a brûlé la lettre ? Il vous a fait jurer de ne jamais prononcer le nom de Noirtier ? Savez-vous qui était ce Noirtier, pauvre aveugle ?
+Ce Noirtier, c’était son père ! »
+La foudre tombant à ses pieds et ouvrant un abîme sous lui n’aurait pas eu un effet plus terrible que ces paroles. Dantès se leva, se prenant la tête à deux mains comme pour l’empêcher d’éclater.
+« Son père ! son père ! » s’écria-t-il.
+« Oui, son père, qui s’appelle Noirtier de Villefort », reprit l’abbé.
+Alors, une lumière fulgurante traversa l’esprit du prisonnier. Tout ce qui était obscur devint clair : les hésitations de Villefort, la lettre détruite, le serment exigé, sa voix presque suppliante… Tout lui revint à la mémoire. Il poussa un cri, chancela, puis s’élança par le passage vers sa propre cellule.
+« Oh, il faut que je sois seul pour penser à tout cela ! »
+En arrivant dans son cachot, il tomba sur son lit. Le gardien le retrouva le soir, assis, les yeux fixes, immobile et muet comme une statue.
+Pendant ces heures de méditation, il avait pris une terrible résolution et fait un formidable serment.
+Une voix tira Dantès de sa rêverie. C’était l’abbé Faria, qui venait l’inviter à souper avec lui. Sa réputation de “fou amusant” lui valait quelques privilèges, comme du pain un peu meilleur et un peu de vin le dimanche.
+Dantès le suivit. Son visage était redevenu calme, mais avec une fermeté qui trahissait une résolution prise. L’abbé le regarda fixement. « Je regrette de vous avoir aidé dans vos recherches et de vous avoir dit ce que je vous ai dit, fit-il.
+– Pourquoi ? demanda Dantès.
+– Parce que j’ai instillé dans votre cœur un sentiment qui n’y était pas : la vengeance. »
+Dantès sourit. « Parlons d’autre chose », dit-il.
+Le vieil homme hocha tristement la tête. La conversation de l’abbé était riche d’enseignements, mais il ne parlait jamais de ses propres malheurs.
+Dantès écoutait chacune de ses paroles avec admiration. Il comprit le bonheur qu’il y aurait à suivre un esprit si élevé.
+« Vous devriez m’apprendre un peu de ce que vous savez, dit Dantès. Pour ne pas vous ennuyer avec moi. Si vous acceptez, je m’engage à ne plus vous parler de fuir. »
+L’abbé sourit. « Hélas, mon enfant, la science humaine est bien limitée. Quand je vous aurai appris les mathématiques, la physique, l’histoire et les quelques langues que je parle, vous saurez ce que je sais. Il me faudra à peine deux ans pour verser mon savoir dans votre esprit.
+– Deux ans ! dit Dantès. Vous croyez que je pourrais apprendre tout cela en deux ans ?
+– Les principes, oui. Apprendre n’est pas savoir. Il y a ceux qui savent par mémoire, et les savants, qui comprennent par philosophie.
 – Mais ne peut-on apprendre la philosophie ?
-– La philosophie ne s’apprend pas ; la philosophie est la réunion des sciences acquises au génie qui les applique : la philosophie, c’est le nuage éclatant sur lequel le Christ a posé le pied pour remonter au ciel.
-– Voyons, dit Dantès, que m’apprenez-vous d’abord ? J’ai hâte de commencer, j’ai soif de science.
-– Tout ! » dit l’abbé.
-En effet, dès le soir, les deux prisonniers arrêtèrent un plan d’éducation qui commença de s’exécuter le lendemain. Dantès avait une mémoire prodigieuse, une facilité de conception extrême : la disposition mathématique de son esprit le rendait apte à tout comprendre par le calcul, tandis que la poésie du marin corrigeait tout ce que pouvait avoir de trop matériel la démonstration réduite à la sécheresse des chiffres ou à la rectitude des lignes ; il savait déjà, d’ailleurs, l’italien et un peu de romaïque, qu’il avait appris dans ses voyages d’Orient. Avec ces deux langues, il comprit bientôt le mécanisme de toutes les autres, et, au bout de six mois, il commençait à parler l’espagnol, l’anglais et l’allemand.
-Comme il l’avait dit à l’abbé Faria, soit que la distraction que lui donnait l’étude lui tînt lieu de liberté, soit qu’il fût, comme nous l’avons vu déjà, rigide observateur de sa parole, il ne parlait plus de fuir, et les journées s’écoulaient pour lui rapides et instructives. Au bout d’un an, c’était un autre homme.
-Quant à l’abbé Faria, Dantès remarqua que, malgré la distraction que sa présence avait apportée à sa captivité, il s’assombrissait tous les jours. Une pensée incessante et éternelle paraissait assiéger son esprit ; il tombait dans de profondes rêveries, soupirait involontairement, se levait tout à coup, croisait les bras et se promenait sombre autour de sa prison.
-Un jour, il s’arrêta tout à coup au milieu d’un de ces cercles cent fois répétés qu’il décrivait autour de sa chambre, et s’écria :
-« Ah ! s’il n’y avait pas de sentinelle !
-– Il n’y aura de sentinelle qu’autant que vous le voudrez bien, reprit Dantès qui avait suivi sa pensée à travers la boîte de son cerveau comme à travers un cristal.
-– Ah ! je vous l’ai dit, reprit l’abbé, je répugne à un meurtre.
-– Et cependant ce meurtre, s’il est commis, le sera par l’instinct de notre conservation, par un sentiment de défense personnelle.
-– N’importe, je ne saurais.
+– La philosophie ne s’apprend pas. C’est la réunion des sciences appliquées par le génie. C’est le nuage éclatant sur lequel le Christ a posé le pied pour remonter au ciel.
+– Voyons, dit Dantès, par quoi commençons-nous ? J’ai soif de science.
+– Par tout ! » dit l’abbé.
+Dès le soir même, ils établirent un plan d’éducation. Dantès avait une mémoire prodigieuse et une grande facilité de compréhension. Son esprit mathématique l’aidait à tout calculer, et son âme de poète marin donnait vie aux chiffres et aux lignes. En six mois, il commençait à parler espagnol, anglais et allemand.
+Comme il l’avait promis, il ne parlait plus de fuir. Les journées passaient vite. Au bout d’un an, c’était un autre homme.
+Quant à l’abbé Faria, il s’assombrissait de jour en jour. Une pensée semblait l’obséder. Un jour, il s’arrêta net au milieu de sa chambre et s’écria : « Ah ! s’il n’y avait pas de sentinelle !
+– Il n’y en aura que si vous le voulez bien », reprit Dantès, qui avait deviné sa pensée.
+« Je vous l’ai dit, je refuse de commettre un meurtre.
+– Et pourtant, ce meurtre serait pour notre propre survie, en légitime défense.
+– N’importe, je ne pourrais pas.
 – Vous y pensez, cependant ?
-– Sans cesse, sans cesse, murmura l’abbé.
-– Et vous avez trouvé un moyen, n’est-ce pas ? dit vivement Dantès.
-– Oui, s’il arrivait qu’on pût mettre sur la galerie une sentinelle aveugle et sourde.
-– Elle sera aveugle, elle sera sourde, répondit le jeune homme avec un accent de résolution qui épouvanta l’abbé.
-– Non, non ! s’écria-t-il ; impossible. »
-Dantès voulut le retenir sur ce sujet, mais l’abbé secoua la tête et refusa de répondre davantage.
-Trois mois s’écoulèrent.
-« Êtes-vous fort ? » demanda un jour l’abbé à Dantès.
+– Sans cesse », murmura l’abbé.
+Trois mois passèrent. « Êtes-vous fort ? » demanda un jour l’abbé.
 Dantès, sans répondre, prit le ciseau, le tordit comme un fer à cheval et le redressa.
-« Vous engageriez-vous à ne tuer la sentinelle qu’à la dernière extrémité ?
+« Vous engageriez-vous à ne tuer la sentinelle qu’en dernière extrémité ?
 – Oui, sur l’honneur.
-– Alors, dit l’abbé, nous pourrons exécuter notre dessein.
-– Et combien nous faudra-t-il de temps pour l’exécuter ?
+– Alors, dit l’abbé, nous pourrons exécuter notre plan.
+– Combien de temps nous faudra-t-il ?
 – Un an, au moins.
-– Mais nous pourrions nous mettre au travail ?
+– Mais nous pouvons commencer tout de suite ?
 – Tout de suite.
-– Oh ! voyez donc, nous avons perdu un an, s’écria Dantès.
-– Trouvez-vous que nous l’ayons perdu ? dit l’abbé.
-– Oh ! pardon, pardon, s’écria Edmond rougissant.
-– Chut ! dit l’abbé, l’homme n’est jamais qu’un homme ; et vous êtes encore un des meilleurs que j’aie connus. Tenez, voici mon plan. »
-L’abbé montra alors à Dantès un dessin qu’il avait tracé : c’était le plan de sa chambre, de celle de Dantès et du corridor qui joignait l’une à l’autre. Au milieu de cette galerie, il établissait un boyau pareil à celui qu’on pratique dans les mines. Ce boyau menait les deux prisonniers sous la galerie où se promenait la sentinelle ; une fois arrivés là, ils pratiquaient une large excavation, descellaient une des dalles qui formaient le plancher de la galerie ; la dalle, à un moment donné, s’enfonçait sous le poids du soldat, qui disparaissait englouti dans l’excavation ; Dantès se précipitait sur lui au moment où, tout étourdi de sa chute, il ne pouvait se défendre, le liait, le bâillonnait, et tous deux alors, passant par une des fenêtres de cette galerie, descendaient le long de la muraille extérieure à l’aide de l’échelle de corde et se sauvaient.
-Dantès battit des mains et ses yeux étincelèrent de joie ; ce plan était si simple qu’il devait réussir.
-Le même jour, les mineurs se mirent à l’ouvrage avec d’autant plus d’ardeur que ce travail succédait à un long repos, et ne faisait, selon toute probabilité, que continuer la pensée intime et secrète de chacun d’eux.
-Rien ne les interrompait que l’heure à laquelle chacun d’eux était forcé de rentrer chez soi pour recevoir la visite du geôlier. Ils avaient, au reste, pris l’habitude de distinguer, au bruit imperceptible des pas, le moment où cet homme descendait, et jamais ni l’un ni l’autre ne fut pris à l’improviste. La terre qu’ils extrayaient de la nouvelle galerie, et qui eût fini par combler l’ancien corridor, était jetée petit à petit, et avec des précautions inouïes, par l’une ou l’autre des deux fenêtres du cachot de Dantès ou du cachot de Faria : on la pulvérisait avec soin, et le vent de la nuit l’emportait au loin sans qu’elle laissât de traces.
-Plus d’un an se passa à ce travail exécuté avec un ciseau, un couteau et un levier de bois pour tous instruments ; pendant cette année, et tout en travaillant, Faria continuait d’instruire Dantès, lui parlant tantôt une langue, tantôt une autre, lui apprenant l’histoire des nations et des grands hommes qui laissent de temps en temps derrière eux une de ces traces lumineuses qu’on appelle la gloire. L’abbé, homme du monde et du grand monde, avait en outre, dans ses manières, une sorte de majesté mélancolique dont Dantès, grâce à l’esprit d’assimilation dont la nature l’avait doué, sut extraire cette politesse élégante qui lui manquait et ces façons aristocratiques que l’on n’acquiert d’habitude que par le frottement des classes élevées ou la société des hommes supérieurs.
-Au bout de quinze mois, le trou était achevé ; l’excavation était faite sous la galerie ; on entendait passer et repasser la sentinelle, et les deux ouvriers, qui étaient forcés d’attendre une nuit obscure et sans lune pour rendre leur évasion plus certaine encore, n’avaient plus qu’une crainte : c’était de voir le sol trop hâtif s’effondrer de lui-même sous les pieds du soldat.
-On obvia à cet inconvénient en plaçant une espèce de petite poutre, qu’on avait trouvée dans les fondations comme un support. Dantès était occupé à la placer, lorsqu’il entendit tout à coup l’abbé Faria, resté dans la chambre du jeune homme, où il s’occupait de son côté à aiguiser une cheville destinée à maintenir l’échelle de corde, qui l’appelait avec un accent de détresse.
-Dantès rentra vivement, et aperçut l’abbé, debout au milieu de la chambre, pâle, la sueur au front et les mains crispées.
-« Oh ! mon Dieu ! s’écria Dantès, qu’y a-t-il, et qu’avez-vous donc ?
-– Vite, vite ! dit l’abbé, écoutez-moi. »
-Dantès regarda le visage livide de Faria, ses yeux cernés d’un cercle bleuâtre, ses lèvres blanches, ses cheveux hérissés ; et, d’épouvante, il laissa tomber à terre le ciseau qu’il tenait à la main.
-« Mais qu’y a-t-il donc ? s’écria Edmond.
-– Je suis perdu ! dit l’abbé ; écoutez-moi. Un mal terrible, mortel peut-être, va me saisir ; l’accès arrive, je le sens : déjà j’en fus atteint l’année qui précéda mon incarcération. À ce mal il n’est qu’un remède, je vais vous le dire : courez vite chez moi, levez le pied du lit ; ce pied est creux, vous y trouverez un petit flacon à moitié plein d’une liqueur rouge, apportez-le ; ou plutôt, non, non, je pourrais être surpris ici ; aidez-moi à rentrer chez moi pendant que j’ai encore quelques forces. Qui sait ce qui va arriver le temps que durera l’accès ?
-Dantès, sans perdre la tête, bien que le malheur qui le frappait fût immense, descendit dans le corridor, traînant son malheureux compagnon après lui, et le conduisant, avec une peine infinie, jusqu’à l’extrémité opposée, se retrouva dans la chambre de l’abbé qu’il déposa sur son lit.
-« Merci, dit l’abbé, frissonnant de tous ses membres comme s’il sortait d’une eau glacée.
-Voici le mal qui vient, je vais tomber en catalepsie ; peut-être ne ferai-je pas un mouvement, peut-être ne jetterai-je pas une plainte ; mais peut-être aussi j’écumerai, je me raidirai, je crierai ; tâchez que l’on n’entende pas mes cris, c’est l’important, car alors peut-être me changerait-on de chambre, et nous serions séparés à tout jamais. Quand vous me verrez immobile, froid et mort, pour ainsi dire, seulement à cet instant, entendez-vous bien, desserrez-moi les dents avec le couteau, faites couler dans ma bouche huit à dix gouttes de cette liqueur, et peut-être reviendrai-je.
-– Peut-être ? s’écria douloureusement Dantès.
-– À moi ! à moi ! s’écria l’abbé, je me... je me m... »
-L’accès fut si subit et si violent que le malheureux prisonnier ne put même achever le mot commencé ; un nuage passa sur son front, rapide et sombre comme les tempêtes de la mer ; la crise dilata ses yeux, tordit sa bouche, empourpra ses joues ; il s’agita, écuma, rugit ; mais ainsi qu’il l’avait recommandé lui-même, Dantès étouffa ses cris sous sa couverture. Cela dura deux heures. Alors, plus inerte qu’une masse, plus pâle et plus froid que le marbre, plus brisé qu’un roseau foulé aux pieds, il tomba, se raidit encore dans une dernière convulsion et devint livide.
-Edmond attendit que cette mort apparente eût envahi le corps et glacé jusqu’au cœur ; alors il prit le couteau, introduisit la lame entre les dents, desserra avec une peine infinie les mâchoires crispées, compta l’une après l’autre dix gouttes de la liqueur rouge, et attendit.
-Une heure s’écoula sans que le vieillard fît le moindre mouvement. Dantès craignait d’avoir attendu trop tard, et le regardait, les deux mains enfoncées dans ses cheveux. Enfin une légère coloration parut sur ses joues ; ses yeux, constamment restés ouverts et atones, reprirent leur regard, un faible soupir s’échappa de sa bouche, il fit un mouvement.
-« Sauvé ! sauvé ! » s’écria Dantès.
-Le malade ne pouvait point parler encore, mais il étendit avec une anxiété visible la main vers la porte. Dantès écouta, et entendit les pas du geôlier : il allait être sept heures et Dantès n’avait pas eu le loisir de mesurer le temps.
-Le jeune homme bondit vers l’ouverture, s’y enfonça, replaça la dalle au-dessus de sa tête, et rentra chez lui.
-Un instant après, sa porte s’ouvrit à son tour, et le geôlier, comme d’habitude, trouva le prisonnier assis sur son lit.
-À peine eut-il le dos tourné, à peine le bruit des pas se fut-il perdu dans le corridor, que Dantès, dévoré d’inquiétude, reprit sans songer à manger, le chemin qu’il venait de faire, et, soulevant la dalle avec sa tête, et rentra dans la chambre de l’abbé.
-Celui-ci avait repris connaissance, mais il était toujours étendu, inerte et sans force, sur son lit.
-« Je ne comptais plus vous revoir, dit-il à Dantès.
-– Pourquoi cela ? demanda le jeune homme ; comptiez-vous donc mourir ?
-– Non ; mais tout est prêt pour votre fuite, et je comptais que vous fuiriez. »
-La rougeur de l’indignation colora les joues de Dantès.
-« Sans vous ! s’écria-t-il ; m’avez-vous véritablement cru capable de cela ?
-– À présent, je vois que je m’étais trompé, dit le malade. Ah ! je suis bien faible, bien brisé, bien anéanti.
-– Courage, vos forces reviendront », dit Dantès, s’asseyant près du lit de Faria et lui prenant les mains.
-L’abbé secoua la tête.
-« La dernière fois, dit-il, l’accès dura une demi-heure, après quoi j’eus faim et me relevai seul ; aujourd’hui, je ne puis remuer ni ma jambe ni mon bras droit ; ma tête est embarrassée, ce qui prouve un épanchement au cerveau. La troisième fois, j’en resterai paralysé entièrement ou je mourrai sur le coup.
-– Non, non, rassurez-vous, vous ne mourrez pas ; ce troisième accès, s’il vous prend, vous trouvera libre. Nous vous sauverons comme cette fois, et mieux que cette fois, car nous aurons tous les secours nécessaires.
-– Mon ami, dit le vieillard, ne vous abusez pas, la crise qui vient de se passer m’a condamné à une prison perpétuelle : pour fuir, il faut pouvoir marcher.
-– Eh bien, nous attendrons huit jours, un mois, deux mois, s’il le faut ; dans cet intervalle, vos forces reviendront ; tout est préparé pour notre fuite, et nous avons la liberté d’en choisir l’heure et le moment. Le jour où vous vous sentirez assez de forces pour nager, eh bien, ce jour-là, nous mettrons notre projet à exécution.
-– Je ne nagerai plus, dit Faria, ce bras est paralysé, non pas pour un jour, mais à jamais.
-Soulevez-le vous-même, et voyez ce qu’il pèse. »
-Le jeune homme souleva le bras, qui retomba insensible. Il poussa un soupir.
-« Vous êtes convaincu, maintenant, n’est-ce pas, Edmond ? dit Faria ; croyez-moi, je sais ce que je dis : depuis la première attaque que j’aie eue de ce mal, je n’ai pas cessé d’y réfléchir. Je l’attendais, car c’est un héritage de famille ; mon père est mort à la troisième crise, mon aïeul aussi.
-Le médecin qui m’a composé cette liqueur, et qui n’est autre que le fameux Cabanis, m’a prédit le même sort.
-– Le médecin se trompe, s’écria Dantès ; quant à votre paralysie, elle ne me gêne pas, je vous prendrai sur mes épaules et je nagerai en vous soutenant.
-– Enfant, dit l’abbé, vous êtes marin, vous êtes nageur, vous devez par conséquent savoir qu’un homme chargé d’un fardeau pareil ne ferait pas cinquante brasses dans la mer. Cessez de vous laisser abuser par des chimères dont votre excellent cœur n’est pas même la dupe : je resterai donc ici jusqu’à ce que sonne l’heure de ma délivrance, qui ne peut plus être maintenant que celle de la mort. Quant à vous, fuyez, partez !
-Vous êtes jeune, adroit et fort, ne vous inquiétez pas de moi, je vous rends votre parole.
-– C’est bien, dit Dantès. Eh bien, alors, moi aussi, je resterai. »
-Puis, se levant et étendant une main solennelle sur le vieillard :
-« Par le sang du Christ, je jure de ne vous quitter qu’à votre mort ! »
-Faria considéra ce jeune homme si noble, si simple, si élevé, et lut sur ses traits, animés par l’expression du dévouement le plus pur, la sincérité de son affection et la loyauté de son serment.
-« Allons dit le malade, j’accepte, merci. »
-Puis, lui tendant la main :
-« Vous serez peut-être récompensé de ce dévouement si désintéressé, lui dit-il ; mais comme je ne puis et que vous ne voulez pas partir, il importe que nous bouchions le souterrain fait sous la galerie : le soldat peut découvrir en marchant la sonorité de l’endroit miné, appeler l’attention d’un inspecteur, et alors nous serions découverts et séparés. Allez faire cette besogne, dans laquelle je ne puis plus malheureusement vous aider ; employez-y toute la nuit, s’il le faut, et ne revenez que demain matin après la visite du geôlier, j’aurai quelque chose d’important à vous dire. »
-Dantès prit la main de l’abbé, qui le rassura par un sourire, et sortit avec cette obéissance et ce respect qu’il avait voués à son vieil ami.`,
+– Nous avons perdu un an ! s’écria Dantès.
+– Trouvez-vous que nous l’ayons perdu ? » dit l’abbé.
+Edmond rougit. « Oh, pardon, pardon.
+– Chut, dit l’abbé. L’homme n’est qu’un homme, et vous êtes l’un des meilleurs que j’aie connus. Voici mon plan. »
+L’abbé montra à Dantès un dessin : le plan de leurs deux cellules et du corridor. Au milieu, il avait dessiné un tunnel menant sous la galerie où se promenait la sentinelle. Là, ils creuseraient une large cavité. À un moment donné, la dalle du sol s’effondrerait sous le poids du soldat. Dantès se jetterait sur lui, le ligoterait, et tous deux s’enfuiraient par une fenêtre de la galerie avec l’échelle de corde.
+Dantès battit des mains, les yeux brillants de joie. Le plan était si simple qu’il devait réussir.
+Le même jour, les deux mineurs se mirent au travail avec une nouvelle ardeur.
+Rien ne les interrompait, sauf la visite du geôlier. Ils avaient appris à reconnaître le bruit de ses pas et n’étaient jamais surpris. La terre qu’ils extrayaient était jetée petit à petit par les fenêtres, pulvérisée pour que le vent la disperse sans laisser de traces.
+Plus d’un an se passa ainsi. Pendant ce temps, Faria continuait d’instruire Dantès, lui apprenant l’histoire, les sciences, les langues. L’abbé, homme du grand monde, avait une sorte de noblesse mélancolique, et Dantès, grâce à son intelligence, acquit cette élégance et ces manières aristocratiques qui lui manquaient.
+Au bout de quinze mois, le tunnel était achevé. Ils n’attendaient plus qu’une nuit sombre et sans lune pour s’évader. Leur seule crainte était que le sol ne s’effondre trop tôt sous les pieds du soldat. Ils placèrent une poutre pour le soutenir.
+Dantès était en train de l’ajuster quand il entendit l’abbé Faria l’appeler avec angoisse.
+Il revint vivement et trouva l’abbé au milieu de la chambre, pâle, le front en sueur et les mains crispées.
+« Oh, mon Dieu ! s’écria Dantès, qu’y a-t-il ?
+– Vite, écoute-moi ! dit l’abbé.
+En voyant son visage livide, ses yeux cernés de bleu, ses lèvres blanches, Dantès, d’épouvante, laissa tomber son ciseau.
+« Je suis perdu ! dit l’abbé. Un mal terrible va me saisir. L’accès arrive. Il n’y a qu’un remède. Cours chez moi, lève le pied de mon lit, il est creux. Tu y trouveras un petit flacon à moitié plein d’une liqueur rouge. Apporte-le. Ou plutôt non, aide-moi à rentrer chez moi pendant que j’en ai encore la force.
+Sans perdre la tête, Dantès traîna son malheureux compagnon dans le couloir et le déposa sur son lit.
+« Merci, dit l’abbé, frissonnant. Voici le mal qui vient. Je vais tomber en catalepsie. Peut-être que je ne bougerai pas, mais il se peut aussi que j’écume et que je crie. Fais en sorte qu’on n’entende pas mes cris, sinon on nous séparera. Quand tu me verras immobile et froid comme un mort, seulement à ce moment-là, desserre-moi les dents avec le couteau et fais couler dans ma bouche huit à dix gouttes de cette liqueur. Et peut-être que je reviendrai.
+– Peut-être ? s’écria Dantès, douloureusement.
+– À moi ! À moi ! Je me… je me m… »
+La crise fut si violente que le malheureux ne put achever son mot. Son visage se tordit, il s’agita, écuma, rugit, mais Dantès étouffa ses cris sous la couverture. Cela dura deux heures. Puis, il devint inerte, plus pâle que le marbre.
+Edmond attendit que cette mort apparente ait envahi tout le corps. Alors, il prit le couteau, desserra avec peine les mâchoires crispées, compta dix gouttes de la liqueur rouge et attendit.
+Une heure s’écoula sans le moindre mouvement. Dantès craignait d’avoir attendu trop tard. Enfin, une légère couleur revint sur les joues du vieil homme, ses yeux reprirent vie, un faible soupir s’échappa de sa bouche, il bougea.
+« Sauvé ! » s’écria Dantès.
+Le malade ne pouvait pas encore parler, mais il montra la porte avec anxiété. Dantès entendit les pas du geôlier. Il était presque sept heures.
+Le jeune homme bondit dans le passage, replaça la dalle au-dessus de sa tête et retourna dans sa cellule. Un instant après, le geôlier entra et le trouva assis sur son lit, comme d’habitude.
+Dès que le geôlier fut parti, Dantès, dévoré d’inquiétude, retourna dans la chambre de l’abbé.
+Celui-ci avait repris connaissance, mais il était toujours étendu, inerte et sans force.
+« Je ne pensais plus te revoir, dit-il à Dantès.
+– Pourquoi ? Vous pensiez mourir ?
+– Non, mais tout est prêt pour ta fuite, et je pensais que tu partirais.
+L’indignation colora les joues de Dantès. « Sans vous ! Me croyiez-vous capable de cela ?
+– Je vois que je m’étais trompé. Ah, je suis si faible, si brisé.
+– Courage, vos forces reviendront », dit Dantès en s’asseyant près de lui.
+L’abbé secoua la tête. « La dernière fois, l’accès a duré une demi-heure. Aujourd’hui, je ne peux plus bouger ni ma jambe ni mon bras droit. Ma tête est lourde. La troisième fois, je resterai paralysé ou je mourrai sur le coup.
+– Non, rassurez-vous. Nous vous sauverons comme cette fois.
+– Mon ami, ne te fais pas d’illusions. Cette crise m’a condamné à une prison perpétuelle. Pour fuir, il faut pouvoir marcher.
+– Eh bien, nous attendrons. Le jour où vous vous sentirez assez fort pour nager, nous partirons.
+– Je ne nagerai plus. Ce bras est paralysé pour toujours. Soulève-le et vois comme il est lourd. »
+Le jeune homme souleva le bras, qui retomba, inerte. Il soupira.
+« Tu es convaincu, maintenant ? dit Faria. C’est un mal de famille. Mon père et mon grand-père sont morts à la troisième crise. Le médecin qui m’a fait cette liqueur, le fameux Cabanis, m’a prédit le même sort.
+– Le médecin se trompe ! Quant à votre paralysie, je vous porterai sur mes épaules et je nagerai.
+– Enfant, dit l’abbé, tu es marin. Tu sais qu’un homme chargé d’un tel fardeau ne ferait pas cinquante brasses. Cesse de te bercer d’illusions. Je resterai ici jusqu’à ma mort. Quant à toi, fuis, pars ! Je te rends ta parole.
+– C’est bien, dit Dantès. Alors, moi aussi, je resterai. »
+Puis, se levant et étendant une main solennelle sur le vieil homme : « Par le sang du Christ, je jure de ne vous quitter qu’à votre mort ! »
+Faria regarda ce jeune homme si noble et lut dans ses yeux la sincérité de son serment. « J’accepte, merci, dit le malade. Tu seras peut-être récompensé pour ce dévouement. Mais puisque nous restons, il faut boucher le souterrain. Le soldat pourrait remarquer que le sol sonne creux. Va faire ce travail. Reviens seulement demain matin. J’aurai quelque chose d’important à te dire. »
+Dantès prit la main de l’abbé, qui lui sourit, et obéit avec le respect qu’il avait voué à son vieil ami.`,
 }

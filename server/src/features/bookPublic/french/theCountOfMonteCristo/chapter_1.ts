@@ -1,156 +1,145 @@
 export const chapter_1 = {
 	name: 'CHAPITRE I',
 	header: 'Marseille. L’arrivée',
-	text: `Le 24 février 1815, la vigie de Notre-Dame de la Garde signala le trois-mâts le Pharaon, venant de Smyrne, Trieste et Naples.
-Comme d’habitude, un pilote côtier partit aussitôt du port, rasa le château d’If, et alla aborder le navire entre le cap de Morgion et l’île de Rion.
-Aussitôt, comme d’habitude encore, la plateforme du fort Saint-Jean s’était couverte de curieux ; car c’est toujours une grande affaire à Marseille que l’arrivée d’un bâtiment, surtout quand ce bâtiment, comme le Pharaon, a été construit, gréé, arrimé sur les chantiers de la vieille Phocée, et appartient à un armateur de la ville.
-Cependant ce bâtiment s’avançait ; il avait heureusement franchi le détroit que quelque secousse volcanique a creusé entre l’île de Calasareigne et l’île de Jaros ; il avait doublé Pomègue, et il s’avançait sous ses trois huniers, son grand foc et sa brigantine, mais si lentement et d’une allure si triste, que les curieux, avec cet instinct qui pressent un malheur, se demandaient quel accident pouvait être arrivé à bord.
-Néanmoins les experts en navigation reconnaissaient que si un accident était arrivé, ce ne pouvait être au bâtiment lui-même ; car il s’avançait dans toutes les conditions d’un navire parfaitement gouverné : son ancre était en mouillage, ses haubans de beaupré décrochés ; et près du pilote, qui s’apprêtait à diriger le Pharaon par l’étroite entrée du port de Marseille, était un jeune homme au geste rapide et à l’œil actif, qui surveillait chaque mouvement du navire et répétait chaque ordre du pilote.
-La vague inquiétude qui planait sur la foule avait particulièrement atteint un des spectateurs de l’esplanade de Saint-Jean, de sorte qu’il ne put attendre l’entrée du bâtiment dans le port ; il sauta dans une petite barque et ordonna de ramer au-devant du Pharaon, qu’il atteignit en face de l’anse de la Réserve.
-En voyant venir cet homme, le jeune marin quitta son poste à côté du pilote, et vint, le chapeau à la main, s’appuyer à la muraille du bâtiment.
-C’était un jeune homme de dix-huit à vingt ans, grand, svelte, avec de beaux yeux noirs et des cheveux d’ébène ; il y avait dans toute sa personne cet air calme et de résolution particulier aux hommes habitués depuis leur enfance à lutter avec le danger.
-« Ah ! c’est vous, Dantès ! cria l’homme à la barque ; qu’est-il donc arrivé, et pourquoi cet air de tristesse répandu sur tout votre bord ?
-– Un grand malheur, monsieur Morrel ! répondit le jeune homme, un grand malheur, pour moi surtout : à la hauteur de Civita-Vecchia, nous avons perdu ce brave capitaine Leclère.
-– Et le chargement ? demanda vivement l’armateur.
-– Il est arrivé à bon port, monsieur Morrel, et je crois que vous serez content sous ce rapport ; mais ce pauvre capitaine Leclère...
-– Que lui est-il donc arrivé ? demanda l’armateur d’un air visiblement soulagé ; que lui est-il donc arrivé, à ce brave capitaine ?
+	text: `Le 24 février 1815, le guetteur de Notre-Dame de la Garde signala le trois-mâts le Pharaon, venant de Smyrne, Trieste et Naples.
+Comme d’habitude, un pilote côtier partit aussitôt du port. Il passa tout près du château d’If et alla rejoindre le navire entre le cap de Morgion et l’île de Rion.
+Comme d’habitude, la plateforme du fort Saint-Jean se remplit de curieux. À Marseille, l'arrivée d'un navire est toujours un événement important. C'est encore plus vrai quand le navire, comme le Pharaon, a été construit et équipé dans les chantiers de la ville et appartient à un armateur local.
+Le navire avançait. Il avait franchi le détroit entre l’île de Calasareigne et l’île de Jaros, puis doublé Pomègue. Il avançait sous ses voiles, mais si lentement et d’un air si triste que les curieux s'inquiétaient. Avec cet instinct qui devine le malheur, ils se demandaient quel accident s’était produit à bord.
+Pourtant, les experts voyaient bien que le navire lui-même n'avait aucun problème. Il était parfaitement dirigé. Son ancre était prête et ses câbles étaient bien rangés. Près du pilote, qui dirigeait le Pharaon vers l’entrée du port, se tenait un jeune homme au geste vif et au regard attentif. Il surveillait chaque mouvement du navire et répétait chaque ordre du pilote.
+L'inquiétude de la foule gagna un homme sur l’esplanade. Il ne put attendre que le navire entre au port. Il sauta dans une petite barque et ordonna de ramer vers le Pharaon. Il rejoignit le bâtiment face à l’anse de la Réserve.
+En voyant venir cet homme, le jeune marin quitta le pilote. Il s'approcha du bord du navire, son chapeau à la main. C’était un jeune homme de dix-huit à vingt ans, grand et mince, avec de beaux yeux noirs et des cheveux très sombres. Toute sa personne dégageait un air calme et résolu. C’était l'air des hommes habitués dès l'enfance à affronter le danger.
+« Ah ! c’est vous, Dantès ! cria l’homme dans la barque. Que s’est-il passé ? Pourquoi tout le monde semble-t-il si triste à bord ?
+– Un grand malheur, monsieur Morrel ! répondit le jeune homme. Un grand malheur, surtout pour moi. Près de Civita-Vecchia, nous avons perdu le capitaine Leclère.
+– Et la cargaison ? demanda vivement l’armateur.
+– Elle est en bon état, monsieur Morrel. Je pense que vous serez satisfait sur ce point. Mais ce pauvre capitaine Leclère...
+– Que lui est-il arrivé ? demanda l’armateur, d'un air soulagé. Que s'est-il passé pour ce brave capitaine ?
 – Il est mort.
 – Tombé à la mer ?
-– Non, monsieur ; mort d’une fièvre cérébrale, au milieu d’horribles souffrances. »
-Puis, se retournant vers ses hommes :
-« Holà hé ! dit-il, chacun à son poste pour le mouillage ! »
-L’équipage obéit. Au même instant, les huit ou dix matelots qui le composaient s’élancèrent les uns sur les écoutes, les autres sur les bras, les autres aux drisses, les autres aux hallebas des focs, enfin les autres aux cargues des voiles.
-Le jeune marin jeta un coup d’œil nonchalant sur ce commencement de manœuvre, et, voyant que ses ordres allaient s’exécuter, il revint à son interlocuteur.
-« Et comment ce malheur est-il donc arrivé ? continua l’armateur, reprenant la conversation où le jeune marin l’avait quittée.
-– Mon Dieu, monsieur, de la façon la plus imprévue : après une longue conversation avec le commandant du port, le capitaine Leclère quitta Naples fort agité ; au bout de vingt-quatre heures, la fièvre le prit ; trois jours après, il était mort...
-« Nous lui avons fait les funérailles ordinaires, et il repose, décemment enveloppé dans un hamac, avec un boulet de trente-six aux pieds et un à la tête, à la hauteur de l’île d’El Giglio. Nous rapportons à sa veuve sa croix d’honneur et son épée. C’était bien la peine, continua le jeune homme avec un sourire mélancolique, de faire dix ans la guerre aux Anglais pour en arriver à mourir, comme tout le monde, dans son lit.
-– Dame ! que voulez-vous, monsieur Edmond, reprit l’armateur qui paraissait se consoler de plus en plus, nous sommes tous mortels, et il faut bien que les anciens fassent place aux nouveaux, sans cela il n’y aurait pas d’avancement ; et du moment que vous m’assurez que la cargaison...
-– Est en bon état, monsieur Morrel, je vous en réponds. Voici un voyage que je vous donne le conseil de ne point escompter pour 25 000 francs de bénéfice. »
-Puis, comme on venait de dépasser la tour ronde :
-« Range à carguer les voiles de hune, le foc et la brigantine ! cria le jeune marin ; faites penaud ! »
-L’ordre s’exécuta avec presque autant de promptitude que sur un bâtiment de guerre.
-« Amène et cargue partout ! »
-Au dernier commandement, toutes les voiles s’abaissèrent, et le navire s’avança d’une façon presque insensible, ne marchant plus que par l’impulsion donnée.
-« Et maintenant, si vous voulez monter, monsieur Morrel, dit Dantès voyant l’impatience de l’armateur, voici votre comptable, M. Danglars, qui sort de sa cabine, et qui vous donnera tous les renseignements que vous pouvez désirer. Quant à moi, il faut que je veille au mouillage et que je mette le navire en deuil. »
-L’armateur ne se le fit pas dire deux fois. Il saisit un câble que lui jeta Dantès, et, avec une dextérité qui eût fait honneur à un homme de mer, il gravit les échelons cloués sur le flanc rebondi du bâtiment, tandis que celui-ci, retournant à son poste de second, cédait la conversation à celui qu’il avait annoncé sous le nom de Danglars, et qui, sortant de sa cabine, s’avançait effectivement au-devant de l’armateur.
-Le nouveau venu était un homme de vingtcinq à vingt-six ans, d’une figure assez sombre, obséquieux envers ses supérieurs, insolent envers ses subordonnés : aussi, outre son titre d’agent comptable, qui est toujours un motif de répulsion pour les matelots, était-il généralement aussi mal vu de l’équipage qu’Edmond Dantès au contraire en était aimé.
-« Eh bien, monsieur Morrel, dit Danglars, vous savez le malheur, n’est-ce pas ?
-– Oui, oui, pauvre capitaine Leclère ! c’était un brave et honnête homme !
-– Et un excellent marin surtout, vieilli entre le ciel et l’eau, comme il convient à un homme chargé des intérêts d’une maison aussi importante que la maison Morrel et fils, répondit Danglars.
-– Mais, dit l’armateur, suivant des yeux Dantès qui cherchait son mouillage, mais il me semble qu’il n’y a pas besoin d’être si vieux marin que vous le dites, Danglars, pour connaître son métier, et voici notre ami Edmond qui fait le sien, ce me semble, en homme qui n’a besoin de demander des conseils à personne.
-– Oui, dit Danglars en jetant sur Dantès un regard oblique où brilla un éclair de haine, oui, c’est jeune, et cela ne doute de rien. À peine le capitaine a-t-il été mort qu’il a pris le commandement sans consulter personne, et qu’il nous a fait perdre un jour et demi à l’île d’Elbe au lieu de revenir directement à Marseille.
-– Quant à prendre le commandement du navire, dit l’armateur, c’était son devoir comme second ; quant à perdre un jour et demi à l’île d’Elbe, il a eu tort ; à moins que le navire n’ait eu quelque avarie à réparer.
-– Le navire se portait comme je me porte, et comme je désire que vous vous portiez, monsieur Morrel ; et cette journée et demie a été perdue par pur caprice, pour le plaisir d’aller à terre, voilà tout.
-– Dantès, dit l’armateur se retournant vers le jeune homme, venez donc ici.
-– Pardon, monsieur, dit Dantès, je suis à vous dans un instant. »
-Puis s’adressant à l’équipage :
-« Mouille ! » dit-il.
-Aussitôt l’ancre tomba, et la chaîne fila avec bruit. Dantès resta à son poste, malgré la présence du pilote, jusqu’à ce que cette dernière manœuvre fût terminée ; puis alors :
-« Abaissez la flamme à mi-mât, mettez le pavillon en berne, croisez les vergues !
-– Vous voyez, dit Danglars, il se croit déjà capitaine, sur ma parole.
-– Et il l’est de fait, dit l’armateur.
-– Oui, sauf votre signature et celle de votre associé, monsieur Morrel.
-– Dame ! pourquoi ne le laisserions-nous pas à ce poste ? dit l’armateur. Il est jeune, je le sais bien, mais il me paraît tout à la chose, et fort expérimenté dans son état. »
-Un nuage passa sur le front de Danglars.
-« Pardon, monsieur Morrel, dit Dantès en s’approchant ; maintenant que le navire est mouillé, me voilà tout à vous : vous m’avez appelé, je crois ? »
-Danglars fit un pas en arrière.
-« Je voulais vous demander pourquoi vous vous étiez arrêté à l’île d’Elbe ?
-– Je l’ignore, monsieur ; c’était pour accomplir un dernier ordre du capitaine Leclère, qui, en mourant, m’avait remis un paquet pour le grand maréchal Bertrand.
-– L’avez-vous donc vu, Edmond ?
-– Qui ?
-– Le grand maréchal ?
-– Oui. »
-Morrel regarda autour de lui, et tira Dantès à part.
-« Et comment va l’Empereur ? demanda-t-il vivement.
-– Bien, autant que j’aie pu en juger par mes yeux.
-– Vous avez donc vu l’Empereur aussi ?
+– Non, monsieur. Il est mort d’une forte fièvre, après d'horribles souffrances. »
+Puis, se tournant vers ses hommes :
+« Hé là ! dit-il, chacun à son poste pour l'ancrage ! »
+L’équipage obéit. Aussitôt, les dix matelots s’élancèrent pour manœuvrer les cordages et les voiles. Le jeune marin surveilla rapidement le début de la manœuvre. Voyant que ses ordres étaient suivis, il revint vers l'armateur.
+« Et comment ce malheur est-il arrivé ? demanda l’armateur.
+– De la façon la plus inattendue, monsieur. Après une longue discussion avec le commandant du port, le capitaine Leclère a quitté Naples très agité. Vingt-quatre heures plus tard, la fièvre l'a pris. Trois jours après, il était mort.
+« Nous avons fait les funérailles habituelles. Il repose maintenant au fond de la mer, près de l’île d’El Giglio. Nous rapportons à sa veuve sa médaille et son épée. C’était bien la peine, ajouta le jeune homme avec un sourire triste, de faire la guerre aux Anglais pendant dix ans pour finir par mourir dans son lit, comme tout le monde.
+– Eh bien ! que voulez-vous, monsieur Edmond, répondit l’armateur, qui semblait rassuré. Nous sommes tous mortels. Il faut bien que les anciens laissent leur place aux plus jeunes, sinon il n’y aurait pas de promotion. Et puisque vous me dites que la cargaison...
+– Est en bon état, monsieur Morrel, je vous le garantis. C'est un voyage qui vous rapportera au moins 25 000 francs de bénéfice. »
+Alors qu'ils passaient devant la tour ronde, le jeune marin cria :
+« Préparez-vous à plier les voiles ! »
+L’ordre fut exécuté aussi vite que sur un navire de guerre.
+« Pliez tout ! »
+À ce dernier ordre, toutes les voiles tombèrent. Le navire continua d'avancer très doucement, porté seulement par son élan.
+« Si vous voulez monter, monsieur Morrel, dit Dantès en voyant l’impatience de l’armateur, voici votre comptable, M. Danglars. Il sort de sa cabine et vous donnera tous les détails que vous souhaitez. Moi, je dois m'occuper de l'ancrage et mettre le navire en deuil. »
+L’armateur accepta immédiatement. Il saisit une corde jetée par Dantès. Avec une agilité digne d'un marin, il monta à bord. Pendant ce temps, Dantès retourna à son poste de second officier. Il laissa la place à Danglars, qui s’avançait vers l’armateur.
+Le nouveau venu était un homme d'environ vingt-cinq ans, au visage sombre. Il était trop poli avec ses supérieurs et arrogant avec ses subordonnés. En plus d'être comptable, ce que les matelots n'aiment généralement pas, il était détesté par l’équipage. À l'inverse, tout le monde aimait Edmond Dantès.
+« Eh bien, monsieur Morrel, dit Danglars, vous avez appris le malheur ?
+– Oui, pauvre capitaine Leclère ! C’était un homme courageux et honnête !
+– Et surtout un excellent marin, qui a passé sa vie en mer, comme il faut pour s'occuper d'une entreprise aussi importante que la maison Morrel et fils, répondit Danglars.
+– Pourtant, dit l’armateur en regardant Dantès s'occuper de l'ancre, il n'est pas nécessaire d'être si vieux pour bien connaître son métier. Regardez notre ami Edmond. Il fait son travail comme un homme qui n’a besoin des conseils de personne.
+– Oui, dit Danglars en lançant à Dantès un regard plein de haine. Il est jeune et il a trop confiance en lui. Dès que le capitaine est mort, il a pris le commandement sans demander l'avis de personne. Il nous a même fait perdre un jour et demi à l’île d’Elbe au lieu de rentrer directement à Marseille.
+– Prendre le commandement était son devoir en tant que second, répondit l’armateur. Mais s'il a vraiment perdu du temps à l’île d’Elbe, il a eu tort, sauf si le navire avait besoin de réparations.
+– Le navire était en parfait état, monsieur Morrel. Ce temps a été perdu par simple caprice, juste pour le plaisir d'aller à terre.
+– Dantès ! appela l’armateur. Venez ici.
+– Pardon, monsieur, répondit Dantès, je suis à vous dans un instant. »
+Puis, s’adressant à l’équipage :
+« Jetez l'ancre ! »
+L’ancre tomba aussitôt et la chaîne fit un grand bruit. Dantès resta à son poste jusqu’à la fin de la manœuvre. Ensuite, il ordonna :
+« Mettez les drapeaux en signe de deuil ! »
+– Vous voyez, dit Danglars, il se croit déjà capitaine.
+– Et il l’est, dans les faits, répondit l’armateur.
+– Oui, mais il lui manque votre signature officielle.
+– Pourquoi ne pas le laisser à ce poste ? Il est jeune, c'est vrai, mais il est sérieux et très compétent dans son travail. »
+Danglars sembla très mécontent.
+« Pardon, monsieur Morrel, dit Dantès en s’approchant. Le navire est ancré, je suis à vous. Vous m’avez appelé ? »
+Danglars recula d'un pas.
+« Je voulais vous demander : pourquoi vous êtes-vous arrêté à l’île d’Elbe ?
+– C’était pour exécuter un dernier ordre du capitaine Leclère. En mourant, il m’a confié un paquet pour le grand maréchal Bertrand.
+– Vous l’avez vu, Edmond ?
+– Le grand maréchal ? Oui. »
+Morrel regarda autour de lui et emmena Dantès à l’écart.
+« Et comment va l’Empereur ? demanda-t-il à voix basse.
+– Bien, d'après ce que j'ai vu.
+– Vous avez aussi vu l’Empereur ?
 – Il est entré chez le maréchal pendant que j’y étais.
 – Et vous lui avez parlé ?
-– C’est-à-dire que c’est lui qui m’a parlé, monsieur, dit Dantès en souriant.
+– C’est plutôt lui qui m’a parlé, monsieur, répondit Dantès en souriant.
 – Et que vous a-t-il dit ?
-– Il m’a fait des questions sur le bâtiment, sur l’époque de son départ pour Marseille, sur la route qu’il avait suivie et sur la cargaison qu’il portait. Je crois que s’il eût été vide, et que j’en eusse été le maître, son intention eût été de l’acheter ; mais je lui ai dit que je n’étais que simple second, et que le bâtiment appartenait à la maison Morrel et fils. « Ah ! ah ! a-t-il dit, je la connais. Les Morrel sont armateurs de père en fils, et il y avait un Morrel qui servait dans le même régiment que moi lorsque j’étais en garnison à Valence. »
-– C’est pardieu vrai ! s’écria l’armateur tout joyeux ; c’était Policar Morrel, mon oncle, qui est devenu capitaine. Dantès, vous direz à mon oncle que l’Empereur s’est souvenu de lui, et vous le verrez pleurer, le vieux grognard. Allons, allons, continua l’armateur en frappant amicalement sur l’épaule du jeune homme, vous avez bien fait, Dantès, de suivre les instructions du capitaine Leclère et de vous arrêter à l’île d’Elbe, quoique, si l’on savait que vous avez remis un paquet au maréchal et causé avec l’Empereur, cela pourrait vous compromettre.
-– En quoi voulez-vous, monsieur, que cela me compromette ? dit Dantès : je ne sais pas même ce que je portais, et l’Empereur ne m’a fait que les questions qu’il eût faites au premier venu.
-Mais, pardon, reprit Dantès, voici la santé et la douane qui nous arrivent ; vous permettez, n’estce pas ?
-– Faites, faites, mon cher Dantès. »
-Le jeune homme s’éloigna, et, comme il s’éloignait, Danglars se rapprocha.
-« Eh bien, demanda-t-il, il paraît qu’il vous a donné de bonnes raisons de son mouillage à Porto-Ferrajo ?
-– D’excellentes, mon cher monsieur Danglars.
-– Ah ! tant mieux, répondit celui-ci, car c’est toujours pénible de voir un camarade qui ne fait pas son devoir.
-– Dantès a fait le sien, répondit l’armateur, et il n’y a rien à dire. C’était le capitaine Leclère qui lui avait ordonné cette relâche.
-– À propos du capitaine Leclère, ne vous a-t-il pas remis une lettre de lui ?
-– Qui ?
+– Il m’a posé des questions sur le navire, sur notre départ et sur la cargaison. Je crois qu'il aurait voulu acheter le navire s'il avait été vide. Mais je lui ai dit que je n'étais que le second officier et que le navire appartenait à la maison Morrel. « Ah ! je connais cette famille, a-t-il dit. Les Morrel sont armateurs de père en fils. L'un d'eux servait dans mon régiment quand j'étais à Valence. »
+– C’est tout à fait vrai ! s’écria l’armateur, joyeux. C’était mon oncle, Policar Morrel. Il est devenu capitaine. Dantès, vous direz à mon oncle que l’Empereur s’est souvenu de lui. Le vieux soldat va en pleurer de joie. Allons, Dantès, vous avez bien fait de suivre les ordres du capitaine Leclère. Mais attention : si l'on apprenait que vous avez remis un paquet au maréchal et parlé à l’Empereur, cela pourrait vous attirer des ennuis.
+– Pourquoi cela me poserait-il problème ? demanda Dantès. Je ne sais même pas ce qu'il y avait dans le paquet. L’Empereur m’a posé des questions très simples. Mais excusez-moi, monsieur, les officiers de la douane arrivent. Vous permettez ?
+– Allez-y, mon cher Dantès. »
+Le jeune homme s’éloigna, et Danglars s’approcha aussitôt de l’armateur.
+« Alors, demanda Danglars, vous a-t-il donné de bonnes explications sur son arrêt à Porto-Ferrajo ?
+– D'excellentes raisons, mon cher Danglars.
+– Ah ! tant mieux, répondit celui-ci. Il est toujours triste de voir un camarade négliger son devoir.
+– Dantès au fait son devoir, répondit l’armateur. Il n’y a rien à lui reprocher. C’est le capitaine Leclère qui lui avait ordonné cet arrêt.
+– D'ailleurs, le capitaine Leclère ne vous a-t-il pas envoyé une lettre ?
+– Qui ça ?
 – Dantès.
-– À moi, non ! En avait-il donc une ?
-– Je croyais qu’outre le paquet, le capitaine Leclère lui avait confié une lettre.
-– De quel paquet voulez-vous parler, Danglars ?
-– Mais de celui que Dantès a déposé en passant à Porto-Ferrajo ?
-– Comment savez-vous qu’il avait un paquet à déposer à Porto-Ferrajo ? »
-Danglars rougit.
-« Je passais devant la porte du capitaine qui était entrouverte, et je lui ai vu remettre ce paquet et cette lettre à Dantès.
-– Il ne m’en a point parlé, dit l’armateur ; mais s’il a cette lettre, il me la remettra. »
+– Non, pas à moi. Il en avait une ?
+– Je pensais qu'in plus du paquet, le capitaine lui avait confié une lettre.
+– De quel paquet parlez-vous ?
+– De celui que Dantès a laissé à Porto-Ferrajo.
+– Comment savez-vous qu’il avait un paquet à laisser là-bas ? »
+Danglars devint tout rouge.
+« La porte du capitaine était entrouverte. En passant devant, j’ai vu qu’il remettait ce paquet et cette lettre à Dantès.
+– Il ne m’en a pas parlé, dit l’armateur. Mais s’il a une lettre pour moi, il me la donnera bientôt. »
 Danglars réfléchit un instant.
-« Alors, monsieur Morrel, je vous prie, dit-il, ne parlez point de cela à Dantès ; je me serai trompé. »
-En ce moment, le jeune homme revenait ;
-Danglars s’éloigna.
-« Eh bien, mon cher Dantès, êtes-vous libre ? demanda l’armateur.
+« Dans ce cas, monsieur Morrel, ne dites rien à Dantès. Je me suis peut-être trompé. »
+À ce moment, le jeune homme revint. Danglars s’éloigna.
+« Alors, mon cher Dantès, avez-vous fini ? demanda l’armateur.
 – Oui, monsieur.
-– La chose n’a pas été longue.
-– Non, j’ai donné aux douaniers la liste de nos marchandises ; et quant à la consigne, elle avait envoyé avec le pilote côtier un homme à qui j’ai remis nos papiers.
-– Alors, vous n’avez plus rien à faire ici ? »
-Dantès jeta un regard rapide autour de lui.
-« Non, tout est en ordre, dit-il.
-– Vous pouvez donc alors venir dîner avec nous ?
-– Excusez-moi, monsieur Morrel, excusezmoi, je vous prie, mais je dois ma première visite à mon père. Je n’en suis pas moins reconnaissant de l’honneur que vous me faites.
-– C’est juste, Dantès, c’est juste. Je sais que vous êtes bon fils.
-– Et... demanda Dantès avec une certaine hésitation, et il se porte bien, que vous sachiez, mon père ?
-– Mais je crois que oui, mon cher Edmond, quoique je ne l’aie pas aperçu.
-– Oui, il se tient enfermé dans sa petite chambre.
-– Cela prouve au moins qu’il n’a manqué de rien pendant votre absence. »
+– Cela a été rapide.
+– Oui. J’ai donné la liste des marchandises aux douaniers et j'ai remis les papiers officiels.
+– Vous n'avez donc plus rien à faire ici ? »
+Dantès regarda autour de lui.
+« Non, tout est en ordre.
+– Alors, venez donc dîner avec nous ?
+– Excusez-moi, monsieur Morrel, mais je dois d'abord aller voir mon père. Je vous remercie beaucoup pour votre invitation.
+– C’est normal, Dantès. Je sais que vous êtes un bon fils.
+– Et... mon père va-t-il bien ? demanda Dantès avec hésitation.
+– Je pense que oui, mon cher Edmond, même si je ne l'ai pas vu récemment.
+– Oui, il reste souvent enfermé dans sa petite chambre.
+– Cela signifie au moins qu'il n'a manqué de rien pendant votre voyage. »
 Dantès sourit.
-« Mon père est fier, monsieur, et, eût-il manqué de tout, je doute qu’il eût demandé quelque chose à qui que ce soit au monde, excepté à Dieu.
-– Eh bien, après cette première visite, nous comptons sur vous.
-– Excusez-moi encore, monsieur Morrel, mais après cette première visite, j’en ai une seconde qui ne me tient pas moins au cœur.
-– Ah ! c’est vrai, Dantès ; j’oubliais qu’il y a aux Catalans quelqu’un qui doit vous attendre avec non moins d’impatience que votre père : c’est la belle Mercédès. »
+« Mon père est fier, monsieur. Même s'il avait manqué de tout, il n'aurait rien demandé à personne, sauf à Dieu.
+– Très bien. Après cette visite, nous vous attendons.
+– Excusez-moi encore, monsieur Morrel, mais j'ai une seconde visite à faire, tout aussi importante pour moi.
+– Ah ! c'est vrai ! J'oubliais qu'il y a quelqu'un au village des Catalans qui vous attend avec impatience : la belle Mercédès ! »
 Dantès sourit.
-« Ah ! ah ! dit l’armateur, cela ne m’étonne plus, qu’elle soit venue trois fois me demander des nouvelles du Pharaon. Peste ! Edmond, vous n’êtes point à plaindre, et vous avez là une jolie maîtresse !
-– Ce n’est point ma maîtresse, monsieur, dit gravement le jeune marin : c’est ma fiancée.
-– C’est quelquefois tout un, dit l’armateur en riant.
+« Je comprends mieux pourquoi elle est venue trois fois me demander des nouvelles du navire, dit l’armateur. Edmond, vous avez de la chance, c'est une très jolie femme !
+– Ce n’est pas ma maîtresse, monsieur, répondit sérieusement le jeune marin. C’est ma fiancée.
+– C’est parfois la même chose, dit l’armateur en riant.
 – Pas pour nous, monsieur, répondit Dantès.
-– Allons, allons, mon cher Edmond, continua l’armateur, que je ne vous retienne pas ; vous avez assez bien fait mes affaires pour que je vous donne tout loisir de faire les vôtres. Avez-vous besoin d’argent ?
-– Non, monsieur ; j’ai tous mes appointements du voyage, c’est-à-dire près de trois mois de solde.
-– Vous êtes un garçon rangé, Edmond.
-– Ajoutez que j’ai un père pauvre, monsieur Morrel.
-– Oui, oui, je sais que vous êtes un bon fils.
-Allez donc voir votre père : j’ai un fils aussi, et j’en voudrais fort à celui qui, après un voyage de trois mois, le retiendrait loin de moi.
-– Alors, vous permettez ? dit le jeune homme en saluant.
-– Oui, si vous n’avez rien de plus à me dire.
+– Allez, mon cher Edmond, je ne vous retiens pas. Vous avez bien travaillé, vous méritez du temps pour vos affaires personnelles. Avez-vous besoin d’argent ?
+– Non, monsieur. J'ai mon salaire du voyage, cela fait presque trois mois de paye.
+– Vous êtes un jeune homme sérieux, Edmond.
+– C'est aussi parce que mon père est pauvre, monsieur Morrel.
+– Je sais que vous êtes un bon fils. Allez voir votre père. J'ai moi aussi un fils, et je serais très fâché contre celui qui l'empêcherait de venir me voir après un si long voyage.
+– Alors, vous me permettez de partir ? demanda le jeune homme.
+– Oui, si vous n’avez rien d'autre à me dire.
 – Non.
-– Le capitaine Leclère ne vous a pas, en mourant, donné une lettre pour moi ?
-– Il lui eût été impossible d’écrire, monsieur ; mais cela me rappelle que j’aurai un congé de quinze jours à vous demander.
+– Le capitaine Leclère ne vous a pas donné de lettre pour moi avant de mourir ?
+– Il était trop faible pour écrire, monsieur. Mais cela me rappelle que j'aimerais vous demander un congé de quinze jours.
 – Pour vous marier ?
-– D’abord ; puis pour aller à Paris.
-– Bon, bon ! vous prendrez le temps que vous voudrez, Dantès ; le temps de décharger le bâtiment nous prendra bien six semaines, et nous ne nous remettrons guère en mer avant trois mois... Seulement, dans trois mois, il faudra que vous soyez là. Le Pharaon, continua l’armateur en frappant sur l’épaule du jeune marin, ne pourrait pas repartir sans son capitaine.
-– Sans son capitaine ! s’écria Dantès les yeux brillants de joie ; faites bien attention à ce que vous dites là, monsieur, car vous venez de répondre aux plus secrètes espérances de mon cœur. Votre intention serait-elle de me nommer capitaine du Pharaon ?
-– Si j’étais seul, je vous tendrais la main, mon cher Dantès, et je vous dirais : « C’est fait. »
-Mais j’ai un associé, et vous savez le proverbe italien : Che a compagne a padrone. Mais la moitié de la besogne est faite au moins, puisque sur deux voix vous en avez déjà une. Rapportezvous-en à moi pour avoir l’autre, et je ferai de mon mieux.
-– Oh ! monsieur Morrel, s’écria le jeune marin, saisissant, les larmes aux yeux, les mains de l’armateur ; monsieur Morrel, je vous remercie, au nom de mon père et de Mercédès.
-– C’est bien, c’est bien, Edmond, il y a un Dieu au ciel pour les braves gens, que diable !
-Allez voir votre père, allez voir Mercédès, et revenez me trouver après.
-– Mais vous ne voulez pas que je vous ramène à terre ?
-– Non, merci ; je reste à régler mes comptes avec Danglars. Avez-vous été content de lui pendant le voyage ?
-– C’est selon le sens que vous attachez à cette question, monsieur. Si c’est comme bon camarade, non, car je crois qu’il ne m’aime pas depuis le jour où j’ai eu la bêtise, à la suite d’une petite querelle que nous avions eue ensemble, de lui proposer de nous arrêter dix minutes à l’île de Monte-Cristo pour vider cette querelle ; proposition que j’avais eu tort de lui faire, et qu’il avait eu, lui, raison de refuser. Si c’est comme comptable que vous me faites cette question, je crois qu’il n’y a rien à dire et que vous serez content de la façon dont sa besogne est faite.
-– Mais, demanda l’armateur, voyons, Dantès, si vous étiez capitaine du Pharaon, garderiezvous Danglars avec plaisir ?
-– Capitaine ou second, monsieur Morrel, répondit Dantès, j’aurai toujours les plus grands égards pour ceux qui posséderont la confiance de mes armateurs.
-– Allons, allons, Dantès, je vois qu’en tout point vous êtes un brave garçon. Que je ne vous retienne plus : allez, car je vois que vous êtes sur des charbons.
-– J’ai donc mon congé ? demanda Dantès.
-– Allez, vous dis-je.
-– Vous permettez que je prenne votre canot ?
-– Prenez.
-– Au revoir, monsieur Morrel, et mille fois merci.
-– Au revoir, mon cher Edmond, bonne chance ! »
-Le jeune marin sauta dans le canot, alla s’asseoir à la poupe, et donna l’ordre d’aborder à la Canebière. Deux matelots se penchèrent aussitôt sur leurs rames, et l’embarcation glissa aussi rapidement qu’il est possible de le faire, au milieu des mille barques qui obstruent l’espèce de rue étroite qui conduit, entre deux rangées de navires, de l’entrée du port au quai d’Orléans.
-L’armateur le suivit des yeux en souriant, jusqu’au bord, le vit sauter sur les dalles du quai, et se perdre aussitôt au milieu de la foule bariolée qui, de cinq heures du matin à neuf heures du soir, encombre cette fameuse rue de la Canebière, dont les Phocéens modernes sont si fiers, qu’ils disent avec le plus grand sérieux du monde et avec cet accent qui donne tant de caractère à ce qu’ils disent : « Si Paris avait la Canebière, Paris serait un petit Marseille. »
-En se retournant, l’armateur vit derrière lui Danglars, qui, en apparence, semblait attendre ses ordres, mais qui, en réalité, suivait comme lui le jeune marin du regard.
-Seulement, il y avait une grande différence dans l’expression de ce double regard qui suivait le même homme.`,
+– Oui, et ensuite pour aller à Paris.
+– Très bien ! Prenez le temps qu'il vous faut, Dantès. Le déchargement va durer six semaines, et nous ne repartirons pas avant trois mois. Mais dans trois mois, vous devrez être ici. Le Pharaon ne pourra pas repartir sans son capitaine.
+– Sans son capitaine ! s’écria Dantès, les yeux brillants de joie. Faites attention à ce que vous dites, monsieur, car c'est mon plus grand rêve. Est-ce que vous comptez me nommer capitaine du Pharaon ?
+– Si je décidais seul, je vous dirais tout de suite : « C’est fait ». Mais j’ai un associé, et comme dit le proverbe italien : « Qui a un associé a un maître ». Mais la moitié du travail est faite, car vous avez déjà ma voix. Comptez sur moi pour convaincre mon associé, je ferai de mon mieux.
+– Oh ! monsieur Morrel, s’écria le jeune marin en lui serrant les mains. Merci, au nom de mon père et de Mercédès !
+– C’est bien, Edmond. Le ciel aide les gens honnêtes ! Allez voir votre famille et revenez me voir ensuite.
+– Voulez-vous que je vous ramène à terre ?
+– Non, merci. Je reste pour faire les comptes avec Danglars. Êtes-vous content de lui ?
+– Cela dépend, monsieur. En tant que camarade, non. Je pense qu'il ne m'aime pas. Un jour, après une petite dispute, j'ai eu la bêtise de lui proposer de s'arrêter dix minutes à l'île de Monte-Cristo pour régler nos comptes. J'ai eu tort de faire cette proposition, et il a eu raison de refuser. Mais en tant que comptable, il fait très bien son travail.
+– Si vous deveniez capitaine, est-ce que vous aimeriez garder Danglars avec vous ?
+– Monsieur Morrel, que je sois capitaine ou second, je respecterai toujours ceux qui ont votre confiance.
+– Très bien, Dantès. Je vois que vous êtes un excellent jeune homme. Allez maintenant, je vois que vous avez hâte de partir.
+– Je peux y aller ? demanda Dantès.
+– Oui, allez-y.
+– Je peux prendre votre canot ?
+– Bien sûr.
+– Au revoir, monsieur Morrel, et merci mille fois !
+– Au revoir, Edmond, bonne chance ! »
+Le jeune marin sauta dans le petit bateau et s'assit à l'arrière. Il donna l'ordre d'aller vers la Canebière. Deux matelots ramèrent de toutes leurs forces. Le bateau glissa rapidement au milieu des nombreuses barques qui encombraient l’entrée du port. L’armateur le regarda s’éloigner en souriant. Il le vit sauter sur le quai et disparaître dans la foule colorée qui remplit la célèbre rue de la Canebière. Les Marseillais sont si fiers de cette rue qu'ils disent souvent avec sérieux : « Si Paris avait la Canebière, Paris serait un petit Marseille. »
+En se retournant, l’armateur vit Danglars derrière lui. Celui-ci semblait attendre des ordres, mais en réalité, il regardait aussi le jeune marin s’éloigner. Pourtant, l'expression de leurs regards était bien différente.`,
 }

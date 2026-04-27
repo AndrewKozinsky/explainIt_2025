@@ -1,3 +1,4 @@
+// Глава не адаптирована
 export const chapter_7 = {
 	name: 'CHAPITRE VII',
 	header: 'L\'interrogatoire',

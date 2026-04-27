@@ -1,124 +1,115 @@
+// Глава адаптирована
 export const chapter_10 = {
 	name: 'CHAPITRE X',
 	header: 'Le petit cabinet des Tuileries',
-	text: `Abandonnons Villefort sur la route de Paris, où, grâce aux triples guides qu’il paie, il brûle le chemin, et pénétrons à travers les deux ou trois salons qui le précèdent dans ce petit cabinet des Tuileries, à la fenêtre cintrée, si bien connu pour avoir été le cabinet favori de Napoléon et de Louis XVIII, et pour être aujourd’hui celui de Louis-Philippe.
-Là, dans ce cabinet, assis devant une table de noyer qu’il avait rapportée d’Hartwell, et que, par une de ces manies familières aux grands personnages, il affectionnait tout particulièrement, le roi Louis XVIII écoutait assez légèrement un homme de cinquante à cinquante-deux ans, à cheveux gris, à la figure aristocratique et à la mise scrupuleuse, tout en notant à la marge un volume d’Horace, édition de Gryphius, assez incorrecte quoique estimée, et qui prêtait beaucoup aux sagaces observations philologiques de Sa Majesté.
-« Vous dites donc, monsieur ? dit le roi.
-– Que je suis on ne peut plus inquiet, Sire.
-– Vraiment ? auriez-vous vu en songe sept vaches grasses et sept vaches maigres ?
-– Non, Sire, car cela ne nous annoncerait que sept années de fertilité et sept années de disette, et, avec un roi aussi prévoyant que l’est Votre Majesté, la disette n’est pas à craindre.
-– De quel autre fléau est-il donc question, mon cher Blacas ?
-– Sire, je crois, j’ai tout lieu de croire qu’un orage se forme du côté du Midi.
-– Eh bien, mon cher duc, répondit Louis XVIII, je vous crois mal renseigné, et je sais positivement, au contraire, qu’il fait très beau temps de ce côté-là. »
-Tout homme d’esprit qu’il était, Louis XVIII aimait la plaisanterie facile.
-« Sire, dit M. de Blacas, ne fût-ce que pour rassurer un fidèle serviteur, Votre Majesté ne pourrait-elle pas envoyer dans le Languedoc, dans la Provence et dans le Dauphiné des hommes sûrs qui lui feraient un rapport sur l’esprit de ces trois provinces ?
-– Conimus surdis, répondit le roi, tout en continuant d’annoter son Horace.
-– Sire, répondit le courtisan en riant, pour avoir l’air de comprendre l’hémistiche du poète de Vénouse, Votre Majesté peut avoir parfaitement raison en comptant sur le bon esprit de la France ; mais je crois ne pas avoir tout à fait tort en craignant quelque tentative désespérée.
+	text: `Laissons Villefort sur la route de Paris, qu’il parcourt à toute vitesse, et entrons dans ce petit cabinet du palais des Tuileries, le bureau favori de Napoléon, de Louis XVIII, et aujourd’hui de Louis-Philippe.
+Là, assis devant une table en noyer rapportée de son exil à Hartwell, le roi Louis XVIII écoutait d’une oreille distraite un homme d’une cinquantaine d’années, aux cheveux gris et à l’allure aristocratique. Le roi était occupé à annoter une édition d’Horace, un de ses passe-temps favoris.
+« Vous disiez donc, monsieur ? dit le roi.
+– Que je suis extrêmement inquiet, Sire, répondit l’homme, qui était le duc de Blacas.
+– Vraiment ? Auriez-vous rêvé de sept vaches grasses et sept vaches maigres ?
+– Non, Sire, car cela annoncerait simplement des années de fertilité et de famine. Et avec un roi aussi prévoyant que vous, la famine n’est pas à craindre.
+– De quel autre malheur s’agit-il donc, mon cher Blacas ?
+– Sire, je crois qu’un orage se prépare dans le Sud.
+– Eh bien, mon cher duc, je crois que vous êtes mal informé. Au contraire, je sais qu’il fait très beau temps de ce côté-là. »
+Malgré son intelligence, Louis XVIII aimait les plaisanteries faciles.
+« Sire, dit M. de Blacas, ne serait-ce que pour rassurer un fidèle serviteur, Votre Majesté ne pourrait-elle pas envoyer des hommes de confiance en Languedoc, en Provence et dans le Dauphiné pour lui faire un rapport ?
+– “Canimus surdis”, répondit le roi en continuant d’annoter son Horace, ce qui signifie : nous chantons pour des sourds.
+– Sire, répondit le courtisan en riant pour faire semblant de comprendre, Votre Majesté a sans doute raison de compter sur le bon esprit de la France, mais je crains tout de même une tentative désespérée.
 – De la part de qui ?
-– De la part de Bonaparte, ou du moins de son parti.
-– Mon cher Blacas, dit le roi, vous m’empêchez de travailler avec vos terreurs.
+– De Bonaparte, ou du moins de son parti.
+– Mon cher Blacas, vous m’empêchez de travailler avec vos peurs.
 – Et moi, Sire, vous m’empêchez de dormir avec votre sécurité.
-– Attendez, mon cher, attendez, je tiens une note très heureuse sur le Pastor quum traheret ; attendez, et vous continuerez après. »
-Il se fit un instant de silence, pendant lequel Louis XVIII inscrivit, d’une écriture qu’il faisait aussi menue que possible, une nouvelle note en marge de son Horace ; puis, cette note inscrite :
-« Continuez, mon cher duc, dit-il en se relevant de l’air satisfait d’un homme qui croit avoir eu une idée lorsqu’il a commencé l’idée d’un autre. Continuez, je vous écoute.
-– Sire, dit Blacas, qui avait eu un instant l’espoir de confisquer Villefort à son profit, je suis forcé de vous dire que ce ne sont point de simples bruits dénués de tout fondement, de simples nouvelles en l’air, qui m’inquiètent. C’est un homme bien-pensant méritant toute ma confiance, et chargé par moi de surveiller le Midi (le duc hésita en prononçant ces mots), qui arrive en poste pour me dire : Un grand péril menace le roi. Alors, je suis accouru, Sire.
-– Mala ducis avi domum, continua Louis XVIII en annotant.
-– Votre Majesté m’ordonne-t-elle de ne plus insister sur ce sujet ?
-– Non, mon cher duc, mais allongez la main.
-– Laquelle ?
-– Celle que vous voudrez, là-bas, à gauche.
+– Attendez, mon cher, je tiens une note intéressante sur un passage d’Horace. Attendez, et vous continuerez après. »
+Il y eut un silence, pendant lequel le roi écrivit une nouvelle note en marge de son livre. Puis, il reprit, satisfait :
+« Continuez, mon cher duc, je vous écoute.
+– Sire, dit Blacas, qui avait espéré tirer profit de la nouvelle de Villefort, ce ne sont pas de simples rumeurs qui m’inquiètent. Un homme fiable, que j’ai chargé de surveiller le Sud, est arrivé en urgence pour me dire : “Un grand péril menace le roi.” Alors, je suis accouru, Sire.
+– “Mala ducis avi domum”, continua Louis XVIII, citant encore Horace pour montrer son agacement.
+– Votre Majesté m’ordonne-t-elle de ne plus insister ?
+– Non, mon cher duc, mais tendez la main… là, à gauche.
 – Ici, Sire ?
-– Je vous dis à gauche et vous cherchez à droite ; c’est à ma gauche que je veux dire : là ; vous y êtes ; vous devez trouver le rapport du ministre de la Police en date d’hier... Mais, tenez, voici M. Dandré lui-même... n’est-ce pas, vous dites M. Dandré ? interrompit Louis XVIII, s’adressant à l’huissier qui venait en effet d’annoncer le ministre de la Police.
-– Oui, Sire, M. le baron Dandré, reprit l’huissier.
-– C’est juste, baron, reprit Louis XVIII avec un imperceptible sourire ; entrez, baron, et racontez au duc ce que vous savez de plus récent sur M. de Bonaparte. Ne nous dissimulez rien de la situation, quelque grave qu’elle soit. Voyons, l’île d’Elbe est-elle un volcan, et allons-nous en voir sortir la guerre flamboyante et toute hérissée : belle, horrida bella ? »
-M. Dandré se balança fort gracieusement sur le dos d’un fauteuil auquel il appuyait ses deux mains et dit :
-« Votre Majesté a-t-elle bien voulu consulter le rapport d’hier ?
-– Oui, oui ; mais dites au duc lui-même, qui ne peut le trouver, ce que contenait le rapport ; détaillez-lui ce que fait l’usurpateur dans son île.
-– Monsieur, dit le baron au duc, tous les serviteurs de Sa Majesté doivent s’applaudir des nouvelles récentes qui nous parviennent de l’île d’Elbe. Bonaparte... »
-M. Dandré regarda Louis XVIII qui, occupé à écrire une note, ne leva pas même la tête.
-« Bonaparte, continua le baron, s’ennuie mortellement ; il passe des journées entières à regarder travailler ses mineurs de Porto-Longone.
-– Et il se gratte pour se distraire, dit le roi.
-– Il se gratte ? demanda le duc ; que veut dire votre Majesté ?
-– Eh oui, mon cher duc ; oubliez-vous donc que ce grand homme, ce héros, ce demi-dieu est atteint d’une maladie de peau qui le dévore, prurigo ?
-– Il y a plus, monsieur le duc, continua le ministre de la Police, nous sommes à peu près sûrs que dans peu de temps l’usurpateur sera fou.
+– À ma gauche, vous dis-je. Vous devriez trouver le rapport du ministre de la Police d’hier… Mais tenez, voici M. Dandré lui-même ! » interrompit le roi, alors qu’un huissier annonçait le ministre.
+« Oui, Sire, M. le baron Dandré », reprit l’huissier.
+« C’est juste, baron, entra le roi avec un léger sourire. Entrez, baron, et racontez au duc ce que vous savez de nouveau sur M. de Bonaparte. Ne nous cachez rien, même si la situation est grave. Voyons, l’île d’Elbe est-elle un volcan prêt à entrer en éruption ? »
+M. Dandré s’appuya au dossier d’un fauteuil et dit avec aisance :
+« Votre Majesté a-t-elle consulté le rapport d’hier ?
+– Oui, mais dites au duc ce qu’il contenait. Racontez-lui ce que fait l’usurpateur sur son île.
+– Monsieur, dit le baron au duc, tous les serviteurs de Sa Majesté peuvent se réjouir des dernières nouvelles. Bonaparte… »
+M. Dandré regarda Louis XVIII, qui continuait d’écrire sans lever la tête.
+« Bonaparte, continua le baron, s’ennuie mortellement. Il passe ses journées à regarder ses mineurs travailler.
+– Et il se gratte pour se distraire, ajouta le roi.
+– Il se gratte ? demanda le duc. Que veut dire Votre Majesté ?
+– Eh oui, mon cher duc. Avez-vous oublié que ce grand homme est atteint d’une maladie de peau qui le dévore ?
+– Il y a plus, monsieur le duc, continua le ministre de la Police. Nous sommes presque sûrs que l’usurpateur deviendra bientôt fou.
 – Fou ?
-– Fou à lier : sa tête s’affaiblit, tantôt il pleure des larmes, tantôt il rit à gorge déployée ; d’autres fois, il passe des heures sur le rivage à jeter des cailloux dans l’eau, et lorsque le caillou a fait cinq ou six ricochets, il paraît aussi satisfait que s’il avait gagné un autre Marengo ou un nouvel Austerlitz. Voilà, vous en conviendrez, des signes de folie.
-– Ou de sagesse, monsieur le baron, ou de sagesse, dit Louis XVIII en riant : c’était en jetant des cailloux à la mer que se récréaient les grands capitaines de l’Antiquité ; voyez Plutarque, à la vie de Scipion l’Africain. »
-M. de Blacas demeura rêveur entre ces deux insouciances. Villefort, qui n’avait pas voulu tout lui dire pour qu’un autre ne lui enlevât point le bénéfice tout entier de son secret, lui en avait dit assez, cependant, pour lui donner de graves inquiétudes.
-« Allons, allons, Dandré, dit Louis XVIII, Blacas n’est point encore convaincu, passez à la conversion de l’usurpateur. »
-Le ministre de la Police s’inclina.
-« Conversion de l’usurpateur ! murmura le duc, regardant le roi et Dandré, qui alternaient comme deux bergers de Virgile. L’usurpateur estil converti ?
+– Fou à lier. Sa tête faiblit. Parfois il pleure, parfois il rit aux éclats. D’autres fois, il passe des heures sur le rivage à jeter des cailloux dans l’eau, et semble aussi satisfait que s’il avait gagné une grande bataille. Ce sont des signes de folie, vous en conviendrez.
+– Ou de sagesse, dit Louis XVIII en riant. Les grands capitaines de l’Antiquité se reposaient en jetant des cailloux à la mer. Lisez Plutarque. »
+M. de Blacas restait pensif face à tant d’insouciance. Villefort lui en avait dit assez pour l’inquiéter sérieusement.
+« Allons, Dandré, dit Louis XVIII, Blacas n’est pas encore convaincu. Parlez-nous de la conversion de l’usurpateur. »
+Le ministre s’inclina.
+« Conversion de l’usurpateur ? murmura le duc. Est-il converti ?
 – Absolument, mon cher duc.
-– Aux bons principes ; expliquez cela, baron.
-– Voici ce que c’est, monsieur le duc, dit le ministre avec le plus grand sérieux du monde : dernièrement Napoléon a passé une revue, et comme deux ou trois de ses vieux grognards, comme il les appelle, manifestaient le désir de revenir en France il leur a donné leur congé en les exhortant à servir leur bon roi ; ce furent ses propres paroles, monsieur le duc, j’en ai la certitude.
-– Eh bien, Blacas, qu’en pensez-vous ? dit le roi triomphant, en cessant un instant de compulser le scoliaste volumineux ouvert devant lui.
-– Je dis, Sire, que M. le ministre de la Police ou moi nous nous trompons ; mais comme il est impossible que ce soit le ministre de la Police, puisqu’il a en garde le salut et l’honneur de Votre Majesté, il est probable que c’est moi qui fais erreur. Cependant, Sire, à la place de Votre Majesté, je voudrais interroger la personne dont je lui ai parlé ; j’insisterai même pour que Votre Majesté lui fasse cet honneur.
-– Volontiers, duc, sous vos auspices je recevrai qui vous voudrez ; mais je veux le recevoir les armes en main. Monsieur le ministre, avez-vous un rapport plus récent que celui-ci ! car celui-ci a déjà la date du 20 février, et nous sommes au 3 mars !
-– Non, Sire, mais j’en attendais un d’heure en heure. Je suis sorti depuis le matin, et peut-être depuis mon absence est-il arrivé.
-– Allez à la préfecture, et s’il n’y en a pas, eh bien, eh bien, continua en riant Louis XVIII, faites-en un ; n’est-ce pas ainsi que cela se pratique ?
-– Oh ! Sire ! dit le ministre, Dieu merci, sous ce rapport, il n’est besoin de rien inventer ; chaque jour encombre nos bureaux des dénonciations les plus circonstanciées, lesquelles proviennent d’une foule de pauvres hères qui espèrent un peu de reconnaissance pour des services qu’ils ne rendent pas, mais qu’ils voudraient rendre. Ils tablent sur le hasard, et ils espèrent qu’un jour quelque événement inattendu donnera une espèce de réalité à leurs prédictions.
-– C’est bien ; allez, monsieur, dit Louis XVIII, et songez que je vous attends.
-– Je ne fais qu’aller et venir, Sire ; dans dix minutes je suis de retour.
-– Et moi, Sire, dit M. de Blacas, je vais chercher mon messager.
-– Attendez donc, attendez donc, dit Louis XVIII. En vérité, Blacas, il faut que je vous change vos armes ; je vous donnerai un aigle aux ailes déployées, tenant entre ses serres une proie qui essaie vainement de lui échapper, avec cette devise : Tenax.
-– Sire, j’écoute, dit M. de Blacas, se rongeant les poings d’impatience.
-– Je voudrais vous consulter sur ce passage :
-Molli fugiens anhelitu ; vous savez, il s’agit du cerf qui fuit devant le loup. N’êtes-vous pas chasseur et grand louvetier ? Comment trouvezvous, à ce double titre, le molli anhelitu ?
-– Admirable, Sire ; mais mon messager est comme le cerf dont vous parlez, car il vient de faire 220 lieues en poste, et cela en trois jours à peine.
-– C’est prendre bien de la fatigue et bien du souci, mon cher duc, quand nous avons le télégraphe qui ne met que trois ou quatre heures, et cela sans que son haleine en souffre le moins du monde.
-– Ah ! Sire, vous récompensez bien mal ce pauvre jeune homme, qui arrive de si loin et avec tant d’ardeur pour donner à Votre Majesté un avis utile ; ne fût-ce que pour M. de Salvieux, qui me le recommande, recevez-le bien, je vous en supplie.
+– Aux bons principes ? Expliquez-vous, baron.
+– Voici, dit le ministre très sérieusement. Napoléon a passé en revue ses vieux soldats, ses “grognards” comme il les appelle. Comme certains voulaient revenir en France, il leur a donné leur congé en les encourageant à “servir leur bon roi”. Ce furent ses propres paroles.
+– Eh bien, Blacas, qu’en pensez-vous ? dit le roi, triomphant.
+– Je dis, Sire, que M. le ministre de la Police ou moi nous trompons. Mais comme c’est impossible que ce soit le ministre, qui veille sur votre sécurité, c’est probablement moi qui ai tort. Cependant, Sire, à votre place, j’interrogerais la personne dont je vous ai parlé.
+– Volontiers, duc. Je recevrai qui vous voudrez. Monsieur le ministre, avez-vous un rapport plus récent ? Celui-ci date du 20 février, et nous sommes le 3 mars !
+– Non, Sire, mais j’en attends un d’heure en heure. Il est peut-être arrivé pendant mon absence.
+– Allez à la préfecture, et s’il n’y en a pas, eh bien, faites-en un ! dit le roi en riant. N’est-ce pas comme ça qu’on fait ?
+– Oh, Sire, Dieu merci, pas besoin d’inventer. Nous recevons chaque jour des dénonciations de pauvres gens qui espèrent une récompense pour des services qu’ils ne rendent pas.
+– C’est bien. Allez, monsieur, et revenez vite, dit Louis XVIII.
+– Je fais l’aller-retour, Sire. Dans dix minutes, je suis de retour.
+– Et moi, Sire, je vais chercher mon messager, dit M. de Blacas.
+– Attendez, attendez, dit Louis XVIII. Blacas, je voudrais vous consulter sur ce passage d’Horace : “Molli fugiens anhelitu”, à propos d’un cerf fuyant un loup. Vous êtes chasseur, que pensez-vous de l’expression ?
+– Admirable, Sire. Mais mon messager est comme ce cerf. Il vient de parcourir 220 lieues en à peine trois jours.
+– C’est bien de la fatigue, mon cher duc, alors que nous avons le télégraphe qui ne met que quelques heures.
+– Ah, Sire, vous récompensez bien mal ce jeune homme qui vient de si loin pour vous donner un avis utile. Recevez-le, je vous en supplie, ne serait-ce que pour M. de Salvieux qui me le recommande.
 – M. de Salvieux, le chambellan de mon frère ?
-– Lui-même.
-– En effet, il est à Marseille.
-– C’est de là qu’il m’écrit.
-– Vous parle-t-il donc aussi de cette conspiration ?
-– Non, mais il me recommande M. de Villefort, et me charge de l’introduire près de Votre Majesté.
-– M. de Villefort ? s’écria le roi ; ce messager s’appelle-t-il donc M. de Villefort ?
+– Lui-même. Il m’écrit de Marseille.
+– Vous parle-t-il aussi de cette conspiration ?
+– Non, mais il me recommande M. de Villefort et me charge de l’introduire auprès de Votre Majesté.
+– M. de Villefort ? s’écria le roi. Ce messager s’appelle M. de Villefort ?
 – Oui, Sire.
-– Et c’est lui qui vient de Marseille ?
+– Et il vient de Marseille ?
 – En personne.
-– Que ne me disiez-vous son nom tout de suite ! reprit le roi, en laissant percer sur son visage un commencement d’inquiétude.
-– Sire, je croyais ce nom inconnu de Votre Majesté.
-– Non pas, non pas, Blacas ; c’est un esprit sérieux, élevé, ambitieux surtout ; et, pardieu, vous connaissez de nom son père.
+– Que ne me disiez-vous son nom tout de suite ! » reprit le roi, avec un début d’inquiétude sur le visage.
+« Sire, je croyais ce nom inconnu de Votre Majesté.
+– Non, Blacas, non. C’est un esprit sérieux, élevé, et surtout ambitieux. Et, ma foi, vous connaissez son père de nom.
 – Son père ?
 – Oui, Noirtier.
-– Noirtier le girondin ? Noirtier le sénateur ?
+– Noirtier le Girondin ? Noirtier le sénateur ?
 – Oui, justement.
-– Et Votre Majesté a employé le fils d’un pareil homme ?
-– Blacas, mon ami, vous n’y entendez rien, je vous ai dit que Villefort était ambitieux : pour arriver, Villefort sacrifiera tout, même son père.
-– Alors, Sire, je dois donc le faire entrer ?
+– Et Votre Majesté a employé le fils d’un tel homme ?
+– Blacas, mon ami, vous n’y comprenez rien. Je vous ai dit que Villefort était ambitieux. Pour réussir, il sacrifiera tout, même son père.
+– Alors, Sire, je le fais entrer ?
 – À l’instant même, duc. Où est-il ?
 – Il doit m’attendre en bas, dans ma voiture.
-– Allez me le chercher.
+– Allez le chercher.
 – J’y cours. »
-Le duc sortit avec la vivacité d’un jeune homme ; l’ardeur de son royalisme sincère lui donnait vingt ans.
-Louis XVIII resta seul, reportant les yeux sur son Horace entrouvert et murmurant :
-Justum et tenacem propositi virum.
-M. de Blacas remonta avec la même rapidité qu’il était descendu ; mais dans l’antichambre il fut forcé d’invoquer l’autorité du roi. L’habit poudreux de Villefort, son costume, où rien n’était conforme à la tenue de cour, avait excité la susceptibilité de M. de Brézé, qui fut tout étonné de trouver dans ce jeune homme la prétention de paraître ainsi vêtu devant le roi. Mais le duc leva toutes les difficultés avec un seul mot : Ordre de Sa Majesté ; et malgré les observations que continua de faire le maître des cérémonies, pour l’honneur du principe, Villefort fut introduit.
-Le roi était assis à la même place où l’avait laissé le duc. En ouvrant la porte, Villefort se trouva juste en face de lui : le premier mouvement du jeune magistrat fut de s’arrêter.
+Le duc sortit avec l’agilité d’un jeune homme. Louis XVIII resta seul, murmurant une autre phrase latine : « Justum et tenacem propositi virum », l’homme juste et tenace dans ses résolutions.
+M. de Blacas remonta aussi vite qu’il était descendu. Dans l’antichambre, il dut invoquer l’autorité du roi. L’habit poussiéreux de Villefort choquait le maître des cérémonies, M. de Brézé. Mais le duc écarta toutes les difficultés avec un seul mot : « Ordre de Sa Majesté », et Villefort fut introduit.
+Le roi était assis à la même place. En entrant, Villefort se trouva juste en face de lui.
 « Entrez, monsieur de Villefort, dit le roi, entrez. »
-Villefort salua et fit quelques pas en avant, attendant que le roi l’interrogeât.
+Villefort salua et attendit que le roi l’interroge.
 « Monsieur de Villefort, continua Louis XVIII, voici le duc de Blacas, qui prétend que vous avez quelque chose d’important à nous dire.
-– Sire, M. le duc a raison, et j’espère que Votre Majesté va le reconnaître elle-même.
-– D’abord, et avant toutes choses, monsieur, le mal est-il aussi grand, à votre avis, que l’on veut me le faire croire ?
-– Sire, je le crois pressant ; mais, grâce à la diligence que j’ai faite, il n’est pas irréparable, je l’espère.
-– Parlez longuement si vous le voulez, monsieur, dit le roi, qui commençait à se laisser aller lui-même à l’émotion qui avait bouleversé le visage de M. de Blacas, et qui altérait la voix de Villefort ; parlez, et surtout commencez par le commencement : j’aime l’ordre en toutes choses.
-– Sire, dit Villefort, je ferai à Votre Majesté un rapport fidèle, mais je la prierai cependant de m’excuser si le trouble où je suis jette quelque obscurité dans mes paroles. »
-Un coup d’œil jeté sur le roi après cet exorde insinuant, assura Villefort de la bienveillance de son auguste auditeur, et il continua :
-« Sire, je suis arrivé le plus rapidement possible à Paris pour apprendre à Votre Majesté que j’ai découvert dans le ressort de mes fonctions, non pas un de ces complots vulgaires et sans conséquence, comme il s’en trame tous les jours dans les derniers rangs du peuple et de l’armée, mais une conspiration véritable, une tempête qui ne menace rien de moins que le trône de Votre Majesté. Sire, l’usurpateur arme trois vaisseaux ; il médite quelque projet, insensé peutêtre, mais peut-être aussi terrible, tout insensé qu’il est. À cette heure, il doit avoir quitté l’île d’Elbe, pour aller où ? je l’ignore, mais à coup sûr pour tenter une descente soit à Naples, soit sur les côtes de Toscane, soit même en France.
-Votre Majesté n’ignore pas que le souverain de l’île d’Elbe a conservé des relations avec l’Italie et avec la France.
-– Oui, monsieur, je le sais, dit le roi fort ému, et, dernièrement encore, on a eu avis que des réunions bonapartistes avaient lieu rue SaintJacques ; mais continuez, je vous prie ; comment avez-vous eu ces détails ?
-– Sire, ils résultent d’un interrogatoire que j’ai fait subir à un homme de Marseille que depuis longtemps je surveillais et que j’ai fait arrêter le jour même de mon départ ; cet homme, marin turbulent et d’un bonapartisme qui m’était suspect, a été secrètement à l’île d’Elbe ; il y a vu le grand maréchal qui l’a chargé d’une mission verbale pour un bonapartiste de Paris, dont je n’ai jamais pu lui faire dire le nom ; mais cette mission était de charger ce bonapartiste de préparer les esprits à un retour (remarquez que c’est l’interrogatoire qui parle, Sire), à un retour qui ne peut manquer d’être prochain.
+– Sire, M. le duc a raison, et j’espère que Votre Majesté le reconnaîtra.
+– D’abord, le mal est-il aussi grand que l’on veut me le faire croire ?
+– Sire, je le crois urgent. Mais, grâce à ma rapidité, il n’est pas irréparable, je l’espère.
+– Parlez longuement si vous le voulez, monsieur, dit le roi, qui commençait à ressentir l’émotion qui agitait Blacas et Villefort. Parlez, et commencez par le commencement.
+– Sire, dit Villefort, je ferai un rapport fidèle, mais je vous prie de m’excuser si mon trouble y jette quelque obscurité. »
+Un regard vers le roi le rassura, et il continua :
+« Sire, je suis venu le plus vite possible pour vous apprendre que j’ai découvert, non pas un petit complot ordinaire, mais une véritable conspiration, une tempête qui menace le trône de Votre Majesté. L’usurpateur arme trois vaisseaux. Il médite un projet, peut-être insensé, mais peut-être aussi terrible. À cette heure, il a sans doute quitté l’île d’Elbe pour débarquer soit à Naples, soit en Toscane, soit même en France. Votre Majesté sait qu’il a conservé des relations avec l’Italie et la France.
+– Oui, monsieur, je le sais, dit le roi, très ému. Récemment encore, on nous a signalé des réunions bonapartistes rue Saint-Jacques. Mais continuez, je vous prie. Comment avez-vous eu ces détails ?
+– Sire, ils proviennent de l’interrogatoire d’un homme de Marseille que je surveillais depuis longtemps. Ce marin, un bonapartiste suspect, a été secrètement à l’île d’Elbe. Il y a vu le grand maréchal, qui l’a chargé d’une mission verbale pour un bonapartiste de Paris. Cette mission était de préparer les esprits à un retour qui, selon lui, ne peut tarder.
 – Et où est cet homme ? demanda Louis XVIII.
 – En prison, Sire.
-– Et la chose vous a paru grave ?
-– Si grave, Sire, que cet événement m’ayant surpris au milieu d’une fête de famille, le jour même de mes fiançailles, j’ai tout quitté, fiancée et amis, tout remis à un autre temps pour venir déposer aux pieds de Votre Majesté et les craintes dont j’étais atteint et l’assurance de mon dévouement.
-– C’est vrai, dit Louis XVIII ; n’y avait-il pas un projet d’union entre vous et Mlle de SaintMéran ?
+– Et l’affaire vous a paru grave ?
+– Si grave, Sire, que cet événement m’a surpris au milieu de la fête de mes fiançailles. J’ai tout quitté, fiancée et amis, pour venir déposer à vos pieds mes craintes et mon dévouement.
+– C’est vrai, dit Louis XVIII, n’y avait-il pas un projet de mariage entre vous et Mademoiselle de Saint-Méran ?
 – La fille d’un des plus fidèles serviteurs de Votre Majesté.
-– Oui, oui ; mais revenons à ce complot, monsieur de Villefort.
+– Oui, oui. Mais revenons à ce complot.
 – Sire, j’ai peur que ce soit plus qu’un complot, j’ai peur que ce soit une conspiration.
-– Une conspiration dans ces temps-ci, dit le roi en souriant, est chose facile à méditer, mais plus difficile à conduire à son but, par cela même que, rétabli d’hier sur le trône de nos ancêtres, nous avons les yeux ouverts à la fois sur le passé, sur le présent et sur l’avenir ; depuis dix mois, mes ministres redoublent de surveillance pour que le littoral de la Méditerranée soit bien gardé. Si Bonaparte descendait à Naples, la coalition tout entière serait sur pied, avant seulement qu’il fût à Piombino ; s’il descendait en Toscane, il mettrait le pied en pays ennemi ; s’il descend en France, ce sera avec une poignée d’hommes, et nous en viendrons facilement à bout, exécré comme il l’est par la population. Rassurez-vous donc, monsieur ; mais ne comptez pas moins sur notre reconnaissance royale.
+– Une conspiration, de nos jours, dit le roi en souriant, est facile à préparer, mais difficile à mener à bien. Rétablis d’hier sur le trône, nous avons les yeux ouverts sur le passé, le présent et l’avenir. Si Bonaparte débarque en France, ce sera avec une poignée d’hommes, et nous en viendrons facilement à bout, car il est détesté par la population. Rassurez-vous, monsieur, mais comptez sur notre reconnaissance.
 – Ah ! voici M. Dandré ! » s’écria le duc de Blacas.
-En ce moment, parut en effet sur le seuil de la porte M. le ministre de la Police, pâle, tremblant, et dont le regard vacillait, comme s’il eût été frappé d’un éblouissement.
-Villefort fit un pas pour se retirer ; mais un serrement de main de M. de Blacas le retint.`,
+À cet instant, le ministre de la Police parut sur le seuil, pâle, tremblant, le regard affolé, comme s’il venait d’être aveuglé.
+Villefort fit un pas pour se retirer, mais une poignée de main de M. de Blacas le retint.`,
 }

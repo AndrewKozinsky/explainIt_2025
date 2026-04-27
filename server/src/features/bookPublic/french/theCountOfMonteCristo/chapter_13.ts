@@ -1,104 +1,80 @@
+// Глава адаптирована
 export const chapter_13 = {
 	name: 'CHAPITRE XIII',
 	header: 'Les Cent-Jours',
-	text: `M. Noirtier était un bon prophète, et les choses marchèrent vite, comme il l’avait dit. Chacun connaît ce retour de l’île d’Elbe, retour étrange, miraculeux, qui, sans exemple dans le passé, restera probablement sans imitation dans l’avenir.
-Louis XVIII n’essaya que faiblement de parer ce coup si rude : son peu de confiance dans les hommes lui ôtait sa confiance dans les événements. La royauté, ou plutôt la monarchie, à peine reconstituée par lui, trembla sur sa base encore incertaine, et un seul geste de l’Empereur fit crouler tout cet édifice, mélange informe de vieux préjugés et d’idées nouvelles. Villefort n’eut donc de son roi qu’une reconnaissance non seulement inutile pour le moment, mais même dangereuse, et cette croix d’officier de la Légion d’honneur, qu’il eut la prudence de ne pas montrer, quoique M. de Blacas, comme le lui avait recommandé le roi, lui en eût fait soigneusement expédier le brevet.
-Napoléon eût, certes, destitué Villefort sans la protection de Noirtier, devenu tout-puissant à la cour des Cent-Jours, et par les périls qu’il avait affrontés et par les services qu’il avait rendus.
-Ainsi, comme il le lui avait promis, le girondin de 93 et le sénateur de 1806 protégea celui qui l’avait protégé la veille.
-Toute la puissance de Villefort se borna donc, pendant cette évocation de l’empire, dont, au reste, il fut bien facile de prévoir la seconde chute, à étouffer le secret que Dantès avait été sur le point de divulguer.
-Le procureur du roi seul fut destitué, soupçonné qu’il était de tiédeur en bonapartisme.
-Cependant, à peine le pouvoir impérial fut-il rétabli, c’est-à-dire à peine l’empereur habita-t-il ces Tuileries que Louis XVIII venait de quitter, et eut-il lancé ses ordres nombreux et divergents de ce petit cabinet où nous avons, à la suite de Villefort, introduit nos lecteurs, et sur la table de noyer duquel il retrouva, encore tout ouverte et à moitié pleine, la tabatière de Louis XVIII, que Marseille, malgré l’attitude de ses magistrats, commença à sentir fermenter en elle ces brandons de guerre civile toujours mal éteints dans le Midi ; peu s’en fallut alors que les représailles n’allassent au-delà de quelques charivaris dont on assiégea les royalistes enfermés chez eux, et des affronts publics dont on poursuivit ceux qui se hasardaient à sortir.
-Par un revirement tout naturel, le digne armateur, que nous avons désigné comme appartenant au parti populaire, se trouva à son tour en ce moment, nous ne dirons pas toutpuissant, car M. Morrel était un homme prudent et légèrement timide, comme tous ceux qui ont fait une lente et laborieuse fortune commerciale, mais en mesure, tout dépassé qu’il était par les zélés bonapartistes qui le traitaient de modéré, en mesure, dis-je, d’élever la voix pour faire entendre une réclamation ; cette réclamation, comme on le devine facilement, avait trait à Dantès.
-Villefort était demeuré debout, malgré la chute de son supérieur, et son mariage, en restant décidé, était cependant remis à des temps plus heureux. Si l’empereur gardait le trône, c’était une autre alliance qu’il fallait à Gérard, et son père se chargerait de la lui trouver ; si une seconde Restauration ramenait Louis XVIII en France, l’influence de M. de Saint-Méran doublait, ainsi que la sienne, et l’union redevenait plus sortable que jamais.
-Le substitut du procureur du roi était donc momentanément le premier magistrat de Marseille, lorsqu’un matin sa porte s’ouvrit, et on lui annonça M. Morrel.
-Un autre se fût empressé d’aller au-devant de l’armateur, et, par cet empressement, eût indiqué sa faiblesse ; mais Villefort était un homme supérieur qui avait, sinon la pratique, du moins l’instinct de toutes choses. Il fit faire antichambre à Morrel, comme il eût fait sous la Restauration, quoiqu’il n’eût personne près de lui, mais par la simple raison qu’il est d’habitude qu’un substitut du procureur du roi fasse faire antichambre ; puis, après un quart d’heure qu’il employa à lire deux ou trois journaux de nuances différentes, il ordonna que l’armateur fût introduit.
-M. Morrel s’attendait à trouver Villefort abattu : il le trouva comme il l’avait vu six semaines auparavant, c’est-à-dire calme, ferme et plein de cette froide politesse, la plus infranchissable de toutes les barrières qui séparent l’homme élevé de l’homme vulgaire.
-Il avait pénétré dans le cabinet de Villefort, convaincu que le magistrat allait trembler à sa vue, et c’était lui, tout au contraire, qui se trouvait tout frissonnant et tout ému devant ce personnage interrogateur, qui l’attendait le coude appuyé sur son bureau.
-Il s’arrêta à la porte. Villefort le regarda, comme s’il avait quelque peine à le reconnaître.
-Enfin, après quelques secondes d’examen et de silence, pendant lesquelles le digne armateur tournait et retournait son chapeau entre ses mains :
-« Monsieur Morrel, je crois ? dit Villefort.
-– Oui, monsieur, moi-même, répondit l’armateur.
-– Approchez-vous donc, continua le magistrat, en faisant de la main un signe protecteur, et ditesmoi à quelle circonstance je dois l’honneur de votre visite.
-– Ne vous en doutez-vous point, monsieur ? demanda Morrel.
-– Non, pas le moins du monde ; ce qui n’empêche pas que je ne sois tout disposé à vous être agréable, si la chose était en mon pouvoir.
-– La chose dépend entièrement de vous, monsieur, dit Morrel.
-– Expliquez-vous donc, alors.
-– Monsieur, continua l’armateur, reprenant son assurance à mesure qu’il parlait, et affermi d’ailleurs par la justice de sa cause et la netteté de sa position, vous vous rappelez que, quelques jours avant qu’on apprit le débarquement de Sa Majesté l’empereur, j’étais venu réclamer votre indulgence pour un malheureux jeune homme, un marin, second à bord de mon brick ; il était accusé, si vous vous le rappelez, de relations avec l’île d’Elbe : ces relations, qui étaient un crime à cette époque, sont aujourd’hui des titres de faveur. Vous serviez Louis XVIII alors, et ne l’avez pas ménagé, monsieur ; c’était votre devoir. Aujourd’hui, vous servez Napoléon, et vous devez le protéger ; c’est votre devoir encore.
-Je viens donc vous demander ce qu’il est devenu. »
-Villefort fit un violent effort sur lui même.
-« Le nom de cet homme ? demanda-t-il : ayez la bonté de me dire son nom.
+	text: `M. Noirtier avait vu juste, et les choses allèrent vite, comme il l’avait prédit. Tout le monde connaît cet incroyable retour de l’île d’Elbe, un événement sans exemple dans le passé et qui ne sera probablement jamais imité.
+Louis XVIII n’essaya que faiblement de résister. Son manque de confiance dans les hommes lui ôtait toute confiance dans les événements. La monarchie, à peine reconstruite, trembla sur ses bases. Un seul geste de l’Empereur fit s’écrouler tout cet édifice, un étrange mélange de vieux préjugés et d’idées nouvelles. La reconnaissance du roi ne fut donc d’aucune utilité pour Villefort, elle devint même dangereuse. Il reçut bien sa croix d’officier de la Légion d’honneur, mais il eut la prudence de ne pas la montrer.
+Napoléon aurait certainement renvoyé Villefort sans la protection de Noirtier, qui était devenu tout-puissant à la cour des Cent-Jours grâce aux services qu’il avait rendus. Ainsi, comme il l’avait promis, le révolutionnaire protégea celui qui l’avait protégé.
+Toute l’activité de Villefort pendant cette brève résurrection de l’empire se limita à étouffer le secret que Dantès avait failli révéler. Seul le procureur du roi, son supérieur, fut renvoyé, soupçonné d’être un royaliste trop tiède.
+Dès que l’empereur fut réinstallé aux Tuileries, dans ce même bureau que Louis XVIII venait de quitter, Marseille, malgré l’attitude de ses magistrats, commença à s’agiter. La guerre civile, jamais vraiment éteinte dans le Sud, menaçait de reprendre. Les royalistes furent harcelés et insultés.
+Par un retournement naturel, le digne armateur, M. Morrel, connu pour ses idées populaires, gagna en influence. Il n’était pas tout-puissant, car c’était un homme prudent, mais il était en mesure de faire entendre sa voix. Et la première réclamation qu’il voulut faire, comme on peut le deviner, concernait Dantès.
+Villefort était resté à son poste malgré la chute de son chef. Son mariage avec Renée, bien que toujours prévu, fut reporté à des temps plus heureux. Si l’empereur restait sur le trône, Gérard aurait besoin d’une autre alliance, et son père s’en chargerait. Si une seconde Restauration ramenait Louis XVIII, son mariage avec Mademoiselle de Saint-Méran deviendrait plus avantageux que jamais.
+Le substitut était donc temporairement le plus haut magistrat de Marseille. Un matin, on lui annonça M. Morrel.
+Un autre se serait précipité pour accueillir l’armateur, montrant ainsi sa faiblesse. Mais Villefort, avec son instinct supérieur, le fit attendre dans l’antichambre, comme il l’aurait fait sous la Restauration. Après un quart d’heure, il ordonna qu’on introduise l’armateur.
+M. Morrel s’attendait à trouver Villefort abattu. Il le trouva comme six semaines auparavant : calme, ferme et plein de cette froide politesse qui est la plus infranchissable des barrières.
+Morrel, qui pensait intimider le magistrat, se sentit lui-même troublé et hésitant devant cet homme qui l’attendait, le coude appuyé sur son bureau.
+« Monsieur Morrel, je crois ? dit Villefort, comme s’il avait du mal à le reconnaître.
+– Oui, monsieur, c’est moi.
+– Approchez, et dites-moi à quoi je dois l’honneur de votre visite.
+– Ne vous en doutez-vous pas, monsieur ?
+– Non, pas du tout. Mais je suis prêt à vous être agréable si c’est en mon pouvoir.
+– Cela dépend entièrement de vous, monsieur.
+– Expliquez-vous.
+– Monsieur, dit l’armateur, reprenant de l’assurance, vous vous souvenez que, quelques jours avant le débarquement de l’Empereur, je suis venu demander votre indulgence pour un malheureux jeune homme, le second de mon navire. Il était accusé de relations avec l’île d’Elbe. Ce qui était un crime à l’époque est aujourd’hui un titre de faveur. Vous serviez Louis XVIII et vous avez été sévère ; c’était votre devoir. Aujourd’hui, vous servez Napoléon, vous devez donc protéger cet homme ; c’est aussi votre devoir. Je viens vous demander ce qu’il est devenu. »
+Villefort fit un effort sur lui-même. « Le nom de cet homme ? demanda-t-il.
 – Edmond Dantès. »
-Évidemment, Villefort eût autant aimé, dans un duel, essuyer le feu de son adversaire à vingtcinq pas, que d’entendre prononcer ainsi ce nom à bout portant ; cependant il ne sourcilla point.
-« De cette façon, se dit en lui-même Villefort, on ne pourra point m’accuser d’avoir fait de l’arrestation de ce jeune homme une question purement personnelle. »
-« Dantès ? répéta-t-il, Edmond Dantès, dites271 vous ?
+Entendre ce nom fut pour Villefort aussi désagréable que d’affronter le tir d’un adversaire en duel. Cependant, il ne cilla pas. « Au moins, se dit-il, on ne pourra pas m’accuser d’avoir fait de cette arrestation une affaire personnelle. »
+« Dantès ? répéta-t-il. Edmond Dantès, dites-vous ?
 – Oui, monsieur. »
-Villefort ouvrit alors un gros registre placé dans un casier voisin, recourut à une table, de la table passa à des dossiers, et, se retournant vers l’armateur :
-« Êtes-vous bien sûr de ne pas vous tromper, monsieur ? » lui dit-il de l’air le plus naturel.
-Si Morrel eût été un homme plus fin ou mieux éclairé sur cette affaire, il eût trouvé bizarre que le substitut du procureur du roi daignât lui répondre sur ces matières complètement étrangères à son ressort ; et il se fût demandé pourquoi Villefort ne le renvoyait point aux registres d’écrou, aux gouverneurs de prison, au préfet du département. Mais Morrel, cherchant en vain la crainte dans Villefort, n’y vit plus, du moment où toute crainte paraissait absente, que la condescendance : Villefort avait rencontré juste.
-« Non, monsieur, dit Morrel, je ne me trompe pas ; d’ailleurs, je connais le pauvre garçon depuis dix ans, et il est à mon service depuis quatre. Je vins, vous en souvenez-vous ? il y a six semaines, vous prier d’être clément, comme je viens aujourd’hui vous prier d’être juste pour le pauvre garçon ; vous me reçûtes même assez mal et me répondîtes en homme mécontent. Ah ! c’est que les royalistes étaient durs aux bonapartistes en ce temps-là !
-– Monsieur, répondit Villefort arrivant à la parade avec sa prestesse et son sang-froid ordinaires, j’étais royaliste alors que je croyais les Bourbons non seulement les héritiers légitimes du trône, mais encore les élus de la nation ; mais le retour miraculeux dont nous venons d’être témoins m’a prouvé que je me trompais. Le génie de Napoléon a vaincu : le monarque légitime est le monarque aimé.
-– À la bonne heure ! s’écria Morrel avec sa bonne grosse franchise, vous me faites plaisir de me parler ainsi, et j’en augure bien pour le sort d’Edmond.
-– Attendez donc, reprit Villefort en feuilletant un nouveau registre, j’y suis : c’est un marin, n’est-ce pas, qui épousait une Catalane ? Oui, oui ; oh ! je me rappelle maintenant : la chose était très grave.
+Villefort ouvrit un gros registre, consulta des dossiers, puis se retourna vers l’armateur. « Êtes-vous sûr de ne pas vous tromper, monsieur ? » dit-il d’un air très naturel.
+Si Morrel avait été plus malin, il se serait demandé pourquoi le substitut lui répondait lui-même au lieu de le renvoyer aux registres de la prison. Mais ne voyant aucune peur chez Villefort, il n’y vit que de la bienveillance.
+« Non, monsieur, je ne me trompe pas. Je le connais depuis dix ans. Je suis venu il y a six semaines vous demander d’être clément, comme je viens aujourd’hui vous demander d’être juste. Ah, les royalistes étaient durs avec les bonapartistes à cette époque !
+– Monsieur, répondit Villefort avec son sang-froid habituel, j’étais royaliste quand je croyais les Bourbons les élus de la nation. Mais le retour miraculeux de Napoléon m’a prouvé que je me trompais. Le génie a vaincu. Le monarque légitime est le monarque aimé par le peuple.
+– Parfait ! s’écria Morrel avec sa franchise habituelle. Je suis heureux de vous entendre parler ainsi. C’est de bon augure pour Edmond.
+– Attendez, reprit Villefort en feuilletant un autre registre. J’y suis. Un marin qui épousait une Catalane ? Oui, je me souviens. L’affaire était très grave.
 – Comment cela ?
-– Vous savez qu’en sortant de chez moi il avait été conduit aux prisons du palais de justice.
-– Oui, eh bien ?
-– Eh bien, j’ai fait mon rapport à Paris, j’ai envoyé les papiers trouvés sur lui. C’était mon devoir, que voulez-vous... et huit jours après son arrestation le prisonnier fut enlevé.
-– Enlevé ! s’écria Morrel ; mais qu’a-t-on pu faire du pauvre garçon ?
-– Oh ! rassurez-vous. Il aura été transporté à Fenestrelle, à Pignerol, aux Îles SainteMarguerite, ce que l’on appelle dépaysé, en termes d’administration ; et un beau matin vous allez le voir revenir prendre le commandement de son navire.
-– Qu’il vienne quand il voudra, sa place lui sera gardée. Mais comment n’est-il pas déjà revenu ? Il me semble que le premier soin de la justice bonapartiste eût dû être de mettre dehors ceux qu’avait incarcérés la justice royaliste.
-– N’accusez pas témérairement, mon cher monsieur Morrel, répondit Villefort ; il faut, en toutes choses, procéder légalement. L’ordre d’incarcération était venu d’en haut, il faut que d’en haut aussi vienne l’ordre de liberté. Or, Napoléon est rentré depuis quinze jours à peine ; à peine aussi les lettres d’abolition doivent-elles être expédiées.
-– Mais, demanda Morrel, n’y a-t-il pas moyen de presser les formalités, maintenant que nous triomphons ? J’ai quelques amis, quelque influence, je puis obtenir mainlevée de l’arrêt.
-– Il n’y a pas eu d’arrêt.
-– De l’écrou, alors.
-– En matière politique, il n’y a pas de registre d’écrou ; parfois les gouvernements ont intérêt à faire disparaître un homme sans qu’il laisse trace de son passage : des notes d’écrou guideraient les recherches.
-– C’était comme cela sous les Bourbons peutêtre, mais maintenant...
-– C’est comme cela dans tous les temps, mon cher monsieur Morrel ; les gouvernements se suivent et se ressemblent ; la machine pénitentiaire montée sous Louis XIV va encore aujourd’hui, à la Bastille près. L’Empereur a toujours été plus strict pour le règlement de ses prisons que ne l’a été le Grand Roi lui-même ; et le nombre des incarcérés dont les registres ne gardent aucune trace est incalculable. »
-Tant de bienveillance eût détourné des certitudes, et Morrel n’avait pas même de soupçons.
-« Mais enfin, monsieur de Villefort, dit-il, quel conseil me donneriez-vous qui hâtât le retour du pauvre Dantès ?
+– Vous savez qu’il a été conduit aux prisons du palais de justice. J’ai fait mon rapport à Paris. Huit jours après son arrestation, le prisonnier a été enlevé.
+– Enlevé ! s’écria Morrel. Mais qu’a-t-on fait de ce pauvre garçon ?
+– Oh, rassurez-vous. Il aura été transféré dans une autre prison, à Fenestrelle ou aux îles Sainte-Marguerite. Un beau matin, vous le verrez revenir.
+– Qu’il vienne quand il voudra, sa place l’attend. Mais pourquoi n’est-il pas déjà revenu ? La première chose à faire pour la justice bonapartiste aurait dû être de libérer ceux que la justice royaliste avait emprisonnés.
+– N’accusez personne trop vite, mon cher monsieur Morrel. Il faut procéder légalement. L’ordre d’incarcération est venu d’en haut, l’ordre de libération doit venir d’en haut aussi. Napoléon est rentré depuis quinze jours à peine.
+– Mais ne peut-on pas accélérer les choses, maintenant que nous triomphons ? J’ai des amis, de l’influence…
+– Il n’y a pas eu d’arrêt. Et en matière politique, il n’y a pas de registre d’écrou. Les gouvernements font parfois disparaître un homme sans laisser de trace.
+– C’était peut-être comme ça sous les Bourbons, mais maintenant…
+– C’est comme ça de tout temps, mon cher monsieur. Les gouvernements se ressemblent. L’Empereur a toujours été très strict sur le règlement de ses prisons.
+Morrel, qui n’avait aucun soupçon, fut convaincu par tant de bonne volonté.
+« Mais enfin, monsieur de Villefort, quel conseil me donneriez-vous pour hâter le retour du pauvre Dantès ?
 – Un seul, monsieur : faites une pétition au ministre de la Justice.
-– Oh ! monsieur, nous savons ce que c’est que les pétitions : le ministre en reçoit deux cents par jour et n’en lit point quatre.
-– Oui, reprit Villefort, mais il lira une pétition envoyée par moi, apostillée par moi, adressée directement par moi.
-– Et vous vous chargeriez de faire parvenir cette pétition, monsieur ?
-– Avec le plus grand plaisir. Dantès pouvait être coupable alors ; mais il est innocent aujourd’hui, et il est de mon devoir de faire rendre la liberté à celui qu’il a été de mon devoir de faire mettre en prison. »
-Villefort prévenait ainsi le danger d’une enquête peu probable, mais possible, enquête qui le perdait sans ressource.
+– Oh, monsieur, nous savons ce que sont les pétitions. Le ministre en reçoit deux cents par jour et n’en lit pas quatre.
+– Oui, mais il lira une pétition envoyée par moi, annotée par moi, et adressée directement par moi.
+– Et vous vous chargeriez de la faire parvenir ?
+– Avec le plus grand plaisir. Dantès pouvait être coupable alors, mais il est innocent aujourd’hui. Il est de mon devoir de faire libérer celui qu’il a été de mon devoir de faire emprisonner. »
+Villefort prévenait ainsi le danger d’une enquête, peu probable mais possible, qui l’aurait ruiné.
 « Mais comment écrit-on au ministre ?
-– Mettez-vous là, monsieur Morrel, dit Villefort, en cédant sa place à l’armateur ; je vais vous dicter.
+– Mettez-vous là, monsieur Morrel, dit Villefort en lui cédant sa place. Je vais vous dicter.
 – Vous auriez cette bonté ?
-– Sans doute. Ne perdons pas de temps, nous n’en avons déjà que trop perdu.
-– Oui, monsieur, songeons que le pauvre garçon attend, souffre et se désespère peut-être. »
-Villefort frissonna à l’idée de ce prisonnier le maudissant dans le silence et l’obscurité ; mais il était engagé trop avant pour reculer : Dantès devait être brisé entre les rouages de son ambition.
-« J’attends, monsieur », dit l’armateur assis dans le fauteuil de Villefort et une plume à la main.
-Villefort alors dicta une demande dans laquelle, dans un but excellent, il n’y avait point à en douter, il exagérait le patriotisme de Dantès et les services rendus par lui à la cause bonapartiste ; dans cette demande, Dantès était devenu un des agents les plus actifs du retour de Napoléon ; il était évident qu’en voyant une pareille pièce, le ministre devait faire justice à l’instant même, si justice n’était point faite déjà.
-La pétition terminée, Villefort la relut à haute voix.
-« C’est cela, dit-il, et maintenant reposez-vous sur moi.
-– Et la pétition partira bientôt, monsieur ?
-– Aujourd’hui même.
-– Apostillée par vous ?
-– La meilleure apostille que je puisse mettre, monsieur, est de certifier véritable tout ce que vous dites dans cette demande. »
-Et Villefort s’assit à son tour, et sur un coin de la pétition appliqua son certificat.
-« Maintenant, monsieur, que faut-il faire ? demanda Morrel.
-– Attendre, reprit Villefort ; je réponds de tout. »
-Cette assurance rendit l’espoir à Morrel : il quitta le substitut du procureur du roi enchanté de lui, et alla annoncer au vieux père de Dantès qu’il ne tarderait pas à revoir son fils.
-Quand à Villefort, au lieu de l’envoyer à Paris, il conserva précieusement entre ses mains cette demande qui, pour sauver Dantès dans le présent, le compromettait si effroyablement dans l’avenir, en supposant une chose que l’aspect de l’Europe et la tournure des événements permettaient déjà de supposer, c’est-à-dire une seconde Restauration.
-Dantès demeura donc prisonnier : perdu dans les profondeurs de son cachot, il n’entendit point le bruit formidable de la chute du trône de Louis XVIII et celui, plus épouvantable encore, de l’écroulement de l’empire.
-Mais Villefort, lui, avait tout suivi d’un œil vigilant, tout écouté d’une oreille attentive. Deux fois, pendant cette courte apparition impériale que l’on appela les Cent-Jours, Morrel était revenu à la charge, insistant toujours pour la liberté de Dantès, et chaque fois Villefort l’avait calmé par des promesses et des espérances ; enfin, Waterloo arriva. Morrel ne reparut pas chez Villefort : l’armateur avait fait pour son jeune ami tout ce qu’il était humainement possible de faire ; essayer de nouvelles tentatives sous cette seconde Restauration était se compromettre inutilement.
-Louis XVIII remonta sur le trône. Villefort, pour qui Marseille était plein de souvenirs devenus pour lui des remords, demanda et obtint la place de procureur du roi vacante à Toulouse ; quinze jours après son installation dans sa nouvelle résidence, il épousa Mlle Renée de SaintMéran, dont le père était mieux en cour que jamais.
-Voilà comment Dantès, pendant les CentJours et après Waterloo, demeura sous les verrous, oublié, sinon des hommes, au moins de Dieu.
-Danglars comprit toute la portée du coup dont il avait frappé Dantès, en voyant revenir Napoléon en France : sa dénonciation avait touché juste, et, comme tous les hommes d’une certaine portée pour le crime et d’une moyenne intelligence pour la vie ordinaire, il appela cette coïncidence bizarre un décret de la Providence.
-Mais quand Napoléon fut de retour à Paris et que sa voix retentit de nouveau, impérieuse et puissante, Danglars eut peur ; à chaque instant, il s’attendit à voir reparaître Dantès, Dantès sachant tout, Dantès menaçant et fort pour toutes les vengeances ; alors il manifesta à M. Morrel le désir de quitter le service de mer, et se fit recommander par lui à un négociant espagnol, chez lequel il entra comme commis d’ordre vers la fin de mars, c’est-à-dire dix ou douze jours après la rentrée de Napoléon aux Tuileries ; il partit donc pour Madrid, et l’on n’entendit plus parler de lui.
-Fernand, lui, ne comprit rien. Dantès était absent, c’était tout ce qu’il lui fallait. Qu’était-il devenu ? il ne chercha point à le savoir.
-Seulement, pendant tout le répit que lui donnait son absence, il s’ingénia, partie à abuser Mercédès sur les motifs de cette absence, partie à méditer des plans d’émigration et d’enlèvement ; de temps en temps aussi, et c’étaient les heures sombres de sa vie, il s’asseyait sur la pointe du cap Pharo, de cet endroit où l’on distingue à la fois Marseille et le village des Catalans, regardant, triste et immobile comme un oiseau de proie, s’il ne verrait point, par l’une de ces deux routes, revenir le beau jeune homme à la démarche libre, à la tête haute qui, pour lui aussi, était devenu messager d’une rude vengeance.
-Alors, le dessein de Fernand était arrêté : il cassait la tête de Dantès d’un coup de fusil et se tuait après, se disait-il à lui-même, pour colorer son assassinat. Mais Fernand s’abusait : cet homme-là ne se fût jamais tué, car il espérait toujours.
-Sur ces entrefaites, et parmi tant de fluctuations douloureuses, l’empire appela un dernier ban de soldats, et tout ce qu’il y avait d’hommes en état de porter les armes s’élança hors de France, à la voix retentissante de l’empereur. Fernand partit comme les autres, quittant sa cabane et Mercédès, et rongé de cette sombre et terrible pensée que, derrière lui peutêtre, son rival allait revenir et épouser celle qu’il aimait.
-Si Fernand avait jamais dû se tuer, c’était en quittant Mercédès qu’il l’eût fait.
-Ses attentions pour Mercédès, la pitié qu’il paraissait donner à son malheur, le soin qu’il prenait d’aller au-devant de ses moindres désirs, avaient produit l’effet que produisent toujours sur les cœurs généreux les apparences du dévouement : Mercédès avait toujours aimé Fernand d’amitié ; son amitié s’augmenta pour lui d’un nouveau sentiment, la reconnaissance.
-« Mon frère, dit-elle en attachant le sac du conscrit sur les épaules du Catalan, mon frère, mon seul ami, ne vous faites pas tuer, ne me laissez pas seule dans ce monde, où je pleure et où je serai seule dès que vous n’y serez plus. »
-Ces paroles, dites au moment du départ, rendirent quelque espoir à Fernand. Si Dantès ne revenait pas, Mercédès pourrait donc un jour être à lui.
-Mercédès resta seule sur cette terre nue, qui ne lui avait jamais paru si aride, et avec la mer immense pour horizon. Toute baignée de pleurs, comme cette folle dont on nous raconte la douloureuse histoire, on la voyait errer sans cesse autour du petit village des Catalans : tantôt s’arrêtant sous le soleil ardent du Midi, debout, immobile, muette comme une statue, et regardant Marseille ; tantôt assise au bord du rivage, écoutant ce gémissement de la mer, éternel comme sa douleur, et se demandant sans cesse s’il ne valait pas mieux se pencher en avant, se laisser aller à son propre poids, ouvrir l’abîme et s’y engloutir, que de souffrir ainsi toutes ces cruelles alternatives d’une attente sans espérance.
-Ce ne fut pas le courage qui manqua à Mercédès pour accomplir ce projet, ce fut la religion qui lui vint en aide et qui la sauva du suicide.
-Caderousse fut appelé, comme Fernand ; seulement, comme il avait huit ans de plus que le Catalan, et qu’il était marié, il ne fit partie que du troisième ban, et fut envoyé sur les côtes.
-Le vieux Dantès, qui n’était plus soutenu que par l’espoir, perdit l’espoir à la chute de l’empereur.
-Cinq mois, jour pour jour, après avoir été séparé de son fils, et presque à la même heure où il avait été arrêté, il rendit le dernier soupir entre les bras de Mercédès.
-M. Morrel pourvut à tous les frais de son enterrement, et paya les pauvres petites dettes que le vieillard avait faites pendant sa maladie.
-Il y avait plus que de la bienfaisance à agir ainsi, il y avait du courage. Le Midi était en feu, et secourir, même à son lit de mort, le père d’un bonapartiste aussi dangereux que Dantès était un crime.`,
+– Bien sûr. Ne perdons pas de temps. »
+Villefort frissonna à l’idée de ce prisonnier le maudissant dans le noir, mais il était allé trop loin pour reculer. Dantès devait être écrasé par les rouages de son ambition.
+Villefort dicta alors une demande dans laquelle il exagérait le patriotisme de Dantès et les services qu’il avait rendus à la cause bonapartiste. Dans cette lettre, Dantès devenait l’un des agents les plus actifs du retour de Napoléon. Il était évident qu’en voyant un tel document, le ministre lui rendrait justice immédiatement.
+La pétition terminée, Villefort la relut à voix haute. « C’est cela, dit-il. Maintenant, reposez-vous sur moi.
+– Et la pétition partira bientôt ?
+– Aujourd’hui même. La meilleure note que je puisse ajouter est de certifier que tout ce que vous dites est vrai. »
+Et Villefort signa un certificat sur un coin de la pétition.
+« Maintenant, que faut-il faire ? demanda Morrel.
+– Attendre, reprit Villefort. Je réponds de tout. »
+Cette assurance redonna espoir à Morrel. Il quitta le bureau, enchanté, et alla annoncer au vieux père de Dantès qu’il reverrait bientôt son fils.
+Quant à Villefort, au lieu d’envoyer la pétition à Paris, il la conserva précieusement. Ce document, qui pouvait sauver Dantès dans le présent, le compromettait terriblement pour l’avenir, si jamais une seconde Restauration avait lieu.
+Dantès resta donc prisonnier. Perdu dans son cachot, il n’entendit ni la chute du trône de Louis XVIII, ni l’effondrement de l’Empire.
+Villefort, lui, avait tout suivi. Deux fois pendant les Cent-Jours, Morrel revint à la charge pour la libération de Dantès, et chaque fois, Villefort le calma avec des promesses. Enfin, Waterloo arriva. Morrel ne reparut plus. Il avait fait tout ce qui était humainement possible. Tenter autre chose sous la seconde Restauration aurait été se compromettre inutilement.
+Louis XVIII remonta sur le trône. Villefort, pour qui Marseille était pleine de mauvais souvenirs, demanda et obtint la place de procureur du roi à Toulouse. Quinze jours plus tard, il épousa Mademoiselle Renée de Saint-Méran.
+Voilà comment Dantès, pendant et après les Cent-Jours, resta en prison, oublié, sinon des hommes, du moins de Dieu.
+Danglars, en voyant Napoléon revenir, comprit la portée de son coup. Il appela cette coïncidence un “décret de la Providence”. Mais quand la voix de l’Empereur retentit de nouveau, puissante, Danglars eut peur. Il s’attendit à voir Dantès réapparaître à tout moment, prêt à se venger. Il demanda à M. Morrel de l’aider à quitter le service de mer et se fit recommander à un négociant espagnol. Il partit pour Madrid et on n’entendit plus parler de lui.
+Fernand ne comprit rien. Dantès était absent, c’est tout ce qui comptait pour lui. Il ne chercha pas à savoir ce qu’il était devenu. Il profita de cette absence pour essayer de tromper Mercédès sur les raisons du départ de son fiancé, et pour se rapprocher d’elle. Parfois, il s’asseyait sur la pointe du cap Pharo, regardant si son rival n’allait pas revenir.
+Puis l’Empire appela ses derniers soldats. Fernand partit comme les autres, quittant sa cabane et Mercédès, rongé par la peur que son rival revienne et épouse celle qu’il aimait.
+Ses attentions pour Mercédès et sa pitié apparente pour son malheur avaient touché la jeune femme. Son amitié pour lui s’augmenta d’un nouveau sentiment : la reconnaissance.
+« Mon frère, lui dit-elle en attachant le sac sur ses épaules, mon seul ami, ne te fais pas tuer, ne me laisse pas seule dans ce monde où je pleure. » Ces paroles redonnèrent un peu d’espoir à Fernand. Si Dantès ne revenait pas, Mercédès pourrait un jour être à lui.
+Mercédès resta seule, errant sans cesse autour du petit village des Catalans, tantôt debout face à la mer, tantôt assise sur le rivage, écoutant le gémissement des vagues, éternel comme sa douleur. La religion seule l’empêcha de se suicider.
+Caderousse fut aussi appelé sous les drapeaux, mais plus tard, car il était plus âgé et marié.
+Le vieux Dantès, qui ne vivait plus que d’espoir, le perdit à la chute de l’Empereur. Cinq mois jour pour jour après l’arrestation de son fils, il rendit son dernier soupir dans les bras de Mercédès.
+M. Morrel paya les frais de son enterrement et ses quelques dettes. C’était un acte courageux, car dans le Sud en pleine ébullition, secourir le père d’un bonapartiste dangereux comme Dantès était considéré comme un crime.`,
 }

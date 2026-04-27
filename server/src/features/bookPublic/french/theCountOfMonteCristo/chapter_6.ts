@@ -1,120 +1,105 @@
 export const chapter_6 = {
 	name: 'CHAPITRE VI',
 	header: 'Le substitut du procureur du roi',
-	text: `Rue du Grand-Cours, en face de la fontaine des Méduses, dans une de ces vieilles maisons à l’architecture aristocratique bâties par Puget, on célébrait aussi le même jour, à la même heure, un repas de fiançailles.
-Seulement, au lieu que les acteurs de cette autre scène fussent des gens du peuple, des matelots et des soldats, ils appartenaient à la tête de la société marseillaise. C’étaient d’anciens magistrats qui avaient donné la démission de leur charge sous l’usurpateur ; de vieux officiers qui avaient déserté nos rangs pour passer dans ceux de l’armée de Condé ; des jeunes gens élevés par leur famille encore mal rassurée sur leur existence, malgré les quatre ou cinq remplaçants qu’elle avait payés, dans la haine de cet homme dont cinq ans d’exil devaient faire un martyr, et quinze ans de Restauration un dieu.
-On était à table, et la conversation roulait, brûlante de toutes les passions, les passions de l’époque, passions d’autant plus terribles, vivantes et acharnées dans le Midi que depuis cinq cents ans les haines religieuses venaient en aide aux haines politiques.
-L’Empereur, roi de l’île d’Elbe après avoir été souverain d’une partie du monde, régnant sur une population de cinq à six mille âmes, après avoir entendu crier : Vive Napoléon ! par cent vingt millions de sujets et en dix langues différentes, était traité là comme un homme perdu à tout jamais pour la France et pour le trône. Les magistrats relevaient les bévues politiques ; les militaires parlaient de Moscou et de Leipsick ; les femmes, de son divorce avec Joséphine. Il semblait à ce monde royaliste, tout joyeux et tout triomphant non pas de la chute de l’homme, mais de l’anéantissement du principe, que la vie recommençait pour lui, et qu’il sortait d’un rêve pénible.
-Un vieillard, décoré de la croix de Saint-Louis, se leva et proposa la santé du roi Louis XVIII à ses convives ; c’était le marquis de Saint-Méran.
-À ce toast, qui rappelait à la fois l’exilé de Hartwell et le roi pacificateur de la France, la rumeur fut grande, les verres se levèrent à la manière anglaise, les femmes détachèrent leurs bouquets et en jonchèrent la nappe. Ce fut un enthousiasme presque poétique.
-« Ils en conviendraient s’ils étaient là, dit la marquise de Saint-Méran, femme à l’œil sec, aux lèvres minces, à la tournure aristocratique et encore élégante, malgré ses cinquante ans, tous ces révolutionnaires qui nous ont chassés et que nous laissons à notre tour bien tranquillement conspirer dans nos vieux châteaux qu’ils ont achetés pour un morceau de pain, sous la Terreur : ils en conviendraient, que le véritable dévouement était de notre côté, puisque nous nous attachions à la monarchie croulante, tandis qu’eux, au contraire, saluaient le soleil levant et faisaient leur fortune, pendant que, nous, nous perdions la nôtre ; ils en conviendraient que notre roi, à nous, était bien véritablement Louis le Bien-Aimé, tandis que leur usurpateur, à eux, n’a jamais été que Napoléon le Maudit ; n’est-ce pas, de Villefort ?
-– Vous dites, madame la marquise ?...
-Pardonnez-moi, je n’étais pas à la conversation.
-– Eh ! laissez ces enfants, marquise, reprit le vieillard qui avait porté le toast ; ces enfants vont s’épouser, et tout naturellement ils ont à parler d’autre chose que de politique.
-– Je vous demande pardon, ma mère, dit une jeune et belle personne aux blonds cheveux, à l’œil de velours nageant dans un fluide nacré ; je vous rends M. de Villefort, que j’avais accaparé pour un instant. Monsieur de Villefort, ma mère vous parle.
-– Je me tiens prêt à répondre à madame si elle veut bien renouveler sa question que j’ai mal entendue, dit M. de Villefort.
-– On vous pardonne, Renée, dit la marquise avec un sourire de tendresse qu’on était étonné de voir fleurir sur cette sèche figure ; mais le cœur de la femme est ainsi fait, que si aride qu’il devienne au souffle des préjugés et aux exigences de l’étiquette, il y a toujours un coin fertile et riant : c’est celui que Dieu a consacré à l’amour maternel. On vous pardonne... Maintenant je disais, Villefort, que les bonapartistes n’avaient ni notre conviction, ni notre enthousiasme, ni notre dévouement.
-– Oh ! madame, ils ont du moins quelque chose qui remplace tout cela : c’est le fanatisme.
-Napoléon est le Mahomet de l’Occident ; c’est pour tous ces hommes vulgaires, mais aux ambitions suprêmes, non seulement un législateur et un maître, mais encore c’est un type, le type de l’égalité.
-– De l’égalité ! s’écria la marquise. Napoléon, le type de l’égalité ! et que ferez-vous donc de M. de Robespierre ? Il me semble que vous lui volez sa place pour la donner au Corse ; c’est cependant bien assez d’une usurpation, ce me semble.
-– Non, madame, dit Villefort, je laisse chacun sur son piédestal : Robespierre, place Louis XV, sur son échafaud ; Napoléon, place Vendôme, sur sa colonne ; seulement l’un a fait de l’égalité qui abaisse, et l’autre de l’égalité qui élève ; l’un a ramené les rois au niveau de la guillotine, l’autre a élevé le peuple au niveau du trône. Cela ne veut pas dire, ajouta Villefort en riant, que tous deux ne soient pas d’infâmes révolutionnaires, et que le 9 thermidor et le 4 avril 1814 ne soient pas deux jours heureux pour la France, et dignes d’être également fêtés par les amis de l’ordre et de la monarchie ; mais cela explique aussi comment, tout tombé qu’il est pour ne se relever jamais, je l’espère, Napoléon a conservé ses séides. Que voulez-vous, marquise ? Cromwell, qui n’était que la moitié de tout ce qu’a été Napoléon, avait bien les siens !
-– Savez-vous que ce que vous dites là, Villefort, sent la révolution d’une lieue ? Mais je vous pardonne : on ne peut pas être fils de girondin et ne pas conserver un goût de terroir. »
-Une vive rougeur passa sur le front de Villefort.
-« Mon père était girondin, madame, dit-il, c’est vrai ; mais mon père n’a pas voté la mort du roi ; mon père a été proscrit par cette même Terreur qui vous proscrivait, et peu s’en est fallu qu’il ne portât sa tête sur le même échafaud qui avait vu tomber la tête de votre père.
-– Oui, dit la marquise, sans que ce souvenir sanglant amenât la moindre altération sur ses traits ; seulement c’était pour des principes diamétralement opposés qu’ils y fussent montés tous deux, et la preuve c’est que toute ma famille est restée attachée aux princes exilés, tandis que votre père a eu hâte de se rallier au nouveau gouvernement, et qu’après que le citoyen Noirtier a été girondin, le comte Noirtier est devenu sénateur.
-– Ma mère, ma mère, dit Renée, vous savez qu’il était convenu qu’on ne parlerait plus de ces mauvais souvenirs.
-– Madame, répondit Villefort, je me joindrai à Mlle de Saint-Méran pour vous demander bien humblement l’oubli du passé. À quoi bon récriminer sur des choses dans lesquelles la volonté de Dieu même est impuissante ? Dieu peut changer l’avenir ; il ne peut pas même modifier le passé. Ce que nous pouvons, nous autres hommes, c’est sinon le renier, du moins jeter un voile dessus. Eh bien, moi, je me suis séparé non seulement de l’opinion, mais encore du nom de mon père. Mon père a été ou est même peut-être encore bonapartiste et s’appelle Noirtier ; moi, je suis royaliste et m’appelle de Villefort. Laissez mourir dans le vieux tronc un reste de sève révolutionnaire, et ne voyez, madame, que le rejeton qui s’écarte de ce tronc, sans pouvoir, et je dirai presque sans vouloir s’en détacher tout à fait.
-– Bravo, Villefort, dit le marquis, bravo, bien répondu ! Moi aussi, j’ai toujours prêché à la marquise l’oubli du passé, sans jamais avoir pu l’obtenir d’elle, vous serez plus heureux, je l’espère.
-– Oui, c’est bien, dit la marquise, oublions le passé, je ne demande pas mieux, et c’est convenu ; mais qu’au moins Villefort soit inflexible pour l’avenir. N’oubliez pas, Villefort, que nous avons répondu de vous à Sa Majesté : que Sa Majesté, elle aussi, a bien voulu oublier, à notre recommandation (elle tendit la main), comme j’oublie à votre prière. Seulement s’il vous tombe quelque conspirateur entre les mains, songez qu’on a d’autant plus les yeux sur vous que l’on sait que vous êtes d’une famille qui peut-être est en rapport avec ces conspirateurs.
-– Hélas ! madame, dit Villefort, ma profession et surtout le temps dans lequel nous vivons m’ordonnent d’être sévère. Je le serai. J’ai déjà eu quelques accusations politiques à soutenir, et, sous ce rapport, j’ai fait mes preuves.
-Malheureusement, nous ne sommes pas au bout.
+	text: `Le même jour, à la même heure, un autre repas de fiançailles avait lieu dans une vieille et luxueuse maison de la rue du Grand-Cours, en face de la fontaine des Méduses.
+Mais ici, les invités n’étaient pas des marins ou des soldats. Ils appartenaient à la haute société de Marseille : d’anciens magistrats qui avaient démissionné sous Napoléon, de vieux officiers qui avaient rejoint l’armée ennemie, et des jeunes gens élevés dans la haine de cet homme que cinq ans d’exil transformeraient en martyr, et quinze ans de Restauration en un dieu.
+Ils étaient à table et la conversation était brûlante, pleine des passions politiques de l’époque, des passions d’autant plus vives dans le Sud où les haines religieuses et politiques se mélangeaient depuis des siècles.
+L’Empereur, devenu roi de la petite île d’Elbe après avoir été maître du monde, était considéré comme un homme fini, perdu pour la France. Les magistrats rappelaient ses erreurs politiques, les militaires parlaient des défaites de Moscou et de Leipzig, et les femmes, de son divorce avec Joséphine. Pour ce monde royaliste, joyeux non pas de la chute de l’homme mais de la fin de ses idées, la vie semblait recommencer, comme après un long cauchemar.
+Un vieil homme, portant la croix de Saint-Louis, se leva et proposa de boire à la santé du roi Louis XVIII. C’était le marquis de Saint-Méran.
+À ce toast, qui rappelait à la fois l’exil et le retour du roi, l’enthousiasme fut général. Les verres se levèrent, et les femmes détachèrent les fleurs de leurs corsages pour les jeter sur la table. C’était un élan presque poétique.
+« S’ils étaient là, ils l’admettraient, dit la marquise de Saint-Méran, une femme d’une cinquantaine d’années, encore élégante, avec un regard dur et des lèvres minces. Tous ces révolutionnaires qui nous ont chassés, et que nous laissons tranquillement conspirer dans nos châteaux qu’ils ont achetés pour une bouchée de pain sous la Terreur. Ils reconnaîtraient que le vrai dévouement était de notre côté, car nous sommes restés fidèles à la monarchie qui s’effondrait, tandis qu’eux saluaient le nouveau pouvoir pour faire fortune pendant que nous perdions la nôtre. Ils admettraient que notre roi était vraiment Louis le Bien-Aimé, et que leur usurpateur n’a jamais été que Napoléon le Maudit. N’est-ce pas, monsieur de Villefort ?
+– Vous disiez, madame la marquise ?... Pardonnez-moi, je ne suivais pas la conversation.
+– Laissez donc ces enfants, marquise, reprit le vieil homme. Ils vont se marier, il est normal qu’ils parlent d’autre chose que de politique.
+– Je vous demande pardon, ma mère, dit une belle jeune femme blonde aux yeux de velours. Je vous rends M. de Villefort, que j’avais un peu monopolisé. Ma mère vous parle, monsieur de Villefort.
+– Je suis prêt à vous répondre, madame, si vous voulez bien répéter votre question, dit M. de Villefort.
+– On te pardonne, Renée, dit la marquise avec un sourire tendre, surprenant sur son visage sévère. C’est ainsi qu’est le cœur d’une femme : même le plus endurci par les conventions garde toujours un coin fertile pour l’amour maternel. Je disais donc, Villefort, que les bonapartistes n’ont ni notre conviction, ni notre dévouement.
+– Oh, madame, ils ont quelque chose qui remplace tout cela : le fanatisme. Napoléon est le Mahomet de l’Occident. Pour tous ces hommes du peuple aux grandes ambitions, il n’est pas seulement un chef, mais un symbole : le symbole de l’égalité.
+– L’égalité ! s’écria la marquise. Napoléon, symbole de l’égalité ? Et que faites-vous de Robespierre ? Vous lui volez sa place pour la donner au Corse. Une usurpation, ça suffit !
+– Non, madame, dit Villefort, je laisse chacun à sa place : Robespierre sur son échafaud, Napoléon sur sa colonne Vendôme. Simplement, l’un a créé une égalité qui abaisse, et l’autre une égalité qui élève. L’un a mis les rois au niveau de la guillotine, l’autre a élevé le peuple au niveau du trône. Cela ne veut pas dire qu’ils ne sont pas tous les deux d’horribles révolutionnaires. Mais cela explique pourquoi Napoléon, même tombé, conserve des partisans fidèles. Que voulez-vous, marquise ? Cromwell, qui n’était que la moitié de Napoléon, avait bien les siens !
+– Savez-vous, Villefort, que vos propos ont une forte odeur de révolution ? Mais je vous pardonne. On ne peut pas être le fils d’un Girondin sans en garder une trace. »
+Une vive rougeur monta au front de Villefort.
+« Mon père était Girondin, c’est vrai, madame, dit-il. Mais il n’a pas voté la mort du roi. Il a été proscrit par cette même Terreur qui vous a proscrite, et il a failli avoir la tête coupée sur le même échafaud que votre père.
+– Oui, dit la marquise sans la moindre émotion. Mais ils y seraient montés pour des principes opposés. La preuve, c’est que ma famille est restée fidèle aux princes en exil, tandis que votre père s’est rallié au nouveau gouvernement. Le citoyen Noirtier est devenu le comte Noirtier et un sénateur.
+– Ma mère, ma mère, dit Renée, nous avions convenu de ne plus parler de ces mauvais souvenirs.
+– Madame, répondit Villefort, je me joins à Mademoiselle de Saint-Méran pour vous demander humblement d’oublier le passé. À quoi bon discuter de choses que même Dieu ne peut changer ? Dieu peut changer l’avenir, mais pas le passé. Nous, les hommes, nous pouvons au moins jeter un voile dessus. Moi, je me suis séparé non seulement des opinions, mais aussi du nom de mon père. Mon père est peut-être encore bonapartiste et s’appelle Noirtier ; moi, je suis royaliste et je m’appelle de Villefort. Laissez la sève révolutionnaire mourir dans le vieil arbre, et ne voyez que le jeune rameau qui s’en écarte, sans pouvoir, et presque sans vouloir, s’en détacher complètement.
+– Bravo, Villefort ! dit le marquis. Bien répondu ! J’ai toujours conseillé à la marquise d’oublier le passé, sans jamais y parvenir. Vous aurez plus de chance, je l’espère.
+– C’est bien, dit la marquise, oublions le passé. Mais soyez au moins inflexible pour l’avenir, Villefort. N’oubliez pas que nous nous sommes portés garants pour vous auprès de Sa Majesté. Et que Sa Majesté a bien voulu oublier, sur notre recommandation (elle lui tendit la main), comme j’oublie à votre demande. Mais si un conspirateur vous tombe entre les mains, souvenez-vous qu’on vous surveille de près, car on sait que vous venez d’une famille qui a peut-être des liens avec ces conspirateurs.
+– Hélas, madame, dit Villefort, mon métier et l’époque m’obligent à être sévère. Et je le serai. J’ai déjà mené plusieurs procès politiques et j’ai fait mes preuves. Malheureusement, ce n’est pas fini.
 – Vous croyez ? dit la marquise.
-– J’en ai peur. Napoléon à l’île d’Elbe est bien près de la France ; sa présence presque en vue de nos côtes entretient l’espérance de ses partisans.
-Marseille est pleine d’officiers à demi-solde, qui, tous les jours, sous un prétexte frivole, cherchent querelle aux royalistes ; de là des duels parmi les gens de classe élevée, de là des assassinats dans le peuple.
-– Oui, dit le comte de Salvieux, vieil ami de M. de Saint-Méran et chambellan de M. le comte d’Artois, oui, mais vous savez que la SainteAlliance le déloge.
-– Oui, il était question de cela lors de notre départ de Paris, dit M. de Saint-Méran. Et où l’envoie-t-on ?
+– J’en ai peur. Napoléon, sur l’île d’Elbe, est bien trop près de la France. Sa présence entretient l’espoir de ses partisans. Marseille est pleine d’officiers en retraite qui cherchent chaque jour des querelles avec les royalistes. Cela mène à des duels dans la haute société et à des meurtres dans le peuple.
+– Oui, dit le comte de Salvieux, un vieil ami du marquis, mais la Sainte-Alliance va le déloger.
+– On en parlait à notre départ de Paris, dit M. de Saint-Méran. Et où l’envoie-t-on ?
 – À Sainte-Hélène.
-– À Sainte-Hélène ! Qu’est-ce que cela ? demanda la marquise.
-– Une île située à deux mille lieues d’ici, audelà de l’équateur, répondit le comte.
-– À la bonne heure ! Comme le dit Villefort, c’est une grande folie que d’avoir laissé un pareil homme entre la Corse, où il est né, et Naples, où règne encore son beau-frère, et en face de cette Italie dont il voulait faire un royaume à son fils.
-– Malheureusement, dit Villefort, nous avons les traités de 1814, et l’on ne peut toucher à Napoléon sans manquer à ces traités.
-– Eh bien, on y manquera, dit M. de Salvieux.
-Y a-t-il regardé de si près, lui, lorsqu’il s’est agi de faire fusiller le malheureux duc d’Enghien ?
-– Oui, dit la marquise, c’est convenu, la Sainte-Alliance débarrasse l’Europe de Napoléon, et Villefort débarrasse Marseille de ses partisans. Le roi règne ou ne règne pas : s’il règne, son gouvernement doit être fort et ses agents inflexibles ; c’est le moyen de prévenir le mal.
-– Malheureusement, madame, dit en souriant Villefort, un substitut du procureur du roi arrive toujours quand le mal est fait.
-– Alors, c’est à lui de le réparer.
-– Je pourrais vous dire encore, madame, que nous ne réparons pas le mal, mais que nous le vengeons : voilà tout.
-– Oh ! monsieur de Villefort, dit une jeune et jolie personne, fille du comte de Salvieux et amie de Mlle de Saint-Méran, tâchez donc d’avoir un beau procès, tandis que nous serons à Marseille.
-Je n’ai jamais vu une cour d’assises, et l’on dit que c’est fort curieux.
-– Fort curieux, en effet, mademoiselle, dit le substitut ; car au lieu d’une tragédie factice, c’est un drame véritable ; au lieu de douleurs jouées ce sont des douleurs réelles. Cet homme qu’on voit là, au lieu, la toile baissée, de rentrer chez lui, de souper en famille et de se coucher tranquillement pour recommencer le lendemain, rentre dans la prison où il trouve le bourreau. Vous voyez bien que, pour les personnes nerveuses qui cherchent les émotions, il n’y a pas de spectacle qui vaille celui-là. Soyez tranquille, mademoiselle, si la circonstance se présente, je vous le procurerai.
-– Il nous fait frissonner... et il rit ! dit Renée toute pâlissante.
-– Que voulez-vous... c’est un duel... J’ai déjà requis cinq ou six fois la peine de mort contre des accusés politiques ou autres... Eh bien, qui sait combien de poignards à cette heure s’aiguisent dans l’ombre, ou sont déjà dirigés contre moi ?
-– Oh ! mon Dieu ! dit Renée en s’assombrissant de plus en plus, parlez-vous donc sérieusement, monsieur de Villefort ?
-– On ne peut plus sérieusement, mademoiselle, reprit le jeune magistrat, le sourire sur les lèvres. Et avec ces beaux procès que désire mademoiselle pour satisfaire sa curiosité, et que je désire, moi, pour satisfaire mon ambition, la situation ne fera que s’aggraver.
-Tous ces soldats de Napoléon, habitués à aller en aveugles à l’ennemi, croyez-vous qu’ils réfléchissent en brûlant une cartouche ou en marchant à la baïonnette ? Eh bien, réfléchirontils davantage pour tuer un homme qu’ils croient leur ennemi personnel, que pour tuer un Russe, un Autrichien ou un Hongrois qu’ils n’ont jamais vu ? D’ailleurs il faut cela, voyez-vous ; sans quoi notre métier n’aurait point d’excuse. Moimême, quand je vois luire dans l’œil de l’accusé l’éclair lumineux de la rage, je me sens tout encouragé, je m’exalte : ce n’est plus un procès, c’est un combat ; je lutte contre lui, il riposte, je redouble, et le combat finit, comme tous les combats, par une victoire ou une défaite. Voilà ce que c’est que de plaider ! c’est le danger qui fait l’éloquence. Un accusé qui me sourirait après ma réplique me ferait croire que j’ai parlé mal, que ce que j’ai dit est pâle, sans vigueur, insuffisant.
-Songez donc à la sensation d’orgueil qu’éprouve un procureur du roi, convaincu de la culpabilité de l’accusé, lorsqu’il voit blêmir et s’incliner son coupable sous le poids des preuves et sous les foudres de son éloquence ! Cette tête se baisse, elle tombera. »
-Renée jeta un léger cri.
-« Voilà qui est parler, dit un des convives.
-– Voilà l’homme qu’il faut dans des temps comme les nôtres ! dit un second.
-– Aussi, dit un troisième, dans votre dernière affaire vous avez été superbe, mon cher Villefort.
-Vous savez, cet homme qui avait assassiné son père ; eh bien, littéralement, vous l’aviez tué avant que le bourreau y touchât.
-– Oh ! pour les parricides, dit Renée, oh ! peu m’importe, il n’y a pas de supplice assez grand pour de pareils hommes ; mais pour les malheureux accusés politiques !...
-– Mais c’est pire encore, Renée, car le roi est le père de la nation, et vouloir renverser ou tuer le roi, c’est vouloir tuer le père de trente-deux millions d’hommes.
-– Oh ! c’est égal, monsieur de Villefort, dit Renée, vous me promettez d’avoir de l’indulgence pour ceux que je vous recommanderai ?
-– Soyez tranquille, dit Villefort avec son plus charmant sourire, nous ferons ensemble mes réquisitoires.
-– Ma chère, dit la marquise, mêlez-vous de vos colibris, de vos épagneuls et de vos chiffons, et laissez votre futur époux faire son état.
-Aujourd’hui, les armes se reposent et la robe est en crédit ; il y a là-dessus un mot latin d’une grande profondeur.
-– Cedant arma togae, dit en s’inclinant Villefort.
-– Je n’osais point parler latin, répondit la marquise.
-– Je crois que j’aimerais mieux que vous fussiez médecin, reprit Renée ; l’ange exterminateur, tout ange qu’il est, m’a toujours fort épouvantée.
-– Bonne Renée ! murmura Villefort en couvant la jeune fille d’un regard d’amour.
-– Ma fille, dit le marquis, M. de Villefort sera le médecin moral et politique de cette province ; croyez-moi, c’est un beau rôle à jouer.
-– Et ce sera un moyen de faire oublier celui qu’a joué son père, reprit l’incorrigible marquise.
-– Madame, reprit Villefort avec un triste sourire, j’ai déjà eu l’honneur de vous dire que mon père avait, je l’espère du moins, abjuré les erreurs de son passé ; qu’il était devenu un ami zélé de la religion et de l’ordre, meilleur royaliste que moi peut-être ; car lui, c’était avec repentir, et, moi, je ne le suis qu’avec passion. »
-Et après cette phrase arrondie, Villefort, pour juger de l’effet de sa faconde, regarda les convives, comme, après une phrase équivalente, il aurait au parquet regardé l’auditoire.
-« Eh bien, mon cher Villefort, reprit le comte de Salvieux, c’est justement ce qu’aux Tuileries je répondais avant-hier au ministre de la maison du roi, qui me demandait un peu compte de cette singulière alliance entre le fils d’un girondin et la fille d’un officier de l’armée de Condé ; et le ministre a très bien compris. Ce système de fusion est celui de Louis XVIII. Aussi le roi, qui, sans que nous nous en doutassions, écoutait notre conversation, nous a-t-il interrompus en disant :
-« Villefort, remarquez que le roi n’a pas prononcé le nom de Noirtier, et au contraire a appuyé sur celui de Villefort ; Villefort, a donc dit le roi, fera un bon chemin ; c’est un jeune homme déjà mûr, et qui est de mon monde. J’ai vu avec plaisir que le marquis et la marquise de Saint-Méran le prissent pour gendre, et je leur eusse conseillé cette alliance s’ils n’étaient venus les premiers me demander permission de la contracter. »
-– Le roi a dit cela, comte ? s’écria Villefort ravi.
-– Je vous rapporte ses propres paroles, et si le marquis veut être franc, il avouera que ce que je vous rapporte à cette heure s’accorde parfaitement avec ce que le roi lui a dit à luimême quand il lui a parlé, il y a six mois, d’un projet de mariage entre sa fille et vous.
+– Sainte-Hélène ! Qu’est-ce que c’est ? demanda la marquise.
+– Une île à deux mille lieues d’ici, au-delà de l’équateur, répondit le comte.
+– Parfait ! Comme le dit Villefort, c’est une folie de l’avoir laissé entre la Corse, où il est né, et Naples, où règne encore son beau-frère, et en face de l’Italie dont il voulait faire un royaume pour son fils.
+– Malheureusement, dit Villefort, il y a les traités de 1814. On ne peut pas toucher à Napoléon sans les violer.
+– Eh bien, on les violera ! dit M. de Salvieux. S’est-il soucié des traités quand il a fait fusiller le malheureux duc d’Enghien ?
+– C’est convenu, dit la marquise. La Sainte-Alliance débarrasse l’Europe de Napoléon, et Villefort débarrasse Marseille de ses partisans. Le roi règne, donc son gouvernement doit être fort et ses agents inflexibles. C’est le moyen de prévenir le mal.
+– Malheureusement, madame, dit Villefort en souriant, un substitut du procureur arrive toujours quand le mal est déjà fait.
+– Alors c’est à lui de le réparer.
+– Je dirais plutôt, madame, que nous ne réparons pas le mal, nous le vengeons. C’est tout.
+– Oh, monsieur de Villefort, dit une jeune et jolie amie de Renée, essayez d’avoir un grand procès pendant que nous serons à Marseille. Je n’ai jamais vu de cour d’assises, on dit que c’est très intéressant.
+– Très intéressant, en effet, mademoiselle, dit le substitut. Car ce n’est pas une tragédie jouée, mais un drame réel. Cet homme que vous voyez, à la fin, ne rentre pas chez lui pour dîner en famille, mais en prison où l’attend le bourreau. Pour les personnes qui cherchent des émotions fortes, il n’y a pas de meilleur spectacle. Soyez tranquille, si l’occasion se présente, je vous y inviterai.
+– Il nous fait frissonner… et il rit ! dit Renée en pâlissant.
+– Que voulez-vous… c’est un duel. J’ai déjà requis la peine de mort cinq ou six fois… Qui sait combien de poignards sont en ce moment dirigés contre moi ?
+– Oh, mon Dieu ! dit Renée, de plus en plus sombre. Parlez-vous sérieusement, monsieur de Villefort ?
+– Très sérieusement, mademoiselle, reprit le jeune magistrat avec un sourire. Et avec ces grands procès que mademoiselle désire pour sa curiosité, et que je désire pour mon ambition, la situation ne fera qu’empirer. Pensez-vous que ces soldats de Napoléon, habitués à foncer sur l’ennemi, réfléchissent avant de tuer un homme qu’ils considèrent comme leur ennemi personnel ? Non. D’ailleurs, il le faut. Sans quoi, notre métier n’aurait pas d’excuse. Moi-même, quand je vois la rage dans l’œil de l’accusé, je me sens galvanisé. Ce n’est plus un procès, c’est un combat. Je lutte contre lui, il riposte, et le combat se termine par une victoire ou une défaite. Voilà ce qu’est la plaidoirie ! Le danger rend éloquent. Un accusé qui me sourirait après mon réquisitoire me ferait croire que j’ai mal parlé. Pensez à l’orgueil d’un procureur qui voit le coupable blêmir sous le poids des preuves et de son éloquence ! Cette tête s’incline, elle tombera. »
+Renée poussa un petit cri.
+« Voilà qui est parler ! dit un des invités.
+– C’est l’homme qu’il faut à notre époque ! dit un second.
+– Dans votre dernière affaire, vous avez été superbe, mon cher Villefort, dit un troisième. Cet homme qui avait tué son père, vous l’aviez littéralement tué avant même le bourreau.
+– Oh, pour les parricides, peu m’importe, dit Renée. Aucun supplice n’est assez grand pour eux. Mais pour les malheureux accusés politiques…
+– Mais c’est pire encore, Renée. Le roi est le père de la nation. Vouloir le tuer, c’est vouloir tuer le père de trente-deux millions d’hommes.
+– C’est égal, monsieur de Villefort, dit Renée. Promettez-moi d’être indulgent avec ceux que je vous recommanderai.
+– Soyez tranquille, dit Villefort avec son plus charmant sourire. Nous écrirons mes réquisitoires ensemble.
+– Ma chère, dit la marquise, occupez-vous de vos oiseaux et de vos robes, et laissez votre futur mari faire son métier. Aujourd’hui, la justice a le pouvoir. Il y a une expression latine très profonde à ce sujet.
+– Cedant arma togae, dit Villefort en s’inclinant.
+– Je n’osais pas parler latin, répondit la marquise.
+– Je crois que je préférerais que vous soyez médecin, reprit Renée. L’ange de la mort, même s’il est un ange, m’a toujours fait très peur.
+– Ma douce Renée ! murmura Villefort en la regardant avec amour.
+– Ma fille, dit le marquis, M. de Villefort sera le médecin moral et politique de cette province. C’est un beau rôle.
+– Et ce sera un moyen de faire oublier celui qu’a joué son père, ajouta l’incorrigible marquise.
+– Madame, reprit Villefort avec un triste sourire, j’ai déjà eu l’honneur de vous dire que mon père a, je l’espère, renié les erreurs de son passé. Il est devenu un ami zélé de la religion et de l’ordre, un meilleur royaliste que moi peut-être. Car lui, il l’est par repentir, et moi, je ne le suis que par passion. »
+Après cette phrase bien tournée, Villefort regarda les invités pour juger de son effet, comme il l’aurait fait au tribunal.
+« Eh bien, mon cher Villefort, reprit le comte de Salvieux, c’est exactement ce que je répondais avant-hier au ministre, qui s’étonnait de cette alliance entre le fils d’un Girondin et la fille d’un officier royaliste. Le ministre a très bien compris. C’est le système de fusion de Louis XVIII. D’ailleurs, le roi, qui écoutait notre conversation, nous a interrompus en disant : "Villefort (remarquez qu’il n’a pas dit Noirtier), Villefort fera un beau parcours. C’est un jeune homme déjà mûr, qui est de mon monde. Je suis heureux que les Saint-Méran le prennent pour gendre, et je leur aurais conseillé cette alliance s’ils ne m’avaient pas demandé la permission les premiers."
+– Le roi a dit cela, comte ? s’écria Villefort, ravi.
+– Je vous rapporte ses propres paroles, dit le comte.
 – C’est vrai, dit le marquis.
-– Oh ! mais je lui devrai donc tout, à ce digne prince. Aussi que ne ferais-je pas pour le servir !
-– À la bonne heure, dit la marquise, voilà comme je vous aime : vienne un conspirateur dans ce moment, et il sera le bienvenu.
-– Et moi, ma mère, dit Renée, je prie Dieu qu’il ne vous écoute point, et qu’il n’envoie à M. de Villefort que de petits voleurs, de faibles banqueroutiers et de timides escrocs ; moyennant cela, je dormirai tranquille.
-– C’est comme si, dit en riant Villefort, vous souhaitiez au médecin des migraines, des rougeoles et des piqûres de guêpe, toutes choses qui ne compromettent que l’épiderme. Si vous voulez me voir procureur du roi, au contraire, souhaitez-moi de ces terribles maladies dont la cure fait honneur au médecin. »
-En ce moment, et comme si le hasard n’avait attendu que l’émission du souhait de Villefort pour que ce souhait fût exaucé, un valet de chambre entra et lui dit quelques mots à l’oreille.
-Villefort quitta alors la table en s’excusant, et revint quelques instants après, le visage ouvert et les lèvres souriantes.
-Renée le regarda avec amour ; car, vu ainsi, avec ses yeux bleus, son teint mat et ses favoris noirs qui encadraient son visage, c’était véritablement un élégant et beau jeune homme ; aussi l’esprit tout entier de la jeune fille sembla-til suspendu à ses lèvres, en attendant qu’il expliquât la cause de sa disparition momentanée.
-« Eh bien, dit Villefort, vous ambitionniez tout à l’heure, mademoiselle, d’avoir pour mari un médecin, j’ai au moins avec les disciples d’Esculape (on parlait encore ainsi en 1815) cette ressemblance, que jamais l’heure présente n’est à moi, et qu’on me vient déranger même à côté de vous, même au repas de mes fiançailles.
-– Et pour quelle cause vous dérange-t-on, monsieur ? demanda la belle jeune fille avec une légère inquiétude.
-– Hélas ! pour un malade qui serait, s’il faut en croire ce que l’on m’a dit, à toute extrémité : cette fois c’est un cas grave, et la maladie frise l’échafaud.
+– Oh, je lui devrai donc tout ! Que ne ferais-je pas pour le servir !
+– Parfait ! dit la marquise. Voilà comment je vous aime. Qu’un conspirateur arrive, et il sera le bienvenu.
+– Et moi, ma mère, dit Renée, je prie Dieu de ne pas vous écouter, et de n’envoyer à M. de Villefort que de petits voleurs, afin que je puisse dormir tranquille.
+– C’est comme si vous souhaitiez à un médecin des maux de tête ou des piqûres de guêpe, dit Villefort en riant. Si vous voulez me voir procureur du roi, souhaitez-moi au contraire de ces terribles maladies dont la guérison fait l’honneur du médecin. »
+À ce moment, comme si le hasard exauçait son souhait, un valet entra et lui glissa quelques mots à l’oreille. Villefort s’excusa, quitta la table et revint quelques instants après, le visage radieux.
+Renée le regarda avec amour. Avec ses yeux bleus, son teint mat et ses favoris noirs, c’était vraiment un bel homme. Elle attendait, suspendue à ses lèvres, l’explication de sa sortie.
+« Eh bien, dit Villefort, vous vouliez un mari médecin. J’ai au moins un point commun avec eux : je ne suis jamais maître de mon temps. On vient me déranger même à côté de vous, au repas de mes fiançailles.
+– Et pour quelle raison, monsieur ? demanda la jeune fille avec inquiétude.
+– Hélas, pour un malade qui est, semble-t-il, au plus mal. C’est un cas grave, la maladie est proche de l’échafaud.
 – Ô mon Dieu ! s’écria Renée en pâlissant.
-– En vérité ! dit tout d’une voix l’assemblée.
-– Il paraît qu’on vient tout simplement de découvrir un petit complot bonapartiste.
-– Est-il possible ? dit la marquise.
+– Vraiment ! dirent tous les invités en même temps.
+– Il paraît qu’on vient de découvrir un petit complot bonapartiste.
+– Possible ? dit la marquise.
 – Voici la lettre de dénonciation. »
 Et Villefort lut :
-Monsieur le procureur du roi est prévenu, par un ami du trône et de la religion, que le nommé Edmond Dantès, second du navire le Pharaon, arrivé ce matin de Smyrne, après avoir touché à Naples et à Porto-Ferrajo, a été chargé, par Murat, d’une lettre pour l’usurpateur, et, par l’usurpateur, d’une lettre pour le comité bonapartiste de Paris.
-On aura la preuve de son crime en l’arrêtant, car on trouvera cette lettre ou sur lui, ou chez son père, ou dans sa cabine à bord du Pharaon.
-– Mais, dit Renée, cette lettre, qui n’est qu’une lettre anonyme d’ailleurs, est adressée à M. le procureur du roi, et non à vous.
-– Oui, mais le procureur du roi est absent ; en son absence, l’épître est parvenue à son secrétaire, qui avait mission d’ouvrir les lettres ; il a donc ouvert celle-ci, m’a fait chercher, et, ne me trouvant pas, a donné des ordres pour l’arrestation.
-– Ainsi, le coupable est arrêté, dit la marquise.
-– C’est-à-dire l’accusé, reprit Renée.
-– Oui, madame, dit Villefort, et, comme j’avais l’honneur de le dire tout à l’heure à Mlle Renée, si l’on trouve la lettre en question, le malade est bien malade.
+"Monsieur le procureur du roi est prévenu, par un ami du trône et de la religion, que le nommé Edmond Dantès, second du navire le Pharaon, arrivé ce matin de Smyrne, après avoir touché à Naples et à Porto-Ferrajo, a été chargé, par Murat, d’une lettre pour l’usurpateur, et, par l’usurpateur, d’une lettre pour le comité bonapartiste de Paris. On aura la preuve de son crime en l’arrêtant, car on trouvera cette lettre sur lui, ou chez son père, ou dans sa cabine à bord du Pharaon."
+– Mais, dit Renée, cette lettre, qui est anonyme, est adressée au procureur du roi, pas à vous.
+– Oui, mais le procureur est absent. Son secrétaire a ouvert la lettre, m’a fait chercher, et comme il ne me trouvait pas, a ordonné l’arrestation.
+– Donc, le coupable est arrêté, dit la marquise.
+– L’accusé, reprit Renée.
+– Oui, madame, dit Villefort. Et si l’on trouve la lettre, le malade est en effet bien malade.
 – Et où est ce malheureux ? demanda Renée.
 – Il est chez moi.
-– Allez, mon ami, dit le marquis, ne manquez pas à vos devoirs pour demeurer avec nous, quand le service du roi vous attend ailleurs ; allez donc où le service du roi vous attend.
-– Oh ! monsieur de Villefort, dit Renée en joignant les mains, soyez indulgent, c’est le jour de vos fiançailles ! »
-Villefort fit le tour de la table, et, s’approchant de la chaise de la jeune fille, sur le dossier de laquelle il s’appuya :
-« Pour vous épargner une inquiétude, dit-il, je ferai tout ce que je pourrai, chère Renée ; mais, si les indices sont sûrs, si l’accusation est vraie, il faudra bien couper cette mauvaise herbe bonapartiste. »
-Renée frissonna à ce mot couper, car cette herbe qu’il s’agissait de couper avait une tête.
-« Bah ! bah ! dit la marquise, n’écoutez pas cette petite fille, Villefort, elle s’y fera. »
-Et la marquise tendit à Villefort une main sèche qu’il baisa, tout en regardant Renée et en lui disant des yeux :
-« C’est votre main que je baise, ou du moins que je voudrais baiser en ce moment.
-– Tristes auspices ! murmura Renée.
-– En vérité, mademoiselle, dit la marquise, vous êtes d’un enfantillage désespérant : je vous demande un peu ce que le destin de l’État peut avoir à faire avec vos fantaisies de sentiment et vos sensibleries de cœur.
-– Oh ! ma mère ! murmura Renée.
-– Grâce pour la mauvaise royaliste, madame la marquise, dit de Villefort, je vous promets de faire mon métier de substitut du procureur du roi en conscience, c’est-à-dire d’être horriblement sévère. »
-Mais, en même temps que le magistrat adressait ces paroles à la marquise, le fiancé jetait à la dérobée un regard à sa fiancée, et ce regard disait :
-« Soyez tranquille, Renée : en faveur de votre amour, je serai indulgent. »
-Renée répondit à ce regard par son plus doux sourire, et Villefort sortit avec le paradis dans le cœur.`,
+– Allez, mon ami, dit le marquis. Ne manquez pas à vos devoirs. Allez où le service du roi vous attend.
+– Oh, monsieur de Villefort, dit Renée en joignant les mains, soyez indulgent, c’est le jour de vos fiançailles ! »
+Villefort fit le tour de la table et s’approcha d’elle.
+« Pour vous rassurer, je ferai tout ce que je pourrai, chère Renée. Mais si l’accusation est vraie, il faudra bien couper cette mauvaise herbe bonapartiste. »
+Renée frissonna au mot « couper », car cette herbe avait une tête.
+« Bah ! dit la marquise, n’écoutez pas cette enfant, Villefort, elle s’y fera. »
+Elle tendit à Villefort une main sèche qu’il baisa, tout en regardant Renée comme pour lui dire : « C’est votre main que je voudrais baiser. »
+« Tristes présages ! murmura Renée.
+– Vraiment, mademoiselle, dit la marquise, vous êtes d’une naïveté désespérante. Qu’est-ce que le destin de l’État a à voir avec votre sentimentalité ?
+– Oh, ma mère ! murmura Renée.
+– Pardonnez cette jeune royaliste, madame la marquise, dit Villefort. Je vous promets de faire mon métier de substitut avec conscience, c’est-à-dire d’être horriblement sévère. »
+Mais en même temps, le fiancé jetait un regard secret à sa fiancée, qui disait : « Soyez tranquille, Renée. Pour l’amour de vous, je serai indulgent. »
+Renée lui répondit par son plus doux sourire, et Villefort sortit, le cœur rempli de joie.`,
 }
