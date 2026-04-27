@@ -6,7 +6,6 @@ import { CreateSentenceChatThreadCommand } from 'features/sentenceChat/CreateSen
 import { CreateSentenceChatUserMessageCommand } from 'features/sentenceChat/CreateSentenceChatUserMessage.command'
 import { GetSentenceChatThreadQuery } from 'features/sentenceChat/GetSentenceChatThread.query'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
-import { UserWithPositiveBalanceGuard } from 'infrastructure/guards/userWithPositiveBalanceGuard.guard'
 import RouteNames from 'infrastructure/routeNames'
 import { SentenceChatMessageOutModel } from 'models/sentenceChat/sentenceChatMessage.out.model'
 import { SentenceChatThreadOutModel } from 'models/sentenceChat/sentenceChatThread.out.model'
@@ -40,7 +39,7 @@ export class SentenceChatResolver {
 		)
 	}
 
-	@UseGuards(CheckSessionCookieGuard, UserWithPositiveBalanceGuard)
+	@UseGuards(CheckSessionCookieGuard)
 	@Mutation(() => SentenceChatThreadOutModel, {
 		name: RouteNames.SENTENCE_CHAT.CREATE_THREAD,
 		description: sentenceChatResolversDesc.createSentenceChatThread,
@@ -57,7 +56,7 @@ export class SentenceChatResolver {
 		)
 	}
 
-	@UseGuards(CheckSessionCookieGuard, UserWithPositiveBalanceGuard)
+	@UseGuards(CheckSessionCookieGuard)
 	@Mutation(() => SentenceChatMessageOutModel, {
 		name: RouteNames.SENTENCE_CHAT.CREATE_USER_MESSAGE,
 		description: sentenceChatResolversDesc.createSentenceChatUserMessage,

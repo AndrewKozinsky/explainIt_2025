@@ -123,6 +123,7 @@ export const errorMessage = {
 		lastMessageIsNotUserQuestion:
 			'Невозможно сгенерировать ответ: последнее сообщение в треде не является вопросом пользователя.',
 		previousAnswerNotReady: 'Невозможно отправить новый вопрос: предыдущий ответ ещё не завершён.',
+		insufficientBalance: 'Недостаточно средств на балансе для генерации ответа.',
 	},
 	flashcard: {
 		notFound: 'Карточка не найдена.',

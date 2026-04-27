@@ -3,14 +3,13 @@ import { Request } from 'express'
 import { Observable } from 'rxjs'
 import { StreamSentenceChatAssistantCommand } from 'features/sentenceChat/StreamSentenceChatAssistant.command'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
-import { UserWithPositiveBalanceGuard } from 'infrastructure/guards/userWithPositiveBalanceGuard.guard'
 import RouteNames from 'infrastructure/routeNames'
 
 @Controller()
 export class SentenceChatController {
 	constructor(private streamSentenceChatAssistantCommand: StreamSentenceChatAssistantCommand) {}
 
-	@UseGuards(CheckSessionCookieGuard, UserWithPositiveBalanceGuard)
+	@UseGuards(CheckSessionCookieGuard)
 	@Sse(RouteNames.SENTENCE_CHAT.STREAM_ASSISTANT_REPLY)
 	streamAssistantReply(
 		@Param('threadId', ParseIntPipe) threadId: number,

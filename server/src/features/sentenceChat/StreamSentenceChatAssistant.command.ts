@@ -5,6 +5,7 @@ import { Observable, Subscriber } from 'rxjs'
 import { Logger } from 'winston'
 import { SentenceChatMessageRepository } from 'repo/sentenceChatMessage.repository'
 import { SentenceChatThreadRepository } from 'repo/sentenceChatThread.repository'
+import { UserRepository } from 'repo/user.repository'
 import { GoogleGeminiModels } from 'types/googleGeminiModels'
 import { GeminiTokenUsageBalanceChargeCommand } from 'features/payment/GeminiTokenUsageBalanceCharge.command'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
@@ -56,6 +57,7 @@ export class StreamSentenceChatAssistantCommand {
 		private sentenceChatContextBuilder: SentenceChatContextBuilder,
 		private activeGenerationRegistry: ActiveSentenceChatGenerationRegistry,
 		private commandBus: CommandBus,
+		private userRepository: UserRepository,
 		@Inject(WINSTON_MODULE_PROVIDER) private readonly logger: Logger,
 	) {}
 
@@ -103,6 +105,21 @@ export class StreamSentenceChatAssistantCommand {
 			const thread = await this.loadAndAuthorizeThread(input.threadId, input.userId)
 			await this.assertNoActiveGenerationForUser(input.userId)
 			await this.assertLastMessageIsUserQuestion(thread.id)
+
+			// Если у пользователя нет средств — создаём assistant-сообщение со status='failed'
+			// и error_message, не вызывая Gemini и не списывая токены. Клиент покажет
+			// это сообщение в треде как карточку ошибки (тот же путь, что и для реальных сбоев LLM).
+			if (await this.isUserBalanceInsufficient(input.userId)) {
+				const placeholder = await this.createStreamingPlaceholder(thread.id)
+				state.assistantMessageId = placeholder.id
+
+				await this.finalize(input, subscriber, state, {
+					status: 'failed',
+					errorText: errorMessage.sentenceChat.insufficientBalance,
+				})
+
+				return
+			}
 
 			// Сборка промпта ДО создания placeholder-а: если здесь упадёт ошибка,
 			// в БД не остаётся зависшая streaming-заготовка.
@@ -175,6 +192,11 @@ export class StreamSentenceChatAssistantCommand {
 		if (hasActiveInDb) {
 			throw new CustomGraphQLError(errorMessage.sentenceChat.generationAlreadyActive, ErrorCode.BadRequest_400)
 		}
+	}
+
+	private async isUserBalanceInsufficient(userId: number): Promise<boolean> {
+		const user = await this.userRepository.getUserById(userId)
+		return !user || user.balance <= 0
 	}
 
 	private async assertLastMessageIsUserQuestion(threadId: number): Promise<void> {

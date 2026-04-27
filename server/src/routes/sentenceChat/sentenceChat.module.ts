@@ -16,7 +16,6 @@ import { GetSentenceChatThreadHandler } from 'features/sentenceChat/GetSentenceC
 import { SentenceChatContextBuilder } from 'features/sentenceChat/SentenceChatContextBuilder.service'
 import { StreamSentenceChatAssistantCommand } from 'features/sentenceChat/StreamSentenceChatAssistant.command'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
-import { UserWithPositiveBalanceGuard } from 'infrastructure/guards/userWithPositiveBalanceGuard.guard'
 import { SentenceChatController } from './sentenceChat.controller'
 import { SentenceChatResolver } from './sentenceChat.resolver'
 
@@ -52,7 +51,6 @@ const repositories = [
 		...handlers,
 		...repositories,
 		CheckSessionCookieGuard,
-		UserWithPositiveBalanceGuard,
 		SentenceChatResolver,
 	],
 })

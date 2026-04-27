@@ -45,11 +45,12 @@
 1. Проверяет, что тред существует и принадлежит пользователю.
 2. Проверяет, что у пользователя нет другой активной генерации: и в памяти (`ActiveSentenceChatGenerationRegistry`), и в БД (сообщение со `status='streaming'`).
 3. Читает последнее сообщение треда — оно должно быть `role='user'` (иначе `lastMessageIsNotUserQuestion`).
-4. Собирает контекст предложения через `SentenceChatContextBuilder` (оригинальное предложение + `NEIGHBORS_RADIUS` соседей до и после) и историю диалога (`HISTORY_LIMIT` последних сообщений).
-5. **Только после** успешного построения контекста создаёт пустую streaming-заготовку `assistant`-сообщения — чтобы при ранней ошибке в БД не оставалось зависших `streaming`-записей.
-6. Регистрирует `AbortController` в `ActiveSentenceChatGenerationRegistry`.
-7. Вызывает `GoogleGeminiService.generateTextStreamChunks({ contents, systemInstruction, abortSignal, onUsage })`. Для каждого чанка отправляет SSE-событие `{ type: 'chunk', chunk }`.
-8. По завершении вызывает `finalize(...)`:
+4. Проверяет баланс пользователя. Если `balance <= 0` — создаёт assistant-сообщение со `status='failed'` и `error_message=insufficientBalance`, отдаёт единственное SSE-событие `{ type: 'done', status: 'failed', errorMessage }` и завершает поток. Gemini не вызывается, токены не списываются.
+5. Собирает контекст предложения через `SentenceChatContextBuilder` (оригинальное предложение + `NEIGHBORS_RADIUS` соседей до и после) и историю диалога (`HISTORY_LIMIT` последних сообщений).
+6. **Только после** успешного построения контекста создаёт пустую streaming-заготовку `assistant`-сообщения — чтобы при ранней ошибке в БД не оставалось зависших `streaming`-записей.
+7. Регистрирует `AbortController` в `ActiveSentenceChatGenerationRegistry`.
+8. Вызывает `GoogleGeminiService.generateTextStreamChunks({ contents, systemInstruction, abortSignal, onUsage })`. Для каждого чанка отправляет SSE-событие `{ type: 'chunk', chunk }`.
+9. По завершении вызывает `finalize(...)`:
     - обновляет assistant-сообщение (`content`, `status`, `error_message`);
     - списывает токены через `GeminiTokenUsageBalanceChargeCommand`;
     - снимает регистрацию в registry;
@@ -117,6 +118,7 @@
 - `lastMessageIsNotUserQuestion` — SSE вызван на тред, где последнее сообщение — не вопрос пользователя.
 - `previousAnswerNotReady` — попытка отправить новый вопрос, пока предыдущий ответ ассистента ещё `streaming`.
 - `userIsNotOwner` — тред принадлежит другому пользователю.
+- `insufficientBalance` — у пользователя недостаточно средств для генерации ответа. Возвращается **не как ошибка ручки**, а как `error_message` на assistant-сообщении со `status='failed'`.
 
 ## Ключевые файлы
 
