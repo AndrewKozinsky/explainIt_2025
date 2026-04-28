@@ -49,7 +49,7 @@ function SentenceDetails(props: SentenceDetailsProps) {
 		const entry = findSentenceEntry({ sentences: s.sentences, sentenceId })
 		if (!entry || !entry.selectedPhraseId) return null
 
-		return entry.data.phrases.find((p) => p.id === entry.selectedPhraseId) ?? null
+		return entry.data.phrases.find((p) => p.randomGeneratedPhraseId === entry.selectedPhraseId) ?? null
 	})
 
 	if (!sentenceEntry) {

@@ -8,12 +8,14 @@ export const publicFolderFilesUrls = {
 		walletButtonIcon: '/icons/walletButtonIcon.svg',
 		yandexButtonIcon: '/icons/yandexButtonIcon.svg',
 		fullScreenButtonIcon: '/icons/fullScreenButtonIcon.svg',
-		warningTriangle: '/icons/warningTriangle.svg',
+		warningTriangleIcon: '/icons/warningTriangleIcon.svg',
 		copyButtonIcon: '/icons/copyButtonIcon.svg',
 		actionButtonIcon: '/icons/actionButtonIcon.svg',
-		checkMark: '/icons/checkMark.svg',
-		sendMessage: '/icons/sendMessage.svg',
-		stopGeneration: '/icons/stopGeneration.svg',
+		checkMarkIcon: '/icons/checkMarkIcon.svg',
+		sendMessageIcon: '/icons/sendMessageIcon.svg',
+		stopGenerationIcon: '/icons/stopGenerationIcon.svg',
+		addIcon: '/icons/addIcon.svg',
+		closeIcon: '/icons/closeIcon.svg',
 	},
 	images: {
 		common: {

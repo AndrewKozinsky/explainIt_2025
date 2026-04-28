@@ -42,7 +42,7 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 				}),
 			)
 		},
-		patchSentenceTranslation: (input: { sentenceId: number; patch: Partial<SentenceTranslationStatus> }) => {
+		patchSentenceTranslation: (input: { sentenceId: number; patch: Partial<SentenceTranslation> }) => {
 			set(
 				produce((state: DetailsStoreNext) => {
 					const entry = state.sentences.find((item) => item.sentenceId === input.sentenceId)
@@ -52,7 +52,7 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 				}),
 			)
 		},
-		upsertPhraseTranslation: (input: { sentenceId: number; phrase: PhraseTranslationStatus }) => {
+		upsertPhraseTranslation: (input: { sentenceId: number; phrase: PhraseTranslation }) => {
 			set(
 				produce((state: DetailsStoreNext) => {
 					const entry = state.sentences.find((item) => item.sentenceId === input.sentenceId)
@@ -63,8 +63,8 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 					)
 
 					if (phraseIdx >= 0) {
-						const existingId = entry.data.phrases[phraseIdx].id
-						entry.data.phrases[phraseIdx] = { ...input.phrase, id: existingId }
+						const existingId = entry.data.phrases[phraseIdx].randomGeneratedPhraseId
+						entry.data.phrases[phraseIdx] = { ...input.phrase, randomGeneratedPhraseId: existingId }
 						return
 					}
 
@@ -75,14 +75,14 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 		patchPhraseTranslation: (input: {
 			sentenceId: number
 			phraseId: string
-			patch: Partial<PhraseTranslationStatus>
+			patch: Partial<PhraseTranslation>
 		}) => {
 			set(
 				produce((state: DetailsStoreNext) => {
 					const entry = state.sentences.find((item) => item.sentenceId === input.sentenceId)
 					if (!entry) return
 
-					const phrase = entry.data.phrases.find((item) => item.id === input.phraseId)
+					const phrase = entry.data.phrases.find((item) => item.randomGeneratedPhraseId === input.phraseId)
 					if (!phrase) return
 
 					Object.assign(phrase, input.patch)
@@ -92,7 +92,7 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 		finalizePhraseTranslation: (input: {
 			sentenceId: number
 			placeholderPhraseId: string
-			phrase: PhraseTranslationStatus
+			phrase: PhraseTranslation
 		}) => {
 			set(
 				produce((state: DetailsStoreNext) => {
@@ -100,17 +100,17 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 					if (!entry) return
 
 					const placeholderIdx = entry.data.phrases.findIndex(
-						(item) => item.id === input.placeholderPhraseId,
+						(item) => item.randomGeneratedPhraseId === input.placeholderPhraseId,
 					)
 					const existingIdx = entry.data.phrases.findIndex(
 						(item) =>
-							item.id !== input.placeholderPhraseId &&
+							item.randomGeneratedPhraseId !== input.placeholderPhraseId &&
 							sameWordIds(item.wordIds, input.phrase.wordIds),
 					)
 
 					if (existingIdx >= 0) {
-						const existingId = entry.data.phrases[existingIdx].id
-						entry.data.phrases[existingIdx] = { ...input.phrase, id: existingId }
+						const existingId = entry.data.phrases[existingIdx].randomGeneratedPhraseId
+						entry.data.phrases[existingIdx] = { ...input.phrase, randomGeneratedPhraseId: existingId }
 
 						if (placeholderIdx >= 0) {
 							entry.data.phrases.splice(placeholderIdx, 1)
@@ -124,12 +124,12 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 					if (placeholderIdx >= 0) {
 						entry.data.phrases[placeholderIdx] = {
 							...input.phrase,
-							id: input.placeholderPhraseId,
+							randomGeneratedPhraseId: input.placeholderPhraseId,
 						}
 						return
 					}
 
-					entry.data.phrases.push({ ...input.phrase, id: input.placeholderPhraseId })
+					entry.data.phrases.push({ ...input.phrase, randomGeneratedPhraseId: input.placeholderPhraseId })
 				}),
 			)
 		},
@@ -171,20 +171,21 @@ export type DetailsSentenceEntry = {
 	sentenceId: number
 	selectedPhraseId: string | null
 	data: {
-		sentence: SentenceTranslationStatus
-		phrases: PhraseTranslationStatus[]
+		sentence: SentenceTranslation
+		phrases: PhraseTranslation[]
 	}
 }
 
-export type SentenceTranslationStatus = {
+export type SentenceTranslation = {
 	text: string
 	loading: boolean
 	error: null | string
 	translation: null | string
 }
 
-export type PhraseTranslationStatus = {
-	id: string
+export type PhraseTranslation = {
+	// id фразы предложения генерируется на клиенте потому что запрос на сервер на создание фразы идёт после того, как фраза создаётся в Хранилище
+	randomGeneratedPhraseId: string
 	wordIds: number[]
 	phrase: null | string
 	loading: boolean
@@ -215,17 +216,13 @@ export type DetailsStoreMethods = {
 	clearStoreData: () => void
 	updateStore: (store: Partial<DetailsStoreValues>) => void
 	insertLoadingSentence: (input: { sentenceId: number; text: string }) => void
-	patchSentenceTranslation: (input: { sentenceId: number; patch: Partial<SentenceTranslationStatus> }) => void
-	upsertPhraseTranslation: (input: { sentenceId: number; phrase: PhraseTranslationStatus }) => void
-	patchPhraseTranslation: (input: {
-		sentenceId: number
-		phraseId: string
-		patch: Partial<PhraseTranslationStatus>
-	}) => void
+	patchSentenceTranslation: (input: { sentenceId: number; patch: Partial<SentenceTranslation> }) => void
+	upsertPhraseTranslation: (input: { sentenceId: number; phrase: PhraseTranslation }) => void
+	patchPhraseTranslation: (input: { sentenceId: number; phraseId: string; patch: Partial<PhraseTranslation> }) => void
 	finalizePhraseTranslation: (input: {
 		sentenceId: number
 		placeholderPhraseId: string
-		phrase: PhraseTranslationStatus
+		phrase: PhraseTranslation
 	}) => void
 	setSelectedPhraseId: (input: { sentenceId: number; phraseId: string | null }) => void
 }

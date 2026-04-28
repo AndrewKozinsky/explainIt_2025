@@ -5,7 +5,7 @@ import {
 	useTranslate_Get_Sentence_TranslationLazyQuery,
 	useTranslate_Translate_Sentence,
 } from '@/graphql'
-import { makePhraseId, PhraseTranslationStatus, useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
+import { makePhraseId, PhraseTranslation, useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
 import { findSentenceEntry } from './selectors'
 import { wordIdsFromOffsets } from './wordSegmentation'
 
@@ -123,7 +123,7 @@ export function mapPhraseTranslationToStatus(input: {
 	phraseTranslation: SentencePhraseTranslationOutModel
 	sentenceText: string
 	languageCode: null | string
-}): PhraseTranslationStatus {
+}): PhraseTranslation {
 	const { phraseTranslation, sentenceText, languageCode } = input
 
 	const wordIds = wordIdsFromOffsets({
@@ -134,7 +134,7 @@ export function mapPhraseTranslationToStatus(input: {
 	})
 
 	return {
-		id: makePhraseId(),
+		randomGeneratedPhraseId: makePhraseId(),
 		wordIds,
 		phrase: phraseTranslation.phrase ?? null,
 		loading: false,

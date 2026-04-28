@@ -11,7 +11,9 @@ type SendAndCancelButtonProps = {
 function SendAndCancelButton(props: SendAndCancelButtonProps) {
 	const { isGenerating, onSend, onCancel, prompt } = props
 
-	const iconUrl = isGenerating ? publicFolderFilesUrls.icons.stopGeneration : publicFolderFilesUrls.icons.sendMessage
+	const iconUrl = isGenerating
+		? publicFolderFilesUrls.icons.stopGenerationIcon
+		: publicFolderFilesUrls.icons.sendMessageIcon
 	const buttonAction = isGenerating ? onCancel : onSend
 
 	const isDisabled = useIsSendButtonDisabled(isGenerating, prompt)

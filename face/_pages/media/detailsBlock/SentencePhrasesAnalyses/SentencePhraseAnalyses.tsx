@@ -27,7 +27,7 @@ function SentencePhraseAnalyses(props: SentencePhraseAnalysesProps) {
 		<div className='sentence-phrase-analyses'>
 			{sortedPhrases.map((analysis) => {
 				return (
-					<div className='sentence-word-analyses__item' key={analysis.id}>
+					<div key={analysis.randomGeneratedPhraseId}>
 						<SentencePhraseAnalysis
 							phraseAnalysis={analysis}
 							languageCode={languageCode}

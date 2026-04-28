@@ -17,7 +17,7 @@ function WatchingDetailsBlock() {
 		})
 		if (!entry || !entry.selectedPhraseId) return null
 
-		return entry.data.phrases.find((p) => p.id === entry.selectedPhraseId) ?? null
+		return entry.data.phrases.find((p) => p.randomGeneratedPhraseId === entry.selectedPhraseId) ?? null
 	})
 
 	const video = useWatchingStore((s) => s.video?.data)
