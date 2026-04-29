@@ -38,10 +38,15 @@ export type DictionaryFlashcardExample = {
 	translate: string
 }
 
-export type DictionaryFlashcard = {
+export type DictionaryFlashcardSentencePart = {
+	type: 'text' | 'phrase'
+	value: string
+}
+
+export type DictionaryFlashcardData = {
 	id: number
 	languageCode: string
-	sentenceText: string
+	sentenceText: DictionaryFlashcardSentencePart[]
 	sentenceTranslation: string
 	phrase: string
 	phraseStartOffset: number
@@ -54,7 +59,7 @@ export type DictionaryFlashcard = {
 
 export type DictionaryStoreValues = {
 	currentLang: string
-	flashcards: DictionaryFlashcard[]
+	flashcards: DictionaryFlashcardData[]
 	isFlashcardsLoading: boolean
 	getFlashcardsErrorMessage: string
 }
@@ -63,7 +68,7 @@ export type DictionaryStoreMethods = {
 	clearStoreData: () => void
 	updateStore: (store: Partial<DictionaryStoreValues>) => void
 	setCurrentLang: (currentLang: string) => void
-	setFlashcards: (flashcards: DictionaryFlashcard[]) => void
+	setFlashcards: (flashcards: DictionaryFlashcardData[]) => void
 	setIsFlashcardsLoading: (isFlashcardsLoading: boolean) => void
 	setGetFlashcardsErrorMessage: (getFlashcardsErrorMessage: string) => void
 }

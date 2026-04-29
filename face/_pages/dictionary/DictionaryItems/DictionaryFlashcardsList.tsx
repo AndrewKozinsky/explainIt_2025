@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { DictionaryFlashcard } from '../DictionaryFlashcard/DictionaryFlashcard'
 import { useDictionaryStore } from '../dictionaryStore'
 import './DictionaryFlashcardsList.scss'
 
@@ -23,29 +24,9 @@ function DictionaryFlashcardsList() {
 
 	return (
 		<div className='dictionary-flashcards-list'>
-			{flashcards.map((flashcard) => (
-				<div className='dictionary-flashcard' key={flashcard.id}>
-					<div className='dictionary-flashcard__sentence'>
-						<p className='dictionary-flashcard__sentence-text'>{flashcard.sentenceText}</p>
-						<p className='dictionary-flashcard__sentence-translate'>{flashcard.sentenceTranslation}</p>
-					</div>
-
-					<div>{flashcard.phraseStartOffset}</div>
-					<div>{flashcard.sentenceTranslation}</div>
-					<div>{flashcard.phrase}</div>
-					<div>{flashcard.phraseTranscription}</div>
-					<div>{flashcard.phraseAudioUrl}</div>
-					<div>{flashcard.phraseTranslation}</div>
-					<div>
-						{flashcard.examples.map((example, index) => (
-							<div key={index}>
-								<div>{example.text}</div>
-								<div>{example.translate}</div>
-							</div>
-						))}
-					</div>
-				</div>
-			))}
+			{flashcards.map((flashcard) => {
+				return <DictionaryFlashcard key={flashcard.id} flashcard={flashcard} />
+			})}
 		</div>
 	)
 }

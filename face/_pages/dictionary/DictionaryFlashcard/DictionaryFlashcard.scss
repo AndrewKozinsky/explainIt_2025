@@ -1,0 +1,46 @@
+@use '@/styles/variables' as vars;
+
+.dictionary-flashcard {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.dictionary-flashcard__sentence {
+	display: flex;
+	flex-direction: column;
+	gap: .2rem;
+}
+.dictionary-flashcard__sentence-text {
+	font-size: 2rem;
+	line-height: 2.8rem;
+}
+.dictionary-flashcard__sentence-text-phrase {
+	display: inline-block;
+	color: white;
+	background-color: vars.$accentColor-2;
+	padding: 0 .4rem;
+	border-radius: vars.$radius-1;
+}
+.dictionary-flashcard__sentence-translate {
+	font-size: 1.8rem;
+	line-height: 2.6rem;
+	color: vars.$grayColor-5
+}
+
+.dictionary-flashcard__phrase {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	font-size: 3.6rem;
+	line-height: 4rem;
+	font-weight: 500;
+}
+.dictionary-flashcard__phrase-transcription {
+	display: inline-block;
+	font-size: 0.75em;
+	font-weight: 300;
+	padding: 0 .4rem;
+	border-radius: vars.$radius-1;
+	background-color: vars.$grayColor-1;
+}

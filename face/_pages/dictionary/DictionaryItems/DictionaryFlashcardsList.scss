@@ -1,26 +1,5 @@
-@use '@/styles/variables' as vars;
-
 .dictionary-flashcards-list {
 	display: flex;
 	flex-direction: column;
 	gap: 4rem;
-}
-
-.dictionary-flashcard {
-
-}
-
-.dictionary-flashcard__sentence {
-	display: flex;
-	flex-direction: column;
-	gap: .2rem;
-}
-.dictionary-flashcard__sentence-text {
-	font-size: 2rem;
-	line-height: 2.8rem;
-}
-.dictionary-flashcard__sentence-translate {
-	font-size: 1.8rem;
-	line-height: 2.6rem;
-	color: vars.$grayColor-5
 }

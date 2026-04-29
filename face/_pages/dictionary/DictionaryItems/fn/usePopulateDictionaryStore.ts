@@ -1,6 +1,14 @@
 import { useEffect } from 'react'
 import { useFlashcard_Get_My, useUniversalPhrase_GetLazyQuery } from '@/graphql'
-import { DictionaryFlashcard, useDictionaryStore } from '../../dictionaryStore'
+import { DictionaryFlashcardData, useDictionaryStore } from '../../dictionaryStore'
+
+function getSentenceTextParts(sentenceText: string, phraseStartOffset: number, phraseEndOffset: number) {
+	return [
+		{ type: 'text' as const, value: sentenceText.slice(0, phraseStartOffset) },
+		{ type: 'phrase' as const, value: sentenceText.slice(phraseStartOffset, phraseEndOffset) },
+		{ type: 'text' as const, value: sentenceText.slice(phraseEndOffset) },
+	].filter((part) => part.value)
+}
 
 export function usePopulateDictionaryStore() {
 	const currentLang = useDictionaryStore((state) => state.currentLang)
@@ -45,10 +53,9 @@ export function usePopulateDictionaryStore() {
 		async function enrichFlashcards() {
 			try {
 				setIsFlashcardsLoading(true)
-
 				const flashcardsByLang = flashcards.filter((flashcard) => flashcard.languageCode === currentLang)
 				const preparedFlashcards = await Promise.all(
-					flashcardsByLang.map(async (flashcard): Promise<DictionaryFlashcard> => {
+					flashcardsByLang.map(async (flashcard): Promise<DictionaryFlashcardData> => {
 						let phraseAudioUrl = ''
 						let phraseTranscription = flashcard.phraseTranscription ?? ''
 
@@ -74,7 +81,11 @@ export function usePopulateDictionaryStore() {
 						return {
 							id: flashcard.id,
 							languageCode: flashcard.languageCode,
-							sentenceText: flashcard.sentenceText,
+							sentenceText: getSentenceTextParts(
+								flashcard.sentenceText,
+								flashcard.phraseStartOffset,
+								flashcard.phraseEndOffset,
+							),
 							sentenceTranslation: flashcard.sentenceTranslation ?? '',
 							phrase: flashcard.phrase,
 							phraseStartOffset: flashcard.phraseStartOffset,

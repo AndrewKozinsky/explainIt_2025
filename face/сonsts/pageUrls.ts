@@ -111,7 +111,7 @@ export const pageUrls = {
 		path: '/help',
 	},
 	me: {
-		name: 'Моя учётная запись',
+		name: 'Личный кабинет',
 		path: '/me',
 	},
 	docs: {
