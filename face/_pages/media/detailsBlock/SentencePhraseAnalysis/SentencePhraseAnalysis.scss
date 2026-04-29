@@ -10,16 +10,20 @@
 	align-items: baseline;
 	gap: .8rem;
 }
+
 .sentence-phrase-analysis__top-content {
 	flex-grow: 1;
 	font-size: 2.2rem;
 	line-height: 3rem;
 }
+
 .sentence-phrase-analysis__analysis-phrase {
 	font-weight: 600;
 }
+
 .sentence-phrase-analysis__analysis-phrase-translate {
 }
+
 .sentence-phrase-analysis__example {
 	font-size: 1.8rem;
 	line-height: 2.6rem;
@@ -37,10 +41,23 @@
 	transition: background-color .2s;
 	border-radius: 50%;
 }
+
 .sentence-phrase-analysis__flash-button--add {
 	background-color: vars.$grayColor-4;
 
 	&:hover {
 		background-color: vars.$grayColor-5;
 	}
+}
+
+.sentence-phrase-analysis__flash-button--remove {
+	background-color: vars.$accentColor-2;
+
+	&:hover {
+		background-color: vars.$accentColor-3;
+	}
+}
+
+.sentence-phrase-analysis__flash-button--loading {
+	background-color: vars.$grayColor-3;
 }

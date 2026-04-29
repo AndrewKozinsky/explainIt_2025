@@ -14,5 +14,6 @@ mutation Translate_translate_phrase($input: TranslatePhraseInput!) {
 		errorMessage
 		createdAt
 		updatedAt
+		flashcardId
 	}
 }

@@ -17,6 +17,7 @@ query Flashcard_get_my($input: GetMyFlashcardsInput!) {
 		bookPublicId
 		videoPrivateId
 		videoPublicId
+		sentencePhraseTranslationId
 		createdAt
 	}
 }

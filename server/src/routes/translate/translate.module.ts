@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common'
 import { CqrsModule } from '@nestjs/cqrs'
 import { DBRepository } from 'repo/db.repository'
+import { FlashcardRepository } from 'repo/flashcard.repository'
 import { SentenceRepository } from 'repo/sentence.repository'
 import { SentencePhraseTranslationRepository } from 'repo/sentencePhraseTranslation.repository'
 import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
@@ -35,6 +36,7 @@ const repositories = [
 	UserRepository,
 	DBRepository,
 	UserBalanceTransactionRepository,
+	FlashcardRepository,
 ]
 
 @Module({

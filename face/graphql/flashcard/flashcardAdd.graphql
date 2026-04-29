@@ -17,6 +17,7 @@ mutation Flashcard_add($input: AddFlashcardInput!) {
 		bookPublicId
 		videoPrivateId
 		videoPublicId
+		sentencePhraseTranslationId
 		createdAt
 	}
 }

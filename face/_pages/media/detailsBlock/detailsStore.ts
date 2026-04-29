@@ -52,7 +52,7 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 				}),
 			)
 		},
-		upsertPhraseTranslation: (input: { sentenceId: number; phrase: PhraseTranslation }) => {
+		upsertPhraseTranslation: (input: { sentenceId: number; phrase: SentencePhrase }) => {
 			set(
 				produce((state: DetailsStoreNext) => {
 					const entry = state.sentences.find((item) => item.sentenceId === input.sentenceId)
@@ -72,11 +72,7 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 				}),
 			)
 		},
-		patchPhraseTranslation: (input: {
-			sentenceId: number
-			phraseId: string
-			patch: Partial<PhraseTranslation>
-		}) => {
+		patchPhraseTranslation: (input: { sentenceId: number; phraseId: string; patch: Partial<SentencePhrase> }) => {
 			set(
 				produce((state: DetailsStoreNext) => {
 					const entry = state.sentences.find((item) => item.sentenceId === input.sentenceId)
@@ -92,7 +88,7 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 		finalizePhraseTranslation: (input: {
 			sentenceId: number
 			placeholderPhraseId: string
-			phrase: PhraseTranslation
+			phrase: SentencePhrase
 		}) => {
 			set(
 				produce((state: DetailsStoreNext) => {
@@ -143,6 +139,20 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 				}),
 			)
 		},
+		setPhraseFlashcardId: (input: { sentencePhraseId: number; flashcardId: null | number }) => {
+			set(
+				produce((state: DetailsStoreNext) => {
+					for (const entry of state.sentences) {
+						const phrase = entry.data.phrases.find(
+							(item) => item.sentencePhraseId === input.sentencePhraseId,
+						)
+						if (!phrase) continue
+
+						phrase.flashcardId = input.flashcardId
+					}
+				}),
+			)
+		},
 	}
 })
 
@@ -172,7 +182,7 @@ export type DetailsSentenceEntry = {
 	selectedPhraseId: string | null
 	data: {
 		sentence: SentenceTranslation
-		phrases: PhraseTranslation[]
+		phrases: SentencePhrase[]
 	}
 }
 
@@ -183,9 +193,13 @@ export type SentenceTranslation = {
 	translation: null | string
 }
 
-export type PhraseTranslation = {
+export type SentencePhrase = {
 	// id фразы предложения генерируется на клиенте потому что запрос на сервер на создание фразы идёт после того, как фраза создаётся в Хранилище
 	randomGeneratedPhraseId: string
+	// Id фразы из предложения, созданной на сервере
+	sentencePhraseId: null | number
+	// Id флешкарты текущего пользователя для этой фразы. null если пользователь анонимный или карточки ещё нет.
+	flashcardId: null | number
 	wordIds: number[]
 	phrase: null | string
 	loading: boolean
@@ -217,12 +231,13 @@ export type DetailsStoreMethods = {
 	updateStore: (store: Partial<DetailsStoreValues>) => void
 	insertLoadingSentence: (input: { sentenceId: number; text: string }) => void
 	patchSentenceTranslation: (input: { sentenceId: number; patch: Partial<SentenceTranslation> }) => void
-	upsertPhraseTranslation: (input: { sentenceId: number; phrase: PhraseTranslation }) => void
-	patchPhraseTranslation: (input: { sentenceId: number; phraseId: string; patch: Partial<PhraseTranslation> }) => void
+	upsertPhraseTranslation: (input: { sentenceId: number; phrase: SentencePhrase }) => void
+	patchPhraseTranslation: (input: { sentenceId: number; phraseId: string; patch: Partial<SentencePhrase> }) => void
 	finalizePhraseTranslation: (input: {
 		sentenceId: number
 		placeholderPhraseId: string
-		phrase: PhraseTranslation
+		phrase: SentencePhrase
 	}) => void
 	setSelectedPhraseId: (input: { sentenceId: number; phraseId: string | null }) => void
+	setPhraseFlashcardId: (input: { sentencePhraseId: number; flashcardId: null | number }) => void
 }

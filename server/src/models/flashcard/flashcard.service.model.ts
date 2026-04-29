@@ -16,5 +16,6 @@ export type FlashcardServiceModel = {
 	bookPublicId: null | number
 	videoPrivateId: null | number
 	videoPublicId: null | number
+	sentencePhraseTranslationId: null | number
 	createdAt: Date
 }

@@ -771,6 +771,9 @@ export const bdConfig = {
 				type: 'string',
 				required: false,
 			},
+			Flashcard: {
+				type: 'oneToMany',
+			},
 			created_at: {
 				type: 'createdAt',
 			},
@@ -1048,7 +1051,11 @@ export const bdConfig = {
 	// а сама карточка остаётся в коллекции пользователя.
 	Flashcard: {
 		dtoProps: {},
-		indexes: [{ fields: ['user_id'] }, { fields: ['user_id', 'language_code'] }],
+		indexes: [
+			{ fields: ['user_id'] },
+			{ fields: ['user_id', 'language_code'] },
+			{ fields: ['user_id', 'sentence_phrase_translation_id'], unique: true },
+		],
 		dbFields: {
 			id: {
 				type: 'index',
@@ -1136,6 +1143,15 @@ export const bdConfig = {
 				thisField: 'video_public_id',
 				relationField: 'videoPublic',
 				foreignTable: 'VideoPublic',
+				foreignField: 'id',
+				onDelete: 'SetNull',
+				required: false,
+			},
+			sentence_phrase_translation_id: {
+				type: 'manyToOne',
+				thisField: 'sentence_phrase_translation_id',
+				relationField: 'sentencePhraseTranslation',
+				foreignTable: 'SentencePhraseTranslation',
 				foreignField: 'id',
 				onDelete: 'SetNull',
 				required: false,

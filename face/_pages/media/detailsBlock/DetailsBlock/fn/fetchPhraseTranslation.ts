@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useTranslate_Get_Phrase_TranslationLazyQuery, useTranslate_Translate_Phrase } from '@/graphql'
-import { makePhraseId, PhraseTranslation, useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
+import { makePhraseId, SentencePhrase, useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
 import { mapPhraseTranslationToStatus, toNullableString } from './fetchSentenceTranslation'
 import { findSentenceEntry } from './selectors'
 import { offsetsFromWordIds } from './wordSegmentation'
@@ -48,6 +48,8 @@ export function useFetchCurrentPhraseTranslation() {
 				sentenceId: currentSentenceId,
 				phrase: {
 					randomGeneratedPhraseId: phraseId,
+					sentencePhraseId: null,
+					flashcardId: null,
 					wordIds: [currentWordId],
 					phrase: wordOffsets.text || null,
 					loading: true,
@@ -117,7 +119,7 @@ async function runFetchForPhrase(input: RunFetchForPhraseInput): Promise<void> {
 	}
 }
 
-async function getOrCreatePhraseTranslation(input: RunFetchForPhraseInput): Promise<PhraseTranslation> {
+async function getOrCreatePhraseTranslation(input: RunFetchForPhraseInput): Promise<SentencePhrase> {
 	const existing = await input.getPhraseTranslation({
 		variables: {
 			input: {

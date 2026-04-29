@@ -24,6 +24,7 @@ export class FlashcardRepository {
 		bookPublicId: null | number
 		videoPrivateId: null | number
 		videoPublicId: null | number
+		sentencePhraseTranslationId: null | number
 	}): Promise<FlashcardServiceModel> {
 		const db = await this.prisma.flashcard.create({
 			data: {
@@ -40,6 +41,7 @@ export class FlashcardRepository {
 				book_public_id: dto.bookPublicId,
 				video_private_id: dto.videoPrivateId,
 				video_public_id: dto.videoPublicId,
+				sentence_phrase_translation_id: dto.sentencePhraseTranslationId,
 			},
 		})
 
@@ -59,6 +61,46 @@ export class FlashcardRepository {
 		await this.prisma.flashcard.delete({ where: { id } })
 	}
 
+	@CatchDbError()
+	async getFlashcardByUserAndPhraseId(
+		userId: number,
+		sentencePhraseTranslationId: number,
+	): Promise<null | FlashcardServiceModel> {
+		const db = await this.prisma.flashcard.findFirst({
+			where: {
+				user_id: userId,
+				sentence_phrase_translation_id: sentencePhraseTranslationId,
+			},
+		})
+		if (!db) return null
+
+		return this.mapDbToService(db)
+	}
+
+	@CatchDbError()
+	async getFlashcardIdsByUserAndPhrasesIds(
+		userId: number,
+		sentencePhraseTranslationIds: number[],
+	): Promise<Map<number, number>> {
+		const map = new Map<number, number>()
+		if (sentencePhraseTranslationIds.length === 0) return map
+
+		const rows = await this.prisma.flashcard.findMany({
+			where: {
+				user_id: userId,
+				sentence_phrase_translation_id: { in: sentencePhraseTranslationIds },
+			},
+			select: { id: true, sentence_phrase_translation_id: true },
+		})
+
+		for (const row of rows) {
+			if (row.sentence_phrase_translation_id === null) continue
+			map.set(row.sentence_phrase_translation_id, row.id)
+		}
+
+		return map
+	}
+
 	private mapDbToService = (db: Flashcard): FlashcardServiceModel => ({
 		id: db.id,
 		userId: db.user_id,
@@ -74,6 +116,7 @@ export class FlashcardRepository {
 		bookPublicId: db.book_public_id,
 		videoPrivateId: db.video_private_id,
 		videoPublicId: db.video_public_id,
+		sentencePhraseTranslationId: db.sentence_phrase_translation_id,
 		createdAt: db.created_at,
 	})
 

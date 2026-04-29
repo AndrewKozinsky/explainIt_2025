@@ -180,6 +180,7 @@ type FlashcardOutModel {
   phraseStartOffset: Int!
   phraseTranscription: String
   phraseTranslation: String
+  sentencePhraseTranslationId: Int
   sentenceText: String!
   sentenceTranslation: String
   videoPrivateId: Int
@@ -472,6 +473,7 @@ type SentencePhraseTranslationOutModel {
   createdAt: String!
   errorMessage: String
   examples: [SentencePhraseTranslationExampleOutModel!]!
+  flashcardId: Int
   id: Int!
   phrase: String!
   phraseEndOffset: Int!

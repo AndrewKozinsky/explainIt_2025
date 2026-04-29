@@ -287,6 +287,7 @@ CREATE TABLE "Flashcard" (
     "book_public_id" INTEGER,
     "video_private_id" INTEGER,
     "video_public_id" INTEGER,
+    "sentence_phrase_translation_id" INTEGER,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "Flashcard_pkey" PRIMARY KEY ("id")
@@ -339,6 +340,9 @@ CREATE INDEX "Flashcard_user_id_idx" ON "Flashcard"("user_id");
 
 -- CreateIndex
 CREATE INDEX "Flashcard_user_id_language_code_idx" ON "Flashcard"("user_id", "language_code");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Flashcard_user_id_sentence_phrase_translation_id_key" ON "Flashcard"("user_id", "sentence_phrase_translation_id");
 
 -- AddForeignKey
 ALTER TABLE "UserBalanceTransaction" ADD CONSTRAINT "UserBalanceTransaction_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
@@ -417,3 +421,6 @@ ALTER TABLE "Flashcard" ADD CONSTRAINT "Flashcard_video_private_id_fkey" FOREIGN
 
 -- AddForeignKey
 ALTER TABLE "Flashcard" ADD CONSTRAINT "Flashcard_video_public_id_fkey" FOREIGN KEY ("video_public_id") REFERENCES "VideoPublic"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Flashcard" ADD CONSTRAINT "Flashcard_sentence_phrase_translation_id_fkey" FOREIGN KEY ("sentence_phrase_translation_id") REFERENCES "SentencePhraseTranslation"("id") ON DELETE SET NULL ON UPDATE CASCADE;

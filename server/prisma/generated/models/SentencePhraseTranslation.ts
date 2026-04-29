@@ -273,6 +273,7 @@ export type SentencePhraseTranslationWhereInput = {
   created_at?: Prisma.DateTimeFilter<"SentencePhraseTranslation"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"SentencePhraseTranslation"> | Date | string
   sentence?: Prisma.XOR<Prisma.SentenceScalarRelationFilter, Prisma.SentenceWhereInput>
+  Flashcard?: Prisma.FlashcardListRelationFilter
 }
 
 export type SentencePhraseTranslationOrderByWithRelationInput = {
@@ -288,6 +289,7 @@ export type SentencePhraseTranslationOrderByWithRelationInput = {
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   sentence?: Prisma.SentenceOrderByWithRelationInput
+  Flashcard?: Prisma.FlashcardOrderByRelationAggregateInput
 }
 
 export type SentencePhraseTranslationWhereUniqueInput = Prisma.AtLeast<{
@@ -306,6 +308,7 @@ export type SentencePhraseTranslationWhereUniqueInput = Prisma.AtLeast<{
   created_at?: Prisma.DateTimeFilter<"SentencePhraseTranslation"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"SentencePhraseTranslation"> | Date | string
   sentence?: Prisma.XOR<Prisma.SentenceScalarRelationFilter, Prisma.SentenceWhereInput>
+  Flashcard?: Prisma.FlashcardListRelationFilter
 }, "id">
 
 export type SentencePhraseTranslationOrderByWithAggregationInput = {
@@ -355,6 +358,7 @@ export type SentencePhraseTranslationCreateInput = {
   created_at?: Date | string
   updated_at?: Date | string
   sentence: Prisma.SentenceCreateNestedOneWithoutSentencePhraseTranslationInput
+  Flashcard?: Prisma.FlashcardCreateNestedManyWithoutSentencePhraseTranslationInput
 }
 
 export type SentencePhraseTranslationUncheckedCreateInput = {
@@ -369,6 +373,7 @@ export type SentencePhraseTranslationUncheckedCreateInput = {
   error_message?: string | null
   created_at?: Date | string
   updated_at?: Date | string
+  Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutSentencePhraseTranslationInput
 }
 
 export type SentencePhraseTranslationUpdateInput = {
@@ -382,6 +387,7 @@ export type SentencePhraseTranslationUpdateInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sentence?: Prisma.SentenceUpdateOneRequiredWithoutSentencePhraseTranslationNestedInput
+  Flashcard?: Prisma.FlashcardUpdateManyWithoutSentencePhraseTranslationNestedInput
 }
 
 export type SentencePhraseTranslationUncheckedUpdateInput = {
@@ -396,6 +402,7 @@ export type SentencePhraseTranslationUncheckedUpdateInput = {
   error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutSentencePhraseTranslationNestedInput
 }
 
 export type SentencePhraseTranslationCreateManyInput = {
@@ -502,6 +509,11 @@ export type SentencePhraseTranslationSumOrderByAggregateInput = {
   phrase_end_offset?: Prisma.SortOrder
 }
 
+export type SentencePhraseTranslationNullableScalarRelationFilter = {
+  is?: Prisma.SentencePhraseTranslationWhereInput | null
+  isNot?: Prisma.SentencePhraseTranslationWhereInput | null
+}
+
 export type SentencePhraseTranslationCreateNestedManyWithoutSentenceInput = {
   create?: Prisma.XOR<Prisma.SentencePhraseTranslationCreateWithoutSentenceInput, Prisma.SentencePhraseTranslationUncheckedCreateWithoutSentenceInput> | Prisma.SentencePhraseTranslationCreateWithoutSentenceInput[] | Prisma.SentencePhraseTranslationUncheckedCreateWithoutSentenceInput[]
   connectOrCreate?: Prisma.SentencePhraseTranslationCreateOrConnectWithoutSentenceInput | Prisma.SentencePhraseTranslationCreateOrConnectWithoutSentenceInput[]
@@ -557,6 +569,22 @@ export type EnumSentencePhraseTranslationStatusFieldUpdateOperationsInput = {
   set?: $Enums.SentencePhraseTranslationStatus
 }
 
+export type SentencePhraseTranslationCreateNestedOneWithoutFlashcardInput = {
+  create?: Prisma.XOR<Prisma.SentencePhraseTranslationCreateWithoutFlashcardInput, Prisma.SentencePhraseTranslationUncheckedCreateWithoutFlashcardInput>
+  connectOrCreate?: Prisma.SentencePhraseTranslationCreateOrConnectWithoutFlashcardInput
+  connect?: Prisma.SentencePhraseTranslationWhereUniqueInput
+}
+
+export type SentencePhraseTranslationUpdateOneWithoutFlashcardNestedInput = {
+  create?: Prisma.XOR<Prisma.SentencePhraseTranslationCreateWithoutFlashcardInput, Prisma.SentencePhraseTranslationUncheckedCreateWithoutFlashcardInput>
+  connectOrCreate?: Prisma.SentencePhraseTranslationCreateOrConnectWithoutFlashcardInput
+  upsert?: Prisma.SentencePhraseTranslationUpsertWithoutFlashcardInput
+  disconnect?: Prisma.SentencePhraseTranslationWhereInput | boolean
+  delete?: Prisma.SentencePhraseTranslationWhereInput | boolean
+  connect?: Prisma.SentencePhraseTranslationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.SentencePhraseTranslationUpdateToOneWithWhereWithoutFlashcardInput, Prisma.SentencePhraseTranslationUpdateWithoutFlashcardInput>, Prisma.SentencePhraseTranslationUncheckedUpdateWithoutFlashcardInput>
+}
+
 export type SentencePhraseTranslationCreateWithoutSentenceInput = {
   phrase: string
   phrase_start_offset: number
@@ -567,6 +595,7 @@ export type SentencePhraseTranslationCreateWithoutSentenceInput = {
   error_message?: string | null
   created_at?: Date | string
   updated_at?: Date | string
+  Flashcard?: Prisma.FlashcardCreateNestedManyWithoutSentencePhraseTranslationInput
 }
 
 export type SentencePhraseTranslationUncheckedCreateWithoutSentenceInput = {
@@ -580,6 +609,7 @@ export type SentencePhraseTranslationUncheckedCreateWithoutSentenceInput = {
   error_message?: string | null
   created_at?: Date | string
   updated_at?: Date | string
+  Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutSentencePhraseTranslationInput
 }
 
 export type SentencePhraseTranslationCreateOrConnectWithoutSentenceInput = {
@@ -625,6 +655,76 @@ export type SentencePhraseTranslationScalarWhereInput = {
   updated_at?: Prisma.DateTimeFilter<"SentencePhraseTranslation"> | Date | string
 }
 
+export type SentencePhraseTranslationCreateWithoutFlashcardInput = {
+  phrase: string
+  phrase_start_offset: number
+  phrase_end_offset: number
+  translate?: string | null
+  examples?: Prisma.SentencePhraseTranslationCreateexamplesInput | string[]
+  status: $Enums.SentencePhraseTranslationStatus
+  error_message?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  sentence: Prisma.SentenceCreateNestedOneWithoutSentencePhraseTranslationInput
+}
+
+export type SentencePhraseTranslationUncheckedCreateWithoutFlashcardInput = {
+  id?: number
+  sentence_id: number
+  phrase: string
+  phrase_start_offset: number
+  phrase_end_offset: number
+  translate?: string | null
+  examples?: Prisma.SentencePhraseTranslationCreateexamplesInput | string[]
+  status: $Enums.SentencePhraseTranslationStatus
+  error_message?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+}
+
+export type SentencePhraseTranslationCreateOrConnectWithoutFlashcardInput = {
+  where: Prisma.SentencePhraseTranslationWhereUniqueInput
+  create: Prisma.XOR<Prisma.SentencePhraseTranslationCreateWithoutFlashcardInput, Prisma.SentencePhraseTranslationUncheckedCreateWithoutFlashcardInput>
+}
+
+export type SentencePhraseTranslationUpsertWithoutFlashcardInput = {
+  update: Prisma.XOR<Prisma.SentencePhraseTranslationUpdateWithoutFlashcardInput, Prisma.SentencePhraseTranslationUncheckedUpdateWithoutFlashcardInput>
+  create: Prisma.XOR<Prisma.SentencePhraseTranslationCreateWithoutFlashcardInput, Prisma.SentencePhraseTranslationUncheckedCreateWithoutFlashcardInput>
+  where?: Prisma.SentencePhraseTranslationWhereInput
+}
+
+export type SentencePhraseTranslationUpdateToOneWithWhereWithoutFlashcardInput = {
+  where?: Prisma.SentencePhraseTranslationWhereInput
+  data: Prisma.XOR<Prisma.SentencePhraseTranslationUpdateWithoutFlashcardInput, Prisma.SentencePhraseTranslationUncheckedUpdateWithoutFlashcardInput>
+}
+
+export type SentencePhraseTranslationUpdateWithoutFlashcardInput = {
+  phrase?: Prisma.StringFieldUpdateOperationsInput | string
+  phrase_start_offset?: Prisma.IntFieldUpdateOperationsInput | number
+  phrase_end_offset?: Prisma.IntFieldUpdateOperationsInput | number
+  translate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  examples?: Prisma.SentencePhraseTranslationUpdateexamplesInput | string[]
+  status?: Prisma.EnumSentencePhraseTranslationStatusFieldUpdateOperationsInput | $Enums.SentencePhraseTranslationStatus
+  error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  sentence?: Prisma.SentenceUpdateOneRequiredWithoutSentencePhraseTranslationNestedInput
+}
+
+export type SentencePhraseTranslationUncheckedUpdateWithoutFlashcardInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  sentence_id?: Prisma.IntFieldUpdateOperationsInput | number
+  phrase?: Prisma.StringFieldUpdateOperationsInput | string
+  phrase_start_offset?: Prisma.IntFieldUpdateOperationsInput | number
+  phrase_end_offset?: Prisma.IntFieldUpdateOperationsInput | number
+  translate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  examples?: Prisma.SentencePhraseTranslationUpdateexamplesInput | string[]
+  status?: Prisma.EnumSentencePhraseTranslationStatusFieldUpdateOperationsInput | $Enums.SentencePhraseTranslationStatus
+  error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
 export type SentencePhraseTranslationCreateManySentenceInput = {
   id?: number
   phrase: string
@@ -648,6 +748,7 @@ export type SentencePhraseTranslationUpdateWithoutSentenceInput = {
   error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Flashcard?: Prisma.FlashcardUpdateManyWithoutSentencePhraseTranslationNestedInput
 }
 
 export type SentencePhraseTranslationUncheckedUpdateWithoutSentenceInput = {
@@ -661,6 +762,7 @@ export type SentencePhraseTranslationUncheckedUpdateWithoutSentenceInput = {
   error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutSentencePhraseTranslationNestedInput
 }
 
 export type SentencePhraseTranslationUncheckedUpdateManyWithoutSentenceInput = {
@@ -677,6 +779,35 @@ export type SentencePhraseTranslationUncheckedUpdateManyWithoutSentenceInput = {
 }
 
 
+/**
+ * Count Type SentencePhraseTranslationCountOutputType
+ */
+
+export type SentencePhraseTranslationCountOutputType = {
+  Flashcard: number
+}
+
+export type SentencePhraseTranslationCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  Flashcard?: boolean | SentencePhraseTranslationCountOutputTypeCountFlashcardArgs
+}
+
+/**
+ * SentencePhraseTranslationCountOutputType without action
+ */
+export type SentencePhraseTranslationCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the SentencePhraseTranslationCountOutputType
+   */
+  select?: Prisma.SentencePhraseTranslationCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * SentencePhraseTranslationCountOutputType without action
+ */
+export type SentencePhraseTranslationCountOutputTypeCountFlashcardArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.FlashcardWhereInput
+}
+
 
 export type SentencePhraseTranslationSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -691,6 +822,8 @@ export type SentencePhraseTranslationSelect<ExtArgs extends runtime.Types.Extens
   created_at?: boolean
   updated_at?: boolean
   sentence?: boolean | Prisma.SentenceDefaultArgs<ExtArgs>
+  Flashcard?: boolean | Prisma.SentencePhraseTranslation$FlashcardArgs<ExtArgs>
+  _count?: boolean | Prisma.SentencePhraseTranslationCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["sentencePhraseTranslation"]>
 
 export type SentencePhraseTranslationSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -740,6 +873,8 @@ export type SentencePhraseTranslationSelectScalar = {
 export type SentencePhraseTranslationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "sentence_id" | "phrase" | "phrase_start_offset" | "phrase_end_offset" | "translate" | "examples" | "status" | "error_message" | "created_at" | "updated_at", ExtArgs["result"]["sentencePhraseTranslation"]>
 export type SentencePhraseTranslationInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   sentence?: boolean | Prisma.SentenceDefaultArgs<ExtArgs>
+  Flashcard?: boolean | Prisma.SentencePhraseTranslation$FlashcardArgs<ExtArgs>
+  _count?: boolean | Prisma.SentencePhraseTranslationCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type SentencePhraseTranslationIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   sentence?: boolean | Prisma.SentenceDefaultArgs<ExtArgs>
@@ -752,6 +887,7 @@ export type $SentencePhraseTranslationPayload<ExtArgs extends runtime.Types.Exte
   name: "SentencePhraseTranslation"
   objects: {
     sentence: Prisma.$SentencePayload<ExtArgs>
+    Flashcard: Prisma.$FlashcardPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1160,6 +1296,7 @@ readonly fields: SentencePhraseTranslationFieldRefs;
 export interface Prisma__SentencePhraseTranslationClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   sentence<T extends Prisma.SentenceDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.SentenceDefaultArgs<ExtArgs>>): Prisma.Prisma__SentenceClient<runtime.Types.Result.GetResult<Prisma.$SentencePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  Flashcard<T extends Prisma.SentencePhraseTranslation$FlashcardArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.SentencePhraseTranslation$FlashcardArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FlashcardPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1598,6 +1735,30 @@ export type SentencePhraseTranslationDeleteManyArgs<ExtArgs extends runtime.Type
    * Limit how many SentencePhraseTranslations to delete.
    */
   limit?: number
+}
+
+/**
+ * SentencePhraseTranslation.Flashcard
+ */
+export type SentencePhraseTranslation$FlashcardArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Flashcard
+   */
+  select?: Prisma.FlashcardSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Flashcard
+   */
+  omit?: Prisma.FlashcardOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.FlashcardInclude<ExtArgs> | null
+  where?: Prisma.FlashcardWhereInput
+  orderBy?: Prisma.FlashcardOrderByWithRelationInput | Prisma.FlashcardOrderByWithRelationInput[]
+  cursor?: Prisma.FlashcardWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.FlashcardScalarFieldEnum | Prisma.FlashcardScalarFieldEnum[]
 }
 
 /**

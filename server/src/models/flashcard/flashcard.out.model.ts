@@ -45,6 +45,9 @@ export class FlashcardOutModel {
 	@Field(() => Int, { nullable: true })
 	videoPublicId: null | number
 
+	@Field(() => Int, { nullable: true })
+	sentencePhraseTranslationId: null | number
+
 	@Field(() => String)
 	createdAt: string
 }

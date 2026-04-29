@@ -102,6 +102,7 @@ export class FlashcardQueryRepository {
 			bookPublicId: db.book_public_id,
 			videoPrivateId: db.video_private_id,
 			videoPublicId: db.video_public_id,
+			sentencePhraseTranslationId: db.sentence_phrase_translation_id,
 			createdAt: db.created_at.toISOString(),
 		}
 	}

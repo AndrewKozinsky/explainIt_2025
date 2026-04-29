@@ -194,6 +194,7 @@ export type FlashcardOutModel = {
   phraseStartOffset: Scalars['Int']['output'];
   phraseTranscription?: Maybe<Scalars['String']['output']>;
   phraseTranslation?: Maybe<Scalars['String']['output']>;
+  sentencePhraseTranslationId?: Maybe<Scalars['Int']['output']>;
   sentenceText: Scalars['String']['output'];
   sentenceTranslation?: Maybe<Scalars['String']['output']>;
   videoPrivateId?: Maybe<Scalars['Int']['output']>;
@@ -612,6 +613,7 @@ export type SentencePhraseTranslationOutModel = {
   createdAt: Scalars['String']['output'];
   errorMessage?: Maybe<Scalars['String']['output']>;
   examples: Array<SentencePhraseTranslationExampleOutModel>;
+  flashcardId?: Maybe<Scalars['Int']['output']>;
   id: Scalars['Int']['output'];
   phrase: Scalars['String']['output'];
   phraseEndOffset: Scalars['Int']['output'];
@@ -1017,14 +1019,14 @@ export type Flashcard_AddVariables = Exact<{
 }>;
 
 
-export type Flashcard_Add = { __typename?: 'Mutation', flashcard_add: { __typename?: 'FlashcardOutModel', id: number, languageCode: string, sentenceText: string, sentenceTranslation?: string | null, phrase: string, phraseStartOffset: number, phraseEndOffset: number, phraseTranslation?: string | null, phraseTranscription?: string | null, bookPrivateId?: number | null, bookPublicId?: number | null, videoPrivateId?: number | null, videoPublicId?: number | null, createdAt: string, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> } };
+export type Flashcard_Add = { __typename?: 'Mutation', flashcard_add: { __typename?: 'FlashcardOutModel', id: number, languageCode: string, sentenceText: string, sentenceTranslation?: string | null, phrase: string, phraseStartOffset: number, phraseEndOffset: number, phraseTranslation?: string | null, phraseTranscription?: string | null, bookPrivateId?: number | null, bookPublicId?: number | null, videoPrivateId?: number | null, videoPublicId?: number | null, sentencePhraseTranslationId?: number | null, createdAt: string, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> } };
 
 export type Flashcard_Get_MyVariables = Exact<{
   input: GetMyFlashcardsInput;
 }>;
 
 
-export type Flashcard_Get_My = { __typename?: 'Query', flashcard_get_my: Array<{ __typename?: 'FlashcardOutModel', id: number, languageCode: string, sentenceText: string, sentenceTranslation?: string | null, phrase: string, phraseStartOffset: number, phraseEndOffset: number, phraseTranslation?: string | null, phraseTranscription?: string | null, bookPrivateId?: number | null, bookPublicId?: number | null, videoPrivateId?: number | null, videoPublicId?: number | null, createdAt: string, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> }> };
+export type Flashcard_Get_My = { __typename?: 'Query', flashcard_get_my: Array<{ __typename?: 'FlashcardOutModel', id: number, languageCode: string, sentenceText: string, sentenceTranslation?: string | null, phrase: string, phraseStartOffset: number, phraseEndOffset: number, phraseTranslation?: string | null, phraseTranscription?: string | null, bookPrivateId?: number | null, bookPublicId?: number | null, videoPrivateId?: number | null, videoPublicId?: number | null, sentencePhraseTranslationId?: number | null, createdAt: string, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> }> };
 
 export type Flashcard_RemoveVariables = Exact<{
   input: RemoveFlashcardInput;
@@ -1078,14 +1080,14 @@ export type Translate_Get_Phrase_TranslationVariables = Exact<{
 }>;
 
 
-export type Translate_Get_Phrase_Translation = { __typename?: 'Query', translate_get_phrase_translation?: { __typename?: 'SentencePhraseTranslationOutModel', id: number, sentenceId: number, phrase: string, phraseStartOffset: number, phraseEndOffset: number, translate?: string | null, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> } | null };
+export type Translate_Get_Phrase_Translation = { __typename?: 'Query', translate_get_phrase_translation?: { __typename?: 'SentencePhraseTranslationOutModel', id: number, sentenceId: number, phrase: string, phraseStartOffset: number, phraseEndOffset: number, translate?: string | null, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string, flashcardId?: number | null, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> } | null };
 
 export type Translate_Get_Phrase_Translations_By_SentenceVariables = Exact<{
   input: GetPhraseTranslationsBySentenceInput;
 }>;
 
 
-export type Translate_Get_Phrase_Translations_By_Sentence = { __typename?: 'Query', translate_get_phrase_translations_by_sentence: Array<{ __typename?: 'SentencePhraseTranslationOutModel', id: number, sentenceId: number, phrase: string, phraseStartOffset: number, phraseEndOffset: number, translate?: string | null, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> }> };
+export type Translate_Get_Phrase_Translations_By_Sentence = { __typename?: 'Query', translate_get_phrase_translations_by_sentence: Array<{ __typename?: 'SentencePhraseTranslationOutModel', id: number, sentenceId: number, phrase: string, phraseStartOffset: number, phraseEndOffset: number, translate?: string | null, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string, flashcardId?: number | null, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> }> };
 
 export type Translate_Get_Sentence_TranslationVariables = Exact<{
   input: GetSentenceTranslationInput;
@@ -1099,7 +1101,7 @@ export type Translate_Translate_PhraseVariables = Exact<{
 }>;
 
 
-export type Translate_Translate_Phrase = { __typename?: 'Mutation', translate_translate_phrase: { __typename?: 'SentencePhraseTranslationOutModel', id: number, sentenceId: number, phrase: string, phraseStartOffset: number, phraseEndOffset: number, translate?: string | null, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> } };
+export type Translate_Translate_Phrase = { __typename?: 'Mutation', translate_translate_phrase: { __typename?: 'SentencePhraseTranslationOutModel', id: number, sentenceId: number, phrase: string, phraseStartOffset: number, phraseEndOffset: number, translate?: string | null, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string, flashcardId?: number | null, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> } };
 
 export type Translate_Translate_SentenceVariables = Exact<{
   input: TranslateSentenceInput;
@@ -1964,6 +1966,7 @@ export const Flashcard_AddDocument = gql`
     bookPublicId
     videoPrivateId
     videoPublicId
+    sentencePhraseTranslationId
     createdAt
   }
 }
@@ -2014,6 +2017,7 @@ export const Flashcard_Get_MyDocument = gql`
     bookPublicId
     videoPrivateId
     videoPublicId
+    sentencePhraseTranslationId
     createdAt
   }
 }
@@ -2357,6 +2361,7 @@ export const Translate_Get_Phrase_TranslationDocument = gql`
     errorMessage
     createdAt
     updatedAt
+    flashcardId
   }
 }
     `;
@@ -2413,6 +2418,7 @@ export const Translate_Get_Phrase_Translations_By_SentenceDocument = gql`
     errorMessage
     createdAt
     updatedAt
+    flashcardId
   }
 }
     `;
@@ -2513,6 +2519,7 @@ export const Translate_Translate_PhraseDocument = gql`
     errorMessage
     createdAt
     updatedAt
+    flashcardId
   }
 }
     `;

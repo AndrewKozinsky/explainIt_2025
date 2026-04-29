@@ -287,6 +287,7 @@ export interface SentencePhraseTranslationOutModel {
     errorMessage?: Nullable<string>;
     createdAt: string;
     updatedAt: string;
+    flashcardId?: Nullable<number>;
 }
 
 export interface FlashcardOutModel {
@@ -304,6 +305,7 @@ export interface FlashcardOutModel {
     bookPublicId?: Nullable<number>;
     videoPrivateId?: Nullable<number>;
     videoPublicId?: Nullable<number>;
+    sentencePhraseTranslationId?: Nullable<number>;
     createdAt: string;
 }
 

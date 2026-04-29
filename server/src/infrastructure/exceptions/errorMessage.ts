@@ -130,6 +130,7 @@ export const errorMessage = {
 		sourcePhraseNotFound: 'Фраза-источник для карточки не найдена.',
 		sourceSentenceNotFound: 'Предложение-источник для карточки не найдено.',
 		sourceLanguageNotFound: 'Не удалось определить язык фразы для карточки.',
+		alreadyExists: 'Карточка для этой фразы уже существует.',
 	},
 	audioPronunciation: {
 		notCreated: 'Не удалось создать озвучку.',

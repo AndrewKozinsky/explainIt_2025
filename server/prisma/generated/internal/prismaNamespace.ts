@@ -2128,6 +2128,7 @@ export const FlashcardScalarFieldEnum = {
   book_public_id: 'book_public_id',
   video_private_id: 'video_private_id',
   video_public_id: 'video_public_id',
+  sentence_phrase_translation_id: 'sentence_phrase_translation_id',
   created_at: 'created_at'
 } as const
 

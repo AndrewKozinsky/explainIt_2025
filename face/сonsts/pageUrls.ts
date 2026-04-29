@@ -102,6 +102,10 @@ export const pageUrls = {
 		name: 'Контакты',
 		path: '/contacts',
 	},
+	dictionary: {
+		name: 'Словарь',
+		path: '/dictionary',
+	},
 	help: {
 		name: 'Справка',
 		path: '/help',

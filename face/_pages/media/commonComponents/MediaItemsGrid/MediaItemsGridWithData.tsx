@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
+import LanguageSwitch from '@/ui/LanguageSwitch/LanguageSwitch'
 import { AddButton } from './AddButton'
-import LanguageSwitch from './LanguageSwitch'
 import MediaCard from './MediaCard'
 import { AddMediaButtonConfig, PrivateItem, PublicItem } from './types'
 
@@ -27,7 +27,13 @@ function MediaItemsGridWithData(props: MediaItemsGridWithDataProps) {
 				))}
 				<AddButton {...addMediaButtonConfig} />
 			</div>
-			<LanguageSwitch languagesSet={languagesSet} currentLang={currentLang} setCurrentLang={setCurrentLang} />
+			<div className='media-items-grid__languages'>
+				<LanguageSwitch
+					languages={Array.from(languagesSet)}
+					currentLang={currentLang}
+					onChange={(lang) => setCurrentLang(lang)}
+				/>
+			</div>
 			<div className='media-items-grid__items-row'>
 				{publicItems
 					.filter((item) => item.languageCode === currentLang)

@@ -50,6 +50,14 @@ export class AddFlashcardHandler implements ICommandHandler<AddFlashcardCommand,
 			throw new CustomGraphQLError(errorMessage.flashcard.sourcePhraseNotFound, ErrorCode.NotFound_404)
 		}
 
+		const existingFlashcard = await this.flashcardRepository.getFlashcardByUserAndPhraseId(
+			userId,
+			sentencePhraseTranslationId,
+		)
+		if (existingFlashcard) {
+			throw new CustomGraphQLError(errorMessage.flashcard.alreadyExists, ErrorCode.BadRequest_400)
+		}
+
 		const sentence = await this.sentenceRepository.getSentenceDbById(phrase.sentenceId)
 		if (!sentence) {
 			throw new CustomGraphQLError(errorMessage.flashcard.sourceSentenceNotFound, ErrorCode.NotFound_404)
@@ -61,8 +69,11 @@ export class AddFlashcardHandler implements ICommandHandler<AddFlashcardCommand,
 			sentence.start_offset,
 			sentence.start_offset + sentence.length,
 		)
-		const phraseStartOffset = phrase.phraseStartOffset - sentence.start_offset
-		const phraseEndOffset = phrase.phraseEndOffset - sentence.start_offset
+		// phrase.phraseStartOffset / phraseEndOffset уже хранятся относительно текста предложения
+		// (см. SentencePhraseTranslation.phrase_start_offset — "Phrase start offset within the sentence text snapshot"),
+		// поэтому никакой дополнительной корректировки на sentence.start_offset делать не нужно.
+		const phraseStartOffset = phrase.phraseStartOffset
+		const phraseEndOffset = phrase.phraseEndOffset
 
 		const sentenceTranslation = await this.sentenceTranslationRepository.getFirstSentenceTranslationBySentenceId(
 			sentence.id,
@@ -82,6 +93,7 @@ export class AddFlashcardHandler implements ICommandHandler<AddFlashcardCommand,
 			bookPublicId: sentenceSource.bookPublicId,
 			videoPrivateId: sentenceSource.videoPrivateId,
 			videoPublicId: sentenceSource.videoPublicId,
+			sentencePhraseTranslationId,
 		})
 
 		const out = await this.flashcardQueryRepository.getFlashcardById(created.id)
