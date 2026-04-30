@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Button from 'ui/formRelated/buttons/Button/Button'
-import { ActionIcon } from 'ui/icons/ActionIcon/ActionIcon'
+import { ActionIcon } from 'ui/icons/ActionIcon'
 import { pageUrls } from 'сonsts/pageUrls'
 import './GoToReadingButton.scss'
 

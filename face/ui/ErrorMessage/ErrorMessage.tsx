@@ -1,4 +1,4 @@
-import { ErrorIcon } from '../icons/ErrorIcon/ErrorIcon'
+import { ErrorIcon } from '../icons/ErrorIcon'
 import './ErrorMessage.scss'
 
 type LoadingMessageProps = {

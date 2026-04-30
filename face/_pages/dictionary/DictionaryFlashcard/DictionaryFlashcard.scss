@@ -2,6 +2,13 @@
 
 .dictionary-flashcard {
 	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 2rem;
+}
+
+.dictionary-flashcard__content {
+	display: flex;
 	flex-direction: column;
 	gap: .8rem;
 }
@@ -38,7 +45,7 @@
 }
 
 .dictionary-flashcard__phrase-transcription {
-	font-size: 0.83em;
+	font-size: 0.8em;
 	padding: 0.05em .3em;
 	transform: translateY(.1em);
 	border-radius: vars.$radius-2;

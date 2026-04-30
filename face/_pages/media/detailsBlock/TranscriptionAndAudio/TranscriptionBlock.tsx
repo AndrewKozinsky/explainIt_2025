@@ -1,5 +1,5 @@
 import React from 'react'
-import { ErrorIcon } from 'ui/icons/ErrorIcon/ErrorIcon'
+import { ErrorIcon } from 'ui/icons/ErrorIcon'
 import Spinner from 'ui/Spinner/Spinner'
 import { TranscriptionData } from './fn/types'
 

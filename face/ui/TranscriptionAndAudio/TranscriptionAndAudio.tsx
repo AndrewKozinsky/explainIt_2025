@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { ErrorIcon } from 'ui/icons/ErrorIcon/ErrorIcon'
+import { ErrorIcon } from 'ui/icons/ErrorIcon'
 import Spinner from 'ui/Spinner/Spinner'
 import { useAudioPlayer } from './fn/useAudioPlayer'
 import PauseIcon from './PauseIcon'

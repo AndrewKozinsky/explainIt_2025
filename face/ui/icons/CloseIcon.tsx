@@ -15,8 +15,8 @@ export function CloseIcon(props: CloseIconProps) {
 			className={extraClass}
 		>
 			<rect width='13' height='13' fill='#D9D9D9' />
-			<path d='M11.5 1.5L1.5 11.5' stroke='#5A5A5A' strokeWidth='2' strokeLinecap='round' />
-			<path d='M1.5 1.5L11.5 11.5' stroke='#5A5A5A' strokeWidth='2' strokeLinecap='round' />
+			<path d='M11.5 1.5L1.5 11.5' stroke='currentColor' strokeWidth='2' strokeLinecap='round' />
+			<path d='M1.5 1.5L11.5 11.5' stroke='currentColor' strokeWidth='2' strokeLinecap='round' />
 		</svg>
 	)
 }

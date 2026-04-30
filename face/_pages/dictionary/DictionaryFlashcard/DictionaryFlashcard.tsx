@@ -1,6 +1,7 @@
 import TranscriptionAndAudio from 'ui/TranscriptionAndAudio/TranscriptionAndAudio'
 import { LanguageCode } from 'utils/utils'
 import { DictionaryFlashcardData } from '_pages/dictionary/dictionaryStore'
+import DeleteFlashcardButton from '../DeleteFlashcardButton/DeleteFlashcardButton'
 import './DictionaryFlashcard.scss'
 
 type DictionaryFlashcardProps = {
@@ -12,9 +13,12 @@ export function DictionaryFlashcard(props: DictionaryFlashcardProps) {
 
 	return (
 		<div className='dictionary-flashcard' key={flashcard.id}>
-			<Sentence flashcard={flashcard} />
-			<Phrase flashcard={flashcard} />
-			<Examples flashcard={flashcard} />
+			<div className='dictionary-flashcard__content'>
+				<Sentence flashcard={flashcard} />
+				<Phrase flashcard={flashcard} />
+				<Examples flashcard={flashcard} />
+			</div>
+			<DeleteFlashcardButton flashcardId={flashcard.id} />
 		</div>
 	)
 }
