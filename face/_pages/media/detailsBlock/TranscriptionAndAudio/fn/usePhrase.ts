@@ -24,7 +24,7 @@ export type PhraseResult = {
 	phraseAudioUrl: string | null
 }
 
-export function usePhrase(phrase: string, languageCode: LanguageCode, skip: boolean): PhraseResult {
+export function usePhrase(phrase: string, languageCode: LanguageCode): PhraseResult {
 	const [status, setStatus] = useState<Status>('loading')
 	const [phraseId, setPhraseId] = useState<number | null>(null)
 	const [phraseTranscription, setPhraseTranscription] = useState<{ ipa?: string | null } | null>(null)
@@ -34,8 +34,6 @@ export function usePhrase(phrase: string, languageCode: LanguageCode, skip: bool
 	const [createPhrase] = useUniversalPhrase_Create()
 
 	useEffect(() => {
-		if (skip) return
-
 		let cancelled = false
 
 		setStatus('loading')
@@ -59,7 +57,7 @@ export function usePhrase(phrase: string, languageCode: LanguageCode, skip: bool
 			cancelled = true
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [phrase, languageCode, skip])
+	}, [phrase, languageCode])
 
 	return { status, phraseId, phraseTranscription, phraseAudioUrl }
 }

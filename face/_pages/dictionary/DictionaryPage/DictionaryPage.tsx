@@ -2,7 +2,7 @@ import Header from 'ui/Header/Header'
 import { PageContentWrapper } from 'ui/pageRelated/PageContentWrapper/PageContentWrapper'
 import { BreadCrumbs } from '@/ui/pageRelated/BreadCrumbs/BreadCrumbs'
 import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'
-import DictionaryItems from '../DictionaryItems/DictionaryItems'
+import DictionaryPageContent from '_pages/dictionary/DictionaryPageContent/DictionaryPageContent'
 
 /** Страница словаря */
 function DictionaryPage() {
@@ -11,7 +11,7 @@ function DictionaryPage() {
 			<PageContentWrapper>
 				<BreadCrumbs />
 				<Header>Словарь</Header>
-				<DictionaryItems />
+				<DictionaryPageContent />
 			</PageContentWrapper>
 		</PageWrapper>
 	)

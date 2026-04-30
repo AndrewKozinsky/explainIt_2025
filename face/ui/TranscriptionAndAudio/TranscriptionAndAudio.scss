@@ -4,13 +4,14 @@
 	display: inline-flex;
 	align-items: center;
 	vertical-align: middle;
-	overflow: hidden;
-	gap: .4rem;
+	gap: .18em;
+	font-size: .9em;
+	line-height: 1.1em;
+	font-weight: 300;
 	background-color: vars.$grayColor-1;
 	cursor: pointer;
-	min-height: 2rem;
-	padding: .2rem .5rem .2rem .6rem;
-	margin: 0 .2rem;
+	padding: 0.08em .4em;
+	margin: 0 .2em;
 	border-radius: vars.$radius-1;
 	transition: background-color .2s ease;
 
@@ -24,35 +25,16 @@
 }
 
 .transcription-audio__error-icon {
-	height: 1.5rem;
-}
-
-.transcription-audio__ipa {
-	display: inline-flex;
-	font-size: 2rem;
-	line-height: 2rem;
-}
-
-.transcription-audio__play-btn {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	width: 2rem;
-	height: 2rem;
-	padding: 0;
-	border: none;
-	background: transparent;
-	cursor: pointer;
-	color: vars.$textColor;
+	width: .47em;
 }
 
 .transcription-audio__icon-wrapper {
 	display: inline-flex;
 	align-items: center;
-	height: 1.5rem;
+	width: .47em;
 }
 
 .transcription-audio__icon {
-	min-width: 1rem;
-	width: 1rem;
+	//min-width: 1rem;
+	//width: 1rem;
 }
