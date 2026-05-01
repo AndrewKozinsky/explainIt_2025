@@ -56,6 +56,24 @@ services:
       - .env.localtest
     ports:
       - 3001:3001
+  explainworkerlocaltest:
+    build:
+      context: server/
+      dockerfile: Dockerfile.worker.dev
+    restart: unless-stopped
+    volumes:
+      - ./server/src:/app/src
+    command: npm run start:worker:dev
+    container_name: explainworkerlocaltest
+    depends_on:
+      - explainpostgreslocaltest
+      - explainredislocaltest
+      - explainnlplocaltest
+    environment:
+      MODE: localtest
+      PORT: 3001
+    env_file:
+      - .env.localtest
   explainfacelocaltest:
     build:
       context: face/

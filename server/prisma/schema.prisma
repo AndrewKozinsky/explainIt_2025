@@ -93,25 +93,29 @@ model BookChapter {
 }
 
 model VideoPrivate {
-    id                Int             @id @default(autoincrement())
-    user              User            @relation(fields: [user_id], references: [id], onDelete: Cascade)
-    user_id           Int
-    language_code     LanguageCode
-    year              Int?
-    file_name         String?
-    file_s3_key       String?
-    s3_provider_name  S3ProviderName?
-    is_file_uploaded  Boolean         @default(false)
-    file_size_mb      Int             @default(0)
-    name              String?
-    original_content  String?
-    processed_content String?
-    content_type      VideoTextType   @default(text)
-    Subtitle          Subtitle[]
-    Sentence          Sentence[]
-    Flashcard         Flashcard[]
-    created_at        DateTime        @default(now())
-    updated_at        DateTime        @default(now())
+    id                              Int                       @id @default(autoincrement())
+    user                            User                      @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    user_id                         Int
+    language_code                   LanguageCode
+    year                            Int?
+    file_name                       String?
+    file_s3_key                     String?
+    s3_provider_name                S3ProviderName?
+    is_file_uploaded                Boolean                   @default(false)
+    file_size_mb                    Int                       @default(0)
+    name                            String?
+    original_content                String?
+    processed_content               String?
+    content_type                    VideoTextType             @default(text)
+    subtitles_generation_status     SubtitlesGenerationStatus @default(idle)
+    subtitles_generation_error      String?
+    subtitles_generation_started_at DateTime?
+    subtitles_generation_job_id     String?
+    Subtitle                        Subtitle[]
+    Sentence                        Sentence[]
+    Flashcard                       Flashcard[]
+    created_at                      DateTime                  @default(now())
+    updated_at                      DateTime                  @default(now())
 }
 
 model VideoPublic {
@@ -323,6 +327,14 @@ enum S3ProviderName {
 enum VideoTextType {
     text
     subtitles
+}
+
+enum SubtitlesGenerationStatus {
+    idle
+    pending
+    processing
+    done
+    failed
 }
 
 enum SentencePhraseTranslationStatus {

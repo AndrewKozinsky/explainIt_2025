@@ -272,6 +272,24 @@ export type EnumVideoTextTypeFilter<$PrismaModel = never> = {
   not?: Prisma.NestedEnumVideoTextTypeFilter<$PrismaModel> | $Enums.VideoTextType
 }
 
+export type EnumSubtitlesGenerationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SubtitlesGenerationStatus | Prisma.EnumSubtitlesGenerationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SubtitlesGenerationStatus[] | Prisma.ListEnumSubtitlesGenerationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SubtitlesGenerationStatus[] | Prisma.ListEnumSubtitlesGenerationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSubtitlesGenerationStatusFilter<$PrismaModel> | $Enums.SubtitlesGenerationStatus
+}
+
+export type DateTimeNullableFilter<$PrismaModel = never> = {
+  equals?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel> | null
+  in?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel> | null
+  notIn?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel> | null
+  lt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  lte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  gt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  gte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+}
+
 export type EnumS3ProviderNameNullableWithAggregatesFilter<$PrismaModel = never> = {
   equals?: $Enums.S3ProviderName | Prisma.EnumS3ProviderNameFieldRefInput<$PrismaModel> | null
   in?: $Enums.S3ProviderName[] | Prisma.ListEnumS3ProviderNameFieldRefInput<$PrismaModel> | null
@@ -290,6 +308,30 @@ export type EnumVideoTextTypeWithAggregatesFilter<$PrismaModel = never> = {
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumVideoTextTypeFilter<$PrismaModel>
   _max?: Prisma.NestedEnumVideoTextTypeFilter<$PrismaModel>
+}
+
+export type EnumSubtitlesGenerationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SubtitlesGenerationStatus | Prisma.EnumSubtitlesGenerationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SubtitlesGenerationStatus[] | Prisma.ListEnumSubtitlesGenerationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SubtitlesGenerationStatus[] | Prisma.ListEnumSubtitlesGenerationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSubtitlesGenerationStatusWithAggregatesFilter<$PrismaModel> | $Enums.SubtitlesGenerationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSubtitlesGenerationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSubtitlesGenerationStatusFilter<$PrismaModel>
+}
+
+export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel> | null
+  in?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel> | null
+  notIn?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel> | null
+  lt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  lte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  gt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  gte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedDateTimeNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedDateTimeNullableFilter<$PrismaModel>
 }
 
 export type EnumS3ProviderNameFilter<$PrismaModel = never> = {
@@ -631,6 +673,24 @@ export type NestedEnumVideoTextTypeFilter<$PrismaModel = never> = {
   not?: Prisma.NestedEnumVideoTextTypeFilter<$PrismaModel> | $Enums.VideoTextType
 }
 
+export type NestedEnumSubtitlesGenerationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SubtitlesGenerationStatus | Prisma.EnumSubtitlesGenerationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SubtitlesGenerationStatus[] | Prisma.ListEnumSubtitlesGenerationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SubtitlesGenerationStatus[] | Prisma.ListEnumSubtitlesGenerationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSubtitlesGenerationStatusFilter<$PrismaModel> | $Enums.SubtitlesGenerationStatus
+}
+
+export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+  equals?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel> | null
+  in?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel> | null
+  notIn?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel> | null
+  lt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  lte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  gt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  gte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+}
+
 export type NestedEnumS3ProviderNameNullableWithAggregatesFilter<$PrismaModel = never> = {
   equals?: $Enums.S3ProviderName | Prisma.EnumS3ProviderNameFieldRefInput<$PrismaModel> | null
   in?: $Enums.S3ProviderName[] | Prisma.ListEnumS3ProviderNameFieldRefInput<$PrismaModel> | null
@@ -649,6 +709,30 @@ export type NestedEnumVideoTextTypeWithAggregatesFilter<$PrismaModel = never> = 
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumVideoTextTypeFilter<$PrismaModel>
   _max?: Prisma.NestedEnumVideoTextTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumSubtitlesGenerationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SubtitlesGenerationStatus | Prisma.EnumSubtitlesGenerationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SubtitlesGenerationStatus[] | Prisma.ListEnumSubtitlesGenerationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SubtitlesGenerationStatus[] | Prisma.ListEnumSubtitlesGenerationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSubtitlesGenerationStatusWithAggregatesFilter<$PrismaModel> | $Enums.SubtitlesGenerationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSubtitlesGenerationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSubtitlesGenerationStatusFilter<$PrismaModel>
+}
+
+export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel> | null
+  in?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel> | null
+  notIn?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel> | null
+  lt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  lte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  gt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  gte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedDateTimeNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedDateTimeNullableFilter<$PrismaModel>
 }
 
 export type NestedEnumS3ProviderNameFilter<$PrismaModel = never> = {

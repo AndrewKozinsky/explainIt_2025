@@ -186,6 +186,10 @@ export const VideoPrivateScalarFieldEnum = {
   original_content: 'original_content',
   processed_content: 'processed_content',
   content_type: 'content_type',
+  subtitles_generation_status: 'subtitles_generation_status',
+  subtitles_generation_error: 'subtitles_generation_error',
+  subtitles_generation_started_at: 'subtitles_generation_started_at',
+  subtitles_generation_job_id: 'subtitles_generation_job_id',
   created_at: 'created_at',
   updated_at: 'updated_at'
 } as const

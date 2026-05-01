@@ -12,6 +12,7 @@ export const errorMessage = {
 	userNotFound: 'Пользователь не найден.',
 	userUnauthorized: 'Пользователь не авторизован.',
 	userBalanceIsNegative: 'Отрицательный баланс.',
+	userBalanceBelowMinimum: 'Недостаточно средств на балансе для выполнения операции.',
 	insufficientBalanceForTranslation: 'Недостаточно средств на балансе для перевода.',
 	userIsNotOwner: 'Пользователь не является владельцем этой сущности.',
 	paymentIdIsRequiredForPaymentTransactions: 'Payment ID is required for payment transactions',
@@ -94,6 +95,12 @@ export const errorMessage = {
 	video: {
 		notCreated: 'Видел не создано.',
 		notFound: 'Видео не найдено.',
+		subtitlesGenerationAlreadyRunning: 'Генерация субтитров для этого видео уже выполняется.',
+		subtitlesGenerationFileNotUploaded: 'Видеофайл не загружен — нечего распознавать.',
+		subtitlesGenerationLanguageRequired: 'Для генерации субтитров у видео должен быть указан язык.',
+		subtitlesGenerationVideoTooLong: 'Длительность видео превышает допустимый лимит для генерации субтитров.',
+		subtitlesGenerationFailed: 'Не удалось сгенерировать субтитры для видео.',
+		subtitlesAsrFailed: 'Сервис распознавания речи вернул ошибку.',
 	},
 	sentenceTranslation: {
 		notFound: 'Перевод предложения не найден.',

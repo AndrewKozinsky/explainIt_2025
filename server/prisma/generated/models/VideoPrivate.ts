@@ -54,6 +54,10 @@ export type VideoPrivateMinAggregateOutputType = {
   original_content: string | null
   processed_content: string | null
   content_type: $Enums.VideoTextType | null
+  subtitles_generation_status: $Enums.SubtitlesGenerationStatus | null
+  subtitles_generation_error: string | null
+  subtitles_generation_started_at: Date | null
+  subtitles_generation_job_id: string | null
   created_at: Date | null
   updated_at: Date | null
 }
@@ -72,6 +76,10 @@ export type VideoPrivateMaxAggregateOutputType = {
   original_content: string | null
   processed_content: string | null
   content_type: $Enums.VideoTextType | null
+  subtitles_generation_status: $Enums.SubtitlesGenerationStatus | null
+  subtitles_generation_error: string | null
+  subtitles_generation_started_at: Date | null
+  subtitles_generation_job_id: string | null
   created_at: Date | null
   updated_at: Date | null
 }
@@ -90,6 +98,10 @@ export type VideoPrivateCountAggregateOutputType = {
   original_content: number
   processed_content: number
   content_type: number
+  subtitles_generation_status: number
+  subtitles_generation_error: number
+  subtitles_generation_started_at: number
+  subtitles_generation_job_id: number
   created_at: number
   updated_at: number
   _all: number
@@ -124,6 +136,10 @@ export type VideoPrivateMinAggregateInputType = {
   original_content?: true
   processed_content?: true
   content_type?: true
+  subtitles_generation_status?: true
+  subtitles_generation_error?: true
+  subtitles_generation_started_at?: true
+  subtitles_generation_job_id?: true
   created_at?: true
   updated_at?: true
 }
@@ -142,6 +158,10 @@ export type VideoPrivateMaxAggregateInputType = {
   original_content?: true
   processed_content?: true
   content_type?: true
+  subtitles_generation_status?: true
+  subtitles_generation_error?: true
+  subtitles_generation_started_at?: true
+  subtitles_generation_job_id?: true
   created_at?: true
   updated_at?: true
 }
@@ -160,6 +180,10 @@ export type VideoPrivateCountAggregateInputType = {
   original_content?: true
   processed_content?: true
   content_type?: true
+  subtitles_generation_status?: true
+  subtitles_generation_error?: true
+  subtitles_generation_started_at?: true
+  subtitles_generation_job_id?: true
   created_at?: true
   updated_at?: true
   _all?: true
@@ -265,6 +289,10 @@ export type VideoPrivateGroupByOutputType = {
   original_content: string | null
   processed_content: string | null
   content_type: $Enums.VideoTextType
+  subtitles_generation_status: $Enums.SubtitlesGenerationStatus
+  subtitles_generation_error: string | null
+  subtitles_generation_started_at: Date | null
+  subtitles_generation_job_id: string | null
   created_at: Date
   updated_at: Date
   _count: VideoPrivateCountAggregateOutputType | null
@@ -306,6 +334,10 @@ export type VideoPrivateWhereInput = {
   original_content?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   processed_content?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   content_type?: Prisma.EnumVideoTextTypeFilter<"VideoPrivate"> | $Enums.VideoTextType
+  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusFilter<"VideoPrivate"> | $Enums.SubtitlesGenerationStatus
+  subtitles_generation_error?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
+  subtitles_generation_started_at?: Prisma.DateTimeNullableFilter<"VideoPrivate"> | Date | string | null
+  subtitles_generation_job_id?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   created_at?: Prisma.DateTimeFilter<"VideoPrivate"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"VideoPrivate"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -328,6 +360,10 @@ export type VideoPrivateOrderByWithRelationInput = {
   original_content?: Prisma.SortOrderInput | Prisma.SortOrder
   processed_content?: Prisma.SortOrderInput | Prisma.SortOrder
   content_type?: Prisma.SortOrder
+  subtitles_generation_status?: Prisma.SortOrder
+  subtitles_generation_error?: Prisma.SortOrderInput | Prisma.SortOrder
+  subtitles_generation_started_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  subtitles_generation_job_id?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
@@ -353,6 +389,10 @@ export type VideoPrivateWhereUniqueInput = Prisma.AtLeast<{
   original_content?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   processed_content?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   content_type?: Prisma.EnumVideoTextTypeFilter<"VideoPrivate"> | $Enums.VideoTextType
+  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusFilter<"VideoPrivate"> | $Enums.SubtitlesGenerationStatus
+  subtitles_generation_error?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
+  subtitles_generation_started_at?: Prisma.DateTimeNullableFilter<"VideoPrivate"> | Date | string | null
+  subtitles_generation_job_id?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   created_at?: Prisma.DateTimeFilter<"VideoPrivate"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"VideoPrivate"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -375,6 +415,10 @@ export type VideoPrivateOrderByWithAggregationInput = {
   original_content?: Prisma.SortOrderInput | Prisma.SortOrder
   processed_content?: Prisma.SortOrderInput | Prisma.SortOrder
   content_type?: Prisma.SortOrder
+  subtitles_generation_status?: Prisma.SortOrder
+  subtitles_generation_error?: Prisma.SortOrderInput | Prisma.SortOrder
+  subtitles_generation_started_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  subtitles_generation_job_id?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   _count?: Prisma.VideoPrivateCountOrderByAggregateInput
@@ -401,6 +445,10 @@ export type VideoPrivateScalarWhereWithAggregatesInput = {
   original_content?: Prisma.StringNullableWithAggregatesFilter<"VideoPrivate"> | string | null
   processed_content?: Prisma.StringNullableWithAggregatesFilter<"VideoPrivate"> | string | null
   content_type?: Prisma.EnumVideoTextTypeWithAggregatesFilter<"VideoPrivate"> | $Enums.VideoTextType
+  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusWithAggregatesFilter<"VideoPrivate"> | $Enums.SubtitlesGenerationStatus
+  subtitles_generation_error?: Prisma.StringNullableWithAggregatesFilter<"VideoPrivate"> | string | null
+  subtitles_generation_started_at?: Prisma.DateTimeNullableWithAggregatesFilter<"VideoPrivate"> | Date | string | null
+  subtitles_generation_job_id?: Prisma.StringNullableWithAggregatesFilter<"VideoPrivate"> | string | null
   created_at?: Prisma.DateTimeWithAggregatesFilter<"VideoPrivate"> | Date | string
   updated_at?: Prisma.DateTimeWithAggregatesFilter<"VideoPrivate"> | Date | string
 }
@@ -417,6 +465,10 @@ export type VideoPrivateCreateInput = {
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
+  subtitles_generation_status?: $Enums.SubtitlesGenerationStatus
+  subtitles_generation_error?: string | null
+  subtitles_generation_started_at?: Date | string | null
+  subtitles_generation_job_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   user: Prisma.UserCreateNestedOneWithoutVideoPrivateInput
@@ -439,6 +491,10 @@ export type VideoPrivateUncheckedCreateInput = {
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
+  subtitles_generation_status?: $Enums.SubtitlesGenerationStatus
+  subtitles_generation_error?: string | null
+  subtitles_generation_started_at?: Date | string | null
+  subtitles_generation_job_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   Subtitle?: Prisma.SubtitleUncheckedCreateNestedManyWithoutVideoPrivateInput
@@ -458,6 +514,10 @@ export type VideoPrivateUpdateInput = {
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
+  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusFieldUpdateOperationsInput | $Enums.SubtitlesGenerationStatus
+  subtitles_generation_error?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subtitles_generation_started_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  subtitles_generation_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutVideoPrivateNestedInput
@@ -480,6 +540,10 @@ export type VideoPrivateUncheckedUpdateInput = {
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
+  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusFieldUpdateOperationsInput | $Enums.SubtitlesGenerationStatus
+  subtitles_generation_error?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subtitles_generation_started_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  subtitles_generation_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Subtitle?: Prisma.SubtitleUncheckedUpdateManyWithoutVideoPrivateNestedInput
@@ -501,6 +565,10 @@ export type VideoPrivateCreateManyInput = {
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
+  subtitles_generation_status?: $Enums.SubtitlesGenerationStatus
+  subtitles_generation_error?: string | null
+  subtitles_generation_started_at?: Date | string | null
+  subtitles_generation_job_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
 }
@@ -517,6 +585,10 @@ export type VideoPrivateUpdateManyMutationInput = {
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
+  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusFieldUpdateOperationsInput | $Enums.SubtitlesGenerationStatus
+  subtitles_generation_error?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subtitles_generation_started_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  subtitles_generation_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -535,6 +607,10 @@ export type VideoPrivateUncheckedUpdateManyInput = {
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
+  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusFieldUpdateOperationsInput | $Enums.SubtitlesGenerationStatus
+  subtitles_generation_error?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subtitles_generation_started_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  subtitles_generation_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -563,6 +639,10 @@ export type VideoPrivateCountOrderByAggregateInput = {
   original_content?: Prisma.SortOrder
   processed_content?: Prisma.SortOrder
   content_type?: Prisma.SortOrder
+  subtitles_generation_status?: Prisma.SortOrder
+  subtitles_generation_error?: Prisma.SortOrder
+  subtitles_generation_started_at?: Prisma.SortOrder
+  subtitles_generation_job_id?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -588,6 +668,10 @@ export type VideoPrivateMaxOrderByAggregateInput = {
   original_content?: Prisma.SortOrder
   processed_content?: Prisma.SortOrder
   content_type?: Prisma.SortOrder
+  subtitles_generation_status?: Prisma.SortOrder
+  subtitles_generation_error?: Prisma.SortOrder
+  subtitles_generation_started_at?: Prisma.SortOrder
+  subtitles_generation_job_id?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -606,6 +690,10 @@ export type VideoPrivateMinOrderByAggregateInput = {
   original_content?: Prisma.SortOrder
   processed_content?: Prisma.SortOrder
   content_type?: Prisma.SortOrder
+  subtitles_generation_status?: Prisma.SortOrder
+  subtitles_generation_error?: Prisma.SortOrder
+  subtitles_generation_started_at?: Prisma.SortOrder
+  subtitles_generation_job_id?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -672,6 +760,14 @@ export type EnumVideoTextTypeFieldUpdateOperationsInput = {
   set?: $Enums.VideoTextType
 }
 
+export type EnumSubtitlesGenerationStatusFieldUpdateOperationsInput = {
+  set?: $Enums.SubtitlesGenerationStatus
+}
+
+export type NullableDateTimeFieldUpdateOperationsInput = {
+  set?: Date | string | null
+}
+
 export type VideoPrivateCreateNestedOneWithoutSentenceInput = {
   create?: Prisma.XOR<Prisma.VideoPrivateCreateWithoutSentenceInput, Prisma.VideoPrivateUncheckedCreateWithoutSentenceInput>
   connectOrCreate?: Prisma.VideoPrivateCreateOrConnectWithoutSentenceInput
@@ -732,6 +828,10 @@ export type VideoPrivateCreateWithoutUserInput = {
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
+  subtitles_generation_status?: $Enums.SubtitlesGenerationStatus
+  subtitles_generation_error?: string | null
+  subtitles_generation_started_at?: Date | string | null
+  subtitles_generation_job_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   Subtitle?: Prisma.SubtitleCreateNestedManyWithoutVideoPrivateInput
@@ -752,6 +852,10 @@ export type VideoPrivateUncheckedCreateWithoutUserInput = {
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
+  subtitles_generation_status?: $Enums.SubtitlesGenerationStatus
+  subtitles_generation_error?: string | null
+  subtitles_generation_started_at?: Date | string | null
+  subtitles_generation_job_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   Subtitle?: Prisma.SubtitleUncheckedCreateNestedManyWithoutVideoPrivateInput
@@ -802,6 +906,10 @@ export type VideoPrivateScalarWhereInput = {
   original_content?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   processed_content?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   content_type?: Prisma.EnumVideoTextTypeFilter<"VideoPrivate"> | $Enums.VideoTextType
+  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusFilter<"VideoPrivate"> | $Enums.SubtitlesGenerationStatus
+  subtitles_generation_error?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
+  subtitles_generation_started_at?: Prisma.DateTimeNullableFilter<"VideoPrivate"> | Date | string | null
+  subtitles_generation_job_id?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   created_at?: Prisma.DateTimeFilter<"VideoPrivate"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"VideoPrivate"> | Date | string
 }
@@ -818,6 +926,10 @@ export type VideoPrivateCreateWithoutSentenceInput = {
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
+  subtitles_generation_status?: $Enums.SubtitlesGenerationStatus
+  subtitles_generation_error?: string | null
+  subtitles_generation_started_at?: Date | string | null
+  subtitles_generation_job_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   user: Prisma.UserCreateNestedOneWithoutVideoPrivateInput
@@ -839,6 +951,10 @@ export type VideoPrivateUncheckedCreateWithoutSentenceInput = {
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
+  subtitles_generation_status?: $Enums.SubtitlesGenerationStatus
+  subtitles_generation_error?: string | null
+  subtitles_generation_started_at?: Date | string | null
+  subtitles_generation_job_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   Subtitle?: Prisma.SubtitleUncheckedCreateNestedManyWithoutVideoPrivateInput
@@ -873,6 +989,10 @@ export type VideoPrivateUpdateWithoutSentenceInput = {
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
+  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusFieldUpdateOperationsInput | $Enums.SubtitlesGenerationStatus
+  subtitles_generation_error?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subtitles_generation_started_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  subtitles_generation_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutVideoPrivateNestedInput
@@ -894,6 +1014,10 @@ export type VideoPrivateUncheckedUpdateWithoutSentenceInput = {
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
+  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusFieldUpdateOperationsInput | $Enums.SubtitlesGenerationStatus
+  subtitles_generation_error?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subtitles_generation_started_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  subtitles_generation_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Subtitle?: Prisma.SubtitleUncheckedUpdateManyWithoutVideoPrivateNestedInput
@@ -912,6 +1036,10 @@ export type VideoPrivateCreateWithoutSubtitleInput = {
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
+  subtitles_generation_status?: $Enums.SubtitlesGenerationStatus
+  subtitles_generation_error?: string | null
+  subtitles_generation_started_at?: Date | string | null
+  subtitles_generation_job_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   user: Prisma.UserCreateNestedOneWithoutVideoPrivateInput
@@ -933,6 +1061,10 @@ export type VideoPrivateUncheckedCreateWithoutSubtitleInput = {
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
+  subtitles_generation_status?: $Enums.SubtitlesGenerationStatus
+  subtitles_generation_error?: string | null
+  subtitles_generation_started_at?: Date | string | null
+  subtitles_generation_job_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   Sentence?: Prisma.SentenceUncheckedCreateNestedManyWithoutVideoPrivateInput
@@ -967,6 +1099,10 @@ export type VideoPrivateUpdateWithoutSubtitleInput = {
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
+  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusFieldUpdateOperationsInput | $Enums.SubtitlesGenerationStatus
+  subtitles_generation_error?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subtitles_generation_started_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  subtitles_generation_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutVideoPrivateNestedInput
@@ -988,6 +1124,10 @@ export type VideoPrivateUncheckedUpdateWithoutSubtitleInput = {
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
+  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusFieldUpdateOperationsInput | $Enums.SubtitlesGenerationStatus
+  subtitles_generation_error?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subtitles_generation_started_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  subtitles_generation_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutVideoPrivateNestedInput
@@ -1006,6 +1146,10 @@ export type VideoPrivateCreateWithoutFlashcardInput = {
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
+  subtitles_generation_status?: $Enums.SubtitlesGenerationStatus
+  subtitles_generation_error?: string | null
+  subtitles_generation_started_at?: Date | string | null
+  subtitles_generation_job_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   user: Prisma.UserCreateNestedOneWithoutVideoPrivateInput
@@ -1027,6 +1171,10 @@ export type VideoPrivateUncheckedCreateWithoutFlashcardInput = {
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
+  subtitles_generation_status?: $Enums.SubtitlesGenerationStatus
+  subtitles_generation_error?: string | null
+  subtitles_generation_started_at?: Date | string | null
+  subtitles_generation_job_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   Subtitle?: Prisma.SubtitleUncheckedCreateNestedManyWithoutVideoPrivateInput
@@ -1061,6 +1209,10 @@ export type VideoPrivateUpdateWithoutFlashcardInput = {
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
+  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusFieldUpdateOperationsInput | $Enums.SubtitlesGenerationStatus
+  subtitles_generation_error?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subtitles_generation_started_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  subtitles_generation_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutVideoPrivateNestedInput
@@ -1082,6 +1234,10 @@ export type VideoPrivateUncheckedUpdateWithoutFlashcardInput = {
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
+  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusFieldUpdateOperationsInput | $Enums.SubtitlesGenerationStatus
+  subtitles_generation_error?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subtitles_generation_started_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  subtitles_generation_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Subtitle?: Prisma.SubtitleUncheckedUpdateManyWithoutVideoPrivateNestedInput
@@ -1101,6 +1257,10 @@ export type VideoPrivateCreateManyUserInput = {
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
+  subtitles_generation_status?: $Enums.SubtitlesGenerationStatus
+  subtitles_generation_error?: string | null
+  subtitles_generation_started_at?: Date | string | null
+  subtitles_generation_job_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
 }
@@ -1117,6 +1277,10 @@ export type VideoPrivateUpdateWithoutUserInput = {
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
+  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusFieldUpdateOperationsInput | $Enums.SubtitlesGenerationStatus
+  subtitles_generation_error?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subtitles_generation_started_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  subtitles_generation_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Subtitle?: Prisma.SubtitleUpdateManyWithoutVideoPrivateNestedInput
@@ -1137,6 +1301,10 @@ export type VideoPrivateUncheckedUpdateWithoutUserInput = {
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
+  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusFieldUpdateOperationsInput | $Enums.SubtitlesGenerationStatus
+  subtitles_generation_error?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subtitles_generation_started_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  subtitles_generation_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Subtitle?: Prisma.SubtitleUncheckedUpdateManyWithoutVideoPrivateNestedInput
@@ -1157,6 +1325,10 @@ export type VideoPrivateUncheckedUpdateManyWithoutUserInput = {
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
+  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusFieldUpdateOperationsInput | $Enums.SubtitlesGenerationStatus
+  subtitles_generation_error?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subtitles_generation_started_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  subtitles_generation_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1224,6 +1396,10 @@ export type VideoPrivateSelect<ExtArgs extends runtime.Types.Extensions.Internal
   original_content?: boolean
   processed_content?: boolean
   content_type?: boolean
+  subtitles_generation_status?: boolean
+  subtitles_generation_error?: boolean
+  subtitles_generation_started_at?: boolean
+  subtitles_generation_job_id?: boolean
   created_at?: boolean
   updated_at?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -1247,6 +1423,10 @@ export type VideoPrivateSelectCreateManyAndReturn<ExtArgs extends runtime.Types.
   original_content?: boolean
   processed_content?: boolean
   content_type?: boolean
+  subtitles_generation_status?: boolean
+  subtitles_generation_error?: boolean
+  subtitles_generation_started_at?: boolean
+  subtitles_generation_job_id?: boolean
   created_at?: boolean
   updated_at?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -1266,6 +1446,10 @@ export type VideoPrivateSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.
   original_content?: boolean
   processed_content?: boolean
   content_type?: boolean
+  subtitles_generation_status?: boolean
+  subtitles_generation_error?: boolean
+  subtitles_generation_started_at?: boolean
+  subtitles_generation_job_id?: boolean
   created_at?: boolean
   updated_at?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -1285,11 +1469,15 @@ export type VideoPrivateSelectScalar = {
   original_content?: boolean
   processed_content?: boolean
   content_type?: boolean
+  subtitles_generation_status?: boolean
+  subtitles_generation_error?: boolean
+  subtitles_generation_started_at?: boolean
+  subtitles_generation_job_id?: boolean
   created_at?: boolean
   updated_at?: boolean
 }
 
-export type VideoPrivateOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "language_code" | "year" | "file_name" | "file_s3_key" | "s3_provider_name" | "is_file_uploaded" | "file_size_mb" | "name" | "original_content" | "processed_content" | "content_type" | "created_at" | "updated_at", ExtArgs["result"]["videoPrivate"]>
+export type VideoPrivateOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "language_code" | "year" | "file_name" | "file_s3_key" | "s3_provider_name" | "is_file_uploaded" | "file_size_mb" | "name" | "original_content" | "processed_content" | "content_type" | "subtitles_generation_status" | "subtitles_generation_error" | "subtitles_generation_started_at" | "subtitles_generation_job_id" | "created_at" | "updated_at", ExtArgs["result"]["videoPrivate"]>
 export type VideoPrivateInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   Subtitle?: boolean | Prisma.VideoPrivate$SubtitleArgs<ExtArgs>
@@ -1326,6 +1514,10 @@ export type $VideoPrivatePayload<ExtArgs extends runtime.Types.Extensions.Intern
     original_content: string | null
     processed_content: string | null
     content_type: $Enums.VideoTextType
+    subtitles_generation_status: $Enums.SubtitlesGenerationStatus
+    subtitles_generation_error: string | null
+    subtitles_generation_started_at: Date | null
+    subtitles_generation_job_id: string | null
     created_at: Date
     updated_at: Date
   }, ExtArgs["result"]["videoPrivate"]>
@@ -1768,6 +1960,10 @@ export interface VideoPrivateFieldRefs {
   readonly original_content: Prisma.FieldRef<"VideoPrivate", 'String'>
   readonly processed_content: Prisma.FieldRef<"VideoPrivate", 'String'>
   readonly content_type: Prisma.FieldRef<"VideoPrivate", 'VideoTextType'>
+  readonly subtitles_generation_status: Prisma.FieldRef<"VideoPrivate", 'SubtitlesGenerationStatus'>
+  readonly subtitles_generation_error: Prisma.FieldRef<"VideoPrivate", 'String'>
+  readonly subtitles_generation_started_at: Prisma.FieldRef<"VideoPrivate", 'DateTime'>
+  readonly subtitles_generation_job_id: Prisma.FieldRef<"VideoPrivate", 'String'>
   readonly created_at: Prisma.FieldRef<"VideoPrivate", 'DateTime'>
   readonly updated_at: Prisma.FieldRef<"VideoPrivate", 'DateTime'>
 }

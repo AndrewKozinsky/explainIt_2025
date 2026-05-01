@@ -52,6 +52,22 @@ services:
       PORT: 3001
     env_file:
       - .env.serverdevelop
+  explainworkerserverdevelop:
+    build:
+      context: server/
+      dockerfile: Dockerfile.worker.server
+    restart: unless-stopped
+    command: npm run start:worker:prod
+    container_name: explainworkerserverdevelop
+    depends_on:
+      - explainpostgresserverdevelop
+      - explainredisserverdevelop
+      - explainnlpserverdevelop
+    environment:
+      MODE: serverdevelop
+      PORT: 3001
+    env_file:
+      - .env.serverdevelop
   explainfaceserverdevelop:
     build:
       context: face/

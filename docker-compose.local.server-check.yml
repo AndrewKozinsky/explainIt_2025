@@ -51,6 +51,22 @@ services:
       PORT: 3001
     env_file:
       - .env.localcheckserver
+  explainworkerlocalcheckserver:
+    build:
+      context: server/
+      dockerfile: Dockerfile.worker.server
+    restart: unless-stopped
+    command: npm run start:worker:prod
+    container_name: explainworkerlocalcheckserver
+    depends_on:
+      - explainpostgreslocalcheckserver
+      - explainredislocalcheckserver
+      - explainnlplocalcheckserver
+    environment:
+      MODE: localcheckserver
+      PORT: 3001
+    env_file:
+      - .env.localcheckserver
   explainfacelocalcheckserver:
     build:
       context: face/

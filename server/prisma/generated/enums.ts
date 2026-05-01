@@ -60,6 +60,17 @@ export const VideoTextType = {
 export type VideoTextType = (typeof VideoTextType)[keyof typeof VideoTextType]
 
 
+export const SubtitlesGenerationStatus = {
+  idle: 'idle',
+  pending: 'pending',
+  processing: 'processing',
+  done: 'done',
+  failed: 'failed'
+} as const
+
+export type SubtitlesGenerationStatus = (typeof SubtitlesGenerationStatus)[keyof typeof SubtitlesGenerationStatus]
+
+
 export const SentencePhraseTranslationStatus = {
   pending: 'pending',
   ready: 'ready',

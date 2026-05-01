@@ -17,6 +17,9 @@ CREATE TYPE "S3ProviderName" AS ENUM ('cloudRu');
 CREATE TYPE "VideoTextType" AS ENUM ('text', 'subtitles');
 
 -- CreateEnum
+CREATE TYPE "SubtitlesGenerationStatus" AS ENUM ('idle', 'pending', 'processing', 'done', 'failed');
+
+-- CreateEnum
 CREATE TYPE "SentencePhraseTranslationStatus" AS ENUM ('pending', 'ready', 'error');
 
 -- CreateEnum
@@ -124,6 +127,10 @@ CREATE TABLE "VideoPrivate" (
     "original_content" TEXT,
     "processed_content" TEXT,
     "content_type" "VideoTextType" NOT NULL DEFAULT 'text',
+    "subtitles_generation_status" "SubtitlesGenerationStatus" NOT NULL DEFAULT 'idle',
+    "subtitles_generation_error" TEXT,
+    "subtitles_generation_started_at" TIMESTAMP(3),
+    "subtitles_generation_job_id" TEXT,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 

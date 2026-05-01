@@ -79,6 +79,22 @@ export class MainConfigService {
 					output: (oneDollarInRub * 2.5) / 1_000_000,
 				},
 			},
+			deepgram: {
+				apiKey: enVariables.deepgram.apiKey,
+				// Deepgram Nova-3 prerecorded pricing: ~$0.0043/min = $0.258/hour.
+				// Convert to kopecks per second: $/min * 100kop/$ * 110руб/$ / 60s.
+				pricePerSecondInKopecks: (0.0043 * oneDollarInRub * 100) / 60,
+			},
+			generateSubtitles: {
+				// Минимальный баланс пользователя для запуска генерации субтитров (в копейках).
+				minBalanceKopecks: 1000,
+				// Максимальная допустимая длительность видео для генерации субтитров (в секундах).
+				maxVideoSeconds: 60 * 60 * 2,
+				// Каталог для временных файлов аудио/видео при обработке.
+				tmpDir: '/tmp/subs',
+				// Множитель наценки на стоимость распознавания речи.
+				asrMarkupMultiplier: 2,
+			},
 			oauth: {
 				github: {
 					clientId: enVariables.oauth.github.clientId,
@@ -168,6 +184,9 @@ export class MainConfigService {
 			},
 			deepSeek: {
 				apiKey: this.configService.get<string>('DEEPSEEK_API_KEY') as string,
+			},
+			deepgram: {
+				apiKey: this.configService.get<string>('DEEPGRAM_API_KEY') as string,
 			},
 			oauth: {
 				github: {

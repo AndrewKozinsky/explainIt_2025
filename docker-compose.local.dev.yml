@@ -56,6 +56,24 @@ services:
       - .env.localdev
     ports:
       - 3001:3001
+  explainworkerlocaldev:
+    build:
+      context: server/
+      dockerfile: Dockerfile.worker.dev
+    restart: unless-stopped
+    volumes:
+      - ./server/src:/app/src
+    command: npm run start:worker:dev
+    container_name: explainworkerlocaldev
+    depends_on:
+      - explainpostgreslocaldev
+      - explainredislocaldev
+      - explainnlplocaldev
+    environment:
+      MODE: localdev
+      PORT: 3001
+    env_file:
+      - .env.localdev
   explainfacelocaldev:
     build:
       context: face/

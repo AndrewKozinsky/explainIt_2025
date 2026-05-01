@@ -455,6 +455,31 @@ export const bdConfig = {
 				default: 'text',
 				enumName: 'VideoTextType',
 			},
+			subtitles_generation_status: {
+				type: 'enum',
+				description: 'Status of automatic subtitles generation from the uploaded video file',
+				required: true,
+				variants: ['idle', 'pending', 'processing', 'done', 'failed'],
+				default: 'idle',
+				enumName: 'SubtitlesGenerationStatus',
+			},
+			subtitles_generation_error: {
+				type: 'string',
+				description: 'Error message of the last failed subtitles generation attempt',
+				required: false,
+				maxLength: 1000,
+			},
+			subtitles_generation_started_at: {
+				type: 'dateTime',
+				description: 'When the current subtitles generation job started',
+				required: false,
+			},
+			subtitles_generation_job_id: {
+				type: 'string',
+				description: 'BullMQ job id of the current subtitles generation task',
+				required: false,
+				maxLength: 200,
+			},
 			Subtitle: {
 				type: 'oneToMany',
 			},

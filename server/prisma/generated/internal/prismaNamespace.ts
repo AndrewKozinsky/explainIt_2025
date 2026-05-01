@@ -1965,6 +1965,10 @@ export const VideoPrivateScalarFieldEnum = {
   original_content: 'original_content',
   processed_content: 'processed_content',
   content_type: 'content_type',
+  subtitles_generation_status: 'subtitles_generation_status',
+  subtitles_generation_error: 'subtitles_generation_error',
+  subtitles_generation_started_at: 'subtitles_generation_started_at',
+  subtitles_generation_job_id: 'subtitles_generation_job_id',
   created_at: 'created_at',
   updated_at: 'updated_at'
 } as const
@@ -2295,6 +2299,20 @@ export type EnumVideoTextTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$Pr
  * Reference to a field of type 'VideoTextType[]'
  */
 export type ListEnumVideoTextTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'VideoTextType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SubtitlesGenerationStatus'
+ */
+export type EnumSubtitlesGenerationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SubtitlesGenerationStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SubtitlesGenerationStatus[]'
+ */
+export type ListEnumSubtitlesGenerationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SubtitlesGenerationStatus[]'>
     
 
 
