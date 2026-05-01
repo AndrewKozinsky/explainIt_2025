@@ -1,10 +1,8 @@
+import { useContext } from 'react'
 import { useUserStore } from 'stores/userStore'
-import {
-	Flashcard_Get_MyDocument,
-	Flashcard_Get_MyQuery,
-	useFlashcard_Add,
-	useFlashcard_Remove,
-} from '@/graphql'
+import { Flashcard_Get_MyDocument, Flashcard_Get_My, useFlashcard_Add, useFlashcard_Remove } from '@/graphql'
+import { extractGraphQLError } from '@/graphql/extractGraphQLError'
+import { NotificationContext } from '@/ui/Notification/context'
 import { useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
 
 type UseFlashCardButtonInput = {
@@ -12,19 +10,28 @@ type UseFlashCardButtonInput = {
 	flashcardId: null | number
 }
 
+function getErrorMessage(error: unknown, fallbackMessage: string) {
+	const graphQLError = extractGraphQLError(error)
+
+	if (graphQLError?.message) return graphQLError.message
+	if (error instanceof Error && error.message) return error.message
+
+	return fallbackMessage
+}
+
 export type FlashCardButtonView =
 	| { state: 'hidden' }
-	| { state: 'add'; onClick: () => void; disabled: false }
-	| { state: 'remove'; onClick: () => void; disabled: false }
-	| { state: 'loading'; onClick: undefined; disabled: true }
+	| { state: 'add'; onClick: () => void; disabled: boolean }
+	| { state: 'remove'; onClick: () => void; disabled: boolean }
 
 export function useFlashCardButton(input: UseFlashCardButtonInput): FlashCardButtonView {
 	const user = useUserStore((s) => s.user)
+	const { notify } = useContext(NotificationContext)
 	const setPhraseFlashcardId = useDetailsStore((s) => s.setPhraseFlashcardId)
 
 	const [flashcardAdd, addState] = useFlashcard_Add({
 		update(cache, { data: addData }) {
-			const existingData = cache.readQuery<Flashcard_Get_MyQuery>({
+			const existingData = cache.readQuery<Flashcard_Get_My>({
 				query: Flashcard_Get_MyDocument,
 				variables: { input: {} },
 			})
@@ -41,55 +48,108 @@ export function useFlashCardButton(input: UseFlashCardButtonInput): FlashCardBut
 		},
 	})
 	const [flashcardRemove, removeState] = useFlashcard_Remove()
+	const isLoading = addState.loading || removeState.loading
 
 	if (!user) {
 		return { state: 'hidden' }
 	}
 
-	if (addState.loading || removeState.loading) {
-		return { state: 'loading', onClick: undefined, disabled: true }
-	}
-
 	if (input.flashcardId !== null) {
 		return {
 			state: 'remove',
-			disabled: false,
+			disabled: isLoading,
 			onClick: function handleRemove() {
 				const flashcardId = input.flashcardId
 				if (flashcardId === null) return
+				if (isLoading) return
+
+				setPhraseFlashcardId({
+					sentencePhraseId: input.sentencePhraseId,
+					flashcardId: null,
+				})
 
 				flashcardRemove({
 					variables: { input: { flashcardId } },
 				})
 					.then(function (response) {
-						if (!response.data?.flashcard_remove) return
+						if (response.data?.flashcard_remove) return
+
+						const responseErrorMessage =
+							response.errors?.[0]?.message || 'Не удалось удалить карточку. Попробуйте ещё раз.'
+
 						setPhraseFlashcardId({
 							sentencePhraseId: input.sentencePhraseId,
-							flashcardId: null,
+							flashcardId,
+						})
+
+						notify({
+							type: 'error',
+							message: responseErrorMessage,
 						})
 					})
-					.catch(function () {})
+					.catch(function (error) {
+						setPhraseFlashcardId({
+							sentencePhraseId: input.sentencePhraseId,
+							flashcardId,
+						})
+
+						notify({
+							type: 'error',
+							message: getErrorMessage(error, 'Не удалось удалить карточку. Попробуйте ещё раз.'),
+						})
+					})
 			},
 		}
 	}
 
 	return {
 		state: 'add',
-			disabled: false,
-			onClick: function handleAdd() {
+		disabled: isLoading,
+		onClick: function handleAdd() {
+			if (isLoading) return
+
+			setPhraseFlashcardId({
+				sentencePhraseId: input.sentencePhraseId,
+				flashcardId: -1,
+			})
+
 			flashcardAdd({
 				variables: { input: { sentencePhraseTranslationId: input.sentencePhraseId } },
 			})
 				.then(function (response) {
 					const created = response.data?.flashcard_add
-					if (!created) return
+					const responseErrorMessage =
+						response.errors?.[0]?.message || 'Не удалось добавить карточку. Попробуйте ещё раз.'
+
+					if (created) {
+						setPhraseFlashcardId({
+							sentencePhraseId: input.sentencePhraseId,
+							flashcardId: created.id,
+						})
+						return
+					}
+
 					setPhraseFlashcardId({
 						sentencePhraseId: input.sentencePhraseId,
-						flashcardId: created.id,
+						flashcardId: null,
+					})
+
+					notify({
+						type: 'error',
+						message: responseErrorMessage,
 					})
 				})
-				.catch(function () {})
+				.catch(function (error) {
+					setPhraseFlashcardId({
+						sentencePhraseId: input.sentencePhraseId,
+						flashcardId: null,
+					})
+
+					notify({
+						type: 'error',
+						message: getErrorMessage(error, 'Не удалось добавить карточку. Попробуйте ещё раз.'),
+					})
+				})
 		},
 	}
 }
-

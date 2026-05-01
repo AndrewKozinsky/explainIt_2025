@@ -1,4 +1,4 @@
-import { SuccessIcon } from 'ui/icons/SuccessIcon/SuccessIcon'
+import { SuccessIcon } from 'ui/icons/SuccessIcon'
 import './SuccessMessage.scss'
 
 type SuccessMessageProps = {

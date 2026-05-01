@@ -1,5 +1,4 @@
 import cn from 'classnames'
-import Spinner from 'ui/Spinner/Spinner'
 import { publicFolderFilesUrls } from 'utils/publicFolderFilesUrls'
 import { useFlashCardButton } from './fn/useFlashCardButton'
 
@@ -22,9 +21,7 @@ function FlashCardButton(props: FlashCardButtonProps) {
 			onClick={view.onClick}
 			disabled={view.disabled}
 		>
-			{view.state === 'loading' && <Spinner size='extra-small' color='white' />}
-			{view.state === 'add' && <img src={publicFolderFilesUrls.icons.addIcon} alt='' />}
-			{view.state === 'remove' && <img src={publicFolderFilesUrls.icons.closeIcon} alt='' />}
+			<img src={publicFolderFilesUrls.icons.addIcon} alt='' />
 		</button>
 	)
 }

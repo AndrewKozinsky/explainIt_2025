@@ -149,7 +149,7 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 					coversFolderName + 'english/charade_3.jpg',
 					coversFolderName + 'english/charade_4.jpg',
 				],
-				coverBackgroundColor: '#444A21',
+				coverBackgroundColor: '#445a53',
 			},
 			{
 				freeToUse: true,
@@ -169,7 +169,7 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 					coversFolderName + 'english/his_girl_friday_3.jpg',
 					coversFolderName + 'english/his_girl_friday_4.jpg',
 				],
-				coverBackgroundColor: '#24181A',
+				coverBackgroundColor: '#78675a',
 			},
 		]
 	}

@@ -83,8 +83,6 @@ Then she gave Oliver her purse, and he set off at once, running as fast as he co
 
 He ran quickly across the fields and along narrow paths between them—sometimes almost hidden by tall corn, and sometimes opening into wide fields where workers were cutting grass and gathering hay. He did not stop, except for a few seconds now and then to catch his breath, until he reached the small market town—hot, dusty, and out of breath.
 
-Та же самая задача для этого текста:
-
 He stopped and looked around for the inn. There was a white bank, a red brewery, and a yellow town hall. In one corner stood a large house, with all the wood painted green. In front of it hung the sign: “The George.” As soon as Oliver saw it, he hurried toward it.
 
 He spoke to a postboy who was half asleep under the gateway. After listening, the boy sent him to the stable worker. The stable worker listened too, then sent him to the landlord. The landlord was a tall man, wearing a blue scarf, a white hat, light brown trousers, and tall boots. He stood by a pump near the stable door, calmly picking his teeth with a silver toothpick.

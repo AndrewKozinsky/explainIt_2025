@@ -9,6 +9,8 @@
 
 Если пользователь видит незнакомое слово, он может нажать на него и получить перевод всего предложения и разбор отдельного слова или фразы на русский язык.
 
+Внутри себя сервер использует LLM: OpenAI, DeepSeek, Gemini.
+
 ## How the user interacts with the app
 После регистрации пользователю будет доступна загрузка текстов книг и видео.
 После загрузки глав книг он может перейти на страницу любой главы и начать читать.
@@ -29,7 +31,7 @@
 — `infrastructure` — a tool for creating Docker-compose files
 
 ## Root folder structure
-- `face` — frontend part
+- `face` — frontend part with Next.js, SCSS and GraphQL (Apollo Server)
 - `server` — backend with Nest.js with PrismaORM (PostgreSQL) and GraphQL (Apollo Server)
   — `nginx` — reverse proxy
   — `infrastructure` — a tool for creating Docker-compose files

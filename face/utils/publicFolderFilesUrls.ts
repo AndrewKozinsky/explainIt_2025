@@ -15,7 +15,6 @@ export const publicFolderFilesUrls = {
 		sendMessageIcon: '/icons/sendMessageIcon.svg',
 		stopGenerationIcon: '/icons/stopGenerationIcon.svg',
 		addIcon: '/icons/addIcon.svg',
-		closeIcon: '/icons/closeIcon.svg',
 	},
 	images: {
 		common: {

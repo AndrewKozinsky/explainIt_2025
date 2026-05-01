@@ -84,15 +84,15 @@ export const pageUrls = {
 		}
 	},
 	videos: {
-		name: 'Видео',
+		name: 'Фильмы',
 		path: '/videos',
 		video(videoId: string | number) {
 			return {
-				name: 'Видео',
+				name: 'Фильм',
 				path: '/videos/' + videoId,
 				watching: {
 					segment: 'watching',
-					name: 'Просмотр видео',
+					name: 'Просмотр фильма',
 					path: '/videos/' + videoId + '/watching',
 				},
 			}
