@@ -32,20 +32,24 @@ function MainPageFeatures() {
 		window.addEventListener('scroll', handleScroll)
 		return () => window.removeEventListener('scroll', handleScroll)
 	}, [])
-
 	return (
 		<section className='main-page-features' ref={containerRef}>
-			<div className='features-sticky-wrapper'>
-				<div className='features-content'>
-					<div className='features-list'>
+			<div className='main-page-features__sticky-wrapper'>
+				<div className='main-page-features__content'>
+					<div className='main-page-features__list'>
 						{featuresConfig.map((feature, index) => (
-							<div key={feature.name} className={`feature-item ${index === activeIndex ? 'active' : ''}`}>
-								<span className='feature-number'>{String(index + 1).padStart(2, '0')}</span>
-								<span className='feature-name'>{feature.name}</span>
+							<div
+								key={feature.name}
+								className={`main-page-features__item ${index === activeIndex ? 'main-page-features__item--active' : ''}`}
+							>
+								<span className='main-page-features__item-number'>
+									{String(index + 1).padStart(2, '0')}
+								</span>
+								<span className='main-page-features__item-name'>{feature.name}</span>
 							</div>
 						))}
 					</div>
-					<div className='features-video-container'>
+					<div className='main-page-features__video-container'>
 						{featuresConfig.map((feature, index) => (
 							<video
 								key={feature.videoUrl}
@@ -54,7 +58,7 @@ function MainPageFeatures() {
 								loop
 								playsInline
 								autoPlay
-								className={`feature-video ${index === activeIndex ? 'visible' : ''}`}
+								className={`main-page-features__video ${index === activeIndex ? 'main-page-features__video--visible' : ''}`}
 							/>
 						))}
 					</div>
