@@ -1,5 +1,5 @@
 import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'
-// import FaqOnMainPage from '../FaqOnMainPage/FaqOnMainPage'
+import FaqOnMainPage from '../FaqOnMainPage/FaqOnMainPage'
 // import GoToReadingButton from '../GoToReadingButton/GoToReadingButton'
 // import MainPageHContentBlock from '../MainPageContentBlock/MainPageContentBlock'
 import MainPageFeatures from '../MainPageFeatures/MainPageFeatures'
@@ -14,7 +14,7 @@ function MainPage() {
 				<MainPageTop />
 				<MainPageFeatures />
 				{/*<GoToReadingButton />*/}
-				{/*<FaqOnMainPage />*/}
+				<FaqOnMainPage />
 			</main>
 		</PageWrapper>
 	)
