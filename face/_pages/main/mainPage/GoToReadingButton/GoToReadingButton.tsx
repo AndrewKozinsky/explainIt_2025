@@ -1,10 +1,10 @@
-import Link from 'next/link'
-import Button from 'ui/formRelated/buttons/Button/Button'
-import { ActionIcon } from 'ui/icons/ActionIcon'
-import { pageUrls } from 'сonsts/pageUrls'
-import './GoToReadingButton.scss'
+// import Link from 'next/link'
+// import Button from 'ui/formRelated/buttons/Button/Button'
+// import { ActionIcon } from 'ui/icons/ActionIcon'
+// import { pageUrls } from 'сonsts/pageUrls'
+// import './GoToReadingButton.scss'
 
-function GoToReadingButton() {
+/*function GoToReadingButton() {
 	return (
 		<div className='go-to-reading-button'>
 			<Link href={pageUrls.books.book('p1').chapter(1).reading.path}>
@@ -14,6 +14,6 @@ function GoToReadingButton() {
 			</Link>
 		</div>
 	)
-}
+}*/
 
-export default GoToReadingButton
+// export default GoToReadingButton

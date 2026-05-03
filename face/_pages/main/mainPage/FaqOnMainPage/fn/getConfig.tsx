@@ -1,10 +1,10 @@
-import FaqTypes from '@/ui/FAQ/fn/faqTypes'
+// import FaqTypes from '@/ui/FAQ/fn/faqTypes'
 
 /**
  * Принимает объект конфигурации для построения блока Вопросов и ответов и возвращает улученную версию.
  * @param config — объект конфигурации для построения блока Вопросов и ответов
  */
-export const config: FaqTypes.Config = [
+/*export const config: FaqTypes.Config = [
 	{
 		question: {
 			type: 'plain',
@@ -73,4 +73,4 @@ export const config: FaqTypes.Config = [
 			],
 		},
 	},
-]
+]*/

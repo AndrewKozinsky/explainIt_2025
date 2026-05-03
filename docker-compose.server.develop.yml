@@ -52,13 +52,13 @@ services:
       PORT: 3001
     env_file:
       - .env.serverdevelop
-  explainworkerserverdevelop:
+  explainserverworkerserverdevelop:
     build:
       context: server/
       dockerfile: Dockerfile.worker.server
     restart: unless-stopped
     command: npm run start:worker:prod
-    container_name: explainworkerserverdevelop
+    container_name: explainserverworkerserverdevelop
     depends_on:
       - explainpostgresserverdevelop
       - explainredisserverdevelop

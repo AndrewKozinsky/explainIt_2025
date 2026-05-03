@@ -59,6 +59,8 @@ export const RouteNames = {
 		DELETE: 'video_private_delete',
 		GET_USER_VIDEOS: 'video_private_user_videos',
 		GET: 'video_private_get',
+		GENERATE_SUBTITLES: 'video_private_generate_subtitles',
+		GET_SUBTITLES_GENERATION_STATUS: 'video_private_get_subtitles_generation_status',
 	},
 	VIDEO_PUBLIC: {
 		GET_VIDEOS: 'video_public_get_videos',

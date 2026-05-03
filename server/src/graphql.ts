@@ -8,6 +8,14 @@
 /* tslint:disable */
 /* eslint-disable */
 
+export enum SubtitlesGenerationStatus {
+    idle = "idle",
+    pending = "pending",
+    processing = "processing",
+    done = "done",
+    failed = "failed"
+}
+
 export interface GetPrivateBookInput {
     id: number;
 }
@@ -23,6 +31,10 @@ export interface GetBookChapterInput {
 
 export interface GetPrivateVideoInput {
     id: number;
+}
+
+export interface VideoPrivateSubtitlesStatusInput {
+    videoId: number;
 }
 
 export interface GetPublicVideoInput {
@@ -143,6 +155,10 @@ export interface UpdatePrivateVideoInput {
 
 export interface DeletePrivateVideoInput {
     id: number;
+}
+
+export interface GenerateSubtitlesForPrivateVideoInput {
+    videoId: number;
 }
 
 export interface TranslateSentenceInput {
@@ -448,6 +464,14 @@ export interface SentenceTranslationLiteOutModel {
     translation: string;
 }
 
+export interface VideoPrivateSubtitlesStatusOutModel {
+    videoId: number;
+    status: SubtitlesGenerationStatus;
+    error?: Nullable<string>;
+    startedAt?: Nullable<string>;
+    jobId?: Nullable<string>;
+}
+
 export interface VideoPublicOutModel {
     id: number;
     name: string;
@@ -511,6 +535,7 @@ export interface IQuery {
     book_chapter_get(input: GetBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
     video_private_user_videos(): VideoPrivateLiteOutModel[] | Promise<VideoPrivateLiteOutModel[]>;
     video_private_get(input: GetPrivateVideoInput): VideoPrivateOutModel | Promise<VideoPrivateOutModel>;
+    video_private_get_subtitles_generation_status(input: VideoPrivateSubtitlesStatusInput): VideoPrivateSubtitlesStatusOutModel | Promise<VideoPrivateSubtitlesStatusOutModel>;
     video_public_get_videos(): VideoPublicLiteOutModel[] | Promise<VideoPublicLiteOutModel[]>;
     video_public_get(input: GetPublicVideoInput): VideoPublicOutModel | Promise<VideoPublicOutModel>;
     translate_get_sentence_translation(input: GetSentenceTranslationInput): Nullable<TranslateSentenceResultOutModel> | Promise<Nullable<TranslateSentenceResultOutModel>>;
@@ -539,6 +564,7 @@ export interface IMutation {
     video_private_create(input: CreatePrivateVideoInput): CreateVideoPrivateOutModel | Promise<CreateVideoPrivateOutModel>;
     video_private_update(input: UpdatePrivateVideoInput): UpdateVideoPrivateOutModel | Promise<UpdateVideoPrivateOutModel>;
     video_private_delete(input: DeletePrivateVideoInput): boolean | Promise<boolean>;
+    video_private_generate_subtitles(input: GenerateSubtitlesForPrivateVideoInput): VideoPrivateSubtitlesStatusOutModel | Promise<VideoPrivateSubtitlesStatusOutModel>;
     translate_translate_sentence(input: TranslateSentenceInput): TranslateSentenceResultOutModel | Promise<TranslateSentenceResultOutModel>;
     translate_translate_phrase(input: TranslatePhraseInput): SentencePhraseTranslationOutModel | Promise<SentencePhraseTranslationOutModel>;
     sentence_chat_create_thread(input: CreateSentenceChatThreadInput): SentenceChatThreadOutModel | Promise<SentenceChatThreadOutModel>;

@@ -1,8 +1,8 @@
 @use '@/styles/variables' as vars;
 
 .styled-markdown {
-	font-size: 1.8rem;
-	line-height: 2.6rem;
+	font-size: 1.6rem;
+	line-height: 2.4rem;
 	word-break: break-word;
 
 	h1,
@@ -47,13 +47,13 @@
 	}
 
 	strong {
-		font-weight: 600;
+		font-weight: 500;
 	}
 
 	code {
 		padding: 0.1rem 0.25rem;
 		border-radius: vars.$radius-1;
-		background: white;
+		background: vars.$grayColor-1;
 	}
 
 	pre {
@@ -61,7 +61,7 @@
 		padding: 0.75rem;
 		overflow: auto;
 		border-radius: 0.5rem;
-		background: rgba(0, 0, 0, 0.06);
+		background: vars.$grayColor-1;
 	}
 
 	pre code {
@@ -74,7 +74,7 @@
 		margin: 0.75rem 0;
 		padding: 0.25rem 0.75rem;
 		border-left: 3px solid rgba(0, 0, 0, 0.2);
-		background: rgba(0, 0, 0, 0.03);
+		background: vars.$grayColor-1;
 	}
 
 	table {
@@ -86,7 +86,7 @@
 
 	th,
 	td {
-		border: 1px solid rgba(0, 0, 0, 0.12);
+		border: 1px solid vars.$grayColor-1;
 		padding: 0.4rem 0.5rem;
 		text-align: left;
 		vertical-align: top;
@@ -94,6 +94,6 @@
 
 	th {
 		font-weight: 600;
-		background: rgba(0, 0, 0, 0.04);
+		background: vars.$grayColor-1;
 	}
 }

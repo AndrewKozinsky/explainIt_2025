@@ -36,6 +36,7 @@ import { winstonUseFactory } from 'infrastructure/logger/winstonUseFactory'
 import { MainConfigModule } from 'infrastructure/mainConfig/mainConfig.module'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { OpenAIModule } from 'infrastructure/openAI/openAI.module'
+import { QueuesModule } from 'infrastructure/queues/queues.module'
 import { RedisModule } from 'infrastructure/redis/redis.module'
 import { StartServerTasksRunner } from 'infrastructure/StartServerTasksRunner'
 import { TelegramModule } from 'infrastructure/telegram/telegram.module'
@@ -92,6 +93,7 @@ import { YooKassaModule } from 'infrastructure/yooKassa/yooKassa.module'
 		YandexTranslateModule,
 		DbModule,
 		RedisModule,
+		QueuesModule,
 		PaymentModule,
 		YooKassaModule,
 		WebhookModule,
