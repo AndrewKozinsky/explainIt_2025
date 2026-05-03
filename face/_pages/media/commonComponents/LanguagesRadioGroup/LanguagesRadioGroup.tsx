@@ -11,6 +11,8 @@ type LanguagesRadioGroupProps = {
 
 function LanguagesRadioGroup(props: LanguagesRadioGroupProps) {
 	const { value, disabled, inputProps } = props
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	const { ref, ...restInputProps } = inputProps
 
 	const { data } = useLanguage_Get_Languages()
 
@@ -23,7 +25,7 @@ function LanguagesRadioGroup(props: LanguagesRadioGroupProps) {
 			checked: value === lang.code,
 			value: lang.code,
 			disabled,
-			inputProps,
+			inputProps: restInputProps,
 		}))
 		.filter((lang) => lang.name !== 'ru')
 

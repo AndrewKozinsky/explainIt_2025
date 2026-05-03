@@ -6,7 +6,7 @@ function MainPageTop() {
 			<h1 className='main-page-top__header' data-text='Читайте книги и смотрите фильмы в оригинале'>
 				Улучшайте язык через книги и&nbsp;фильмы
 			</h1>
-			<p className='main-page-top__subheader'>Перевод, произношение, примеры встроены прямо в контент</p>
+			<p className='main-page-top__subheader'>Перевод, произношение и примеры встроены прямо в контент</p>
 		</div>
 	)
 }

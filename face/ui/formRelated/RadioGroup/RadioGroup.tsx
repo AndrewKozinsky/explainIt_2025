@@ -46,6 +46,7 @@ function RadioGroup(props: TextInputProps) {
 							key={inputId}
 						>
 							<input
+								{...inputProps}
 								type='radio'
 								className='radio-group__radio'
 								id={inputId}
@@ -53,7 +54,6 @@ function RadioGroup(props: TextInputProps) {
 								value={inputProps?.value ?? value ?? itemName ?? itemLabel}
 								checked={isChecked}
 								disabled={isDisabled}
-								{...inputProps}
 							/>
 							<span className='radio-group__control' aria-hidden='true'>
 								<span className='radio-group__control-dot' />

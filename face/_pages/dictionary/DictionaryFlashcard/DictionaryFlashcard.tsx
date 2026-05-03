@@ -56,6 +56,7 @@ function Phrase(props: DictionaryFlashcardProps) {
 				transcription={{ status: 'ready', transcription: flashcard.phraseTranscription || null }}
 				extraClass='dictionary-flashcard__phrase-transcription'
 			/>
+			{flashcard.phraseTranslation}
 		</p>
 	)
 }
