@@ -48,7 +48,7 @@ function VideoDropzone() {
 
 			updateVideo({
 				variables: {
-					input: { id: video!.id, fileMimeType, fileName, fileSizeMb },
+					input: { id: video!.id, fileMimeType, fileName, fileSizeMb, languageCode: video!.languageCode },
 				},
 			}).then((res) => {
 				if (!res.data) {
@@ -83,7 +83,7 @@ function VideoDropzone() {
 					if (xhr.status === 200) {
 						updateVideo({
 							variables: {
-								input: { id: video!.id, isFileUploaded: true },
+								input: { id: video!.id, isFileUploaded: true, languageCode: video!.languageCode },
 							},
 						})
 							.then((data) => {

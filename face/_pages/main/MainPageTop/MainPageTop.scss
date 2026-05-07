@@ -2,18 +2,24 @@
 @use '@/styles/mixins' as mix;
 
 .main-page-top {
+	position: relative;
 	text-align: center;
-	margin-top: 0;
+	word-break: normal;
+	overflow-wrap: anywhere;
+	max-width: 110rem;
+	padding: 2rem 0 1rem 0;
+	margin: 0 auto;
 
 	@include mix.page-width(400px) {
-		margin-top: 1rem;
+		padding: 6rem 0 1rem 0;
 	}
 
 	@include mix.page-width(700px) {
-		margin-top: 4rem;
+		padding: 9rem 0 1rem 0;
 	}
+
 	@include mix.page-width(1000px) {
-		margin-top: 5rem;
+		padding: 12rem 0 1rem 0;
 	}
 }
 
@@ -21,12 +27,62 @@
 	font-size: clamp(4rem, 6.6vw, 7.4rem);
 	line-height: clamp(4.4rem, 7.2vw, 7.8rem);
 	font-weight: 700;
+}
+
+.main-page-top__header-fancy {
+	font-family: 'SignPainterSemibold', sans-serif;
+	font-size: 1.4em;
 	color: vars.$accentColor-2;
 }
 
-.main-page-top__subheader {
-	font-size: clamp(2rem, 7vw, 3.4rem);
-	line-height: clamp(2.8rem, 7.8vw, 4rem);
+.main-page-top__header-icon {
+	position: relative;
+	height: 1em;
+	margin-right: -.24em;
+	margin-bottom: -.17em;
+}
 
-	margin-top: 1rem;
+.main-page-top__header-block {
+	display: inline-block;
+}
+
+.main-page-top__subheader {
+	font-size: clamp(2.2rem, 4vw, 3.4rem);
+	line-height: 1.26;
+	max-width: 60rem;
+	margin: 1rem auto 0 auto;
+}
+
+.main-page-top__buttons {
+	display: flex;
+	justify-content: center;
+	column-gap: 2rem;
+	row-gap: 1rem;
+	flex-wrap: wrap;
+	margin-top: 3.4rem;
+}
+
+.main-page-top__button {
+	display: flex;
+	align-items: center;
+	gap: .6rem;
+	font-size: 1.8rem;
+	line-height: 2.2rem;
+	cursor: pointer;
+	padding: .6rem 1.2rem .6rem .6rem;
+	border-radius: 2rem;
+	transition: background-color .2s ease;
+}
+.main-page-top__button--white {
+	&:hover {
+		background-color: vars.$grayColor-1;
+	}
+}
+.main-page-top__button--accent {
+	color: white;
+	background-color: vars.$accentColor-2;
+
+	&:hover {
+		background-color: vars.$accentColor-3;
+	}
 }

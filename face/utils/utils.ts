@@ -1,5 +1,3 @@
-import { keyof } from 'zod'
-
 /** Определяет серверный ли это компонент */
 export function isServerComponent() {
 	try {
@@ -91,3 +89,5 @@ export const languages = {
 }
 
 export type LanguageCode = keyof typeof languages
+
+export const languageKeys = Object.keys(languages) as LanguageCode[]

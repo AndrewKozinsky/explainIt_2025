@@ -25,6 +25,7 @@ import { VideoPrivateModule } from 'routes/videoPrivate/videoPrivate.module'
 import { VideoPublicModule } from 'routes/videoPublic/videoPublic.module'
 import { WebhookModule } from 'routes/webhook/webhook.module'
 import { CloudRuS3Module } from 'infrastructure/cloudRuS3/cloudRuS3.module'
+import { DeepgramSttModule } from 'infrastructure/deepgramStt/deepgramStt.module'
 import { DeepSeekModule } from 'infrastructure/deepSeek/deepSeek.module'
 import { EmailAdapterModule } from 'infrastructure/emailAdapter/email-adapter.module'
 import { GlobalExceptionFilter } from 'infrastructure/exceptions/global-exception.filter'
@@ -85,6 +86,7 @@ import { YooKassaModule } from 'infrastructure/yooKassa/yooKassa.module'
 		GigaChatModule,
 		OpenAIModule,
 		DeepSeekModule,
+		DeepgramSttModule,
 		GoogleGeminiModule,
 		GoogleTtsModule,
 		CloudRuS3Module,

@@ -1,10 +1,9 @@
 import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'
+import AvailableMaterials from '../AvailableMaterials/AvailableMaterials'
 import FaqOnMainPage from '../FaqOnMainPage/FaqOnMainPage'
 // import GoToReadingButton from '../GoToReadingButton/GoToReadingButton'
-// import MainPageHContentBlock from '../MainPageContentBlock/MainPageContentBlock'
-import './MainPage.scss'
-import MainPageFeatures from '../features/Features/MainPageFeatures'
 import MainPageTop from '../MainPageTop/MainPageTop'
+import './MainPage.scss'
 
 function MainPage() {
 	return (
@@ -12,9 +11,9 @@ function MainPage() {
 			<main className='main-page'>
 				{/* Do not forget to use STATE MACHINE FOR COMPONENTS !!! https://zagjs.com/ */}
 				<MainPageTop />
-				<MainPageFeatures />
+				<AvailableMaterials />
 				{/*<GoToReadingButton />*/}
-				<FaqOnMainPage />
+				{/*<FaqOnMainPage />*/}
 			</main>
 		</PageWrapper>
 	)

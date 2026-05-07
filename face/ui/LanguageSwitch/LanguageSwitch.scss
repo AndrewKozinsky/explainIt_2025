@@ -6,13 +6,12 @@
 }
 
 .language-switch__button {
-	padding: .3rem 1rem;
-	border: 2px solid transparent;
+	padding: .5rem 1.2rem;
 	border-radius: 2rem;
 }
 .language-switch__button--active {
 	cursor: pointer;
-	border-color: vars.$grayColor-2;
+	background: vars.$grayColor-1;
 	transition: border-color .1s;
 
 	&:hover {
@@ -22,7 +21,6 @@
 .language-switch__button--current {
 	color: white;
 	background: vars.$accentColor-2;
-	border-color: vars.$accentColor-2;
 
 	&:focus {
 		outline: none;

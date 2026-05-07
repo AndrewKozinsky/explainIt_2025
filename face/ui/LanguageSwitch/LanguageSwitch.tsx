@@ -1,11 +1,12 @@
 import React from 'react'
 import cn from 'classnames'
+import { LanguageCode } from 'utils/utils'
 import './LanguageSwitch.scss'
 
 type LanguageSwitchProps = {
-	languages: string[]
-	currentLang: string
-	onChange: (lang: string) => void
+	languages: LanguageCode[]
+	currentLang: LanguageCode
+	onChange: (lang: LanguageCode) => void
 	className?: string
 }
 
