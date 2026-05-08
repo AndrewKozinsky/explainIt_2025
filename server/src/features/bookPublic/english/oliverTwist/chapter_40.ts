@@ -1,119 +1,119 @@
 export const chapter_40 = {
 	name: 'Chapter XL',
 	header: 'A strange interview, which is a sequel to the last chamber',
-	text: `The girl’s life had been squandered in the streets, and among the most noisome of the stews and dens of London, but there was something of the woman’s original nature left in her still; and when she heard a light step approaching the door opposite to that by which she had entered, and thought of the wide contrast which the small room would in another moment contain, she felt burdened with the sense of her own deep shame, and shrunk as though she could scarcely bear the presence of her with whom she had sought this interview.
+	text: `The girl’s life had been wasted in the streets, among the most unpleasant slums of London. But there was still something of a woman’s original nature left in her. When she heard a light step approaching the opposite door, she thought of the great contrast the small room would soon contain. She felt burdened by her own deep shame and shrank back, as if she could hardly bear to be in the presence of the person she had come to see.
 
-But struggling with these better feelings was pride,—the vice of the lowest and most debased creatures no less than of the high and self-assured. The miserable companion of thieves and ruffians, the fallen outcast of low haunts, the associate of the scourings of the jails and hulks, living within the shadow of the gallows itself,—even this degraded being felt too proud to betray a feeble gleam of the womanly feeling which she thought a weakness, but which alone connected her with that humanity, of which her wasting life had obliterated so many, many traces when a very child.
+But pride struggled against these better feelings. Pride is a vice found in the lowest and most degraded people, just as it is in the high and confident. This miserable companion of thieves and ruffians, this outcast from the poorest neighborhoods, this associate of criminals from prisons, living always under the threat of execution—even this degraded person felt too proud to show a hint of womanly feeling. She thought it was a weakness, but it was the only thing that connected her to the humanity that her life had erased so many traces of, even since she was a child.
 
-She raised her eyes sufficiently to observe that the figure which presented itself was that of a slight and beautiful girl; then, bending them on the ground, she tossed her head with affected carelessness as she said:
+She raised her eyes just enough to see that the figure before her was a slim and beautiful girl. Then, looking at the ground, she tossed her head with pretended carelessness and said:
 
-“It’s a hard matter to get to see you, lady. If I had taken offence, and gone away, as many would have done, you’d have been sorry for it one day, and not without reason either.”
+“It’s a hard thing to get to see you, lady. If I had been offended and left, as many would have, you would have been sorry for it one day, and for good reason.”
 
-“I am very sorry if any one has behaved harshly to you,” replied Rose. “Do not think of that. Tell me why you wished to see me. I am the person you inquired for.”
+“I am very sorry if anyone has been harsh to you,” replied Rose. “Don’t think about that. Tell me why you wanted to see me. I am the person you were asking for.”
 
-The kind tone of this answer, the sweet voice, the gentle manner, the absence of any accent of haughtiness or displeasure, took the girl completely by surprise, and she burst into tears.
+The kind tone of this answer, the sweet voice, the gentle manner, and the lack of any arrogance or displeasure, surprised the girl completely, and she burst into tears.
 
-“Oh, lady, lady!” she said, clasping her hands passionately before her face, “if there was more like you, there would be fewer like me,—there would—there would!”
+“Oh, lady, lady!” she said, clasping her hands passionately in front of her face, “if there were more people like you, there would be fewer like me—there would, there would!”
 
-“Sit down,” said Rose, earnestly. “If you are in poverty or affliction I shall be truly glad to relieve you if I can,—I shall indeed. Sit down.”
+“Sit down,” said Rose, earnestly. “If you are in poverty or trouble, I will be truly glad to help you if I can. I will indeed. Sit down.”
 
-“Let me stand, lady,” said the girl, still weeping, “and do not speak to me so kindly till you know me better. It is growing late. Is—is—that door shut?”
+“Let me stand, lady,” said the girl, still crying, “and don’t speak to me so kindly until you know me better. It is getting late. Is—is—that door shut?”
 
-“Yes,” said Rose, recoiling a few steps, as if to be nearer assistance in case she should require it. “Why?”
+“Yes,” said Rose, stepping back a few paces, as if to be closer to help if she needed it. “Why?”
 
-“Because,” said the girl, “I am about to put my life and the lives of others in your hands. I am the girl that dragged little Oliver back to old Fagin’s on the night he went out from the house in Pentonville.”
+“Because,” said the girl, “I am about to put my life, and the lives of others, in your hands. I am the girl who dragged little Oliver back to old Fagin’s on the night he left the house in Pentonville.”
 
 “You!” said Rose Maylie.
 
-“I, lady!” replied the girl. “I am the infamous creature you have heard of, that lives among the thieves, and that never from the first moment I can recollect my eyes and senses opening on London streets have known any better life, or kinder words than they have given me, so help me God! Do not mind shrinking openly from me, lady. I am younger than you would think, to look at me, but I am well used to it. The poorest women fall back, as I make my way along the crowded pavement.”
+“Yes, me, lady!” replied the girl. “I am the infamous creature you’ve heard of, who lives among thieves. From the first moment I can remember opening my eyes on the London streets, I have never known a better life or kinder words than they have given me, so help me God! Don’t mind shrinking from me openly, lady. I am younger than I look, but I am used to it. The poorest women step aside as I make my way on the crowded sidewalk.”
 
-“What dreadful things are these!” said Rose, involuntarily falling from her strange companion.
+“What dreadful things these are!” said Rose, involuntarily stepping back from her strange companion.
 
-“Thank Heaven upon your knees, dear lady,” cried the girl, “that you had friends to care for and keep you in your childhood, and that you were never in the midst of cold and hunger, and riot and drunkenness, and—and—something worse than all—as I have been from my cradle. I may use the word, for the alley and the gutter were mine, as they will be my deathbed.”
+“Thank Heaven on your knees, dear lady,” cried the girl, “that you had friends to care for you in your childhood. That you were never surrounded by cold and hunger, chaos and drunkenness, and—and—something worse than all of it, as I have been from my cradle. I can use that word, because the alley and the gutter were my cradle, and they will be my deathbed.”
 
-“I pity you!” said Rose, in a broken voice. “It wrings my heart to hear you!”
+“I pity you!” said Rose, in a broken voice. “It breaks my heart to hear you!”
 
-“Heaven bless you for your goodness!” rejoined the girl. “If you knew what I am sometimes, you would pity me, indeed. But I have stolen away from those who would surely murder me, if they knew I had been here, to tell you what I have overheard. Do you know a man named Monks?”
+“Heaven bless you for your goodness!” replied the girl. “If you knew what I am sometimes, you would truly pity me. But I have stolen away from those who would surely murder me if they knew I had been here, to tell you what I have overheard. Do you know a man named Monks?”
 
 “No,” said Rose.
 
-“He knows you,” replied the girl; “and knew you were here, for it was by hearing him tell the place that I found you out.”
+“He knows you,” replied the girl, “and he knew you were here. I found you because I heard him say the name of this place.”
 
-“I never heard the name,” said Rose.
+“I have never heard the name,” said Rose.
 
-“Then he goes by some other amongst us,” rejoined the girl, “which I more than thought before. Some time ago, and soon after Oliver was put into your house on the night of the robbery, I—suspecting this man—listened to a conversation held between him and Fagin in the dark. I found out, from what I heard, that Monks—the man I asked you about, you know—”
+“Then he uses a different name among us,” replied the girl, “which I suspected. Some time ago, shortly after Oliver was brought to your house on the night of the robbery, I suspected this man, so I listened to a conversation between him and Fagin in the dark. I found out from what I heard that Monks—the man I asked you about, you know—”
 
 “Yes,” said Rose, “I understand.”
 
-“—That Monks,” pursued the girl, “had seen him accidently with two of our boys on the day we first lost him, and had known him directly to be the same child that he was watching for, though I couldn’t make out why. A bargain was struck with Fagin, that if Oliver was got back he should have a certain sum; and he was to have more for making him a thief, which this Monks wanted for some purpose of his own.”
+“—That Monks,” continued the girl, “had accidentally seen him with two of our boys the day we first lost him. He knew immediately that it was the same child he was looking for, though I couldn’t understand why. A deal was made with Fagin that if Oliver was brought back, Fagin would get a certain amount of money. He was to get more for making him a thief, which this Monks wanted for his own reasons.”
 
-“For what purpose?” asked Rose.
+“For what reason?” asked Rose.
 
-“He caught sight of my shadow on the wall as I listened, in the hope of finding out,” said the girl; “and there are not many people besides me that could have got out of their way in time to escape discovery. But I did; and I saw him no more till last night.”
+“He saw my shadow on the wall as I listened, hoping to find out,” said the girl. “Not many people could have gotten away in time to escape being discovered. But I did, and I didn’t see him again until last night.”
 
-“And what occurred then?”
+“And what happened then?”
 
-“I’ll tell you, lady. Last night he came again. Again they went upstairs, and I, wrapping myself up so that my shadow would not betray me, again listened at the door. The first words I heard Monks say were these: ‘So the only proofs of the boy’s identity lie at the bottom of the river, and the old hag that received them from the mother is rotting in her coffin.’ They laughed, and talked of his success in doing this; and Monks, talking on about the boy, and getting very wild, said that though he had got the young devil’s money safely now, he’d rather have had it the other way; for, what a game it would have been to have brought down the boast of the father’s will, by driving him through every jail in town, and then hauling him up for some capital felony which Fagin could easily manage, after having made a good profit of him besides.”
+“I’ll tell you, lady. Last night he came again. They went upstairs again, and I, wrapping myself up so my shadow wouldn’t give me away, listened at the door again. The first words I heard Monks say were: ‘So the only proof of the boy’s identity lies at the bottom of the river, and the old woman who got them from his mother is rotting in her coffin.’ They laughed and talked about his success in this. Monks, talking about the boy and getting very excited, said that even though he had the young devil’s money now, he would have preferred it the other way. It would have been a great game to mock the father’s will by dragging him through every jail in town and then having him arrested for a major crime, which Fagin could easily arrange after profiting from him.”
 
 “What is all this!” said Rose.
 
-“The truth, lady, though it comes from my lips,” replied the girl. “Then, he said, with oaths common enough in my ears, but strange to yours, that if he could gratify his hatred by taking the boy’s life without bringing his own neck in danger, he would; but, as he couldn’t, he’d be upon the watch to meet him at every turn in life; and if he took advantage of his birth and history, he might harm him yet. ‘In short, Fagin,’ he says, ‘Jew as you are, you never laid such snares as I’ll contrive for my young brother, Oliver.’”
+“It’s the truth, lady, even though it comes from my lips,” replied the girl. “Then he said, with curses that are common to my ears but strange to yours, that if he could satisfy his hatred by taking the boy’s life without risking his own, he would. But since he couldn’t, he would watch for him at every turn in life. And if Oliver ever took advantage of his birth and history, he might harm him yet. ‘In short, Fagin,’ he says, ‘even for a Jew like you, you’ve never set such traps as I’ll create for my young brother, Oliver.’”
 
 “His brother!” exclaimed Rose.
 
-“Those were his words,” said Nancy, glancing uneasily round, as she had scarcely ceased to do, since she began to speak, for a vision of Sikes haunted her perpetually. “And more. When he spoke of you and the other lady, and said it seemed contrived by Heaven, or the devil, against him, that Oliver should come into your hands, he laughed, and said there was some comfort in that too, for how many thousands and hundreds of thousands of pounds would you not give, if you had them, to know who your two-legged spaniel was.”
+“Those were his words,” said Nancy, glancing around nervously. She had been doing so almost constantly since she began to speak, as if a vision of Sikes haunted her. “And more. When he spoke of you and the other lady, and said it seemed planned by Heaven, or the devil, against him, that Oliver should end up in your care, he laughed. He said there was some comfort in that too, because how many thousands of pounds would you give, if you had them, to know who your ‘two-legged spaniel’ really was.”
 
-“You do not mean,” said Rose, turning very pale, “to tell me that this was said in earnest?”
+“You don’t mean,” said Rose, turning very pale, “that this was said seriously?”
 
-“He spoke in hard and angry earnest, if a man ever did,” replied the girl, shaking her head. “He is an earnest man when his hatred is up. I know many who do worse things; but I’d rather listen to them all a dozen times, than to that Monks once. It is growing late, and I have to reach home without suspicion of having been on such an errand as this. I must get back quickly.”
+“He spoke in hard and angry seriousness, if a man ever did,” replied the girl, shaking her head. “He is a serious man when his hatred is roused. I know many who do worse things, but I’d rather listen to all of them a dozen times than to that Monks once. It is getting late, and I have to get home without anyone suspecting I’ve been on an errand like this. I must get back quickly.”
 
-“But what can I do?” said Rose. “To what use can I turn this communication without you? Back! Why do you wish to return to companions you paint in such terrible colors? If you repeat this information to a gentleman whom I can summon in an instant from the next room, you can be consigned to some place of safety without half an hour’s delay.”
+“But what can I do?” said Rose. “How can I use this information without you? Go back! Why do you want to return to companions you describe in such terrible terms? If you repeat this to a gentleman I can call from the next room in an instant, you can be taken to a safe place within half an hour.”
 
-“I wish to go back,” said the girl. “I must go back, because—how can I tell such things to an innocent lady like you?—because among the men I have told you of, there is one: the most desperate among them all; that I can’t leave: no, not even to be saved from the life I am leading now.”
+“I wish to go back,” said the girl. “I must go back, because—how can I say such things to an innocent lady like you?—because among the men I told you about, there is one, the most desperate of them all, that I can’t leave. No, not even to be saved from the life I am leading now.”
 
-“Your having interfered in this dear boy’s behalf before,” said Rose; “your coming here, at so great a risk, to tell me what you have heard; your manner, which convinces me of the truth of what you say; your evident contrition, and sense of shame; all lead me to believe that you might yet be reclaimed. Oh!” said the earnest girl, folding her hands as the tears coursed down her face, “do not turn a deaf ear to the entreaties of one of your own sex; the first—the first, I do believe, who ever appealed to you in the voice of pity and compassion. Do hear my words, and let me save you yet, for better things.”
+“Your interfering on this dear boy’s behalf before,” said Rose, “your coming here at such great risk to tell me what you have heard, your manner, which convinces me you are telling the truth, your clear regret and sense of shame—all these things lead me to believe you can still be saved. Oh!” said the earnest girl, folding her hands as tears ran down her face, “do not ignore the pleas of another woman, the first, I do believe, who has ever spoken to you with pity and compassion. Please hear my words, and let me save you for better things.”
 
-“Lady,” cried the girl, sinking on her knees, “dear, sweet, angel lady, you are the first that ever blessed me with such words as these, and if I had heard them years ago, they might have turned me from a life of sin and sorrow; but it is too late, it is too late!”
+“Lady,” cried the girl, sinking to her knees, “dear, sweet, angel lady, you are the first who has ever blessed me with such words. If I had heard them years ago, they might have turned me from a life of sin and sorrow. But it is too late, it is too late!”
 
-“It is never too late,” said Rose, “for penitence and atonement.”
+“It is never too late,” said Rose, “for repentance and to make things right.”
 
-“It is,” cried the girl, writhing in agony of her mind; “I cannot leave him now! I could not be his death.”
+“It is,” cried the girl, writhing in mental agony. “I cannot leave him now! I could not be the cause of his death.”
 
 “Why should you be?” asked Rose.
 
-“Nothing could save him,” cried the girl. “If I told others what I have told you, and led to their being taken, he would be sure to die. He is the boldest, and has been so cruel!”
+“Nothing could save him,” cried the girl. “If I told others what I have told you, and that led to them being captured, he would surely die. He is the boldest, and has been so cruel!”
 
-“Is it possible,” cried Rose, “that for such a man as this, you can resign every future hope, and the certainty of immediate rescue? It is madness.”
+“Is it possible,” cried Rose, “that for such a man, you can give up all future hope and the certainty of immediate rescue? It is madness.”
 
-“I don’t know what it is,” answered the girl; “I only know that it is so, and not with me alone, but with hundreds of others as bad and wretched as myself. I must go back. Whether it is God’s wrath for the wrong I have done, I do not know; but I am drawn back to him through every suffering and ill usage; and I should be, I believe, if I knew that I was to die by his hand at last.”
+“I don’t know what it is,” answered the girl. “I only know that it is so, and not just for me, but for hundreds of others as bad and wretched as myself. I must go back. I don’t know if it is God’s punishment for the wrong I have done, but I am drawn back to him through all the suffering and bad treatment. And I believe I would be, even if I knew I was to die by his hand in the end.”
 
-“What am I to do?” said Rose. “I should not let you depart from me thus.”
+“What am I to do?” said Rose. “I should not let you leave me like this.”
 
-“You should, lady, and I know you will,” rejoined the girl, rising. “You will not stop my going because I have trusted in your goodness, and forced no promise from you, as I might have done.”
+“You should, lady, and I know you will,” replied the girl, rising. “You will not stop me from going because I have trusted your goodness and didn’t force you to make a promise, as I could have.”
 
-“Of what use, then, is the communication you have made?” said Rose. “This mystery must be investigated, or how will its disclosure to me, benefit Oliver, whom you are anxious to serve?”
+“Of what use, then, is the information you have given me?” said Rose. “This mystery must be investigated. Otherwise, how will telling me about it help Oliver, who you want to help?”
 
-“You must have some kind gentleman about you that will hear it as a secret, and advise you what to do,” rejoined the girl.
+“You must have a kind gentleman friend who will keep it a secret and advise you on what to do,” replied the girl.
 
-“But where can I find you again when it is necessary?” asked Rose. “I do not seek to know where these dreadful people live, but where will you be walking or passing at any settled period from this time?”
+“But where can I find you again when it is necessary?” asked Rose. “I don’t want to know where these dreadful people live, but where will you be at a specific time from now on?”
 
-“Will you promise me that you will have my secret strictly kept, and come alone, or with the only other person that knows it; and that I shall not be watched or followed?” asked the girl.
+“Will you promise me that you will keep my secret strictly, and come alone, or only with the other person who knows it? And that I will not be watched or followed?” asked the girl.
 
 “I promise you solemnly,” answered Rose.
 
-“Every Sunday night, from eleven until the clock strikes twelve,” said the girl without hesitation, “I will walk on London Bridge if I am alive.”
+“Every Sunday night, from eleven until the clock strikes twelve,” said the girl without hesitation, “I will walk on London Bridge, if I am alive.”
 
-“Stay another moment,” interposed Rose, as the girl moved hurriedly towards the door. “Think once again on your own condition, and the opportunity you have of escaping from it. You have a claim on me: not only as the voluntary bearer of this intelligence, but as a woman lost almost beyond redemption. Will you return to this gang of robbers, and to this man, when a word can save you? What fascination is it that can take you back, and make you cling to wickedness and misery? Oh! is there no chord in your heart that I can touch! Is there nothing left, to which I can appeal against this terrible infatuation!”
+“Stay another moment,” interrupted Rose, as the girl moved quickly towards the door. “Think once more about your own condition and the opportunity you have to escape it. You have a claim on me, not only as the one who willingly brought this information, but as a woman who is lost almost beyond saving. Will you return to this gang of robbers, and to this man, when a single word can save you? What is this fascination that takes you back and makes you cling to wickedness and misery? Oh, is there no part of your heart that I can touch! Is there nothing left in you that I can appeal to against this terrible obsession!”
 
-“When ladies as young, and good, and beautiful as you are,” replied the girl steadily, “give away your hearts, love will carry you all lengths—even such as you, who have home, friends, other admirers, everything, to fill them. When such as I, who have no certain roof but the coffinlid, and no friend in sickness or death but the hospital nurse, set our rotten hearts on any man, and let him fill the place that has been a blank through all our wretched lives, who can hope to cure us? Pity us, lady—pity us for having only one feeling of the woman left, and for having that turned, by a heavy judgment, from a comfort and a pride, into a new means of violence and suffering.”
+“When ladies as young, good, and beautiful as you are,” replied the girl steadily, “give away your hearts, love will take you to great lengths—even someone like you, who has a home, friends, other admirers, everything to fill your hearts. When someone like me, who has no home but the grave and no friend in sickness or death but a hospital nurse, sets her rotten heart on a man and lets him fill a place that has been empty our whole miserable lives, who can hope to cure us? Pity us, lady—pity us for having only one womanly feeling left, and for having that feeling turned, by a terrible fate, from a comfort and a pride into a new source of violence and suffering.”
 
-“You will,” said Rose, after a pause, “take some money from me, which may enable you to live without dishonesty—at all events until we meet again?”
+“You will,” said Rose, after a pause, “take some money from me, which may allow you to live honestly—at least until we meet again?”
 
 “Not a penny,” replied the girl, waving her hand.
 
-“Do not close your heart against all my efforts to help you,” said Rose, stepping gently forward. “I wish to serve you indeed.”
+“Do not close your heart to all my efforts to help you,” said Rose, stepping gently forward. “I truly wish to help you.”
 
-“You would serve me best, lady,” replied the girl, wringing her hands, “if you could take my life at once; for I have felt more grief to think of what I am, tonight, than I ever did before, and it would be something not to die in the hell in which I have lived. God bless you, sweet lady, and send as much happiness on your head as I have brought shame on mine!”
+“You would help me best, lady,” replied the girl, wringing her hands, “if you could take my life at once. Tonight, I have felt more grief thinking about what I am than I ever have before, and it would be a small comfort not to die in the hell where I have lived. God bless you, sweet lady, and may you have as much happiness as I have had shame.”
 
-Thus speaking, and sobbing aloud, the unhappy creature turned away; while Rose Maylie, overpowered by this extraordinary interview, which had more the semblance of a rapid dream than an actual occurrence, sank into a chair, and endeavoured to collect her wandering thoughts.`,
+Speaking these words and sobbing aloud, the unhappy creature turned away. Rose Maylie, overwhelmed by this extraordinary interview, which felt more like a strange dream than something real, sank into a chair and tried to gather her thoughts.`,
 }

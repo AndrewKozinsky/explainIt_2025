@@ -1,133 +1,133 @@
 export const chapter_33 = {
 	name: 'Chapter XXXIII',
 	header: 'Wherein the happiness of Oliver and his friends, experiences a sudden check',
-	text: `Spring flew swiftly by, and summer came. If the village had been beautiful at first it was now in the full glow and luxuriance of its richness. The great trees, which had looked shrunken and bare in the earlier months, had now burst into strong life and health; and stretching forth their green arms over the thirsty ground, converted open and naked spots into choice nooks, where was a deep and pleasant shade from which to look upon the wide prospect, steeped in sunshine, which lay stretched beyond. The earth had donned her mantle of brightest green; and shed her richest perfumes abroad. It was the prime and vigour of the year; all things were glad and flourishing.
+	text: `Spring passed quickly, and summer arrived. The village, already beautiful, was now in full bloom. The great trees, which had seemed shrunken and bare in the early months, had burst into life and health. Their green branches stretched over the thirsty ground, turning open spots into shady nooks. From there, one could see the wide, sunny landscape beyond. The earth was covered in its brightest green and filled the air with rich perfumes. It was the peak of the year, and everything was joyful and flourishing.
 
-Still, the same quiet life went on at the little cottage, and the same cheerful serenity prevailed among its inmates. Oliver had long since grown stout and healthy; but health or sickness made no difference in his warm feelings of a great many people. He was still the same gentle, attached, affectionate creature that he had been when pain and suffering had wasted his strength, and when he was dependent for every slight attention, and comfort on those who tended him.
+Still, the same quiet life went on at the little cottage, and a cheerful serenity filled the home. Oliver had become strong and healthy, but his warm feelings for others never changed. He was the same gentle and affectionate boy he had been when pain and suffering had weakened him, when he had depended on others for every bit of comfort and attention.
 
-One beautiful night, when they had taken a longer walk than was customary with them: for the day had been unusually warm, and there was a brilliant moon, and a light wind had sprung up, which was unusually refreshing. Rose had been in high spirits, too, and they had walked on, in merry conversation, until they had far exceeded their ordinary bounds. Mrs. Maylie being fatigued, they returned more slowly home. The young lady merely throwing off her simple bonnet, sat down to the piano as usual. After running abstractedly over the keys for a few minutes, she fell into a low and very solemn air; and as she played it, they heard a sound as if she were weeping.
+One beautiful night, they took a longer walk than usual. The day had been warm, a brilliant moon was out, and a refreshing light wind had started to blow. Rose was in high spirits, and their cheerful conversation carried them far beyond their usual path. Mrs. Maylie grew tired, so they returned home more slowly. The young lady took off her simple bonnet and sat down at the piano as she always did. After playing a few notes, she began a slow, solemn tune, and as she played, it sounded as if she were crying.
 
-“Rose, my dear!” said the elder lady.
+“Rose, my dear!” said the older woman.
 
-Rose made no reply, but played a little quicker, as though the words had roused her from some painful thoughts.
+Rose did not answer, but played a little faster, as if the words had stirred her from painful thoughts.
 
-“Rose, my love!” cried Mrs. Maylie, rising hastily, and bending over her. “What is this? In tears! My dear child, what distresses you?”
+“Rose, my love!” cried Mrs. Maylie, rising quickly and leaning over her. “What is this? You’re in tears! My dear child, what is wrong?”
 
-“Nothing, aunt; nothing,” replied the young lady. “I don’t know what it is; I can’t describe it; but I feel—”
+“Nothing, aunt, nothing,” the young lady replied. “I don’t know what it is. I can’t describe it, but I feel—”
 
-“Not ill, my love?” interposed Mrs. Maylie.
+“Not ill, my love?” Mrs. Maylie interrupted.
 
-“No, no! Oh, not ill!” replied Rose: shuddering as though some deadly chillness were passing over her, while she spoke; “I shall be better presently. Close the window, pray!”
+“No, no! Oh, not ill!” Rose answered, shivering as if a chill were passing through her. “I will feel better soon. Please, close the window.”
 
-Oliver hastened to comply with her request. The young lady, making an effort to recover her cheerfulness, strove to play some livelier tune; but her fingers dropped powerless over the keys. Covering her face with her hands, she sank upon a sofa, and gave vent to the tears which she was now unable to repress.
+Oliver hurried to do as she asked. The young lady, trying to regain her cheerfulness, attempted a livelier tune, but her fingers fell weakly on the keys. Covering her face with her hands, she sank onto a sofa and let out the tears she could no longer hold back.
 
-“My child!” said the elderly lady, folding her arms about her, “I never saw you so before.”
+“My child,” said the elderly lady, wrapping her arms around her, “I have never seen you like this before.”
 
-“I would not alarm you if I could avoid it,” rejoined Rose; “but indeed I have tried very hard, and cannot help this. I fear I am ill, aunt.”
+“I would not alarm you if I could help it,” Rose said, “but I have tried very hard and I can’t stop this. I’m afraid I am ill, aunt.”
 
-She was, indeed; for, when candles were brought, they saw that in the very short time which had elapsed since their return home, the hue of her countenance had changed to a marble whiteness. Its expression had lost nothing of its beauty; but it was changed; and there was an anxious haggard look about the gentle face, which it had never worn before. Another minute, and it was suffused with a crimson flush: and a heavy wildness came over the soft blue eye. Again this disappeared, like the shadow thrown by a passing cloud; and she was once more deadly pale.
+And she was. When candles were brought in, they saw that in the short time since they had returned home, her face had turned a deathly white. Her expression was still beautiful, but it had changed. A worried, haggard look had come over her gentle face. A moment later, a crimson flush covered her skin, and a wildness came into her soft blue eyes. Then, just as quickly, it vanished like a passing shadow, and she was pale once more.
 
-Oliver, who watched the old lady anxiously, observed that she was alarmed by these appearances; and so in truth, was he; but seeing that she affected to make light of them, he endeavoured to do the same, and they so far succeeded, that when Rose was persuaded by her aunt to retire for the night, she was in better spirits; and appeared even in better health: assuring them that she felt certain she should rise in the morning, quite well.
+Oliver, watching the old lady with concern, saw that she was alarmed by these signs, and he was too. But since she tried to act as if everything was fine, he did the same. They succeeded enough that when Rose was persuaded by her aunt to go to bed, she was in better spirits and seemed healthier, assuring them she would be well in the morning.
 
-“I hope,” said Oliver, when Mrs. Maylie returned, “that nothing is the matter? She don’t look well tonight, but—”
+“I hope,” said Oliver, when Mrs. Maylie returned, “that nothing is wrong? She doesn’t look well tonight, but—”
 
-The old lady motioned to him not to speak; and sitting herself down in a dark corner of the room, remained silent for some time. At length, she said, in a trembling voice:
+The old lady gestured for him to be quiet. She sat down in a dark corner of the room and was silent for some time. At last, she said in a trembling voice:
 
-“I hope not, Oliver. I have been very happy with her for some years: too happy, perhaps. It may be time that I should meet with some misfortune; but I hope it is not this.”
+“I hope not, Oliver. I have been very happy with her for many years—too happy, perhaps. It may be time for me to face some sorrow, but I hope it is not this.”
 
-“What?” inquired Oliver.
+“What?” asked Oliver.
 
-“The heavy blow,” said the old lady, “of losing the dear girl who has so long been my comfort and happiness.”
+“The great blow,” said the old lady, “of losing the dear girl who has been my comfort and happiness for so long.”
 
-“Oh! God forbid!” exclaimed Oliver, hastily.
+“Oh! God forbid!” Oliver exclaimed hastily.
 
-“Amen to that, my child!” said the old lady, wringing her hands.
+“Amen to that, my child,” the old lady said, wringing her hands.
 
-“Surely there is no danger of anything so dreadful?” said Oliver. “Two hours ago, she was quite well.”
+“Surely there is no danger of something so terrible?” said Oliver. “Two hours ago, she was perfectly fine.”
 
-“She is very ill now,” rejoined Mrs. Maylie; “and will be worse, I am sure. My dear, dear Rose! Oh, what shall I do without her!”
+“She is very ill now,” Mrs. Maylie answered, “and I am sure she will get worse. My dear, dear Rose! Oh, what will I do without her!”
 
-She gave way to such great grief, that Oliver, suppressing his own emotion, ventured to remonstrate with her; and to beg, earnestly, that, for the sake of the dear young lady herself, she would be more calm.
+She was so overcome with grief that Oliver, holding back his own emotions, dared to reason with her. He begged her to be calm for the sake of the young lady.
 
-“And consider, ma’am,” said Oliver, as the tears forced themselves into his eyes, despite of his efforts to the contrary. “Oh! consider how young and good she is, and what pleasure and comfort she gives to all about her. I am sure—certain—quite certain—that, for your sake, who are so good yourself; and for her own; and for the sake of all she makes so happy; she will not die. Heaven will never let her die so young.”
+“And think, ma’am,” said Oliver, as tears came to his eyes despite his best efforts, “oh, think how young and good she is, and how much joy and comfort she brings to everyone around her. I am sure—certain—that for your sake, and for her own, and for the sake of everyone she makes so happy, she will not die. Heaven will never let her die so young.”
 
-“Hush!” said Mrs. Maylie, laying her hand on Oliver’s head. “You think like a child, poor boy. But you teach me my duty, notwithstanding. I had forgotten it for a moment, Oliver, but I hope I may be pardoned, for I am old, and have seen enough of illness and death to know the agony of separation from the objects of our love. I have seen enough, too, to know that it is not always the youngest and best who are spared to those that love them; but this should give us comfort in our sorrow; for Heaven is just; and such things teach us, impressively, that there is a brighter world than this; and that the passage to it is speedy. God’s will be done! I love her; and He knows how well!”
+“Hush,” said Mrs. Maylie, placing her hand on Oliver’s head. “You think like a child, poor boy. But you are teaching me my duty. I had forgotten it for a moment, Oliver, but I hope I can be forgiven. I am old and have seen enough of illness and death to know the pain of losing those we love. I have also seen that it is not always the youngest and best who are spared. But this should bring us comfort in our sadness, for Heaven is just. Such things teach us that there is a better world than this, and the way to it is quick. God’s will be done! I love her, and He knows how much.”
 
-Oliver was surprised to see that as Mrs. Maylie said these words, she checked her lamentations as though by one effort; and drawing herself up as she spoke, became composed and firm. He was still more astonished to find that this firmness lasted; and that, under all the care and watching which ensued, Mrs. Maylie was ever ready and collected: performing all the duties which had devolved upon her, steadily, and, to all external appearances, even cheerfully. But he was young, and did not know what strong minds are capable of, under trying circumstances. How should he, when their possessors so seldom know themselves?
+Oliver was surprised to see that as Mrs. Maylie spoke these words, she stopped her crying all at once. She sat up straight and became calm and firm. He was even more amazed to see that this firmness continued. Through all the worry and watching that followed, Mrs. Maylie was always ready and composed, performing her duties steadily and, it seemed, cheerfully. But he was young and did not understand what strong minds can do in difficult times. How could he, when even those who have them rarely know their own strength?
 
-An anxious night ensued. When morning came, Mrs. Maylie’s predictions were but too well verified. Rose was in the first stage of a high and dangerous fever.
+An anxious night followed. When morning came, Mrs. Maylie’s fears were confirmed. Rose was in the first stage of a high and dangerous fever.
 
-“We must be active, Oliver, and not give way to useless grief,” said Mrs. Maylie, laying her finger on her lip, as she looked steadily into his face; “this letter must be sent, with all possible expedition, to Mr. Losberne. It must be carried to the market-town: which is not more than four miles off, by the footpath across the field: and thence dispatched, by an express on horseback, straight to Chertsey. The people at the inn will undertake to do this: and I can trust to you to see it done, I know.”
+“We must be active, Oliver, and not give in to useless grief,” said Mrs. Maylie, touching her lip as she looked at him steadily. “This letter must be sent to Mr. Losberne as quickly as possible. It must be taken to the market town, which is only four miles away by the path across the fields. From there, it must be sent by a rider on horseback straight to Chertsey. The people at the inn will do this, and I know I can trust you to make sure it is done.”
 
-Oliver could make no reply, but looked his anxiety to be gone at once.
+Oliver could not answer, but his face showed his eagerness to leave at once.
 
-“Here is another letter,” said Mrs. Maylie, pausing to reflect; “but whether to send it now, or wait until I see how Rose goes on, I scarcely know. I would not forward it, unless I feared the worst.”
+“Here is another letter,” said Mrs. Maylie, pausing to think. “But I am not sure whether to send it now or wait to see how Rose is doing. I would not want to send it unless I feared the worst.”
 
-“Is it for Chertsey, too, ma’am?” inquired Oliver; impatient to execute his commission, and holding out his trembling hand for the letter.
+“Is it for Chertsey too, ma’am?” asked Oliver, eager to go and holding out a trembling hand for the letter.
 
-“No,” replied the old lady, giving it to him mechanically. Oliver glanced at it, and saw that it was directed to Harry Maylie, Esquire, at some great lord’s house in the country; where, he could not make out.
+“No,” replied the old lady, giving it to him without thinking. Oliver glanced at it and saw that it was addressed to Harry Maylie, Esquire, at a great lord’s house in the country, though he could not read where.
 
-“Shall it go, ma’am?” asked Oliver, looking up, impatiently.
+“Should it go, ma’am?” asked Oliver, looking up impatiently.
 
-“I think not,” replied Mrs. Maylie, taking it back. “I will wait until tomorrow.”
+“I think not,” Mrs. Maylie replied, taking it back. “I will wait until tomorrow.”
 
-With these words, she gave Oliver her purse, and he started off, without more delay, at the greatest speed he could muster.
+With these words, she gave Oliver her purse, and he set off without any more delay, at the fastest pace he could manage.
 
-Swiftly he ran across the fields, and down the little lanes which sometimes divided them: now almost hidden by the high corn on either side, and now emerging on an open field, where the mowers and haymakers were busy at their work: nor did he stop once, save now and then, for a few seconds, to recover breath, until he came, in a great heat, and covered with dust, on the little market-place of the market-town.
+He ran swiftly across the fields and down the narrow lanes that divided them. Sometimes he was hidden by the tall corn on either side, and at other times he came out into an open field where men were mowing and making hay. He did not stop, except for a few seconds now and then to catch his breath, until he arrived, hot and covered with dust, in the small marketplace of the town.
 
-Here he paused, and looked about for the inn. There were a white bank, and a red brewery, and a yellow town-hall; and in one corner there was a large house, with all the wood about it painted green: before which was the sign of “The George.” To this he hastened, as soon as it caught his eye.
+Here he stopped and looked around for the inn. There was a white bank, a red brewery, and a yellow town hall. In one corner, there was a large house with all the wood painted green, and a sign that said “The George.” He hurried toward it as soon as he saw it.
 
-He spoke to a postboy who was dozing under the gateway; and who, after hearing what he wanted, referred him to the ostler; who after hearing all he had to say again, referred him to the landlord; who was a tall gentleman in a blue neckcloth, a white hat, drab breeches, and boots with tops to match, leaning against a pump by the stable-door, picking his teeth with a silver toothpick.
+He spoke to a postboy who was half-asleep under the gateway. The postboy, after hearing what he wanted, sent him to the ostler. The ostler, after hearing the whole story again, sent him to the landlord. The landlord was a tall gentleman in a blue neckcloth, a white hat, tan breeches, and matching boots, who was leaning against a pump by the stable door, picking his teeth with a silver toothpick.
 
-This gentleman walked with much deliberation into the bar to make out the bill: which took a long time making out: and after it was ready, and paid, a horse had to be saddled, and a man to be dressed, which took up ten good minutes more. Meanwhile Oliver was in such a desperate state of impatience and anxiety, that he felt as if he could have jumped upon the horse himself, and galloped away, full tear, to the next stage. At length, all was ready; and the little parcel having been handed up, with many injunctions and entreaties for its speedy delivery, the man set spurs to his horse, and rattling over the uneven paving of the market-place, was out of the town, and galloping along the turnpike-road, in a couple of minutes.
+This gentleman walked slowly into the bar to write out the bill, which took a long time. After the bill was ready and paid, a horse had to be saddled and a man had to get dressed, which took another ten minutes. Meanwhile, Oliver was so impatient and anxious that he felt he could have jumped on the horse himself and galloped away to the next stop. At last, everything was ready. The small package was handed up with many instructions for its speedy delivery. The man spurred his horse, and after clattering over the bumpy paving of the marketplace, he was out of the town and galloping along the main road in a couple of minutes.
 
-As it was something to feel certain that assistance was sent for, and that no time had been lost, Oliver hurried up the inn-yard, with a somewhat lighter heart. He was turning out of the gateway when he accidently stumbled against a tall man wrapped in a cloak, who was at that moment coming out of the inn door.
+Feeling that help had been sent for and no time had been wasted, Oliver hurried out of the inn-yard with a lighter heart. As he was leaving the gateway, he accidentally bumped into a tall man wrapped in a cloak, who was just coming out of the inn door.
 
-“Hah!” cried the man, fixing his eyes on Oliver, and suddenly recoiling. “What the devil’s this?”
+“Ha!” cried the man, staring at Oliver and stepping back suddenly. “What the devil is this?”
 
-“I beg your pardon, sir,” said Oliver; “I was in a great hurry to get home, and didn’t see you were coming.”
+“I beg your pardon, sir,” said Oliver. “I was in a great hurry to get home and didn’t see you.”
 
-“Death!” muttered the man to himself, glaring at the boy with his large dark eyes. “Who would have thought it! Grind him to ashes! He’d start up from a stone coffin, to come in my way!”
+“Death!” the man muttered to himself, glaring at the boy with his large, dark eyes. “Who would have thought it! Grind him to ashes! He’d rise from a stone coffin just to get in my way!”
 
-“I am sorry,” stammered Oliver, confused by the strange man’s wild look. “I hope I have not hurt you!”
+“I am sorry,” stammered Oliver, confused by the man’s wild expression. “I hope I haven’t hurt you.”
 
-“Rot you!” murmured the man, in a horrible passion; between his clenched teeth; “if I had only had the courage to say the word, I might have been free of you in a night. Curses on your head, and black death on your heart, you imp! What are you doing here?”
+“Rot you!” the man growled through his clenched teeth. “If I had only had the courage to say the word, I could have been rid of you in one night. Curses on your head, and black death on your heart, you little devil! What are you doing here?”
 
-The man shook his fist, as he uttered these words incoherently. He advanced towards Oliver, as if with the intention of aiming a blow at him, but fell violently on the ground: writhing and foaming, in a fit.
+The man shook his fist as he spoke these disconnected words. He moved toward Oliver as if to strike him, but then fell violently to the ground, twisting and foaming in a fit.
 
-Oliver gazed, for a moment, at the struggles of the madman (for such he supposed him to be); and then darted into the house for help. Having seen him safely carried into the hotel, he turned his face homewards, running as fast as he could, to make up for lost time: and recalling with a great deal of astonishment and some fear, the extraordinary behaviour of the person from whom he had just parted.
+Oliver stared for a moment at the struggling man, whom he assumed was mad, and then ran into the house for help. After seeing him safely carried into the hotel, he turned and ran home as fast as he could to make up for lost time. He thought back with surprise and some fear on the strange behavior of the man he had just left.
 
-The circumstance did not dwell in his recollection long, however: for when he reached the cottage, there was enough to occupy his mind, and to drive all considerations of self completely from his memory.
+The incident did not stay in his mind for long, however. When he reached the cottage, there was enough to occupy him and drive all thoughts of himself from his memory.
 
-Rose Maylie had rapidly grown worse; before mid-night she was delirious. A medical practitioner, who resided on the spot, was in constant attendance upon her; and after first seeing the patient, he had taken Mrs. Maylie aside, and pronounced her disorder to be one of a most alarming nature. “In fact,” he said, “it would be little short of a miracle, if she recovered.”
+Rose Maylie had quickly gotten worse. Before midnight, she was delirious. A local doctor was constantly at her side. After seeing the patient for the first time, he had taken Mrs. Maylie aside and told her that the illness was very alarming. “In fact,” he said, “it would be a miracle if she recovered.”
 
-How often did Oliver start from his bed that night, and stealing out, with noiseless footstep, to the staircase, listen for the slightest sound from the sick chamber! How often did a tremble shake his frame, and cold drops of terror start upon his brow, when a sudden trampling of feet caused him to fear that something too dreadful to think of, had even then occurred! And what had been the fervency of all the prayers he had ever muttered, compared with those he poured forth, now, in the agony and passion of his supplication for the life and health of the gentle creature, who was tottering on the deep grave’s verge!
+How many times did Oliver get out of bed that night and creep silently to the staircase to listen for the slightest sound from the sick room? How many times did a tremor shake his body and cold sweat appear on his forehead when a sudden rush of feet made him fear that something terrible had happened? And how did all the prayers he had ever said compare to the ones he poured out now, in his desperate plea for the life and health of the gentle girl who was so close to death?
 
-Oh! the suspense, the fearful, acute suspense, of standing idly by while the life of one we dearly love, is trembling in the balance! Oh! the racking thoughts that crowd upon the mind, and make the heart beat violently, and the breath come thick, by the force of the images they conjure up before it; the desperate anxiety to be doing something to relieve the pain, or lessen the danger, which we have no power to alleviate; the sinking of soul and spirit, which the sad remembrance of our helplessness produces; what tortures can equal these; what reflections or endeavours can, in the full tide and fever of the time, allay them!
+Oh, the suspense, the terrible, sharp suspense of standing by helplessly while the life of someone you love hangs in the balance! Oh, the tormenting thoughts that fill the mind, making the heart beat wildly and the breath come in short gasps, all because of the images they bring. The desperate wish to do something to ease the pain or reduce the danger, when you have no power to help. The sinking of the soul and spirit that comes from the sad realization of your own helplessness. What torture can equal this? What thoughts or actions can calm it in the heat of the moment?
 
-Morning came; and the little cottage was lonely and still. People spoke in whispers; anxious faces appeared at the gate, from time to time; women and children went away in tears. All the livelong day, and for hours after it had grown dark, Oliver paced softly up and down the garden, raising his eyes every instant to the sick chamber, and shuddering to see the darkened window, looking as if death lay stretched inside. Late that night, Mr. Losberne arrived. “It is hard,” said the good doctor, turning away as he spoke; “so young; so much beloved; but there is very little hope.”
+Morning came, and the little cottage was quiet and still. People spoke in whispers. Anxious faces appeared at the gate from time to time. Women and children went away crying. All day long, and for hours after dark, Oliver walked softly up and down the garden, looking up at the window of the sick room and shuddering to see it darkened, as if death lay inside. Late that night, Mr. Losberne arrived. “It is hard,” said the good doctor, turning away as he spoke. “So young, so loved. But there is very little hope.”
 
-Another morning. The sun shone brightly; as brightly as if it looked upon no misery or care; and, with every leaf and flower in full bloom about her; with life, and health, and sounds and sights of joy, surrounding her on every side: the fair young creature lay, wasting fast. Oliver crept away to the old churchyard, and sitting down on one of the green mounds, wept and prayed for her, in silence.
+Another morning. The sun shone brightly, as if it saw no misery or care. And with every leaf and flower in full bloom around her, with life, health, and the sounds and sights of joy on every side, the beautiful young girl lay fading fast. Oliver crept away to the old churchyard and, sitting on one of the green mounds, wept and prayed for her in silence.
 
-There was such peace and beauty in the scene; so much of brightness and mirth in the sunny landscape; such blithesome music in the songs of the summer birds; such freedom in the rapid flight of the rook, careering overhead; so much of life and joyousness in all; that, when the boy raised his aching eyes, and looked about, the thought instinctively occurred to him, that this was not a time for death; that Rose could surely never die when humbler things were all so glad and gay; that graves were for cold and cheerless winter: not for sunlight and fragrance. He almost thought that shrouds were for the old and shrunken; and that they never wrapped the young and graceful form in their ghastly folds.
+There was such peace and beauty in the scene, so much brightness in the sunny landscape, such cheerful music in the songs of the summer birds, such freedom in the swift flight of the crows overhead, so much life and joy in everything, that when the boy looked up, the thought came to him that this was not a time for death. He thought that Rose could surely not die when even the simplest things were so happy and gay, that graves were for the cold and cheerless winter, not for sunlight and sweet smells. He almost thought that burial shrouds were for the old and withered, and that they never wrapped their ghastly folds around the young and graceful.
 
-A knell from the church bell broke harshly on these youthful thoughts. Another! Again! It was tolling for the funeral service. A group of humble mourners entered the gate: wearing white favours; for the corpse was young. They stood uncovered by a grave; and there was a mother—a mother once—among the weeping train. But the sun shone brightly, and the birds sang on.
+A funeral bell from the church tower broke in on these youthful thoughts. Another! And again! It was tolling for a funeral. A group of simple mourners entered the gate, wearing white ribbons, for the dead person was young. They stood with their heads uncovered by a grave, and among the weeping group was a mother—who had once been a mother. But the sun shone brightly, and the birds sang on.
 
-Oliver turned homeward, thinking on the many kindnesses he had received from the young lady, and wishing that the time could come again, that he might never cease showing her how grateful and attached he was. He had no cause for self-reproach on the score of neglect, or want of thought, for he had been devoted to her service; and yet a hundred little occasions rose up before him, on which he fancied he might have been more zealous, and more earnest, and wished he had been. We need be careful how we deal with those about us, when every death carries to some small circle of survivors, thoughts of so much omitted, and so little done—of so many things forgotten, and so many more which might have been repaired! There is no remorse so deep as that which is unavailing; if we would be spared its tortures, let us remember this, in time.
+Oliver turned for home, thinking of the many kindnesses the young lady had shown him and wishing that he could have the time back, so that he could never stop showing her how grateful and devoted he was. He had no reason to blame himself for being neglectful, for he had been dedicated to her. And yet, a hundred small moments came to his mind where he felt he could have been more eager and earnest, and he wished he had been. We should be careful how we treat those around us, because every death brings to a small circle of survivors thoughts of so much not done and so little done—of so many things forgotten and so many more that could have been fixed. There is no remorse as deep as the one that is useless. If we want to avoid its torment, let us remember this in time.
 
-When he reached home Mrs. Maylie was sitting in the little parlour. Oliver’s heart sank at sight of her; for she had never left the bedside of her niece; and he trembled to think what change could have driven her away. He learnt that she had fallen into a deep sleep, from which she would waken, either to recovery and life, or to bid them farewell, and die.
+When he reached home, Mrs. Maylie was sitting in the small parlor. Oliver’s heart sank when he saw her, for she had never left her niece’s bedside, and he trembled to think what could have driven her away. He learned that she had fallen into a deep sleep, from which she would either wake to recovery and life, or to say goodbye and die.
 
-They sat, listening, and afraid to speak, for hours. The untasted meal was removed, with looks which showed that their thoughts were elsewhere, they watched the sun as he sank lower and lower, and, at length, cast over sky and earth those brilliant hues which herald his departure. Their quick ears caught the sound of an approaching footstep. They both involuntarily darted to the door, as Mr. Losberne entered.
+They sat for hours, listening and afraid to speak. The uneaten meal was taken away, and with looks that showed their thoughts were elsewhere, they watched the sun sink lower and lower, until it cast its brilliant colors across the sky and earth, signaling its departure. Their sharp ears caught the sound of an approaching footstep. They both rushed to the door as Mr. Losberne entered.
 
-“What of Rose?” cried the old lady. “Tell me at once! I can bear it; anything but suspense! Oh, tell me! in the name of Heaven!”
+“What about Rose?” cried the old lady. “Tell me at once! I can bear it—anything but the waiting! Oh, tell me, in the name of Heaven!”
 
-“You must compose yourself,” said the doctor supporting her. “Be calm, my dear ma’am, pray.”
+“You must calm yourself,” said the doctor, supporting her. “Be calm, my dear ma’am, please.”
 
 “Let me go, in God’s name! My dear child! She is dead! She is dying!”
 
-“No!” cried the doctor, passionately. “As He is good and merciful, she will live to bless us all, for years to come.”
+“No!” cried the doctor passionately. “As He is good and merciful, she will live to bless us all for years to come.”
 
-The lady fell upon her knees, and tried to fold her hands together; but the energy which had supported her so long, fled up to Heaven with her first thanksgiving; and she sank into the friendly arms which were extended to receive her.
+The lady fell to her knees and tried to fold her hands together, but the strength that had supported her for so long vanished with her first prayer of thanks, and she sank into the friendly arms that were held out to receive her.
 
 `,
 }

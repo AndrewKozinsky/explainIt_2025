@@ -1,183 +1,183 @@
 export const chapter_28 = {
 	name: 'Chapter XXVIII',
 	header: 'Looks after Oliver, and proceeds with his adventures',
-	text: `“Wolves tear your throats!” muttered Sikes, grinding his teeth. “I wish I was among some of you; you’d howl the hoarser for it.”
+	text: `“You wolves, I’ll tear your throats!” muttered Sikes, grinding his teeth. “I wish I was there with you; you’d howl even louder for it.”
 
-As Sikes growled forth this imprecation, with the most desperate ferocity that his desperate nature was capable of, he rested the body of the wounded boy across his bended knee; and turned his head, for an instant, to look back at his pursuers.
+As Sikes growled this curse with all the ferocity of his desperate nature, he rested the wounded boy’s body across his bent knee and turned his head for a moment to look back at his pursuers.
 
-There was little to be made out, in the mist and darkness; but the loud shouting of men vibrated through the air, and the barking of the neighbouring dogs, roused by the sound of the alarm bell, resounded in every direction.
+Little could be seen in the mist and darkness, but the loud shouting of men could be heard, and the barking of nearby dogs, awakened by the alarm bell, echoed everywhere.
 
-“Stop, you white-livered hound!” cried the robber, shouting after Toby Crackit, who, making the best use of his long legs, was already ahead. “Stop!”
+“Stop, you cowardly hound!” cried the robber, shouting after Toby Crackit, who, using his long legs to his advantage, was already ahead. “Stop!”
 
-The repetition of the word, brought Toby to a dead stand-still. For he was not quite satisfied that he was beyond the range of pistol-shot; and Sikes was in no mood to be played with.
+The repeated word made Toby stop completely. He wasn't sure if he was out of pistol range, and Sikes was in no mood for games.
 
-“Bear a hand with the boy,” cried Sikes, beckoning furiously to his confederate. “Come back!”
+“Help me with the boy,” cried Sikes, gesturing furiously to his partner. “Come back!”
 
-Toby made a show of returning; but ventured, in a low voice, broken for want of breath, to intimate considerable reluctance as he came slowly along.
+Toby pretended to return, but as he came slowly, he quietly expressed his reluctance, breathless.
 
-“Quicker!” cried Sikes, laying the boy in a dry ditch at his feet, and drawing a pistol from his pocket. “Don’t play booty with me.”
+“Quicker!” cried Sikes, laying the boy in a dry ditch at his feet and pulling a pistol from his pocket. “Don’t mess with me.”
 
-At this moment the noise grew louder. Sikes, again looking round, could discern that the men who had given chase were already climbing the gate of the field in which he stood; and that a couple of dogs were some paces in advance of them.
+At that moment, the noise grew louder. Sikes, looking around again, could see that the men chasing them were already climbing the gate of the field where he stood, and a couple of dogs were a few steps ahead of them.
 
-“It’s all up, Bill!” cried Toby; “drop the kid, and show ’em your heels.” With this parting advice, Mr. Crackit, preferring the chance of being shot by his friend, to the certainty of being taken by his enemies, fairly turned tail, and darted off at full speed. Sikes clenched his teeth; took one look around; threw over the prostrate form of Oliver, the cape in which he had been hurriedly muffled; ran along the front of the hedge, as if to distract the attention of those behind, from the spot where the boy lay; paused, for a second, before another hedge which met it at right angles; and whirling his pistol high into the air, cleared it at a bound, and was gone.
+“It’s all over, Bill!” cried Toby. “Drop the kid and run.” With this parting advice, Mr. Crackit, choosing the chance of being shot by his friend over the certainty of being caught by his enemies, turned and ran off at full speed. Sikes clenched his teeth, looked around once, and threw the cape he had hurriedly wrapped Oliver in over the boy’s still form. He ran along the hedge to distract those behind from where the boy lay, paused for a second before another hedge that met it at a right angle, and, throwing his pistol high into the air, leaped over it and was gone.
 
-“Ho, ho, there!” cried a tremulous voice in the rear. “Pincher! Neptune! Come here, come here!”
+“Hey, there!” cried a shaky voice from behind. “Pincher! Neptune! Come here, come here!”
 
-The dogs, who, in common with their masters, seemed to have no particular relish for the sport in which they were engaged, readily answered to the command. Three men, who had by this time advanced some distance into the field, stopped to take counsel together.
+The dogs, who, like their masters, seemed to have no real desire for the chase, readily obeyed. Three men, who had by this time come some way into the field, stopped to talk.
 
-“My advice, or, leastways, I should say, my orders, is,” said the fattest man of the party, “that we ’mediately go home again.”
+“My advice, or rather, my orders,” said the fattest man of the group, “is that we go home immediately.”
 
-“I am agreeable to anything which is agreeable to Mr. Giles,” said a shorter man; who was by no means of a slim figure, and who was very pale in the face, and very polite: as frightened men frequently are.
+“I agree with anything that Mr. Giles agrees with,” said a shorter man, who was not at all slim, very pale, and very polite, as frightened men often are.
 
-“I shouldn’t wish to appear ill-mannered, gentlemen,” said the third, who had called the dogs back, “Mr. Giles ought to know.”
+“I wouldn’t want to be rude, gentlemen,” said the third man, who had called the dogs back. “Mr. Giles should know best.”
 
-“Certainly,” replied the shorter man; “and whatever Mr. Giles says, it isn’t our place to contradict him. No, no, I know my sitiwation! Thank my stars, I know my sitiwation.” To tell the truth, the little man did seem to know his situation, and to know perfectly well that it was by no means a desirable one; for his teeth chattered in his head as he spoke.
+“Of course,” replied the shorter man. “And whatever Mr. Giles says, it’s not our place to argue. No, no, I know my place! Thank heavens, I know my place.” To be honest, the little man did seem to know his situation and that it was not a good one, because his teeth chattered as he spoke.
 
 “You are afraid, Brittles,” said Mr. Giles.
 
-“I an’t,” said Brittles.
+“I am not,” said Brittles.
 
 “You are,” said Giles.
 
-“You’re a falsehood, Mr. Giles,” said Brittles.
+“That’s a lie, Mr. Giles,” said Brittles.
 
-“You’re a lie, Brittles,” said Mr. Giles.
+“You’re a liar, Brittles,” said Mr. Giles.
 
-Now, these four retorts arose from Mr. Giles’s taunt; and Mr. Giles’s taunt had arisen from his indignation at having the responsibility of going home again, imposed upon himself under cover of a compliment. The third man brought the dispute to a close, most philosophically.
+These four replies came from Mr. Giles’s taunt, and Mr. Giles’s taunt had come from his anger at having the responsibility of going home placed on him under the guise of a compliment. The third man ended the argument very philosophically.
 
-“I’ll tell you what it is, gentlemen,” said he, “we’re all afraid.”
+“I’ll tell you what, gentlemen,” he said, “we’re all afraid.”
 
-“Speak for yourself, sir,” said Mr. Giles, who was the palest of the party.
+“Speak for yourself, sir,” said Mr. Giles, who was the palest of the group.
 
-“So I do,” replied the man. “It’s natural and proper to be afraid, under such circumstances. I am.”
+“I do,” replied the man. “It’s natural and right to be afraid in these circumstances. I am.”
 
-“So am I,” said Brittles; “only there’s no call to tell a man he is, so bounceably.”
+“So am I,” said Brittles, “but there’s no need to tell a man he is so boldly.”
 
-These frank admissions softened Mr. Giles, who at once owned that he was afraid; upon which, they all three faced about, and ran back again with the completest unanimity, until Mr. Giles (who had the shortest wind of the party, as was encumbered with a pitchfork) most handsomely insisted on stopping, to make an apology for his hastiness of speech.
+These honest admissions softened Mr. Giles, who at once admitted that he was afraid. Then, all three of them turned and ran back with perfect agreement, until Mr. Giles (who was the most out of breath and was carrying a pitchfork) kindly insisted on stopping to apologize for his hasty words.
 
-“But it’s wonderful,” said Mr. Giles, when he had explained, “what a man will do, when his blood is up. I should have committed murder—I know I should—if we’d caught one of them rascals.”
+“But it’s amazing,” said Mr. Giles, after he had explained, “what a man will do when he’s angry. I would have committed murder—I know I would have—if we’d caught one of those scoundrels.”
 
-As the other two were impressed with a similar presentiment; and as their blood, like his, had all gone down again; some speculation ensued upon the cause of this sudden change in their temperament.
+As the other two felt the same way, and as their anger, like his, had disappeared, they began to wonder about the cause of this sudden change in their feelings.
 
-“I know what it was,” said Mr. Giles; “it was the gate.”
+“I know what it was,” said Mr. Giles, “it was the gate.”
 
-“I shouldn’t wonder if it was,” exclaimed Brittles, catching at the idea.
+“I wouldn’t be surprised if it was,” exclaimed Brittles, liking the idea.
 
-“You may depend upon it,” said Giles, “that that gate stopped the flow of the excitement. I felt all mine suddenly going away, as I was climbing over it.”
+“You can be sure of it,” said Giles, “that that gate stopped the flow of excitement. I felt all mine suddenly go away as I was climbing over it.”
 
-By a remarkable coincidence, the other two had been visited with the same unpleasant sensation at that precise moment. It was quite obvious, therefore, that it was the gate; especially as there was no doubt regarding the time at which the change had taken place, because all three remembered that they had come in sight of the robbers at the instant of its occurance.
+By a strange coincidence, the other two had felt the same unpleasant sensation at that exact moment. It was clear, therefore, that it was the gate, especially since there was no doubt about the time the change had happened, because all three remembered seeing the robbers at the moment it occurred.
 
-This dialogue was held between the two men who had surprised the burglars, and a travelling tinker who had been sleeping in an outhouse, and who had been roused, together with his two mongrel curs, to join in the pursuit. Mr. Giles acted in the double capacity of butler and steward to the old lady of the mansion; Brittles was a lad of all-work: who, having entered her service a mere child, was treated as a promising young boy still, though he was something past thirty.
+This conversation was between the two men who had surprised the burglars and a traveling tinker who had been sleeping in an outhouse and had been woken up, along with his two mixed-breed dogs, to join the chase. Mr. Giles was both the butler and steward to the old lady of the house; Brittles was a general servant who, having started working for her as a child, was still treated as a promising young boy, even though he was over thirty.
 
-Encouraging each other with such converse as this; but, keeping very close together, notwithstanding, and looking apprehensively round, whenever a fresh gust rattled through the boughs; the three men hurried back to a tree, behind which they had left their lantern, lest its light should inform the thieves in what direction to fire. Catching up the light, they made the best of their way home, at a good round trot; and long after their dusky forms had ceased to be discernible, the light might have been seen twinkling and dancing in the distance, like some exhalation of the damp and gloomy atmosphere through which it was swiftly borne.
+Encouraging each other with such talk, but staying very close together and looking around nervously whenever a gust of wind rattled the branches, the three men hurried back to a tree where they had left their lantern, so its light wouldn’t show the thieves where to shoot. Grabbing the light, they made their way home at a quick trot. Long after their dark figures could no longer be seen, the light could be seen twinkling and dancing in the distance, like a spark in the damp and gloomy air through which it was quickly carried.
 
-The air grew colder, as day came slowly on; and the mist rolled along the ground like a dense cloud of smoke. The grass was wet; the pathways, and low places, were all mire and water; the damp breath of an unwholesome wind went languidly by, with a hollow moaning. Still, Oliver lay motionless and insensible on the spot where Sikes had left him.
+The air grew colder as day slowly arrived, and the mist rolled along the ground like a thick cloud of smoke. The grass was wet; the paths and low areas were all mud and water. The damp breath of a foul wind passed by with a hollow moan. Still, Oliver lay motionless and unconscious where Sikes had left him.
 
-Morning drew on apace. The air became more sharp and piercing, as its first dull hue—the death of night, rather than the birth of day—glimmered faintly in the sky. The objects which had looked dim and terrible in the darkness, grew more and more defined, and gradually resolved into their familiar shapes. The rain came down, thick and fast, and pattered noisily among the leafless bushes. But, Oliver felt it not, as it beat against him; for he still lay stretched, helpless and unconscious, on his bed of clay.
+Morning came quickly. The air became sharper and more piercing as its first dull color—the death of night rather than the birth of day—glimmered faintly in the sky. The objects that had looked dim and frightening in the darkness became more and more clear, gradually taking on their familiar shapes. The rain came down, thick and fast, and pattered noisily on the leafless bushes. But Oliver didn’t feel it as it beat against him, for he still lay stretched out, helpless and unconscious, on his bed of clay.
 
-At length, a low cry of pain broke the stillness that prevailed; and uttering it, the boy awoke. His left arm, rudely bandaged in a shawl, hung heavy and useless at his side; the bandage was saturated with blood. He was so weak, that he could scarcely raise himself into a sitting posture; when he had done so, he looked feebly round for help, and groaned with pain. Trembling in every joint, from cold and exhaustion, he made an effort to stand upright; but, shuddering from head to foot, fell prostrate on the ground.
+At last, a low cry of pain broke the silence, and with it, the boy awoke. His left arm, roughly bandaged in a shawl, hung heavy and useless at his side; the bandage was soaked with blood. He was so weak that he could barely sit up. When he did, he looked around feebly for help and groaned with pain. Shaking in every joint from cold and exhaustion, he tried to stand up, but, shivering from head to foot, he fell flat on the ground.
 
-After a short return of the stupor in which he had been so long plunged, Oliver: urged by a creeping sickness at his heart, which seemed to warn him that if he lay there, he must surely die: got upon his feet, and essayed to walk. His head was dizzy, and he staggered to and fro like a drunken man. But he kept up, nevertheless, and, with his head drooping languidly on his breast, went stumbling onward, he knew not whither.
+After a short return of the daze he had been in for so long, Oliver, driven by a growing sickness in his heart that seemed to warn him that if he lay there, he would surely die, got to his feet and tried to walk. His head was dizzy, and he staggered back and forth like a drunk man. But he kept going, and with his head hanging limply on his chest, he stumbled onward, not knowing where.
 
-And now, hosts of bewildering and confused ideas came crowding on his mind. He seemed to be still walking between Sikes and Crackit, who were angrily disputing—for the very words they said, sounded in his ears; and when he caught his own attention, as it were, by making some violent effort to save himself from falling, he found that he was talking to them. Then, he was alone with Sikes, plodding on as on the previous day; and as shadowy people passed them, he felt the robber’s grasp upon his wrist. Suddenly, he started back at the report of firearms; there rose into the air, loud cries and shouts; lights gleamed before his eyes; all was noise and tumult, as some unseen hand bore him hurriedly away. Through all these rapid visions, there ran an undefined, uneasy consciousness of pain, which wearied and tormented him incessantly.
+And now, many confusing and jumbled ideas crowded his mind. He seemed to be still walking between Sikes and Crackit, who were arguing angrily—he could even hear the words they said. When he snapped out of it, trying to keep himself from falling, he found that he was talking to them. Then, he was alone with Sikes, walking as they had the day before, and as shadowy people passed them, he felt the robber’s grasp on his wrist. Suddenly, he jumped back at the sound of gunfire; loud cries and shouts filled the air; lights flashed before his eyes; everything was noise and chaos as an unseen hand carried him quickly away. Through all these fast-moving visions, there was a vague, uneasy awareness of pain that tired and tormented him constantly.
 
-Thus he staggered on, creeping, almost mechanically, between the bars of gates, or through hedge-gaps as they came in his way, until he reached a road. Here the rain began to fall so heavily, that it roused him.
+So he staggered on, moving almost mechanically, through the bars of gates or through hedge gaps that came in his way, until he reached a road. Here the rain began to fall so heavily that it woke him up.
 
-He looked about, and saw that at no great distance there was a house, which perhaps he could reach. Pitying his condition, they might have compassion on him; and if they did not, it would be better, he thought, to die near human beings, than in the lonely open fields. He summoned up all his strength for one last trial, and bent his faltering steps towards it.
+He looked around and saw a house not too far away that he might be able to reach. Seeing his condition, they might have mercy on him, and if they didn’t, he thought it would be better to die near people than in the lonely open fields. He gathered all his strength for one last try and took his faltering steps toward it.
 
-As he drew nearer to this house, a feeling come over him that he had seen it before. He remembered nothing of its details; but the shape and aspect of the building seemed familiar to him.
+As he got closer to this house, a feeling came over him that he had seen it before. He didn’t remember any of its details, but the shape and appearance of the building seemed familiar.
 
-That garden wall! On the grass inside, he had fallen on his knees last night, and prayed the two men’s mercy. It was the very house they had attempted to rob.
+That garden wall! On the grass inside, he had fallen to his knees last night and begged the two men for mercy. It was the very house they had tried to rob.
 
-Oliver felt such fear come over him when he recognised the place, that, for the instant, he forgot the agony of his wound, and thought only of flight. Flight! He could scarcely stand: and if he were in full possession of all the best powers of his slight and youthful frame, whither could he fly? He pushed against the garden-gate; it was unlocked, and swung open on its hinges. He tottered across the lawn; climbed the steps; knocked faintly at the door; and, his whole strength failing him, sunk down against one of the pillars of the little portico.
+Oliver felt such fear when he recognized the place that, for a moment, he forgot the pain of his wound and thought only of escape. Escape! He could barely stand, and even if he were at his full strength, where could he go? He pushed against the garden gate; it was unlocked and swung open on its hinges. He stumbled across the lawn, climbed the steps, knocked faintly at the door, and, with his strength completely gone, sank down against one of the pillars of the small porch.
 
-It happened that about this time, Mr. Giles, Brittles, and the tinker, were recruiting themselves, after the fatigues and terrors of the night, with tea and sundries, in the kitchen. Not that it was Mr. Giles’s habit to admit to too great familiarity the humbler servants: towards whom it was rather his wont to deport himself with a lofty affability, which, while it gratified, could not fail to remind them of his superior position in society. But, death, fires, and burglary, make all men equals; so Mr. Giles sat with his legs stretched out before the kitchen fender, leaning his left arm on the table, while, with his right, he illustrated a circumstantial and minute account of the robbery, to which his hearers (but especially the cook and housemaid, who were of the party) listened with breathless interest.
+It so happened that around this time, Mr. Giles, Brittles, and the tinker were recovering from the tiredness and terrors of the night with tea and snacks in the kitchen. It wasn’t Mr. Giles’s habit to be too familiar with the lower servants, toward whom he usually acted with a lofty friendliness that, while pleasing, also reminded them of his higher social position. But death, fires, and burglary make all men equal, so Mr. Giles sat with his legs stretched out before the kitchen fireplace, leaning his left arm on the table, while with his right, he acted out a detailed story of the robbery, which his listeners (especially the cook and housemaid, who were part of the group) listened to with great interest.
 
-“It was about half-past two,” said Mr. Giles, “or I wouldn’t swear that it mightn’t have been a little nearer three, when I woke up, and, turning round in my bed, as it might be so, (here Mr. Giles turned round in his chair, and pulled the corner of the table-cloth over him to imitate bed-clothes,) I fancied I heerd a noise.”
+“It was about half-past two,” said Mr. Giles, “or maybe a little closer to three, when I woke up and, turning over in my bed, like this,” (here Mr. Giles turned in his chair and pulled the corner of the tablecloth over him to imitate bedclothes), “I thought I heard a noise.”
 
-At this point of the narrative the cook turned pale, and asked the housemaid to shut the door: who asked Brittles, who asked the tinker, who pretended not to hear.
+At this point in the story, the cook turned pale and asked the housemaid to shut the door, who asked Brittles, who asked the tinker, who pretended not to hear.
 
-“—Heerd a noise,” continued Mr. Giles. “I says, at first, ‘This is illusion’; and was composing myself off to sleep, when I heerd the noise again, distinct.”
+“—Heard a noise,” continued Mr. Giles. “At first, I said, ‘It’s just my imagination,’ and was trying to go back to sleep, when I heard the noise again, clearly.”
 
-“What sort of a noise?” asked the cook.
+“What kind of noise?” asked the cook.
 
-“A kind of a busting noise,” replied Mr. Giles, looking round him.
+“A kind of bursting noise,” replied Mr. Giles, looking around.
 
-“More like the noise of powdering a iron bar on a nutmeg-grater,” suggested Brittles.
+“More like the sound of grinding an iron bar on a nutmeg grater,” suggested Brittles.
 
-“It was, when you heerd it, sir,” rejoined Mr. Giles; “but, at this time, it had a busting sound. I turned down the clothes”; continued Giles, rolling back the table-cloth, “sat up in bed; and listened.”
+“It was, when you heard it, sir,” Mr. Giles said, “but at this time, it had a bursting sound. I threw back the covers,” continued Giles, rolling back the tablecloth, “sat up in bed, and listened.”
 
-The cook and housemaid simultaneously ejaculated “Lor!” and drew their chairs closer together.
+The cook and housemaid both exclaimed, “Oh my!” and moved their chairs closer together.
 
-“I heerd it now, quite apparent,” resumed Mr. Giles. “‘Somebody,’ I says, ‘is forcing of a door, or window; what’s to be done? I’ll call up that poor lad, Brittles, and save him from being murdered in his bed; or his throat,’ I says, ‘may be cut from his right ear to his left, without his ever knowing it.’”
+“I heard it clearly now,” resumed Mr. Giles. “‘Someone,’ I said, ‘is breaking down a door or window. What should I do? I’ll go get that poor boy, Brittles, and save him from being murdered in his bed. Or else,’ I said, ‘his throat might be cut from ear to ear without him ever knowing it.’”
 
-Here, all eyes were turned upon Brittles, who fixed his upon the speaker, and stared at him, with his mouth wide open, and his face expressive of the most unmitigated horror.
+Here, all eyes turned to Brittles, who stared at the speaker with his mouth wide open and his face showing the most extreme horror.
 
-“I tossed off the clothes,” said Giles, throwing away the table-cloth, and looking very hard at the cook and housemaid, “got softly out of bed; drew on a pair of—”
+“I threw off the covers,” said Giles, throwing away the tablecloth and looking very hard at the cook and housemaid, “got quietly out of bed, and put on a pair of—”
 
-“Ladies present, Mr. Giles,” murmured the tinker.
+“Ladies are present, Mr. Giles,” murmured the tinker.
 
-“—Of shoes, sir,” said Giles, turning upon him, and laying great emphasis on the word; “seized the loaded pistol that always goes upstairs with the plate-basket; and walked on tiptoes to his room. ‘Brittles,’ I says, when I had woke him, ‘don’t be frightened!’”
+“—Of shoes, sir,” said Giles, turning to him and emphasizing the word, “grabbed the loaded pistol that always goes upstairs with the silver basket, and walked on tiptoes to his room. ‘Brittles,’ I said, when I had woken him, ‘don’t be frightened!’”
 
-“So you did,” observed Brittles, in a low voice.
+“That you did,” observed Brittles in a low voice.
 
-“‘We’re dead men, I think, Brittles,’ I says,” continued Giles; “‘but don’t be frightened.’”
+“‘We’re dead men, I think, Brittles,’ I said,” continued Giles, “‘but don’t be frightened.’”
 
 “Was he frightened?” asked the cook.
 
-“Not a bit of it,” replied Mr. Giles. “He was as firm—ah! pretty near as firm as I was.”
+“Not a bit,” replied Mr. Giles. “He was as calm—well, almost as calm as I was.”
 
-“I should have died at once, I’m sure, if it had been me,” observed the housemaid.
+“I would have died right away, I’m sure, if it had been me,” said the housemaid.
 
-“You’re a woman,” retorted Brittles, plucking up a little.
+“You’re a woman,” retorted Brittles, feeling a little braver.
 
-“Brittles is right,” said Mr. Giles, nodding his head, approvingly; “from a woman, nothing else was to be expected. We, being men, took a dark lantern that was standing on Brittle’s hob, and groped our way downstairs in the pitch dark,—as it might be so.”
+“Brittles is right,” said Mr. Giles, nodding in approval. “From a woman, nothing else was expected. We, being men, took a dark lantern from Brittles’s fireplace and felt our way downstairs in the pitch dark, like this.”
 
-Mr. Giles had risen from his seat, and taken two steps with his eyes shut, to accompany his description with appropriate action, when he started violently, in common with the rest of the company, and hurried back to his chair. The cook and housemaid screamed.
+Mr. Giles had gotten up from his seat and taken two steps with his eyes shut to act out his description, when he jumped back suddenly, along with the rest of the group, and hurried back to his chair. The cook and housemaid screamed.
 
-“It was a knock,” said Mr. Giles, assuming perfect serenity. “Open the door, somebody.”
+“It was a knock,” said Mr. Giles, pretending to be calm. “Someone open the door.”
 
 Nobody moved.
 
-“It seems a strange sort of a thing, a knock coming at such a time in the morning,” said Mr. Giles, surveying the pale faces which surrounded him, and looking very blank himself; “but the door must be opened. Do you hear, somebody?”
+“It seems strange, a knock coming at this time of the morning,” said Mr. Giles, looking at the pale faces around him and looking very worried himself, “but the door must be opened. Do you hear me, someone?”
 
-Mr. Giles, as he spoke, looked at Brittles; but that young man, being naturally modest, probably considered himself nobody, and so held that the inquiry could not have any application to him; at all events, he tendered no reply. Mr. Giles directed an appealing glance at the tinker; but he had suddenly fallen asleep. The women were out of the question.
+As Mr. Giles spoke, he looked at Brittles, but that young man, being naturally shy, probably considered himself a nobody and so thought the question didn’t apply to him. In any case, he didn’t answer. Mr. Giles looked pleadingly at the tinker, but he had suddenly fallen asleep. The women were not an option.
 
-“If Brittles would rather open the door, in the presence of witnesses,” said Mr. Giles, after a short silence, “I am ready to make one.”
+“If Brittles would rather open the door with witnesses,” said Mr. Giles after a short silence, “I am willing to be one.”
 
-“So am I,” said the tinker, waking up, as suddenly as he had fallen asleep.
+“So am I,” said the tinker, waking up as suddenly as he had fallen asleep.
 
-Brittles capitulated on these terms; and the party being somewhat re-assured by the discovery (made on throwing open the shutters) that it was now broad day, took their way upstairs; with the dogs in front. The two women, who were afraid to stay below, brought up the rear. By the advice of Mr. Giles, they all talked very loud, to warn any evil-disposed person outside, that they were strong in numbers; and by a master-stoke of policy, originating in the brain of the same ingenious gentleman, the dogs’ tails were well pinched, in the hall, to make them bark savagely.
+Brittles agreed to these terms, and the group, feeling a bit better after discovering (by opening the shutters) that it was now broad daylight, went upstairs with the dogs in front. The two women, who were afraid to stay downstairs, followed behind. On Mr. Giles’s advice, they all talked very loudly to warn any troublemakers outside that they were a large group. And in a brilliant move by the same clever gentleman, the dogs’ tails were pinched in the hall to make them bark fiercely.
 
-These precautions having been taken, Mr. Giles held on fast by the tinker’s arm (to prevent his running away, as he pleasantly said), and gave the word of command to open the door. Brittles obeyed; the group, peeping timorously over each other’s shoulders, beheld no more formidable object than poor little Oliver Twist, speechless and exhausted, who raised his heavy eyes, and mutely solicited their compassion.
+After taking these precautions, Mr. Giles held on tightly to the tinker’s arm (to keep him from running away, as he said jokingly) and gave the command to open the door. Brittles obeyed. The group, peeking nervously over each other’s shoulders, saw nothing more threatening than poor little Oliver Twist, speechless and exhausted, who raised his heavy eyes and silently asked for their mercy.
 
-“A boy!” exclaimed Mr. Giles, valiantly, pushing the tinker into the background. “What’s the matter with the—eh?—Why—Brittles—look here—don’t you know?”
+“A boy!” exclaimed Mr. Giles, bravely pushing the tinker into the background. “What’s the matter with—huh? Why—Brittles—look here—don’t you know him?”
 
-Brittles, who had got behind the door to open it, no sooner saw Oliver, than he uttered a loud cry. Mr. Giles, seizing the boy by one leg and one arm (fortunately not the broken limb) lugged him straight into the hall, and deposited him at full length on the floor thereof.
+Brittles, who had been behind the door to open it, cried out as soon as he saw Oliver. Mr. Giles, grabbing the boy by one leg and one arm (fortunately not the broken one), dragged him straight into the hall and laid him down on the floor.
 
-“Here he is!” bawled Giles, calling in a state of great excitement, up the staircase; “here’s one of the thieves, ma’am! Here’s a thief, miss! Wounded, miss! I shot him, miss; and Brittles held the light.”
+“Here he is!” yelled Giles, calling up the staircase in a state of great excitement. “Here’s one of the thieves, ma’am! Here’s a thief, miss! Wounded, miss! I shot him, miss, and Brittles held the light.”
 
-“—In a lantern, miss,” cried Brittles, applying one hand to the side of his mouth, so that his voice might travel the better.
+“—In a lantern, miss,” cried Brittles, cupping his hand to the side of his mouth so his voice would carry better.
 
-The two women-servants ran upstairs to carry the intelligence that Mr. Giles had captured a robber; and the tinker busied himself in endeavouring to restore Oliver, lest he should die before he could be hanged. In the midst of all this noise and commotion, there was heard a sweet female voice, which quelled it in an instant.
+The two female servants ran upstairs to report that Mr. Giles had caught a robber, and the tinker tried to help Oliver, in case he died before he could be hanged. In the middle of all this noise and chaos, a sweet female voice was heard, which silenced it in an instant.
 
-“Giles!” whispered the voice from the stair-head.
+“Giles!” whispered the voice from the top of the stairs.
 
-“I’m here, miss,” replied Mr. Giles. “Don’t be frightened, miss; I ain’t much injured. He didn’t make a very desperate resistance, miss! I was soon too many for him.”
+“I’m here, miss,” replied Mr. Giles. “Don’t be frightened, miss. I’m not badly hurt. He didn’t put up much of a fight, miss! I was too much for him.”
 
-“Hush!” replied the young lady; “you frighten my aunt as much as the thieves did. Is the poor creature much hurt?”
+“Hush!” replied the young lady. “You’re scaring my aunt as much as the thieves did. Is the poor creature badly hurt?”
 
-“Wounded desperate, miss,” replied Giles, with indescribable complacency.
+“Wounded badly, miss,” replied Giles with great satisfaction.
 
-“He looks as if he was a-going, miss,” bawled Brittles, in the same manner as before. “Wouldn’t you like to come and look at him, miss, in case he should?”
+“He looks like he’s about to die, miss,” yelled Brittles in the same way as before. “Wouldn’t you like to come and look at him, miss, in case he does?”
 
-“Hush, pray; there’s a good man!” rejoined the lady. “Wait quietly only one instant, while I speak to aunt.”
+“Hush, please, be a good man,” replied the lady. “Wait quietly for just a moment while I speak to my aunt.”
 
-With a footstep as soft and gentle as the voice, the speaker tripped away. She soon returned, with the direction that the wounded person was to be carried, carefully, upstairs to Mr. Giles’s room; and that Brittles was to saddle the pony and betake himself instantly to Chertsey: from which place, he was to despatch, with all speed, a constable and doctor.
+With a footstep as soft and gentle as her voice, the speaker tripped away. She soon returned with instructions that the wounded person was to be carried carefully upstairs to Mr. Giles’s room, and that Brittles was to saddle the pony and go to Chertsey immediately to get a constable and a doctor.
 
-“But won’t you take one look at him, first, miss?” asked Mr. Giles, with as much pride as if Oliver were some bird of rare plumage, that he had skilfully brought down. “Not one little peep, miss?”
+“But won’t you take one look at him first, miss?” asked Mr. Giles, as proud as if Oliver were some rare bird that he had skillfully shot down. “Not one little peek, miss?”
 
-“Not now, for the world,” replied the young lady. “Poor fellow! Oh! treat him kindly, Giles for my sake!”
+“Not now, for anything,” replied the young lady. “Poor fellow! Oh, treat him kindly, Giles, for my sake!”
 
-The old servant looked up at the speaker, as she turned away, with a glance as proud and admiring as if she had been his own child. Then, bending over Oliver, he helped to carry him upstairs, with the care and solicitude of a woman.`,
-}
+The old servant looked up at the speaker as she turned away, with a look as proud and admiring as if she had been his own child. Then, bending over Oliver, he helped carry him upstairs with the care and concern of a woman.`,
+},

@@ -1,159 +1,157 @@
 export const chapter_41 = {
 	name: 'Chapter XLI',
 	header: 'Containing fresh discoveries, and showing that suprises, like misfortunes, seldom come alone',
-	text: `Her situation was, indeed, one of no common trial and difficulty. While she felt the most eager and burning desire to penetrate the mystery in which Oliver’s history was enveloped, she could not but hold sacred the confidence which the miserable woman with whom she had just conversed, had reposed in her, as a young and guileless girl. Her words and manner had touched Rose Maylie’s heart; and, mingled with her love for her young charge, and scarcely less intense in its truth and fervour, was her fond wish to win the outcast back to repentance and hope.
+	text: `Her situation was truly challenging. She had a strong desire to uncover the mystery of Oliver's past, but she also felt bound to protect the secret of the troubled woman she had just spoken with. The woman's words and behavior had touched Rose's heart. Along with her love for Oliver, she also dearly wished to help the outcast woman find a better path.
 
-They purposed remaining in London only three days, prior to departing for some weeks to a distant part of the coast. It was now midnight of the first day. What course of action could she determine upon, which could be adopted in eight-and-forty hours? Or how could she postpone the journey without exciting suspicion?
+They planned to stay in London for only three more days before leaving for a trip to the coast. It was now midnight on the first day. What could she do in just forty-eight hours? And how could she delay the trip without making anyone suspicious?
 
-Mr. Losberne was with them, and would be for the next two days; but Rose was too well acquainted with the excellent gentleman’s impetuosity, and foresaw too clearly the wrath with which, in the first explosion of his indignation, he would regard the instrument of Oliver’s recapture, to trust him with the secret, when her representations in the girl’s behalf could be seconded by no experienced person. These were all reasons for the greatest caution and most circumspect behaviour in communicating it to Mrs. Maylie, whose first impulse would infallibly be to hold a conference with the worthy doctor on the subject. As to resorting to any legal adviser, even if she had known how to do so, it was scarcely to be thought of, for the same reason. Once the thought occurred to her of seeking assistance from Harry; but this awakened the recollection of their last parting, and it seemed unworthy of her to call him back, when—the tears rose to her eyes as she pursued this train of reflection—he might have by this time learnt to forget her, and to be happier away.
+Mr. Losberne was with them and would be for the next two days. However, Rose knew the good gentleman was impulsive. She imagined his anger when he learned who was responsible for Oliver's recapture. She couldn't trust him with the secret, especially since no one else could support her story about the girl. These were all reasons to be very careful when telling Mrs. Maylie. Mrs. Maylie's first reaction would certainly be to talk to the doctor. As for getting a lawyer, even if she knew how, it was out of the question for the same reason. For a moment, she thought of asking Harry for help, but that brought back memories of their last goodbye. It felt wrong to call him back, and tears came to her eyes as she thought that by now he might have forgotten her and be happier.
 
-Disturbed by these different reflections; inclining now to one course and then to another, and again recoiling from all, as each successive consideration presented itself to her mind; Rose passed a sleepless and anxious night. After more communing with herself next day, she arrived at the desperate conclusion of consulting Harry.
+Troubled by these thoughts, Rose changed her mind again and again, unable to decide on a course of action. She spent a sleepless and anxious night. After thinking more the next day, she made the desperate decision to consult Harry.
 
-“If it be painful to him,” she thought, “to come back here, how painful it will be to me! But perhaps he will not come; he may write, or he may come himself, and studiously abstain from meeting me—he did when he went away. I hardly thought he would; but it was better for us both.” And here Rose dropped the pen, and turned away, as though the very paper which was to be her messenger should not see her weep.
+"If it's painful for him to come back here, it will be painful for me too!" she thought. "But maybe he won't come. He might write, or he might come himself and deliberately avoid me—he did that when he left. I didn't think he would, but it was better for both of us." And here Rose put down the pen and turned away, as if the very paper that would carry her message should not see her cry.
 
-She had taken up the same pen, and laid it down again fifty times, and had considered and reconsidered the first line of her letter without writing the first word, when Oliver, who had been walking in the streets, with Mr. Giles for a body-guard, entered the room in such breathless haste and violent agitation, as seemed to betoken some new cause of alarm.
+She had picked up and put down the same pen fifty times and had thought about the first line of her letter without writing a single word. Just then, Oliver, who had been walking in the streets with Mr. Giles as a bodyguard, rushed into the room, out of breath and very agitated, as if something new and alarming had happened.
 
-“What makes you look so flurried?” asked Rose, advancing to meet him.
+"What has made you so flustered?" asked Rose, walking toward him.
 
-“I hardly know how; I feel as if I should be choked,” replied the boy. “Oh dear! To think that I should see him at last, and you should be able to know that I have told you the truth!”
+"I hardly know! I feel like I'm going to choke," the boy replied. "Oh dear! To think that I should finally see him, and you would know I was telling the truth!"
 
-“I never thought you had told us anything but the truth,” said Rose, soothing him. “But what is this?—of whom do you speak?”
+"I never doubted you," said Rose, calming him. "But what is it? Who are you talking about?"
 
-“I have seen the gentleman,” replied Oliver, scarcely able to articulate, “the gentleman who was so good to me—Mr. Brownlow, that we have so often talked about.”
+"I have seen the gentleman," Oliver replied, barely able to speak, "the gentleman who was so good to me—Mr. Brownlow, the one we've talked about so often."
 
-“Where?” asked Rose.
+"Where?" asked Rose.
 
-“Getting out of a coach,” replied Oliver, shedding tears of delight, “and going into a house. I didn’t speak to him—I couldn’t speak to him, for he didn’t see me, and I trembled so, that I was not able to go up to him. But Giles asked, for me, whether he lived there, and they said he did. Look here,” said Oliver, opening a scrap of paper, “here it is; here’s where he lives—I’m going there directly! Oh, dear me, dear me! What shall I do when I come to see him and hear him speak again!”
+"Getting out of a carriage," Oliver answered, crying tears of joy, "and going into a house. I didn't speak to him—I couldn't. He didn't see me, and I was trembling so much that I couldn't approach him. But Giles asked for me if he lived there, and they said he did. Look here," said Oliver, showing her a piece of paper, "here's his address—I'm going there right now! Oh, dear me! What will I do when I see him and hear him speak again!"
 
-With her attention not a little distracted by these and a great many other incoherent exclamations of joy, Rose read the address, which was Craven Street, in the Strand. She very soon determined upon turning the discovery to account.
+With her attention partly distracted by his joyful and rambling exclamations, Rose read the address: Craven Street, in the Strand. She quickly decided to act on this discovery.
 
-“Quick!” she said. “Tell them to fetch a hackney-coach, and be ready to go with me. I will take you there directly, without a minute’s loss of time. I will only tell my aunt that we are going out for an hour, and be ready as soon as you are.”
+"Quick!" she said. "Tell them to get a carriage and be ready to go with me. I will take you there immediately, without losing a minute. I will just tell my aunt we're going out for an hour and be ready as soon as you are."
 
-Oliver needed no prompting to despatch, and in little more than five minutes they were on their way to Craven Street. When they arrived there, Rose left Oliver in the coach, under pretence of preparing the old gentleman to receive him; and sending up her card by the servant, requested to see Mr. Brownlow on very pressing business. The servant soon returned, to beg that she would walk upstairs; and following him into an upper room, Miss Maylie was presented to an elderly gentleman of benevolent appearance, in a bottle-green coat. At no great distance from whom, was seated another old gentleman, in nankeen breeches and gaiters; who did not look particularly benevolent, and who was sitting with his hands clasped on the top of a thick stick, and his chin propped thereupon.
+Oliver didn't need to be told twice. In a little more than five minutes, they were on their way to Craven Street. When they arrived, Rose left Oliver in the carriage, saying she would prepare the old gentleman to see him. She sent her card up with a servant and asked to see Mr. Brownlow on urgent business. The servant soon returned and asked her to come upstairs. Following him, Miss Maylie was introduced to an elderly gentleman with a kind face, who was wearing a bottle-green coat. Near him sat another old gentleman in tan trousers and gaiters. He did not look as friendly and was sitting with his hands clasped over a thick stick, his chin resting on them.
 
-“Dear me,” said the gentleman, in the bottle-green coat, hastily rising with great politeness, “I beg your pardon, young lady—I imagined it was some importunate person who—I beg you will excuse me. Be seated, pray.”
+"Dear me," said the gentleman in the bottle-green coat, rising quickly and politely. "I beg your pardon, young lady. I thought it was someone else. Please, excuse me. Be seated."
 
-“Mr. Brownlow, I believe, sir?” said Rose, glancing from the other gentleman to the one who had spoken.
+"Mr. Brownlow, I believe?" said Rose, looking from the other gentleman to the one who had spoken.
 
-“That is my name,” said the old gentleman. “This is my friend, Mr. Grimwig. Grimwig, will you leave us for a few minutes?”
+"That is my name," said the old gentleman. "This is my friend, Mr. Grimwig. Grimwig, will you leave us for a few minutes?"
 
-“I believe,” interposed Miss Maylie, “that at this period of our interview, I need not give that gentleman the trouble of going away. If I am correctly informed, he is cognizant of the business on which I wish to speak to you.”
+"I believe," interrupted Miss Maylie, "that for now, you need not trouble that gentleman to leave. If I'm correct, he knows about the business I wish to discuss."
 
-Mr. Brownlow inclined his head. Mr. Grimwig, who had made one very stiff bow, and risen from his chair, made another very stiff bow, and dropped into it again.
+Mr. Brownlow nodded. Mr. Grimwig, who had already given one stiff bow and risen from his chair, gave another and sat back down.
 
-“I shall surprise you very much, I have no doubt,” said Rose, naturally embarrassed; “but you once showed great benevolence and goodness to a very dear young friend of mine, and I am sure you will take an interest in hearing of him again.”
+"I am sure I will surprise you very much," said Rose, feeling naturally embarrassed, "but you once showed great kindness to a dear young friend of mine, and I am sure you will be interested to hear of him again."
 
-“Indeed!” said Mr. Brownlow.
+"Indeed!" said Mr. Brownlow.
 
-“Oliver Twist you knew him as,” replied Rose.
+"You knew him as Oliver Twist," Rose replied.
 
-The words no sooner escaped her lips, than Mr. Grimwig, who had been affecting to dip into a large book that lay on the table, upset it with a great crash, and falling back in his chair, discharged from his features every expression but one of unmitigated wonder, and indulged in a prolonged and vacant stare; then, as if ashamed of having betrayed so much emotion, he jerked himself, as it were, by a convulsion into his former attitude, and looking out straight before him emitted a long deep whistle, which seemed, at last, not to be discharged on empty air, but to die away in the innermost recesses of his stomach.
+As soon as she said the words, Mr. Grimwig, who had been pretending to read a large book on the table, knocked it over with a loud crash. He fell back in his chair, his face showing nothing but pure amazement, and stared blankly for a long moment. Then, as if embarrassed by his reaction, he suddenly returned to his former posture and let out a long, deep whistle that seemed to die away inside him.
 
-Mr. Browlow was no less surprised, although his astonishment was not expressed in the same eccentric manner. He drew his chair nearer to Miss Maylie’s, and said,
+Mr. Brownlow was just as surprised, though he didn't show it in the same odd way. He moved his chair closer to Miss Maylie's and said, "Please, my dear young lady, let's not talk about the kindness you mentioned. If you have any proof that will change the poor opinion I once had of that child, in heaven's name, give it to me."
 
-“Do me the favour, my dear young lady, to leave entirely out of the question that goodness and benevolence of which you speak, and of which nobody else knows anything; and if you have it in your power to produce any evidence which will alter the unfavourable opinion I was once induced to entertain of that poor child, in Heaven’s name put me in possession of it.”
+"A bad one! I'll eat my head if he's not a bad one," grumbled Mr. Grimwig, speaking as if by ventriloquism, without moving his face.
 
-“A bad one! I’ll eat my head if he is not a bad one,” growled Mr. Grimwig, speaking by some ventriloquial power, without moving a muscle of his face.
+"He is a child with a noble nature and a warm heart," said Rose, blushing. "And the same Power that has tested him so much has given him affections and feelings that would be an honor to many who are six times his age."
 
-“He is a child of a noble nature and a warm heart,” said Rose, colouring; “and that Power which has thought fit to try him beyond his years, has planted in his breast affections and feelings which would do honour to many who have numbered his days six times over.”
+"I'm only sixty-one," said Mr. Grimwig, with the same rigid expression. "And since this Oliver must be at least twelve, I don't see how that remark applies."
 
-“I’m only sixty-one,” said Mr. Grimwig, with the same rigid face. “And, as the devil’s in it if this Oliver is not twelve years old at least, I don’t see the application of that remark.”
+"Don't pay any attention to my friend, Miss Maylie," said Mr. Brownlow. "He doesn't mean what he says."
 
-“Do not heed my friend, Miss Maylie,” said Mr. Brownlow; “he does not mean what he says.”
+"Yes, he does," grumbled Mr. Grimwig.
 
-“Yes, he does,” growled Mr. Grimwig.
+"No, he does not," said Mr. Brownlow, clearly becoming angry.
 
-“No, he does not,” said Mr. Brownlow, obviously rising in wrath as he spoke.
+"He'll eat his head if he doesn't," grumbled Mr. Grimwig.
 
-“He’ll eat his head, if he doesn’t,” growled Mr. Grimwig.
+"He would deserve to have it knocked off if he does," said Mr. Brownlow.
 
-“He would deserve to have it knocked off, if he does,” said Mr. Brownlow.
+"And he'd very much like to see any man try to do it," Mr. Grimwig responded, banging his stick on the floor.
 
-“And he’d uncommonly like to see any man offer to do it,” responded Mr. Grimwig, knocking his stick upon the floor.
+After this, the two old gentlemen each took a pinch of snuff and then shook hands, as they always did.
 
-Having gone thus far, the two old gentlemen severally took snuff, and afterwards shook hands, according to their invariable custom.
+"Now, Miss Maylie," said Mr. Brownlow, "to return to the matter you are so concerned about. Will you tell me what you know of this poor child? I must tell you that I tried everything to find him. And since I've been away, my first impression that he had deceived me and been convinced by his old friends to rob me has been greatly weakened."
 
-“Now, Miss Maylie,” said Mr. Brownlow, “to return to the subject in which your humanity is so much interested. Will you let me know what intelligence you have of this poor child: allowing me to promise that I exhausted every means in my power of discovering him, and that since I have been absent from this country, my first impression that he had imposed upon me, and had been persuaded by his former associates to rob me, has been considerably shaken.”
+Rose, who had had a moment to collect her thoughts, simply and naturally told him everything that had happened to Oliver since he left Mr. Brownlow's house. She saved Nancy's information for the gentleman to hear in private and finished by saying that Oliver's only sadness for months had been his inability to find his old friend and benefactor.
 
-Rose, who had had time to collect her thoughts, at once related, in a few natural words, all that had befallen Oliver since he left Mr. Brownlow’s house; reserving Nancy’s information for that gentleman’s private ear, and concluding with the assurance that his only sorrow, for some months past, had been not being able to meet with his former benefactor and friend.
+"Thank God!" said the old gentleman. "This is great happiness for me. But you haven't told me where he is now, Miss Maylie. You must forgive me for asking, but why didn't you bring him?"
 
-“Thank God!” said the old gentleman. “This is great happiness to me, great happiness. But you have not told me where he is now, Miss Maylie. You must pardon my finding fault with you,—but why not have brought him?”
+"He is waiting in a carriage at the door," replied Rose.
 
-“He is waiting in a coach at the door,” replied Rose.
+"At this door!" cried the old gentleman. With that, he rushed out of the room, down the stairs, up the carriage steps, and into the carriage without another word.
 
-“At this door!” cried the old gentleman. With which he hurried out of the room, down the stairs, up the coachsteps, and into the coach, without another word.
+When the door closed behind him, Mr. Grimwig lifted his head and, using one of the back legs of his chair as a pivot, spun around three times with the help of his stick and the table, all while still sitting. After this, he stood up and limped up and down the room a dozen times. Then, stopping suddenly in front of Rose, he kissed her without any warning.
 
-When the room-door closed behind him, Mr. Grimwig lifted up his head, and converting one of the hind legs of his chair into a pivot, described three distinct circles with the assistance of his stick and the table; sitting in it all the time. After performing this evolution, he rose and limped as fast as he could up and down the room at least a dozen times, and then stopping suddenly before Rose, kissed her without the slightest preface.
+"Hush!" he said, as the young lady stood up in alarm. "Don't be afraid. I'm old enough to be your grandfather. You're a sweet girl. I like you. Here they are!"
 
-“Hush!” he said, as the young lady rose in some alarm at this unusual proceeding. “Don’t be afraid. I’m old enough to be your grandfather. You’re a sweet girl. I like you. Here they are!”
+And as he dove back into his seat, Mr. Brownlow returned with Oliver. Mr. Grimwig greeted him very kindly. If the joy of that moment had been the only reward for all her worry and care for Oliver, Rose Maylie would have been well paid.
 
-In fact, as he threw himself at one dexterous dive into his former seat, Mr. Brownlow returned, accompanied by Oliver, whom Mr. Grimwig received very graciously; and if the gratification of that moment had been the only reward for all her anxiety and care in Oliver’s behalf, Rose Maylie would have been well repaid.
+"There is someone else who shouldn't be forgotten," said Mr. Brownlow, ringing a bell. "Send Mrs. Bedwin here, please."
 
-“There is somebody else who should not be forgotten, by the bye,” said Mr. Brownlow, ringing the bell. “Send Mrs. Bedwin here, if you please.”
+The old housekeeper came at once. Dropping a curtsy at the door, she waited for instructions.
 
-The old housekeeper answered the summons with all dispatch; and dropping a curtsey at the door, waited for orders.
+"Why, you get blinder every day, Bedwin," said Mr. Brownlow, a little irritably.
 
-“Why, you get blinder every day, Bedwin,” said Mr. Brownlow, rather testily.
+"Well, that I do, sir," replied the old lady. "People's eyes don't improve with age at my time of life, sir."
 
-“Well, that I do, sir,” replied the old lady. “People’s eyes, at my time of life, don’t improve with age, sir.”
+"I could have told you that," replied Mr. Brownlow. "But put on your glasses and see if you can figure out why you were wanted, will you?"
 
-“I could have told you that,” rejoined Mr. Brownlow; “but put on your glasses, and see if you can’t find out what you were wanted for, will you?”
+The old lady began to search in her pocket for her spectacles. But Oliver's patience couldn't handle another delay. He gave in to his first impulse and sprang into her arms.
 
-The old lady began to rummage in her pocket for her spectacles. But Oliver’s patience was not proof against this new trial; and yielding to his first impulse, he sprang into her arms.
+"God be good to me!" cried the old lady, hugging him. "It is my innocent boy!"
 
-“God be good to me!” cried the old lady, embracing him; “it is my innocent boy!”
+"My dear old nurse!" cried Oliver.
 
-“My dear old nurse!” cried Oliver.
+"He would come back—I knew he would," said the old lady, holding him tightly. "How well he looks, and how he's dressed like a gentleman's son again! Where have you been all this long while? Ah, the same sweet face, but not so pale; the same soft eyes, but not so sad. I have never forgotten them or his quiet smile. I have seen them every day, next to those of my own dear children, who have been dead and gone since I was a young woman." And so she continued, now holding Oliver away from her to see how he had grown, now hugging him close and running her fingers through his hair. The good woman laughed and cried on his neck.
 
-“He would come back—I knew he would,” said the old lady, holding him in her arms. “How well he looks, and how like a gentleman’s son he is dressed again! Where have you been, this long, long while? Ah! the same sweet face, but not so pale; the same soft eye, but not so sad. I have never forgotten them or his quiet smile, but have seen them every day, side by side with those of my own dear children, dead and gone since I was a lightsome young creature.” Running on thus, and now holding Oliver from her to mark how he had grown, now clasping him to her and passing her fingers fondly through his hair, the good soul laughed and wept upon his neck by turns.
+Leaving her and Oliver to talk, Mr. Brownlow led the way into another room. There, he heard from Rose the full story of her meeting with Nancy, which surprised and confused him. Rose also explained why she hadn't told her friend Mr. Losberne at first. The old gentleman thought she had acted wisely and agreed to have a serious talk with the good doctor himself. To do this soon, it was arranged that he would call at the hotel at eight o'clock that evening. In the meantime, Mrs. Maylie would be carefully told of everything that had happened. With these plans made, Rose and Oliver returned home.
 
-Leaving her and Oliver to compare notes at leisure, Mr. Brownlow led the way into another room; and there, heard from Rose a full narration of her interview with Nancy, which occasioned him no little surprise and perplexity. Rose also explained her reasons for not confiding in her friend Mr. Losberne in the first instance. The old gentleman considered that she had acted prudently, and readily undertook to hold solemn conference with the worthy doctor himself. To afford him an early opportunity for the execution of this design, it was arranged that he should call at the hotel at eight o’clock that evening, and that in the meantime Mrs. Maylie should be cautiously informed of all that had occurred. These preliminaries adjusted, Rose and Oliver returned home.
+Rose had not at all exaggerated the doctor's anger. As soon as he heard Nancy's story, he shouted a mix of threats and curses. He threatened to make her the first victim of the detectives Blathers and Duff and even put on his hat to go and get their help. And he probably would have done it in his initial rage, without thinking of the consequences, if he hadn't been stopped. Mr. Brownlow, who was also quick-tempered, argued with him forcefully. Others also tried to convince him to abandon his reckless plan.
 
-Rose had by no means overrated the measure of the good doctor’s wrath. Nancy’s history was no sooner unfolded to him, than he poured forth a shower of mingled threats and execrations; threatened to make her the first victim of the combined ingenuity of Messrs. Blathers and Duff; and actually put on his hat preparatory to sallying forth to obtain the assistance of those worthies. And, doubtless, he would, in this first outbreak, have carried the intention into effect without a moment’s consideration of the consequences, if he had not been restrained, in part, by corresponding violence on the side of Mr. Brownlow, who was himself of an irascible temperament, and partly by such arguments and representations as seemed best calculated to dissuade him from his hotbrained purpose.
+"Then what the devil is to be done?" said the impulsive doctor when they had rejoined the two ladies. "Are we to thank all these villains, men and women, and ask them to accept a hundred pounds each as a small token of our respect for their kindness to Oliver?"
 
-“Then what the devil is to be done?” said the impetuous doctor, when they had rejoined the two ladies. “Are we to pass a vote of thanks to all these vagabonds, male and female, and beg them to accept a hundred pounds, or so, apiece, as a trifling mark of our esteem, and some slight acknowledgment of their kindness to Oliver?”
+"Not exactly that," replied Mr. Brownlow, laughing. "But we must be gentle and very careful."
 
-“Not exactly that,” rejoined Mr. Brownlow, laughing; “but we must proceed gently and with great care.”
+"Gentleness and care!" exclaimed the doctor. "I'd send them all to—"
 
-“Gentleness and care,” exclaimed the doctor. “I’d send them one and all to—”
+"Never mind where," interrupted Mr. Brownlow. "But think about whether sending them anywhere will help us achieve our goal."
 
-“Never mind where,” interposed Mr. Brownlow. “But reflect whether sending them anywhere is likely to attain the object we have in view.”
+"What goal?" asked the doctor.
 
-“What object?” asked the doctor.
+"Simply, to discover Oliver's parents and get back the inheritance that, if this story is true, he has been cheated out of."
 
-“Simply, the discovery of Oliver’s parentage, and regaining for him the inheritance of which, if this story be true, he has been fraudulently deprived.”
+"Ah!" said Mr. Losberne, cooling himself with his handkerchief. "I almost forgot that."
 
-“Ah!” said Mr. Losberne, cooling himself with his pocket-handkerchief; “I almost forgot that.”
+"You see," continued Mr.Brownlow, "even if we forget about this poor girl and could bring these scoundrels to justice without risking her safety, what good would we do?"
 
-“You see,” pursued Mr. Brownlow; “placing this poor girl entirely out of the question, and supposing it were possible to bring these scoundrels to justice without compromising her safety, what good should we bring about?”
+"Hanging a few of them, at least," suggested the doctor, "and sending the rest away."
 
-“Hanging a few of them at least, in all probability,” suggested the doctor, “and transporting the rest.”
+"Very good," replied Mr. Brownlow, smiling. "But they will probably bring that upon themselves in time. If we step in to do it for them, it seems to me we would be acting foolishly and against our own interests—or at least Oliver's, which is the same thing."
 
-“Very good,” replied Mr. Brownlow, smiling; “but no doubt they will bring that about for themselves in the fulness of time, and if we step in to forestall them, it seems to me that we shall be performing a very Quixotic act, in direct opposition to our own interest—or at least to Oliver’s, which is the same thing.”
+"How?" asked the doctor.
 
-“How?” inquired the doctor.
+"Like this. It's clear that it will be very difficult to solve this mystery unless we can get this man, Monks, to confess. That can only be done with a clever plan, by catching him when he's not with these people. Suppose he were arrested; we have no proof against him. He isn't even involved in their robberies, as far as we know. If he wasn't let go, he probably wouldn't get much more punishment than being sent to prison as a vagrant. And of course, after that, his mouth would be so tightly shut that he might as well be deaf, dumb, blind, and an idiot for our purposes."
 
-“Thus. It is quite clear that we shall have extreme difficulty in getting to the bottom of this mystery, unless we can bring this man, Monks, upon his knees. That can only be done by stratagem, and by catching him when he is not surrounded by these people. For, suppose he were apprehended, we have no proof against him. He is not even (so far as we know, or as the facts appear to us) concerned with the gang in any of their robberies. If he were not discharged, it is very unlikely that he could receive any further punishment than being committed to prison as a rogue and vagabond; and of course ever afterwards his mouth would be so obstinately closed that he might as well, for our purposes, be deaf, dumb, blind, and an idiot.”
+"Then," said the doctor forcefully, "I ask you again, do you think it's reasonable to consider this promise to the girl binding? A promise made with the best intentions, but really—"
 
-“Then,” said the doctor impetuously, “I put it to you again, whether you think it reasonable that this promise to the girl should be considered binding; a promise made with the best and kindest intentions, but really—”
+"Let's not discuss it, my dear young lady, please," said Mr. Brownlow, interrupting Rose as she was about to speak. "The promise will be kept. I don't think it will interfere with our plans at all. But before we can decide on a course of action, we need to see the girl. We need to find out from her if she will point out this Monks, with the understanding that we will deal with him, not the law. If she won't or can't do that, we need to get a description of his usual places and his appearance so we can identify him. We can't see her until next Sunday night, and this is Tuesday. I suggest that in the meantime, we remain perfectly quiet and keep these matters secret, even from Oliver himself."
 
-“Do not discuss the point, my dear young lady, pray,” said Mr. Brownlow, interrupting Rose as she was about to speak. “The promise shall be kept. I don’t think it will, in the slightest degree, interfere with our proceedings. But, before we can resolve upon any precise course of action, it will be necessary to see the girl; to ascertain from her whether she will point out this Monks, on the understanding that he is to be dealt with by us, and not by the law; or, if she will not, or cannot do that, to procure from her such an account of his haunts and description of his person, as will enable us to identify him. She cannot be seen until next Sunday night; this is Tuesday. I would suggest that in the meantime, we remain perfectly quiet, and keep these matters secret even from Oliver himself.”
+Although Mr. Losberne made many sour faces at a proposal that meant a delay of five whole days, he had to admit that he couldn't think of a better plan. And since both Rose and Mrs. Maylie strongly agreed with Mr. Brownlow, the gentleman's suggestion was approved by everyone.
 
-Although Mr. Losberne received with many wry faces a proposal involving a delay of five whole days, he was fain to admit that no better course occurred to him just then; and as both Rose and Mrs. Maylie sided very strongly with Mr. Brownlow, that gentleman’s proposition was carried unanimously.
+"I would like," he said, "to ask for the help of my friend Grimwig. He is a strange man, but a smart one, and he might be of great help to us. I should say that he was trained as a lawyer and left the profession in disgust because he only had one case in twenty years. Whether that's a recommendation or not, you must decide for yourselves."
 
-“I should like,” he said, “to call in the aid of my friend Grimwig. He is a strange creature, but a shrewd one, and might prove of material assistance to us; I should say that he was bred a lawyer, and quitted the Bar in disgust because he had only one brief and a motion of course, in twenty years, though whether that is recommendation or not, you must determine for yourselves.”
+"I have no objection to you calling your friend if I may call mine," said the doctor.
 
-“I have no objection to your calling in your friend if I may call in mine,” said the doctor.
+"We must put it to a vote," replied Mr. Brownlow. "Who might he be?"
 
-“We must put it to the vote,” replied Mr. Brownlow, “who may he be?”
+"That lady's son, and this young lady's—very old friend," said the doctor, gesturing toward Mrs. Maylie and finishing with a meaningful look at her niece.
 
-“That lady’s son, and this young lady’s—very old friend,” said the doctor, motioning towards Mrs. Maylie, and concluding with an expressive glance at her niece.
+Rose blushed deeply but didn't object to the suggestion (perhaps she felt she was in the minority). And so, Harry Maylie and Mr. Grimwig were added to the committee.
 
-Rose blushed deeply, but she did not make any audible objection to this motion (possibly she felt in a hopeless minority); and Harry Maylie and Mr. Grimwig were accordingly added to the committee.
+"We will stay in town, of course," said Mrs. Maylie, "as long as there is any chance of this investigation succeeding. I will spare no trouble or expense for the goal we are all so deeply invested in. I am happy to stay here, even if it's for a year, as long as you assure me that there is still hope."
 
-“We stay in town, of course,” said Mrs. Maylie, “while there remains the slightest prospect of prosecuting this inquiry with a chance of success. I will spare neither trouble nor expense in behalf of the object in which we are all so deeply interested, and I am content to remain here, if it be for twelve months, so long as you assure me that any hope remains.”
+"Good!" replied Mr. Brownlow. "And since I see that everyone here wants to know why I wasn't around to confirm Oliver's story and had so suddenly left the country, let me ask that no questions be asked until I think it's the right time to tell my own story. Believe me, I have a good reason for this request, for I might otherwise raise hopes that will never be fulfilled and only add to the many difficulties and disappointments we already face. Come! Supper has been announced, and young Oliver, who is all alone in the next room, will soon start to think that we have grown tired of his company and are plotting to send him out into the world again."
 
-“Good!” rejoined Mr. Brownlow. “And as I see on the faces about me, a disposition to inquire how it happened that I was not in the way to corroborate Oliver’s tale, and had so suddenly left the kingdom, let me stipulate that I shall be asked no questions until such time as I may deem it expedient to forestall them by telling my own story. Believe me, I make this request with good reason, for I might otherwise excite hopes destined never to be realised, and only increase difficulties and disappointments already quite numerous enough. Come! Supper has been announced, and young Oliver, who is all alone in the next room, will have begun to think, by this time, that we have wearied of his company, and entered into some dark conspiracy to thrust him forth upon the world.”
-
-With these words, the old gentleman gave his hand to Mrs. Maylie, and escorted her into the supper-room. Mr. Losberne followed, leading Rose; and the council was, for the present, effectually broken up.`,
+With these words, the old gentleman gave his hand to Mrs. Maylie and led her into the dining room. Mr. Losberne followed, leading Rose, and for now, the council was effectively over.`,
 }

@@ -1,213 +1,213 @@
 export const chapter_26 = {
 	name: 'Chapter XXVI',
 	header: 'In which a mysterious character appears upon the scene; and many things, inseparable from this history, are done and performed',
-	text: `The old man had gained the street corner, before he began to recover the effect of Toby Crackit’s intelligence. He had relaxed nothing of his unusual speed; but was still pressing onward, in the same wild and disordered manner, when the sudden dashing past of a carriage: and a boisterous cry from the foot passengers, who saw his danger: drove him back upon the pavement. Avoiding, as much as was possible, all the main streets, and skulking only through the by-ways and alleys, he at length emerged on Snow Hill. Here he walked even faster than before; nor did he linger until he had again turned into a court; when, as if conscious that he was now in his proper element, he fell into his usual shuffling pace, and seemed to breathe more freely.
+	text: `The old man reached the street corner before he started to recover from Toby Crackit’s news. He hadn’t slowed his unusual speed but was still rushing onward in the same wild and chaotic way. Then, a carriage suddenly dashed past, and there was a loud cry from pedestrians who saw his danger, which drove him back to the pavement. He avoided the main streets as much as possible, sticking to the side-streets and alleys, and finally emerged on Snow Hill. Here he walked even faster than before. He didn't slow down until he turned into a courtyard. There, as if realizing he was back in his own territory, he returned to his usual shuffling walk and seemed to breathe more freely.
 
-Near to the spot on which Snow Hill and Holborn Hill meet, opens, upon the right hand as you come out of the City, a narrow and dismal alley, leading to Saffron Hill. In its filthy shops are exposed for sale huge bunches of second-hand silk handkerchiefs, of all sizes and patterns; for here reside the traders who purchase them from pick-pockets. Hundreds of these handkerchiefs hang dangling from pegs outside the windows or flaunting from the door-posts; and the shelves, within, are piled with them. Confined as the limits of Field Lane are, it has its barber, its coffee-shop, its beer-shop, and its fried-fish warehouse. It is a commercial colony of itself: the emporium of petty larceny: visited at early morning, and setting-in of dusk, by silent merchants, who traffic in dark back-parlours, and who go as strangely as they come. Here, the clothesman, the shoe-vamper, and the rag-merchant, display their goods, as sign-boards to the petty thief; here, stores of old iron and bones, and heaps of mildewy fragments of woollen-stuff and linen, rust and rot in the grimy cellars.
+Near the place where Snow Hill and Holborn Hill meet, on the right as you come from the City, there is a narrow and gloomy alley leading to Saffron Hill. In its dirty shops, large bunches of second-hand silk handkerchiefs of all sizes and patterns were displayed for sale. This is where the traders who buy them from pickpockets lived. Hundreds of these handkerchiefs hung from pegs outside the windows or fluttered from the door-posts, and the shelves inside were piled high with them. Although Field Lane was small, it had its own barber, coffee-shop, beer-shop, and fried-fish seller. It was a little commercial world of its own, a marketplace for petty theft. It was visited in the early morning and at dusk by silent merchants who did business in dark back rooms and left as strangely as they arrived. Here, sellers of clothes, shoes, and rags displayed their goods like signs for the petty thief. Here, stores of old iron and bones, and heaps of moldy pieces of wool and linen, rusted and rotted in the grimy cellars.
 
-It was into this place that the Jew turned. He was well known to the sallow denizens of the lane; for such of them as were on the look-out to buy or sell, nodded, familiarly, as he passed along. He replied to their salutations in the same way; but bestowed no closer recognition until he reached the further end of the alley; when he stopped, to address a salesman of small stature, who had squeezed as much of his person into a child’s chair as the chair would hold, and was smoking a pipe at his warehouse door.
+It was into this place that the Jew turned. The pale residents of the lane knew him well, for those who were looking to buy or sell nodded familiarly as he passed. He returned their greetings in the same way but offered no further recognition until he reached the far end of the alley. There he stopped to speak to a short salesman who had squeezed himself into a child’s chair and was smoking a pipe at his warehouse door.
 
-“Why, the sight of you, Mr. Fagin, would cure the hoptalmy!” said this respectable trader, in acknowledgment of the Jew’s inquiry after his health.
+“Why, the sight of you, Mr. Fagin, is a sight for sore eyes!” said this respectable trader, after the Jew asked about his health.
 
-“The neighbourhood was a little too hot, Lively,” said Fagin, elevating his eyebrows, and crossing his hands upon his shoulders.
+“The neighborhood was a little too hot, Lively,” said Fagin, raising his eyebrows and crossing his hands on his shoulders.
 
-“Well, I’ve heerd that complaint of it, once or twice before,” replied the trader; “but it soon cools down again; don’t you find it so?”
+“Well, I’ve heard that complaint once or twice before,” replied the trader, “but it soon cools down again. Don’t you think so?”
 
-Fagin nodded in the affirmative. Pointing in the direction of Saffron Hill, he inquired whether any one was up yonder tonight.
+Fagin nodded. Pointing toward Saffron Hill, he asked if anyone was up there tonight.
 
-“At the Cripples?” inquired the man.
+“At the Cripples?” asked the man.
 
 The Jew nodded.
 
-“Let me see,” pursued the merchant, reflecting. “Yes, there’s some half-dozen of ’em gone in, that I knows. I don’t think your friend’s there.”
+“Let me see,” the merchant continued, thinking. “Yes, about half a dozen of them have gone in, that I know of. I don’t think your friend is there.”
 
-“Sikes is not, I suppose?” inquired the Jew, with a disappointed countenance.
+“Sikes is not there, I suppose?” asked the Jew, with a disappointed look.
 
-“Non istwentus, as the lawyers say,” replied the little man, shaking his head, and looking amazingly sly. “Have you got anything in my line tonight?”
+“‘Non est inventus,’ as the lawyers say,” replied the little man, shaking his head and looking very sly. “Have you got anything for me tonight?”
 
 “Nothing tonight,” said the Jew, turning away.
 
-“Are you going up to the Cripples, Fagin?” cried the little man, calling after him. “Stop! I don’t mind if I have a drop there with you!”
+“Are you going up to the Cripples, Fagin?” cried the little man, calling after him. “Stop! I wouldn’t mind having a drink there with you!”
 
-But as the Jew, looking back, waved his hand to intimate that he preferred being alone; and, moreover, as the little man could not very easily disengage himself from the chair; the sign of the Cripples was, for a time, bereft of the advantage of Mr. Lively’s presence. By the time he had got upon his legs, the Jew had disappeared; so Mr. Lively, after ineffectually standing on tiptoe, in the hope of catching sight of him, again forced himself into the little chair, and, exchanging a shake of the head with a lady in the opposite shop, in which doubt and mistrust were plainly mingled, resumed his pipe with a grave demeanour.
+But the Jew, looking back, waved his hand to show that he preferred to be alone. Also, the little man couldn’t easily get out of the chair. So, the Cripples was, for a time, without Mr. Lively’s presence. By the time he was on his feet, the Jew had disappeared. So Mr. Lively, after standing on tiptoe in a failed attempt to see him, squeezed back into the little chair. He exchanged a doubtful and mistrustful look with a lady in the opposite shop and resumed his pipe with a serious expression.
 
-The Three Cripples, or rather the Cripples; which was the sign by which the establishment was familiarly known to its patrons: was the public-house in which Mr. Sikes and his dog have already figured. Merely making a sign to a man at the bar, Fagin walked straight upstairs, and opening the door of a room, and softly insinuating himself into the chamber, looked anxiously about: shading his eyes with his hand, as if in search of some particular person.
+The Three Cripples, or simply the Cripples, as it was known to its regulars, was the pub where Mr. Sikes and his dog had appeared before. Fagin gave a quick sign to a man at the bar, walked straight upstairs, opened the door of a room, and slipped inside. He looked around anxiously, shielding his eyes with his hand as if searching for someone in particular.
 
-The room was illuminated by two gas-lights; the glare of which was prevented by the barred shutters, and closely-drawn curtains of faded red, from being visible outside. The ceiling was blackened, to prevent its colour from being injured by the flaring of the lamps; and the place was so full of dense tobacco smoke, that at first it was scarcely possible to discern anything more. By degrees, however, as some of it cleared away through the open door, an assemblage of heads, as confused as the noises that greeted the ear, might be made out; and as the eye grew more accustomed to the scene, the spectator gradually became aware of the presence of a numerous company, male and female, crowded round a long table: at the upper end of which, sat a chairman with a hammer of office in his hand; while a professional gentleman with a bluish nose, and his face tied up for the benefit of a toothache, presided at a jingling piano in a remote corner.
+The room was lit by two gas-lights. Barred shutters and heavy, faded red curtains prevented the glare from being seen outside. The ceiling was blackened to protect it from the smoke of the lamps. The room was so full of thick tobacco smoke that at first, it was hard to see anything. Gradually, as some smoke cleared through the open door, a crowd of heads could be seen, as jumbled as the noises that filled the room. As the eyes got used to the scene, one could see a large company of men and women crowded around a long table. At the head of the table sat a chairman with a hammer in his hand. A professional musician with a bluish nose and his face tied up because of a toothache sat at a noisy piano in a corner.
 
-As Fagin stepped softly in, the professional gentleman, running over the keys by way of prelude, occasioned a general cry of order for a song; which having subsided, a young lady proceeded to entertain the company with a ballad in four verses, between each of which the accompanyist played the melody all through, as loud as he could. When this was over, the chairman gave a sentiment, after which, the professional gentleman on the chairman’s right and left volunteered a duet, and sang it, with great applause.
+As Fagin stepped in quietly, the musician played a short introduction on the piano, which led to a general call for a song. After the call for order, a young lady began to sing a ballad with four verses. Between each verse, the accompanist played the full melody as loudly as he could. When she finished, the chairman made a toast. Then, the musicians to the chairman’s right and left sang a duet, which was met with great applause.
 
-It was curious to observe some faces which stood out prominently from among the group. There was the chairman himself, (the landlord of the house,) a coarse, rough, heavy built fellow, who, while the songs were proceeding, rolled his eyes hither and thither, and, seeming to give himself up to joviality, had an eye for everything that was done, and an ear for everything that was said—and sharp ones, too. Near him were the singers: receiving, with professional indifference, the compliments of the company, and applying themselves, in turn, to a dozen proffered glasses of spirits and water, tendered by their more boisterous admirers; whose countenances, expressive of almost every vice in almost every grade, irresistibly attracted the attention, by their very repulsiveness. Cunning, ferocity, and drunkeness in all its stages, were there, in their strongest aspect; and women: some with the last lingering tinge of their early freshness almost fading as you looked: others with every mark and stamp of their sex utterly beaten out, and presenting but one loathsome blank of profligacy and crime; some mere girls, others but young women, and none past the prime of life; formed the darkest and saddest portion of this dreary picture.
+It was strange to see some faces that stood out from the crowd. There was the chairman himself (the landlord), a coarse, rough, heavily-built man. While the songs were being sung, his eyes darted around. He seemed to be enjoying himself, but he had an eye for everything that was done and an ear for everything that was said—and very sharp ones, too. Near him were the singers, who accepted the compliments of the crowd with professional coolness. They drank from the many glasses of spirits and water offered by their louder admirers. The faces of these admirers, showing almost every kind of vice, were captivating in their ugliness. Cunning, ferocity, and all stages of drunkenness were on display. And the women—some with the last bit of their youthful freshness fading as you watched, others with all signs of their womanhood gone, showing only a disgusting emptiness of vice and crime. Some were just girls, others young women, and none were past their prime. They formed the darkest and saddest part of this grim scene.
 
-Fagin, troubled by no grave emotions, looked eagerly from face to face while these proceedings were in progress; but apparently without meeting that of which he was in search. Succeeding, at length, in catching the eye of the man who occupied the chair, he beckoned to him slightly, and left the room, as quietly as he had entered it.
+Fagin, not bothered by any serious thoughts, looked eagerly from face to face as this was all happening, but he didn't seem to find the person he was looking for. Finally, he caught the eye of the man in the chairman's seat, gave him a slight nod, and left the room as quietly as he had entered.
 
-“What can I do for you, Mr. Fagin?” inquired the man, as he followed him out to the landing. “Won’t you join us? They’ll be delighted, every one of ’em.”
+“What can I do for you, Mr. Fagin?” asked the man as he followed him to the landing. “Won’t you join us? They’ll all be delighted to see you.”
 
-The Jew shook his head impatiently, and said in a whisper, “Is he here?”
+The Jew shook his head impatiently and whispered, “Is he here?”
 
 “No,” replied the man.
 
-“And no news of Barney?” inquired Fagin.
+“And no news of Barney?” asked Fagin.
 
-“None,” replied the landlord of the Cripples; for it was he. “He won’t stir till it’s all safe. Depend on it, they’re on the scent down there; and that if he moved, he’d blow upon the thing at once. He’s all right enough, Barney is, else I should have heard of him. I’ll pound it, that Barney’s managing properly. Let him alone for that.”
+“None,” replied the landlord of the Cripples, for it was he. “He won’t move until it’s all safe. Believe me, they’re onto him down there. If he moved, he’d give the whole thing away at once. Barney is alright, or I would have heard from him. I bet Barney is handling it properly. Let him be.”
 
-“Will he be here tonight?” asked the Jew, laying the same emphasis on the pronoun as before.
+“Will he be here tonight?” asked the Jew, emphasizing the pronoun as before.
 
-“Monks, do you mean?” inquired the landlord, hesitating.
+“Monks, do you mean?” asked the landlord, hesitating.
 
 “Hush!” said the Jew. “Yes.”
 
-“Certain,” replied the man, drawing a gold watch from his fob; “I expected him here before now. If you’ll wait ten minutes, he’ll be—”
+“Certainly,” replied the man, pulling a gold watch from his pocket. “I expected him here before now. If you’ll wait ten minutes, he’ll be—”
 
-“No, no,” said the Jew, hastily; as though, however desirous he might be to see the person in question, he was nevertheless relieved by his absence. “Tell him I came here to see him; and that he must come to me tonight. No, say tomorrow. As he is not here, tomorrow will be time enough.”
+“No, no,” said the Jew quickly. Although he wanted to see the person, he was also relieved by his absence. “Tell him I came to see him and that he must come to me tonight. No, say tomorrow. Since he is not here, tomorrow will be soon enough.”
 
-“Good!” said the man. “Nothing more?”
+“Good!” said the man. “Anything else?”
 
-“Not a word now,” said the Jew, descending the stairs.
+“Not a word now,” said the Jew, going down the stairs.
 
-“I say,” said the other, looking over the rails, and speaking in a hoarse whisper; “what a time this would be for a sell! I’ve got Phil Barker here: so drunk, that a boy might take him!”
+“I say,” said the other, looking over the railing and speaking in a hoarse whisper, “what a time this would be for a betrayal! I’ve got Phil Barker here, so drunk that a boy could take him!”
 
-“Ah! But it’s not Phil Barker’s time,” said the Jew, looking up. “Phil has something more to do, before we can afford to part with him; so go back to the company, my dear, and tell them to lead merry lives—while they last. Ha! ha! ha!”
+“Ah! But it’s not Phil Barker’s time,” said the Jew, looking up. “Phil has more to do before we can let him go. So go back to the party, my dear, and tell them to live merrily—while they can. Ha! ha! ha!”
 
-The landlord reciprocated the old man’s laugh; and returned to his guests. The Jew was no sooner alone, than his countenance resumed its former expression of anxiety and thought. After a brief reflection, he called a hack-cabriolet, and bade the man drive towards Bethnal Green. He dismissed him within some quarter of a mile of Mr. Sikes’s residence, and performed the short remainder of the distance on foot.
+The landlord echoed the old man’s laugh and returned to his guests. As soon as the Jew was alone, his face returned to its former expression of anxiety and thought. After a short reflection, he called a cab and told the driver to go towards Bethnal Green. He got out about a quarter of a mile from Mr. Sikes’s home and walked the rest of the way.
 
-“Now,” muttered the Jew, as he knocked at the door, “if there is any deep play here, I shall have it out of you, my girl, cunning as you are.”
+“Now,” muttered the Jew as he knocked on the door, “if there is any trickery here, I will get it out of you, my girl, as cunning as you are.”
 
-She was in her room, the woman said. Fagin crept softly upstairs, and entered it without any previous ceremony. The girl was alone; lying with her head upon the table, and her hair straggling over it.
+She was in her room, the woman said. Fagin crept softly upstairs and entered without knocking. The girl was alone, lying with her head on the table and her hair spread all over it.
 
-“She has been drinking,” thought the Jew, cooly, “or perhaps she is only miserable.”
+“She has been drinking,” thought the Jew, coolly, “or perhaps she is just miserable.”
 
-The old man turned to close the door, as he made this reflection; the noise thus occasioned, roused the girl. She eyed his crafty face narrowly, as she inquired to his recital of Toby Crackit’s story. When it was concluded, she sank into her former attitude, but spoke not a word. She pushed the candle impatiently away; and once or twice as she feverishly changed her position, shuffled her feet upon the ground; but this was all.
+The old man turned to close the door as he thought this. The noise woke the girl. She watched his crafty face closely as he told her Toby Crackit’s story. When he finished, she sank back into her former position but didn’t say a word. She pushed the candle away impatiently. A couple of times, she restlessly changed her position and shuffled her feet on the ground, but that was all.
 
-During the silence, the Jew looked restlessly about the room, as if to assure himself that there were no appearances of Sikes having covertly returned. Apparently satisfied with his inspection, he coughed twice or thrice, and made as many efforts to open a conversation; but the girl heeded him no more than if he had been made of stone. At length he made another attempt; and rubbing his hands together, said, in his most conciliatory tone,
+During the silence, the Jew looked around the room, as if to make sure there were no signs that Sikes had secretly returned. Seemingly satisfied, he coughed a few times and tried to start a conversation, but the girl ignored him as if he were made of stone. Finally, he tried again, rubbing his hands together and saying in his most persuasive tone,
 
-“And where should you think Bill was now, my dear?”
+“And where do you think Bill is now, my dear?”
 
-The girl moaned out some half intelligible reply, that she could not tell; and seemed, from the smothered noise that escaped her, to be crying.
+The girl moaned a half-understandable reply that she couldn’t tell and seemed to be crying, based on the muffled sound that she made.
 
-“And the boy, too,” said the Jew, straining his eyes to catch a glimpse of her face. “Poor leetle child! Left in a ditch, Nance; only think!”
+“And the boy, too,” said the Jew, trying hard to see her face. “Poor little child! Left in a ditch, Nance, just think!”
 
-“The child,” said the girl, suddenly looking up, “is better where he is, than among us; and if no harm comes to Bill from it, I hope he lies dead in the ditch and that his young bones may rot there.”
+“The child,” said the girl, suddenly looking up, “is better where he is than with us. And if no harm comes to Bill from it, I hope he lies dead in the ditch and that his young bones rot there.”
 
 “What!” cried the Jew, in amazement.
 
-“Ay, I do,” returned the girl, meeting his gaze. “I shall be glad to have him away from my eyes, and to know that the worst is over. I can’t bear to have him about me. The sight of him turns me against myself, and all of you.”
+“Yes, I do,” replied the girl, meeting his eyes. “I’ll be glad to have him out of my sight and to know that the worst is over. I can’t stand having him around me. The sight of him turns me against myself and all of you.”
 
-“Pooh!” said the Jew, scornfully. “You’re drunk.”
+“Nonsense!” said the Jew, scornfully. “You’re drunk.”
 
-“Am I?” cried the girl bitterly. “It’s no fault of yours, if I am not! You’d never have me anything else, if you had your will, except now;—the humour doesn’t suit you, doesn’t it?”
+“Am I?” cried the girl bitterly. “It’s not your fault if I’m not! You’d never want me to be anything else, if you had your way, except for now—this mood doesn’t suit you, does it?”
 
-“No!” rejoined the Jew, furiously. “It does not.”
+“No!” shouted the Jew, furiously. “It does not.”
 
-“Change it, then!” responded the girl, with a laugh.
+“Change it, then!” she replied with a laugh.
 
-“Change it!” exclaimed the Jew, exasperated beyond all bounds by his companion’s unexpected obstinacy, and the vexation of the night, “I will change it! Listen to me, you drab. Listen to me, who with six words, can strangle Sikes as surely as if I had his bull’s throat between my fingers now. If he comes back, and leaves the boy behind him; if he gets off free, and dead or alive, fails to restore him to me; murder him yourself if you would have him escape Jack Ketch. And do it the moment he sets foot in this room, or mind me, it will be too late!”
+“Change it!” exclaimed the Jew, angered beyond limits by her unexpected stubbornness and the frustrations of the night. “I will change it! Listen to me, you worthless woman. Listen to me, I can kill Sikes with six words as surely as if I had his thick neck between my fingers right now. If he comes back and leaves the boy behind, if he gets away free, and dead or alive, fails to bring him back to me, you must murder him yourself if you want him to escape the hangman. And do it the moment he steps into this room, or believe me, it will be too late!”
 
-“What is all this?” cried the girl involuntarily.
+“What is all this?” cried the girl, shocked.
 
-“What is it?” pursued Fagin, mad with rage. “When the boy’s worth hundreds of pounds to me, am I to lose what chance threw me in the way of getting safely, through the whims of a drunken gang that I could whistle away the lives of! And me bound, too, to a born devil that only wants the will, and has the power to, to—”
+“What is it?” continued Fagin, mad with rage. “When the boy is worth hundreds of pounds to me, should I lose what chance gave me, all because of the whims of a drunken gang whose lives I could end with a whistle? And I am tied to a born devil who only needs the will, and has the power, to—”
 
-Panting for breath, the old man stammered for a word; and in that instant checked the torrent of his wrath, and changed his whole demeanour. A moment before, his clenched hands had grasped the air; his eyes had dilated; and his face grown livid with passion; but now, he shrunk into a chair, and, cowering together, trembled with the apprehension of having himself disclosed some hidden villainy. After a short silence, he ventured to look round at his companion. He appeared somewhat reassured, on beholding her in the same listless attitude from which he had first roused her.
+Panting for breath, the old man struggled for a word. In that instant, he stopped his angry outburst and changed his whole behavior. A moment before, his clenched hands had been grabbing the air, his eyes were wide, and his face was pale with passion. But now, he shrank into a chair and, huddled together, trembled with the fear of having revealed some hidden secret. After a short silence, he dared to look at his companion. He seemed a little relieved to see her in the same uncaring position from which he had first woken her.
 
-“Nancy, dear!” croaked the Jew, in his usual voice. “Did you mind me, dear?”
+“Nancy, dear!” croaked the Jew in his usual voice. “Did you hear me, dear?”
 
-“Don’t worry me now, Fagin!” replied the girl, raising her head languidly. “If Bill has not done it this time, he will another. He has done many a good job for you, and will do many more when he can; and when he can’t he won’t; so no more about that.”
+“Don’t bother me now, Fagin!” replied the girl, raising her head weakly. “If Bill hasn’t done it this time, he will another time. He has done many good jobs for you and will do many more when he can. And when he can’t, he won’t. So no more about it.”
 
-“Regarding this boy, my dear?” said the Jew, rubbing the palms of his hands nervously together.
+“About this boy, my dear?” said the Jew, rubbing his palms together nervously.
 
-“The boy must take his chance with the rest,” interrupted Nancy, hastily; “and I say again, I hope he is dead, and out of harm’s way, and out of yours,—that is, if Bill comes to no harm. And if Toby got clear off, Bill’s pretty sure to be safe; for Bill’s worth two of Toby any time.”
+“The boy must take his chance with the rest,” interrupted Nancy, quickly. “And I say again, I hope he is dead and out of harm’s way, and out of yours—that is, if Bill comes to no harm. And if Toby got away, Bill is probably safe, because Bill is worth two of Toby any day.”
 
-“And about what I was saying, my dear?” observed the Jew, keeping his glistening eye steadily upon her.
+“And what about what I was saying, my dear?” asked the Jew, keeping his glittering eyes fixed on her.
 
-“You must say it all over again, if it’s anything you want me to do,” rejoined Nancy; “and if it is, you had better wait till tomorrow. You put me up for a minute; but now I’m stupid again.”
+“You’ll have to say it all over again if you want me to do something,” replied Nancy. “And if you do, you had better wait until tomorrow. You angered me for a minute, but now I’m numb again.”
 
-Fagin put several other questions: all with the same drift of ascertaining whether the girl had profited by his unguarded hints; but, she answered them so readily, and was withal so utterly unmoved by his searching looks, that his original impression of her being more than a trifle in liquor, was confirmed. Nancy, indeed, was not exempt from a failing which was very common among the Jew’s female pupils; and in which, in their tenderer years, they were rather encouraged than checked. Her disordered appearance, and a wholesale perfume of Geneva which pervaded the apartment, afforded strong confirmatory evidence of the justice of the Jew’s supposition; and when, after indulging in the temporary display of violence above described, she subsided, first into dullness, and afterwards into a compound of feelings: under the influence of which she shed tears one minute, and in the next gave utterance to various exclamations of “Never say die!” and divers calculations as to what might be the amount of the odds so long as a lady or gentleman was happy, Mr. Fagin, who had had considerable experience of such matters in his time, saw, with great satisfaction, that she was very far gone indeed.
+Fagin asked several more questions, all trying to find out if the girl had understood his careless hints. But she answered them so easily and was so completely unaffected by his sharp looks that he was sure his first impression of her being drunk was correct. Nancy, in fact, had a weakness that was very common among the Jew’s female students, and they were encouraged rather than stopped in their younger years. Her messy appearance and the strong smell of gin in the room confirmed the Jew’s suspicion. And when, after her brief outburst of anger, she first became quiet and then a mix of feelings—crying one minute and shouting “Never say die!” the next—Mr. Fagin, who had a lot of experience with such things, saw with great satisfaction that she was very drunk indeed.
 
-Having eased his mind by this discovery; and having accomplished his twofold object of imparting to the girl what he had, that night, heard, and of ascertaining, with his own eyes, that Sikes had not returned, Mr. Fagin again turned his face homeward: leaving his young friend asleep, with her head upon the table.
+Having calmed his mind with this discovery, and having achieved his two goals of telling the girl what he had heard that night and seeing for himself that Sikes had not returned, Mr. Fagin turned to go home, leaving his young friend asleep with her head on the table.
 
-It was within an hour of midnight. The weather being dark, and piercing cold, he had no great temptation to loiter. The sharp wind that scoured the streets, seemed to have cleared them of passengers, as of dust and mud, for few people were abroad, and they were to all appearance hastening fast home. It blew from the right quarter for the Jew, however, and straight before it he went: trembling, and shivering, as every fresh gust drove him rudely on his way.
+It was almost midnight. The weather was dark and freezing cold, so he had no desire to linger. The sharp wind that blew through the streets seemed to have cleared them of people, just like it cleared the dust and mud. Few people were out, and they all seemed to be hurrying home. The wind was blowing in the right direction for the Jew, however, and he went straight into it, trembling and shivering as each gust pushed him roughly on his way.
 
-He had reached the corner of his own street, and was already fumbling in his pocket for the door-key, when a dark figure emerged from a projecting entrance which lay in deep shadow, and, crossing the road, glided up to him unperceived.
+He had reached the corner of his own street and was already fumbling in his pocket for the door-key when a dark figure appeared from a shadowed doorway, crossed the road, and slipped up to him unnoticed.
 
 “Fagin!” whispered a voice close to his ear.
 
-“Ah!” said the Jew, turning quickly round, “is that—”
+“Ah!” said the Jew, turning around quickly. “Is that—”
 
-“Yes!” interrupted the stranger. “I have been lingering here these two hours. Where the devil have you been?”
+“Yes!” interrupted the stranger. “I have been waiting here for two hours. Where the devil have you been?”
 
-“On your business, my dear,” replied the Jew, glancing uneasily at his companion, and slackening his pace as he spoke. “On your business all night.”
+“On your business, my dear,” replied the Jew, glancing nervously at his companion and slowing down as he spoke. “On your business all night.”
 
-“Oh, of course!” said the stranger, with a sneer. “Well; and what’s come of it?”
+“Oh, of course!” said the stranger, with a sneer. “Well, and what came of it?”
 
 “Nothing good,” said the Jew.
 
-“Nothing bad, I hope?” said the stranger, stopping short, and turning a startled look on his companion.
+“Nothing bad, I hope?” said the stranger, stopping suddenly and looking at his companion with alarm.
 
-The Jew shook his head, and was about to reply, when the stranger, interrupting him, motioned to the house, before which they had by this time arrived: remarking, that he had better say what he had got to say, under cover: for his blood was chilled with standing about so long, and the wind blew through him.
+The Jew shook his head and was about to answer when the stranger, interrupting him, pointed to the house they had now reached. He remarked that he should say what he had to say inside, because his blood was cold from standing around for so long, and the wind blew right through him.
 
-Fagin looked as if he could have willingly excused himself from taking home a visitor at that unseasonable hour; and, indeed, muttered something about having no fire; but his companion repeating his request in a peremptory manner, he unlocked the door, and requested him to close it softly, while he got a light.
+Fagin looked as if he would have gladly avoided taking a visitor home at such a late hour. He even muttered something about having no fire. But his companion repeated his request firmly, so he unlocked the door and asked him to close it softly while he got a light.
 
-“It’s as dark as the grave,” said the man, groping forward a few steps. “Make haste!”
+“It’s as dark as the grave,” said the man, feeling his way forward a few steps. “Hurry up!”
 
-“Shut the door,” whispered Fagin from the end of the passage. As he spoke, it closed with a loud noise.
+“Shut the door,” whispered Fagin from the end of the hallway. As he spoke, it closed with a loud bang.
 
-“That wasn’t my doing,” said the other man, feeling his way. “The wind blew it to, or it shut of its own accord: one or the other. Look sharp with the light, or I shall knock my brains out against something in this confounded hole.”
+“That wasn’t me,” said the other man, feeling his way. “The wind blew it shut, or it closed on its own. One or the other. Hurry up with the light, or I’ll knock my brains out against something in this wretched hole.”
 
-Fagin stealthily descended the kitchen stairs. After a short absence, he returned with a lighted candle, and the intelligence that Toby Crackit was asleep in the back room below, and that the boys were in the front one. Beckoning the man to follow him, he led the way upstairs.
+Fagin quietly went down the kitchen stairs. After a short time, he returned with a lit candle and the news that Toby Crackit was asleep in the back room below, and that the boys were in the front one. He motioned for the man to follow him and led the way upstairs.
 
-“We can say the few words we’ve got to say in here, my dear,” said the Jew, throwing open a door on the first floor; “and as there are holes in the shutters, and we never show lights to our neighbours, we’ll set the candle on the stairs. There!”
+“We can say what we need to say in here, my dear,” said the Jew, opening a door on the first floor. “And since there are holes in the shutters and we never show lights to our neighbors, we’ll put the candle on the stairs. There!”
 
-With those words, the Jew, stooping down, placed the candle on an upper flight of stairs, exactly opposite to the room door. This done, he led the way into the apartment; which was destitute of all movables save a broken arm-chair, and an old couch or sofa without covering, which stood behind the door. Upon this piece of furniture, the stranger sat himself with the air of a weary man; and the Jew, drawing up the arm-chair opposite, they sat face to face. It was not quite dark; the door was partially open; and the candle outside, threw a feeble reflection on the opposite wall.
+With those words, the Jew bent down and placed the candle on an upper flight of stairs, directly across from the room door. Then, he led the way into the room, which was empty except for a broken armchair and an old, uncovered couch or sofa behind the door. The stranger sat down on the couch like a tired man, and the Jew pulled up the armchair opposite him. They sat face to face. It was not completely dark; the door was partly open, and the candle outside cast a faint reflection on the opposite wall.
 
-They conversed for some time in whispers. Though nothing of the conversation was distinguishable beyond a few disjointed words here and there, a listener might easily have perceived that Fagin appeared to be defending himself against some remarks of the stranger; and that the latter was in a state of considerable irritation. They might have been talking, thus, for a quarter of an hour or more, when Monks—by which name the Jew had designated the strange man several times in the course of their colloquy—said, raising his voice a little,
+They talked for some time in whispers. Although nothing of the conversation could be heard except for a few stray words here and there, a listener could have easily guessed that Fagin was defending himself against some of the stranger’s comments, and that the stranger was very irritated. They might have been talking like this for a quarter of an hour or more when Monks—the name the Jew had used for the strange man several times—said, raising his voice a little,
 
-“I tell you again, it was badly planned. Why not have kept him here among the rest, and made a sneaking, snivelling pickpocket of him at once?”
+“I tell you again, it was badly planned. Why not have kept him here with the others and made a sneaky, little pickpocket of him at once?”
 
-“Only hear him!” exclaimed the Jew, shrugging his shoulders.
+“Just listen to him!” exclaimed the Jew, shrugging his shoulders.
 
-“Why, do you mean to say you couldn’t have done it, if you had chosen?” demanded Monks, sternly. “Haven’t you done it, with other boys, scores of times? If you had had patience for a twelvemonth, at most, couldn’t you have got him convicted, and sent safely out of the kingdom; perhaps for life?”
+“Why, do you mean to say you couldn’t have done it if you had wanted to?” demanded Monks, sternly. “Haven’t you done it with other boys, dozens of times? If you had been patient for a year at most, couldn’t you have gotten him convicted and sent safely out of the country, maybe for life?”
 
-“Whose turn would that have served, my dear?” inquired the Jew humbly.
+“Who would that have helped, my dear?” asked the Jew, humbly.
 
-“Mine,” replied Monks.
+“Me,” replied Monks.
 
-“But not mine,” said the Jew, submissively. “He might have become of use to me. When there are two parties to a bargain, it is only reasonable that the interests of both should be consulted; is it, my good friend?”
+“But not me,” said the Jew, quietly. “He might have been useful to me. When there are two people in a deal, it’s only fair that both sides are considered, isn’t it, my good friend?”
 
 “What then?” demanded Monks.
 
-“I saw it was not easy to train him to the business,” replied the Jew; “he was not like other boys in the same circumstances.”
+“I saw it was not easy to train him for the business,” replied the Jew. “He was not like other boys in the same situation.”
 
-“Curse him, no!” muttered the man, “or he would have been a thief, long ago.”
+“Curse him, no!” muttered the man, “or he would have been a thief long ago.”
 
-“I had no hold upon him to make him worse,” pursued the Jew, anxiously watching the countenance of his companion. “His hand was not in. I had nothing to frighten him with; which we always must have in the beginning, or we labour in vain. What could I do? Send him out with the Dodger and Charley? We had enough of that, at first, my dear; I trembled for us all.”
+“I had no power over him to make him worse,” continued the Jew, anxiously watching his companion’s face. “He wasn’t involved. I had nothing to scare him with, which we always need in the beginning, or our efforts are wasted. What could I do? Send him out with the Dodger and Charley? We had enough of that at first, my dear. I was worried for all of us.”
 
-“That was not my doing,” observed Monks.
+“That wasn’t my fault,” said Monks.
 
-“No, no, my dear!” renewed the Jew. “And I don’t quarrel with it now; because, if it had never happened, you might never have clapped eyes on the boy to notice him, and so led to the discovery that it was him you were looking for. Well! I got him back for you by means of the girl; and then she begins to favour him.”
+“No, no, my dear!” continued the Jew. “And I’m not arguing about it now, because if it had never happened, you might never have seen the boy to notice him, and that led to the discovery that he was the one you were looking for. Well! I got him back for you with the girl’s help, and then she started to like him.”
 
-“Throttle the girl!” said Monks, impatiently.
+“Get rid of the girl!” said Monks, impatiently.
 
-“Why, we can’t afford to do that just now, my dear,” replied the Jew, smiling; “and, besides, that sort of thing is not in our way; or, one of these days, I might be glad to have it done. I know what these girls are, Monks, well. As soon as the boy begins to harden, she’ll care no more for him, than for a block of wood. You want him made a thief. If he is alive, I can make him one from this time; and, if—if—” said the Jew, drawing nearer to the other,—“it’s not likely, mind,—but if the worst comes to the worst, and he is dead—”
+“Why, we can’t afford to do that just now, my dear,” replied the Jew, smiling. “And besides, that kind of thing is not our style. Otherwise, one of these days, I might be glad to have it done. I know what these girls are, Monks, I know them well. As soon as the boy starts to become tough, she won’t care about him any more than a block of wood. You want him to become a thief. If he is alive, I can make him one starting now. And if—if—” said the Jew, moving closer to the other man, “it’s not likely, mind you, but if the worst happens, and he is dead—”
 
-“It’s no fault of mine if he is!” interposed the other man, with a look of terror, and clasping the Jew’s arm with trembling hands. “Mind that. Fagin! I had no hand in it. Anything but his death, I told you from the first. I won’t shed blood; it’s always found out, and haunts a man besides. If they shot him dead, I was not the cause; do you hear me? Fire this infernal den! What’s that?”
+“It’s not my fault if he is!” interrupted the other man, terrified, and grabbing the Jew’s arm with trembling hands. “Remember that, Fagin! I had nothing to do with it. Anything but his death, I told you from the start. I won’t shed blood; it’s always discovered, and it haunts a man, too. If they shot him dead, I was not the one who caused it, do you hear me? Burn this horrible place! What’s that?”
 
-“What!” cried the Jew, grasping the coward round the body, with both arms, as he sprung to his feet. “Where?”
+“What!” cried the Jew, grabbing the coward around the body with both arms as he jumped to his feet. “Where?”
 
-“Yonder!” replied the man, glaring at the opposite wall. “The shadow! I saw the shadow of a woman, in a cloak and bonnet, pass along the wainscot like a breath!”
+“Over there!” replied the man, staring at the opposite wall. “The shadow! I saw the shadow of a woman in a cloak and bonnet pass along the wall like a breath!”
 
-The Jew released his hold, and they rushed tumultuously from the room. The candle, wasted by the draught, was standing where it had been placed. It showed them only the empty staircase, and their own white faces. They listened intently: a profound silence reigned throughout the house.
+The Jew let go, and they rushed out of the room. The candle, flickering from the draft, was still where it had been placed. It showed them only the empty staircase and their own white faces. They listened carefully: a deep silence filled the house.
 
-“It’s your fancy,” said the Jew, taking up the light and turning to his companion.
+“It’s your imagination,” said the Jew, picking up the light and turning to his companion.
 
-“I’ll swear I saw it!” replied Monks, trembling. “It was bending forward when I saw it first; and when I spoke, it darted away.”
+“I swear I saw it!” replied Monks, trembling. “It was bending forward when I saw it first, and when I spoke, it darted away.”
 
-The Jew glanced contemptuously at the pale face of his associate, and, telling him he could follow, if he pleased, ascended the stairs. They looked into all the rooms; they were cold, bare, and empty. They descended into the passage, and thence into the cellars below. The green damp hung upon the low walls; the tracks of the snail and slug glistened in the light of the candle; but all was still as death.
+The Jew glanced scornfully at the pale face of his companion and, telling him he could follow if he wanted, went up the stairs. They looked into all the rooms; they were cold, bare, and empty. They went down to the hallway and then into the cellars below. Green dampness hung on the low walls; the slimy tracks of snails and slugs shone in the candlelight, but everything was as still as death.
 
-“What do you think now?” said the Jew, when they had regained the passage. “Besides ourselves, there’s not a creature in the house except Toby and the boys; and they’re safe enough. See here!”
+“What do you think now?” said the Jew, when they were back in the hallway. “Besides us, there’s not a single creature in the house except Toby and the boys, and they’re safe enough. See here!”
 
-As a proof of the fact, the Jew drew forth two keys from his pocket; and explained, that when he first went downstairs, he had locked them in, to prevent any intrusion on the conference.
+As proof, the Jew pulled out two keys from his pocket and explained that when he first went downstairs, he had locked them in to prevent anyone from interrupting their conversation.
 
-This accumulated testimony effectually staggered Mr. Monks. His protestations had gradually become less and less vehement as they proceeded in their search without making any discovery; and, now, he gave vent to several very grim laughs, and confessed it could only have been his excited imagination. He declined any renewal of the conversation, however, for that night: suddenly remembering that it was past one o’clock. And so the amiable couple parted.
+This collection of evidence finally made Mr. Monks doubt himself. His claims had become less and less forceful as they searched without finding anything. Now, he let out several grim laughs and admitted it must have been his overactive imagination. However, he refused to continue the conversation for that night, suddenly remembering that it was past one o’clock. And so, the lovely couple parted ways.
 
 `,
 }

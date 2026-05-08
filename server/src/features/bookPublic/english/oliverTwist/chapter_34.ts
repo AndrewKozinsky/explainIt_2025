@@ -1,147 +1,146 @@
 export const chapter_34 = {
 	name: 'Chapter XXXIV',
 	header: 'Contains some introductory particulars relative to a young gentleman who now arrives upon the scene; and a new adventure which happened to Oliver',
-	text: `It was almost too much happiness to bear. Oliver felt stunned and stupefied by the unexpected intelligence; he could not weep, or speak, or rest. He had scarcely the power of understanding anything that had passed, until, after a long ramble in the quiet evening air, a burst of tears came to his relief, and he seemed to awaken, all at once, to a full sense of the joyful change that had occurred, and the almost insupportable load of anguish which had been taken from his breast.
+	text: `It was almost too much happiness to handle. Oliver felt stunned and amazed by the unexpected news; he could not cry, speak, or rest. He could hardly understand what had happened until, after a long walk in the quiet evening air, he finally burst into tears, which brought him relief. He seemed to awaken, all at once, to the full happy change that had happened, and the terrible weight of sadness that had been lifted from him.
 
-The night was fast closing in, when he returned homeward: laden with flowers which he had culled, with peculiar care, for the adornment of the sick chamber. As he walked briskly along the road, he heard behind him, the noise of some vehicle, approaching at a furious pace. Looking round, he saw that it was a post-chaise, driven at great speed; and as the horses were galloping, and the road was narrow, he stood leaning against a gate until it should have passed him.
+The night was quickly getting dark when he returned home, carrying flowers he had picked with special care to decorate the sick room. As he walked quickly along the road, he heard the noise of a vehicle behind him, coming very fast. Looking around, he saw it was a carriage, driven at great speed. Since the horses were galloping and the road was narrow, he leaned against a gate until it passed him.
 
-As it dashed on, Oliver caught a glimpse of a man in a white nightcap, whose face seemed familiar to him, although his view was so brief that he could not identify the person. In another second or two, the nightcap was thrust out of the chaise-window, and a stentorian voice bellowed to the driver to stop: which he did, as soon as he could pull up his horses. Then, the nightcap once again appeared: and the same voice called Oliver by his name.
+As it rushed by, Oliver saw a man in a white nightcap whose face looked familiar, but the view was so quick he could not recognize the person. A moment later, the nightcap was pushed out of the carriage window, and a loud voice yelled for the driver to stop, which he did as soon as he could control the horses. Then, the nightcap appeared again, and the same voice called Oliver’s name.
 
 “Here!” cried the voice. “Oliver, what’s the news? Miss Rose! Master O-li-ver!”
 
-“Is it you, Giles?” cried Oliver, running up to the chaise-door.
+“Is it you, Giles?” cried Oliver, running to the carriage door.
 
-Giles popped out his nightcap again, preparatory to making some reply, when he was suddenly pulled back by a young gentleman who occupied the other corner of the chaise, and who eagerly demanded what was the news.
+Giles put his nightcap out again, ready to reply, but he was suddenly pulled back by a young gentleman in the other corner of the carriage, who eagerly asked what the news was.
 
 “In a word!” cried the gentleman, “Better or worse?”
 
-“Better—much better!” replied Oliver, hastily.
+“Better—much better!” replied Oliver, quickly.
 
-“Thank Heaven!” exclaimed the gentleman. “You are sure?”
+“Thank Heaven!” exclaimed the gentleman. “Are you sure?”
 
-“Quite, sir,” replied Oliver. “The change took place only a few hours ago; and Mr. Losberne says, that all danger is at an end.”
+“Quite sure, sir,” replied Oliver. “The change happened just a few hours ago. Mr. Losberne says all danger has passed.”
 
-The gentleman said not another word, but, opening the chaise-door, leaped out, and taking Oliver hurriedly by the arm, led him aside.
+The gentleman said nothing more, but opened the carriage door, jumped out, and quickly took Oliver’s arm, leading him aside.
 
-“You are quite certain? There is no possibility of any mistake on your part, my boy, is there?” demanded the gentleman in a tremulous voice. “Do not deceive me, by awakening hopes that are not to be fulfilled.”
+“Are you certain? Is there no chance of a mistake, my boy?” the gentleman asked in a shaky voice. “Do not give me false hope.”
 
-“I would not for the world, sir,” replied Oliver. “Indeed you may believe me. Mr. Losberne’s words were, that she would live to bless us all for many years to come. I heard him say so.”
+“I wouldn’t for the world, sir,” replied Oliver. “You can believe me. Mr. Losberne’s words were that she would live to bless us all for many years. I heard him say it myself.”
 
-The tears stood in Oliver’s eyes as he recalled the scene which was the beginning of so much happiness; and the gentleman turned his face away, and remained silent, for some minutes. Oliver thought he heard him sob, more than once; but he feared to interrupt him by any fresh remark—for he could well guess what his feelings were—and so stood apart, feigning to be occupied with his nosegay.
+Tears filled Oliver’s eyes as he remembered the scene that brought so much happiness. The gentleman turned his face away and was silent for a few minutes. Oliver thought he heard him sob more than once but was afraid to interrupt. He understood his feelings and stood by, pretending to be busy with his flowers.
 
-All this time, Mr. Giles, with the white nightcap on, had been sitting on the steps of the chaise, supporting an elbow on each knee, and wiping his eyes with a blue cotton pocket-handkerchief dotted with white spots. That the honest fellow had not been feigning emotion, was abundantly demonstrated by the very red eyes with which he regarded the young gentleman, when he turned round and addressed him.
+All this time, Mr. Giles, still in his white nightcap, sat on the carriage steps. He rested his elbows on his knees and wiped his eyes with a blue and white handkerchief. The redness of his eyes showed that his emotion was real when he looked at the young gentleman who turned and spoke to him.
 
-“I think you had better go on to my mother’s in the chaise, Giles,” said he. “I would rather walk slowly on, so as to gain a little time before I see her. You can say I am coming.”
+“I think you should continue to my mother’s in the carriage, Giles,” he said. “I’d rather walk slowly to have some time before I see her. You can tell her I’m coming.”
 
-“I beg your pardon, Mr. Harry,” said Giles: giving a final polish to his ruffled countenance with the handkerchief; “but if you would leave the postboy to say that, I should be very much obliged to you. It wouldn’t be proper for the maids to see me in this state, sir; I should never have any more authority with them if they did.”
+“Pardon me, Mr. Harry,” said Giles, wiping his face with the handkerchief, “but I would be very grateful if you let the driver deliver the message. It wouldn’t be proper for the maids to see me in this state. I would lose all authority over them.”
 
-“Well,” rejoined Harry Maylie, smiling, “you can do as you like. Let him go on with the luggage, if you wish it, and do you follow with us. Only first exchange that nightcap for some more appropriate covering, or we shall be taken for madmen.”
+“Well,” replied Harry Maylie with a smile, “do as you wish. Let the driver go on with the luggage, and you can follow us. But first, change that nightcap for something more suitable, or people will think we are crazy.”
 
-Mr. Giles, reminded of his unbecoming costume, snatched off and pocketed his nightcap; and substituted a hat, of grave and sober shape, which he took out of the chaise. This done, the postboy drove off; Giles, Mr. Maylie, and Oliver, followed at their leisure.
+Mr. Giles, reminded of his odd attire, quickly took off and pocketed his nightcap. He replaced it with a serious-looking hat from the carriage. After that, the driver left, and Giles, Mr. Maylie, and Oliver followed at a relaxed pace.
 
-As they walked along, Oliver glanced from time to time with much interest and curiosity at the new comer. He seemed about five-and-twenty years of age, and was of the middle height; his countenance was frank and handsome; and his demeanor easy and prepossessing. Notwithstanding the difference between youth and age, he bore so strong a likeness to the old lady, that Oliver would have had no great difficulty in imagining their relationship, if he had not already spoken of her as his mother.
+As they walked, Oliver looked with interest and curiosity at the newcomer. He seemed to be about twenty-five, of medium height, with a friendly and handsome face and a pleasant manner. Despite the age difference, he looked so much like the old lady that Oliver would have guessed their relationship even if he hadn’t mentioned his mother.
 
-Mrs. Maylie was anxiously waiting to receive her son when he reached the cottage. The meeting did not take place without great emotion on both sides.
+Mrs. Maylie was waiting anxiously for her son at the cottage. Their meeting was very emotional for both of them.
 
-“Mother!” whispered the young man; “why did you not write before?”
+“Mother!” whispered the young man, “why didn’t you write sooner?”
 
-“I did,” replied Mrs. Maylie; “but, on reflection, I determined to keep back the letter until I had heard Mr. Losberne’s opinion.”
+“I did,” replied Mrs. Maylie, “but after thinking about it, I decided to wait for Mr. Losberne’s opinion.”
 
-“But why,” said the young man, “why run the chance of that occurring which so nearly happened? If Rose had—I cannot utter that word now—if this illness had terminated differently, how could you ever have forgiven yourself! How could I ever have know happiness again!”
+“But why,” said the young man, “why risk what almost happened? If Rose had… I can’t say the word… if this illness had ended differently, how could you have forgiven yourself! How could I have ever been happy again!”
 
-“If that had been the case, Harry,” said Mrs. Maylie, “I fear your happiness would have been effectually blighted, and that your arrival here, a day sooner or a day later, would have been of very, very little import.”
+“If that had happened, Harry,” said Mrs. Maylie, “I’m afraid your happiness would have been ruined. Your arrival a day sooner or later would have mattered very little.”
 
-“And who can wonder if it be so, mother?” rejoined the young man; “or why should I say, if?—It is—it is—you know it, mother—you must know it!”
+“And who could be surprised by that, mother?” replied the young man. “Why do I say ‘if’? It is… it is… you know it, mother… you must know it!”
 
-“I know that she deserves the best and purest love the heart of man can offer,” said Mrs. Maylie; “I know that the devotion and affection of her nature require no ordinary return, but one that shall be deep and lasting. If I did not feel this, and know, besides, that a changed behaviour in one she loved would break her heart, I should not feel my task so difficult of performance, or have to encounter so many struggles in my own bosom, when I take what seems to me to be the strict line of duty.”
+“I know she deserves the best and purest love a man can offer,” said Mrs. Maylie. “I know her devoted and affectionate nature needs a deep and lasting love in return. If I didn’t feel this, and also know that a change in behavior from someone she loved would break her heart, my task wouldn’t be so difficult. I wouldn’t have to struggle so much with myself when I try to do what I believe is my duty.”
 
-“This is unkind, mother,” said Harry. “Do you still suppose that I am a boy ignorant of my own mind, and mistaking the impulses of my own soul?”
+“That’s unkind, mother,” said Harry. “Do you still think I’m a boy who doesn’t know his own mind or feelings?”
 
-“I think, my dear son,” returned Mrs. Maylie, laying her hand upon his shoulder, “that youth has many generous impulses which do not last; and that among them are some, which, being gratified, become only the more fleeting. Above all, I think” said the lady, fixing her eyes on her son’s face, “that if an enthusiastic, ardent, and ambitious man marry a wife on whose name there is a stain, which, though it originate in no fault of hers, may be visited by cold and sordid people upon her, and upon his children also: and, in exact proportion to his success in the world, be cast in his teeth, and made the subject of sneers against him: he may, no matter how generous and good his nature, one day repent of the connection he formed in early life. And she may have the pain of knowing that he does so.”
+“I think, my dear son,” answered Mrs. Maylie, placing her hand on his shoulder, “that young people have many generous feelings that don’t last. And some of them, once satisfied, fade even faster. Above all,” said the lady, looking at her son, “I think that if an enthusiastic, passionate, and ambitious man marries a woman with a stain on her name—a stain not her fault, but one that society might hold against her and her children—he might one day regret his early marriage, no matter how good his nature. And she might have the pain of knowing it.”
 
-“Mother,” said the young man, impatiently, “he would be a selfish brute, unworthy alike of the name of man and of the woman you describe, who acted thus.”
+“Mother,” the young man said impatiently, “only a selfish brute, unworthy of being called a man, would act like that.”
 
 “You think so now, Harry,” replied his mother.
 
-“And ever will!” said the young man. “The mental agony I have suffered, during the last two days, wrings from me the avowal to you of a passion which, as you well know, is not one of yesterday, nor one I have lightly formed. On Rose, sweet, gentle girl! my heart is set, as firmly as ever heart of man was set on woman. I have no thought, no view, no hope in life, beyond her; and if you oppose me in this great stake, you take my peace and happiness in your hands, and cast them to the wind. Mother, think better of this, and of me, and do not disregard the happiness of which you seem to think so little.”
+“And I always will!” said the young man. “The agony I’ve felt these last two days makes me confess a passion that is not new. My heart belongs to Rose, that sweet, gentle girl, as firmly as any man’s heart has ever belonged to a woman. I have no thought, no hope in life beyond her. If you oppose this, you hold my peace and happiness in your hands and throw them away. Mother, please think better of this, and of me, and don’t ignore the happiness you seem to value so little.”
 
-“Harry,” said Mrs. Maylie, “it is because I think so much of warm and sensitive hearts, that I would spare them from being wounded. But we have said enough, and more than enough, on this matter, just now.”
+“Harry,” said Mrs. Maylie, “it is because I care so much for warm and sensitive hearts that I want to protect them from being hurt. But we have said enough on this topic for now.”
 
-“Let it rest with Rose, then,” interposed Harry. “You will not press these overstrained opinions of yours, so far, as to throw any obstacle in my way?”
+“Then let Rose decide,” Harry interrupted. “You won’t use your strict opinions to create obstacles for me, will you?”
 
-“I will not,” rejoined Mrs. Maylie; “but I would have you consider—”
+“I will not,” replied Mrs. Maylie, “but I want you to consider—”
 
-“I have considered!” was the impatient reply; “Mother, I have considered, years and years. I have considered, ever since I have been capable of serious reflection. My feelings remain unchanged, as they ever will; and why should I suffer the pain of a delay in giving them vent, which can be productive of no earthly good? No! Before I leave this place, Rose shall hear me.”
+“I have considered!” was the impatient answer. “Mother, I have considered for years. I’ve been thinking about it ever since I could think seriously. My feelings are unchanged and always will be. Why should I endure the pain of a delay that does no good? No! Before I leave, Rose will hear me.”
 
-“She shall,” said Mrs. Maylie.
+“She will,” said Mrs. Maylie.
 
-“There is something in your manner, which would almost imply that she will hear me coldly, mother,” said the young man.
+“Something in your tone suggests she will listen to me coldly, mother,” said the young man.
 
-“Not coldly,” rejoined the old lady; “far from it.”
+“Not coldly,” replied the old lady, “far from it.”
 
-“How then?” urged the young man. “She has formed no other attachment?”
+“How then?” he urged. “Is she in love with someone else?”
 
-“No, indeed,” replied his mother; “you have, or I mistake, too strong a hold on her affections already. What I would say,” resumed the old lady, stopping her son as he was about to speak, “is this. Before you stake your all on this chance; before you suffer yourself to be carried to the highest point of hope; reflect for a few moments, my dear child, on Rose’s history, and consider what effect the knowledge of her doubtful birth may have on her decision: devoted as she is to us, with all the intensity of her noble mind, and with that perfect sacrifice of self which, in all matters, great or trifling, has always been her characteristic.”
+“No, indeed,” his mother answered. “You already have a strong hold on her heart, if I’m not mistaken. What I mean to say,” she continued, stopping her son as he was about to speak, “is this. Before you risk everything on this, before you get your hopes up too high, think for a moment about Rose’s history. Consider how the knowledge of her uncertain background might affect her decision. She is devoted to us with all her noble heart and has always been completely selfless.”
 
 “What do you mean?”
 
-“That I leave you to discover,” replied Mrs. Maylie. “I must go back to her. God bless you!”
+“I’ll leave that for you to find out,” Mrs. Maylie replied. “I must go back to her. God bless you!”
 
-“I shall see you again tonight?” said the young man, eagerly.
+“Will I see you again tonight?” the young man asked eagerly.
 
-“By and by,” replied the lady; “when I leave Rose.”
+“Later,” replied the lady, “when I leave Rose.”
 
 “You will tell her I am here?” said Harry.
 
-“Of course,” replied Mrs. Maylie.
+“Of course,” Mrs. Maylie replied.
 
-“And say how anxious I have been, and how much I have suffered, and how I long to see her. You will not refuse to do this, mother?”
+“And tell her how anxious I’ve been, how much I’ve suffered, and how much I long to see her. You won’t refuse to do this, mother?”
 
-“No,” said the old lady; “I will tell her all.” And pressing her son’s hand, affectionately, she hastened from the room.
+“No,” said the old lady, “I will tell her everything.” And pressing her son’s hand affectionately, she hurried out of the room.
 
-Mr. Losberne and Oliver had remained at another end of the apartment while this hurried conversation was proceeding. The former now held out his hand to Harry Maylie; and hearty salutations were exchanged between them. The doctor then communicated, in reply to multifarious questions from his young friend, a precise account of his patient’s situation; which was quite as consolatory and full of promise, as Oliver’s statement had encouraged him to hope; and to the whole of which, Mr. Giles, who affected to be busy about the luggage, listened with greedy ears.
+Mr. Losberne and Oliver had stayed at the other end of the room during this quick conversation. The doctor now offered his hand to Harry Maylie, and they exchanged warm greetings. In response to many questions, the doctor gave a detailed account of his patient’s condition, which was as comforting and hopeful as Oliver’s report had suggested. Mr. Giles, pretending to be busy with the luggage, listened eagerly to every word.
 
-“Have you shot anything particular, lately, Giles?” inquired the doctor, when he had concluded.
+“Have you shot anything interesting lately, Giles?” the doctor asked when he was finished.
 
-“Nothing particular, sir,” replied Mr. Giles, colouring up to the eyes.
+“Nothing interesting, sir,” Mr. Giles replied, blushing.
 
-“Nor catching any thieves, nor identifying any house-breakers?” said the doctor.
+“Not caught any thieves or identified any house-breakers?” said the doctor.
 
-“None at all, sir,” replied Mr. Giles, with much gravity.
+“None at all, sir,” Mr. Giles answered with great seriousness.
 
-“Well,” said the doctor, “I am sorry to hear it, because you do that sort of thing admirably. Pray, how is Brittles?”
+“Well,” said the doctor, “I’m sorry to hear that, because you are excellent at that sort of thing. By the way, how is Brittles?”
 
-“The boy is very well, sir,” said Mr. Giles, recovering his usual tone of patronage; “and sends his respectful duty, sir.”
+“The boy is very well, sir,” said Mr. Giles, regaining his usual confident tone, “and he sends his respects.”
 
-“That’s well,” said the doctor. “Seeing you here, reminds me, Mr. Giles, that on the day before that on which I was called away so hurriedly, I executed, at the request of your good mistress, a small commission in your favour. Just step into this corner a moment, will you?”
+“That’s good,” said the doctor. “Seeing you, Mr. Giles, reminds me that the day before I was called away so suddenly, I did something for you at your mistress’s request. Step into this corner for a moment, will you?”
 
-Mr. Giles walked into the corner with much importance, and some wonder, and was honoured with a short whispering conference with the doctor, on the termination of which, he made a great many bows, and retired with steps of unusual stateliness. The subject matter of this conference was not disclosed in the parlour, but the kitchen was speedily enlightened concerning it; for Mr. Giles walked straight thither, and having called for a mug of ale, announced, with an air of majesty, which was highly effective, that it had pleased his mistress, in consideration of his gallant behaviour on the occasion of that attempted robbery, to deposit, in the local savings-bank, the sum of five-and-twenty pounds, for his sole use and benefit. At this, the two women-servants lifted up their hands and eyes, and supposed that Mr. Giles, pulling out his shirt-frill, replied, “No, no”; and that if they observed that he was at all haughty to his inferiors, he would thank them to tell him so. And then he made a great many other remarks, no less illustrative of his humility, which were received with equal favour and applause, and were, withal, as original and as much to the purpose, as the remarks of great men commonly are.
+Mr. Giles walked into the corner with a sense of importance and wonder. He had a short, whispered conversation with the doctor, after which he bowed many times and walked away with unusual dignity. What they talked about was not revealed in the parlor, but the kitchen staff soon found out. Mr. Giles went straight there, ordered a mug of ale, and announced with great importance that his mistress, in recognition of his brave actions during the attempted robbery, had deposited twenty-five pounds into the local savings bank for his personal use. At this, the two female servants looked amazed. Mr. Giles, puffing out his chest, said, “No, no,” and told them to let him know if he ever seemed arrogant to his inferiors. He then made several other humble remarks, which were met with approval and applause and were as original and meaningful as the comments of great men usually are.
 
-Above stairs, the remainder of the evening passed cheerfully away; for the doctor was in high spirits; and however fatigued or thoughtful Harry Maylie might have been at first, he was not proof against the worthy gentleman’s good humour, which displayed itself in a great variety of sallies and professional recollections, and an abundance of small jokes, which struck Oliver as being the drollest things he had ever heard, and caused him to laugh proportionately; to the evident satisfaction of the doctor, who laughed immoderately at himself, and made Harry laugh almost as heartily, by the very force of sympathy. So, they were as pleasant a party as, under the circumstances, they could well have been; and it was late before they retired, with light and thankful hearts, to take that rest of which, after the doubt and suspense they had recently undergone, they stood much in need.
+Upstairs, the rest of the evening was cheerful. The doctor was in high spirits, and although Harry Maylie might have been tired or thoughtful at first, he couldn’t resist the gentleman’s good humor. The doctor told many stories and jokes, which Oliver found to be the funniest things he had ever heard, causing him to laugh a lot. This clearly pleased the doctor, who laughed heartily at his own jokes and made Harry laugh almost as much through sympathy. They were as pleasant a group as they could be under the circumstances, and it was late when they went to bed with light and thankful hearts, needing the rest after the recent doubt and suspense.
 
-Oliver rose next morning, in better heart, and went about his usual occupations, with more hope and pleasure than he had known for many days. The birds were once more hung out, to sing, in their old places; and the sweetest wild flowers that could be found, were once more gathered to gladden Rose with their beauty. The melancholy which had seemed to the sad eyes of the anxious boy to hang, for days past, over every object, beautiful as all were, was dispelled by magic. The dew seemed to sparkle more brightly on the green leaves; the air to rustle among them with a sweeter music; and the sky itself to look more blue and bright. Such is the influence which the condition of our own thoughts, exercise, even over the appearance of external objects. Men who look on nature, and their fellow-men, and cry that all is dark and gloomy, are in the right; but the sombre colours are reflections from their own jaundiced eyes and hearts. The real hues are delicate, and need a clearer vision.
+Oliver woke up the next morning feeling much better and went about his daily tasks with more hope and pleasure than he had felt in days. The bird cages were hung out again in their usual spots, and the sweetest wildflowers were gathered to cheer up Rose with their beauty. The sadness that had seemed to hang over everything for the anxious boy was magically gone. The dew on the green leaves sparkled brighter, the air rustled with a sweeter sound, and the sky looked bluer and brighter. This is how our own thoughts can change the appearance of the world around us. People who see everything as dark and gloomy are right in a way, but those dark colors come from their own sad hearts. The true colors are delicate and require a clearer view.
 
-It is worthy of remark, and Oliver did not fail to note it at the time, that his morning expeditions were no longer made alone. Harry Maylie, after the very first morning when he met Oliver coming laden home, was seized with such a passion for flowers, and displayed such a taste in their arrangement, as left his young companion far behind. If Oliver were behindhand in these respects, he knew where the best were to be found; and morning after morning they scoured the country together, and brought home the fairest that blossomed. The window of the young lady’s chamber was opened now; for she loved to feel the rich summer air stream in, and revive her with its freshness; but there always stood in water, just inside the lattice, one particular little bunch, which was made up with great care, every morning. Oliver could not help noticing that the withered flowers were never thrown away, although the little vase was regularly replenished; nor, could he help observing, that whenever the doctor came into the garden, he invariably cast his eyes up to that particular corner, and nodded his head most expressively, as he set forth on his morning’s walk. Pending these observations, the days were flying by; and Rose was rapidly recovering.
+It is worth noting, and Oliver noticed it at the time, that he no longer went on his morning trips alone. After the first morning Harry Maylie saw Oliver returning with flowers, he developed a passion for flowers himself and showed such a talent for arranging them that he far surpassed his young companion. Although Oliver was not as skilled in arranging, he knew where to find the best flowers. Morning after morning, they searched the countryside together and brought back the most beautiful blossoms. The young lady’s bedroom window was now open, as she loved to feel the fresh summer air, which revived her. Inside, on the windowsill, there was always a small, carefully arranged bouquet in water. Oliver couldn’t help but notice that the old flowers were never thrown away, even though the vase was refilled daily. He also noticed that whenever the doctor entered the garden, he would look up at that specific corner and nod his head knowingly before starting his morning walk. As these days passed, Rose was recovering quickly.
 
-Nor did Oliver’s time hang heavy on his hands, although the young lady had not yet left her chamber, and there were no evening walks, save now and then, for a short distance, with Mrs. Maylie. He applied himself, with redoubled assiduity, to the instructions of the white-headed old gentleman, and laboured so hard that his quick progress surprised even himself. It was while he was engaged in this pursuit, that he was greatly startled and distressed by a most unexpected occurrence.
+Oliver was not bored, even though the young lady had not yet left her room and there were no evening walks, except for occasional short ones with Mrs. Maylie. He focused with renewed effort on his lessons with the white-haired old gentleman and worked so hard that his rapid progress surprised even himself. It was during this time that a very unexpected event startled and distressed him.
 
-The little room in which he was accustomed to sit, when busy at his books, was on the ground-floor, at the back of the house. It was quite a cottage-room, with a lattice-window: around which were clusters of jessamine and honeysuckle, that crept over the casement, and filled the place with their delicious perfume. It looked into a garden, whence a wicket-gate opened into a small paddock; all beyond, was fine meadow-land and wood. There was no other dwelling near, in that direction; and the prospect it commanded was very extensive.
+The small room where he used to study was on the ground floor, at the back of the house. It was a cozy cottage-room with a lattice window, surrounded by clusters of jasmine and honeysuckle that filled the air with their sweet scent. The window looked out into a garden, with a gate leading to a small field. Beyond that were meadows and woods. There were no other houses nearby in that direction, and the view was very wide.
 
-One beautiful evening, when the first shades of twilight were beginning to settle upon the earth, Oliver sat at this window, intent upon his books. He had been poring over them for some time; and, as the day had been uncommonly sultry, and he had exerted himself a great deal, it is no disparagement to the authors, whoever they may have been, to say, that gradually and by slow degrees, he fell asleep.
+One beautiful evening, as twilight began to fall, Oliver sat at this window, focused on his books. He had been studying for a while. Since the day had been very hot and he had been very active, it is no insult to the authors to say that he gradually fell asleep.
 
-There is a kind of sleep that steals upon us sometimes, which, while it holds the body prisoner, does not free the mind from a sense of things about it, and enable it to ramble at its pleasure. So far as an overpowering heaviness, a prostration of strength, and an utter inability to control our thoughts or power of motion, can be called sleep, this is it; and yet, we have a consciousness of all that is going on about us, and, if we dream at such a time, words which are really spoken, or sounds which really exist at the moment, accommodate themselves with surprising readiness to our visions, until reality and imagination become so strangely blended that it is afterwards almost matter of impossibility to separate the two. Nor is this, the most striking phenomenon incidental to such a state. It is an undoubted fact, that although our senses of touch and sight be for the time dead, yet our sleeping thoughts, and the visionary scenes that pass before us, will be influenced and materially influenced, by the mere silent presence of some external object; which may not have been near us when we closed our eyes: and of whose vicinity we have had no waking consciousness.
+There is a type of sleep that can come over us, which holds the body still but doesn't completely free the mind. We are heavy, weak, and unable to control our thoughts or movements, but we are still aware of what is happening around us. If we dream during this time, real words and sounds can become part of our dreams, mixing reality and imagination so well that it is almost impossible to separate them later. But this is not the most striking thing about this state. It is a known fact that even though our senses of touch and sight are dormant, our sleeping thoughts and dreams can be influenced by the silent presence of an object that was not there when we closed our eyes and that we were not aware of.
 
-Oliver knew, perfectly well, that he was in his own little room; that his books were lying on the table before him; that the sweet air was stirring among the creeping plants outside. And yet he was asleep. Suddenly, the scene changed; the air became close and confined; and he thought, with a glow of terror, that he was in the Jew’s house again. There sat the hideous old man, in his accustomed corner, pointing at him, and whispering to another man, with his face averted, who sat beside him.
+Oliver knew he was in his own small room, with his books on the table and the sweet air moving through the plants outside. And yet, he was asleep. Suddenly, the scene changed. The air became thick and heavy, and he felt a wave of terror as he thought he was back in the Jew’s house. The old man was there, in his usual corner, pointing at him and whispering to another man who sat beside him with his face turned away.
 
-“Hush, my dear!” he thought he heard the Jew say; “it is he, sure enough. Come away.”
+“Hush, my dear!” he thought he heard the Jew say. “It’s him, for sure. Come away.”
 
-“He!” the other man seemed to answer; “could I mistake him, think you? If a crowd of ghosts were to put themselves into his exact shape, and he stood amongst them, there is something that would tell me how to point him out. If you buried him fifty feet deep, and took me across his grave, I fancy I should know, if there wasn’t a mark above it, that he lay buried there?”
+“Him!” the other man seemed to reply. “Could I mistake him? If a crowd of ghosts looked just like him, and he was among them, something would still tell me how to find him. If you buried him fifty feet deep and I walked over his grave, I think I would know he was there, even without a marker.”
 
-The man seemed to say this, with such dreadful hatred, that Oliver awoke with the fear, and started up.
+The man seemed to speak with such terrible hatred that Oliver woke up in fear and jumped to his feet.
 
-Good Heaven! what was that, which sent the blood tingling to his heart, and deprived him of his voice, and of power to move! There—there—at the window—close before him—so close, that he could have almost touched him before he started back: with his eyes peering into the room, and meeting his: there stood the Jew! And beside him, white with rage or fear, or both, were the scowling features of the man who had accosted him in the inn-yard.
+Good heavens! What was that? It made his blood run cold and left him unable to speak or move. There—at the window—right in front of him—so close he could have almost touched him—was the Jew! His eyes were staring into the room, meeting Oliver’s. Beside him, pale with anger or fear, or both, were the angry features of the man he had met in the inn-yard.
 
-It was but an instant, a glance, a flash, before his eyes; and they were gone. But they had recognised him, and he them; and their look was as firmly impressed upon his memory, as if it had been deeply carved in stone, and set before him from his birth. He stood transfixed for a moment; then, leaping from the window into the garden, called loudly for help.
-
+It was just for a moment, a glance, a flash, and then they were gone. But they had recognized him, and he had recognized them. Their look was burned into his memory as if it had been carved in stone. He stood frozen for a moment, then jumped from the window into the garden and shouted for help.
 `,
 }

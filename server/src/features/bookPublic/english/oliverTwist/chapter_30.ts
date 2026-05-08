@@ -1,125 +1,125 @@
 export const chapter_30 = {
 	name: 'Chapter XXX',
 	header: 'Relates what Oliver’s new visitors thought of him',
-	text: `With many loquacious assurances that they would be agreeably surprised in the aspect of the criminal, the doctor drew the young lady’s arm through one of his; and offering his disengaged hand to Mrs. Maylie, led them, with much ceremony and stateliness, upstairs.
+	text: `With many talkative assurances that they would be pleasantly surprised by the criminal's appearance, the doctor took the young lady's arm in his. Offering his other hand to Mrs. Maylie, he led them upstairs with great ceremony.
 
-“Now,” said the doctor, in a whisper, as he softly turned the handle of a bedroom-door, “let us hear what you think of him. He has not been shaved very recently, but he don’t look at all ferocious notwithstanding. Stop, though! Let me first see that he is in visiting order.”
+"Now," the doctor whispered, softly turning the handle of a bedroom door, "let us hear what you think of him. He hasn't been shaved recently, but he doesn't look ferocious at all. Still, let me first see if he is ready for visitors."
 
-Stepping before them, he looked into the room. Motioning them to advance, he closed the door when they had entered; and gently drew back the curtains of the bed. Upon it, in lieu of the dogged, black-visaged ruffian they had expected to behold, there lay a mere child: worn with pain and exhaustion, and sunk into a deep sleep. His wounded arm, bound and splintered up, was crossed upon his breast; his head reclined upon the other arm, which was half hidden by his long hair, as it streamed over the pillow.
+Stepping before them, he looked into the room. He motioned for them to enter, then closed the door and gently drew back the bed curtains. On the bed, instead of the stubborn, dark-faced ruffian they expected, there lay a mere child, worn out with pain and exhaustion, in a deep sleep. His wounded arm, bandaged and splinted, was crossed on his chest. His head rested on his other arm, half-hidden by his long hair that streamed over the pillow.
 
-The honest gentleman held the curtain in his hand, and looked on, for a minute or so, in silence. Whilst he was watching the patient thus, the younger lady glided softly past, and seating herself in a chair by the bedside, gathered Oliver’s hair from his face. As she stooped over him, her tears fell upon his forehead.
+The gentleman held the curtain and watched for a minute in silence. While he was watching the patient, the younger lady glided softly past. She sat in a chair by the bedside and brushed Oliver's hair from his face. As she leaned over him, her tears fell on his forehead.
 
-The boy stirred, and smiled in his sleep, as though these marks of pity and compassion had awakened some pleasant dream of a love and affection he had never known. Thus, a strain of gentle music, or the rippling of water in a silent place, or the odour of a flower, or the mention of a familiar word, will sometimes call up sudden dim remembrances of scenes that never were, in this life; which vanish like a breath; which some brief memory of a happier existence, long gone by, would seem to have awakened; which no voluntary exertion of the mind can ever recall.
+The boy stirred and smiled in his sleep, as if these signs of pity had awakened a pleasant dream of a love he had never known. In the same way, a gentle song, the sound of water in a quiet place, the scent of a flower, or a familiar word can sometimes bring back dim memories of scenes that never were. These memories vanish like a breath, a brief glimpse of a happier life long past, that no effort can ever fully recall.
 
-“What can this mean?” exclaimed the elder lady. “This poor child can never have been the pupil of robbers!”
+"What can this mean?" exclaimed the older lady. "This poor child can't have been a student of robbers!"
 
-“Vice,” said the surgeon, replacing the curtain, “takes up her abode in many temples; and who can say that a fair outside shall not enshrine her?”
+"Vice," said the surgeon, replacing the curtain, "can live in many places. Who can say that a fair appearance doesn't hide it?"
 
-“But at so early an age!” urged Rose.
+"But at such a young age!" urged Rose.
 
-“My dear young lady,” rejoined the surgeon, mournfully shaking his head; “crime, like death, is not confined to the old and withered alone. The youngest and fairest are too often its chosen victims.”
+"My dear young lady," replied the surgeon, sadly shaking his head, "crime, like death, is not limited to the old. The youngest and most beautiful are often its chosen victims."
 
-“But, can you—oh! can you really believe that this delicate boy has been the voluntary associate of the worst outcasts of society?” said Rose.
+"But, can you—oh! can you really believe that this delicate boy willingly joined the worst of society?" asked Rose.
 
-The surgeon shook his head, in a manner which intimated that he feared it was very possible; and observing that they might disturb the patient, led the way into an adjoining apartment.
+The surgeon shook his head, suggesting he feared it was very possible. He then led the way into another room, observing that they might disturb the patient.
 
-“But even if he has been wicked,” pursued Rose, “think how young he is; think that he may never have known a mother’s love, or the comfort of a home; that ill-usage and blows, or the want of bread, may have driven him to herd with men who have forced him to guilt. Aunt, dear aunt, for mercy’s sake, think of this, before you let them drag this sick child to a prison, which in any case must be the grave of all his chances of amendment. Oh! as you love me, and know that I have never felt the want of parents in your goodness and affection, but that I might have done so, and might have been equally helpless and unprotected with this poor child, have pity upon him before it is too late!”
+"But even if he has been wicked," Rose continued, "think how young he is. He may have never known a mother's love or a comfortable home. Mistreatment, beatings, or hunger might have driven him to join men who forced him into guilt. Aunt, dear aunt, for mercy's sake, think of this before you let them drag this sick child to a prison. A prison would be the end of his chances to change. Oh! as you love me, and know that I have never missed having parents because of your goodness, have pity on him before it is too late!"
 
-“My dear love,” said the elder lady, as she folded the weeping girl to her bosom, “do you think I would harm a hair of his head?”
+"My dear love," said the older lady, folding the weeping girl to her chest, "do you think I would harm a hair on his head?"
 
-“Oh, no!” replied Rose, eagerly.
+"Oh, no!" replied Rose, eagerly.
 
-“No, surely,” said the old lady; “my days are drawing to their close: and may mercy be shown to me as I show it to others! What can I do to save him, sir?”
+"No, surely," said the old lady. "My life is drawing to a close. May I be shown mercy as I show it to others! What can I do to save him, sir?"
 
-“Let me think, ma’am,” said the doctor; “let me think.”
+"Let me think, ma'am," said the doctor. "Let me think."
 
-Mr. Losberne thrust his hands into his pockets, and took several turns up and down the room; often stopping, and balancing himself on his toes, and frowning frightfully. After various exclamations of “I’ve got it now” and “no, I haven’t,” and as many renewals of the walking and frowning, he at length made a dead halt, and spoke as follows:
+Mr. Losberne put his hands in his pockets and paced the room. He often stopped, balancing on his toes and frowning terribly. After several exclamations of "I've got it now" and "no, I haven't," he finally stopped and said:
 
-“I think if you give me a full and unlimited commission to bully Giles, and that little boy, Brittles, I can manage it. Giles is a faithful fellow and an old servant, I know; but you can make it up to him in a thousand ways, and reward him for being such a good shot besides. You don’t object to that?”
+"I think I can manage it if you give me full permission to handle Giles and that little boy, Brittles. Giles is a faithful servant, I know, but you can reward him in many ways, including for being a good shot. You don't object?"
 
-“Unless there is some other way of preserving the child,” replied Mrs. Maylie.
+"Unless there is some other way to save the child," replied Mrs. Maylie.
 
-“There is no other,” said the doctor. “No other, take my word for it.”
+"There is no other," said the doctor. "No other, take my word for it."
 
-“Then my aunt invests you with full power,” said Rose, smiling through her tears; “but pray don’t be harder upon the poor fellows than is indispensably necessary.”
+"Then my aunt gives you full power," said Rose, smiling through her tears. "But please don't be harder on the poor fellows than necessary."
 
-“You seem to think,” retorted the doctor, “that everybody is disposed to be hard-hearted today, except yourself, Miss Rose. I only hope, for the sake of the rising male sex generally, that you may be found in as vulnerable and soft-hearted a mood by the first eligible young fellow who appeals to your compassion; and I wish I were a young fellow, that I might avail myself, on the spot, of such a favourable opportunity for doing so, as the present.”
+"You seem to think," retorted the doctor, "that everyone is hard-hearted today, except you, Miss Rose. I only hope, for the sake of all young men, that you are as compassionate to the first one who asks for your pity. I wish I were a young fellow to take advantage of this moment."
 
-“You are as great a boy as poor Brittles himself,” returned Rose, blushing.
+"You are as much a boy as poor Brittles himself," returned Rose, blushing.
 
-“Well,” said the doctor, laughing heartily, “that is no very difficult matter. But to return to this boy. The great point of our agreement is yet to come. He will wake in an hour or so, I dare say; and although I have told that thick-headed constable-fellow downstairs that he musn’t be moved or spoken to, on peril of his life, I think we may converse with him without danger. Now I make this stipulation—that I shall examine him in your presence, and that, if, from what he says, we judge, and I can show to the satisfaction of your cool reason, that he is a real and thorough bad one (which is more than possible), he shall be left to his fate, without any farther interference on my part, at all events.”
+"Well," said the doctor, laughing heartily, "that is not very difficult. But back to this boy. The main point is yet to come. He will wake in an hour or so, I expect. Although I told that thick-headed constable not to move or speak to him, I think we can talk with him without danger. I propose this—I will question him in your presence. If, from what he says, we judge he is truly bad, he shall be left to his fate, without my interference."
 
-“Oh no, aunt!” entreated Rose.
+"Oh no, aunt!" pleaded Rose.
 
-“Oh yes, aunt!” said the doctor. “Is it a bargain?”
+"Oh yes, aunt!" said the doctor. "Is it a bargain?"
 
-“He cannot be hardened in vice,” said Rose; “It is impossible.”
+"He cannot be hardened in vice," said Rose. "It is impossible."
 
-“Very good,” retorted the doctor; “then so much the more reason for acceding to my proposition.”
+"Very good," retorted the doctor, "then all the more reason to agree to my proposal."
 
-Finally the treaty was entered into; and the parties thereunto sat down to wait, with some impatience, until Oliver should awake.
+Finally, the deal was made, and they sat down to wait, somewhat impatiently, for Oliver to wake.
 
-The patience of the two ladies was destined to undergo a longer trial than Mr. Losberne had led them to expect; for hour after hour passed on, and still Oliver slumbered heavily. It was evening, indeed, before the kind-hearted doctor brought them the intelligence, that he was at length sufficiently restored to be spoken to. The boy was very ill, he said, and weak from the loss of blood; but his mind was so troubled with anxiety to disclose something, that he deemed it better to give him the opportunity, than to insist upon his remaining quiet until next morning: which he should otherwise have done.
+The two ladies' patience was tested longer than Mr. Losberne had expected. Hour after hour passed, and still Oliver slept heavily. It was evening before the kind-hearted doctor told them he was well enough to be spoken to. The boy was very ill and weak from blood loss, he said. But his mind was so troubled with something he wanted to share, that the doctor thought it better to give him the chance, rather than making him wait until morning.
 
-The conference was a long one. Oliver told them all his simple history, and was often compelled to stop, by pain and want of strength. It was a solemn thing, to hear, in the darkened room, the feeble voice of the sick child recounting a weary catalogue of evils and calamities which hard men had brought upon him. Oh! if when we oppress and grind our fellow-creatures, we bestowed but one thought on the dark evidences of human error, which, like dense and heavy clouds, are rising, slowly it is true, but not less surely, to Heaven, to pour their after-vengeance on our heads; if we heard but one instant, in imagination, the deep testimony of dead men’s voices, which no power can stifle, and no pride shut out; where would be the injury and injustice, the suffering, misery, cruelty, and wrong, that each day’s life brings with it!
+The conversation was a long one. Oliver told them his simple story, often stopping from pain and weakness. It was a serious thing to hear the sick child's weak voice in the darkened room, listing the many troubles hard men had brought upon him. If only we thought of the consequences of our actions when we harm others! The evidence of our errors rises to Heaven like dark clouds, ready to bring down vengeance. If we could just imagine the voices of the dead, which cannot be silenced, would there be so much injustice and cruelty in the world?
 
-Oliver’s pillow was smoothed by gentle hands that night; and loveliness and virtue watched him as he slept. He felt calm and happy, and could have died without a murmur.
+Oliver's pillow was smoothed by gentle hands that night. Loveliness and virtue watched him as he slept. He felt calm and happy, and could have died without a complaint.
 
-The momentous interview was no sooner concluded, and Oliver composed to rest again, than the doctor, after wiping his eyes, and condemning them for being weak all at once, betook himself downstairs to open upon Mr. Giles. And finding nobody about the parlours, it occurred to him, that he could perhaps originate the proceedings with better effect in the kitchen; so into the kitchen he went.
+As soon as the important interview was over and Oliver was resting again, the doctor wiped his eyes and went downstairs to deal with Mr. Giles. Finding no one in the parlors, he decided to start in the kitchen.
 
-There were assembled, in that lower house of the domestic parliament, the women-servants, Mr. Brittles, Mr. Giles, the tinker (who had received a special invitation to regale himself for the remainder of the day, in consideration of his services), and the constable. The latter gentleman had a large staff, a large head, large features, and large half-boots; and he looked as if he had been taking a proportionate allowance of ale—as indeed he had.
+Assembled in the kitchen were the women-servants, Mr. Brittles, Mr. Giles, the tinker (who had a special invitation to stay for the day), and the constable. The constable was a large man with a large staff and large boots. He looked as if he had been drinking a large amount of ale—which he had.
 
-The adventures of the previous night were still under discussion; for Mr. Giles was expatiating upon his presence of mind, when the doctor entered; Mr. Brittles, with a mug of ale in his hand, was corroborating everything, before his superior said it.
+The previous night's adventures were still being discussed. Mr. Giles was boasting about his presence of mind when the doctor entered. Mr. Brittles, with a mug of ale, was agreeing with everything his superior said.
 
-“Sit still!” said the doctor, waving his hand.
+"Sit still!" said the doctor, waving his hand.
 
-“Thank you, sir,” said Mr. Giles. “Misses wished some ale to be given out, sir; and as I felt no ways inclined for my own little room, sir, and was disposed for company, I am taking mine among ’em here.”
+"Thank you, sir," said Mr. Giles. "The mistress wanted some ale given out, sir. Since I didn't feel like being in my own little room, I am having mine with them here."
 
-Brittles headed a low murmur, by which the ladies and gentlemen generally were understood to express the gratification they derived from Mr. Giles’s condescension. Mr. Giles looked round with a patronising air, as much as to say that so long as they behaved properly, he would never desert them.
+Brittles led a low murmur, showing their appreciation for Mr. Giles's company. Mr. Giles looked around with a proud air, as if to say that as long as they behaved, he would stay with them.
 
-“How is the patient tonight, sir?” asked Giles.
+"How is the patient tonight, sir?" asked Giles.
 
-“So-so”; returned the doctor. “I am afraid you have got yourself into a scrape there, Mr. Giles.”
+"So-so," returned the doctor. "I am afraid you have gotten yourself into trouble there, Mr. Giles."
 
-“I hope you don’t mean to say, sir,” said Mr. Giles, trembling, “that he’s going to die. If I thought it, I should never be happy again. I wouldn’t cut a boy off: no, not even Brittles here; not for all the plate in the county, sir.”
+"I hope you don't mean he's going to die, sir," said Mr. Giles, trembling. "If I thought so, I would never be happy again. I wouldn't want to harm a boy, not even Brittles here, not for all the silver in the county."
 
-“That’s not the point,” said the doctor, mysteriously. “Mr. Giles, are you a Protestant?”
+"That's not the point," said the doctor, mysteriously. "Mr. Giles, are you a Protestant?"
 
-“Yes, sir, I hope so,” faltered Mr. Giles, who had turned very pale.
+"Yes, sir, I hope so," faltered Mr. Giles, who had turned very pale.
 
-“And what are you, boy?” said the doctor, turning sharply upon Brittles.
+"And what are you, boy?" said the doctor, turning sharply to Brittles.
 
-“Lord bless me, sir!” replied Brittles, starting violently; “I’m the same as Mr. Giles, sir.”
+"Lord bless me, sir!" replied Brittles, startled. "I'm the same as Mr. Giles, sir."
 
-“Then tell me this,” said the doctor, “both of you, both of you! Are you going to take upon yourselves to swear, that that boy upstairs is the boy that was put through the little window last night? Out with it! Come! We are prepared for you!”
+"Then tell me this," said the doctor, "both of you! Are you going to swear that the boy upstairs is the same boy who was put through the little window last night? Out with it! Come on! We are prepared for you!"
 
-The doctor, who was universally considered one of the best-tempered creatures on earth, made this demand in such a dreadful tone of anger, that Giles and Brittles, who were considerably muddled by ale and excitement, stared at each other in a state of stupefaction.
+The doctor, usually a very calm man, made this demand in a terrifying tone of anger. Giles and Brittles, who were confused by ale and excitement, stared at each other, stunned.
 
-“Pay attention to the reply, constable, will you?” said the doctor, shaking his forefinger with great solemnity of manner, and tapping the bridge of his nose with it, to bespeak the exercise of that worthy’s utmost acuteness. “Something may come of this before long.”
+"Pay attention to the reply, constable, will you?" said the doctor, shaking his finger seriously. "Something may come of this."
 
-The constable looked as wise as he could, and took up his staff of office: which had been reclining indolently in the chimney-corner.
+The constable looked as wise as he could and picked up his staff, which had been resting by the fireplace.
 
-“It’s a simple question of identity, you will observe,” said the doctor.
+"It's a simple question of identity, you will observe," said the doctor.
 
-“That’s what it is, sir,” replied the constable, coughing with great violence; for he had finished his ale in a hurry, and some of it had gone the wrong way.
+"That's what it is, sir," replied the constable, coughing violently after drinking his ale too quickly.
 
-“Here’s the house broken into,” said the doctor, “and a couple of men catch one moment’s glimpse of a boy, in the midst of gunpowder smoke, and in all the distraction of alarm and darkness. Here’s a boy comes to that very same house, next morning, and because he happens to have his arm tied up, these men lay violent hands upon him—by doing which, they place his life in great danger—and swear he is the thief. Now, the question is, whether these men are justified by the fact; if not, in what situation do they place themselves?”
+"Here's the house broken into," said the doctor, "and a couple of men get a brief glimpse of a boy in gunpowder smoke and darkness. Then a boy comes to the same house the next morning. Because his arm is tied up, these men grab him, putting his life in danger, and swear he is the thief. The question is, are they justified? If not, what situation have they put themselves in?"
 
-The constable nodded profoundly. He said, if that wasn’t law, he would be glad to know what was.
+The constable nodded deeply. He said if that wasn't the law, he'd like to know what was.
 
-“I ask you again,” thundered the doctor, “are you, on your solemn oaths, able to identify that boy?”
+"I ask you again," thundered the doctor, "are you, on your solemn oaths, able to identify that boy?"
 
-Brittles looked doubtfully at Mr. Giles; Mr. Giles looked doubtfully at Brittles; the constable put his hand behind his ear, to catch the reply; the two women and the tinker leaned forward to listen; the doctor glanced keenly round; when a ring was heard at the gate, and at the same moment, the sound of wheels.
+Brittles looked at Mr. Giles; Mr. Giles looked at Brittles. The constable put a hand to his ear to catch the reply. The two women and the tinker leaned forward. The doctor glanced around sharply when a ring was heard at the gate, followed by the sound of wheels.
 
-“It’s the runners!” cried Brittles, to all appearance much relieved.
+"It's the runners!" cried Brittles, looking much relieved.
 
-“The what?” exclaimed the doctor, aghast in his turn.
+"The what?" exclaimed the doctor, shocked.
 
-“The Bow Street officers, sir,” replied Brittles, taking up a candle; “me and Mr. Giles sent for ’em this morning.”
+"The Bow Street officers, sir," replied Brittles, picking up a candle. "Me and Mr. Giles sent for them this morning."
 
-“What?” cried the doctor.
+"What?" cried the doctor.
 
-“Yes,” replied Brittles; “I sent a message up by the coachman, and I only wonder they weren’t here before, sir.”
+"Yes," replied Brittles. "I sent a message with the coachman. I'm surprised they weren't here sooner, sir."
 
-“You did, did you? Then confound your—slow coaches down here; that’s all,” said the doctor, walking away.`,
+"You did, did you? Then confound your slow coaches down here; that's all," said the doctor, walking away.`,
 }
