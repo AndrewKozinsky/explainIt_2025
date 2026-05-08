@@ -1,199 +1,195 @@
 export const chapter_16 = {
 	name: 'Chapter XVI',
 	header: 'Relates what became of Oliver Twist, after he had been claimed by Nancy',
-	text: `At last, the narrow streets opened into a large empty space. There were animal pens and signs of a cattle market. When they reached this place, Sikes slowed down, because Nancy could no longer keep up.
+	text: `The narrow streets and courts, at length, terminated in a large open space; scattered about which, were pens for beasts, and other indications of a cattle-market. Sikes slackened his pace when they reached this spot: the girl being quite unable to support any longer, the rapid rate at which they had hitherto walked. Turning to Oliver, he roughly commanded him to take hold of Nancy’s hand.
 
-He turned to Oliver and roughly ordered him to take Nancy’s hand.
+“Do you hear?” growled Sikes, as Oliver hesitated, and looked round.
 
-“Do you hear?” growled Sikes, as Oliver hesitated.
+They were in a dark corner, quite out of the track of passengers.
 
-They stood in a dark corner, far from other people.
+Oliver saw, but too plainly, that resistance would be of no avail. He held out his hand, which Nancy clasped tight in hers.
 
-Oliver clearly understood that resistance was useless. He slowly held out his hand, and Nancy gripped it tightly.
+“Give me the other,” said Sikes, seizing Oliver’s unoccupied hand. “Here, Bull’s-Eye!”
 
-“Give me your other hand,” said Sikes, grabbing it. “Here, Bull’s-eye!”
+The dog looked up, and growled.
 
-The dog looked up and growled.
+“See here, boy!” said Sikes, putting his other hand to Oliver’s throat; “if he speaks ever so soft a word, hold him! D’ye mind!”
 
-“Listen, boy,” said Sikes, putting his hand on Oliver’s throat. “If he says even one word, grab him. Do you understand?”
+The dog growled again; and licking his lips, eyed Oliver as if he were anxious to attach himself to his windpipe without delay.
 
-The dog growled again, licking its lips and staring at Oliver as if ready to attack him.
+“He’s as willing as a Christian, strike me blind if he isn’t!” said Sikes, regarding the animal with a kind of grim and ferocious approval. “Now, you know what you’ve got to expect, master, so call away as quick as you like; the dog will soon stop that game. Get on, young ’un!”
 
-“He’s ready enough,” said Sikes with cruel approval. “Now you know what will happen. Go on—shout if you like. The dog will soon stop you. Move!”
+Bull’s-eye wagged his tail in acknowledgment of this unusually endearing form of speech; and, giving vent to another admonitory growl for the benefit of Oliver, led the way onward.
 
-Bull’s-eye wagged his tail and gave another warning growl, then led the way.
+It was Smithfield that they were crossing, although it might have been Grosvenor Square, for anything Oliver knew to the contrary. The night was dark and foggy. The lights in the shops could scarecely struggle through the heavy mist, which thickened every moment and shrouded the streets and houses in gloom; rendering the strange place still stranger in Oliver’s eyes; and making his uncertainty the more dismal and depressing.
 
-They were crossing Smithfield, though Oliver did not know it. The night was dark and foggy. The lights from the shops could barely shine through the thick mist, which made everything look even more strange and frightening.
+They had hurried on a few paces, when a deep church-bell struck the hour. With its first stroke, his two conductors stopped, and turned their heads in the direction whence the sound proceeded.
 
-After a short distance, a church bell rang loudly. At the first sound, Sikes and Nancy stopped and listened.
+“Eight o’clock, Bill,” said Nancy, when the bell ceased.
 
-“Eight o’clock, Bill,” said Nancy when the bell stopped.
+“What’s the good of telling me that; I can hear it, can’t I?” replied Sikes.
 
-“I can hear it,” Sikes replied sharply.
+“I wonder whether they can hear it,” said Nancy.
 
-“I wonder if they can hear it,” said Nancy quietly.
+“Of course they can,” replied Sikes. “It was Bartlemy time when I was shopped; and there warn’t a penny trumpet in the fair, as I couldn’t hear the squeaking on. Arter I was locked up for the night, the row and din outside made the thundering old jail so silent, that I could almost have beat my brains out against the iron plates of the door.”
 
-“Of course they can,” said Sikes. “When I was locked up, I could hear everything from the fair outside. The noise was so loud, it made the prison feel silent. I nearly went mad listening to it.”
+“Poor fellow!” said Nancy, who still had her face turned towards the quarter in which the bell had sounded. “Oh, Bill, such fine young chaps as them!”
 
-“Poor fellows,” said Nancy, still looking toward the sound of the bell. “Such fine young men.”
+“Yes; that’s all you women think of,” answered Sikes. “Fine young chaps! Well, they’re as good as dead, so it don’t much matter.”
 
-“That’s what you women care about,” said Sikes. “Fine young men! They’re as good as dead, so it doesn’t matter.”
+With this consolation, Mr. Sikes appeared to repress a rising tendency to jealousy, and, clasping Oliver’s wrist more firmly, told him to step out again.
 
-With that, he grabbed Oliver more tightly and told him to keep walking.
+“Wait a minute!” said the girl: “I wouldn’t hurry by, if it was you that was coming out to be hung, the next time eight o’clock struck, Bill. I’d walk round and round the place till I dropped, if the snow was on the ground, and I hadn’t a shawl to cover me.”
 
-“Wait a moment,” said Nancy. “If it were you going to be hanged, Bill, I wouldn’t just walk away. I’d stay nearby as long as I could—even in the cold.”
+“And what good would that do?” inquired the unsentimental Mr. Sikes. “Unless you could pitch over a file and twenty yards of good stout rope, you might as well be walking fifty mile off, or not walking at all, for all the good it would do me. Come on, and don’t stand preaching there.”
 
-“And what good would that do?” said Sikes coldly. “Unless you could help me escape, it wouldn’t matter at all. Come on—stop talking.”
+The girl burst into a laugh; drew her shawl more closely round her; and they walked away. But Oliver felt her hand tremble, and, looking up in her face as they passed a gas-lamp, saw that it had turned a deadly white.
 
-Nancy laughed suddenly and pulled her shawl tighter, but Oliver felt her hand trembling. When they passed under a lamp, he saw that her face had turned pale.
+They walked on, by little-frequented and dirty ways, for a full half-hour: meeting very few people, and those appearing from their looks to hold much the same position in society as Mr. Sikes himself. At length they turned into a very filthy narrow street, nearly full of old-clothes shops; the dog running forward, as if conscious that there was no further occasion for his keeping on guard, stopped before the door of a shop that was closed and apparently untenanted; the house was in a ruinous condition, and on the door was nailed a board, intimating that it was to let: which looked as if it had hung there for many years.
 
-They walked for half an hour through dirty, empty streets, meeting only a few people who looked as rough as Sikes. At last they reached a narrow street full of old clothes shops. The dog ran ahead and stopped at the door of a ruined house. A sign said it was for rent, but it looked as if no one had lived there for years.
+“All right,” cried Sikes, glancing cautiously about.
 
-“All right,” said Sikes, looking around carefully.
+Nancy stooped below the shutters, and Oliver heard the sound of a bell. They crossed to the opposite side of the street, and stood for a few moments under a lamp. A noise, as if a sash window were gently raised, was heard; and soon afterwards the door softly opened. Mr. Sikes then seized the terrified boy by the collar with very little ceremony; and all three were quickly inside the house.
 
-Nancy bent under the shutters, and Oliver heard a bell ring. They crossed the street and waited under a lamp. Soon a window opened slightly, and then the door was quietly unlocked. Sikes grabbed Oliver by the collar, and all three quickly went inside.
+The passage was perfectly dark. They waited, while the person who had let them in, chained and barred the door.
 
-The hallway was completely dark. They waited while the door was locked behind them.
+“Anybody here?” inquired Sikes.
 
-“Anyone here?” asked Sikes.
+“No,” replied a voice, which Oliver thought he had heard before.
 
-“No,” replied a voice that seemed familiar to Oliver.
+“Is the old ’un here?” asked the robber.
 
-“Is the old man here?” asked Sikes.
+“Yes,” replied the voice, “and precious down in the mouth he has been. Won’t he be glad to see you? Oh, no!”
 
-“Yes,” said the voice. “And he’s been in a very bad mood. Won’t he be glad to see you? Oh no!”
+The style of this reply, as well as the voice which delivered it, seemed familiar to Oliver’s ears: but it was impossible to distinguish even the form of the speaker in the darkness.
 
-Oliver recognized the voice but could not see the speaker in the darkness.
+“Let’s have a glim,” said Sikes, “or we shall go breaking our necks, or treading on the dog. Look after your legs if you do!”
 
-“Get a light,” said Sikes, “or we’ll fall over something.”
+“Stand still a moment, and I’ll get you one,” replied the voice. The receding footsteps of the speaker were heard; and, in another minute, the form of Mr. John Dawkins, otherwise the Artful Dodger, appeared. He bore in his right hand a tallow candle stuck in the end of a cleft stick.
 
-“Wait a moment,” said the voice.
+The young gentleman did not stop to bestow any other mark of recognition upon Oliver than a humourous grin; but, turning away, beckoned the visitors to follow him down a flight of stairs. They crossed an empty kitchen; and, opening the door of a low earthy-smelling room, which seemed to have been built in a small back-yard, were received with a shout of laughter.
 
-Soon footsteps returned, and Artful Dodger appeared, holding a candle. He gave Oliver a quick grin, then led them downstairs.
+“Oh, my wig, my wig!” cried Master Charles Bates, from whose lungs the laughter had proceeded: “here he is! oh, cry, here he is! Oh, Fagin, look at him! Fagin, do look at him! I can’t bear it; it is such a jolly game, I can’t bear it. Hold me, somebody, while I laugh it out.”
 
-They passed through an empty kitchen and entered a low, damp room. As soon as they went in, loud laughter broke out.
+With this irrepressible ebullition of mirth, Master Bates laid himself flat on the floor: and kicked convulsively for five minutes, in an ectasy of facetious joy. Then jumping to his feet, he snatched the cleft stick from the Dodger; and, advancing to Oliver, viewed him round and round; while the Jew, taking off his nightcap, made a great number of low bows to the bewildered boy. The Artful, meantime, who was of a rather saturnine disposition, and seldom gave way to merriment when it interfered with business, rifled Oliver’s pockets with steady assiduity.
 
-“Oh, my goodness!” cried Charley Bates. “Here he is! Oh, this is too funny!”
+“Look at his togs, Fagin!” said Charley, putting the light so close to his new jacket as nearly to set him on fire. “Look at his togs! Superfine cloth, and the heavy swell cut! Oh, my eye, what a game! And his books, too! Nothing but a gentleman, Fagin!”
 
-He fell on the floor laughing and kicking for several minutes. Then he jumped up, grabbed the candle, and walked around Oliver, looking at him closely. Meanwhile, Fagin bowed again and again, pretending to be polite. At the same time, the Dodger quietly searched Oliver’s pockets.
+“Delighted to see you looking so well, my dear,” said the Jew, bowing with mock humility. “The Artful shall give you another suit, my dear, for fear you should spoil that Sunday one. Why didn’t you write, my dear, and say you were coming? We’d have got something warm for supper.”
 
-“Look at his clothes, Fagin!” said Charley, holding the candle close. “Such fine cloth! And books too! He looks like a real gentleman!”
+At his, Master Bates roared again: so loud, that Fagin himself relaxed, and even the Dodger smiled; but as the Artful drew forth the five-pound note at that instant, it is doubtful whether the sally of the discovery awakened his merriment.
 
-“Very glad to see you looking so well, my dear,” said Fagin with mock politeness. “We’ll get you other clothes, so you don’t spoil those. Why didn’t you tell us you were coming? We would have prepared something nice for supper.”
+“Hallo, what’s that?” inquired Sikes, stepping forward as the Jew seized the note. “That’s mine, Fagin.”
 
-Charley burst out laughing again. Even Fagin smiled a little. At that moment, the Dodger pulled out a five-pound note.
+“No, no, my dear,” said the Jew. “Mine, Bill, mine. You shall have the books.”
 
-“What’s that?” said Sikes, stepping forward. “That’s mine, Fagin.”
+“If that ain’t mine!” said Bill Sikes, putting on his hat with a determined air; “mine and Nancy’s that is; I’ll take the boy back again.”
 
-“No, my dear,” said Fagin. “It’s mine, Bill. You can take the books.”
+The Jew started. Oliver started too, though from a very different cause; for he hoped that the dispute might really end in his being taken back.
 
-“If that’s not mine,” said Sikes angrily, putting on his hat, “then I’ll take the boy back.”
+“Come! Hand over, will you?” said Sikes.
 
-Fagin looked alarmed. Oliver also reacted—but for a different reason. He hoped they really would send him back.
+“This is hardly fair, Bill; hardly fair, is it, Nancy?” inquired the Jew.
 
-“Come on, give it to me,” said Sikes.
+“Fair, or not fair,” retorted Sikes, “hand over, I tell you! Do you think Nancy and me has got nothing else to do with our precious time but to spend it in scouting arter, and kidnapping, every young boy as gets grabbed through you? Give it here, you avaricious old skeleton, give it here!”
 
-“That’s not fair, Bill,” said Fagin. “Is it, Nancy?”
+With this gentle remonstrance, Mr. Sikes plucked the note from between the Jew’s finger and thumb; and looking the old man coolly in the face, folded it up small, and tied it in his neckerchief.
 
-“Fair or not,” said Sikes, “give it here! Do you think Nancy and I have nothing better to do than catch boys for you? Give it to me!”
+“That’s for our share of the trouble,” said Sikes; “and not half enough, neither. You may keep the books, if you’re fond of reading. If you ain’t, sell ’em.”
 
-With that, Sikes snatched the money from Fagin and tied it in his neckcloth.
+“They’re very pretty,” said Charley Bates: who, with sundry grimaces, had been affecting to read one of the volumes in question; “beautiful writing, isn’t is, Oliver?” At sight of the dismayed look with which Oliver regarded his tormentors, Master Bates, who was blessed with a lively sense of the ludicrous, fell into another ectasy, more boisterous than the first.
 
-“That’s our payment,” he said. “And it’s not even enough. You can keep the books—or sell them.”
+“They belong to the old gentleman,” said Oliver, wringing his hands; “to the good, kind, old gentleman who took me into his house, and had me nursed, when I was near dying of the fever. Oh, pray send them back; send him back the books and money. Keep me here all my life long; but pray, pray send them back. He’ll think I stole them; the old lady: all of them who were so kind to me: will think I stole them. Oh, do have mercy upon me, and send them back!”
 
-“They’re very nice,” said Charley, pretending to read one. “Beautiful writing, isn’t it, Oliver?” Seeing Oliver’s terrified face, he began laughing again.
+With these words, which were uttered with all the energy of passionate grief, Oliver fell upon his knees at the Jew’s feet; and beat his hands together, in perfect desperation.
 
-“They belong to the old gentleman,” cried Oliver Twist, wringing his hands. “He was kind to me and took care of me when I was sick. Please send them back—the books and the money. Keep me here if you want, but please send them back! Otherwise they will think I stole them. Please—have mercy and send them back!”
+“The boy’s right,” remarked Fagin, looking covertly round, and knitting his shaggy eyebrows into a hard knot. “You’re right, Oliver, you’re right; they will think you have stolen ’em. Ha! ha!” chuckled the Jew, rubbing his hands, “it couldn’t have happened better, if we had chosen our time!”
 
-With these words, spoken in deep sorrow, Oliver fell on his knees before the Jew and clasped his hands in despair.
+“Of course it couldn’t,” replied Sikes; “I know’d that, directly I see him coming through Clerkenwell, with the books under his arm. It’s all right enough. They’re soft-hearted psalm-singers, or they wouldn’t have taken him in at all; and they’ll ask no questions after him, fear they should be obliged to prosecute, and so get him lagged. He’s safe enough.”
 
-“The boy is right,” said Fagin, looking around carefully and frowning. “You’re right, Oliver, you’re right. They will think you stole them. Ha! ha!” he laughed, rubbing his hands. “It couldn’t have happened better if we had planned it!”
+Oliver had looked from one to the other, while these words were being spoken, as if he were bewildered, and could scarecely understand what passed; but when Bill Sikes concluded, he jumped suddenly to his feet, and tore wildly from the room: uttering shrieks for help, which made the bare old house echo to the roof.
 
-“Of course,” said Sikes. “I knew it the moment I saw him walking through Clerkenwell with the books. It’s perfect. Those soft-hearted people won’t ask questions—they’ll be afraid of getting him into trouble. He’s safe here.”
+“Keep back the dog, Bill!” cried Nancy, springing before the door, and closing it, as the Jew and his two pupils darted out in pursuit. “Keep back the dog; he’ll tear the boy to pieces.”
 
-Oliver looked from one to the other, confused and shocked. Then suddenly he jumped up and ran toward the door, screaming for help.
+“Serve him right!” cried Sikes, struggling to disengage himself from the girl’s grasp. “Stand off from me, or I’ll split your head against the wall.”
 
-“Hold the dog, Bill!” cried Nancy, rushing to the door and blocking it as Fagin and the boys ran after Oliver. “Hold the dog—he’ll kill the child!”
+“I don’t care for that, Bill, I don’t care for that,” screamed the girl, struggling violently with the man, “the child shan’t be torn down by the dog, unless you kill me first.”
 
-“He deserves it!” shouted Sikes, trying to push her away. “Move, or I’ll smash your head!”
+“Shan’t he!” said Sikes, setting his teeth. “I’ll soon do that, if you don’t keep off.”
 
-“I don’t care!” cried Nancy, struggling with him. “The dog won’t touch him unless you kill me first!”
+The housebreaker flung the girl from him to the further end of the room, just as the Jew and the two boys returned, dragging Oliver among them.
 
-“Won’t he?” said Sikes angrily.
+“What’s the matter here!” said Fagin, looking round.
 
-He threw Nancy across the room just as Fagin and the boys came back, dragging Oliver with them.
+“The girl’s gone mad, I think,” replied Sikes, savagely.
 
-“What’s going on?” asked Fagin.
+“No, she hasn’t,” said Nancy, pale and breathless from the scuffle; “no, she hasn’t, Fagin; don’t think it.”
 
-“The girl’s gone mad,” said Sikes.
+“Then keep quiet, will you?” said the Jew, with a threatening look.
 
-“No, I haven’t,” said Nancy, pale and out of breath. “Don’t think that.”
+“No, I won’t do that, neither,” replied Nancy, speaking very loud. “Come! What do you think of that?”
 
-“Then be quiet,” said Fagin with a threatening look.
+Mr. Fagin was sufficiently well acquainted with the manners and customs of that particular species of humanity to which Nancy belonged, to feel tolerably certain that it would be rather unsafe to prolong any conversation with her, at present. With the view of diverting the attention of the company, he turned to Oliver.
 
-“No, I won’t,” she shouted. “What do you think of that?”
+“So you wanted to get away, my dear, did you?” said the Jew, taking up a jagged and knotted club which lay in a corner of the fireplace; “eh?”
 
-Fagin understood that it was dangerous to argue with her now. So he turned to Oliver.
+Oliver made no reply. But he watched the Jew’s motions, and breathed quickly.
 
-“So, you tried to run away, did you?” he said, picking up a heavy stick from the fireplace.
+“Wanted to get assistance; called for the police; did you?” sneered the Jew, catching the boy by the arm. “We’ll cure you of that, my young master.”
 
-Oliver said nothing, but watched him closely, breathing fast.
+The Jew inflicted a smart blow on Oliver’s shoulders with the club; and was raising it for a second, when the girl, rushing forward, wrested it from his hand. She flung it into the fire, with a force that brought some of the glowing coals whirling out into the room.
 
-“You tried to call for help? For the police?” sneered Fagin, grabbing his arm. “We’ll teach you better.”
+“I won’t stand by and see it done, Fagin,” cried the girl. “You’ve got the boy, and what more would you have?—Let him be—let him be—or I shall put that mark on some of you, that will bring me to the gallows before my time.”
 
-He struck Oliver hard on the shoulders and raised the stick to hit him again—but Nancy rushed forward, grabbed it, and threw it into the fire. Burning coals flew across the room.
+The girl stamped her foot violently on the floor as she vented this threat; and with her lips compressed, and her hands clenched, looked alternately at the Jew and the other robber: her face quite colourless from the passion of rage into which she had gradually worked herself.
 
-“I won’t stand and watch this!” she cried. “You have the boy—what more do you want? Leave him alone, or I’ll do something that will hang me before my time!”
+“Why, Nancy!” said the Jew, in a soothing tone; after a pause, during which he and Mr. Sikes had stared at one another in a disconcerted manner; “you,—you’re more clever than ever tonight. Ha! ha! my dear, you are acting beautifully.”
 
-She stamped her foot and stood trembling with anger, her face pale and her hands clenched.
+“Am I?” said the girl. “Take care I don’t overdo it. You will be the worse for it, Fagin, if I do; and so I tell you in good time to keep clear of me.”
 
-“Why, Nancy,” said Fagin in a soft voice after a moment, “you’re acting very well tonight. Very well indeed.”
+There is something about a roused woman: especially if she add to all her other strong passions, the fierce impulses of recklessness and despair; which few men like to provoke. The Jew saw that it would be hopeless to affect any further mistake regarding the reality of Miss Nancy’s rage; and, shrinking involuntarily back a few paces, cast a glance, half imploring and half cowardly, at Sikes: as if to hint that he was the fittest person to pursue the dialogue.
 
-“Am I?” she said. “Be careful I don’t go too far. You’ll regret it if I do.”
+Mr. Sikes, thus mutely appealed to; and possibly feeling his personal pride and influence interested in the immediate reduction of Miss Nancy to reason; gave utterance to about a couple of score of curses and threats, the rapid production of which reflected great credit on the fertility of his invention. As they produced no visible effect on the object against whom they were discharged, however, he resorted to more tangible arguments.
 
-There is something frightening about an angry woman—especially when she feels desperate and has nothing to lose. Fagin saw that she truly meant what she said. He stepped back and looked at Sikes, silently asking him to take control.
+“What do you mean by this?” said Sikes; backing the inquiry with a very common imprecation concerning the most beautiful of human features: which, if it were heard above, only once out of every fifty thousand times that it is uttered below, would render blindness as common a disorder as measles: “what do you mean by it? Burn my body! Do you know who you are, and what you are?”
 
-Sikes answered with a stream of curses and threats. When they had no effect, he stepped closer.
+“Oh, yes, I know all about it,” replied the girl, laughing hysterically; and shaking her head from side to side, with a poor assumption of indifference.
 
-“What do you mean by this?” he said. “Do you know who you are? What you are?”
+“Well, then, keep quiet,” rejoined Sikes, with a growl like that he was accustomed to use when addressing his dog, “or I’ll quiet you for a good long time to come.”
 
-“Oh yes, I know,” said Nancy, laughing wildly.
+The girl laughed again: even less composedly than before; and, darting a hasty look at Sikes, turned her face aside, and bit her lip till the blood came.
 
-“Then be quiet,” growled Sikes, “or I’ll make you quiet.”
+“You’re a nice one,” added Sikes, as he surveyed her with a contemptuous air, “to take up the humane and gen—teel side! A pretty subject for the child, as you call him, to make a friend of!”
 
-She laughed again, then turned away and bit her lip until it bled.
+“God Almighty help me, I am!” cried the girl passionately; “and I wish I had been struck dead in the street, or had changed places with them we passed so near tonight, before I had lent a hand in bringing him here. He’s a thief, a liar, a devil, all that’s bad, from this night forth. Isn’t that enough for the old wretch, without blows?”
 
-“You’re a fine one,” Sikes went on mockingly, “talking about kindness! A perfect friend for a boy like him!”
+“Come, come, Sikes,” said the Jew appealing to him in a remonstratory tone, and motioning towards the boys, who were eagerly attentive to all that passed; “we must have civil words; civil words, Bill.”
 
-“God help me, I am!” cried Nancy. “I wish I had died before I helped bring him here. Now he’ll become what you are—a thief, a liar, something worse. Isn’t that enough without beating him?”
+“Civil words!” cried the girl, whose passion was frightful to see. “Civil words, you villain! Yes, you deserve ’em from me. I thieved for you when I was a child not half as old as this!” pointing to Oliver. “I have been in the same trade, and in the same service, for twelve years since. Don’t you know it? Speak out! Don’t you know it?”
 
-“Come, come, Sikes,” said Fagin, trying to calm things down. “We must speak politely.”
+“Well, well,” replied the Jew, with an attempt at pacification; “and, if you have, it’s your living!”
 
-“Politely!” shouted Nancy. “I worked for you when I was a child—no older than him!” she said, pointing at Oliver Twist. “I’ve lived this life for twelve years. Don’t you know that?”
+“Aye, it is!” returned the girl; not speaking, but pouring out the words in one continuous and vehement scream. “It is my living; and the cold, wet, dirty streets are my home; and you’re the wretch that drove me to them long ago, and that’ll keep me there, day and night, day and night, till I die!”
 
-“Well,” said Fagin, trying to calm her, “it’s how you earn your living.”
+“I shall do you a mischief!” interposed the Jew, goaded by these reproaches; “a mischief worse than that, if you say much more!”
 
-“Yes, it is!” she cried. “The cold, dirty streets are my home—and you’re the one who put me there, and keep me there until I die!”
+The girl said nothing more; but, tearing her hair and dress in a transport of passion, made such a rush at the Jew as would probably have left signal marks of her revenge upon him, had not her wrists been seized by Sikes at the right moment; upon which, she made a few ineffectual struggles, and fainted.
 
-“I’ll hurt you if you say more,” said Fagin angrily.
+“She’s all right now,” said Sikes, laying her down in a corner. “She’s uncommon strong in the arms, when she’s up in this way.”
 
-Nancy said nothing—but suddenly rushed at him in fury. Sikes caught her just in time. She struggled for a moment, then fainted.
+The Jew wiped his forehead: and smiled, as if it were a relief to have the disturbance over; but neither he, nor Sikes, nor the dog, nor the boys, seemed to consider it in any other light than a common occurance incidental to business.
 
-“She’s fine now,” said Sikes, laying her down. “She’s strong when she gets like this.”
+“It’s the worst of having to do with women,” said the Jew, replacing his club; “but they’re clever, and we can’t get on, in our line, without ’em. Charley, show Oliver to bed.”
 
-Fagin wiped his forehead and smiled, relieved that it was over. None of them seemed to think it was anything unusual.
+“I suppose he’d better not wear his best clothes tomorrow, Fagin, had he?” inquired Charley Bates.
 
-“That’s the problem with women,” said Fagin, putting the stick away. “Still, they’re clever—we need them. Charley, take Oliver to bed.”
+“Certainly not,” replied the Jew, reciprocating the grin with which Charley put the question.
 
-“I guess he shouldn’t wear his nice clothes tomorrow?” asked Charley Bates.
+Master Bates, apparently much delighted with his commission, took the cleft stick: and led Oliver into an adjacent kitchen, where there were two or three of the beds on which he had slept before; and here, with many uncontrollable bursts of laughter, he produced the identical old suit of clothes which Oliver had so much congratulated himself upon leaving off at Mr. Brownlow’s; and the accidental display of which, to Fagin, by the Jew who purchased them, had been the very first clue received, of his whereabout.
 
-“Of course not,” said Fagin, smiling.
+“Put off the smart ones,” said Charley, “and I’ll give ’em to Fagin to take care of. What fun it is!”
 
-Charley laughed, took a candle, and led Oliver to the kitchen. There were a few beds there. Still laughing, he showed Oliver the same old clothes he had been so happy to leave behind at Mr. Brownlow’s house.
+Poor Oliver unwillingly complied. Master Bates rolling up the new clothes under his arm, departed from the room, leaving Oliver in the dark, and locking the door behind him.
 
-“Take off the nice ones,” said Charley. “I’ll give them to Fagin to keep. What fun!”
-
-Poor Oliver obeyed. Charley took the clothes and left, locking the door behind him.
-
-Outside, Oliver could still hear Charley laughing and the voice of another woman helping Nancy recover. But Oliver was sick and exhausted. Soon, despite everything, he fell into a deep sleep.`,
+The noise of Charley’s laughter, and the voice of Miss Betsy, who opportunely arrived to throw water over her friend, and perform other feminine offices for the promotion of her recovery, might have kept many people awake under more happy circumstances than those in which Oliver was placed. But he was sick and weary; and he soon fell sound asleep.`,
 }

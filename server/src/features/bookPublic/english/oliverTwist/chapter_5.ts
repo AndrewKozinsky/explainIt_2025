@@ -1,223 +1,178 @@
 export const chapter_5 = {
 	name: 'Chapter V',
-	header: 'Oliver mingles with new associates. Going to a funeral for the first time, he forms an unfavourable notion of his master’s business',
-	text: `Left alone in the undertaker’s shop, Oliver put the lamp on a workbench and looked around with fear and wonder. Many people much older than he would feel the same in such a place.
+	header: 'Oliver joins new company. He attends a funeral for the first time and gets a poor impression of his master’s business.',
+	text: `Oliver, left alone in the undertaker’s shop, put the lamp on a workbench and looked around timidly. He felt a sense of fear that many older people would understand. An unfinished coffin on black stands in the middle of the shop looked so grim and death-like that a cold shiver went through him every time he looked at it. He almost expected a frightening figure to slowly rise from it and drive him mad with terror. Against the wall stood a long row of wooden boards, all cut in the same shape. In the dim light, they looked like tall ghosts with their hands in their pockets. Coffin-plates, wood chips, shiny nails, and pieces of black cloth were scattered on the floor. The wall behind the counter was decorated with a picture of two mutes in stiff collars, on duty at a large private door, with a hearse drawn by four black horses approaching in the distance. The shop was stuffy and hot. The air smelled of coffins. The space under the counter where his mattress was pushed looked like a grave.
 
-An unfinished coffin stood in the middle of the shop on black supports. It looked so dark and lifeless that Oliver shivered every time he glanced at it. He almost expected some страшная фигура to rise slowly from it and frighten him out of his mind.
+These were not the only sad thoughts that troubled Oliver. He was alone in a strange place. We all know how cold and lonely even the strongest of us can feel in such a situation. The boy had no friends to care for him, and no one he cared for. He wasn't grieving a recent loss or missing a loved one's face.
 
-Along the wall stood a long row of wooden boards, all cut in the same shape. In the dim light, they looked like tall ghosts with their hands in their pockets. Pieces of wood, nails, coffin plates, and strips of black cloth lay scattered on the floor. Behind the counter hung a picture of two funeral servants in stiff clothes, standing at a large door, while a hearse drawn by four black horses approached in the distance.
+But his heart was still heavy. As he got into his narrow bed, he wished it were his coffin. He wished he could be laid to rest in the churchyard, with the tall grass waving over his head and the sound of the old church bell comforting him in his sleep.
 
-The shop was hot and stuffy. The air smelled of coffins. The space under the counter, where Oliver’s thin mattress had been placed, looked like a grave.
+Oliver was woken in the morning by loud kicking on the shop door. Before he could get his clothes on, the kicking was repeated angrily about twenty-five times. When he started to unchain the door, the kicking stopped and a voice began.
 
-But these were not the only things that made Oliver feel miserable. He was alone in a strange place, and we all know how cold and empty even strong people can feel in such moments. The boy had no friends—no one to care for him, and no one he could care for. There was no recent goodbye, no beloved face in his memory—but still, his heart felt very heavy.
+“Open the door, will you?” cried the voice that belonged to the legs that had kicked the door.
 
-As he lay down in his narrow bed, he almost wished it were his coffin, and that he could rest forever in a quiet churchyard, with tall grass gently moving above him, and the deep sound of a bell calming him in his sleep.
-
-In the morning, Oliver was awakened by loud kicking at the shop door. Before he could even get dressed, the kicking came again—louder and more impatient—many times. As he began to unlock the door, the kicking stopped, and a voice called out:
-
-“Open the door, will you?”
-
-“Yes, sir, at once,” said Oliver, unlocking it.
+“I will, right away, sir,” replied Oliver, unchaining the door and turning the key.
 
 “I suppose you’re the new boy, aren’t you?” said the voice through the keyhole.
 
 “Yes, sir,” replied Oliver.
 
-“How old are you?”
+“How old are you?” asked the voice.
 
-“Ten, sir.”
+“Ten, sir,” replied Oliver.
 
-“Then I’ll beat you when I come in,” said the voice. “Just wait and see, you workhouse brat!”
+“Then I’ll beat you when I get in,” said the voice. “Just you see if I don’t, my workhouse brat!” After making this kind promise, the voice began to whistle.
 
-The voice then began to whistle.
+Oliver had been threatened with a beating so many times before that he had no doubt the owner of the voice would keep his promise. With a trembling hand, he drew back the bolts and opened the door.
 
-Oliver had been beaten so often before that he had no doubt the speaker meant what he said. His hands trembling, he opened the door.
+For a moment, Oliver glanced up and down the street. He thought the person who had spoken to him through the keyhole had walked away to warm himself. He saw no one but a large charity-boy, sitting on a post in front of the house, eating a slice of bread and butter. The boy cut the bread into wedges the size of his mouth with a knife and ate them skillfully.
 
-For a moment, Oliver looked up and down the street, thinking the person might have stepped away—but he saw no one except a large charity-boy sitting on a post outside, eating bread and butter. He cut it into big pieces with a knife and ate quickly and skillfully.
+“Excuse me, sir,” said Oliver, when no other visitor appeared. “Did you knock?”
 
-“I beg your pardon, sir,” said Oliver at last. “Did you knock?”
+“I kicked,” replied the charity-boy.
 
-“I kicked,” said the boy.
+“Did you want a coffin, sir?” Oliver asked innocently.
 
-“Did you want a coffin, sir?” asked Oliver innocently.
+At this, the charity-boy looked very fierce and said that Oliver would need one soon if he made jokes with his superiors like that.
 
-The boy looked very angry. He said Oliver would need a coffin soon if he joked like that with his superiors.
+“You don’t know who I am, I suppose, Workhouse?” said the charity-boy, getting down from the post with great seriousness.
 
-“You don’t know who I am, do you, workhouse?” said the boy, climbing down from the post.
+“No, sir,” Oliver replied.
 
-“No, sir,” said Oliver.
+“I’m Mister Noah Claypole,” said the charity-boy, “and you’re under me. Take down the shutters, you lazy young ruffian!” With that, Mr. Claypole gave Oliver a kick and entered the shop with a dignified air. It is difficult for a large-headed, small-eyed, clumsy young man to look dignified in any situation, but it is especially difficult when he also has a red nose and yellow trousers.
 
-“I’m Mister Noah Claypole,” said the boy, “and you’re under me. Take down the shutters, you lazy young rascal!”
+Oliver took down the shutters. While trying to carry the first one to a small courtyard, he stumbled and broke a pane of glass. Noah graciously helped him, after first assuring him that he would “get in trouble.” Mr. Sowerberry came down soon after, followed by Mrs. Sowerberry. Oliver did “get in trouble,” just as Noah had predicted, and then followed Noah downstairs for breakfast.
 
-With that, Noah kicked Oliver and walked into the shop, trying to look important. This was not easy for a boy with a large head, small eyes, a heavy face, a red nose, and ill-fitting clothes—but he tried his best.
+“Come near the fire, Noah,” said Charlotte. “I saved a nice piece of bacon for you from the master’s breakfast. Oliver, shut the door behind Mister Noah, and take those bits I’ve put out on the bread-pan cover. There’s your tea. Take it over to that box and drink it there. And hurry, they’ll want you to watch the shop. Do you hear?”
 
-Oliver began taking down the shutters. The first one was so heavy that he nearly dropped it and even broke a piece of glass. Noah helped him—but only after telling him that he would be punished for it.
+“Do you hear, Workhouse?” said Noah Claypole.
 
-Soon Mr. Sowerberry came down, and shortly after, Mrs. Sowerberry. Oliver did indeed get punished, just as Noah had promised, and then followed him downstairs for breakfast.
+“Oh, Noah!” said Charlotte, “What a strange person you are! Why don’t you leave the boy alone?”
 
-“Come near the fire, Noah,” said Charlotte. “I saved you some bacon from breakfast. Oliver, shut the door behind Mister Noah, and take those scraps I left for you. There’s your tea—take it over there and drink it quickly. They’ll need you in the shop.”
+“Leave him alone!” said Noah. “Everyone else leaves him alone enough. Neither his father nor his mother will ever bother him. All his relatives let him do what he wants. Right, Charlotte? Ha ha ha!”
 
-“Did you hear that, Workhouse?” said Noah.
+“Oh, you strange thing!” said Charlotte, bursting into a hearty laugh. Noah joined her, and they both looked scornfully at poor Oliver Twist. He sat shivering on a box in the coldest corner of the room, eating the stale pieces of bread that had been saved for him.
 
-“Oh, Noah!” said Charlotte. “What a strange boy you are! Why don’t you leave him alone?”
+Noah was a charity-boy, but not a workhouse orphan. He was not a child of unknown parents. He could trace his family back to his parents, who lived nearby. His mother was a washerwoman, and his father was a drunken soldier who had been discharged with a wooden leg and a daily pension of a few pennies. The other shop-boys in the neighborhood used to call Noah names like “leathers” and “charity” in the streets, and Noah had never replied. But now that fate had given him a nameless orphan, someone that even the lowest person could look down on, he took his revenge on Oliver. This gives us something to think about. It shows how wonderful human nature can be, and how the same fine qualities can be found in both the highest lord and the dirtiest charity-boy.
 
-“Leave him alone?” said Noah. “Everyone already leaves him alone. His father and mother never interfere with him. All his relatives let him do whatever he wants! Eh, Charlotte?”
+Oliver had been at the undertaker’s for about three or four weeks. One evening, after the shop was closed, Mr. and Mrs. Sowerberry were having supper in the small back room. Mr. Sowerberry, after looking at his wife nervously a few times, said, “My dear—” He was going to say more, but Mrs. Sowerberry looked up with a very unfriendly expression, and he stopped.
 
-“Oh, you funny creature!” said Charlotte, laughing loudly. Noah laughed too.
+“Well?” said Mrs. Sowerberry sharply.
 
-Then they both looked with contempt at poor Oliver, who sat shivering in the coldest corner of the room, eating the dry scraps that had been saved especially for him.
+“Nothing, my dear, nothing,” said Mr. Sowerberry.
 
-Noah was a charity boy, but not a workhouse orphan. He was not abandoned, because he knew who his parents were: his mother was a washerwoman, and his father was a drunken soldier with a wooden leg, living on a very small daily pension.
+“Ugh, you brute!” said Mrs. Sowerberry.
 
-The boys in the neighborhood had long made fun of Noah in the streets, calling him names like “charity” and worse. Noah usually said nothing. But now that he had found someone even lower than himself—a nameless orphan—he took his revenge on Oliver with great enthusiasm.
+“Not at all, my dear,” said Mr. Sowerberry humbly. “I thought you didn’t want to hear, my dear. I was only going to say—”
 
-This is something worth thinking about. It shows how human nature works: the same unpleasant qualities can be found both in a noble lord and in the poorest, dirtiest boy.
+“Oh, don’t tell me what you were going to say,” interrupted Mrs. Sowerberry. “I am nobody. Don’t ask my opinion, please. I don’t want to know your secrets.” As Mrs. Sowerberry said this, she gave a hysterical laugh that threatened to have serious consequences.
 
-Oliver had been living with the undertaker for about three or four weeks. One evening, after the shop was closed, Mr. and Mrs. Sowerberry were having supper in their small back room. After glancing nervously at his wife several times, Mr. Sowerberry began:
+“But, my dear,” said Sowerberry, “I want to ask your advice.”
 
-“My dear—”
+“No, no, don’t ask me,” replied Mrs. Sowerberry in a dramatic way. “Ask someone else.” Here, she gave another hysterical laugh that frightened Mr. Sowerberry very much. This is a common and effective marital tactic. It made Mr. Sowerberry beg to be allowed to say what Mrs. Sowerberry was most curious to hear. After a short time, she graciously gave him permission.
 
-He stopped when Mrs. Sowerberry looked up at him in an unfriendly way.
+“It’s just about young Twist, my dear,” said Mr. Sowerberry. “He’s a very good-looking boy.”
 
-“Well?” she said sharply.
+“He needs to be, for all the food he eats,” said the lady.
 
-“Nothing, my dear, nothing,” he replied.
+“He has a sad expression on his face, my dear,” continued Mr. Sowerberry, “which is very interesting. He would make a wonderful mute, my love.”
 
-“Ugh, you brute!” she said.
+Mrs. Sowerberry looked up in surprise. Mr. Sowerberry noticed it and, before she could say anything, he went on.
 
-“Not at all, my dear,” said Mr. Sowerberry humbly. “I thought you didn’t want to hear. I was only going to say—”
+“I don’t mean a regular mute for grown-up funerals, my dear, but only for children’s funerals. It would be very new to have a mute who is the right size for a child’s funeral, my dear. You can be sure it would have a superb effect.”
 
-“Oh, don’t tell me what you were going to say,” she interrupted. “I am nobody. Don’t ask my opinion. I don’t want to interfere.” She gave a dramatic laugh.
+Mrs. Sowerberry, who had a good sense of style in the undertaking business, was very impressed by this new idea. But it would have been beneath her dignity to admit it at that moment. So, she just asked sharply why such an obvious idea had not occurred to her husband before. Mr. Sowerberry correctly understood this as her agreement. So, they quickly decided that Oliver should be introduced to the trade immediately. To do this, he would go with his master on the next job.
 
-“But, my dear,” said Mr. Sowerberry, “I do want your advice.”
+The next job came soon. The next morning, half an hour after breakfast, Mr. Bumble entered the shop. He leaned his cane against the counter and took out his large leather pocket-book. From it, he took a small piece of paper and gave it to Sowerberry.
 
-“No, no, don’t ask me,” she replied, pretending to be offended. “Ask someone else.” She laughed again, in a way that made her husband nervous.
+“Aha!” said the undertaker, looking at it with a cheerful face. “An order for a coffin, is it?”
 
-This kind of behavior is quite common—and often very effective. Soon Mr. Sowerberry was almost begging for permission to speak, even though his wife was clearly curious. At last, she allowed him to continue.
+“For a coffin first, and a parish funeral afterwards,” replied Mr. Bumble, fastening the strap of his pocket-book, which, like himself, was very fat.
 
-“It’s only about young Twist, my dear,” he said. “He’s quite a good-looking boy.”
+“Bayton,” said the undertaker, looking from the paper to Mr. Bumble. “I’ve never heard that name before.”
 
-“He needs to be, considering how much he eats,” she replied.
+Bumble shook his head and replied, “Stubborn people, Mr. Sowerberry, very stubborn. Proud, too, I’m afraid, sir.”
 
-“There is a sad expression in his face,” Mr. Sowerberry continued, “which is very interesting. He would make an excellent funeral assistant.”
+“Proud, eh?” exclaimed Mr. Sowerberry with a sneer. “Come on, that’s too much.”
 
-Mrs. Sowerberry looked surprised.
+“Oh, it’s disgusting,” replied the beadle. “It’s exasperating, Mr. Sowerberry!”
 
-“I don’t mean for adult funerals,” he quickly explained, “but for children’s funerals. It would be something new—to have a boy assistant of the right size. It would look very impressive.”
+“So it is,” agreed the undertaker.
 
-Mrs. Sowerberry, who had a good sense for such business matters, liked the idea. But she did not want to admit it directly, so she sharply asked why her husband had not thought of it earlier.
+“We only heard about the family the night before last,” said the beadle. “And we wouldn’t have known anything about them then, except a woman who lives in the same house asked the parish committee to send the parish doctor to see a very sick woman. He had gone out to dinner, but his apprentice (who is a very clever boy) sent them some medicine in a shoe-polish bottle right away.”
 
-Mr. Sowerberry understood this as agreement. It was quickly decided that Oliver would begin learning the trade and would go with his master the next time he was needed.
+“Ah, that’s prompt,” said the undertaker.
 
-That time came very soon. The next morning, about half an hour after breakfast, Mr. Bumble entered the shop. He leaned his cane against the counter and took out a large leather notebook. From it, he pulled a small piece of paper and handed it to Mr. Sowerberry.
+“Prompt indeed!” replied the beadle. “But what was the result? What was the ungrateful behavior of these rebels, sir? Why, the husband sends back a message that the medicine won’t help his wife’s illness, and so she won’t take it—says she won’t take it, sir! Good, strong, wholesome medicine, that was successfully given to two Irish laborers and a coal-heaver just a week before—sent to them for free, in a shoe-polish bottle—and he sends back a message that she won’t take it, sir!”
 
-“Ah!” said the undertaker, reading it with interest. “An order for a coffin?”
+As the full horror of the situation hit him, Mr. Bumble struck the counter sharply with his cane and turned red with anger.
 
-“For a coffin first, and a parish funeral after,” said Mr. Bumble.
+“Well,” said the undertaker, “I ne-ver—”
 
-“Bayton,” said the undertaker, reading the name. “I don’t know it.”
+“Never did, sir!” exclaimed the beadle. “No, and nobody ever did. But now she’s dead, and we have to bury her. That’s the order, and the sooner it’s done, the better.”
 
-“Very stubborn people,” said Mr. Bumble, shaking his head. “And proud, too.”
+With that, Mr. Bumble put on his hat backwards in his excitement and stormed out of the shop.
 
-“Proud?” said Mr. Sowerberry with a sneer. “That’s too much.”
+“Why, he was so angry, Oliver, that he forgot to even ask about you!” said Mr. Sowerberry, watching the beadle stride down the street.
 
-“It’s shocking,” said the beadle.
+“Yes, sir,” replied Oliver, who had carefully stayed out of sight during the conversation and was shaking from head to toe just from the memory of Mr. Bumble’s voice. He didn’t need to worry about Mr. Bumble seeing him, however. The gentleman in the white waistcoat’s prediction had made a strong impression on Mr. Bumble, and he thought it was best to avoid the subject of Oliver now that the undertaker had him on trial. He would wait until Oliver was legally bound for seven years, and there was no danger of him being returned to the parish.
 
-“We only heard about them the night before last,” he continued. “A woman from their house asked the parish to send a doctor to see a very sick woman. The doctor was out, but his assistant sent some medicine right away—in a black bottle.”
+“Well,” said Mr. Sowerberry, picking up his hat, “the sooner this job is done, the better. Noah, watch the shop. Oliver, put on your cap and come with me.” Oliver obeyed and followed his master on his professional errand.
 
-“Very quick,” said the undertaker.
+They walked for some time through the most crowded part of town. Then, they turned down a narrow street that was dirtier and more miserable than any they had passed through before. They stopped to look for the house they were searching for. The houses on both sides of the street were tall and large, but very old and lived in by the poorest people. Their neglected appearance made this clear, even without the miserable looks of the few men and women who occasionally walked by, with their arms crossed and their bodies bent over. Many of the buildings had shop-fronts, but they were closed up and rotting away. Only the upper rooms were lived in. Some houses that were unsafe from age were propped up with huge wooden beams to prevent them from falling into the street. But even these rundown places seemed to be the nightly shelters of homeless people, as many of the rough boards that covered the doors and windows had been pulled off to create an opening big enough for a person to get through. The gutter was stagnant and filthy. The very rats that lay rotting in it were made more hideous by their starvation.
 
-“Quick indeed!” said Mr. Bumble. “But what do they do? The husband sends word back that the medicine won’t help—and says his wife won’t take it! Good, strong medicine, which helped others just a week before—and given for free!”
+There was no knocker or bell at the open door where Oliver and his master stopped. The undertaker carefully made his way through the dark passage, telling Oliver to stay close and not be afraid. He then went up the first flight of stairs. Stumbling against a door on the landing, he knocked on it with his knuckles.
 
-Mr. Bumble struck the counter angrily with his cane.
+It was opened by a young girl of about thirteen or fourteen. The undertaker could see at once that this was the room he had been sent to. He stepped inside, and Oliver followed him.
 
-“Well,” said the undertaker, “I never—”
+There was no fire in the room, but a man was hunched over the empty stove. An old woman was sitting on a low stool by the cold hearth next to him. There were some ragged children in another corner. In a small alcove opposite the door, something lay on the ground, covered with an old blanket. Oliver shivered as he looked at it and moved closer to his master. Even though it was covered, the boy knew it was a corpse.
 
-“Never indeed!” cried Mr. Bumble. “But now she’s dead, and we must bury her. That’s the order—and the sooner it’s done, the better.”
+The man’s face was thin and very pale. His hair and beard were gray, and his eyes were bloodshot. The old woman’s face was wrinkled. Her two remaining teeth stuck out over her lower lip, and her eyes were bright and sharp. Oliver was afraid to look at either of them. They looked so much like the rats he had seen outside.
 
-With that, Mr. Bumble put on his hat the wrong way in his excitement and hurried out of the shop.
+“Nobody go near her,” said the man, jumping up fiercely as the undertaker approached the alcove. “Keep back! Damn you, keep back, if you value your life!”
 
-“He was so angry, Oliver, he didn’t even ask about you,” said Mr. Sowerberry, watching him leave.
+“Nonsense, my good man,” said the undertaker, who was used to all kinds of misery. “Nonsense!”
 
-“Yes, sir,” said Oliver quietly. He had stayed out of sight the whole time and was still trembling at the sound of Mr. Bumble’s voice.
+“I tell you,” said the man, clenching his fists and stamping his foot on the floor. “I tell you I won’t have her put in the ground. She couldn’t rest there. The worms would bother her—not eat her—she is so thin and worn away.”
 
-“Well,” said Mr. Sowerberry, taking his hat, “the sooner we finish this job, the better. Noah, watch the shop. Oliver, put on your cap and come with me.”
+The undertaker did not reply to this outburst. He took a tape measure from his pocket and knelt for a moment beside the body.
 
-Oliver obeyed and followed him.
+“Ah!” said the man, bursting into tears and falling to his knees at the dead woman’s feet. “Kneel down, kneel down—kneel around her, all of you, and listen to me! I say she was starved to death. I never knew how sick she was until the fever came. Then her bones were sticking out of her skin. There was no fire or candle. She died in the dark—in the dark! She couldn’t even see her children’s faces, though we heard her gasping their names. I begged for her in the streets, and they sent me to prison. When I came back, she was dying. All the blood in my heart has dried up because they starved her to death. I swear it before the God that saw it! They starved her!” He tangled his hands in his hair and, with a loud scream, rolled on the floor, his eyes fixed and foam covering his lips.
 
-They walked through busy, crowded streets for some time, then turned into a narrow, dirty street worse than any they had seen before. They stopped to look for the house they needed.
+The terrified children cried loudly, but the old woman, who had been as quiet as if she were deaf, threatened them into silence. After loosening the collar of the man who was still on the ground, she hobbled towards the undertaker.
 
-The houses were tall and old, filled with very poor people. Many looked broken and neglected. Some had shops on the ground floor, but they were closed and falling apart, with only the upper rooms still in use.
+“She was my daughter,” said the old woman, nodding her head towards the corpse. She spoke with a strange, empty smile that was more horrifying than death itself. “Lord, Lord! It’s strange that I, who gave birth to her and was a woman then, should be alive and happy now, and she lying there, so cold and stiff! Lord, Lord!—to think of it; it’s as good as a play—as good as a play!”
 
-Some buildings were so weak that large wooden beams had been placed against them to stop them from collapsing into the street. Even these dangerous places were used by homeless people, who had broken boards from doors and windows to get inside.
+As the miserable woman mumbled and chuckled in her horrible amusement, the undertaker turned to leave.
 
-The street was filthy, with dirty water standing in the gutter. Even the rats, lying dead in places, looked thin and starved.
+“Stop, stop!” said the old woman in a loud whisper. “Will she be buried tomorrow, or the next day, or tonight? I laid her out, and I must go with her, you know. Send me a large cloak, a good warm one, for it is very cold. We should have cake and wine, too, before we go! Never mind, send some bread—just a loaf of bread and a cup of water. Shall we have some bread, dear?” she asked eagerly, grabbing the undertaker’s coat as he moved towards the door again.
 
-There was no door-knocker or bell at the house they stopped at. So the undertaker carefully felt his way through a dark passage, telling Oliver to stay close and not be afraid. Then he climbed the stairs and knocked on a door at the top.
+“Yes, yes,” said the undertaker, “of course. Anything you like!” He pulled himself free from the old woman’s grasp and, pulling Oliver with him, hurried away.
 
-The door was opened by a girl of about thirteen or fourteen. The undertaker immediately understood that this was the place he had been looking for. He stepped inside, and Oliver followed.
+The next day, Oliver and his master returned to the miserable home. The family had been given half a loaf of bread and a piece of cheese by Mr. Bumble himself. Mr. Bumble was already there, with four men from the workhouse who were to carry the coffin. An old black cloak had been thrown over the rags of the old woman and the man. The plain coffin was screwed down, lifted onto the shoulders of the bearers, and carried into the street.
 
-There was no fire in the room. A man was crouching near an empty stove, staring at it without thinking. An old woman sat beside him on a low stool. In one corner were several ragged children. In a small space opposite the door lay something on the floor, covered with an old blanket.
+“Now, you must hurry, old lady!” whispered Sowerberry in the old woman’s ear. “We are rather late, and we can’t keep the clergyman waiting. Move on, my men, as quickly as you can!”
 
-Oliver shivered when he looked at it and moved closer to his master. Even though it was covered, he felt sure it was a dead body.
+The bearers trotted on with their light load, and the two mourners followed as closely as they could. Mr. Bumble and Sowerberry walked quickly at the front, and Oliver, whose legs were not as long as his master’s, ran by their side.
 
-The man’s face was thin and pale. His hair and beard were gray, and his eyes were red. The old woman had a wrinkled face, with two teeth sticking out, and bright, sharp eyes. Oliver was afraid to look at them. They reminded him of the rats he had seen outside.
+There was no need to hurry as much as Mr. Sowerberry had thought. When they reached the forgotten corner of the churchyard where the weeds grew and the parish graves were dug, the clergyman had not arrived. The clerk, who was sitting by the fire in the vestry, seemed to think it was quite possible that he might not come for an hour or so. So, they put the coffin on the edge of the grave. The two mourners waited patiently in the damp clay, while a cold rain fell. The ragged boys who had been drawn to the churchyard by the event played a noisy game of hide-and-seek among the tombstones, or amused themselves by jumping back and forth over the coffin. Mr. Sowerberry and Bumble, who were friends of the clerk, sat by the fire with him and read the newspaper.
 
-“No one shall go near her!” cried the man suddenly, jumping up as the undertaker came closer. “Stay back! Stay back, if you value your life!”
+After more than an hour, Mr. Bumble, Sowerberry, and the clerk were seen running towards the grave. Immediately afterwards, the clergyman appeared, putting on his vestments as he walked. Mr. Bumble then hit a boy or two to keep up appearances. The clergyman read as much of the burial service as could be done in four minutes, gave his vestments to the clerk, and walked away again.
 
-“Nonsense, my good man,” said the undertaker calmly. He was used to scenes like this. “Nonsense!”
+“Now, Bill!” said Sowerberry to the grave-digger. “Fill it up!”
 
-“I tell you,” said the man, clenching his fists and stamping on the floor, “I won’t let her be buried. She won’t rest in the ground. The worms will trouble her—she is too thin already.”
+It was not a difficult job, because the grave was so full that the top coffin was only a few feet from the surface. The grave-digger shoveled in the dirt, stamped it down loosely with his feet, shouldered his spade, and walked off. He was followed by the boys, who complained loudly that the fun was over so soon.
 
-The undertaker did not answer. He took a measuring tape from his pocket and knelt beside the body for a moment.
+“Come on, my good fellow!” said Bumble, tapping the man on the back. “They want to close the yard.”
 
-“Ah!” cried the man suddenly. He burst into tears and fell on his knees beside the dead woman. “Kneel down, all of you, and listen! She was starved to death! I didn’t know how bad it was until she got sick—and then her bones were showing through her skin. There was no fire, no light—she died in the dark! She couldn’t even see her children’s faces, though we heard her calling their names. I begged in the streets for help—and they sent me to prison. When I came back, she was dying. I swear before God—they starved her to death!”
+The man, who had not moved since he had stood by the graveside, looked up, stared at the person who had spoken to him, walked a few steps, and fainted. The old woman was too busy crying about the loss of her cloak (which the undertaker had taken off) to pay him any attention. So, they threw a can of cold water over him. When he woke up, they made sure he got out of the churchyard, locked the gate, and went their separate ways.
 
-He pulled at his hair, screamed loudly, and fell to the ground, shaking and foaming at the mouth.
+“Well, Oliver,” said Sowerberry, as they walked home, “how do you like it?”
 
-The frightened children began to cry, but the old woman quickly silenced them. Then she loosened the man’s neckcloth and slowly walked toward the undertaker.
+“Pretty well, thank you, sir,” replied Oliver, with some hesitation. “Not very much, sir.”
 
-“She was my daughter,” said the old woman, nodding toward the body. She spoke with a strange, unsettling smile. “How strange! I gave birth to her, and now I am still alive, while she lies there—cold and stiff. How strange! It’s almost like a play—a play!”
+“Ah, you’ll get used to it in time, Oliver,” said Sowerberry. “It’s nothing when you are used to it, my boy.”
 
-As she laughed quietly to herself, the undertaker turned to leave.
-
-“Wait!” she whispered loudly. “When will she be buried? Tomorrow? Tonight? I dressed her for burial, and I must attend. Send me a warm cloak—it is very cold. And we should have something to eat before we go. Never mind—just send some bread. Only bread and water. Shall we have some bread, dear?”
-
-She caught the undertaker’s coat as he tried to leave.
-
-“Yes, yes,” he said quickly. “Of course. Anything you like.” He pulled himself free and hurried away, taking Oliver with him.
-
-The next day, after Mr. Bumble had brought the family a small loaf of bread and some cheese, Oliver and his master returned. Mr. Bumble was already there with four men from the workhouse to carry the coffin.
-
-The old man and woman wore a black cloak over their rags. The coffin was closed and lifted onto the men’s shoulders, then carried out into the street.
-
-“Now walk a little faster,” whispered Mr. Sowerberry to the old woman. “We are late—we must not keep the clergyman waiting.”
-
-The men moved quickly with their light load. The two mourners followed as best they could. Mr. Bumble and Mr. Sowerberry walked ahead, and Oliver hurried along beside them.
-
-But there was no need to hurry. When they reached a poor corner of the churchyard, where the graves of the poor were, the clergyman had not yet arrived. The clerk, sitting by a fire, said it might be an hour before he came.
-
-So they placed the coffin near the grave and waited. The two mourners stood in the wet ground while a cold rain fell. Ragged boys ran around the cemetery, playing games, even jumping over the coffin.
-
-Meanwhile, Mr. Sowerberry and Mr. Bumble sat by the fire with the clerk and read a newspaper.
-
-At last, after more than an hour, they came running to the grave. Soon after, the clergyman arrived, putting on his robe as he walked. Mr. Bumble hit a few boys to make everything look proper. The clergyman quickly read the burial service—in just a few minutes—and then left.
-
-“Now, Bill,” said Mr. Sowerberry to the grave-digger. “Fill it in.”
-
-It was not difficult. The grave was already almost full, with another coffin close beneath the surface. The grave-digger threw in the earth, pressed it down with his feet, picked up his shovel, and left. The boys followed him, complaining that the fun was over too quickly.
-
-“Come on,” said Mr. Bumble, tapping the dead woman’s husband. “They’re going to close the yard.”
-
-The man, who had not moved the whole time, suddenly lifted his head, looked around, walked a few steps—and fell unconscious.
-
-The old woman was too busy complaining about her lost cloak to notice. They threw some cold water on the man, helped him out of the churchyard, locked the gate, and went their separate ways.
-
-“Well, Oliver,” said Mr. Sowerberry as they walked home, “how do you like it?”
-
-“Quite well, thank you, sir,” said Oliver, hesitating. “Not very much, sir.”
-
-“You’ll get used to it,” said Mr. Sowerberry. “It’s nothing once you’re used to it.”
-
-Oliver wondered how long it had taken Mr. Sowerberry to get used to it. But he did not ask. He walked back to the shop, thinking about everything he had seen and heard.`,
+Oliver wondered to himself if it had taken Mr. Sowerberry a very long time to get used to it. But he thought it was better not to ask the question. He walked back to the shop, thinking about all he had seen and heard.
+`,
 }

@@ -1,183 +1,177 @@
 export const chapter_11 = {
 	name: 'Chapter XI',
 	header: 'Treats of Mr. Fang the police magistrate; and furnishes a slight specimen of his mode of administering justice',
-	text: `The offence had been committed close to a well-known police office. The crowd followed Oliver through a few streets and down a place called Mutton Hill, until he was taken under a low archway and through a dirty yard into the building, entering from the back.
+	text: `The offence had been committed within the district, and indeed in the immediate neighbourhood of, a very notorious metropolitan police office. The crowd had only the satisfaction of accompanying Oliver through two or three streets, and down a place called Mutton Hill, when he was led beneath a low archway, and up a dirty court, into this dispensary of summary justice, by the back way. It was a small paved yard into which they turned; and here they encountered a stout man with a bunch of whiskers on his face, and a bunch of keys in his hand.
 
-It was a small paved yard where they met a stout man with thick whiskers and a bunch of keys in his hand.
+“What’s the matter now?” said the man carelessly.
 
-“What’s going on now?” he asked carelessly.
+“A young fogle-hunter,” replied the man who had Oliver in charge.
 
-“A young pickpocket,” replied the man holding Oliver.
+“Are you the party that’s been robbed, sir?” inquired the man with the keys.
 
-“Are you the gentleman who was robbed, sir?” asked the man with the keys.
+“Yes, I am,” replied the old gentleman; “but I am not sure that this boy actually took the handkerchief. I—I would rather not press the case.”
 
-“Yes,” said the old gentleman; “but I am not sure that this boy actually took the handkerchief. I—I would rather not press charges.”
+“Must go before the magistrate now, sir,” replied the man. “His worship will be disengaged in half a minute. Now, young gallows!”
 
-“You must go before the magistrate now, sir,” said the man. “He’ll be ready in a moment. Come along, boy!”
+This was an invitation for Oliver to enter through a door which he unlocked as he spoke, and which led into a stone cell. Here he was searched; and nothing being found upon him, locked up.
 
-He unlocked a door and led Oliver into a stone cell. Oliver was searched, but nothing was found on him, so he was locked inside.
+This cell was in shape and size something like an area cellar, only not so light. It was most intolerably dirty; for it was Monday morning; and it had been tenanted by six drunken people, who had been locked up, elsewhere, since Saturday night. But this is little. In our station-houses, men and women are every night confined on the most trivial charges—the word is worth noting—in dungeons, compared with which, those in Newgate, occupied by the most atrocious felons, tried, found guilty, and under sentence of death, are palaces. Let any one who doubts this, compare the two.
 
-The cell was small and dark, like a basement room, but even gloomier. It was terribly dirty. It was Monday morning, and six drunken people had been kept there over the weekend. In fact, in these police stations, people were locked up every night for the smallest reasons—this is worth remembering—in places far worse than the prisons where even the most dangerous criminals were held. Anyone who doubts this should compare the two.
+The old gentleman looked almost as rueful as Oliver when the key grated in the lock. He turned with a sigh to the book, which had been the innocent cause of all this disturbance.
 
-The old gentleman looked almost as unhappy as Oliver when the key turned in the lock. He sighed and looked at the book that had caused all the trouble.
+“There is something in that boy’s face,” said the old gentleman to himself as he walked slowly away, tapping his chin with the cover of the book, in a thoughtful manner; “something that touches and interests me. Can he be innocent? He looked like— Bye the bye,” exclaimed the old gentleman, halting very abruptly, and staring up into the sky, “Bless my soul!—where have I seen something like that look before?”
 
-“There is something in that boy’s face,” he said to himself as he walked slowly away, tapping his chin with the book. “Something that touches me. Could he be innocent? He looked like— Wait a moment!” he suddenly cried, stopping and looking up. “Where have I seen that expression before?”
+After musing for some minutes, the old gentleman walked, with the same meditative face, into a back anteroom opening from the yard; and there, retiring into a corner, called up before his mind’s eye a vast amphitheatre of faces over which a dusky curtain had hung for many years. “No,” said the old gentleman, shaking his head; “it must be imagination.”
 
-He stood thinking for some minutes, then walked into a small room nearby. There, in a quiet corner, he tried to remember. In his mind, many faces appeared—faces he had known long ago.
+He wandered over them again. He had called them into view, and it was not easy to replace the shroud that had so long concealed them. There were the faces of friends, and foes, and of many that had been almost strangers peering intrusively from the crowd; there were the faces of young and blooming girls that were now old women; there were faces that the grave had changed and closed upon, but which the mind, superior to its power, still dressed in their old freshness and beauty, calling back the lustre of the eyes, the brightness of the smile, the beaming of the soul through its mask of clay, and whispering of beauty beyond the tomb, changed but to be heightened, and taken from earth only to be set up as a light, to shed a soft and gentle glow upon the path to Heaven.
 
-“No,” he said, shaking his head. “It must be my imagination.”
+But the old gentleman could recall no one countenance of which Oliver’s features bore a trace. So, he heaved a sigh over the recollections he awakened; and being, happily for himself, an absent old gentleman, buried them again in the pages of the musty book.
 
-Still, the faces came back to him. Friends, enemies, strangers—young faces that were now old, and faces of those who had long since died, yet still seemed alive in his memory, full of life and beauty, as though time had not touched them.
+He was roused by a touch on the shoulder, and a request from the man with the keys to follow him into the office. He closed his book hastily; and was at once ushered into the imposing presence of the renowned Mr. Fang.
 
-But he could not find a single face that truly resembled Oliver’s. At last, with a sigh, he pushed these memories away and returned to his old book.
+The office was a front parlour, with a panelled wall. Mr. Fang sat behind a bar, at the upper end; and on one side of the door was a sort of wooden pen in which poor little Oliver was already deposited; trembling very much at the awfulness of the scene.
 
-He was interrupted by a touch on the shoulder. The man with the keys asked him to follow. He quickly closed his book and was led into the office of the famous Mr. Fang.
+Mr. Fang was a lean, long-backed, stiff-necked, middle-sized man, with no great quantity of hair, and what he had, growing on the back and sides of his head. His face was stern, and much flushed. If he were really not in the habit of drinking rather more than was exactly good for him, he might have brought action against his countenance for libel, and have recovered heavy damages.
 
-The office was a front room with wooden walls. Mr. Fang sat behind a raised desk. Near the door was a small wooden enclosure where poor Oliver already stood, trembling at the seriousness of the scene.
+The old gentleman bowed respectfully; and advancing to the magistrate’s desk, said, suiting the action to the word, “That is my name and address, sir.” He then withdrew a pace or two; and, with another polite and gentlemanly inclination of the head, waited to be questioned.
 
-Mr. Fang was a thin, stiff man of средней height, with little hair, mostly on the sides and back of his head. His face was stern and red. If he had not been in the habit of drinking more than was good for him, his face might have given a false impression of his character.
-
-The old gentleman bowed politely and stepped forward.
-
-“That is my name and address, sir,” he said, placing a card on the desk. Then he stepped back and waited respectfully.
-
-At that moment, Mr. Fang was reading a newspaper article about himself, praising one of his recent decisions and recommending him once again to the attention of an important government official. He was in a bad mood, and when he looked up, he did so with an angry expression.
+Now, it so happened that Mr. Fang was at that moment perusing a leading article in a newspaper of the morning, adverting to some recent decision of his, and commending him, for the three hundred and fiftieth time, to the special and particular notice of the Secretary of State for the Home Department. He was out of temper; and he looked up with an angry scowl.
 
 “Who are you?” said Mr. Fang.
 
 The old gentleman pointed, with some surprise, to his card.
 
-“Officer!” said Mr. Fang, throwing the card aside with the newspaper in a careless and contemptuous way. “Who is this man?”
+“Officer!” said Mr. Fang, tossing the card contemptuously away with the newspaper. “Who is this fellow?”
 
-“My name, sir,” said the old gentleman calmly, “is Brownlow. May I ask the name of the magistrate who chooses to insult a respectable person without any reason, while sitting on the bench?” As he spoke, Mr. Brownlow looked around the room, as if expecting someone to answer him.
+“My name, sir,” said the old gentleman, speaking like a gentleman, “my name, sir, is Brownlow. Permit me to inquire the name of the magistrate who offers a gratuitous and unprovoked insult to a respectable person, under the protection of the bench.” Saying this, Mr. Brownlow looked around the office as if in search of some person who would afford him the required information.
 
-“Officer!” said Mr. Fang, pushing the paper away, “what is this man doing here?”
+“Officer!” said Mr. Fang, throwing the paper on one side, “what’s this fellow charged with?”
 
-“He isn’t charged with anything, your worship,” replied the officer. “He is the complainant against the boy.”
+“He’s not charged at all, your worship,” replied the officer. “He appears against this boy, your worship.”
 
-Mr. Fang knew this perfectly well; but it amused him to pretend otherwise.
+His worship knew this perfectly well; but it was a good annoyance, and a safe one.
 
-“He complains against the boy, does he?” said Mr. Fang, looking Mr. Brownlow up and down with clear contempt. “Swear him in!”
+“Appears against the boy, does he?” said Mr. Fang, surveying Mr. Brownlow contemptuously from head to foot. “Swear him!”
 
-“Before I take the oath, I would like to say one word,” said Mr. Brownlow. “I could never have believed, without seeing it myself—”
+“Before I am sworn, I must beg to say one word,” said Mr. Brownlow; “and that is, that I really never, without actual experience, could have believed—”
 
-“Be quiet, sir!” said Mr. Fang sharply.
+“Hold your tongue, sir!” said Mr. Fang, peremptorily.
 
-“I will not, sir!” replied the old gentleman firmly.
+“I will not, sir!” replied the old gentleman.
 
-“Be silent this instant, or I will have you removed from the office!” said Mr. Fang. “You are rude and insolent. How dare you speak to a magistrate like that!”
+“Hold your tongue this instant, or I’ll have you turned out of the office!” said Mr. Fang. “You’re an insolent impertinent fellow. How dare you bully a magistrate!”
 
-“What!” exclaimed the old gentleman, his face turning red with anger.
+“What!” exclaimed the old gentleman, reddening.
 
-“Swear this man!” said Fang to the clerk. “I won’t hear another word. Swear him.”
+“Swear this person!” said Fang to the clerk. “I’ll not hear another word. Swear him.”
 
-Mr. Brownlow was deeply offended; but perhaps thinking that his anger might harm the boy’s case, he controlled himself and agreed to take the oath.
+Mr. Brownlow’s indignation was greatly roused; but reflecting perhaps, that he might only injure the boy by giving vent to it, he suppressed his feelings and submitted to be sworn at once.
 
-“Now,” said Fang, “what is the charge against this boy? Speak, sir.”
+“Now,” said Fang, “what’s the charge against this boy? What have you got to say, sir?”
 
 “I was standing at a bookstall—” Mr. Brownlow began.
 
-“Be quiet, sir,” interrupted Mr. Fang. “Policeman! Where is the policeman? Bring him forward and swear him in. Now, officer, what happened?”
+“Hold your tongue, sir,” said Mr. Fang. “Policeman! Where’s the policeman? Here, swear this policeman. Now, policeman, what is this?”
 
-The policeman, speaking respectfully, explained how he had made the arrest, how he had searched Oliver and found nothing, and that this was all he knew.
+The policeman, with becoming humility, related how he had taken the charge; how he had searched Oliver, and found nothing on his person; and how that was all he knew about it.
 
-“Are there any witnesses?” asked Mr. Fang.
+“Are there any witnesses?” inquired Mr. Fang.
 
 “None, your worship,” replied the policeman.
 
-Mr. Fang sat silent for a few moments. Then he turned suddenly to Mr. Brownlow and said angrily,
+Mr. Fang sat silent for some minutes, and then, turning round to the prosecutor, said in a towering passion.
 
-“Are you going to explain your complaint against this boy or not? You have taken the oath. If you stand there and refuse to give evidence, I will punish you for disrespect to the court—I will, by—”
+“Do you mean to state what your complaint against this boy is, man, or do you not? You have been sworn. Now, if you stand there, refusing to give evidence, I’ll punish you for disrespect to the bench; I will, by—”
 
-By what, no one ever knew, because at that very moment the clerk and the jailer both coughed loudly; and the clerk dropped a heavy book on the floor, so that the last words could not be heard—purely by accident, of course.
+By what, or by whom, nobody knows, for the clerk and jailor coughed very loud, just at the right moment; and the former dropped a heavy book upon the floor, thus preventing the word from being heard—accidently, of course.
 
-With many interruptions and repeated insults, Mr. Brownlow managed to explain what had happened. He said that, in the surprise of the moment, he had run after the boy because he had seen him running away. He hoped that, if the magistrate believed Oliver was not the actual thief but only connected to the thieves, he would be treated as fairly as possible.
+With many interruptions, and repeated insults, Mr. Brownlow contrived to state his case; observing that, in the surprise of the moment, he had run after the boy because he had seen him running away; and expressing his hope that, if the magistrate should believe him, although not actually the thief, to be connected with the thieves, he would deal as leniently with him as justice would allow.
 
-“He has already been hurt,” said Mr. Brownlow at the end. “And I fear,” he added, looking urgently toward the bar, “I really fear that he is unwell.”
+“He has been hurt already,” said the old gentleman in conclusion. “And I fear,” he added, with great energy, looking towards the bar, “I really fear that he is ill.”
 
-“Oh, yes, I dare say!” sneered Mr. Fang. “Come, none of your tricks here, young rascal. They won’t work. What’s your name?”
+“Oh! yes, I dare say!” said Mr. Fang, with a sneer. “Come, none of your tricks here, you young vagabond; they won’t do. What’s your name?”
 
-Oliver tried to speak, but his tongue would not move. He was very pale, and the room seemed to spin around him.
+Oliver tried to reply but his tongue failed him. He was deadly pale; and the whole place seemed turning round and round.
 
-“What’s your name, you stubborn villain?” demanded Mr. Fang. “Officer, what is his name?”
+“What’s your name, you hardened scoundrel?” demanded Mr. Fang. “Officer, what’s his name?”
 
-The question was directed to a bluff old man in a striped waistcoat standing near the bar. He bent over Oliver and asked again, but seeing the boy could not answer and knowing silence would only anger the magistrate more, he made a guess.
+This was addressed to a bluff old fellow, in a striped waistcoat, who was standing by the bar. He bent over Oliver, and repeated the inquiry; but finding him really incapable of understanding the question; and knowing that his not replying would only infuriate the magistrate the more, and add to the severity of his sentence; he hazarded a guess.
 
-“He says his name is Tom White, your worship,” said the kind-hearted officer.
+“He says his name’s Tom White, your worship,” said the kind-hearted thief-taker.
 
-“Oh, he won’t speak, will he?” said Fang. “Very well. Where does he live?”
+“Oh, he won’t speak out, won’t he?” said Fang. “Very well, very well. Where does he live?”
 
-“Where he can, your worship,” replied the officer, pretending to repeat Oliver’s answer.
+“Where he can, your worship,” replied the officer; again pretending to receive Oliver’s answer.
 
-“Does he have any parents?” asked Fang.
+“Has he any parents?” inquired Mr. Fang.
 
-“He says they died when he was very young, your worship,” said the officer, giving the usual answer.
+“He says they died in his infancy, your worship,” replied the officer: hazarding the usual reply.
 
-At this moment, Oliver raised his head and, with pleading eyes, whispered a weak request for some water.
+At this point of the inquiry, Oliver raised his head; and, looking round with imploring eyes, murmured a feeble prayer for a draught of water.
 
-“Rubbish!” said Fang. “Don’t try to fool me.”
+“Stuff and nonsense!” said Mr. Fang: “don’t try to make a fool of me.”
 
-“I think he really is ill, your worship,” protested the officer.
+“I think he really is ill, your worship,” remonstrated the officer.
 
-“I know better,” said Fang.
+“I know better,” said Mr. Fang.
 
-“Take care of him, officer,” said Mr. Brownlow, raising his hands instinctively. “He’ll fall!”
+“Take care of him, officer,” said the old gentleman, raising his hands instinctively; “he’ll fall down.”
 
-“Stand aside, officer,” cried Fang. “Let him, if he likes.”
+“Stand away, officer,” cried Fang; “let him, if he likes.”
 
-Oliver took the chance and fell to the floor in a faint. The men in the office looked at each other, but no one dared to move.
+Oliver availed himself of the kind permission, and fell to the floor in a fainting fit. The men in the office looked at each other, but no one dared to stir.
 
-“I knew he was pretending,” said Fang, as if this proved it. “Let him lie there; he’ll soon be tired.”
+“I knew he was shamming,” said Fang, as if this were incontestable proof of the fact. “Let him lie there; he’ll soon be tired of that.”
 
-“How will you handle the case, sir?” asked the clerk quietly.
+“How do you propose to deal with the case, sir?” inquired the clerk in a low voice.
 
-“Quickly,” replied Fang. “He is committed for three months—hard labor, of course. Clear the office.”
+“Summarily,” replied Mr. Fang. “He stands committed for three months—hard labour of course. Clear the office.”
 
-The door was opened, and two men were preparing to carry the unconscious boy to his cell, when an elderly man in a modest black suit hurried into the office and moved toward the bench.
+The door was opened for this purpose, and a couple of men were preparing to carry the insensible boy to his cell; when an elderly man of decent but poor appearance, clad in an old suit of black, rushed hastily into the office, and advanced towards the bench.
 
-“Stop! Stop! Don’t take him! For Heaven’s sake, wait a moment!” cried the newcomer, out of breath.
+“Stop, stop! don’t take him away! For Heaven’s sake stop a moment!” cried the new comer, breathless with haste.
 
-Although magistrates in such offices have quick and arbitrary power over the liberty, reputation, and even lives of Her Majesty’s poorer subjects, and although many strange events happen there daily, the public rarely sees them. Mr. Fang was therefore very angry to see someone enter uninvited and in such disorder.
+Although the presiding Genii in such an office as this, exercise a summary and arbitrary power over the liberties, the good name, the character, almost the lives, of Her Majesty’s subjects, especially of the poorer class; and although, within such walls, enough fantastic tricks are daily played to make the angels blind with weeping; they are closed to the public, save through the medium of the daily press. Mr. Fang was consequently not a little indignant to see an unbidden guest enter in such irreverent disorder.
 
-“What is this? Who are you? Turn this man out. Clear the office!” shouted Fang.
+“What is this? Who is this? Turn this man out. Clear the office!” cried Mr. Fang.
 
-“I will speak!” cried the man. “I will not be turned out. I saw it all. I run the bookstall. I demand to be sworn. I will not be silenced. Mr. Fang, you must hear me. You cannot refuse, sir.”
+“I will speak,” cried the man; “I will not be turned out. I saw it all. I keep the book-stall. I demand to be sworn. I will not be put down. Mr. Fang, you must hear me. You must not refuse, sir.”
 
-The man was right. He spoke firmly, and the matter was now too serious to ignore.
+The man was right. His manner was determined; and the matter was growing rather too serious to be hushed up.
 
-“Swear the man in,” growled Mr. Fang, not very pleased. “Now, tell me, what do you have to say?”
+“Swear the man,” growled Mr. Fang, with a very ill grace. “Now, man, what have you got to say?”
 
-“This,” said the man. “I saw three boys—two others and this one—loitering across the street while this gentleman was reading. The robbery was done by another boy. I saw it happen, and I saw that this boy was completely surprised and confused.” The bookstall keeper, having caught his breath, then explained clearly the full story of the robbery.
+“This,” said the man: “I saw three boys: two others and the prisoner here: loitering on the opposite side of the way, when this gentleman was reading. The robbery was committed by another boy. I saw it done; and I saw that this boy was perfectly amazed and stupified by it.” Having by this time recovered a little breath, the worthy book-stall keeper proceeded to relate, in a more coherent manner the exact circumstances of the robbery.
 
-“Why didn’t you come sooner?” asked Fang after a pause.
+“Why didn’t you come here before?” said Fang, after a pause.
 
-“I had no one to watch the shop,” replied the man. “Everyone who could help had joined the chase. I could not get anyone until five minutes ago, and I ran here all the way.”
+“I hadn’t a soul to mind the shop,” replied the man. “Everybody who could have helped me, had joined in the pursuit. I could get nobody till five minutes ago; and I’ve run here all the way.”
 
-“The gentleman was reading?” asked Fang again.
+“The prosecutor was reading, was he?” inquired Fang, after another pause.
 
-“Yes,” said the man. “The very book he is holding.”
+“Yes,” replied the man. “The very book he has in his hand.”
 
-“Oh, that book, eh?” said Fang. “Did you pay for it?”
+“Oh, that book, eh?” said Fang. “Is it paid for?”
 
-“No,” said the man, smiling.
+“No, it is not,” replied the man, with a smile.
 
-“Oh, I completely forgot!” exclaimed the old gentleman innocently.
+“Dear me, I forgot all about it!” exclaimed the absent old gentleman, innocently.
 
-“A fine person to accuse a poor boy!” said Fang, trying to look kind. “I think, sir, you got that book in a very suspicious way, and you may consider yourself lucky that the owner refuses to prosecute. Let this be a lesson, or the law may catch up with you. The boy is free. Clear the office!”
+“A nice person to prefer a charge against a poor boy!” said Fang, with a comical effort to look humane. “I consider, sir, that you have obtained possession of that book, under very suspicious and disreputable circumstances; and you may think yourself very fortunate that the owner of the property declines to prosecute. Let this be a lesson to you, my man, or the law will overtake you yet. The boy is discharged. Clear the office!”
 
-“D—n me!” shouted the old gentleman, finally letting out his anger. “D—n me! I’ll—”
+“D—n me!” cried the old gentleman, bursting out with the rage he had kept down so long, “d—n me! I’ll—”
 
 “Clear the office!” said the magistrate. “Officers, do you hear? Clear the office!”
 
-The order was obeyed. Mr. Brownlow left the office, still angry, holding the book in one hand and his cane in the other. But as soon as he reached the yard, his anger disappeared. Little Oliver Twist lay on the ground, on his back, his shirt open, his temples wet with water, his face very pale, and his body shaking with cold.
+The mandate was obeyed; and the indignant Mr. Brownlow was conveyed out, with the book in one hand, and the bamboo cane in the other: in a perfect phrenzy of rage and defiance. He reached the yard; and his passion vanished in a moment. Little Oliver Twist lay on his back on the pavement, with his shirt unbuttoned, and his temples bathed with water; his face a deadly white; and a cold tremble convulsing his whole frame.
 
-“Poor boy, poor boy!” said Mr. Brownlow, bending over him. “Someone, call a coach at once!”
+“Poor boy, poor boy!” said Mr. Brownlow, bending over him. “Call a coach, somebody, pray. Directly!”
 
-A coach was found, and Oliver was carefully placed inside. Mr. Brownlow sat next to him.
+A coach was obtained, and Oliver having been carefully laid on the seat, the old gentleman got in and sat himself on the other.
 
-“May I come with you?” asked the bookstall keeper.
+“May I accompany you?” said the book-stall keeper, looking in.
 
-“Oh, yes, my good man,” said Mr. Brownlow quickly. “I almost forgot you. And this unlucky book! Hurry, get in. There’s no time to lose.”
+“Bless me, yes, my dear sir,” said Mr. Brownlow quickly. “I forgot you. Dear, dear! I have this unhappy book still! Jump in. Poor fellow! There’s no time to lose.”
 
-The bookstall keeper got into the coach, and they drove away.`,
+The book-stall keeper got into the coach; and away they drove.`,
 }

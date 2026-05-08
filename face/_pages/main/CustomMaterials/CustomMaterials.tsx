@@ -1,13 +1,14 @@
 import React from 'react'
 import Link from 'next/link'
 import { publicFolderFilesUrls } from 'utils/publicFolderFilesUrls'
+import CustomMaterialCovers from '_pages/main/CustomMaterials/CustomMaterialCovers'
 import { pageUrls } from 'сonsts/pageUrls'
 import './CustomMaterials.scss'
 
 function CustomMaterials() {
 	return (
 		<div className='custom-materials'>
-			<div className='custom-materials__covers-container' />
+			<CustomMaterialCovers />
 
 			<div className='custom-materials__top'>
 				<div className='custom-materials__content'>

@@ -1,205 +1,191 @@
 export const chapter_14 = {
 	name: 'Chapter XIV',
 	header: 'Comprising further particulars of Oliver’s stay at Mr. Brownlow’s, with the remarkable prediction which one Mr. Grimwig uttered concerning him, when he went out on an errand',
-	text: `Oliver soon recovered from the fainting fit caused by Mr. Brownlow’s sudden exclamation. After that, neither Mr. Brownlow nor Mrs. Bedwin mentioned the picture. They talked about gentle and cheerful things that would not upset him.
+	text: `Oliver soon recovering from the fainting-fit into which Mr. Brownlow’s abrupt exclamation had thrown him, the subject of the picture was carefully avoided, both by the old gentleman and Mrs. Bedwin, in the conversation that ensued: which indeed bore no reference to Oliver’s history or prospects, but was confined to such topics as might amuse without exciting him. He was still too weak to get up to breakfast; but, when he came down into the housekeeper’s room next day, his first act was to cast an eager glance at the wall, in the hope of again looking on the face of the beautiful lady. His expectations were disappointed, however, for the picture had been removed.
 
-Oliver was still too weak to get up for breakfast. The next day, when he came down to the housekeeper’s room, he immediately looked at the wall, hoping to see the picture of the beautiful lady again. But it was gone.
+“Ah!” said the housekeeper, watching the direction of Oliver’s eyes. “It is gone, you see.”
 
-“Ah!” said Mrs. Bedwin, noticing his eyes. “It is gone, you see.”
+“I see it is ma’am,” replied Oliver. “Why have they taken it away?”
 
-“I see it, ma’am,” replied Oliver. “Why has it been taken away?”
+“It has been taken down, child, because Mr. Brownlow said, that as it seemed to worry you, perhaps it might prevent your getting well, you know,” rejoined the old lady.
 
-“Mr. Brownlow thought it might worry you and stop you from getting well,” explained Mrs. Bedwin.
+“Oh, no, indeed. It didn’t worry me, ma’am,” said Oliver. “I liked to see it. I quite loved it.”
 
-“Oh, no, ma’am. It didn’t worry me. I liked it very much,” said Oliver. “I loved to see it.”
+“Well, well!” said the old lady, good-humouredly; “you get well as fast as ever you can, dear, and it shall be hung up again. There! I promise you that! Now, let us talk about something else.”
 
-“Well, well!” said Mrs. Bedwin kindly. “You must get well as quickly as possible, and then it will be hung up again. Now, let us talk about other things.”
+This was all the information Oliver could obtain about the picture at that time. As the old lady had been so kind to him in his illness, he endeavoured to think no more of the subject just then; so he listened attentively to a great many stories she told him, about an amiable and handsome daughter of hers, who was married to an amiable and handsome man, and lived in the country; and about a son, who was clerk to a merchant in the West Indies; and who was, also, such a good young man, and wrote such dutiful letters home four times a year, that it brought the tears into her eyes to talk about them. When the old lady had expatiated, a long time, on the excellences of her children, and the merits of her kind good husband besides, who had been dead and gone, poor dear soul! just six-and-twenty years, it was time to have tea. After tea she began to teach Oliver cribbage: which he learnt as quickly as she could teach: and at which game they played, with great interest and gravity, until it was time for the invalid to have some warm wine and water, with a slice of dry toast, and then to go cosily to bed.
 
-Oliver listened to her stories about her children and her late husband. She told him about her daughter, married and living happily in the country, and about her son, a good clerk who wrote letters home four times a year. She often cried a little while talking about them.
+They were happy days, those of Oliver’s recovery. Everything was so quiet, and neat, and orderly; everybody so kind and gentle; that after the noise and turbulence in the midst of which he had always lived, it seemed like Heaven itself. He was no sooner strong enough to put his clothes on, properly, than Mr. Brownlow caused a complete new suit, and a new cap, and a new pair of shoes, to be provided for him. As Oliver was told that he might do what he liked with the old clothes, he gave them to a servant who had been very kind to him, and asked her to sell them to a Jew, and keep the money for herself. This she very readily did; and, as Oliver looked out of the parlour window, and saw the Jew roll them up in his bag and walk away, he felt quite delighted to think that they were safely gone, and that there was now no possible danger of his ever being able to wear them again. They were sad rags, to tell the truth; and Oliver had never had a new suit before.
 
-After stories, it was time for tea. Then she taught Oliver to play cribbage. He learned quickly, and they played with interest and seriousness until it was time for him to have warm wine and toast, and go to bed.
+One evening, about a week after the affair of the picture, as he was sitting talking to Mrs. Bedwin, there came a message down from Mr. Brownlow, that if Oliver Twist felt pretty well, he should like to see him in his study, and talk to him a little while.
 
-These were happy days for Oliver. Everything was quiet, neat, and orderly. Everyone was kind. After the noise and danger he had known, it felt like Heaven.
+“Bless us, and save us! Wash your hands, and let me part your hair nicely for you, child,” said Mrs. Bedwin. “Dear heart alive! If we had known he would have asked for you, we would have put you a clean collar on, and made you as smart as sixpence!”
 
-When Oliver was strong enough, Mr. Brownlow gave him a new suit, cap, and shoes. Oliver gave his old clothes to a kind servant to sell. She sold them to a Jew and kept the money. Oliver was glad to see the old, ragged clothes gone forever.
+Oliver did as the old lady bade him; and, although she lamented grievously, meanwhile, that there was not even time to crimp the little frill that bordered his shirt-collar; he looked so delicate and handsome, despite that important personal advantage, that she went so far as to say: looking at him with great complacency from head to foot, that she really didn’t think it would have been possible, on the longest notice, to have made much difference in him for the better.
 
-One evening, about a week later, Mr. Brownlow sent word that he wanted to see Oliver in his study.
+Thus encouraged, Oliver tapped at the study door. On Mr. Brownlow calling to him to come in, he found himself in a little back room, quite full of books, with a window, looking into some pleasant little gardens. There was a table drawn up before the window, at which Mr. Brownlow was seated reading. When he saw Oliver, he pushed the book away from him, and told him to come near the table, and sit down. Oliver complied; marvelling where the people could be found to read such a great number of books as seemed to be written to make the world wiser. Which is still a marvel to more experienced people than Oliver Twist, every day of their lives.
 
-“Wash your hands and let me part your hair nicely,” said Mrs. Bedwin. “If we had known he would ask for you, we would have made you as smart as possible!”
+“There are a good many books, are there not, my boy?” said Mr. Brownlow, observing the curiosity with which Oliver surveyed the shelves that reached from the floor to the ceiling.
 
-Oliver followed her instructions. Even without a perfectly crimped shirt-collar, he looked delicate and handsome. Mrs. Bedwin smiled with pride, seeing him from head to toe.
+“A great number, sir,” replied Oliver. “I never saw so many.”
 
-Encouraged, Oliver tapped at the study door. Mr. Brownlow called him in. Oliver entered a small room full of books, with a window looking into a pretty garden. A table stood before the window, and Mr. Brownlow was reading there.
+“You shall read them, if you behave well,” said the old gentleman kindly; “and you will like that, better than looking at the outsides,—that is, some cases; because there are books of which the backs and covers are by far the best parts.”
 
-When he saw Oliver, he pushed the book aside and said, “Come near the table and sit down.”
+“I suppose they are those heavy ones, sir,” said Oliver, pointing to some large quartos, with a good deal of gilding about the binding.
 
-Oliver marveled at all the books.
-
-“There are a good many books, aren’t there, my boy?” asked Mr. Brownlow.
-
-“A great number, sir,” replied Oliver. “I have never seen so many.”
-
-“You shall read them if you behave well,” said Mr. Brownlow kindly. “You will enjoy that more than looking at the covers. Some books have pretty covers, but the insides are less interesting.”
-
-“I suppose you mean the big, heavy books, sir,” said Oliver, pointing at some with gold on the binding.
-
-“Not always,” said Mr. Brownlow, patting his head and smiling. “There are smaller books that are just as heavy. Would you like to grow up clever and write books?”
+“Not always those,” said the old gentleman, patting Oliver on the head, and smiling as he did so; “there are other equally heavy ones, though of a much smaller size. How should you like to grow up a clever man, and write books, eh?”
 
 “I think I would rather read them, sir,” replied Oliver.
 
-“What! You wouldn’t like to be a book-writer?” said Mr. Brownlow.
+“What! wouldn’t you like to be a book-writer?” said the old gentleman.
 
-Oliver thought for a little while. Then he said, “I think it would be better to be a book-seller.”
+Oliver considered a little while; and at last said, he should think it would be a much better thing to be a book-seller; upon which the old gentleman laughed heartily, and declared he had said a very good thing. Which Oliver felt glad to have done, though he by no means knew what it was.
 
-The old gentleman laughed heartily. “Very good!” he said. Oliver felt glad, even though he did not fully understand why it was good.
+“Well, well,” said the old gentleman, composing his features. “Don’t be afraid! We won’t make an author of you, while there’s an honest trade to be learnt, or brick-making to turn to.”
 
-“Well, well,” said Mr. Brownlow, smiling. “Don’t worry. We won’t make you a writer while there is an honest trade to learn—or brick-making to do.”
+“Thank you, sir,” said Oliver. At the earnest manner of his reply, the old gentleman laughed again; and said something about a curious instinct, which Oliver, not understanding, paid no very great attention to.
 
-“Thank you, sir,” said Oliver. His polite words made Mr. Brownlow laugh again. He mentioned something about a curious instinct, which Oliver did not understand and ignored.
+“Now,” said Mr. Brownlow, speaking if possible in a kinder, but at the same time in a much more serious manner, than Oliver had ever known him assume yet, “I want you to pay great attention, my boy, to what I am going to say. I shall talk to you without any reserve; because I am sure you are well able to understand me, as many older persons would be.”
 
-“Now,” said Mr. Brownlow in a kind but serious voice, “I want you to listen carefully. I will speak honestly, because I know you are wise enough to understand, even more than many older people.”
+“Oh, don’t tell you are going to send me away, sir, pray!” exclaimed Oliver, alarmed at the serious tone of the old gentleman’s commencement! “Don’t turn me out of doors to wander in the streets again. Let me stay here, and be a servant. Don’t send me back to the wretched place I came from. Have mercy upon a poor boy, sir!”
 
-“Oh, don’t tell me you are going to send me away, sir!” exclaimed Oliver, alarmed. “Please, let me stay here. Don’t send me back to the terrible place I came from. Have mercy on me!”
+“My dear child,” said the old gentleman, moved by the warmth of Oliver’s sudden appeal; “you need not be afraid of my deserting you, unless you give me cause.”
 
-“My dear child,” said Mr. Brownlow kindly, “you need not fear. I will not leave you, unless you give me reason to.”
+“I never, never will, sir,” interposed Oliver.
 
-“I never, never will, sir,” said Oliver quickly.
+“I hope not,” rejoined the old gentleman. “I do not think you ever will. I have been deceived, before, in the objects whom I have endeavoured to benefit; but I feel strongly disposed to trust you, nevertheless; and I am more interested in your behalf than I can well account for, even to myself. The persons on whom I have bestowed my dearest love, lie deep in their graves; but, although the happiness and delight of my life lie buried there too, I have not made a coffin of my heart, and sealed it up, forever, on my best affections. Deep affliction has but strengthened and refined them.”
 
-“I hope not,” replied Mr. Brownlow. “I do not think you ever will. I have been disappointed before by those I tried to help, but I feel I can trust you. I am very interested in you. The people I loved most are gone, but my heart is not closed. My suffering has only made me stronger and more kind.”
+As the old gentleman said this in a low voice: more to himself than to his companion: and as he remained silent for a short time afterwards: Oliver sat quite still.
 
-Oliver listened quietly as the old gentleman spoke softly to himself.
+“Well, well!” said the old gentleman at length, in a more cheerful tone, “I only say this, because you have a young heart; and knowing that I have suffered great pain and sorrow, you will be more careful, perhaps, not to wound me again. You say you are an orphan, without a friend in the world; all the inquiries I have been able to make, confirm the statement. Let me hear your story; where you come from; who brought you up; and how you got into the company in which I found you. Speak the truth, and you shall not be friendless while I live.”
 
-“Well, well!” said Mr. Brownlow after a while, more cheerfully. “I tell you this because you are young. You must be careful not to hurt me. You say you are an orphan with no friends. All my inquiries confirm that. Now, tell me your story. Where do you come from? Who brought you up? How did you end up in the company I found you with? Speak the truth, and you shall never be friendless while I live.”
+Oliver’s sobs checked his utterance for some minutes; when he was on the point of beginning to relate how he had been brought up at the farm, and carried to the workhouse by Mr. Bumble, a peculiarly impatient little double-knock was heard at the street-door: and the servant, running upstairs, announced Mr. Grimwig.
 
-Oliver tried to speak, but his sobs stopped him. He was about to tell how he had been brought up on a farm and taken to the workhouse by Mr. Bumble, when a double knock came at the street door. The servant announced Mr. Grimwig.
+“Is he coming up?” inquired Mr. Brownlow.
 
-“Is he coming up?” asked Mr. Brownlow.
+“Yes, sir,” replied the servant. “He asked if there were any muffins in the house; and, when I told him yes, he said he had come to tea.”
 
-“Yes, sir,” said the servant. “He asked if there were muffins in the house. When I said yes, he said he had come for tea.”
+Mr. Brownlow smiled; and, turning to Oliver, said that Mr. Grimwig was an old friend of his, and he must not mind his being a little rough in his manners; for he was a worthy creature at bottom, as he had reason to know.
 
-Mr. Brownlow smiled. “Mr. Grimwig is an old friend. He is a little rough in manners, but a good man at heart. Don’t mind him.”
+“Shall I go downstairs, sir?” inquired Oliver.
 
-“Shall I go downstairs, sir?” asked Oliver.
+“No,” replied Mr. Brownlow, “I would rather you remained here.”
 
-“No,” replied Mr. Brownlow. “Stay here.”
+At this moment, there walked into the room: supporting himself by a thick stick: a stout old gentleman, rather lame in one leg, who was dressed in a blue coat, striped waistcoat, nankeen breeches and gaiters, and a broad-brimmed white hat, with the sides turned up with green. A very small-plaited shirt frill stuck out from his waistcoat; and a very long steel watch-chain, with nothing but a key at the end, dangled loosely below it. The ends of his white neckerchief were twisted into a ball about the size of an orange; the variety of shapes into which his countenance was twisted, defy description. He had a manner of screwing his head on one side when he spoke; and of looking out of the corners of his eyes at the same time: which irresistibly reminded the beholder of a parrot. In this attitude, he fixed himself, the moment he made his appearance; and, holding out a small piece of orange-peel at arm’s length, exclaimed, in a growling, discontented voice,
 
-Mr. Grimwig entered, leaning on a thick stick. He was stout, rather lame, and dressed in a blue coat, striped waistcoat, nankeen trousers, and a broad white hat with green sides turned up. A small shirt frill stuck out from his waistcoat, and a long watch-chain with only a key at the end hung below it. His face was twisted in many strange ways. He looked around like a parrot, and held out a small piece of orange peel.
+“Look here! do you see this! Isn’t it a most wonderful and extraordinary thing that I can’t call at a man’s house but I find a piece of this poor surgeon’s friend on the staircase? I’ve been lamed with orange-peel once, and I know orange-peel will be my death, or I’ll be content to eat my own head, sir!”
 
-“Look here! Isn’t it amazing that I find orange peel in a house I visit? It could kill me, sir!” he exclaimed, striking the floor with his stick.
+This was the handsome offer with which Mr. Grimwig backed and confirmed nearly every assertion he made; and it was the more singular in his case, because, even admitting for the sake of argument, the possibility of scientific improvements being brought to that pass which will enable a gentleman to eat his own head in the event of his being so disposed, Mr. Grimwig’s head was such a particularly large one, that the most sanguine man alive could hardly entertain a hope of being able to get through it at a sitting—to put entirely out of the question, a very thick coating of powder.
 
-He spoke in his usual strange and exaggerated way, repeating that he would eat his own head if necessary.
+“I’ll eat my head, sir,” repeated Mr. Grimwig, striking his stick upon the ground. “Hallo! what’s that!” looking at Oliver, and retreating a pace or two.
 
-“Hallo! What’s that?” he said, seeing Oliver, and stepping back a little.
+“This is young Oliver Twist, whom we were speaking about,” said Mr. Brownlow.
 
-“This is young Oliver Twist,” said Mr. Brownlow. “We were speaking about him.”
+Oliver bowed.
 
-Oliver bowed politely.
+“You don’t mean to say that’s the boy who had the fever, I hope?” said Mr. Grimwig, recoiling a little more. “Wait a minute! Don’t speak! Stop—” continued Mr. Grimwig, abruptly, losing all dread of the fever in his triumph at the discovery; “that’s the boy who had the orange! If that’s not the boy, sir, who had the orange, and threw this bit of peel upon the staircase, I’ll eat my head, and his too.”
 
-“You don’t mean this is the boy who had the fever, I hope?” said Mr. Grimwig, stepping back. “Wait a minute! Don’t speak! Stop—” He quickly forgot about the fever in his excitement. “This is the boy who had the orange! If it isn’t, I’ll eat my head—and his too.”
+“No, no, he has not had one,” said Mr. Brownlow, laughing. “Come! Put down your hat; and speak to my young friend.”
 
-“No, no, he hasn’t had one,” said Mr. Brownlow, laughing. “Put down your hat and speak to my young friend.”
+“I feel strongly on this subject, sir,” said the irritable old gentleman, drawing off his gloves. “There’s always more or less orange-peel on the pavement in our street; and I know it’s put there by the surgeon’s boy at the corner. A young woman stumbled over a bit last night, and fell against my garden-railings; directly she got up I saw her look towards his infernal red lamp with the pantomime-light. ‘Don’t go to him,’ I called out of the window, ‘he’s an assassin! A man-trap!’ So he is. If he is not—” Here the irascible old gentleman gave a great knock on the ground with his stick; which was always understood, by his friends, to imply the customary offer, whenever it was not expressed in words. Then, still keeping his stick in his hand, he sat down; and, opening a double eye-glass, which he wore attached to a broad black riband, took a view of Oliver: who, seeing that he was the object of inspection, coloured, and bowed again.
 
-“I feel strongly about this,” said Mr. Grimwig, taking off his gloves. “There’s always some orange peel on the street. I know it comes from the surgeon’s boy. A woman fell over some last night. I shouted, ‘Don’t go to him! He’s dangerous!’ So he is. If he isn’t—” He knocked his stick on the floor to make his point. Then he sat down, opened his double eye-glass, and looked at Oliver. Oliver blushed and bowed again.
-
-“That’s the boy, isn’t it?” said Mr. Grimwig finally.
+“That’s the boy, is it?” said Mr. Grimwig, at length.
 
 “That’s the boy,” replied Mr. Brownlow.
 
-“How are you, boy?” asked Mr. Grimwig.
+“How are you, boy?” said Mr. Grimwig.
 
 “A great deal better, thank you, sir,” replied Oliver.
 
-Mr. Brownlow, worried that Grimwig might say something harsh, asked Oliver to go downstairs and tell Mrs. Bedwin that tea was ready. Oliver was happy to do it.
+Mr. Brownlow, seeming to apprehend that his singular friend was about to say something disagreeable, asked Oliver to step downstairs and tell Mrs. Bedwin they were ready for tea; which, as he did not half like the visitor’s manner, he was very happy to do.
 
-“He is a nice-looking boy, isn’t he?” asked Mr. Brownlow.
+“He is a nice-looking boy, is he not?” inquired Mr. Brownlow.
 
-“I don’t know,” said Mr. Grimwig grumpily.
+“I don’t know,” replied Mr. Grimwig, pettishly.
 
 “Don’t know?”
 
-“No. I only know two kinds of boys—mealy boys and beef-faced boys.”
+“No. I don’t know. I never see any difference in boys. I only knew two sort of boys. Mealy boys, and beef-faced boys.”
 
 “And which is Oliver?”
 
-“Mealy. I know a friend who has a beef-faced boy. A fine boy, they call him, with a round head, red cheeks, glaring eyes, a big body, loud voice, and a huge appetite. Horrid! I know him!”
+“Mealy. I know a friend who has a beef-faced boy; a fine boy, they call him; with a round head, and red cheeks, and glaring eyes; a horrid boy; with a body and limbs that appear to be swelling out of the seams of his blue clothes; with the voice of a pilot, and the appetite of a wolf. I know him! The wretch!”
 
-“Come now,” said Mr. Brownlow, “those are not Oliver’s traits. Don’t be angry.”
+“Come,” said Mr. Brownlow, “these are not the characteristics of young Oliver Twist; so he needn’t excite your wrath.”
 
-“They are not,” said Mr. Grimwig. “He may have worse.”
+“They are not,” replied Mr. Grimwig. “He may have worse.”
 
-Mr. Brownlow coughed, which made Grimwig laugh quietly.
+Here, Mr. Brownlow coughed impatiently; which appeared to afford Mr. Grimwig the most exquisite delight.
 
-“He may have worse!” Grimwig repeated. “Where does he come from? Who is he? He had a fever, yes—but fevers happen to good and bad people alike. I knew a man in Jamaica who was hanged for murder. He had fevers, too. Pooh! Nonsense!”
+“He may have worse, I say,” repeated Mr. Grimwig. “Where does he come from! Who is he? What is he? He has had a fever. What of that? Fevers are not peculiar to good people; are they? Bad people have fevers sometimes; haven’t they, eh? I knew a man who was hung in Jamaica for murdering his master. He had had a fever six times; he wasn’t recommended to mercy on that account. Pooh! nonsense!”
 
-Deep down, Grimwig liked Oliver’s manners and appearance, but he loved to argue. Finding the orange peel, he decided to oppose Mr. Brownlow. He teased about the housekeeper, the table, and other small things.
+Now, the fact was, that in the inmost recesses of his own heart, Mr. Grimwig was strongly disposed to admit that Oliver’s appearance and manner were unusually prepossessing; but he had a strong appetite for contradiction, sharpened on this occasion by the finding of the orange-peel; and, inwardly determining that no man should dictate to him whether a boy was well-looking or not, he had resolved, from the first, to oppose his friend. When Mr. Brownlow admitted that on no one point of inquiry could he yet return a satisfactory answer; and that he had postponed any investigation into Oliver’s previous history until he thought the boy was strong enough to hear it; Mr. Grimwig chuckled maliciously. And he demanded, with a sneer, whether the housekeeper was in the habit of counting the plate at night; because if she didn’t find a table-spoon or two missing some sunshiny morning, why, he would be content to—and so forth.
 
-Mr. Brownlow, knowing his friend’s ways, stayed patient. Tea went smoothly, and Oliver felt more comfortable around the stern old gentleman.
+All this, Mr. Brownlow, although himself somewhat of an impetuous gentleman: knowing his friend’s peculiarities, bore with great good humour; as Mr. Grimwig, at tea, was graciously pleased to express his entire approval of the muffins, matters went on very smoothly; and Oliver, who made one of the party, began to feel more at his ease than he had yet done in the fierce old gentleman’s presence.
 
-“When will Oliver hear the full story of his life and adventures?” asked Grimwig, looking at Oliver.
+“And when are you going to hear a full, true, and particular account of the life and adventures of Oliver Twist?” asked Grimwig of Mr. Brownlow, at the conclusion of the meal; looking sideways at Oliver, as he resumed his subject.
 
-“Tomorrow morning,” said Mr. Brownlow. “I want him alone with me. Come at ten o’clock.”
+“Tomorrow morning,” replied Mr. Brownlow. “I would rather he was alone with me at the time. Come up to me tomorrow morning at ten o’clock, my dear.”
 
-“Yes, sir,” said Oliver, a little nervous from Grimwig’s stare.
+“Yes, sir,” replied Oliver. He answered with some hesitation, because he was confused by Mr. Grimwig’s looking so hard at him.
 
-“I’ll tell you what,” whispered Grimwig to Mr. Brownlow. “He won’t come tomorrow. I saw him hesitate. He’s deceiving you.”
+“I’ll tell you what,” whispered that gentleman to Mr. Brownlow; “he won’t come up to you tomorrow morning. I saw him hesitate. He is deceiving you, my good friend.”
 
-“I’ll swear he is not,” said Mr. Brownlow warmly.
+“I’ll swear he is not,” replied Mr. Brownlow, warmly.
 
-“If he isn’t,” said Grimwig, raising his stick.
+“If he is not,” said Mr. Grimwig, “I’ll—” and down went the stick.
 
-“I’ll answer for his honesty with my life!” said Mr. Brownlow, knocking the table.
+“I’ll answer for that boy’s truth with my life!” said Mr. Brownlow, knocking the table.
 
-“And I for his falsehood with my head!” said Grimwig, also knocking the table.
+“And I for his falsehood with my head!” rejoined Mr. Grimwig, knocking the table also.
 
-“We shall see,” said Mr. Brownlow.
+“We shall see,” said Mr. Brownlow, checking his rising anger.
 
-“We will,” said Grimwig, smiling.
+“We will,” replied Mr. Grimwig, with a provoking smile; “we will.”
 
-At that moment, Mrs. Bedwin brought in a small parcel of books. Mr. Brownlow had bought them that morning. She put them on the table and was about to leave.
+As fate would have it, Mrs. Bedwin chanced to bring in, at this moment, a small parcel of books, which Mr. Brownlow had that morning purchased of the identical bookstall-keeper, who has already figured in this history; having laid them on the table, she prepared to leave the room.
 
-“Stop the boy, Mrs. Bedwin!” said Mr. Brownlow. “He must take something back.”
+“Stop the boy, Mrs. Bedwin!” said Mr. Brownlow; “there is something to go back.”
 
-“He has gone, sir,” said Mrs. Bedwin.
+“He has gone, sir,” replied Mrs. Bedwin.
 
-“Call after him,” said Mr. Brownlow. “It’s important. He must return some books too.”
+“Call after him,” said Mr. Brownlow; “it’s particular. He is a poor man, and they are not paid for. There are some books to be taken back, too.”
 
-The street-door opened. Oliver ran one way, and the girl ran another. Mrs. Bedwin stood on the step and called loudly for Oliver, but he was nowhere to be seen. Breathless, Oliver and the girl returned and said they had found no news of him.
+The street-door was opened. Oliver ran one way; and the girl ran another; and Mrs. Bedwin stood on the step and screamed for the boy; but there was no boy in sight. Oliver and the girl returned, in a breathless state, to report that there were no tidings of him.
 
-“Oh dear, I am very sorry,” said Mr. Brownlow. “I wanted these books returned tonight.”
+“Dear me, I am very sorry for that,” exclaimed Mr. Brownlow; “I particularly wished those books to be returned tonight.”
 
-“Send Oliver with them,” said Mr. Grimwig with a teasing smile. “He will deliver them safely, I’m sure.”
+“Send Oliver with them,” said Mr. Grimwig, with an ironical smile; “he will be sure to deliver them safely, you know.”
 
-“Yes, please let me take them, sir,” said Oliver eagerly. “I will run all the way.”
+“Yes; do let me take them, if you please, sir,” said Oliver. “I’ll run all the way, sir.”
 
-The old gentleman was about to say that Oliver should not go out, when Mr. Grimwig gave a loud, teasing cough. This convinced him that Oliver should go, to show that he could be trusted.
+The old gentleman was just going to say that Oliver should not go out on any account; when a most malicious cough from Mr. Grimwig determined him that he should; and that, by his prompt discharge of the commission, he should prove to him the injustice of his suspicions: on this head at least: at once.
 
-“You shall go, my dear,” said Mr. Brownlow. “The books are on a chair by the table. Take them down.”
+“You shall go, my dear,” said the old gentleman. “The books are on a chair by my table. Fetch them down.”
 
-Oliver, happy to help, picked up the books carefully under his arm. He stood respectfully, cap in hand, waiting for instructions.
+Oliver, delighted to be of use, brought down the books under his arm in a great bustle; and waited, cap in hand, to hear what message he was to take.
 
-“You are to say,” said Mr. Brownlow, looking at Grimwig, “that you have brought the books back. You are also to pay the four pounds ten that I owe him. Here is a five-pound note—you must bring ten shillings back as change.”
+“You are to say,” said Mr. Brownlow, glancing steadily at Grimwig; “you are to say that you have brought those books back; and that you have come to pay the four pound ten I owe him. This is a five-pound note, so you will have to bring me back, ten shillings change.”
 
-“I won’t be ten minutes, sir,” said Oliver, excited. He buttoned the note in his jacket, held the books carefully, bowed, and left.
+“I won’t be ten minutes, sir,” said Oliver, eagerly. Having buttoned up the bank-note in his jacket pocket, and placed the books carefully under his arm, he made a respectful bow, and left the room. Mrs. Bedwin followed him to the street-door, giving him many directions about the nearest way, and the name of the bookseller, and the name of the street: all of which Oliver said he clearly understood. Having superadded many injunctions to be sure and not take cold, the old lady at length permitted him to depart.
 
-Mrs. Bedwin followed him to the door, giving him directions to the bookseller and the street, and many reminders to be careful and not catch a cold. At last, she let him go.
+“Bless his sweet face!” said the old lady, looking after him. “I can’t bear, somehow, to let him go out of my sight.”
 
-“Bless his sweet face!” said Mrs. Bedwin, looking after him. “I cannot bear to let him go out of my sight.”
+At this moment, Oliver looked gaily round, and nodded before he turned the corner. The old lady smilingly returned his salutation, and, closing the door, went back to her own room.
 
-Oliver looked back, nodded happily, and turned the corner. Mrs. Bedwin smiled and returned to her room.
+“Let me see; he’ll be back in twenty minutes, at the longest,” said Mr. Brownlow, pulling out his watch, and placing it on the table. “It will be dark by that time.”
 
-“Let’s see; he should be back in twenty minutes at the latest,” said Mr. Brownlow, taking out his watch and placing it on the table. “It will be dark then.”
+“Oh! you really expect him to come back, do you?” inquired Mr. Grimwig.
 
-“Oh! You really expect him to come back?” asked Mr. Grimwig.
+“Don’t you?” asked Mr. Brownlow, smiling.
 
-“Don’t you?” replied Mr. Brownlow, smiling.
+The spirit of contradiction was strong in Mr. Grimwig’s breast, at the moment; and it was rendered stronger by his friend’s confident smile.
 
-Mr. Grimwig, who liked to disagree, felt more certain that Oliver would not return.
+“No,” he said, smiting the table with his fist, “I do not. The boy has a new suit of clothes on his back, a set of valuable books under his arm, and a five-pound note in his pocket. He’ll join his old friends the thieves, and laugh at you. If ever that boy returns to this house, sir, I’ll eat my head.”
 
-“No,” he said, hitting the table. “The boy has a new suit, valuable books, and a five-pound note. He will join his old thief friends and laugh at you. If he comes back, I’ll eat my head!”
+With these words he drew his chair closer to the table; and there the two friends sat, in silent expectation, with the watch between them.
 
-He pulled his chair close to the table. The two friends sat silently, with the watch between them.
+It is worthy of remark, as illustrating the importance we attach to our own judgments, and the pride with which we put forth our most rash and hasty conclusions, that, although Mr. Grimwig was not by any means a bad-hearted man, and though he would have been unfeignedly sorry to see his respected friend duped and deceived, he really did most earnestly and strongly hope at that moment, that Oliver Twist might not come back.
 
-It is interesting that, even though Mr. Grimwig was not a bad man and would have felt sorry if his friend was fooled, he secretly hoped that Oliver would not return.
-
-It grew so dark that they could hardly see the numbers on the watch. Still, the two gentlemen sat quietly, waiting.`,
+It grew so dark, that the figures on the dial-plate were scarcely discernible; but there the two old gentlemen continued to sit, in silence, with the watch between them.`,
 }

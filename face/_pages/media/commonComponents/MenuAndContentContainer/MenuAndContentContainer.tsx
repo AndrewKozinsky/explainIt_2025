@@ -11,8 +11,8 @@ function MenuAndContentContainer(props: MenuAndContentContainerProps) {
 
 	return (
 		<div className='menu-and-content-container'>
-			<aside className='menu-and-content-container__menu'>{leftMenu}</aside>
 			<main className='menu-and-content-container__content'>{children}</main>
+			<aside className='menu-and-content-container__menu'>{leftMenu}</aside>
 		</div>
 	)
 }

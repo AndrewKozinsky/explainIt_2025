@@ -1,133 +1,115 @@
 export const chapter_9 = {
 	name: 'Chapter IX',
 	header: 'Containing further particulars concerning the pleasant old gentleman, and his hopeful pupils',
-	text: `It was late the next morning when Oliver woke from a deep, heavy sleep. The only person in the room was the old Jew, who was making coffee in a saucepan and quietly whistling to himself as he stirred it with an iron spoon. From time to time he stopped, listening carefully to the slightest noise downstairs; then, when he was satisfied, he began whistling and stirring again.
+	text: `It was late next morning when Oliver awoke, from a sound, long sleep. There was no other person in the room but the old Jew, who was boiling some coffee in a saucepan for breakfast, and whistling softly to himself as he stirred it round and round, with an iron spoon. He would stop every now and then to listen when there was the least noise below: and when he had satisfied himself, he would go on whistling and stirring again, as before.
 
-Although Oliver had opened his eyes, he was not fully awake. There is a strange state between sleep and waking, when you seem to dream with your eyes half open and are dimly aware of what is happening around you. In such moments, the mind is active in a curious way, moving quickly between thoughts and memories.
+Although Oliver had roused himself from sleep, he was not thoroughly awake. There is a drowsy state, between sleeping and waking, when you dream more in five minutes with your eyes half open, and yourself half conscious of everything that is passing around you, than you would in five nights with your eyes fast closed, and your senses wrapt in perfect unconsciousness. At such time, a mortal knows just enough of what his mind is doing, to form some glimmering conception of its mighty powers, its bounding from earth and spurning time and space, when freed from the restraint of its corporeal associate.
 
-Oliver was in exactly this state. He saw the old man through half-closed eyes, heard his soft whistling, and the scraping of the spoon against the pan—yet at the same time his thoughts wandered among scenes and people from his past.
+Oliver was precisely in this condition. He saw the Jew with his half-closed eyes; heard his low whistling; and recognised the sound of the spoon grating against the saucepan’s sides: and yet the self-same senses were mentally engaged, at the same time, in busy action with almost everybody he had ever known.
 
-When the coffee was ready, the old man set the pan aside. He stood still for a moment, as if unsure what to do next. Then he turned, looked at Oliver, and called his name. Oliver did not answer and appeared to be asleep.
+When the coffee was done, the Jew drew the saucepan to the hob. Standing, then in an irresolute attitude for a few minutes, as if he did not well know how to employ himself, he turned round and looked at Oliver, and called him by his name. He did not answer, and was to all appearances asleep.
 
-After making sure of this, the old man quietly locked the door. Then he pulled out a small box—hidden, it seemed, beneath the floor—and placed it carefully on the table. His eyes shone as he opened it.
+After satisfying himself upon this head, the Jew stepped gently to the door: which he fastened. He then drew forth: as it seemed to Oliver, from some trap in the floor: a small box, which he placed carefully on the table. His eyes glistened as he raised the lid, and looked in. Dragging an old chair to the table, he sat down; and took from it a magnificent gold watch, sparkling with jewels.
 
-He dragged a chair closer and sat down. From the box he took a beautiful gold watch, covered with jewels.
+“Aha!” said the Jew, shrugging up his shoulders, and distorting every feature with a hideous grin. “Clever dogs! Clever dogs! Staunch to the last! Never told the old parson where they were. Never poached upon old Fagin! And why should they? It wouldn’t have loosened the knot, or kept the drop up, a minute longer. No, no, no! Fine fellows! Fine fellows!”
 
-“Ah!” he muttered, twisting his face into a strange smile. “Clever boys—clever boys! Loyal to the end! Never told the priest where things were hidden. Never betrayed old Fagin! And why should they? It wouldn’t have saved them anyway. No, no—fine fellows!”
+With these, and other muttered reflections of the like nature, the Jew once more deposited the watch in its place of safety. At least half a dozen more were severally drawn forth from the same box, and surveyed with equal pleasure; besides rings, brooches, bracelets, and other articles of jewellery, of such magnificent materials, and costly workmanship, that Oliver had no idea, even of their names.
 
-Still muttering to himself, he put the watch back and took out several more—at least half a dozen—examining each with pleasure. There were also rings, brooches, bracelets, and many other fine pieces of jewellery—so rich and carefully made that Oliver did not even know their names.
+Having replaced these trinkets, the Jew took out another: so small that it lay in the palm of his hand. There seemed to be some very minute inscription on it; for the Jew laid it flat upon the table, and shading it with his hand, pored over it, long and earnestly. At length he put it down, as if despairing of success; and, leaning back in his chair, muttered:
 
-After putting these back, the old man took out something very small, which fit in the palm of his hand. There was some tiny writing on it. He laid it on the table and bent over it, trying hard to read. After a long time, he gave up, leaned back in his chair, and said to himself:
+“What a fine thing capital punishment is! Dead men never repent; dead men never bring awkward stories to light. Ah, it’s a fine thing for the trade! Five of ’em strung up in a row, and none left to play booty, or turn white-livered!”
 
-“What a fine thing it is when criminals are executed! Dead men never regret anything. Dead men never tell secrets. Ah, it’s very good for business! Five of them hanging in a row—and no one left to betray the rest!”
+As the Jew uttered these words, his bright dark eyes, which had been staring vacantly before him, fell on Oliver’s face; the boy’s eyes were fixed on his in mute curiousity; and although the recognition was only for an instant—for the briefest space of time that can possibly be conceived—it was enough to show the old man that he had been observed.
 
-As he spoke, his dark eyes, which had been staring ahead, suddenly fell on Oliver’s face. Oliver was looking at him with quiet curiosity. The moment was very brief—but it was enough. The old man knew he had been watched.
+He closed the lid of the box with a loud crash; and, laying his hand on a bread knife which was on the table, started furiously up. He trembled very much though; for, even in his terror, Oliver could see that the knife quivered in the air.
 
-He slammed the box shut with a loud noise, grabbed a bread knife from the table, and jumped to his feet. He was trembling so much that the knife shook in his hand.
+“What’s that?” said the Jew. “What do you watch me for? Why are you awake? What have you seen? Speak out, boy! Quick—quick! for your life.”
 
-“What’s this?” he cried. “Why are you watching me? Why are you awake? What did you see? Speak—quickly! For your life!”
+“I wasn’t able to sleep any longer, sir,” replied Oliver, meekly. “I am very sorry if I have disturbed you, sir.”
 
-“I couldn’t sleep any longer, sir,” said Oliver gently. “I’m very sorry if I disturbed you.”
+“You were not awake an hour ago?” said the Jew, scowling fiercely on the boy.
 
-“You were not awake earlier?” said the old man, glaring at him.
+“No! No, indeed!” replied Oliver.
 
-“No, sir! Truly, I was not,” said Oliver.
+“Are you sure?” cried the Jew: with a still fiercer look than before: and a threatening attitude.
 
-“Are you sure?” cried the old man, looking even more threatening than before.
+“Upon my word I was not, sir,” replied Oliver, earnestly. “I was not, indeed, sir.”
 
-“Upon my word, sir, I was not,” said Oliver earnestly.
+“Tush, tush, my dear!” said the Jew, abruptly resuming his old manner, and playing with the knife a little, before he laid it down; as if to induce the belief that he had caught it up, in mere sport. “Of course I know that, my dear. I only tried to frighten you. You’re a brave boy. Ha! ha! you’re a brave boy, Oliver.” The Jew rubbed his hands with a chuckle, but glanced uneasily at the box, notwithstanding.
 
-“Nonsense, my dear!” said the old man suddenly, returning to his usual manner. He played lightly with the knife before putting it down, as if he had picked it up only as a joke. “Of course I know that. I was only trying to frighten you. You’re a brave boy—yes, a very brave boy, Oliver.”
+“Did you see any of these pretty things, my dear?” said the Jew, laying his hand upon it after a short pause.
 
-He rubbed his hands and laughed softly, though he still glanced nervously at the box.
+“Yes, sir,” replied Oliver.
 
-“Did you see any of these pretty things, my dear?” he asked after a moment, resting his hand on it.
+“Ah!” said the Jew, turning rather pale. “They—they’re mine, Oliver; my little property. All I have to live upon, in my old age. The folks call me a miser, my dear. Only a miser; that’s all.”
 
-“Yes, sir,” said Oliver.
+Oliver thought the old gentleman must be a decided miser to live in such a dirty place, with so many watches; but, thinking that perhaps his fondness for the Dodger and the other boys, cost him a good deal of money, he only cast a deferential look at the Jew, and asked if he might get up.
 
-“Ah!” said the old man, turning slightly pale. “They—they are mine, Oliver. My little property. All I have to live on in my old age. People call me a miser, my dear. Just a miser—that’s all.”
+“Certainly, my dear, certainly,” replied the old gentleman. “Stay. There’s a pitcher of water in the corner by the door. Bring it here; and I’ll give you a basin to wash in, my dear.”
 
-Oliver thought the old gentleman must be a real miser to live in such a dirty place while owning so many watches. Still, he supposed that caring for the Dodger and the other boys might cost him a good deal of money. So he only gave the old man a respectful look and asked if he might get up.
+Oliver got up; walked across the room; and stooped for an instant to raise the pitcher. When he turned his head, the box was gone.
 
-“Of course, my dear, of course,” said the old gentleman. “Wait—there’s a jug of water in the corner by the door. Bring it here, and I’ll give you a basin to wash in.”
+He had scarcely washed himself, and made everything tidy, by emptying the basin out of the window, agreeably to the Jew’s directions, when the Dodger returned: accompanied by a very sprightly young friend, whom Oliver had seen smoking on the previous night, and who was now formally introduced to him as Charley Bates. The four sat down, to breakfast, on the coffee, and some hot rolls and ham which the Dodger had brought home in the crown of his hat.
 
-Oliver got up, crossed the room, and bent down to pick up the jug. When he turned his head again, the box had disappeared.
+“Well,” said the Jew, glancing slyly at Oliver, and addressing himself to the Dodger, “I hope you’ve been at work this morning, my dears?”
 
-He had just finished washing and, following the old man’s instructions, emptied the water out of the window, when the Dodger returned. With him was a lively young friend whom Oliver had seen smoking the night before. He was now introduced as Charley Bates. The four of them sat down to breakfast: coffee, hot rolls, and ham, which the Dodger had brought home in his hat.
+“Hard,” replied the Dodger.
 
-“Well,” said the old man, casting a sly glance at Oliver and speaking to the Dodger, “I hope you’ve been working this morning, my dears?”
+“As nails,” added Charley Bates.
 
-“Very hard,” said the Dodger.
+“Good boys, good boys!” said the Jew. “What have you got, Dodger?”
 
-“Hard as nails,” added Charley Bates.
+“A couple of pocket-books,” replied that young gentleman.
 
-“Good boys, good boys!” said the old man. “What have you got, Dodger?”
+“Lined?” inquired the Jew, with eagerness.
 
-“A couple of wallets,” replied the Dodger.
+“Pretty well,” replied the Dodger, producing two pocket-books; one green, and the other red.
 
-“Full?” asked the old man eagerly.
+“Not so heavy as they might be,” said the Jew, after looking at the insides carefully; “but very neat and nicely made. Ingenious workman, ain’t he, Oliver?”
 
-“Fairly well,” said the Dodger, taking out two wallets—one green and one red.
+“Very indeed, sir,” said Oliver. At which Mr. Charles Bates laughed uproariously; very much to the amazement of Oliver, who saw nothing to laugh at, in anything that had passed.
 
-“Not as full as they might be,” said the old man, after carefully looking inside them. “But very neat work—very neat indeed. A clever worker, isn’t he, Oliver?”
+“And what have you got, my dear?” said Fagin to Charley Bates.
 
-“Yes, very clever, sir,” said Oliver.
+“Wipes,” replied Master Bates; at the same time producing four pocket-handkerchiefs.
 
-At this, Charley Bates burst into loud laughter, greatly surprising Oliver, who could see nothing funny in what had been said.
-
-“And what have you got, my dear?” the old man asked Charley.
-
-“Handkerchiefs,” said Charley, producing four of them.
-
-“Well,” said the old man, examining them closely, “they’re very good—very good indeed. But you haven’t removed the marks properly, Charley. We’ll take them out with a needle, and we’ll teach Oliver how to do it. Shall we, Oliver? Ha! ha!”
+“Well,” said the Jew, inspecting them closely; “they’re very good ones, very. You haven’t marked them well, though, Charley; so the marks shall be picked out with a needle, and we’ll teach Oliver how to do it. Shall us, Oliver, eh? Ha! ha! ha!”
 
 “If you please, sir,” said Oliver.
 
-“You’d like to learn to prepare handkerchiefs as easily as Charley Bates, wouldn’t you, my dear?” said the old man.
+“You’d like to be able to make pocket-handkerchiefs as easy as Charley Bates, wouldn’t you, my dear?” said the Jew.
 
-“Yes, very much, if you’ll teach me, sir,” replied Oliver.
+“Very much, indeed, if you’ll teach me, sir,” replied Oliver.
 
-Charley Bates found something so extremely funny in Oliver’s reply that he burst out laughing again. He laughed so hard that the coffee he was drinking went down the wrong way, and he nearly choked.
+Master Bates saw something so exquisitely ludicrous in this reply, that he burst into another laugh; which laugh, meeting the coffee he was drinking, and carrying it down some wrong channel, very nearly terminated in his premature suffocation.
 
-“He’s so wonderfully innocent!” said Charley, when he recovered, as an excuse for his rude behavior.
+“He is so jolly green!” said Charley when he recovered, as an apology to the company for his unpolite behaviour.
 
-The Dodger said nothing. He simply pushed Oliver’s hair down over his eyes and said that he would understand better later. Seeing that Oliver was starting to blush, the old gentleman quickly changed the subject and asked whether there had been a large crowd at the execution that morning. This only made Oliver more confused, because it was clear from the boys’ answers that they had both been there—and he wondered how they could have had time to be so “hard-working” as well.
+The Dodger said nothing, but he smoothed Oliver’s hair over his eyes, and said he’d know better, by and by; upon which the old gentleman, observing Oliver’s colour mounting, changed the subject by asking whether there had been much of a crowd at the execution that morning? This made him wonder more and more; for it was plain from the replies of the two boys that they had both been there; and Oliver naturally wondered how they could possibly have found time to be so very industrious.
 
-After breakfast, the cheerful old gentleman and the two boys began to play a very strange game.
+When the breakfast was cleared away; the merry old gentleman and the two boys played at a very curious and uncommon game, which was performed in this way. The merry old gentleman, placing a snuff-box in one pocket of his trousers, a note-case in the other, and a watch in his waistcoat pocket, with a guard-chain round his neck, and sticking a mock diamond pin in his shirt: buttoned his coat tight round him, and putting his spectacle-case and handkerchief in his pockets, trotted up and down the room with a stick, in imitation of the manner in which old gentlemen walk about the streets any hour in the day. Sometimes he stopped at the fire-place, and sometimes at the door, making believe that he was staring with all his might into shop-windows. At such times, he would look constantly round him, for fear of thieves, and would keep slapping all his pockets in turn, to see that he hadn’t lost anything, in such a very funny and natural manner, that Oliver laughed till the tears ran down his face. All this time, the two boys followed him closely about: getting out of his sight, so nimbly, every time he turned round, that it was impossible to follow their motions. At last, the Dodger trod upon his toes, or ran upon his boot accidently, while Charley Bates stumbled up against him behind; and in that one moment they took from him, with the most extraordinary rapidity, snuff-box, note-case, watch-guard, chain, shirt-pin, pocket-handkerchief, even the spectacle-case. If the old gentleman felt a hand in any one of his pockets, he cried out where it was; and then the game began all over again.
 
-The old gentleman put a snuff-box in one pocket, a wallet in another, and a watch in his waistcoat pocket, with a chain around his neck. He also fixed a fake diamond pin in his shirt, buttoned his coat tightly, and put a glasses case and a handkerchief into his pockets. Then he began walking up and down the room with a stick, pretending to be an old man strolling through the streets.
+When this game had been played a great many times, a couple of young ladies called to see the young gentleman; one of whom was named Bet, and the other Nancy. They wore a good deal of hair, not very neatly turned up behind, and were rather untidy about the shoes and stockings. They were not exactly pretty, perhaps; but they had a great deal of colour in their faces, and looked quite stout and hearty. Being remarkably free and agreeable in their manners, Oliver thought them very nice girls indeed, as there is no doubt they were.
 
-Sometimes he stopped by the fireplace, sometimes near the door, pretending to look into shop windows. While doing this, he constantly looked around, as if afraid of thieves, and kept patting his pockets to make sure nothing was missing. He did this so naturally and in such a funny way that Oliver laughed until tears ran down his face.
+The visitors stopped a long time. Spirits were produced, in consequence of one of the young ladies complaining of a coldness in her inside; and the conversation took a very convivial and improving turn. At length, Charley Bates expressed his opinion that it was time to pad the hoof. This, it occurred to Oliver, must be French for going out; for directly afterwards, the Dodger, and Charley, and the two young ladies, went away together, having been kindly furnished by the amiable old Jew with money to spend.
 
-All this time, the two boys followed him closely, but moved so quickly whenever he turned that it was impossible to see exactly what they were doing. At last, the Dodger stepped on his toes, or bumped into him by accident, while Charley ran into him from behind—and in that single moment, they took everything from his pockets: the snuff-box, wallet, watch and chain, pin, handkerchief, even the glasses case.
+“There, my dear,” said Fagin. “That’s a pleasant life, isn’t it? They have gone out for the day.”
 
-If the old gentleman felt a hand in any of his pockets, he would call out where it was—and then the game would start again.
+“Have they done work, sir?” inquired Oliver.
 
-After they had played this game many times, two young women came to visit. One was called Bet, and the other Nancy. They wore a lot of hair piled up behind their heads, not very neatly, and their shoes and stockings were untidy. They were not exactly pretty, but their faces were bright with color, and they looked strong and healthy. They were cheerful and friendly in their manner, and Oliver thought they were very nice girls indeed.
-
-The visitors stayed a long time. They brought out spirits when one of the young women said she felt cold, and the conversation became lively and cheerful. At last, Charley said it was time to go out. Oliver thought this must be some kind of foreign expression, because immediately afterwards the Dodger, Charley, and the two young women left together, after the kind old gentleman had given them money to spend.
-
-“There, my dear,” said Fagin. “That’s a pleasant life, isn’t it? They’ve gone out for the day.”
-
-“Have they been working, sir?” asked Oliver.
-
-“Yes,” said the old man. “At least, if they find any work while they are out, they won’t miss the chance—depend on it. Follow their example, my dear. Do everything they tell you, and listen to their advice—especially the Dodger’s. He’ll be a great man one day, and he’ll make you one too, if you learn from him.”
-
-He tapped the fire shovel on the hearth to emphasize his words.
-
-“Is my handkerchief sticking out of my pocket, my dear?” he suddenly asked.
+“Yes,” said the Jew; “that is, unless they should unexpectedly come across any, when they are out; and they won’t neglect it, if they do, my dear, depend upon it. Make ’em your models, my dear. Make ’em your models,” tapping the fire-shovel on the hearth to add force to his words; “do everything they bid you, and take their advice in all matters—especially the Dodger’s, my dear. He’ll be a great man himself, and will make you one too, if you take pattern by him.—Is my handkerchief hanging out of my pocket, my dear?” said the Jew, stopping short.
 
 “Yes, sir,” said Oliver.
 
-“See if you can take it out without me feeling it, just as you saw them do this morning.”
+“See if you can take it out, without my feeling it; as you saw them do, when we were at play this morning.”
 
-Oliver held the bottom of the pocket with one hand, as he had seen the Dodger do, and gently pulled out the handkerchief with the other.
+Oliver held up the bottom of the pocket with one hand, as he had seen the Dodger hold it, and drew the handkerchief lightly out of it with the other.
 
-“Is it gone?” cried the old man.
+“Is it gone?” cried the Jew.
 
-“Here it is, sir,” said Oliver, holding it up.
+“Here it is, sir,” said Oliver, showing it in his hand.
 
-“You’re a clever boy, my dear,” said the old gentleman, patting him on the head. “I’ve never seen a sharper lad. Here’s a shilling for you. If you go on like this, you’ll become a great man. Now come here, and I’ll show you how to remove the marks from the handkerchiefs.”
+“You’re a clever boy, my dear,” said the playful old gentleman, patting Oliver on the head approvingly. “I never saw a sharper lad. Here’s a shilling for you. If you go on, in this way, you’ll be the greatest man of the time. And now come here, and I’ll show you how to take the marks out of the handkerchiefs.”
 
-Oliver wondered what picking the old man’s pocket—even as a game—had to do with becoming a great man. But, thinking that the old gentleman must know better, he quietly followed him to the table and soon became deeply absorbed in his new lesson.`,
+Oliver wondered what picking the old gentleman’s pocket in play, had to do with his chances of being a great man. But, thinking that the Jew, being so much his senior, must know best, he followed him quietly to the table, and was soon deeply involved in his new study.`,
 }

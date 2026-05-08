@@ -1,91 +1,71 @@
 export const chapter_6 = {
 	name: 'Chapter VI',
 	header: 'Oliver, being goaded by the taunts of Noah, rouses into action, and rather astonishes him',
-	text: `After a month of trial, Oliver was officially taken as an apprentice. It happened to be a very unhealthy season. In business terms, this meant more demand for coffins, and in a few weeks Oliver gained a lot of experience.
+	text: `After his month of trial, Oliver was officially apprenticed. It happened to be a sickly season. In business terms, coffins were in high demand. Within a few weeks, Oliver had gained a great deal of experience. The success of Mr. Sowerberry’s business venture exceeded even his highest hopes. The oldest inhabitants couldn’t recall a time when measles had been so common, or so fatal to young children. And so, little Oliver led many mournful processions, wearing a hat-band that reached his knees, to the great admiration and emotion of all the mothers in town. Oliver also accompanied his master on most of his adult funeral trips. This was so he could learn the calm manner and steady nerve essential for a professional undertaker. Through this, he had many chances to see the beautiful resignation with which some strong-minded people face their trials and losses.
 
-Mr. Sowerberry’s idea turned out even better than he had hoped. Older people in the town could not remember a time when measles had been so widespread and so deadly for children. Many sad funeral processions took place, and little Oliver often walked at the front, wearing a long black hat-band that reached almost to his knees. The sight of him moved the mothers of the town deeply.
+For example, when Mr. Sowerberry had an order for the burial of a rich old lady or gentleman, they were often surrounded by many nephews and nieces. These relatives had been inconsolable during the illness and their grief seemed uncontrollable in public. Yet, among themselves, they would be quite cheerful and content, talking and laughing as if nothing had happened. Husbands, too, handled the loss of their wives with heroic calmness. Wives, in turn, wore mourning clothes for their husbands not with grief, but as if they were determined to make the black garments as attractive as possible. It was also noticeable that ladies and gentlemen who showed great anguish during the burial ceremony recovered almost as soon as they got home, becoming quite composed by teatime. All of this was very interesting for Oliver to observe, and he watched it with great admiration.
 
-Oliver also went with his master to adult funerals, so that he could learn to stay calm and controlled—an important skill for an undertaker. This gave him many chances to observe how people behaved in times of loss.
+I cannot say for sure that Oliver was inspired to be more accepting of his own situation by these examples. However, I can say that for many months, he meekly submitted to the bullying of Noah Claypole. Noah treated him much worse than before, now that he was jealous. He saw the new boy promoted to wear the black stick and hat-band, while he, the older boy, was stuck with the muffin-cap and leather breeches. Charlotte treated Oliver badly because Noah did. Mrs. Sowerberry was his definite enemy because Mr. Sowerberry tended to be his friend. So, between these three on one side and a surplus of funerals on the other, Oliver was not very comfortable.
 
-For example, when a rich old man or woman died, their relatives—who had seemed completely heartbroken during the illness—often became cheerful soon after. They talked and laughed together as if nothing had happened.
+And now, I come to a very important moment in Oliver’s story. I must record an act that may seem small, but it indirectly caused a major change in his future.
 
-Husbands often showed great calm after losing their wives. Wives, too, wore mourning clothes in a way that made them look as attractive as possible. And it was often seen that people who cried loudly during the funeral became calm very quickly afterward—sometimes even before tea was finished.
+One day, Oliver and Noah went down to the kitchen for dinner. They were to eat a small joint of mutton—a pound and a half of the cheapest cut. Charlotte was called away, creating a short interval. Noah, being hungry and mean, decided to use this time to annoy Oliver Twist.
 
-All this was very interesting to watch, and Oliver observed it carefully.
-
-Whether Oliver himself learned to accept suffering from these examples, I cannot say for certain. But I can say that for many months he quietly endured the cruel treatment of Noah Claypole.
-
-Noah treated him even worse than before, because he was jealous. Oliver had been given better clothes and a more important role, while Noah remained the same. Charlotte treated Oliver badly because Noah did. Mrs. Sowerberry disliked him because her husband showed him some kindness. So, with these three against him—and with constant funerals—Oliver was far from comfortable.
-
-Now we come to an important moment in Oliver’s story. It may seem small, but it would later change his whole life.
-
-One day, at dinner time, Oliver and Noah went down to the kitchen to eat a small piece of mutton. Charlotte was called away for a short time, leaving them alone. Noah, who was both hungry and cruel, decided to use the opportunity to tease Oliver.
-
-He put his feet on the table, pulled Oliver’s hair, twisted his ears, and called him names. He said Oliver was a sneak, and even joked that he would come to watch him being hanged one day.
-
-When Oliver began to cry, Noah tried to be even more “funny”—as people sometimes do when they want to amuse themselves. He became personal.
+Focused on this pastime, Noah put his feet on the table-cloth, pulled Oliver’s hair, and twitched his ears. He called him a “sneak” and said he looked forward to seeing him hanged one day. He continued with other small annoyances, like the malicious charity-boy he was. When Oliver started to cry, Noah decided to be even more "funny." He made it personal.
 
 “Workhouse,” said Noah, “how’s your mother?”
 
-“She’s dead,” said Oliver. “Don’t say anything about her to me!”
+“She’s dead,” replied Oliver. “Don’t you say anything about her to me!”
 
-Oliver’s face grew red. He breathed quickly, and his lips trembled. Noah thought he was about to start crying again, so he continued.
+Oliver’s face turned red as he said this. He breathed quickly, and his mouth and nostrils twitched. Mr. Claypole thought this meant a big cry was coming. So, he continued.
 
-“What did she die of?” he asked.
+“What did she die of, Workhouse?” asked Noah.
 
-“Of a broken heart, they told me,” said Oliver quietly, almost to himself. “I think I understand what that means.”
+“Of a broken heart, some of the old nurses told me,” replied Oliver, more to himself than to Noah. “I think I know what it must be to die of that!”
 
-“Oh, listen to him!” said Noah, as a tear rolled down Oliver’s cheek. “Why are you crying now?”
+“Tol de rol lol lol, right fol lairy, Work’us,” said Noah, as a tear rolled down Oliver’s cheek. “What are you sniveling about now?”
 
-“Not because of you,” said Oliver sharply. “That’s enough. Don’t speak about her again.”
+“Not you,” replied Oliver, sharply. “That’s enough. Don’t say anything more to me about her. You’d better not!”
 
-“Don’t speak about her?” said Noah. “Well! Don’t be rude. Your mother! She was a fine one, wasn’t she?”
+“Better not!” exclaimed Noah. “Well! Better not! Workhouse, don’t be rude. Your mother, too! She was a nice one, she was. Oh, Lord!” And here, Noah nodded his head in a meaningful way and wrinkled his small red nose.
 
-He made an ugly face and laughed.
+“You know, Workhouse,” continued Noah, encouraged by Oliver’s silence, in a jeering, pitying tone—the most annoying tone of all. “You know, Workhouse, it can’t be helped now. And of course, you couldn’t help it then. I am very sorry for it, and I’m sure we all are, and we pity you very much. But you must know, Workhouse, your mother was a regular bad one.”
 
-“You know, Workhouse,” he went on, pretending to feel sorry, “it’s not your fault, of course. And we all feel sorry for you. But you should know—your mother was a very bad woman.”
+“What did you say?” asked Oliver, looking up quickly.
 
-“What did you say?” asked Oliver, looking up suddenly.
+“A regular bad one, Workhouse,” replied Noah, coolly. “And it’s a good thing she died when she did, or else she’d have been in a labor prison, or transported, or hung. Which is more likely, isn’t it?”
 
-“A very bad woman, Workhouse,” said Noah calmly. “And it’s better she died when she did. Otherwise she might have ended up in prison, or sent away, or even hanged. That’s more likely, isn’t it?”
+Crimson with fury, Oliver jumped up. He knocked over the chair and table, seized Noah by the throat, and shook him so hard his teeth chattered. Then, gathering all his strength into one heavy blow, he knocked him to the ground.
 
-Oliver turned red with anger. In a second, he jumped up, knocked over the chair and table, grabbed Noah by the throat, and shook him so hard his teeth rattled. Then, using all his strength, Oliver struck him and knocked him to the ground.
+A minute ago, the boy had been a quiet, mild, dejected child, made so by harsh treatment. But his spirit was finally roused. The cruel insult to his dead mother had set him on fire. His chest heaved, he stood tall, his eyes were bright and vivid. His whole being was transformed as he glared down at the cowardly tormentor who now lay at his feet. He defied him with an energy he had never known before.
 
-A moment before, Oliver had seemed quiet and weak, as harsh treatment had made him. But now his spirit was awake. The cruel insult to his dead mother filled him with rage. His chest rose quickly, his posture was straight, his eyes were bright, and his whole appearance changed. He stood over Noah, who lay on the floor, and looked at him with a strength he had never shown before.
+“He’ll murder me!” cried Noah. “Charlotte! Missis! The new boy is murdering me! Help! Help! Oliver’s gone mad! Char—lotte!”
 
-“He’ll kill me!” cried Noah. “Charlotte! Missis! The new boy is killing me! Help! Oliver’s gone mad! Char—lotte!”
+Noah’s shouts were met with a loud scream from Charlotte and a louder one from Mrs. Sowerberry. Charlotte rushed into the kitchen through a side-door, while Mrs. Sowerberry waited on the staircase until she was sure it was safe to come down.
 
-Noah’s cries brought Charlotte running into the kitchen, screaming loudly. Mrs. Sowerberry also screamed, but stayed on the stairs at first, making sure it was safe before coming down.
+“Oh, you little wretch!” screamed Charlotte, grabbing Oliver with all her might, which was considerable. “Oh, you ungrateful, murderous, horrid villain!” And with every syllable, Charlotte hit Oliver with all her strength, screaming for dramatic effect.
 
-“Oh, you little wretch!” shouted Charlotte, grabbing Oliver with all her strength. “You ungrateful, horrible boy!”
+Charlotte’s fist was not light. But just in case it wasn’t enough to calm Oliver, Mrs. Sowerberry rushed into the kitchen. She held him with one hand and scratched his face with the other. Seeing this, Noah got up from the ground and started hitting him from behind.
 
-With every word, she hit him as hard as she could.
+This violent activity couldn’t last long. When they were all tired and could no longer tear and beat at him, they dragged the struggling and shouting, but undaunted, Oliver into the dust-cellar and locked him in. After this, Mrs. Sowerberry sat down in a chair and burst into tears.
 
-Her blows were already strong, but Mrs. Sowerberry joined in. She held Oliver with one hand and scratched his face with the other. While they were holding him, Noah got up and began hitting Oliver from behind.
+“Bless her, she’s going to faint!” said Charlotte. “A glass of water, Noah, dear. Hurry!”
 
-This could not go on for long. When they were all tired and could not hit him anymore, they dragged Oliver—still struggling and shouting—into a dark storage cellar and locked him inside.
+“Oh, Charlotte,” said Mrs. Sowerberry, speaking between gasps for breath and the cold water Noah had poured over her. “Oh, Charlotte, what a mercy we haven’t all been murdered in our beds!”
 
-After that, Mrs. Sowerberry collapsed into a chair and burst into tears.
+“Ah, mercy indeed, ma’am,” was the reply. “I only hope this teaches master not to have any more of these dreadful creatures, who are born to be murderers and robbers. Poor Noah! He was nearly killed, ma’am, when I came in.”
 
-“Oh dear, she’s fainting!” said Charlotte. “Quick, Noah—bring some water!”
+“Poor fellow!” said Mrs. Sowerberry, looking with pity at the charity-boy.
 
-“Oh, Charlotte!” said Mrs. Sowerberry, trying to speak while catching her breath, as Noah poured cold water over her. “What a mercy we weren’t all murdered in our beds!”
+Noah, who was shorter than Oliver, rubbed his eyes with his wrists as he received this sympathy, and made some convincing tearful sounds.
 
-“Yes, indeed, ma’am,” said Charlotte. “I hope this will teach master not to bring such dreadful creatures into the house—children who are born to be criminals. Poor Noah! He was almost killed!”
+“What is to be done!” exclaimed Mrs. Sowerberry. “Your master’s not home, there’s not a man in the house, and he’ll kick that door down in ten minutes.” Oliver’s energetic kicks against the door made this seem very likely.
 
-“Poor boy!” said Mrs. Sowerberry, looking at Noah with sympathy.
+“Dear, dear! I don’t know, ma’am,” said Charlotte, “unless we send for the police.”
 
-Noah, who was much bigger than Oliver, rubbed his eyes and pretended to cry, making a show of his suffering.
+“Or the military,” suggested Mr. Claypole.
 
-“What shall we do?” cried Mrs. Sowerberry. “Your master isn’t home, there’s no man in the house, and that boy will break the door down in ten minutes!”
+“No, no,” said Mrs. Sowerberry, remembering Oliver’s old acquaintance. “Run to Mr. Bumble, Noah, and tell him to come here right away. Don’t waste a minute; never mind your cap! Hurry! You can hold a knife to that black eye as you run. It will keep the swelling down.”
 
-Indeed, Oliver was throwing himself against the door so violently that this seemed quite possible.
-
-“I don’t know, ma’am,” said Charlotte, “unless we call the police.”
-
-“Or the military,” suggested Noah.
-
-“No, no,” said Mrs. Sowerberry, suddenly remembering someone. “Run to Mr. Bumble, Noah, and tell him to come at once. Don’t waste a second! Never mind your cap—run quickly! And hold a knife to your eye as you go—it will stop the swelling.”
-
-Noah said nothing, but ran out at full speed. People in the street were very surprised to see a boy running wildly without a cap, holding a knife to his eye as he went.`,
+Noah didn’t stop to reply. He ran off at top speed. It greatly astonished people on the street to see a charity-boy tearing through the streets without a cap, holding a clasp-knife to his eye.`,
 }

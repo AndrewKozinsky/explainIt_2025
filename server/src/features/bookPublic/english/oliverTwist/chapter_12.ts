@@ -1,169 +1,167 @@
 export const chapter_12 = {
 	name: 'Chapter XII',
 	header: 'In which Oliver is taken better care of than he ever was before. And in which the narrative reverts to the merry old gentleman and his youthful friends',
-	text: `The coach rattled along almost the same streets that Oliver had walked when he first came to London with the Dodger. It turned a different way at the Angel in Islington, and finally stopped in front of a neat house on a quiet, shady street near Pentonville. There, a bed was quickly prepared, and Mr. Brownlow helped place Oliver carefully and comfortably. He was looked after with kindness that seemed to have no limits.
+	text: `The coach rattled away, over nearly the same ground as that which Oliver had traversed when he first entered London in company with the Dodger; and, turning a different way when it reached the Angel at Islington, stopped at length before a neat house, in a quiet shady street near Pentonville. Here, a bed was prepared, without loss of time, in which Mr. Brownlow saw his young charge carefully and comfortably deposited; and here, he was tended with a kindness and solicitude that knew no bounds.
 
-But for many days, Oliver was too weak to notice the care and goodness of his new friends. The sun rose and set again and again, yet the boy lay on his uncomfortable bed, wasting away under the burning fever. The fever crept through his body as surely as a worm works on a dead body.
+But, for many days, Oliver remained insensible to all the goodness of his new friends. The sun rose and sank, and rose and sank again, and many times after that; and still the boy lay stretched on his uneasy bed, dwindling away beneath the dry and wasting heat of fever. The worm does not work more surely on the dead body, than does this slow creeping fire upon the living frame.
 
-At last, weak, thin, and pale, he woke from what felt like a long and troubled dream. He tried to lift himself, resting his head on his trembling arm, and looked around anxiously.
+Weak, and thin, and pallid, he awoke at last from what seemed to have been a long and troubled dream. Feebly raising himself in the bed, with his head resting on his trembling arm, he looked anxiously around.
 
-“What room is this? Where am I? This is not the place where I went to sleep,” he whispered, his voice faint and weak.
+“What room is this? Where have I been brought to?” said Oliver. “This is not the place I went to sleep in.”
 
-His words were quickly heard. The curtain at the head of the bed was pulled aside, and a kindly old lady, dressed neatly, rose from an armchair where she had been sitting, working with her needle.
+He uttered these words in a feeble voice, being very faint and weak; but they were overheard at once. The curtain at the bed’s head was hastily drawn back, and a motherly old lady, very neatly and precisely dressed, rose as she undrew it, from an arm-chair close by, in which she had been sitting at needle-work.
 
-“Hush, my dear,” she said softly. “You must lie still, or you will be sick again. You have been very ill—almost as bad as a child can be. Lie down now, there’s a dear!” She gently helped Oliver’s head onto the pillow and smoothed his hair from his forehead. Her kind face made him take her hand and hold it close.
+“Hush, my dear,” said the old lady softly. “You must be very quiet, or you will be ill again; and you have been very bad,—as bad as bad could be, pretty nigh. Lie down again; there’s a dear!” With those words, the old lady very gently placed Oliver’s head upon the pillow; and, smoothing back his hair from his forehead, looked so kindly and loving in his face, that he could not help placing his little withered hand in hers, and drawing it round his neck.
 
-“Dear little soul!” said the old lady, tears in her eyes. “How grateful he is! Poor little thing! How his mother would have felt if she had been here and seen him as I have!”
+“Save us!” said the old lady, with tears in her eyes. “What a grateful little dear it is. Pretty creetur! What would his mother feel if she had sat by him as I have, and could see him now!”
 
-“Perhaps she does see me,” whispered Oliver, folding his hands. “Perhaps she has sat by me. I almost feel as if she had.”
+“Perhaps she does see me,” whispered Oliver, folding his hands together; “perhaps she has sat by me. I almost feel as if she had.”
 
-“That was the fever, my dear,” said the old lady kindly.
+“That was the fever, my dear,” said the old lady mildly.
 
-“I suppose so,” said Oliver. “Heaven is far away, and they are too happy there to come to the bed of a poor boy. But if she knew I was ill, she must have pitied me, even there. She was very ill herself before she died. She can’t know anything about me now. If she had seen me hurt, she would have been sad. I always dreamed of her looking sweet and happy.”
+“I suppose it was,” replied Oliver, “because heaven is a long way off; and they are too happy there, to come down to the bedside of a poor boy. But if she knew I was ill, she must have pitied me, even there; for she was very ill herself before she died. She can’t know anything about me though,” added Oliver after a moment’s silence. “If she had seen me hurt, it would have made her sorrowful; and her face has always looked sweet and happy, when I have dreamed of her.”
 
-The old lady said nothing, but she wiped her eyes and her spectacles on the bed, as if they were part of her face. Then she brought some cool water for Oliver to drink, patted his cheek, and told him to stay still or he would be sick again.
+The old lady made no reply to this; but wiping her eyes first, and her spectacles, which lay on the counterpane, afterwards, as if they were part and parcel of those features, brought some cool stuff for Oliver to drink; and then, patting him on the cheek, told him he must lie very quiet, or he would be ill again.
 
-Oliver kept very still, partly because he wanted to obey the kind old lady, and partly because he was completely exhausted. He soon drifted into a light sleep. He woke when a candle was brought near the bed, showing a gentleman with a large, loud-ticking gold watch. The gentleman felt his pulse and said he was much better.
+So, Oliver kept very still; partly because he was anxious to obey the kind old lady in all things; and partly, to tell the truth, because he was completely exhausted with what he had already said. He soon fell into a gentle doze, from which he was awakened by the light of a candle: which, being brought near the bed, showed him a gentleman with a very large and loud-ticking gold watch in his hand, who felt his pulse, and said he was a great deal better.
 
-“You are feeling much better, aren’t you, my dear?” asked the gentleman.
+“You are a great deal better, are you not, my dear?” said the gentleman.
 
 “Yes, thank you, sir,” replied Oliver.
 
-“Yes, I know you are,” said the gentleman. “You are hungry too, aren’t you?”
+“Yes, I know you are,” said the gentleman: “You’re hungry too, an’t you?”
 
 “No, sir,” answered Oliver.
 
-“Hem!” said the gentleman. “No, I thought so. He is not hungry, Mrs. Bedwin,” he said wisely, looking around.
+“Hem!” said the gentleman. “No, I know you’re not. He is not hungry, Mrs. Bedwin,” said the gentleman: looking very wise.
 
-The old lady nodded respectfully, as if to say she thought the doctor was very clever. The doctor seemed to agree.
+The old lady made a respectful inclination of the head, which seemed to say that she thought the doctor was a very clever man. The doctor appeared much of the same opinion himself.
 
-“You feel sleepy, don’t you, my dear?” asked the doctor.
+“You feel sleepy, don’t you, my dear?” said the doctor.
 
 “No, sir,” replied Oliver.
 
-“No,” said the doctor, with a satisfied look. “You’re not sleepy. And not thirsty, are you?”
+“No,” said the doctor, with a very shrewd and satisfied look. “You’re not sleepy. Nor thirsty. Are you?”
 
-“Yes, sir, a little thirsty,” answered Oliver.
+“Yes, sir, rather thirsty,” answered Oliver.
 
-“Just as I thought, Mrs. Bedwin,” said the doctor. “It’s natural he should be thirsty. You may give him some tea and dry toast, ma’am. Don’t make him too warm, but don’t let him be too cold either. Will you do that?”
+“Just as I expected, Mrs. Bedwin,” said the doctor. “It’s very natural that he should be thirsty. You may give him a little tea, ma’am, and some dry toast without any butter. Don’t keep him too warm, ma’am; but be careful that you don’t let him be too cold; will you have the goodness?”
 
-The old lady curtseyed. The doctor tasted the water, approved it quietly, and hurried away, his boots creaking loudly as he went downstairs.
+The old lady dropped a curtsey. The doctor, after tasting the cool stuff, and expressing a qualified approval of it, hurried away: his boots creaking in a very important and wealthy manner as he went downstairs.
 
-Oliver soon dozed off again. When he woke, it was nearly twelve o’clock. The old lady said good-night gently and left him with a kind, plump woman, carrying a small Prayer Book and a large nightcap. She put the nightcap on her head and the book on the table, then sat near the fire. She nodded off in short sleeps, occasionally tipping forward or letting out little sighs, but nothing more serious happened.
+Oliver dozed off again, soon after this; when he awoke, it was nearly twelve o’clock. The old lady tenderly bade him good-night shortly afterwards, and left him in charge of a fat old woman who had just come: bringing with her, in a little bundle, a small Prayer Book and a large nightcap. Putting the latter on her head and the former on the table, the old woman, after telling Oliver that she had come to sit up with him, drew her chair close to the fire and went off into a series of short naps, chequered at frequent intervals with sundry tumblings forward, and divers moans and chokings. These, however, had no worse effect than causing her to rub her nose very hard, and then fall asleep again.
 
-The night passed slowly. Oliver lay awake for a while, watching the little circles of light on the ceiling from the rushlight, or tracing the pattern on the wallpaper. The darkness and quiet of the room felt solemn. He thought how close death had been these past days, and he turned his face to the pillow, praying to Heaven.
+And thus the night crept slowly on. Oliver lay awake for some time, counting the little circles of light which the reflection of the rushlight-shade threw upon the ceiling; or tracing with his languid eyes the intricate pattern of the paper on the wall. The darkness and the deep stillness of the room were very solemn; as they brought into the boy’s mind the thought that death had been hovering there, for many days and nights, and might yet fill it with the gloom and dread of his awful presence, he turned his face upon the pillow, and fervently prayed to Heaven.
 
-Gradually, he fell into a deep, peaceful sleep—the kind that comes only after suffering. A sleep so calm, it was hard to wake from, as if leaving the struggles and worries of life behind.
+Gradually, he fell into that deep tranquil sleep which ease from recent suffering alone imparts; that calm and peaceful rest which it is pain to wake from. Who, if this were death, would be roused again to all the struggles and turmoils of life; to all its cares for the present; its anxieties for the future; more than all, its weary recollections of the past!
 
-When Oliver finally opened his eyes, the sun had been shining for hours. He felt cheerful and happy. The worst of his illness had passed. He was alive and well again.
+It had been bright day, for hours, when Oliver opened his eyes; he felt cheerful and happy. The crisis of the disease was safely past. He belonged to the world again.
 
-In three days, he could sit up in an easy chair, supported by pillows. Still too weak to walk, Mrs. Bedwin had him carried to her room. She sat by the fire, delighted to see him so much better, and began to cry happily.
+In three days’ time he was able to sit in an easy-chair, well propped up with pillows; and, as he was still too weak to walk, Mrs. Bedwin had him carried downstairs into the little housekeeper’s room, which belonged to her. Having him set, here, by the fire-side, the good old lady sat herself down too; and, being in a state of considerable delight at seeing him so much better, forthwith began to cry most violently.
 
-“Don’t mind me, my dear,” she said. “I’m just having a good cry. There, it’s over now, and I feel comfortable again.”
+“Never mind me, my dear,” said the old lady; “I’m only having a regular good cry. There; it’s all over now; and I’m quite comfortable.”
 
-“You are very kind, ma’am,” said Oliver.
+“You’re very, very kind to me, ma’am,” said Oliver.
 
-“Well, never mind that, my dear,” said the old lady. “That has nothing to do with your broth, and it’s time you had it. The doctor says Mr. Brownlow may come to see you this morning, and we must look our best. The better we look, the more pleased he’ll be.” She then warmed a basin of broth over the fire—strong enough, Oliver thought, to feed hundreds of people.
+“Well, never you mind that, my dear,” said the old lady; “that’s got nothing to do with your broth; and it’s full time you had it; for the doctor says Mr. Brownlow may come in to see you this morning; and we must get up our best looks, because the better we look, the more he’ll be pleased.” And with this, the old lady applied herself to warming up, in a little saucepan, a basin full of broth: strong enough, Oliver thought, to furnish an ample dinner, when reduced to the regulation strength, for three hundred and fifty paupers, at the lowest computation.
 
-“Do you like pictures, dear?” asked the old lady, noticing Oliver staring at a portrait on the wall.
+“Are you fond of pictures, dear?” inquired the old lady, seeing that Oliver had fixed his eyes, most intently, on a portrait which hung against the wall; just opposite his chair.
 
-“I don’t know, ma’am,” said Oliver, still looking at the painting. “I’ve seen so few. What a beautiful, gentle face that lady has!”
+“I don’t quite know, ma’am,” said Oliver, without taking his eyes from the canvas; “I have seen so few that I hardly know. What a beautiful, mild face that lady’s is!”
 
-“Ah!” said the old lady. “Painters always make ladies prettier than they really are, or no one would buy their pictures. The man who invented the camera might have known it would never work—it’s far too honest,” she added, laughing.
+“Ah!” said the old lady, “painters always make ladies out prettier than they are, or they wouldn’t get any custom, child. The man that invented the machine for taking likenesses might have known that would never succeed; it’s a deal too honest. A deal,” said the old lady, laughing very heartily at her own acuteness.
 
-“Is that a real person, ma’am?” asked Oliver.
+“Is—is that a likeness, ma’am?” said Oliver.
 
-“Yes,” said the old lady. “It’s a portrait.”
+“Yes,” said the old lady, looking up for a moment from the broth; “that’s a portrait.”
 
-“Whose?” asked Oliver.
+“Whose, ma’am?” asked Oliver.
 
-“Well, really, I don’t know,” she said cheerfully. “It isn’t anyone you or I know. But I’m glad you like it.”
+“Why, really, my dear, I don’t know,” answered the old lady in a good-humoured manner. “It’s not a likeness of anybody that you or I know, I expect. It seems to strike your fancy, dear.”
 
-“It is so pretty,” said Oliver.
+“It is so pretty,” replied Oliver.
 
-“You’re not afraid of it, are you?” asked the old lady, surprised by his serious look.
+“Why, sure you’re not afraid of it?” said the old lady: observing in great surprise, the look of awe with which the child regarded the painting.
 
-“Oh no,” replied Oliver quickly. “But the eyes look so sad. From where I sit, they seem to look at me. It makes my heart beat, as if the eyes want to speak but cannot.”
+“Oh no, no,” returned Oliver quickly; “but the eyes look so sorrowful; and where I sit, they seem fixed upon me. It makes my heart beat,” added Oliver in a low voice, “as if it was alive, and wanted to speak to me, but couldn’t.”
 
-“Goodness me!” exclaimed the old lady. “Don’t speak like that, child. You’re weak and nervous after your illness. I’ll turn your chair so you can’t see it anymore. There! Now you won’t see it at all.”
+“Lord save us!” exclaimed the old lady, starting; “don’t talk in that way, child. You’re weak and nervous after your illness. Let me wheel your chair round to the other side; and then you won’t see it. There!” said the old lady, suiting the action to the word; “you don’t see it now, at all events.”
 
-Oliver could still see the picture in his mind as clearly as if he had not moved. But he did not want to worry the kind old lady, so he smiled gently when she looked at him. Mrs. Bedwin, seeing that he seemed more comfortable, broke some toasted bread into the broth and added a little salt, all with the care of someone making a very important meal. Oliver ate it quickly, and had hardly finished when there was a soft knock at the door.
+Oliver did see it in his mind’s eye as distinctly as if he had not altered his position; but he thought it better not to worry the kind old lady; so he smiled gently when she looked at him; and Mrs. Bedwin, satisfied that he felt more comfortable, salted and broke bits of toasted bread into the broth, with all the bustle befitting so solemn a preparation. Oliver got through it with extraordinary expedition. He had scarcely swallowed the last spoonful, when there came a soft rap at the door. “Come in,” said the old lady; and in walked Mr. Brownlow.
 
-“Come in,” said Mrs. Bedwin, and Mr. Brownlow entered.
+Now, the old gentleman came in as brisk as need be; but, he had no sooner raised his spectacles on his forehead, and thrust his hands behind the skirts of his dressing-gown to take a good long look at Oliver, than his countenance underwent a very great variety of odd contortions. Oliver looked very worn and shadowy from sickness, and made an ineffectual attempt to stand up, out of respect to his benefactor, which terminated in his sinking back into the chair again; and the fact is, if the truth must be told, that Mr. Brownlow’s heart, being large enough for any six ordinary old gentlemen of humane disposition, forced a supply of tears into his eyes, by some hydraulic process which we are not sufficiently philosophical to be in a condition to explain.
 
-The old gentleman came in briskly, but as soon as he raised his spectacles and looked at Oliver, his face changed in many odd ways. Oliver, still weak and pale from his illness, tried to stand out of respect, but sank back into the chair. Mr. Brownlow’s heart, large enough for six ordinary gentlemen, filled his eyes with tears.
+“Poor boy, poor boy!” said Mr. Brownlow, clearing his throat. “I’m rather hoarse this morning, Mrs. Bedwin. I’m afraid I have caught cold.”
 
-“Poor boy, poor boy!” said Mr. Brownlow, clearing his throat. “I’m a bit hoarse this morning, Mrs. Bedwin. I think I have a cold.”
+“I hope not, sir,” said Mrs. Bedwin. “Everything you have had, has been well aired, sir.”
 
-“I hope not, sir,” said Mrs. Bedwin. “Everything here has been well aired.”
+“I don’t know, Bedwin. I don’t know,” said Mr. Brownlow; “I rather think I had a damp napkin at dinner-time yesterday; but never mind that. How do you feel, my dear?”
 
-“I don’t know, Bedwin,” said Mr. Brownlow. “I may have had a damp napkin at dinner yesterday. Never mind. How do you feel, my dear?”
+“Very happy, sir,” replied Oliver. “And very grateful indeed, sir, for your goodness to me.”
 
-“Very happy, sir,” replied Oliver. “And very grateful for your kindness.”
+“Good boy,” said Mr. Brownlow, stoutly. “Have you given him any nourishment, Bedwin? Any slops, eh?”
 
-“Good boy,” said Mr. Brownlow. “Have you given him any nourishment, Bedwin? Any slops?”
+“He has just had a basin of beautiful strong broth, sir,” replied Mrs. Bedwin, drawing herself up slightly, and laying strong emphasis on the last word, to intimate that between slops, and broth well compounded, there existed no affinity or connection whatsoever.
 
-“He has just had a bowl of strong, nourishing broth, sir,” replied Mrs. Bedwin, emphasizing that well-prepared broth was very different from plain slops.
+“Ugh!” said Mr. Brownlow, with a slight shudder; “a couple of glasses of port wine would have done him a great deal more good. Wouldn’t they, Tom White, eh?”
 
-“Ugh!” said Mr. Brownlow. “A little port wine would have done him more good, wouldn’t it, Tom White?”
+“My name is Oliver, sir,” replied the little invalid with a look of great astonishment.
 
-“My name is Oliver, sir,” said the boy, surprised.
+“Oliver,” said Mr. Brownlow; “Oliver what? Oliver White, eh?”
 
-“Oliver,” said Mr. Brownlow. “Oliver what? Oliver White?”
+“No, sir, Twist, Oliver Twist.”
 
-“No, sir, Twist. Oliver Twist.”
+“Queer name!” said the old gentleman. “What made you tell the magistrate your name was White?”
 
-“Strange name!” said the old gentleman. “Why did you tell the magistrate your name was White?”
+“I never told him so, sir,” returned Oliver in amazement.
 
-“I never told him that, sir,” said Oliver, astonished.
+This sounded so like a falsehood, that the old gentleman looked somewhat sternly in Oliver’s face. It was impossible to doubt him; there was truth in every one of its thin and sharpened lineaments.
 
-Mr. Brownlow looked carefully at Oliver’s face. He could see there was no lie; every line of the boy’s face was true.
+“Some mistake,” said Mr. Brownlow. But, although his motive for looking steadily at Oliver no longer existed, the old idea of the resemblance between his features and some familiar face came upon him so strongly, that he could not withdraw his gaze.
 
-“Some mistake,” said Mr. Brownlow. But he could not stop noticing a resemblance between Oliver and a face he remembered.
+“I hope you are not angry with me, sir?” said Oliver, raising his eyes beseechingly.
 
-“I hope you are not angry with me, sir?” asked Oliver, looking up timidly.
+“No, no,” replied the old gentleman. “Why! what’s this? Bedwin, look there!”
 
-“No, no,” said Mr. Brownlow. “Bedwin, look here!”
+As he spoke, he pointed hastily to the picture over Oliver’s head, and then to the boy’s face. There was its living copy. The eyes, the head, the mouth; every feature was the same. The expression was, for the instant, so precisely alike, that the minutest line seemed copied with startling accuracy!
 
-He pointed to the picture above Oliver’s head and then to the boy. The living boy looked exactly like the picture—the eyes, the head, the mouth, every feature was the same. The resemblance was so perfect that it was almost startling.
+Oliver knew not the cause of this sudden exclamation; for, not being strong enough to bear the start it gave him, he fainted away. A weakness on his part, which affords the narrative an opportunity of relieving the reader from suspense, in behalf of the two young pupils of the Merry Old Gentleman; and of recording—
 
-Oliver, not strong enough to bear the sudden shock, fainted.
+That when the Dodger, and his accomplished friend Master Bates, joined in the hue-and-cry which was raised at Oliver’s heels, in consequence of their executing an illegal conveyance of Mr. Brownlow’s personal property, as has been already described, they were actuated by a very laudable and becoming regard for themselves; and forasmuch as the freedom of the subject and the liberty of the individual are among the first and proudest boasts of a true-hearted Englishman, so, I need hardly beg the reader to observe, that this action should tend to exalt them in the opinion of all public and patriotic men, in almost as great a degree as this strong proof of their anxiety for their own preservation and safety goes to corroborate and confirm the little code of laws which certain profound and sound-judging philosophers have laid down as the main-springs of all Nature’s deeds and actions: the said philosophers very wisely reducing the good lady’s proceedings to matters of maxim and theory: and, by a very neat and pretty compliment to her exalted wisdom and understanding, putting entirely out of sight any considerations of heart, or generous impulse and feeling. For, these are matters totally beneath a female who is acknowledged by universal admission to be far above the numerous little foibles and weaknesses of her sex.
 
-This gave the story a chance to remind the reader about the Dodger and his friend Master Bates. When they raised the alarm after taking Mr. Brownlow’s property, they were really thinking only of their own safety. In England, freedom and personal liberty are highly valued. So their actions, though wrong, show how much they cared about protecting themselves. Philosophers might explain such actions as laws of nature, but the kindness and heart of Mrs. Bedwin cannot be measured by rules or theory—she acted from her feelings and generosity, as any truly good person would.
+If I wanted any further proof of the strictly philosophical nature of the conduct of these young gentlemen in their very delicate predicament, I should at once find it in the fact (also recorded in a foregoing part of this narrative), of their quitting the pursuit, when the general attention was fixed upon Oliver; and making immediately for their home by the shortest possible cut. Although I do not mean to assert that it is usually the practice of renowned and learned sages, to shorten the road to any great conclusion (their course indeed being rather to lengthen the distance, by various circumlocutions and discursive staggerings, like unto those in which drunken men under the pressure of a too mighty flow of ideas, are prone to indulge); still, I do mean to say, and do say distinctly, that it is the invariable practice of many mighty philosophers, in carrying out their theories, to evince great wisdom and foresight in providing against every possible contingency which can be supposed at all likely to affect themselves. Thus, to do a great right, you may do a little wrong; and you may take any means which the end to be attained, will justify; the amount of the right, or the amount of the wrong, or indeed the distinction between the two, being left entirely to the philosopher concerned, to be settled and determined by his clear, comprehensive, and impartial view of his own particular case.
 
-If I needed more proof of how careful these two boys were, I could see it in the way they ran away. As soon as everyone was looking at Oliver, they turned and ran straight home by the shortest way. Although great philosophers sometimes take long and complicated paths, these boys used their cleverness to protect themselves. To do something right, they might do a little wrong—but only they decide if it is justified.
+It was not until the two boys had scoured, with great rapidity, through a most intricate maze of narrow streets and courts, that they ventured to halt beneath a low and dark archway. Having remained silent here, just long enough to recover breath to speak, Master Bates uttered an exclamation of amusement and delight; and, bursting into an uncontrollable fit of laughter, flung himself upon a doorstep, and rolled thereon in a transport of mirth.
 
-The two boys ran quickly through a maze of narrow streets and alleys until they stopped under a low, dark archway. They paused just long enough to catch their breath. Then Master Bates laughed loudly and threw himself on a doorstep, rolling with joy.
-
-“What’s the matter?” asked the Dodger.
+“What’s the matter?” inquired the Dodger.
 
 “Ha! ha! ha!” roared Charley Bates.
 
-“Be quiet,” said the Dodger, looking around cautiously. “Do you want to get caught, stupid?”
+“Hold your noise,” remonstrated the Dodger, looking cautiously round. “Do you want to be grabbed, stupid?”
 
-“I can’t help it!” said Charley. “To see him running like that, turning corners, knocking into posts, starting again as if he was made of iron, and me with the wipe in my pocket, shouting after him—oh, my eye!” Charley laughed again, rolling on the step.
+“I can’t help it,” said Charley, “I can’t help it! To see him splitting away at that pace, and cutting round the corners, and knocking up again’ the posts, and starting on again as if he was made of iron as well as them, and me with the wipe in my pocket, singing out arter him—oh, my eye!” The vivid imagination of Master Bates presented the scene before him in too strong colours. As he arrived at this apostrophe, he again rolled upon the door-step, and laughed louder than before.
 
-“What will Fagin say?” asked the Dodger when Charley caught his breath.
+“What’ll Fagin say?” inquired the Dodger; taking advantage of the next interval of breathlessness on the part of his friend to propound the question.
 
-“What?” said Charley.
+“What?” repeated Charley Bates.
 
 “Ah, what?” said the Dodger.
 
-“What should he say?” asked Charley, stopping his laughter. “What should he say?”
+“Why, what should he say?” inquired Charley: stopping rather suddenly in his merriment; for the Dodger’s manner was impressive. “What should he say?”
 
-The Dodger whistled for a couple of minutes, then took off his hat, scratched his head, and nodded three times.
+Mr. Dawkins whistled for a couple of minutes; then, taking off his hat, scratched his head, and nodded thrice.
 
-“What do you mean?” asked Charley.
+“What do you mean?” said Charley.
 
-“Toor rul lol loo, gammon and spinnage, the frog he wouldn’t, and high cockolorum,” said the Dodger, sneering.
+“Toor rul lol loo, gammon and spinnage, the frog he wouldn’t, and high cockolorum,” said the Dodger: with a slight sneer on his intellectual countenance.
 
-Charley did not understand. “What do you mean?” he asked again.
+This was explanatory, but not satisfactory. Master Bates felt it so; and again said, “What do you mean?”
 
-The Dodger made no answer. He put his hat back on, gathered his coat under his arm, pressed his tongue to his cheek, tapped his nose a few times, and turned away, slipping down the alley. Master Bates followed, looking thoughtful.
+The Dodger made no reply; but putting his hat on again, and gathering the skirts of his long-tailed coat under his arm, thrust his tongue into his cheek, slapped the bridge of his nose some half-dozen times in a familiar but expressive manner, and turning on his heel, slunk down the court. Master Bates followed, with a thoughtful countenance.
 
-A few minutes later, the noise of footsteps on the creaking stairs woke the merry old gentleman. He was sitting by the fire with a small sausage and a little loaf in his hand, a pocket-knife in his right, and a pewter pot on the trivet. A mischievous smile appeared on his pale face. Looking out from under his thick red eyebrows, he bent his ear toward the door and listened.
+The noise of footsteps on the creaking stairs, a few minutes after the occurrence of this conversation, roused the merry old gentleman as he sat over the fire with a saveloy and a small loaf in his hand; a pocket-knife in his right; and a pewter pot on the trivet. There was a rascally smile on his white face as he turned round, and looking sharply out from under his thick red eyebrows, bent his ear towards the door, and listened.
 
-“Why, how’s this?” muttered the Jew, changing his expression. “Only two of them? Where’s the third? They can’t have got into trouble. Hark!”
+“Why, how’s this?” muttered the Jew: changing countenance; “only two of ’em? Where’s the third? They can’t have got into trouble. Hark!”
 
-The footsteps came closer. They reached the landing. The door opened slowly, and the Dodger and Charley Bates entered, closing it behind them.`,
+The footsteps approached nearer; they reached the landing. The door was slowly opened; and the Dodger and Charley Bates entered, closing it behind them.`,
 }

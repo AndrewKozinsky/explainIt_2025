@@ -10,10 +10,10 @@ function MainPage() {
 		<PageWrapper top bottom>
 			<main className='main-page'>
 				{/* Do not forget to use STATE MACHINE FOR COMPONENTS !!! https://zagjs.com/ */}
-				{/*<MainPageTop />*/}
-				{/*<AvailableMaterials />*/}
+				<MainPageTop />
+				<AvailableMaterials />
 				<CustomMaterials />
-				{/*<MainPageFaq />*/}
+				<MainPageFaq />
 			</main>
 		</PageWrapper>
 	)
