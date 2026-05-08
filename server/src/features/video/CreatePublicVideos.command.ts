@@ -161,7 +161,7 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 Живые диалоги, быстрая разговорная речь, много юмора и сарказма, журналистская и повседневная лексика. Это фильм о работе, амбициях, любви и о том, как трудно выбрать между карьерой и личной жизнью.
 Рекомендуемый уровень: B2-C1 (Upper-Intermediate / Advanced).`,
 				fileName: 'His Girl Friday (1940).webm',
-				file_s3_key: folderName + '/english/His Girl Friday (1940).webm',
+				file_s3_key: folderName + '/english/His Girl Friday (1940).mp4',
 				originalContent: hisGirlFridaySubs,
 				covers: [
 					coversFolderName + 'english/his_girl_friday_1.jpg',

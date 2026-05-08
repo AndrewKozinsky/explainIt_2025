@@ -2,7 +2,8 @@
 @use '@/styles/mixins' as mix;
 
 .books-grid {
-	display: grid;
+	display: flex;
+	flex-direction: column;
 	gap: 2rem;
 
 	@include mix.page-width(600px) {
@@ -10,19 +11,19 @@
 	}
 
 	@include mix.page-width(1000px) {
-		gap: 5rem;
+		gap: 4rem;
 	}
 }
 
 .books-grid__row-1, .books-grid__row-2, .books-grid__row-3, .books-grid__row-4 {
-	gap: 1rem;
+	gap: 2rem;
 
 	@include mix.page-width(600px) {
-		gap: 2rem;
+		gap: 3rem;
 	}
 
 	@include mix.page-width(1000px) {
-		gap: 3rem;
+		gap: 4rem;
 	}
 }
 
@@ -60,16 +61,12 @@
 		grid-template-columns: repeat(2, 1fr);
 	}
 
-	@include mix.page-width(1000px) {
-		grid-template-columns: 3fr 1fr 3fr;
+	@include mix.page-width(1100px) {
+		grid-template-columns: 1fr 1fr 1fr;
 
 		& > *:nth-child(2) {
 			display: flex;
 		}
-	}
-
-	@include mix.page-width(1200px) {
-		grid-template-columns: 3fr 1fr 3fr;
 	}
 }
 
@@ -89,7 +86,7 @@
 	}
 
 	@include mix.page-width(900px) {
-		grid-template-columns: 1fr 2fr 1fr;
+		grid-template-columns: 1fr 1fr 1fr;
 	}
 }
 
@@ -162,9 +159,14 @@
 	margin-top: .6rem;
 }
 .books-grid__book-name {
-	font-size: 2.4rem;
-	line-height: 3rem;
+	font-size: 2rem;
+	line-height: 2.6rem;
 	font-weight: 600;
+
+	@include mix.page-width(700px) {
+		font-size: 2.4rem;
+		line-height: 3rem;
+	}
 }
 
 .books-grid__sign-cell {

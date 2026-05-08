@@ -23,20 +23,26 @@ function BooksGrid(props: BooksGridProps) {
 				<Book bookData={booksData.data[0]} />
 				<SignCell sign='&' />
 			</div>
-			<div className='books-grid__row-2'>
-				<Book bookData={booksData.data[1]} />
-				<SignCell sign='✦' />
-				<Book bookData={booksData.data[2]} />
-			</div>
-			<div className='books-grid__row-3'>
-				<SignCell sign='⌘' />
-				<Book bookData={booksData.data[3]} />
-				<SignCell sign='§' />
-			</div>
-			<div className='books-grid__row-4'>
-				<SignCell sign='¶' />
-				<Book bookData={booksData.data[4]} />
-			</div>
+			{booksData.data[1] && (
+				<div className='books-grid__row-2'>
+					<Book bookData={booksData.data[1]} />
+					<SignCell sign='✦' />
+					{booksData.data[2] && <Book bookData={booksData.data[2]} />}
+				</div>
+			)}
+			{booksData.data[3] && (
+				<div className='books-grid__row-3'>
+					<SignCell sign='⌘' />
+					<Book bookData={booksData.data[3]} />
+					<SignCell sign='§' />
+				</div>
+			)}
+			{booksData.data[4] && (
+				<div className='books-grid__row-4'>
+					<SignCell sign='¶' />
+					<Book bookData={booksData.data[4]} />
+				</div>
+			)}
 		</div>
 	)
 }
