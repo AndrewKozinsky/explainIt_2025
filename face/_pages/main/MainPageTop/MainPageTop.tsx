@@ -33,7 +33,7 @@ function MainPageTop() {
 			<div className='main-page-top__buttons'>
 				<button className='main-page-top__button main-page-top__button--white'>
 					<img src={publicFolderFilesUrls.mainPage.roundPlay} alt='arrow icon' />
-					Презентация (1 мин.)
+					Демонстрация (1 мин.)
 				</button>
 				<Link href={pageUrls.books.book('p1').path}>
 					<button className='main-page-top__button main-page-top__button--accent'>

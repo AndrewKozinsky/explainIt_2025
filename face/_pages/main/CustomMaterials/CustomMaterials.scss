@@ -1,0 +1,157 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+
+.custom-materials {
+	position: relative;
+	background-color: vars.$grayColor-1;
+	overflow: hidden;
+	//padding: 1rem 1.5rem;
+	padding: 3%;
+	border-radius: vars.$radius-2;
+
+	@include mix.page-width(900px) {
+		padding: 3% 4%;
+	}
+
+	&:hover {
+		.custom-materials__add-btn {
+			background-color: vars.$accentColor-2;
+		}
+
+		.custom-materials__add-btn-plus {
+			&::before, &::after {
+				background-color: white;
+			}
+		}
+	}
+}
+
+.custom-materials__covers-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.custom-materials__top {
+	@include mix.page-width(500px) {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+
+	@include mix.page-width(1100px) {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
+
+.custom-materials__content {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: .6rem;
+
+	@include mix.page-width(700px) {
+		gap: .8rem;
+	}
+}
+
+.custom-materials__top-header {
+	font-size: 2rem;
+	line-height: 2.6rem;
+	font-weight: 500;
+
+	@include mix.page-width(900px) {
+		font-size: 2.4rem;
+		line-height: 3.2rem;
+	}
+}
+
+.custom-materials__sub-top-header {
+	font-size: 1.8rem;
+	line-height: 2.6rem;
+	color: vars.$grayColor-5;
+
+	@include mix.page-width(900px) {
+		font-size: 2rem;
+		line-height: 2.8rem;
+	}
+}
+
+.custom-materials__bottom {
+	display: flex;
+	justify-content: flex-end;
+	padding-top: 20%;
+}
+
+.custom-materials__add-btn {
+	position: relative;
+	display: flex;
+	background-color: white;
+	overflow: hidden;
+	aspect-ratio: 2 / 1;
+	max-width: 36rem;
+	width: 100%;
+	border-radius: 30rem;
+
+	&:hover {
+		.custom-materials__add-btn-plus {
+			display: none;
+		}
+	}
+}
+
+.custom-materials__add-btn-hit-area {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50%;
+	aspect-ratio: 1 / 1;
+	cursor: pointer;
+	padding: 6px;
+
+	&:hover {
+		.custom-materials__add-btn-item {
+			display: flex;
+		}
+	}
+}
+
+.custom-materials__add-btn-item {
+	flex-grow: 1;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	background-color: white;
+	border-radius: 50%;
+}
+
+.custom-materials__add-btn-plus {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	z-index: 2;
+
+	&::before, &::after {
+		content: '';
+		position: absolute;
+		background-color: vars.$grayColor-1;
+		border-radius: 2px;
+	}
+
+	&::before {
+		top: -20px;
+		left: -2px;
+		width: 4px;
+		height: 40px;
+	}
+
+	&::after {
+		top: -2px;
+		left: -20px;
+		width: 40px;
+		height: 4px;
+	}
+}

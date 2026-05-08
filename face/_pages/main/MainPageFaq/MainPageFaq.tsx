@@ -1,9 +1,9 @@
 import Faq from '@/ui/FAQ/FAQ'
 import { config } from './fn/getConfig'
-import './FaqOnMainPage.scss'
+import '_pages/main/MainPageFaq/MainPageFaq.scss'
 
 /** Обёртка для компонента вопросов и ответов главной страницы */
-function FaqOnMainPage() {
+function MainPageFaq() {
 	return (
 		<div className='main-page-faq'>
 			<h2 className='main-page-faq__header'>Часто задаваемые вопросы</h2>
@@ -12,4 +12,4 @@ function FaqOnMainPage() {
 	)
 }
 
-export default FaqOnMainPage
+export default MainPageFaq

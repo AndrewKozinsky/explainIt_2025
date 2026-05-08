@@ -8,7 +8,7 @@ export const config: FaqTypes.Config = [
 	{
 		question: {
 			type: 'plain',
-			value: 'Это метод чтения Илья Франка?',
+			value: 'Это метод чтения Ильи Франка?',
 		},
 		answer: {
 			type: 'plain',

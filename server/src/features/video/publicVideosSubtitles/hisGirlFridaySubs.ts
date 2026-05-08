@@ -63,8 +63,7 @@ I'll be back in ten minutes.
 
 14
 00:01:44,087 --> 00:01:47,047
-Even ten minutes is a long time
-to be away from you.
+Even ten minutes is a long time to be away from you.
 
 15
 00:01:48,132 --> 00:01:50,425
@@ -73,12 +72,12 @@ to be away from you.
 
 16
 00:01:51,177 --> 00:01:52,636
--Well ̶
+-Well
 -Go on.
 
 17
 00:01:52,720 --> 00:01:55,764
--Uh ̶ (chuckles)
+-Uh (chuckles)
 -Well, go ahead.
 
 18
@@ -176,7 +175,7 @@ I'm retired. Ya know what I mean?
 
 37
 00:02:54,532 --> 00:02:56,450
--Say, Walter ̶ Hello, Hildy.
+-Say, Walter Hello, Hildy.
 -I'm busy, Duffy.
 
 38
@@ -211,7 +210,7 @@ and makes a sucker out of us.
 
 44
 00:03:11,758 --> 00:03:13,592
-At least two ̶ the Atlantic and Pacific.
+At least two the Atlantic and Pacific.
 
 45
 00:03:13,676 --> 00:03:15,594
@@ -255,7 +254,7 @@ we'll be Democratic again.
 
 53
 00:03:32,904 --> 00:03:34,613
--Oh, Walter ̶
+-Oh, Walter
 -Go on, Duffy! Get going!
 
 54
@@ -332,7 +331,7 @@ Oh, well, let's see.
 
 70
 00:04:27,208 --> 00:04:29,417
-I spent six weeks in Reno, then Bermuda ̶
+I spent six weeks in Reno, then Bermuda
 
 71
 00:04:29,502 --> 00:04:32,921
@@ -359,7 +358,7 @@ about you anymore.
 
 76
 00:04:42,181 --> 00:04:45,517
--I'd know you anytime, anyplace ̶
+-I'd know you anytime, anyplace
 -Anyplace, anywhere.
 
 77
@@ -388,7 +387,7 @@ It makes a fellow lose all faith in himself.
 
 82
 00:04:59,198 --> 00:05:02,117
-Gives him a ̶ almost gives him
+Gives him a almost gives him
 a feeling he wasn't wanted.
 
 83
@@ -434,7 +433,7 @@ nothing can change.
 91
 00:05:24,432 --> 00:05:26,892
 -I often wish you weren't such a stinker.
--Eh ̶
+-Eh
 
 92
 00:05:28,227 --> 00:05:31,146
@@ -536,8 +535,8 @@ That isn't what I got married for!
 
 112
 00:06:27,286 --> 00:06:30,038
-Oh, what is the good of ̶
-Look ̶ Now look, Walter.
+Oh, what is the good of
+Look Now look, Walter.
 
 113
 00:06:30,122 --> 00:06:32,040
@@ -546,7 +545,7 @@ What I came up here to tell you
 114
 00:06:32,124 --> 00:06:35,585
 is that you must stop phoning me a dozen
-times a day, sending me 20 telegrams ̶
+times a day, sending me 20 telegrams
 
 115
 00:06:35,670 --> 00:06:37,921
@@ -560,7 +559,7 @@ Everybody says so.
 
 117
 00:06:41,634 --> 00:06:43,927
-I tell you what ̶
+I tell you what
 come back to work on the paper.
 
 118
@@ -585,7 +584,7 @@ for me to tell you what I came to say.
 
 122
 00:06:57,024 --> 00:06:58,984
--We'll have some lunch ̶
+-We'll have some lunch
 -I have a lunch date already.
 
 123
@@ -646,12 +645,12 @@ if I hadn't been doll-faced.
 
 134
 00:07:31,058 --> 00:07:34,269
-I thought it'd be a novelty ̶ a face around here
+I thought it'd be a novelty a face around here
 a man could look at without shuddering.
 
 135
 00:07:34,353 --> 00:07:36,438
--Listen, Walter ̶
+-Listen, Walter
 -I made a great reporter out of you, Hildy.
 
 136
@@ -696,7 +695,7 @@ You had to marry me, spoil everything.
 
 144
 00:07:57,376 --> 00:07:58,835
-I wasn't satisfi ̶
+I wasn't satisfi
 
 145
 00:07:58,919 --> 00:08:01,296
@@ -720,7 +719,7 @@ you'd have forgotten about it.
 
 149
 00:08:09,764 --> 00:08:11,473
--Why, you ̶
+-Why, you
 -You're losing your eye.
 
 150
@@ -753,7 +752,7 @@ Are you loony?
 156
 00:08:26,697 --> 00:08:29,908
 Jumping Jehoshaphat!
-Now listen, Sweeney, this is no time ̶
+Now listen, Sweeney, this is no time
 
 157
 00:08:31,327 --> 00:08:33,745
@@ -818,7 +817,7 @@ This will break me.
 
 170
 00:09:03,234 --> 00:09:05,443
-Unless ̶ Hildy.
+Unless Hildy.
 
 171
 00:09:05,528 --> 00:09:08,738
@@ -827,7 +826,7 @@ Unless ̶ Hildy.
 
 172
 00:09:08,823 --> 00:09:11,241
--Get outta here, Duffy. I'm busy! Now look ̶
+-Get outta here, Duffy. I'm busy! Now look
 -Save your breath.
 
 173
@@ -837,7 +836,7 @@ the way we used to be.
 
 174
 00:09:13,619 --> 00:09:15,578
-That's what I'm afraid of ̶
+That's what I'm afraid of
 "Anytime, anyplace, anywhere!"
 
 175
@@ -877,7 +876,7 @@ You go back to your old salary.
 
 182
 00:09:35,516 --> 00:09:37,642
--Trying to blackjack me ̶
+-Trying to blackjack me
 -I want to show you something.
 
 183
@@ -988,7 +987,7 @@ will know what's going on.
 
 205
 00:10:38,871 --> 00:10:40,622
-Why, I ̶
+Why, I
 
 206
 00:10:40,706 --> 00:10:42,999
@@ -1005,7 +1004,7 @@ and live a halfway normal life.
 
 209
 00:10:50,341 --> 00:10:52,800
-The point is, I ̶ I'm through.
+The point is, I I'm through.
 
 210
 00:10:54,887 --> 00:10:56,930
@@ -1151,13 +1150,12 @@ Thank you, Walter.
 
 240
 00:12:26,645 --> 00:12:31,024
-This other fellow ̶ Well, I'm sorry
+This other fellow Well, I'm sorry
 I didn't get a chance to see him.
 
 241
 00:12:31,108 --> 00:12:34,277
-I'm more or less particular
-about whom my wife marries.
+I'm more or less particular about whom my wife marries.
 
 242
 00:12:34,361 --> 00:12:38,573
@@ -1203,7 +1201,7 @@ Oh! Oh, I am sorry, Hildy.
 
 251
 00:12:57,635 --> 00:12:59,218
--I suppose Bruce ̶ What's his name?
+-I suppose Bruce What's his name?
 -Baldwin.
 
 252
@@ -1223,7 +1221,7 @@ he waits for her.
 
 255
 00:13:07,019 --> 00:13:08,936
-Oh, well, in that case ̶
+Oh, well, in that case
 
 256
 00:13:10,856 --> 00:13:12,357
@@ -1231,8 +1229,7 @@ Allow me.
 
 257
 00:13:15,027 --> 00:13:19,072
-Well, I can see right away my wife
-picked out the right husband for herself.
+Well, I can see right away my wife picked out the right husband for herself.
 
 258
 00:13:19,156 --> 00:13:22,325
@@ -1250,7 +1247,7 @@ Congratulations again, Mr. Baldwin.
 
 261
 00:13:29,083 --> 00:13:30,458
--No, my name is ̶
+-No, my name is
 -Mr. Burns.
 
 262
@@ -1261,7 +1258,7 @@ Just leave your card. What did you say?
 263
 00:13:33,712 --> 00:13:35,338
 -Mr. Burns. Mr. Burns.
--My name is ̶
+-My name is
 
 264
 00:13:35,422 --> 00:13:37,924
@@ -1271,7 +1268,7 @@ I'm busy with Mr. Bruce Baldwin here.
 265
 00:13:38,008 --> 00:13:40,593
 -I didn't hear what you said.
--I was going to say that my name ̶
+-I was going to say that my name
 
 266
 00:13:40,678 --> 00:13:43,846
@@ -1313,7 +1310,7 @@ Oh, that's wrong, isn't it?
 
 274
 00:14:02,408 --> 00:14:04,701
-Well, Bruce ̶
+Well, Bruce
 You don't mind if I call you Bruce?
 
 275
@@ -1323,18 +1320,17 @@ You don't mind if I call you Bruce?
 
 276
 00:14:07,705 --> 00:14:10,456
-You see, my wife ̶
-That is, your wife ̶ I mean, Hildy ̶
+You see, my wife
+That is, your wife I mean, Hildy
 
 277
 00:14:10,541 --> 00:14:13,835
-Hildy, you led me to expect
-you were marrying a much older man.
+Hildy, you led me to expect you were marrying a much older man.
 
 278
 00:14:13,919 --> 00:14:16,170
 Oh, really? What did I say
-that led you to expect such ̶
+that led you to expect such
 
 279
 00:14:16,255 --> 00:14:18,923
@@ -1356,8 +1352,7 @@ That's right. Rubbers too, I hope.
 
 283
 00:14:27,391 --> 00:14:30,101
-Attaboy. A man ought to be prepared
-for any emergency.
+Attaboy. A man ought to be prepared for any emergency.
 
 284
 00:14:30,185 --> 00:14:32,895
@@ -1404,7 +1399,7 @@ Well, hello, Gus.
 293
 00:14:57,463 --> 00:14:59,464
 Get me a roast beef sandwich.
-Rare on white ̶ Oh.
+Rare on white Oh.
 
 294
 00:14:59,548 --> 00:15:02,008
@@ -1456,8 +1451,7 @@ Everybody else I've ever known,
 
 304
 00:15:28,327 --> 00:15:32,413
-well, you could always tell ahead of time
-what they were gonna say or do.
+well, you could always tell ahead of time what they were gonna say or do.
 
 305
 00:15:32,498 --> 00:15:36,334
@@ -1487,7 +1481,7 @@ Sorry to see her go. Darn sorry, Hildy.
 310
 00:15:48,514 --> 00:15:50,598
 If you ever want to come back
-to the newspaper business ̶
+to the newspaper business
 
 311
 00:15:50,682 --> 00:15:52,266
@@ -1505,7 +1499,7 @@ there's only one man I'd work for.
 
 314
 00:16:00,108 --> 00:16:02,819
-It must be quite a business if it's ̶
+It must be quite a business if it's
 
 315
 00:16:02,903 --> 00:16:06,489
@@ -1515,7 +1509,7 @@ It must be quite a business if it's ̶
 316
 00:16:06,573 --> 00:16:09,909
 I mean, if there's any doubt about it,
-or if there's anything that ̶
+or if there's anything that
 
 317
 00:16:09,993 --> 00:16:14,789
@@ -1529,8 +1523,7 @@ and to be, like you said, a human being.
 
 319
 00:16:19,461 --> 00:16:23,965
-No, she deserves all this happiness, Bruce,
-all the things I couldn't give her.
+No, she deserves all this happiness, Bruce, all the things I couldn't give her.
 
 320
 00:16:24,049 --> 00:16:27,802
@@ -1566,23 +1559,19 @@ A home with Mother. In Albany too.
 
 327
 00:16:45,153 --> 00:16:48,114
-Mighty nice town, Albany.
-They've got the state capitol there.
+Mighty nice town, Albany. They've got the state capitol there.
 
 328
 00:16:48,198 --> 00:16:50,741
-Yeah, I know.
-We were there once.
+Yeah, I know. We were there once.
 
 329
 00:16:54,580 --> 00:16:58,291
-Listen, will you ever forget the night
-you brought the governor back to the hotel?
+Listen, will you ever forget the night you brought the governor back to the hotel?
 
 330
 00:16:58,375 --> 00:17:02,086
-You see, I was in taking a bath.
-I came walking out without ̶
+You see, I was in taking a bath. I came walking out without
 
 331
 00:17:02,170 --> 00:17:03,588
@@ -1599,8 +1588,7 @@ Any better?
 
 334
 00:17:10,304 --> 00:17:12,722
-Well, Albany's
-a mighty good insurance town.
+Well, Albany's a mighty good insurance town.
 
 335
 00:17:12,806 --> 00:17:17,143
@@ -1613,33 +1601,29 @@ Statistics show that most of our policies̶
 
 337
 00:17:18,937 --> 00:17:22,857
-You know, I've got a feeling I ought to
-have taken out a little insurance.
+You know, I've got a feeling I ought to have taken out a little insurance.
 
 338
 00:17:22,941 --> 00:17:25,735
-Course, that really doesn't matter
-now that Hildy and I have, uh ̶
+Course, that really doesn't matter now that Hildy and I have, uh
 
 339
 00:17:25,819 --> 00:17:30,156
-Well, you know, we've, uh ̶ pfft. Does it?
+Well, you know, we've, uh pfft. Does it?
 Or does it? What do you think?
 
 340
 00:17:30,240 --> 00:17:33,367
 Still, it might've been
-a good idea if we ̶ if I had.
+a good idea if we if I had.
 
 341
 00:17:33,452 --> 00:17:38,331
-Well, I honestly feel that way. I figure
-I'm in one business that really helps people.
+Well, I honestly feel that way. I figure I'm in one business that really helps people.
 
 342
 00:17:38,415 --> 00:17:41,667
-Course, we don't help you much
-while you're alive, but afterward.
+Course, we don't help you much while you're alive, but afterward.
 
 343
 00:17:41,752 --> 00:17:43,169
@@ -1697,7 +1681,7 @@ Taking the sleeper for Albany.
 
 354
 00:18:10,197 --> 00:18:12,198
-Oh. You, uh ̶
+Oh. You, uh
 
 355
 00:18:12,282 --> 00:18:14,200
@@ -1711,7 +1695,7 @@ You're leaving today at 4:00, huh?
 357
 00:18:16,203 --> 00:18:19,288
 -Doesn't give us much time.
--No, and I've got a lot to do ̶
+-No, and I've got a lot to do
 
 358
 00:18:19,373 --> 00:18:22,291
@@ -1729,8 +1713,7 @@ Gus, do something about this, will you?
 
 361
 00:18:27,839 --> 00:18:30,424
-(whispering) Call me to the telephone
-as soon as I get back to the table.
+(whispering) Call me to the telephone as soon as I get back to the table.
 
 362
 00:18:30,509 --> 00:18:31,801
@@ -1743,8 +1726,7 @@ That's fine. Thanks, it's fine.
 
 364
 00:18:33,929 --> 00:18:37,014
-(clears throat) I'm terribly sorry
-about that. Silly, wasn't it?
+(clears throat) I'm terribly sorry about that. Silly, wasn't it?
 
 365
 00:18:37,099 --> 00:18:41,102
@@ -1753,8 +1735,7 @@ I must've misunderstood you.
 
 366
 00:18:41,186 --> 00:18:44,105
-You're taking the sleeper today
-and then getting married tomorrow?
+You're taking the sleeper today and then getting married tomorrow?
 
 367
 00:18:44,189 --> 00:18:47,316
@@ -1763,28 +1744,25 @@ and then getting married tomorrow?
 
 368
 00:18:47,401 --> 00:18:49,902
-Oh, poor Walter.
-He'll toss and turn all night.
+Oh, poor Walter. He'll toss and turn all night.
 
 369
 00:18:49,987 --> 00:18:52,405
-Perhaps we'd better tell him
-Mother's coming along too.
+Perhaps we'd better tell him Mother's coming along too.
 
 370
 00:18:52,489 --> 00:18:55,741
--Mother? Your mother kicked the bucket ̶
+-Mother? Your mother kicked the bucket
 -No, my mother. My mother.
 
 371
 00:18:55,826 --> 00:18:58,285
-Oh, your m ̶
+Oh, your m
 Well, that relieves my mind.
 
 372
 00:18:58,370 --> 00:19:00,621
-It was cruel of us
-to let you suffer that way.
+It was cruel of us to let you suffer that way.
 
 373
 00:19:00,706 --> 00:19:03,249
@@ -1847,8 +1825,7 @@ Hello? Hello? Hey, Duffy, listen.
 
 386
 00:19:39,536 --> 00:19:42,747
-Is there any way we can stop the 4:00 train
-to Albany from leaving town?
+Is there any way we can stop the 4:00 train to Albany from leaving town?
 
 387
 00:19:42,831 --> 00:19:45,374
@@ -1862,8 +1839,7 @@ All right, now get this.
 
 389
 00:19:48,754 --> 00:19:52,715
-Get ahold of Sweeney and send him
-out of town on a two-weeks vacation.
+Get ahold of Sweeney and send him out of town on a two-weeks vacation.
 
 390
 00:19:52,799 --> 00:19:55,760
@@ -1901,8 +1877,7 @@ Thanks, Gus.
 
 397
 00:20:13,070 --> 00:20:16,447
-Simple, honey. Poor little dope
-who lost his job and went berserk.
+Simple, honey. Poor little dope who lost his job and went berserk.
 
 398
 00:20:16,531 --> 00:20:19,784
@@ -1912,7 +1887,7 @@ They're gonna hang him tomorrow.
 399
 00:20:19,868 --> 00:20:21,202
 -What a shame.
--Your paper ̶
+-Your paper
 
 400
 00:20:21,286 --> 00:20:23,454
@@ -1921,8 +1896,7 @@ They're gonna hang him tomorrow.
 
 401
 00:20:23,538 --> 00:20:26,916
-If he was out of his mind,
-why doesn't the state just put him away?
+If he was out of his mind, why doesn't the state just put him away?
 
 402
 00:20:27,000 --> 00:20:29,627
@@ -1931,23 +1905,19 @@ You know what that means, Hildy.
 
 403
 00:20:29,711 --> 00:20:32,421
-Mm-hmm. The colored vote's
-very important in this town.
+Mm-hmm. The colored vote's very important in this town.
 
 404
 00:20:32,506 --> 00:20:34,423
-Especially with an election
-coming up three or four days.
+Especially with an election coming up three or four days.
 
 405
 00:20:34,508 --> 00:20:37,343
-That mayor, he'd hang
-his own grandmother to be reelected.
+That mayor, he'd hang his own grandmother to be reelected.
 
 406
 00:20:37,427 --> 00:20:39,845
-I should think you could just show
-that the man wasn't responsible.
+I should think you could just show that the man wasn't responsible.
 
 407
 00:20:39,930 --> 00:20:43,891
@@ -1960,8 +1930,7 @@ What do you mean, Hildy?
 
 409
 00:20:45,811 --> 00:20:48,312
-Don't they have to have another expert
-examine him before they hang him?
+Don't they have to have another expert examine him before they hang him?
 
 410
 00:20:48,396 --> 00:20:51,982
@@ -1980,8 +1949,7 @@ print Egelhoffer's statement.
 
 413
 00:20:59,199 --> 00:21:02,618
-And right alongside of it, you know,
-double column, run your interview.
+And right alongside of it, you know, double column, run your interview.
 
 414
 00:21:02,702 --> 00:21:05,162
@@ -1996,7 +1964,7 @@ You could save that poor devil's life.
 416
 00:21:07,999 --> 00:21:10,251
 -Uh-uh-uh. No.
--You could ̶ Oh, yeah.
+-You could Oh, yeah.
 
 417
 00:21:10,335 --> 00:21:12,044
@@ -2010,8 +1978,7 @@ You could save that poor devil's life.
 
 419
 00:21:16,758 --> 00:21:19,552
-We could take the 6:00 train
-if it'd save a man's life.
+We could take the 6:00 train if it'd save a man's life.
 
 420
 00:21:19,636 --> 00:21:21,137
@@ -2019,8 +1986,7 @@ No, Bruce.
 
 421
 00:21:21,221 --> 00:21:24,306
-If you want to save Earl Williams' life,
-you write the interview yourself.
+If you want to save Earl Williams' life, you write the interview yourself.
 
 422
 00:21:24,391 --> 00:21:27,184
@@ -2029,38 +1995,33 @@ you write the interview yourself.
 
 423
 00:21:27,269 --> 00:21:30,312
--It takes a woman's touch, that heart ̶
+-It takes a woman's touch, that heart
 -Don't get poetic.
 
 424
 00:21:30,397 --> 00:21:33,482
-Get Sweeney. He's the best man
-on the paper for that sob-sister stuff.
+Get Sweeney. He's the best man on the paper for that sob-sister stuff.
 
 425
 00:21:33,567 --> 00:21:38,487
-Poor Sweeney. Duffy just told me
-his wife finally had twins. Isn't that terrible?
+Poor Sweeney. Duffy just told me his wife finally had twins. Isn't that terrible?
 
 426
 00:21:38,572 --> 00:21:41,323
-Sweeney went out to celebrate,
-and now we can't find him anymore.
+Sweeney went out to celebrate, and now we can't find him anymore.
 
 427
 00:21:41,408 --> 00:21:43,826
-So, Sweeney has twins,
-Earl Williams gets hanged tomorrow.
+So, Sweeney has twins, Earl Williams gets hanged tomorrow.
 
 428
 00:21:43,910 --> 00:21:46,996
--Now, Walter, look ̶
+-Now, Walter, look
 -You argue with her.
 
 429
 00:21:47,080 --> 00:21:49,373
-Otherwise you're going on a honeymoon
-with blood on your hands.
+Otherwise you're going on a honeymoon with blood on your hands.
 
 430
 00:21:49,457 --> 00:21:51,208
@@ -2068,23 +2029,19 @@ How can you have happiness after that?
 
 431
 00:21:51,293 --> 00:21:54,044
-All through the years you'll remember
-that a man went to the gallows
+All through the years you'll remember that a man went to the gallows
 
 432
 00:21:54,129 --> 00:21:56,714
-because she was too selfish
-to wait two hours.
+because she was too selfish to wait two hours.
 
 433
 00:21:56,798 --> 00:21:59,133
-Earl Williams' face will come
-between you on the train tonight
+Earl Williams' face will come between you on the train tonight
 
 434
 00:21:59,217 --> 00:22:01,594
-and at the preacher's tomorrow
-and all the rest of your lives.
+and at the preacher's tomorrow and all the rest of your lives.
 
 435
 00:22:01,678 --> 00:22:03,888
@@ -2098,8 +2055,7 @@ and all the rest of your lives.
 
 437
 00:22:05,849 --> 00:22:09,602
-I just remembered Sweeney
-was only married four months ago.
+I just remembered Sweeney was only married four months ago.
 
 438
 00:22:09,686 --> 00:22:12,688
@@ -2146,8 +2102,7 @@ can write out a fat insurance policy for me.
 
 447
 00:22:40,884 --> 00:22:44,011
-Oh, no. I wouldn't use my wife
-for business purposes.
+Oh, no. I wouldn't use my wife for business purposes.
 
 448
 00:22:44,095 --> 00:22:45,221
@@ -2166,7 +2121,7 @@ Wait a minute, Bruce.
 451
 00:22:49,184 --> 00:22:52,394
 -What's the commission on a $100,000 policy?
--Around $1,000. But, Hildy ̶
+-Around $1,000. But, Hildy
 
 452
 00:22:52,479 --> 00:22:55,397
@@ -2185,13 +2140,11 @@ We could use that money.
 
 455
 00:23:01,905 --> 00:23:05,157
-All right, Bruce, suppose you have
-Mr. Burns examined over in his office
+All right, Bruce, suppose you have Mr. Burns examined over in his office
 
 456
 00:23:05,242 --> 00:23:08,160
-and see what they'll allow
-on that old carcass of his.
+and see what they'll allow on that old carcass of his.
 
 457
 00:23:08,245 --> 00:23:11,789
@@ -2205,13 +2158,11 @@ After you get the check, you phone me.
 
 459
 00:23:15,835 --> 00:23:18,629
-I'll be in the press room
-at the criminal courts building.
+I'll be in the press room at the criminal courts building.
 
 460
 00:23:18,713 --> 00:23:22,299
-Walter, by the way, I think you'd better
-make that a certified check.
+Walter, by the way, I think you'd better make that a certified check.
 
 461
 00:23:22,384 --> 00:23:25,844
@@ -2229,13 +2180,13 @@ Gus, how much do I owe you?
 
 464
 00:23:32,352 --> 00:23:36,272
--Thank you, dear. Oh, Bruce ̶
+-Thank you, dear. Oh, Bruce
 -Oh, I'm sorry.
 
 465
 00:23:36,356 --> 00:23:39,525
 -How much money have you got with you?
--Everything we have ̶ $500.
+-Everything we have $500.
 
 466
 00:23:39,609 --> 00:23:41,527
@@ -2249,18 +2200,16 @@ I know what I'm doing.
 
 468
 00:23:44,239 --> 00:23:46,615
--He'll get you in a crap game or ̶
+-He'll get you in a crap game or
 -I don't gamble.
 
 469
 00:23:46,700 --> 00:23:50,536
-I know a lot of people that never did
-anything till they met Walter Burns.
+I know a lot of people that never did anything till they met Walter Burns.
 
 470
 00:23:50,620 --> 00:23:52,871
-All right, but remember,
-it's everything we have.
+All right, but remember, it's everything we have.
 
 471
 00:23:52,956 --> 00:23:54,581
@@ -2270,7 +2219,7 @@ it's everything we have.
 472
 00:23:54,666 --> 00:23:56,125
 -You got change of ten?
--I just ̶
+-I just
 
 473
 00:23:56,209 --> 00:23:59,420
@@ -2279,7 +2228,7 @@ it's everything we have.
 
 474
 00:23:59,504 --> 00:24:01,213
--All I've got left is ̶
+-All I've got left is
 -Come on, Hildy.
 
 475
@@ -2337,8 +2286,7 @@ Hold the line, will ya.
 
 486
 00:24:34,789 --> 00:24:38,834
-What? No, I told you this is the press room
-in the criminal courts building.
+What? No, I told you this is the press room in the criminal courts building.
 
 487
 00:24:38,918 --> 00:24:40,836
@@ -2346,8 +2294,7 @@ Jake, new lead on the hanging.
 
 488
 00:24:40,920 --> 00:24:44,048
-This alienist from New York,
-Dr. Max J. Egelhoffer ̶
+This alienist from New York, Dr. Max J. Egelhoffer
 
 489
 00:24:44,132 --> 00:24:45,632
@@ -2355,18 +2302,15 @@ Egelhoffer. Yeah.
 
 490
 00:24:45,717 --> 00:24:48,427
-He's going to interview Williams
-in about half an hour in the sheriff's office.
+He's going to interview Williams in about half an hour in the sheriff's office.
 
 491
 00:24:48,511 --> 00:24:50,929
-Must be about the tenth alienist
-they've put on Williams.
+Must be about the tenth alienist they've put on Williams.
 
 492
 00:24:51,014 --> 00:24:54,391
-If he wasn't crazy before, he would be
-by the time ten of those babies got through.
+If he wasn't crazy before, he would be by the time ten of those babies got through.
 
 493
 00:24:54,476 --> 00:24:55,768
@@ -2398,8 +2342,7 @@ More slop on the hanging.
 
 499
 00:25:10,200 --> 00:25:12,743
-A double guard has been thrown
-around the jail, municipal buildings,
+A double guard has been thrown around the jail, municipal buildings,
 
 500
 00:25:12,827 --> 00:25:14,703
@@ -2407,8 +2350,7 @@ railroad terminals and elevated stations
 
 501
 00:25:14,788 --> 00:25:17,247
-to prepare for the expected
-general uprising of radicals ̶
+to prepare for the expected general uprising of radicals
 
 502
 00:25:17,332 --> 00:25:18,957
@@ -2417,18 +2359,15 @@ general uprising of radicals ̶
 
 503
 00:25:19,042 --> 00:25:21,919
-The sheriff has just put
-200 more relatives on the payroll
+The sheriff has just put 200 more relatives on the payroll
 
 504
 00:25:22,003 --> 00:25:26,215
-to protect the city from the red army,
-which is leaving Moscow in a couple of minutes.
+to protect the city from the red army, which is leaving Moscow in a couple of minutes.
 
 505
 00:25:26,299 --> 00:25:30,344
-Trouble is, when the real red menace shows,
-the sheriff will still be cryin' wolf.
+Trouble is, when the real red menace shows, the sheriff will still be cryin' wolf.
 
 506
 00:25:30,428 --> 00:25:32,346
@@ -2511,8 +2450,7 @@ I'm through with the newspaper business.
 
 522
 00:26:16,349 --> 00:26:19,435
-Can you picture Hildy singing lullabies
-and hanging out didies?
+Can you picture Hildy singing lullabies and hanging out didies?
 
 523
 00:26:19,519 --> 00:26:21,770
@@ -2541,8 +2479,7 @@ Isn't that where Central School is?
 
 528
 00:26:32,824 --> 00:26:34,950
-Just thought it might be
-a good fire, that's all.
+Just thought it might be a good fire, that's all.
 
 529
 00:26:35,034 --> 00:26:36,869
@@ -2551,8 +2488,7 @@ a good fire, that's all.
 
 530
 00:26:36,953 --> 00:26:39,621
-Just practicing for
-the Williams party in the morning.
+Just practicing for the Williams party in the morning.
 
 531
 00:26:39,706 --> 00:26:42,332
@@ -2574,8 +2510,7 @@ Aw, shut up!
 
 535
 00:26:55,930 --> 00:26:58,098
-Very little respect
-for the press around here.
+Very little respect for the press around here.
 
 536
 00:26:59,100 --> 00:27:01,643
@@ -2603,8 +2538,7 @@ I have to do a yarn on Williams.
 
 541
 00:27:12,822 --> 00:27:15,115
-Did he know what he was doing
-when he fired that gun?
+Did he know what he was doing when he fired that gun?
 
 542
 00:27:15,200 --> 00:27:18,327
@@ -2618,8 +2552,7 @@ If you ask the state alienist, yes.
 
 544
 00:27:20,705 --> 00:27:24,541
-He starts at $20 a week and after 14 years
-he gradually works himself up to 17.50.
+He starts at $20 a week and after 14 years he gradually works himself up to 17.50.
 
 545
 00:27:24,626 --> 00:27:25,751
@@ -2628,8 +2561,7 @@ he gradually works himself up to 17.50.
 
 546
 00:27:25,835 --> 00:27:28,795
-McClosky company goes out of business,
-and Williams loses his job.
+McClosky company goes out of business, and Williams loses his job.
 
 547
 00:27:28,880 --> 00:27:30,714
@@ -2646,8 +2578,7 @@ So he starts hanging around the park,
 
 550
 00:27:33,968 --> 00:27:37,804
-listening to soapbox spellbinders making
-phony speeches and begins to believe 'em.
+listening to soapbox spellbinders making phony speeches and begins to believe 'em.
 
 551
 00:27:37,889 --> 00:27:39,431
@@ -2694,8 +2625,7 @@ Good, good. How you doing, Bruce?
 
 560
 00:28:00,453 --> 00:28:03,789
-That is, in case of your death,
-who do we pay the money to?
+That is, in case of your death, who do we pay the money to?
 
 561
 00:28:03,873 --> 00:28:05,874
@@ -2708,8 +2638,7 @@ That'd make me feel pretty funny.
 
 563
 00:28:09,295 --> 00:28:12,798
-Oh, now, why shouldn't I make Hildy
-my, uh, whatever it was?
+Oh, now, why shouldn't I make Hildy my, uh, whatever it was?
 
 564
 00:28:12,882 --> 00:28:17,219
@@ -2718,13 +2647,11 @@ my, uh, whatever it was?
 
 565
 00:28:17,303 --> 00:28:20,347
-Say, if that doctor's right,
-I'm good for a long time, yes?
+Say, if that doctor's right, I'm good for a long time, yes?
 
 566
 00:28:20,431 --> 00:28:23,725
-Look, Bruce,
-this is a debt of honor with me.
+Look, Bruce, this is a debt of honor with me.
 
 567
 00:28:23,810 --> 00:28:26,520
@@ -2732,13 +2659,11 @@ I was a bad husband to Hildy.
 
 568
 00:28:26,604 --> 00:28:30,190
-She could've claimed a lot of alimony
-if she'd wanted to, but she wouldn't take any.
+She could've claimed a lot of alimony if she'd wanted to, but she wouldn't take any.
 
 569
 00:28:30,275 --> 00:28:32,442
-She had it coming to her,
-but she was too independent.
+She had it coming to her, but she was too independent.
 
 570
 00:28:32,527 --> 00:28:35,445
@@ -2756,13 +2681,11 @@ we'll say at least 25 years yet.
 
 573
 00:28:41,953 --> 00:28:46,206
-By that time, you'll probably have made enough
-so that the money won't mean anything to you.
+By that time, you'll probably have made enough so that the money won't mean anything to you.
 
 574
 00:28:46,291 --> 00:28:48,208
-But suppose you haven't
-made good, Bruce.
+But suppose you haven't made good, Bruce.
 
 575
 00:28:48,293 --> 00:28:50,961
@@ -2787,13 +2710,11 @@ She's old, isn't she?
 
 580
 00:29:01,806 --> 00:29:04,725
-Now, Bruce, don't you think
-that Hildy's entitled
+Now, Bruce, don't you think that Hildy's entitled
 
 581
 00:29:04,809 --> 00:29:08,312
-to spend her last remaining years
-without worries of money?
+to spend her last remaining years without worries of money?
 
 582
 00:29:08,396 --> 00:29:12,107
@@ -2832,8 +2753,7 @@ Gee.
 
 590
 00:29:40,511 --> 00:29:43,805
-You make me feel like a heel
-comin' between ya.
+You make me feel like a heel comin' between ya.
 
 591
 00:29:43,890 --> 00:29:46,600
@@ -2841,8 +2761,7 @@ No, Bruce, you didn't come between us.
 
 592
 00:29:46,684 --> 00:29:49,269
-It was all over for her before you
-came on the scene. For me ̶
+It was all over for her before you came on the scene. For me
 
 593
 00:29:49,354 --> 00:29:52,439
@@ -2879,8 +2798,7 @@ Excuse me, Bruce.
 
 600
 00:30:12,335 --> 00:30:17,714
-Gosh, I'm afraid Hildy will feel ashamed
-to think she hasn't trusted you.
+Gosh, I'm afraid Hildy will feel ashamed to think she hasn't trusted you.
 
 601
 00:30:17,799 --> 00:30:19,925
@@ -2889,8 +2807,7 @@ to think she hasn't trusted you.
 
 602
 00:30:20,009 --> 00:30:22,386
-Bruce, you promised to phone her
-as soon as you got the check.
+Bruce, you promised to phone her as soon as you got the check.
 
 603
 00:30:22,470 --> 00:30:24,471
@@ -2898,8 +2815,7 @@ Oh, yes, yes. Of course.
 
 604
 00:30:24,555 --> 00:30:27,683
-Get me Hildy Johnson, press room,
-criminal courts building.
+Get me Hildy Johnson, press room, criminal courts building.
 
 605
 00:30:27,767 --> 00:30:31,103
@@ -2972,18 +2888,16 @@ to carry that check in your pocket.
 
 620
 00:31:10,977 --> 00:31:14,771
-Well, because ̶
-Yes, yes, I know all that, but, uh ̶
+Well, because
+Yes, yes, I know all that, but, uh
 
 621
 00:31:14,856 --> 00:31:18,191
-Bruce, there's
-an old newspaper superstition
+Bruce, there's an old newspaper superstition
 
 622
 00:31:18,276 --> 00:31:21,361
-that the first big check you get,
-you put in the lining of your hat.
+that the first big check you get, you put in the lining of your hat.
 
 623
 00:31:22,280 --> 00:31:25,240
@@ -3079,7 +2993,7 @@ Say, is this your money?
 
 642
 00:32:41,651 --> 00:32:43,109
--I don't think it is ̶
+-I don't think it is
 -Twenty bucks.
 
 643
@@ -3093,7 +3007,7 @@ Hey, Joe, open up here.
 
 645
 00:32:48,241 --> 00:32:50,283
--Now, Hildy, don't be ̶
+-Now, Hildy, don't be
 -I won't be long.
 
 646
@@ -3113,8 +3027,7 @@ Mind if I talk to you for a few minutes?
 
 649
 00:33:08,135 --> 00:33:12,013
-So, you see, I couldn't plead insanity
-because I'm just as sane as anybody else.
+So, you see, I couldn't plead insanity because I'm just as sane as anybody else.
 
 650
 00:33:12,098 --> 00:33:14,558
@@ -3181,7 +3094,7 @@ Anything in particular?
 
 663
 00:33:52,096 --> 00:33:54,222
--There was one fella ̶
+-There was one fella
 -What did he talk about?
 
 664
@@ -3201,8 +3114,7 @@ should be made use of.
 
 667
 00:34:05,776 --> 00:34:10,447
-When you found yourself with that gun
-and that policeman coming at you,
+When you found yourself with that gun and that policeman coming at you,
 
 668
 00:34:10,531 --> 00:34:12,699
@@ -3321,13 +3233,11 @@ gonna do without Hildy.
 
 692
 00:35:15,388 --> 00:35:17,722
-Do you suppose Walter Burns
-will ever let her go?
+Do you suppose Walter Burns will ever let her go?
 
 693
 00:35:17,807 --> 00:35:20,433
-Remember what he did to Bill Fenton
-when he wanted to go to Hollywood.
+Remember what he did to Bill Fenton when he wanted to go to Hollywood.
 
 694
 00:35:20,518 --> 00:35:22,560
@@ -3390,7 +3300,7 @@ Should've taken it.
 
 706
 00:35:50,881 --> 00:35:53,091
-That's what I'd like ̶ a job on the side.
+That's what I'd like a job on the side.
 
 707
 00:35:53,175 --> 00:35:56,928
@@ -3405,7 +3315,7 @@ I wouldn't mind a nice, big blonde.
 709
 00:36:01,225 --> 00:36:04,144
 She's just like us, and we wouldn't be
-stickin' around, waitin' for that guy ̶
+stickin' around, waitin' for that guy
 
 710
 00:36:04,228 --> 00:36:07,022
@@ -3440,7 +3350,7 @@ tomorrow morning?
 716
 00:36:19,827 --> 00:36:21,911
 -What do you want?
--I came to ̶
+-I came to
 
 717
 00:36:23,414 --> 00:36:27,167
@@ -3478,8 +3388,7 @@ You made that up.
 
 724
 00:36:46,145 --> 00:36:48,855
-You've been sticking around that cuckoo
-ever since they threw him in the death house.
+You've been sticking around that cuckoo ever since they threw him in the death house.
 
 725
 00:36:48,939 --> 00:36:51,941
@@ -3497,8 +3406,7 @@ I met Mr. Williams just once in my life.
 
 728
 00:36:55,279 --> 00:36:58,823
-When he was wandering around in the rain
-without his hat and coat on, like a sick dog.
+When he was wandering around in the rain without his hat and coat on, like a sick dog.
 
 729
 00:36:58,908 --> 00:37:00,992
@@ -3507,13 +3415,11 @@ without his hat and coat on, like a sick dog.
 
 730
 00:37:01,077 --> 00:37:04,913
-I went up to him like any human being would
-and I asked him what was the matter.
+I went up to him like any human being would and I asked him what was the matter.
 
 731
 00:37:04,997 --> 00:37:09,084
-And ̶ And he told me about bein' fired
-after bein' on the same job for 14 years.
+And And he told me about bein' fired after bein' on the same job for 14 years.
 
 732
 00:37:09,168 --> 00:37:10,752
@@ -3522,8 +3428,7 @@ after bein' on the same job for 14 years.
 
 733
 00:37:10,836 --> 00:37:13,338
-I brought him up to my room
-because it was warm there.
+I brought him up to my room because it was warm there.
 
 734
 00:37:13,422 --> 00:37:15,381
@@ -3544,8 +3449,7 @@ He never once laid a hand on me.
 
 738
 00:37:24,433 --> 00:37:29,312
-And in the morning he went away, and I never
-saw him again till that day at the trial.
+And in the morning he went away, and I never saw him again till that day at the trial.
 
 739
 00:37:29,396 --> 00:37:32,107
@@ -3573,8 +3477,7 @@ and not like an animal, and I said so!
 
 744
 00:37:43,911 --> 00:37:47,831
-(gasps) It's a wonder a bolt of lightning
-don't come down and strike you all dead!
+(gasps) It's a wonder a bolt of lightning don't come down and strike you all dead!
 
 745
 00:37:47,915 --> 00:37:50,041
@@ -3586,8 +3489,7 @@ What's that?
 
 747
 00:38:00,594 --> 00:38:04,264
-They're fixin' up a pain in the neck
-for your boyfriend.
+They're fixin' up a pain in the neck for your boyfriend.
 
 748
 00:38:04,348 --> 00:38:07,433
@@ -3595,13 +3497,11 @@ Shame on ya. Shame on ya!
 
 749
 00:38:07,518 --> 00:38:11,813
-(sobs) A poor little fella
-that never meant nobody no harm,
+(sobs) A poor little fella that never meant nobody no harm,
 
 750
 00:38:11,897 --> 00:38:15,066
-sittin' there this minute with the angel of death
-beside him, and you crack a joke?
+sittin' there this minute with the angel of death beside him, and you crack a joke?
 
 751
 00:38:15,151 --> 00:38:16,901
@@ -3702,7 +3602,7 @@ What's going on around here?
 
 773
 00:39:55,960 --> 00:39:58,378
--But ̶
+-But
 -Man forgets hankie. Mama goes to wipe nose.
 
 774
@@ -3713,12 +3613,11 @@ What's going on around here?
 775
 00:40:02,883 --> 00:40:05,927
 -What do you want, Pete?
--Oh, uh, uh ̶
+-Oh, uh, uh
 
 776
 00:40:06,011 --> 00:40:08,221
-I've got the tickets
-for the hanging here, boys.
+I've got the tickets for the hanging here, boys.
 
 777
 00:40:08,305 --> 00:40:09,555
@@ -3727,13 +3626,11 @@ for the hanging here, boys.
 
 778
 00:40:09,640 --> 00:40:13,518
-Pete, why can't you hang this guy
-at 5:00 instead of 7:00?
+Pete, why can't you hang this guy at 5:00 instead of 7:00?
 
 779
 00:40:13,602 --> 00:40:16,020
-It won't hurt you,
-and we can make the city edition.
+It won't hurt you, and we can make the city edition.
 
 780
 00:40:16,105 --> 00:40:17,730
@@ -3741,13 +3638,11 @@ That's kinda raw, Roy.
 
 781
 00:40:17,815 --> 00:40:20,858
-After all, I can't hang a man in his sleep
-just to please a newspaper.
+After all, I can't hang a man in his sleep just to please a newspaper.
 
 782
 00:40:20,943 --> 00:40:24,404
-No, but you can reprieve him twice
-so the hanging's three days before election.
+No, but you can reprieve him twice so the hanging's three days before election.
 
 783
 00:40:24,488 --> 00:40:26,864
@@ -3756,23 +3651,19 @@ You can do that.
 
 784
 00:40:26,949 --> 00:40:29,659
-Honest, boys, I had absolutely nothing
-to do with those reprieves.
+Honest, boys, I had absolutely nothing to do with those reprieves.
 
 785
 00:40:29,743 --> 00:40:31,911
-Yeah? How do we know there won't be
-another reprieve tonight?
+Yeah? How do we know there won't be another reprieve tonight?
 
 786
 00:40:31,996 --> 00:40:34,247
-What if this Egelhoffer
-finds Williams insane?
+What if this Egelhoffer finds Williams insane?
 
 787
 00:40:34,331 --> 00:40:36,499
-He won't find him insane
-because he isn't.
+He won't find him insane because he isn't.
 
 788
 00:40:36,583 --> 00:40:38,584
@@ -3786,18 +3677,15 @@ because he isn't.
 
 790
 00:40:40,796 --> 00:40:44,465
-After all, this is a hanging,
-and it's gonna go according to schedule.
+After all, this is a hanging, and it's gonna go according to schedule.
 
 791
 00:40:44,550 --> 00:40:47,135
-7:00 in the morning
-and not a minute earlier.
+7:00 in the morning and not a minute earlier.
 
 792
 00:40:47,219 --> 00:40:49,554
-After all, there's such a thing
-as being humane, you know.
+After all, there's such a thing as being humane, you know.
 
 793
 00:40:49,638 --> 00:40:51,597
@@ -3810,8 +3698,7 @@ All right, Pinky, wait till you want a favor.
 
 795
 00:40:54,310 --> 00:40:57,020
-Because I got a name, see,
-and it's Peter B. Hartwell.
+Because I got a name, see, and it's Peter B. Hartwell.
 
 796
 00:40:57,104 --> 00:40:59,355
@@ -3835,7 +3722,7 @@ a watch, and they found the watch on him.
 
 800
 00:41:09,074 --> 00:41:11,451
--But I never stole ̶
+-But I never stole
 -Please, Bruce. And who accused him?
 
 801
@@ -3850,13 +3737,12 @@ a watch, and they found the watch on him.
 
 803
 00:41:16,040 --> 00:41:17,582
--I never stole ̶
+-I never stole
 -Bruce, please.
 
 804
 00:41:17,666 --> 00:41:20,251
-All right, you're not. Well, perhaps you'd
-better read the Post in the morning.
+All right, you're not. Well, perhaps you'd better read the Post in the morning.
 
 805
 00:41:20,336 --> 00:41:22,920
@@ -3866,7 +3752,7 @@ who'd do a thing like that to me.
 806
 00:41:23,005 --> 00:41:26,132
 -I can't think of any enemies I have.
--I'm sure you haven't any, Br ̶
+-I'm sure you haven't any, Br
 
 807
 00:41:26,216 --> 00:41:29,344
@@ -3875,8 +3761,7 @@ who'd do a thing like that to me.
 
 808
 00:41:29,428 --> 00:41:32,472
-That's a funny superstition
-you newspaper people have.
+That's a funny superstition you newspaper people have.
 
 809
 00:41:32,556 --> 00:41:34,390
@@ -3914,7 +3799,7 @@ You'd better give me the check too.
 
 816
 00:41:54,078 --> 00:41:56,704
--And that picture of us in Bermuda ̶
+-And that picture of us in Bermuda
 -Don't bother, Bruce.
 
 817
@@ -4147,15 +4032,15 @@ at a newspaper, I'm gonna brain 'em.
 
 864
 00:44:20,641 --> 00:44:22,308
-And another thing I wanna ̶ Oh!
+And another thing I wanna Oh!
 
 865
 00:44:22,392 --> 00:44:23,726
-Ooh, you ̶
+Ooh, you
 
 866
 00:44:23,810 --> 00:44:26,103
-Where is my ̶
+Where is my
 Oh, there it is.
 
 867
@@ -4211,7 +4096,7 @@ to giving them some sort of joint interview?
 877
 00:44:52,005 --> 00:44:54,924
 I can discuss some of the psychological
-aspects of the case and you ̶
+aspects of the case and you
 
 878
 00:44:55,008 --> 00:44:58,511
@@ -4303,7 +4188,7 @@ don't forget your pal, Hildy Johnson.
 896
 00:45:46,977 --> 00:45:49,604
 -We won't.
--When the road beyond unfolds ̶
+-When the road beyond unfolds
 
 897
 00:45:49,688 --> 00:45:53,316
@@ -4393,7 +4278,7 @@ Hey, Cooley! Wait!
 
 915
 00:47:00,842 --> 00:47:02,343
-Hey ̶
+Hey
 
 916
 00:47:02,427 --> 00:47:04,887
@@ -4543,7 +4428,7 @@ by one of Sheriff Hartwell's deputies.
 
 947
 00:48:37,939 --> 00:48:39,732
--Look, I'm not ̶
+-Look, I'm not
 -(gunfire)
 
 948
@@ -4568,7 +4453,7 @@ so Williams could vote for him.
 952
 00:48:49,576 --> 00:48:52,119
 A man answering the description
-of Earl Williams was seen boarding ̶
+of Earl Williams was seen boarding
 
 953
 00:48:52,204 --> 00:48:54,789
@@ -4633,7 +4518,7 @@ I swear it on my mother's grave.
 
 966
 00:49:30,116 --> 00:49:33,285
-All right, here's the ̶
+All right, here's the
 Wait a minute. Your mother's alive.
 
 967
@@ -4683,7 +4568,7 @@ to have a gun to reenact the crime with.
 976
 00:50:00,438 --> 00:50:04,525
 Who do you suppose supplied it?
-Peter B. Hartwell ̶ "B" for brains.
+Peter B. Hartwell "B" for brains.
 
 977
 00:50:04,609 --> 00:50:07,444
@@ -4846,7 +4731,7 @@ special rifle squad acting as nurses.
 1010
 00:51:39,329 --> 00:51:42,915
 Phoebe was walking along the street
-when ̶ That's right. Yeah.
+when That's right. Yeah.
 
 1011
 00:51:42,999 --> 00:51:46,043
@@ -4876,7 +4761,7 @@ he was hiding somewhere.
 1016
 00:51:57,764 --> 00:52:00,683
 Bruce! I thought
-you were downstairs in the ̶
+you were downstairs in the
 
 1017
 00:52:00,767 --> 00:52:04,520
@@ -4899,7 +4784,7 @@ where you left me.
 1021
 00:52:14,948 --> 00:52:19,410
 The young lady seemed
-to have a dizzy spell and I just ̶
+to have a dizzy spell and I just
 
 1022
 00:52:19,494 --> 00:52:21,245
@@ -4907,7 +4792,7 @@ Huh?
 
 1023
 00:52:21,329 --> 00:52:24,748
-Well, uh, she's kind of, uh ̶
+Well, uh, she's kind of, uh
 
 1024
 00:52:24,833 --> 00:52:26,750
@@ -4933,18 +4818,18 @@ Hold on a minute, will ya?
 
 1029
 00:52:40,056 --> 00:52:43,726
-Walter, you ̶
+Walter, you
 Well, he was there a minute ago.
 
 1030
 00:52:43,810 --> 00:52:47,354
-But, I ̶ (mimicking)
+But, I (mimicking)
 Sorry, I can't locate him, Miss Johnson.
 
 1031
 00:52:47,439 --> 00:52:49,898
-Why, that double-crossing ̶
-Hello ̶ No, not you.
+Why, that double-crossing
+Hello No, not you.
 
 1032
 00:52:49,983 --> 00:52:53,360
@@ -4953,13 +4838,13 @@ How about 20 minutes?
 
 1033
 00:52:53,445 --> 00:52:57,322
-You see, I have to wait here for the ̶
+You see, I have to wait here for the
 Uh, I'll tell you when I see you.
 
 1034
 00:52:57,407 --> 00:52:59,742
 If I ever get my two hands again
-on that Walter Burns ̶
+on that Walter Burns
 
 1035
 00:52:59,826 --> 00:53:02,619
@@ -5004,7 +4889,7 @@ Maybe he'll give us one.
 1043
 00:53:19,554 --> 00:53:21,388
 There's so many cockroaches
-around here ̶
+around here
 
 1044
 00:53:21,473 --> 00:53:23,432
@@ -5126,7 +5011,7 @@ playing with fire, yeah.
 
 1068
 00:54:24,994 --> 00:54:26,870
-You can quote him as follows ̶
+You can quote him as follows
 
 1069
 00:54:26,955 --> 00:54:30,290
@@ -5210,7 +5095,7 @@ sympathizers around.
 1085
 00:55:11,040 --> 00:55:13,125
 I thought if I got a slogan like that,
-I could ̶
+I could
 
 1086
 00:55:13,209 --> 00:55:15,878
@@ -5239,7 +5124,7 @@ What do you mean? He did get away!
 1091
 00:55:25,346 --> 00:55:27,222
 -What do you want?
--I ̶ Uh ̶
+-I Uh
 
 1092
 00:55:27,307 --> 00:55:29,516
@@ -5351,7 +5236,7 @@ They've got Williams surrounded at his house!
 1114
 00:56:26,324 --> 00:56:28,533
 -Cover up that transmitter!
--Cover up ̶
+-Cover up
 
 1115
 00:56:28,618 --> 00:56:32,204
@@ -5376,7 +5261,7 @@ They've got Williams surrounded at his house!
 1119
 00:56:39,504 --> 00:56:42,923
 -Almost $100 a week.
--No, I couldn't afford ̶ Who, me?
+-No, I couldn't afford Who, me?
 
 1120
 00:56:43,007 --> 00:56:46,343
@@ -5390,7 +5275,7 @@ like you in the city sealer's office.
 
 1122
 00:56:48,012 --> 00:56:50,055
--I should work ̶
+-I should work
 -Wait a minute! I'm in conference!
 
 1123
@@ -5449,7 +5334,7 @@ What do you say?
 1134
 00:57:16,624 --> 00:57:19,126
 -No, you got caught in the traffic.
--No, I came ̶
+-No, I came
 
 1135
 00:57:19,210 --> 00:57:22,004
@@ -5459,7 +5344,7 @@ Don't let anybody see ya.
 1136
 00:57:22,088 --> 00:57:24,047
 -Wait a minute.
--But how do I know ̶
+-But how do I know
 
 1137
 00:57:24,132 --> 00:57:26,383
@@ -5508,8 +5393,8 @@ of ya. Tell 'em Fred sent ya.
 
 1146
 00:57:44,944 --> 00:57:47,154
-That's good, because my health isn't ̶
-My wife ̶
+That's good, because my health isn't
+My wife
 
 1147
 00:57:47,238 --> 00:57:48,864
@@ -5552,7 +5437,7 @@ Hi, Hildy.
 
 1155
 00:58:09,677 --> 00:58:11,970
--You double-crossing hyena, I'd like to ̶
+-You double-crossing hyena, I'd like to
 -What's the matter?
 
 1156
@@ -5662,7 +5547,7 @@ Louie!
 1177
 00:59:13,282 --> 00:59:16,118
 Hello, Operator. Hildy Johnson.
-Will you get me ̶
+Will you get me
 
 1178
 00:59:16,202 --> 00:59:17,994
@@ -5698,7 +5583,7 @@ Production for use.
 
 1185
 00:59:38,808 --> 00:59:40,892
--You don't want to hurt your friend ̶
+-You don't want to hurt your friend
 -Don't move!
 
 1186
@@ -5782,7 +5667,7 @@ Oh, I'm awful tired.
 
 1202
 01:00:28,566 --> 01:00:31,067
--I couldn't go through ̶
+-I couldn't go through
 -That shot. They'll know you're here!
 
 1203
@@ -5864,7 +5749,7 @@ to the paper, I'll be right down.
 
 1219
 01:01:16,364 --> 01:01:18,323
--Bruce, I can't! Don't you realize ̶
+-Bruce, I can't! Don't you realize
 -(pounding on door)
 
 1220
@@ -5880,7 +5765,7 @@ Open the door!
 1222
 01:01:24,539 --> 01:01:26,790
 -What do you want, Mollie?
--I gotta find ̶
+-I gotta find
 
 1223
 01:01:26,874 --> 01:01:28,875
@@ -5905,7 +5790,7 @@ Open the door!
 1227
 01:01:37,134 --> 01:01:39,928
 I don't care!
-You gotta tell me. I ain't afraid ̶
+You gotta tell me. I ain't afraid
 
 1228
 01:01:40,012 --> 01:01:42,847
@@ -5914,7 +5799,7 @@ They're down at Center and Fourth.
 
 1229
 01:01:42,932 --> 01:01:45,725
--Oh, that's where he used to ̶
+-Oh, that's where he used to
 -EARL: Mollie. Mollie, don't go.
 
 1230
@@ -6021,7 +5906,7 @@ Come on. Get in.
 1251
 01:02:45,870 --> 01:02:49,664
 -Are you tryin' to kick the building down?
--Gettin' exclusive. We got phone calls to ̶
+-Gettin' exclusive. We got phone calls to
 
 1252
 01:02:49,749 --> 01:02:51,791
@@ -6187,7 +6072,7 @@ of these windows on this side.
 1285
 01:04:16,419 --> 01:04:18,420
 The story's gonna walk
-right in the window ̶
+right in the window
 
 1286
 01:04:18,504 --> 01:04:21,673
@@ -6244,7 +6129,7 @@ Well?
 
 1297
 01:04:46,657 --> 01:04:49,534
--Mrs. Baldwin. Mother ̶
+-Mrs. Baldwin. Mother
 -Don't you "Mother" me.
 
 1298
@@ -6720,7 +6605,7 @@ I've got a desk I want moved.
 
 1393
 01:09:19,138 --> 01:09:20,513
--Never mind what ̶
+-Never mind what
 -Hildy!
 
 1394
@@ -6818,7 +6703,7 @@ Just wanted to look at it.
 
 1413
 01:10:12,816 --> 01:10:15,151
--Hildy, I'm taking ̶
+-Hildy, I'm taking
 -WALTER: What'd you say?
 
 1414
@@ -6891,7 +6776,7 @@ and changed her mind.
 1428
 01:10:50,312 --> 01:10:53,231
 Take Hitler and stick him
-on the funny page. Let me ask you ̶
+on the funny page. Let me ask you
 
 1429
 01:10:53,315 --> 01:10:55,733
@@ -6901,7 +6786,7 @@ for a man like him?
 1430
 01:10:55,818 --> 01:10:58,569
 No, I am not, but something's happened.
-I'll tell you everything ̶
+I'll tell you everything
 
 1431
 01:10:58,654 --> 01:11:00,738
@@ -6964,7 +6849,7 @@ That's human interest.
 1443
 01:11:30,477 --> 01:11:33,354
 -You get hold of Butch O'Connor?
--If you had any sympathy or understanding ̶
+-If you had any sympathy or understanding
 
 1444
 01:11:33,438 --> 01:11:35,398
@@ -6978,7 +6863,7 @@ I want to know.
 
 1446
 01:11:37,442 --> 01:11:39,443
-Walter, the mayor's first wife ̶
+Walter, the mayor's first wife
 What was her name?
 
 1447
@@ -7076,7 +6961,7 @@ spreading their reign of terror,
 
 1466
 01:12:39,421 --> 01:12:42,465
--Earl Williams was lurking less than 20 yards ̶ "
+-Earl Williams was lurking less than 20 yards "
 -Aren't you gonna mention the Post?
 
 1467
@@ -7120,7 +7005,7 @@ What's the idea of locking this door?
 
 1475
 01:13:07,157 --> 01:13:10,868
-Haven't you any better sense ̶
+Haven't you any better sense
 Uh, hello. Hello, Mr. Burns.
 
 1476
@@ -7131,12 +7016,12 @@ having you come over here.
 1477
 01:13:13,038 --> 01:13:14,997
 -Hello, Bensinger.
--Oh, you know my ̶
+-Oh, you know my
 
 1478
 01:13:15,082 --> 01:13:17,375
 -(chuckling)
--Excuse me, I just want to get my ̶
+-Excuse me, I just want to get my
 
 1479
 01:13:17,459 --> 01:13:20,294
@@ -7557,7 +7442,7 @@ We can do more here. Now be calm.
 
 1567
 01:17:05,437 --> 01:17:08,314
--Listen ̶
+-Listen
 -(phone ringing)
 
 1568
@@ -7646,7 +7531,7 @@ I'll come over and kick you in the teeth!
 1585
 01:17:57,405 --> 01:18:00,658
 Say, what kind of language is that?
-Now, look here ̶
+Now, look here
 
 1586
 01:18:00,742 --> 01:18:03,577
@@ -7656,7 +7541,7 @@ She hung up. What did I say?
 1587
 01:18:04,955 --> 01:18:07,706
 Duffy. How do you like that,
-mousing around with some big ̶
+mousing around with some big
 
 1588
 01:18:07,791 --> 01:18:10,125
@@ -7861,13 +7746,13 @@ and don't let anybody in or out.
 
 1629
 01:19:58,610 --> 01:20:01,236
-Now we're getting somewh ̶
+Now we're getting somewh
 Take her out of here.
 
 1630
 01:20:01,321 --> 01:20:04,573
 -I've got ways of making her talk.
--Don't you dare touch me or ̶
+-Don't you dare touch me or
 
 1631
 01:20:04,658 --> 01:20:06,367
@@ -7906,7 +7791,7 @@ used to shoot his way out with!
 1638
 01:20:25,387 --> 01:20:29,139
 -Are you trying to make me out a liar?
--I ought to know my own gun ̶
+-I ought to know my own gun
 
 1639
 01:20:29,224 --> 01:20:32,351
@@ -8428,8 +8313,8 @@ found out what the power of the press is!
 
 1745
 01:25:03,581 --> 01:25:06,583
--Say, you ̶ Get out of here.
--You can't bribe me. My wife ̶
+-Say, you Get out of here.
+-You can't bribe me. My wife
 
 1746
 01:25:06,668 --> 01:25:10,087
@@ -8482,7 +8367,7 @@ to win an election.
 
 1756
 01:25:30,066 --> 01:25:32,317
--If I was to tell my wife ̶
+-If I was to tell my wife
 -What's your name?
 
 1757
@@ -8546,7 +8431,7 @@ Mr. Pettibone.
 1769
 01:26:04,559 --> 01:26:07,561
 -Only she wasn't Mrs. Pettibone then.
--I mean ̶
+-I mean
 
 1770
 01:26:07,645 --> 01:26:11,314
@@ -8604,12 +8489,12 @@ She's all right.
 1781
 01:26:37,842 --> 01:26:40,844
 She's good enough for me! If I was
-to tell my wife ̶ Ooh-hoo-hoo-hoo!
+to tell my wife Ooh-hoo-hoo-hoo!
 
 1782
 01:26:40,928 --> 01:26:43,513
 I understand perfectly, Mr. Pettibone.
-As long as I'm mayor ̶
+As long as I'm mayor
 
 1783
 01:26:43,598 --> 01:26:45,599
@@ -8661,7 +8546,7 @@ and deliver this reprieve.
 1793
 01:27:09,582 --> 01:27:11,666
 -Come along, Pete.
--If I was to tell my wife ̶
+-If I was to tell my wife
 
 1794
 01:27:11,751 --> 01:27:14,836
@@ -8705,7 +8590,7 @@ Remember that?
 1802
 01:27:34,315 --> 01:27:37,526
 The Shoreland Hotel.
-That's where ̶ I mean, how we ̶
+That's where I mean, how we
 
 1803
 01:27:37,610 --> 01:27:40,362
@@ -8772,7 +8657,7 @@ Won't be half as good as you can do it.
 
 1816
 01:28:17,692 --> 01:28:19,651
-It's my story. I'd like to think ̶
+It's my story. I'd like to think
 
 1817
 01:28:19,735 --> 01:28:22,779
@@ -8910,7 +8795,7 @@ Oh, honey.
 
 1847
 01:29:49,408 --> 01:29:51,451
-Honey, don't ̶ don't cry, please.
+Honey, don't don't cry, please.
 
 1848
 01:29:51,535 --> 01:29:54,371
@@ -9040,7 +8925,7 @@ Where? Albany?
 
 1875
 01:31:10,031 --> 01:31:13,658
--I know it's on the way, but I can't ask Hildy ̶
+-I know it's on the way, but I can't ask Hildy
 -We'll honeymoon in Albany.
 
 1876
