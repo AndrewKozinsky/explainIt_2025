@@ -9,6 +9,7 @@ import TextInput from '@/ui/formRelated/TextInput/TextInput'
 import { FormStatus } from '@/utils/forms'
 import LanguagesRadioGroup from '_pages/media/commonComponents/LanguagesRadioGroup/LanguagesRadioGroup'
 import MediaFormSurface from '_pages/media/commonComponents/MediaFormSurface/MediaFormSurface'
+import GenerateSubtitlesButton from '_pages/media/video/editPrivateVideo/GenerateSubtitlesButton/GenerateSubtitlesButton'
 import DeleteVideoButton from '../DeleteVideoButton/DeleteVideoButton'
 import FileNameAndDeleteFileButton from '../FileNameAndDeleteFileButton/FileNameAndDeleteFileButton'
 import VideoDropzone from '../VideoDropzone/VideoDropzone'
@@ -82,6 +83,7 @@ export default function EditPrivateVideoForm() {
 						}}
 					/>
 					<FormError text={formError} />
+					<GenerateSubtitlesButton disabled={isFormDisabled} />
 				</FormFieldsWrapper>
 			</MediaFormSurface>
 		</form>

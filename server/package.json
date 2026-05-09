@@ -11,7 +11,7 @@
 		"start:dev": "nest start --watch",
 		"start:debug": "nest start --debug --watch",
 		"start:prod": "node dist/src/main",
-		"start:worker:dev": "tsx watch src/main.worker.ts",
+		"start:worker:dev": "nest start --entryFile main.worker --watch",
 		"start:worker:prod": "node dist/src/main.worker",
 		"build": "nest build",
 		"generatePrismaFile": "ts-node src/db/prismaGenerator/generatePrismaSchemaFile.ts",
