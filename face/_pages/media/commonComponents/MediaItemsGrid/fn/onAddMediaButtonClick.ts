@@ -1,10 +1,8 @@
-import { useContext } from 'react'
+import { redirect } from 'next/navigation'
 import { useUserStore } from 'stores/userStore'
-import { NotificationContext } from 'ui/Notification/context'
+import { pageUrls } from 'сonsts/pageUrls'
 
 export function useGetOnAddMediaButtonClick(onClick: () => void) {
-	const { notify } = useContext(NotificationContext)
-
 	const user = useUserStore((state) => state.user)
 	const isUserLoading = useUserStore((state) => state.isLoading)
 
@@ -16,10 +14,7 @@ export function useGetOnAddMediaButtonClick(onClick: () => void) {
 		if (user) {
 			onClick()
 		} else {
-			notify({
-				type: 'warning',
-				message: 'Создавать новую книгу или фильм могут только авторизованные пользователи.',
-			})
+			redirect(pageUrls.auth.login.path)
 		}
 	}
 }
