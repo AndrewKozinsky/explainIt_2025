@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { LanguageCode } from '@/utils/utils'
 
 export const dictionaryStoreValues: DictionaryStoreValues = {
 	currentLang: 'en',
@@ -58,7 +59,7 @@ export type DictionaryFlashcardData = {
 }
 
 export type DictionaryStoreValues = {
-	currentLang: string
+	currentLang: LanguageCode
 	flashcards: DictionaryFlashcardData[]
 	isFlashcardsLoading: boolean
 	getFlashcardsErrorMessage: string
@@ -67,7 +68,7 @@ export type DictionaryStoreValues = {
 export type DictionaryStoreMethods = {
 	clearStoreData: () => void
 	updateStore: (store: Partial<DictionaryStoreValues>) => void
-	setCurrentLang: (currentLang: string) => void
+	setCurrentLang: (currentLang: LanguageCode) => void
 	setFlashcards: (flashcards: DictionaryFlashcardData[]) => void
 	setIsFlashcardsLoading: (isFlashcardsLoading: boolean) => void
 	setGetFlashcardsErrorMessage: (getFlashcardsErrorMessage: string) => void

@@ -8,7 +8,7 @@ CREATE TYPE "PaymentStatus" AS ENUM ('PENDING', 'SUCCESS', 'FAILED', 'CANCELED')
 CREATE TYPE "PaymentProviderName" AS ENUM ('YOOKASSA');
 
 -- CreateEnum
-CREATE TYPE "LanguageCode" AS ENUM ('en', 'es', 'fr', 'de', 'ru');
+CREATE TYPE "LanguageCode" AS ENUM ('en', 'es', 'fr', 'de');
 
 -- CreateEnum
 CREATE TYPE "S3ProviderName" AS ENUM ('cloudRu');

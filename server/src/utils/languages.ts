@@ -23,11 +23,11 @@ export const languages: Record<LanguageCode, { nameRus: string; nameEng: string;
 		nameEng: 'german',
 		code: 'de',
 	},
-	ru: {
+	/*ru: {
 		nameRus: 'Русский',
 		nameEng: 'russian',
 		code: 'ru',
-	},
+	},*/
 	/*it: {
 		nameRus: 'Итальянский',
 		code: 'it',

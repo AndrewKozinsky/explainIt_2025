@@ -1,3 +1,5 @@
+import { LanguageCode } from 'utils/utils'
+
 export type MediaItemsGridConfig = {
 	privateItems: PrivateItem[]
 	publicItems: PublicItem[]
@@ -11,7 +13,7 @@ export type PrivateItem = {
 }
 
 export type PublicItem = {
-	languageCode: string
+	languageCode: LanguageCode
 	name: string
 	subName?: null | number | string
 	backgroundColor: string

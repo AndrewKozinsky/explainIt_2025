@@ -317,7 +317,6 @@ enum LanguageCode {
     es
     fr
     de
-    ru
 }
 
 enum S3ProviderName {

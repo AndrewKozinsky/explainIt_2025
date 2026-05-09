@@ -1,10 +1,10 @@
-import { bookConfig } from '_pages/media/commonComponents/bookConfig'
-import ChaptersList from '_pages/media/commonComponents/ChaptersList/ChaptersList'
+import { createMediaIdUrl } from '@/сonsts/pageUrls'
+import AddChapterButton from '_pages/media/commonComponents/AddChapterButton/AddChapterButton'
 import MenuAndContentContainer from '_pages/media/commonComponents/MenuAndContentContainer/MenuAndContentContainer'
 import { SectionWithHeader } from '_pages/media/commonComponents/SectionWithHeader/SectionWithHeader'
 import { useBookStore } from '../bookStore'
 import EditBookForm from '../editPrivateBook/EditPrivateBookForm/EditPrivateBookForm'
-import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
+import PrivateBookChapters from '../PrivateBookChapters/PrivateBookChapters'
 import './PrivateBookInfo.scss'
 
 export default function PrivateBookInfo() {
@@ -14,38 +14,19 @@ export default function PrivateBookInfo() {
 		return null
 	}
 
+	const bookId = privateBook.data.id
+	const bookIdInUrl = createMediaIdUrl(bookId, 'private')
+
 	return (
 		<MenuAndContentContainer
 			leftMenu={
 				<SectionWithHeader title='Главы'>
 					<PrivateBookChapters />
+					<AddChapterButton bookId={bookId} bookIdInUrl={bookIdInUrl} />
 				</SectionWithHeader>
 			}
 		>
 			<EditBookForm />
 		</MenuAndContentContainer>
 	)
-}
-
-function PrivateBookChapters() {
-	const privateBook = useBookStore((s) => s.privateBook)
-
-	const bookId = privateBook.data?.id
-	const chapters = privateBook.data?.chapters
-
-	if (!bookId || !chapters) {
-		return null
-	}
-
-	const chaptersConfig = chapters.map((chapter) => {
-		const bookIdInUrl = createMediaIdUrl(bookId, 'private')
-
-		return {
-			name: chapter.header ?? bookConfig.emptyChapterName,
-			subName: chapter.name,
-			href: pageUrls.books.book(bookIdInUrl).chapter(chapter.id).path,
-		}
-	})
-
-	return <ChaptersList chapters={chaptersConfig} />
 }
