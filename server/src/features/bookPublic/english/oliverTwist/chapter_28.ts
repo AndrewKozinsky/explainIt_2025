@@ -180,4 +180,4 @@ With a footstep as soft and gentle as her voice, the speaker tripped away. She s
 “Not now, for anything,” replied the young lady. “Poor fellow! Oh, treat him kindly, Giles, for my sake!”
 
 The old servant looked up at the speaker as she turned away, with a look as proud and admiring as if she had been his own child. Then, bending over Oliver, he helped carry him upstairs with the care and concern of a woman.`,
-},
+}

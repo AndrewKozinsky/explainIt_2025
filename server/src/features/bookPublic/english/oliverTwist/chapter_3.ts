@@ -1,4 +1,4 @@
-"""export const chapter_3 = {
+export const chapter_3 = {
 	name: 'Chapter III',
 	header: 'Relates how Oliver Twist was very near getting a place which would not have been a sinecure',
 	text: `For a week after his shocking offense of asking for more, Oliver was kept as a prisoner in a dark, lonely room. This was a decision made by the supposedly wise and merciful board. One might think that Oliver, remembering the prediction of the gentleman in the white waistcoat, would have proven him right by hanging himself with his handkerchief. However, this was not possible. Handkerchiefs were considered luxuries, and the board had forbidden poor people from owning them. But there was an even bigger reason: Oliver's own youth and innocence. He spent his days crying. When the long, dark night came, he covered his eyes to block out the darkness. He would huddle in a corner and try to sleep, only to wake up startled and trembling. He would press himself against the cold, hard wall as if it could offer some comfort in his loneliness and fear.
@@ -149,4 +149,3 @@ That same evening, the gentleman in the white waistcoat declared that Oliver wou
 
 The next morning, the public was informed that Oliver Twist was once again available for apprenticeship, and that five pounds would be paid to anyone who would take him.`,
 }
-""

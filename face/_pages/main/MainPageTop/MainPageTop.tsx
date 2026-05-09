@@ -31,10 +31,10 @@ function MainPageTop() {
 				Перевод, произношение и&nbsp;примеры встроены прямо в&nbsp;контент
 			</p>
 			<div className='main-page-top__buttons'>
-				<button className='main-page-top__button main-page-top__button--white'>
+				{/*<button className='main-page-top__button main-page-top__button--white'>
 					<img src={publicFolderFilesUrls.mainPage.roundPlay} alt='arrow icon' />
 					Демонстрация (1 мин.)
-				</button>
+				</button>*/}
 				<Link href={pageUrls.books.book('p1').path}>
 					<button className='main-page-top__button main-page-top__button--accent'>
 						<img src={publicFolderFilesUrls.mainPage.roundArrow} alt='arrow icon' />
