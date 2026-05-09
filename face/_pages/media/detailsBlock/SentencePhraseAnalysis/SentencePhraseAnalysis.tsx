@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
 import { LanguageCode } from 'utils/utils'
 import { PhraseExample, SentencePhrase } from '_pages/media/detailsBlock/detailsStore'
 import TranscriptionAndAudio from '../TranscriptionAndAudio/TranscriptionAndAudio'
@@ -17,6 +18,10 @@ function SentencePhraseAnalysis(props: SentencePhraseProps) {
 
 	if (!phraseAnalysis) {
 		return null
+	}
+
+	if (phraseAnalysis.error) {
+		return <ErrorMessage text={phraseAnalysis.error} />
 	}
 
 	const phrase = phraseAnalysis.phrase

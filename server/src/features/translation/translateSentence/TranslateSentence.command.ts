@@ -28,7 +28,6 @@ export type TranslateSentenceInput = {
 	sentenceId: number
 	text: string
 	sourceLanguageCode?: null | string
-	targetLanguageCode?: null | string
 	bookName?: string
 	bookAuthor?: string
 	videoName?: string
@@ -70,7 +69,6 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 				provider: preparedInput.provider,
 				text: command.input.text,
 				sourceLanguageCode: preparedInput.sourceLanguageCode,
-				targetLanguageCode: preparedInput.targetLanguageCode,
 				lowPriority: preparedInput.lowPriority,
 				bookName: command.input.bookName,
 				bookAuthor: command.input.bookAuthor,
@@ -125,7 +123,6 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 
 	private async prepareTranslationOrThrow(input: TranslateSentenceInput): Promise<{
 		sourceLanguageCode: string
-		targetLanguageCode: string
 		lowPriority: boolean
 		provider: SentenceTranslationProvider
 		createMode: SentenceTranslationAccess['createMode']
@@ -142,7 +139,6 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 
 		return {
 			sourceLanguageCode: input.sourceLanguageCode ?? 'en',
-			targetLanguageCode: input.targetLanguageCode ?? 'ru',
 			lowPriority: true,
 			provider: this.getTranslationProvider(),
 			createMode: access.createMode,
@@ -172,7 +168,6 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 		provider: SentenceTranslationProvider
 		text: string
 		sourceLanguageCode: string
-		targetLanguageCode: string
 		lowPriority: boolean
 		bookName?: string
 		bookAuthor?: string
@@ -186,7 +181,6 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 			{
 				text: input.text,
 				sourceLanguageCode: input.sourceLanguageCode,
-				targetLanguageCode: input.targetLanguageCode,
 				lowPriority: input.lowPriority,
 				bookName: input.bookName,
 				bookAuthor: input.bookAuthor,

@@ -2,7 +2,6 @@ import { Language, languages } from 'utils/languages'
 
 type TranslationTaskMedia = {
 	sourceLanguageCode: Language
-	targetLanguageCode: Language
 	bookName?: string
 	bookAuthor?: string
 	videoName?: string
@@ -10,16 +9,13 @@ type TranslationTaskMedia = {
 }
 
 export function buildSentenceTranslationPrompt(media: TranslationTaskMedia) {
-	const targetLanguage = languages[media.targetLanguageCode].nameRus
-
 	return `${getTaskIntro(media)}
 
-Верни перевод предложения на ${targetLanguage} язык. Без пояснений и доп. текста.`
+Верни перевод предложения на русский язык. Без пояснений и доп. текста.`
 }
 
 function getTaskIntro(media: {
 	sourceLanguageCode: Language
-	targetLanguageCode: Language
 	bookName?: string
 	bookAuthor?: string
 	videoName?: string

@@ -16,10 +16,6 @@ export class TranslateSentenceInput {
 	@DtoFieldDecorators('sourceLanguageCode', bdConfig.SentenceTranslation.dtoProps.sourceLanguageCode)
 	sourceLanguageCode?: null | string
 
-	@Field(() => String, { description: 'Target language code', nullable: true })
-	@DtoFieldDecorators('targetLanguageCode', bdConfig.SentenceTranslation.dtoProps.targetLanguageCode)
-	targetLanguageCode?: null | string
-
 	@Field(() => String, { description: 'Book name', nullable: true })
 	@DtoFieldDecorators('bookName', bdConfig.SentenceTranslation.dtoProps.bookName)
 	bookName?: string

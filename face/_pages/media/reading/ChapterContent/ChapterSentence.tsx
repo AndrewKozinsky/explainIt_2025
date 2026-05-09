@@ -1,3 +1,4 @@
+import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
 import { findSentenceEntry } from '_pages/media/detailsBlock/DetailsBlock/fn/selectors'
 import { useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
 import { SentenceLoading } from '_pages/media/reading/ChapterContent/SentenceStatus'
@@ -58,6 +59,7 @@ function SentenceDetails(props: SentenceDetailsProps) {
 
 	return (
 		<div className='chapter-content__details'>
+			{sentenceEntry.data.sentence.error && <ErrorMessage text={sentenceEntry.data.sentence.error} />}
 			{sentenceEntry.data.sentence.translation && (
 				<SentenceTranslationText translation={sentenceEntry.data.sentence.translation} bgColor='gray' />
 			)}
