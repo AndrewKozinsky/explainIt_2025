@@ -165,7 +165,6 @@ export interface TranslateSentenceInput {
     sentenceId: number;
     text: string;
     sourceLanguageCode?: Nullable<string>;
-    targetLanguageCode?: Nullable<string>;
     bookName?: Nullable<string>;
     bookAuthor?: Nullable<string>;
     videoName?: Nullable<string>;
@@ -179,7 +178,6 @@ export interface TranslatePhraseInput {
     selectedWordStartOffset: number;
     selectedWordEndOffset: number;
     sourceLanguageCode?: Nullable<string>;
-    targetLanguageCode?: Nullable<string>;
     bookName?: Nullable<string>;
     bookAuthor?: Nullable<string>;
     videoName?: Nullable<string>;

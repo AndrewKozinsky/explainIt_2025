@@ -19,7 +19,6 @@ export class TranslateWithDeepSeek implements SentenceTranslationProvider, Phras
 		input: {
 			text: string
 			sourceLanguageCode: LanguageCode
-			targetLanguageCode: LanguageCode
 			lowPriority?: boolean
 			bookName?: string
 			bookAuthor?: string
@@ -31,7 +30,6 @@ export class TranslateWithDeepSeek implements SentenceTranslationProvider, Phras
 		const messages = this.getTranslationTask(
 			{
 				sourceLanguageCode: input.sourceLanguageCode,
-				targetLanguageCode: input.targetLanguageCode,
 				bookName: input.bookName,
 				bookAuthor: input.bookAuthor,
 				videoName: input.videoName,
@@ -70,7 +68,6 @@ export class TranslateWithDeepSeek implements SentenceTranslationProvider, Phras
 			selectedWordStartOffset: number
 			selectedWordEndOffset: number
 			sourceLanguageCode: LanguageCode
-			targetLanguageCode: LanguageCode
 			bookName?: string
 			bookAuthor?: string
 			videoName?: string
@@ -84,7 +81,6 @@ export class TranslateWithDeepSeek implements SentenceTranslationProvider, Phras
 					role: 'system',
 					content: buildPrompt({
 						sourceLanguageCode: input.sourceLanguageCode,
-						targetLanguageCode: input.targetLanguageCode,
 						sentenceText: input.text,
 						selectedWord: input.selectedWord,
 						selectedWordStartOffset: input.selectedWordStartOffset,
@@ -109,7 +105,6 @@ export class TranslateWithDeepSeek implements SentenceTranslationProvider, Phras
 	private getTranslationTask(
 		input: {
 			sourceLanguageCode: LanguageCode
-			targetLanguageCode: LanguageCode
 			bookName?: string
 			bookAuthor?: string
 			videoName?: string
