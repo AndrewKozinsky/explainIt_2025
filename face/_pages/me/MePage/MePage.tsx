@@ -1,18 +1,17 @@
+import Header from 'ui/Header/Header'
+import { BreadCrumbs } from 'ui/pageRelated/BreadCrumbs/BreadCrumbs'
+import { PageContentWrapper } from '@/ui/pageRelated/PageContentWrapper/PageContentWrapper'
 import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'
-import BalanceDisplay from '../BalanceDisplay/BalanceDisplay'
-import BalanceTopUpForm from '../BalanceTopUpForm/BalanceTopUpForm'
-import LogoutButton from '../LogoutButton/LogoutButton'
-import './MePage.scss'
+import MePageContent from '_pages/me/MePageContent/MePageContent'
 
 function MePage() {
 	return (
 		<PageWrapper top bottom>
-			<main className='me-page'>
-				{/* Do not forget to use STATE MACHINE FOR COMPONENTS !!! https://zagjs.com/ */}
-				<BalanceDisplay />
-				<BalanceTopUpForm />
-				<LogoutButton />
-			</main>
+			<PageContentWrapper>
+				<BreadCrumbs />
+				<Header>Личный кабинет</Header>
+				<MePageContent />
+			</PageContentWrapper>
 		</PageWrapper>
 	)
 }
